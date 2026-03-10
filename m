@@ -4,118 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD544EB107D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFF4FD4F02
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
+	Content-type:In-reply-to:From:References:Cc:To:Subject:MIME-version:Date:
+	Message-id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0ZfmdoKETAu32CUc6DaYZn/AQfT5ZtxxhfQJEgADr8=; b=IWdjMXtCUDXsh7KPdQMYyBO9IP
-	M0gIu1xofG25Q9dIcDDhTT3WTXfNg3/5Ota5cNR/GbDfJ5i85Sz8ZAAgCsI431FDIH54318n06JtI
-	bEm3HHUZY4ao+Ia6AzpOD96unPjV42Q2+I0qZM+SvmOmjBKSqpKa+nNqdXld0REowteCnI3AUclBy
-	LtD0XwNVE3YSnb7EE5SAquuRMYPSc6aG2QdMBsWiNLr7rk10/yq4i0UOrKYA1PuPicvXAdkmVHt3C
-	UWvE909Ec6R+NEJpKNU7eicjBiDM6F37Ida3Hx64Ft+KWtLGiSbo/hDu2pj52aN+cKit+edAxdFSM
-	ELdzCFAA==;
+	bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=; b=1q0iJRxWHLG2V7soWD1/oOWx3m
+	Xz1ULGUPhGrLnPVqnkYFR0qDsrozL09piPSTTepz9DlvrY3N8puxMrfPIJeDdleuTscpsPgWcvNfz
+	QboLeOpeqL1APVz+ZSZqXWQUSxGeLS0HS0yRyeQjFHWKgP7jp18U609cJUse3037Mm8EK5zWh52Hc
+	z/K6PbpxkPJsdkqJZsiX1DEX4aBGCZ6Ju36EhlcFs3YdDyJNBhCzKKlAdSH75REZh9qhHoPBEjYkC
+	G3C3wHuueSGN9pbGg10RnY+6lWENKNIa43siWuRG34LFhgPjrkqPsS8qAaPxNMpVdMTpn0HmETzaM
+	zjaDh+zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzSD-00000009ru5-2Zlr;
-	Tue, 10 Mar 2026 15:57:05 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1vzzX3-00000009sS3-3dIw;
+	Tue, 10 Mar 2026 16:02:05 +0000
+Received: from abi149ajj127.mrs1.oracleemaildelivery.com ([129.149.100.127])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzS9-00000009rsz-3lOK
+	id 1vzzWx-00000009sRJ-2yCa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 15:57:04 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-40947c81b31so670373fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:57:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773158220; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HtaYUbAXEffX9mWE93ubM0BhPzQ7GmA772q2iSy4BmzfX5b15CYW+4WKIn9AZtPkkp
-         iloiN3YNG4PQgsD1K5CO+sNkvXbcZZf/ldOLHMAPFHWBTvHQWF6aknfbO1Dv6QOEgLKN
-         rSAd9Ni1PjpSNAxRZ/m4WmGEPutqn7LJ2g/Y0dWhOaf2LGjRrGd+j85J0XhfwR55XJW9
-         B6kJHM6/tv86kIIHu52obPTPB8zpoxHsGLmUncSP5HFyDxnjTk+/zJh6hUVtPfbLXvbQ
-         T585Q94/y9gfFVNS5NmYfZWxon+Ze8WhytbfrkO15G2XoL6iC0YfWIjCQeVk+XFIpLfZ
-         OXgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=k0ZfmdoKETAu32CUc6DaYZn/AQfT5ZtxxhfQJEgADr8=;
-        fh=BIduIlC3DMRivzuMX2Yk5S8fHSzs2C6ZyNqkC9AWGy4=;
-        b=WIEWtRbFCuRTKyZ4FP1reT0ucltE64oHUdErskgkC6RwithAwkHODgblUi1JC+kXgV
-         8JeOhLlXhKeRhERcHep4fcYYoCtDvQmAenh9Qi+s1VfkJjavGvhO8jDFuJmIYVyDXnDq
-         GQdx2St41XkrXpzCcBfe9L7Jsvmrs2gYBy4mTsTPs52TNrDTQGTmxKwh3S6R9TE6BExD
-         s5keO/a8c5MkYRpnDUmHjGtcgJHZq7rGpUsMMzlfXsAHQ5s/WWDREGeucTZoMJ1Nsqcp
-         A6lR/He7foPUiI7a7h1Pqb+LB5AjMMvN1toQuQqPaG38hfdCHJGuL6Ey4RupUSD5XWEa
-         IRUQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=purestorage.com; s=google2022; t=1773158220; x=1773763020; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k0ZfmdoKETAu32CUc6DaYZn/AQfT5ZtxxhfQJEgADr8=;
-        b=Hle9sW6Fu2aRonCKUeTgczqon4CQBEtOK36ksYLjuy4nJPbMYbGyL53lWN5Fw3/5Wl
-         HP7qvFnQ9cl8UmyYEAjPi6VdZ08k0hEFzkWCzqtmn1vm4Pk+S99EHVdsUXDrwFpybBJm
-         vyzjp9tP22xczj07xbIfPWHAFNOx2YDXEaO4SsyB8LQxdX4TwrtruJ/Q2hWjqOtHoBFX
-         CgDwzVdp8mrzgOQcHET1lDoK8PHpOUi0NHKSRQ3eyUh0G5NL88YmrnHCGhK4xKMSCrNA
-         KBWaA2gx6sTOK1myE1p0798wNjuJPh2Q/mZfjk09RU5lXr4mIoT4rvZvre+pMlmdy7Qh
-         OPsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773158220; x=1773763020;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=k0ZfmdoKETAu32CUc6DaYZn/AQfT5ZtxxhfQJEgADr8=;
-        b=mx5EJLYY7NRjLCU8e64Z22OsNP+77Lj8oxDdfGsv1LjY3RrcsAOqwZ4yiJy7WHKXzS
-         ebt2lBhQL4e6ckldQ9nPwbOOaCk9VfnGJH+kduxzfb7sba/vQE+wlY6NQ7uXIP8h11ia
-         bVd7g+WSNPiPIdGlXQbn7+krh6zkQm2HXlEHdWYGU/xP/CJy8G9xAkVJR3UScIt5mm0E
-         ugYSbiQokuLQcw+weRtBWj031eIzmC8+z+S4mODqdkeqMQP29uepeWCZ9hT9sRmAOIHK
-         5BxZOKs+hmwPjiIidw8r6Opciwvz+DRM+RD+uVlJTkpGTHIsHzP1COgtZBO+zzNMuWS4
-         7nHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWoLMnVK5yWnG63lTbRY7epVaqo+o4Hd/U+ydZQUd1T/MfWUy3loeTN/hSMrtA2Ge2BJlfUTv7EqAX4oNv/6C7S@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUU0uuLxbcZiCeWgyhNIhXJ4dDfj9NW8vWijxRHTC5b2oeN32z
-	1J2NQxJtfENwlT1IYB9iJnYimQLp+fUAQaFnHGoIt/l4IOX1l8KHhEiFX4OmYG1/dsqivd19O6U
-	FAGivkaY7Aa6HsGaz8jMp43AGUPes/nveklZ7OF/kCQ==
-X-Gm-Gg: ATEYQzzN3TPbRsJZoK2a++TnukDmUEukwhUHYGK39EcbD534Thor/D/DiVOZ0O3e5Eq
-	s0xDkQ/zutdhafcHKJ3uc5eVC9WDkP+ljiUs+cP67YfjGquE2MCT1EkyzxsxtnalEcnP8W4rfZj
-	KSeFAgN/H8EsHOSYb+Esa3OSEGpD5XN37XGuHIJf+93oZN37yQimhgDUhNB7nrpj9pPL/Eq5WVO
-	uKjVj224DTvSKuSlIuGcwsyM/to1wPdK4fJG062aTf4wOsB8bePW5XuXMMGDqm57ctExdIAfv5D
-	JOgxaHKP
-X-Received: by 2002:a05:6870:854b:b0:416:3f50:ea2 with SMTP id
- 586e51a60fabf-416e45c1dc6mr7199342fac.8.1773158220092; Tue, 10 Mar 2026
- 08:57:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260309062840.2937858-2-iam@sung-woo.kim> <CADUfDZorSQCVtQyfjBuaziwG2Jo28yZiiqLKbp9PkFFw-9VgfQ@mail.gmail.com>
- <CAJNyHp+i3M_ko7rhgTz=nxP=MZYM3oQf3L-y=7YnhnRyeUxayA@mail.gmail.com>
-In-Reply-To: <CAJNyHp+i3M_ko7rhgTz=nxP=MZYM3oQf3L-y=7YnhnRyeUxayA@mail.gmail.com>
-From: Caleb Sander Mateos <csander@purestorage.com>
-Date: Tue, 10 Mar 2026 08:56:48 -0700
-X-Gm-Features: AaiRm52sHfM1lLReXhJ6K_-eQeuNMsoWbyv4AHit6rY5_ursGYcV9eDpU-ihUic
-Message-ID: <CADUfDZppWyOOPME0eJbmO1q+qvehxGiCk8Zz_nVxaQk08aukFw@mail.gmail.com>
-Subject: Re: [PATCH] blk-mq: nvme: Fix general protection fault in nvme_setup_descriptor_pools()
-To: Sungwoo Kim <iam@sung-woo.kim>
-Cc: Jens Axboe <axboe@kernel.dk>, Josef Bacik <josef@toxicpanda.com>, 
-	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Richard Weinberger <richard@nod.at>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Sagi Grimberg <sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, "James E.J. Bottomley" <jejb@linux.ibm.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Chao Shi <cshi008@fiu.edu>, 
-	Weidong Zhu <weizhu@fiu.edu>, Dave Tian <daveti@purdue.edu>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, nbd@other.debian.org, linux-mmc@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
-	linux-scsi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 10 Mar 2026 16:02:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=pta2002-202603;
+ d=pta2002.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=;
+ b=s5pRHO6Yhujn6qWYP26KIhsFsm6xFff7hEeOSk+DO0F+DvkJQAEuf8vQG3jjxcRdMnBFENBXNpcT
+   1Ig3V634mqSkJxQp2ANdOSNpqTtzJpRrm1PhvwDBEoNR6P3sQBrMNDVe+5qQDBOewgA7kGQXpOiq
+   ptIZ1D4OrI0uCmvHHUicCJyTJDr+HeqLsoLNc1HPkehTwua8QC1Yj9/OEAWdwFJpi+vFlOsFxvvu
+   eCh5MyWQNyd63aWfm/KJJOAivlbC6okPRmBNl06wmQLzUnu43oI/TuetN7zmVCZPuOsncJOzCdUo
+   2TEA33cElfWLI7j0pUIA17pMjVxoJaB9Ep/zLQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-mrs-20211019;
+ d=mrs1.rp.oracleemaildelivery.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=;
+ b=b6W12nJ1l48BEVyc6C0Hpk1AYftJpxshpezmAkYdcBIjnBTkBd3kZN33CwVmFFGC1h0nKHXiEpUl
+   6TahoA0Vox346vpua8SyixJ5ljW4dvbfyVBYXmhkBAsNeNf8ZZvlU08fG3StUEO4jLiTMwuu31LA
+   e7CB+bVgHhqWZ8dj25yWeuXxTwxLP1WQrL/qkQGl2620P/Umx+dn32PgoApStJaur4vmwFdJdNje
+   tXGWZrAajz9ypHA2dqnp66J8LGmF4lI+qBGeBQyLeQj8tflghO9xpBe8jLjZ122FUdrv2uwDPuv2
+   YBVmLkv1jtmaz3DGsunnp1llYIgIYhiRywF9rA==
+Received: by omta-ad1-fd1-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com
+ (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
+ 2026))
+ with ESMTPS id <0TBO003KDXV4LW20@omta-ad1-fd1-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com>
+ for linux-arm-kernel@lists.infradead.org; Tue, 10 Mar 2026 16:01:52 +0000 (GMT)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Message-id: <e57dc0d0-8fad-4c55-ad53-d12cbda480b5@pta2002.com>
+Date: Tue, 10 Mar 2026 16:01:36 +0000
+MIME-version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260304-radxa-r5-itx-hdmirx-v2-1-6567e9e3298b@pta2002.com>
+ <9638846.rMLUfLXkoz@phil>
+Content-language: pt_PT
+From: Pedro Alves <pta2002@pta2002.com>
+In-reply-to: <9638846.rMLUfLXkoz@phil>
+Content-type: text/plain; charset=UTF-8
+Content-transfer-encoding: 8bit
+Reporting-Meta: AAG0WhO5h6ltxXBJpWKRec1eA5PLxwyFz98OXlRfhTRnD/LE/iOtviDjy2/UiPp4
+ KvbKjhNYzrpc8DwWL5o/TOhjKj7Eox2ZpAqzEy/7rGiFlNrTszwSnvMrUaiByjeH
+ oD4SEeXgWGTkJHskGLTJKNdktykRbTzwjq+5NRxTbsCeMDwQkbdnRCeA2yrqFpjV
+ riN5r4fmOoZVQaerwoFYAr/8fl2pRViPjWxOT5NOCnMqEYtmPFfYNIdllMIrOOIx
+ ZBFEJ7mB+K3qf0NCyViz1EQkXC9nUK+ilV3vAQc8Xk0CI9BDlZEtlVveXnVqzrYV
+ fCyHNubFyW4Lata5ToumSjpPewFUoV97MhtZh/HXk8p1oC4rUtxhv6d/GYePiKaj
+ ab8OjbzBn45WCthoaGafPhl6ifmx/OTCpxsXZ2oqLaPBhYJ0/qf5PFsM1uMCOH3M 2xJDOOJG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_085701_947784_F2B3A706 
-X-CRM114-Status: GOOD (  25.42  )
+X-CRM114-CacheID: sfid-20260310_090201_074384_6C96BF00 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,71 +92,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 9, 2026 at 4:55=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim> wrote=
-:
->
-> On Mon, Mar 9, 2026 at 11:31=E2=80=AFAM Caleb Sander Mateos
-> <csander@purestorage.com> wrote:
-> >
-> > On Sun, Mar 8, 2026 at 11:30=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim> =
-wrote:
-> > >
-> > > The numa_node can be < 0 since NUMA_NO_NODE =3D -1. However,
-> > > struct blk_mq_hw_ctx{} defines numa_node as unsigned int. As a result=
-,
-> > > numa_node is set to UINT_MAX for NUMA_NO_NODE in blk_mq_alloc_hctx().
-> >
-> > The node argument to blk_mq_alloc_hctx() comes from
-> > blk_mq_alloc_and_init_hctx(), which is called by
-> > blk_mq_alloc_and_init_hctx() with int node =3D blk_mq_get_hctx_node(set=
-,
-> > i). node =3D NUMA_NO_NODE would suggest that blk_mq_hw_queue_to_node()
-> > doesn't find any CPU affinitized to the queue. Is that even possible?
->
-> Thanks for your review, Celeb.
+Hi again, sorry for the follow-up:
 
-While I'm flattered you consider me a celebrity, my name is Caleb :)
+On 10/03/2026 08:48, Heiko Stuebner wrote:
+> Am Mittwoch, 4. März 2026, 21:44:39 Mitteleuropäische Normalzeit schrieb Pedro Alves:
+>> +	pinctrl-names = "default";
+>> +	hpd-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+> 
+> Also please provide a pinctrl setting for the gpio hpd pin.
 
->
-> blk_mq_hw_queue_to_node() can return NUMA_NO_NODE if the device queues
-> exceed the
-> number of CPUs. Afterward, it is adjusted on the caller side to
-> numa_node =3D set->numa_node.
+I might be missing something, but isn't this already present with the
+hdmirx_det pin? It's configured as hdmirx_hpd in other boards, but for
+this one I left the hdmirx_det pin name after discussion in v1 of this
+patch to match the schematic.
 
-I thought the NVMe driver capped the number of queues so every queue
-is affinitized to some CPU (see nvme_max_io_queues()). What am I
-missing?
+If you mean something else, please let me know.
 
-Best,
-Caleb
-
->
-> set->numa_node can still be NUMA_NO_NODE if CONFIG_NUMA=3Dn (trivial) or
-> pcibus_to_node() returns NUMA_NO_NODE if ACPI doesn't provide
-> proximity information.
-> But I'm not sure if this is usual in the real machines. We found the
-> crash in QEMU.
->
-> > >  static struct nvme_descriptor_pools *
-> > > -nvme_setup_descriptor_pools(struct nvme_dev *dev, unsigned numa_node=
-)
-> > > +nvme_setup_descriptor_pools(struct nvme_dev *dev, int numa_node)
-> > >  {
-> > > -       struct nvme_descriptor_pools *pools =3D &dev->descriptor_pool=
-s[numa_node];
-> > > +       struct nvme_descriptor_pools *pools;
-> > >         size_t small_align =3D NVME_SMALL_POOL_SIZE;
-> > >
-> > > +       if (numa_node =3D=3D NUMA_NO_NODE)
-> > > +               pools =3D &dev->descriptor_pools[numa_node_id()];
-> > > +       else
-> > > +               pools =3D &dev->descriptor_pools[numa_node];
-> >
-> > Simpler: if (numa_node =3D=3D NUMA_NO_NODE) numa_node =3D numa_node_id(=
-);
-> >
->
-> Thanks, I will modify it in V2.
->
-> Sungwoo.
+Thanks,
+Pedro
 
