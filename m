@@ -4,62 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79AF9FD4F04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83AFFD4F0B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0toh0IOX8UTVKgXReHT+LAIBjBMlHBFvuP0h0qLImU=; b=2xu2Kz8xBmAyBHNJ+gaWogy9+r
-	LNbpWxoC7G7sFipLe8q/VQiVqLvBTvEZIRCQQiYH4K+MHXl+DysAXyLkNVwuoKQZ1/OcjrNLqF3ht
-	d+oUewmT92X74049df/4HQzA/4iC8QbrGHOX1xutuKrwb+oLTSBEdUxHIDGpv8xf/QnPR1Qm15yOK
-	ZkJfAd4T457nVXCCBEZzc9lyufxraBjOlQHDNlqJ96R8Wo9IxIEuj68ANLjcC0OcHJzcft1y03SNY
-	NecuhGpdAXY0zudTLj2l8yYulQMxediixNPcv7dlnDEL6wD2wK7fLMXX25lTbknmzq4NRKVT9TP1K
-	gxSf68iw==;
+	bh=jDrxMFBJUn2g56puKrDmYg9mR0DKWnk70nfDH3iJd0A=; b=Lf+bcGfKKKP/wjT04h1R5gi1J6
+	vIuULhgHrIF/35nUJNrKJCXTTeuCDb8ifsIbXHybsqNHNMNR7c22SpfmTDE/ugGO50fXCYtV8aZuA
+	qEg13qTzxab3ECb4IdeWzfR2PSnhbI8mwuEc21X0Q4jcLDpOCCzDKWDNgtP7tsI7suCUUyGaQmHil
+	N60yt6OT9ZOfhNs/KmeTvy0ARVBCKAqDBvcPuieqs/TmGcHhLHgve1Z7Rtv3eu+ArQ/NOG1hlytwn
+	ph9l0EioluoxUBZisAe+tP934L1rq6t6z4IaV0n7iYtruSYFclKz+47AcfqHylB/3Xpj4iGogyjHk
+	R4ZjVMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00Y1-00000009wve-4ATv;
-	Tue, 10 Mar 2026 17:07:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00Y0-00000009wvH-3K0i;
-	Tue, 10 Mar 2026 17:07:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E004A60054;
-	Tue, 10 Mar 2026 17:07:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAD66C19423;
-	Tue, 10 Mar 2026 17:07:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773162427;
-	bh=q7pbf99+I8vUNFAI20TKd98+Bh5cPQ0Gjl2/ZF/p3so=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zbb7jjwFJ5WnmP3lX5+PqqT6+Z0xxFe2NV2HPyql4F0XtI7uJML6UXgVOGIXn+NZG
-	 0KVdrYXjhg9jp+DCtOFlOIh3qY4Z4HxThkWPZqrLCvZDDlZfAJftrzsboyh3U6wy55
-	 Hxi/QCx3A2gFtck89QPZJU9vfEYUeFJpbUJnyJ2l660HntvzZfIG/PyC4Y/RVrprZl
-	 qUkit6FQUIXttpo2eGE6iSIgfPaiYOImJ9piF6bjNbOgvUHZboZStQh2xw2aGOmrUw
-	 HrZq2IEBSvALWueR2eKj1PyFi/k+ucuNToVAK3jBZ8MApADt3C7EjH6CDRc7JpDecR
-	 cdq2ej6yqQO3Q==
-Date: Tue, 10 Mar 2026 18:07:05 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	Christian Marangi <ansuelsmth@gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: airoha: en7581: Enable spi nand
- controller for EN7581 EVB
-Message-ID: <abBPufvrG8I8UP69@lore-desk>
-References: <20250225-en7581-snfi-probe-fix-v2-1-92e35add701b@kernel.org>
+	id 1w00p9-00000009zG1-2kma;
+	Tue, 10 Mar 2026 17:24:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w00p7-00000009zFe-0Nre
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 17:24:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5ECBE14BF;
+	Tue, 10 Mar 2026 10:24:40 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5D383F694;
+	Tue, 10 Mar 2026 10:24:45 -0700 (PDT)
+Date: Tue, 10 Mar 2026 17:24:42 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Reda CHERKAOUI <redacherkaoui67@gmail.com>
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: harden ASID allocator against empty bitmap
+ after rollover
+Message-ID: <abBT2gV84-9uaHkJ@arm.com>
+References: <20260219113715.8001-1-redacherkaoui67@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mnhLociRa4wDMSFh"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250225-en7581-snfi-probe-fix-v2-1-92e35add701b@kernel.org>
+In-Reply-To: <20260219113715.8001-1-redacherkaoui67@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_102449_170743_01E35A2F 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,94 +63,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---mnhLociRa4wDMSFh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> Enable spi controller used for snand memory device for EN7581 evaluation
-> board.
->=20
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
-Hi all,
-
-it seems this patch has been reviewed by AngeloGioacchino, but it has never
-been applied to linux-mediatek tree (or at least I can't find it). It is ma=
-rked
-as 'New, archived' in patchwork [0]. Am I missing something?
-
-Regards,
-Lorenzo
-
-[0] https://patchwork.kernel.org/project/linux-mediatek/patch/20250225-en75=
-81-snfi-probe-fix-v2-1-92e35add701b@kernel.org/
-
+On Thu, Feb 19, 2026 at 11:37:14AM +0000, Reda CHERKAOUI wrote:
+> new_context() assumes that after incrementing asid_generation and calling
+> flush_context(), find_next_zero_bit() will always find a free ASID.
+> 
+> If that invariant is ever violated, __set_bit(NUM_USER_ASIDS, asid_map)
+> would write past the end of the bitmap. Add a defensive check so the
+> kernel fails loudly instead of silently corrupting memory.
+> Cc: stable@vger.kernel.org
+> 
+> Signed-off-by: Reda CHERKAOUI <redacherkaoui67@gmail.com>
 > ---
-> Changes in v2:
-> - Clarify the commit title
-> - Link to v1: https://lore.kernel.org/r/20250225-en7581-snfi-probe-fix-v1=
--1-77e4769574e4@kernel.org
-> ---
->  arch/arm64/boot/dts/airoha/en7581-evb.dts | 4 ++++
->  arch/arm64/boot/dts/airoha/en7581.dtsi    | 2 +-
->  2 files changed, 5 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/=
-dts/airoha/en7581-evb.dts
-> index d53b72d18242e3cee8b37c7b1b719d662fd6db8d..cc69f698c27b804953b1bb671=
-e128d4401744bf5 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> +++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> @@ -25,6 +25,10 @@ memory@80000000 {
->  	};
->  };
-> =20
-> +&snfi {
-> +	status =3D "okay";
-> +};
-> +
->  &spi_nand {
->  	partitions {
->  		compatible =3D "fixed-partitions";
-> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts=
-/airoha/en7581.dtsi
-> index 26b13694091735da7af977e42f8f546d7d5cb078..49c061d38d7860b3b41661072=
-3791a7a91edcb69 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-> @@ -150,7 +150,7 @@ gic: interrupt-controller@9000000 {
->  			interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
->  		};
-> =20
-> -		spi@1fa10000 {
-> +		snfi: spi@1fa10000 {
->  			compatible =3D "airoha,en7581-snand";
->  			reg =3D <0x0 0x1fa10000 0x0 0x140>,
->  			      <0x0 0x1fa11000 0x0 0x160>;
->=20
-> ---
-> base-commit: 0092294492fafe79a537915e486576a3d69c9a7c
-> change-id: 20250225-en7581-snfi-probe-fix-c325bedded9e
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+>  arch/arm64/mm/context.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+> index b2ac06246327..74c1ece7db78 100644
+> --- a/arch/arm64/mm/context.c
+> +++ b/arch/arm64/mm/context.c
+> @@ -160,6 +160,7 @@ static u64 new_context(struct mm_struct *mm)
+>  	static u32 cur_idx = 1;
+>  	u64 asid = atomic64_read(&mm->context.id);
+>  	u64 generation = atomic64_read(&asid_generation);
+> +	unsigned long idx;
+>  
+>  	if (asid != 0) {
+>  		u64 newasid = asid2ctxid(ctxid2asid(asid), generation);
+> @@ -194,9 +195,11 @@ static u64 new_context(struct mm_struct *mm)
+>  	 * a reserved TTBR0 for the init_mm and we allocate ASIDs in even/odd
+>  	 * pairs.
+>  	 */
+> -	asid = find_next_zero_bit(asid_map, NUM_USER_ASIDS, cur_idx);
+> -	if (asid != NUM_USER_ASIDS)
+> +	idx = find_next_zero_bit(asid_map, NUM_USER_ASIDS, cur_idx);
+> +	if (idx != NUM_USER_ASIDS) {
+> +		asid = idx;
+>  		goto set_asid;
+> +	}
+>  
+>  	/* We're out of ASIDs, so increment the global generation count */
+>  	generation = atomic64_add_return_relaxed(ASID_FIRST_VERSION,
+> @@ -204,7 +207,10 @@ static u64 new_context(struct mm_struct *mm)
+>  	flush_context();
+>  
+>  	/* We have more ASIDs than CPUs, so this will always succeed */
+> -	asid = find_next_zero_bit(asid_map, NUM_USER_ASIDS, 1);
+> +	idx = find_next_zero_bit(asid_map, NUM_USER_ASIDS, 1);
+> +	if (unlikely(idx == NUM_USER_ASIDS))
+> +		panic("ASID allocator: no free ASIDs after rollover\n");
+> +	asid = idx;
 
---mnhLociRa4wDMSFh
-Content-Type: application/pgp-signature; name=signature.asc
+How do you even hit this? Is it if you have less ASIDs than the number
+of CPUs? The kernel complains about this in asids_update_limit.
 
------BEGIN PGP SIGNATURE-----
+Anyway, given how you are not following up on maintainer's comments, I
+assume these patches are automatically generated.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabBPuAAKCRA6cBh0uS2t
-rP1ZAP9kz75TUPNM3K4TxCKoN3dziQZVGLiekwemyNCDMk61hgD/cGH1CQa3sWRw
-8uwjHH6ikCDSNHqAVXd8Ck69JVtDRQM=
-=Kql2
------END PGP SIGNATURE-----
-
---mnhLociRa4wDMSFh--
+-- 
+Catalin
 
