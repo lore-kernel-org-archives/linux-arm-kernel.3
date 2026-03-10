@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88EDFCC9DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EDEFCC9DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUKCgb/6rFAp2KPC7McERCizJUEbCTrmZZm2r9c2yW0=; b=Th3vISc96KDG5oD3Nvm9NE5BW3
-	PwgQHctWC8U+sMye8jU1BAuAxmuVKO0O3gUJB5XM/dMTmqj0HJCV5CesaSvCbPhT41v5jSShwbhCs
-	PEEvzaoqC9xMm0d/0xUZ/RsPIlWqkLq0johYnqoLGhfD9CrgnqDtKn8qoeVRxw1kArjnxDF7xnATP
-	oxipser+27thMdG2n6Rb70qKVagr/Z+hWgRYOC+avCydX+fS6ODQIsiSt7WpP/cwTqK8TFTcssSF8
-	G+a1vhHNU+5ISH+bMSExQ7h75LgRyXVPKjbEtW/pL9+L9s2Cyy3PyG3klmO2nfJdXWO0ysj6pF8Ym
-	ZDv2OhGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FL+FczOsbLKB+9XWOe2DA16luFi7YXbAYaW6H6wjZvE=; b=bW5nWGaTuc4GkcBr+a7d51r/DE
+	cOh0PLG/UqDSr4wJCYYYg+9NRUJ2NvXDF0cPoozboqm9T1QIuETeqLQvDF8uHjyf2pjqpuIK3UB/2
+	GRIdQusIER9KVNK6jOH3ZXr88ngqeT7kORpX028sPbUyCGvOUc5FqCzgtrYnLOP2ofNu87Dz9pvBU
+	3B9mBbIDYsonHNjpC/4nfhHuwqXWLaU/sqAWflD/4lnN3qeznFsbW9VWVPcALJGVbk1+yISl2Re/1
+	vOyk9WwGIiywE9DaG3tnwVZ9rTG4d49jrsSVxezp/S1SuKnxd8lml34Jr/LZae+gTs0msnYoHWEgZ
+	6+aNvRPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzte5-000000097nh-29Nd;
-	Tue, 10 Mar 2026 09:44:57 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vzthX-0000000981h-1dth;
+	Tue, 10 Mar 2026 09:48:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzte3-000000097nA-0nTA
+	id 1vzthV-0000000980z-3CVE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:44:56 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vztdz-0002P1-68; Tue, 10 Mar 2026 10:44:51 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vztdw-004fwu-2z;
-	Tue, 10 Mar 2026 10:44:50 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vztdy-000000004Bl-0pVJ;
-	Tue, 10 Mar 2026 10:44:50 +0100
-Message-ID: <fef2059f0e184f918102e4d0656207fec09dbc83.camel@pengutronix.de>
-Subject: Re: [PATCH] reset-controller: ti: introduce a new reset handler
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Zexin Wang <ot_zexin.wang@mediatek.com>, Matthias Brugger
-	 <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	 <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, Sirius Wang
-	 <sirius.wang@mediatek.com>, Jack Hsu <jh.hsu@mediatek.com>, Vince Liu
-	 <vince-wl.liu@mediatek.com>
-Date: Tue, 10 Mar 2026 10:44:50 +0100
-In-Reply-To: <20260310033942.29585-1-ot_zexin.wang@mediatek.com>
-References: <20260310033942.29585-1-ot_zexin.wang@mediatek.com>
+	Tue, 10 Mar 2026 09:48:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F72C442CC
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29C38C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:48:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773136109;
+	bh=Roe9unAo8hOJOYXIhe8DUoLAPPzE+T4k5irAoUIjGx0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hKKpp7AJqAo7Koe0cv080aODLoHhDy+zToDtu2e+kTaKN3IVVgmW/OhYSVBStJKfZ
+	 95uyyPPQ8K279PtJg7y5ewvus0X5vtchWf8suUmQQpklTcyWKcranCRzKHl1f0ylxh
+	 Mr30ablAAsL1neO4S5UYPcqDjqD0hIyqEALJX/FAWBnqoTTGNv+rkNUvPmgIIYsPXA
+	 AeE3kUOmYYHrfbFYF4yXh2CX7yN7BTvygBJ/FqaJNO3V/jc3eIpqE6m4F6BaxrgSJk
+	 QvJUj8ToiO+O2Nu+1mEbob7juhQVsbraSL3zFm8sFkQoE0awtVTBqYAl71gScz8b2v
+	 mI0ZcsJIQdgdg==
+Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-64c9cabfe5dso15712021d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:48:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWHvqzp1QrOyD7qTUVEOp5cMY13Wko6jzn5zKzyyTBFCUQ/Nn1zEm/DSlwsAobndskSwuHe2KdGGq8afjWV1xV3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXhBkSDsdpegDmgl/MgWqKpJIYOMVIq3R1w6bRqPY4B96n54Bd
+	OKadFX4DnAiGEOoo+7BxcLnw7SSkAk7dUmtpsS9pSMthDvsabtc+RWxqVz1Fm280Zs3kxyYcyDl
+	C8iPiQqFIDp0IBoACGl04sFcAJFxE69E=
+X-Received: by 2002:a53:b1d4:0:b0:64c:ec13:e57c with SMTP id
+ 956f58d0204a3-64d5a235c7cmr1854690d50.39.1773136108443; Tue, 10 Mar 2026
+ 02:48:28 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260306075244.1170399-1-eleanor.lin@realtek.com> <20260306075244.1170399-14-eleanor.lin@realtek.com>
+In-Reply-To: <20260306075244.1170399-14-eleanor.lin@realtek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 10 Mar 2026 10:48:17 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkWXGpphaO6my9ovge4e+1pD-ij9c+A1bH24mUa54mujw@mail.gmail.com>
+X-Gm-Features: AaiRm52V87Yakq-T4nHCULwmCLhHG_reQHf2OvwkK_dAKKmOkDgws3_XIZX46TI
+Message-ID: <CAD++jLkWXGpphaO6my9ovge4e+1pD-ij9c+A1bH24mUa54mujw@mail.gmail.com>
+Subject: Re: [PATCH v2 13/14] pinctrl: realtek: Add rtd1625 pinctrl driver
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bartosz.golaszewski@oss.qualcomm.com, afaerber@suse.com, 
+	james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, 
+	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_024455_227073_B3FB9020 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20260310_024829_847970_92E1D390 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,111 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2026-03-10 at 11:39 +0800, Zexin Wang wrote:
-> Introduce ti_syscon_reset() to integrate assert and deassert together.
-> If some modules need do serialized assert and deassert operations
-> to reset itself, reset_control_reset can be called for convenience.
+Hi Yu-Chun,
 
-With this change, reset_control_reset() would stop returning -ENOTSUPP
-on all existing platforms using ti,syscon-reset. But it wouldn't work
-correctly because no delays are specified.
+On Fri, Mar 6, 2026 at 8:53=E2=80=AFAM Yu-Chun Lin <eleanor.lin@realtek.com=
+> wrote:
 
-Note that reset_control_reset() was introduced to support hardware that
-is hard-wired to create reset pulses of a fixed length, with no
-individual control over assertion and deassertion. If the consumer
-driver does not need to work on such hardware, using
-reset_control_reset() over reset_control_assert()/deassert() is not
-necessary.
-
-> Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
-> ---
->  drivers/reset/reset-ti-syscon.c | 34 +++++++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
->=20
-> diff --git a/drivers/reset/reset-ti-syscon.c b/drivers/reset/reset-ti-sys=
-con.c
-> index 23f86ddb8668..f37685e32b0a 100644
-> --- a/drivers/reset/reset-ti-syscon.c
-> +++ b/drivers/reset/reset-ti-syscon.c
-> @@ -7,6 +7,7 @@
->   *	Suman Anna <afd@ti.com>
->   */
-> =20
-> +#include <linux/delay.h>
->  #include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> @@ -42,12 +43,14 @@ struct ti_syscon_reset_control {
->   * @regmap: regmap handle containing the memory-mapped reset registers
->   * @controls: array of reset controls
->   * @nr_controls: number of controls in control array
-> + * @reset_duration_us: time of controller assert reset
->   */
->  struct ti_syscon_reset_data {
->  	struct reset_controller_dev rcdev;
->  	struct regmap *regmap;
->  	struct ti_syscon_reset_control *controls;
->  	unsigned int nr_controls;
-> +	unsigned int reset_duration_us;
->  };
-> =20
->  #define to_ti_syscon_reset_data(_rcdev)	\
-> @@ -150,9 +153,37 @@ static int ti_syscon_reset_status(struct reset_contr=
-oller_dev *rcdev,
->  		!(control->flags & STATUS_SET);
->  }
-> =20
-> +/**
-> + * ti_syscon_reset() - perform a full reset cycle on a device
-> + * @rcdev: reset controller entity
-> + * @id: ID of the reset to be asserted and deasserted
-> + *
-> + * This function performs a full reset cycle by asserting and then
-> + * deasserting the reset signal for a device. It ensures the device
-> + * is properly reset and ready for operation.
-> + *
-> + * Return: 0 for successful request, else a corresponding error value
-> + */
-> +static int ti_syscon_reset(struct reset_controller_dev *rcdev,
-> +		   unsigned long id)
+> From: Tzuyi Chang <tychang@realtek.com>
+>
+> Add support for Realtek RTD1625 SoC using the realtek common pinctrl driv=
+er.
+>
+> This patch introduces the RTK_PIN_CONFIG_V2 and RTK_PIN_CONFIG_I2C macros=
+,
+> which are required to describe the specific register layout and electrica=
+l
+> features (such as slew rate and high VIL) of the RTD1625 pins.
+>
+> Signed-off-by: Tzuyi Chang <tychang@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+(...)
+> +static int __init rtd1625_pinctrl_init(void)
 > +{
-> +	struct ti_syscon_reset_data *data =3D to_ti_syscon_reset_data(rcdev);
-> +	int ret;
-
-This should keep returning -ENOTSUPP for unspecified delays.
-
-> +	ret =3D ti_syscon_reset_assert(rcdev, id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (data->reset_duration_us)
-> +		usleep_range(data->reset_duration_us, data->reset_duration_us * 2);
-> +
-> +	return ti_syscon_reset_deassert(rcdev, id);
+> +       return platform_driver_register(&rtd1625_pinctrl_driver);
 > +}
-> +
->  static const struct reset_control_ops ti_syscon_reset_ops =3D {
->  	.assert		=3D ti_syscon_reset_assert,
->  	.deassert	=3D ti_syscon_reset_deassert,
-> +	.reset		=3D ti_syscon_reset,
->  	.status		=3D ti_syscon_reset_status,
->  };
-> =20
-> @@ -196,6 +227,9 @@ static int ti_syscon_reset_probe(struct platform_devi=
-ce *pdev)
->  		controls[i].flags =3D be32_to_cpup(list++);
->  	}
-> =20
-> +	of_property_read_u32(pdev->dev.of_node, "reset-duration-us",
-> +			     &data->reset_duration_us);
+> +arch_initcall(rtd1625_pinctrl_init);
 
-This OF property is missing documentation. At the very least
-ti_syscon_reset would need to be gated behind existence of this
-property or a new compatible. But, since there is one delay for all
-reset lines, this is the maximum of all per-consumer necessary delays.
-This is a fixed property of the SoC. So why specify it in the device
-tree at all? You could just derive it from a SoC specific compatible.
+Do you really need the driver to be initialized at arch_initcall()
+level? Can't it just be an ordinary module?
 
-regards
-Philipp
+Yours,
+Linus Walleij
 
