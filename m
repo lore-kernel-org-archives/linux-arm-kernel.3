@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD76FFD4F04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1BEFD4F06
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TwMlYHtn1hHdDn5Isnkx/wciN5cAnhYQxe2wbtS3FQc=; b=aRA/oP/psESQdAMcq+H1XHc6iR
-	os/5XYgKCgm1ZqewVApG1dYPzQ0EOR/imW3o6hqq0KGT6FHPWbSKCxV+ouodUWcN5mu2N7kfKc1Na
-	ThcNJHQvlEhDXE5QoUHhPQc9bwYjyheeKkF1W2wy3EgUJC+m1mneMGu6HP1c+rSnyK0T3snn+QKqH
-	QbYbw4wxw30oLzcy53UsP5PI4jGaPjVFKBAdYiHUEaGYzWUeOPWNncgZrbmCdSkBCF3JgLWBybUeg
-	nmpDjBU3IK3xt+g4Fwe+kPKxPfpzRnuk5bcyhtPFSm1EBDIcUoM3JAwxwBP9CURXg+hIg12+z6+Hj
-	b8ZhhbKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Syy1zo6Lbhwro4kP2STBiC9YNb3BiShgrR/WzLGhJR4=; b=M3PHOoiU1uJN0qvHC1s0GMZfF2
+	P4+FHI9IwK8MPYxS0HgflstiK90ri96bs3Th3XZf1udYV4M15zGHQNDvWRw6SmXoxyXs1tfJHP7T8
+	yJiMyMvSALnn7v18qzIrLJT2PBef6JqcRoJEoNeQvJL/w42r1GP05p+neQ2VgMUMHYEpYpDZbHXyH
+	pUTNweHFEosN0N0vZ235X/qGwJfsZEutIDRIyiI7vBaflSIOtvUVO8ecYj/qHfPEHBznFyS7r0H8q
+	DRX8+Epvt7PtvW40iaHa+pAQByRqNDjFJ0pAQIePysWeUHkHoULqNKbXUPNVnZD6fRPwrOHMd0dIl
+	M/7+GkPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzhk-00000009tIb-0V1a;
-	Tue, 10 Mar 2026 16:13:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzhh-00000009tIE-3TXq;
-	Tue, 10 Mar 2026 16:13:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3905F43C29;
-	Tue, 10 Mar 2026 16:13:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89D43C19423;
-	Tue, 10 Mar 2026 16:13:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773159184;
-	bh=7JoHv29OolzgIEv9y1w9pxw0Mu3pZSv8a8Og/54KOU8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=bKSxIi/X7lmJgKndZfViruyVG4pOb+ccbjYjrv4+4n31isBUZqHzcxnovHfKGGutc
-	 quk6k1i/9YdDmwkWbblp/SqUD8G6u8Fyu1A7YZTBP9/GEcCPecdT33/1P3CvRyjQw3
-	 34P4jzicdQuZsdbVsjwL7zGIiBMOAKtyXf4iBBfK04dMf2wgP1EwDFDaA+EYKZKzBG
-	 WHCbhOUlltRgLKENSEiP2GE3jtYIs9aTYW/QX6PAw27ZdcUDwMipPgEZYZAJo7swKV
-	 VQvM9ISKfXPPccuMqij55jLIbbT5UbvYFcZIJ3ARf/SBRXb4avAim3kCR5LvkOx7qf
-	 yY7SX6emM95Qg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 10 Mar 2026 17:12:47 +0100
-Subject: [PATCH v2] arm64: dts: airoha: en7581: Add switch node to to
- EN7581 SoC
+	id 1vzzlu-00000009tm5-2bXu;
+	Tue, 10 Mar 2026 16:17:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzzlq-00000009tjS-2SaQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 16:17:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E0F31596;
+	Tue, 10 Mar 2026 09:17:12 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E6C13F694;
+	Tue, 10 Mar 2026 09:17:16 -0700 (PDT)
+Date: Tue, 10 Mar 2026 16:17:07 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in
+ debugfs
+Message-ID: <thetpwxswabflbntrrxfsxpej4scwq25qpviv2svmbj7br3w3d@mdrrhsuexsf4>
+References: <20260308231829.864983-1-weilin.chang@arm.com>
+ <20260308231829.864983-3-weilin.chang@arm.com>
+ <20260310152604.GA3093715@e124191.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-airoha-7581-dsa-switch-v2-1-852692ba68b8@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0K6dkxbQMCV9zAsCszQiYaSKUEN4
- e5WLuDyveS/v6mIwhjVNduU4MqRw5TAnjLVezeNCDwkVlbbi851A44leAdVWRsYooP44qX3QNR
- psgNh0WuVxrMg8fsI39vEnuMS5HP8rOZn/yZXAwaKoi5z3VXUGLo9UCZ8noOMqt33/QvCpD9jv
- QAAAA==
-X-Change-ID: 20260309-airoha-7581-dsa-switch-ffb0f2dfe4c0
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260310152604.GA3093715@e124191.cambridge.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_091305_935957_DD32AFD3 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_091722_722371_67E5978B 
+X-CRM114-Status: GOOD (  34.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +67,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce dsa switch controller node to EN7581 SoC and EN7581
-evaluation board.
+On Tue, Mar 10, 2026 at 03:26:04PM +0000, Joey Gouly wrote:
+> On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
+> > Exposing shadow page tables in debugfs improves the debugability and
+> > testability of NV. With this patch a new directory "nested" is created
+> > for each VM created if the host is NV capable. Within the directory each
+> > valid s2 mmu will have its shadow page table exposed as a readable file
+> > with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
+> > creation and removal of the files happen at the points when an s2 mmu
+> > becomes valid, or the context it represents change. In the future the
+> > "nested" directory can also hold other NV related information.
+> > 
+> > This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
+> > 
+> > Suggested-by: Marc Zyngier <maz@kernel.org>
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h |  7 +++++++
+> >  arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
+> >  arch/arm64/kvm/nested.c           |  6 +++++-
+> >  arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
+> >  4 files changed, 43 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 5d5a3bbdb95e..f88f6c4d646e 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+> >  	 */
+> >  	bool	nested_stage2_enabled;
+> >  
+> > +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> > +	struct dentry *shadow_pt_debugfs_dentry;
+> > +#endif
+> > +
+> >  	/*
+> >  	 * true when this MMU needs to be unmapped before being used for a new
+> >  	 * purpose.
+> > @@ -405,6 +409,9 @@ struct kvm_arch {
+> >  	 * the associated pKVM instance in the hypervisor.
+> >  	 */
+> >  	struct kvm_protected_vm pkvm;
+> > +
+> > +	/* Nested virtualization info */
+> > +	struct dentry *debugfs_nv_dentry;
+> 
+> Seems like this could be guarded with CONFIG_PTDUMP_STAGE2_DEBUGFS too, or is
+> there a reason you didn't?
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Fix ethernet-phy node name
-- Remove unnecessary phy-mode property in ethernet-phy nodes.
-- Link to v1: https://lore.kernel.org/r/20260309-airoha-7581-dsa-switch-v1-1-448530b7f91f@kernel.org
----
- arch/arm64/boot/dts/airoha/en7581-evb.dts | 18 +++++++
- arch/arm64/boot/dts/airoha/en7581.dtsi    | 84 +++++++++++++++++++++++++++++++
- 2 files changed, 102 insertions(+)
+Right, I was thinking this "nested" directory can also hold other NV
+related information in the future, that's why I didn't keep it behind
+the option.
 
-diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-index 886e2e4b5f64ce1a2a5496d35b8379fb4ac27dc2..4c6fca99ae62ec8202e211e18311f2ab7e18d2e5 100644
---- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-+++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-@@ -81,6 +81,18 @@ conf {
- 			drive-open-drain = <1>;
- 		};
- 	};
-+
-+	mdio_pins: mdio-pins {
-+		mux {
-+			function = "mdio";
-+			groups = "mdio";
-+		};
-+
-+		conf {
-+			pins = "gpio2";
-+			output-high;
-+		};
-+	};
- };
- 
- &pcie0 {
-@@ -106,3 +118,9 @@ &eth {
- &gdm1 {
- 	status = "okay";
- };
-+
-+&switch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mdio_pins>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index ff6908a76e8eb6cf91343495d1fe531a868e41fb..c84c8d4a6662e24531e0c22ef3a4eb13da2d52fd 100644
---- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-+++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -395,5 +395,89 @@ fixed-link {
- 				};
- 			};
- 		};
-+
-+		switch: switch@1fb58000 {
-+			compatible = "airoha,en7581-switch";
-+			reg = <0 0x1fb58000 0 0x8000>;
-+			resets = <&scuclk EN7581_GSW_RST>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+			interrupt-parent = <&gic>;
-+			interrupts = <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				gsw_port1: port@1 {
-+					reg = <1>;
-+					label = "lan1";
-+					phy-mode = "internal";
-+					phy-handle = <&gsw_phy1>;
-+				};
-+
-+				gsw_port2: port@2 {
-+					reg = <2>;
-+					label = "lan2";
-+					phy-mode = "internal";
-+					phy-handle = <&gsw_phy2>;
-+				};
-+
-+				gsw_port3: port@3 {
-+					reg = <3>;
-+					label = "lan3";
-+					phy-mode = "internal";
-+					phy-handle = <&gsw_phy3>;
-+				};
-+
-+				gsw_port4: port@4 {
-+					reg = <4>;
-+					label = "lan4";
-+					phy-mode = "internal";
-+					phy-handle = <&gsw_phy4>;
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+					label = "cpu";
-+					ethernet = <&gdm1>;
-+					phy-mode = "internal";
-+
-+					fixed-link {
-+						speed = <10000>;
-+						full-duplex;
-+						pause;
-+					};
-+				};
-+			};
-+
-+			mdio: mdio {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				gsw_phy1: ethernet-phy@9 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <9>;
-+				};
-+
-+				gsw_phy2: ethernet-phy@10 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <10>;
-+				};
-+
-+				gsw_phy3: ethernet-phy@11 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <11>;
-+				};
-+
-+				gsw_phy4: ethernet-phy@12 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <12>;
-+				};
-+			};
-+		};
- 	};
- };
+Thanks,
+Wei-Lin Chang
 
----
-base-commit: 405c09548a695ca7be58b5b9d3ac8388630e907f
-change-id: 20260309-airoha-7581-dsa-switch-ffb0f2dfe4c0
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+> 
+> Thanks,
+> Joey
+> 
+> >  };
+> >  
+> >  struct kvm_vcpu_fault_info {
+> > diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> > index d968aca0461a..01e9c72d6aa7 100644
+> > --- a/arch/arm64/include/asm/kvm_mmu.h
+> > +++ b/arch/arm64/include/asm/kvm_mmu.h
+> > @@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
+> >  
+> >  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> >  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
+> > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
+> > +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
+> >  #else
+> >  static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
+> > +static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
+> > +static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
+> >  #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
+> >  
+> >  #endif /* __ASSEMBLER__ */
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index eeea5e692370..31d74ed8449e 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+> >  	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
+> >  
+> >  	/* Make sure we don't forget to do the laundry */
+> > -	if (kvm_s2_mmu_valid(s2_mmu))
+> > +	if (kvm_s2_mmu_valid(s2_mmu)) {
+> > +		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
+> >  		s2_mmu->pending_unmap = true;
+> > +	}
+> >  
+> >  	/*
+> >  	 * The virtual VMID (modulo CnP) will be used as a key when matching
+> > @@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+> >  	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+> >  	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
+> >  
+> > +	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
+> > +
+> >  out:
+> >  	atomic_inc(&s2_mmu->refcnt);
+> >  
+> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > index 98763b291956..3a70f633fc8b 100644
+> > --- a/arch/arm64/kvm/ptdump.c
+> > +++ b/arch/arm64/kvm/ptdump.c
+> > @@ -10,6 +10,7 @@
+> >  #include <linux/kvm_host.h>
+> >  #include <linux/seq_file.h>
+> >  
+> > +#include <asm/cpufeature.h>
+> >  #include <asm/kvm_mmu.h>
+> >  #include <asm/kvm_pgtable.h>
+> >  #include <asm/ptdump.h>
+> > @@ -277,6 +278,29 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+> >  	.release	= kvm_pgtable_debugfs_close,
+> >  };
+> >  
+> > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
+> > +{
+> > +	struct dentry *dent;
+> > +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
+> > +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
+> > +
+> > +	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
+> > +		 mmu->tlb_vttbr,
+> > +		 mmu->tlb_vtcr,
+> > +		 mmu->nested_stage2_enabled ? "en" : "dis");
+> > +
+> > +	dent = debugfs_create_file(file_name, 0400,
+> > +				   mmu->arch->debugfs_nv_dentry, mmu,
+> > +				   &kvm_ptdump_guest_fops);
+> > +
+> > +	mmu->shadow_pt_debugfs_dentry = dent;
+> > +}
+> > +
+> > +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
+> > +{
+> > +	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
+> > +}
+> > +
+> >  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+> >  {
+> >  	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+> > @@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+> >  			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
+> >  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+> >  			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
+> > +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> > +		kvm->arch.debugfs_nv_dentry =
+> > +			debugfs_create_dir("nested", kvm->debugfs_dentry);
+> >  }
+> > -- 
+> > 2.43.0
+> > 
 
