@@ -4,111 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F390FCC9D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 06:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB7FFCC9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 06:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKQKILFOMyz+BduBovVO3DdK747FntT4dzQdAFZl5iQ=; b=yz6mL1q15Oc4S0K+2xJcraVNq7
-	aEZuG5zKKgyVXVvZo58hKwNVKIQOE8oyvLbMqsjqixImySX02T7twsZXsJiMvMe1KurtqtOaKm99J
-	LoLmKm6+fLENPKZUuPwowv6Gj0aMpn1oKy4O4PtKiViS1/qttw31yikraQHK5mjnJ5kCzv69+4hYz
-	0cTUX14iVAmfGBE22zCVTmXbmntJiF/OjS73td/1dhdel/cWF85rYmJOZKYnWVdR0CGZUAJ2Ltgve
-	CujB+TV7h8zOpPo2FCHctRHfz+NgVH3GMMlx/CkD8s3OkRFb5678MLobEmQWom5i1orENmyqg3JyA
-	9vGY6snA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VHrnh2XvB9dLHuZbwMpSUt0oltqbhmog0w3ztV7cqCU=; b=44xT5Ah0CBlFg1B3mfVTv2tZEp
+	TNfsGl+tsKM07bMgBUWdHlgD4Mh+BqvJpSfEZB34hsxLT8uYKNRAuq0gYtrAeTRg3lP6FYYkJi+TY
+	NBYI6QW50DrP0OegIBeF9H2E0iVNbmFzGRej8cQO1z62mnXo4TjiF7NTj0NVVe64cMRlKgUCvSFCg
+	9jF1gNiQWJFPlk2cLJcakAonwZ9XIeTtumJRd07xSchJr5VEw1lAgubvuLSGC35Zlf/XPgsgixSWI
+	fdhUl9+UxFuXFtjC2a8+K5LegUTkEwAnGNu+6+YwC5txaD3VW38y9JBMECtgNE4bdnrgYAmfeuP+R
+	9qZ6G2Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzqyb-00000008ocn-1I69;
-	Tue, 10 Mar 2026 06:53:57 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vzr09-00000008otM-36Ei;
+	Tue, 10 Mar 2026 06:55:33 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzqyY-00000008oaQ-1iNq
+	id 1vzr06-00000008ot0-3Lib
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 06:53:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LnhoTii0mPHs30zrZSnVTMOq9NMRPLfazm3etVbQL4OInWfHNcMMw9QOAwbunNY4ysZQcNSbbMd0zm9szGntaeVckzaU8Uhu8ukrQJ3MAhm/u4k7S/T0nv5saw9oA4G2FVeYxwij/Ey7qLi7asmgPICy6nmBIIMYrX5sVpoxFWgPsQmCsI+9LV2AS5tWQEGRZITdXY7Ta8mDGeP+kZ0kjAroj6Gb5TCmFJERPr7q6tivoz1tNIl7B2UbmIBcCOdPttsx6Mm1SL8Z2zYqa9hhYWm6b0WE/7pqFISTFVAyLdBzNw+qdFxxpy+Gp766Gep1YUlfl/hNtbWzy+z6+1YHtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NKQKILFOMyz+BduBovVO3DdK747FntT4dzQdAFZl5iQ=;
- b=XOfqLyCRFVUQML+yOSAEkN0ibUJLlLwhO4DnLMSa4VkKJAyK70OngELKP88n11ppIpXlBRQ1wSu/j+FI6/FYQUNJDErqWUr4QRol02RfaOAz/2yR6FLEyvHkXlmYSB+/HK9PE+GcsOKGZbzzsD8WKNreKiZHWY2MyCarqRlBDAGsZdbbnVLXbY/gSbB0k6Cgz1Py8X2Jf2A0opQYRmDTlcmIQkbDlxFdkybjj30bqr8KfrK5pyEy3RKYSvDdsdgCgZ4G9SJaIWAdijjcMKdBpTDx0rUUSTs+h8T8tpz6Fi8+gfdIudah0hgSG6THy+cuIFcx2UsxLF5KS/khOuJopw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR01CA0198.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::7) by KUZPR06MB7964.apcprd06.prod.outlook.com
- (2603:1096:d10:21::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Tue, 10 Mar
- 2026 06:53:43 +0000
-Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
- (2603:1096:4:189:cafe::fa) by SG2PR01CA0198.outlook.office365.com
- (2603:1096:4:189::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Tue,
- 10 Mar 2026 06:53:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 06:53:43 +0000
-Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 9DF4E41604E9;
-	Tue, 10 Mar 2026 14:53:38 +0800 (CST)
-From: Gary Yang <gary.yang@cixtech.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	peter.chen@cixtech.com
-Cc: linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v2 1/2] dt-bindings: PCI: update CIX Sky1 PCIe Root Complex bindings
-Date: Tue, 10 Mar 2026 14:53:37 +0800
-Message-ID: <20260310065338.2337761-2-gary.yang@cixtech.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260310065338.2337761-1-gary.yang@cixtech.com>
-References: <20260310065338.2337761-1-gary.yang@cixtech.com>
+	Tue, 10 Mar 2026 06:55:32 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fVPlL2CjvzKHMMf
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 14:55:10 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 3605440539
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 14:55:25 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgBnt9dbwK9ptOx8AQ--.50254S2;
+	Tue, 10 Mar 2026 14:55:24 +0800 (CST)
+Message-ID: <1cd2c566-382c-4bbc-a1fa-1220fd76e827@huaweicloud.com>
+Date: Tue, 10 Mar 2026 14:55:23 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|KUZPR06MB7964:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 745ae3bc-460c-45fb-1a19-08de7e71c50d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: V6aci+cd6WWp96Bi6I4u/g0xpanlGaizyrNMyhvWkBjxE/udDSLDU/226Nl/in/9UBBk1mBPJmfWkBkZublcKa2JUtJpvtj/y03j7Pnu4xwvlIbUZ5mClY2Fv5Wdf+1CNFR1Xyp+V1rv6XfWG9Cac85mqmLjkK71T+2kvBcpoNy7VamqeoEMszStor5UIFHp2g04drTIGFHHQyseJEevoaxMF/siFFMByThnsYEvinoEPNfyBa2+uBtlK3g8Gvg6NvyEkQNYqX2Sl2KeVITRaOIIsYgHInkaOwStn+QPw65FgRKG+YoaSTw1WLEArOcKtccdvRo4J93ZRz21P3H+NAXV8HLOtic1SKoP4QjPg1gYLTBU5URs4pEno0hLuusIz4+8LRKMtix1fwMUU/p0K0HkNyTS2SY4tY5RFQ3hoXMjD+P3MUv/Psj5pxX4W5Y+gyPN2xTIQRTQ/CC95lwQilHz2ob4pMDgoFpANZ00TStBeTZw3SuWDMvj6JH0fNN1bCtLkJFGG9UI/DWwJLgo1LyLTAXvIlFbio5yczQ4EWghTFElKOeWrXlRAKGdpdwQb5Yz3l8Ipg5WIY5pQsVihJeCx6F5LnoaFI2Q2pV0LFcoPz71qWiWROOZ4io7zuQatq5C9jg2moPu+BYgjyBlfSxERimi5Q0iqp199E1Au2fw2plVXkbvRcnOL/gCz45w2P8JWO3PtZuiSMh7EKJyrjvyv5izU50ZQVy8mdTBXuzSG87JzN3VXg1qGkYAFGaNYIk2VbQ9v1YPgmtQIKd98Q==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(7416014)(82310400026);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jaaYeEfMEgUfWD+y0nGi7weXDNQRMTfSSTKBJ23cpK7QgrJRvAXsKpYJyHnr6pMCrRX2Q6LBzOXEFR7lkszuNK1GqbawDqDhCS9mPxiXkI9LXfedW7FLtyH7grF4y/WiWMpilssVD3DF3+xXpHLTafhnxoR1ISOW1h9sCNeGcV7evjeibA9O6ZWk8dvydG9SKHJ8F/SY5pD1GwXw6wolroJA9ZulSYXORLnajfRPy1kcPKVNqK71jlODc1PtuaIPM9BRudwB2ZpbaEYRu7qQAQ+TITONKcfdVclJ/z44q+YEvTZwuvcIpA4grUnlm4tCH7FpOof+qrr3U3RoZFOV0pG/+tsP7ULB4Hd9l3IuwnJXRe/dE4qjuXgzEQzuTXGumemSOUK/tCC8DnlbjDZq3tlikEGl9WGclqvODUkdDOUA32Zmt8CA33CfWFfqf2Bd
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 06:53:43.3764
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 745ae3bc-460c-45fb-1a19-08de7e71c50d
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR06MB7964
+User-Agent: Mozilla Thunderbird
+Subject: Re: [bpf-next v8 0/5] emit ENDBR/BTI instructions for indirect jump
+ targets
+Content-Language: en-US
+To: Anton Protopopov <a.s.protopopov@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Yonghong Song <yonghong.song@linux.dev>,
+ Puranjay Mohan <puranjay@kernel.org>, Shahab Vahedi <list+bpf@vahedi.org>,
+ Russell King <linux@armlinux.org.uk>, Tiezhu Yang <yangtiezhu@loongson.cn>,
+ Hengqi Chen <hengqi.chen@gmail.com>,
+ Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+ Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
+ Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
+References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
+ <aa8EuW4fcwOXnIP7@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <aa8EuW4fcwOXnIP7@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: cCh0CgBnt9dbwK9ptOx8AQ--.50254S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyUGw48ZF15ArW7JFW8JFb_yoW8Jw1UpF
+	Wvk342qFWDJr4kCrnrJay8GryagwsxJa1DtFn8C34xGw4Ygrn3tF4fKrW2vas0yr4YkwnF
+	vF4Y9a48u398CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUxZXoDUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_235354_466397_7E3D47C3 
-X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-CacheID: sfid-20260309_235531_250053_CB9DF7AF 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,31 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add power-domains and power-domain-names property
+On 3/10/2026 1:34 AM, Anton Protopopov wrote:
+> On 26/03/09 10:00PM, Xu Kuohai wrote:
+>> On architectures with CFI protection enabled that require landing pad
+>> instructions at indirect jump targets, such as x86 with CET/IBT eanbled
+>                                                                    ^ enabled
+>> and arm64 with BTI enabled, kernel panics when an indirect jump lands on
+>> a target witout landing pad. Therefore, the JIT must emit landing pad
+>             ^ without
+>> instructions for indirect jump targets.
+>>
+>> The verifier already recognizes which instructions are indirect jump
+>> targets during the verification phase. So we can stores this information
+>                                                     ^ store
+>> in env->insn_aux_data and pass it to the JIT as new parameter, so the JIT
+>> knows which instructions are indirect jump targets.
+>>
+>> During JIT, constants blinding is performed. It rewrites the private copy
+>> of instructions for the JITed program, but it does not adjust the global
+>> env->insn_aux_data array. As a result, after constants blinding, the
+>> instruction indexes used by JIT may no longer match the indexes in
+>> env->insn_aux_data, so the JIT can not lookup env->insn_aux_data directly.
+>>
+>> To avoid this mistach, and considering that all existing arch-specific JITs
+>                  ^ mismatch?
 
-Signed-off-by: Gary Yang <gary.yang@cixtech.com>
----
- .../devicetree/bindings/pci/cix,sky1-pcie-host.yaml         | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-index b910a42e0843..1d8ee8310588 100644
---- a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-@@ -38,6 +38,12 @@ properties:
-   ranges:
-     maxItems: 3
- 
-+  power-domains:
-+    minItems: 1
-+
-+  power-domain-names:
-+    minItems: 1
-+
- required:
-   - compatible
-   - ranges
--- 
-2.49.0
+I'll fix them and run a spelling check before sending the next version, thanks.
 
 
