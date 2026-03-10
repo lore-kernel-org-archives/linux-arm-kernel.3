@@ -4,160 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50637EB104E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E5EEB104B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4x8lVPTfI8gP2nq/1GJgFSF7/Q0HjBw1bkLIzc/Sv/E=; b=uzul+NaY95sOAt3LHMZMTX6xQl
-	rj/AOh3LYveY/Noj7VRS/PHiCpCEjbRnPGS3MvMrOCO6G9Sl14LucK1clKadCnbI9gBO8oD8JaVUm
-	F0hud4npdbV1pjqqMfyyfxDSl5FONg68m5LCwNXDCfbGk7UK+cqQh+SPcL0r6aQ/chHp+CIeB46yK
-	xR55VEpQzk2HwSuTAk2nh1AZ36oW5o63FQ9AGP6FIDTe4CAUSgTIY1kGSGYbdpFAvPPusM/XZHlXX
-	cyz3TjAo53d7LBnr5Zp/z2nhQOfmjXVvlIO/opfkTfwT4EvE3QpgCXZxzZiKR1QzixA/3OKxBJqJc
-	LEk0gm7w==;
+	bh=SMwpo2JTvdNeH8h1Q7tqFxZySmtQtbKweaYaEojC5FA=; b=HE+45z0R7pljpQ+wrjhioyBRmK
+	dg3LYgoMoYA57EMNqfPS6FBJkPe/3JKfGYcf9KqzjOM1QQGgLADse/qBd02uf+BPGzYK6zhDo+A5b
+	5ydJqtp0+EinNk2m0Z3Om4lnbZ6X/2408+WnTd8e+Tq34oImXrUBkN7Zy3IWqSfUPApPQ2fOQtQVJ
+	4aJAteWblMx/egVxk/MglNnu8DuyB5nAIhjswTuwO7bpheyYNii9tQ4qzmxbEGwx5MbMQHt9t024O
+	6oPN5HxApTaWiWPTxTcEtLli3KoeMsWFYQPUFlaSb9vh/YY0AGNgJWSoegzZnsRmXW8VmvztNzyyw
+	kd1yOpOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzvB3-00000009HRf-3A61;
-	Tue, 10 Mar 2026 11:23:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzvAx-00000009HK0-0Ybu
+	id 1vzvEG-00000009I0n-31XN;
+	Tue, 10 Mar 2026 11:26:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzvED-00000009I0E-1sKT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 11:23:00 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62A6VZfO2021721
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:22:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4x8lVPTfI8gP2nq/1GJgFSF7/Q0HjBw1bkLIzc/Sv/E=; b=gvghw8DNIsAi2ZOW
-	rSW3aAU2unXfvpyObviRS6XiDeTA4dtbT3T8AsX+/MCVGS7NNm8/S6Kt7+zM4UHH
-	KbGKQm6ax7UUTaOwTgseEP7SYCNxz3rqgTBj8u648oCj1w8Ktm06wF6HHSAAqtdV
-	QQ19c+3P5HAUkoycF4YYSERRzcwPvkRAxySGr9+gl/qm1+Z8+Kk1LThEikRfiJ7B
-	r/PV77TMO9kVLDtNGcg2MZvaPtq/LTufVj24bCq4kGIU65RR/UxuNofAEfxxay/m
-	wDD8wQYZ+n4RYD9iqm7d4XZrQ9X3QKFsLNQWXCTT1tthpouMwJKp9qiUEvhM2csr
-	fT3TkA==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cte3w933p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:22:58 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-509114d7418so17113631cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 04:22:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773141778; x=1773746578; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4x8lVPTfI8gP2nq/1GJgFSF7/Q0HjBw1bkLIzc/Sv/E=;
-        b=MFtfHlWm/XdO+Vs9Ry/lP9/VQyXzKVHsQmFlpC/wMDDrHdUghEAyIlH4+P3+dZYWt9
-         V3SiIGIBNR947JmTN1JHr3NNW3CMofrGq8FtxU5O1boHBrmDFMX5kU794WqxucDUUcbV
-         5tGVfnppuy/7GNeD5UGbgpT2jnPcuGRx49lbn9mxJM0YISzmJhMXndIM0MYR1JeOY6+/
-         Sd1XfaFS5ECbEXEi0racNS2fUNA5B7arTPbGxmi+SJ1Uc8kZilUBkIDJ6cJogECIFENr
-         ULSWAY7yfiE4MonQuWjGn6TMNcVIzD1cYIC08bkFvfyWwMlw1nKcRLMl0tTlvTKzjEC2
-         7NyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773141778; x=1773746578;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4x8lVPTfI8gP2nq/1GJgFSF7/Q0HjBw1bkLIzc/Sv/E=;
-        b=fACvdLHuYLIGHWyhLsyPwxlobwKXreXbThv7EZL+qoucLJQEH1gYMUd6sFm2+qRSc9
-         Sfx8OGeMStx4yKdlwv6agwQnM4UGs3n2h3I/ksmPsG8MY9syUrkJCvWVfk7oshG/2Iyv
-         pcTrgKPGgXgE5mWCA8fIfcsZFvTZWLLMSusEttJAyMPlkWoCse46qfzojOyzrebqYaky
-         r+ZWGbj/QT7HEiFuSyva+rn8VpLst0vFFEWCp4DJptFJbLHbGMj6DGZfDLsIMgT6sF07
-         KTdziZAJq3txUzcZIzDT/Th1dgPgW1HXSfjwnG7lyKZu4Bu+FaH7lZgS9mh9a88ZzuQE
-         iQUw==
-X-Forwarded-Encrypted: i=1; AJvYcCVYXSypByTLABB8Nf5Jx6SKRpV5vEh0HuPR2wB3UfC6mVcsgVyEZiF+bCbcx6Fx2kl7IXqczWO0saK/u5B0i5l+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWVrvAPsyvHqXZ+KK9gUW87bQ5d4/mZo1EKP97pPvC0c6zVwHD
-	OYy41rF7Wsm52pLrG+ZFlsuxdeadoDH9bGjdpveMnCBa11I+WYiAaXCgAmvxWCJS92uygdKGZai
-	GVtzOi7F2KaSF7dsQF+IWG1e20uhHe12x48UpcnqUNM59eYdSdezx1JUbaB7PS3GzP1VniMZQjq
-	xwng==
-X-Gm-Gg: ATEYQzztuC6LKO+wnWSxqMXvqvoSMRhfYC0leF7p9HoqfBoye2qT7bX2N5fgMYsBJR7
-	d+Mjh+t1liRbTy3sUPNeYj66ZBwa1Hz/Ia4l+DpsSchHcjkcp+Syte9RR+dx5wCCI1pmRitEeqO
-	MMPQHi/fnLqaVeCw8qDCpVMrinh8TP5Ry4eWa9ZeDAbTm2E5xMao+gGz8auvDF2gF3B2E6QGc15
-	7mMLV7JIV623xsRZS9fiTkEBM0GJ6D7Zf/xg8AosVuzBJ5yMvwTRyCk8zh+Fa7Tn5Tw8rJ9BnAV
-	SlKclW1qoPzShX7R0BtA2LO4WHxpuKQo3XZKtLEYtYuk24mcS0QlJDsf4ip2iqKKjqwMh9gHONz
-	puRiHh8hMZUkLWPBoz6rvK4AX7aLfHGsGlU+s2Cxy1sOe
-X-Received: by 2002:a05:622a:1456:b0:509:219f:8e35 with SMTP id d75a77b69052e-509219f951amr49609951cf.42.1773141777614;
-        Tue, 10 Mar 2026 04:22:57 -0700 (PDT)
-X-Received: by 2002:a05:622a:1456:b0:509:219f:8e35 with SMTP id d75a77b69052e-509219f951amr49609561cf.42.1773141777135;
-        Tue, 10 Mar 2026 04:22:57 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541b7f255sm67162115e9.12.2026.03.10.04.22.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 04:22:56 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 10 Mar 2026 12:22:39 +0100
-Subject: [PATCH v2 5/5] media: platform: mtk-mdp3: Constify buffer passed
- to mdp_vpu_sendmsg()
+	Tue, 10 Mar 2026 11:26:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82D44152B;
+	Tue, 10 Mar 2026 04:26:12 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB4E53F73B;
+	Tue, 10 Mar 2026 04:26:14 -0700 (PDT)
+Message-ID: <6519a56f-b6cf-43dc-b34a-42123f6356f6@arm.com>
+Date: Tue, 10 Mar 2026 11:26:13 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-rpmsg-send-const-v2-5-0e94c5db9bf4@oss.qualcomm.com>
-References: <20260310-rpmsg-send-const-v2-0-0e94c5db9bf4@oss.qualcomm.com>
-In-Reply-To: <20260310-rpmsg-send-const-v2-0-0e94c5db9bf4@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-sound@vger.kernel.org, linux-media@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1016;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=PYQfNbJhq08lhf8pSFWFUAIROg8/q1W+1h6VJZjWmOI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpr/8Ctq9UEeQlkwgbYOvBN1J0NS/LKB7qV4njw
- JU8skMasvGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaa//AgAKCRDBN2bmhouD
- 1774D/9uW5xrt8/+RUVSYosRDY2s6mNxQs5JaiEfldKJ+p1+reJ9wftn3leur1dOdwHj/pB3F9A
- jOJIbwcWDRi4xx/mNWXP5Hv2xSEBxQOcf0sfrwWcK8LroDj6wlzCOxbOvuhxrfvltkttgQ14t03
- U3zs9fbzvPxeEASE1aWA0d3S5va6WP9xo42jJeOovTbPAY79OwFBoFeRrALnvVy6NxOerxKOeGQ
- 5lBuAzESo+KyhCSJUv858+bItSk7gcTzAJspq73LPE6peIEYsHDuicNoHnJYH10E4HBS7nktFx9
- IyONmGVnKGA+eWGC4bh74oYTC1f1gj1COyvrzK2sHh6TvLIksPRy3KZBFHUFTYKc2V9n74ypweX
- mkivKhKMRyMxmsR/xoxKrOmTs6pbC5qM3bonRCgksg+e6Xa1GittEa5ta6/CJ1lF+e1TBq3jJhb
- bti70QpBkAPodaPfwDZhfmeCIdC4U4RdXkQb20tRu4H+bSE4k7c+kytacurPBtGm8w2CXCvRJyR
- KOm0hEFxtR3+n1gzbECyPMgHwj1KRsz297+3oq/56L7lZVaIq2TDOD+/T7H+LXQAa5Vds6WuxCh
- eiCnDXDKS+yIdOH5I9wBB6q/thrp3foV5UQ0aBDk/YGwhhfGRM9mErhiUyj9MpWlNRKuwsH/+C4
- d2Tmexu7aWpZaUQ==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEwMDA5OCBTYWx0ZWRfXwZ9lAGRLqvnO
- tg1BDUl+kilL37Kxh+bhE2n7VVvkd1HoxR4qoFrNGSxrFhsi0dvn5FYgY7YBrkfjOHSFqk1BEVG
- DKeZbeMLBg9HcYvUZkO8mW/rbDnE06KMiOLaFULqb1Bd9/PNtQWZ0X3BF5uSDI5dqd6SVgHkh8r
- LMKC260dc4HrlgdB9Loz9s8vAhd0JgK8jInKNMQnXSd5bfYyRmu22bnE4t3MwH1HLhrYFKXsfzK
- xHW6saAUEl8jyHRRJbc/0eM4xA/OCwYLIBkBPVyCNZTfh4QypPQ4gPEqmDjLzCu8PScQnCogfZM
- P4XsngFLzcytprnJQ93mZREihqP5l6kMmCF/JqR8/l8wvNSTouVEBprc2OD5joTy3f3zTuYrMCg
- OHQCy7Sf4zTMsxjWkrbfU2KJPugGs10j06Pgch5fctUJznWsEV0JQTBCR4uhtdT3hxPGg09uOxI
- Jjd636AUpoClB7hgMdA==
-X-Authority-Analysis: v=2.4 cv=GtFPO01C c=1 sm=1 tr=0 ts=69afff12 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=07eiXoGdt8lw6NVwCNwA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: Wqgot8832q9jTAJGsNFwdroCjxPJ8nsP
-X-Proofpoint-GUID: Wqgot8832q9jTAJGsNFwdroCjxPJ8nsP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-10_02,2026-03-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
- spamscore=0 suspectscore=0 priorityscore=1501 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603100098
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v5 38/41] arm_mpam: Add workaround for T241-MPAM-4
+To: Fenghua Yu <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+ <20260224175720.2663924-39-ben.horgan@arm.com>
+ <7e496cb6-ab31-4a89-9630-0fa2e6b3607b@nvidia.com>
+ <3e26371d-21b5-435e-9f31-7187466c57a2@arm.com>
+ <2aa90f15-f2f0-45d7-9161-2ab08b4d00d4@nvidia.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <2aa90f15-f2f0-45d7-9161-2ab08b4d00d4@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_042259_181384_749CB735 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260310_042621_566709_36C0456E 
+X-CRM114-Status: GOOD (  32.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,34 +80,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mdp_vpu_sendmsg() passes the buffer to scp_ipi_send(), which takes now
-pointer to const, so adjust this interface as well for increased code
-safety and code readability.
+Hi Fenghua,
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On 3/9/26 17:39, Fenghua Yu wrote:
+> Hi, Ben,
+> 
+> On 3/2/26 09:11, Ben Horgan wrote:
+>> Hi Fenghua,
+>>
+>> On 3/1/26 17:28, Fenghua Yu wrote:
+>>> Hi, Ben,
+>>>
+>>> On 2/24/26 09:57, Ben Horgan wrote:
+>>>> From: Shanker Donthineni <sdonthineni@nvidia.com>
+>>>>
+>>>> In the T241 implementation of memory-bandwidth partitioning, in the
+>>>> absence
+>>>> of contention for bandwidth, the minimum bandwidth setting can
+>>>> affect the
+>>>> amount of achieved bandwidth. Specifically, the achieved bandwidth
+>>>> in the
+>>>> absence of contention can settle to any value between the values of
+>>>> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
+>>>> zero (below 0.78125%), once a core enters a throttled state, it will
+>>>> never
+>>>> leave that state.
+>>>>
+>>>> The first issue is not a concern if the MPAM software allows to program
+>>>> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
+>>>> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+>>>>
+>>>> In the scenario where the resctrl doesn't support the MBW_MIN
+>>>> interface via
+>>>> sysfs, to achieve bandwidth closer to MBW_MAX in the absence of
+>>>> contention,
+>>>> software should configure a relatively narrow gap between MBW_MIN and
+>>>> MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
+>>>>
+>>>> Clear the feature MBW_MIN feature from the class to ensure we don't
+>>>> accidentally change behaviour when resctrl adds support for a MBW_MIN
+>>>> interface.
+>>>>
+>>>> Tested-by: Gavin Shan <gshan@redhat.com>
+>>>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>>>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>>>> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+>>>> Signed-off-by: James Morse <james.morse@arm.com>
+>>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>>>
+>>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>>>
+>>> This patch itself is good.
+>>>
+>>> Please check the following comments.
+>>>
+>>>> ---
+>>>> [ morse: Added as second quirk, adapted to use the new intermediate
+>>>> values
+>>>> in mpam_extend_config() ]
+>>>>
+>>>> Changes since rfc:
+>>>> MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
+>>>> Handling when reset_mbw_min is set
+>>>>
+>>>> Changes since v3:
+>>>> Move the 5% gap policy back here
+>>>> Clear mbw_min feature in class
+>>>> ---
+>>>>    Documentation/arch/arm64/silicon-errata.rst |  2 +
+>>>>    drivers/resctrl/mpam_devices.c              | 50 ++++++++++++++++
+>>>> +++--
+>>>>    drivers/resctrl/mpam_internal.h             |  1 +
+>>>>    3 files changed, 50 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/
+>>>> Documentation/arch/arm64/silicon-errata.rst
+>>>> index a65620f98e3a..a4b246655e37 100644
+>>>> --- a/Documentation/arch/arm64/silicon-errata.rst
+>>>> +++ b/Documentation/arch/arm64/silicon-errata.rst
+>>>> @@ -249,6 +249,8 @@ stable kernels.
+>>>>    +----------------+-----------------+-----------------
+>>>> +-----------------------------+
+>>>>    | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/
+>>>> A                         |
+>>>>    +----------------+-----------------+-----------------
+>>>> +-----------------------------+
+>>>> +| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/
+>>>> A                         |
+>>>> ++----------------+-----------------+-----------------
+>>>> +-----------------------------+
+>>>>    +----------------+-----------------+-----------------
+>>>> +-----------------------------+
+>>>>    | Freescale/NXP  | LS2080A/LS1043A | A-008585        |
+>>>> FSL_ERRATUM_A008585         |
+>>>>    +----------------+-----------------+-----------------
+>>>> +-----------------------------+
+>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>>>> mpam_devices.c
+>>>> index 08cb080592d9..8f44e9dee207 100644
+>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>> @@ -679,6 +679,12 @@ static const struct mpam_quirk mpam_quirks[] = {
+>>>>        .iidr_mask  = MPAM_IIDR_MATCH_ONE,
+>>>>        .workaround = T241_SCRUB_SHADOW_REGS,
+>>>>        },
+>>>> +    {
+>>>> +    /* NVIDIA t241 erratum T241-MPAM-4 */
+>>>> +    .iidr       = MPAM_IIDR_NVIDIA_T241,
+>>>> +    .iidr_mask  = MPAM_IIDR_MATCH_ONE,
+>>>> +    .workaround = T241_FORCE_MBW_MIN_TO_ONE,
+>>>> +    },
+>>>>        { NULL } /* Sentinel */
+>>>>    };
+>>>>    @@ -1464,6 +1470,31 @@ static void
+>>>> mpam_quirk_post_config_change(struct mpam_msc_ris *ris, u16 partid,
+>>>>            mpam_apply_t241_erratum(ris, partid);
+>>>>    }
+>>>>    +static u16 mpam_wa_t241_force_mbw_min_to_one(struct mpam_props
+>>>> *props)
+>>>> +{
+>>>> +    u16 max_hw_value, min_hw_granule, res0_bits;
+>>>> +
+>>>> +    res0_bits = 16 - props->bwa_wd;
+>>>> +    max_hw_value = ((1 << props->bwa_wd) - 1) << res0_bits;
+>>>> +    min_hw_granule = ~max_hw_value;
+>>>> +
+>>>> +    return min_hw_granule + 1;
+>>>> +}
+>>>> +
+>>>> +static u16 mpam_wa_t241_calc_min_from_max(struct mpam_config *cfg)
+>>>> +{
+>>>> +    u16 val = 0;
+>>>> +
+>>>> +    if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
+>>>
+>>> But the problem is mpam_feat_mbw_max feature is NOT set in cfg.
+>>>
+>>>> +        u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
+>>>> +
+>>>> +        if (cfg->mbw_max > delta)
+>>>> +            val = cfg->mbw_max - delta;
+>>>> +    }
+>>>> +
+>>>> +    return val;
+>>>
+>>> So 0 is always returned.
+>>>
+>>> The workaround will set mbw_min as 1% which is too small and will cause
+>>> performance degradation, e.g. about 20% degradation on some benchmarks.
+>>>
+>>> This patch itself doesn't have any issue.
+>>>
+>>> The issue is the mbw_max feature bit in cfg is not set.
+>>
+>> This is intended behaviour as the reset is done independently
+>> from the value set in the config. The value is there so that
+>> resctrl can display the expected values.
+>>
+>>> This is a legacy issue, not introduced by this patch set.
+>>>> Here is a fix patch for the issue:
+>>> https://lore.kernel.org/lkml/20260301171829.1357886-1-
+>>> fenghuay@nvidia.com/T/#u
+>>
+>> I've commented on that patch. I think it's best to fix it in the context
+>> of the erratum.
+>>
+>> Does the below solve your performance problems?
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>> mpam_devices.c
+>> index 236f78ab9163..60d3d3e2193f 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1515,16 +1515,20 @@ static u16
+>> mpam_wa_t241_force_mbw_min_to_one(struct mpam_props *props)
+>>          return min_hw_granule + 1;
+>>   }
+>>   -static u16 mpam_wa_t241_calc_min_from_max(struct mpam_config *cfg)
+>> +static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
+>> +                                         struct mpam_config *cfg)
+>>   {
+>>          u16 val = 0;
+>> +       u16 max;
+>> +       u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
+>>   -       if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
+>> -               u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
+>> +       if (mpam_has_feature(mpam_feat_mbw_max, cfg))
+>> +               max = cfg->mbw_max;
+>> +       else
+>> +               max = GENMASK(15, 16 - cprops->bwa_wd);
+>>   -               if (cfg->mbw_max > delta)
+>> -                       val = cfg->mbw_max - delta;
+>> -       }
+> 
+> Could you please add some comments on this piece of code? It's worth to
+> comment on why there are different values on cfg and props.
 
----
+Sure, how about this?
 
-Depends on the first patch.
----
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+	} else {
+		/* Resetting so use the ris specific default. */
+		max = GENMASK(15, 16 - props->bwa_wd);
+	}
 
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-index fae3e1ad2df7..67f3001153ae 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
-@@ -163,7 +163,7 @@ void mdp_vpu_unregister(struct mdp_dev *mdp)
- }
- 
- static int mdp_vpu_sendmsg(struct mdp_vpu_dev *vpu, enum scp_ipi_id id,
--			   void *buf, unsigned int len)
-+			   const void *buf, unsigned int len)
- {
- 	struct mdp_dev *mdp = vpu_to_mdp(vpu);
- 	unsigned int t = MDP_VPU_MESSAGE_TIMEOUT;
 
--- 
-2.51.0
+>> +       if (max > delta)
+>> +               val = max - delta;
+>>            return val;
+>>   }
+>> @@ -1577,9 +1581,8 @@ static void mpam_reprogram_ris_partid(struct
+>> mpam_msc_ris *ris, u16 partid,
+>>                  if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, msc)) {
+>>                          u16 min =
+>> mpam_wa_t241_force_mbw_min_to_one(rprops);
+>>   -                       val = mpam_wa_t241_calc_min_from_max(cfg);
+>> -                       if (val < min)
+>> -                               val = min;
+>> +                       val = mpam_wa_t241_calc_min_from_max(rprops,
+>> cfg);
+>> +                       val = max(val, min);
+>>                  }
+>>                    mpam_write_partsel_reg(msc, MBW_MIN, val);
+>>
+> 
+> Otherwise, this change looks good to me.
+
+Did you get a chance to confirm if it behaves as expected on your harware?
+
+> 
+> Thanks.
+> 
+> -Fenghua
+
+Thanks,
+
+Ben
 
 
