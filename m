@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3CEEB104B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D06DEB104B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLqsjdzmuooo7CLedHC7AqpuPSTNFUGZmAR0YC8RY7s=; b=1a4ig992DNUe4ncW9YpfdCCQNJ
-	VkexhVVjZHToaxDPoh+PMmLlE4JhMMiCXiYR+AwMPdNf4U7eV3GVCnEBlSXprklb3GFZ07t4JmeBq
-	fa5uSwGczBe7SKkrxZNnV8T8yXxPf1W4PN1ya5eHQrfEc+WHU6XiP5gh5S60rFLFDfAAeqJeUQirO
-	22GkPEUuUfnarv3ZZytwlxyeoyAE/BEW6e5mvfNrDPXj//siLGQ/xnkQc/jk2JhoFs5/sNAEnTOMR
-	IGdTKW5AHZBNMZykhFpdhjlsey0rrWkU/40AUPPxGjg4ktZKfjcyOF6zjHCIWmgnAhn+p7/emQ6ZX
-	QgorzZxA==;
+	bh=4L0wRm/RqSJLhtSwnPJpdXphWSD570KZtfJJg/R3G4Q=; b=QOg2R+VDq9B9+jkIqxN9Gb3nHr
+	itvneeoFPpz3Pja2PlutWB/btsPN87qyEp9NrfN4RUkdU/drZhbCLLgWMGG+6sRZKsQpLu9GGxTdI
+	OrbQ9eD0uOp2s8cIBQE6AMFzUhZOs48ezuvGAuPQ18vyhgaU5if1OrICjVEUsxbUpS0GETQKF0iMj
+	zKxrrJM4zsIB1dE8A2758OfbuEFktN+WDzkmzBEsv8g8dROf9SeyO5AXouFXaSPStcgG1ubZZ4Moc
+	UOIq4KueOGlm4YKN8Gx8bMMxkPb8y441KilGzpH1NUY6B4sHMaSnF+xqZvdmnmBSobAIpYRZfi53K
+	Vr2tWc4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzv7J-00000009GfY-13Mg;
-	Tue, 10 Mar 2026 11:19:13 +0000
-Received: from mail-centralusazon11010000.outbound.protection.outlook.com ([52.101.61.0] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vzv7P-00000009GiE-2Ik3;
+	Tue, 10 Mar 2026 11:19:19 +0000
+Received: from mail-southcentralusazon11011070.outbound.protection.outlook.com ([40.93.194.70] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzv7G-00000009GeU-1tFY
+	id 1vzv7N-00000009Gh9-1bC7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 11:19:11 +0000
+	Tue, 10 Mar 2026 11:19:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BBWIKY25eJh7YyOls+q7Ml9QL3oErf9eh5VI5CbryBEbIeAk+LwmaLk9v9qGIlHFT1Hs5qUPYXWZCOu4NTI/GzDpRBkgtqHRbaJbbUjw6nra8FfvWbkY2U4D2UZhBMjwn6OcFxXEzjXRZogcTKaJ7+NO+JUGQAkV3CVPssgoxt6CwctkHN+6vh8CU59hXntJXLPTLL+DqR2maURw4tj3npl/e8NA5s3sJ1dZQMgBBRf1aUQXcf4mKm7aMvPg+340zxxvklXilLXZPy9bQGWjfV4dvVkmEWFsewjvgdtmHcH0npZDr1SqBFmZsM36LKrVRkj4FuUFQElKdbbChwYq0Q==
+ b=SOWnu4oJmpBT7U0imYUq2mHd9wP01Vi3j1qNN8asJw6z3It+xWyVjk7BeVQ1ConXrpWRARhdmXJPs3QGe17R2+56BFshnHkTmDIVtuDiVvHfx/IfYp90cbA09pJPdLXCGp+7GDyeQi+DbnjcX/0zM2jInJcDFqOsqw8S+1qbcjSAOIP1/Bh+Wb8utslRezj4E9aYN4pbDhohMORM16Zowu2bxYF0iCGmOZUCNyuhUvBsbL3YNaL4qXjzk35CZJVtlTAXTTKvJv+E5ct3m/PmMtYQHUw3ECRaqATxs0AN8P2+ztArW/8NVGyj6mkR+zid4gnwCSV13gf9fWSO6FRy4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CLqsjdzmuooo7CLedHC7AqpuPSTNFUGZmAR0YC8RY7s=;
- b=WJL/Pchbqvab+Yar73C4qWAOn62lLT6i/auDYxmnl4nFKcm7m3p4x6fGfq1auysLCw8r4fvL30GzUiRckIq8nHwBJlHVFjbw2q3Y0ZpKzNQwFK/QOI9C75RaiCInMyVE3cyyud5L3aLQEyW6paI/GHphJ39uyyULkYz1exN37aJvnjUasu9FX4mmBNC5NaWjH5nbkhYPKQ6ugYQD6xZEBjBLmN+zjCTWmMEaAUbjURzowC/HaiduXdcsd2aWd7Gz6lQ5Xd6mwVljeLYROTLm+gphbodihgSZ+QU5D0Q2Kh/1EzMoOYvRx6qqWEjtZ9rdwgTCSK76Q+H9hiEk2tIhTg==
+ bh=4L0wRm/RqSJLhtSwnPJpdXphWSD570KZtfJJg/R3G4Q=;
+ b=ihMaj6ubXgR11W85qnhnP40glIEGoYbqjmQYvpl9EMnAyNIYeFWeVu+CNWDp9dMinMADwZibOwTJrsUprLWrPlQgVZhbaVuAJTxconHAWyLs6NqTOYJlrQYA3fVab6oUQhjORh3JK8Zsm8RO5fzgCl7A+syKTxB3Zf4f1dpMfB29kb8RfTreW7/lUGBbXRonzirtn+82Q3lgIeu3J/vfPtkuxoQ75VV719ZLeLfaAGP2z3XJp3G8y+8oT75rUGAwRY65Ln05KlJ0Z6AnjSaQc0IKT189USQ+9PJQv17ToVTivriwuARvp8jFRenqBN+AlzVYquObtZtvbZGoFr2g6w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CLqsjdzmuooo7CLedHC7AqpuPSTNFUGZmAR0YC8RY7s=;
- b=Tx3erZIeJT5E1iukHfJkzdPysFG2oFKeCfCByMtyydj8wkFxugF254yF9sIv9DxRnn6jwl94hioVaChVlKucHvero1TdE8HxgiMMJPzcueW85Y687/GWT4NTxm/eTwbNZIQTVNg/2b50reZ+mjAEnvFurOVZ2INUdDCSwVMiYZI=
-Received: from SJ0PR05CA0107.namprd05.prod.outlook.com (2603:10b6:a03:334::22)
- by IA0PR10MB6915.namprd10.prod.outlook.com (2603:10b6:208:431::8) with
+ bh=4L0wRm/RqSJLhtSwnPJpdXphWSD570KZtfJJg/R3G4Q=;
+ b=Xv758P6ti0lHbbyasGMKACnse/tCxs77KFM02wdHWMIARk7Bb0e2u0LR/+B4CdRcT5XzBxYqppyMwbf3HvSSYFiO+ynb54vafQe5Weo8ZO/jbFld9itIKO4cnSXuFfynpoljrFYMlyDeExyDg0cRo3nKPr42bkW/GIFRGmmPhTo=
+Received: from SN7PR04CA0015.namprd04.prod.outlook.com (2603:10b6:806:f2::20)
+ by IA0PR10MB7578.namprd10.prod.outlook.com (2603:10b6:208:491::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Tue, 10 Mar
- 2026 11:19:05 +0000
-Received: from SJ5PEPF000001D3.namprd05.prod.outlook.com
- (2603:10b6:a03:334:cafe::c5) by SJ0PR05CA0107.outlook.office365.com
- (2603:10b6:a03:334::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Tue, 10 Mar
+ 2026 11:19:11 +0000
+Received: from SN1PEPF0002BA4E.namprd03.prod.outlook.com
+ (2603:10b6:806:f2:cafe::20) by SN7PR04CA0015.outlook.office365.com
+ (2603:10b6:806:f2::20) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Tue,
  10 Mar 2026 11:19:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF000001D3.mail.protection.outlook.com (10.167.242.55) with Microsoft
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SN1PEPF0002BA4E.mail.protection.outlook.com (10.167.242.71) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 11:19:03 +0000
-Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 11:19:10 +0000
+Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 06:19:02 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 06:19:10 -0500
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 06:19:02 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 06:19:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 10 Mar 2026 06:19:02 -0500
+ Transport; Tue, 10 Mar 2026 06:19:09 -0500
 Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62ABIm7b2963300;
-	Tue, 10 Mar 2026 06:18:56 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62ABIm7c2963300;
+	Tue, 10 Mar 2026 06:19:03 -0500
 From: Akashdeep Kaur <a-kaur@ti.com>
 To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
 	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -87,9 +87,9 @@ To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
 	<linux-omap@vger.kernel.org>, <s-ramamoorthy@ti.com>
 CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <d-gole@ti.com>,
 	<k-willis@ti.com>, <a-kaur@ti.com>
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am62-lp-sk: Add system-power-controller
-Date: Tue, 10 Mar 2026 16:48:45 +0530
-Message-ID: <20260310111846.1084623-2-a-kaur@ti.com>
+Subject: [PATCH 2/2] mfd: tps65219: Make poweroff handler conditional on system-power-controller
+Date: Tue, 10 Mar 2026 16:48:46 +0530
+Message-ID: <20260310111846.1084623-3-a-kaur@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260310111846.1084623-1-a-kaur@ti.com>
 References: <20260310111846.1084623-1-a-kaur@ti.com>
@@ -99,29 +99,29 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D3:EE_|IA0PR10MB6915:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25765bfd-1637-4ace-e901-08de7e96d65e
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4E:EE_|IA0PR10MB7578:EE_
+X-MS-Office365-Filtering-Correlation-Id: d782f817-62b3-49e3-cea8-08de7e96da85
 X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700016|921020;
-X-Microsoft-Antispam-Message-Info: CCcaJUwIsrHad7e6H5csZumYaK821M8CMCdNmP/CzPfULC9zGNtdBOZAPA77LZRWTy54XvM4Vri0Bi3luGeEgWPNADoQO5GhjO/Cbb83UIkqP1Hs2tOKuh1Y7fakWBEinTjAVwxFGcWHSw8iVGakqp6dgJxX/EbbOe3HxYsLcJIT7TniTh7O5X6ihHYb0Q8nJqiu33EZ8pR/0iZUzF5549OYVCLMt+BTI9gwI4PGJk+THFD1cVptSbUBktsNbgde0YUGpdw48GaITp7+jDWBAHnCogjL5NAT+RY89TH6wkfsGUNx4Ljnhb+OGrpkjChlbaoo3SmhIfCI/Tov5Tp1aO/GnbvkFboA50MoRkfD1nENHkhQw2kYMtUaYCeFvMu5mmon8tORHZjcgDjeKfhtg9xOuJia7OIpFQTPQujcCce5uJ4EEnKDWfPqSHjxLhJtMzttYTdwjiOtFInOC6zD4RgrcQx07Wt9hOCNJMvMNCnE9oal7ENKYO/wtaANFwSXmKqKBF74fjwKn/T6n++i5+zUYiOz/zBPf1rENSfn+PQ1NITfMmrvMsmYkrZgJvkg+hwyl7ZTk0nKvKdv68rpg4bMR/hLFJHnPI4tRAyBdqz9ZH3oJhBOyo+e02blrM1efppdVpgnir0Ff6iSqN79OKJXFeKudLy32mL40xrIrulFS2RRVVTCGoIG2lCkLPa9jvztIuGKh6tnbS8wvjoKQ+09acNhd/40UZVJ6haAg9IBRimzKqWBvkFq2tnzr7ItyaCn4teWnEyzfrBrFWn7vUBLIKy28rBpU1Sl7obvEc+tOC0azJD/TSQLAeUhsVb2
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700016)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700016|921020;
+X-Microsoft-Antispam-Message-Info: mUBDDe1jNc1QouZ45+/OHLr+9g8tuEsKQxZJZpb1oxaYf5CDtfLC1wQdL/cRDpRe2+/rCbxhCZuJwnsxEv1lXmIwGHvUP+4djOaq4uKa8DKOyl1lVMZt8qzLdvxW7I7XInWZ9Zrx/LQ68DOn22Felq+PUO2/oZQpoBO4EzBX0QiJ/jIzAaiageGPIXfqxOs5Daqx+8hVyzAWsipxWhZ8LsNGPtBLjsamePl58AkNYCAK2Scaa/VGE6t46aWP/P/urSjhymE65P9UHFP0S41sHYbxqd4hcmHQE2YDzPLGTREIPvzZZMZ2gr4N4DjlZG20NtzzCZPPZULsF2O2OSi3gVdR0JOH71nE5OnENMcDWP5FZpu4JlyWu5e4Q5iUWzy4jf35t++IQcvx+b57H0NpC5ZeiMybSx0V0yeiqB7QTYfGJYifqbFwZqvvhqs1gR8lj61H1qfxPjLRJK7APhF/F/rBSDLz8KklQ2WovnhDrHkxbX5oPRMesxs9kA5UiCJkmmciwNcthXudadAbEt/sLDuktqMXPl94zF1irQEOaebzOKeSVbkCetL7ZASaf/4GkXPv0xKVHNaycCCPW/9VZcLhkjZ1q9A6+rCYe/g6BL2J8+/JhI0wWA5TpwQQOVDzTr1rrk8s2bslWEZtiVLjZ66ubn+o42eOs2QjO/FCS+/n9qWuRCV6SlHpO7H3LUFCj/pxBt3QyZsyeAxZSR/VZTBeIiI+lbH9z/T0pWBOt3wfdU07Qj9joBLiBdMaCQu9ItpgjzM+o98l826j+MJBb3iDGGngApUQbfBMn5EmYeO48ctFTM+lYN/NLuBa6Rw7
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700016)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kEXTo4EkUBDfHJJW6C2p8XxjnGfyQskp1R182Ko1uf/YSnr8SmsNWrPLNjUn1XFOmmYY6jUE/UAXbz0pQPxGqKrY0hkMroPsRzBlSEAanFsV3/nfa6J1OjVeRkaWmLGzCZYQ2wWwjp5YLaMLC2Ut0JGmFrzY983iNza5Ef3JA2MbpbCtdT8LDnO4Z3YVwI+jxB/C2p+2mzUPIYLrIGx+QFQAiM6PX1gEHvqBuL4FzG9+mhhrrO1+zlwsUP4zFRfBwF7m3FVZrhlarNv/Ddn0Dj5Vo8Lo9n9NtVmHWqHWPcMj7CnEccfvbIRvact7SLn2bf1c1iF+n3G0KcW0goQpXpZ0FrEfyxaaaXjSCH4S2++Z6VsKf/2xg6IfCZOgZyvwlhtG8YtgF7EGZ73aF4IuP4UhxBaOc7se3887upEI27nDLOXi6Re/OQhhwqecP5IU
+X-MS-Exchange-AntiSpam-MessageData-0: W1+e6ib1fBQ0IGL3rq9Er9kBWwgEhCXF/BsOZ0Isz5RIJtIeN1p7SsdB7DLjbwrmndl4B38cKmZPUjO9+yGZ9ptEOBb4LsMIMKqGuMBnInGfXlXk8ko2v/dpRPGBw9xvydeCIN0GvUWRXNMqKu6x4xtpiDjEzbZUOijqAnDMfqfILPlVxkQzTrqApKdEIDbmu8gKArF5dBfE4SW2zawBS3HvePfI7lzNO6AnqDf3qSzKFevUzFqy21ys6Oj+pSjA/VU3w26MOnb8O0xIeY8WN2zHP5w+lQjwceQMIh6gc0lN3FIPgMIwHFFCvUuLreUF2YqARhOyO7wPGB1pC5A14pSRwRmrRhC/P9gtrbDi/UsKEGi87hgzlw26gSNmRL7WMRqJ6RxB7bYFWR6adPQfPlqMmSuzwUbtjLTbpxS9Csztzem7HEkFLBW0MsUFXHaA
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 11:19:03.8645
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 11:19:10.8924
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25765bfd-1637-4ace-e901-08de7e96d65e
+X-MS-Exchange-CrossTenant-Network-Message-Id: d782f817-62b3-49e3-cea8-08de7e96da85
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D3.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4E.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6915
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB7578
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_041910_490662_CD8EE9A5 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20260310_041917_420521_08DD7404 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,35 +136,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On AM62-LP-SK, the TPS65219 PMIC is the system power controller
-responsible for handling system poweroff. Add the "system-power-controller"
-property to the PMIC node to explicitly designate it as such.
+Currently, the TPS65219 driver unconditionally registers a poweroff
+handler. This causes issues on systems where a different component
+(such as TF-A firmware) should handle system poweroff instead.
 
-Among all in-tree device trees using the TPS65219 PMIC (verified via
-compatible string), AM62-LP-SK was the only one missing this property.
-This patch corrects that omission.
-
-This property will be used by the PMIC driver to conditionally register
-the poweroff handler, ensuring only the designated power controller
+Make the poweroff handler registration conditional based on the
+"system-power-controller" device tree property. This follows the
+standard kernel pattern where only the designated power controller
 registers for system poweroff operations.
+
+On systems where the property is absent, the PMIC will not register
+a poweroff handler, allowing other poweroff mechanisms to function.
 
 Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mfd/tps65219.c | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
-index 3e2d8f669535..786a7d695b33 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
-@@ -206,6 +206,7 @@ tps65219: pmic@30 {
+diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
+index 7275dcdb7c44..beb816707d8f 100644
+--- a/drivers/mfd/tps65219.c
++++ b/drivers/mfd/tps65219.c
+@@ -541,13 +541,19 @@ static int tps65219_probe(struct i2c_client *client)
+ 		return ret;
+ 	}
  
- 		interrupt-parent = <&gic500>;
- 		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
-+		system-power-controller;
+-	ret = devm_register_power_off_handler(tps->dev,
+-					      tps65219_power_off_handler,
+-					      tps);
+-	if (ret) {
+-		dev_err(tps->dev, "failed to register power-off handler: %d\n", ret);
+-		return ret;
++	/*
++	 * Only register PMIC power-off handler if system-power-controller
++	 * property is present.
++	 */
++	if (of_device_is_system_power_controller(tps->dev->of_node)) {
++		ret = devm_register_power_off_handler(tps->dev,
++						      tps65219_power_off_handler,
++						      tps);
++		if (ret)
++			return dev_err_probe(tps->dev, ret,
++					"failed to register power-off handler\n");
+ 	}
++
+ 	return 0;
+ }
  
- 		regulators {
- 			buck1_reg: buck1 {
 -- 
 2.34.1
 
