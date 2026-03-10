@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93B6EFCD9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56123EFCD9F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C4auocGsq6h1s0B01awTJE/9wuwQhaFwfnc5Akdl9jE=; b=rQvyOEcom9Q0ruNvWa4ZsEK8NI
-	JBiSN9Rmwvcfj/in2K1ZqOblQT+OCh7G692WCTqdlvqqfGsG64q20zgMawB5HSF7s2iF7v5HMAkVC
-	xaPpvilxbk/UCZAcQLuG12DOuQFzdbQh7MNyHdi+s8KrR9fegsNAV8CTDZybuEvxMUa5dgyv5NEiu
-	qUGmZnNpwkbrqOLieie5967DaeG26KCzVIBBBwj8X0t6aDKFeu4noCsv1nOyGEoNM2cboVEUwFLeJ
-	yZomUg5hPuErjFLtOsVB0AdVYc33AXXRKCmffEQfh7de7XpypjBk8ZHW8ki/y0dJM7t4xDAizmRyN
-	aLhKkWCA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+fRucl20FdKOFHwR98xnMI2CpradJDFDcAG3Cugf9A=; b=RV1qtFzwxzMtXg4+CnhjdzWPf9
+	Xp8wiNYGOGvksNH/7No1XAmm7b3ZIjTQwnIcNvDvZgzw4mbs0LZ3Poad/FFlSrngExcvSnluT2yhQ
+	nph0qiINAl9qd7lcHDYAIbwpz8GZByBYGSSL4PxftiSRCZmWGBLCRO8EU7NMF1rsy59oFfi5GapuW
+	yfvB9zZhrJRB+8aGMb2swNWmybqielEhzzjrTsRFdJl7HNTyGtYg3Opwbl8OEvCY4C5OP6ulfC/xe
+	RgYKcd+/wvuGm/TQZ0JHRNlLUXwfMB/G20o9XTO9hboRoegT7d4OkAAP0ab+hvWdOJlwKKGFaMINs
+	3oEvjCRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt8W-0000000937R-31YV;
-	Tue, 10 Mar 2026 09:12:20 +0000
-Received: from mail-m49243.qiye.163.com ([45.254.49.243])
+	id 1vzt8b-0000000939t-03hH;
+	Tue, 10 Mar 2026 09:12:25 +0000
+Received: from mail-m3271.qiye.163.com ([220.197.32.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt8U-0000000935v-044z
+	id 1vzt8Z-0000000937G-14FM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:12:19 +0000
+	Tue, 10 Mar 2026 09:12:24 +0000
 Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 36651043c;
-	Tue, 10 Mar 2026 17:12:14 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 366510459;
+	Tue, 10 Mar 2026 17:12:18 +0800 (GMT+08:00)
 From: Albert Yang <yangzh0906@thundersoft.com>
 To: krzk@kernel.org,
 	arnd@arndb.de
@@ -42,26 +42,27 @@ Cc: krzk+dt@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v7 0/2] arm64: dts/defconfig: enable BST C1200 eMMC
-Date: Tue, 10 Mar 2026 17:12:09 +0800
-Message-ID: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
+Subject: [PATCH v7 1/2] arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
+Date: Tue, 10 Mar 2026 17:12:10 +0800
+Message-ID: <20260310091211.4171307-2-yangzh0906@thundersoft.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
+References: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cd704afaf09cckunmb723260ce6e85
+X-HM-Tid: 0a9cd704c07809cckunmb723260ce6ec9
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGRkdVkhOSU9PT0tISB9KTFYVFAkWGhdVEwETFh
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCS0hOVh8aGE5PHkIdGRgYTFYVFAkWGhdVEwETFh
 	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
 	tVSkJLS1kG
 DKIM-Signature: a=rsa-sha256;
-	b=iMpASpCtPY97574A6yd6P0Pdv10PXJBVhUFbslof1TKyhdIC/y/3HCODVLL7MVsMBOBoegXb6R2jLprpsDS7h5g7ZT6VqhXEDPDG4yZCjkr6vy4bYNPVaRufAMNOQUd4vHn9wlAzgcyv+C+YKaqshJRSOmZOozn3esfAWSoo0ow=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=C4auocGsq6h1s0B01awTJE/9wuwQhaFwfnc5Akdl9jE=;
+	b=OVxYvdWRoVW46sPK5WhkzHNxZ3OBixU6J2gpzN1bYEIuVjUdA8SkR4QUUVQ5r5qf5F1nJ55QgE4vIVaLMMt5+jpPDV685waWJHouaZ1rOzHEWNf7/A8wZ6XIC4fc7a9lOWW2aLlF4op9OOCSTE5k6TdNgob89R7tQi1b8kCepf8=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=L+fRucl20FdKOFHwR98xnMI2CpradJDFDcAG3Cugf9A=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_021218_236359_5E2E766A 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_021223_466881_A9619354 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +77,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds DTS and defconfig support for the eMMC controller
-on Black Sesame Technologies C1200 SoC, split from the v5 MMC series [1].
+Add eMMC controller support to the BST C1200 device tree:
 
-The MMC driver patches (dt-bindings, sdhci bounce buffer, BST SDHCI driver,
-and MAINTAINERS update) have been applied to mmc-next by Ulf Hansson [2].
-These remaining DTS and defconfig patches are submitted for review on the
-mailing lists first, per Krzysztof's feedback on v6 [3].
+- bstc1200.dtsi: Add mmc0 node for the DWCMSHC SDHCI controller
+  with basic configuration (disabled by default)
+- bstc1200.dtsi: Add fixed clock definition for MMC controller
+- bstc1200-cdcu1.0-adas_4c2g.dts: Enable mmc0 with board-specific
+  configuration including 8-bit bus width and reserved SRAM buffer
 
-Changes since v6:
-- No code changes. Resend with corrected recipients: send to mailing
-  lists for review first, not directly to soc@ (BST has a platform
-  maintainer in MAINTAINERS).
+The bounce buffer in reserved SRAM addresses hardware constraints
+where the eMMC controller cannot access main system memory through
+SMMU due to a hardware bug, and all DRAM is located outside the
+4GB boundary.
 
-Changes since v5:
-- Patch 2 (defconfig): fix CONFIG_MMC_SDHCI_BST ordering to match Kconfig
-  position (between CONFIG_MMC_SDHCI_TEGRA and CONFIG_MMC_SDHCI_F_SDH30),
-  as pointed out by Krzysztof Kozlowski. Confirmed via savedefconfig.
+Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
-[1] https://lore.kernel.org/lkml/20260123095342.272505-1-yangzh0906@thundersoft.com/
-[2] https://lore.kernel.org/lkml/CAPDyKFrcXFAiYouOpjDx3NN-xWACU9jAzEfTU2m_-yvQ9SpC_A@mail.gmail.com/
-[3] https://lore.kernel.org/lkml/12058c14-67c7-4b43-bbbc-ef0ccb813e61@kernel.org/
+---
+Changes for v5:
+- Split from platform series per Arnd's feedback
 
-Albert Yang (2):
-  arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
-  arm64: defconfig: enable BST SDHCI controller
+Changes for v4:
+- Change compatible to bst,c1200-sdhci
+- Move bus-width and non-removable to board dts
 
+Changes for v3:
+- Split defconfig into dedicated patch
+
+Changes for v2:
+- Reorganize memory map, standardize interrupt definitions
+---
  .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    | 19 +++++++++++++++++++
  arch/arm64/boot/dts/bst/bstc1200.dtsi         | 18 ++++++++++++++++++
- arch/arm64/configs/defconfig                  |  1 +
- 3 files changed, 38 insertions(+)
+ 2 files changed, 37 insertions(+)
 
-
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
+diff --git a/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
+index 5eb9ef369d8c..178ad4bf4f0a 100644
+--- a/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
++++ b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
+@@ -17,6 +17,25 @@ memory@810000000 {
+ 		      <0x8 0xc0000000 0x1 0x0>,
+ 		      <0xc 0x00000000 0x0 0x40000000>;
+ 	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		mmc0_reserved: mmc0-reserved@5160000 {
++			compatible = "shared-dma-pool";
++			reg = <0x0 0x5160000 0x0 0x10000>;
++			no-map;
++		};
++	};
++};
++
++&mmc0 {
++	bus-width = <8>;
++	memory-region = <&mmc0_reserved>;
++	non-removable;
++	status = "okay";
+ };
+ 
+ &uart0 {
+diff --git a/arch/arm64/boot/dts/bst/bstc1200.dtsi b/arch/arm64/boot/dts/bst/bstc1200.dtsi
+index dd13c6bfc3c8..9660d8396e27 100644
+--- a/arch/arm64/boot/dts/bst/bstc1200.dtsi
++++ b/arch/arm64/boot/dts/bst/bstc1200.dtsi
+@@ -7,6 +7,12 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	clk_mmc: clock-4000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <4000000>;
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -72,6 +78,18 @@ uart0: serial@20008000 {
+ 			status = "disabled";
+ 		};
+ 
++		mmc0: mmc@22200000 {
++			compatible = "bst,c1200-sdhci";
++			reg = <0x0 0x22200000 0x0 0x1000>,
++			      <0x0 0x23006000 0x0 0x1000>;
++			clocks = <&clk_mmc>;
++			clock-names = "core";
++			dma-coherent;
++			interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
++			max-frequency = <200000000>;
++			status = "disabled";
++		};
++
+ 		gic: interrupt-controller@32800000 {
+ 			compatible = "arm,gic-v3";
+ 			reg = <0x0 0x32800000 0x0 0x10000>,
 -- 
 2.43.0
 
