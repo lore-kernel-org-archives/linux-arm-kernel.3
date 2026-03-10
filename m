@@ -4,102 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A83FD2D9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D7DEA8550
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ohidppn0DDN3kquQ+UkqZeq+6ADdLoEMttZZlZ8FD5Y=; b=fzcsjnpcF22pCcPrRHY8B9UWoP
-	FeGM70gqyYcAA9GXu3cOkL2g7DlKkg4xVyESyloD+PoWIboycuAaVNnhyjxvY0LpWTS4RERmFSZWN
-	PcAu4z7EbqPcR2P8Y1M5+PwPEVzlFQJRorxm9hOhpELJ4u+4O9kkILOSKvF7YGdkzszAbfBBDmBi8
-	7ejpyZ82mNjC3vdBnZ7Fvka5l1tUt24mprY+C+nFlqBLBttvc2QofR+5phWd+bRMVImScpiRysOo5
-	g0z2N5Da9H5ykG1+5d+ALEsqVSADiKPIu5zLzShJEtQ0MoAUtObHgm3X2uFi+mK8jYI+H+Q4/mSTq
-	y6oZIp8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DslaNb19DfeVhpacm4nk/mIFTbz7d90d1ejbt66KOaU=; b=s9H55ZEiqlb1rYxewRBNMAkK73
+	txVHuSryQSJ+6djdOpVDPnYTnJ6+qBLWc4Dz5I+Zg4H0jodgA61Mvnn3l6LRL/ByH2483D0p0yARS
+	Azs7JewQ8rQqySKrAptx1RvYV3n4qrBm14hlddkRiHUf/9wVCdT5NkFdtXEJ+AUbq3wgDwnWdxd5P
+	mu3dV4iAbHxhoAOPVCin1b+aw1NZelmdOjYNYVAAnIacAziRkrCecv9RSAq8GPaPnphQNNKArx31x
+	hMt7j7HU5JXrT4ZRTYb5pwdjTqgLVWsjLWl5ACBFIT7cbs02wP6PGjTDwlE/QH34sfgx3MqH8EBrw
+	pUDtN8BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxex-00000009eLq-38KS;
-	Tue, 10 Mar 2026 14:02:07 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vzxfC-00000009eQ6-2dPX;
+	Tue, 10 Mar 2026 14:02:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxev-00000009eLT-3lzV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:02:07 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-439b78b638eso10199247f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 07:02:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773151323; x=1773756123; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ohidppn0DDN3kquQ+UkqZeq+6ADdLoEMttZZlZ8FD5Y=;
-        b=ENNxQNZAyJvLB8wz8ksnYaOa13ECrUNmjdiHpQq9iUk81PiVjkX7RX+ZyhJq6VnRoH
-         wfspBTrKEw0OOsP9KGyFqyKT4y6k7g16lErTOEcNx4BuOI0sMv21gLxFjZcgMhILeyJE
-         H4/v5E0LZu0u82jggR2fZH/On3KSXoLS6UwgaPNXqLMj4zruyc0kd5It5YFVu9kUynTe
-         vXOC0e/fNazKETr8GYvb+NlWZYuqLkVTlZeLJJbZZFASubwOx060GRmObj8g1V1LgAJo
-         tKkRM/vTqqIgBKk57GMy3mWbhwNMt/IZ2m83z8GabKwlKQTT/4exyN5aCEeghI/1A4zj
-         2VsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773151323; x=1773756123;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ohidppn0DDN3kquQ+UkqZeq+6ADdLoEMttZZlZ8FD5Y=;
-        b=JPSRdNnL3sCPVlAAuZsXyVs84QKXBiTLSOWcY+m9EG5qLRqS0BQjqsbafH3+s+NcRM
-         /O2w1Qc+vyVwiZFoD330SnFrBZ4BjS0gt24hZ6Pc/WqDd+odSXUyBn/eX7iIPTqPQs8L
-         YOX7hzNz0ZUy1QAqGGtfIzsMZlF50vmCK21lgitvmBtV+IZYShEQjnd5cxdf6PuImkhn
-         WcnUMG2ys4G95xJLbxAI2IX7hKeG3egnwOO77gWKxiLF7OFPpULzNwwQjQ2HSBIOCNGU
-         0lMuJbNOsuzagFd9lzf8uw3dc9S3l1303mW2tqw83cA00fjU+0keZabBSDEPCDO4TKHQ
-         0jpA==
-X-Forwarded-Encrypted: i=1; AJvYcCXkGHZXxK9pdDplTcWyMEZRksAki4wgxaG4Pg2lyToXhfI73kZVMPVdxyooPSyCKXwHNJzX9HonZOZSZIM3dTRd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3gagcYSpsxnGpK5g3Fy4gukXXulAG38jBfP49AiqxGAKb/ojS
-	CkN667Ou3+pfdSBqAL2kyc1qJMGHgeuJLzJWqSVkrz2B49lP8k04Pp9nCdNdYFyK
-X-Gm-Gg: ATEYQzzfikSYlZjSr+tGu+UQNsvDdsvzbGjlN7V77OtSTS1bfvSvSNSIOIxlWceySSQ
-	wtfjZDVrT1Cm+/uBj+d9pvk/X9a8wH8n90HniyQrmjq2ApY2U+D0zJS9KSDQyAWNvf/G2H9hVWa
-	Cct07uUNdzmN58pqrKC6Hhsvq3b2XdCGzReMc3nH5sjFBPLDSOTZDm9fXFGzB76jmcgyfxk2z2N
-	wJ6cvaormyyXe6xOtqjEhLAFa9YivpJ2K2GZz1al/4SmNBM8B7jMHtKQXLUbKNf395m++EiGQKH
-	O3ukmYRf7iHr2sbBA+G2cWbe/sbJoMaKU2ehZbKPWLKgbcZ1DEDYBs4JzmPjehs0jA7wBI4GoIj
-	MkouiP0Ef2mPLTwnbplqcLz5AXlF8YB3SfiZYXSDbacQDKufg88ANR6+7SdjNkXdOPYGWdsB/Fo
-	WEXzbG9AnukWyZ0uYk1H+Ch0a2TChFogh283V/PdF6pR3pZQJWW2sXSjPtk5NroAwVDJwcr6TXF
-	TVJIckl3Wju
-X-Received: by 2002:a05:6000:144c:b0:439:b7c9:2ef0 with SMTP id ffacd0b85a97d-439da88cebcmr24963018f8f.33.1773151323051;
-        Tue, 10 Mar 2026 07:02:03 -0700 (PDT)
-Received: from snowdrop.snailnet.com (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae3f267sm34409645f8f.31.2026.03.10.07.02.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 07:02:02 -0700 (PDT)
-From: david.laight.linux@gmail.com
-To: Johannes Zink <j.zink@pengutronix.de>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH resend net-next 1/1] net: stmmac: actually error requests to change the auxiliary snapshot capture channel
-Date: Tue, 10 Mar 2026 14:01:55 +0000
-Message-Id: <20260310140155.3359-1-david.laight.linux@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	id 1vzxfC-00000009eOw-0t0h;
+	Tue, 10 Mar 2026 14:02:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E46460133;
+	Tue, 10 Mar 2026 14:02:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DAF3CC2BCAF;
+	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773151341;
+	bh=GpQHCMLy/+U8kyMZUGmI9yqiy5cIdh0/0TbBdyLaW4M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=g/rXouWQ7QGvp+LlKvpXqU8CgzMvER3Lipgr3OQ3ca47w9sHbqwcIi/oiyueQdIx6
+	 VQ/DYQ7ncsC6iUdO1ioa7t06hpt3hhc3y3isnzKZ0Gx8VS5o4KSv/mpKFEckrYvwHz
+	 vRk+/d45Gcrdep1VaGBn2ixgshfkNLFz535d0O17UXJ/EEvKkPXJdAxpX/kZAwjC1l
+	 TWRoc898Q4VHGxo6mq5OR2uOMAt1HMP9MP2tAFhamdb4xC1oon50Y5BDrVIW+sXz94
+	 q7VOUu/h2i27LBjVJcC5W2T2JUk/cznmn30Ma5+RKPiloc70hsQCL7wKGXrpn3hwWy
+	 C3GibuSe7j9Dg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C9519FD2D9A;
+	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
+From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
+Date: Tue, 10 Mar 2026 19:32:00 +0530
+Subject: [PATCH v7 2/4] PCI: host-common: Add link down handling for Root
+ Ports
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_070205_959999_30E32025 
-X-CRM114-Status: GOOD (  16.99  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260310-pci-port-reset-v7-2-9dd00ccc25ab@oss.qualcomm.com>
+References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+In-Reply-To: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+ Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ Niklas Cassel <cassel@kernel.org>, 
+ Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+ mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
+ Richard Zhu <hongxing.zhu@nxp.com>, Brian Norris <briannorris@chromium.org>, 
+ Wilson Ding <dingwei@marvell.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Frank Li <Frank.Li@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5047;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=aFkx7QcjgWXLjqxldAdhXr9ROuajXIiL4yi0K0WOE5c=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBpsCRqrlJW+b7djwMK1Ei7k62UFLEXZ1gYZNshe
+ vHMm6FRURuJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCabAkagAKCRBVnxHm/pHO
+ 9SvAB/427KkqnhQGX1Vab4Rm6k/g6XchDY2PORDJ+5iwcCnCf9Krh5sdAjTOPlxS/HuGaFWLQX8
+ D8CC26e9shL+jLIW9lLal+zwYf88gxcByt2TRMXFpR+HKjMSC0g+9BENXS0h/YjQBdhrUrY3T4Z
+ thDUb3YalcqRLDZR0eo6tr/kZiz5WY7jEXdhaACyp0Z9xqzftp03RGn2/M2ouk0FeXke8CaUIvl
+ CKfeDrps41NgtH3KQXW0YdUbPiSqdtqFGATgAnpiZI+vWxwnYosZFUO3LU8kqvSMDW+svgOTAbH
+ wAc/ZKEfGHGP0gevdD0RvdFzQm34buVpT1/dSdqL3pZIyxFY
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-Endpoint-Received: by B4 Relay for
+ manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
+X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,85 +99,139 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Laight <david.laight.linux@gmail.com>
+From: Manivannan Sadhasivam <mani@kernel.org>
 
-Commit 2ddd05d1d5ed ("net: stmmac: do not silently change auxiliary snapshot capture channel")
-added code that attempted to return -EBUSY to a PTP_CLK_REQ_EXTTS
-request whan a snapshot was already enabled.
-However it tested bits in 'acr_value' after they had been masked off
-so the check would never return an error.
+The PCI link, when down, needs to be recovered to bring it back. But on
+some platforms, that cannot be done in a generic way as link recovery
+procedure is platform specific. So add a new API
+pci_host_handle_link_down() that could be called by the host bridge drivers
+for a specific Root Port when the link goes down.
 
-Change the code so that the test actually works.
-Note that when the commit message says:
-    Previously in case of a PTP_CLK_REQ_EXTTS request, previously active
-    auxiliary snapshot capture channels were silently dropped and the new
-    channel was activated.
-this only refers to two commits earlier (a few minutes earlier).
-Prior to that only a single fixed snapshot channel could be enabled.
+The API accepts the 'pci_dev' corresponding to the Root Port which observed
+the link down event. If CONFIG_PCIEAER is enabled, the API calls
+pcie_do_recovery() function with 'pci_channel_io_frozen' as the state. This
+will result in the execution of the AER Fatal error handling code. Since
+the link down recovery is pretty much the same as AER Fatal error handling,
+pcie_do_recovery() helper is reused here. First, the AER error_detected()
+callback will be triggered for the bridge and then for the downstream
+devices. Finally, pci_host_reset_root_port() will be called for the Root
+Port, which will reset the Root Port using 'reset_root_port' callback to
+recover the link. Once that's done, resume message will be broadcasted to
+the bridge and the downstream devices, indicating successful link recovery.
 
-Note that the check will reject requests to re-enable the currently
-enabled channel.
-Plausibly the best fix is just to delete the check completely.
+But if CONFIG_PCIEAER is not enabled in the kernel, only
+pci_host_reset_root_port() API will be called, which will in turn call
+pci_bus_error_reset() to just reset the Root Port as there is no way we
+could inform the drivers about link recovery.
 
-Signed-off-by: David Laight <david.laight.linux@gmail.com>
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Tested-by: Brian Norris <briannorris@chromium.org>
+Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
+ drivers/pci/controller/pci-host-common.c | 35 ++++++++++++++++++++++++++++++++
+ drivers/pci/controller/pci-host-common.h |  1 +
+ drivers/pci/pci.c                        |  1 +
+ drivers/pci/pcie/err.c                   |  1 +
+ 4 files changed, 38 insertions(+)
 
-Resend with corrected subject and To: Richard Cochran.
-
-Found by a test for FIELD_GET() returning 'constant zero' from a
-non-constant 'reg' value.
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 3e30172fa129..aa17335a2031 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -222,19 +222,16 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
- 		write_unlock_irqrestore(&priv->ptp_lock, flags);
- 		break;
- 	}
--	case PTP_CLK_REQ_EXTTS: {
--		u8 channel;
--
-+	case PTP_CLK_REQ_EXTTS:
- 		mutex_lock(&priv->aux_ts_lock);
- 		acr_value = readl(ptpaddr + PTP_ACR);
--		channel = ilog2(FIELD_GET(PTP_ACR_MASK, acr_value));
--		acr_value &= ~PTP_ACR_MASK;
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index d6258c1cffe5..15ebff8a542a 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -12,9 +12,11 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_pci.h>
++#include <linux/pci.h>
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
  
- 		if (on) {
--			if (FIELD_GET(PTP_ACR_MASK, acr_value)) {
-+			u32 enabled_snapshots = FIELD_GET(PTP_ACR_MASK, acr_value);
-+			if (enabled_snapshots) {
- 				netdev_err(priv->dev,
- 					   "Cannot enable auxiliary snapshot %d as auxiliary snapshot %d is already enabled",
--					rq->extts.index, channel);
-+					rq->extts.index, ilog2(enabled_snapshots));
- 				mutex_unlock(&priv->aux_ts_lock);
- 				return -EBUSY;
- 			}
-@@ -245,6 +242,7 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
- 			acr_value |= PTP_ACR_ATSEN(rq->extts.index);
- 			acr_value |= PTP_ACR_ATSFC;
- 		} else {
-+			acr_value &= ~PTP_ACR_MASK;
- 			priv->plat->flags &= ~STMMAC_FLAG_EXT_SNAPSHOT_EN;
- 		}
- 		netdev_dbg(priv->dev, "Auxiliary Snapshot %d %s.\n",
-@@ -256,7 +254,6 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
- 					 !(acr_value & PTP_ACR_ATSFC),
- 					 10, 10000);
- 		break;
--	}
++#include "../pci.h"
+ #include "pci-host-common.h"
  
- 	default:
- 		break;
+ static void gen_pci_unmap_cfg(void *ptr)
+@@ -106,5 +108,38 @@ void pci_host_common_remove(struct platform_device *pdev)
+ }
+ EXPORT_SYMBOL_GPL(pci_host_common_remove);
+ 
++static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
++{
++	int ret;
++
++	pci_lock_rescan_remove();
++	ret = pci_bus_error_reset(dev);
++	pci_unlock_rescan_remove();
++	if (ret) {
++		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
++		return PCI_ERS_RESULT_DISCONNECT;
++	}
++
++	pci_info(dev, "Root Port has been reset\n");
++
++	return PCI_ERS_RESULT_RECOVERED;
++}
++
++static void pci_host_recover_root_port(struct pci_dev *port)
++{
++#if IS_ENABLED(CONFIG_PCIEAER)
++	pcie_do_recovery(port, pci_channel_io_frozen, pci_host_reset_root_port);
++#else
++	pci_host_reset_root_port(port);
++#endif
++}
++
++void pci_host_handle_link_down(struct pci_dev *port)
++{
++	pci_info(port, "Recovering Root Port due to Link Down\n");
++	pci_host_recover_root_port(port);
++}
++EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
++
+ MODULE_DESCRIPTION("Common library for PCI host controller drivers");
+ MODULE_LICENSE("GPL v2");
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+index b5075d4bd7eb..dd12dd1a1b23 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -17,6 +17,7 @@ int pci_host_common_init(struct platform_device *pdev,
+ 			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops);
+ void pci_host_common_remove(struct platform_device *pdev);
++void pci_host_handle_link_down(struct pci_dev *port);
+ 
+ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+ 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index 6f09057d83e0..1b37bfe6d079 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -5650,6 +5650,7 @@ int pci_bus_error_reset(struct pci_dev *bridge)
+ 	mutex_unlock(&pci_slot_mutex);
+ 	return pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
+ }
++EXPORT_SYMBOL_GPL(pci_bus_error_reset);
+ 
+ /**
+  * pci_probe_reset_bus - probe whether a PCI bus can be reset
+diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+index 13b9d9eb714f..d77403d8855b 100644
+--- a/drivers/pci/pcie/err.c
++++ b/drivers/pci/pcie/err.c
+@@ -292,3 +292,4 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+ 
+ 	return status;
+ }
++EXPORT_SYMBOL_GPL(pcie_do_recovery);
+
 -- 
-2.39.5
+2.51.0
+
 
 
