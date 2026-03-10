@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DA1FCC9D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224B1FCC9D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJs3j1qgdiSLL660koBbkByqwIfjlXm9V1J/kzsZhok=; b=oGR+/wsaRSVqDtgckhnFlljUIT
-	OS6olh9cQB+xWmnlnF6bS+ENWUxaKYpbIDKXBJFMJjNewU1XMSPiGTqeG3wN7Y2vsHAFZZRmsDRAP
-	f/lCDVumI2LdHQhT43TfNVxNfEydK+TXaqdVeEJUYkKcQ8pWSG1g2SGhay8WcaGd3qwZOSww0glg0
-	vG1o6yGEPNETSFO72mARSOxkJ/W5ee2EbfVmC4wgG2eXaECRCiAOMPC7moh6tlnTJp7VkK7SzRoyp
-	mWgfY7ceM46btIrs/M1alxAzRdGFbjW5wIpkUujgohZsYEHkf/IWOVnUUNP3BXrWC0bCVopHsy9O+
-	SCCDUhbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JlO8adotrgTmGEsdWMg2mwGPeOU1XLogiHHsGTKFnm8=; b=HDw5Yi7BJKr/OXJT0HzXbWnsD0
+	umtKSjeUDSGIL94Q0clnxC1il3EaE4yLQLaUXOTuk+ZATSiWm0mI86N+Ey0VX77g0skRmRL0skx5w
+	1wIp+mD2xRzQkw+JGxUtYLXfqb7A+zJ+cO8lEXpyIiPP65N7xgV0L+fs4J4lLdpqF1PFDAQP37NFr
+	Do77CaPCM1IzWDAyAkFuAghiaBheBES2chWw9/tjhJBQ9XR1cejfv7phzBQ1uhlM/9a6TtfMgt3Fr
+	6GfgElz7N5fxIvFQ1s9D9AwWOsnLse8pwOuwfD3I5kwYlAvKHWfg9XI8aNnqRcekCP8XcmQfvxaU7
+	cO1JVmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrgF-00000008rP8-08Px;
-	Tue, 10 Mar 2026 07:39:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzrgh-00000008rVK-0YMY;
+	Tue, 10 Mar 2026 07:39:31 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrgC-00000008rOj-1B7Q;
-	Tue, 10 Mar 2026 07:39:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F0374348D;
-	Tue, 10 Mar 2026 07:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDBEBC19423;
-	Tue, 10 Mar 2026 07:38:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773128338;
-	bh=eigS/zAmAe39yYs+o8HKoJPAI0Rl29kSXCxO5QeFKrg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ioa+vCv3zf1suIzQ56s0muplBFPtUWyxbX/mtLahEuzfGKcPw0u1wt4TOY1tn0n/6
-	 ybrFCK6eDjaY/nBNHzjF+G7qwIvc3qPT+vS0qKpjjTfPX+owKYUOjJMh7j+TdA/xxS
-	 xeACZi8K7y8Ss9NOLB+cR2EBxSyO3Qw7WGKubeqGMjYpvAs4dqqlYHhsoFOLQ0sJ7X
-	 2x2vL2Wr9NROMmp4yslHyCXfdZts61+YBbUoC5jPMAHMjfVRjxN/R+R4fRPODd5IVv
-	 YmyC8Ud6PxpaRHZkluLjIbNuATJmHa1CK2/pUr1vVMhQa0rWgXkK7u+yXXR7sG5JoH
-	 EgnTZI9pQDm3g==
-Date: Tue, 10 Mar 2026 08:38:55 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Miles Chen <miles.chen@mediatek.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
-	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-Subject: Re: [PATCH v6 01/18] dt-bindings: clock: Add MediaTek MT8189 clock
-Message-ID: <20260310-notorious-manul-of-maturity-facd51@quoll>
-References: <20260309120512.3624804-1-irving-ch.lin@mediatek.com>
- <20260309120512.3624804-2-irving-ch.lin@mediatek.com>
+	id 1vzrgd-00000008rTz-3LRR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 07:39:30 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fVQjx74lFzKHMZS
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 15:39:01 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id EB26F40590
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 15:39:16 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP3 (Coremail) with SMTP id _Ch0CgAnBVKgyq9pcMZ+AQ--.56907S2;
+	Tue, 10 Mar 2026 15:39:13 +0800 (CST)
+Message-ID: <017ac6a8-2a17-41c0-8bfd-bd7bdd76509f@huaweicloud.com>
+Date: Tue, 10 Mar 2026 15:39:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260309120512.3624804-2-irving-ch.lin@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [bpf-next v8 1/5] bpf: Move constants blinding from JIT to
+ verifier
+Content-Language: en-US
+To: Eduard Zingerman <eddyz87@gmail.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
+ <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>,
+ Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
+ Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+ Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
+ Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
+References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
+ <20260309140044.2652538-2-xukuohai@huaweicloud.com>
+ <7905ed2d99a46a2f7a4eb41d4cb9f1dec108ecd3.camel@gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <7905ed2d99a46a2f7a4eb41d4cb9f1dec108ecd3.camel@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _Ch0CgAnBVKgyq9pcMZ+AQ--.56907S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CrWDKF45Zr48uFWfAF43ZFb_yoW8KFyxpF
+	4DJF17Cw4qgr4UWF47t3W8JF4Utw4jgFW7uF4YkrZYkFn0qrs7XF1ak3yj9FZxZry5Xw1r
+	Aay8Kr9Fka4v9aDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07
+	jxCztUUUUU=
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_003900_344364_54F32E00 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260310_003928_208598_B1904C8F 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +102,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 09, 2026 at 08:04:43PM +0800, irving.ch.lin wrote:
-> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+On 3/10/2026 5:25 AM, Eduard Zingerman wrote:
+> On Mon, 2026-03-09 at 22:00 +0800, Xu Kuohai wrote:
 > 
-> Add dt schema and IDs for the clocks of MediaTek MT8189 SoC.
-> The MT8189 clock IP provide clock control for main system
-> (apmixedsys, topcksys and vlpcksys) and
-> subsys (eg. peri, mfg, venc/vdec ...).
+> This was discussed some time ago in [1]. In that message Daniel notes
+> the following:
 > 
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> ---
->  .../bindings/clock/mediatek,apmixedsys.yaml   |   1 +
->  .../bindings/clock/mediatek,infracfg.yaml     |   1 +
->  .../bindings/clock/mediatek,pericfg.yaml      |   1 +
->  .../bindings/clock/mediatek,syscon.yaml       |  27 +
->  .../bindings/clock/mediatek,topckgen.yaml     |   2 +
->  .../dt-bindings/clock/mediatek,mt8189-clk.h   | 577 ++++++++++++++++++
->  6 files changed, 609 insertions(+)
->  create mode 100644 include/dt-bindings/clock/mediatek,mt8189-clk.h
+>    > constant blinding needs to work from native bpf(2) as well as from
+>    > cbpf->ebpf (seccomp-bpf, filters, etc)
+> 
+> It appears this patch does not address the cbpf->ebpf part, or did I
+> miss something?
+> 
+> [1] https://lore.kernel.org/bpf/284404c7-c6e0-4cf9-8ada-71ebfc681541@iogearbox.net/
+>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Hmm, I overlooked that the cbpf jit also needs constant blinding. I'll add it back
+in bpf_prog_select_runtime() before the JIT is invoked.
 
-Best regards,
-Krzysztof
+> [...]
+> 
+>> diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
+>> index 52162e4a7f84..7a7c49640a2f 100644
+>> --- a/arch/powerpc/net/bpf_jit_comp.c
+>> +++ b/arch/powerpc/net/bpf_jit_comp.c
+> 
+> [...]
+> 
+>> @@ -272,7 +250,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
+>>   				       extra_pass)) {
+>>   			bpf_arch_text_copy(&fhdr->size, &hdr->size, sizeof(hdr->size));
+>>   			bpf_jit_binary_pack_free(fhdr, hdr);
+>> -			fp = org_fp;
+> 
+> Is it necessary to set `...; fp->jited = 0; ...` here?
+> It seems it does if extra_pass is set.
+> 
+Yes. When extra_pass is set, orig_fp and fp are the same, so the original
+fp = orig_fp cannot restore fp either.
+
+>>   			goto out_addrs;
+>>   		}
+>>   		bpf_jit_build_epilogue(code_base, &cgctx);
+>> @@ -301,7 +278,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
+>>   
+>>   	if (!fp->is_func || extra_pass) {
+>>   		if (bpf_jit_binary_pack_finalize(fhdr, hdr)) {
+>> -			fp = org_fp;
+>> +			fp->bpf_func = NULL;
+>> +			fp->jited = 0;
+>> +			fp->jited_len = 0;
+>>   			goto out_addrs;
+>>   		}
+>>   		bpf_prog_fill_jited_linfo(fp, addrs);
+> 
+> [...]
+> 
+>> diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
+>> index 1f9a6b728beb..d6de2abfe4a7 100644
+>> --- a/arch/s390/net/bpf_jit_comp.c
+>> +++ b/arch/s390/net/bpf_jit_comp.c
+> 
+> [...]
+> 
+>> @@ -2383,7 +2360,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
+>>   	if (!fp->is_func || extra_pass) {
+>>   		if (bpf_jit_binary_lock_ro(header)) {
+>>   			bpf_jit_binary_free(header);
+>> -			fp = orig_fp;
+> 
+> In the similar condition for powerpc you reset `...; prog->jited = 0; ...`,
+> is this case different?
+>
+
+No difference, will fix it.
+
+>>   			goto free_addrs;
+>>   		}
+>>   	} else {
+> 
+> [...]
 
 
