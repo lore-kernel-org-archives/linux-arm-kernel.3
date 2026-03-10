@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46646EA8550
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF85EA8550
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SsyWkSsYxM+/mlVR1ji3BcDNi6n34FEb78dVbjjc1Ac=; b=XMskY+45W6sdAa3VLXetFGe3Ey
-	Bx1A0QcY7ESNBr5Jq5KolKFAGUe+T7nIbiwjmRDqNTSpBmeSoh7NQJM/rgdzfRP4CUO3mz4Nlq29o
-	bchzvm8Pg/pzm5zBmG0MW2zsGrCpVVJyl4YNzlFAcAYTPGd3vDTfojPQ/5PPkLXR5qV9+vQ3RxPFE
-	qe39yH78k3YiMgWXBTVDUhtODq2YKMOpwNiTwXMZg1rq0UlCSc1zN3j2377E+pOCf0ZcNnaWzshfa
-	tkCdmQx7FB07X40Ky9dkVTha/FlMbNU4CcrbA1wlrLiihfpL70hM54n6NenyeXBnK3Ps4Px4SOqtu
-	+34u2a4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=166qCuS3GrAlXI6brs6QxvJQpFd4voxu1ZjUSc4jdNI=; b=4BTFc3k7tvADkDWQHUP22hgeiz
+	+kbULblYgjtkRIes1thbuYxImZiDe/lBpzf6rvtc2PCwkplBpFPU17Jf7XCJ2yYYRIUNQ4JkwF5Vj
+	kHGpBHFaQ6+ZnHjZAfF+R3FcUchqLJKK1iVbx7LUqSkqqROdsC2eLZlSsNTfyVBTlVKLj/octaUq4
+	KtLnNt6kxRCg6yK8MPXjkQNCIywamAEAIrmbRR859AC7mhJn3f/hC+zlzwRk9cFmixbhPuws7pX8r
+	C7Vdo37CFw0BQb/HvjJkMWDDbAv5HldlACpZPcPbyU2dwaf+mKmN1Y8xMRHCWctPEu+8HkJesiE8U
+	7rdUDIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt8d-000000093B9-1S4D;
-	Tue, 10 Mar 2026 09:12:27 +0000
-Received: from mail-m3287.qiye.163.com ([220.197.32.87])
+	id 1vzt9Z-000000093TS-1svQ;
+	Tue, 10 Mar 2026 09:13:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt8a-00000009385-2dRt
+	id 1vzt9Z-000000093T5-0qwF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Mar 2026 09:13:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=166qCuS3GrAlXI6brs6QxvJQpFd4voxu1ZjUSc4jdNI=; b=CMQvtRrfdmVHWmZy0a7Q1+9ENY
+	VfXVFSYCO2Y8e0YbZON4GYKE1IVQ2L1YuFbKs1dF3pjRqCQ21CWWzslz1xczfH5bnHXAiRZTpf5jI
+	SWhcPeEZYmG6A2VnHFmwKAlxMcBS95EpJhOPJ86i6GUdang+nU/io1XLXrSmewx4/Fw55ejYeYeuF
+	7kWvlChMd69KBL9RiN2daQszopTDI0REEtJyWAeILj4hewsQajSYT53XQmlC2t7YR5tUCG02WpeYt
+	VDZV/qXwPSS/LHOjp8pdGeAejr4I/nVZknGBNrK6KjI/5vNHpFXZS2WXnL7f+TzMu+1U8HGZPDXbk
+	JMO40OaA==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzt9N-0000000E4t1-3xES
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:12:25 +0000
-Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 36651046b;
-	Tue, 10 Mar 2026 17:12:21 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzk@kernel.org,
-	arnd@arndb.de
-Cc: krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	gordon.ge@bst.ai,
-	bst-upstream@bstai.top,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v7 2/2] arm64: defconfig: enable BST SDHCI controller
-Date: Tue, 10 Mar 2026 17:12:11 +0800
-Message-ID: <20260310091211.4171307-3-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
-References: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
+	Tue, 10 Mar 2026 09:13:21 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzt8a-0005gc-A9; Tue, 10 Mar 2026 10:12:24 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzt8U-004fp8-2w;
+	Tue, 10 Mar 2026 10:12:20 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzt8W-00000000385-0VM0;
+	Tue, 10 Mar 2026 10:12:20 +0100
+Message-ID: <7414fb775dd4c9a0a1c00f1452ef128de300ee06.camel@pengutronix.de>
+Subject: Re: [PATCH v10 02/18] drm/bridge: Move legacy bridge driver out of
+ imx directory for multi-platform use
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com, 
+	neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, 	tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, shawnguo@kernel.org, 	s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, 	inki.dae@samsung.com,
+ sw0312.kim@samsung.com, kyungmin.park@samsung.com, 	krzk@kernel.org,
+ alim.akhtar@samsung.com, jingoohan1@gmail.com, hjc@rock-chips.com, 
+	heiko@sntech.de, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, 	dianders@chromium.org,
+ m.szyprowski@samsung.com, luca.ceresoli@bootlin.com, 
+	jani.nikula@intel.com, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org
+Date: Tue, 10 Mar 2026 10:12:20 +0100
+In-Reply-To: <20260310012458.169272-3-damon.ding@rock-chips.com>
+References: <20260310012458.169272-1-damon.ding@rock-chips.com>
+	 <20260310012458.169272-3-damon.ding@rock-chips.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cd704c9ab09cckunmb723260ce6efc
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSx4ZVkNCT01IQ0hOSx0eHVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PS1VKS0
-	tVS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=mQIaHtS5KuPCYxAw/kTAdZaeYXidX38l84lPMQD1GdNFzzTl/YTGJWvwL5RlRBmvP2vb2VwQ6vm9wvBRJG3GC+loRk4WjzG6xvcTG7fquj5AidjZFslEIuDi8uHi6XH8yzAfQmypr5ASfSWBRlhed58bl7EafANjzSn416o3q1Y=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=SsyWkSsYxM+/mlVR1ji3BcDNi6n34FEb78dVbjjc1Ac=;
-	h=date:mime-version:subject:message-id:from;
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_021224_823033_ADFB8EB0 
-X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-CacheID: sfid-20260310_091314_234558_8F5B4CC0 
+X-CRM114-Status: UNSURE (   7.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,27 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CONFIG_MMC_SDHCI_BST to support eMMC on Black Sesame
-Technologies C1200 boards.
+On Di, 2026-03-10 at 09:24 +0800, Damon Ding wrote:
+> As suggested by Dmitry, the DRM legacy bridge driver can be pulled
+> out of imx/ subdir for multi-platform use. The driver is also renamed
+> to make it more generic and suitable for platforms other than i.MX.
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 45288ec9eaf7..7b054da42fa9 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1230,6 +1230,7 @@ CONFIG_MMC_SDHCI_OF_SPARX5=y
- CONFIG_MMC_SDHCI_CADENCE=y
- CONFIG_MMC_SDHCI_ESDHC_IMX=y
- CONFIG_MMC_SDHCI_TEGRA=y
-+CONFIG_MMC_SDHCI_BST=y
- CONFIG_MMC_SDHCI_F_SDH30=y
- CONFIG_MMC_MESON_GX=y
- CONFIG_MMC_SDHCI_MSM=y
--- 
-2.43.0
-
+regards
+Philipp
 
