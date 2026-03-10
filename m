@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51829EA854E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0818FCC9DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=unk1hnkLj8qfz9Lgm4/vL8pWVNpUxkF+NrPESZuwUF0=; b=Fz6lqFlwnVb3AEEq+YyzWSXTjf
-	KYSJwmcvn9SW4r8LZhQC/O7VKgM5s2NEUWaq7UHbAEE4WYGzBqMKDJ/HgHIxylLOVKnVKXbq5E1Jd
-	EpkRwWwHQVDprbLVBholBiCiKZ80DrOCBM8GCJ+En6eoT/8xryikbviekjpkeOwst+Ke+j5nDplmG
-	kKVUPuCO5O54YGFkfdYOWww9/0OneY1WggjCa5pz5zJvlEMrxBJsKjyNtOFkGZrpyk98CNawd1CPB
-	aO7Pz8zcMnCXIPEHkkGZWbgw53uJNqWBV3PC/AB3dnw9r6z0Pt9QSvsf6BwcqyuQ82UrWSWy8P09G
-	FKcDipVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AApFIcDt3UoW+Q5jyAp9cucE1OW55gEJy8RxBqVJkRM=; b=V7vzuSaG3aOI4u+bcpdk9uA0XO
+	gta7X6GWor6u2bm4ym4LmKYm8rIzJpn2zk/WaELRg3MdRNMdNA3MVLgYpyPON/qacAlX8HIGY0TQp
+	z3JtDRuLaQMLqb5SxDF0CSZALfXABWTI/IoIgIjiuCdGRscB0LMbUAbg8ytrDGiSqCuk/H6X0hY1U
+	HD8bwTBrZQCn3d27m8WGVOz7MFPBg7D5Xf4yaNyD3eNWcOsLPr5XGzMTG/vCXX1ZvnTi/Y25zgSvB
+	GqU8lScrIESFq1BVMOkFgKw3OfvdMoFIob4vWqGvePF+1NLZM2eXJ3h5lLmZnFxU5UMo783GTXI3m
+	c0bvwzwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsrh-000000090bm-1i3r;
-	Tue, 10 Mar 2026 08:54:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzsta-000000090kz-3dbZ;
+	Tue, 10 Mar 2026 08:56:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsrg-000000090bg-1QRc
+	id 1vzstY-000000090ki-3abr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 08:54:56 +0000
+	Tue, 10 Mar 2026 08:56:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6450260054;
-	Tue, 10 Mar 2026 08:54:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F34AC19423;
-	Tue, 10 Mar 2026 08:54:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E92BB600B0;
+	Tue, 10 Mar 2026 08:56:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 963C4C19423;
+	Tue, 10 Mar 2026 08:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773132895;
-	bh=+IGCKgqPFHDe5JXoy8PHXf111KpMuolV8jtRpNeWfQc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mq5rd7+EfhMEwbrTHQdfWHOa2RLs8tXbtHUagjVTbtXoOgVpV3WjiGSW2n+lEcX4f
-	 GwAvCwrN4vS9TZTb9kgPLKwa5b1LZLnWS2GjrOx8mB44opLBfGLEShHjKHKnvF6vCl
-	 SjuI2+pDexe4RKaHNEYfOzmYb17/74RiK5GolGGK5OKZrpHzU6BhkC9QA3fl/1uXG2
-	 NVHGHyPm7MqRLPuGE/UlXZb5W+D0PMpRWWgjx1luKpnaa2F+ganVR+DvuqSlOmgtEd
-	 3CrVdtcsdo85M8IjOA+Pefx++wCMEvX+Tyu/TIuoj7yCbplA+gL3+QPOaV5RsH0I6s
-	 aSCZWUa6qGFkg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1773133011;
+	bh=j4VJOlhEknG6bMkHk1YimyiS2IexRdXTWAVCoIkrRqw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=npF78254cnnPUrOff1mK5nolouVzLkrHEqRX18KjjjopVS38NODo/rLFd9WoQthEc
+	 yaVAqwChnF0eM5NjfwFCDmwd6goHzKnfI2Pr7w/oOGqJBejchc2jqOo5C+H8kIsKgk
+	 wASeOAWMvtGwPCBwD5/8xvQJaoQLGNMKtF1qBo/do3dYumXQQT7TAgsOxcOo/puX3G
+	 IzhPmrfXuscu2tVvCbnZvhEQ1KXjhGQCGd3DgiaqXZSwzCcY9x8Lyb3zu2AuuCjO6m
+	 wh4K2kBshnkjOJVIZcgES5LVerURAb+NSuGFCtu6gVfv7KH9z+hTNuysl6wP+DL5QD
+	 k/7FL6pxJEBYw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vzsrd-00000000Lpv-0ITl;
-	Tue, 10 Mar 2026 08:54:53 +0000
+	id 1vzstV-00000000Lru-1h7v;
+	Tue, 10 Mar 2026 08:56:49 +0000
+Date: Tue, 10 Mar 2026 08:56:48 +0000
+Message-ID: <86ecls6p0v.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] KVM: arm64: pkvm: Don't reprobe for ICH_VTR_EL2.TDS on CPU hotplug
-Date: Tue, 10 Mar 2026 08:54:33 +0000
-Message-ID: <20260310085433.3936742-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	tabba@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH] KVM: arm64: Fix ICV_DIR_EL1 trapping detection for pKVM
+In-Reply-To: <aa8McT6o2_KSXVfz@google.com>
+References: <20260309160450.2610295-1-vdonnefort@google.com>
+	<86h5qo7vr9.wl-maz@kernel.org>
+	<aa8McT6o2_KSXVfz@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, stable@vger.kernel.org
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,38 +91,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hotplugging a CPU off and back on fails with pKVM, as we try to
-probe for ICH_VTR_EL2.TDS. In a non-VHE setup, this is achieved
-by using an EL2 stub helper. However, the stubs are out of reach
-once pKVM has deprivileged the kernel. The CPU never boots.
+On Mon, 09 Mar 2026 18:07:45 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> [...]
+> 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index e7790097db93..0432852228f9 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -463,6 +463,11 @@ static void handle___vgic_v3_get_gic_config(struct kvm_cpu_context *host_ctxt)
+> > >  	cpu_reg(host_ctxt, 1) = __vgic_v3_get_gic_config();
+> > >  }
+> > >  
+> > > +static void handle___vgic_v3_get_ich_vtr_el2(struct kvm_cpu_context *host_ctxt)
+> > > +{
+> > > +	cpu_reg(host_ctxt, 1) = read_sysreg_s(SYS_ICH_VTR_EL2);
+> > > +}
+> > > +
+> > >  static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
+> > >  {
+> > >  	__vgic_v3_init_lrs();
+> > > @@ -622,6 +627,7 @@ static const hcall_t host_hcall[] = {
+> > >  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+> > >  	HANDLE_FUNC(__vgic_v3_save_aprs),
+> > >  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> > > +	HANDLE_FUNC(__vgic_v3_get_ich_vtr_el2),
+> > >  	HANDLE_FUNC(__pkvm_reserve_vm),
+> > >  	HANDLE_FUNC(__pkvm_unreserve_vm),
+> > >  	HANDLE_FUNC(__pkvm_init_vm),
+> > > 
+> > 
+> > This looks incredibly complicated. Since pKVM forbids late onlining of
+> > CPUs, you are absolutely sure that you have already seen the CPU being
+> > hot-plugged on.
+> > 
+> > So it would make a lot more sense to just return the current value of
+> > the property you are trying to re-evaluate: you know for sure it
+> > cannot change under your feet.
+> > 
+> > I have quickly tested the following hack:
+> > 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index c31f8e17732a3..947ff71b3b66b 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2345,6 +2345,9 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+> >  	    !is_midr_in_range_list(has_vgic_v3))
+> >  		return false;
+> >  
+> > +	if (system_capabilities_finalized() && is_protected_kvm_enabled())
+> > +		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
+> > +
+> >  	if (is_kernel_in_hyp_mode())
+> >  		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+> >  	else
+> > 
+> > which works for me. Could you please give it a go?
+> 
+> That works! I can spin a V2 with that if you want.
 
-Since pKVM doesn't allow late onlining of CPUs, we can detect
-that protected mode is enforced early on, and return the current
-state of the capability.
+I've sent what I had written yesterday. Tested-by appreciated!
 
-Fixes: 2a28810cbb8b2 ("KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping")
-Reported-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
- arch/arm64/kernel/cpufeature.c | 3 +++
- 1 file changed, 3 insertions(+)
+Thanks,
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c31f8e17732a3..947ff71b3b66b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2345,6 +2345,9 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
- 	    !is_midr_in_range_list(has_vgic_v3))
- 		return false;
- 
-+	if (system_capabilities_finalized() && is_protected_kvm_enabled())
-+		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
-+
- 	if (is_kernel_in_hyp_mode())
- 		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
- 	else
+	M.
+
 -- 
-2.47.3
-
+Without deviation from the norm, progress is not possible.
 
