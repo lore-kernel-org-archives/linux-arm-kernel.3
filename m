@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E874FD4F0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B13FD4F0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8iusVWE+eT/wK4fSNbshSwr4s/COjgACwJNX5pbFzc=; b=RQYmGqoT3lF7QsZs9kH8g4UFY8
-	8MwKkKiu9sxKqkm9YvUg3b6c7L72bxEZ/J2n1Qi/3XOEJ8VVJnEZlNYPuTVs23wi3ZMiFbgD/iYZf
-	BEzxnINgrAyV8s+v1OCBBMNUhDSnv2rc204DXZVpIEw1fhwDREsUhnrqVVR19YjVvtrxZunXZ+VbS
-	fc0gjoeCmw1oXsmAvjufRBfa2FWQ9cGkrsUL7B6JTnWBVgsEdqqAB3N7IHi1UueYWx+S88FHWovXa
-	tFkHNxKJzAWa1hjouc9PL5WQpjNv/wUs0bLeYx/nq3Fu9BnphceK9S/1x4sxxYg6+b9jLntF2HyFV
-	SmOQ46xQ==;
+	bh=i1WnQlulk5+h/fVZtviCyMDuoShu+IDNA1sgxDyDVcc=; b=mcLFfNberIdM/71NeoKnr6UIjk
+	3ydTIO6e2blQphV7qC0Bjuf2R0XI16eXvQo9VQ9G41kiwF2NlpW38J9p42NCRIgl8Z79dhIiwvrcC
+	zhnKdgMQy7c4nbg+N05v3T2tb0EjoEppbP3uHuWjbq0TuY2J31ySVjqikksLNO097YOAWonpNVdj9
+	DSyt/oKEdSIBmPfPMkk3Lc3SXWb77kdAv+LBTmxUPK9ZHB5emIiohthZxJf3C5zNvPN7HP8OvnCp1
+	YMFosFL/WtQY8u5GYOreYBndKD4TtSn2Lsrk5ul5YfqlNrMfPWePP40hR9zOr0tS59fuV14yagZQr
+	4ZvFQmqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w015n-0000000A0KL-2oIh;
-	Tue, 10 Mar 2026 17:42:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0175-0000000A0VD-0KGZ;
+	Tue, 10 Mar 2026 17:43:23 +0000
+Received: from 011.lax.mailroute.net ([199.89.1.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w015m-0000000A0K4-1Tty
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 17:42:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3532C60054;
-	Tue, 10 Mar 2026 17:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C03BCC19423;
-	Tue, 10 Mar 2026 17:41:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773164520;
-	bh=flcvGrxGSQcM/HvyJsep1dEanimE9giUMZLN+nEKLMo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FHW+21dVhKhjrp0LgyqZeYTm+4ULKNWpsg1tBvzNt2BlsEpW/xSKLTOpXjaK/A4pE
-	 /m2YPqMvB3TPQ6bGS11UCkwhIUVCGWflwi+IhDRAanhfDTGOlnHrBsOMoB8aTj9I3/
-	 oXxpjqGrsmVPRsc6WAviJvpTt/vOLF0iRNcw6+RNfR434T3BXQC8J43+sSvwVP27u3
-	 uR0hXYu0TH3ta69tr46t96bmjQWQ++Qd25x6bBTyTKzUo6YuNnM5mjIAAcLX66kSAc
-	 S1s/wfzKPtv+MQJbldeo+Qw1RCrFpwj4Dzy1vhnWxA/59Oqy2ojd7THrJXHldTt2kG
-	 wXyTEx1AO4I0w==
-From: Namhyung Kim <namhyung@kernel.org>
-To: irogers@google.com, james.clark@linaro.org, john.g.garry@oracle.com, 
- will@kernel.org, mike.leach@linaro.org, leo.yan@linux.dev, 
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
- adrian.hunter@intel.com, peterz@infradead.org, mingo@redhat.com, 
- acme@kernel.org, Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tmakin@nvidia.com, vsethi@nvidia.com, rwiley@nvidia.com, skelley@nvidia.com, 
- ywan@nvidia.com, treding@nvidia.com, jonathanh@nvidia.com, mochs@nvidia.com
-In-Reply-To: <20260212233407.1432673-1-bwicaksono@nvidia.com>
-References: <20260212233407.1432673-1-bwicaksono@nvidia.com>
-Subject: Re: [PATCH v2] perf vendor events arm64: Add Tegra410 Olympus PMU
- events
-Message-Id: <177316451973.3633010.4596572843813142614.b4-ty@kernel.org>
-Date: Tue, 10 Mar 2026 10:41:59 -0700
+	id 1w0173-0000000A0Un-0v1U;
+	Tue, 10 Mar 2026 17:43:22 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4fVh7C2vfxz1XM5kD;
+	Tue, 10 Mar 2026 17:43:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1773164593; x=1775756594; bh=i1WnQlulk5+h/fVZtviCyMDu
+	oShu+IDNA1sgxDyDVcc=; b=tzyIO8rqapXsA1jVegCXlqS5rpes7rfKPHxVPnzo
+	erERWxDzaeVkgcntugBSXMp1g1g0z8Yr8YCHx6Q+TbFPvphugqqnYdatI7qHVRfU
+	+ucXhsVbz4HSqYS1/0jLBzSX1dIOS6w0tTj35oSyeq8zS2c3z7h8yIlpmPLC8N31
+	i10royHxuuVZa5dDxkdbQAbH/PSJzAu6LHqRcFoeYc59/nBbZLDdZRrfbCnecwme
+	FSO2qs0/cCz/b1YqAfZZQkBA75JbovjLxyOZTDE6aRbASQrCHxDxtAxqeyVz7kKG
+	eFmfK0XGr29ilVpz6YJZaZr+tojI2uuyvTGU7KSI7hGb8A==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id 83yIVxWhxkc3; Tue, 10 Mar 2026 17:43:13 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4fVh714YWZz1XM6JT;
+	Tue, 10 Mar 2026 17:43:09 +0000 (UTC)
+Message-ID: <fd64c25d-12aa-49b2-b95e-d6c640096b41@acm.org>
+Date: Tue, 10 Mar 2026 10:43:08 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] ufs: host: mediatek: Add VCC on delay for
+ stability
+To: ed.tsai@mediatek.com, Peter Wang <peter.wang@mediatek.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, wsd_upstream@mediatek.com,
+ alice.chao@mediatek.com, naomi.chu@mediatek.com, chun-hung.wu@mediatek.com,
+ linux-scsi@vger.kernel.org
+References: <20260310005230.4001904-2-ed.tsai@mediatek.com>
+ <20260310005230.4001904-6-ed.tsai@mediatek.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260310005230.4001904-6-ed.tsai@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_104321_303954_B6259B0A 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +93,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Feb 2026 23:34:07 +0000, Besar Wicaksono wrote:
-> Add JSON files for NVIDIA Tegra410 Olympus core PMU events.
-> Also updated the common-and-microarch.json.
-> 
-> 
-Applied to perf-tools-next, thanks!
+On 3/9/26 5:52 PM, ed.tsai@mediatek.com wrote:
+> Introduce a delay after enabling UFS5 VCC for MT6995 to ensure
+> voltage stability before refclk activation.
 
-Best regards,
-Namhyung
-
-
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
