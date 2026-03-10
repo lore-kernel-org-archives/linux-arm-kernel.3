@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24DEFCC9DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F96EA854E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYLXkZee8AOhu6gc4XsxestgweNg0g6c2mI6cIoJIg4=; b=rkOByvOg2jwkll1wFCwP6XQBZE
-	M3aa+wuITtZeJWeShmPmM5Q+hv5ct1N8Lpt0MnSTS1JCpmI3Q0G0Gy535J+njmyed504ooCPoWCJE
-	dTVDyfeBUMPJ1DK7gOGG9J6T0Qw06O8ixmvOlrWfaiamvMLFRWPQTlfD/M0CugdPgmInomsaxuzxt
-	amgLG8zZneQ1bMnpWaapZJM/OUuBRbpPahaDMu7daaZv34xubNfQW54G5mTrzphhsG1sFytbW8ylk
-	XYd563c5/PdOjVEAL1B+lMg1yedInwkSAKEQxxBaV3/dUqSF0h2PtxpEhrlLkS7A94bSVCRz2fo6v
-	S4JFv9Sg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ep+jJlFfjKc1W/n2Uufe+1A+x8UJ79REU3n+hRnPnqM=; b=sTYZfyIxPQZA3Sw/RF93FhiGb5
+	toR+YCw2+pt05H4NOte1KQFf3lr1PrKCHyRwlIAa+CAlmkiOmmsJ/MqNIojEP4WLoa5z0/fGUBDO8
+	tMixiapv6wMxlZU842llf4F0O63mQgnlgvsOwog+qpF4knctbz6tBhOI98jt44VBV8MkCwii/EW9J
+	tGpnRciBPY+RtyYypUwrVqnhDbdbIWLCz0npjZJt1aYTg1gImhcQfV2KpS1oiaU9I2urt+LuUHTZt
+	I4hJEGxaiqhiH3JoxU2dhEkICUzPIZGs64oJ7/25tgYmSzemQejv0hF/seUteQMfXuWHtTeJ5NnO6
+	T6ULBMRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsof-000000090ER-47Gi;
-	Tue, 10 Mar 2026 08:51:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzsqP-000000090R6-0fCy;
+	Tue, 10 Mar 2026 08:53:37 +0000
+Received: from mail-m49246.qiye.163.com ([45.254.49.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsod-000000090Dq-39NM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 08:51:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE79241A5A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE872C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:51:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773132706;
-	bh=vVoj3FLi83VXmJyuCRq2Dd+bxXjKaU+NntpFAWe/BT4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Zct30tSL3h4O0vrlc0FGEfY06o2E9w0S4RpZ3oU4xghwLQTLssYmSSmsIOaAXXJed
-	 GKp04zVWjV/rboXJu0znMzuHIhNcjAAHCPTqfjdOHx5SJOogCMDfFiXwQaeV6zNlj8
-	 DZyLtTSXYgnjg+zrA9J5y5CyI2Tucq5+RKbfV0zVr7P7ZZHdlQKSI3dR4wndWrXYh8
-	 4W4NSylgs6Xj1JcmztWDqzx7kskIHyPe4fUKskMhME8+fhxxKMlUrWlrpJ01IelZQ8
-	 G0RZjP94IHthM+0mqwwd46gxPz/r4ZLGHNMhvCgMMgoFvulyrcuC3K43Rc2UQmbtts
-	 hLwezImpohRfA==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a140efd2d5so4095380e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 01:51:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUg89m+QExPzHLNBM6ldHeTdXrVc11cjBLJui25B8713ykAie4yXGmb/KCTucDm6NPhb2Oco+5QlVDnsLXnIQz9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHvklxdT5f6YXQB+hMbpPZXLnrgzzaaIWAHisnl/05Dmg7yIIC
-	YeGPO0wtDyIgUcZHC/YDMg8bWL/JSQgJpuHYseGi4Wy3JlVDCMQL91ZZVnE5jZColH3oocGUj9n
-	gCtPfnMiYxsrXDaB2I0erGdSq4RxwBfEbuMIk0vroqg==
-X-Received: by 2002:a05:6512:304f:b0:5a1:3e8d:aa27 with SMTP id
- 2adb3069b0e04-5a13e8dad62mr4744483e87.36.1773132705315; Tue, 10 Mar 2026
- 01:51:45 -0700 (PDT)
+	id 1vzsqM-000000090QX-1PAp;
+	Tue, 10 Mar 2026 08:53:35 +0000
+Received: from xxm-vm.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 366407926;
+	Tue, 10 Mar 2026 16:48:21 +0800 (GMT+08:00)
+From: Simon Xue <xxm@rock-chips.com>
+To: Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Simon Xue <xxm@rock-chips.com>,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] iommu/rockchip: Drop global rk_ops in favor of per-device ops
+Date: Tue, 10 Mar 2026 16:48:11 +0800
+Message-Id: <20260310084812.126082-1-xxm@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260308021535.48098-1-rosenp@gmail.com> <CAD++jLkLj235Q=U_9E-hSneW5E42JjU=dRBJxKJNnqwgBLCm=w@mail.gmail.com>
- <CAKxU2N9JbAzEYfmLpbw5b9Y6MsYUZ1FfLirfy8Hg8MCOUY6PAg@mail.gmail.com>
- <CAMRc=Me+oUX5xbNY7PX43cTH0e5ouu=Ex3TqhvWvoefmR7jYYQ@mail.gmail.com> <CAKxU2N8_V7U11X18Ja+=tdYPWT6jnmM7bYt+5GHgeXAXOJ5cng@mail.gmail.com>
-In-Reply-To: <CAKxU2N8_V7U11X18Ja+=tdYPWT6jnmM7bYt+5GHgeXAXOJ5cng@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 10 Mar 2026 09:51:33 +0100
-X-Gmail-Original-Message-ID: <CAMRc=Md3uAPzndudyvpFiLki8fkYHgAtumtaauXMkXwU4vANBA@mail.gmail.com>
-X-Gm-Features: AaiRm52QyqGRA5XZTuwTzrHYnzWWeX8i1qdpXgK_Fun3PV5g-eaSB6k0RbEVzRo
-Message-ID: <CAMRc=Md3uAPzndudyvpFiLki8fkYHgAtumtaauXMkXwU4vANBA@mail.gmail.com>
-Subject: Re: [PATCH] gpio: msc313: remove kcalloc
-To: Rosen Penev <rosenp@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org, 
-	Daniel Palmer <daniel@thingy.jp>, linux-hardening@vger.kernel.org, gustavoars@kernel.org, 
-	Romain Perier <romain.perier@gmail.com>, 
-	"moderated list:ARM/MStar/Sigmastar Armv7 SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9cd6eecfc503ackunm4dcecdff2859ab8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhPGVYZTkxKGUsYGENKS0NWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=C+rt0Ro3Pjm30ci7xv0PAhoxbBrXHpgN6Xmb8BXdQCQTUWWUnWkaFPU3xvhWowbaKOYqKO2uz+V6J/65eD16+lEZAZMKfexxZRtZyPgAAQgPUITA3fhBtT4HMY8qkGVj7Eq9YOQJLwsqfqgqBCoCjJX13QcDpZsYZIbykTAnKZM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=ep+jJlFfjKc1W/n2Uufe+1A+x8UJ79REU3n+hRnPnqM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_015147_830088_4DF2E0DF 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260310_015334_599969_8954E264 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +72,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 9, 2026 at 11:00=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wrot=
-e:
->
-> On Mon, Mar 9, 2026 at 2:03=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.o=
-rg> wrote:
-> >
-> > On Mon, Mar 9, 2026 at 2:27=E2=80=AFAM Rosen Penev <rosenp@gmail.com> w=
-rote:
-> > >
-> > > On Sun, Mar 8, 2026 at 5:06=E2=80=AFPM Linus Walleij <linusw@kernel.o=
-rg> wrote:
-> > > >
-> > > > On Sun, Mar 8, 2026 at 3:15=E2=80=AFAM Rosen Penev <rosenp@gmail.co=
-m> wrote:
-> > > >
-> > > > > Use a flexible array member to combine kzalloc and kcalloc.
-> > > > >
-> > > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > > (...)
-> > > > >  struct msc313_gpio {
-> > > > >         void __iomem *base;
-> > > > >         const struct msc313_gpio_data *gpio_data;
-> > > >
-> > > > Do you wanna add:
-> > > >
-> > > > const unsigned int saved_size;
-> > > So in the code there's
-> > >
-> > > for (i =3D 0; i < gpio->gpio_data->num; i++)
-> > >
-> > > which is equivalent to match->num.
-> > >
-> > > __counted_by doesn't support pointers AFAIK.
-> > > >
-> >
-> > This is a regular flexible array of u8. It should work fine with
-> > __counted_by and I too am in favor of using it as it has become
-> > standard for flexible arrays.
-> That requires adding an extra variable in the struct.
+The driver currently uses a global rk_ops pointer, forcing all IOMMU
+instances to share the same operations. This restricts the driver from
+supporting SoCs that might integrate different versions of IOMMU hardware.
 
-That's ok, it's negligible and provides tangible advantages.
+Since the IOMMU framework passes the master device information to
+iommu_paging_domain_alloc(), the global variable is no longer needed.
 
-Please do the same for your other patches.
+Fix this by moving rk_ops into struct rk_iommu and struct rk_iommu_domain.
+Initialize it per-device during probe via of_device_get_match_data(),
+and replace all global references with the instance-specific pointers.
 
-Bart
+Signed-off-by: Simon Xue <xxm@rock-chips.com>
+---
+ drivers/iommu/rockchip-iommu.c | 67 ++++++++++++++++------------------
+ 1 file changed, 31 insertions(+), 36 deletions(-)
+
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 0013cf196c57..09233c67ee8e 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -82,6 +82,14 @@
+   */
+ #define RK_IOMMU_PGSIZE_BITMAP 0x007ff000
+ 
++struct rk_iommu_ops {
++	phys_addr_t (*pt_address)(u32 dte);
++	u32 (*mk_dtentries)(dma_addr_t pt_dma);
++	u32 (*mk_ptentries)(phys_addr_t page, int prot);
++	u64 dma_bit_mask;
++	gfp_t gfp_flags;
++};
++
+ struct rk_iommu_domain {
+ 	struct list_head iommus;
+ 	u32 *dt; /* page directory table */
+@@ -89,6 +97,7 @@ struct rk_iommu_domain {
+ 	spinlock_t iommus_lock; /* lock for iommus list */
+ 	spinlock_t dt_lock; /* lock for modifying page directory table */
+ 	struct device *dma_dev;
++	const struct rk_iommu_ops *rk_ops;
+ 
+ 	struct iommu_domain domain;
+ };
+@@ -98,14 +107,6 @@ static const char * const rk_iommu_clocks[] = {
+ 	"aclk", "iface",
+ };
+ 
+-struct rk_iommu_ops {
+-	phys_addr_t (*pt_address)(u32 dte);
+-	u32 (*mk_dtentries)(dma_addr_t pt_dma);
+-	u32 (*mk_ptentries)(phys_addr_t page, int prot);
+-	u64 dma_bit_mask;
+-	gfp_t gfp_flags;
+-};
+-
+ struct rk_iommu {
+ 	struct device *dev;
+ 	void __iomem **bases;
+@@ -117,6 +118,7 @@ struct rk_iommu {
+ 	struct iommu_device iommu;
+ 	struct list_head node; /* entry in rk_iommu_domain.iommus */
+ 	struct iommu_domain *domain; /* domain to which iommu is attached */
++	const struct rk_iommu_ops *rk_ops;
+ };
+ 
+ struct rk_iommudata {
+@@ -124,7 +126,6 @@ struct rk_iommudata {
+ 	struct rk_iommu *iommu;
+ };
+ 
+-static const struct rk_iommu_ops *rk_ops;
+ static struct iommu_domain rk_identity_domain;
+ 
+ static inline void rk_table_flush(struct rk_iommu_domain *dom, dma_addr_t dma,
+@@ -510,7 +511,7 @@ static int rk_iommu_force_reset(struct rk_iommu *iommu)
+ 	 * and verifying that upper 5 (v1) or 7 (v2) nybbles are read back.
+ 	 */
+ 	for (i = 0; i < iommu->num_mmu; i++) {
+-		dte_addr = rk_ops->pt_address(DTE_ADDR_DUMMY);
++		dte_addr = iommu->rk_ops->pt_address(DTE_ADDR_DUMMY);
+ 		rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, dte_addr);
+ 
+ 		if (dte_addr != rk_iommu_read(iommu->bases[i], RK_MMU_DTE_ADDR)) {
+@@ -551,7 +552,7 @@ static void log_iova(struct rk_iommu *iommu, int index, dma_addr_t iova)
+ 	page_offset = rk_iova_page_offset(iova);
+ 
+ 	mmu_dte_addr = rk_iommu_read(base, RK_MMU_DTE_ADDR);
+-	mmu_dte_addr_phys = rk_ops->pt_address(mmu_dte_addr);
++	mmu_dte_addr_phys = iommu->rk_ops->pt_address(mmu_dte_addr);
+ 
+ 	dte_addr_phys = mmu_dte_addr_phys + (4 * dte_index);
+ 	dte_addr = phys_to_virt(dte_addr_phys);
+@@ -560,14 +561,14 @@ static void log_iova(struct rk_iommu *iommu, int index, dma_addr_t iova)
+ 	if (!rk_dte_is_pt_valid(dte))
+ 		goto print_it;
+ 
+-	pte_addr_phys = rk_ops->pt_address(dte) + (pte_index * 4);
++	pte_addr_phys = iommu->rk_ops->pt_address(dte) + (pte_index * 4);
+ 	pte_addr = phys_to_virt(pte_addr_phys);
+ 	pte = *pte_addr;
+ 
+ 	if (!rk_pte_is_page_valid(pte))
+ 		goto print_it;
+ 
+-	page_addr_phys = rk_ops->pt_address(pte) + page_offset;
++	page_addr_phys = iommu->rk_ops->pt_address(pte) + page_offset;
+ 	page_flags = pte & RK_PTE_PAGE_FLAGS_MASK;
+ 
+ print_it:
+@@ -663,13 +664,13 @@ static phys_addr_t rk_iommu_iova_to_phys(struct iommu_domain *domain,
+ 	if (!rk_dte_is_pt_valid(dte))
+ 		goto out;
+ 
+-	pt_phys = rk_ops->pt_address(dte);
++	pt_phys = rk_domain->rk_ops->pt_address(dte);
+ 	page_table = (u32 *)phys_to_virt(pt_phys);
+ 	pte = page_table[rk_iova_pte_index(iova)];
+ 	if (!rk_pte_is_page_valid(pte))
+ 		goto out;
+ 
+-	phys = rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
++	phys = rk_domain->rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
+ out:
+ 	spin_unlock_irqrestore(&rk_domain->dt_lock, flags);
+ 
+@@ -730,7 +731,7 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
+ 	if (rk_dte_is_pt_valid(dte))
+ 		goto done;
+ 
+-	page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_ops->gfp_flags,
++	page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_domain->rk_ops->gfp_flags,
+ 					  SPAGE_SIZE);
+ 	if (!page_table)
+ 		return ERR_PTR(-ENOMEM);
+@@ -742,13 +743,13 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+ 
+-	dte = rk_ops->mk_dtentries(pt_dma);
++	dte = rk_domain->rk_ops->mk_dtentries(pt_dma);
+ 	*dte_addr = dte;
+ 
+ 	rk_table_flush(rk_domain,
+ 		       rk_domain->dt_dma + dte_index * sizeof(u32), 1);
+ done:
+-	pt_phys = rk_ops->pt_address(dte);
++	pt_phys = rk_domain->rk_ops->pt_address(dte);
+ 	return (u32 *)phys_to_virt(pt_phys);
+ }
+ 
+@@ -790,7 +791,7 @@ static int rk_iommu_map_iova(struct rk_iommu_domain *rk_domain, u32 *pte_addr,
+ 		if (rk_pte_is_page_valid(pte))
+ 			goto unwind;
+ 
+-		pte_addr[pte_count] = rk_ops->mk_ptentries(paddr, prot);
++		pte_addr[pte_count] = rk_domain->rk_ops->mk_ptentries(paddr, prot);
+ 
+ 		paddr += SPAGE_SIZE;
+ 	}
+@@ -812,7 +813,7 @@ static int rk_iommu_map_iova(struct rk_iommu_domain *rk_domain, u32 *pte_addr,
+ 			    pte_count * SPAGE_SIZE);
+ 
+ 	iova += pte_count * SPAGE_SIZE;
+-	page_phys = rk_ops->pt_address(pte_addr[pte_count]);
++	page_phys = rk_domain->rk_ops->pt_address(pte_addr[pte_count]);
+ 	pr_err("iova: %pad already mapped to %pa cannot remap to phys: %pa prot: %#x\n",
+ 	       &iova, &page_phys, &paddr, prot);
+ 
+@@ -849,7 +850,7 @@ static int rk_iommu_map(struct iommu_domain *domain, unsigned long _iova,
+ 	pte_index = rk_iova_pte_index(iova);
+ 	pte_addr = &page_table[pte_index];
+ 
+-	pte_dma = rk_ops->pt_address(dte_index) + pte_index * sizeof(u32);
++	pte_dma = rk_domain->rk_ops->pt_address(dte_index) + pte_index * sizeof(u32);
+ 	ret = rk_iommu_map_iova(rk_domain, pte_addr, pte_dma, iova,
+ 				paddr, size, prot);
+ 
+@@ -887,7 +888,7 @@ static size_t rk_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
+ 		return 0;
+ 	}
+ 
+-	pt_phys = rk_ops->pt_address(dte);
++	pt_phys = rk_domain->rk_ops->pt_address(dte);
+ 	pte_addr = (u32 *)phys_to_virt(pt_phys) + rk_iova_pte_index(iova);
+ 	pte_dma = pt_phys + rk_iova_pte_index(iova) * sizeof(u32);
+ 	unmap_size = rk_iommu_unmap_iova(rk_domain, pte_addr, pte_dma, size);
+@@ -945,7 +946,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 
+ 	for (i = 0; i < iommu->num_mmu; i++) {
+ 		rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
+-			       rk_ops->mk_dtentries(rk_domain->dt_dma));
++			       iommu->rk_ops->mk_dtentries(rk_domain->dt_dma));
+ 		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+ 		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
+ 	}
+@@ -1068,17 +1069,19 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
+ 	if (!rk_domain)
+ 		return NULL;
+ 
++	iommu = rk_iommu_from_dev(dev);
++	rk_domain->rk_ops = iommu->rk_ops;
++
+ 	/*
+ 	 * rk32xx iommus use a 2 level pagetable.
+ 	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
+ 	 * Allocate one 4 KiB page for each table.
+ 	 */
+-	rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | rk_ops->gfp_flags,
++	rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | rk_domain->rk_ops->gfp_flags,
+ 					     SPAGE_SIZE);
+ 	if (!rk_domain->dt)
+ 		goto err_free_domain;
+ 
+-	iommu = rk_iommu_from_dev(dev);
+ 	rk_domain->dma_dev = iommu->dev;
+ 	rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, rk_domain->dt,
+ 					   SPAGE_SIZE, DMA_TO_DEVICE);
+@@ -1117,7 +1120,7 @@ static void rk_iommu_domain_free(struct iommu_domain *domain)
+ 	for (i = 0; i < NUM_DT_ENTRIES; i++) {
+ 		u32 dte = rk_domain->dt[i];
+ 		if (rk_dte_is_pt_valid(dte)) {
+-			phys_addr_t pt_phys = rk_ops->pt_address(dte);
++			phys_addr_t pt_phys = rk_domain->rk_ops->pt_address(dte);
+ 			u32 *page_table = phys_to_virt(pt_phys);
+ 			dma_unmap_single(rk_domain->dma_dev, pt_phys,
+ 					 SPAGE_SIZE, DMA_TO_DEVICE);
+@@ -1212,15 +1215,7 @@ static int rk_iommu_probe(struct platform_device *pdev)
+ 	iommu->num_mmu = 0;
+ 
+ 	ops = of_device_get_match_data(dev);
+-	if (!rk_ops)
+-		rk_ops = ops;
+-
+-	/*
+-	 * That should not happen unless different versions of the
+-	 * hardware block are embedded the same SoC
+-	 */
+-	if (WARN_ON(rk_ops != ops))
+-		return -EINVAL;
++	iommu->rk_ops = ops;
+ 
+ 	iommu->bases = devm_kcalloc(dev, num_res, sizeof(*iommu->bases),
+ 				    GFP_KERNEL);
+@@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct platform_device *pdev)
+ 			goto err_pm_disable;
+ 	}
+ 
+-	dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
++	dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
+ 
+ 	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
+ 	if (err)
+-- 
+2.34.1
+
 
