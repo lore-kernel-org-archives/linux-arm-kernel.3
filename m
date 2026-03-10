@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B40FCC9AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 02:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6656EFCC9AE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 02:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QbTazj95ET0BF1bU1Ga6nRj7EK+gkbXo0adXS1pdkKo=; b=Gy7Ee/MCRiOUAk1zMOc/VdJ3JF
-	fyR3aentXx38lLx6Rbo7+tpRuvvIksF33Qs6DXQMj9YQaWn/jYiM4yW5eroviMtnSTBk7kVw3RPaW
-	K4RJgK9/kfathTWhdDAeDiC2fXPWWc+MMttCbfLYqZ0Z+7Vwi0AiF8tdc2eHMiR+wTrClB0l3/oLP
-	FeUTaRcMJs2yuB15+zUkBa4ECAHqF6+VYPJoSlgZfLWN89K0ntlH0OgC2wlTEy2PcGR1AF7zbZbIA
-	CBYsdIsRnxOJV2ezmsSb4vbIUv1eKlZt8iLv5OtigRwsgQc6SEQadklQlwAvoSWukuV+YnAbDVQoN
-	4YDZJpMA==;
+	bh=yS9VzDgzb4tGHuCe+hXBByU7p4QSJ0iEjmhSlRsitWM=; b=P6rYg7+UUsp1D7+8eOWCWHIFWD
+	7FShu6j8Z8ljE5akLE7zo1y1knHtcYiPEDQ+TJ0vAkE0Rgkq76meENFtv/sTnGmjIwURrXoCsbrCC
+	bk6E9z8EIyARfrgRbFEAcFbxFfCawEaB7kh47fx5F9ahigvXDe4RQJqopcZe7I/hlU5dKI2j2Cb2E
+	09OfnCulF7AYvyEu7hUqsboSWvUXHJKogbYb7HJuuiSQaYzdlcX9W4iyEDL3R4idvQvxQqry0cLKT
+	kGw3LaoSb+f0H1tPO3vPspnH04AN160NUN63ayblv0KNQG/ziPs3baE0dBDTYgJx7/ZDkJ7ayJn2f
+	JtkghxQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznIg-00000008bGm-30hL;
-	Tue, 10 Mar 2026 02:58:26 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vznJM-00000008bRu-3lMW;
+	Tue, 10 Mar 2026 02:59:08 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznId-00000008bGC-3Yni
+	id 1vznJK-00000008bR3-1PK3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 02:58:25 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ab232cc803so57154305ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 19:58:23 -0700 (PDT)
+	Tue, 10 Mar 2026 02:59:07 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-359a5d8b3f8so3995637a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 19:59:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773111502; x=1773716302; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773111545; x=1773716345; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:references
          :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=QbTazj95ET0BF1bU1Ga6nRj7EK+gkbXo0adXS1pdkKo=;
-        b=Qk+0Be0G7r9y7Kz2ahmkS09y8zp4xGpK3wUljSJsP2dW9rHznlLlaIBhcU4XWJ6EwQ
-         fmx6kMs3pTK2ARNR17HDQBUciMF9gHLUgyhKXmymjNbteEWF1J9gUE4i0x3mUyrteP9X
-         YoGC9+egK7VJI7ilPv3xThRBBMOyzNgTodv+IgxgfBZ5PufZk/yvFqIffO88+za36hpl
-         KkvmFkU4OhMI8DBjc1XzJRG4y0Z11JWmkmNrLjSkmx9npkVYArNZmwGOa5CD9LXr0Q30
-         rEl7+7/41LX3oonTXJXYUBYXCUskkEUptCwynKpqV0WqWxhOGolKuycHFsFywPU21aPo
-         e1kw==
+        bh=yS9VzDgzb4tGHuCe+hXBByU7p4QSJ0iEjmhSlRsitWM=;
+        b=kyv8eboG5UXmL6VzKkJ4BhJ3e0qPx9+Y7ksM6fpiwcGZNX3fcMVcfkd3VSRVXwE3pX
+         TBvHPO/kC4GZSzqgeX2ntxDmtBrJE/JOmfyS1hOzf7seN7hrNGhGJq2vxAaRwTIi8FTH
+         K7fA7n6NZQ78zUEXHgsmGGPbYN9zOsw0JPb1iCb9kAvfOyCR5eqU8mVXk5fyBm717xNJ
+         DIIwGhHOYMaav9NqD/jugMfHzBHYnVp5HTBIf20YA21y8n5fpPZ7cd4dTddctd1Zn29D
+         c1/Lx1Y2CgIPjN2V0nG3VdhCJ9Gw0w5adyHcQ0mF9zOvb9xSZJPOiLdI9HQHZxGujqON
+         CryQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773111502; x=1773716302;
+        d=1e100.net; s=20230601; t=1773111545; x=1773716345;
         h=content-transfer-encoding:mime-version:message-id:references
          :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QbTazj95ET0BF1bU1Ga6nRj7EK+gkbXo0adXS1pdkKo=;
-        b=NCxbbRNDlvoGNt6FC3WyXq/OPab+/Q+Tt5UXgIveM5rReoKPDY6LmUCDS008gnV7Rl
-         Js7Ld30Ad19RR0rZQTqjdG6kZA2IsW3/B8A809ZePRGXcnfW5oF2eSfe3qAUqQx/7/Gp
-         OmAtCEhuP88gZ2lErHolddXOOx+vjJK35x3cF5NNvt3seoLDVOyh+GVIIcKs60FxcJ+r
-         ruWHrSP2PZDi4GIoyIUP8BNOnoRUxKOfqCafKfjU8z6hNcIlSAn/WAJQDXY5r4ox/qjq
-         sCXkbnKy1/7bSgtiLOaA551vF5rhyNF0OijtJFGs8OoRYgYho+4JQnVfH0H6cpQY6hNw
-         XvWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXh97XbPwb07freQta0Dk0gT5lc7g4OhA9Vu5wfnxWm8jyZeZfH9pCu614+GLajxJZ97yx6+684uV/rRL+CI2D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi5rtC73jmZUiixeZgyf1jnHllmjXVbaTZcniUhbxDh/qXxC8y
-	AinNSenmpW3+H4PKRMoPOzq2hDxLHbqB7mVnJYag0K/smPmA7MFM9uxe
-X-Gm-Gg: ATEYQzzCFHzcnez0wvlrCUgUirLWpmeWcoDDs/xwL0lqtjxHPKoqQXUwUf/VIWtuBvv
-	M7wl9ja0T8P9s2wkDweWR93RZU4uKXm5Bg6TnV3Xbr1A4QAHKr5uYlMDIKmmMykpO8IwKdyiwDi
-	8V5+aCpwwxG1M+ZgbsgYAAGch71OHRBoaEb/Gs0lKW+0k99q+byUTwh9bkxOOOFu89RJ13Jy5mo
-	rPfDzCbK3cMKnUcFE2KejO0SWTj73UN98YD6JYny/WvaLiFrbKubsyZ6VQMONovWAmCJxZGumSe
-	I8BcWHw2N2YchrsifpwPisxmkJ6HSg6YauhNTvpYOsXK8sOlVU0R7BWBsA4R4H9ETYBU9WqMOqc
-	mylFeIJe141E0nWZuYJ39oZ7LrdqxobhAUtOaMUZnY0HliZnfJpo1FKe/YZ3Gxt9HPnqjvTKTTJ
-	LkpHdo/iUWasHMPo4L4aegSK/m9NaQvb7ugg==
-X-Received: by 2002:a17:903:1a24:b0:2ae:4ef4:1415 with SMTP id d9443c01a7336-2ae8238544emr125594555ad.13.1773111502419;
-        Mon, 09 Mar 2026 19:58:22 -0700 (PDT)
+        bh=yS9VzDgzb4tGHuCe+hXBByU7p4QSJ0iEjmhSlRsitWM=;
+        b=gE+eEbYjTR3FCOGDMJVZWaq4zSqklvXNZxOXeSvv41HJA+Ai9VxytYa44l0dFGBMwk
+         N7T3Ztx+ITkk2hYEtWtUhIF1/6V5isxPoC3fycQeH7k8LqUe8l5YMyXH2SBwr0WQJq28
+         YIo7Q/E4hnjYjiT0rYBa5IQVVF7fVthKhV53uXo8QnGUjbz5q4ktt2BVRiQ8jTxZOFb2
+         9AiYRST6wYak/G4DT9pf34uz2HFgO8MPQFajahQiMJy1p41V/n60sFfSqf75+cYZW75+
+         wHsX9Dm2kw9BnoY9mTMxLNk4Kqz63X/nv1ZXPrfqp/dB7Ce5mMW1hIOfgfCGgAekbG0L
+         9o0w==
+X-Forwarded-Encrypted: i=1; AJvYcCXSXjV99LlFWAe3G80j4UA2AHqLDbjGGf+VgPyDN4WGLp5l3f9GfhwsKFvUzMo5pksi0QLZnoNKZUCMdsT5hFSn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb788dRCrzz2ynXxTdTG0HMGT3By0A+CqoPvz91kfaEUAyDd/W
+	pMMXuxBzYMNWO6DH8DURgqD4A41mK2j43q0N7Q6H4pLHrmmjKcCN+POC0iBqOQPV
+X-Gm-Gg: ATEYQzy+M3QJCP6tVFK/p5IarD6ZODIkR3/mvSvmM31m/rcKPr1/MRYD5DRVhjAgrux
+	vgs1Ax8PbReRvOOi7JvQPdFbsOSeC79BU/Ax/gI/NsGq/KxXVYDDEToeAdxhylrtpu+p5qlaHXK
+	60szX6kyJk4FHilhqCx/X+4gdfdsj9Fat67r7/APVAXQX8FN+HfiVPYw5dvOtJgoDx54TJl5YI+
+	QLgUJBJdBAX0yt1RL/Eyrt6b+Z/t5gR2k+ecbDGmxUF2hkbKTLLgrzk+NVlTfR4KY+LazaRoGTe
+	WKHNU7k1Eo3jWOE//GkPdjmQa9jfH0vxwC3QGVRWJPr5AlwFf5C0SSKqRw+ggS0IpPiNoFFNev0
+	MaEt6pfQhAgdrv3ihi/TkywV46lw36qLWb+7UFJd1fqGYFNT9ZBRJmZz5gF2NU2uYbIoFtn+7OA
+	w5VC9nF3x+u+PlAA/ziUl8+k6Fb5ZslFuRnQ==
+X-Received: by 2002:a17:90b:1d43:b0:356:24f0:af0c with SMTP id 98e67ed59e1d1-359be30827fmr12323882a91.17.1773111545240;
+        Mon, 09 Mar 2026 19:59:05 -0700 (PDT)
 Received: from ehlo.thunderbird.net ([2401:4900:53d0:5b96::e3a:5d35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83f75b15sm178533205ad.52.2026.03.09.19.58.21
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359f08c4289sm1115534a91.17.2026.03.09.19.59.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Mar 2026 19:58:22 -0700 (PDT)
-Date: Tue, 10 Mar 2026 08:28:17 +0530
+        Mon, 09 Mar 2026 19:59:04 -0700 (PDT)
+Date: Tue, 10 Mar 2026 08:29:00 +0530
 From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-To: Marc Kleine-Budde <mkl@blackshift.org>
-CC: mirela.rabulea@nxp.com, mchehab@kernel.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- skhan@linuxfoundation.org, festevam@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2=5D_media=3A_imx-jpeg=3A_con?=
- =?US-ASCII?Q?vert_kzalloc=5Fobj=28=29_to_devm=5Fkzalloc=28=29?=
+To: Frank Li <Frank.li@nxp.com>
+CC: mirela.rabulea@nxp.com, mchehab@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ skhan@linuxfoundation.org
+Subject: Re: [PATCH] media: imx-jpeg: convert kzalloc() to devm_kzalloc()
 User-Agent: Thunderbird for Android
-In-Reply-To: <20260309-excellent-lionfish-of-symmetry-5c1a77-mkl@blackshift.org>
-References: <20260308060554.1764128-1-sanjayembedded@gmail.com> <20260309-excellent-lionfish-of-symmetry-5c1a77-mkl@blackshift.org>
-Message-ID: <6E937F17-2248-4E9C-B2C9-A28FED599703@gmail.com>
+In-Reply-To: <aa7tLI_S2VYrrKdL@lizhi-Precision-Tower-5810>
+References: <20260307210404.1428894-1-sanjayembedded@gmail.com> <aa7tLI_S2VYrrKdL@lizhi-Precision-Tower-5810>
+Message-ID: <4C4017F0-1288-4B08-B2D6-C038C884AAAA@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain;
  charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_195823_888620_C9DA18D7 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260309_195906_375231_F01FF665 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +104,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9 March 2026 9:23:57=E2=80=AFpm IST, Marc Kleine-Budde <mkl@blackshift=
-=2Eorg> wrote:
->On 08=2E03=2E2026 11:35:54, Sanjay Chitroda wrote:
+On 9 March 2026 9:24:20=E2=80=AFpm IST, Frank Li <Frank=2Eli@nxp=2Ecom> wr=
+ote:
+>On Sun, Mar 08, 2026 at 02:34:04AM +0530, Sanjay Chitroda wrote:
 >> From: Sanjay Chitroda <sanjayembeddedse@gmail=2Ecom>
 >>
->> The driver allcoates memory using kzalloc_obj() and frees it in the rel=
-ase
+>> The driver allcoates memory using kzalloc() and frees it in the relase
 >> path=2E since the allocated memory is tied to the lifetime of the devic=
 e,
 >> devm_kzalloc() can be used instead=2E
 >
->What happens if you issue multiple open()/close() cycles per device
->lifetime? Will the memory pile up, until the mxc_jpeg_remove() function
->is called?
+>static const struct v4l2_file_operations mxc_jpeg_fops =3D {
+>        =2Eowner          =3D THIS_MODULE,
+>        =2Eopen           =3D mxc_jpeg_open,
+>        =2Erelease        =3D mxc_jpeg_release,
+>        =2Epoll           =3D v4l2_m2m_fop_poll,
+>        =2Eunlocked_ioctl =3D video_ioctl2,
+>        =2Emmap           =3D v4l2_m2m_fop_mmap,
+>};
+>
+>Look like it is not true=2E =2Eopen() should be called only when device o=
+pen,
+>not at probe()?
 
 You are correct=2E
 
@@ -133,11 +140,60 @@ open()/close() cycles=2E
 I'll drop this change=2E
 
 >
+>Frank
+>
+>>
 >> Using device-managed allocation simplifies the error handling paths and
 >> remove the need for manual cleanup=2E
 >>
 >> No functional change intended=2E
->
->Marc
->
+>>
+>> Signed-off-by: Sanjay Chitroda <sanjayembeddedse@gmail=2Ecom>
+>> ---
+>>  drivers/media/platform/nxp/imx-jpeg/mxc-jpeg=2Ec | 11 +++--------
+>>  1 file changed, 3 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg=2Ec b/drivers=
+/media/platform/nxp/imx-jpeg/mxc-jpeg=2Ec
+>> index b558700d1d96=2E=2Ebd4b5f08a85c 100644
+>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg=2Ec
+>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg=2Ec
+>> @@ -2200,14 +2200,12 @@ static int mxc_jpeg_open(struct file *file)
+>>  	struct mxc_jpeg_ctx *ctx;
+>>  	int ret =3D 0;
+>>
+>> -	ctx =3D kzalloc(sizeof(*ctx), GFP_KERNEL);
+>> +	ctx =3D devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+>>  	if (!ctx)
+>>  		return -ENOMEM;
+>>
+>> -	if (mutex_lock_interruptible(&mxc_jpeg->lock)) {
+>> -		ret =3D -ERESTARTSYS;
+>> -		goto free;
+>> -	}
+>> +	if (mutex_lock_interruptible(&mxc_jpeg->lock))
+>> +		return -ERESTARTSYS;
+>>
+>>  	v4l2_fh_init(&ctx->fh, mxc_vfd);
+>>  	v4l2_fh_add(&ctx->fh, file);
+>> @@ -2246,8 +2244,6 @@ static int mxc_jpeg_open(struct file *file)
+>>  	v4l2_fh_del(&ctx->fh, file);
+>>  	v4l2_fh_exit(&ctx->fh);
+>>  	mutex_unlock(&mxc_jpeg->lock);
+>> -free:
+>> -	kfree(ctx);
+>>  	return ret;
+>>  }
+>>
+>> @@ -2754,7 +2750,6 @@ static int mxc_jpeg_release(struct file *file)
+>>  	v4l2_m2m_ctx_release(ctx->fh=2Em2m_ctx);
+>>  	v4l2_fh_del(&ctx->fh, file);
+>>  	v4l2_fh_exit(&ctx->fh);
+>> -	kfree(ctx);
+>>  	mutex_unlock(&mxc_jpeg->lock);
+>>
+>>  	return 0;
+>> --
+>> 2=2E34=2E1
+>>
 
