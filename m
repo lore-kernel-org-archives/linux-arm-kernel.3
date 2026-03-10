@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3519CFCC9DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27B2FCC9DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E3LnZLWj7Gk8mfX7i4o5/JcU3ncWfdEk4XN75StFNl4=; b=HsW7+pB5DkenHR
-	mh944KNwlinFV9DpOln7m4g22+LiSS8yTcs0ymY8lOy7RN14iQubuPpt0prVYv1ogbRQeGMIlwFij
-	rxyhfnLVt5ki7Fio8651D40119WHxoc+LZdTds+b+iXWBBr/6sz467znv7eGfDdTennyGZow2maF1
-	WAOiqMadKWEnC+KVV31hr+66lf+o0aWE4ORpztkcF3bVLjq2116JtomWpKV+/6JHvOoRa2GvjZgXG
-	X1RJawVnECiwQgnFVZxdbO66AvGmmN32+4HBnKjrTi3NZ7ApDxHFNWPEghgbCcOk2RIsZU8nGTHw3
-	fG+jLx7i2YSSywbgU7oA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FWjn+Xn9ibfzj3/eOMbbIcVWYw4TIKxFMrzDRcoxlL4=; b=wMhHqxXst6weosB/hlrSMx0Mvg
+	gAnprE8alYTL/ooERh8793jLsbIuVllTqN9KTxBQCs1P8ExyJo9BjT7WkxYQuMkpHj/ddrnZm96hY
+	k/xrkR5DdoMeaspWaKYQWEDxIqmNV71ldFom4T/d+pJ3WWu4KHpZfQOZn5rB15LhRT8plS+IT0RMl
+	wm4Jj3hIWwOKfne2y4w0aceZTo2TYkdccItStSbchkV2UckDo39+ix/qd4cB92VkABnqlNTRZ32Tl
+	2M7mIYVoFCeK/HGSqyz5VtO38dV5ez69ATKJ/AwBlu+3CtaI05ScutKv0HhR2WZJOwELps9rVZP7w
+	IIkADVsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfe-00000008y9W-4012;
-	Tue, 10 Mar 2026 08:42:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vzsfp-00000008yJb-42H9;
+	Tue, 10 Mar 2026 08:42:41 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfd-00000008y7B-2GOI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Mar 2026 08:42:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=E3LnZLWj7Gk8mfX7i4o5/JcU3ncWfdEk4XN75StFNl4=; b=k++0rtJLMuoQIW+CYQ7JGBqIJF
-	iCyBBtyo0DH/SwylWdnvu9/O6MWLfyTtRILBktAzmSUJdETJP7OZzifJmBxuKItTjaxSnngiuGjiE
-	FgrUU/JMPlNgUPosldZMblJE9xBfuKIeIRbTi+iPwk53oI9Cop7vV6NToegDIMAF6bHs5aQOxh+gb
-	h77oJB0bNxrwk9M6t08idMOvN0Kfk0MnlwYCSqcAoxHDnIvk98x397KTsnYK1SrivWRvkXMkcNdnI
-	hpGa01tCrrv21G/LDP/PzmAwRAkkOjP5VyJi1zUrnL5vAxl60ZTSuzByFDbiCZYBUduLHX+Permgx
-	GCLta6IA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfV-0000000E0P5-2Uqu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 08:42:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5675944556
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C61DC2BCC7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:42:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773132140;
-	bh=+hdxOVwm077ylsjLu0wR0T6SVFeW4T69FussqsDDRHA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=GTvciSqq+x8/zCMOtuyLli8n1vUX944BWGl817kV9StHpWn/ZCnegugKuRQsP31zc
-	 BzAgQT7AReGa+w9FNTeP0MAZpzB8BrfJNqjl8scrI0LyBvBQY7rG+irphiVi9e9Pay
-	 H9kcdpBYkJtzeYMnQcffp0/6DqalOD85Ero6OlpmOhuOcyq6hlw5qVhAebzG2/YIXB
-	 DnMhuDw8gGVkaM59hP3I087c+z0UZ4KsUJrbnznXy+njrrp6YDnmMQ++sMxHFuRr6G
-	 HFUyohjET/eAy2mVYsy+9Qp1f3+sfdypP6FF2U5DFevqkN4m7+QA91ws+sAjszCwIj
-	 fWqe+XRjm8C8A==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38a32d36396so41991221fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 01:42:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWZN3yYRdN23UFutuqdftaiUhNuMNACN1oUnwwAHlPxn8Fy9uSKUGaaG7PXxCS18AG/tlqP6BuWrUeNg/XW5dsS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfRwCkXb/9n0Mory5nljKhXRWyn0vejFhkv8RUPzVrucgALQ8m
-	Mgb90DaFBkUBRdXnDH0uXzYcQLRsvkRHXOAiKnh6f1fj9OQpuzD1ah40Bc92Xmu4ZEXgSBw6r8+
-	7o3D7xloCcg7C7S0Id6xtNKZnY86j1K4=
-X-Received: by 2002:a2e:880b:0:b0:388:4329:c054 with SMTP id
- 38308e7fff4ca-38a5d04ed61mr6094121fa.15.1773132138304; Tue, 10 Mar 2026
- 01:42:18 -0700 (PDT)
+	id 1vzsfm-00000008yG4-1rgq;
+	Tue, 10 Mar 2026 08:42:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773132154; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=V+aR1bP4IeGPJLBtcJLwcJlysBs0n1ykZpvKV/ehFvqoXqQ8y1z4MiWaqHAZ7mccn2Vnkma1mblpSFk62BANDALn9xXBcxLTQSTTxG3b0VlDGP/4Gz0vOMRLOj1kZZKGdY0bi09lm8mwrh04nmP+TNcO3KG5+sYQQg6+tZscPxQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773132154; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FWjn+Xn9ibfzj3/eOMbbIcVWYw4TIKxFMrzDRcoxlL4=; 
+	b=j+QFzThm6DLFXs7XTju7ogPR/hmeS87drnHln5tcTvXiWH2CgYCH9fJ4v/Xg70A7yspQkQ0WCoduTE55BPilXG1GgKv4lrJWGmYWt3JaYT//5ZpZFHvb8pYgQk+/SNSDtAkz/gwOuN8NBFV4fLJIMx/9k4QyQXzX/+FwYkeCKM4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773132154;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=FWjn+Xn9ibfzj3/eOMbbIcVWYw4TIKxFMrzDRcoxlL4=;
+	b=UmI90r6T3QtnCKoPJcQYemdmlmQTOfNH+bFJ9S/iR0UxFH7pGP78gzgDvYZ0p4Tb
+	lJH0Bv8uFYsRlILZpx/l57ZjOwGlwrf8oxiDABTq6O2rKJt9QqzBqXqnJa2OE+abstF
+	NfYkTe3QvNyyk+IW3Ex3m6eciUGX3dQrjES2hIXE=
+Received: by mx.zohomail.com with SMTPS id 1773132151327259.6130910029673;
+	Tue, 10 Mar 2026 01:42:31 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Tue, 10 Mar 2026 16:33:58 +0800
+Subject: [PATCH RFC 5/8] clk: sunxi-ng: a733: Add bus clocks support
 MIME-Version: 1.0
-References: <20260309190842.927634-1-vladimir.oltean@nxp.com> <20260309190842.927634-22-vladimir.oltean@nxp.com>
-In-Reply-To: <20260309190842.927634-22-vladimir.oltean@nxp.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 10 Mar 2026 16:42:04 +0800
-X-Gmail-Original-Message-ID: <CAGb2v649jsoT9Uw5=gg5Zzxmgd4E04f8B8St_vUseP3JOrGG5g@mail.gmail.com>
-X-Gm-Features: AaiRm50ffNFGTkd49hJolMVvUoYaIAAtO7JRlAyrrCfXMo0y-iPLjdkpqATmeN0
-Message-ID: <CAGb2v649jsoT9Uw5=gg5Zzxmgd4E04f8B8St_vUseP3JOrGG5g@mail.gmail.com>
-Subject: Re: [PATCH v3 phy-next 21/24] phy: include PHY provider header (1/2)
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+In-Reply-To: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773132092; l=6909;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=HtxmFOI8Q42PtnTwtZVDl7nJsFiJiS6vOTLzORmX4tY=;
+ b=fvujAYfom/CLtvUNwlxRK5z0pP279E297wEIHqzeUeANEuAlo78UAKS4ABEJUO8q8S3KQbO/9
+ dUPw3gsMPpRDLTHE9S9fSaIM56oaUpkbJ8/DyEbkDXwdXAnIV4K2yoj
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_084222_182923_11A9BB71 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20260310_014238_536242_61E6F9C2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +92,202 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 3:10=E2=80=AFAM Vladimir Oltean <vladimir.oltean@nx=
-p.com> wrote:
->
-> The majority of PHY drivers are PHY providers (obviously).
->
-> Some are providers *and* consumers (phy-meson-axg-mipi-dphy,
-> phy-meson-axg-pcie). These are the Amlogic AXG SoCs, which split the
-> physical layer into two chained PHYs: the digital layer and the analog
-> layer. The DSI or PCIe controller interacts only with the digital PHY,
-> presumably for simplicity.
->
-> The rest of PHY drivers which include <linux/phy/phy.h> do so because
-> they call phy_set_bus_width(), a consumer function.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> Conflicts in drivers/phy/canaan/phy-k230-usb.c with commit 8787fa1da603
-> ("phy: usb: Add driver for Canaan K230 USB 2.0 PHY").
-> Conflicts in drivers/phy/eswin/phy-eic7700-sata.c with commit
-> 67ee9ccaa34a ("phy: eswin: Create eswin directory and add EIC7700 SATA
-> PHY driver")
->
-> Both drivers are newly added in linux-phy/next and not present in
-> v7.0-rc1. The recommendation is to drop the changes in this patch and
-> readd them when merging into linux-phy/next.
->
-> v2->v3: add conflict resolution details
-> v1->v2: split in two parts to pass through linux-phy mailing list
-> moderation
-> ---
->  drivers/phy/allwinner/phy-sun4i-usb.c                 | 3 ++-
->  drivers/phy/allwinner/phy-sun50i-usb3.c               | 3 ++-
->  drivers/phy/allwinner/phy-sun6i-mipi-dphy.c           | 4 ++--
->  drivers/phy/allwinner/phy-sun9i-usb.c                 | 3 ++-
+Add the essential bus clocks in the Allwinner A733 CCU, including AHB,
+APB0, APB1, APB_UART, NSI, and MBUS. These buses are necessary for many
+other functional modules. Additionally clocks such as trace, gic and
+cpu_peri are also added as they fall within the register address range
+of the bus clocks, even though they are not strictly bus clocks.
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org> # allwinner
+The MBUS clock is marked as critical to ensure the memory bus remains
+operational at all times. For the NSI and MBUS clocks, the hardware
+requires an update bit (bit 27) to be set so that the configuration
+takes effect and the updated parameters can be correctly read back.
+
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 131 +++++++++++++++++++++++++++++++++
+ 1 file changed, 131 insertions(+)
+
+diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+index cf819504c51f..68457813dbbb 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
++++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+@@ -19,6 +19,7 @@
+ #include "ccu_common.h"
+ 
+ #include "ccu_div.h"
++#include "ccu_mp.h"
+ #include "ccu_mult.h"
+ #include "ccu_nkmp.h"
+ #include "ccu_nm.h"
+@@ -65,6 +66,16 @@ static const struct clk_hw *pll_ref_hws[] = {
+ 	&pll_ref_clk.common.hw
+ };
+ 
++/*
++ * There is a non-software-configurable mux selecting between the DCXO and the
++ * PLL_REF in hardware, whose output is fed to the sys-24M clock. Although both
++ * sys-24M and pll-ref are fixed at 24 MHz, define a 1:1 fixed factor clock to
++ * provide logical separation:
++ * - pll-ref is dedicated to feeding other PLLs
++ * - sys-24M serves as reference clock for downstream functional modules
++ */
++static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
++
+ #define SUN60I_A733_PLL_DDR_REG		0x020
+ static struct ccu_nkmp pll_ddr_clk = {
+ 	.enable		= BIT(27),
+@@ -371,6 +382,107 @@ static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
+ static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
+ 		       SUN60I_A733_PLL_DE_REG, 16, 3, 0);
+ 
++/**************************************************************************
++ *                           bus clocks                                   *
++ **************************************************************************/
++
++static const struct clk_parent_data ahb_apb_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++};
++
++static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static const struct clk_parent_data apb_uart_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x538,
++				 0, 5,		/* M */
++				 24, 3,		/* mux */
++				 0);
++
++static const struct clk_parent_data trace_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_300M_clk.hw },
++	{ .hw = &pll_periph0_400M_clk.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(trace_clk, "trace", trace_parents, 0x540,
++				 0, 5,		/* M */
++				 24, 3,		/* mux */
++				 BIT(31),	/* gate */
++				 0);
++
++static const struct clk_parent_data gic_cpu_peri_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++	{ .hw = &pll_periph0_400M_clk.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gic_clk, "gic", gic_cpu_peri_parents, 0x560,
++				      0, 5,	/* M */
++				      24, 3,	/* mux */
++				      BIT(31),	/* gate */
++				      0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_parents, 0x568,
++				      0, 5,	/* M */
++				      24, 3,	/* mux */
++				      BIT(31),	/* gate */
++				      0);
++
++static const struct clk_parent_data nsi_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .hw = &pll_ddr_clk.common.hw },
++	{ .hw = &pll_periph0_800M_clk.common.hw },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++	{ .hw = &pll_de_3x_clk.common.hw },
++};
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
++					    0, 5,	/* M */
++					    0, 0,	/* no P */
++					    24, 3,	/* mux */
++					    BIT(31),	/* gate */
++					    0, CCU_FEATURE_UPDATE_BIT);
++
++static const struct clk_parent_data mbus_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .hw = &pll_periph1_600M_clk.hw },
++	{ .hw = &pll_ddr_clk.common.hw },
++	{ .hw = &pll_periph1_480M_clk.common.hw },
++	{ .hw = &pll_periph1_400M_clk.hw },
++	{ .hw = &pll_npu_clk.common.hw },
++};
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588,
++					    0, 5,	/* M */
++					    0, 0,	/* no P */
++					    24, 3,	/* mux */
++					    BIT(31),	/* gate */
++					    CLK_IS_CRITICAL,
++					    CCU_FEATURE_UPDATE_BIT);
++
+ /*
+  * Contains all clocks that are controlled by a hardware register. They
+  * have a (sunxi) .common member, which needs to be initialised by the common
+@@ -407,11 +519,21 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
+ 	&pll_de_clk.common,
+ 	&pll_de_4x_clk.common,
+ 	&pll_de_3x_clk.common,
++	&ahb_clk.common,
++	&apb0_clk.common,
++	&apb1_clk.common,
++	&apb_uart_clk.common,
++	&trace_clk.common,
++	&gic_clk.common,
++	&cpu_peri_clk.common,
++	&nsi_clk.common,
++	&mbus_clk.common,
+ };
+ 
+ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+ 	.hws	= {
+ 		[CLK_PLL_REF]		= &pll_ref_clk.common.hw,
++		[CLK_SYS_24M]		= &sys_24M_clk.hw,
+ 		[CLK_PLL_DDR]		= &pll_ddr_clk.common.hw,
+ 		[CLK_PLL_PERIPH0_4X]	= &pll_periph0_4x_clk.common.hw,
+ 		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.common.hw,
+@@ -453,6 +575,15 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+ 		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
+ 		[CLK_PLL_DE_4X]		= &pll_de_4x_clk.common.hw,
+ 		[CLK_PLL_DE_3X]		= &pll_de_3x_clk.common.hw,
++		[CLK_AHB]		= &ahb_clk.common.hw,
++		[CLK_APB0]		= &apb0_clk.common.hw,
++		[CLK_APB1]		= &apb1_clk.common.hw,
++		[CLK_APB_UART]		= &apb_uart_clk.common.hw,
++		[CLK_TRACE]		= &trace_clk.common.hw,
++		[CLK_GIC]		= &gic_clk.common.hw,
++		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
++		[CLK_NSI]		= &nsi_clk.common.hw,
++		[CLK_MBUS]		= &mbus_clk.common.hw,
+ 	},
+ 	.num	= CLK_FANOUT3 + 1,
+ };
+
+-- 
+2.52.0
+
 
