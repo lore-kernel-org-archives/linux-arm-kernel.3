@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7968EFCC9DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47933FCC9DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6mbdjmVIwUUAco7q5KTIV1hgiOZLKIqNBms+EgWnbs=; b=m0eT1fMmOkO6GVeUje6/ox4+QC
-	SJ7GlRFDNlf8ZI9qzg4Fv4R6VcUIIo7WZfBYXpcE1lZ/+EinbTiZgL3P/I7saia1ZSnvOgz8K3wN1
-	flitMOkNZ/Vx1LXubd+z2VnnCOhIaM6K34jKItYy+zERNktzS8J2QdWO7T8DrdNxUkBSjT97uFKVg
-	iAULENaS2VCyr4M1Ddbid2ofx/U7WqIbFgr4XbWBUTe/DcDJVCO5WlVvsUDKOuzzxXT3czC70a7zg
-	SSI9mxLHp23Z7fSdbsO7gUqHGHr3DeWWHMoOoTUVrxdaCRxjokzw6UIwdUndJpTXK7SIpEgqhLyrZ
-	iBqzP80w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1sccsSHszdKIsz+3uGEy4u27jbbQUcwZRuCEl3AhZsQ=; b=Nu6iBrhrLkNgZkFhCO14kjURPN
+	vzXifZLjItVAdTXLD1yBqH39NXMz2xy9O/ICL89GzJBOpAfqx+lmS8PyeRBsuLTlCyXoQoalkEGt/
+	paEgLueQ2ewkNEzPsS69xdtgHAqb3pVUZymXHNCG//gOJaHMX5D0x5/Q2PEk9fNAG4FShbHJmnVZQ
+	jQl6ieFZLd1URfMeZXbGnFSlISeBvxryP3FayPrG6ZaYV+4aPt2iBid4NNEDdkFPc/Mk8XMs48dOE
+	pCgOvovdqcThezjmnnDlO8moPH3StVS39aXs8EwapFn4EvR+kDaObLV0cWQMkedBUt+c9rvBQ8KWP
+	NKHHYTdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztNR-000000095Ow-0zBu;
-	Tue, 10 Mar 2026 09:27:45 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vztOE-000000095U1-2Tyo;
+	Tue, 10 Mar 2026 09:28:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztNO-000000095O8-3wNS
+	id 1vztOC-000000095Tj-2qIr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:27:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439b78b638eso9890766f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:27:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773134861; x=1773739661; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n6mbdjmVIwUUAco7q5KTIV1hgiOZLKIqNBms+EgWnbs=;
-        b=F4HSVWH1wZUD+VLjlOtUzqZ9Wpk8p3l85jowGnsWBRaUNEeVkPrqIk+rt6RDAxjkz3
-         M1bFqDzvn060MeV/65HI/x3YpmT0c4r/887T0LLh2Y+vHk2H6QCcUwI1YhHfQX20nOIy
-         PLsqUzeg16QxUAv+ZMy5xLV0MdCMLE9gJaqKEFqakBOmdjnK4pDAxC8mp2LSjPwUs/bx
-         udktcBzV+q4rMnK6h6w1hCkJY/bBW1c0dNmesZOhWa+MgSx7/NzgbWG3D4SO1NwvAWY2
-         OCul781ZjGQ8fpYoP5jg9TPSOCcJTSJ1PVAaK0r++ECH/xD/WPvOqlechKry1N6OP5qb
-         vu9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773134861; x=1773739661;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n6mbdjmVIwUUAco7q5KTIV1hgiOZLKIqNBms+EgWnbs=;
-        b=Rbuw9SCTfG8PV0dicmTb84FZ1U8xTXDcj7c2u/vz0U3t4bw2t5c/UcwDCCBcfMsfFH
-         I6nVf4e3tAkmOs7Pa/jyvModoFavFXGJx1lCeSzFkv7/TEuaeZIad385GQZ/8yGV8MEI
-         oHhfOoMmjcTaGggmG60LHlxQtf9YkCh1fiT5+dPSpVQZo3f/z7YiELqLfjHJDsKFoEaH
-         j1H1geazIed1zBpxCe0+Z92pmoRJyjO7pZSa4eUqeyYN7b4XM6xQz+7XB3+xw6cFArcA
-         tdT+yBp2S+tLSGMAxAczZNbWoEAfoP45llbM+gzr6GeInJjaO24zWW7LWefRyCBYEHOz
-         rlbA==
-X-Forwarded-Encrypted: i=1; AJvYcCUnqcQblO/I/wlNt/Z2WMBNN8DstlHJKMBriCtJbyulg2xwsQwHgyo6TQnm3RJWrI9pAPReSqKwa70R4suJ/t8G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9DzdBtIZnLkNAccSqrfTVQbq/+NU8kJZEBJttsqfVfno4uw7R
-	ftfuxFl3FzGilMKdQ5DwSCp9bOhhib7AoF/zCcfhs3hoMeVMK10nFVknB9mHhdbmeQ==
-X-Gm-Gg: ATEYQzzsYF9nm/e553PEf4wwz8Ep/Gxr63ZxFufd4h8XhB1ihbZTl1uhbJ1u8rM+crw
-	snk/8lDn69SeRN1+lJq/6ruoCJBjKl8zdKgIAGcGx9dsP8Jm9T6c0ogcDaZllq1GadwhWaWOK9D
-	Ae5fjBABFw5uQfdhcvmvlPsvmqeND0Fi7JG4CwgkcL/G7FXkqV4mFh5G8xshOqJyiDCWTKP8oq6
-	3nIaWCWRIeqcS9huWUyo1v+NgfRbZyLrrL2hHgS8aUD4lYyvCNgQ+u/YduCcGfryXjuHrbMpiTw
-	Lagko6KBzug5YZ/vFSHAqWQz6vwbwkxHSojlLMC+AZKsvs5Zd96sjtMBH3RnpFDTM6gIDWYTMOa
-	fObqD7NBY2XmfjbErlMBtRVXuEypqiRIz3VCKFjHFLREA9bb/RTT9RTYWKWH+mVpsdfh/7S6Jni
-	zYfXIDbNLE2RMo3k461w5p2nISiX+WXCuLCyY4l5PySrrST7mzMgNh/uXLTU2+givdQc9T621G2
-	ZI/Ew==
-X-Received: by 2002:a05:600c:500d:b0:47e:e48b:506d with SMTP id 5b1f17b1804b1-4852695b9f7mr235710785e9.16.1773134860464;
-        Tue, 10 Mar 2026 02:27:40 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4853f8f9938sm31136055e9.23.2026.03.10.02.27.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 02:27:39 -0700 (PDT)
-Date: Tue, 10 Mar 2026 09:27:35 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: pkvm: Don't reprobe for ICH_VTR_EL2.TDS on
- CPU hotplug
-Message-ID: <aa_kBwF3dv8L6TD8@google.com>
-References: <20260310085433.3936742-1-maz@kernel.org>
- <5a5afd0a-de2d-4697-a5ba-0e470ddb20f2@arm.com>
+	Tue, 10 Mar 2026 09:28:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA21F600C4
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FFBBC2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773134911;
+	bh=dZHL6ALzbbg+d0OTHFPpy1ega8D7sQ79hXGEXtGGk2Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=o7Y1h7iXC1ZdVfl1KUOlDDpKxFznmLXSdkFkkpD2R6qrfrJxHZWbeePjghWSZJ7iW
+	 kHdGuco0Gs0skZt6PvhChT/yDUeRXjhDSLXDYgZeMURQdjEK4UvZ75eNAK8F1gCH/J
+	 JMyTl3LDbhorPpLwwX2gigbzsDFTZmr8wfGHm5jVHaXNMsYZ7k3NjDXCLBmujQc4fO
+	 yxV/S1HRDp9Mh+2ISz0crxx/r15tV/PaEAVnNYSbvjzvX7RpYQUaHnNBINfoQuSPFa
+	 I07mRSe3f5Gx0Z11MvnR98//b94k11DXqYt/Q39jp/DttYudpWQ9ONHmo2MV4LeGo1
+	 biYMSP3x4Lvpw==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5a142464316so3593267e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:28:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX0r5sFauZUY0XbCYZGdwWpz6+TZLmMBm+ROKavq87WREMakR405VD+vKnQq2Fs0Mjx02uu6YCvNbLKA5hRFduY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpzd9SD8WkotUUzVtDSv2sLXiJ3X2A3meoJCqNyfkObYuBV2dO
+	5AoyocsytF4WZQgOmfVq6IcqrhjxL3dsp7Y3p0ECs1hGfqcsanV19zfqyxSbFYzbok6AOy74sJJ
+	8n/xOE8yLCFO2xgj5OZuP8UqugIWWbvUUPLbI6pMrfw==
+X-Received: by 2002:a05:6512:33d1:b0:5a1:44c9:a8ef with SMTP id
+ 2adb3069b0e04-5a144c9ab04mr3592708e87.26.1773134910130; Tue, 10 Mar 2026
+ 02:28:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5a5afd0a-de2d-4697-a5ba-0e470ddb20f2@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_022743_000117_323ED0A9 
-X-CRM114-Status: GOOD (  21.86  )
+References: <aaFcs1miP88QWmtH@hovoldconsulting.com> <aaFfEsfh0xTh0b1y@shikoro>
+ <aaFsZbiLYSz_YEjw@hovoldconsulting.com> <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+ <aaHI_VavZugXjVoL@hovoldconsulting.com> <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+ <aacE-27iaYneKCJi@hovoldconsulting.com> <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
+ <aar1PDUB2t7DgEP6@hovoldconsulting.com> <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
+ <aa6hcT7MROZqxF1j@hovoldconsulting.com>
+In-Reply-To: <aa6hcT7MROZqxF1j@hovoldconsulting.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 10 Mar 2026 10:28:17 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McXGZFVQm0B2OddSLLV8r513tDmbEzeY4hvPcakSv9N7w@mail.gmail.com>
+X-Gm-Features: AaiRm51wQp574GnYnSDIqyJgBWyPwbXLgs-qc-SDGATXP4oGmj2-sapttc-0urY
+Message-ID: <CAMRc=McXGZFVQm0B2OddSLLV8r513tDmbEzeY4hvPcakSv9N7w@mail.gmail.com>
+Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
+ printk helpers
+To: Johan Hovold <johan@kernel.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Khalil Blaiech <kblaiech@nvidia.com>, 
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-actions@lists.infradead.org, linux-media@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 09:17:43AM +0000, Suzuki K Poulose wrote:
-> On 10/03/2026 08:54, Marc Zyngier wrote:
-> > Hotplugging a CPU off and back on fails with pKVM, as we try to
-> > probe for ICH_VTR_EL2.TDS. In a non-VHE setup, this is achieved
-> > by using an EL2 stub helper. However, the stubs are out of reach
-> > once pKVM has deprivileged the kernel. The CPU never boots.
-> > 
-> > Since pKVM doesn't allow late onlining of CPUs, we can detect
-> > that protected mode is enforced early on, and return the current
-> > state of the capability.
-> > 
-> > Fixes: 2a28810cbb8b2 ("KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping")
-> > Reported-by: Vincent Donnefort <vdonnefort@google.com>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
-> > ---
-> >   arch/arm64/kernel/cpufeature.c | 3 +++
-> >   1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index c31f8e17732a3..947ff71b3b66b 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2345,6 +2345,9 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
-> >   	    !is_midr_in_range_list(has_vgic_v3))
-> >   		return false;
-> > +	if (system_capabilities_finalized() && is_protected_kvm_enabled())
-> > +		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
-> 
-> Is it a worth adding a comment here ? Otherwise this looks very odd -
-> Returning the system state of a capability for a "hotplugged" CPU.
-> 
-> Otherwise
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+On Mon, Mar 9, 2026 at 11:31=E2=80=AFAM Johan Hovold <johan@kernel.org> wro=
+te:
+>
+> On Fri, Mar 06, 2026 at 06:34:43PM +0100, Bartosz Golaszewski wrote:
+> > On Fri, Mar 6, 2026 at 4:39=E2=80=AFPM Johan Hovold <johan@kernel.org> =
+wrote:
+>
+> > > You have posted changes that will prevent driver from accessing the
+> > > struct device of core i2c structures. This is unexpected, non-idiomat=
+ic
+> > > and subsystem specific and therefore a bad idea.
+> >
+> > That's not true, the changes provide a helper to that end.
+>
+> That was supposed to say "prevent drivers from accessing the struct
+> device *directly*".
+>
+> > > Again, this is a core feature of the driver model. You can't just ign=
+ore
+> > > it and come up with random ways to work around just because you disag=
+ree
+> > > with design decisions that were made 25 years ago.
+> >
+> > It absolutely *can* be done differently. There's nothing that imposes
+> > a certain API design on susbsystems. If you design the subsystem code
+> > well, provider drivers don't need more than one reference (taken in
+> > probe(), released in remove(), for instance via the
+> > register()/unregister() pair) so the counting can be hidden within the
+> > subsystems that control them.
+>
+> Yes, there is nothing preventing you from diverting from the idiomatic
+> way of doing things. But my point is that that's not a good idea.
+>
 
+"Idiomatic" is a just buzz-word. I don't know why you insist on it
+being the only "correct" way. People have been doing all kinds of
+driver data management for a long time. You recently looked at my
+series for nvmem - did you see that nvmem_register() only takes a
+config struct (which may be a stack variable in probe() for all it
+cares) and copies all the data it needs into refcounted struct
+nvmem_device that the subsystem allocates and manages?
 
-Tested-by: Vincent Donnefort <vdonnefort@google.com>
+An nvmem provider driver only has to do
+nvmem_register()/nvmem_unregister() and, while it can access the
+internal struct device, it never has to in practice.
 
-> 
-> 
-> > +
-> >   	if (is_kernel_in_hyp_mode())
-> >   		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
-> >   	else
-> 
+There's no:
+  nvmem_alloc()
+  nvmem_register()
+  nvmem_unregister()
+  nvmem_put()
+
+I don't see why we wouldn't do the same in i2c:
+
+  struct i2c_adapter_config cfg =3D { ... /* dev id, driver data,
+whatever... */ };
+  adap =3D i2c_adapter_register(&cfg);
+  i2c_adapter_unregister(adap);
+
+I understand that you doing the work will give you some discretion as
+to the implementation details but I'm asking you to at least consider
+this as a viable solution when used by others elsewhere. While you
+have criticised my proposal for i2c rework - fair enough - I don't
+think you have ever given an actual argument against this simpler
+register/unregister-sans-alloc-and-put pattern other than it not being
+"idiomatic" which is honestly quite vague.
+
+Bart
 
