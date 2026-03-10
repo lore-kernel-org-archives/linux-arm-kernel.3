@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2ABFCC9B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DB0FCC9B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=; b=nCLp2/FnDUJ3Y2FwC/ryD1mRVz
-	b7oUfSPuHnotVb8atN/msKhsBt64ts2Dfmc1BG1ojPeyyREfTIHFmN8r8I4O2qzkPER+knB4C1m/t
-	1aTvyyiWg5UTPRF5ueH3L+YxDokx/TxgvLP0eOVU+LMc1e8Vrb5d2hK4Rq5XMizA3MUeyo04hpoYD
-	thu1LV2CETzgKRcCFiR1QJUuU9W5el99jXjC/w14Gk+C4GZmFFK9DZzx3Zh4ytKI6gab5kCczK1+k
-	dmimGEwLJvUQbXNtKXp+kgP8jEqw7U53ygpad49gRf5jKQioo3YpCzi1J6Ns+++W2pi8k9q9SWvmb
-	92ZKfk5w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHxroCmvUbDZdSuabhWIfcDNQo8xx33ypV1WgOxP5VE=; b=Vafe7k5kj2etOx0zA65lIOrH3r
+	tadMycSGPWyqiCqh8mN0vJBjaN25gZFp5D+1Qxst6uQKHWQKIJe+05G+2NAb18JHIJGuep/LgHt5Y
+	rBX1M8my1LP+73TGXeR1vwbTIEzpibhFfxpTzjc6QiXhbPBD3Vn4hdkNnCIHQ1omXuhANwRzjnUI/
+	hK1THo99vq1Xba9jxRxSc9ID5d/gyvpYAdrTQQEbiEvbYUeCbtD2xUmXJFGEvafA9//MP9seRMpNn
+	ofKblaOaFetZIXSY6ajJCycpH4QpBvw1aPdi54cdOpb0Xz/05Hn2qqeIBAjeovSTsEIXzZUSyi5mW
+	FZkr2Y2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznj6-00000008eAT-1muP;
-	Tue, 10 Mar 2026 03:25:44 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vznj9-00000008eCZ-2yAe;
+	Tue, 10 Mar 2026 03:25:47 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznj3-00000008e9h-3ofs
+	id 1vznj7-00000008eAs-0lki
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 03:25:43 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ae5423b02aso57663175ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 20:25:41 -0700 (PDT)
+	Tue, 10 Mar 2026 03:25:46 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ae4988e039so60248675ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 20:25:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773113141; x=1773717941; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=;
-        b=lFR+M6XWZe1CN5RSP2b5Lcf80Zwm7zJAUokRwQWqn9YkIUN3A9i567Gv2XXfiy1nvz
-         xRkM4qgnTtd/K/hnG18X9e1zjdFfSFsQU3XPEQkxhvn+5ewu/7wdWI3kdv7IRn93RE0x
-         VyuQn9cCB1sli6QItvDPB9S4c9/XdzlBLLhY8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773113141; x=1773717941;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1773113144; x=1773717944; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=;
-        b=kX4IC6uhbx1zrYmhJrUqdGZM6IWY8t844EZvFUeczikbj/idz6ZKT1Ga9veeb8zYin
-         wrMnRwijTeecbF6rhup4cs76rcNpArPe0BbeVBrcGdA2yYOl+CMfPiJGcV6eGpK2YUUM
-         f3G2PDBb0y22rknY/vPIMKSEU92qNgP0FeCcdMiIJIkttdUE3NWockyWYim7ccgz2/SW
-         oHLt6Fyz63TWWajqSE++ynNU5/REAeuKl5IROFmMUL1mtFI4Ohn3gHzUhORDQi95w+Ys
-         AOc4Brly+16WIbfZezmtqR4euHMosgsP+2tKmue2SodKXaLmvb8igZvI2UxD7wFAb2SC
-         F/DA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMEGzflKClaIWuF4UpG47IOpe5qC5uNsIfXw9eUZk3jNoh30WsIq8qNpTXMBJ5KNKxt+1fiAzdv+oxaPHc4rW5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDpLk8ySM2kbl0Ar26i3a3J7sKTApXGl9v06xWbCAmWbZijNo4
-	hh4+3cnbSAg/sVy0WavR0IqJXUxHCS6bomk7mZGulYjZKPfFRz8mrg92j+kzzbf1jw==
-X-Gm-Gg: ATEYQzzA2cqZ+trMWeQtPM0GD+4378WIXDLEfgsc6mi8lbRW2m/fwxJS5syBM0pXHoK
-	kIgH8RzAFYFLNC6PS/oFkVfrxoDxSxSCXifp1VckpYl3V0kqNEG15Z494vQVfXVl0JEseo/XlKc
-	tb19cJX2E+SqmQ/ZNjM/hFBdUFJtmstIBNFnXaxJ+3FsUblxUHirzmH1pcwsRDxV7C41BFkpZuI
-	SW3d+BSzRFOLUB1Dt6PFhBcqfdJUQAU1GEaKyHelDPSLUEJoe891ZkVSE/qlRhxCvvfqDuLxHHQ
-	jNcScpwjTrdsTye45Qs+lM0JPLc2VuMU6OnJwybeETASzQ3L+NB8CAztT/3YDG0hyc1/BUlyunp
-	44xm54cFRDA947/Y6nqfDDc5WeYz94oPFN7Y2oWf3fBjG5shwjmQNHBslz1YR/YaFfXZ2GbQgei
-	pLJ86wzxCDTJ11+rk3zRD1p82h1sWNXOru74d3wYV2TRzR6rUw2YbhcGanhbVF2E3OwBZOFJ5rM
-	JfU8lrl
-X-Received: by 2002:a17:903:2452:b0:2ae:5752:af82 with SMTP id d9443c01a7336-2ae82498328mr120569975ad.49.1773113140915;
-        Mon, 09 Mar 2026 20:25:40 -0700 (PDT)
+        bh=uHxroCmvUbDZdSuabhWIfcDNQo8xx33ypV1WgOxP5VE=;
+        b=VebyXercAqYVTAf4H1PhX60HbGE8UG2DnJDyTBxRAz7efS4Eo2SVVZx7QJSPB6TWcu
+         Ek3v8qZoEgvj5ln/r/EiV2WpMD8Sx3CnOyWCyXhn/dgx5lpYzvmn0tqTHMXzDc3sWuZS
+         wPNovrcI77e/0FNo231os+9NHTRfRKaxwzOfQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773113144; x=1773717944;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uHxroCmvUbDZdSuabhWIfcDNQo8xx33ypV1WgOxP5VE=;
+        b=VeqGoRxkiFNPPlD/mRjmWeAdmXBY5HkM1CVtYRtNS6L690fdzxTa/rEqnda9ylEVZP
+         aGP8NFaRdaUbAeB4yPD+sujIe5B+sUUYABoBTIbY213hitPK8WTqis4uz08b896ORIVQ
+         nW14N4QVLgHUfSTiCW1HNfV4l61I57OVhBz48Wb44gNI3ygUovN27BfBlonLzXvRpsfF
+         3oHK5mqzXl4y8R4Uvus+vEstx4kgmeUpCcSBZHtEy2fnuwGkmzTQM2DKQXZN7Ta/4g9a
+         2ZiL4qFl69DLJeKOqSJ2IAz+RnlHrBHdEuuWGx4X5t/nw34Ga5fgaihcA/5fl9cQkih/
+         DKjg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1nxT4eFickZ2dsDDUF/+VsfEnG7/ThzdXCDBUX5UaC7iykiwIzVXSS9e9edvS1RnQcx+oywSUQO3qzHdB/AyT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqpHGLCkjuHZamsBiukbCrnJznzYBOuX2ue2xbtiKRTvOO166w
+	TPDIyo4PmtZEZf0TLct54vS5iYcPe61hwF9yN/lCifyvz2ZmtI6sUHguL082OBwRzQ==
+X-Gm-Gg: ATEYQzzsRoqyzHVU3QPMi+1Ybyrnps14GXoPCtCATofIa8ebJzx99kapb1Nx3+puq8H
+	UPjQTVty09ZmfhTZ7BuUGreyxdn2a3Vh06LOARQ0SKeXxCF01jbqx5wbM+gmSNWtNj4vCeAIy5U
+	XRtza5BP3jm/Sdya5A755M5aTRodomDj2zQWp1EvhXvcUoRqSin4f6ygw1UFxh4TagSdNuip5ao
+	ZsEVuLymNQ6n75DOgpgo4GJJ05aKcxrfe+8l3v7IapM4GxTVednru7CoE7uy8YI0e94buJnqGtg
+	8Xb5qyTXii9LD4QSmoni4UImIUrb+Nu8DkQmgMjzXR6Fb8gY8GTdJa6dNiYG1aGEIMv+2RVr7Dn
+	i0qnHBVV5Gh38e7S5XDwHrxUCL3gXRpQ2N6V+1jJwNw6UpOk8AfucfCyijQRmdMTzoEY2/l2oj8
+	t4jP+mkqZCx8mzMU23uFddursF1Puokcd5gOt2903qLpK11N3qYGUj/SBnydodEUz4FDztCo3Gz
+	nfuPtf9
+X-Received: by 2002:a17:903:2349:b0:2a0:d454:5372 with SMTP id d9443c01a7336-2aea1f2f79emr17542375ad.22.1773113144386;
+        Mon, 09 Mar 2026 20:25:44 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:ee38:e01e:e888:6900])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e575e6sm126695095ad.5.2026.03.09.20.25.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e575e6sm126695095ad.5.2026.03.09.20.25.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 20:25:39 -0700 (PDT)
+        Mon, 09 Mar 2026 20:25:43 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -86,15 +87,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND 0/4] drm/gem-dma: Support dedicated DMA device for allocation
-Date: Tue, 10 Mar 2026 11:25:05 +0800
-Message-ID: <20260310032511.2545500-1-wenst@chromium.org>
+Subject: [PATCH RESEND 1/4] drm/prime: Limit scatter list size with dedicated DMA device
+Date: Tue, 10 Mar 2026 11:25:06 +0800
+Message-ID: <20260310032511.2545500-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
+In-Reply-To: <20260310032511.2545500-1-wenst@chromium.org>
+References: <20260310032511.2545500-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_202542_002665_9F14B6E2 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20260309_202545_225295_4F28505A 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(resent with Samuel's email address fixed)
+If a dedicated DMA device is specified for the DRM device, then the
+scatter list size limit should pertain to the DMA device.
 
-Hi folks,
+Use the dedicated DMA device, if given, to limit the scatter list size.
+This only applies to drivers that have called drm_dev_set_dma_dev() and
+are using drm_prime_pages_to_sg() either directly or through the SHMEM
+helpers. At the time of this writing, the former case only includes the
+Rockchip DRM driver, while the latter case includes the gud, udl, and
+the tiny appletbdrm and gm12u320 drivers.
 
-This series expands the "dedicated DMA device" support in DRM to the GEM
-DMA helpers, and converts the MediaTek DRM driver to setting the DMA
-device and dropping the custom GEM helpers that implemented this
-function.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/gpu/drm/drm_prime.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Various display drivers implement the "dedicated DMA device" support
-with custom GEM helpers. These include Exynos, MediaTek, and Rockchip
-to name a few. Allwinner does something entirely different, calling
-of_dma_configure() on the virtual display device using the OF node of
-the actual DMA device. Recently this causes a warning if IOMMUs are
-involved.
-
-This series intends to allow the core helpers to deal with it, and not
-have every driver implement it in slightly different ways, duplicating
-code.
-
-Patch 1 adds dedicated DMA device support to drm_prime_pages_to_sg().
-I believe this was missing from the original change that added dedicated
-DMA devices for PRIME.
-
-Patch 2 adds support for dedicated DMA device to the GEM DMA helpers
-for GEM buffer allocation and mmap.
-
-Patch 3 converts the MediaTek DRM driver to use the dedicated DMA device
-support, and drop all the remaining custom GEM callbacks that deal with
-it.
-
-Patch 4 converts the Allwinner sun4i DRM driver to use the dedicated DMA
-device support, instead of the of_dma_configure() hack it currently has.
-
-The series should be merged through drm-misc-next so that other drivers
-can take advantage of the change.
-
-I also intend to try to convert the Exynos and Rockchip drivers, however
-both also have options to set DMA_ATTR_NO_KERNEL_MAPPING when using
-dma_alloc_attrs() to allocate memory for the buffers. I intend to
-resurrect the DRM_MODE_DUMB_KERNEL_MAP work from Rob Herring [1]
-to handle this. The Rockchip driver also has custom IOMMU attachment
-that I'm still trying to understand.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (4):
-  drm/prime: Limit scatter list size with dedicated DMA device
-  drm/gem-dma: Support dedicated DMA device for allocation and mapping
-  drm/mediatek: Set dedicated DMA device and drop custom GEM callbacks
-  drm/sun4i: Use backend/mixer as dedicated DMA device
-
- drivers/gpu/drm/drm_gem_dma_helper.c   |  21 ++-
- drivers/gpu/drm/drm_prime.c            |   2 +-
- drivers/gpu/drm/mediatek/mtk_crtc.c    |   1 -
- drivers/gpu/drm/mediatek/mtk_drm_drv.c |  21 +--
- drivers/gpu/drm/mediatek/mtk_drm_drv.h |   1 -
- drivers/gpu/drm/mediatek/mtk_gem.c     | 231 -------------------------
- drivers/gpu/drm/mediatek/mtk_gem.h     |  17 --
- drivers/gpu/drm/sun4i/sun4i_backend.c  |  27 +--
- drivers/gpu/drm/sun4i/sun8i_mixer.c    |  27 +--
- 9 files changed, 46 insertions(+), 302 deletions(-)
- delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.c
- delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.h
-
+diff --git a/drivers/gpu/drm/drm_prime.c b/drivers/gpu/drm/drm_prime.c
+index 51fdb06d3e9f..9b44c78cd77f 100644
+--- a/drivers/gpu/drm/drm_prime.c
++++ b/drivers/gpu/drm/drm_prime.c
+@@ -859,7 +859,7 @@ struct sg_table *drm_prime_pages_to_sg(struct drm_device *dev,
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	if (dev)
+-		max_segment = dma_max_mapping_size(dev->dev);
++		max_segment = dma_max_mapping_size(drm_dev_dma_dev(dev));
+ 	if (max_segment == 0)
+ 		max_segment = UINT_MAX;
+ 	err = sg_alloc_table_from_pages_segment(sg, pages, nr_pages, 0,
 -- 
 2.53.0.473.g4a7958ca14-goog
 
