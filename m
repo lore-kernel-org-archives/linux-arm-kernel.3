@@ -4,138 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBD3FCC9D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55066FCC9D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tydq+r37F9Bi5Zn0X2hbw4knQ/vP+42P0y1gcAd4XwA=; b=qufblTzV8t/aMHNDeJKN92squR
-	baQb3RE2nTnRU778YISNPaxJaK1Al/jFwGIDWmFgMla6ZHYELdFlcsA4k9eZk5BhRCp/kLzR4SagD
-	TT3J/7jBUCE80XMSucKEWM00Z89d0sB7EJDWHK95PeU2eHIHL5wgPHb3RrxhnRUx09CTJMXe8JWZ8
-	BeKUrpx2I39JpWNnCauNti/6H6/HXs8ID6lvw8SZajMOyKdNpsh8M0sTESPIK3VGf1OaXe9Kd4vO8
-	TtyMGmnROUIXToEZOUIUhFg1z0XjWd0GEqiTom2+9/e+cz8SnY/AZ2GFXFLsY8U6b0Le0uqkKZMC6
-	cBvmZPGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/a0tRwE4WB1N7mbM38o7pQ2y610kAMXzD8AqisAnlgU=; b=XswOXhdEK4Qiiv3q4cheau4WTz
+	pvqgxLLNOVgGZrpJLifNoMIxupeOHrEVGK2FvgdxmBXxHehHyJ28W2XGdCp8SsuhAtNyHqASjmYCE
+	lnbZutnIPXUaDMrYwXcdDZSyajtjGy3gQutfEju4YBhBIv6YaOWsz97Wiwk/WLO5kF4uszJaC50rS
+	6Wg6NwYqtGPvT90aDVcH+NcFoOzXakAXh1SjZLCP0JTEo1rubLnT5OZFV+hczII1q6DZH4H5+MbRz
+	nD/nNB1k9VmxfiCnQsBaOwk281zuLww3UJyfso4maAIsg3FfjIWg1NsehzYGfmVcVitg754Fv2gfU
+	v/M+XvbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrur-00000008sTd-3H5S;
-	Tue, 10 Mar 2026 07:54:09 +0000
-Received: from mail-westeuropeazon11013028.outbound.protection.outlook.com ([52.101.72.28] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vzrwb-00000008srI-38lI;
+	Tue, 10 Mar 2026 07:55:57 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrup-00000008sS1-3gay
+	id 1vzrwY-00000008sqm-023q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 07:54:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uN1e/8q9IaJNJZ7rkHWrHFRv5n1Jep6pOP2rcPH3UJaNWbXg9HqEu1h1xLhGOW9CMCvwIgEXwgp26S8OZciGDsD+lIBL8TEL1HklCBJns/X3DidA5LlipalqJl+OjvT0+GvCKMaIMhfGKFJb7TmHqWDteI1XA4RWkaIFQmhp72veepQsoE4gnb0yJwbVT1Wlfqzf+9D1Q1tRNik2m+z0+UkPbem0iLwSJWKYn4puRV7S0SMEQ7EcbE7z0b9xH4W0+he0KYUZKqUt/3PWJb2EBxMDLvDw47YO2A9y1ldQa+soB7CfZfPM1cUeTLh8RYB23vRJ/bsyFMKab3Dd1W+kZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tydq+r37F9Bi5Zn0X2hbw4knQ/vP+42P0y1gcAd4XwA=;
- b=Y0mZQ6tJ3Drg+f1VWugcXxogW+hjTfjmjc7bykyRUMrypvAtCt7PLEkmlDtfAMEJ9UAZ9evUTgtzD1O7VXshF/41l/v+HWAb+LWknjdD3JjnlLzqiJX94UQXJDSXvaJFYTp99xUZGMrsT7b37UWoWRzO6qqV8Yc0ZJVHPiTg6h+WzVPTHjEmXaoQhQfdhH2I0mKV08y45cabjF+bRkW1k1aouZ5N9BTvVBG4y+Pa0a/vpg1dMriMYceXSiuwjDVOzMczpLgy87s4/Sfa5pyLPJn+jhdh4uqS9StugKZr6NAG8rwbDRjzY5t/i4GfcDSeOGw6/G7/TS7nv7yJDNcfbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tydq+r37F9Bi5Zn0X2hbw4knQ/vP+42P0y1gcAd4XwA=;
- b=JuRVh1FrcJpMCblpaLDMoAtLqSJlWyG+oyA1NnwUE8u9e5jHMxdUgp/P0EYMHP/ZN/sCx9LVrNWGQJJNz8kE4Mw2GbRNK/kZRWeek+xVNBkn38j6GR96TCaEynyJlS18kmU91x7hZG+Go2HpjqlIuYaQA0KMMk7OJoN6tWRE+oXfszprgdC3hmgC61F5calINAKmP2PWidKcpWHsOXA0zAl3HYFAN+deb/v7YO9UX4LTD8VLcb6W4TUkPN8wGfyfVg1L1ZOqw5vH465FYO6NZygJ2bmrPA23TBhSjJUZdYGeuTnbuFpvGbzuzlZ41wT4ZWNEpUyoXQdG9vBzD0Iz+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by GV1PR04MB10128.eurprd04.prod.outlook.com (2603:10a6:150:1af::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Tue, 10 Mar
- 2026 07:53:55 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9678.024; Tue, 10 Mar 2026
- 07:54:01 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
+	Tue, 10 Mar 2026 07:55:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=/a0tRwE4WB1N7m
+	bM38o7pQ2y610kAMXzD8AqisAnlgU=; b=grFET2Q/L5BDbD2xTndWCxfWXxtyl2
+	MrNW6Nu3qAN1EmBl/MYyb9CKwe54CLj7IvlqLMC5IMLgb11+UnMtwsIpNOpeZHWa
+	GVPU+ybqbKsVtIcDblhf8AAmfEvK69zbgwZTCdiSqJFfuZQ3G9lnG2U3m4tzAMVJ
+	QnwiFLc/jqMR9GpmUHV3igEQ4pjuUCRsM0Hm2OZQ1Li9cwvsXq2py2+kvdhFHYP2
+	jC6TKSVnNybFyfIppa6NtLkCKTYZrYUqHsFkz7SYD5URwCS66vb5yN0vG/p3qKDq
+	87t1xNh8zF1QjL/xdXPPlibUyKgxw31YNVsxPQuxV575FpunGlhflHgw==
+Received: (qmail 3112474 invoked from network); 10 Mar 2026 08:55:47 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Mar 2026 08:55:47 +0100
+X-UD-Smtp-Session: l3s3148p1@UTnb2KZMmJAujntP
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-renesas-soc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	driver-core@lists.linux.dev,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v4 4/4] arm64: dts: imx943-evk: Add pcie[0,1] and pcie-ep[0,1] support
-Date: Tue, 10 Mar 2026 15:54:59 +0800
-Message-Id: <20260310075459.726495-5-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260310075459.726495-1-hongxing.zhu@nxp.com>
-References: <20260310075459.726495-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0036.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::20) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	linux-arm-msm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v4 00/15] hwspinlock: move device alloc into core and refactor includes
+Date: Tue, 10 Mar 2026 08:55:15 +0100
+Message-ID: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|GV1PR04MB10128:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0b31a4f-c4b2-4b1a-620d-08de7e7a3183
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|366016|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: uQ2kdn/nNKvUBNmJBCRc1JXbL6Eiz/qrtqxo8CIsNQs815P7ma5aWsI5hFK8MuMDIpmC3xZTtD+33XSi3SBshHk7nIWtES5t3zJzVi9rxsTTbWl0heLAFrODKTufIp2EUCboTSm4zYoWnJiDoWjaGkaqlDdWr4IOQnBV8BImoSG7OdbWGLKIyU+XXJDmFKn0om8BTC9EQZjKiNVu3gIgiWN8pCzB/+mC1nyjxKO164R3fAoIlOmIORx27unypMSrNQUEDdzjMhECL1UJV5ppnAI/oVl+9h07iNfos7K4p0a3JCu3ioIdubItQa1eRFYZdakH4pvXn8/30uf7CtMcHhXKbm2uCUYWD6U2IiMGgp5+4Dl13OucSxTNArSR/dHN1+cOXfJHMRbLMpxz20TZUeC8XEoWzIX56ml0yT/YXKoad2Gem0n8sbMKUs3lglaBi5456u9t/jVuUFVpSQObxNnsG6CYh5rHKVvrZhbra56/Bvc2Hi4i6LnwqwrnclFwZjaN+MYRqBoULrKQZ1cT2e5nZ1R9jzpCu1LanIHU2VsZ0gX4/KiE24vHToUc77mVlITPDVR39Vc/2y3ORBIK8e218EMCW2/yTetijF+oRefJc0y5FhKKuMj4bZA15w1PLXz3MBUwhfsy6JbDU4pF7GPETy3sRSx3QuH34IgGDapie+45YjgUyMteGYrb+12TM9jbUsEzYH0zQ+5bdJFWLbjqTpnLueikg7rXfRrizJrLP4g2DzSmWwXH5uRQVkC0lg3IdSRYmtg3MP8WZzYzpD+bn7uzRzDhCVR22zWQoVnMB4nxETjIKR1ZTEs+/O3f
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(366016)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4R/FKiwWWLdumqxpJWL/2gtt/TQ6xtA6Y/F+XrXIZ86SPntnS2X8hrlfkA3V?=
- =?us-ascii?Q?jed2NFBYNWhPyMOby26CZ5r6LIImT1D5HgvOxyOR36+0yWipbHIFBuZj/GN0?=
- =?us-ascii?Q?mDlsX48YFYNijg/RiUfPQlYM0sOpvhDw1ROIO6nBb3gGAC+AffuinHA2GAKR?=
- =?us-ascii?Q?Hg9TEixtOLRH7ESYtrrSDxstm32M1oH1RBjzP8ZUeuk00JMv5VOipwRSdoMV?=
- =?us-ascii?Q?5/UYPu0Uwh15yOVhIk9hQGB/A6LbxfLY29r4IMONz43EYb4299ofd+x4wfVA?=
- =?us-ascii?Q?MfuGNlObCGFJDq9w3r9mLFRk5zuNRLmCo72F5e1sQNCcC4TXVgO1OhI9KO3C?=
- =?us-ascii?Q?oVG3a/RXVdkm63iKoHyyWis3e3KZU4ihqS1bW+yhoHZDqzkv3Hd067zzooB0?=
- =?us-ascii?Q?5+KYqZ9kg5XVv1lyKH8APxKJ+kILNZHq8mG2fNxQ+VS1OMaL9kgxvo9FanwN?=
- =?us-ascii?Q?sC6yBDODaZrEkt8XY18B7AKCOffBzAqN3sEKbdOdjpOsD8B4Q+b1QxBJGSOo?=
- =?us-ascii?Q?D2pz1oJ2Kckc7MywbpsccLbThAQwu7k9d2QWrRAqfyaCuwbtLIZhNXMTlQ09?=
- =?us-ascii?Q?DL4rrmYqTgtuYukhkEM52NBOOyLWfzTskrSnD9g7yaTxEPwfNmXa1KFrjCkM?=
- =?us-ascii?Q?MHjMVoGbqarqD0vtnGk12WjVL8fpKR+ipJoO6txVpjp/ZMJDnx+6BHO4rh7z?=
- =?us-ascii?Q?/yCFIgbdOe26ZWR+h3X0GL2fTpKMZiC9p8H3wzaQ0OXqM5rriQF+rQitlUmB?=
- =?us-ascii?Q?YCTkZLxF9bt9x71mMsRBC8BrXXA4MunGDmPv+3c4/EXjhux6Mo5Dtowy2Wv2?=
- =?us-ascii?Q?eAyxhcKc7iVsLKOKIXMJ6+6iOr/lws7HPUVc8YMFjEpz/VIFTIQ+duPaEEec?=
- =?us-ascii?Q?gqnLSMFhRtPFrHoTuWz+0oGruWoa8khc5ge0OhFm/WWYqYGlm1hoI7K6a3wq?=
- =?us-ascii?Q?8OQ2QHFgJ4TY4VYcfUzNyPpXNZXX8VTPWAw37MKdapkT2sg2WTkUd7KIyTZM?=
- =?us-ascii?Q?huecYsPthOWj6/fazeenJ4a/POUoSfxHR9JY3ArhMCqqpSAlSQOiISIqt2UD?=
- =?us-ascii?Q?fjBpjd8lAp60R/epNibG5+mDJpPk/Ce3ZlPkA0sArYTIxGBHAWRK/JDXc+Rf?=
- =?us-ascii?Q?D0E8a8IAYbeuApEM2yXDzcbJ7+Koyhrn6WQNpFZOsiqVFx1FFTmgNRjCH4A4?=
- =?us-ascii?Q?5wGma8Oqw5qW2vwfjqd4Fcn1vP9lVou2y+qLJRSs1uUz40FQYdi+bSdTzIBh?=
- =?us-ascii?Q?bwQNCOYu2nhBAGJdUko3jn+HABwuVMzeijVAOJJbW03tb28RYFHbnRcU/Y2Q?=
- =?us-ascii?Q?4rVN2yh8SjZnCfYtQiQBhl9taLGDATZLyRQLoteFxVOgO+4ARtVmbC8fAyWJ?=
- =?us-ascii?Q?06wURyXT94/BlyS2hj9BZwdHUTZ8amUo+zqajGSdGvIbt0RP0kqjAwTvKYTR?=
- =?us-ascii?Q?624vnj8vtRQKUySKkEJXX0UYUS37J1aQv1Nb8cA8r2Tux6UuV9xRoRHOPjrd?=
- =?us-ascii?Q?EXiOTASeCrUCc8b+CtoyE4Je2ypTj9WkUgv5S3ZH7TGnDoBYTpLY6d7NsrNT?=
- =?us-ascii?Q?6Vs3YjUb0vsbqWPUw/C7LtNaocgHzevfrqfuo+d13czEu44cHUSUi6hfmHEx?=
- =?us-ascii?Q?jYlShEGIdOY6ENNnBeOJ07OdMlw8f3ck0VW/ji6J1foHLxA+F6juMIx05PJS?=
- =?us-ascii?Q?1rCKnTQzZEOKSUwQcMsO7bR6CnsvMajVRw/0j+U6dvxxHYnbohHn7OGQqcEW?=
- =?us-ascii?Q?Q0NMsXDQKw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0b31a4f-c4b2-4b1a-620d-08de7e7a3183
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 07:54:01.8279
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uFnaBd10DjA1rXLSJXfOs2NzwpEWVwgKMt1s4INzj24otISZheA+5Gwaf/BmA/eVyNn+1uN6MDgVfPQunzLJ2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10128
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_005407_914479_5CF3F153 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260310_005554_923228_932060C7 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,144 +109,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pcie[0,1] and pcie-ep[0,1] support.
+Changes since v3:
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile       |  4 +
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 82 ++++++++++++++++++++
- 2 files changed, 86 insertions(+)
+* removed useless __iomem annotations (Thanks, sparse + buildbots)
+  So, the newly introduced callback only operates on void* and doesn't
+  use __iomem annotations now. Note that most of the drivers will still
+  trigger a sparse warning because they use an __iomem pointer in
+  .con_priv. But they also did so before this series, so it keeps
+  current behaviour. Fixing these sparse warnings should be done
+  independently IMO.
+* rebased to 7.0-rc3
+* added tags (Thanks!)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 25793aa7c0ab..0885e67e0cfa 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -451,6 +451,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
- 
-+imx943-evk-pcie0-ep-dtbs += imx943-evk.dtb imx-pcie0-ep.dtbo
-+imx943-evk-pcie1-ep-dtbs += imx943-evk.dtb imx-pcie1-ep.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx943-evk-pcie0-ep.dtb imx943-evk-pcie1-ep.dtb
-+
- imx95-15x15-evk-pcie0-ep-dtbs = imx95-15x15-evk.dtb imx-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
- imx95-19x19-evk-pcie0-ep-dtbs += imx95-19x19-evk.dtb imx-pcie0-ep.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index c8ceabe3d923..adcb3fa3c9de 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -50,6 +50,20 @@ chosen {
- 		stdout-path = &lpuart1;
- 	};
- 
-+	pcie_ref_clk: clock-pcie-ref {
-+		compatible = "gpio-gate-clock";
-+		clocks = <&xtal25m>;
-+		#clock-cells = <0>;
-+		enable-gpios = <&pca9670_i2c3 7 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	xtal25m: clock-xtal25m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+		clock-output-names = "xtal_25MHz";
-+	};
-+
- 	dmic: dmic {
- 		compatible = "dmic-codec";
- 		#sound-dai-cells = <0>;
-@@ -71,6 +85,15 @@ reg_m2_pwr: regulator-m2-pwr {
- 		startup-delay-us = <5000>;
- 	};
- 
-+	reg_slot_pwr: regulator-slot-pwr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "PCIe slot-power";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pcal6416_i2c3_u46 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	reg_m2_wlan: regulator-wlan {
- 		compatible = "regulator-fixed";
- 		regulator-name = "WLAN_EN";
-@@ -653,6 +676,18 @@ IMX94_PAD_GPIO_IO28__LPI2C6_SCL		0x40000b9e
- 		>;
- 	};
- 
-+	pinctrl_pcie0: pcie0grp {
-+		fsl,pins = <
-+			IMX94_PAD_GPIO_IO20__PCIE1_CLKREQ_B	0x4000031e
-+		>;
-+	};
-+
-+	pinctrl_pcie1: pcie1grp {
-+		fsl,pins = <
-+			IMX94_PAD_GPIO_IO23__PCIE2_CLKREQ_B	0x4000031e
-+		>;
-+	};
-+
- 	pinctrl_pdm: pdmgrp {
- 		fsl,pins = <
- 			IMX94_PAD_PDM_CLK__PDM_CLK			0x31e
-@@ -821,6 +856,53 @@ IMX94_PAD_XSPI1_DQS__XSPI1_A_DQS	0x3fe
- 	};
- };
- 
-+&pcie0 {
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	pinctrl-names = "default";
-+	clocks = <&scmi_clk IMX94_CLK_HSIO>,
-+		 <&scmi_clk IMX94_CLK_HSIOPLL>,
-+		 <&scmi_clk IMX94_CLK_HSIOPLL_VCO>,
-+		 <&scmi_clk IMX94_CLK_HSIOPCIEAUX>,
-+		 <&hsio_blk_ctl 0>,
-+		 <&pcie_ref_clk>;
-+	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
-+		      "ref", "extref";
-+	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
-+	vpcie3v3aux-supply = <&reg_m2_wlan>;
-+	supports-clkreq;
-+	status = "okay";
-+};
-+
-+&pcie0_ep {
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	pinctrl-names = "default";
-+	vpcie3v3aux-supply = <&reg_m2_wlan>;
-+	status = "disabled";
-+};
-+
-+&pcie1 {
-+	pinctrl-0 = <&pinctrl_pcie1>;
-+	pinctrl-names = "default";
-+	clocks = <&scmi_clk IMX94_CLK_HSIO>,
-+		 <&scmi_clk IMX94_CLK_HSIOPLL>,
-+		 <&scmi_clk IMX94_CLK_HSIOPLL_VCO>,
-+		 <&scmi_clk IMX94_CLK_HSIOPCIEAUX>,
-+		 <&hsio_blk_ctl 0>,
-+		 <&pcie_ref_clk>;
-+	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
-+		      "ref", "extref";
-+	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
-+	status = "okay";
-+};
-+
-+&pcie1_ep {
-+	pinctrl-0 = <&pinctrl_pcie1>;
-+	pinctrl-names = "default";
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
-+	status = "disabled";
-+};
-+
- &usdhc1 {
- 	pinctrl-0 = <&pinctrl_usdhc1>;
- 	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+My ultimate goal is to allow hwspinlock provider drivers outside of the
+subsystem directory. It turned out that a simple split of the headers
+files into a public provider and a public consumer header file is not
+enough because core internal structures need to stay hidden. Even more,
+their opaqueness could and should even be increased. That would also
+allow the core to handle the de-/allocation of the hwspinlock device
+itself.
+
+This series does all that. Patches 1-2 remove the meanwhile unused
+platform_data to ease further refactoring. Patches 3-9 abstract access
+to internal structures away using helpers. Patch 10 then moves
+hwspinlock device handling to the core, simplifying drivers. The
+remaining patches refactor the headers until the internal one is gone
+and the public ones are divided into provider and consumer parts. More
+details are given in the patch descriptions.
+
+One note about using a callback to initialize hwspinlock priv: I also
+experimented with a dedicated 'set_priv' helper function. It felt a bit
+clumsy to me. Drivers would need to save the 'bank' pointer again and
+iterate over it. Because most drivers will only have a simple callback
+anyhow, it looked leaner to me.
+
+This series has been tested on a Renesas SparrowHawk board (R-Car V4H)
+with a yet-to-be-upstreamed hwspinlock driver for the MFIS IP core. A
+branch can be found here (without the MFIS driver currently):
+
+git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/hwspinlock/refactor-alloc-buildtest
+
+Happy hacking,
+
+   Wolfram
+
+
+Wolfram Sang (15):
+  hwspinlock: u8500: delete driver
+  hwspinlock: remove now unused pdata from header file
+  hwspinlock: add helpers to retrieve core data
+  hwspinlock: add callback to fill private data of a hwspinlock
+  hwspinlock: omap: use new callback to initialize hwspinlock priv
+  hwspinlock: qcom: use new callback to initialize hwspinlock priv
+  hwspinlock: sprd: use new callback to initialize hwspinlock priv
+  hwspinlock: stm32: use new callback to initialize hwspinlock priv
+  hwspinlock: sun6i: use new callback to initialize hwspinlock priv
+  hwspinlock: handle hwspinlock device allocation in the core
+  hwspinlock: move entries from internal to public header
+  hwspinlock: remove internal header
+  hwspinlock: sort include and update copyright
+  hwspinlock: refactor provider.h from public header
+  hwspinlock/treewide: refactor consumer.h from public header
+
+ Documentation/locking/hwspinlock.rst          |   2 +-
+ MAINTAINERS                                   |   3 +-
+ drivers/base/regmap/regmap.c                  |   2 +-
+ drivers/hwspinlock/Kconfig                    |  10 --
+ drivers/hwspinlock/Makefile                   |   1 -
+ drivers/hwspinlock/hwspinlock_core.c          | 129 +++++++++++----
+ drivers/hwspinlock/hwspinlock_internal.h      |  72 --------
+ drivers/hwspinlock/omap_hwspinlock.c          |  27 ++-
+ drivers/hwspinlock/qcom_hwspinlock.c          |  69 ++++----
+ drivers/hwspinlock/sprd_hwspinlock.c          |  39 ++---
+ drivers/hwspinlock/stm32_hwspinlock.c         |  26 +--
+ drivers/hwspinlock/sun6i_hwspinlock.c         |  36 ++--
+ drivers/hwspinlock/u8500_hsem.c               | 155 ------------------
+ drivers/iio/adc/sc27xx_adc.c                  |   2 +-
+ drivers/irqchip/irq-stm32mp-exti.c            |   2 +-
+ drivers/mfd/syscon.c                          |   2 +-
+ drivers/nvmem/sc27xx-efuse.c                  |   2 +-
+ drivers/nvmem/sprd-efuse.c                    |   2 +-
+ drivers/pinctrl/stm32/pinctrl-stm32.c         |   2 +-
+ drivers/soc/qcom/smem.c                       |   2 +-
+ drivers/spi/spi-sprd-adi.c                    |   2 +-
+ .../{hwspinlock.h => hwspinlock/consumer.h}   |  57 +------
+ include/linux/hwspinlock/provider.h           |  60 +++++++
+ 23 files changed, 260 insertions(+), 444 deletions(-)
+ delete mode 100644 drivers/hwspinlock/hwspinlock_internal.h
+ delete mode 100644 drivers/hwspinlock/u8500_hsem.c
+ rename include/linux/{hwspinlock.h => hwspinlock/consumer.h} (87%)
+ create mode 100644 include/linux/hwspinlock/provider.h
+
 -- 
-2.37.1
+2.47.3
 
 
