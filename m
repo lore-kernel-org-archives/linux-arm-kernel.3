@@ -4,75 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76B6FCC9B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44579FCC9AF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6KEPQoelIaSRZixu2FcCj8GjygNUojPP6SBnzoaIaQY=; b=i5Y+oqfLsdomaQoPzZzk02vG8p
-	DbUy1bboIEA3sHKym4yOZ6/qPCYEvxvZxgH7FqwaVs1SZ7tXLxt0iOLtA9yj4JZXV7QuqP2AMSTj/
-	4EHQk3Gk3O0oLCXhy+GvNtV1EyDsY/5so+RIEOnhQFtOXGNG1I9BZU0k8sershsIpVERiSV05tajd
-	Xi+LrclRB+8xpq/XXg4dZbu08ombZn1OahZLbU0+UO/GLqBoqgshCfk/NdA7YBHtTTK4uFe9Xjl/p
-	lfDmYLXUpnthePC7qgDkbpd/NnQ8Vxea4tXUuTenmUNhbH/Hv0EWTvy5hArOw9IKN2RceOVvUTd6M
-	KswecelQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrDjYPO1RhBwEvkdroIe+BkIpkdBWkr+n3AmyZ0feGg=; b=y3RJozSQYWtHf664yx9gFVNqFu
+	nrgp/dF6NQ2DFzAno/FQ2ios3wqv1ejeKb4v2zg2edx43dDFX7QJ93rcjIV/RsSBuleCAJvcaxHQK
+	aG/X+D3utko0o7idPbGXloewGNuOO44KzOOCNGMOGWgBFkV8itU36O6eSePvwDOVETXKvRT9AFZkM
+	nYRVIKYoQm2NXoBgtnPCYPdlI2DKKPP/ySwWUZuEMZXeSJwOSCBvbN3B3Sh8Wm6dpfpyXNiJAQwFc
+	TMUSXt6HUfuvXpy5m6HsWNLYMHiasUJ6QPDZSxe4hmvQYabvEq+L9QiZESTx3SnDS/PNk3V67v4+j
+	ABIBu26w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznwt-00000008fnJ-0U6G;
-	Tue, 10 Mar 2026 03:39:59 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vzo7I-00000008gFo-0mWG;
+	Tue, 10 Mar 2026 03:50:44 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznwq-00000008fmp-40yQ;
-	Tue, 10 Mar 2026 03:39:58 +0000
-X-UUID: ca3b15581c3211f1a6de359d7043e138-20260309
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=6KEPQoelIaSRZixu2FcCj8GjygNUojPP6SBnzoaIaQY=;
-	b=dn3elXuSOMc/ZhVpFeTpGSkt5AawsCldeNzBhrwCLr0m4xlPcMAC4sSl8aTzG+uZuOQTPO1UBnqG1zNlO+12W1MYUvHXHLqPe9mywZw0DRdlimrIzm/+jl91jiwwnmnGlQpoVcRN9lR7VsHTQrodeEWugHhWokExR9OTNOvAD6Y=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:2f2e8b69-e70e-4450-9e32-c5dee589ae78,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:89c9d04,CLOUDID:4f480f5c-a957-4259-bcca-d3af718d7034,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ca3b15581c3211f1a6de359d7043e138-20260309
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ot_zexin.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1051562269; Mon, 09 Mar 2026 20:39:49 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 10 Mar 2026 11:39:46 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 10 Mar 2026 11:39:45 +0800
-From: Zexin Wang <ot_zexin.wang@mediatek.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zexin Wang
-	<ot_zexin.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>, "Jack
- Hsu" <jh.hsu@mediatek.com>, Vince Liu <vince-wl.liu@mediatek.com>
-Subject: [PATCH] reset-controller: ti: introduce a new reset handler
-Date: Tue, 10 Mar 2026 11:39:35 +0800
-Message-ID: <20260310033942.29585-1-ot_zexin.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1vzo7E-00000008gFF-2ISP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 03:50:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mKXAvmCQ04vf+EZ/op7LHgOc5EzCgmBGsnMYhCs7EcaeDsgU0mPvMYVj+L8DzWyqB9tgGAmTdTqZ1J18Ge/QDsJ1FTcE55058/AbEI5AUtPtf29NOWM4AjyqRaGflyyaMt6sSDzM+qkiNJXQA9biJHoB/nZm0+Eum7SMx047wBq1Y/ZAhDPU+iO3eCEe5fi0KznHnsb/hx2ltb+wHlJiuCQqnF3rNotKYeNvRnsywWqI6uSYZVWvAGAPz6GgZQ+gMkeHHKoWVG9HLPqCJktofxNZ8rcDkR6442ssFiXXN+kKQNWPHD7uIuCygGIkWog30gNru8WngHCmjwK6px9LJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VrDjYPO1RhBwEvkdroIe+BkIpkdBWkr+n3AmyZ0feGg=;
+ b=RlSraN8Rou/4feEL39b4yhN5QfPhnTDqGbs6jB7R2aWsGtW2oLA/5Xk1rVwBJ+0RjwKuBPR6o734YyTwqrPv6fSJRNBTPp6Y40XdFPHoW/J1GNVZd8sViutttdRWbwTxtq5W1P09tYTjTL2+YTRxsX2A5+35bBmQ9UVP1oH14BGtli2A2GvAvgLIxos9nU5I9nIdn1amI+qolO182l8a4sx4NMqYrSrd2KHR8kaPjlK4L3jtZdWGKgADo3y2braSP1/Zv3ZpuqcZpbgOVL8JJv0nC8DgauNAQ4dhJ505+Ef8f0uFRblMdB9exuYs0D4GMxBjBOCjC/l2AXPQPuFt0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.phytec.de smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VrDjYPO1RhBwEvkdroIe+BkIpkdBWkr+n3AmyZ0feGg=;
+ b=kj/wSGjYMzq2po3Z3Z+EKi4ZQh/D5J01miScIy0JwPWP+AQgaCXP26BsZFioAiTS+MJqMuWU2dN3pmcFoMzMASHEP7es41pvJMnCGOp7hpo58Tdc7zAL352jARv7ZLU6dip6dqY1D3kOkO5WR52FNugQ4GMG0n7tflEmsRnEBBc=
+Received: from DS7PR05CA0061.namprd05.prod.outlook.com (2603:10b6:8:57::15) by
+ PH7PR10MB6283.namprd10.prod.outlook.com (2603:10b6:510:1a9::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.25; Tue, 10 Mar 2026 03:50:36 +0000
+Received: from CH3PEPF00000017.namprd21.prod.outlook.com
+ (2603:10b6:8:57:cafe::b4) by DS7PR05CA0061.outlook.office365.com
+ (2603:10b6:8:57::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Tue,
+ 10 Mar 2026 03:50:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF00000017.mail.protection.outlook.com (10.167.244.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.1 via Frontend Transport; Tue, 10 Mar 2026 03:50:35 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
+ 2026 22:50:34 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
+ 2026 22:50:34 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 9 Mar 2026 22:50:34 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62A3oVDh1804107;
+	Mon, 9 Mar 2026 22:50:31 -0500
+Message-ID: <18552ca7-b4e4-49f2-b2f8-27bb4fd6178c@ti.com>
+Date: Tue, 10 Mar 2026 09:20:30 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] arm64: dts: ti: k3-am68-phyboard-izar: Add
+ PEB-AV-15 overlay
+To: Dominik Haller <d.haller@phytec.de>, Nishanth Menon <nm@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <upstream@lists.phytec.de>
+References: <20260306033151.276202-1-d.haller@phytec.de>
+ <20260306033151.276202-6-d.haller@phytec.de>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20260306033151.276202-6-d.haller@phytec.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000017:EE_|PH7PR10MB6283:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6850c314-67f1-43ad-ca7c-08de7e582fb6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: DyzyNUW/L2TuQDh/TKu7cegutD5HE1VGKfIPitsO5EQ22Q3Nif+qMSn5ucHrSx+ABuZFQ1dyBQ6yPMxMFodo4+pOPJP0Que31m/YHfueTEGh+PbU7sVmw+8dGKlN2YjuHZ1q6DRwyt3UJ+PqhP/rM04hYUohi3OCB0rWWIp5qIOTa1GeuaI2L1RRvyOlXS+S41u04WzDW7+7676F1q61nxiv1juEihixlQJRluH2V1wH2Wiq52peRILvTpCoWiEjU7ZMob/Yz8ebNVi2qcsVs+ioHG8GtRBWauuxVQoMDB1dNXwz/bXuP0c58IEkGOEEhH8CDMzPgX4SYCyHqxNUWnBZX2l3E6EjyDYmzSXGL4bQgK6kFgLUwO1QD1GF/6dbu6iDyUbigju8NaSSJuVlPDa7oMagkX6UuDc2H58gfCb45gSWlInZzJDdwi1MBB+v5fGrgRt/Rwr/wiucwdhJGKNLIIjhjMz1lRzPggjKoKTaM9IAGvSP+rPSHJfoDs0kzyNE4CwS6iqH85VZ7bx3AGdIchuxLPf+9hTrXlCCgCaKh9qmRgdbbf3e0ZJYvk4vuZBXXyW3FyQzixjd2vBq7+vyGqhn6kgOrcRNHK3TzjByTfmgjNEX2bpeBQwQRf/B75dNnnfQ4h9jhFOqwrcFWkVIW6MwxhcGGolSwyg1+kGuIEoa9rTnbCdmwD1Vp9ATNQIHLsijm5O9X2Cexuv+biOaF/Hs7WHBl3gRJXfPxcjyfC2rRy6SV3+tjPTKCbkblGaNp7tY7aDq+VBYZ8sLIg==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: QKih0Y8m6E9UrMU4yjDgWFhVxr24Z+y5TPHERoZEu2u5f8TfkQtthr7oO9yIAhQwYZEPkXigbP0Ub0IonxpsiqBzwUp3WIMRPcvcE6Vs47KRJUV84TZ279mujDo1RjXmjuLI8SAttbHNmxI3gWZd48rHEETcofUiC8xUoPVReXLkGhloE+6oKRW1M8Q/VeuEQ8JCCws93mCdrPCCOyKSCj6SIRA7Yc6h15yHV30xvuDcPDEZLOk2jqwpudx//VpdhOOu8Dt87fi3IN9RLHNY+LAXNoqo71V++hJcgg4qBdoQrShdSk0L4bLqtqtU2SjXNyBgM1LWtWXPGCAHu+LCNgd9FbK5tztgSmAPuoaedkcan9qPm7XA73+NcF+au7wtfvpVf6OGH3/pwCjZRkHyHY8kEq431qGiZENAWd++pPniUFRfKKzD8d4q13eltajA
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 03:50:35.5049
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6850c314-67f1-43ad-ca7c-08de7e582fb6
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000017.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_203957_008021_1B56E039 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260309_205040_687263_226C6899 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +133,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce ti_syscon_reset() to integrate assert and deassert together.
-If some modules need do serialized assert and deassert operations
-to reset itself, reset_control_reset can be called for convenience.
 
-Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
----
- drivers/reset/reset-ti-syscon.c | 34 +++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
 
-diff --git a/drivers/reset/reset-ti-syscon.c b/drivers/reset/reset-ti-syscon.c
-index 23f86ddb8668..f37685e32b0a 100644
---- a/drivers/reset/reset-ti-syscon.c
-+++ b/drivers/reset/reset-ti-syscon.c
-@@ -7,6 +7,7 @@
-  *	Suman Anna <afd@ti.com>
-  */
- 
-+#include <linux/delay.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -42,12 +43,14 @@ struct ti_syscon_reset_control {
-  * @regmap: regmap handle containing the memory-mapped reset registers
-  * @controls: array of reset controls
-  * @nr_controls: number of controls in control array
-+ * @reset_duration_us: time of controller assert reset
-  */
- struct ti_syscon_reset_data {
- 	struct reset_controller_dev rcdev;
- 	struct regmap *regmap;
- 	struct ti_syscon_reset_control *controls;
- 	unsigned int nr_controls;
-+	unsigned int reset_duration_us;
- };
- 
- #define to_ti_syscon_reset_data(_rcdev)	\
-@@ -150,9 +153,37 @@ static int ti_syscon_reset_status(struct reset_controller_dev *rcdev,
- 		!(control->flags & STATUS_SET);
- }
- 
-+/**
-+ * ti_syscon_reset() - perform a full reset cycle on a device
-+ * @rcdev: reset controller entity
-+ * @id: ID of the reset to be asserted and deasserted
-+ *
-+ * This function performs a full reset cycle by asserting and then
-+ * deasserting the reset signal for a device. It ensures the device
-+ * is properly reset and ready for operation.
-+ *
-+ * Return: 0 for successful request, else a corresponding error value
-+ */
-+static int ti_syscon_reset(struct reset_controller_dev *rcdev,
-+		   unsigned long id)
-+{
-+	struct ti_syscon_reset_data *data = to_ti_syscon_reset_data(rcdev);
-+	int ret;
-+
-+	ret = ti_syscon_reset_assert(rcdev, id);
-+	if (ret)
-+		return ret;
-+
-+	if (data->reset_duration_us)
-+		usleep_range(data->reset_duration_us, data->reset_duration_us * 2);
-+
-+	return ti_syscon_reset_deassert(rcdev, id);
-+}
-+
- static const struct reset_control_ops ti_syscon_reset_ops = {
- 	.assert		= ti_syscon_reset_assert,
- 	.deassert	= ti_syscon_reset_deassert,
-+	.reset		= ti_syscon_reset,
- 	.status		= ti_syscon_reset_status,
- };
- 
-@@ -196,6 +227,9 @@ static int ti_syscon_reset_probe(struct platform_device *pdev)
- 		controls[i].flags = be32_to_cpup(list++);
- 	}
- 
-+	of_property_read_u32(pdev->dev.of_node, "reset-duration-us",
-+			     &data->reset_duration_us);
-+
- 	data->rcdev.ops = &ti_syscon_reset_ops;
- 	data->rcdev.owner = THIS_MODULE;
- 	data->rcdev.of_node = np;
+On 06/03/26 09:01, Dominik Haller wrote:
+> Add an overlay to use the PEB-AV-15 AV-Adapter. It's a small expansion board
+> using a Lontium LT8912B DSI->HDMI bridge and a TLV320AIC3007 audio codec.
+> 
+> Signed-off-by: Dominik Haller <d.haller@phytec.de>
+> ---
+>  arch/arm64/boot/dts/ti/Makefile               |   4 +
+>  .../ti/k3-am68-phyboard-izar-peb-av-15.dtso   | 192 ++++++++++++++++++
+>  2 files changed, 196 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index a188e62e32b4..ae5994818ad2 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -135,6 +135,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar.dtb
+>  dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar-lvds-ph128800t006.dtb
+>  k3-am68-phyboard-izar-lvds-ph128800t006-dtbs := k3-am68-phyboard-izar.dtb \
+>  	k3-am68-phyboard-izar-lvds-ph128800t006.dtbo
+> +dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar-peb-av-15.dtb
+> +k3-am68-phyboard-izar-peb-av-15-dtbs := k3-am68-phyboard-izar.dtb \
+> +        k3-am68-phyboard-izar-peb-av-15.dtbo
+>  dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board.dtb
+>  dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board-pcie1-ep.dtbo
+>  dtb-$(CONFIG_ARCH_K3) += k3-j721s2-common-proc-board.dtb
+> @@ -323,6 +326,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+>  	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+>  	k3-am67a-kontron-sa67-base-gpios.dtb \
+>  	k3-am68-phyboard-izar-lvds-ph128800t006.dtb \
+> +	k3-am68-phyboard-izar-peb-av-15.dtb \
+>  	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
+>  	k3-am68-sk-base-board-pcie1-ep.dtb \
+>  	k3-am69-sk-csi2-dual-imx219.dtb \
+> diff --git a/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
+> new file mode 100644
+> index 000000000000..cb75199c59fe
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
+> @@ -0,0 +1,192 @@
+> +// SPDX-License-Identifier: GPL-2.0-only or MIT
+
+Nit: OR is to be in upper case to be in sync with rest of the kernel
+
+> +/*
+> + * Copyright (C) 2026 PHYTEC Messtechnik GmbH
+> + * Author: Dominik Haller <d.haller@phytec.de>
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include "k3-pinctrl.h"
+> +
+> +&{/} {
+> +	audio_refclk1: audio-clock {
+> +		#clock-cells = <0>;
+> +		compatible = "fixed-clock";
+
+compatible goes first
+
+> +		clock-frequency = <19200000>;
+> +	};
+> +
+> +	hdmi: hdmi-connector {
+> +		compatible = "hdmi-connector";
+> +		label = "hdmi";
+> +		type = "a";
+> +		ddc-i2c-bus = <&main_i2c2>;
+> +
+> +		port {
+> +			hdmi_connector_in: endpoint {
+> +				remote-endpoint = <&lt8912b_out>;
+> +			};
+> +		};
+> +	};
+> +
+> +	reg_audio_3v3: regulator-audio-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC3V3_AUDIO";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_audio_1v8: regulator-audio-1v8 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC1V8_AUDIO";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	sound {
+> +		compatible = "simple-audio-card";
+> +		simple-audio-card,name = "PEB-AV-15";
+> +		simple-audio-card,widgets =
+> +			"Headphone", "Headphone Jack",
+> +			"Microphone", "Mic Jack";
+> +		simple-audio-card,routing =
+> +			"Headphone Jack", "HPLOUT",
+> +			"Headphone Jack", "HPROUT",
+> +			"MIC3R", "Mic Jack",
+> +			"Mic Jack", "Mic Bias";
+> +		simple-audio-card,format = "dsp_b";
+> +		simple-audio-card,bitclock-inversion;
+> +		simple-audio-card,bitclock-master = <&link0_codec>;
+> +		simple-audio-card,frame-master = <&link0_codec>;
+> +
+> +		link0_cpu: simple-audio-card,cpu {
+> +			sound-dai = <&mcasp0>;
+> +		};
+> +
+> +		link0_codec: simple-audio-card,codec {
+> +			sound-dai = <&audio_codec>;
+> +			clocks = <&audio_refclk1>;
+> +		};
+> +	};
+> +
+> +};
+> +
+> +&dphy_tx1 {
+> +        status = "okay";
+> +};
+> +
+> +&dsi1 {
+> +	status= "okay";
+
+Spaces before "="
+
+> +};
+> +
+> +&dsi1_ports {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	port@0 {
+> +		reg = <0>;
+> +		dsi1_out: endpoint {
+> +			remote-endpoint = <&lt8912b_in>;
+> +		};
+> +	};
+> +
+> +	port@1 {
+> +		reg = <1>;
+> +		dsi1_in: endpoint {
+> +			remote-endpoint = <&dpi3_out>;
+> +		};
+> +	};
+> +};
+> +
+> +&dss {
+> +	status = "okay";
+> +};
+> +
+> +&dss_ports {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        port@3 {
+> +                reg = <3>;
+> +                dpi3_out: endpoint {
+> +                        remote-endpoint = <&dsi1_in>;
+> +                };
+> +        };
+> +};
+> +
+> +&mcasp0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mcasp0_pins>;
+> +
+> +	#sound-dai-cells= <0>;
+
+same here
+
+> +
+> +	op-mode = <0>;	/* MCASP_IIS_MODE */
+> +	tdm-slots = <2>;
+> +
+> +	/* 4 serializers */
+> +	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
+> +		2 0 0 1
+> +		0 0 0 0
+> +		0 0 0 0
+> +		0 0 0 0
+> +	>;
+> +
+> +	tx-num-evt = <32>;
+> +	rx-num-evt = <32>;
+> +	status = "okay";
+> +};
+> +
+> +&main_i2c2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	audio_codec: audio-codec@18 {
+> +		compatible = "ti,tlv320aic3007";
+> +		reg = <0x18>;
+> +		#sound-dai-cells= <0>;
+> +		ai3x-micbias-vg = <2>;
+> +		AVDD-supply = <&reg_audio_3v3>;
+> +		IOVDD-supply = <&reg_audio_3v3>;
+> +		DRVDD-supply = <&reg_audio_3v3>;
+> +		DVDD-supply = <&reg_audio_1v8>;
+> +
+> +	};
+> +
+> +	bridge@48 {
+> +		compatible = "lontium,lt8912b";
+> +		reg = <0x48>;
+> +
+> +		ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			port@0 {
+> +				reg = <0>;
+> +				lt8912b_in: endpoint {
+> +					data-lanes = <0 1 2 3>;
+> +					remote-endpoint = <&dsi1_out>;
+> +				};
+> +			};
+> +
+> +			port@1 {
+> +				reg = <1>;
+> +				lt8912b_out: endpoint {
+> +					remote-endpoint = <&hdmi_connector_in>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&main_pmx0 {
+> +	mcasp0_pins: mcasp0-default-pins {
+> +		pinctrl-single,pins = <
+> +			J721S2_IOPAD(0x03C, PIN_INPUT, 1) /* (U27) WCLK, MCASP0_AFSX.MCASP0_AFSX */
+> +			J721S2_IOPAD(0x038, PIN_INPUT, 1) /* (AB28) BCLK, MCASP0_ACLKX.MCASP0_ACLKX */
+> +			J721S2_IOPAD(0x040, PIN_OUTPUT, 1) /* (AC28) DOUT, MCASP0_AXR0.MCASP0_AXR0 */
+> +			J721S2_IOPAD(0x07C, PIN_INPUT, 1) /* (T27) DIN, MCASP0_AXR3.MCASP0_AXR3 */
+
+Lower case for hex digits
+
+> +		>;
+> +	};
+> +};
+
 -- 
-2.45.2
+Regards
+Vignesh
+https://ti.com/opensource
 
 
