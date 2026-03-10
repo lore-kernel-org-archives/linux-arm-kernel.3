@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E5EEB104B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C59EB1052
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 11:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SMwpo2JTvdNeH8h1Q7tqFxZySmtQtbKweaYaEojC5FA=; b=HE+45z0R7pljpQ+wrjhioyBRmK
-	dg3LYgoMoYA57EMNqfPS6FBJkPe/3JKfGYcf9KqzjOM1QQGgLADse/qBd02uf+BPGzYK6zhDo+A5b
-	5ydJqtp0+EinNk2m0Z3Om4lnbZ6X/2408+WnTd8e+Tq34oImXrUBkN7Zy3IWqSfUPApPQ2fOQtQVJ
-	4aJAteWblMx/egVxk/MglNnu8DuyB5nAIhjswTuwO7bpheyYNii9tQ4qzmxbEGwx5MbMQHt9t024O
-	6oPN5HxApTaWiWPTxTcEtLli3KoeMsWFYQPUFlaSb9vh/YY0AGNgJWSoegzZnsRmXW8VmvztNzyyw
-	kd1yOpOQ==;
+	bh=hNYfW2PmdXWP40ndx3jBB9FDPr1eZeihvEAEqFyjWdk=; b=t248n3kRrK5XT/mc9eCDRzyggN
+	oOCE/owuzM/F1XFNAKISWyZSdO+RGQZTlMO1dAt3ejqgtRClg/m4sMpWWjVU7KHEPh5c8uXD1bUcK
+	Sq4XSju7vA54Ooto3LlrX6jTXaOk+8yJh/LDoXscGM3Z4ZpblO0eswuKUEGuCqEeTvm+lHiyrgJN5
+	t2uKQmseCm5MdKhwL7otaRGLuoMwHhyDVf2ZLEnO0puSQ1pX1BCwcTqluybz24qtJd2rvidQIGgtl
+	8iEufyDkDucqYTW3bNLc5UxzVascOrtMNKJuRAk1xKUKhIIKnF1ZbXIXidaqiOvkMEtzLkKuTeNE1
+	v5JevsTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzvEG-00000009I0n-31XN;
-	Tue, 10 Mar 2026 11:26:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzvED-00000009I0E-1sKT
+	id 1vzvY2-00000009IuQ-0TdS;
+	Tue, 10 Mar 2026 11:46:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzvY0-00000009IuK-2MxO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 11:26:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82D44152B;
-	Tue, 10 Mar 2026 04:26:12 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB4E53F73B;
-	Tue, 10 Mar 2026 04:26:14 -0700 (PDT)
-Message-ID: <6519a56f-b6cf-43dc-b34a-42123f6356f6@arm.com>
-Date: Tue, 10 Mar 2026 11:26:13 +0000
+	Tue, 10 Mar 2026 11:46:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94ED1600B0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:46:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449D5C19423
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:46:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773143207;
+	bh=hNYfW2PmdXWP40ndx3jBB9FDPr1eZeihvEAEqFyjWdk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Le/WcXeIEJ5/I5c5MTCxMQCRiHxZB5GNrnMcout58eVVdk18EdUYjzwPWJnVuXBki
+	 SagzozLxO+wcE192t1+AktymvzDcdUoDHooOp4B9FImKmAhrwgcU/olf3kIV5e7MkC
+	 Sbx+lsh95q7wmjhWNNmgmRSUFKTfFl3pxxKglpfkSosvPP+15QLmEBYPEQODi1FD5D
+	 S616RpE9b4efrcpVUHRg2IJUZ+A98WZye5sBwPInCATJCFCj4NqPZjHW6m47ow0hzW
+	 u0ScO3rxonqrCSFoEGGnCRPog9N0b9I9S4eerye/NQhRv6Ley8P9jQuW4QdcnR7J+Y
+	 SHjVrpzuxQ7wQ==
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-79868cde1eeso138938127b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 04:46:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVEn5ltYPlh2CKdxiFNMlE3Rlp9GCbSdsvZYly+TlJ1VGChyDtj1cFL487TSCMzlIF89gx1Jm/llnnDLV1SLvCo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaxgxFIMyvnWArUKsOQfMXeeF52Ot/QghLE/WE48uFxqkytNi8
+	3nYTRkOuzP8Jp0fVD3YNvnRLScx+4ethoYz8kSMXOW55w0ESVhiaqV7hgO6oh/XkbLzQf9ajm74
+	5OmNItylan4f5iggDQtTsiv83L1QRyOc=
+X-Received: by 2002:a05:690c:62ca:b0:798:5951:f42b with SMTP id
+ 00721157ae682-798dd74191bmr132448727b3.42.1773143206603; Tue, 10 Mar 2026
+ 04:46:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 38/41] arm_mpam: Add workaround for T241-MPAM-4
-To: Fenghua Yu <fenghuay@nvidia.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
- <20260224175720.2663924-39-ben.horgan@arm.com>
- <7e496cb6-ab31-4a89-9630-0fa2e6b3607b@nvidia.com>
- <3e26371d-21b5-435e-9f31-7187466c57a2@arm.com>
- <2aa90f15-f2f0-45d7-9161-2ab08b4d00d4@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <2aa90f15-f2f0-45d7-9161-2ab08b4d00d4@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_042621_566709_36C0456E 
-X-CRM114-Status: GOOD (  32.84  )
+References: <20260224092419.1275016-1-wens@kernel.org> <CAD++jLnKxDi1GCp94zAUKhwBvQwVAdT8bgNyw5XM2+PTOhxq1Q@mail.gmail.com>
+ <3x55nsighrqdo7al2n5imlov5yoti6z7jxrj7yieeghyqkllvb@akbuob4n37pq>
+In-Reply-To: <3x55nsighrqdo7al2n5imlov5yoti6z7jxrj7yieeghyqkllvb@akbuob4n37pq>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 10 Mar 2026 12:46:35 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkEKprZ_qraCSMq2Zcz7ueiJaOEX6iQnMk9=Su-LbO6xA@mail.gmail.com>
+X-Gm-Features: AaiRm51B2JF0wnKHHzU4Y05R5Ms0mzx95C_lYOY2b_o2pvVtQFzJDnrhtWE5e6E
+Message-ID: <CAD++jLkEKprZ_qraCSMq2Zcz7ueiJaOEX6iQnMk9=Su-LbO6xA@mail.gmail.com>
+Subject: Re: [PATCH v2] pinctrl: sunxi: Implement gpiochip::get_direction()
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, James Hilliard <james.hilliard1@gmail.com>, aprizel@wens.tw, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,240 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+On Sun, Mar 8, 2026 at 10:34=E2=80=AFAM Michal Piekos
+<michal.piekos@mmpsystems.pl> wrote:
+> On Tue, Feb 24, 2026 at 10:52:23AM +0100, Linus Walleij wrote:
+> > On Tue, Feb 24, 2026 at 10:24=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org>=
+ wrote:
+> >
+> > > After commit 471e998c0e31 ("gpiolib: remove redundant callback check"=
+),
+> > > a warning will be printed if the gpio driver does not implement this
+> > > callback. The warning was added in commit e623c4303ed1 ("gpiolib:
+> > > sanitize the return value of gpio_chip::get_direction()"), but was
+> > > masked by the "redundant" check.
+> > >
+> > > The warning can be triggered by any action that calls the callback,
+> > > such as dumping the GPIO state from /sys/kernel/debug/gpio.
+> > >
+> > > Implement it for the sunxi driver. This is simply a matter of reading
+> > > out the mux value from the registers, then checking if it is one of
+> > > the GPIO functions and which direction it is.
+> > >
+> > > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> > > Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> > > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+> >
+> > Pulled out v1 of my tree and put in this one instead!
+> >
+>
+> Please do not merge the correction yet. As I was pointed out by Jernej
+> Skrabec the solution is faulty and just cover the issue. I will provide
+> proper solution as soon as I find it.
 
-On 3/9/26 17:39, Fenghua Yu wrote:
-> Hi, Ben,
-> 
-> On 3/2/26 09:11, Ben Horgan wrote:
->> Hi Fenghua,
->>
->> On 3/1/26 17:28, Fenghua Yu wrote:
->>> Hi, Ben,
->>>
->>> On 2/24/26 09:57, Ben Horgan wrote:
->>>> From: Shanker Donthineni <sdonthineni@nvidia.com>
->>>>
->>>> In the T241 implementation of memory-bandwidth partitioning, in the
->>>> absence
->>>> of contention for bandwidth, the minimum bandwidth setting can
->>>> affect the
->>>> amount of achieved bandwidth. Specifically, the achieved bandwidth
->>>> in the
->>>> absence of contention can settle to any value between the values of
->>>> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
->>>> zero (below 0.78125%), once a core enters a throttled state, it will
->>>> never
->>>> leave that state.
->>>>
->>>> The first issue is not a concern if the MPAM software allows to program
->>>> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
->>>> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
->>>>
->>>> In the scenario where the resctrl doesn't support the MBW_MIN
->>>> interface via
->>>> sysfs, to achieve bandwidth closer to MBW_MAX in the absence of
->>>> contention,
->>>> software should configure a relatively narrow gap between MBW_MIN and
->>>> MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
->>>>
->>>> Clear the feature MBW_MIN feature from the class to ensure we don't
->>>> accidentally change behaviour when resctrl adds support for a MBW_MIN
->>>> interface.
->>>>
->>>> Tested-by: Gavin Shan <gshan@redhat.com>
->>>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->>>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->>>> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
->>>> Signed-off-by: James Morse <james.morse@arm.com>
->>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>>
->>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
->>>
->>> This patch itself is good.
->>>
->>> Please check the following comments.
->>>
->>>> ---
->>>> [ morse: Added as second quirk, adapted to use the new intermediate
->>>> values
->>>> in mpam_extend_config() ]
->>>>
->>>> Changes since rfc:
->>>> MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
->>>> Handling when reset_mbw_min is set
->>>>
->>>> Changes since v3:
->>>> Move the 5% gap policy back here
->>>> Clear mbw_min feature in class
->>>> ---
->>>>    Documentation/arch/arm64/silicon-errata.rst |  2 +
->>>>    drivers/resctrl/mpam_devices.c              | 50 ++++++++++++++++
->>>> +++--
->>>>    drivers/resctrl/mpam_internal.h             |  1 +
->>>>    3 files changed, 50 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/
->>>> Documentation/arch/arm64/silicon-errata.rst
->>>> index a65620f98e3a..a4b246655e37 100644
->>>> --- a/Documentation/arch/arm64/silicon-errata.rst
->>>> +++ b/Documentation/arch/arm64/silicon-errata.rst
->>>> @@ -249,6 +249,8 @@ stable kernels.
->>>>    +----------------+-----------------+-----------------
->>>> +-----------------------------+
->>>>    | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/
->>>> A                         |
->>>>    +----------------+-----------------+-----------------
->>>> +-----------------------------+
->>>> +| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/
->>>> A                         |
->>>> ++----------------+-----------------+-----------------
->>>> +-----------------------------+
->>>>    +----------------+-----------------+-----------------
->>>> +-----------------------------+
->>>>    | Freescale/NXP  | LS2080A/LS1043A | A-008585        |
->>>> FSL_ERRATUM_A008585         |
->>>>    +----------------+-----------------+-----------------
->>>> +-----------------------------+
->>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->>>> mpam_devices.c
->>>> index 08cb080592d9..8f44e9dee207 100644
->>>> --- a/drivers/resctrl/mpam_devices.c
->>>> +++ b/drivers/resctrl/mpam_devices.c
->>>> @@ -679,6 +679,12 @@ static const struct mpam_quirk mpam_quirks[] = {
->>>>        .iidr_mask  = MPAM_IIDR_MATCH_ONE,
->>>>        .workaround = T241_SCRUB_SHADOW_REGS,
->>>>        },
->>>> +    {
->>>> +    /* NVIDIA t241 erratum T241-MPAM-4 */
->>>> +    .iidr       = MPAM_IIDR_NVIDIA_T241,
->>>> +    .iidr_mask  = MPAM_IIDR_MATCH_ONE,
->>>> +    .workaround = T241_FORCE_MBW_MIN_TO_ONE,
->>>> +    },
->>>>        { NULL } /* Sentinel */
->>>>    };
->>>>    @@ -1464,6 +1470,31 @@ static void
->>>> mpam_quirk_post_config_change(struct mpam_msc_ris *ris, u16 partid,
->>>>            mpam_apply_t241_erratum(ris, partid);
->>>>    }
->>>>    +static u16 mpam_wa_t241_force_mbw_min_to_one(struct mpam_props
->>>> *props)
->>>> +{
->>>> +    u16 max_hw_value, min_hw_granule, res0_bits;
->>>> +
->>>> +    res0_bits = 16 - props->bwa_wd;
->>>> +    max_hw_value = ((1 << props->bwa_wd) - 1) << res0_bits;
->>>> +    min_hw_granule = ~max_hw_value;
->>>> +
->>>> +    return min_hw_granule + 1;
->>>> +}
->>>> +
->>>> +static u16 mpam_wa_t241_calc_min_from_max(struct mpam_config *cfg)
->>>> +{
->>>> +    u16 val = 0;
->>>> +
->>>> +    if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
->>>
->>> But the problem is mpam_feat_mbw_max feature is NOT set in cfg.
->>>
->>>> +        u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
->>>> +
->>>> +        if (cfg->mbw_max > delta)
->>>> +            val = cfg->mbw_max - delta;
->>>> +    }
->>>> +
->>>> +    return val;
->>>
->>> So 0 is always returned.
->>>
->>> The workaround will set mbw_min as 1% which is too small and will cause
->>> performance degradation, e.g. about 20% degradation on some benchmarks.
->>>
->>> This patch itself doesn't have any issue.
->>>
->>> The issue is the mbw_max feature bit in cfg is not set.
->>
->> This is intended behaviour as the reset is done independently
->> from the value set in the config. The value is there so that
->> resctrl can display the expected values.
->>
->>> This is a legacy issue, not introduced by this patch set.
->>>> Here is a fix patch for the issue:
->>> https://lore.kernel.org/lkml/20260301171829.1357886-1-
->>> fenghuay@nvidia.com/T/#u
->>
->> I've commented on that patch. I think it's best to fix it in the context
->> of the erratum.
->>
->> Does the below solve your performance problems?
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->> mpam_devices.c
->> index 236f78ab9163..60d3d3e2193f 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -1515,16 +1515,20 @@ static u16
->> mpam_wa_t241_force_mbw_min_to_one(struct mpam_props *props)
->>          return min_hw_granule + 1;
->>   }
->>   -static u16 mpam_wa_t241_calc_min_from_max(struct mpam_config *cfg)
->> +static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
->> +                                         struct mpam_config *cfg)
->>   {
->>          u16 val = 0;
->> +       u16 max;
->> +       u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
->>   -       if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
->> -               u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
->> +       if (mpam_has_feature(mpam_feat_mbw_max, cfg))
->> +               max = cfg->mbw_max;
->> +       else
->> +               max = GENMASK(15, 16 - cprops->bwa_wd);
->>   -               if (cfg->mbw_max > delta)
->> -                       val = cfg->mbw_max - delta;
->> -       }
-> 
-> Could you please add some comments on this piece of code? It's worth to
-> comment on why there are different values on cfg and props.
+Too late, this is already upstream and I think that is how it was detected.
+Shall I queue a revert?
 
-Sure, how about this?
-
-	} else {
-		/* Resetting so use the ris specific default. */
-		max = GENMASK(15, 16 - props->bwa_wd);
-	}
-
-
->> +       if (max > delta)
->> +               val = max - delta;
->>            return val;
->>   }
->> @@ -1577,9 +1581,8 @@ static void mpam_reprogram_ris_partid(struct
->> mpam_msc_ris *ris, u16 partid,
->>                  if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, msc)) {
->>                          u16 min =
->> mpam_wa_t241_force_mbw_min_to_one(rprops);
->>   -                       val = mpam_wa_t241_calc_min_from_max(cfg);
->> -                       if (val < min)
->> -                               val = min;
->> +                       val = mpam_wa_t241_calc_min_from_max(rprops,
->> cfg);
->> +                       val = max(val, min);
->>                  }
->>                    mpam_write_partsel_reg(msc, MBW_MIN, val);
->>
-> 
-> Otherwise, this change looks good to me.
-
-Did you get a chance to confirm if it behaves as expected on your harware?
-
-> 
-> Thanks.
-> 
-> -Fenghua
-
-Thanks,
-
-Ben
-
+Yours,
+Linus Walleij
 
