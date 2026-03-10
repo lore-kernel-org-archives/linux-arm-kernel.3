@@ -4,55 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA051EB1056
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0B7EB1054
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCVHtCdeJSJsihYhis2FNv0MJgFY1pbntr30vB+O2jM=; b=UKJ2dKtXWPkvaXjDpuV3/eUgiP
-	oVEb/t9bLM1d4Hj4yAlOqkCUzimt6YZL4oFGha4p04krz3nCjzw2Q7F8pWowFTPTxoa1NqUKdRUSH
-	QKcyu6RQxuH2UwyVTtasfIFYuq6c90Y6jf4L/0+h/QrRh72cYDNUsurXaP50Way6J/HIWrJrfS6wQ
-	xh8luYsHxIKJ8qB8WLNcObCsN8jQ4dis7rzVRnCWxXFqpIQ6Rj490b+jkaccPu6E49pfI4NUm5nae
-	IH8LjGzlns3rPaM5ti9SsYHzs6v3JHzDK7IbqBKyHV55oxn/pdd1Q+U5vbLjsnN1VTC3nJL+lfU8t
-	3j5IKl9w==;
+	bh=d806grPeQ8uBN9NDC8eu5sQU9snIGboano6I7hkTXxM=; b=qTbWKLHBmJ/4Od9VlrUY3Y3/rr
+	ARy5FSO4UUyYrXqb7S2YFTAr+WdtgcCdGPutcYxZySUnoMt3dr0dABsSzgKH4paJxb2iTqa/qI+rZ
+	Dhin4ehgYZA9CqpTk17pQPGCZ26O8yotxVfvlupkRI/cVJ+N+b9Ikkz5Gs1PoCwvCOwhizCWnL05t
+	fXNCOuCO78NW5lJZrwYr4ywvBcPsVqnWcKPvP+Oc0X1VyO4HgNF8beXg7Knzrdh4gPjShVWczOxzm
+	UFCF6Kg57TSuNLDVYqWrQkyqqa31Iu1OeCnM3MBQl7czJolov+p6qQzf9gHR3yO/iJmlMpaFFVmN1
+	2ekMQDFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxq8-00000009fjT-2Cs3;
-	Tue, 10 Mar 2026 14:13:40 +0000
-Received: from angie.orcam.me.uk ([78.133.224.34])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxq6-00000009fj4-0w2b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:13:39 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 2126092033B; Tue, 10 Mar 2026 15:13:32 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 1FB1892033A;
-	Tue, 10 Mar 2026 14:13:32 +0000 (GMT)
-Date: Tue, 10 Mar 2026 14:13:32 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-cc: Nick Huang <sef1548@gmail.com>, davidgow@google.com, 
-    dongsheng.yang@linux.dev, dory85109@gmail.com, ebiggers@kernel.org, 
-    idryomov@gmail.com, jlayton@kernel.org, john.g.garry@oracle.com, 
-    kusogame68@gmail.com, likerockman102@hotmail.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    linux@armlinux.org.uk, namhyung@kernel.org, robh@kernel.org, 
-    squid@squidspirit.com, wdhh6@aliyun.com, wqu@suse.com, yot4106@gmail.com
-Subject: Re: [PATCH v2] arm: Replace ASSEMBLY with ASSEMBLER in uapi
-In-Reply-To: <2ad752a7-0349-44e6-92b9-c67ba37c913c@t-8ch.de>
-Message-ID: <alpine.DEB.2.21.2603101412520.63708@angie.orcam.me.uk>
-References: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk> <20260309152423.2582-1-sef1548@gmail.com> <2ad752a7-0349-44e6-92b9-c67ba37c913c@t-8ch.de>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1vzyBF-00000009hqR-3YcO;
+	Tue, 10 Mar 2026 14:35:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzyBC-00000009hpO-3V0Y;
+	Tue, 10 Mar 2026 14:35:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773153322;
+	bh=MCaUrPZ7HH0j4tc8Pv0peQvEHxCMTJOGP8a7fiNrsJw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kioFQrk9hpQNl8vRItusxFTj3b+x03BuCXswwwB5fvv0EzbKu/tP2WQQFk2KFJQk9
+	 J80TXeL8AHbz/7AUrSTZZPNAu4l+wO24Hey93re8DnweOihwLCQOPvEUlgifoFd9qd
+	 Ae1bBGbOqfe+ghl8AZ3CpNpp5IhnJw0tCp72sXAurqtk6JJmbSYIoiDxE7sSJm9Qhe
+	 1E2DB4mP5D4GAVKT0q/iDq6MdjUfn1tFI0o0BKUb9RQ656xSrDtHl2dQvBxBZ+7l2v
+	 VFw3PepGSWsScTOha8D68l6Sivf4l61O9U+uAZ3Kw9pVNKaLXguZH9oEAHbN6W7lg+
+	 LK74gVBrPhbBw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B509217E0EB0;
+	Tue, 10 Mar 2026 15:35:21 +0100 (CET)
+Message-ID: <8d965895-c77b-4d67-8365-3ea6a8ef5fca@collabora.com>
+Date: Tue, 10 Mar 2026 15:35:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] remoteproc: mtp_scp: Constify buffer passed to
+ scp_send_ipi()
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Srinivas Kandagatla <srini@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-media@vger.kernel.org, Mathieu Poirier <mathieuu.poirier@linaro.org>
+References: <20260310-rpmsg-send-const-v2-0-0e94c5db9bf4@oss.qualcomm.com>
+ <20260310-rpmsg-send-const-v2-2-0e94c5db9bf4@oss.qualcomm.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260310-rpmsg-send-const-v2-2-0e94c5db9bf4@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_071338_449619_90CBF171 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20260310_073527_102162_810FF07D 
+X-CRM114-Status: UNSURE (   7.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,16 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 9 Mar 2026, Thomas Weißschuh wrote:
+Il 10/03/26 12:22, Krzysztof Kozlowski ha scritto:
+> scp_send_ipi() should only send the passed buffer, without modifying its
+> contents, so mark pointer 'buf' as pointer to const.
+> 
+> Acked-by: Mathieu Poirier <mathieuu.poirier@linaro.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> thanks for the update. After our last discussion I prepared a
-> supplemental patch for this, but of course forgot to actually
-> send it out.
 
- I have now dug a bit deeper and realised that GCC used to have explicit 
--D__ASSEMBLER__ in the specs for `@assembler-with-cpp' before switching to 
-the internal macro definition.  So I take my concern back, the original 
-change is good to go in.  Apologies for the confusion.
 
-  Maciej
+Please fix the commit title - that should be `remoteproc: mtk_scp: .....`
+
+After which:
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
 
