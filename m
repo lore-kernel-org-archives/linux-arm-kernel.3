@@ -4,80 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFF4FD4F02
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA703FD4F01
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
-	Content-type:In-reply-to:From:References:Cc:To:Subject:MIME-version:Date:
-	Message-id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=; b=1q0iJRxWHLG2V7soWD1/oOWx3m
-	Xz1ULGUPhGrLnPVqnkYFR0qDsrozL09piPSTTepz9DlvrY3N8puxMrfPIJeDdleuTscpsPgWcvNfz
-	QboLeOpeqL1APVz+ZSZqXWQUSxGeLS0HS0yRyeQjFHWKgP7jp18U609cJUse3037Mm8EK5zWh52Hc
-	z/K6PbpxkPJsdkqJZsiX1DEX4aBGCZ6Ju36EhlcFs3YdDyJNBhCzKKlAdSH75REZh9qhHoPBEjYkC
-	G3C3wHuueSGN9pbGg10RnY+6lWENKNIa43siWuRG34LFhgPjrkqPsS8qAaPxNMpVdMTpn0HmETzaM
-	zjaDh+zA==;
+	bh=K58+q75J3LD3mDRig06x+UazutdjEE7vGtq+vglIB7g=; b=e9O6gld8wT9/joJnbzeWNx9So7
+	Y5x5Gp+C64NFUNAWohT5yhvNoWJv8mJNdmPaa/ld3RwhuvpleVQOXR+1CrLc2wPVzJYnWx/1mAGpB
+	QHr7DDGIkZXhbvT5lgGHY8uo1VXXY9CpUUiC4OpmBHOo1OnCG212gU3zEiKRKnBzRH5QCW0gwBNil
+	TrHeUwipuaICoyYRuwDiKLaJ5Q76paGbn8/zZkEkMG6WPwj8KjaL2mMOi1SGK3Jy9OuEur1atS90D
+	+acdNVpCyFUwkabCtEZJodVCfZfdun8YP6ZImWaeSOuelxNXg3rvq54wOJa70eR79dRfcIePwKhb8
+	EslYVeeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzX3-00000009sS3-3dIw;
-	Tue, 10 Mar 2026 16:02:05 +0000
-Received: from abi149ajj127.mrs1.oracleemaildelivery.com ([129.149.100.127])
+	id 1vzzYW-00000009sby-0Rl5;
+	Tue, 10 Mar 2026 16:03:36 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzWx-00000009sRJ-2yCa
+	id 1vzzYQ-00000009sb1-28De
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 16:02:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=pta2002-202603;
- d=pta2002.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=;
- b=s5pRHO6Yhujn6qWYP26KIhsFsm6xFff7hEeOSk+DO0F+DvkJQAEuf8vQG3jjxcRdMnBFENBXNpcT
-   1Ig3V634mqSkJxQp2ANdOSNpqTtzJpRrm1PhvwDBEoNR6P3sQBrMNDVe+5qQDBOewgA7kGQXpOiq
-   ptIZ1D4OrI0uCmvHHUicCJyTJDr+HeqLsoLNc1HPkehTwua8QC1Yj9/OEAWdwFJpi+vFlOsFxvvu
-   eCh5MyWQNyd63aWfm/KJJOAivlbC6okPRmBNl06wmQLzUnu43oI/TuetN7zmVCZPuOsncJOzCdUo
-   2TEA33cElfWLI7j0pUIA17pMjVxoJaB9Ep/zLQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-mrs-20211019;
- d=mrs1.rp.oracleemaildelivery.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=W+2PgkVfhOOGh3JhpM9bXs2EFaDZYgebhRwlkHsFdtk=;
- b=b6W12nJ1l48BEVyc6C0Hpk1AYftJpxshpezmAkYdcBIjnBTkBd3kZN33CwVmFFGC1h0nKHXiEpUl
-   6TahoA0Vox346vpua8SyixJ5ljW4dvbfyVBYXmhkBAsNeNf8ZZvlU08fG3StUEO4jLiTMwuu31LA
-   e7CB+bVgHhqWZ8dj25yWeuXxTwxLP1WQrL/qkQGl2620P/Umx+dn32PgoApStJaur4vmwFdJdNje
-   tXGWZrAajz9ypHA2dqnp66J8LGmF4lI+qBGeBQyLeQj8tflghO9xpBe8jLjZ122FUdrv2uwDPuv2
-   YBVmLkv1jtmaz3DGsunnp1llYIgIYhiRywF9rA==
-Received: by omta-ad1-fd1-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com
- (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
- 2026))
- with ESMTPS id <0TBO003KDXV4LW20@omta-ad1-fd1-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com>
- for linux-arm-kernel@lists.infradead.org; Tue, 10 Mar 2026 16:01:52 +0000 (GMT)
-List-Unsubscribe-Post: List-Unsubscribe=One-Click
-Message-id: <e57dc0d0-8fad-4c55-ad53-d12cbda480b5@pta2002.com>
-Date: Tue, 10 Mar 2026 16:01:36 +0000
-MIME-version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260304-radxa-r5-itx-hdmirx-v2-1-6567e9e3298b@pta2002.com>
- <9638846.rMLUfLXkoz@phil>
-Content-language: pt_PT
-From: Pedro Alves <pta2002@pta2002.com>
-In-reply-to: <9638846.rMLUfLXkoz@phil>
-Content-type: text/plain; charset=UTF-8
-Content-transfer-encoding: 8bit
-Reporting-Meta: AAG0WhO5h6ltxXBJpWKRec1eA5PLxwyFz98OXlRfhTRnD/LE/iOtviDjy2/UiPp4
- KvbKjhNYzrpc8DwWL5o/TOhjKj7Eox2ZpAqzEy/7rGiFlNrTszwSnvMrUaiByjeH
- oD4SEeXgWGTkJHskGLTJKNdktykRbTzwjq+5NRxTbsCeMDwQkbdnRCeA2yrqFpjV
- riN5r4fmOoZVQaerwoFYAr/8fl2pRViPjWxOT5NOCnMqEYtmPFfYNIdllMIrOOIx
- ZBFEJ7mB+K3qf0NCyViz1EQkXC9nUK+ilV3vAQc8Xk0CI9BDlZEtlVveXnVqzrYV
- fCyHNubFyW4Lata5ToumSjpPewFUoV97MhtZh/HXk8p1oC4rUtxhv6d/GYePiKaj
- ab8OjbzBn45WCthoaGafPhl6ifmx/OTCpxsXZ2oqLaPBhYJ0/qf5PFsM1uMCOH3M 2xJDOOJG
+	Tue, 10 Mar 2026 16:03:34 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a126c8aab9so7596114e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:03:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773158608; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HQz5NxcwhRYFvvixGG/pVggBAitpEeahArIuL9vedCTy3pQ8+CyosBS8t/BgAurB2R
+         GJpTXCK0PGxtMDkcDt707eGzeciELJ0SUxS6RkOz+NC+hETnOAn5dpRGuMIglmumssaF
+         IygdcyS/5fChUu+eA//2Nz1zHS2CQHkIdWv9yprgkNd0lOOTaEOzbrkDMThdINMyf92v
+         co8lrtBYkKdq2f3MqwvJziyKduRNzh1dMJSK0knEs3tB/Md8Et8AQhQrAERbtJQpdoDS
+         jKU/hLXB2h3CT4/3gad93Mhv/2s3EFa4SEEqm+sO5YF4v4AWCFG6c4qSC3bBS3aBuv7x
+         VWVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=K58+q75J3LD3mDRig06x+UazutdjEE7vGtq+vglIB7g=;
+        fh=FMHc7hFERsUotNsWsc282G8JWUapFec87mjQsp8kHKI=;
+        b=J1mv27B1ZwRzM4E0I4kgFyZ+uaa/07LTrQ6NyNM0FjWm06TqzVdCkUxto6svcy+jVk
+         VXb1dZxTwFjgdPKWbbvouuzWYVZ6uoxL2Mvu1p3ZA+Z/f+1CZkFTvhiQjq5hZAi5SQEf
+         gdVy8Lv6UaaLDt+wAjBsdYgO93YLgGWYhIiOTcDVv2KfHj1rT9UObERoaVbxh6wkueTj
+         Z78X8/LTXgq8pkRg7xWMudHoAuFbYRAffCZyb4YyPrrKJYz/vTcpGEfgix0WK1Jj+1jN
+         D3cxf+o4wGkEIpK29HtKyOvpGrfA5rqk656ySjUydL+gTTWZ+BdjwfDAL9R84U6WRoTy
+         jmMw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773158608; x=1773763408; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K58+q75J3LD3mDRig06x+UazutdjEE7vGtq+vglIB7g=;
+        b=evVKf4AO8iMPqk5N9tDRh3Vp+J62zB6fxhpxSxO5Um2RO9QaYXpVJ4a4XLulGcMRLf
+         riyZV6QFii8Eo2yJRMVZlRcdZYs+C+Wbu2mYwvZWCYGrZy9IglxLY0Rs5Eh6KjJqQIjx
+         KHDTI7SRHyq0EKNGc02Dv/feHykhTrf18jntWXaAeCM8rpIyZuk2+b7bVG9uCE5p6SU5
+         ovkKhiTUKoQZBgKtZ3Ruxszsw6yfc/J8AC7GhVGyskkiJgJdmkb4CsDFIZ9d6d7kF3RR
+         Mtuc6oCpJL/Urs4d1bGTUNJKjj6m+ZHJvsuZC4XS8fjm1t3fcccLIXpEYmYmcisdSSTX
+         uy8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773158608; x=1773763408;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=K58+q75J3LD3mDRig06x+UazutdjEE7vGtq+vglIB7g=;
+        b=WVbm4nR1xEDYx/rDdENJSIzMgwD85P2RcfRXkQLKyXY8tZWLkJs/NkBZJOeflvkVmF
+         sMzHjO8GTSl/BzoQinftEMU1v5H5AJREUYda/fWMnAB7SRL3DTpCIkbLCGtgFgpIKKRJ
+         kV5XopP4fVevpgHK1sqNHhzwd7Fd5nta3b+2MV6Y7zicXMHpofBkgHs0enfVA4ea/mYd
+         j8WA6YjdkepwdYDSiH6q9iGxGEtVCPWyl7MzH6NWz6zUIUap5G9ZpnIYSDZik/tTQc9f
+         SQX5lrxjWfvVPAToq+dI2p5lkBMs03bJWhpJeoHeJyxIBjFTKUutlTWx3n5L9U+V53Mj
+         DQ5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXjpFgWej2RG7dvrP5rXrV6LhuTDGJJ9kJpqwGFowFxO/70AyC/myq5XpYHCpLQEPXSDZfsYGYFRXrR4l2r/os4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+MLoJb7lTczjXDTqWMJyyy2Fl1/ZvLlp+cMHlnwOjtK+UQuoX
+	oUrxtRBM1jLaO0CaUxSlvZ3BQo5KBs0arumju9lL6kGvyqyN1sFPOs2IqkIsolZg9MNLm33V/WD
+	hAV2kODk0ggj+fVKnREsuUbQnRYXah+c=
+X-Gm-Gg: ATEYQzy4r62MsQJqdXWkIbrxs6xcWQtxVWHGovAwbnP3yw9FXw39WfdeVy7JA/B69VJ
+	XbBlotT5yNEkTYaLlW8MWGzh+qn0jh+QHtO+2WIrBkOlldgzaB6WNvFmON6re+x0Y+Re9shUvAe
+	DjKh58Ppjw3ThNtXmBzCfvsCyRjbmu9ljsxfYRD1yKUH4wKlNr4X4QOgZMSFFmOC0GjNQQ+2NGD
+	8ZlKH7melNHCd1fgO724C4T5flHuKWuNCefxuSO/E3w133YxSYORt6pGYmEae/gntxPcEL+X1Lt
+	48Ll5fTuTk2pNcxQLgJIIeSMAUvKM95jLwB9i8BlW0RaJZdLD5zIoHZezHAfgeZVpZnbXpI=
+X-Received: by 2002:ac2:4e99:0:b0:5a1:2f5a:cb61 with SMTP id
+ 2adb3069b0e04-5a13caaeba8mr3635889e87.2.1773158607681; Tue, 10 Mar 2026
+ 09:03:27 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
+ <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com>
+ <67e082c5-2b34-4960-8fd1-6cd007e0584c@oss.nxp.com> <CAOMZO5CHGssc3Tuf6fJg2_P=bp7=itfDVRANqQOiK2b-2ooeFA@mail.gmail.com>
+ <d5bb01c1-17c9-4d76-8a49-00ffd85c7580@oss.nxp.com>
+In-Reply-To: <d5bb01c1-17c9-4d76-8a49-00ffd85c7580@oss.nxp.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Tue, 10 Mar 2026 13:03:16 -0300
+X-Gm-Features: AaiRm50hQtki5ODEQm6WBm-CMqmZXFNtS_jtFUq9YGrHeYsH6rVUj6xnzW50JoM
+Message-ID: <CAOMZO5A2qG8_d=5S9xdackhUt+DS-YtrvRvNeqA40X4TiVcyaA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: s32g: force S32G RTC as rtc0
+To: Andrei Botila <andrei.botila@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+	NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_090201_074384_6C96BF00 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_090330_562489_7A94D420 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,22 +124,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi again, sorry for the follow-up:
+On Tue, Mar 10, 2026 at 12:21=E2=80=AFPM Andrei Botila
+<andrei.botila@oss.nxp.com> wrote:
 
-On 10/03/2026 08:48, Heiko Stuebner wrote:
-> Am Mittwoch, 4. März 2026, 21:44:39 Mitteleuropäische Normalzeit schrieb Pedro Alves:
->> +	pinctrl-names = "default";
->> +	hpd-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
-> 
-> Also please provide a pinctrl setting for the gpio hpd pin.
+> rtcwake -s 10 -m mem
+>
+> rtcwake: cannot open /sys/class/rtc/rtc0/device/power/wakeup: No such fil=
+e or directory
+> rtcwake: /dev/rtc0 not enabled for wakeup events
 
-I might be missing something, but isn't this already present with the
-hdmirx_det pin? It's configured as hdmirx_hpd in other boards, but for
-this one I left the hdmirx_det pin name after discussion in v1 of this
-patch to match the schematic.
+You're missing the 'wakeup-source' property for the I2C RTC.
 
-If you mean something else, please let me know.
+> > date -s "2026-03-10 11:00:00"
+> > hwclock -w
+> >
+> > Power-cycle the board. Does the "date" command retain the correct time?
+>
+> date -> Tue Mar 10 11:12:43 UTC 2026
+>
+> date -s "2026-03-10 11:00:00" -> Tue Mar 10 11:00:00 UTC 2026
+>
+> hwclock -w
+>
+> date -> Tue Mar 10 11:00:06 UTC 2026
+>
+> <Power cycle>
+>
+> hwclock -r -> 2026-03-10 11:00:31.104653+00:00
+>
+> So looks like it does retain the date between power cycles.
 
-Thanks,
-Pedro
+Yes, the I2C RTC is working as expected and is battery-backed.
+
+You should use it as rtc0. Instead of relying on random probe order,
+it is OK to pass an aliases inthe board devicetree to force the I2C
+RTC to be rtc0.
+
+If you use the SoC RTC as rtc0, the time will not be retained.
 
