@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C770DFD2D81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC6FFD2D88
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=; b=uETmTG+HAo+Z/+elw8ByhtVxqz
-	dhiDIB2yZ1i5XzXBluHo55/fUlPP6MV4HAp1iHT7ex7/AQS4O7M3rPg0lqi1wcyWoi/s0TCV6QCaM
-	JoSWoDBJnnGIzHW/IITjA1AOIH6ttJl7onWAf+7hkkiAeF8FIixNw2Y72WEsYQusrxqMl9WxkDyPm
-	Ooac4UJLKgoVzvwUbbWXwsIqAvQ6f2nJxhMzNih6YBj3Z25KxbwmNxgJeIHGtZ71BQDxPvP8B2Uk9
-	sLOfVyNacTyzNt69/seTV4mFnklLx0SQSBOvSeHvkWApH2DW1rQ49aptX6OkYwPMjkFq4Jlqvta6l
-	GnrxIudA==;
+	bh=j2y11TztidFb9gX358CPpWDLxwG42gGstwtjC9lyfVQ=; b=cZqsSW9MPkF4e96JnPUmghkQ5w
+	lpqK7wMCWlio4p65Xe8hTSnICs6xXW+Gq72od8Y4JQlOvk7guM4YrhHU14cIk81Sk4woM97+OjMlS
+	CTygbM4AIudWfG9dYGZTPdNNEV9GXaLRMu0ATlavdty0qDDsKava2F5QAsgd68oM/3H05Rai0AsEn
+	Zpltt8E5t12u+J5nALBLiHOMfjfZOHv6Pg2wEQGkNk2Mm9Yw/LTOSOHG4MXV7RDdaav01J5zu6EiX
+	TjfB0HXP/9GAZUqek3T3JL2Do/G43h6nzCa1Ww0kRwr4LhrCvKNsXmiSxU2qqkbiIOkiJDATyXEuO
+	nxDA6nWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzx8c-00000009bJa-48Ku;
-	Tue, 10 Mar 2026 13:28:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vzxHY-00000009c8S-1izr;
+	Tue, 10 Mar 2026 13:37:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzx8Z-00000009bIg-2c2g
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 13:28:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773149318;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=;
-	b=JJz7QsQIWVCrRtMBlSPsYpJb7Ew9GPUImMa8XRE266HhE2PfHd9RtSRgaUSSKpUfeco2by
-	6L+C7pu7wFAfZGflAjmX/GtrCCHXQQhZ8rFTfXUnb4C/Cno9d5Z+f0JJCTK4g2eQuEH6pI
-	AIPFLoYe1f70VhHVk0XHgmFVcrNNYYs=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-170-qHa4B3KAOzu_8_o-w1DIVQ-1; Tue, 10 Mar 2026 09:28:36 -0400
-X-MC-Unique: qHa4B3KAOzu_8_o-w1DIVQ-1
-X-Mimecast-MFC-AGG-ID: qHa4B3KAOzu_8_o-w1DIVQ_1773149316
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-899ea295601so150252006d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 06:28:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773149316; x=1773754116;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=;
-        b=wXlEj6oeKVLuN5oqx+VUkAFG4r3AsYEIsXDet2lIlFe4J2oEcBUGdTwIY6yhv8bcJV
-         oxUyFz+rv7/l6IrPajiKkzVKEGG/EVhG1ULnDCPp2a6enHeZgNwZRjeux1NcMndeB4Uf
-         7gvfQ5L/6avqdJP/na9i/+/BZMzVKMSzItQSoBHAQltIZ2LWczrIGp0JgLvQTSU1E9pj
-         8EPU4iujGNZHGrTExIoZku2LlNUx7pUKn9947eij4/6mun1NVznsOlVxcBEtOeREGGqT
-         zxaiWmsUIe3+/p8lC7Z53IdsWCnrc1t84RGcKpv7BPa1T40cFO3bpLiayxFz4tMmTiNh
-         0/6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVLq9M2cUJsfjI7g6EuzRYgQw3M14z+Bl4lcpIrXH1kFsTbLp4eT5E0PVfink7fbsADPWdRuualYNycc1Th/qwn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYqwz463m4QDtXJo3GFrVi4vxbqvwgWcF4NmGDXfuNp2I0p22s
-	MVCKASqmpUXu3RXnX0qAK+2BYTVkxMdgbUiwRoj3vDR1J7Y9fpHZi72Irg1qc0rcYBloOqTPNad
-	6cXt9Rl1ODdZkXJNQ77FvVzJTN7/uzvOG1GRzw5CzDp5KtKm8wICtcQwFnOAsFEfXrEuOhM7niN
-	ug
-X-Gm-Gg: ATEYQzzcEVFcuRn8TVh7QnA1uyUK9AuRkXXNXRp//cybjH9kG9vZOBYUyBHCry/KgA6
-	FhTgKOViGrzZCT2QGnquxAl7ya9kmfVaLN68jcR/CpnHDC5W8hFvWnXiurLfTlpX8JVa6MZeHU/
-	Pd/AvxWiQHqKeonz+xCsu7acUqSHJxMBSZxds7J6VucKcyrFtwNuVoeuSFY3q4o5/2QtqpUMhKW
-	VzN8jlkiZ5UxVep91Fn4NE1nRmq/hsMKtdvBdcoXB9bI2IW/JxH1dgVwP0uoFqC1zmjNXntx+uT
-	cA2Aqv5pCWZAOd+b3vWo1QOItGIEH3j/CGRf7e7s8msdWuCCXq6RDTky+uHkckggYZsvWlrKrrA
-	T67YijhyKeKeXD1GXHumGzSK03CNdSbuOzoUn1vatbJWUjfJVDMyhklt2
-X-Received: by 2002:a05:6214:400d:b0:89a:ff2:b8da with SMTP id 6a1803df08f44-89a30acb81bmr214491646d6.47.1773149315809;
-        Tue, 10 Mar 2026 06:28:35 -0700 (PDT)
-X-Received: by 2002:a05:6214:400d:b0:89a:ff2:b8da with SMTP id 6a1803df08f44-89a30acb81bmr214491196d6.47.1773149315391;
-        Tue, 10 Mar 2026 06:28:35 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a57a4b079sm18433156d6.20.2026.03.10.06.28.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 06:28:34 -0700 (PDT)
-Date: Tue, 10 Mar 2026 09:28:30 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-clk@vger.kernel.org, sboyd@kernel.org, mturquette@baylibre.com,
-	sebastian.hesselbarth@gmail.com, gregory.clement@bootlin.co,
-	andrew@lunn.c, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] clk: mvebu: armada-37xx-periph: fix __iomem casts in
- structure init
-Message-ID: <abAcfphl-aakfcf5@redhat.com>
-References: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
+	id 1vzxHX-00000009c8F-2SyD;
+	Tue, 10 Mar 2026 13:37:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D4FDA600B0;
+	Tue, 10 Mar 2026 13:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E847C19423;
+	Tue, 10 Mar 2026 13:37:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773149874;
+	bh=7n4LiLaeOu7Y781LaaH2FD19YKv/KTfp5uLzE86UGvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wfg6Pb3Jv9nz87f4TL4NjXyJ5y2dr7izkZZumUwjox9UckLpwcrxyLugMkVY+Fey7
+	 SfYvsQTEuFF2OfasvZRT2nw7myg1Oo+0tpDr4v1qpwoxvtd+ZkHD0PTQEuXq7PqGPD
+	 VANFVMhmUBZpDbWl3YRwC++GuB6Cjau8tEg2hWOXuW/zpDPqnyJzDayYz9eU9Nx3CH
+	 9FK6bCQ6MNNb+lTG6RIyqf2b0qh7VM1vKivIZkCqrqJ5w25XEKS5hiJJf1wJLL76Pw
+	 M0Cfc/d/TzPtaGqx4SK9wWTSCS8weZqpmNtfBtEfEAtfujyVf0xgDxIHy3dGER0wnr
+	 +juElQl3Sas9A==
+Date: Tue, 10 Mar 2026 19:07:39 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: manivannan.sadhasivam@oss.qualcomm.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Lukas Wunner <lukas@wunner.de>
+Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
+ a platform specific way
+Message-ID: <mevtdhght66tds7yhmr5a6xg5a75fb667b6lyvguoxqexmc74p@mroqidhzptxk>
+References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
+ <aHoh1XfhR8EB_5yY@ryzen>
+ <aHokdhpJUhSZ5FSp@ryzen>
+ <tujurux64if24z7w7h6wjxhrnh4owkgiv33u2fftp7zr5ucv2m@2ijo5ok5jhfk>
+ <aJ743hJw-T9y3waX@ryzen>
+ <lakgphb7ym3cybwmpdqyipzi4tlkwbfijzhd4r6hvhho3pc7iu@6ludgw6wqkjh>
+ <aLmcO8ukT-CDZMuT@ryzen>
 MIME-Version: 1.0
-In-Reply-To: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: a6Uos3r6-39W4jZ4W2kvI2zEQbDsVq3EXvrid5NiKTo_1773149316
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_062839_730619_A8BEA732 
-X-CRM114-Status: GOOD (  11.70  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aLmcO8ukT-CDZMuT@ryzen>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +83,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 12:36:25PM +0000, Ben Dooks wrote:
-> There are a number of casts to "void __iomem *" in the initialsation
-> of the driver's clk information. Fix this by adding a helper macro
-> for the cast.
+Hi Niklas,
+
+Sorry for replying very late. I lost access to my EP setup, and just got it
+back.
+
+On Thu, Sep 04, 2025 at 04:03:39PM +0200, Niklas Cassel wrote:
+> Hello Mani,
 > 
-> Silences a number of sparse warnings:
+> On Fri, Aug 29, 2025 at 09:44:08PM +0530, Manivannan Sadhasivam wrote:
+> > On Fri, Aug 15, 2025 at 11:07:42AM GMT, Niklas Cassel wrote:
 > 
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg1
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg2
-> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
-> drivers/clk/mvebu/armada-37xx-periph.c:255:1: warning: incorrect type in initializer (different address spaces)
-> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    expected void [noderef] __iomem *reg
-> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    got void *
+> (snip)
+> 
+> > > > > > ## On EP side:
+> > > > > > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
+> > > > > >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
+> > > > > > 
+> > > > > > Basically all tests timeout
+> > > > > > # FAILED: 1 / 16 tests passed.
+> > > > > > 
+> > > > > > Which is the same as before this patch series.
+> > > > 
+> > > > This is kind of expected since the pci_endpoint_test driver doesn't have the AER
+> > > > err_handlers defined.
+> > > 
+> > > I see.
+> > > Would be nice if we could add them then, so that we can verify that this
+> > > series is working as intended.
+> 
+> (snip)
+> 
+> > Ok, thanks for the logs. I guess what is happening here is that we are not
+> > saving/restoring the config space of the devices under the Root Port if linkdown
+> > is happens. TBH, we cannot do that from the PCI core since once linkdown
+> > happens, we cannot access any devices underneath the Root Port. But if
+> > err_handlers are available for drivers for all devices, they could do something
+> > smart like below:
+> > 
+> > diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
+> > index c4e5e2c977be..9aabf1fe902e 100644
+> > --- a/drivers/misc/pci_endpoint_test.c
+> > +++ b/drivers/misc/pci_endpoint_test.c
+> > @@ -989,6 +989,8 @@ static int pci_endpoint_test_probe(struct pci_dev *pdev,
+> >  
+> >         pci_set_drvdata(pdev, test);
+> >  
+> > +       pci_save_state(pdev);
+> > +
+> >         id = ida_alloc(&pci_endpoint_test_ida, GFP_KERNEL);
+> >         if (id < 0) {
+> >                 ret = id;
+> > @@ -1140,12 +1142,31 @@ static const struct pci_device_id pci_endpoint_test_tbl[] = {
+> >  };
+> >  MODULE_DEVICE_TABLE(pci, pci_endpoint_test_tbl);
+> >  
+> > +static pci_ers_result_t pci_endpoint_test_error_detected(struct pci_dev *pdev,
+> > +                                              pci_channel_state_t state)
+> > +{
+> > +       return PCI_ERS_RESULT_NEED_RESET;
+> > +}
+> > +
+> > +static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
+> > +{
+> > +       pci_restore_state(pdev);
+> > +
+> > +       return PCI_ERS_RESULT_RECOVERED;
+> > +}
+> > +
+> > +static const struct pci_error_handlers pci_endpoint_test_err_handler = {
+> > +       .error_detected = pci_endpoint_test_error_detected,
+> > +       .slot_reset = pci_endpoint_test_slot_reset,
+> > +};
+> > +
+> >  static struct pci_driver pci_endpoint_test_driver = {
+> >         .name           = DRV_MODULE_NAME,
+> >         .id_table       = pci_endpoint_test_tbl,
+> >         .probe          = pci_endpoint_test_probe,
+> >         .remove         = pci_endpoint_test_remove,
+> >         .sriov_configure = pci_sriov_configure_simple,
+> > +       .err_handler    = &pci_endpoint_test_err_handler,
+> >  };
+> >  module_pci_driver(pci_endpoint_test_driver);
+> > 
+> > This essentially saves the good known config space during probe and restores it
+> > during the slot_reset callback. Ofc, the state would've been overwritten if
+> > suspend/resume happens in-between, but the point I'm making is that unless all
+> > device drivers restore their known config space, devices cannot be resumed
+> > properly post linkdown recovery.
+> > 
+> > I can add a patch based on the above diff in next revision if that helps. Right
+> > now, I do not have access to my endpoint test setup. So can't test anything.
+> 
+> I tested your patch series + your suggested change above, and after a:
+> 
+> ## On EP side:
+> # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
+>   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
+> 
+> Instead of:
+> 
+> # FAILED: 1 / 16 tests passed.
+> 
+> I now get:
+> # FAILED: 7 / 16 tests passed.
+> 
+> Test cases 1-7 now passes (the test cases related to BARs),
+> all other test cases still fail:
+> 
+> # /pcitest 
+> TAP version 13
+> 1..16
+> # Starting 16 tests from 9 test cases.
+> #  RUN           pci_ep_bar.BAR0.BAR_TEST ...
+> #            OK  pci_ep_bar.BAR0.BAR_TEST
+> ok 1 pci_ep_bar.BAR0.BAR_TEST
+> #  RUN           pci_ep_bar.BAR1.BAR_TEST ...
+> #            OK  pci_ep_bar.BAR1.BAR_TEST
+> ok 2 pci_ep_bar.BAR1.BAR_TEST
+> #  RUN           pci_ep_bar.BAR2.BAR_TEST ...
+> #            OK  pci_ep_bar.BAR2.BAR_TEST
+> ok 3 pci_ep_bar.BAR2.BAR_TEST
+> #  RUN           pci_ep_bar.BAR3.BAR_TEST ...
+> #            OK  pci_ep_bar.BAR3.BAR_TEST
+> ok 4 pci_ep_bar.BAR3.BAR_TEST
+> #  RUN           pci_ep_bar.BAR4.BAR_TEST ...
+> #      SKIP      BAR is disabled
+> #            OK  pci_ep_bar.BAR4.BAR_TEST
+> ok 5 pci_ep_bar.BAR4.BAR_TEST # SKIP BAR is disabled
+> #  RUN           pci_ep_bar.BAR5.BAR_TEST ...
+> #            OK  pci_ep_bar.BAR5.BAR_TEST
+> ok 6 pci_ep_bar.BAR5.BAR_TEST
+> #  RUN           pci_ep_basic.CONSECUTIVE_BAR_TEST ...
+> #            OK  pci_ep_basic.CONSECUTIVE_BAR_TEST
+> ok 7 pci_ep_basic.CONSECUTIVE_BAR_TEST
+> #  RUN           pci_ep_basic.LEGACY_IRQ_TEST ...
+> # pci_endpoint_test.c:106:LEGACY_IRQ_TEST:Expected 0 (0) == ret (-110)
+> # pci_endpoint_test.c:106:LEGACY_IRQ_TEST:Test failed for Legacy IRQ
+> # LEGACY_IRQ_TEST: Test failed
+> #          FAIL  pci_ep_basic.LEGACY_IRQ_TEST
+> not ok 8 pci_ep_basic.LEGACY_IRQ_TEST
+> #  RUN           pci_ep_basic.MSI_TEST ...
+> # pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
+> # pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI1
+> # pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
+> # pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI2
+> # pci_endpoint_test.c:118:MSI_TEST:Expected 0 (0) == ret (-110)
+> # pci_endpoint_test.c:118:MSI_TEST:Test failed for MSI3
 > ...
 > 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> 
+> I think I know the reason.. you save the state before the IRQs have been allocated.
+> 
+> Perhaps we need to save the state after enabling IRQs?
+> 
+> I tried this patch on top of your patch:
+> --- a/drivers/misc/pci_endpoint_test.c
+> +++ b/drivers/misc/pci_endpoint_test.c
+> @@ -851,6 +851,8 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
+>                 return ret;
+>         }
+>  
+> +       pci_save_state(pdev);
+> +
+>         return 0;
+>  }
+> 
+> 
+> But still:
+> # FAILED: 7 / 16 tests passed.
+> 
+> So... apparently that did not help...
+> 
+> I tried with the following change as well (on top of my patch above):
+> 
+> +static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
+> +{
+> +       struct pci_endpoint_test *test = pci_get_drvdata(pdev);
+> +       int irq_type = test->irq_type;
+> +
+> +       pci_restore_state(pdev);
+> +
+> +       if (irq_type != PCITEST_IRQ_TYPE_UNDEFINED) {
+> +               pci_endpoint_test_clear_irq(test);
+> +               pci_endpoint_test_set_irq(test, irq_type);
+> +       }
+> +
+> +       return PCI_ERS_RESULT_RECOVERED;
+> +}
+> 
+> But still only:
+> # FAILED: 7 / 16 tests passed.
+> 
+> Do you have any suggestions?
+> 
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+I guess what is going wrong here is that you might be rebooting the device
+*after* restoring the config space in 'slot_reset()' callback. So all the
+previous config space contents would be lost and the device would've started
+afresh.
 
+I don't think we can restore the config space after rebooting the EP device,
+because host has no idea about it. It can only restore the content after
+recovering the device through platform specific means.
+
+So I think you should just remove the PCI device from sysfs before rebooting and
+rescan the bus. If your Root Port supports Data Link Layer interrupts such as
+Link up/down, then you might get Hotplug MSIs which will take care of removing
+the device and rescanning the bus again once it has rebooted.
+
+The core idea behind this series is that to make the PCI bus useable on the host
+after LDn and without rebooting. So if the device can recover with the help of
+recovery steps carried out by the host, it should be in a useable state again.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
