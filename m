@@ -4,82 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA778FD2D71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD9AFD2D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mh5fFUja/4mDlRa8xj9RozoLiOFoKZimG1GpvA9+1Yc=; b=SV1ZapyxKG4Z1CytjAUuoAtrqd
-	askrq8BZFPjcuejs0S/HR9/abMVGwAN9c78b3bwHutvYeXtYoucC/pSzuW/kwL2bSzQNg9Y/L456Q
-	AbZKKJr3WYmvm2rAgtedM/1qpzqvL5tl6LgneSYN8vSZd13GD9hFcK+LSjMDk61D6Uq2qV2Uxil2d
-	om3XuYwGzf6QRwPF6mI626kQ4lFSdzS0N7NGFhAT+iti145hJOVtUeAMRiGvl4zAH+FF+syqhRd77
-	7It3FOSHxaGKNk9FH2MXqAD4FdYUCEg+d7NZdQh1exCB7Ho4VINp7pDp8sVnZCLOcOiI6lYeOVc6s
-	i7qFqUWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=; b=XGBUFoh0jP+E//GpdPGQLeJLno
+	Q5354I/rcAFCE2c1s5bBR/nNsN9Txli7fxMXe57Pw4RkdSANT/4DrmMBZBlCNTL/sssH0Cg4JxApA
+	MjfujfH8DreWvfIVcYqTMt2swKy1K69Ar+ZIC/AFxniIy+pyncZO6AD4k+taUIudOH3RTr8L4cBhJ
+	a8GnXrG+YrzA2kFuXvS1EfWv/XHxbePmvQ9Y9bLX2vXc3P/IxuHTD6HwODqK1M0ztHcCXzh1EbzgV
+	nnu1PUpHMUvW7ymxHCDDicPWgv2pcZz43niy7Dl4pwyRMc5sVmes70JBl/MaCtNMTapaGJ8qgsobD
+	3hSNwOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwXR-00000009Wbw-1jhL;
-	Tue, 10 Mar 2026 12:50:17 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vzwvM-00000009ZDl-3opL;
+	Tue, 10 Mar 2026 13:15:00 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwXB-00000009WDr-25IF
+	id 1vzwvJ-00000009ZCt-2RBj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 12:50:02 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-485390246c8so25977835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 05:50:00 -0700 (PDT)
+	Tue, 10 Mar 2026 13:14:59 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a12f88d839so6668808e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 06:14:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773148495; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ixldw5Ii2hVZRC0qodVSpZz41gQPY50zzoHXjdXKQ7TqSz95s/+EionWf8fNDzAU8m
+         qAO00+OmhNOtm3cpClfWepc3nAA2kGcv/KtyuwhY4h2no2Nk2DxW2FmaBHq0AUfOOnha
+         ndOkY2Nt+Cca0158Z4RkxG90FODGCpH60mCCCfxePTtxGZgmF2Clt8FJLJbSbAWUCcOT
+         z4GC+geCvXIpPAWJ76P5rP2nYIj+1WsdErzU+yzbpegTFg8KKLws07czE3h4n1xBAeyn
+         NiRl5WzhOauf8pgFFDomgjwKNeu338OLk7fZKWKzl6XdpfAoXxaSx3y7Dk4R1ZrLq32Z
+         bmMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
+        fh=CXikR66D8iFv+AfAfb4d24EDYOgdrq74Y3pDUFCvFbw=;
+        b=YbpnCrzFrS7Nmo5pxsEtBRi/0ZzNeSafMHubZ/kWlrGIoeFrOgU4wHKLcOOlMeza6C
+         EZuGQym/0458I7BaO69tGNEw1qLPNy1dGyVm9I6TnLYjwYqn/74AYPQcgFfry/uHuAgI
+         eAO69cQfZQiFSNPjfdQWjRye1JnuW/DRKBp5tA3xseauNakgZpQFc2q4GvFxahIa0tFy
+         gy7WHvmGBfn8J5w2YGaTuTH/Nr1OTWjab5fgNlr4p/iEG31fzkcS2rbuTK4CPI1Wza4s
+         lwgnzishRGE23Q/lLSUSTPl9EPqFQ+vxD9luTudOCYEpcnl5vHKxA9AkuJep5/F8yKga
+         s4EQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773146999; x=1773751799; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mh5fFUja/4mDlRa8xj9RozoLiOFoKZimG1GpvA9+1Yc=;
-        b=C0g/XYZNGGNpBHkt3wqDqlS6McL2WT5jw/Q4jo82OThbDPzxJzV7hWEMzYWsXS4idU
-         dbuEjrSSbCxguym+FuqDncK++0YBkjkjzUPpI4p0XkcbOALrA5XWhweuMzg6APn/d+Vz
-         v2KZBr/0MWj1LsRNwbj4HQ9IERxTxPDxCYvR0KZY1bnBMQgPgG7MLCiZs/aNxjXK01m+
-         tnsv1GnBOA3uG4a1BwPUlX9VHEn08TN2QINdtEFzQf/phgwoEYl+g1jDDBu7bw1jKM6n
-         +MbmYPpoQejoL3DTu5FWJ9P2yv2rLPq0Qpk5Vi68+CNTlsTahoMyGFT7vxbdPCy4YKYK
-         znOA==
+        d=gmail.com; s=20230601; t=1773148495; x=1773753295; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
+        b=ff0seY8lHqlETdvjEAo7O3iMyek4vWDugMiDIdefLLWWlgCtfGJWubk0dddlpLK62z
+         5qBImpQnmkwA2b5JCV/bbeQ8c6dyyCaHeWi02SFVr5Nx1DBqcn73fh50RIomQeP+Y2po
+         uwtVz+tdDMML7HCd8lOBSV9NvEiTwO/CN/oN/24SCiQZv82ySAwH5rUIaYajJzytAcx2
+         nj/ro8U0xEr6HZwlp5U1U5TmYSy1BS+WbfKU/R3xTkHo927cUPD+6eBGtHVb5ak+G5V4
+         DUK/TOxan/I77968ockxnwEHf3HrSz4EKkAqX/FnnOchjUKdpymGZFpRM5c0oHEqR0NU
+         Y/tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773146999; x=1773751799;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mh5fFUja/4mDlRa8xj9RozoLiOFoKZimG1GpvA9+1Yc=;
-        b=DVsOY4cL6eT3cKDV20S6UnLd4dNXqr8qOESGJ9HKmUl8ReLbSpdleVdvQNbRGPT1an
-         Bmkv1WMxJxvWmAOOIxkPK1FlYmk+71h9wEGtGE8rUs+mplO4eCbFXal50WFbCcgRIWpm
-         H+Ly284qaH2xA2YsYC+1Drobi9g6Pw+KR5/Tm2F5g63ISzn7eJxzD3s4xidtn4rVEm0N
-         4hQpEfBo/wSlWRL8PRhF1gIJSU5ebk/ce9yhy92IqVASQLehZ7qStPjSz3WlHc+CUECh
-         P8F6oAHCe6Bfsdn6eGGKVNLSm4oaF7e9+veSFvUMhk2XpCMArz+ASzW1jPkka4Cabhiw
-         Wwww==
-X-Forwarded-Encrypted: i=1; AJvYcCXWf4V1oZwQLXIlCxfrxu/oT6jQBI79Xnpo2V6EGGrAfEaIeLqXE4ihfF4MckPl87D1jRsSRV0cHlrSAsxO/AmW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/nHQ9mASD3HZeqCNWSKZ+kE48AJKCEsALdZHQ0wSmbXKEi7Za
-	zTKzzKLOYbVjm5kBuJgFCE+yLxJ7gRDqUOfP4lY7e2n/eD0e4vKwbrAmHTSQvPO1z1y+HEe7myC
-	5V6RnPQutUT99HizLesqQMWSMqUjHQg==
-X-Received: from wmqy3.prod.google.com ([2002:a05:600c:3643:b0:482:ef72:5793])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4445:b0:483:a27e:6706 with SMTP id 5b1f17b1804b1-48526922533mr269324465e9.9.1773146999106;
- Tue, 10 Mar 2026 05:49:59 -0700 (PDT)
-Date: Tue, 10 Mar 2026 12:49:33 +0000
-In-Reply-To: <20260310124933.830025-1-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20260310124933.830025-1-sebastianene@google.com>
-X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260310124933.830025-15-sebastianene@google.com>
-Subject: [PATCH 14/14] KVM: arm64: Implement HVC interface for ITS emulation setup
-From: Sebastian Ene <sebastianene@google.com>
-To: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com
-Cc: catalin.marinas@arm.com, dbrazdil@google.com, joey.gouly@arm.com, 
-	kees@kernel.org, mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, 
-	perlarsen@google.com, qperret@google.com, rananta@google.com, 
-	sebastianene@google.com, smostafa@google.com, suzuki.poulose@arm.com, 
-	tabba@google.com, tglx@kernel.org, vdonnefort@google.com, bgrzesik@google.com, 
-	will@kernel.org, yuzenghui@huawei.com
+        d=1e100.net; s=20230601; t=1773148495; x=1773753295;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
+        b=aQPcjCi/V5BZGWIkR7Rw1ckFn2Ak3B4DQmIqwihEXxyWQQVLJAefzC3dH6/VjZrpJu
+         lR9GtzJE8a1aiil3RjMKHB7SIcf5Atz15z6uBje+kaKoSaSN10CXaJFAqOPQ5JflsPYH
+         OSqizdYSQjxWF7ZB/RvSQCceM/WbhcnTgaIvIplEqywhyrKDEHon37HXekdapWK2haWn
+         im4TK0TGLv1E1Zb6QxnWSsDMSKTZNDwehCwBKBlJkMeu50OMRHuxDYKpBfZ1i5UlaEEF
+         mzfAPG2uTGMQmSLm0la5MR6TvBmuC5wtZUIf8EceCdCVV7mU3XTI5pLfI+ty8W6W92q1
+         lhcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUm6/aqNAdzyRhwZJ+LKuMpDe5Tfx1xizA3eBYksMA1Wh+EHCYPF8GgvN3atwB4w8Z7mb08ZcKj82Nufsi/WwN6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+vdLxSCH/X1kd9sm5kPisHHhpK1I3tAlRe4elSqXkCRql7heV
+	qG9RBgYSGbc/2h3OHoOAyytyUeeyIgMl75eWjQNgEzYl/pIScnZ86ueHT4koZaz+K+recCSJbsE
+	0UWGCz5yn27aUiguhMsk2WfwA4jRl1qQ=
+X-Gm-Gg: ATEYQzxmjLady7YlsH9bMuzh13htoCFiMswGh6NW0RziD6W64P59+6EfFmjhSFofehG
+	ZCrcIEStbfbNWyUvi3zfAIta1tj263/bsw7CAyBbKcmMmHakH6rv5/RHTzPSYaXp6XMjsubq2Oo
+	3CjHwfRlh7SZJvhpEJ3kIxvY/2WC5FXvWZYCBW+yuFW7+f/LCpPCf8AC8C3bUA3gQJ0Db9q95CT
+	kyoWbT+GtcauRrXyY/GrNeBvDVY9gTg3srwQQT08X/32Ymf3Vf97gjH3m9ysTiwsfkmxreYulnb
+	/UCPohEJdOck+8ynD6C2jB9ldEGbIMar/+mdweppuVbTPVB56c9JObyIfUUBYcYS4/chJ+s=
+X-Received: by 2002:a05:6512:3ba8:b0:5a1:43cc:9f97 with SMTP id
+ 2adb3069b0e04-5a143cca133mr3775932e87.48.1773148495109; Tue, 10 Mar 2026
+ 06:14:55 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
+In-Reply-To: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Tue, 10 Mar 2026 10:14:43 -0300
+X-Gm-Features: AaiRm52E00LdH2rZwxuFYXGjz-kZKy_GcD7ZYQ2nDQ3vRAIkTC8eVlnQwrS5urM
+Message-ID: <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: s32g: force S32G RTC as rtc0
+To: Andrei Botila <andrei.botila@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+	NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_055001_569608_A81D6761 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260310_061457_656981_8E080A7F 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,148 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new HVC to allow the host to trigger the ITS emulation
-setup.
+On Tue, Mar 10, 2026 at 9:50=E2=80=AFAM Andrei Botila <andrei.botila@oss.nx=
+p.com> wrote:
+>
+> S32G RTC is probed after the RTC on RDB (PCA85073A) so the S32G RTC
+> ends up on /dev/rtc1. This causes the suspend/resume or hwclock to use
+> the wrong RTC since it takes by default rtc0.
+> Force the S32G RTC to be assigned rtc0.
 
-This interface notifies the ITS driver that hypervisor initialization is
-complete. Upon invocation, the hypervisor replaces the initial
-"trap-and-forward" MMIO handler with a full-featured emulation handler.
-This transition enables mediated access to the ITS hardware, enforcing
-the verifications required for a protected hypervisor environment.
+We usually prefer to use the I2C RTC as rtc0 because it is battery-backed.
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/include/asm/kvm_asm.h   |  1 +
- arch/arm64/include/asm/kvm_pkvm.h  |  3 ++-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 14 ++++++++++++++
- arch/arm64/kvm/pkvm.c              | 24 +++++++++++++++++++++++-
- 4 files changed, 40 insertions(+), 2 deletions(-)
+What's the exact problem with using the I2C RTC as rtc0?
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index a1ad12c72ebf..550dafee88ef 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -89,6 +89,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_init_its_emulation,
- };
- 
- #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index dc5ef2f9ac49..20fb2678a9b9 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -35,7 +35,8 @@ extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
- extern unsigned int kvm_nvhe_sym(num_protected_reg);
- extern void kvm_nvhe_sym(pkvm_handle_forward_req)(struct pkvm_protected_reg *region, u64 offset,
- 						  bool write, u64 *reg, u8 reg_size);
--
-+extern void kvm_nvhe_sym(pkvm_handle_gic_emulation)(struct pkvm_protected_reg *region, u64 offset,
-+						    bool write, u64 *reg, u8 reg_size);
- int pkvm_init_host_vm(struct kvm *kvm);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index e7790097db93..4e58e24a1eed 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -14,6 +14,7 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
-+#include <nvhe/its_emulate.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-@@ -421,6 +422,18 @@ static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
- 	__kvm_tlb_flush_vmid(kern_hyp_va(mmu));
- }
- 
-+static void handle___pkvm_init_its_emulation(struct kvm_cpu_context *host_ctxt)
-+{
-+	DECLARE_REG(phys_addr_t, dev_addr, host_ctxt, 1);
-+	DECLARE_REG(void *, its_state, host_ctxt, 2);
-+	DECLARE_REG(struct its_shadow_tables *, shadow, host_ctxt, 3);
-+
-+	if (!is_protected_kvm_enabled())
-+		return;
-+
-+	cpu_reg(host_ctxt, 1) = pkvm_init_gic_its_emulation(dev_addr, its_state, shadow);
-+}
-+
- static void handle___pkvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-@@ -630,6 +643,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_vcpu_load),
- 	HANDLE_FUNC(__pkvm_vcpu_put),
- 	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
-+	HANDLE_FUNC(__pkvm_init_its_emulation),
- };
- 
- static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index a766be6de735..5399998d5235 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -6,6 +6,7 @@
- 
- #include <linux/init.h>
- #include <linux/interval_tree_generic.h>
-+#include <linux/irqchip/arm-gic-v3.h>
- #include <linux/kmemleak.h>
- #include <linux/kvm_host.h>
- #include <asm/kvm_mmu.h>
-@@ -62,7 +63,7 @@ static int __init register_protected_regions(void)
- 
- 		pkvm_protected_regs[i].start_pfn = res.start >> PAGE_SHIFT;
- 		pkvm_protected_regs[i].num_pages = resource_size(&res) >> PAGE_SHIFT;
--		pkvm_protected_regs[i].cb = lm_alias(&kvm_nvhe_sym(pkvm_handle_forward_req));
-+		pkvm_protected_regs[i].cb = lm_alias(&kvm_nvhe_sym(pkvm_handle_gic_emulation));
- 		i++;
- 	}
- 
-@@ -286,16 +287,37 @@ static void __init _kvm_host_prot_finalize(void *arg)
- 		WRITE_ONCE(*err, -EINVAL);
- }
- 
-+static int pkvm_init_its_emulation(phys_addr_t dev_addr, struct its_shadow_tables *shadow)
-+{
-+	void *its_state;
-+	int ret;
-+
-+	its_state = (void *)__get_free_page(GFP_KERNEL_ACCOUNT);
-+	if (!its_state)
-+		return -ENOMEM;
-+
-+	ret = kvm_call_hyp_nvhe(__pkvm_init_its_emulation, dev_addr, its_state, shadow);
-+	if (ret)
-+		free_page((unsigned long)its_state);
-+
-+	return ret;
-+}
-+
- static int __init pkvm_drop_host_privileges(void)
- {
- 	int ret = 0;
-+	void *flags;
- 
- 	/*
- 	 * Flip the static key upfront as that may no longer be possible
- 	 * once the host stage 2 is installed.
- 	 */
- 	static_branch_enable(&kvm_protected_mode_initialized);
-+
-+	flags = its_start_depriviledge();
- 	on_each_cpu(_kvm_host_prot_finalize, &ret, 1);
-+	its_end_depriviledge(ret, flags, &pkvm_init_its_emulation);
-+
- 	return ret;
- }
- 
--- 
-2.53.0.473.g4a7958ca14-goog
-
+Is the S32G RTC battery-backed?
 
