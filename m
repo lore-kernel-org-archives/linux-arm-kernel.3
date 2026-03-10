@@ -4,126 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A3DEB1060
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812D4EB106E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8zrucRjXOX0sMf5p9YPJrcjxd5xpjAvaUJpTbGaXao=; b=KFlx5AgK8LPl6ynNiLefKIvLR5
-	4VX5hymrKnwjXcD4HVAHu2gdSHZx4mNhQsKgFQsV3XqB+KRbGIqYvfyq1xuLLENrXFFiFVgdxEXKZ
-	J4qDxxf2E3iUMkwkeNjjp1h/zOthTkJvk3El7HRHGBchsH9WCIxCPxvPnRQnv2vKjSaMxP+cmVxy0
-	NrPdqpa7IIzPql4sriPxJKS5n1ClQtNTDkws2Lfhcwc/zu1r684NBxNjUUVVWqgqyDFizj2TtXTWS
-	FbngJBIIAvan+5oAHIAPtQ8lp5aMMsp8G+hF2VIhrAffDu+kOQC3wXTIkiulzOUaHtzCWT8ziF/fR
-	qb/neGZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1ZxpAj35byR6TQ3nM9neCGTwEH97bcalVH2DZu6972E=; b=PRXcQxPSReQwnzpdZdXJGxm9LB
+	Lb0aSPeY08C6xPcweS/zwoI28qYp0p6/Pl336QoEaIK7yrx+KFWvzuVcZsI4f+AdzAm1hH81zoFyq
+	gfIYk69YIlxTx8FoQE8VmjRd0ePgHQ/+lafB2UUDgWYXCDAb2VC1munJ/i6gFsbD5eah4g2D0Cdx7
+	2r5Hup6vai6LMgdKjBjs0jy+XN/kGpgdtix9Kr/QyDFCMYrx4B2cGUOW9V171QvjnDsr4LDDD77R1
+	TEbXPQlpEZjsdgwTo/u71o3jee70VM+oXrSSmfEp8etzCyM++19fkbRUkjiI0SWPJYAgyKSDxbFho
+	yHBWkwAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyjs-00000009lWM-2wQ8;
-	Tue, 10 Mar 2026 15:11:16 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vzyqF-00000009mTK-1FiU;
+	Tue, 10 Mar 2026 15:17:51 +0000
+Received: from sender4-of-o56.zoho.com ([136.143.188.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyjp-00000009lVX-37F7
+	id 1vzyqD-00000009mSS-3JJV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 15:11:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wO2mAbG54kiM+pjnR5mjTJLRqTeWJJVerTYT7vdzc4SPS92hiSWDfBu1vKLPoaIwwsOdTfbCGKd5i6YJTLX7AGsCFfuUzuYmN4UNVFbtzMF1D424sF2JgUhsKz5O1EGIq81SSrBvvRRlv0nu06vKYZoqfHwV9VlPcTSvSNBC5ub542358cs6l2OixuIhEPWs6TQetWiA5Nt8vCvxUD4QGjTfOaaiCFcW3BAkRkcAmVMv39Llt7Ei+SVyA0+zbZdBgZQFhT1RyQgSR8BXE2+XroTnkGyOSztBlR9DfcUC1mNwJjAgoCSxoTDuqvQexMJN8aVB9+8P8RCZFBh+qJmhxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m8zrucRjXOX0sMf5p9YPJrcjxd5xpjAvaUJpTbGaXao=;
- b=Wegm0D4iaTyIz3J20C6WkSAG3UP3qKb2ThSjqvVAFU0yzg5SeaeZoauZDwFZ6rjux7SlcmtFU3HjjkP4f3LH67as70XPqcmQmc3TaSGWC7kbmeo0Qu2PS4DXKK009hXTqatlucFHDfN9izUFnDSnpp7bOf43P0cu+KjsrpaEkAemzK7KEYYHFIM/ibUujqqITlI0bHHcqgoymniH+x4SwzutwLbjNUKPoWmwnxIPDPeRON4symJ9N6rHzzTrOhZKmkf+a1UPIC3h8NMLbWtKgWi1A0dY7bcMf/aTFmJpXfCL/mApwSR9cixF7+Ql4gMppNj+6jLhZgl1W9vHz+tilQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m8zrucRjXOX0sMf5p9YPJrcjxd5xpjAvaUJpTbGaXao=;
- b=g0cj9x77PHlx93kEzAEHbYBdiWvMMwq2hTG/j4i2gRYuUx2yFIzF+yWYSDUTEjAo2Q6xVVOe/ZpzYFlD4DNH1gK3TbIVF6ChnE72iTulTVoHdcOzKyTiX+fZ1cRP3cgoac0tVQGIyxVi8zQIAghdSeiJdeYF1t6lqknBDPsMCZDRYhyVeb2ySwO30rIzvLf+RZ0Mw3DxoIaV6ATMcmVurD8EEfhRa8qj7n3IFO9DeaYnhFFz0GN/snJu6BSVRGYeLoiOpGTKAAWRU8v8LCjDG/EK3cqpeMtU0wOYZLMcV6tNR2UCXXOxfWFGuQHQf4+eq5L6Jc6agzpa48poiWAK2Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB6799.eurprd04.prod.outlook.com (2603:10a6:803:130::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.23; Tue, 10 Mar
- 2026 15:11:08 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Tue, 10 Mar 2026
- 15:11:08 +0000
-Date: Tue, 10 Mar 2026 11:10:59 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shengjiu.wang@gmail.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
-Message-ID: <abA0W82MyPtB2iVj@lizhi-Precision-Tower-5810>
-References: <20260310063522.362545-1-chancel.liu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260310063522.362545-1-chancel.liu@nxp.com>
-X-ClientProxiedBy: PH7PR13CA0020.namprd13.prod.outlook.com
- (2603:10b6:510:174::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 10 Mar 2026 15:17:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773155806; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=My9q5wA6JCYcOq3GwksDpbhCfSrQrNbWFvJWEaNHGK3fh5O//MS1woxS8aWKvVcT0/yuwyEtWG6Xm6QgFquFrnIp9bvMFX2ZKVX5coTtfzzaJ+FONXBLfsan5bZLdoCMd2yuhEt3y3XwlgqOLRtc16QFFISxsNL+9b+Oilx/5OE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773155806; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1ZxpAj35byR6TQ3nM9neCGTwEH97bcalVH2DZu6972E=; 
+	b=YvlbySsgdyzhXaBm9BDHQ+PspXgY9+Ci/975YlptD9YfHHorVZhvVTi4D55GmZie/AA53v+/S5Jx+0MWVGALrIYR/GajYP1pfqcHfnoMFPh4dzA8HlD/+srmNfvguR9s7OB+sOBrDsqg6kW6Yz8w2o6j3A7g8fK1Bc3tKyzNHqU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pta2002.com;
+	spf=pass  smtp.mailfrom=pta2002@pta2002.com;
+	dmarc=pass header.from=<pta2002@pta2002.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773155806;
+	s=zoho; d=pta2002.com; i=pta2002@pta2002.com;
+	h=MIME-Version:References:In-Reply-To:From:From:Date:Date:Message-ID:Subject:Subject:To:To:Cc:Cc:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=1ZxpAj35byR6TQ3nM9neCGTwEH97bcalVH2DZu6972E=;
+	b=YX91xCk2e4x/dovGjUQTR/J4caOZJUnu3Wl9gH/AqM3j+RpRwXShJ5RIOYfgpvB8
+	NSakOUETBk17LsNnMvqtkM+pt9ZVgHe6AEwiXRXE46nrwA3zHQMHm7qo8Na3CRlD4vl
+	OwM2JmUqlYYHcTGbet5fvbvtK7hDE7luL7Uf1DGI=
+Received: by mx.zohomail.com with SMTPS id 1773155803980884.3152690256852;
+	Tue, 10 Mar 2026 08:16:43 -0700 (PDT)
+Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-89a07f66f4eso97937536d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:16:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUWaI9C+2tMexzVSXSd41BjjxwmHJprWIYL/nHafdXlkWnyfs04bw5YXjg6To7pPm0BV+j2CvmCGuTRyIKmCmvH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfF8ip4hdeSzdVnAOsMCGqLUcrwUoy2aZjMtucbx1NeYyEzPE7
+	EUMHzCTitwG7iwPNCf+MsNpDnTIiGpuiTK24WiQU0jx/McIBsdbPgZPDQiZNH6pPE4g5IzA4sFN
+	uJGbqkFnyUjNqekUt4Z3576mXSoB2Qgs=
+X-Received: by 2002:ad4:5d6a:0:b0:899:f78e:d733 with SMTP id
+ 6a1803df08f44-89a30a5e93bmr225894656d6.19.1773155802990; Tue, 10 Mar 2026
+ 08:16:42 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB6799:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee4961a4-efb9-4deb-e653-08de7eb741b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|1800799024|366016|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 8+FfVglkQxyOAuLxJCZyLwQj40VmnO1golLG8kGt6d28eX7KH3RXT2LJwdGXGFHxF93gfrVjMcVDaWx+WF5dS5he6qO6oFNwG+Qw27tzguh9zJTG6m2qpIcpJr7WM/KpRFLSzvRn/HGAHY8PQoNJUrZ3vHz/6Uwz1JR2avf53iStkJuAlQ/kQEVLO4FsgqSJH2PRfA5iH+XOk3Bx2qsObCXqhGg30QRUrOmFgin5WF+UbPCemKiHECIOmRecX1vpjlQusF+5VJb5iVHrMbJL3glNQccCPeCiN+2eknpt6hMgTs5Dyp91cRTTgDONI6Z+Dg2FPY5NmzsczyLkaCQPnC/mvyF7qlMyudhLeLDBLa4pUH3L8dm+QKBnpFanNQlRyAk7yQZ+TVYE1iftAErsxwYF6GEiu0NxcNKen4+8iaN6/veRDIiasmTdGhtbkVs0LpVnkiqMLEyFcMBij6gOY2ZcBLDLjk3hkeF6mxgSP6qmauPYowZ2dnNatfHXfE+YV2glw0rqq23TJv2J/vONsKLnUxyXbCfJsGNACXQKF5vqs6fUeq/IvQv0ea0dYqOlTBQpbob4offHik6T8WbUVYmjEDY+s1o3VlKiBdNrFW+OOBAhKd8qNsTOqH9x9XbRC7+nnv74QvKttZiXBIQcz2NGTZutVwJmnKa+rZ60DW1P22wXkB9inG3cJCcont8KVsgWYOHz5l0afPlSedheTzC7Ei/GslV6aDVc1N12WU5qz+gCRgQ+NCbbRAf5YAP9jXVDVGoso/ocjBIvt52mI8+aT/LvC9LL57M8e9F5rgw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jy9gRsWtKZzWNaKH2zVu2CsBgj31uIg9DaISA75nlg2gPuqkQ/Xwr6Rms7dH?=
- =?us-ascii?Q?ufGRlA0yO3uBGPHsgosZH7Art7on9i6VgzPmHzLwq474i555UPZJ5hrrgXLk?=
- =?us-ascii?Q?Ur8tDbGtOzc0SNH3KwJdlk/TZwozX3BC2oKQB9xwR83jQFuVsNCi5R3A2fgy?=
- =?us-ascii?Q?Z1ScuN+0LZBxTF2q6xx6mUMUw020UQRG9wknQ+JsSSDxYqo7n3N9KTi27A8u?=
- =?us-ascii?Q?9VxS/p02gVG8R3iDp6qXnA6Og71no8uivmJAdCLvSVP4dBm3ONpXPOuteT5L?=
- =?us-ascii?Q?qTUR720cErQyDe++4uhHOFTrbrQrdNHykFPezvSQvNt1oHfioGNfzx6ITF+s?=
- =?us-ascii?Q?5EjlIx0aizCWVmd7CIV2VrLRP3g+ly7nZVB2WT3sZpmIaSqfPWF8o5BhhYC6?=
- =?us-ascii?Q?Y1597EKDh6VtwQcYVHWJhinGiSqI7sMQSaicZnCxrfs7QK2KQbgu9/9FjM6D?=
- =?us-ascii?Q?38kGMSKEK6J+8ooWPCXnfR+qU8wKe4nWqRRTkNRL+zZYekJMcx6jNcALuMlI?=
- =?us-ascii?Q?DpdYkmVA9V0xBDPnB9yj39PnVs94/hMJpQJK12cQ6L7vlTDwa11V8ucKJ7P8?=
- =?us-ascii?Q?MaS3slctHIvjhXL+zfjGja53bKA5rxesVEWXjbRbAfIZV+4/KVNpth8Mbhig?=
- =?us-ascii?Q?1hTmdnN91gtTdwf/BNdLZZZ1QWieth50Zb7BjPa9Irhh/4fjTNiST9U2gRYE?=
- =?us-ascii?Q?29UfeXtuH6odRNiMYA8xDFlfaAlz0PpoBdxblYS+c2bbwzHKV73LQNhMH4+v?=
- =?us-ascii?Q?zGXjDWrP7jwxvjSFqc9R+QXDsM/d69JY3laxmL2IDRa5wiJgJPuwxG+HU0UW?=
- =?us-ascii?Q?v/RGeBg+J5TG20XNiSCBwQdI6tW2SlvvfHETi1UjaYcShDzMHCpnoafquw0I?=
- =?us-ascii?Q?meHY13CuzM2r1+jcN0Su+Evy2HbOs/rArIrFoF1f94y8OOWOEPV94cXcwMLr?=
- =?us-ascii?Q?yuT4vLQZKAsi9tYXaX1TwL8r5ICLrmabPBdi8oTrr4jy0doIuhgmJjnbquM+?=
- =?us-ascii?Q?zla++Z+YU6kjD+/0/gp398brDpAbXBvuLjFvQ+qvkWgzy8k7nwRaeCyOyVc0?=
- =?us-ascii?Q?LF15vQ4K4CL3qLfXKJNb94Xz4ZfYiuOI28CzKE0SllCxtEolZZ9GgKes+AdS?=
- =?us-ascii?Q?0Of3hC+nozDyLVKaCQBH4V2reg4ZobABiV48CmwnR7HrmL6rHvCDvwXA9vcM?=
- =?us-ascii?Q?VOh95ntdE8shxJI77VlGSjhRS5FuOihozTY8G8Ejfp+K8OzZomuR1znwch7C?=
- =?us-ascii?Q?ZnbQMNhWCZCEjtR1w4tWsbhpAXHrNMfZLP0vsgBOug1w7N4xCqXVUt+OSLXc?=
- =?us-ascii?Q?rD9si7BK95jbusljHEyCi+TwUcRL9Yb4haJrcNHA9biEdoytlWaIpq6Zv0+R?=
- =?us-ascii?Q?8Rrpa7FFkwPUAsnGUBYePzs3EWFrY0BGDfkLt0J8YaHqJsPwYw00kgGdc0rt?=
- =?us-ascii?Q?IduCXH8rYKn2rGbF/kQrQUsIWD/G+vkVgSdlEq8ylJ1zA2gPvLnWcO7lHz5G?=
- =?us-ascii?Q?sqxqDz37s9yoSZehA0F2n3X3u5I56mEJZfu9mbBC+roq5+cecTYzpnJH8Q3X?=
- =?us-ascii?Q?Zdx2M0bjczM9XyAuBdqD6pX7/1js/78qiKOXKwfoXuzDyyIY6GiqgP9T6DQz?=
- =?us-ascii?Q?0s8j9p+jddThs7Qfiue5+ZqDrCYMFX8dPVYsonipSTkt5v9gprVSF/cx2Qc/?=
- =?us-ascii?Q?Gz+ySGcseVk0aAAEBTl8HUQaATffPhe0DW/DLWfQHzhxg7CEPIVvWVa2ZFTR?=
- =?us-ascii?Q?PHXYGDbquA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee4961a4-efb9-4deb-e653-08de7eb741b6
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 15:11:08.2834
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8jcQqLqVHMn1uG9T8AuAY20oBR3RqSo0DqU5Qy+WTFIplWIPXKtTt4B/GgKQF/qmIsNF0Bz9xwg89/LqkfbrHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6799
+References: <20260304-radxa-r5-itx-hdmirx-v2-1-6567e9e3298b@pta2002.com> <9638846.rMLUfLXkoz@phil>
+In-Reply-To: <9638846.rMLUfLXkoz@phil>
+From: Pedro Alves <pta2002@pta2002.com>
+Date: Tue, 10 Mar 2026 15:16:31 +0000
+X-Gmail-Original-Message-ID: <CAAEXfUVU86E0jmh1AyjsejnpKutD=5No=kv8Aid6fnCDJuHc7w@mail.gmail.com>
+X-Gm-Features: AaiRm51zN46HfOKYv24Pqj3C_wPKGA8XlgjBcO75Q4XopjpPttYiB_EocE5nLDM
+Message-ID: <CAAEXfUVU86E0jmh1AyjsejnpKutD=5No=kv8Aid6fnCDJuHc7w@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_081113_785361_B7D4092B 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260310_081749_866212_DE6DF79B 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,37 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 03:35:22PM +0900, Chancel Liu wrote:
-> The imx-card machine driver originally supported only codecs operating
-> in i2s or dsp_b formats. This machine driver can support CS42448 codec
-> and this codec typically uses dsp_a for its TDM interface. Therefore,
-> dsp_a format support is required for describing such sound cards in DT.
+Hi,
 
-binding is descript hardware not driver. s/driver/device.
+Thanks for taking a look.
 
-Frank
+On 10/03/2026 08:48, Heiko Stuebner wrote:
+> Am Mittwoch, 4. M=C3=A4rz 2026, 21:44:39 Mitteleurop=C3=A4ische Normalzei=
+t schrieb Pedro Alves:
+>> +&hdmi_receiver {
+>> +    pinctrl-0 =3D <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmi=
+m1_rx_sda &hdmirx_det>;
 >
-> Update DT bindings to include "dsp_a" in the list of supported DAI
-> formats.
+> are you sure the hdmim1_rx_hpdin is routed?
+> Because that is gpio3_D4 while your hpd-gpios below is gpio1_c6.
+
+I took a look at both the Radxa 5 ITX schematic[1] and at the RK3588
+datasheet[2]. As far as I can tell, the pin is indeed routed.
+
+The schematic calls it HDMIIRX_HDPOUT_H, on gpio3_d4, and it seems to be
+controlling pin 19 of the HDMI port via HDMI_RX_HPD_PORT (see page 31).
+The hpd-gpios meanwhile is a GPIO that's used to detect when an HDMI
+cable is plugged in (goes low when there's voltage on
+VCC5V_HDMIRX_PORT), but since this has no fixed pin in hardware, the pin
+choice seems like it can be rather arbitrary by Radxa, who wired it to
+gpio1_c6.
+
+>> +    pinctrl-names =3D "default";
+>> +    hpd-gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
 >
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
->  Documentation/devicetree/bindings/sound/imx-audio-card.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> index 3c75c8c78987..5c08289346c0 100644
-> --- a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> +++ b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> @@ -36,6 +36,7 @@ patternProperties:
->          items:
->            enum:
->              - i2s
-> +            - dsp_a
->              - dsp_b
->
->        dai-tdm-slot-num:
-> --
-> 2.50.1
->
+> Also please provide a pinctrl setting for the gpio hpd pin.
+
+Sure, I'll take care of this and send a follow-up.
+
+[1]: https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.=
+pdf
+[2]: https://wiki.friendlyelec.com/wiki/images/e/ee/Rockchip_RK3588_Datashe=
+et_V1.6-20231016.pdf
+
+Regards,
+Pedro
 
