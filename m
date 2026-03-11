@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280B7FD88D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 02:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D174FD88D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 02:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T9f/NPNUnA8wcieHoMwt6iGWiyD3QsUUnDTus3MDL7Y=; b=Ns00wtpQR/ixR9QTwIAcaW4bZn
-	ncAEjUsylSb1lNOoCCMNXdSXkpBVrDjBcIxS2L+TxyqXhmG0YmwIJW5AbpgQAKxVhTKvtVv8TQGTm
-	N6UdjU2XcnNCAvxuqoJD+c0Ji+0JDLxSZqdb3bBZVJL+nXELhwOrLGRv9OHdZDGIszEaCqcQffRtb
-	ovF6V72hyh6gvbZplhCIpfEEU/gEgsZIRDWAuUv2KckYPUmmtroxN9DW8/k8M7CaUKcI7WprO4b5D
-	pFbyzvHIbLRf21oKi8CqEuCLTnL7pfOx+gASQlE+rDm7WpIZlNuh630abi9ft9k+H2dofFoX8T4Uz
-	gUPyuRJg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azrMf9c8pk9ByPsVHSfU8FEgslKnZ86hS76XYLjLPdI=; b=KxQKWzI0dy+9y7YWjf1XSm+4H1
+	TWxjyrvVEL/D0P30aINq7L1TFErNAIDc4bUDYgENpZB3dq1aKWFaJA2uclHRrMJDfVy19M5CbiVUt
+	N62jBJ4OVIbHOQvtdK2ZAiPtAgr7sgLBEaWAKMB0jHH55bbh4sONn4J4uF4DNW3F937Yc0VjqfKF2
+	0UwjXydnw1hrmmUhAy98yy2qpOwAMCJ8ub15gnXz1YfbKzsHlw3UsCviTKUBijurOxXjz3nPVAVkC
+	3rkcfYRXfzHaDWTVzI2qJ1+mEu2hTMlx8dQdWov+NHuqwP7GptxS8N+cf/HLAMYv/pl9EFsltYmPh
+	6Zno1aDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w090m-0000000AXDT-0UWS;
-	Wed, 11 Mar 2026 02:09:24 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1w093r-0000000AXRB-4AE1;
+	Wed, 11 Mar 2026 02:12:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w090i-0000000AX9h-2bur
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 02:09:22 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773194922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=T9f/NPNUnA8wcieHoMwt6iGWiyD3QsUUnDTus3MDL7Y=;
-	b=gUKioZh+4Jvw0/Iw+sLJF9tyZm+zYGd9qYPoanXP8n7soOYeOBpIhWtADOc2ujewBJurMc
-	2O0tOlqunO3vw6b7VDZpIiRs2v3N5px5LqkaMVpn/XuWJtMEz8olT3J7ykzYCpUv4pMFNE
-	PN9y76lAAm8GUfn0QHKNKBN5JQ54eYs=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Cyrille Pitchen <cyrille.pitchen@atmel.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	stable@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel-aes - Fix 3-page memory leak in atmel_aes_buff_cleanup
-Date: Wed, 11 Mar 2026 03:07:35 +0100
-Message-ID: <20260311020733.250288-3-thorsten.blum@linux.dev>
+	id 1w093q-0000000AXQv-43AK;
+	Wed, 11 Mar 2026 02:12:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC627600B0;
+	Wed, 11 Mar 2026 02:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDEA5C19423;
+	Wed, 11 Mar 2026 02:12:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773195153;
+	bh=4CnovYDhNoNio5xEWsPkE1GeUH6w6lWSrJIetu2UlqQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ACL9ssfNiEmsJs0gEXwX5Fi1mKxQ7XWjCAL/GkRFhXCmTbFz4m+w2YgGvzsfVtYaU
+	 FhscloNlnTwRc+pIRWGHtYayFZIoTatIQ0EEsMskA22NcugVW9eQAelo7a5xlp4N1X
+	 VJifoQbj0w70CCGZDGF+35t81QoFS7dFAH/sEIv9gBiykpDIccxiSbdh9aM4tu2mjJ
+	 gxt8W7XHt9ILn/IOWiqFA2SN94RjwnYtaxsM/YQBk1n09PqbGnDBq9GPS8RBli9dnb
+	 MzLGYJaet7Z1NwDoAlIaMZIgcNMMZGFKA3U9yLoVjJ0YstnuGUpmEVEb5EpJMCgCTX
+	 HzcPXz9ogRMAw==
+Message-ID: <fee9a7fa-8195-43d3-b534-efeade00f275@kernel.org>
+Date: Tue, 10 Mar 2026 21:12:30 -0500
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1027; i=thorsten.blum@linux.dev; h=from:subject; bh=Q5cFX2k6bHPxzmFwA1jZZP2sbUYKylqyAiNpZjCoMM4=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJkbzqUKhj15ssTH/p5yVPAMFmUvWem/ayZN9d3q6B3YZ uMoec20o5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACZiYcPwh08kfmn/Dd0kES32 PX/LDjYL7ihJ4qxcJyY2e8URS+m/3owM56+nOv77sNJ0/77WGUKnt/Yt+/Di5IGA5S7cHYs2P/7 dww8A
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_190920_867034_9582F76C 
-X-CRM114-Status: GOOD (  10.53  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/7] arm64: dts: intel: agilex5: Drop CPU masks from GICv3
+ PPI interrupts
+Content-Language: en-US
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Marc Zyngier <marc.zyngier@arm.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <treding@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1772643434.git.geert+renesas@glider.be>
+ <bdc7563fba133b600ad3e6c1ce8cb1e5856b1042.1772643434.git.geert+renesas@glider.be>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <bdc7563fba133b600ad3e6c1ce8cb1e5856b1042.1772643434.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atmel_aes_buff_init() allocates 4 pages using __get_free_pages() with
-ATMEL_AES_BUFFER_ORDER, but atmel_aes_buff_cleanup() frees only the
-first page using free_page(), leaking the remaining 3 pages. Use
-free_pages() with ATMEL_AES_BUFFER_ORDER to fix the memory leak.
 
-Fixes: bbe628ed897d ("crypto: atmel-aes - improve performances of data transfer")
-Cc: stable@vger.kernel.org
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/atmel-aes.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
-index bc0c40f10944..9b0cb97055dc 100644
---- a/drivers/crypto/atmel-aes.c
-+++ b/drivers/crypto/atmel-aes.c
-@@ -2131,7 +2131,7 @@ static int atmel_aes_buff_init(struct atmel_aes_dev *dd)
- 
- static void atmel_aes_buff_cleanup(struct atmel_aes_dev *dd)
- {
--	free_page((unsigned long)dd->buf);
-+	free_pages((unsigned long)dd->buf, ATMEL_AES_BUFFER_ORDER);
- }
- 
- static int atmel_aes_dma_init(struct atmel_aes_dev *dd)
+On 3/4/26 11:11, Geert Uytterhoeven wrote:
+> Unlike older GIC variants, the GICv3 DT bindings do not support
+> specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>   arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 8 ++++----
+>   1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
+> index 352c96d144a84102..02e62d954e94905d 100644
+> --- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
+> +++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
+> @@ -152,10 +152,10 @@ qspi_clk: qspi-clk {
+>   	timer {
+>   		compatible = "arm,armv8-timer";
+>   		interrupt-parent = <&intc>;
+> -		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+>   	};
+>   
+>   	usbphy0: usbphy {
+
+Applied!
+
+Thanks,
+Dinh
+
 
