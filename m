@@ -4,105 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5D1112585B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C5F1125858
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkA02cIf1bCPsbEnaLlFrwiwhwE6F8sIdO8MLg/HiWE=; b=cj8pmXJtg2TPePqHXxccvu82yH
-	fTwehuXsPVnZkGbDj7dgmkpUAZf1NCqlbhrtYdM8EXQJobNcxn6g57TOjBM0eoi15d16SwHDJO3m2
-	suWamZ6LlBvT3QU6sbrrIgCXoieaSgDF58tAhOioLBoLAn3yMMdxMrXPeB61lQP1IUrR8NC2p6jPN
-	aIG/GyaWxuOtyUcrM59Twmky4lZLuagKGgxHiaJDeZ2LH3/I8hokcV5pkvotPm4Qud7Ytb8SFTTrK
-	g27hX8JqHCypg7CIQpQeyc38h8Z0/2EauzZXiePoQfyBSfMB63Z3dKirp9m6sPa6xUEyDYcHJctUS
-	Ukmu0rHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4RP68PcI6ervNypYQaigF2gEu0Zy3JEcNuqJVUw3tqk=; b=IQ3nY/AiJV7Enm2tWiNEYYwLnO
+	Beq9jB6kTRuRZNoOcoLL1YtEXfN/Cup96H09jYiPq+km9k4mXj30M5Bl9xyEOKCOp0YR/81naRTKM
+	pOacWbwRkyW050L+QJ/i3GaGPZ5/A2mdr270j6seh5Jt+qhN0aZwk1uI3bpU5HgcIWGesPv/DFE9Q
+	jzHv/TJxRXcDk9tLo/VkfYw+6XdJJUqiWToUrembuFaECLEmdZJV/DRWtP+jArQHP41vtqj3FHY0p
+	ZLVZOw08ZNWgqfsxjePjvp9qAEGbVVSWeLnE2KaLGsXNVa1QW+MvLrb8fsPiqJzMtBw+kJnoBZ3DQ
+	zfHtsvpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NeB-0000000C4fx-3eRZ;
-	Wed, 11 Mar 2026 17:47:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ne9-0000000C4eV-3kSY;
-	Wed, 11 Mar 2026 17:47:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vkA02cIf1bCPsbEnaLlFrwiwhwE6F8sIdO8MLg/HiWE=; b=Mngfxk09kt4/krUPKb1Zn6lcvE
-	l9OOliC67agWfQrQug9P+Kg4KqL8K9pG1JGagHPp977ZBgRBJPBA6B3n6Nq7ZZjzNhNHBa04Aggd5
-	OxtnrJvRSidT247vak7uZRx4sFwM4zso4bxtCfWNXqbI/zKGUIPSu5Xf8u404kZVl3eFXdmVr6G4K
-	lO0ZoDXT9gXriqFDdnx8nO6ED36JLZ/Tw859kbvSISGE+Y5EZTdKRfgl8TrhT+cd35X399OGNYGsB
-	A9ja4GIOef9lTvNcGssfOGnV0KFRzjeIBBAF4bFnXTDE4eQQekh/xdRvVuaMtrlshIqYyXcwouNb5
-	LGP1XvZg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35300)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w0Ndi-000000006l7-0H7T;
-	Wed, 11 Mar 2026 17:46:34 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w0Nde-000000006RR-1cKu;
-	Wed, 11 Mar 2026 17:46:30 +0000
-Date: Wed, 11 Mar 2026 17:46:30 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org, imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH net-next v8 2/6] net: stmmac: qcom-ethqos: use generic
- device properties
-Message-ID: <abGqdncKMOweUUwO@shell.armlinux.org.uk>
-References: <20260311-qcom-sa8255p-emac-v8-0-58227bcf1018@oss.qualcomm.com>
- <20260311-qcom-sa8255p-emac-v8-2-58227bcf1018@oss.qualcomm.com>
- <abGizL-uYnahlcEt@shell.armlinux.org.uk>
- <CAMRc=MdOXz6a4+-xNfmHD9insd+UcyF9xvZim7DtptKOj9B70Q@mail.gmail.com>
+	id 1w0Nil-0000000C5Y8-3wd9;
+	Wed, 11 Mar 2026 17:51:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0Nii-0000000C5XF-43WN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 17:51:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 330381682;
+	Wed, 11 Mar 2026 10:51:35 -0700 (PDT)
+Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.1.194.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E166B3F73B;
+	Wed, 11 Mar 2026 10:51:39 -0700 (PDT)
+From: Muhammad Usama Anjum <usama.anjum@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Muhammad Usama Anjum <usama.anjum@arm.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Lance Yang <lance.yang@linux.dev>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	David Hildenbrand <david@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: mte: Skip TFSR_EL1 checks and barriers in synchronous tag check mode
+Date: Wed, 11 Mar 2026 17:50:50 +0000
+Message-ID: <20260311175054.3889093-1-usama.anjum@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=MdOXz6a4+-xNfmHD9insd+UcyF9xvZim7DtptKOj9B70Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_104702_252613_54624287 
-X-CRM114-Status: GOOD (  45.89  )
+X-CRM114-CacheID: sfid-20260311_105145_090865_6FE44F64 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,581 +68,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 06:18:00PM +0100, Bartosz Golaszewski wrote:
-> On Wed, Mar 11, 2026 at 6:14 PM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > On Wed, Mar 11, 2026 at 06:03:37PM +0100, Bartosz Golaszewski wrote:
-> > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > >
-> > > In order to drop the dependency on CONFIG_OF, convert all device property
-> > > getters from OF-specific to generic device properties and stop pulling
-> > > in any linux/of.h symbols.
-> > >
-> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> >
-> > Please postpone this for the time being - I'm trying to get stmmac's
-> > pain-in-the-arse PCS support sorted, and I've patch series out there
-> > and pending that make a large number of changes to this driver. This
-> > is likely to conflict with my work.
-> >
-> > I'm limited by the rate at which patches can be applied to net-next
-> > and the rate at which Mohd can provide me feedback. On that, I notice
-> > you haven't Cc'd Mohd who is now in MAINTAINERS for qcom-ethqos.
-> >
-> 
-> Do these two changesets interact with each other a lot? Do you have a
-> WIP branch I could take a look at? This has been post-poned several
-> times already, there always seem to be some new changes coming in. :/
+In MTE synchronous mode, tag check faults are reported as immediate
+Data Abort exceptions. The TFSR_EL1.TF1 bit is never set, since faults
+never go through the asynchronous path. Therefore, reading TFSR_EL1
+and executing data and instruction barriers on kernel entry, exit,
+context switch, and suspend is unnecessary overhead in sync mode.
 
-I don't have a public branch because this work is subject to rework
-depending on the feedback I receive. Mohd has another version of the
-series that I'm waiting for feedback for. As soon as I hear that it's
-fine, I will be sending it.
+The exit path (mte_check_tfsr_exit) and the assembly paths
+(check_mte_async_tcf / clear_mte_async_tcf in entry.S) already had this
+check. Extend the same optimization on kernel entry/exit, context
+switch and suspend.
 
-The problem I refer to has been a pain point for phylink since stmmac
-was converted in 2019, which pre-dates qcom-ethqos, the merging of
-which has made solving sthis much more painful as qcom-ethqos
-completely bypasses phylink by forcing the PCS inband state behind
-phylink's back.
+All mte kselftests pass. The kunit before and after the patch show same
+results.
 
-Honestly, over recent months, I've been washing that I'd NACK'd the
-merging of dwmac-qcom-ethqos at the time over this, but I didn't
-have any solution for stmmac at that point (it wasn't my
-responsibility, the broken phylink conversion of stmmac was merged
-without my knowledge, without even a Cc to me.)
+A selection of test_vmalloc benchmarks running on a arm64 machine.
+v6.19 is the baseline. (>0 is faster, <0 is slower, (R)/(I) =
+statistically significant Regression/Improvement). Based on significance
+and ignoring the noise, the benchmarks improved.
 
-One of the biggest changes that will definitely conflict with your
-changes is the move of qcom-ethqos' SerDes support into stmmac core
-code - because the stmmac PCS code needs to know whether the SerDes
-can support 2.5Gbps speed. I got the changes for the generic PHY part
-of that merged last week.
+* 77 result classes were considered, with 9 wins, 0 losses and 68 ties
 
-Another change that will conflict is your patch 3, where masses of
-changes in qcom_ethqos_probe() which will conflict with my
-"net: stmmac: qcom-ethqos: enable 2500BASE-X" patch.
+Results of fastpath [1] on v6.19 vs this patch:
 
-I've posted patches for that a couple of weeks ago, but Mohd reported
-problems, so I've had to rework the series - and now those patches
-are part of a follow-on series after sorting the bulk of the stmmac
-PCS mess.
++----------------------------+----------------------------------------------------------+------------+
+| Benchmark                  | Result Class                                             |   barriers |
++============================+==========================================================+============+
+| micromm/fork               | fork: p:1, d:10 (seconds)                                |  (I) 2.75% |
+|                            | fork: p:512, d:10 (seconds)                              |      0.96% |
++----------------------------+----------------------------------------------------------+------------+
+| micromm/munmap             | munmap: p:1, d:10 (seconds)                              |     -1.78% |
+|                            | munmap: p:512, d:10 (seconds)                            |      5.02% |
++----------------------------+----------------------------------------------------------+------------+
+| micromm/vmalloc            | fix_align_alloc_test: p:1, h:0, l:500000 (usec)          |     -0.56% |
+|                            | fix_size_alloc_test: p:1, h:0, l:500000 (usec)           |      0.70% |
+|                            | fix_size_alloc_test: p:4, h:0, l:500000 (usec)           |      1.18% |
+|                            | fix_size_alloc_test: p:16, h:0, l:500000 (usec)          |     -5.01% |
+|                            | fix_size_alloc_test: p:16, h:1, l:500000 (usec)          |     13.81% |
+|                            | fix_size_alloc_test: p:64, h:0, l:100000 (usec)          |      6.51% |
+|                            | fix_size_alloc_test: p:64, h:1, l:100000 (usec)          |     32.87% |
+|                            | fix_size_alloc_test: p:256, h:0, l:100000 (usec)         |      4.17% |
+|                            | fix_size_alloc_test: p:256, h:1, l:100000 (usec)         |      8.40% |
+|                            | fix_size_alloc_test: p:512, h:0, l:100000 (usec)         |     -0.48% |
+|                            | fix_size_alloc_test: p:512, h:1, l:100000 (usec)         |     -0.74% |
+|                            | full_fit_alloc_test: p:1, h:0, l:500000 (usec)           |      0.53% |
+|                            | kvfree_rcu_1_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |     -2.81% |
+|                            | kvfree_rcu_2_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |     -2.06% |
+|                            | long_busy_list_alloc_test: p:1, h:0, l:500000 (usec)     |     -0.56% |
+|                            | pcpu_alloc_test: p:1, h:0, l:500000 (usec)               |     -0.41% |
+|                            | random_size_align_alloc_test: p:1, h:0, l:500000 (usec)  |      0.89% |
+|                            | random_size_alloc_test: p:1, h:0, l:500000 (usec)        |      1.71% |
+|                            | vm_map_ram_test: p:1, h:0, l:500000 (usec)               |      0.83% |
++----------------------------+----------------------------------------------------------+------------+
+| schbench/thread-contention | -m 16 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |      0.05% |
+|                            | -m 16 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |      0.60% |
+|                            | -m 16 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
+|                            | -m 16 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.34% |
+|                            | -m 16 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |     -0.58% |
+|                            | -m 16 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      9.09% |
+|                            | -m 16 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.74% |
+|                            | -m 16 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |     -1.40% |
+|                            | -m 16 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.00% |
+|                            | -m 16 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |     -0.78% |
+|                            | -m 16 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |     -0.11% |
+|                            | -m 16 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.11% |
+|                            | -m 16 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      2.64% |
+|                            | -m 16 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      3.15% |
+|                            | -m 16 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     17.54% |
+|                            | -m 32 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |     -1.22% |
+|                            | -m 32 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |      0.85% |
+|                            | -m 32 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
+|                            | -m 32 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.34% |
+|                            | -m 32 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |      1.05% |
+|                            | -m 32 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
+|                            | -m 32 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.41% |
+|                            | -m 32 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |      0.58% |
+|                            | -m 32 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      2.13% |
+|                            | -m 32 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |      0.67% |
+|                            | -m 32 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |      2.07% |
+|                            | -m 32 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |     -1.28% |
+|                            | -m 32 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      1.01% |
+|                            | -m 32 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      0.69% |
+|                            | -m 32 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     13.12% |
+|                            | -m 64 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |     -0.25% |
+|                            | -m 64 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |     -0.48% |
+|                            | -m 64 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |     10.53% |
+|                            | -m 64 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.06% |
+|                            | -m 64 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |      0.00% |
+|                            | -m 64 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
+|                            | -m 64 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.36% |
+|                            | -m 64 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |      0.52% |
+|                            | -m 64 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.11% |
+|                            | -m 64 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |      0.52% |
+|                            | -m 64 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |      3.53% |
+|                            | -m 64 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |     -0.10% |
+|                            | -m 64 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      2.53% |
+|                            | -m 64 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      1.82% |
+|                            | -m 64 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     -5.80% |
++----------------------------+----------------------------------------------------------+------------+
+| syscall/getpid             | mean (ns)                                                | (I) 15.98% |
+|                            | p99 (ns)                                                 | (I) 11.11% |
+|                            | p99.9 (ns)                                               | (I) 16.13% |
++----------------------------+----------------------------------------------------------+------------+
+| syscall/getppid            | mean (ns)                                                | (I) 14.82% |
+|                            | p99 (ns)                                                 | (I) 17.86% |
+|                            | p99.9 (ns)                                               |  (I) 9.09% |
++----------------------------+----------------------------------------------------------+------------+
+| syscall/invalid            | mean (ns)                                                | (I) 17.78% |
+|                            | p99 (ns)                                                 | (I) 11.11% |
+|                            | p99.9 (ns)                                               |     13.33% |
++----------------------------+----------------------------------------------------------+------------+
 
-I'm currently waiting for Mohd's feedback on the reworked series.
+[1] https://gitlab.arm.com/tooling/fastpath
 
-https://lore.kernel.org/r/aZ7ggfQanc8jeCb9@shell.armlinux.org.uk
-https://lore.kernel.org/r/aafxqCvJ_XY4YbWw@shell.armlinux.org.uk
-
-Latest version waiting for Mohd's feedback:
-
-https://lore.kernel.org/r/aa6sofjFxyi2nkpr@shell.armlinux.org.uk
-
-Below are the two patches which add and convert qcom-ethqos serdes
-support. Note that these two depend on other patches.
-
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next] net: stmmac: add stmmac core serdes support
-
-Rather than having platform glue implement SerDes PHY support, add it
-to the core driver, specifically to the stmmac integrated PCS driver
-as the SerDes is connected to the integrated PCS.
-
-Platforms using external PCS can also populate plat->serdes, and the
-core driver will call phy_init() and phy_exit() when the administrative
-state of the interface changes, but the other phy methods will not be
-called.
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
---
-rfc->v1: avoid calling phy_get_mode() with NULL serdes PHY
-v2: add cleanup when dwmac_serdes_set_mode() fails, so that failure at
-  any point in the internal PCS enable method leaves the overall state
-  unchanged.
-v3: in a pending change to generic PHY documentation indicated by Vinod
-  recently, calling phy_set_mode(_ext)() before phy_power_on() will be
-  preferred, so re-organise to use that ordering.
-v4: move phy_set_mode() into .mac_finish(), add dwmac_has_serdes() to
-  make serdes calls conditional on dwmac's active phy interface, with
-  the exception of phy_init()/phy_exit() calls.
+Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Makefile  |  2 +-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 37 +++++++-
- .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 44 +++++++--
- .../ethernet/stmicro/stmmac/stmmac_serdes.c   | 92 +++++++++++++++++++
- .../ethernet/stmicro/stmmac/stmmac_serdes.h   | 15 +++
- include/linux/stmmac.h                        |  2 +
- 6 files changed, 181 insertions(+), 11 deletions(-)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
+The patch applies on v6.19 and next-20260309.
+---
+ arch/arm64/include/asm/mte.h | 6 +++++-
+ arch/arm64/kernel/mte.c      | 5 +++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c9263987ef8d..a3c2cd5d0c91 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -7,7 +7,7 @@ stmmac-objs:= stmmac_main.o stmmac_ethtool.o stmmac_mdio.o ring_mode.o	\
- 	      dwmac4_dma.o dwmac4_lib.o dwmac4_core.o dwmac5.o hwif.o \
- 	      stmmac_tc.o dwxgmac2_core.o dwxgmac2_dma.o dwxgmac2_descs.o \
- 	      stmmac_xdp.o stmmac_est.o stmmac_fpe.o stmmac_vlan.o \
--	      stmmac_pcs.o $(stmmac-y)
-+	      stmmac_pcs.o stmmac_serdes.o $(stmmac-y)
+diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
+index 6d4a78b9dc3e6..0e05d20cf2583 100644
+--- a/arch/arm64/include/asm/mte.h
++++ b/arch/arm64/include/asm/mte.h
+@@ -252,7 +252,8 @@ static inline void mte_check_tfsr_entry(void)
+ 	if (!kasan_hw_tags_enabled())
+ 		return;
  
- stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 37f6ee7566be..428b2e5bb4c4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -49,6 +49,7 @@
- #include "stmmac_fpe.h"
- #include "stmmac.h"
- #include "stmmac_pcs.h"
-+#include "stmmac_serdes.h"
- #include "stmmac_xdp.h"
- #include <linux/reset.h>
- #include <linux/of_mdio.h>
-@@ -969,7 +970,7 @@ static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
- 		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
- 				       interface);
- 
--	return 0;
-+	return dwmac_serdes_set_mode(priv, interface);
+-	mte_check_tfsr_el1();
++	if (system_uses_mte_async_or_asymm_mode())
++		mte_check_tfsr_el1();
  }
  
- static void stmmac_mac_link_down(struct phylink_config *config,
-@@ -3592,12 +3593,14 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+ static inline void mte_check_tfsr_exit(void)
+@@ -260,6 +261,9 @@ static inline void mte_check_tfsr_exit(void)
+ 	if (!kasan_hw_tags_enabled())
+ 		return;
  
- static void stmmac_clk_rx_i_require(struct stmmac_priv *priv)
- {
-+	dwmac_serdes_power_on(priv);
- 	phylink_rx_clk_stop_block(priv->phylink);
- }
- 
- static void stmmac_clk_rx_i_release(struct stmmac_priv *priv)
- {
- 	phylink_rx_clk_stop_unblock(priv->phylink);
-+	dwmac_serdes_power_off(priv);
- }
- 
- /**
-@@ -4153,6 +4156,10 @@ static int stmmac_open(struct net_device *dev)
- 	if (ret)
- 		goto err_runtime_pm;
- 
-+	ret = dwmac_serdes_init(priv);
-+	if (ret < 0)
-+		goto err_disconnect_phy;
-+
- 	if (!(priv->plat->flags & STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP)) {
- 		ret = stmmac_legacy_serdes_power_up(priv);
- 		if (ret < 0)
-@@ -4172,6 +4179,7 @@ static int stmmac_open(struct net_device *dev)
- 
- err_serdes:
- 	stmmac_legacy_serdes_power_down(priv);
-+	dwmac_serdes_exit(priv);
- err_disconnect_phy:
- 	phylink_disconnect_phy(priv->phylink);
- err_runtime_pm:
-@@ -4232,6 +4240,7 @@ static int stmmac_release(struct net_device *dev)
- 	__stmmac_release(dev);
- 
- 	stmmac_legacy_serdes_power_down(priv);
-+	dwmac_serdes_exit(priv);
- 	phylink_disconnect_phy(priv->phylink);
- 	pm_runtime_put(priv->device);
- 
-@@ -7781,6 +7790,13 @@ static int __stmmac_dvr_probe(struct device *device,
- 		return -EINVAL;
- 	}
- 
-+	if (plat_dat->serdes &&
-+	    (plat_dat->serdes_powerup || plat_dat->serdes_powerdown)) {
-+		dev_err(device,
-+			"generic PHY and SerDes platform callbacks are incompatible\n");
-+		return -EINVAL;
-+	}
-+
- 	ndev = devm_alloc_etherdev_mqs(device, sizeof(struct stmmac_priv),
- 				       MTL_MAX_TX_QUEUES, MTL_MAX_RX_QUEUES);
- 	if (!ndev)
-@@ -8194,6 +8210,15 @@ int stmmac_suspend(struct device *dev)
- 
- 	rtnl_lock();
- 	phylink_suspend(priv->phylink, !!priv->wolopts);
-+
-+	/* If the MAC has WoL enabled, the SerDes needs to remain active.
-+	 * Otherwise, phylink will have stopped the MAC and the PCS will
-+	 * have been disabled, meaning the SerDes is already powered off.
-+	 * Call its exit function so we can call init during resume.
-+	 */
-+	if (!priv->wolopts)
-+		dwmac_serdes_exit(priv);
-+
- 	rtnl_unlock();
- 
- 	if (stmmac_fpe_supported(priv))
-@@ -8290,6 +8315,15 @@ int stmmac_resume(struct device *dev)
- 
- 	rtnl_lock();
- 
-+	/* If the MAC has WoL enabled, the SerDes was left active */
-+	if (!priv->wolopts) {
-+		ret = dwmac_serdes_init(priv);
-+		if (ret) {
-+			rtnl_unlock();
-+			return ret;
-+		}
-+	}
-+
- 	/* Prepare the PHY to resume, ensuring that its clocks which are
- 	 * necessary for the MAC DMA reset to complete are running
- 	 */
-@@ -8307,6 +8341,7 @@ int stmmac_resume(struct device *dev)
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
- 		stmmac_legacy_serdes_power_down(priv);
- 		mutex_unlock(&priv->lock);
-+		dwmac_serdes_exit(priv);
- 		rtnl_unlock();
- 		return ret;
- 	}
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-index 0c0eb9e30b95..298d3c00b2fa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include "stmmac.h"
- #include "stmmac_pcs.h"
-+#include "stmmac_serdes.h"
- 
- /*
-  * GMAC_AN_STATUS is equivalent to MII_BMSR
-@@ -60,8 +61,14 @@ static unsigned int dwmac_integrated_pcs_inband_caps(struct phylink_pcs *pcs,
- static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
- {
- 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-+	struct stmmac_priv *priv = spcs->priv;
-+	int ret;
- 
--	stmmac_mac_irq_modify(spcs->priv, 0, spcs->int_mask);
-+	ret = dwmac_serdes_power_on(priv);
-+	if (ret)
-+		return ret;
-+
-+	stmmac_mac_irq_modify(priv, 0, spcs->int_mask);
- 
- 	return 0;
- }
-@@ -69,8 +76,11 @@ static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
- static void dwmac_integrated_pcs_disable(struct phylink_pcs *pcs)
- {
- 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-+	struct stmmac_priv *priv = spcs->priv;
-+
-+	stmmac_mac_irq_modify(priv, spcs->int_mask, 0);
- 
--	stmmac_mac_irq_modify(spcs->priv, spcs->int_mask, 0);
-+	dwmac_serdes_power_off(priv);
- }
- 
- static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
-@@ -220,6 +230,22 @@ int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
- 	return -EINVAL;
- }
- 
-+static void stmmac_integrated_pcs_check_support(struct stmmac_priv *priv,
-+						struct stmmac_pcs *spcs,
-+						phy_interface_t interface,
-+						unsigned int flag)
-+{
-+	bool supported;
-+
-+	if (priv->plat->serdes)
-+		supported = dwmac_serdes_validate(priv, interface) == 0;
-+	else
-+		supported = !flag || priv->plat->flags & flag;
-+
-+	if (supported)
-+		__set_bit(interface, spcs->pcs.supported_interfaces);
-+}
-+
- int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
- 			       const struct stmmac_pcs_info *pcs_info)
- {
-@@ -243,13 +269,13 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
- 	if (readl(spcs->base + GMAC_AN_STATUS) & BMSR_ESTATEN)
- 		spcs->support_tbi_rtbi = true;
- 
--	__set_bit(PHY_INTERFACE_MODE_SGMII, spcs->pcs.supported_interfaces);
--	__set_bit(PHY_INTERFACE_MODE_1000BASEX, spcs->pcs.supported_interfaces);
--
--	/* Only allow 2500BASE-X if the SerDes has support. */
--	if (priv->plat->flags & STMMAC_FLAG_SERDES_SUPPORTS_2500M)
--		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
--			  spcs->pcs.supported_interfaces);
-+	stmmac_integrated_pcs_check_support(priv, spcs,
-+					    PHY_INTERFACE_MODE_SGMII, 0);
-+	stmmac_integrated_pcs_check_support(priv, spcs,
-+					    PHY_INTERFACE_MODE_1000BASEX, 0);
-+	stmmac_integrated_pcs_check_support(priv, spcs,
-+					    PHY_INTERFACE_MODE_2500BASEX,
-+					    STMMAC_FLAG_SERDES_SUPPORTS_2500M);
- 
- 	priv->integrated_pcs = spcs;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
-new file mode 100644
-index 000000000000..a767c0553604
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
-@@ -0,0 +1,92 @@
-+#include <linux/phy/phy.h>
-+
-+#include "stmmac.h"
-+#include "stmmac_serdes.h"
-+
-+static bool dwmac_has_serdes(struct stmmac_priv *priv)
-+{
-+	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-+		return false;
-+
-+	return priv->dma_cap.actphyif == PHY_INTF_SEL_SGMII ||
-+	       priv->dma_cap.actphyif == PHY_INTF_SEL_TBI ||
-+	       priv->dma_cap.actphyif == PHY_INTF_SEL_RTBI;
-+}
-+
-+int dwmac_serdes_validate(struct stmmac_priv *priv, phy_interface_t interface)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+
-+	return phy_validate(serdes, PHY_MODE_ETHERNET, interface, NULL);
-+}
-+
-+int dwmac_serdes_init(struct stmmac_priv *priv)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+	int ret;
-+
-+	ret = phy_init(serdes);
-+	if (ret)
-+		dev_err(priv->device, "failed to initialize SerDes: %pe\n",
-+			ERR_PTR(ret));
-+
-+	return ret;
-+}
-+
-+int dwmac_serdes_power_on(struct stmmac_priv *priv)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+	int ret;
-+
-+	if (!dwmac_has_serdes(priv))
-+		return 0;
-+
-+	ret = phy_power_on(serdes);
-+	if (ret)
-+		dev_err(priv->device, "failed to power on SerDes: %pe\n",
-+			ERR_PTR(ret));
-+
-+	return ret;
-+}
-+
-+int dwmac_serdes_set_mode(struct stmmac_priv *priv, phy_interface_t interface)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+	int ret;
-+
-+	if (!dwmac_has_serdes(priv))
-+		return 0;
-+
-+	ret = phy_set_mode_ext(serdes, PHY_MODE_ETHERNET, interface);
-+	if (ret)
-+		dev_err(priv->device,
-+			"failed to set SerDes mode %s: %pe\n",
-+			phy_modes(interface), ERR_PTR(ret));
-+
-+	return ret;
-+}
-+
-+void dwmac_serdes_power_off(struct stmmac_priv *priv)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+	int ret;
-+
-+	if (!dwmac_has_serdes(priv))
++	if (!system_uses_mte_async_or_asymm_mode())
 +		return;
 +
-+	ret = phy_power_off(serdes);
-+	if (ret)
-+		dev_err(priv->device, "failed to power off SerDes: %pe\n",
-+			ERR_PTR(ret));
-+}
-+
-+void dwmac_serdes_exit(struct stmmac_priv *priv)
-+{
-+	struct phy *serdes = priv->plat->serdes;
-+	int ret;
-+
-+	ret = phy_exit(serdes);
-+	if (ret)
-+		dev_err(priv->device, "failed to shutdown SerDes: %pe\n",
-+			ERR_PTR(ret));
-+}
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
-new file mode 100644
-index 000000000000..2ca37a7d0fde
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
-@@ -0,0 +1,15 @@
-+#ifndef STMMAC_SERDES_H
-+#define STMMAC_SERDES_H
-+
-+#include <linux/phy.h>
-+
-+struct stmmac_priv;
-+
-+int dwmac_serdes_validate(struct stmmac_priv *priv, phy_interface_t interface);
-+int dwmac_serdes_init(struct stmmac_priv *priv);
-+int dwmac_serdes_power_on(struct stmmac_priv *priv);
-+int dwmac_serdes_set_mode(struct stmmac_priv *priv, phy_interface_t interface);
-+void dwmac_serdes_power_off(struct stmmac_priv *priv);
-+void dwmac_serdes_exit(struct stmmac_priv *priv);
-+
-+#endif
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index a8e9b5d3289f..bedba4e23088 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -216,6 +216,7 @@ enum dwmac_core_type {
- #define STMMAC_FLAG_SERDES_SUPPORTS_2500M	BIT(15)
+ 	/*
+ 	 * The asynchronous faults are sync'ed automatically with
+ 	 * TFSR_EL1 on kernel entry but for exit an explicit dsb()
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index 32148bf09c1dc..8da2891b834d7 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -291,6 +291,8 @@ void mte_thread_switch(struct task_struct *next)
+ 	/* TCO may not have been disabled on exception entry for the current task. */
+ 	mte_disable_tco_entry(next);
  
- struct mac_device_info;
-+struct phy;
++	if (!system_uses_mte_async_or_asymm_mode())
++		return;
+ 	/*
+ 	 * Check if an async tag exception occurred at EL1.
+ 	 *
+@@ -350,6 +352,9 @@ void mte_suspend_enter(void)
+ 	if (!system_supports_mte())
+ 		return;
  
- struct plat_stmmacenet_data {
- 	enum dwmac_core_type core_type;
-@@ -245,6 +246,7 @@ struct plat_stmmacenet_data {
- 	 * that phylink uses.
- 	 */
- 	phy_interface_t phy_interface;
-+	struct phy *serdes;
- 	struct stmmac_mdio_bus_data *mdio_bus_data;
- 	struct device_node *phy_node;
- 	struct device_node *mdio_node;
++	if (!system_uses_mte_async_or_asymm_mode())
++		return;
++
+ 	/*
+ 	 * The barriers are required to guarantee that the indirect writes
+ 	 * to TFSR_EL1 are synchronized before we report the state.
 -- 
 2.47.3
 
-
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next] net: stmmac: qcom-ethqos: convert to dwmac core
- SerDes support
-
-Convert qcom-ethqos to use the dwmac core's generic SerDes support,
-which will handle SerDes initialisation, powering, and mode setting.
-
-Note that generic support requires the SerDes to support phy_validate()
-in order to probe which PHY interface modes are supported, and
-phy_set_mode_ext() to configure the appropriate PHY interface mode
-(and thus the speed.)
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 45 ++-----------------
- 1 file changed, 4 insertions(+), 41 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index 9a2194fccb9b..a40a4bca197d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -104,7 +104,6 @@ struct qcom_ethqos {
- 			       phy_interface_t interface, int speed);
- 
- 	struct clk *link_clk;
--	struct phy *serdes_phy;
- 	phy_interface_t phy_mode;
- 
- 	const struct ethqos_emac_por *rgmii_por;
-@@ -627,45 +626,15 @@ static void ethqos_fix_mac_speed(void *priv, phy_interface_t interface,
- 	ethqos_configure(ethqos, interface, speed);
- }
- 
--static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
--{
--	struct qcom_ethqos *ethqos = priv;
--	int ret;
--
--	ret = phy_init(ethqos->serdes_phy);
--	if (ret)
--		return ret;
--
--	ret = phy_power_on(ethqos->serdes_phy);
--	if (ret)
--		phy_exit(ethqos->serdes_phy);
--
--	return ret;
--}
--
--static void qcom_ethqos_serdes_powerdown(struct net_device *ndev, void *priv)
--{
--	struct qcom_ethqos *ethqos = priv;
--
--	phy_power_off(ethqos->serdes_phy);
--	phy_exit(ethqos->serdes_phy);
--}
--
- static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
- 				    unsigned int mode,
- 				    phy_interface_t interface)
- {
- 	struct qcom_ethqos *ethqos = priv;
--	int ret = 0;
- 
- 	qcom_ethqos_set_sgmii_loopback(ethqos, false);
- 
--	if (interface == PHY_INTERFACE_MODE_SGMII ||
--	    interface == PHY_INTERFACE_MODE_2500BASEX)
--		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
--				       interface);
--
--	return ret;
-+	return 0;
- }
- 
- static int ethqos_clks_config(void *priv, bool enabled)
-@@ -789,9 +758,9 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ethqos->serdes_phy = devm_phy_optional_get(dev, "serdes");
--	if (IS_ERR(ethqos->serdes_phy))
--		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
-+	plat_dat->serdes = devm_phy_optional_get(dev, "serdes");
-+	if (IS_ERR(plat_dat->serdes))
-+		return dev_err_probe(dev, PTR_ERR(plat_dat->serdes),
- 				     "Failed to get serdes phy\n");
- 
- 	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
-@@ -816,12 +785,6 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	if (data->dma_addr_width)
- 		plat_dat->host_dma_width = data->dma_addr_width;
- 
--	if (ethqos->serdes_phy) {
--		plat_dat->serdes_powerup = qcom_ethqos_serdes_powerup;
--		plat_dat->serdes_powerdown  = qcom_ethqos_serdes_powerdown;
--		plat_dat->flags |= STMMAC_FLAG_SERDES_SUPPORTS_2500M;
--	}
--
- 	/* Enable TSO on queue0 and enable TBS on rest of the queues */
- 	for (i = 1; i < plat_dat->tx_queues_to_use; i++)
- 		plat_dat->tx_queues_cfg[i].tbs_en = 1;
--- 
-2.47.3
-
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
