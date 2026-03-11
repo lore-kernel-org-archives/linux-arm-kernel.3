@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBED106286B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5288D106286B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mePPF9zcPSvtBJqRo2t1V0QkuJgJRZztiTUUZcbcg0Y=; b=CEZMP7TTvxvFxPWJlovkRPUZeZ
-	6dbZIgPDw8HjaxLBurGe6azHphFOyUATVJh9YYPZvq/ArGi38H96E5XYytPzuNVEQ8vV+4pLlANsQ
-	6OEpqsXRQ3IG+dpOiGvzweUDVaTum8VO2EkRXkgo1UQkrEtBCALRK2RrqRK6ZZvse4CJC8xkwb57+
-	gxxVGYQXVEryOwYJamFCd7n/Samulbdl67UdmGbxCNMkGIscpzT6UAkCqdKgaSO4JEeZKjwz+2N1g
-	R1OgWIJ0eG8gA+hIHLVwuboqc8BQtfMmyW2PvTC2pOFSijo7b/w0wSkj5rtUQqJfTCOw9bUn9Fkgz
-	WB+Fa1Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=16OhHuTtVM2d47b3Tm6P2P+rIcsTkTQqqx1Y4lwcMk0=; b=VBwa9F6MfJ+cSS
+	y1Z0eBZAXNnaOnupHPdcvNMlQb5YoOlP4UAc0ckNa+HHcOrrrx4OjRWEiFD3ABS8GXWCo3tWesdRS
+	gTEv1Dk1TM+svhGi+r2j6jIT3FHbwXemfkkAU/WkcFBpY3lUlGTOxvmiEk1Ot5xaXo2HFdjah553t
+	W2Wz9bSfs/lU0oic1M/SXW3RbkvgH2QB0a1rR4DsvjFmGlhpyG2V0l/4OrvId6JsCgo/N2+8TOe4y
+	XEeOIzznVd1LsmjA7exlWrx1ZnMLFaEdKChnpueKrAP5rn++gz9OOUm3jFTz2n+Vsg/7zbxROYcVn
+	m2tWDBMF7/II+91Y9sEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0I0x-0000000BVWi-1DPH;
-	Wed, 11 Mar 2026 11:46:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0I2l-0000000BVhV-3wCQ;
+	Wed, 11 Mar 2026 11:48:03 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0I0w-0000000BVWZ-12UD;
-	Wed, 11 Mar 2026 11:46:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1157460145;
-	Wed, 11 Mar 2026 11:46:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79082C4CEF7;
-	Wed, 11 Mar 2026 11:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773229568;
-	bh=mePPF9zcPSvtBJqRo2t1V0QkuJgJRZztiTUUZcbcg0Y=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=LL43S37gfzT/Tm97KcgLsUXSfiOoxXzNEvUrv5x20U2bjXaNgs2ZEmAgEqPArpUoO
-	 jMRBsFO1rtnAFbU7NnV1UYL2ZLu78aO4zL8Y7m8Bk2MEOzq5U5kiR9/6SUzZYukt7x
-	 YCTfvAKZMs3yfoGP49cGvPDmIt42flrR6PfRuh5zAIQmyzPxgztNsbO/gK+Je4YLce
-	 ciCMdoBBXH0iGc+dE87FOkoBu6Uce/jRT/Ya7GEyH4/7KkWuHPyqX8nSztSBQvw3vL
-	 L8FegqH/dGZqRNCpbuvVZrTfiR676Um5mvDDVFYh66XpUXS9leC3rE1c8nNUescbmb
-	 xFoVtT4VD+7vg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 11 Mar 2026 12:46:03 +0100
-Message-Id: <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Cc: "Robin Murphy" <robin.murphy@arm.com>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@oss.qualcomm.com>, "Lorenzo Pieralisi"
- <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas"
- <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, "Niklas Cassel"
- <cassel@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Hans Zhang"
- <18255117159@163.com>, "Nicolas Frattaroli"
- <nicolas.frattaroli@collabora.com>, "Wilfred Mallawa"
- <wilfred.mallawa@wdc.com>, <linux-pci@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Anand Moon" <linux.amoon@gmail.com>, "Grimmauld" <grimmauld@grimmauld.de>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, <driver-core@lists.linux.dev>, "Lukas Wunner"
- <lukas@wunner.de>
-To: "Manivannan Sadhasivam" <mani@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
-In-Reply-To: <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
+	id 1w0I2j-0000000BVgM-2sr9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 11:48:02 +0000
+Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CAF5D4B3;
+	Wed, 11 Mar 2026 12:46:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1773229610;
+	bh=AGwHhWByJI2Ulk/BJdMl7Vr3SrlvDzIRbrmITlOYusc=;
+	h=From:Subject:Date:To:Cc:From;
+	b=TBshuUdRr0YCSDav09H5qwbLbXW/UQV6GvGsCH4zsEM6AYn4QP+iUxXuk5iysXKxu
+	 U3DKi8OPFuXhs9YaOHcPghxjk25gAvN0XEVbOWgGHEPtxkPk/sBiaminzKK9F0rqCM
+	 AN48OvTaJbcTRZSe9lHLToWSV9Tk14X3FAYq0frw=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Subject: [PATCH 0/2] Minor changes for i2c-imx driver
+Date: Wed, 11 Mar 2026 11:47:42 +0000
+Message-Id: <20260311-i2c-imx-fixes-v1-0-e625034d8202@ideasonboard.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF5WsWkC/x3LTQqAIBBA4avIrBvwJ0S6SrQQG2sWWSiEIN49a
+ fnxeA0KZaYCi2iQ6eXCdxpQk4Bw+nQQ8j4MWmorjVLIOiBfFSNXKmhIG2Vn77yLMJ4n0x/Gsm6
+ 9fxPap6hfAAAA
+X-Change-ID: 20260311-i2c-imx-fixes-3e23164a8a8f
+To: Oleksij Rempel <o.rempel@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Daniel Scally <dan.scally@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1257;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=AGwHhWByJI2Ulk/BJdMl7Vr3SrlvDzIRbrmITlOYusc=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBpsVZmrWuzyiYgnxjrK3GT9VAsgeXRMfTsY5ISt
+ drx/c6eUgSJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCabFWZgAKCRDISVd6bEV1
+ Mjg6D/9Xq1HeCY1wqZ8n+UDcYSJoSgQ72XO+2Qq7HH8szHnqmLWKxz7KqtSH1W92pe6k7axV43o
+ 4c+OdXN354yMheWs2CLAnURbeAWmkChT1TdFA3SqR/O8vBeC0XMq/mrMzKch+P3J62aJqoGSVWy
+ QcGy8n7llUSyc6bdZUj5AOmlR4IwXuyiUHQroxPZsPlekCKVGLu0+In8VSmWv9L882MusO91ApO
+ Tl96O/Ljsjly1mJhpJ1klTAm41aFWorBwJ8Ey3dHRMGLbpxFcPmUkLl627F6HWq2uZ6/bdz4Ork
+ dRv4n84f5cPOx5PAS+i/Kxn0GcWoWFzHpQquWyPPJTgY25E1u6wDSNm0Z3hm1Kl78BKxBR/pHUe
+ bDpvQQ7PF0ZsJCltEtuKvW97sOeuL7ogQojpcpuGV4MDnwuM0vzPiCQ2NudPus2lsQNkCSBC2Yi
+ bVo/qRxnVAEV14KpNp+tHPjZtp3uzZJZgE2c/1MJ5VAW3fHib1Q05dRA8LzTidsVe+9NjrNtJDX
+ APuAVX4Y9VumrVehdnGqPfLXxws/TSxVEvj5wf7KCdobzmZhjsj20khovv2Rfut7xnKbtclW8+0
+ oXUe/aDEDgL45+fdLqzMrt3ifJ9Uce7nv9VHihYGXVGMVteobb1Urc8noUSPOZ7ESPGVclBd3Zt
+ q0gZ3aB2lmy3p3w==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_044801_869524_FCE45610 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
-> I have a contrary view here. If just a single driver or lib doesn't handl=
-e async
-> probe, it cannot just force other drivers to not take the advantage of as=
-ync
-> probe. As I said above, enabling async probe easily saves a few hunderd m=
-s or
-> even more if there are more than one Root Port or Root Complex in an SoC.
+Hello all
 
-Then the driver or lib has to be fixed / improved first or the driver core =
-has
-to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is requeste=
-d
-from an async path, etc.
+These small changes helped resolve issues we experienced using the
+i2c-imx driver on a multi-master bus. The device was losing
+arbitration which triggered the driver to attempt to recover the bus
+rather than retry the transfer. The set stops the bus recovery
+attempts on lost arbitration and instructs the driver to retry
+transfers 3 times, which seems sufficient for our setup.
 
-In any case, applying the patch and breaking things (knowingly?) doesn't se=
-em
-like the correct approach.
+I had intended to make a larger change that added a new devicetree
+property for i2c-controller.yaml that held the number of retries an
+adapter should use, and then parse that to set adap->retries. I found
+a relatively old discussion on the list though in which a similar
+idea was discussed and rejected so I dropped that, but I thought I'd
+mention it in case things had changed.
 
-> I strongly agree with you here that the underlying issue should be fixed.=
- But
-> the real impact to end users is not this splat, but not having the boot t=
-ime
-> optimization that this patch brings in. As an end user, one would want th=
-eir
-> systems to boot quickly and they wouldn't bother much about a harmless wa=
-rning
-> splat appearing in the dmesg log.
+Thanks
+Dan
 
-You mean quickly booting into a "harmless" potential deadlock condition the
-warning splat tries to make people aware of? :)
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+---
+Daniel Scally (2):
+      i2c: imx: Don't recover bus when arbitration lost
+      i2c: imx: Retry failed transfers 3 times
 
-(Or am I missing a subtle detail and we can never actually end up in a dead=
-lock
-for some reason?)
+ drivers/i2c/busses/i2c-imx.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+---
+base-commit: b82316862bea929265725c077dffcec42e3dc20b
+change-id: 20260311-i2c-imx-fixes-3e23164a8a8f
+
+Best regards,
+-- 
+Daniel Scally <dan.scally@ideasonboard.com>
+
 
