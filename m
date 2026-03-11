@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8DA1125806
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 13:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412271125803
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 13:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gpG8shGuJFHRaPQ6fGDGkpA2SehoqfyECQDpt4SzkE=; b=JBpoIoWWdsFUNjiVnW0ezLn13o
-	ArHsFlF5+tK8SG24l1lyfCZdhf8VQoqbGfvkMRlKaPYa7Ygctz01bEoEDVdr6J4fGmdsNEiMdOJLL
-	r5Fhck24FZBcdlvohcl9wgd5w5GFb2+4bZm+6TiNwHgize9KMUfBkzHcQaHT9rN7m0IbXscy3BNTp
-	3Y6OkiExPAw2uS1XtdrmCty4eMjPhkXIAtX/4kukxHjjuQp1v3+21wTt6gqL8SPm+0FlkFc+Gn9fg
-	Jc1uJHe+Y9BhZmRRjCH90bXmxDvHaaVnC0GfWdRGv0o6cGMFmC7Si45fXBqDeHITu8Rck0pFdUtV6
-	Q/a9fCbg==;
+	bh=QEQFs0TTz6kOM3BeAm8PTLPbfl1GfhDYDZcp/vmbBkA=; b=bdSdMcf1jP0atSSKheq6etNqPy
+	AWFCmjwSRRjuxEoRbp/SMy5Ld9QavqUZYW4jzTETKP1LEyYPr04tkeLVfLG+FlJ71Qth1N0b6tOxl
+	Zb7enL/Fa6MbsLttdv6FwQq6u/Ypf7ko+PVu7JlH2hCeavhpV8CTU4mabshgk+eOMis+njGoDPJO1
+	ZqGKbbzr2cIOEP/hNI7/akUIaymGpbRnhZx6xgPTgsxSYEMqfHQmkdM6rNm/ShOZDtAMGYjtyIPNo
+	+vetRkMgZHIEFIe1LXV3BRf+DhJY0Bqn0X6y07wAcCPSApy8h3Ep76Ng0PxMDlcNJbEQgNRFfG9Jo
+	0gCvFADw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0JZz-0000000Bdce-0SlW;
-	Wed, 11 Mar 2026 13:26:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0Jg2-0000000BeJA-1Y9b;
+	Wed, 11 Mar 2026 13:32:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0JZx-0000000BdcS-33H9
+	id 1w0Jfy-0000000BeIb-0VZi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 13:26:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1FCC600B0;
-	Wed, 11 Mar 2026 13:26:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76656C19425;
-	Wed, 11 Mar 2026 13:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773235583;
-	bh=W6oCAQ/s8C2Uj48lCZ2DxWtVPPiRrun1JCvwriBxabE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DUynWAV1b8Gc0x1sir2egYqoYc/O0i1lGxqk2g7OKX9FVTWDHZz9PK91J+UkSiTF7
-	 2UNaZq0YNOYMWNnFI7/E5obzAvM2nG4YybgJf/ADQRT9naD5Fg5A7un+5yMXZfvcMm
-	 IBs2kZjr+6JXEperRFNucEK+RWjwAUJ8FLA/029zKBd/Cy73loeTiqjpJr4SALTEA9
-	 Y7Eu7jyuT7aoq/GT8/lEa4c+54dzXbSRl4t0sR9S7Un8O27CuDYek6ntMsgSumDWVW
-	 B74As9Iz/BiFW2hupvE8zrvK//L3NO5Rdg1gnKH6qnknXMy52vkLNPOYb/i1i/eaXW
-	 zzp0hOEFaKrdw==
-Date: Wed, 11 Mar 2026 18:56:07 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v12 05/12] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <s3qjgxji5ykznryf5n53zgvxm2qc5czsamguasdurfsrxbq43o@jpjkw5o7k5fo>
-References: <20260310-qcom-qce-cmd-descr-v12-0-398f37f26ef0@oss.qualcomm.com>
- <20260310-qcom-qce-cmd-descr-v12-5-398f37f26ef0@oss.qualcomm.com>
+	Wed, 11 Mar 2026 13:32:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=QEQFs0TTz6kOM3BeAm8PTLPbfl1GfhDYDZcp/vmbBkA=; b=mp4OmuID3KEVA4dSypFUZlxxwh
+	PAJElXVaYdgvUKICIGCVgu4y+h7c6ivLTCwynjeF3P/eA+mS0SeVnoF1lm07xMTELYda5HoN7Rsm4
+	qm0R0nX6twAj6I77L2mFROfBjVy73KU0vT29j1Knamm7lDJGOHFRakNzLCRLfsyW3SJwbA6rUoWUL
+	3ROm3bD7HDSqo+4U4AAUTCtJqUJW+EB1qV3fhzFQqjCzkHPvJcyzuUxhYGeQ5Ta6VGlo5Ji4+0ja+
+	dvtIXFI/F+SkPP6Z1YqCU0pV/yB/0qZ5pYrNHSL0jNLO1YUOG1x++miftWPtspOD/2QODLiUutEX9
+	t6/+/BUg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50500)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w0Jff-000000006R7-0pos;
+	Wed, 11 Mar 2026 13:32:19 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w0Jfb-000000006Gm-0FRS;
+	Wed, 11 Mar 2026 13:32:15 +0000
+Date: Wed, 11 Mar 2026 13:32:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: jan.petrous@oss.nxp.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	vladimir.oltean@nxp.com, boon.khai.ng@altera.com
+Subject: Re: [PATCH v10 0/5] Support multi-channel IRQs in stmmac platform
+ drivers
+Message-ID: <abFu3mJP0Y6Ra1BR@shell.armlinux.org.uk>
+References: <20260311-dwmac_multi_irq-v10-0-7ab1669759b5@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-5-398f37f26ef0@oss.qualcomm.com>
+In-Reply-To: <20260311-dwmac_multi_irq-v10-0-7ab1669759b5@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_063238_341831_C4D201C3 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,292 +96,318 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 04:44:19PM +0100, Bartosz Golaszewski wrote:
-> Add support for BAM pipe locking. To that end: when starting DMA on an RX
-> channel - prepend the existing queue of issued descriptors with an
-> additional "dummy" command descriptor with the LOCK bit set. Once the
-> transaction is done (no more issued descriptors), issue one more dummy
-> descriptor with the UNLOCK bit.
+On Wed, Mar 11, 2026 at 11:17:57AM +0100, Jan Petrous via B4 Relay wrote:
+> The stmmac core supports two interrupt modes, controlled by the
+> flag STMMAC_FLAG_MULTI_MSI_EN:
 > 
-> We *must* wait until the transaction is signalled as done because we
-> must not perform any writes into config registers while the engine is
-> busy.
-> 
-> The dummy writes must be issued into a scratchpad register of the client
-> so provide a mechanism to communicate the right address via descriptor
-> metadata.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  drivers/dma/qcom/bam_dma.c       | 175 ++++++++++++++++++++++++++++++++++++++-
->  include/linux/dma/qcom_bam_dma.h |   4 +
->  2 files changed, 176 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index 83491e7c2f17d8c9d12a1a055baea7e3a0a75a53..627c85a2df4dcdbac247d831a4aef047c2189456 100644
-> --- a/drivers/dma/qcom/bam_dma.c
-> +++ b/drivers/dma/qcom/bam_dma.c
-> @@ -28,11 +28,13 @@
->  #include <linux/clk.h>
->  #include <linux/device.h>
->  #include <linux/dma-mapping.h>
-> +#include <linux/dma/qcom_bam_dma.h>
->  #include <linux/dmaengine.h>
->  #include <linux/init.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/kernel.h>
-> +#include <linux/lockdep.h>
->  #include <linux/module.h>
->  #include <linux/of_address.h>
->  #include <linux/of_dma.h>
-> @@ -60,6 +62,8 @@ struct bam_desc_hw {
->  #define DESC_FLAG_EOB BIT(13)
->  #define DESC_FLAG_NWD BIT(12)
->  #define DESC_FLAG_CMD BIT(11)
-> +#define DESC_FLAG_LOCK BIT(10)
-> +#define DESC_FLAG_UNLOCK BIT(9)
->  
->  struct bam_async_desc {
->  	struct virt_dma_desc vd;
-> @@ -391,6 +395,14 @@ struct bam_chan {
->  	struct list_head desc_list;
->  
->  	struct list_head node;
-> +
-> +	/* BAM locking infrastructure */
-> +	bool locked;
+> - When the flag is set, the driver uses multi-channel IRQ mode (Multi-IRQ).
+> - Otherwise, a single IRQ line is requested (aka MAC-IRQ):
 
-Nit: Move this boolean at the end to avoid hole in-between.
+Please can you test with this patch included - it's bubbled up near to
+the top of my patch queue for net-next.
 
-> +	phys_addr_t scratchpad_addr;
-> +	struct scatterlist lock_sg;
-> +	struct scatterlist unlock_sg;
-> +	struct bam_cmd_element lock_ce;
-> +	struct bam_cmd_element unlock_ce;
->  };
->  
->  static inline struct bam_chan *to_bam_chan(struct dma_chan *common)
-> @@ -652,6 +664,27 @@ static int bam_slave_config(struct dma_chan *chan,
->  	return 0;
->  }
->  
-> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
-> +{
-> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
-> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
-> +	struct bam_desc_metadata *metadata = data;
-> +
-> +	if (!data)
-> +		return -EINVAL;
-> +
-> +	if (!bdata->pipe_lock_supported)
-> +		return -EOPNOTSUPP;
+8<===
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH net-next] net: stmmac: move MSI data out of struct stmmac_priv
 
-I don't think you should error out if pipe lock is not supported. You can safely
-return 0 so that the client can continue to do DMA. Otherwise, if the client
-tries to do DMA on a non-pipe lock supported platform (a valid case), DMA will
-fail.
+Only three platforms supprt MSIs, which means having all the strings
+and interrupt arrays always allocated wastes space. None of this data
+is performance critical - this data is only used when requesting and
+releasing the MSI interrupts.
 
-There is also no incentive for the clients to know whether pipe lock is
-supported or not as they can proceed anyway.
+Move the MSI data out of struct stmmac_priv into its own separately
+allocated structure, and move its initialisation to a separate
+function.
 
-> +
-> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
-> +	.attach = bam_metadata_attach,
-> +};
-> +
->  /**
->   * bam_prep_slave_sg - Prep slave sg transaction
->   *
-> @@ -668,6 +701,7 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  	void *context)
->  {
->  	struct bam_chan *bchan = to_bam_chan(chan);
-> +	struct dma_async_tx_descriptor *tx_desc;
->  	struct bam_device *bdev = bchan->bdev;
->  	struct bam_async_desc *async_desc;
->  	struct scatterlist *sg;
-> @@ -723,7 +757,12 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  		} while (remainder > 0);
->  	}
->  
-> -	return vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	tx_desc = vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	if (!tx_desc)
-> +		return NULL;
-> +
-> +	tx_desc->metadata_ops = &bam_metadata_ops;
-> +	return tx_desc;
->  }
->  
->  /**
-> @@ -1012,6 +1051,112 @@ static void bam_apply_new_config(struct bam_chan *bchan,
->  	bchan->reconfigure = 0;
->  }
->  
-> +static struct bam_async_desc *
-> +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
-> +		   struct bam_cmd_element *ce, unsigned long flag)
-> +{
-> +	struct dma_chan *chan = &bchan->vc.chan;
-> +	struct bam_async_desc *async_desc;
-> +	struct bam_desc_hw *desc;
-> +	struct virt_dma_desc *vd;
-> +	struct virt_dma_chan *vc;
-> +	unsigned int mapped;
-> +	dma_cookie_t cookie;
-> +	int ret;
-> +
-> +	sg_init_table(sg, 1);
-> +
-> +	async_desc = kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
-> +	if (!async_desc) {
-> +		dev_err(bchan->bdev->dev, "failed to allocate the BAM lock descriptor\n");
-> +		return NULL;
-> +	}
-> +
-> +	async_desc->num_desc = 1;
-> +	async_desc->curr_desc = async_desc->desc;
-> +	async_desc->dir = DMA_MEM_TO_DEV;
-> +
-> +	desc = async_desc->desc;
-> +
-> +	bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0);
-> +	sg_set_buf(sg, ce, sizeof(*ce));
-> +
-> +	mapped = dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DMA_PREP_CMD);
-> +	if (!mapped) {
-> +		kfree(async_desc);
-> +		return NULL;
-> +	}
-> +
-> +	desc->flags |= cpu_to_le16(DESC_FLAG_CMD | flag);
-> +	desc->addr = sg_dma_address(sg);
-> +	desc->size = sizeof(struct bam_cmd_element);
-> +
-> +	vc = &bchan->vc;
-> +	vd = &async_desc->vd;
-> +
-> +	dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
-> +	vd->tx.flags = DMA_PREP_CMD;
-> +	vd->tx.desc_free = vchan_tx_desc_free;
-> +	vd->tx_result.result = DMA_TRANS_NOERROR;
-> +	vd->tx_result.residue = 0;
-> +
-> +	cookie = dma_cookie_assign(&vd->tx);
-> +	ret = dma_submit_error(cookie);
-> +	if (ret)
-> +		return NULL;
+This removes 768 bytes from struct stmmac_priv.
 
-Why can't you pass the actual error pointer to the caller. Right now, caller
-just treats all failures as -ENOMEM.
+Link: https://lore.kernel.org/r/aYtq4ypxXTvn_Is6@shell.armlinux.org.uk
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  | 31 +++---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 96 ++++++++++++-------
+ 2 files changed, 77 insertions(+), 50 deletions(-)
 
-> +
-> +	return async_desc;
-> +}
-> +
-> +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
-> +{
-> +	struct bam_device *bdev = bchan->bdev;
-> +	const struct bam_device_data *bdata = bdev->dev_data;
-> +	struct bam_async_desc *lock_desc;
-> +	struct bam_cmd_element *ce;
-> +	struct scatterlist *sgl;
-> +	unsigned long flag;
-> +
-> +	lockdep_assert_held(&bchan->vc.lock);
-> +
-> +	if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
-> +	    bchan->slave.direction != DMA_MEM_TO_DEV)
-> +		return 0;
-> +
-> +	if (lock) {
-> +		sgl = &bchan->lock_sg;
-> +		ce = &bchan->lock_ce;
-> +		flag = DESC_FLAG_LOCK;
-> +	} else {
-> +		sgl = &bchan->unlock_sg;
-> +		ce = &bchan->unlock_ce;
-> +		flag = DESC_FLAG_UNLOCK;
-> +	}
-> +
-> +	lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
-> +	if (!lock_desc)
-> +		return -ENOMEM;
-> +
-> +	if (lock)
-> +		list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +	else
-> +		list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +
-> +	bchan->locked = lock;
-> +
-> +	return 0;
-> +}
-> +
-> +static int bam_setup_pipe_lock(struct bam_chan *bchan)
-> +{
-> +	return bam_do_setup_pipe_lock(bchan, true);
-> +}
-> +
-> +static int bam_setup_pipe_unlock(struct bam_chan *bchan)
-> +{
-> +	return bam_do_setup_pipe_lock(bchan, false);
-> +}
-> +
->  /**
->   * bam_start_dma - start next transaction
->   * @bchan: bam dma channel
-> @@ -1121,6 +1266,7 @@ static void bam_dma_work(struct work_struct *work)
->  	struct bam_device *bdev = from_work(bdev, work, work);
->  	struct bam_chan *bchan;
->  	unsigned int i;
-> +	int ret;
->  
->  	/* go through the channels and kick off transactions */
->  	for (i = 0; i < bdev->num_channels; i++) {
-> @@ -1128,6 +1274,13 @@ static void bam_dma_work(struct work_struct *work)
->  
->  		guard(spinlock_irqsave)(&bchan->vc.lock);
->  
-> +		if (list_empty(&bchan->vc.desc_issued) && bchan->locked) {
-
-I fully agree with Stephan that we cannot rely on this to ensure completion of
-previous commands. But I can't help with the NWD behavior :/
-
-> +			ret = bam_setup_pipe_unlock(bchan);
-
-if (bam_setup_pipe_unlock())?
-
-> +			if (ret)
-> +				dev_err(bchan->vc.chan.slave,
-> +					"Failed to set up the pipe unlock descriptor\n");
-> +		}
-> +
->  		if (!list_empty(&bchan->vc.desc_issued) && !IS_BUSY(bchan))
->  			bam_start_dma(bchan);
->  	}
-> @@ -1142,9 +1295,17 @@ static void bam_dma_work(struct work_struct *work)
->  static void bam_issue_pending(struct dma_chan *chan)
->  {
->  	struct bam_chan *bchan = to_bam_chan(chan);
-> +	int ret;
->  
->  	guard(spinlock_irqsave)(&bchan->vc.lock);
->  
-> +	if (!bchan->locked) {
-> +		ret = bam_setup_pipe_lock(bchan);
-
-if (bam_setup_pipe_lock())?
-
-- Mani
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index bba9bb9c95bf..7a66edba8f66 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -243,6 +243,23 @@ struct stmmac_est {
+ 	u32 max_sdu[MTL_MAX_TX_QUEUES];
+ };
+ 
++struct stmmac_msi {
++	int sfty_ce_irq;
++	int sfty_ue_irq;
++	int rx_irq[MTL_MAX_RX_QUEUES];
++	int tx_irq[MTL_MAX_TX_QUEUES];
++
++	/*irq name */
++	char int_name_mac[IFNAMSIZ + 9];
++	char int_name_wol[IFNAMSIZ + 9];
++	char int_name_lpi[IFNAMSIZ + 9];
++	char int_name_sfty[IFNAMSIZ + 10];
++	char int_name_sfty_ce[IFNAMSIZ + 10];
++	char int_name_sfty_ue[IFNAMSIZ + 10];
++	char int_name_rx_irq[MTL_MAX_RX_QUEUES][IFNAMSIZ + 14];
++	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
++};
++
+ struct stmmac_priv {
+ 	/* Frequently used values are kept adjacent for cache effect */
+ 	u32 tx_coal_frames[MTL_MAX_TX_QUEUES];
+@@ -329,19 +346,7 @@ struct stmmac_priv {
+ 	unsigned long active_vlans[BITS_TO_LONGS(VLAN_N_VID)];
+ 	unsigned int num_double_vlans;
+ 	int sfty_irq;
+-	int sfty_ce_irq;
+-	int sfty_ue_irq;
+-	int rx_irq[MTL_MAX_RX_QUEUES];
+-	int tx_irq[MTL_MAX_TX_QUEUES];
+-	/*irq name */
+-	char int_name_mac[IFNAMSIZ + 9];
+-	char int_name_wol[IFNAMSIZ + 9];
+-	char int_name_lpi[IFNAMSIZ + 9];
+-	char int_name_sfty[IFNAMSIZ + 10];
+-	char int_name_sfty_ce[IFNAMSIZ + 10];
+-	char int_name_sfty_ue[IFNAMSIZ + 10];
+-	char int_name_rx_irq[MTL_MAX_RX_QUEUES][IFNAMSIZ + 14];
+-	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
++	struct stmmac_msi *msi;
+ 
+ #ifdef CONFIG_DEBUG_FS
+ 	struct dentry *dbgfs_dir;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 11150bddd872..24de4033c886 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3725,6 +3725,7 @@ static void stmmac_free_irq(struct net_device *dev,
+ 			    enum request_irq_err irq_err, int irq_idx)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
++	struct stmmac_msi *msi = priv->msi;
+ 	int j;
+ 
+ 	switch (irq_err) {
+@@ -3733,27 +3734,27 @@ static void stmmac_free_irq(struct net_device *dev,
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_TX:
+ 		for (j = irq_idx - 1; j >= 0; j--) {
+-			if (priv->tx_irq[j] > 0) {
+-				irq_set_affinity_hint(priv->tx_irq[j], NULL);
+-				free_irq(priv->tx_irq[j], &priv->dma_conf.tx_queue[j]);
++			if (msi->tx_irq[j] > 0) {
++				irq_set_affinity_hint(msi->tx_irq[j], NULL);
++				free_irq(msi->tx_irq[j], &priv->dma_conf.tx_queue[j]);
+ 			}
+ 		}
+ 		irq_idx = priv->plat->rx_queues_to_use;
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_RX:
+ 		for (j = irq_idx - 1; j >= 0; j--) {
+-			if (priv->rx_irq[j] > 0) {
+-				irq_set_affinity_hint(priv->rx_irq[j], NULL);
+-				free_irq(priv->rx_irq[j], &priv->dma_conf.rx_queue[j]);
++			if (msi->rx_irq[j] > 0) {
++				irq_set_affinity_hint(msi->rx_irq[j], NULL);
++				free_irq(msi->rx_irq[j], &priv->dma_conf.rx_queue[j]);
+ 			}
+ 		}
+ 
+-		if (priv->sfty_ue_irq > 0 && priv->sfty_ue_irq != dev->irq)
+-			free_irq(priv->sfty_ue_irq, dev);
++		if (msi->sfty_ue_irq > 0 && msi->sfty_ue_irq != dev->irq)
++			free_irq(msi->sfty_ue_irq, dev);
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_SFTY_UE:
+-		if (priv->sfty_ce_irq > 0 && priv->sfty_ce_irq != dev->irq)
+-			free_irq(priv->sfty_ce_irq, dev);
++		if (msi->sfty_ce_irq > 0 && msi->sfty_ce_irq != dev->irq)
++			free_irq(msi->sfty_ce_irq, dev);
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_SFTY_CE:
+ 		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
+@@ -3773,9 +3774,30 @@ static void stmmac_free_irq(struct net_device *dev,
+ 	}
+ }
+ 
++static int stmmac_msi_init(struct stmmac_priv *priv,
++			   struct stmmac_resources *res)
++{
++	int i;
++
++	priv->msi = devm_kmalloc(priv->device, sizeof(*priv->msi), GFP_KERNEL);
++	if (!priv->msi)
++		return -ENOMEM;
++
++	priv->msi->sfty_ce_irq = res->sfty_ce_irq;
++	priv->msi->sfty_ue_irq = res->sfty_ue_irq;
++
++	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
++		priv->msi->rx_irq[i] = res->rx_irq[i];
++	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
++		priv->msi->tx_irq[i] = res->tx_irq[i];
++
++	return 0;
++}
++
+ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
++	struct stmmac_msi *msi = priv->msi;
+ 	enum request_irq_err irq_err;
+ 	int irq_idx = 0;
+ 	char *int_name;
+@@ -3783,7 +3805,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	int i;
+ 
+ 	/* For common interrupt */
+-	int_name = priv->int_name_mac;
++	int_name = msi->int_name_mac;
+ 	sprintf(int_name, "%s:%s", dev->name, "mac");
+ 	ret = request_irq(dev->irq, stmmac_mac_interrupt,
+ 			  0, int_name, dev);
+@@ -3799,7 +3821,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	 * is used for WoL
+ 	 */
+ 	if (priv->wol_irq > 0 && priv->wol_irq != dev->irq) {
+-		int_name = priv->int_name_wol;
++		int_name = msi->int_name_wol;
+ 		sprintf(int_name, "%s:%s", dev->name, "wol");
+ 		ret = request_irq(priv->wol_irq,
+ 				  stmmac_mac_interrupt,
+@@ -3817,7 +3839,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	 * Error line in case of another line is used
+ 	 */
+ 	if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq) {
+-		int_name = priv->int_name_sfty;
++		int_name = msi->int_name_sfty;
+ 		sprintf(int_name, "%s:%s", dev->name, "safety");
+ 		ret = request_irq(priv->sfty_irq, stmmac_safety_interrupt,
+ 				  0, int_name, dev);
+@@ -3833,16 +3855,16 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	/* Request the Safety Feature Correctible Error line in
+ 	 * case of another line is used
+ 	 */
+-	if (priv->sfty_ce_irq > 0 && priv->sfty_ce_irq != dev->irq) {
+-		int_name = priv->int_name_sfty_ce;
++	if (msi->sfty_ce_irq > 0 && msi->sfty_ce_irq != dev->irq) {
++		int_name = msi->int_name_sfty_ce;
+ 		sprintf(int_name, "%s:%s", dev->name, "safety-ce");
+-		ret = request_irq(priv->sfty_ce_irq,
++		ret = request_irq(msi->sfty_ce_irq,
+ 				  stmmac_safety_interrupt,
+ 				  0, int_name, dev);
+ 		if (unlikely(ret < 0)) {
+ 			netdev_err(priv->dev,
+ 				   "%s: alloc sfty ce MSI %d (error: %d)\n",
+-				   __func__, priv->sfty_ce_irq, ret);
++				   __func__, msi->sfty_ce_irq, ret);
+ 			irq_err = REQ_IRQ_ERR_SFTY_CE;
+ 			goto irq_error;
+ 		}
+@@ -3851,16 +3873,16 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	/* Request the Safety Feature Uncorrectible Error line in
+ 	 * case of another line is used
+ 	 */
+-	if (priv->sfty_ue_irq > 0 && priv->sfty_ue_irq != dev->irq) {
+-		int_name = priv->int_name_sfty_ue;
++	if (msi->sfty_ue_irq > 0 && msi->sfty_ue_irq != dev->irq) {
++		int_name = msi->int_name_sfty_ue;
+ 		sprintf(int_name, "%s:%s", dev->name, "safety-ue");
+-		ret = request_irq(priv->sfty_ue_irq,
++		ret = request_irq(msi->sfty_ue_irq,
+ 				  stmmac_safety_interrupt,
+ 				  0, int_name, dev);
+ 		if (unlikely(ret < 0)) {
+ 			netdev_err(priv->dev,
+ 				   "%s: alloc sfty ue MSI %d (error: %d)\n",
+-				   __func__, priv->sfty_ue_irq, ret);
++				   __func__, msi->sfty_ue_irq, ret);
+ 			irq_err = REQ_IRQ_ERR_SFTY_UE;
+ 			goto irq_error;
+ 		}
+@@ -3870,23 +3892,23 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
+ 		if (i >= MTL_MAX_RX_QUEUES)
+ 			break;
+-		if (priv->rx_irq[i] == 0)
++		if (msi->rx_irq[i] == 0)
+ 			continue;
+ 
+-		int_name = priv->int_name_rx_irq[i];
++		int_name = msi->int_name_rx_irq[i];
+ 		sprintf(int_name, "%s:%s-%d", dev->name, "rx", i);
+-		ret = request_irq(priv->rx_irq[i],
++		ret = request_irq(msi->rx_irq[i],
+ 				  stmmac_msi_intr_rx,
+ 				  0, int_name, &priv->dma_conf.rx_queue[i]);
+ 		if (unlikely(ret < 0)) {
+ 			netdev_err(priv->dev,
+ 				   "%s: alloc rx-%d  MSI %d (error: %d)\n",
+-				   __func__, i, priv->rx_irq[i], ret);
++				   __func__, i, msi->rx_irq[i], ret);
+ 			irq_err = REQ_IRQ_ERR_RX;
+ 			irq_idx = i;
+ 			goto irq_error;
+ 		}
+-		irq_set_affinity_hint(priv->rx_irq[i],
++		irq_set_affinity_hint(msi->rx_irq[i],
+ 				      cpumask_of(i % num_online_cpus()));
+ 	}
+ 
+@@ -3894,23 +3916,23 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+ 		if (i >= MTL_MAX_TX_QUEUES)
+ 			break;
+-		if (priv->tx_irq[i] == 0)
++		if (msi->tx_irq[i] == 0)
+ 			continue;
+ 
+-		int_name = priv->int_name_tx_irq[i];
++		int_name = msi->int_name_tx_irq[i];
+ 		sprintf(int_name, "%s:%s-%d", dev->name, "tx", i);
+-		ret = request_irq(priv->tx_irq[i],
++		ret = request_irq(msi->tx_irq[i],
+ 				  stmmac_msi_intr_tx,
+ 				  0, int_name, &priv->dma_conf.tx_queue[i]);
+ 		if (unlikely(ret < 0)) {
+ 			netdev_err(priv->dev,
+ 				   "%s: alloc tx-%d  MSI %d (error: %d)\n",
+-				   __func__, i, priv->tx_irq[i], ret);
++				   __func__, i, msi->tx_irq[i], ret);
+ 			irq_err = REQ_IRQ_ERR_TX;
+ 			irq_idx = i;
+ 			goto irq_error;
+ 		}
+-		irq_set_affinity_hint(priv->tx_irq[i],
++		irq_set_affinity_hint(msi->tx_irq[i],
+ 				      cpumask_of(i % num_online_cpus()));
+ 	}
+ 
+@@ -7806,12 +7828,12 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	priv->dev->irq = res->irq;
+ 	priv->wol_irq = res->wol_irq;
+ 	priv->sfty_irq = res->sfty_irq;
+-	priv->sfty_ce_irq = res->sfty_ce_irq;
+-	priv->sfty_ue_irq = res->sfty_ue_irq;
+-	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
+-		priv->rx_irq[i] = res->rx_irq[i];
+-	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
+-		priv->tx_irq[i] = res->tx_irq[i];
++
++	if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN) {
++		ret = stmmac_msi_init(priv, res);
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (!is_zero_ether_addr(res->mac))
+ 		eth_hw_addr_set(priv->dev, res->mac);
+-- 
+2.47.3
 
 -- 
-மணிவண்ணன் சதாசிவம்
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
