@@ -4,106 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559DA1049515
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8746D104BECF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=; b=HRlnu4/0uIgXlAT9FPiVuVFjaI
-	tcWAi3NfvI0EFwNlGIGHWBU8ZSsnBDjYSF5FzqJVectL2/s2jJrQEmm2MZqB5PHYE9gWKV2STa445
-	VC0xtqSF0mL2Ae0FuzH0F4ykBFoBraVd7me3ciL0nZVDSF/SF3PKxOBchU/w19LGHfO4kDqU17Cho
-	da0HCQ1wCCbFt7IoMmly1aIA46Fiv5NnqUUqKMeg7iIUb8ZF6hXeGHC0mv6PFHgVxhE/0/oQp/n54
-	FbYt99EpCk/Y7cmHRzDvUuDoVn3VWyi5i0VjUZZjC/Lo6byxK/YNif8w1jKIX05zmFd4CwaM63tpY
-	wYQdynew==;
+	bh=bX+mY2WVrmnpJpn2taxiXuV/3B4F/EocZyWSHgahxE8=; b=smy6RJlUpmfflkFZe7x5DE18pw
+	NneOG17HV1kIuNw8EfdWcA8vqn6jn0aXM0flOnClvSJOFVasC4u31TsYP1EeAmuII+g6FYEpbexyr
+	eIWhTizFHrHfBMRRTtxgeoMFEbNi4jfWn3BRXIarbWh7bgY26dsAewTFAZvxco360ag+1342ktN5B
+	l4pYA3EJR+tkYvpMtXBfkDdolU+8Cf7/14wBb7vk+D7UnqQdFrsHd3j+Xah/oU2dCDJByN5pJcFT/
+	NM8LxJKWwmKuNvpC6Nu6cz4ys+58NctXgH2sZS9VtqahFUYpEhRqtRkjYriGDatEeq9D9P2cwRRkc
+	WXBFi66Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gj5-0000000BPc9-3m1X;
-	Wed, 11 Mar 2026 10:23:39 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1w0GkZ-0000000BPts-1WTr;
+	Wed, 11 Mar 2026 10:25:11 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gj3-0000000BPba-2Tj2
+	id 1w0GkW-0000000BPtM-2EU3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 10:23:38 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-5091ed02c54so404151cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:23:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773224616; cv=none;
+	Wed, 11 Mar 2026 10:25:10 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50906a98ffeso521881cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:25:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773224707; cv=none;
         d=google.com; s=arc-20240605;
-        b=cZHTbp+Y86QeJdjief7ILtGrYSY18lzufybQ1gownOmpozHizlLVR3/geMEmFXl4d/
-         iY0X+AWNJfemCR3IjCzPvpurwbxYPiyC2ojOLiyhCqEACNeenSnuyAzvYw0Gl0wrUu6+
-         QPXSBjhd5XXL0bwE1wwLqndaKRrLjBewrhTt+LHwnrvbOIB4t+JbU1tFlLLbE0gxmek5
-         +pPrlsbt5JFIsXKADWEtFRXkXkykvbfeN9DGBVv0cgpfwZ9Urjp9oo49KjxBBxtfceuU
-         gCUofOsRWsMgnpBYc/Ppc3M6EKGwm2hr6k62c0ZCvSPgXhkrT0bKYthOEHav5SOdFgCJ
-         JWEQ==
+        b=iyJq58aTXILKwvyJBHZ0J3lj8L44umuhN4KSJzSFyXy57ZzdZR74vWsYcYPJw1EgKu
+         USFugYvsbhuQKrTGO24wJabWuaq1VskNPJZIdJ4jDgcsbqY6d8st/249ASMS7PdoIj+u
+         1gqF3e6CiOfs/ptw0gDuXs2CSwsx+YE8KITV1RrJUSb7IzNrU/RqYjNATo2YboabPf12
+         3vU9QBjIGML2/O0ybTf7OYIQHWd3YrxvhOtmdSM6YANUCjHp99JjSPUC7TvvPOC72FWz
+         ie/Qsa4pkOHzVxqHN97Uj4Lr4X0GJfSdlzQBSxUWIkDH8EVJvsrnbt/MdnbSXZG9IenX
+         BQWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
-        fh=UtvgimqV4eyJA1p4SFDoYRMu8zbVOdW1ejmSvzBSgG8=;
-        b=TOJ8hZuNrIrCwrn08z/0upWMAH5WtHkcODnpBm8kI7Wjeb26UcaM5yOyjyrFq6mO4v
-         /+VYf3g3IFUVPCcXiCZ4IVSvSRsBPfvVVl1IIvVL4y0aUObrBwDHG9NOyhpIeKLmDW/0
-         Vwo/jyHRIOo8pvIeXzJDoGp8l8l67gAxIn0P8AX3UUzPsuGMS+LXH90INcNu5m4clYW6
-         JzSdT7w+fNB2x1zK/TYsMcZ3ayx8/4Z9beSJALZMTufNcfsVuAs8teVRVgzrNblKGhVp
-         c4+xTYVAZcGLY4qlKsM+BVZWqIepboZIBCyHxcglqy2OMzX+chUUPwa5P+YBtz4iVRRo
-         owew==;
+        bh=bX+mY2WVrmnpJpn2taxiXuV/3B4F/EocZyWSHgahxE8=;
+        fh=V3Dtdc+m82ljNuhWiJajf9cspvC50LIt/2jz6k98ib4=;
+        b=KG304zCcXb5iOUAr/k515bVRWiKQQT9GdErfyAXXpJUywOJRuya2IgJfSD4qgr9tZi
+         lTBl2yWWGo450XpcatNnEimmGnstOU+oO173DyzG/emq7Gwwodqq46eEi4T1ktUa8rkX
+         sCipB17fS/0PD8PtINetyFqfnRJord/M+1cE7veDqno3AaU3+4Cq7SgCVRdDyN21AieK
+         Inqmzn5kaCLtyXAlxnB/+XlK3jWG7kBQw1vUUJQ3QmOJHYMyM25LnC8adlDfpIRF0pqO
+         sBAZqAqio+S+SGSn9q9TzBC4MzxZ6hDZmS0YDn5J2GSQebV5Of5Z3TYEWF7W6Iol16AT
+         R7TA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773224616; x=1773829416; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773224707; x=1773829507; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
-        b=yGdkGNxIjKR6sj5PZkftkAPi2GpHw1piUeCOE0mvk1zTgGD3gC5oOy02O5mX5u2686
-         wGb47V1m4sb92z8Vl2eTy27SFCuXaQ53tARB2f3kpvqgShX+DmE8zlgP496Olzki/Y6B
-         u6AsYsLSGDBaAz5WWg9T0UNKoWCfvBzHbO6X556QW7jCfMlS82F+RiNALyu1PFYqhsmX
-         rw5h1i0hQfEGli1RJLObFqtu3DIk0Ch1S+MIJLLVWUB8rTwrJJH/+4hijWJUmSfkf4U8
-         Nqb477z0t+ApgSHCaWPhLhZLIT3u8HQNovzz5T5bkVBMGyxHf2Lv88c9/DYG1th5shJ7
-         FF+Q==
+        bh=bX+mY2WVrmnpJpn2taxiXuV/3B4F/EocZyWSHgahxE8=;
+        b=iiId52V9wCAL/AqTNQnAyTRBfRUwxB0WyXS5+IljSZujzgRR5XLKDXtYkKLb0aE6An
+         JTjajgVSOY2rHltcEqHE7xRB1U0IZmdNEUqM58WBC4HccQyWsuWWF8WYDFeDYh6r77DC
+         nIaImXijmAXBmWTziKiYlF8YqKc2jf2Vhgdk2iY2mhnHzXapyKH59gEvzuUvc5VjC2R1
+         eFWT6a17Vy5kOBK5B9PkH/yJXLU4FuI7z8kha6f8QYYi1m9xh9hq9AVlZGRgUkPc6TUP
+         LEStvC9rgdulp66PHlsQD3Kg/HY62O9812wxIFM9pdzvO11DAWrr4J2goJyXSkH/lCmu
+         tOAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773224616; x=1773829416;
+        d=1e100.net; s=20230601; t=1773224707; x=1773829507;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
-        b=P8jZyPZnLzw7QyVqjQeyA/bNtaULb+KjJVtiZ2C+UgNmnt5OZxavvz+W4tQcjFC75C
-         7ToUENNSwe1/bRszfMQP/y46JC1p5qZBS+F//RIH4iMPLPpZ8p9YvHHcDVXykF7zwvgF
-         k3O/icECPLloOBpiN4iHb2UedG8jAhq10bLP5Ve8mkExIt8xl2uLaWmM4D601bSeMZV9
-         wB3YGDvYsJUTDc7cHK9vKe184C3z5kWdgm7AUEcHeQhC2ykqWY5IH5x62cCUvnD0pUok
-         zhOQkRzYpCIfiobYL+bDP8mnW+4Jr2fRqRdbjdqP3F75Pv/NIV6NbXA5nDHHy5pt0tz0
-         yOsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVVRYDqFVPXoGx5WFJzlKWbBe02s2B5xRrl461KYhGFv2SfbP13uKC7EUbONov9qKNzTUqkXzAciiJkcQlBs39I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDTWYZtNSv1a7hblpunm6gFzDdmGlDC8rIjE7O5/5GFjzuvSCr
-	zgk6xIua6j73gN83mf5BjRjYErl/y/lmcifMfq+ZjFzUh+6ceiDGgZGf/gy/yuX4HDul7s5cgc+
-	SsmFUDM2TugW2haobz49wjaEMN03+TfqOnOGxQOD2
-X-Gm-Gg: ATEYQzw+QVfnwrxuIvHdCQ2rVCx86hrM/Qp2FN+hojkIwQ7zJIJxiVoBMdY9VKYkd4X
-	Rwh5odDEjYDu5ntHE/suA3hdWSPmzFkCnumcuTxMywpiViKEIDBzcQ7bIHw1a0WXUp2OLzLAJAZ
-	roeKg8awL4Qhc2VJZVl5ZdP2s5vJSTWLMkm27l1ExyWYb0u6P7NEsomGv9XoyNVnt/84q7Z3VzR
-	wyPKb0UuuHI4dEkk7TrsuIceVfFf9WpEDZwUZCL+lSQ8NaPIDJpMLm5IdeN1ezagt5uWSNkseJx
-	aVd+LTSFtyCF71PoQJv368uSdAf1sWYoJfnJeA==
-X-Received: by 2002:a05:622a:14cb:b0:509:1eca:6d24 with SMTP id
- d75a77b69052e-5093818c817mr10979211cf.2.1773224615864; Wed, 11 Mar 2026
- 03:23:35 -0700 (PDT)
+        bh=bX+mY2WVrmnpJpn2taxiXuV/3B4F/EocZyWSHgahxE8=;
+        b=euueg2awBz4jgsDwgsSZg1Iiy4JmIU3I/T7+PX9M9qkS+0I3rXm4DyqnsHvG+JObCZ
+         0PK9rmNAs/Ljjh9gM777TM/ILfJM/ng4QGdDD1yXqNsaLtdkwELrZG6nYjx96bEWBt7D
+         YujHNzK1DEbgHZeG8hPJglyNZDLEgmIfzS+kqNB/Tqy2+dgSX3TjeHJ9n26473WUVfIp
+         0sGH30zUkgU+PSBgbmuPH/Zj+zRyLhaex211OlxM6Wm98EC203vL9KSS+gVfizBn7R1q
+         HmjqyvHwWXp83pa43ZNu2WgRmCTXhGweEL/OvNvFnr8nvtwuYQDxvQCXTxysJeh/RShN
+         ePdg==
+X-Forwarded-Encrypted: i=1; AJvYcCXyAk4KpRg3SUjWUaD4yPjXOwHzRcAaFOji3JsKgYJaF/Ds7kUqyr/N35wgC8lCR1ajq95KpwMqYaoIbKsGlaJs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt51VixMEjB4tsy+oR+EsvsBqomLl8e3SKnPMqj4yMCdkkBkaF
+	o7FJbyGyqT3E6Gf3/TcfqgvmvKNFxV3dxQho0HRJyaHq8pyBI8oRlaKEbfsSm9vxDDEDY05Us1q
+	7bw8ILj3azaUo157NUfgmxnZZ5T/kQo1csqVDsyHL
+X-Gm-Gg: ATEYQzwq7b95YMwVYzQMBZxxPXGBTtXJeSqtl7pG61S0FSEsDXXVlajx8pUfyibwW/T
+	UsMHhhr5TzgjjT5vuw0zGC/+7na22zIYNNukGwPGCnOpWcrr4/Av2YZ7JYL+zbuYSN85tYTG7It
+	mVOExkDg/OmVkb32etftSkkD0i9/7MR9WUNL40aRmHkKoz74w7B9OvGEmqT22cB2KIOJDvVapTv
+	SpqiVeGtap9wsbIiT0TvbvI1EmO/5kMZj+IPADIfg3Gc+ocGZh+dZtriC6mOzKtZpZD4r3JYQ+V
+	qIpslKfBRxqZjl3tlK3lQYJ0zPvvkxiEmn75YQ==
+X-Received: by 2002:a05:622a:11d5:b0:509:174d:3224 with SMTP id
+ d75a77b69052e-50939a12f0amr9025571cf.11.1773224706917; Wed, 11 Mar 2026
+ 03:25:06 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-14-will@kernel.org>
-In-Reply-To: <20260305144351.17071-14-will@kernel.org>
+References: <20260119124629.2563-1-will@kernel.org> <20260119124629.2563-15-will@kernel.org>
+In-Reply-To: <20260119124629.2563-15-will@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Wed, 11 Mar 2026 10:22:58 +0000
-X-Gm-Features: AaiRm51nPsb7tNbmy2Jyecx_WTDjL9A5ByE7o_zgvxGOIXmo2XmEdSMXGPWCjcc
-Message-ID: <CA+EHjTzCzgMRF7uirWtd7GjXqjTvUf8sootS5yzj2nfQxMZMVg@mail.gmail.com>
-Subject: Re: [PATCH v3 13/36] KVM: arm64: Handle aborts from protected VMs
+Date: Wed, 11 Mar 2026 10:24:30 +0000
+X-Gm-Features: AaiRm53g6mmzRXB6NETrMopC8OxkyI8MPN0iN1tfTmOqJxXbfxGb6_DHFLuJIms
+Message-ID: <CA+EHjTzst-FLQ=6Zn=ERDHpeKWd=3w3WeAhZ9PUEjqw5a1vPtA@mail.gmail.com>
+Subject: Re: [PATCH v2 14/35] KVM: arm64: Handle aborts from protected VMs
 To: Will Deacon <will@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>
+	Vincent Donnefort <vdonnefort@google.com>, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_032337_651145_858C983F 
-X-CRM114-Status: GOOD (  27.26  )
+X-CRM114-CacheID: sfid-20260311_032508_605731_39041388 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,7 +117,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Mar 2026 at 14:44, Will Deacon <will@kernel.org> wrote:
+On Mon, 19 Jan 2026 at 12:47, Will Deacon <will@kernel.org> wrote:
 >
 > Introduce a new abort handler for resolving stage-2 page faults from
 > protected VMs by pinning and donating anonymous memory. This is
@@ -131,15 +130,16 @@ Reviewed-by: Fuad Tabba <tabba@google.com>
 
 Cheers,
 /fuad
+
 > ---
 >  arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
 >  1 file changed, 81 insertions(+), 8 deletions(-)
 >
 > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 9d183df0b0ac..4e64528d86a6 100644
+> index a23a4b7f108c..b21a5bf3d104 100644
 > --- a/arch/arm64/kvm/mmu.c
 > +++ b/arch/arm64/kvm/mmu.c
-> @@ -1642,6 +1642,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> @@ -1641,6 +1641,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
 >         return ret != -EAGAIN ? ret : 0;
 >  }
 >
@@ -214,7 +214,7 @@ Cheers,
 >  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
 >                           struct kvm_s2_trans *nested,
 >                           struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -2201,15 +2269,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+> @@ -2190,15 +2258,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
 >                 goto out_unlock;
 >         }
 >
@@ -244,6 +244,6 @@ Cheers,
 >                 ret = 1;
 >  out:
 > --
-> 2.53.0.473.g4a7958ca14-goog
+> 2.52.0.457.g6b5491de43-goog
 >
 
