@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EF3106288E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6669A1062878
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYbMM0oV4uJZ5DTlaHqKUjK6IwMF60wu71++mK95U8E=; b=OCCAP+cpeDfV5IFwEb3WNbnYoo
-	5ls1WNFBeBOT2rCPQMoXeeIJduJfoErMP8Cia9tufe7XWANcwtOjaL50AwZY5qe9q4KNcmsWGy284
-	yMjbl9qRYpRT02QaAifVgxMiawlgIW0WpgVmano44mny8YBZnnWipfxCDKEICfiTq0ft+ASNM9rXe
-	dhPMZBX6pVBSWf27zQBcukl/8O1IOqds0n4Qgd6N30FVfUDnGvxQZymjjAa3Z96n+rzcND9M5AK05
-	EKB4jlWd+P5Br0LMF1Kk+5rYJw32Z5WmlU5hdDdO/aI6nS3FR6lU2oREqOEYYG1CqCgIQq5H8x7S5
-	EBGnOs1w==;
+	bh=cYNLKIwQSasBdYZGFqUzejhZnpcUdrBH4ZJakw/Cw+8=; b=GZyOf7I8vR1+AunyFbdLFiD/dU
+	dJKMP1wRG3phf7XG8WwsyQfpDyX+qcCV+t/KvIFUTQbX1P8ws57LU6qgEqfZ77YRRvX/eLfjDOGnN
+	SdLzzMNvOaVF27wBEMaEVqm8zVyTTPdSv7I7zdqUantpaFe4Vpwb1GbLYvI1CsvKxHLowhCsIV5h7
+	gQ1JYKZYyRX6VGJKkscuvvROHtxaWBr9VXyJEasbimCDrwmFi8mmcARfX9601bQPPLDQ5WqpJHMi2
+	VaaaDulT4eawg44ZpVbDZ2314BrgR/qqvmg1tToJUFV0YXqeyOx7Mouy8dvRSMlljiJlkfcla5SyA
+	b+2yinKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Il0-0000000BZ7O-0pdY;
-	Wed, 11 Mar 2026 12:33:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0Inz-0000000BZNX-0E9y;
+	Wed, 11 Mar 2026 12:36:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Iky-0000000BZ6i-217X;
-	Wed, 11 Mar 2026 12:33:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEB4E444A6;
-	Wed, 11 Mar 2026 12:33:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8A80C4CEF7;
-	Wed, 11 Mar 2026 12:33:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773232423;
-	bh=+J1EgSs3yVorF0G+jb94JiobSJNb8UX0YbEzR1remQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pJvRthEmWqz76nsAf972JnvXxTWFbzxueKgKXgL7xDkHyW36BBSCIQBATnuxbCAoK
-	 SeqYc3bhQbkREYqkHDivdLSaYwVM4egN56Yi+5kg/wQ/KHMMzwJiz7Pcj2NVl0MyZ2
-	 YFfJfEZXb0Q2YM+vGnhARKXtYTMs/21KFX1C6uzstcfz+yQzFjWlY2DNTr2xKhkCTb
-	 aLGPXXb38lVwC1kGY0L7o2/DYp2fEeATbHcr51XRe1l+J6Md51ncGhQmJZY/VMX5vf
-	 yqgVLSB6dG9tNkwD4ghuSmm/PENZBdFaBOGP8rq8RNTIRPkGALY18ptSLZssx+asCP
-	 H5AuroHcT7P3w==
-Date: Wed, 11 Mar 2026 18:02:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
-	Grimmauld <grimmauld@grimmauld.de>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <pvef2ck2xpmq6amueka25odt6wjd3usmkjspf3mvlmfzsd7lyz@5eraltok22tq>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+	id 1w0Inw-0000000BZN9-0rP6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 12:36:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=cYNLKIwQSasBdYZGFqUzejhZnpcUdrBH4ZJakw/Cw+8=; b=RH
+	OIw8K0qHvCBbrvpteh+VT0BrYx/46g/NdI8GvvNAp31wBun/NJpCAvqnEdPQ9fs+QIFmMO6qK6Cwn
+	g/+RhTu31W0S6gMZ99WhvWo+oEVArBxTPDaJ9R96CHAUvB8ggbzTCEkB8VzHD0LPiaMMC+7F0oziM
+	UutcfMNomj8D0Oo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w0Inf-00BB9I-F9; Wed, 11 Mar 2026 13:36:31 +0100
+Date: Wed, 11 Mar 2026 13:36:31 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Potin Lai <potin.lai.pt@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Patrick Williams <patrick@stwcx.xyz>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, Cosmo Chou <cosmo.chou@quantatw.com>,
+	Mike Hsieh <Mike_Hsieh@quantatw.com>,
+	Potin Lai <potin.lai@quantatw.com>,
+	Roger Kan <Roger.Kan@quantatw.com>
+Subject: Re: [PATCH v2 0/2] Add Meta (Facebook) SanMiguel BMC (AST2620)
+Message-ID: <8249f102-cc35-4614-9e20-506c51a78d8e@lunn.ch>
+References: <20260203-sanmiguel_init_dts-v2-0-6a5682c32b38@gmail.com>
+ <3256b313-7671-4fda-9949-766906c344a7@lunn.ch>
+ <CAGfYmwUfKk5OrFzJRHyu6h-Jf-cqbxfh62wRmxwOL8K7VfFGfg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+In-Reply-To: <CAGfYmwUfKk5OrFzJRHyu6h-Jf-cqbxfh62wRmxwOL8K7VfFGfg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_053344_574739_4338752E 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260311_053648_263891_E3E2B3C1 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 12:18:59PM +0530, Manivannan Sadhasivam wrote:
+On Wed, Mar 11, 2026 at 02:31:48PM +0800, Potin Lai wrote:
+> On Tue, Feb 3, 2026 at 9:42 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > On Tue, Feb 03, 2026 at 05:48:13PM +0800, Potin Lai wrote:
+> > > Add Linux device tree entries for Meta (Facebook) SanMiguel specific
+> > > devices connected to the AST2620 BMC SoC.
+> > >
+> > > Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+> > > ---
+> > > Changes in v2:
+> > > - change mac0 phy-mode to rgmii-id
+> >
+> > No other change? Was the previous version broken, and never tested? Is
+> > this version broken and not tested? Is the phy-mode ignored, which
+> > suggests something else is broken?
+> >
+> >      Andrew
 > 
-> On Thu, 26 Feb 2026 15:40:23 +0530, Anand Moon wrote:
-> > Rockchip DWC PCIe driver currently performs synchronous link training for
-> > combo PHYs (PCIe 3.0/2.0 and SATA 3.0) during boot. This process waits for
-> > the link to be fully established, adding several milliseconds to the boot
-> > sequence. To optimize boot time, this change enables asynchronous probing,
-> > allowing link establishment to proceed in the background while the kernel
-> > continues probing other devices.
-> > 
-> > [...]
+> Hi Andrew,
 > 
-> Applied, thanks!
-> 
-> [1/1] PCI: dw-rockchip: Enable async probe by default
->       commit: ec392abc95932838bf7e3d659d358f4df9ff5a0a
-> 
+> Sorry for the late reply.
+> Both "rgmii-id" and "rgmii-rxid" modes work fine without connection issues.
+> However, based on the scan testing we performed in U-Boot, "rgmii-id"
+> shows better coverage than "rgmii-rxid". Therefore, we decided to
+> switch to "rgmii-id".
 
-Dropped the patch from controller/dwc-rockchip branch due to concerns with the
-potential deadlock in the phylib. When Bjorn updates the pci/next branch, this
-will get dropped from linux-next as well.
+I'm surprised it works with both, that is well outside the RGMII
+specification. The PHY must be pretty forgiving.
 
-- Mani
+Anyway, thanks for the information.
 
--- 
-மணிவண்ணன் சதாசிவம்
+	Andrew
 
