@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8D4FD0651
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9B8112583A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYnY+3DKY0veSRem1NblkrzYhy2DY8QYTpChFSfMhRk=; b=S2DBDGxL3SuRgcRVIJcZ7gWv0g
-	P+TeE/sTtNalcrMeE298ld9uSKtDHo5nqcPbnCo2t3Mr46JnjZopGxj6Z+tht+GDjSa2Giau+xXJX
-	G6ecBn1SN6qP3QPqytcTJvHskvD9RfgFcH9dVIZqmlrTXsRBYbLAuOWOLsE8z17crqHgzZI0/SKul
-	HYYYHybqZvNj/JU7lVRqazgKj1XOpU3PsMJRN3gcNgVcKB8M9aua2JeX22z2wSjsSQme73iUUWqli
-	lyoI1dPZyWPgHnKJamK7565eYOacQsp3O+0DIrm62KRYrh7IFF+Sx3/+3cx9os9d8vKl3hHNqP0E8
-	zqPfg+Hw==;
+	bh=pPlCUCKtC9ZfVVw7M+LrgvFFxTt7K1/EF3l2QsD/xVo=; b=nbsDTY9M70dKmQSbEgDx6bJjBh
+	DlhvgRL9jVTW8CITYrxJUTycl51UiPxYwaJfYbkbMg0jVc0Wh2skHz6lz3i8vkZPfs4EbhDh3lxVE
+	85YnRI+JrNsnlOtvE8BoG9/MVvP2vNPt+Z2S8nxV/2pRTQKXLLo3/ep8i1fZk6VzJV/mnVBJIMJpA
+	Mqv9pNsdNs6UU4u8QsFNcdoMOjojJim4jR1Fi7dsTePHhSSxs7qd0dIWSU1rCHMJGS6MLZGOS8R1H
+	/e36mKRLAY/z+kc7QvItvXt4LGkOQliTYS0bx98bZ/pKL9svdpy0sXI5coxH8u1DmPob12nCJpmP/
+	DlTxP4Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Kjj-0000000Bj2b-2H3i;
-	Wed, 11 Mar 2026 14:40:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w0Kjn-0000000Bj5H-0Qrl;
+	Wed, 11 Mar 2026 14:40:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Kjh-0000000Bj0r-01MC;
+	id 1w0Kjh-0000000Bj1F-43ar;
 	Wed, 11 Mar 2026 14:40:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773240027;
-	bh=nzYLErF+rKuMbmIvpwK9XSY2PctEWxTOicG7WCugCiI=;
+	s=mail; t=1773240031;
+	bh=EekSZLy6YP8Ncof+v9UOx5ImSQYENZkwGhIqc48E0EQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SDIuy/ap7S/UwJ70JlObrZN6gJfPs8RCSCsxRB7u0IniF1h5BADbzh6Xe686Pt/+w
-	 Q6u6uTvVebjTTWQGIXqowvmlwh9GNxynAFzfFDhuVFoRxuWD+oKHTqjaMUEV4qY6Tk
-	 6uV0goOoAKCIDFzmmZ3uNXOi6TwvJKZCSkCyT6XHEwfIEop5KxE0Yq0rABA9gFms5U
-	 OhTHw8IC1RhqxmWtLzrRwZNMiMXlb6oCp3U+CzctvHKG8ngUcshgZQDdIxiVNfPS2U
-	 RSOAYdqdB6q9kgk35yyyySS/siNOIRCQD1uhDr3vck4HBGfyC88MFPMWMZ3lw/xSoq
-	 p0lTGOfSfzwAw==
+	b=HHm/RvA0k+wuRqG5eVqAq6vTr3EYEyG1/AVKoth99YHN9DYkQGkFLRIUpRCve5fJu
+	 qgKC7fIh0VJfeRlsUFZ8JciREDTXgX/hLriuusk46yl/6813q2FNsVkGH27miFCVjN
+	 Kkp411oeQ6Zr+fu+h8B82wMXlvt7RSpE237QkbMaUkZsyxpFvT4THrnQH7Dsoz+rEs
+	 mQzlDAz9c/4GrudO+9eOQoMLebe4hKRCfICWF4NLvWY5At6ilQkPxX2Y/M9h+X8OrY
+	 DfC3gkBLvoc0YwFyv0C6QCAoohHVhahbyfgP3nImn07s4JALYHXrU8acHiR9X7FNXG
+	 s371L6bUbYthQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 18C7317E0EAC;
-	Wed, 11 Mar 2026 15:40:27 +0100 (CET)
-Message-ID: <6dc969eb-0dfa-4ab9-ae39-13c4bef90704@collabora.com>
-Date: Wed, 11 Mar 2026 15:40:26 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D120717E0FA3;
+	Wed, 11 Mar 2026 15:40:30 +0100 (CET)
+Message-ID: <68d3d2f0-c356-4a27-bc96-c4f1ac25b756@collabora.com>
+Date: Wed, 11 Mar 2026 15:40:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] drm/mediatek: Set dedicated DMA device and drop
- custom GEM callbacks
+Subject: Re: [PATCH v2 2/4] drm/gem-dma: Support dedicated DMA device for
+ allocation and mapping
 To: Chen-Yu Tsai <wenst@chromium.org>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
@@ -62,15 +62,15 @@ Cc: linux-sunxi@lists.linux.dev, Paul Kocialkowski <paulk@sys-base.io>,
  linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260311094929.3393338-1-wenst@chromium.org>
- <20260311094929.3393338-4-wenst@chromium.org>
+ <20260311094929.3393338-3-wenst@chromium.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260311094929.3393338-4-wenst@chromium.org>
+In-Reply-To: <20260311094929.3393338-3-wenst@chromium.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_074033_217785_78F384F2 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260311_074034_161042_FDF9A2E0 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +86,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 11/03/26 10:49, Chen-Yu Tsai ha scritto:
-> In commit 9b54a32c7c6a ("drm/mediatek: mtk_gem: Partial refactor and
-> use drm_gem_dma_object") the MediaTek DRM driver was refactored to use
-> drm_gem_dma_object, but custom callbacks were still needed to deal with
-> using the first device of the pipeline as the DMA device, instead of
-> the MMSYS device that the DRM driver binds to.
+> Support for a dedicated DMA device for prime imports was added in commit
+> 143ec8d3f939 ("drm/prime: Support dedicated DMA device for dma-buf imports").
+> This allowed the DRM driver to provide a dedicated DMA device when its
+> own underlying device was not capable of DMA, for example when it is a
+> USB device (the original target) or a virtual device. The latter case is
+> common on embedded SoCs, on which the display pipeline is composed of
+> various fixed function blocks, and the DRM device is simply a made-up
+> device, an address space managing the routing between the blocks, or
+> whichever block the implementor thought made sense at the time. The
+> point is that the chosen device is often not the actual device doing
+> the DMA. Various drivers have used workarounds or reimplemented the
+> GEM DMA helpers to get the DMA addresses and IOMMUs to work correctly.
 > 
-> Turns out there is already partial support for dedicated DMA devices in
-> the DRM subsystem for PRIME imports. The preceding patches add support
-> for dedicated DMA devices to the GEM DMA helpers.
+> Add support for the dedicated DMA device to the GEM DMA helpers.
 > 
-> This allows us to just set the dedicated DMA device for the DRM device,
-> and drop all the custom GEM callbacks. Also drop the .dma_dev field
-> from the driver private data as it is no longer needed.
-> 
-> There are slight differences in the mmap helper: the VM_DONTDUMP and
-> VM_IO flags are no longer set. Both were lifted from drm_gem_mmap_obj().
-> VM_IO probably doesn't make sense since the buffer is allocated using
-> dma_alloc_attrs().
+> No existing driver currently uses the GEM DMA helpers and calls
+> drm_dev_set_dma_dev() to set a dedicated DMA device, so no existing
+> users should be affected.
 > 
 > Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-
-Aaaaah you're removing all my code! :-P
-
-...but it's so pleasant to see that. Brilliant cleanup. Kudos!
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
