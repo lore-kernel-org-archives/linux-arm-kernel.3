@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570871062892
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628D1062895
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSaBdCQfIX4ykm/kooU6o0hfTQH51S+BH/0JwAXTVxA=; b=wJz+thq//yQC5vCMq7H/Gm+VkT
-	HrZWkT7tdYSp7htBLysD8jostwVUpIe6SQm7CI+jO4UwrREY6Ec1viToiDs3x2FCmgDhcITE6n7Jb
-	ZioJrabatvSeV1XsmEXDou1NLrYPYcAOTnYJGI9N5lZHGXk5lf3ljb1/3zxgn9lOrUERb+kAmBLGG
-	bsbQaeV4ZjM59RjySBJ1NMGvX1r3qHcAmlG8+xe4Bn662kun+KDfQl4IBKeZlxc8qlEC8Nu0hIWdN
-	jRY00kacbbIW5GFDQb8Tw9Npi1PQC3pS3ChPKYTw3eK07IPLuEWtIFPvsDSIuqfDkPBhySFS07V8i
-	4VCPq+2g==;
+	bh=y2MGgBYTaEO28Ct4I8jS2apA/t/hDq2a42kL+JCrbEY=; b=NXf67t/uV5MhQW4eTC6ySkTpqv
+	icMd+5vZrvyg1eY2Xbku8ggeNL7a8dlHwMbC5LtAaMbQ4Wnvupt14pCa7+7EvzoDiGRwjPSNs/qUR
+	Ldxy2hTl1s8oDRcjsSQXF7C2+A8tUsWR3qTXSbd0Ad9p0Ndmslh5W/JfzxTCo9P7fVGGSClF4Cpnf
+	ROnNzcRDxsmtbRcUDXrbufGQ/9IiNR5P9grtuejPlR2P+9NrVOx7g3CJE17Zp88rck93+gAi3Taw/
+	mSkyJWYf2YsfyAAP/cGGi8T+bRstWZy3iWidM5fr1twQ7almihiBscAN0TzQNLOczgiu0X1uhad+n
+	Ij7OdGRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0J0C-0000000BaXP-1cvD;
-	Wed, 11 Mar 2026 12:49:28 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1w0J0n-0000000BabS-3JeW;
+	Wed, 11 Mar 2026 12:50:05 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0J0A-0000000BaX4-0rS7
+	id 1w0J0l-0000000Baam-3JC9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:49:27 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-509069a7a7fso571001cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 05:49:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773233365; cv=none;
+	Wed, 11 Mar 2026 12:50:04 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-509069a7a7fso571311cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 05:50:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773233402; cv=none;
         d=google.com; s=arc-20240605;
-        b=WdGjSSLtWZMi4VG30XESxEkwmVhMSYGkKGzIDu/J/Lw6NLmP9tx+DASqD0W24Zn4md
-         dfmP74EOraEEzemnTbY+wgM+Wra1CnQEefEtmmUWVPtvcVotz3upX5mvO9f3WNxEbIbL
-         quyAa0yfQC9UmQF3SepNAkddYWrjaX4j4QaJs9mBiSU3tBTHZmJ5Go5mCeaNmioc5dQg
-         Qa1Rt6jkOb9e5S2t8poHaqT3n943mkRuq76Q7EF785F2D6togaq39wp9jSsZOqT9Mcjc
-         kPPTItQCHwvMbDEdivyjzZBjj5dSkGhlPsLXRu5NSsrG74eboZetVu0yWDf37dEFcjxo
-         9zBg==
+        b=ZKRipzg/VMGjm4fTh9FYzjB9o7coxUHi6EjDptTn7jqf5GTH6BmaS+tkUaLAnM/dd1
+         hNeSp5zCMDoHHBOOX84vlA0o00n0sNYqY9CRbgCw1k/ZGmQTUpx1ARcQOGPJt9EqP2te
+         J7kvdLg0iAHkcqYeVG8uYdWqqaqv2RICP9HUmGfKw6paKETel/C5yujngMq+MezAnjBD
+         eRgDszj6t2jriqYmW7fkv/9ov9e5d6Lg1wOE47DEGUDWJCT03zp8x6oIGm3HsAswwV00
+         iqpqCq7RFwQrqZj9Agbc8RvDfbCF5/IL4Auq+Se/qFbvD7lv5pUzfWzZLcJF21Dz/+c1
+         M5aQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=GSaBdCQfIX4ykm/kooU6o0hfTQH51S+BH/0JwAXTVxA=;
-        fh=wHaB9ATvyHYpMs6SaeWEM0Mv8oM9nVrpuW3E/tafqK8=;
-        b=Hx4zZQOkt3rNu/F1ljLH3sKFGyhBVLuINvuP+OE8/i/1JWe+VW6O2UwRH3FxJP6IXj
-         loFgJP2NfoQqUDMZxGQwh7CTWglfYyZNd06LTnU4qHV9e1DAdsc8SmWlq82TaidVZr5d
-         LOsh//3pf9/oQRWt0bnsD0fSfpgNfusv+W7YGamvNq/393aEs3KcuLOIIfWBgMjIB67J
-         HHc+Z29B4O7q8n9weJpTT6BCgU9eQPl+ZtGvqPTZ4Mwc0IXdm11WbGVYk0LBE99OaLfu
-         jhHzjQ0prS9NF+DwYA7SOJ32tG5BsqYEAA7wyGwX+8QG5b/8SX5mLVidHRLa651LeueI
-         EpNw==;
+        bh=y2MGgBYTaEO28Ct4I8jS2apA/t/hDq2a42kL+JCrbEY=;
+        fh=TOZqU04Bzk0mt10J08Or2poXsJY6IxkqEaX9t7SaC4g=;
+        b=eBGsW1KDsi+1IF04OaERRxohqfteqnllkBS/xbjEG3DahInKuE6fL/HCRfKm3LaokW
+         M5+Wj+yaGvv7us/RbPNxuaq9EsTf50ypA5e2dbSqjZjsC0aF0+fK+9ciFuIeOHTCTSQm
+         HoHKvA1ysYj4iYFhN0UE7L3cyVPOEe1LPQzbxnMLgWqKGsjDpB8O1g8/dnQNywEx6SpF
+         g9SAs26WUp6TZaoogLIOXQ0l1aqMbnTvYVBQB9nBYPEDtvdwYYLANGUIdXu21wnUcxZS
+         DHSExXfAnS41I2YyohIDZROqAgUTxQzHsmL+K8tk41fDa0tdWnp0W9RWjVon15uSWpR4
+         ctDA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773233365; x=1773838165; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773233402; x=1773838202; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GSaBdCQfIX4ykm/kooU6o0hfTQH51S+BH/0JwAXTVxA=;
-        b=OjlTpQOj1uSFiPI512KG6myaUW1tSiozQXEjjhb8HpPEQWUSExjZ2vw0Aw5v6JQGfh
-         W2k7S44KteKvbofeXdtEOAkURv51ZH4RwVklHUd+XsMiQoIocuXfeR5oL9k/xOeHcFi7
-         RJAZOKwKpDiFT9EAQdjcDiWraIsJ/W2ZjVgMW6sAHkFrKOlJyUlauYuqWEqJt9rplZ4u
-         CoOOXoz2o4Av9bQiUpdAspaK3xy0wze1GrHX8EPg8iM1/MZ2XgVNSs9hf6+54hOfA0r+
-         /Az5MFL66Za+FpD0Qudis7tOtJDfONLGqTt0O2dm/ipgpjyWjz5XBTe/bdUgbLkhRNZz
-         N+nQ==
+        bh=y2MGgBYTaEO28Ct4I8jS2apA/t/hDq2a42kL+JCrbEY=;
+        b=np4G2nt42j6alm/Grk+MAsB3qo+MYl/YV+iqoYFYjbtePdyi3uFuEfcWHcJbMnpieH
+         3XLABDdzzX4/1ejx6ayqvW+UpQ4IJdqh41XEnhl3PIESmb+WESNxvsaELRwov0Mb8oGY
+         aZInLzG9xI06PqglyhfSs0Ixq1TGcbJCjhVBJn6KjMZqQiFw+tGjhf2ZEQO50TLWJ6W2
+         g/gi8i+YblqDPcr5+SBhJ6NqM+UxO4oiLD4PxqFQimY1RtLlVbDjs/N2K1Uu2cpWQfiW
+         chQS//veoy3YGFy3d+wgoAF17ApG1/QGuEfvn3+X3Iwh3MRuYwaMXgJTh6PqimWZGn6c
+         3a+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773233365; x=1773838165;
+        d=1e100.net; s=20230601; t=1773233402; x=1773838202;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GSaBdCQfIX4ykm/kooU6o0hfTQH51S+BH/0JwAXTVxA=;
-        b=PnOyhM++FMdJ1mYLjwi4L291qT+fcSUgtQdNpImMPLDU56CCVT166zE7Gq/StjSci2
-         2HdmqOIMddsCQ4NqhlqqrthleaT66rjP1Oa/TnmQ9Ze8vkgrj6BLYobiSKQKRhXizRzs
-         ZOx6aEgfZVOhrAYyBhT+ALS+SXoGZf3HU5XLQD+IZLH4G4SkkH98YuMHdGoEqaVA+k+c
-         FT7atbHlj63hgunHrRUdgSpfpO241CfEiih9CCDH0IPl9nNd+S8pC4XOhRbxq+tv9aBM
-         oUG5J6coIiHfNMw9XzC/vyeClznvUNa9IcdwQ8GEBdUhKKJw0GZiK84dEYbrLWC/iK/H
-         anrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBz7dZ3tZCzjEVc+0Li5TEusZBHjfgnuxjUL3kAd24wRSzJSAfzJAnvwmyXNibO06GZzHN1hivyUn6UyTMhNRc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKYL+RoW+AQUWYNpbBE43T7OuZ6pneCrePZ7okYRDm0uRD8W+r
-	LUTpx1+ILE7u4rb4bm3HpS67Yg6eVJx0HIrke+HnvGFVXYzkwkfAi9EqS/zjlraSMOlASZMHShj
-	6RjXfGyMm2aUtAhKZSLTPxGXsaYOSZK9Riv71+eM9
-X-Gm-Gg: ATEYQzxQiiAajYbED4OnQG1NBgelsOUxzsIsilDlGEcY4Z/8ND+Aw9fvlRx4faO0XUv
-	fnavjUIU1YHDyEaBfyiii6WQ4zC/gYQIV8GbBjoVU7mkX4Sa3TlOfvx7lNR8gUgVJx7Loh4Ixlu
-	aD45ntEbTxhv4CrH/paswscf28Vuj59MWIbO364I50/yJo1+ukvYFPvN8jopZ59R2NpjU5U3aO0
-	+UOcxHLnJUvPf4gMJ+9etUd4cvOuvM0IiLh29P6GlMHjJZjoS+WmeVOslXY2I0EJKR0hE/cUh9Q
-	2Ac52+d1tYv2V8yEouLyMEOCxnu9utOZN3F5Ww==
-X-Received: by 2002:a05:622a:188f:b0:4e8:aa24:80ec with SMTP id
- d75a77b69052e-5093827a1ffmr13477151cf.14.1773233364451; Wed, 11 Mar 2026
- 05:49:24 -0700 (PDT)
+        bh=y2MGgBYTaEO28Ct4I8jS2apA/t/hDq2a42kL+JCrbEY=;
+        b=FyRKk3p8F0JhPhrvyZzUyfmtjmbgmp6Ceqnjx2FzmP0oXtw9MPllDQCikVR9+Y/LEv
+         ZexDRZL6QWsbUHN6fzyCXUNDiSOQRIB2Fp7BulFNqoT46EmYFHkrUjpET8IK5OGxplkZ
+         Q4Mt1oH3gimmODZ2WfGKrLRMcKrGN4Sxey2V9qlCOluCkGsmynt+psIadmHSLxyTNPb7
+         9ZYMkEGrl5pTd/rK7tCpaLsxX5AJxul3kK/kmn86mXmJ20n9HWsS3zO9A2yBXX4BREq2
+         IgOESoaho8Mot6PUAFmMwlzsGkDpGUTPFrMaczyFBP1Rp6jIgaDbkbXVoTa3/rU0yUX5
+         ZjtA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+z4a7Vjw6H6sSVhtTMYoLSdzr/fHIrtEm3W/tqEooW30Rc3xctOJNTfXZravaNwqg6vUXep9C8/GEtleImoEu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkFCqBwlquEktFd+Koe3GqY0TbO4VyWAXFzf8ViasrK/ODu3cb
+	z5c50VWBQdc2hKPAc+jC7oM2owwBu8mxLulsGtQyjXTE19yHPO2R1z7ay2y9A6QQB3YlZPcDGiR
+	+kiiQpEz0VLVfpdeUW+aLH0l+WI9EH5NOps68mJJt
+X-Gm-Gg: ATEYQzykWpTxWE7hPywhf3ahSdkR+b9KhF9FlkdTRgwC/ilN1mWPcTaGO2rJUhdq46d
+	RQNKCBa6H9+oqrsskpPap55TiRyNWhahr2f+P68WaOcSUd7Nt+2HgYeACryOxXcT/Wmmbwv5Md0
+	zCXIY9rB/gFPdDH3JIp0IwkvHwSQ3rxhAW3NvrXbnU9fgBJB+8BPo82sEWO5VlmMitye41RN9+J
+	uxMQbQN3XCysbP55WLunwmZ3sKqEAaeabAzc3ajxBlXhRmYcEuOHMR4ELG4b1xPugeibEcFlW2d
+	l8pxDL61oIqwZqGWQe2WEK3CchXpSQM2QQuRaw==
+X-Received: by 2002:a05:622a:285:b0:509:15b6:f69f with SMTP id
+ d75a77b69052e-509381899c3mr12930681cf.2.1773233401760; Wed, 11 Mar 2026
+ 05:50:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-2-will@kernel.org>
-In-Reply-To: <20260305144351.17071-2-will@kernel.org>
+References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-4-will@kernel.org>
+In-Reply-To: <20260305144351.17071-4-will@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Wed, 11 Mar 2026 12:48:47 +0000
-X-Gm-Features: AaiRm507dMxugKBWMEcPWC5syr4fU1IS8EgUvWNIOKeQMcukExaumFF3n86UIpM
-Message-ID: <CA+EHjTw2W3d472j0ywobH=4Fn6jXZBZAKWkBh1dJPA=Q+tTCLw@mail.gmail.com>
-Subject: Re: [PATCH v3 01/36] KVM: arm64: Don't leak stage-2 page-table if VM
- fails to init under pKVM
+Date: Wed, 11 Mar 2026 12:49:23 +0000
+X-Gm-Features: AaiRm50zL21Iu6bgO6eh5nslf62hR-XP381uJXsn-8C7zkK1BYfoGCC_CzNKrWU
+Message-ID: <CA+EHjTy3ipkQ+h2h5acbJSJHMe-aPw=Ai+g74vgRi3mRSK_Jvg@mail.gmail.com>
+Subject: Re: [PATCH v3 03/36] KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
 To: Will Deacon <will@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -103,8 +102,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Alexandru Elisei <alexandru.elisei@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_054926_270234_C581002C 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260311_055003_836912_6C6CA625 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,47 +120,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 5 Mar 2026 at 14:44, Will Deacon <will@kernel.org> wrote:
 >
-> If pkvm_init_host_vm() fails, we should free the stage-2 page-table
-> previously allocated by kvm_init_stage2_mmu().
+> In preparation for adding support for protected VMs, where pages are
+> donated rather than shared, rename __pkvm_pgtable_stage2_unmap() to
+> __pkvm_pgtable_stage2_unshare() to make it clearer about what is going
+> on.
 >
-> Cc: Fuad Tabba <tabba@google.com>
-> Fixes: 07aeb70707b1 ("KVM: arm64: Reserve pKVM handle during pkvm_init_host_vm()")
 > Signed-off-by: Will Deacon <will@kernel.org>
-
-Thanks for catching this!
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 
 Cheers,
 /fuad
 
-
 > ---
->  arch/arm64/kvm/arm.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  arch/arm64/kvm/pkvm.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 >
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 410ffd41fd73..3589fc08266c 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -236,7 +236,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->                  */
->                 ret = pkvm_init_host_vm(kvm);
->                 if (ret)
-> -                       goto err_free_cpumask;
-> +                       goto err_uninit_mmu;
->         }
->
->         kvm_vgic_early_init(kvm);
-> @@ -252,6 +252,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 7797813f4dbe..42f6e50825ac 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -322,7 +322,7 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
 >         return 0;
+>  }
 >
-> +err_uninit_mmu:
-> +       kvm_uninit_stage2_mmu(kvm);
->  err_free_cpumask:
->         free_cpumask_var(kvm->arch.supported_cpus);
->  err_unshare_kvm:
+> -static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 end)
+> +static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64 end)
+>  {
+>         struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+>         pkvm_handle_t handle = kvm->arch.pkvm.handle;
+> @@ -350,7 +350,7 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+>         if (!handle)
+>                 return;
+>
+> -       __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
+> +       __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+>  }
+>
+>  void pkvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
+> @@ -386,7 +386,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>                         return -EAGAIN;
+>
+>                 /* Remove _any_ pkvm_mapping overlapping with the range, bigger or smaller. */
+> -               ret = __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
+> +               ret = __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+>                 if (ret)
+>                         return ret;
+>                 mapping = NULL;
+> @@ -409,7 +409,7 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  {
+>         lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(pgt->mmu)->mmu_lock);
+>
+> -       return __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
+> +       return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+>  }
+>
+>  int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
 > --
 > 2.53.0.473.g4a7958ca14-goog
 >
