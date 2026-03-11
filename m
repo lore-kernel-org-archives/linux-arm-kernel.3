@@ -4,86 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B449A1125839
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CAB5FD0651
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGXKk+XZV5OUBibd4BfhKYW1ym362esonYfB9+F4Duc=; b=fu1RPZV5haqmWIIi/Gshql/C5K
-	sT57jHkpQrfj1GV5ZSe69niaugz3PXX6L3NR2xu7lGDZTHqeUvJLWxoLdDHymjGkkXehScJ4pCst1
-	sIXQDWlWy3i7Y1ulmtz4sybH0r9oJDYfy39Ai74PhXhHIs4CTrxeufXigaFPoy7aYR05weuSw7l+z
-	mMm5kB9XkMmKXK1KN8aUhyx9vTUj7bq+0muRy31uUJZ7Dd/Kn2KuvjbKobV+a+UcBYDkwnoz6cE3a
-	a0YmYI6eNHXyrlJq5s3yJ6su3OqzxmnaubqhrQ+g0eB1dDoCm5fnciKKyPDHF2Ogro2wWw7kH/nCw
-	iRqRLjKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/kw91T1sbd5zqvcmRC0YUZSdSvhwThMs3p0iH62bWwM=; b=M+qhrDZaJKivhHhm+C0CCktbSC
+	5BGIbh7xHA0bg1Nb6F4tqElGvkwPZu2YDeDVDphfbJu7DVHdDUjKJSxjpAo+1Vm3OOwzoVUmNI7U9
+	EQOcrk8pqIOtPwNXI2QhZvbVBYyaXiCkFTBeaLZlgFpAklmMoLuMv8Y2qCPEL6cCwKTwmp4rYUM92
+	B1iiI/foiT5r4ohXKlcJIPTJIWwz3mCYsLiAH56Z3GhiMaLOpKt5ocjt+7KM9QMPtKvOJn8v8UO5c
+	AvP9sdNzwot3xtXRcLyuT7VNSx6jfsHdYefaJcRDkb/qumXxBzMgj2TfvaYhnU9WW2DBSBAlHJyYh
+	OSRVXQaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KSh-0000000BhNm-3XPj;
-	Wed, 11 Mar 2026 14:22:59 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1w0KVr-0000000Bheg-01ef;
+	Wed, 11 Mar 2026 14:26:15 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KSf-0000000BhN9-2Bcx
+	id 1w0KVo-0000000Bhdk-1013
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 14:22:58 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-509062d829dso534301cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 07:22:56 -0700 (PDT)
+	Wed, 11 Mar 2026 14:26:13 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-509101189f1so36835991cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 07:26:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773239170; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GOXU6wORifqh/lb6+/3p8KqeJZDAwQDem/ycwByacjW5539bvTMUP2kkus7zH1xfe/
+         KlqN52v91zJmKo6AfzhSWia4QgjCKvpQ1DPEeo4VPUeHk+8afXpl1w8q8kp8QBsvvKlt
+         rjb3Qf+ypLNNanCbe4tFWsVEY3mndTPe5+3d4RxsC+9AhmY/I2cMfWSttVPgkWnqFVo9
+         Dl3yf1FNfbc+Ighuo3KudLwURKEu2RD7MJ8T82MMkuiHz6Pu3z1JS7OYTx3C3OapCaxU
+         s0aOcxrOG0Fp5oPG6qAx17sk709E60JhmyKf+MQZdP485zd5i5GMkDcY0IvJhFA+WJt3
+         URQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/kw91T1sbd5zqvcmRC0YUZSdSvhwThMs3p0iH62bWwM=;
+        fh=1xzbRqscoTILfdYf453rNIeskZQhvPJnJgrx8ALoGY4=;
+        b=fhg4P4iTEXwH5Dih/t2IUe4F4OeVHsw8xF9EpPJmB2aXsNhQ8reri5x0DLzRpMSaLd
+         YiXyhim1lWbDDJl4rp7x7/NEL6mRm3hIRewF/m5THAyypzMOsFg+9ANgTsmpWSdAPrEq
+         XyUjfNwDGuWsshUcqWtHlJWuxftzgbPBXa0unBemkiQw3RhpNxi3gwXivZKwCDQ2aTTu
+         +Kh28bryNAIUUxkPXr/wBbjPdL4DIdgSmW+GmeaCypbpgf0IAT3k9k2BLA/LIlisFp4R
+         w1eb8jE4NBR0tjvaELl/Ol6wgC4HBuDOWMuy9UAc+CLNCpnkRCttMv1suh0OefhMlP44
+         jG0A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773238975; x=1773843775; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sGXKk+XZV5OUBibd4BfhKYW1ym362esonYfB9+F4Duc=;
-        b=Vz+2iyuXDZ3oalDY7SD1V9ogmTKIPqv5VzunY45jOT7rpBqwqubNcZUozUQSA4Sem7
-         xCMMMPi1MiTCJ0MKrZtmV6fED2m8W0pCn/hMnTbF5tt2+HFl9m2uRrKoFAc8FiNnlnJk
-         JvKosM12E7Lc3srWD883NUkd3pvCzlgMLU9g8KCJON4T9vLuSgudAWd0aPiDOc9M0YAe
-         +dvhlgbXgGMbGpbBtaQjL7JH0gGD4WWP19o/ZllAf5jTnw2+m/50RNkCTViIY8VXBDQR
-         3KSjNPguxP6JK8Zjy+pK1xYqeJww59hkR+9oRKNRHTX2hzkMIxmVuLjlxPZkBDVUioRN
-         tQ4A==
+        d=gmail.com; s=20230601; t=1773239170; x=1773843970; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/kw91T1sbd5zqvcmRC0YUZSdSvhwThMs3p0iH62bWwM=;
+        b=bLkgxLRXTY+WlCvq6zNPfHe5othM/kfyrY9y8i38dnhowf/rVuOO7uR568s56ibY4O
+         zlKJrVXDWcOjfz+vwa3SFkbDToNhyeALB4YotpesD6b46HCSy151Nu1xv49MM1q0pWOm
+         u8siiaf4YNhdDrx9KbhU0KG9EMhTLUuME5sra+ciJWcJE84hcUezi2t2cDk+JEEg/7Db
+         xY+IXpdtvn66aiKJDmbxk3erJxwy9pDOyKmctcw6oSQOpWCI8hiSRVv5o1NDKQCbdl+D
+         CtQ6uPX1yrrbVJpKlolTdPThRG0XWj95v6EECa3t8cUWfk0p+Ysey7BBvCHj6uKniL7w
+         EWHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773238975; x=1773843775;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sGXKk+XZV5OUBibd4BfhKYW1ym362esonYfB9+F4Duc=;
-        b=rT6JtDttWGUfZ06AHP5aod6lcAZ6O0ciALhUs8xFVIK9onpjVAg4L6egiB06bo6bK6
-         DO3hFdDHntwFiqlQwWoNwsJu0YRGcl4lB0Jo9fwMN4tYrBQktquo78SnfpHWT5e/WXh+
-         on5b1f/SMBmTBifyqe+IJPBeEddEhbLzCUqN5PrIw69wdsFGcvmaN8OvOGv63knkdOP+
-         db/ykowBC2SPlIXLNDPyQ382WG+5KbCvvgF+xnq/g5G4iO+5/G7lzCGB5Gdt+JpJKnlx
-         bk4NFrz9T2OdkOI/Lyir5dkK1h4Rv45qI/qxair+Ts3wM6o+wVGjKt1CiMXq8HrO3Hlr
-         LxNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXYu70wf88oDvnYkfYX1rDf2KDFpc3cdD+wTcabT6CO6FGqx5FD9g7NfF46hOt6sCli4B8npDNSurkjrJguB0oI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvlHq1DAb8WhwypZUdJoAVfzk0kEDFB2W3awWSWKt9kVveH3zE
-	4kC74BrDcOz8UVgL5aEZzAHnRSukUfEc5VHekuq6S2TOvNrmyeTraFT4Wb/7iw7mFw==
-X-Gm-Gg: ATEYQzw5oFZRMfB9pE8SLKQUOJmxRsNE/bJBo5sl4lkQTYTTur5f/V4l8CXMs/wjI0A
-	ehvidiE/+JsJ4gsRBQeMFWBvckSqYfpHr1q9Ne0OMRDkbUoCZnxjKp1wmH6Tlr7aIdL2inDx/lN
-	Sc0hrCXPXmvqu+DMchxCIDY/Xf0aq0EBrkMK+eIKTWMXiMZcarum47ZU5OBMN/02nOk62lKrTX9
-	r+tLCOTDY43tU5j0TC5bPa+pRQwajcg3T/ut+Cc1eIKZbAzfDyEyJWwZ3n4sNcVZOiBCVwPEiVH
-	JMj/JzIcgRdooWl6RMM5ht1bJ1GTZTpNLsk0bbRT+4m6ae/YbLhS2ZhY3Pt9+dfKBW1sOFiWb0z
-	QJQSLSMz7Q6sAtFoystVIgl+0NB5sA/DL2vkQ9Kd3nizb2FPKr9xf3x0TDA7AzSLY5kew7OgbgH
-	RRq1vD1xVqWqdCs9siKZMbSflh+kCD3UidE96rdir93cTfbZT4v7zxQ0TFLA==
-X-Received: by 2002:a05:622a:15c8:b0:4f3:5475:6b10 with SMTP id d75a77b69052e-5093827de9dmr13929241cf.8.1773238974789;
-        Wed, 11 Mar 2026 07:22:54 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-46734125bdasm1337658b6e.1.2026.03.11.07.22.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 07:22:54 -0700 (PDT)
-Date: Wed, 11 Mar 2026 14:22:50 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Cheng-Yang Chou <yphbchou0911@gmail.com>
-Cc: will@kernel.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	jserv@ccns.ncku.edu.tw
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allocate cmdq_batch on the heap
-Message-ID: <abF6un_jrQ8zGZZ4@google.com>
-References: <20260311094444.3714302-1-yphbchou0911@gmail.com>
+        d=1e100.net; s=20230601; t=1773239170; x=1773843970;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/kw91T1sbd5zqvcmRC0YUZSdSvhwThMs3p0iH62bWwM=;
+        b=BUwg+hdCdTv5cIn+ZiBr4yYuTZISn2yFy8B72YOcmhal1PKFNO1kkjJPWQnWB7CTDi
+         yy7WKDwyKzkor/Iro76s0Pb2mxR+4WIlAhHFmIf7Z8sgnJX/KxOkewiulbRdiXwM4lUU
+         7XQm5cUsd/blVHZJuh9I9z+g8Byxt3dUWBhl/46y6vHAE1mGkU7i9Y04qDQMWkgXFhTI
+         Zu8ljJ4ip6qRwCPYXGX00kvxap80oRY2ghMf5/GXfv363fyISkHXaCZbzCQnsDqIqcGL
+         6nnWoiyymXh8N92kyURoZUzUPiaS9XF1bNMadRinBhLfdTKaRAqWMPia32gmLS5QJ/76
+         E27g==
+X-Forwarded-Encrypted: i=1; AJvYcCWiG4sCyLZYNhQXCG+o34momXH3CdwmzCkeFVlPMWqDyB2/PcvSz64E4eNExnspBCFgd9yOFQP3hL2uKukEK7rp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJCubMOrb2WSKTYnPYXFqPLKp46p+CzaiFfwx5YDEUvhcS3e2I
+	2qakqtz2+Ae8vftv22C+iQX2L/dyGcupZpYTtQQeOXxsDfuyf0IWRw0CAQzjz4mLO6jaza1k3BK
+	t/66/c+jlcPZrVHeCczHjwvKhbXoO4rs=
+X-Gm-Gg: ATEYQzzmQSxemJZl8PZ2XoQBSfZjV8vhmKU6/NMYyOAp/YWmiBIM6A5jAP17wpB2KI/
+	8U1nwrqWXx0AZXOWDZREsp47ckfdnT4bw6xc0z2M95OoKOMM162QFMQyn2NFtGRFx5AuNElxFpV
+	IWwMtM4qEKbPbAmUsk4rOeohlFwtkGj5QjtGj7z1iXCblbJ3Xf6C9nyDrpsOf1ZTZ+gS7YPUWbE
+	x2HGlWA48o45dZt7LdzkDr40SXr/vLxg50dYPm4yb96mpYVK4FEZWZxjmD9ckx+znkWKco06u2E
+	YfAL9eQ=
+X-Received: by 2002:a05:622a:1181:b0:509:1cf9:ea15 with SMTP id
+ d75a77b69052e-5093a1ce568mr34244731cf.56.1773239170496; Wed, 11 Mar 2026
+ 07:26:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260311094444.3714302-1-yphbchou0911@gmail.com>
+References: <20260310031002.3921234-1-dennis@ausil.us> <20260310031002.3921234-4-dennis@ausil.us>
+ <CALWfF7KD1=U-gC4wC9M49kEYD3ijcfr+XSmMeh_-zAvjO2JVoQ@mail.gmail.com> <CAABkxwtz7KjVJpSzYhUWGyEym5k4d3NJq65OS_E3NCnrNUBTZw@mail.gmail.com>
+In-Reply-To: <CAABkxwtz7KjVJpSzYhUWGyEym5k4d3NJq65OS_E3NCnrNUBTZw@mail.gmail.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Wed, 11 Mar 2026 18:25:58 +0400
+X-Gm-Features: AaiRm521OUVT7JY43-r19xBDa8sAqMr83aUZi0b84YOkyBHEnTztidYE-1zQZhA
+Message-ID: <CABjd4Yz3MKOp-gE8kNc4EOt3-a0mKZsxvbVYCN4KsbqTRDtWgA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: Dennis Gilmore <dennis@ausil.us>
+Cc: Jimmy Hon <honyuenkwun@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Hsun Lai <i@chainsx.cn>, 
+	Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
+	Chukun Pan <amadeus@jmu.edu.cn>, Peter Robinson <pbrobinson@gmail.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, Mykola Kvach <xakep.amatop@gmail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_072257_579526_FC616F0A 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20260311_072612_299435_AAE84B64 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,204 +125,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 05:44:44PM +0800, Cheng-Yang Chou wrote:
-> The arm_smmu_cmdq_batch structure is large and was being allocated on
-> the stack in four call sites, causing stack frame sizes to exceed the
-> 1024-byte limit:
-> 
-> - arm_smmu_atc_inv_domain: 1120 bytes
-> - arm_smmu_atc_inv_master: 1088 bytes
-> - arm_smmu_sync_cd: 1088 bytes
-> - __arm_smmu_tlb_inv_range: 1072 bytes
-> 
-> Move these allocations to the heap using kmalloc_obj() and kfree() to
-> eliminate the -Wframe-larger-than=1024 warnings and prevent potential
-> stack overflows.
-> 
+On Wed, Mar 11, 2026 at 5:29=E2=80=AFAM Dennis Gilmore <dennis@ausil.us> wr=
+ote:
+>
+> On Tue, Mar 10, 2026 at 7:20=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com>=
+ wrote:
+> >
+> > <snip>
+> > > +
+> > > +       vcc5v0_otg: regulator-vcc5v0-otg {
+> > > +               compatible =3D "regulator-fixed";
+> > > +               enable-active-high;
+> > > +               gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+> > > +               pinctrl-names =3D "default";
+> > > +               pinctrl-0 =3D <&vcc5v0_otg_en>;
+> > > +               regulator-always-on;
+> > > +               regulator-boot-on;
+> > regulator-always-on and regulator-boot-on does not seem right.
+> >
+> > Why were these added? The vendor did not have them.
+> > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2=
+b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-p=
+ro.dts#L216-L226
+> >
+> > Was this mistakenly taken from the regulator usb 20 which is powering
+> > the onboard usb2.0 hub?
+> > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2=
+b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-p=
+ro.dts#L111-L119
+>
+> It may have been a missreading of the schematic, but it was added to
+> get power to the USB3 port. before I added it devices plugged into the
+> USB 3 port would not power on
 
-Thanks for the patch. I agree that we should address these warnings, but
-moving these allocations to the heap via kmalloc_obj() in the fast path
-is problematic. Introducing heap allocation adds unnecessary latency and
-potential for allocation failure in hot paths.
+Hi Dennis,
 
-So, yes, we are using a lot of stack but we're using it to do good
-things.. 
+The schematic says that this regulator supplies the VBUS voltage for
+the USB3 part of your Type-A OTG connector. If you make it always-on,
+you'll likely lose the possibility to use this port in device mode
+(which you would need e.g. for flashing images over a USB cable in
+U-boot which also takes device tree sources from Linux via
+devicetree-rebasing).
 
-IMO, if we really want to address these, instead of kmalloc, we could
-potentially consider some pre-allocated per-CPU buffers (that's a lot of
-additional book-keeping though) to keep the data off the stack or
-something similar following a simple rule: The fast path must be 
-deterministic- no SLAB allocations and no introducing new failure points
+You also link it up as the PHY supply of the USB2 controller, which
+doesn't describe the actual hardware.
 
-The last thing we'd want is a graphic driver's shrinker calling
-dma-unmaps when the system is already under heavy memory pressure and 
-calling kmalloc leading to a circular dependency or allocation failure
-exactly when the system needs to perform the unmap the most.
+Please see if you'd rather define a connector node for your Type-A
+port, and list this regulator as its VBUS supply explicitly. I've
+recently submitted a patch [1] to make the "onboard_usb_dev" driver
+take care of enabling VBUS in exactly this type of situations (it's in
+usb-testing now and will hopefully hit -next sometime soon). If you
+need an example for its use, please refer to [2].
 
-Thanks,
-Praan
+Best regards,
+Alexey
 
-> Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 +++++++++++++++------
->  1 file changed, 48 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 4d00d796f078..734546dc6a78 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1281,7 +1281,7 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
->  			     int ssid, bool leaf)
->  {
->  	size_t i;
-> -	struct arm_smmu_cmdq_batch cmds;
-> +	struct arm_smmu_cmdq_batch *cmds;
->  	struct arm_smmu_device *smmu = master->smmu;
->  	struct arm_smmu_cmdq_ent cmd = {
->  		.opcode	= CMDQ_OP_CFGI_CD,
-> @@ -1291,13 +1291,23 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
->  		},
->  	};
->  
-> -	arm_smmu_cmdq_batch_init(smmu, &cmds, &cmd);
-> +	cmds = kmalloc_obj(*cmds);
-> +	if (!cmds) {
-> +		struct arm_smmu_cmdq_ent cmd_all = { .opcode = CMDQ_OP_CFGI_ALL };
-> +
-> +		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full CD invalidation\n");
-> +		arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd_all);
-> +		return;
-> +	}
-> +
-> +	arm_smmu_cmdq_batch_init(smmu, cmds, &cmd);
->  	for (i = 0; i < master->num_streams; i++) {
->  		cmd.cfgi.sid = master->streams[i].id;
-> -		arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
-> +		arm_smmu_cmdq_batch_add(smmu, cmds, &cmd);
->  	}
->  
-> -	arm_smmu_cmdq_batch_submit(smmu, &cmds);
-> +	arm_smmu_cmdq_batch_submit(smmu, cmds);
-> +	kfree(cmds);
->  }
->  
->  static void arm_smmu_write_cd_l1_desc(struct arm_smmu_cdtab_l1 *dst,
-> @@ -2225,31 +2235,37 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
->  static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
->  				   ioasid_t ssid)
->  {
-> -	int i;
-> +	int i, ret;
->  	struct arm_smmu_cmdq_ent cmd;
-> -	struct arm_smmu_cmdq_batch cmds;
-> +	struct arm_smmu_cmdq_batch *cmds;
->  
->  	arm_smmu_atc_inv_to_cmd(ssid, 0, 0, &cmd);
->  
-> -	arm_smmu_cmdq_batch_init(master->smmu, &cmds, &cmd);
-> +	cmds = kmalloc_obj(*cmds);
-> +	if (!cmds)
-> +		return -ENOMEM;
-> +
-> +	arm_smmu_cmdq_batch_init(master->smmu, cmds, &cmd);
->  	for (i = 0; i < master->num_streams; i++) {
->  		cmd.atc.sid = master->streams[i].id;
-> -		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
-> +		arm_smmu_cmdq_batch_add(master->smmu, cmds, &cmd);
->  	}
->  
-> -	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
-> +	ret = arm_smmu_cmdq_batch_submit(master->smmu, cmds);
-> +	kfree(cmds);
-> +	return ret;
->  }
->  
->  int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->  			    unsigned long iova, size_t size)
->  {
->  	struct arm_smmu_master_domain *master_domain;
-> -	int i;
-> +	int i, ret;
->  	unsigned long flags;
->  	struct arm_smmu_cmdq_ent cmd = {
->  		.opcode = CMDQ_OP_ATC_INV,
->  	};
-> -	struct arm_smmu_cmdq_batch cmds;
-> +	struct arm_smmu_cmdq_batch *cmds;
->  
->  	if (!(smmu_domain->smmu->features & ARM_SMMU_FEAT_ATS))
->  		return 0;
-> @@ -2271,7 +2287,11 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->  	if (!atomic_read(&smmu_domain->nr_ats_masters))
->  		return 0;
->  
-> -	arm_smmu_cmdq_batch_init(smmu_domain->smmu, &cmds, &cmd);
-> +	cmds = kmalloc_obj(*cmds);
-> +	if (!cmds)
-> +		return -ENOMEM;
-> +
-> +	arm_smmu_cmdq_batch_init(smmu_domain->smmu, cmds, &cmd);
->  
->  	spin_lock_irqsave(&smmu_domain->devices_lock, flags);
->  	list_for_each_entry(master_domain, &smmu_domain->devices,
-> @@ -2294,12 +2314,14 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->  
->  		for (i = 0; i < master->num_streams; i++) {
->  			cmd.atc.sid = master->streams[i].id;
-> -			arm_smmu_cmdq_batch_add(smmu_domain->smmu, &cmds, &cmd);
-> +			arm_smmu_cmdq_batch_add(smmu_domain->smmu, cmds, &cmd);
->  		}
->  	}
->  	spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
->  
-> -	return arm_smmu_cmdq_batch_submit(smmu_domain->smmu, &cmds);
-> +	ret = arm_smmu_cmdq_batch_submit(smmu_domain->smmu, cmds);
-> +	kfree(cmds);
-> +	return ret;
->  }
->  
->  /* IO_PGTABLE API */
-> @@ -2334,7 +2356,7 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->  	struct arm_smmu_device *smmu = smmu_domain->smmu;
->  	unsigned long end = iova + size, num_pages = 0, tg = 0;
->  	size_t inv_range = granule;
-> -	struct arm_smmu_cmdq_batch cmds;
-> +	struct arm_smmu_cmdq_batch *cmds;
->  
->  	if (!size)
->  		return;
-> @@ -2362,7 +2384,14 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->  			num_pages++;
->  	}
->  
-> -	arm_smmu_cmdq_batch_init(smmu, &cmds, cmd);
-> +	cmds = kmalloc_obj(*cmds);
-> +	if (!cmds) {
-> +		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full TLB invalidation\n");
-> +		arm_smmu_tlb_inv_context(smmu_domain);
-> +		return;
-> +	}
-> +
-> +	arm_smmu_cmdq_batch_init(smmu, cmds, cmd);
->  
->  	while (iova < end) {
->  		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-> @@ -2391,10 +2420,11 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->  		}
->  
->  		cmd->tlbi.addr = iova;
-> -		arm_smmu_cmdq_batch_add(smmu, &cmds, cmd);
-> +		arm_smmu_cmdq_batch_add(smmu, cmds, cmd);
->  		iova += inv_range;
->  	}
-> -	arm_smmu_cmdq_batch_submit(smmu, &cmds);
-> +	arm_smmu_cmdq_batch_submit(smmu, cmds);
-> +	kfree(cmds);
->  }
->  
->  static void arm_smmu_tlb_inv_range_domain(unsigned long iova, size_t size,
-> -- 
-> 2.48.1
-> 
-> 
+[1] https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@flipp=
+er.net/
+[2] https://github.com/flipperdevices/flipper-linux-kernel/blob/2f814cdf07f=
+50e901fc1b1328213e76460864c20/arch/arm64/boot/dts/rockchip/rk3576-flipper-o=
+ne-rev-f0b0c1.dts#L303-L328
 
