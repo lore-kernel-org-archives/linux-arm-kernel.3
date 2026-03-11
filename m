@@ -4,61 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA93112586B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B561125873
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MutVfPR2cCmBpoNpRIeERLqop6dCiw9BilsvzwhwsaE=; b=uT3I0AYzONO4V35EZL4sQZ2ZNH
-	ALzIxQ3zHbVegJABuBs0JndEkV5h2bjC+li2QIj2icPXNs5dGAjyqIgmXH/502dxXYsL2MXQi4jMn
-	I/JCfzqZu3gEjXU8xqrBTn8C9++Wmc9og85UszBw3GbICtLk6HFTFPBOhXun40fvXsN+6B7DZhr1R
-	kt6ydzt8Th5cakRjP6Fdd8mqFFkrZ5eVKtSDseYq+GGyGGoh1GmP8n4UwiwOObjTnrB9tq7J5kINk
-	DPSVFUpZ7kjVKaSbuO+4ijdmafvg0z3ublLV2EQ/4DjXQQLnWwYc83fhO4kF406i8AbffF47DAbx4
-	GsBH2qGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+4zpzKU33pDixzTIO0Px7UjU6RxkOspLxGYHiyXofp8=; b=2Xgu1YiydVc5MPA5rPc+mj2hsA
+	XeYQIHIfGZu84DmokGvNmMT5V1Hx+RoUipMfb5wAlQu1dRcmSaf9HdQ0qb1iSPsxcERL5fUKca0SZ
+	xU9OKXhb+HZ+4eu34DCzt2UsACdOJhEiQ0q34YVHcVHKX6gkIrYlJlBmDY+3BM/MKd9sXkNDk3HOX
+	OCAG+XKdsSiR1pIUubLyfSTZGWQ2mhHTRdnAFGMUIKL0/dfi5zDkSABS1VdGT/2KNR6sxe3rYonYZ
+	bUeiiwDAV0F5bngmDdZWZgiTDr84xJvAn6xy9R+V42qEX5GW4T/pFysDhUqxPZzves/8YZJO37o4q
+	pyDLPa1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0OtE-0000000CHPV-3Ozz;
-	Wed, 11 Mar 2026 19:06:40 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w0Ov5-0000000CHku-16dd;
+	Wed, 11 Mar 2026 19:08:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0OtC-0000000CHOH-1mEX
+	id 1w0Ov1-0000000CHk8-0zWR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 19:06:39 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B9587379;
-	Wed, 11 Mar 2026 20:05:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773255928;
-	bh=VbsesXy4cGJY3Bz+mG4mbStpBp+srD97jXefZADi4LU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hJD0rGslTeBltubUF4ThwItbJ/P6C8YGmsIVk2i5WDHXG0OAfbUU03ipna04e97Ml
-	 N3SygGEPO2B5XQTBgO0c3aNDicaIRwRaXdUbEYcy+z9xWYjW3Fk42MmIhlnn03opMo
-	 n2RXlHH2ZEmx/fxSCTtCPVLSTPSAO4MqBdsaGZZA=
-Message-ID: <84d1a341-147b-46a6-ba2a-36f905a26d80@ideasonboard.com>
-Date: Wed, 11 Mar 2026 19:06:32 +0000
+	Wed, 11 Mar 2026 19:08:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yjWB7cJA6K/1ZDGlTfgxZfTSHAGVu0l1FiyQTPrJ1jsDpJOim8QjUim0XqFzNKK478Rude9EIBiJxMbh/nXd5ABBUzd/v0SjGqtLbgg+Sh686ethVilf0E+186MBlsQCAnNBig4m7qdxS/2VQ7rN3nZwwE3jhHe1EsD64r2rNk6nd7L83L1RwU9aFVusSctzZABaCrGjBcgr6gBTPLLa7x2RW+KRx8zvc+wZSZW261Lm/V8WrNlvKsvouo447B9nViWwzU0uAZ3NnBzX94NTLvTTqEgiIhH2ISaIrn8ZWexM1Ysrhnekb7DP1o5Rthus8mEZI3sWk1rkzQRFMgtTxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+4zpzKU33pDixzTIO0Px7UjU6RxkOspLxGYHiyXofp8=;
+ b=IOY5ew+ccCHVEdIZXBtuuDDpLpXEHpYWd9RRkx10wO+Yj9BU7jiN/hTfUon+p4uxpDiikDKsmp4DkgcRy8Rg+d1b4IwANZKkFCqOz3GJsNZB7HogbnsxwYCEqiWOoGKTTO3hdDKzB0NjhXj1qwyoCGngFF+FHVwrLMOc1MMSOPPwLiAboxa+rVAUJZCFkIwibWvS+lcQ+fI9KaXxRXp5VP2P4KzAMvMCNEEzFYxNZzdgqsx1I4nRrjA9ojE6LaTlwPaZ0SNJ/cge1B3Jn1leb4yrCZYBLS5OeGa/jO33Y5y7giADVffq8SA0juLCgdfNo1llz5qczfYtRgm5pKzMZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+4zpzKU33pDixzTIO0Px7UjU6RxkOspLxGYHiyXofp8=;
+ b=eHRBZK5WYz8dsSZqjPz/3eyJdxsXy77LAd8dao8qXQolYSYUhmmnZlUUf8EVcuPSKMQcx7+qXYAX+Ihbp7nuODD3jQChaNGaBoi6FkZeGeYo3GsY0nWyWcdYWmByOe0wW4CRWal7pfEwLylqB3LiK5yELNVc2ZbsspOiOCGtAhHmrONcMduSYuvP8hDbqy41EPmZU3BQGTu6W6ltIbPDNNybiy5W1epdaoThgegTOrBqslJZVlp0MlvZxDvVrLGceNUEAREOUA17m6bHFNJhb209Pn8S61Uocd4m7tfSITLn38UJNfVtyfzQR9f4yZlWKTzMQm4tWw5ju1QA87z7hA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by MRWPR04MB11493.eurprd04.prod.outlook.com (2603:10a6:501:76::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
+ 2026 19:08:22 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Wed, 11 Mar 2026
+ 19:08:23 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 0/7] pinctrl: Add generic pinctrl for board-level mux
+ chips
+Date: Wed, 11 Mar 2026 15:08:09 -0400
+Message-Id: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJm9sWkC/1XMSwqDMBSF4a1Ixk1Jbh4+Rt1H6cDGWC/UKIkNF
+ nHvjUJpHZ4D/7eQYD3aQKpsId5GDDi4NMQpI6ar3cNSbNImwEAz4IKO6Mzkn7R/zbRpS6PuWnM
+ lGUnF6G2L865db2l3GKbBv3c88u39OuXBiZwyqvOiAa5FnhfFxc3j2Qw92ZQIfyWoYwmp5FLoG
+ lRbSyV/5bquH1lQ69veAAAA
+X-Change-ID: 20260213-pinctrl-mux-df9c5b661540
+To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773256100; l=4514;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=DNDNXydLDck26MalMw3pVFLQSMrV83t5TSuneLzwwl0=;
+ b=Sb1h/uqrELewMXYjMQHrklFm8t2Ioj9Et+/kx+XmU74Op4/IB1H1Y6UkMLe088S+Jj+49JeQ9
+ dQ0KN8Br+WACmHvdfYbFS+SMoTbU8dg4/1BXtZyeAY8awy+zsBBk2lC
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA9PR11CA0025.namprd11.prod.outlook.com
+ (2603:10b6:806:6e::30) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] i2c: imx: Don't recover bus when arbitration lost
-To: Frank Li <Frank.li@nxp.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Andi Shyti <andi.shyti@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20260311-i2c-imx-fixes-v1-0-e625034d8202@ideasonboard.com>
- <20260311-i2c-imx-fixes-v1-1-e625034d8202@ideasonboard.com>
- <abGNjJnf40fqPz4s@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-In-Reply-To: <abGNjJnf40fqPz4s@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|MRWPR04MB11493:EE_
+X-MS-Office365-Filtering-Correlation-Id: fe92f4c3-ff15-4721-92cb-08de7fa1913b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|52116014|19092799006|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: X4b3GkgQOpKF6FQ43ppvMJfNiEVjPuDeel1x6oEuTJRnxgqBSpyN7Ab3t/Ll7XXMz0chj/deZEkWM2Q4JMb32x6ilHWYkRFepg0rsN2+uUoBB5dMwKk9aK0ErwRnI6yggBSNe6AKhGLQhG4ei6QR1u2sN17jUUVf4yVxD6mZ8UmyFEykeaY/8W0tv1TeIdBQYIDsbWPzf71X3/aNnMrcnvwMXEzJYZ9VHb+9TUh56zxdM2wLsDj/h6z9AlrAXzSS7C3cxpcFUWRLquATWQP9sGBfjSx0RD7LABlo9a1ZxxB+XbFzwVaFGMtITlSb8syeOgZfQ7nQ3OfeJAE0PaM76hgGkxOx/76Z4CdlOS1mqCEcxbSfLB9m2B2CSL7kxbl28+E3ahU9bDnDIuSlsfddT6taprfgeyx4xChKSKRthrJkF4eN9pUUj1+xJ9YcrMrGgW/5jCfE9vtCS/yqliA1u+iimpKnO/sxBygn6LWt0KVlpuqwW83GHDiXbFNj944fYmoAs4f5s4jRObIWLjqvi9D2zjPAbegzHSUYwNq6IObnAiljN0XQdhAKBjHuMhAJkTHVz07VxMDVXCxLoVj4ddGusaA1n8dnYuCir+n/0tj7s8SARsxglzNlSw/q6j8WQpeVipPIuhgw1uU/yGmyqKzzA3oK/J9OgM5bEGuEUscAIShcBCE6yWNuOeTMu58hVS/7mtsGP6CwjmVconR9JK404PSddHbyevhtW8SYKfTnb0MSIiabwrr7o4ikEoblpbReyxaMTrDRRhPgsJshqZnD1whM/sIJCl0tvRjDtT0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(52116014)(19092799006)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ni9FZ2NJekkxUzdWUUVuYUtobUtkaDRWS3RCRWhMeHRUc3VwczdNU2NjdHBo?=
+ =?utf-8?B?TDFOZHlTOUpickpvM0JwV0QralRKR0tzSTl4aUNxSkZXUjdGUXBzNmV2eHFQ?=
+ =?utf-8?B?Ym5vSlBLU3VkZ2N1WURFRTVoQllndlJldi9zckxHSnl4SFZ4VjY0elNJRDlz?=
+ =?utf-8?B?MUlZTUI3OTU2N1ppWmNtMkN4YUdheTl3WTcwM29yYmd5QjJrNm85SDgrSDg0?=
+ =?utf-8?B?N2VSMXBEVUdEWkFFM0lLaHpDT1FlNE15dkJiZVo5dENWMlVPSmVHU2luL2R5?=
+ =?utf-8?B?ZUxkMGowa1htYjZjRWIvUmpVQis4Q1l2MHhrUElKZXRydXd0MFBhc3RiMjhO?=
+ =?utf-8?B?cmlZc09vSitDUkpSYVI1dHVmS05xZGVVTVNlWHgzelcwSThCVkVRUUdCSkJS?=
+ =?utf-8?B?RkdlcVQ3SFZVWlRvNnVJRjIrdEwxZm4wWjg2bHZlSVRPdmRQRUl2bkwzb2J4?=
+ =?utf-8?B?eEZHdEFPbDI2TXpna0xvZTUwL0ViSDhVdDdJQWpQSW1FR21EN1BhVWVjVGpH?=
+ =?utf-8?B?a3oxd2RRdU5lZzd2Q05UMlBKVFEwV1FPTE5RL2h3LytRQ1M2U0xoVXJwRkpR?=
+ =?utf-8?B?UmJCVEhOM0owRDB4Z0ptMERJalZZUzdjamgxalcwdUtGQndWZm1yVkZ1aFpG?=
+ =?utf-8?B?aVpZYU9DcWd2MkJKQVVRQXVIejdyWHNDcXpxUnJpRS9oUUZzbGdod2psYndP?=
+ =?utf-8?B?c3Z0NlNBNFNXWS9vN0Q0dWk3dkJRTHVOYWNSa3IvTVczZVYwem5zbzh2ZEZ0?=
+ =?utf-8?B?RUV1Wm5KcmpoTTNlSFhhNXVlSlhJRXVxRG13c3Y1ZklTSVlWUm42cmFmcVhv?=
+ =?utf-8?B?b2FlZnp2anNwdEVBdWx6N2FEbjhoTklhTUEySHZxZlBLWjB4WWhhUW1tamQx?=
+ =?utf-8?B?aDF3QVFpUkFyVmxnYWVZTlJZY1ZQelhPa0xuT3Bmc2FQV1pTVGlMWVBEREV5?=
+ =?utf-8?B?QjJtSU1YRW1PVy85MXBqVW4xajJNV1hBbG4xSUI5ZTdlSEdGVGlDeGUrVG5M?=
+ =?utf-8?B?TC9VQzU4c2VKS3VGOHVhUlUxSGVXSEZqMUNlaTU3NUFkbEFXaVVoaWZ6dkxp?=
+ =?utf-8?B?Nm0rZXA1T3JHUW5sUnNNQVNlVThCS2J3bitWSGhyM3l6c21tZi9JdlZ4bEJP?=
+ =?utf-8?B?a2Vxdy84SURnWVRmYVVSOWFPeUdpekE0eEJ3U25yNHlZTUJ4VFFQdjdIUU0w?=
+ =?utf-8?B?TE5mOVhPVzNlZ0NVNEYvclRpTVArWEhvV2xjNkpkMWhKRlNVa0x1M2RKSkI4?=
+ =?utf-8?B?dzF6dVoySzkwS2Qyc05PbTl1c2x1RFhpREorT0M1cER3TGh5OFowVUR1SjZI?=
+ =?utf-8?B?QlJnekdqd0J5MmF3dlllUkk1TnIvY2lWNDZZOERtSVZCNEl0ZEFVaitIZXds?=
+ =?utf-8?B?SFdhZjZKLzBmMm9TS3l4SENET1lXN0VxWDdxUjJqTDBSUWZIV3Jhc0NSaFo1?=
+ =?utf-8?B?M2QvdEwzQURUUnJnVEduNWtpY2tNS3doSXlpUi90SDFRZWNtWDBKTDQ1bkNn?=
+ =?utf-8?B?NmV5VUxacVYwZU5oTHpHcHNDNGZjemRvRlVKNGNDY3ZsSHlhRWFMeFdxMWNB?=
+ =?utf-8?B?ek5rQk92dnk0dTFKTUthL1lUdlcvbXMxajVoM3FNbTMzWU9zZjFlTHJsS1JJ?=
+ =?utf-8?B?YytML1pBYVNCdkd5MlNNUHVOQXZlaXUzdnhDNEx3c1JsU3h1czd4dlg0WGlx?=
+ =?utf-8?B?MGhkTGM2TTFvWlpmUHI4Y3JNeGhaTHVlRXZRNU4rYUhKeml5SVFxb2dYU2hv?=
+ =?utf-8?B?OWswREhOUGhsTFBjVnh0MzYrTkt0TnNxaVZnMUc1MmlQcHB4R2tLbUFJMDJy?=
+ =?utf-8?B?dWtDelJyendCNEQwekp1UTh4ckExRXFneWlENFoxL2FaRUZvbk1ZcnpUTlJ5?=
+ =?utf-8?B?UVlQT0N0UnpBRjNtQ1hpeFhqMUQ0OW5Ed3NiTUlKbXY0ejdOSjk5NU5LaXph?=
+ =?utf-8?B?cW1kL0N6RTBlMGN5TUFxbC9KRzlJSTkxY2JrdzdlTlp4Z3hzbkhyTHllVmZ1?=
+ =?utf-8?B?aDkybVVrd1lQaGJYQi9qOUUzZVRjOFRYSk1YOXJWekVnSXpJWEJ3dUJZdEh5?=
+ =?utf-8?B?UUxOUWRGZHV5clBiN29OSlpVcmxEWHJvakltWlVWTVBBMjhGdEJWekpZRmFC?=
+ =?utf-8?B?M1U2N0pzbnZSMUlMK2VYT3ZDWFUvYlI0dCszcmpoWjduTEFNYk9BZVZBdnBl?=
+ =?utf-8?B?b3Rtem0zcXV0V29raU9ZMGhFdVZLZ3FCUDJLc3NIWlZSbXR5NHNNUGVMaFUw?=
+ =?utf-8?B?OTQzcHE5TUFMZXVqdDdZTTRMb3AwZzhjVkJBb0k5R2lMZ1JYUmhZMjl3Um9O?=
+ =?utf-8?B?bkhLbk1EYytzRitpVFJXNHAwUkltZHAvR2Vac0RIcTYyaXAwUWV1dz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fe92f4c3-ff15-4721-92cb-08de7fa1913b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 19:08:23.8812
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6yL+Moho1Fa51JDjW99ixcfIZaGjgyuAjw2BBpYkohdjjp0ihj11zgaaKSvtpEzukyzw3mI7SoSf3XiE7810Fw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_120638_607720_31044B92 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260311_120832_860065_7BD178FE 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +163,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank
+Add a generic pinctrl binding for board-level pinmux chips that are
+controlled through the multiplexer subsystem.
 
-On 11/03/2026 15:43, Frank Li wrote:
-> On Wed, Mar 11, 2026 at 11:47:43AM +0000, Daniel Scally wrote:
->> The i2c-imx driver runs i2c_recover_bus() if i2c_imx_start() fails.
-> 
->> One of the failure modes is an arbitration-lost signal from the
->> hardware however, to which bus recovery is not the right response.
->>
-> 
-> Supposed
-> 
-> One of the failure modes is an arbitration-lost signal from the second I2C
-> master or slave devices, which is expected behavor. Specially two masters
-> try to control the bus simultaneously.
-> 
-> So bus recovery is not the right response for this case. Add check -EAGAIN
-> of i2c_recover_bus() to avoid wrong action.
-> 
-> Fixed tags here!
+On some boards, especially development boards, external mux chips are used
+to switch SoC signals between different peripherals (e.g. MMC and UART).
+The mux select lines are often driven by a GPIO expander over I2C,
+as illustrated below:
 
-Ack - thanks, I'll make the changes for v2.
-> 
-> Frank
-> 
->> Do not try to recover the bus if it loses arbitration during start.
->>
->> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->> ---
->>   drivers/i2c/busses/i2c-imx.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
->> index 85f554044cf1eec7d28310c3d9e7a7346237afdb..ed2316ab1ba8b6261dabe8af4377136a002e2f0b 100644
->> --- a/drivers/i2c/busses/i2c-imx.c
->> +++ b/drivers/i2c/busses/i2c-imx.c
->> @@ -1539,7 +1539,7 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
->>
->>   	/* Start I2C transfer */
->>   	result = i2c_imx_start(i2c_imx, atomic);
->> -	if (result) {
->> +	if (result && result != -EAGAIN) {
->>   		/*
->>   		 * Bus recovery uses gpiod_get_value_cansleep() which is not
->>   		 * allowed within atomic context.
->>
->> --
->> 2.43.0
->>
+        ┌──────┐      ┌─────┐
+        │ SOC  │      │     │    ┌───────┐
+        │      │      │     │───►│ MMC   │
+        │      │      │ MUX │    └───────┘
+        │      ├─────►│     │    ┌───────┐
+        │      │      │     │───►│ UART  │
+        │      │      └─────┘    └───────┘
+        │      │         ▲
+        │      │    ┌────┴──────────────┐
+        │ I2C  ├───►│ GPIO Expander     │
+        └──────┘    └───────────────────┘
+
+Traditionally, gpio-hog is used to configure the onboard mux at boot.
+However, the GPIO expander may probe later than consumer devices such as
+MMC. As a result, the MUX might not be configured when the peripheral
+driver probes, leading to initialization failures or data transfer errors.
+
+Introduce a generic pinctrl binding that models the board-level MUX as a
+pin control provider and builds proper device links between the MUX, its
+GPIO controller, and peripheral devices. This ensures correct probe
+ordering and reliable mux configuration.
+
+The implementation leverages the standard multiplexer subsystem, which
+provides broad support for onboard mux controllers and avoids the need for
+per-driver custom MUX handling
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v3:
+- collect rob's review tag for binding
+- extend and use pinctrl_generic_pins_function_dt_node_to_map()
+- add judgement about
+commit 2243a87d90b42eb38bc281957df3e57c712b5e56
+"pinctrl: avoid duplicated calling enable_pinmux_setting for a pin"
+
+which call pinmux_disable_setting() before pinmux_enable_setting() when
+switch state. It is actually what wanted. Previous remove .disable() to
+avoid hardware glitch when switch state.
+
+New .release_mux() call intent just release software resource, like lock,
+don't touch hardware register. No glitch involve. Comments already added
+
+Linus Walleij:
+  I hope this answer all of your questions. If I missed, let me know
+
+- Link to v2: https://lore.kernel.org/r/20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com
+
+Changes in v2:
+- Add release_mux callback,
+  test insmod/rmmod, mux_state_(de)select() called.
+- Link to v1: https://lore.kernel.org/r/20260219-pinctrl-mux-v1-0-678d21637788@nxp.com
+
+---
+Frank Li (7):
+      mux: add devm_mux_control_get_from_np() to get mux from child node
+      dt-bindings: pinctrl: Add generic pinctrl for board-level mux chips
+      pinctrl: pinctrl-generic: add __pinctrl_generic_pins_function_dt_node_to_map()
+      pinctrl: add optional .release_mux() callback
+      pinctrl: add generic board-level pinctrl driver using mux framework
+      arm64: dts: imx8mp-evk: add board-level mux for CAN2 and MICFIL
+      arm64: dts: imx8mp-evk: add flexcan2 overlay file
+
+ .../bindings/pinctrl/pinctrl-multiplexer.yaml      |  57 +++++++
+ .../devicetree/bindings/pinctrl/pinctrl.yaml       |   2 +-
+ arch/arm64/boot/dts/freescale/Makefile             |   4 +
+ .../boot/dts/freescale/imx8mp-evk-flexcan2.dtso    |  15 ++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts       |  23 ++-
+ drivers/mux/core.c                                 |  40 +++--
+ drivers/pinctrl/Kconfig                            |   9 ++
+ drivers/pinctrl/Makefile                           |   1 +
+ drivers/pinctrl/pinconf.h                          |  21 ++-
+ drivers/pinctrl/pinctrl-generic-mux.c              | 178 +++++++++++++++++++++
+ drivers/pinctrl/pinctrl-generic.c                  |  41 +++--
+ drivers/pinctrl/pinmux.c                           |   5 +
+ include/linux/mux/consumer.h                       |  16 +-
+ include/linux/pinctrl/pinmux.h                     |   5 +
+ 14 files changed, 373 insertions(+), 44 deletions(-)
+---
+base-commit: ff76d257e86235eb07ef33db8644a517c48d1c3f
+change-id: 20260213-pinctrl-mux-df9c5b661540
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
