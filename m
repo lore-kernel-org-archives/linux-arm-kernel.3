@@ -4,70 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04793106288A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158F51062878
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kc2QGWF5G5EzUjXMEaPPTzIZ3WpACKsHXW+pHWvE/HI=; b=jMFJV2N5cVuX9Vvs0m8fONUHPb
-	9+th+Q4M9rXV6WtWEF2imHGK+XYY+CPFrMgzy2VkT8nFdyz+DOg/vvU4DEbFX7LsUPk+Xvn+w8FbY
-	3qK7/y/L1aMCW7jd7iDyuVemKLQoBgYkg6Yeiz8YZ5e6Sf7H9MsBe+u1SKZxpB5/cDfU2zUPKc+fV
-	FJnb35Y+v4m2UDFa5we7n2tsnQ2lpzLtIsY2Rm5zrBqTvcYDNsZ98drxCdbZu0RIxm9FZBqhyt3HB
-	cshgtZ5fK5MY6ZbXPHAmo3FzL1nHPncaBK4K7W1HyoE+rtF6YoVDzjPhYpdjNwy9iaM26jpU38RrP
-	ie9sI7Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E09FmmKj8xnRMQXs0bbuEBu3BYrHWvN/8FuPIekKz+k=; b=XLx5I6/hpOUdFDWEWwKpYDEvTr
+	Noyzr/Pc516lOYr4vn+dZup5NHINvwqgaCnKW6AiGS/unhGUGhckt+5iK8Q6kHDj9X6vVdlbqNgCE
+	HsIIcRoF7t9prmuaNN9xLPFvTB1b6xynQGepK8BNm+VRTCk+c+3oIcwSlzJcDe/C8VOlPpRYQX+EH
+	AGPJ1HsLTXxD+MdnN8QJSef2ScllEmhjYCN2TB/Ih0mzBuyJTTIwE1volLKm0k+ybAXtWuJfsK5Lp
+	he0M9RHPs4TSvJcd5wF3DF2gKyqRYII36piQl0MV+kPb6EPnH6v7zhS2AsreGf8Cw7oNI8wZt0F0b
+	tCivRtGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IgB-0000000BYsY-3iGj;
-	Wed, 11 Mar 2026 12:28:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0Ikx-0000000BZ6h-3hWi;
+	Wed, 11 Mar 2026 12:33:43 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IgA-0000000BYsA-3IRB;
-	Wed, 11 Mar 2026 12:28:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F42B60145;
-	Wed, 11 Mar 2026 12:28:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E196C4CEF7;
-	Wed, 11 Mar 2026 12:28:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773232125;
-	bh=WuY0INtBXp4bdO1U7Nbe5xqaanpsrysVxQk4S6c9FJY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kzdROzh4Rp4Awq3KG6vcTN0jZmJEl9lTvk2wAzo/euSWUrAGp/0mG1zTn5WTwyPBS
-	 qIy0pOO4VNPy4Mob6sato7lSAcfmKli4OidYuI0tO78gBVvkeamOJ3ZbBElZciUoRm
-	 4h5ygxchTqQeBrn59Aw7z/dE6vb9l5sAc68YhkFpfL6Q/5/TULltm4Qo5SXCIoC8+L
-	 /cIgawapsiF0AE5tXzGdBfwqhKixaleuz1bq0kUfmOwEVQLzbD/HEIfhRUu0J4ya1y
-	 ffzAe3+ukODyjdlYDcoawMqEWuhS5NryHvzXkGgkUeAXsQgvKPzYm5voX5udL+vCSZ
-	 8ybyTcxHtD6bQ==
-Date: Wed, 11 Mar 2026 17:58:26 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
-	Grimmauld <grimmauld@grimmauld.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	id 1w0Ikv-0000000BZ6M-1w9Y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 12:33:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XK3DPeHqWwsYbC0Dl7i43SsVaAwqJylKkD0hEVFPQV864YkeXK4raQ+uIdc9jwtegby8ST35EgG0CNKWsidkideLhzQitQmEfYQelHMPBf7FwCWCy9hb1VeGKXgFdj6/IpUuiHuoh8IanPii4dvZy2SPNgLSbXidCI0YF3tYCYbkrWA/xfK7plxKvCyAtsD+MQPNpgb+A5qoA9TZwgHR3ZvkeBqOgHUZLtobjIfeM31v4WPAOrtpr1U9FdcIfio0iFnG37Kv7ESXIiVMv+wiStTVAB0Q96oori1R52vO0WuPUkpWn6H/AWiGGnegdhKkEQeex6xaKyb6kmp10cpnnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E09FmmKj8xnRMQXs0bbuEBu3BYrHWvN/8FuPIekKz+k=;
+ b=iVOQbefYktqks4E6u9kaylbBSV0HmDe0R3Oi4ULafHdm4vl9gi5pGWR+nQUC9r7Jjmt62anS8zyQ/w1G0rk1r1x0MXEglwZPQO7vKLmmKjArC+5Oc7dYM69Mjh6Tvi2TcLxqVfgBEOHWEudgPy2iGGIcnKOzqkIjq+6KTZjBAzLICAKSN7j3k+GW2RgGqQR9tl3n8UPxmXCH5ytHClGJ6xYhoK83Zzod4MqUUD75u+L31AQVlld+YnaggnJokNJAuatTMPr+Lvsw+jBkb/fZuTJSCGFIIFNBsr+E7+JDWJlEFccpBHOJkOp7EEN55f62IWVrUGvaeMhEQdq+D9NX9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E09FmmKj8xnRMQXs0bbuEBu3BYrHWvN/8FuPIekKz+k=;
+ b=e7EceduZANUItOGoq9x90J8dNpKSj0tXVMXdPnsjnI4lWR4wLVlZV8XkiDhhOkjRxB+N0smWqGmIfgL00cv9jZ74VPv04GPwdCRZKf74uQYI6e694JPTtUtY7usSip3YVxYY30YdUuQHOuY1vnABPV4C/MgCpDBTYXCDZvcpGYvtbWErc8nm3ADiNbWsfaEdi6Z/G2yjgabVkpONzht2V+3/pZERXQXw7XZ1GFUyasZgwmiqGY1meZHpOxLUst23OoodScER4tJSnQZWNkQqVFDMw2QnkBGjbhC5LtopayPNAzDkgp0QkiFFaXE1ApsB44r37eLWYsuMDOWn+1l9Wg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8249.eurprd04.prod.outlook.com (2603:10a6:10:25c::14)
+ by AM8PR04MB8051.eurprd04.prod.outlook.com (2603:10a6:20b:241::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Wed, 11 Mar
+ 2026 12:33:36 +0000
+Received: from DB9PR04MB8249.eurprd04.prod.outlook.com
+ ([fe80::7703:f0e8:aa60:ac2e]) by DB9PR04MB8249.eurprd04.prod.outlook.com
+ ([fe80::7703:f0e8:aa60:ac2e%5]) with mapi id 15.20.9678.024; Wed, 11 Mar 2026
+ 12:33:37 +0000
+From: "Viorel Suman (OSS)" <viorel.suman@oss.nxp.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-pwm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Viorel Suman <viorel.suman@oss.nxp.com>
+Subject: [PATCH v3] pwm: imx-tpm: count the number of enabled channels in probe
+Date: Wed, 11 Mar 2026 14:33:09 +0200
+Message-Id: <20260311123309.348904-1-viorel.suman@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
+X-ClientProxiedBy: AS4P191CA0014.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d5::20) To DB9PR04MB8249.eurprd04.prod.outlook.com
+ (2603:10a6:10:25c::14)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8249:EE_|AM8PR04MB8051:EE_
+X-MS-Office365-Filtering-Correlation-Id: d919d13a-c38a-489c-6722-08de7f6a6a8c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: CP0cHF1fLi3zBnMWgHUPybuB9tCLShtiKgO868cHLkjywjs5Gcx+NX31Mo9zawvOgw3Z+Xwk4uLhsXlwyuqTJFN9HUNHKWULg06MIzIWP7TU9+rVwZZ0Nc7x0YH9VOKxMLmUXIxSRzSOTq1oyGpKdAYSN3bJiD8vqvGs1aLINahxILhQOzmk1j0KZ4cUsEn/eXDYQkdsGnUKE9rlQ7BomcOtR2d9DDWNDbsyvn609OqlcBXhiNKEhUB7yy1CHoYEmDzIu9OAMSPL1YEaZnB86fQk0qUfN42cxr2R+EFCo0Cpa0i49X1zNNEmIgsYB+AXmV8RkQK/gCl0vJvX21DANg0rLoYaoemuXLtg9/81cehqNu3RXHSPtfsQFtmZzdtlQIeh6u18NB8a096lOxU63uzkTfgng0NcXCCCZFe4ihVZ+cJ/y2KuGUdJ1NfMYBeIUZVVLiGIs46kU1+7L3QlPxc88WDGHBuJ1J/JgjXhJgqWCvAxGZVK6vAD5J0jEC7sC7FVOQcXjjaiOzEl9gLO8l6d0T8VuSEh3GtYMvDV5XZPuyplXtEX0EpG4rhzJ1DGt9ZSMm9dizbS07/t8dxLfRduCagDWprcOkKfBDtVq4Mgf6A2jcpnoAbukO2rkXNbgLy7XDzzPcVxYOVZSxULlh8FTb4RP1ofQ2hHZY7IDjRGvNInWDEaRTzj9IPdNIEiEu9QXU07WBO/DpMUvzUVyH/p0gM9Je1DXjnUlMY1bCuW9IM4juzoE1fEBnKcSudqSRjGscDLimBKEQe15HKL3ay0GYsEzV5nR+x8xFyQnh0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8249.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?UlG7ALhmb0o7W1jcrRJEK/iyLxTD13d5fISzLxhQV16ZuG+Olsl7zd1yYF?=
+ =?iso-8859-1?Q?X53onyyI2+yLAwGLCFuyZbjKMIOhk52jsjZVOd9y24JmE+kmKeU0jco6By?=
+ =?iso-8859-1?Q?Hw7j0JfUi5kveBWhz8bKA5ZiPwncfJp5y7UXEH0FTq8hfbL1EvVpPaIjtV?=
+ =?iso-8859-1?Q?LTPUPcPwMsW9lbz1Qk/xyL9bKBHDqufzRvMfTog9UpfnLUkdCQpenYZxzH?=
+ =?iso-8859-1?Q?F1fj1jXP5bUkaXs8UXCDcyLZJie5QQ+cH0/utrwO4AAmsmODVK6Qp9Z+VU?=
+ =?iso-8859-1?Q?ADltBs2M8SoYuqa1jwHOJsKJBgZOsFLa2pxfo/n51MNqGnRfwaqLTxrlcr?=
+ =?iso-8859-1?Q?38Y0/Z+kmOQVbPmwXwdc2khe5oEVCx81jOF1pS5BV0hKT1isLOoxCPSCbh?=
+ =?iso-8859-1?Q?tz3Yy8msWtTJmygsI8h7ez5UWDP0lut8fRofzWN0kZvzTReY6L/FKsqVa+?=
+ =?iso-8859-1?Q?bW30we3YuLexiUk0lGOEt077AFgaTw2FNCKPukfnC+Y7AtkgX/nrQtqOH1?=
+ =?iso-8859-1?Q?x824oPUXiLVjZFlwqxnks2v20Syw0gIkWeQ0x2rAnqOO+IkI9yC+TQxMBG?=
+ =?iso-8859-1?Q?4F9FfFPL8LsSK1KfBmbpPvyjEnzPKg1+uGhNpcl4vsh0BP1CMwDBuEsxRQ?=
+ =?iso-8859-1?Q?OUBUw1LfLLzKkjwVHTnvtKBbRWjyU+pOPj2/Z9pyIb95iYZZ//8zqg/Q9+?=
+ =?iso-8859-1?Q?S4KmPsiS2p5RjaxiQtZCLrfQNriQGn2E17oooNbjokLpoZwsHNFsxWQmh/?=
+ =?iso-8859-1?Q?Avg595XK/THUgslClAaGaowRRpYMx/H+hSQaNAaUvnY1+qX5mGjRX7eYvh?=
+ =?iso-8859-1?Q?rPd46FbDrhs+PaX2O37JbA4iivvVaEoa/illSdm2IpVzcF1U8I7Lvt/gEe?=
+ =?iso-8859-1?Q?RcduOC35vqwprpISqEWCjkrmTBxJ5IvTNOwdwEEWnJt62I9DJkooaM7OEg?=
+ =?iso-8859-1?Q?ZNBpEVltikpyJi4LD2dEAgfZ0bpASPQj5dOIpvCtjnfjUnCv08rz/oDNXb?=
+ =?iso-8859-1?Q?7KPJ8wDffNTJgFTXUQ0RWqZZ0pIlJlmR57hP9d2Owanhi35FuZQ4jH64+B?=
+ =?iso-8859-1?Q?j2ovjmQfv6uO8XodkVpjAy5NcO3nKBlWU0QljC6V9yec1hwfxb4KoxsfBj?=
+ =?iso-8859-1?Q?LZP/uFuq5wG5YQMvILCc4gaUdg5JYtW2yrwc33pO/2vsNoZldWplpMH3/i?=
+ =?iso-8859-1?Q?dSBo4N6c5LKzLoeY05SUQrkHtpGUEjNVIaaFd/ZI7rS7rvheF+dIAx9SvW?=
+ =?iso-8859-1?Q?XAsDT/CGyl0GThCr8OvHHG6RwSR22nR6nB9SAJ71A3yKtQGExlpOyYkt+E?=
+ =?iso-8859-1?Q?U4ZIP/8cjeLNi+KYVOEa4P0hZwjIY78LTl8igpyj2pXg/DkyZk5D/4z/JX?=
+ =?iso-8859-1?Q?LyV+TQ0Rscfbzoq7pqlE5s0EyY8uMXALNvrZnMrGkqpZb5mPybglAua5VV?=
+ =?iso-8859-1?Q?47+KWqASrtUDzzaM6lqsKNFxt8pHL1AHd+zO2xMrP49FY2SQvw/P7LTWXO?=
+ =?iso-8859-1?Q?A4WqxmXJD2YE2rsmNveq45mzmHNdcnoRXS7Uq4LqeztWsM8G3wuXv56v45?=
+ =?iso-8859-1?Q?YejeZwHxk4zpBpy6jOgnf99hh47uKiffKXgYOYhI64/pkjME8ONjWhehwQ?=
+ =?iso-8859-1?Q?5yVppQWeea67j6/bYlK9vQRomuFV8XZFYdoUASYk/E50QcOFTwSUQhfEws?=
+ =?iso-8859-1?Q?IDP7XFxrqAUyvW08/kqYEHkF8EfbBNrcYgqaBQM7HQbferWgIUjU/LbPv7?=
+ =?iso-8859-1?Q?Ip74qMXu78X+M/ESVQtB/NaILvGS9NXekCeP7TMVfuJEVf2MMD38xD9oY0?=
+ =?iso-8859-1?Q?W85J/EAXyw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d919d13a-c38a-489c-6722-08de7f6a6a8c
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8249.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:33:36.9662
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Enea4Av84Ua42bJOTdVbf1Z4FZbHRCVI1x5nmmXRXBPyhASWd5iuHsHpgOVWn+A5pm12LBI9ERwyQDpvE07P8A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB8051
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_053341_511933_C6B200CA 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +144,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 12:46:03PM +0100, Danilo Krummrich wrote:
-> On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
-> > I have a contrary view here. If just a single driver or lib doesn't handle async
-> > probe, it cannot just force other drivers to not take the advantage of async
-> > probe. As I said above, enabling async probe easily saves a few hunderd ms or
-> > even more if there are more than one Root Port or Root Complex in an SoC.
-> 
-> Then the driver or lib has to be fixed / improved first or the driver core has
-> to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is requested
-> from an async path, etc.
-> 
-> In any case, applying the patch and breaking things (knowingly?) doesn't seem
-> like the correct approach.
-> 
-> > I strongly agree with you here that the underlying issue should be fixed. But
-> > the real impact to end users is not this splat, but not having the boot time
-> > optimization that this patch brings in. As an end user, one would want their
-> > systems to boot quickly and they wouldn't bother much about a harmless warning
-> > splat appearing in the dmesg log.
-> 
-> You mean quickly booting into a "harmless" potential deadlock condition the
-> warning splat tries to make people aware of? :)
-> 
+On a soft reset TPM PWM IP may preserve its internal state from
+previous runtime, therefore on a subsequent OS boot and driver
+probe "enable_count" value and TPM PWM IP internal channels
+"enabled" states may get unaligned. In consequence on a suspend/resume
+cycle the call "if (--tpm->enable_count == 0)" may lead to
+"enable_count" overflow the system being blocked from entering
+suspend due to:
 
-Hmm, I overlooked the built-as-module part where the deadlock could be possible
-as indicated by the comment about the WARN_ON_ONCE().
+   if (tpm->enable_count > 0)
+       return -EBUSY;
 
-But what is the path forward here? Do you want the phylib to fix the
-request_module() call or fix the driver core instead?
+Fix the problem by counting the enabled channels in probe function.
 
-I can drop this patch in the meantime. But holding this prolong wouldn't help.
+Signed-off-by: Viorel Suman (OSS) <viorel.suman@oss.nxp.com>
+---
+ drivers/pwm/pwm-imx-tpm.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-- Mani
-
+diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
+index 5b399de16d60..80fdb3303400 100644
+--- a/drivers/pwm/pwm-imx-tpm.c
++++ b/drivers/pwm/pwm-imx-tpm.c
+@@ -352,7 +352,7 @@ static int pwm_imx_tpm_probe(struct platform_device *pdev)
+ 	struct clk *clk;
+ 	void __iomem *base;
+ 	int ret;
+-	unsigned int npwm;
++	unsigned int i, npwm;
+ 	u32 val;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+@@ -382,6 +382,13 @@ static int pwm_imx_tpm_probe(struct platform_device *pdev)
+ 
+ 	mutex_init(&tpm->lock);
+ 
++	/* count the enabled channels */
++	for (i = 0; i < npwm; ++i) {
++		val = readl(base + PWM_IMX_TPM_CnSC(i));
++		if (FIELD_GET(PWM_IMX_TPM_CnSC_ELS, val))
++			++tpm->enable_count;
++	}
++
+ 	ret = devm_pwmchip_add(&pdev->dev, chip);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
