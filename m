@@ -4,74 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C04FD88D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 00:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9632FD88D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 01:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sd2Fc6FSnG2d3pMTg14GqePnOxYc9BQqdVSkTf9LTHs=; b=GxExK7LO+6P0xxwRcDs9Upci3U
-	YIAEMnGmu+I5RB/xLpDL+xu+sI5HvnNjqTUKsTK3+B9NbAfy4wTBbqUk8dWCGlYd2jtuko2ANcDIK
-	g/+0cVtpzXs+VJ6GTV5oj9ohEy2/5qLZrTuQrMvz8p/xzTDOAwYfvDwTiQla7YTOfrEBWLkv76LD3
-	7LRrIsxjx+0wN7XGXUTUpCg5gYJXMCX6vkyyEVJ5qjOUc71+209JH7cGTHGxwhDh+7PU5F2mtwGPE
-	ln8ccxZMHbfHwM7lfY2nj1sSV3+ckswzJPFv+mb5bgLO+M2dJ6r0oGFnMPJ8Quc3tYdDJBEZ1Op7q
-	xmhunvHw==;
+	bh=/oF/doq6oyWwDTCyW1l4hS1E5POtzgyvQYrb/7hmVZg=; b=PBnM4Cer8/ctq2Bq2bGHlUwdZJ
+	q6ECCUb183FDeWmdkzLlMGbgL4GuuH3Xe8cfJIradx/G6Gp/bjKOH66b3UXypXPzMpGJ+blnyA9JF
+	7bo0j9IBN6qKfhmSzLHIgRwycTOG/PLwH/rc+Uu3AiJq3y3uU/kHsJ/RjSMdZ5EZhg3p/df/ayDLd
+	AKLuDvIp2uCUb0Wgk6PHPqUBGBK3bor0f6CHQu+zhw75N+2EmnSuEcEfyHvBmmBKlu2yGdHJgRtp4
+	Z4ACcI6DzvQpukcBtcZh//98aJR89lyy1JH5UzmS7KDbr9omLDf4Py4Vsb1p4A5gSWgxvqW6uIRI8
+	FJQA96Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07r3-0000000ATGG-2ijk;
-	Wed, 11 Mar 2026 00:55:17 +0000
-Received: from mail-m32117.qiye.163.com ([220.197.32.117])
+	id 1w08IH-0000000AUZk-1Wcf;
+	Wed, 11 Mar 2026 01:23:25 +0000
+Received: from mail-ej1-f45.google.com ([209.85.218.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07qz-0000000ATFb-2qzu;
-	Wed, 11 Mar 2026 00:55:15 +0000
-Received: from [172.16.12.17] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3678c56ad;
-	Wed, 11 Mar 2026 08:55:03 +0800 (GMT+08:00)
-Cc: shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, Niklas Cassel <cassel@kernel.org>,
- Wilfred Mallawa <wilfred.mallawa@wdc.com>,
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>,
- Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>,
- Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v7 2/4] PCI: host-common: Add link down handling for Root
- Ports
-To: manivannan.sadhasivam@oss.qualcomm.com,
- Bjorn Helgaas <bhelgaas@google.com>,
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <20260310-pci-port-reset-v7-2-9dd00ccc25ab@oss.qualcomm.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <2eb738fb-9dfe-1e88-6ea7-afdba9cb3d25@rock-chips.com>
-Date: Wed, 11 Mar 2026 08:55:01 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+	id 1w08IF-0000000AUZ3-2C12
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 01:23:24 +0000
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b96dc65b886so78091866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 18:23:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773192201; x=1773797001;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/oF/doq6oyWwDTCyW1l4hS1E5POtzgyvQYrb/7hmVZg=;
+        b=GSBA0OEQrVcpIK5MFy98jEMVx9iL62ZwCdh1RstQI3tMNn7RuG0D/+OAa8uLZECaTW
+         SmfB9fN2bLIYiCqkKm15I4tYprqT2C7KBnj98ctxXEerXW0ssUdX4VZO0CNnIbXTL004
+         OS52XNj356Xs08yzZi6DY/NCcPd34UF3C3s+44JBk1uuqQRk5ZHzkuRoj/3xaHD7u1fl
+         CbI2y1MENsAWuC5jvdDAr3B33vlvKnRWeM2/xFdVihvkKS23q06PMKS5/lZWg3cJGaUe
+         68NPj8dYsfIle5l79iHIBOR7Jrg0sCUACPsErT0kwFiNTdtRFdTjK3d22qM8+kKR6ILl
+         /mLw==
+X-Forwarded-Encrypted: i=1; AJvYcCX+o+ejfw1MbEwcwUNrLjO8LbxKEx4e4sDdsD9007mBeBPjNrVlD33PjCDNlUTf+LQdqSuAv6qjG2retV6K1hoF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7blH3HNpTyB2nfkgFeEZErrE1McbDCL2Ob62zf7rSxSv6Ar+q
+	A3DX5hzElpSIhMY8fQ2MS2C+zA4EMXgwlDTjpuA5nfDOWMK2TkwagCknVPnxg+sfsDfnEQ==
+X-Gm-Gg: ATEYQzxg4hvkMX1l3GoLVB0IKLATNFwtkS0o65B2pm7BmjoJpsUkRNJGqml5f9QYPic
+	b08o40M9DhD8V6G2Z8YrWJP2oWC5YfE9uAOoJ4SmMmJnxoVrji011nRTKf/soyAzlGbQ+DJfE8Q
+	6W4DN/Kp92myJ+eNuFqP8D/NOekXXxwXbmaBqILodN3Q1mbYnDO4bZjwNFCyRI+qANEhwxh/BRf
+	mJo9bpLw8P/6MsnPiXshFeJ/kyNsBP652w+OXptJxkXEyKSKgiak+B8yfoxc8wa1/z+z5+iYYia
+	aHP1J/RYN62R0KfImAtDYShC0t6vuYOadAuWi7Tz20l8OJB/JaaKeXBo8jbkmTrIKgy4cjfczKD
+	jT67XTKGVvPJ/flrQoTREMyUfejkPSOstrxmdR5BvvsaWq3VQOdPpk/ONx8EbsWxEzPzyLYAIQR
+	hjoTqAzw4VceY/F05w//OvBvA1c+7YKUM85JOOVwx5l8CrgYWxlTH+skc=
+X-Received: by 2002:a17:907:d649:b0:b94:827:c580 with SMTP id a640c23a62f3a-b9711850fc4mr335005266b.6.1773192201024;
+        Tue, 10 Mar 2026 18:23:21 -0700 (PDT)
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b972de0bd42sm19140266b.9.2026.03.10.18.23.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Mar 2026 18:23:20 -0700 (PDT)
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b942b36de08so86581766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 18:23:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUiGnoBU8xM5+epeoP5lAOo9dO9oRboPLbF7OjyOca+htTHSaOrV4RA7czLb+nB+Lb7b//olHCH6JQluEFBTR4K@lists.infradead.org
+X-Received: by 2002:a5d:5d05:0:b0:439:bb46:7457 with SMTP id
+ ffacd0b85a97d-439eff518c7mr10359487f8f.16.1773191708627; Tue, 10 Mar 2026
+ 18:15:08 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20260310-pci-port-reset-v7-2-9dd00ccc25ab@oss.qualcomm.com>
-Content-Type: text/plain; charset=gbk; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cda63dc8f09cckunm38bfaea514eddb
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk4YGFZCS05KHUxLHRpNTUpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=kfOdNE3EOKnXsygqxi9846fL4/tfGrHHufMHhcZSqW9MTTTIqCuBGUX/zVyg7ioK37rllmhlXiocSZLOPtud5LXKachckvyWn7BGwp1H4lKUNHYY9AmWdtLUnJIF0u/fdulWGnBK2eSSI2LJdbit7/Qw5WUqh7Vhb7SNeSLBpJ4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=sd2Fc6FSnG2d3pMTg14GqePnOxYc9BQqdVSkTf9LTHs=;
-	h=date:mime-version:subject:message-id:from;
+References: <20260309062840.2937858-2-iam@sung-woo.kim> <CADUfDZorSQCVtQyfjBuaziwG2Jo28yZiiqLKbp9PkFFw-9VgfQ@mail.gmail.com>
+ <CAJNyHp+i3M_ko7rhgTz=nxP=MZYM3oQf3L-y=7YnhnRyeUxayA@mail.gmail.com> <CADUfDZppWyOOPME0eJbmO1q+qvehxGiCk8Zz_nVxaQk08aukFw@mail.gmail.com>
+In-Reply-To: <CADUfDZppWyOOPME0eJbmO1q+qvehxGiCk8Zz_nVxaQk08aukFw@mail.gmail.com>
+From: Sungwoo Kim <iam@sung-woo.kim>
+Date: Tue, 10 Mar 2026 21:14:52 -0400
+X-Gmail-Original-Message-ID: <CAJNyHpLU7sTJRtDqTbczTz0iayj-Nm8bPHrPaOcsKVb6nQyw1A@mail.gmail.com>
+X-Gm-Features: AaiRm51cz7xo1V1erpi09gKFdY9TTILawmEFCzQE55oadwxdss7qBUImRUPZq3I
+Message-ID: <CAJNyHpLU7sTJRtDqTbczTz0iayj-Nm8bPHrPaOcsKVb6nQyw1A@mail.gmail.com>
+Subject: Re: [PATCH] blk-mq: nvme: Fix general protection fault in nvme_setup_descriptor_pools()
+To: Caleb Sander Mateos <csander@purestorage.com>
+Cc: Jens Axboe <axboe@kernel.dk>, Josef Bacik <josef@toxicpanda.com>, 
+	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
+	Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Richard Weinberger <richard@nod.at>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
+	Sagi Grimberg <sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, 
+	Chaitanya Kulkarni <kch@nvidia.com>, "James E.J. Bottomley" <jejb@linux.ibm.com>, 
+	"Martin K. Petersen" <martin.petersen@oracle.com>, Chao Shi <cshi008@fiu.edu>, 
+	Weidong Zhu <weizhu@fiu.edu>, Dave Tian <daveti@purdue.edu>, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, nbd@other.debian.org, linux-mmc@vger.kernel.org, 
+	linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
+	linux-scsi@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_175514_223860_1A1F4DEA 
-X-CRM114-Status: GOOD (  32.37  )
+X-CRM114-CacheID: sfid-20260310_182323_576183_59571365 
+X-CRM114-Status: GOOD (  23.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,150 +109,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani
+On Tue, Mar 10, 2026 at 11:57=E2=80=AFAM Caleb Sander Mateos
+<csander@purestorage.com> wrote:
+>
+> On Mon, Mar 9, 2026 at 4:55=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim> wro=
+te:
+> >
+> > On Mon, Mar 9, 2026 at 11:31=E2=80=AFAM Caleb Sander Mateos
+> > <csander@purestorage.com> wrote:
+> > >
+> > > On Sun, Mar 8, 2026 at 11:30=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim=
+> wrote:
+> > > >
+> > > > The numa_node can be < 0 since NUMA_NO_NODE =3D -1. However,
+> > > > struct blk_mq_hw_ctx{} defines numa_node as unsigned int. As a resu=
+lt,
+> > > > numa_node is set to UINT_MAX for NUMA_NO_NODE in blk_mq_alloc_hctx(=
+).
+> > >
+> > > The node argument to blk_mq_alloc_hctx() comes from
+> > > blk_mq_alloc_and_init_hctx(), which is called by
+> > > blk_mq_alloc_and_init_hctx() with int node =3D blk_mq_get_hctx_node(s=
+et,
+> > > i). node =3D NUMA_NO_NODE would suggest that blk_mq_hw_queue_to_node(=
+)
+> > > doesn't find any CPU affinitized to the queue. Is that even possible?
+> >
+> > Thanks for your review, Celeb.
+>
+> While I'm flattered you consider me a celebrity, my name is Caleb :)
 
-在 2026/03/10 星期二 22:02, Manivannan Sadhasivam via B4 Relay 写道:
-> From: Manivannan Sadhasivam <mani@kernel.org>
-> 
-> The PCI link, when down, needs to be recovered to bring it back. But on
-> some platforms, that cannot be done in a generic way as link recovery
-> procedure is platform specific. So add a new API
-> pci_host_handle_link_down() that could be called by the host bridge drivers
-> for a specific Root Port when the link goes down.
-> 
-> The API accepts the 'pci_dev' corresponding to the Root Port which observed
-> the link down event. If CONFIG_PCIEAER is enabled, the API calls
-> pcie_do_recovery() function with 'pci_channel_io_frozen' as the state. This
-> will result in the execution of the AER Fatal error handling code. Since
-> the link down recovery is pretty much the same as AER Fatal error handling,
-> pcie_do_recovery() helper is reused here. First, the AER error_detected()
-> callback will be triggered for the bridge and then for the downstream
-> devices. Finally, pci_host_reset_root_port() will be called for the Root
-> Port, which will reset the Root Port using 'reset_root_port' callback to
-> recover the link. Once that's done, resume message will be broadcasted to
-> the bridge and the downstream devices, indicating successful link recovery.
-> 
-> But if CONFIG_PCIEAER is not enabled in the kernel, only
-> pci_host_reset_root_port() API will be called, which will in turn call
-> pci_bus_error_reset() to just reset the Root Port as there is no way we
-> could inform the drivers about link recovery.
-> 
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> Tested-by: Brian Norris <briannorris@chromium.org>
-> Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->   drivers/pci/controller/pci-host-common.c | 35 ++++++++++++++++++++++++++++++++
->   drivers/pci/controller/pci-host-common.h |  1 +
->   drivers/pci/pci.c                        |  1 +
->   drivers/pci/pcie/err.c                   |  1 +
->   4 files changed, 38 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index d6258c1cffe5..15ebff8a542a 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -12,9 +12,11 @@
->   #include <linux/of.h>
->   #include <linux/of_address.h>
->   #include <linux/of_pci.h>
-> +#include <linux/pci.h>
->   #include <linux/pci-ecam.h>
->   #include <linux/platform_device.h>
->   
-> +#include "../pci.h"
->   #include "pci-host-common.h"
->   
->   static void gen_pci_unmap_cfg(void *ptr)
-> @@ -106,5 +108,38 @@ void pci_host_common_remove(struct platform_device *pdev)
->   }
->   EXPORT_SYMBOL_GPL(pci_host_common_remove);
->   
-> +static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
-> +{
-> +	int ret;
-> +
-> +	pci_lock_rescan_remove();
-> +	ret = pci_bus_error_reset(dev);
-> +	pci_unlock_rescan_remove();
-> +	if (ret) {
-> +		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-> +		return PCI_ERS_RESULT_DISCONNECT;
-> +	}
-> +
-> +	pci_info(dev, "Root Port has been reset\n");
-> +
-> +	return PCI_ERS_RESULT_RECOVERED;
-> +}
-> +
-> +static void pci_host_recover_root_port(struct pci_dev *port)
-> +{
-> +#if IS_ENABLED(CONFIG_PCIEAER)
-> +	pcie_do_recovery(port, pci_channel_io_frozen, pci_host_reset_root_port);
-> +#else
-> +	pci_host_reset_root_port(port);
+My apologies, Caleb. I'll be more careful.
 
-Since pci_host_reset_root_port() returns pci_ers_result_t, shouldn't we 
-check the result? If the return value is intentionally ignored here,
-maybe pci_host_reset_root_port actually doesn't need a return value at
-all?
+>
+> >
+> > blk_mq_hw_queue_to_node() can return NUMA_NO_NODE if the device queues
+> > exceed the
+> > number of CPUs. Afterward, it is adjusted on the caller side to
+> > numa_node =3D set->numa_node.
+>
+> I thought the NVMe driver capped the number of queues so every queue
+> is affinitized to some CPU (see nvme_max_io_queues()). What am I
+> missing?
+>
+> Best,
+> Caleb
 
-> +#endif
-> +}
-> +
-> +void pci_host_handle_link_down(struct pci_dev *port)
-> +{
-> +	pci_info(port, "Recovering Root Port due to Link Down\n");
-> +	pci_host_recover_root_port(port);
-> +}
-> +EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
+You are right, every hw queue should be affinitized. It seems I'm
+missing a lot. I'll look into the reasons and get back with V2.
 
-This function shouldn't be called like in interrupt context because of
-the pci_lock_rescan_remove() and pci_bus_error_reset()::pci_slot_mutex,
-but it's not so obvious from the API name. It's prone for host drivers
-to use it like:
+I appreciate your review again.
 
-register_LDn_irq -> irq isr -> pci_host_handle_link_down()
-
-So perhaps add a comment about it would be better.
-
-> +
->   MODULE_DESCRIPTION("Common library for PCI host controller drivers");
->   MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index b5075d4bd7eb..dd12dd1a1b23 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -17,6 +17,7 @@ int pci_host_common_init(struct platform_device *pdev,
->   			 struct pci_host_bridge *bridge,
->   			 const struct pci_ecam_ops *ops);
->   void pci_host_common_remove(struct platform_device *pdev);
-> +void pci_host_handle_link_down(struct pci_dev *port);
->   
->   struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
->   	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 6f09057d83e0..1b37bfe6d079 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -5650,6 +5650,7 @@ int pci_bus_error_reset(struct pci_dev *bridge)
->   	mutex_unlock(&pci_slot_mutex);
->   	return pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
->   }
-> +EXPORT_SYMBOL_GPL(pci_bus_error_reset);
->   
->   /**
->    * pci_probe_reset_bus - probe whether a PCI bus can be reset
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index 13b9d9eb714f..d77403d8855b 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -292,3 +292,4 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   
->   	return status;
->   }
-> +EXPORT_SYMBOL_GPL(pcie_do_recovery);
-> 
+Sungwoo.
 
