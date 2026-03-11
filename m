@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733061125873
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FAD112586B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+scYNF5xd6xXB+7r0j5hCGjS868yaJZfaEBtEEMZbKg=; b=G0npOZoGmfTOk86qUhWwyIL0A+
-	tV9VRvM6cgsQMUNUpCliCc4lFRfcZUS9pNPJxeu+4GKbBYI40vcixOJWR+duAQS2q+vqKlx8WPmnF
-	RO/rwy3cGBi8MRk1IlQgUqg9CTVrkPXz13cgsKmM7pkSwWOIo81ipCvV5Ldyy2EOiSfeGO6rjuj+V
-	9H4kavv0Dq07AYKnh/cOES/qXuyMHicUak5TeiC5D7z6Gl04I0SKrDdspXwCCo997Mmuq7iuKPIbW
-	wytxxpNzTsFMHVRc2G6EWsAU3dQsrNX2kBQPE6g7pNQ8+gCCUlTeTG+11xCiDMkXsPKl6FjDBA4f4
-	Hwz+4Gig==;
+	bh=BeH68k6+zZsVimnQEb3fuPQG5MVeDXLQDceNQ1jYFoM=; b=fS//JhVyEew8kAFhCwPkgxdLQg
+	TK/dTcZUhX7ohYub8MtDhQ6oeHE28njknyi9ndXu5lFQRTRrKB3ILtEvfouGhz1lvdYtQScBPl6dt
+	3BX9ziezPwB+lVs7ECUUKPrdV+7gFYHWNZoO31qisynUPvbawsqOQlqzQStfQ+gBIiYFd7bAfRkIa
+	vnWZT/0AqzdARAe4HlgvGyLOnGwnURQfVJhFCTmJqMsY8UyP3OMmWgRKhsxuWqFluf/On7+DWD7r3
+	fF5c9/954escWpvNEf4woU9I0UDhDCOvBeJI02sfS3NULOpVXT5o8cALvSS3rsP0qRepNNHRXm3PD
+	BmXLIfpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ov8-0000000CHmA-2LVV;
-	Wed, 11 Mar 2026 19:08:38 +0000
+	id 1w0OvB-0000000CHnx-2sAQ;
+	Wed, 11 Mar 2026 19:08:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ov5-0000000CHkt-3GLl
+	id 1w0OvA-0000000CHmb-19Q8
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Mar 2026 19:08:36 +0000
+	Wed, 11 Mar 2026 19:08:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+scYNF5xd6xXB+7r0j5hCGjS868yaJZfaEBtEEMZbKg=; b=oJTdeOnmCy6l6cn5VYDPmpW75A
-	M8zR1LcZAeKDRmozBvc7CvJmR9LNNsWE6bBzcdVaAV+WsNqoB3z2uXz/w7a123XZmhmt73TdSqt9T
-	+Ya/zoecvQQxgaYiksFZmTETLN/MHRTGlHeYcXqHmk+oX6PUrUwzhHIu6bhkEQ1W06e8E2dLkaclm
-	LUWRs+7vTF9xP3H/Cq5Zhp4nZ57Kg4hETYJo+hFGmI+weEFY1gAeYVs8NfV7zAp0NveGbMXUgdBVS
-	C6ESDJvSjk99XKTdOloBJiL65k2P/AmLlrlCQlBUTNXteEv9zBqtdJd414MWUNGawDPzyLspUiaLq
-	Wkp5RlFg==;
+	bh=BeH68k6+zZsVimnQEb3fuPQG5MVeDXLQDceNQ1jYFoM=; b=ZSXHGjJXclgLrmS/S7SKvDB6RA
+	DcYxbUmt56T1m+Z4on7ASq9maIv68En4ncnVarnPDAKa0JquXeOrZvSLWpiCFk6TlvqB2vhVvSLTt
+	PPjolW2eSWgjQD+HkrYsSzl6OZVvmqTehivhTVxFrQCuihkd62nqZYpLwt7x97GJjvY+8szK9rVxS
+	e4qwS0Cc6+LqlsyRbyUrXb2O7M5N9Cpt43OjdUi2L0E7cpseDd6wHOthNL6EmZInD6FtT2wP4bxZh
+	WxTaw9xqQldJ13uO3CXSLbJJYbjXu8wwtGSgLRssPOhsehLWso7ymTlf1CA4Rv1pHZoEw7DL7/e8P
+	sWto5pEQ==;
 Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ov2-0000000HYT3-3BQQ
+	id 1w0Ov7-0000000HYT3-0TF7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 19:08:34 +0000
+	Wed, 11 Mar 2026 19:08:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=StHuEL6BTAJkjUIBXas8lzl7FSQvCK/vLBf4wJjm9usKv52ERafoVJqv9iuf+vCqrRDh3EX5GnWR6Ecap27/Qg2W/gU8jmd5Bx0wx1pChGpKWy2Yo7V3+hwD67wGJ3WnKV+wfrlxJhirZBXQ1Pau6iShNclMJoh1CDNN92J2ot1wcdSJayCgJY+i6EVDX/Qg07A30jXYemx19u5a9T+b8aYIqjVCwG0QdkIWbmcPl4SvLW3dRRk7zs6ByMHjoMTikMGnEypH2l4Kzd2vRwC6nvneYUBZGMN4aWyhcKGGGXq/m9TWrxB5iRRcguSL7c4z6u0ZUK/+wUbypaEGN5spDg==
+ b=yCui+LBT52XcmpdgGvPofrsho40EJWhkMSLsrMIIBGNEY8WYfPfJ+XhTwFUfrzAx98FHVLMdDUJaEN8KJReM7XLQPCTaBUSuNCzU24O3hHkibTbU8/D7qi5lWeTkTCCvzDj4I1jtMeQTdDUJjgtZfvyhmMEn0OZgvLRVWyf3xj+gRKsy6XgWFcuj+Deyck+GHV+yZ+I0zpOlRSH8hRl9wS2BWISwY2udrNm+gQIdfSstzF5ZgUh0q7XVghA7sEju+G5su9b6+I+oXlmnssMDEJhzrO/Zw538tZ3m/uZhU64RN/lSv14YRBoUNUMOn30MqEIglvHoFNY4b8qJKv6yiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+scYNF5xd6xXB+7r0j5hCGjS868yaJZfaEBtEEMZbKg=;
- b=FxhVNa+3GCIEaVUWzG3zNzbQusCa5KEFgtXAzOGFLNt5RnZU6TkMz1nVYWpaCu5yqhXaUtdvPWl4+vyY1DptX/CfgoY83bAxKSPqsimxCHczS5kSYdu5UsLXzmpiblwp0rd9vXCd9Nj0qZ/PEfPG4UpETgVhOe6eVqCG+Y3A7HZaY3p99bY4qpp/AnQcdQOULcBRWA/CjUsE1skmvJ5vVvFdVSkKXfKT5d+vdeUwzno2Er/L5aNnk/jvjF1jWMQzy789k4S4lQ2viokv7bUp+1yy9R2MJrd6+km/8yfzJKg35a3E4jhMKN7mG8zlk9/EVk2CrWUYR5thLm3tds8xeA==
+ bh=BeH68k6+zZsVimnQEb3fuPQG5MVeDXLQDceNQ1jYFoM=;
+ b=pnqfQwj2ppfLAZSyQMqnkx3Bb9nZTk+r9E0LpJu8I2kzoUnb9D3STghG1jct9huAzJjG4P3Z2s4NzC4BMvc1BC+yOPS+WBFVR2Pik12NKgjjEtLuvQr4Rn8T55HNdZ87lxXljKLqQOHbGL5alBfH1oSHxR+oNRTTqkdrcky5PZhF8U0diNBBGk9pfmnkPyZIdeerAe7yKwBOeEkFaY9tz8PhTg7xPFnnlQy7Dy31BY+e9Q/r6/XbYoQBwmVu7QhXpL4DiaQ8fsglVBmTJ+pR5IpLrJZhl37Zu4zQu62w8akgtiUxiOf5tZXq3+2hRbibG3umoae9zfhwzO4H4eDfSw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+scYNF5xd6xXB+7r0j5hCGjS868yaJZfaEBtEEMZbKg=;
- b=L4GagXF2QTBvapVNqKHZOD3EJybYlJZzca5FhaXf8Ff9Hy2SsQwiMwMx5e2PIWTPT7hynksZbu5ESKJ9q0jDxXrR8Ovsr4ePqNz6FhUmHXKiN+9enzGabdByFhulwx5LvoNCyZ9Fh5U1qc8KdYFhi2IhGTmQ5A2PKyB9e8EwzoHYcd0oa5Au8+I7BnQafpljwhRIoj9x3OBU87EsHtln8gJbtK5znapOwQlFa3qxFTCkqpE+dE5LckoVQSUvBj9LaC1183ica7gLzst09vx10DLtYKFF2SmR95KH2GNrUvkvdfBGNTNY1zWqbqdPdoQlu8v/3jPAY89haeHHN2/Yqw==
+ bh=BeH68k6+zZsVimnQEb3fuPQG5MVeDXLQDceNQ1jYFoM=;
+ b=dysYBlVz0G6Zm/qb0Iv8UxsEq43ZQg3o5kgbPWUscjEr5EcILLrnDKOPtgaWw7vKaU/i/VBA2VfR9OrhWVuJMsQeEVEmpZuPAYQaAWRhSHcs6YLig7Hjz+MCkCXuldRoHZ1Nuw0ibql7neTUYg/iQuOYAE7JNOmLNYzYM8vwWLazAfbhDIDiUE3g6T5eLK3B58OtJmEIya0p8pZ5cEXIcAWu5iXqdN/J+AeNHVgQ+gD+zus1CWBJmRVb4FSQ6B0ac2f6oX46wypwGR30qvDn8k1Ech4zk7n7LdWqUJoer3KSxMwc96HEQLwklC0HPUiZWwdnhHYg7ldnYBKm6s4Q8Q==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
  by PAXPR04MB9121.eurprd04.prod.outlook.com (2603:10a6:102:22b::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 19:08:26 +0000
+ 2026 19:08:32 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Wed, 11 Mar 2026
- 19:08:26 +0000
+ 19:08:32 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 11 Mar 2026 15:08:10 -0400
-Subject: [PATCH v3 1/7] mux: add devm_mux_control_get_from_np() to get mux
- from child node
+Date: Wed, 11 Mar 2026 15:08:12 -0400
+Subject: [PATCH v3 3/7] pinctrl: pinctrl-generic: add
+ __pinctrl_generic_pins_function_dt_node_to_map()
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260311-pinctrl-mux-v3-1-236b1c17bf9b@nxp.com>
+Message-Id: <20260311-pinctrl-mux-v3-3-236b1c17bf9b@nxp.com>
 References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
 In-Reply-To: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
 To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
@@ -88,11 +88,11 @@ Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773256100; l=6437;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773256101; l=6277;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=R+sFjmiU24arthVzr8KSPc7GoQZUvHpvfgrliX83zYY=;
- b=a5wgw1LbIuW2Ja/DcDMqasHCmWaLn6x1/7t73smSA14/L4ST7VZqzhz9a0F228WfwLPuf5tbt
- X7sfd+x3R+iDus7PVojGtBqQFe0xnizTINw4cD/NTLBijItzezlQkeo
+ bh=IhKgCmw3QsoD0onh9KozMt/HEJ+UCA15T6uI3V+VNKU=;
+ b=rJEY/jiLZgWFDmvvd+C7T/DgggZ53O2b/GGnLiIe7bWzswnLwKOkS/Jj+mbwuexzmEyKuSAxM
+ J8N60WTH2MiBhQ7wrdWvkIaLxCNbBjvmbWuT8F67Vru3caQVPzWjp0o
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: SA9PR11CA0025.namprd11.prod.outlook.com
@@ -101,66 +101,66 @@ X-ClientProxiedBy: SA9PR11CA0025.namprd11.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9121:EE_
-X-MS-Office365-Filtering-Correlation-Id: e54e4c3c-3539-48e3-a793-08de7fa19309
+X-MS-Office365-Filtering-Correlation-Id: bea89387-e106-4020-6381-08de7fa196a1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|19092799006|1800799024|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6NT9qbskdkimanjzgKdYwfXiY6NGrm+k/aaSBoPMU5YUCJaUKLn14GPXsXMyOl8bwBJ3VvdKwOEVXTbI2Vg851T3B/s5M5dKNlXZaTu+FN/ncM1OaHjGioGBQz9VF1AAyvFpke32c0ALkUgY7XKmA2s4oPDsNzT4dqAqqRn2FCuU+jFz9vF9zBGpUGDJo1yi9xI0Wz4uERtpB7d8OAmR7UxY/zrP4rmel9n9mbmh0oEaWDKjF4noGZMPqlyFPFmve8Id/+y/4ObFM3K0AdtQTwpEwppAkIPGnthu69Hx8ki8c3Tb499RryM9iHXpQ5dBiYwM9NyHbUmAw7aVgJPUJre7q28+hwBPTL1CV8pFpvwvKDUlijbTioBAgywFbY9i/sctrdaUHOdGHlg1MeCcgvpN/MPGOx2pNI8/yA7py/5XphCu+yAwHxShS324JygcaXd4EiYpjqXwIxGOH3NSyHP4lcB7xNuN4Qymma1dHrHwryCVKAK0qyXo82+kMfChWfjwx+cU9Wgi0G1aa6nMI5bRYd1fD/RQR57pYowBU/21P7LVfeSw4NsUhCd9T/wzuzg6cuLwtQ3tBIoF8ZpgzuMu/z59x2wtBdPr9tjKJeKnwu9XrdTx11wnmu254xyBsrX9KhuhLS6KY0svDBqf8nrcMkvMTVIiJYKZJvyJPULUIYNjFF6za5uzLpV4JLMaAFCyUCH0YBrF5nX/6julKgS9GOHX2unk5JuF2FJnpLDkH/cowhdW8E1MmJCivp8EW/dk8B5KeOCkX/i5WCH5hK3+Y7JHRHyukSPCp4jb0ww=
+X-Microsoft-Antispam-Message-Info: gz8PinHcVJBHUImasJjSXV1kUPCDSRClg9iUJ/AKYnsNXg4QNe5osBYH/QDR2uOWKuQmMt3zYQGMopjTdMX0e5zwWlWWVscIoWre2z3IgODC9WCZefgzap5CGoQKr96avjag+FG7CQYHRrXMaWs4z1Moke3AmmnXAH5VxQKn9hKS3dk+G3OzQCkW60xKqft7QuhBBSu9c8dau6lCByQhrbShffYKYE910QL++XY6TXQe+aEfClkcvzMtP3QUmOPIoR1GxoT0xPMMm9ZbgXTzp29LgqMs1qhTIg3nixLi4oOc3/EotleIon3X9H0L0H8eEKDUQf85O8qFQAyMZkPJHa9k2u4qO1c0WBWYFTtn3v3lXikJmPnL6Ez7XnTLu1VzQGTTJy2uPoKmEAb4BYnXnw7v9vq709ZBr97Y+bwHW4b2TVQqgQJy7diB82VhgQ0xQklj14rdUH650t2oY9DC/vNnjCYvL1fRpD3bc1Lh1hIXE9+I6pDWkMQNa5xj2nO1HP0S8V+714ts9NnkCwuLUrp0lK8E+T+hNIQDWw/CC3Yd2sSQyXyGmBgKabe6ltepn9ojKt4HyLqGEMlt69E+c6trrASk+AOCAjJrzCIX/6ZzJvA9q/pcuhoj6ytA4Y0Sxg2lfrCsnWsrHClPSgD1YjI8CvGE6jj8H5Day/SA0XU9ybiK59gooA9JCywrhQorHBnsE4Ov/uqkkDbec+PO6ZZrEJr6mE92C4NVG0utrgEmOgQIwNCcoPWHKuKIGR77d54lIKjquzAbhZ1haa7auY3XhuNsw4tPc9+pLawXbdA=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(19092799006)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUhlNjFqUlA2MXFwZHp1Y29PM3Q2OFNvdDV5bXNibU9KcDFBQUxiNmxpR2M2?=
- =?utf-8?B?cVdMUXZNakRKK2U3eUJ6d3NJb1BZKzlkeHB4WUVwMW4weUxudHNoWXkybU1a?=
- =?utf-8?B?eVp2akh3czh5R3NTQWdSaGk2SFc2aUkrcGUzdkIzK1BDS3l1VHhkbUFYM1cx?=
- =?utf-8?B?Z0lTOHBURXpPcUpVdzR3MUlYdExKQ0JQcmRNOEcySDFGdVFZMFRod2Q0cjJm?=
- =?utf-8?B?ZUN3elNVREdsL1FvUklYc3dKS2pLbTY5Lzc5ZDlGVHB5THEzMHoyQzByaTU3?=
- =?utf-8?B?YTY3NDZHMCs2SU5MeDAwRDJoWktmd3BXYUwwQURIZWFvRTRrVjdSWlQ4ZjRT?=
- =?utf-8?B?VUpvTGs4aVl4eEdTSis3NlhGU05VcVkyRmc1aWVGY1VYZ2NNSktnVWQ4NEFM?=
- =?utf-8?B?UjMyMXhDa29rc1R5YzNieDhyczIyUHVlaG1PZVFNQVB2cFBsNFJ0QkFNelNY?=
- =?utf-8?B?MHVrWEJkRHZYaXFCZTNBUXRxMFgrbXAycktia2lhUVVDekl6QlB2NlpvR3E4?=
- =?utf-8?B?RHJ4WndqMUlxeWZtOHhIeG5lZWt2K3llNEljTnJiTTVQanNBZ2phcmErd1BL?=
- =?utf-8?B?N0tBSjZSNEFJdFF0UFZJeGNSZ3F3MzRqQjd0bWtpSVp6ZUYvbkg0d2EzRnIy?=
- =?utf-8?B?bG44NnBWeWFJbVV4a0d4N3ZNa3I1U3FWeXd4SVNWRzZ5YW5IcnkzeG5RS3h2?=
- =?utf-8?B?QTJYTytVelRCUldXUDIxSEtiZEdaZHFWcWpGQVhqQlVBMlEwZ25xRWlCTXg3?=
- =?utf-8?B?LzZXVENYeGt4VnVLK3JYMmJ5RHVpQlNrV25YSXU5d3JxY3psUlY0V3FOTndG?=
- =?utf-8?B?S2lpNVpjaGxtYlZLdWJpNCs2eHl1WVF5cEZQV21YeEQ3ZTk0ZUNOSUE1SkQx?=
- =?utf-8?B?NXE2OVV1dm9PVHU5QUdzdWpWdnlQRkU2VzlkSkQxcW9LZTY3RXJ4SWozSDU4?=
- =?utf-8?B?MFhvNCt4RjdBU1JCbFBRRWJydzdyVU9FSFVKWUUrd1dNZk8vem5qYUJkbFlD?=
- =?utf-8?B?Y2RCRGhvWUlrbk9MSlFQVkdmcVdmR1YxOTFnL24vWmdIdnphNzdWc29HQ0tK?=
- =?utf-8?B?bTB2Tmlxc0pGWXE4K2w4TXo4QWt0cVJQeWl0andXZDZmZzBET1RsS0hUSnBh?=
- =?utf-8?B?YWZvV0k5N2dnUmp2M2xxK1A0ZVRySWUrUHE1Z25tNmEwcXBRbi9oUzJWeEoy?=
- =?utf-8?B?QUNacW4yTEpUSVhYNm5rNzVib2JpbEsrTTFrYXhIZFlsbDUzOTdQSTBpbEpW?=
- =?utf-8?B?SmQwL3hlRWRPQU5lWVBVK0lKeFdRZ3hOdUFHWUlEcHM3Njl4bVNpWWRpM2Vu?=
- =?utf-8?B?ZmpqWCtZVlRmK0l1Y3BoL1RJVFhGS3lnR2Z1MVE0czEzb094cSsvWFJKK1Yy?=
- =?utf-8?B?MkJTRGpOTVBNUGR4cGtzWDVuR1RpNXFHZTdGUnlzZ2M4ZVNLczY4MkJZUDBX?=
- =?utf-8?B?ZCtRM1lrSUNxcklVTFBMZVlYNkFVbEcyczZUVDZzdTl6OGJ4bFJXbUpoMmNa?=
- =?utf-8?B?NXpsK0FGRE1tcmdUelRRaThPZ0Qyd01JcjczMlY2eWVoKzAwdG5lV2hJV0Jk?=
- =?utf-8?B?ZTZhZnRVbGJSVThrVkE3Mmo2ZWRnakt0dXhLV0tvcGt5V2Yxa2Zxa2JRajh5?=
- =?utf-8?B?Zk9Kc1EvZkwralgrQi9Sd29Yd0duK2ZHMmV6MklrdWk2RlhqRzJjclZVVW80?=
- =?utf-8?B?cU0xZGtLSHM5akloeXo0dFRuK3I0TDZqMStVUEZVdFF5TWdqTXc1UVRMUExB?=
- =?utf-8?B?Q1Z0b1JBdHRyclZWbmlOU1Fma1hnM3RVMzJtdFJyRS9YaXlETU9ocGV3THFi?=
- =?utf-8?B?V2xlcm5Mak56blQvVVppektqSEY0dDN1QXJDRDMydnRCQ0FLdGZVT21JbU5E?=
- =?utf-8?B?Z0ZtMUwrU3dWVGhORzlmWldzalNueTN1L2J5YnhwNDUrcDBCYkdTRXJNL3Ev?=
- =?utf-8?B?MTZTOW5NMTNMSlRFb0YyZzcrTzNBNTRhMzQ4MU9JaktxRE5nbEo3MXNDbFkv?=
- =?utf-8?B?S3FGdEozcGIzL0VVWUduTzlnN3hiSXV1YWJiZlE2d2lNNWR2dGxCVXhtSW9T?=
- =?utf-8?B?bzdJcEZoTW1KbTNETWZxSEoxeWtRRTkvbWdIS2ZBcXpjUjBGVG5PYkcvRkx0?=
- =?utf-8?B?Wld5b3VXTUI5d3JZVjdTZW1JTGdwL3hLcHhyZXFEWVFyem9KYkp3Nms4M05G?=
- =?utf-8?B?YmFRV1dmWk4vcHdGSm8zRGZCVjNwanRGQ2wyZ0RIZWJGSlVjLzdQOUNtV00x?=
- =?utf-8?B?TWVkTS9hWXU2TXExcUQ5V21zWVlkRkZLMmhGbERIa0Mva1dBVVAwYjJoNHpL?=
- =?utf-8?B?b05TM3JwSldQVHlpUUN1Mjc1UHpNVTlVZUErcjNrTTVSdVA3NXVHZz09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YU9tSWZJeEE1TXQ0VW9UVkVDcUt4SDkzdEIvS2p2RVhaMit6U2kxanBGenJ6?=
+ =?utf-8?B?VnNkNlZSMytsM1Z6alRFbnNvNFdzUEdZNGxPZmU1WWVxWjdid0g3NGhiR3gr?=
+ =?utf-8?B?Vjh4bVNYM2poQzlwMXdJOWsxSG9xbDdnemVmRXdQd01xdkFDN1NNNU9mZ2w1?=
+ =?utf-8?B?dVFLWlh4V0l5aFpLdHJRVzRDZHg3UjdxbFhBYkN2K3EwL3ZrTUx1RlFad3V0?=
+ =?utf-8?B?c1dnZmhEMWh0QzFXUEJYazk2bHNWVDNLaWlmMTZUYytTME5pZEdSWjVBRjUy?=
+ =?utf-8?B?Lzg4Q0Y2UFFkVnVabmFPNEVVTXlNRnF2cHcxVnVIZWZnTkxtSGtIUS9Kb3g1?=
+ =?utf-8?B?N3JVVVh1Ky8zeGlmcFJFT3E3QzB1QmpZUEp1WUd2dlpYM21DZTR3cnIyQUhz?=
+ =?utf-8?B?NEt2b2JHUllIV2huNlY3M3dHeEUrZW43L1RzMnIxMFVUM2ZGN0F0a3lscTA0?=
+ =?utf-8?B?MFF1Tmp6NEFSQ3RLS3dWZVVIVFVvU2lZdmsySlVjanphRGtKOEpyTGgrcTFK?=
+ =?utf-8?B?KzBJZFVzZUQ5OHR4L1VpYTdvSGwxU3Z5QjNKc3dGWkZrc0RzQUE4N3FBWDhK?=
+ =?utf-8?B?UHl0TXNmMm1nUlcxMm5WUFNhSjIwWHNDM1FiUldSTE5ESWR0T005QXZDWHBh?=
+ =?utf-8?B?MWNnZlFIckF3TlNNUnV2cjJ2RXRFRUhPeTBUek5DbVNoZFk2KzF0cmhtMGFl?=
+ =?utf-8?B?Q3A2YXNLT3Z6bjhRKzlOcnpKSjkvbVU5R1pMa3RwMXFyMHBQd045WXlxNXQ2?=
+ =?utf-8?B?bHdOeU9IQ1F4N0NITGFsTDliVzN3MURxYmVXVUZDSThocHp0MGFVTGVybzc5?=
+ =?utf-8?B?dUp6MWhiaCszR3lXR2FiSmhRK1N6Y2NkLzQyekIrSkFUNTZLMVBpL3VGTjdC?=
+ =?utf-8?B?WWdxcXpwSW42NVR1SEx4QnNKMTE1SmU2ZDZpRFRIemwwQjZheGFEMjF0SWZj?=
+ =?utf-8?B?Q3NVKy9vV2VRa0pSVzFsQlVwMlZWck9DTkpCaC9tN0tHcThLcTRnNTZaS2Rk?=
+ =?utf-8?B?RFNxQXROanpCNURvSXd4L3cvL05QYktxcmhhK0d1N2UzTGZYT1hnWnRZakI1?=
+ =?utf-8?B?dTcxcHJueDBCRkc5R0lweGtoRGQvQXRhc2puY1RXMVdFQWI5U2l3Z28rMlBP?=
+ =?utf-8?B?T0plZFpaRnNrSUV0am1sY212ZHUwOTFlYnlpOTNoOS9BYXViRGhJWHd6bHVM?=
+ =?utf-8?B?NXpsMllpT3hjdm9EVHo1R1prSTE5dmVKWUxiV3h5eTZMVGhGUVBwK0dYMkli?=
+ =?utf-8?B?OGRFaTNIM2NCWVp6SzFOZ3NyTzJ4cmdtOGwrNmcvWk1BcHI1SVNzS2s3dFYw?=
+ =?utf-8?B?SGVBemx0VXRETisvY3VPcVBWWGpsOTdnZkRsOXR0RzRaRGp5S0ZvNDhYRkdE?=
+ =?utf-8?B?K1ZzR2FjMnJkaVJnaVFTVEhLS2RnWE0zN0NVU1ByZVFEQjNxMXRXK3dicHN3?=
+ =?utf-8?B?ajJVUlpoajZmM29OQzR3OFNxWGxONHM5Y1AvOGdGT2JjeTYxU2Y4Z1JaclJq?=
+ =?utf-8?B?TlZtckRZQ2dQRjlPanJtTUJUdlRrVkQ0cmVHOTBwam9MbHJNSXY3Y1dpZXZn?=
+ =?utf-8?B?dm5FOGNVRDJTQllhOTVhVEFFVlU5MkJjdnd4V2VFZHJvQkxlQXRlbHl3WVpi?=
+ =?utf-8?B?cXE4cGh6ZjFZL0pNdDJUMk1GUlUzR1ozcFRlTzJrcmFEWmFnV3BwRDk0Nks1?=
+ =?utf-8?B?TzFUL1p6ajlacHNtb2lDSFFtVkExQVZIcHp2bm9DVHRJWHgxR1dXaE1STzNK?=
+ =?utf-8?B?WnVvSzhJV09qZUMvZTI4S2hUZmthQ1BnZjVqQ2JESVRod2c0U21ZZUNsenhU?=
+ =?utf-8?B?UUI4clpjaWZmcUVzRFhHbnVac1JuSmRhbHJXT1BHSVdIWXQwUXN2TWVIeEhZ?=
+ =?utf-8?B?b29YSHd0UHAzd2x6VGFmUjRMcE5xR1ZUeVdqcmUyZDViWktTUHJVODJma2x3?=
+ =?utf-8?B?VDVndktBVkovN2x3cGJkT2xoSmZOR2laWDZVaXIwK1BheTc0a3hRSjJvMmdR?=
+ =?utf-8?B?VStLNVJmSjNhRm5nKyt2aXRoM0dReTl2YUVyTUdiWmt0ME5uM2pETHRKVDlP?=
+ =?utf-8?B?SVhTa1EwdG13UkVtb052WmNSLzVZM3FoSm9hK3FCZUZKSThWaFlRK0pOZEJQ?=
+ =?utf-8?B?V3JSTERiVXdrZmQ4K1RqM2F4MzlOdXpCRTh5cG5lOHExY28xMDJna0NacG1y?=
+ =?utf-8?B?R21Lc2dZMHNoaTJhZ3pROGxWcE5pNWlLcHNBRU1Xa090NFR1eUJqQkF4UTVS?=
+ =?utf-8?B?QmtkUTk2REh5Y0xRZ0QxYUxtZGQ1VTFTWHpIM3hSMEJzR0x4emlOUmVsUUdR?=
+ =?utf-8?B?eGRUampYVGlIZkQwTDZiZkRzVG1SbTNjVUVWZ204VFBpeU11MEM0QT09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e54e4c3c-3539-48e3-a793-08de7fa19309
+X-MS-Exchange-CrossTenant-Network-Message-Id: bea89387-e106-4020-6381-08de7fa196a1
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 19:08:26.7947
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 19:08:32.8067
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +6nHklTVyz0WIGFvM50lYxhwI6i6AA2SD0w9lDNZDSCiXsb4aU6G4Af0E6FvZt9IYIqQ+37ZmEUehUS/wyWYow==
+X-MS-Exchange-CrossTenant-UserPrincipalName: pL5GiIXPy9zosWtit87pv3FVeq/m9c8GZHuvfum6ouFJAbCpJ1tMZDNxQGM+LI5bib7vsjNoaKBiCQ1M+mEdpg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_190832_987137_AD00EEF7 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20260311_190837_265168_0226FC7A 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,179 +175,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new API devm_mux_control_get_from_np() to retrieve a mux control from
-a specified child device node.
+Introduce __pinctrl_generic_pins_function_dt_node_to_map() to allow
+passing private data and skip_npins to pinmux_generic_add_function().
 
-Make devm_mux_control_get() call devm_mux_control_get_from_np() with a NULL
-node parameter, which defaults to using the device's own of_node.
+The 'skip_npins' to skip parse pins in dts because on boards MUX control
+chip switch the whole group together, so needn't handle each pins.
 
-Support the following DT schema:
-
-pinctrl@0 {
-    uart-func {
-            mux-state = <&mux_chip 0>;
-    };
-
-    spi-func {
-            mux-state = <&mux_chip 1>;
-    };
-};
+Keep pinctrl_generic_pins_function_dt_node_to_map() as a wrapper
+calling the new helper with a NULL argument to preserve backward
+compatibility.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/mux/core.c           | 40 ++++++++++++++++++++++++----------------
- include/linux/mux/consumer.h | 16 ++++++++++++----
- 2 files changed, 36 insertions(+), 20 deletions(-)
+changes in v3
+- new patch
+---
+ drivers/pinctrl/pinconf.h         | 21 ++++++++++++++++----
+ drivers/pinctrl/pinctrl-generic.c | 41 +++++++++++++++++++++++----------------
+ 2 files changed, 41 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/mux/core.c b/drivers/mux/core.c
-index a3840fe0995fe0125432d34edd8ab0f2cd1a6e9a..bdd959389b4ee1b0b8a7367fadf2c148c8f2f0b1 100644
---- a/drivers/mux/core.c
-+++ b/drivers/mux/core.c
-@@ -522,13 +522,15 @@ static struct mux_chip *of_find_mux_chip_by_node(struct device_node *np)
-  * @mux_name: The name identifying the mux-control.
-  * @state: Pointer to where the requested state is returned, or NULL when
-  *         the required multiplexer states are handled by other means.
-+ * @node: the device nodes, use dev->of_node if it is NULL.
-  *
-  * Return: A pointer to the mux-control, or an ERR_PTR with a negative errno.
-  */
- static struct mux_control *mux_get(struct device *dev, const char *mux_name,
--				   unsigned int *state)
-+				   unsigned int *state,
-+				   struct device_node *node)
- {
--	struct device_node *np = dev->of_node;
-+	struct device_node *np = node ? node : dev->of_node;
- 	struct of_phandle_args args;
- 	struct mux_chip *mux_chip;
- 	unsigned int controller;
-@@ -617,7 +619,7 @@ static struct mux_control *mux_get(struct device *dev, const char *mux_name,
-  */
- struct mux_control *mux_control_get(struct device *dev, const char *mux_name)
- {
--	return mux_get(dev, mux_name, NULL);
-+	return mux_get(dev, mux_name, NULL, NULL);
- }
- EXPORT_SYMBOL_GPL(mux_control_get);
+diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
+index 2880adef476e68950ffdd540ea42cdee6a16ec27..d6d22c088a144de0180314826b8cb8c528290970 100644
+--- a/drivers/pinctrl/pinconf.h
++++ b/drivers/pinctrl/pinconf.h
+@@ -162,10 +162,23 @@ pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
+ #endif
  
-@@ -641,15 +643,17 @@ static void devm_mux_control_release(struct device *dev, void *res)
- }
- 
- /**
-- * devm_mux_control_get() - Get the mux-control for a device, with resource
-- *			    management.
-+ * devm_mux_control_get_from_np() - Get the mux-control for a device, with
-+ *				    resource management.
-  * @dev: The device that needs a mux-control.
-  * @mux_name: The name identifying the mux-control.
-+ * @np: the device nodes, use dev->of_node if it is NULL.
-  *
-  * Return: Pointer to the mux-control, or an ERR_PTR with a negative errno.
-  */
--struct mux_control *devm_mux_control_get(struct device *dev,
--					 const char *mux_name)
-+struct mux_control *
-+devm_mux_control_get_from_np(struct device *dev, const char *mux_name,
-+			     struct device_node *np)
- {
- 	struct mux_control **ptr, *mux;
- 
-@@ -668,16 +672,18 @@ struct mux_control *devm_mux_control_get(struct device *dev,
- 
- 	return mux;
- }
--EXPORT_SYMBOL_GPL(devm_mux_control_get);
-+EXPORT_SYMBOL_GPL(devm_mux_control_get_from_np);
- 
- /*
-  * mux_state_get() - Get the mux-state for a device.
-  * @dev: The device that needs a mux-state.
-  * @mux_name: The name identifying the mux-state.
-+ * @np: the device nodes, use dev->of_node if it is NULL.
-  *
-  * Return: A pointer to the mux-state, or an ERR_PTR with a negative errno.
-  */
--static struct mux_state *mux_state_get(struct device *dev, const char *mux_name)
-+static struct mux_state *
-+mux_state_get(struct device *dev, const char *mux_name, struct device_node *np)
- {
- 	struct mux_state *mstate;
- 
-@@ -685,7 +691,7 @@ static struct mux_state *mux_state_get(struct device *dev, const char *mux_name)
- 	if (!mstate)
- 		return ERR_PTR(-ENOMEM);
- 
--	mstate->mux = mux_get(dev, mux_name, &mstate->state);
-+	mstate->mux = mux_get(dev, mux_name, &mstate->state, np);
- 	if (IS_ERR(mstate->mux)) {
- 		int err = PTR_ERR(mstate->mux);
- 
-@@ -716,15 +722,17 @@ static void devm_mux_state_release(struct device *dev, void *res)
- }
- 
- /**
-- * devm_mux_state_get() - Get the mux-state for a device, with resource
-- *			  management.
-+ * devm_mux_state_get_from_np() - Get the mux-state for a device, with resource
-+ *				  management.
-  * @dev: The device that needs a mux-control.
-  * @mux_name: The name identifying the mux-control.
-+ * @np: the device nodes, use dev->of_node if it is NULL.
-  *
-  * Return: Pointer to the mux-state, or an ERR_PTR with a negative errno.
-  */
--struct mux_state *devm_mux_state_get(struct device *dev,
--				     const char *mux_name)
-+struct mux_state *
-+devm_mux_state_get_from_np(struct device *dev, const char *mux_name,
-+			   struct device_node *np)
- {
- 	struct mux_state **ptr, *mstate;
- 
-@@ -732,7 +740,7 @@ struct mux_state *devm_mux_state_get(struct device *dev,
- 	if (!ptr)
- 		return ERR_PTR(-ENOMEM);
- 
--	mstate = mux_state_get(dev, mux_name);
-+	mstate = mux_state_get(dev, mux_name, np);
- 	if (IS_ERR(mstate)) {
- 		devres_free(ptr);
- 		return mstate;
-@@ -743,7 +751,7 @@ struct mux_state *devm_mux_state_get(struct device *dev,
- 
- 	return mstate;
- }
--EXPORT_SYMBOL_GPL(devm_mux_state_get);
-+EXPORT_SYMBOL_GPL(devm_mux_state_get_from_np);
- 
- /*
-  * Using subsys_initcall instead of module_init here to try to ensure - for
-diff --git a/include/linux/mux/consumer.h b/include/linux/mux/consumer.h
-index 2e25c838f8312532040441ee618424b76378aad7..6300e091035323dd6158d52a55a109d43ef120aa 100644
---- a/include/linux/mux/consumer.h
-+++ b/include/linux/mux/consumer.h
-@@ -56,9 +56,17 @@ int mux_state_deselect(struct mux_state *mstate);
- struct mux_control *mux_control_get(struct device *dev, const char *mux_name);
- void mux_control_put(struct mux_control *mux);
- 
--struct mux_control *devm_mux_control_get(struct device *dev,
--					 const char *mux_name);
--struct mux_state *devm_mux_state_get(struct device *dev,
--				     const char *mux_name);
-+struct mux_control *
-+devm_mux_control_get_from_np(struct device *dev, const char *mux_name,
-+			     struct device_node *np);
+ #if defined(CONFIG_GENERIC_PINCTRL) && defined (CONFIG_OF)
+-int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+-						 struct device_node *np,
+-						 struct pinctrl_map **maps,
+-						 unsigned int *num_maps);
++int __pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
++						   struct device_node *np,
++						   struct pinctrl_map **maps,
++						   unsigned int *num_maps,
++						   void *func_data,
++						   bool skip_npins);
++static inline int
++pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
++					     struct device_node *np,
++					     struct pinctrl_map **maps,
++					     unsigned int *num_maps)
++{
++	return __pinctrl_generic_pins_function_dt_node_to_map(pctldev, np, maps,
++							      num_maps, NULL,
++							      false);
++}
 +
-+#define devm_mux_control_get(dev, mux_name)		\
-+	devm_mux_control_get_from_np(dev, mux_name, NULL)
-+
-+struct mux_state *
-+devm_mux_state_get_from_np(struct device *dev, const char *mux_name,
-+			   struct device_node *np);
-+#define devm_mux_state_get(dev, mux_name)		\
-+	devm_mux_state_get_from_np(dev, mux_name, NULL)
+ #else
+ static inline int
+ pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-generic.c
+index efb39c6a670331775855efdc8566102b5c6202ef..dc575fbcc7103bebded49d8268764531f349a8c9 100644
+--- a/drivers/pinctrl/pinctrl-generic.c
++++ b/drivers/pinctrl/pinctrl-generic.c
+@@ -24,21 +24,24 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
+ 							   unsigned int *num_maps,
+ 							   unsigned int *num_reserved_maps,
+ 							   const char **group_names,
+-							   unsigned int ngroups)
++							   unsigned int ngroups,
++							   bool skip_npins)
+ {
+ 	struct device *dev = pctldev->dev;
+ 	const char **functions;
+ 	const char *group_name;
+ 	unsigned long *configs;
+ 	unsigned int num_configs, pin, *pins;
+-	int npins, ret, reserve = 1;
++	int npins = 0, ret, reserve = 1;
  
- #endif /* _LINUX_MUX_CONSUMER_H */
+-	npins = of_property_count_u32_elems(np, "pins");
++	if (!skip_npins) {
++		npins = of_property_count_u32_elems(np, "pins");
+ 
+-	if (npins < 1) {
+-		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
+-			parent, np, npins);
+-		return npins;
++		if (npins < 1) {
++			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
++				parent, np, npins);
++			return npins;
++		}
+ 	}
+ 
+ 	group_name = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", parent, np);
+@@ -110,10 +113,12 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
+  * and functions, create them in addition to parsing pinconf properties and
+  * adding mappings.
+  */
+-int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+-						 struct device_node *np,
+-						 struct pinctrl_map **maps,
+-						 unsigned int *num_maps)
++int __pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
++						   struct device_node *np,
++						   struct pinctrl_map **maps,
++						   unsigned int *num_maps,
++						   void *func_data,
++						   bool skip_npins)
+ {
+ 	struct device *dev = pctldev->dev;
+ 	struct device_node *child_np;
+@@ -129,7 +134,7 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	 * Check if this is actually the pins node, or a parent containing
+ 	 * multiple pins nodes.
+ 	 */
+-	if (!of_property_present(np, "pins"))
++	if (!of_property_present(np, "pins") && !skip_npins)
+ 		goto parent;
+ 
+ 	group_names = devm_kcalloc(dev, 1, sizeof(*group_names), GFP_KERNEL);
+@@ -140,13 +145,14 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 							      maps, num_maps,
+ 							      &num_reserved_maps,
+ 							      group_names,
+-							      ngroups);
++							      ngroups,
++							      skip_npins);
+ 	if (ret) {
+ 		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 		return dev_err_probe(dev, ret, "error figuring out mappings for %s\n", np->name);
+ 	}
+ 
+-	ret = pinmux_generic_add_function(pctldev, np->name, group_names, 1, NULL);
++	ret = pinmux_generic_add_function(pctldev, np->name, group_names, 1, func_data);
+ 	if (ret < 0) {
+ 		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 		return dev_err_probe(dev, ret, "error adding function %s\n", np->name);
+@@ -168,7 +174,8 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 								      maps, num_maps,
+ 								      &num_reserved_maps,
+ 								      group_names,
+-								      ngroups);
++								      ngroups,
++								      skip_npins);
+ 		if (ret) {
+ 			pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 			return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",
+@@ -178,7 +185,7 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 		ngroups++;
+ 	}
+ 
+-	ret = pinmux_generic_add_function(pctldev, np->name, group_names, ngroups, NULL);
++	ret = pinmux_generic_add_function(pctldev, np->name, group_names, ngroups, func_data);
+ 	if (ret < 0) {
+ 		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 		return dev_err_probe(dev, ret, "error adding function %s\n", np->name);
+@@ -186,4 +193,4 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(pinctrl_generic_pins_function_dt_node_to_map);
++EXPORT_SYMBOL_GPL(__pinctrl_generic_pins_function_dt_node_to_map);
 
 -- 
 2.43.0
