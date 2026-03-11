@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BB9FCC9AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87917FCC9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9yG8NQ0gHRExp7u3DqeTqLY+f4Q07ToFiRLsE78NeCU=; b=TKU940T+I7UPv30EyFnZSPghyR
-	66ZSd4B9LCJ+M3KQ5X6D5pIW+EH2zdG2k8lQZ2CcMTBsmHP+vY2h1gnXb6DpKozGJwm2O/4sdsYN3
-	ZCozCe6YECIbE0OBs5hQUWVfl6eQB5lTtQdjeM61YURdJadrDRUL4wid+wcANE2n4Ih/9X0YK3Wkl
-	rIVuO2Re3L8eXp3LYN1fBR590V8lbMPA3a0ad3ySWbMabTEXKaRBRvWuxJaA9RLxPuLZ80gfUzs5m
-	cy0mfvyrMhh8PUyFTG49o+D3Q8EoAxyVFRQd3Sq1NKf2rTMFwa3eWuvlRSX1e4kOVqN1T8y6MImK2
-	Mft6UqDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AGlrfHOTy9gWBLetoSSm6Wb/8lTbHkvB8tLya/EDP7E=; b=uqs8WGYl2USXM67Qt7aXY65FIW
+	Fhjjplk2m6INI+gOuLEbcl4e8FOwYJQph5/xQHNXf/fSRWEUQTVnoB1nwu0V7UgKLaJgVexeQXD1i
+	UoMtbavuQ4TtZ334vDrrHmrQIrhcbiFl1f4UjldqLgQzaIVRyNpgAn/9GxufO2Q7ugAzI4+BXR8Ov
+	6YQSizDs3oS8ewzult222eQtNrbxKSQG/pM06EZNwNpxvzYwJ8j/NDQkLMINZ585vwguDB6QV/Jdi
+	f4v3EkludyuzrG/BR3KyJzSCMldsspa6oJeITFLB+541PInv8fGiT1btkSPLEYvbUlnjNBQtlYwy9
+	uLibptTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0C5c-0000000AmJm-1B1t;
-	Wed, 11 Mar 2026 05:26:38 +0000
-Received: from mail-m19731113.qiye.163.com ([220.197.31.113])
+	id 1w0CCX-0000000AnND-2wcj;
+	Wed, 11 Mar 2026 05:33:45 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0C5Z-0000000AmI6-28Hx;
-	Wed, 11 Mar 2026 05:26:34 +0000
-Received: from [172.16.12.17] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 36820e818;
-	Wed, 11 Mar 2026 13:26:29 +0800 (GMT+08:00)
-Cc: shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, Niklas Cassel <cassel@kernel.org>,
- Wilfred Mallawa <wilfred.mallawa@wdc.com>,
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>,
- Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>,
- Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v7 1/4] PCI/ERR: Add support for resetting the Root Ports
- in a platform specific way
-To: manivannan.sadhasivam@oss.qualcomm.com,
- Bjorn Helgaas <bhelgaas@google.com>,
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <20260310-pci-port-reset-v7-1-9dd00ccc25ab@oss.qualcomm.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <e951b005-d9c9-224b-ed52-23abbccf7212@rock-chips.com>
-Date: Wed, 11 Mar 2026 13:26:28 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+	id 1w0CCV-0000000AnMV-0zko;
+	Wed, 11 Mar 2026 05:33:44 +0000
+X-UUID: dc3d7e6a1d0b11f19e7563141e833ce8-20260310
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=AGlrfHOTy9gWBLetoSSm6Wb/8lTbHkvB8tLya/EDP7E=;
+	b=uClA1T6VorTScWotg7M4MI4An3J0n0vvWTJYunUgEoZsl6WAj999tBt01iR9lPVjTaXo4f8LY7hpp9s3mU0UKzBsWMFYC8XWb9t/ztizXYH7bYz0+Lj6GfRA1ketQZjp2S4nlFBEl//Xne4b49KioEyAel+L2nMFxnZ7uh/5uTY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:c83b69cf-bd41-4b89-af5c-ec156d7f0ed0,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:8badc47b-8c8a-4fc4-88c0-3556e7711556,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: dc3d7e6a1d0b11f19e7563141e833ce8-20260310
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <ot_meiker.gao@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 992462540; Tue, 10 Mar 2026 22:33:40 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 11 Mar 2026 13:33:37 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 11 Mar 2026 13:33:37 +0800
+From: Meiker Gao <ot_meiker.gao@mediatek.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Bayi Cheng
+	<bayi.cheng@mediatek.com>, Chuanhong Guo <gch981213@gmail.com>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Meiker Gao <ot_meiker.gao@mediatek.com>
+Subject: [PATCH] spi: dt-bindings: mediatek,spi-mtk-nor: Add clock bindings for mt8189
+Date: Wed, 11 Mar 2026 13:33:33 +0800
+Message-ID: <20260311053335.785292-1-ot_meiker.gao@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-In-Reply-To: <20260310-pci-port-reset-v7-1-9dd00ccc25ab@oss.qualcomm.com>
-Content-Type: text/plain; charset=gbk; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cdb5c5d4d09cckunma929f57d18cd2d
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhlDTlZPHxlISE4ZSx8aHUJWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=K7wZRUJk1emUgxCcHil5+9JB/ANF+IxeKRXJYfvQNEB51UFMvURGvaB1+hEuaGfLw6gNqqGdYK7+AzOAJqC3QeulrOvdMdg98utMWmVdILteJwz08dWusEIiUceoqY1rrzpiBbUcuejudxcc0a8Y5GCv3zU3YmURNiNhYMC2e6Q=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=9yG8NQ0gHRExp7u3DqeTqLY+f4Q07ToFiRLsE78NeCU=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_222633_715679_706BD2FB 
-X-CRM114-Status: GOOD (  23.82  )
+X-CRM114-CacheID: sfid-20260310_223343_302504_CD0C64EA 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +90,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/03/10 星期二 22:01, Manivannan Sadhasivam via B4 Relay 写道:
-> From: Manivannan Sadhasivam <mani@kernel.org>
-> 
-> Some host bridge devices require resetting the Root Ports in a platform
-> specific way to recover them from error conditions such as Fatal AER
-> errors, Link Down etc... So introduce pci_host_bridge::reset_root_port()
-> callback and call it from pcibios_reset_secondary_bus() if available. Also,
-> save the Root Port config space before reset and restore it afterwards.
-> 
-> The 'reset_root_port' callback is responsible for resetting the given Root
-> Port referenced by the 'pci_dev' pointer in a platform specific way and
-> bring it back to the working state if possible. If any error occurs during
-> the reset operation, relevant errno should be returned.
-> 
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> Tested-by: Brian Norris <briannorris@chromium.org>
-> Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->   drivers/pci/pci.c      | 20 ++++++++++++++++++++
->   drivers/pci/pcie/err.c |  5 -----
->   include/linux/pci.h    |  1 +
->   3 files changed, 21 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 8479c2e1f74f..6f09057d83e0 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -4812,6 +4812,26 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
->   
->   void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
->   {
-> +	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
-> +	int ret;
-> +
-> +	if (pci_is_root_bus(dev->bus) && host->reset_root_port) {
-> +		/*
-> +		 * Save the config space of the Root Port before doing the
-> +		 * reset, since the state could be lost. The Endpoint state
-> +		 * should've been saved by the caller.
-> +		 */
-> +		pci_save_state(dev);
-> +		ret = host->reset_root_port(host, dev);
-> +		if (ret)
-> +			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-> +		else
-> +			/* Now restore it on success */
-> +			pci_restore_state(dev);
-> +
-> +		return;
-> +	}
-> +
->   	pci_reset_secondary_bus(dev);
->   }
->   
+Update mediatek,spi-mtk-nor.yaml to add conditional clock and
+clock-names bindings for the mt8189-nor platform. The mt8189-nor
+controller requires five specific clocks and corresponding clock-names
+("spi", "sf", "axi_f", "axi_h", "axi_p"). This change enforces these
+requirements in the device tree binding schema.
 
-LGTM,
+For other platforms, the minimum number of clocks and clock-names
+remains unchanged. The patch also adds an example for mt8189-nor,
+illustrating the new clock configuration.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+This update ensures correct hardware description and validation for
+mt8189-nor, improving compatibility and reducing configuration errors.
 
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index bebe4bc111d7..13b9d9eb714f 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -256,11 +256,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   	}
->   
->   	if (status == PCI_ERS_RESULT_NEED_RESET) {
-> -		/*
-> -		 * TODO: Should call platform-specific
-> -		 * functions to reset slot before calling
-> -		 * drivers' slot_reset callbacks?
-> -		 */
->   		status = PCI_ERS_RESULT_RECOVERED;
->   		pci_dbg(bridge, "broadcast slot_reset message\n");
->   		pci_walk_bridge(bridge, report_slot_reset, &status);
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 1c270f1d5123..34c434b79abb 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -644,6 +644,7 @@ struct pci_host_bridge {
->   	void (*release_fn)(struct pci_host_bridge *);
->   	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
->   	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
-> +	int (*reset_root_port)(struct pci_host_bridge *bridge, struct pci_dev *dev);
->   	void		*release_data;
->   	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
->   	unsigned int	no_ext_tags:1;		/* No Extended Tags */
-> 
+Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
+(cherry picked from commit c3180d35e52b5213764a89403e71f9a34d7bb842)
+---
+ .../bindings/spi/mediatek,spi-mtk-nor.yaml    | 45 ++++++++++++++-----
+ 1 file changed, 33 insertions(+), 12 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
+index a453996c13f2..bd6f43a0c399 100644
+--- a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
++++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
+@@ -17,9 +17,6 @@ description: |
+   for devices other than SPI NOR flash due to limited transfer
+   capability of this controller.
+ 
+-allOf:
+-  - $ref: /schemas/spi/spi-controller.yaml#
+-
+ properties:
+   compatible:
+     oneOf:
+@@ -27,6 +24,7 @@ properties:
+           - mediatek,mt8173-nor
+           - mediatek,mt8186-nor
+           - mediatek,mt8192-nor
++          - mediatek,mt8189-nor
+       - items:
+           - enum:
+               - mediatek,mt2701-nor
+@@ -39,6 +37,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt8188-nor
++              - mediatek,mt8189-nor
+           - const: mediatek,mt8186-nor
+ 
+   reg:
+@@ -56,14 +55,8 @@ properties:
+                      design, so this is optional.
+       - description: clock used for controller axi slave bus.
+                      this depends on hardware design, so it is optional.
+-
+-  clock-names:
+-    minItems: 2
+-    items:
+-      - const: spi
+-      - const: sf
+-      - const: axi
+-      - const: axi_s
++      - description: clock used for controller axi_f, axi_h, and
++                     axi_p to support the new platform.
+ 
+ required:
+   - compatible
+@@ -71,6 +64,34 @@ required:
+   - clocks
+   - clock-names
+ 
++allOf:
++  - $ref: /schemas/spi/spi-controller.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8189-nor
++    then:
++      properties:
++        clocks:
++          maxItems: 5
++        clock-names:
++          items:
++            - const: spi
++            - const: sf
++            - const: axi_f
++            - const: axi_h
++            - const: axi_p
++    else:
++      properties:
++        clocks:
++          maxItems: 4
++        clock-names:
++          items:
++            - const: spi
++            - const: sf
++            - const: axi
++
+ unevaluatedProperties: false
+ 
+ examples:
+@@ -81,7 +102,7 @@ examples:
+       #address-cells = <2>;
+       #size-cells = <2>;
+ 
+-      nor_flash: spi@1100d000 {
++      spi@1100d000 {
+         compatible = "mediatek,mt8173-nor";
+         reg = <0 0x1100d000 0 0xe0>;
+         interrupts = <1>;
+-- 
+2.45.2
+
 
