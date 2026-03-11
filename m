@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05573FD88FB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F275FFCC9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h59uLNd2xV76PXDM3+f5UYNA+XidIXY/4r4ME8WXvsk=; b=xQn4qqjrY58q6avV67v1YrpD6k
-	wGV61iSS32Z1k2TpFM7Hu9Z73bzmh+RjExGaZd29X29MD7mQbkW3ejY35K59+6NAJKV8FL6pNBQjI
-	6HEyLVhoQWQuTc07bACCx4QAcP2LCQNip8hGVua05BeGTITUft4xcn5ajmlVQR9OwS+haQDTm5eyS
-	Qs/u+DClQbtFRwLW81Q3Zfs+1onGrU9vaGqlMs3YOrV7hYUlk9tw8X0qSJuRZ5T5EAiNuSxsGWPUh
-	7lagN+a9jpR8ey4rinGlTTOFs2Nx+8MCzgYezh9LCMaVzPzj7FfOwOAQWTBHlVMv9Tbg982yWXzTq
-	JfOlPKvQ==;
+	bh=pzPG0muUeZMpM/UGOtQ86N6wcj0w9si+KiCg9p3u16Q=; b=NxxQAbU8ivEFOSgPE/74sqWsql
+	aH2lZ01jJ1ftCiw01qx8LZARkmWqOIh2BPQmZkM1uX1UFTcgwwtKcPCfXtJpQe528GumA4UHYlYIo
+	9va3ZAUJDDLvANp7xogvnfOLDleZaqAn3/2hEapDe+OMaXvl30hCThg3dPePpjjckwRMXJo5gvAZH
+	sfKDMFokVgS+Uzy4XQk2FNv8mDx3Mx1FgAeHP0W80dMmnucCevJaotdOs6Q5qaQJUW3v2NXio5yjJ
+	v34E1oi9yF/WHTrNYSCzNcbeJekvM0aXANgZ6VK+ZZKHQLUoUSQZfX0H8UlD8d0/ENNgPXKd7yJGY
+	b0YUj+pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0BkK-0000000Akll-2DNy;
-	Wed, 11 Mar 2026 05:04:36 +0000
+	id 1w0C4M-0000000Am6V-3bG9;
+	Wed, 11 Mar 2026 05:25:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0BkI-0000000AklK-25Ag;
-	Wed, 11 Mar 2026 05:04:35 +0000
+	id 1w0C4K-0000000Am5g-2tRI;
+	Wed, 11 Mar 2026 05:25:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C9E1418C1;
-	Wed, 11 Mar 2026 05:04:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AB3FC4CEF7;
-	Wed, 11 Mar 2026 05:04:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB3EB40E0B;
+	Wed, 11 Mar 2026 05:25:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A392C4CEF7;
+	Wed, 11 Mar 2026 05:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773205473;
-	bh=fYyP3Zu9FaIM29drE15IUXdeAZe+0BRP7elc4vr6eGc=;
+	s=k20201202; t=1773206715;
+	bh=Lz9CL6rzdbiGSs2MlZc2h5jp54acjzYn9zhxUZhjCSE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nqL4eVSceLQkWZy2agF52UXOujfj7w7KrEuOhM4cOGhKUUw59uYN9x/5NytgiLzOR
-	 xyWmn0w8TWKhJQe9w/xoJxPfAi391pPUereu4K3uFM6v04Vy0yAg19kdVdcsk+Uybf
-	 M2Rb7gOuGWtqzdzH2HbGgZU1OqH3JIw2AyDnYgJBndJ7Du6iRkyELJwQFdExIOU4Ue
-	 Sm1dIkfSaGoEcCsDEFhczs0iyNeXbjA2koRhzqOeqDPtcX7Yl6WJiiPLg+Cqqkp7pf
-	 tKgqGLem++ya1KScueLxRfgME5XE5rfWQxjtKpmX42uZbg7S1f/VNDZtR75TxwvL13
-	 hssZiohpAg36Q==
-Date: Wed, 11 Mar 2026 10:34:17 +0530
+	b=EdjU4UpZvCZbIz4IVjbWg8bEigB3Il9TDaxRPMNRYXAG6xI2m5oVM27GWJq9zR/hH
+	 8Ty+XAHDBc4IUpQM8TdwFjmSF4DaxoA0q72QiB0raWNfuMJ4QZoYnb1hcXum40d/Sz
+	 0czfouRTFALAxFnaQi0PvKTVzE2B1cAP/3MX5rWbrFPZZZ9rPBzE+9Hirvq5N2ItzK
+	 UTE/x50P9uX3bI8lKJEFcYCb4wRUjI3INck/AuD0xtc05ojvJAqYALfkhZDrk+q0xK
+	 fJH78WljXcK36ZUbkStnvdCkZOBhl9NtbnuzcSAWrIB8kJvVdk3UTbP58N16nx/tdr
+	 mhCw5KctX23kw==
+Date: Wed, 11 Mar 2026 10:54:59 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: manivannan.sadhasivam@oss.qualcomm.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Niklas Cassel <cassel@kernel.org>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, Lukas Wunner <lukas@wunner.de>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Brian Norris <briannorris@chromium.org>, 
-	Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v7 2/4] PCI: host-common: Add link down handling for Root
- Ports
-Message-ID: <vnsmjvtwaeticdxwz6u43dxnpi6duhc3r5motwnfer4l2bpqcm@noeme6lgq4jf>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <20260310-pci-port-reset-v7-2-9dd00ccc25ab@oss.qualcomm.com>
- <2eb738fb-9dfe-1e88-6ea7-afdba9cb3d25@rock-chips.com>
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
+	Grimmauld <grimmauld@grimmauld.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev, 
+	Lukas Wunner <lukas@wunner.de>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
+References: <20260226101032.1042-1-linux.amoon@gmail.com>
+ <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+ <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
+ <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
+ <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2eb738fb-9dfe-1e88-6ea7-afdba9cb3d25@rock-chips.com>
+In-Reply-To: <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_220434_578819_42853EC4 
-X-CRM114-Status: GOOD (  40.08  )
+X-CRM114-CacheID: sfid-20260310_222516_770480_370CB67A 
+X-CRM114-Status: GOOD (  34.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,126 +84,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 08:55:01AM +0800, Shawn Lin wrote:
-> Hi Mani
+On Tue, Mar 10, 2026 at 09:03:32PM +0000, Robin Murphy wrote:
+> [ +driver-core maintainers - async probe question below ]
 > 
-> 在 2026/03/10 星期二 22:02, Manivannan Sadhasivam via B4 Relay 写道:
-> > From: Manivannan Sadhasivam <mani@kernel.org>
+> On 2026-03-10 3:30 pm, Manivannan Sadhasivam wrote:
+> > Hi Robin,
 > > 
-> > The PCI link, when down, needs to be recovered to bring it back. But on
-> > some platforms, that cannot be done in a generic way as link recovery
-> > procedure is platform specific. So add a new API
-> > pci_host_handle_link_down() that could be called by the host bridge drivers
-> > for a specific Root Port when the link goes down.
+> > On Tue, Mar 10, 2026 at 01:41:56PM +0000, Robin Murphy wrote:
+> > > Hi Mani,
+> > > 
+> > > On 2026-03-04 6:48 am, Manivannan Sadhasivam wrote:
+> > > > 
+> > > > On Thu, 26 Feb 2026 15:40:23 +0530, Anand Moon wrote:
+> > > > > Rockchip DWC PCIe driver currently performs synchronous link training for
+> > > > > combo PHYs (PCIe 3.0/2.0 and SATA 3.0) during boot. This process waits for
+> > > > > the link to be fully established, adding several milliseconds to the boot
+> > > > > sequence. To optimize boot time, this change enables asynchronous probing,
+> > > > > allowing link establishment to proceed in the background while the kernel
+> > > > > continues probing other devices.
+> > > > > 
+> > > > > [...]
+> > > > 
+> > > > Applied, thanks!
+> > > > 
+> > > > [1/1] PCI: dw-rockchip: Enable async probe by default
+> > > >         commit: ec392abc95932838bf7e3d659d358f4df9ff5a0a
+> > > 
+> > > This appears to have the side-effect that calling pci_host_probe() from
+> > > async context can effectively force async probe for the endpoint drivers
+> > > as well, but some drivers are not OK with that, as our CI has just
+> > > flagged up.
+> > > 
 > > 
-> > The API accepts the 'pci_dev' corresponding to the Root Port which observed
-> > the link down event. If CONFIG_PCIEAER is enabled, the API calls
-> > pcie_do_recovery() function with 'pci_channel_io_frozen' as the state. This
-> > will result in the execution of the AER Fatal error handling code. Since
-> > the link down recovery is pretty much the same as AER Fatal error handling,
-> > pcie_do_recovery() helper is reused here. First, the AER error_detected()
-> > callback will be triggered for the bridge and then for the downstream
-> > devices. Finally, pci_host_reset_root_port() will be called for the Root
-> > Port, which will reset the Root Port using 'reset_root_port' callback to
-> > recover the link. Once that's done, resume message will be broadcasted to
-> > the bridge and the downstream devices, indicating successful link recovery.
+> > Thanks for reporting!
 > > 
-> > But if CONFIG_PCIEAER is not enabled in the kernel, only
-> > pci_host_reset_root_port() API will be called, which will in turn call
-> > pci_bus_error_reset() to just reset the Root Port as there is no way we
-> > could inform the drivers about link recovery.
+> > > (And as for that particular warning, ISTR last time I looked into it
+> > > another context, the opinion of the MDIO/phy maintainers seemed to be
+> > > "don't force async probe".)
+> > > 
 > > 
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> > Tested-by: Brian Norris <briannorris@chromium.org>
-> > Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >   drivers/pci/controller/pci-host-common.c | 35 ++++++++++++++++++++++++++++++++
-> >   drivers/pci/controller/pci-host-common.h |  1 +
-> >   drivers/pci/pci.c                        |  1 +
-> >   drivers/pci/pcie/err.c                   |  1 +
-> >   4 files changed, 38 insertions(+)
-> > 
-> > diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> > index d6258c1cffe5..15ebff8a542a 100644
-> > --- a/drivers/pci/controller/pci-host-common.c
-> > +++ b/drivers/pci/controller/pci-host-common.c
-> > @@ -12,9 +12,11 @@
-> >   #include <linux/of.h>
-> >   #include <linux/of_address.h>
-> >   #include <linux/of_pci.h>
-> > +#include <linux/pci.h>
-> >   #include <linux/pci-ecam.h>
-> >   #include <linux/platform_device.h>
-> > +#include "../pci.h"
-> >   #include "pci-host-common.h"
-> >   static void gen_pci_unmap_cfg(void *ptr)
-> > @@ -106,5 +108,38 @@ void pci_host_common_remove(struct platform_device *pdev)
-> >   }
-> >   EXPORT_SYMBOL_GPL(pci_host_common_remove);
-> > +static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
-> > +{
-> > +	int ret;
-> > +
-> > +	pci_lock_rescan_remove();
-> > +	ret = pci_bus_error_reset(dev);
-> > +	pci_unlock_rescan_remove();
-> > +	if (ret) {
-> > +		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-> > +		return PCI_ERS_RESULT_DISCONNECT;
-> > +	}
-> > +
-> > +	pci_info(dev, "Root Port has been reset\n");
-> > +
-> > +	return PCI_ERS_RESULT_RECOVERED;
-> > +}
-> > +
-> > +static void pci_host_recover_root_port(struct pci_dev *port)
-> > +{
-> > +#if IS_ENABLED(CONFIG_PCIEAER)
-> > +	pcie_do_recovery(port, pci_channel_io_frozen, pci_host_reset_root_port);
-> > +#else
-> > +	pci_host_reset_root_port(port);
+> > This was discussed during v2 [1] and concluded that the async probe benefits
+> > outweigh the unharmful splat from phylib. I also agree with the above conclusion
+> > that this splat should not prevent us from enabling async probe for PCI
+> > controller drivers. It can easily save a few 100ms during boot.
 > 
-> Since pci_host_reset_root_port() returns pci_ers_result_t, shouldn't we
-> check the result? If the return value is intentionally ignored here,
-> maybe pci_host_reset_root_port actually doesn't need a return value at
-> all?
+> The problem is not an "unharmful splat" from one driver on one board -
+> that's *a* symptom, and the fact that it happens to be a relatively benign
+> one does not dismiss the problem that forcing async probe upon drivers that
+> are not designed to support async probe cannot in general be assumed to be
+> safe, so is not OK. It's one thing if a user brings it upon themselves by
+> explicitly using the "driver_async_probe=" option, but it's very different
+> if some other driver starts doing it for them.
 > 
 
-The return value is mostly for pcie_do_recovery() which iterates through the
-subordinate devices and calls pci_host_reset_root_port(). It also makes use of
-the return value, so we cannot make it void.
+I have a contrary view here. If just a single driver or lib doesn't handle async
+probe, it cannot just force other drivers to not take the advantage of async
+probe. As I said above, enabling async probe easily saves a few hunderd ms or
+even more if there are more than one Root Port or Root Complex in an SoC.
 
-The reason why I skipped the return value in pci_host_handle_link_down() is
-that, we canot do much in the case of failure other than reporting the failure,
-which is already taken care in pci_host_reset_root_port().
+Moreover, there are multiple ways this splat could be triggered as reported in:
+https://lore.kernel.org/netdev/7103704.9J7NaK4W3v@fedora.fritz.box
 
-> > +#endif
-> > +}
-> > +
-> > +void pci_host_handle_link_down(struct pci_dev *port)
-> > +{
-> > +	pci_info(port, "Recovering Root Port due to Link Down\n");
-> > +	pci_host_recover_root_port(port);
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
+> Looking closer, it seems like the fundamental issue might be when we've got
+> this far (simplified for clarity):
 > 
-> This function shouldn't be called like in interrupt context because of
-> the pci_lock_rescan_remove() and pci_bus_error_reset()::pci_slot_mutex,
-> but it's not so obvious from the API name. It's prone for host drivers
-> to use it like:
+> - async_run_entry_fn
+>   - rockchip_pcie_probe
+>     - pci_host_probe
+>      - pci_bus_add_device
+>        - device_initial_probe
+>          - __device_attach_driver
 > 
-> register_LDn_irq -> irq isr -> pci_host_handle_link_down()
-> 
-> So perhaps add a comment about it would be better.
+> wherein we then reach the "if (data->check_async && async_allowed !=
+> data->want_async)" condition, at which point check_async is true (from
+> device_initial_probe()), while async_allowed and want_async are *both*
+> false, but that leads us to actually go ahead and call driver_probe_device()
+> for the child device despite being in async context. That doesn't seem right
+> to me - I'm guessing it maybe wasn't anticipated to have bus drivers calling
+> device_initial_probe() from within async in the first place?
 > 
 
-Yes, I agree. I mentioned in the cover letter that this API should be called
-from a threaded IRQ handler, but it should be mentioned in the API description
-too. I will add it in next version or ammend it while applying.
+But isn't the underlying issue is with phylib calling request_module() while the
+driver core performs async probing?
+
+> It may not strictly be the fault of this patch - clearly 91703041697c ("PCI:
+> Allow built-in drivers to use async initial probing") is implicated in this
+> too - but the fact is that it *has* exposed a bug that needs fixing one way
+> or another, it can't just be left hanging and impacting end users.
+> 
+
+I strongly agree with you here that the underlying issue should be fixed. But
+the real impact to end users is not this splat, but not having the boot time
+optimization that this patch brings in. As an end user, one would want their
+systems to boot quickly and they wouldn't bother much about a harmless warning
+splat appearing in the dmesg log.
 
 - Mani
 
