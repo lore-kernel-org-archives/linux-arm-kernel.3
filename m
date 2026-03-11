@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEB91062894
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134051062892
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCpv2B481p5tXJx5vm72pzJA7/wNwbYDhrgNk/JD+bU=; b=FF0X2oasQE1MTQqtVrvqa33y36
-	44Gy2wwcisvgqcHx+GdcJS0xxtMOMA9CS68BoU7Tr0wRg+uXXp3xt0lKCwhd8v97UunMsbNHgky7l
-	2fTzClwW5gwJaA7H69rXx7Khv/esUL7URuwnpo4DVLdmwINHb6yxvcs0TL2X9wMBZ2HE2aZOvvNg0
-	IFMmThyLZGysh+ksGMVjwJayHawH4TwsNBkMe4oetNJC/kA6VOtz8QZNo2X7A3X/0wLPkxEC+6+hU
-	RRHSJ35+Xt74BDxfMroMgNYaw2KXIWgaDeTq67lAOBa43e8pUuwpvMBMNjgurvU4s5KbzORRup+7F
-	C4p8a0bA==;
+	bh=wqxkXud4nPLZFgU2JPqkjGIpiym+4V7JY0lp4ybhl8k=; b=VfDe1KcH8Oy3aDeZqgnoQFrtv2
+	ydgWwuhzHXwtMhcCf1u8DHxiKFJTgrIsMFZ+RS6TSOFTgIoIOLkhCJmDg+z6H2YFWm5Fq3bTgf0tl
+	JS1yyvqqFtV9EyMnXbKaPWtXU70HYZ0UdqFNecMXhjCkKmU0aA9iycsE1a/wFGxxvaxSdO6/lWNiQ
+	TLkZPZodeCyXGz0HTjJHwwB9nbJGYOhEukgGXI1K5p6pSkq/Uvvjv/TU5HJ7VZ35s5cNMa7/8x1yN
+	oDWpwdmPgL196MdMrtqEO5VRVnt9QbwWq42yb+O3A5wAP0D/RXVAcQtKKHvKR1bahnhKEOIJHaVRq
+	5dXEfPxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Iwp-0000000BaDL-01Ma;
-	Wed, 11 Mar 2026 12:45:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0Iyh-0000000BaNa-2AAt;
+	Wed, 11 Mar 2026 12:47:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Iwm-0000000BaCx-2vBC
+	id 1w0Iyg-0000000BaNR-1ObY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:45:57 +0000
+	Wed, 11 Mar 2026 12:47:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 519B044375;
-	Wed, 11 Mar 2026 12:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6760C4CEF7;
-	Wed, 11 Mar 2026 12:45:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 47091600B0;
+	Wed, 11 Mar 2026 12:47:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0034C4CEF7;
+	Wed, 11 Mar 2026 12:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773233156;
-	bh=p5s6LmiZUsNIQywTKWkHbQraxneuuNSzrESbFlm5lxo=;
+	s=k20201202; t=1773233272;
+	bh=PIiavc9jPdYxa+h6JEjPhU/eVDBwYycw0YXQ9LHcE4U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EIvv5lepipQPW10zdemikIqrwuUfcRR2QVowZqwFW/ZMs8Vk8zbtQOHn+AEYgh++Z
-	 LenwsZII7WsgyInyJ0Fx3KydhVgM2Piwy/FAhRLI5Ha+CpuKojEhkrzgKy+9RsoeG1
-	 aK57CJaJsW/ALaXAvG4Fki6KUN9EAQmPimqZra/gUOXkT3CkfKsKCejdp98VUGfsAN
-	 SAkQ0ZX9PP2GBVNlM8c90pgKjgyOxjyv36dyQjnAY0oDjoPoqOUjjdcJlVWrJgqKq7
-	 nEIfwuUerD9oTl5p7gL5uLuAWZ7qJPf1IHvD/oW8IoZQyMvRKy/hXEoGJn5kCeIqDD
-	 Dh0CYmLG/rnNw==
-Date: Wed, 11 Mar 2026 18:15:03 +0530
+	b=W/Gewi9Tau8wfkkFOAxix27ZpFQU6BOOnPQwRA2QBXxtu08of/6K/Hee40ybDSg2H
+	 rHSBbQwDoQDljstn+yCnRsz6+oYuBFWP7d8EUpek2VkdmE6eh2xukmG+EZgPKKfyDc
+	 C49twpv93A2ltBONobj+i53xr6qXoVApMdOVxirviTlUTSHqfKZ+r+XCt95C3TfRoc
+	 TIrJHx+jQ6id+pCWZvmN7zUad74wGDi21rGCk8WPPFzQ0ZMrqJDK0yI+VzladSWZ+L
+	 Z7nF3kK84978nzhHJvIqoTGhaNbUmoTvaKbRfFYYsUFIHXTypD1v8qTJUL8SEmehDN
+	 u77oB8O5P7p2g==
+Date: Wed, 11 Mar 2026 18:17:38 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
@@ -53,21 +53,17 @@ Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>
-Subject: Re: [PATCH v12 02/12] dmaengine: qcom: bam_dma: convert tasklet to a
- BH workqueue
-Message-ID: <iimeqofy4fzr4pqtda7sayt5hbbmdldopmcyxagve44dbapnla@ruzqqx6lntkz>
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v12 03/12] dmaengine: qcom: bam_dma: Extend the driver's
+ device match data
+Message-ID: <5bj7xmtgag5yfocitg3x7jpkom4icxma25dsz55wj4uhagqxiv@a7edsmzrxcv5>
 References: <20260310-qcom-qce-cmd-descr-v12-0-398f37f26ef0@oss.qualcomm.com>
- <20260310-qcom-qce-cmd-descr-v12-2-398f37f26ef0@oss.qualcomm.com>
+ <20260310-qcom-qce-cmd-descr-v12-3-398f37f26ef0@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-2-398f37f26ef0@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_054556_776570_9173F39C 
-X-CRM114-Status: GOOD (  26.55  )
+In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-3-398f37f26ef0@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 04:44:16PM +0100, Bartosz Golaszewski wrote:
-> BH workqueues are a modern mechanism, aiming to replace legacy tasklets.
-> Let's convert the BAM DMA driver to using the high-priority variant of
-> the BH workqueue.
+On Tue, Mar 10, 2026 at 04:44:17PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> [Vinod: suggested using the BG workqueue instead of the regular one
-> running in process context]
+> In preparation for supporting the pipe locking feature flag, extend the
+> amount of information we can carry in device match data: create a
+> separate structure and make the register information one of its fields.
+> This way, in subsequent patches, it will be just a matter of adding a
+> new field to the device data.
 > 
-> Suggested-by: Vinod Koul <vkoul@kernel.org>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+
+Nit: s/patches/commits
+
+> Reviewed-by: Dmitry Baryshkov <lumag@kernel.org>
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
@@ -101,125 +99,97 @@ Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
 - Mani
 
 > ---
->  drivers/dma/qcom/bam_dma.c | 32 ++++++++++++++++----------------
->  1 file changed, 16 insertions(+), 16 deletions(-)
+>  drivers/dma/qcom/bam_dma.c | 28 ++++++++++++++++++++++------
+>  1 file changed, 22 insertions(+), 6 deletions(-)
 > 
 > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index 19116295f8325767a0d97a7848077885b118241c..c8601bac555edf1bb4384fd39cb3449ec6e86334 100644
+> index c8601bac555edf1bb4384fd39cb3449ec6e86334..8f6d03f6c673b57ed13aeca6c8331c71596d077b 100644
 > --- a/drivers/dma/qcom/bam_dma.c
 > +++ b/drivers/dma/qcom/bam_dma.c
-> @@ -42,6 +42,7 @@
->  #include <linux/pm_runtime.h>
->  #include <linux/scatterlist.h>
->  #include <linux/slab.h>
-> +#include <linux/workqueue.h>
->  
->  #include "../dmaengine.h"
->  #include "../virt-dma.h"
-> @@ -397,8 +398,8 @@ struct bam_device {
->  	struct clk *bamclk;
->  	int irq;
->  
-> -	/* dma start transaction tasklet */
-> -	struct tasklet_struct task;
-> +	/* dma start transaction workqueue */
-> +	struct work_struct work;
+> @@ -113,6 +113,10 @@ struct reg_offset_data {
+>  	unsigned int pipe_mult, evnt_mult, ee_mult;
 >  };
 >  
->  /**
-> @@ -863,7 +864,7 @@ static u32 process_channel_irqs(struct bam_device *bdev)
->  			/*
->  			 * if complete, process cookie. Otherwise
->  			 * push back to front of desc_issued so that
-> -			 * it gets restarted by the tasklet
-> +			 * it gets restarted by the work queue.
->  			 */
->  			if (!async_desc->num_desc) {
->  				vchan_cookie_complete(&async_desc->vd);
-> @@ -893,9 +894,9 @@ static irqreturn_t bam_dma_irq(int irq, void *data)
+> +struct bam_device_data {
+> +	const struct reg_offset_data *reg_info;
+> +};
+> +
+>  static const struct reg_offset_data bam_v1_3_reg_info[] = {
+>  	[BAM_CTRL]		= { 0x0F80, 0x00, 0x00, 0x00 },
+>  	[BAM_REVISION]		= { 0x0F84, 0x00, 0x00, 0x00 },
+> @@ -142,6 +146,10 @@ static const struct reg_offset_data bam_v1_3_reg_info[] = {
+>  	[BAM_P_FIFO_SIZES]	= { 0x1020, 0x00, 0x40, 0x00 },
+>  };
 >  
->  	srcs |= process_channel_irqs(bdev);
+> +static const struct bam_device_data bam_v1_3_data = {
+> +	.reg_info = bam_v1_3_reg_info,
+> +};
+> +
+>  static const struct reg_offset_data bam_v1_4_reg_info[] = {
+>  	[BAM_CTRL]		= { 0x0000, 0x00, 0x00, 0x00 },
+>  	[BAM_REVISION]		= { 0x0004, 0x00, 0x00, 0x00 },
+> @@ -171,6 +179,10 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
+>  	[BAM_P_FIFO_SIZES]	= { 0x1820, 0x00, 0x1000, 0x00 },
+>  };
 >  
-> -	/* kick off tasklet to start next dma transfer */
-> +	/* kick off the work queue to start next dma transfer */
->  	if (srcs & P_IRQ)
-> -		tasklet_schedule(&bdev->task);
-> +		queue_work(system_bh_highpri_wq, &bdev->work);
+> +static const struct bam_device_data bam_v1_4_data = {
+> +	.reg_info = bam_v1_4_reg_info,
+> +};
+> +
+>  static const struct reg_offset_data bam_v1_7_reg_info[] = {
+>  	[BAM_CTRL]		= { 0x00000, 0x00, 0x00, 0x00 },
+>  	[BAM_REVISION]		= { 0x01000, 0x00, 0x00, 0x00 },
+> @@ -200,6 +212,10 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
+>  	[BAM_P_FIFO_SIZES]	= { 0x13820, 0x00, 0x1000, 0x00 },
+>  };
 >  
->  	ret = pm_runtime_get_sync(bdev->dev);
->  	if (ret < 0)
-> @@ -1091,14 +1092,14 @@ static void bam_start_dma(struct bam_chan *bchan)
->  }
+> +static const struct bam_device_data bam_v1_7_data = {
+> +	.reg_info = bam_v1_7_reg_info,
+> +};
+> +
+>  /* BAM CTRL */
+>  #define BAM_SW_RST			BIT(0)
+>  #define BAM_EN				BIT(1)
+> @@ -393,7 +409,7 @@ struct bam_device {
+>  	bool powered_remotely;
+>  	u32 active_channels;
 >  
->  /**
-> - * dma_tasklet - DMA IRQ tasklet
-> - * @t: tasklet argument (bam controller structure)
-> + * bam_dma_work() - DMA interrupt work queue callback
-> + * @work: work queue struct embedded in the BAM controller device struct
->   *
->   * Sets up next DMA operation and then processes all completed transactions
->   */
-> -static void dma_tasklet(struct tasklet_struct *t)
-> +static void bam_dma_work(struct work_struct *work)
+> -	const struct reg_offset_data *layout;
+> +	const struct bam_device_data *dev_data;
+>  
+>  	struct clk *bamclk;
+>  	int irq;
+> @@ -411,7 +427,7 @@ struct bam_device {
+>  static inline void __iomem *bam_addr(struct bam_device *bdev, u32 pipe,
+>  		enum bam_reg reg)
 >  {
-> -	struct bam_device *bdev = from_tasklet(bdev, t, task);
-> +	struct bam_device *bdev = from_work(bdev, work, work);
->  	struct bam_chan *bchan;
->  	unsigned int i;
+> -	const struct reg_offset_data r = bdev->layout[reg];
+> +	const struct reg_offset_data r = bdev->dev_data->reg_info[reg];
 >  
-> @@ -1111,14 +1112,13 @@ static void dma_tasklet(struct tasklet_struct *t)
->  		if (!list_empty(&bchan->vc.desc_issued) && !IS_BUSY(bchan))
->  			bam_start_dma(bchan);
->  	}
-> -
+>  	return bdev->regs + r.base_offset +
+>  		r.pipe_mult * pipe +
+> @@ -1205,9 +1221,9 @@ static void bam_channel_init(struct bam_device *bdev, struct bam_chan *bchan,
 >  }
 >  
->  /**
->   * bam_issue_pending - starts pending transactions
->   * @chan: dma channel
->   *
-> - * Calls tasklet directly which in turn starts any pending transactions
-> + * Calls work queue directly which in turn starts any pending transactions
->   */
->  static void bam_issue_pending(struct dma_chan *chan)
->  {
-> @@ -1286,14 +1286,14 @@ static int bam_dma_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto err_disable_clk;
+>  static const struct of_device_id bam_of_match[] = {
+> -	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_reg_info },
+> -	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_reg_info },
+> -	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_reg_info },
+> +	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_data },
+> +	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_data },
+> +	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_data },
+>  	{}
+>  };
 >  
-> -	tasklet_setup(&bdev->task, dma_tasklet);
-> +	INIT_WORK(&bdev->work, bam_dma_work);
->  
->  	bdev->channels = devm_kcalloc(bdev->dev, bdev->num_channels,
->  				sizeof(*bdev->channels), GFP_KERNEL);
->  
->  	if (!bdev->channels) {
->  		ret = -ENOMEM;
-> -		goto err_tasklet_kill;
-> +		goto err_workqueue_cancel;
+> @@ -1231,7 +1247,7 @@ static int bam_dma_probe(struct platform_device *pdev)
+>  		return -ENODEV;
 >  	}
 >  
->  	/* allocate and initialize channels */
-> @@ -1358,8 +1358,8 @@ static int bam_dma_probe(struct platform_device *pdev)
->  err_bam_channel_exit:
->  	for (i = 0; i < bdev->num_channels; i++)
->  		tasklet_kill(&bdev->channels[i].vc.task);
-> -err_tasklet_kill:
-> -	tasklet_kill(&bdev->task);
-> +err_workqueue_cancel:
-> +	cancel_work_sync(&bdev->work);
->  err_disable_clk:
->  	clk_disable_unprepare(bdev->bamclk);
+> -	bdev->layout = match->data;
+> +	bdev->dev_data = match->data;
 >  
-> @@ -1393,7 +1393,7 @@ static void bam_dma_remove(struct platform_device *pdev)
->  			    bdev->channels[i].fifo_phys);
->  	}
->  
-> -	tasklet_kill(&bdev->task);
-> +	cancel_work_sync(&bdev->work);
->  
->  	clk_disable_unprepare(bdev->bamclk);
->  }
+>  	bdev->regs = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(bdev->regs))
 > 
 > -- 
 > 2.47.3
