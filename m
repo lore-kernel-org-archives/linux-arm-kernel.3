@@ -4,119 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D281FCC9B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5392CFD88FF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=; b=vDBb9Oc+1rAf5ZdTnqZWIX3GOn
-	1q6VQiy5iIWhO5+Te3ZF/p9tcsc2NvXBTr272X/PpTFejb4kwBx6PvXV/UCl63RqCg3d/XCcqrcrL
-	pYEb++FZEQ4p26y+zHDmbvlDL5ExmfsbFD7x89WfIdtJ6SIwsnrzLn9Tyrs951HPg4fvebFqgKjbY
-	mqAqSol+FhrhJsOcQcU4OW0d13O/nIwZcY6ZJeIv89yaqfby76PqMNiZhhdPDTY1lgmaOc7cxqhKy
-	S71xqWWY6QDc0hjbG/rCKOAscvBOQpEWFL4LgsbkKb9iGr2OkPQF7TJ4ySPbLRciqRhDSS9AqLaUi
-	aWjhKPwA==;
+	bh=vC32pcExNKHyGQ5f/6wJrpjG0I4UNA7S0akvcigmYyE=; b=inG8DEECp5EQuYcRiWxHKxwsTU
+	85QF7xJ6IGjS0BS1cwpJHcix4W/rlSiW/2Ns8bsapPPqL8c1qCI2q2lVMeTbiUZE6ISDorZfZ/W3P
+	ySNToNLcyoQcS3ImXS4hRNR1njQZnWPQajvo1F6UtV5WPryKzHjHLsDLI0y4xr2SSXETOdFPXpJLa
+	vj1mG0JpC+qAyfeODD+KJTNBSmNNV/lk4aqewzv8xGscyk9a0ZhtbzchFAx1DygE/E4Mk1UPe/rue
+	jPitTPBbEK83SSG7cRD04+LJabcr72Tcwq3igmZf+Eil9WLbuxzU0kYrdw8krZcM9GuXoUW78Sufp
+	C8QCt0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CLX-0000000Ap8p-3E8c;
-	Wed, 11 Mar 2026 05:43:03 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1w0CUj-0000000AqbA-3znD;
+	Wed, 11 Mar 2026 05:52:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CLV-0000000Ap7h-2Tmr
+	id 1w0CUi-0000000Aqb2-1mSF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 05:43:02 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c73c990a96dso415685a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 22:43:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773207780; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ch29cnfLrM2q3y4Or0lQOyvH6EyyblzGtVa2gMswIYlvQ8dhQhrT5MzcB2AfzLaDOM
-         OHlf20nyknBD4k0NWjVMf1yfcBQePRQUCZ2X4+1KfTmiwDA7e7Rgj5+jLmBdbRO8tLAA
-         xAsmbgIzc+yNoi86Onujjhk5nfJmRMtXZnqNV9Z2p6dE8RcVum3j8xHng54TpTIJdsgB
-         xRT+G6s4efn/qFIaRbXpURC6NaLN4q8FbBCyc0UlisDSBZbplMi20qkOiKl3hNdqzUyO
-         BipKYJLCdpVvCFzLH/QFnceHQDRekV0ELWQpBFfvPDYPfgYkmsYRE92JHMxiyqjhgu7l
-         8RKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
-        fh=6vX5RXyJcjX17tiMv+OCX0WHEl8OfbgPurQ20cL7x64=;
-        b=ap2X/IdXHrstGo2lEYwua2zOt3CyGaXOXp95Itgniz0haFGzmGGXwQj3KpPsmC3JCX
-         4LGGRmDinMtJELtGNhlc5RyR7vo1B+T8aoIzy8Q6eU4gbb95stzRRTQ7vR99lU8nMkYO
-         1K0ffZ3Iek3BUazyu9+GwBiWFhjr0FkeI/rl7CMZzKs+WuV5ykx5EZvxoSZP4gMpYj4d
-         Z45f5cnZSptYXsAGxSSsaJenSOgLJkIggEG+6Q+an4Lh62hvLAqb9+VFQAcJaGkQDhMH
-         DSTQiA6hDh43+3Y04AlY1TwKEcLuoakKxETkoCfgwjlOcBRB8CeF8Dj8t8HnxUWbndnf
-         /PsQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773207780; x=1773812580; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
-        b=USjyqUgGQEu6t8WKvZnDywclQzwVYhxvNsPyTbjyI9qHRVsn6HWmxhTqW2liZThqet
-         u9di9n5rLFWT26zhdjyqi9cJQJCKiwpD+tP8O49uuJ+EqnW16QwKDin31oB4BQGugoy8
-         ZCr8sXBROkAt8RRmVm6JmV34te4Sv0iHgYlbokuOHGfjOEJ1mPl/Nq3m2TCvGYnGl1Bf
-         BebekAhemQtxcGOtZSadVRaGLnM7RnyTI2x7DrCiuWfHVXsOju1qC/N5nRUUf7mBwiWy
-         Mxg36D9i/DWJRu1mmDK1UdoUaNFb2cQxH9kfyW45rHBgoS8dyFyniatD8tl7WSzZHSiG
-         ql7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773207780; x=1773812580;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
-        b=Onsf6/pqpdmtmY/D+ycNg4YBfLU9eepu+xlqO1BaXQwQPVADN5Mf1INScE1D9oVTah
-         ZiSAlYF6eYgSZFOT81XtgoKKcAYMWmxQoPwNjbjG8O3k/RwBtV4RbnHgkJmVBFt6CM8w
-         3GyMFf+RK6bPVkLg7qwHZbicVY9EfkIxWnXGwmNuGX+Fw21a8142HtvRi1athJzHVPaK
-         Lfmky9SceEhV+1rvLImohmnQEHmUTK+tWV8DDqLqTwudNUSlEguWfihZFnHZO74NMX+R
-         +Q1dZfQ5jccWI/w5WBRkZyDyJeSc98kqOnJMhKlSTeiAlDCNbd9mSFB+Wh5GfXG69YCo
-         K1rg==
-X-Forwarded-Encrypted: i=1; AJvYcCXTN1+YYFAzeEjR3olGijwhUNzFss+3A7LDvJIkkzhqgnwokENfq0VbOyoBywL/YROD5g70S0NrySS14ZKtaqhn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRHwKqg6FfFVDwBYb7wL+HcuY8YXV8v6yEpkpAylzpl1qfNBpS
-	O0Afrhi1gMnAVGTUxffHkztxDcQx0zctY1ydNKhW1Bsei6nKV59W6SGTGcc+qRvJnyvJS0WRwXf
-	jY7QsU3uMK/MVAd5FQndy0g9G0bPAiA==
-X-Gm-Gg: ATEYQzzo/q9eaTq9w209pqVRdT76CLxCMD0pyo4WlLVzRIgg2eMmi0mSXjuwb3UxNbZ
-	LsZn6Mxhhad+yF3iJ6+QxcfNTfCA+anPK1DLd30tVfuC0d7KCaetYWS2DAVMRUCnL5+qXpRY4v/
-	ai6Zlqs4OAD4EYOD9Uh0t0h16Kemm0LQvphpC3+3rPn8g0747+p9s8eDehTwUiJYPcc1yQU0W3V
-	JVDgGMkUgTQbGEKOvADG4NS1cf3tEt7D+N1tOueiD2JrPrcBJCE66gZOXdxIHb6joHa5WsW2NN3
-	zqcyfKAk/bwlrDCb9ISK8GSvB/X+7k+qiy7OUwMv73BWOLEGG/EmMZI3vv6+OPIqGcxE
-X-Received: by 2002:a05:6a21:458f:b0:398:791a:9caa with SMTP id
- adf61e73a8af0-398c5ec806amr1236794637.18.1773207780121; Tue, 10 Mar 2026
- 22:43:00 -0700 (PDT)
+	Wed, 11 Mar 2026 05:52:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7AEA360054;
+	Wed, 11 Mar 2026 05:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38128C4CEF7;
+	Wed, 11 Mar 2026 05:52:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773208351;
+	bh=BWHaQd6X/rtH2bI32zQwke/69AavzK5woTtHsoahkrs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ofIF83yEjYLe+0ed/2I1e6ZwoWoIywD9XjwVJRlkZGjo+1Dt9YUUD4siSfFs/mThG
+	 80fgvrXiF8ago5yXFzL/frRej37uCyLHMGfxKRvLJhCcyu/uT+DNXLVkUlqXbVEIB+
+	 SA7uRh95mkiJVmzGfykg3IgGiV9PehRGeYNH4dZHUn8KoARV0EMfJLmWRrXXRUK1Ub
+	 hjsI0/nZemIJwD9l2iRPCJLRCkncKlkwUGIclHgUKErG0RguRWIfkEk5SnduwiNSFd
+	 MZKoS+RfE+YTvX6Q9A8McYmn2Xx5ZfTBshD9ueF9jGNW4wWGuFNcdDlCUGtZYND9BV
+	 Fgi7eD4vGTgQg==
+Message-ID: <168d4af2-5a5b-4564-9e53-fed9f0c062a2@kernel.org>
+Date: Wed, 11 Mar 2026 06:52:26 +0100
 MIME-Version: 1.0
-References: <20260310200513.2162018-1-sanjayembedded@gmail.com>
-In-Reply-To: <20260310200513.2162018-1-sanjayembedded@gmail.com>
-From: Luka Gejak <lukagejak5@gmail.com>
-Date: Wed, 11 Mar 2026 06:42:48 +0100
-X-Gm-Features: AaiRm53yOPVigtTBWqUrHQSRYbaimfIQ_tKWwOGhPWuEPWqnKrEs0Ob5KWiVmFM
-Message-ID: <CADRnA90=F5rRtWWJtSg7mA_QLzQa5Fzh3s2RzXDJtOOTiitzrQ@mail.gmail.com>
-Subject: Re: [PATCH 0/7] drivers: Simplify cleanup paths using __free
-To: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-Cc: jic23@kernel.org, m.tretter@pengutronix.de, mchehab@kernel.org, 
-	p.zabel@pengutronix.de, tiffany.lin@mediatek.com, andrew-ct.chen@mediatek.com, 
-	yunfei.dong@mediatek.com, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, johan@kernel.org, elder@kernel.org, 
-	gregkh@linuxfoundation.org, pure.logic@nexus-software.ie, 
-	dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, 
-	kernel@pengutronix.de, kees@kernel.org, nabijaczleweli@nabijaczleweli.xyz, 
-	marcelo.schmitt1@gmail.com, maudspierings@gocontroll.com, 
-	hverkuil+cisco@kernel.org, ribalda@chromium.org, straube.linux@gmail.com, 
-	dan.carpenter@linaro.org, ethantidmore06@gmail.com, 
-	samasth.norway.ananda@oracle.com, karanja99erick@gmail.com, 
-	s9430939@naver.com, tglx@kernel.org, mingo@kernel.org, 
-	sun.jian.kdev@gmail.com, weibu@redadmin.org, linux-iio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev, 
-	skhan@linuxfoundation.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_224301_637637_EB2A3146 
-X-CRM114-Status: GOOD (  16.36  )
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW1BBVENIIHYyIDEvMl0gZHQtYmluZGluZ3M6IFBD?=
+ =?UTF-8?Q?I=3A_update_CIX_Sky1_PCIe_Root_Complex_bindings?=
+To: Gary Yang <gary.yang@cixtech.com>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Peter Chen <peter.chen@cixtech.com>
+Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
+References: <20260310065338.2337761-1-gary.yang@cixtech.com>
+ <20260310065338.2337761-2-gary.yang@cixtech.com>
+ <841c0b46-76dc-49c2-bb74-7fc2e5a2a702@kernel.org>
+ <PUZPR06MB5887D091B6CF979DFC46EECBEF47A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <PUZPR06MB5887D091B6CF979DFC46EECBEF47A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,69 +128,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Sanjay,
-Would you mind explaining why you put so many people into TO and CC
-fields when sending patch series. You should stick to maintainers and
-reviewers from maintainers file as others can still see it on the
-mailing list(that's why you CC kernel mailing.list related emails).
-Sincerely Luka Gejak
-P.S. If you are including me in further discussions or patch series
-please use luka.gejak@linux.dev instead of lukagejak5@gmail.com.
-Thanks in advance.
+On 11/03/2026 03:31, Gary Yang wrote:
+> Hi Krzysztof:
+> 
+> Thanks for your comments
+> 
+>> EXTERNAL EMAIL
+>>
+>> On 10/03/2026 07:53, Gary Yang wrote:
+>>> add power-domains and power-domain-names property
+>>
+>> Why? Please write complete sentences explaining why you are doing this.
+>>
+> 
+> Sorry, I did not describe in detail.
+> 
+> The Sky1 PCIe controller sits in a power domain that must be enabled before the controller can be accessed.
+> Describe the power-domains property so that DTS files can reference the correct power domain provider.
+> 
+>>>
+>>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+>>> ---
+>>>  .../devicetree/bindings/pci/cix,sky1-pcie-host.yaml         | 6 ++++++
+>>>  1 file changed, 6 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
+>> b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
+>>> index b910a42e0843..1d8ee8310588 100644
+>>> --- a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
+>>> +++ b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
+>>> @@ -38,6 +38,12 @@ properties:
+>>>    ranges:
+>>>      maxItems: 3
+>>>
+>>> +  power-domains:
+>>> +    minItems: 1
+>>> +
+>>> +  power-domain-names:
+>>> +    minItems: 1
+>>
+>> There is no such syntax. Open any existing bindinh.
+>>
+> 
+> Sorry, They come from Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
 
-On Tue, Mar 10, 2026 at 9:05=E2=80=AFPM Sanjay Chitroda
-<sanjayembeddedse@gmail.com> wrote:
->
-> From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
->
-> Hi all,
->
-> This patch series replaces manual cleanup and explicit kfree() calls with
-> the __free attribute from <linux/cleanup.h>. This modernizes the memory
-> management style and simplifies common error paths without altering any
-> functional behavior.
->
-> The __free attribute provides automatic scope-based cleanup, making
-> resource management clearer and reducing the chances of missing cleanup
-> on early returns.
->
-> No functional changes are intended in this series.
->
-> Testing:
->   - Compiled with W=3D1
->   - Build-tested on i86_64
->
-> Based on:
->   <linux-v7.0-rc2>
->
-> Feel free to share your valuable input in context of the cleanup API.
->
-> Thanks,
-> Sanjay Chitroda
->
-> Sanjay Chitroda (7):
->   staging: greybus: simplify cleanup using __free
->   iio: ssp_sensors: simplify cleanup using __free
->   iio: st_sensors: simplify cleanup using __free
->   media: mediatek: vcodec: simplify cleanup using __free
->   media: chips-media: coda: simplify cleanup using __free
->   media: allegro: simplify cleanup using __free
->   staging: rtl8723bs: simplify cleanup using __free
->
->  drivers/iio/common/ssp_sensors/ssp_spi.c      |  9 +-
->  .../iio/common/st_sensors/st_sensors_core.c   |  7 +-
->  .../media/platform/allegro-dvt/allegro-core.c | 95 +++++--------------
->  .../platform/chips-media/coda/coda-bit.c      |  4 +-
->  .../platform/chips-media/coda/coda-jpeg.c     | 39 ++++----
->  .../mediatek/vcodec/common/mtk_vcodec_dbgfs.c |  3 +-
->  drivers/staging/greybus/camera.c              | 27 ++----
->  drivers/staging/greybus/loopback.c            | 35 +++-----
->  drivers/staging/greybus/raw.c                 |  6 +-
->  .../staging/rtl8723bs/hal/rtl8723b_hal_init.c | 13 +--
->  drivers/staging/rtl8723bs/hal/sdio_ops.c      | 37 ++------
->  11 files changed, 78 insertions(+), 197 deletions(-)
->
-> --
-> 2.34.1
->
+There is no such syntax there.
+
+Just open the file.
+
+
+> 
+> Execute the two commands below before submit patch every time.
+> 
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pcie-host.yaml
+> 
+> we don't find any warning or error. So we think all is ok.
+
+No, because there is no such code nowhere. Please take other bindings as
+an example. You miss here maxItems.
+
+Best regards,
+Krzysztof
 
