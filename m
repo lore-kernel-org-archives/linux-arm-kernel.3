@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C3A1062892
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2571062878
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMdXKmOh0SZLHijCdCAN5cUgJGeht054Y1uPHLOACH4=; b=ftCE7Zgcg5hBD62rLZ+riiZgQg
-	cf95zIu43RmL2BquxLk6fIBDFd/Qf3ZsaHTxkrT8xfRZuZaYjucX1jcbiioJbX2Zhmqr+l7t+5tBp
-	KrADiRzMsvMIGY2meiMCq/Ek2b2vptPNBkbefy59FnH5F3GLcAy/omlYCeK3vtxdegmycfw0rF7OT
-	agpnm1atSg9gWuXeXTlEmuK0FcWiHelzE23FmX3UNO5MXptQQvLQLY3/bxMGOXElBIS2yUy6kpLi+
-	wBDWVg0RXKARl+8gJawzeusMDOy3WbiZJaMHhxb/ybmoOAHlQCG0ZAtu8k02QJ2l5QaIDg1wK5dsE
-	s0eaiWlQ==;
+	bh=ZzxPbPK/Wk3jvQ0gT3NVpWbIxGWruMRjKouF9+7Pkzs=; b=D2mM1SiMg0NtOUEs4V8eo+KuC/
+	1AiWLzMZwbbdcuqYUNWJy+QyHs4iQLLri/Tq3/GWFjT255Cjm6ZC6gIWas+vVceXn+tiP/+j7B0Vx
+	3n8NC8V+Un+iwQTxhYm7hJ+v+imBx8/UHlHqtU5W3Ex8LyvBChVa+pwrBjr8A62BhIyK8DmCojD48
+	Afv3mZuA/Lx+bt+fz37a8ego8QzA7f5/weh1YoKqC6Ij2PO9YHsLUJ/KbrV9v/fWgxKcfPTPVIjoN
+	CKBUoNMua53VoA011pZCrOGuBlkTc8gidpRgV97DGiEHBU5iNe9P0/A8VULrEBh9uIGYf2LDEQoT/
+	mmzLjeiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Isg-0000000BZlX-0jr2;
-	Wed, 11 Mar 2026 12:41:42 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w0It0-0000000BZqX-03eR;
+	Wed, 11 Mar 2026 12:42:02 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Isd-0000000BZl6-49IC;
-	Wed, 11 Mar 2026 12:41:41 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62B1nX5x1973470;
-	Wed, 11 Mar 2026 12:41:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=EMdXKm
-	Oh0SZLHijCdCAN5cUgJGeht054Y1uPHLOACH4=; b=es3UVyKuE/Uy91otvdMKvl
-	El3cEmVcH38Yc0lR+pkN65vaiiU5AUOBVODcbzAdvhXNFnFGKia5mOjQoWyVFMiN
-	RxLd/QDyEE1LeujepDthzJucQBDY6K+NeSLItk0ru2GlveiqRtxq5kQGSUS/Awgk
-	SaBXc6f+lZT03rR8WJFhbIltqGU/EThz9Z/djoKDo+53xTVKy7y+4klz0vtRQLa0
-	1dl3wNk/HdwyIHlSGgfF1vxtidwyHC8Mk/8/eczXdpuOHnSOrZswbGT4KKi4TgwW
-	pS1UBpyzLwZkCBTNfyhRHYhxvocMUW1sdjam+lnsDh4IRQkBq7Rw3REVzZ17GUIA
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4crcuyftx1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Mar 2026 12:41:26 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62BBbrVA021150;
-	Wed, 11 Mar 2026 12:41:25 GMT
-Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4crxbswhdg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Mar 2026 12:41:25 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62BCfNc2852914
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 11 Mar 2026 12:41:24 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D871958054;
-	Wed, 11 Mar 2026 12:41:23 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8DCA058060;
-	Wed, 11 Mar 2026 12:41:18 +0000 (GMT)
-Received: from [9.43.80.48] (unknown [9.43.80.48])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 11 Mar 2026 12:41:18 +0000 (GMT)
-Message-ID: <ef7212dd-429c-4b64-bad6-4c37d27775d5@linux.ibm.com>
-Date: Wed, 11 Mar 2026 18:11:16 +0530
+	id 1w0Isw-0000000BZcU-3eXx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 12:42:00 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fW9Kg5zfszJ46jW;
+	Wed, 11 Mar 2026 20:39:03 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 06FEF40587;
+	Wed, 11 Mar 2026 20:39:50 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 11 Mar
+ 2026 12:39:49 +0000
+Date: Wed, 11 Mar 2026 12:39:47 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+CC: <devicetree@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<Dmitry.Lamerov@arm.com>, <catalin.marinas@arm.com>, <bp@alien8.de>,
+	<robh@kernel.org>, <rafael@kernel.org>, <will@kernel.org>,
+	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <krzk+dt@kernel.org>, <Michael.Zhao2@arm.com>,
+	<tony.luck@intel.com>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Subject: Re: [PATCH v2 01/11] ACPI: APEI: GHES: share macros via a private
+ header
+Message-ID: <20260311123947.00000be3@huawei.com>
+In-Reply-To: <d0911510-9f87-49ed-b896-fa00e5d2a98b@arm.com>
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+	<20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-1-347fa2d7351b@arm.com>
+	<20260224152230.00000531@huawei.com>
+	<d0911510-9f87-49ed-b896-fa00e5d2a98b@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
- pxx_user_accessible_page()
-To: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        x86@kernel.org
-References: <cover.1772812343.git.agordeev@linux.ibm.com>
- <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-Content-Language: en-US
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=EK4LElZC c=1 sm=1 tr=0 ts=69b162f6 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=Z4Rwk6OoAAAA:8 a=C7LtFB5Z-NQoCHpHwbYA:9 a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10
- a=HkZW87K1Qel5hWWM3VKY:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzExMDEwNiBTYWx0ZWRfXwcCCldWzVDrG
- 7o7iMLZYb7kQOlg32zY2UqTY9DPqvnM6y8Bk2/cr3PMT/yH8FztampVLRo/axBrij/uazvBwbbL
- OSBgHEm17RRmqKoz9BF5LHviaHhCIC5lLB+dYWg4vv0NpgNKgtWjPtCXkWspHemP/ZmdCJgfe9U
- FnuW7/liUax+2s3CKK7wIgFI6IAnsmFZTYV7+cV8hfCChVNIrH8xDjrzEXpZ/nq3hGeJOCYfqar
- 7Ds5BAvSQqNrVCXyj9KNI0Cjx1y2lJ89dQGG2Ky1Q6QQFjhdJn7YZh2llki2B5j05eubegnjUBD
- YphNGtXsQOIaOvL8JEMH1bLL7hg6/tkfQsSx1ZiiEiZq0hO798oKR6Of95OhpDnuPwCX0wLhrKm
- TkQMKOTZrTTpmUx4Cg4+ONSk8oCkJ8j2wZUpkHnTitaBBThPS55m41oRe7N+WNnhMp5cLms3wVz
- aeNFL14xyhQ+CVkc9PA==
-X-Proofpoint-GUID: CsT0ogmetyAXCRGOSbmrtozIExz6Iu-E
-X-Proofpoint-ORIG-GUID: CsT0ogmetyAXCRGOSbmrtozIExz6Iu-E
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-11_01,2026-03-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0 clxscore=1011
- bulkscore=0 impostorscore=0 priorityscore=1501 malwarescore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603110106
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_054140_042135_FA7BA9C0 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260311_054159_210526_BC12B830 
+X-CRM114-Status: GOOD (  34.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,254 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 11 Mar 2026 11:39:38 +0000
+Ahmed Tiba <ahmed.tiba@arm.com> wrote:
 
-On 3/6/26 9:46 PM, Alexander Gordeev wrote:
-> From: Tobias Huschle <huschle@linux.ibm.com>
->
-> Unlike other architectures, s390 does not have means to
-> distinguish kernel vs user page table entries - neither
-> an entry itself, nor the address could be used for that.
-> It is only the mm_struct that indicates whether an entry
-> in question is mapped to a user space. So pass mm_struct
-> to pxx_user_accessible_page() callbacks.
-Changes looks fine to me
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+> On 24/02/2026 15:22, Jonathan Cameron wrote:
+> > On Fri, 20 Feb 2026 13:42:19 +0000
+> > Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+> >  =20
+> >> Carve the CPER helper macros out of ghes.c and place them in a private
+> >> header so they can be shared with upcoming helper files. This is a
+> >> mechanical include change with no functional differences.
+> >>
+> >> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com> =20
+> > +CC Mauro as he's been doing a lot of work on error injection recently =
+so
+> > can probably review the use of the various structures much more easily
+> > than I can!
+> >=20
+> > My main comment is on the naming of the new header.
+> >=20
+> > Jonathan =20
+>=20
+> The content is intentionally GHES=E2=80=91specific CPER handling,
+> not generic UEFI CPER. It's the GHES view of CPER parsing/handling
+> and is used by the shared GHES/DT path, so keeping it in ghes_cper.h=20
+> documents that boundary better than moving it to ghes.h (which also=20
+> contains non=E2=80=91CPER GHES logic). The helpers moved there are the on=
+es=20
+> needed by the shared CPER handling path.
 
-> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
->
-> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
-> ---
->   arch/arm64/include/asm/pgtable.h             |  6 +++---
->   arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
->   arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
->   arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
->   arch/powerpc/include/asm/pgtable.h           |  4 ++--
->   arch/riscv/include/asm/pgtable.h             |  6 +++---
->   arch/x86/include/asm/pgtable.h               |  6 +++---
->   mm/page_table_check.c                        | 15 ++++++---------
->   8 files changed, 24 insertions(+), 27 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index b3e58735c49b..ccf0e0638767 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1263,17 +1263,17 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
->   #endif
->   
->   #ifdef CONFIG_PAGE_TABLE_CHECK
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return pte_valid(pte) && (pte_user(pte) || pte_user_exec(pte));
->   }
->   
-> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
->   {
->   	return pmd_valid(pmd) && !pmd_table(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
->   }
->   
-> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
->   {
->   	return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
->   }
-> diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-> index 001e28f9eabc..75195bb44d06 100644
-> --- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-> +++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-> @@ -438,7 +438,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
->   	return true;
->   }
->   
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return pte_present(pte) && !is_kernel_addr(addr);
->   }
-> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-> index 1a91762b455d..a56df313b585 100644
-> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-> @@ -549,7 +549,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
->   	return arch_pte_access_permitted(pte_val(pte), write, 0);
->   }
->   
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return pte_present(pte) && pte_user(pte);
->   }
-> @@ -925,9 +925,9 @@ static inline bool pud_access_permitted(pud_t pud, bool write)
->   }
->   
->   #define pud_user_accessible_page pud_user_accessible_page
-> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
->   {
-> -	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
-> +	return pud_leaf(pud) && pte_user_accessible_page(mm, addr, pud_pte(pud));
->   }
->   
->   #define __p4d_raw(x)	((p4d_t) { __pgd_raw(x) })
-> @@ -1096,9 +1096,9 @@ static inline bool pmd_access_permitted(pmd_t pmd, bool write)
->   }
->   
->   #define pmd_user_accessible_page pmd_user_accessible_page
-> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
->   {
-> -	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
-> +	return pmd_leaf(pmd) && pte_user_accessible_page(mm, addr, pmd_pte(pmd));
->   }
->   
->   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-> index e6da5eaccff6..0665d0abe89f 100644
-> --- a/arch/powerpc/include/asm/nohash/pgtable.h
-> +++ b/arch/powerpc/include/asm/nohash/pgtable.h
-> @@ -249,7 +249,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
->   	return true;
->   }
->   
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return pte_present(pte) && !is_kernel_addr(addr);
->   }
-> diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-> index dcd3a88caaf6..29ed509cd235 100644
-> --- a/arch/powerpc/include/asm/pgtable.h
-> +++ b/arch/powerpc/include/asm/pgtable.h
-> @@ -205,11 +205,11 @@ static inline bool arch_supports_memmap_on_memory(unsigned long vmemmap_size)
->   #endif /* CONFIG_PPC64 */
->   
->   #ifndef pmd_user_accessible_page
-> -#define pmd_user_accessible_page(pmd, addr)	false
-> +#define pmd_user_accessible_page(mm, addr, pmd)	false
->   #endif
->   
->   #ifndef pud_user_accessible_page
-> -#define pud_user_accessible_page(pud, addr)	false
-> +#define pud_user_accessible_page(mm, addr, pud)	false
->   #endif
->   
->   #endif /* __ASSEMBLER__ */
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 08d1ca047104..affe46cf3bc5 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -984,17 +984,17 @@ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
->   }
->   
->   #ifdef CONFIG_PAGE_TABLE_CHECK
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return pte_present(pte) && pte_user(pte);
->   }
->   
-> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
->   {
->   	return pmd_leaf(pmd) && pmd_user(pmd);
->   }
->   
-> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
->   {
->   	return pud_leaf(pud) && pud_user(pud);
->   }
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index 1662c5a8f445..f9353d5c7464 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1680,17 +1680,17 @@ static inline bool arch_has_hw_nonleaf_pmd_young(void)
->   #endif
->   
->   #ifdef CONFIG_PAGE_TABLE_CHECK
-> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
->   {
->   	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
->   }
->   
-> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
->   {
->   	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) && (pmd_val(pmd) & _PAGE_USER);
->   }
->   
-> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
->   {
->   	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) && (pud_val(pud) & _PAGE_USER);
->   }
-> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-> index 2708c2b3ac1f..53a8997ec043 100644
-> --- a/mm/page_table_check.c
-> +++ b/mm/page_table_check.c
-> @@ -151,9 +151,8 @@ void __page_table_check_pte_clear(struct mm_struct *mm, unsigned long addr,
->   	if (&init_mm == mm)
->   		return;
->   
-> -	if (pte_user_accessible_page(pte, addr)) {
-> +	if (pte_user_accessible_page(mm, addr, pte))
->   		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
-> -	}
->   }
->   EXPORT_SYMBOL(__page_table_check_pte_clear);
->   
-> @@ -163,9 +162,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
->   	if (&init_mm == mm)
->   		return;
->   
-> -	if (pmd_user_accessible_page(pmd, addr)) {
-> +	if (pmd_user_accessible_page(mm, addr, pmd))
->   		page_table_check_clear(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT);
-> -	}
->   }
->   EXPORT_SYMBOL(__page_table_check_pmd_clear);
->   
-> @@ -175,9 +173,8 @@ void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
->   	if (&init_mm == mm)
->   		return;
->   
-> -	if (pud_user_accessible_page(pud, addr)) {
-> +	if (pud_user_accessible_page(mm, addr, pud))
->   		page_table_check_clear(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT);
-> -	}
->   }
->   EXPORT_SYMBOL(__page_table_check_pud_clear);
->   
-> @@ -211,7 +208,7 @@ void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
->   
->   	for (i = 0; i < nr; i++)
->   		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep + i));
-> -	if (pte_user_accessible_page(pte, addr))
-> +	if (pte_user_accessible_page(mm, addr, pte))
->   		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
->   }
->   EXPORT_SYMBOL(__page_table_check_ptes_set);
-> @@ -241,7 +238,7 @@ void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
->   
->   	for (i = 0; i < nr; i++)
->   		__page_table_check_pmd_clear(mm, addr + PMD_SIZE * i, *(pmdp + i));
-> -	if (pmd_user_accessible_page(pmd, addr))
-> +	if (pmd_user_accessible_page(mm, addr, pmd))
->   		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
->   }
->   EXPORT_SYMBOL(__page_table_check_pmds_set);
-> @@ -257,7 +254,7 @@ void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
->   
->   	for (i = 0; i < nr; i++)
->   		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
-> -	if (pud_user_accessible_page(pud, addr))
-> +	if (pud_user_accessible_page(mm, addr, pud))
->   		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
->   }
->   EXPORT_SYMBOL(__page_table_check_puds_set);
+Ok. So the intended meaning here is GHES and CPER, not stuff specific
+to the CPER aspects of GHES.  Maybe, though I'm not sure why you
+don't just name ghes.h in that case as GHES always incorporates CPER.
+I guess because that file already exists and covers some ACPI specific parts
+and HEST bits that aren't of use to you.
+
+Ah well, one for the ACPI maintainers to perhaps suggest what makes
+most sense to them.
+>=20
+> >> ---
+> >>   drivers/acpi/apei/ghes.c | 60 +-----------------------------
+> >>   include/acpi/ghes_cper.h | 95 ++++++++++++++++++++++++++++++++++++++=
+++++++++++
+> >>   2 files changed, 96 insertions(+), 59 deletions(-)
+> >>
+> >> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+> >> index f96aede5d9a3..07b70bcb8342 100644
+> >> --- a/drivers/acpi/apei/ghes.c
+> >> +++ b/drivers/acpi/apei/ghes.c =20
+> >  =20
+> >>  =20
+> >>   static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_EST=
+ATUS_CACHES_SIZE];
+> >> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
+> >> new file mode 100644
+> >> index 000000000000..2597fbadc4f3
+> >> --- /dev/null
+> >> +++ b/include/acpi/ghes_cper.h
+> >> @@ -0,0 +1,95 @@
+> >> +/* SPDX-License-Identifier: GPL-2.0-only */
+> >> +/*
+> >> + * APEI Generic Hardware Error Source: CPER Helper =20
+> >=20
+> > There is other stuff in her usch as the GHES acks etc
+> > in ghes_clear_estatus(). So I think this intro text
+> > needs a bit more thought.  The boundary is already rather
+> > blurred though as for example cper_estatus_len() is only
+> > tangentially connected to cper.
+> >  =20
+> >> + *
+> >> + * Copyright (C) 2026 ARM Ltd. =20
+> >=20
+> > Doesn't make sense to ad this copyright in this patch as so far
+> > it's cut and paste of code from a file that you didn't write (at least
+> > not in 2026!)
+> >=20
+> > Might make sense after a few patches, in which case add the copyright
+> > when it does. =20
+>=20
+> The file is new and maintained by Arm as part of this refactor,
+> so I kept the header consistent with other newly introduced files.
+
+It's code moved from elsewhere, so you need to at least also list
+the copyright of the original file alongside the new Arm one.
+Just moving it and dropping that copyright is inconsistent with
+the license.
+
+
+>=20
+> >> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
+> >> + * Based on ACPI APEI GHES driver.
+> >> + *
+> >> + */
+> >> +
+> >> +#ifndef ACPI_APEI_GHES_CPER_H
+> >> +#define ACPI_APEI_GHES_CPER_H
+
 
