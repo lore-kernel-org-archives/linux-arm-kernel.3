@@ -4,86 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC364FCC9B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D281FCC9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=; b=T+7YSYOOZu6WBqG93NqYcC4pgs
-	SqIhYtvNSlU3taB4oe8GGHzoVwq3NQ1dzqvDTV8NwKXb3YtlPt4C4tqKXVW8sd3AYKYlp5bspyGiZ
-	9h0VB5pLcCnC2T5OWWH7rpvic9hDGGLG0GFTXAvPnB2OcnCYU7b1DwAmTKQ+Ugb1H5Xuuo5X/vh9q
-	BHOymOagWTrhA4MCvSq1eM2oo/sEO3rziHbtFTGHQqgK/Z8d2HVs6fBrDL/Xq+r3Mx6JjGc+URXMv
-	uBPuhNMrZ4hzf1x0KH9dRu7+2W9hvoecx9RiApuCSZUgWbAPNQkWHCsTykzEsK36bfq86TWNwcFRP
-	xGPbKwnw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=; b=vDBb9Oc+1rAf5ZdTnqZWIX3GOn
+	1q6VQiy5iIWhO5+Te3ZF/p9tcsc2NvXBTr272X/PpTFejb4kwBx6PvXV/UCl63RqCg3d/XCcqrcrL
+	pYEb++FZEQ4p26y+zHDmbvlDL5ExmfsbFD7x89WfIdtJ6SIwsnrzLn9Tyrs951HPg4fvebFqgKjbY
+	mqAqSol+FhrhJsOcQcU4OW0d13O/nIwZcY6ZJeIv89yaqfby76PqMNiZhhdPDTY1lgmaOc7cxqhKy
+	S71xqWWY6QDc0hjbG/rCKOAscvBOQpEWFL4LgsbkKb9iGr2OkPQF7TJ4ySPbLRciqRhDSS9AqLaUi
+	aWjhKPwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CJZ-0000000AolE-1OVr;
-	Wed, 11 Mar 2026 05:41:01 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1w0CLX-0000000Ap8p-3E8c;
+	Wed, 11 Mar 2026 05:43:03 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CJW-0000000Aokd-29kX
+	id 1w0CLV-0000000Ap7h-2Tmr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 05:40:59 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-829a9d08644so2879683b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 22:40:58 -0700 (PDT)
+	Wed, 11 Mar 2026 05:43:02 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c73c990a96dso415685a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 22:43:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773207780; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ch29cnfLrM2q3y4Or0lQOyvH6EyyblzGtVa2gMswIYlvQ8dhQhrT5MzcB2AfzLaDOM
+         OHlf20nyknBD4k0NWjVMf1yfcBQePRQUCZ2X4+1KfTmiwDA7e7Rgj5+jLmBdbRO8tLAA
+         xAsmbgIzc+yNoi86Onujjhk5nfJmRMtXZnqNV9Z2p6dE8RcVum3j8xHng54TpTIJdsgB
+         xRT+G6s4efn/qFIaRbXpURC6NaLN4q8FbBCyc0UlisDSBZbplMi20qkOiKl3hNdqzUyO
+         BipKYJLCdpVvCFzLH/QFnceHQDRekV0ELWQpBFfvPDYPfgYkmsYRE92JHMxiyqjhgu7l
+         8RKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
+        fh=6vX5RXyJcjX17tiMv+OCX0WHEl8OfbgPurQ20cL7x64=;
+        b=ap2X/IdXHrstGo2lEYwua2zOt3CyGaXOXp95Itgniz0haFGzmGGXwQj3KpPsmC3JCX
+         4LGGRmDinMtJELtGNhlc5RyR7vo1B+T8aoIzy8Q6eU4gbb95stzRRTQ7vR99lU8nMkYO
+         1K0ffZ3Iek3BUazyu9+GwBiWFhjr0FkeI/rl7CMZzKs+WuV5ykx5EZvxoSZP4gMpYj4d
+         Z45f5cnZSptYXsAGxSSsaJenSOgLJkIggEG+6Q+an4Lh62hvLAqb9+VFQAcJaGkQDhMH
+         DSTQiA6hDh43+3Y04AlY1TwKEcLuoakKxETkoCfgwjlOcBRB8CeF8Dj8t8HnxUWbndnf
+         /PsQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773207658; x=1773812458; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
-        b=nlP1ffO2NUIx0jt6n02M2ukdWudQHd9Py3s87XhsQ3IpgXnMYl2o6Nai4ro7g8ja3n
-         BO3vBgTD/2wRe8lvx7LOEqRvy1b3929NS8OjQjHrl8H+P3XxqMoX5SzGq3kNzYxxiNx+
-         3+VMD715qMAsgy/H4s5XvwEAycfCJSL7xe/KKgxO6j3V6pTJeEa5ehmtOdakrQ7uIp0n
-         K5C8MeemS+hLaqZcHAsJsNtTm3gwEZMfSGcISSSk7DhC/CDx02zzr+vfbiW7T6vCXrnJ
-         AblMEkn0amPuOrqa4oJD8ETJ8C0IVUQg5lD/Mm0NfQ6RGYBOBU58PUQpiFHhAByt/7aX
-         8D5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773207658; x=1773812458;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1773207780; x=1773812580; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
-        b=D6+27wrC3/3KqE5LtRJqk/W14vRlXBmbx+QEUwxvTPQwSlph7nBIPIdG5zOlHg+L//
-         pyEdJUz6oJdDcgpzQnU46HyNahj3qLbMuEfjulL7+pF6H+02WG3jnYOnyLxDODaanwU3
-         ZRi+vvzzQY5t3qQdYeNGqTmf0b2q0LYKaIYWuZ0VJdn2H2JEcJitNEmwB0oyxWp3g5HJ
-         1xGK+rZWOTZkul07kiH2XQEV6gkr/n7Ozd0UyfOJ12smUKNcFFwl5tm4/Tou81tUix+f
-         BzWtTpYVBApzseuNy+3SefWmm00tIqLetsQDButSN8vfXma8vwbeNN1ICyUEKD9otqB7
-         3vWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGLP5aQmrgLm6mFs1DU4cK3wW4GCUjNUQJ/sfj/AS65wd8xqnrn3IazmyrCMGjsFHEf2x7+FCEbmTrDMaAUthm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy39AvVjwR/iIuMaePlWn+E7s8AWB+1v4RO9wwPaAcpd6Ug9Y3O
-	CiJjVjzTMO+liMYHH9fZvbtPEok6fDnuBU2zGuywcxy8AP8zt7wC2CI7
-X-Gm-Gg: ATEYQzwKlqJd3lKS2QeOYN1VqEY1+XY2qsahZZxtzxltg927pQGC5t3AwtwgdjyLuWF
-	nYOfpGDcZAbWlVyueZ53Uyg8zl7KCeJNV6inG5Ehxm1s3VV6ks9Xcu8vJOqFoqeYJDPhQDEIX3k
-	5RjU1kvBHTFZJXzG6T7uGGDAWX/G4khIviYAGijbhp1YmInHLvvYBRUM3kkXPA9JvhndOEP7uGN
-	TZqpb6otaNoClwrGwAnzrW+fNEXdymA67HhG0XLi72SlqzM5bhQSqI4qiXX+T9L8Dr/O7xW2V8F
-	TMkoFYSQFv0hRDI2D1WhXol8Ao3fEA4LprUTCsSnQ1QW+J/KdS7FmSNhNbEUd5JfBUDbZUBz+Q3
-	VXk2auHE9O7xuZ8pVm4WBn68M1+bskhRgH01sDArAFIMXLoCTEbXZs9C+1ODit4vVPqhbM3iYqn
-	457AaH2xBqyb852KketdfLK0M4EHi6tLJqYLpyM+7n4CsZvv6cRZgVlg==
-X-Received: by 2002:aa7:88d3:0:b0:828:d9a1:c604 with SMTP id d2e1a72fcca58-829f6e71531mr1386417b3a.12.1773207657593;
-        Tue, 10 Mar 2026 22:40:57 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829f6eebff0sm1058168b3a.32.2026.03.10.22.40.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 22:40:57 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
-Subject: [PATCH] irqchip: stm32-exti: use kzalloc_flex
-Date: Tue, 10 Mar 2026 22:40:38 -0700
-Message-ID: <20260311054038.166293-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
+        b=USjyqUgGQEu6t8WKvZnDywclQzwVYhxvNsPyTbjyI9qHRVsn6HWmxhTqW2liZThqet
+         u9di9n5rLFWT26zhdjyqi9cJQJCKiwpD+tP8O49uuJ+EqnW16QwKDin31oB4BQGugoy8
+         ZCr8sXBROkAt8RRmVm6JmV34te4Sv0iHgYlbokuOHGfjOEJ1mPl/Nq3m2TCvGYnGl1Bf
+         BebekAhemQtxcGOtZSadVRaGLnM7RnyTI2x7DrCiuWfHVXsOju1qC/N5nRUUf7mBwiWy
+         Mxg36D9i/DWJRu1mmDK1UdoUaNFb2cQxH9kfyW45rHBgoS8dyFyniatD8tl7WSzZHSiG
+         ql7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773207780; x=1773812580;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=HsZ0aj30QzrWxLy9ik/IeJVQ3KkElzxj0uQiMmN5kNQ=;
+        b=Onsf6/pqpdmtmY/D+ycNg4YBfLU9eepu+xlqO1BaXQwQPVADN5Mf1INScE1D9oVTah
+         ZiSAlYF6eYgSZFOT81XtgoKKcAYMWmxQoPwNjbjG8O3k/RwBtV4RbnHgkJmVBFt6CM8w
+         3GyMFf+RK6bPVkLg7qwHZbicVY9EfkIxWnXGwmNuGX+Fw21a8142HtvRi1athJzHVPaK
+         Lfmky9SceEhV+1rvLImohmnQEHmUTK+tWV8DDqLqTwudNUSlEguWfihZFnHZO74NMX+R
+         +Q1dZfQ5jccWI/w5WBRkZyDyJeSc98kqOnJMhKlSTeiAlDCNbd9mSFB+Wh5GfXG69YCo
+         K1rg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTN1+YYFAzeEjR3olGijwhUNzFss+3A7LDvJIkkzhqgnwokENfq0VbOyoBywL/YROD5g70S0NrySS14ZKtaqhn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRHwKqg6FfFVDwBYb7wL+HcuY8YXV8v6yEpkpAylzpl1qfNBpS
+	O0Afrhi1gMnAVGTUxffHkztxDcQx0zctY1ydNKhW1Bsei6nKV59W6SGTGcc+qRvJnyvJS0WRwXf
+	jY7QsU3uMK/MVAd5FQndy0g9G0bPAiA==
+X-Gm-Gg: ATEYQzzo/q9eaTq9w209pqVRdT76CLxCMD0pyo4WlLVzRIgg2eMmi0mSXjuwb3UxNbZ
+	LsZn6Mxhhad+yF3iJ6+QxcfNTfCA+anPK1DLd30tVfuC0d7KCaetYWS2DAVMRUCnL5+qXpRY4v/
+	ai6Zlqs4OAD4EYOD9Uh0t0h16Kemm0LQvphpC3+3rPn8g0747+p9s8eDehTwUiJYPcc1yQU0W3V
+	JVDgGMkUgTQbGEKOvADG4NS1cf3tEt7D+N1tOueiD2JrPrcBJCE66gZOXdxIHb6joHa5WsW2NN3
+	zqcyfKAk/bwlrDCb9ISK8GSvB/X+7k+qiy7OUwMv73BWOLEGG/EmMZI3vv6+OPIqGcxE
+X-Received: by 2002:a05:6a21:458f:b0:398:791a:9caa with SMTP id
+ adf61e73a8af0-398c5ec806amr1236794637.18.1773207780121; Tue, 10 Mar 2026
+ 22:43:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260310200513.2162018-1-sanjayembedded@gmail.com>
+In-Reply-To: <20260310200513.2162018-1-sanjayembedded@gmail.com>
+From: Luka Gejak <lukagejak5@gmail.com>
+Date: Wed, 11 Mar 2026 06:42:48 +0100
+X-Gm-Features: AaiRm53yOPVigtTBWqUrHQSRYbaimfIQ_tKWwOGhPWuEPWqnKrEs0Ob5KWiVmFM
+Message-ID: <CADRnA90=F5rRtWWJtSg7mA_QLzQa5Fzh3s2RzXDJtOOTiitzrQ@mail.gmail.com>
+Subject: Re: [PATCH 0/7] drivers: Simplify cleanup paths using __free
+To: Sanjay Chitroda <sanjayembeddedse@gmail.com>
+Cc: jic23@kernel.org, m.tretter@pengutronix.de, mchehab@kernel.org, 
+	p.zabel@pengutronix.de, tiffany.lin@mediatek.com, andrew-ct.chen@mediatek.com, 
+	yunfei.dong@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, johan@kernel.org, elder@kernel.org, 
+	gregkh@linuxfoundation.org, pure.logic@nexus-software.ie, 
+	dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, 
+	kernel@pengutronix.de, kees@kernel.org, nabijaczleweli@nabijaczleweli.xyz, 
+	marcelo.schmitt1@gmail.com, maudspierings@gocontroll.com, 
+	hverkuil+cisco@kernel.org, ribalda@chromium.org, straube.linux@gmail.com, 
+	dan.carpenter@linaro.org, ethantidmore06@gmail.com, 
+	samasth.norway.ananda@oracle.com, karanja99erick@gmail.com, 
+	s9430939@naver.com, tglx@kernel.org, mingo@kernel.org, 
+	sun.jian.kdev@gmail.com, weibu@redadmin.org, linux-iio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev, 
+	skhan@linuxfoundation.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_224058_571768_8CCF0057 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20260310_224301_637637_EB2A3146 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +131,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplifies allocations by using a flexible array member in these structs.
-No need for a second kfree.
+Dear Sanjay,
+Would you mind explaining why you put so many people into TO and CC
+fields when sending patch series. You should stick to maintainers and
+reviewers from maintainers file as others can still see it on the
+mailing list(that's why you CC kernel mailing.list related emails).
+Sincerely Luka Gejak
+P.S. If you are including me in further discussions or patch series
+please use luka.gejak@linux.dev instead of lukagejak5@gmail.com.
+Thanks in advance.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/irqchip/irq-stm32-exti.c | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/irqchip/irq-stm32-exti.c b/drivers/irqchip/irq-stm32-exti.c
-index 5fdf335acb46..144120cadfa0 100644
---- a/drivers/irqchip/irq-stm32-exti.c
-+++ b/drivers/irqchip/irq-stm32-exti.c
-@@ -45,8 +45,8 @@ struct stm32_exti_chip_data {
- struct stm32_exti_host_data {
- 	void __iomem *base;
- 	struct device *dev;
--	struct stm32_exti_chip_data *chips_data;
- 	const struct stm32_exti_drv_data *drv_data;
-+	struct stm32_exti_chip_data chips_data[];
- };
- 
- static const struct stm32_exti_bank stm32f4xx_exti_b1 = {
-@@ -269,26 +269,20 @@ stm32_exti_host_data *stm32_exti_host_init(const struct stm32_exti_drv_data *dd,
- {
- 	struct stm32_exti_host_data *host_data;
- 
--	host_data = kzalloc_obj(*host_data);
-+	host_data = kzalloc_flex(*host_data, chips_data, dd->bank_nr);
- 	if (!host_data)
- 		return NULL;
- 
- 	host_data->drv_data = dd;
--	host_data->chips_data = kzalloc_objs(struct stm32_exti_chip_data,
--					     dd->bank_nr);
--	if (!host_data->chips_data)
--		goto free_host_data;
- 
- 	host_data->base = of_iomap(node, 0);
- 	if (!host_data->base) {
- 		pr_err("%pOF: Unable to map registers\n", node);
--		goto free_chips_data;
-+		goto free_host_data;
- 	}
- 
- 	return host_data;
- 
--free_chips_data:
--	kfree(host_data->chips_data);
- free_host_data:
- 	kfree(host_data);
- 
-@@ -389,7 +383,6 @@ static int __init stm32_exti_init(const struct stm32_exti_drv_data *drv_data,
- 	irq_domain_remove(domain);
- out_unmap:
- 	iounmap(host_data->base);
--	kfree(host_data->chips_data);
- 	kfree(host_data);
- 	return ret;
- }
--- 
-2.53.0
-
+On Tue, Mar 10, 2026 at 9:05=E2=80=AFPM Sanjay Chitroda
+<sanjayembeddedse@gmail.com> wrote:
+>
+> From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
+>
+> Hi all,
+>
+> This patch series replaces manual cleanup and explicit kfree() calls with
+> the __free attribute from <linux/cleanup.h>. This modernizes the memory
+> management style and simplifies common error paths without altering any
+> functional behavior.
+>
+> The __free attribute provides automatic scope-based cleanup, making
+> resource management clearer and reducing the chances of missing cleanup
+> on early returns.
+>
+> No functional changes are intended in this series.
+>
+> Testing:
+>   - Compiled with W=3D1
+>   - Build-tested on i86_64
+>
+> Based on:
+>   <linux-v7.0-rc2>
+>
+> Feel free to share your valuable input in context of the cleanup API.
+>
+> Thanks,
+> Sanjay Chitroda
+>
+> Sanjay Chitroda (7):
+>   staging: greybus: simplify cleanup using __free
+>   iio: ssp_sensors: simplify cleanup using __free
+>   iio: st_sensors: simplify cleanup using __free
+>   media: mediatek: vcodec: simplify cleanup using __free
+>   media: chips-media: coda: simplify cleanup using __free
+>   media: allegro: simplify cleanup using __free
+>   staging: rtl8723bs: simplify cleanup using __free
+>
+>  drivers/iio/common/ssp_sensors/ssp_spi.c      |  9 +-
+>  .../iio/common/st_sensors/st_sensors_core.c   |  7 +-
+>  .../media/platform/allegro-dvt/allegro-core.c | 95 +++++--------------
+>  .../platform/chips-media/coda/coda-bit.c      |  4 +-
+>  .../platform/chips-media/coda/coda-jpeg.c     | 39 ++++----
+>  .../mediatek/vcodec/common/mtk_vcodec_dbgfs.c |  3 +-
+>  drivers/staging/greybus/camera.c              | 27 ++----
+>  drivers/staging/greybus/loopback.c            | 35 +++-----
+>  drivers/staging/greybus/raw.c                 |  6 +-
+>  .../staging/rtl8723bs/hal/rtl8723b_hal_init.c | 13 +--
+>  drivers/staging/rtl8723bs/hal/sdio_ops.c      | 37 ++------
+>  11 files changed, 78 insertions(+), 197 deletions(-)
+>
+> --
+> 2.34.1
+>
 
