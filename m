@@ -4,57 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403451125839
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E301FD0651
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0ZRQmIyt/GTxHYq72AMYnoAg1V68GbEDdUOeNmHaes=; b=Ds+gH19Td2XOdi7gOoDSGEBM0U
-	dEmsqD0VuEcjjJWPFsRZ60QsuJ7inhD5+nkLx/soG0IXaBCWlZbdBj3FRnLZOA2VVhw99cRSvNCs0
-	oeP+pvKdIHHRiXSbbkFsJmDlevTii8ZkUl/i51KIW8vz4qx1REhzprDZqs70qvixjobLsIziKJwLK
-	78uKWyQGW5EUJiw0jkl+4qgDUqKxrc9KJpe7jNWdjagkQmaUyXdwaVt/iiW9XcdEYhYptRb7dRGXp
-	Nnt50hEMIrteFoPlY4Yj9zHZQ8MBUMF5Y91sJz7xh90ygadkj6XsCDbhK/uEp2Qq5/mEB13YS+/qV
-	clIDDYFA==;
+	bh=xPwJgKN6+i2fkhgWXr9ssxGXQOB/c1Bb1Dhnaw7Q/H4=; b=eL3lRV0vDXm5x0Y9FnujyVRv05
+	Y0OE3PzH3SXpbznjysvFOwbUDP2FNPrAZuGIhC5nWfFMjuLsGor/c1S9XY59y440DRnI1qD77y0Vj
+	mbxUlEfzBu2vo6z8N8k2Ni44kN4Y5q6Rv6BU9UoVZ1rvAgGA2etrQ3n1hZxTd0FOqaePou4YrQQJ8
+	NIwvX6h+Woms79b1s9UnWbrxgNFGTFXCSqfRO6ADq3W8AGdbApSYuVXxht7Y5+ZEU+Og27Nczc1Sq
+	lMZ31/9YUhrh8YBmy+T9y9lRWuuBBgQmaSbLso8nuaKoUpL6D3lIpUaQTNLR6b9m3s2n13ndM9LOh
+	3iBpMCtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0L1P-0000000Bkdm-1gjm;
-	Wed, 11 Mar 2026 14:58:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0L2r-0000000Bl0Q-0IxM;
+	Wed, 11 Mar 2026 15:00:21 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0L1M-0000000Bkd1-32NT
+	id 1w0L2d-0000000BkqS-0Bb8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 14:58:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B93A140AE4;
-	Wed, 11 Mar 2026 14:58:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A99C4CEF7;
-	Wed, 11 Mar 2026 14:58:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773241127;
-	bh=3UwwGA7p1224trkn2l3lnBOIO6zwoCMBxvu/3n1GBnI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=prQCEWwzc2c26hzWCQXpbLIVIsXlF2APJXq4ME+yQ7XEp8IDqBOARuSceQg+zJA5u
-	 zWofnfjZLH78djAVv0aBq1L0a5JNFoXMJZO8gkSijTmVnQ9xZm2+4Aj0Itan2/212Z
-	 fk8eDVRBfW+zBA8hGQORnDn1W6Cs97y21PqAA4vw=
-Date: Wed, 11 Mar 2026 15:58:44 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Zhaoyang Yu <2426767509@qq.com>
-Cc: sergei.shtylyov@gmail.com, daniel@zonque.org, haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr, linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] USB: pxa27x_udc: check return value of clk_enable
-Message-ID: <2026031145-stencil-italics-89b3@gregkh>
-References: <tencent_648835A07EDBB7CA94B66FAF5662EC2F1407@qq.com>
+	Wed, 11 Mar 2026 15:00:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xPwJgKN6+i2fkhgWXr9ssxGXQOB/c1Bb1Dhnaw7Q/H4=; b=qahkyRTVDsacLrl04M9RmIhn9+
+	OI8AZhjjI7pA/18IdUzUXeoQElePPdxJ0w2FDm4PUH1V/2HFfFBEChw2FW3UUOZcXK2lYEHf6DLj9
+	Ur2LAWPmWH+ZNt2eNvKvb6FWqhZ3vnX40FHWgPQ+3dqAs1aIfH/MjN9GzT6m2RI3Ib/+o4Z+A4370
+	N0RZfcWd6ytwDx6xHQ5bM7xcU0QrSU56uCFhWdADUSD9tjrbhqbHT+P4stpHVujnTPzI8tS/leGDt
+	AZnKX3isTUVs1jLxVXdNB3rDcGG2aRGhIa5+VTt38eyUguDZuQNWJ5HQcIPIawu7AxXmaXzZDOnN7
+	rgrbzAkA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49286)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w0L2T-000000006Wc-1bGq;
+	Wed, 11 Mar 2026 14:59:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w0L2R-000000006K8-1Qog;
+	Wed, 11 Mar 2026 14:59:55 +0000
+Date: Wed, 11 Mar 2026 14:59:55 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: Re: [PATCH net-next 02/15] net: stmmac: helpers for filling
+ tx_q->tx_skbuff_dma
+Message-ID: <abGDazGzEPAso5gm@shell.armlinux.org.uk>
+References: <abE7LWj04-JNxgS2@shell.armlinux.org.uk>
+ <E1w0GEg-0000000CiSj-2CVA@rmk-PC.armlinux.org.uk>
+ <98307b59-c22d-43a6-83a6-ff551941898e@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <tencent_648835A07EDBB7CA94B66FAF5662EC2F1407@qq.com>
+In-Reply-To: <98307b59-c22d-43a6-83a6-ff551941898e@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_075848_798729_B3073E21 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260311_080007_088876_3E32D53A 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,134 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 01:56:14PM +0000, Zhaoyang Yu wrote:
-> clk_enable() may fail according to the API contract.
-> Previously, udc_enable() ignored its return value and returned void.
+On Wed, Mar 11, 2026 at 03:57:13PM +0100, Andrew Lunn wrote:
+> On Wed, Mar 11, 2026 at 09:52:14AM +0000, Russell King (Oracle) wrote:
+> > Add helpers to fill in the transmit queue metadata to ensure that all
+> > entries are initialised when preparing to transmit. This avoids clean
+> > up code running into surprises.
+> > 
+> > For example, stmmac_clean_desc3() (which calls clean_desc3() in
+> > chain_mode.c or ring_mode.c) looks at the .last_segment, and in the
+> > latter case, .is_jumbo members.
+> > 
+> > stmmac_tso_xmit() was also a problem. If the metadata is not fully
+> > cleared when cleaning dirty entries (or, in the case of resume,
+> > freeing all entries) then .last_segment may be left set, which then
+> > causes:
+> > 
+> >         stmmac_prepare_tso_tx_desc(priv, first, 1, proto_hdr_len, 0, 1,
+> >                                    tx_q->tx_skbuff_dma[first_entry].last_segment+,
+> >                                    hdr / 4, (skb->len - proto_hdr_len));
+> > 
+> > to mark the
 > 
-> Modify udc_enable() to return the error code. Additionally, update
-> all of its callers (pxa_udc_pullup, pxa_udc_vbus_session,
-> pxa27x_udc_start, pxa_udc_probe, and pxa_udc_resume) to check
-> this return value and handle the failure properly with necessary
-> cleanups or rollbacks.
-> 
-> Signed-off-by: Zhaoyang Yu <2426767509@qq.com>
-> ---
-> Changes in v3:
-> - Changed udc_enable() return type from void to int.
-> - Propagated the error to all caller functions and added proper
->   error handling/rollback per Greg KH's review.
-> 
-> Changes in v2:
-> - Fixed a formatting issue by moving the 'int ret' declaration to
->   the beginning of the function block.
-> 
->  drivers/usb/gadget/udc/pxa27x_udc.c | 60 ++++++++++++++++++++++-------
->  1 file changed, 46 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-> index 897f53601b5b..0a5f05f8e73c 100644
-> --- a/drivers/usb/gadget/udc/pxa27x_udc.c
-> +++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-> @@ -1462,7 +1462,7 @@ static int pxa_udc_wakeup(struct usb_gadget *_gadget)
->  	return 0;
->  }
->  
-> -static void udc_enable(struct pxa_udc *udc);
-> +static int udc_enable(struct pxa_udc *udc);
->  static void udc_disable(struct pxa_udc *udc);
->  
->  /**
-> @@ -1519,14 +1519,18 @@ static int should_disable_udc(struct pxa_udc *udc)
->  static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
->  {
->  	struct pxa_udc *udc = to_gadget_udc(_gadget);
-> +	int ret;
->  
->  	if (!udc->gpiod && !udc->udc_command)
->  		return -EOPNOTSUPP;
->  
->  	dplus_pullup(udc, is_active);
->  
-> -	if (should_enable_udc(udc))
-> -		udc_enable(udc);
-> +	if (should_enable_udc(udc)) {
-> +		ret = udc_enable(udc);
-> +		if (ret)
-> +			return ret;
-> +	}
+> That sentence appear to be unfinished.
 
-DOn't you need to change the pullup?
+Hmm, it's also not relevant anymore because we fixed that problem in a
+different way.
 
->  	if (should_disable_udc(udc))
->  		udc_disable(udc);
->  	return 0;
-> @@ -1545,10 +1549,14 @@ static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
->  static int pxa_udc_vbus_session(struct usb_gadget *_gadget, int is_active)
->  {
->  	struct pxa_udc *udc = to_gadget_udc(_gadget);
-> +	int ret;
->  
->  	udc->vbus_sensed = is_active;
-> -	if (should_enable_udc(udc))
-> -		udc_enable(udc);
-> +	if (should_enable_udc(udc)) {
-> +		ret = udc_enable(udc);
-> +		if (ret)
-> +			return ret;
-> +	}
-
-Shouldn't you change vbus_sensed?
-
-
->  	if (should_disable_udc(udc))
->  		udc_disable(udc);
->  
-> @@ -1691,12 +1699,18 @@ static void udc_init_data(struct pxa_udc *dev)
->   * Enables the udc device : enables clocks, udc interrupts, control endpoint
->   * interrupts, sets usb as UDC client and setups endpoints.
->   */
-> -static void udc_enable(struct pxa_udc *udc)
-> +static int udc_enable(struct pxa_udc *udc)
->  {
-> +	int ret;
-> +
->  	if (udc->enabled)
-> -		return;
-> +		return 0;
->  
-> -	clk_enable(udc->clk);
-> +	ret = clk_enable(udc->clk);
-> +	if (ret) {
-> +		dev_err(udc->dev, "clk_enable failed: %d\n", ret);
-> +		return ret;
-> +	}
->  	udc_writel(udc, UDCICR0, 0);
->  	udc_writel(udc, UDCICR1, 0);
->  	udc_clear_mask_UDCCR(udc, UDCCR_UDE);
-> @@ -1726,6 +1740,8 @@ static void udc_enable(struct pxa_udc *udc)
->  	pio_irq_enable(&udc->pxa_ep[0]);
->  
->  	udc->enabled = 1;
-> +
-> +	return 0;
->  }
->  
->  /**
-> @@ -1761,10 +1777,16 @@ static int pxa27x_udc_start(struct usb_gadget *g,
->  		}
->  	}
->  
-> -	if (should_enable_udc(udc))
-> -		udc_enable(udc);
-> +	if (should_enable_udc(udc)) {
-> +		retval = udc_enable(udc);
-> +		if (retval)
-> +			goto fail_enable;
-> +	}
-
-No other unwinding is needed?
-
-thanks,
-
-greg k-h
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
