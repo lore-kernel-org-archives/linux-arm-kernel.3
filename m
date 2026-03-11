@@ -4,148 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3644106286D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBED106286B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oa/RisfZLNSuF95ipY/GAhv5+je8swhEyaMGsJQ/NL8=; b=t0IG59zmLlFQxZYrGfFoWoI0Rd
-	3d5FlqPT5AI2NUn5+axhsIB+oMNoHe5VZyeb5wY8fcthzeojPxtBA+rbMzgMhnyRYE8yhJaD9tbbQ
-	3E/9v2o2uSV50KQvEW9t8nkrjHKEwlYfzLYN3Ehd7OYgsxjp3ALljbIe8kCACDFIHcWuBn/2mybdG
-	AfhlPwTn5xR3vd5rzkcIFQx+ZQvymF6UF3MNeozYXyG0nponysDoL6QVLbpOjZnt8YDddNLqtsSTz
-	4sOwl4uZAjgch0F257cqtwAUF3X6G5pmAKRcgryChx3Pvup3aQ02NOeFTSZ/aN5/TobXDuB6rURnH
-	KPgkSCRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mePPF9zcPSvtBJqRo2t1V0QkuJgJRZztiTUUZcbcg0Y=; b=CEZMP7TTvxvFxPWJlovkRPUZeZ
+	6dbZIgPDw8HjaxLBurGe6azHphFOyUATVJh9YYPZvq/ArGi38H96E5XYytPzuNVEQ8vV+4pLlANsQ
+	6OEpqsXRQ3IG+dpOiGvzweUDVaTum8VO2EkRXkgo1UQkrEtBCALRK2RrqRK6ZZvse4CJC8xkwb57+
+	gxxVGYQXVEryOwYJamFCd7n/Samulbdl67UdmGbxCNMkGIscpzT6UAkCqdKgaSO4JEeZKjwz+2N1g
+	R1OgWIJ0eG8gA+hIHLVwuboqc8BQtfMmyW2PvTC2pOFSijo7b/w0wSkj5rtUQqJfTCOw9bUn9Fkgz
+	WB+Fa1Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Hvz-0000000BVEN-00Mv;
-	Wed, 11 Mar 2026 11:41:03 +0000
-Received: from mail-westeuropeazon11010041.outbound.protection.outlook.com ([52.101.69.41] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w0I0x-0000000BVWi-1DPH;
+	Wed, 11 Mar 2026 11:46:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Hvx-0000000BVDi-0oXZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 11:41:02 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=cYzuMNJBPG80t0DBkjdAV0GUFVyCKYwPJjB+HkFTqGGvMu+Yd1aNSjuQ+jqhrPUiam7JPkyHlS18lDZfezGDAxMMwvMtJ8GgftUFF4pYH92VNybMfOd4yEtTEgYanEiytOHbKulKy9dhOk2h8UaDLZnZ+vaU6z0SxVvd4hYxWkDD1ALxBxLGeANIZN/w6tpHywhGYgpLDQ/YGZrJJPdv6u2D0bEOlAwOE0OMcXCIZiYulklTsp1XPtVREp0s39Hunv1GzC7mqBLoDbq95v8XayUL6KQ9vv7Pmjco8p+jSOKDaWIqw+pft5tQJbNNEUM71t/7CWVJHjAwWUvCssiGKw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oa/RisfZLNSuF95ipY/GAhv5+je8swhEyaMGsJQ/NL8=;
- b=q/GhUuuDCDZE4Np1JF/3dEi0Sv46Jr2QLUjEGKCYht+idiKQ00L+NE5jQcBB/hafCVXGj3lI5++JabcXFXu5jLB9DyjOiPem9Jx4Nzi8eJZsxQ6lt3wcLU/0gv92bJJgWN5otxqj8vdViBp90sa7pq+0fLIAqQqu5dHkOmZfLzWsvfYGK2ugspDgEV0vbEfAL5BYRolLGIbljQ01RUdGFmhhoob88lirake3EpxuDAyYgSoC3xGRpcIsiKC7cKRP1tl7DgrJcEzmoYSfqu1v1in/nU5HfVpDWLwK8EMF1mujlcNkSL9jB1QK38oevqwofFlqtn3QTsTIgPe2mLLWtQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oa/RisfZLNSuF95ipY/GAhv5+je8swhEyaMGsJQ/NL8=;
- b=GOBLaAhyzpw/8Dc+B/D56sn0Pwmt53/0ciE9GwsjBXSey/uKdm/zALH0cNA8iutfi9eKEOCTydjeVtwoOWENSU9tI30yO+vpsf4K8dxHoJ4Eq6QLnN/ekk2Zso0oZl0SIMdIv8X+5gI1UdTripqUT/JeA22ehwmJ9iLq25IXaLE=
-Received: from DUZPR01CA0339.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b8::17) by AS8PR08MB9386.eurprd08.prod.outlook.com
- (2603:10a6:20b:5a9::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 11:40:46 +0000
-Received: from DB3PEPF0000885B.eurprd02.prod.outlook.com
- (2603:10a6:10:4b8:cafe::19) by DUZPR01CA0339.outlook.office365.com
- (2603:10a6:10:4b8::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
- 11 Mar 2026 11:40:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB3PEPF0000885B.mail.protection.outlook.com (10.167.242.6) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
- via Frontend Transport; Wed, 11 Mar 2026 11:40:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NlV2o9FtihgOFU9oCeZpW7tKiQXy95cUi99yNSkBnjSGlB14APGtmdnSLGjJlu2XEata1NQCF+2WIag8vZOW8LFjI5EYMRs7kUPxdXRYIDCRoUPGdptn8dG3SxmXusCuDW0g51B42v2RHs5afea+l+S7dvPycQmaV/SmfVzoaMRKaZgQadDDIhN1jMJRNwcH4PXf1nSN5WGE3gJ8tiibW9vs2VCrOb3f4Ok7NnIYevukSP5yK+uIUe1WOQ7MVmZgvo8070Gz4/hhF8f8DyDgO3c5hEdeq+/qD8FmDxRg8zaXlS0n6SI3iEg2l49AEbSaQFskA8oM2NKqSVydI+MabQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oa/RisfZLNSuF95ipY/GAhv5+je8swhEyaMGsJQ/NL8=;
- b=CFOix3V8S6uUK3kUvADB52ySXMUNVLXc0NaMafC5B2ggKUUudqvH4XpzY74BRK2um0ljV17EEYslexAUI0MOhlmoAxw93ixplP9IyWi9H/2+O6g1YxQL0VDRi4p26RVwGHITxKpkNHHZWgUHMbgh2MWIWOtIqR7U+Is7hxX6r4WGsBpJ+OhyflTj47CHlIWI4AVQTl99MsuLfkp5lfgSmax2vb1GIjDTZujo35tqQx6mCX1oNh46GNsthvYvyDCMF6SktLU9+t2VgC+U7814Yj9B6zXeCYM80LLZatJkFwryC5OkWKLpWPvGJDGgTBnekwtnKWctfB9yE1UvhiLg7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oa/RisfZLNSuF95ipY/GAhv5+je8swhEyaMGsJQ/NL8=;
- b=GOBLaAhyzpw/8Dc+B/D56sn0Pwmt53/0ciE9GwsjBXSey/uKdm/zALH0cNA8iutfi9eKEOCTydjeVtwoOWENSU9tI30yO+vpsf4K8dxHoJ4Eq6QLnN/ekk2Zso0oZl0SIMdIv8X+5gI1UdTripqUT/JeA22ehwmJ9iLq25IXaLE=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
- by AS4PR08MB8000.eurprd08.prod.outlook.com (2603:10a6:20b:583::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 11:39:42 +0000
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.20.9700.010; Wed, 11 Mar 2026
- 11:39:42 +0000
-Message-ID: <d0911510-9f87-49ed-b896-fa00e5d2a98b@arm.com>
-Date: Wed, 11 Mar 2026 11:39:38 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/11] ACPI: APEI: GHES: share macros via a private
- header
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
- robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-1-347fa2d7351b@arm.com>
- <20260224152230.00000531@huawei.com>
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-In-Reply-To: <20260224152230.00000531@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PA7P264CA0064.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:2de::9) To VI0PR08MB11823.eurprd08.prod.outlook.com
- (2603:10a6:800:324::5)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|AS4PR08MB8000:EE_|DB3PEPF0000885B:EE_|AS8PR08MB9386:EE_
-X-MS-Office365-Filtering-Correlation-Id: c49633bf-ed7b-4b9a-c77e-08de7f6308dd
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: K5FBnEzAKyK1RB6HszHEuKCHMonZJ2Fs2az1jppQBH3pBEbUA9OdgPJjpNyPfYUDmOYo6l2KWtbY1NS7ctm53faWszUlkfLDLqs7Bn1RBNW/QKasrTzGuVShdRwZAyeWk5UHbQ88ckHuSjlVmaDKT3lmsKd9TSkQ2KNjrxX1Bb/5xnQSmdA6cGKRk2GP16ecuKydLUDJ2itTp+qAhfAJynl+hjICBq3pVrpHfTJi2q0FNsNR2AbOTCOUYUrovbxQztaH4sNQHgFzjN3JZ6V2mu6r6mrPmD3Gw9ygcviDM1tRmsJduo/5Px4cVjrrBByjrJWYrmbWrfHpXte/qvZNpW0gpZJsaTmWOak7POxr3+6ML0/2Is/bCvCYYfgRp8vZ72SxRnX+6L72gvZVBhxy9+T3LnaBK8xKZxtPBzGMKzoKaVA7hH2B0sXJyuiyBV0SgZpGWwhQs9LDQN57vXTACULgqDrsNh4p1FUI5Dkp/jwhdfmX5vrcs4o8SK1X/K7XRQyQScnvNRDB52aMl5JC9ldeO3L6EE8uwFjmwJcW9Efl+ySUcQ2mun/Xir/NWiyBxRCVXaDpCgEH0qKL3aK6r4PLo9Kvxu87jHL4fpMvGUQ3m8qJbYZcVG5FJSzxyAXkGMFcxPy6ewWVya3S8f1oF7lMGJ+yQHqzPL6S5OTHJ4rYrWcl7NtDEVtHVsScfBYDrqB3GFft5eHGwRwsxaFHa38HD5rJtbpIrfgDrdy0vM8=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: P5Ywbn9v2MjIpN7cpqjJq8feyyjA6IrLaWazv5Yqu0fDp3tIl++rFGhoRBaT01ur+yOu2x5+/jpTGUprCaqwI3sff130SnzX+7t0NLI0BUvpR0FBBt0WahH3HTf3RBgngzl+WyWVn5QAcdaEBrDKWqxSYxIQ/tZixTrJkJVu0mB9ekCbrtvdThhJIDRfyl/BZOXxeIzI/ZYII36BmiRGbVohhGHdk7R4ZrM9hevoL9pK8KOoUJA0kr46bW2BS5otv+MS3Sp4SfJgodXwO4rz0zDVb3Yh5BF6SpoRC9bjDgQpkcZHthv8hKDYi6x7VQubZk6sjwFXmfWpDE8WjUtdVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8000
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885B.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 2a32df4a-78ab-4c58-d5bb-08de7f62e2a9
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|14060799003|7416014|376014|35042699022|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: n53AIgEZnktT4Z6QR2txaOaZwFKo55w2Z46gHJ9InKmSPyqJtL5+LkGnQ/VdF3HtWYVpfas6/NNhzp/XSc5B5tmhV7ssB/rZ11yfgVEfyIxtcny2njLltW4kUc+00NQ1Hl2zdT220xpEY4sp8U01+4PR1mCnf8d7vR07OTSP8lR1R+Vj4BGcVXxEm2wsfVM7+pORZb99QWGDh7WFFZDYJ39PJsRMwq7DwvHzLm2VqDe5UryT8jiuRsT44T9Om0mRGEkd8/+cVJBUKICC2VbtXF3UX9kQK/rMzYyZt28MKu2lu59i+9UqhlGWOX1zgu2NumBHUwhhsAaMcX7PYuf0aYdefuv4Ha6Bj5EwX0WY0J3zuMyuxFuRON1S1UFnoSKpTHztrT6vYBF6Bnapuq447zCZVmYSz6UVXliHf0xKuHj8dliJBLLhvU8+Rw3186BcUdVpgDM1t3LtWeCF2n26EAiuVNh8o8TG+pTU6f048gltcGGg+LYI/2CN2GcgIfAKfQT5doumEpESEVotjs5kcCQ4gneNs9bb3bwiGIlHpiNwpOOQrozRyepOKVj4HGwu33RD29yVh+lu5M2R9ART+7CtJ3ikqBIrK5z+GAFMUvXD2wscSHN9V5MsX442I6x/6HED6IgcaYQ/PmxP+QVYXrT3Td7mO60O1FaLP6YI9KFrL9oDN1d/2IP+DEateBao/4g6M6d4jgkKbnCeQIlhZFDUpWw0UEFzFJKxCaVJEbaYxP3nTdvKbHx+GY1kvFfOgGyDCBwRtcm2D/4faXZXSw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(14060799003)(7416014)(376014)(35042699022)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7EQkZQlmC0tVXJlOqWrqgDXJXJ9OP7Rl2IiEmkXwoyVZtovSGeWqYPEaeMG6Xy4/gVQAeKrKnFH5EHAr8AY4wX1+3F0zUZgf97YM/S9ZjPD1HL2U+l9VO+IgQUrvBqZtBmF+mgLNOwmaA3hbdfkFd7lZQUpxju6EyQZH+UMPM/1mZ6A7apLhBoyaemI/4nL3HYrekbogfGYu6lmW8DS6EZn0T3QHUbQZSoHAWgwpHoSAGUVMRVIT/2OiSBhtwsVLrVnAYistrYnjKGJacvsflL2QgdYN6y2g7UNN6XZMXFR8KEI0QIi7lKkyp3hZ79U+R351XnH+ydU0NCd1+HDwzSxaH5AcfAh+L1tyi+O/teNoCsjTOvNyTtZso/NbMM92YbwOj5UZ81eFV56TTtK3yDRp572IYyY2xtym6yAyj9qUqbKfH4Uio2oBguJ+o4SO
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 11:40:45.9238
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c49633bf-ed7b-4b9a-c77e-08de7f6308dd
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885B.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9386
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_044101_382728_725B57F1 
-X-CRM114-Status: GOOD (  26.35  )
+	id 1w0I0w-0000000BVWZ-12UD;
+	Wed, 11 Mar 2026 11:46:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1157460145;
+	Wed, 11 Mar 2026 11:46:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79082C4CEF7;
+	Wed, 11 Mar 2026 11:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773229568;
+	bh=mePPF9zcPSvtBJqRo2t1V0QkuJgJRZztiTUUZcbcg0Y=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=LL43S37gfzT/Tm97KcgLsUXSfiOoxXzNEvUrv5x20U2bjXaNgs2ZEmAgEqPArpUoO
+	 jMRBsFO1rtnAFbU7NnV1UYL2ZLu78aO4zL8Y7m8Bk2MEOzq5U5kiR9/6SUzZYukt7x
+	 YCTfvAKZMs3yfoGP49cGvPDmIt42flrR6PfRuh5zAIQmyzPxgztNsbO/gK+Je4YLce
+	 ciCMdoBBXH0iGc+dE87FOkoBu6Uce/jRT/Ya7GEyH4/7KkWuHPyqX8nSztSBQvw3vL
+	 L8FegqH/dGZqRNCpbuvVZrTfiR676Um5mvDDVFYh66XpUXS9leC3rE1c8nNUescbmb
+	 xFoVtT4VD+7vg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 11 Mar 2026 12:46:03 +0100
+Message-Id: <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
+Cc: "Robin Murphy" <robin.murphy@arm.com>, "Manivannan Sadhasivam"
+ <manivannan.sadhasivam@oss.qualcomm.com>, "Lorenzo Pieralisi"
+ <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, "Niklas Cassel"
+ <cassel@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Hans Zhang"
+ <18255117159@163.com>, "Nicolas Frattaroli"
+ <nicolas.frattaroli@collabora.com>, "Wilfred Mallawa"
+ <wilfred.mallawa@wdc.com>, <linux-pci@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Anand Moon" <linux.amoon@gmail.com>, "Grimmauld" <grimmauld@grimmauld.de>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, <driver-core@lists.linux.dev>, "Lukas Wunner"
+ <lukas@wunner.de>
+To: "Manivannan Sadhasivam" <mani@kernel.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260226101032.1042-1-linux.amoon@gmail.com>
+ <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+ <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
+ <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
+ <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
+ <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
+In-Reply-To: <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,166 +85,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 15:22, Jonathan Cameron wrote:
-> On Fri, 20 Feb 2026 13:42:19 +0000
-> Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-> 
->> Carve the CPER helper macros out of ghes.c and place them in a private
->> header so they can be shared with upcoming helper files. This is a
->> mechanical include change with no functional differences.
->>
->> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> +CC Mauro as he's been doing a lot of work on error injection recently so
-> can probably review the use of the various structures much more easily
-> than I can!
-> 
-> My main comment is on the naming of the new header.
-> 
-> Jonathan
+On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
+> I have a contrary view here. If just a single driver or lib doesn't handl=
+e async
+> probe, it cannot just force other drivers to not take the advantage of as=
+ync
+> probe. As I said above, enabling async probe easily saves a few hunderd m=
+s or
+> even more if there are more than one Root Port or Root Complex in an SoC.
 
-The content is intentionally GHES‑specific CPER handling,
-not generic UEFI CPER. It's the GHES view of CPER parsing/handling
-and is used by the shared GHES/DT path, so keeping it in ghes_cper.h 
-documents that boundary better than moving it to ghes.h (which also 
-contains non‑CPER GHES logic). The helpers moved there are the ones 
-needed by the shared CPER handling path.
+Then the driver or lib has to be fixed / improved first or the driver core =
+has
+to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is requeste=
+d
+from an async path, etc.
 
->> ---
->>   drivers/acpi/apei/ghes.c | 60 +-----------------------------
->>   include/acpi/ghes_cper.h | 95 ++++++++++++++++++++++++++++++++++++++++++++++++
->>   2 files changed, 96 insertions(+), 59 deletions(-)
->>
->> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
->> index f96aede5d9a3..07b70bcb8342 100644
->> --- a/drivers/acpi/apei/ghes.c
->> +++ b/drivers/acpi/apei/ghes.c
-> 
->>   
->>   static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
->> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
->> new file mode 100644
->> index 000000000000..2597fbadc4f3
->> --- /dev/null
->> +++ b/include/acpi/ghes_cper.h
->> @@ -0,0 +1,95 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * APEI Generic Hardware Error Source: CPER Helper
-> 
-> There is other stuff in her usch as the GHES acks etc
-> in ghes_clear_estatus(). So I think this intro text
-> needs a bit more thought.  The boundary is already rather
-> blurred though as for example cper_estatus_len() is only
-> tangentially connected to cper.
-> 
->> + *
->> + * Copyright (C) 2026 ARM Ltd.
-> 
-> Doesn't make sense to ad this copyright in this patch as so far
-> it's cut and paste of code from a file that you didn't write (at least
-> not in 2026!)
-> 
-> Might make sense after a few patches, in which case add the copyright
-> when it does.
+In any case, applying the patch and breaking things (knowingly?) doesn't se=
+em
+like the correct approach.
 
-The file is new and maintained by Arm as part of this refactor,
-so I kept the header consistent with other newly introduced files.
+> I strongly agree with you here that the underlying issue should be fixed.=
+ But
+> the real impact to end users is not this splat, but not having the boot t=
+ime
+> optimization that this patch brings in. As an end user, one would want th=
+eir
+> systems to boot quickly and they wouldn't bother much about a harmless wa=
+rning
+> splat appearing in the dmesg log.
 
->> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
->> + * Based on ACPI APEI GHES driver.
->> + *
->> + */
->> +
->> +#ifndef ACPI_APEI_GHES_CPER_H
->> +#define ACPI_APEI_GHES_CPER_H
->> +
->> +#include <linux/workqueue.h>
->> +
->> +#include <acpi/ghes.h>
->> +
->> +#define GHES_PFX	"GHES: "
->> +
->> +#define GHES_ESTATUS_MAX_SIZE		65536
->> +#define GHES_ESOURCE_PREALLOC_MAX_SIZE	65536
->> +
->> +#define GHES_ESTATUS_POOL_MIN_ALLOC_ORDER 3
->> +
->> +/* This is just an estimation for memory pool allocation */
->> +#define GHES_ESTATUS_CACHE_AVG_SIZE	512
->> +
->> +#define GHES_ESTATUS_CACHES_SIZE	4
->> +
->> +#define GHES_ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
->> +/* Prevent too many caches are allocated because of RCU */
->> +#define GHES_ESTATUS_CACHE_ALLOCED_MAX	(GHES_ESTATUS_CACHES_SIZE * 3 / 2)
->> +
->> +#define GHES_ESTATUS_CACHE_LEN(estatus_len)			\
->> +	(sizeof(struct ghes_estatus_cache) + (estatus_len))
->> +#define GHES_ESTATUS_FROM_CACHE(estatus_cache)			\
->> +	((struct acpi_hest_generic_status *)				\
->> +	 ((struct ghes_estatus_cache *)(estatus_cache) + 1))
->> +
->> +#define GHES_ESTATUS_NODE_LEN(estatus_len)			\
->> +	(sizeof(struct ghes_estatus_node) + (estatus_len))
->> +#define GHES_ESTATUS_FROM_NODE(estatus_node)			\
->> +	((struct acpi_hest_generic_status *)				\
->> +	 ((struct ghes_estatus_node *)(estatus_node) + 1))
->> +
->> +#define GHES_VENDOR_ENTRY_LEN(gdata_len)                               \
->> +	(sizeof(struct ghes_vendor_record_entry) + (gdata_len))
->> +#define GHES_GDATA_FROM_VENDOR_ENTRY(vendor_entry)                     \
->> +	((struct acpi_hest_generic_data *)                              \
->> +	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
->> +
->> +static inline bool is_hest_type_generic_v2(struct ghes *ghes)
->> +{
->> +	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
->> +}
->> +
->> +/*
->> + * A platform may describe one error source for the handling of synchronous
->> + * errors (e.g. MCE or SEA), or for handling asynchronous errors (e.g. SCI
->> + * or External Interrupt). On x86, the HEST notifications are always
->> + * asynchronous, so only SEA on ARM is delivered as a synchronous
->> + * notification.
->> + */
->> +static inline bool is_hest_sync_notify(struct ghes *ghes)
->> +{
->> +	u8 notify_type = ghes->generic->notify.type;
->> +
->> +	return notify_type == ACPI_HEST_NOTIFY_SEA;
->> +}
->> +
->> +struct ghes_vendor_record_entry {
->> +	struct work_struct work;
->> +	int error_severity;
->> +	char vendor_record[];
->> +};
->> +
->> +static struct ghes *ghes_new(struct acpi_hest_generic *generic);
->> +static void ghes_fini(struct ghes *ghes);
->> +
->> +static int ghes_read_estatus(struct ghes *ghes,
->> +		      struct acpi_hest_generic_status *estatus,
->> +		      u64 *buf_paddr, enum fixed_addresses fixmap_idx);
->> +static void ghes_clear_estatus(struct ghes *ghes,
->> +			struct acpi_hest_generic_status *estatus,
->> +			u64 buf_paddr, enum fixed_addresses fixmap_idx);
-> 
-> I'm not sure some of this makes sense in a file named ghes_cper.h
-> Maybe we just need a different intro comment though.
-> 
->> +static int __ghes_peek_estatus(struct ghes *ghes,
->> +			struct acpi_hest_generic_status *estatus,
->> +			u64 *buf_paddr, enum fixed_addresses fixmap_idx);
->> +static int __ghes_check_estatus(struct ghes *ghes,
->> +			 struct acpi_hest_generic_status *estatus);
->> +static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->> +			u64 buf_paddr, enum fixed_addresses fixmap_idx,
->> +			size_t buf_len);
->> +
->> +#endif /* ACPI_APEI_GHES_CPER_H */
->>
-> 
+You mean quickly booting into a "harmless" potential deadlock condition the
+warning splat tries to make people aware of? :)
 
+(Or am I missing a subtle detail and we can never actually end up in a dead=
+lock
+for some reason?)
 
