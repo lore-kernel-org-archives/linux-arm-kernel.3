@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12F11125875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F2A112588E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKrwQxPh+RV1xNOdR2bWIDNMMLavH+TXby9dnhvJwm0=; b=YuDn0AVXyglS5Vhn5l+emF3j/E
-	8SYIYkAv5mfSr7Xw+zmxIs2MwfCXgAvKswvCO/EodNX/B3RS6d8L+o3ypEurzWtpxOEXnbHdm0OUL
-	eWzMft7C35VHgmhNfjS5/uXunQYmS5AmzKLlRyimc1BWi3mtMOg7uvdFafgRb3mPvLmwXfPuro5UF
-	79E5qFmXDMfHtZ7oDbbaLDkHXQ4P5uF1uY1i24/qxWUl4ZN8ouES605k/liRQn7cEgupQB813fkBc
-	Td0KhhT5rWY7mMpoDDNnn+iNLEP2aTWtsc3mzRu+PUrVWw1OntCPHazd15rE6/ztFB6Wz1lLXwv6u
-	JGPSvwIQ==;
+	bh=9CaxwIwvIcGgO9P9X/34fCDqJsPmK1yqw1P6zBQb93s=; b=UC1EjhMlJJR2Og3CPH5Wo+w9/w
+	D1vBQyL4D6XweSi3BLUdUHSqUUI0IM1PeDUP1O87qdBUdUM/me9dG6MT5XOmFbkW9AqKfUJYUBiTR
+	wybHZT6hvXNt1gIJFIAIJ6yZbYSQ+6T5YYRDZEThWFsUtY2nZuq/Z1cIPtp7owxpZyswhz1kUIQ/y
+	qIoxUrDHGaPQdQtC7QPIuP77xdGY7nwP8dUT5Hp7wh/HhBnyHUAW6LZ9AGoCZRfpt7g+oGAZuB2Uy
+	4DHxE7i2i9RQeAYlH430Z8H2aC5DZBkDX1Zy16pRt6RY59bzxJdXe2gFy8eIkJhaeQ2sPZ1iQw10D
+	N1ELFPGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0PO4-0000000CMnO-3ZGq;
-	Wed, 11 Mar 2026 19:38:32 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1w0POX-0000000CMyB-0fJ4;
+	Wed, 11 Mar 2026 19:39:01 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0PO3-0000000CMmD-0RmE
+	id 1w0POV-0000000CMxI-1PmI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 19:38:32 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48529c325f0so1641775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 12:38:30 -0700 (PDT)
+	Wed, 11 Mar 2026 19:39:00 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48534237460so1994075e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 12:38:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773257909; x=1773862709; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1773257937; x=1773862737; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YKrwQxPh+RV1xNOdR2bWIDNMMLavH+TXby9dnhvJwm0=;
-        b=jCnPzfkfG38ftEoThRgoLHVPMDM+qQSEPjmIOfob80vTdBjXtAOn+rhCGxSgX2x5/S
-         lZd8Qd8509kj8UZPxDTalAvDaV1GSUsWGXExZnn9MlQUbSy3w/y5j+BGOU9XHW1sxq9f
-         pISlBNYlamMc9cQJbR5tu2v0u+JYxaducb9GSKZMAAln7QVm9aZuzWrnO4SL6DD7lOT0
-         7JSGx+0alBZWbyJqbh425JWmNkwwDSuyCppqIL93N+WO/UNeH7oGQzxyjVBxNUEWJSmq
-         YkCp0onQSlmSdDx/ozKxwlCjMqPH1MrXrUyBEOwui/fcKQ8iXaXB+BCHRoagUTZ0jfnE
-         iQ2A==
+        bh=9CaxwIwvIcGgO9P9X/34fCDqJsPmK1yqw1P6zBQb93s=;
+        b=TykKEGAuMLoBxSJEeNT9E11aQrLDL1bHg4z6bbjI8KWCF8MDo5T2UO/c0fBtoIZB4p
+         LwrTA6xwOsr+6U9K6r8wNQ6lnXeK+uSZ29b8PTUXR8pYRHVt1rkNq47Pw9rWat7htTjE
+         0AADG26z++fcR4Pwj50FhtxjSRgNQQlRKI37E2kUMgFdr7w/ZgprXcutuXW0CTwjLQpH
+         qvCfyg5lSqUUq8UQnEVFXd8UHIx2R0axpyKU/T1tzeAIfjbdOVCLnOtiA2rwNet4zwOJ
+         n+UUOTUxLm+kBazCYpXsc+s1qBMqhc6XL0bfBcEDpOC8S6/GzYNecF3dg4UT9svxa2uo
+         DcLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773257909; x=1773862709;
+        d=1e100.net; s=20230601; t=1773257937; x=1773862737;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YKrwQxPh+RV1xNOdR2bWIDNMMLavH+TXby9dnhvJwm0=;
-        b=HlD/WBjNbWH0GeMyeVPCHhNHp2WietlpTaTvRJZiHupM3CCsp8oNoUKPdX2K9GyxB9
-         0wwyb7vPPsu34I4/doP3AhF82FmXF6nHp+Q7vot0GU3Qb6nRMxnpj1/+tijboQ2KySUl
-         fjJk/w9UnGfoa7/Puxu4NQJ1uOUAr2rTkQOJSe9f9POfOkJzAcF7XqB2bkHvoSqRkVO4
-         a8TM52UgVIDcdJHJlez23Zi8ukKxow0iJoS/RTxCP36+6e980Yosjj5uHqBD1soRldDU
-         J62dRruo6iYk9mVUJ9PYiJSOOz1oxzA7RW/EKxdCtj3CUi1eUD+K7hfEoi8adlLRkoqm
-         EGcg==
-X-Forwarded-Encrypted: i=1; AJvYcCUgjjaP4OOjSqVa9a2nY/jTgV5ULedTQPeDSVh9Qccil0uCi9zGrfMN7kOvTDVf4xQtI7yOLziV6pSMXmrlvZ88@lists.infradead.org
-X-Gm-Message-State: AOJu0YxehWdBRNadXjgPv8GnLZv163NuoJnntX6TwCt+sIo/UH9im3s0
-	egBqU4c5gbEN3x5Wj6AnEstfRfx6XMUQ7yhQgqw5fERJm/r+ORUX7AuuEjwHDKCCW4M=
-X-Gm-Gg: ATEYQzxHRJs7slUZzSljNQ7Wa96RXN8ow/k8uJjg3mWfXNsLsTUXrvpgtP7SpKk892C
-	W+2f97iK1F98kNWneQMOGngGhpNYpjrMvrv/2d9ecLCP3MR/xTQ15ykVUZy1K2ZxTdpXxfnxoSN
-	/WyFQzwL0SzSj89xGHiWaDzQoRiA2bub6j02s+Me4qYq8wIqcJTD+j87LEhskEhW9hMD79dE6NC
-	/jT5GFuIJmiX3M6ZXl72cHH2O8kqtR5guhHB1ixS4mjzwi6yuDcgL8Fs73ZDiGpAIxSRV6GfHYa
-	uvbwuvzyxXL3z/k1oPHTtqyRbJir73epn60kEktfZzF54ATup4J03HGQInVguDANlqDuT0wY7go
-	qVleKemK232W8Lnm3OhoUb/bYanRi1RIbCAMnUaisvjJlMn5D62LVJeqQBdXr2P+k7bzrLOXEoe
-	UteSb+iN2WqelNRnpIKnhbVOqBd9nzNLOgfPypwZM=
-X-Received: by 2002:a05:600c:a114:b0:485:4bd1:4c74 with SMTP id 5b1f17b1804b1-4854bd14ec7mr44737225e9.32.1773257909025;
-        Wed, 11 Mar 2026 12:38:29 -0700 (PDT)
+        bh=9CaxwIwvIcGgO9P9X/34fCDqJsPmK1yqw1P6zBQb93s=;
+        b=DB5bukaVtxzm9sgSxTPQF1OVpurgEh4+u/CkK95BJjjD0DOv2Rro2Kyd9SJxBRQxKP
+         /ipfGjAr2vR9rtubl9IhzVdm05wPztkcqX+TNoGXgxvdnkDFfnsmoHWd2Wssc9vGFAwY
+         2sWvPDFdSntkgjt7qMkXBy8Ciat6UfCijnSNXBAh4TMgr/bLGdWjn6pQcv1dzL6zbQR1
+         kzo3/bbcmtojgSOyxhnuBT4BKCNBQCUNT4YCpmS56FsrY5TzE3aNEVQDhuyyCembMyf7
+         NL6QHlvPKmWx2ykunxDL8gVnpJhUPs9U1l1mycEQJbNhlApAnD7ZGVQZ6CD6onugc2Eh
+         esOg==
+X-Forwarded-Encrypted: i=1; AJvYcCWExt6sPMBvbS8IuP7EV+DCUh6o6jhxKbMWlqz3J4U+1H7x6Ct+8yqNzamD4xG49deSsbgfCsdA+c76G+5HNidA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlyNEh110z4V9ZQWsqxEcoSyxvqKGh1/MDOqGEmg51lTJrcZWx
+	56EyKW7W3ivL3EQlIkfUoFyEnDJxHpZFXXbzArPs5Ae/Z42k5lNsOxU6JIoxisQ4yds=
+X-Gm-Gg: ATEYQzyAZZh+R4Pbafgp3EYzxELboPzx9ADnSUqb+VWoErf4Owj+YG4DtHRNevB9EOw
+	4YIJZ42zhzTMBqKflTBCg4sABZHoacN6wTh7rhnW53hYvJd7zSMJPe0qW6y+XTiHChzlImZMxzs
+	PU9gyUK9I/pbfB8mXBN2PSthdX+aG6HUnweYgXTpXPhzCssJvclhB8G0VQh0knEa58kqpEWrSqZ
+	o0W3uNLHewi+oPcSp7/qJg0OfFaw2PFE6PiHfyAePo7JNF1vTfMIsIvNZWZtjVQlNLqMLcCuJbv
+	IjwPz4UIdfWhZKmUHYjh8VuBWGmNO2rTaTBhl7eoYq+KHtglA3ipw7I2M62rLXMnPPcyAeqT5TF
+	s00LWMmGAzQRDcI8Tv0PKvaBnDcAoFkm8GRKpFGrCjKq4ULI4cHcJnKN1JBy6xDUDfW6AMt3anT
+	dmhfOVyCc2zaER1katEwrafgvfYdxxzZSWPKZsHOA=
+X-Received: by 2002:a05:600c:c4b7:b0:485:304a:58cd with SMTP id 5b1f17b1804b1-4854b0a4a4cmr64000115e9.4.1773257937205;
+        Wed, 11 Mar 2026 12:38:57 -0700 (PDT)
 Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b0caccasm58337415e9.6.2026.03.11.12.38.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe20c473sm1460894f8f.24.2026.03.11.12.38.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 12:38:28 -0700 (PDT)
-Date: Wed, 11 Mar 2026 22:38:25 +0300
+        Wed, 11 Mar 2026 12:38:56 -0700 (PDT)
+Date: Wed, 11 Mar 2026 22:38:53 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+To: Sudeep Holla <sudeep.holla@kernel.org>,
 	AKASHI Takahiro <akashi.tkhro@gmail.com>
 Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
@@ -78,17 +78,16 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	linux-kernel@vger.kernel.org,
 	Andy Shevchenko <andriy.shevchenko@intel.com>,
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v3 3/7] pinctrl: Delete PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS
- support
-Message-ID: <b58462e99ab76971d94dcaf973bc947c7ddb624f.1773150895.git.dan.carpenter@linaro.org>
+Subject: [PATCH v3 4/7] pinctrl-scmi: ignore PIN_CONFIG_PERSIST_STATE
+Message-ID: <b24c7b023c84ec14cfa7e49352e834262e3fefb5.1773150895.git.dan.carpenter@linaro.org>
 References: <cover.1773150895.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1773150895.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_123831_153626_E05EE0B1 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260311_123859_390584_8C8E26D7 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The argument for PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS is supposed to
-be expressed in terms of ohms.  But the pinctrl-scmi driver was
-implementing it the same as PIN_CONFIG_OUTPUT and writing either a
-zero or one to the pin.
+The PIN_CONFIG_PERSIST_STATE setting ensures that the pin state persists
+across a sleep or controller reset.  The SCMI spec does not have an
+equivalent command to this so just ignore it.
 
-The SCMI protocol doesn't have an support configuration type so just
-delete this code instead of replacing it.
-
-Cc: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
-Hi Peng, could you Ack this patch?  I could drop it, since obviously
-it doesn't affect my stuff at all but it's the right thing to do.
-
- drivers/pinctrl/pinctrl-scmi.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/pinctrl/pinctrl-scmi.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index 5d347e6b2e4c..de8c113bc61d 100644
+index de8c113bc61d..f22be6b7b82a 100644
 --- a/drivers/pinctrl/pinctrl-scmi.c
 +++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -254,9 +254,6 @@ static int pinctrl_scmi_map_pinconf_type(enum pin_config_param param,
- 	case PIN_CONFIG_OUTPUT_ENABLE:
- 		*type = SCMI_PIN_OUTPUT_MODE;
- 		break;
--	case PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS:
--		*type = SCMI_PIN_OUTPUT_VALUE;
--		break;
- 	case PIN_CONFIG_POWER_SOURCE:
- 		*type = SCMI_PIN_POWER_SOURCE;
- 		break;
+@@ -361,7 +361,7 @@ static int pinctrl_scmi_pinconf_set(struct pinctrl_dev *pctldev,
+ 				    unsigned long *configs,
+ 				    unsigned int num_configs)
+ {
+-	int i, ret;
++	int i, cnt, ret;
+ 	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
+ 	enum scmi_pinctrl_conf_type config_type[SCMI_NUM_CONFIGS];
+ 	u32 config_value[SCMI_NUM_CONFIGS];
+@@ -377,17 +377,21 @@ static int pinctrl_scmi_pinconf_set(struct pinctrl_dev *pctldev,
+ 	if (ret)
+ 		return ret;
+ 
++	cnt = 0;
+ 	for (i = 0; i < num_configs; i++) {
+ 		param = pinconf_to_config_param(configs[i]);
+-		ret = pinctrl_scmi_map_pinconf_type_set(param, &p_config_type[i]);
++		if (param == PIN_CONFIG_PERSIST_STATE)
++			continue;
++		ret = pinctrl_scmi_map_pinconf_type_set(param, &p_config_type[cnt]);
+ 		if (ret) {
+ 			dev_err(pmx->dev, "Error map pinconf_type %d\n", ret);
+ 			goto free_config;
+ 		}
+-		p_config_value[i] = pinconf_to_config_argument(configs[i]);
++		p_config_value[cnt] = pinconf_to_config_argument(configs[i]);
++		cnt++;
+ 	}
+ 
+-	ret = pinctrl_ops->settings_conf(pmx->ph, pin, PIN_TYPE, num_configs,
++	ret = pinctrl_ops->settings_conf(pmx->ph, pin, PIN_TYPE, cnt,
+ 					 p_config_type,  p_config_value);
+ 	if (ret)
+ 		dev_err(pmx->dev, "Error parsing config %d\n", ret);
 -- 
 2.51.0
 
