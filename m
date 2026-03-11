@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8631049516
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6790C1049518
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLpTE+Y/R0Tdv9vswPnMcKu+W093lttl1jCB5Rb2dPo=; b=g2jZjKGWTwX3nghpJIgSwQxZ3F
-	VFAr8plyfEoIQ36jEhXZSnhL7wopur9qCkx+Qdqz5G2u+BgzYt1yXtCiTZQ+z9Kk8Z5QT8/XHzYY9
-	zkNL8jwjclHuNRp4jcdDs3gluWEFRaOoo2NbVeyMaog3HqL+aHSZk9IWCrRok6aNE2j/CTQe0/O5b
-	fRliC/cixu8honHjgIeP6yz1bxowPX3d3S40eNaUl08JBzFQDFhc4rIR7pGTSd5ambtQ7P/Yo59zB
-	gRhcnIeqfxh/lthjdhGQLB+HGqsCXTd68CEOoEgF3OklAqogWwMSfOi6MB8buqjR3zd3XRYZ83bQb
-	YZDxkmNQ==;
+	bh=CM4HNHgToIsY7znX80S3YppzLGCbDWWtJmJHNlsSv9I=; b=FN+zfkBUMwxsxPpluOMPyaTMCC
+	L5TxsPcOebMSn6suzlQwEbfP3u0Lt8oEg98cROvlugBTtoChXqMVGpw9ClKTgpc+sMWjIrgwlY5ZJ
+	DPZflzb7LE2xfES+IOV4R7kBsIbJkLyx0ot94Idc04g89lnJtkohqcL6eWPNfSgwAoyDy7S5eEoGU
+	T2j7tRQqhHVu0L3YFtuYAUNA6YNfCv2CIMckyKsO4yP2WRbXtB3H6nLKxqGNjv1IK+EfS4o8hcY5L
+	b+Fogh7Yd3E0j5fT8EPQFZm+vMFCJKsRIyPvFmbdqhAcylqCz7by/TdeODBAF9wNp7qu/j7NCdBW6
+	eOPaJR3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FsQ-0000000BHuZ-248q;
-	Wed, 11 Mar 2026 09:29:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0Fyr-0000000BINk-3WHn;
+	Wed, 11 Mar 2026 09:35:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FsO-0000000BHuG-11ar
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:29:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B9AA444FA
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:29:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49EF5C2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:29:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773221351;
-	bh=ZLpTE+Y/R0Tdv9vswPnMcKu+W093lttl1jCB5Rb2dPo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=F0UoSS6HeTeib+b99NgLUia+OyIhq3d974Aaz/MUtDwtuUEhhCks7o29mfOMjAVKX
-	 g4uzGajiuIujzHTAQG2mA2a756hkcje6PBx9L7ejmnbdBtG24PCHfWqqllyFhml1ef
-	 r7UmSxCrN/ZzCnAyj7mOocSqVm4PRXRyR9zHiUaHi1iTuO2rD3QxaNEs6dH5wMcLSx
-	 j5fJu2sglWpDCXdVDVnd/6YktG/5jvPa4Iu+duoFPHRIcI9VQ18cdOSO/fFER+sa11
-	 awiguuyqGhaomMJgXyyy/vixRpx+Z9ONK1cEEOXXE5oNJKJ/3T9+FwBV/RmSJjo2Jg
-	 ex8YQGMIDgbgQ==
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-64937edbc9eso12733967d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:29:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUQ0i4FJaJqi1Gy49ZB+TKCyD2FgAduv/jPAonzTy2jZ8wFzGeTPO9US7nTwiyBIELhkwesLNND7KaeLnoDM16a@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuklOg7VU5L0SC3ocKxKXYIfkpwpT/cWiM0IGCodU8FQ2SLf5S
-	/w4qqNS6MFMTW1XpHINgJLtmPrwUCC2e3qzgpQ9NmJZnzDy1CzzPLaeavONYqJUoLFYQ0ee8kB0
-	1FboYvGX6ou7mYM0qG3t9MJrRPGZ92qA=
-X-Received: by 2002:a53:c751:0:b0:64a:d479:bfbd with SMTP id
- 956f58d0204a3-64d6568df17mr1064855d50.7.1773221350597; Wed, 11 Mar 2026
- 02:29:10 -0700 (PDT)
+	id 1w0Fyp-0000000BINI-1Q3Q;
+	Wed, 11 Mar 2026 09:35:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773221747;
+	bh=OZdi9gkak4UPUWK0IKlhqWGeXKeTqlYLrSwjLN5yZtE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WWVm+JLKRdZryLlwHsOckfGDgdCYiv0Uu+8TtPNJlx5342n7W4lfCvb1ih0+4FLIj
+	 EXJuIhVH0c50PHP9hyrS/RqJQiwBdgq9aGzOcvnwEEB0vObPK2fveoGg+bFxmx+Yg7
+	 prbw6LGi1NJYw5Y1m23kATABbPISplehakmS0gapdeAxo8PjmmbuRMTWvTTRS8GiYc
+	 FILrnAzbgUFGNOzHz5ZBIXZMV3tGBXcz2mY4m2Ny4Ayui3INyDt0frQ1y9dqiZcfY+
+	 AN+WCA3BfPO6R89MYOACon2c2WBNHH8/ycTFQEiZ4KCV3KRsxI+xHsyMwNiVLoOf17
+	 9Hh/6R5v8FLUA==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:fe32:28f4:51af:732e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A234617E0EC1;
+	Wed, 11 Mar 2026 10:35:46 +0100 (CET)
+From: Laura Nao <laura.nao@collabora.com>
+To: linux@fw-web.de
+Cc: angelogioacchino.delregno@collabora.com,
+	daniel.lezcano@linaro.org,
+	daniel@makrotopia.org,
+	frank-w@public-files.de,
+	laura.nao@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	rafael@kernel.org,
+	rui.zhang@intel.com
+Subject: Re: [PATCH] thermal/drivers/mediatek/lvts: fix mt7987 thermal crash
+Date: Wed, 11 Mar 2026 10:35:19 +0100
+Message-Id: <20260311093519.15810-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260309064439.4296-1-linux@fw-web.de>
+References: <20260309064439.4296-1-linux@fw-web.de>
 MIME-Version: 1.0
-References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com> <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
-In-Reply-To: <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 11 Mar 2026 10:28:59 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
-X-Gm-Features: AaiRm52uciv83L8ui1qjVsq1iiproIcpV5iHuMJHrm82sToGHhfR4T4DzXQs8RY
-Message-ID: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
-Subject: Re: [PATCH v6 00/12] bus: add stm32 debug bus and coresight support
- for stm32mp1x platforms
-To: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, cristian.marussi@arm.com, 
-	jens.wiklander@linaro.org, etienne.carriere@foss.st.com, 
-	Sudeep Holla <sudeep.holla@kernel.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Antonio Borneo <antonio.borneo@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_022912_323022_12A8221E 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260311_023551_523383_F0D2CD3F 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,16 +83,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 10:07=E2=80=AFAM Alexandre TORGUE
-<alexandre.torgue@foss.st.com> wrote:
+Hi!
 
-> Patch 1 to 11 applied on stm32-next. Linus, let me know if I take the
-> pinctrl one or you prefer to take it.
+On 3/9/26 07:44, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+>
+> On mt7987 we see a crash due to missing ops entry.
+>
+> [    1.518540] Internal error: Oops: 0000000096000005 [#1]  SMP
+> ...
+> [    1.564481] pc : lvts_get_temp+0x84/0xc4
+> [    1.564492] lr : lvts_get_temp+0x60/0xc4
+> ...
+> [    1.620900] Call trace:
+> [    1.631753]  lvts_get_temp+0x84/0xc4 (P)
+> [    1.645471]  __thermal_zone_get_temp+0x24/0x11c
+> [    1.656502]  __thermal_zone_device_update+0x9c/0x52c
+>
+> Add the new ops member added in 7.0-rc1 for mt7987 too.
+>
+> Fixes: a4c40559499f ("thermal/drivers/mediatek/lvts: Add platform ops to support alternative conversion logic")
 
-AFAIU you *have* to take it because there are compile-time dependencies?
+I think the Fixes tag should reference 
+"thermal/drivers/mediatek/lvts_thermal: Add mt7987 support", as the 
+commit introducing the ops also updated all existing data structs (seems 
+like mt7987 support landed right after).
 
-I provided my Reviewed-by so go ahead and apply it!
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+>  drivers/thermal/mediatek/lvts_thermal.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+> index a9617d5e0077..5671531d4c23 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -2026,6 +2026,7 @@ static const struct lvts_data mt7987_lvts_ap_data = {
+>  	.temp_offset	= LVTS_COEFF_B_MT7987,
+>  	.gt_calib_bit_offset = 32,
+>  	.def_calibration = 19380,
 
-Yours,
-Linus Walleij
+You'll probably need to define num_cal_offsets too, since the number of 
+calibration bytes was also made configurable (not sure if this is 
+already addressed by a separate patch).
+
+> +	.ops = &lvts_platform_ops_mt7988,
+>  };
+>  
+>  static const struct lvts_data mt7988_lvts_ap_data = {
+
+Best,
+
+Laura
+
+
 
