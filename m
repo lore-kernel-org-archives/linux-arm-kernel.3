@@ -4,45 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C0F112583E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A26B1125845
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aett3IMUD9KEZqaMbiw5Gxih3cHDfRoXRUmqjmLuoSo=; b=hMS9Zd4moEstZi5pkE0XruLh4D
-	Jy4PTevwQO6vlG0ShwHMzqlCTFPd4H44c8Sz8MPiLsigoByCYj2rCjptimoG2JNVIWn/vlCnbzave
-	LT5MV7XZ2kktW9MbZyp4FFYKzVdTu6Wlj1e3qcCe13LRMXVaCQHI5/0DPNe0PU9Gi1b69ek/IqeIP
-	5e5oHa5XZGGoe8kr0VwmclrVJWJtCtMCRY+yv/Bf7v2DDYTnHzeTg/kOi2CVfHTLzWU4XuyUb6S8R
-	d7vPxsflHIr/ZkiVUHW3WiiPL/UZ7PmZx0LFX52lihj/QRi1pCx1T4PzEdSkL5rCPT/eXQlnY8TuX
-	M+JiRcXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M5HW8gZn9DLJaXwfIzx6dQqzrvbrYl5qq5NFuE4o/f4=; b=q1FH9GacN1CFfZBfl7XK21OWV1
+	f6P7NtDIdQlIAc2ga5M250ujXv7U7NaBxzhItRvuM5GmF71YVMFJTqDgTUEDituWs4TydPjoEiEUm
+	thDWonnRL0Agr27S7o63qVH1oI+oCWp9KAcEtGTb6gbJ4D4tormtcPSRCOe22/I2qmaSdjBC/fcrF
+	JzT9mLMhJTRzBOfEhTuyxzX3fa0VDt0Gw9fx8LPZb0YfgqKSmkmJthUlKioUyKMoofSbzRo7SSJ9x
+	vKvRavXICWjz+aEmUPH9BfnVYsHHjeWeXVeclyhIfO7N+TFXr7h0NWrq7O3yN8Y1YqwlgmJ19nqjF
+	0dH4uuMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LGO-0000000Bm86-3ORl;
-	Wed, 11 Mar 2026 15:14:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0LGc-0000000BmCW-2Z0v;
+	Wed, 11 Mar 2026 15:14:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LGN-0000000Bm7o-0pZF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 15:14:19 +0000
+	id 1w0LGa-0000000BmBY-400S;
+	Wed, 11 Mar 2026 15:14:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46DD360054;
-	Wed, 11 Mar 2026 15:14:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DE44C4CEF7;
-	Wed, 11 Mar 2026 15:14:16 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] ARM: shmobile: rcar-gen2: Use of_phandle_args_equal() helper
-Date: Wed, 11 Mar 2026 16:14:14 +0100
-Message-ID: <d8338ff1fd795912b466ccf55b49dcd6885b6925.1773241833.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	by sea.source.kernel.org (Postfix) with ESMTP id 1833F40631;
+	Wed, 11 Mar 2026 15:14:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 545D8C4CEF7;
+	Wed, 11 Mar 2026 15:14:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773242072;
+	bh=6G03Vmq9qwAjWyaMz8DPlElYYLptRloaQTWWkg09UaE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NzduROdM4NtDkaC97uFQCxBxcQk2+/sdIAEDxDo46Sa1HI+QkJr/W69c2Ir2IcqT8
+	 yDFVqxVG6Uoy2C1u7z8hbctT5e6H4204OSpR7P4iULIE+LNSCndBNOIlZ0dDXL8MlQ
+	 l4WIr8beXU+M/Luz551S9xo13BT7i3wJ96J0SEPoSvzwaHCkwyUbIDiq2XIy4jfYuz
+	 6lmGZwceMWkMXv51jWNVTUZo9r1cbbfyd0lp6Nu0cpBU+Bp0/EqnBMeyriu5GpJ1GK
+	 ZQDhBsPe9f31JSjasOZkllQzRP2VjuZ7cfXP+Wwfto/f9PR5NPTFQ2Q6BSl5Ll9Fqa
+	 0LqOaXelYUCfA==
+Date: Wed, 11 Mar 2026 20:44:15 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: manivannan.sadhasivam@oss.qualcomm.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
+ a platform specific way
+Message-ID: <srdn3bspgwff7f7tnst7wzg4us4buifrv7o3ylo527hmuciyl3@6ioyrl6rfhaz>
+References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+ <abFMa6DCGGLUHddA@fedora>
+ <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_081433_013449_422409FB 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,68 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the existing of_phandle_args_equal() helper instead of open-coding
-the same operation.
+On Wed, Mar 11, 2026 at 08:09:53PM +0530, Manivannan Sadhasivam wrote:
+> On Wed, Mar 11, 2026 at 12:05:15PM +0100, Niklas Cassel wrote:
+> > On Tue, Mar 10, 2026 at 07:31:58PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
+> > > Changes in v7:
+> > > - Dropped Rockchip Root port reset patch due to reported issues. But the series
+> > >   works on other platforms as tested by others.
+> > 
+> > Are you referring to
+> > 
+> > ## On EP side:
+> > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
+> >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
+> > 
+> > Then running pcitest only having 7 / 16 tests passed ?
+> > 
+> > If so, isn't that a problem also for qcom?
+> > 
+> 
+> No, tests are passing on my setup after link up.
+> 
+> > 
+> > There is no chance that the patch:
+> > "misc: pci_endpoint_test: Add AER error handlers"
+> > improves things in this regard?
+> > 
+> > Or will it simply avoid the "AER: device recovery failed" print?
+> > 
+> 
+> Yes, as mentioned in the commit message, it just avoids the AER recovery failure
+> message.
+> 
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-This is an old patch of mine, and originally used of_phandle_args_eq(),
-which never made it upstream.  Only recently did I notice the existence
-of of_phandle_args_equal(), so here we go ;-)
+I also realized that Endpoint state is not saved in all the code paths. So the
+pci_endpoint_test driver has to save/restore the state also. But it is still not
+clear why that didn't help you.
 
-To be queued in renesas-devel for v7.1.
+Can you share the snapshot of the entire config space before and after reset
+using 'lspci -xxxx -s "0000:01:00"'?
 
- .../mach-shmobile/regulator-quirk-rcar-gen2.c    | 16 ++++------------
- 1 file changed, 4 insertions(+), 12 deletions(-)
+- Mani
 
-diff --git a/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c b/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
-index 4277ba5b3ae052bb..747a96c58df15075 100644
---- a/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
-+++ b/arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c
-@@ -141,7 +141,7 @@ static struct notifier_block regulator_quirk_nb = {
- static int __init rcar_gen2_regulator_quirk(void)
- {
- 	struct regulator_quirk *quirk, *pos, *tmp;
--	struct of_phandle_args *argsa, *argsb;
-+	struct of_phandle_args *args;
- 	const struct of_device_id *id;
- 	struct device_node *np;
- 	u32 mon, addr;
-@@ -171,14 +171,14 @@ static int __init rcar_gen2_regulator_quirk(void)
- 			goto err_mem;
- 		}
- 
--		argsa = &quirk->irq_args;
-+		args = &quirk->irq_args;
- 		memcpy(&quirk->i2c_msg, id->data, sizeof(quirk->i2c_msg));
- 
- 		quirk->id = id;
- 		quirk->np = of_node_get(np);
- 		quirk->i2c_msg.addr = addr;
- 
--		ret = of_irq_parse_one(np, 0, argsa);
-+		ret = of_irq_parse_one(np, 0, args);
- 		if (ret) {	/* Skip invalid entry and continue */
- 			of_node_put(np);
- 			kfree(quirk);
-@@ -186,15 +186,7 @@ static int __init rcar_gen2_regulator_quirk(void)
- 		}
- 
- 		list_for_each_entry(pos, &quirk_list, list) {
--			argsb = &pos->irq_args;
--
--			if (argsa->args_count != argsb->args_count)
--				continue;
--
--			ret = memcmp(argsa->args, argsb->args,
--				     argsa->args_count *
--				     sizeof(argsa->args[0]));
--			if (!ret) {
-+			if (of_phandle_args_equal(args, &pos->irq_args)) {
- 				pos->shared = true;
- 				quirk->shared = true;
- 			}
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
