@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EDA112583A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E1C5112584D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PdZxm8Bv5Fbg4zOWMT2q2pQephq0yrmqiozPXOooSw=; b=cHop54VFEocMaD3L/YzXSQwOgq
-	VtwKqFeyG0gtTSjfg10WGni8zEswPtCSodZDydYcZ8996ZEX+w4s/rFvoB7F2JYyiaTuCpuTCQ4Jm
-	15EeOKzqfulkmvJ0lwzB+yjrr2Zzmsg6Q/0oMVOhA16BuE3KfVjWXmCJG6xOn4lgkDNAwocq8vm2U
-	Evw7uvM4WCfksl4XDdIHwznkGeux5pMprvGLUhL48I6X/j3OheZGZuhTBuuqSCjc9EsSztMqCj9xP
-	5pV/W6oU33WQo+7OFltAxoWRu/zMArWRUMPNJwCl3qHzJAz0cb+ekOoIY7xEtPBShd+nt0DUe2GFN
-	U8QCjHaQ==;
+	bh=6PdZxm8Bv5Fbg4zOWMT2q2pQephq0yrmqiozPXOooSw=; b=RBrlHZE85t2bKddpvm08ldO8Pf
+	VtL8ufV+1ml8EwieUN0eiadYXQiuJgTtjkW0JVfpcA/7a65jpKnr5fC2dPiYW+xMsSr7uTazMzsu3
+	cn+XAS38MG7eeptRQK+3ZSqG/BVAG2Gx5ndYlUdxUhvpNMJe6TtOKWq1hzInj2H+VOtJX+umzSjDT
+	OgcxhAlR0SlyC+0FBLJ1etzkiMJbDJPhkFQ752Q3p2ozunCg0VUjdX1IsQ5CT10bXKHhK7FIQRrK/
+	eYUasvPIDzFE1GEGsYeur0vCp4tg8GuFO8+j/sIEtH/3b2PrFrrchPi9G8oGFH+iMuCQvUhliEk06
+	hZrd8kCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LOp-0000000Bnul-43Zk;
-	Wed, 11 Mar 2026 15:23:03 +0000
+	id 1w0LOx-0000000BnzT-1Pzy;
+	Wed, 11 Mar 2026 15:23:11 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LOn-0000000Bnr6-0XJW
+	id 1w0LOv-0000000Bnxq-3V8J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 15:23:02 +0000
+	Wed, 11 Mar 2026 15:23:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=6PdZxm8Bv5Fbg4zOWMT2q2pQephq0yrmqiozPXOooSw=; b=k97OotMzaQz1BjA29wfuhZEXkP
-	erNZdJmdZk2xUASWVECRZRpVjFYXaG+bStBQrvzhw4BZ/q1jNEuhriR66GHUUPENVs4fShIq625iY
-	emp46hlEdmb/51vta9GfyPhL/vAo+Xqe/2kVzh4bxWIJjZ915HLw+JW9d7sT28eo6MLC3a776SF8i
-	Kz10477fL5+Y24UcIzjuiIQ7PGU3R6Ki6lsDYXwlg6fXmXQuF0e40OhNB2m/GfXO9EM4vQGJUKs7u
-	q/15SIvBewwDVS7V+gjPZHY35layRSFDN51ajZkYWkkmtXq2kVEiXFAGzQsn27vWmpDdRslCr3avS
-	UQxrNOTQ==;
+	bh=6PdZxm8Bv5Fbg4zOWMT2q2pQephq0yrmqiozPXOooSw=; b=TnJU3aOaDzTQbRqTIc/3sVVzbw
+	hXTk6/n32tokMzvWOWBANcM4aG4BGT5+N4P38vjhHg/61+9kJQKlEZYfts1wPwZDqvxinXzngtRuk
+	0AN9ZmWaPZqF+aieSGOQKgjtnhbOJvWaKNu0j4uxphorN2ptplJ8ncxveNJv6CPDyj1gXAS+CnhNB
+	aTG9k7vQV61fkxjHiMMxGmU/8br25DD7MYaRnpt/FnaGuWkbeptnS6YySmIySWRpbcezIv7lMyduR
+	KKPwPIkx5KEf7EDV3qKMQV3iwz5VrU2Q7LGIQyh3BljCgNV2T4B3bVf/m5667smnzKf6GgxBDkGq4
+	Fz7fWwgg==;
 Received: from sslproxy03.your-server.de ([88.198.220.132])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w0KcF-000Ow5-38;
+	id 1w0KcG-000OwS-32;
 	Wed, 11 Mar 2026 15:32:52 +0100
 Received: from localhost ([127.0.0.1])
 	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w0KcF-000GoI-14;
-	Wed, 11 Mar 2026 15:32:51 +0100
+	id 1w0KcG-000GoI-0y;
+	Wed, 11 Mar 2026 15:32:52 +0100
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
@@ -69,9 +69,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 6/6] arm64: dts: imx91-tqma9131-mba91xxca: Add LVDS display overlay
-Date: Wed, 11 Mar 2026 15:32:09 +0100
-Message-ID: <20260311143217.1700704-7-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 6/6] arm64: dts: imx93-tqma9131-mba91xxca: Add LVDS display overlay
+Date: Wed, 11 Mar 2026 15:32:10 +0100
+Message-ID: <20260311143217.1700704-8-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260311143217.1700704-1-alexander.stein@ew.tq-group.com>
 References: <20260311143217.1700704-1-alexander.stein@ew.tq-group.com>
@@ -79,7 +79,7 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27937/Wed Mar 11 07:24:53 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_082301_180979_B37E2715 
+X-CRM114-CacheID: sfid-20260311_082309_863555_DADE8E76 
 X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
