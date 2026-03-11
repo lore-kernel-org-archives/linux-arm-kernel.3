@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38735103E2EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 23:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835C1103E2F4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 23:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6gegApxL8KyG7p7ftnWFqHKVt/5DrxD+pUpVnG9ZLo=; b=2EXlCHZ5VBupNJtJSJi+Uv0Vpa
-	B0Qg1PbAp+H6GFY9nxf+lolc9a43WLKgRIuAiA8cLFOvpkzcCpZKQkXBL/naiKhu4J0W1jPS0zNEp
-	ktNt8BGusoiz7BCt4l2LZmbU+ZEdMo+LtOPQeA5H/7jUyYVE3tbs+LlZePVm6gYOqrPcr90fLcPNm
-	c1pP2Gvhecu3/W5U4nNnbiu9i7HQl5bp2VZmKHm8//lEVNxS8MJqsLwMcCfS8dhDEbYJp12aj4LsI
-	sq3lqilHC+/3mrjMYCCXe6bj5e6bh9loHoiZjjINSN2vREPUC2AvET99QbJ/J5X5s6bqW1MPQaNA7
-	aoDtpssg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xBhhGMjdEf/AAt0r3NS/ftcYplPTotkFnhvNtKj38Dc=; b=jzvn93weL4dmLVYK1BU8v2nkD6
+	j4zeR9e9xycPZ4PZmYH9VPDJfvlMmm+nHarv6pcrT9fAzOg57qb6YhsvzFBpOCTZBGIib0VTUg01M
+	d3isexhi8ZuAEvosSqlrbuRjgIFlSQ+cmxPwaMg/26ep8gD7uZ4k4zjZrlnxFiInIefIeec2QBhJU
+	4KIPlkEwjDbC9DJi8Qq2LySaBHpv4V4tNcV8O/anPBRlIkmY5hde2kKDP4GbFHQMe85G9q3fcAp5U
+	DNB2ybV3QF9/kJw+G8f31DoSwKUrHt+2mpqvHGIsJ4BTFdNSBlN6Euu25j4R0axtmN1Pevt/ig78u
+	pnuIt/UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ScP-0000000Ckhk-0CPu;
-	Wed, 11 Mar 2026 23:05:36 +0000
-Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
+	id 1w0SjB-0000000Clc0-1iQv;
+	Wed, 11 Mar 2026 23:12:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ScL-0000000Ckgt-2gxY
+	id 1w0Sj8-0000000ClbZ-0QDS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 23:05:31 +0000
-Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-128ce536fe0so4106c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 16:05:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773270328; x=1773875128; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=f6gegApxL8KyG7p7ftnWFqHKVt/5DrxD+pUpVnG9ZLo=;
-        b=yJzCFTHMl0RurNmQdJlmiD6W5aF1/qWkymEVJBIbuJ/YH6oE6+uxhikO7CY6HSdQnZ
-         zxHwma0QPDAx6DeE9mCo4c9g72QAsAMDc0jBqBKxUZNHpkbpUzz4E98E6o87gmeOtaSX
-         OYrzJwpjNvOnvNwm2o4SIIQjW61BwbCWLgf4mtvehF+R4rXdsv4SbY0D2L4vhynJim3g
-         IaP5TBL1C9a+G1T9FC/xlH5sD8OkAaluhid6jeb24jXq1WqWkbWjfEMjtJl2n4I6B6bT
-         IjS72cIGPLL5+EwsqybT/xN3D7q5rF7FDsuNoKmFP9Thh/74Nf1Mo+QG/iNrjAY0Nk+r
-         yMKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773270328; x=1773875128;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f6gegApxL8KyG7p7ftnWFqHKVt/5DrxD+pUpVnG9ZLo=;
-        b=g+7aB2tVdgps+s+Fu64X1M5fs9bJIOwFUi1QbOYn6Np5PeKUz/liTY3TAhDrgpxbSc
-         uJzpDlpoTh7w8WSqrGBL9pPOXxjwESfYOjvJ0vpxadg6yB3hnx/Mirn7qNm60Kt/knll
-         Ni6z4+u+O/8UMPPrwIZwu9vc86dOqLW+eeanvP/JIOag4Hx1QMWQBeIU9k9lrHWAGoPz
-         e56y31XcQG76MYEJE3QdebP1VIx9cUkbVp6WQdvJPFQEDVh2UObfMxSH7e55dvhLmZaa
-         N6j44nNUvVIqBJtO1vb53BueguNNvib6HB6UORLmXKXTofl4nlAPBvuzZzbHDPj+oeul
-         Hldw==
-X-Forwarded-Encrypted: i=1; AJvYcCWl45bTBTyZUHbjct3GKYte7NJkFPMqKoC9GbAGpPQt+9XBnzt22DCDIBntqwjcPjdg2EGBH9fuxzf9O2bXqyIS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzRtVu8Dt1Z1cG57xJoFSW1svcPP6ehXBgjn9yZ3VGN7xzqgK1
-	axVASY6Qo7G+V/j72FExBUkY2ubNd4SLUI2VP2hWVU2ciSEvJbSsf9sT2YCbTmHrmw==
-X-Gm-Gg: ATEYQzy6/uVP9Zkx2osg73mqZ5pdo0J0EeOc42fg3gKxLlNwiIqrcoJ/JuvAGkdACD6
-	giZv5ZPnupI2x/Pi/O4YdNQsU1FyIOFqOUggQgcvg4GebrE0+c0ngMbvGtJEnIETTSyxdpomRva
-	E1Lg+TUIA22p1D7oSbWhNbg9f/lPgZcIpcN8b06fmGXd9lnpm0k6IX/oEcOqmQQZ7Bn+41J5+hk
-	WlLe52v9azyI0SKlsX81gT0IiR6FIgL4qZqpStafbYRq4w0LqzN5sCqc+eBsakXRnDwZ0TYl8Wc
-	/hg5f2gKYvm2o6ugozGpjvb/9ARXNWBAFpurKqcAGB7POWtdWRyjyPETtiQEFoZ5WeizuQcKRxM
-	hf0Z5WOIDT5H+kzTVh0jFn5g1LuSWd8F//kW/2r5tL7GglYEexz7ZPz1Yxd90h0NpJEfm3H11S4
-	bbL35TYrNQ5sBe1rLO7bBHRGC4l7WQpPungCY/AvzobzWyCJfziLvTAtm/pc5s+4x0TbXN9SGm
-X-Received: by 2002:a05:7022:b88:b0:128:dfb1:61ab with SMTP id a92af1059eb24-128edc2e654mr30066c88.7.1773270327111;
-        Wed, 11 Mar 2026 16:05:27 -0700 (PDT)
-Received: from google.com (154.52.125.34.bc.googleusercontent.com. [34.125.52.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128e7cb5208sm6853358c88.9.2026.03.11.16.05.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 16:05:26 -0700 (PDT)
-Date: Wed, 11 Mar 2026 23:05:22 +0000
-From: Carlos Llamas <cmllamas@google.com>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kvmarm <kvmarm@lists.cs.columbia.edu>, kvm@vger.kernel.org,
-	Will McVicker <willmcvicker@google.com>
-Subject: Re: [PATCH v4 09/17] perf/core: Use static_call to optimize
- perf_guest_info_callbacks
-Message-ID: <abH1Mkm-MV7fLNsp@google.com>
-References: <20211111020738.2512932-1-seanjc@google.com>
- <20211111020738.2512932-10-seanjc@google.com>
- <YfrQzoIWyv9lNljh@google.com>
- <CABCJKufg=ONNOvF8+BRXfLoTUfeiZZsdd8TnpV-GaNK_o-HuaA@mail.gmail.com>
- <202202061011.A255DE55B@keescook>
- <YgAvhG4wvnslbTqP@hirez.programming.kicks-ass.net>
- <202202061854.B5B11282@keescook>
- <aa8fNT3P54t5W53T@google.com>
- <20260309223156.GA73501@google.com>
+	Wed, 11 Mar 2026 23:12:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2983A60137
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 23:12:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED8EC2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 23:12:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773270748;
+	bh=xBhhGMjdEf/AAt0r3NS/ftcYplPTotkFnhvNtKj38Dc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SDlYxToegILB0SYrOCc9jqf/1RSBM4kCZYiywc+yvo0PxI9+RoNVAj4DlNa1M9zdB
+	 JbiAisvkKUu68Ptozo7g6RizpbFSvjrmMFpld5ALPXF7+yyyIDX2bUTprJt4loOx7+
+	 u3G0/XvR9BIBs9Fk2Ushkpq6aiaE2LdV5eKw/8SWlwEFZngnNOBFpob3QlRRb/Ugnn
+	 Djq8L3fVTWRa/Nk63f0GEHpyX0H322Wc4iQn3RS7lOcxLv6Cf4IkppS38WcrUmiyaS
+	 LktWjYOxwGRLPUXVkm2vT7D9l1/GGrQtV8gLLsgmjOgJyvbR5tFCMTHxvPFBvqG4QU
+	 be8ruiHRA6iVw==
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-509134ab2d2so3730721cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 16:12:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVxiQwVWM1a6GeKK3Xi88z7ajmASSIvZ3KSYUUlyPIvkz4WIdf5vK7yL+66FnUA6FQCtMVtUfV2i6bluBBmqhsd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWZEzhtEiXSlCVefXev+M/0An2B3vdt3KmeMts7SUeGEaG7sVP
+	GE2KJL7+ly3aRUwwYlAAsA94g6Lof+oOp4fn6TcVN1/SBAqmoIGRZEslWHTCb39sRDOrnZNH0SY
+	/vhyzSdd1Va2TloWpOTVXi08jwQW/je0=
+X-Received: by 2002:ac8:508:0:b0:509:456b:52e7 with SMTP id
+ d75a77b69052e-509456b85c9mr21498081cf.16.1773270747795; Wed, 11 Mar 2026
+ 16:12:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260309223156.GA73501@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_160529_685277_B9F5F648 
-X-CRM114-Status: GOOD (  13.86  )
+References: <cover.1772681234.git.jpoimboe@kernel.org> <2fa6fbde8c6bbd91df0e2bf48b9c9370047dc61e.1772681234.git.jpoimboe@kernel.org>
+In-Reply-To: <2fa6fbde8c6bbd91df0e2bf48b9c9370047dc61e.1772681234.git.jpoimboe@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Wed, 11 Mar 2026 16:12:16 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW6-Jeppuw-3dCnS=a31p6uwdQfvW-CDURXh9eyEwHPBUg@mail.gmail.com>
+X-Gm-Features: AaiRm52rdNhb-OMPbVu7A6BSy4A_BsoV676rdnM-RkVREh6ybLEJlmVinm4_0hk
+Message-ID: <CAPhsuW6-Jeppuw-3dCnS=a31p6uwdQfvW-CDURXh9eyEwHPBUg@mail.gmail.com>
+Subject: Re: [PATCH 03/14] arm64: Annotate intra-function calls
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nsc@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,42 +83,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 09, 2026 at 10:31:56PM +0000, Sami Tolvanen wrote:
-> Hi Carlos,
-> 
-> If you need a stub with a matching CFI type for an arbitrary function,
-> perhaps you can do something like this (arm64, untested):
-> 
->   #define DEFINE_TYPED_STUB_RET0(name, reffunc)			\
-> 	typeof(reffunc) name;					\
-> 	__ADDRESSABLE(name);					\
-> 	asm(							\
-> 	"	" __ALIGN_STR "				\n"	\
-> 	"	.4byte	__kcfi_typeid_" #name "		\n"	\
-> 	#name ":					\n"	\
-> 	"	bti c					\n"	\
-> 	"	mov x0, xzr				\n"	\
-> 	"	ret					"	\
-> 	)
-> 
-> For the !CONFIG_CFI case, or architectures that implement static calls,
-> you can probably just point the stub to __static_call_return0:
-> 
->   #define DEFINE_TYPED_STUB_RET0(name, reffunc) \
-> 	typeof(reffunc) name __asm__("__static_call_return0")
-> 
-> Sami
+On Wed, Mar 4, 2026 at 7:31=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
+ wrote:
+>
+> In preparation for enabling objtool on arm64, annotate intra-function
+> calls.
+>
+> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 
-Alright, I've sent out a patch for this here:
-https://lore.kernel.org/all/20260311225822.1565895-1-cmllamas@google.com/
-
-It might seem "incomplete" because it only handles the RET0 case and it
-doesn't export the stubs either. However, I didn't find any static_calls
-for which the lack of these things would be an issue.
-
-I can address such things in a v2 if really needed though.
-
-Cheers,
---
-Carlos Llamas
+Acked-by: Song Liu <song@kernel.org>
 
