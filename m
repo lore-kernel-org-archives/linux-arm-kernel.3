@@ -4,99 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3962112583A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED95112584F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1n477ll3uIr3ftc1SUKSWN3qMH5BQQpUlgTcrO/W9I=; b=TZRiYC4sAhMNgJzazZunQ2eJPq
-	wOsG6tVDSWMg0/PNE7zvIMlfHtBnhUt9b3tTkNoaPHW4gUjlLuLSvPw1IecG5ABK8QXwzo5ObhU8T
-	EQSiWUZpXG9+bbYlEC4vshSbBOhyi7ZM8xtMSnmJ+1wCqak6qZsTt7VDWwETEqizCeMqPsCz2ikl5
-	aytPG3pfY8iKI8VwZ3O9NmjkV3xIrxNig5NRe3HfUqmnD1dCEE8vfrTc4KvZZLWvL6DChHlQMl0/D
-	uKiTQhXoW9rsGM2Nn3iZdvoIwtVqJIifiQ5v1qsXTqXFfNBYnCxfdyQJwKunb9lHrmHFRLuHGfY6K
-	r9QF2q+w==;
+	bh=1OmtM4uh9eAh+G8/NWgv59EnNl2dMal59lnv3oJ/4uA=; b=Wj4GTjCoqR86P2Bmbk1gOyYN7C
+	8VLSU1ECnuwqhY8+3DvgXsIOYzTsDNLTkmRk78nwVQ0Yz4FLfI9Rfx+kmWLuEuS7l1BcaMftLkYAR
+	FN0LA+gkoH/kHqkUqjfjPn6TBl3ctQ1mqZsaDq0DYHFP4zNETJULOf6NiYOsfo2jhgNl8NEKSVX6y
+	w+qTgEpTkMRiS4dvFWEDh4OcGtmnk56VQCjlRAstpQAWAr0T1PCCpqcSShc0jtX3UQ6GZ6SlBr+Bi
+	gsizrRFklcGFM/Cj1tAjW6IVyzxuhVXK2+LykWX4AABu4OG+tAQ7qSzBvOD6YxuUQZzTJ4LJcoWeK
+	lJe8kOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LPM-0000000BoJD-0NVp;
-	Wed, 11 Mar 2026 15:23:36 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1w0LZO-0000000BpSN-2iz9;
+	Wed, 11 Mar 2026 15:33:58 +0000
+Received: from mail-westeuropeazon11010025.outbound.protection.outlook.com ([52.101.69.25] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LPJ-0000000BoFU-1KId
+	id 1w0LZM-0000000BpRy-0rCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 15:23:34 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-439b7c2788dso7715534f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 08:23:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773242610; x=1773847410; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=M1n477ll3uIr3ftc1SUKSWN3qMH5BQQpUlgTcrO/W9I=;
-        b=S4w4Zes/rc78YMCXI1sKgYbdZj26tWtwMr+RLQEgjafwk8QtgFQ1gd6IL4Q0dewQod
-         urREMEbNqeAeq0uWaG3dQBK6BeoPmbCxZ5ijgUx1rmwXt2oFRCM3wgLb0AFkxogUdmyy
-         xxGrKnmke7F+NXxfnLW6ttGuN/izGbBG8W040AL2maI+EANsTJ2xwnvqsARdnvUGGvui
-         3CFvLEFmoN1t3rv3TXIGjkeCV5j537sJBB4bT2C/We+Pu7J9iccnnVSAz/kYjX//GbuK
-         3NsN6Ytbo68zJzj+sQiB59VyQdnqqVl9lJsMZMuHSmJSkM7wc1znJqpsjSTIOaUNzvVy
-         Wzig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773242610; x=1773847410;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M1n477ll3uIr3ftc1SUKSWN3qMH5BQQpUlgTcrO/W9I=;
-        b=JbuHKMA/IHbNPo2qXJPq423vIabaYVXvI7oIoSZ50opzGgKjMo51aDRKuNI0TSeTME
-         0yGo3CaL0aC+pEa1cs/KH08WTkdC/DKiWXhAYi/Fbg/OKPSjsCtfXYCEt8nTmD/ksc2J
-         UTdKkXSDFiTtULb7AqUW4WsElxjA0d4IusjpTC+TvTR23ZttvVP47P5XSBfZS5n/9W42
-         /xiwkFWa6dDSqegN7pd9U/50t2I6WIa6fuEqSOdWHTuMsNRyHnzqZk6qUWZpY80V4O64
-         PNTZ5onX4i9UbBbBN3sYLEON3rNJfRKj6lM08yB06KH9FidixxZ+fuZXDsLe2oHiQQob
-         gIWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWK19zGkE9Vm330GBAep2Wqv+a+cNTb9WNlICspCtTwjmIvdhWDhkjF7IE/jRnHXwUOMJmeiiCa3yFGH7lO+Eln@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsV/gGyic4V6ovnFYOEDNtI11JhnczQZ5/RGZqOirPY0ncuhzx
-	LX2m8dLAfQr1+B0alqnJiY/WQ9DoAxgXwzQ8KcZGg5M6Mld9bPP2Ts9yAeJ2CsabdA==
-X-Gm-Gg: ATEYQzxRVohPZtLkZHjyPm1Msy0oKavlczRukSWKAVgBXehFITXtGR5i8uNxUZQvcIr
-	5SskiR3w0T7gkHjyXXaXgAYcW33/U6sQOJPBr+/syxIM8s3UaHzJefifyyPIoXCJjIe0oNDyRiJ
-	lBejHTwbNxXF8yItT8qu4h0DD1Yqs2gA9YPH4v84vZoay2PT6VsgGtUfsQXjyAhKkAGNJnG/3pg
-	5diKqKJiqVMPdTm9FsX+GA8lO98z68TDGF1NRS6PyNVN13D7wNpTsgTiNymnAUjFHX2L6RtY5JX
-	Jlv3i5aZLmxk5HVQmsELQqGZ/bD6nj1xM6PQfOFItga9kUpi/OiUo7VtwKSSDoee92CI9bmCNtV
-	8s52QgsvbJeEDB5wIwc2NLwLcJW4PgilgnjyFwTbYlnF1Mjq6GK7sLfYFmAUX4iz7VvEXEB1SXo
-	zNEhp0xpELKq9IRLTE4snEJW6GyMqZG4BN+Dl1AVaffDOXwFGqeEOLXMW3MO0l9qUsxIY=
-X-Received: by 2002:a5d:5d85:0:b0:439:b715:6f49 with SMTP id ffacd0b85a97d-439f8415ffdmr5618431f8f.59.1773242610090;
-        Wed, 11 Mar 2026 08:23:30 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439f82078a1sm9543853f8f.29.2026.03.11.08.23.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 08:23:29 -0700 (PDT)
-Date: Wed, 11 Mar 2026 15:23:26 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-trace-kernel@vger.kernel.org, kernel-team@android.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suzuki Poulouse <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	John Stultz <jstultz@google.com>,
-	Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v13 03/32] ring-buffer: Introduce ring-buffer remotes
-Message-ID: <abGI7kzhTHl-MyHv@google.com>
-References: <20260306143536.339777-4-vdonnefort@google.com>
- <677c7ad6-6e67-4011-b2d0-03d0d58547ce@web.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 11 Mar 2026 15:33:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OSp9o2hOT4PPrgrRTg9WXM5LSFXa6RvK5etnJdHDEm9hQSosQMRA51AvGsLDe7ilL0PCGPyDDiu+7gGZgkWpuBRJ4KTVM73Y1cNnsWlYRnTb+7W6AwOaDjRY/HX1v5NzZbcebJWZRx3ZlrfZGoDApBsoS3SH78gMKo0X2Ks72X5ZIXrkVBAI2Z9EVH8sUs5lXlujS94/b5M6QldUbSczJWb8b0eRNxG9DGQTs/KIyHYuYojS9T3YEMgd8hW1I8rnb3HtrV0BSStf/c2tySADezBO+CnimaR2JYIdel4A8+vJk4xjgtZorOjfROkjssl6xyF6VH9Jf5/SMy+S8dQEGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1OmtM4uh9eAh+G8/NWgv59EnNl2dMal59lnv3oJ/4uA=;
+ b=jnUemo9qMhE5R5kYa7j0sA5GEgfxaDLgLXnwj5dgcGG75Fpv+2Nx1Loq7XycYv9YzLlw/0vZfxkyfopFvG6KGMPxpOZYHCuS0ondBEtQsuCghEJV2RlXOM7ASAIm8zcKMf+yT7ZqXukn2B54028XZToKIw02HhBZesJfdMKq5KMPVRao3Qh9JX4Ol/9iuklHN6kO9U8w/rnJb9ELGsLmuHZ8K6zWnleV8Wcb28bt9TVlCXVkbVtC2b5uY64m5IZ7Y3xTYIr5w85DobHbn0zb15qwqyggU4qdeSn9IBXxEi5sUodY/IbhYaX4HCOuzkyaOhoed/rUgqiBgBV3bjHNpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1OmtM4uh9eAh+G8/NWgv59EnNl2dMal59lnv3oJ/4uA=;
+ b=JL5RFrmqkWQNa5glpNktXdSfDfKBeWCTlDhuoWKmQOY1BvcvQdyRhY1gycW+G0URmv1yMkql2nuV1U877ElgE/w7Tbv2GWV5CPk0E2NLCce5FIVfSCzipYzds8/5EK/gsTORm3KrsPQczyrUWLwEkqH4ioA48wtQoOWIWyj55oewoHHobNNF4xQIeCcaCpPdBceJVCJBDLQzIuqLUP8VfAuEwoJViXSruEy0HnnfbGwXT2QlezR1nPZ8b6sXeb8UWubookmbUbzZdx3+EMD6lxq+QC6WZmKql3V657dWdq3CYXXnALuVsFeTtVCGmQsj08FirSnvKZ8mpzU+mKkU9g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA1PR04MB11382.eurprd04.prod.outlook.com (2603:10a6:102:4f1::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
+ 2026 15:33:48 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Wed, 11 Mar 2026
+ 15:33:50 +0000
+Date: Wed, 11 Mar 2026 11:33:42 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexi Birlinger <alexi.birlinger@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH 2/2] media: nxp: imx8-isi: Prioritize pending buffers
+ over discard buffers
+Message-ID: <abGLVqeJ1C4_Fyhb@lizhi-Precision-Tower-5810>
+References: <20260311-isi_min_buffers-v1-0-c9299d6e8ae6@nxp.com>
+ <20260311-isi_min_buffers-v1-2-c9299d6e8ae6@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <677c7ad6-6e67-4011-b2d0-03d0d58547ce@web.de>
+In-Reply-To: <20260311-isi_min_buffers-v1-2-c9299d6e8ae6@nxp.com>
+X-ClientProxiedBy: PH7PR03CA0011.namprd03.prod.outlook.com
+ (2603:10b6:510:339::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB11382:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3422022-be5e-443c-8d6c-08de7f83980b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|376014|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: KLvtrLi+6KhAXKPFvOkcIycSnF4RSBXtWB3CJyQauCNzUXwJxBUszcL4fSLMWdWiH37O66i0+LSpf+Nq5Q4anUCkZWgZfdTWMmoGZ8Y3H4gDLLFScOpa6+2j13PoDaD6FbB+WdOrau3PtkqQMBzpITHKzXJx+636AEEbgR0g7BiZ7+61Fnb+0GKwdh3BwPlf/FMg0oUOJ3EHs1sOaqGLrve3z6XB5jMOCaG66d7bPa1yQ2FSzFNaE0J7cr6lD/xVm34R9D7VaE+YK8Jnhj05qQgY40g5hxlzbyQYn7EV4DcXOgyJBIsOkzUzl6a9A9DojDaK5Za4E1FDq2UpgqX33fv92olEkUFTHFJIX1BqOEG8ctpc6l1OfdiAqgt7waQs70dbmtLilnU33PtJTBjjCLqqnpNO6XsRGjk71R9QA54jxg+p8edAPeSxx5pDSN2pTTdNCtN02Cbpq/26mJV53KeesXpOpLf5DIze4dzaZpYLZgWs7SjCAKSN7tv7eLBkEsr3trj5kYIFyiJ3fx/DwNMSoucxs225QY4zKqHRvg8LmWPEcw2VnHKHJ7vVLLqwQ5t7bzj5qEjrq503ubWDqs/YZMJw4P7x6sZhdMI3YlO6Fc/5Pq3yOxuT7MMsRVvnv+pI3LWBvBWprOyZS3YCq+ETzbes42U5PwxCdBgKGyHmJYyEal7PN8921ghMbm70bwIIDN3Ujj884gDg1wx0uyorwmpuTm1Ul1aYeuzbAu9aUi+wRftzSWmYxY7WvvClUlhSYA4LAkWAM+8p7e8AOYy+kH8BS9eFZCih1KyHYV8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(376014)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZsTz/eu1y6zvGkOSJpneWxDmC1dj0Dep8EOpMEMCuYBOXQupke98YKWt6Z1v?=
+ =?us-ascii?Q?/ZTUNUy+WE6wp43Sbg2BTgi3B0CZV/amyeH2KU19fXMVHU0pTxM71gSxCi1c?=
+ =?us-ascii?Q?7kmjBopvUkXxIA3J/EJWVlirxJzwTx5QoTerrgYbyhIZ2NF19dfVrLuteYWH?=
+ =?us-ascii?Q?NdubDhJqRiu95CagYMfLAO8QaWyBHFMbld4ZZzhXLRTwsyv5spB696wRVqZp?=
+ =?us-ascii?Q?2fSruuxRXflTMFgVLDE4pqmhdGtuw8YgptL1wgmdk0R4WtlqUnr/0SOvK0o/?=
+ =?us-ascii?Q?W3nvnCJpSLt69offY+TlIbSLP6HfNnHsENjywaNAjib4fhdGET7vuTGHBb0V?=
+ =?us-ascii?Q?rLd05JG6bsFV0bAETdfpVMNF780jSiVf6sljxMkeufisAWp1rdv31IqaJlKa?=
+ =?us-ascii?Q?IbZ3uymwEWeOyckFNtlRQ/CuvZCL3KeahAdgKuRpMR+jPLkQhYB+PYmY79xy?=
+ =?us-ascii?Q?KDVhl+gR4JK1FBVjHYHlcNZriHFbWAPtylXSg8zMosKbMUpLBq/I6RMk6JUg?=
+ =?us-ascii?Q?vU6sdDgIkEKJi/0lDe3ho+TwQJuMNmgzENwMy4bJf3/x0xVxoo8xn05SkYAW?=
+ =?us-ascii?Q?fDE78Tt3r7IY2SLgX+xt+O5EENrlJNCrKnBkjApXPjXtBplxBISAm8re1A1V?=
+ =?us-ascii?Q?sIvVUrNqBkLutMF9mvhzcXSeg+8vD2ELYBaJ5ddcEP88RxpQ/GgIRy6u1zTX?=
+ =?us-ascii?Q?Upz32QdFhrbTwGChi1Lz9d6BI6i8Vjh+ShD9ChO82ts/6EMlopwMTzDgCDFN?=
+ =?us-ascii?Q?GcqUnEXi9rqjNJBI65El9YwH+Ags0T0F3LgxeKs2vbyO0oAW1j9/6zHpze+X?=
+ =?us-ascii?Q?ZVrPbkO0NU3oH7mRSheHe/aEKv583LI7sW1At/HR3/Hw3YrkO8jiiMnRbqF8?=
+ =?us-ascii?Q?eh/N8MuQvbXEla9NU8O565RlFma0v7aGAIjeDKPTS8up0AkroiqO+uePHyRk?=
+ =?us-ascii?Q?iUz158YNxKZ+mIuk19SvjgHblvO41eFqc03FkFsDMFWGVTGbIMJxIkCeepRB?=
+ =?us-ascii?Q?JHaeBTKZgae+GkH1ouvVy1mPt+s7XpQzXKe6X6hVnVQIM2NqbxPBFJqse4tF?=
+ =?us-ascii?Q?hIa8KzME38fZHK/dMKWt3ovEhAtGcreCH46uq9PKYUtg9KAyeSJ9F1eQxlzC?=
+ =?us-ascii?Q?auoVw1Phwq9zduq3RMDLpnWbXvRCM/KaTjV7nrXHhtFxpKPsYpVZbYUv2Vpv?=
+ =?us-ascii?Q?dEkSDJ4DnHmcZ4e5aHTE8tXyt1QUnn/SmScDRnMBx3rr9vI4oNhGjR/vmsUG?=
+ =?us-ascii?Q?yufXh1p4K7Nx9FR7PCMlOQ4xQ/YHZ+OcVCzAhk3xIFc8pw5lUTWdGgr0lpvN?=
+ =?us-ascii?Q?ZufI4e5s+jmcdlM7Io8ojzrgDpb6z5h4DSlLZdl62C+Pxq36ML5CGOd0Q68V?=
+ =?us-ascii?Q?HOOAn5JelPjPD+Kz2TA2T5/vK9HMviWLsLi3SuUrE4ug9+uKEQFPhN1JsegH?=
+ =?us-ascii?Q?HYJcuAfqGfrtpIlrk0C0s+vBi+yUIzUIbPv+4dRuF9w3gSKPmOnyCwIpnoIl?=
+ =?us-ascii?Q?8xcrwYPM3JdXHJ/WGl4ya2t720C/v7gWbfJyPWxodKHO4HMzhkvVz1V6iTfH?=
+ =?us-ascii?Q?VW/Qn7x3t6v/4MTMm7iNxuj78HJLbmUW0sZ5Zl7eTYVu0vEzpUHwZkwL/ddb?=
+ =?us-ascii?Q?bWipm6onrGOFn0PIzXK6kLoGKVO497Zg9Xz0cxr9GqxcfNnPIWEnNPLIJk+w?=
+ =?us-ascii?Q?8bru5GZtD/mlLW8YkT9B7twJFPYhMwuH2Rf25X2xXw6vE+b5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3422022-be5e-443c-8d6c-08de7f83980b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 15:33:50.4476
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zDkXu9t4GME7ydzdKqnt2UlmZ8OMzovGEWWPbJFptyxPJR22132hFpngWHvP0shzXNFby3c10LQsb3E2J+qVqQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11382
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_082333_401451_123D6A4D 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260311_083356_248274_B8FCEE70 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +143,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:37:35PM +0100, Markus Elfring wrote:
-> …
-> > It is expected from the remote to keep the meta-page updated.
-> 
-> See also once more:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v7.0-rc2#n94
-> 
-> 
-> …
-> > +++ b/kernel/trace/ring_buffer.c
-> …
-> > +int ring_buffer_poll_remote(struct trace_buffer *buffer, int cpu)
-> > +{
-> …
-> > +	cpus_read_lock();
-> > +
-> > +	/*
-> > +	 * Make sure all the ring buffers are up to date before we start reading
-> > +	 * them.
-> > +	 */
-> > +	for_each_buffer_cpu(buffer, cpu) {
-> …
-> > +	}
-> > +
-> > +	cpus_read_unlock();
-> > +
-> > +	return 0;
-> > +}
-> …
-> 
-> How do you think about to use another lock guard here?
-> https://elixir.bootlin.com/linux/v7.0-rc1/source/include/linux/cpuhplock.h#L48
+On Wed, Mar 11, 2026 at 04:02:59PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+>
+> Change the buffer selection logic to use pending buffers first (up to the
+> number available), and only use discard buffers to fill remaining slots
+> when insufficient pending buffers are queued. This ensures user buffers
 
-Sorry, I forgot to reply to you. I had to respin a new version so I have made
-the changes you've suggested.
+Nit: Ensure user ...
 
-Thanks,
-Vincent
+> are utilized as soon as possible, improving efficiency and reducing the
+> number of discarded frames at stream start.
+>
+> For example:
+> - 2 pending buffers: both slots use pending buffers
+> - 1 pending buffer: first slot uses pending, second uses discard
+> - 0 pending buffers: both slots use discard buffers
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> index 2405baf21594cd18cf2b349234313c5e103b7802..53f4f74369f7855fe6b6f372294ee569f40a8ae6 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> @@ -786,13 +786,14 @@ static void mxc_isi_video_queue_first_buffers(struct mxc_isi_video *video)
+>  		: list_is_singular(&video->out_pending) ? 1
+>  		: 0;
+>
+> +	/* Queue buffers: prioritize pending buffers, then discard buffers */
+>  	for (i = 0; i < 2; ++i) {
+>  		enum mxc_isi_buf_id buf_id = i == 0 ? MXC_ISI_BUF1
+>  					   : MXC_ISI_BUF2;
+>  		struct mxc_isi_buffer *buf;
+>  		struct list_head *list;
+>
+> -		list = i < discard ? &video->out_discard : &video->out_pending;
+> +		list = (i < 2 - discard) ? &video->out_pending : &video->out_discard;
 
-> 
-> Regards,
-> Markus
+Is (2 - discard) the number of pending buffers? put commit's example as
+comments here.
+
+Frank
+
+>  		buf = list_first_entry(list, struct mxc_isi_buffer, list);
+>
+>  		mxc_isi_channel_set_outbuf(video->pipe, buf->dma_addrs, buf_id);
+>
+> --
+> 2.34.1
+>
 
