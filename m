@@ -4,91 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB69112584D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EAA112584E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQt+CoV07J8tIqkpQRNCsaPJxxDfRM/yGjNi47TlBAQ=; b=BFrb30oAFEZIMcy2+39Drcxr4p
-	4SgoOnZkwHs/5fJqfIus886Ic2GDfacBcO6VwGJp8V8GuYROGUUUYt5Vi5FFPexKEhAm9u+NEZlVy
-	6ZIH9a4nofaPFbV8P7x/SMzBU/ZwP5kfE49S5iqJLKRUNm4/jsC/oXWjui5W9S95n8wMGOKCErPlm
-	nRpiMSZ3aqgbKrpFgtNjM5z+5+8UVu+yjf3vufMWrXlm2mGADWVDxP/Lh517eSrmR9CVVJmoQA7v8
-	ksJzYyv2cp7Ub7ErqqTTGUgcvnhdSrF3oXJD+3QsABRnNa2sriy+fhBhk9NK2oMM3M8XaTZOWUg3t
-	bJpqUxDw==;
+	bh=onxXG+Zr9BA7yXYUonk6QHXkJ5B3p8LwOUI7KCjGbbA=; b=EtEH4o5BAMMIlJFvu+ju49pSCD
+	cplkaZJ4RF0ZHzxX+nI1IIJZez6vV9fodoj+jaNziD3rcddVUfEB4gihsRA4+3CG3k7NGV/mc5gYk
+	wAwvCupEplYHX2K5QVIU/pKWKRwIKwoWtetJr64/q5vauZ+5Xc+a91Oqs/qP4E+TzV6O7Lw5OFn+d
+	IySrRUe3djkmpknKYvhxjW23M/Sef+/O6m17wcPEZsE7DYz+50pcJcEdn/FFN157W4QN40b+twyaC
+	2gx7GE1zj/GUqlx5f1TUtxMWo35WHoM6wEfUQy0q+EyUqxR8n1+v+VeVU0JZrjYz2AkErmq2gjNHl
+	qnThYf+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Lgr-0000000BqaI-2ueF;
-	Wed, 11 Mar 2026 15:41:41 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1w0LiU-0000000BqjE-0LZg;
+	Wed, 11 Mar 2026 15:43:22 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Lgp-0000000BqZT-2fNj
+	id 1w0LiR-0000000Bqit-3mJr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 15:41:40 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so73865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 08:41:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773243697; x=1773848497; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQt+CoV07J8tIqkpQRNCsaPJxxDfRM/yGjNi47TlBAQ=;
-        b=lymPV39LlgKGLmQqL2b/S22s9JFbKNkPUU+1Q01/prwmbjKgZfBMfhDFV4IuFQkWIq
-         8gOeRLQwSaV9ZUG1qNbfI3dwQmJJ00+Mb8FPp4kGFYjyY2IpN3+qDQdms+DePDHByrJ2
-         f+Gn98aPMYclQJHhmXc8c68owVPX4/A6JUESsDkyd/FLJVitNsMbejVGThEBK4CtkXKQ
-         n5Hv6742TR0RGNVuKWJMJCbcOh/Te9OXhQyjjOm48fUmKREfhCHZYBXTHKQJSzL74nw2
-         eBQcBBlL6NmtNXbiizih0kUXRo3XXFGVPGB3lEjnF7lYrudc40cAmAlUgn2Bvi/lEJCz
-         uDXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773243697; x=1773848497;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KQt+CoV07J8tIqkpQRNCsaPJxxDfRM/yGjNi47TlBAQ=;
-        b=Smh+n2gqGYjBQaPis74vyB/0lK14YYsCduD1409pvIBt+9E9e8PNSaY9o7MfDGD3lO
-         burkwH6bM7eQ+D3RodymxlCJR/dnpXqjsieFgua5RbuipcaIvd9uUfUNlkAvxNLQQxHs
-         rBtvN9MPr6P9S8UX3HGBI4VPVdiLF1TSOfPVXURSlMfmBfxF655R76/PelTDjMZDNYib
-         YxG5RN64y0hVsfjZGmDH/sGjY3qj+IKA7kFhvLyhvrRbgjMKoXs3yk888RRI6jTgewSg
-         w3Z6U+uWbZZcvwB8y3rCiMlYP/8Is/7XeTftSFGkWra00jc1MAFt9RHajbKzwxP+2bZg
-         E9eA==
-X-Gm-Message-State: AOJu0YwaA4ZuC61oU4yBXTaBw/EKD3/jV8jPkKx9ssnQCbfZWO1sBPyD
-	F3CgXc6tJmSeF8cNSijiTzYy1jSGGbPcWDPnm7IIGjudlt0VcLFvI7wBWaAYVjWG9Q==
-X-Gm-Gg: ATEYQzzSQPr0Q4PNKNPOt8BFzZTU/mw+Aw2Gt4g1uGan4uHS+TBZuiE/38Z69GcCLs7
-	iNPNmrIRDBOSrs6SXfNjp1lQTJArhWvnpKwSkv80gESvE5Vo4czq6ezwzdBZcWDtfDpAZ0g29pu
-	AHIbm4vhYG2e1+YCH4kSANcj2o3and8tewQwaEiZz2zWUoMF4B7FfooFN7/M1mb1XLOaKNlfPFJ
-	uzZGC3f8in2gnCW5n4RSme1b9nAvhP/1UdswZpiAZHyY2/FJw2zw5T7bKuUuh16dvX+/YE4iy6M
-	nDK7J7Tyh3SIN1GTmPmfViFLDNmm4mEzUJzoWINg53WQjHcH6Zdqt/X4VY17kz9T7abDAKyIMfN
-	PgFNk2xrAJV6V2UCXIrIxbXrtV21tQoBn2LogGlqh6xr5w/opMTCPJRU/cV2eNHAvz9lHNaUPaT
-	YMMjX5zgJtJuiTG9xbxVgt0Fh0FdOivn9K0hj7PgeZ6JxX/+6erDWGeacfqXn369BsxnQ=
-X-Received: by 2002:a05:600c:5593:b0:485:4f11:aac5 with SMTP id 5b1f17b1804b1-4854f11ac78mr81425e9.15.1773243696310;
-        Wed, 11 Mar 2026 08:41:36 -0700 (PDT)
-Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe1abf84sm50479f8f.14.2026.03.11.08.41.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 08:41:35 -0700 (PDT)
-Date: Wed, 11 Mar 2026 15:41:32 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in
- debugfs
-Message-ID: <abGNLOfKLcNGYcxh@google.com>
-References: <20260308231829.864983-1-weilin.chang@arm.com>
- <20260308231829.864983-3-weilin.chang@arm.com>
-MIME-Version: 1.0
+	Wed, 11 Mar 2026 15:43:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HPNJ3d6wXFZpuM7t57W2Z+g5pTCe1p4MyfBu422c6QiIx4k0pTphPP/WETp7EZAv2n1Q2QtBeQjj6Tk0I+hIxhWxTCPCYhRerU/N3+YPJ5URB49DZ6WD0zPywmBp4LctigFivW/KFR/iPf/BegPU9SJ2WrY4xcZOpuhPOnLQIWgu81pq9gsxgGWnFwV3ruOVJxVAjphy1nJbMZ3cQl1znGQSXrDgTs6f6b9/MbvlyvQryyudi/0/8WjHstku4vbdxwbBBCctdMrtQmH9Y1aH2vN/Mkten4iQGE9dUh0oVKA8DzKvlEAWirxEaI5IaieoNhaCWswpcSAsdRsl42mZEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=onxXG+Zr9BA7yXYUonk6QHXkJ5B3p8LwOUI7KCjGbbA=;
+ b=FW8n5NMVj4HzUGWl2cJg6gRwzmnHgva3sEDjdQCpWsG9e58gyvn3+Lg31QGl0jAFoG6bRdYTLr5kktLOQhag536mC1JHwBtWT9V2o3AZq3a7ao340XRSlAhOYkr2wF3pJnbw7qcqUI7zXVrqksGlQ8Q1Xd6SIqk7tbNzX/jYDpNPAmLK+pFTNe3AZHVKFoRgoNoVL2CqlktQIBIQQ8GZ9FcBETptvZJ7r6Sq7Qp6yTdP2ePsxIwTL2L6nGW32t3WaJ4CNz7FgLFfeP2VAicp7NMpsw1rzKKFA39Wxew46ctoo5uhtuErDN33/Sv9MIfh8AfCUeYDPYkOulmM/v/H6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=onxXG+Zr9BA7yXYUonk6QHXkJ5B3p8LwOUI7KCjGbbA=;
+ b=H0avACVI1gkxftaFYd9Ljqfdw1Cvo3o9Dn02OiARSEhWzABThQEJkSJGHBj7SM/ws/al9XopFzx+KUrxCCuzxSHvEqZRbmwqI8IQUD8MmA4v6WCH4KENPz06pB5Ia67tXgFFMn89qIkSr4krYDQDmX238jcuQmb96A50YpR6zKDfYorQ0G3wY1NWvps6wRLUuvjGdItWYkFOwolAck7c2hfNUcnmoj+VVzJmI6++KS9y9/awNXcwz3OuCLAgwVFl5vqQOduvr5g4lOMYssO7Vrg3Y1RJheY5PQJu/OGSTeHPvnh/cD5sCotiUF9WnZ1cfX0J8HmP/0TjkK4yEq2h1A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DB9PR04MB11664.eurprd04.prod.outlook.com (2603:10a6:10:60c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
+ 2026 15:43:14 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Wed, 11 Mar 2026
+ 15:43:15 +0000
+Date: Wed, 11 Mar 2026 11:43:08 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Daniel Scally <dan.scally@ideasonboard.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] i2c: imx: Don't recover bus when arbitration lost
+Message-ID: <abGNjJnf40fqPz4s@lizhi-Precision-Tower-5810>
+References: <20260311-i2c-imx-fixes-v1-0-e625034d8202@ideasonboard.com>
+ <20260311-i2c-imx-fixes-v1-1-e625034d8202@ideasonboard.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260308231829.864983-3-weilin.chang@arm.com>
+In-Reply-To: <20260311-i2c-imx-fixes-v1-1-e625034d8202@ideasonboard.com>
+X-ClientProxiedBy: SJ0PR05CA0170.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB11664:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21da9445-7a7a-4611-ce2b-08de7f84e8d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|376014|38350700014|18002099003|56012099003|22082099003|7053199007;
+X-Microsoft-Antispam-Message-Info: UVoooBt1TDvhdrr01gM2qUsoJT9rBfJTwxnqDjC5gBiiqiUX20FgJ9AhdqY65BMkqvOlzpWnS2FPaYxrXvnawFIH752hRTC1KoJ07AzTVmmd4pXiIY1wJoZGnkMXo3cs9Gg9GghYKB62c9QGCh3OLk/FYL/1BETRT/2Wow0rFCM4BfsQIJicY/1Ism02B/4jTMG4Joy1r3uukozcdsK79fFwlJddZ6J3GaLYse4xh3bb9XiBZ4xJVvSvTiGJyFe0W044cyK1ez/WASo2PY4LXBCiiVFiFmhf1NJAtqW2nbVRqnhy9YKz4/vcHyduiJo/G1RxhAjMdmjoIQoo3ugxKn20Q0bDrXz3ECAb44k7HyNT+i2rNurEQjlWEJJVumpaet++KD6eEuMZoAyR7qT9Q6zRKPkipmXQnIqMe+KoHSdPikfkwBy6uysZtRfM+cJJL+TEg3fFTrv3NzNS6yhv5kE/R26ra6EWWluwKN8GEFqgYlluyH7xFmULaudkPdyniGEiY3r71mOhCG/EnOx+qyv9XpZJUwCDdeJ4ASok3D9vDLmJnHh7e4W6e/DRX5CC7vB2rEFSMznQGn/EEfH+COQW7rLX6iy6aO+yRWP7p0CM3j5n8qsezFjDtNF2WTOS4Nw1dPSC1x4NZkVAXFhZj2DX5QNXG0qY6NEspswFyNUMlFxquiHDxvtoeK9mqs3PLkjrdEANWaP6dldIRSf8IPMNtShIqFcHbxdutQfZ+nhzBPy+LiB4PUVnUoFsIT1hxIFFijbNEl5hJuuOhMT8ubNzafkzVN4Acztk9Cm446c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(376014)(38350700014)(18002099003)(56012099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rw1y2Q5twiUq5bJRmM6eFQmoW+cQAwGrnK2ej1EWfH0WkqeoIgXQ1/zDO3AX?=
+ =?us-ascii?Q?njq4ucnggEB+M809sVMOx5zDf+2iSdAOHHQH1aFviaECimcLHwVEoG1bgvQa?=
+ =?us-ascii?Q?59Wt4YC1ykPEPYjWGuwJHSY5KeKWlR9ZOZiwB13Tsab4IcHxSKWBFlh3Y2JF?=
+ =?us-ascii?Q?LJuHcxwmaBj+pV/7KpAwKgxHxzC6gMCNTaCJYGI2vqnk5S6zy+FdPxGHIMIZ?=
+ =?us-ascii?Q?UymbgKwNA2ClDVOa9MnyN6BHFN7VOS2GC9Fod9K8L2PruFAQtsVKe4spw8w/?=
+ =?us-ascii?Q?Fjao0j9R58fLFV8TBVcvk0UJsNmMKcvjgFMd23FeL5rjRmYsgaTkggdMKDap?=
+ =?us-ascii?Q?BV/erfIig6yPOhyiPRnAT3t2gptlWWee7mCxQN3q3CPYYNISJrem/QFzGjxb?=
+ =?us-ascii?Q?f0+rGHPZeJYVgIQoZEHwDKvXf+jJ+gStL+EIZfO5B2xziuqYKMPhtnZRVCB4?=
+ =?us-ascii?Q?pVRT7/Gx49utuf6p6IY4GlxuiRQqjNl8+63WjfNxUGudZN6yxYCqpdK0BJvk?=
+ =?us-ascii?Q?DY5Rz8X4MYuksgslqawHBVDgi4w7G8DeW5I+u082fRQKCYDmNgzeJ0Xqcjw2?=
+ =?us-ascii?Q?tDsolRA3fZ3up8RnOi3s2kMBR0pgl5xeQKr8yc85sAWPd2VVW8dsNvgXyMtq?=
+ =?us-ascii?Q?14WdMb72rYakycNlwdlLnHCVtCigwB0rxaVIq13IKSNQAG7ux6m421iyAxzw?=
+ =?us-ascii?Q?+/r9PWMc/04jYTeNXIfrTUgryVzwad3igkAGnO1STGjbjJhYZAqhvX3fk1GL?=
+ =?us-ascii?Q?obFEgezse1wM3HlqpU+cEzpheWXFD3EtOEx5o73OYJ2wieSEmRpdWGBkER6z?=
+ =?us-ascii?Q?pVLFqMWsb3hClRKxKNmMNSsWVLB/CjQuGlR/juQfvjGZQjdwHYIGE10U5Bmw?=
+ =?us-ascii?Q?HtaUUnUVBwirDunuuWISp083c4djN8r1twSO6pLUPtYFBH1TlDbwo7hq+9xo?=
+ =?us-ascii?Q?7kqgvlEl4uFK1dRn9WNh8T/X58rY1oTx0OhuTW3FMhH8d2uQku6kFPyOF1zc?=
+ =?us-ascii?Q?Uvxj0yGxywJlLqsFvy8Ov20mB83zgr4SDCuVyX4vaMLfqd5j6OqzUHT1Jjcy?=
+ =?us-ascii?Q?IE+G0WhMuz22AS+wC5PEgw0TmLlk9SRui2kKCVsjB8csvLaOId7F9p486xJm?=
+ =?us-ascii?Q?rUncZhFZkt4hflU2Tnb+UsWSZC2B9oZinb4kOErIqvZZnHWdBdanv84DEZ0o?=
+ =?us-ascii?Q?JDKjK5O0d8ZLtVvEH5fz7rjJf1SOeebu9OI3dCOZBxHsYvOwlAW7PGFi9O1K?=
+ =?us-ascii?Q?7qsQSE6dISQWvA34CZZwkdyFHo6BtbKK9j0dlR7el7oWcmk/bWLyWkYYvI7T?=
+ =?us-ascii?Q?fT7DfiOqEjOr1X3jRvFqdGQmCasGgcZyrz8CsGhMhctbfYw+D9M6YjRjuD8/?=
+ =?us-ascii?Q?eQnRC4VAObPS/iDE6D7Ac+LP9YUQoie8H4iAFZ6U9qL4adWvcL6yfxYR4f5i?=
+ =?us-ascii?Q?FtPzgc8Xnl7/Ten3cJWS7HVR9OmCSLlSQmXzDWNHQWWbZS2EYCV5ARAOUCET?=
+ =?us-ascii?Q?MV4gvuipSxbOryvdZr242t+Eex2OwKEMvgCwrqFDwIzpl/6rJb2pB5bGsEXV?=
+ =?us-ascii?Q?q4JO201V/2/2WIxGF50PkxU7QoYicm/17J9VSr6Kb9Kls95tcLeG86IxkbiB?=
+ =?us-ascii?Q?QKCge+NfTaXKM1aU9yEhJWZCn+4/Z2MdNZ+IMnsx0IvIBKqLChFkOi8zCyB8?=
+ =?us-ascii?Q?ir0qHkHlqCpX3cLdbiMTt4CjJCXyAQO9Hq0dDv9J9B47N+N8OUN9kOnL+KqH?=
+ =?us-ascii?Q?n7M+UvRyag=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21da9445-7a7a-4611-ce2b-08de7f84e8d9
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 15:43:15.4001
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cGAuzj8docVkZdYANBJImXEyKUX3UXJfDWsljvj8DxUu0xP1szpAQznq38DUXyY6u+WayJzaXbPrT7bMR1irgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11664
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_084139_703217_D435AACC 
-X-CRM114-Status: GOOD (  31.52  )
+X-CRM114-CacheID: sfid-20260311_084319_959395_E5E11D31 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,155 +139,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
-> Exposing shadow page tables in debugfs improves the debugability and
-> testability of NV. With this patch a new directory "nested" is created
-> for each VM created if the host is NV capable. Within the directory each
-> valid s2 mmu will have its shadow page table exposed as a readable file
-> with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
-> creation and removal of the files happen at the points when an s2 mmu
-> becomes valid, or the context it represents change. In the future the
-> "nested" directory can also hold other NV related information.
-> 
-> This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+On Wed, Mar 11, 2026 at 11:47:43AM +0000, Daniel Scally wrote:
+> The i2c-imx driver runs i2c_recover_bus() if i2c_imx_start() fails.
+
+> One of the failure modes is an arbitration-lost signal from the
+> hardware however, to which bus recovery is not the right response.
+>
+
+Supposed
+
+One of the failure modes is an arbitration-lost signal from the second I2C
+master or slave devices, which is expected behavor. Specially two masters
+try to control the bus simultaneously.
+
+So bus recovery is not the right response for this case. Add check -EAGAIN
+of i2c_recover_bus() to avoid wrong action.
+
+Fixed tags here!
+
+Frank
+
+> Do not try to recover the bus if it loses arbitration during start.
+>
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 > ---
->  arch/arm64/include/asm/kvm_host.h |  7 +++++++
->  arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
->  arch/arm64/kvm/nested.c           |  6 +++++-
->  arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
->  4 files changed, 43 insertions(+), 1 deletion(-)
-
-Hi,
-
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 5d5a3bbdb95e..f88f6c4d646e 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
->  	 */
->  	bool	nested_stage2_enabled;
->  
-> +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
-> +	struct dentry *shadow_pt_debugfs_dentry;
-> +#endif
-> +
->  	/*
->  	 * true when this MMU needs to be unmapped before being used for a new
->  	 * purpose.
-> @@ -405,6 +409,9 @@ struct kvm_arch {
->  	 * the associated pKVM instance in the hypervisor.
->  	 */
->  	struct kvm_protected_vm pkvm;
-> +
-> +	/* Nested virtualization info */
-> +	struct dentry *debugfs_nv_dentry;
->  };
->  
->  struct kvm_vcpu_fault_info {
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index d968aca0461a..01e9c72d6aa7 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
->  
->  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
->  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
-> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
-> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
->  #else
->  static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
-> +static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
-> +static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
->  #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
->  
->  #endif /* __ASSEMBLER__ */
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index eeea5e692370..31d74ed8449e 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
->  	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
->  
->  	/* Make sure we don't forget to do the laundry */
-> -	if (kvm_s2_mmu_valid(s2_mmu))
-> +	if (kvm_s2_mmu_valid(s2_mmu)) {
-> +		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
->  		s2_mmu->pending_unmap = true;
-> +	}
->  
->  	/*
->  	 * The virtual VMID (modulo CnP) will be used as a key when matching
-> @@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
->  	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
->  	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
->  
-> +	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
-> +
->  out:
->  	atomic_inc(&s2_mmu->refcnt);
->  
-> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-> index 98763b291956..3a70f633fc8b 100644
-> --- a/arch/arm64/kvm/ptdump.c
-> +++ b/arch/arm64/kvm/ptdump.c
-> @@ -10,6 +10,7 @@
->  #include <linux/kvm_host.h>
->  #include <linux/seq_file.h>
->  
-> +#include <asm/cpufeature.h>
->  #include <asm/kvm_mmu.h>
->  #include <asm/kvm_pgtable.h>
->  #include <asm/ptdump.h>
-> @@ -277,6 +278,29 @@ static const struct file_operations kvm_pgtable_levels_fops = {
->  	.release	= kvm_pgtable_debugfs_close,
->  };
->  
-> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
-> +{
-> +	struct dentry *dent;
-> +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
-> +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
-
-Can you hide the size of this definition behind a macro ?
-
-> +
-> +	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
-> +		 mmu->tlb_vttbr,
-> +		 mmu->tlb_vtcr,
-> +		 mmu->nested_stage2_enabled ? "en" : "dis");
-> +
-> +	dent = debugfs_create_file(file_name, 0400,
-> +				   mmu->arch->debugfs_nv_dentry, mmu,
-> +				   &kvm_ptdump_guest_fops);
-> +
-> +	mmu->shadow_pt_debugfs_dentry = dent;
-> +}
-> +
-> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
-> +{
-> +	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
-> +}
-> +
->  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
->  {
->  	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
-> @@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
->  			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
->  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
->  			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
-> +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
-> +		kvm->arch.debugfs_nv_dentry =
-> +			debugfs_create_dir("nested", kvm->debugfs_dentry);
->  }
-
-Other than that this looks good to me, thanks
-Reviewed-by: Sebastian Ene <sebastianene@google.com>
-
-> -- 
+>  drivers/i2c/busses/i2c-imx.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 85f554044cf1eec7d28310c3d9e7a7346237afdb..ed2316ab1ba8b6261dabe8af4377136a002e2f0b 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -1539,7 +1539,7 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
+>
+>  	/* Start I2C transfer */
+>  	result = i2c_imx_start(i2c_imx, atomic);
+> -	if (result) {
+> +	if (result && result != -EAGAIN) {
+>  		/*
+>  		 * Bus recovery uses gpiod_get_value_cansleep() which is not
+>  		 * allowed within atomic context.
+>
+> --
 > 2.43.0
-> 
+>
 
