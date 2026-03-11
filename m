@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE75112583B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B9C112583A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 14:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cgamv1/SwJoWr3CbVvyTNp0GlZ/leWyEdkFeMQNIx/4=; b=XK7Eh1oOcjvfVApm+EaLBu0FIr
-	HMmqwYBa/CBlx7VG/lBO0QFGqytbt4U+e7w+HJoEUj2eBdDqIBBbfY6v5bIhd9QcFWI0jNjJQauif
-	0+o2jOmlUzAIZBjcJPck/FDKjRdskMo/wMKVEryaalEFT0YFBSa2keovLY/TLx2te09wgHGGrSRIo
-	wFRHEIDjA2sZu6t8VQltKHlMXHi3GnLeMNIwfCkN1N7bWYWTR3HGyg3y6JRs2cdJIHEd6sWqDIn76
-	rb6GSjv/iVceOlIftFYPva0mwLhAKcEtpBNnVByFj/LS48AO0Kz9kspxi28NPi2q00V5FKajseD/j
-	AD6fyL5A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kkt3A1e6l/KLgh24uOCTImlNQ3maInjpGSRh0bHez1U=; b=lLAOBAjdybVzb8v4d66BezcDFZ
+	hNFTG8xOMqzcWvnV+QqaIxkPTqnIOXh/SgHXIJvksDOQGFKvHFHvcAAculNNzy8MLfLOvzxtlu8Sq
+	p48iUnTr8YtkwzNImaqOSOBryPyTHSAS9OkSU6DnSWjwtYVRHfvuVh3xrU67eO6Blw7uX/D6I/ft9
+	4u+ULSi/vNdoGzz+7yltdjSTltV3nDre4gwlgwz+eHYbgvgHSrN4KkfaEo9vJe93i0n0VER2K1AV8
+	3Oozs43VbtURUj0jdZiPKVawwz3rFyiEjGnLQ6y5sSOmrb/FKRHT1QKgJbLn60Baz9/dJJHgFZBRT
+	nGbnrvFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KVu-0000000BhgT-0Awv;
-	Wed, 11 Mar 2026 14:26:18 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1w0KcF-0000000Bi7J-2m2f;
+	Wed, 11 Mar 2026 14:32:51 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KVp-0000000Bhdl-2kah;
-	Wed, 11 Mar 2026 14:26:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=Cgamv1/SwJoWr3CbVvyTNp0GlZ/leWyEdkFeMQNIx/4=; b=HSE5vDuGzW7mbfoYMuZSAMBlYw
-	rmZpUlZy0yjDV9X5rrLi/x+/oBFEG+JhuGvNFCe9gYfYGqy/Ivlkqzz0z9umGoVF4NwHsDKdoqAAv
-	VmkOvkU+uOr4T8BlHkCPC6OkngNYAuAWggqhvRFTViY8pHDnXikA7NZJqQ7u1QNrETn0=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1w0KVe-000000005un-0wgL;
-	Wed, 11 Mar 2026 10:26:04 -0400
-Date: Wed, 11 Mar 2026 10:26:01 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, robin@protonic.nl,
- andy@kernel.org, geert@linux-m68k.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, hvilleneuve@dimonoff.com, mkorpershoek@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- lee@kernel.org, alexander.sverdlin@gmail.com, marek.vasut@gmail.com,
- akurz@blala.de, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v4 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-Message-Id: <20260311102601.35ea20963ccebdeebec3c6bb@hugovil.com>
-In-Reply-To: <abBugQOUWG_FTs4f@ashevche-desk.local>
-References: <20260305192101.2125660-1-hugo@hugovil.com>
-	<20260305192101.2125660-5-hugo@hugovil.com>
-	<aari1Y1CPZSYEVj3@ashevche-desk.local>
-	<abBkk4Ng-_MDHd6t@google.com>
-	<abBugQOUWG_FTs4f@ashevche-desk.local>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+	id 1w0KcC-0000000Bi5x-3qFq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 14:32:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=Kkt3A1e6l/KLgh24uOCTImlNQ3maInjpGSRh0bHez1U=; b=OCbYZYhZQZHRhApD9dltpqMqGE
+	exnAuIcBSkHoBUv8XAPktsZGgy+TznUd2rbhWKCmRQyAfyzF1GSV9gTahWyfEPFgDSl07LG/lSxgf
+	HuR2ZKlys9vb/3zv0T2FgDun2nTOWbllECxBs83qQNnQoyEHqQULl3r4Uf+gck3NzmtCZclWL1Wjt
+	OKimXou+JaXkpAvx46qICQKiJvtmU8JE29+b9r2vEvxOrrSO/51/quZtmVimgEIQdQ/0U1uRaE91u
+	FmZNY6I9cl68khuX2aXXDb9hWmwjZ0rj3cXv3CYvJ0RBQnCFucXRTg5BbZlWvPE6PsG9INRChP8ho
+	Qka1h+xA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w0Kc5-000Or3-1z;
+	Wed, 11 Mar 2026 15:32:41 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w0Kc4-000GoI-39;
+	Wed, 11 Mar 2026 15:32:41 +0100
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com,
+	linux-clk@vger.kernel.org
+Subject: [PATCH 0/6] TQMa91/TQMa93: display support on MBa91xxCA
+Date: Wed, 11 Mar 2026 15:32:03 +0100
+Message-ID: <20260311143217.1700704-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27937/Wed Mar 11 07:24:53 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_072613_783201_E6A05FCB 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20260311_073249_084362_67FF5324 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +93,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi,
 
-On Tue, 10 Mar 2026 21:18:25 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+this series adds support for parallel and LVDS displays on MBa91xxCA, both for
+TQMa91 and TQMa93. The parallel display is attached directly, while the LVDS
+uses an LVDS-Encoder. To actually work it needs the pdfc driver from [1].
 
-> On Tue, Mar 10, 2026 at 06:37:34PM +0000, Dmitry Torokhov wrote:
-> > On Fri, Mar 06, 2026 at 04:21:09PM +0200, Andy Shevchenko wrote:
-> > > On Thu, Mar 05, 2026 at 02:20:50PM -0500, Hugo Villeneuve wrote:
-> 
-> ...
-> 
-> > > > +	int oline;
-> > > 
-> > > Why signed?
-> > > 
-> > > > +	int code;
-> > > > +
-> > > > +	for (code = 0, oline = 0; oline < keypad->nlines; oline++) {
-> > > 
-> > > Can be like
-> > > 
-> > > 	code = 0;
-> > > 	for (unsigned int oline = 0; oline < keypad->nlines; oline++) {
-> > > 
-> > > as iterator is not used outside the loop.
-> > > 
-> > > > +		DECLARE_BITMAP(values, MATRIX_MAX_ROWS);
-> > > 
-> > > > +		int iline;
-> > > 
-> > > Why signed?
-> > 
-> > Does it make any difference given practical limits on nlines?
-> 
-> Maybe not, but might lead to interesting bugs in the future in case if used in
-> some arithmetics.
+The first two patches add required (Video) PLL configurations to achieve the
+necessary pixel clocks for both displays.
+The last 4 patches add the overlays for TQMa91 and TQMa93, although the
+overlays for TQMa91 use the same overlay for TQMa93.
 
-I'll fix this in next version.
+Best regards,
+Alexander
 
-Hugo.
+[1] https://lore.kernel.org/all/20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de/
 
+Alexander Stein (6):
+  clk: imx: fracn-gppll: Add 333.333333 MHz support
+  clk: imx: fracn-gppll: Add 477.4MHz support
+  arm64: dts: imx93-tqma9352-mba91xxca: Add parallel display overlay
+  arm64: dts: imx93-tqma9352-mba91xxca: Add LVDS display overlay
+  arm64: dts: imx91-tqma9131-mba91xxca: Add parallel display overlay
+  arm64: dts: imx91-tqma9131-mba91xxca: Add LVDS display overlay
 
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
-
+ arch/arm64/boot/dts/freescale/Makefile        | 12 ++++
+ ...3-tqma9352-mba91xxca-lvds-tm070jvhg33.dtso | 56 ++++++++++++++++
+ ...93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtso | 66 +++++++++++++++++++
+ drivers/clk/imx/clk-fracn-gppll.c             |  2 +
+ 4 files changed, 136 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca-lvds-tm070jvhg33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtso
 
 -- 
-Hugo Villeneuve
+2.43.0
+
 
