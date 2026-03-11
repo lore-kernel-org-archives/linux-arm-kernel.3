@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18486103E2F4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 23:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EB8103E2F1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 23:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kw77Fu9uCW7WzjUGO0gC0Hm/lU4b37N+pnvJ53xAacY=; b=ciRqTPgEhpxZYJ9N5Pp4ejLuGT
-	8ijsjc+QTJb4NYrFNPUk2wrs8ysXdHU35GscZ/E7qJhlhk9DAkzrI7UzgT+xHj5t5GtR0xlpauXl+
-	Loar/0r+WXKyzbAKutk377dwpmV4PeHUFJaVqHPc551+oirjo1BpM8LkGmSlCb2ONAlolwXD8FHe1
-	cF0xWPvoePdEH9kejh6VY1mRgzl4nWgFFQIjhPKskq/FYOEDsFQi02PBAJqVq8kiZH10FCRBNtHsY
-	Q+v1KUuMsDf0R6PBGsiPFjXMQx8dvpsjA+9TzpcDJrGyggZsb/JbGc/oqK+NFrXx2EIlp706yU2Cl
-	CHATbdYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eVXn+Bxh0tcCavT748ERcPpFO7MJkNREEPJ3NP1c5Qg=; b=rshtRirqCIo+a+gyPZF5Lm/9wW
+	UQgrwubR0oVcA6qPskcSyW1NFZS6bQ7cpIFCfpB9feXYWW072MFdsRiaoy9nrf0yNO8/BYI27GA7X
+	/3sEZjy45Rvb0UDEpuysUiH+NtgugniQ/vvkrLhTRQUi9nKxl6S5wELVOksQzf/WT4gfe+J9uTfhG
+	sSHUCxh6oPGPSlUewGVxtel8UBGENwfICUGWJPs9ZTbwdf2R3ifZ9AxMPC/TRjpccjdyJsypdcWJ5
+	dDudp5Nttfq5iBGfwCye47ZPWhf5CWO8DD56kNfnZSpYJ5qUew9aDUWxv5eQJmdMg56P+4w8OU+EG
+	juUt5wLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0SkL-0000000ClyP-44An;
-	Wed, 11 Mar 2026 23:13:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0Skw-0000000CmBr-3GF2;
+	Wed, 11 Mar 2026 23:14:22 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0SkK-0000000ClxZ-12eE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 23:13:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD4E8404F4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 23:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCC6C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 23:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773270823;
-	bh=+fnd8GyqNif8heEveaiUaU5hVAJSMaWTWNUQxsBz62E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=aNd3/ivzSpKsXILkEa6pWkM9T+0ceORI8IsbXSsjpjnU7YGIzeXaBUyw7vP1GVGBP
-	 a9Yiynl9793uKXoFNGHbJWMDXpE8X0Fa7bUakWm0FpaanPmDjs3+Ole7tHrhBdxcuQ
-	 NNtd0zRO/xhNsjcXYaO3Bp262jt+GBkQ2hGQ6a3CKDqwIq8onKaLfEWdSSQ1Nk/+Ix
-	 Rvg+UgshtP/CDNnwbY7KW1Zei/DjmFo/pnc68MNBG4ME/HOkQL2sG2x+qu7mcmdDbd
-	 4aFcUCH46+7k0ZeX8E/v6swA1332LaFxxePjkInLfV+/nQYs/EGNnY7oV8UlhGgD3I
-	 uoCsq5b8CRCMA==
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-899ed41208fso7121466d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 16:13:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV/Zdo+adzPJK9Fn2x5lL++exFGMTYdZQC+D3g07ecxZ1uIUV+qrX3MLEQay50eH/m7ACCAdn/1v7sXNrujbxU8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmWInMKbPm+W/3+Rqhcofkz92H97S/3ZR4/8ov5kBfSoq81m3A
-	LZ8P5Ahs0h3GOhrAwbcubyZcnlwnAyJpjdxhN5bAcJND08Cf07jrfrBetO1KE6FNMzS+qN3cocO
-	0qTpNorCRpabcBBpnPGSSiBGq9ecRinM=
-X-Received: by 2002:a05:6214:2483:b0:894:6b9e:253e with SMTP id
- 6a1803df08f44-89a66b60bf3mr61486446d6.52.1773270822999; Wed, 11 Mar 2026
- 16:13:42 -0700 (PDT)
+	id 1w0Sku-0000000CmAe-3HEq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Mar 2026 23:14:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eVXn+Bxh0tcCavT748ERcPpFO7MJkNREEPJ3NP1c5Qg=; b=UfpF0uo0FDgd7R0MDjKkcRKS7U
+	cdQhSBvIrBkvZ7epa1i/Av2klUvrcaXeRJ10syoBuITEGN8rgFnxXrwtKA8y4f2FsOUZH2/KldYls
+	Ddwye10mIBnhxYaC+US4Mc5xlsA7aCPM8flPYoxAvfVlgbns7R0wGM9U//5bjPN3yKA6H3HqpIUeA
+	G9olTQ1p9+h5su/n5Qc9gMiGqYmMSmuf2HCJTyhye0HX0xwlIi+LddV+oivZa8Ti8jy9rOnOemlsJ
+	5J7Q1DgOhij7XsHdLEmSGzFFKGLCl4uF2LXIDiW3kZq/chpZlUtM6BwVOMTnHQT2zRdb2abYL+4Uq
+	uxoL5nxw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0Skh-0000000ARqF-2AyW;
+	Wed, 11 Mar 2026 23:14:07 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id F0C0C301150; Thu, 12 Mar 2026 00:14:06 +0100 (CET)
+Date: Thu, 12 Mar 2026 00:14:06 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Carlos Llamas <cmllamas@google.com>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>, Alice Ryhl <aliceryhl@google.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	"Borislav Petkov (AMD)" <bp@alien8.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Jens Remus <jremus@linux.ibm.com>, Juergen Gross <jgross@suse.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	David Kaplan <david.kaplan@amd.com>,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	James Morse <james.morse@arm.com>, Thomas Huth <thuth@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, kernel-team@android.com,
+	linux-kernel@vger.kernel.org,
+	Will McVicker <willmcvicker@google.com>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
+	"open list:PERFORMANCE EVENTS SUBSYSTEM" <linux-perf-users@vger.kernel.org>
+Subject: Re: [PATCH] static_call: use CFI-compliant return0 stubs
+Message-ID: <20260311231406.GZ606826@noisy.programming.kicks-ass.net>
+References: <20260309223156.GA73501@google.com>
+ <20260311225822.1565895-1-cmllamas@google.com>
 MIME-Version: 1.0
-References: <cover.1772681234.git.jpoimboe@kernel.org> <696aeb326a797e97b87c7657b5b3d0ada958cc5f.1772681234.git.jpoimboe@kernel.org>
-In-Reply-To: <696aeb326a797e97b87c7657b5b3d0ada958cc5f.1772681234.git.jpoimboe@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Wed, 11 Mar 2026 16:13:31 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW52kX13KuQqHuq9CReksaV=GTMPoSB3PU8ZOfU-Quo88g@mail.gmail.com>
-X-Gm-Features: AaiRm508Or0sfnUqrHy7DAM78r2-dTNuvOfnqws0FNtwIKi1zmJ50NKIsPn7YHc
-Message-ID: <CAPhsuW52kX13KuQqHuq9CReksaV=GTMPoSB3PU8ZOfU-Quo88g@mail.gmail.com>
-Subject: Re: [PATCH 08/14] objtool: Allow setting --mnop without --mcount
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
-	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nsc@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_161344_314337_7EB77DBC 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260311225822.1565895-1-cmllamas@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,13 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 4, 2026 at 7:31=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
- wrote:
->
-> Instead of returning an error for --mnop without --mcount, just silently
-> ignore it.  This will help simplify kbuild's handling of objtool args.
->
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+On Wed, Mar 11, 2026 at 10:57:40PM +0000, Carlos Llamas wrote:
+> Architectures with !HAVE_STATIC_CALL (such as arm64) rely on the generic
+> static_call implementation via indirect calls. In particular, users of
+> DEFINE_STATIC_CALL_RET0, default to the generic __static_call_return0
+> stub to optimize the unset path.
+> 
+> However, __static_call_return0 has a fixed signature of "long (*)(void)"
+> which may not match the expected prototype at callsites. This triggers
+> CFI failures when CONFIG_CFI is enabled. A trivial linux-perf command
+> does it:
 
-Acked-by: Song Liu <song@kernel.org>
+*sigh*...
+
+And ARM64 can't really do the inline thing because its immediate range
+is too small and it all turns into a mess constructing the address in a
+register and doing an indirect call anyway, right?
+
+
+I'll stare at it in more detail tomorrow.
 
