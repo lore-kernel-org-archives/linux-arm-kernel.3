@@ -4,133 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591F51049521
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7891049523
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tr9WtvImsbeEy5U/tt6guxwhNQw+t/YnnDdcabm1Sbg=; b=Q2w+qoOR4kNX25WiX1U+KKhshD
-	/ycC2ddOyUqMbBCoKYOB/eokKDUtnemX2FwYSzXVAg7uELTc+1WgUXcONE5V0EzHz3LVV5bjCZ2Y9
-	f9kCseFUKv858zhBklhk723oKGJPKuVFcW4aJH0idAEBSWUGX/8l+U7BPvd9WjckePF3ytkrseNmm
-	LruZZIHrj+9OCr5L0/R6HMBUgbLfAyT/rTZuwcwsJPX34DyDTNufDF92ast7MB2+M05bA54r+ZFO4
-	+lnJUfqVdaY85lOAeA4iSrUn+X2S7fYzmbM14Cgn442KvFSLaiVG/FY2ZrZZBvX16GBFnuhyfL8/4
-	JoVG/a5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3c+qlxblsTBEXvZcg0JlOjOHrwtZ50FEnfrmL02pXEs=; b=phXrbRsGuEN/LvuHt8UGiFShnp
+	I2s8wNRD/R92J53nFw3qFY1vktiXauaFIFehkgiiPfzcYCoPSo4GBlu2Vzz6C75r9WUleP2gUqYu0
+	sDVIry5kgYc/IswytPkvUSxcsloAZ4RaoHENFnYPoY5eqF4Ztp8GVH1hATh+9MKLgmCcDDJNPOrBv
+	/vrUd+0pF08RydHpzjQT4L7nkYPny4o0Dpa8JxYk6QVJX/HS9ie1LPEGhIx71Geg+YXf2gXgHXoV9
+	QD0dNhLEc5OgEsJssRzIymTvqlww1O67biyhKmp0qOlJKRIFbFtGJi3xjKPpWCrf+lfVmULLrkHwp
+	e+WTBkNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GBE-0000000BJKp-2NwQ;
-	Wed, 11 Mar 2026 09:48:40 +0000
-Received: from mail-norwayeastazon11013023.outbound.protection.outlook.com ([40.107.159.23] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w0GCW-0000000BJhP-1GE9;
+	Wed, 11 Mar 2026 09:50:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GBA-0000000BJGe-1hvj
+	id 1w0GCV-0000000BJgo-0qhW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Mar 2026 09:49:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=3c+qlxblsTBEXvZcg0JlOjOHrwtZ50FEnfrmL02pXEs=; b=ATCWUik+RUNuKyjBG95+Fi+CCY
+	+7JpbK4DXDTQlHPaY6EC4Una+i05ud/SOakq2b4jgpHarXGfoRP5DM/Jg6exYXtxHn6mlOmosRKWX
+	XNRkv5GKpDRVtQ01J2I3cv4s82ZDglSo5f5ORw3PV+UacBGZO+blaPNr1RhXktIBpnmZVQKfjwpsf
+	Q5iLldb2N2hxEnc6XhjeGFEcB+3iEly07ykwvxpIhMWuM/UcGJZQYFZF4MUeyCUDIpiFe37DtnuhL
+	58NkjsOUr9YYKny2zMucOvAFA8gL/xom9IffeqVn2/hXta+nb+1O4iWFPW+r15fB32SGIfkOAXusE
+	UxLPJvsA==;
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0GCR-0000000Gbe0-2GMv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:48:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ddGqSHsgKuPPsmFVpunRoGlk1b1GnmG5X43knIouYckDYyhdxs3SrXILfH4xYmp2qogzP82VlMJ8ISRzC20rCdL10XV0zhBbzSMXpWamepH6HQoyEFM1cpyz3ugF9dHYb0on9EnBZUu29k6sllJjWcXG6rF048fi2x4yzesiqBL5t+V6KmPelPvZCrOrdECpLLxhmLdHBjh8fvQhAxPpXANxDSWwW0R6vcALDi8olM3ZM2gQCVeg0fb0fFM9ylataLBrlpf4FG3VWb9VX7HEiFUCqhvzW2yDAtymscNd7RcHHrOyBP86v42dTwIvFSBAE+91Z6I2rF79ajS8Elp2/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tr9WtvImsbeEy5U/tt6guxwhNQw+t/YnnDdcabm1Sbg=;
- b=jhHwZdDQQbnDhVO/B0vUf/C63jRF5GQpQa5+czA7EHuqniPgiuOkz2Zwgjh6T6+GDjJAh1dme0TKR0Yic2DlpgUYg0Jihc1BpW07Lq8j4eQ2hpm6ViX5Ut0OUgo6svKwYOWc1+RK02pPyGfjhwqdDnEf0NUAf2vuIACI0n62zokLcBatRJaX64N8VBaTO+TNCtNU45c1+gITSoc+BkW4UCA9KXokHO6XNZyiyoeuVuRjNrHmsoC1E90xJZerb8tuGguJRmAgIq9a6DhwvYdVL1VqYsvDzvMo7Mjq7+TXUgMcIevq7MSysndjbjRh2le7qBw2dReQrtzrHPfSXoPMXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tr9WtvImsbeEy5U/tt6guxwhNQw+t/YnnDdcabm1Sbg=;
- b=c9cnwqa/T759EsZGenD36rjMn+jIg8tPN10ATMs4LGTLsHSkGuaugzJhnPf2a+S9HjZLuDW9H3eTEFOqv4GBg2v10zMm/UM86rm0IayYN8y2cmYjeNwQekwVz8R3wO5jvzg9w8O7P6sNf/NYX84oCcmd+/SprYtkHoi/bIJUBANXaVPXzyYROzVsY3WhaokugaBQ8HtXkWQsNzbdYG2qR11lAn9pJxuyy+mrR5+cix0kBc4PtV59bt7xGoF1NJ3pDmdeJJymLmmar7k3LZpVPP+qkdaR7kLGcW7sFFd1w/VHo4npxV5eX+lp/UXHuPyu+FYHHh+Ulj0ujRz45OVThg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by GV1PR04MB10607.eurprd04.prod.outlook.com (2603:10a6:150:203::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 09:48:33 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754%6]) with mapi id 15.20.9678.023; Wed, 11 Mar 2026
- 09:48:33 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	ulf.hansson@linaro.org,
-	haibo.chen@nxp.com
-Cc: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
+	Wed, 11 Mar 2026 09:49:58 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8297c035d28so2461958b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:49:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1773222593; x=1773827393; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3c+qlxblsTBEXvZcg0JlOjOHrwtZ50FEnfrmL02pXEs=;
+        b=PEmnW+xqLdGD02mB3EJcUa5cyJwfbHhkjlQ0OfzajYKWZmY1EWf8og1RWWnrVOHuuK
+         X8kepyg3SkJr0spQ6AYas242eDlRnvRjvfwWOzRP7fkzRkqj2HXaIYyX9+FdZPj7/bF4
+         YVI1oVVZkYUyQm1Nqr8os8fAifOhoXvVv5LN8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773222593; x=1773827393;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3c+qlxblsTBEXvZcg0JlOjOHrwtZ50FEnfrmL02pXEs=;
+        b=hRWnIqf66VgJ4LVF2SXREzdvAQp4PU/7pHmGPC0PZZUFqlgmMAOuAKzHxuEFKgSdJO
+         e82e0C7XhyANtOnG5BRQ+RX4/9Og2spHDRB349QGnTgs0ip/T5qMppWoE5nMMkuNw5GW
+         uSYSnpswzSS8diq5tfReKgtdUo6bTmUMkNJamtQhRl/Yj6ggwgzxzNNDYMfabz1gTf0I
+         cfvX88YAVVG012lMynBUKlAP0FcLHhHvenWz74PmntbGxglNeTiSOdDYIU/gPiNRBO58
+         1qwPp3kTfsF8J0DpBzq3s5T0XDb2GFaNtxVlRexXGihKqBjopEuqCrJAmYQtDLczFZZl
+         80DA==
+X-Forwarded-Encrypted: i=1; AJvYcCUVRuqMZTy/tz4m2OUdgpMgaSWHErW9jA8+cuH6ANdK/dmX4zS/QlbfqqmSfTx19N6iJ0ciznjQSJfwmdSiucGH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOoiuAs0UYti5gzAylTXTm3pekFLY91mihT78vObJ29YZkirht
+	9i7EcFZWgIXrPq4DDZV8QQYQaZHvF8q2yzInew6Gyt4PIEm8ItjdPHWJ8vyXBPg83g==
+X-Gm-Gg: ATEYQzx2/TEzw/MmijNlK32yvsqzOxWuCKo0rytmQX0i0qLVfMpmniunKMsX4r0j11+
+	SZBTqi96PP9Igk0ALrJPIZCyb6BfvXKFAd0E5jRvCRTMv3/Rh2gz2i1Vxr+h4IxQ2nHQxhv6Kze
+	XnlmIlLAvZ7iWRXA4nBiPTPQsFoqP7Rcn0ZsOcCvxp+DM8oXxIJtzl0PCJIo7s813IrNbbvxcVR
+	HRoyVJ0ON3K2+2tSGzHQ8wrVvKh/Xi3YNkF1RDjhBRHlcySSGnUaL4eGo20xkgMcXaj/WqFQ+WM
+	EdzdyPfETM2DyJpuKW18j5iX6SSp9WUdr8be2VextBOvde4MZlCL0v+0/FsByeMW8UfPIe63VHk
+	ZmUo6v2AisvGWXCtbgp5KpbLnhp/N4Gjgr4NM/vq8218z069SwwxCptt7kfo7loO1CUj/vTbfPW
+	t6D/6FKNrkg6ISFPFD761OcvL1Y4FBGHlYpAyiDPRo394jxznzK04Ruok6hlVENKP1sHX9/oJXa
+	N4FIE/V
+X-Received: by 2002:a05:6a00:7095:b0:81e:7496:f826 with SMTP id d2e1a72fcca58-829f706cc42mr1683975b3a.31.1773222593454;
+        Wed, 11 Mar 2026 02:49:53 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:805b:14e9:f783:bcae])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829f6e22f85sm1887598b3a.27.2026.03.11.02.49.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Mar 2026 02:49:52 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-sunxi@lists.linux.dev,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	linux-mediatek@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/4] mmc: sdhci-pltfm: remove duplicate DTS property parsing
-Date: Wed, 11 Mar 2026 17:50:09 +0800
-Message-Id: <20260311095009.1254556-5-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260311095009.1254556-1-ziniu.wang_1@nxp.com>
-References: <20260311095009.1254556-1-ziniu.wang_1@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM8P190CA0015.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:219::20) To DU2PR04MB8567.eurprd04.prod.outlook.com
- (2603:10a6:10:2d6::21)
+Subject: [PATCH v2 0/4] drm/gem-dma: Support dedicated DMA device for allocation
+Date: Wed, 11 Mar 2026 17:49:24 +0800
+Message-ID: <20260311094929.3393338-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|GV1PR04MB10607:EE_
-X-MS-Office365-Filtering-Correlation-Id: 431ca9ec-36bc-4fa6-dfe7-08de7f535be5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|19092799006|366016|38350700014|7053199007|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: i/rkmjf69NsqMG4cPU4CTnW5n5/Vs/yFPgm41qz4JiR9roeEAxO5dnJD66HF8Ff+8rb2onz8wD5KaHCV4yyEvx5tCoT7IQ87iSJHhRoV8+3CV+ewlTAlCA/5J1+af9KDZ/c9R6tha8SzYCwWMDGIIcwYuIDVxYG1bLwAiH02REqGWMTys3Z18ANc9nhYQpbGssdZrhCLyt3+lCFCniLl4KjEa7XWvAGw8IFns1W7iEHOKeWUTSskkFdlfF28k3PsCFeN+HGx9Qf4uHPY3hKyG3ijZJRLV2vOs6khGbqOqMCyuV95ZCDDRNJOer5GkxLEtfISBOtzS74EZ96UXvOTX+GaPv+nzzTs12+qtff9G1MgFA8GV938QMb1IZu9HQIzw+TZPPSSYG/WHJn77NACyJxxA/q0tYRIm65a4hJKQuNbAtt81Kw4qZhq0YMPo4mq+nTfVD8v/e+Z9gVkzq54uWNfSafqNYP320thjDHtWO/naZEq+IH1wmgK8XXo5KFTp+A4lh3D2Dt8uoFrsBlwnTbVBZ9GTXcg0rIdlxDrMZRDxIK9GLNxNlJ7T+E0xGcO/PQAYEP5++KyE+fg9bDA8SWXahQkOlnZYJUi9yagnC5XnofJNXkKC1RtcqZsTTN9jgK1tqhVBtM0+J/HjdqkSwrjOPhFlYZc89wylrpDR1LbF/b6MVtg8r3cwVpODu74dKdHoFYjauYKnj8oAGbGFNPrnB2KWsgRSAv2zGCvbV8X/hCqnxrM2gLgnE0Tw0XXFleGhbCHYVXQ3mGgcYdWC6L7g1obIqeJmvxDM2ieEwk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(19092799006)(366016)(38350700014)(7053199007)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R+qBkuFfTfxOZw9acAiIVDHcSq63br3iyYBZRzif3YVCmtM8Xx4hWM5PDzKX?=
- =?us-ascii?Q?qPtSEpctmDeL2dO7h/NYtMmu01O6TBid/WEjCbbTff6VqPhy02Sq5b2kNq5u?=
- =?us-ascii?Q?+djfw3gyQ1iPRk03/3kcQbN4cm2RKqr0ZpCTD94H5bqjAXY8WpAo0C/Sc66o?=
- =?us-ascii?Q?nmV0VOLic++NvttQi+7ZIgORtuGAUKjgbM21FdPbII9dZPNHdorQbWgzxoGv?=
- =?us-ascii?Q?/TZohirNycPVTN0OgP7cTpzI+KquC6M3O9ypORAv+mMH8yGxwGU5DQnMQCFY?=
- =?us-ascii?Q?my7XWv6QXcSCQinnK5zLyTkkserw/LMlykzaiQWNHCZ7nv/bCnO5Ule2FVEc?=
- =?us-ascii?Q?k+6Bu8YMr8USaihyFGeSuZZ36U0wBTcBJ6uCPcpEWBUCdbbNAeENWFiB8uhj?=
- =?us-ascii?Q?trtVny0/B1eH7gI1g317nB6tthJ0dyW+fgDydVnHI8fcT6xDX2sS3vWTRiwv?=
- =?us-ascii?Q?UolDbM4STdWChZmdssJxAyLKHR76VOV/yrSqPcFd5/KWc5K1w2zjhK7+h7a5?=
- =?us-ascii?Q?RK17+dX+9IjQqFDwpkXa/LFMBFxUt784Vfq93h6kjby88jnXe72N3A+ljBV3?=
- =?us-ascii?Q?ImKTfIIt/HlPgoTxlwIPzCr+e2fecXOhl9O8Ja5MUzMvJRgy3LZZXx6117kO?=
- =?us-ascii?Q?jy2p6Dg3ojPZAhUSbicUyBp67bBO3ON8ImAunDx72OMrCPPNK62uK6Gq2M8A?=
- =?us-ascii?Q?hYmhFRCvAAK7631KIz1nUSVvk4lfki3669EYtBQJhJAq2pqRC3Fjtdfv/wRg?=
- =?us-ascii?Q?lVKxwlGZnQ1UX1x5+Mtku3cJgP/5LEp4dtKefc8nD2tla5Aokk+kO9/kEg0S?=
- =?us-ascii?Q?uD8SKMuvvjcD4RW2Z/P1jfC4urO2dQRQp8Wb8PMMeean/F7EMrSsRGu3DKCE?=
- =?us-ascii?Q?q7eiEdr7UGueumhMM+JMfjhsVmn7MOqbrPKKxW2b3W83p27zKksnFWKGWDeT?=
- =?us-ascii?Q?mBR0h18UUuojMPOw64bPWw9THffcj5F8gFpHnl2X6DdWPqvjTbbXm/Ximtqh?=
- =?us-ascii?Q?mbh7sPfDFTm23DBufW3jkuix4kA+G67mjmjNwtmQ0fW6/CuelzoiHZ+zqs3f?=
- =?us-ascii?Q?xXA8gwfFDa3eJY2L91UsyLHww98TCYrEe8nBdyl04qBhGSzW2WGL7C8MboZj?=
- =?us-ascii?Q?SizqYVjK3f/3gRskKKYmhVEyFg5doghOscAzchX7otAJZHiLaXMg8219Lhfr?=
- =?us-ascii?Q?1haJgpyPstLzo4usy2xZAKQD4lrnuowMavmQpI0Ch3dBMqaWnXiyflb0DdQz?=
- =?us-ascii?Q?bqc6ebAKZBz+OT2CQEGwvIRB2pdAtUzakUEK+Plnd3jt5rUHdbdzJ84t/2RG?=
- =?us-ascii?Q?NnUwAwQ7eXNIfbxyiJMabZDoq5QHx3ugIee4lC/LQFhAccAlkYlRxjnD0MAX?=
- =?us-ascii?Q?yH/F0pSgr0wmsbT5nNUgLsqvBeGpVY41Lrjk4rpa2T+rrKJkImLWOz27WiOp?=
- =?us-ascii?Q?f4tsprrHVdX2b61PbbcmAIQMaUJQnnG7c8stUve70tk004Jx4SUGDojxGzdE?=
- =?us-ascii?Q?aNLXhrTyhmlNJdu99ylhqr9ra74tEG3QcEvR5bJwu3RUzJyTaGLYKf5WbC4S?=
- =?us-ascii?Q?yuhCdQ+bBkRpkiCMxXnc96MrU/swDztrUArj2RC3J+jHch8k9xwCkt7e4eu2?=
- =?us-ascii?Q?GMKLZ1X+47VsB0RrcNAigPxnBRt2tzA3bXg76F0WJaO1aJwCtIgcKea4H0MR?=
- =?us-ascii?Q?nGBEit06X5q/ZaCYBs6TMVaNCOV7SLZRHmXi8mRgojFzrLGVcd5bMHNVBX8l?=
- =?us-ascii?Q?dRK+yyv2/w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 431ca9ec-36bc-4fa6-dfe7-08de7f535be5
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 09:48:33.6541
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nP1iE4l3oBvQa3XEuLBwXSzO9Fmyr/r1nSiCFX//GiLYvN9jjOUypleuafTTO3Sz48x6JiWZrxYRXUYT7DOPeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10607
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_024836_446669_4AB4F99E 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260311_094956_233283_11D2C832 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,39 +124,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+Hi folks,
 
-The "keep-power-in-suspend", "wakeup-source" and "enable-sdio-wakeup"
-properties are already parsed in mmc_of_parse(). All sdhci drivers that
-call sdhci_get_property() also call mmc_of_parse(). The only exception
-is sdhci-of-hlwd, which does not call mmc_of_parse(), but its devicetree
-does not use these properties anyway.
+This is v2 of my "support dedicated DMA device for allocation and mmap
+in GEM DMA helpers" series.
 
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
----
- drivers/mmc/host/sdhci-pltfm.c | 7 -------
- 1 file changed, 7 deletions(-)
+Changes since v1:
+- Link to v1: https://lore.kernel.org/all/20260310032511.2545500-1-wenst@chromium.org/
+- Collected tags
+- Removed reference to mtk_gem.c from the Makefile
 
-diff --git a/drivers/mmc/host/sdhci-pltfm.c b/drivers/mmc/host/sdhci-pltfm.c
-index d4fb60c1ef69..933fafe0a0ef 100644
---- a/drivers/mmc/host/sdhci-pltfm.c
-+++ b/drivers/mmc/host/sdhci-pltfm.c
-@@ -95,13 +95,6 @@ void sdhci_get_property(struct platform_device *pdev)
- 	sdhci_get_compatibility(pdev);
- 
- 	device_property_read_u32(dev, "clock-frequency", &pltfm_host->clock);
--
--	if (device_property_present(dev, "keep-power-in-suspend"))
--		host->mmc->pm_caps |= MMC_PM_KEEP_POWER;
--
--	if (device_property_read_bool(dev, "wakeup-source") ||
--	    device_property_read_bool(dev, "enable-sdio-wakeup")) /* legacy */
--		host->mmc->pm_caps |= MMC_PM_WAKE_SDIO_IRQ;
- }
- EXPORT_SYMBOL_GPL(sdhci_get_property);
- 
+This series expands the "dedicated DMA device" support in DRM to the GEM
+DMA helpers, and converts the MediaTek DRM driver to setting the DMA
+device and dropping the custom GEM helpers that implemented this
+function.
+
+Various display drivers implement the "dedicated DMA device" support
+with custom GEM helpers. These include Exynos, MediaTek, and Rockchip
+to name a few. Allwinner does something entirely different, calling
+of_dma_configure() on the virtual display device using the OF node of
+the actual DMA device. Recently this causes a warning if IOMMUs are
+involved.
+
+The dedicated DMA device is set by calling drm_dev_set_dma_dev(). Any
+code that does DMA related actions should use drm_dev_dma_dev() to get
+the DMA device. If a dedicated device was not set, then it shall fall
+back to the DRM device's underlying device.
+
+This series intends to allow the core helpers to deal with it, and not
+have every driver implement it in slightly different ways, duplicating
+code.
+
+Patch 1 adds dedicated DMA device support to drm_prime_pages_to_sg().
+I believe this was missing from the original change that added dedicated
+DMA devices for PRIME.
+
+Patch 2 adds support for dedicated DMA device to the GEM DMA helpers
+for GEM buffer allocation and mmap.
+
+Patch 3 converts the MediaTek DRM driver to use the dedicated DMA device
+support, and drop all the remaining custom GEM callbacks that deal with
+it.
+
+Patch 4 converts the Allwinner sun4i DRM driver to use the dedicated DMA
+device support, instead of the of_dma_configure() hack it currently has.
+
+The series should be merged through drm-misc-next so that other drivers
+can take advantage of the change.
+
+I also intend to try to convert the Exynos and Rockchip drivers, however
+both also have options to set DMA_ATTR_NO_KERNEL_MAPPING when using
+dma_alloc_attrs() to allocate memory for the buffers. I intend to
+resurrect the DRM_MODE_DUMB_KERNEL_MAP work from Rob Herring [1]
+to handle this. The Rockchip driver also has custom IOMMU attachment
+that I'm still trying to understand.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (4):
+  drm/prime: Limit scatter list size with dedicated DMA device
+  drm/gem-dma: Support dedicated DMA device for allocation and mapping
+  drm/mediatek: Set dedicated DMA device and drop custom GEM callbacks
+  drm/sun4i: Use backend/mixer as dedicated DMA device
+
+ drivers/gpu/drm/drm_gem_dma_helper.c   |  21 ++-
+ drivers/gpu/drm/drm_prime.c            |   2 +-
+ drivers/gpu/drm/mediatek/Makefile      |   1 -
+ drivers/gpu/drm/mediatek/mtk_crtc.c    |   1 -
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c |  21 +--
+ drivers/gpu/drm/mediatek/mtk_drm_drv.h |   1 -
+ drivers/gpu/drm/mediatek/mtk_gem.c     | 231 -------------------------
+ drivers/gpu/drm/mediatek/mtk_gem.h     |  17 --
+ drivers/gpu/drm/sun4i/sun4i_backend.c  |  27 +--
+ drivers/gpu/drm/sun4i/sun8i_mixer.c    |  27 +--
+ 10 files changed, 46 insertions(+), 303 deletions(-)
+ delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.c
+ delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.h
+
 -- 
-2.34.1
+2.53.0.473.g4a7958ca14-goog
 
 
