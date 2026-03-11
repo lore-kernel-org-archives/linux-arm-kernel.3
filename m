@@ -4,103 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08213104C00D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8331062880
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7LBMlarO20SL0CPvMPbtTv+sV8mzdvYBl/HxReP5eI=; b=C6nREtl7h5JAYNkrxdOCbcNEYj
-	VMw6743DHD2rL3QO5w7rNoFnez+QAg/HEUWS7FL6o2Q7G8HBtcGBYtjJnOr5A39IkRuOHxKyXrB+W
-	3AzUvOU7eziatdwGdncSG1GEZXzJNEJEs+R6bvE4tdj7HQUqiWg6Jfn6/FPIWVE9bRkPXoqNWfoEv
-	/HUzf7p0IqUc/nFZ95W0VFleyHCeGD9ELSaN0XWk+s+en3sGWdKInEL+9ItYMQbuIETFWIkRay/Ve
-	Kr/aLGyLo3QjI8Nb6/0PYNNjeM9WGFKF+UD8cTyz99IdHll/Noa6bNezHRAH6p2aq3fjIa21l6iGO
-	kbXgsSrQ==;
+	bh=n2gDYoJf6s/q/V5U46sslQ0SsM/qpGFJIiYvfT+c6vI=; b=4f5zP2FNoNvkTw5JvrYMg81VPD
+	rV6x9p59g9GFCOGt0uAAMvYwmPUeFdRAwwlKjs4rZ1x6FQGR80/ElCYl46L5kUWPdamYoDNrO7EMz
+	CRDFkSyCXqdLo+BTUfUpHN68n3H5aBI/3a42GTyX1lTIucmrFSCQg3oKM3r21CxDuYm8UxMqEK+sd
+	JWMAha+uj1PZ44E0KoqJxqyxKU+92ygBlbla+zkLjVhJgubwHDRERE3DCWruLyWpuRQ4TD98wtbke
+	Ah6bn36L8w0x5AYPIKCM0A4EO0XX8CGf3qXIQ6QPeFAgSf4tIRF1EcEYtlJfw0kmQufFjv/yJvgB3
+	R8U4vdhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IPW-0000000BXeO-2LIm;
-	Wed, 11 Mar 2026 12:11:34 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1w0IQo-0000000BXkm-3yu6;
+	Wed, 11 Mar 2026 12:12:54 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IPV-0000000BXe2-0kDg
+	id 1w0IQm-0000000BXkO-1UVm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:11:34 +0000
+	Wed, 11 Mar 2026 12:12:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hcLvzIcfMMWVlQR57Mw8QVAssRuHPHvXuU2EkSfWm0lyq4w2SwrnxAVoZ9dLP6NqTvLjRsb8wM88HbGvjJC/X5+oSIJNU7tuHjNw4V1pSf8cqzfe2ypD15ywN8UkhZ0NELUlih8w+EoTf2gOYit/mcMKazXTwwwDCHIic3fIeyyezs+KfSf8mH9kwshAsXNS+PXmRu4eNp2DKaxYPnA2QELiEEj7aIGZMe+v5g+bO2OPlXBGhdn8ErTF8m/eyk7HKSNgTg4QxiTpFywf5nPPLaaPHG32qbFUZBwBYBi0mZy7VfCihPvF4B6/2oUdam4AG5r4nWXxxb5/23E2b6n0aQ==
+ b=ATcxFyTvfM7Qt7+dmuvhb7+3xXMu0C76Dgbi4dPrBpHfvm4jQkzgnC0G9tEaMzDvjV98uiDdfFQmFPGOp0omEu/v82TsNlUboSvNrPOxxZ4IvaUcdudp1ZQnJbz5oS28tkv+/Ga3VFhkrPswPNWCRpawRpDJ7t7GReGao5OnyUilF9hCiGGJJdgET7wpO9PSZOICdyHrZ60XFpe1NEeoUNmm3L3oeO/UFuJ3H7gB1zjLSVkYtrP7t5N65jFsqUqwOZk2eNTi7H/3XvyM1WuXxkGMJcR8PONxmh6efZKJu7fPIqURU4VmuERDTpgH2FmGa+POEP46HMPloUgXBgF4iQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T7LBMlarO20SL0CPvMPbtTv+sV8mzdvYBl/HxReP5eI=;
- b=CKUU8UMgIPPCTvxTqvcYn6wTZ1SE6b3XnnSkQBjIIu75V3EaFCsSpJZOwFpdaV+SlgWk9lTIyC/OVECNndQARkgZzWHyQHAjeKDVUvDscPyyZiu5TQI5epoJ7pQpoyxpd+A/Y55anuYdbw7Ql4EqH1KGHfG+2GO3tEjmHK7KGSxdFZrjD3hkzvINoOEtqUPx46MEqc/w5lYJJHMW9OYWtg8YkEag1mPrmYF5YXlq9W0xmQWIOMOtPZR5osEOL9w8X4cJ/JpX0YdDB2xq1VJCmA+t51O1MC3yU3UFp0TMU+26nDc2B4UK3a+Qb9ThIC+xkp1rg9c/NhK6hYlNQOxdeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR06CA0018.apcprd06.prod.outlook.com (2603:1096:4:186::8) by
- SEZPR06MB6973.apcprd06.prod.outlook.com (2603:1096:101:1f4::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.12; Wed, 11 Mar 2026 12:11:18 +0000
-Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
- (2603:1096:4:186:cafe::5d) by SI2PR06CA0018.outlook.office365.com
- (2603:1096:4:186::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
- 11 Mar 2026 12:11:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 12:11:16 +0000
-Received: from ZicharPC (unknown [172.16.64.205])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C0BE14350717;
-	Wed, 11 Mar 2026 20:11:15 +0800 (CST)
-Date: Wed, 11 Mar 2026 20:11:14 +0800
-From: Zichar Zhang <zichar.zhang@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linusw@kernel.org, brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, peter.chen@cixtech.com,
-	fugang.duan@cixtech.com, jank@cadence.com,
-	cix-kernel-upstream@cixtech.com, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: gpio: cdns: add clock-names property
-Message-ID: <abFb4vkslyyWqpCS@ZicharPC>
-References: <20260306093238.2715269-1-zichar.zhang@cixtech.com>
- <20260307-foamy-happy-bumblebee-cddd75@quoll>
-MIME-Version: 1.0
+ bh=n2gDYoJf6s/q/V5U46sslQ0SsM/qpGFJIiYvfT+c6vI=;
+ b=qceJxYFiWxOMHYAV21LT6PNFhKM43i/i7O9Cc3IStdPEFpdrzK5QLFDwmcv/Y74C736QE7A2cU9M/F97jIrOD0IyXJlqkOdG8VJUTv8ZYvyhhPGucocvomDTUJcPcpU5nW10z6qiJJqO0pbYMjpfmNTk+ymtaspE43ez1V+/tMAs+FU4HRjHC2Obr4ZBNWfay7D9F4AyZKbIHJnK23otfCeB+IIrJmQJoxd10Eg+n75OrNFjGMjhcy4e6FsG2uGY/6bwOnsqesuqoS206q2fBzGSI1GqtaFiW1A80vKTUO8Br8FeZ/AR5CRP5byjW4WsjRevVpm1R8cNjBgyyFrbHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n2gDYoJf6s/q/V5U46sslQ0SsM/qpGFJIiYvfT+c6vI=;
+ b=LsG+t0WVqqL3L5Ng5omWKunFfhfm/9SjzH9HdRCzEnb1IVjqMown/1UbDhSnUQj08fpLr57FpWQ3ExlhGkaULqB9xAQ83nKQtqnXDzHS7nNIcoCGf3iR4ZyqpYsDGxwjB+5RCSsNMScvm3Jz1aR/GBW25HpenJZ8vpOYtq6BfJ+OfWB0L6V977rkIglRMJlthNYZaS0XogV3/8GBmJNd2GsmDn+9VyCQJqI9AB2uS+8PZvqGkTscVfwqOXyLRfsiWKRAXvYyrQuOvPqXEinzNBqQcAPeK15TlyahfYqsSOV/p9Dh4aTd7FxUJFkXKvIelIlEa02ZnnlpDlQ5bKqzfQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB6410.namprd12.prod.outlook.com (2603:10b6:208:38a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
+ 2026 12:12:47 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Wed, 11 Mar 2026
+ 12:12:47 +0000
+Date: Wed, 11 Mar 2026 09:12:45 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Samiullah Khawaja <skhawaja@google.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org,
+	praan@google.com, kees@kernel.org, smostafa@google.com,
+	Alexander.Grest@microsoft.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	vsethi@nvidia.com
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <20260311121245.GA1448102@nvidia.com>
+References: <20260305153911.GT972761@nvidia.com>
+ <6416b7fe-0190-4c7b-9a62-5da7d5eea794@linux.intel.com>
+ <20260306130006.GF1651202@nvidia.com>
+ <aasmWvA-sqi0KJwO@google.com>
+ <20260306194312.GL1651202@nvidia.com>
+ <aasv1HYOKuuJyi1k@google.com>
+ <20260306200321.GN1651202@nvidia.com>
+ <aas0dLwKmZyL_iOL@google.com>
+ <20260306202652.GP1651202@nvidia.com>
+ <abB1VJ5Op24dMIog@google.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260307-foamy-happy-bumblebee-cddd75@quoll>
-X-EOPAttributedMessage: 0
+In-Reply-To: <abB1VJ5Op24dMIog@google.com>
+X-ClientProxiedBy: BL1PR13CA0347.namprd13.prod.outlook.com
+ (2603:10b6:208:2c6::22) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|SEZPR06MB6973:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ee3e7ae-0910-46ed-dd34-08de7f674bf9
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB6410:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2261e5e-c3f1-4f83-e019-08de7f6781c3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wPARhD73VzyB7c3Zh1egrZNBiRmx1w3QIL5bWa1eWPca+euyguc9ABFfuaLTduw8cl44PcXy4Z76fT4KJMUQXn48yez2OUInAKmCOgPwIlwz+UsADheUvT48qzvtGsAxrgSn6ndlFLzDTEVmK0k1Cvj7eAU+VgUBzKi+ZPdwYaNn5lf20vSMIHG/2JqDGmv6leIS3Z/DG81HX3AqANwtjFaI41DF2NOliu53mGFsX94pNiY9+FjjHBJBmCY0s+GSdpH/jgC8Kry6fo0MGK1Fl4c8ZSdQdS9Rv4sNx4yFrp5eKQKoLYAFLG2kZXqs+M3QcMLwaJKImwU8v1gKGlmg7fASOenMBmCUX8ex4XyofnjzV6rLxCo9RUbCPoNxTq4FQl2NMcV/n4NDDaW7w0OgAKiNDgSLKj5o5+aUszV43nN535eOuqUWrCso7f+GwM3s9+cmVqYEIfeY0w/uloNXdclYHy4l9Dh/L2be0lmPRq0hR6u1OML13K7ITTJXolNl/dTkyHDWmkVkco8E03PHgX2CTBw+2l2dDpfMfyUsxVTcpOl8wuiwJ4A9qmV10dQd0FnmXpeY/iLe/eiwkQl0s+ZUSCo6ygkaWqIv9dh4vpTbmzVkv6Hwhoz61IeWoyVky9J16304L6A/r84VzemW6fv1tDLMTgTXIzVNnBbaErUg7vsNTl/CIHyRFQhfI4ptP3pxqHicLOJqtm/IL0TsJMIhmN0uq1pSPJRfIS43Sqfm4bWlLs0gNxgeJBvI6FYD3W80gxSUHJWFIlMZSffPZw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 8BSGz26ska4CFkAQJAQskIYuzpFVZgzRTMttGChzMweD+jtrSnxTrPaxcPXeE8fbROh5eojEJjJ1LZ0Kqb0ru+io5jc4kSkFc1d+AqPZztxEofoqWe5E0P/TBUvUSmZVDDgm4fnc3lm+rtV/YdQPUSaFmDTP90aCaegn1ADRuL8uH3fwS0qg6J8tXCN83uwNQnFvXIQcLy6NMhYggQnhSDuhu1ZtotJOPAqmeuy9PC8ECMSqZKVgtEq1mqoe9tp+rkN6B+eKgP8z4hcPygytKJhwNOEhgNr9X0T2EUXGrPpOurp1r/NWOn3p26OgRsLRCwzoCZYPzAwSw0/KbvadPe40Y52hc7w6T4c3c1eSGh1RbVSMEa6t41G1mhJX9+Uw0jrsdLzVrmBiVfhQP9vsINB2zBhSm3J1rw5bd9+3uqVPCx/V20xAlLn45BMkoa021Y6gizYTp+UfcnbJSVfRnBiBVFbua/6f6nIYDlEK5NTzCOKyoRcEntY2NBputLL7ehu1rHDdfn6AzeaN6KO7dEww3jF3e11jMILL85iooGCgMvcuP9sYhuhPYvZv8nmnW4GXWewFAw/66oecVFzLYF/PIySPy+twiWPk5lHcXE8syR1oQAI1s8bhfV8D+m9WiQxbjNEi8cpkQxw33vpBCdKEDvteaQwjFev8yi2PB4iHBBhGAqYWSmfEwY8L9Urm+gCUHipVJj39TDYCxbuVAwRkaC6FYAuKZlL/tzRI3/o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mtgaMhsASjD2XZg/NBj2nvNwAVcIAGGSpGzSN0DJ0hY+xJyWplxc7iU4Ok8zWlby0qot0W/rNZhj6owkjvc0I3zx7cHEBBk0FeQCf7tBARq23SmQkckGPZNDOKRhVWiaR9jcafTUlinqRHyQpkoNtruJ5jDCEJy+N94g++xtBFVAWOfJbV42aE3qz77ee0hRk2v35gdWDjLkUGJRkcWgAltxtOoObfx1CDbuGv7Sduyqus1fdONQs/bcuQasEW22DpLjee2Czerjd7HaHH0seJyzWTHc7/VQWI6xFPf3K6Z7H3IpUXe6idVwFEv59z9QkT12jUdv/NANEL9k1s90+0m9ab9LiBjpHNlj0hbgHsNhAGa2keeZmh0uYfwP6jm5wClDsKyIWkwLnXDvZ7QORoHmmMpsxllYzcikqiAn5I6Oi4lsdLl84RBGLg5SLub+
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:11:16.4418
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?J8QKkJy2QYCy5FS4pzMJwSkf86qasYlD1YbuwP/0tChW0XB9p455STNlD8ML?=
+ =?us-ascii?Q?nchRgmdRsfMt2PQVlIxWwCXTlovao0jZzIXYjQn/D/wxLR+skk1KiCXTvM1O?=
+ =?us-ascii?Q?W/ScbN4HUHAwgS0nu01k2cCnl7uGwPTy5CXcJbHiCWs8OaBjYD8+uGqdCwMA?=
+ =?us-ascii?Q?Vvvvvo/2O/ZZXK8js4aHunKE8wx7PfDFX9j1xkQDnl0KvZsOQ/oTdqfkJ6dX?=
+ =?us-ascii?Q?ctOc71WZNxVYVhDVFWzViRbnGFUL62rhCSjviyX53YIs7zIkww+qaGzddfgl?=
+ =?us-ascii?Q?7a4BU3G/szrrYRz3Ji6IQMReBvt5iCYR6jeQKq9O4HFhnnfsXWgWlueW2XH/?=
+ =?us-ascii?Q?ML+VTzQkdvCtj1cFgHphRi4SX6V0MMgt/fCtOHQHmQ8ADZVD50TrHrm5gArN?=
+ =?us-ascii?Q?GwN5RSYotnM6vLvH04pHY1YQssV6bf6Fm4hgeenWICij7/sYgbuQmMdXY7oq?=
+ =?us-ascii?Q?gjzwTJRqrQPZYAXc/vkQAFx23MwC5d1QjcXgh2j7DUEuQ7zG7ya8U5HGfcqM?=
+ =?us-ascii?Q?5BfGDpwiM7GK8y2/LWoZLO2Hvi26DR9bkH6wD9gvizKG+icrN5U4QGTLSPii?=
+ =?us-ascii?Q?wHoqcAJbOuD8RO1F1ewMtkpsDZa1f6AZ/2XEaIG/uehGqNxIhnAre4wpMKqz?=
+ =?us-ascii?Q?sRKspyxTGnm5p6IaVFTS2ZIjA/mI31bAb78XqVv7izRdqiROQ2q8duvi2k1e?=
+ =?us-ascii?Q?Dt0sZ0C3awfwGZYgxR7Di1Se4u/4Sz4FZ4umEtsLG8t7Vvy8pAohEU1qCCjo?=
+ =?us-ascii?Q?0J0lPq91I3+4TP3duF0z+zcPsrR4LkICZQhZaCXXrxMOtylLxEkAkrISK15O?=
+ =?us-ascii?Q?YzWqFtT03BMLFv5DTkWruu581wEr9hIrm5PrYY8rbvJHhV8Z9Wtprxan4XcL?=
+ =?us-ascii?Q?iP2lpBRuZTqOOlvEUvMrgtvU/vMeDx8JhYyNbxXIJKI/EmyP537NMLU6F5DK?=
+ =?us-ascii?Q?+60wGz1koKx8TQaOHAZedT1sSdO5AgDYX3OpQS9XalCgFBYTQLoWk4NalBKs?=
+ =?us-ascii?Q?GSLvwdSImpWQ6OdKRPbYUmgE/6dNLxZS3zJkgIDQ3BZJVdOuCzXRNxDrHhKo?=
+ =?us-ascii?Q?uj5sapoNQj8fGR95wBTztrSDT7/gD5JePZB/uwCD+k0odbQe+SFAXiguY2nE?=
+ =?us-ascii?Q?eu3HlcjH7dHzB7k/6IHTVWgNzoJGJNiAz4w5TV9SIQi8x2Wn8483AY5AjBRE?=
+ =?us-ascii?Q?cQDXj5Wv+6Thm66Z/vDJF5hUa1sWi7mU1ZgrfBkpKLUMyFWZMWayujOWLl6g?=
+ =?us-ascii?Q?NTxccSLbtenB7G7ijKj1zIMwE3m58vd5AesvRcUse7f1Kzxv/fXnqEuV5Sa3?=
+ =?us-ascii?Q?0Lujnk37u6NqSEN1ZdcC2zpNlEi8kcx/WLfkPRbqIfdmunmpFMsl2smHXdk1?=
+ =?us-ascii?Q?craaz5rEUFcHnXF42asVPzOePaZLc8tiuHqdMzLhu2g3zLVoI/D6S2zBNGjv?=
+ =?us-ascii?Q?pLcCqcnMt+3ufnTdGjCBgkbJ/stO07yVLotHYlZaarHKb2y4mAorPYudwJ8A?=
+ =?us-ascii?Q?K6aJD4Xrs0V600CQSNTOzqKf41ySlPGsujfffN7ZjWkzPwl51X9/ltjR0g45?=
+ =?us-ascii?Q?xoSj6b3N7RtWNHO+F2n+cae1g7OzEn+YgMthr+WKMh9o9vc1XhpzxImAw4Y7?=
+ =?us-ascii?Q?vQChkmu9M1pP3PZ72qDBcJYSiz5Kr1E+TnDZZkqa0ElYJdnKV4rCCpmkloO2?=
+ =?us-ascii?Q?6oFSX4XiJ9hZPNxICfe3bnRZDz7fjNhLAOj+SVaziyvD7iPXhvvmNx+d4O60?=
+ =?us-ascii?Q?i99EPQe4+g=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2261e5e-c3f1-4f83-e019-08de7f6781c3
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:12:47.0506
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ee3e7ae-0910-46ed-dd34-08de7f674bf9
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6973
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uaXCOkBkQvZstrRCcGx0ce55ONYEZA/gb4qEJgAlKVlpSMRh66dXdeznVDUYcg0V
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6410
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_051133_218891_342FA9E3 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20260311_051252_566336_75A7DDDF 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +151,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 07, 2026 at 04:19:50PM +0100, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
+On Tue, Mar 10, 2026 at 08:00:45PM +0000, Samiullah Khawaja wrote:
+> On Fri, Mar 06, 2026 at 04:26:52PM -0400, Jason Gunthorpe wrote:
+> > On Fri, Mar 06, 2026 at 08:22:08PM +0000, Samiullah Khawaja wrote:
+> > 
+> > > But do you think doing the timeout logic without fencing would be good
+> > > enough?
+> > 
+> > It is what ARM and AMD do, so I wouldn't object to it.
 > 
-> On Fri, Mar 06, 2026 at 05:32:37PM +0800, Zichar Zhang wrote:
-> > From: "Zichar.Zhang" <zichar.zhang@cixtech.com>
-> >
-> > Add the optional 'clock-names' property to specify the name of the GPIO
-> > controller's input clock, aligning with standard clock binding conventions.
-> 
-> No, there are no such standard clock binding conventions. DT maintainer
-> tells you that.
-> 
-> Otherwise explain me where did we document such convention?
-> 
-> > This complements the existing 'clocks' property and ensures proper clock
-> > handling in device tree descriptions.
-> >
-> > Signed-off-by: Zichar Zhang <zichar.zhang@cixtech.com>
-> 
-> Messed From/DCO.
-> 
-> Please run scripts/checkpatch.pl on the patches and fix reported
-> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-> patches and (probably) fix more warnings. Some warnings can be ignored,
-> especially from --strict run, but the code here looks like it needs a
-> fix. Feel free to get in touch if the warning is not clear.
+> I think without any back pressure to the caller, a device will be able
+> to fill the invalidation queue with device IOTLB invalidations that get
+> stuck until the HW timeout occurs.
 
-Thanks, Done
+Yes, all drivers have this problem currently.
 
-> 
-> > ---
-> >  Documentation/devicetree/bindings/gpio/cdns,gpio.yaml | 6 ++++++
-> >  1 file changed, 6 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> > index a84d60b39459..c242b31edcbf 100644
-> > --- a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> > +++ b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> > @@ -24,6 +24,12 @@ properties:
-> >    clocks:
-> >      maxItems: 1
-> >
-> > +  clock-names:
-> > +    description:
-> > +      Optional name for the GPIO controller input clock.
-> > +    minItems: 1
-> 
-> Nope. From where did you take such syntax? Missing proper constraints
-> for names.
-> 
-> I don't see reason for this in the first place and your commit msg is
-> really poor in explaining WHY you are doing this.
-
-Thanks, I will remove this patch
+Jason
 
