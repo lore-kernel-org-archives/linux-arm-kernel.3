@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5B91062894
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176E21062894
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZn69aSTWK4ykH3XWex0QTAymTnM/roC64mVHOuxiKk=; b=xc8myvXVMjcGmwloSCQ8cLKIXr
-	D9N4EV+C7JIZF+bsVA6MBAz8b9Ez/MlJJPM/72xxFgpS5Q9yiLbPI3NO/Y3G+2d0EyVX2uDm08kwV
-	TtuzGY/YeaQDWl/Os80E4D8tMJ6USJNq/LyrgUE465MuimEu7oZU421DXRVpPaAWzZ0mwPq5g0FLb
-	svWOIkmnhn2uGj3LAcanQPgrVnL58DVYkU2hh5riLDW2o+A29CqGdWwuJpkgdUA0eXDD8sGCOivAr
-	U4LYobs499BLZ7Kyd80+0Y2gPevvN+eHFFDsDFn74QjiyX263z6LCRZ55jJKTIrCA7lMvzwHrkmC3
-	cZjPDgzg==;
+	bh=nuV8/K5C++mzUYvNA1S2vTluDHNaoNVD6DZUg5NvuOY=; b=wRYfAx3UOZPr2rLWOKgPf8x4+R
+	hu+jzNZiefl5UhYKvYNUYH75FT107A563pYUdIWAe7PNELIcFnRXdRT8y8aujk94oKsq2esk/cSdx
+	lFbeMaJPgrwCExAkBeVm5ESBShYWtTIhB0fQkfa53RdIBgH0QQzRp+uqzdCruV3DVzIbeWoCuP1Vc
+	Grd2ROO5p4OoPRblUnOA06Ub9f/ItzNEQWjrBlmYooAo8aD1H+uSjBXzBhVXy9dQDgOr1dBxyijPY
+	BbfK3BFf1hldPjshR8IbbGzqX/wkTQepcUdV67zoMToW6h71HuqKFqvCh+y4DWyne3PbOnH1PFaoM
+	zjhpYuiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0J1e-0000000BaqE-1C8l;
-	Wed, 11 Mar 2026 12:50:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w0J3j-0000000BbC7-1Z4B;
+	Wed, 11 Mar 2026 12:53:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0J1a-0000000Bane-1U91
+	id 1w0J3h-0000000BbC0-3WRL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:50:55 +0000
-Received: from ideasonboard.com (static.170.20.224.46.clients.your-server.de [46.224.20.170])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7DFB42D9;
-	Wed, 11 Mar 2026 13:49:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773233382;
-	bh=3hhQtJuyqLfFjdpmAoRFR4RP69ILCV1ozU6Cm359k30=;
+	Wed, 11 Mar 2026 12:53:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB85960122;
+	Wed, 11 Mar 2026 12:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C2E8C4CEF7;
+	Wed, 11 Mar 2026 12:52:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773233584;
+	bh=pvTPwUETRgoaK2FYBnK3TRkvTzw8K62R4/XYbZAjHLk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EHrIy0CR45EZlV1l5rTU+qJAHjLkLLzxBHX1/7bdAfKSMdurCcsSdm8exKTB5Cg7g
-	 4T8bf5ab/el19dB+y+0N2VZtjdjoQlWvn+2qTg4rClIbcRw9AFOPKUSn9pFIMQtvtE
-	 sYM8cBikFR0glniq+jgSZhqJUueoZYOqy8WeAGQI=
-Date: Wed, 11 Mar 2026 13:50:46 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Alexi Birlinger <alexi.birlinger@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 1/2] media: nxp: imx8-isi: Reduce minimum queued buffers
- from 2 to 1
-Message-ID: <abFeguTCJQmoCLPK@zed>
-References: <20260311-isi_min_buffers-v1-0-c9299d6e8ae6@nxp.com>
- <20260311-isi_min_buffers-v1-1-c9299d6e8ae6@nxp.com>
+	b=ryr9cbb7ve9YMPMrvLP3BAvTRE9krLN3poqx1YUPjtaZH3anOyvrYuyu7OGsZZ6Wh
+	 jrRCw63Nmc71hW7PwmHPlfdmAMCffYTP7cedDdrliyUxMJxpjvbjpQ3BAH33GPPeyz
+	 8fPCTyKE1E9wmfrQXLCj1wFzFlfgICFSPBM840dvj5A5kjFgFWpl9Ik3qXOK9qo0Uc
+	 NeHBUNA5YB04I0ygQhhRY2wswKS3xrHpAcPABKEkk3sQXQrC+Ripg/SlY0DxExNBql
+	 g2EoOkXHdv67rh6hhn7ItoC0t+GRy+oeWM3BxOQgHToKwOiZhd4rQDTnc6QBF9J/vl
+	 pMx5hK2xtr/bw==
+Date: Wed, 11 Mar 2026 18:22:14 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v12 04/12] dmaengine: qcom: bam_dma: Add
+ pipe_lock_supported flag support
+Message-ID: <mf3nlrbu3h2iage5nd2tydhcruf3es7bs5e6ozv5udpymyci3v@dgcn5tgo3p3a>
+References: <20260310-qcom-qce-cmd-descr-v12-0-398f37f26ef0@oss.qualcomm.com>
+ <20260310-qcom-qce-cmd-descr-v12-4-398f37f26ef0@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260311-isi_min_buffers-v1-1-c9299d6e8ae6@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_055054_534781_FAB9C4D9 
-X-CRM114-Status: GOOD (  18.83  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-4-398f37f26ef0@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,46 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Guoniu
+On Tue, Mar 10, 2026 at 04:44:18PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Extend the device match data with a flag indicating whether the IP
+> supports the BAM lock/unlock feature. Set it to true on BAM IP versions
+> 1.4.0 and above.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-On Wed, Mar 11, 2026 at 04:02:58PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
->
-> Fix a hang issue when capturing a single frame with applications like cam
-> in libcamera. It would hang waiting for the driver to complete the buffer,
-> but streaming never starts because min_queued_buffers was set to 2.
->
-> The ISI module uses a ping-pong buffer mechanism that requires two buffers
-> to be programmed at all times. However, when fewer than 2 user buffers are
-> available, the driver use internal discard buffers to fill the remaining
-> slot(s). Reduce minimum queued buffers from 2 to 1 allows streaming to
+Nit: I'd move setting 'pipe_lock_supported = true' part after next patch so that
+the order becomes, add pipe lock support in the driver and enable it for the
+supported versions.
 
-Does it mean the ISI can use internal buffer discard for both buffer
-slots ? Can we make min_queued_buffers == 0 ?
+- Mani
 
-> start with a single buffer providing more flexibility for applications.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 > ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> index 13682bf6e9f8895bb9eb1f92d5f74b0d5968544e..2405baf21594cd18cf2b349234313c5e103b7802 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> @@ -1410,7 +1410,7 @@ int mxc_isi_video_register(struct mxc_isi_pipe *pipe,
->  	q->mem_ops = &vb2_dma_contig_memops;
->  	q->buf_struct_size = sizeof(struct mxc_isi_buffer);
->  	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
-> -	q->min_queued_buffers = 2;
-> +	q->min_queued_buffers = 1;
->  	q->lock = &video->lock;
->  	q->dev = pipe->isi->dev;
->
->
-> --
-> 2.34.1
->
->
+>  drivers/dma/qcom/bam_dma.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> index 8f6d03f6c673b57ed13aeca6c8331c71596d077b..83491e7c2f17d8c9d12a1a055baea7e3a0a75a53 100644
+> --- a/drivers/dma/qcom/bam_dma.c
+> +++ b/drivers/dma/qcom/bam_dma.c
+> @@ -115,6 +115,7 @@ struct reg_offset_data {
+>  
+>  struct bam_device_data {
+>  	const struct reg_offset_data *reg_info;
+> +	bool pipe_lock_supported;
+>  };
+>  
+>  static const struct reg_offset_data bam_v1_3_reg_info[] = {
+> @@ -181,6 +182,7 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
+>  
+>  static const struct bam_device_data bam_v1_4_data = {
+>  	.reg_info = bam_v1_4_reg_info,
+> +	.pipe_lock_supported = true,
+>  };
+>  
+>  static const struct reg_offset_data bam_v1_7_reg_info[] = {
+> @@ -214,6 +216,7 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
+>  
+>  static const struct bam_device_data bam_v1_7_data = {
+>  	.reg_info = bam_v1_7_reg_info,
+> +	.pipe_lock_supported = true,
+>  };
+>  
+>  /* BAM CTRL */
+> 
+> -- 
+> 2.47.3
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
