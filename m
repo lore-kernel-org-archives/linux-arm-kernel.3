@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7421125859
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42251125811
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yMCeD1Mjdyv7API1IllGvhg9xXRRGo5AkRY41EKET2k=; b=TJcQXbc3+mNXwmAkBdablROXhe
-	m7eRlKhcaGBWeFEbHjLtOBPICb9b3ZR4WjafWV3T/bdGNkDpEabaaer4FceCvR2+Hn0wiNHekOXZa
-	BzJbhiT8sSJ2aIuWSThRJ0pUeR+qAqbnDkORVR3kFkXDa7flfH6ZQE3z1sxNVkj5YREJBoSjBaZWU
-	xGD/kP64SeppVVXNUIb4O/2nTu4TZjNqwlcpp32JZvFoU8PaBkmYWOGi/+v2xLQLcBvx3WSR4lqis
-	bylQtxWgAw0ZrjhzdVLhphvOgzRNeuy6a1Es/tIMRWMNxzvSCJ3NW/jeIwIP2wCfPMcs1Hr17Fvkm
-	qL2uAgMg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YdPeHoTgHC/MDNlLc6v5IH+Ld3Rhnqq+XkK//qctpkE=; b=edzErvln77CIThKOeY6bK6KPXh
+	jU/1rlTIUA6oOXd2hWmb5ZCXUJGqKy/fOQH+3mTc62eC/KQS6ZuLjdCQ4qXRf8/B853d37T+n4+QF
+	YMaNBOkjM08TOLoROaj/VdVqSvlJhl8aNR225UBGIcatK0U92pHW6C66snwZqlrvQTL2pRh2/Je8y
+	itFKPzDnSJ9OlQLYeH5uwu0xecD1xAB6in6NGdm/EqFMv3FteywxeQ234j/YWySct6NYa+Bytzr9T
+	bXd4CqufnOJmeY7NkQwtpzuotuPx4UqZ5RDuQnZD8tGTeo5e/o75xbVFUnApgCO9jn1jQ+Qw6ZkJC
+	yCQc33jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NXn-0000000C3S3-2Mve;
-	Wed, 11 Mar 2026 17:40:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0NZ5-0000000C3hc-0A5V;
+	Wed, 11 Mar 2026 17:41:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NXk-0000000C3RM-1ZHz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Mar 2026 17:40:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=yMCeD1Mjdyv7API1IllGvhg9xXRRGo5AkRY41EKET2k=; b=FnTbaa4IlKdfYV76E7LIZmL/oG
-	vzIRUTIgdRUwlY842hmNYNh3S13GObCixrh7NqYq6vWlxkGxPgJ5ustGPrHvxh5AQLU+KJMU0POAr
-	fDyJZMYNrjUltlDsctQVC8fpG7hmmJWHn7Qk4/+fOUmnIXvb0UPz4IHoXN6cyDSie9MMbtiKduj3R
-	3WHFJGKVIOa6J9QkgLehBxpK5H2GLdBSWhPLLGQnTsy4jetB2ukPQz1/wZICW6MhzojkT0t7bhJsI
-	GZAM+Wqa4NeVL3hrs3IeXBtGWs3uwl3EV/5WY7gt4BKCt768pmfBCft52Vut+jzxEDxSt6rU4tiNd
-	rQ1GB9NA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NXg-0000000HR4I-3mOq
+	id 1w0NZ2-0000000C3h2-0UMS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 17:40:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 747741682;
-	Wed, 11 Mar 2026 10:40:12 -0700 (PDT)
-Received: from e137876.manchester.arm.com (e137876.arm.com [10.33.10.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D28E13F73B;
-	Wed, 11 Mar 2026 10:40:16 -0700 (PDT)
-From: Debbie Horsfall <debbie.horsfall@arm.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	liviu.dudau@arm.com,
-	sudeep.holla@kernel.org,
-	lpieralisi@kernel.org,
-	linusw@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 11 Mar 2026 17:41:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DCA5840DDF;
+	Wed, 11 Mar 2026 17:41:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB003C4CEF7;
+	Wed, 11 Mar 2026 17:41:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773250902;
+	bh=gP4gRhmS3cvLvRIZkEGmfYYOSIKE8FUA6HXqm+5tQXo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XshCqUTegp+e6birKbPNCEQbSXiWMLxmOxyHdUyGGRuyW7CmE58AUPQcm65pFbnM2
+	 G/rVi26Lmi1vRFW2oH+xoTd0aLNbEzY5wGRGTpb4242FT1ecDAPq3lDFiEsXNcj3Cb
+	 ojisbqw2bBi/Uje82fUsCdtl7WopzPao3nuC/ohSfIsK1Nv8b5rYvJ7si0Ic1DNGNo
+	 7Viw8icrXKXt1NeF6LOUqzr/gCRGYTTHThL1IEV4pAF9e6lhy/XmTUyKpvlSzqVuwH
+	 iT++MqSAwSfSdqdHLhWuPBET5yec83M+pCJZmycsJL/ocQqyr7ACbZ/ePGD5hQfUgh
+	 WI8ZNojZQrAyg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w0NYy-00000000yRf-1wQn;
+	Wed, 11 Mar 2026 17:41:40 +0000
+Date: Wed, 11 Mar 2026 17:41:39 +0000
+Message-ID: <865x726z70.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	debbie.horsfall@arm.com,
-	andre.przywara@arm.com
-Subject: [PATCH] arm64: dts: zena: Refactor Devicetree nodes
-Date: Wed, 11 Mar 2026 17:39:48 +0000
-Message-ID: <20260311173948.3478931-1-debbie.horsfall@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	kvm@vger.kernel.org
+Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.0, take #2
+In-Reply-To: <CABgObfYjQaTiC7ng3rY1FveMqgzgWvKk1ER6rymfbWNSo74jtQ@mail.gmail.com>
+References: <20260306112231.3201502-1-maz@kernel.org>
+	<CABgObfYJqhj3xiM4_+7gCE1x5v5JQhyS0ox4+obrsZwA2W4GYg@mail.gmail.com>
+	<867bri70xo.wl-maz@kernel.org>
+	<CABgObfYjQaTiC7ng3rY1FveMqgzgWvKk1ER6rymfbWNSo74jtQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, tabba@google.com, qperret@google.com, yaoyuan@linux.alibaba.com, zenghui.yu@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_174021_174329_3EA625BA 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260311_104144_174921_DDAC4EDE 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,97 +96,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the SRAM node into the SoC node. Move the memory node out of
-the include to make it customizable for each platform variant.
+On Wed, 11 Mar 2026 17:05:40 +0000,
+Paolo Bonzini <pbonzini@redhat.com> wrote:
+>=20
+> On Wed, Mar 11, 2026 at 6:04=E2=80=AFPM Marc Zyngier <maz@kernel.org> wro=
+te:
+> > As a heads up, I'm about to send another one with a couple of annoying
+> > fixes, either today or tomorrow morning. Would be great if you could
+> > stash that one as well.
+>=20
+> Thanks for the notice, I will wait and send everything together.
 
-Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
----
-This targets for-next/juno/updates in response to
-https://lore.kernel.org/linux-arm-kernel/20260309-manipulative-inescapable-labradoodle-7a76e4@sudeepholla/
- arch/arm64/boot/dts/arm/zena-css-fvp.dts |  8 +++++
- arch/arm64/boot/dts/arm/zena-css.dtsi    | 44 ++++++++++--------------
- 2 files changed, 26 insertions(+), 26 deletions(-)
+On its way[1].
 
-diff --git a/arch/arm64/boot/dts/arm/zena-css-fvp.dts b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-index b75204a91882..53c5412d92b2 100644
---- a/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-+++ b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-@@ -14,6 +14,14 @@ / {
- 	chosen {
- 		stdout-path = &soc_serial0;
- 	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+
-+		/* ~2GB mapped at 2GB, another 2GB at 2TB */
-+		reg = <0x00000000 0x80000000 0x00000000 0x7f000000>,
-+		      <0x00000200 0x00000000 0x00000000 0x80000000>;
-+	};
- };
- 
- &soc {
-diff --git a/arch/arm64/boot/dts/arm/zena-css.dtsi b/arch/arm64/boot/dts/arm/zena-css.dtsi
-index 9899d2883337..0b41ee4bf4c6 100644
---- a/arch/arm64/boot/dts/arm/zena-css.dtsi
-+++ b/arch/arm64/boot/dts/arm/zena-css.dtsi
-@@ -634,6 +634,24 @@ soc: soc {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		sram: sram@104000 {
-+			compatible = "mmio-sram";
-+			reg = <0x0 0x00104000 0x0 0x00001000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			ranges = <0 0x0 0x00104000 0x00001000>;
-+
-+			scmi_shmem_tx: scpshmem-sram-section@0 {
-+				compatible = "arm,scmi-shmem";
-+				reg = <0x0 0x100>;
-+			};
-+
-+			scmi_shmem_rx: scpshmem-sram-section@100 {
-+				compatible = "arm,scmi-shmem";
-+				reg = <0x100 0x100>;
-+			};
-+		};
-+
- 		timer@1a810000 {
- 			compatible = "arm,armv7-timer-mem";
- 			reg = <0x0 0x1a810000 0x0 0x10000>;
-@@ -748,30 +766,4 @@ timer {
- 			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 	};
--
--	sram: sram@104000 {
--		compatible = "mmio-sram";
--		reg = <0x0 0x00104000 0x0 0x00001000>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		ranges = <0 0x0 0x00104000 0x00001000>;
--
--		scmi_shmem_tx: scpshmem-sram-section@0 {
--			compatible = "arm,scmi-shmem";
--			reg = <0x0 0x100>;
--		};
--
--		scmi_shmem_rx: scpshmem-sram-section@100 {
--			compatible = "arm,scmi-shmem";
--			reg = <0x100 0x100>;
--		};
--	};
--
--	memory@80000000 {
--		device_type = "memory";
--
--		/* ~2GB mapped at 2GB, another 2GB at 2TB */
--		reg = <0x00000000 0x80000000 0x00000000 0x7f000000>,
--		      <0x00000200 0x00000000 0x00000000 0x80000000>;
--	};
- };
--- 
-2.43.0
+Thanks,
 
+	M.
+
+[1] https://lore.kernel.org/all/20260311173902.329537-1-maz@kernel.org/
+
+--=20
+Without deviation from the norm, progress is not possible.
 
