@@ -4,146 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DF91062891
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C3A1062892
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2RbuDHtEJH1UAr9Gl8WOZMMDce5+dp+w4DDehgWOVBU=; b=PqDXSG4HR76hD5EO5JHUyUobCK
-	PpBei+eZv3XvFWA9ycplA1ZJ0HXzD23VFJoNpUfk3+0lFhgbBGaOLcdKV6GkiGVfIgifPLwNEURr8
-	KMF3oAdaQEwXVmPuCum0gGclvd4a+/LNOdyKNEwIJoADlXXUXqCzLGIB96H3iCn42USfjkuayti6p
-	aB/0K9USlb410nr5kA5fQbbF5kiiY9hhtOyTOFPVge/dloxoM9uXzJeSzzKyT2YxgWaK4rme8CeFr
-	iBb+BFpfJDRpuHZy8gVSq9fAd02cKu6OymR6PHxE86ZtQVrXcRc3M/tNNJSKjgJLeHXHCKebphei3
-	2JAXeusA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EMdXKmOh0SZLHijCdCAN5cUgJGeht054Y1uPHLOACH4=; b=ftCE7Zgcg5hBD62rLZ+riiZgQg
+	cf95zIu43RmL2BquxLk6fIBDFd/Qf3ZsaHTxkrT8xfRZuZaYjucX1jcbiioJbX2Zhmqr+l7t+5tBp
+	KrADiRzMsvMIGY2meiMCq/Ek2b2vptPNBkbefy59FnH5F3GLcAy/omlYCeK3vtxdegmycfw0rF7OT
+	agpnm1atSg9gWuXeXTlEmuK0FcWiHelzE23FmX3UNO5MXptQQvLQLY3/bxMGOXElBIS2yUy6kpLi+
+	wBDWVg0RXKARl+8gJawzeusMDOy3WbiZJaMHhxb/ybmoOAHlQCG0ZAtu8k02QJ2l5QaIDg1wK5dsE
+	s0eaiWlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IrO-0000000BZeP-23M3;
-	Wed, 11 Mar 2026 12:40:22 +0000
-Received: from mail-francesouthazon11011070.outbound.protection.outlook.com ([40.107.130.70] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w0Isg-0000000BZlX-0jr2;
+	Wed, 11 Mar 2026 12:41:42 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IrL-0000000BZe5-1nPP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:40:20 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=o/jCm6twYoKmENuWrbsre4SvNfUj/NokgrbzJO/Vz4zbVAuCMDZjR+80ieJLkiWxarM0bNj+GSQC2UKsDYMkR47iej4Woh3LCyvMP7FXgjeSVtONRUFoloOY8szr3e0yd7p8pIXygK9DrBYoHVsz2bR0jffK6DFDt+rimMd9ElOzNuu3RNhtyt5+zpRPHGxG4/nvwoVtcSygkT3758Y4OsuKkQUUXVMNz9jkLkbMMCFAny0TOIHeItYFSEUse8b9P/Hr3OSNSLXVL353i9Ap9UQWJXDYAEj6G/kgIna2yLrl5NAwQHzflpJIjTCixIIQPx26BdO6C3awq0eXdu+iyw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2RbuDHtEJH1UAr9Gl8WOZMMDce5+dp+w4DDehgWOVBU=;
- b=v8i5HlOFu+AblzPda1mo1NPQx1oWGcgny9olaqmqyWOiz6g2WwrsmqbcI8dVfKvlUm8+o9tAaTyKufzrYPo/q6dcydZ959YJ4bQ+8hQJEVV34tG91N36WViImpJGQWNu1YGPty8E6tj3xvhU2CB7AFpgqAVXNKLqIZN53jIQ5KH3iwZU8SETaHhv9B1ZwOC1piLtHh2ueLcQ4NxvfgMboAVOtEv8/xFrPiRZdnPoh+oELWM+Uoi1sRC6zSXoV6pVs0bmJtB2D5KtID3S3SX8Hsji7DBp8uvHQJ/NS0+9bYQ19yDXbLOIvVzBwGyPka+J9gbZmNzSKEBfeI16jRt50A==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2RbuDHtEJH1UAr9Gl8WOZMMDce5+dp+w4DDehgWOVBU=;
- b=cNPSpKLj/86Id+ruqV8QWrSJsPufxNf2PqNKBk84s1ejXwneJaKhV8YcvS9NNdLgxkGGZTtpW6/Pf23TKLvYNBjoRUqbNl1Pzuw1jZXjLM0t7LYLMxs3JxAKVzxMb1at4Ni1yDpjVgS0AjEQSPQVhbbzFUWDW0au8cEYRrsmiec=
-Received: from DU6P191CA0024.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:540::14)
- by AS8PR08MB6566.eurprd08.prod.outlook.com (2603:10a6:20b:33a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Wed, 11 Mar
- 2026 12:40:10 +0000
-Received: from DB1PEPF00039234.eurprd03.prod.outlook.com
- (2603:10a6:10:540:cafe::4e) by DU6P191CA0024.outlook.office365.com
- (2603:10a6:10:540::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
- 11 Mar 2026 12:40:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF00039234.mail.protection.outlook.com (10.167.8.107) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.16
- via Frontend Transport; Wed, 11 Mar 2026 12:40:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Za/sjSJgd07bhVyf4ZvVaTXpadXbxswRYWkGUTaMPubKPt3hclMcQ9LI4h/vH9M7AvkK0oZ9Zb9la7O9IoixMXQZ6MmkdsUlxe9HyEvw2xSlTyTonIvsE14EdUcOA6c9SIPtbthOLnbuzlOur0yucGwsQFyclsGYPewfV8x9U4z+Tmpox1Fjj7nxZXx84uONibd1daqu5JoonKQIYLVGqyazxLHBrM5wAy+iYaYj/GPFZarQRH+rTQFZxLd1gGsJYkAkQ8J5mKUd7JjIg3XzLX/XilI5cE1if99h/WOfjk7FjkIwkWFyIOd786L51lmGCWaP4lmDu5wenJ5FDlYCmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2RbuDHtEJH1UAr9Gl8WOZMMDce5+dp+w4DDehgWOVBU=;
- b=gHhVduWcnDWR3Ec3KhZwSHlW1/u4BqrMZgXx8KLVO7Ilb4XGSahfv4Ox7CXWx10AAsQC8fIDQFm6dAdvR16uUA0UzDERXdYsAqwLEtnP8RPdGBc1kB2N3VOQsYqeB3xOnkFsdRaQ857L5+W0tOqGhJn05bFmLI7rqGMY70s3FnPpJm3tA3qjxIDxh92jy5JvLxiyvhWQ6xHpm+6fUI74JO4xcg0LwEiC5oO4ozZqZJYG3Up5gXAOc6dzqap2CLWRRnT1ZDF2OgwgIuNA6WIU6aaI5sLXns0hgBfnaVmdfYAipAdxTLM/xdCbaNH+12IpMbzagayEu8KHsuBdLmvCkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2RbuDHtEJH1UAr9Gl8WOZMMDce5+dp+w4DDehgWOVBU=;
- b=cNPSpKLj/86Id+ruqV8QWrSJsPufxNf2PqNKBk84s1ejXwneJaKhV8YcvS9NNdLgxkGGZTtpW6/Pf23TKLvYNBjoRUqbNl1Pzuw1jZXjLM0t7LYLMxs3JxAKVzxMb1at4Ni1yDpjVgS0AjEQSPQVhbbzFUWDW0au8cEYRrsmiec=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
- by PAWPR08MB9639.eurprd08.prod.outlook.com (2603:10a6:102:2e3::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 12:39:02 +0000
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.20.9700.010; Wed, 11 Mar 2026
- 12:39:02 +0000
-Message-ID: <b7c95e33-c427-42be-9ea9-99b6556f266e@arm.com>
-Date: Wed, 11 Mar 2026 12:38:59 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/11] ACPI: APEI: GHES: move CPER read helpers
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
- robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-3-347fa2d7351b@arm.com>
- <20260224153221.00000420@huawei.com>
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-In-Reply-To: <20260224153221.00000420@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PA7P264CA0294.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:370::18) To VI0PR08MB11823.eurprd08.prod.outlook.com
- (2603:10a6:800:324::5)
+	id 1w0Isd-0000000BZl6-49IC;
+	Wed, 11 Mar 2026 12:41:41 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62B1nX5x1973470;
+	Wed, 11 Mar 2026 12:41:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=EMdXKm
+	Oh0SZLHijCdCAN5cUgJGeht054Y1uPHLOACH4=; b=es3UVyKuE/Uy91otvdMKvl
+	El3cEmVcH38Yc0lR+pkN65vaiiU5AUOBVODcbzAdvhXNFnFGKia5mOjQoWyVFMiN
+	RxLd/QDyEE1LeujepDthzJucQBDY6K+NeSLItk0ru2GlveiqRtxq5kQGSUS/Awgk
+	SaBXc6f+lZT03rR8WJFhbIltqGU/EThz9Z/djoKDo+53xTVKy7y+4klz0vtRQLa0
+	1dl3wNk/HdwyIHlSGgfF1vxtidwyHC8Mk/8/eczXdpuOHnSOrZswbGT4KKi4TgwW
+	pS1UBpyzLwZkCBTNfyhRHYhxvocMUW1sdjam+lnsDh4IRQkBq7Rw3REVzZ17GUIA
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4crcuyftx1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Mar 2026 12:41:26 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62BBbrVA021150;
+	Wed, 11 Mar 2026 12:41:25 GMT
+Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4crxbswhdg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Mar 2026 12:41:25 +0000
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62BCfNc2852914
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 11 Mar 2026 12:41:24 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D871958054;
+	Wed, 11 Mar 2026 12:41:23 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8DCA058060;
+	Wed, 11 Mar 2026 12:41:18 +0000 (GMT)
+Received: from [9.43.80.48] (unknown [9.43.80.48])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 11 Mar 2026 12:41:18 +0000 (GMT)
+Message-ID: <ef7212dd-429c-4b64-bad6-4c37d27775d5@linux.ibm.com>
+Date: Wed, 11 Mar 2026 18:11:16 +0530
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|PAWPR08MB9639:EE_|DB1PEPF00039234:EE_|AS8PR08MB6566:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a343f1f-a932-4589-b072-08de7f6b5560
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: WMmp8ZjQFuP3WbTrliQfjuYsWezRto1UH1CV3RY1XCxurDqkcYCHTt48WAKuGTT3PxgCThKbjsuse4MFNpORQRR3w544q30ruX18eni2mCBGYCVaJwEwRyvzaMcN2Eu4Gx9PO/sAIgBsLvYcCZa+FOuq2BW2IWC6Ovbq5ddEvrOFWM04zCy97Kwi50+103J57ENmBI34pv80dZ5Y3mik2E55KpvpJ40UoqzqyUINgxCjXIb0OmZcOyVZNZmr6nTHM1NDDJzWX8U5Ns5KrfoQ3G/vKUt667Sj5KZdvGmBdog5bkr3oTzbhHif7GiwdFSkC9huZBUNPYRTQ6skYdqnlDIML6gnta28F2CUbMGKQlc2wXnFbTewCe4G6z6u7RHUKZWQxiMOg9qRkq7aCpF4Zby69xNR/PBDMFu8h/cWPCq+W4zKD6fJHjo1lo/42sGAhmmhHqgD21ljm0Gyf3G1dEvZzfW9Eq/evEh3daaSX1wiXCJHOxl1RpztEgKGO4Vt5ox9Dex6bAq1IGmSarHIgFrU/5UfYAu9gk3Eyc0MN4rCOT9cP2qqYsp2gJsdEPdmgZBRphD1DefwB1e8GKyDDLPxYSZO3j0hp9ja02DWAZ/bpaBCh3CkPy7Gu7DA0ZcravJzPo0KM/fv1VzrWbtWO/5eOn1pTo/zC/XyMHivOeL8ZCHA3ULS2iueMCy3xJVUAGcQOTBgxARWojut7KWfiNFkvsArEvdhIeeZ7mTy1SM=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: n+s2KMXdU0dUk7fbj1AGpB2RWMouFRJCA47L8RFEA9Hsaj0Q9cHDIaCFHIa3AtNIWRI3h4K4KGwTu0BRqnGPOiTauIOCbxdFLOGKCfLEwxNye6wp4sCkbh5KJBiXEvy6Izwdx+32cLUWvxNTw+AR77Un7FBtbS2sMKSmg34zoj1D8i45M7y6+G3AwqBfxKGCaMKMgSPpH6dYEvtClbhJ61lsI0KefACyyI2nKcJLw0FtV7xSbRF20B7YpAAl8E8nOR0MG0mxjGQr3iCykP99S35Xe9xGB01UP5PdOen5D8gcmt2GAp28kxJgSsHMIe2OkKyOIuIBttQJkH9K2pDl5A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9639
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF00039234.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 6eb1a4a2-3580-4b05-76fc-08de7f6b2cf7
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|14060799003|36860700016|35042699022|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: s4gYjuHI9juKtQCxt0ipnI8PntrCA7iGoo8WwhTEi2rcs2Ty1MOVSqbElTQX9NR/6qOVeldqpueUdir6TyVlomt6gAasCMe+b6L6ivUazrwwCCs0MtWPrSbql/4hpTr0W+2F0d58pZ8zB73wPNh7wWZuOXqiI25pRTiEgU2anJpo/wf0geKIzu4VrXYamlteCXF6FSrDmnLlm4VqUOivBUnMiuqlJPuzxt+rs0HzbUzlCV/lLvVYnKgM2n4RDT6NYa1aHLwaQjEGot71UJzzGpub88SjNgXeyJ27uP7MmKr/yI025jy+mu5tbJPmg4xm2YaOJkMXBMlVqILjXkC5dUjAz8G4RtdaoKTMeIx5NLUFeU2LNA/KfB3TgCfOlQj6qcsOivoqGLJDvIfxt4/uLv/2G406uMrDQN7PPKCl9zOGOcZolgF6lr34FWZFthtqlfTzWBIEPp/0/+5MpFGHykial73AHQg0X82/hQU2cGvw6V2f79z0sYeCIMJPsdTi6ymFw3zFEZ4rdT0m97klo/MrTplUzt80xR5kuKH4XVHdTlOC+x5u0UdGt5VnnT2NbTl/Yid2MhJil827GALq3EpoyqXLudWH2zhgIyFBJEPRnIiawfoABj67tdsyFRzreRJ6UUnZe68FYNC9sOYrdZATSQuC0QkxBnw8Y2H6Kvcxp1kptQ9u4b9kaxVwj9q/htzhCXt9H4e+RXcp96CZVAe/uCvYyfWxsu218cHjYUFABfoLIiNs9bO26y89rpGFIqeCb1iWmQ3VpYV3BbLxtQ==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(14060799003)(36860700016)(35042699022)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Dlq+89TJZY6wwzOD4WGqNC7lLaDSP+p2KV3ExUL+l+HfOxJfyZzBTbTNU7ZdTsZ0udOugJbIii84jS3cbPk3NJIUtoUGaiWsEdLxuc0wlu3f1AjgaxEyhg3Gfzbg3m5pPTmhfuPNMgZNdX148dufLcKUrZ3a1tYHDCDcBKOmqei7TrtB/CWoOMDMZxBuMgnAkXPzbp0pz8qnSM2jj33x8R1ZR4S6/A6TMjcjnl7nM49aprLuBYa1lPOhOP21Au+sZBTnzU86cwey+llnSiaKayn+GaRybAiGsy9oCxVu0EpBGLR6dJRdY6XBGaJT7QOuaF9fy3Nx11Cgn7qMcoGB3upmEMl3R/onJLNIyWhkeMCjQe6UTq9Amy6jWezQP2e4wxvRVm2WcLZuB7pw70MVcqCuCOkP3LT8m+hbOp5QRiUNGKBxy5x8tzb4RaopovCs
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:40:10.2560
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a343f1f-a932-4589-b072-08de7f6b5560
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00039234.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6566
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+To: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
+Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        x86@kernel.org
+References: <cover.1772812343.git.agordeev@linux.ibm.com>
+ <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+Content-Language: en-US
+From: Madhavan Srinivasan <maddy@linux.ibm.com>
+In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=EK4LElZC c=1 sm=1 tr=0 ts=69b162f6 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=Z4Rwk6OoAAAA:8 a=C7LtFB5Z-NQoCHpHwbYA:9 a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10
+ a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzExMDEwNiBTYWx0ZWRfXwcCCldWzVDrG
+ 7o7iMLZYb7kQOlg32zY2UqTY9DPqvnM6y8Bk2/cr3PMT/yH8FztampVLRo/axBrij/uazvBwbbL
+ OSBgHEm17RRmqKoz9BF5LHviaHhCIC5lLB+dYWg4vv0NpgNKgtWjPtCXkWspHemP/ZmdCJgfe9U
+ FnuW7/liUax+2s3CKK7wIgFI6IAnsmFZTYV7+cV8hfCChVNIrH8xDjrzEXpZ/nq3hGeJOCYfqar
+ 7Ds5BAvSQqNrVCXyj9KNI0Cjx1y2lJ89dQGG2Ky1Q6QQFjhdJn7YZh2llki2B5j05eubegnjUBD
+ YphNGtXsQOIaOvL8JEMH1bLL7hg6/tkfQsSx1ZiiEiZq0hO798oKR6Of95OhpDnuPwCX0wLhrKm
+ TkQMKOTZrTTpmUx4Cg4+ONSk8oCkJ8j2wZUpkHnTitaBBThPS55m41oRe7N+WNnhMp5cLms3wVz
+ aeNFL14xyhQ+CVkc9PA==
+X-Proofpoint-GUID: CsT0ogmetyAXCRGOSbmrtozIExz6Iu-E
+X-Proofpoint-ORIG-GUID: CsT0ogmetyAXCRGOSbmrtozIExz6Iu-E
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-11_01,2026-03-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0 clxscore=1011
+ bulkscore=0 impostorscore=0 priorityscore=1501 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603110106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_054019_629828_5F264CC9 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20260311_054140_042135_FA7BA9C0 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,133 +128,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 15:32, Jonathan Cameron wrote:
-> On Fri, 20 Feb 2026 13:42:21 +0000
-> Ahmed Tiba <ahmed.tiba@arm.com> wrote:
-> 
->> Relocate the CPER buffer mapping, peek, and clear helpers from ghes.c into
->> ghes_cper.c so they can be shared with other firmware-first providers.
->> This commit only shuffles code; behavior stays the same.
->>
->> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> Hi Ahmed,
-> 
-> Most of the comments in here are about changing the patch break up.
-> Basic suggest approach is move stuff as it is needed, not in advance of
-> that need.  So when you move the function to the c file, only then add what
-> it needs to the includes / header.
-> 
-> Jonathan
 
-Thanks Jonathan.
-
-I’m keeping each patch as a strict mechanical relocation so reviewers 
-can diff‑verify the move. That’s why includes and header prototypes are 
-introduced alongside the moved helpers, not later.
-
->> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
->> index 63047322a3d9..7e0015e960c1 100644
->> --- a/drivers/acpi/apei/ghes_cper.c
->> +++ b/drivers/acpi/apei/ghes_cper.c
->> @@ -1,7 +1,7 @@
->>   // SPDX-License-Identifier: GPL-2.0
->>   /*
->>    *
->> - * APEI GHES CPER helper translation unit - staging file for helper moves
->> + * APEI GHES CPER helper translation unit - code mechanically moved from ghes.c
-> 
-> In the long run, no interest in where it came from. People can
-> look at the git history for that.
+On 3/6/26 9:46 PM, Alexander Gordeev wrote:
+> From: Tobias Huschle <huschle@linux.ibm.com>
 >
+> Unlike other architectures, s390 does not have means to
+> distinguish kernel vs user page table entries - neither
+> an entry itself, nor the address could be used for that.
+> It is only the mm_struct that indicates whether an entry
+> in question is mapped to a user space. So pass mm_struct
+> to pxx_user_accessible_page() callbacks.
+Changes looks fine to me
+Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
 
-I'll drop it.
-
->>    *
->>    * Copyright (C) 2026 ARM Ltd.
->>    * Author: Ahmed Tiba <ahmed.tiba@arm.com>
->> @@ -17,10 +17,176 @@
->>   #include <linux/slab.h>
->>   
->>   #include <acpi/apei.h>
->> +#include <acpi/ghes_cper.h>
->>   
->>   #include <asm/fixmap.h>
->>   #include <asm/tlbflush.h>
->>   
->>   #include "apei-internal.h"
->>   
->> -/* Helper bodies will be moved here in follow-up commits. */
-> 
-> If you just do the file creation with this first move, then we don't get churn of
-> comments like this one.
-
-As above to avoid churny commentary.
-
->> +/* Read the CPER block, returning its address, and header in estatus. */
->> +int __ghes_peek_estatus(struct ghes *ghes,
->> +			       struct acpi_hest_generic_status *estatus,
->> +			       u64 *buf_paddr, enum fixed_addresses fixmap_idx)
->> +{
->> +	struct acpi_hest_generic *g = ghes->generic;
->> +	int rc;
->> +
->> +	rc = apei_read(buf_paddr, &g->error_status_address);
->> +	if (rc) {
->> +		*buf_paddr = 0;
->> +		pr_warn_ratelimited(FW_WARN GHES_PFX
->> +"Failed to read error status block address for hardware error source: %d.\n",
-> 
-> Unusual indenting.  I'd just fix that whilst you are here. Don't worry about long line.
-
-I'll fix the odd indentation
-
->> +				   g->header.source_id);
->> +		return -EIO;
-> 
->> diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
->> index 2597fbadc4f3..2e3919f0c3e7 100644
->> --- a/include/acpi/ghes_cper.h
->> +++ b/include/acpi/ghes_cper.h
->> @@ -74,21 +74,21 @@ struct ghes_vendor_record_entry {
->>   	char vendor_record[];
->>   };
->>   
->> -static struct ghes *ghes_new(struct acpi_hest_generic *generic);
-> Huh. Static forward declarations in a header?  That never made sense. Fix it in the
-> earlier patch and remove the statics from the declarations.
-> 
-> Actually no, just bring them into the header only when you need to. So as part
-> of the patch that moves the caller or the function.
-
-I’m keeping the GHES‑CPER interface explicit in one place.
-Moving those declarations later would scatter that interface
-and make the mechanical diffs harder to review.
-
->> -static void ghes_fini(struct ghes *ghes);
->> +struct ghes *ghes_new(struct acpi_hest_generic *generic);
->> +void ghes_fini(struct ghes *ghes);
->>   
->> -static int ghes_read_estatus(struct ghes *ghes,
->> +int ghes_read_estatus(struct ghes *ghes,
->>   		      struct acpi_hest_generic_status *estatus,
->>   		      u64 *buf_paddr, enum fixed_addresses fixmap_idx);
->> -static void ghes_clear_estatus(struct ghes *ghes,
->> +void ghes_clear_estatus(struct ghes *ghes,
->>   			struct acpi_hest_generic_status *estatus,
->>   			u64 buf_paddr, enum fixed_addresses fixmap_idx);
->> -static int __ghes_peek_estatus(struct ghes *ghes,
->> +int __ghes_peek_estatus(struct ghes *ghes,
->>   			struct acpi_hest_generic_status *estatus,
->>   			u64 *buf_paddr, enum fixed_addresses fixmap_idx);
->> -static int __ghes_check_estatus(struct ghes *ghes,
->> +int __ghes_check_estatus(struct ghes *ghes,
->>   			 struct acpi_hest_generic_status *estatus);
->> -static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->> +int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
->>   			u64 buf_paddr, enum fixed_addresses fixmap_idx,
->>   			size_t buf_len);
->>   
->>
-> 
-
+> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
+>
+> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
+> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+> ---
+>   arch/arm64/include/asm/pgtable.h             |  6 +++---
+>   arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
+>   arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
+>   arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
+>   arch/powerpc/include/asm/pgtable.h           |  4 ++--
+>   arch/riscv/include/asm/pgtable.h             |  6 +++---
+>   arch/x86/include/asm/pgtable.h               |  6 +++---
+>   mm/page_table_check.c                        | 15 ++++++---------
+>   8 files changed, 24 insertions(+), 27 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index b3e58735c49b..ccf0e0638767 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1263,17 +1263,17 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
+>   #endif
+>   
+>   #ifdef CONFIG_PAGE_TABLE_CHECK
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return pte_valid(pte) && (pte_user(pte) || pte_user_exec(pte));
+>   }
+>   
+> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
+> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
+>   {
+>   	return pmd_valid(pmd) && !pmd_table(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
+>   }
+>   
+> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
+> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
+>   {
+>   	return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
+>   }
+> diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+> index 001e28f9eabc..75195bb44d06 100644
+> --- a/arch/powerpc/include/asm/book3s/32/pgtable.h
+> +++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+> @@ -438,7 +438,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+>   	return true;
+>   }
+>   
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return pte_present(pte) && !is_kernel_addr(addr);
+>   }
+> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+> index 1a91762b455d..a56df313b585 100644
+> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
+> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+> @@ -549,7 +549,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+>   	return arch_pte_access_permitted(pte_val(pte), write, 0);
+>   }
+>   
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return pte_present(pte) && pte_user(pte);
+>   }
+> @@ -925,9 +925,9 @@ static inline bool pud_access_permitted(pud_t pud, bool write)
+>   }
+>   
+>   #define pud_user_accessible_page pud_user_accessible_page
+> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
+> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
+>   {
+> -	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
+> +	return pud_leaf(pud) && pte_user_accessible_page(mm, addr, pud_pte(pud));
+>   }
+>   
+>   #define __p4d_raw(x)	((p4d_t) { __pgd_raw(x) })
+> @@ -1096,9 +1096,9 @@ static inline bool pmd_access_permitted(pmd_t pmd, bool write)
+>   }
+>   
+>   #define pmd_user_accessible_page pmd_user_accessible_page
+> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
+> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
+>   {
+> -	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
+> +	return pmd_leaf(pmd) && pte_user_accessible_page(mm, addr, pmd_pte(pmd));
+>   }
+>   
+>   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
+> index e6da5eaccff6..0665d0abe89f 100644
+> --- a/arch/powerpc/include/asm/nohash/pgtable.h
+> +++ b/arch/powerpc/include/asm/nohash/pgtable.h
+> @@ -249,7 +249,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+>   	return true;
+>   }
+>   
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return pte_present(pte) && !is_kernel_addr(addr);
+>   }
+> diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+> index dcd3a88caaf6..29ed509cd235 100644
+> --- a/arch/powerpc/include/asm/pgtable.h
+> +++ b/arch/powerpc/include/asm/pgtable.h
+> @@ -205,11 +205,11 @@ static inline bool arch_supports_memmap_on_memory(unsigned long vmemmap_size)
+>   #endif /* CONFIG_PPC64 */
+>   
+>   #ifndef pmd_user_accessible_page
+> -#define pmd_user_accessible_page(pmd, addr)	false
+> +#define pmd_user_accessible_page(mm, addr, pmd)	false
+>   #endif
+>   
+>   #ifndef pud_user_accessible_page
+> -#define pud_user_accessible_page(pud, addr)	false
+> +#define pud_user_accessible_page(mm, addr, pud)	false
+>   #endif
+>   
+>   #endif /* __ASSEMBLER__ */
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 08d1ca047104..affe46cf3bc5 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -984,17 +984,17 @@ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+>   }
+>   
+>   #ifdef CONFIG_PAGE_TABLE_CHECK
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return pte_present(pte) && pte_user(pte);
+>   }
+>   
+> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
+> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
+>   {
+>   	return pmd_leaf(pmd) && pmd_user(pmd);
+>   }
+>   
+> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
+> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
+>   {
+>   	return pud_leaf(pud) && pud_user(pud);
+>   }
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index 1662c5a8f445..f9353d5c7464 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -1680,17 +1680,17 @@ static inline bool arch_has_hw_nonleaf_pmd_young(void)
+>   #endif
+>   
+>   #ifdef CONFIG_PAGE_TABLE_CHECK
+> -static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+>   {
+>   	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
+>   }
+>   
+> -static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
+> +static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
+>   {
+>   	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) && (pmd_val(pmd) & _PAGE_USER);
+>   }
+>   
+> -static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
+> +static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
+>   {
+>   	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) && (pud_val(pud) & _PAGE_USER);
+>   }
+> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+> index 2708c2b3ac1f..53a8997ec043 100644
+> --- a/mm/page_table_check.c
+> +++ b/mm/page_table_check.c
+> @@ -151,9 +151,8 @@ void __page_table_check_pte_clear(struct mm_struct *mm, unsigned long addr,
+>   	if (&init_mm == mm)
+>   		return;
+>   
+> -	if (pte_user_accessible_page(pte, addr)) {
+> +	if (pte_user_accessible_page(mm, addr, pte))
+>   		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
+> -	}
+>   }
+>   EXPORT_SYMBOL(__page_table_check_pte_clear);
+>   
+> @@ -163,9 +162,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
+>   	if (&init_mm == mm)
+>   		return;
+>   
+> -	if (pmd_user_accessible_page(pmd, addr)) {
+> +	if (pmd_user_accessible_page(mm, addr, pmd))
+>   		page_table_check_clear(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT);
+> -	}
+>   }
+>   EXPORT_SYMBOL(__page_table_check_pmd_clear);
+>   
+> @@ -175,9 +173,8 @@ void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+>   	if (&init_mm == mm)
+>   		return;
+>   
+> -	if (pud_user_accessible_page(pud, addr)) {
+> +	if (pud_user_accessible_page(mm, addr, pud))
+>   		page_table_check_clear(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT);
+> -	}
+>   }
+>   EXPORT_SYMBOL(__page_table_check_pud_clear);
+>   
+> @@ -211,7 +208,7 @@ void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
+>   
+>   	for (i = 0; i < nr; i++)
+>   		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep + i));
+> -	if (pte_user_accessible_page(pte, addr))
+> +	if (pte_user_accessible_page(mm, addr, pte))
+>   		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
+>   }
+>   EXPORT_SYMBOL(__page_table_check_ptes_set);
+> @@ -241,7 +238,7 @@ void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
+>   
+>   	for (i = 0; i < nr; i++)
+>   		__page_table_check_pmd_clear(mm, addr + PMD_SIZE * i, *(pmdp + i));
+> -	if (pmd_user_accessible_page(pmd, addr))
+> +	if (pmd_user_accessible_page(mm, addr, pmd))
+>   		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
+>   }
+>   EXPORT_SYMBOL(__page_table_check_pmds_set);
+> @@ -257,7 +254,7 @@ void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
+>   
+>   	for (i = 0; i < nr; i++)
+>   		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
+> -	if (pud_user_accessible_page(pud, addr))
+> +	if (pud_user_accessible_page(mm, addr, pud))
+>   		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
+>   }
+>   EXPORT_SYMBOL(__page_table_check_puds_set);
 
