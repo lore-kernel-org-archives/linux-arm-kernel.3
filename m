@@ -4,118 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FA5FD2D9D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 08:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 597C6FD2D9D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 08:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7zuVU4kSz42lHuB/Z7O1MfKKSTiVUlfXmHvT3WfrIk=; b=gQYLzfpTze5Rz5SUZOkYJLgr5l
-	DXAnSR53Pw0hE8meiAb45/TEnPwOUtDevVjCt6WaTfQViNjQ5rUxk+VtSdZ/TYjT4Y8RD14U/Soen
-	GaU2iQccWu+9zQ968MN8d9bgmRNPK9qN4q9uyqr+VF1uSzsCrV/infLiysorb7c0azxkqTvQ9CbPP
-	Vwz8c81tBwaiMTqIAMcN5Xi53IxAFruDSwBtZ3amyxH7jwkOnKJHMokC/DgujenrkvHPZ7v5N3Jfb
-	o/PAm05UDUmtC0f6hBL/Njb7Vz7x5oFvvLDpNuGMzhEr/gsV1FQdnl0F+1QmIvq516UG5rMLwI9vW
-	h3tfhcxA==;
+	bh=6AGeRe5PSkn3N5Fwl9pfU07UQ6u6yNXf5YcgOi5jExA=; b=cyFu4EcQGQXV0vkh+oBLDc2fJb
+	lCodm+J0eLAjCVPUN0CD0MHzFnJSKX42EtQD3jInWSdlRZJKFGpYwC3Tmy9121s+JgnVD4AnnBmhz
+	EYwPSmyUB61xpE9+mvzJOMaD0VAgbLNHNy/fpFCMcswyGfOJXvibNdn9VX2CJN5feU9NBw3hKk611
+	HowDVBqlgT0NUtmwtJ8+SI3pJBqyEjC5dkI7475uUdMz7MjrIQ+iEEsge7PVN6DKylS++QzrI0Eum
+	bWqq03D5odjdY6jR3rSYVzIaeuYzXl89LR3gYIys+PxFi/9aDzmne78dQhxCOP43Zag4y5jT2xYQj
+	QpXgLyrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FOg-0000000BDBZ-1Dut;
-	Wed, 11 Mar 2026 08:58:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0FP4-0000000BDFV-0RSw;
+	Wed, 11 Mar 2026 08:58:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FOe-0000000BDBQ-3lFP
+	id 1w0FP1-0000000BDEb-2iVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 08:58:29 +0000
+	Wed, 11 Mar 2026 08:58:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 064EA6024D;
-	Wed, 11 Mar 2026 08:58:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC1BDC4CEF7;
-	Wed, 11 Mar 2026 08:58:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 358AF435E3;
+	Wed, 11 Mar 2026 08:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11627C4CEF7;
+	Wed, 11 Mar 2026 08:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773219507;
-	bh=iGvI4Qyy3VTMCFms40DwkIoXkk9yGj2f8KU89uvrbHM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=enx2TxRy7m1Q50tEQIo6QTelgoLVwG1Iha48zIL8dK4KY/YYQnuC/k3vkCgwRzNae
-	 Lz/WhXsWzO6M53PFlWgHVdnPH3o8ZcWJXnENEryFbEmnJyUKs+g/qpqNL3uJ0l+JUQ
-	 JZu76rtIrgKwUJxrAckhUYL2a9oX18q8z5w4sPdYwSjd9a11utdxa+FAH+NRFgAe7b
-	 sX9D9Ze9MJt1JzwP/wxci/Ob6OYvw5lzemv9GB4PfV0WCyWVw3vIFszuHgnnFg0NOx
-	 K2FeWUXzEl37BPE+gYnoWbJy3b0L/cYznPW7v1i87e7q8IvlUdLKduu8RvgjK+LhN9
-	 P8vX/GuQwtUAQ==
-Message-ID: <d9f9884e-b4f4-4f38-9732-66ff90408b4d@kernel.org>
-Date: Wed, 11 Mar 2026 09:58:22 +0100
+	s=k20201202; t=1773219530;
+	bh=WO0BNQjNxV78n5IOyPU7x3leCM/hYOPwVQjiO409PJc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uRgaZoj0FnzpUgGHuwMPA5AzG7DJ9T31YUKxsV5DFlbsT6HcCuMCpov9wGC9GdriK
+	 wmGucz1pqSSYZIwnAFkyRi6D0OkGVX45FShxzC3ewEbGyOVfqFXTFghap2XXM93NuY
+	 xu9hdfr3mDN+tzVpYyS8kduc3QeU3TLVfihS63TitOLlgYCDI3vDWsxY1DxFy8O24W
+	 R3+M8ejtK8Y5jCqFKV6n9eUyKa3Wo536wOG5N+f2M60C+84Tg7ncqkyaCEzSkJMVPl
+	 aYvZIq9qDnatDR7n1CcxV47Bjm+EPuYe7N44dcPeQoi0Vc9xoI17pV9IM8UA/79tj0
+	 /z1TqkYVOTDDA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w0FOx-00000000mOj-2xfu;
+	Wed, 11 Mar 2026 08:58:47 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	Oliver Upton <oupton@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v14 00/30] Tracefs support for pKVM
+Date: Wed, 11 Mar 2026 08:58:44 +0000
+Message-ID: <177321950220.58730.2900926663831637604.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260309162516.2623589-1-vdonnefort@google.com>
+References: <20260309162516.2623589-1-vdonnefort@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip
- platforms
-To: Bartosz Golaszewski <brgl@kernel.org>,
- Daniel Machon <daniel.machon@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- robert.marko@sartura.hr, Steen.Hegelund@microchip.com
-References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
- <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org>
- <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
- <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
- <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
- <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
- <244fdbad-0d9f-42bc-a005-5f5ef34d067d@app.fastmail.com>
- <20260227-wolverine-slogan-7af0661f6e44@spud>
- <c9df99ef-9bd6-43a0-9f22-721bd6bfc90c@kernel.org>
- <20260227111748.ddqdf4avpvfzu4cm@DEN-DL-M70577>
- <CAMRc=MdrrzoL3r-Br2pvR=TXxXVdS_ouf1ikNysd=GuhR1V84g@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAMRc=MdrrzoL3r-Br2pvR=TXxXVdS_ouf1ikNysd=GuhR1V84g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, oupton@kernel.org, vdonnefort@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_015851_735054_831580A0 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,32 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2026 09:32, Bartosz Golaszewski wrote:
->>>>
->>>> Here's the previous discussion when this was added not too long ago:
->>>> https://lore.kernel.org/all/20250811122053.4bfyoefln7wpz2a4@DEN-DL-M70577/
->>>>
->>>> Daniel is probably the one that "needs" to answer this, I think the
->>>> lan969x is added recently enough for this to not be particularly
->>>> disruptive.
->>>
->>> I don't get arguments there. The policy is one ARCH per vendor, so why
->>> exactly upstream would like to "having more granular control with
->>> separate"? That's downstream or vendor wishlist, not upstream.
->>>
->>>
->>> Best regards,
->>> Krzysztof
->>
->> The out-of-tree defconfig impact is minimal for us. As Conor mentioned, lan969x
->> was added fairly recently, so the number of affected users should be small.
->>
->> /Daniel
+On Mon, 09 Mar 2026 16:24:46 +0000, Vincent Donnefort wrote:
+> The growing set of features supported by the hypervisor in protected
+> mode necessitates debugging and profiling tools. Tracefs is the
+> ideal candidate for this task:
 > 
-> So can this be picked up directly into ARM-SoC please?
+>   * It is simple to use and to script.
+> 
+>   * It is supported by various tools, from the trace-cmd CLI to the
+>     Android web-based perfetto.
+> 
+> [...]
 
-This should go rather via Microchip ARM64 tree.
+Applied to next, thanks!
 
-Best regards,
-Krzysztof
+[19/30] KVM: arm64: Add PKVM_DISABLE_STAGE2_ON_PANIC
+        commit: 9019e82c7e46c03c37e8b108473d02b543222d9f
+[20/30] KVM: arm64: Add clock support to nVHE/pKVM hyp
+        commit: 405df5b55748d93d44666fd6005c60981094a077
+[21/30] KVM: arm64: Initialise hyp_nr_cpus for nVHE hyp
+        commit: 8bbeb4d1698fb0945107c69019c15207bbe605c9
+[22/30] KVM: arm64: Support unaligned fixmap in the pKVM hyp
+        commit: 4cdf8dec8c115d9531f80519db69846c32c580a5
+[23/30] KVM: arm64: Add tracing capability for the nVHE/pKVM hyp
+        commit: 680a04c333fa29bf92007efe11431be005e8c4bb
+[24/30] KVM: arm64: Add trace remote for the nVHE/pKVM hyp
+        commit: 3aed038aac8d897016a2b6e1935f16c7640918d4
+[25/30] KVM: arm64: Sync boot clock with the nVHE/pKVM hyp
+        commit: b22888917fa411d100339ef9d418b4eb86aba962
+[26/30] KVM: arm64: Add trace reset to the nVHE/pKVM hyp
+        commit: 2194d317e07d169efc113344c531621ce31afe64
+[27/30] KVM: arm64: Add event support to the nVHE/pKVM hyp and trace remote
+        commit: 0a90fbc8a1709f682e0196c2632027cdedae5e94
+[28/30] KVM: arm64: Add hyp_enter/hyp_exit events to nVHE/pKVM hyp
+        commit: 696dfec22b8e4ac57cc90558af2b6be2b37f4b95
+[29/30] KVM: arm64: Add selftest event support to nVHE/pKVM hyp
+        commit: 5bbbed42f71f771a70e974e3726d283690ecd589
+[30/30] tracing: selftests: Add hypervisor trace remote tests
+        commit: 39d5ca62a3dab7d162d49eb60b14cdd46138590f
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
