@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 890321125857
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6321125856
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OE84FjPfiUkC8JcC39aOGaWlIrdgv9W7fbDtR0GeE+o=; b=e3oOTznrEjbCYEgwrUTvIuwKXR
-	pyGHvHO4byqlEDWq1TWn1rWUUPNKIX4Tu775p0v3P+Uqc5RgtuZ70OShyw0i/yw2la0XIy9+z/L/N
-	CQY16xWDAq/4V74EcIYZz1W7fXVqXIcBI9MmSxU3ewoD9daI+wpFl5gDeV0+VHxHUJYQwNe9BGf+s
-	6AM4n1EsZm1AJMm4QKStJovvK/kFcXi4a1jKqbLViQvjPjkgCIsEX9uuC4PoybsYW/pGGvo1lii3/
-	9W2vsuuB1eQTIA/rxVr6Bwcqo3ijnYafkXHWpF3WbOVI96oEKMrQazpV8pn9EadhhjQ6z9wWkbEGQ
-	H3/RLiiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fZnfHCfBs+6Zz4+9A320LuMDypzwbYjaEq8gelT4T9I=; b=OrUkzrX9EJ4mCu86mPw7/J3GO5
+	T/FObTpH/dZYv9xV5Z5Ja/T66wNiFyYzzZmkL3aUeJq/7+Wb87O7C9vfYf/xnDtULVm+c6F0YmV3f
+	apGG97vXajC96kD5RH7yn12Yq2bH+RvVyROy0SdS+ssgJfDnkuhhLUTJ2G+NMoyhpIIMBQNhzM1Js
+	kdghABcQ9g7k0PufWrO+3nOZ2Et18H7/txuR6dZHYTRhXPLzXIa7HAbi+ckBxeJmKxVWsaWGsE2Qh
+	DoxhomcPEvg5Rvhlp1dvN12WasMk8Gj7fkTxir+oV0119aEH/Jb//WbKa6Wyboe6mm3Pme5/KpUc1
+	qkJgzZOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NCS-0000000C1JP-2Jp7;
-	Wed, 11 Mar 2026 17:18:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0NNr-0000000C1uQ-2MKl;
+	Wed, 11 Mar 2026 17:30:11 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NCQ-0000000C1Im-3Yns
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Mar 2026 17:18:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OE84FjPfiUkC8JcC39aOGaWlIrdgv9W7fbDtR0GeE+o=; b=NOTx0hwPgonEZ8e2XN9HSkI1kd
-	FNrJjq5jG88yytV4RlkX64d02XoZT0i/XFrtZzGCd9bgbKfh3UYZfeajkA9ahSCndnxp3AFtOoUsg
-	XSIslY2HzBaSnbwe8rP2UaCLt5gXvWBJwhBpWonZV1D3UDkibVEh+dEu9hYegWirSiNIrbbuKqm2b
-	KpFLRSPXnIw2s+Yh0YfaTjGfBuwrVccl7N9I/Lr4F2q39PnvMJLam8DgSU5lhvOcId0XTCtfANKHo
-	RhPyhpoVsFREj/0t8XGfwMDMRMf0Qf52Ozc4PPMhq70aU9bYDCb1ga7qN2gru6VU5Dekr9JX1Id/4
-	g2s3rXXQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0NCN-0000000HOuS-2gvx
+	id 1w0NNp-0000000C1te-1FfS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 17:18:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33F9D446AF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 17:18:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E7DC19421
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 17:18:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773249496;
-	bh=OE84FjPfiUkC8JcC39aOGaWlIrdgv9W7fbDtR0GeE+o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iI3/lJ1AQxBpOoKbjorbok0yM+cC5+ZfVtlCq8Wa75WAnPRUVxfTomE36pME1zAr7
-	 r052TY9iZh0GoCqL2pamDmeFQJSjB2pwhuZY0PdNBAx3SrN2Wzw/lL0dQWtWJkjI9c
-	 M2uaUbhYwnyiniJnKGa4WDW3lXldtWVxL5/qkk8VN9fA1kKRfUP3DZW7t+N4XIiPnr
-	 r+c7hYYO3vf6H9EdlqOFqxu0kMl7CUhnoIKMWJ8pNfGLzvitoFUbQoAlOBtjzCJgAc
-	 xmifdmJI6zK+T5101InfsaE8XXb3060UDCourC3gX1PEgUOWCxj+zVEN5sdEnAnJs9
-	 zz0luOwBU3p3w==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-38a2a59baa6so1477091fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 10:18:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVEuO39Q3FDfstVXeUDaf3IAw0Dcb8EOz6lJj5rdDTPkMtLHf4fl0wtJPIqP8B7RqsnyT3i9Yfg1HVqRn4UfRh9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh/C1HErdC3I/cz2NYTh1EeV2igDOnwPX3X37QylptmxuVaZyv
-	UIeiNpluOli+HqJpwfeJGpJuGzTL5PqAJl3cLwoW+EdKCPJVPbZcH24N5dQ09YevuxDgnuUGAdu
-	pTanw31zLPeu69sagyPQaeed6OAU0NAQVxXJhxW3a/w==
-X-Received: by 2002:a05:651c:1604:b0:38a:957:a125 with SMTP id
- 38308e7fff4ca-38a67e1ba60mr11617111fa.18.1773249494042; Wed, 11 Mar 2026
- 10:18:14 -0700 (PDT)
+	Wed, 11 Mar 2026 17:30:10 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5a13e1cfa45so188059e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 10:30:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773250206; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JIO79PG3DzQVHB0pRxzXpTOaz9i2nlKsH5CUAz5nRw9J9mpdDcGQ1t1D3EbSlyL2uh
+         TPsekrz+yBTXqt7RCL9eERb0dxsBY714937ODE2etfrpHKnIAZuMHrAlSnRD+5+dWXag
+         df9pqsoZA2LIpr8Vz3SfDFdeFyUdjmQkDfdQGLMNDRN4Lu2fgNyFrJ1EQZRc6gpWuZAW
+         HDqkx/8oI75/mfXuogn09wxcwrh7Zxj64QiX+sDuOMSNPlBbgNzlHltl2jeUjwYbc4Hw
+         b4c4BltB6bmfFEFfao1yxcr0322LpnamFrsM7mozpz3Hu6nzKbO+k+yy6vQO+1OUTT45
+         OIcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fZnfHCfBs+6Zz4+9A320LuMDypzwbYjaEq8gelT4T9I=;
+        fh=eh6SaXrLw4AkLSvrgdyWLIr+MaB2h6SF8rvFcEslIvs=;
+        b=YZXS9usWwQzyGQasd9KAc/un1DrHif5uMnr5cLqFYKauePN/4iH2+pwjDB+xxIPzpX
+         7o7D8KW0HXEgs5XH0itMpt1kPlepwO7czvifaiqWUtqMltZM15M9xTfNIv9zBy/fUaH4
+         IgQRrVJD0yFXXEGOmIifXwL/2Up5+xEoIaMOTbJifcvs4yMSlv5XuyQiZkw+UGaIwxZS
+         z55ZZvV6JJw1uogdyf3hfJblm40mColD6a+M8s38pClFUwXqQx72Ah+fvjjwYEChrE0/
+         ZZqbJYXwhZrhFZ33F/nVB1+1BrkctOAoUvivuvnCB8jluRk5M43KsIfmnSlnlZQ/T+Gr
+         Z7Hg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773250206; x=1773855006; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=fZnfHCfBs+6Zz4+9A320LuMDypzwbYjaEq8gelT4T9I=;
+        b=lrAYS8Rz0fIdPXvzk8D7yT0xPyip9msfH40smepgyMuntAFu6cYl/gSqfzpLXVJL69
+         lodbsnymnw2cylSEnWziWxQbKv+HjzPgbSEPI8+sQb8JdsED50nW0cXP61s68pVD34UO
+         V7rpNa2Ed6kA4it35Bl9mhY1W8ozRbY+ogZHvb6XnZbf1fPch5lJwnCMfp6TNfCSxdWP
+         mgbCsnIeKJSMFhWCjhV6m2dmEfd69t6+qK5j/lDx7uJTxMeHqS1z9kg92aV5u/idOeaR
+         LMwTUF7ycPzU0oHEZRfdCikk9nKDm1QZc4i1tuMFXPwUdbzRVLF9EiRbAlScSguYYLYd
+         LXpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773250206; x=1773855006;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fZnfHCfBs+6Zz4+9A320LuMDypzwbYjaEq8gelT4T9I=;
+        b=sGz5m9rXW1VL4b145369qTqvtIwgxZijyQRh+4T9OiNiPn0MStFuFNKgwyU6MMt/GB
+         ZtyQ7ftfkyDA+5UDIJxVE98GGRNnhoFlxAgeWU6bkL0ufPZtTvasugPLNXhDcikSVjCs
+         xI8VJDOHlhECqnWBnK1QgHNLfRN9zQLqCS/jvcEyCY2xotO/ZHpKdeGllCmpCc+OBhY4
+         3pfv74nfJL2RZ2j0DsmubnSqMdGxlWCz4XfcYdjNP08jZdD8M9W4fF2xN4k5TXnZKaZG
+         mnSTDl4KtgMbdpPj4vql0mjjwhS2Fmnewj6AghjT+eFrwyaoimeYLXFF7AEoGDc2AwPD
+         l74Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVQWJRWR+6sTVDFoQVDWpmu4ZwAFH/vnpxTHer5qVLf7W1ZuVRtrGsvjmkHlC59QfznST60/4L4XuO52roI7CGK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFzgdgMWuXJak7/xovI3692FtACDxk7mrmoyBRfpuZ+yiodNlF
+	2lvwO0XfinnVg/U3SsFSUJxSOI2H5JruuaYg87xWh1bfObwQLT2J/kbmzGRLX6wvvSuLE3dCFkQ
+	Adg3k0Sa13KpH52cmkUXgcHLiROm5OtvM7Kd/UzjLiQ==
+X-Gm-Gg: ATEYQzzhuWIpA268q16KD2emSi9JtEYsgbE9WnMAg075U+NHi9Wo7z5DdRtuq+lV2gQ
+	+Kmk2NEq96VkTj/7YI2UBV3pUmubgsICx4KiuuijlqZ9QYxx41N3ZqVjdIQkIA3kiLWFLtRWAWD
+	xVmWBzeC8r2qGaAZ9IBu94Ew957UvlR2NvKXAPUxmSmtGazpbGnhGALOPkHEw9P5Flz9fGBh0zB
+	M6GdqLDcbxA6Pv7Zp5hGrIs8u6LfH5HMkNwK4qj9Z9Pks1vzpOZlG7Dx4tR0xW0r21ZZWbx8hcD
+	JxmUrRCGySSn3nvVSWI=
+X-Received: by 2002:a05:6512:2c0d:b0:5a0:ee11:8d94 with SMTP id
+ 2adb3069b0e04-5a156ba88f7mr1283885e87.1.1773250206343; Wed, 11 Mar 2026
+ 10:30:06 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260311-qcom-sa8255p-emac-v8-0-58227bcf1018@oss.qualcomm.com>
- <20260311-qcom-sa8255p-emac-v8-2-58227bcf1018@oss.qualcomm.com> <abGizL-uYnahlcEt@shell.armlinux.org.uk>
-In-Reply-To: <abGizL-uYnahlcEt@shell.armlinux.org.uk>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Wed, 11 Mar 2026 18:18:00 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MdOXz6a4+-xNfmHD9insd+UcyF9xvZim7DtptKOj9B70Q@mail.gmail.com>
-X-Gm-Features: AaiRm52Tw2Qo9qa62t56mCoewk4vwmQ4zN4g67WY5ySxyBb-ueDnRqCKEIOABSM
-Message-ID: <CAMRc=MdOXz6a4+-xNfmHD9insd+UcyF9xvZim7DtptKOj9B70Q@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 2/6] net: stmmac: qcom-ethqos: use generic
- device properties
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Romain Gantois <romain.gantois@bootlin.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20260210053708.17239-1-aford173@gmail.com> <CAPDyKFrsMY8q+rvrbOdppYnefX6TA1-EhF+e+pGG6k49KpeTRA@mail.gmail.com>
+ <7fd891b7-b1ff-4668-ac99-8f8ac244d90c@collabora.com>
+In-Reply-To: <7fd891b7-b1ff-4668-ac99-8f8ac244d90c@collabora.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 11 Mar 2026 18:29:30 +0100
+X-Gm-Features: AaiRm52dneMJr0I61s4TTlnxGT0AaZqfVcItp2PRBKI4_FSf_MRvM1HPHY0fnQg
+Message-ID: <CAPDyKFqbS+PUkLXkjoHjbiVFCYM4FxQeHdJk_LVVfLA5nGEZ-A@mail.gmail.com>
+Subject: Re: [PATCH 1/5] pmdomain: mediatek: Fix power domain count
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Adam Ford <aford173@gmail.com>, linux-mediatek@lists.infradead.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Laura Nao <laura.nao@collabora.com>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_171819_990726_A069764A 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260311_103009_363968_500871F5 
+X-CRM114-Status: GOOD (  29.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,34 +120,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 6:14=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
+On Fri, 6 Mar 2026 at 10:50, AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
 >
-> On Wed, Mar 11, 2026 at 06:03:37PM +0100, Bartosz Golaszewski wrote:
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Il 12/02/26 12:34, Ulf Hansson ha scritto:
+> > On Tue, 10 Feb 2026 at 06:40, Adam Ford <aford173@gmail.com> wrote:
+> >>
+> >> The wrong value of the number of domains is wrong which leads to
+> >> failures when trying to enumerate nested power domains.
+> >>
+> >>   PM: genpd_xlate_onecell: invalid domain index 0
+> >>   PM: genpd_xlate_onecell: invalid domain index 1
+> >>   PM: genpd_xlate_onecell: invalid domain index 3
+> >>   PM: genpd_xlate_onecell: invalid domain index 4
+> >>   PM: genpd_xlate_onecell: invalid domain index 5
+> >>   PM: genpd_xlate_onecell: invalid domain index 13
+> >>   PM: genpd_xlate_onecell: invalid domain index 14
+> >>
+> >> Attempts to use these power domains fail, so fix this by
+> >> using the correct value of calculated power domains.
+> >>
+> >> Signed-off-by: Adam Ford <aford173@gmail.com>
 > >
-> > In order to drop the dependency on CONFIG_OF, convert all device proper=
-ty
-> > getters from OF-specific to generic device properties and stop pulling
-> > in any linux/of.h symbols.
+> > We should have a fixes tag for this too I think:
 > >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
+> > Fixes: 88914db077b6 ("pmdomain: mediatek: Add support for Hardware
+> > Voter power domains")
+> >
+> >
+> >> ---
+> >>   drivers/pmdomain/mediatek/mtk-pm-domains.c | 2 +-
+> >>   1 file changed, 1 insertion(+), 1 deletion(-)
+> >>
+> >> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> >> index 58648f4f689b..d2b8d0332951 100644
+> >> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> >> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> >> @@ -1228,7 +1228,7 @@ static int scpsys_probe(struct platform_device *pdev)
+> >>          scpsys->soc_data = soc;
+> >>
+> >>          scpsys->pd_data.domains = scpsys->domains;
+> >> -       scpsys->pd_data.num_domains = soc->num_domains;
+> >> +       scpsys->pd_data.num_domains = num_domains;
+> >
+> > Not sure this is the complete fix, as scpsys_add_one_domain() seems to
+> > be using the wrong value of "num_domains" too, no?
+> >
 >
-> Please postpone this for the time being - I'm trying to get stmmac's
-> pain-in-the-arse PCS support sorted, and I've patch series out there
-> and pending that make a large number of changes to this driver. This
-> is likely to conflict with my work.
+> No, scpsys_add_one_domain() uses num_domains from the soc_data for DIRECT_CTL,
+> which is expected. Maybe that can be improved, but it's how it is supposed to work.
 >
-> I'm limited by the rate at which patches can be applied to net-next
-> and the rate at which Mohd can provide me feedback. On that, I notice
-> you haven't Cc'd Mohd who is now in MAINTAINERS for qcom-ethqos.
->
+> So yeah, this patch is resolving an issue, and it is a complete fix.
 
-Do these two changesets interact with each other a lot? Do you have a
-WIP branch I could take a look at? This has been post-poned several
-times already, there always seem to be some new changes coming in. :/
+I had a closer look and unfortunately, it still looks weird to me.
 
-Bart
+More precisely, we are allocating and registering a number of genpds,
+that corresponds to the sum of "soc->num_domains +
+soc->num_hwv_domains". The index each genpd gets in the array (struct
+genpd_onecell_data) must correspond to the index specified in DT, for
+both a consumer-node and a child-domain-node, right?
+
+It seems like adding them dynamically changes the index. In other
+words, the index specified using the "reg" property in a
+child-domain-node, may not match what a consumer-node should specify
+in its "power-domains" property. Isn't that a problem? Perhaps not,
+because we never have both "scpsys_domain_data" and
+"scpsys_hwv_domain_data", but then why are we adding them in ->probe()
+with "soc->num_domains + soc->num_hwv_domains"?
+
+[...]
+
+Kind regards
+Uffe
 
