@@ -4,146 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACFD1062882
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06891062889
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGhUIKQzUbGlx9S+2I9cGni1LgdFJ5GoQyn4IRTOL9g=; b=3d9KddHDclMGIFRGgSHOIbmasy
-	CgkV7jTkXnK+HoF2rsB/vKxwmXM7nlLL8RBLWunQXecRq7cOeb3FaVZ2Vgi7e1wrifKbuEBzTecPG
-	PAuwwnwAVZA0U3aCNCuaEyvN/WYuuNtbAT/Zp91LsN0fHMv+AX7GomlVc0d+mu3Gb8iHMkdPma2JS
-	7L+UjFgFsqrylF1Mw7/BUEQOFa02dAbUHu6EAd1O4/bCymoQClWwck1si9NMg3WSKTLj8PA8ZhXnN
-	ITPO+cCco/4mp43tYExVps4cCnWQprkYqPrd8izeAHJwEXpesTa7979r4vIuvX4Uvtb/ZshSohes+
-	tUnsEbEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iUYM2B+qv2inDj3WitR8Iuse9o1Siv8UF7Rqo5SG/P4=; b=nUu3pl/h6ajgsk7H//6h+5+Eh/
+	RpDd0shSyWGaZrSbts1Olx0NPzPbu34tVjtSOnr7R7X2iQ7xUEwS8/+TqAITrXbS08y058I6z0T/F
+	T5qm5Xq7OhIaPWuxF+KBAWE5EKKFFsI32XVa5MBaUk4DwerHWGQeiypeiYE4eZ/TIB7KrSFMuDWGt
+	EAp35y7dyF8tr4txZmZhYsEnjGGhj+nmYgMw3dk6doBnvU4yycfhN+U+ZCT61kTweBtqkdOTa0I1A
+	I2Jkb4v+PGv+SEpgTxAiLywqZEpez1MpxVZLsZpC5BYURjcwKnDKjik0MpWPLo2KDiOBOrFxo5+x+
+	1JBbD2SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IYI-0000000BYTO-3s3b;
-	Wed, 11 Mar 2026 12:20:38 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w0IeR-0000000BYhS-03GE;
+	Wed, 11 Mar 2026 12:26:59 +0000
+Received: from mail-m3279.qiye.163.com ([220.197.32.79])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IYF-0000000BYT1-3MUt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:20:37 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=eUAPkROw6PpJsEiBhKs1capUQMY/O10bazYyF3Rk8O/6iY94BEJfJdOeO6C4qGkWfX+HXADrOTX3B8HUutUVsbnZ0XW3yLb07p/MhgghfTQIc8MQ2uybduR1Qabva8Ea45RLxHPcPmu/u3vEoaWrK82XOKuaqjvaeqagC1/mOqbocRMERTXztRYiAh4ikQH5vOIpqvm1z+m3Ra9RDpbGIFZqvVnIv0/bge9RqNLeH7o6a9KyVhrRPSe+9+3M2Tq63nQ+kgXKmXgrATGf6EBxKe6Aaicu8j2sT9saOim6WAk08h64r9kaVhv1MR+xuGfZeJC29AA1RqA7fRglttBgLg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YGhUIKQzUbGlx9S+2I9cGni1LgdFJ5GoQyn4IRTOL9g=;
- b=NQKPl6L5yZX5RvsMeLDqWcmKY0ZnLz7SOB+YKuT+rPYiWdP0PuOCOdWvO0Uf5HStFNB4o8e8ZCAVhTmVHxnsZNrwg3jNBI9dthTgcjgNQ0J4JirelyKJARoM/puxWBnCqfaf1E4o5B3v46QbB//0H0BMWk9cM05fATViXf/M92uQRmuuOBVKa0ef4+GRnubviQDqj9hKp7ap1l8hDdtYvtSTVq4N6bOCHjItiVhiDahv78QqGB4YkksGkAJUTK+w6F5dNx75iINXcdHKBWxb7VTAx21iF9EA/9sPLYh979I55gyLepKRrbSGVRmkiHKwspcvyt/720MYwhDTb/yyXA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YGhUIKQzUbGlx9S+2I9cGni1LgdFJ5GoQyn4IRTOL9g=;
- b=EgEDUjQSU1qYZHIXfsFY6p38OYFI6TQXlhiKbhhbmkpZb3utaffBMBLpiW0iz+vPWhDjYqx9vE2fuU0en/PifWa4bkJgvOvBpGf9RzqoRUStcwMXuOhWwk5PuAA78EfeHJ+SgdOJ3W4gt9uXD7ftEwnKtV/vs7CnFhlrd9OXE28=
-Received: from DB9PR05CA0009.eurprd05.prod.outlook.com (2603:10a6:10:1da::14)
- by VI0PR08MB10972.eurprd08.prod.outlook.com (2603:10a6:800:251::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 12:20:27 +0000
-Received: from DB3PEPF0000885A.eurprd02.prod.outlook.com
- (2603:10a6:10:1da:cafe::77) by DB9PR05CA0009.outlook.office365.com
- (2603:10a6:10:1da::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
- 11 Mar 2026 12:20:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB3PEPF0000885A.mail.protection.outlook.com (10.167.242.5) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
- via Frontend Transport; Wed, 11 Mar 2026 12:20:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=smps45CHRM3cdHraZpfkTiyq8yEHTRMu8YlgP/DpNn+DFnpDHXWpO6Z/SO/Cv84c9DaaAKvbWUDOz1RAX8LDsiu36T+AQluwwHsNOasP3wQROHs0PdI5aVKuoaI6ReofbYsdx9552lehNyCWkFIIFr+tTXwbczy1kEtUSpZpBPrrNLGQz/10EOSONxunJz2fO24asJ3OlO70PrVWtz8fDwtyhq6msABQzrPNUeGwaVxMkHgKfMxG8NSUOw2w3kXt9kJ5YEbB05LOijgCJjH00VTZn4wz47z7ABK+8KfCNVWmc9OHyI8fMRK/t8jhe8fG+Ar8a6zhrMxCaNeuIpnYng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YGhUIKQzUbGlx9S+2I9cGni1LgdFJ5GoQyn4IRTOL9g=;
- b=n8hoYdyr95hbXkSwRj6fcnrvMeJOd+2uO08NLr0NTPW1F1Y6ilxznaLOEIvVl1LaqQASGZKCwwrpEbmACvt1SuFV5aBDRyDvneLwIRHdggefWa3VboqtUmuYyiuFAQBR6n250VVNvc6wih48uzPpipx8jhHXVkSlb/rZT7QTl5mcrX8j5bVPjPTYCJqxtHOXTo8wzQ4zNwNeywp69+XnSX6QNblrtFxTxIt2u6/hvWtjg1KtweAjkn8t3yTXR2EO3FyISXISCDItgYble2KRh+Ecv5YJG8ZI6Ht6G8vwdKvosTL3JOG3WFwqJZ0C8eFcvurELb6lxnFsYmoZ+UCq7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YGhUIKQzUbGlx9S+2I9cGni1LgdFJ5GoQyn4IRTOL9g=;
- b=EgEDUjQSU1qYZHIXfsFY6p38OYFI6TQXlhiKbhhbmkpZb3utaffBMBLpiW0iz+vPWhDjYqx9vE2fuU0en/PifWa4bkJgvOvBpGf9RzqoRUStcwMXuOhWwk5PuAA78EfeHJ+SgdOJ3W4gt9uXD7ftEwnKtV/vs7CnFhlrd9OXE28=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
- by AS4PR08MB7808.eurprd08.prod.outlook.com (2603:10a6:20b:51b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Wed, 11 Mar
- 2026 12:19:24 +0000
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.20.9700.010; Wed, 11 Mar 2026
- 12:19:24 +0000
-Message-ID: <8ced1e63-d8d7-42f0-bc45-88e7cc17ef59@arm.com>
-Date: Wed, 11 Mar 2026 12:19:22 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/11] ACPI: APEI: GHES: add ghes_cper.o stub
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
- robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-2-347fa2d7351b@arm.com>
- <20260224152534.000040b6@huawei.com>
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-In-Reply-To: <20260224152534.000040b6@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PA7P264CA0460.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:398::24) To VI0PR08MB11823.eurprd08.prod.outlook.com
- (2603:10a6:800:324::5)
+	id 1w0IeN-0000000BYgn-14Z9;
+	Wed, 11 Mar 2026 12:26:58 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3690f1e4f;
+	Wed, 11 Mar 2026 20:26:39 +0800 (GMT+08:00)
+Cc: shawn.lin@rock-chips.com
+Subject: Re: [PATCH v1] arm64: dts: rockchip: Enable PCIe CLKREQ# for RK3588
+ on Rock 5b-5bp-5t series
+To: Anand Moon <linux.amoon@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ FUKAUMI Naoki <naoki@radxa.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/Rockchip SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260311115502.7353-1-linux.amoon@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Message-ID: <cc922ebf-9221-00f8-e951-903c97d24f20@rock-chips.com>
+Date: Wed, 11 Mar 2026 20:26:38 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|AS4PR08MB7808:EE_|DB3PEPF0000885A:EE_|VI0PR08MB10972:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9bff998f-408d-4049-c870-08de7f689400
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: KIJk8fMNqsD9PUjpwm1F4Sr+Rxoi7r5WJw26FsFE1EW+cSNEdf0avqE5Iqe66Dy9aYejlIjrL3sZZXmtw3zruoreUHFagWTHFNLFiOYoK361VyI3a127Wvo+5E0MnCIwQ9ammGV6R9iitqp0dTnE7woGta4gxVJ7y5mEO92x5TU5HiHApbFHWWVZNOWULMnMwUgvEDoQHltzZ79OgCtLgzjGfoUsYwvZHAKdY07Y6+HvPSrCmf6u5/0vxT8sOm/GRs7VbcmNOrynfgA8tnTAciZUD5GlhxRC9MUxcfbN6pCdfIjAoUSgyMyuVBbG/Fr+L3EeLCFsTFjDCyxhE6FniU5jrn9+3LQVaIDpTXDp+9jHh9sEQCKPUusEP5huC1EXV5C5NH+CZ2R+j7drAm3XuCGLSi/gjgLdUkRp2nS9nUIEG1pKy9cQHV15ugoStZKC/XTwbOMeDKexiPNEip6WUlrKM7g6QWF1N4F7PMB+zz90G11T2eXg4jpgoFC78yvIIEijv2NFihsavj7b854jWS/2w1m7foj0XzARnkdp/+D+5CaeBFkkM7XIizrG42gnivMPSezeZtCwdTlxEyUqCu7vI3l9/zvszZ0G5v+LH/Oufk/zSlOuyJ/4ijjFt7vsljP9VR3AbXxD1DzGEuGY6zl7PmxTvVbu5vcrTbnMd+OL5hjY871ewPv7pzPK5L84BNOp45DrHqn6pMNkSBRa1DO6nFl8IWp3GKjWB4qFO28=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: JmdeCJq8IXtRR7MjZG3T0u3AYIHc+aiTtCUJlnN0QiIACSiv/imuc8oGWq+sY5g/r3RrmJqgntnQ+nzawNvaQPkUnWbWcBhzWYVbFlatv18bfwgNXKbe6yA8MYHPQK6LgZSL9ImxqVOxOXB27xa2lYPlCYSjodHf7OgQzdX6ryi2h1+YdjcNaLH60d/y9p3Nko5r0qWjFUpXdrq7qO1Gs1K0C6dIIhYR7f2scpDP3UoPcgARr+dJKP+0ApvG2BcKn0Mex0kPDeAxc4dcKd9iNDzW5bip8+mH5SIZQV2wAgBRxTDriwEHsh8CzV4m2IEIAKTxjFJt/zyLvDOJ3GunwQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7808
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885A.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 35482b8f-3f61-408c-2bf9-08de7f686e57
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|14060799003|35042699022|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: xBQWqWbaseTfocvLiS33NdvIHjFRCDev0zTyToEQh1z/HkyvRFRdJEzJSHuiLwvh9BN7e4bsap4ks2Nld/RPnUVApRM6dktFp9CNxraiLfD1jELNIgb53ByXoWerL5TsuY085++/0JgOYNoqb8iIED/RibLOb/XKE0q3/MFCxNx/VpO2INbmNnDFwfUoPXC/vXQfzX747kDp7B+e8M2UQD6wg5i7CGEaSrYFYupw7uLJW/tqG44IGOdKD6gqCQ8yRDEoaGa/K3N4ypvtKRcHpjMGRpw00EFeGrjTy5q6m4vYxed89opajvwrGdxbhacs2XkfN1ZCWN4836BDXT12Bn/21t2P0y43s5BxfEA4H/sCMluQjyoeU4QxRxYtiEdmdEUaLyuupxvuw+0qlKE2YAu+CmPChcvmZJp4E87f7Z16WzGPKGrqJmJ/FHZreTJfjX4HzJZ7uoTKO5AhwWzyvAP/bkbRCYK1Cy1T83KFjqpMc0bKcGxJuOU1ektpWaANgbdpuoz2xjXjUTOhhq9SmuF75PHZhSAifZklq3jjQdSWoRgU3s5B1gT64cEqvGqf+duRAg7AbM25EF2H/E38ApdRSuT7y1TG91siaXYncLMhwmQDsNsEAZ8woJhf5bb63rxk4diP3IGCX0qjImpPi65434mP7hH3DErOeoWInkW6HL+67FXrEepuibCHfngG+YP5SXZKh2olbJEsvKBuAWU5Pw1w40WNUib/6BiAwzVpcYvccY983GpKcmkGo/+r5kALaj7MOQARfrBHI2Txdw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(14060799003)(35042699022)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xFSxN39MDyfDfRjpx8pWkqXZm+XOqNOV+etuFkCbaNU5q3f/BybsZs9VRvIUS4PUYR10fO+F4LhZhc+m3KP50WvLyWG0y8y3znkKupyLX8q/y7fkAXBD7YGo8TcX9myCiojKv+ATlH+4DZN9x9eY8iY36Ez4PbzvwRKVSn2bodUhdO/wH+5W/cqvkooDucIYU+HUaWnyHiJmY33Pl8kcu5iOKIxZxQA8BfTDYSDQHK7ZN1OmWP2QH4JsViVt7/lpHzFPh5GiVK3xOgLnW36hEPLxSH09LsXHTj/svLUaPVQ+lgRsfASV3DqM0vA8dWmoe+hgy6+83NtbbWr4F3xb4Dpc2qV1W0gkeBrkCaw4H+FGZDLY/TYSQLlBNQ1fsSxo5ix98G01mF7j9f1peMgTcjavqhTz5gDhncDZqF/ZO/8UOOJxHxs5GZFPLEOCjhRv
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:20:26.8595
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9bff998f-408d-4049-c870-08de7f689400
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885A.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB10972
+In-Reply-To: <20260311115502.7353-1-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=gbk; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9cdcdd0ba109cckunm09c8cc8ab954
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxgZSlYdSxpISh1LTB1PT01WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=IQUVnrCsWYuho2lAfthZKL7Tx1mLOdYa2UM6uQxSpFDizuhj5MMFCWy7hk+dGUUxUUWaqnKPshtkP+u/hNQdQV6byz/osrnoW38z6uqZsakvA7mHOwR3dPnFkNBvPO+wwZbzHh7Z/y8o7uhuPrmKRId2rLj+N3ADyvqKuOGnJJ8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=iUYM2B+qv2inDj3WitR8Iuse9o1Siv8UF7Rqo5SG/P4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_052035_865851_AA8C6F18 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20260311_052656_664158_7CBC07F5 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,96 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 15:25, Jonathan Cameron wrote:
-> On Fri, 20 Feb 2026 13:42:20 +0000
-> Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+在 2026/03/11 星期三 19:54, Anand Moon 写道:
+> Add supports-clkreq and the corresponding pinmux configurations for PCIe
+> ASPM L1 substates on the Rock 5B, 5B+, and 5T.
+> The supports-clkreq flag informs the PCIe controller that the hardware
+> routing for the CLKREQ# sideband signal is present. This enables support
+> for PCIe ASPM (Active State Power Management) L1 substates, allowing for
+> better power efficiency.
 > 
->> Introduce a dedicated ghes_cper translation unit so that follow-on commits
->> can move helpers out of ghes.c without touching the build logic twice.
->> This keeps the object in the tree while remaining functionally identical.
+> Cc: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+
+It would be better if you could put the link to the schematic here(under
+"---") for folks easy to review. I paste it here for reference：
+
+https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf
+
+>   arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 9 ++++++---
+>   1 file changed, 6 insertions(+), 3 deletions(-)
 > 
-> I'd probably do this with the first move patch not as a separate patch.
-> That would resolve the question of headers etc below.
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> index b3e76ad2d869..668b19c05f7e 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> @@ -468,7 +468,8 @@ map1 {
+>   
+>   &pcie2x1l0 {
+>   	pinctrl-names = "default";
+> -	pinctrl-0 = <&pcie2_0_rst>;
+> +	pinctrl-0 = <&pcie2_0_rst>, <&pcie30x1m1_0_clkreqn>;
+> +	supports-clkreq;
+>   	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
+>   	vpcie3v3-supply = <&vcc3v3_pcie2x1l0>;
+>   	status = "okay";
+> @@ -476,7 +477,8 @@ &pcie2x1l0 {
+>   
+>   &pcie2x1l2 {
+>   	pinctrl-names = "default";
+> -	pinctrl-0 = <&pcie2_2_rst>;
+> +	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
 
-I kept the stub as a separate patch intentionally. It isolates the build
-system change and the new translation unit so all subsequent patches are
-pure mechanical moves, which makes review and bisection straightforward.
-If I fold the stub into the first move, the first functional patch
-ends up mixing build plumbing and code movement, which is exactly what 
-I鈥檓 trying to avoid.
+Isn't it m1(PCIE20_1_2_CLKREQn_M1_L in the schematic)?
 
->>
->> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
->> ---
->>   drivers/acpi/apei/Makefile    |  2 +-
->>   drivers/acpi/apei/ghes_cper.c | 26 ++++++++++++++++++++++++++
->>   2 files changed, 27 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/acpi/apei/Makefile b/drivers/acpi/apei/Makefile
->> index 1a0b85923cd4..b3774af70883 100644
->> --- a/drivers/acpi/apei/Makefile
->> +++ b/drivers/acpi/apei/Makefile
->> @@ -1,6 +1,6 @@
->>   # SPDX-License-Identifier: GPL-2.0
->>   obj-$(CONFIG_ACPI_APEI)		+= apei.o
->> -obj-$(CONFIG_ACPI_APEI_GHES)	+= ghes.o
->> +obj-$(CONFIG_ACPI_APEI_GHES)	+= ghes.o ghes_cper.o
->>   # clang versions prior to 18 may blow out the stack with KASAN
->>   ifeq ($(CONFIG_COMPILE_TEST)_$(CONFIG_CC_IS_CLANG)_$(call clang-min-version, 180000),y_y_)
->>   KASAN_SANITIZE_ghes.o := n
->> diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
->> new file mode 100644
->> index 000000000000..63047322a3d9
->> --- /dev/null
->> +++ b/drivers/acpi/apei/ghes_cper.c
->> @@ -0,0 +1,26 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + *
+> +	supports-clkreq;
+>   	reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
+>   	vpcie3v3-supply = <&vcc3v3_pcie2x1l2>;
+>   	status = "okay";
+> @@ -488,7 +490,8 @@ &pcie30phy {
+>   
+>   &pcie3x4 {
+>   	pinctrl-names = "default";
+> -	pinctrl-0 = <&pcie3_rst>;
+> +	pinctrl-0 = <&pcie3_rst>, <&pcie30x4m1_clkreqn>;
+
+The pin is correct but I don't think it would support
+L1 substates because the refclk is out of control. For
+any refclk coming from external clock generator, clkreq#
+should connect to the enable pin of the clock generator.
+
+> +	supports-clkreq;
+>   	reset-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+>   	vpcie3v3-supply = <&vcc3v3_pcie30>;
+>   	status = "okay";
 > 
-> As below.
+> base-commit: b29fb8829bff243512bb8c8908fd39406f9fd4c3
 > 
->> + * APEI GHES CPER helper translation unit - staging file for helper moves
->> + *
->> + * Copyright (C) 2026 ARM Ltd.
-> 
-> As before. If there isn't significant new content copyright doesn't make sense yet.
-
-I can defer the copyright line until there鈥檚 more new content.
-
->> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
->> + * Based on ACPI APEI GHES driver.
->> + *
-> 
-> No obvious benefit in this blank line so I'd drop it.
-
-I'll drop it.
-
->> + */
->> +
->> +#include <linux/err.h>
->> +#include <linux/io.h>
->> +#include <linux/kernel.h>
->> +#include <linux/mm.h>
->> +#include <linux/ratelimit.h>
->> +#include <linux/slab.h>
-> Build includes up as they become relevant. That way we can see whether
-> they are needed or not.  Right now none of them are..
-
-I鈥檓 front鈥憀oading the includes that the subsequent mechanical moves
-will need so those patches remain strict cut鈥慳nd鈥憄aste with no extra 
-edit noise. That keeps the movement obvious and reviewable.
-
->> +
->> +#include <acpi/apei.h>
->> +
->> +#include <asm/fixmap.h>
->> +#include <asm/tlbflush.h>
->> +
->> +#include "apei-internal.h"
->> +
->> +/* Helper bodies will be moved here in follow-up commits. */
->>
-> 
-
 
