@@ -4,66 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6669A1062878
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF26E1062878
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cYNLKIwQSasBdYZGFqUzejhZnpcUdrBH4ZJakw/Cw+8=; b=GZyOf7I8vR1+AunyFbdLFiD/dU
-	dJKMP1wRG3phf7XG8WwsyQfpDyX+qcCV+t/KvIFUTQbX1P8ws57LU6qgEqfZ77YRRvX/eLfjDOGnN
-	SdLzzMNvOaVF27wBEMaEVqm8zVyTTPdSv7I7zdqUantpaFe4Vpwb1GbLYvI1CsvKxHLowhCsIV5h7
-	gQ1JYKZYyRX6VGJKkscuvvROHtxaWBr9VXyJEasbimCDrwmFi8mmcARfX9601bQPPLDQ5WqpJHMi2
-	VaaaDulT4eawg44ZpVbDZ2314BrgR/qqvmg1tToJUFV0YXqeyOx7Mouy8dvRSMlljiJlkfcla5SyA
-	b+2yinKw==;
+	bh=YJQFf7uynsKdrX8jRi60rRsiivmFxdtGdDMC54/tDqM=; b=szjIzluyOh4aaolIfj/j8Mv9mU
+	ZNWpnLyqf6bG7AA8AgbNpEruPhzV6nhRneiF8xiG/ceEPQRHkw3ddCqNsNhyTPuvufGdC2p7B/8vq
+	VymN4ZnVJUMNrria8uTbWSxmyrFab0upXQOs2JCI1monLf1M/q21HuZeqOZT1FNja99kz4st0p3lJ
+	+YGst6O2M5IdpRPLiaIluPf72/A1gttMR6tVFeBUK8cs3AoNJdFbB0n4elpk51sRWzGXAYxfXpKRK
+	7GQoWkSX+4FhdP/nh19f5qd2mLTWpWZ9r0zoBAcE/E2mroOjMflc1t4pEltX9FxgqMImeN03oamIw
+	LcGBpxXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Inz-0000000BZNX-0E9y;
-	Wed, 11 Mar 2026 12:36:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w0Ips-0000000BZUi-2HRz;
+	Wed, 11 Mar 2026 12:38:48 +0000
+Received: from mail-japaneastazon11023110.outbound.protection.outlook.com ([52.101.127.110] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Inw-0000000BZN9-0rP6
+	id 1w0Ipq-0000000BZUJ-1laZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:36:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=cYNLKIwQSasBdYZGFqUzejhZnpcUdrBH4ZJakw/Cw+8=; b=RH
-	OIw8K0qHvCBbrvpteh+VT0BrYx/46g/NdI8GvvNAp31wBun/NJpCAvqnEdPQ9fs+QIFmMO6qK6Cwn
-	g/+RhTu31W0S6gMZ99WhvWo+oEVArBxTPDaJ9R96CHAUvB8ggbzTCEkB8VzHD0LPiaMMC+7F0oziM
-	UutcfMNomj8D0Oo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w0Inf-00BB9I-F9; Wed, 11 Mar 2026 13:36:31 +0100
-Date: Wed, 11 Mar 2026 13:36:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Potin Lai <potin.lai.pt@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Patrick Williams <patrick@stwcx.xyz>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, Cosmo Chou <cosmo.chou@quantatw.com>,
-	Mike Hsieh <Mike_Hsieh@quantatw.com>,
-	Potin Lai <potin.lai@quantatw.com>,
-	Roger Kan <Roger.Kan@quantatw.com>
-Subject: Re: [PATCH v2 0/2] Add Meta (Facebook) SanMiguel BMC (AST2620)
-Message-ID: <8249f102-cc35-4614-9e20-506c51a78d8e@lunn.ch>
-References: <20260203-sanmiguel_init_dts-v2-0-6a5682c32b38@gmail.com>
- <3256b313-7671-4fda-9949-766906c344a7@lunn.ch>
- <CAGfYmwUfKk5OrFzJRHyu6h-Jf-cqbxfh62wRmxwOL8K7VfFGfg@mail.gmail.com>
+	Wed, 11 Mar 2026 12:38:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L3GwPO9k5ih3v3WaeKC+I0fpkSRMAgV9Fq4Ft2WgKB5qQmPWQ3HTDkU/Qvsd+B8YWgsUSRYxrNVDu1nAfGjkT8Y/2oscxt0ytMMeFH0eGX2kYY+SprOu6sXiZfEFHRN1lrc/nmzGkysfW35yfyw44zB8tCU/r5ozJJlXpnOrgad9JM63DH4tzdHYurv4be5gWflyLze8Cd9MwvFi56AVEPuGYifJghTlcoSSyskZdPbZQ+1rjT2mcN4dLGiNCwxb+6FNz3OrM5XD1RLd/pLWoOYbRqMpIAz1RyKH7ZSjHagI25FfMtJTBbmkpHgbliIHZWOIdo4WUw5ISt45Y6NWpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YJQFf7uynsKdrX8jRi60rRsiivmFxdtGdDMC54/tDqM=;
+ b=GW+bCrg11ampr6+BYRl7IFATDy9sdyoLwXLUC9lHhrvrJKVKE1GEdIEMqm4Vj0a08OQDpGD5+B7cgUcURRJVufuoY0Nf+jXP2BnEI8oeR+rTopBWZ5I8xHRgNDTIdG2yHeXnVG4zcAi7hrce98wiCoNUohzTEbMFDHWTHbKqBGB9fdGTGjunS9rD0/gxQ/qdhZSp0al9yxqz54o6tZoQXUtO1k8PhnoBHn77W4eN8yu2w73VV+Jq9BjTdMvriyxHgFVHE5EkiVORrj8EEI4tXP6IS4Gp6Ey01emr3tXVky94M5MtZvuFIAzFykfrQPE7PXCGGBGNtq7ea6k8SQ7KvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SGAP274CA0001.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::13) by
+ SEYPR06MB6684.apcprd06.prod.outlook.com (2603:1096:101:176::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.11; Wed, 11 Mar 2026 12:38:38 +0000
+Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
+ (2603:1096:4:b6:cafe::d9) by SGAP274CA0001.outlook.office365.com
+ (2603:1096:4:b6::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
+ 11 Mar 2026 12:38:38 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 12:38:36 +0000
+Received: from ZicharPC (unknown [172.16.64.205])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8AAD84350707;
+	Wed, 11 Mar 2026 20:38:35 +0800 (CST)
+Date: Wed, 11 Mar 2026 20:38:34 +0800
+From: Zichar Zhang <zichar.zhang@cixtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linusw@kernel.org, brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, peter.chen@cixtech.com,
+	fugang.duan@cixtech.com, jank@cadence.com,
+	cix-kernel-upstream@cixtech.com, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: dts: cix: add FCH(S0)/S5 GPIO controllers for
+ sky1
+Message-ID: <abFiSqo3AWUjj1pt@ZicharPC>
+References: <20260306093238.2715269-1-zichar.zhang@cixtech.com>
+ <20260306093238.2715269-2-zichar.zhang@cixtech.com>
+ <20260307-efficient-fancy-gaur-db7df8@quoll>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGfYmwUfKk5OrFzJRHyu6h-Jf-cqbxfh62wRmxwOL8K7VfFGfg@mail.gmail.com>
+In-Reply-To: <20260307-efficient-fancy-gaur-db7df8@quoll>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|SEYPR06MB6684:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d9e7089-c212-4f10-9a30-08de7f6b1da1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|7416014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 7qGA0xzxp5piLl+gkK/yWIqK3Qm4go7CO/RBd9SKyt5ZPIoxHheyYFdmehQo8XObKS1hw3zmVJEoxd/ItB8oFcmUbJlrMmaXqKa8zMDbsyK2DqAYtoukrnzUOafhjpsY9tZYD0DzolmaJHoQQ1AnJOgKsrKiRcBdFdX2tTXOI4B8rsv6ADr9Aym533tUlO3i1kCrF5bnBk49YWWhV4ScueU1e6UotSo64qZvBUPkJWErWX3mQZO2UAu72AMzGqj2UAS6wftOm6cdagCn6qMt0E05vHNAaySD7B8I6kDwxVCYaEWnzPwJyFcRoFFwRWb4IrXgWMeaCy7AMl5bW0qSYWBCyEQ+lxqGn07tJIxq69+oFUOvsiUIWE9DLvzdkexg5yHKoYHepIoUc0NSxkw6cbN1c93e0GCTN/4vTkQ7fZy0d60n55Ob0q1B7L9h2j4z6B3a5D79murSx+wEjFtMP2e/l2Ge5Eh5blQvw5nhoD8GTLiMXzclxnU6vW6DTdAkK/eI5zEPlL4OCT0f6nLo9kO8WG92bMGtETRPs6aDxz7j/1h1KWdD55UwP3/1ZDm7ATU1YusTAY3W0ZELfYvlHnExA4uUulgIq2t1kMJKwWofTyT6Snu2Klqg8giNgw5dSatg1vxAw0cj4CQf1oSHgmIaG5kvrjen3Ns3E9nlMCWfVGV5Xzs+bxybs1y5XAcjIrF/dZDTuct4mPE701+thvMt+s7Pn4rFcXI7C0zUVwQ=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: dZ+4ZYAU2yjHoTgf5CsOPGnwJrkRPqVNhp8++MKHgk8bPG8/Aejm1EXDIXoM1OnrZA7MvBKxhWUYZC5Wq1u6xUlV8vUTEh1pWzQwiDqUMEwEsqQHHzFBGtcfrQuJfU2wRHbdrm1yqhnrD17oq4DrckR6dymULm7hOB859S5Cj32L7DM7gnBwjXksj9P9v09vw3MCviLzWO8k5AgYdB7BQdwRTkBW3/BGVgt6zh+IrADjn7Yv2mHY7/qsigAkfp7GjHFPIF3odadOjnfCU+xHSt6G6ojwaDlW2DYeZcvX9y85CC2eZxT6sHjp+i1aU5H4NA0e45y4ObkTOz9i4FY5P2dr0Bk7Yt+SoE9IOA/t7+nhEcDlmKjvFKZOnI+pDjIGDJMG2D3ymJzWICKpe15oy+04VPPPtwu2NRqxGA51dUjEBrGOQ1dl6BAyD+FSMGCz
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:38:36.4794
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d9e7089-c212-4f10-9a30-08de7f6b1da1
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6684
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_053648_263891_E3E2B3C1 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20260311_053846_460850_D7FD02E3 
+X-CRM114-Status: GOOD (  24.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +118,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 02:31:48PM +0800, Potin Lai wrote:
-> On Tue, Feb 3, 2026 at 9:42 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > On Tue, Feb 03, 2026 at 05:48:13PM +0800, Potin Lai wrote:
-> > > Add Linux device tree entries for Meta (Facebook) SanMiguel specific
-> > > devices connected to the AST2620 BMC SoC.
-> > >
-> > > Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
-> > > ---
-> > > Changes in v2:
-> > > - change mac0 phy-mode to rgmii-id
-> >
-> > No other change? Was the previous version broken, and never tested? Is
-> > this version broken and not tested? Is the phy-mode ignored, which
-> > suggests something else is broken?
-> >
-> >      Andrew
+On Sat, Mar 07, 2026 at 04:22:39PM +0100, Krzysztof Kozlowski wrote:
+> EXTERNAL EMAIL
 > 
-> Hi Andrew,
+> On Fri, Mar 06, 2026 at 05:32:38PM +0800, Zichar Zhang wrote:
+> > From: "Zichar.Zhang" <zichar.zhang@cixtech.com>
+> >
+> > Add Cadence GPIO controller nodes for Sky1 FCH(S0) and S5 domains in
+> > sky1.dtsi, and enable those controllers on sky1-orion-o6.
+> >
+> > Signed-off-by: Zichar Zhang <zichar.zhang@cixtech.com>
+> > ---
+> >  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  28 +++++
+> >  arch/arm64/boot/dts/cix/sky1.dtsi         | 123 ++++++++++++++++++++++
+> >  2 files changed, 151 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> > index 4dee8cd0b86d..4dc76e0135ee 100644
+> > --- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> > +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> > @@ -89,3 +89,31 @@ &pcie_x1_1_rc {
+> >  &uart2 {
+> >       status = "okay";
+> >  };
+> > +
+> > +&s5_gpio0 {
 > 
-> Sorry for the late reply.
-> Both "rgmii-id" and "rgmii-rxid" modes work fine without connection issues.
-> However, based on the scan testing we performed in U-Boot, "rgmii-id"
-> shows better coverage than "rgmii-rxid". Therefore, we decided to
-> switch to "rgmii-id".
+> I already asked cixtech contributors to read DTS coding style. More than
+> once. Does it mean I need to ask EACH contributor that? Maybe create
+> internal guideline to avoid trivial mistakes?
 
-I'm surprised it works with both, that is well outside the RGMII
-specification. The PHY must be pretty forgiving.
+Thanks, I’m working on the next revision of this patch.
+I have reordered the s5_gpioX and fch_gpioX nodes alphabetically
+in the next version of the patch.
 
-Anyway, thanks for the information.
+> 
+> > +     status = "okay";
+> > +};
+> > +
+> > +&s5_gpio1 {
+> > +     status = "okay";
+> > +};
+> > +
+> > +&s5_gpio2 {
+> > +     status = "okay";
+> > +};
+> > +
+> > +&fch_gpio0 {
+> > +     status = "okay";
+> > +};
+> > +
+> > +&fch_gpio1 {
+> > +     status = "okay";
+> > +};
+> > +
+> > +&fch_gpio2 {
+> > +     status = "okay";
+> > +};
+> > +
+> > +&fch_gpio3 {
+> > +     status = "okay";
+> > +};
+> > diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+> > index 72f3b195a927..9ceaf8f68e83 100644
+> > --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> > +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> > @@ -185,6 +185,13 @@ psci {
+> >               method = "smc";
+> >       };
+> >
+> > +     s5_gpio_apb_clk: s5-gpio-apb-clk {
+> 
+> Please use name for all fixed clocks which matches current format
+> recommendation: 'clock-<freq>' (see also the pattern in the binding for
+> any other options).
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
 
-	Andrew
+I have changed node name as "clock-100000000":
+s5_gpio_apb_clk: clock-100000000 {
+                compatible = "fixed-clock";
+                #clock-cells = <0>;
+                clock-frequency = <100000000>;
+                clock-output-names = "s5_gpio_apb_clk";
+}
+
+> 
+> > +             compatible = "fixed-clock";
+> > +             #clock-cells = <0>;
+> > +             clock-frequency = <100000000>;
+> > +             clock-output-names = "s5_gpio_apb_clk";
+> > +     };
+> > +
+> >       soc@0 {
+> >               compatible = "simple-bus";
+> >               ranges = <0 0 0 0 0x20 0>;
+> > @@ -354,6 +361,74 @@ syscon: syscon@4160000 {
+> >                       #reset-cells = <1>;
+> >               };
+> >
+> > +             fch_gpio0: gpio-controller@4120000 {
+> 
+> Again, read DTS coding style.
+> 
+> > +                     compatible = "cdns,gpio-r1p02";
+> > +                     reg = <0x0 0x4120000 0x0 0x1000>;
+> > +                     clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
+> > +                     clock-names = "fch_gpio_apb_clk";
+> 
+> This is pointless name. GPIO block does not take some "fch" input. You
+> just called the input clock based on clock output which is completely
+> misunderstanding of the DTS.
+
+Thanks, I will remove the property "clock-names" as well as the changes
+in yaml file.
+
+fch is a hardware "module" in the Sky1 chip. This module is powered down
+when the system enters the S3 and S5 states. It contains several GPIO
+controllers, so we refer to them as "fch_gpio". In contrast, "s5_gpio"
+remains powered in the S5 state.
+
+Based on the hierarchy, the clock input for fch_gpio on the APB bus is
+named fch_gpio_apb_clk. By the same logic, the clock ID macro is named
+CLK_TREE_FCH_GPIO_APB.
+
+Best regards,
+Zichar Zhang
 
