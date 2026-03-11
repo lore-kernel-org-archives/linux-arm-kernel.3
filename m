@@ -4,144 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE41104951A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C567D104BEC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6r2yohNmMwbi2yuOmUsHtqV6XSB7pT+Wazt6ea/Z2c=; b=KEETs1FBuw3j/P7BBCDqtt0wOp
-	Jp4vNz75EKNCc/RHeD9lenSJEGbGwzH/exdSGZK7PrEXNpT6TDnvJYqEEONSLrSvHtBAB5jV7rBRe
-	OlVcCpmkNvLLg+fiqVvOH1TRiFyn5W+2I9BS0ou81VqrbXUVeTphYopKy2tO6o3MfyT4OLXjIkdm3
-	XCXJr5qug3OxeIIhbnSTWpY854YZ4qZyRNUfhc9OsnQW/G7ZHfbB+oFifaEwq2diguHGCoOqOO0Rv
-	j26YNSXHQinBMpgIdMM2c8TcBQr4g4nOYTRKi+1ipnP0KwSAbHGiZ0xdVCRDa5JPbI7jMGRR/p/+h
-	XxeD7k2g==;
+	bh=g1+J3NqZXQBkyhheWX7UG+xf0a4O/Xa45DXcaC0RyAk=; b=o8OzJh760+1NWbVWx6sWB821pN
+	z7RttUSumK24YsdPm2kaiIWffOK4lOUf7Xitzddxe2Bt+/F8NLza0hLhAmfzIbgmXhEE8ev605POS
+	biEhCUX2YilAbv1O+Y3BuQuMiARFK4gDy/okRVyLceKH8mA7X5tcd2FKw1o43d8Jvg0J3rSnDSSeI
+	6V21bp2LINmvWZ5z+sn6Jo+wc6UfovRXv0ygBkuSVgXokFFe5rOI4I27ZQhYXOG6rVD/DQpLyi9dQ
+	3hyCUd5ODLpxOJKI8mF4F2fCndk9Qvocy2INhSB7Um0kO65HcrR2bXvSGW5G7gWe4iLnzPcmFo9IS
+	PuCdZ8lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GQ3-0000000BMmz-29qU;
-	Wed, 11 Mar 2026 10:03:59 +0000
-Received: from mail-westeuropeazon11010012.outbound.protection.outlook.com ([52.101.69.12] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w0GUZ-0000000BN8o-19QC;
+	Wed, 11 Mar 2026 10:08:39 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GQ1-0000000BMlN-1cZF
+	id 1w0GUW-0000000BN8G-0tEk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 10:03:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wyDuJi/Ucj16KN2M87L7jhoe9RLUcTT/l4/W1gU3hxYCfyaPM2tzMpeR+183FGlAxYN30md21NkeqQuvspvvBNH8RcRRf15k2Oo/NbEyzDQEZy46zIL1Bo/Y9r00HQV1YCxhaX0nLEMgL1k7YmaCDB2Dgf4YfX+LLFes6o08cd8uf4YKDvd7IACI3QuEB7EnbA8q36UMsIXT9QLkTtn33vlaYVlhnN1iVGdvsIzImfSguyUnTs7Wgw7AJKiTtXlVC8yloZ7ub4MPcS/Kv5WXebVYCPktSPjs282XDQoMUtwEuSRjP67aUHMlelb/rOdb0xE2AzPCwYyA3nmFdPtgRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X6r2yohNmMwbi2yuOmUsHtqV6XSB7pT+Wazt6ea/Z2c=;
- b=Vc7kHUJkm4zTZewTnhTNiWjHIUuorrc4DjfNwenga+4P+Umw0trFp2CAttuHP6JnOaakuwx5WcFizGJguxbcvlIm5Bfo/Gj/NcyvNZrvCDNdW1aVLBTnE12tzslhGYA5YQUPMhTV2FupYVmqiwpGzXmUWBQInNiWWKMyKsKc6gpyMA3ALOf/bLcR93eFUB90a7fWPLMOY4EAGVmj0Yw4UJF0UrTbE36OGR6liOinzehlD4sQgg4GaK37CF807DGcDg52RtxKNW2mLams+1VgM7Hmjz11RkE/fjBSKfXlZuHCJRNmuX48KAdzk1U8gR+fKu23iNZ3dbDgYClG+TQbcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X6r2yohNmMwbi2yuOmUsHtqV6XSB7pT+Wazt6ea/Z2c=;
- b=LGbP0kOQdQRYNwBx7dRGpUXJwsEdR4sE9FiH8tNdu9FBzQY0XJEIYVCbDbtSNO50xmSEy/y9V+dz1eFiSkFbdHHiTKImw6ss4zwDkjVLM5Ju/yR+pMBL8Cgzdr9kFLfvC1qY3GgoAfjUjIann+tq6h5bxEN+Chn9Kc+2wBc7jV0rwtiubh1KT7hZ/Jt2fPiYCTX+6O7eD9MSo0v4mzAVXu3B24v6s55nPwGT3A8wBqGXg7gNYGvRbsItneYrmJxR1es59KVCNKWjiv6y8WFaeizZuPRvLO+2pFZqioSn5y18T4EyfDOFvw/5WUuj5uvdbPvAohamnDKclI+upSWQ1g==
-Received: from GV2PR04MB12272.eurprd04.prod.outlook.com
- (2603:10a6:150:328::18) by GVXPR04MB10635.eurprd04.prod.outlook.com
- (2603:10a6:150:21b::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 10:03:44 +0000
-Received: from GV2PR04MB12272.eurprd04.prod.outlook.com
- ([fe80::3c9e:6f28:93b5:b908]) by GV2PR04MB12272.eurprd04.prod.outlook.com
- ([fe80::3c9e:6f28:93b5:b908%7]) with mapi id 15.20.9678.024; Wed, 11 Mar 2026
- 10:03:47 +0000
-From: Bough Chen <haibo.chen@nxp.com>
-To: Luke Wang <ziniu.wang_1@nxp.com>, "adrian.hunter@intel.com"
-	<adrian.hunter@intel.com>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>
-CC: Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-mmc@vger.kernel.org"
-	<linux-mmc@vger.kernel.org>, dl-S32 <S32@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 3/4] mmc: sdhci-esdhc-imx: remove duplicate HS400 bus
- width validation
-Thread-Topic: [PATCH v3 3/4] mmc: sdhci-esdhc-imx: remove duplicate HS400 bus
- width validation
-Thread-Index: AQHcsTw4nKYL72mPikijeo4AJ0qsTLWpGiCw
-Date: Wed, 11 Mar 2026 10:03:47 +0000
-Message-ID: <GV2PR04MB122728BA9792850F4FA9234679047A@GV2PR04MB12272.eurprd04.prod.outlook.com>
-References: <20260311095009.1254556-1-ziniu.wang_1@nxp.com>
- <20260311095009.1254556-4-ziniu.wang_1@nxp.com>
-In-Reply-To: <20260311095009.1254556-4-ziniu.wang_1@nxp.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12272:EE_|GVXPR04MB10635:EE_
-x-ms-office365-filtering-correlation-id: 81783f34-a39c-4584-68f9-08de7f557ce1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|38070700021|7053199007|56012099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: KrWHnln2PZi7Iaxp5aBXM9WhxjRzj2FIm4waHC1UWSSWNAg5vIZVshbV002ID+3nN685q269cD02pdBlzbg/CQmvAAtK9NPbyNhr/xwgwewAyaQ3burwmYUOdEaXYXIMaDYBhQxTz8zla0jHX0yGyW1liS6+r+Nh3m98zvWLRLPEe6wkmnyTAPaD4YqovYkMCDneosoX+u4eGtKtfcpCmEjzw+r/4uQ5+p5qY0weX2jZNFAwJoES72XjzKfgBxMVvbgbieQcCMDTvxjcCQw+GiUrvk8o6yI4dNnM7zp2DmFdDwhD24FVAbTsIO7oOhtNGdnMauSJ5To90YpGvTvr1ta4BOUax/llDywDzXvhzjidOa/JEpLOwKZg/CdVZC/GSxRqiHZ7MkVx/Jb1dyDfBgJvbcjl0P0gn1UmHmALSdpivqrkMRnCYl/swdCV4IfpKtr5uCLfcclv0fD7mg5xxEqDR2UFAbOzpCqlib6nGG2oCwBQ6dPOuJ7RY5NF5v71vgQwINZb9fD8dB+kZrhWWYUk9/cYz9YLblCKmXpa6pvf5kKn5TGKwV9h3tjLubi8bem/X6vH0ardvYnLv65mEgrIlPU89zAamtLD/GLBLU0wKEd82jhShu8LHGsr4dd9CiUyg70N2q8bWUES7KQBzWlXWm2/Zf0ojy3NeZd8PczmKUGRftnZ8GMXfxm+h43WMBumO14UEzr2akNhq+fTfKjJ37+aX9tTUgiUFWLJ8+czFMHUBoMm8HN1rQj6BvzzH7bMFfcyu8wq1U6KBQ/6XKKT0srUGoULsPkLkWKlxb4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12272.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(38070700021)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?cTdCL0hxWktXTWppNHpMby84RFQxZmczSFNSa1F2NTYwZ3UrT3hORDd6cUYz?=
- =?gb2312?B?QS9ReC94K1ZzZG0vRFFmck1XSlZzdkN4OUJpbU5YNDFvVVBuRWREUjVIUW5u?=
- =?gb2312?B?YTVHMVNQWTl4WGxSaVZhWCtLRG1wZlFFakhYa1U3d1poNGRNMzhhcUNLR2h4?=
- =?gb2312?B?dFI5VW16VncvWkdSaDNqanYvS2RpWHU1NEhmWG5jT2E2c2xxV0pSeU5XcFJJ?=
- =?gb2312?B?Y0NqWkRUemhGTnVrYzF0VzBCMHhIc3B5UUpDODFrVG1PUHVQTURtaFVsL21h?=
- =?gb2312?B?aitBbDcrL0VEY093YzhXQk5jeXczQjdRMDZHRDVZTTdaMnFiTytHZnNqWEdj?=
- =?gb2312?B?MjRQcjRxR2h2RnR1dENMMHVMSytLcDhJOHZVU2xPMm1wMDRPTTNwS1FEd3V4?=
- =?gb2312?B?VlVqOXVvcWdGM1kxdkxGNGozZzY3YkZ1S1dseVh5WnlEaVpZUU1UaVE3MHRK?=
- =?gb2312?B?ZG5qdjFWcXVVRDM5NFl1aHY3YTBkOEZuOXYwdkRsNVpWV0dVdDNNakp0enlv?=
- =?gb2312?B?bWdzWm1hMXJ3RWVmUVZVL0lybEdzZzhKNG14Tm9yblhFam9pblM0WHhkVm0r?=
- =?gb2312?B?emU0enErdUZVUFdQK3ZpSk5IbDlDTklpeXptcXRFbTc2a2V5NE90V002dmk1?=
- =?gb2312?B?dXJwd3hMbDJyZ05Hb3R1bkRIS0M1dXRyMFZRejhHNjhKTmxXZXJuamRtazky?=
- =?gb2312?B?ZHFiaVZJZjYzbm5PbE5FdVp1M1JZZkl3MmlmTXlIZGhlOVFKQk1Ua1Foc0pX?=
- =?gb2312?B?M01SRitEVTloRy84QzZtQjV5V1VON01nalJaNEptVGc3dEYwN3k2RUlCb1d5?=
- =?gb2312?B?b0JMN2t3QlBBMWhFeFZtV1AvdDJWS1BDRVR6ZGcyZyt3T1FLWmZVb2lGVi9y?=
- =?gb2312?B?ODBoRjhhU0J3bWs0dE9FSFlTcE82eStXWVl2c291eXE4b25NN3FNSWJLSGZa?=
- =?gb2312?B?NjZhRjFFaFNJdjZPUnQxS3BVVmg5azZTcWhwTEg0cmE0MjJsWjRCQ0NOYUpz?=
- =?gb2312?B?OXFVaVhKSVRTbGxncnJ0Vm0rK1BEYXViZDFQWTJFVWFPV3Y3Z1ZEVHFGYmI0?=
- =?gb2312?B?Um5qOHZoWTNOVGNJem9IYUU3Y1BJcXNja2QyMC9ZcllEMW5hUTZ3WDFqUEhH?=
- =?gb2312?B?bTErN2FUMm9RQVFjdWxKNkprR00wMHpYTEswR29MWm8yTkZSYkdxbC8vb3hx?=
- =?gb2312?B?dnlmV1oyOUR2SWFETnFoZ2k2RUQxejg2eE9STjVaUzFUK0RmN0hWdDdNZFcy?=
- =?gb2312?B?SVYzcFo4bnVYZUdOL29NM3NYUWh2RTRMenltR2V0T1R5SklvQVVnWEFmTmgy?=
- =?gb2312?B?VHZ0ZG9INzF5bWhPRTQ0ZytWUjhMRG9TSVFCdWJpVWVGK0tEVzcyZjMreHp1?=
- =?gb2312?B?d3RoaGRpb1lEYmF0d1VsTVFzUXI2N0hLVjRXUEV2VDJYK2lDQXJTZytHR0Ux?=
- =?gb2312?B?UitrOWprRU1XWTZxREI5THhNUkphZlZHRE5DaFNvVUlTRFowT0d6WVhFaWFk?=
- =?gb2312?B?YmE4MUhjZHBuNHRtSVFCMmlOaS9TT2w5UmxKN0xNWklXTTc1UFJBcEUxREhl?=
- =?gb2312?B?RW1SclVZc3preFA1MEY2bXp0cXJTZG53MGlBQ3Z3QmNFWTVmQzJ4SGJXalRH?=
- =?gb2312?B?SGw5QWVMK3BRR0JPczc5N3hxVzJOUVVteStIU0s3b1VzRFZtb3FlV245MDhK?=
- =?gb2312?B?Ymw3Ym9iQnppODZyWWZNZnVqNEUrZGJHeGR6SkYrWVNDWEZrQWgxM2FESU5v?=
- =?gb2312?B?YjRGNWNTYnhlQnhGOFc1ejY0TlExZHlSRElRSmt4Z09DYjhLOWQ1Z0hvVjVG?=
- =?gb2312?B?VkJscTdwUVE5V0VncUoxWmI4VG5kT1RwbzBhbHRDaFg5d0NQVHphODZrbUVC?=
- =?gb2312?B?UC9QREh1QWFwdnhjM0QwMXFSTVNnQkhVUmhBODlJMUhoTTB3YUFUWUZzZ0Q3?=
- =?gb2312?B?bElyelhGbG9kVEZxbkUyODlUWlUzMysvYmRJNCtWcE5wSy9ZT3dicFZhY2dS?=
- =?gb2312?B?c0Vhc1FzcnNhb1JhdnhkVm4wR2xucHlMbGxzMFRTd3pDS3Uzb2E1YnBQOFBV?=
- =?gb2312?B?S0k5dGpRSE15WEg2UzUxTkMwQS9jd0cxcFJnWDBGSkdlN2pvWldwWjBYeVRP?=
- =?gb2312?B?eXhYdTAwL2FBc1Z5dDhlZ3p1YXFreUltU0FXQUtJWkQyT01HNEFHMEhCMzNw?=
- =?gb2312?B?YWI3OURkZ0hSeWxMU0ZMM2wrc0J5YllnaVlXL3hkeDVFcE90OTFkQ3JXcWhU?=
- =?gb2312?B?akJxUC9sVkUvV2lNcEU3aW5Xd3NtWHhJV3BUN3V3ZDdnQkJ4UDJVelhOblFp?=
- =?gb2312?Q?xlxjV3FYHgehYC3Mw1?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	Wed, 11 Mar 2026 10:08:37 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-509069a7a7fso504431cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:08:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773223714; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Afm6NooSOWVM5c3wW8W2Fk7pDsWpep3ksNg9/MPiXliPjyV8YwFDwr6m16/zRvYIPO
+         ALwIAYG7shrMiVh3BBtZqg76Ct/3xogP6jJWGDWwe9P1bZp37NYVepi29IKyxiXSrMHD
+         sfsUAAoX/mGYxVE6x8+WY+gGUHxUdKjbLd4pU4+4bn/YNNiURSaIL4mKc/2JFQmi6nku
+         YE43NL23vhvto+IYnAEzgesr2CHNdqp8pkRUcUC65ocFlmx89i6qE65/8DiHuqxHNjNt
+         uDKPy03lTGOROhLTGkJMOIxSwDSlRqcWFrPEzJIYmbvFKrY+5UKxEde78i33m4gfdypi
+         q2Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=g1+J3NqZXQBkyhheWX7UG+xf0a4O/Xa45DXcaC0RyAk=;
+        fh=EfGqaP5BTu3VSigm4RuawrVz0soTagp0IOe9P2hkDn4=;
+        b=LIfFLqKLVetkQ2WHvys6UW4/njkCS7fGKA+PsYdXVB/mwAIxgysT19YYvXlLvr4eXw
+         9x0kRM6TJDu3d9KPDKEzUWiKg/w3+HM0oiAnL90KgelPJGdRMrC92VFpZiNQt9mSnAa+
+         qqZJNObPQ9xpnP6984w3LdU0/T4vmWk9izje7jUwSLuCRawC2MPvC1yel5aSE6Qr/LKN
+         VIW6bV4DsBftZP+i3hpv6w6Vp4rYkVU/qQxUJx1RLDHVys8EeuQh1Jl5Dhxgdx4o0Nz9
+         cN4yLfj4JH8AtHS5p8u7phRRQbgBs/M7NKNrLdSZ6LMNy+X7hTQmAfj5GvgBgNtwonUS
+         Ow8A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773223714; x=1773828514; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=g1+J3NqZXQBkyhheWX7UG+xf0a4O/Xa45DXcaC0RyAk=;
+        b=XhxTkuoTbQ+qdTUl5onI+YRcwST4WtV3bpJnFjRLUBQyt9T/QWdi/X14WiDlhKFys5
+         MRnIwF89gkpsPpcLSD5m/scgtb8QLOMVLE372YOXrG4lXc7ZEvZmO3eOIdrfUu5tC20V
+         OGahUoVseVCMBeIkPbvOuSh+shRf8Ka3Nf/jMKAPR5J5A/C4luS1nndnvlVIV2Y0JLvM
+         heQYpVrrlJfCCbzJ+16LvlYCqbUrMBJI+wXFAxITSSd6UPF1CKjxLdd5zP8oNo9yTslc
+         npl39ZLLAgPPbrJHtwr0zdrT5MINjTMaHOUbznPa0A6yGmrDuuzo/57p9ukDGjZFgzJT
+         B/zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773223714; x=1773828514;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g1+J3NqZXQBkyhheWX7UG+xf0a4O/Xa45DXcaC0RyAk=;
+        b=YkQ3WKHjJmRAN934Y49mCa8XsNYYQ82IHHWW1LOxty6KlQKIGEnnBldOUX9IgCX46r
+         LxSReGDua7cOQb4I5HtlHmmSWTOdRpdZMAK0kPdD44PVPsnB09ObqelkERGcEC0JHnhb
+         LazxWAIevBZ+azwKTK4jgG74P/P6jeHEv02BjtC5w80yUOraVw7bLQF07Gpj1jQd79ke
+         SfrtsQpOUoZt0JHhHa6/fxTVz6vq5MFy2uTulgqK/2A3OmMy0BPcYx5sIGBc457Dpvl+
+         gwtSX3lCaYhwKzgX9185w9f1G4i+FMOE1EAiNf4XVQzFZSAYQDRTgnzYUzXSdbh1S//k
+         iTrw==
+X-Forwarded-Encrypted: i=1; AJvYcCWyKlHWX80iNANiegopXwELMvYQeyAVGL7WM3NJvE4J7rHKV50o9NJvU1JKXuw63cLDnseSJs+xTSuZ1SI5ZO7h@lists.infradead.org
+X-Gm-Message-State: AOJu0YzubGpn3tG6XV9n3v5bd3Ks6q3NtXq0fldIbwz+UH53c7Cn3yPr
+	av+ECKsEAXfcZScEPR89ajbGOrDjIihhTEjXSyRAwP1LbkPuRZtPuTtr7qnnHe5cJurjbJPg/f5
+	ybTK/QH5uCXGIw96mxKgnNK4uD7BtzJ101ypBKdtB
+X-Gm-Gg: ATEYQzxncEdi1DjGEoHTLKLZCt3FyryyvbaeKIIsZ1tO/o7iOd7U20sRI5K6hVJf4Zh
+	kodKYK6BJ9KH7U+Wm7B/qV8ENhitd+hnzQOc1fW7XBkI0wgtputkTQFXcQTJn8/QMzb//NBiSmC
+	/hgRBqVcUu7K79wX5MrgOwwgwlGHvUFvcNH1Fi5qQLyj6pRDuBkoLQvT1qYoxhRFjgikIqUnTb1
+	FALtWqe8NLxTB0E8TrVpMo9avIbCesbjyfdk27sTJKiyQOgDWdctycpRCRp5IXYbWwuM5fQ7tEg
+	KsMC/kZ2elAi7toW+lX0OqFeN1CT1WtsS3XxdA==
+X-Received: by 2002:a05:622a:649:b0:4ff:c0e7:be9c with SMTP id
+ d75a77b69052e-5093801c297mr11736091cf.0.1773223713491; Wed, 11 Mar 2026
+ 03:08:33 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12272.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81783f34-a39c-4584-68f9-08de7f557ce1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2026 10:03:47.6660
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ny7kjC7iLZEH4cfNdJO4WNcFBUs02qV9sv22zv6/0I+WJpiPH5N3AO4x/cBAQX+6TMzJyW4OKAQaCIZomBjIBw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10635
+References: <20260305144351.17071-1-will@kernel.org>
+In-Reply-To: <20260305144351.17071-1-will@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 11 Mar 2026 10:07:56 +0000
+X-Gm-Features: AaiRm52TzX3ZonIXvaz3nCHskmbhiqVjVB_l366ofCqzpHAmP4-UKzbQ1mMmDh4
+Message-ID: <CA+EHjTxfufq6kD1JZCryHeWM=eHODJck9KzRLWcZ37SbhH5rKA@mail.gmail.com>
+Subject: Re: [PATCH v3 00/36] KVM: arm64: Add support for protected guest
+ memory with pKVM
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_030357_425850_009AD055 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260311_030836_272575_D6895A03 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,33 +119,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBMdWtlIFdhbmcgPHppbml1Lndh
-bmdfMUBueHAuY29tPg0KPiBTZW50OiAyMDI2xOoz1MIxMcjVIDE3OjUwDQo+IFRvOiBhZHJpYW4u
-aHVudGVyQGludGVsLmNvbTsgdWxmLmhhbnNzb25AbGluYXJvLm9yZzsgQm91Z2ggQ2hlbg0KPiA8
-aGFpYm8uY2hlbkBueHAuY29tPg0KPiBDYzogRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+OyBz
-LmhhdWVyQHBlbmd1dHJvbml4LmRlOw0KPiBrZXJuZWxAcGVuZ3V0cm9uaXguZGU7IGZlc3RldmFt
-QGdtYWlsLmNvbTsgaW14QGxpc3RzLmxpbnV4LmRldjsNCj4gbGludXgtbW1jQHZnZXIua2VybmVs
-Lm9yZzsgZGwtUzMyIDxTMzJAbnhwLmNvbT47DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5m
-cmFkZWFkLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiBTdWJqZWN0OiBbUEFU
-Q0ggdjMgMy80XSBtbWM6IHNkaGNpLWVzZGhjLWlteDogcmVtb3ZlIGR1cGxpY2F0ZSBIUzQwMCBi
-dXMNCj4gd2lkdGggdmFsaWRhdGlvbg0KPiANCj4gRnJvbTogTHVrZSBXYW5nIDx6aW5pdS53YW5n
-XzFAbnhwLmNvbT4NCj4gDQo+IG1tY192YWxpZGF0ZV9ob3N0X2NhcHMoKSBhbHJlYWR5IHZhbGlk
-YXRlcyB0aGF0IEhTNDAwL0hTNDAwRVMgcmVxdWlyZXMgOC1iaXQNCj4gYnVzIHdpZHRoLiBSZW1v
-dmUgdGhlIGR1cGxpY2F0ZSB2YWxpZGF0aW9uLg0KDQpSZXZpZXdlZC1ieTogSGFpYm8gQ2hlbiA8
-aGFpYm8uY2hlbkBueHAuY29tPg0KDQpSZWdhcmRzDQpIYWlibyBDaGVuDQo+IA0KPiBTaWduZWQt
-b2ZmLWJ5OiBMdWtlIFdhbmcgPHppbml1LndhbmdfMUBueHAuY29tPg0KPiBBY2tlZC1ieTogQWRy
-aWFuIEh1bnRlciA8YWRyaWFuLmh1bnRlckBpbnRlbC5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9t
-bWMvaG9zdC9zZGhjaS1lc2RoYy1pbXguYyB8IDQgLS0tLQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDQg
-ZGVsZXRpb25zKC0pDQo+IA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1l
-c2RoYy1pbXguYw0KPiBiL2RyaXZlcnMvbW1jL2hvc3Qvc2RoY2ktZXNkaGMtaW14LmMNCj4gaW5k
-ZXggYjYwN2Q0ZmZjNTYyLi5kNDkwNjk5ODZlZmMgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvbW1j
-L2hvc3Qvc2RoY2ktZXNkaGMtaW14LmMNCj4gKysrIGIvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1l
-c2RoYy1pbXguYw0KPiBAQCAtMTgzMywxMCArMTgzMyw2IEBAIHNkaGNpX2VzZGhjX2lteF9wcm9i
-ZV9kdChzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlDQo+ICpwZGV2LA0KPiANCj4gIAlzZGhjaV9nZXRf
-cHJvcGVydHkocGRldik7DQo+IA0KPiAtCS8qIEhTNDAwL0hTNDAwRVMgcmVxdWlyZSA4IGJpdCBi
-dXMgKi8NCj4gLQlpZiAoIShob3N0LT5tbWMtPmNhcHMgJiBNTUNfQ0FQXzhfQklUX0RBVEEpKQ0K
-PiAtCQlob3N0LT5tbWMtPmNhcHMyICY9IH4oTU1DX0NBUDJfSFM0MDAgfA0KPiBNTUNfQ0FQMl9I
-UzQwMF9FUyk7DQo+IC0NCj4gIAlpZiAobW1jX2dwaW9fZ2V0X2NkKGhvc3QtPm1tYykgPj0gMCkN
-Cj4gIAkJaG9zdC0+cXVpcmtzICY9IH5TREhDSV9RVUlSS19CUk9LRU5fQ0FSRF9ERVRFQ1RJT047
-DQo+IA0KPiAtLQ0KPiAyLjM0LjENCg0K
+Hi Will,
+
+On Thu, 5 Mar 2026 at 14:44, Will Deacon <will@kernel.org> wrote:
+>
+> Hi everyone,
+>
+> Here's v3 of the patches previously posted here:
+>
+>   v1: https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
+>   v2: https://lore.kernel.org/kvmarm/20260119124629.2563-1-will@kernel.org/
+>
+> Changes since v2 include:
+>
+>   * Rebased onto v7.0-rc2
+>   * Rework of the way that exceptions are injected into the host,
+>     building on top of Fuad's work that landed in the recent merge
+>     window.
+>   * Some renaming and comment additions.
+>
+> As before, I've pushed an updated branch with this series:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
+>
+> and the kvmtool patches are available at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/log/?h=pkvm
+
+For both the kvmtool patches and this series:
+
+Tested-by: Fuad Tabba <tabba@google.com>
+
+Thanks!
+/fuad
+
+> Cheers,
+>
+> Will
+>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Joey Gouly <joey.gouly@arm.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: Zenghui Yu <yuzenghui@huawei.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Quentin Perret <qperret@google.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Vincent Donnefort <vdonnefort@google.com>
+> Cc: Mostafa Saleh <smostafa@google.com>
+> Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+>
+> --->8
+>
+> Fuad Tabba (1):
+>   KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected
+>     guests
+>
+> Quentin Perret (1):
+>   KVM: arm64: Inject SIGSEGV on illegal accesses
+>
+> Will Deacon (34):
+>   KVM: arm64: Don't leak stage-2 page-table if VM fails to init under
+>     pKVM
+>   KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
+>   KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+>   KVM: arm64: Don't advertise unsupported features for protected guests
+>   KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
+>   KVM: arm64: Ignore MMU notifier callbacks for protected VMs
+>   KVM: arm64: Prevent unsupported memslot operations on protected VMs
+>   KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+>   KVM: arm64: Split teardown hypercall into two phases
+>   KVM: arm64: Introduce __pkvm_host_donate_guest()
+>   KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+>   KVM: arm64: Handle aborts from protected VMs
+>   KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
+>   KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+>   KVM: arm64: Factor out pKVM host exception injection logic
+>   KVM: arm64: Support translation faults in inject_host_exception()
+>   KVM: arm64: Avoid pointless annotation when mapping host-owned pages
+>   KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+>   KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+>   KVM: arm64: Change 'pkvm_handle_t' to u16
+>   KVM: arm64: Annotate guest donations with handle and gfn in host
+>     stage-2
+>   KVM: arm64: Introduce hypercall to force reclaim of a protected page
+>   KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+>   KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
+>   KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
+>   KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
+>   KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
+>   KVM: arm64: Allow userspace to create protected VMs when pKVM is
+>     enabled
+>   KVM: arm64: Add some initial documentation for pKVM
+>   KVM: arm64: Extend pKVM page ownership selftests to cover guest
+>     donation
+>   KVM: arm64: Register 'selftest_vm' in the VM table
+>   KVM: arm64: Extend pKVM page ownership selftests to cover forced
+>     reclaim
+>   KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
+>   KVM: arm64: Rename PKVM_PAGE_STATE_MASK
+>
+>  .../admin-guide/kernel-parameters.txt         |   4 +-
+>  Documentation/virt/kvm/arm/index.rst          |   1 +
+>  Documentation/virt/kvm/arm/pkvm.rst           | 103 +++
+>  arch/arm64/include/asm/kvm_asm.h              |  31 +-
+>  arch/arm64/include/asm/kvm_host.h             |   9 +-
+>  arch/arm64/include/asm/kvm_pgtable.h          |  45 +-
+>  arch/arm64/include/asm/kvm_pkvm.h             |   4 +-
+>  arch/arm64/include/asm/virt.h                 |   9 +
+>  arch/arm64/kvm/Kconfig                        |  10 +
+>  arch/arm64/kvm/arm.c                          |  12 +-
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   9 +
+>  arch/arm64/kvm/hyp/include/nvhe/memory.h      |  12 +-
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +-
+>  .../arm64/kvm/hyp/include/nvhe/trap_handler.h |   2 +
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 184 +++---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 585 ++++++++++++++++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                | 224 ++++++-
+>  arch/arm64/kvm/hyp/nvhe/switch.c              |   1 +
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
+>  arch/arm64/kvm/hyp/pgtable.c                  |  33 +-
+>  arch/arm64/kvm/mmu.c                          | 114 +++-
+>  arch/arm64/kvm/pkvm.c                         | 154 ++++-
+>  arch/arm64/mm/fault.c                         |  33 +-
+>  include/uapi/linux/kvm.h                      |   5 +
+>  24 files changed, 1374 insertions(+), 225 deletions(-)
+>  create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
+>
+> --
+> 2.53.0.473.g4a7958ca14-goog
+>
 
