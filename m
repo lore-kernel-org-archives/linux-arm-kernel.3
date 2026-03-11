@@ -4,84 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B1D1049514
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040A71049514
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KclamfVgsrRsM4JcPp3jjJgBwleGtfA9nlFgtsmcvgI=; b=Aq9x2EDVnNwgJkV7A0le9oz7LQ
-	nNNjzFWclD5TehlF3SiPXnB988ccp8Or8qSixdis4cPh127kOLYAmax48o4Eul11UeslTIMnbu+5O
-	tGId6Xuyp1GjbmfvPNbm4/t5keGUiuNTpOzRbu37ac+IX8ngpazeVdY1k3ipgcZg+rTv99o3XCWHS
-	pnuw6xmMkA+MQXjOOllkSbr2WVzhGD+P5t84xxLOlL7iYAdiA6n+NPz2bzHM7NqQwgMHR9ydDJJL8
-	AgBm6oZF3NAxve+CxsOVAAeOlfK+GWs8YF4O2YuWD32hG4/0HqtS25FomWW4RWoITyIOxNeoz/ukg
-	iPErQm8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wrK4Ebc+SYStWqsyJG63tplrB9U5+H197FZi0IEbcuQ=; b=iLjmZnd11HaVSi0U7pXpZi6fMP
+	7NxmgQyQ5uIZ6FPYfhgMXHv5L2K01y/spfbssclM5gKJ2aqEufA+DYWGjdx8vT70F5NwlOJ5JDe4q
+	kyuxUDv2oLPkieqhgXyJgoM9qxGsH2n3hVmm04l5LcUCZKwk08ljVKP8MG5T6y1K+RPjwX8Dy2oHR
+	sSI6dtTkTVUIKnRagSLlyJa9zWaz+loTZqgr9knN2tMVr9Zyn3mIRsk4lnChKGadnkOgQsOEtnJud
+	hrSxve9gRSHrm6TrDoGXyURqstCHQMnnTzovvFhB2eSg0U7L70BqG2wutL25MZ/271DOfbBlDAxhB
+	Ui52vNRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Fmd-0000000BGUC-0uMp;
-	Wed, 11 Mar 2026 09:23:15 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1w0FnS-0000000BGi7-3mCa;
+	Wed, 11 Mar 2026 09:24:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Fmb-0000000BGS0-0bRy
+	id 1w0FnR-0000000BGhU-36zs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Mar 2026 09:24:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wrK4Ebc+SYStWqsyJG63tplrB9U5+H197FZi0IEbcuQ=; b=pXZhn8dVSv4uJonJPrze1cr3to
+	ExfTpIJKxhCtuASmeDN7w2Y7xsu5j19GOuoy15SNMvGU1v47ogE4h11A9qP9aCYY8eLcnKTvDtGy+
+	QW+QQgOVAAFT3N20C1XSU8CraUxOi9Mbsv1SODQetNzq3AyRHcsNUci1/pzLBX5L8hiIOS/63ACd0
+	gFBGdU5B1XbLc9yAIa19JcHRu+azNJbKF6nqC2by/BiX9GiCNu3+tdKTmuscS+WLJppLYhavtzK7Q
+	ZG7K1DCEf0sJwwQEwK7eNy4bFCghcHY7vxLOzmdMqaAgQ3gnXsuINTh1IqfziIrSEsPtAppWWwoR4
+	YTJrisag==;
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0FnO-0000000GXU2-37WS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:23:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773220986; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=BUFSRXvRgjcaPslWi9yPwyPW6Uyn+IUeMyebQfuhIiM/RMnmr8s1k805a+skY3NvoepcQyWUkOwMFR/eSBdmYstZYtTCbbmfKeAc3IaoLHnb5LoE2GORlqbIgkcX8tZ4AMgflM8E46r3edDB6u2EFpNltW2Q1pcKCVOrwl3UPys=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773220986; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KclamfVgsrRsM4JcPp3jjJgBwleGtfA9nlFgtsmcvgI=; 
-	b=emTv33vF/A4q5WKf1+zuD7WQfNeWNKNfIVHA/aNnt4LMMbcGB3b9z5v8Sxuc23zoZNmNsyoy4U/569yTEvqGE4MgvaPt0FjLioasI+ZCfjDJFSe1x8kVO6NnRbms/x1snfh5yHJermMtjPXaJTXDhuT3d6+cx4oimMQ0SGA0EVE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773220986;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=KclamfVgsrRsM4JcPp3jjJgBwleGtfA9nlFgtsmcvgI=;
-	b=e8OKqhVt44vTf9eNS5Vq+P1SfILq5KhcuM4b1vDcSV5rhqPT2QZz6UN5dWuzJaJ8
-	KvhkpPBogu5J4ujhz8lulmC/F7Xezrq796NjEtZ1hnlPrVFTH/IferoBXPU8unGhKzc
-	7+GzBU4lC4j2kmnVxsLOVlHuoOm3nWDlumwL9Wl0=
-Received: by mx.zohomail.com with SMTPS id 1773220984125552.2390183702256;
-	Wed, 11 Mar 2026 02:23:04 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 29CCD180598; Wed, 11 Mar 2026 10:22:40 +0100 (CET)
-Date: Wed, 11 Mar 2026 10:22:40 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
-	Andre Draszik <andre.draszik@linaro.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v20 03/10] power: reset: reboot-mode: Add support for
- predefined reboot modes
-Message-ID: <abE0SNBE0ol_es5E@venus>
-References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
- <20260304-arm-psci-system_reset2-vendor-reboots-v20-3-cf7d346b8372@oss.qualcomm.com>
+	Wed, 11 Mar 2026 09:24:04 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8cd8d97aa2eso371159985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:24:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773221040; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Atx16LTF+HTe9g+tmr5Ghm6rjeHQtkR9I1WS+tifGPuahcV4A7nIFwB2qOUVcIE+xS
+         3TsjyvNGv9hgBWkMX608DBYU0paLQNBRQRlQuwG076jxrv2mlN0xYsVi4XQA1p/VVKeC
+         jKSW62pLulX1SCvpLl6HdWrsViO/vHgmARPifEIAQ6vcLm4JSX8Q3UoLd+Hfn6ie7Pty
+         QnhMiibvJjKMRimd216qIrcuAmvCeNaU5um2gnnNmqGW6r6BOngdAT+a2gPaUkywmoWL
+         gJRhFphspZVnQYvXGqfYX9qc1TQqPbe011DDltmzLrV6f0v/kSb9Z34LN3fIYTiepiWt
+         2SyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=wrK4Ebc+SYStWqsyJG63tplrB9U5+H197FZi0IEbcuQ=;
+        fh=T+b/gi3Vwajdtk5XgF/xzbeSkDSj+Nvm5+WcqF0ZVMA=;
+        b=ZIySzGd0U1EkEaEL14FxJHS0Af0ha4xP0tYyrZ2Srv9Q9qy1Y4Mqj+ku6gtaigctJL
+         8xM0dxkVdXtJ6xh37CS4CCbMgmYMiRiLLhBAlacaeEKsZR4DatgorZ7HvBz6XSfC/tda
+         YL1bbZNHmCZAL+A8/DgYC3KI11ku3WAO+AraGxrNNUY91vAHgXuFDkw+r7c25nFP+r4S
+         voApBXbH4187GSIMoVgeaaTHqUm3+xtDNoyVjFyo/VTmi3Gj4MlXkL6mbaeitNcCCu8j
+         gAziHrvgK3bQr+fhe28hLJj2kTfk7yyzXG7UaK28L4Cfft6lXYHPAMtaXxkA+sQbDP8n
+         QiZw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773221040; x=1773825840; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wrK4Ebc+SYStWqsyJG63tplrB9U5+H197FZi0IEbcuQ=;
+        b=NAWiMJn6c9Pymu+PQGuXXqKBnZkQ/HgPGNvdbxCqKdvsbXyA/4FWBRwRq5nubCcnfm
+         fCtW/3rxugESEFvp7IBc7r+ZSAn4ZjgKJregj6N64GHtubD4dQi7FKR3zg+nVeG0zrHU
+         KeGUV5/m1pcFIvgVor8/h7PjALJOcGlUtafrIE5rlmh4lTJvllDjv0aIQ585oOizqZg7
+         rr+BU8vuMm2fqxGUDh+QJionnYZhGFL8socVUogFJkPe43X8tlwhdB7vslVekm18QQXM
+         e3A7qcO6Mnv1p6XsmolAn3s5LE1wG6NGvifsP7o6mVKcGnmanU0ZnG3fW1unv4SID9ww
+         MjEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773221040; x=1773825840;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wrK4Ebc+SYStWqsyJG63tplrB9U5+H197FZi0IEbcuQ=;
+        b=FApz9dR7dioy0PREGMj75/MDfByC/7J0I+l8w4HBa4J3bP7O15VRZzV/KGt8uD+fRA
+         vVUss3LktF0ohre+1CEJZjBFNG/Re77JeWOoJVz6tm14yRGcUFYF5OWtEKQUHyr4K/QF
+         qXWHYExFtDDbfce/087Y4F3lgTptF1HW+Qln0Q4nCU7AItWoOUacPpB83VI+2klLv62w
+         LzM4SBKNtutMb5HPSd4azZxfp7jZ0mzpRPJe6PIqsCUBVFGdQiQo7mWkiBM1rweDeuqi
+         CcmfCAXV7a5auRmWYi+W0KrBMnyvyG7tLvrzDzi8HPBw/rLtzz43DW/gbXL5H6vmh+Sg
+         bbUw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgGrdhnHg/Hwo4fMNQM8O3ktXzVC4PI4QTK6xoUGm/xbg7k9AIV5obc2bxgljveNDSjsJcsUE2PqDlxpscHbXy@lists.infradead.org
+X-Gm-Message-State: AOJu0YysJt572XM7ML7tv5x16Xml8XWUUC5o359lVMe6YxABSpSEbwUs
+	2ID77UJXleQWFSCdM12gYjZVTnNxpD5l+FSMnu74IA9XyZpTy8DRVELMO+U/UQmofvRbNHMBxno
+	Jg0ZC2gkPmZjvZXNT59kEXgnWwVXLcgY=
+X-Gm-Gg: ATEYQzwoZXfzEbIwvqEu4jmK+haFSaFli+gwTkvO7PzHBn07/SGTWcMypJAiOyCFpTr
+	c5+DCU9X1LVdbmCJ5+tz3ZTkpvXJk54UicsPcmRksbTBH4Rg1BV369ITAhNgkZhib6wih+37ssK
+	/g8tD9Txt90kD5FWMC0kZq20PA2s2dTMRE2O1g0FUHuCBINSWDkjiotTGNDISXgu8zvdJ65H/Lc
+	ciGXU3n731f8za8UC+7W/W+h/xuepuXKA6UheFxqz0w6V/EjyCeq7DZrIqj/wyaQ8D+NYkS37yU
+	C59UshXq3tdnPY/3RSvzrQ==
+X-Received: by 2002:a05:622a:1193:b0:509:2a00:4283 with SMTP id
+ d75a77b69052e-5093a1dbd17mr21113261cf.75.1773221040321; Wed, 11 Mar 2026
+ 02:24:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kqcirxuikitrnrj7"
-Content-Disposition: inline
-In-Reply-To: <20260304-arm-psci-system_reset2-vendor-reboots-v20-3-cf7d346b8372@oss.qualcomm.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/273.195.15
-X-ZohoMailClient: External
+References: <20260310005230.4001904-2-ed.tsai@mediatek.com> <20260310005230.4001904-4-ed.tsai@mediatek.com>
+In-Reply-To: <20260310005230.4001904-4-ed.tsai@mediatek.com>
+From: Julian Calaby <julian.calaby@gmail.com>
+Date: Wed, 11 Mar 2026 20:23:48 +1100
+X-Gm-Features: AaiRm51_8cV-ZC96Wbr95oK6RdVpyL1SwORArnS0Chyc1w1UnqmozKo680oVYNs
+Message-ID: <CAGRGNgV1jcBGoUzksRMANzm2Ae130zoN2HovqHkKe0Wp-P6J5A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] ufs: core: Add quirks for VCC ramp-up delay
+To: ed.tsai@mediatek.com
+Cc: bvanassche@acm.org, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Avri Altman <avri.altman@wdc.com>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	"Martin K. Petersen" <martin.petersen@oracle.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	wsd_upstream@mediatek.com, peter.wang@mediatek.com, alice.chao@mediatek.com, 
+	naomi.chu@mediatek.com, chun-hung.wu@mediatek.com, linux-scsi@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_022313_231204_0B0B7EF7 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20260311_092402_844104_D3FC7A59 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,213 +137,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ed,
 
---kqcirxuikitrnrj7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v20 03/10] power: reset: reboot-mode: Add support for
- predefined reboot modes
-MIME-Version: 1.0
+On Tue, Mar 10, 2026 at 11:55=E2=80=AFAM <ed.tsai@mediatek.com> wrote:
+>
+> From: Ed Tsai <ed.tsai@mediatek.com>
+>
+> On some platforms, the VCC regulator has a slow ramp-up time. Add a
+> delay after enabling VCC to ensure voltage has fully stabilized before
+> we enable the clocks.
 
-Hi,
+I believe the regulator core has support for ramp delays and settling
+time and all that sort of thing on regulators, so why isn't this just
+some settings in the affected device's devicetree?
 
-On Wed, Mar 04, 2026 at 11:33:03PM +0530, Shivendra Pratap wrote:
-> reboot-mode based drivers can define a reboot-mode by adding it under
-> the reboot-mode node in device tree. This limits such drivers, to define
-> any predefined reboot-modes statically within the driver and creates a
-> dependency on device-tree.
->=20
-> Introduce a list for predefined modes in the reboot-mode framework and
-> process the predefined reboot-modes along with the device-tree defined
-> reboot-modes. Modify existing reboot-mode based drivers to initialize
-> the predefined list-head as empty.
->=20
-> This patch enables a reboot mode driver to define reboot-modes through a
-> predefined static list, in addition to the device-tree based reboot-modes.
->=20
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
+Thanks,
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+--=20
+Julian Calaby
 
--- Sebastian
-
->  drivers/power/reset/nvmem-reboot-mode.c  |  1 +
->  drivers/power/reset/qcom-pon.c           |  1 +
->  drivers/power/reset/reboot-mode.c        | 28 ++++++++++++++++++++++----=
---
->  drivers/power/reset/syscon-reboot-mode.c |  1 +
->  include/linux/reboot-mode.h              |  9 +++++++++
->  5 files changed, 34 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/rese=
-t/nvmem-reboot-mode.c
-> index bd05d660490c686b43134f82f1eadd7665403d20..83a8d80fd7d1ccb1b736aee5f=
-2d675246a63b8f8 100644
-> --- a/drivers/power/reset/nvmem-reboot-mode.c
-> +++ b/drivers/power/reset/nvmem-reboot-mode.c
-> @@ -53,6 +53,7 @@ static int nvmem_reboot_mode_probe(struct platform_devi=
-ce *pdev)
-> =20
->  	nvmem_rbm->reboot.dev =3D &pdev->dev;
->  	nvmem_rbm->reboot.write =3D nvmem_reboot_mode_write;
-> +	INIT_LIST_HEAD(&nvmem_rbm->reboot.predefined_modes);
-> =20
->  	nvmem_rbm->cell =3D devm_nvmem_cell_get(&pdev->dev, "reboot-mode");
->  	if (IS_ERR(nvmem_rbm->cell)) {
-> diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-po=
-n.c
-> index 57b36e6186f80aff947fd7f5aae5ce280c65dc6b..9d0e3fc621a6173438c6da4cc=
-e38394199451881 100644
-> --- a/drivers/power/reset/qcom-pon.c
-> +++ b/drivers/power/reset/qcom-pon.c
-> @@ -73,6 +73,7 @@ static int qcom_pon_probe(struct platform_device *pdev)
->  		pon->reboot_mode.dev =3D &pdev->dev;
->  		pon->reason_shift =3D reason_shift;
->  		pon->reboot_mode.write =3D qcom_pon_reboot_mode_write;
-> +		INIT_LIST_HEAD(&pon->reboot_mode.predefined_modes);
->  		error =3D devm_reboot_mode_register(&pdev->dev, &pon->reboot_mode);
->  		if (error) {
->  			dev_err(&pdev->dev, "can't register reboot mode\n");
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/rebo=
-ot-mode.c
-> index f5ab6eab210bcd9670441a4d2a301d9efdf2f322..a0cd463cad42cc08c55a9d1cc=
-11174b513995104 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -17,12 +17,6 @@
-> =20
->  #define PREFIX "mode-"
-> =20
-> -struct mode_info {
-> -	const char *mode;
-> -	u64 magic;
-> -	struct list_head list;
-> -};
-> -
->  static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, cons=
-t char *cmd)
->  {
->  	const char *normal =3D "normal";
-> @@ -73,6 +67,7 @@ static int reboot_mode_notify(struct notifier_block *th=
-is,
->   */
->  int reboot_mode_register(struct reboot_mode_driver *reboot)
->  {
-> +	struct mode_info *info_predef;
->  	struct mode_info *info;
->  	struct property *prop;
->  	struct device_node *np =3D reboot->dev->of_node;
-> @@ -82,6 +77,9 @@ int reboot_mode_register(struct reboot_mode_driver *reb=
-oot)
-> =20
->  	INIT_LIST_HEAD(&reboot->head);
-> =20
-> +	if (!np)
-> +		goto predefined_modes;
-> +
->  	for_each_property_of_node(np, prop) {
->  		if (strncmp(prop->name, PREFIX, len))
->  			continue;
-> @@ -115,6 +113,24 @@ int reboot_mode_register(struct reboot_mode_driver *=
-reboot)
->  		list_add_tail(&info->list, &reboot->head);
->  	}
-> =20
-> +predefined_modes:
-> +	list_for_each_entry(info_predef, &reboot->predefined_modes, list) {
-> +		info =3D kzalloc_obj(*info, GFP_KERNEL);
-> +		if (!info) {
-> +			ret =3D -ENOMEM;
-> +			goto error;
-> +		}
-> +
-> +		info->mode =3D kstrdup_const(info_predef->mode, GFP_KERNEL);
-> +		if (!info->mode) {
-> +			ret =3D -ENOMEM;
-> +			goto error;
-> +		}
-> +
-> +		info->magic =3D info_predef->magic;
-> +		list_add_tail(&info->list, &reboot->head);
-> +	}
-> +
->  	reboot->reboot_notifier.notifier_call =3D reboot_mode_notify;
->  	register_reboot_notifier(&reboot->reboot_notifier);
-> =20
-> diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/res=
-et/syscon-reboot-mode.c
-> index 9f4b18c5e46f6a8bf197773ceceb80b250f57541..0218b71541a0cefe1534e306f=
-956ae51ea9ee870 100644
-> --- a/drivers/power/reset/syscon-reboot-mode.c
-> +++ b/drivers/power/reset/syscon-reboot-mode.c
-> @@ -48,6 +48,7 @@ static int syscon_reboot_mode_probe(struct platform_dev=
-ice *pdev)
->  	syscon_rbm->reboot.dev =3D &pdev->dev;
->  	syscon_rbm->reboot.write =3D syscon_reboot_mode_write;
->  	syscon_rbm->mask =3D 0xffffffff;
-> +	INIT_LIST_HEAD(&syscon_rbm->reboot.predefined_modes);
-> =20
->  	syscon_rbm->map =3D syscon_node_to_regmap(pdev->dev.parent->of_node);
->  	if (IS_ERR(syscon_rbm->map))
-> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-> index 2ce189fdfff4b396d7cc6f175b30016781ae4fe9..f07696f9439063a04fc180e95=
-3114ea09475805c 100644
-> --- a/include/linux/reboot-mode.h
-> +++ b/include/linux/reboot-mode.h
-> @@ -4,6 +4,7 @@
-> =20
->  #include <linux/bitfield.h>
->  #include <linux/bits.h>
-> +#include <linux/reboot.h>
->  #include <linux/types.h>
-> =20
->  /* Construct 64-bit reboot magic: arg2 in upper 32 bits, arg1 in lower 3=
-2 */
-> @@ -15,9 +16,17 @@
->  /* Get 32 bit arg2 from 64 bit magic */
->  #define REBOOT_MODE_ARG2(magic) FIELD_GET(GENMASK_ULL(63, 32), magic)
-> =20
-> +struct mode_info {
-> +	const char *mode;
-> +	u64 magic;
-> +	struct list_head list;
-> +};
-> +
->  struct reboot_mode_driver {
->  	struct device *dev;
->  	struct list_head head;
-> +	/* List of predefined reboot-modes, a reboot-mode-driver may populate. =
-*/
-> +	struct list_head predefined_modes;
->  	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
->  	struct notifier_block reboot_notifier;
->  };
->=20
-> --=20
-> 2.34.1
->=20
-
---kqcirxuikitrnrj7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmmxNF8ACgkQ2O7X88g7
-+po6dQ//VvyVxpUlRvJxooQt5NnHUCnUxPfpKKeE4H0VJyT6tvpJBQbnvmjc7Dvn
-Rq96TaYGDmv4lvI3hJ8FjVZ4AaXDP1SBk03jm3Y2AHSNHwUa6HlV4effxG+y6pm8
-6dJYUGpDnHr/0oVsbma+/6HWwqqRl+I+Hqdql24/Xk9YbDfiv6Rg9PLvhIAtdBIh
-JKwIOrPImgP7rynKAxdrH4B/BDVHJiHz0YFrgEo+ElypXc8CcpEGeenlOdnNz4+X
-EwRQDyJ2ZGBBkYTSxEFQ5kfD0x6Vt2QzhlmcaM+hRMFIU37pBGDPbQInEgAGeAwx
-NwHrofFDTD/Wth0Ei7sZF9ZVnFAgEJmPSNJEgfUKUVxEW0c43t2KJTW80IgoEnFt
-4vMBhpwbIvUnTqzupTYhFkWF1iX9DX68sQrSWhbBQm4aTXQPnb7rNCDYjLBborIf
-dwTiX4RQdNNvYyWK7YDgNHcHRJ/1A1yYkGXRrR0lFiHhsQ6KCzh/sPD2fxXuNDCD
-dveH4rxvI1p0DjwbEV9HyQEw9PlEIcG/tlsKrzPHIfF7TWEIXD2Q2pYfXYdnj43h
-tSPikUF1o25lf0RrPn4MYJ68nzRtm9sW1v//I1hlkD4YOaDwFCy/BYOplHPxRiAD
-uC1qdhU6NYt3ZEStST7lByU/m8Tnn3ZvqfiQfTW0DgSLgumwlVg=
-=j0T7
------END PGP SIGNATURE-----
-
---kqcirxuikitrnrj7--
+Email: julian.calaby@gmail.com
+Profile: http://www.google.com/profiles/julian.calaby/
 
