@@ -4,107 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAB0FD88F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA98A1049515
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2p5KSxTIRfOC6O2ujvV2QHurJepZe9V2nPJahGajPeQ=; b=lwbZBY/bm+vx7Vot5mZQ99DsC8
-	B5oQ0xKcx3VYA1/lg4o0Oew/GWj1eMOQI5ktc8T2lYriS8rzHnUxBso20v3awOizmeyJDyiXnZnIT
-	Gs4W30Yw96zkjE23kfVXYQPi4+UPmqqTBIeerdQWZvL+jPFTuMrMyu99aRfj09TMvaTNJHiISmyUa
-	uQ1JYu+8U+EsuZXV0eH5q8MoWvkoMje3rwwNMwO7i5dBJz1N0O3KC6bLEXQBo4hAJRfbuTXrWPISJ
-	HqVI7zqE3UiNwDqJ11kDVt0LvfllqkaCmeBb80bbnDeNcHKNT6BzsV0vDz/LugoEbo2EmdhAnWyZt
-	s8FWv5MQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dCgK5v4oVW2qFnwJ3YS4NU7JsxOb9NKtPxS1qT4EuhI=; b=g8END43sxERTV5KOH3/TaPq1Yv
+	giCob4DApj8UfUgRXKTJM+JzYOj1NLirozWJnYv5Eqyp9d/ppX5DMF2Vus1EWQiTwREaJ8fKkq2jU
+	CRS/QydH7on6sslMhnzCxO4qAzE/NUS4liuyW/nG97XL+rlo07rxqRBxGU3BiJSAIPyj41eWyuCSy
+	v/NR7+PvOBONBCoyBnafJAvRZ4f4bp0r6d8dmWf1D8gxF9KGNqzB1/jos8jpSRUXMG2aVx4E9dRcI
+	qK9vL15pCCpWs2abBWgRLvG2eejc5xJrNjZXJQnO+MdwixsXc/PqjVOCo7SAISzx6Y64IIhuoBZDs
+	AA/7ro/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gd9-0000000BOKu-0S29;
-	Wed, 11 Mar 2026 10:17:31 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1w0Gdq-0000000BOUK-1sHM;
+	Wed, 11 Mar 2026 10:18:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gd7-0000000BOKJ-29sg
+	id 1w0Gdp-0000000BOT1-1Mb7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 10:17:30 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-5091ed02c54so401111cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:17:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773224248; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BBwXAGnQVVTdn7z+/6O0px+ol8Qfzu1PQcPaLlXhvhYk1vCkEN0uPXsgJsbXWHIL4x
-         D4eDsLoz8dmzrj3n8PO+r+yzP5EqYG6RkBpv4IlMHtkBXfr213AcrHa3ma7fbCNBV1d+
-         ok8OrqhRKiiMjnFttZrxGHfUGL0FB/ZKu1Hi7DdePeZr6BN4DH8Wam374n+5cy/XZ2Cp
-         7jAvHCSBuquCDloPWY8alIwdxahwKy62kXVUbMZJ9ljOnZTPluK+xBbqZNtZ0MIz5A2u
-         kSN1SMaoacv7r/cX5GcclHYbGAWhGJIZIS7IbicfRL+RWiulGXcRIzCdHohzCFLKDaFc
-         OFGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=2p5KSxTIRfOC6O2ujvV2QHurJepZe9V2nPJahGajPeQ=;
-        fh=uPXzzxHUe5Dlvl4B1iib4cqZAxp5F/q/6Sta7i8fec4=;
-        b=SKqGg/gRsSZmpmc51lw+wlhmUPJgMBqFH3yuu96y89iV4iuhyQc7uE0kyQ7jlCtyI0
-         7hwGHVBxU04M3fpicTFEehW+dfp4NYV6mT1DMGYLPwWVnIpKiAygP+ukK6DOKN8ZzjR0
-         DEBy/3Yv6876LTl0GFnzU9WXacvm+btA3cqlYehsmDGURvk4+WX6qYboFgl4iVE9+NM9
-         pByzE0n94w9Jqi5LOnISO2VSeHKyWZf5p+0j9tOdcX2lN6xqC3VNq67ZxFV2cYnsTpOM
-         uFxbI/dDWypzG6eO3lFTy4GFU7NRWG809A/ApVjjq3sEEZtdxucCtdHKMSWeLM2kWyrE
-         s6QA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773224248; x=1773829048; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2p5KSxTIRfOC6O2ujvV2QHurJepZe9V2nPJahGajPeQ=;
-        b=OWzN9eOXHDsvbrOKh0T+JGDP29JAAxODdubd6LcWISiBrRZ9uQoc+bp5lkgANxoRIx
-         qJBgFJGksP8y2YRl+d2mkYOnqSH8B7xsnyXntPI1WSzIzeucEKnSB6LtzHPWGh5asmK7
-         1yZrsdBYZvXgij8ieuHc8TZ+i9H0cT83AToY2dMEdvTf+Yd0KeaDOv+BWvi+62mu9cXp
-         2tj0TQB1f/N6GY3ImoRSCP4PQqk7PvgVh0fc0RNlgb8vMb95uAi0vVqRvx/INh3gMZfp
-         H8aggJnmbz4PWEfFF6h+vaxi/51KO/SQn33PpBJem5F+m3u6fpo3/SY4BYZhuvaQPTnI
-         wXqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773224248; x=1773829048;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2p5KSxTIRfOC6O2ujvV2QHurJepZe9V2nPJahGajPeQ=;
-        b=jDB/UEhWHve73pilWhhEvjg2lfGsGF2GEeJXU1pinptevbfhVEXAECBTcxbidjt+9H
-         DbZCf/BwHYpMtKxILyiJIWdtCU4DjeXG46Qd7g5Jr5GWpBGxtEjTHFofVhmGOB3Bnh1Z
-         MMh5k0vWQOHUqRDz0Q8txm2cNP8BISxjp+pjUO4MNAynEXSjLxZi8/nFEnAQVU2ExGJb
-         wy0QZpqFWansLZ80vVH8UK1eGKjAgH5eYyGkJEi/8WMrlI9to8PWFt8yza1jfZq5V1bp
-         ntpETfXBzaIaQ92p2/rATu11DgQJ23lfTj+ItPDT5b/ASW++6J4DD4q7Uu8cyybzM93W
-         GXsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+pnob3/JESS1xQLi6lmJuVNV9cpey+ob+ae97xHs+zDcfxZNcCfLqShrT3wXVV5Ubyiu1WTbyGmmfeeINofy/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXJ+3ChsAZYN+PlM6vsjwV6fA+n1BH0cNhH7mWypbvEksVeuG9
-	IE0WnbA/+SYifruETYAtD5MF61cKXAB4cgJUThh6UtTvBrEhBmUZNvpQY+XMP2G85VRQjkX4hM6
-	Q20sI6lvajTpOB1YRByz/AnRB1gmlcR6M57ZTZgIU
-X-Gm-Gg: ATEYQzwdsqHUbtApK3jQlYjRcjx1i8fBZvKE1QwuC3oq4qnV63OwfyMpnHVeeKmmDNq
-	OthETTPXQA42TRsUVaxTsfPPvRRq3/cv1pYqm/HgMPOtomBz5KcbjCSDoXdzlhmzFUURiKu78GK
-	e/C1SJLWAaohfO7GQLXTWob47Y0ZsSP3eE0NwdNMxhq7AiQ6IY9WhdZp76/bXftrzj2y6ZE0dRc
-	XhUycp2N8PDCjwSXvpv5lHh3XVgQMfwBZVdGd68FGKon9giauEzc4Wq6iWrKc0PxkS6jp0baFAS
-	aN9ZPhNwZRrs56jkXR5qnNynbxOmE9dics6x5g==
-X-Received: by 2002:ac8:5ad4:0:b0:4ff:bfd9:dd31 with SMTP id
- d75a77b69052e-50939a0fdb6mr8651281cf.5.1773224247734; Wed, 11 Mar 2026
- 03:17:27 -0700 (PDT)
+	Wed, 11 Mar 2026 10:18:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 50AC96013E;
+	Wed, 11 Mar 2026 10:18:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id ED416C2BC86;
+	Wed, 11 Mar 2026 10:18:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773224292;
+	bh=Hicf9XQr1VM3rKrvaseGCP1p6RgZxal1WiVh3tjqMqU=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=up0mfz66SzSTWbt72UdQ419+7BArGOpvZnTkJE1Z2munD4z6s+BwQckqMw4oL2jhq
+	 iTaCB+VVvcgeXvJllZpd0kfkCUfDJn16rxLjsxcZfrlSI2wJJRbXk89B9b6hnfBjI3
+	 R5uJ59KqA8n6pSoLwJShE+yevgc5nVYr6HchNhqt7V9AqMlY6zUM2zjPARn8BD5bAO
+	 ao0wEwsawnXnBw9/PLxF7TS2Hv9ia6Jhvrw88hQuVCOYl99TqdJMmhNl3eJ4K7y9Ii
+	 ME9MTQDEEana55hjLcHF3OSrlTTa+2Za9w5ojlbNYlus44PN0F7Lonp7IlzV67Resu
+	 qfdWLFHFVHonA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB74D1049515;
+	Wed, 11 Mar 2026 10:18:11 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Subject: [PATCH v10 0/5] Support multi-channel IRQs in stmmac platform
+ drivers
+Date: Wed, 11 Mar 2026 11:17:57 +0100
+Message-Id: <20260311-dwmac_multi_irq-v10-0-7ab1669759b5@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-9-will@kernel.org>
-In-Reply-To: <20260305144351.17071-9-will@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 11 Mar 2026 10:16:51 +0000
-X-Gm-Features: AaiRm50pq-gU1BFu0dPs0mu11fXQQe_BYCcsIQ1e_bsJwGqZuSAvXZICi-mcJAo
-Message-ID: <CA+EHjTz7XW7uPxAmE-EqCjQHCf_eYajwT+kedZ2gPOLMuNGqJA@mail.gmail.com>
-Subject: Re: [PATCH v3 08/36] KVM: arm64: Prevent unsupported memslot
- operations on protected VMs
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_031729_560524_C3833C61 
-X-CRM114-Status: GOOD (  18.00  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFVBsWkC/23SzU7DMAwA4FeZcqZT7Pw04cR7IDQlacwi0Xa0o
+ wxNfXfSAVpRerQlf7ZsX9kYhxRH9ri7siFOaUx9lwPgDzsWjq57jVVqcoIhRwXIbdV8ti4c2o+
+ 3czqk4b2yjSHNpcYQgOWq0xApXW7k80uOj2k898PXrcMES/bXAllYE1S8ElppdJ5HS/VTP4777
+ nLah75lizbhn6B5JkoBF8EbtCh4w2soBbEWRCmILISgBKGPxuoNQa4FUwoyCwbJCUmBkLAU1F3
+ ArRnUIlDQ1jpFLshS0GtBlYLOAkrlCZoagIdSqNeCLoU6C2QoCm+z4zdmMHdBbHzGZBaB5136Y
+ ADcxjXtSoCNa9ofgYtIpuFA/4V5nr8BuZSrXsECAAA=
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, rmk+kernel@armlinux.org.uk, 
+ vladimir.oltean@nxp.com, boon.khai.ng@altera.com, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773224290; l=4792;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=Hicf9XQr1VM3rKrvaseGCP1p6RgZxal1WiVh3tjqMqU=;
+ b=xlnICUKnVumeJjPG6VajLwl7SIOUWEWDx+liXIWqpzOHTDlUmge9ojm7sM6dRgcWCSEqffruO
+ B1EpOLRO8lgAMSEMgL2tv3BF/OkSA+7b5//qKE2x6zKhCLPpQiIkmTj
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +99,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Mar 2026 at 14:44, Will Deacon <will@kernel.org> wrote:
->
-> Protected VMs do not support deleting or moving memslots after first
-> run nor do they support read-only or dirty logging.
->
-> Return -EPERM to userspace if such an operation is attempted.
->
-> Signed-off-by: Will Deacon <will@kernel.org>
+The stmmac core supports two interrupt modes, controlled by the
+flag STMMAC_FLAG_MULTI_MSI_EN:
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+- When the flag is set, the driver uses multi-channel IRQ mode (Multi-IRQ).
+- Otherwise, a single IRQ line is requested (aka MAC-IRQ):
 
-Cheers,
-/fuad
+static int stmmac_request_irq(struct net_device *dev)
+{
+        /* Request the IRQ lines */
+        if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN)
+                ret = stmmac_request_irq_multi_msi(dev);
+        else
+                ret = stmmac_request_irq_single(dev);
+}
 
-> ---
->  arch/arm64/kvm/mmu.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
->
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 43632c69adaf..9d183df0b0ac 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2410,6 +2410,19 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->         hva_t hva, reg_end;
->         int ret = 0;
->
-> +       if (kvm_vm_is_protected(kvm)) {
-> +               /* Cannot modify memslots once a pVM has run. */
-> +               if (pkvm_hyp_vm_is_created(kvm) &&
-> +                   (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
-> +                       return -EPERM;
-> +               }
-> +
-> +               if (new &&
-> +                   new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
-> +                       return -EPERM;
-> +               }
-> +       }
-> +
->         if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
->                         change != KVM_MR_FLAGS_ONLY)
->                 return 0;
-> --
-> 2.53.0.473.g4a7958ca14-goog
->
+At present, only PCI drivers (Intel and Loongson) make use of the Multi-IRQ
+mode. This concept can be extended to DT-based embedded glue drivers
+(dwmac-xxx.c).
+
+This series adds support for reading per-channel IRQs from the DT node and
+reuses the existing STMMAC_FLAG_MULTI_MSI_EN flag to enable multi-IRQ
+operation in platform drivers.
+
+The final decision if Multi-IRQ gets enabled remains on glue driver
+to allow implementing any reguirements/limitions the focused platform
+needs.
+
+NXP S32G2/S32G3/S32R SoCs integrate the DWMAC IP with multi-channel
+interrupt support. The dwmac-s32.c driver change is provided as an example of
+enabling multi-IRQ mode for non-PCI drivers.
+
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+---
+Changes in v10:
+- Fixed yaml issue
+- Link to v9: https://lore.kernel.org/r/20260311-dwmac_multi_irq-v9-0-f0c03ef8d01f@oss.nxp.com
+
+Changes in v9:
+- Changed interrupt minItems from 11 to 1 to support backward compatibility
+  and removed the 'Reviewed-by' accordingly for patch 4
+- Link to v8: https://lore.kernel.org/r/20260309-dwmac_multi_irq-v8-0-f0cc5bc811a7@oss.nxp.com
+
+Changes in v8:
+- Rewritten queue irq getter, based on Russell's (ready-to-use) hint
+- Renamed s32_gmac_validate_multi_irq() to s32_gmac_setup_multi_irq() to
+  better describe the functionality
+- Fixed typo in commit message for patch 5
+- Renamed label in patch 5 to make it more descriptive
+- Link to v7: https://lore.kernel.org/r/20260226-dwmac_multi_irq-v7-0-f8fe3b945bb4@oss.nxp.com
+
+Changes in v7:
+- Optimized 2 similar loops on queue rx/tx irq reading
+- Swap the yaml and dts patches with hope it fix dt_binding_check failing
+- Link to v6: https://lore.kernel.org/r/20260225-dwmac_multi_irq-v6-0-245bf1d7110c@oss.nxp.com
+
+Changes in v6:
+- Added 2 mintainers which were not covered by 'b4 prep --auto-to-cc'
+  but complained on patchwork check
+- Added helper macro for loop over queue-based arrays (inspired by AI
+  review)
+- Added full validation on all channel IRQs
+- Link to v5: https://lore.kernel.org/r/20260223-dwmac_multi_irq-v5-0-8fc699a5fac4@oss.nxp.com
+
+Changes in v5:
+- fixed typo in "symetrical"
+- cleaned negative return value on platform_get_irq_byname_optional()
+  in stmmac_get_platform_resources()
+- rebased on v7.0-rc1
+- Link to v4: https://lore.kernel.org/r/20260128-dwmac_multi_irq-v4-0-82fa34fcf2f2@oss.nxp.com
+
+Changes in v4:
+- Fixed IRQ reading check
+- Made cleaner the IRQ validity (to get AI reviewer happy)
+- Fixed minItems of interrupts property in yaml
+- Link to v3: https://lore.kernel.org/r/20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com
+
+Changes in v3:
+- removed RFC prefix
+- rebased on v6.19-rc6
+- fixed forgotten extra line setting to Multi-IRQ unconditionally
+- fixed yaml
+- Link to v2: https://lore.kernel.org/r/20260121-dwmac_multi_irq-v2-0-3b829230d071@oss.nxp.com
+
+Changes in v2:
+- Fixed incorrect buffer len for 'rx-queue-%d' property check
+- Added backward compatibility to not break old settings
+- Fixed DT example in yaml
+- Link to v1: https://lore.kernel.org/r/20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com
+
+---
+Jan Petrous (OSS) (5):
+      net: stmmac: Use helper macro for loop over queue-based arrays
+      net: stmmac: platform: read channels irq
+      arm64: dts: s32: set Ethernet channel irqs
+      dt-bindings: net: nxp,s32-dwmac: Declare per-queue interrupts
+      stmmac: s32: enable support for Multi-IRQ mode
+
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 47 ++++++++++++++++--
+ arch/arm64/boot/dts/freescale/s32g2.dtsi           | 26 ++++++++--
+ arch/arm64/boot/dts/freescale/s32g3.dtsi           | 26 ++++++++--
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 36 +++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  3 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 16 +++---
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 57 +++++++++++++++++++++-
+ 8 files changed, 191 insertions(+), 22 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20251209-dwmac_multi_irq-9d8f60462cc1
+
+Best regards,
+-- 
+Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+
+
 
