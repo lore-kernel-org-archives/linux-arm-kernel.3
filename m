@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AC7103E2E8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 21:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6B6103E2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 21:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rXaMvGNi4+OvPnGl2fgoLlfPW/6GtuSV3FJJcwDS9M=; b=IWMSiV8iI4HE6or70aLTN+2rrq
-	W6x1cUHNBEZO1GVGmBAmmc1lqpGJo4uGQVHVyCZYf4SVmYB1jerrVFs4FVH6cjylw5/W+mQWqjPmC
-	6SovSHTvvKP0qqaspjfMXbe2GMfPegK37FHdrnDGUAwRQh9nYFgDr/ky5mpaCa4xmPVMm0NmyQ+1C
-	Que/vnZDW7XhxeA3RVZq+WZ0Yxgw7tm/o8CYcsG903sAsSlFgSectEXat1ryJ4XbI8chQMEV06739
-	ioseJfdWfihOzVIGo5hYeF0wQpZvadMXXSNoplCdOuXQZkaJC7zSHcEJmCZaS8svgJG3gJK6M7KkD
-	4vIGdfaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7T6BzAyZ6zvZPDDyyrSv8iqVUUqxy8QrR8kmFoTvh3E=; b=KNntXfF29eXaU6V+WIV/FfE3Ot
+	uf+7EhSX75bWuNsz9rP7STtmvGeFyI1Xcr1a7z1ksNZ4Rq7KHWw06UW4iIDvdyLbqYJI9Gek0kx9/
+	kPnhMwWHGildJ1qLL0RFGEG6PjpxAp484Pm8kzzfMkYu67WAruKsSsA1M6JKB5nbfRGX3zhvXdzCn
+	KHunREBaq2bfbQKGe7odHCQgJcXhr4zSQIvPcbHqxYLZZeZTbMaizUa+grg70kqa9rqHNhh+YrA6G
+	22Sv3dk9OTbQHRzjzvBmEwABDvhTK/g3paqrpt8a2KU9nNXARkxPRm7oH6H1wwPOhrXAvFpRUvigC
+	21suIc2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Qo4-0000000CX9e-1C46;
-	Wed, 11 Mar 2026 21:09:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0RC1-0000000CYGR-2Eh5;
+	Wed, 11 Mar 2026 21:34:13 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Qo2-0000000CX9I-3Z8V;
-	Wed, 11 Mar 2026 21:09:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADE9260054;
-	Wed, 11 Mar 2026 21:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED2FC4CEF7;
-	Wed, 11 Mar 2026 21:09:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773263365;
-	bh=0rXaMvGNi4+OvPnGl2fgoLlfPW/6GtuSV3FJJcwDS9M=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=nTY9OMOC9F7kBpERi6z30FTuaZPxVl5Fv76LmjUo5otKD3FEeRahGXzKjzBHLciW/
-	 vsFHQE05z41uqlhKhSf82H6e/E4Nzu9yGSGunIZ9o4u6pDNHpQYJyKgpZB6+0m5s1D
-	 cAewcAljEd7Hj7kuJulzboI2aN1KxsQbjjxPrm3U6Pu/bOyjMJ6EBuAu7Zg/qeb4B0
-	 f6ToSmUPcZdepsHbptQjimEa08e1m8i4KaHUqNpNAR6l4j2zh0wNXnIpDSkMMMCK27
-	 3T5aLWdjgAYUE16y8cGqZfrCI7WYozbJwRtjgPtBEKCMJrNi+E6cOP74wmmn8fZt4t
-	 s51IXrEVJ8MCw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 11 Mar 2026 22:09:19 +0100
-Message-Id: <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Cc: "Robin Murphy" <robin.murphy@arm.com>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@oss.qualcomm.com>, "Lorenzo Pieralisi"
- <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas"
- <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, "Niklas Cassel"
- <cassel@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Hans Zhang"
- <18255117159@163.com>, "Nicolas Frattaroli"
- <nicolas.frattaroli@collabora.com>, "Wilfred Mallawa"
- <wilfred.mallawa@wdc.com>, <linux-pci@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Anand Moon" <linux.amoon@gmail.com>, "Grimmauld" <grimmauld@grimmauld.de>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, <driver-core@lists.linux.dev>, "Lukas Wunner"
- <lukas@wunner.de>
-To: "Manivannan Sadhasivam" <mani@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
- <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
-In-Reply-To: <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
+	id 1w0RBx-0000000CYFv-2fJm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 21:34:11 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-82995242934so587144b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 14:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773264848; x=1773869648; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7T6BzAyZ6zvZPDDyyrSv8iqVUUqxy8QrR8kmFoTvh3E=;
+        b=BlNZqD4adYJVl/klX4VDA6Mas4oZpOZBEuOfOk9Y4BOV8RjxAnl09c9dNju3W4qWcP
+         vRBJZjbG/RWEJ5UQET+BFy1YFjg4B73meLKAPsATh6Td4Ek+X9iOLL4WbeiqyRDG4wxu
+         YmTS6BML+eYxynAdOCE0eEzBjW3Tj+b3mWT5+2zssNKiz27yIEI47/jLOIbfWj2/wsAa
+         8Ea8One/4cC5HKJqn6+DiouL52GqHF4DO/HkBkh1LycFiJpVrIeOBUHhK+9tJ9SsuB9R
+         nfk6GA0f/5XryyNDe5Rrjr4p7TMcPEBrUo2l3UX0UzlD5379/NnAQy5lOqw8Q22s9Yco
+         HYCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773264848; x=1773869648;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7T6BzAyZ6zvZPDDyyrSv8iqVUUqxy8QrR8kmFoTvh3E=;
+        b=SPCJ6KjgxGODDVnrg/m6+9OUto2MK2rfX/WPCsSSWa6S2w2Ug5x3USzuNIEcHG7gO0
+         QRqMmZD/5XzVPV6EqlWdCCOmQwfriJhub+RjseEwOM6oY83KaGf0ApG4KqUPZ1XV2G9Z
+         vEPHRHpTF0o3FJkYWQRpYZ/6jJyvKRw13tG/N9FHEDMK/5IEpJYREEtwY/GqbPgRuJPh
+         oIkoUiOsLbaU5qoduRyZ51Nu0gTFDrz1xF0uU0mhUow0+cVSMfGI/bfIR+y26W0l35DH
+         K03Qu9OmDQR6hhCvBBpp9dtdsK4iBF19vrFahyi3Zv6smuOhO8DpC08lM+eV3yE/SKn/
+         VkfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBeoZkuDU0KZSn0jW4Cd0/PYF1A0XjsBPAIEwY8RxQkCimVVUlmyP9nnjIbzeXyosUrq+apUEZCo4xih488ggw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2xnqGPDeoxxApIkEenJnFbM1EvJg9IPxIUrdBF68McgS2HQse
+	L3xzcLqlaIn+Cq25RbaLyj8NtaMP8lVjkwrD/8g0yzGzUPg9iVL8/pp0ZmzmSoWwi+w=
+X-Gm-Gg: ATEYQzxvXbbyB9YNiKa+tBOUSK+JGv+AlOSLgTXwqxAMgacIoI1t1RPesH3jE45D6f4
+	BYw0fEXqvFXTJ5UUcJbjgNqkUqgqb3PCLI46Orr0WBnvfs6NDglF25PDdZUz922+dK1JiGXFJ0p
+	t7Br+4Q47hAFsh9qyXfiDoi72pRhL7k7ineXfLWuuGqaQl6A4p5M2nOKNyaOC+/GUiFv4o3bbfD
+	SijFfxrth0RcuxsgLdPM9+6GdUrTnRK4FkFgSf91ifoJ/OyN+kLzo13paQjUs1hLnxzVBMQK6+n
+	anEtDbd5fYl7EAJaG5dc00P2mvIUlMobth/YUCl/thS2UBAm+Pt4tDn6dW2uedBND1t6Rc1gb5R
+	IrER6e32/p1/LXA52n1obKq52I0wsSJIzEqqFhNi3XG8gBzH/KboBIbJTempI2Hf1HkGf+QpTTV
+	TR/QRoZu1fPzrmzR/fcDxg9ToyrABpr8U=
+X-Received: by 2002:a05:6a00:9501:b0:81f:be27:8d16 with SMTP id d2e1a72fcca58-82a0722304fmr941796b3a.21.1773264848531;
+        Wed, 11 Mar 2026 14:34:08 -0700 (PDT)
+Received: from localhost ([71.212.200.220])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a0738422esm595730b3a.55.2026.03.11.14.34.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Mar 2026 14:34:07 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-pm@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, linux-kernel@vger.kernel.org,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: power: Add power-domains-child-ids
+ property
+In-Reply-To: <177319309976.1426147.15580608651927678828.robh@kernel.org>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
+ <177319309976.1426147.15580608651927678828.robh@kernel.org>
+Date: Wed, 11 Mar 2026 14:34:07 -0700
+Message-ID: <7hms0eyrsg.fsf@baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_143409_836222_AC88D529 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,88 +101,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 11, 2026 at 1:28 PM CET, Manivannan Sadhasivam wrote:
-> On Wed, Mar 11, 2026 at 12:46:03PM +0100, Danilo Krummrich wrote:
->> On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
->> > I have a contrary view here. If just a single driver or lib doesn't ha=
-ndle async
->> > probe, it cannot just force other drivers to not take the advantage of=
- async
->> > probe. As I said above, enabling async probe easily saves a few hunder=
-d ms or
->> > even more if there are more than one Root Port or Root Complex in an S=
-oC.
->>=20
->> Then the driver or lib has to be fixed / improved first or the driver co=
-re has
->> to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is reque=
-sted
->> from an async path, etc.
->>=20
->> In any case, applying the patch and breaking things (knowingly?) doesn't=
- seem
->> like the correct approach.
->>=20
->> > I strongly agree with you here that the underlying issue should be fix=
-ed. But
->> > the real impact to end users is not this splat, but not having the boo=
-t time
->> > optimization that this patch brings in. As an end user, one would want=
- their
->> > systems to boot quickly and they wouldn't bother much about a harmless=
- warning
->> > splat appearing in the dmesg log.
->>=20
->> You mean quickly booting into a "harmless" potential deadlock condition =
-the
->> warning splat tries to make people aware of? :)
->>=20
+"Rob Herring (Arm)" <robh@kernel.org> writes:
+
+> On Tue, 10 Mar 2026 17:19:23 -0700, Kevin Hilman (TI) wrote:
+>> Add binding documentation for the new power-domains-child-ids property,
+>> which works in conjunction with the existing power-domains property to
+>> establish parent-child relationships between a multi-domain power domain
+>> provider and external parent domains.
+>> 
+>> Each element in the uint32 array identifies the child domain
+>> ID (index) within the provider that should be made a child domain of
+>> the corresponding phandle entry in power-domains. The two arrays must
+>> have the same number of elements.
+>> 
+>> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+>> ---
+>>  Documentation/devicetree/bindings/power/power-domain.yaml | 35 +++++++++++++++++++++++++++++++++++
+>>  1 file changed, 35 insertions(+)
+>> 
 >
-> Hmm, I overlooked the built-as-module part where the deadlock could be po=
-ssible
-> as indicated by the comment about the WARN_ON_ONCE().
+> My bot found errors running 'make dt_binding_check' on your patch:
 >
-> But what is the path forward here? Do you want the phylib to fix the
-> request_module() call or fix the driver core instead?
+> yamllint warnings/errors:
+>
+> dtschema/dtc warnings/errors:
+> Documentation/devicetree/bindings/power/power-domain.example.dts:136.13-26: Warning (reg_format): /example-3/protocol@11:reg: property has invalid length (4 bytes) (#address-cells == 1, #size-cells == 1)
+> Documentation/devicetree/bindings/power/power-domain.example.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+> Documentation/devicetree/bindings/power/power-domain.example.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+> Documentation/devicetree/bindings/power/power-domain.example.dtb: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
+> Documentation/devicetree/bindings/power/power-domain.example.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
+> Documentation/devicetree/bindings/power/power-domain.example.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
 
-Here are a few thoughts.
+Noted, and fix will be included in next rev.
 
-In general, I think the best would be to get rid of the (affected)
-PROBE_FORCE_SYNCHRONOUS cases.
-
-Now, I guess this can be pretty hard for a PCI controller driver, as you ca=
-n't
-really predict what ends up being probed from you async context, i.e. it co=
-uld
-even be some other bus controller and things could even propagate further.
-
-Not sure how big of a deal it is in practice though, there are not a lot of
-PROBE_FORCE_SYNCHRONOUS drivers (left), but note that specifying neither
-PROBE_FORCE_SYNCHRONOUS nor PROBE_PREFER_ASYNCHRONOUS currently results in
-synchronous by default.
-
-(Also, quite some other PCI controller drivers do set PROBE_PREFER_ASYNCHRO=
-NOUS
-and apparently got lucky with it.)
-
-From a driver-core perspective I think we're rather limited on what we can =
-do;
-we are already in async context at this point and can't magically go back t=
-o
-initcall context.
-
-So, the only thing I can think of is to kick off work on a workqueue, which=
- in
-the end would be the same as the deferred probe handling.
-
-Another alternative would be to let the subsystem handle such cases, which =
-in
-this case would probably mean to handle the current_is_async() case in
-pci_host_probe() or pci_bus_add_devices().
-
-On the other hand, this would probably end up to be a subsystem specific
-implementation of "kick of work on a workqueue".
-
-> I can drop this patch in the meantime. But holding this prolong wouldn't =
-help.
+Kevin
 
