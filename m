@@ -4,177 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D071049524
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC15C104BEA7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFcAjIJ6O0CvlOxqzdrtnQsQdgglA6S73jBPTUIaU1c=; b=PY4qT6RN4ztyHzhhYN41iRFTo5
-	WDqfCT5Fg30NBpo16pk9NeSVHGIgmOFp6pSy8xe+7AYZBWrzy+5vepizzkTo5/TmMdT3Hz7cEY2Ee
-	WF/xlAPAbFyuubID7YCgNFzTqXvSmStprQnBSb7AYwk8hN8hx2TxugniNhWn10u7OtFRNCTVfCPYc
-	RQMyeGxDlYbzDO2AyobKQ3jbKDPXSnT8epXZ1EHiLc/F0Fff7Zqc6JujRelR/YTX39zUHyQCCNqMf
-	zx4nH2C8HH2ciJf2LRaKg9YQ+gFW5Pq9jx7+4GuXvFs24ZDXqYIG0XCIckexKoxuCnRqgp7haCAui
-	9Uwem5jQ==;
+	bh=Ow79JTabgZIRsJS6+UL0N2v2U8DPJz+PJynXqjT3UBM=; b=0iLPAxDTvBx06CgWtTowpOxVVk
+	MtEMyBRLcb3Gq9RhcHaXDph4vleV/if+afMqRLa6s/qAHNZHsh29rkabu6CTasxoOxNxuGK11yKKX
+	bru2qpX/TYKP9rn8cVJOMM3w1r6Z+kuoVSc1XyPGHuLmYFnt3Igo6vSG+IiFhW7LO8zPSnrdSYUAV
+	guBsfcYlaDrWh8138q9aU142g5PyUjOzdYnybN+CahidrhtO4NE0Q6xHQmRxOyE3XlISPcwae2J+/
+	PXSQO9lwOUUsQ8U2VwcGXerRknrTuWFpdGKDkqjSHFsNspphbyIfMjS0e8HjiQId3GUIwMSLVRWEv
+	HFRtyZRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GL0-0000000BMDi-2HfJ;
-	Wed, 11 Mar 2026 09:58:46 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1w0GN7-0000000BMPO-2RjI;
+	Wed, 11 Mar 2026 10:00:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GKv-0000000BMCQ-2LxJ
+	id 1w0GN6-0000000BMP7-0s5f
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Mar 2026 10:00:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Ow79JTabgZIRsJS6+UL0N2v2U8DPJz+PJynXqjT3UBM=; b=JHCNf0b96vHhx7iHCwNvdF7SKH
+	27RhVuWkwciaWfbac1lE3igcmSQciJEX1d9QpOWFNQkPAwWZcFy8y8QI/ML+AVaKS5ZjzmsGve6SY
+	xliPvsfpMTxITjXQAy1qaBTAw0lwfHXExwxf1gN7pUyPmttIsOSZSkFQWzt/v6PQgtPneQ2ZkCCKQ
+	Z85NpNVGlAziDaHj3vUS0gz2GB08jcGGfyZn4JpEyl/sEd3NuHFcUntoslfeBlzS91gJDAz+Iy6qm
+	rdhE3NhA/vtzKneEC6WBGOJWCOPzTUkHVc/QPj9+0Je19w2/xzFZ3GDTS0U0hM4QqVcyu4bVV3WVQ
+	kEjNHxmg==;
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0GN2-0000000Gdyd-3NZN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:58:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773223122; x=1804759122;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=EhBIBA5+InhrODQ1XrR9rmP5LRNMINcYZE1GVOFRXk0=;
-  b=bohe6EPRH0hgQAgOhnQeURQ6c7qMUNdcWKCpN0/ltvi61nY+CR2lvlGd
-   xbL7PqcDubbqdPRYWUJpdtpcdPWROUvS/hWKqjIWc0QBsffnDNyGHdGIm
-   Jp6Wk73jMm/RpIfRq/l0w+Dy+bKYmoKKQc1AImaoVaI5Pcn8t+qRiGekT
-   p3qbdffwRWXkooRM+8YNHRrOW4Imn7I3umlQ4/ZjtTqZtq+QtiPC8iq/6
-   TMp/P0BUjMkLpQ4+P1BtSP5LByXVv20fDSPtF3Nhz7MIH484kijvr+qtt
-   Clj8YH6l7c+7DvbPYkBinE6b0ymElGR+IuYSLY/IIROWWjEvIilDmX7NT
-   Q==;
-X-CSE-ConnectionGUID: 4RcplhuiTO244kOmciibXg==
-X-CSE-MsgGUID: hqBa09pwQTy7SDiNAbDMqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11725"; a="74477437"
-X-IronPort-AV: E=Sophos;i="6.23,113,1770624000"; 
-   d="scan'208";a="74477437"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2026 02:58:37 -0700
-X-CSE-ConnectionGUID: Bx+cNOeVSjiPUaB5t0AYcA==
-X-CSE-MsgGUID: C2JsdO+KTQSQ+gzz6IzPLQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,113,1770624000"; 
-   d="scan'208";a="224881274"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2026 02:58:37 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 11 Mar 2026 02:58:36 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Wed, 11 Mar 2026 02:58:36 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.41) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 11 Mar 2026 02:58:36 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C9aVW7tfziEm4ByrYvkQN9mQeYzpW0kRjAsNKPtPyWjsjeqKkX7/N1ci9I3nuE9oRCSKv+ybbVHFwnkFNUfYk1WrMrXawpl5PREOKk0HtqEUbt0ZHZNw5RNn1xG8sXZpMECz6sdVebq7S4bd9ArX5r5Gjg4sWMT2Sh/1CkuY3qraYTtyoTa7j3QzUvpmgJYJFcZk4Hxz0gYqXhKcozoZwPYtL+kw735J0c+TADuviHSG76lNJwjQX7Y7KAoSJkhVoBxE25bgS5clEND5TSqktlVy6Kt+r/NQ3dmtDHH3HCb+H4fljhjW9K9qHDxfQ/gBWurIma1Y5khKOQxQ36eu4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kFcAjIJ6O0CvlOxqzdrtnQsQdgglA6S73jBPTUIaU1c=;
- b=euSVc+12DStcyX1dgiOAuqwQUkuz4Z6I5uVukAl5WM6EqzIELPtJ/JSt9aHyBrlK7Cv1t4uX1Mf1TUC079sG+2f7hH1r8/95vP5Mxb6RHC55/MCWWkKEsLbgpaFMg0/covj+BJSzkmPT347zNtSnsVqxIV1U2DMpVPcwxX5A6Dik/GJ8j1s2gZ6G8SvTTjXXmCnudYYQuzAu2pUjVd7yudY0Le7d8JjR336mDPg+MonDg30yvY2hu9Xm4AYRef7Ed9D/uX1aQTfS7oSftvv/pyYnyLj8BscJKJdsZpuZdQkisnKDu3ZCRfo8yOJWvbwfX56hlu9BdO/zUpMODyftSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by DM6PR11MB4675.namprd11.prod.outlook.com (2603:10b6:5:2ac::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 09:58:34 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9700.010; Wed, 11 Mar 2026
- 09:58:34 +0000
-Message-ID: <3d8b190a-36c3-4196-9b45-b67e4cc96a20@intel.com>
-Date: Wed, 11 Mar 2026 11:58:29 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] mmc: sdhci: fix timing selection for 1-bit bus
- width
-To: <ziniu.wang_1@nxp.com>, <ulf.hansson@linaro.org>, <haibo.chen@nxp.com>
-CC: <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
-	<festevam@gmail.com>, <imx@lists.linux.dev>, <linux-mmc@vger.kernel.org>,
-	<s32@nxp.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260311095009.1254556-1-ziniu.wang_1@nxp.com>
- <20260311095009.1254556-2-ziniu.wang_1@nxp.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20260311095009.1254556-2-ziniu.wang_1@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0040.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:468::18) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Wed, 11 Mar 2026 10:00:54 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439c56e822eso8427228f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:00:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773223250; x=1773828050; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ow79JTabgZIRsJS6+UL0N2v2U8DPJz+PJynXqjT3UBM=;
+        b=aZQp1mdncxqSB5yX790GJnvtviPoTS/l/qUoQYHsXUlcZN30yRhjbtpp26bmxw6osC
+         8RVkxPq5XYOY0PaNQr17WTKW0NMIcX/iH3SutYCV1qPHhQbkCG6ZbVYE+dmviVL6FK5Z
+         EHzoZQLtrP+pQ509L43qr57L+RVD25MvJ4Xpii2kIL4fXq2d2f6+gNibNvsjgWGttc58
+         zoJx0TVAhK2h+3zwnab0reVVki3KrEFFEdiX1WqVRi+CoUYePOs007qWJhnlj80z3581
+         LLrdwaOJXoJ60HeE4IgWLBVJdZFwLLtukiSeYVY4Sg0t11cJ3aSwSoa8LgckGgsD2HHL
+         HW4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773223250; x=1773828050;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ow79JTabgZIRsJS6+UL0N2v2U8DPJz+PJynXqjT3UBM=;
+        b=lKtnQ0u3FLZQ4+stcyek45UZv/IJ+PfcP1RI9EQc6Lg+lY5lii49XZKKtFUf3XvE18
+         txyj389KxkFWXbNw9lPtSay8FwjFhvU7HSffE1ZqtayNi8+dp/gjr89GCdypYH8l1hwK
+         TJHNyvtI4U7ZSNoWuDT59JbQlJmmL+UiNPpylapW5DbPKzhhISVlkZNFzgbW+7fVlE9D
+         Zg5WzEvw0e43O1v+Sp2sbNcpZ3BVVBH6oiXYlM45G3oWkjVVWzPyzYFgdh9ce7vzUEMl
+         x0oLsbZA9jpThL+DXI6wPTRcDoL/5lUOCbpvpSv6Qz/El98F4wBxdDfmEN3IFZhZvi7G
+         gZlg==
+X-Forwarded-Encrypted: i=1; AJvYcCWOSSMvg2o9VgXL8rVwgA1Uvx96o3/VUA6kqkYebIETSa1GM/jamzwwRC1F8e/a26o+qDG6x1mUyBZ+q23oq5Pq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjpg7Unc/BdBTvdrracJz9W4WPJ/2h69Fgkf+zafx9/80PyRwZ
+	uIJb/MQRat20uaGDRG6x/M/iHE+QLfdOZT+h6uhsla04fIMJhGhuZpAoWN2cWGMvgG4=
+X-Gm-Gg: ATEYQzyBWvChBcae1Kct8KBdCWGnicjA6iTvlUwX/gqSxmPm8Wm/bxQCRU6RivQQIBD
+	ODhMKmUTmlRlpJYkYucz3JP9eDp9nWSNY0lh7eDnK16uC5+eIdzvPOL+/SR5JEssWhoVQnTZzuY
+	NeN7QdTzn3DSP5p8nWfFEh0Upr5zE6CX206p9+Ovtywa/m4viuBeV9TMVVXhy6gXLeqLwcQc2Wj
+	yPfBClRPsCuJcgelQPg8Qge6ZwNUdmBizV7iMgKluM6wJSI1o1kLqDwC6IssSph5mPo17aFSIOo
+	/hqWN++uhLS8Wa3UFxGGtIN+5/3kyMji+tT6XPkB1v+JOvWoQpVUIUno7Ax53NnIz2pwMTyeSPP
+	6p0VurSxla+ra62hvhg9E1uD0H511xWZHV+R9njwavPNfdcKWJ76Pwfk2gjaNUGABNFT1noyndg
+	atm8gdBZtFaE7FboWJbPMUqAq/wyCRrQjn2Fk=
+X-Received: by 2002:a05:6000:2f85:b0:439:c38e:66cc with SMTP id ffacd0b85a97d-439f821e5aemr3551932f8f.46.1773223249530;
+        Wed, 11 Mar 2026 03:00:49 -0700 (PDT)
+Received: from linaro.org ([2a02:2454:ff23:4441:1c2c:7aff:fe45:362e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439f81acc22sm5146729f8f.16.2026.03.11.03.00.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Mar 2026 03:00:48 -0700 (PDT)
+Date: Wed, 11 Mar 2026 11:00:37 +0100
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Udit Tiwari <quic_utiwari@quicinc.com>,
+	Daniel Perez-Zoghbi <dperezzo@quicinc.com>,
+	Md Sadre Alam <mdalam@qti.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	brgl@kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v12 05/12] dmaengine: qcom: bam_dma: add support for BAM
+ locking
+Message-ID: <abE9RQfGN6Ycns1B@linaro.org>
+References: <20260310-qcom-qce-cmd-descr-v12-0-398f37f26ef0@oss.qualcomm.com>
+ <20260310-qcom-qce-cmd-descr-v12-5-398f37f26ef0@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|DM6PR11MB4675:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0afa5178-fea5-4831-42bd-08de7f54c1e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|22082099003|18002099003|56012099003|7053199007;
-X-Microsoft-Antispam-Message-Info: nC/6hAe+ASVaIr+h1gIFqccmsi6cmf9ykwzrFqx7X2In3DlXjfyMPufdKlgOSKnU6r1rs6UmK0ecWygjT5HrU/lKtMb8RaW01I9K7nmRsZGza1xPWESntwXbXPgbkHWTX/eSxU6AwEXzYgnkyXPSBsghUU0ZpTFsoPbe622/U7B3tfJ1E4DEhYJyx5l2+0oqfCXWYP9tICjDSsnaY15nk5bCtMPYWNaOrwIAW4Diw2J6/Sf6u1zkGTPpwnMDJN57UCzIgJYO/uID+GwDJ33kRQaxeJMqu5LYHY5PNGXl8oZ0CfPyefSTqTdbdn8W7n/LaiT64vQg3BOlG45zhI8y+kL39CMDEz7Cf1YfqyBcXojiWrhORFLbGl/VyRUb2zibJoyHmwKSmgEBKL4xuuodGoHHnaKMhGvQ4+uJWm4MwKgrMGMIxVDu+ozQaiJAaGk0ntuI6WrjTOIwALlMix9AdC1jse8JY8ft0TqPssdAEkbMHhwncM8vJJhp4yNR35F+9CdSFkUpMGmXLga85ZOtN27E0Wx5q6i9Yko4SbWMMDBT4i6r2Rljt/sUHo0Wlzv3/JlfwCcYZCy/sDBT3urjex4BBYsSxNUUfluacnrtTR+WE9Kz4st/K3BCE8bCk4cwA+46s7lZZyYjrjseKFhcf/CW1VW1SQuhNyT91sca4nN8gHedbguZzKnPsuuS8leBGasa69neC11nnoC8kdMp+txQS2RrggIICOSIIBm1q8c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(22082099003)(18002099003)(56012099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Vy9EVE02em10SmNOUUs1OTI1NlY5SzE5ZnpKMitIRnM1ZXlPVk1McmdEcS9q?=
- =?utf-8?B?UGNLTG41TmVpTzZDelZEYlNGWldTNC93bWRoM2RVMkl1QmVSVkpjTzdVQWUr?=
- =?utf-8?B?ajJMbWltR3J4L1FOUmd4enZtODVwMVpraWdTNmppSU5sQld5a1RldFllQThH?=
- =?utf-8?B?WU5yOHVLU0hhNXdLVVpJNWNRUFVOVWNFeEFxZ0ZtaGFwdjBUZTdUTDAwV0t4?=
- =?utf-8?B?Unkzb3kxOURUdE5GbUYwY3VnRWRGS3RaS1VCZzVCSlo1eDJyYVhHbVZnV1oz?=
- =?utf-8?B?UDRwOW9CUktCcmxESU1JYVZQMEQwdWVIOElzVzIwZGxLRldUaGJNdWJKdjAr?=
- =?utf-8?B?aDdSamxodEE1TEFXSVJEMHZmdTNvOFYwU1ZyRkN1NUc4VUR3MW1oMHBiUVRp?=
- =?utf-8?B?cVpQR2ZDOWhldmcvT1BzekExSXV0aEdmSEVqT3FxN3h4aXdRWFh4S3dKY2hP?=
- =?utf-8?B?NDUycEhSdjB1ZnNtUnI4K1FOUGdYcUhVT2JycEpoMHZ2N2FJVytJeEJjVVRD?=
- =?utf-8?B?NFNJNkdaMnR5Q2FRdVFadlBsSEY3VEQyaGV6Q3pXNUw5cnpjZ05qSkgrbDNj?=
- =?utf-8?B?K1pXdGNIOHhvdnRNMUtiTnUxZjRjbk9RbEI4MjJrWHkrYVJMV1l6UVhINkxW?=
- =?utf-8?B?R0xZdDVlTUZYZ2tQS0xtY0lpMEFjRERhdkRzbC8vdEo2WndwRVUxaU5pQTZC?=
- =?utf-8?B?WUlUZHlQN05vbkY3SUhIWkQ2dXZCd2F1ZnhtanZKYitpQnlaczF3Rllqa2Y2?=
- =?utf-8?B?eWZLeDlvdXZRYVJ4SXJKQ3FMd2tTMjREZU9sQXNEd3NoYktRVGQwd09JZmNh?=
- =?utf-8?B?MVpDKzlmVGozYWtCTER5akxNVlJvU0VyYkpLNnRsTjBNKzVwb0ltUEl1c1FH?=
- =?utf-8?B?MlhOd1daYzkrelRWNVV2TkVBZVRKdGMveFpwa3dEZlU2d3FSWnJhVklZV3k2?=
- =?utf-8?B?dUlsTGt4TXJsTnY3MUlsVER4MW55ZzBBcGQyeEIwbzJ0aWt2b1BrTGtJS3I5?=
- =?utf-8?B?V0NxNXpCc3hxQTc2UUdSOWxwMFA4UEJFMjI4c1JKSXBZYXhld0NKa1NYZ1J5?=
- =?utf-8?B?cGNqQ3VOb0RxSHVGS0E5NXM4TFpQMnRUbjJNRHgzL2IyM1dCUEc1OGl5VTJ5?=
- =?utf-8?B?WnRSM3l2Z1NYRDVyeFJPbysrT29IK2NjNytDay9SMFNFNE1PYXBaN1YxMzVU?=
- =?utf-8?B?b1dMaWMyVTlid05GbHlVQUJCaWcwWHo2eXNBbi8zSGVvZzNTRHVrakdzdXl0?=
- =?utf-8?B?NVVjU2xDMGNDaWt2Q0YxMzdiMnVmQWd3Sk5GTXJKM3lwa0xRV1BrdTE5Y3dt?=
- =?utf-8?B?YS8xZmxMTHZIOXBCVHdpVVkvM1JRd0kwRkdsNnFWU1ArNlNPcktlbDdNWlA0?=
- =?utf-8?B?eitBTnBEVE1nUGh5Mk55d0VwUDk3YXVWdVZTa054KzEwZkFwclZWdGhTVHAx?=
- =?utf-8?B?dEQ0WFF5VTI0TUZndXoxRkh3cTMrdEgyVmxKdmgyeXRxWFdiM29mQkhCZHVo?=
- =?utf-8?B?a0xMVVI5SVY1V3I0R2U2MHRwYkM3SWkza1FaSmJZOXZjNUduOHRzcVAvQXVK?=
- =?utf-8?B?ZDlJMENNcm9ySzM4ZlkxM0RobFVhaEJHL05taHlaNGdVdkFsNUExS0xWbkYx?=
- =?utf-8?B?aUMyZHRFNjIyTTlwSFFZR0hGSTZTb2Q3NzdxSmI5REkxV0NGazNjdWttaUo0?=
- =?utf-8?B?TXFHM2JXM2FocmpHV21GWE9yenV1SFVSVFZrdGQ4RkM1ZStSM0JtVjY5dmp3?=
- =?utf-8?B?QWdSdncxelBZWU9CQVpwRTB2L1hhOGl4L0F5VGpqT2hyWFI5Q0N5QU91bzRp?=
- =?utf-8?B?b1kzNjFNQ1d6NHh4SUtNa096YVN1OHk1cHpaNi9tdGRSQzh0ZzFUWE1wSit1?=
- =?utf-8?B?R1ducjBCQ3pka3BtS0l0UHZtM0tpcGVqZjQ2TWE2cHNWU1ppc012ZnN6emdM?=
- =?utf-8?B?Ris5WVRqNXJvYU1nUXdhSEZhRlVwdHE3NjY4MjVPZHh5TUNXTnpuWnNZM2lQ?=
- =?utf-8?B?NFdxSFhMT3J1Y29iRS9MWVMwZ2Q0d3pDRnA3UkZoNEhMQ1IvMlZ3VFM1eWRl?=
- =?utf-8?B?ZE5EMVpTRmR2NmRnM0N4MVBrS2NYeTBlajVhdVFTUmJMTGwvNlRobGRtODdH?=
- =?utf-8?B?Zkh2eEJVM1dvUkhFbVpzamZLRG5nbGdtcmxBaVhqVGpKbjVDdHBYMVN2UXR5?=
- =?utf-8?B?RXBLRndzbi9FMS9acmw4NlNGVm43NjFSVGFXSHpHSG9NNjBoRC9OM2k1d050?=
- =?utf-8?B?ZElZVzZ1eS9yQ3k5V3pMNnEwNDJDbXRzbEpLd0dlNWJoQnlKYWNqbGl0eko5?=
- =?utf-8?B?UzJrb240UG5VS1NNSklPeFZhWTJiYWErMjVpSVBLSFVLektMTFRNeThUUmV4?=
- =?utf-8?Q?ilQyrUCkyOeRNhKg=3D?=
-X-Exchange-RoutingPolicyChecked: MhtmURWkx2F97dIkz9m15cTo1EIw17pKS1DwV9tt6F8Rxvl+bS1uJtL0377m42bYjVDIUBcRsS4z9kaZ0R5iLjKJKnfZkq3s9U9wBgab3CkISH/AVGcyVeDjBXO9rVLpezaMdECr9BR55Plakx834/En9vqep2al2n+fXUxZqzVf0T9Si25/Dg2o7QWxhUNaR982fULgcXXkVLJDNgmuWB6IBqEtP49hZbq5/c3GZlVa7GN7pSRn33ilr0IgFLko3i7p5K9TmkJlZserQqNBFsOoxep6k7eNR9/toXZwTS8fyaJAqzk0WBjVNozR7aX3bijD1MHuDTVfgy7OzeAgYg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0afa5178-fea5-4831-42bd-08de7f54c1e4
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 09:58:34.1942
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W3zI/1OAz86qrfaeWclw56rn5r/LtWt7x7u9cZnU+DcofpIZOkySkUYbiUbsjF7q0Sz6X9tsCr9/fQBj9S9C5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4675
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-5-398f37f26ef0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_025841_646511_0FAABE01 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260311_100052_975996_F02F1642 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,47 +127,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2026 11:50, ziniu.wang_1@nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
+On Tue, Mar 10, 2026 at 04:44:19PM +0100, Bartosz Golaszewski wrote:
+> Add support for BAM pipe locking. To that end: when starting DMA on an RX
+> channel - prepend the existing queue of issued descriptors with an
+> additional "dummy" command descriptor with the LOCK bit set. Once the
+> transaction is done (no more issued descriptors), issue one more dummy
+> descriptor with the UNLOCK bit.
 > 
-> When 1-bit bus width is used with HS200/HS400 capabilities set,
-> mmc_select_hs200() returns 0 without actually switching. This
-> causes mmc_select_timing() to skip mmc_select_hs(), leaving eMMC
-> in legacy mode (26MHz) instead of High Speed SDR (52MHz).
+> We *must* wait until the transaction is signalled as done because we
+> must not perform any writes into config registers while the engine is
+> busy.
 > 
-> Per JEDEC eMMC spec section 5.3.2, 1-bit mode supports High Speed
-> SDR. Drop incompatible HS200/HS400/UHS/DDR caps early so timing
-> selection falls through to mmc_select_hs() correctly.
-> 
-> Fixes: f2119df6b7646 ("mmc: sd: add support for signal voltage switch procedure")
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-
-> ---
->  drivers/mmc/host/sdhci.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
-> index b1a3cd574c84..605be55f8d2d 100644
-> --- a/drivers/mmc/host/sdhci.c
-> +++ b/drivers/mmc/host/sdhci.c
-> @@ -4539,8 +4539,15 @@ int sdhci_setup_host(struct sdhci_host *host)
->  	 * their platform code before calling sdhci_add_host(), and we
->  	 * won't assume 8-bit width for hosts without that CAP.
->  	 */
-> -	if (!(host->quirks & SDHCI_QUIRK_FORCE_1_BIT_DATA))
-> +	if (host->quirks & SDHCI_QUIRK_FORCE_1_BIT_DATA) {
-> +		host->caps1 &= ~(SDHCI_SUPPORT_SDR104 | SDHCI_SUPPORT_SDR50 | SDHCI_SUPPORT_DDR50);
-> +		if (host->quirks2 & SDHCI_QUIRK2_CAPS_BIT63_FOR_HS400)
-> +			host->caps1 &= ~SDHCI_SUPPORT_HS400;
-> +		mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400 | MMC_CAP2_HS400_ES);
-> +		mmc->caps &= ~(MMC_CAP_DDR | MMC_CAP_UHS);
+> [...]
+> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> index 83491e7c2f17d8c9d12a1a055baea7e3a0a75a53..627c85a2df4dcdbac247d831a4aef047c2189456 100644
+> --- a/drivers/dma/qcom/bam_dma.c
+> +++ b/drivers/dma/qcom/bam_dma.c
+> [...]
+> +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
+> +{
+> +	struct bam_device *bdev = bchan->bdev;
+> +	const struct bam_device_data *bdata = bdev->dev_data;
+> +	struct bam_async_desc *lock_desc;
+> +	struct bam_cmd_element *ce;
+> +	struct scatterlist *sgl;
+> +	unsigned long flag;
+> +
+> +	lockdep_assert_held(&bchan->vc.lock);
+> +
+> +	if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
+> +	    bchan->slave.direction != DMA_MEM_TO_DEV)
+> +		return 0;
+> +
+> +	if (lock) {
+> +		sgl = &bchan->lock_sg;
+> +		ce = &bchan->lock_ce;
+> +		flag = DESC_FLAG_LOCK;
 > +	} else {
->  		mmc->caps |= MMC_CAP_4_BIT_DATA;
+> +		sgl = &bchan->unlock_sg;
+> +		ce = &bchan->unlock_ce;
+> +		flag = DESC_FLAG_UNLOCK;
 > +	}
+> +
+> +	lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
+> +	if (!lock_desc)
+> +		return -ENOMEM;
+> +
+> +	if (lock)
+> +		list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
+> +	else
+> +		list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
+> +
+> +	bchan->locked = lock;
+> +
+> +	return 0;
+> +}
+> +
+> +static int bam_setup_pipe_lock(struct bam_chan *bchan)
+> +{
+> +	return bam_do_setup_pipe_lock(bchan, true);
+> +}
+> +
+> +static int bam_setup_pipe_unlock(struct bam_chan *bchan)
+> +{
+> +	return bam_do_setup_pipe_lock(bchan, false);
+> +}
+> +
+>  /**
+>   * bam_start_dma - start next transaction
+>   * @bchan: bam dma channel
+> @@ -1121,6 +1266,7 @@ static void bam_dma_work(struct work_struct *work)
+>  	struct bam_device *bdev = from_work(bdev, work, work);
+>  	struct bam_chan *bchan;
+>  	unsigned int i;
+> +	int ret;
 >  
->  	if (host->quirks2 & SDHCI_QUIRK2_HOST_NO_CMD23)
->  		mmc->caps &= ~MMC_CAP_CMD23;
+>  	/* go through the channels and kick off transactions */
+>  	for (i = 0; i < bdev->num_channels; i++) {
+> @@ -1128,6 +1274,13 @@ static void bam_dma_work(struct work_struct *work)
+>  
+>  		guard(spinlock_irqsave)(&bchan->vc.lock);
+>  
+> +		if (list_empty(&bchan->vc.desc_issued) && bchan->locked) {
+> +			ret = bam_setup_pipe_unlock(bchan);
+> +			if (ret)
+> +				dev_err(bchan->vc.chan.slave,
+> +					"Failed to set up the pipe unlock descriptor\n");
+> +		}
+> +
+>  		if (!list_empty(&bchan->vc.desc_issued) && !IS_BUSY(bchan))
+>  			bam_start_dma(bchan);
+>  	}
 
+I'm not entirely sure if this actually guarantees waiting with the
+unlock until the transaction is "done", for two reasons:
+
+ 1. &bchan->vc.desc_issued looks like a "TODO" list for descriptors we
+    haven't fully managed to squeeze into the BAM FIFO yet. It doesn't
+    tell you which descriptors have been consumed and finished
+    processing inside the FIFO.
+
+    Consider e.g. the following case: The client has issued a number of
+    descriptors, they all fit into the FIFO. The first descriptor has a
+    callback assigned, so we ask the BAM to send us an interrupt when it
+    has been consumed. We get the interrupt for the first descriptor and
+    process_channel_irqs() marks it as completed, the rest of the
+    descriptors are still pending. &bchan->vc.desc_issued is empty, so
+    you queue the unlock command before the rest of the descriptors have
+    finished.
+
+ 2. From reading the BAM chapter in the APQ8016E TRM I get the
+    impression that by default an interrupt for a descriptor just tells
+    you that the descriptor was consumed by the BAM (and forwarded to
+    the peripheral). If you want to guarantee that the transaction is
+    actually done on the peripheral side before allowing writes into
+    config registers, you would need to set the NWD (Notify When Done)
+    bit (aka DMA_PREP_FENCE) on the last descriptor before the unlock
+    command.
+
+    NWD seems to stall descriptor processing until the peripheral
+    signals completion, so this might allow you to immediately queue the
+    unlock command like in v11. The downside is that you would need to
+    make assumptions about the set of commands submitted by the client
+    again... The downstream driver seems to set NWD on the data
+    descriptor immediately before the UNLOCK command [1].
+
+    The chapter in the APQ8016E TRM kind of contradicts itself
+    sometimes, but there is this sentence for example: "On the data
+    descriptor preceding command descriptor, NWD bit must be asserted in
+    order to assure that all the data has been transferred and the
+    peripheral is ready to be re-configured."
+
+Thanks,
+Stephan
+
+[1]: https://git.codelinaro.org/clo/la/platform/vendor/qcom/opensource/securemsm-kernel/-/blob/fa55a96773d3fbfcd96beb2965efcaaae5697816/crypto-qti/qce50.c#L5361-5362
 
