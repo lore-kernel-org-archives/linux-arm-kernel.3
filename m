@@ -4,103 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7F5FD88D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 00:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAD9FD88D5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 00:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkQr/oJ5AVva8ppnZ/QxljiNwt7nDUcsbBiCUPkROPA=; b=29aoapzZzmHAw6PZu18XtgdTDU
-	2hHjBavgfREDJkKFOAy62OFxqmSFNNeL/SbcV139Sdc45/m6qWWn8On1mIoc6qtw3/aDHVIqgd9NA
-	FhRI493RAz4YWrosKCI7Wqxd4TzLIzYFPdEBruNOlW5RWXl/PCR+f6r82JnGygmIz6bwQgCCz3en7
-	S/h6y26eF2L7MYoAcRLGrMZvYqjjHM2bWDz0ecVBSFZXmlOscIG8iXaxwT5WJIQMw88cBBMVW2uyO
-	V88nJluPqvjfVPCOQ5aR5k5HxParLX4eyMIJ52tTWOdJ55d5A/dI5w5qMwLkUkGnQol1BkBNl9CHR
-	mo8gC92Q==;
+	bh=wRPHMWr3RYeq2LdlKWsQydyKI1DDcq+bxSSt+FcIkkg=; b=LQK7h5RuvI1kBv5uxg4ckC4XRc
+	WPM1P7Rqo8SCUvoUTMRSJ3amge1s0NPmewZjc4P75JqsSulVNrUFX72pOvqnQ+Q661qUruk2groz7
+	KSrjdTT2pEsBd0+IvQBcdQVuBLoRORBEWfhZ+MyYDnSG+vNUGK9yyT4Q9VxqXNxKnLZ+7JWdcV460
+	ZShf3LEvoJMT2ymKMUsIpXE0BhGrq2hLn+ZYO+HRpDaSq3Yk3yvdNuV0PETvgWVddKajtz7ab4T8b
+	Y2n+G3ik2yNQ+ORtpgIqc8wp3puSO7/BW/xZxdvz5JoK1ezVDtPEqyBgCE/Y72p7bwvQl6YWpIkmR
+	M3fw5l3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07FR-0000000AQ1p-34LX;
-	Wed, 11 Mar 2026 00:16:25 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1w07In-0000000AQJn-1f2l;
+	Wed, 11 Mar 2026 00:19:53 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07FP-0000000AQ0u-2ANX
+	id 1w07Ik-0000000AQIl-0cM3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 00:16:24 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b9704cd6951so251501966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 17:16:21 -0700 (PDT)
+	Wed, 11 Mar 2026 00:19:51 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-359fea895b5so276813a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 17:19:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773188180; x=1773792980; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RkQr/oJ5AVva8ppnZ/QxljiNwt7nDUcsbBiCUPkROPA=;
-        b=C6jaOCyLaiHbh2HpZGeWyF+YqlqtAjNur4mgtW3OovW+7sJgqC8js0gl9yvpJnp2/Q
-         6O0kt52+30yquyrrep5OP2t3A7HBAIE7Bc+3gE9AOk4NVPyhC+OCrjPLPqMR1hiYHYvk
-         JP/Ud9owqYKNHTP+0uWv3GItEFPG20oh+oXVM=
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773188389; x=1773793189; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wRPHMWr3RYeq2LdlKWsQydyKI1DDcq+bxSSt+FcIkkg=;
+        b=tqW1rROIMzJ61/9YlO0DVUmqX3SCf6dxGDRo9Y/we0J+R4jJy6KM4g758BFaFJIUlp
+         RlD4dXt+0QqewKZqfx9XdYfon2zhYd8zyWDqlioptfByfXXs1yK4JqBw0+R87y4aoKVN
+         DpHAKmYYthxxfvYc16slKFYNR71wo4H8JOisNZESgeAiqHigohopLpn8D4Arzwwnt7AU
+         pK6uEe+5h5z4NVmRZkHaZk8DH14c4a984X6StbPsolsY/mW5sDX8XpRwYPO3UfLY9UCE
+         lSgggZ9fxm4QgbRfpXSDkewCs7bQmDYuG9HDbUBGx7sUz1c5Zf5tU6C7OVXM5/nXsFVf
+         lCiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773188180; x=1773792980;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RkQr/oJ5AVva8ppnZ/QxljiNwt7nDUcsbBiCUPkROPA=;
-        b=wOQxfH3r/olwoQD2xlM0GzjvKkcrJncywxTIU4jdZWBLzl9gFSjuY47ULnOFUl2dAq
-         0D2dqvj0lP37X6Q+R+qTvOiBXTNbwL8+dhg6H6G8/g/oHrx7arY2Sb32HbJll5oHEAHj
-         7BZoxU+i0b3GWzEhf52cjy44w03tBrEFRrhaxdVAQYnUX+8O/9NhKYtKTbD73LFABEuO
-         mlSN3mAmo1IpFmYc9KiY5RzdZY36L/aTKHsvIFa7+nUygHbgGNlyR28ptPy7w76+qdtf
-         XersQ685b+u2hHhayHwTMrJsap+RuD/5h5hcZfAPIllN4tyqiDUWsnjsmphyA6BGjRrh
-         EgMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW7/dL67964iQlrWPju1t1axx+tvvaSCzXmVi5m+kvzZDdvGP0Zdxl2jEYQg0TV/GGtCJOXu7ECzEcF7+QpyhSF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFHqR/nDO5nxSfRiLlfqirCNDa6qw4qMFHwmpYBFUZT99H2TZM
-	S8Ggx8pQjNiQga41uH+t+fexXWW5vdR3yPFju5siMcpOu6PEm7G7kELJ77MKcZffg7EQeHUfDL+
-	rCe9FgXS9
-X-Gm-Gg: ATEYQzxoY8xeL844HBtUmH58jOzn643Gin37i3uWQOT9G5JxA4pSPjDsDtx2KY1xGZy
-	k6muwpICJuy9uuZRQfCfnUy0wfLeTweUPMxWhD+vPOJYwirwIXx7Kd/IKmbS/FE2TuK9kVxA71J
-	X15AS91QlH1K67LIHEnWTiTpgTjMTjugyFvipDpJ4zDrxHdCQZRwQHk8TDy1337nKT6ur0Fv2l3
-	fFR1MtUuvGdk7jKasEjrBSkb02bHHlHuuBhykK1/AItg3H18QpZ7PIyrce7Q6oYgjgsxf1A9My+
-	vHlwdrYk8/Rz+V5E7W8sKh77Gp3S6N61JO95JwMcvD/tUumIczg6R/3/4y1ETRPTvp4DCtPrylV
-	SFiQbRVKREFPK63OpadLIp7Nj4vFs5f6UNOjXXTMQuqQ8ZDxt08CyhZm02psV1qSM7q4K0hrVID
-	PSEglx3xgF6Nzt8iEjH2Nmmb2pytirekXeUsYbvsmY23wXwlvG2ZyS14sCuJ5OLw==
-X-Received: by 2002:a17:907:9403:b0:b94:ec:4b42 with SMTP id a640c23a62f3a-b972e4f9f49mr23762366b.26.1773188180439;
-        Tue, 10 Mar 2026 17:16:20 -0700 (PDT)
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com. [209.85.221.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b972e1be45dsm13949966b.64.2026.03.10.17.16.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Mar 2026 17:16:20 -0700 (PDT)
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-439b9cf8cb5so9077443f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 17:16:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV2QR2OkqEBIbnFA+eRXxKkxTHTj/Yw9bCIbwI1xOzAgN8tuN3kGpC7X7Sc2/xYUXoGk81NxXW23GZm/RnjXWts@lists.infradead.org
-X-Received: by 2002:a05:6000:2913:b0:439:b3d2:3768 with SMTP id
- ffacd0b85a97d-439f81c8cc0mr1467675f8f.21.1773188179252; Tue, 10 Mar 2026
- 17:16:19 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1773188389; x=1773793189;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=wRPHMWr3RYeq2LdlKWsQydyKI1DDcq+bxSSt+FcIkkg=;
+        b=hlw0r+38J3Y5xiMiKDz2Exq/8SLMFIllhRUKg+dq80uwaGBkwHX/vt7//FvUFDWRYG
+         uBXhLKO+7UXNA2Uc7o4zqHJlwUTOVKA9VJQiBcCC5EiiRDwaJOXGGwev7YZHYNZouAzM
+         0ss5ERYsSvFzBYUhHG/4wTxZmEWIk4G2UHXyP0cBc3lDa0gOVahF4BXbIhfses2rpog2
+         d+pPjPAYxEWO7l8sL0WxEGOYMOuFU2v2fGO4w+b972awF+LTskKyY3UdnmScAovebgY7
+         ktGAYHXfWk9wp3K/ReExsjk184Mxcq49oMOlJ5J4+TeyDPb4xNIeYnR0HEp6nb0s3+rY
+         9rUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWj1D4r3r+WaD6YvHhCxDqh2Y1zt4wHwzo20ySjdPyIZRDsBHXL9kFOyTzm6clbcddll+y8+ddqsX/Wh8Ufjw7W@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjt8EkqK0bzbIeLi3TZPulqqKMP/goWwC8ZMIU2S+tfcee3qjd
+	UkJt55L70cemnGfZBoEYAZzZIyhaalbuBlVDjQjCWTKTPNEi4MW7YhH/2msqgoSSHsxw4eDmLXZ
+	BzXTd7kY=
+X-Gm-Gg: ATEYQzzZOf7RsFG39LGzn75kKxViMGaRH6jhVfiwB2QhEPVQuEF7eGjflHV+ixt62Zu
+	GBSsG+vqTmF6BfRajf6ucJniSVX/s/Y01EIDWW4N9/lm4z3mKAGADN+B/Am/g54PMg/QSca1MfW
+	Kbnt26tcPDxKMLGi7/8MaiYeKDR80bA7KIq+pU2h8+VtFtZLOCa0OR2ojyGBH92+0keva9ccOqy
+	qz0TIxOAOj/q6L/qvpjpuGWrIJlxOBRw30ftiEfwopY52B6Dm2WLa0L1rpIp73jHt50XfEpzIXw
+	CBerIh+Ja2xhCsZ7jRRfLPRcR1mJxahvswzGyEzdyVCPsQv+uXPGLOQO4tg6YJgSvvMhuz4RhWH
+	EQjqP3H06a1YgMcSl80u/eyqEuwJkVhRygLMNFpxGg1fcQlJ4WZ1epXFxuh4BsTlFLHL6A1nPaQ
+	qrGF4EC6EIPw1iiPXY6lgV
+X-Received: by 2002:a17:90a:ec85:b0:359:f8c3:dada with SMTP id 98e67ed59e1d1-35a012cabc9mr688568a91.13.1773188388912;
+        Tue, 10 Mar 2026 17:19:48 -0700 (PDT)
+Received: from localhost ([71.212.200.220])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a01b174ebsm174134a91.1.2026.03.10.17.19.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Mar 2026 17:19:48 -0700 (PDT)
+From: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Date: Tue, 10 Mar 2026 17:19:23 -0700
+Subject: [PATCH 1/3] dt-bindings: power: Add power-domains-child-ids
+ property
 MIME-Version: 1.0
-References: <20260216181002.3475421-1-dianders@chromium.org>
-In-Reply-To: <20260216181002.3475421-1-dianders@chromium.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 10 Mar 2026 17:16:08 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=VUUNDgcOMjhA3Tiptwm3-s+LiUNeObAoV4tTQbkg0mPQ@mail.gmail.com>
-X-Gm-Features: AaiRm50L1dSQfXqKqL2lF5VIOHGsndPMM8bpxj2iTcUPN8asbNOQBrAMfnlkmEo
-Message-ID: <CAD=FV=VUUNDgcOMjhA3Tiptwm3-s+LiUNeObAoV4tTQbkg0mPQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/15] mailbox: Stop sending NULL mailbox messages
-To: jassisinghbrar@gmail.com
-Cc: Frank.Li@nxp.com, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, andersson@kernel.org, arm-scmi@vger.kernel.org, 
-	cristian.marussi@arm.com, daniel.baluta@nxp.com, festevam@gmail.com, 
-	imx@lists.linux.dev, jay.buddhabhatti@amd.com, jonathanh@nvidia.com, 
-	kernel@pengutronix.de, konradybcio@kernel.org, krzk@kernel.org, 
-	lenb@kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, lucaswei@google.com, marco.crivellari@suse.com, 
-	mathieu.poirier@linaro.org, michal.simek@amd.com, nm@ti.com, 
-	rafael@kernel.org, robh@kernel.org, shawn.guo@linaro.org, 
-	sudeep.holla@kernel.org, tglx@kernel.org, thierry.reding@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15-dev-53144
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2801; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=W4xSkkVIycg+yElDAfB07bsC758UPlh9LzCrHeiEG6A=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBpsLUi4DwekAQDifoz6ARcFx1D9uf8ysPKH/4U6
+ vky1ASsKDaJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCabC1IgAKCRBZNxia0/vG
+ ZYGFEACckVcCs/uQxZ/ASYWG2Okj24RX8PZGa/Q2bO9XBt+1kSdS0YnC1imfvCon3WKPZ+5/lX8
+ K/h0jB3AX23jBP0sbB9ihDlFHl8NSt79A4R/Fj+RHLkHwqr6I3wJCBApPbhRbm51OWvPVocCUk7
+ BdUpZaFVX/YZ2mlmedt6g1t6uOA9GRgwMbn9vSXYCjrEa7fdf+/eojIBzgJGYstukKyehLvPvUR
+ t1ULjrmjCBPrVdZqEb9NyKnX7vMjRqyZZ3qEJt/JqxrMHH89v49u9MVH1WoRvU7Yl2lrzpnAHhQ
+ wwfvo1Avopvsy4jgjxfCUEEuo+SAwauxQ0PCM/TWNKZ7/xBYcoKgA25cy76nWua/oHzbpoBHJpV
+ zbj6gF0AstTdZNcdiNXkLtZtHIJjBf9hA5Oz7C/9qpec+1lobL0fQLzrWfUYBFkqPXzdHLkpXBb
+ xn4SyFKvv76YymCTBlQgHN+9+aa6SJs6XM37pa7Cl60LcddnLIyp57NwJlP3d78zjGDfYfTLSyF
+ 3zxi0VrF4XO58kCZG6D+GxBSNfpeZPP8OLlugM2ftq1gzpDx3tSjHHcCUqpFSc8/IOsbVKACQgY
+ /g7/SLGeKw1gZYKaSU4ZWi1Rxnn2ya8xY1KO5ioZ79wlrkBRuE7hx3GJ6w4HdXaG/4EakIz4O1S
+ Em9fX2MDKctxdag==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_171623_574699_96CC2BF5 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20260310_171950_197540_23592EF0 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,50 +118,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add binding documentation for the new power-domains-child-ids property,
+which works in conjunction with the existing power-domains property to
+establish parent-child relationships between a multi-domain power domain
+provider and external parent domains.
 
-On Mon, Feb 16, 2026 at 10:11=E2=80=AFAM Douglas Anderson <dianders@chromiu=
-m.org> wrote:
->
-> As talked about in the first patch in this series, passing NULL as the
-> 'mssg' argument to mbox_send_message() ends up causing confusion and
-> quirky behavior inside the mailbox core. Despite this, there are a
-> number of drivers that pass NULL.
->
-> It is plausible that some of the drivers passing NULL may have been
-> taking advantage of the quirks of the mailbox core. Specifically, they
-> may have been taking advantage that calling "tx_done" wasn't truly
-> necessary for NULL messages (it was a noop) or that NULL messages were
-> passed onto the mailbox controller right away without queuing.
->
-> This series introduces a new API call: mbox_ring_doorbell(). The new
-> API call tries to mimic the specific quirks that were helpful in the
-> old behavior and it's expected to be a nearly drop-in replacement.
->
-> There are some subtle differences between the new call and the old
-> behavior, but it's expected that all of these differences are only for
-> cases where the old behavior made little sense. The description of the
-> first patch details these differences.
->
-> The series attempts to convert all in-tree users to stop passing NULL
-> for mssg. As per above, there are some slight differences in behavior.
-> If any of the patches are causing problems, they can safely be
-> reverted while debugging the problems. Eventually, all code should be
-> converted over to stop passing NULL mssg.
->
-> Changes in v3:
-> - Suggest mbox_ring_doorbell in the warning message
-> - Updated patch description based on Cristian's response.
->
-> Changes in v2:
-> - Instead of just documenting NULL, introduce a new function
+Each element in the uint32 array identifies the child domain
+ID (index) within the provider that should be made a child domain of
+the corresponding phandle entry in power-domains. The two arrays must
+have the same number of elements.
 
-In case any mailbox client API users want to comment, Jassi has
-proposed an alternative to this series:
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+---
+ Documentation/devicetree/bindings/power/power-domain.yaml | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-https://lore.kernel.org/r/20260310234616.334498-1-jassisinghbrar@gmail.com/
+diff --git a/Documentation/devicetree/bindings/power/power-domain.yaml b/Documentation/devicetree/bindings/power/power-domain.yaml
+index b1147dbf2e73..a3d2af124d37 100644
+--- a/Documentation/devicetree/bindings/power/power-domain.yaml
++++ b/Documentation/devicetree/bindings/power/power-domain.yaml
+@@ -68,6 +68,21 @@ properties:
+       by the given provider should be subdomains of the domain specified
+       by this binding.
+ 
++  power-domains-child-ids:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    description:
++      An array of child domain IDs that correspond to the power-domains
++      property. This property is only applicable to power domain providers
++      with "#power-domain-cells" > 0 (i.e., providers that supply multiple
++      power domains). It specifies which of the provider's child domains
++      should be associated with each parent domain listed in the power-domains
++      property. The number of elements in this array must match the number of
++      phandles in the power-domains property. Each element specifies the child
++      domain ID (index) that should be made a child domain of the corresponding
++      parent domain. This enables hierarchical power domain structures where
++      different child domains from the same provider can have different
++      parent domains.
++
+ required:
+   - "#power-domain-cells"
+ 
+@@ -133,3 +148,23 @@ examples:
+             min-residency-us = <7000>;
+         };
+     };
++
++  - |
++    // Example: SCMI domain 15 -> MAIN_PD, SCMI domain 19 -> WKUP_PD
++    MAIN_PD: power-controller-main {
++        compatible = "foo,power-controller";
++        #power-domain-cells = <0>;
++    };
++
++    WKUP_PD: power-controller-wkup {
++        compatible = "foo,power-controller";
++        #power-domain-cells = <0>;
++    };
++
++    scmi_pds: protocol@11 {
++        compatible = "foo,power-controller";
++        reg = <0x11>;
++        #power-domain-cells = <1>;
++        power-domains = <&MAIN_PD>, <&WKUP_PD>;
++        power-domains-child-ids = <15>, <19>;
++    };
 
-Feel free to join the conversation over there. :-)
+-- 
+2.51.0
 
--Doug
 
