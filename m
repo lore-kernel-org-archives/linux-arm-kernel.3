@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A26B1125845
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3278D112583E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 15:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M5HW8gZn9DLJaXwfIzx6dQqzrvbrYl5qq5NFuE4o/f4=; b=q1FH9GacN1CFfZBfl7XK21OWV1
-	f6P7NtDIdQlIAc2ga5M250ujXv7U7NaBxzhItRvuM5GmF71YVMFJTqDgTUEDituWs4TydPjoEiEUm
-	thDWonnRL0Agr27S7o63qVH1oI+oCWp9KAcEtGTb6gbJ4D4tormtcPSRCOe22/I2qmaSdjBC/fcrF
-	JzT9mLMhJTRzBOfEhTuyxzX3fa0VDt0Gw9fx8LPZb0YfgqKSmkmJthUlKioUyKMoofSbzRo7SSJ9x
-	vKvRavXICWjz+aEmUPH9BfnVYsHHjeWeXVeclyhIfO7N+TFXr7h0NWrq7O3yN8Y1YqwlgmJ19nqjF
-	0dH4uuMA==;
+	bh=htNcIrOF+PFlw7zenOeO9FQia6dj2plkNS7IIsDXECk=; b=Y80X5fjw7EnQcu2akVrK4XSMoO
+	oWBuk3FFiZXoEhuRAHhNLgRGitcV69XjpwwWxKYUJ8k1ChThEbVE7kHmZwrax3xGr1EqUw1t4jCeP
+	n5EAG7ATEw4w+6WPpkKWyGwWOh6JWBa94vbvYFTMjD/zS3hzhskN7QeWbwDIvnnfHrTQDmyoehETj
+	kNUeNiLjhKT/9YOng9ZDth2r4lvPClSFNE+HfexNTBoA7JGGkk9W+TV2+70rjLMt1Y2iATotqT8Ic
+	IYD2MjCLMwLdI3iInHKzyizypmD6odt4u2Q72OqDcx+nMCW3bUV5Hf003cVZEebgLQjzLfQ707vJk
+	E/2JZ+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LGc-0000000BmCW-2Z0v;
-	Wed, 11 Mar 2026 15:14:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0LIF-0000000BmYY-1hRS;
+	Wed, 11 Mar 2026 15:16:15 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0LGa-0000000BmBY-400S;
-	Wed, 11 Mar 2026 15:14:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1833F40631;
-	Wed, 11 Mar 2026 15:14:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 545D8C4CEF7;
-	Wed, 11 Mar 2026 15:14:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773242072;
-	bh=6G03Vmq9qwAjWyaMz8DPlElYYLptRloaQTWWkg09UaE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NzduROdM4NtDkaC97uFQCxBxcQk2+/sdIAEDxDo46Sa1HI+QkJr/W69c2Ir2IcqT8
-	 yDFVqxVG6Uoy2C1u7z8hbctT5e6H4204OSpR7P4iULIE+LNSCndBNOIlZ0dDXL8MlQ
-	 l4WIr8beXU+M/Luz551S9xo13BT7i3wJ96J0SEPoSvzwaHCkwyUbIDiq2XIy4jfYuz
-	 6lmGZwceMWkMXv51jWNVTUZo9r1cbbfyd0lp6Nu0cpBU+Bp0/EqnBMeyriu5GpJ1GK
-	 ZQDhBsPe9f31JSjasOZkllQzRP2VjuZ7cfXP+Wwfto/f9PR5NPTFQ2Q6BSl5Ll9Fqa
-	 0LqOaXelYUCfA==
-Date: Wed, 11 Mar 2026 20:44:15 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <srdn3bspgwff7f7tnst7wzg4us4buifrv7o3ylo527hmuciyl3@6ioyrl6rfhaz>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <abFMa6DCGGLUHddA@fedora>
- <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
+	id 1w0LIB-0000000BmXy-1HUF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 15:16:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=htNc
+	IrOF+PFlw7zenOeO9FQia6dj2plkNS7IIsDXECk=; b=cT4+KO/k8C+jdSBFDY0Q
+	sVd+6v+MCCSF6rMMcemsuWX6HKt36keIjKr4J6lUGaUzZjUnJSknhgTppGTJdZPH
+	n9ny6ULvYVTljCS/5v8RmHQ5IJhJ9nMVTkdOap2gC9UqLgNB7SS/LIk4lIzJ9zbn
+	w0frs03i+Qx7m3h3w0d7wMPTKFuNSWV5jUEys7vVvVFAJbOqyBscA08ScdjoXDJN
+	9YuV0fOTZmsxMIB6V74wGPI38+Uel8K9Uve8HkO5jvFkZJW/IJMzIPE7HTwD3JYy
+	dv+KbDMFrlW7PrGGwQCBqiUGGkhM8g/s34JMvbGUxbTJbmxMsqZCQjFO74HPJ08Q
+	oA==
+Received: (qmail 3703507 invoked from network); 11 Mar 2026 16:16:04 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 11 Mar 2026 16:16:04 +0100
+X-UD-Smtp-Session: l3s3148p1@N5hEHcFMYUVUvUmE
+Date: Wed, 11 Mar 2026 16:16:03 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	=?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] ARM: dts: renesas: r9a06g032-rzn1d400-db: Do not use
+ underscores in node names
+Message-ID: <abGHM6-GgkRoAMZG@shikoro>
+References: <1c1fc11f1f183a8e72f168bf6eb35a40e01ecacb.1773240961.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
+In-Reply-To: <1c1fc11f1f183a8e72f168bf6eb35a40e01ecacb.1773240961.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_081433_013449_422409FB 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20260311_081612_207223_6D12B4C8 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +74,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 08:09:53PM +0530, Manivannan Sadhasivam wrote:
-> On Wed, Mar 11, 2026 at 12:05:15PM +0100, Niklas Cassel wrote:
-> > On Tue, Mar 10, 2026 at 07:31:58PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> > > Changes in v7:
-> > > - Dropped Rockchip Root port reset patch due to reported issues. But the series
-> > >   works on other platforms as tested by others.
-> > 
-> > Are you referring to
-> > 
-> > ## On EP side:
-> > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
-> >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-> > 
-> > Then running pcitest only having 7 / 16 tests passed ?
-> > 
-> > If so, isn't that a problem also for qcom?
-> > 
+On Wed, Mar 11, 2026 at 03:58:07PM +0100, Geert Uytterhoeven wrote:
+> Node names should not contain underscores; replace them by hyphens.
 > 
-> No, tests are passing on my setup after link up.
-> 
-> > 
-> > There is no chance that the patch:
-> > "misc: pci_endpoint_test: Add AER error handlers"
-> > improves things in this regard?
-> > 
-> > Or will it simply avoid the "AER: device recovery failed" print?
-> > 
-> 
-> Yes, as mentioned in the commit message, it just avoids the AER recovery failure
-> message.
-> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-I also realized that Endpoint state is not saved in all the code paths. So the
-pci_endpoint_test driver has to save/restore the state also. But it is still not
-clear why that didn't help you.
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-Can you share the snapshot of the entire config space before and after reset
-using 'lspci -xxxx -s "0000:01:00"'?
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
