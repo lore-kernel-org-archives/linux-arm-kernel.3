@@ -4,77 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC14BFD88FF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651DEFCC9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7MK5eE6rIkAfx8TPmXD8gJnQMvQRZCsMWWxDDoIzeT8=; b=qgqSM0SS9T3hXzu9eLrNC5ZOqj
-	zxDIBqpZsmo2zvvwo9eYfWGGDXB1CBT1Hvj16NqjjoyL18WpgjHKw4roVk8UNKWqdHMCmoMF804qU
-	JA7kOZ59/Z9UMWNwP6P3Ttibq64frGd5KngqNEbZ7XyBkBNpcjwMXoXIuqqiPlXZH37z9yy9pO/F1
-	7BuE54SuAArK3O3hqnmGdWN+7yjqdkpLCucvxbWQ64krJZ3hROBwXNtOEf2a1r8/QjvRgveyjMKzE
-	6fLttpOWJ1GqOdlFXKRYLxN7zWGCxqzNh6AIuZEHs46opXRvH0VDT3ZAGdGhnJYQqMPdIYhNN1iOE
-	yc7Ak3qA==;
+	bh=RamBF01yXqMY5BetOf1iIqqKwFOFswVOHDrfq4/JpuE=; b=tDiAydV++keK03uVYIxXWcKOlv
+	RaC8QK5JnAvQGqwX15Xi1NMumtq2OVIQQFSASXABtJyVPTGZPYX/4c9J8f+iUGr166ZUPd5hyGmC2
+	TRHIXvwLz8GduYP4Wyr3tisTD7keCPym+Bn9ccMs+e7lI5hANi3cS79uQbaXdQ4HaFX/V6arNqVph
+	LP+hsjSeYaQyjaiOkTn2SqgdK6wM2ZDzR7pPe7zMNSBtJJa35UJQjCsDJ171MEf/4JiLASNkHq0Gn
+	oWMeBFVAATtLCXQlS8YM0UpAhy+xCfKjr7j9r9Fn9NVa8dD8DDJVr6YQQrw56GUDeHRwdZ/K2izaN
+	OQgs2S6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CED-0000000Anif-2WkQ;
-	Wed, 11 Mar 2026 05:35:29 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w0CHp-0000000AoDX-1NsZ;
+	Wed, 11 Mar 2026 05:39:13 +0000
+Received: from mail-southcentralusazon11011032.outbound.protection.outlook.com ([40.93.194.32] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CEA-0000000AnhR-20Ky
+	id 1w0CHl-0000000AoCA-2qxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 05:35:28 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 35B543DA;
-	Wed, 11 Mar 2026 06:34:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773207253;
-	bh=FLKf2KNUhcSfWOh79rwBmsC6RKR5mCsHFe+rCiWz4Yc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Dq5cjP1dPkqs4P5YWNoQQXFqO44gF/zAoZeLn1Kk+rDFTi3xdr+HX+8h97A5sp/co
-	 /eOT2sToxU7oGJ/g/CRxB+n6r2lFx1F6cKP4EVYMNFG70XCXFgnu1PvRu4Qa1CvB4K
-	 t2NOu6XrR9YvpSdshdrKbYiF4GKy+fFDscnVkr3c=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 11 Mar 2026 07:34:46 +0200
-Subject: [PATCH v2] dmaengine: xilinx_dma: Fix reset related timeout with
- two-channel AXIDMA
+	Wed, 11 Mar 2026 05:39:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JQirerLAx96nCfwFqHcG2kBD5TjXlZMv/vIpOY/8FB4iF2bg/5VEzG61CHvJtBY33lyiSgwJhOqcXdH/HOfJnjwwJFv6QYGD3ctFm8j8BFwpfd7nskWR+btxIGHBjhSac3foqJPyRiVK6/5AFV+XSDpWPK44V4oeUapyXkH9FsXoVoU3eNXPajKnpSBf1Hd3YzaPuuNnsI7OG3ysf01s0mFigi4Ik4lMSYuMRUw7VMKnTE6AC9Rq1GQ0W4Ixut9fkaNk+VbngsoV36DO3DrOtfaM5+sY+regOHeSwp5o+WL7/9aEQPqZgrwzNVh3N5WNJDIYO++QVVulSG7zVZjLoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RamBF01yXqMY5BetOf1iIqqKwFOFswVOHDrfq4/JpuE=;
+ b=EK92ZhrZaloYF0K1t+19RbzB895ilecLX5dIPAaihVJI1ixQbXguWmorn6XdP58xnSY3OacJiSTGI81v/rKiZb5TyU8FGfrFfDnbsYnP9Pjb5XTzweDkS8ka03qZ/TIXS56M4cYHEM3oaq4r/Qw4zxEjZS3nmWsMjwJMIWQ/ajDlgEWP3PXoEW3vU7JJkRyXZy+myVFEIjG2cEQLnLZUYCc+0kU61QJqwEH1P7/K6fnGwV+fNBPNNcLAK0agtWA+hlkbKTG6jjy+Ij7eDbcxeUMqN8S0/AF9L2+r9RSG57RUzWtIFUxeXhsvY3yz+zEI76xZSb9EJN8thETX+MIFKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RamBF01yXqMY5BetOf1iIqqKwFOFswVOHDrfq4/JpuE=;
+ b=wiymi2mjnLmO1s9VG091Dk0Mv0VQExfkn3SqKX+rdXSSyYEtOFpVqNLoOJOSJDqPaNPRatIt1Y0afIC1DxRAi4WL6tUu2gxRBFxRlGQ35MVsoqAW3t7Ya1O6nrzgkUlmaJM0tnt2QRy9pPyKD9nA666c9VN5MkWbvpf/8RVir1k=
+Received: from SJ0PR03CA0088.namprd03.prod.outlook.com (2603:10b6:a03:331::33)
+ by MN2PR10MB4366.namprd10.prod.outlook.com (2603:10b6:208:1dd::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Wed, 11 Mar
+ 2026 05:39:04 +0000
+Received: from SJ5PEPF000001D4.namprd05.prod.outlook.com
+ (2603:10b6:a03:331:cafe::57) by SJ0PR03CA0088.outlook.office365.com
+ (2603:10b6:a03:331::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Wed,
+ 11 Mar 2026 05:38:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ5PEPF000001D4.mail.protection.outlook.com (10.167.242.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 05:39:03 +0000
+Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
+ 2026 00:39:03 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
+ 2026 00:39:02 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 11 Mar 2026 00:39:02 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62B5d2mj4179354;
+	Wed, 11 Mar 2026 00:39:02 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 62B5d1Yd028451;
+	Wed, 11 Mar 2026 00:39:02 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
+	<danishanwar@ti.com>, <m-malladi@ti.com>
+Subject: [PATCH v3 0/2] Add ICSSG0 dual EMAC support for AM642 EVM
+Date: Wed, 11 Mar 2026 11:08:50 +0530
+Message-ID: <20260311053852.1034244-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260311-xilinx-dma-fix-v2-1-a725abb66e3c@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAPb+sGkC/3WMywrCMBBFf6XM2pEmkFBd+R/SRR6jHbCJJCVES
- v7d2L13dw7cs0OmxJThOuyQqHDmGDrI0wBuMeFJyL4zyFEq0YeVXxwq+tXggytaJ7XRdLGkDPT
- TO1HXR/A+d144bzF9jn4RP/s3VQQKHLV2Qk3WiYlu7MnkGGw0yZ9dXGFurX0B5WXNjrMAAAA=
-X-Change-ID: 20251111-xilinx-dma-fix-bc26a6e9be5a
-To: Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Vishal Sagar <vishal.sagar@amd.com>, 
- Suraj Gupta <Suraj.Gupta2@amd.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4466;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=FLKf2KNUhcSfWOh79rwBmsC6RKR5mCsHFe+rCiWz4Yc=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpsP8TJ514U8+kbT+XwJ1IXPYHGlpiw71KJ4gQX
- fCvGGVGBIKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCabD/EwAKCRD6PaqMvJYe
- 9eUYD/9TaVPyNGKOBg46lshwakseFhmIQdb8v+X44b7E0yzSXXjhSY0J0EDt5Z6yneJk7OOGwcO
- isHUVtcV0j3hvD1dj0aZvN21A9Znd9RAt02+Uk8VuoMXq+AdYs6fc6/2PXhfHXUJ84rOj+kbl6Q
- /24mUUPyQTrJcmbtfFV8YdgX3ChS9hE9vWLsNPkA55Ed6T/d/AiPFAJlfe//Ddut5XKDUTPL9ft
- 6Q9mm7wkJ4QCd04KsoCCvDbGwgT+CZ164RkoTb6qBGYm9VNw1aIj3HxOtyA0jdxstoQEhmNPhh3
- qSK58V5XyZMocQhZdW4kO40kuwkTAuCxFvVcqvZu+nnyw+OlUh9/NUGiLLu7SbMKI1uyOOYAkye
- /FTJM6RFUwgtP6yLF5u9RnqBnmvRNHGiWcvv8w5Y087QGRG1evLQsjXYLvGbJ56yVSB3XpNZ6Td
- uoODwEgCB5wxNyN65UcoG/lcJwW5r2Iq+CaexvozS36c/CsgUrmkfvKhM4t6Drdk2TgNtto0ATg
- XEHefvuoiUZzx5EqYe+5bPrp8qMg9kqKDTa/eVniInjunPkuOwVV96bWbne/zdH4h5Gsgv+h/r6
- in8bil8Nv451kLF6Uyyr8pAoQD99BPQC92+BSkabGmIp2p24HPHR3ZTqt+YCHrm2zxORZN4Aeqg
- djYcexLytcwSBFg==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D4:EE_|MN2PR10MB4366:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2684f002-ff60-4306-d63c-08de7f308155
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Ev1A1L7J3tTPhIpwNklmzur0wyns+OBz3/Flz8Xv1a1JkvcBs97IjDelQlu7U+lbQHHhwFJtICy/ao1QKlXphr+x8WZxD/LDJLtkTo/+Atxp6y9/5EmUwt1PM0cp3AmJ7e+90lnM+kvFrNZdumjp3ob6ggwnD3HtmQxT5GKFXevKsnSuvmDkK2UpnLxByv3ktWRx6QBKoikD+t1R2JmcGd+ftc5aS1QIfUzjA49ALFiCkMhS3rvAWzuBCbst7Wac/LziLOhTm873lvit/TF+5AvLpEFUmLaS5vxgvFSoaO29fGeR22pkLLaiRiCfQKJyWsXZOVkmU4h2ZiumLxSlluF0KUPoEyO/51D8xEFt4p12EJ+IHhD3nQck0nUuQa375dRCdElr4lvZFw6KcmiUQAxXUaSatgYWk4/fchbA0X26WnKnP+fQNjlfc+58eFUY7PM+6guR+368B1VFmlmoe0Bd6TRo2jH2KlCU0zVieVpYfXXQ76Wm3cYooh8gMVd3Zl/N9tqtBnmyQnlf3YHYIjB7r9qqVMH1LEb+vgwJhzba5ICrsYteq7zK+Zf8IHfSs91QMYDvvZ7FQzztAML4B5ZLugPW9vwiMx/UQiE2KHVxdM7DA7sf+DhMqov1ZvqdSWiJVeg3MShPFv4y0qghMjB2Shz8hQ2tc0hvGzaS1J86+HnbpR4nk4rlNXgUbpV2r/lC7QMgklpGwLZS+bTx2rrcWEmJ4ky8/zXHmsYO0uI=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: OrNvzw9H5s6+aT1kTPrCPJyCJiy/6hRq6+Mq2QvrJhwR3khXPxy9qQqsL2qxDuLVG1Tdqf9fl5OYUdWvlj2hTi7Rj5DjJam7Y5NWITmoGE9AgpNsoJYpm92ayUk4Kv45dD6e7tryiOfBdV40mZrN1Tf3/Zb2h0bc4DRFDmDpW1EgD3TQRFUfZOZam38xIELcjviOiKFW9nEO5HTXIeVVWxAlAgaSeI02a4BPH2eDsPXWg7qki854vIfOCBRZAc4CGUqBqOnUTNLP8hbsZACMGSPqbu/UGJXa/TAFmodGQ+1WooLePwQimXNLVNGEoseMwvX1eYKs9Cs7+7c8MakB0W0JP/XAsVT/UYRoXT1wv86cLnkGjS8oWIRK2jrsJ5nSoihXuVbOSfU0lZ/sVdEeQg3IG9pmGWNwi8p+0fZ+PKEdfrcm1NVVo+wB28NBX88h
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 05:39:03.7012
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2684f002-ff60-4306-d63c-08de7f308155
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D4.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4366
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_223526_685953_D5997E40 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20260310_223909_725402_02CCB69B 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,101 +133,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A single AXIDMA controller can have one or two channels. When it has two
-channels, the reset for both are tied together: resetting one channel
-resets the other as well. This creates a problem where resetting one
-channel will reset the registers for both channels, including clearing
-interrupt enable bits for the other channel, which can then lead  to
-timeouts as the driver is waiting for an interrupt which never comes.
+This series adds device tree overlay support for enabling ICSSG0 dual EMAC
+on the AM642 EVM, along with the necessary PHY driver configuration.
 
-The driver currently has a probe-time work around for this: when a
-channel is created, the driver also resets and enables the
-interrupts. With two channels the reset for the second channel will
-clear the interrupt enables for the first one. The work around in the
-driver is just to manually enable the interrupts again in
-xilinx_dma_alloc_chan_resources().
+The overlay enables both ICSSG0 Ethernet interfaces (port0 and port1) in
+dual EMAC mode and can be combined with the existing ICSSG1 overlay to
+enable all four ICSSG interfaces if needed.
 
-This workaround only addresses the probe-time issue. When channels are
-reset at runtime (e.g., in xilinx_dma_terminate_all() or during error
-recovery), there's no corresponding mechanism to restore the other
-channel's interrupt enables. This leads to one channel having its
-interrupts disabled while the driver expects them to work, causing
-timeouts and DMA failures.
+The series also enables the DP83TG720 PHY driver required for the
+DP83TG720-IND-SPE-EVM daughter card used with the ICSSG0 interface.
 
-A proper fix is a complicated matter, as we should not reset the other
-channel when it's operating normally. So, perhaps, there should be some
-kind of synchronization for a common reset, which is not trivial to
-implement. To add to the complexity, the driver also supports other DMA
-types, like VDMA, CDMA and MCDMA, which don't have a shared reset.
+v2: https://lore.kernel.org/all/20260228113203.498839-1-m-malladi@ti.com/
+logs: https://gist.github.com/MeghanaMalladiTI/20e9e661c3e1075694097bc02f5a3916
 
-However, when the two-channel AXIDMA is used in the (assumably) normal
-use case, providing DMA for a single memory-to-memory device, the common
-reset is a bit smaller issue: when something bad happens on one channel,
-or when one channel is terminated, the assumption is that we also want
-to terminate the other channel. And thus resetting both at the same time
-is "ok".
+Meghana Malladi (2):
+  arm64: dts: ti: k3-am642-evm: Add ICSSG0 overlay for dual EMAC support
+  arm64: defconfig: Enable DP83TG720 PHY driver
 
-With that line of thinking we can implement a bit better work around
-than just the current probe time work around: let's enable the
-AXIDMA interrupts at xilinx_dma_start_transfer() instead.
-This ensures interrupts are enabled whenever a transfer starts,
-regardless of any prior resets that may have cleared them.
+ arch/arm64/boot/dts/ti/Makefile               |   4 +
+ .../boot/dts/ti/k3-am642-evm-icssg0.dtso      | 168 ++++++++++++++++++
+ arch/arm64/configs/defconfig                  |   1 +
+ 3 files changed, 173 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
 
-This approach is also more logical: enable interrupts only when needed
-for a transfer, rather than at resource allocation time, and, I think,
-all the other DMA types should also use this model, but I'm reluctant to
-do such changes as I cannot test them.
 
-The reset function still enables interrupts even though it's not needed
-for AXIDMA anymore, but it's common code for all DMA types (VDMA, CDMA,
-MCDMA), so leave it unchanged to avoid affecting other variants.
-
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct Memory Access Engine")
----
-Changes in v2:
-- Rewrite the title to reflect that this is a fix
-- Add Fixes tag
-- Rebase on v7.0-rc2
-- Link to v1: https://lore.kernel.org/r/20251111-xilinx-dma-fix-v1-1-066c158bc18e@ideasonboard.com
----
- drivers/dma/xilinx/xilinx_dma.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
-
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index b53292e02448..ef397cd9ed5e 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -1235,14 +1235,6 @@ static int xilinx_dma_alloc_chan_resources(struct dma_chan *dchan)
- 
- 	dma_cookie_init(dchan);
- 
--	if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
--		/* For AXI DMA resetting once channel will reset the
--		 * other channel as well so enable the interrupts here.
--		 */
--		dma_ctrl_set(chan, XILINX_DMA_REG_DMACR,
--			      XILINX_DMA_DMAXR_ALL_IRQ_MASK);
--	}
--
- 	if ((chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) && chan->has_sg)
- 		dma_ctrl_set(chan, XILINX_DMA_REG_DMACR,
- 			     XILINX_CDMA_CR_SGMODE);
-@@ -1591,6 +1583,7 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
- 			     head_desc->async_tx.phys);
- 	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
- 	reg  |= chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
-+	reg |= XILINX_DMA_DMAXR_ALL_IRQ_MASK;
- 	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
- 
- 	xilinx_dma_start(chan);
-
----
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
-change-id: 20251111-xilinx-dma-fix-bc26a6e9be5a
-
-Best regards,
+base-commit: 0bcac7b11262557c990da1ac564d45777eb6b005
 -- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+2.43.0
 
 
