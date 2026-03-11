@@ -4,102 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC751106286D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3F9106286D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WSs03vKecjzDF1VoMO+y/2LecDhgaBTeL52G3xYHcfk=; b=pAMAXTk1KcqO1NGmso1yUx9oQW
-	th3KDvw/IqQcY76rrc8Ar+/dJb6PM44F+ih32sQgPEkNym/9QaOnBjVKXFB/SfrQdTkW3hQwkI5ge
-	U/7BeF3212YoJMIxQaRlpR0LGrlBPMIHqD1nZ9yp/8HyzfnGjrXOGMHs/0R1pRKfeA+3CT9wkIRtj
-	E+TyLlSJQS+5eBPaIs7MJhGHSyciPls5OABvVzwpJiL5YF2KYh8IlXzq9dbZMW8UNYBx2WZQiP/ON
-	UtGRGeEIuxUIufkeFgA3f1Ov3NfuZgN+2iNz6K4rnzOZrN0SpMfwpPG7cZoJKf9s+ZsmShi4ivrwo
-	6opoN7Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UbmLwNSMuYZAo7fR8QzVYV9He6jTmX1vWthY1/05Emw=; b=JzBGYz7At15Wm34EXV46g71f5g
+	saZ9FLwU+qnxmXSS6Brn64d5YkHehIOwHmDwtQl7s/ngqpkXRcMPXSBVStvviS95h2YjAmWGb839q
+	InLqJpLakwJbbfC/y3gpmtsiAkfZubyWmVJGR+L8WCgazfJ8YNnxhGYQMsvH2TIsnrb0M680V0VGe
+	gqGVk1sWbEQYyTr3Gp7SETwNqsfSjH/3NVYmXVpfB3q3QB6NaJAaKmgk15VOTTIg9+GUY1P4PXzVM
+	3ttwTUCRTboZ5ja2K1EhWhxHxMUU2ADHt8TSX7a3gZUZ730D0R3/nd2yUxKkOwD1V285+YwSL+tYj
+	ZIZU83Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IFn-0000000BX2L-3l4I;
-	Wed, 11 Mar 2026 12:01:31 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1w0IMx-0000000BXS8-30sH;
+	Wed, 11 Mar 2026 12:08:55 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IFl-0000000BX1j-3Z7o
+	id 1w0IMv-0000000BXRV-0Frh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:01:31 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-662b5bf4b10so3942726a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 05:01:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773230488; x=1773835288; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WSs03vKecjzDF1VoMO+y/2LecDhgaBTeL52G3xYHcfk=;
-        b=ysu4nYTL8ENxQoITNgl53+MorRcKlwT/b3PQ55xWji1QXy+axStbQDWSgAKHNywrDt
-         95fmALH8q+Yv78hb6gup6hW70JLOBxJgNrAl/R6u0k7h3DcEsLdNMunn9an3x4TL4YmT
-         4ueX39PPdw0r/vf+Y6FMWT7ZmmfcLfshdLY5BDriN0Tgycs6/Cj1DS8YPCgP7ezkZvyo
-         GuFWKTM1MaOtIb2ipHIIJ15uyPem2G8OR4oAvmZsINU9LWJzCGZfq/hFfgrvK0TyHYxH
-         pDlGN8yzbtZZ/I1EiTrQayIp23fqaavEgjhCr8hBRJc3pTjsr7UUG1ejM6mmLmmWjsfB
-         4tyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773230488; x=1773835288;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WSs03vKecjzDF1VoMO+y/2LecDhgaBTeL52G3xYHcfk=;
-        b=HiCpZM7FkbEWNWCFf0C9iAxz84nOsNYHPcaw5j3bK0uQoWV05C5fuqv1RW92VjOZzf
-         KZbJbCERnTnZgoOJm1fjmwyutGRkmZC3QUlEEEwMaLKY+fhtKeMQTNGu6A0nQIQNjMKT
-         tJNUvqQByBmt439mElpGpHmhS4zGeGGZT/uIaTcjhfd+r804IIM6GbYsV8//imm88wVT
-         +CDq5VE/dSSbkDPtfJM4Dsi4AsjAuUQTVZkTD3cMOmalmRjWg9BX+Ui8m7dZFW2r+LL3
-         BtMzqcu68NWkQr2NhGwFVA8t4iaVJW1WOBCWT3m7H7iSgUzAYyVXmt7x3jKeA9e/8bkv
-         24dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWRqnmgGfzrcW8S640cUYSKvYD6BTS2xvY2zEkUkwM8+VJpDW4vdI2ewx0FIIshyHeKBs3IvSoLbbywWZ561RdE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyBM+kluJDCkZRmeRKo/67teo4VEdosrgUmeFwuq/CWB5H0vuw
-	MaQzOxgkbfEhwkM605c9/2WMGNqAwd21t5CWm97y07oPnpLPLcFlvVamvXzqSAr44m0=
-X-Gm-Gg: ATEYQzzB4k0laeZlFUTHBMCpkqpWCTGEkS7Nta01bEJjOfKqEJOohWrDTrtyxO/rONO
-	CP7Ko+G+xwpAE+yp/ZCHfl8BTZbIpjW7LPBWUGrCa20+Av8u4JbekeBKaRfBugyZYdFSnlIgg8U
-	yUEZBPTZPhQ/uH5BE7A9qbaX9dhFxYELWZ+sRbDxVXtQuHNMx+k2VYBoE9zvDSi1TJFCrZdUBKT
-	JMB8rzckNiLSbQqKyaJQooo25znHj94J0R03y1n94CMx+1Dudtjlc5ffH4w3tfeC3VX23RYk1Cn
-	fG+jPr966v8b98Ehjh3xTQsklUH30fpyxzJeka8YbgZFBldzQO3sKuslqtJ2GndY1GBq598KONx
-	zM0dn1zw+RizxuPlNgRhi/WMnWqTC/VpP7HjRQ/tLLR+PTQwBgrg//FtGazX2trwtI+1P+kixTy
-	40zKwV4Na6gk08r/w/2Wu/Mu1VNzg0
-X-Received: by 2002:a05:6402:3514:b0:662:bb58:602c with SMTP id 4fb4d7f45d1cf-66319ee3efdmr1270923a12.29.1773230487607;
-        Wed, 11 Mar 2026 05:01:27 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6631503c903sm476518a12.20.2026.03.11.05.01.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Mar 2026 05:01:27 -0700 (PDT)
-Message-ID: <68a93eb5-24df-4b73-bd1e-798dc32b7e86@linaro.org>
-Date: Wed, 11 Mar 2026 12:01:26 +0000
+	Wed, 11 Mar 2026 12:08:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FwlezUyiczuxtX2EFfM7eBEF8SIAir0/lbP2IV0C/Fruvw+MUpUmVdI0Mr2lvtUIBmtwAUBpfRZBUv2T3Xs2Ebr4eazDbte9Nd7M3euT9D9KzuCVjODo5idz9KrOkYO2lCe1N2zkUsxizuhG9mhigA7vEy2TYF144KVXKC/gI2U5hcSeLKlSBulrcQTGp8KEZzCVm2UZ0wTIITB3KzykrdK0ZHgEvBQ8VIs8WFBMVf7nv5HVuisEBD7jCUm/qF1iUmCxh/866h/eb350HX6lb653MkV2ffB29wyhEnxbGkcsntyb7fxqROGWKkRgdAgy75n5wLJtxvkc4Radzemjlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UbmLwNSMuYZAo7fR8QzVYV9He6jTmX1vWthY1/05Emw=;
+ b=jiMSJsrZr4zrLv87N3r7oQMJ7v43sDirKQk2x07mX4Mat5h9h8LR641E53BkMRU3efvt0MR3kPSrUK8SbYShU4zF0QnD3G8hu3ypkUARM4Fn98swhChj2/7LRJAZDwPaP2UK66e6z76WC+1hHf3W5eo5AgEORmy6tK4gvr/fuo/wJAHGH4cWE2U0asfufOtkGJWM7jPEKdYslazz0v8rNDBuECGKLNbud3AdsFBt+p1wSy13zF0JO7ZkfYbro3gtyI9jAzON273x97n2Iq0CSQCpwJqEn0hE83oqyLaesPe/Hbhr1SeNHNj/8vewTR+rfQOOkqu7/feVhPhaLvXe7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR01CA0025.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:58::13) by KL1PR06MB6580.apcprd06.prod.outlook.com
+ (2603:1096:820:ef::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Wed, 11 Mar
+ 2026 12:08:40 +0000
+Received: from OSA0EPF000000CB.apcprd02.prod.outlook.com
+ (2603:1096:300:58:cafe::3c) by PS2PR01CA0025.outlook.office365.com
+ (2603:1096:300:58::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
+ 11 Mar 2026 12:08:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CB.mail.protection.outlook.com (10.167.240.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 12:08:38 +0000
+Received: from ZicharPC (unknown [172.16.64.205])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 562E54350703;
+	Wed, 11 Mar 2026 20:08:37 +0800 (CST)
+Date: Wed, 11 Mar 2026 20:08:36 +0800
+From: Zichar Zhang <zichar.zhang@cixtech.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, peter.chen@cixtech.com,
+	fugang.duan@cixtech.com, jank@cadence.com,
+	cix-kernel-upstream@cixtech.com, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: gpio: cdns: add clock-names property
+Message-ID: <abFbRA33DtDdZ2j+@ZicharPC>
+References: <20260306093238.2715269-1-zichar.zhang@cixtech.com>
+ <CAD++jLkueX=qU3OY3z=ANA9pd_irWjdf_Czc6RSctzr0MBftQQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 11/19] KVM: arm64: Context swap Partitioned PMU guest
- registers
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260209221414.2169465-1-coltonlewis@google.com>
- <20260209221414.2169465-12-coltonlewis@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260209221414.2169465-12-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jLkueX=qU3OY3z=ANA9pd_irWjdf_Czc6RSctzr0MBftQQ@mail.gmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CB:EE_|KL1PR06MB6580:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b3c7288-70e8-4106-de7f-08de7f66eddb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|1800799024|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 5veBnXOdcL9Z1kW+M+uY7RMZP7dXD18OVwbTuyePOMiNTzX1PSm5rm+JIBLs3kOKJk+Gv3Akei26xSWh4AuxRg3Uc17wGPFiW7FY1AtaUqXGXrbNFvHcV67MoIT2CarW4InO2x+Jj5jSoAOZnBw8iibuPW6DquKLAb2OY63eFDiCwrGAJb7PoQjpGZgSX8MWkw70hQW4sZtW3AN2kRZB/CU1xoYfjg7iQwGIDfMkkbOCkniUm3z5SfV82rEPR14J5qakx4qdvCADWxIp8sOM8h7eJWx7a3pX9XcMb/eGsj+Q8x8GIuWMrWCww6bDOm7X6KBrPwyoxqbFXnPf4wOJ4RJLBEZcLVTjIVUiDIj6bPPY2FadGXSCvSPQq8EPnwsb/2kHqIyj4qMfiTVEZ0cFsri7pXfGLeYDxEAVOigtfWMhcWzn6ux3PtWL9i+YIwpsU0P2WdkQ29mi8Z/Uo6vSn4VbWfmSZ4ZtmHWMWxh67J4fAbl05PxAyy+WNeoYt3ACarG7x0noh12mLHLSKknYJlm7CZk/U3UNuKaFS8iGEGd3h4X6m8wYZCzkjVUspY21ACy5YlbW7OLBhmZLiX6fZgZPbGa+IP7UWl1oLdsxl240EqxgAyQj1y0FtQ0rR3CPux67k8hqgynGD12UyaNf6VwN/dWUp6QoEc+o/ZAde6EM0cfgaEHEF8AutURSEMVtZn+fr2ale5K2u592uS8aeoazI/Ihg1k6uguFPYqqAuJGn/0nrXEJKPzzMi8UQ7eOyNWNN4cMEAvkmjCQeyY4dQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: HbiiV0aSISSIrX/+fymGKXyGCLz4qT5Z4yaGF+xN75f0E/XPIzAVmw3gWGZbYwUJWgntucnKSl2HokEvY0lDiPOqF0cLl84dH75ulVBmAgdJ/5cdfV06nAO9tz4tIDakFK6Ai9PZVhZ1bRo3u2OTdqJrFBVNRsGHiiKLiaDEVa10Pk3yrdoF1nnuNqrFqiisSEqhrvOXYvEUgL67mPSmNqWOdWKXcIaBGQ+3+X7JLCw9rTEu8l5Yuoc3q4zBpJnFQpwOoAen2rRtgRqmgJzVM9bPJtqmoug/g1PTtV7uYFxUps0F1fLUQFBnjZx08K8KuKeQiTm4K/IOvWRZ/P5fnFetZEmJDtGMFAngncLsT49rLf8FYby6qeEV258W0EQMmZ2Th9HwcqBWrRRmnEDDaGjWk1IPBoIXFjPFJC1thTxMPbppJOZdJAEMlUFY6zbR
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 12:08:38.3024
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b3c7288-70e8-4106-de7f-08de7f66eddb
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CB.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_050129_920903_CD3C0D4B 
-X-CRM114-Status: GOOD (  25.26  )
+X-CRM114-CacheID: sfid-20260311_050853_097758_5BF7AB96 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,120 +117,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 09/02/2026 10:14 pm, Colton Lewis wrote:
-> Save and restore newly untrapped registers that can be directly
-> accessed by the guest when the PMU is partitioned.
+On Fri, Mar 06, 2026 at 11:10:35AM +0100, Linus Walleij wrote:
+> [You don't often get email from linusw@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> * PMEVCNTRn_EL0
-> * PMCCNTR_EL0
-> * PMSELR_EL0
-> * PMCR_EL0
-> * PMCNTEN_EL0
-> * PMINTEN_EL1
+> EXTERNAL EMAIL
 > 
-> If we know we are not partitioned (that is, using the emulated vPMU),
-> then return immediately. A later patch will make this lazy so the
-> context swaps don't happen unless the guest has accessed the PMU.
+> Hi Zichar,
 > 
-> PMEVTYPER is handled in a following patch since we must apply the KVM
-> event filter before writing values to hardware.
+> On Fri, Mar 6, 2026 at 10:32 AM Zichar Zhang <zichar.zhang@cixtech.com> wrote:
 > 
-> PMOVS guest counters are cleared to avoid the possibility of
-> generating spurious interrupts when PMINTEN is written. This is fine
-> because the virtual register for PMOVS is always the canonical value.
+> > +  clock-names:
+> > +    description:
+> > +      Optional name for the GPIO controller input clock.
+> > +    minItems: 1
+> > +    maxItems: 1
 > 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->   arch/arm64/kvm/arm.c        |   2 +
->   arch/arm64/kvm/pmu-direct.c | 123 ++++++++++++++++++++++++++++++++++++
->   include/kvm/arm_pmu.h       |   4 ++
->   3 files changed, 129 insertions(+)
+> I think clock-names: true should suffice, but the binding maintainers
+> can say how
+> they want it.
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 620a465248d1b..adbe79264c032 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -635,6 +635,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->   		kvm_vcpu_load_vhe(vcpu);
->   	kvm_arch_vcpu_load_fp(vcpu);
->   	kvm_vcpu_pmu_restore_guest(vcpu);
-> +	kvm_pmu_load(vcpu);
->   	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->   		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
->   
-> @@ -676,6 +677,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->   	kvm_timer_vcpu_put(vcpu);
->   	kvm_vgic_put(vcpu);
->   	kvm_vcpu_pmu_restore_host(vcpu);
-> +	kvm_pmu_put(vcpu);
->   	if (vcpu_has_nv(vcpu))
->   		kvm_vcpu_put_hw_mmu(vcpu);
->   	kvm_arm_vmid_clear_active();
-> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-> index f2e6b1eea8bd6..b07b521543478 100644
-> --- a/arch/arm64/kvm/pmu-direct.c
-> +++ b/arch/arm64/kvm/pmu-direct.c
-> @@ -9,6 +9,7 @@
->   #include <linux/perf/arm_pmuv3.h>
->   
->   #include <asm/arm_pmuv3.h>
-> +#include <asm/kvm_emulate.h>
->   
->   /**
->    * has_host_pmu_partition_support() - Determine if partitioning is possible
-> @@ -163,3 +164,125 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
->   
->   	return *host_data_ptr(nr_event_counters);
->   }
-> +
-> +/**
-> + * kvm_pmu_load() - Load untrapped PMU registers
-> + * @vcpu: Pointer to struct kvm_vcpu
-> + *
-> + * Load all untrapped PMU registers from the VCPU into the PCPU. Mask
-> + * to only bits belonging to guest-reserved counters and leave
-> + * host-reserved counters alone in bitmask registers.
-> + */
-> +void kvm_pmu_load(struct kvm_vcpu *vcpu)
-> +{
-> +	struct arm_pmu *pmu;
-> +	unsigned long guest_counters;
-> +	u64 mask;
-> +	u8 i;
-> +	u64 val;
-> +
-> +	/*
-> +	 * If we aren't guest-owned then we know the guest isn't using
-> +	 * the PMU anyway, so no need to bother with the swap.
-> +	 */
-> +	if (!kvm_vcpu_pmu_is_partitioned(vcpu))
-> +		return;
-> +
-> +	preempt_disable();
-> +
-> +	pmu = vcpu->kvm->arch.arm_pmu;
-> +	guest_counters = kvm_pmu_guest_counter_mask(pmu);
-> +
-> +	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
-> +		val = __vcpu_sys_reg(vcpu, PMEVCNTR0_EL0 + i);
-> +
-> +		write_sysreg(i, pmselr_el0);
-> +		write_sysreg(val, pmxevcntr_el0);
+> I would suggest to also add:
+> 
+>   gpio-ranges:
+>     minItems: 1
+>     maxItems: 32
+> 
+> At this point even if you're not using it FTM. This will make it
+> possible to later
+> map the GPIOs to the pin controller and control pin configuration from the
+> GPIO subsystem.
 
-This needs to have a special case for ARMV8_PMU_CYCLE_IDX because you 
-can't use pmxevcntr_el0 to read or write PMCCNTR_EL0:
+Thanks. Given that cdns,gpio.yaml already defines "ngpios", would it make
+sense to use it for the "gpio-ranges" definition?
 
-D24.5.22:
-
-   SEL 0b11111      Select the cycle counter, PMCCNTR_EL0:
-
-                    MRS and MSR of PMXEVCNTR_EL0 are CONSTRAINED
-                    UNPREDICTABLE.
-
-There are 3 separate instances of the same thing in the patches. I was 
-getting undefined instruction errors on my Radxa O6 board until they 
-were all fixed.
-
+Best regards,
+Zichar Zhang
 
