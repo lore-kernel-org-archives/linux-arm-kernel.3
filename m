@@ -4,86 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B568F104951F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9181049521
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ttxazta4+9VArSIS1TYkCKSJ97bHw7VqLjcIgzTZGIg=; b=VLcPsHGjRts2c4PaWsp8cKMTem
-	YGEznvmVsoKuPBnlpxuCGhhVw4lTjVrMFaFyavHVNi2AS9AhSaxZ/qYC7j97UzakskbbHbXr+wv6v
-	PY+6q1ZQOKE7Zx0EPhYaZIrZbQcui30i6eKOFtG8k/pQ/qNbb3g0egtZcRUNncUM/ilgQ1zfhbvGW
-	p0UlQMxemLaw+0t639k5Z0tj04VBgLuW9CNxyRJuTTcljQlrs6chyxfMlkA3U8pDWwzYW0FmVeap2
-	PFKFNRWLh/3yTWHAH3d/uvRKbnekS/XlV0cfmf8JpL3YuWGtZfJfP2iXyDJS7EKGW4dCvCpZDUE1j
-	tEqcYN3g==;
+	bh=1m70zge5P+pBYJ/OnO/PjZyStjUy5s+UhHiPEnyjDXw=; b=KBfPyx0fFYizTWqfwHSx5CW1b0
+	5NZlWBpeh7w1dvUe8hjtjbslfkMdSODGuvF8Pobs9eyeiLlM+vszadbA63LT7SSxcfmpLt0hvJ6Dh
+	BoJ7qMK/f9TR5ekdl8/Qf9MHWwafdDCmzDHXEnuaLSLA3wTV0nqgzjlWUrc0VCEnJ7QHx2I85Hx0A
+	WenVx81a5C0s1k0y0C6WlJ4WT+w8CjuUlxhDzVCascVRwUY6xpbrbjc4F/6b6Xmle3AePoq6rLCGZ
+	TgftVN6hOjxK013NFxqexUJh/6zXJRB9cspm3+pdqR7AqEXaZ0I0omsqJWsfboughtTSbV0S/qqib
+	tpDoCMvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0G7e-0000000BIxC-3DZI;
-	Wed, 11 Mar 2026 09:44:58 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1w0GAy-0000000BJDt-3bfR;
+	Wed, 11 Mar 2026 09:48:24 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0G7b-0000000BIwn-468i
+	id 1w0GAw-0000000BJDU-1loG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:44:57 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ae4d919f9bso63759845ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:44:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773222294; x=1773827094; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ttxazta4+9VArSIS1TYkCKSJ97bHw7VqLjcIgzTZGIg=;
-        b=k1NPYeCuahG9BiM9azMPBheexBs6yvVa9hcIxMt2LZ3eI0UDqa5r1Pzpn0SqFDaZQP
-         tK0vMEgmsYfb7qvKme7eroH1IILtd/kFY61225OPMFtjMaIhrIlmMWdoDg2nhkXjM9E9
-         tTVVmzJEC6QhGkT3AkhgpoXQQpvQbfvyT0/B3AMp4o2CAwnsbwM/Cz8ooEqKQ6nuxvN1
-         m3C3YJJw5mFkc1NDWquervFikVsFlUVrrtfh7cyN+RNWe/el1sGklryQCuJlwQyxctDC
-         YmXAt2ZbJ4cE0W3VXE0+LiKSGl6QDI9Urn150WCpfKbiByhl21Ce+na0vLFLTgbUSFx0
-         +Iaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773222294; x=1773827094;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ttxazta4+9VArSIS1TYkCKSJ97bHw7VqLjcIgzTZGIg=;
-        b=O41AgVgjCoA1anZMAoQk7+rTrYgOX7aXPCJiZwqrriv4QIA+Ecgd/uEvXxT4J78wib
-         s1sTkICu0yypVNJ88wdXNHxskeu66uAWEd81BTm6a0PIQJnvsDqpVamrjVCArZdbqYuT
-         y8A/Byoo6yqsBnSGtqw7bFLb/gQ0EhrK2HRLqKDRmlZYYxsXW/t1wm8kRgtSd5s7QBRz
-         BI7NUySRgulU0D8CC+rcuWFF7+pD2bzCRI04AoyOYswqpRhUd/aqyU9x+lY7oL1HKJvy
-         yW9a5reQuqoN1qQy+RxXjlhbzbgEtD6zNWUlzk6sZFrel4LPta6ubL2f89ewKq1KJ/7j
-         tEQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUTiJK4IjRzwdFJodENCqb6dOP+apH5ddyL3AFc3mqmq8QqCq+M4Tzeg11kugZgzNMS1rxWY9lzHx91uQQm7ONV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkbCgqT/kzgptHI6EAdHPgouZKXUEp5cnDd8iwYt7Q6T3Xd8BQ
-	qwv6cMSHidcGnxczLEwyjdNLMgxIwxxF1eUHUXpDTfAgqOVjeMmiSV1I
-X-Gm-Gg: ATEYQzx6aBf8HoEpnjXcVXZTga1JVfsph0E7vbfj8b98w338AcnyVhmXDXYAmOKyTH+
-	ptApIaaKZx8XguBGHNQdhwGWPK9/eikxN+xqGUxcotm9SOr+bJaaxWghYeotrzxMzPKfvdoHgSu
-	W2yJ6v5W/FPwtND0ueB6wuTisUDKNB7HV3ToMxg/z6WK7lu1gTHP9jqjeIEUb23ptuuVLh0wg+0
-	cS4G4mZlnWLdFEYM1ueVSTapppzgCBkIG9Y+slkZQeMsLrVe6YxxuK3CQ7UfvL8WQam/2RV3Wlp
-	u7Uw8a3/Z0hLVtW8TDj2FBptfBrvMcFfkXZYAg4pTTGGu94R6l91HTnoPPZIv6J07NPwZ1CEhOZ
-	+ekaXHxj1U0GqqU/e5fozNfTDV+Z5IadRuIeLZNV+sSM0J7Y2VOayBqqxwG//eUcykHaWNShwIc
-	huo/2togZm/+j7fyfagUAWsmuzy26urA==
-X-Received: by 2002:a17:902:d4c7:b0:2ae:4dce:7e99 with SMTP id d9443c01a7336-2aeae7b4ed9mr19716495ad.20.1773222294132;
-        Wed, 11 Mar 2026 02:44:54 -0700 (PDT)
-Received: from arm-server.. ([2001:288:7001:2724:1a31:bfff:fe58:b622])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aeae246751sm18109015ad.23.2026.03.11.02.44.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 02:44:53 -0700 (PDT)
-From: Cheng-Yang Chou <yphbchou0911@gmail.com>
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
+	Wed, 11 Mar 2026 09:48:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xnHuPFdJUBzY+WpMiTd8xNS7CLQueueAeWo1s2PWPQGuquZxfUvy1P1Y1BCE1hMXXHR4LbO1G3X0jnyGeyn7RcO2kiklK5wtsdUjMruDBRU/METE2+rYoPahYf/mcTTra4eIr6ja7CBo1jJLeACNdng8ZhrxFMcsD7kE6uXBchPDl10EYRIJazzzpsPl23nkLboBLZPGZsIfuY5goH41X0z2hv6K54OH4R4vx1rY4qQcCH7jmU9iBD6Kvi3KpuPxhNfUwTYepJSZHgGFrPASkkVXXOpu16TSMVVYPANCjAJggkltKB/eCOYei+5FUPXhahZpaJajxLRFnqRQd2H4aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1m70zge5P+pBYJ/OnO/PjZyStjUy5s+UhHiPEnyjDXw=;
+ b=CEH0hqbpheJGI908iHstUeDWBDRZup6G+5MURBTBS5Rwvl0Tf3a2u9xxiKTdnKu12y9WY+43EnKQOJV+4uT/mGrkcl+nSeZkiuGjIw1e/jbaXfhOJfShfFsgcpuLpLu0hpjCz4zckomXhsJtbZOly1n7FY7Uyaxr67Hiha98ajQwj5/HQuaRuErOW3PKDLMrdphBDpABRMZKjt79N9dwKQOD4dtV3n2XCFUloyVAsaAwaUhzlzj4tYMLUork5Dqa8etBwdEF6nwSP1RBP3ydGzP0yFK8cBBCyYzxu+Fgmh23JQynGUMmIfUZ0BVJHHXu3Lozsw2Ga8Kk3ukmDTnA7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1m70zge5P+pBYJ/OnO/PjZyStjUy5s+UhHiPEnyjDXw=;
+ b=IqxB/pVUjtXdBoRFkLi+G80S7glAPaUDwQzrMa275ZM9QQ6Gm19zEm4Eb5e806zl5HBXthuWTlBbf6dTun2EzzL29pjajF01dipbkGbQfI8Zy24LzrMmKWI94XPyEzxGPt78UwHy5hJKtiqkCVZ0IqInmZ29gQEOpJxmfP5ZQ3B6y13G81cgCOomMUZwgY+A7uSvdRib7l0Nq5irRbg80h75P4tCWlPfAOk7tanpjXjqsMzACdZf9dWvCy7dx1OCiiXAMLLQ8wDpOSqwiMEB4XZq236OsRrkYYbA5J7uL2RTxbHoFSkKu4EiHBEWAO1YGuhrlKciAMep3XdxAf8nFA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
+ by VI0PR04MB10418.eurprd04.prod.outlook.com (2603:10a6:800:231::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Wed, 11 Mar
+ 2026 09:48:16 +0000
+Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
+ ([fe80::32c4:a8a7:1724:b754]) by DU2PR04MB8567.eurprd04.prod.outlook.com
+ ([fe80::32c4:a8a7:1724:b754%6]) with mapi id 15.20.9678.023; Wed, 11 Mar 2026
+ 09:48:16 +0000
+From: ziniu.wang_1@nxp.com
+To: adrian.hunter@intel.com,
+	ulf.hansson@linaro.org,
+	haibo.chen@nxp.com
+Cc: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-mmc@vger.kernel.org,
+	s32@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	jserv@ccns.ncku.edu.tw,
-	Cheng-Yang Chou <yphbchou0911@gmail.com>
-Subject: [PATCH] iommu/arm-smmu-v3: Allocate cmdq_batch on the heap
-Date: Wed, 11 Mar 2026 17:44:44 +0800
-Message-ID: <20260311094444.3714302-1-yphbchou0911@gmail.com>
-X-Mailer: git-send-email 2.48.1
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/4] mmc: sdhci-esdhc-imx: add 1-bit bus width support
+Date: Wed, 11 Mar 2026 17:50:05 +0800
+Message-Id: <20260311095009.1254556-1-ziniu.wang_1@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM8P190CA0015.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:219::20) To DU2PR04MB8567.eurprd04.prod.outlook.com
+ (2603:10a6:10:2d6::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|VI0PR04MB10418:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea1ac11b-a815-4677-477b-08de7f5351b3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|376014|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: OnuQuYtoR3KzqMjFnzQOlwSGO8IIWxjjx737U0ihKNv6DHYmo3gWbJ7CMWWCdQxpCJEqvggTQdhlOnieEjlFahqGYsbZaQfvnGtNRAead7jvhynVGAzXQ1dAHqpApc28SEt+RgaR3Q7uAhybw5UVTndZGZsG70qXHNX6YAUtq6qXmlgY2L6uB4uq666Kl5FLv+Xmwo0WNLTaQutMAkl16zAKmdJ7lSOSoNLiuwKMH6Hq4FdIZCqhRGNh8fwX4j/8+4l1oKHiAk02CJmEgxC1mXb2AHU2r3a0qvZLjUaCkAXmwBVKrukVGpdBuiLeCM5k5f/rIvJjCZYqx7iwPBMDFfdLQljZ2nXjA7+hIHtwCJpIcHPdRD69A+IGFVklbAPBMUkptcM3r9w8yOaZ+usnYrlNOHueJYHiANeAQAUD6ckTdW9FkYzoGh2kvE/aK0sLp5r4BUtawPukTlvvg8FWiBzfpMU/YGlY9CBXQFUYirqF+hknydRObmSTNng9Fxugo09RXQfyWLre+2FpA6MHYC0U4SNjJOe5x+tGbVHlFI9zhs/o2Hec8ZG3Mxn1/5dc/jcp9AExl4aw3Tu8CJX7EMGNN1JHk8M+/Q+d93VLmWrwUq7JgeIc2x9Wo3I67yftqGD4Mve6nh349Z480aL1QFKMMZGNhwWFNW410phUmi9esbiUWStAfyTPzOp8rDW1+n4CUh26Ou0n7rurQ8G2Dq/6bRc//JvhJdefKhuFgxuO+OnuNmXPYW3podJ0wN+4yyN0uHJSxLwO+W8Ml22GW9Htpwt8ZWmHiEI97Ld0LnQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(376014)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MUuZutbKzhj//jqLM+AFQHM1UWyI6Go/8/i7bxb4nX5P4a9eGSMrczgx2xPI?=
+ =?us-ascii?Q?5YhjKKNvR+pMmetX/ZFbiCkSwrxaComn5yzzxRfz0jjI7BQcjitwrnEhrevW?=
+ =?us-ascii?Q?96+SM4ohRmx3r6KzMYg5huJclkTwUuWN9et2WQjbOc5nq/L96ndWBKK1CI3y?=
+ =?us-ascii?Q?YAWDSExQJIg3wVe9GY1OssEYE9pGDtjF+wle6Yr/c5pkJh9UVzDrw6RKq/VX?=
+ =?us-ascii?Q?Wp6BAH/AKIYLVS6fyazBp4xqGPyGTBy0rrXCBDbbbtouhpONYqXCQ2lTWyp4?=
+ =?us-ascii?Q?n4cMh/Jp8W3+mzNtYKkfMSXqBDBHiXPpNjILH+VEghZ1XAsD4XIn4QQrDRI8?=
+ =?us-ascii?Q?Lqe+rIB+OCYsFpTEwZzmlNSV1o+DWKvRelSfuzBrLQXbc00j/AjJyHH2E4rD?=
+ =?us-ascii?Q?mePzpqcGxD+vQefMtpHCKq67Rz86P+60Tb3VkM6vvG6lWfhcOWD2as83rKrO?=
+ =?us-ascii?Q?lOjiZzHQbbSgohKAGuhsTbRNwJzgMtxvkdosVvEtEaN/sK/PPeS36/r8N6Yq?=
+ =?us-ascii?Q?onj+TDueUGQMG8Rm8tfZnH2M/APAnL77NwzHIK7aTdgQNdThzLlMRU6wd6rJ?=
+ =?us-ascii?Q?A57U69PWBJRT1nvwkSPxXd7jWaKfKrN4MAvYPbRu8ZAyuWEIogZLLH4vbAhC?=
+ =?us-ascii?Q?U5RPlOTydlnfFATuZAufc5oVVSuG/f38udE25yg8ljP139Q77sCrnNbKUe2c?=
+ =?us-ascii?Q?QX2rp2iubai/u1m8qkV00f9WXKVmGVECCWzmHhM4dPFFbbJob8wH4mPgj8QL?=
+ =?us-ascii?Q?GnK4i99w7Kltz7ZKD+bL8jW5/T93Pw0RflGglI1TRsErggfPGND1nTcU2JHs?=
+ =?us-ascii?Q?S6YUrP3+E1q9EmDzhTDjMnnoXbNA+B+YmCnqeLXGhnIpmlqBs9ReZ32mIOWi?=
+ =?us-ascii?Q?4zFqXgHRi3CfXaE7unTV1DeMCU9oL1vW9wWchkpYvJsJo5BG5ETj99VunGrq?=
+ =?us-ascii?Q?Ot6EsEmS8PiHekrpeqoX3jHYRnPmWprTBVMGrYW/QvIADfujpnOHbMp+mtr8?=
+ =?us-ascii?Q?JQWoB3NqNOZcjCQryW8SCUHJMRKgMjxC2c5Op2bbZuaUVLlkF0R1m+npluft?=
+ =?us-ascii?Q?dEE+3BhRFfDKi2emt7BM90+FZEmNW7joLYCy0fFojz0hMUYq0UGHhTKRTrOZ?=
+ =?us-ascii?Q?DVZefVCHTD2u7Eie1ofWjIukQ2FToLWO9QBILVdWvPKJGn7xIau0+h2XX0eB?=
+ =?us-ascii?Q?mUw66uoNxMGcCrkiCgwuszKOevTY4gbzF+2t4Fk4EJdWGuz2+P3CsTZEEqwS?=
+ =?us-ascii?Q?m/+4LhYCHNKXCFZHBiMAucyePUmLU/PuUb/CHM1nqMc99u9NoJdBmAHlxo/r?=
+ =?us-ascii?Q?OC5ven/XI1NN9oT3ZtjOw1wJHgr6e0njj+ExL0BPMB6AiaCiAQOX6Nng+dhb?=
+ =?us-ascii?Q?6RldhB95axE60AqBrICsYKvarfoDv/Z8L2qOVw6kjjtWeBT1UCn+RyHFerch?=
+ =?us-ascii?Q?dWnZlyz+ywBGQSowNCGCxtj8jss5VbfJNKGP0SCWlP1EOEE45U+BYdzRw2TJ?=
+ =?us-ascii?Q?dKop/Bwzrak/QY6QdViOIIkdfPtHN9auKddo4uB13MlmjaDUqwyp9odGXBm/?=
+ =?us-ascii?Q?3cUZWuvRN+qFWcQs65kTWM2K25ulggP8S3HCExRuK5EYoBiO6x4tymRGteeu?=
+ =?us-ascii?Q?82VglmzGPsngQ0NsFPDsjpekoHov/xC06YkMOAqxeH/YQudgYMlVK7k58kU6?=
+ =?us-ascii?Q?GbMfzOsHbRPPZ9y+JHaUJRoptN30EjSlw4wosz+YtAD9p83rSfPRXktPn3g2?=
+ =?us-ascii?Q?gYF/QWzKcA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea1ac11b-a815-4677-477b-08de7f5351b3
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 09:48:16.6960
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fghwNmrytTM2fSwJfo4YxX23qBiwtZGoDXkV/gJgRf507SaDYAoenaUDTPlHRl0zgtV5VWNU7CbbUyDXIMjd0g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10418
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_024456_024275_CF613E92 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260311_024822_499352_B34854E5 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,179 +142,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm_smmu_cmdq_batch structure is large and was being allocated on
-the stack in four call sites, causing stack frame sizes to exceed the
-1024-byte limit:
+From: Luke Wang <ziniu.wang_1@nxp.com>
 
-- arm_smmu_atc_inv_domain: 1120 bytes
-- arm_smmu_atc_inv_master: 1088 bytes
-- arm_smmu_sync_cd: 1088 bytes
-- __arm_smmu_tlb_inv_range: 1072 bytes
+This series adds 1-bit bus width support for sdhci-esdhc-imx driver.
 
-Move these allocations to the heap using kmalloc_obj() and kfree() to
-eliminate the -Wframe-larger-than=1024 warnings and prevent potential
-stack overflows.
+Currently sdhci-esdhc-imx doesn't support 1-bit width because it
+doesn't call sdhci_get_property() to parse "bus-width = <1>" and
+set SDHCI_QUIRK_FORCE_1_BIT_DATA quirk.
 
-Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
+After adding sdhci_get_property(), another issue is exposed:
+mmc_select_hs200() returns 0 without switching when 1-bit bus is
+used, causing mmc_select_timing() to skip mmc_select_hs(). This
+leaves eMMC in legacy mode (26MHz) instead of High Speed (52MHz).
+
+Fix by dropping incompatible UHS/DDR/HS200/HS400 caps in
+sdhci_setup_host() for 1-bit width, and clean up duplicate code now
+handled by common framework.
+
+Luke Wang (4):
+  mmc: sdhci: fix timing selection for 1-bit bus width
+  mmc: sdhci-esdhc-imx: add 1-bit bus width support
+  mmc: sdhci-esdhc-imx: remove duplicate HS400 bus width validation
+  mmc: sdhci-pltfm: remove duplicate DTS property parsing
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 +++++++++++++++------
- 1 file changed, 48 insertions(+), 18 deletions(-)
+Changes in v3:
+- Keep SDHCI_QUIRK2_CAPS_BIT63_FOR_HS400 check for SDHCI_SUPPORT_HS400
+Changes in v2:
+- Moved fix from mmc_validate_host_caps() to sdhci_setup_host()
+---
+ drivers/mmc/host/sdhci-esdhc-imx.c | 6 +-----
+ drivers/mmc/host/sdhci-pltfm.c     | 7 -------
+ drivers/mmc/host/sdhci.c           | 9 ++++++++-
+ 3 files changed, 9 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 4d00d796f078..734546dc6a78 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1281,7 +1281,7 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
- 			     int ssid, bool leaf)
- {
- 	size_t i;
--	struct arm_smmu_cmdq_batch cmds;
-+	struct arm_smmu_cmdq_batch *cmds;
- 	struct arm_smmu_device *smmu = master->smmu;
- 	struct arm_smmu_cmdq_ent cmd = {
- 		.opcode	= CMDQ_OP_CFGI_CD,
-@@ -1291,13 +1291,23 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
- 		},
- 	};
- 
--	arm_smmu_cmdq_batch_init(smmu, &cmds, &cmd);
-+	cmds = kmalloc_obj(*cmds);
-+	if (!cmds) {
-+		struct arm_smmu_cmdq_ent cmd_all = { .opcode = CMDQ_OP_CFGI_ALL };
-+
-+		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full CD invalidation\n");
-+		arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd_all);
-+		return;
-+	}
-+
-+	arm_smmu_cmdq_batch_init(smmu, cmds, &cmd);
- 	for (i = 0; i < master->num_streams; i++) {
- 		cmd.cfgi.sid = master->streams[i].id;
--		arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
-+		arm_smmu_cmdq_batch_add(smmu, cmds, &cmd);
- 	}
- 
--	arm_smmu_cmdq_batch_submit(smmu, &cmds);
-+	arm_smmu_cmdq_batch_submit(smmu, cmds);
-+	kfree(cmds);
- }
- 
- static void arm_smmu_write_cd_l1_desc(struct arm_smmu_cdtab_l1 *dst,
-@@ -2225,31 +2235,37 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
- static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
- 				   ioasid_t ssid)
- {
--	int i;
-+	int i, ret;
- 	struct arm_smmu_cmdq_ent cmd;
--	struct arm_smmu_cmdq_batch cmds;
-+	struct arm_smmu_cmdq_batch *cmds;
- 
- 	arm_smmu_atc_inv_to_cmd(ssid, 0, 0, &cmd);
- 
--	arm_smmu_cmdq_batch_init(master->smmu, &cmds, &cmd);
-+	cmds = kmalloc_obj(*cmds);
-+	if (!cmds)
-+		return -ENOMEM;
-+
-+	arm_smmu_cmdq_batch_init(master->smmu, cmds, &cmd);
- 	for (i = 0; i < master->num_streams; i++) {
- 		cmd.atc.sid = master->streams[i].id;
--		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
-+		arm_smmu_cmdq_batch_add(master->smmu, cmds, &cmd);
- 	}
- 
--	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
-+	ret = arm_smmu_cmdq_batch_submit(master->smmu, cmds);
-+	kfree(cmds);
-+	return ret;
- }
- 
- int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
- 			    unsigned long iova, size_t size)
- {
- 	struct arm_smmu_master_domain *master_domain;
--	int i;
-+	int i, ret;
- 	unsigned long flags;
- 	struct arm_smmu_cmdq_ent cmd = {
- 		.opcode = CMDQ_OP_ATC_INV,
- 	};
--	struct arm_smmu_cmdq_batch cmds;
-+	struct arm_smmu_cmdq_batch *cmds;
- 
- 	if (!(smmu_domain->smmu->features & ARM_SMMU_FEAT_ATS))
- 		return 0;
-@@ -2271,7 +2287,11 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
- 	if (!atomic_read(&smmu_domain->nr_ats_masters))
- 		return 0;
- 
--	arm_smmu_cmdq_batch_init(smmu_domain->smmu, &cmds, &cmd);
-+	cmds = kmalloc_obj(*cmds);
-+	if (!cmds)
-+		return -ENOMEM;
-+
-+	arm_smmu_cmdq_batch_init(smmu_domain->smmu, cmds, &cmd);
- 
- 	spin_lock_irqsave(&smmu_domain->devices_lock, flags);
- 	list_for_each_entry(master_domain, &smmu_domain->devices,
-@@ -2294,12 +2314,14 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
- 
- 		for (i = 0; i < master->num_streams; i++) {
- 			cmd.atc.sid = master->streams[i].id;
--			arm_smmu_cmdq_batch_add(smmu_domain->smmu, &cmds, &cmd);
-+			arm_smmu_cmdq_batch_add(smmu_domain->smmu, cmds, &cmd);
- 		}
- 	}
- 	spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
- 
--	return arm_smmu_cmdq_batch_submit(smmu_domain->smmu, &cmds);
-+	ret = arm_smmu_cmdq_batch_submit(smmu_domain->smmu, cmds);
-+	kfree(cmds);
-+	return ret;
- }
- 
- /* IO_PGTABLE API */
-@@ -2334,7 +2356,7 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
- 	struct arm_smmu_device *smmu = smmu_domain->smmu;
- 	unsigned long end = iova + size, num_pages = 0, tg = 0;
- 	size_t inv_range = granule;
--	struct arm_smmu_cmdq_batch cmds;
-+	struct arm_smmu_cmdq_batch *cmds;
- 
- 	if (!size)
- 		return;
-@@ -2362,7 +2384,14 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
- 			num_pages++;
- 	}
- 
--	arm_smmu_cmdq_batch_init(smmu, &cmds, cmd);
-+	cmds = kmalloc_obj(*cmds);
-+	if (!cmds) {
-+		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full TLB invalidation\n");
-+		arm_smmu_tlb_inv_context(smmu_domain);
-+		return;
-+	}
-+
-+	arm_smmu_cmdq_batch_init(smmu, cmds, cmd);
- 
- 	while (iova < end) {
- 		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-@@ -2391,10 +2420,11 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
- 		}
- 
- 		cmd->tlbi.addr = iova;
--		arm_smmu_cmdq_batch_add(smmu, &cmds, cmd);
-+		arm_smmu_cmdq_batch_add(smmu, cmds, cmd);
- 		iova += inv_range;
- 	}
--	arm_smmu_cmdq_batch_submit(smmu, &cmds);
-+	arm_smmu_cmdq_batch_submit(smmu, cmds);
-+	kfree(cmds);
- }
- 
- static void arm_smmu_tlb_inv_range_domain(unsigned long iova, size_t size,
 -- 
-2.48.1
+2.34.1
 
 
