@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D661103E2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 21:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B150E103E2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 21:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EWwccrz+jcvc2B7e3xb1EuT+tuw+SyGt9jKUe4UvaVk=; b=QsRBSb3SCMyhna94GOFjYJyAJt
-	V7xAIFCtnpXAQsWAEUKSegk67KtXYSSB3mjhek/dBCuSvVLC0jdm/iBMfwh5jca26XuM7qk/kN5k6
-	17BsKgw/ldofnmdLen7XRdpmVCn3TOnb5UrhIaWv2YusshPCgrOQLFUCn+SuFTzubP/YyCP/uJWaq
-	rIJkd5t2IosfFLMMoIHjYZoWbWDC/4w3gj/5kmvNXfbYWqP0ro+oR99njEvL4paI8hStspzYk2M3M
-	M2vwRC9c2P7u4DahwuqnXYpPGxPLkqY7FGC6a1VR6MF1Em0I8nj5D0EdYH7Cd0N5EleWnR8EVh+NH
-	1Wa2q/vg==;
+	bh=xCIcYatwwvdMko6DXYA2nYNdNaZYTHkKxWp11My65SQ=; b=OktRkmp0p5dEQ9aO3wwqggP1lV
+	zaFeMA/xEad+efWW+hcjJh+b4TCy07zYnDtttOL/WtZQ8xer1q7c1JlXPIQJlX7DlgS06GuVvOOMd
+	3B2W9plk+XbRyBSXS4ge9Th5JkggF0sSVxL7Lj5Qwx8/1HvX7mCiEVgfYoqpUYLS+gdaBUOiUTGcj
+	W7cayNYgJnNIkyoGgoc4FmnXVDzuMIVPvlub7qlid8XvDb26lLjcwWs8YCb8EOucMbqLhehntglh5
+	3aJY7SNJjcZGgP3EgKZSaZTuVC5XKMud/QgS23Fzt2lQCT4Rx4VSi7vvhHkmGrNqOB1c+ub2TL+JR
+	Tu9F+y3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0RPx-0000000CZ8Y-15uC;
-	Wed, 11 Mar 2026 21:48:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0RR2-0000000CZMJ-349G;
+	Wed, 11 Mar 2026 21:49:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0RPv-0000000CZ8C-25qt
+	id 1w0RR1-0000000CZLp-17xa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 21:48:35 +0000
+	Wed, 11 Mar 2026 21:49:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58C3760054
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 21:48:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C734C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 21:48:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4480F60141
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 21:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E171CC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 21:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773265714;
-	bh=4d9ICQgMGn737lFng8zTzekpH62ZVrTTn7Jw6FV4RTI=;
+	s=k20201202; t=1773265781;
+	bh=OLD9utuIZfl6KHTmJ4+yFvh9pZE/I88gRyn+8KAQ/TY=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=aux41JIacmvDLeMC6HzvPVxav0Spw3zjyoVHDO8umpElfELTYLNrEYkCLvX1fe/un
-	 jtWhYXCBEvUXkWSgMMX8y2LZicAb8t99OZEwFQ/YJkR/yMfQASZCPbyNHQ5SDZ4NQ2
-	 9JmtQXxGb3V9nO8P6vQjbXpHaNVgfLPhkc9RVraID2cv0ngW3iAXOw4yxoTTOJSEP6
-	 UK9OD+a2KFfpFIxs9eiGynufn06l3BDJUjSVYuaMKMEQTHuS8FYiMqDm3sw5fb7FEg
-	 xDM1RVE/90txtbvJxgU/ea9Egk6p0KfJiHlJG/TWEZasm+p+8Huj0x73b6TFKw3xrY
-	 geA1r/WPHwtlA==
-Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-79801df3e42so6425517b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 14:48:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW5t5nK3eW6JJmAeL34lcAXgFx5jSoWMK3NUS7r8+ExQ0ElTF8QrQeBNQQeCaougmSbwCQ05RFTHHzQi4ddjcDy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUJRtUxgNfv4Vx2CoXdQu/7ECiuvH81bDRHA7RIqvAeBLIBDbo
-	L8j5MdyOkgl4DbatFGLJ9lXTGxm+6sSi6ZD9IsL1X7o/qt45TcQU9j199dHr81av84ytz4jgVY9
-	++6PAHencruWs0nxdDkhLsAyfbxLWo1g=
-X-Received: by 2002:a05:690c:c4e9:b0:794:f400:2bfb with SMTP id
- 00721157ae682-7994758407dmr13266347b3.26.1773265713464; Wed, 11 Mar 2026
- 14:48:33 -0700 (PDT)
+	b=mLhK848CEH1wsXE8pCiqsu+3uW271C0Jlcnt43am103q0yXt1jPqxter2Qzk4NT1A
+	 zr2ceq88NA2b+2a7kE41dNLQqDTDxZDD6tEwtBECtPITkl1kvCNBJFBgCqyBLkyiro
+	 t9t7mKh5vuvVStNBOjYE9rMs4O3HnRE3XYo3Fau2LevYzCL2S1mkxe3dTqoMzuZRuG
+	 zHz4sEQnEcRZ+Par1qnsJ8XzTEuJNGAxEf02zkrNg0WQrgEbCfknKQfYwFL2R4j0Li
+	 Ve4jDnbSISBfx8I6fkjGYLl2BtKHTy03gsnRxcgUhSodZI6pcVGIZSNSeiz7hayN1S
+	 +ukple3GdP9nQ==
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-79801df3e42so6434707b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 14:49:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU9MkAIl93xsLP2yGrxfpp4aYCBBfaTz72MY/Bda4FWBQYgj3MhqV+/WEwFbLtg22fA1HY5TVKYqlToZdbzz2a0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztcd2E14kPztrZxrImjr4wwkM4GChLJmNb/AC/Lo1v5bB7N5gS
+	Nb+Bra4MNcJmET8SX2odyFinj/IcVBNkNtMvdIvsrP4GzL8PbrwC4uTaXz6PUix8pmvTcE/r8F/
+	sfVpzjozzwGfQbTTDf8mmcFYOumdwIZs=
+X-Received: by 2002:a05:690c:ec4:b0:796:335a:895 with SMTP id
+ 00721157ae682-79940fc005dmr13930717b3.6.1773265781277; Wed, 11 Mar 2026
+ 14:49:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1773150895.git.dan.carpenter@linaro.org> <b58462e99ab76971d94dcaf973bc947c7ddb624f.1773150895.git.dan.carpenter@linaro.org>
-In-Reply-To: <b58462e99ab76971d94dcaf973bc947c7ddb624f.1773150895.git.dan.carpenter@linaro.org>
+References: <cover.1773150895.git.dan.carpenter@linaro.org> <b24c7b023c84ec14cfa7e49352e834262e3fefb5.1773150895.git.dan.carpenter@linaro.org>
+In-Reply-To: <b24c7b023c84ec14cfa7e49352e834262e3fefb5.1773150895.git.dan.carpenter@linaro.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 11 Mar 2026 22:48:22 +0100
-X-Gmail-Original-Message-ID: <CAD++jLntWDu8V_55DOeaqQpY9EXXwszM0j_uOrpm+-nPF+vScw@mail.gmail.com>
-X-Gm-Features: AaiRm52tePKqRlepUz7lGoGWkNcLkq24xiJuAqlewG6WVEATyHcSNtsT4I-t3rs
-Message-ID: <CAD++jLntWDu8V_55DOeaqQpY9EXXwszM0j_uOrpm+-nPF+vScw@mail.gmail.com>
-Subject: Re: [PATCH v3 3/7] pinctrl: Delete PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS support
+Date: Wed, 11 Mar 2026 22:49:30 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkajNc=t6JmJkMK=YCMeumEQc8RO9OViKHGYPA9wVGt8w@mail.gmail.com>
+X-Gm-Features: AaiRm50k-R75GYtAcf7sWc65ZG8Nbggj8JAild9FrvXMa8aJm0e1W2tTM8TiKCE
+Message-ID: <CAD++jLkajNc=t6JmJkMK=YCMeumEQc8RO9OViKHGYPA9wVGt8w@mail.gmail.com>
+Subject: Re: [PATCH v3 4/7] pinctrl-scmi: ignore PIN_CONFIG_PERSIST_STATE
 To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	AKASHI Takahiro <akashi.tkhro@gmail.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, 
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, AKASHI Takahiro <akashi.tkhro@gmail.com>, 
+	Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Andy Shevchenko <andriy.shevchenko@intel.com>, 
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -83,20 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 8:38=E2=80=AFPM Dan Carpenter <dan.carpenter@linaro=
+On Wed, Mar 11, 2026 at 8:39=E2=80=AFPM Dan Carpenter <dan.carpenter@linaro=
 .org> wrote:
 
-> The argument for PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS is supposed to
-> be expressed in terms of ohms.  But the pinctrl-scmi driver was
-> implementing it the same as PIN_CONFIG_OUTPUT and writing either a
-> zero or one to the pin.
+> The PIN_CONFIG_PERSIST_STATE setting ensures that the pin state persists
+> across a sleep or controller reset.  The SCMI spec does not have an
+> equivalent command to this so just ignore it.
 >
-> The SCMI protocol doesn't have an support configuration type so just
-> delete this code instead of replacing it.
->
-> Cc: Peng Fan <peng.fan@nxp.com>
 > Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
+The SCMI implementation by definition lives in some always-on
+universe I think? It never sleeps or resets. Nevertheless:
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
