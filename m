@@ -4,109 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8BD106286C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A08106286B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uecr21BaIjAMsFAUZnGkKoaoMnYN11yTcZleCmy3sho=; b=ZuVC0h5s1j6qwvlw9U+CiHJzmw
-	q19HmWFW9BdV/2ZAioWXEHQHDYtGuhceAOTFPaQp7pUeCpBAcRgy/OmTXERdCz0tMxBfMORTEU5bh
-	ELVt0dUy5kaT8DpzVP/HDWOBswxRUduUTtcpCDPXoy4CgvoUVHWq1QUDHZGhCKgpn/LXhNpfz5UoB
-	WkfzxI8YYmXmI8U/NfNm51AJNJCuPaZ2B50AbyG1bDQ7G1kRCND+qRQQbnBSdgpeVnuAOnTRn2eAp
-	phQG99InGL2p2EujF6n7T+lu/BnPyrhTg57BTbMqDB3sapwXDFi/U3D/qELnsnYTYvBwdj3CeHzC7
-	QBonxDsw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tqpPz9P0T3i29nFtjm5Cg8H+Ilq/OTzWCRX5bsan7QQ=; b=jSWN50RVbt1z4cunG/oUDu2S6E
+	TSfJ4NJ0WQrb9PEtlhQSHaTlgw0zeAHEohGawQxNNaNa7fEKX+1z/xvzMJyoOdSP8cY4WMLJcUKHp
+	5MdVvd9Qnu8VXX1rerWIrrv5amQLw0bCQomJKQ20YP3Ha0vswCOPCxLgJttJUpV6yFezA4vbiDMfE
+	DzHIu7/WfYgTUAgazw0ui+NR7Dg/Jz93FlaCxX7YdJeItCab9uMGkSYUqGTN1O0OvfkjKWR6KdLtu
+	+aKBZaqWU3oR7y33czwpOGTGoIc4zPbdLFvNanj3fBEuI5NWN3eyJ0HUngGWa14nUZTw4lCVV6gxy
+	EC2iUt9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0I5f-0000000BW9o-16BX;
-	Wed, 11 Mar 2026 11:51:03 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1w0I9k-0000000BWOJ-3vfK;
+	Wed, 11 Mar 2026 11:55:16 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0I5d-0000000BW8l-0EI6
+	id 1w0I9i-0000000BWNU-12tu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 11:51:02 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-439b8a3f2bcso7956672f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 04:51:00 -0700 (PDT)
+	Wed, 11 Mar 2026 11:55:15 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3598cab697eso579852a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 04:55:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773229859; x=1773834659; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Uecr21BaIjAMsFAUZnGkKoaoMnYN11yTcZleCmy3sho=;
-        b=b0Hf9R3+/IGRrMTzuqYu6KyqHb9LC01E+G5512nj7lknt5Zm+Eo7ZmzspLQfDNcqdY
-         8Z0Dm5kFBbrS5Ttkx2SH6pE6GdtkrcXs1x0v632ubA0QK/uliyDR/H9zY1Gh/tXIZBz1
-         jv0lB3lM/FFR+mttD53GAQZAghGSP8EVJIqkByDBJzXUmKddsCYEKZJW1PyKIuwYO4Xu
-         SGhv8Q5L7JD4RN/CqdqbzesqWyG67d/quMKvvGX7Lz/5yMKsVw/w/QAFsI8ZyEcEh5P5
-         wZmVRyDSlMvH+0Imrg7/RKC8G3ST/UbXoOsUJLS0zVL3CcPcb7sN1kt4kwr5g+L1oTuP
-         8l/A==
+        d=gmail.com; s=20230601; t=1773230113; x=1773834913; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tqpPz9P0T3i29nFtjm5Cg8H+Ilq/OTzWCRX5bsan7QQ=;
+        b=I6TTUPIkBZ4SzmopmehwWOPMMD1ZV3tZ2yQupbYDe7CTgx6IsUb5uvjry5eI2TwLsp
+         DSS6y5VFi64rG18Ebxsw80xHVXkqVn+TM3vR5uYoz3KTw48QDMEXTYgrfE6c0vlYR2Qz
+         FKIYHx+Qo04EbRJLDjbj8Pt2GNiJn6rqOYtG2I3018HLnupMPVTKrhdBO18B7+JA24yp
+         12eFsaS+RztHlXQnrN54XLP8JHO2pbFRGHdMLRmZhENGsG+szdj0fjGjBVaHlLPL7Mkl
+         jYymKjisKiqvZN1SzCddUNOokhmh8A1oFIsWvF5myZZv3sf+pqKU4c+qvlywJHnAaKoS
+         JWDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773229859; x=1773834659;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Uecr21BaIjAMsFAUZnGkKoaoMnYN11yTcZleCmy3sho=;
-        b=q3Tac8cCYSQd2SFBTsZvRbVNf4r0vM1xgoeH4K4NGMkobNY3JeFhFUrHhhE4kowb+H
-         HTeHYl4wyykr/NSZpvL1bZ9GHzQdvtNqRdQMtVzTYMgbycXg9UowNYznsvDDeSUWa3Ql
-         f1epQhhmx8GMAhrVf83LMEZ3e6wXui6L6HrUcBmNcZCwaadpNSSeDMPn2bY2NaF0Y6zt
-         GiCV7ls3IysgzJPihT2fcW3q2xijdpM2n8vgBXs6+4ZXwtGVk+Wjw8zGFArcpIJjKpw2
-         Ffi/mTSe3NdMLWJ04RfFZgLYfRtMM+G1W8y/xSUlsCC7lUWEfv+WpukQjDwRwJpjWlas
-         4OQw==
-X-Forwarded-Encrypted: i=1; AJvYcCXhE0ra0cBRXCtKjBryDhkBGjwau+9zTKDWd0tQYQb0r9VRLg30xR3IHr+icVW1KsMM2VMb/b8upIFvAlxTALfQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmVsCzDeiKXHx68rXDpr9spAyblAqjAPCgAyN/hJyDwIGfFqUp
-	YYkLBxEyYD/g4lueDWvP3qZ+uZfffI2L6bb+YFSye1ZDJgY5VYvnxAmiMz8f91OtyEM=
-X-Gm-Gg: ATEYQzxn6rWVvUvk5BcX5PDC7KqqZ9o8d+xD+GNzC2sZpCM5cmOn2kHCl/2DvC0IK1I
-	MTrH0hChU6r1YlWv3nxNuddgn43G0x+MQ/hRH+vQzwB9nd1CLKL2cpOguqb/eZiITzVqAQOUq/Q
-	qa5xrGFaTw4Yy0M4KubjSPB26FEWtVCm/8wvi3uJNmjRY83VzWRnVBbv63lNuvr4kIhLq8hXV6d
-	6aYxr0ptN6S6knabtGsNKKt6q5Bwmls6OisQrs/4BRn6xqkvzTxsWq7imrDnqD1aObBOchPQ14M
-	MhhdxEQo64OLQODP/QmVUk++aIGLoqOL2IRsSR+YwbeUQ30uO5/IAWm6Z1HjR9ZM9ZCWO6hx2XN
-	eWPAb6HEyGe+XrT5w/BdITmMbfAsXNJZ7xjZnBowi622KVHenAvNZTq6oREe9vRolBHpxvkxBAo
-	CnoeRQs1JVG8PIk8Bc7MAfBciLKv4M2EI=
-X-Received: by 2002:adf:e94c:0:b0:439:cb77:aa6 with SMTP id ffacd0b85a97d-439f8222fa6mr3599215f8f.42.1773229858683;
-        Wed, 11 Mar 2026 04:50:58 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439f818d209sm5881724f8f.5.2026.03.11.04.50.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Mar 2026 04:50:58 -0700 (PDT)
-Message-ID: <c7d47b6d-caf7-426b-944e-7debb7d69045@linaro.org>
-Date: Wed, 11 Mar 2026 13:50:55 +0200
+        d=1e100.net; s=20230601; t=1773230113; x=1773834913;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tqpPz9P0T3i29nFtjm5Cg8H+Ilq/OTzWCRX5bsan7QQ=;
+        b=kRS00GyW/3anN4G1F09IkI/zn3eL08aWNViQCqu87/tSStYJYOgRp9k52VzdfeFhYb
+         ysLlxoEcxRd8I41Dyn5/QbUGu4kO0LXvUsaQT/icAPHexyx/qplpOIyhvVurvk2zEGiw
+         SLYArlMjF/m+p0Mk+0pgDNyr5YCsbytWZwMHrRx4B7eRONfzLz83YosFLuxyTcMsAXyW
+         X0JIHfJuwEwNbxZ5SSCN8wc+TwljwSsqQcAj2TaRXNIMUc0TPUGs4LONTpoNxZM0KHss
+         D1KjKXyl5dKBFiUekvv/T0WouOVHYEPqaWKzZS8BDhE1bKFbPLMspKKLT78M/XiWR1Vc
+         Cm+A==
+X-Forwarded-Encrypted: i=1; AJvYcCVr/U9JIVLAQvxU5++UW/X7v8Op122SmUNyf1Opxq4z2DqIirXkoWfLMAdglBXdMfZt8XsuS7q7983KTmq+mrHl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDNv816nu4zgmffekFVRS8e5eJ3LTw5WnEyzbiLJurgoozGm2B
+	D9cT44xe8g8mZr8kxvjEPxnd+iECBGvzXG7xC00UJR0P9X3cKKL4I9gc
+X-Gm-Gg: ATEYQzzbKdWssXGNaESGmK65ppD9i1gTZluvZ5JCTCcFAhgGCLe1eoKNXIZKTsj9Hef
+	P5E577Sgz7Eip+aQsKXyw7BcJvgXGvv+AAoYhYII2P2T+OzvmHEGiswy9GHLcwmtaums0qw3+7E
+	rATth+ulQFrappUmB9y7d4Rh4RBdeRKpd9yDg7r6FYtpfetRGp6QZS1pFcjiWs+jkhj2NQj60pi
+	d4YOsFiqMz0McgJCvcsxZkkarDQomItdDjgS0oN8UPDK8Gfy+QUt1X9fv4whVTzmUeSm9919A/q
+	kJyRs+py4CwCLGP/KKfecwdmLgITfNaBtdgM4STMEIECjca4Lajk3Ipadz1ACtJLnN5GKdpYgNh
+	ANtkg0SUIVj1zyneldK9CmzF+WABhcG4FSB3oeUd/yXyfxq8px6KqHgXYqtmFD9Q5HEOpa8Tb7f
+	krKqoJlj2otRtKBH3bCkeZoOz1yLxJ/TU=
+X-Received: by 2002:a17:90b:2e52:b0:359:f5f4:7740 with SMTP id 98e67ed59e1d1-35a02830179mr1816790a91.17.1773230112844;
+        Wed, 11 Mar 2026 04:55:12 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.200])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359f01004f7sm5731790a91.0.2026.03.11.04.55.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Mar 2026 04:55:12 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Subject: [PATCH v1] arm64: dts: rockchip: Enable PCIe CLKREQ# for RK3588 on Rock 5b-5bp-5t series
+Date: Wed, 11 Mar 2026 17:24:30 +0530
+Message-ID: <20260311115502.7353-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/12] clk: add new flag CLK_ROUNDING_NOOP
-To: Brian Masney <bmasney@redhat.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- Sudeep Holla <sudeep.holla@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Andrea della Porta <andrea.porta@suse.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Bjorn Andersson <andersson@kernel.org>, Chanwoo Choi
- <cw00.choi@samsung.com>, Frank Li <Frank.Li@nxp.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, arm-scmi@vger.kernel.org,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Dmitry Baryshkov
- <dmitry.baryshkov@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_045101_134882_16058E74 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260311_045514_312725_9B3F6C82 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,16 +106,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+Add supports-clkreq and the corresponding pinmux configurations for PCIe
+ASPM L1 substates on the Rock 5B, 5B+, and 5T.
+The supports-clkreq flag informs the PCIe controller that the hardware
+routing for the CLKREQ# sideband signal is present. This enables support
+for PCIe ASPM (Active State Power Management) L1 substates, allowing for
+better power efficiency.
 
-On 3/9/26 4:38 PM, Brian Masney wrote:
-> Note this series depends on 3 previously-posted patches in this git pull
-> to Stephen for v7.1.
-> https://lore.kernel.org/linux-clk/aZuK4-QJCXUeSxtL@redhat.com/
+Cc: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-There's no tags/clk-remove-deprecated-apis-v7.1 on
-https://github.com/masneyb/linux
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index b3e76ad2d869..668b19c05f7e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -468,7 +468,8 @@ map1 {
+ 
+ &pcie2x1l0 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_0_rst>;
++	pinctrl-0 = <&pcie2_0_rst>, <&pcie30x1m1_0_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie2x1l0>;
+ 	status = "okay";
+@@ -476,7 +477,8 @@ &pcie2x1l0 {
+ 
+ &pcie2x1l2 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_2_rst>;
++	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie2x1l2>;
+ 	status = "okay";
+@@ -488,7 +490,8 @@ &pcie30phy {
+ 
+ &pcie3x4 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie3_rst>;
++	pinctrl-0 = <&pcie3_rst>, <&pcie30x4m1_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie30>;
+ 	status = "okay";
 
-Cheers,
-ta
+base-commit: b29fb8829bff243512bb8c8908fd39406f9fd4c3
+-- 
+2.50.1
+
 
