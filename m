@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C7F1049524
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1935F1049524
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSDqBN/DmAWeozPDEC8b1qloPDPE+0ZqAmxNNyAd8yY=; b=Azs4993pwQ8BJ99b9wuJy6EZH+
-	A9dgZJNpiH+1tZ/V4oGUgX2IO0t+kE6Z9KOQq4T28D2PdnAWHO6e5cp8quLeqe3z1JZpNw9rqsx8H
-	u3TskzX1uYJBS2lH1PC1bvTkDwhClOw1lKVOhu7lmCVc2tS295prYKvsCTRfLOAv0C1Y7uD8EeU/T
-	Ht8QYOfpQsPe4O8bZbCUqmbMPbfAoRnHfdgeEF2D0LK64FjuczesD2tdnA8uxNEgtKVRhU8yW/6xr
-	Iopfx1LK0WYSB9UNGiUjPCVul0RVAJ8O5qakIQQ8jvjJTo7QjCCZF3/OVelbUXJisRpXlqHDwVFxS
-	gkEIGo1w==;
+	bh=Vwljc2bReMp+ReRMVI0DIpKEZxv2RLRL09hipjwo8dA=; b=4Q1h8pX9eg0oX0NRc//PzflH9V
+	ByhQqPG8mC4uySmKMmn+6i/ewBH0eqDPO16k9a0tiXks+hXZINmsBJpzZ6lV3oYIPrO0fqeo0RTP2
+	hZAaequEVPsG4Wo72SjlpQOensyzQi5PTSPSLn/Gq6jtfuX/81Fx67e9i2NiAt/DivAihc9sHElVb
+	h5tnu6SrgmwPCbFbdEP8b/muWFSIRgbhc3ySwdwq6oE8+kG53g4slXW49qxHaWmOMxg25YNBkXuRQ
+	7KlbxEOSnxgGyE7Xdz30Fq3tmUo4NA1u/k6uTfqpfnqhpbYe+sZzH8R+RtW9AF6YoFNHQtzsZmNnU
+	1ggtVeJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GFu-0000000BLAL-28y9;
-	Wed, 11 Mar 2026 09:53:30 +0000
+	id 1w0GFy-0000000BLDl-3Rk6;
+	Wed, 11 Mar 2026 09:53:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GFt-0000000BL8z-2myR
+	id 1w0GFw-0000000BLBl-3VIa
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Mar 2026 09:53:29 +0000
+	Wed, 11 Mar 2026 09:53:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=QSDqBN/DmAWeozPDEC8b1qloPDPE+0ZqAmxNNyAd8yY=; b=gXOTKjrhjze/mTWAWLDLRwSZxe
-	YoIgWLhWZLxKGLCXEs/FXHnH2+MaonOegfuiJsjK9d8wrbw9Rd+CTemBUWguG+Y0ZN6dJhCEhbIZJ
-	1tH6N2fDYUQNgfi1y6sooejHIf7e90Xt7fyS8CIkVrZqTzFwvG+hRmT567nZqBLKjNvbYMfI4pGpp
-	WAX8ZQAPjlva2b46N92W70u7cocLMLWlyxCCr/Gwb3tzpppLz4cCaJhQ59Dy+PkcNRkZlSVddmLNV
-	qZ8ByKamcpWXsjSnW25gRR+1nfhHndwXJtvhyAO/ujFcoygRmEgZNYTn6OLARvMBGAP+9/oTKiFJn
-	nYzxncuQ==;
+	bh=Vwljc2bReMp+ReRMVI0DIpKEZxv2RLRL09hipjwo8dA=; b=hyTgG+bNSCSkuJgfS//lJHCsKi
+	dKtCW0BDP0ww3C29kPKyibPlZDEE99UBilQ+SOVHePf2uHpCp1Or0q3738wu5oL6dg021A2u8ZXUk
+	h4JRtuQ99eHzKkdqgReg6Sf/C+82/NBDI+nlJWZ8sqUxgsnHpoD1VtfPfrzzlyufula8hYLDwkIi4
+	BZUnISfPfy+7jJtV1vY7KdQzNkBn1ZMD9H4TQUReE0u5rnErHNkdNYFoqhwYHDLHUzlVjzxIxbT+s
+	rfkDTlqUskIU9N5VtoQXQS6/yeRcASjwIyym3BUCEsOcOcmJTt/qN/SN9GHqjhp39q+8QM12DbD4c
+	baZkd1CA==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0GFr-0000000GcWQ-0LxP
+	id 1w0GFt-0000000GcX0-3q0I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:53:28 +0000
+	Wed, 11 Mar 2026 09:53:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=QSDqBN/DmAWeozPDEC8b1qloPDPE+0ZqAmxNNyAd8yY=; b=lwhPCo9GozFtFqGQ95cJPBrJZx
-	jEw644y5sUyNsK+DHanWL8g6Zu5c2e0ZEcno0DSxNsSJMW6L62i8PsWp0OX5lJbLvBKqOcfjeXHNy
-	8Bl2iYagPupfIoa0Ldy9WsFFqZnutrD1w5xmHVpy8Enh1E4edxn8b/GB/6v0O8PH1C8N6zDkuu2IF
-	HxZK7b8gaR06L1L+feUL6mMgAb8luD2NvXz3J/YB+xqaYtKnp9b7Kn3P9pMGuYFGdrkuhbwCCf593
-	XKJOlPtXqFySbpOVEJgUvFoET2omYjrc40/37R9C8FAhuIAHti5dBT5PfM96j/C0XZUL87EDE+wTy
-	oOY1hJXg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37106 helo=rmk-PC.armlinux.org.uk)
+	bh=Vwljc2bReMp+ReRMVI0DIpKEZxv2RLRL09hipjwo8dA=; b=UisvdeZ3sIRa/cQr4FIvJ6x+fe
+	Vkc33eMxBmw2nIHMH3s6ZoKZ4hkdUlNxGCYE6rXaXCZ6rYvywXxF9VO2eWsITNSd5JQkUd4Eo4/mP
+	CMetRg0OX+J7/e269TzibJu7CTC84pcdR+z9XaA1GvKkTS/WAgcEEJ8gj4mJze+Qdgc6gFmhKFyCn
+	gY+6ieOdbxD6VSk4lGi+JriIojryii3pBLLtAFzpqPMXJwy9/x/WMigvsoemTWWGpMUOsJ3+GY7l1
+	9FYLD28zNrG4rkMCPpogtyM+q+HT30UJuDlmIlmegTvcEn/fW66IjQ9cdi4lE7u6/QgdTme+ZGVwv
+	lCppcNPA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37986 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w0GFZ-000000006A6-2CSn;
-	Wed, 11 Mar 2026 09:53:10 +0000
+	id 1w0GFf-000000006AR-0IVd;
+	Wed, 11 Mar 2026 09:53:15 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w0GFV-0000000CiTi-2gYu;
-	Wed, 11 Mar 2026 09:53:05 +0000
+	id 1w0GFa-0000000CiTn-3BDH;
+	Wed, 11 Mar 2026 09:53:10 +0000
 In-Reply-To: <abE7LWj04-JNxgS2@shell.armlinux.org.uk>
 References: <abE7LWj04-JNxgS2@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -82,17 +82,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next 12/15] net: stmmac: add helper to get size of a
- transmit descriptor
+Subject: [PATCH net-next 13/15] net: stmmac: add helper to set transmit tail
+ pointer
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w0GFV-0000000CiTi-2gYu@rmk-PC.armlinux.org.uk>
-Date: Wed, 11 Mar 2026 09:53:05 +0000
+Message-Id: <E1w0GFa-0000000CiTn-3BDH@rmk-PC.armlinux.org.uk>
+Date: Wed, 11 Mar 2026 09:53:10 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_095327_174979_055BADCF 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260311_095330_029786_83BE0C19 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,101 +107,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add and use a helper to get the size of the hardware transmit
-descriptor.
+Setting the queue transmit tail pointer follows a common pattern:
+calculate the DMA address, and then call stmmac_set_tx_tail_ptr().
+The only difference between all the call sites is the index used.
+
+Factor this out into a static function.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 40 +++++++------------
- 1 file changed, 15 insertions(+), 25 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 30 ++++++++++---------
+ 1 file changed, 16 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 76e4dcf8f697..da1726b887f3 100644
+index da1726b887f3..4521469c5e1d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -362,6 +362,17 @@ static inline u32 stmmac_tx_avail(struct stmmac_priv *priv, u32 queue)
- 			  priv->dma_conf.dma_tx_size);
+@@ -385,6 +385,18 @@ static struct dma_desc *stmmac_get_tx_desc(struct stmmac_priv *priv,
+ 		return &tx_q->dma_tx[index];
  }
  
-+static size_t stmmac_get_tx_desc_size(struct stmmac_priv *priv,
-+				      struct stmmac_tx_queue *tx_q)
++static void stmmac_set_queue_tx_tail_ptr(struct stmmac_priv *priv,
++					 struct stmmac_tx_queue *tx_q,
++					 unsigned int chan, unsigned int index)
 +{
-+	if (priv->extend_desc)
-+		return sizeof(struct dma_extended_desc);
-+	else if (tx_q->tbs & STMMAC_TBS_AVAIL)
-+		return sizeof(struct dma_edesc);
-+	else
-+		return sizeof(struct dma_desc);
++	int desc_size;
++
++	desc_size = stmmac_get_tx_desc_size(priv, tx_q);
++
++	tx_q->tx_tail_addr = tx_q->dma_tx_phy + index * desc_size;
++	stmmac_set_tx_tail_ptr(priv, priv->ioaddr, tx_q->tx_tail_addr, chan);
 +}
 +
- static struct dma_desc *stmmac_get_tx_desc(struct stmmac_priv *priv,
- 					   struct stmmac_tx_queue *tx_q,
- 					   unsigned int index)
-@@ -1501,14 +1512,8 @@ static void stmmac_display_tx_rings(struct stmmac_priv *priv,
+ static size_t stmmac_get_rx_desc_size(struct stmmac_priv *priv)
+ {
+ 	if (priv->extend_desc)
+@@ -3311,9 +3323,7 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
+ 		stmmac_init_tx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
+ 				    tx_q->dma_tx_phy, chan);
  
- 		pr_info("\tTX Queue %d rings\n", queue);
- 
--		if (priv->extend_desc)
--			desc_size = sizeof(struct dma_extended_desc);
--		else if (tx_q->tbs & STMMAC_TBS_AVAIL)
--			desc_size = sizeof(struct dma_edesc);
--		else
--			desc_size = sizeof(struct dma_desc);
--
- 		head_tx = stmmac_get_tx_desc(priv, tx_q, 0);
-+		desc_size = stmmac_get_tx_desc_size(priv, tx_q);
- 
- 		stmmac_display_ring(priv, head_tx, dma_conf->dma_tx_size, false,
- 				    tx_q->dma_tx_phy, desc_size);
-@@ -2186,17 +2191,14 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
- 	dma_free_tx_skbufs(priv, dma_conf, queue);
- 
- 	if (priv->extend_desc) {
--		size = sizeof(struct dma_extended_desc);
- 		addr = tx_q->dma_etx;
- 	} else if (tx_q->tbs & STMMAC_TBS_AVAIL) {
--		size = sizeof(struct dma_edesc);
- 		addr = tx_q->dma_entx;
- 	} else {
--		size = sizeof(struct dma_desc);
- 		addr = tx_q->dma_tx;
+-		tx_q->tx_tail_addr = tx_q->dma_tx_phy;
+-		stmmac_set_tx_tail_ptr(priv, priv->ioaddr,
+-				       tx_q->tx_tail_addr, chan);
++		stmmac_set_queue_tx_tail_ptr(priv, tx_q, chan, 0);
  	}
  
--	size *= dma_conf->dma_tx_size;
-+	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
- 
- 	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
- 
-@@ -2358,14 +2360,7 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
- 	if (!tx_q->tx_skbuff)
- 		return -ENOMEM;
- 
--	if (priv->extend_desc)
--		size = sizeof(struct dma_extended_desc);
--	else if (tx_q->tbs & STMMAC_TBS_AVAIL)
--		size = sizeof(struct dma_edesc);
--	else
--		size = sizeof(struct dma_desc);
--
--	size *= dma_conf->dma_tx_size;
-+	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
- 
- 	addr = dma_alloc_coherent(priv->device, size,
- 				  &tx_q->dma_tx_phy, GFP_KERNEL);
-@@ -4333,12 +4328,7 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
+ 	return ret;
+@@ -4326,9 +4336,6 @@ static void stmmac_tso_allocator(struct stmmac_priv *priv, dma_addr_t des,
+ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
+ {
  	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
- 	int desc_size;
- 
--	if (likely(priv->extend_desc))
--		desc_size = sizeof(struct dma_extended_desc);
--	else if (tx_q->tbs & STMMAC_TBS_AVAIL)
--		desc_size = sizeof(struct dma_edesc);
--	else
--		desc_size = sizeof(struct dma_desc);
-+	desc_size = stmmac_get_tx_desc_size(priv, tx_q);
+-	int desc_size;
+-
+-	desc_size = stmmac_get_tx_desc_size(priv, tx_q);
  
  	/* The own bit must be the latest setting done when prepare the
  	 * descriptor and then barrier is needed to make sure that
+@@ -4336,8 +4343,7 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
+ 	 */
+ 	wmb();
+ 
+-	tx_q->tx_tail_addr = tx_q->dma_tx_phy + (tx_q->cur_tx * desc_size);
+-	stmmac_set_tx_tail_ptr(priv, priv->ioaddr, tx_q->tx_tail_addr, queue);
++	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
+ }
+ 
+ /**
+@@ -6967,9 +6973,7 @@ void stmmac_enable_tx_queue(struct stmmac_priv *priv, u32 queue)
+ 	if (tx_q->tbs & STMMAC_TBS_AVAIL)
+ 		stmmac_enable_tbs(priv, priv->ioaddr, 1, tx_q->queue_index);
+ 
+-	tx_q->tx_tail_addr = tx_q->dma_tx_phy;
+-	stmmac_set_tx_tail_ptr(priv, priv->ioaddr,
+-			       tx_q->tx_tail_addr, tx_q->queue_index);
++	stmmac_set_queue_tx_tail_ptr(priv, tx_q, tx_q->queue_index, 0);
+ 
+ 	stmmac_start_tx_dma(priv, queue);
+ 
+@@ -7070,9 +7074,7 @@ int stmmac_xdp_open(struct net_device *dev)
+ 		stmmac_init_tx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
+ 				    tx_q->dma_tx_phy, chan);
+ 
+-		tx_q->tx_tail_addr = tx_q->dma_tx_phy;
+-		stmmac_set_tx_tail_ptr(priv, priv->ioaddr,
+-				       tx_q->tx_tail_addr, chan);
++		stmmac_set_queue_tx_tail_ptr(priv, tx_q, chan, 0);
+ 
+ 		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+ 	}
 -- 
 2.47.3
 
