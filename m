@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9632FD88D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 01:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF1EFD88D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 01:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/oF/doq6oyWwDTCyW1l4hS1E5POtzgyvQYrb/7hmVZg=; b=PBnM4Cer8/ctq2Bq2bGHlUwdZJ
-	q6ECCUb183FDeWmdkzLlMGbgL4GuuH3Xe8cfJIradx/G6Gp/bjKOH66b3UXypXPzMpGJ+blnyA9JF
-	7bo0j9IBN6qKfhmSzLHIgRwycTOG/PLwH/rc+Uu3AiJq3y3uU/kHsJ/RjSMdZ5EZhg3p/df/ayDLd
-	AKLuDvIp2uCUb0Wgk6PHPqUBGBK3bor0f6CHQu+zhw75N+2EmnSuEcEfyHvBmmBKlu2yGdHJgRtp4
-	Z4ACcI6DzvQpukcBtcZh//98aJR89lyy1JH5UzmS7KDbr9omLDf4Py4Vsb1p4A5gSWgxvqW6uIRI8
-	FJQA96Vw==;
+	bh=sWZp1dAqVPQSaHrep/yDn/qvo1iogNLvOQo/Z4cwLac=; b=ZielmivZhcMev7JecV6PgSZzmn
+	0jbawU3vllirqyhl2x6rauy1QEFe3l0yhnWttRT3coO+1+brtzxQtc6t9LkOxDjrZfbgWkyyQtE9Y
+	vDUV3E32arFJULA4fiPy4i4yO4G4bd7nvXrAINL5+kX/1P1wNQMCKk2Sai1AiqKe83WLciXflAwJK
+	zpTHDpWx2ARS7GbxUEtU7dcaNrNEf2Ery7u5+oCHMaUlmG8crozLQM+dbR+M9QR547bV0AMvOLuGl
+	eeTFJ3ZwbXmFgAiQKE3HBpTOVT3KZ++29VmKX3tXkdUuoN2tUkC2t5ItRaP/HhNS4n/+rrn/BTf0n
+	xDjnNZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w08IH-0000000AUZk-1Wcf;
-	Wed, 11 Mar 2026 01:23:25 +0000
-Received: from mail-ej1-f45.google.com ([209.85.218.45])
+	id 1w08Od-0000000AV4I-0t4T;
+	Wed, 11 Mar 2026 01:29:59 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w08IF-0000000AUZ3-2C12
+	id 1w08Oa-0000000AV3b-3KMy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 01:23:24 +0000
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b96dc65b886so78091866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 18:23:22 -0700 (PDT)
+	Wed, 11 Mar 2026 01:29:58 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-509134ab2d2so28416581cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 18:29:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773192595; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EMQ0wjEPRdZxwACkItQRKUs/o9RTC3xVHcWb1UdeI/ALy3gJ6OeieIEeQf1/ltf/EJ
+         fD+sWsjvj16JrFtOn3xHZ9HdnI+osJuPwyeSNvzjGxr/5ju8zHYc66Emr9RPx8O8Jj9A
+         JN7tr0vJBvaFWhN/Gg+02zgNsyHG9cz5dk9OdUVN+63LRvDIRdSEnKQUJJ+SKZSUwP5i
+         xDr55SXZlf9zDoISyRJ1wF+/1rQJMb4dj3ZhvZEuV2MJk5E8T4EWrzfcKvfb+piiq6SN
+         TvF54RcGyQoc4NSIMbgxpsVI7JqYkZwn1th/7KPWQrGyDFkqre3Sp/9XKBpPK/JycyP3
+         wP5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sWZp1dAqVPQSaHrep/yDn/qvo1iogNLvOQo/Z4cwLac=;
+        fh=y0vT/AjYMx7KWTzjK67WtkOjR9aKMJI0JgRLhgWemeg=;
+        b=OCQ6XQPyzR9kl2sQXKAsEPlo0/1Dpf4/MET+BoF2hKL+wiTeQ9F+WEjgW3ett/tFRO
+         TJ3TdHUfQ1zyM9j2+8dPKIto1dTECBCqdVFeYXsFAL7ThW5W+rBtRd1efX+ZdgSFtE2u
+         pOA0PeUuw307Eqfes+3dNovMvW/DNHz0o95/9B9lHocyu/UHhKdnAj3nCuWj4c9uZ1sJ
+         WfcJSnl+y6nLwk8ixkH13t6PvO7FFNyL/q5vMwyeQJNUcQRVMW70h9jt6EKcdyGTDNHj
+         7nEk26h4ewycV1cy1WmRXRkcyl1bWvYEGYJCzsOxEoL6bNkBAlHLQplgzcIv5QV+tAPh
+         cDsw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1773192595; x=1773797395; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sWZp1dAqVPQSaHrep/yDn/qvo1iogNLvOQo/Z4cwLac=;
+        b=f+jGzcSqatXkHPQcQBmtNfyjQROZMBxzH5zdAc77nEFxlC6X1/lTWgqCUgTfd5w2Ax
+         nWxqmD8Emaqxx33IJbSPQOLuXgrNKrYfx89RoOBFAvkFYJbVkUFiFMUTqQ1dZ6k9OLts
+         d+qwDNEatvqsdbrvxpG+aYP1sbLm2CGGsRwMQ2j1gBBPSW5SVEOI2y3xJ4qF+Sae1V4Y
+         TVTkv5lHhJldWRdpGGFbY1Feoxo0Kwd9HgXoJIdZuN2Kfv8WFrPG6jtGL88RuGdGcPtV
+         UJ0hLHAYE91Oq/BkLnJuGS64dc6nEBIHj37xbm6UOQhMfDg4tJxSRojrSVt+UysSIZHc
+         dcBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773192201; x=1773797001;
+        d=1e100.net; s=20230601; t=1773192595; x=1773797395;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=/oF/doq6oyWwDTCyW1l4hS1E5POtzgyvQYrb/7hmVZg=;
-        b=GSBA0OEQrVcpIK5MFy98jEMVx9iL62ZwCdh1RstQI3tMNn7RuG0D/+OAa8uLZECaTW
-         SmfB9fN2bLIYiCqkKm15I4tYprqT2C7KBnj98ctxXEerXW0ssUdX4VZO0CNnIbXTL004
-         OS52XNj356Xs08yzZi6DY/NCcPd34UF3C3s+44JBk1uuqQRk5ZHzkuRoj/3xaHD7u1fl
-         CbI2y1MENsAWuC5jvdDAr3B33vlvKnRWeM2/xFdVihvkKS23q06PMKS5/lZWg3cJGaUe
-         68NPj8dYsfIle5l79iHIBOR7Jrg0sCUACPsErT0kwFiNTdtRFdTjK3d22qM8+kKR6ILl
-         /mLw==
-X-Forwarded-Encrypted: i=1; AJvYcCX+o+ejfw1MbEwcwUNrLjO8LbxKEx4e4sDdsD9007mBeBPjNrVlD33PjCDNlUTf+LQdqSuAv6qjG2retV6K1hoF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7blH3HNpTyB2nfkgFeEZErrE1McbDCL2Ob62zf7rSxSv6Ar+q
-	A3DX5hzElpSIhMY8fQ2MS2C+zA4EMXgwlDTjpuA5nfDOWMK2TkwagCknVPnxg+sfsDfnEQ==
-X-Gm-Gg: ATEYQzxg4hvkMX1l3GoLVB0IKLATNFwtkS0o65B2pm7BmjoJpsUkRNJGqml5f9QYPic
-	b08o40M9DhD8V6G2Z8YrWJP2oWC5YfE9uAOoJ4SmMmJnxoVrji011nRTKf/soyAzlGbQ+DJfE8Q
-	6W4DN/Kp92myJ+eNuFqP8D/NOekXXxwXbmaBqILodN3Q1mbYnDO4bZjwNFCyRI+qANEhwxh/BRf
-	mJo9bpLw8P/6MsnPiXshFeJ/kyNsBP652w+OXptJxkXEyKSKgiak+B8yfoxc8wa1/z+z5+iYYia
-	aHP1J/RYN62R0KfImAtDYShC0t6vuYOadAuWi7Tz20l8OJB/JaaKeXBo8jbkmTrIKgy4cjfczKD
-	jT67XTKGVvPJ/flrQoTREMyUfejkPSOstrxmdR5BvvsaWq3VQOdPpk/ONx8EbsWxEzPzyLYAIQR
-	hjoTqAzw4VceY/F05w//OvBvA1c+7YKUM85JOOVwx5l8CrgYWxlTH+skc=
-X-Received: by 2002:a17:907:d649:b0:b94:827:c580 with SMTP id a640c23a62f3a-b9711850fc4mr335005266b.6.1773192201024;
-        Tue, 10 Mar 2026 18:23:21 -0700 (PDT)
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b972de0bd42sm19140266b.9.2026.03.10.18.23.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Mar 2026 18:23:20 -0700 (PDT)
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b942b36de08so86581766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 18:23:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUiGnoBU8xM5+epeoP5lAOo9dO9oRboPLbF7OjyOca+htTHSaOrV4RA7czLb+nB+Lb7b//olHCH6JQluEFBTR4K@lists.infradead.org
-X-Received: by 2002:a5d:5d05:0:b0:439:bb46:7457 with SMTP id
- ffacd0b85a97d-439eff518c7mr10359487f8f.16.1773191708627; Tue, 10 Mar 2026
- 18:15:08 -0700 (PDT)
+        bh=sWZp1dAqVPQSaHrep/yDn/qvo1iogNLvOQo/Z4cwLac=;
+        b=KTg8+Al6hdVejEVJmFKs34vbFzK7L/62fUK18IkCjVg3IbPWbLHgmFaqsRjrrmzu/B
+         rGu30N9ynkClueuwbFKr02K9Ol4Tt4oJadR45/eF5uDXnqKgJgdwiHoFhAvPb3VyiMxj
+         ZRi2ylH/cezTE1a0JABT4nGjfojj9UtmaR+jPKHAJLqTMtyGlwnK6VxqlGTh6/TUq+2L
+         pWXVspGRRl0CI0Wz84nzvqseKyvUjBA0kuERJD3J3QxiBRO6yb79T0M5bgpW3cyPDPxT
+         0yxPqheeYtPyrJLZa06uxOtl6dCastF5bDBCA8kuiSN2f3wXypa2FfBcrrrFbKTCqIsV
+         RaTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWABDMnob+nWjeZUzapQz1Aiqe0IeeIPdDepXjzgci94C6lIOm823lMOs2AksG/r3npKpSOwNOdnSZR64MGvbul@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9JW4zcAeCyUseOge/Rmhdmy9to/3G4gQZRKBbkqEbxmocNIfb
+	HZrxLp/2eOaQdfaUBWleOtPB7Y3ufBrr1n67cSZHDQ0BVuZpG6+0wOIRaSyyCsIwthp87gEHscH
+	dsghVitWSFiqgCb0VHZP4cRRj8O5cZDLZnSWsbH4IfQ==
+X-Gm-Gg: ATEYQzwp+Mw3I3KAOKbm4X6PnM1qrOvpjWM8mFxHKr/PjlTifQEuoq80zCfPkEGUewl
+	hzEbsmAqwoNnwG65DhcaMpRsedev+DEEscq5ZNpjV3008Uq643Idaz06zwH6OVlo2lawuJmhB35
+	DBo4yFptFYudG1+QQJxW9/wWmCcWi91vuV2vs/uY3/LxgnPH0J0AEXQU9wsLr0I3lZ8CU1iOFu8
+	gNpVnDxfXOe3kZ+sAX3d8BVkxYY2qwyrQfSZgWoUxECRWem1QXR0asacI7Zk4w4e17/JzX19h/x
+	zJDZLfEnB7BayiO6Z/ovLXP7tYnHPzNELzL9/yL/gGoNMmJek3vfJXhKaeTJVjC5Y3lvOf9XXXl
+	KgdhrqA==
+X-Received: by 2002:a05:622a:1351:b0:508:faa5:451a with SMTP id
+ d75a77b69052e-50939f5295dmr9948661cf.13.1773192594678; Tue, 10 Mar 2026
+ 18:29:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260309062840.2937858-2-iam@sung-woo.kim> <CADUfDZorSQCVtQyfjBuaziwG2Jo28yZiiqLKbp9PkFFw-9VgfQ@mail.gmail.com>
- <CAJNyHp+i3M_ko7rhgTz=nxP=MZYM3oQf3L-y=7YnhnRyeUxayA@mail.gmail.com> <CADUfDZppWyOOPME0eJbmO1q+qvehxGiCk8Zz_nVxaQk08aukFw@mail.gmail.com>
-In-Reply-To: <CADUfDZppWyOOPME0eJbmO1q+qvehxGiCk8Zz_nVxaQk08aukFw@mail.gmail.com>
-From: Sungwoo Kim <iam@sung-woo.kim>
-Date: Tue, 10 Mar 2026 21:14:52 -0400
-X-Gmail-Original-Message-ID: <CAJNyHpLU7sTJRtDqTbczTz0iayj-Nm8bPHrPaOcsKVb6nQyw1A@mail.gmail.com>
-X-Gm-Features: AaiRm51cz7xo1V1erpi09gKFdY9TTILawmEFCzQE55oadwxdss7qBUImRUPZq3I
-Message-ID: <CAJNyHpLU7sTJRtDqTbczTz0iayj-Nm8bPHrPaOcsKVb6nQyw1A@mail.gmail.com>
-Subject: Re: [PATCH] blk-mq: nvme: Fix general protection fault in nvme_setup_descriptor_pools()
-To: Caleb Sander Mateos <csander@purestorage.com>
-Cc: Jens Axboe <axboe@kernel.dk>, Josef Bacik <josef@toxicpanda.com>, 
-	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Richard Weinberger <richard@nod.at>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Sagi Grimberg <sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, "James E.J. Bottomley" <jejb@linux.ibm.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Chao Shi <cshi008@fiu.edu>, 
-	Weidong Zhu <weizhu@fiu.edu>, Dave Tian <daveti@purdue.edu>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, nbd@other.debian.org, linux-mmc@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
-	linux-scsi@vger.kernel.org
+References: <20260310031002.3921234-1-dennis@ausil.us> <20260310031002.3921234-4-dennis@ausil.us>
+ <CALWfF7KD1=U-gC4wC9M49kEYD3ijcfr+XSmMeh_-zAvjO2JVoQ@mail.gmail.com>
+In-Reply-To: <CALWfF7KD1=U-gC4wC9M49kEYD3ijcfr+XSmMeh_-zAvjO2JVoQ@mail.gmail.com>
+From: Dennis Gilmore <dennis@ausil.us>
+Date: Tue, 10 Mar 2026 20:29:43 -0500
+X-Gm-Features: AaiRm50D0OtMAsh0hit8iP6ZIxcfOA-A_ofh3hQyy_97B35SnBk_C_vdM7fTNJU
+Message-ID: <CAABkxwtz7KjVJpSzYhUWGyEym5k4d3NJq65OS_E3NCnrNUBTZw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
+	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
+	Chukun Pan <amadeus@jmu.edu.cn>, Alexey Charkov <alchark@gmail.com>, 
+	Peter Robinson <pbrobinson@gmail.com>, Michael Riesch <michael.riesch@collabora.com>, 
+	Mykola Kvach <xakep.amatop@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_182323_576183_59571365 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260310_182956_863257_C5CF9BA5 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,56 +126,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 11:57=E2=80=AFAM Caleb Sander Mateos
-<csander@purestorage.com> wrote:
+On Tue, Mar 10, 2026 at 7:20=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com> w=
+rote:
 >
-> On Mon, Mar 9, 2026 at 4:55=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim> wro=
-te:
-> >
-> > On Mon, Mar 9, 2026 at 11:31=E2=80=AFAM Caleb Sander Mateos
-> > <csander@purestorage.com> wrote:
-> > >
-> > > On Sun, Mar 8, 2026 at 11:30=E2=80=AFPM Sungwoo Kim <iam@sung-woo.kim=
-> wrote:
-> > > >
-> > > > The numa_node can be < 0 since NUMA_NO_NODE =3D -1. However,
-> > > > struct blk_mq_hw_ctx{} defines numa_node as unsigned int. As a resu=
-lt,
-> > > > numa_node is set to UINT_MAX for NUMA_NO_NODE in blk_mq_alloc_hctx(=
-).
-> > >
-> > > The node argument to blk_mq_alloc_hctx() comes from
-> > > blk_mq_alloc_and_init_hctx(), which is called by
-> > > blk_mq_alloc_and_init_hctx() with int node =3D blk_mq_get_hctx_node(s=
-et,
-> > > i). node =3D NUMA_NO_NODE would suggest that blk_mq_hw_queue_to_node(=
-)
-> > > doesn't find any CPU affinitized to the queue. Is that even possible?
-> >
-> > Thanks for your review, Celeb.
+> <snip>
+> > +
+> > +       vcc5v0_otg: regulator-vcc5v0-otg {
+> > +               compatible =3D "regulator-fixed";
+> > +               enable-active-high;
+> > +               gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+> > +               pinctrl-names =3D "default";
+> > +               pinctrl-0 =3D <&vcc5v0_otg_en>;
+> > +               regulator-always-on;
+> > +               regulator-boot-on;
+> regulator-always-on and regulator-boot-on does not seem right.
 >
-> While I'm flattered you consider me a celebrity, my name is Caleb :)
-
-My apologies, Caleb. I'll be more careful.
-
+> Why were these added? The vendor did not have them.
+> https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7=
+b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro=
+.dts#L216-L226
 >
-> >
-> > blk_mq_hw_queue_to_node() can return NUMA_NO_NODE if the device queues
-> > exceed the
-> > number of CPUs. Afterward, it is adjusted on the caller side to
-> > numa_node =3D set->numa_node.
+> Was this mistakenly taken from the regulator usb 20 which is powering
+> the onboard usb2.0 hub?
+> https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7=
+b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro=
+.dts#L111-L119
+
+It may have been a missreading of the schematic, but it was added to
+get power to the USB3 port. before I added it devices plugged into the
+USB 3 port would not power on
+
+Dennis
+> > +               regulator-max-microvolt =3D <5000000>;
+> > +               regulator-min-microvolt =3D <5000000>;
+> > +               regulator-name =3D "vcc5v0_otg";
+> > +               vin-supply =3D <&vcc5v0_sys>;
+> > +       };
 >
-> I thought the NVMe driver capped the number of queues so every queue
-> is affinitized to some CPU (see nvme_max_io_queues()). What am I
-> missing?
+> <snip>
 >
-> Best,
-> Caleb
-
-You are right, every hw queue should be affinitized. It seems I'm
-missing a lot. I'll look into the reasons and get back with V2.
-
-I appreciate your review again.
-
-Sungwoo.
+>
+> Jimmy
 
