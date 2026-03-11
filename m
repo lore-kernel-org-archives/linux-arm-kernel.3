@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA249104BECF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559DA1049515
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 10:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/mMgJgBp5NGPUR+UeJAWPbefuAnvnCqo/QYTM57YQHk=; b=ZBmNJhiOJkA7lEVvO4+DBLhf/5
-	bIIB/RDl/hmBGUqGM+c28NY/ALxASV+SN2OuTVO2XTR5UU4koH28HGzi7iKTCg3vvz/YV24UbFvrT
-	nPpMEVkTQjmHbtn4Ut39gKLF9gVct9O8mkdsGup6a4kqeZ/APATyV0Lg9ruKlVniqrIvE1k8qpguf
-	QFdiSSVD0u+als0vm1e40OY+vsxgwCpEXoaezzIHaecQhlnmYWYSu3oR/Ndx4wPKAM7zuIxqLbyES
-	0PNiKEHYa5puLfDBVrN1fE3osBpNj7mQ+RuIX0Cs/9op3/0n8aF5B+o8bSDDuo1Qzlgfm8SSgn5xZ
-	SoJyUTNg==;
+	bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=; b=HRlnu4/0uIgXlAT9FPiVuVFjaI
+	tcWAi3NfvI0EFwNlGIGHWBU8ZSsnBDjYSF5FzqJVectL2/s2jJrQEmm2MZqB5PHYE9gWKV2STa445
+	VC0xtqSF0mL2Ae0FuzH0F4ykBFoBraVd7me3ciL0nZVDSF/SF3PKxOBchU/w19LGHfO4kDqU17Cho
+	da0HCQ1wCCbFt7IoMmly1aIA46Fiv5NnqUUqKMeg7iIUb8ZF6hXeGHC0mv6PFHgVxhE/0/oQp/n54
+	FbYt99EpCk/Y7cmHRzDvUuDoVn3VWyi5i0VjUZZjC/Lo6byxK/YNif8w1jKIX05zmFd4CwaM63tpY
+	wYQdynew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gip-0000000BPZs-2NmX;
-	Wed, 11 Mar 2026 10:23:23 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1w0Gj5-0000000BPc9-3m1X;
+	Wed, 11 Mar 2026 10:23:39 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Gin-0000000BPZB-15BJ
+	id 1w0Gj3-0000000BPba-2Tj2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 10:23:22 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50906a98ffeso521211cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:23:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773224600; cv=none;
+	Wed, 11 Mar 2026 10:23:38 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-5091ed02c54so404151cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 03:23:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773224616; cv=none;
         d=google.com; s=arc-20240605;
-        b=PD8PHewiCoAjDnZlp8UVCSY6ZPLpH7iGoybykXkjGVqGod+oz/JZ+NUSR+EytjCcZS
-         5stlhMQscOu+6UHQq6MFDaEF3Bk17hQDDKg3v1l4cX974I+OiTtmV5os7V1ur0FeBHR+
-         En7Yc4HiN+yaX0QYtTj6f184dsk1tFbPJeuCYuC4UJxafVpOI7Q2HZoIo3oP1ORRJqTA
-         t91NBm0Tn31nP9R3ZFIZg44BB1S/wQ4T6va4nJ4mofdLJVuuYew/NDO46vhte4DpWDTf
-         bZ1ARCLCl8Q1tuMF87+Dju11bdcHa31czi18phA+qd2TNICtj7Cr+dnqb30tQk3fSYVb
-         mQfA==
+        b=cZHTbp+Y86QeJdjief7ILtGrYSY18lzufybQ1gownOmpozHizlLVR3/geMEmFXl4d/
+         iY0X+AWNJfemCR3IjCzPvpurwbxYPiyC2ojOLiyhCqEACNeenSnuyAzvYw0Gl0wrUu6+
+         QPXSBjhd5XXL0bwE1wwLqndaKRrLjBewrhTt+LHwnrvbOIB4t+JbU1tFlLLbE0gxmek5
+         +pPrlsbt5JFIsXKADWEtFRXkXkykvbfeN9DGBVv0cgpfwZ9Urjp9oo49KjxBBxtfceuU
+         gCUofOsRWsMgnpBYc/Ppc3M6EKGwm2hr6k62c0ZCvSPgXhkrT0bKYthOEHav5SOdFgCJ
+         JWEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=/mMgJgBp5NGPUR+UeJAWPbefuAnvnCqo/QYTM57YQHk=;
-        fh=+IVR+qfUXczzFnl7cVOShXuqEj9glytXep5xJf9cIwk=;
-        b=aKWaYozRG5/SUOucN1rNjLXmH0JprbmbmoDr5dIhZipG9x2TDxIgg9Qk1WQ94yneY1
-         qKr8HMp+U1uS92/YlmIRxO2g7Khd6RZ/lq8raxw4YhcTMrGVMxsdGvyc54ZqzrdAkWKc
-         VX3EdLCe4lrFeNt/dwVr8zdIviMpLtGigrEGolxwmbSyMWqRJ5SBbYDXS45T30+6vTfh
-         sb7u0TXqGVOgkTMVvohYAPQTgr5pufKFCejfVm6DF89q0hFvWUM86znLXemCqUE8FqOo
-         hmaqaA7ZqDM33jVuNtRMBWmUvLN66MGqmZMfw71v92Wf3JO5xIomv03ScTJBq+2aoSiD
-         NOog==;
+        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
+        fh=UtvgimqV4eyJA1p4SFDoYRMu8zbVOdW1ejmSvzBSgG8=;
+        b=TOJ8hZuNrIrCwrn08z/0upWMAH5WtHkcODnpBm8kI7Wjeb26UcaM5yOyjyrFq6mO4v
+         /+VYf3g3IFUVPCcXiCZ4IVSvSRsBPfvVVl1IIvVL4y0aUObrBwDHG9NOyhpIeKLmDW/0
+         Vwo/jyHRIOo8pvIeXzJDoGp8l8l67gAxIn0P8AX3UUzPsuGMS+LXH90INcNu5m4clYW6
+         JzSdT7w+fNB2x1zK/TYsMcZ3ayx8/4Z9beSJALZMTufNcfsVuAs8teVRVgzrNblKGhVp
+         c4+xTYVAZcGLY4qlKsM+BVZWqIepboZIBCyHxcglqy2OMzX+chUUPwa5P+YBtz4iVRRo
+         owew==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773224600; x=1773829400; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773224616; x=1773829416; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/mMgJgBp5NGPUR+UeJAWPbefuAnvnCqo/QYTM57YQHk=;
-        b=GnJywcmct5n8fgzPLyuWLTtcGQ/1UBteXI8n0SQPvgG0ajGQOJm4w5SCZZHJe+weqs
-         9RGZrsLsZfBmM0K24Mn5jcWE4Xklm2NbyEU6JCp9sZu2UBeOjh00/Y9W8NT8JFlgrJHW
-         PzAVKwmQokt4g1IoPrcd/SI5p4/Zzda2M0s1mfcQmOXkgpCzVLDlcVXdme0HEr+3cpL8
-         4LxngwdOL62TVgC+mhZ3MvWBRe8Sl7JOs8Saw5OvntEt21+ubdH6OsnrureQkwgWOUAe
-         TWD4dbeSklH6kPgLprvjrWNT5Hk1CDJzTjz6XDn7ONEfBlPV+xFrDu0hvWODJQSxT7cx
-         jcPg==
+        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
+        b=yGdkGNxIjKR6sj5PZkftkAPi2GpHw1piUeCOE0mvk1zTgGD3gC5oOy02O5mX5u2686
+         wGb47V1m4sb92z8Vl2eTy27SFCuXaQ53tARB2f3kpvqgShX+DmE8zlgP496Olzki/Y6B
+         u6AsYsLSGDBaAz5WWg9T0UNKoWCfvBzHbO6X556QW7jCfMlS82F+RiNALyu1PFYqhsmX
+         rw5h1i0hQfEGli1RJLObFqtu3DIk0Ch1S+MIJLLVWUB8rTwrJJH/+4hijWJUmSfkf4U8
+         Nqb477z0t+ApgSHCaWPhLhZLIT3u8HQNovzz5T5bkVBMGyxHf2Lv88c9/DYG1th5shJ7
+         FF+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773224600; x=1773829400;
+        d=1e100.net; s=20230601; t=1773224616; x=1773829416;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/mMgJgBp5NGPUR+UeJAWPbefuAnvnCqo/QYTM57YQHk=;
-        b=h5EUD52OAJzUSO6T4N4kCnzMoaaAxvNX5daqI3Mv7DxZEyX4T+1HLixVkm8cobhopx
-         AAmydWjOMIGkrq6iAY0fSQzHA+OiiyFKANpW5+qMTY+4l0vyIxddU4Wl2IpImRTC3fcH
-         AhgU7O5wpioE3O3MIGbs8ymWNLIAtJ7NWnOvZg4p0rydikZa6H42dplvNXMAPJvj+M5I
-         h0fuQ89LD7WXdTZD4+mWGOe5zcXu3OA2+qHMRQHgDBVE42bwKtQWSVM9siTNxAMn0XIc
-         /AxB5OQjK/rPokYLMzZqvOK1MH7CwcelojIENYXFiFOJ3CC/3lLJIdbQJfmVvRfpTGLP
-         79MA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIQ2TxHSiEYBW62AyV2dzHsYd6kJmWNQxyUfN8IyH3L0mXFYMfC5LwDYpt/VzR/FXVGdBLh3pPDCwhzpN1B5wP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yye6WCjnRY6Esv2l0Oj0EezT6sAYS7vgQFou+nR8kODqZrqeip0
-	z4IfSajCU4sOA0y4FFdwQK00YNxHJdXI2Nqh8cbrrWN+NKCftQg/54Ni/yHjllr+/WsNHS7CRe8
-	nthxaTl5zCP4KSCkvV2aV4Nt8EryCsz1YgViV9Rcz
-X-Gm-Gg: ATEYQzx/NsmBdEfN0T7NrQCmuJBomaw2o/b4K5daI5d21pvsBXDORz/Vvtbt1PoiLtL
-	r2xmVxhuHlCeijXy5ffG2Zq9dtzHds17wNn6WG8WhN5RNsOBV/j98Z9cI6d3CqPGDMOKeu+/36p
-	R15U7oUFVfoKDEGdd72pMZfemdX6Cc1CD3feqlLKj1Zb4LWdHbpP7HFMqcNi+HTsND3d7LHSrt0
-	LOTj/dKPkAFlJp1z55fvnRuKz2XgSxjoAiF+JxXwHn1UE6NXfww11YAVva7HeVWyVaC4lykTkfj
-	OySK/daPzUu/KtV7g+JUsQ59g7UMjbJdeSxrbA==
-X-Received: by 2002:a05:622a:28c:b0:509:45f:fdd2 with SMTP id
- d75a77b69052e-50939a712c1mr9774361cf.15.1773224599463; Wed, 11 Mar 2026
- 03:23:19 -0700 (PDT)
+        bh=Znk/o3FTTjA1o6iiBb0OLOctvOKJgNWplDqjz3yVrX4=;
+        b=P8jZyPZnLzw7QyVqjQeyA/bNtaULb+KjJVtiZ2C+UgNmnt5OZxavvz+W4tQcjFC75C
+         7ToUENNSwe1/bRszfMQP/y46JC1p5qZBS+F//RIH4iMPLPpZ8p9YvHHcDVXykF7zwvgF
+         k3O/icECPLloOBpiN4iHb2UedG8jAhq10bLP5Ve8mkExIt8xl2uLaWmM4D601bSeMZV9
+         wB3YGDvYsJUTDc7cHK9vKe184C3z5kWdgm7AUEcHeQhC2ykqWY5IH5x62cCUvnD0pUok
+         zhOQkRzYpCIfiobYL+bDP8mnW+4Jr2fRqRdbjdqP3F75Pv/NIV6NbXA5nDHHy5pt0tz0
+         yOsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVVRYDqFVPXoGx5WFJzlKWbBe02s2B5xRrl461KYhGFv2SfbP13uKC7EUbONov9qKNzTUqkXzAciiJkcQlBs39I@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDTWYZtNSv1a7hblpunm6gFzDdmGlDC8rIjE7O5/5GFjzuvSCr
+	zgk6xIua6j73gN83mf5BjRjYErl/y/lmcifMfq+ZjFzUh+6ceiDGgZGf/gy/yuX4HDul7s5cgc+
+	SsmFUDM2TugW2haobz49wjaEMN03+TfqOnOGxQOD2
+X-Gm-Gg: ATEYQzw+QVfnwrxuIvHdCQ2rVCx86hrM/Qp2FN+hojkIwQ7zJIJxiVoBMdY9VKYkd4X
+	Rwh5odDEjYDu5ntHE/suA3hdWSPmzFkCnumcuTxMywpiViKEIDBzcQ7bIHw1a0WXUp2OLzLAJAZ
+	roeKg8awL4Qhc2VJZVl5ZdP2s5vJSTWLMkm27l1ExyWYb0u6P7NEsomGv9XoyNVnt/84q7Z3VzR
+	wyPKb0UuuHI4dEkk7TrsuIceVfFf9WpEDZwUZCL+lSQ8NaPIDJpMLm5IdeN1ezagt5uWSNkseJx
+	aVd+LTSFtyCF71PoQJv368uSdAf1sWYoJfnJeA==
+X-Received: by 2002:a05:622a:14cb:b0:509:1eca:6d24 with SMTP id
+ d75a77b69052e-5093818c817mr10979211cf.2.1773224615864; Wed, 11 Mar 2026
+ 03:23:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-11-will@kernel.org>
-In-Reply-To: <20260305144351.17071-11-will@kernel.org>
+References: <20260305144351.17071-1-will@kernel.org> <20260305144351.17071-14-will@kernel.org>
+In-Reply-To: <20260305144351.17071-14-will@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Wed, 11 Mar 2026 10:22:42 +0000
-X-Gm-Features: AaiRm53QOriN6Gt_aOTc2-7qjZSAT70BFViqYooL3P-uIiVREeASlFd3nnmxw4E
-Message-ID: <CA+EHjTygODdT5tKs7qx_8a0NwWpw7x8LRmH26bt685N7N6_iVg@mail.gmail.com>
-Subject: Re: [PATCH v3 10/36] KVM: arm64: Split teardown hypercall into two phases
+Date: Wed, 11 Mar 2026 10:22:58 +0000
+X-Gm-Features: AaiRm51nPsb7tNbmy2Jyecx_WTDjL9A5ByE7o_zgvxGOIXmo2XmEdSMXGPWCjcc
+Message-ID: <CA+EHjTzCzgMRF7uirWtd7GjXqjTvUf8sootS5yzj2nfQxMZMVg@mail.gmail.com>
+Subject: Re: [PATCH v3 13/36] KVM: arm64: Handle aborts from protected VMs
 To: Will Deacon <will@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -102,8 +102,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Alexandru Elisei <alexandru.elisei@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_032321_342783_5DF002DF 
-X-CRM114-Status: GOOD (  30.05  )
+X-CRM114-CacheID: sfid-20260311_032337_651145_858C983F 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,203 +120,129 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 5 Mar 2026 at 14:44, Will Deacon <will@kernel.org> wrote:
 >
-> In preparation for reclaiming protected guest VM pages from the host
-> during teardown, split the current 'pkvm_teardown_vm' hypercall into
-> separate 'start' and 'finalise' calls.
+> Introduce a new abort handler for resolving stage-2 page faults from
+> protected VMs by pinning and donating anonymous memory. This is
+> considerably simpler than the infamous user_mem_abort() as we only have
+> to deal with translation faults at the pte level.
 >
-> The 'pkvm_start_teardown_vm' hypercall puts the VM into a new 'is_dying'
-> state, which is a point of no return past which no vCPU of the pVM is
-> allowed to run any more.  Once in this new state,
-> 'pkvm_finalize_teardown_vm' can be used to reclaim meta-data and
-> page-table pages from the VM. A subsequent patch will add support for
-> reclaiming the individual guest memory pages.
->
-> Co-developed-by: Quentin Perret <qperret@google.com>
-> Signed-off-by: Quentin Perret <qperret@google.com>
 > Signed-off-by: Will Deacon <will@kernel.org>
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 
 Cheers,
 /fuad
-
 > ---
->  arch/arm64/include/asm/kvm_asm.h       |  3 ++-
->  arch/arm64/include/asm/kvm_host.h      |  7 +++++
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  4 ++-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c     | 14 +++++++---
->  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 36 ++++++++++++++++++++++----
->  arch/arm64/kvm/pkvm.c                  |  7 ++++-
->  6 files changed, 60 insertions(+), 11 deletions(-)
+>  arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
+>  1 file changed, 81 insertions(+), 8 deletions(-)
 >
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 7b72aac4730d..df6b661701b6 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -89,7 +89,8 @@ enum __kvm_host_smccc_func {
->         __KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
->         __KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
->         __KVM_HOST_SMCCC_FUNC___pkvm_init_vcpu,
-> -       __KVM_HOST_SMCCC_FUNC___pkvm_teardown_vm,
-> +       __KVM_HOST_SMCCC_FUNC___pkvm_start_teardown_vm,
-> +       __KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
->         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
->         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
->         __KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 2ca264b3db5f..911819e6e757 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -255,6 +255,13 @@ struct kvm_protected_vm {
->         struct kvm_hyp_memcache stage2_teardown_mc;
->         bool is_protected;
->         bool is_created;
-> +
-> +       /*
-> +        * True when the guest is being torn down. When in this state, the
-> +        * guest's vCPUs can't be loaded anymore, but its pages can be
-> +        * reclaimed by the host.
-> +        */
-> +       bool is_dying;
->  };
->
->  struct kvm_mpidr_data {
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> index 184ad7a39950..04c7ca703014 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> @@ -73,7 +73,9 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
->                    unsigned long pgd_hva);
->  int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
->                      unsigned long vcpu_hva);
-> -int __pkvm_teardown_vm(pkvm_handle_t handle);
-> +
-> +int __pkvm_start_teardown_vm(pkvm_handle_t handle);
-> +int __pkvm_finalize_teardown_vm(pkvm_handle_t handle);
->
->  struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
->                                          unsigned int vcpu_idx);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 127decc2dd2b..634ea2766240 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -553,11 +553,18 @@ static void handle___pkvm_init_vcpu(struct kvm_cpu_context *host_ctxt)
->         cpu_reg(host_ctxt, 1) = __pkvm_init_vcpu(handle, host_vcpu, vcpu_hva);
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 9d183df0b0ac..4e64528d86a6 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1642,6 +1642,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>         return ret != -EAGAIN ? ret : 0;
 >  }
 >
-> -static void handle___pkvm_teardown_vm(struct kvm_cpu_context *host_ctxt)
-> +static void handle___pkvm_start_teardown_vm(struct kvm_cpu_context *host_ctxt)
->  {
->         DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
->
-> -       cpu_reg(host_ctxt, 1) = __pkvm_teardown_vm(handle);
-> +       cpu_reg(host_ctxt, 1) = __pkvm_start_teardown_vm(handle);
-> +}
-> +
-> +static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt)
+> +static int pkvm_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> +               struct kvm_memory_slot *memslot, unsigned long hva)
 > +{
-> +       DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> +       unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
+> +       struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
+> +       struct mm_struct *mm = current->mm;
+> +       struct kvm *kvm = vcpu->kvm;
+> +       void *hyp_memcache;
+> +       struct page *page;
+> +       int ret;
 > +
-> +       cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
->  }
->
->  typedef void (*hcall_t)(struct kvm_cpu_context *);
-> @@ -598,7 +605,8 @@ static const hcall_t host_hcall[] = {
->         HANDLE_FUNC(__pkvm_unreserve_vm),
->         HANDLE_FUNC(__pkvm_init_vm),
->         HANDLE_FUNC(__pkvm_init_vcpu),
-> -       HANDLE_FUNC(__pkvm_teardown_vm),
-> +       HANDLE_FUNC(__pkvm_start_teardown_vm),
-> +       HANDLE_FUNC(__pkvm_finalize_teardown_vm),
->         HANDLE_FUNC(__pkvm_vcpu_load),
->         HANDLE_FUNC(__pkvm_vcpu_put),
->         HANDLE_FUNC(__pkvm_tlb_flush_vmid),
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 2f029bfe4755..c4e05ab8b605 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -255,7 +255,10 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
->
->         hyp_spin_lock(&vm_table_lock);
->         hyp_vm = get_vm_by_handle(handle);
-> -       if (!hyp_vm || hyp_vm->kvm.created_vcpus <= vcpu_idx)
-> +       if (!hyp_vm || hyp_vm->kvm.arch.pkvm.is_dying)
-> +               goto unlock;
+> +       ret = prepare_mmu_memcache(vcpu, true, &hyp_memcache);
+> +       if (ret)
+> +               return -ENOMEM;
 > +
-> +       if (hyp_vm->kvm.created_vcpus <= vcpu_idx)
->                 goto unlock;
->
->         hyp_vcpu = hyp_vm->vcpus[vcpu_idx];
-> @@ -859,7 +862,32 @@ teardown_donated_memory(struct kvm_hyp_memcache *mc, void *addr, size_t size)
->         unmap_donated_memory_noclear(addr, size);
->  }
->
-> -int __pkvm_teardown_vm(pkvm_handle_t handle)
-> +int __pkvm_start_teardown_vm(pkvm_handle_t handle)
-> +{
-> +       struct pkvm_hyp_vm *hyp_vm;
-> +       int ret = 0;
+> +       ret = account_locked_vm(mm, 1, true);
+> +       if (ret)
+> +               return ret;
 > +
-> +       hyp_spin_lock(&vm_table_lock);
-> +       hyp_vm = get_vm_by_handle(handle);
-> +       if (!hyp_vm) {
-> +               ret = -ENOENT;
-> +               goto unlock;
-> +       } else if (WARN_ON(hyp_page_count(hyp_vm))) {
-> +               ret = -EBUSY;
-> +               goto unlock;
-> +       } else if (hyp_vm->kvm.arch.pkvm.is_dying) {
-> +               ret = -EINVAL;
-> +               goto unlock;
+> +       mmap_read_lock(mm);
+> +       ret = pin_user_pages(hva, 1, flags, &page);
+> +       mmap_read_unlock(mm);
+> +
+> +       if (ret == -EHWPOISON) {
+> +               kvm_send_hwpoison_signal(hva, PAGE_SHIFT);
+> +               ret = 0;
+> +               goto dec_account;
+> +       } else if (ret != 1) {
+> +               ret = -EFAULT;
+> +               goto dec_account;
+> +       } else if (!folio_test_swapbacked(page_folio(page))) {
+> +               /*
+> +                * We really can't deal with page-cache pages returned by GUP
+> +                * because (a) we may trigger writeback of a page for which we
+> +                * no longer have access and (b) page_mkclean() won't find the
+> +                * stage-2 mapping in the rmap so we can get out-of-whack with
+> +                * the filesystem when marking the page dirty during unpinning
+> +                * (see cc5095747edf ("ext4: don't BUG if someone dirty pages
+> +                * without asking ext4 first")).
+> +                *
+> +                * Ideally we'd just restrict ourselves to anonymous pages, but
+> +                * we also want to allow memfd (i.e. shmem) pages, so check for
+> +                * pages backed by swap in the knowledge that the GUP pin will
+> +                * prevent try_to_unmap() from succeeding.
+> +                */
+> +               ret = -EIO;
+> +               goto unpin;
 > +       }
 > +
-> +       hyp_vm->kvm.arch.pkvm.is_dying = true;
-> +unlock:
-> +       hyp_spin_unlock(&vm_table_lock);
+> +       write_lock(&kvm->mmu_lock);
+> +       ret = pkvm_pgtable_stage2_map(pgt, fault_ipa, PAGE_SIZE,
+> +                                     page_to_phys(page), KVM_PGTABLE_PROT_RWX,
+> +                                     hyp_memcache, 0);
+> +       write_unlock(&kvm->mmu_lock);
+> +       if (ret) {
+> +               if (ret == -EAGAIN)
+> +                       ret = 0;
+> +               goto unpin;
+> +       }
 > +
+> +       return 0;
+> +unpin:
+> +       unpin_user_pages(&page, 1);
+> +dec_account:
+> +       account_locked_vm(mm, 1, false);
 > +       return ret;
 > +}
 > +
-> +int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->  {
->         struct kvm_hyp_memcache *mc, *stage2_mc;
->         struct pkvm_hyp_vm *hyp_vm;
-> @@ -873,9 +901,7 @@ int __pkvm_teardown_vm(pkvm_handle_t handle)
->         if (!hyp_vm) {
->                 err = -ENOENT;
->                 goto err_unlock;
-> -       }
-> -
-> -       if (WARN_ON(hyp_page_count(hyp_vm))) {
-> +       } else if (!hyp_vm->kvm.arch.pkvm.is_dying) {
->                 err = -EBUSY;
->                 goto err_unlock;
+>  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>                           struct kvm_s2_trans *nested,
+>                           struct kvm_memory_slot *memslot, unsigned long hva,
+> @@ -2201,15 +2269,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>                 goto out_unlock;
 >         }
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 20d50abb3b94..a39dacd1d617 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -88,7 +88,7 @@ void __init kvm_hyp_reserve(void)
->  static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
->  {
->         if (pkvm_hyp_vm_is_created(kvm)) {
-> -               WARN_ON(kvm_call_hyp_nvhe(__pkvm_teardown_vm,
-> +               WARN_ON(kvm_call_hyp_nvhe(__pkvm_finalize_teardown_vm,
->                                           kvm->arch.pkvm.handle));
->         } else if (kvm->arch.pkvm.handle) {
->                 /*
-> @@ -350,6 +350,11 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
->         if (!handle)
->                 return;
 >
-> +       if (pkvm_hyp_vm_is_created(kvm) && !kvm->arch.pkvm.is_dying) {
-> +               WARN_ON(kvm_call_hyp_nvhe(__pkvm_start_teardown_vm, handle));
-> +               kvm->arch.pkvm.is_dying = true;
+> -       VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
+> -                       !write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
+> +       if (kvm_vm_is_protected(vcpu->kvm)) {
+> +               ret = pkvm_mem_abort(vcpu, fault_ipa, memslot, hva);
+> +       } else {
+> +               VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
+> +                               !write_fault &&
+> +                               !kvm_vcpu_trap_is_exec_fault(vcpu));
+>
+> -       if (kvm_slot_has_gmem(memslot))
+> -               ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
+> -                                esr_fsc_is_permission_fault(esr));
+> -       else
+> -               ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
+> -                                    esr_fsc_is_permission_fault(esr));
+> +               if (kvm_slot_has_gmem(memslot))
+> +                       ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
+> +                                        esr_fsc_is_permission_fault(esr));
+> +               else
+> +                       ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
+> +                                            esr_fsc_is_permission_fault(esr));
 > +       }
-> +
->         __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
->  }
->
+>         if (ret == 0)
+>                 ret = 1;
+>  out:
 > --
 > 2.53.0.473.g4a7958ca14-goog
 >
