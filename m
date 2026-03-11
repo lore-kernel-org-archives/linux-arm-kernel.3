@@ -4,89 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBD61062868
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DB81062868
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 11:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFUwPWUa2C8RyPEgXtS/bViQ1F3uFE3QYAtTuWHnxcc=; b=2YouC2PGOAlc9Fez9nUZgvKz2P
-	aIlQ9PnwVbuyVxWbxWe8ww3M+fpO0r1owQWYHwRDUmqru4LCYm1Y70aj9riGlxMm0MNVK2WSCWdBW
-	bZFOiOYLohsYZQc56ShVO8mS3QiBAEZEgCL8P62FZhiSqnWqHWMl5Xk5VOS+YHsBgoWuPFysWCeJn
-	a5jtUnz5Msdv0KSwBtGATGSkYv88Vyv+PyrAb/IqzAKWGWke33+3CvZ9uh8i4jXPDsYrnMXfZCL/d
-	YNSSzkJ7v1sfwm39QZTKkRFaPRMG++X2Q03N1FW5ZNUj8rxf7CR18ZZBOZ2vuq7aDncB3yLolPmUX
-	8QcEuseA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=njkHqGx9S4YhUB47dy2QLnBnURzMQi8ylZsgVChRvDM=; b=Y+tmfxV4zl3nvIuEHWWFx4IdM1
+	lalpB/qRUQdIlVeKGnMkGEhswvyxHd0RTSVzyQ0p7YJWBUkAIfaPsZD6MDb58Tx5hnhINLBDxhruF
+	vVuKGQOBmC8FSuuywoMDH6G4tX8UB2hL9uXq5GiUqntw2YnexO5U6dbEFNrDOuNPlsthVcCFvl/WG
+	/YdbNwOhwaAN+8HoEmAn9kQgON3WkLgiExdDx8GkIqIN4J7dI5In5VqLMAOoySrf8PEjZreaw7Nfz
+	A0AofIy4Wdn56rtN19ZIFvvbsqiD2lKoEm/M4lJxZV7uUVq6bwFUi6qBaDcCwHP5m5DedNC5Km05Y
+	qngYMOoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0HmC-0000000BUm7-1N28;
-	Wed, 11 Mar 2026 11:30:56 +0000
-Received: from mail-vk1-f175.google.com ([209.85.221.175])
+	id 1w0Hok-0000000BUx7-3aMb;
+	Wed, 11 Mar 2026 11:33:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Hm9-0000000BUlX-31fk
+	id 1w0Hoj-0000000BUx1-0Jc8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 11:30:55 +0000
-Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-56a9c5cb48bso5046315e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 04:30:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773228652; x=1773833452;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SFUwPWUa2C8RyPEgXtS/bViQ1F3uFE3QYAtTuWHnxcc=;
-        b=R0SoRWmInATWPnwyQ69Lla9D7sQ/Ao5azGQ19elBCbnNB55yaAvETX4fOJvxlrZNdr
-         oiTiR7qPsBX3pjgVnRiL8w5r62RvOncJP1R6Cfpsg3gPOcPmTKpLVbd/ajdbBn4wavYO
-         uC5HYEFkdL4I43qzdm3ZeZEQZUWEoQswcHTDYnsWDAhzhIDSM/rRFvaDMl1SBDzdQmE0
-         qFqJ/riMxMV38xst0EH0AiYkaW3nRgn+7mv//YyLa9/d5TeDTuXn4tK+5ZWUYGLWkv5s
-         XVm+SD6mYT/Ox7+XLI6J+JdNvp163luXl6p69Gv84oHRPW+dppPR+lw+LsHvDoTdVFJq
-         5wDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWkOQ4V+ApN2OzU2RkgFiBezyQBDdixRtdlFrJIWUNhZn97J+2tBdX/eMiBgJqfScP2g+24FbXAkcsDlG7M9rm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2/8EOZ5Q5Ld96lVdApovA/WcW1QkGcb3QhWo5DTMsjzJ3vzE5
-	UmxCTwB5sansP3I284rhzgrqVSlAknVTYgwIwYxz6ZVnnqaXaTNbC+mfnfI0Sd7k
-X-Gm-Gg: ATEYQzxTh9wuqN6LnucG0Ui8CFZM23UFkZKSf3hHat5i0dZ+MVr5lgj+sbYRP3/cLPD
-	nth4PaDr0pDB4pVlw8LcPfQtdOtrQ8VIsX9clw8ylpuLE7eicEgek1NCxaDs6pRhvaBCgfwx8Rf
-	9bvSn3snGRDB5Z+7T5vBc/wLmXMJe99jP3z5Y+CvAkHTakEeAQLjFmrua/NuwFt9JbxSMFLykqm
-	CvjFz4w6Y+w/pgw/I4yl0OTBCSU4BsEc1HU8Tblb/KL727Nt6eNdrMv3scOYhHDXiLsxJ08JmeS
-	G2/xFGIdiNSYk7oMln+Hmg6W8vcm5n1C7w/dcrqIIDSfNM1v1wsQr7MSHJg/1NOPJCefjO2Oc5T
-	mhKG0uMxZzUuGETegtx/G8XeZMn3vRu8rg7NkN1UOxpgkspbdSLb4ITBD7gVobIXca70mGNK5Y+
-	foxwlSfV9/mc+rHbc8zSJFsus7kflQ1mAUJQA0sxDCM7n2w9zAa9ki1l7enaucQBOF
-X-Received: by 2002:a05:6122:2086:b0:566:37dc:e219 with SMTP id 71dfb90a1353d-56b476531b0mr689455e0c.15.1773228652064;
-        Wed, 11 Mar 2026 04:30:52 -0700 (PDT)
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56b46350bc7sm881601e0c.7.2026.03.11.04.30.45
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Mar 2026 04:30:47 -0700 (PDT)
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56afbcd8adbso3016760e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 04:30:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWqGrXQ+cH7M3l35RN+ppzJQqBaiPVU232+8KEgQ9fV/77a/vxaPSsUmW4cMHU2PPupqA/2X3pYu0h/DofeOMy7@lists.infradead.org
-X-Received: by 2002:a05:6122:4b14:b0:566:2711:d8ab with SMTP id
- 71dfb90a1353d-56b47474538mr661085e0c.6.1773228645230; Wed, 11 Mar 2026
- 04:30:45 -0700 (PDT)
+	Wed, 11 Mar 2026 11:33:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 265E06111A;
+	Wed, 11 Mar 2026 11:33:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B8EC116C6;
+	Wed, 11 Mar 2026 11:33:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773228811;
+	bh=7ax8f8Z2suiY/ClnmYcNqzxiW1dr6PEtqi/ot5nvoOo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=GPXgoORFGrta/iwANuGICTrla35yAQ1ga0gDJllpRjNU4SsJDhgj0ZQUlJKdaFKSG
+	 sxZsIg7qLtEx6QH/gdVk7mfsIwCSVcY/gmLqkHE1h6c7mdl5WYFOANsx21Nk0K31bY
+	 GgdSoV6nl8fgV5pz+1cm4WIiVoeUVoKH9PUNJtrOqCXQwpGR01JIahBAhnrBHZjS6w
+	 RIi9ZL6i4b7TJYMjCujXLxjPzoDP8Mh0BfRGpkBtcLRGoQGGv0PN45g9u6oRykW8GE
+	 TDoSHY4KQEXPfUI1ZarqtsXY/0u1h9TCSPuFVON6Mee6/N0yrOjMNK+f9pv532od90
+	 ESlo6scDTsnCw==
+From: Srinivas Kandagatla <srini@kernel.org>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Michael Walle <mwalle@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org
+In-Reply-To: <20260302122540.1377444-1-mwalle@kernel.org>
+References: <20260302122540.1377444-1-mwalle@kernel.org>
+Subject: Re: (subset) [PATCH v2 0/7] Remove the Kontron SMARC-sAM67 board
+Message-Id: <177322880885.2191403.16034538452371689446.b4-ty@kernel.org>
+Date: Wed, 11 Mar 2026 11:33:28 +0000
 MIME-Version: 1.0
-References: <20260310184030.3669330-1-cristian.marussi@arm.com> <20260310184030.3669330-2-cristian.marussi@arm.com>
-In-Reply-To: <20260310184030.3669330-2-cristian.marussi@arm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 11 Mar 2026 12:30:34 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX5T-7ERcjEK_=z7joEftC2cMLqDkyy8iO65U21S-umng@mail.gmail.com>
-X-Gm-Features: AaiRm531V7pPeKFeCYpwBljOpOuuWMHfwPn8-oVZZtZhYt-YNy5G1WfiCBuIrko
-Message-ID: <CAMuHMdX5T-7ERcjEK_=z7joEftC2cMLqDkyy8iO65U21S-umng@mail.gmail.com>
-Subject: Re: [PATCH v2 01/13] clk: scmi: Fix clock rate rounding
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
-	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
-	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
-	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
-	marek.vasut+renesas@gmail.com, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_043053_765189_62A3EAB9 
-X-CRM114-Status: GOOD (  23.72  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,65 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
 
-On Tue, 10 Mar 2026 at 19:40, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> While the do_div() helper used for rounding expects its divisor argument
-> to be a 32bits quantity, the currently provided divisor parameter is a
-> 64bit value that, as a consequence, is silently truncated and a possible
-> source of bugs.
->
-> Fix by using the proper div64_ul helper.
->
-> Cc: Michael Turquette <mturquette@baylibre.com>
-> Cc: Stephen Boyd <sboyd@kernel.org>
-> Cc: linux-clk@vger.kernel.org
-> Fixes: 7a8655e19bdb ("clk: scmi: Fix the rounding of clock rate")
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+On Mon, 02 Mar 2026 13:24:45 +0100, Michael Walle wrote:
+> I was informed two weeks ago that this product is discontinued
+> (without being ever released to the market). Unfortunately, this
+> collided with the merge window and I had to wait two more weeks.
+> 
+> Pull the plug and let's not waste any more maintainers time.
+> 
+> On the bright side, the board upstreaming brought some driver fixes,
+> too. I'm really sorry for any wasted time.
+> 
+> [...]
 
-Thanks for your patch!
+Applied, thanks!
 
-> --- a/drivers/clk/clk-scmi.c
-> +++ b/drivers/clk/clk-scmi.c
+[5/7] dt-bindings: nvmem: sl28cpld: Drop sa67mcu compatible
+      commit: b7ad72258857a3afa0e116b26d0d3ff6ef42ba94
 
-> @@ -83,7 +83,7 @@ static int scmi_clk_determine_rate(struct clk_hw *hw,
->
->         ftmp = req->rate - fmin;
->         ftmp += clk->info->range.step_size - 1; /* to round up */
-> -       do_div(ftmp, clk->info->range.step_size);
-> +       ftmp = div64_ul(ftmp, clk->info->range.step_size);
-
-include/linux/math64.h has:
-
-    #if BITS_PER_LONG == 64
-    #define div64_ul(x, y)   div64_u64((x), (y))
-    #elif BITS_PER_LONG == 32
-    #define div64_ul(x, y)   div_u64((x), (y))
-    #endif
-
-I.e. div64_ul() is meant for the case where the divisor is unsigned
-long.  Hence div64_ul() may still truncate step_size on 32-bit
-platforms, and thus should use div64_u64() unconditionally.
-
-I am aware clock rates are "unsigned long" on 32-bit platforms, and
-thus cannot support rates that do not fit in a 32-bit value.
-If that is the reason you are using div64_ul(), it should be documented
-properly.  And probably the SCMI core code should reject any rate values
-(incl. min, max, step) that do not fit in unsigned long, as such clocks
-cannot be used on 32-bit platforms.
-
->
->         req->rate = ftmp * clk->info->range.step_size + fmin;
->
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Srinivas Kandagatla <srini@kernel.org>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
