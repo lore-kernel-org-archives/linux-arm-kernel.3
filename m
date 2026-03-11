@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF865FD0648
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 07:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBACFD0648
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 07:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DdIBhxH+L3NcFrsmDf8dPGNKf2BBtJsV7fcmYOxEYQs=; b=xh4rMjhwId+5Qy4eUn9RnNh+V2
-	P43MPGHrsTxi0OsXUxUv12fEGnF2Yw4SW1uMpBqk8ex1ReErQv+661ucpZYT3V87g9/wMhpExM4So
-	FZ9q04LSuk/6FwyxhcTNDTDnl3DFepwTuK1P6Vmf13vWtQ9JsyGxBo7m9BhGsfh5MII7iqPT5YadS
-	RNmrmsUNAoN+VdScU1dl/Ik2303RD/1J5ijFxLCrsz09df4EZPqTNtBJ0nR7jYBIYkjKXEHDc4uzi
-	37SPq1w7r79MtFF1ykHM7+/sR8Ey/beVRFDIBf6kvcR4nZYVwBnuKlN71hP6rafHPG2Hn56+xPRlm
-	Y4woIkWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ia/h+Ujm2UU6hc9xvTK+YG/srtAG9AgdmITAxoPaDg=; b=s4Q6GRgg3TkxzK/ugR0O8b6+n+
+	YACrK3Me4xiaFWVBBpGknacbzzpogJ6CXuU1vMuRNBOWgK6X/KftWUtfS7BQ6pKo+Ka9ZDM3hdJSZ
+	Ok4PIApsExn98AWFil1S2fT8HcW9mv0FEXPemBYjw49BAW9RobqAXi9q8gSQ/Et6YrVFh0/6HBSCV
+	LyBQH5592A7ldMgyW5YrUH6wNZpNXqsa5fXjuvQmAjzjg7Ougm1qepIO3jRoIixFnclTlwEQqmJIo
+	RdxWCx8ZlnaNjgnONYtuhyRedaKNtrm/1jZfy1ESg8+2iXmNHDPV7FOX70mrAXZOHW+TU3NJHPUqr
+	gYgBdggQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ENq-0000000B5Ys-2aDg;
-	Wed, 11 Mar 2026 07:53:34 +0000
-Received: from [2a01:4f9:c011:1c83::1] (helo=courrier.aliel.fr)
+	id 1w0EOK-0000000B5gn-1kWd;
+	Wed, 11 Mar 2026 07:54:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ENm-0000000B5Xl-2kPL;
-	Wed, 11 Mar 2026 07:53:32 +0000
-Received: from [IPV6:2a02:842b:8136:1:f505:bf45:64da:2dc5] (2A02-842b-8136-0001-f505-BF45-64da-2Dc5.rev.sfr.net [IPv6:2a02:842b:8136:1:f505:bf45:64da:2dc5])
-	by courrier.aliel.fr (Postfix) with ESMTPSA id 00C2F40244;
-	Wed, 11 Mar 2026 07:53:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1773215603;
-	bh=dAl8NeMgNapqy+jg71daPB461jC6qFq23REAFP6hsJc=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=eNCkmbvrcD82029VT051OXjGWw6/WSjov/+pQtD7O5pATqLvP2IuuAft9Cs+hrSrH
-	 MeKgQGnartdh8PMu3Sa28ezkl//osy6fdg6LVXOa6jImma6Q87qvBE+oKXdDPr7Fy0
-	 DhMhz2dA5kkzFPGJgCeWvatvh65P9O9X+U/U44UA=
-Message-ID: <b6677544-d679-4f01-bcce-f9ce1518f942@aliel.fr>
-Date: Wed, 11 Mar 2026 08:53:00 +0100
+	id 1w0EOJ-0000000B5fe-132U
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Mar 2026 07:54:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5E6CD600B0;
+	Wed, 11 Mar 2026 07:54:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E9BD9C4CEF7;
+	Wed, 11 Mar 2026 07:54:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773215642;
+	bh=5BH0XLykQgNrQNKOTXesrRDorvTmEgpTDI3sJGb8+u8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=ofuhcTQoPjfXY+ytNgQgZ06azHReATTnhP/kIlPqAwIDeGcTL0bmxLEMR5AQ/2FY8
+	 WtUKYZnuMmhws31G3QyP5yguVktnMZJohg9qFBPfYxgCLmDPWJhge/co0cvP1bIwTL
+	 3is+lNciVoro/NibfUjenMf7vaXMv0O1r1fXsLuIoI3XaWhQF4BGGOvixSYYNOZKZl
+	 uOd+YUzkr5Dhs0Uc3+4rWVXbrTW6Cz5b5STIUNOaxfxkNxhdohxeQd3sf6fWZOdBbJ
+	 s868bpHfqG/NbpV3nE31F1WTJ/zv/YqoxHoeLobSaH7s3T6DjRhiyPeswerO6C/9lx
+	 miMTPasYJU31Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D242BFD0649;
+	Wed, 11 Mar 2026 07:54:01 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Subject: [PATCH v9 0/5] Support multi-channel IRQs in stmmac platform
+ drivers
+Date: Wed, 11 Mar 2026 08:53:55 +0100
+Message-Id: <20260311-dwmac_multi_irq-v9-0-f0c03ef8d01f@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: t7: Add clock controller nodes
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Stephen Boyd <sboyd@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-References: <20260305074328.639993-1-jian.hu@amlogic.com>
- <20260305074328.639993-4-jian.hu@amlogic.com>
-Content-Language: en-US
-In-Reply-To: <20260305074328.639993-4-jian.hu@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_005331_306869_6EB1A350 
-X-CRM114-Status: GOOD (  13.78  )
+X-B4-Tracking: v=1; b=H4sIAJMfsWkC/23S22rDMAwG4Fcpvl6KLR9i92rvMUaxFWs1LEmXd
+ FlHybvPKRsNcy5/gT4LyTc2xiHFkR12NzbEKY2p73JwTzuGJ9+9xSo1OTPgoAVwVzVfrcdj+/l
+ +Scc0fFSusWS4MoAoWO46D5HS9S6+vOZ8SuOlH77vD0xiqf5aQhXWJCpeSaMN+MCjo/q5H8d9d
+ z3vsW/Zok3wJxieiVKARQgWHEje8FqUglwLshRkFhC1JAjROrMhqLVgS0FlwQJ5qQgJCEpBPwT
+ YmkEvAqFxzmvyqErBrAVdCiYLoHQg0dRCcCyFei2YUqizQJaiDC47YWMG+xDkxs+Y7CLwvMuAV
+ gj/75rzPP8A12QUZ34CAAA=
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, rmk+kernel@armlinux.org.uk, 
+ vladimir.oltean@nxp.com, boon.khai.ng@altera.com, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773215640; l=4657;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=5BH0XLykQgNrQNKOTXesrRDorvTmEgpTDI3sJGb8+u8=;
+ b=O6ILZtXXVL4OJaO8m37PvONztWwM2ZzLUzFvenQDmqBrZWN48/OBmVObsizApJWse2xwGE0wA
+ ejqrlcHhchvC7tgNrrMWGbSUWqYdyT3E2inNQ38LeX9K/r2nTWH+Kl0
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,201 +99,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/26 8:43 AM, Jian Hu wrote:
-> Add the required clock controller nodes for Amlogic T7 SoC family:
-> - SCMI clock controller
-> - PLL clock controller
-> - Peripheral clock controller
-> 
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 125 ++++++++++++++++++++
->  1 file changed, 125 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> index 6510068bcff9..6ea1b583b13d 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> @@ -6,6 +6,9 @@
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/power/amlogic,t7-pwrc.h>
->  #include "amlogic-t7-reset.h"
-> +#include <dt-bindings/clock/amlogic,t7-scmi.h>
-> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
-> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
->  
->  / {
->  	interrupt-parent = <&gic>;
-> @@ -201,6 +204,33 @@ pwrc: power-controller {
->  		};
->  	};
->  
-> +	sram@f7042000 {
-> +		compatible = "mmio-sram";
+The stmmac core supports two interrupt modes, controlled by the
+flag STMMAC_FLAG_MULTI_MSI_EN:
 
-Applying your patches shows the following errors
+- When the flag is set, the driver uses multi-channel IRQ mode (Multi-IRQ).
+- Otherwise, a single IRQ line is requested (aka MAC-IRQ):
 
+static int stmmac_request_irq(struct net_device *dev)
+{
+        /* Request the IRQ lines */
+        if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN)
+                ret = stmmac_request_irq_multi_msi(dev);
+        else
+                ret = stmmac_request_irq_single(dev);
+}
 
-[    0.019608] sram sram@f7042000: error -EINVAL: invalid resource (null)
-[    0.019622] sram sram@f7042000: could not map SRAM registers
-[    0.019627] sram sram@f7042000: probe with driver sram failed with
-error -22
+At present, only PCI drivers (Intel and Loongson) make use of the Multi-IRQ
+mode. This concept can be extended to DT-based embedded glue drivers
+(dwmac-xxx.c).
 
-Adding a reg remove those errors on kernel logs
-reg = <0x0 0xf7042000 0x0 0x100>;
+This series adds support for reading per-channel IRQs from the DT node and
+reuses the existing STMMAC_FLAG_MULTI_MSI_EN flag to enable multi-IRQ
+operation in platform drivers.
 
-Can you have a look on this ?
+The final decision if Multi-IRQ gets enabled remains on glue driver
+to allow implementing any reguirements/limitions the focused platform
+needs.
 
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0 0x0 0xf7042000 0x100>;
-> +
-> +		scmi_shmem: sram@0 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x100>;
-> +		};
-> +	};
-> +
-> +	firmware {
-> +		scmi: scmi {
-> +			compatible = "arm,scmi-smc";
-> +			arm,smc-id = <0x820000c1>;
-> +			shmem = <&scmi_shmem>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			scmi_clk: protocol@14 {
-> +				reg = <0x14>;
-> +				#clock-cells = <1>;
-> +			};
-> +		};
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		#address-cells = <2>;
-> @@ -224,6 +254,42 @@ apb4: bus@fe000000 {
->  			#size-cells = <2>;
->  			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
->  
-> +			clkc_periphs:clock-controller@0 {
-> +				compatible = "amlogic,t7-peripherals-clkc";
-> +				reg = <0x0 0x0 0x0 0x1c8>;
-> +				#clock-cells = <1>;
-> +				clocks = <&xtal>,
-> +					 <&scmi_clk CLKID_SYS_CLK>,
-> +					 <&scmi_clk CLKID_FIXED_PLL>,
-> +					 <&scmi_clk CLKID_FCLK_DIV2>,
-> +					 <&scmi_clk CLKID_FCLK_DIV2P5>,
-> +					 <&scmi_clk CLKID_FCLK_DIV3>,
-> +					 <&scmi_clk CLKID_FCLK_DIV4>,
-> +					 <&scmi_clk CLKID_FCLK_DIV5>,
-> +					 <&scmi_clk CLKID_FCLK_DIV7>,
-> +					 <&hifi CLKID_HIFI_PLL>,
-> +					 <&gp0 CLKID_GP0_PLL>,
-> +					 <&gp1 CLKID_GP1_PLL>,
-> +					 <&mpll CLKID_MPLL1>,
-> +					 <&mpll CLKID_MPLL2>,
-> +					 <&mpll CLKID_MPLL3>;
-> +				clock-names = "xtal",
-> +					      "sys",
-> +					      "fix",
-> +					      "fdiv2",
-> +					      "fdiv2p5",
-> +					      "fdiv3",
-> +					      "fdiv4",
-> +					      "fdiv5",
-> +					      "fdiv7",
-> +					      "hifi",
-> +					      "gp0",
-> +					      "gp1",
-> +					      "mpll1",
-> +					      "mpll2",
-> +					      "mpll3";
-> +			};
-> +
->  			reset: reset-controller@2000 {
->  				compatible = "amlogic,t7-reset";
->  				reg = <0x0 0x2000 0x0 0x98>;
-> @@ -234,6 +300,7 @@ watchdog@2100 {
->  				compatible = "amlogic,t7-wdt";
->  				reg = <0x0 0x2100 0x0 0x10>;
->  				clocks = <&xtal>;
-> +
->  			};
->  
->  			periphs_pinctrl: pinctrl@4000 {
-> @@ -269,6 +336,64 @@ uart_a: serial@78000 {
->  				status = "disabled";
->  			};
->  
-> +			gp0:clock-controller@8080 {
-> +				compatible = "amlogic,t7-gp0-pll";
-> +				reg = <0x0 0x8080 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			gp1:clock-controller@80c0 {
-> +				compatible = "amlogic,t7-gp1-pll";
-> +				reg = <0x0 0x80c0 0x0 0x14>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			hifi:clock-controller@8100 {
-> +				compatible = "amlogic,t7-hifi-pll";
-> +				reg = <0x0 0x8100 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			pcie:clock-controller@8140 {
-> +				compatible = "amlogic,t7-pcie-pll";
-> +				reg = <0x0 0x8140 0x0 0x1c>;
-> +				clocks = <&scmi_clk CLKID_PCIE_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			mpll:clock-controller@8180 {
-> +				compatible = "amlogic,t7-mpll";
-> +				reg = <0x0 0x8180 0x0 0x28>;
-> +				clocks = <&scmi_clk CLKID_FIXED_PLL_DCO>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			hdmi:clock-controller@81c0 {
-> +				compatible = "amlogic,t7-hdmi-pll";
-> +				reg = <0x0 0x81c0 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_HDMI_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			mclk:clock-controller@8300 {
-> +				compatible = "amlogic,t7-mclk-pll";
-> +				reg = <0x0 0x8300 0x0 0x18>;
-> +				clocks = <&scmi_clk CLKID_MCLK_PLL_OSC>,
-> +					 <&xtal>,
-> +					 <&scmi_clk CLKID_FCLK_50M>;
-> +				clock-names = "in0", "in1", "in2";
-> +				#clock-cells = <1>;
-> +			};
-> +
->  			sec_ao: ao-secure@10220 {
->  				compatible = "amlogic,t7-ao-secure",
->  					     "amlogic,meson-gx-ao-secure",
+NXP S32G2/S32G3/S32R SoCs integrate the DWMAC IP with multi-channel
+interrupt support. The dwmac-s32.c driver change is provided as an example of
+enabling multi-IRQ mode for non-PCI drivers.
 
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+---
+Changes in v9:
+- Changed interrupt minItems from 11 to 1 to support backward compatibility
+  and removed the 'Reviewed-by' accordingly for patch 4
+- Link to v8: https://lore.kernel.org/r/20260309-dwmac_multi_irq-v8-0-f0cc5bc811a7@oss.nxp.com
 
--- 
+Changes in v8:
+- Rewritten queue irq getter, based on Russell's (ready-to-use) hint
+- Renamed s32_gmac_validate_multi_irq() to s32_gmac_setup_multi_irq() to
+  better describe the functionality
+- Fixed typo in commit message for patch 5
+- Renamed label in patch 5 to make it more descriptive
+- Link to v7: https://lore.kernel.org/r/20260226-dwmac_multi_irq-v7-0-f8fe3b945bb4@oss.nxp.com
+
+Changes in v7:
+- Optimized 2 similar loops on queue rx/tx irq reading
+- Swap the yaml and dts patches with hope it fix dt_binding_check failing
+- Link to v6: https://lore.kernel.org/r/20260225-dwmac_multi_irq-v6-0-245bf1d7110c@oss.nxp.com
+
+Changes in v6:
+- Added 2 mintainers which were not covered by 'b4 prep --auto-to-cc'
+  but complained on patchwork check
+- Added helper macro for loop over queue-based arrays (inspired by AI
+  review)
+- Added full validation on all channel IRQs
+- Link to v5: https://lore.kernel.org/r/20260223-dwmac_multi_irq-v5-0-8fc699a5fac4@oss.nxp.com
+
+Changes in v5:
+- fixed typo in "symetrical"
+- cleaned negative return value on platform_get_irq_byname_optional()
+  in stmmac_get_platform_resources()
+- rebased on v7.0-rc1
+- Link to v4: https://lore.kernel.org/r/20260128-dwmac_multi_irq-v4-0-82fa34fcf2f2@oss.nxp.com
+
+Changes in v4:
+- Fixed IRQ reading check
+- Made cleaner the IRQ validity (to get AI reviewer happy)
+- Fixed minItems of interrupts property in yaml
+- Link to v3: https://lore.kernel.org/r/20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com
+
+Changes in v3:
+- removed RFC prefix
+- rebased on v6.19-rc6
+- fixed forgotten extra line setting to Multi-IRQ unconditionally
+- fixed yaml
+- Link to v2: https://lore.kernel.org/r/20260121-dwmac_multi_irq-v2-0-3b829230d071@oss.nxp.com
+
+Changes in v2:
+- Fixed incorrect buffer len for 'rx-queue-%d' property check
+- Added backward compatibility to not break old settings
+- Fixed DT example in yaml
+- Link to v1: https://lore.kernel.org/r/20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com
+
+---
+Jan Petrous (OSS) (5):
+      net: stmmac: Use helper macro for loop over queue-based arrays
+      net: stmmac: platform: read channels irq
+      arm64: dts: s32: set Ethernet channel irqs
+      dt-bindings: net: nxp,s32-dwmac: Declare per-queue interrupts
+      stmmac: s32: enable support for Multi-IRQ mode
+
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 47 ++++++++++++++++--
+ arch/arm64/boot/dts/freescale/s32g2.dtsi           | 26 ++++++++--
+ arch/arm64/boot/dts/freescale/s32g3.dtsi           | 26 ++++++++--
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 36 +++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  3 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 16 +++---
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 57 +++++++++++++++++++++-
+ 8 files changed, 191 insertions(+), 22 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20251209-dwmac_multi_irq-9d8f60462cc1
+
 Best regards,
-Ronald
+-- 
+Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+
+
 
