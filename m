@@ -4,80 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB83FD88DF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 03:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494C9FD88DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 03:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=; b=pCTk+XsPt0/al8FvGP9YovtXR/
-	JG4kHiNmKt2B+EKSHUSUamL6EXyDsOioyEC3eoyouFGGrzm2bOYcS5WIJHFR42hrlSMNamta/fuxX
-	ukx06ZocsYzhPj9fe4IM70PgOUTkOktpHmLkXXeccL1sj03FZQP34OQgWv9T/a78aEqzGqb1heC8Q
-	H/xw0ggpeXhfnBXfLoDNV5stPNIIIgoGfn+1T/YJ8IQ3STG7oi5l4tIulPfF76LVei6y/xAgDFPBQ
-	dlXx13ws8H1UP9gP8nBvp2KawDUQqspcVklzvMW/ZquaTmF6fF4trIbGGyIPUr64PrHKHMQj82QIt
-	J/usGafQ==;
+	bh=72OSiPvKpBMnlPHRB6MqItrg00fRyKePcmUrXVqZhQw=; b=ZeAdIEvnU5WWItgdsngZJduHGm
+	uT5+DchCXMmwqzZJAwL8tpo3ibmoaflzfpe21iBya3Lv8epX4Q5vx/BDSs7HXxeTNn03mEBqRhs3K
+	RYZz7pwz92LpsIvtx2HrLL/miJiFr6eWGnswLZI4z89hkFaD7GAEV0XCjlhLn853z/CLIgeCr7l7x
+	NUDqFNokF9GTXBrHecGYVsMF+SRb23VIjEMSlCofZqATbEy1JJT1IZw0o5cIFSl0PkwHFvvYF+RiW
+	/57r92R+qpIWspm4xkomX1LMfe08EipduzaehtzGQ7ZbxtUeOsa4iImzORNduAAhoXytGKZ4prHbx
+	xSITGaBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09qN-0000000AaSM-05f8;
-	Wed, 11 Mar 2026 03:02:43 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1w09vp-0000000AaqS-0Voo;
+	Wed, 11 Mar 2026 03:08:21 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09qK-0000000AaRc-2zzZ
+	id 1w09vn-0000000Aaq2-05Mc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 03:02:41 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-829865a8471so6183539b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 20:02:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773198159; x=1773802959; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
-        b=VarAXYfXtzV9d6vdd7cx/DXmfEO8i7GvX2FuMCctz/ivE8M0BB7/yvGBddRHs5MnY7
-         U6gV6cY8XgMs34qjCiuNDjAZ90oaRo5L+zQZIPH2TQwYvHqr3HsU70TH8YUNHpnZidSk
-         rSh1w3neVgR4+rQV+PmyhgR9bUazJN4RddPTVrIip+wQoywi1mCnMHbHhi0Ed3999AkB
-         UtC5tcMFCUMNEpS2Xci+k6azUOLXf2AAXyFNfHPSPEAQqBexaJHGQTnG96vVnJjgHO5d
-         E6eQhbt5yJMAN0tYp3xp06geg/TMMvBR7nuunUSTV3qOfotG9CCb/0vbFH2pXy7FzGUm
-         PJnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773198159; x=1773802959;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
-        b=gM9IwL2GOOhDTrW6RPAOX1zFbqgh2/d6kMaN5pqpqw4aiEyTUEzShhf9O3Wzv9MaDn
-         +NHIepxUG6ZFnneqwJoP6peElB6HyYKf2mNZe1WeuAIs8OulMca2hcBUJ1KTkePYD2uK
-         JKxK1OJH3JmADSgyNdodkKBvOu/Hr6A4iH91ywy/EvTPUyVubdR1OzoNTuKp63koX3Q1
-         xnlnK/Lq/g8gbzrQcWZHuxLM5UNyx/xI0cfkXhTjsbKNxZBgKHudLHBS3eemyB1hpxRh
-         z0jtFukVF9KQVdAxQ7FVBuyQ7J/girLVYWlYc+mGbkABf1/Xf9+39gPHPGv1/PXwdtkT
-         M6pw==
-X-Forwarded-Encrypted: i=1; AJvYcCVajY7hGcZqHXZy/taD+Xp/LvhFkU4SKwIZvAZqA+8KD1Q0vvsqIDRuQwSULQltJXqHC67nISTo/AceSX0FBAxP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyRrHIRs9BscPSjvIO+GXEsxqvFIEd5tx1Y6oq4GhScszpAuQj
-	k9gxoORCNtM0PPAlNjTu3ikYos+0WIL1qwEz4u2Uak1/jrkrgOAk1jxK
-X-Gm-Gg: ATEYQzzfPGDMNc9sT+fpUvEOpYf7PPpgRcEDexUfDdRp7TIFjJjoImRKvTCrfdOFcEN
-	ad+xyKJYz+JAHPRkCTKcclRyzotzCOub0hQq10nJD6hNyni9kvN6uz/4T3JzVc3NANOYNAvAvdW
-	T+zd9ZTv1OM6lISGGfq5FspaIYsbfuvsfH6Q+wNFRieIPm3KoU8yVYf6v8e+aDJ5rV0YSRlsAtB
-	gDwqO5zIXBB72gNqYJhSor/xSjo5ZsTWNbcKwYiHn75/UtjeTvtUEHliE6zFMi663IZufBBOEvm
-	cVFYZars5lWS2ImgcB3x+kYIZ1PRVUkREqbe6AVPxx+XCvmr5e4RcTB7IhytfiYVHbu4VAH/Myd
-	ZO8RdFyEgjNPs1r80oq3XQrQNW9zuKRyHoQfhGDUfsj9XP8Cq2TLazQMv+TlxnWUzKbkV6w+0vk
-	a0fYQfSjKchpBuH/zbrQkdCA==
-X-Received: by 2002:a05:6a21:38a:b0:398:778f:6973 with SMTP id adf61e73a8af0-398c60e5857mr818593637.40.1773198159334;
-        Tue, 10 Mar 2026 20:02:39 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c73cdf2725csm548196a12.13.2026.03.10.20.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 20:02:38 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Alexander Gordeev <agordeev@linux.ibm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Pasha Tatashin <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>, Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
-In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-Date: Wed, 11 Mar 2026 08:29:53 +0530
-Message-ID: <zf4ft6ja.ritesh.list@gmail.com>
-References: <cover.1772812343.git.agordeev@linux.ibm.com> <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+	Wed, 11 Mar 2026 03:08:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rnwFmmfKd7FV+VUn+zLffOtDFOm0GntvvxTcK4ONPItAoT9Vu90yuoQhSqz+iEaS2BdMZKsO4DBkdgubB4fxy2O7aTv1y2V0ri2AEHkV6Ox96kERLdvriw9MT7tZ+Pjwii0MR74L6/8JC/jwFviAnrwVFT5McIIn08RYTtMH+pH4ehY+EYlAxk2aEfoqnlApc6tf3Tr+QaNypPurtIP343LvyFNWkk5kBu77qEPSEWCHeqLrnXDHuMGipC4G/B5XLVW/Ntf5y+ULesqiuhSwISJdsr8dnL8YU0ie5RjlfDq/GnfLd0lNpOsJjFr//6xoZ8Wdg86CBkcK+hfovoWV8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=72OSiPvKpBMnlPHRB6MqItrg00fRyKePcmUrXVqZhQw=;
+ b=sZAEYjwC3m5my+8ewXmLNJoOKQhiQHYrfReeD7Qk0qTKZLrfFgaGCDLyO5XzFAEaxU19dGLDSfZlG3d3bGUhM4gGG8sNXTkj6E3+sAKDOuSUt7wtHhuGvLzgUbCt4HncU6W8VJ8J7iGjsL46BwBteMUWT1Kk0tj/eHhygfSPFMvk1UG/iTFPIZGzi7iTzwTMo92mastpk60N0t1AghnxKIYeEjPcNgucKT5oZUXxPpHEYFggBa6v6J1NiEWZItOTGEF2YWH7FSPLZ98kiLnXUQ6pX4BXV32Jp8uqoSZPV0MoGbcCryP+2QcZUuEpSyvLcX7Iu4+HmlzvRLiNgK5mlg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR02CA0015.apcprd02.prod.outlook.com (2603:1096:4:194::16)
+ by SEYPR06MB6506.apcprd06.prod.outlook.com (2603:1096:101:169::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Wed, 11 Mar
+ 2026 03:08:11 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:194:cafe::91) by SI2PR02CA0015.outlook.office365.com
+ (2603:1096:4:194::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.26 via Frontend Transport; Wed,
+ 11 Mar 2026 03:08:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 03:08:11 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AB54F4350703;
+	Wed, 11 Mar 2026 11:08:10 +0800 (CST)
+Date: Wed, 11 Mar 2026 11:08:09 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<cix-kernel-upstream@cixtech.com>
+Subject: Re: [PATCH v10 3/3] arm64: dts: cix: add support for cix sky1 resets
+Message-ID: <abDcmbRtdFsPXHiQ@nchen-desktop>
+References: <20260302064407.1914014-1-gary.yang@cixtech.com>
+ <20260302064407.1914014-4-gary.yang@cixtech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260302064407.1914014-4-gary.yang@cixtech.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEYPR06MB6506:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7d28ca3-5c1d-406b-e0f6-08de7f1b6db3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 0N4phOkbjgdboawYrMgcSQHEwr8cTqKDAUKCyLMObuOU4mzT060LJjC4p5j4D03N6lkPw9oJAX3TEQjAAsEa1+frCWGrHC7I5P9DoXwHKlhn6k81pVCekfWz4NfrPFR6eviWyy0c8smRs+fxXYSQ/vLIoYpb/c2VYXvPQXsEDFJQm/0p9casWP2Kfvr5LnWjAwOTLG85I3uXW7mCAC+MCUvbBN/jp53546KjDbERlVWnCNb2Aw3xK4xwt2dqMu6RGrnujOBTfwtqww19L40B8KMIU7etHm05lsh4BmvgYRANfJkDdqkiWVhU0mO8+dLcWnx4MqETOFYMZ7TilWptgqlxwjyJfhG7XTXJvc2VbnAYt/0YHaM7C8koMetfV8cj3KcS64GtjSNMnaa3Y4P2+5SNWERJY42hAXepRiscE9dlRqoKYR8d2KI5csLHA9nIr/EzhpTVxL3C9d2OtrwwgePYAQ+LiZT2ZoY9ClLXCOxdzrpSkZTcKPfwXMnTYZKDET+hB5TiAfDYwcfGSERxUiALvzO1GHSprFQTh/y2hBk8B3fCSZg+SZLq6n2QvX5LPFAz0A6a9kKM673Oi5GJpVqEGIr56mnD8epC09j9BoSML7RTrhyQnTlnktWv5XK7IN4l+OQRfTPE/tMxGEyU2STvnpb6gXpxUwbIE0eSD4cDHXaR1MPyFLO64bZkPhiaEGIa5+w4EjM6C5NgS/AWj4pdz2zZhNcEglIe8/vfB2MdYhU221gcJbeVj0HStZkr94GJw/ZT8mOWmA0qtLDoXQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Hpa3/F85cZhyibzHtQVD2ZboDdFDOCaFaBbLkAchvbF79UYmHoSo/ou+QC4/T8mgKwB9VZhmt6+r8x3XYu+rkJFmS5LzX9g66I7axnWPpNiOAO3vcbyByw1OxxHnn2NfEYWVO2Q30hZugElPjFIqcujGCZF5p+YryanI+INrw7MfM4hoswd3KRTBzg0dObSLOO3+hiCcws8Tm/HVRNDEPm7ZhbbaaXQReOPuE5nGhcCOiQa1UkQVaRdEdKNKRuz/wg4mHKxX6ZD9hbb+MH0f6yiu771zn8b+2B4jqc0m6cclOZddLhpyWhtLIg2OFnp4dkUgzuj4e6O5bmyetDEPrinCBgbSUgDH/nFulbn7gFwAVT9Wd9JG4pdZmUCnPtaqahJMhH3LMOFEPo3mi4vr2HHV1YF7EtEzGTUCc1kqaIHdPziylFCbTFwNFgj+FsuF
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 03:08:11.2866
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7d28ca3-5c1d-406b-e0f6-08de7f1b6db3
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6506
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_200240_754321_716A4FB8 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260310_200819_063787_68EEFC26 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +115,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexander Gordeev <agordeev@linux.ibm.com> writes:
+On 26-03-02 14:44:07, Gary Yang wrote:
+> There are two reset conctrollers on Cix Sky1 Soc. One is located in S0
+> domain, and the other is located in S5 domain.
+> 
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 
-> From: Tobias Huschle <huschle@linux.ibm.com>
->
-> Unlike other architectures, s390 does not have means to
-> distinguish kernel vs user page table entries - neither
-> an entry itself, nor the address could be used for that.
-> It is only the mm_struct that indicates whether an entry
-> in question is mapped to a user space. So pass mm_struct
-> to pxx_user_accessible_page() callbacks.
->
-> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
->
-> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Applied, thanks.
+
+Peter
 > ---
->  arch/arm64/include/asm/pgtable.h             |  6 +++---
->  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
->  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
->  arch/powerpc/include/asm/pgtable.h           |  4 ++--
+>  arch/arm64/boot/dts/cix/sky1.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+> index 64b76905cbff..a28b877cced2 100644
+> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> @@ -348,6 +348,12 @@ i3c1: i3c@4100000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		syscon: syscon@4160000 {
+> +			compatible = "cix,sky1-system-control", "syscon";
+> +			reg = <0x0 0x4160000 0x0 0x100>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+>  		iomuxc: pinctrl@4170000 {
+>  			compatible = "cix,sky1-pinctrl";
+>  			reg = <0x0 0x04170000 0x0 0x1000>;
+> @@ -568,6 +574,12 @@ ppi_partition1: interrupt-partition-1 {
+>  			};
+>  		};
+>  
+> +		s5_syscon: syscon@16000000 {
+> +			compatible = "cix,sky1-s5-system-control", "syscon";
+> +			reg = <0x0 0x16000000 0x0 0x1000>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+>  		iomuxc_s5: pinctrl@16007000 {
+>  			compatible = "cix,sky1-pinctrl-s5";
+>  			reg = <0x0 0x16007000 0x0 0x1000>;
+> -- 
+> 2.49.0
+> 
 
-straightforward change for adding mm struct param in the page table
-check calls. Also verified building different powerpc configs using ci.
+-- 
 
-The changes looks good to me. Please feel free to add:
-
-Reviewed-by Ritesh Harjani (IBM) <ritesh.list@gmail.com> #powerpc
-
+Best regards,
+Peter
 
