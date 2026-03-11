@@ -4,56 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C5F1125858
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B9A1125857
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 17:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4RP68PcI6ervNypYQaigF2gEu0Zy3JEcNuqJVUw3tqk=; b=IQ3nY/AiJV7Enm2tWiNEYYwLnO
-	Beq9jB6kTRuRZNoOcoLL1YtEXfN/Cup96H09jYiPq+km9k4mXj30M5Bl9xyEOKCOp0YR/81naRTKM
-	pOacWbwRkyW050L+QJ/i3GaGPZ5/A2mdr270j6seh5Jt+qhN0aZwk1uI3bpU5HgcIWGesPv/DFE9Q
-	jzHv/TJxRXcDk9tLo/VkfYw+6XdJJUqiWToUrembuFaECLEmdZJV/DRWtP+jArQHP41vtqj3FHY0p
-	ZLVZOw08ZNWgqfsxjePjvp9qAEGbVVSWeLnE2KaLGsXNVa1QW+MvLrb8fsPiqJzMtBw+kJnoBZ3DQ
-	zfHtsvpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JM/UKPr8WHWT+2bpBZouv3YNNfRI8bvZ9jAmYgWP8CI=; b=A/jfcoJnjwcK5ic6GcSo/UwLHG
+	sVPbipQ09y1mT9h77PdJ82dQO5Fe/Ql1vaZ1MtTSW9j07HPQsaDRK5kmZEmOzEY0XiVDZNbGD0eVR
+	v0ao9ewpPB1tEVcBJPwCr9cZM+4SZ8qQSBtpC4kk+HYwV4sommVsynKMt1CZskuBzHDkhIXV8VPjP
+	Perclde2MZy1jsHaj4iC5JIDZSF50WuUCsX2sG6pZlo3w2BHLBSoHv8j9KVQxYhOWI6H5ucIHIu40
+	XbNpVi5vAFcdwAiHEbOnV9QqefOZEaBFFdtkMkLXgsN1J3G6537Pct/rygmKCS20JswyZ30zUGnut
+	8kfeOgSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Nil-0000000C5Y8-3wd9;
-	Wed, 11 Mar 2026 17:51:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Nii-0000000C5XF-43WN
+	id 1w0NnZ-0000000C6KY-0BuI;
+	Wed, 11 Mar 2026 17:56:45 +0000
+Received: from mail-eastus2azon11010051.outbound.protection.outlook.com ([52.101.56.51] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0NnV-0000000C6Jn-3pRe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 17:51:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 330381682;
-	Wed, 11 Mar 2026 10:51:35 -0700 (PDT)
-Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.1.194.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E166B3F73B;
-	Wed, 11 Mar 2026 10:51:39 -0700 (PDT)
-From: Muhammad Usama Anjum <usama.anjum@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Thomas Huth <thuth@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lance Yang <lance.yang@linux.dev>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	David Hildenbrand <david@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: mte: Skip TFSR_EL1 checks and barriers in synchronous tag check mode
-Date: Wed, 11 Mar 2026 17:50:50 +0000
-Message-ID: <20260311175054.3889093-1-usama.anjum@arm.com>
-X-Mailer: git-send-email 2.47.3
+	Wed, 11 Mar 2026 17:56:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w3hoSjTm2jInU7PhC3GhdO0qP5TEKw0TtdW7l40o92pS05SnLvwjwFYISJbp1imRQLf5w3t2NL0ObP0gcLNZ4vw+qBQjJ7LxAS37gimocs7qoWoqZCol6Lj+MoyNcdlj98zQAeuhcyh1M29uGS3cOOoOwTGV/A7lzUjnSmauJfdHVuvoZzXjAMGIDpKaNMWNF9Yv/t8Jnml+OD8xwN2F3Es3SiejeKjqE9tv7LXNrGzEsMAFRjD7hEsy9Y+2QP0TLdfXqkuSqCjJLexH5VpVOtR2Uybm1c6IUchDRzzzWy0omJsURzydvp+PuLDl6xP5xwJ9sgPXvWU2hS59KrM2lQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JM/UKPr8WHWT+2bpBZouv3YNNfRI8bvZ9jAmYgWP8CI=;
+ b=LOeShI53xZOAm0LSvAKLvOLZiWEmnRTgJ8I6dQrFGrYzp48cdhgoO5DG0wcKxmDIVxy7kweVJrbp7ncCfaD81jEiZj3sotRmKUrActd1av6q6nmtT+sRBpIT9lrFivBlr7QZGmy1fZTL0ABGy6xoG0VF6Q9y/RN0x8pbQSt50FP6NAPkgbeSRJVm5kla57PAQZBjZfzVVI0A8jni00QuaewRgwt1qXzbLDMA+HB6bn60hNYRHubPrDeZtrV3MfOjZ0MMggiRYdKTpIF47g5YAZruXh7U3pdsi5AyV0FBy8HifNSBkpHARNVV39ut8LOZXqcA3/ZtyB1y+R5sHl0NFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JM/UKPr8WHWT+2bpBZouv3YNNfRI8bvZ9jAmYgWP8CI=;
+ b=BGCq4vol5B2fvBzhRIbnA+iiz/nf5GH1rtcwgzfQsMrxiPdvnnyRxjk+JqCQGo/j9g7bDK9bMc8vw18pyDx11nLXbBzzV6JZeJjWUlrxfOSkkYwvSbNh8DBgWz/GjTh51uT0dPCbDvbjNG/2rCD+vBhc2pQh6ONkaZQcwUZfGxawktzpj28PB9SoSWzCIKdREXMRbMJnBZ3MP0mDpi/6jxRKn73d6YqKEd5xcS+uESZFsbM6EtU8Sy2xCdXRAua80RNnSqTZs05OGJjFKDAogW5DFD6C76Qv9dZAXfF4p2cAeZs934gyhYi2eaAxFwfuaWAsvwvphSH6InyV865M6w==
+Received: from BN9PR03CA0853.namprd03.prod.outlook.com (2603:10b6:408:13d::18)
+ by SA1PR12MB9002.namprd12.prod.outlook.com (2603:10b6:806:38b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.4; Wed, 11 Mar
+ 2026 17:56:33 +0000
+Received: from BN2PEPF000044AA.namprd04.prod.outlook.com
+ (2603:10b6:408:13d:cafe::b1) by BN9PR03CA0853.outlook.office365.com
+ (2603:10b6:408:13d::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Wed,
+ 11 Mar 2026 17:56:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF000044AA.mail.protection.outlook.com (10.167.243.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 17:56:33 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
+ 2026 10:56:11 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
+ 2026 10:56:10 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 11 Mar 2026 10:56:09 -0700
+Date: Wed, 11 Mar 2026 10:56:07 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>, "joro@8bytes.org"
+	<joro@8bytes.org>, "praan@google.com" <praan@google.com>, Malak Marrid
+	<mmarrid@nvidia.com>, "kees@kernel.org" <kees@kernel.org>,
+	"Alexander.Grest@microsoft.com" <Alexander.Grest@microsoft.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "smostafa@google.com"
+	<smostafa@google.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH RFTv1 3/3] iommu/arm-smmu-v3: Support PRI Page Request
+Message-ID: <abGst/9dQBzoYZJD@Asurada-Nvidia>
+References: <cover.1772568590.git.nicolinc@nvidia.com>
+ <ae9a953251b46b49bb0ca4289d1f3b614ba5d6d7.1772568590.git.nicolinc@nvidia.com>
+ <CH3PR12MB7548107B5BF7ACF4C0568B26AB79A@CH3PR12MB7548.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <CH3PR12MB7548107B5BF7ACF4C0568B26AB79A@CH3PR12MB7548.namprd12.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044AA:EE_|SA1PR12MB9002:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fda831e-dfe3-456a-b9b8-08de7f978838
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: G7oDbEPrkXLHidpaENph1e6zpXHBvPUe6YCbm03bB0CsGqi8M6DRzvdxF/TYbefu2THdQ8iWERjlGjrudxdQHrIqa7vQTvgPNmQjh08L9B0ZnZXFxybvn1fDGD0a4rRKa2npR3X9ZVwNOTMnBsxnd5HwQdjoYKR/SwuOeaOI4VciYcw9BNvoWPdHuOAFtKQcbY30vkn+E1335BzakaNoL8/XKBg1U4jY/EmgLW0AqYggNo3SiwElmr5790dUiiddNfjwhiGyGD/WEep3hz6TfRWW1Y3UnR5Gpymyauc9cuGxKDHO4zt5baMwq0k/YV6aM4Mff9Hd+/UboENlSyd96ezdsFU/Bz3a666M7LHPS0/AIPuZGDuGZUhQO4kJsaQVS6h3G52uDhx6s0bssw4BD8aZp6BVmjhlsLQ66Q0ixamjg4ZUi+mmzpoVBxZo9eAYxaDLjM5rjhiaRBGpukXjvth3VqEneJ0Y5ITJTHyRrTx8z2UK94Uy2EX9PEWWXmSqV4tasOjflG+YjJ0lX0QvC+LTtQzWokCZztQBFICxiRzlmUV1milXgNnMPxQ8j2+f882qcXS81Y0hogMnIxieApeTiLNHvA4K5Zwr9J5IJUZPvNzRnPXFz0Z6kuoVXR9hM/r+jCMCivjZUY/fNpI8rz3QmTfPArdLr4i7F/Zq8Z6cChoWzzRGup+9+dVYO3IR1gOtudNNxEhnUT4H9E6ncUIjTnqf6sEqA6esH8tJZWvUJIEZTYNdx8sToyhpLIKFBuRMZB0G6czUZywu6Zk8eg==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: h4yDVz7TZblAmixGGp/boXwQdJf8mqEybjqrfZWxPwheZ1+uUwjAGJf96b/asm4YfMGqr/pdRaqkVNRE7Badg3xm7kpPL9L9lwzyGuaV6f1q3NiFKQGuD8JWWoANFsPYAGy0NUCvTrLzzeS0Uf4I7jt3Mm3YNdYc+7uA9tLvpT7Gy1qj7jewRfPlL//N2AuVmxnLi0+/o7bC95olIDyj9jYdLoOgh3kEb4F9EA178M8o8hpM/ZvFhmrlH4gn2t9zq91jLR/V9gTgBo8Hncln6rSLm/pXsM2TE/kbys/iR/F3MkxV5jtRAQGeNF3ZTW3e6WAOKF7/u7ANBzAYbfxwAI9k/zYO/MY5jlaWB7XFvb1N+We3JoDozwqiMuaayf1uo1xafK4swsy1bw5HFPCHjaUVLBV8NCYnPfSnaaoG0SVbA/wkTpN+utexjx3j0MNl
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 17:56:33.3516
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fda831e-dfe3-456a-b9b8-08de7f978838
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_105145_090865_6FE44F64 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260311_105641_975766_BA3A838A 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,175 +136,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In MTE synchronous mode, tag check faults are reported as immediate
-Data Abort exceptions. The TFSR_EL1.TF1 bit is never set, since faults
-never go through the asynchronous path. Therefore, reading TFSR_EL1
-and executing data and instruction barriers on kernel entry, exit,
-context switch, and suspend is unnecessary overhead in sync mode.
+On Mon, Mar 09, 2026 at 04:04:31AM -0700, Shameer Kolothum Thodi wrote:
+> > Now, arm_smmu_page_response() can issue CMDQ_OP_PRI_RESP for page
+> > requests
+> > from the IOPF infrastructure. Decode the page requests from the PRI queue,
+> > and report it to the IOPF infrastructure.
+> > 
+> > This fills the final piece for PRI support.
+> 
+> Do we also need pci_reset_pri()/pci_enable_pri() to enable PRI on the
+> device side?
+> 
+> Also, is there a check that the device advertises PCI PRI capability
+> before calling iopf_queue_add_device()?
 
-The exit path (mte_check_tfsr_exit) and the assembly paths
-(check_mte_async_tcf / clear_mte_async_tcf in entry.S) already had this
-check. Extend the same optimization on kernel entry/exit, context
-switch and suspend.
+Yes and yes.. I will respin another version after a test.
 
-All mte kselftests pass. The kunit before and after the patch show same
-results.
-
-A selection of test_vmalloc benchmarks running on a arm64 machine.
-v6.19 is the baseline. (>0 is faster, <0 is slower, (R)/(I) =
-statistically significant Regression/Improvement). Based on significance
-and ignoring the noise, the benchmarks improved.
-
-* 77 result classes were considered, with 9 wins, 0 losses and 68 ties
-
-Results of fastpath [1] on v6.19 vs this patch:
-
-+----------------------------+----------------------------------------------------------+------------+
-| Benchmark                  | Result Class                                             |   barriers |
-+============================+==========================================================+============+
-| micromm/fork               | fork: p:1, d:10 (seconds)                                |  (I) 2.75% |
-|                            | fork: p:512, d:10 (seconds)                              |      0.96% |
-+----------------------------+----------------------------------------------------------+------------+
-| micromm/munmap             | munmap: p:1, d:10 (seconds)                              |     -1.78% |
-|                            | munmap: p:512, d:10 (seconds)                            |      5.02% |
-+----------------------------+----------------------------------------------------------+------------+
-| micromm/vmalloc            | fix_align_alloc_test: p:1, h:0, l:500000 (usec)          |     -0.56% |
-|                            | fix_size_alloc_test: p:1, h:0, l:500000 (usec)           |      0.70% |
-|                            | fix_size_alloc_test: p:4, h:0, l:500000 (usec)           |      1.18% |
-|                            | fix_size_alloc_test: p:16, h:0, l:500000 (usec)          |     -5.01% |
-|                            | fix_size_alloc_test: p:16, h:1, l:500000 (usec)          |     13.81% |
-|                            | fix_size_alloc_test: p:64, h:0, l:100000 (usec)          |      6.51% |
-|                            | fix_size_alloc_test: p:64, h:1, l:100000 (usec)          |     32.87% |
-|                            | fix_size_alloc_test: p:256, h:0, l:100000 (usec)         |      4.17% |
-|                            | fix_size_alloc_test: p:256, h:1, l:100000 (usec)         |      8.40% |
-|                            | fix_size_alloc_test: p:512, h:0, l:100000 (usec)         |     -0.48% |
-|                            | fix_size_alloc_test: p:512, h:1, l:100000 (usec)         |     -0.74% |
-|                            | full_fit_alloc_test: p:1, h:0, l:500000 (usec)           |      0.53% |
-|                            | kvfree_rcu_1_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |     -2.81% |
-|                            | kvfree_rcu_2_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |     -2.06% |
-|                            | long_busy_list_alloc_test: p:1, h:0, l:500000 (usec)     |     -0.56% |
-|                            | pcpu_alloc_test: p:1, h:0, l:500000 (usec)               |     -0.41% |
-|                            | random_size_align_alloc_test: p:1, h:0, l:500000 (usec)  |      0.89% |
-|                            | random_size_alloc_test: p:1, h:0, l:500000 (usec)        |      1.71% |
-|                            | vm_map_ram_test: p:1, h:0, l:500000 (usec)               |      0.83% |
-+----------------------------+----------------------------------------------------------+------------+
-| schbench/thread-contention | -m 16 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |      0.05% |
-|                            | -m 16 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |      0.60% |
-|                            | -m 16 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
-|                            | -m 16 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.34% |
-|                            | -m 16 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |     -0.58% |
-|                            | -m 16 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      9.09% |
-|                            | -m 16 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.74% |
-|                            | -m 16 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |     -1.40% |
-|                            | -m 16 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.00% |
-|                            | -m 16 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |     -0.78% |
-|                            | -m 16 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |     -0.11% |
-|                            | -m 16 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.11% |
-|                            | -m 16 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      2.64% |
-|                            | -m 16 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      3.15% |
-|                            | -m 16 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     17.54% |
-|                            | -m 32 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |     -1.22% |
-|                            | -m 32 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |      0.85% |
-|                            | -m 32 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
-|                            | -m 32 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.34% |
-|                            | -m 32 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |      1.05% |
-|                            | -m 32 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
-|                            | -m 32 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.41% |
-|                            | -m 32 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |      0.58% |
-|                            | -m 32 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      2.13% |
-|                            | -m 32 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |      0.67% |
-|                            | -m 32 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |      2.07% |
-|                            | -m 32 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |     -1.28% |
-|                            | -m 32 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      1.01% |
-|                            | -m 32 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      0.69% |
-|                            | -m 32 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     13.12% |
-|                            | -m 64 -t 1 -r 10 -s 1000, avg_rps (req/sec)              |     -0.25% |
-|                            | -m 64 -t 1 -r 10 -s 1000, req_latency_p99 (usec)         |     -0.48% |
-|                            | -m 64 -t 1 -r 10 -s 1000, wakeup_latency_p99 (usec)      |     10.53% |
-|                            | -m 64 -t 4 -r 10 -s 1000, avg_rps (req/sec)              |     -0.06% |
-|                            | -m 64 -t 4 -r 10 -s 1000, req_latency_p99 (usec)         |      0.00% |
-|                            | -m 64 -t 4 -r 10 -s 1000, wakeup_latency_p99 (usec)      |      0.00% |
-|                            | -m 64 -t 16 -r 10 -s 1000, avg_rps (req/sec)             |     -0.36% |
-|                            | -m 64 -t 16 -r 10 -s 1000, req_latency_p99 (usec)        |      0.52% |
-|                            | -m 64 -t 16 -r 10 -s 1000, wakeup_latency_p99 (usec)     |      0.11% |
-|                            | -m 64 -t 64 -r 10 -s 1000, avg_rps (req/sec)             |      0.52% |
-|                            | -m 64 -t 64 -r 10 -s 1000, req_latency_p99 (usec)        |      3.53% |
-|                            | -m 64 -t 64 -r 10 -s 1000, wakeup_latency_p99 (usec)     |     -0.10% |
-|                            | -m 64 -t 256 -r 10 -s 1000, avg_rps (req/sec)            |      2.53% |
-|                            | -m 64 -t 256 -r 10 -s 1000, req_latency_p99 (usec)       |      1.82% |
-|                            | -m 64 -t 256 -r 10 -s 1000, wakeup_latency_p99 (usec)    |     -5.80% |
-+----------------------------+----------------------------------------------------------+------------+
-| syscall/getpid             | mean (ns)                                                | (I) 15.98% |
-|                            | p99 (ns)                                                 | (I) 11.11% |
-|                            | p99.9 (ns)                                               | (I) 16.13% |
-+----------------------------+----------------------------------------------------------+------------+
-| syscall/getppid            | mean (ns)                                                | (I) 14.82% |
-|                            | p99 (ns)                                                 | (I) 17.86% |
-|                            | p99.9 (ns)                                               |  (I) 9.09% |
-+----------------------------+----------------------------------------------------------+------------+
-| syscall/invalid            | mean (ns)                                                | (I) 17.78% |
-|                            | p99 (ns)                                                 | (I) 11.11% |
-|                            | p99.9 (ns)                                               |     13.33% |
-+----------------------------+----------------------------------------------------------+------------+
-
-[1] https://gitlab.arm.com/tooling/fastpath
-
-Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
----
-The patch applies on v6.19 and next-20260309.
----
- arch/arm64/include/asm/mte.h | 6 +++++-
- arch/arm64/kernel/mte.c      | 5 +++++
- 2 files changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
-index 6d4a78b9dc3e6..0e05d20cf2583 100644
---- a/arch/arm64/include/asm/mte.h
-+++ b/arch/arm64/include/asm/mte.h
-@@ -252,7 +252,8 @@ static inline void mte_check_tfsr_entry(void)
- 	if (!kasan_hw_tags_enabled())
- 		return;
- 
--	mte_check_tfsr_el1();
-+	if (system_uses_mte_async_or_asymm_mode())
-+		mte_check_tfsr_el1();
- }
- 
- static inline void mte_check_tfsr_exit(void)
-@@ -260,6 +261,9 @@ static inline void mte_check_tfsr_exit(void)
- 	if (!kasan_hw_tags_enabled())
- 		return;
- 
-+	if (!system_uses_mte_async_or_asymm_mode())
-+		return;
-+
- 	/*
- 	 * The asynchronous faults are sync'ed automatically with
- 	 * TFSR_EL1 on kernel entry but for exit an explicit dsb()
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 32148bf09c1dc..8da2891b834d7 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -291,6 +291,8 @@ void mte_thread_switch(struct task_struct *next)
- 	/* TCO may not have been disabled on exception entry for the current task. */
- 	mte_disable_tco_entry(next);
- 
-+	if (!system_uses_mte_async_or_asymm_mode())
-+		return;
- 	/*
- 	 * Check if an async tag exception occurred at EL1.
- 	 *
-@@ -350,6 +352,9 @@ void mte_suspend_enter(void)
- 	if (!system_supports_mte())
- 		return;
- 
-+	if (!system_uses_mte_async_or_asymm_mode())
-+		return;
-+
- 	/*
- 	 * The barriers are required to guarantee that the indirect writes
- 	 * to TFSR_EL1 are synchronized before we report the state.
--- 
-2.47.3
-
+Thanks
+Nicolin
 
