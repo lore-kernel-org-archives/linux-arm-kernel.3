@@ -4,62 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1133FD88EB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 03:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8F6FD88EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 03:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUS2q8BCeNjoSUbHg8j9ryi3lHTPQy+l2aV9CzSGmq4=; b=jr7yGsld1bsTh8/LZe1uZzAAZ5
-	d45SdVNS/K2JFOzrK9n3nHxniWF9S0meAFQunmTNNo+iA2hcACTftgDv5+qRid5RYHSU2gjDYfZx5
-	/APAmC0R3XVr5EDHxSnjGoiqbMDwNQr2sZtX3B4mDTaS26ShBCt23FjyomgHXiXipcmujS231WTCd
-	xhJ3hgZoHaT/JnMQ0C4RRrjKFw2yHRbtQ3cG45L2WuwhAVk9ToM+XPcNZdZYZojq/kHiVhagwMhod
-	pAd3LWfq7Ae7TeeRFRBql4eGsVbKHX66azEzjSftu4LtXIhD5Vi7tCPtnLsvX5ROElTdF1cVh49zx
-	288/ZScQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PrKaXoRFfqxHevIiH/2xTdB7OJIj+1W6QJxXI2baUJM=; b=kzy4T6QGes2Dwco8TCIo9nDLE0
+	giG7t7dwwFecKcwzJy14IwWYQdL6YylC2laq8Nq5wbTymfk4cJaY+hsyUaU4g0ZWU0W6U1Z3QurlN
+	XWYmi95j9sOlbWDacRAolqyZ7BiLZ3TIxfRiMcT2BpNZsousJsTfgTkgzHkrZe8eZj2oiL0ryDgfe
+	QqH76sVFNLH1XCNpw15t/D0wyk7pk6Jl/73bDL6FxLtbsItSgfudYhchPnashVu0HbhEXPXX/r3tW
+	3mpltuHN9LXt/3OaneXBsqdVrAGi5BBjpYd9Mki+r0ihfHTGDEYMnth+aYHM7iAHXp9Fp0KSDIyzO
+	27AoppEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ACH-0000000Abzu-18To;
-	Wed, 11 Mar 2026 03:25:21 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1w0AMv-0000000AczV-33YA;
+	Wed, 11 Mar 2026 03:36:21 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ACD-0000000Abyd-2N1b
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 03:25:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773199506; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=cUS2q8BCeNjoSUbHg8j9ryi3lHTPQy+l2aV9CzSGmq4=;
-	b=OhyiNgGoTv0n5QoCjtt5wgqZy3A5pKEoNeBAJvUaXfaPWeEGxOZbCTOphnIUvj+5M7GakpcOyZCZVOV+9HibIMGZZMdbRrWvSfvT09RhAcui8tQ9tjxpnNfP4LN3aw7khnHIDibjjfQI9nuuhHoJw6lo6RaYb1SmLk8mTzurrCc=
-Received: from 30.74.145.199(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X-iHa6Q_1773199501 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 11 Mar 2026 11:25:02 +0800
-Message-ID: <d4e4e2b1-c182-42f9-9d60-b12f0fd7f977@linux.alibaba.com>
-Date: Wed, 11 Mar 2026 11:25:00 +0800
-MIME-Version: 1.0
+	id 1w0AMs-0000000AcyE-1YmG;
+	Wed, 11 Mar 2026 03:36:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bH+l3+0KJVQqNII6hy7+Cmi5oMBtLu2FNrZvUxSXOPMEdO5PkN3OCmNEW/2tWW2fd2HsEPHpY9C6xInb9HY/InmCltwwa9brKLCdA1uuEscmnNQ3F7Tio1K8qNjkLQcnbQvnHjRZai2e3C5OcSlKkLoCXaOT60V3q/v3GrwOwBRUZbULuD+yrYfm2xjO++SUxIhk/Nr9bD8X8fKyf9VfT0SQgQBB378Ugw+62VPONbN+rX5J7zhgz1KVcltplymJ+2yPiMWf01yElPj5GvSD1Rx6jHpiWXb6JBSx5cjoIqaomqbN5l/nVP/Lz6d5b8nrYt4DXdpf4bRf9KsYn+lKMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PrKaXoRFfqxHevIiH/2xTdB7OJIj+1W6QJxXI2baUJM=;
+ b=rLkXGTfdkFoIWJjKs4IuOqcCGuFm1CXP3zvdFhk4KXSGvUT99Mnmup0ct54bNUvcL7mFpmbAalGhBFYPbmavZhyN3aHJ0WxmI16Bi3nwhfyk396M+oIP0NhFTTHg3n1ZCulQT9hvn/rr+k+DzH8x7+V+RMgMU8gpSjp0gR9e1roGAyYVAdY+EpjvWPPcii1zPG5/cIXtxMVpZ678s5pE0ZNym8gJQHZMt3N4hIkQRZ7eTKICHJoBao9FXwuBOwMVHHTp9upEa0PTKeUW+TEPtmdlj8gk5A6q6eJAtN3b4B5IoO1dt3bcu0Rxq8+NZ743mz5v+ckVWEYLO4NyCoYEKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PrKaXoRFfqxHevIiH/2xTdB7OJIj+1W6QJxXI2baUJM=;
+ b=GzPITas+yXyVBbbyEgZOJaf4YfkLMIGqk1HGqBhRo9lI9W+JVrgvgU0NHmDSkGtG/G7Mydst5KCAwYb+v0o9Kh4Ot9OMhLsLA8AUtr14NIVtpwxw2YFQIRfFSgnwveiGbKHLdef8Q1Lf1/cH54Ni5CB0ZUVLC++5vDM299givlsIsRKMS+GV/5rSPuhyrgLDBqBYJN5mS5FbqRE4m1lIuqwKfUKp3PU6I/LWu9TbjQXTb4ATS/nr+bt6Xe5VghTWPv81f8epKNbFYDnYjScKyP9qaHN6M5QKXrVDL9QU94NpRPYuHxnneL4YxDc29D3X5dAozY5FFoiUmAN8LfBU4Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by TY2PPF94EB25A41.apcprd03.prod.outlook.com (2603:1096:408::9dc) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.20; Wed, 11 Mar
+ 2026 03:36:07 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.20.9678.024; Wed, 11 Mar 2026
+ 03:36:07 +0000
+Message-ID: <32d3358a-7f11-4d9f-8a97-ad7bf96f7dfe@amlogic.com>
+Date: Wed, 11 Mar 2026 11:36:03 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/16] Support Armv8 RAS Extensions for Kernel-first
- error handling
-To: Umang Chheda <umang.chheda@oss.qualcomm.com>, catalin.marinas@arm.com,
- will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
- sudeep.holla@arm.com, rafael@kernel.org, robin.murphy@arm.com,
- mark.rutland@arm.com, tony.luck@intel.com, bp@alien8.de, tglx@linutronix.de,
- peterz@infradead.org
-Cc: lenb@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-edac@vger.kernel.org,
- mchehab@kernel.org, xueshuai@linux.alibaba.com, zhuo.song@linux.alibaba.com,
- oliver.yang@linux.alibaba.com
-References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
- <edf7e7eb-8f02-4672-bc31-16e0a8fb9715@oss.qualcomm.com>
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-In-Reply-To: <edf7e7eb-8f02-4672-bc31-16e0a8fb9715@oss.qualcomm.com>
+Subject: Re: [PATCH 3/3] arm64: dts: amlogic: t7: Add clock controller nodes
+To: Ferass El Hafidi <funderscore@postmarketos.org>,
+ linux-amlogic@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+References: <20260305074328.639993-1-jian.hu@amlogic.com>
+ <20260305074328.639993-4-jian.hu@amlogic.com>
+ <tbp23s.3oymu5iyepvke@postmarketos.org>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <tbp23s.3oymu5iyepvke@postmarketos.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SE2P216CA0130.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c7::7) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|TY2PPF94EB25A41:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9bf7a5d3-089d-4cf7-2c0b-08de7f1f5480
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|7053199007|22082099003|18002099003|56012099003|921020;
+X-Microsoft-Antispam-Message-Info: 1ReK0KvU7dZ6Bj15AzYoCbNuSgph+TL1jQbbHA96hIWzUotILQnYDVDWBYXBQ96YIfzD48U1N402l+/WnyzOM4Vhq9c0Oyg06tpkTLqsMxnfaOrGFc+ziaIjEsBg+MzAt7Zs8T/M7JEGVR1ImNhtOHkwzjSUHC0gkhJgv8D9EUjn9igC2mn2/xYwChpuweYLj87VotQjXnQnE7nOb9aiIFSwBo5fHlUHI8g5v5buTH5tXftzpJyIDnbIDZ6/gQk1VHNHVwl9jOr8bcs+lk8DmroqyjWePm16L5Zoe5mlpjeRMBApWUOm0YmbXiSMAgLjqmvnrwls4sQfixWTH3wf0CskBKFtW8et73pe20Oi2aXpzO0tjVcQCSj0Idc6b9VAQ1QPqWrXOIvyFFiWtUciAg8xVKcXhjzqh45FrZgiHtMsx39jxlKMXZVd1mEFd2G99BTP78j+A/mSAV3GwN8F1UmPgVFUut6PPT8ITsSK0+u+S4ror9+8DdRZjfclHfjvzdqZMjtYOmiyazjzTLA8sdzj1oFS9KUdBFMiiPIlFvwIt4oc1D6qzBOsZkMD8QRvBgRexmszWQ0A0uTX+JrLb2m4mzJQBi8xu8vd1bdwud1w54IJLg8Ij7Zu1tQZ21Zudt2Zw1lE7l/AK9hy48H625oKPtocY/lmQVyKR7N6GGjwXbo3EFf3qliTJChuWxbYplqp0pKZiaVjCokRJOorWj+DrXe0JxnOJi7tpnXqMcb/Yo2HFW9XrLV4II3n3vEnpx3elUF5ivIi9XLempzQgMCOQ+Hiy3ZCcjGDIbkREUs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(7053199007)(22082099003)(18002099003)(56012099003)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SDZkamNnTGhDUGNKQjYveGFWYzJzeXlVTzZWVWlvYityWDVzNDBGcHIyN1Fi?=
+ =?utf-8?B?TEp1SFNaZEJQUE9kMGFxMG9FYlNZZWFLb1ZTbjZiSUUzNXFRS3RBcTlndW1p?=
+ =?utf-8?B?TFk1SjMwZ0lYeHozZFRySnNNaVVDQnNDY0F6aFRURkJHVjB2Lzk2VXNpc3Jr?=
+ =?utf-8?B?ZTk4SUJ3NDBQZWM2SmJtVnFLa1RtMlNURzFRWG5XWmRMcTQ2SUdMcHM0NnUz?=
+ =?utf-8?B?S2tGTUVqZEF0TkNuc0p4Wlp2aVZwdEU5RHdFMjRJajVPWlJEYmNjaUlJbk00?=
+ =?utf-8?B?bU5DZWl1NUV2dW5zcmwzeEJqRVROZTFmTGNySlhyWk5ocUkxdHc2c3RVcUd0?=
+ =?utf-8?B?ZHB5OVd3UEtvbWRlT1Z4ZlFGK081ZDByZURMdS9ZcmR2Z2RwZWRuR0dUWWVm?=
+ =?utf-8?B?YTlsU0ZqTi9kRjU5RU5neERWc0JlMEhHcnpiWXR4WWY3QzU4dWcrTm5pREo4?=
+ =?utf-8?B?MDliaWtrb2VNVWExNG5sZnB6K3l5akd0YWxLUWpQT0M1bEUrV0FGeGMwZmJs?=
+ =?utf-8?B?aFVFYzdyUko4YllxOVBWRy9tQnl4M1hqWmlSSFQ2VHZ6aC9STUsvYmRrZ2Qy?=
+ =?utf-8?B?SmdCWC9QSDNONWpUcjJPdExTNkR6YU9wL0ZEcE41bmdYTkFBMWVHU3h0VFlU?=
+ =?utf-8?B?VnZkVE9ac2FSMGZQSVRYY0pmTWtGTktxTHJ3VllWNXJKWUJHLzBEb2UzVTU1?=
+ =?utf-8?B?b2I1TG1DT2hhbzhVblpPTTR4aWYvUlFGbi9GWmgzVGpPUjl4N05oVnNqMlB2?=
+ =?utf-8?B?K0dQVHFHS3ZKaVF3Ylg2MHdrN2tFOXFISUpZNG02YXJEcnBCWUcvanFiN3JJ?=
+ =?utf-8?B?ZGxMN29Bc1hRWi9qYU0xRzFFSHJ2SUdhSmxtK2NUNFF6dGxwSWJhS1lhd3lv?=
+ =?utf-8?B?MnN5bkdpUHFYeFdJenhEaGJFTVBjNmEvTHk0ZHlMU2YrY25XNGE5NGNKNlkx?=
+ =?utf-8?B?RTVnMEFMM0tVWGtsSWlVUnVha3d2azZDazVYT1BLdytNSzBzVHZvK2h1anBL?=
+ =?utf-8?B?aDJEMjdIdDBTcnpxQmZ3SnU4Nk5jZmwzOGtySXdaSGV3aDlITlBIdk05Ris1?=
+ =?utf-8?B?Q3V1bUtZMEd5Z1ZGc3ROWWtNK0ZXK2xkTWVybFl3a0hpTmNPb2RSOHQwaC9L?=
+ =?utf-8?B?YU5Xc1VmUmRiTWFUb1RTRnFvRFlJOHQ4N1NHSVlPL0NuUndtRitvcGNpbXJI?=
+ =?utf-8?B?TDlaOXo5RVhQVlArK0lHd3ZyRVdOendsTXlUZmVnT3ZPallUZ1hNZXFiZDIv?=
+ =?utf-8?B?azY1MEJWanRqRlBxalJLUEJIUjU5NmkrYWpZUXk0Y29yU0l0cmpDT29YZHlF?=
+ =?utf-8?B?WDNoZ0hHNy9yZEt5anV6bXlqc1ZnYitkMVJJNDA5Tk1pL0gxVzhxK1BRYjhO?=
+ =?utf-8?B?TEtSdDlzOFFOYzcwQm95RFl0MW1nbGYzaEorYmk4ZnNoMEk1VzdnOVl6QWEz?=
+ =?utf-8?B?YWVyQ3pnZGhlZnZ2b3RrR2pNaHIyVk9XNWdNNlUxMDhBbGdwMW5NemwzNmRj?=
+ =?utf-8?B?R25oWEpzOHRHcWxBSHlseW1yRWxyVFdhZ2w3cWJXRXcwd2dLcTN4T3o2ZTNt?=
+ =?utf-8?B?SFAybXlnRWsyTyt4ZTZFWEdjT2g1VjkwSlBnY1N0VXVWK1NiUGFOM2Y4NjhF?=
+ =?utf-8?B?WDd3M3hxVWg2aVAzY29KMExORXhZYlVkcThENVhPdEZlcHh3dVVhSFZVS1Rz?=
+ =?utf-8?B?cXVEdXR0clVIeHgybk1WUmNzbzN0djNFN0wwbEpCcXQ0cnhyemk1elBFdzF1?=
+ =?utf-8?B?RzdHYm81dDU2UTl0dFowL2tjRXBVSUptWFVyRVFNQVVlbFBlWTNqZWJVbE9i?=
+ =?utf-8?B?dFdOSytvUHNxYUd2SWtJTUt1VythS04vM2J5QUJvdUo2bnEvUXkwd2NvbitZ?=
+ =?utf-8?B?ZXZnbGFtV3ZKZUV5Zkk4L0tLclVOVUxDbm1mWTdBZlFuVVE1WkNpZ3FIaVMw?=
+ =?utf-8?B?dytwbDRXdFEyTDJnZDZDZUllSGJKVjlvZzFTTWR1WlYyUmpzVlBYajJaRDFW?=
+ =?utf-8?B?bDBvNTZqcnNrK1BYUGJRcjBGTnNDbjVDRFFaSHY3YkM4SzJXKzB3aVdtQkZG?=
+ =?utf-8?B?S3poeGhTMU04REVGL3NrVUgvYmdzWVdONWpVN3NWUkFaNGVQc0drR3BhcFhS?=
+ =?utf-8?B?TjRQMzdKazh2SU94cnlZbnAvK3pKTFFLSWhndi9kekI0SUJzdzloVnF1OWJC?=
+ =?utf-8?B?TzFvTmVvZWUwamhqNllYVUlnbkJUOGh0Vk1MbngxdHEzQVB0SWMwK0p4MU1m?=
+ =?utf-8?B?RHRERnRxTDdqcGRYNlIwRTIySThqQmlFUjRnLzU1TzBaaTl5S3d4QVY3djJz?=
+ =?utf-8?B?S2FEOEo0VG1VZlZZaWxxcTlaNFdmVEJRTWZkY1EzWEZBQkthQmpyQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9bf7a5d3-089d-4cf7-2c0b-08de7f1f5480
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 03:36:07.3496
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uhR2ZkaFv6dgECM3+ncOh3NrBNNbqD8P81YSdzSHo20UxRkZ0+y4lJ53eHTlv4SqZDW+zsuafzSO84n50UNHTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF94EB25A41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_202518_125310_8A9A437E 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20260310_203618_555562_596FB8F4 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,297 +157,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, ferass
 
 
-在 2026/3/9 21:28, Umang Chheda 写道:
-> Hello Ruidong Tain,
-> 
-> On 1/22/2026 3:16 PM, Ruidong Tian wrote:
->> Motivation: Reliability in Modern Data Centers
->> =================================================
->> In modern data centers, proactive maintenance is essential for achieving high
->> service availability. The practice of using Corrected Errors (CE) to predict
->> impending Uncorrected Errors (UE) is already widely deployed at scale across
->> the industry, like Alibaba[2], Tencent[4], Intel[1], AMD[2]. By analyzing CE
->> telemetry, operators can identify failing hardware and perform migrations
->> before catastrophic failures occur.
->>
->> Problem: Inefficient CE Collection on ARM
->> ==========================================
->> Currently, ARM-based systems primarily rely on "Firmware-First" error
->> handling (e.g., via GHES). This path is inherently heavy-weight. To avoid
->> significant performance overhead, firmware is often configured with high
->> thresholds—reporting to the OS only after thousands of CEs have occurred.
->> If the threshold is set lower, the high frequency of errors leads to
->> excessive and costly context switching between the OS and firmware.
->> Consequently, ARM platforms currently lack an efficient mechanism to collect
->> the granular CE data required for high-fidelity error prediction.
->>
->> Solution: Kernel-First Handling via AEST
->> ===========================================
->> Other architectures have long utilized "Kernel-First" approaches for
->> efficient CE collection: Intel provides CMCI (Corrected Machine Check
->> Interrupt), and AMD has recently introduced similar CE interrupt support[5].
->>
->> On the ARM architecture, hardware already provides the necessary RAS
->> Extensions[6], and the ACPI AEST specification[0] defines a standardized way for
->> the OS to discover these error source registers. This series implements
->> AEST support, enabling the kernel to:
->>
->>   - Discover error sources directly via ACPI tables.
->>   - Handle CE notifications via direct interrupts.
->>   - Bypass firmware overhead to collect every CE or use low-latency thresholds.
->>
->> This implementation provides the missing link for efficient RAS telemetry
->> on ARM, bringing it to parity with other enterprise architectures.
-> 
-> Thanks for posting this series enabling kernel-first handling for the Armv8 RAS extensions.
-> 
-> We noticed the current implementation targets ACPI-based server platforms. For embedded/SoC systems, Device Tree is often the primary firmware description.
-> Do you have any plans to add DT-based support for the same flow? If not, do you see any blockers to extending this series to support DT
-> (e.g., DT bindings + discovery/registration path analogous to the ACPI plumbing) ?
-> If DT support is in-scope, We would be happy to align on the expected approach and help with review/development/testing for DT-based platforms.
+Thanks for your review.
 
-Hi Umang,
 
-Thanks for the reply.
+On 3/11/2026 1:30 AM, Ferass El Hafidi wrote:
+> [You don't often get email from funderscore@postmarketos.org. Learn 
+> why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> [ EXTERNAL EMAIL ]
+>
+> On Thu, 05 Mar 2026 07:43, Jian Hu <jian.hu@amlogic.com> wrote:
+>> Add the required clock controller nodes for Amlogic T7 SoC family:
+>> - SCMI clock controller
+>> - PLL clock controller
+>> - Peripheral clock controller
+>>
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>> ---
+>> arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 125 ++++++++++++++++++++
+>> 1 file changed, 125 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi 
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> index 6510068bcff9..6ea1b583b13d 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> @@ -6,6 +6,9 @@
+>> #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> #include <dt-bindings/power/amlogic,t7-pwrc.h>
+>> #include "amlogic-t7-reset.h"
+>> +#include <dt-bindings/clock/amlogic,t7-scmi.h>
+>> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
+>> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
+>>
+>> / {
+>>       interrupt-parent = <&gic>;
+>> @@ -201,6 +204,33 @@ pwrc: power-controller {
+>>               };
+>>       };
+>>
+>> +      sram@f7042000 {
+>> +              compatible = "mmio-sram";
+>> +              #address-cells = <1>;
+>> +              #size-cells = <1>;
+>> +              ranges = <0 0x0 0xf7042000 0x100>;
+>> +
+>> +              scmi_shmem: sram@0 {
+>> +                      compatible = "arm,scmi-shmem";
+>> +                      reg = <0x0 0x100>;
+>> +              };
+>> +      };
+>> +
+>> +      firmware {
+>> +              scmi: scmi {
+>> +                      compatible = "arm,scmi-smc";
+>> +                      arm,smc-id = <0x820000c1>;
+>> +                      shmem = <&scmi_shmem>;
+>> +                      #address-cells = <1>;
+>> +                      #size-cells = <0>;
+>> +
+>> +                      scmi_clk: protocol@14 {
+>> +                              reg = <0x14>;
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +              };
+>> +      };
+>> +
+>>       soc {
+>>               compatible = "simple-bus";
+>>               #address-cells = <2>;
+>> @@ -224,6 +254,42 @@ apb4: bus@fe000000 {
+>>                       #size-cells = <2>;
+>>                       ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
+>>
+>> +                      clkc_periphs:clock-controller@0 {
+>> +                              compatible = 
+>> "amlogic,t7-peripherals-clkc";
+>> +                              reg = <0x0 0x0 0x0 0x1c8>;
+>> +                              #clock-cells = <1>;
+>> +                              clocks = <&xtal>,
+>> +                                       <&scmi_clk CLKID_SYS_CLK>,
+>> +                                       <&scmi_clk CLKID_FIXED_PLL>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV2>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV2P5>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV3>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV4>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV5>,
+>> +                                       <&scmi_clk CLKID_FCLK_DIV7>,
+>> +                                       <&hifi CLKID_HIFI_PLL>,
+>> +                                       <&gp0 CLKID_GP0_PLL>,
+>> +                                       <&gp1 CLKID_GP1_PLL>,
+>> +                                       <&mpll CLKID_MPLL1>,
+>> +                                       <&mpll CLKID_MPLL2>,
+>> +                                       <&mpll CLKID_MPLL3>;
+>> +                              clock-names = "xtal",
+>> +                                            "sys",
+>> +                                            "fix",
+>> +                                            "fdiv2",
+>> +                                            "fdiv2p5",
+>> +                                            "fdiv3",
+>> +                                            "fdiv4",
+>> +                                            "fdiv5",
+>> +                                            "fdiv7",
+>> +                                            "hifi",
+>> +                                            "gp0",
+>> +                                            "gp1",
+>> +                                            "mpll1",
+>> +                                            "mpll2",
+>> +                                            "mpll3";
+>> +                      };
+>> +
+>>                       reset: reset-controller@2000 {
+>>                               compatible = "amlogic,t7-reset";
+>>                               reg = <0x0 0x2000 0x0 0x98>;
+>> @@ -234,6 +300,7 @@ watchdog@2100 {
+>>                               compatible = "amlogic,t7-wdt";
+>>                               reg = <0x0 0x2100 0x0 0x10>;
+>>                               clocks = <&xtal>;
+>> +
+>>                       };
+>>
+>>                       periphs_pinctrl: pinctrl@4000 {
+>> @@ -269,6 +336,64 @@ uart_a: serial@78000 {
+>>                               status = "disabled";
+>>                       };
+>>
+>> +                      gp0:clock-controller@8080 {
+>> +                              compatible = "amlogic,t7-gp0-pll";
+>> +                              reg = <0x0 0x8080 0x0 0x20>;
+>> +                              clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>
+> I would separate `gp0:` and `clock-controller@8080` with a space, like 
+> so:
+>
+>                        gp0: clock-controller@8080 {
+>
+> Same for the others below (and `clkc_periphs:clock-controller@0` above).
 
-Adding Device Tree support should be easy. We just need a patch similar 
-to "ACPI/AEST: Parse the AEST table" to fill the DT table into struct 
-acpi_aest_node (might need renaming) and struct aest_hnode. The driver 
-part requires minimal changes.
 
-However, I'm not very familiar with DT and lack DT engineering support, 
-so I would need some guidance on these DT-related questions:
+Thanks for the great suggestion! I completely agree that consistent 
+spacing improves readability.
+I'll update the format to add a space for `gp0: clock-controller@8080`, 
+`clkc_periphs: clock-controller@0`
+and all other related entries in v2.
 
-- Is there a specification that outlines the reporting 	requirements for 
-RAS extension information that is similar to AEST?
-- How should the DT be designed?
-- How can I develop QEMU and modify DT files for debugging, etc.?
-
-I would be happy to adjust the patchset to meet the needs of both 
-parties if you are prepared to invest the necessary effort（DT-related）. 
-In reality, I believe that just a little modification is required.
-
-> 
->> Background and Maintenance
->> =============================
->> This series is based on Tyler Baicar's preliminary patches [7]. I attempted
->> to follow up with Tyler in 2022 [8] but received no reply. As he no longer
->> appears active on the mailing list, I have picked up this work, updated it
->> to align with the latest AEST v2.0 specification, and addressed pending
->> feedback to ensure this critical feature is integrated into the mainline.
+>
+>> +
+>> +                      gp1:clock-controller@80c0 {
+>> +                              compatible = "amlogic,t7-gp1-pll";
+>> +                              reg = <0x0 0x80c0 0x0 0x14>;
+>> +                              clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>> +                      hifi:clock-controller@8100 {
+>> +                              compatible = "amlogic,t7-hifi-pll";
+>> +                              reg = <0x0 0x8100 0x0 0x20>;
+>> +                              clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>> +                      pcie:clock-controller@8140 {
+>> +                              compatible = "amlogic,t7-pcie-pll";
+>> +                              reg = <0x0 0x8140 0x0 0x1c>;
+>> +                              clocks = <&scmi_clk CLKID_PCIE_OSC>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>> +                      mpll:clock-controller@8180 {
+>> +                              compatible = "amlogic,t7-mpll";
+>> +                              reg = <0x0 0x8180 0x0 0x28>;
+>> +                              clocks = <&scmi_clk CLKID_FIXED_PLL_DCO>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>> +                      hdmi:clock-controller@81c0 {
+>> +                              compatible = "amlogic,t7-hdmi-pll";
+>> +                              reg = <0x0 0x81c0 0x0 0x20>;
+>> +                              clocks = <&scmi_clk CLKID_HDMI_PLL_OSC>;
+>> +                              clock-names = "in0";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>> +                      mclk:clock-controller@8300 {
+>> +                              compatible = "amlogic,t7-mclk-pll";
+>> +                              reg = <0x0 0x8300 0x0 0x18>;
+>> +                              clocks = <&scmi_clk CLKID_MCLK_PLL_OSC>,
+>> +                                       <&xtal>,
+>> +                                       <&scmi_clk CLKID_FCLK_50M>;
+>> +                              clock-names = "in0", "in1", "in2";
+>> +                              #clock-cells = <1>;
+>> +                      };
+>> +
+>>                       sec_ao: ao-secure@10220 {
+>>                               compatible = "amlogic,t7-ao-secure",
+>> "amlogic,meson-gx-ao-secure",
+>> -- 
+>> 2.47.1
 >>
->> AEST Driver Architecture
->> ========================
 >>
->> The AEST driver is structured into three primary components:
->>    - AEST device: Responsible for handling interrupts, managing the lifecycle
->>                   of AEST nodes, and processing error records.
->>    - AEST node: Corresponds directly to a RAS node in the hardware
->>    - AEST record: Represents a set of RAS registers associated with a specific
->>                   error source.
->>
->> Comparison with x86 MCA:
->>
->> RAS record ≈ MCA bank.
->> RAS node ≈ A set of MCA banks + CMCI on a core.
->>
->> The key difference lies in uncore handling: x86 typically maps uncore errors
->> (like those from a memory controller) into core-based MCA banks. In contrast,
->> ARM requires uncore components to provide their own standalone RAS nodes. When
->> a component requires multiple such nodes, they are grouped and managed as a
->> "RAS device" in AEST driver.
->>
->> These components are organized hierarchically as follows:
->>
->>   ┌──────────────────────────────────────────────────┐
->>   │             AEST Driver Device Management        │
->>   │┌─────────────┐    ┌──────────┐     ┌───────────┐ │
->>   ││ AEST Device ├─┬─►│AEST Node ├──┬─►│AEST Record│ │
->>   │└─────────────┘ │  └──────────┘  │  └───────────┘ │
->>   │                │       .        │  ┌───────────┐ │
->>   │                │       .        ├─►│AEST Record│ │
->>   │                │       .        │  └───────────┘ │
->>   │                │  ┌──────────┐  │        .       │
->>   │                ├─►│AEST Node │  │        .       │
->>   │                │  └──────────┘  │        .       │
->>   │                │                │  ┌───────────┐ │
->>   │                │  ┌──────────┐  └─►│AEST Record│ │
->>   │                └─►│AEST Node │     └───────────┘ │
->>   │                   └──────────┘                   │
->>   └──────────────────────────────────────────────────┘
->>
->> AEST Interrupt Handle
->> =====================
->>
->> Upon an AEST interrupt, the driver performs the following sequence:
->> 1. The AEST device iterates through all registered AEST nodes to identify the
->>     specific node(s) and record(s) that reported an error.
->> 2. Each node typically contains two types of records:
->>        - report record: Errors can be located efficiently through a bitmap
->>                         in the `ERRGSR` register.
->>        - poll record: The node must individually poll all records to determine
->>                       if an error has occurred.
->> 3. process record:
->>        - if error is corrected, The CE threshold is reset, and the error event
->>          is logged.
->>        - if error is defered, Relevant registers are dumped, and
->>          `memory_failure()` is invoked.
->>        - if error is uncorrected, panic, While UEs typically trigger an
->>          exception rather than an interrupt, if detected, the system will panic.
->> 4. decode record: The AEST driver notifies other relevant drivers, such as
->>     EDAC, to further decode the reported RAS register information.
->>
->> Testing
->> ===================
->> I have tested this series on THead Yitian710 SOC with customized BIOS. Someone
->> can also use QEMU[9] for preliminary driver testing.
->>
->> 1. Boot Qemu
->>
->> qemu-system-aarch64 -smp 4 -m 32G \
->>    -cpu host --enable-kvm -machine virt,gic-version=3 \
->>    -kernel Image -initrd initrd.cpio.gz \
->>    -device virtio-net-pci,netdev=t0 -netdev user,id=t0 \
->>    -bios /usr/share/edk2/aarch64/QEMU_EFI.fd  \
->>    -append "rdinit=/sbin/init earlycon verbose debug console=ttyAMA0 aest.dyndbg='+pt'" \
->>    -nographic -d guest_errors -D qemu.log
->>
->> 2. inject error
->> devmem 0x90d0808 l 0xc4800390
->>
->> 2.1 Memory error
->> [   64.959849] AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
->> [   64.959852] AEST: {1}[Hardware Error]:  Error from memory at SRAT proximity domain 0x0
->> [   64.959855] AEST: {1}[Hardware Error]:   ERR0FR: 0x40000080044081
->> [   64.959858] AEST: {1}[Hardware Error]:   ERR0CTRL: 0x108
->> [   64.959859] AEST: {1}[Hardware Error]:   ERR0STATUS: 0xc4800390
->> [   64.959860] AEST: {1}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
->> [   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC0: 0x7fff00000000
->> [   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC1: 0x0
->> [   64.959862] AEST: {1}[Hardware Error]:   ERR0MISC2: 0x0
->> [   64.959863] AEST: {1}[Hardware Error]:   ERR0MISC3: 0x0
->> [   64.959873] Memory failure: 0x43344: recovery action for free buddy page: Recovered
->>
->> 2.2 CMN error
->> [  132.044283] AEST: {2}[Hardware Error]: Hardware error from AEST XP
->> [  132.044286] AEST: {2}[Hardware Error]:  Error from vendor hid ARMHC700 uid 0x0
->> [  132.044288] AEST: {2}[Hardware Error]:   ERR0FR: 0x48a5
->> [  132.044290] AEST: {2}[Hardware Error]:   ERR0CTRL: 0x108
->> [  132.044292] AEST: {2}[Hardware Error]:   ERR0STATUS: 0xc4800390
->> [  132.044293] AEST: {2}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
->> [  132.044295] AEST: {2}[Hardware Error]:   ERR0MISC0: 0x0
->> [  132.044296] AEST: {2}[Hardware Error]:   ERR0MISC1: 0x0
->> [  132.044298] AEST: {2}[Hardware Error]:   ERR0MISC2: 0x0
->> [  132.044299] AEST: {2}[Hardware Error]:   ERR0MISC3: 0x0
->> [  132.044302] Memory failure: 0x43344: recovery action for already poisoned page: Failed
->>
->> [0]: https://developer.arm.com/documentation/den0085/0200/
->> [1]: Intel: Predicting Uncorrectable Memory Errors from the Correctable Error History
->> [2]: Alibaba. Predicting DRAM-Caused Risky VMs in Large-Scale Clouds. Published in HPCA2025
->> [3]: AMD: Physics-informed machinelearning for dram error modeling
->> [4]: Tencent: Predicting uncorrectablememory errors for proactive replacement: An empirical study on large-scale field data
->> [5]: https://lore.kernel.org/all/20251104-wip-mca-updates-v8-4-66c8eacf67b9@amd.com/
->> [6]: https://developer.arm.com/documentation/ihi0100/
->> [7]: https://lore.kernel.org/all/20211124170708.3874-1-baicar@os.amperecomputing.com/
->> [8]: https://lore.kernel.org/all/b365db02-b28c-1b22-2e87-c011cef848e2@linux.alibaba.com/
->> [9]: https://github.com/winterddd/qemu/tree/error_record
->>
->> Change from V5:
->> https://lore.kernel.org/all/20251230090945.43969-1-tianruidong@linux.alibaba.com/
->> 1. Based on the feedback from Borislav Petkov, I've dropped the idea of a
->>     unified address translation interface across ARM and AMD.
->>
->> Change from V4:
->> https://lore.kernel.org/all/20251222094351.38792-1-tianruidong@linux.alibaba.com/
->> 1. Fix build warning in 0010 and 0014 report by kernel test robot:
->>      https://lore.kernel.org/all/202512230122.CfXZcF76-lkp@intel.com/
->>      https://lore.kernel.org/all/202512230007.Vs6IvFVD-lkp@intel.com/
->> 2. Dropped the extra patch(0014) that was mistakenly included in v4.
->>
->> Change from V3:
->> https://lore.kernel.org/all/20250115084228.107573-1-tianruidong@linux.alibaba.com/
->> 1. Add vendor AEST node framework and support CMN700
->> 2. Borislav Petkov
->>      - Split into multiple smaller patches for easier review.
->>      - refined the English in the cover letter for better flow.
->> 3. Accept Tomohiro Misono's comment
->>
->> Change from V2:
->> https://lore.kernel.org/all/20240321025317.114621-1-tianruidong@linux.alibaba.com/
->> 1. Tomohiro Misono
->>      - dump register before panic
->> 2. Baolin Wang & Shuai Xue: accept all comment.
->> 3. Support AEST V2.
->>
->> Change from V1:
->> https://lore.kernel.org/all/20240304111517.33001-1-tianruidong@linux.alibaba.com/
->> 1. Marc Zyngier
->>    - Use readq/writeq_relaxed instead of readq/writeq for MMIO address.
->>    - Add sync for system register operation.
->>    - Use irq_is_percpu_devid() helper to identify a per-CPU interrupt.
->>    - Other fix.
->> 2. Set RAS CE threshold in AEST driver.
->> 3. Enable RAS interrupt explicitly in driver.
->> 4. UER and UEO trigger memory_failure other than panic.
->>
->> Ruidong Tian (16):
->>    ACPI/AEST: Parse the AEST table
->>    ras: AEST: Add probe/remove for AEST driver
->>    ras: AEST: support different group format
->>    ras: AEST: Unify the read/write interface for system and MMIO register
->>    ras: AEST: Probe RAS system architecture version
->>    ras: AEST: Support RAS Common Fault Injection Model Extension
->>    ras: AEST: Support CE threshold of error record
->>    ras: AEST: Enable and register IRQs
->>    ras: AEST: Add cpuhp callback
->>    ras: AEST: Introduce AEST driver sysfs interface
->>    ras: AEST: Add error count tracking and debugfs interface
->>    ras: AEST: Allow configuring CE threshold via debugfs
->>    ras: AEST: Introduce AEST inject interface to test AEST driver
->>    ras: AEST: Add framework to process AEST vendor node
->>    ras: AEST: support vendor node CMN700
->>    trace, ras: add ARM RAS extension trace event
->>
->>   Documentation/ABI/testing/debugfs-aest |   99 +++
->>   MAINTAINERS                            |   11 +
->>   arch/arm64/include/asm/arm-cmn.h       |   47 ++
->>   arch/arm64/include/asm/ras.h           |   95 +++
->>   drivers/acpi/arm64/Kconfig             |   11 +
->>   drivers/acpi/arm64/Makefile            |    1 +
->>   drivers/acpi/arm64/aest.c              |  311 +++++++
->>   drivers/perf/arm-cmn.c                 |   37 +-
->>   drivers/ras/Kconfig                    |    1 +
->>   drivers/ras/Makefile                   |    1 +
->>   drivers/ras/aest/Kconfig               |   17 +
->>   drivers/ras/aest/Makefile              |    8 +
->>   drivers/ras/aest/aest-cmn.c            |  330 ++++++++
->>   drivers/ras/aest/aest-core.c           | 1054 ++++++++++++++++++++++++
->>   drivers/ras/aest/aest-inject.c         |  131 +++
->>   drivers/ras/aest/aest-sysfs.c          |  228 +++++
->>   drivers/ras/aest/aest.h                |  410 +++++++++
->>   drivers/ras/ras.c                      |    3 +
->>   include/linux/acpi_aest.h              |   75 ++
->>   include/linux/cpuhotplug.h             |    1 +
->>   include/linux/ras.h                    |    8 +
->>   include/ras/ras_event.h                |   71 ++
->>   22 files changed, 2914 insertions(+), 36 deletions(-)
->>   create mode 100644 Documentation/ABI/testing/debugfs-aest
->>   create mode 100644 arch/arm64/include/asm/arm-cmn.h
->>   create mode 100644 arch/arm64/include/asm/ras.h
->>   create mode 100644 drivers/acpi/arm64/aest.c
->>   create mode 100644 drivers/ras/aest/Kconfig
->>   create mode 100644 drivers/ras/aest/Makefile
->>   create mode 100644 drivers/ras/aest/aest-cmn.c
->>   create mode 100644 drivers/ras/aest/aest-core.c
->>   create mode 100644 drivers/ras/aest/aest-inject.c
->>   create mode 100644 drivers/ras/aest/aest-sysfs.c
->>   create mode 100644 drivers/ras/aest/aest.h
->>   create mode 100644 include/linux/acpi_aest.h
-> 
-> 
-> Thanks,
-> Umang
-
+>
+> Best regards,
+> Ferass
+>
+>> _______________________________________________
+>> linux-amlogic mailing list
+>> linux-amlogic@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
