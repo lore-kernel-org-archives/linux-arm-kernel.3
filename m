@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3C0103E2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 21:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F564103E2E8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 22:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iG1sK9K8o9dl9Vde3v0efNWoYZtYHoBdU4iIKqn1yc8=; b=2YZVJQ791QW3qwEjVtVJsamUKG
-	dW/gkAnwqAwxAnhz7pxeLfWHX74UwRjdx+FFq0MdSNCPnlfHvtf0bGDERQZ6I+LwqAxHz+2JkkqE8
-	MaJMxJoCaJCEN+sOt5W2qFE2hvKp29kYaVgzffxfTuCJTLi5RXhB9hTM2PulPDD52PFrxAwmQ96cN
-	nxaeNaibY/TfeA6gT4p4PimdIY+7M7SYT4GD4w9nOcJSIXM8LSE6yJ+y54fOd+FHx5GBVHYQpLdXO
-	7at0YTnZuHelHexVZykH3/XU4DPaSrcadqXgu0CQ8cRaMPK8GPTaktBonCP/Q8SFC+C0SVi9aVx7y
-	eUt11gjQ==;
+	bh=2h3JBsqRMrN/N2OOa19DOwOFVIU+aepcjKyUB7UTT/Q=; b=MrT4yFGnwOB1Qw++qCvjVtZBO8
+	T3Ptcyk6/iEXP/6M8ELq+WGamGzScbZtuWKvosR2thGkM8X68HTMu95r/2Cj+lLmn8XN96sRMi2XM
+	XD5UZszvPR2cmBPm/Wjzh/mSAT0TkVe2HHUJXgoctWonzKzSlq2FJxBNjivQlbr2pwcrHppN3fAvT
+	QNJ40+44dQzKQokmmVk8tRD2zwRHQe8MwsZYvClOQCyG+MFED3R3vLQ4QPskRziMGnOyZSDw1MNi+
+	4QJMEiZgocdQQUUCR7hyc2eQCvIzajqe8geIzNPDjKekNLx+df/PYV+cfd2WZATZ20bLHNE2PWKWw
+	2/1Nq1fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0RRd-0000000CZWQ-1S1t;
-	Wed, 11 Mar 2026 21:50:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w0Rsr-0000000CeUg-1WLM;
+	Wed, 11 Mar 2026 22:18:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0RRY-0000000CZTq-0q2h
+	id 1w0Rso-0000000CeTq-2iiu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 21:50:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773265814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iG1sK9K8o9dl9Vde3v0efNWoYZtYHoBdU4iIKqn1yc8=;
-	b=Ft83guEsoXZ43bJO5UGbdUkydmGt9QIQyhdpHASbte0qal5xycJGcNqqy/0ZjEG3rDUm0W
-	32OTzr7zfP/I+DR/LxbU+tt6JuQuVPhSWSd/5uHLS6xRSmvibK7fYNrEa/OH8782Mb/Ftj
-	e3V4V6cLjuolVKVtbinHeEFYSbtj1Sk=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-609-5yAsLEAPNT2e20MEQN-nog-1; Wed, 11 Mar 2026 17:50:12 -0400
-X-MC-Unique: 5yAsLEAPNT2e20MEQN-nog-1
-X-Mimecast-MFC-AGG-ID: 5yAsLEAPNT2e20MEQN-nog_1773265812
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cd98d96382so52575285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 14:50:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773265812; x=1773870612;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iG1sK9K8o9dl9Vde3v0efNWoYZtYHoBdU4iIKqn1yc8=;
-        b=dRZxQxXk/cIg/q6CfGvStg+z+qj86+vpLOkkAtctLslsAq7LuDvNfVNejeH2Rzsa3w
-         mzESzm5d8/skvwBn4DCbA0znBfcBnAYkDSPzOq27f7QC815Ww7pO1XOTBvxxhojFqNY0
-         nziIyBfLikTvlwyat4VdNC18RtmD+yUha8ZQrbhEgp46nLe0PaN8YY3KtoSSWXxtnPBg
-         ucXXNCJI0uWYq42ayTDkDlvmh+FS0lUvlH3ozXlR2e3d0kX12A4IZfPGJD38MsNN1WHX
-         wCK1qb8Bs1ZsP4gGGzF3437jlbwQWkvp8pRTSXfUxKTMfBb9+3dzZtuRqbVvf6VY4Zec
-         csXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXypDuj3/YBWcrSpYU6Qo2PzkGbvagQzYgR3ufmkhdqbGGpzfpl1VLqtlgdgWqi6wV85Xs9C7XYRuAYak4LuN1e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkkQXuHysYFSnrecMzfvkve0dequjdo8N4L94H3a8AGXxgR+xg
-	SGYmv/7zQXnkXIKLhM0/ScXrqf+/H/WwQRoTDEJxRpFoBxqLIOtbwpjLfc6hsKjN/2mwc9Fyn8r
-	QQx1I5lHV8Gvynysj3g2D7cH26wSH+D3Q11atbhpVlwdMkGv6dD1D3RvflznheuUjN61LoJrhi7
-	MI
-X-Gm-Gg: ATEYQzzwYy6x1Zos/jSFqXr4Xw7q/IQAKPuvOsc9FAyvV/NBz5RpU4NFEe6YvYNqL3n
-	Ivexw+4/hR+sR9iPOxsCSy3r3WCvmqgPomMHUSt8esAV7AYUWhIEOM8WSW8XpLbMYVqvf/BIGts
-	6zpCYn/ubN62RxsOUX0HAFv4S7aMReXjYnDdwrAnpr27Ufs2bj4XdA8j2Ymb0f5+yZd96mW6aQ6
-	RyVBXMLRtk2btnw8plKKhWrFG98V6yILndqbyYS9T90TNXFC8Jp2Ffv0+H3VQ1tI211S4tHZLDm
-	k0WqtbTlInLoyOcwupk3t8acOk2l9yMdzHdpA9XhvpJdn1NXuP1XA8FMx62WAt5LErKX9YMt9SP
-	8X6XMoG1G7i+/+sJ5vUw=
-X-Received: by 2002:a05:620a:44d1:b0:8cd:a071:9aae with SMTP id af79cd13be357-8cda1a8a3b2mr581380985a.78.1773265812366;
-        Wed, 11 Mar 2026 14:50:12 -0700 (PDT)
-X-Received: by 2002:a05:620a:44d1:b0:8cd:a071:9aae with SMTP id af79cd13be357-8cda1a8a3b2mr581376885a.78.1773265811916;
-        Wed, 11 Mar 2026 14:50:11 -0700 (PDT)
-Received: from redhat.com ([2600:382:7708:94f:6bbc:89e9:5b48:3a11])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cda1eab31dsm211687585a.0.2026.03.11.14.50.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 14:50:11 -0700 (PDT)
-Date: Wed, 11 Mar 2026 17:50:08 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sebin Francis <sebin.francis@ti.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v8 4/6] clk: Add KUnit tests for assigned-clock-sscs
-Message-ID: <abHjkMXPK0fXcdrO@redhat.com>
-References: <20260302-clk-ssc-v7-1-v8-0-2356443a7e4c@nxp.com>
- <20260302-clk-ssc-v7-1-v8-4-2356443a7e4c@nxp.com>
+	Wed, 11 Mar 2026 22:18:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01AAD417D2;
+	Wed, 11 Mar 2026 22:18:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89708C4CEF7;
+	Wed, 11 Mar 2026 22:18:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773267502;
+	bh=UkcWuDDKFCtOzPMcaQPRi4iOunlDeFvQXT87qyfDCmY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s9J3sgLA9S//wXI5sCKh7YLMqn41GDJmYfc598b7ndkFh8SDdWL+zRt5FfHTApL1t
+	 eFw4mxiTQ52uHOiZnwnfhQkLZZ69FGf+Omdav3EFSFZvGLzDVaBr6C3Rjwngxabxwz
+	 d+0JasLxpFrmuqlAqg/17icDaUayGe59gigm4h+zHWLCUCAAoz9z33wVCRN3oC28+B
+	 I4sw7mxR8qx/+1CrghYdwu7qyQ4Nhd5ot4eqj1gDAOhg3ejLRDXDKaDXhl85fG3i4o
+	 mrUjtO5XPJyLmYaTqf1esEqls3WQjEw/BgecuDmQ9+r0WBP4atyMefSKeR4bZ5orPU
+	 G2ybt0con6eMw==
+Date: Wed, 11 Mar 2026 15:18:16 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com, qperret@google.com, will@kernel.org,
+	aneesh.kumar@kernel.org, kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v14 18/30] tracing: Check for undefined symbols in
+ simple_ring_buffer
+Message-ID: <20260311221816.GA316631@ax162>
+References: <20260309162516.2623589-1-vdonnefort@google.com>
+ <20260309162516.2623589-19-vdonnefort@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20260302-clk-ssc-v7-1-v8-4-2356443a7e4c@nxp.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ccmHPdkL2rFJzM_SmccASuhites3OAGSCW5qEX3JbGw_1773265812
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260309162516.2623589-19-vdonnefort@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_145016_306961_76DEC955 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260311_151826_755130_10117A93 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,66 +79,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+Hi Vincent,
 
-On Mon, Mar 02, 2026 at 11:01:18PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Mon, Mar 09, 2026 at 04:25:04PM +0000, Vincent Donnefort wrote:
+> The simple_ring_buffer implementation must remain simple enough to be
+> used by the pKVM hypervisor. Prevent the object build if unresolved
+> symbols are found.
 > 
-> Spread spectrum configuration is part of clock frequency settings,
-> and its behavior can be validated similarly to assigned clock rates.
+> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 > 
-> Extend the existing KUnit tests for assigned-clock-rates to cover
-> assigned-clock-sscs by reusing the test framework. Add new test
-> device trees:
->   - kunit_clk_assigned_sscs_null.dtso
->   - kunit_clk_assigned_sscs_null_consumer.dtso
->   - kunit_clk_assigned_sscs_without.dtso
->   - kunit_clk_assigned_sscs_without_consumer.dtso
->   - kunit_clk_assigned_sscs_zero.dtso
->   - kunit_clk_assigned_sscs_zero_consumer.dtso
-> 
-> These tests cover various invalid configurations of assigned-clock-sscs,
-> ensuring robustness and consistent error handling, similar to the coverage
-> provided for assigned-clock-rates.
-> 
-> Co-developed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> Reviewed-by: Sebin Francis <sebin.francis@ti.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> index d106beca8d7f..3182e1bc1cf7 100644
+> --- a/kernel/trace/Makefile
+> +++ b/kernel/trace/Makefile
+> @@ -132,4 +132,20 @@ obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
+>  obj-$(CONFIG_SIMPLE_RING_BUFFER) += simple_ring_buffer.o
+>  obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+>  
+> +#
+> +# simple_ring_buffer is used by the pKVM hypervisor which does not have access
+> +# to all kernel symbols. Fail the build if forbidden symbols are found.
+> +#
+> +UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
+> +UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+> +UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+> +
+> +quiet_cmd_check_undefined = NM      $<
+> +      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
 
-I'm collecting up patches for Stephen for a git pull. I wanted to
-include this series, however I see that the clk kunit tests fail.
+This check triggers when building allmodconfig targeting arm, arm64,
+powerpc, and x86_64 (at least, I did not test more at the moment) with
+clang. If this is a hard failure, this really needs to print something
+out to the developer/user to help them debug off the bat, versus having
+to manually dig the $(NM) command out from the .cmd file or V=1. I came
+up with
 
-[17:34:44] ================= clk_assigned_sscs_skips  =================
-[17:34:44] [FAILED] provider missing assigned-clocks
-[17:34:44] # clk_assigned_sscs_skips: ASSERTION FAILED at drivers/clk/clk_test.c:3218
-[17:34:44] Expected 0 == of_clk_set_defaults(consumer, false), but
-[17:34:44]     of_clk_set_defaults(consumer, false) == -2 (0xfffffffffffffffe)
-[17:34:44] [FAILED] consumer missing assigned-clocks
-[17:34:44] [PASSED] provider assigned-clock-sscs of zero
-[17:34:44] [PASSED] consumer assigned-clock-sscs of zero
-[17:34:44] # clk_assigned_sscs_skips: ASSERTION FAILED at drivers/clk/clk_test.c:3194
-[17:34:44] Expected 0 == of_clk_add_hw_provider_kunit(test, np, of_clk_hw_simple_get, &ctx->clk0.hw), but
-[17:34:44]     of_clk_add_hw_provider_kunit(test, np, of_clk_hw_simple_get, &ctx->clk0.hw) == -2 (0xfffffffffffffffe)
-[17:34:44] [FAILED] provider assigned-clocks null phandle
-[17:34:44] # clk_assigned_sscs_skips: ASSERTION FAILED at drivers/clk/clk_test.c:3218
-[17:34:44] Expected 0 == of_clk_set_defaults(consumer, false), but
-[17:34:44]     of_clk_set_defaults(consumer, false) == -2 (0xfffffffffffffffe)
-[17:34:44] [FAILED] provider assigned-clocks null phandle
-[17:34:44] # clk_assigned_sscs_skips: ASSERTION FAILED at drivers/clk/clk_test.c:3194
-[17:34:44] Expected 0 == of_clk_add_hw_provider_kunit(test, np, of_clk_hw_simple_get, &ctx->clk0.hw), but
-[17:34:44]     of_clk_add_hw_provider_kunit(test, np, of_clk_hw_simple_get, &ctx->clk0.hw) == -2 (0xfffffffffffffffe)
-[17:34:44] # clk_assigned_sscs_skips: pass:2 fail:4 skip:0 total:6
-[17:34:44] ============= [FAILED] clk_assigned_sscs_skips =============
-[17:34:44]     # module: clk_test
-[17:34:44] # clk_assigned_rates: pass:3 fail:1 skip:0 total:4
-[17:34:44] # Totals: pass:16 fail:4 skip:0 total:20
-[17:34:44] =============== [FAILED] clk_assigned_rates ================
+diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+index 3182e1bc1cf7..c725b06876bc 100644
+--- a/kernel/trace/Makefile
++++ b/kernel/trace/Makefile
+@@ -141,7 +141,13 @@ UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sani
+ UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+ 
+ quiet_cmd_check_undefined = NM      $<
+-      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
++      cmd_check_undefined = \
++          undefsyms=$$($(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST) || true); \
++          if [ -n "$$undefsyms" ]; then \
++              echo "Unexpected symbols in $<:" >&2; \
++              echo "$$undefsyms" >&2; \
++              false; \
++          fi
+ 
+ $(obj)/%.o.checked: $(obj)/%.o FORCE
+ 	$(call if_changed,check_undefined)
+--
 
-Can you look into this? I didn't look in detail, but should the tests be
-updated to expect -ENOENT in some cases, such as 'consumer missing
-assigned-clocks'?
+which prints
 
-Brian
+  Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+                   U llvm_gcda_emit_arcs
+                   U llvm_gcda_emit_function
+                   U llvm_gcda_end_file
+                   U llvm_gcda_start_file
+                   U llvm_gcda_summary_info
+                   U llvm_gcov_init
 
+for arm64, which makes sense since these are LLVM specific GCOV symbols,
+so they should probably get the same treatment as the other ones:
+
+diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+index c725b06876bc..d464e3aa5bdd 100644
+--- a/kernel/trace/Makefile
++++ b/kernel/trace/Makefile
+@@ -136,8 +136,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+ # simple_ring_buffer is used by the pKVM hypervisor which does not have access
+ # to all kernel symbols. Fail the build if forbidden symbols are found.
+ #
+-UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
+-UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
++UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
++UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+ UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+ 
+ quiet_cmd_check_undefined = NM      $<
+--
+
+For x86_64, I see
+
+  Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+                   U __clear_pages_unrolled
+                   U __memmove
+                   U copy_page
+
+which comes from the use of KCFI_ADDRESSABLE(), since allmodconfig has
+CONFIG_CFI=y.
+
+For powerpc (with both clang and GCC), I see
+
+  Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+                   U .TOC.
+
+For arm (with both clang and GCC), I see
+
+  Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+           U __stack_chk_guard
+           U warn_slowpath_fmt
+
+Presumably adding all of those should be fine as well?
+
+diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+index d464e3aa5bdd..4f120cb8c79c 100644
+--- a/kernel/trace/Makefile
++++ b/kernel/trace/Makefile
+@@ -137,7 +137,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+ # to all kernel symbols. Fail the build if forbidden symbols are found.
+ #
+ UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
+-UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
++UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail __stack_chk_guard stackleak_track_stack __ref_stack __sanitizer
++UNDEFINED_ALLOWLIST += \.TOC\. __clear_pages_unrolled __memmove copy_page warn_slowpath_fmt
+ UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+ 
+ quiet_cmd_check_undefined = NM      $<
+--
+
+I don't mind sending a series for these, I just wanted to make sure I
+was reasoning about everything correctly.
+
+Cheers,
+Nathan
 
