@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89A91062891
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEB91062894
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 12:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFOikBRvqMU6zX+08mj7VLJfo/P1dX0DbZLBErGzu7o=; b=GXfw0eEVcLZWmOabDcG3AHxZUF
-	GTWHU2IXe+lUEo2sVYW0OVbT7fsVNjmIE/OP1XYtfUrYvmM2H/8pD35x2o1SaTmF0hI8wwyDM698f
-	Gl6dUPLuqpX0+LKMLQ17F9HSRhg7TOC4xxKA900mKzfRLv9WZslVp4jcXxz0LDjGH1B55YTjlW87+
-	0B04amyRiLAD61NBv0A4wig6dctMTRWtk+uPXFARGh/AfkZfzsd+SZ/qHFAN0NVjy7tRerzOLiFi7
-	IpORkVqPm1OpTcxL0qjFUG+bJhmZPF6S1NBcJHufmjuKkpl2AU312ZdxRBKzv1BAz/KF4/dflJrTK
-	FF9zj9XQ==;
+	bh=OCpv2B481p5tXJx5vm72pzJA7/wNwbYDhrgNk/JD+bU=; b=FF0X2oasQE1MTQqtVrvqa33y36
+	44Gy2wwcisvgqcHx+GdcJS0xxtMOMA9CS68BoU7Tr0wRg+uXXp3xt0lKCwhd8v97UunMsbNHgky7l
+	2fTzClwW5gwJaA7H69rXx7Khv/esUL7URuwnpo4DVLdmwINHb6yxvcs0TL2X9wMBZ2HE2aZOvvNg0
+	IFMmThyLZGysh+ksGMVjwJayHawH4TwsNBkMe4oetNJC/kA6VOtz8QZNo2X7A3X/0wLPkxEC+6+hU
+	RRHSJ35+Xt74BDxfMroMgNYaw2KXIWgaDeTq67lAOBa43e8pUuwpvMBMNjgurvU4s5KbzORRup+7F
+	C4p8a0bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IvV-0000000Ba6i-2ghM;
-	Wed, 11 Mar 2026 12:44:37 +0000
+	id 1w0Iwp-0000000BaDL-01Ma;
+	Wed, 11 Mar 2026 12:45:59 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0IvS-0000000Ba6N-3QCq
+	id 1w0Iwm-0000000BaCx-2vBC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 12:44:35 +0000
+	Wed, 11 Mar 2026 12:45:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D868408F3;
-	Wed, 11 Mar 2026 12:44:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31755C19425;
-	Wed, 11 Mar 2026 12:43:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 519B044375;
+	Wed, 11 Mar 2026 12:45:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6760C4CEF7;
+	Wed, 11 Mar 2026 12:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773233073;
-	bh=2TsPW1VUrfzhXFigTHHxqQSuXjl+yKNb6vmNwYfv3Rc=;
+	s=k20201202; t=1773233156;
+	bh=p5s6LmiZUsNIQywTKWkHbQraxneuuNSzrESbFlm5lxo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eDfNntacup9W7fsFDmo+L2CKzFeNrMPjOh6O+qT6o4uFua9BVen3NR7GjYAh8DNXV
-	 IKXG7cyu8HA6VGzPRI4Js64Zn99OSyFVl3U013MtS5pxv4GLlJpYwI4eQCZmr7mQkC
-	 dMqdNwRivSNHZdXsm2A+h1zID9gclxQ8SwsDB7VEfzDnPD6XroexoVunYvw0p8bpYs
-	 PoGj9h8IDZf4yVljVZcfRMb4hMfmWiCnUX0mH5VnzYDiQWBnt3tpWofjoZsYN+rOD1
-	 3iG2Tn931m0rCJS34Q/AZjsvyMgPo/3xYa+a78Bx0o8y/0PUB9MzPW5/UZRJiqua9H
-	 ZYINWO658BENg==
-Date: Wed, 11 Mar 2026 18:13:09 +0530
+	b=EIvv5lepipQPW10zdemikIqrwuUfcRR2QVowZqwFW/ZMs8Vk8zbtQOHn+AEYgh++Z
+	 LenwsZII7WsgyInyJ0Fx3KydhVgM2Piwy/FAhRLI5Ha+CpuKojEhkrzgKy+9RsoeG1
+	 aK57CJaJsW/ALaXAvG4Fki6KUN9EAQmPimqZra/gUOXkT3CkfKsKCejdp98VUGfsAN
+	 SAkQ0ZX9PP2GBVNlM8c90pgKjgyOxjyv36dyQjnAY0oDjoPoqOUjjdcJlVWrJgqKq7
+	 nEIfwuUerD9oTl5p7gL5uLuAWZ7qJPf1IHvD/oW8IoZQyMvRKy/hXEoGJn5kCeIqDD
+	 Dh0CYmLG/rnNw==
+Date: Wed, 11 Mar 2026 18:15:03 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
@@ -53,20 +53,21 @@ Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v12 01/12] dmaengine: constify struct
- dma_descriptor_metadata_ops
-Message-ID: <gtkfzgmtap6536sd5hexkuxrak25qekyrg3zwr2ikg3gnidwww@kq77l6l4kq66>
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Bjorn Andersson <andersson@kernel.org>
+Subject: Re: [PATCH v12 02/12] dmaengine: qcom: bam_dma: convert tasklet to a
+ BH workqueue
+Message-ID: <iimeqofy4fzr4pqtda7sayt5hbbmdldopmcyxagve44dbapnla@ruzqqx6lntkz>
 References: <20260310-qcom-qce-cmd-descr-v12-0-398f37f26ef0@oss.qualcomm.com>
- <20260310-qcom-qce-cmd-descr-v12-1-398f37f26ef0@oss.qualcomm.com>
+ <20260310-qcom-qce-cmd-descr-v12-2-398f37f26ef0@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-1-398f37f26ef0@oss.qualcomm.com>
+In-Reply-To: <20260310-qcom-qce-cmd-descr-v12-2-398f37f26ef0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_054434_917974_0E2800F0 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260311_054556_776570_9173F39C 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,11 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 04:44:15PM +0100, Bartosz Golaszewski wrote:
-> There's no reason for the instances of this struct to be modifiable.
-> Constify the pointer in struct dma_async_tx_descriptor and all drivers
-> currently using it.
+On Tue, Mar 10, 2026 at 04:44:16PM +0100, Bartosz Golaszewski wrote:
+> BH workqueues are a modern mechanism, aiming to replace legacy tasklets.
+> Let's convert the BAM DMA driver to using the high-priority variant of
+> the BH workqueue.
 > 
+> [Vinod: suggested using the BG workqueue instead of the regular one
+> running in process context]
+> 
+> Suggested-by: Vinod Koul <vkoul@kernel.org>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
 Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
@@ -93,50 +101,125 @@ Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
 - Mani
 
 > ---
->  drivers/dma/ti/k3-udma.c        | 2 +-
->  drivers/dma/xilinx/xilinx_dma.c | 2 +-
->  include/linux/dmaengine.h       | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
+>  drivers/dma/qcom/bam_dma.c | 32 ++++++++++++++++----------------
+>  1 file changed, 16 insertions(+), 16 deletions(-)
 > 
-> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-> index c964ebfcf3b68d86e4bbc9b62bad2212f0ce3ee9..8a2f235b669aaf084a6f7b3e6b23d06b04768608 100644
-> --- a/drivers/dma/ti/k3-udma.c
-> +++ b/drivers/dma/ti/k3-udma.c
-> @@ -3408,7 +3408,7 @@ static int udma_set_metadata_len(struct dma_async_tx_descriptor *desc,
->  	return 0;
->  }
+> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> index 19116295f8325767a0d97a7848077885b118241c..c8601bac555edf1bb4384fd39cb3449ec6e86334 100644
+> --- a/drivers/dma/qcom/bam_dma.c
+> +++ b/drivers/dma/qcom/bam_dma.c
+> @@ -42,6 +42,7 @@
+>  #include <linux/pm_runtime.h>
+>  #include <linux/scatterlist.h>
+>  #include <linux/slab.h>
+> +#include <linux/workqueue.h>
 >  
-> -static struct dma_descriptor_metadata_ops metadata_ops = {
-> +static const struct dma_descriptor_metadata_ops metadata_ops = {
->  	.attach = udma_attach_metadata,
->  	.get_ptr = udma_get_metadata_ptr,
->  	.set_len = udma_set_metadata_len,
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index b53292e02448fe528f1ae9ba33b4bcf408f89fd6..97b934ca54101ea699e3ab28d419bed1b45dee4a 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -653,7 +653,7 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
->  	return seg->hw.app;
->  }
+>  #include "../dmaengine.h"
+>  #include "../virt-dma.h"
+> @@ -397,8 +398,8 @@ struct bam_device {
+>  	struct clk *bamclk;
+>  	int irq;
 >  
-> -static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
-> +static const struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
->  	.get_ptr = xilinx_dma_get_metadata_ptr,
+> -	/* dma start transaction tasklet */
+> -	struct tasklet_struct task;
+> +	/* dma start transaction workqueue */
+> +	struct work_struct work;
 >  };
 >  
-> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> index 99efe2b9b4ea9844ca6161208362ef18ef111d96..92566c4c100e98f48750de21249ae3b5de06c763 100644
-> --- a/include/linux/dmaengine.h
-> +++ b/include/linux/dmaengine.h
-> @@ -623,7 +623,7 @@ struct dma_async_tx_descriptor {
->  	void *callback_param;
->  	struct dmaengine_unmap_data *unmap;
->  	enum dma_desc_metadata_mode desc_metadata_mode;
-> -	struct dma_descriptor_metadata_ops *metadata_ops;
-> +	const struct dma_descriptor_metadata_ops *metadata_ops;
->  #ifdef CONFIG_ASYNC_TX_ENABLE_CHANNEL_SWITCH
->  	struct dma_async_tx_descriptor *next;
->  	struct dma_async_tx_descriptor *parent;
+>  /**
+> @@ -863,7 +864,7 @@ static u32 process_channel_irqs(struct bam_device *bdev)
+>  			/*
+>  			 * if complete, process cookie. Otherwise
+>  			 * push back to front of desc_issued so that
+> -			 * it gets restarted by the tasklet
+> +			 * it gets restarted by the work queue.
+>  			 */
+>  			if (!async_desc->num_desc) {
+>  				vchan_cookie_complete(&async_desc->vd);
+> @@ -893,9 +894,9 @@ static irqreturn_t bam_dma_irq(int irq, void *data)
+>  
+>  	srcs |= process_channel_irqs(bdev);
+>  
+> -	/* kick off tasklet to start next dma transfer */
+> +	/* kick off the work queue to start next dma transfer */
+>  	if (srcs & P_IRQ)
+> -		tasklet_schedule(&bdev->task);
+> +		queue_work(system_bh_highpri_wq, &bdev->work);
+>  
+>  	ret = pm_runtime_get_sync(bdev->dev);
+>  	if (ret < 0)
+> @@ -1091,14 +1092,14 @@ static void bam_start_dma(struct bam_chan *bchan)
+>  }
+>  
+>  /**
+> - * dma_tasklet - DMA IRQ tasklet
+> - * @t: tasklet argument (bam controller structure)
+> + * bam_dma_work() - DMA interrupt work queue callback
+> + * @work: work queue struct embedded in the BAM controller device struct
+>   *
+>   * Sets up next DMA operation and then processes all completed transactions
+>   */
+> -static void dma_tasklet(struct tasklet_struct *t)
+> +static void bam_dma_work(struct work_struct *work)
+>  {
+> -	struct bam_device *bdev = from_tasklet(bdev, t, task);
+> +	struct bam_device *bdev = from_work(bdev, work, work);
+>  	struct bam_chan *bchan;
+>  	unsigned int i;
+>  
+> @@ -1111,14 +1112,13 @@ static void dma_tasklet(struct tasklet_struct *t)
+>  		if (!list_empty(&bchan->vc.desc_issued) && !IS_BUSY(bchan))
+>  			bam_start_dma(bchan);
+>  	}
+> -
+>  }
+>  
+>  /**
+>   * bam_issue_pending - starts pending transactions
+>   * @chan: dma channel
+>   *
+> - * Calls tasklet directly which in turn starts any pending transactions
+> + * Calls work queue directly which in turn starts any pending transactions
+>   */
+>  static void bam_issue_pending(struct dma_chan *chan)
+>  {
+> @@ -1286,14 +1286,14 @@ static int bam_dma_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_disable_clk;
+>  
+> -	tasklet_setup(&bdev->task, dma_tasklet);
+> +	INIT_WORK(&bdev->work, bam_dma_work);
+>  
+>  	bdev->channels = devm_kcalloc(bdev->dev, bdev->num_channels,
+>  				sizeof(*bdev->channels), GFP_KERNEL);
+>  
+>  	if (!bdev->channels) {
+>  		ret = -ENOMEM;
+> -		goto err_tasklet_kill;
+> +		goto err_workqueue_cancel;
+>  	}
+>  
+>  	/* allocate and initialize channels */
+> @@ -1358,8 +1358,8 @@ static int bam_dma_probe(struct platform_device *pdev)
+>  err_bam_channel_exit:
+>  	for (i = 0; i < bdev->num_channels; i++)
+>  		tasklet_kill(&bdev->channels[i].vc.task);
+> -err_tasklet_kill:
+> -	tasklet_kill(&bdev->task);
+> +err_workqueue_cancel:
+> +	cancel_work_sync(&bdev->work);
+>  err_disable_clk:
+>  	clk_disable_unprepare(bdev->bamclk);
+>  
+> @@ -1393,7 +1393,7 @@ static void bam_dma_remove(struct platform_device *pdev)
+>  			    bdev->channels[i].fifo_phys);
+>  	}
+>  
+> -	tasklet_kill(&bdev->task);
+> +	cancel_work_sync(&bdev->work);
+>  
+>  	clk_disable_unprepare(bdev->bamclk);
+>  }
 > 
 > -- 
 > 2.47.3
