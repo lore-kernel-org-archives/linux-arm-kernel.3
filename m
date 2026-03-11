@@ -4,106 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEF3FD88D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 00:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78D1FD88D5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 00:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h5wwOswllCgTCDAs+LOmWhWVxDwPfzx7ibhefMJUOMU=; b=mlmqPouHTrlsoNaINESqr8mcO0
-	mkdbP2PNDzHAcERyAQjAKsEXKtt0Zotdtdeai4aICQ6EImPLvavbCELB7HMpjAJ7zC34BbZx9jIPO
-	KVjqC9bqAsvgoa5XSyRDtIi3NSMZxJUdxjdtE1BQmHUUODBK0A/TuQ3/VGDcwJvjxARuYgujnrMTH
-	MdSSxmM4IUOv+dLC8/8ZiSyf+DK6WjmeIkA36FsDCASOVx0AWZdYUT4MEuReQxnwdaKaiDaF2tICL
-	w31b5m3ZJGhIUBZZGct6PDVSCHwbksaUnZeGcq43B0DG+GMminGvWJ7Yt3oll/usg8yOnL0XsOfry
-	1u/OqCZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JEWsH70LiQTCzWY9XNlcF1ykIavavEQbO1LmIg1XHbc=; b=T/wR2w5GvWZAowoRrPNLfu53v6
+	vu+N0n+c16o4qoKHDcMxaWh2ioJ7uTrV5AioWgxEwivK5eL2cF+VI76LDrE4RPIWFMG1Wwj0Pso0j
+	KOXjgNrN8DigWRb0ChKrnj+iUBa19sL0XIMUKS2r4hiT2h88mCcAjSd3y+OIDdkzbhNypVxaugrWX
+	zJh3RxWzoVb29za54pmkKkl7rps2oYOmEHyklWgNZECT81Pii6PjC/5CeVwi9/IJVmgLgDPw7qGoL
+	i4oOfSEQkQxHkISPQ03bI48+iIbFCMVcImqx63As57sYrM7QdkRXPUiLwyxcCDAwgyTur3QntpoIf
+	o+ARXH0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07Iq-0000000AQLB-4AFy;
-	Wed, 11 Mar 2026 00:19:56 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1w07JT-0000000AQbI-3HgX;
+	Wed, 11 Mar 2026 00:20:35 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w07Ik-0000000AQJ1-3yjG
+	id 1w07JQ-0000000AQZf-3SKe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 00:19:52 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-82987437624so233846b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 17:19:50 -0700 (PDT)
+	Wed, 11 Mar 2026 00:20:34 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439afc58ac7so10772555f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 17:20:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773188430; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HFE2nGdCHI1u1XVSBXlDOnOMpf/SvxqCUogsICbUelgYoMLW/t4qYGp7f6T3KuKqyT
+         AqItMCh3pRMHxZZYfAZ2WmOlRG/54sT3JJuFNdoOIFNoewJ82IK1JVWQiG1wT0WcqY5C
+         ouJ/Rwe8lA1SXhei40ZeaAbTEi8LTmv2+YN+EfnDZ0gO+r3yEBz280b8oHijuxMzBArm
+         F0CzIUnApdmcI/cj5/aVts2+5NGybfBlpiIpiRHRBaJJ/DfUiwANcY5MxQv+Ge9U0dlv
+         ZuOFWvRFFfvfh8RA//g431OJjtP2jY8+EaOhDx7tfc1RD4BjUrCfPNP+REO3WICvmrTh
+         Kgdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JEWsH70LiQTCzWY9XNlcF1ykIavavEQbO1LmIg1XHbc=;
+        fh=FONT68HXt46FUMuFPpGMPGY9wHGAltOP4A5kdogPuNw=;
+        b=EWYIQtm/yjYznZdAhycslHlo0FG4Ze2HBkXQ44B9LpdLA2KFffO9FvY9kRYSsqpxef
+         P0m4l3a9soQgOJL1lwLSQGSInsH5zCc2ECsBPRrl91oFfJwQTFqw6Md7V9efhZrE36M+
+         y7sfS/UsPuPh6ygg86JllPqOhYR9XwBLPGaLsu78OjkfXb51d6DP/mpnWg36PcTSu0J6
+         43c9se+rg7g7FpeAPLfvyMBXJKZEBdn3TrERozE89BMou8aBxBuBxh+EnxiWsDWDjSCW
+         sNFt1JCVh78m7xO3o5m2ro4e7hWs5cz3pKfEW2ERSYi2tdIEcwMbZsdbI3/ccVHL7ON2
+         hnHQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773188390; x=1773793190; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h5wwOswllCgTCDAs+LOmWhWVxDwPfzx7ibhefMJUOMU=;
-        b=n5niGjUab32BHipOvgpfy+uyg/k7PxdDWlz4Y2Ncqvod11pwW3xfviOVdZ8H+oPEO/
-         uf2rCYoEEMwT5a913VoIneZyUHLx9SGdLXaZW5rIeTFKsEmxnPpl8M8/ZW2rnYS/JD8u
-         pCOSugl+CB/2v5ZIshxkg3fClWSCSivU/I9OlAf1tjzEl+J00U05xEAQGO5Wfj9lccb1
-         zX6Q+4hVb19+DfTSn3OMVtTFMTxGdhtSJtJsw3fnjseplS6GYQmOaHNCyugBzU0qLtL0
-         EBWstdUM1TDZFImYqk+bDf0cJ/++oxGBUVaYw2q8O5f5swiyxvfK336x6EoL+/6C+jVi
-         Vzcg==
+        d=gmail.com; s=20230601; t=1773188430; x=1773793230; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JEWsH70LiQTCzWY9XNlcF1ykIavavEQbO1LmIg1XHbc=;
+        b=S965I4MI8xUnSYCLAJcYOH8XX46AkP8Npvl7DVUXGyQ4luMrzmN/mB0+KNvJlLCQRT
+         fRLG0sEHkHlOSZSgGdZyZQfnx10ZKccAvm6An9+/QdvqrQLXSeDHVznHfn+6rlNCuGew
+         M8UTOCC+4Vnn0QsymREoJDLS1trduyPNxZSOO9APP7JKWa+ya954G7WC0yGuaSwnojQD
+         Pu3G+c+nIxrTaBMNwHfZOQVbrua/VDdXLkvFHU89oJZdDpgIsRMPPLodIRggpbyxqU7O
+         jWerY7uVsX+4GWSDhHwZGtDkMIGdILDmN1h4lxru0PgddNipF2UbMBiYMA7qMeHFZf3q
+         3zcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773188390; x=1773793190;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=h5wwOswllCgTCDAs+LOmWhWVxDwPfzx7ibhefMJUOMU=;
-        b=mxgVIkgOdZtJH6tzk2LeX2NgPPifc25EUnc8CS0FIFnxgbgOyt0MDT1oz6wxA4w1JJ
-         mI6W8UB0hzlcT/eTN2A5cY96tj1Uf41uZRmiKtj3loTEkV8rY9NTMBKKdCHw1nvWowzT
-         3wez0M01QRJjH8yRoERB+Z3DK3u4N8huYhXARu+Nd+6hEBoMHjy0gixosJQq/wtrCEyc
-         +E0pcGuJRCYUyXA8X4jQPynk/83b+REqwVCQklN+3SZMz8PhdM2ybiMlGW1RKfoUkIe3
-         oPutJKkjxB51LTvuQ8yXyEJHFocqW0WqhD6adGk9ARokmUsaK6BItEpVesGcsR5RKEHf
-         Yp+w==
-X-Forwarded-Encrypted: i=1; AJvYcCWSgdJW5fJj04yhZAXeBvGRlgV6v3S00qg5mpJrcl3MSCXBDwSTayB1TfZR86/ZlUvyahKHe6uoutgZoHfY1i5D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8AIQcghlm7HoHRHlYrcSHFu3F3DINGtTpgU+wJ+zvl5qTQ71+
-	y6F8hWLO7P/yqcDoTh0yFT8fWBGDrz0TXYXNxGFpQ+AwTsVkCG7BfvfEL25KAKwWN7Ryd8eFMkK
-	K1zWeBsw=
-X-Gm-Gg: ATEYQzwd6cOinih/I2u6rBZb1YU9avliXJmnGb0WBuVqGffWDitu9dMPYggVnj2IOm/
-	+stMGscieQU8XTzUwpV3zLjEQg3Hj7zavOuu14VryunEYkRrP+MdFNGJsmHe14jPHMVdIPaBxut
-	rGl+19E+Tg4hn3xl0zEIeHiDIGUFKdE3rmFHDzpOHEm55Fbt82j4R1uNzrBBBoW4OKh9V/Ssu2i
-	CSqFVLwbw07Gg+qQcGk/a1ccVR/Ouln2MmRKlT3sGTbgV+n/9cJRNV+2FE8d6RJQtEfetNHlr4b
-	XGlCRmTbul5cq7uFvuxBT6ZOkvVGJ1MEL5eX5mVLfOmM2ucl538aEQxLwdZOoSxz5lJC17yqB0X
-	WQtdDodrPJ13nSwjRFZ9aKtX/5Xahwm/27qMDbC0/4QgU69ihtusMsfVImau9iBXxe/FQ1ScDHk
-	gk2NyqJxLuzVLOZlIxDxxm
-X-Received: by 2002:a05:6a00:178e:b0:827:2d7b:5038 with SMTP id d2e1a72fcca58-829e3ef8fafmr4682544b3a.5.1773188389865;
-        Tue, 10 Mar 2026 17:19:49 -0700 (PDT)
-Received: from localhost ([71.212.200.220])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829f6dc2b34sm453256b3a.3.2026.03.10.17.19.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 17:19:49 -0700 (PDT)
-From: "Kevin Hilman (TI)" <khilman@baylibre.com>
-Date: Tue, 10 Mar 2026 17:19:24 -0700
-Subject: [PATCH 2/3] pmdomain: core: add support for
- power-domains-child-ids
+        d=1e100.net; s=20230601; t=1773188430; x=1773793230;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JEWsH70LiQTCzWY9XNlcF1ykIavavEQbO1LmIg1XHbc=;
+        b=C9R8GgmBVQWdWa4vC/f18HDWgQmbqH0PHFxWbW3vE3m4Nq/Lrl0+uKfSsmyBbk/Zw/
+         hYMPnzPANN+g3HdlL5Qh1oRfUy6p7qDMn4FmQ8E3KY7uaDRQx9tSFjqOt0D3Xi9VrVib
+         VrRtYEweAfyH7fPaZSXbjPdVx2nWofOReMyeWT6pNm7L9WUt+DSwc7idqJmcYF/Pz/je
+         xEY6X1pU7S4lHPfsYzy1NG++EZMXQ4d1VTTc6QcwsiEBfY+Je8pVSM6ZDGZiR/yhCsdv
+         EUt3j+EUIZMPGeFjQUGlsKSHXq5IT3HEsMkt423IiIbg1x4Vl13p0z+0cqt8kQx/lvcv
+         LHwA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbhKHo/56gJ4t2dL2WeuSsSrM+gqHlH1tq5jUY3dFaLH2szBGQy2WC5UESEteVSyDnukE6tgFTkIEtNcGxj8uO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2K2twjB0M1WVogukxtHDPOgpY1Vf3ZTsyQHkn1NnpcuyVF1u8
+	HOPKOXznX2L0QKrEIwigOsCOb0PWuhIm4/ugz37LfoTu73fBq/L8Tvctdbs5V5WwvTzWJviWnqX
+	+c5PChPN4fLDkBETXnYWXNbBxOfaElW8=
+X-Gm-Gg: ATEYQzz1tlDmK1UHrtM8J3zINCwIkOJ8mHLlaZzhFAmeWkMJ1Ey3H6mv5lQIvOYugRC
+	eMPuA9T8n6UmzKl59XQ4UJ57eAhYzYgmC3ePczLf+iuUa6Jg7+rQUjrQoKQUCr/Q+3n4S6tWiDb
+	PtxHZSWNjsxauZBve8bz8yRcdIJm0XiDPqCPgDGo2gHK5CO0wOMoC7vlwoxHKSyzl0VZiVfpahb
+	GNI6UBQQ8cvlqoM78LsvyfusjwTlbFQrEJfrUgEzW483mZHVjvqE7K7SnxLFzM+FD4f++fQEk3V
+	zJ6+HuRqhIBtLp15i32Jn73LdtG/bWe4xSyfAIU=
+X-Received: by 2002:a05:6000:26c9:b0:439:be4e:6e58 with SMTP id
+ ffacd0b85a97d-439f821fe85mr1356532f8f.47.1773188430081; Tue, 10 Mar 2026
+ 17:20:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
-References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
-In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15-dev-53144
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8594; i=khilman@baylibre.com;
- h=from:subject:message-id; bh=4oxBL1nK08FLRbDWU9wkPzZS7L2lwxUdKpRD7zqmMz8=;
- b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBpsLUikF1gdU810zlXWY9fnICiVhRRew4IHekny
- 2mQCGxcelOJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCabC1IgAKCRBZNxia0/vG
- ZZsGD/98WdtRS+muBkrIKU7WHUSnXWWHnZeDc3sa3d/QxmaOm/ov9aV2HTC1k/92hxjDTzBIu9O
- PYNpPjFQqxreSDudc/LBVRq7AwGDtwSWvAzY2xujxXwm+KZOCcanpZL5JAIbVE0HFQmDVjKh4xC
- 1WXSneL6l1z+nvlJqu20HjRRMgp6TOrYH5cZkPujJnJ/EIXqqt6OIGeZrgZvFCoiVoYTVksv5Gy
- qfNURfnvExrScPbg9NnFYPW37IDCcs/Kwy/k/9vaUkRZKMk9wZSR02mI5DXEX4V+nxQ9S4Id5sm
- XICVhlHhzwvyJ3zUqHtfqsPOTewIoMH6EGgTK97SVVu4AL3wEolO25He1ZlIv4tkiJpB84nfFmf
- rA7gJUXddX4APrOzZcUk9o7zFjk3URR7nvnu0l/MgcqhGkdKjGitG5/6hvSZ/2OvDoZjuSZts48
- 06FyydDM5bSyuFEFhob+tC6toxLJVccN27xtwb+JwcIXXJkk1H7+cewpMomtztWjwGfimaEnLp0
- 1Ay3HYpla6FTUctSTMmnKsVc6D4vBkPpI3JklZKTWu4RdHKAUoo+QMCe7eGUqEpkQRSzXTnW/0H
- DxP6Uk2bYi8fk0rmRVIFQudPXMbDq32zYA5liIglgZ6TDJ87QZqB92C2pDeSiyqg6bG4voLTu6M
- U5oe+I0yp4rrJbA==
-X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
- fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
+References: <20260310031002.3921234-1-dennis@ausil.us> <20260310031002.3921234-4-dennis@ausil.us>
+In-Reply-To: <20260310031002.3921234-4-dennis@ausil.us>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Tue, 10 Mar 2026 19:20:17 -0500
+X-Gm-Features: AaiRm51PAI7L0-07ByzfYcAg2ZuI_NxhNytjlEljQJmd9vtbdXeFbAGFh3Mn-oU
+Message-ID: <CALWfF7KD1=U-gC4wC9M49kEYD3ijcfr+XSmMeh_-zAvjO2JVoQ@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: dennis@ausil.us
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
+	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
+	Chukun Pan <amadeus@jmu.edu.cn>, Alexey Charkov <alchark@gmail.com>, 
+	Peter Robinson <pbrobinson@gmail.com>, Michael Riesch <michael.riesch@collabora.com>, 
+	Mykola Kvach <xakep.amatop@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_171951_001319_D3C72398 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260310_172032_873359_1DC36E9C 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,257 +123,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, PM domains can only support hierarchy for simple
-providers (e.g. ones with #power-domain-cells = 0).
+<snip>
+> +
+> +       vcc5v0_otg: regulator-vcc5v0-otg {
+> +               compatible = "regulator-fixed";
+> +               enable-active-high;
+> +               gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+> +               pinctrl-names = "default";
+> +               pinctrl-0 = <&vcc5v0_otg_en>;
+> +               regulator-always-on;
+> +               regulator-boot-on;
+regulator-always-on and regulator-boot-on does not seem right.
 
-Add support for oncell providers as well by adding a new property
-`power-domains-child-ids` to describe the parent/child relationship.
+Why were these added? The vendor did not have them.
+https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts#L216-L226
 
-For example, an SCMI PM domain provider has multiple domains, each of
-which might be a child of diffeent parent domains. In this example,
-the parent domains are MAIN_PD and WKUP_PD:
+Was this mistakenly taken from the regulator usb 20 which is powering
+the onboard usb2.0 hub?
+https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts#L111-L119
 
-    scmi_pds: protocol@11 {
-        reg = <0x11>;
-        #power-domain-cells = <1>;
-        power-domains = <&MAIN_PD>, <&WKUP_PD>;
-        power-domains-child-ids = <15>, <19>;
-    };
+> +               regulator-max-microvolt = <5000000>;
+> +               regulator-min-microvolt = <5000000>;
+> +               regulator-name = "vcc5v0_otg";
+> +               vin-supply = <&vcc5v0_sys>;
+> +       };
 
-With this example using the new property, SCMI PM domain 15 becomes a
-child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
-WKUP_PD.
+<snip>
 
-To support this feature, add two new core functions
 
-- of_genpd_add_child_ids()
-- of_genpd_remove_child_ids()
-
-which can be called by pmdomain providers to add/remove child domains
-if they support the new property power-domains-child-ids.
-
-Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
----
- drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- include/linux/pm_domain.h |  16 ++++++++++++++++
- 2 files changed, 185 insertions(+)
-
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 61c2277c9ce3..acb45dd540b7 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
- 	return genpd;
- }
- 
-+/**
-+ * of_genpd_add_child_ids() - Parse power-domains-child-ids property
-+ * @np: Device node pointer associated with the PM domain provider.
-+ * @data: Pointer to the onecell data associated with the PM domain provider.
-+ *
-+ * Parse the power-domains and power-domains-child-ids properties to establish
-+ * parent-child relationships for PM domains. The power-domains property lists
-+ * parent domains, and power-domains-child-ids lists which child domain IDs
-+ * should be associated with each parent.
-+ *
-+ * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
-+ */
-+int of_genpd_add_child_ids(struct device_node *np,
-+			   struct genpd_onecell_data *data)
-+{
-+	struct of_phandle_args parent_args;
-+	struct generic_pm_domain *parent_genpd, *child_genpd;
-+	struct of_phandle_iterator it;
-+	const struct property *prop;
-+	const __be32 *item;
-+	u32 child_id;
-+	int ret;
-+
-+	/* Check if both properties exist */
-+	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
-+		return -ENOENT;
-+
-+	prop = of_find_property(np, "power-domains-child-ids", NULL);
-+	if (!prop)
-+		return -ENOENT;
-+
-+	item = of_prop_next_u32(prop, NULL, &child_id);
-+
-+	/* Iterate over power-domains phandles and power-domains-child-ids in lockstep */
-+	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
-+		if (!item) {
-+			pr_err("power-domains-child-ids shorter than power-domains for %pOF\n", np);
-+			ret = -EINVAL;
-+			goto err_put_node;
-+		}
-+
-+		/*
-+		 * Fill parent_args from the iterator. it.node is released by
-+		 * the next of_phandle_iterator_next() call at the top of the
-+		 * loop, or by the of_node_put() on the error path below.
-+		 */
-+		parent_args.np = it.node;
-+		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
-+								  MAX_PHANDLE_ARGS);
-+
-+		/* Get the parent domain */
-+		parent_genpd = genpd_get_from_provider(&parent_args);
-+		if (IS_ERR(parent_genpd)) {
-+			pr_err("Failed to get parent domain for %pOF: %ld\n",
-+			       np, PTR_ERR(parent_genpd));
-+			ret = PTR_ERR(parent_genpd);
-+			goto err_put_node;
-+		}
-+
-+		/* Validate child ID is within bounds */
-+		if (child_id >= data->num_domains) {
-+			pr_err("Child ID %u out of bounds (max %u) for %pOF\n",
-+			       child_id, data->num_domains - 1, np);
-+			ret = -EINVAL;
-+			goto err_put_node;
-+		}
-+
-+		/* Get the child domain */
-+		child_genpd = data->domains[child_id];
-+		if (!child_genpd) {
-+			pr_err("Child domain %u is NULL for %pOF\n", child_id, np);
-+			ret = -EINVAL;
-+			goto err_put_node;
-+		}
-+
-+		/* Establish parent-child relationship */
-+		ret = genpd_add_subdomain(parent_genpd, child_genpd);
-+		if (ret) {
-+			pr_err("Failed to add child domain %u to parent in %pOF: %d\n",
-+			       child_id, np, ret);
-+			goto err_put_node;
-+		}
-+
-+		pr_debug("Added child domain %u (%s) to parent %s for %pOF\n",
-+			 child_id, child_genpd->name, parent_genpd->name, np);
-+
-+		item = of_prop_next_u32(prop, item, &child_id);
-+	}
-+
-+	/* of_for_each_phandle returns -ENOENT at natural end-of-list */
-+	if (ret && ret != -ENOENT)
-+		return ret;
-+
-+	/* All power-domains phandles were consumed; check for trailing child IDs */
-+	if (item) {
-+		pr_err("power-domains-child-ids longer than power-domains for %pOF\n", np);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+
-+err_put_node:
-+	of_node_put(it.node);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(of_genpd_add_child_ids);
-+
-+/**
-+ * of_genpd_remove_child_ids() - Remove parent-child PM domain relationships
-+ * @np: Device node pointer associated with the PM domain provider.
-+ * @data: Pointer to the onecell data associated with the PM domain provider.
-+ *
-+ * Reverses the effect of of_genpd_add_child_ids() by parsing the same
-+ * power-domains and power-domains-child-ids properties and calling
-+ * pm_genpd_remove_subdomain() for each established relationship.
-+ *
-+ * Returns 0 on success, -ENOENT if properties don't exist, or negative error
-+ * code on failure.
-+ */
-+int of_genpd_remove_child_ids(struct device_node *np,
-+			   struct genpd_onecell_data *data)
-+{
-+	struct of_phandle_args parent_args;
-+	struct generic_pm_domain *parent_genpd, *child_genpd;
-+	struct of_phandle_iterator it;
-+	const struct property *prop;
-+	const __be32 *item;
-+	u32 child_id;
-+	int ret;
-+
-+	/* Check if both properties exist */
-+	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
-+		return -ENOENT;
-+
-+	prop = of_find_property(np, "power-domains-child-ids", NULL);
-+	if (!prop)
-+		return -ENOENT;
-+
-+	item = of_prop_next_u32(prop, NULL, &child_id);
-+
-+	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
-+		if (!item)
-+			break;
-+
-+		parent_args.np = it.node;
-+		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
-+								  MAX_PHANDLE_ARGS);
-+
-+		if (child_id >= data->num_domains || !data->domains[child_id]) {
-+			item = of_prop_next_u32(prop, item, &child_id);
-+			continue;
-+		}
-+
-+		parent_genpd = genpd_get_from_provider(&parent_args);
-+		if (IS_ERR(parent_genpd)) {
-+			item = of_prop_next_u32(prop, item, &child_id);
-+			continue;
-+		}
-+
-+		child_genpd = data->domains[child_id];
-+		pm_genpd_remove_subdomain(parent_genpd, child_genpd);
-+
-+		item = of_prop_next_u32(prop, item, &child_id);
-+	}
-+
-+	return (ret == -ENOENT) ? 0 : ret;
-+}
-+EXPORT_SYMBOL_GPL(of_genpd_remove_child_ids);
-+
- /**
-  * of_genpd_add_device() - Add a device to an I/O PM domain
-  * @genpdspec: OF phandle args to use for look-up PM domain
-diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-index f67a2cb7d781..b44615d79af6 100644
---- a/include/linux/pm_domain.h
-+++ b/include/linux/pm_domain.h
-@@ -465,6 +465,10 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np);
- int of_genpd_parse_idle_states(struct device_node *dn,
- 			       struct genpd_power_state **states, int *n);
- void of_genpd_sync_state(struct device_node *np);
-+int of_genpd_add_child_ids(struct device_node *np,
-+			   struct genpd_onecell_data *data);
-+int of_genpd_remove_child_ids(struct device_node *np,
-+			      struct genpd_onecell_data *data);
- 
- int genpd_dev_pm_attach(struct device *dev);
- struct device *genpd_dev_pm_attach_by_id(struct device *dev,
-@@ -534,6 +538,18 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np)
- {
- 	return ERR_PTR(-EOPNOTSUPP);
- }
-+
-+static inline int of_genpd_add_child_ids(struct device_node *np,
-+					 struct genpd_onecell_data *data)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int of_genpd_remove_child_ids(struct device_node *np,
-+					    struct genpd_onecell_data *data)
-+{
-+	return -EOPNOTSUPP;
-+}
- #endif /* CONFIG_PM_GENERIC_DOMAINS_OF */
- 
- #ifdef CONFIG_PM
-
--- 
-2.51.0
-
+Jimmy
 
