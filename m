@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38FE21049514
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8631049516
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 09:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=01GKf65j/jScrwoKQ+C2Gxr6oYYNcBqF+y3kaUEjbLo=; b=w93A6g2kpsg4ztHlt5PI0CHVt6
-	wd0gu4zrBENDGAaAlis7jo0N12QNJhIwpRoAwLYFwt+Y3n8TQxjg2CL6QaXnfa4BwkvzE/ptZoaKS
-	w+7YRPI3vagjDeUHyYyRu7fphH7Fg5CppNDdel4xKTYCKAx0+1OBNzchIfy/W12oIuVdiNfeySC5S
-	0V1ZE6LZ4Xtf0fKgnGAjQNF4MGXSLdgcXWwB0xZ4UMv5xFMb7dMFyey3ackAAAYTZeXcBk5ZrQT/1
-	sXHd8MDW/Syh3qcHGJ+8TfaM59Fa+tB/cGwUaqHY2S8obOfNLuEB7Iolx55XVjbwUkWGG5GhbD5rY
-	hasKUPCg==;
+	bh=ZLpTE+Y/R0Tdv9vswPnMcKu+W093lttl1jCB5Rb2dPo=; b=g2jZjKGWTwX3nghpJIgSwQxZ3F
+	VFAr8plyfEoIQ36jEhXZSnhL7wopur9qCkx+Qdqz5G2u+BgzYt1yXtCiTZQ+z9Kk8Z5QT8/XHzYY9
+	zkNL8jwjclHuNRp4jcdDs3gluWEFRaOoo2NbVeyMaog3HqL+aHSZk9IWCrRok6aNE2j/CTQe0/O5b
+	fRliC/cixu8honHjgIeP6yz1bxowPX3d3S40eNaUl08JBzFQDFhc4rIR7pGTSd5ambtQ7P/Yo59zB
+	gRhcnIeqfxh/lthjdhGQLB+HGqsCXTd68CEOoEgF3OklAqogWwMSfOi6MB8buqjR3zd3XRYZ83bQb
+	YZDxkmNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FoY-0000000BH67-3SUY;
-	Wed, 11 Mar 2026 09:25:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0FsQ-0000000BHuZ-248q;
+	Wed, 11 Mar 2026 09:29:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0FoX-0000000BH5H-2Qjy
+	id 1w0FsO-0000000BHuG-11ar
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 09:25:13 +0000
+	Wed, 11 Mar 2026 09:29:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE4E36013E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:25:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7196CC2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:25:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B9AA444FA
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:29:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49EF5C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 09:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773221112;
-	bh=01GKf65j/jScrwoKQ+C2Gxr6oYYNcBqF+y3kaUEjbLo=;
+	s=k20201202; t=1773221351;
+	bh=ZLpTE+Y/R0Tdv9vswPnMcKu+W093lttl1jCB5Rb2dPo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MF3vSz279c7gxTZF7NgmWXEwUO6gRL13DHvShsuI2CRziUEddwspHwDaaJCHkRV8i
-	 1e8zOtRrOs0iqe9JzaJ68RtW/nQ1cvGHa1wiWmmW48FlI7kwj/kEddAkxcXjR1yDzp
-	 SJIQlrnxZuj6GGfdBmJRR8x1vTwehdyhvu4FbSRfBaZTFT8aPShUh3ZNLiLOPgRB95
-	 yQdLMmafhM6TBUlKOPZylVs34PzLhbNs5nvhVRvc3stp3hfCZaU9UkVuxIOh1zjH1Z
-	 +6oVrXcP7tP8GQ//avpnN2ZW+fNxiu/UD5Y1l3+K74rROfInQkbqpAvv3i0u6ejBkK
-	 xqNFoTovsi7HQ==
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-79800183233so11822477b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:25:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXiQCfazM53f1HkCEBThA1rS6LWjyWW4x27rRQJ73ZgCIuAJy4IsnJ9nEon7N1crqg3n5Cuq8pu3BzUcuFNbmbZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJRuEyguimInetF7UNJpEyKb1F6GGj0+xT3FbWj8quS/Sj62XD
-	2r/gc/qzeL2CDdpBRaWZYRNlzzFmLl/TNZOEZ+Wny60bfUd6ViR1QJpbdHhJ7epW8CQ1+wI4V9d
-	u2D4f+WTGa4Y+88AdwpyNRjUNU1Qwtrc=
-X-Received: by 2002:a05:690c:6d84:b0:794:f400:2bfb with SMTP id
- 00721157ae682-79917f593b5mr14822137b3.26.1773221111798; Wed, 11 Mar 2026
- 02:25:11 -0700 (PDT)
+	b=F0UoSS6HeTeib+b99NgLUia+OyIhq3d974Aaz/MUtDwtuUEhhCks7o29mfOMjAVKX
+	 g4uzGajiuIujzHTAQG2mA2a756hkcje6PBx9L7ejmnbdBtG24PCHfWqqllyFhml1ef
+	 r7UmSxCrN/ZzCnAyj7mOocSqVm4PRXRyR9zHiUaHi1iTuO2rD3QxaNEs6dH5wMcLSx
+	 j5fJu2sglWpDCXdVDVnd/6YktG/5jvPa4Iu+duoFPHRIcI9VQ18cdOSO/fFER+sa11
+	 awiguuyqGhaomMJgXyyy/vixRpx+Z9ONK1cEEOXXE5oNJKJ/3T9+FwBV/RmSJjo2Jg
+	 ex8YQGMIDgbgQ==
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-64937edbc9eso12733967d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 02:29:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUQ0i4FJaJqi1Gy49ZB+TKCyD2FgAduv/jPAonzTy2jZ8wFzGeTPO9US7nTwiyBIELhkwesLNND7KaeLnoDM16a@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuklOg7VU5L0SC3ocKxKXYIfkpwpT/cWiM0IGCodU8FQ2SLf5S
+	/w4qqNS6MFMTW1XpHINgJLtmPrwUCC2e3qzgpQ9NmJZnzDy1CzzPLaeavONYqJUoLFYQ0ee8kB0
+	1FboYvGX6ou7mYM0qG3t9MJrRPGZ92qA=
+X-Received: by 2002:a53:c751:0:b0:64a:d479:bfbd with SMTP id
+ 956f58d0204a3-64d6568df17mr1064855d50.7.1773221350597; Wed, 11 Mar 2026
+ 02:29:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com> <20260310075539.11701-16-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260310075539.11701-16-wsa+renesas@sang-engineering.com>
+References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com> <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
+In-Reply-To: <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 11 Mar 2026 10:24:59 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkoWCcBvB4G-2EDYU4kezPhVF6943TY6PmK5ooGwruLzA@mail.gmail.com>
-X-Gm-Features: AaiRm52-5ccgCpLSKuxxaehFi73jWhXjY0Lv_AX860GJVRZU0Kw14nXERH-rf2Y
-Message-ID: <CAD++jLkoWCcBvB4G-2EDYU4kezPhVF6943TY6PmK5ooGwruLzA@mail.gmail.com>
-Subject: Re: [PATCH v4 15/15] hwspinlock/treewide: refactor consumer.h from
- public header
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Mark Brown <broonie@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	Lee Jones <lee@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Waiman Long <longman@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Srinivas Kandagatla <srini@kernel.org>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-remoteproc@vger.kernel.org, linux-doc@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-iio@vger.kernel.org, 
+Date: Wed, 11 Mar 2026 10:28:59 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
+X-Gm-Features: AaiRm52uciv83L8ui1qjVsq1iiproIcpV5iHuMJHrm82sToGHhfR4T4DzXQs8RY
+Message-ID: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
+Subject: Re: [PATCH v6 00/12] bus: add stm32 debug bus and coresight support
+ for stm32mp1x platforms
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+Cc: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, cristian.marussi@arm.com, 
+	jens.wiklander@linaro.org, etienne.carriere@foss.st.com, 
+	Sudeep Holla <sudeep.holla@kernel.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
 	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-spi@vger.kernel.org
+	Antonio Borneo <antonio.borneo@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_022912_323022_12A8221E 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,20 +95,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 8:56=E2=80=AFAM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
+On Tue, Mar 10, 2026 at 10:07=E2=80=AFAM Alexandre TORGUE
+<alexandre.torgue@foss.st.com> wrote:
 
-> Factor out the entries only needed for consumers from the generic public
-> header. This allows for a clean separation between providers and
-> consumers. Also remove contact field in favor of MAINTAINERS entries.
-> Fix the users, too.
->
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Acked-by: Mark Brown <broonie@kernel.org>
-> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com> # for IIO
-> Acked-by: Lee Jones <lee@kernel.org> # for MFD
+> Patch 1 to 11 applied on stm32-next. Linus, let me know if I take the
+> pinctrl one or you prefer to take it.
 
-Acked-by: Linus Walleij <linusw@kernel.org>
+AFAIU you *have* to take it because there are compile-time dependencies?
+
+I provided my Reviewed-by so go ahead and apply it!
 
 Yours,
 Linus Walleij
