@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8839E1125875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6F1112586B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 19:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEEsCH20P1JwsO3MwOhDgBWjtVxn8MFMUAxAFnfs6u0=; b=WPhnCMYLPjazMfo3PjPg0HlgVv
-	1nEVGult/WJIKYLPGVn1L5n45DsJLNpQCFajcmyuBOT0v/QeHWLXc4tqXIZ43bD3ev5GNDwiagBVQ
-	kyq2L8ztuQOaYDW3tLkV8MiFh3MjXNVQIiSZSDGxGFlkO/VbnGa5uWrOc26GlyKpgM8sH6qL7fFDh
-	s/9D3Pvn+VZ/jwA+cqrL0inVvnEGAIgR0iqouTao/BdNmGwe1fgLsxmWKLQuq5pNMjwCTaarDJU6r
-	xbnEZvWHh/09uIAezt1igkutmiTpluaM5VfJKt1gCeO9qfRMTvDkr22EFzONiwJoCqWfkJEaTc206
-	/+hpZKww==;
+	bh=RxZbJ6Ko6KaHtAsMrblvNBqHeMBTVRsWRw82ZpjjAcc=; b=XrvMtBpqWwA6Ee0vEIgvZlkaD1
+	l08Yr8inrs6Kfb9PVgcY9Dp2xYY2tpD/eqDdknBsLkxeuulbuI1cP8RJqFCZOJ3W+7/Nmo9Rtq/hB
+	gYtOvuTpciz5ZQpN7ECO/gRi3aND1aGiUuXNQ43OPhOiXWg7X91g3mU15/c0j+r7CbGCWiATZPjnf
+	NLeabv8YITLsS+n9gQDU8w25O3eFB/wgAfnqqqdz0v/1UMy3y3aPB/QbA8FL1T4Iodtt9O6QtGsIs
+	AgfxIfe/RjvtmvYb20Ar1jQxDPijiuuZgnLXh+5zH2PtzogFwgHEVbt3Xdduiu/vxYREyd05DbDmC
+	yD156Flg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0OvB-0000000CHnY-1ckk;
-	Wed, 11 Mar 2026 19:08:41 +0000
+	id 1w0OvI-0000000CHs0-2B1Y;
+	Wed, 11 Mar 2026 19:08:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ov7-0000000CHlV-3tzD
+	id 1w0OvC-0000000CHnX-02pp
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Mar 2026 19:08:38 +0000
+	Wed, 11 Mar 2026 19:08:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=iEEsCH20P1JwsO3MwOhDgBWjtVxn8MFMUAxAFnfs6u0=; b=VDKW8R4AwkyLwYvnTwYv7ZINoP
-	FShoJn1jHLzfon9PXPEnoV5cNffd77p234d5oM6Sv88Ig0kQWCA1oAfte8EuOGcbnKIutCgzXrnlP
-	8vkYhw/hvASxtH/p8j6VUwvBEgrhYSfTiLPfbpi7VTHfnEbZgx9sYfuQ5D9E2h0zZ5Rh0Zo8/3X5F
-	jonOTAsqt1m+ZTvjW1oD1wFIYmu7TBYK42nxdYbclH2T91zme8xjGGUfJo/qU2VlRL7/IqXDO1N9o
-	XlUqu4dDqUfO30La6J9sro99/gQxTIHXVgcvPaiOt0VyE0KCXEZClTdRXqPumFvQqh9uGNQOZlrQ7
-	IoHDRkzg==;
+	bh=RxZbJ6Ko6KaHtAsMrblvNBqHeMBTVRsWRw82ZpjjAcc=; b=VfbMCzKUi/NV6ZYeW8JsFcuBc+
+	R1gb8mApQeqviHn22OzVdBwsIzjv7vYYn4InO74Jl9Ie5k3Eu6uL1CTsLN8f8LK5NoV+OwNZ9mrxd
+	jSYVPMsvb4STNa0oFNvLpX97ygdsDcu8qYmvc2pEYuyCxHAEamvFzTFudOzyvPXFJc112EaJpcxkV
+	uT7BhJT6S88aBqxr0WIxsRvppmWH9y2CMqWFwf5XuulAh3FV0CpFjHuGtugePfTA5feCZe+S1jlbV
+	lvvLWK0Rt9ZeHtbbzZnhZlHHB81nbRK4W4eQysnwR+Vvl74LSR3CrknxCmUKbWaN3CLF3PuUyEuIz
+	3Qu4hA9w==;
 Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ov4-0000000HYT3-3oF6
+	id 1w0Ov9-0000000HYT3-12Bk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 19:08:36 +0000
+	Wed, 11 Mar 2026 19:08:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vHYEQL7JyEsIvqCmrM4u6ByAboBmQZFaLWwLOt/H73laG+WMADzP9TuvX4htJGZnFRpjN7iilQIzm28RaewXeu7iRL/kGsIIrhY/hovgUIPKgc8saEpBHONy4x14bKIuFgNWvB2pZLOfbhXip0GzmmXAFfNKeCfx+hTF0lBAswazEeOlOcagMrePTCHODMvlaRRJTWK56tIG9wQgUerOHhwndZDHmTQOPY5U20mtxpkukh4T5t5jVqIIqJ1QRfniIm9Zy90Y98E77bocYNCOJgKwsKUU9Gxo9on4DhCb/Rz4DFdEPL1m6Mqea/d2NbCjatAOsTWhC0F3u366SXKWHA==
+ b=lB+BUm4KnosLI9WiEuHamwTwWu1Cj0o8vADDC+ZOWATWd5979Vm/h043awPRP7RrXjKBsQ4PnKEr40eClPf98q+Roc7caHFlUWohGqz03r6MQtPUtSZqTxItblgpCrLT8IkSoy+fWd1qiK7EDGjcUcPqqyItHSrGlW/PIts0fsZffBqQ+GPZv6s7V1sgyLBmN1nGiaFai03oxKnmTYT95ktDmX7TKT0QNMfxxfUhK0gexA8wHpjYWj0hZgUG81bSpq4cxa6P0KldU+m6ih1CbNCRIdWHTE6MHe2w6/A6HTMnieQPvRBHad2Jl3mAsHkdyXG+PFjRUwEuGbM8NIOUtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iEEsCH20P1JwsO3MwOhDgBWjtVxn8MFMUAxAFnfs6u0=;
- b=v9SDv6cR5kDPHmr7iDg8Q8w77IsmRR0/ugi+kPEhpxXdg/ftFpNe/Ib6unvXFI/YnivhLSeiyRFkbkKamX2nUvLqS30y/5NNwOzFDoPckUf8QF5WLY7mXp5+PDz0WcLuoll5riBA09D+xLEVPUJLo+hQdgthmDkikX3xom1sXgvdUISCxSiUTpXYpO73gyTQ3mof0T2PLitoS9v7zOTxTLITaO+KwAK4L4P1zbv5maJYXtk8pKf/ZVMVIU/lkXSKo3JcMsRSBQA+T/Agd2DOuzWWKV2jFdCbgVsbDjY4PSK8vIdig33yhjeG/ZUHZyLGqa512aMHGNCmjpgVSxmqng==
+ bh=RxZbJ6Ko6KaHtAsMrblvNBqHeMBTVRsWRw82ZpjjAcc=;
+ b=hToPnQc7Ouxkwu2No6Yce5iRagTLc1Doy1B3IrsjiyJnzvaOPtSu4QOorMoZNM3Tu77Gl4syUimxybZsi0OyADooExDdedLISqZPU/ClOwQB+xRrfwMa0FShmGszDkNJrQ9l7y/R6TqmSuxZuLTr6pn2xQMFp8NW9LTL/xIlGM/IfR2Mob8iD3OMALnzQfKnHkYr0BfcRUqeQDOYwxcOOdC0P4W6jltVJTwEkEQ/CrBHW1aovxueGj/P3cAJFymY6QW7F8IEXGpzcQ+a2vODLhUPOWKoS0q05sodRPdLXGFFgGzwH4lX1yDli64Rl+PDyjcbE+U0YlQ3pmwDgpjtFg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iEEsCH20P1JwsO3MwOhDgBWjtVxn8MFMUAxAFnfs6u0=;
- b=akJAXFFeyEd9g6GKJA63AJ7GGtRH57byy/HYGurMtJg26PGQkBHd9pgfZyVUvZUIwclzUMe1m0TdmdfwrqbDRBF0xDi3C09BFxV2wOQawymAkMwYyQWfyGiKovc0cLR6yfrMenProw+1vb9YdAr4k9oYZCBCE3Agd1+drZQa6CGqMq8r0vCRnk/cDi3UhkgDXZBaFbgul92UaQ4E9mN8CAhZBLEfNd1j9kM2xcM7KsdVbF9C3AnCN1ya3xSbGLrbJCEdE8uc0BBhREfanbVWWDTTz2OwXwapJR/A1KFh/uMzaGt+9HKH6bd+FK30iUCIIJ5mlFziv8eyKxPGwUZ2fQ==
+ bh=RxZbJ6Ko6KaHtAsMrblvNBqHeMBTVRsWRw82ZpjjAcc=;
+ b=kDm0rvC9a7nfJhXvjnlxftK+lnYi0Wq+hXJpcb7YtldncXaD5c7lGlKD/UtmvJ8APNVGwWZ7vGPE8WIqUT7F4h99Gm2WjtfWinAVhNpU5BCxcVgw8sCs5hGY/6Y6uRQ2+k4DlmG7sHKqGAVhbYIsHy3tJc/8lo2iAhbUV+44k7PzqK3gxvyYWKD1ugOgevBmdCqsQohzSjWR5h9kmXbaRXLYOj/fVEbnalHFLb7c8VVLJwZJpaBjED0ZxZ2qzQUQ/ulyk4oeZUWP3+y4xkPaXNOUfdhvwthASaCYU0XVYudEcLsiU24Q7uw4PhrPz1vnOyO+yo80IZYVdJ19PBX8rg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
  by PAXPR04MB9121.eurprd04.prod.outlook.com (2603:10a6:102:22b::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
- 2026 19:08:29 +0000
+ 2026 19:08:35 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Wed, 11 Mar 2026
- 19:08:29 +0000
+ 19:08:35 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 11 Mar 2026 15:08:11 -0400
-Subject: [PATCH v3 2/7] dt-bindings: pinctrl: Add generic pinctrl for
- board-level mux chips
+Date: Wed, 11 Mar 2026 15:08:13 -0400
+Subject: [PATCH v3 4/7] pinctrl: add optional .release_mux() callback
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260311-pinctrl-mux-v3-2-236b1c17bf9b@nxp.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260311-pinctrl-mux-v3-4-236b1c17bf9b@nxp.com>
 References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
 In-Reply-To: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
 To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
@@ -88,11 +87,11 @@ Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773256101; l=4561;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773256101; l=3385;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=2uAnqhb2KXlq6WaSjwHOhwpzhVy1hHRfBulJQVbCOZ0=;
- b=20PTuOuYwR/p/CNVkqHW6LgSzCifO+0eJqq9rETRDWUyVlLv166lxEgGB0vtgZOF+JL+1YIVf
- egr4OSmUX+wBzH/kTALV/O4/Zd1hjCvw+x34yv+ZP5zUC/X66y2Nare
+ bh=qlMnhjY8Uj2TvLNzw2qFpuTn1QKKlo+N2K1W3WzCOq4=;
+ b=qUjf0qP32u8ZinAezKz83XKiDDfIERtY5y4hZons2hG7ET/QXeUokIA69F3fZxei4c5ixM8eB
+ llgSqBSQ0y7DCAcfAibUMUcHfpyOsqxuUdEsEeefWXw54IFVUTRpe7V
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: SA9PR11CA0025.namprd11.prod.outlook.com
@@ -101,66 +100,66 @@ X-ClientProxiedBy: SA9PR11CA0025.namprd11.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9121:EE_
-X-MS-Office365-Filtering-Correlation-Id: 96ede7d0-e4ff-477f-9b92-08de7fa194c9
+X-MS-Office365-Filtering-Correlation-Id: 4334de26-5fb4-457c-1cae-08de7fa19852
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|19092799006|1800799024|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: tSR+zCVx8wKHjR07JBYr8mGeLZxN++grhzr6oltn90qBHTkFcxNWNMEInzwdmOxOSmvy+QJifBMFhtu7ur5kO0zJE/1kz7I3tpzWGZ4hKAjmpagrMsTkt2UXKjEPRj7YVVQE8Z0fzOqxROpWgaPnm1qzYjn9M82N9NUwhpA5OV0Uu6h80ufkb2S1OBPvqh44rssxH8EDLxP1TDAVPkz/t/RMy/A/4vRS2l5SlyI+drT/iUE/AKfFHI/RofgrD+TM/POjDollDs1SgdrNB03aSDc80cjMIEyBuAZQdNnvXAwtD1XdYCCUfqeiD4jBXBUgmO3xGQuIE6V/Bkce5ne1PpZvVkPMGMquw+aIYLSJjRAJlwQMteJBaIj+ieAoYF3jB0jI73+vnWtHrHibpo+9uoU0W5UXkTk/CyIk1QQ2zrHhFFE5EO7bqk2n1q077j37DY4/n0ME9e6qWJvLsUrHlD6qkMnsRSxymhbfvnkgI+7zbS1Y5pntF5S6t05pBZOYMBUOr/jGL1gqpPoIdfoLS9hzIZHQuRxanG8Iu2arqVPE1s01uJVFAq35lmLZbHNgmtUNr3IKurBuHOvLjM04tItQLgTqJWVM+AP1y6AQ5uTS5mhqMlk6JhSsAIOTd4joDJIcpft0taGAKVTmwgNgD/E0opXvxkRi0opT21muTSCQOe2Vi3jN1MglBwhfY94LA+T1mm64Ubms93cFii/sAqAOwzkAKK5tml4WHo9DDuKPmdgt71YUJ2Cmliz9mDz4
+X-Microsoft-Antispam-Message-Info: zSbFVS255HL0OF4B43i21qur009OUwPu6BFonubOXIg3atZw5fOJ/wCwOtOSbkXYsaTAoB6J4gBaYV+Ft8EC72nd6bGVfCiGOVwgvF7NuCLHdbiqSxyrLQ33YotXs+sgPsHchG7zHiYy/4DKVDJsoLuxuXp8whS7YKOPmkLfsF83F3uJwhcjt4pVsrMvwS9Rcp135yLoZ2ZlMXr28n4P0fO4pcfrKmAGv/F/GwOPjeHnd84H+2lsPl3E6mQPEJcwS3RX5aGc2pXMiniVRpM1uTSFmmGJ+laKLHgIPd7NzgK09xVGMx336u9BFt3DY1e7B2HPMKYWyQjVe7JtitkkoTXevYhYDsSMxTNKWwbztzy95Xtb0qqCjji47ywL+lry/c7noJu2ygm7hzfJwEit6lmYItc/u8B51awQbQeXcLcIp3Qbp+O4z17WpK2TZc5YVrylLL8pxpJ/6k4bbhy+jjd+YbpqShKCbrft6qHwENZrfKAuSkoWfLaEyXv9czSoA9OAuXuC8AkJTIMU3uzWtap7zXdMXNwFzo5FfnlG0TQurD+I77WfkNwD6iaLGdSQVYGLIx4OAjZ4xl21DVsNEAOOrRFtIfhi09VzSsdUszF8OpUc6I0p8/KPTIKDm9aRcsSfx+Djgm9ZXcteap5AfOEuJNCElGdXQFK3bMWuqdwcASfwG6mjFqUuuBSbcfFOgLX+i1nIiz+RfnBZflbdb1bjJItKSWxtn9YjiRI4Ejkj7+QIdrPSCAls/4FtimWFK/r7+tiCVgV2k2NnIbNnqHMnEYdF3lIvb5ttYVjlPSU=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(19092799006)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WVNLejFXeFpNYUpWR1FxTDljdm9oNmYvSjRucGZ1Ri9rTTFrQ2JXTExCWlIw?=
- =?utf-8?B?TEFxdGVqZkZ0VEErcUJCdFp0MjJyeVZ1OE16Rk93ZWxOYVhYY1BHNStmRG1y?=
- =?utf-8?B?a0c5Um9oblVBWHZ0OUtKeEZNU01JWjdaUDd0bm9xQ0JjUUdJajlWOFk2Wjlx?=
- =?utf-8?B?alVkYTZQNjlQOTdteWNVTlk0V3hudmMxVWR2akJXNVZPRm5XTnhtYXNvT1Ft?=
- =?utf-8?B?VnhwTytEZ1oveEtwZGJSMHdBSFIrdVJsYm9RUWFzdmJjblROQ21lQ0VyRmVp?=
- =?utf-8?B?SzdVMFQ3aHdrYmxWSGxRL0ZtazVDMENDYm1HMHJyRFFBVDRDNmQxQzZleFc3?=
- =?utf-8?B?SGxzTi9mVzBsRjFUZmlOSk9kZEdtVXZwQndqRVpJdFBsbnBiUlJvdVRHYkdo?=
- =?utf-8?B?eW12RXdYNDlIVzl5V291OVZiSy8xYXJDTGY0YzgxRW1OTUl5d3JyT2hWa1pk?=
- =?utf-8?B?TklQZGQwV1lxT3NvZnVmREU2eVdXazJpcldJSDJYMHQzeU9TQy9OdGQ1ODRw?=
- =?utf-8?B?Z1dkZWJMVVVwdmZhNm8wUmp2NGZCcXVHTzhYa1BCcTdWMTc5Ni9mOEg0S2Mw?=
- =?utf-8?B?WE1YUVJtd0RyWFNwVWt4U2I4STQyTTlmR084Ym9TVDlvSUtwbnVUQmRkd1Rm?=
- =?utf-8?B?ejF0NDlWQ0VkWFRUMy9NeGdJT2FLMnBZNVZpakxJbnZncko1SWlWTUlmbFIz?=
- =?utf-8?B?am9WU0ZlSXUvZ1dpbzh4bC92dVQzaXZqUHJLTG1Ib3FhWHJFNU8wRjVLVU0w?=
- =?utf-8?B?MGNsR2NScHBMYnBNaVJxREpzMFV3Y1FzWTdyZWFtQ1VLdW0yZ0p6dkJQU0Zx?=
- =?utf-8?B?VUwyYkZJMlZjR0NKWlNyaFN5VDQ0WkczWmhOZXRycVkzMnpWWWZqbWtucXdi?=
- =?utf-8?B?clFpdmdMM1ZwUjBqanZTV010R05XRHh3UmJzaWtDTDVodi9lUDJTbkx2S3k2?=
- =?utf-8?B?T2lZSmFqd24zTnZWL3FlaDNXUU1tbjdGR1JhZGFIZE5tTURrdlg0WHVPZDV0?=
- =?utf-8?B?MzdMeUF4YXdvLzkvbDVGRzdnZVVKWmtkejRYaWxxZkNBaHJlTm1uWmZSNnpG?=
- =?utf-8?B?VkdDbjVrdHNQeUlYUmJJTFM3Um8vYTdKVFV0R0NlY3g1THl1RGhYakltb0Ez?=
- =?utf-8?B?bjhvQ1pWQXVuRUdGeTlKa0locUp6NExidFMwd2N5cVNiWTI4V2tKQmZSeFc2?=
- =?utf-8?B?RTJMSkp1VjZnRVZsb0pRRjV4MlV6QTd1cWwzRUR5TjdCNU9FZnJaZXQ2V2k5?=
- =?utf-8?B?UGtXeURsb3hRMzRRRC9JNHV2SXdqOEF5YllFQW9Fa01EZkt6NzY1WFhLaitX?=
- =?utf-8?B?WWVNeUZ2QzU3WTRNeHFTbDFBMVYwV0M4QzdVM1Z2dlluclhkR0p5aVpuWWZT?=
- =?utf-8?B?ZTNWdGhmU3g4UlNLZExSUjdnV1ZxQXJDK3JOUS9hcC9VL01Uc2VSNTN2OTlO?=
- =?utf-8?B?YUpidk9QUXdEM1NmVlpUSHVKQWZTZk4waVZTdi9JdmZNZ3VGeGpJak1VdVBC?=
- =?utf-8?B?Mkhad0JOVWFqS0ViMGVlaWhRYnFkR3hnT1EyQjdvTlAyMm44SG43QXdpdDN2?=
- =?utf-8?B?VExvQzVvWkJMa2pzQUVPRzdyNE5oVjhsUnRhQWluemllQ0wxdC9kRm80WGNu?=
- =?utf-8?B?clgydTF2RmRWb09KaWY1NWFmbmtHU1kyd2tWeWNtTzhFc3YwVUNDVHpmRVBC?=
- =?utf-8?B?OERzVmhoYm9RbjVzWXY5SHlvUS9FSlpodEtvRVJaUWRac2Naa0p0WGZOSzJs?=
- =?utf-8?B?VmVPTzF3NFFxQThWbEU0ZnVLQzdiS01JQXJHUmhqbktZbUdCK0d6bGlsY2Vh?=
- =?utf-8?B?a0gzUUhhZ2VETVFnSFBaWU80eFZZRHhnVmJEdDhtSG1ud0JnQ3FCa05IZXhR?=
- =?utf-8?B?YXN5OGN4VlRlSVlGTkhVVFl5MmNIMlB2NkxLUFBJSkRMMGhoNGlZWGVwY2Fl?=
- =?utf-8?B?QzJsTTVPazFpdVR1WVYxTVcxUEpQK210cjRhTWpmaXNBbGtMOURBS2JXQkM1?=
- =?utf-8?B?THNXVmNWUnBkUGVId1NGTzdjSTdIdlFQeFRHSy9oZnBYc2YyZ1lhSExCZ2FN?=
- =?utf-8?B?akdHZ0wvbFJWVFVQd25rVEtpaFA4Zllkbm9uck83eGRvYUJReWlMRnlDdFU1?=
- =?utf-8?B?MDRYdmNJa0c2K0Jjd2owZEZ5M3V4V05JUVhjRHNvUElCbkRHWFhhRkl5cVBG?=
- =?utf-8?B?cUtKOGJZQ3hLOTA4RWsxQ2JqM05RUDRpK1NTQTFPbXdSZmhzb3JmOURtSFVh?=
- =?utf-8?B?SEtYSDJjRSsxSWJuRXBCOWhrZ0dabGNrL0lBejF4azV2bGdpTGhZRCtpdjBH?=
- =?utf-8?B?NmJlVitDUGZSWkZKdXJMTGZVdFRmUFpBbVRRVmtzSGVVajRaVlJTZz09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SThDOFdNSktzQytNRnF1QzNETjBiNmtvTVpmbnhpOU5wdWd1Y3dITTlOWTQ4?=
+ =?utf-8?B?cU5SOENBbVRvRk9rQms2OFpRcjk0MWwwbmN2cWU3MHJIWWpFbFpDd3JBbEhn?=
+ =?utf-8?B?Y09iQmp2UWlvbFhqRWxpRDRjUmhOVW05QTdjSWpvY3VSL3pjUnlGVFNDWVUz?=
+ =?utf-8?B?UTM1ZmN6NCs1S2RsbE15Uy9vVjZySEpqcFlNcVBvZno1TTlTZkpIbDIzdzMv?=
+ =?utf-8?B?bW5tdmdvQzQ3dmZTVXhEUFlrSzJqTXJ2enhCdnFwdmQrUmxkOG5jUEtDR0pD?=
+ =?utf-8?B?RVIrZzlJNU9lU08vcGJMUUJpUnltZ0wyZ0NDQXZ6UHRzOWhOTUxCKzI1OWFI?=
+ =?utf-8?B?NjVXelNYaEhxQ2YzbG5EYjE4RXh2R2J1SDJrWFhWT05ERkxrcytLOWtEajJV?=
+ =?utf-8?B?OHV6NTl0ZXNVK0xIRWFiTTgxVUEzQ3BveStsT2lSZFdGTXp6Z3RXMVBvTkJp?=
+ =?utf-8?B?TWtsdlB6NUxLbjNMNXlnbnF1V1ZaOUkwV2sxREdvM1VWV2xZTWE2TDVqTVYz?=
+ =?utf-8?B?YWNaRUtIOUt1REd0QU5zZDVPditrK09BdFhpcnpadlorbUluaU83K2dMaytN?=
+ =?utf-8?B?WW1lbW5HN1RNMFY0VkRpcGJ4Q3FjVUZFZU53T2ducGtZVU03VDRRM2cxd1d1?=
+ =?utf-8?B?WGxJcjF5NmdxKzZncHBqSHVBV2p0UWVtT1ZTakgrbzlWdmlKNUJlbUt4QmVX?=
+ =?utf-8?B?OTNvUU9IcGoxeFBIcTVZd1Rla0dLcVN6ZU4ybVFseGllNXpjMlBmcThMUzlG?=
+ =?utf-8?B?RFZKb3BMM2dRaWJZS3VKV09uRkJFRk02bzlQRXROUTdkM3haNTVSWHEvNC9M?=
+ =?utf-8?B?cGZjWk9sTjBuNzduZmlnQ1kxSGtFTWY5SzF6VTQvbkZLWDJjVnV3SVdzbWN5?=
+ =?utf-8?B?QU9lNlZRR21mS0wvdnlhZC8xT25WU21QN3VidWQ0ejN4ZVR2UFhIdEx5TTd3?=
+ =?utf-8?B?bS9oY3pQdTUrTHFNcSswVFhTRExySjlvcFVRUXNRcWlEeW52eEFNTjMxM1Bv?=
+ =?utf-8?B?V05MUldmd0tTbW03VVp0YkkrT1J1ak90T25DNkd2OUEwV2U0NXZVS0wzMjJC?=
+ =?utf-8?B?UFN1ZmwrVlFHSXVuOGtkQ3daQkhNdk5MYUxrNFoybHpuRmhVNjFsYURKL2JW?=
+ =?utf-8?B?NTJqSEpva2RNSUY3WFY3VmhTRmZ0MkRVa3NIK0w4b09TdlBzdkFCa1RiV2RM?=
+ =?utf-8?B?VW5FMkdTNkZkdDNLNVF5UXk2NWRCZm0yNEdiRHNFZWQ4UG12bmUzNWdqdGZ5?=
+ =?utf-8?B?RjdzZ1lDaUdGa0RvaDBYWklLWDFPTXcyNkRjcHRPWnhjQ0lCRGU0Z0Z6clIv?=
+ =?utf-8?B?SjZTSDFWOFZwZ0lzemhCVkVjSS91Tkg5eGgwMzR5SGI2dzVDV3cwMXJPNkRF?=
+ =?utf-8?B?cWt2VXNBVWhxTGwwN0pIVEZuKzJhcWE2Z2MzdEFCdjMrMjNHZ2VsQ1JXUGFr?=
+ =?utf-8?B?TU50VkRGOHZ5U0xEVnNJTXZncUJUQjNaRFdwUEh6SEpxMGZFbUxlTTlZcE1C?=
+ =?utf-8?B?TXBVdlpEOStyT0NMaGNhbTZDSmhHaG55dncvbXNBY2JmMjlvTjNNSVFMR1hZ?=
+ =?utf-8?B?eGNpanE5QXhDeW9SOTRUNFplbUFQS0NwY3dxU1V6M0ttZUxiVDl0WEVoSEl4?=
+ =?utf-8?B?MUpWVWpXeWlPL1dxY2djUHY0M2Z2VnJMQmhTNjMrZ1FPQUt2NXJlTTRiZ1NM?=
+ =?utf-8?B?SzZEcktHOXRFK3BacTFIODZBTlR3bklhZnpwUGphbyt5dERuMEovT3VyTWtK?=
+ =?utf-8?B?UjcvVVhiMS9MTkxRQmYweXVaSUlIbkozdzBoRzA4dm5HMWZWUHpmY0pzK1Vv?=
+ =?utf-8?B?MjNyWnNBL1ErSUxmWHNnME85YzcyUlgraW16dDhEcnh4emI5dzBNVGRQS2Jr?=
+ =?utf-8?B?eXJ5TXdWVFF1VWl0WityM3k0VU5TRzZycHJwalpLajcramVXVUQ3OEhlbGNY?=
+ =?utf-8?B?ZTVGaVZDMXJSSUI3RTU4VGZuLzFndHJTUnZGZi9Lb0xIa3VYMFNyRVdQbmQ0?=
+ =?utf-8?B?SEdQOTNmaGxHQW5kOTJSSk9pZDN0QzhGY04vWUwyQU1uWWVzUHlDSmxwMUZC?=
+ =?utf-8?B?YVFVQWdXNDdXU0RDMkpWYUVNbExrT2JOSkdTdlZtTC9DU09XY1dEaWcxZUtK?=
+ =?utf-8?B?QnYybEllTHdaOGYwQUNsenRIUS90bXovN1pzN3lSTmVVemRkNjk3b3M4eTdy?=
+ =?utf-8?B?MFVqcVV5KzRnVVhwSXQvS2VNRnlpcHdRR1NRcVNZdDhiZFZyeDNjQXVwSm03?=
+ =?utf-8?B?anVzVDJ6WmVxcWR6VEQyd1daMnQ4NXNnZnNUNUw1akJYdkZWMUtqaDc2Q1Jt?=
+ =?utf-8?B?L0FhaTJxZzV6QkNJaUQ0Qlh0UjJyRVFtcVQzVXgvcXBLSmE5VFdWdz09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96ede7d0-e4ff-477f-9b92-08de7fa194c9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4334de26-5fb4-457c-1cae-08de7fa19852
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 19:08:29.8348
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 19:08:35.6146
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HUGBpqaP5W0G7F6GiCW+DtLdf+wwVakDiR7dul4cUan9wDCGVvKUbqfsmuG9Yp3oqLpC3X7MQ69+WL3jporIiw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: WKjjwNFqDiB0wUBxTnbv0wJAGEACqlikG8hcy7OR+A+3L2FpUS92lSEcIp8NJW41ML/9Q8AwUylI0CtVkzLIqw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_190835_036357_460C1810 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260311_190839_411892_5782340A 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,134 +174,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a generic pinctrl binding for board-level pinmux chips that are
-controlled through the multiplexer subsystem.
+Add an optional .release_mux() callback to struct pinmux_ops.
 
-On some boards, especially development boards, external mux chips are used
-to switch SoC signals between different peripherals (e.g. MMC and UART).
-The mux select lines are often driven by a GPIO expander over I2C,
-as illustrated below:
+Some drivers acquire additional resources in .set_mux(), such as software
+locks. These resources may need to be released when the mux function is no
+longer active. Introducing a dedicated .release_mux() callback allows
+drivers to clean up such resources.
 
-	┌──────┐      ┌─────┐
-	│ SOC  │      │     │    ┌───────┐
-	│      │      │     │───►│ MMC   │
-	│      │      │ MUX │    └───────┘
-	│      ├─────►│     │    ┌───────┐
-	│      │      │     │───►│ UART  │
-	│      │      └─────┘    └───────┘
-	│      │         ▲
-	│      │    ┌────┴──────────────┐
-	│ I2C  ├───►│ GPIO Expander     │
-	└──────┘    └───────────────────┘
+The callback is optional and does not affect existing drivers.
 
-Traditionally, gpio-hog is used to configure the onboard mux at boot.
-However, the GPIO expander may probe later than consumer devices such as
-MMC. As a result, the MUX might not be configured when the peripheral
-driver probes, leading to initialization failures or data transfer errors.
+Commit 2243a87d90b42 ("pinctrl: avoid duplicated calling
+enable_pinmux_setting for a pin") removed the .disable() callback
+to resolve two issues:
 
-Introduce a generic pinctrl binding that models the board-level MUX as a
-pin control provider and builds proper device links between the MUX, its
-GPIO controller, and peripheral devices. This ensures correct probe
-ordering and reliable mux configuration.
+  1. desc->mux_usecount increasing monotonically
+  2. Hardware glitches caused by repeated .disable()/.enable() calls
 
-The implementation leverages the standard multiplexer subsystem, which
-provides broad support for onboard mux controllers and avoids the need for
-per-driver custom MUX handling.
+Adding .release_mux() does not reintroduce those problems. The callback is
+intended only for releasing driver-side resources (e.g. locks) and must not
+modify hardware registers.
 
-Allow pinctrl-* pattern as node name because this pinctrl device have not
-reg property.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-change in v3:
-- collect rob's reviewed-by tag.
-
-change in v2:
- - change descriptions for device, not for driver
- - add missed additionalProperties: false
+change in v3
+- Add judgement about 2243a87d90b42 ("pinctrl: avoid duplicated calling
+enable_pinmux_setting for a pin") in commit message.
 ---
- .../bindings/pinctrl/pinctrl-multiplexer.yaml      | 57 ++++++++++++++++++++++
- .../devicetree/bindings/pinctrl/pinctrl.yaml       |  2 +-
- 2 files changed, 58 insertions(+), 1 deletion(-)
+ drivers/pinctrl/pinmux.c       | 5 +++++
+ include/linux/pinctrl/pinmux.h | 5 +++++
+ 2 files changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..2b0385ed879b70b24ca9c39b098c3840d08d7482
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-multiplexer.yaml
-@@ -0,0 +1,57 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/pinctrl-multiplexer.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/pinctrl/pinmux.c b/drivers/pinctrl/pinmux.c
+index 3a8dd184ba3d670e01a890427e19af59b65eb813..c705bc182266c596c4e6c820f5e3ffcadbbb2838 100644
+--- a/drivers/pinctrl/pinmux.c
++++ b/drivers/pinctrl/pinmux.c
+@@ -517,6 +517,7 @@ void pinmux_disable_setting(const struct pinctrl_setting *setting)
+ {
+ 	struct pinctrl_dev *pctldev = setting->pctldev;
+ 	const struct pinctrl_ops *pctlops = pctldev->desc->pctlops;
++	const struct pinmux_ops *ops = pctldev->desc->pmxops;
+ 	int ret = 0;
+ 	const unsigned int *pins = NULL;
+ 	unsigned int num_pins = 0;
+@@ -563,6 +564,10 @@ void pinmux_disable_setting(const struct pinctrl_setting *setting)
+ 				 pins[i], desc->name, gname);
+ 		}
+ 	}
 +
-+title: Generic pinctrl device for on-board MUX Chips
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+description:
-+  Generic pinctrl device for on-board MUX Chips, which switch SoC signals
-+  between different peripherals (e.g. MMC and UART).
-+
-+  The MUX select lines are often driven by a I2C GPIO expander.
-+
-+properties:
-+  compatible:
-+    const: pinctrl-multiplexer
-+
-+patternProperties:
-+  '-grp$':
-+    type: object
-+    additionalProperties: false
-+    properties:
-+      mux-states:
-+        maxItems: 1
-+
-+    required:
-+      - mux-states
-+
-+required:
-+  - compatible
-+
-+allOf:
-+  - $ref: pinctrl.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pinctrl-mux {
-+        compatible = "pinctrl-multiplexer";
-+
-+        uart-grp {
-+            mux-states = <&mux 0>;
-+        };
-+
-+        spi-grp {
-+            mux-states = <&mux 1>;
-+        };
-+
-+        i2c-grp {
-+            mux-states = <&mux 2>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
-index 290438826c507ec6725f486d18cf686aa7c35e67..20176bf3074757de30f208e69b968a6bd6125273 100644
---- a/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/pinctrl.yaml
-@@ -27,7 +27,7 @@ description: |
++	if (ops->release_mux)
++		ops->release_mux(pctldev, setting->data.mux.func,
++				 setting->data.mux.group);
+ }
  
- properties:
-   $nodename:
--    pattern: "^(pinctrl|pinmux)(@[0-9a-f]+)?$"
-+    pattern: "^(pinctrl|pinmux)(@[0-9a-f]+|-[a-z0-9]+)?$"
- 
-   "#pinctrl-cells":
-     description: >
+ #ifdef CONFIG_DEBUG_FS
+diff --git a/include/linux/pinctrl/pinmux.h b/include/linux/pinctrl/pinmux.h
+index 094bbe2fd6fd5ea3c5fdf5b6d6d9a7639700b50b..77664937eeb273eef440988c4cf833dbc6f10758 100644
+--- a/include/linux/pinctrl/pinmux.h
++++ b/include/linux/pinctrl/pinmux.h
+@@ -51,6 +51,8 @@ struct pinctrl_gpio_range;
+  *	are handled by the pinmux subsystem. The @func_selector selects a
+  *	certain function whereas @group_selector selects a certain set of pins
+  *	to be used. On simple controllers the latter argument may be ignored
++ * @release_mux: Release software resources acquired by @set_mux. This callback
++ *	must not change hardware state to avoid glitches when switching mux.
+  * @gpio_request_enable: requests and enables GPIO on a certain pin.
+  *	Implement this only if you can mux every pin individually as GPIO. The
+  *	affected GPIO range is passed along with an offset(pin number) into that
+@@ -80,6 +82,9 @@ struct pinmux_ops {
+ 				  unsigned int selector);
+ 	int (*set_mux) (struct pinctrl_dev *pctldev, unsigned int func_selector,
+ 			unsigned int group_selector);
++	void (*release_mux) (struct pinctrl_dev *pctldev,
++			     unsigned int func_selector,
++			     unsigned int group_selector);
+ 	int (*gpio_request_enable) (struct pinctrl_dev *pctldev,
+ 				    struct pinctrl_gpio_range *range,
+ 				    unsigned int offset);
 
 -- 
 2.43.0
