@@ -4,124 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A36FD88FF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC364FCC9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Mar 2026 05:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=; b=Td20o2XRn+94+iRX4zxJUPvjYD
-	yLfsJH28X7uHjxVqpDD2EUVquwNVTKKO8m9vNLIi1AHjUyTwOpQEY+eGmgYlJuv75fIUKMakTf0Jx
-	Ok8lqh717pgUaql3c4Etru91Ek9G1rPJRmujpSQpnTeBz1nRf9yWElcg4KMlw0+3nvTwdfUgEreoq
-	YDFBtCdTC+RZd0wOsOm0Jbkoxhl/t7c4T+xYqu9slIIvkfqW7rDaThjLDPGe+Uq/4Jx0UrJEGq3gs
-	FJuyauwGTngMEl54gKtVw34O2Woh4UjU4ZUO2WB7oT1g+sZ4ZCWid5NdDubwOkRx/B3nJqnok51Uw
-	TTx6uV7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=; b=T+7YSYOOZu6WBqG93NqYcC4pgs
+	SqIhYtvNSlU3taB4oe8GGHzoVwq3NQ1dzqvDTV8NwKXb3YtlPt4C4tqKXVW8sd3AYKYlp5bspyGiZ
+	9h0VB5pLcCnC2T5OWWH7rpvic9hDGGLG0GFTXAvPnB2OcnCYU7b1DwAmTKQ+Ugb1H5Xuuo5X/vh9q
+	BHOymOagWTrhA4MCvSq1eM2oo/sEO3rziHbtFTGHQqgK/Z8d2HVs6fBrDL/Xq+r3Mx6JjGc+URXMv
+	uBPuhNMrZ4hzf1x0KH9dRu7+2W9hvoecx9RiApuCSZUgWbAPNQkWHCsTykzEsK36bfq86TWNwcFRP
+	xGPbKwnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CHu-0000000AoGI-1vu5;
-	Wed, 11 Mar 2026 05:39:18 +0000
-Received: from mail-westus3azon11012058.outbound.protection.outlook.com ([40.107.209.58] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1w0CJZ-0000000AolE-1OVr;
+	Wed, 11 Mar 2026 05:41:01 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0CHs-0000000AoEh-2Fbi
+	id 1w0CJW-0000000Aokd-29kX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Mar 2026 05:39:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ooU1M/voGQBlZltkD+Zle6kl7HJoknkixMAfHen2BchnvduNuyTtae19URlF75fqagUZODBm2bqaubZ0YR7GyNQhQeuDFwzHVOLeJJgpbWTIUFjl26JYoOrZGQCa0Ex5u0hljqs1BCnKJYXXOSdIbagoom0xfj/H5+8j1XoPbYsjXxHLJEsyFr3m2Gd+J30c+aZdJK0IljyYUqxTcAHilqbMrAq4nVWW4Vg3QbG4yb3KWa5sDm8ybnjhRjspUpQoPl/8guZxKfhlOJW9egQkt16zYwcXKgRk0Dc60otlxrP5UqiOMGF79pJiI9cR4Rss3DPxb8XNtEh/GJxxxtIsmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=;
- b=FscGalabgDotkgSeUfO7z0gi0lFQVJc3U4ywMBfytMt+zke4wjc+ejg8i9Ppd+ZRnJXyy3ZpNLto2swCwnmLP8CQkIEcwmsJf4nG/StHYTJuNeU34diM+t8T/MbPvWBnh9sR0uJVmbu3GzMUV1puhlZaYppO348CvD+BO9ArkWPWYtUsBBMUGEvZqLFsUXO+cgeCfOO/y2pKH+VM67PAclZvJpMx6qD7chUninxXct33/2CkxLHfvdAxA6o2yiMiwKjTyXNNSKet2dGfHy4/P3TcEKrNNXzOkLg4fbzzLKvwg4+3qMueMFK5ojdghTOv+ym/sySH3132FiYKXOdYtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=;
- b=nCjZf/JCt1OEPC2m1SHTmD82njpDk6m1z8Tx/eGOqmsIe4WX1gZppJZqfu3Cej/KX0z23BsXgoecLFOAs2XdgbdVko2R16uqD+W2jARs/oggJeCM3RpfLYVzCVcKiVH2msJkbuiUVGLYQvWfDEU5eYAzPgbxCfw3djLV0/2KIBw=
-Received: from SN7PR18CA0024.namprd18.prod.outlook.com (2603:10b6:806:f3::33)
- by CH0PR10MB7411.namprd10.prod.outlook.com (2603:10b6:610:187::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Wed, 11 Mar
- 2026 05:39:11 +0000
-Received: from SN1PEPF000397B4.namprd05.prod.outlook.com
- (2603:10b6:806:f3:cafe::e2) by SN7PR18CA0024.outlook.office365.com
- (2603:10b6:806:f3::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Wed,
- 11 Mar 2026 05:38:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SN1PEPF000397B4.mail.protection.outlook.com (10.167.248.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Wed, 11 Mar 2026 05:39:10 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
- 2026 00:39:09 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Mar
- 2026 00:39:09 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 11 Mar 2026 00:39:09 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62B5d9IT4179498;
-	Wed, 11 Mar 2026 00:39:09 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 62B5d83e028470;
-	Wed, 11 Mar 2026 00:39:08 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
-	<danishanwar@ti.com>, <m-malladi@ti.com>
-Subject: [PATCH v3 2/2] arm64: defconfig: Enable DP83TG720 PHY driver
-Date: Wed, 11 Mar 2026 11:08:52 +0530
-Message-ID: <20260311053852.1034244-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260311053852.1034244-1-m-malladi@ti.com>
-References: <20260311053852.1034244-1-m-malladi@ti.com>
+	Wed, 11 Mar 2026 05:40:59 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-829a9d08644so2879683b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 22:40:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773207658; x=1773812458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
+        b=nlP1ffO2NUIx0jt6n02M2ukdWudQHd9Py3s87XhsQ3IpgXnMYl2o6Nai4ro7g8ja3n
+         BO3vBgTD/2wRe8lvx7LOEqRvy1b3929NS8OjQjHrl8H+P3XxqMoX5SzGq3kNzYxxiNx+
+         3+VMD715qMAsgy/H4s5XvwEAycfCJSL7xe/KKgxO6j3V6pTJeEa5ehmtOdakrQ7uIp0n
+         K5C8MeemS+hLaqZcHAsJsNtTm3gwEZMfSGcISSSk7DhC/CDx02zzr+vfbiW7T6vCXrnJ
+         AblMEkn0amPuOrqa4oJD8ETJ8C0IVUQg5lD/Mm0NfQ6RGYBOBU58PUQpiFHhAByt/7aX
+         8D5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773207658; x=1773812458;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
+        b=D6+27wrC3/3KqE5LtRJqk/W14vRlXBmbx+QEUwxvTPQwSlph7nBIPIdG5zOlHg+L//
+         pyEdJUz6oJdDcgpzQnU46HyNahj3qLbMuEfjulL7+pF6H+02WG3jnYOnyLxDODaanwU3
+         ZRi+vvzzQY5t3qQdYeNGqTmf0b2q0LYKaIYWuZ0VJdn2H2JEcJitNEmwB0oyxWp3g5HJ
+         1xGK+rZWOTZkul07kiH2XQEV6gkr/n7Ozd0UyfOJ12smUKNcFFwl5tm4/Tou81tUix+f
+         BzWtTpYVBApzseuNy+3SefWmm00tIqLetsQDButSN8vfXma8vwbeNN1ICyUEKD9otqB7
+         3vWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWGLP5aQmrgLm6mFs1DU4cK3wW4GCUjNUQJ/sfj/AS65wd8xqnrn3IazmyrCMGjsFHEf2x7+FCEbmTrDMaAUthm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy39AvVjwR/iIuMaePlWn+E7s8AWB+1v4RO9wwPaAcpd6Ug9Y3O
+	CiJjVjzTMO+liMYHH9fZvbtPEok6fDnuBU2zGuywcxy8AP8zt7wC2CI7
+X-Gm-Gg: ATEYQzwKlqJd3lKS2QeOYN1VqEY1+XY2qsahZZxtzxltg927pQGC5t3AwtwgdjyLuWF
+	nYOfpGDcZAbWlVyueZ53Uyg8zl7KCeJNV6inG5Ehxm1s3VV6ks9Xcu8vJOqFoqeYJDPhQDEIX3k
+	5RjU1kvBHTFZJXzG6T7uGGDAWX/G4khIviYAGijbhp1YmInHLvvYBRUM3kkXPA9JvhndOEP7uGN
+	TZqpb6otaNoClwrGwAnzrW+fNEXdymA67HhG0XLi72SlqzM5bhQSqI4qiXX+T9L8Dr/O7xW2V8F
+	TMkoFYSQFv0hRDI2D1WhXol8Ao3fEA4LprUTCsSnQ1QW+J/KdS7FmSNhNbEUd5JfBUDbZUBz+Q3
+	VXk2auHE9O7xuZ8pVm4WBn68M1+bskhRgH01sDArAFIMXLoCTEbXZs9C+1ODit4vVPqhbM3iYqn
+	457AaH2xBqyb852KketdfLK0M4EHi6tLJqYLpyM+7n4CsZvv6cRZgVlg==
+X-Received: by 2002:aa7:88d3:0:b0:828:d9a1:c604 with SMTP id d2e1a72fcca58-829f6e71531mr1386417b3a.12.1773207657593;
+        Tue, 10 Mar 2026 22:40:57 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829f6eebff0sm1058168b3a.32.2026.03.10.22.40.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Mar 2026 22:40:57 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
+Subject: [PATCH] irqchip: stm32-exti: use kzalloc_flex
+Date: Tue, 10 Mar 2026 22:40:38 -0700
+Message-ID: <20260311054038.166293-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B4:EE_|CH0PR10MB7411:EE_
-X-MS-Office365-Filtering-Correlation-Id: 968dec0a-da3a-47bc-dc72-08de7f30855b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: CGrCvlMjWfmElSEin+nHDxS1HnT0vaVV5DHyUmo2RGpQgoNjxK7U6/ffrqXoFvCLdtEGCCObC2LKFR5VGdri02KsgRjqx3/9em4Pdq2kFlce571RiqnJafD6ludI3h92KRFtaW/YuO7uiCJ9mC63qmrA27Hjc34V1NvZrzbRYYS4mjEa9jgKZZO0GcsGLEHQjHnr7h7pXo1Cnd6nn9PwlO5Zjwt9rd+IEyb0T2eQq9zc6BU2fq2V0D/PS/JiYOzVp362ne3ODEoB7pPty/QfZgK3J4/mbZ7zPKedZTutnmEH0FaKaYFeIeCE5+WLpfIy3U5DXnhIDpDdg7cRbyqOmTmTFW8T9x6bxq47FSDyouSA8XDwEqfoP6jNOhdwFsmzPSapEla52XnERHYsy8ShYM9LvDw65huXtZZPrmBsnMubL3ggWSJbIPRbnKUTy13IjIYPxbzXsSiz+R98Eht+OckUPbL92VfPGb/pRLF1nXO8+VsMyV1M6NrzxOSAusT3RbCq8GhPb99tfapTOZxjR6TAJ4USfBADY3Vf7PhhKEbm6X30c/bx7qDEK5GZlq9Mb7eG1RSqXc9Zs1vlPZEcLzZbqj3F3PdqlhlFnqvwhR5lN/Jf0MgCESrnlmvbOlf0PO8guxlvG/SLgBSUOpkpM0EiABmMPJZJKlZCB1kw+KzniemL1tG/SV9kCcsDNqRmjpyYUVSzZ6pF8PExDXFuoHcqd6Pf4Et2BbJG/rvNIBqmXG30W5xXKTdDTB0Axcn3apIZW2IUXG9XoS2/zyb+pg==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kyki4ls+QZnFbMXjeDpqJZSb+jKf8aOI+FxA9WO0f2WheQnHrSzTsyV+EeGCln8cJUZkNKjgMP+bMR8XQ5BHRdWuCJBAWKkk6ZVMpZNEZHPFduPJ0P1yqkqsXJhNIztNLMzlXnFA/sMF6/OQFVjhynIkIerVYkUwESFaw7+y49eXDmt7gm9DdXJIpCqCEbzV6GDib5G0jg/soDm//aLNo8jHyrAX1IRQK1C5ffCOi+EPDapoZQx+Pb/XdGskSaQcZUBtc8EmYucX5SjrQBHvjkHhwCaTzva6zl0tpwfcF87SEJ7uVRLikHJQPyDQMOyBeWNazVoReNA+0HLYBr/JSOnhbzHJeCtVLWaCX9ghGmbccljK/s7NEV/rHCMezA++YIdPmmA6kRtsogj7wFEkt+U9kHSDPZfZMFnJDfhO0UAf9has7HSOfgMk7ErJSkng
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 05:39:10.4976
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 968dec0a-da3a-47bc-dc72-08de7f30855b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B4.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB7411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_223916_602279_EA805DDB 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_224058_571768_8CCF0057 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,29 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DP83TG720 PHY driver as a module to support TI's DP83TG720
-1000BASE-T1 Automotive Ethernet PHY. This is required for the
-DP83TG720-IND-SPE-EVM daughter card used with AM642 EVM ICSSG0
-interface.
+Simplifies allocations by using a flexible array member in these structs.
+No need for a second kfree.
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/irqchip/irq-stm32-exti.c | 13 +++----------
+ 1 file changed, 3 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index b67d5b1fc45b..3b88df2ca5e1 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -420,6 +420,7 @@ CONFIG_REALTEK_PHY=y
- CONFIG_ROCKCHIP_PHY=y
- CONFIG_DP83867_PHY=y
- CONFIG_DP83869_PHY=m
-+CONFIG_DP83TG720_PHY=m
- CONFIG_DP83TD510_PHY=y
- CONFIG_VITESSE_PHY=y
- CONFIG_XILINX_GMII2RGMII=m
+diff --git a/drivers/irqchip/irq-stm32-exti.c b/drivers/irqchip/irq-stm32-exti.c
+index 5fdf335acb46..144120cadfa0 100644
+--- a/drivers/irqchip/irq-stm32-exti.c
++++ b/drivers/irqchip/irq-stm32-exti.c
+@@ -45,8 +45,8 @@ struct stm32_exti_chip_data {
+ struct stm32_exti_host_data {
+ 	void __iomem *base;
+ 	struct device *dev;
+-	struct stm32_exti_chip_data *chips_data;
+ 	const struct stm32_exti_drv_data *drv_data;
++	struct stm32_exti_chip_data chips_data[];
+ };
+ 
+ static const struct stm32_exti_bank stm32f4xx_exti_b1 = {
+@@ -269,26 +269,20 @@ stm32_exti_host_data *stm32_exti_host_init(const struct stm32_exti_drv_data *dd,
+ {
+ 	struct stm32_exti_host_data *host_data;
+ 
+-	host_data = kzalloc_obj(*host_data);
++	host_data = kzalloc_flex(*host_data, chips_data, dd->bank_nr);
+ 	if (!host_data)
+ 		return NULL;
+ 
+ 	host_data->drv_data = dd;
+-	host_data->chips_data = kzalloc_objs(struct stm32_exti_chip_data,
+-					     dd->bank_nr);
+-	if (!host_data->chips_data)
+-		goto free_host_data;
+ 
+ 	host_data->base = of_iomap(node, 0);
+ 	if (!host_data->base) {
+ 		pr_err("%pOF: Unable to map registers\n", node);
+-		goto free_chips_data;
++		goto free_host_data;
+ 	}
+ 
+ 	return host_data;
+ 
+-free_chips_data:
+-	kfree(host_data->chips_data);
+ free_host_data:
+ 	kfree(host_data);
+ 
+@@ -389,7 +383,6 @@ static int __init stm32_exti_init(const struct stm32_exti_drv_data *drv_data,
+ 	irq_domain_remove(domain);
+ out_unmap:
+ 	iounmap(host_data->base);
+-	kfree(host_data->chips_data);
+ 	kfree(host_data);
+ 	return ret;
+ }
 -- 
-2.43.0
+2.53.0
 
 
