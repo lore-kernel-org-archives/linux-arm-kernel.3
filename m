@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D719FED2F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A891FED2F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWr3UpL72gEY0ThjpzFd6EFwY6zHsa+dAASz/B2/zTg=; b=tZzEG5vj8LpdHcVaVciu2gytz/
-	oNk0zgogFpps3RBSEfIs6C3KEVY27osvOW5L7pRqUY+Lk0/j1nNGCMZs+8VWr3B+F9tnLqBCax/EF
-	O5YeCnbdAZADEaGsp/h2zbk+hJgv9B/ZkgSYUWYHnFrkLyIyZ04JYtZnhQ0f6X7YQoVrNqjVAAkY7
-	YCHbhq9NftH3vX1zL0+l6rjco5pr/lgHE+ZM9G3Z6GqLC4M40pdOURuj9/n3xrj1KTaPXBtkMDL6T
-	lwjc7FvBhCllKeNtTbKZ/A/y3cupdFrswr2d9b94o013l6XCPgBRr1iaNj4PwXTtuMAYYie89tTb7
-	0nPOhiEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUMdtSRPZWsIqUj1grRsjNOkiXySAN7eADGHZxngzho=; b=dM2fs6UPy04ZZhCxCstGQB7JHj
+	x392XSgbVLtxGs1kEyYS25yfjVS1SqEkmffkXHXgjE5rD1tXNOUChTTGHnUxxVW4YxV9ZbfjD/1KM
+	Pz4crN0hyhvhJfO16xouWV33sT9eZxUHAQdi6C5jRBPPwJBRRGqpuMcGEPJb0odscR1eJXB17zl7j
+	fXPZfsi0DkKeWt3XB04VbXrYZDM3E2s9vnksVEgalQEB/HZT2hjnZ1a1AKX5qwMrXo7h4g0AWZj33
+	5tgupAWnMh538LuOXb9ZDlH6gr+F0dL2hfV4AOTAqrz756BBg//pKy2YIiNaoeavvTmOAmM+7fkHg
+	JgKPxFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cP1-0000000Dm5b-1Gxr;
-	Thu, 12 Mar 2026 09:32:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0cW6-0000000DnGG-2VWX;
+	Thu, 12 Mar 2026 09:39:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cMj-0000000Djlp-1MvA;
-	Thu, 12 Mar 2026 09:30:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=kWr3UpL72gEY0ThjpzFd6EFwY6zHsa+dAASz/B2/zTg=; b=nWq2bIEU8scMpqmHKJ+2fM0rUU
-	lDNG4xw9jAVF0DWTP/yfeT7uHhRkfMdWEeKsA0pnCWrLmUQS+1NkL4Gi6wl0tXgRsKS1IVuH64jyr
-	0kskPz4EKD2xbWksD9ilExWyGWWDz7HeErgvzbxl4F6rMQVFxfTbuKxc2WWu+0Jn9Xs9SMbuK53I6
-	+BMeKNUUV31S8robcMlHroPpYYM7HgLSsxMQS4HErlZTtyzMKG6BPuzS0nMGVb1YC6/EVlzoVsR/H
-	wj5udV2MpaRQLIGdRm9kpzoveffJH12d8vPh4g7K/uQu7jr/A6pBneClKXwkKZZV1/vKXPGcOZpNa
-	1Otig+Cw==;
-Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cMY-00000000pFp-2dpv;
-	Thu, 12 Mar 2026 09:29:58 +0000
-X-UUID: f3e56b281df511f1a21c59e7364eecb8-20260312
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:30aaff68-b3a0-4a6c-b7ec-9b19efc51e2d,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:20
-X-CID-META: VersionHash:89c9d04,CLOUDID:3e4443aa1e61333fe56bff94d6c99248,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f3e56b281df511f1a21c59e7364eecb8-20260312
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 649171632; Thu, 12 Mar 2026 17:29:22 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1w0cW5-0000000DnFv-16HL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 09:39:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4535B60142;
+	Thu, 12 Mar 2026 09:39:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E54A0C116C6;
+	Thu, 12 Mar 2026 09:39:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773308380;
+	bh=UAk43NccrQPWgbH1hCQpxC1aL/SVilMfAUwhDR2PNQ4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X77W/luMGxn5rnJvKDveNysjMQI0AFl+bwO7xgb29XxpB0CWy/BimckvNIwrRw2C2
+	 yDfn16LCaPnobMcdqiTG1S0ccaualO+FKkyILLROZhIxpUn3l8RpQyQoOppexOQ81d
+	 2eDORczRtYNVVQCmqcv8tn2ckwVNvcrgj3tBYF5Tsrhkn+x86RupwplsiRKnXcgOKW
+	 hgJ4JHv2FNQg9NZVFgYpU3r6/Z5hz/d9DL4gUE4n552wTez+B3DVskBUsQM6fVvjHx
+	 gR+P+PyPZfvp3CvY+n0kg5gZyiNd/MdpBo3ZngdGwgEvUy0o1SmPcZCCVEwPUXh/Fx
+	 DdZ3SIm4Oou4Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w0cW1-00000001CjM-1BME;
+	Thu, 12 Mar 2026 09:39:37 +0000
+Date: Thu, 12 Mar 2026 09:39:36 +0000
+Message-ID: <86342575ev.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Steven Price <steven.price@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	broonie@kernel.org
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH 04/17] spi: img-spfi: Use helper function devm_clk_get_enabled()
-Date: Thu, 12 Mar 2026 17:28:56 +0800
-Message-Id: <6891014954a8c121347dbd517b585d5a903e8da4.1773306858.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1773306858.git.xiaopei01@kylinos.cn>
-References: <cover.1773306858.git.xiaopei01@kylinos.cn>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_092956_717523_E5AD57FF 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+In-Reply-To: <dd6f4715-e8be-41d1-af60-00f068e9d730@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-7-steven.price@arm.com>
+	<86tsuy8g0u.wl-maz@kernel.org>
+	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+	<87v7f2chde.wl-maz@kernel.org>
+	<dd6f4715-e8be-41d1-af60-00f068e9d730@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_clk_get() and clk_prepare_enable() can now be replaced by
-devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
-longer necessary to unprepare and disable the clocks explicitly.
-Simplify code.
+On Thu, 12 Mar 2026 09:28:16 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> On 11/03/2026 19:10, Marc Zyngier wrote:
+> > On Mon, 02 Mar 2026 15:23:44 +0000,
+> > Steven Price <steven.price@arm.com> wrote:
+> >> 
+> >>>> +  struct kvm_arm_rmi_populate {
+> >>>> +	__u64 base;
+> >>>> +	__u64 size;
+> >>>> +	__u64 source_uaddr;
+> >>>> +	__u32 flags;
+> >>>> +	__u32 reserved;
+> >>>> +  };
+> >>>> +
+> >>>> +Populate a region of protected address space by copying the data from the user
+> >>>> +space pointer provided. This is only valid before any VCPUs have been run.
+> >>>> +The ioctl might not populate the entire region and user space may have to
+> >>>> +repeatedly call it (with updated pointers) to populate the entire region.
+> >>> 
+> >>> size as a __u64 is odd, as the return value from the ioctl is a signed
+> >>> int. This implies that you can't really report how many bytes you have
+> >>> copied.  Some form of consistency wouldn't hurt.
+> >> 
+> >> Good spot. In practice this works because >2GB in one operation is
+> >> highly unlikely to be processed in one go. But I guess I'll change this
+> >> to have an output size argument. I guess I could make the kernel update
+> >> all of base,size,source_uaddr which would simplify user space.
+> > 
+> > In a conversation with Suzuki, I suggested that splice(2) could be a
+> > nicer way to express this, and allow asynchronous use with io-uring.
+> > 
+> > After all, having a guestmem backend for CCA is not exactly
+> > outlandish, and having a splice implementation realistic enough.
+> > 
+> > Thoughts?
+> 
+> One issue that I realised, is about the "flags" for the populate.
+> Data can be loaded as measured vs unmeasured in CCA (and in TDX
+> and SNP). I don't see a way to convey this with splice.
 
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- drivers/spi/spi-img-spfi.c | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+Surely that should me a property of the memory region, and not the way
+it is copied, right?
 
-diff --git a/drivers/spi/spi-img-spfi.c b/drivers/spi/spi-img-spfi.c
-index 902fb64815c9..a227cff5da70 100644
---- a/drivers/spi/spi-img-spfi.c
-+++ b/drivers/spi/spi-img-spfi.c
-@@ -557,24 +557,17 @@ static int img_spfi_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto put_spi;
- 
--	spfi->sys_clk = devm_clk_get(spfi->dev, "sys");
-+	spfi->sys_clk = devm_clk_get_enabled(spfi->dev, "sys");
- 	if (IS_ERR(spfi->sys_clk)) {
- 		ret = PTR_ERR(spfi->sys_clk);
- 		goto put_spi;
- 	}
--	spfi->spfi_clk = devm_clk_get(spfi->dev, "spfi");
-+	spfi->spfi_clk = devm_clk_get_enabled(spfi->dev, "spfi");
- 	if (IS_ERR(spfi->spfi_clk)) {
- 		ret = PTR_ERR(spfi->spfi_clk);
- 		goto put_spi;
- 	}
- 
--	ret = clk_prepare_enable(spfi->sys_clk);
--	if (ret)
--		goto put_spi;
--	ret = clk_prepare_enable(spfi->spfi_clk);
--	if (ret)
--		goto disable_pclk;
--
- 	spfi_reset(spfi);
- 	/*
- 	 * Only enable the error (IACCESS) interrupt.  In PIO mode we'll
-@@ -655,9 +648,6 @@ static int img_spfi_probe(struct platform_device *pdev)
- 		dma_release_channel(spfi->rx_ch);
- 	if (spfi->tx_ch)
- 		dma_release_channel(spfi->tx_ch);
--	clk_disable_unprepare(spfi->spfi_clk);
--disable_pclk:
--	clk_disable_unprepare(spfi->sys_clk);
- put_spi:
- 	spi_controller_put(host);
- 
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
