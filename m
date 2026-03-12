@@ -4,131 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8942FED2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 03:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B08FED2C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 04:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5342xpxgfdMPoAgy1aEbjB9N+WEL41Xngv2PRjhfOro=; b=ZwsXmsYqqfjX/xVFx5SoEh3uY3
-	ZNbfC/WONHTax06V2y9nSvPeeOatzPVi7pc/R7iwvuuAkJMXsWi3XzXMx2Qh2HTpjqaLVnrEhFWCd
-	9mCwSEAo7HApmVxg3DdC3yHlXk60+OzC+GxgOTu1wH1AuQsBfRi7gTBRPA5cMdoKXe2e9qLzxN/bQ
-	wY711AKxd/3fmQhsOSf07M+1bXKdufz1bjeOB9HNRMjhsWFcY5ViAVDbHgryEmsc9ZpQ87fAb29BN
-	2mWTZBZGm3ltv5iZarvsI50suyel3t0cT9peLZMG14XE0Pg5/XDgj6zQ6txER7b0uih1vHovuKm6i
-	UbpJ7mlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7tFaVnNkUuXKbnGGMR9Dwryl8VU2bdT7+4LDhUK2aU=; b=Qgb0fbGeHUDT2hfkCJUcdnBB0O
+	03/JiysU92jT7ukEBb04iBayAV/y3HdWRwwL49Hsr1s4Fu8R2O791rKEywhx3HqC28QcmjVGnaHP4
+	AXsqzdmqFqf23aHvLFar9Ne/vgCBJF5jyDEnc6r72bW/RoVTgc918DTqFpS7T4ndxLvhhHF7BFksk
+	8bYsKhCDBSIMtvSJhqq8V05pTxt2h5RTAHBVKWuHI5F5mhyFLTOTUfUc9JKzN/0eVHKw3qkDFaSdP
+	QP02TW4B8f4v/uK5yhbHVMgQFvu4O9DeYn4vrcI3jC8mI10WYBMd+SHMYYv6nR/chMyCK7CXVv2A8
+	wm5MRx3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0X1t-0000000DAu4-0bgN;
-	Thu, 12 Mar 2026 03:48:09 +0000
-Received: from mail-westeuropeazon11013043.outbound.protection.outlook.com ([52.101.72.43] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w0XFC-0000000DDC4-2HLd;
+	Thu, 12 Mar 2026 04:01:54 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0X1n-0000000DAqZ-494w
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 03:48:05 +0000
+	id 1w0XFA-0000000DDB3-00VT;
+	Thu, 12 Mar 2026 04:01:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UYbWxYyp9ixixOGtV7MI6omdzjzSN+sCz/ihJbiUjdzMYol9NI8xRJKsufZ4PilsRkMtflQbxlIOqp6pUc+U1KknSsGwou1e1zD19zjtaH2xxTfzn9Onp0ROvmVTc8JqpgvOH7QhNQyyZA9O3o2TYC/1nf4iDcTnIQz/e2/VF58DS/IaNYYJ5xZdAfRljYYXTPflGq5z7jz0QOnVsXK5PulUVxWWF+SGvVye7qQRX+/1TpFsaDUGsJTB2nznVo09PQf5DIcKgZjhJluYXpbY9GQfzVEcCblegI7V3TFO7P+GDC7HvfzZ+bob9R7Ogb1iLRMj/dmdLUY3gxTtGTfpQg==
+ b=oUymlzr7SsoWVr/X/75ItQsRSm7X7zXcm8pa5s3AvUI4jqXlay1u6wFnWWwbtlMdI8zMcI90AwrVTO7qTilpwPgV5g9aghkV/CFmWDC3WHTQWUeVwBHxDC6K3A+gtCipGt+Hai1WT1BJiSpgglxAjJBiRjDa3V81gKIqjqksUv2nDspzDU7mGtXQd7fIX7tdZFD6qh9/jYvwsI/6lzoQx6K+m4kUOEUvS24ifKJB/z7P2CvEt2If+xPlapjeS4DLU7FP2NwsPo4SEXH2eSAA0U5ikqhe+2Gu9km5xd1aXmnVLyH1qI5m9OgR/5Yj/wz3jqZ5yFrqraf0RWAVmwEY/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5342xpxgfdMPoAgy1aEbjB9N+WEL41Xngv2PRjhfOro=;
- b=G+9BfGsVA9TzbbXtVZ261ApobuQJU/l/wJZ//FBBtCCEneGsNUaUjIXISgMP8fLYLIkfLQPl4KkpRPoY+ulFmPPknbpPr455FoJ6DABoBDqFY10BQ2lZFGaAECsNVzW3X12P8JB7uEgz8e0qhO4cudqBRcYigb/xIt3eeoSKN615lcPPXfjUlbeujcgiwREMUePJQ/NjnxWq3pLx/5gpB4L8E6Rlc1J/4+DO5sgIGwFlh6xQ5rLQ7PcykalLnzIUS/tv5thzk3SZBIGNVi99zj9zwtP0roy9RUABvOAHkwrSsNb/uTCXFhpu19l0mW/kkSCIpD7b1cQ/etJBjGFdtw==
+ bh=m7tFaVnNkUuXKbnGGMR9Dwryl8VU2bdT7+4LDhUK2aU=;
+ b=G6dKqsPibU2YDq3sH0sXcCcz5OmlLm5n5jyvXS1th4E5z95XMaeNxjncNdbaPIHL/F6PbhdPQxtciqS7v5x5L+lYsk0zokC9+gHKhDV4xV6VD5CQG2k2llCiIW5fujShivJVRNmsuNLPNi4c/CEZCfssXxf0VPdYybehT2WpNQ9+yNiC230oeE4ome4FQCHCZ/jJZOHyc5BwdwUYZ+2zys0+enQyaDzXKoJZCWJXflVq9K8UjrNcjkigXlTD6k5wV/FQDi2BPowInRF60QSrP+rwwnQJDL60g7rWcw2eHg0BydEz8b7BOpRY4U3L2ka3lnOoNpralM+ixo8tbIwwzA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5342xpxgfdMPoAgy1aEbjB9N+WEL41Xngv2PRjhfOro=;
- b=jepOGJCdBE5PaoztAksTHVBVARR5M9akk0lgc2tZ1itVPrr8a9Weawi7HAlEoUGXwrHLSVdsqLz04h8kKjrQi/7mpVyXqqBIGMCSuyb9Fevey00KoGi0JnRxTtgs8iQMc3Gx2TrMrzZTNzaJyM8Fy1UVHLdsUnJzb4cLOUkzGDn3SZWS5vOyaWQp+CICOd/VxftRWvrrtasCPX5ylhBKQMMOQRJ4pSCfAMdroKyAxvYYQA1riy+4eLOiqxOn8Te+foUSJbX3a12XCTMYqZULWF1Jw3iBJqsEO+F6tU7QIes6IOFCAmP4kwwKz0k0Xsex0MlwkXfwKR0f1kYUNQ+1vw==
-Authentication-Results: dkim=none (message not signed)
+ bh=m7tFaVnNkUuXKbnGGMR9Dwryl8VU2bdT7+4LDhUK2aU=;
+ b=S0/hi94OsfnPvlvkM/zmgGaHSE5PL1eSNxX1v6q3xbScoz1pvUXhZCyrFWyyzXTQj2dmVOe9PVZQw/+XDv23TjFSJDP/TMcP1MJpaHVVcmzPEk8DEnK4mkRVgxpoA/+HQ+PAlV/tdYBnTgVCvH+/vEOo7LGk4tinSpokN4Xh+EchgZ6/ERTShorpZdKRiPZbdGuZA6rFIY3mXBrCOaGc/sOB2byF13kM72uscfIwzv52Fst44ng1qO6cIx8LMj+wXeiY4C3CUMufiFZr2I4Kn9ec/vbH6iGWSFMUJjSXIc/3IWXtsJdmKKzIuOfNI7o1YyO6KnHrm8ZxlKPlVD+NRQ==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AS8PR04MB9208.eurprd04.prod.outlook.com
+ (2603:10a6:20b:44f::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 04:01:45 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 04:01:46 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Sumit Kumar <sumit.kumar@oss.qualcomm.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
+	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Hongxing Zhu <hongxing.zhu@nxp.com>, Lucas Stach
+	<l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@Amlogic.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, Samuel
+ Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda
+	<yoshihiro.shimoda.uh@renesas.com>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Pratyush
+ Anand <pratyush.anand@gmail.com>, Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-samsung-soc@vger.kernel.org"
+	<linux-samsung-soc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-amlogic@lists.infradead.org"
+	<linux-amlogic@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v2 0/2] PCI: dwc: Add multi-port controller support
+Thread-Topic: [PATCH v2 0/2] PCI: dwc: Add multi-port controller support
+Thread-Index: AQHcrGg90l4cssg9x0eKOTwnCAcKBbWqR/3w
+Date: Thu, 12 Mar 2026 04:01:46 +0000
+Message-ID: <VI0PR04MB12114053B5BE9CA48CE107D299244A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
+In-Reply-To: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by AM9PR04MB7636.eurprd04.prod.outlook.com (2603:10a6:20b:281::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
- 2026 03:47:54 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b%3]) with mapi id 15.20.9700.013; Thu, 12 Mar 2026
- 03:47:56 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] arm64: dts: imx952-evk: Add bt-sco sound card support
-Date: Thu, 12 Mar 2026 11:49:11 +0800
-Message-Id: <20260312034912.4007057-4-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260312034912.4007057-1-shengjiu.wang@nxp.com>
-References: <20260312034912.4007057-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0014.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:177::11) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|AS8PR04MB9208:EE_
+x-ms-office365-filtering-correlation-id: f1a0c84e-dd8b-44a3-0301-08de7fec144a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|38070700021|921020|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: dicHY/9wLM+qqVl7qlSBX3q5Oo/DflAXb91dDeTYUIJv2VlqAsUyT60S43GGLNt7GTxgDj7ieiYNE6mS+fGRGynsZOK7KIXxc78FC/N+7G5ucWeo4qDZP/ScVqysQxEHim4YpFMNuOjPafbe2OVRHIt4XHHhNuuFQtqOlYOHNeSBdW2qLbXZf3FmLwdZXtwRSf9sWSFTE4Q4uV1SCWnEehx799xvHD3HIx0fQL8AuVvVMinXZM5lnUo0Nh69BUE+BF0Z5LGHbqRvnf9zZX5alpdCdJqiPYIo3DI4urT1OCt7vfPOps+hndJyhcrvU2eZvb+OUwWw5AofylnE54GBD4ETe/EM6EUy/rrVzMZ+elZZHEa+CQlSor73Nac1FCXw85x9xJLN2b0cR2A3ZepIwiUB+GBohB5SX9i7BEFSus5mg5Ztyj4iqqwmGRO5sl1ZfN128cT84AZ6glhZLPbjZLxcvEJBVNUV1vI/SYOxgD5SRuxJitumtyGmpHCV/Q3ZJOhmFcmYUB8fakVbODEq9alh5FPwrLQHUTliXQu5peqYSPwBMDrpFMs55RyIyVCQYeGJyRA6eLjP+XbRZYcIz5q16fBCQHTkOG+F6mg/t96/+zJ0S5gIgtvSkfD/L5BrJVZpQb4IeB6Kr8LeTU0fuu2MuSjs/qYz3ikDNhx7h4yX05Pae3R4AJgpFixf8EDAMtI9f/9N1RbrZC3cfGGm/Iq6oqEvTale+G833DqFjyrbdrmlpz/aYxVhG46Kk9n3
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(38070700021)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?n6ckqS7e+ZKurAbovmsWkW6Mn2A7i4EYAsT+XO7GIetUJtkECG9ZMJN/Ht?=
+ =?iso-8859-2?Q?AVTD4cI+8CtkigXVKV7yA+IV4AIh9l38SHuVvCAUISAIdRpIZ/QmmALa8D?=
+ =?iso-8859-2?Q?9cuIING0N8ED08d+2Et7SVBpUIRnoGXzV7oixTkBSu3jNiAPLZ+TP0HK/+?=
+ =?iso-8859-2?Q?9bwgQo4Bku7ZR6DWhqrVIsl7EtH3q2/dv6SiOrODAug4y9HsqLqfx9SRhS?=
+ =?iso-8859-2?Q?Ce9+Dre01qXwrQA/flZfAgfEM6LEP0SQrvKq0OYYVTg7kGcqV5goXv5rA2?=
+ =?iso-8859-2?Q?QhcIv7HkbYFfUtwN0kJhe7bzuw6JHNIl+Ltf1wDcbtf2OKQm3hBhiJPUzc?=
+ =?iso-8859-2?Q?Xx1JYY16ivA1gOGH88ez9B6XgkBbxn5Lu5kWZG1XUmFXUIXezpE0hwj4Vm?=
+ =?iso-8859-2?Q?+1LX8JfO8431v4FExfxHF6X9+zBxYZe4lI6QA0JNLW4Ig6nT4ucwSVg6wf?=
+ =?iso-8859-2?Q?RwMrIIIAlP5/RfX+oN5L0zYBxRhxILWOvF+jhz71YMcJq6vZKB8L+ao/3z?=
+ =?iso-8859-2?Q?GkoH9ldkdT3IbV4flowfsSzkbDQZ/eKYh8+MBtavt7VAybQCR2lgD7/WeY?=
+ =?iso-8859-2?Q?B/YDElxuLEWOKJVlsSklXM6fHsQ/Z4mLkDjZ2OyvomLsQytJkclyp0GTPk?=
+ =?iso-8859-2?Q?Q4GXKeV0Z8Li53eaz5EApXTWSBQgWJ+wN7qTF4phiaYdLrhWMunUYSalJ2?=
+ =?iso-8859-2?Q?xl1y6gjgszW6tcDq/bRaQscL748NJ8FuyuDlJFShPyc+ZCOJOJ+1sJ2DbC?=
+ =?iso-8859-2?Q?NFXW8XWrvcPzjqZqVjEkodkAsY49hwWlgA98Tlv1oRmycFkp0Nkd0i/8y5?=
+ =?iso-8859-2?Q?9V1xOF+EQ3CLqF7Z1ADE34kbcvej7+TXrsHCvv7f3W7bhn8+3TV8ztUXj3?=
+ =?iso-8859-2?Q?8b1a8WG1awiGQP0QAWLAFrxnpDbYtlN4DNL3DmSvVwwyVeAQX0EpWyBYiS?=
+ =?iso-8859-2?Q?1gsAU3/fXCJM/hEehFMGcq1jAzgA+gTeuFFLh17liaMr8ew0ZstA3WGT88?=
+ =?iso-8859-2?Q?5nXXKkMesTkBIKvhfV/QBBtq6pHCzJVhQIPjLUDxrFozylKGZCY6nJdNDY?=
+ =?iso-8859-2?Q?RlmsXHJBnUuNIU0MuRmhQBCJ5KS9SUrQK8PcqRV7n+34a+BiuhsUQPS8LH?=
+ =?iso-8859-2?Q?MhPLcIwANEMYsceRqv6MrMOo9nuWIFbiF/wsRuFLhNw2LKsvJYBhsZXHJd?=
+ =?iso-8859-2?Q?5LH21nYDQARjVn8vdUY+LRudby67xO/qgdsdSd6CSgJ5IGBSMotN7hUX8n?=
+ =?iso-8859-2?Q?dbNzPeANTzeb8mJfreuAoVrA/aSuuVYAH8PSrNVNL9DdycK/+Od0PRxRqS?=
+ =?iso-8859-2?Q?hEPjTBiYA96z3gq9awHqt5Ok4U28YTBv1n+iJwEoNSIxCJTkhRVdUpPs5F?=
+ =?iso-8859-2?Q?Rasoy2cQ/Gd6gh6SKvHOVm9mYN5vVG+B9W2envnLreXcD4YH8C5jmTA1Rm?=
+ =?iso-8859-2?Q?tWvDIaaodKxcAR1TD60wAymlqCju0C2hnBfzED5k/WS5SBdLOVWYcf8y1w?=
+ =?iso-8859-2?Q?WzAOQh3TEzyxq+QyVflkj3YHFHn4SMai3iS0cDTwE2kXSfRHRk7XzZORxB?=
+ =?iso-8859-2?Q?J9mq6rUlwfopWHgJ0ccu/zmIrR24f01fWmTiY/hp9o+SaGRd1fJ8v0gi4h?=
+ =?iso-8859-2?Q?8PsZVdTEWtBXhLqte9E9fqKspAamjZSLsW32m1Tgh2JLnxd+sJLEBTB4Tj?=
+ =?iso-8859-2?Q?d5aOQotK6AP/NTESSdCg3mrow0EEO4hl5uDZuBF4x/pGfqAa9DG/2CtPcD?=
+ =?iso-8859-2?Q?aT6S9tSc4rwOA0S/nm9AjBssVdhgg1zCWHUEv9j5pIKQR4?=
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AM9PR04MB7636:EE_
-X-MS-Office365-Filtering-Correlation-Id: cec8aca5-fe7a-4016-6c4c-08de7fea25ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014|921020|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: EqBeDanKcygH/w0xKr/bAPbMpiONv/uQCC0EHMV2dnqQRllQM6J+W/xtvQv/HqyfOdhdHiS+7sg1CLqZlRpo3KhXRy8jXy7OMYhxe+kxJvz9aWesU+ZFt58pbYG/76Vqw3rYUuOlDbJpqCCNSUIbIPAViDs9PfeH/ePxDi0zgXg0jy87OoZq0bYrzXku6nYOIpSE4iGRj+N4pyQXLyf9DI1ZUg3SOmrHwDivGW7LBbGzDXT1gJWIs56pr7Wm7iIkx0HuDSPabBldb4mipWQtcCCF+8S1T8/IAjxi8QaN2SQqgjOWtBIPxjjZmg+9CsxuNMDF0Gfy0/grL0g2BG/RunSTd1gAksasRTo1P1KWft4SY7LWYfBExj3FFLnr59zYeWvXd/C9/jK5CoJTpaWigfB+4R7Azsxb41ip0gVrATnEkCgbQoAz3/G1wYu+FE0HcYZfPZ0JANzmj2Q+LPNr8egwFioLcMLCDse+IB+rMFjBlSbqY6gkfcK18d5+9O8U6Wt+WF7rtzlRToAqC7IEOT5IL0cGsW4JuPk+OnNrs5uUWXqQtKu50OpgZ8VNa6Z5vtv9D91hYfbkAeGn0GHFBgMNGIutfV1D+tXoY26gHMv0nHtg4d8wZSWB3whf4xMiqK6Ilc8bVfc7MbvpkyrR0+5qWSsH2Lej0qDemtYlv5y1cm0WooJdIQyo5axf+pUyfG/tnQ+vqQx8RxbFFSscAvfBId13XLIIlEYh4sbi0jBSBFlBdryi18q/WUrHihIe/k0Vau1MUNeriX4lO41dYjipLQUNd7/3rE1ISTJ7d/+IHu4BW0yYshau67WA+9Le
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ePaAIrXVHJLPhE6OydcNMiLehe9gUb8Op4pJ8AxviuJtkUtv2agk7Fz2+jP/?=
- =?us-ascii?Q?C+GtyQjuFp6DpSxlqsbjwQvYz1WDEdSOKk77S6Vz2KgcH2nM4Ci9/+kwRZc1?=
- =?us-ascii?Q?mV0D+QxIQfMgK8rFte8OGN25PXFaN4yWguv5wEe46Enu1HF77i5ri9nFKKQ4?=
- =?us-ascii?Q?x3Cl8NkeCOIcii9+R/KREiOU83ga3qP6Yqs3KdliCbwM3wUWVMmGDG0I7SKn?=
- =?us-ascii?Q?HZAYtFmegUbiVtjSWh9iMkyPa5SuAEbzLf4w51iNHRiuJPssKEPrT9lJiPtD?=
- =?us-ascii?Q?LJb00s/lRbazhXns5O3FPanVrD9b3BKB0dfkkgAXqOLPWSCteXARtm2CUGtg?=
- =?us-ascii?Q?5kkB9+60zr2QIwH0nd2MzWnfPuVCVPy+pGZcGyr5Htd0+P4kmzUMRlgEV+6t?=
- =?us-ascii?Q?M98zh5lMBtctpMioyMh7J/BIa6g5g1F3wfMQlBXu3zNcuaPP/qxFXPpwYSZN?=
- =?us-ascii?Q?AKsi7QxMwHwfkLp63uSiga+npIRWFfkhbYZAPGoSeTaYOiqq2Ked0rUe3Lal?=
- =?us-ascii?Q?AcLBVEXM1TS8wQ92GioaPJTcxn36h4GiPUJiCoPZwVO3pbQXBPThAmCNwOa9?=
- =?us-ascii?Q?qiTGuNxgywPtsFycUtUENlbnKYFsNP3XPL0Ldwu8Q7zf6Jgal521Pe595ro4?=
- =?us-ascii?Q?0EM0GUsDAuk9hwf/45RKfJ+hBSSV7BqMJ8k7jeS/5AXDV0two7X5hGlNwbT3?=
- =?us-ascii?Q?i8TmoC3+Zi0wKXBuJ2aCv6lzDEdMeiO9ksuJL1EcDpEUbcWYXs+CNFT92U45?=
- =?us-ascii?Q?nijz+J4f1Jvh5fNHJF1fB9VpQyBppBR2Ax+PXjNpBPWv+AXJmQXLJobxhrAr?=
- =?us-ascii?Q?Z/9id26BU4pZLYPm13Trr7IQssHHJtWKRwulYehwj4A+lpmBMSMQAQLlaKDI?=
- =?us-ascii?Q?X4DtGe7zhEgDNCa9w/eEy+ebYQrfHTRihaAIA6eR292p0DnY1jvlx59gxXR8?=
- =?us-ascii?Q?Ffz4BzxZUvLV4G5Y4Ps6xDVaq87QGKXGW10sLMONkQwca8Y9rTH1FwbTcADn?=
- =?us-ascii?Q?jwan1TYDYn2Vq1lu2PZ0LMFP1PGASlrtA7BxaknAVQ/FiKZMX7QbvUUwHDUP?=
- =?us-ascii?Q?ag/tXUjGSrBHgUXtFeMvgFl48Llf0m/V+RS4tXJU0w9U4z5B4ry+dZwV/IIK?=
- =?us-ascii?Q?HU5LJzCeJrn2qHFYnhogEMciGm0ZdYS2gd3wTA07rNU5Ixfap+pfKtj+3SWx?=
- =?us-ascii?Q?7o8BpENs0BRFkg7QdHiVe3AZac7jOmh0J/KYDyyWU2slKYh7vHHZqeL6o/Uc?=
- =?us-ascii?Q?7/s0tXObvqPINHBz8SNKsyC1rgaRgC1Mv5kDNwIg3H7vmIBovYgPZHbL244G?=
- =?us-ascii?Q?q6CZC9plgubcSzqAscHhIV4LLrqfTnRHSa5Sb7Nn8S+2L74e1pVo/ztzSLnw?=
- =?us-ascii?Q?CkY4DlImpeKaC65Faun2BOaRfenRIwJvS4+EcPaEzeMhsvLUUG4PtU1Sej0k?=
- =?us-ascii?Q?RWB/UUcMSpmfcFDmB2sAoIMDlK2+5f04IITWg3uK8M0aPsceG0WtvCxl+Wf6?=
- =?us-ascii?Q?MrhBw/BO4kSIdo/ftCHawGJiPJTDl5M0bY+lBIqQ/Au83IAFjWhzp2kDNRjw?=
- =?us-ascii?Q?nYkPeagRQ9i0mV+XcoUwRg6D+Qjmk+TDYLHY6BzkZBnySAUkuo1toAF/sBWh?=
- =?us-ascii?Q?3G9wCXpFtSzLV2s01w0WCa5oWxkc0xTFLh+Wv/obH4pG1TEFtfwFYQ/g+7zO?=
- =?us-ascii?Q?zMdE1+FTn4UwhDbVPgRuYWiGPLKIS5QFQphr5rS4eQJUM9W6XoIAycTZh46Y?=
- =?us-ascii?Q?O/GEesGo3w=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cec8aca5-fe7a-4016-6c4c-08de7fea25ad
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 03:47:56.5323
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1a0c84e-dd8b-44a3-0301-08de7fec144a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Mar 2026 04:01:46.1998
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FSas8+S8lqmtwFKUbyOWFWbsp5jTUYHhNPhAz+YylnGCAxxkpMLF5/l8OcsY+XHyFCNTFDvoGtYpEwn9ddo9fw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7636
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wePVQofRGfzUPqG9uOocbBrd+JXqul0LgOCZJUpDy5KZZf5RM7lIs6ynz7ME34hvDBQoaLp3PPlz8NtqnAgatg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_204804_032132_C108A030 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260311_210152_607344_6F63D6F7 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,106 +163,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bt-sco sound card, which is used by BT HFP case.
-It supports wb profile as default.
+> Subject: [PATCH v2 0/2] PCI: dwc: Add multi-port controller support
+>
+> This series adds support for multi-port PCIe controllers in the DesignWar=
+e driver.
+> Currently, the driver only supports a single Root Port with controller-le=
+vel
+> properties, which doesn't work for multi-port controllers where each port=
+ may
+> have different configurations.
+>
+> This series introduces a per-port structure and parsing API that allows e=
+ach Root
+> Port to be configured independently via pcie@N child nodes in device tree=
+, while
+> maintaining backward compatibility with existing single-port bindings.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx952-evk.dts | 59 ++++++++++++++++++++
- 1 file changed, 59 insertions(+)
+Hi  Sumit,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx952-evk.dts b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-index ef0058b98573..2615fbb63145 100644
---- a/arch/arm64/boot/dts/freescale/imx952-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-@@ -43,6 +43,11 @@ aliases {
- 		spi6 = &lpspi7;
- 	};
- 
-+	bt_sco_codec: audio-codec-bt-sco {
-+		#sound-dai-cells = <1>;
-+		compatible = "linux,bt-sco";
-+	};
-+
- 	chosen {
- 		stdout-path = &lpuart1;
- 	};
-@@ -140,6 +145,25 @@ reg_usb_vbus: regulator-vbus {
- 		enable-active-high;
- 	};
- 
-+	sound-bt-sco {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,bitclock-inversion;
-+		simple-audio-card,bitclock-master = <&btcpu>;
-+		simple-audio-card,format = "dsp_a";
-+		simple-audio-card,frame-master = <&btcpu>;
-+		simple-audio-card,name = "bt-sco-audio";
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&bt_sco_codec 1>;
-+		};
-+
-+		btcpu: simple-audio-card,cpu {
-+			dai-tdm-slot-num = <2>;
-+			dai-tdm-slot-width = <16>;
-+			sound-dai = <&sai1>;
-+		};
-+	};
-+
- 	sound-wm8962 {
- 		compatible = "fsl,imx-audio-wm8962";
- 		audio-asrc = <&asrc1>;
-@@ -387,6 +411,23 @@ &lpspi7 {
- 	status = "okay";
- };
- 
-+&sai1 {
-+	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX952_CLK_SAI1>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>,
-+				 <&scmi_clk IMX952_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>, <3612672000>,
-+			       <393216000>, <361267200>, <12288000>;
-+	pinctrl-0 = <&pinctrl_sai1>;
-+	pinctrl-1 = <&pinctrl_sai1_sleep>;
-+	pinctrl-names = "default", "sleep";
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+};
-+
- &sai3 {
- 	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
- 			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-@@ -575,6 +616,24 @@ IMX952_PAD_SD2_RESET_B__WAKEUPMIX_TOP_GPIO3_IO_7	0x31e
- 		>;
- 	};
- 
-+	pinctrl_sai1: sai1grp {
-+		fsl,pins = <
-+			IMX952_PAD_SAI1_RXD0__AONMIX_TOP_SAI1_RX_DATA_0		0x31e
-+			IMX952_PAD_SAI1_TXC__AONMIX_TOP_SAI1_TX_BCLK		0x31e
-+			IMX952_PAD_SAI1_TXFS__AONMIX_TOP_SAI1_TX_SYNC		0x31e
-+			IMX952_PAD_SAI1_TXD0__AONMIX_TOP_SAI1_TX_DATA_0		0x31e
-+		>;
-+	};
-+
-+	pinctrl_sai1_sleep: sai1sleepgrp {
-+		fsl,pins = <
-+			IMX952_PAD_SAI1_RXD0__AONMIX_TOP_GPIO1_IO_14		0x51e
-+			IMX952_PAD_SAI1_TXC__AONMIX_TOP_GPIO1_IO_12		0x51e
-+			IMX952_PAD_SAI1_TXFS__AONMIX_TOP_GPIO1_IO_11		0x51e
-+			IMX952_PAD_SAI1_TXD0__AONMIX_TOP_GPIO1_IO_13		0x51e
-+		>;
-+	};
-+
- 	pinctrl_sai3: sai3grp {
- 		fsl,pins = <
- 			IMX952_PAD_GPIO_IO17__WAKEUPMIX_TOP_SAI3_MCLK			0x31e
--- 
-2.34.1
+Glad to see you've also added multi-root port support. A quick check shows =
+this patch set seems somewhat similar to my recent patch set:
+https://lore.kernel.org/all/20260310015426.365675-3-sherry.sun@nxp.com/
+My patch set defines struct pci_host_port to hold common Root Port properti=
+es (currently only reset GPIO descriptor) and adds the pci_host_common_pars=
+e_ports() function to parse Root Port nodes from device tree.
+
+The main difference is that I added the list of "ports" to struct pci_host_=
+bridge for better maintain parsed Root Port information, while you added it=
+ to the DWC layer structure struct dw_pcie_rp.
+Actually multi-porting isn't a DWC controller-specific feature and therefor=
+e should be added to the generic layer. Please correct me if I'm wrong.
+
+Best Regards
+Sherry
+
+>
+> Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> ---
+> Changes in v2:
+> - Fix error code preservation in dw_pcie_resume_noirq() to return actual
+>   error from dw_pcie_wait_for_link() instead of hardcoded -ETIMEDOUT (Man=
+i).
+> - Initialize ret variable to -ENOENT in dw_pcie_parse_root_ports() (Mani)=
+.
+> - dw_pcie_host_init(): Remove -ENOENT error skipping to make parsing
+>   failures fatal for now, add TODO comment about making properties
+>   optional later (Mani).
+> - Link to v1:
+> https://lore.kernel/
+> .org%2Fr%2F20260105-dt-parser-v1-0-
+> b11c63cb5e2c%40oss.qualcomm.com&data=3D05%7C02%7Csherry.sun%40nxp.co
+> m%7C136fbdfd37184ddb530b08de7a7f5e19%7C686ea1d3bc2b4c6fa92cd99c5c
+> 301635%7C0%7C0%7C639082884622870739%7CUnknown%7CTWFpbGZsb3d8e
+> yJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiT
+> WFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DwE1pMUEgAKP9W7vqgSf
+> q7AprdJW2tJfnJ0rppFMtOIk%3D&reserved=3D0
+>
+> ---
+> Sumit Kumar (2):
+>       PCI: API changes for multi-port controller support
+>       PCI: dwc: Add multi-port controller support
+>
+>  drivers/pci/controller/dwc/pci-exynos.c           |   4 +-
+>  drivers/pci/controller/dwc/pci-imx6.c             |  15 +-
+>  drivers/pci/controller/dwc/pci-meson.c            |   1 -
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 175 ++++++++++++++++=
+++-
+> ---
+>  drivers/pci/controller/dwc/pcie-designware.c      |  32 ++--
+>  drivers/pci/controller/dwc/pcie-designware.h      |  17 ++-
+>  drivers/pci/controller/dwc/pcie-fu740.c           |   6 +-
+>  drivers/pci/controller/dwc/pcie-intel-gw.c        |  13 +-
+>  drivers/pci/controller/dwc/pcie-qcom-common.c     |   5 +-
+>  drivers/pci/controller/dwc/pcie-qcom-ep.c         |   4 +-
+>  drivers/pci/controller/dwc/pcie-qcom.c            |   4 +-
+>  drivers/pci/controller/dwc/pcie-rcar-gen4.c       |  13 +-
+>  drivers/pci/controller/dwc/pcie-spear13xx.c       |   5 +-
+>  drivers/pci/controller/dwc/pcie-tegra194.c        |   4 +-
+>  drivers/pci/of.c                                  |   6 +-
+>  drivers/pci/pci.h                                 |   2 +
+>  16 files changed, 232 insertions(+), 74 deletions(-)
+> ---
+> base-commit: 097a6c336d0080725c626fda118ecfec448acd0f
+> change-id: 20251010-dt-parser-98b50ce18fc1
+>
+> Best regards,
+> --
+> Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+>
 
 
