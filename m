@@ -4,143 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDBAFFED2D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 06:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21D4FED2D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 07:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y3m5yOyjQfNb4fBHfff/rHUp9AXSH2WV2osV+rNRLGA=; b=XN+damHCTkpozqIg8nYMGxqQP2
-	iKg5fqQqn8pzf2PvOlgKr1/fYjme6+sCuZZITs5ZQ2jb/0PaUzU4SqpzQmL9fJO9JDPnqq+ahqEG6
-	FTH+MEUSIDpQ+r2BrKPEwfCeqrYrnVFzKdQ6ue3rdyJyTd6bMJei4wRqNjUjfrUHIjZrJ9GEW0x7J
-	dJMB5Yf3gDYNR8DUiCkuR7dwdqEpLvdAIXM01ZdwiCV4pfG8Pwq1qXUF65TPEIWqeEqbRuF7P94gC
-	Yq+XTRZIJoiUZylqCxK83R9YtOAKQipTd29PinIXB6I1jGRAHwDeu7Bo5ZY5sJn7Mx5g8jWAxQXif
-	3yd0/e3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rIO8XUP7143gVJLUd0FUXnb9BilWdnCaidVriG8lVsM=; b=SjFHlpxn/Y11F+HeHYDWuLnh1T
+	CPgwsMkFwTmTrT/Pl31HcQsO9K0xi+3Q8RZEDqKgfi8Bw8mIatH1Zut39jikEYeEWt2vucRldNlXc
+	8sEo+fLL6AVckgo7XW9m9OiwsEEuBUdki5qfa9okr0kiiOWHpKNtDWt9Iq0r4LHapjoN/4DjWKTd0
+	XYmVSfBPyKhDAr2EtT/aUnIJjk15JuR8bByocxbYl5gkEhoy6hktOUXzXHmvWhtGUnZjB8ttZwch8
+	VVu9VSko+mpQDyTNiTPhqbmUl5ZE9wTfKrFz3drHR6WsYHyHmozE0FZOzC8gfTfsFGWfSbswk6luv
+	TaUp+25w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ZzX-0000000DVG4-0fBW;
-	Thu, 12 Mar 2026 06:57:55 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w0aBH-0000000DWAc-20Lf;
+	Thu, 12 Mar 2026 07:10:03 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ZzU-0000000DVEF-2nqq
+	id 1w0aBD-0000000DW9d-45vv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 06:57:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X1EXblGuyA0PLZ750xyg0V1iMG752f1auBUCW4xu8lpl1/ql54hpgiFrVQgd5PpfDW7gRM2ST+2ypEvMxxqwU96dFL5fB5MZ2SqfDMuDE+3c0xP436XNAlOb5+XA99yDXnCw6K7TY5pL7mikn2r4E4WJwvKx9sZ6GjZGPM6rYUw+nQvNBvm0QMzTUhRoNPC1tPG9gtU97ILv/eLq5+yjmK0ffM2f82h5XdGRwLIqueHnxDUK5gXeqYkLCsTrg8eUTFBRcmjqrm3Ii7nhr/5NRbk7GqOVAtVIiq0BQ69HdI3yZasHcECpIGw+9BWID9qFuK9wZI3W8CnFSup616NoJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y3m5yOyjQfNb4fBHfff/rHUp9AXSH2WV2osV+rNRLGA=;
- b=G4Uo3aaDixt2ELAmxHTdGeKDUeFBB6N2+p0OCjp575ly3NnWiixKJ3qGhLa2rSaDFpf3yIkXWw61yPNHo5ijsLgfjcLdPNIuqRS+qSO574a/Df2HI/vZ0gYWRtydqE/8f2FVtVf+vqWDVjcazW5PK5caze5X2YaALjn8tIdFFACLC82Do5D6+dlHJco0u4OBtRgJBkFJyBT6quQMFY9esfGibLIP/1i8ytVrJJ/Ugq1J79BredtYsV6nDWNhZrDk33h/6wt85XQtqx2IIJEH59YJTELualQ0uBFFnPUO9/mDFs5PvcTFI44UgpO0BdqrJ4giv62EOp20qfRM1krw7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y3m5yOyjQfNb4fBHfff/rHUp9AXSH2WV2osV+rNRLGA=;
- b=f27+YFpR8C3K7YQzu/jJkKZICG/HwE4IDpAXYRHJMSC86FOAEjXcJadQh6wTgZAS28eA4YDsPsCzevmE9pRHDk0mwFUAscxemIMV86C5uFxpTbJ+0J2PVLFBN3l228F0kbyNBblX1p4ijOI/sr1rWmVdh7VSRkESudKzC1U8kZw0ehJSyY0eZszA21C2IZfY5rjkKuTeYtF7Mr9Rhw6kSigWrHf5gjXuuHsT7XRQg82019cW0hbh2fclG2MwtkcqMEn6k2q5bmWsvROj7kU0gTlKKfgAkKz3jOy7wbKKNaYk5AQ2dG4ebjdR59Lr13Rr8X+MyK8E6+RJHbLCecFvWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM7PR04MB6997.eurprd04.prod.outlook.com (2603:10a6:20b:10d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 06:57:46 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9700.013; Thu, 12 Mar 2026
- 06:57:45 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Thu, 12 Mar 2026 14:58:22 +0800
-Subject: [PATCH v9 6/6] clk: scmi: Add i.MX95 OEM extension support for
- SCMI clock driver
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260312-clk-ssc-v7-1-v9-6-0a9d2e188d9e@nxp.com>
-References: <20260312-clk-ssc-v7-1-v9-0-0a9d2e188d9e@nxp.com>
-In-Reply-To: <20260312-clk-ssc-v7-1-v9-0-0a9d2e188d9e@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: MAXP287CA0017.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a00:49::35) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 12 Mar 2026 07:10:02 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b941d924534so71390266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 00:09:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773299398; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CSaFTnzHWKMdoAWO/5Bs7NBIHHKdS5iWp9APyExj4YSHs9rmDB6pxF48FNfPBmeWId
+         ulBsTZvTYSK28gkhVeb5waON0xApmY6Z9H6fZ13iqJwiI/jFmQzUjBIrLePy++c9Mn1Y
+         7a3Ofg41i5s8lP7spNQxvcuUQTYpQLn20wbV1pI3QhWAiBWMnOdilSRfH+klyOCh52i8
+         APTT6apJH5QGnaMNcm7nIy9HlQaZolTiQRhcaZCzxHQ//loZZo+nTqsMkvmYLaIfK5VH
+         mWABVcVYAZzDHhfwHuhCTaRZzwu8Fxy3D0WvYN6/eO/X1tNnatcXz8cyXEqu6xnEDvmz
+         oZeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rIO8XUP7143gVJLUd0FUXnb9BilWdnCaidVriG8lVsM=;
+        fh=EGS1x5j0XIDRcconaRYi/I16V+XeG9rLUHsl3Pi/TNw=;
+        b=gvuXg8tSCnMrYz6knw1RFnCJ0jxQaHIq2ijOLwMaUtfYoz8DigQxHVnx1EyBRSVXOf
+         PHWdIAElOOhasNZBk92SEBelwafl/TtUatp26VXvVIKOyBqzMSVUVXlHGYD6ae1jnD8d
+         B+Vlp4GDpepq4GzMsImlc98L4bBjcLqyXakAYR6y+dmfy/5aDXhZUbLeeio/A0KbE/7K
+         nVQ+5SyOOY/GuR75zt8iz/alzdqDswIfqeAgqNH/syfAVaCz98hFnMviqIdWHO2bfni0
+         ihxfSpIpgHpdAaWxYFTQ+xH1w4VNSBQ+Y1pFR+MZJjNWL3nKzs4ZoXpuRqABy+rVm1EF
+         P0Jg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1773299398; x=1773904198; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rIO8XUP7143gVJLUd0FUXnb9BilWdnCaidVriG8lVsM=;
+        b=QkC70zmKDQdPL/DISvSC5hdmupHM9eKvcW1I5sjZE8TyYN1AOfSNGtghoqvY42yGuj
+         HewaIlKe1EqUplDYqU9HCrRcDG9azlwuPmYvZe3IIcpfUAcUfn2RT/y6IeLk2LFYO05M
+         +Kc6ovNGNKrmzaPR3BzIsJl+t+dSH9u800s61VT7qDX47gNUitPhS7FJ/i0bCNNAUuu7
+         sZ4uYIskplSdvNEw1RfQJvc9u23gN/bnt9GYgxpkXhi8GCQhJU0gv7ewZ5D2uFqB1+PR
+         zaH6T0TUzeY81ng4rNuKAupPBk4Omc4KfcZlEO56aYooApBD+cIZmGUYY388/QAs4Xpg
+         X+Jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773299398; x=1773904198;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=rIO8XUP7143gVJLUd0FUXnb9BilWdnCaidVriG8lVsM=;
+        b=LYzy1D8fE9QPV9KOQUF2Vnc/qTESBt95d45MooDmEhHsyu8KCQASN4ZJuUA/55TXzv
+         8ORbEcXGqgme5RFnD4cPcw3yeoNTF97C5tyJc4mcsbqSr3ERR4Pzl2RruQ4gJuZBy87f
+         6I7cPguoeLDLVLBw9/ywsn3wAc36X0vFc4Bv3HP5FU/i9urC9PNHgBYtD3R4co0f0Bn5
+         +Hm+eznqoBZv+SfvdOiiOESOJeY9/FUODSvV2u4K1SizVpgkYXMgfQzQHhMShXAaWsZo
+         2m/UpfmoT3eNPZPoByrPZWGaBp30A/pYBW76Ka6dlTWC6aVGLqeNVMsPwmUvO/Tugfn4
+         71yg==
+X-Forwarded-Encrypted: i=1; AJvYcCXoXd8zPS+lyaAXTPx+LAD+CkCNfpKNvvABRktzGEqrQ0xrMKwhr5QHCvSePRB/qeLSiepjmv07Tj9U4cPBpfwK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvJRE3YukGK217aAmSG5GKKuu1iDi/wJ7NJZTsrT0bjnCK0MKY
+	vLpvRK7p7wQcNW9oxkx/hOOfhuJLRYCRZJgNwZh5hCMqqT3AZesGKsJGOnUbIFNMH2mCMLV+pKg
+	XIv4TWTgCobbOYs8SnGy2Wu3mJ7hM2otjdZaN2O4O9A==
+X-Gm-Gg: ATEYQzzCt954XAiPgIpxtKV093Pc56dcVi3rJzHBgY3vYT18ZnVi8ZUOevaHPzG/7w3
+	e3HrP6b1kVVUcAoSyj9foSu4M1W4X9VHK3wnx88m/6DUHPrvYCW++XR5+VriI5fdD661EDN6/l5
+	S9UDn30FhHWKFskOYLVCqRLTKh/03QoKm8ZsZM770W+VLHk64MwA74dMmkNBaZ3yuEnkCS/p4ih
+	yRO64S3xIPAeCtRx/ODD37G6mZMKNsAHTDhRoPOSFRoX436xaN81WF5OU8qAf6HsAiXywAIUVc8
+	F3ki2d0=
+X-Received: by 2002:a17:907:d20:b0:b96:dd1c:9408 with SMTP id
+ a640c23a62f3a-b972e5a7e72mr299557966b.54.1773299397660; Thu, 12 Mar 2026
+ 00:09:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM7PR04MB6997:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec9420ed-fd43-4289-e69e-08de8004aa38
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|19092799006|7416014|1800799024|366016|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: FA08va1SMwaq9Rul44GOURV0xpcoQOI49nr/P9/2RVnVnCHQulnGxIY6QgMGTG1eZ7dnGE29CzVuAGJoJsZRws+wcFG4r7eyytShfQUAgQen2J4Vgg1m8U4sKdCeOmx2Nsdk5RALsepIcMlAY1NIyGyTH+VHRDbbmDUzMndkCIMLIrjHTh6pPx9HqLqus7L+hTmvRtP+DmuRzHORwwDE9Qf2osR4qBoG7peAA0sjzmQT6lFU50HENBxfHeanQsMXWQdYYdb6QjNXcEgvhklItoIYoZtZA/djRXee8GTnWjFpLCrFs0ijazKSZ4ZCuVZJPUMqvcDZBKH+k6r0ouVaAa+jr4uFhTdfNCPcncg7Y7bJU2bLm6g+W9cE4Sq0cPMd9DIoXKEzkIrYlOMGBdqh1bmc/Ns6dXHCQJrTW7LCih/RRsYXYF9wQfKdtZ7F69D4Az88ivnYbUllMXcH5A/NhqA2aTMpHuwEk6Sop0nBKo+vF1TFWrVZ3HTmowlMJf6AQkpXWrIPRJeEfaxnb8oLEUGHUKosYnsFuxDJrnikA07D9qYk2aryO/HfK8+03HJghXqiP17GSq2bnrlWzNQ/9zScUYXN12YnwtDvPJS3JXHN9dbRKdoDJyse8wvDu98ixOTqeHtQlBKytHzNYfEobLJuyQ2kpOVTJfhRUytwaR1pkDQ9xKSzZ/nd+eDZs7FDlGVoG8wqO2co1UU/b+ukbmzYR3Ygp2g3+AYv6Kj36RkptIITdranE7l/m2nnXJUI4Iv4AJMh5/3ziKkcp9ljdF3qn2fr0hswo+66/8+sxgk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(19092799006)(7416014)(1800799024)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aU1CZzJoRFUxZTBvUlFVOXhQbjduNVhPT3o3L1ozMDVpZ1BIY3dwQVVvT1pI?=
- =?utf-8?B?WCthM1pOWmJucWtleWgxQVZ6eW9YYU5Ya2I4bVVsaStwZ1BaSDByc0xjOWRw?=
- =?utf-8?B?NnZlMjY3Q2JvancwWE4rTnpoaktmaGsramRwbEo4MVRyZmpVdnlRbkFjQlFP?=
- =?utf-8?B?L1VaNHQxbEdUMXNkcE04WGJzQzhjVG4zZFFReTJPeFVXaWhWdkd6WTAzSWNI?=
- =?utf-8?B?dWZWREN1ajhvV0RkbkF5dDlMSHc1VjM1UFk4WnpVZ0NacjZPN2ZZVlRWRGlx?=
- =?utf-8?B?aEtVRFZ5ZDhGVGhDVGxHdDBhdlVBZk5qcGhoNG5sTXFicFk1bHM4WVdqSzRT?=
- =?utf-8?B?ekFIRkJPM3NSWVAzRy84MmN4N3RkRyt4ZUFiZG9HQzlxeDBEME5pck0wQVJY?=
- =?utf-8?B?Rkx3eHc0MVhITlIxSjJNVkdqNWFEZjcvYlgrZC92Vlp0N3h4MGFSZjN5YXI0?=
- =?utf-8?B?RFV0RkpwLzAwdzRUendVT05zQzFVU3F0cUpkeUFLdFR4c255TTFadiswV0xL?=
- =?utf-8?B?aVRJUUF1ZzRtUlh6RjRRRjMzc3NvS2ZyTG9vdXVxd1FvVlVEYXYvUU52YUpS?=
- =?utf-8?B?ektnK3p3WVZXRVVvQncwMlZyb2JkQ2hzQlNCdzA5WDhPMmVMZVd0S2pUTHE3?=
- =?utf-8?B?QnBHbms1dnIxN3RQTDYzMnhaMTZhWlQxNzloWHpoOW1oenpRUFhZTmdCMnZK?=
- =?utf-8?B?UVZaYkVmUDE3aWI4ZTF0YWwvVmxmK1pibGNzZjBlV3craGlTTUlnL2Z0ckVx?=
- =?utf-8?B?Z2RXUnZYRHhnU1o2RmU1MURJRlphWVdkL3dYQk9FOWRGeTg5WFMwb3dnUC84?=
- =?utf-8?B?bWJ5dU5zSnNud25ialdHZzMzT0k3TkpYRjJ0S3RqN0pWMXNma3laNXJncjVI?=
- =?utf-8?B?aTRQZTBudy9vZnlYRjhRbGhPaVJ3VmlEV1lqWlZ2MFJESkhtUmxHMzBFNWpv?=
- =?utf-8?B?ZXRRVVRkTlN4SyswT25JMUhjMWlKS3RkYm45aHVsNG1zbDh4UTZONTJoRzFK?=
- =?utf-8?B?elpRK2ZBSnA3RHBiVmVqMzBHRHA5TG42VEdTYzRLMlNNNWdkWmxxTTVFK2dL?=
- =?utf-8?B?bXl0RjJjK1VGOXIySFRVQVEyS21sT3hKVXlJM1RXNkE4c0RpcVc0OEFPcUFn?=
- =?utf-8?B?ZWpBbnFPN04xVEdRQS9Nb1dNSDlZMmZHYjE0c21UYm5RbGFZVmlzN1NGS1FG?=
- =?utf-8?B?dEhaS3JIdVA1bXRMcDJJd2JEalVwT05hVEJtTEc3UEFBNlBHcTJqeCs2ZXRB?=
- =?utf-8?B?WnNOYkJadjdZMnJNWFBBRklzUlNXRFducVBJTXVoR0dad0tWTFVrUGVnRDA0?=
- =?utf-8?B?NEQ0U2tCZ05lZ2RmbVUxRmdybkU5c2hyUVRWejllS1JsUjJrSXJSWmNxUXd5?=
- =?utf-8?B?aktjc3ZZd01HcWtqTXF6RjdKSTMyUHh1SWt4eUszNUdENjBONE03VStnNnRC?=
- =?utf-8?B?VEhCZ05DM011SWxCbS9ZS1IvZzV2SC91eStSS2FPRVlnbllFalUyRXZzdGh1?=
- =?utf-8?B?Rm9qN3pSSHV5bHIrSEJSY2dkVlo1Z2JXL2JocmdUWWtFaGdDK2FUNDhpdHly?=
- =?utf-8?B?MTZnL2RXNEIyVzJmK2dzekNQYmFYTGJ1L2RUWkVraHVrN3k0cnd0eEIzQnhV?=
- =?utf-8?B?ZW8vM1hVODRBK2tmMlhuS0FQRWV2cUNHWmhodXlRUDlnMEE1TUpMdTVISCsz?=
- =?utf-8?B?R1AwS2JEM2doSGVhTmg1Mm84eFZ5K3ZmL3A3bHBWbkZwcVk1YkQ1eUVsSU40?=
- =?utf-8?B?SlNaSzFaRm9MQk13K01mZlY3VTU3eHdtRHBtbjBaVVUyV2RXZEN5Wm5PcjEv?=
- =?utf-8?B?MHViNVRBUUFjdFcwSTBweHFRdGNPV1pRNzdwbE5hRncxUXRwYTI1MzhodGhh?=
- =?utf-8?B?K3diSXJTM0kvT2I5aXFBT052MXpVbHhsMWJ5dHQvNUZhZVZjbWtRMk0wQ0M4?=
- =?utf-8?B?V0grNWQ4bTNRdUlZRU5sVG9zYWxQZXpUb2hsKzNoRUY0UUZTTkFuQ1c1MDh4?=
- =?utf-8?B?WFRLYkpqeXpYQ29MYURhaEMya2tDY3pRdzhFamxzK2JXTkdpY21FMXZzeFQ5?=
- =?utf-8?B?RExrcDdGcVZjeFhXSlZPdlhKYWNtTzQ0b1U3UEQ1cEI0UHF2dGttSEErWWJz?=
- =?utf-8?B?RXdkK0RyTlhLZ3ZhdXBhdytUWFdZWHdhR1BXeFYxdU44SzF4KzZnajYwcVFr?=
- =?utf-8?B?ZnJManAvWWZPVjdFYnhGK25xTzNtNFF4UTdWOHozV1h6MlVpdm92cGZqNm92?=
- =?utf-8?B?U0o4dDQrUE1KVmdibW56bC9rYysvOEYyZUJ0cnFZd0F4UXZiSE16QzJYczBY?=
- =?utf-8?B?QWtYM29TMFZVWnZhZC9UUmFUSmxnc1NuSWdDWEoxMEZrTWFNWjdVZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec9420ed-fd43-4289-e69e-08de8004aa38
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 06:57:45.8570
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OyYxpd+bCaWdNOgYYFI2BjszTCECS1LG29H4BFOdGMe9u/DGT/A1QU1AFRA7wTMQBpb4Bj0zxCAnJYHg8S5TiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6997
+References: <20260311-husb311-v1-0-f25bcb58cff7@flipper.net>
+ <20260311-husb311-v1-3-f25bcb58cff7@flipper.net> <20260311-married-democrat-f6eb1c651e97@spud>
+In-Reply-To: <20260311-married-democrat-f6eb1c651e97@spud>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Thu, 12 Mar 2026 11:09:43 +0400
+X-Gm-Features: AaiRm53JoSVHPKKchRGU0H0o0pu24aIAgKHDs-WeWrrs5xSsEXLakFZd28fKT1k
+Message-ID: <CAKTNdwFQnySkhpLDrFh5kwX=_tvci=g0Y6Q5y-15Qsogd=FxOw@mail.gmail.com>
+Subject: Re: [PATCH 3/4] usb: typec: tcpci_rt1711h: Add support for Hynetek HUSB311
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Gene Chen <gene_chen@richtek.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_235753_113653_A0BBEE33 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260312_001001_196584_3881B563 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,274 +122,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On Wed, Mar 11, 2026 at 10:33=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
+ote:
+>
+> On Wed, Mar 11, 2026 at 08:20:46PM +0400, Alexey Charkov wrote:
+> > HUSB311 is a pin-compatible and register-compatible drop-in replacement
+> > for RT1711H, so add its IDs to the existing driver.
+> >
+> > Link: https://www.hynetek.com/uploadfiles/site/219/news/0863c0c7-f535-4=
+f09-bacd-0440d2c21088.pdf
+> > Link: https://dl.xkwy2018.com/downloads/RK3588S/03_Product%20Line%20Bra=
+nch_Tablet/02_Key%20Device%20Specifications/HUSB311%20introduction%20202105=
+26.pdf
+> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > ---
+> >  drivers/usb/typec/tcpm/tcpci_rt1711h.c | 21 +++++++++++++++++++--
+> >  1 file changed, 19 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/usb/typec/tcpm/tcpci_rt1711h.c b/drivers/usb/typec=
+/tcpm/tcpci_rt1711h.c
+> > index 88c50b984e8a..ac5917c1e253 100644
+> > --- a/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+> > +++ b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+> > @@ -18,6 +18,9 @@
+> >  #include <linux/regmap.h>
+> >  #include <linux/regulator/consumer.h>
+> >
+> > +#define HUSB311_VID          0x2E99
+> > +#define HUSB311_PID          0x0311
+> > +#define HUSB311_DID          0x0000
+> >  #define RT1711H_VID          0x29CF
+> >  #define RT1711H_PID          0x1711
+> >  #define RT1711H_DID          0x2171
+> > @@ -55,6 +58,8 @@
+> >
+> >  struct rt1711h_chip_info {
+> >       u32 rxdz_sel;
+> > +     u16 vid;
+> > +     u16 pid;
+> >       u16 did;
+> >       bool enable_pd30_extended_message;
+> >  };
+> > @@ -308,14 +313,14 @@ static int rt1711h_check_revision(struct i2c_clie=
+nt *i2c, struct rt1711h_chip *c
+> >       ret =3D i2c_smbus_read_word_data(i2c, TCPC_VENDOR_ID);
+> >       if (ret < 0)
+> >               return ret;
+> > -     if (ret !=3D RT1711H_VID) {
+> > +     if (ret !=3D chip->info->vid) {
+> >               dev_err(&i2c->dev, "vid is not correct, 0x%04x\n", ret);
+>
+> Why are we checking vids and pids here? Rejecting a non-match prevents
+> using fallback compatibles, so I'd like to know why the code exists.
+>
+> Is it just here for the sake of it, or to prevent some actual issues?
+> Not really familiar with USB devices unfortunately.
 
- - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM extensions
-   for the SCMI clock driver, allows clean integration of vendor-specific
-   features without impacting the core SCMI clock driver logic.
- - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related
-   declarations.
- - Initialize OEM extensions via 'scmi_clk_oem_init()'.
- - Support querying OEM-specific features and setting spread spectrum.
- - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
+Hi Conor,
 
-Reviewed-by: Sebin Francis <sebin.francis@ti.com>
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/Makefile       |   2 +-
- drivers/clk/clk-scmi-oem.c | 108 +++++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/clk-scmi.c     |  19 ++++++--
- drivers/clk/clk-scmi.h     |  11 +++++
- 4 files changed, 136 insertions(+), 4 deletions(-)
+It looks like a relic of some original vendor provided driver code.
+Rockchip's implementation of a HUSB311 driver [1] contains similar
+checks but I don't think it adds practical value in the world of
+Device Tree (after all, it's just an I2C device - I haven't seen many
+I2C drivers reject a DT match based on hardware IDs found in
+registers). I chose to avoid removing them with my patch though,
+because I don't have any Richtek hardware to test such a change.
 
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index d569d0ea3153efe593efbbd51e022b2415234d3a..0b74a458255b2d50030cb4a2102599228c3660bd 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -93,7 +93,7 @@ obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
- obj-$(CONFIG_COMMON_CLK_RPMI)		+= clk-rpmi.o
- obj-$(CONFIG_COMMON_CLK_HI655X)		+= clk-hi655x.o
- obj-$(CONFIG_COMMON_CLK_S2MPS11)	+= clk-s2mps11.o
--obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
-+obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o clk-scmi-oem.o
- obj-$(CONFIG_COMMON_CLK_SCPI)           += clk-scpi.o
- obj-$(CONFIG_COMMON_CLK_SI5341)		+= clk-si5341.o
- obj-$(CONFIG_COMMON_CLK_SI5351)		+= clk-si5351.o
-diff --git a/drivers/clk/clk-scmi-oem.c b/drivers/clk/clk-scmi-oem.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..be11d359b4ec3633868f33bb429c7cfec9f1e48e
---- /dev/null
-+++ b/drivers/clk/clk-scmi-oem.c
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * The Vendor OEM extension for System Control and Power Interface (SCMI)
-+ * Protocol based clock driver
-+ *
-+ * Copyright 2025 NXP
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/of.h>
-+#include <linux/scmi_imx_protocol.h>
-+#include <linux/scmi_protocol.h>
-+
-+#include "clk-scmi.h"
-+
-+#define SCMI_CLOCK_CFG_IMX_SSC			0x80
-+#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-+#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-+#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-+
-+/*
-+ * Selection is based on SCMI vendor_id/sub_vendor_id and optional machine
-+ * compatible string, without involving impl_ver. impl_ver‑specific behavior
-+ * should be considered a bug and handled via SCMI Quirk framework.
-+ */
-+struct scmi_clk_oem_info {
-+	char *vendor_id;
-+	char *sub_vendor_id;
-+	char *compatible;
-+	const void *data;
-+};
-+
-+static int
-+scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-+				 const struct clk_spread_spectrum *ss_conf)
-+{
-+	struct scmi_clk *clk = to_scmi_clk(hw);
-+	int ret;
-+	u32 val;
-+
-+	/*
-+	 * extConfigValue[7:0]   - spread percentage (%)
-+	 * extConfigValue[23:8]  - Modulation Frequency
-+	 * extConfigValue[24]    - Enable/Disable
-+	 * extConfigValue[31:25] - Reserved
-+	 */
-+	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, ss_conf->spread_bp / 10000);
-+	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, ss_conf->modfreq_hz);
-+	if (ss_conf->method != CLK_SPREAD_NO)
-+		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-+	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 val, false);
-+	if (ret)
-+		dev_warn(clk->dev,
-+			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-+			 ss_conf->modfreq_hz, ss_conf->spread_bp, ss_conf->method,
-+			 clk->id);
-+
-+	return ret;
-+}
-+
-+static int
-+scmi_clk_imx_query_oem_feats(const struct scmi_protocol_handle *ph, u32 id,
-+			     unsigned int *feats_key)
-+{
-+	int ret;
-+	u32 val;
-+
-+	ret = scmi_proto_clk_ops->config_oem_get(ph, id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 &val, NULL, false);
-+	if (!ret)
-+		*feats_key |= BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED);
-+
-+	return 0;
-+}
-+
-+static const struct scmi_clk_oem scmi_clk_oem_imx = {
-+	.query_ext_oem_feats = scmi_clk_imx_query_oem_feats,
-+	.set_spread_spectrum = scmi_clk_imx_set_spread_spectrum,
-+};
-+
-+static const struct scmi_clk_oem_info info[] = {
-+	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
-+};
-+
-+int scmi_clk_oem_init(struct scmi_device *sdev)
-+{
-+	const struct scmi_handle *handle = sdev->handle;
-+	int i, size = ARRAY_SIZE(info);
-+
-+	for (i = 0; i < size; i++) {
-+		if (strcmp(handle->version->vendor_id, info[i].vendor_id) ||
-+		    strcmp(handle->version->sub_vendor_id, info[i].sub_vendor_id))
-+			continue;
-+		if (info[i].compatible &&
-+		    !of_machine_is_compatible(info[i].compatible))
-+			continue;
-+
-+		break;
-+	}
-+
-+	if (i < size)
-+		dev_set_drvdata(&sdev->dev, (void *)info[i].data);
-+
-+	return 0;
-+}
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index bf85924d61985eb9e596419349eb883e3817de73..1ed2091e3d4a951c8662db4c94dee4b9c98b8326 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -14,6 +14,8 @@
- #include <linux/scmi_protocol.h>
- #include <asm/div64.h>
- 
-+#include "clk-scmi.h"
-+
- const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
- 
- static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
-@@ -242,6 +244,7 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
- static const struct clk_ops *
- scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- {
-+	struct scmi_clk_oem *oem_data = dev_get_drvdata(dev);
- 	struct clk_ops *ops;
- 
- 	ops = devm_kzalloc(dev, sizeof(*ops), GFP_KERNEL);
-@@ -288,11 +291,15 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
- 	}
- 
-+	if (oem_data && (feats_key & BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED)))
-+		ops->set_spread_spectrum = oem_data->set_spread_spectrum;
-+
- 	return ops;
- }
- 
- /**
-  * scmi_clk_ops_select() - Select a proper set of clock operations
-+ * @sdev: pointer to the SCMI device
-  * @sclk: A reference to an SCMI clock descriptor
-  * @atomic_capable: A flag to indicate if atomic mode is supported by the
-  *		    transport
-@@ -317,8 +324,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
-  *	   NULL otherwise.
-  */
- static const struct clk_ops *
--scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
--		    unsigned int atomic_threshold_us,
-+scmi_clk_ops_select(struct scmi_device *sdev, struct scmi_clk *sclk,
-+		    bool atomic_capable, unsigned int atomic_threshold_us,
- 		    const struct clk_ops **clk_ops_db, size_t db_size)
- {
- 	int ret;
-@@ -326,6 +333,7 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	const struct scmi_clock_info *ci = sclk->info;
- 	unsigned int feats_key = 0;
- 	const struct clk_ops *ops;
-+	struct scmi_clk_oem *oem_data = dev_get_drvdata(&sdev->dev);
- 
- 	/*
- 	 * Note that when transport is atomic but SCMI protocol did not
-@@ -350,6 +358,9 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 						 &val, NULL, false);
- 		if (!ret)
- 			feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
-+
-+		if (oem_data && oem_data->query_ext_oem_feats)
-+			oem_data->query_ext_oem_feats(sclk->ph, sclk->id, &feats_key);
- 	}
- 
- 	if (WARN_ON(feats_key >= db_size))
-@@ -407,6 +418,8 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 	clk_data->num = count;
- 	hws = clk_data->hws;
- 
-+	scmi_clk_oem_init(sdev);
-+
- 	transport_is_atomic = handle->is_transport_atomic(handle,
- 							  &atomic_threshold_us);
- 
-@@ -438,7 +451,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		 * to avoid sharing the devm_ allocated clk_ops between multiple
- 		 * SCMI clk driver instances.
- 		 */
--		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-+		scmi_ops = scmi_clk_ops_select(sdev, sclk, transport_is_atomic,
- 					       atomic_threshold_us,
- 					       scmi_clk_ops_db,
- 					       ARRAY_SIZE(scmi_clk_ops_db));
-diff --git a/drivers/clk/clk-scmi.h b/drivers/clk/clk-scmi.h
-index 6ef6adc77c836dc2d599ff852cdc941f217ee388..d7f63f36c56d155f728325efd6bcf7fe2585b170 100644
---- a/drivers/clk/clk-scmi.h
-+++ b/drivers/clk/clk-scmi.h
-@@ -7,6 +7,7 @@
- #define __SCMI_CLK_H
- 
- #include <linux/bits.h>
-+#include <linux/clk-provider.h>
- #include <linux/scmi_protocol.h>
- #include <linux/types.h>
- 
-@@ -19,6 +20,7 @@ enum scmi_clk_feats {
- 	SCMI_CLK_RATE_CTRL_SUPPORTED,
- 	SCMI_CLK_PARENT_CTRL_SUPPORTED,
- 	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_EXT_OEM_SSC_SUPPORTED,
- 	SCMI_CLK_FEATS_COUNT
- };
- 
-@@ -37,4 +39,13 @@ struct scmi_clk {
- 
- extern const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
- 
-+struct scmi_clk_oem {
-+	int (*query_ext_oem_feats)(const struct scmi_protocol_handle *ph,
-+				   u32 id, unsigned int *feats_key);
-+	int (*set_spread_spectrum)(struct clk_hw *hw,
-+				   const struct clk_spread_spectrum *ss_conf);
-+};
-+
-+int scmi_clk_oem_init(struct scmi_device *dev);
-+
- #endif
+Maybe the error could be downgraded to a warning though.
 
--- 
-2.37.1
+Best regards,
+Alexey
 
+https://github.com/rockchip-linux/kernel/blob/develop-6.6/drivers/usb/typec=
+/tcpm/tcpci_husb311.c#L217-L244
 
