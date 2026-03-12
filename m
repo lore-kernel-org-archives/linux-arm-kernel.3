@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7871106705A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CDE106705A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=; b=sJBpyL8vL7ZMTSDXXZUGI0afwN
-	ooFRUjXJOIYn4JYMPnuDkYae+wxts5zO+P0B9eBs0o3ibP+8dSeTuO1qXnNJL+7u/85dJZUObKweh
-	giwWECPvWZJ/fev+IS0OfvLKq7EV1EWegg45tbAO2KJHgKQG988lZBEcJ9uB/+BWG/yb+Ig/Zw+U+
-	1DFexzcdJD+2gxGDxJujzd3+/twM/5ZkyXJ4aOEZqULd+gElEDGbMEQi8rAzGnzPYFjiW9sZubMCk
-	LWctWyY3qF4mjlTRfbj8fsKTUIOylgAnxQGzez5nD9QEhzjQZBvwwMA2fX7Y/WC3Wh/tWUEd9M1BC
-	Rgh7844g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F5qwJavBVWV92QiDrDH0xvkLoJ9dwrCz5qZjjPc0g9E=; b=r97GZYQdWGijcwmpBn+xYTalUp
+	/HLYG6LMPvwBaahlwKHrcZBtGQQXzGyjqbRXkyAtsjcP1VFdDDxrDj6/gAa+KPIF86GjNJGDp0Hof
+	AuKPUG1sZJD81wgUKBIRE6Md8Fd0GMc0IWE431ysjYG9wsleyBQaLQUcc3beoD04lNxywU1ag3X1d
+	bbO2BLoT5wJLPbvZPNIOVNsyIK0+RYwI8dLaYI2kBU/q6CK02QlU+R8az4CK5kenwHU3dp6FsUFIA
+	9DIPUHVsWerdWDGzxzTkoh39O7qNZepefj3kn2mLwcIiJGWrOOxuYLbBcB4vrOwbrgsrCw5UgC2TE
+	B4tngavA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0iBv-0000000EQAU-1FbW;
-	Thu, 12 Mar 2026 15:43:15 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1w0iDR-0000000EQZX-0uMi;
+	Thu, 12 Mar 2026 15:44:49 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0iBs-0000000EQ9B-2hDf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 15:43:13 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43a03cb1df9so546879f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:43:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773330190; x=1773934990; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=;
-        b=WqATUtLVQJHGjmOpUMxoX5ejEvKHmrDYe0rUY9zeWNIl1Nwl1fmB3BN8XX+Q5R2RDx
-         4Kl1kG3lbFVa+tAio/sMTKbtsujfOeTL0nF7R9GtGUtOMpc/L2JUM1xfBkGPHtcXyw8q
-         Oc5/qC+Hv+sSnZQdMiKUGsNWXm5geMdpXcZpTDNjufqxE/cOQReqVVHkDyJNq2aFWYF4
-         pCBO2rhvGm0DFW/6C2szsikff2PG+0xTIB6zOTALr3VnVDwYU3qZ/bs/sVyBzsSGKjBt
-         FtyCN3gvQjbtpYkyp5DD7tK3wF0TtVBMn/vfFRw+zB61SPcGnkKquZbAUDSlYLj8wSB8
-         gAvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773330190; x=1773934990;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=;
-        b=DiOn5wdNJBgxVhbKlc8L0recCVtJE18zbyE3l9OxWd+4l3MTJZNzJlUAza6UYajZ6v
-         PbPNAY3KRAcSnZ90r+UUbE6hTabZCt82/mWklU1R8XkKynCrkavQ/x8Zd5V1m7aD2isT
-         bZQcSX0ERALr8r6j/QIdZCLsLeSrRuS5F0g3pekJN76d9VjCuXaTqaOTiUHxGpNLGpZ1
-         l7oJAByLLpOtT7v6TpvE6v3b+b+J2/SNLvGs8VrrCbRNnzXK/Nk975jjo6GaMSWLbFVe
-         hcnkzmLUZ9E6iH1oU/6T7E6HUKy5H6e8aHnveU8tuTZzAmrlwAgUZaFuqhsD4sSP2HNw
-         SUQw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgcULC6/aSpxO+PZwHb9lQea7V0g2FrCTNqxrwvJQRO8BapLkiImpak8kVgFgMoDsVqnS4GNu4jWafQ3BaGE3q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2IiYIYsWi5e3V3DZzWbJUFnLqpZMfFqmk2f7jC7wIaS5fd2cu
-	ukc1bM4c21OFsN8EPttB718+5kQF6XUZjZ+eIYU4yaXvTeTJMnhBVpsC
-X-Gm-Gg: ATEYQzx9NtBFwS3IFIE6nZFUx+1ZQfirmZcX0Fmn4toXQywQ9ggyrAY92xm+ehOT7yq
-	YdlLGOV3KS2ZhvYFkPE6EQAfIj8kZIVs57LZs/+ADLcmmcE+fDqFYJ4eZsjPOD7C1qNPlLKwGPD
-	DocCG44bAeH1mPG+uD/nkCWrUwr1DWzlyHXjPnIhdCXwyLZdzFseb9A1EQosyIMR1o7xFNvRQYL
-	GaYdrxwH4DsSS9zxI7J4Fmnr5hNcjvMb3f3Ey3kM+Y2a4SDFxhIlT0daLGrqjL1kmeFi1IxWjys
-	qZ3EB2GHVmOMjc0u8d4e+vxZz/DHGw8MhvcHKwDBf8LL1NKohLkE5S/fIk8g3ePffWHwHjOCWOh
-	nTietZ6CKXhJssYa6rj5j/gl/bCcjF44sGFGVFf76GYFVj/RgB4wfjf+BngUVytJTTCH4dfd+u0
-	Yl1/dHxCx3sOUh34CMNYNcL7jjeuiBGUYnYqm9tbBJFzapr5RuH8eNGqVkPXXDERzEj3Xi5ILXp
-	/alqg==
-X-Received: by 2002:a5d:5e01:0:b0:439:be67:a034 with SMTP id ffacd0b85a97d-43a04dc0c3fmr244402f8f.47.1773330189741;
-        Thu, 12 Mar 2026 08:43:09 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-12-163.dynamic.telemach.net. [86.58.12.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43a03cfd18fsm2132231f8f.36.2026.03.12.08.43.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 08:43:09 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-sunxi@lists.linux.dev,
- Paul Kocialkowski <paulk@sys-base.io>, linux-mediatek@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] drm/sun4i: Use backend/mixer as dedicated DMA device
-Date: Thu, 12 Mar 2026 16:43:07 +0100
-Message-ID: <2820906.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20260311094929.3393338-5-wenst@chromium.org>
-References: <20260311094929.3393338-1-wenst@chromium.org>
- <20260311094929.3393338-5-wenst@chromium.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	id 1w0iDO-0000000EQYK-14QB;
+	Thu, 12 Mar 2026 15:44:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=F5qwJavBVWV92QiDrDH0xvkLoJ9dwrCz5qZjjPc0g9E=; b=KIdjU6BjZrTcnKue5AEEHNUND+
+	YKAvDSMLR/2ccfbak/Pa7FUnAEyf4/sqXKJTX197jkN81KUcGBVp0bf/TyScvrp8iZweuWzT/EFYW
+	9aIBUhGh1VMwNOL/2zloVVeP0Ue/xtjxHPoEKbexVUHjX8gOy7nFbuRb3VE06LM5OTwU=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1w0iDC-0000000072H-0dJm;
+	Thu, 12 Mar 2026 11:44:34 -0400
+Date: Thu, 12 Mar 2026 11:44:33 -0400
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Rob Herring <robh@kernel.org>
+Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, dmitry.torokhov@gmail.com,
+ hvilleneuve@dimonoff.com, mkorpershoek@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, lee@kernel.org,
+ alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v4 2/4] dt-bindings: input: add settling-time-us common
+ property
+Message-Id: <20260312114433.5432b94423d7caf3968658a1@hugovil.com>
+In-Reply-To: <20260312150210.GA3121485-robh@kernel.org>
+References: <20260305192101.2125660-1-hugo@hugovil.com>
+	<20260305192101.2125660-3-hugo@hugovil.com>
+	<20260312150210.GA3121485-robh@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spam_score: -2.0
+X-Spam_bar: --
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_084312_699495_FD188C46 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260312_084446_386025_389A2D81 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 11. marec 2026 ob 10:49:28 Srednjeevropski standardni =C4=8Das j=
-e Chen-Yu Tsai napisal(a):
-> The sun4i DRM driver deals with DMA constraints in a peculiar way.
-> Instead of using the actual DMA device in various helpers, it justs
-> reconfigures the DMA constraints of the virtual display device using
-> the DMA device's device tree node by calling of_dma_configure().
->=20
-> Turns out of_dma_configure() should only be called from bus code.
-> Lately this also triggers a big warning through of_iommu_configure()
-> and ultimately __iommu_probe_device():
->=20
->     late IOMMU probe at driver bind, something fishy here!
->=20
-> Now that the GEM DMA helpers have proper support for allocating
-> and mapping buffers with a dedicated DMA device, switch over to
-> it as the proper solution.
->=20
-> The mixer change was tested on a Pine H64 model B. The backend change
-> was only compile tested. Though I don't expect any issues, help testing
-> on an older device would be appreciated.
->=20
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Hi Rob,
 
-Thanks for fixing this!
+On Thu, 12 Mar 2026 10:02:10 -0500
+Rob Herring <robh@kernel.org> wrote:
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> On Thu, Mar 05, 2026 at 02:20:48PM -0500, Hugo Villeneuve wrote:
+> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > 
+> > Add common property that can be reused by other bindings.
+> > 
+> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > ---
+> > Note: a similar property is used by gpio-matrix-keypad.yaml:
+> >   col-scan-delay-us
+> > ---
+> >  Documentation/devicetree/bindings/input/input.yaml | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/input/input.yaml b/Documentation/devicetree/bindings/input/input.yaml
+> > index 502e0b7eb500a..14652d324e2ca 100644
+> > --- a/Documentation/devicetree/bindings/input/input.yaml
+> > +++ b/Documentation/devicetree/bindings/input/input.yaml
+> > @@ -66,6 +66,14 @@ properties:
+> >        reset automatically. Device with key pressed reset feature can specify
+> >        this property.
+> >  
+> > +  settling-time-us:
+> > +    description:
+> > +      Delay, in microseconds, when activating an output line/col/row GPIO
+> > +      before we can reliably read other input GPIOs that maybe affected by this
+> > +      output. This can be the case for an output with a RC circuit that affects
+> > +      ramp-up/down times.
+> 
+> Whether it is GPIOs or not depends on the implementation. Just drop 
+> 'GPIO' and replace 'GPIOs' with 'lines'.
 
-Best regards,
-Jernej
+Ok, will do for V5.
 
+Hugo
 
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> 
+> Rob
+> 
 
