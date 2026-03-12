@@ -4,63 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6735BFED2F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D975FED2F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrpW6h2Q9LPFZ9ZmpXNqGQq4FdOv6B4AU4hfwyWZDqA=; b=sAW7W3D2KoWbYSoUtkmqFo5vMC
-	Clf+myBSWPfOwHEv22sfADRUC7c6I6RTkqLn9Yfw/zzT8LeRZGwQXYKndAz64cX56tk/l4XTjksMJ
-	6rnN90SLZQaW+hiB/chH/hBGkcmCp7sj3r/0yMXN4ItPZzT4pEImTCjZvmhe/e2LfbjX7Sql4wOH+
-	vx1edx3nzwGfM3a7W6JPB+904nDXxVE87QCJbxrs+LZOcgHsvKhtCdGuOFRmt7C2nOdu/V/sNi8gm
-	eIAHtuECtVCyzNyNW94pfWE9i6Y8iKZBALNGFBV+WcGq8GWiDWZOotZySkhCoRTBCWFkHSwJEWI2N
-	cdL8Bt9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bt9Tls3RHlUNB4JaIXDSpgUoBKsx8XDz/ROBtO/JIL4=; b=lubL05B0Ehn3R2BJr01L8oqWeS
+	RqNW+ISuY7Lx9Co3hI2jUtNOn3mKdhbJKI4A1FhEDH0EfA8y11uVjT1gjOg1zlmbr6VRinvfIWHSR
+	UzHPw0cKaGZ9XEY4UGIuTGkG8ws2j7r8VQRwhJJ6bZmITU97kLwzg5/hAPezq55TylkMELYLF2i+b
+	vGFmI1scsdoTS9wQsyGDKWTC8qBvBjl4WpsFCnhJmcgFi08hQGyOpoTfjZ3wGXsNE2wfnhSg0zDC+
+	Bdy0BYDE1jLkuegK+Dk97JZGdzrU/venQd5B8NlrQhkCCA29wHdyKzHCzzHfO9HCPGdzmAF2ZB46k
+	Q9UrCWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bsU-0000000DgMI-2Q6F;
-	Thu, 12 Mar 2026 08:58:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0c7r-0000000Dh32-14hM;
+	Thu, 12 Mar 2026 09:14:39 +0000
+Received: from mail-francecentralazon11013064.outbound.protection.outlook.com ([40.107.162.64] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bsQ-0000000DgLa-2zHS;
-	Thu, 12 Mar 2026 08:58:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4611143588;
-	Thu, 12 Mar 2026 08:58:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F260C4CEF7;
-	Thu, 12 Mar 2026 08:58:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773305922;
-	bh=gzwQbXlxGCgV7ayjoCQc2C/VT8D0c/zVDcxM5EFbBdE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=GN/0UJ7XfZ0kkoE3uBKLZOt6mJsIegV/pdEjAKaueyy4bmTvDYADf4BVzfysTQ9Go
-	 6HihvWbV8OnKnrmI5OSA6FlHEj570vtkzi7hXdBSDBFhwQU6c9/0Csi13xmK2BlSUc
-	 +vEeAgwcrxob7hRLsp2a6EaeUe1HwbsM96Qu5tGCaFdrvR7+eLbOyhNCZ9VUgu6b/q
-	 /lmF7UwScg+DRwwgPrHZv3oEqqFGd3zDUTsxPh5Jew/kkniBvb6HjBzKWHJcL/T9+8
-	 9RNXaJxMWt97UIb/p8duQe07KVd9V1lYzDvKox5lI41TNlZs+9vw189B2DRMZjvsH0
-	 jbLB4fkCYYznQ==
-From: Srinivas Kandagatla <srini@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kever.yang@rock-chips.com, finley.xiao@rock-chips.com, w@1wt.eu, 
- jonas@kwiboo.se
-In-Reply-To: <20260205211901.490181-1-heiko@sntech.de>
-References: <20260205211901.490181-1-heiko@sntech.de>
-Subject: Re: [PATCH v4 0/6] rockchip,otp: Support for RK3528, RK3562 and
- RK3568
-Message-Id: <177330591995.2413713.14025044047873415718.b4-ty@kernel.org>
-Date: Thu, 12 Mar 2026 08:58:39 +0000
+	id 1w0c7p-0000000Dh2H-1Fui
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 09:14:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uaCcrotpP+Uc+ONBeYEDe0H/MOmJtao1T60Hq2mrXlUozjwC5pSH3GeReazXkVUavYq6nPxnr8dzQEl/q3ggTf9pxcjW8D+7I865VIxpRgAKB2w9/LZ37Nn/BskFdsganXEkBQRVUpeARBZwCzgu/LqjEz3gisu5WkVXAOouIkj9B1PJa5FFo4PXiN1A6D4iNZUFyTNn/9UlEcPE1lYgIfzHICmoR7V1tZum+MaeeZGBB/n2aqFnVFdY0L4S8MkHd2AElEkODWqJReE2QqxDPnxRWp3g92SZPvzsxrnRdmGRLdbmNiy/OLIrzlmee6Uk1Ss9b0OS/fMnvBh/9LnEfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bt9Tls3RHlUNB4JaIXDSpgUoBKsx8XDz/ROBtO/JIL4=;
+ b=TmDJHkzqbxRS0sJyJXC27/eC/vxxqtKuAZrSY39YmjyIWnqFqT50Ucn5/J35II132Os3SK8VNgQCM5Dha8SfxqcGcvP3uPsGhPeSqXWsrIra8btaQKmt7qbsnP0Olhnz1N7ZMSHpE1hAXwIdnpxWJQsozJpeVxnguFBogrG8heD7nYEuhJ8z8X1ERYLg8WgIoGHgolQzOkOFQ1wBoi9a8JWjLYFW2096l92Ps7fH/uPRKsXn83lYQwB/ilgCVjU850vB9sJJ1MkiHeVE7aLkrwByxh7Me0QaLaieTs6eMtajv0KNN/3ofHByTY64eCQ/DloBWIgTO3CPnOLAWnMduQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bt9Tls3RHlUNB4JaIXDSpgUoBKsx8XDz/ROBtO/JIL4=;
+ b=SQDvDBzxpScxIlqhmRQJh3HTw3sVfnx9TEjnS/rZiGA582WCIuRBH6jLkwR5HPP6BE01Gnz91OeiBpMtFd1d9eYqvPa1nj+VNWShvdC/a04GrXtYXU42Ol3rYylS5EIse+BfChoymwXOpl5jGKyWA5QfylPLg4MX/OrZZFlU3D+MsKSWNPT+GNDKk6O37TONcWXIRGWsClXtTINAPcTACi9PdpyKARvRHfxZouG5/EyDYCNLevRBFsH0pLJkIz/q3RUm5FBH713qyH5S2si/0pHb4KautxAD5f/vtt3Kbmh1XTdZAQZB2rNR58lG4RoO7x9fR36Gl+61unkF67lfAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by GV2PR04MB11836.eurprd04.prod.outlook.com (2603:10a6:150:2fe::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 09:14:22 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 09:14:27 +0000
+Message-ID: <ccce0f8c-88bf-4cd8-a806-b62049606cfe@nxp.com>
+Date: Thu, 12 Mar 2026 17:15:33 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+To: Marco Felsch <m.felsch@pengutronix.de>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+References: <20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de>
+ <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
+ <33e09cc9-69bd-468b-8361-b92a50686f74@nxp.com>
+ <DGZ2XYTVUR28.16ITKRM9S2ACV@bootlin.com>
+ <ot5qypkeirkiweicjijholt2hwfpnnfhrcm3d6euqfnupptsab@din4bkq2sh5h>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <ot5qypkeirkiweicjijholt2hwfpnnfhrcm3d6euqfnupptsab@din4bkq2sh5h>
+Content-Type: text/plain; charset=UTF-8
+X-ClientProxiedBy: MA5P287CA0237.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b1::17) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GV2PR04MB11836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77624c2a-731e-4c1d-ff51-08de8017c23f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: fzYPTVIEk5s9MTN9AdXpGuYBwNe//sF0pJKZzLI8qz5hwdnRy55Spra9SIznQu1NhLfpeWu0PfWrxOqrs29m694xDNxiXLMkJOdZEfywJcZ4giv3WxOFTdZ/h3Qv0kUJuw0uQc1jLF1/FnohFpvh53Ws6ERdkiQ9AOJXadnkeYC1IC1kbXfuC0BTfJJqEF8qAXcbBOOs6vYRDOsJ4pDRoPBlI0Dwgm+fo4TbLoHUTU4bWx1seIaHjm4oXQY7iks6o/tsLDHGPslmh9P2HYI7cjS+wqIBcwOKufR0zbW4pHMDLdSVUtiJ+DH9p6Li9EoVJNoMT9z8XWEzKGxqPpV4XJYn+4bTVcBt26KTNCjrWW46/J0+P+CshFU02d96Nm+6SiBzjs9NhtlMk9UindOcB5PAbERUXr5PLviZeknf4nsFOzBHymMrPmXSw7+qTrTzyvZxzfATLTN/QoyCOYWl+JF9FF5WlWR1D6EPNHGsLSuI1Zvp+wFXAGfITOfUzImKdz0awcjJxNjRh2eXD6cC3tdPfRfOxYI+4cDzE8anTMYo61W8QYg2p+aI3A3AVmtfNJNY0MEy1p4DVMoB/cWSfuLk98vVDtWs7nILm8o+XUsxEK3lznEKPQWzUeYnRsojQJ9mERdYfEdBIC4w/KPWfxmihYybvc6G0JrYiBMNW3XtS+PQDpUw6ff5/2YzLymf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RmtMeERsSUJyaE9FV3QwM0dqMXllQittOTBZSU52c3d1NkltSE1KbG5xWnQx?=
+ =?utf-8?B?YXZWYTVVSTdZaUx4M1pzWng4SHZjV2RSMnZoUUhESTJaT09XY3JNSXNVU0NK?=
+ =?utf-8?B?RCtKVWhXZEora2pIMnJrb01IQTBaRjB0K3puOEVaTEpiM1BLWTVmWVRSeVJC?=
+ =?utf-8?B?Q2dLeUpiZVVmemJtaDhrcmVoUDRJTUZ4MSt3UGQ5cVc3WW1GbVEvTlpEcUJx?=
+ =?utf-8?B?OTJjc1AvclNRZHhmMVhBT1hXS0Z5MnNrbXlMaGJzNnd3NEYydVFycEtBcUd1?=
+ =?utf-8?B?eVZ5WHM2Z2g2ZkFtSGZVNm50eFdoeFA0emJvVldWUGFaVk4rbW5XOHFBWTFI?=
+ =?utf-8?B?SzNqWm1IL2c2ZnhvaEtmQXIzakx3ZWRZMjh1Ky96Rks3UFVpUUw3cDJKdXdN?=
+ =?utf-8?B?blI0cmI2R2UzeG5zcG1BZWNrYUZydzJHdjA4TC9lWWdTVnRaTmRVaFFheGhw?=
+ =?utf-8?B?anhCUFZQT2xkTS9JMVlBSjBPMHdSM1h3SWNVNVVvRUt3OXYveFFOV255SXRl?=
+ =?utf-8?B?VStsVU9uS3FsUHJlaFJ1T3VpVHhSR2pianNZcE9nOXlzT3lCQnFrRjJSTTRh?=
+ =?utf-8?B?UmNIRHd1U0szaWFwT0NhcThNczRvc2NKZ1M2b0ZjaytpY1FiWjBFZ3NmVzAw?=
+ =?utf-8?B?WCtFSmtWSlJnSVFzeldaeFFxbWd0SzBvb1ZPWE9LMWsxeXN6OENQc0dHdEJm?=
+ =?utf-8?B?Q3Nrdnh4MUxlZU0xMXRIRnBpK3h2V0tKdUs4cHI0a3VscUFEYmRFQ3hUazc4?=
+ =?utf-8?B?VVQrNmtBWVNRU2x3bm9tZkRBa28xb0t5RUUwMTNhTXhuTlQzRXNyY1VsMzh5?=
+ =?utf-8?B?eVdnellIMTBhblB1MUg5Z3lyYXc2NEcxMXcrQ2ZIbGQwV0d3OXhHWkVtVkQw?=
+ =?utf-8?B?VURDZGVQeWpRcEloMGpvaWU4MFBZZGxrWENkWlpJbG1LTFZ6MjM3WUFPL29s?=
+ =?utf-8?B?cHhkVHFPSERsNllReGdOQWd6QzZ5eE9BZTFCcExDNG9CeDBsM01IZHJHZ2xX?=
+ =?utf-8?B?d3htRFFRcTN5cWx1WDRhbjZlNVJmTEpINSsvY0NrR3RTQjd0dDUxNFpwNklI?=
+ =?utf-8?B?STlMTVhsR0RaSmQwVXRGbG45NzdiZ0RWN1Vac21uY1poZnRyNUZUbzhpS0V2?=
+ =?utf-8?B?K3lnUE1kSDJOYjErV2x6NDZWeUdHNGZqKzRmdldQczA1ajB0UW5aTXdXcEha?=
+ =?utf-8?B?VE1SeWdLcDJxTlVFSE5sZTFtLzhtUGdYNDh4YjU2QWtKZmw3eE5HWUpldUdw?=
+ =?utf-8?B?MG90MzlXRFJPdW9LRUVOUWFVTnRrUzNpVy9Lc045OFZWK1UwMWpkakJ4aUlL?=
+ =?utf-8?B?bnQ4ODFXMXNOdVVwakJNNXpnWjFHMDdGWlRjLzRuanV5K0x0WHFTeFl5QUts?=
+ =?utf-8?B?YSs2YVdLWXdFSWd2cERLWVF3eThQMFVLbEF1TEN4NGtreFFrZk1JclFtdzZD?=
+ =?utf-8?B?bWVZbit6Si95T0R5SEFzZWg2WFZmcjdlaEZrTFlqRndDUGsxYjBkNEM2amxF?=
+ =?utf-8?B?QzB1aHVMcEVxWWsyZmdBWFJyTi8wMzNjS25TN09ZWFFld0NLeGw4Rkt0VjJy?=
+ =?utf-8?B?THkxVHBWQll1TGVUUEFQMXRyWS9GcUFKMjN2WktOOHJ2R3llY0g4VElLdXRv?=
+ =?utf-8?B?NEIrdkpqVHQ1WXRxcDdQZUtYbVA3cVFvdUc4U1JvQndXOFE3VHk4bHhzbng1?=
+ =?utf-8?B?dTkvRkFNS0o3aXlTS0ZIeElqeU5rYjlGSzlwMmtZVzFsL1NYazN5NFQ5Rndk?=
+ =?utf-8?B?ZGdDZWVZWlNiOHdJaEhlQm5qcTNQcVNJS29paTlFaHE3b0VkU2ZVcm1RN0lC?=
+ =?utf-8?B?c250WktJa2hucG40a0VUK2VDVFRaZTU4Z0RxWDR4Vnhjd2libiszZ3R1UzRr?=
+ =?utf-8?B?U1NtVGVTdll0M2lZZ2tXMGNDcTcxQXlkSVlXZ01aYUJ2eGpUaWR6eVUxSnNK?=
+ =?utf-8?B?TGZkaE9uTjJvcEpMNU5BMGFCdis5QWRtOVpTQ0xRSEhVL3k1TmxmUzgyODdn?=
+ =?utf-8?B?ZWtlSUtaekFnK04yVVo1V1NVcmNsU3pkWXIzeWw3ZWpRYlZ6M0FrbHREd2Jw?=
+ =?utf-8?B?emVUT1FoQ09pVFhGbXB3RzBwZXJzQ3R2OWxyT3FSWkZRbFdBV2I3eXdaMmkx?=
+ =?utf-8?B?bWlMclVTbytCVGY1MCtTZ084L3JWQm1mM2ltMjNhY1FMR0FjQ3U3QnBqKzBR?=
+ =?utf-8?B?RlprWmhyMmFQVjB0U1duRkNqVkJMSGNKZGtESXhSazJUeXpCVEVGNVpPdnhp?=
+ =?utf-8?B?Y0xFVVJuTWl0L2R4S3IxMXMrcmJMclRmTGU2YURyWnZDVWFiUDFTaTlndldN?=
+ =?utf-8?B?dlE3Uy9HcG5VYWRoOWU2dlFOVUtMR2tkTzNSWGRtSDU0NHYxKzhlUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77624c2a-731e-4c1d-ff51-08de8017c23f
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 09:14:26.9045
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kjW5RGExQQHhyX+pf5MevD3Dd8ca9RQ6pfRKsSym+PM6s7A4ByBhqQZXaTkSfrPcmQRQXuX/A7KybiGnhQ0efg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_015843_839649_776CD12C 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260312_021437_344309_5B73F07E 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +164,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 11, 2026 at 08:45:25PM +0100, Marco Felsch wrote:
+> Hi Liu, Luca,
 
-On Thu, 05 Feb 2026 22:18:55 +0100, Heiko Stuebner wrote:
-> This is a continuation of Kever's from april 2025 [0] - hence the v4
-> The original patches seem to have fallen through the cracks.
+Hi,
+
 > 
-> Additionally this directly inclues the interal word-size patch [1],
-> that was previously listed as an external dependency.
+> sorry for the delayed response, I was at the EW26.
+
+Np at all, it's good to go out to meet people sometimes :)
+
 > 
-> And finally meanwhile patches for the RK3528 SoC from Jonas have appeared,
-> so I've included those too, to get the support for all not-yet supported
-> SoCs done
+> On 26-03-10, Luca Ceresoli wrote:
+>> Hi Liu, Marco,
+>>
+>> On Tue Mar 10, 2026 at 3:57 AM CET, Liu Ying wrote:
+>>> Hi Marco, Luca,
+>>>
+>>> On Tue, Mar 03, 2026 at 11:34:27AM +0100, Marco Felsch wrote:
+>>>
+>>> [...]
+>>>
+>>>> +	next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+>>>> +	if (IS_ERR(next_bridge))
+>>>> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
+>>>> +				     "failed to get next bridge\n");
+>>>> +	pdfc->dev = dev;
+>>>> +	pdfc->bridge.of_node = dev->of_node;
+>>>> +	pdfc->bridge.type = DRM_MODE_CONNECTOR_DPI;
+>>>> +	pdfc->bridge.next_bridge = next_bridge;
+>>>
+>>> When I was reviewing another patch[1], I was aware of the necessity of
+>>> calling drm_bridge_get() for next_bridge to balance the next bridge's
+>>> refcount put from __drm_bridge_free() for this bridge.  I'd be good if
+>>> Luca may confirm this is correct.  Sorry for bringing this up late.
+>>
+>> Indeed you have a good point.
 > 
-> [...]
+> At which stage did you faced this issue? During driver probe, because of
+> EPROBE_DEFER?
 
-Applied, thanks!
+I just want to balance the get/put for the next bridge's refcount by
+calling drm_bridge_get() for next_bridge, as I said above.  There could
+be some way to trigger some particular Use-After-Free issues if you don't
+do that.  I did take some time today to try to trigger UAF, but no luck,
+though I found a potential bug in encoder_bridges_show() and generated a
+fix[1](Cc'ed Marco) when I played with debugfs to read the refcounts.
 
-[1/6] dt-bindings: nvmem: rockchip,otp: Add support for RK3562 and RK3568
-      commit: 9438f599e77795f59571e57c438b28da59e1e5df
-[2/6] dt-bindings: nvmem: rockchip,otp: Add compatible for RK3528
-      commit: c3c46b2a5bdbe254c6d7546d693a6b3886fd2993
-[3/6] nvmem: rockchip-otp: Handle internal word_size in main reg_read op
-      commit: 9e7aba140eba2aeb72e65ea778c89a245fa235a4
-[4/6] nvmem: rockchip-otp: Add support for RK3568
-      commit: 11e01bcb827d369344f7f0e960698d33db9ced5a
-[5/6] nvmem: rockchip-otp: Add support for RK3562
-      commit: e482a8d8a0b4fef407084da1d6a00ad86993e7df
-[6/6] nvmem: rockchip-otp: Add support for RK3528
-      commit: 85e2134182e21dc9550a1e316d690b1dda52d8cf
+My idea to trigger UAF is to remove imx_lcdif/imx93_pdfc/simple_panel
+modules when doing pageflips.  Dunno if EPROBE_DEFER may trigger UAF.
 
-Best regards,
+[1] https://lore.kernel.org/all/20260312-drm-misc-next-2026-03-05-fix-encoder-bridges-refcount-v1-1-b9ba3d844732@nxp.com/
+
+> 
+> That's the reason for having the local next_bridge variable since I
+> faced with the same issue. In other words this driver is correct and
+> it's on purpose to not assign it directly. Albeit I could/should have
+> added a comment.
+
+What's the issue your faced?  How would using next_bridge variable impact?
+Without knowing these info, I presume that you still need to call
+drm_bridge_get() for next_bridge, since it's kind of obvious if you take
+a look at __drm_bridge_free().
+
+> 
+>> After re-checking devm_drm_of_get_bridge(), as I wrote on the other thread
+>> you pointed to, you should call drm_bridge_get():
+>>
+>> -	pdfc->bridge.next_bridge = next_bridge;
+>> +	pdfc->bridge.next_bridge = drm_bridge_get(next_bridge);
+>>
+>> Marco, you can keep my R-by if you resend with just this change.
+>>
+>> Sorry about the confusion here.
+>>
+>> As mention on the other thread, devm_drm_of_get_bridge() is unable to
+>> support bridge hotplug. So it should be deprecated, but as of now there is
+>> no alternative.
+> 
+> Sorry I need a bit more context. What's the issue? How can I trigger the
+> issue? Why is bridge hotplug required at this stage? Why is only this
+> bridge affecte by the hotplug issue?
+
+Maybe, Luca can comment here.
+
+> 
+> Regards,
+>   Marco
+> 
+> 
+> 
+>>
+>> Luca
+>>
+>> --
+>> Luca Ceresoli, Bootlin
+>> Embedded Linux and Kernel engineering
+>> https://bootlin.com/
+>>
+> 
+
 -- 
-Srinivas Kandagatla <srini@kernel.org>
-
+Regards,
+Liu Ying
 
