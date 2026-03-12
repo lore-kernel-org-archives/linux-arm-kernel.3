@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8CC106ACE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 20:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A344106ACE5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 20:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2h2/7B5SW1IOrm3FHhkF3Mr//C+9sr2Q38u6/IaUNY=; b=yN9k/VTY3YZg+UoqleUgJ0X6r+
-	9wWYUfSktp/KfHEj99K3JMr8/N/ZZlbXN3pbK3hSnGGLDiUCRC59E6ZVcvf0G0+Er1oPVrtaoAUj+
-	+jYGz5B2mmHlNiCprtNCwYB70H6QAXzmonbP65OEJ/esq0YJWO7QM+hbOxz4hQdjm9QADrcjAISOo
-	EN/7/CIYDRF0aUgI3KxMzxN6/iiuo95YDIDVoj1uQXUTuNa01rJ40KOwix02LHbT73bsgKksc97Bi
-	aOGTKkia9UkPdQoET5Q9NnDbFAikLEbNEqJ1Yo/GDGnvF7lvzsZ/oCobTkBy4nwt0rf30GuWIapeL
-	IN2K/AXQ==;
+	bh=MzaylRSoV0od+zmumgGmm8GrMCsX12e85QdvFyRDu4M=; b=qSkfRR2isucEyxkY9kjjvpYINj
+	8m7XiFVmI3egHjNIhd5qkvmYNqxnV/oDXv/vm2WqP+gqbdOzGhjVrewC8VOjyB6VLIgsw+7RTnvNu
+	pknNkEIxHaO+8+rjJTAz35CvmN+oagekTt06GQYjUpSAvxWXNtitCjOSM660LmTE7VW51LM4WidM4
+	KkuCy3skEfsVEPDXXukXL0ViuNMrhta4R+DiyDy3sp4QWNwapW3ojB7diBYY3vSoZmM91QwFYgCUf
+	O3FdWBRtjJp9mH1sN/VGPiCsR2SPKdU6BBdzU+SFO5R9yf5OwWAcbndlANUIfN1LCQSnXeTmLVhek
+	YH7ZOPZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0me0-0000000FHgR-1Zee;
+	id 1w0me0-0000000FHhk-3m09;
 	Thu, 12 Mar 2026 20:28:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0mdo-0000000FHIb-1RlU;
+	id 1w0mdo-0000000FHHf-2KMW;
 	Thu, 12 Mar 2026 20:28:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MzaylRSoV0od+zmumgGmm8GrMCsX12e85QdvFyRDu4M=; b=ZpKPOmkEguxVqvXpetiQEf/Gwj
+	pzwpRnjE+sOA/7fmvKOqYjMOq/Oml6r2ypL2LIaITV0Pr88eLmPd7YE4LHgnZVV3yASzI+u4yAAFy
+	9mHOOQGoqUVZSOkABxXpvB6y/nnzuKPV5Up5hdpDK1vmbPmi9tn9qEhHqSfQefPn3P5DpsEuvLRre
+	EVce9B26ckm3zc2O6MC1U41bfsVzF9+Z5vgT4019078xvU8dzBWapUdlJDyqfr1DC6J0XpdzY7Fkq
+	Oet5GgnOHlzHHub51oGc/MzeLpiASv6p8AgpCPRxCJFZPIit6IMyKLlmjguu0WGsMey3wvTMbNA/Q
+	s5r/7oCA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0mdk-00000001zU9-0eel;
+	Thu, 12 Mar 2026 20:28:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92BDA61840;
-	Thu, 12 Mar 2026 20:28:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBE0CC2BC86;
-	Thu, 12 Mar 2026 20:28:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF28B44552;
+	Thu, 12 Mar 2026 20:28:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23EF6C2BC87;
+	Thu, 12 Mar 2026 20:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773347299;
-	bh=3gkyUtsSx7jHel7cmRKZSxJv14d/Oyif1xbXqVSUag8=;
+	s=k20201202; t=1773347294;
+	bh=2FQWrvwYCkzh7VnGyHG3FIB6cuWllzKv+ct94SBACcI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SE1eoNLLnCchG8HnK6XRvfFeHKhyfrzwwjiWm9QdAt5SsrbT5Uw9DpSpKd50HTu4X
-	 xdndXitgm96uIJn7PRDHQ7k9Hgf4LZp/zIwyQxTDnU08FmxgNaGLbcUr/QaZemp3i6
-	 DkSmTS08I/Wqy4/GCxky+IbGqrb4HTAtMgXkKY6chyfRut5Zuvanm3/fJh/KyDnajD
-	 zgAsNGcfUqJVqPQsSSgeeaMqILTnr1t9nv9XdS8jqAAcPSUMs8GYDUPyMJIN6ryyR7
-	 WipiB8AnSPEZcCIwFfuXFjLJFpnnAcxDM1jDa9nEcFSnQ+CAffoYMGMMWgKSaFy739
-	 ZBR1/mSnh9p4Q==
+	b=QS8U48b1DoVfHUrxjsa4yUEmtMYEM6tYjFlL0tuUp3bSzoISAi+DJNvqgPtxF75/t
+	 iLI3yT7OBczdIeHc/AXP9F8kflIli7gwSkuPI0dCk31W/X2JMmLT1E8dEozgQcp5qg
+	 QvQxeP/+fEP/vaG03+5/e9Hv/Gu+/Ja0HBnPwOW9GtlwEtX+mpOJT/zenzj9YsNUJh
+	 UYChAElRQWE9ATCslkshyHg0OkPXrd1ziHJvXvZHTAdpK5VPQXBY52gJKfH3MPchjs
+	 ioYPcK9iOlgMq5FL1nC/c9F7TLm57EI4yP6WqMhKIggIQcBDCBwninGNjP9Veoe/xB
+	 CcueoPncYH0gg==
 From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Jonathan Corbet <corbet@lwn.net>,
@@ -86,14 +100,17 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	linux-fsdevel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Ryan Roberts <ryan.roberts@arm.com>
-Subject: [PATCH 13/15] drivers: hv: vmbus: replace deprecated mmap hook with mmap_prepare
-Date: Thu, 12 Mar 2026 20:27:28 +0000
-Message-ID: <1f0408ba81f455d35bcf510ccd3dc3cb939b55ca.1773346620.git.ljs@kernel.org>
+Subject: [PATCH 11/15] staging: vme_user: replace deprecated mmap hook with mmap_prepare
+Date: Thu, 12 Mar 2026 20:27:26 +0000
+Message-ID: <9494da55a9156fc843fa7b48a7026d219959adf9.1773346620.git.ljs@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773346620.git.ljs@kernel.org>
 References: <cover.1773346620.git.ljs@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_202817_005060_610BC6E1 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,172 +125,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The f_op->mmap interface is deprecated, so update the vmbus driver to use
-its successor, mmap_prepare.
+The f_op->mmap interface is deprecated, so update driver to use its
+successor, mmap_prepare.
 
-This updates all callbacks which referenced the function pointer
-hv_mmap_ring_buffer to instead reference hv_mmap_prepare_ring_buffer,
-utilising the newly introduced compat_set_desc_from_vma() and
-__compat_vma_mmap() to be able to implement this change.
-
-The UIO HV generic driver is the only user of hv_create_ring_sysfs(), which
-is the only function which references
-vmbus_channel->mmap_prepare_ring_buffer which, in turn, is the only
-external interface to hv_mmap_prepare_ring_buffer.
-
-This patch therefore updates this caller to use mmap_prepare instead, which
-also previously used vm_iomap_memory(), so this change replaces it
+The driver previously used vm_iomap_memory(), so this change replaces it
 with its mmap_prepare equivalent, mmap_action_simple_ioremap().
+
+Functions that wrap mmap() are also converted to wrap mmap_prepare()
+instead.
+
+Also update the documentation accordingly.
 
 Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 ---
- drivers/hv/hyperv_vmbus.h    |  4 ++--
- drivers/hv/vmbus_drv.c       | 27 +++++++++++++++++----------
- drivers/uio/uio_hv_generic.c | 11 ++++++-----
- include/linux/hyperv.h       |  4 ++--
- 4 files changed, 27 insertions(+), 19 deletions(-)
+ Documentation/driver-api/vme.rst    |  2 +-
+ drivers/staging/vme_user/vme.c      | 20 +++++------
+ drivers/staging/vme_user/vme.h      |  2 +-
+ drivers/staging/vme_user/vme_user.c | 51 +++++++++++++++++------------
+ 4 files changed, 42 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/hv/hyperv_vmbus.h b/drivers/hv/hyperv_vmbus.h
-index 7bd8f8486e85..31f576464f18 100644
---- a/drivers/hv/hyperv_vmbus.h
-+++ b/drivers/hv/hyperv_vmbus.h
-@@ -545,8 +545,8 @@ static inline int hv_debug_add_dev_dir(struct hv_device *dev)
+diff --git a/Documentation/driver-api/vme.rst b/Documentation/driver-api/vme.rst
+index c0b475369de0..7111999abc14 100644
+--- a/Documentation/driver-api/vme.rst
++++ b/Documentation/driver-api/vme.rst
+@@ -107,7 +107,7 @@ The function :c:func:`vme_master_read` can be used to read from and
  
- /* Create and remove sysfs entry for memory mapped ring buffers for a channel */
- int hv_create_ring_sysfs(struct vmbus_channel *channel,
--			 int (*hv_mmap_ring_buffer)(struct vmbus_channel *channel,
--						    struct vm_area_struct *vma));
-+			 int (*hv_mmap_prepare_ring_buffer)(struct vmbus_channel *channel,
-+							    struct vm_area_desc *desc));
- int hv_remove_ring_sysfs(struct vmbus_channel *channel);
+ In addition to simple reads and writes, :c:func:`vme_master_rmw` is provided to
+ do a read-modify-write transaction. Parts of a VME window can also be mapped
+-into user space memory using :c:func:`vme_master_mmap`.
++into user space memory using :c:func:`vme_master_mmap_prepare`.
  
- #endif /* _HYPERV_VMBUS_H */
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index bc4fc1951ae1..a76fa3f0588c 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -1951,12 +1951,19 @@ static int hv_mmap_ring_buffer_wrapper(struct file *filp, struct kobject *kobj,
- 				       struct vm_area_struct *vma)
- {
- 	struct vmbus_channel *channel = container_of(kobj, struct vmbus_channel, kobj);
-+	struct vm_area_desc desc;
-+	int err;
  
- 	/*
- 	 * hv_(create|remove)_ring_sysfs implementation ensures that mmap_ring_buffer
- 	 * is not NULL.
- 	 */
--	return channel->mmap_ring_buffer(channel, vma);
-+	compat_set_desc_from_vma(&desc, filp, vma);
-+	err = channel->mmap_prepare_ring_buffer(channel, &desc);
-+	if (err)
-+		return err;
-+
-+	return __compat_vma_mmap(&desc, vma);
- }
+ Slave windows
+diff --git a/drivers/staging/vme_user/vme.c b/drivers/staging/vme_user/vme.c
+index f10a00c05f12..7220aba7b919 100644
+--- a/drivers/staging/vme_user/vme.c
++++ b/drivers/staging/vme_user/vme.c
+@@ -735,9 +735,9 @@ unsigned int vme_master_rmw(struct vme_resource *resource, unsigned int mask,
+ EXPORT_SYMBOL(vme_master_rmw);
  
- static struct bin_attribute chan_attr_ring_buffer = {
-@@ -2048,13 +2055,13 @@ static const struct kobj_type vmbus_chan_ktype = {
  /**
-  * hv_create_ring_sysfs() - create "ring" sysfs entry corresponding to ring buffers for a channel.
-  * @channel: Pointer to vmbus_channel structure
-- * @hv_mmap_ring_buffer: function pointer for initializing the function to be called on mmap of
-+ * @hv_mmap_ring_buffer: function pointer for initializing the function to be called on mmap
-  *                       channel's "ring" sysfs node, which is for the ring buffer of that channel.
-  *                       Function pointer is of below type:
-- *                       int (*hv_mmap_ring_buffer)(struct vmbus_channel *channel,
-- *                                                  struct vm_area_struct *vma))
-- *                       This has a pointer to the channel and a pointer to vm_area_struct,
-- *                       used for mmap, as arguments.
-+ *                       int (*hv_mmap_prepare_ring_buffer)(struct vmbus_channel *channel,
-+ *                                                          struct vm_area_desc *desc))
-+ *                       This has a pointer to the channel and a pointer to vm_area_desc,
-+ *                       used for mmap_prepare, as arguments.
+- * vme_master_mmap - Mmap region of VME master window.
++ * vme_master_mmap_prepare - Mmap region of VME master window.
+  * @resource: Pointer to VME master resource.
+- * @vma: Pointer to definition of user mapping.
++ * @desc: Pointer to descriptor of user mapping.
   *
-  * Sysfs node for ring buffer of a channel is created along with other fields, however its
-  * visibility is disabled by default. Sysfs creation needs to be controlled when the use-case
-@@ -2071,12 +2078,12 @@ static const struct kobj_type vmbus_chan_ktype = {
-  * Returns 0 on success or error code on failure.
+  * Memory map a region of the VME master window into user space.
+  *
+@@ -745,12 +745,13 @@ EXPORT_SYMBOL(vme_master_rmw);
+  *         resource or -EFAULT if map exceeds window size. Other generic mmap
+  *         errors may also be returned.
   */
- int hv_create_ring_sysfs(struct vmbus_channel *channel,
--			 int (*hv_mmap_ring_buffer)(struct vmbus_channel *channel,
--						    struct vm_area_struct *vma))
-+			 int (*hv_mmap_prepare_ring_buffer)(struct vmbus_channel *channel,
-+							    struct vm_area_desc *desc))
+-int vme_master_mmap(struct vme_resource *resource, struct vm_area_struct *vma)
++int vme_master_mmap_prepare(struct vme_resource *resource,
++			    struct vm_area_desc *desc)
  {
- 	struct kobject *kobj = &channel->kobj;
++	const unsigned long vma_size = vma_desc_size(desc);
+ 	struct vme_bridge *bridge = find_bridge(resource);
+ 	struct vme_master_resource *image;
+ 	phys_addr_t phys_addr;
+-	unsigned long vma_size;
  
--	channel->mmap_ring_buffer = hv_mmap_ring_buffer;
-+	channel->mmap_prepare_ring_buffer = hv_mmap_prepare_ring_buffer;
- 	channel->ring_sysfs_visible = true;
- 
- 	return sysfs_update_group(kobj, &vmbus_chan_group);
-@@ -2098,7 +2105,7 @@ int hv_remove_ring_sysfs(struct vmbus_channel *channel)
- 
- 	channel->ring_sysfs_visible = false;
- 	ret = sysfs_update_group(kobj, &vmbus_chan_group);
--	channel->mmap_ring_buffer = NULL;
-+	channel->mmap_prepare_ring_buffer = NULL;
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(hv_remove_ring_sysfs);
-diff --git a/drivers/uio/uio_hv_generic.c b/drivers/uio/uio_hv_generic.c
-index 3f8e2e27697f..29ec2d15ada8 100644
---- a/drivers/uio/uio_hv_generic.c
-+++ b/drivers/uio/uio_hv_generic.c
-@@ -154,15 +154,16 @@ static void hv_uio_rescind(struct vmbus_channel *channel)
-  * The ring buffer is allocated as contiguous memory by vmbus_open
-  */
- static int
--hv_uio_ring_mmap(struct vmbus_channel *channel, struct vm_area_struct *vma)
-+hv_uio_ring_mmap_prepare(struct vmbus_channel *channel, struct vm_area_desc *desc)
- {
- 	void *ring_buffer = page_address(channel->ringbuffer_page);
- 
- 	if (channel->state != CHANNEL_OPENED_STATE)
- 		return -ENODEV;
- 
--	return vm_iomap_memory(vma, virt_to_phys(ring_buffer),
--			       channel->ringbuffer_pagecount << PAGE_SHIFT);
-+	mmap_action_simple_ioremap(desc, virt_to_phys(ring_buffer),
-+			channel->ringbuffer_pagecount << PAGE_SHIFT);
-+	return 0;
- }
- 
- /* Callback from VMBUS subsystem when new channel created. */
-@@ -183,7 +184,7 @@ hv_uio_new_channel(struct vmbus_channel *new_sc)
+ 	if (resource->type != VME_MASTER) {
+ 		dev_err(bridge->parent, "Not a master resource\n");
+@@ -758,19 +759,18 @@ int vme_master_mmap(struct vme_resource *resource, struct vm_area_struct *vma)
  	}
  
- 	set_channel_read_mode(new_sc, HV_CALL_ISR);
--	ret = hv_create_ring_sysfs(new_sc, hv_uio_ring_mmap);
-+	ret = hv_create_ring_sysfs(new_sc, hv_uio_ring_mmap_prepare);
- 	if (ret) {
- 		dev_err(device, "sysfs create ring bin file failed; %d\n", ret);
- 		vmbus_close(new_sc);
-@@ -366,7 +367,7 @@ hv_uio_probe(struct hv_device *dev,
- 	 * or decoupled from uio_hv_generic probe. Userspace programs can make use of inotify
- 	 * APIs to make sure that ring is created.
- 	 */
--	hv_create_ring_sysfs(channel, hv_uio_ring_mmap);
-+	hv_create_ring_sysfs(channel, hv_uio_ring_mmap_prepare);
+ 	image = list_entry(resource->entry, struct vme_master_resource, list);
+-	phys_addr = image->bus_resource.start + (vma->vm_pgoff << PAGE_SHIFT);
+-	vma_size = vma->vm_end - vma->vm_start;
++	phys_addr = image->bus_resource.start + (desc->pgoff << PAGE_SHIFT);
  
- 	hv_set_drvdata(dev, pdata);
+ 	if (phys_addr + vma_size > image->bus_resource.end + 1) {
+ 		dev_err(bridge->parent, "Map size cannot exceed the window size\n");
+ 		return -EFAULT;
+ 	}
  
-diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-index dfc516c1c719..3a721b1853a4 100644
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -1015,8 +1015,8 @@ struct vmbus_channel {
- 	/* The max size of a packet on this channel */
- 	u32 max_pkt_size;
+-	vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+-
+-	return vm_iomap_memory(vma, phys_addr, vma->vm_end - vma->vm_start);
++	desc->page_prot = pgprot_noncached(desc->page_prot);
++	mmap_action_simple_ioremap(desc, phys_addr, vma_size);
++	return 0;
+ }
+-EXPORT_SYMBOL(vme_master_mmap);
++EXPORT_SYMBOL(vme_master_mmap_prepare);
  
--	/* function to mmap ring buffer memory to the channel's sysfs ring attribute */
--	int (*mmap_ring_buffer)(struct vmbus_channel *channel, struct vm_area_struct *vma);
-+	/* function to mmap_prepare ring buffer memory to the channel's sysfs ring attribute */
-+	int (*mmap_prepare_ring_buffer)(struct vmbus_channel *channel, struct vm_area_desc *desc);
+ /**
+  * vme_master_free - Free VME master window
+diff --git a/drivers/staging/vme_user/vme.h b/drivers/staging/vme_user/vme.h
+index 797e9940fdd1..b6413605ea49 100644
+--- a/drivers/staging/vme_user/vme.h
++++ b/drivers/staging/vme_user/vme.h
+@@ -151,7 +151,7 @@ ssize_t vme_master_read(struct vme_resource *resource, void *buf, size_t count,
+ ssize_t vme_master_write(struct vme_resource *resource, void *buf, size_t count, loff_t offset);
+ unsigned int vme_master_rmw(struct vme_resource *resource, unsigned int mask, unsigned int compare,
+ 			    unsigned int swap, loff_t offset);
+-int vme_master_mmap(struct vme_resource *resource, struct vm_area_struct *vma);
++int vme_master_mmap_prepare(struct vme_resource *resource, struct vm_area_desc *desc);
+ void vme_master_free(struct vme_resource *resource);
  
- 	/* boolean to control visibility of sysfs for ring buffer */
- 	bool ring_sysfs_visible;
+ struct vme_resource *vme_dma_request(struct vme_dev *vdev, u32 route);
+diff --git a/drivers/staging/vme_user/vme_user.c b/drivers/staging/vme_user/vme_user.c
+index d95dd7d9190a..11e25c2f6b0a 100644
+--- a/drivers/staging/vme_user/vme_user.c
++++ b/drivers/staging/vme_user/vme_user.c
+@@ -446,24 +446,14 @@ static void vme_user_vm_close(struct vm_area_struct *vma)
+ 	kfree(vma_priv);
+ }
+ 
+-static const struct vm_operations_struct vme_user_vm_ops = {
+-	.open = vme_user_vm_open,
+-	.close = vme_user_vm_close,
+-};
+-
+-static int vme_user_master_mmap(unsigned int minor, struct vm_area_struct *vma)
++static int vme_user_vm_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
++			      const struct file *file, void **vm_private_data)
+ {
+-	int err;
++	const unsigned int minor = iminor(file_inode(file));
+ 	struct vme_user_vma_priv *vma_priv;
+ 
+ 	mutex_lock(&image[minor].mutex);
+ 
+-	err = vme_master_mmap(image[minor].resource, vma);
+-	if (err) {
+-		mutex_unlock(&image[minor].mutex);
+-		return err;
+-	}
+-
+ 	vma_priv = kmalloc_obj(*vma_priv);
+ 	if (!vma_priv) {
+ 		mutex_unlock(&image[minor].mutex);
+@@ -472,22 +462,41 @@ static int vme_user_master_mmap(unsigned int minor, struct vm_area_struct *vma)
+ 
+ 	vma_priv->minor = minor;
+ 	refcount_set(&vma_priv->refcnt, 1);
+-	vma->vm_ops = &vme_user_vm_ops;
+-	vma->vm_private_data = vma_priv;
+-
++	*vm_private_data = vma_priv;
+ 	image[minor].mmap_count++;
+ 
+ 	mutex_unlock(&image[minor].mutex);
+-
+ 	return 0;
+ }
+ 
+-static int vme_user_mmap(struct file *file, struct vm_area_struct *vma)
++static const struct vm_operations_struct vme_user_vm_ops = {
++	.mapped = vme_user_vm_mapped,
++	.open = vme_user_vm_open,
++	.close = vme_user_vm_close,
++};
++
++static int vme_user_master_mmap_prepare(unsigned int minor,
++					struct vm_area_desc *desc)
++{
++	int err;
++
++	mutex_lock(&image[minor].mutex);
++
++	err = vme_master_mmap_prepare(image[minor].resource, desc);
++	if (!err)
++		desc->vm_ops = &vme_user_vm_ops;
++
++	mutex_unlock(&image[minor].mutex);
++	return err;
++}
++
++static int vme_user_mmap_prepare(struct vm_area_desc *desc)
+ {
+-	unsigned int minor = iminor(file_inode(file));
++	const struct file *file = desc->file;
++	const unsigned int minor = iminor(file_inode(file));
+ 
+ 	if (type[minor] == MASTER_MINOR)
+-		return vme_user_master_mmap(minor, vma);
++		return vme_user_master_mmap_prepare(minor, desc);
+ 
+ 	return -ENODEV;
+ }
+@@ -498,7 +507,7 @@ static const struct file_operations vme_user_fops = {
+ 	.llseek = vme_user_llseek,
+ 	.unlocked_ioctl = vme_user_unlocked_ioctl,
+ 	.compat_ioctl = compat_ptr_ioctl,
+-	.mmap = vme_user_mmap,
++	.mmap_prepare = vme_user_mmap_prepare,
+ };
+ 
+ static int vme_user_match(struct vme_dev *vdev)
 -- 
 2.53.0
 
