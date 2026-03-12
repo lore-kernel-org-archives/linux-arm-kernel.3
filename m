@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42CF103E2EB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD07C1049509
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=; b=aQi+hu8IVe+RN/QtX6Y3N2UjLI
-	7ezmBbuNNUBabTePlmwMcP4idF/YJJ1bI/8saotG0ithrG5DPKxfiBjCDdyusLeWzEhYOpku82+Ou
-	gwbGVz52VkcwsFrofuQsQTgYzAmlfhzR2COvJnLzTxdpKUBWqpx/nmu9RS9KpwQbPWCobpw/qA8gX
-	RTbqaHkVIZKZOVr5gpUmhpR6+f2IDUMkqm838jahR8/+xwB6ml4IjR2ND9ItTa/RLnGQePVYMAnMG
-	++VHt3Isg8aAGsBBCQOWDR9lJ70WPhzlOUniD4UOVPAiThJsUfYr7kLaAB9zgIn5B47qxr/XRYInZ
-	Kj27bjuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z4VOB6VcuTGOaol854cf9wlpyM/xzt3NDhYCz9oNnmc=; b=A4soAR24WCfN+TydQJakTnGWRF
+	P0uaL0W+S07quQK7IqyW6tje8QtYCzWfgR7quGnjvtvyYSqYnEpXQoJEhDYNmN7hw5AibPXBTt2M+
+	C72d6nEqYC08vswk/+HbV1U0rVNPR4pgXetykJufbcP2HXFpUsOVBsZfNfn79e9PAEhbGzBkBuInB
+	DT4SdK6aP0R+RICfCk6DW/K3ZSBKf3SGJyFl8cVCREiWmJUpfwZtDePjK7GAqOdaywSRMBxWqMoCU
+	zvZ6FgnMc/qz41o9G6um9XML6dpfazhZfjBLZJsE9WnzzrjqPuoKnBmIlvQ46U58garpkPefYtJnc
+	dnq/Zs2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gCJ-0000000E8bt-496x;
-	Thu, 12 Mar 2026 13:35:31 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1w0gGi-0000000E8oh-3AeJ;
+	Thu, 12 Mar 2026 13:40:04 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gCH-0000000E8bX-1AZa
+	id 1w0gGg-0000000E8mr-15ps
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 13:35:31 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-439b9b1900bso697292f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 06:35:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773322527; x=1773927327; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=;
-        b=pz7egw46S2IrFdrTY4g5dApbVe5bBPMpoaivczLLF/Gl8O80AUXKGcK/oOIQtmhf8z
-         j398IvzVd0U7E3nj0PF+W9Om5/pIeA5Llt8bV9Q+S0NMHoBEi6JtYLyXHKZhu7hyDNBz
-         z9/6IwPNEyRsqeUxRkxRyktMPst/k1HFLwfeiX/oLhtlfgipKPNHP63X8ZCPUhrjUZoy
-         7BQz7zRxW/vJzVvYK8+beLotgdQMPgzyM+0JD1wH6ntyt5K9K7Qdtqgkoy5cuuBk/LBo
-         4Ai/uBgZmgjUvGLD2eC6l1+7sW/VvCb+pUamAzX8hrxyuVtCPsQDPUmEhV/7tfYozLmE
-         8c/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773322527; x=1773927327;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=;
-        b=pWsGW2d3aHZnrWC6fNkQtlovMfIr/Jt4nPcoM0wQ3en1DmaFTKsfa7FOCviGG4dcpY
-         2FmN1l/M84Ia5VH6VdPfGRYiliGMeOlXuVEdxvYV+nmxBRg6wVq0OjKgcLZjTxRzGWev
-         81bpfNldTx87GM3AnslEuqBAcRLXzXidQKUeVtbmQweb81j1fn01NvZctnnTgzDYBpws
-         vtYoZ++39QeJsG88OLIFEnl6MBU1JDKJN+FlNz4dNmg1B9wyY0pmnRb8MUV8JDKpEZZC
-         fhzPJJiBH0syCeWOU8VPIRhkPlUwBpaoMMo8YQgRQMV0pnTQkt2G1aV1CxmkC2I90aBT
-         Ewfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWV4frdyJOUf4xmOxdYYCwjdvv4q/g7DKgI8N/qn5mcrM96bX+1dPkgZFAX/HOTf3tEdgiWFmAeEfEPQMBXs0hf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2a8pLygbwcwJ/tGbL9yH0DLZE45G1AMuQVVgB2hR8Tp9nSErh
-	kR9UYlAhvWQf0WcZ8tD+n7CQsU1OlXrvVLhLMfSk5rXGu0eR4mOfln5LCAllnLf72A==
-X-Gm-Gg: ATEYQzzgAuuk162zAlLxOBzkwsVp2jLDIcVufcJF24+PBUctEw6QqpRb79lioWoBWql
-	sien8zi16GG9PkPYTH+oPWNIBKwkSz1VY3+YnLOe5aEuM7vtMXAX4RFDW8vrWP8F/m2JMtTbn4A
-	DSShQHj4h84uryV9IfE5F5ftmiL57te4NVfSceWOSGjmtW5wUIV4Jv6IWW579/As50MpOKC3cDV
-	4R/X9IpN9RHWWPuBq1fGGGI4/QFwRbb/eYgAABdXUSmHCFbgFy2F0P1eZGPi5e1Sx8/9/kfEbQC
-	Vi1dEQXo/TzQErABR3RoqPrASyn2iWxrpDSUIwRakLwdDioO8wzLH+E6upPXMBazbD099yYXg3K
-	jLOpzM0Z8xm6Qg5QszFZ3qCxsF/3gH3TpLx4RZlkdPb6Eiy3Ip9dm4pPOLS+f0ToX+iDEOVF3/z
-	lDeydHfA06vrE3KqVwFO+6gP4jwd9qeaRjjrxgAwFEQ+osRwrBrzRLswbFOUtVN+mz1r0=
-X-Received: by 2002:a05:6000:2c04:b0:439:bfaa:ed99 with SMTP id ffacd0b85a97d-439f822309emr12897737f8f.44.1773322526701;
-        Thu, 12 Mar 2026 06:35:26 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe19acc6sm8523527f8f.8.2026.03.12.06.35.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 06:35:26 -0700 (PDT)
-Date: Thu, 12 Mar 2026 13:35:22 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] KVM: arm64: fix include path for ring buffer
- implementation
-Message-ID: <abLBGqgPkwYVYMa7@google.com>
-References: <20260312123601.625063-1-arnd@kernel.org>
+	Thu, 12 Mar 2026 13:40:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=Z4VOB6VcuTGOaol854cf9wlpyM/xzt3NDhYCz9oNnmc=; b=OyqJ/8cOf78sn4RjhQgjMKRzVQ
+	wyql+htRjGCoc3FI1dARHaHMj2DLhgkLLM/tQ18/HsSM+B4ux65Z39hp6aj6GsFR6YvSkGnVONDJ2
+	B53Op/OfEMdAG5zHjkreGQe2dumI3MFp+udQeVIUnWTEcgNGvOje2qisFwux9M1qjO6MvTYW1na7C
+	drit3zX7J9bSo6wzkmwwZP6qykNZ9CV5EDWj9EnlJwvDw3z2vWBK5V9hLI+M4VuuiUJLIb+BjP5IP
+	YKl8AqGXm52UiVVHvPeMbIeylQ45z6UsOEYu2r7Bup7R+0EPsTxU+TKm5co2xCfhBBNShEyvmUzwp
+	3yQ8q1hA==;
+Received: from [115.246.246.98] (port=60572 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1w0gFw-00000005g92-0QIT;
+	Thu, 12 Mar 2026 09:39:16 -0400
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 478FE1A82054;
+	Thu, 12 Mar 2026 19:09:07 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id JHwpr-2yyxUd; Thu, 12 Mar 2026 19:09:05 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id C90691A82055;
+	Thu, 12 Mar 2026 19:09:05 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id nsO2P5nHhitS; Thu, 12 Mar 2026 19:09:05 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id A2D041A82054;
+	Thu, 12 Mar 2026 19:09:05 +0530 (IST)
+Date: Thu, 12 Mar 2026 19:09:05 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Parvathi Pudi <parvathi@couthit.com>, nm <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, linux <linux@armlinux.org.uk>, 
+	ebiggers <ebiggers@kernel.org>, ardb <ardb@kernel.org>, 
+	Kevin Hilman <khilman@baylibre.com>, arnd <arnd@arndb.de>, 
+	kory maincent <kory.maincent@bootlin.com>, tiwai <tiwai@suse.de>, 
+	andreas <andreas@kemnade.info>, 
+	prabhakar mahadev-lad rj <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	twoerner <twoerner@gmail.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
+	praneeth <praneeth@ti.com>, srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	danishanwar <danishanwar@ti.com>, m-malladi <m-malladi@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>, 
+	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>
+Message-ID: <540368735.642598.1773322745594.JavaMail.zimbra@couthit.local>
+In-Reply-To: <31a75415-43e5-4b4d-aa6e-0e58519a3d1d@oss.qualcomm.com>
+References: <20260307133237.743059-1-parvathi@couthit.com> <31a75415-43e5-4b4d-aa6e-0e58519a3d1d@oss.qualcomm.com>
+Subject: Re: [PATCH v2] arm: multi_v7_defconfig: Enable BRIDGE and
+ DP83848_PHY for TI AM57xx, AM437x and AM335x
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260312123601.625063-1-arnd@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.233]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
+Thread-Index: u0OXRHxkr1RmrznGWwvkA93ybpr1RA==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_063529_369766_1DAFC975 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260312_064002_421045_C06B2181 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +118,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 01:35:42PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The simple_ring_buffer.c file is in the source tree rather than
-> generated at build time, so the include path is wrong when using
-> separate object trees:
-> 
-> arch/arm64/kvm/hyp/nvhe/trace.c:16:10: fatal error: simple_ring_buffer.c: No such file or directory
->    16 | #include "simple_ring_buffer.c"
-> 
-> Include it from the source tree instead.
-> 
-> Fixes: 680a04c333fa ("KVM: arm64: Add tracing capability for the nVHE/pKVM hyp")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Hi,
 
-I believe Marc has taken a fix already for that one
-
-https://lore.kernel.org/all/20260311164956.1424119-1-vdonnefort@google.com/
-
-> ---
->  arch/arm64/kvm/hyp/nvhe/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> On 07/03/2026 14:32, Parvathi Pudi wrote:
+>> This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
+>> AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-> index 143d55ec7298..3d33fbefdfc1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> @@ -33,7 +33,7 @@ hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
->  hyp-obj-y += $(lib-objs)
->  
->  # Path to simple_ring_buffer.c
-> -CFLAGS_trace.nvhe.o += -I$(objtree)/kernel/trace/
-> +CFLAGS_trace.nvhe.o += -I$(srctree)/kernel/trace/
->  
->  ##
->  ## Build rules for compiling nVHE hyp code
-> -- 
-> 2.39.5
+> Bridge does not look suitable for defconfig or I still miss something
+> here. Is it a dependency for some driver?
 > 
+> In case you wonder: this is not a distro config. It is not meant to be
+> working for your customers...
+> 
+> 
+
+The PRU-ICSS sub-system available in TI AM57x/AM437x/AM335x SOCs is capable of
+operating as HW offloaded L2 switch (STP/RSTP) with 2 PRU ports, by using Linux
+switchdev.
+
+The proposed changes are required to enable "bridge" config to get the support
+for Linux switchdev, hardware offload features, and STP support to get a fully
+functional L2 offloaded switch.
+
+Thanks and Regards,
+Parvathi.
 
