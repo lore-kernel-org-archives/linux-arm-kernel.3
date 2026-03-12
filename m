@@ -4,77 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2D3105A57B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C9F105A585
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=babh808/bLfW9pCcfRHkPcD2gr6yFtMevplaWl9pW7s=; b=Nsi1XR4RkSlwocBtcpIU2qmV3D
-	ZeWb5APzyuIyLaaoG0MXHMEuVA7Hpr9Mra4CrvJoZlvdcLy5hNf1We86AGAPKSrTBydl7vvb6hp11
-	+aRBumrMarrk0w0W2KclvLBPlILg7HTup99bYjbhikFBTUDqC0TAtoNV+UbxOCggzZMzr4XnnD2Hj
-	bSXa2mdISD14eLSskJhbwi28YTjkiXbHjuOC6fKxsDcqPFfDsQSDIubqtw4udvIqY0MO/g1nGYws7
-	dHoN9m80DHx3xH5UmplYPbOBATWEeQL5LwoYAvIJSheSnb6WFcKWcmhM4jb4umwWIhBUovIH3kYpr
-	NeXL+Y+w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFwb11X0zrrF96hDRnrNne+UfFUOQp/uf8JCpdTCVwI=; b=tazzJq1/fmacj/An0wX8aAaKoG
+	/65BX+q3Nl7+yFEKXlRql9AyEQQRsGiDkeQJZH1OO5i3lvrSIotuamgm049yogQaEUYQlJG5RJNba
+	fBWpjuXz5uqGCqfU1j8rF43ZGEF8AXEcG7b3n/6cZyMmxCs7p+sNReaCVW1lV2dCIm2WU/BcR/q3w
+	Co7v63xbUaxqFfWhRaDajyTkydYmzbfz3CVtbiUPaj1bbalD2NF4l/jASqKLq++PlnUl3iIuuxPi6
+	eyIN32ydeNMnZjk0THUx4naoQipTtdiifYiyuP7XWx82zFAI6mGvC+kLDK3vYjoTU8UhsNAM7RCnP
+	J7birPrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dpd-0000000DuPX-37JI;
-	Thu, 12 Mar 2026 11:03:57 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.43])
+	id 1w0dyR-0000000DvB6-3OF4;
+	Thu, 12 Mar 2026 11:13:03 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dpX-0000000DuP1-2S54
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 11:03:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1773313427; bh=babh808/bLfW9pCcfRHkPcD2gr6yFtMevplaWl9pW7s=;
-	h=From:To:Cc:Subject:Date;
-	b=Jn03XKN3z9zlDlge1H58RRFA3DyGfJunKOhONRWkVTaORfTEDkbtYEyv3gRn7D0Q6
-	 Dnbfemw0P9CoImN4yt+5JqGx2bObbZsbmnOupIG2/U4AlNqggnWTQlZMkpebmXgeod
-	 zLkeS8oAu7EEekVtedLog2qwjQnbRFq3Uc9YXxDk=
-Received: from admin.. ([2001:da8:205:20a0:6eeb:b6ff:fe15:94a7])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id EB8B0E1; Thu, 12 Mar 2026 19:03:43 +0800
-X-QQ-mid: xmsmtpt1773313423tpnbllkza
-Message-ID: <tencent_46693FE6DB434ACFB7412B16F6078AC01A06@qq.com>
-X-QQ-XMAILINFO: Npb+f4q7yCDRhKv1OSG0j8dwLnXoh1juS7YZcb7RbBiDaCRs/wdF5LIk+iS36k
-	 BxVLy+T7xQBgx0GErS5kQF1kqNXYsDB80ImEe6n4dW/pfVJcYW1Zs7RiMKril+VoDX1QC1SpQw8/
-	 JXCJ+4JPC527iuB+RmuSw2uDpnf0/lkblQFRQlJOIUOKfiz358bpcHmEiqNT1lnEgGBr3nfljYXV
-	 uIv8eIAWfwfGTBCVjcFn0Pkpcm1Ayzd5gJZ7MBxcZWiEEpJKAYUS+WR+pL8K0KHO1nbl58Z0XLf9
-	 XEL6/DE3LMcBR32V9JZ4fajRYWkHajarSgST2AaeD9/rDy58/iJiLBKCjXhfj+FEF+b4I4gtWzMz
-	 8y1pYxpuPP7H70+qtfb9vkPfGkOM8NK49PN/Pb1hVATzdAv05HYAH6BNnmrreQrm5qPzDOYT4/q/
-	 QB291aKhDqQ1Kp8KeZE4LjDVwhGjIPSXdSiFieb19Vo+HaR3hqzCVIxInlLUot7F+Lycl1EiWAPX
-	 Z5E+5xJ9NHrsxmTHkWxFhSSKH09Kc0RfI1ZxxVK72POkVwU5ABE5JuOy7FQtDxiBmYqYyEg0RMx9
-	 Vhl/ZWo1L4Cg6ksYxU2xO/UNVodMKLUwvyzQlD2ZmzVy17p2uCipLFRtmRbMjY2gXr/CePa4jCVn
-	 hMObTUiuDFLXQmKu7858nTQ1bvpiB++Z0z2NsfsW8ki4qR1mjHkVLtEkKDF1KYTBNK8oJ2DIUFBy
-	 RHAP2aGIkEq+lR6cgpUjDOrtN76ttWCmq1s8TP9t0qYCiowfmy1CKtVe/v+jEa7Dt7fFl8PPQqi5
-	 gijJXepl4tcXMunyFG8CjwwjlqOKJ+xzWWw2z8dS/fhKWs+GLPZu9OSrB7yG/GJCt6WaLnmNnVYi
-	 bbo9qkCiNKXCjk4sRIRH8fLDgnv4wL1bJF5TBeq412riDZkkWirptdtTnb4IxOCsYlBD4Mo9P/OP
-	 zV52dGZEOyKyMl9zFF2/QGyqW2QOOvymcEEPczRQtfh9ZfqFAgpv6Q44pZ+BP54xBTEGX5oBkuBI
-	 h2fiQB+gm4k5W63VipbE3sxZYq+7C+ObeTGP/6fjJyUX7g62719jUujjkst3CnR49ODImOYDnoRp
-	 8CLLpt
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Zhaoyang Yu <2426767509@qq.com>
-To: gregkh@linuxfoundation.org
-Cc: Markus.Elfring@web.de,
-	sergei.shtylyov@gmail.com,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhaoyang Yu <2426767509@qq.com>
-Subject: [PATCH v5] USB: pxa27x_udc: check return value of clk_enable
-Date: Thu, 12 Mar 2026 11:03:29 +0000
-X-OQ-MSGID: <20260312110329.287334-1-2426767509@qq.com>
-X-Mailer: git-send-email 2.34.1
+	id 1w0dyP-0000000DvAG-0kq1;
+	Thu, 12 Mar 2026 11:13:02 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62BMWPq02279397;
+	Thu, 12 Mar 2026 11:12:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=qFwb11
+	X0zrrF96hDRnrNne+UfFUOQp/uf8JCpdTCVwI=; b=CkvJemL88mOKrQnUYcuUw9
+	v/lgsBx8TN5vdU6h/SIF8Ldu3K8Ug6D+Yp5oOpfuyZmsQt8w7UWAJS27LWxzO2AB
+	qJiJZKWL+I2Ssbtc0opT3qdsA44BKHuwAaYqVM6g7nsQbGEODsco5l+huQ5I+xxx
+	BZauCHcdzpBAr+cc4WxU22UEDZypALbDY+VCjW8DLlk/6wxbAXi1ZFzuAYIAmh+O
+	k+3Slj+7c9xAMUhN9xjLSefjQUt4axPosk4bfZ0jp7bigiV9LjFIJtfSfaUqWV/p
+	lktUd/dgHUAUJ+cXeQbwo7JBL0aKhao8/lM1CDSj9CGS2NQB30kI8Vv4JtgGvZwA
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh91jb9v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 11:12:53 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62C9aRxI014797;
+	Thu, 12 Mar 2026 11:12:52 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cuha8a1xj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 11:12:51 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CBCoTr36503948
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Mar 2026 11:12:50 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F28362004B;
+	Thu, 12 Mar 2026 11:12:49 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1A21220040;
+	Thu, 12 Mar 2026 11:12:47 +0000 (GMT)
+Received: from [9.109.204.116] (unknown [9.109.204.116])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 12 Mar 2026 11:12:46 +0000 (GMT)
+Message-ID: <71921cca-b890-41c4-93e9-957d3f647ffa@linux.ibm.com>
+Date: Thu, 12 Mar 2026 16:42:45 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/15] arch/powerpc: don't initialize kasan if it's
+ disabled
+To: Baoquan He <bhe@redhat.com>, kasan-dev@googlegroups.com
+Cc: linux-mm@kvack.org, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
+        glider@google.com, dvyukov@google.com, linux-kernel@vger.kernel.org,
+        linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, x86@kernel.org, chris@zankel.net,
+        jcmvbkbc@gmail.com, linux-s390@vger.kernel.org, hca@linux.ibm.com
+References: <20260225081412.76502-1-bhe@redhat.com>
+ <20260225081412.76502-10-bhe@redhat.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <20260225081412.76502-10-bhe@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: sK4H9fwZp-KLt_Uh6QEN1FURiK-VcUay
+X-Authority-Analysis: v=2.4 cv=E6/AZKdl c=1 sm=1 tr=0 ts=69b29fb5 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=20KFwNOVAAAA:8
+ a=voM4FWlXAAAA:8 a=VnNF1IyMAAAA:8 a=e6XaAvPcIE9lEXRYuwcA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=IC2XNlieTeVoXbcui8wp:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDA4NyBTYWx0ZWRfX/mtfNCEYEuc6
+ WHnW4p9iVwWYhz47Or92vnI3HCFHwJtfujDrjNzVlJPrH+HNMFrM5rei+tcs68Z8xKbUMLW4OGS
+ nCC3o1olVSQZigyKu8dPplVewbl+wRYHv9pug6m4GgXDTxjkx/bFrguphZ3UlQo8DTuZgOK7pT7
+ XoX/Pn2toTKs0nsYAIR0bSRishOkQI7WvgwwfqCbulME6FSQeiA+c1uiCQVkk5pmlyfJAVn0xAp
+ Pd2bmli4VyUJXDxXTGZdXRFpkSuVHPAXPQU/E02hIaN/9uTz9550KWyukcPEC/RWPfdtgQaWvnT
+ dA5KdZMWC431ZuagttMr9l48fgf2ZsGNNBHZ778481DcVjv3LdLN4uwlF7NKiDY3IpRloCGz839
+ sR9Hlsf9U+wi24kTc7YK1aOscBc/I0desU0vcau1oECfMdpaWfrggI5bqsG8fSprzOHFsV0rdAa
+ 5fL4EVBZVPzrPv5kKmA==
+X-Proofpoint-ORIG-GUID: appgZUPYvO44oILc1-ob_bhU232DA-fp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-11_02,2026-03-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 clxscore=1011 malwarescore=0 phishscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_040352_097651_F2324E39 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260312_041301_224130_C5E8F653 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,184 +126,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk_enable() may fail according to the API contract.
-Previously, udc_enable() ignored its return value and returned void.
 
-Modify udc_enable() to return the error code. Additionally, update
-all of its callers (pxa_udc_pullup, pxa_udc_vbus_session,
-pxa27x_udc_start, pxa_udc_probe, and pxa_udc_resume) to check
-this return value and handle the failure properly with necessary
-cleanups or rollbacks.
 
-Signed-off-by: Zhaoyang Yu <2426767509@qq.com>
----
-Changes in v5:
-- Rewrote the commit message in the imperative mood and updated it to
-  accurately reflect the error handling/rollback changes (Markus Elfring).
+On 25/02/26 13:44, Baoquan He wrote:
+> Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
+>
+> This includes 32bit, book3s/64 and book3e/64.
+>
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> Cc: linuxppc-dev@lists.ozlabs.org
+> ---
+>   arch/powerpc/mm/kasan/init_32.c        | 6 +++++-
+>   arch/powerpc/mm/kasan/init_book3e_64.c | 4 ++++
+>   arch/powerpc/mm/kasan/init_book3s_64.c | 4 ++++
+>   3 files changed, 13 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/powerpc/mm/kasan/init_32.c b/arch/powerpc/mm/kasan/init_32.c
+> index 1d083597464f..0ea2a636c992 100644
+> --- a/arch/powerpc/mm/kasan/init_32.c
+> +++ b/arch/powerpc/mm/kasan/init_32.c
+> @@ -141,6 +141,10 @@ void __init kasan_init(void)
+>   	u64 i;
+>   	int ret;
+>   
+> +	/* If KASAN is disabled via command line, don't initialize it. */
+> +	if (kasan_arg_disabled)
+> +		return;
+> +
+>   	for_each_mem_range(i, &base, &end) {
+>   		phys_addr_t top = min(end, total_lowmem);
+>   
+> @@ -170,7 +174,7 @@ void __init kasan_init(void)
+>   
+>   void __init kasan_late_init(void)
+>   {
+> -	if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
+> +	if (IS_ENABLED(CONFIG_KASAN_VMALLOC) && kasan_enabled())
+>   		kasan_unmap_early_shadow_vmalloc();
+>   }
+>   
+> diff --git a/arch/powerpc/mm/kasan/init_book3e_64.c b/arch/powerpc/mm/kasan/init_book3e_64.c
+> index 0d3a73d6d4b0..fbe4c9a7e460 100644
+> --- a/arch/powerpc/mm/kasan/init_book3e_64.c
+> +++ b/arch/powerpc/mm/kasan/init_book3e_64.c
+> @@ -111,6 +111,10 @@ void __init kasan_init(void)
+>   	u64 i;
+>   	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL_RO);
+>   
+> +	/* If KASAN is disabled via command line, don't initialize it. */
+> +	if (kasan_arg_disabled)
+> +		return;
+> +
+>   	for_each_mem_range(i, &start, &end)
+>   		kasan_init_phys_region(phys_to_virt(start), phys_to_virt(end));
+>   
+> diff --git a/arch/powerpc/mm/kasan/init_book3s_64.c b/arch/powerpc/mm/kasan/init_book3s_64.c
+> index dcafa641804c..f7906f9ef9be 100644
+> --- a/arch/powerpc/mm/kasan/init_book3s_64.c
+> +++ b/arch/powerpc/mm/kasan/init_book3s_64.c
+> @@ -54,6 +54,10 @@ void __init kasan_init(void)
+>   	u64 i;
+>   	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL);
+>   
+> +	/* If KASAN is disabled via command line, don't initialize it. */
+> +	if (kasan_arg_disabled)
+> +		return;
+> +
+>   	if (!early_radix_enabled()) {
+>   		pr_warn("KASAN not enabled as it requires radix!");
+>   		return;
 
-Changes in v4:
-- Added missing state rollbacks in pxa_udc_pullup(), pxa_udc_vbus_session(),
-  and pxa_udc_resume() when udc_enable() fails, per Greg KH's review.
+Should we log in the kernel log buffer that KASAN is disabled?
 
-Changes in v3:
-- Changed udc_enable() return type from void to int.
-- Propagated the error to all caller functions and added proper
-  error handling/rollback per Greg KH's review.
+Right now, I don't see the kernel advertising the same.
 
-Changes in v2:
-- Fixed a formatting issue by moving the 'int ret' declaration to
-  the beginning of the function block.
+$ dmesg | grep -i kasan
+[    0.000000] Kernel command line: 
+BOOT_IMAGE=(ieee1275//vdevice/v-scsi@30000070/disk@8100000000000000,msdos2)/vmlinuz-7.0.0-rc3+ 
+crashkernel=2G kasan=off
 
- drivers/usb/gadget/udc/pxa27x_udc.c | 66 +++++++++++++++++++++++------
- 1 file changed, 52 insertions(+), 14 deletions(-)
+Tested this series on powerpc Pseries platform.
+So feel free to add:
+Tested-by: Sourabh Jain <sourabhjain@linux.ibm.com>
 
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 897f53601b5b..348af4d29c4d 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -1462,7 +1462,7 @@ static int pxa_udc_wakeup(struct usb_gadget *_gadget)
- 	return 0;
- }
- 
--static void udc_enable(struct pxa_udc *udc);
-+static int udc_enable(struct pxa_udc *udc);
- static void udc_disable(struct pxa_udc *udc);
- 
- /**
-@@ -1519,14 +1519,20 @@ static int should_disable_udc(struct pxa_udc *udc)
- static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
- {
- 	struct pxa_udc *udc = to_gadget_udc(_gadget);
-+	int ret;
- 
- 	if (!udc->gpiod && !udc->udc_command)
- 		return -EOPNOTSUPP;
- 
- 	dplus_pullup(udc, is_active);
- 
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			dplus_pullup(udc, !is_active);
-+			return ret;
-+		}
-+	}
- 	if (should_disable_udc(udc))
- 		udc_disable(udc);
- 	return 0;
-@@ -1545,10 +1551,16 @@ static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
- static int pxa_udc_vbus_session(struct usb_gadget *_gadget, int is_active)
- {
- 	struct pxa_udc *udc = to_gadget_udc(_gadget);
-+	int ret;
- 
- 	udc->vbus_sensed = is_active;
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			udc->vbus_sensed = !is_active;
-+			return ret;
-+		}
-+	}
- 	if (should_disable_udc(udc))
- 		udc_disable(udc);
- 
-@@ -1691,12 +1703,18 @@ static void udc_init_data(struct pxa_udc *dev)
-  * Enables the udc device : enables clocks, udc interrupts, control endpoint
-  * interrupts, sets usb as UDC client and setups endpoints.
-  */
--static void udc_enable(struct pxa_udc *udc)
-+static int udc_enable(struct pxa_udc *udc)
- {
-+	int ret;
-+
- 	if (udc->enabled)
--		return;
-+		return 0;
- 
--	clk_enable(udc->clk);
-+	ret = clk_enable(udc->clk);
-+	if (ret) {
-+		dev_err(udc->dev, "clk_enable failed: %d\n", ret);
-+		return ret;
-+	}
- 	udc_writel(udc, UDCICR0, 0);
- 	udc_writel(udc, UDCICR1, 0);
- 	udc_clear_mask_UDCCR(udc, UDCCR_UDE);
-@@ -1726,6 +1744,8 @@ static void udc_enable(struct pxa_udc *udc)
- 	pio_irq_enable(&udc->pxa_ep[0]);
- 
- 	udc->enabled = 1;
-+
-+	return 0;
- }
- 
- /**
-@@ -1761,10 +1781,16 @@ static int pxa27x_udc_start(struct usb_gadget *g,
- 		}
- 	}
- 
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		retval = udc_enable(udc);
-+		if (retval)
-+			goto fail_enable;
-+	}
- 	return 0;
- 
-+fail_enable:
-+	if (!IS_ERR_OR_NULL(udc->transceiver))
-+		otg_set_peripheral(udc->transceiver->otg, NULL);
- fail:
- 	udc->driver = NULL;
- 	return retval;
-@@ -2430,10 +2456,16 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 		goto err_add_gadget;
- 
- 	pxa_init_debugfs(udc);
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		retval = udc_enable(udc);
-+		if (retval)
-+			goto err_enable;
-+	}
- 	return 0;
- 
-+err_enable:
-+	usb_del_gadget_udc(&udc->gadget);
-+	pxa_cleanup_debugfs(udc);
- err_add_gadget:
- 	if (!IS_ERR_OR_NULL(udc->transceiver))
- 		usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
-@@ -2509,13 +2541,19 @@ static int pxa_udc_resume(struct platform_device *_dev)
- {
- 	struct pxa_udc *udc = platform_get_drvdata(_dev);
- 	struct pxa_ep *ep;
-+	int ret;
- 
- 	ep = &udc->pxa_ep[0];
- 	udc_ep_writel(ep, UDCCSR, udc->udccsr0 & (UDCCSR0_FST | UDCCSR0_DME));
- 
- 	dplus_pullup(udc, udc->pullup_resume);
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			dplus_pullup(udc, !udc->pullup_resume);
-+			return ret;
-+		}
-+	}
- 	/*
- 	 * We do not handle OTG yet.
- 	 *
--- 
-2.34.1
-
+- Sourabh Jain
 
