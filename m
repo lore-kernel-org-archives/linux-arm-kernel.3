@@ -4,70 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2D8FED2F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD2BFED2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FCwiQBS2b/8NO+ecTEO2hWqJI1tslaKEJu2/cZSm9zo=; b=JsYWqyv/a6t5ZIwglVIYosdUsS
-	QNsKJ02Cmd4cWeuRKhVveoziypnGPYy8nHVWuv3LFWiViexVXUCCV5/khCsVjrwfTr7Q/G2H9ksl4
-	25V4lAyT4ZpotmHyKW4AOZIu232Kv5hPApDgukq5KauPnbvqyguHcG9FTRbSRVp6n2KeDXuyIQMOj
-	wX4UV7mHgZKpcI0cky2uprHXc97oFTSGWmv5TWrBeY+8oV4RO2BDPZZNPydyB/Jev8MnlWv58Da/A
-	7IZc5mtKe1Hv9i+NSUSSO7tikaOz8XPyQNRY/7ZC6khiMoc4EAMcdz+PreT+oqeGa4W5CB77rX5cq
-	ON3lXmzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UbN3p00zTnbIdBvU9E9fKU/3C3PjYne108v8XGFniB0=; b=MHGzDnVG7WF1fccmeDX0XKV0eF
+	iV2pbrafw+hPb9fRJWHwd/f1erK+apeo5LI2DPRH1B1taYgKATWpIle0nTwKT8xfTwrwTcDN6tb8x
+	RgGCsxZMSIzzMiC8vAyP2Ra8TpzKfidUbSKlAw+VqxVnwseU+lhGBmR64XiSL2kli/GzCiZt8Bnn3
+	Yls6NMKwj95rCMIYsDG1cX+4/b/dvfqZIynbgS+sFD0FTBngJOqzbVR7HRAzKwpKGj+mn5A4+BTy5
+	CiY1vzeiYhk9Va8/R4mIiCS9ioN2E2HP/KtIVtYgyw9TDnEr+A2q1xZsUwYM+M+oSHrOUFAh1XLh/
+	P2JZF0Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cNm-0000000DkzG-0afZ;
-	Thu, 12 Mar 2026 09:31:06 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w0cNv-0000000DlA8-0Jl5;
+	Thu, 12 Mar 2026 09:31:15 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cMH-0000000Dj1e-36Wh;
-	Thu, 12 Mar 2026 09:29:35 +0000
-X-UUID: f6834a3a1df511f1a21c59e7364eecb8-20260312
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:9e6c9770-690b-446c-bc5f-3be11f0c2ec7,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:0d303ad647b7ddb9282e207fe3025991,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f6834a3a1df511f1a21c59e7364eecb8-20260312
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 955784157; Thu, 12 Mar 2026 17:29:26 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	broonie@kernel.org
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH 15/17] spi: uniphier: Use helper function devm_clk_get_enabled()
-Date: Thu, 12 Mar 2026 17:29:07 +0800
-Message-Id: <2546a537f213fedc7be14707ed6ca77fc1bbb1b8.1773306858.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1773306858.git.xiaopei01@kylinos.cn>
-References: <cover.1773306858.git.xiaopei01@kylinos.cn>
+	id 1w0cMO-0000000DjGy-1bC9;
+	Thu, 12 Mar 2026 09:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773307780; x=1804843780;
+  h=message-id:date:subject:to:references:from:in-reply-to:
+   content-transfer-encoding:mime-version;
+  bh=ZCHQFh5O+8sPr7K+jLNQWXnEfxJAK3V/dHBt/anCj6M=;
+  b=Ueq7Ejhee/uT3wBmVa2P+qsg+fTYmTgws9jqsHiQ8jgG4Z2GJ8bV++Ks
+   CHAxkE0+eH6z5LH/dGVSg33aVvkLvgbWRjWiMd5aoQJJDX++Wr/rpY0jG
+   lpWmKnq2K/Dd7ooTncJHNil+c7pqJTgrqCEzXFp5tT21eoZaSWlkQhNAb
+   /iC5tIchclX9xm5CEoMetT417TcnwU0hLlZLhU1ZnjwhQdiEB3te/Yxlw
+   z+M8Iv4VF1BjsjKpPx+Ei3uwprnbz9G4slb4C6PdVLdtTAeyR2CZVMc++
+   4ro0+C56ypV+5ubvOdksqFp6F8y7Aegzbm8+1SC6WzmtnfVNn6cQlpfPC
+   A==;
+X-CSE-ConnectionGUID: HQahIlUgTJCN20Ft0juTsw==
+X-CSE-MsgGUID: 8/aKbro/TdCbfz0G9gcDYA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11726"; a="91963761"
+X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
+   d="scan'208";a="91963761"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:29:39 -0700
+X-CSE-ConnectionGUID: 2ruhvwJSRx+HjCgFZjg3ew==
+X-CSE-MsgGUID: EaboEkwzTbe1+cfNKQSYyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
+   d="scan'208";a="224908389"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:29:38 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 12 Mar 2026 02:29:36 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 12 Mar 2026 02:29:36 -0700
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.48)
+ by edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 12 Mar 2026 02:29:36 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UFJurOr2bhSTUPAqyBBd7nX63ujG4jbZNesAEVZj3zu9sU1QKbNQ0XBHKCi6pFsuUmc3ni+FODuwunrLlYsrwssKuwzFlJEpq8RopHaZ25mWmTaToeILykUksa15xwWpViNbrcxrMsbLOzbVtmi17xwHEPDrNB6C2rZ925yHy6bzmUPajaM74pKPmbHKMJIei1Z3g7HDKwfiPgc4VJg+jAEnEIZCK66g1i7bAc1mvrarXKxCACcFlKo4GPuaIuoqq94O2mIIBrqtsYrVX0hIjqwmsCOA/2/MrTVzfvV5jB/RmXYyrP6iCN5R/05SquXaJ8biAVUy6XHvLNzlICJR5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UbN3p00zTnbIdBvU9E9fKU/3C3PjYne108v8XGFniB0=;
+ b=YNRv7cpEbG5V0vZBI3xSvIbkeanTfcJGM1xlNgBX+StA2IPuZwE6zPkf+1Eqm23UETmmmpbgIr2rXZjJIk+6qVCEF+H+I6m9nuZ9VglcnuZNQFHWKvdwnaM0U4K8aQ04znhvQ6ygXc6bXVzYuREpxprO+Y919e2jzEcrlKitZrsciZHFHiTNnwhWp2wNescTJdUZTitdxZsGEEbIfZeoyQtwK8U/sqHQoKjdImzjw2XCstCcRVbfbvY1eL6TY2JpX5Lz9Sy9pI821zkDTFo8f9tfAURgkvQbfi9I90sAjmlfBgnOYmN26bhCvjYqKoZw94kkGz53uSKiI1SxW0ncBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by CY8PR11MB7108.namprd11.prod.outlook.com (2603:10b6:930:50::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.4; Thu, 12 Mar
+ 2026 09:29:33 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9723.000; Thu, 12 Mar 2026
+ 09:29:33 +0000
+Message-ID: <a41378a0-d2f1-4fa4-ac6d-1d0916590b47@intel.com>
+Date: Thu, 12 Mar 2026 11:29:25 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] i3c: mipi-i3c-hci: add microchip sama7d65 SoC
+ compatible with the appropriate quirk
+To: Manikandan Muralidharan <manikandan.m@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <Frank.Li@nxp.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <ardb@kernel.org>,
+	<ebiggers@google.com>, <martin.petersen@oracle.com>, <tytso@mit.edu>,
+	<cristian.birsan@microchip.com>, <jarkko.nikula@linux.intel.com>,
+	<kees@kernel.org>, <npitre@baylibre.com>, <linux-i3c@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>
+References: <20260312042056.309237-1-manikandan.m@microchip.com>
+ <20260312042056.309237-4-manikandan.m@microchip.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260312042056.309237-4-manikandan.m@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU7P189CA0025.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:10:552::32) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|CY8PR11MB7108:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35df1209-c3aa-4b14-ff76-08de8019de96
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007|18002099003|18082099003|18092099006|22082099003|56012099003|921020;
+X-Microsoft-Antispam-Message-Info: I0+pXA0VcfiPXIcwtNterRCEXRyPQRdiP8bNWDQqMhAOViwZJVl1thKDP5p1oOdNx4jv/DqtEAWaqn9AmjYwehKsg2JxbX6ki7P1azUN1jzEvH6y2T5zAAq/KQctlcAOsj3NnYhQOJr/hpQ8NBv0LL3sJhUwJs9QDk7vpHN1MNv1shS9d9JvolCZ4lrTiSmStgGJWM8LnNloB109a4gEwV5Weg5JUyZsHxlx5f0fellmoyY/WZ64PbaImts3emGgjKqzc4KeR2VYfPbiBtGq3EujPkX+4PHzxdQhCwUP5fY9N/osqs5D8wXOIi8POMaRWaRd9K96Y9pp+WBp5t6TzMgndZM6DCTvr+q0HQ1XkvloU9CSiWO7aVBrZiGkgeKyCc1+FohawWMVCgiHyLeAnao6tnzIcly5C+Qt7sY0ZOD9dgjqdrVXDKIj0RbuNIDmCfFrdj/g8cBYgSIlRGiM7u4MOO2u5oszpcbmSMTHULN84k3FEVLHkSl4gDvNQhkiRkl5wZQ9NxWSgvQbG57sduqco5NctsyuzyjULG5iRHOHP3gY89Q8BUV2o6Y+VtxG72KgkrQtkhsQmG/nmAPOICgPNIntXWyIujGJiwZwwb4QEjbqpPCwVuWEek2wJm1HY0PoZwla/iJL4kt7R+w3jyahXpG4ToXnVQCZCIjgelAhxhgmS589kzmNYG/zF8fvstvoCiOnxOHUkxPR/cXAAjSYd230kXvyyIR7ovXeypDcCPvRikWgd0q1Qu9a2jlUquYd0s9tQwiRLtCcrOmjsQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007)(18002099003)(18082099003)(18092099006)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mm94ZzhrTjdPN3ptRzF5V1JxQnpzUlQvUkdWY0d4ZUF3S0s1ZmRsS0VNNTUx?=
+ =?utf-8?B?aEh5Z3FoMzhXbFZUMHNTV3hzcUhrdDlWOTZQdWpoMFJrZjk5aERpNGp1RSt5?=
+ =?utf-8?B?SUhZVnliYTlsOE5iZyt4ajQyM3Y5VFh3akFHM2FqdkJxUFA4VkE2K2hkVkxL?=
+ =?utf-8?B?L2NTTnVqSEtySjU4d3c3dVNJdklOd0xkZUNXamt6eCszUFZCcmJPZVpLZ1Z1?=
+ =?utf-8?B?VVc3KzdoSUZFeHd1Z20yaHZTY1FDWHNEb3lTc3NPTHhycC9jNmY3SHBIM3Jm?=
+ =?utf-8?B?L3o4R044ZUpHdEdPNVo3eGNiZjVWMFFYUnIrVUpwbzJjTUZoRlJzc052Z0lQ?=
+ =?utf-8?B?cmVzNkJESllta2RJbHBiWHNhUHYrcHVYdGlBc291Q2t2OStkZ3FJOEgxVC83?=
+ =?utf-8?B?Njk5UGRCNGgrMVJFWm96R2J4K2JnU1MwbzlsenNoWi9xN2kxUnV0TWJmQnlq?=
+ =?utf-8?B?SG9aWEhGM3JwRlJQcys4THhrSzFhSE9PQm50OG9TSVlrYTJmdVNEZzhYTVFO?=
+ =?utf-8?B?TFkwVnl0cDRKeG9FNEZoVzRkMnRiTmRTcU1LWlN6MmxDUjlacVY5cEVEZW5K?=
+ =?utf-8?B?UjlqZjF4RnRRUXY3ejhoWG1nbkpwRmkzMnRPUzdhd2pIRDRZWG1QMDRxeDdE?=
+ =?utf-8?B?ck14d1VzN1NVdXlOeGZKaElseTdVYXNEVDhOUU9pSTlXeDZjbGtIM2R4Z0hV?=
+ =?utf-8?B?VGJOQmRPZGEvbGZXRGpUaVdIRXg0eTJ5SmRMR2hMSFBKcENTV0Z4WHhZaEhB?=
+ =?utf-8?B?SlQrd3pQaGdMUmhxU3JvZWMyeDYyU0VnM1BFRDlPMGlqenpvVlhzUXpNUFBu?=
+ =?utf-8?B?TVhsT0ViNGY4UlFyWnhJUVdxbVJGS1dTZVN0ZEg5R2N1VWg0eFczak80b0Nm?=
+ =?utf-8?B?ZHhqTVhwUXdqNXlJeWxYbXoxclZKUzhURU0vby9LalpxR0lmMUhZYnhKdUNX?=
+ =?utf-8?B?WWZuc3Z4MFJZdk1sZTUralI1emNNQ2R4ekRVcXRYYWsvcTNmOUpQNVdMVkE0?=
+ =?utf-8?B?NUt6anVSbXg2REJ4SWFnL1lnalZxUjJkMm01cG9WQjJIeEs1cG4rQVQzb2ww?=
+ =?utf-8?B?T2JBUXdHNjR5cEFpUXF1ZDBHNWVxYWpDRXJIZ1U0RU9vWmg0T3VpV0NrcHpO?=
+ =?utf-8?B?bjJoLzZVZWNzRDBhL3RPa3RvcWFwcWIvQU51WGVnNmNjVXNZRmQxazM5Y1FM?=
+ =?utf-8?B?ZmlJUHNCR1R5UmVEU3JQbzl4aFR4NUFVbDdJNllnRmhaMktlUWlFM05UbzB5?=
+ =?utf-8?B?SEM3RFd1djYrTWFia0ZVOEZ5WWxWdTY4NTZmaHlnVm0rUjU2dDRld3Z3Z1pN?=
+ =?utf-8?B?cjlFbGoyUGxXd2FkSVlPWE9UU2lncEx3eFZ5QndYcFI2TFBxZzBLZjFmT3Zr?=
+ =?utf-8?B?aFJvZnZhc3BISmxyQ0FxbThqRGwvdTBUcFl3bFZRNEd2b1NjZmMycVo0VDVB?=
+ =?utf-8?B?dGNJU2ZQTjVRN0M4QjFlajcvM2pyUS8vS2ZnK3U1WlFKSEhSZFd2Skptc2tF?=
+ =?utf-8?B?SHAvalhOVVhERnpSbXU2QjhJUUhuSE9sU3BJcDUzblU1dERHR3dxT2MxalVs?=
+ =?utf-8?B?bkRweXNtenpwR3ZEVlJiZi9KeFRabE1taVVFWHRCTlplSFdXd2VCTTRFam9i?=
+ =?utf-8?B?QktHV29lSWtRZmY0NFlNVzh6cmRqclhpb2VHcytSeDhxd0Z1NnBqYVhPTXJ6?=
+ =?utf-8?B?dWhPTXBGejBSVnMzcG5lVHlrZ0R5aEc4ZTBuSjJPUGxXRnZXNXFXS2RldkxI?=
+ =?utf-8?B?VWc2UzYrMGtmb1N6WUsxNUd6c1lta3d0QjdYSTVadDJicGhUbTBnZmcwY3hh?=
+ =?utf-8?B?ZXdqOVg5TmVTYlpHbnBhcFRuNC9hYkw1UnluNHRSdHVNWDR6NmhnYkcwV3c2?=
+ =?utf-8?B?ZUY0OFU0dldOT0ovVlVqTmgrSW1jR05odWx5dU9VdkJhb29qVUplZ1pVVk80?=
+ =?utf-8?B?N0NFZ0djR1BFUFBGNnFkay83ZXBxNkxkQ29KVjJhVk9XTmZ6VGUrRElQcnRq?=
+ =?utf-8?B?SmdZVGNZSVZyNnR5YUlpcjVMYldNNFY4b1cxQTA4cnZqbGVSQ0EwUGdGVWRH?=
+ =?utf-8?B?d0piTGF1VlRFeHFCZWw5ZkFVOGN6dGF0emFhV3c0RlhOT3QwUWV0dk9nRldC?=
+ =?utf-8?B?VkwyUVlvNEZmZGZVMmhBOUlxbmZTMzdzNXZ6V3lhajNpWDNSMEhaa05NMHRL?=
+ =?utf-8?B?NjFkQTZYVHViS3dsVmQ4aHR5bVR4NTBRdFY4aU9PUjkvcmptYVAzN0tMZjAr?=
+ =?utf-8?B?VGdXdVJhUkx1R1FtMERxdFNjTStXZUJFdnc5dEZ3MTNIaUVtVTF5MzQzdU9s?=
+ =?utf-8?B?ODl6VURCOGlDZVZveUlYVU9qZnBlbVlob0xWR3Z1TUErdFoyck5GdWhaWWJK?=
+ =?utf-8?Q?U/kxqPE/VvcKlw44=3D?=
+X-Exchange-RoutingPolicyChecked: DTt2vIlyglQ96SV0V/HdLACYqJDfqJCBe1s5GW6Bp1eoQ7Yc48jZrjaJeKVLg2z3MGTI2VGcTCr6i2z4FhvZBVLQLWs0Gy6y5/CiTAepOBDQGT1Z1eaQwQtEJKVbd6F+ZG+ip/rNdRAuiXORoZwHNBycfBq2e76ZhNsj6VWr05lzUAK4tvt0gAY8X5kNjeZvxLbCCG/yHBDl/96bqm+QdfDH7LHKqSfiD1glRaOnZj0xZZQRF6IKdqhUx8xujomQ26ZnmEykRKPW0j0lIAjmVHLdaPCISSBsO+5bgHUEWpvob0GFTl220iZaC0BNFSZt9fiZdX2W0W+kwBvONB6dtQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35df1209-c3aa-4b14-ff76-08de8019de96
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 09:29:33.3408
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oZbU5WmpqvQPQYh3pUxwqUDSuE6gnbTn3lJYpVgLWz45LUboSGZ9wdB4+ZzMkoWvXi37Mt7legwxwfo91/KTIg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7108
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_022934_684016_88C45369 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260312_022940_474372_0AFCEAB6 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +194,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_clk_get() and clk_prepare_enable() can now be replaced by
-devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
-longer necessary to unprepare and disable the clocks explicitly.
-Simplify code.
+On 12/03/2026 06:20, Manikandan Muralidharan wrote:
+> Add support for microchip sama7d65 SoC I3C HCI master only IP
+> with additional clock support to enable bulk clock acquisition
+> for Microchip platforms using HCI_QUIRK_CLK_SUPPORT quirk.
+> Introduce MCHP_I3C_CLK_IDX to define the maximum peripheral
+> clock index
+> 
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+> Changes in v3:
+> - Make use of existing HCI_QUIRK_* code base
+> - Introduce HCI_QUIRK_CLK_SUPPORT to handle/enable the required Peripheral
+> and system generic clk in bulk
+> 
+> Changes in v2:
+> - Platform specific changes are integrated in the existing mipi-i3c-hci
+> driver by introducing separate MCHP_HCI_QUIRK_* quirks and vendor
+> specific quirk files
+> 
+> ---
+>  drivers/i3c/master/mipi-i3c-hci/core.c | 12 ++++++++++++
+>  drivers/i3c/master/mipi-i3c-hci/hci.h  |  4 ++++
+>  2 files changed, 16 insertions(+)
+> 
+> diff --git a/drivers/i3c/master/mipi-i3c-hci/core.c b/drivers/i3c/master/mipi-i3c-hci/core.c
+> index 5879bba78164..6b7716bd517e 100644
+> --- a/drivers/i3c/master/mipi-i3c-hci/core.c
+> +++ b/drivers/i3c/master/mipi-i3c-hci/core.c
+> @@ -8,6 +8,7 @@
+>   */
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/clk.h>
+>  #include <linux/device.h>
+>  #include <linux/errno.h>
+>  #include <linux/i3c/master.h>
+> @@ -918,6 +919,7 @@ static int i3c_hci_probe(struct platform_device *pdev)
+>  {
+>  	const struct mipi_i3c_hci_platform_data *pdata = pdev->dev.platform_data;
+>  	struct i3c_hci *hci;
+> +	struct clk_bulk_data *clks;
+>  	int irq, ret;
+>  
+>  	hci = devm_kzalloc(&pdev->dev, sizeof(*hci), GFP_KERNEL);
+> @@ -946,6 +948,13 @@ static int i3c_hci_probe(struct platform_device *pdev)
+>  	if (!hci->quirks && platform_get_device_id(pdev))
+>  		hci->quirks = platform_get_device_id(pdev)->driver_data;
+>  
+> +	if (hci->quirks & HCI_QUIRK_CLK_SUPPORT) {
+> +		ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
+> +		if (ret < MCHP_I3C_CLK_IDX)
 
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- drivers/spi/spi-uniphier.c | 15 ++++-----------
- 1 file changed, 4 insertions(+), 11 deletions(-)
+Is MCHP_I3C_CLK_IDX really needed?  Why not just:
 
-diff --git a/drivers/spi/spi-uniphier.c b/drivers/spi/spi-uniphier.c
-index 9e1d364a6198..f6fe5ab9f893 100644
---- a/drivers/spi/spi-uniphier.c
-+++ b/drivers/spi/spi-uniphier.c
-@@ -666,28 +666,24 @@ static int uniphier_spi_probe(struct platform_device *pdev)
- 	}
- 	priv->base_dma_addr = res->start;
- 
--	priv->clk = devm_clk_get(&pdev->dev, NULL);
-+	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(priv->clk)) {
- 		dev_err(&pdev->dev, "failed to get clock\n");
- 		ret = PTR_ERR(priv->clk);
- 		goto out_host_put;
- 	}
- 
--	ret = clk_prepare_enable(priv->clk);
--	if (ret)
--		goto out_host_put;
--
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0) {
- 		ret = irq;
--		goto out_disable_clk;
-+		goto out_host_put;
- 	}
- 
- 	ret = devm_request_irq(&pdev->dev, irq, uniphier_spi_handler,
- 			       0, "uniphier-spi", priv);
- 	if (ret) {
- 		dev_err(&pdev->dev, "failed to request IRQ\n");
--		goto out_disable_clk;
-+		goto out_host_put;
- 	}
- 
- 	init_completion(&priv->xfer_done);
-@@ -716,7 +712,7 @@ static int uniphier_spi_probe(struct platform_device *pdev)
- 	if (IS_ERR_OR_NULL(host->dma_tx)) {
- 		if (PTR_ERR(host->dma_tx) == -EPROBE_DEFER) {
- 			ret = -EPROBE_DEFER;
--			goto out_disable_clk;
-+			goto out_host_put;
- 		}
- 		host->dma_tx = NULL;
- 		dma_tx_burst = INT_MAX;
-@@ -766,9 +762,6 @@ static int uniphier_spi_probe(struct platform_device *pdev)
- 		host->dma_tx = NULL;
- 	}
- 
--out_disable_clk:
--	clk_disable_unprepare(priv->clk);
--
- out_host_put:
- 	spi_controller_put(host);
- 	return ret;
--- 
-2.25.1
+		if (ret <= 0)
+
+i.e. don't you anyway have to assume DT has the clocks defined
+correctly.
+
+> +			return dev_err_probe(&pdev->dev, ret,
+> +					     "Failed to get clocks\n");
+> +	}
+> +
+>  	ret = i3c_hci_init(hci);
+>  	if (ret)
+>  		return ret;
+> @@ -971,6 +980,9 @@ static void i3c_hci_remove(struct platform_device *pdev)
+>  
+>  static const __maybe_unused struct of_device_id i3c_hci_of_match[] = {
+>  	{ .compatible = "mipi-i3c-hci", },
+> +	{ .compatible = "microchip,sama7d65-i3c-hci",
+> +	  .data = (void *)(HCI_QUIRK_PIO_MODE | HCI_QUIRK_OD_PP_TIMING |
+> +			   HCI_QUIRK_RESP_BUF_THLD | HCI_QUIRK_CLK_SUPPORT) },
+>  	{},
+>  };
+>  MODULE_DEVICE_TABLE(of, i3c_hci_of_match);
+> diff --git a/drivers/i3c/master/mipi-i3c-hci/hci.h b/drivers/i3c/master/mipi-i3c-hci/hci.h
+> index 337b7ab1cb06..2571ef6374ce 100644
+> --- a/drivers/i3c/master/mipi-i3c-hci/hci.h
+> +++ b/drivers/i3c/master/mipi-i3c-hci/hci.h
+> @@ -140,12 +140,16 @@ struct i3c_hci_dev_data {
+>  	void *ibi_data;
+>  };
+>  
+> +#define MCHP_I3C_CLK_IDX		2 /* Max peripheral clock index for Microchip platforms */
+> +
+>  /* list of quirks */
+>  #define HCI_QUIRK_RAW_CCC	BIT(1)	/* CCC framing must be explicit */
+>  #define HCI_QUIRK_PIO_MODE	BIT(2)  /* Set PIO mode for AMD platforms */
+>  #define HCI_QUIRK_OD_PP_TIMING		BIT(3)  /* Set OD and PP timings for AMD platforms */
+>  #define HCI_QUIRK_RESP_BUF_THLD		BIT(4)  /* Set resp buf thld to 0 for AMD platforms */
+>  #define HCI_QUIRK_RPM_ALLOWED		BIT(5)  /* Runtime PM allowed */
+> +#define HCI_QUIRK_CLK_SUPPORT		BIT(6)  /* Enable Clocks for Microchip platforms*/
+
+Without MCHP_I3C_CLK_IDX this becomes a generic quirk that others can use
+
+> +
+>  
+>  /* global functions */
+>  void mipi_i3c_hci_resume(struct i3c_hci *hci);
 
 
