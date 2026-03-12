@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA6BFED2E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D2CFED2EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rbd4M/LzQg3ubtyebl7laGpK/PLq5vFdEU8W4Lizk7M=; b=ETX8DKohZfY7P5TxZBpG8XY9AP
-	EG3Lql03mxxL7d1sLXlefaPmbuNKy+FcgdOBbXBBUbF29lnYAOVwB1kaypT6pDzaYrvtKXmOvL92O
-	0C2WiHkCxI6UFZgUIYuDZ+uBKkEaJtnPZFKwrxp9lEBe5souH5XXoyBPdG+CmcatpHxGE8ZwmvAh/
-	JwYSljxFnOKw0jN78uNYLr2wrFCnab/dQdf2RURvCx8enUfsjJ+QDzFNGGtN5T6JoN0Y6ZoTDsPxq
-	jrMmcBsauMpgUcWASoppA5nK1F355wGE0kGsyLpXagkZGZEjBqMTH+BGPHtyww0KLTRA0mBPzZI53
-	LeO5rydA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FEH3325+jhXoeQPrWO/1AcgY3xcOkfp9JU9nCI5U+X4=; b=mG0DYBDkZPtq2GoUeqdfMWpL2w
+	klkc4Jg/Y6a7fxHHgOd122Qk8oV6ySpiQlMQ/ERc4RoivoLMxEAbwfLamV+rKEhHS3Cz9vIvR6m0y
+	OC5O50ERb3xSVnE0PRZ6t+XVKgKHih2HTs66MHhO+gCz9tCO/qymiZu1cEQ5uwD3sr8M8LAgdWMcS
+	lvx6+ziXd05Ur9CJDQ+6u1WQxRyDx+tv9431Mn97bYLfZTMmmprcTFZLwfgmdpZUO7g4SbC/kYMRH
+	Hm9GoJo8IOOryJWXUVSWprfoDMW95/Oxt5Ck/Bjjr/CbxnQbZUTOiN/UZcXBeaeF1kg3MKNBWwyPa
+	1/uKraiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bAO-0000000DcxK-1g4r;
-	Thu, 12 Mar 2026 08:13:12 +0000
-Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
+	id 1w0bFn-0000000DdZ1-0gyZ;
+	Thu, 12 Mar 2026 08:18:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bAL-0000000DcwP-2c6A
+	id 1w0bFk-0000000DdYd-1YqP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:13:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1773303186; bh=rbd4M/LzQg3ubtyebl7laGpK/PLq5vFdEU8W4Lizk7M=;
-	h=From:To:Cc:Subject:Date;
-	b=m8pRwJRHSqTdeqJyeVVcpRcvPWQ5YOCSTy04lOb+7/nqBkNetwuKvhHONAfdw6KtO
-	 TUjS3t16a28ogKg2KSu0dB7XqzNNg9gUr9MfLxTH2jS8VPlrSc4A3jNEFRXw4vxqjL
-	 iZVkMhKH0fEWV7ce89qzBJL0qrmQNhvs/4Z23nWA=
-Received: from admin.. ([2001:da8:205:20a0:6eeb:b6ff:fe15:94a7])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 34226827; Thu, 12 Mar 2026 16:13:02 +0800
-X-QQ-mid: xmsmtpt1773303182ts20g8e4w
-Message-ID: <tencent_5A29C4DF52ADAAD8B128CF6B43FD156F6308@qq.com>
-X-QQ-XMAILINFO: M5g+bqkaOkZDxXvDFex3nTxrIi7CD+WJD5PNBeb0vxxl1LTIxchXUGDLUYrpTd
-	 3aDvoBfsSp+d9HW8D7JoMyBfvIVNLWgewD8FI0GWn9RwXKSYfU8H5ZW7x1BgZU1Y2aWZQkTA7MZT
-	 LoM4KI3nHQJ07afH1NEcf6W/zxIfXgPXxhbSxaQmQYyMuh7Ulad3II8MyF4Lj/TB7Y22iTbk4kSe
-	 5W+MI2rI1xTjmFIrV6T7wu/DI5fVkXxeSxzyfgK1bNFhcpeUQYCbDF495QBslJYNJHyv7yuZQphw
-	 v4KHreYOW+rZN69+PP7QhoFqjMxjTDAfOt50My0Xp0HWzF4RWmNuHiQCAvgZYAo6u5bKZ1ET8PUp
-	 gSBaNA5B7WE7C7WsZEblR969rBDIdKCTWlFqAW4ZKMDwLzLdHk8DHXTALy6BpDKnRTfNP/s0Zj3/
-	 yd7lLl3Y3uQGNlPgmJ/dmohpCORlPqeoc1lZ9hiucBWIty3UB1Mmsz2KbDSP9VJ6C9o8tOkR0+Dz
-	 kubWIA5wozDXMkFZ5F6E7Zi6AEZa6t0Ddta4elIF+L2uBDnBNuAtFOOTdMQG1MIIku91KwDJO+eW
-	 y39kDijwpdE4EYWwa3U57c1nLbxf68hYHf4seHVRo7EiaNBYmZUeqFXuihr25ufOkk5+dxFdWP1b
-	 h443aNaL+Uetthg7LTz4FeimCzJjFXyzWVqpAMNcRxmjM2HbOvc5hyiIH0qGJReVv6/CGhR8v8s0
-	 1yz21Aj0LhnCkaSJHA8/fhNKokKEGkIxypFWBMyOEFmct/KEOz+VhBT3HwNDz87bdnQQBmhL+4kz
-	 cPp/PiW2U3+w7rnpoLSxhlOP9Cl86ml1g3xxS/u+WKyStbGDcASElQDYOmwTsIa3UiwcW2FfPTJ+
-	 8GktMDWv3sOsN8Gst+Fwx/bkvVnh4kDwKrWBWKaTI8Vxo5u2sRBeOA8p1CZxEOMi+Pa4j9/MuX3S
-	 vAhlDJFVnLlInXDqtbmYL9Dn5oiLS00cyQWc/njWF0FEztuTkyPSJO4z1hE3V6F/76Mh4UQoyvmR
-	 rLXMCT/qARD3iYXdWZpOCpJfOhMJ8DKfxSmpspEd+kyfk95JEoAZFVJzbGb64=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Zhaoyang Yu <2426767509@qq.com>
-To: gregkh@linuxfoundation.org
-Cc: sergei.shtylyov@gmail.com,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org,
+	Thu, 12 Mar 2026 08:18:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A51B43FBF;
+	Thu, 12 Mar 2026 08:18:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504CCC4CEF7;
+	Thu, 12 Mar 2026 08:18:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773303523;
+	bh=zaiw6ohbC9zCzTRpwnLAe3c7LEjMMvMfCa83XflODHk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Xv18C9rGMeCRDNgcgnuV6dLDJo5QaRsfDSyclftrain5i3x72szmFg1DLzuYLZshB
+	 8+yTqt8d1MTdzNnKoNrB9RFZ9PwgnWSUvrSQcEoiRSYUxzpjgRn54SRZzbIPYHAam6
+	 X9DZegf2Mj2T/qFHxe5OK0YX7JWM9i6rqdDTIlON1iCZ/cEJWRU++W0o5IUPQ4bSZn
+	 HHJrmv3Clmq2+MIST8R2dPFQloQTosCAdTQD4vWjzuAeRjz5oDp57W+RsOr8KTmlRd
+	 FVQfiu5bmj86rCBAFfqZdNmclWFS5PJs7twUGqA4aR7wEIBrzaKZwZjzwCIj3jBuSY
+	 FDPgXr5tZENMw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: 
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linusw@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Zhaoyang Yu <2426767509@qq.com>
-Subject: [PATCH v4] USB: pxa27x_udc: check return value of clk_enable
-Date: Thu, 12 Mar 2026 08:13:00 +0000
-X-OQ-MSGID: <20260312081300.286449-1-2426767509@qq.com>
-X-Mailer: git-send-email 2.34.1
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 2/2] ARM: defconfig: enable CONFIG_MFD_STMFX instead of PINCTRL_STMFX
+Date: Thu, 12 Mar 2026 09:17:45 +0100
+Message-Id: <20260312081805.3020612-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260312081805.3020612-1-arnd@kernel.org>
+References: <20260312081805.3020612-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_011310_826638_D02B3A07 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260312_011844_457557_87DAE4D2 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,176 +77,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk_enable() may fail according to the API contract.
-Previously, udc_enable() ignored its return value.
-This patch checks the return value and logs an error
-without continuing initialization if clk_enable fails.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Signed-off-by: Zhaoyang Yu <2426767509@qq.com>
+PINCTRL_STMFX now depends on MFD_STMFX instead of selecting it, so
+adapt the defconfig to pick the right one again.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-Changes in v4:
-- Added missing state rollbacks in pxa_udc_pullup(), pxa_udc_vbus_session(),
-  and pxa_udc_resume() when udc_enable() fails, per Greg KH's review.
+ arch/arm/configs/multi_v7_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v3:
-- Changed udc_enable() return type from void to int.
-- Propagated the error to all caller functions and added proper
-  error handling/rollback per Greg KH's review.
-
-Changes in v2:
-- Fixed a formatting issue by moving the 'int ret' declaration to
-  the beginning of the function block.
-
- drivers/usb/gadget/udc/pxa27x_udc.c | 66 +++++++++++++++++++++++------
- 1 file changed, 52 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 897f53601b5b..348af4d29c4d 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -1462,7 +1462,7 @@ static int pxa_udc_wakeup(struct usb_gadget *_gadget)
- 	return 0;
- }
- 
--static void udc_enable(struct pxa_udc *udc);
-+static int udc_enable(struct pxa_udc *udc);
- static void udc_disable(struct pxa_udc *udc);
- 
- /**
-@@ -1519,14 +1519,20 @@ static int should_disable_udc(struct pxa_udc *udc)
- static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
- {
- 	struct pxa_udc *udc = to_gadget_udc(_gadget);
-+	int ret;
- 
- 	if (!udc->gpiod && !udc->udc_command)
- 		return -EOPNOTSUPP;
- 
- 	dplus_pullup(udc, is_active);
- 
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			dplus_pullup(udc, !is_active);
-+			return ret;
-+		}
-+	}
- 	if (should_disable_udc(udc))
- 		udc_disable(udc);
- 	return 0;
-@@ -1545,10 +1551,16 @@ static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
- static int pxa_udc_vbus_session(struct usb_gadget *_gadget, int is_active)
- {
- 	struct pxa_udc *udc = to_gadget_udc(_gadget);
-+	int ret;
- 
- 	udc->vbus_sensed = is_active;
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			udc->vbus_sensed = !is_active;
-+			return ret;
-+		}
-+	}
- 	if (should_disable_udc(udc))
- 		udc_disable(udc);
- 
-@@ -1691,12 +1703,18 @@ static void udc_init_data(struct pxa_udc *dev)
-  * Enables the udc device : enables clocks, udc interrupts, control endpoint
-  * interrupts, sets usb as UDC client and setups endpoints.
-  */
--static void udc_enable(struct pxa_udc *udc)
-+static int udc_enable(struct pxa_udc *udc)
- {
-+	int ret;
-+
- 	if (udc->enabled)
--		return;
-+		return 0;
- 
--	clk_enable(udc->clk);
-+	ret = clk_enable(udc->clk);
-+	if (ret) {
-+		dev_err(udc->dev, "clk_enable failed: %d\n", ret);
-+		return ret;
-+	}
- 	udc_writel(udc, UDCICR0, 0);
- 	udc_writel(udc, UDCICR1, 0);
- 	udc_clear_mask_UDCCR(udc, UDCCR_UDE);
-@@ -1726,6 +1744,8 @@ static void udc_enable(struct pxa_udc *udc)
- 	pio_irq_enable(&udc->pxa_ep[0]);
- 
- 	udc->enabled = 1;
-+
-+	return 0;
- }
- 
- /**
-@@ -1761,10 +1781,16 @@ static int pxa27x_udc_start(struct usb_gadget *g,
- 		}
- 	}
- 
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		retval = udc_enable(udc);
-+		if (retval)
-+			goto fail_enable;
-+	}
- 	return 0;
- 
-+fail_enable:
-+	if (!IS_ERR_OR_NULL(udc->transceiver))
-+		otg_set_peripheral(udc->transceiver->otg, NULL);
- fail:
- 	udc->driver = NULL;
- 	return retval;
-@@ -2430,10 +2456,16 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 		goto err_add_gadget;
- 
- 	pxa_init_debugfs(udc);
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		retval = udc_enable(udc);
-+		if (retval)
-+			goto err_enable;
-+	}
- 	return 0;
- 
-+err_enable:
-+	usb_del_gadget_udc(&udc->gadget);
-+	pxa_cleanup_debugfs(udc);
- err_add_gadget:
- 	if (!IS_ERR_OR_NULL(udc->transceiver))
- 		usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
-@@ -2509,13 +2541,19 @@ static int pxa_udc_resume(struct platform_device *_dev)
- {
- 	struct pxa_udc *udc = platform_get_drvdata(_dev);
- 	struct pxa_ep *ep;
-+	int ret;
- 
- 	ep = &udc->pxa_ep[0];
- 	udc_ep_writel(ep, UDCCSR, udc->udccsr0 & (UDCCSR0_FST | UDCCSR0_DME));
- 
- 	dplus_pullup(udc, udc->pullup_resume);
--	if (should_enable_udc(udc))
--		udc_enable(udc);
-+	if (should_enable_udc(udc)) {
-+		ret = udc_enable(udc);
-+		if (ret) {
-+			dplus_pullup(udc, !udc->pullup_resume);
-+			return ret;
-+		}
-+	}
- 	/*
- 	 * We do not handle OTG yet.
- 	 *
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index c102c4acdd8f..728b36ad3a08 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -481,7 +481,6 @@ CONFIG_PINCTRL_MCP23S08=m
+ CONFIG_PINCTRL_MICROCHIP_SGPIO=y
+ CONFIG_PINCTRL_OCELOT=y
+ CONFIG_PINCTRL_PALMAS=y
+-CONFIG_PINCTRL_STMFX=y
+ CONFIG_PINCTRL_OWL=y
+ CONFIG_PINCTRL_S500=y
+ CONFIG_PINCTRL_MSM=y
+@@ -627,6 +626,7 @@ CONFIG_MFD_SPMI_PMIC=y
+ CONFIG_MFD_RK8XX_I2C=y
+ CONFIG_MFD_RN5T618=y
+ CONFIG_MFD_SEC_I2C=y
++CONFIG_MFD_STMFX=y
+ CONFIG_MFD_STMPE=y
+ CONFIG_MFD_PALMAS=y
+ CONFIG_MFD_TPS65090=y
 -- 
-2.34.1
+2.39.5
 
 
