@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E83FED2E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E921FED2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wO9UqZFmvzWbbuTUTCg2zlIIvIAOlETFTacr5ltGemA=; b=UAs8CXMl1CXTEolpLGYoJPif95
-	P7V2N/4iKEwBWEE7kfYgq1YGEbDbXEcrNWAJjpXaR7jqdl9qzcJT/uqNtJBunQLFdIihG6pNHXB6m
-	pAyMnXh4PD03py0j/Mz1beCtJM3eSXAqMM9c5SyT49zNXXXuB5wyr2UcOgK7ffGFTayDpYAIeobI+
-	reUVGpiVq9SFbs2+IAEbPOk+6leN4HleeN2NN8ysJlYcKlmhVnpa4XZQnab6lJfgnRqLwBRu9Mvup
-	grAte/46cv14W1xRMPhd2Ibjllwo3quahbjG+7SKEbRMiaZhZci/N4mk9SgiM6zopqXjE244NdX5S
-	9CuJjOLg==;
+	bh=27S0/XYcWlbamnwlv5FH1/SA99z3PDGi+IGq+QjDm38=; b=r/nw7IQXMx9KIMo6VoyraFofDv
+	SId0YffeGF87c/UIdf2yRxQPPqgbLGPpy/sRWG85rxiEEbYmV50YKtDMHCQ8LFXpK+DbfrfKSCHvS
+	k+jR77gv2W9Dg9WjnBz+uEp7Xf4cDiAdhGcybSkyMaSs7+qcV2xCor6H0WgPY0UB5V3Xz8y60uiar
+	cxTJYJa/KH2DeTEU3akk1kUc5Y/sf3lFZxrkrBqYUCGME4Wv1BGfH7beIkwH34eZ4cdrAYTgEWMvq
+	bM7sXAk8AI3QpDr1hY6tJoebjMUMRCbiEnC9bu3ouajdHJnI7hf88yfijctboqVtETIrqqrVIIBfi
+	ew/Ztj/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b6R-0000000DcJY-1HxF;
-	Thu, 12 Mar 2026 08:09:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0b9u-0000000Dcu4-48Cg;
+	Thu, 12 Mar 2026 08:12:43 +0000
+Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b6Q-0000000DcHn-1PBC
+	id 1w0b9r-0000000Dctg-2T3o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:09:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA6DD60131;
-	Thu, 12 Mar 2026 08:09:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1860C19424;
-	Thu, 12 Mar 2026 08:08:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773302945;
-	bh=jhZYbIx/ioIMcp6Qf6D0AyrmnhioxKZ41Sj/eUJHFfw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gKYOE0yj56TVOGQs+HqiYrGUiscjS+7Paz0/3LYmU7nuBD/2Du3+nExFTdkh1ULgD
-	 dGWs8qbF0H1tHb3oT+bLOPVxvIeMSCJTDnOyMfVMhOrMzzcCYjddcWnQYNUsM3/1xu
-	 4LHflMegH/5Xmr2eCX3C1PMy5MCKnDUOgGVgHQpLSrLCtufw8bj35qmy+n01sF0tIs
-	 jZEDf7uGl2YfdrlfgWm1SMlmaaz4DySbsmJ9xbULq+7cv7fZ/tZaRe8nY2EzC7e9iS
-	 Yz1cTMfVShhB48tSs+Q0dAGo8M+QYeQqv1cwv0qCLG2DnkKselxARbDsrUNi0oY4Vw
-	 6f3AC7mhAXJUg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>
-Subject: [RFC PATCH v3 12/12] KVM: arm64: CCA: enable DA in realm create parameters
-Date: Thu, 12 Mar 2026 13:37:43 +0530
-Message-ID: <20260312080743.3487326-13-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260312080743.3487326-1-aneesh.kumar@kernel.org>
-References: <20260312080743.3487326-1-aneesh.kumar@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 12 Mar 2026 08:12:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1773303153; bh=27S0/XYcWlbamnwlv5FH1/SA99z3PDGi+IGq+QjDm38=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=plCqZQOgNPPoLCxK4VJCgcdTeF11rqT75EAOhbgnFT2xVZKbAUUBHDp1PgK07UcW0
+	 /q7XESXf5pkH+cJejWOjnW2LIdYwXcAtZ9MLPYTt+QGO0HgvtNJMX/J0yEEimSCbbk
+	 U78oPAaiY4n3msIoXDI6i6vrDdKs6kxehJNexWUA=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-XMAILINFO: NB8AK7fcAs0KtUhMkzHJv1T7vB9mvagc25sJzreQ635HSif3pUTWNsB1ooz8Ck
+	 Sap6hQSKtsBjhqL4YjXEmBjGk+6FYs475qu9cDV7vz2BK9g7wUr08gwA4NPbOd7ti3W6frY/RPGp7
+	 mPMEcENcbugu/c1epR+lqYxYyNAv1OjsMQR11BFgpc3qt4HF45P/9eecXMlLH+FD8rqfe+DBFrS+O
+	 mVP7qocJFLTFvLT1R1I0S1f+PAnhA8JednDibCrXfCDvESz1eixFpMAaNfred3rWE6yJiqNDtZ1Qo
+	 zTwO+1BVy6GyEaZE6DbUgtNvcmf/oWPdn2AyoZQYhkoESe0d9Kq4CG0hd5yUWkscn6Jyzetli2VgE
+	 wXsXMQkbsX/t+v7jadMLUsRbUkZC9dZ09xc00RF/HPrSakM4jFiViVah/obrC5H5EqCwzDvzpnJiL
+	 Qqjtp12BByCs+oNGgmje/SWXAiJOr8GN3NdwRmhZP3jXq70qwCUEKU0WCgCAk8cQ+NnqO+hsld9uH
+	 BibOOrfWt34pEmb/12vXzr3Ion81/JT2GxDed30wobqmaJTtWPgM+2pVAxtlyDmedljpXe0366c66
+	 xxAe+mkE46si0MZAaCuw1A6EHzeKWs1XicgHv1UMmyfG+n0vH5Vs+WpvKOr4Z1vkDGjhfcAr75mKj
+	 XG5TN4SUCLAYBkCvYHC1FiRF33AevSadagy4TAM/MhvZ1nG6/G2k58m2IHC9ppywnrsigiLAaKaEz
+	 tX4d2XDvVjNyUPlQM3KYbTgBt9RjGsNNvsnTswFfjR9LeHqyWFFt5zxVtNWhMvpadJ3/wNHH1sZzR
+	 s+SFtnbumIHZnpCyT/duf3+1OQZTf7WRLtooGipL3lR7PnJnPX4N9d42PfQO2CF32DmrOxic6H/5h
+	 dXN9WMH1Dwp2215rNTMQ8dqGfWXQNnRD+znRRMA2QBPvvgyVNyWAi1zME2r6v5B18H5utbRrRiaYP
+	 sicf11H4l3/YaQ/8HK4ZTJCX48qsg=
+From: "=?utf-8?B?5L+e5pyd6Ziz?=" <2426767509@qq.com>
+To: "=?utf-8?B?R3JlZyBLSA==?=" <gregkh@linuxfoundation.org>
+Cc: "=?utf-8?B?c2VyZ2VpLnNodHlseW92?=" <sergei.shtylyov@gmail.com>, "=?utf-8?B?ZGFuaWVs?=" <daniel@zonque.org>, "=?utf-8?B?aGFvamlhbi56aHVhbmc=?=" <haojian.zhuang@gmail.com>, "=?utf-8?B?cm9iZXJ0LmphcnptaWs=?=" <robert.jarzmik@free.fr>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtdXNi?=" <linux-usb@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] USB: pxa27x_udc: check return value of clk_enable
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Thu, 12 Mar 2026 16:12:32 +0800
+X-Priority: 3
+Message-ID: <tencent_28D4DB4E0AD6774FAB12761B8AD05A5D3F06@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_648835A07EDBB7CA94B66FAF5662EC2F1407@qq.com>
+	<2026031145-stencil-italics-89b3@gregkh>
+In-Reply-To: <2026031145-stencil-italics-89b3@gregkh>
+X-QQ-mid: xmsezc15-0t1773303152t7ieou44e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_011240_169049_36F515CC 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have all the required steps for DA in-place, enable
-DA while creating realm.
-
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Alexey Kardashevskiy <aik@amd.com>
-Cc: Samuel Ortiz <sameo@rivosinc.com>
-Cc: Xu Yilun <yilun.xu@linux.intel.com>
-Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/include/asm/rmi_smc.h | 1 +
- arch/arm64/kvm/rmi.c             | 3 +++
- 2 files changed, 4 insertions(+)
-
-diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-index 384bde2d423e..5598b19ffc1d 100644
---- a/arch/arm64/include/asm/rmi_smc.h
-+++ b/arch/arm64/include/asm/rmi_smc.h
-@@ -118,6 +118,7 @@ enum rmi_ripas {
- #define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
- #define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
- #define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
-+#define RMI_REALM_PARAM_FLAG_DA			BIT(3)
- 
- /*
-  * Note many of these fields are smaller than u64 but all fields have u64
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 5de49a47d782..328eef406419 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -703,6 +703,9 @@ static int realm_create_rd(struct kvm *kvm)
- 	if (r)
- 		goto out_undelegate_tables;
- 
-+	/* For now default enable DA */
-+	if (rmi_has_feature(RMI_FEATURE_REGISTER_0_DA))
-+		params->flags |= RMI_REALM_PARAM_FLAG_DA;
- 	params_phys = virt_to_phys(params);
- 
- 	if (rmi_realm_create(rd_phys, params_phys)) {
--- 
-2.43.0
+SGkgR3JlZywNCg0KT24gV2VkLCBNYXIgMTEsIDIwMjYgYXQgMDE6NTY6MTRQTSArMDAwMCwg
+R3JlZyBLcm9haC1IYXJ0bWFuIHdyb3RlOg0KPiA+ICAJZHBsdXNfcHVsbHVwKHVkYywgaXNf
+YWN0aXZlKTsNCj4gPiAgDQo+ID4gLQlpZiAoc2hvdWxkX2VuYWJsZV91ZGModWRjKSkNCj4g
+PiAtCQl1ZGNfZW5hYmxlKHVkYyk7DQo+ID4gKwlpZiAoc2hvdWxkX2VuYWJsZV91ZGModWRj
+KSkgew0KPiA+ICsJCXJldCA9IHVkY19lbmFibGUodWRjKTsNCj4gPiArCQlpZiAocmV0KQ0K
+PiA+ICsJCQlyZXR1cm4gcmV0Ow0KPiA+ICsJfQ0KPiANCj4gRE9uJ3QgeW91IG5lZWQgdG8g
+Y2hhbmdlIHRoZSBwdWxsdXA/DQoNClllcywgeW91IGFyZSBhYnNvbHV0ZWx5IHJpZ2h0LiBJ
+ZiB1ZGNfZW5hYmxlKCkgZmFpbHMsIHRoZSBoYXJkd2FyZSBwdWxsdXAgc3RhdGUgc2hvdWxk
+IGJlIHJldmVydGVkIHRvICFpc19hY3RpdmUuIEkgbWlzc2VkIHRoaXMgaW4gdjMuDQoNCj4g
+PiAgCXVkYy0+dmJ1c19zZW5zZWQgPSBpc19hY3RpdmU7DQo+ID4gLQlpZiAoc2hvdWxkX2Vu
+YWJsZV91ZGModWRjKSkNCj4gPiAtCQl1ZGNfZW5hYmxlKHVkYyk7DQo+ID4gKwlpZiAoc2hv
+dWxkX2VuYWJsZV91ZGModWRjKSkgew0KPiA+ICsJCXJldCA9IHVkY19lbmFibGUodWRjKTsN
+Cj4gPiArCQlpZiAocmV0KQ0KPiA+ICsJCQlyZXR1cm4gcmV0Ow0KPiA+ICsJfQ0KPiANCj4g
+U2hvdWxkbid0IHlvdSBjaGFuZ2UgdmJ1c19zZW5zZWQ/DQoNCkluZGVlZCwgSSBzaG91bGQg
+YWxzbyByb2xsIGJhY2sgdWRjLT52YnVzX3NlbnNlZCA9ICFpc19hY3RpdmUgaWYgdGhlIGVu
+YWJsZSBmYWlscy4NCg0KPiA+ICtmYWlsX2VuYWJsZToNCj4gPiArCWlmICghSVNfRVJSX09S
+X05VTEwodWRjLT50cmFuc2NlaXZlcikpDQo+ID4gKwkJb3RnX3NldF9wZXJpcGhlcmFsKHVk
+Yy0+dHJhbnNjZWl2ZXItPm90ZywgTlVMTCk7DQo+ID4gIGZhaWw6DQo+ID4gIAl1ZGMtPmRy
+aXZlciA9IE5VTEw7DQo+ID4gIAlyZXR1cm4gcmV0dmFsOw0KPiANCj4gTm8gb3RoZXIgdW53
+aW5kaW5nIGlzIG5lZWRlZD8NCg0KSSBkb3VibGUtY2hlY2tlZCBgcHhhMjd4X3VkY19zdGFy
+dGAuIFRoZSBvbmx5IHNldHVwIHN0ZXBzIGJlZm9yZSBgdWRjX2VuYWJsZSgpYCBhcmUgYXNz
+aWduaW5nIGB1ZGMtPmRyaXZlcmAgYW5kIGNhbGxpbmcgYG90Z19zZXRfcGVyaXBoZXJhbCgp
+YC4gVGhlIGVycm9yIHBhdGggdW5kb2VzIGJvdGgsIHNvIHRoZXJlIHNob3VsZG4ndCBiZSBh
+bnkgb3RoZXIgdW53aW5kaW5nIG5lZWRlZCBoZXJlLg0KDQpIb3dldmVyLCB5b3VyIHF1ZXN0
+aW9uIHByb21wdGVkIG1lIHRvIGNoZWNrIHRoZSBvdGhlciBmdW5jdGlvbnMsIGFuZCBJIHJl
+YWxpemVkIHRoYXQgSSBhbHNvIG1pc3NlZCByb2xsaW5nIGJhY2sgYGRwbHVzX3B1bGx1cGAg
+aW4gYHB4YV91ZGNfcmVzdW1lKClgIG9uIGZhaWx1cmUuIEkgd2lsbCBmaXggYWxsIG9mIHRo
+ZXNlIG1pc3Npbmcgcm9sbGJhY2tzLg0KDQpUaGFuayB5b3UgZm9yIHRoZSByaWdvcm91cyBy
+ZXZpZXchIEkgd2lsbCBzZW5kIG91dCB0aGUgdjQgcGF0Y2ggc2hvcnRseS4NCg0KQmVzdCBy
+ZWdhcmRzLA0KWmhhb3lhbmcgWXU=
 
 
