@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4C2106ACD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE640106ACD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1rV6tB2UrIvebLsDTw0Q+b/NV2We2jfKg1ufjU1Bq7k=; b=r5JzhsavjVMLQBc3vKNYWXq/O1
-	DDxe5iIVdqJwhY6TAdiLBxjAequwmnRBiBnGFmXn4cVRvglziMYZx3eTnCS6oG/daWLkq8Az2ibxx
-	+ajyM5yaLQ8yP2GK9J1yRZF8ho7Kyj324S5N5k5LrGotkurq3d6G/v1qTT153+LyQj6CbtcYJRV+Z
-	SJb1BP4kuGcSsBDl+5Qmxjqcc5S91HeewvtNVVQr3YMhiMMImH4Glz0uYbiYH8JrHlK1k+CozvBhZ
-	8mhOy2vhh2RWNSBao+XW7Kiu3Rdfsm7dH2DMAU6OAml9+/ISSqDWW6yGOy8xeEYRJM4S6/D0FhZTK
-	VqDUNyRg==;
+	bh=kg9hUzKHbhCYALNgzTiam+WBq+jyj3BckJioppHrELk=; b=Vv/LpRxbGLIc5RM+mgWZaCVY4L
+	gGJ/hWRkCsCOm0wvK3PwKzTgiXcfTlpGciORdx7DQJtqTNGIJNsY+Ux7WmWPKOkU14akctwwnRvhd
+	yXXjEY4gsB5QouuIt/ZrflaMTKSNHz4kOlRMmdRUSE6hN16c0jt+Q1g5pJ2NWhrTufH9VcPcnACh3
+	4I8rwgRwl5AH9h3w4+XEi0n2hBS5E00tlwNrxLUk451cLygq/IrUJVQdBj+4QPVYY6KCHzzmMhhpP
+	a1B75w3rwrHCM2CsBIAjYyILfJd/dM/VYNbOWblxERNOG9w+2/cIKiBoeAv2/nEkLUW4HDb1VGE66
+	2eWuTBNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0k8J-0000000Elu7-348T;
-	Thu, 12 Mar 2026 17:47:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0kB2-0000000EmLO-1Dfo;
+	Thu, 12 Mar 2026 17:50:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0k8I-0000000EltU-1qrq
+	id 1w0kAz-0000000EmKa-0OcY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 17:47:38 +0000
+	Thu, 12 Mar 2026 17:50:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD5EE61335;
-	Thu, 12 Mar 2026 17:47:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13C9C4CEF7;
-	Thu, 12 Mar 2026 17:47:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 05804418A2;
+	Thu, 12 Mar 2026 17:50:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46092C4CEF7;
+	Thu, 12 Mar 2026 17:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773337657;
-	bh=wMvtMWbR5Rj73AQJqGHUhW527Tb27PV6JT2/uOlrqcc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GeM3E+nJRDYrZQpRJ87vLFXFSyxyG/EAVXgwfF3EJGdwNfH1RCSsUSSIwbd+TiIcU
-	 QbeY77pSfxF49LYTwJtaUs+ycd7DwArmo6+wxfeuO3799jx0i1clQXJP2VcBdhfMQx
-	 G6modkOreHw4npBGs1w9WDOvcw+O1T02bj2oKCIMd9gSAx3554t8wjnapozKzYxmrB
-	 W/e9uv6/Nw9WdARJsjF2MNYlYXcAa+quTQyIxK9hipKKNL+bx6Wjy9wPMS5CMLXcoc
-	 0J8rTRg6OrGrIQN54n/hmwRS5/4bDP3m+OhI2fHHyVrzzxWksAPmlfS79rK1OTIx40
-	 B2f+f5f33tD4Q==
-Date: Thu, 12 Mar 2026 17:47:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, amitsd@google.com, gregkh@linuxfoundation.org,
-	kyletso@google.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: connector: add pd-disable dependency
-Message-ID: <20260312-facial-backshift-7e810ca5f996@spud>
-References: <20260312071609.388047-1-xu.yang_2@nxp.com>
+	s=k20201202; t=1773337822;
+	bh=7LHsz76bEPqqBt9H8LYH0PqAphw8gf+XDpTaqmgHOmI=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=Y5MfLluO4eYtVYnyRsyCg4YgMaE467xspw1/uiQe2SJreUpRoMggueZPG5j5w54io
+	 3WOmwjGq6lyvPFvi5DwbaCAhnMOlpKUGghaWXTs9XvDrZzvtZslSbz3chuRz+2aA+T
+	 qpSFAJ5gcYJu44pF1C5lrS3ADap7MIWLI7oEgZfvyNkk6B5CK6zUYNxoZJolKEHv1k
+	 CG9BeD02oAmwoShQsfAhaVjqXXTLQiqH/QwEPOrnShxBYoWdSerxnzBRNpy3uYbgI6
+	 IaEshcZZ4Y8MtsEOqPorJ5lamF7AftIP8NExndqjcldWd0XLsLh9dXPZWBt/wMFt5C
+	 cTe61v1IpLI5Q==
+Content-Type: multipart/mixed; boundary="===============1276411357989145504=="
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wr13SwXvugaUCQW1"
-Content-Disposition: inline
-In-Reply-To: <20260312071609.388047-1-xu.yang_2@nxp.com>
+Message-Id: <23f4b038b245167ff440b79c0a445fcbc12e0a102884759623dd59b3d64d2ade@mail.kernel.org>
+In-Reply-To: <20260312170255.3427799-2-xukuohai@huaweicloud.com>
+References: <20260312170255.3427799-2-xukuohai@huaweicloud.com>
+Subject: Re: [PATCH bpf-next v9 1/5] bpf: Move constants blinding out of arch-specific JITs
+From: bot+bpf-ci@kernel.org
+To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Thu, 12 Mar 2026 17:50:22 +0000 (UTC)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_105025_175536_7A106276 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +69,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--===============1276411357989145504==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
---wr13SwXvugaUCQW1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 4fbacd2149cd..3ccefd13121b 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
 
-On Thu, Mar 12, 2026 at 03:16:08PM +0800, Xu Yang wrote:
-> When Power Delivery is not supported, the source is unable to obtain the
-> current capability from the Source PDO. As a result, typec-power-opmode
-> needs to be added to advertise such capability.
+[ ... ]
 
-What's the impact on any users of making this a dependency?
-I assume nothing negative, since this will only impact systems that
-don't work properly at present?
+> @@ -22843,17 +22843,23 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
+>
+>  static int jit_subprogs(struct bpf_verifier_env *env)
+>  {
+> -	struct bpf_prog *prog = env->prog, **func, *tmp;
+> +	struct bpf_prog *orig_prog = env->prog, *prog, **func, *tmp;
+>  	int i, j, subprog_start, subprog_end = 0, len, subprog;
+>  	struct bpf_map *map_ptr;
+>  	struct bpf_insn *insn;
+>  	void *old_bpf_func;
+>  	int err, num_exentries;
+> -	int old_len, subprog_start_adjustment = 0;
+> +	bool blinded = false;
+>
+>  	if (env->subprog_cnt <= 1)
+>  		return 0;
+>
+> +	prog = bpf_jit_blind_constants(env, NULL);
+> +	if (IS_ERR(prog))
+> +		return -ENOMEM;
+> +	if (prog != orig_prog)
+> +		blinded = true;
 
->=20
-> Fixes: 7a4440bc0d86 ("dt-bindings: connector: Add pd-disable property")
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> ---
->  Documentation/devicetree/bindings/connector/usb-connector.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/connector/usb-connector.ya=
-ml b/Documentation/devicetree/bindings/connector/usb-connector.yaml
-> index 901986de3e2b..671d7775b635 100644
-> --- a/Documentation/devicetree/bindings/connector/usb-connector.yaml
-> +++ b/Documentation/devicetree/bindings/connector/usb-connector.yaml
-> @@ -335,6 +335,7 @@ properties:
->      maximum: 100000
-> =20
->  dependencies:
-> +  pd-disable: [typec-power-opmode]
->    sink-vdos-v1: [ sink-vdos ]
->    sink-vdos: [ sink-vdos-v1 ]
-> =20
-> --=20
-> 2.34.1
->=20
+When env is non-NULL, bpf_jit_blind_constants() uses
+bpf_patch_insn_data() to insert blinding instructions.
+bpf_patch_insn_data() calls adjust_insn_aux_data(), which expands
+and shifts entries in env->insn_aux_data to match the now-longer
+blinded program.
 
---wr13SwXvugaUCQW1
-Content-Type: application/pgp-signature; name="signature.asc"
+> +
+>  	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
 
------BEGIN PGP SIGNATURE-----
+[ ... ]
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL8NAAKCRB4tDGHoIJi
-0nwiAQDQ56ujTvFrDP3c0yVVvsagFKg0Z0+t5X7xitqXTKLfjQD/exOakRzb+SJA
-CPWE9IyUVD27QdG5+TIUbF3XRVvcAg0=
-=Jyu8
------END PGP SIGNATURE-----
+> @@ -23114,6 +23122,10 @@ static int jit_subprogs(struct bpf_verifier_env *env)
+>  	}
+>  	kfree(func);
+>  out_undo_insn:
+> +	if (blinded) {
+> +		bpf_jit_prog_release_other(orig_prog, prog);
+> +		env->prog = prog = orig_prog;
+> +	}
+>  	/* cleanup main prog to be interpreted */
+>  	prog->jit_requested = 0;
+>  	prog->blinding_requested = 0;
+> +	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+>  		if (!bpf_pseudo_call(insn))
+>  			continue;
+>  		insn->off = 0;
+>  		insn->imm = env->insn_aux_data[i].call_imm;
+>  	}
 
---wr13SwXvugaUCQW1--
+After bpf_jit_prog_release_other() reverts to orig_prog, this loop
+iterates using the original program's indices and length. However,
+env->insn_aux_data was expanded and shifted by bpf_patch_insn_data()
+during blinding to match the blinded program's instruction count.
+
+The call_imm values were saved at blinded indices (earlier in
+jit_subprogs, after the bpf_jit_blind_constants call), so reading
+them back at original indices gets the wrong aux data entries.
+
+On !CONFIG_BPF_JIT_ALWAYS_ON configs, could this cause incorrect
+imm values to be restored into pseudo_call instructions, breaking
+interpreter fallback?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23013190773
+--===============1276411357989145504==--
 
