@@ -4,110 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91F6106703C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27175106703C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0R6OZluBmRNxZl/w5NAcbeDBTecdzejm214xvTMZFOU=; b=JoTtG2WnuNz5S/BlLDMvccwbeo
-	+qBbNV+4ORgsiXY+FN7bDyCUirI7l6Lj8jyGt7JBgq1iHE1qKXGcWGpAHtyYmOyTMaBGYJuoSE/ji
-	EN+ZQFQ9TPIW8/oLRcsOk3pjmK283dkGV508uo/cl7xmBtDHkJSC8GaPdWOK1BlOIj7Y01YJIDwot
-	JtxL84jNmVuGmc352qxGK/xj5FPAhyWiit5SYLV4kY0Av29Cb3nU7NKcGC3xeZB/mhO0U7pMDT8oM
-	V71fmkWOLc0dIo6ST8PEuZ+0E17MV6UOOiJWihK0tiaGqRNThVJEMZoaHDwfpdmkanuFiLO3JoaD+
-	JdMu2T3Q==;
+	bh=8rYUCaTVbhrASmUWxl8M6zHKkkCW0DzqAk+MmAh/AU4=; b=rybrbkNWjFoE+wQ/5sWImcJ+3w
+	SqZHuFQIw4SGe1sTOMGrFkvs6QCuwTPzWRG5mYiDBAN+xMMdPJhZZyyaSyWtlCcRbGmc560l6cMZU
+	P3kPDdS8eQE0vW3l0ZdoGKS/idijWFLlVB7hn1n5WgLKTrrnhWQwQYgw7isQJsJW1MyTnboxJyl63
+	dARQIVAm52Rk8udB9a5e5bVhWxhzLqhYraI7fcRmFipcWMhfMaB5vI9Q8nECbEYLV9/3g76RVEA51
+	kztt1J+n2Lz6IklJd1F2qp+nqZUWWrQkZr9ENTIQdejnizL5QhuLoB7gnBHDMh3sk1YDM+x3Lngfi
+	jLurXP7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hFR-0000000EE8c-05TO;
-	Thu, 12 Mar 2026 14:42:49 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1w0hKr-0000000EFbC-1Xnr;
+	Thu, 12 Mar 2026 14:48:25 +0000
+Received: from mail-westeuropeazon11011065.outbound.protection.outlook.com ([52.101.70.65] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hFO-0000000EE6r-0tQP
+	id 1w0hKo-0000000EFao-2q1q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:42:47 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5a1307438ddso1323794e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 07:42:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773326564; cv=none;
-        d=google.com; s=arc-20240605;
-        b=J+rm8go82RDV9tqlZdwvFyu91VkpfU5DTG2Ix8wDYFYlbUzXY8F+tGcGgKh97gJRe3
-         7HEQKz58EujGX2+jjVbY/4s7gNDGZLq3nl45VKqDyPISLPNZ6fTkjUmSdk5OOPhgxS/g
-         Z+tv/1HimceDskOMAV9XU+iy4u33QsW8w3AWsjQNsAPU01w93DO+0yMR6wWFozAghzRV
-         2MBdkTADEoMHLPOMTZrZwyxsGOvXbAEtTMKE8gsBkyPUROsgVv0S1wwTm31prNq4ICY+
-         iUAyqspmeQEl+2kPMdZfzdIj61kdfThHFRLWVAaRv/D8FWUj9kyMkOVH5J/qwseVkzNM
-         kKtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0R6OZluBmRNxZl/w5NAcbeDBTecdzejm214xvTMZFOU=;
-        fh=/7ITRCO2Tsv+Pe1uwhQvVUMNc8opwxm8TtB7yy+OCtI=;
-        b=J4tOvYFdzHgvkHdVFy9dXa5NXWvKm54fSFHfjXzgDsJAdPzDRae5E421o91wJlaUFh
-         1E4yqsSBoj41P2S3ScgF5YBlEn/aDMpaO4qBzvIbUbxkjM2CTn2Yh+nv9GA74AXM/qGA
-         fny467bdHZabm9/E9awt760dHJuryb5RvCmfihQSKB9+LMiioj94GpunNOIJRaHUCMT2
-         NU7TyhNLw9zZrq24gFmVce6rXBy7xr3lY58WPfeJM1n26DS9SI78YcP+1MBMGJFuzwj0
-         kYPH4ZtefwN/BlQ0tH9cEmWQEVCm+66yD6cdP4fr2ED1iSrFj7pVd34lztDjs2s/hxSj
-         6Hvg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773326564; x=1773931364; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0R6OZluBmRNxZl/w5NAcbeDBTecdzejm214xvTMZFOU=;
-        b=DvlQJlFZZmdC9Zt+xvIjGDG3PWbSn8RhqkNypxsSfjkG5MhwmwQ79WNENfQygI65LT
-         LEpw0iBaQyRMJGxBuUvlyco87lvmKYmE0x+ke7hDirifgX0epGLtPFDLuurr6Xpa/At5
-         XPopBuNgPG3rHXsVVXYnccUrLzY9ieSjyeonWnmyBjzKwUA+nUfPHnG71QctiJm7dOjz
-         sANYXbtjszzuAUohxOzlVkfl57yZy6DfEciFUOnPEG7epqdJvrNi0hFXz230Cou6+HPo
-         sn+Go1qy6kfmFSOdtVjBT4FxnBs0XbBHEWWyBdCAcFOzTNPBMqzbgB4l4uO0suP13sK3
-         P/ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773326564; x=1773931364;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0R6OZluBmRNxZl/w5NAcbeDBTecdzejm214xvTMZFOU=;
-        b=pknrcDZw33EQ4k+FJFVJcsX0HfwYCLkqsaUjKfvU7Z4FnTh/uh/lDWMPT8WzLkWQj5
-         b2IPgZmxsm5jc75726iy4AEJzU6s2AWzvWZxOSXK4psUW6Zs4IRrOdK+6Fr889uXcdWH
-         CnFAI5URCXDbIKmqVFjgY7oHA6CAcwHggHsxC4EF7JFpl4PecKGXJ+clm21Cb72Yy4uG
-         tds6jvfoyrPhkC2pfuICJU0i2+FErMWV69c1yyfkg/LDY2daGEt45uzHdbtEnlAh4/3+
-         zinCUsWrhA0tTsacNT4SXvyPzj0T/dBDivG3XwpTNRLiGstUKzgyAUthl88xAO8pzaeo
-         PHsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzPr8l22lOpEKAURv6Q/1dYUy8c9V/j6BSlDzvC6fJAVzl/VnXtFaM7ucqcVeoioWJUTGADTqefraqmZAlEks4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAfdWEc+5X30FA3RMoN1TpX0rsYD5XgyO1APR+i1jrXEaQMb1I
-	wyZ47j6AJ64esVB3/iA8AWC3PL3ygHADYDMrxU3Nv2cLIDMdqH8lTkneSoAtMcYt2Wmu+4gRbD1
-	XDMkfy/Zo8TyMOeHQDHehwpL53DDqHH2BijVUIZDAzA==
-X-Gm-Gg: ATEYQzzKsgowfdqni7mFTzo3+whtXBD0fLdvSrsaZi/+QyYSlUCNDPgDcfly4junS3M
-	VkSKqfnOcPpn+sv6IQXGUawaLpuMOvI/0ZGLpTvFPva9kk591K+277A3UIuwL/I00xdBeP5lpkA
-	WzdQt6bbNxQuYJiYq3ezDPV3gYeuVYGfp1uYTgOX0QwoxzWAdiJyxGkmqn6qYM/69pnRep8UF/O
-	PLPI2EWW2wjEDqsLaa0m+eVa/DKMsKXf9xjDNnMwUq5m6sycXHBr05KZo8uyHZdTjUBB4zpIsZu
-	/2iIlrA=
-X-Received: by 2002:a05:6512:3405:b0:5a1:2ea2:3683 with SMTP id
- 2adb3069b0e04-5a156ddd92cmr2624715e87.44.1773326563685; Thu, 12 Mar 2026
- 07:42:43 -0700 (PDT)
+	Thu, 12 Mar 2026 14:48:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VaW7Cx+DHab72DyXvnLNMO7WhRLBr8VKZvBnTc0dDqBHrSXlTMVqv9qd8tFbu4woSKKXSijuBw0CVnC3j9hsBwbB8RZImrGw5brn841v15c8XUMuY8vf2laTxkxFHTSfoLlOJlIWtDIoNDOUz+d38OmKj3626NbvFNZT53VAqcM0p+uNH8nPK5I3QQYYtp57ajFKig/lhbRtlyEaLYnLQbgv/LCSYK0BI7IKok9U8NkgONPRgPdI5JHlJ2qouvARHw5a9378FRRd0sl5NCFycqsa9MPvu+dUEfLGAKBx2cDceA+MQjco9f2Hg+jFIHtbTEf2ItxDclrEDiSaS4/Ztw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8rYUCaTVbhrASmUWxl8M6zHKkkCW0DzqAk+MmAh/AU4=;
+ b=HzapHKX85GN7o1jZvANwpUObiT9lQf+kIfso57cwetJw2YObyvGtnAd6ktMsAV6aLmabM1ljvXu3P8sgpD63JQG+J8MLv6GE/aErtVC+HPMrOqszkcR0I0hrtBghygOCWbJbu19SN+7fwoGQJysRUIqslDTp51m+dJAaoD27LtYkhFTkOOjRNY58SeQBk39nyuY0AIxv09sHH8SPEjceJ2p9Y18jucmGuKzgWv2gSllhLMnYbwFDM/1he3TEMjO/aUD8/fm6NI+dN+SE+DVFZN7J86An0n06mqPm+0Kl2m2KIW39Au1Ynhjj+1x8kHvpJUQOETMCIKOs84AVZr3l+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8rYUCaTVbhrASmUWxl8M6zHKkkCW0DzqAk+MmAh/AU4=;
+ b=RH1CwG76bhc/KkY6kvaJf7JeqcTvPbUyX2CFOquNkbF18taOfdMgD5Y5i3d2KpgUJEWMRc3QHDTz2EaKBQM/Am8nDg6w/9B7xUuSce//2K7AZwXCoo5xyVjfP3jIoAMj0oWWANTiO7QzZIFH3/YAsUc2BxgwWVK+yKWYxlQ6hXHTF8WKIXq95srDqDm81n9u1KLeX7R1kGFUS/s2U9vlA2BiAR/i2oDAXdIpyYwhDUnrUELDuxFFw5PiE1keQl+1/x8AyYXF8jQ8E2kPPyB7lJSu7CgbvhfpN7DJECd+QpQykBcUlarjbs0IchRdA4WTMas70vOBRVMo+KgNOwdzWQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by OSKPR04MB11461.eurprd04.prod.outlook.com (2603:10a6:e10:97::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Thu, 12 Mar
+ 2026 14:48:10 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 14:48:16 +0000
+Date: Thu, 12 Mar 2026 10:48:09 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/4] dt-bindings: remoteproc: imx-rproc: Support i.MX94
+Message-ID: <abLSKVyYP3WPIHHu@lizhi-Precision-Tower-5810>
+References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
+ <20260312-imx943-rproc-v1-2-3e66596592a8@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260312-imx943-rproc-v1-2-3e66596592a8@nxp.com>
+X-ClientProxiedBy: SA9PR11CA0016.namprd11.prod.outlook.com
+ (2603:10b6:806:6e::21) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260210053708.17239-1-aford173@gmail.com> <CAPDyKFrsMY8q+rvrbOdppYnefX6TA1-EhF+e+pGG6k49KpeTRA@mail.gmail.com>
- <7fd891b7-b1ff-4668-ac99-8f8ac244d90c@collabora.com> <CAPDyKFqbS+PUkLXkjoHjbiVFCYM4FxQeHdJk_LVVfLA5nGEZ-A@mail.gmail.com>
- <108e6fad-401c-427a-bc30-8ddd00bd93a5@collabora.com>
-In-Reply-To: <108e6fad-401c-427a-bc30-8ddd00bd93a5@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 12 Mar 2026 15:42:07 +0100
-X-Gm-Features: AaiRm53Syf4tONBWunUd9bjmXw_xdyFjtpRQ2mt1ntlqT4z8S3DYLkSeLVjeLKo
-Message-ID: <CAPDyKFoY+pdSh-h_=Ko9L7QaFo4V4iA2_A0jA3BfnuKmiCyzCA@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pmdomain: mediatek: Fix power domain count
-To: Adam Ford <aford173@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Laura Nao <laura.nao@collabora.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|OSKPR04MB11461:EE_
+X-MS-Office365-Filtering-Correlation-Id: df500a2e-90e7-4467-4a02-08de804664d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|18002099003|56012099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: RlsZXPpmJt1Das379BO0n9Ei20sdnYiToHsnlxxSoY7cV7xvFCgYGq04g9/1gsRuCaPh2VbewAKTiILsR75MvDK1psX9TH+xOOyiGHNIAtFyQXZxh4z0/pOALROcyeKXwd3S/W2YZklIp2/9MqvkaUXCdxElNyI6nOSsCTPQwkPHMANiWK+bqsbFFqE+Skz8u+2MugUTnoRuFaCFXjvmM9RjP+76wDX58TUiVesvwRVkSxbTsi5aMf989BbH8uvKueAwm2uXMhXEu5Y6B7EdcDXzkNUEG/L8ucCEhfLSdGNdpAUgWtV/HJ7dQIIFNYuXdYIvyOeLf2VYk5+eSFO0plg+KcekEQtzo0OlS43K79yOrL1SRV3CCQkqI7cylZ4y8G/iJlHmq/usz5f88VQK6BB97w42sA2SNbqEDqtYpESFM/Vd3l8jsh86l5N1YKQNK6Mv4mas3xzraEyBqMSUqT4J0UNCg/cnum/5aNFvUJiAKNQc5Pom/xvU1CUpa96AAyQsenWhYpsnkWA/OQ5s5ip72+6MNkZdYlMS0KcPAqCZAtOG7hC+cdRaJanaaHzNZuMmZ/9y8wlDn3aHr23SqC0ch3l92pYZA+vu7btRx1yDVtuRE5Wgkf0JyqSUYUo7x2H9sVKKLXYwcGIoaKH7MqWahxTQKx8VoV9Xe7tKvzFFeQ6y51rnc2QaVTemS6Rq4/88xYBLL1xK7mLhC7CPttsiRAiFjcQysEp7RuKnS46A17VUKybSDV6dNN1QkwCV9YmoHOj2DoSMHeglFncWGn5tfelJe6R/fB4+BnaVjgk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ud2vVq7u3D8wS88mqwTccS3xZ455hf1hWhT0stRmhh53Wx01WYsFPu/b2L10?=
+ =?us-ascii?Q?AzpX3YRIwh/D4RT00yREbvaFeCfxXRoi8yR0n0eDZMjy3TNHgSMrtPvgvfQM?=
+ =?us-ascii?Q?TKLNw7k9kwsamEJ+9rBuptj4b88kFDjCR3W3Eby2IIabl3uF7NT1+avidBpE?=
+ =?us-ascii?Q?v9gg8rpHletjzcu6ser25WMIeD99J1sLzfNLfe5s933Fk6w7CYTDYpxKvOZ3?=
+ =?us-ascii?Q?ovVXHIr8XRO7gwIYTpgz50e1sjbnogvZIxwXuyURws/IZ4XPm8J2BORClLxi?=
+ =?us-ascii?Q?52k+HFedGpbV2O4lTlRjOIkmMygqR4xyyU5uJIJaquWRq/3rKpVdN4EgFCAA?=
+ =?us-ascii?Q?W2zAiKLocqnLaTKgEgvk5y3iObRU08vSNl5j+5ER72xVhwLgIbawNZXDNNvT?=
+ =?us-ascii?Q?vkEXsQXny3F1lENO4gPIhbj4PYHNhbiXimUxBAa/ZAOTxV32Bm+7xn76K5ib?=
+ =?us-ascii?Q?4kns5Y8PcTxU4+eGdWrAtGfXo0XSnkCuIHlAPIJg6P1stlsz4tEeygfxao7x?=
+ =?us-ascii?Q?QPLqxDnmGPmhBUuOPAXd9oBloGDfb8BYtukxDHY3E8GGz2n829oNWSmlCF8c?=
+ =?us-ascii?Q?kwKiC8tnpvvWRtxkoiZVLCGxgCLok6iKrUBGbMzY6odjJSNf7cqlhvdZny/D?=
+ =?us-ascii?Q?/N02HzQA9u9SawKTazsx6UgBsoSSUrpzRmfbpt1To7CfHiZN2dyLEk2G6b4X?=
+ =?us-ascii?Q?TNZaRC3pO/OQZ1lyWyF9tjfTjDjQ09ld5Ct++nskwT7qmNLZ+cS4uCkIi3JM?=
+ =?us-ascii?Q?RhWePCmO/3+CT0FZPz/kp+EmGUmwlvjAy+smrZTZd6y8JobkMglwZBjkz3Ec?=
+ =?us-ascii?Q?/zx1VnzVdnRbhTpM1tk4etHiZjN8MWZ7OPBuHMd5wc2dU2Sc7PgZ6yuH07Tv?=
+ =?us-ascii?Q?9gBG8uLlO+Z47KJY3S7OFEGotiPYa6DtqVJEgotPn8qWTRm0LMpBo9LIF0n/?=
+ =?us-ascii?Q?mCJ05bKhfgkYnmOi1FlPXjs+0s93a/RAcXm0a0Gn4jI486vXyCUgWfSy+g5T?=
+ =?us-ascii?Q?w9CGgYC7niiTBOELNjA9scpQIoBZ4KApYQcUOiBjVKTlud2kGQDCMpmezRQd?=
+ =?us-ascii?Q?dl8xTW1XxV0rbieWOF/4b8ZUCTYrsHQyFt2Eobi5IYFOZImRPYc1mFzubrTB?=
+ =?us-ascii?Q?ZwWPTgBUeFGFNmk+71qI9JC0gBArEd1WpD8evrMQR86VogXM61RX37OT5eNy?=
+ =?us-ascii?Q?fQshfiebmQ/H50L8EM3g7/tGzzsdmH3s4ecs1crVVpRENTi2EvfWgN38EAwS?=
+ =?us-ascii?Q?KnQ0ubx6LR5crDNgHvU2qJEF+lUfVoIZx0D6iLOpNHoY1q0oebrPVBS+ZGOo?=
+ =?us-ascii?Q?03Zus7KB5A3Q/e/uk63OwVnmkyX2gUYvTfLY2aZ1UHADmTpnsYCrUMjeW7Bu?=
+ =?us-ascii?Q?QyDDJ7b40vLO/HjlBrEb7ZL5deRUQrLqedXeHcgcOvF8NjJ0RRN67lkYDq43?=
+ =?us-ascii?Q?jujq3oLY8vlTxEUdS6s1L+ON7RDlEe568qgEpt/gFYulr28UY59kJh+GJXEx?=
+ =?us-ascii?Q?TAvHW4khytmhgrwVpcAw5jPnUYU27v2ij3/0GTQ2neJ0j7Q3/kR96qCmBUh7?=
+ =?us-ascii?Q?9jTyQGFXegYnUq2M3af+/VGG65oLFYK/AjIYXeVKxP7wtJN4c8Kr7UT1Zyh3?=
+ =?us-ascii?Q?SHqhExe9Uqk59uywv89oVIAwqM7nWaqD2qyPCwVdII7V8wDcgatVIKQyQuz6?=
+ =?us-ascii?Q?LOafchBjSQIkkvW73LOBV4p/TRA6MUu9bv/rW3i0fdaQE5hvN5HOjsKzij/G?=
+ =?us-ascii?Q?q3pnJSY7GQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: df500a2e-90e7-4467-4a02-08de804664d8
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 14:48:16.3192
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OYUK5mPGWa/XsbA3YGk6mudcT0xGUg4nIl9zal+o45D70iQNZjEUHRq5SSq2YUL4Yh2RB51GpIdzFbEwnG0WrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11461
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_074246_303676_4517D975 
-X-CRM114-Status: GOOD (  43.04  )
+X-CRM114-CacheID: sfid-20260312_074822_741965_0FF02A18 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,133 +144,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 at 13:46, AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
+On Thu, Mar 12, 2026 at 08:36:57PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 >
-> Il 11/03/26 18:29, Ulf Hansson ha scritto:
-> > On Fri, 6 Mar 2026 at 10:50, AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com> wrote:
-> >>
-> >> Il 12/02/26 12:34, Ulf Hansson ha scritto:
-> >>> On Tue, 10 Feb 2026 at 06:40, Adam Ford <aford173@gmail.com> wrote:
-> >>>>
-> >>>> The wrong value of the number of domains is wrong which leads to
-> >>>> failures when trying to enumerate nested power domains.
-> >>>>
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 0
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 1
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 3
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 4
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 5
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 13
-> >>>>    PM: genpd_xlate_onecell: invalid domain index 14
-> >>>>
-> >>>> Attempts to use these power domains fail, so fix this by
-> >>>> using the correct value of calculated power domains.
-> >>>>
-> >>>> Signed-off-by: Adam Ford <aford173@gmail.com>
-> >>>
-> >>> We should have a fixes tag for this too I think:
-> >>>
-> >>> Fixes: 88914db077b6 ("pmdomain: mediatek: Add support for Hardware
-> >>> Voter power domains")
-> >>>
-> >>>
-> >>>> ---
-> >>>>    drivers/pmdomain/mediatek/mtk-pm-domains.c | 2 +-
-> >>>>    1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>>
-> >>>> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> >>>> index 58648f4f689b..d2b8d0332951 100644
-> >>>> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> >>>> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> >>>> @@ -1228,7 +1228,7 @@ static int scpsys_probe(struct platform_device *pdev)
-> >>>>           scpsys->soc_data = soc;
-> >>>>
-> >>>>           scpsys->pd_data.domains = scpsys->domains;
-> >>>> -       scpsys->pd_data.num_domains = soc->num_domains;
-> >>>> +       scpsys->pd_data.num_domains = num_domains;
-> >>>
-> >>> Not sure this is the complete fix, as scpsys_add_one_domain() seems to
-> >>> be using the wrong value of "num_domains" too, no?
-> >>>
-> >>
-> >> No, scpsys_add_one_domain() uses num_domains from the soc_data for DIRECT_CTL,
-> >> which is expected. Maybe that can be improved, but it's how it is supposed to work.
-> >>
-> >> So yeah, this patch is resolving an issue, and it is a complete fix.
-> >
-> > I had a closer look and unfortunately, it still looks weird to me.
-> >
-> > More precisely, we are allocating and registering a number of genpds,
-> > that corresponds to the sum of "soc->num_domains +
-> > soc->num_hwv_domains". The index each genpd gets in the array (struct
-> > genpd_onecell_data) must correspond to the index specified in DT, for
-> > both a consumer-node and a child-domain-node, right?
-> >
-> > It seems like adding them dynamically changes the index. In other
-> > words, the index specified using the "reg" property in a
-> > child-domain-node, may not match what a consumer-node should specify
-> > in its "power-domains" property. Isn't that a problem? Perhaps not,
-> > because we never have both "scpsys_domain_data" and
-> > "scpsys_hwv_domain_data", but then why are we adding them in ->probe()
-> > with "soc->num_domains + soc->num_hwv_domains"?
-> >
+> Add compatible string for:
+>  Cortex-M7 core[0,1] in i.MX94
+>  Cortex-M33 Sync core in i.MX94
 >
-> As you understood, having both is not really supported right now, and the
-> intention there was to have the flexibility to do so without restructuring
-> the entire thing in the future.
-
-Thanks for clarifying!
-
-Although, having both seems problematic for the reasons I pointed out
-above. At least, it looks like some more re-work will be needed to
-support that case.
-
+> To i.MX94, Cortex-M7 core0 and core1 have different memory view from
+> Cortex-A55 core, so different compatible string is used.
 >
-> Though, from what I understand, the confusion comes from a single line (and
-> reading it again, I do agree, because I got confused myself for a moment as
-> well, and I'm the one who wrote this, so that's bad bad bad):
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>  Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 >
->         num_domains = soc->num_domains + soc->num_hwv_domains;
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index 683f0c36293c08616621daa79c0b8914b0f48bba..b136b3c3ca3ce9ff92d91f4b8ffc29c614edb66a 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -28,6 +28,9 @@ properties:
+>        - fsl,imx8qxp-cm4
+>        - fsl,imx8ulp-cm33
+>        - fsl,imx93-cm33
+> +      - fsl,imx94-cm33s
+> +      - fsl,imx94-cm70
+> +      - fsl,imx94-cm71
+>        - fsl,imx95-cm7
 >
-> where, to avoid confusion, this should've been:
+>    clocks:
 >
->         num_domains = soc->num_domains ?
->                       soc->num_domains : soc->num_hwv_domains;
-
-Agreed.
-
+> --
+> 2.37.1
 >
-> (perhaps with a check `if (num_domains && num_hwv_domains) dev_err(only one
->   supported)` but being this taken from hardcoded data, I'm not really for it)
-
-Agreed, a print would be superfluous.
-
->
-> ...and still, like the proposed fix does:
->
->         scpsys->pd_data.num_domains = num_domains;
->
->
-> While I agree, again, in that the code could be improved (and it shall be),
-> how the logic behaves, right now, with the proposed fix, still looks good to me.
-
-Okay, I'm queuing the $subject patch as a fix and by adding a stable/fixes-tag.
-
->
-> I can eventually just send a patch that clarifies the `num_domains` if you prefer.
-
-Well, actually, I would suggest splitting the driver into two drivers
-(each handling its own type of match data) and adding some shared
-helper functions, that both drivers can use.
-
-It's more work, but we should end up with more maintainable code, I think.
-
-What do you think?
-
-[...]
-
-Kind regards
-Uffe
 
