@@ -4,106 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD07C1049509
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531231125867
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4VOB6VcuTGOaol854cf9wlpyM/xzt3NDhYCz9oNnmc=; b=A4soAR24WCfN+TydQJakTnGWRF
-	P0uaL0W+S07quQK7IqyW6tje8QtYCzWfgR7quGnjvtvyYSqYnEpXQoJEhDYNmN7hw5AibPXBTt2M+
-	C72d6nEqYC08vswk/+HbV1U0rVNPR4pgXetykJufbcP2HXFpUsOVBsZfNfn79e9PAEhbGzBkBuInB
-	DT4SdK6aP0R+RICfCk6DW/K3ZSBKf3SGJyFl8cVCREiWmJUpfwZtDePjK7GAqOdaywSRMBxWqMoCU
-	zvZ6FgnMc/qz41o9G6um9XML6dpfazhZfjBLZJsE9WnzzrjqPuoKnBmIlvQ46U58garpkPefYtJnc
-	dnq/Zs2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hZ1cV2LLgnPEE2dsXWB/c5r0xPHUTJ/5lEyY2D94EpA=; b=O+0ejk2Zr3bmqTkVPmkzhdL2jQ
+	JjfgV/x2mJb+bbrPo1V+82ln2HSPT8Zbx/jYUBDT3CRGjabf5xcjtfqwzHKGWhbaw90RV61mtADS0
+	pgHEjQ3VrE5/9jq7pWMmtm52gt3SGAtPY5MwTIZqgVdwFtktk0OH2sjnCWC8DcXPDxJaMMb6bfWdE
+	1UpvbkowyejdwXQ9/A8B4u+VCw0g/Aorz0qv0VLK14jGm/13MEUyfwu0Y8jOrTu8UImHHBEu1X39N
+	ZaDqXBCnST/ufnpTUgzz0prfzjj3y03H1rLDd0t3fAE70jKqJMFByDSy+YgAbto9PPmD7jNrt1h4B
+	dYEHATeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gGi-0000000E8oh-3AeJ;
-	Thu, 12 Mar 2026 13:40:04 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1w0gOv-0000000E9qO-3awS;
+	Thu, 12 Mar 2026 13:48:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gGg-0000000E8mr-15ps
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 13:40:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=Z4VOB6VcuTGOaol854cf9wlpyM/xzt3NDhYCz9oNnmc=; b=OyqJ/8cOf78sn4RjhQgjMKRzVQ
-	wyql+htRjGCoc3FI1dARHaHMj2DLhgkLLM/tQ18/HsSM+B4ux65Z39hp6aj6GsFR6YvSkGnVONDJ2
-	B53Op/OfEMdAG5zHjkreGQe2dumI3MFp+udQeVIUnWTEcgNGvOje2qisFwux9M1qjO6MvTYW1na7C
-	drit3zX7J9bSo6wzkmwwZP6qykNZ9CV5EDWj9EnlJwvDw3z2vWBK5V9hLI+M4VuuiUJLIb+BjP5IP
-	YKl8AqGXm52UiVVHvPeMbIeylQ45z6UsOEYu2r7Bup7R+0EPsTxU+TKm5co2xCfhBBNShEyvmUzwp
-	3yQ8q1hA==;
-Received: from [115.246.246.98] (port=60572 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1w0gFw-00000005g92-0QIT;
-	Thu, 12 Mar 2026 09:39:16 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 478FE1A82054;
-	Thu, 12 Mar 2026 19:09:07 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id JHwpr-2yyxUd; Thu, 12 Mar 2026 19:09:05 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id C90691A82055;
-	Thu, 12 Mar 2026 19:09:05 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id nsO2P5nHhitS; Thu, 12 Mar 2026 19:09:05 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id A2D041A82054;
-	Thu, 12 Mar 2026 19:09:05 +0530 (IST)
-Date: Thu, 12 Mar 2026 19:09:05 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Parvathi Pudi <parvathi@couthit.com>, nm <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, linux <linux@armlinux.org.uk>, 
-	ebiggers <ebiggers@kernel.org>, ardb <ardb@kernel.org>, 
-	Kevin Hilman <khilman@baylibre.com>, arnd <arnd@arndb.de>, 
-	kory maincent <kory.maincent@bootlin.com>, tiwai <tiwai@suse.de>, 
-	andreas <andreas@kemnade.info>, 
-	prabhakar mahadev-lad rj <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	twoerner <twoerner@gmail.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
-	praneeth <praneeth@ti.com>, srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	danishanwar <danishanwar@ti.com>, m-malladi <m-malladi@ti.com>, 
-	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>, 
-	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>
-Message-ID: <540368735.642598.1773322745594.JavaMail.zimbra@couthit.local>
-In-Reply-To: <31a75415-43e5-4b4d-aa6e-0e58519a3d1d@oss.qualcomm.com>
-References: <20260307133237.743059-1-parvathi@couthit.com> <31a75415-43e5-4b4d-aa6e-0e58519a3d1d@oss.qualcomm.com>
-Subject: Re: [PATCH v2] arm: multi_v7_defconfig: Enable BRIDGE and
- DP83848_PHY for TI AM57xx, AM437x and AM335x
+	id 1w0gOu-0000000E9q3-144L;
+	Thu, 12 Mar 2026 13:48:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5160F60141;
+	Thu, 12 Mar 2026 13:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD00DC4CEF7;
+	Thu, 12 Mar 2026 13:48:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773323311;
+	bh=hcAPt99+1FVBi2us+P3Rabs49pP9IyapSrVjbDkk1dk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AN6+VsgPxg7z6yjxM0AzUPLK0tr3TY1t+CVdtXMKx9gCqygejoDStChHpikQhSPvu
+	 1kuuPyE8kCoIEVpeI7KkPIIQ3/7AMG1HCc9obe+YLaLzmsyYYa/l5bKlzNHY3sp4Ts
+	 Ob+TvU3svpa8BO1XfpPB2p49uRSJ1XwYCzFYU1xE3WfDWTPHCkpu2XhvdV8rBOTt6z
+	 VAz9ffpUb2BNCz3n6QdlxTs+Xtr89ork8F0nDcU5OFXOTPkU6yn6tZHR2nWsqGfUAk
+	 N/yJR5mJjHQdhTBerG47JPk0ySEzhSvZzhLMgiRjv9zaNxh3ksYdI9Bhka29EwfX3O
+	 zXw/8BUSvMr9Q==
+Date: Thu, 12 Mar 2026 08:48:30 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>, kevin-kw.huang@airoha.com,
+	matthias.bgg@gmail.com, Heiner Kallweit <hkallweit1@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+	macpaul.lin@mediatek.com, devicetree@vger.kernel.org,
+	Jakub Kicinski <kuba@kernel.org>, kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Andrew Lunn <andrew@lunn.ch>,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: Add support for Airoha
+ AN8801/R GbE PHY
+Message-ID: <177332330960.2900818.4098843765589208189.robh@kernel.org>
+References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
+ <20260304-add-airoha-an8801-support-v1-1-0ae4ee5a2f9d@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.233]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
-Thread-Index: u0OXRHxkr1RmrznGWwvkA93ybpr1RA==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_064002_421045_C06B2181 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304-add-airoha-an8801-support-v1-1-0ae4ee5a2f9d@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,28 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> On 07/03/2026 14:32, Parvathi Pudi wrote:
->> This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
->> AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
+On Wed, 04 Mar 2026 10:35:28 +0100, Louis-Alexis Eyraud wrote:
+> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > 
-> Bridge does not look suitable for defconfig or I still miss something
-> here. Is it a dependency for some driver?
+> Add a new binding to support the Airoha AN8801R Series Gigabit
+> Ethernet PHY.
 > 
-> In case you wonder: this is not a distro config. It is not meant to be
-> working for your customers...
-> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  .../devicetree/bindings/net/airoha,an8801.yaml     | 81 ++++++++++++++++++++++
+>  1 file changed, 81 insertions(+)
 > 
 
-The PRU-ICSS sub-system available in TI AM57x/AM437x/AM335x SOCs is capable of
-operating as HW offloaded L2 switch (STP/RSTP) with 2 PRU ports, by using Linux
-switchdev.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-The proposed changes are required to enable "bridge" config to get the support
-for Linux switchdev, hardware offload features, and STP support to get a fully
-functional L2 offloaded switch.
-
-Thanks and Regards,
-Parvathi.
 
