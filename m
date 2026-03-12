@@ -4,159 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D63FED2F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E616FED2F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ex6SR5AntwjH2hwV8Pxt06HDLsYD3NW0CR+gEG/N2zw=; b=fWa7Op7OgLyIXlmLO0Jy5+Sz/D
-	OLnvB7OUtek2HSW3jc0uWN/gTzQazLN987fpUQ38GkdVyw9mcezQyavEci6TNjNfasuWE7nMgtKcm
-	4vuVZ9+CzQFiQGzDSqTO+3CXZ7X1lfVIQVJKY67vaVTmD0dxayT/YW+zDbSyFn96pf7AaQID+2jfm
-	zDOy8/b6A4HRvHU6xhQxg0Q4L+oGI4vcCcuWgI/Y7tsy/wLx9y9vvHJIWI1XnFFzIsimtZ3pX2sQ6
-	yBvbM+fY4bOIvryPFMv2DM46CVxtQuuPTN9+OkZXmXEpSrfX1fPpypWXQhZgQ2+BCgVGYDWUlGAve
-	ww1YsubQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=; b=VOBYH6bDxrtslfjPA5aRbqjgNK
+	hHZtBzlcCK52mq9sgbl8w6z/Zaqg6AWhNbWY0RwBLZM7d/X+0IeLdDYvmBmwwcbmgDz/ejzYxU0km
+	dRbSq2kQpqPXIP/Y0ej40rPlVRXk+6hd48G5r9bHQL+90fZGt/E/iXeP1AdqfKM1WIpiNfN7CrG1F
+	Drh1hBDGcV5kbiGwUHZrJv3uJeQUQAvqsNzNHpjERrkqomXG323PhDDxWMhakS89Xu8CucfET5yPO
+	/HEEQwXSysqD8bKoGV4optjiPNCIQGpNhMEqOqvTaqiq+dm396rCY4ENlM+vgPd+ouOfzm2zkhw10
+	vnyQwlyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0boS-0000000DfNf-01EF;
-	Thu, 12 Mar 2026 08:54:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w0boz-0000000DfV7-1Wxv;
+	Thu, 12 Mar 2026 08:55:09 +0000
+Received: from mail-francesouthazon11011036.outbound.protection.outlook.com ([40.107.130.36] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0boP-0000000DfMa-2JfC
+	id 1w0bow-0000000DfTy-3Rao
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:54:34 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62BMMm6m3136561
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:54:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ex6SR5AntwjH2hwV8Pxt06HDLsYD3NW0CR+gEG/N2zw=; b=JvRUjeIK8VTnhp9t
-	q3Hg0aEdaIqihYMPsopJf8cAVk5ztzRhE3pJxN8X4R9VeciRfrJrRfzx9Ia9s/I+
-	+ZSsnVn+xLCUk0moE4Qkf/fr7bz4o1I8QP/XdfAv4lQkbmnxVYlgSgnq01/n8QIO
-	LDfZfb1KQJ3dNhoLEYBo+xlEbyNzgbf4rN4N/VrJ3GnnmUqtQpsgQ+5ZZgwHceRX
-	19eE4xQ0eDemioYGRO8EBalv6qAhqMApimXG+4qoSQOMFH9IOjwdOG9IzzKqFrax
-	fLwN8TfmwV7z/FjBa2ogHW5r/NFzkwwMLllvhtCwXfrmgEoTHDfZvDhtfuMtjzAD
-	1oOszQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cuh4w9h19-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:54:31 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ae47b3adacso8544485ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 01:54:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773305671; x=1773910471; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ex6SR5AntwjH2hwV8Pxt06HDLsYD3NW0CR+gEG/N2zw=;
-        b=V+3XLeJ3YvNwr4rto0L5oqW8boN4N1zduuvVpsBVGaWs8dHPtRbELBTOlV7jzzRX4I
-         oFj8bYhTuD0jpL+RnZ3Fl8TrL0fIqliOsudeEoNA3DxXf/GUN6ha5MQq6I+HfJY0moGF
-         ues09BMcxr59jj/xWAo/c0954SZvrCSJQJUpM8dyyr5w0T9kWwuyW29fndyfwfbOTx8N
-         tqUMK9un0ybxsQBcv1qF1XRdJgNlHjEY5PCX7wwyRwZlT/fXuFworN4hPDbel7qIAlqk
-         6xMsQMsCmdaDDyWDUHxdf2cuJLlSIhKgBOxwRaZ13R1HqgaLj9iQn04z/IIwHKG0FNck
-         XuWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773305671; x=1773910471;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ex6SR5AntwjH2hwV8Pxt06HDLsYD3NW0CR+gEG/N2zw=;
-        b=T5ezEj1wlFpDqrw6aKdZeGLiAGZwhb1aq6OB2bgfYN7oInw8oiOaT6mXVRbblWEnzU
-         rLgmTS48NtF9ZaRXoELIxh4KgcxYAzpM5H3c6X71R1ktmCr0kOdsB4MDRbhLEJBez62J
-         GsLHk8g8YJDxTcxS7J3Q46R1eZxG4vFNGQ40VOSii5GZ5d3I9XOSacjuuInfwSb/3NFs
-         qQ5McIYoL3sd2tKL9kS+jodxIq1sIiwAOFkE0x1X3bfFjf44ZzXvAwxgGq7EPlM6A4Nh
-         hTSK90LapT79GewnnX0prKuB8qw5BrkUP88qz15UBQGPn2bhApX9ru3jP3VD89ZqIM7h
-         DrjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUiuUXh4avyy0Smd06ZpNUoFaBQQZhyDTJNDP0XcD3ygdhJFsyRNIrqzmuV2aflyyBM4C2Rr6abTJFvRlJ5CjtY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU4paoF7d1HRar5Tifz0EDGTzsrioPx9MhaOFt3mDgT8Kv0q6y
-	f/AGKhibeY8e39uqs7xsIUuTZcOMoFm3s/oL29Ee3hQBTltEQNTcd+FJrI/l83IzXCh1QNU9XD7
-	AITLAreI8AU4pZqY4LBsAIIgWpZO6RxA8THCVVAzvw8hTnLjrpGq9nsJAndkkZ1fq8yE3TKe6h8
-	MHbQ==
-X-Gm-Gg: ATEYQzxHgG0iuUrEzHHTnNASwd//pb4mti1ukKArTbG0AI5KAA/WXzJXafnNbHdwldV
-	PXcmOxvgL/VWpn4PiUAzKZvwkO2gDZOtge+dQEx1tA5IsFx7Gz3bBhBiJ8MgmWTsb1vSL2Yo97D
-	W7+ZpTUFdGTue4mhIdH4D4L3dPfIRNpDqc2ZNYK5EoOqocHgfisbjWh0fzULN7JaR6KPpHdT8m3
-	81Vz2Dk3LPbu3aQTWx21nA6J8tJ5yAGr8PDbZVvxWt5aAJEZAWbw6SdST60dEKMLNfra8keMNcu
-	jioLUNos6ObcbXI0ibW2qj/NHoG0qSPPJBm4M7WFZNOxjnXhpSDPcnvpp+5UQzNhjUmjVel8QnR
-	9CfhywWytIbjdRk1F30kNqPhRHuZ+c01dGtfFvMk0Xn5sXMABTja11oaJzOEr27o=
-X-Received: by 2002:a17:903:32cb:b0:2ae:608d:ecc8 with SMTP id d9443c01a7336-2aeae85a33cmr49717035ad.27.1773305670813;
-        Thu, 12 Mar 2026 01:54:30 -0700 (PDT)
-X-Received: by 2002:a17:903:32cb:b0:2ae:608d:ecc8 with SMTP id d9443c01a7336-2aeae85a33cmr49716735ad.27.1773305670339;
-        Thu, 12 Mar 2026 01:54:30 -0700 (PDT)
-Received: from [10.30.144.113] ([152.58.131.236])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aeae222e2fsm66922835ad.2.2026.03.12.01.54.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Mar 2026 01:54:29 -0700 (PDT)
-Message-ID: <509fc515-aa29-44be-86f7-a64e2d8f3f98@oss.qualcomm.com>
-Date: Thu, 12 Mar 2026 14:24:19 +0530
-MIME-Version: 1.0
+	Thu, 12 Mar 2026 08:55:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gzeTy/pGqANj7dSUnaue6aIsSfKx0JzmtWScVfXRKeG6wHSNfsfuR/5ufYQU7NUDg0OnRPPLRo63mS9dNK87ZzlIWQ1efY8zVr/s8BHpFlBuR12Cym98niCcRC7Wf3ot+esPW7pw1SH8NPNKfJgD+entBplv6X+vU73oVRPdYkBpBBqTLVYvS8pyqes4twuyW4HE+4gsKMiv/CXvBu7+OB5EnIieV+582EAAdG8gMVMEQZZLes4H64o86j++NZj6NBF5iMAVCXvFuNSVgASoOMcHdwKXw5YLsyQE3Oc6PywkCQaGqgsGfoTYxpSNWSZnSUax+uE7hRQaMWPGaDs47w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=;
+ b=Yi1IahF1uDiNrQMYWXDVs+7Ez2ePLMxkEtxQt12tvXzZgIPjLPbBmTWXXfp8w3o4JGPhLvGYxAGh/73LIpOeI9M1OXNfhNXGsRB9cXWxsUa6iIv5Z+QLDGuGDJfw71H2b+1FAuvF+lc2S4Wud0pscTzmPb6p4uzJWpL6TmAObObcD0NTKsM7va6wYOJzU/HSZicK6OGptMm+Kp/KG8eJyuo0oy4hleKoNp2MJh6t/Is5msgGs7Fp/tUeDf9SNsWtD7Hhlw0caEoICoYouAunIZhQvpOWAsVOfoA5xr/FZ0Sk8LiMW2azmndwsNHNY5oKhLxTGNuqhlYcNchJ86TD6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=;
+ b=To79ECfuPdPoQq3MCtJ8GU7CdbS+WQLl+ki+tizD/3h0ffWHQ78fj9tkT9ZMPAOW2xaYc+Rz2xoBE7Ul6JVfo9SGsKIeLDrd8e6SeZh2m8Ckk7qCm882KUoiwpReS0KR10LDUPnejHqDpF8a3t9Sv/2w0zTjt1VyHiGXgj0qjnMkZTaoXcvqkZugTEdizkJ0VUA+Dvn7WB1Tsej6lnw9A+XSSnpjabVXEyjn3Qo9eu0CtsMcia9iPAOiKXDP0P6CPxHte8EZrRkIcV8VkNDS6draxpIBSYMZBE412pkszlAws/tXZZ+5UZlAGtqa8/ygd7PHrpP597NhIHfEoG0iEg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by GVUPR04MB12196.eurprd04.prod.outlook.com (2603:10a6:150:33b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 08:54:54 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed%3]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 08:54:58 +0000
+Message-ID: <603a09c7-1b08-4d49-92a0-58e6c1b9a003@oss.nxp.com>
+Date: Thu, 12 Mar 2026 10:58:01 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 01/10] power: reset: reboot-mode: Remove devres based
- allocations
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Andy Yan
- <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz
- <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>
-References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
- <20260304-arm-psci-system_reset2-vendor-reboots-v20-1-cf7d346b8372@oss.qualcomm.com>
- <abEzdgQ6pe0fC-5z@venus>
+Subject: Re: [PATCH v2] pmdomain: imx: Fix i.MX8MP VC8000E power up sequence
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
+ Jacky Bai <ping.bai@nxp.com>, Frank Li <frank.li@nxp.com>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+References: <20260228-imx8mp-vc8000e-pm-v2-1-fd255a0d5958@nxp.com>
 Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <abEzdgQ6pe0fC-5z@venus>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: eXnQwSt3aNUKHFHrdGSaRPQJeO95_t8P
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDA3MSBTYWx0ZWRfXyeFP9GAXn/L3
- zeet6tJ9GtXc8Bd3EjEtbcsfSiRBSuckCawYBDCgkjK1KtdFPHA3F4ouvVvwrIIKIp2AaGuPffb
- 4qrv2RHBjfGFeCJbHKP4xltLPWymyL8Vih2CAD0IEntZNJQuckGjipL8xwNcAp5cUtCKnnZlssH
- fpANsA5lN7yY1WQ0Ti8x9OYb84nrgQ6n/9/IZCLCUxJt0ntTPQTxAyaCU3v9V6emPuulQj1RluI
- vXyqEeriY8JmXG3L5OyEtWv95RT5O/a8vTt+DIexSnsxwLb5JfgtoxGbwugGRaIyTcuk4P4uT14
- paMHRzht8SKVZxdRViDtgxnHqhVf4XLFwbKAVg/0dBwG6DC6yRpiNX0pAjNHeX5MUnaJBk3nhf4
- dGMB2nVkXZXhxT0L6nzzefyoUR8o5J/f6SwVzE+6Zi5Va5XL4kJY3s/bIJqkPVOlrLRK1LydVl8
- R/fcxCTrEdWx9/G45LQ==
-X-Authority-Analysis: v=2.4 cv=YucChoYX c=1 sm=1 tr=0 ts=69b27f47 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=kINRXkAo9yxRtpb0MKIxjw==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=QX4gbG5DAAAA:8 a=8-yduQQsOBGYcPy-76YA:9 a=QEXdDO2ut3YA:10
- a=zZCYzV9kfG8A:10 a=GvdueXVYPmCkWapjIL-Q:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: eXnQwSt3aNUKHFHrdGSaRPQJeO95_t8P
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-11_02,2026-03-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- adultscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120071
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260228-imx8mp-vc8000e-pm-v2-1-fd255a0d5958@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FRYP281CA0016.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10::26)
+ To AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|GVUPR04MB12196:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84a7b9b3-807b-4903-8776-08de801509ed
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: uOsjoPeixQaFc7jc+GN6Rm8PohKFA3U6Yp3N8wGPxnA5BBvE75q0ZSgK0vhkSog4RKQmmv8LNtikNC7SZyfO6WhgTAHN+qOgxBrei+U4+ER+krlF15lg7uwk8+yCQcaiXOaSftVRDsLcNJi6bIXSINZKhaYLYlf28SRwnFJwJZwBI8iv5bXyun3l8BYP3xrHKAv9qtJ/Hok7wkfJRTNF/UdaTtgsjsOIsp4yaWveUOEEUWL+bXTm26Ks7qchRT8DbZoRRvN+FnkTkEmZzpkFyRoVvmE23gg1IRi18HVjzCvAStk7Bq9vuwZz9UFNPX/RVX56LS3Sc2v6/LkMNNwhqA4OB1JDb9fW+cc9IYh5mUTpHydZKLoqblDHsVBNGB1qb7a2eCb9DBG/7xeHR7cn3LEfBnpQHhN7NUJFVFNdNfeheGRbs9YrGCjkiyjihHO7C18DdkM+HGEIXAMKFFB7680URpfL2Pdy2M6s9uB2YMhYz/n9JIm4xxbDuA2N7pWD72c7rELcRUSvClfsdyNc/na+f6qMasYwlXDHzP9Y5twH8Pu9/zxU3zdRJ+MovoS/kYKQSq42X5qIU3/gPYtHwut1zKimi61e/oljuC5VD5fjhC8fPlDeoiSnfmnPEO0zLxiUBSLnH03HEWC/IoYcGshiVSL7UU4RTaT/sd9XuGgHHZu7tA45X41LnottWKM98S32/wzuqChPRyCA2tW8TIy94l9RgUO0XF4/hi6iOBgC36ALScOAkI6DaEbzGqsc
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y1Y2cXJBNzRMVXVBSUFWb3NORVZsWTZsRlhWbHo3ZzZVTWEyQ29YamNOYUVZ?=
+ =?utf-8?B?OU5DcUVXUG92TUVSQ3Byd2xYNUI4T1pnbTZjZUxtOUZwbUJZUFJvQ3F5UWts?=
+ =?utf-8?B?TXUyWnpFN0VSWEpES2hkSGZnZ0d1VTV2RWZFWHVNenQxOWVXcy9tVFJoYTB1?=
+ =?utf-8?B?WkowdGo0cDNWQStJTjczUEpleGoxM3FSVUREcGt6UHVhZWRmMHBBdVk0dXI0?=
+ =?utf-8?B?aitlZ09uR3JOK01YekhRelRYT2FmTnJtMVRPMWFYVnhjL1UxZ2VWOXNVNUNl?=
+ =?utf-8?B?Q0QvazNqRFVjZ1dZUzQ4clU0bzZrMVcrUkgrR3lubko4ajQybXF0SlVKK2VT?=
+ =?utf-8?B?M25RUE10YmMyU01sa2Q3aGtXZ1NFYzVRK1kveFRnZXdyUGowTE94N1RHd2xt?=
+ =?utf-8?B?UDVCQU10R0xhVzVyRGlVZlFaQXlzUHNNOGU5S2kwK3E2bmN4VVpZZGtxeXM1?=
+ =?utf-8?B?RGdNZ0ZMUU51TTlpbVhnWHR5YUczVGxJbkVTM2FYTWhwd0d6Ymk0ZDNhQ2oy?=
+ =?utf-8?B?dUQrRk5leEZRcDVZTGp1bjNlRjRsTVRFSlhrY2JqSFhSRjVBRm1yQTZXTFky?=
+ =?utf-8?B?c2YwWG1jTDh0VXh6NTFiU2w3d0tiODBuM01qN2lqMG1qSUtva25WRTZ2Z1Mr?=
+ =?utf-8?B?azRwOTZYZzB5SmMvcGFzOUpudndNZEdxcWJ3S3RveWc2aGVFem5tblVpQUNz?=
+ =?utf-8?B?NXorOVAvcUhsM0ljSXkxK04rN1JDenNmZCs5TzIvdUlsSGpTSHhvTkhEalpK?=
+ =?utf-8?B?SjdnR0dTZ2ZWaHA3UHgwaUR2bkFtVzNtYm5JMDc2SHU0aTFvYWQ4YzZNSlJG?=
+ =?utf-8?B?ZWt3bFFqaW1JYzMza1crNzMwaDcyVGtlckpLQy90bzA4R3pjQm5Rc29YWXhs?=
+ =?utf-8?B?Ky9NaXFjVGJXRnNrZmJJZWVvMFFuNmJvVkg0dlhJcTdZZUdkU203OGhLNURK?=
+ =?utf-8?B?R0dPd0Y2RWJWY0N0RWh6Z0daQ0ZjTDZvUU1Tc01mNVArb0d6aytLeGwyYXBT?=
+ =?utf-8?B?TkFjeW0rUHA5QVdUU2NlOEE4akNlaVk3MW9NVHlFcmp6ZFp5MUVJbGUxY3FF?=
+ =?utf-8?B?SFQvZ1NIdUZ5WklkcjN3V2kycFdTNTRpbnZEaGtXaTNyVk02ZVJML09MRFdD?=
+ =?utf-8?B?TmJQTVNkU0R0eGxmK3owbGlFbCtxUjkyeFlFanhGcFFyWmRMelVnbU5WRWZX?=
+ =?utf-8?B?a3h6TE1mOUVoeFdUbkhqZnRvUFg5enRxbWRQRXZzeW05RHdxWGhVVnN3RjUr?=
+ =?utf-8?B?dXFCQlBFSkNPNlhNVWdUemxlaTFrYWFkYmlFVnVpWUxMTks1VDZEVVBwYktT?=
+ =?utf-8?B?SXpaMnNpdGhwdXdvN2xuTk8va2MyS0RRQStzOXRwRmN2TEFJK2I4RWovM3dI?=
+ =?utf-8?B?THFhaC82a3VCMTVzN2VYbVNFRnB2ZHVLT3p4RFRBM0hoeGRVT0wwbElMTHIz?=
+ =?utf-8?B?ZXl5aWszeUczMkM0dXRsY2JiVk9hNi9JQVdESnQ5VWk4OC9mK213dEg0Mity?=
+ =?utf-8?B?SEt5NUIzbk95WjhFQUtVTjhNYTMvTDdKL2hidmJ1NzlYaHI0Vy8rYjZ3RkJI?=
+ =?utf-8?B?bWIyZlMrb3ZUTG5wVklCUVdWd1BhekVTNTJnazhleDIxTmxTVHRqL1pEN1BZ?=
+ =?utf-8?B?ZVQ1ZENWbzFZZFNpbENCWGxzajJxYjlVa0pGOGJWTStMdWVuVEN6dnorS3lV?=
+ =?utf-8?B?N0pLc2NMcHdmVUxHMlNCQ2JDYmJ2OUIvTXpYaHFsZ1Rtd2VrY0FXR1JJdXJJ?=
+ =?utf-8?B?OXZCd01JcDZSZmg2SEMvaHBEMHNSenE0eTBVRW96RE83QWVNZ0hOSnA4OGgy?=
+ =?utf-8?B?Z0pLMWZEK0RiMC85aG5HU2VDaXpaQjl3ZGhHNUpLYm9tV0xhSThla2ZKMW9h?=
+ =?utf-8?B?eENPQ2tEenZUc2M1WUlTZjJBRkF5TEk1bUE2enlwRjNVa3Zqcjh1c2ptd1Fk?=
+ =?utf-8?B?ZlNVOFhkb05BNzlPd2JKMlNqeHdsb0tvcDRhM3dRcHM4UG9xaHE3citBdFAy?=
+ =?utf-8?B?bGFzNHBqeENhZjVDMXlSSGpqd3dLZUNqblkydStJeTNxemdrcWVlNjkxeG13?=
+ =?utf-8?B?VFZJT3lWSmkyNlZ3cjBWWER1WTdHYTl4WDRPcExJSFp1Yis3RzdBMHhCRCsv?=
+ =?utf-8?B?czZvb3N1WCtSYWdOWER6WkdYT1JkNVJvUTI4bkwwN09yVzNaOUI0M3J1UXdo?=
+ =?utf-8?B?RzNvUG1lMEs3VXJKWVI2SDU1NjZ6OWFHU3p4VXhwaEEvYnRYYmFlZFQ2T2lr?=
+ =?utf-8?B?bmtFRkNFNWUxK0xhV3RhcTJndEg5bUZuWkFsYStyVXdQRnl4cXYxdHNwZ1VC?=
+ =?utf-8?B?aUI2MDhkSFNDdTNpZkhtMUwzaHZBc1d5VVRCWDhhMTc5WHpsaGJOUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84a7b9b3-807b-4903-8776-08de801509ed
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 08:54:58.7111
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tzBeK38NBP9maxR7w1uJY3k1vpscMKYj5UJ+ghxFbX0FTKATBbcuhfvAQE9SqFpbjcUYBGWFRjFs7cZIdz09Kg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVUPR04MB12196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_015433_608597_FD7288BA 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20260312_015506_862844_4F725F07 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,33 +152,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2/28/26 03:12, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Per errata[1]:
+> ERR050531: VPU_NOC power down handshake may hang during VC8000E/VPUMIX
+> power up/down cycling.
+> Description: VC8000E reset de-assertion edge and AXI clock may have a
+> timing issue.
+> Workaround: Set bit2 (vc8000e_clk_en) of BLK_CLK_EN_CSR to 0 to gate off
+> both AXI clock and VC8000E clock sent to VC8000E and AXI clock sent to
+> VPU_NOC m_v_2 interface during VC8000E power up(VC8000E reset is
+> de-asserted by HW)
+>
+> Add a bool variable is_errata_err050531 in
+> 'struct imx8m_blk_ctrl_domain_data' to represent whether the workaround
+> is needed. If is_errata_err050531 is true, first clear the clk before
+> powering up gpc, then enable the clk after powering up gpc.
+>
+> While at here, using imx8mm_vpu_power_notifier() is wrong, as it ungates
+> the VPU clocks to provide the ADB clock, which is necessary on i.MX8MM,
+> but on i.MX8MP there is a separate gate (bit 3) for the NoC. So add
+> imx8mp_vpu_power_notifier() for i.MX8MP.
+>
+> [1] https://www.nxp.com/webapp/Download?colCode=IMX8MP_1P33A
+>
+Peng,
 
+Is using imx8mm_vpu_power_notifier wrong no matter on the errata? If so, I think you should fix
 
-On 11-03-2026 14:51, Sebastian Reichel wrote:
-> Hi,
-> 
-> On Wed, Mar 04, 2026 at 11:33:01PM +0530, Shivendra Pratap wrote:
->> Devres APIs are intended for use in drivers, where the managed lifetime
->> of resources is tied directly to the driver attach/detach cycle. In
->> shared subsystem code, there is no guarantee that the subsystem
->> functions will only be called after a driver has been attached, nor that
->> they will not be referenced after the managed resources have been
->> released during driver detach.
->>
->> To ensure correct lifetime handling, avoid using devres-based
->> allocations in the reboot-mode and explicitly handle allocation and
->> cleanup of resources.
->>
->> Fixes: 4fcd504edbf7 ("power: reset: add reboot mode driver")
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
-> 
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> 
-> The patch does not apply, though.
+that problem first, e.g create a separate patch that fixes the notifier and then add support for the errata. In the future, if the chips with the errata are deprecated we could only revert that given patch. thanks,
 
-thanks. Will re-base it.
+Daniel.
 
-thanks,
-Shivendra
 
