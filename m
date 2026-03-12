@@ -4,66 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212EDFED2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 07:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3DDFED2E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 07:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGQFtN65jqZPHApCqR8fT1iH+UK6PY6v44zsFoBO/rU=; b=tpQMkZcu7uYX+CScMElJqZH0wf
-	dAMzxMP//svYMQjFDXpbC6w+7IKp5YNm5tFVZG/bjJ7YZ/Jq4LjTt3UupHyzEyEagpLqNTbymzR1A
-	qbF8E1LuYsbyh667WmbwhfwLU9n14fv7guKKuCpJaOWDFF+QilAhLfSTOQAa8fmdVAhNC71MJ0F3M
-	//EcujDF8zKG7NmBOcbBlLp8psCBJpUfatVCJ5cS6RNVHzgcPLbx6e/Q6lZ9P3XaXmkndZq91BIGD
-	l11xNMqMnzGTMxL51aKWGWrrUFZHaqjk8Uo1EL4MpU2qEgb4tSLJqeQerYIl3nbM6SJd1dkT2iocW
-	DTaBr/Qg==;
+	bh=0NwCelfylXBUrlrL8vHHXvxxzk8E5c//2AgbNgxhYXg=; b=JnthGe427fatH0FerqxYvGxYBi
+	t0IfAeZL2v2HixrwOPCjebRmc3uEMxU1UMwzD+bJ1qRJBAbDV0mdaaYwxxFEVZ/k1/fMjP7+CLp+X
+	NChB3skGmNV2sCOIzAGUf2b2Ys7sFw8oIG4AU3q9N5qpdztjGyg0GUzvRxOfMhIoq3X99201yOwCc
+	F++Gz48zEwmpxhpjOIALW65S2pT4u8dy+d+aD+d8rwVTqmc5gyC5qPgdYd83lNqzIdOfCLYTl9ahp
+	BncUH46/Wc1BZRvTRW2SUYs8jSMIJk05GPgg3sjar00jUyvwdhucFJkkr9JdnNxdqktmeIBrIitpp
+	uOR1dQhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0adw-0000000DYHP-2Vtg;
-	Thu, 12 Mar 2026 07:39:40 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1w0aeu-0000000DYOh-0Alj;
+	Thu, 12 Mar 2026 07:40:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0adr-0000000DYH0-0ymc;
-	Thu, 12 Mar 2026 07:39:39 +0000
-Received: from mxbox4.masterlogin.de (unknown [192.168.10.79])
-	by mxout2.routing.net (Postfix) with ESMTP id F0A8060244;
-	Thu, 12 Mar 2026 07:39:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1773301168;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NGQFtN65jqZPHApCqR8fT1iH+UK6PY6v44zsFoBO/rU=;
-	b=WwL+dAsjvDAwGuZnVMJgvw+33+ocdTXcPGYqWKyxtPC9CadFv0zPwLqzVKS/bB3ZOlOMKe
-	BOfF0YtZEc+oTSCdBlCB4sqONtWFuk2NhKRDzkCtiyCun1BQOSsPf7F+AnWeb2uxhh8AE5
-	Iyoh/UEenaJm83mHOngDw9ZmtPzgZj0=
-Received: from ehlo.thunderbird.net (fttx-pool-217.61.148.188.bambit.de [217.61.148.188])
-	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id 542F08007E;
-	Thu, 12 Mar 2026 07:39:27 +0000 (UTC)
-Date: Thu, 12 Mar 2026 08:39:26 +0100
-From: Frank Wunderlich <linux@fw-web.de>
-To: Laura Nao <laura.nao@collabora.com>
-CC: angelogioacchino.delregno@collabora.com, daniel.lezcano@linaro.org,
- daniel@makrotopia.org, frank-w@public-files.de, laura.nao@collabora.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
- lukasz.luba@arm.com, matthias.bgg@gmail.com, rafael@kernel.org,
- rui.zhang@intel.com
-Subject: Re: [PATCH] thermal/drivers/mediatek/lvts: fix mt7987 thermal crash
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20260311093519.15810-1-laura.nao@collabora.com>
-References: <20260309064439.4296-1-linux@fw-web.de> <20260311093519.15810-1-laura.nao@collabora.com>
-Message-ID: <8B371D2A-3C7E-4514-B495-9ED58FB60A80@fw-web.de>
+	id 1w0aeq-0000000DYOW-32GK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 07:40:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 561FE60141;
+	Thu, 12 Mar 2026 07:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83749C116C6;
+	Thu, 12 Mar 2026 07:40:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773301235;
+	bh=MPH+Wlcdqc/nXSFAck1cj/Cl/jlNamCFfr2noDau+VU=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=ZTF5RPLb5oYXaljC6stXuDnfEDg012srvcTSKhS7ELqtq3fuwIGI+KbsFIN86m2na
+	 ueLCmJ3SpRzSyoPkhUVCpBKL5rX9w3CYk5WRtRUA2Cp4JHOSENkcTbOqApWLWA0MwO
+	 /pRVLcy7cXho1C97sdmUBsbmTDinpMXasOc5l6awPUnxqkYTKKxQPgWsFanCvmRebu
+	 Z004tXqLFajxJH2ltQ3DtFcPbGmih93wTSBijizYX6KOGUL0LOSZEsCTIPZAk+xAet
+	 rVSq6p55Ohz6iFm1+D/lEcJV+5iLHnzg+o+fccAqmmSCI0dgcfCIiHD1qS5Kyn6EZ4
+	 3tExA97IQP2qA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 54F96F40068;
+	Thu, 12 Mar 2026 03:40:32 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Thu, 12 Mar 2026 03:40:32 -0400
+X-ME-Sender: <xms:8G2yaRYFFTYuhqShcfT0FtYjVE549HFV5Xiy2QcdT8VyvTWsUkciEA>
+    <xme:8G2yaTPCW4nFahGxqqJADEDX42Jo_x99agIt0TFYQ8-Ob9AvhVOcAY-RvZLyJ1IFA
+    CNDk67ZpqlBjAuLtco0om5BAqN0-kvFhWd0CnbXJ1pPNvTm7MFU23c>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvkeeivddtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeekvdffkefhgfegveekfedtieffhfelgeetiedvieffhfekfeeikeetueeg
+    teetteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
+    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
+    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
+    geejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehjsggrrhhonhesrghkrghmrg
+    hirdgtohhmpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepuggr
+    vhhiugdrkhgrphhlrghnsegrmhgurdgtohhmpdhrtghpthhtohepkhgvrhhnvghlqdhtvg
+    grmhesrghnughrohhiugdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhn
+    rghssegrrhhmrdgtohhmpdhrtghpthhtohepughivghtmhgrrhdrvghgghgvmhgrnhhnse
+    grrhhmrdgtohhmpdhrtghpthhtohepjhgrmhgvshdrmhhorhhsvgesrghrmhdrtghomhdp
+    rhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhope
+    hmrghthhhivghurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomh
+X-ME-Proxy: <xmx:8G2yaTgS_ddwOWPCAdSFy6-Y1mZdZ_iyvDw28nxREK10cmBDy1coXA>
+    <xmx:8G2yaRguhnLKGcSdzAq9u1dc6XPUD9ZnyyTFoVCMZ8rp3WcW3SRxVQ>
+    <xmx:8G2yabu-w1NWjXSEznGAtHVpjOTph5gIPqcPdmTEYE__Cibtihb3RA>
+    <xmx:8G2yaSRKccsFYKU-tCk3MMA7iQG1AfH0GFwUGjJ1sKPR9B-SCOrRww>
+    <xmx:8G2yaUEjiUDcY9_u-yuXIZDKbwLT_c8AH_z2rsE4bAPYd-iqA1IkwZtj>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 18126700065; Thu, 12 Mar 2026 03:40:32 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Mail-ID: 63a00dde-0e31-408d-98f9-570225501692
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_003935_561078_EEB36939 
-X-CRM114-Status: GOOD (  10.68  )
+X-ThreadId: AZoFCyIUcobR
+Date: Thu, 12 Mar 2026 08:40:11 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Carlos Llamas" <cmllamas@google.com>,
+ "Peter Zijlstra" <peterz@infradead.org>
+Cc: "Sami Tolvanen" <samitolvanen@google.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Jason Baron" <jbaron@akamai.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Steven Rostedt" <rostedt@goodmis.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+ "Jiri Olsa" <jolsa@kernel.org>, "Ian Rogers" <irogers@google.com>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "James Clark" <james.clark@linaro.org>,
+ "Juri Lelli" <juri.lelli@redhat.com>,
+ "Vincent Guittot" <vincent.guittot@linaro.org>,
+ "Dietmar Eggemann" <dietmar.eggemann@arm.com>,
+ "Ben Segall" <bsegall@google.com>, "Mel Gorman" <mgorman@suse.de>,
+ "Valentin Schneider" <vschneid@redhat.com>,
+ "Kees Cook" <kees@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Thomas Gleixner" <tglx@kernel.org>,
+ "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
+ "Shaopeng Tan" <tan.shaopeng@jp.fujitsu.com>,
+ "Jens Remus" <jremus@linux.ibm.com>, "Juergen Gross" <jgross@suse.com>,
+ "Conor Dooley" <conor.dooley@microchip.com>,
+ "David Kaplan" <david.kaplan@amd.com>,
+ "Lukas Bulwahn" <lukas.bulwahn@redhat.com>,
+ "Jinjie Ruan" <ruanjinjie@huawei.com>,
+ "James Morse" <james.morse@arm.com>, "Thomas Huth" <thuth@redhat.com>,
+ "Sean Christopherson" <seanjc@google.com>,
+ "Paolo Bonzini" <pbonzini@redhat.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, "Will McVicker" <willmcvicker@google.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:PERFORMANCE EVENTS SUBSYSTEM"
+ <linux-perf-users@vger.kernel.org>
+Message-Id: <742d77a8-3c53-4814-9dd6-81e8317cd829@app.fastmail.com>
+In-Reply-To: <abIFwSF1RqhC96C2@google.com>
+References: <20260309223156.GA73501@google.com>
+ <20260311225822.1565895-1-cmllamas@google.com>
+ <20260311231406.GZ606826@noisy.programming.kicks-ass.net>
+ <abIFwSF1RqhC96C2@google.com>
+Subject: Re: [PATCH] static_call: use CFI-compliant return0 stubs
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,73 +143,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 11=2E M=C3=A4rz 2026 10:35:19 MEZ schrieb Laura Nao <laura=2Enao@collabo=
-ra=2Ecom>:
->Hi!
+Hi Carlos,
+
+You've cc'ed around 50 people on this patch, which is a bit excessive. Better to take get_maintainer.pl with a grain of salt if it proposes a cc list like that.
+
+On Thu, 12 Mar 2026, at 01:16, Carlos Llamas wrote:
+> On Thu, Mar 12, 2026 at 12:14:06AM +0100, Peter Zijlstra wrote:
+>> On Wed, Mar 11, 2026 at 10:57:40PM +0000, Carlos Llamas wrote:
+>> > Architectures with !HAVE_STATIC_CALL (such as arm64) rely on the generic
+>> > static_call implementation via indirect calls. In particular, users of
+>> > DEFINE_STATIC_CALL_RET0, default to the generic __static_call_return0
+>> > stub to optimize the unset path.
+>> > 
+>> > However, __static_call_return0 has a fixed signature of "long (*)(void)"
+>> > which may not match the expected prototype at callsites. This triggers
+>> > CFI failures when CONFIG_CFI is enabled. A trivial linux-perf command
+>> > does it:
+>> 
+>> *sigh*...
+>> 
+>> And ARM64 can't really do the inline thing because its immediate range
+>> is too small and it all turns into a mess constructing the address in a
+>> register and doing an indirect call anyway, right?
+>> 
 >
->On 3/9/26 07:44, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>
->> On mt7987 we see a crash due to missing ops entry=2E
->>
->> [    1=2E518540] Internal error: Oops: 0000000096000005 [#1]  SMP
->> =2E=2E=2E
->> [    1=2E564481] pc : lvts_get_temp+0x84/0xc4
->> [    1=2E564492] lr : lvts_get_temp+0x60/0xc4
->> =2E=2E=2E
->> [    1=2E620900] Call trace:
->> [    1=2E631753]  lvts_get_temp+0x84/0xc4 (P)
->> [    1=2E645471]  __thermal_zone_get_temp+0x24/0x11c
->> [    1=2E656502]  __thermal_zone_device_update+0x9c/0x52c
->>
->> Add the new ops member added in 7=2E0-rc1 for mt7987 too=2E
->>
->> Fixes: a4c40559499f ("thermal/drivers/mediatek/lvts: Add platform ops t=
-o support alternative conversion logic")
+> Right, the range for the jump is very limited. I _think_ tracepoints
+> have managed to implement the trampoline work-around:
+>   arch/arm64/kernel/ftrace.c
 >
->I think the Fixes tag should reference=20
->"thermal/drivers/mediatek/lvts_thermal: Add mt7987 support", as the=20
->commit introducing the ops also updated all existing data structs (seems=
-=20
->like mt7987 support landed right after)=2E
-
-Ok, i will change this=2E Have not looked on order how commits
-are applied=2E Both commits were new in 7=2E0=2E
-
->> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
->> ---
->>  drivers/thermal/mediatek/lvts_thermal=2Ec | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/thermal/mediatek/lvts_thermal=2Ec b/drivers/therma=
-l/mediatek/lvts_thermal=2Ec
->> index a9617d5e0077=2E=2E5671531d4c23 100644
->> --- a/drivers/thermal/mediatek/lvts_thermal=2Ec
->> +++ b/drivers/thermal/mediatek/lvts_thermal=2Ec
->> @@ -2026,6 +2026,7 @@ static const struct lvts_data mt7987_lvts_ap_data=
- =3D {
->>  	=2Etemp_offset	=3D LVTS_COEFF_B_MT7987,
->>  	=2Egt_calib_bit_offset =3D 32,
->>  	=2Edef_calibration =3D 19380,
+> So it looks do-able I think but a much complex route.
 >
->You'll probably need to define num_cal_offsets too, since the number of=
-=20
->calibration bytes was also made configurable (not sure if this is=20
->already addressed by a separate patch)=2E
 
-Thanks for pointing to this=2E
-Should i change in same patch or in separate one?
+So far, we have managed to avoid the blessings of objtool on arm64, and the complexity associated with the inline patching is not really justified, given that on arm64, there is not really a need to avoid indirect calls (and as Peter says, we might end up with them anyway)
 
->> +	=2Eops =3D &lvts_platform_ops_mt7988,
->>  };
->> =20
->>  static const struct lvts_data mt7988_lvts_ap_data =3D {
->
->Best,
->
->Laura
+A while ago, I had a stab at implementing the out-of-line variety [0], but nobody cared enough to even respond. It is rather concise, and localised to arm64, so it is something we might consider for CONFIG_CFI builds. It is essentially the same sequence that arm64 uses for trampolines between modules and the kernel if they are out of direct branching range, with some .rodata patching to change the target. (arm64 basically only permits code patching without stopping the machine when it involves patching branch opcodes into NOPS or vice versa).
+
+Doing so for only CONFIG_CFI makes sense because it removes the CFI overhead for all static calls, although it adds back some overhead for the trampoline. But there is currently no need to do this unconditionally.
 
 
 
-regards Frank
+
+[0] https://lore.kernel.org/linux-arm-kernel/20201120082103.4840-1-ardb@kernel.org/
 
