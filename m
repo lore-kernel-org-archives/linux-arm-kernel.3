@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A3E106ACEA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465EC106ACEA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyaGHRZ3ZkkbnQmXol9kjS74w6GitWq98nUjpBQHQFI=; b=CQkzOmnal5v+tttaGpVFvEIl6E
-	TnWG8x0OdVi8QaIyunOSutkz1yoiMb4hHdJ3pxu0H1NEBtwNMxA+mVpuGjzvUJO4lMEj0lZnfSHFm
-	T/DYK1gqwyQy10qETws4q/gz3ULA3OI97OYjVUdl77v4mGgLcKb0HUbl0xd3vY/F2339Rj0QUAIfY
-	3k0uqSfu1DfSY//mrVmFdRfpiCb7MylK4LIWti1Io5os7tiV8y8us/xYMvWg0EVdqFo70a4K5aZFf
-	qzG69XXBAh3NfbH6S/9YU4fASZNxFdUQIrLlxXlDWQ46zObPViA4zxEPyIo7vjKLgHyckeySDBojW
-	mdpLmYNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PI0QF6B7GTpvs2phHUpBZw7BOsfXgNyP/NfUwECWnrI=; b=YzohkXBe5DJTNSqREqH0JiKM8X
+	RjUnXSKrs/i4alwIti9RPqFUF4macjk6CB1KAzChR7iPAC9G34x6Gqnvz5LQxENdhOAV5pkroOvnj
+	yVnOi+78NJ0HW70DdHyYC7kBb6bb0N8e75+zLOvd4aQkXy62FFYBMaR6MPMD0e2hfy0J9c5vgLtQB
+	7cDMONZgCXaFp7XRUC9R8uI7gPsbpmvwb1GzX9YYUXO8uPCR0gq7jaqLEUdSoxyFdenivWkTMJXEB
+	U/faenS32LbhWkWgRw7ZzSt+kSTKJPruxBh1sf7b8rYlO2B9bCjCCLJWegXTz7xWIqWk2V3bercHO
+	aGuc4CZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0nMW-0000000FQFz-3KWV;
-	Thu, 12 Mar 2026 21:14:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0nMf-0000000FQJV-1JF2;
+	Thu, 12 Mar 2026 21:14:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0nMU-0000000FQEz-0tFd;
-	Thu, 12 Mar 2026 21:14:31 +0000
+	id 1w0nMd-0000000FQIT-2viM;
+	Thu, 12 Mar 2026 21:14:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03C6B44398;
-	Thu, 12 Mar 2026 21:14:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3794C4CEF7;
-	Thu, 12 Mar 2026 21:14:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1773350068;
-	bh=BHIeqMCeZ08yvAl5YqqjtddRClVSOvGwSHug5GXzEz8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Duh+dhDjn9i3oyIucNjLcpV7CKSwWMDBwP1nrAeCAWcyGXtDakHpRp+pm3kMEvL8y
-	 SEaAaWk5jP3gQGaz8kV5kaoD1HdJgTdnHuWBZE8KvOuDSG+7q7krHiTC3YYNdfGDfn
-	 Xpz6tLlo5tMrkq0Sz1LyxlbqOsozNn9yfZFUkN8M=
-Date: Thu, 12 Mar 2026 14:14:25 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
- Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen"
- <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, Marc
- Dionne <marc.dionne@auristor.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, David Hildenbrand <david@kernel.org>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, Mike
- Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal
- Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, Pedro Falcato
- <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, Ryan Roberts
- <ryan.roberts@arm.com>
-Subject: Re: [PATCH 01/15] mm: various small mmap_prepare cleanups
-Message-Id: <20260312141425.1837736829210f2d0b00cac6@linux-foundation.org>
-In-Reply-To: <56372fe273f775b26675a04652c1229e14680741.1773346620.git.ljs@kernel.org>
-References: <cover.1773346620.git.ljs@kernel.org>
-	<56372fe273f775b26675a04652c1229e14680741.1773346620.git.ljs@kernel.org>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_141430_296959_5096EC13 
-X-CRM114-Status: GOOD (  11.40  )
+	by tor.source.kernel.org (Postfix) with ESMTP id DA42D61336;
+	Thu, 12 Mar 2026 21:14:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DF7FC4CEF7;
+	Thu, 12 Mar 2026 21:14:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773350078;
+	bh=PI0QF6B7GTpvs2phHUpBZw7BOsfXgNyP/NfUwECWnrI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=clkxEPBKZxEf659r5ImYpASzkk9EJQaPrZpJfHhDr81HRo8Un+bWQ1x/DZoTK1VYS
+	 jKCQKBN2NTj7eIX+eEYhb98SKzN0GuqCCIIVXLbXv3UIeNeU6hhQx/K736A9gxBnu7
+	 Heq2q+j6rbsvy8e4IRwA67aZUA6x19egSiOOPdEyJebBl2eZjOAU3qf1U7OJBwkc04
+	 HBtoe4AubLHSj7Jys1zlysVWhllflJ5GMTQtKaGc1g22BBA92wFdVgh363oAbGFwPU
+	 98YKpYspsudCb1rMglQnFP/f52la01xFU2fNptxEbPGJsWVDiqqDES6qgTIGYZrBSm
+	 4XPlMxZzMyOOw==
+Date: Thu, 12 Mar 2026 22:14:36 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: select QDMA block according
+ LAN/WAN configuration
+Message-ID: <abMsvOMnnuTdoG-9@lore-desk>
+References: <20260310-airoha-qdma-lan-wan-mode-v1-1-64ec74dea872@kernel.org>
+ <20260312172430.GA1267298@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aKPrcNYyqP8X8EOx"
+Content-Disposition: inline
+In-Reply-To: <20260312172430.GA1267298@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 20:27:16 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
 
-> +int mmap_action_prepare(struct vm_area_desc *desc,
-> +			struct mmap_action *action)
-> +
->  {
->  	switch (action->type) {
->  	case MMAP_NOTHING:
-> -		break;
-> +		return 0;
->  	case MMAP_REMAP_PFN:
-> -		remap_pfn_range_prepare(desc, action->remap.start_pfn);
-> -		break;
-> +		return remap_pfn_range_prepare(desc, action);
->  	case MMAP_IO_REMAP_PFN:
-> -		io_remap_pfn_range_prepare(desc, action->remap.start_pfn,
-> -					   action->remap.size);
-> -		break;
-> +		return io_remap_pfn_range_prepare(desc, action);
->  	}
->  }
->  EXPORT_SYMBOL(mmap_action_prepare);
+--aKPrcNYyqP8X8EOx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-hm, was this the correct version?
+> On Tue, Mar 10, 2026 at 03:46:53PM +0100, Lorenzo Bianconi wrote:
+> > Select the QDMA block used to send the traffic to host cpu according to
+> > LAN/WAN port confiugration:
+> > - QDMA0 is used for LAN devices
+> > - QDMA1 is used for WAN devices
+> >=20
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+> Hi Lorenzo,
 
-mm/util.c: In function 'mmap_action_prepare':
-mm/util.c:1451:1: error: control reaches end of non-void function [-Werror=return-type]
- 1451 | }
+Hi Simon,
 
---- a/mm/util.c~mm-various-small-mmap_prepare-cleanups-fix
-+++ a/mm/util.c
-@@ -1356,6 +1356,8 @@ int mmap_action_prepare(struct vm_area_d
- 		return remap_pfn_range_prepare(desc, action);
- 	case MMAP_IO_REMAP_PFN:
- 		return io_remap_pfn_range_prepare(desc, action);
-+	default:
-+		BUG();
- 	}
- }
- EXPORT_SYMBOL(mmap_action_prepare);
-_
+>=20
+> Is this a bug fix?
+> If so, perhaps it is for net with a fixes tag.
 
+I guess we do not need to target net tree since airoha_eth driver currently
+supports just the LAN interface via the MT7530 DSA switch connected to GDM1
+and there are no WAN interfaces officially supported (PCS/external phy is n=
+ot
+merged mainline yet, it is only available in OpenWrt).
+
+>=20
+> And at any rate, could you add some description of the before and after
+> behaviour?
+
+Theoretically, before this patch, GDM ports were equally distributed between
+QDMA0 and QDMA1 while this patch assigns LAN interfaces to QDMA0 and WAN
+interface to QDMA1. However, for the reason explained above, this change is
+not currently visible to the user.
+
+Regards,
+Lorenzo
+
+--aKPrcNYyqP8X8EOx
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabMsvAAKCRA6cBh0uS2t
+rFDmAP93V3ccszOsfcw+0zhgr1R1obkSmoIKk52roRfL4F4otQEA5pU4amZ23tfr
+L8d+Ej1Fj3I3fcJLP56yYMmhSvkcTAA=
+=5Q0S
+-----END PGP SIGNATURE-----
+
+--aKPrcNYyqP8X8EOx--
 
