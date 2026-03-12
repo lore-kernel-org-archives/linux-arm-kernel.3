@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F5FFED2FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C27A3FED2FF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUw0mSRCbpfSnS9d2mLBCZYAanMTtRZtsJJapN7EOME=; b=X+1v2nwupW7UeRGHraMmWASblk
-	SKKznY7sfWlomhbryXwlC9xngZuXQS45pw9FjVuJy5YI+STxhxAsdfLOQ+kkc6UhI2u3Ghi78T2/y
-	gPYjx495G4k6v5lkpCJmDfVpXQWe9NewGoJlIlhEJaYdvmsbIsd17+rLPqOXd6y96mN0EclNdDBc+
-	MGb6NxAfNp/EgrPegixec2TeqYQixIJB4DYmn4MJOclFQJeikOYsMKhCwvQh1SqgbkCO2o8BW0i1c
-	zVq1lEM9jgrhbBOrbaE1IJQA7oImzWT4OqzTD3tKA90Ca2BVa6NjL3pluYf+8EXtwGyGkQkq9RHs9
-	775XRf7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gv/D+u/ILu59/Czfp3UcvkVs1fHRKXwMIsDNuCoKEDk=; b=MX94hPlgCzVEXKERs7A9nQFCSh
+	/EGXrZBRtv/yq2lFeAW/1MGKwmWzQ7aBColv8rJ5swkSK3V328qvsaoqR437CVINqNvR/WxLacdwD
+	Ny8YG5R84fjwowmfc0S8ca+d419hUBYboOPX+Xr9uc+IW15Hc8VEuurgSoRWiCOvBiAhfiRnLkHXQ
+	EoQrIwEXYHAv55IgDD0tZWapZ16+3KTGj2Axn0sbSd8hHvbHIzN8ryraxFDOQzxXyh+VszvphGHOA
+	U9SJIJJcM8qI3F/DwrqOkZPXPSzOJxl8tyF+2t/PEFQWqRvc8lWIy7eC3GSH798Wn4BQ8LmC/oRNn
+	7PFALeOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dWf-0000000Dt6w-0jlI;
-	Thu, 12 Mar 2026 10:44:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dWc-0000000Dt6Z-0kM7
+	id 1w0dXo-0000000DtDx-2ss0;
+	Thu, 12 Mar 2026 10:45:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0dXl-0000000DtDS-3l93
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 10:44:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 941B443B8D;
-	Thu, 12 Mar 2026 10:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5997BC4CEF7;
-	Thu, 12 Mar 2026 10:44:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773312257;
-	bh=RQl4cQHw2vxOHj/N4vk9xIw7gKGsxB7Usr3ddtX/tvw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=fhzuj9GoOcmoPJcmUUcRslcJSQfckwLBQ1Jgf4L5koKTh75ABGBhXKwOrPjehOdZK
-	 ClO0a1C4iFvqM6T9d8u6K007ArLx0wY9d7W2Nncn6S9SQPepFW/D82GPB6rgltzggw
-	 T3fCLKjUZmiXOLtHfdlO6pTsAva/y6ZLDruqjlunqPBrEXj6szHZjMgHt00/48yobK
-	 I74euXIRstW0EiNFRdGh0PG5aCazhLUGl0N0vu9p2kD7uGqEWutimdydBnJwJ6DwHM
-	 41PfVXY+9tQcfT4lYHwGoxOCvp+kNi3/lyaWCofBp9ltS4QQsLO79u8fAmxyTyAiXP
-	 hR/0K0f2TNClg==
-Date: Thu, 12 Mar 2026 05:44:16 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 12 Mar 2026 10:45:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC80E165C;
+	Thu, 12 Mar 2026 03:45:18 -0700 (PDT)
+Received: from [10.1.26.37] (e122027.cambridge.arm.com [10.1.26.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B85C3F694;
+	Thu, 12 Mar 2026 03:45:21 -0700 (PDT)
+Message-ID: <45798b53-e18b-4e7b-a49c-37d1783f3444@arm.com>
+Date: Thu, 12 Mar 2026 10:45:19 +0000
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: festevam@gmail.com, mani@kernel.org, bhelgaas@google.com, 
- l.stach@pengutronix.de, kernel@pengutronix.de, linux-kernel@vger.kernel.org, 
- kwilczynski@kernel.org, linux-pci@vger.kernel.org, s.hauer@pengutronix.de, 
- lpieralisi@kernel.org, imx@lists.linux.dev, conor+dt@kernel.org, 
- krzk+dt@kernel.org, frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org
-To: Richard Zhu <hongxing.zhu@nxp.com>
-In-Reply-To: <20260312092745.295578-3-hongxing.zhu@nxp.com>
-References: <20260312092745.295578-1-hongxing.zhu@nxp.com>
- <20260312092745.295578-3-hongxing.zhu@nxp.com>
-Message-Id: <177331225647.2535696.15664490600606531279.robh@kernel.org>
-Subject: Re: [PATCH v5 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
- i.MX943 PCIe compatible strings
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+To: Marc Zyngier <maz@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+ <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
+ <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com> <87v7f2chde.wl-maz@kernel.org>
+ <dd6f4715-e8be-41d1-af60-00f068e9d730@arm.com> <86342575ev.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86342575ev.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_034418_263649_8FE3960A 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260312_034530_056754_16C8D297 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 12 Mar 2026 17:27:42 +0800, Richard Zhu wrote:
-> Add i.MX94 and i.MX943 PCIe compatible strings and fallback to
-> i.MX95 PCIe compatible string.
+On 12/03/2026 09:39, Marc Zyngier wrote:
+> On Thu, 12 Mar 2026 09:28:16 +0000,
+> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>
+>> On 11/03/2026 19:10, Marc Zyngier wrote:
+>>> On Mon, 02 Mar 2026 15:23:44 +0000,
+>>> Steven Price <steven.price@arm.com> wrote:
+>>>>
+>>>>>> +  struct kvm_arm_rmi_populate {
+>>>>>> +	__u64 base;
+>>>>>> +	__u64 size;
+>>>>>> +	__u64 source_uaddr;
+>>>>>> +	__u32 flags;
+>>>>>> +	__u32 reserved;
+>>>>>> +  };
+>>>>>> +
+>>>>>> +Populate a region of protected address space by copying the data from the user
+>>>>>> +space pointer provided. This is only valid before any VCPUs have been run.
+>>>>>> +The ioctl might not populate the entire region and user space may have to
+>>>>>> +repeatedly call it (with updated pointers) to populate the entire region.
+>>>>>
+>>>>> size as a __u64 is odd, as the return value from the ioctl is a signed
+>>>>> int. This implies that you can't really report how many bytes you have
+>>>>> copied.  Some form of consistency wouldn't hurt.
+>>>>
+>>>> Good spot. In practice this works because >2GB in one operation is
+>>>> highly unlikely to be processed in one go. But I guess I'll change this
+>>>> to have an output size argument. I guess I could make the kernel update
+>>>> all of base,size,source_uaddr which would simplify user space.
+>>>
+>>> In a conversation with Suzuki, I suggested that splice(2) could be a
+>>> nicer way to express this, and allow asynchronous use with io-uring.
+>>>
+>>> After all, having a guestmem backend for CCA is not exactly
+>>> outlandish, and having a splice implementation realistic enough.
+>>>
+>>> Thoughts?
+>>
+>> One issue that I realised, is about the "flags" for the populate.
+>> Data can be loaded as measured vs unmeasured in CCA (and in TDX
+>> and SNP). I don't see a way to convey this with splice.
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  .../bindings/pci/fsl,imx6q-pcie-ep.yaml       |  6 ++++
->  .../bindings/pci/fsl,imx6q-pcie.yaml          | 28 ++++++++++++-------
->  2 files changed, 24 insertions(+), 10 deletions(-)
-> 
+> Surely that should me a property of the memory region, and not the way
+> it is copied, right?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+I'm not sure what the current thoughts on the matter are, but there was
+an intention in the past that some data could be measured and some not
+within a region which is logically the same. E.g. the DT might be
+deliberately unmeasured so that the same measurement would cover a
+selection of different configurations (with the guest obviously
+validating that it was sane before continuing). Forcing the memory to be
+split into multiple memslots just so a measurement flag can be set
+correctly seems like a poor uAPI.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml:39:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+While splice(2) certainly looks similar to what we want, it does
+(according to the man page at least) have the requirement that "one of
+the file descriptors must refer to a pipe" which seems less than ideal
+for the DT case where it's likely to be generated in memory by the VMM.
+Or is my man page out of date and the pipe restriction isn't there in
+the kernel?
 
-dtschema/dtc warnings/errors:
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260312092745.295578-3-hongxing.zhu@nxp.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Thanks,
+Steve
 
 
