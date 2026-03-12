@@ -4,81 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0413B106ACF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915B3106ACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Ze4zxD1+bgXLnmCcgE7F5EkAVz6+P8Y6KbhF09qoxxs=; b=G0buFilv5cJ31y
-	gR/otYvfsTh8w7LTJRFM+FCsQ64rOt4QsmHdiJdWbqL8ei/4ORF7DWppBfybTb8x/jawJut9lDwyi
-	+8HHcMyPePETaQ6+QUieaTVw7TdnLi3BLcH/iot5UcvvQlffJnkfM6hcV4FpkjNPOANCybZQiFScg
-	XQwhfcRWLLxOOPD2722cUFcbZpGAzI1Ui8RtQpES6QDEJdXt3DJ/ir0SqlaLMHan4lDgpJ+hlrg3u
-	LGWtpZQCP6yRTpaESH3LJfKmZevQefK00UxWYH3so+taSwUiv0x0ochCgWTtCamAOLtoycSsGUmns
-	DwYW6D/BS51yE+Q1XHJw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2G9U3elAqhs4zYdHUN+a5FlSCohzSKh6Zqf15xFcDmY=; b=Nn6gqMxG4MbAdqTXA89tqnsMrI
+	S+eL1CguuLfySBhLGYbeTdRNU1vxQAApvIUhZgjfpQRRtL8kSfI82cqdJ+8zx5T9cjVGAEULrYDNp
+	tWPiNDEsMZuORYQj861pNI4NsT1IPWFMbvYIxCH7NMpHx7KziV/cRJsNXDxtwb6pPNtWOQVZC9kku
+	wt4nT3cU9GAFZxgVPeG66c9a8slBbd2MuHw86yRS6zyEUnLfnAGFJV0YS159V0q2QCmFiqqn4IVMM
+	UaJQeOnHqQJZHisZKyy3jyExRfdxVKr9Qe6OA8xU1aNqtRUPNX2P743KIzswG5nt8ZWRVQ1Dpy9UA
+	futyoyMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ogq-0000000FfVU-11BB;
-	Thu, 12 Mar 2026 22:39:36 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1w0omh-0000000FgOX-3uze;
+	Thu, 12 Mar 2026 22:45:39 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ogn-0000000FfUW-0tAJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 22:39:34 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-415e1e9aa5dso14171001fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 15:39:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773355172; x=1773959972; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Ze4zxD1+bgXLnmCcgE7F5EkAVz6+P8Y6KbhF09qoxxs=;
-        b=hcFkpjiC90oTyR3gF+heS895tsBloVFv+RM2tad0S/w1EbFAXXYA1k9xe5ZtCOcqHc
-         HeZjS5mKoR4de2ddMvzhzfEbHtS5hOL7RDqm9oWdM871Xr+YcKeYAfcwXmMtJnMYSuUi
-         zNj8cEWNBzKj7DfbydFzlr7xLNQRfFwYFsuU1h5TE+bv4QIiRJE473oR+/CwoizNdPld
-         NddPBWMe34pguDWiKDJckj5KGF1csNeEafvOgYPUCbzebUG3Y+Cse5G8IhHJl0dxQVcS
-         5ouC8BJ+CBfqcAPQd6EAfzthrD03OE1VEXvhOj3mZ9dBiXQeUKx3VOMA9OYDXbfYpavA
-         TyJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773355172; x=1773959972;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ze4zxD1+bgXLnmCcgE7F5EkAVz6+P8Y6KbhF09qoxxs=;
-        b=luNUa764kX8yZv0MCQtSmeyXPKFK7eM73wOpWhRRxlJtBnu9dS3kBH+GjcpATZAWag
-         f6nCQPGrQG759YbOP7apfUCcLmmn4uIy3oTzXmCUdwVRXvNB38PxXqlb8ODuUkoKlBYG
-         mUWw1A+vwehLtHufh4UVEe1H9Mx3gW08JAkXJ8LJNNYJHrXKelFpcHGXFmqjge0jXgWL
-         gqHkHWTLz09QcBE1Xv2ZxaLQxR3xnGQDAwaJbKnVATvDYO5EJqDZep0jjklfpiAHLL80
-         Yp7rNlC/2bsCC4+GCRIimOQcjvU9u1Ut8wWMqjJ0ym/1pubfHxpZyN51xbDKt+Xmf1hE
-         1pfg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwdGzCS8qWvlMcssTEJG/REOVcCMs2JwklbrgrwI59oCINKZ+cTf4xqIF6d+aFeQLRHRVLSPWkiVVkZP+iARh7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJK5LVF1L9/PDLcoVZY3dbVBjWwXTQHelH5EyaXKInN+NX34jO
-	44UfXKyKSxVo8l5twiTpVpWTwLqb9QtSZTRJ8c23glICXDMZuvkMlCSHrXBSPdstTR66wm2lPmv
-	LWIBLa0J1MBMZ/rcqg6wnuVlWvQ==
-X-Received: from iobdo19.prod.google.com ([2002:a05:6602:4613:b0:95a:608d:8cf8])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:210b:b0:674:911:98fa with SMTP id 006d021491bc7-67bdaa85b4dmr742343eaf.64.1773355171523;
- Thu, 12 Mar 2026 15:39:31 -0700 (PDT)
-Date: Thu, 12 Mar 2026 22:39:30 +0000
-In-Reply-To: <68a93eb5-24df-4b73-bd1e-798dc32b7e86@linaro.org> (message from
- James Clark on Wed, 11 Mar 2026 12:01:26 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntbjgsoeot.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v6 11/19] KVM: arm64: Context swap Partitioned PMU guest registers
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	id 1w0omd-0000000FgNb-2pVW;
+	Thu, 12 Mar 2026 22:45:37 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62CE0fjC2303568;
+	Thu, 12 Mar 2026 22:45:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=2G9U3elAqhs4zYdHUN+a5FlSCohzSK
+	h6Zqf15xFcDmY=; b=p64AnWj9ExYqW1NUdqJX+6EKpyhBPbsYkxGr2rNi7udkzR
+	mPCsiiV6yalNQ+ERMxdk4VybWmqsREOMYu+eyWqXU5IJFyzZDCA9Q31KRToz25Gg
+	FCvQctEzhW1SQfkGaU4aQ64qaJx3Ao5+8/SdpENY+Rw7ctcI0MTNW0f35gL/HyRz
+	kt/L08rVcGpwD51pcGqDA7wD3KaaCN80iKqZ0ZmQazF/M5LAa08lsu7uOxya0FlS
+	mPTu4pQSePVHOm+xTgKSZJ7y7hMvDCwoWfhk54mqIGTWtHul8J7XTp++1MZzyqk9
+	3jQSApEJiPrwqknlxYVyjDQfatCzBDc2B4jYNpOQ==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh95vxum-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 22:45:21 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62CIP52a020779;
+	Thu, 12 Mar 2026 22:45:20 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cuha9maan-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 22:45:20 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CMjGTg62456198
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Mar 2026 22:45:16 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 831612005A;
+	Thu, 12 Mar 2026 22:45:16 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B82792004F;
+	Thu, 12 Mar 2026 22:45:15 +0000 (GMT)
+Received: from localhost (unknown [9.111.83.60])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 12 Mar 2026 22:45:15 +0000 (GMT)
+Date: Thu, 12 Mar 2026 23:45:14 +0100
+From: Vasily Gorbik <gor@linux.ibm.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-ID: <ttbt5ve@ub.hpns>
+References: <cover.1772812343.git.agordeev@linux.ibm.com>
+ <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+ <ttbskgg@ub.hpns>
+ <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDE4MSBTYWx0ZWRfXzYRyN5/1wkHl
+ 8TfaTg+WwEhBWaLRIUn8c4VotmT0v7+i4klU/zanb5KBhYOXSHC0b1B/j/R3HGjKYUZ7s45ArYd
+ NOvg1rRYgpbBTsTSzStU2GfcOF8G6g9r5NIH3Ay6umGVXWebvdBzD2umTIw/i4lL9fnZX/rm/LS
+ q8ADIDgvF2JE28rH47n7d1LIvoOGZsaPMIWW4yMAceSvjfyJUiHo3Orl4Czwv+DwdF/ShQj5MEy
+ PQCd3owMZzIBLkO9kkEJvcpddzy6lwRK9QdRrOuQ5uyJ7PyobTUQkWGv54wpy9KbR6RdyNSaOju
+ 4GrOs39BpF82PGy8Elt9tAWVpqNFO4lqFGiXZVjprTXbpAm7MnCxbJX4r/aynfyyeQdNkYNJz9J
+ me0U1FKHzQ/m+q7ldI+/6IrHu7F/83TRpceZnVCRxh7ZU9AsQa044ocDKAsqi9S+LFGRxTR6529
+ rP0JdbrQZYTAyaV6t5A==
+X-Authority-Analysis: v=2.4 cv=FowIPmrq c=1 sm=1 tr=0 ts=69b34201 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=VnNF1IyMAAAA:8 a=Z4Rwk6OoAAAA:8 a=Lr05aJhEBrfB6ZlMEgwA:9
+ a=QEXdDO2ut3YA:10 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-GUID: _i2x_4G56o4Oof-KO5vWXCMuPGh66yzn
+X-Proofpoint-ORIG-GUID: _i2x_4G56o4Oof-KO5vWXCMuPGh66yzn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-12_03,2026-03-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 suspectscore=0 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 adultscore=0 phishscore=0 malwarescore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603120181
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_153933_259122_7B6CD8E6 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20260312_154536_177078_271E9D71 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,126 +128,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-James Clark <james.clark@linaro.org> writes:
+On Thu, Mar 12, 2026 at 01:57:57PM -0700, Andrew Morton wrote:
+> On Thu, 12 Mar 2026 16:02:40 +0100 Vasily Gorbik <gor@linux.ibm.com> wrote:
+> 
+> > On Fri, Mar 06, 2026 at 05:16:30PM +0100, Alexander Gordeev wrote:
+> > > From: Tobias Huschle <huschle@linux.ibm.com>
+> > > 
+> > > Unlike other architectures, s390 does not have means to
+> > > distinguish kernel vs user page table entries - neither
+> > > an entry itself, nor the address could be used for that.
+> > > It is only the mm_struct that indicates whether an entry
+> > > in question is mapped to a user space. So pass mm_struct
+> > > to pxx_user_accessible_page() callbacks.
+> > > 
+...
+> > > ---
+> > >  arch/arm64/include/asm/pgtable.h             |  6 +++---
+> > >  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
+> > >  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
+> > >  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
+> > >  arch/powerpc/include/asm/pgtable.h           |  4 ++--
+> > >  arch/riscv/include/asm/pgtable.h             |  6 +++---
+> > >  arch/x86/include/asm/pgtable.h               |  6 +++---
+> > >  mm/page_table_check.c                        | 15 ++++++---------
+> > >  8 files changed, 24 insertions(+), 27 deletions(-)
+> > 
+> > Andrew, may I get your Reviewed-by or Ack-by for v2 so I can take it
+> > via the s390 tree as well?
+> 
+> 	Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> 
+> It doesn't look like [1/4] changed significanty since v1?
 
-> On 09/02/2026 10:14 pm, Colton Lewis wrote:
->> Save and restore newly untrapped registers that can be directly
->> accessed by the guest when the PMU is partitioned.
-
->> * PMEVCNTRn_EL0
->> * PMCCNTR_EL0
->> * PMSELR_EL0
->> * PMCR_EL0
->> * PMCNTEN_EL0
->> * PMINTEN_EL1
-
->> If we know we are not partitioned (that is, using the emulated vPMU),
->> then return immediately. A later patch will make this lazy so the
->> context swaps don't happen unless the guest has accessed the PMU.
-
->> PMEVTYPER is handled in a following patch since we must apply the KVM
->> event filter before writing values to hardware.
-
->> PMOVS guest counters are cleared to avoid the possibility of
->> generating spurious interrupts when PMINTEN is written. This is fine
->> because the virtual register for PMOVS is always the canonical value.
-
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>    arch/arm64/kvm/arm.c        |   2 +
->>    arch/arm64/kvm/pmu-direct.c | 123 ++++++++++++++++++++++++++++++++++++
->>    include/kvm/arm_pmu.h       |   4 ++
->>    3 files changed, 129 insertions(+)
-
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 620a465248d1b..adbe79264c032 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -635,6 +635,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int  
->> cpu)
->>    		kvm_vcpu_load_vhe(vcpu);
->>    	kvm_arch_vcpu_load_fp(vcpu);
->>    	kvm_vcpu_pmu_restore_guest(vcpu);
->> +	kvm_pmu_load(vcpu);
->>    	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->>    		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-
->> @@ -676,6 +677,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->>    	kvm_timer_vcpu_put(vcpu);
->>    	kvm_vgic_put(vcpu);
->>    	kvm_vcpu_pmu_restore_host(vcpu);
->> +	kvm_pmu_put(vcpu);
->>    	if (vcpu_has_nv(vcpu))
->>    		kvm_vcpu_put_hw_mmu(vcpu);
->>    	kvm_arm_vmid_clear_active();
->> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
->> index f2e6b1eea8bd6..b07b521543478 100644
->> --- a/arch/arm64/kvm/pmu-direct.c
->> +++ b/arch/arm64/kvm/pmu-direct.c
->> @@ -9,6 +9,7 @@
->>    #include <linux/perf/arm_pmuv3.h>
-
->>    #include <asm/arm_pmuv3.h>
->> +#include <asm/kvm_emulate.h>
-
->>    /**
->>     * has_host_pmu_partition_support() - Determine if partitioning is  
->> possible
->> @@ -163,3 +164,125 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
-
->>    	return *host_data_ptr(nr_event_counters);
->>    }
->> +
->> +/**
->> + * kvm_pmu_load() - Load untrapped PMU registers
->> + * @vcpu: Pointer to struct kvm_vcpu
->> + *
->> + * Load all untrapped PMU registers from the VCPU into the PCPU. Mask
->> + * to only bits belonging to guest-reserved counters and leave
->> + * host-reserved counters alone in bitmask registers.
->> + */
->> +void kvm_pmu_load(struct kvm_vcpu *vcpu)
->> +{
->> +	struct arm_pmu *pmu;
->> +	unsigned long guest_counters;
->> +	u64 mask;
->> +	u8 i;
->> +	u64 val;
->> +
->> +	/*
->> +	 * If we aren't guest-owned then we know the guest isn't using
->> +	 * the PMU anyway, so no need to bother with the swap.
->> +	 */
->> +	if (!kvm_vcpu_pmu_is_partitioned(vcpu))
->> +		return;
->> +
->> +	preempt_disable();
->> +
->> +	pmu = vcpu->kvm->arch.arm_pmu;
->> +	guest_counters = kvm_pmu_guest_counter_mask(pmu);
->> +
->> +	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
->> +		val = __vcpu_sys_reg(vcpu, PMEVCNTR0_EL0 + i);
->> +
->> +		write_sysreg(i, pmselr_el0);
->> +		write_sysreg(val, pmxevcntr_el0);
-
-> This needs to have a special case for ARMV8_PMU_CYCLE_IDX because you
-> can't use pmxevcntr_el0 to read or write PMCCNTR_EL0:
-
-> D24.5.22:
-
->     SEL 0b11111      Select the cycle counter, PMCCNTR_EL0:
-
->                      MRS and MSR of PMXEVCNTR_EL0 are CONSTRAINED
->                      UNPREDICTABLE.
-
-> There are 3 separate instances of the same thing in the patches. I was
-> getting undefined instruction errors on my Radxa O6 board until they
-> were all fixed.
-
-Looks like it. I had a special case on a previous iteration but someone
-suggested I could get rid of it by iterating the mask.
-
-I missed that the cycle counter was CONSTRAINED UNPREDICTABLE.
+PowerPC page table check support landed at the same
+time v1 was sent, so v1 was missing PowerPC header
+changes, which was reported by the kernel test robot:
+https://lore.kernel.org/all/202603050830.LXQcUa5Z-lkp@intel.com/
+Hence, v2 to address that.
 
