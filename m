@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6933BFED2E8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E83FED2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+iCd3MePHv2oLMaC5MtNXsVy6Vu3jPw0jOuSzuoKmkM=; b=yMKDEvzll5j1EJN/WWFqjVvtO9
-	F+j7LNJqhNShZButlGZky1CJLOvjlhw+RvzwKtUCuRcM5ZCHFDu8YP7dWJxA0qiZaE0jLpyuFaarw
-	poxYJEbalw4uHDmx5FU7tKUt/CDn8NBKbHFdCClIbWaczTUIQGkkj74mMdGjY5CCRvVKFTSqBmCTp
-	R9CHanaD0uiw/7XYtl7/IPdsUEMoBV7AEvRLChZmaApQnD/j3zyZ+xMYPoOnykhf0nKToEgVnKcDf
-	lgUarpon7Pivl+wMJ5zQoutHsr+SqkB8+fZQFUvyCyOYPL2XOLvF0uBpq4igQ7LnuJy3Jt1CIAAY8
-	WGcz7V/w==;
+	bh=wO9UqZFmvzWbbuTUTCg2zlIIvIAOlETFTacr5ltGemA=; b=UAs8CXMl1CXTEolpLGYoJPif95
+	P7V2N/4iKEwBWEE7kfYgq1YGEbDbXEcrNWAJjpXaR7jqdl9qzcJT/uqNtJBunQLFdIihG6pNHXB6m
+	pAyMnXh4PD03py0j/Mz1beCtJM3eSXAqMM9c5SyT49zNXXXuB5wyr2UcOgK7ffGFTayDpYAIeobI+
+	reUVGpiVq9SFbs2+IAEbPOk+6leN4HleeN2NN8ysJlYcKlmhVnpa4XZQnab6lJfgnRqLwBRu9Mvup
+	grAte/46cv14W1xRMPhd2Ibjllwo3quahbjG+7SKEbRMiaZhZci/N4mk9SgiM6zopqXjE244NdX5S
+	9CuJjOLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b6L-0000000DcDX-0eIf;
-	Thu, 12 Mar 2026 08:09:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0b6R-0000000DcJY-1HxF;
+	Thu, 12 Mar 2026 08:09:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b6K-0000000DcBy-0jby
+	id 1w0b6Q-0000000DcHn-1PBC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:09:00 +0000
+	Thu, 12 Mar 2026 08:09:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F3C760137;
+	by tor.source.kernel.org (Postfix) with ESMTP id BA6DD60131;
+	Thu, 12 Mar 2026 08:09:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1860C19424;
 	Thu, 12 Mar 2026 08:08:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE2DBC19424;
-	Thu, 12 Mar 2026 08:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773302939;
-	bh=F+SD1gK/ryzJsR3fJzETL4gO9WXnEH2pDqIk5u0+PyI=;
+	s=k20201202; t=1773302945;
+	bh=jhZYbIx/ioIMcp6Qf6D0AyrmnhioxKZ41Sj/eUJHFfw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FEWW391J9jzh11jpwatafPMHfucdZ05CXxCNGg5ddU6A5ttlJzc34/zGxUbI2Rgp8
-	 1P2sdXtYNLRfcw3cFsS/b1rdi0uHB+w9MzKdpRkFFVhBRgEPFv5i1U2RATH9BrPZLl
-	 7us7kglN2AeodLR6xkfe6TC+Fow9KLttbDwfgA30EzaPchm+hDcXkxPjxzu0vNw/aU
-	 cY6TN4VdwQgs5X1d6o9oZx70cUELDxsYSTvKiSQ+pHJNmFr6LncfwZhmg3HTvaM8tj
-	 1mUpYUCuJzcU4heWpP5me3g0qvh+1QrHJ9bf+oIKx2VY6td8915FeZ1ZfFtAzKJLss
-	 GjPrmL4NSgbKQ==
+	b=gKYOE0yj56TVOGQs+HqiYrGUiscjS+7Paz0/3LYmU7nuBD/2Du3+nExFTdkh1ULgD
+	 dGWs8qbF0H1tHb3oT+bLOPVxvIeMSCJTDnOyMfVMhOrMzzcCYjddcWnQYNUsM3/1xu
+	 4LHflMegH/5Xmr2eCX3C1PMy5MCKnDUOgGVgHQpLSrLCtufw8bj35qmy+n01sF0tIs
+	 jZEDf7uGl2YfdrlfgWm1SMlmaaz4DySbsmJ9xbULq+7cv7fZ/tZaRe8nY2EzC7e9iS
+	 Yz1cTMfVShhB48tSs+Q0dAGo8M+QYeQqv1cwv0qCLG2DnkKselxARbDsrUNi0oY4Vw
+	 6f3AC7mhAXJUg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Xu Yilun <yilun.xu@linux.intel.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [RFC PATCH v3 11/12] coco: host: arm64: Transition vdevs to TDISP RUN state
-Date: Thu, 12 Mar 2026 13:37:42 +0530
-Message-ID: <20260312080743.3487326-12-aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v3 12/12] KVM: arm64: CCA: enable DA in realm create parameters
+Date: Thu, 12 Mar 2026 13:37:43 +0530
+Message-ID: <20260312080743.3487326-13-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260312080743.3487326-1-aneesh.kumar@kernel.org>
 References: <20260312080743.3487326-1-aneesh.kumar@kernel.org>
@@ -81,16 +81,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- define SMC_RMI_VDEV_START and the __RHI_DA_VDEV_SET_TDI_STATE
-- let the host guest TSM request handler (__RHI_DA_SET_TDI_STATE) accept
-  RHI_DA_TDI_CONFIG_RUN and call into rmi_vdev_start()
-- The RHI_DA_TDI_CONFIG_UNLOCKED and RHI_DA_TDI_CONFIG_LOCKED transition
-  will be handled by the VMM
-- wait for the firmware to report vdev state as RMI_VDEV_STARTED before
-  returning
-
-With this in place, a guest can move a vdev from LOCKED into the TDISP
-RUN state once attestation completes.
+Now that we have all the required steps for DA in-place, enable
+DA while creating realm.
 
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -105,139 +97,36 @@ Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
 Cc: Steven Price <steven.price@arm.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/rhi.h             |  1 +
- arch/arm64/include/asm/rmi_cmds.h        | 10 ++++++++++
- arch/arm64/include/asm/rmi_smc.h         |  1 +
- arch/arm64/include/uapi/asm/rmi-da.h     |  5 +++++
- drivers/virt/coco/arm-cca-host/arm-cca.c | 15 +++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.c  | 22 ++++++++++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.h  |  1 +
- 7 files changed, 55 insertions(+)
+ arch/arm64/include/asm/rmi_smc.h | 1 +
+ arch/arm64/kvm/rmi.c             | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/arch/arm64/include/asm/rhi.h b/arch/arm64/include/asm/rhi.h
-index ba9e11152c1b..68780918e28b 100644
---- a/arch/arm64/include/asm/rhi.h
-+++ b/arch/arm64/include/asm/rhi.h
-@@ -86,5 +86,6 @@ enum rhi_tdi_state {
- #define __RHI_DA_VDEV_GET_MEASUREMENTS	0x4
- #define __REC_EXIT_DA_VDEV_REQUEST	0x5
- #define __REC_EXIT_DA_VDEV_MAP		0x6
-+#define __RHI_DA_VDEV_SET_TDI_STATE	0x7
- 
- #endif
-diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-index 0c06a4f45346..688414f695f7 100644
---- a/arch/arm64/include/asm/rmi_cmds.h
-+++ b/arch/arm64/include/asm/rmi_cmds.h
-@@ -686,6 +686,16 @@ rmi_vdev_get_device_measurements(unsigned long rd, unsigned long pdev_phys,
- 	return res.a0;
- }
- 
-+static inline unsigned long rmi_vdev_start(unsigned long rd, unsigned long pdev_phys,
-+					   unsigned long vdev_phys)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RMI_VDEV_START, rd, pdev_phys, vdev_phys, &res);
-+
-+	return res.a0;
-+}
-+
- static inline unsigned long rmi_vdev_complete(unsigned long rec_phys, unsigned long vdev_phys)
- {
- 	struct arm_smccc_res res;
 diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-index f4b8f1c9ba0b..384bde2d423e 100644
+index 384bde2d423e..5598b19ffc1d 100644
 --- a/arch/arm64/include/asm/rmi_smc.h
 +++ b/arch/arm64/include/asm/rmi_smc.h
-@@ -67,6 +67,7 @@
- #define SMC_RMI_VDEV_GET_INTERFACE_REPORT SMC_RMI_CALL(0x01D0)
- #define SMC_RMI_VDEV_GET_DEV_MEASUREMENTS	SMC_RMI_CALL(0x01D1)
- #define SMC_RMI_VDEV_LOCK		SMC_RMI_CALL(0x01D2)
-+#define SMC_RMI_VDEV_START		SMC_RMI_CALL(0x01D3)
+@@ -118,6 +118,7 @@ enum rmi_ripas {
+ #define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
+ #define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+ #define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
++#define RMI_REALM_PARAM_FLAG_DA			BIT(3)
  
- #define RMI_ABI_MAJOR_VERSION	1
- #define RMI_ABI_MINOR_VERSION	0
-diff --git a/arch/arm64/include/uapi/asm/rmi-da.h b/arch/arm64/include/uapi/asm/rmi-da.h
-index 20d3eab8ce64..dc2855cb05a8 100644
---- a/arch/arm64/include/uapi/asm/rmi-da.h
-+++ b/arch/arm64/include/uapi/asm/rmi-da.h
-@@ -35,4 +35,9 @@ struct arm64_vdev_device_memmap_guest_req {
- 	__aligned_u64 pa_base;
- };
+ /*
+  * Note many of these fields are smaller than u64 but all fields have u64
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index 5de49a47d782..328eef406419 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -703,6 +703,9 @@ static int realm_create_rd(struct kvm *kvm)
+ 	if (r)
+ 		goto out_undelegate_tables;
  
-+struct arm64_vdev_set_tdi_state_guest_req {
-+	__u32 req_type;
-+	__u32 tdi_state;
-+};
-+
- #endif
-diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
-index 405542ffd9d1..9883bf9e0470 100644
---- a/drivers/virt/coco/arm-cca-host/arm-cca.c
-+++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
-@@ -402,6 +402,21 @@ static ssize_t cca_tsm_guest_req(struct pci_tdi *tdi, enum pci_tsm_req_scope sco
- 							    req_obj.gpa_top,
- 							    req_obj.pa_base);
- 		}
-+		case __RHI_DA_VDEV_SET_TDI_STATE:
-+		{
-+			struct arm64_vdev_set_tdi_state_guest_req req_obj;
-+
-+			if (req_len != sizeof(req_obj))
-+				return -EINVAL;
-+
-+			if (copy_from_user((void *)&req_obj, req.user, req_len))
-+				return -EFAULT;
-+
-+			if (req_obj.tdi_state != RHI_DA_TDI_CONFIG_RUN)
-+				return -EINVAL;
-+
-+			return cca_vdev_device_start(pdev);
-+		}
- 		default:
- 			return -EINVAL;
- 		}
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
-index d76095a3e6c3..877a649dea13 100644
---- a/drivers/virt/coco/arm-cca-host/rmi-da.c
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
-@@ -1145,3 +1145,25 @@ int cca_vdev_device_map_validate(struct pci_dev *pdev, unsigned long vcpu_fd,
- 	return realm_dev_mem_map(kvm, rec_phys, rmm_pdev_phys,
- 				 rmm_vdev_phys, gpa_base, gpa_top, pa_base);
- }
-+
-+int cca_vdev_device_start(struct pci_dev *pdev)
-+{
-+	phys_addr_t rmm_pdev_phys;
-+	phys_addr_t rmm_vdev_phys;
-+	struct cca_host_pf0_dsc *pf0_dsc;
-+	struct cca_host_tdi *host_tdi;
-+	struct realm *realm;
-+	phys_addr_t rd_phys;
-+
-+	host_tdi = to_cca_host_tdi(pdev);
-+	rmm_vdev_phys = virt_to_phys(host_tdi->rmm_vdev);
-+	realm = &host_tdi->tdi.kvm->arch.realm;
-+	rd_phys = virt_to_phys(realm->rd);
-+
-+	pf0_dsc = to_cca_pf0_dsc(pdev->tsm->dsm_dev);
-+	rmm_pdev_phys = virt_to_phys(pf0_dsc->rmm_pdev);
-+
-+	if (rmi_vdev_start(rd_phys, rmm_pdev_phys, rmm_vdev_phys))
-+		return -ENXIO;
-+	return submit_vdev_state_transition_work(pdev, RMI_VDEV_STARTED);
-+}
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
-index 60b10bce3140..51ef49cb482b 100644
---- a/drivers/virt/coco/arm-cca-host/rmi-da.h
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
-@@ -157,4 +157,5 @@ int cca_vdev_device_request(struct pci_dev *pdev, unsigned long rec_id);
- int cca_vdev_device_map_validate(struct pci_dev *pdev, unsigned long vcpu_fd,
- 				 unsigned long gpa_base, unsigned long gpa_top,
- 				 unsigned long pa_base);
-+int cca_vdev_device_start(struct pci_dev *pdev);
- #endif
++	/* For now default enable DA */
++	if (rmi_has_feature(RMI_FEATURE_REGISTER_0_DA))
++		params->flags |= RMI_REALM_PARAM_FLAG_DA;
+ 	params_phys = virt_to_phys(params);
+ 
+ 	if (rmi_realm_create(rd_phys, params_phys)) {
 -- 
 2.43.0
 
