@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B990106703C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E5F106703C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLD4oFW0N84FTSmWx5ntsoxLfj62Uc+/bcYXLFwb2jo=; b=XaNPDr/KSpOby1sF32edHnrNpA
-	h03/awmfl9G4hBTO9tmFvx/SINhJQAX8x/zX78Kjz0My4vp3KPEME7311WZWrAC3Qqr6v+J6lnXyI
-	2hEhYIXmYm2cuiAD1pFLfTYRKXMKXb1+9JUcAjZBh44gSM+CBOJxoX5iz+nw3sOrumhye2l2mGOY2
-	2NhlioFEmThPBWdznaTiNyMXAx3UZYQj+I6sETNJJIhvz8EUa++uqg/38ym7AYWE+mfJMT1uP87e9
-	A7V41yHtXmQD8LRuHMA75+QXtUPOfTPWIUK+RA7MAPlUnOjHItaJRZ5g9deKgLOirzTCT9QsGt63t
-	YdfH/nbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NLA5JYoGXJGnQljxY6lPgatook6+qmmFHpbjGJ03qMs=; b=0mSZjGzIwHyac1evg4F/A6KrgR
+	fMC/noclzyJCG2EsQgRUTlDzasAWoRB76US8qI0qMsGVDesMj6j1MeXA2CF1iNCKb/bTBZd8IaKUS
+	UGqdgl/ETYD+nAv76WRlgYXRURB3f/+I75yLwJWgkriOzH+FCTfMNYFkPW4DN2Ga3YdIUTCfQPlM0
+	5DaPhickj3IeiSXEPI9BD3ITVlAZh6cRKjguAQjKwGJwJO6GhHP0fMU4RXs+26HPuCqjbNrhiPdhB
+	xTOcIZ8Tug8lMFH9m59EKo0I6IPELOloUGoCxIs+H//sKFaaxX4KIrmk1mD7jbLpiBW7N7DC75Jjj
+	cOVh4P0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hNl-0000000EFxj-1HDU;
-	Thu, 12 Mar 2026 14:51:25 +0000
+	id 1w0hQX-0000000EGC9-109M;
+	Thu, 12 Mar 2026 14:54:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hNh-0000000EFwT-0cnt
+	id 1w0hQT-0000000EGBl-1qu1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:51:23 +0000
+	Thu, 12 Mar 2026 14:54:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7406F165C;
-	Thu, 12 Mar 2026 07:51:13 -0700 (PDT)
-Received: from [10.57.59.155] (unknown [10.57.59.155])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ECD23F7BD;
-	Thu, 12 Mar 2026 07:51:18 -0700 (PDT)
-Message-ID: <8f72b0f2-d517-4ac6-a593-3b654ac6344d@arm.com>
-Date: Thu, 12 Mar 2026 14:51:16 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96F68165C;
+	Thu, 12 Mar 2026 07:54:05 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AFE73F7BD;
+	Thu, 12 Mar 2026 07:54:09 -0700 (PDT)
+Date: Thu, 12 Mar 2026 14:54:06 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
+	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
+	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v15 4/8] arm64: futex: refactor futex atomic operation
+Message-ID: <abLTji8bbO3b3i3r@arm.com>
+References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+ <20260227151705.1275328-5-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [QUESTION] ARM DSU PMU: 32-bit counter assumption and handling of
- 64-bit event counters
-To: Will Deacon <will@kernel.org>, "feng.zhou" <realsummitzhou@gmail.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com
-References: <20260206035138.1377-1-realsummitzhou@gmail.com>
- <abLNm2gs8qszYVWK@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <abLNm2gs8qszYVWK@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227151705.1275328-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_075122_432821_735E61EF 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260312_075413_524304_3696BE8B 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,61 +68,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-12 2:28 pm, Will Deacon wrote:
-> [+Robin and Suzuki]
-> 
-> On Fri, Feb 06, 2026 at 11:51:38AM +0800, feng.zhou wrote:
->> Hi Will and Mark,
->>
->> I have a question regarding the ARM DSU PMU driver implementation in
->> drivers/perf/arm_dsu_pmu.c, specifically about the counter width
->> assumptions.
->>
->> Current Implementation:
->> ======================
->> The driver currently assumes all event counters are 32-bit wide, with
->> only the cycle counter being 64-bit (lines 69-71):
->>
->> /* All event counters are 32bit, with a 64bit Cycle counter */
->> #define DSU_PMU_COUNTER_WIDTH(idx)	\
->> 	(((idx) == DSU_PMU_IDX_CYCLE_COUNTER) ? 64 : 32)
->>
->> This assumption is used throughout the code for handling counter
->> overflow and calculating deltas (e.g., line 344 in dsu_pmu_event_update).
->>
->> Issue Observed:
->> ===============
->> I've encountered overflow issues when using perf tools on newer ARM CPUs
->> where the event counters appear to be 64-bit rather than 32-bit. The
->> current implementation causes incorrect event counting and potential data
->> loss due to premature overflow handling based on the 32-bit mask.
-> 
-> I suspect either the hardware or the architecture have evolved since the
-> driver was initially written, possibly in a non-backwards-compatible way
-> which is why you see problems.
-> 
->> Questions:
->> ==========
->> 1. Is the 32-bit event counter assumption based on the ARMv8 PMU
->>     specification or DSU-specific hardware documentation?
->>
->> 2. Are there known ARM CPU implementations where DSU event counters
->>     exceed 32 bits? If so, how should the driver handle this variation?
->>
->> 3. Would it be appropriate to detect the actual counter width at runtime
->>     (similar to how num_counters is probed in dsu_pmu_probe_pmu), or
->>     should this be handled through device tree / ACPI properties?
->>
->> 4. Should there be a mechanism to query the hardware for the actual
->>     counter width to ensure compatibility with future implementations?
->>
->> Thank you for your time and any insights you can provide.
-> 
-> Suzuki and Robin should be able to help with these...
+On Fri, Feb 27, 2026 at 03:17:01PM +0000, Yeoreum Yun wrote:
+> -#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
+> -do {									\
+> +#define LLSC_FUTEX_ATOMIC_OP(op, insn)					\
+> +static __always_inline int						\
+> +__llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> +{									\
+>  	unsigned int loops = FUTEX_MAX_LOOPS;				\
+> +	int ret, oldval, newval;					\
+>  									\
+>  	uaccess_enable_privileged();					\
+> -	asm volatile(							\
+> +	asm volatile("// __llsc_futex_atomic_" #op "\n"			\
+>  "	prfm	pstl1strm, %2\n"					\
+> -"1:	ldxr	%w1, %2\n"						\
+> +"1:	ldxr	%w[oldval], %2\n"					\
+>  	insn "\n"							\
+> -"2:	stlxr	%w0, %w3, %2\n"						\
+> +"2:	stlxr	%w0, %w[newval], %2\n"					\
 
-Yup, indeed newer DSUs subtly evolved, and the patches are already in 
-7.0-rc ;)
+Looking again at this as I originally reviewed the series without the
+positional operands.
 
-Cheers,
-Robin.
+Can you not use only named operands instead of mixing them? The same
+comment for all other asm changes in this file.
+
+-- 
+Catalin
 
