@@ -4,85 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772CF105A58F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B1E105A589
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYviwW8kDKrW3gTfMtQDJZ0P+wnpGdcbPJFi/LTFUFo=; b=TrCJcMIg7FcvUlXg6jW53ngEYT
-	pEy9Oyr1pkBxCKsE+MTD8UVWZLfGC2H8sol5c/z1jk/vKfj5v0PB1tpFO9ZO3/8Xx35I3kv3j5VIr
-	7yw4t016nDCypDT3IhPPseMf4xqFSxn+TVSiOtC5FxGgSbDCczEAtOOAlq3cki+VDkWZGFn4y4QoI
-	fY90NcW+lZew/NAotzhTTxHijtaoD/C0XendDkZUUrvIMSMImX4jgrRlW4eugC9ocdWPCkvxPcBta
-	CX1GCkhfdU/XuqYFIJ2RHOqZdctnQLTToo7y0IMcrIR0T34BTMloIJRakOnJlZWAxAKGiCAsV5BOP
-	jbSDHp6g==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZnzMaRvVNqaBIklhagp6qjC0YM8PR/cvI2xXdNqbOvw=; b=1dWf2XSBbvMfI2pHVISCz+ef3t
+	X5P6dYGrBXIx0gh3fxjh+yERv0jq/+bAeQYLFIk6qdnYvpLIRG1CoBy+MgHGAuKny5fSEEB8Efpvt
+	1zj8JUfoBNbq+YVgESjLlpPRNcAG7syiN7472dTEmjGt7MqFhPaZfiimqzMGYRD5yKD36IFuOyTFG
+	Io2jd4fP+B05EwlwYIJUP1huDGaViLWctQp723JhOHc5j8V/q1BqcztFRHYy8IqnXD3LaXDonS2V8
+	7RnthUfKSx7C/gEtu1kKG1Qnod/UOYcqC2QUuWI78gP6CEPAhQ8lljWloCFuZUozVnrtckfl+vKcr
+	R1mYiNuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eII-0000000Dx9j-08af;
-	Thu, 12 Mar 2026 11:33:35 +0000
+	id 1w0eJl-0000000Dxsr-20A8;
+	Thu, 12 Mar 2026 11:35:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eIF-0000000Dx6m-2oXf;
-	Thu, 12 Mar 2026 11:33:31 +0000
+	id 1w0eJk-0000000DxsB-1Hra
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Mar 2026 11:35:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QYviwW8kDKrW3gTfMtQDJZ0P+wnpGdcbPJFi/LTFUFo=; b=ax1vzFozLuF2v0jNIJX/aiCgUY
-	a2FIjfgyHzaBeLhzNOrzNGJzqakAzWlTijonpSXm2LFbBme9pw924maqmhXg+/SPh5+vYx7LMDfau
-	7sJbP5Rg0zhPUGE2sgpuZYGDfyr+MyZKMYMWWADAii0M4rVRsqFcJIUdwfhheo2d1mKbJexjLxPcM
-	hjjykb2LgryICU/j/HsT7ULAUmmqwdTvDBT7iDl7L8NoxDk+cdH0MaZKyTVWXyWGY4yu21TJLO5EV
-	qMVQUCYvA5p03dAeaA6HwNyXdLtojzjphYIF4EPkYJqDsN7QPGtnWphewofo2dnuAPjp15tdwn3HQ
-	srxD1InA==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ZnzMaRvVNqaBIklhagp6qjC0YM8PR/cvI2xXdNqbOvw=; b=SZZscReVK6fuZIWEJH7WtRXgxg
+	Zf/3tlfFZzAFzxkLqJaX0wP7GPoDFWC+ZNKswKG6pIo5eS7cuSI+K9Opxmu+cTWpX6Ht2K+cJx2sY
+	oakfx6EZ8s1i0MIAuDNmWrsjE/7+/qHtqPRSfD+HhfsQlEDRXTXOnyuGQEb94GsmnsaIz0uzmqCk9
+	SfwghT77EK/JJFk8TBwsLtoyUSmgGA9/phYtrrQfnTGFHT9578IdK9/P/vLp/uaWy1Wu3SJ3haXWK
+	1yZnJzSffm/d91Yrbzin5AQQ1sK0ZCUMStbh4tNZI47mmjl/f6tqe/hT7zxCVWYc5E3Cn1FFi+SwZ
+	/oVJq/qA==;
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eI9-000000011UF-3M6d;
-	Thu, 12 Mar 2026 11:33:30 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62CBUfC222456773, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773315041; bh=QYviwW8kDKrW3gTfMtQDJZ0P+wnpGdcbPJFi/LTFUFo=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=fTeBKPVQjLYVgnKOKIAtEgat3A+N9r1D9qpYnRrDF2kze2v13cFlMxQDAzdu1gXyA
-	 I+fOviJxy61j+5PplY1+QyNRrhs7GDYvypDRXj3eGuGUdkNIz3eMS0/AjkB+Mqj+J4
-	 Mb/+6mGvpd0lXFM+4a6Y9QqqJUUBXE4vmdW8qtZXv21YGY10N0m0cnKNhNRFFQt2nF
-	 btpXJnZKCkk4DZXsI9IH6jm3vLgsIReWtnHNUA/jUjArqOt6K1TeE3730rt7LmXciY
-	 0dwinGT5o45r6TxmJbB0Tgjqr9j9OHHdPRm6gqt6fx4CAtUm+cDBfwHV5sjsC8ZeDB
-	 KIDyEEy0kJFuw==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62CBUfC222456773
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Mar 2026 19:30:41 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 12 Mar 2026 19:30:41 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 12 Mar 2026 19:30:40 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <afaerber@suse.com>
-CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
-        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        <eleanor.lin@realtek.com>, <tychang@realtek.com>,
-        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH v3 2/7] pinctrl: pinconf-generic: Add properties 'input-voltage-microvolt'
-Date: Thu, 12 Mar 2026 19:30:35 +0800
-Message-ID: <20260312113040.68189-3-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260312113040.68189-1-eleanor.lin@realtek.com>
-References: <20260312113040.68189-1-eleanor.lin@realtek.com>
+	id 1w0eJg-000000011t6-1NOx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 11:35:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q69tTpHMa3mzwAxxChGhcwSoNVJfUR1n5omTthVyMh+blUgDm/KkeMkiKGwkRcZ5N/wMzbTpn/g736SjVrjJxgyb5Opq/yIqC0rbk4ldW/oSzIyQkxB4zjsta0kjF8qysaOYaooMaP9AOwM5Z718v4USSD9OqAAFnfs/ccbLHUYoo5nYvkkQfXJejUdQidrKm66EXfyrwttwLi6C3uIfzMA9rho6K2Z0dwz5ZULdOnF7kz7rq2ldN/N1ZvyDxN+R5nzUFnojUmboqqhnfSVH+luMG+YIPzky+KLqxF9Gm2F46c85F4IOjqZu1VOUzaPDT+sKjRMYexVAH6PD+ua8+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZnzMaRvVNqaBIklhagp6qjC0YM8PR/cvI2xXdNqbOvw=;
+ b=JHJTezAbU8+WnSntlaEdu2yQTkZMlP2SRcKXW0gU0jARa0AyU6RxS1vh+HpwPLGiKd5Gv0Xa+SbeU133Y1DU76ZB/I75MW8AS5h3AlDhJbBK13UyDh1AX2dJreCDnITUxTyAP50PRLcVywgZzohNxEVdGsi7iNKUuHv8sZqMipTRRW7r85p4MkSPwtgAI5rdnUXBfe2t0G3hAA6hF/HBaSC3MrKVRJYqsUxYCN+3LIKin3NKOyBM/+bRvjdR4LbZtP8nkupGuNi7hRea5Tv7CI9wIe3+hGqLrr4iifdmYBn3p3f3WZiK8ghYtwMnCSO5V+Zc+XT/vbPf9ZpsahmaZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZnzMaRvVNqaBIklhagp6qjC0YM8PR/cvI2xXdNqbOvw=;
+ b=Q1sOxCM9cupEOHO4in2drwXeR6mOv3CATCH3LoKehHuyAmIfjyvAaEU6YzmGWk8jTq2KBG/OG93ZKfpi0lPuXfB51cHLlMzlv7iUda9TuvW68VbyDByqtZx2vJgrGy3hsLjVwCvYZgvpnmlaPXgBdWgk2pLvZLAMI/Bz/UGE2HI=
+Received: from BL1P223CA0001.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:2c4::6)
+ by PH7PR10MB5879.namprd10.prod.outlook.com (2603:10b6:510:130::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
+ 2026 11:34:52 +0000
+Received: from BL02EPF0001A104.namprd05.prod.outlook.com
+ (2603:10b6:208:2c4:cafe::b7) by BL1P223CA0001.outlook.office365.com
+ (2603:10b6:208:2c4::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
+ 12 Mar 2026 11:34:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL02EPF0001A104.mail.protection.outlook.com (10.167.241.135) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 11:34:52 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 12 Mar
+ 2026 06:34:51 -0500
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 12 Mar
+ 2026 06:34:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 12 Mar 2026 06:34:51 -0500
+Received: from prasanth-server.dhcp.ti.com (prasanth-server.dhcp.ti.com [10.24.53.104])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62CBYmV62227538;
+	Thu, 12 Mar 2026 06:34:48 -0500
+From: Prasanth Babu Mantena <p-mantena@ti.com>
+To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-j7: Reserve memory for LPM meta data
+Date: Thu, 12 Mar 2026 17:04:46 +0530
+Message-ID: <20260312113446.1857592-1-p-mantena@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A104:EE_|PH7PR10MB5879:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d2b4741-c0ac-427d-f7a3-08de802b608f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: LTUxQ7zBKvLRv7OzOXigdox3fvjUNCiDA7uqiktdm8+IapwV5+VnNSm8MWVaDRE65up2+ZTMcC3To0G56eGlTopSBwpYBUPqpB2TKd0fmx1XZ4fpDH8odFp4qQKOhgN/C2KWYaazZddp+KDqXM+5VjJ2ktmTRVpMIls1y0eC7+n4aud42wRkMvtk4noGsmj9OVGndw0z1I4lTro6DjNkcCf6qY7i6fXPdQ9eRxbIj0rULUQO+e+EeaShU+mZYRMenBoQDweHnxvU/hsjsGzWTZ2UGQwqvPr/mYj8nt0sNCjm3BiFPQsesD1jgBlbh0ofFb/QJUcNHMd2ZRagQwNf5dga1MmhC0aKX1SMqmXL4CcyDO/SITcx0yeyFEQmoCORhaUD5ueoYlS2wElVqQgMl3qRHBtEUxcG2A0OZ/JjaLKUWSwRszJG+j3hlin4ib4xGqtpjDCBLzE+8C7qSpqghEncEU/LRRA658HxAc3lEdY+NoKJDlQg8NSaPHBrXkdG0prarCMTBBHeZIXSDLyioHHNxlWHg1t6ZzRkOXOLmi+dvr99M84wzzw++YoSTyfW0F0JxQbsB5rUZC4XdysRN+grPncMt5DBRW7c+36SjDWpNSJ2cplf4+qpxKW6y1/iXFCqZTozS+lAohYbVqrZTWb2q2xzTWhqrYD2FLA6JmfSSAaJva7fc0Bj6/ZKkXNJDv26PPmL98wDgMj/RolUK0cY1ME/jET/2IphB98s/WZ7K5qaw//88RhRTLNKixzio4t4Xxh4LukLScbqxY3/9A==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: nX1PnN35Aray2Wn4GXcb7o/NBaLb/gNeSNkb+2DY3dIC6zeJUzYYPdP8TGJkqKrWfjn2aS2Tt9Vqt933JJgtuI7ueJY8Tmd4591LfItvqy9Cs2vlvdlXGaFffW7MwJ7KmvkTrAL76Vy11L/Pk3MCotNEDLocxsZt6T8Lox4+AGTfLgM58CfOlMdUMYkYZifUpCadYn0WWG2kzQvwUJVDHUvSWBQ1frM0kOHwNYR9ZXmLVmjjqhIMGgJ/CbaAldlvY9MbGKu704AsQiX4YSC8AaJH7xZSVN5dtJiDQJpj4by3DIxLVR2uC0PsSjvvvy+XSPnPeqbLAZE7tfms5xStbq/3IjT3lpT7bD+fCd9B7kEr9fhWNFvNTVL0bDrE3RDrFrhauHAxeOy8zeQBPgODQGa5eYVLsBOUNIqpc5EMP1RMThoRJiG6ywKTgXUPKwTi
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 11:34:52.4011
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d2b4741-c0ac-427d-f7a3-08de802b608f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A104.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB5879
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_113326_925362_BB768CEC 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260312_113500_691219_DCDA9B11 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,65 +144,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tzuyi Chang <tychang@realtek.com>
+For TI SOCs J7200, J784S4, J722S, which support low power modes,
+A chunk of memory is reserved for LPM meta data, which is needed
+for saving ATF context and the certificate information of ATF and
+OPTEE and DM image. This LPM metadata area is firewalled to be
+accessed only by TIFS.
 
-Add a new generic pin configuration parameter PIN_CONFIG_INPUT_VOLTAGE_UV.
-This parameter is used to specify the input voltage level of a pin in
-microvolts, which corresponds to the 'input-voltage-microvolt' property
-in Device Tree.
-
-Signed-off-by: Tzuyi Chang <tychang@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
 ---
-Changes in v3:
-- None
----
- drivers/pinctrl/pinconf-generic.c       | 2 ++
- include/linux/pinctrl/pinconf-generic.h | 3 +++
- 2 files changed, 5 insertions(+)
+ arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi             | 6 ++++++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                 | 6 ++++++
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 6 ++++++
+ 3 files changed, 18 insertions(+)
 
-diff --git a/drivers/pinctrl/pinconf-generic.c b/drivers/pinctrl/pinconf-generic.c
-index 855ca973a1c8..06cdc885a442 100644
---- a/drivers/pinctrl/pinconf-generic.c
-+++ b/drivers/pinctrl/pinconf-generic.c
-@@ -57,6 +57,7 @@ static const struct pin_config_item conf_items[] = {
- 	PCONFDUMP(PIN_CONFIG_SKEW_DELAY, "skew delay", NULL, true),
- 	PCONFDUMP(PIN_CONFIG_SKEW_DELAY_INPUT_PS, "input skew delay", "ps", true),
- 	PCONFDUMP(PIN_CONFIG_SKEW_DELAY_OUTPUT_PS, "output skew delay", "ps", true),
-+	PCONFDUMP(PIN_CONFIG_INPUT_VOLTAGE_UV, "input voltage in microvolt", "uV", true),
- };
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
+index 5a8c2e707fde..26c2489c3b91 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
+@@ -40,6 +40,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
+ 			reg = <0x00 0xa0100000 0x00 0xf00000>;
+ 			no-map;
+ 		};
++
++		lpm_memory_region: lpm-memories@a4800000 {
++			reg = <0x00 0xa4800000 0x00 0x00300000>;
++			no-map;
++			bootph-all;
++		};
+ 	};
  
- static void pinconf_generic_dump_one(struct pinctrl_dev *pctldev,
-@@ -203,6 +204,7 @@ static const struct pinconf_generic_params dt_params[] = {
- 	{ "skew-delay", PIN_CONFIG_SKEW_DELAY, 0 },
- 	{ "skew-delay-input-ps", PIN_CONFIG_SKEW_DELAY_INPUT_PS, 0 },
- 	{ "skew-delay-output-ps", PIN_CONFIG_SKEW_DELAY_OUTPUT_PS, 0 },
-+	{ "input-voltage-microvolt", PIN_CONFIG_INPUT_VOLTAGE_UV, 0 },
- };
+ 	mux0: mux-controller-0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index e66330c71593..f2ca0354a917 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -63,6 +63,12 @@ wkup_r5fss0_core0_memory_region: memory@a0100000 {
+ 			reg = <0x00 0xa0100000 0x00 0xf00000>;
+ 			no-map;
+ 		};
++
++		lpm_memory_region: lpm-memory@a7000000 {
++			reg = <0x00 0xa7000000 0x00 0x00300000>;
++			no-map;
++			bootph-all;
++		};
+ 	};
  
- /**
-diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinctrl/pinconf-generic.h
-index 531dc3e9b3f7..a5d4b2d8633a 100644
---- a/include/linux/pinctrl/pinconf-generic.h
-+++ b/include/linux/pinctrl/pinconf-generic.h
-@@ -83,6 +83,8 @@ struct pinctrl_map;
-  *      schmitt-trigger mode is disabled.
-  * @PIN_CONFIG_INPUT_SCHMITT_UV: this will configure an input pin to run in
-  *	schmitt-trigger mode. The argument is in uV.
-+ * @PIN_CONFIG_INPUT_VOLTAGE_UV: this will configure the input voltage level of
-+ * the pin. The argument is specified in microvolts.
-  * @PIN_CONFIG_MODE_LOW_POWER: this will configure the pin for low power
-  *	operation, if several modes of operation are supported these can be
-  *	passed in the argument on a custom form, else just use argument 1
-@@ -145,6 +147,7 @@ enum pin_config_param {
- 	PIN_CONFIG_INPUT_SCHMITT,
- 	PIN_CONFIG_INPUT_SCHMITT_ENABLE,
- 	PIN_CONFIG_INPUT_SCHMITT_UV,
-+	PIN_CONFIG_INPUT_VOLTAGE_UV,
- 	PIN_CONFIG_MODE_LOW_POWER,
- 	PIN_CONFIG_MODE_PWM,
- 	PIN_CONFIG_LEVEL,
+ 	vmain_pd: regulator-0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+index ff3a85cbc524..3e79677792a5 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+@@ -46,6 +46,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
+ 			reg = <0x00 0xa0100000 0x00 0xf00000>;
+ 			no-map;
+ 		};
++
++		lpm_memory_region: lpm-memory@ab000000 {
++			reg = <0x00 0xab000000 0x00 0x00300000>;
++			no-map;
++			bootph-all;
++		};
+ 	};
+ 
+ 	evm_12v0: regulator-evm12v0 {
 -- 
 2.34.1
 
