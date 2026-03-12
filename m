@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E3CFED2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E639FED2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T9iHAUPfrekugRsu19sUc1sGpbTupOqEVdTN161R5xM=; b=31nJCVXquJ9wElku2NZyIo8VJa
-	nQy3qzrc8szbIvcn/AaIUXeg5DxdPl02+hAQUrlsCRr9Kverh/YDyCE6p074Bm472fiX+D/NUSs9Q
-	OpukEtsXGLwS+/gwO3Y4j08AkSguFLXX6aBlitgp/5sdSEK8LI1tcbgrkbUjReZn70iEW9Kcdbq4k
-	R/lyZCMs3onskA3s+3VGNnM8ihEtU9Na+Flv904RThUlyg+ZjKVMH3gVlvRYIcayn6InJbYAN/P79
-	3sStBtQByjtpsb5Vl1SAteFx6AmPX3LQAwLdaX9+jxI+ZKxLlPYCu3mcsI3qJj3O3ujom+WGddiTX
-	aMAxZ/rA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g97hWssFn4sWTqAvgPZaDkvAx9UyrHyXX93JyLOhQT0=; b=Ne1N4heoBOiH8n6awQFXMhEvvA
+	T0qHd2Ru9RHWsMSD/n/YVyRuloUxfdAPTp4jAbltHWy/tIqVceavrkQlrOMX4Qxt8isVfE+zQpbZ5
+	XdIkg8XppCvZh4HfxARqZPWIWcYEbqP40v6fzmx/0YCukq1VeSfAQP2QO1pIbOpMiZsELLIIEYffz
+	TfVIirLEQO3IzCHzHLwqFyS+xzGKzuFvICFa7Xdo8aT67aIXOVnwX4mJcYx/1r2YKNxTQ0K5Je3ij
+	VhSgMKmtAWjh0gWrp7tKIymP4Vt0DWiY4+YBoPv43Fgmk2aALXmDGlF789JcDSzqhVB8d9yWtFQjS
+	kloxR2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0azS-0000000DZBH-1puV;
-	Thu, 12 Mar 2026 08:01:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0azb-0000000DZDd-0x8A;
+	Thu, 12 Mar 2026 08:02:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0azR-0000000DZB5-0Ium
+	id 1w0azY-0000000DZCy-1FVt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:01:53 +0000
+	Thu, 12 Mar 2026 08:02:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BA3560054
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A2ADC4CEF7;
-	Thu, 12 Mar 2026 08:01:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CFBC404E5;
+	Thu, 12 Mar 2026 08:01:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD661C116C6;
+	Thu, 12 Mar 2026 08:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773302511;
-	bh=5qx9TyPQVtWhPZ9FQXNhQRM042DHMTHeDIx/YqC06yY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=m6kRA59+M5dMhr5K54MjyCCaNC8/XrSZ3S1TEsKzG5djczYszxUzKiTMBvCG3uAC+
-	 PxBHglgi9JfqyFKionjeOs9I5KiSmLKIyjODCFtOh6n42u9WeRHWN1/ufyNlR32oM3
-	 jO3d8HH0ulYgercsDyyDppDPspG8PO9EAl/6/xCzGrgkVb+HJGZcm08hvqg3kPZ8sy
-	 t7zl199rqtX7aT+20QFHVdrA9TEqSo0O81U1Pkg9WyFBJQyjBM892bugtFVn6krr/e
-	 ReQrzPeUr9gjnVNtmuULNBXpjaUo0fWyQDDDgKaZ/WRzcNy/Gyfleu4BBdnPGWzNZ6
-	 +Z14TlJ4yTPJQ==
+	s=k20201202; t=1773302518;
+	bh=u+K2YX0UiSGjqu/03TsV46CS2J8/TdkIpbUuur3YNrI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Vb82oAZQB5riuIp6fPLoLpOePoCwPydEF1xFAVupqMWfuEQP0NvsxQIC6ZS3hIulO
+	 827rgOsl/s4E5/l49GFccCO/LlvHivBjgkq3zgfnYCgpuSQiu7aVceFaw9YY+VD6Zb
+	 KW50EqulVzvveWrVjPO90feb+l1eV2A3/7ZITBV4zngj5bkspJqqimawN4jkMM1GZ7
+	 OtLo2/R7vept85hSX5SaGWjXzILwV/Uyr031CLBZkMLn8vYTvudhYe400Nfutj+jYd
+	 zfQ48riBOWQHt+4T8W0o1DnEJsyvq/unfEzR8JtMhPeanEQeWDFMR3XeNdgY1NUGv2
+	 HtfMWnQmXHPXA==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [RFC PATCH v3 00/10] coco/TSM: Host-side Arm CCA IDE setup via connect/disconnect callbacks
-Date: Thu, 12 Mar 2026 13:31:19 +0530
-Message-ID: <20260312080129.3483585-1-aneesh.kumar@kernel.org>
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>
+Subject: [RFC PATCH v3 01/10] KVM: arm64: RMI: Add and export kvm_has_da_feature helper
+Date: Thu, 12 Mar 2026 13:31:20 +0530
+Message-ID: <20260312080129.3483585-2-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260312080129.3483585-1-aneesh.kumar@kernel.org>
+References: <20260312080129.3483585-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_010200_386731_B30B6A3A 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,90 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series implements the TSM ->connect() and ->disconnect() callbacks
-required for the Arm CCA IDE setup as per the RMM ALP17 specification [1].
+Add kvm_has_da_feature() helper for use in later patches.
+Update reserved fields based on Alp17 spec.
 
-This patchset includes the host-side flow needed by connect/disconnect,
-including:
-- DA feature detection helpers
-- host TSM callback wiring and IDE stream allocation support
-- creation/registration of RMM pdev descriptors
-- RMM pdev communication helpers
-- pdev stop and teardown helpers for disconnect
-- pdev instantiation from the connect path
-- public key registration with RMM
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Dan Williams <dan.j.williams@intel.com>
+Cc: Alexey Kardashevskiy <aik@amd.com>
+Cc: Samuel Ortiz <sameo@rivosinc.com>
+Cc: Xu Yilun <yilun.xu@linux.intel.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Cc: Steven Price <steven.price@arm.com>
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ arch/arm64/include/asm/kvm_rmi.h | 1 +
+ arch/arm64/include/asm/rmi_smc.h | 3 ++-
+ arch/arm64/kvm/rmi.c             | 6 ++++++
+ 3 files changed, 9 insertions(+), 1 deletion(-)
 
-To support public-key handling from the device certificate chain, the series
-also includes the required X.509 parser updates.
-
-The series builds upon the TSM framework patches posted at [2] and depends on
-the KVM CCA patchset [3]. A git repository containing all the related changes is
-available at [4].
-
-Testing / Usage
-
-To initiate the IDE setup:
-	echo tsm0 > /sys/bus/pci/devices/$DEVICE/tsm/connect
-
-To disconnect:
-	echo tsm0 > /sys/bus/pci/devices/$DEVICE/tsm/disconnect
-
-Previous posting:
-rfc-v1 https://lore.kernel.org/all/20250728135216.48084-1-aneesh.kumar@kernel.org
-rfc-v2 https://lore.kernel.org/all/20251027095602.1154418-1-aneesh.kumar@kernel.org
-
-Changes from v2:
-* rebase to latest kernel and core TSM changes
-* Address review feedback.
-
-[1] https://developer.arm.com/-/cdn-downloads/permalink/Architectures/Armv9/DEN0137_1.1-alp17.zip
-[2] https://lore.kernel.org/all/20260303000207.1836586-1-dan.j.williams@intel.com
-[3] https://lore.kernel.org/all/461fa23f-9add-40e5-a0d0-759030e7c70b@arm.com
-[4] https://gitlab.arm.com/linux-arm/linux-cca.git cca/topics/cca-tdisp-upstream-rfc-v3
-
-
-Aneesh Kumar K.V (Arm) (7):
-  KVM: arm64: RMI: Add and export kvm_has_da_feature helper
-  coco: host: arm64: Add host TSM callback and IDE stream allocation
-    support
-  coco: host: arm64: Build and register RMM pdev descriptors
-  coco: host: arm64: Add RMM device communication helpers
-  coco: host: arm64: Add helper to stop and tear down an RMM pdev
-  coco: host: arm64: Instantiate RMM pdev during device connect
-  coco: host: arm64: Register device public key with RMM
-
-Lukas Wunner (3):
-  X.509: Make certificate parser public
-  X.509: Parse Subject Alternative Name in certificates
-  X.509: Move certificate length retrieval into new helper
-
- arch/arm64/include/asm/kvm_rmi.h          |   1 +
- arch/arm64/include/asm/rmi_cmds.h         |  78 +++
- arch/arm64/include/asm/rmi_smc.h          | 183 ++++++-
- arch/arm64/kvm/rmi.c                      |   6 +
- crypto/asymmetric_keys/x509_cert_parser.c |   9 +
- crypto/asymmetric_keys/x509_loader.c      |  38 +-
- crypto/asymmetric_keys/x509_parser.h      |  42 +-
- drivers/firmware/smccc/rmm.c              |  12 +
- drivers/firmware/smccc/rmm.h              |   8 +
- drivers/firmware/smccc/smccc.c            |   1 +
- drivers/virt/coco/Kconfig                 |   2 +
- drivers/virt/coco/Makefile                |   1 +
- drivers/virt/coco/arm-cca-host/Kconfig    |  23 +
- drivers/virt/coco/arm-cca-host/Makefile   |   5 +
- drivers/virt/coco/arm-cca-host/arm-cca.c  | 274 ++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.c   | 639 ++++++++++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.h   | 122 +++++
- include/keys/asymmetric-type.h            |   2 +
- include/keys/x509-parser.h                |  57 ++
- 19 files changed, 1448 insertions(+), 55 deletions(-)
- create mode 100644 drivers/virt/coco/arm-cca-host/Kconfig
- create mode 100644 drivers/virt/coco/arm-cca-host/Makefile
- create mode 100644 drivers/virt/coco/arm-cca-host/arm-cca.c
- create mode 100644 drivers/virt/coco/arm-cca-host/rmi-da.c
- create mode 100644 drivers/virt/coco/arm-cca-host/rmi-da.h
- create mode 100644 include/keys/x509-parser.h
-
+diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+index 1b2cdaac6c50..a967061af6ed 100644
+--- a/arch/arm64/include/asm/kvm_rmi.h
++++ b/arch/arm64/include/asm/kvm_rmi.h
+@@ -90,6 +90,7 @@ u32 kvm_realm_ipa_limit(void);
+ u32 kvm_realm_vgic_nr_lr(void);
+ u8 kvm_realm_max_pmu_counters(void);
+ unsigned int kvm_realm_sve_max_vl(void);
++bool kvm_has_da_feature(void);
+ 
+ u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+ 
+diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+index 1000368f1bca..f6f786bfb9c9 100644
+--- a/arch/arm64/include/asm/rmi_smc.h
++++ b/arch/arm64/include/asm/rmi_smc.h
+@@ -86,7 +86,8 @@ enum rmi_ripas {
+ #define RMI_FEATURE_REGISTER_0_HASH_SHA_512	BIT(33)
+ #define RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS	GENMASK(37, 34)
+ #define RMI_FEATURE_REGISTER_0_MAX_RECS_ORDER	GENMASK(41, 38)
+-#define RMI_FEATURE_REGISTER_0_Reserved		GENMASK(63, 42)
++#define RMI_FEATURE_REGISTER_0_DA		BIT(42)
++#define RMI_FEATURE_REGISTER_0_Reserved		GENMASK(63, 61)
+ 
+ #define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
+ #define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index 478a73e0b35a..08f3d2362dfd 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -1738,6 +1738,12 @@ int kvm_init_realm_vm(struct kvm *kvm)
+ 	return 0;
+ }
+ 
++bool kvm_has_da_feature(void)
++{
++	return rmi_has_feature(RMI_FEATURE_REGISTER_0_DA);
++}
++EXPORT_SYMBOL_GPL(kvm_has_da_feature);
++
+ void kvm_init_rmi(void)
+ {
+ 	/* Only 4k page size on the host is supported */
 -- 
 2.43.0
 
