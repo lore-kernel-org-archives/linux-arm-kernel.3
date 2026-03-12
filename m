@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D59106ACEE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FF3106ACEC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=19Gb4bugpV46RcZJbR9bQHqCRWA6pkeJmJLcmADrwgY=; b=uavHOaVy2ZXbVezE06BkZ3L17c
-	ocMFx9VCSOBn40Z7OWOPR307W+cuuvJOXNanejebXuOqTCYaEq/dTsvYHLKNNbEANzOJ5WRwsFQac
-	lvpc1dnABCO3whTcTGgPGAdEQIvmWDn1amTMUO8/ErQ/3HWCgDjvMk3L0eASUQu0R5UMXzkJhIfEA
-	02XMkheFQcjthDB4KsnMqYLutQlbxgG9T/+C5CdvdxVbEfrT8ZGXEIIiuw1ejOP2fiwQ7C+xOQ6NU
-	fgVOKcrw4UpA2kphsuSD0GLewD7jvw6WQ0SmqYRjXn1RbAeAOjwcpFMjaEKkXXiDq2oTXhNwGG07B
-	ikv1bEHQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h4MC6TZxbYtbW++aJnjTwi5qHIz2Y5mW4BPCtPUKHPk=; b=1A5HT4yE7ifZxAQsP8X+LD9ZUG
+	WIUVl62WiCDcS8wFCkDDR24CSvlpBvoW5AaN6cEr90ZZlcvXO6SmVcA7eAd1M7uipaO3z5+a5FV4L
+	XvbahouakefU3VU+9vqQDcjOUiQwqaa6+VtztcnXQ3KaBbrb6gHOmpleTsyenqZDGdivQ85eby7h5
+	4e3bFF8C/ne2I6ODgs5WeN/QUjGTt3uOAtn8CWobRRWvos+ty9xjHVus9Ki8Or7PRVux2ipbnOfY2
+	P9gIc993CkuZAEzq0klOCIzO8At6vPAzel5oZutWnGT60Qwlb8gcuFb2cWWSc8S7xv+VyNVVBBsqv
+	egDcZREQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ncE-0000000FTOW-2XNh;
+	id 1w0ncE-0000000FTNi-0AG9;
 	Thu, 12 Mar 2026 21:30:46 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0nc5-0000000FTJE-2AaY;
+	id 1w0nc5-0000000FTJC-1PJr;
 	Thu, 12 Mar 2026 21:30:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
-	bh=19Gb4bugpV46RcZJbR9bQHqCRWA6pkeJmJLcmADrwgY=; b=VO0ch5klrdgf1zkK1HWLFnO4rD
-	CeVBFPLLdc1Pg9R7jka36JReUm+di2qPH/xMsnlMQpSLCvktGAcy2Y85jiROi/SKHwDok4a8kdIhq
-	sWqbmjjWDrwzT9TkVcyYvRc3rSkjaTGaSJw+2Xnr6AS3R2MFlrLSHdKgrJdGCTcghpJEmCpxKC080
-	PKrDo3boAovq+lyz3GwGoM/+3bYkqf/lM1ZLJ0OjuguDEMbkmtFYJlwfQQ0G5D91ucQOvrrJgHHa4
-	pg5gMlfLqa+xnj0HVnXFJejsQ0WsOh+LnVE4UC0XS+osjyGV9zGhwl4Px/XL7XFvSLwyMnvRuyOF8
-	TvOXYLiA==;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=h4MC6TZxbYtbW++aJnjTwi5qHIz2Y5mW4BPCtPUKHPk=; b=rB78n+KmyKiiQVYIuyT+Zej62M
+	C0aBAQPFEDGM2qLUyw/1gMLFAxhaQAzg9f5hvYMCku5pMrHd8HZyh95EKNROKJsJe1J4mBpL5aXAj
+	bH2DCry+M3kN2vWhwxmD5pp3z812UnCoUx1xAvWp+m0Kde1un8r59VV7pmzFVJXt05AeMCaEkDfYI
+	/mfnQ0NsEpvUGzQI6tmyoeyeEZw2gwTAJ8Uz0C8qyEk7BKsAoTN36rjAjrKFCzmZybDSG6aJZCLVb
+	d+CVQT013rH7XTSIGaq7L7RQutGOIXjRVlZZ1+j732WLai0k7HOQuBnwTuKMDOBPWcDkM3vWIdcyM
+	TP/oZj2Q==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -44,15 +44,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	finley.xiao@rock-chips.com,
 	w@1wt.eu,
 	jonas@kwiboo.se
-Subject: [PATCH v2 0/3] Add devicetree nodes for RK3528, RK3562 and RK356x
-Date: Thu, 12 Mar 2026 22:30:16 +0100
-Message-ID: <20260312213019.13965-1-heiko@sntech.de>
+Subject: [PATCH v2 1/3] arm64: dts: rockchip: Enable OTP controller for RK3562
+Date: Thu, 12 Mar 2026 22:30:17 +0100
+Message-ID: <20260312213019.13965-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260312213019.13965-1-heiko@sntech.de>
+References: <20260312213019.13965-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_143037_553179_AE3BD66C 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20260312_143037_462591_A8D58F5E 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,27 +70,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a companion series to the binding+driver changes [0], that adds
-the relevant OTP controller nodes to the core SoC devicetrees.
+Enable the One Time Programmable Controller (OTPC) in RK3562 and add
+an initial nvmem fixed layout.
 
-[0] https://lore.kernel.org/linux-rockchip/20260205211901.490181-1-heiko@sntech.de/T/#t
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3562.dtsi | 46 ++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-changes in v2:
-- rename node-names to be efuse@... following the dt-specfication
-  2.2.2. Generic Names Recommendation
-
-Heiko Stuebner (2):
-  arm64: dts: rockchip: Enable OTP controller for RK3562
-  arm64: dts: rockchip: Enable OTP controller for RK356x
-
-Jonas Karlman (1):
-  arm64: dts: rockchip: Enable OTP controller for RK3528
-
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 47 +++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3562.dtsi      | 46 ++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 46 ++++++++++++++++++
- 3 files changed, 139 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3562.dtsi b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+index f84676b47b27..e4816aa3dae0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3562.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+@@ -1093,6 +1093,52 @@ sdmmc1: mmc@ff890000 {
+ 			status = "disabled";
+ 		};
+ 
++		otp: efuse@ff930000 {
++			compatible = "rockchip,rk3562-otp";
++			reg = <0x0 0xff930000 0x0 0x4000>;
++			clocks = <&cru CLK_USER_OTPC_NS>, <&cru PCLK_OTPC_NS>,
++				 <&cru PCLK_OTPPHY>, <&cru CLK_SBPI_OTPC_NS>;
++			clock-names = "otp", "apb_pclk", "phy", "sbpi";
++			resets = <&cru SRST_USER_OTPC_NS>, <&cru SRST_P_OTPC_NS>,
++				 <&cru SRST_P_OTPPHY>, <&cru SRST_SBPI_OTPC_NS>;
++			reset-names = "otp", "apb", "phy", "sbpi";
++
++			nvmem-layout {
++				compatible = "fixed-layout";
++				#address-cells = <1>;
++				#size-cells = <1>;
++
++				cpu_code: cpu-code@2 {
++					reg = <0x02 0x2>;
++				};
++
++				otp_cpu_version: cpu-version@8 {
++					reg = <0x08 0x1>;
++					bits = <3 3>;
++				};
++
++				otp_id: id@a {
++					reg = <0x0a 0x10>;
++				};
++
++				cpu_leakage: cpu-leakage@1a {
++					reg = <0x1a 0x1>;
++				};
++
++				log_leakage: log-leakage@1b {
++					reg = <0x1b 0x1>;
++				};
++
++				npu_leakage: npu-leakage@1c {
++					reg = <0x1c 0x1>;
++				};
++
++				gpu_leakage: gpu-leakage@1d {
++					reg = <0x1d 0x1>;
++				};
++			};
++		};
++
+ 		dmac: dma-controller@ff990000 {
+ 			compatible = "arm,pl330", "arm,primecell";
+ 			reg = <0x0 0xff990000 0x0 0x4000>;
 -- 
 2.47.3
 
