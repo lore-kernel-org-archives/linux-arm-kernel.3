@@ -4,113 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC30106ACD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D985106ACE1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOg1TvMt5mwIozSwq3v3obDuc2Lhso1YJ9tDY6h6AFU=; b=xktC7qP2dy9PIrXLC9SFdLyvK+
-	CehFRGFC+oO1cC8Sx+p+pvP8PY2ytdDU0GJbvoTBkHd9/prMtCGZkJ1+OqBa2cUxREKEDhrSmsf7N
-	Cec6oK52I2EL5nHJj5ggnn+ZmC8MtvzasXWkxoD97Zia3CnveV3R7Ubq7nKggwg+GXzJ9+6OO20k2
-	ut6X53kCFRnUPSuAEE9FKhr25r//BXce3R5TNMmK6Ck9Nyk2EMsvMw6cOXI+2uveUuJZU0lr6xXPE
-	pq1DgMnTFi41qPnPy8YLoWbhCa4SIuFTjhT67ylsGJLdTK2FpNbPRa1JUMritKexQAqXIEsL07cmY
-	EtWTGaog==;
+	bh=tQF+bUvrjP6KDpXJchl5G1P5gPqcLe+6v4T2uhK4av0=; b=rucrNrb69lSyrIDPXyIq+S/zHk
+	D0ASRu+ROvA9AXBOYjnwa/1M1Rpgx0TYAtrIm46iHf1j5FB1jvW9clZzpVYxfYu29AnU+MuT4JCeE
+	EmKd23PlnijZ9msOOHZ5pdfY6UvV+9U6RbgYnnMFQAAKH2tk2e1jj65W90oBNyNlQz/ZIagMEdais
+	Opid17SPKIqjofAQYvZS3BoAUnEDdVnF8uG8zlFQegMxSOPF3DIjtY9E9FJALo9PAgaSEj5I61niO
+	mE466t+Wym+gU6FL/mc8L2eZnXOBkhVGte668AmN+VoZ0aNjrZweRg+uBN1kb7fLGf4C9PYD/wusP
+	vCmToyWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lYO-0000000F3Ko-32J4;
-	Thu, 12 Mar 2026 19:18:40 +0000
+	id 1w0lYP-0000000F3MM-1n0b;
+	Thu, 12 Mar 2026 19:18:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lYD-0000000F33J-1R7P
+	id 1w0lYK-0000000F3DP-1l58
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 12 Mar 2026 19:18:29 +0000
+	Thu, 12 Mar 2026 19:18:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=aOg1TvMt5mwIozSwq3v3obDuc2Lhso1YJ9tDY6h6AFU=; b=U9egb3J+fgvf7UIIRxFqykAxld
-	j71XYScgXhGcxgp5+vDNHVoyXSzy6BPNLVMeVbrk1HhNhK2alaPRRq+3sDuPQDwJzlzFJUnf4PSzN
-	L0fe4WZl3MBqr6+RuWulX3V/QT8r23a23USTeYy5g28zs/42Rt7RaR83APdmwca2WHWSvJA/KcAbn
-	s270LlI2IXVIXiYAng/XNdMNykbZ3ywamQfvxPAPNXMWC9hqRmJPe/sijlx+4EUh53IUuixIIejgZ
-	glrKoLse3t+XxhyjExyoh8vV4Gs2D0osuPGoLp0mCbWtDGVRdxz2XpNCU6zSC120tUuQG/KI8+maE
-	2aKWbqsw==;
+	bh=tQF+bUvrjP6KDpXJchl5G1P5gPqcLe+6v4T2uhK4av0=; b=gvTX5eDqOO8/X+JQs9VVGIZpwS
+	ZZAgU/gbOxlRBaqIAhIQSWJ5QJwB4LP0dRcyklsmJ4GL2zCpnBjPRGlaECziSZoje72QaFHpiRdVN
+	Ck8/k9viwHhdPm4/+YOA8v6BQ/gz0rPGPHGSVhH1QAYUWw0zDCq5C/f1dLnxTvG8zPtkj/fydQs3i
+	p1Df6mgWWfpl18jvkeM9pM+aKS+uFGaK8H7DTWIsP2V7zw5Kg/Hd97m4rd58aVtmP2w4T8rIfTXEz
+	g1sCEX2aLfMA3jGX8V4jO5ubw5hxXNZ1Tl5G8ngq/6QNitu+na3SiaYS/tnu27zmsr15csJMuAQeV
+	77P3Bs0A==;
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lY9-00000001qwn-41MD
+	id 1w0lYE-00000001qzO-2WbO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 19:18:27 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62C9Zl933137108
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 19:18:24 GMT
+	Thu, 12 Mar 2026 19:18:34 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62CA0vhs1922465
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 19:18:29 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aOg1TvMt5mwIozSwq3v3obDuc2Lhso1YJ9tDY6h6AFU=; b=KliSlHdfu5J9+2wi
-	NHl3lJPdQmB2h73Icay+jPPcgzvwRprGrhm+bL2idjTTVo1C0GaNmTZePCSLVshv
-	pHy1wj3YqGu6tBXNW/2ZuxX7cKBv9KNYgz3h/ERFMk1ZVtC847kh+5GYfhy0lvJc
-	ESTzLfonPOoMGnWt11vh2CffTFWgKBrHqvspVVA/sbO7JPFfR/XbpN1mltlIKEkv
-	4gEXJ53E0R8dc3pqpf9jlyV+22Qf9aS1kHdT1O5TBQ1KV72PZ65hnL7MBKE71sci
-	fxQAVm60XVo+Z5zjj7DdPa++FPQHTRxNcTRLKJmU+eoRPbd1QzrrADdHpYUnMZpq
-	WtRoLg==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cuh4wba0q-1
+	tQF+bUvrjP6KDpXJchl5G1P5gPqcLe+6v4T2uhK4av0=; b=YS17obd6VrQm7rxW
+	ijFUX6Pnwun4h7HgLMzk9LYLme4keBsX6kN3NTCUcp6YQN7YeJeULT5foWNpOowc
+	Ae1BlxxuvfICMvRaXyVhFzahe5SUiC+c4oI1i83vPgIxjBuBMB6uegmYP1a+8coH
+	WsxgszjwoLPRegzzeBXXjTqm094yoP8KOCDSC7F3DKosUOPFjS00DVjgR0kxAD1p
+	m/2oKOD466jutLPTM6m9sRqBSA7MyoYw7Ad4QVwW52dnUqusBR8v1NjN8MTpHgJf
+	O63QcRzACgggZZq6lsIod5TcMDpNYL9mVrt2+tYgSFzmVs6O1rvUBzMgSNCpxFC6
+	q0vG+g==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cuh4wuas0-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 19:18:24 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cd7de0e161so890260685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:18:24 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 19:18:28 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8cb52a9c0eeso1294555285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:18:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773343103; x=1773947903; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1773343108; x=1773947908; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aOg1TvMt5mwIozSwq3v3obDuc2Lhso1YJ9tDY6h6AFU=;
-        b=hwJjBAHBAwCv5xoQJ8EGgGkf3jRurg+hst9xsHUF6kxRO//r2XSv7j/LSYu8SmUgcj
-         9JEMeN1jLuyBrQvTodIIcV7ejvBZKMzF4U6Wh38UUtpcjV0v0iDc2KzrlR4yGZi20hLb
-         I37dsFOeGu2AB+s7MtuIkqcvEAv7Rh/jY0tRNkPLlt45dDUSTuGs3w4Qn6JhZq0rVUCM
-         2jlBIDx0IAT6JXEX19v4QGrT6THYifzsYAXaIjN8rhSVOMJepzAICF2QSiEMwQbA/Aqm
-         tV5dJvHaXILUpQDGTS2F41SNqYpuHaCNIxRPSc19VVGV1IZUZMRmKc5jZZjKY4AEBgEq
-         2rCg==
+        bh=tQF+bUvrjP6KDpXJchl5G1P5gPqcLe+6v4T2uhK4av0=;
+        b=jiY+JuGXsuPxp+cKQZqc16TWkNultzUN0axFHnMJ4j+ewK4ui6EdLiy3ElrPT8dpjT
+         sKGKp42ZynywOQRQfALXjFzW7bslFB4iRuvp93hMhiK1+AqvwtCo9qOClM41Dh8bKqun
+         7i5RN7a46xhBjDT+dthH91tF+OKfaNEYXFZZXgMmZQ1r+uScD4OTGMDYIIJe0D6Qe6yn
+         p85lxG17Xn+GL6+QkdEzEwNZUgU0vaJOkHLNLLBTVal+XRgXTeeNhtQEVDBPjQldo4T4
+         Wb/U2uWzFuiMCyTVlu0fNCzT8HfPpLByy+zX/0rbAJUtdVKias+GEvixoIlNOU6qZwan
+         UiDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773343103; x=1773947903;
+        d=1e100.net; s=20230601; t=1773343108; x=1773947908;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=aOg1TvMt5mwIozSwq3v3obDuc2Lhso1YJ9tDY6h6AFU=;
-        b=ofc9qiXezAjmrKs7wtrdk+ysxJGQyN5ug+DRXaEMJqnP36uEa4Bz5F5cX3g1FAIj+I
-         ORsZSjfWLB5TtE/LqhKhdyXHk8mb2Eq3PvKLvgh3gsqfw/3aGlxOMd0tAHw4MbGS61X6
-         8SwSozfyKM09yJoGtzUeNdFNVq5eDl4bR8iwkfNBZTZ9TtDNlYmUpa7M9SvZ70lWLUbq
-         kRj2t7XZZAEiNKptLbijMPPPg/VKKlVLjStEYCjyZqr7kl6/+sD//77rRWo33ohnEI7P
-         A92wfU4TIXVVrzVFmruzEVy8HUEIp+WmwFZCtDQcbovhTo1Rb2p7Nv8wgmG5Cm1/qZdZ
-         rNFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVq1ZeizvxoACe+zNGZlNyPOWAWFQ49YWyfj8jL1GfZ1/feIGkMFnZT7gqeNqDrN2f+vZAzxPrW+4MJn4DhQ8p0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqFzvux7oQAVS1iRR0Nii8EaFkm/8pWEdTfBuOhqxFLh5t82c7
-	VeWyE6xeCH3c4dFIxkOhI/h1lvck+dM1GZQcATbwDvB9KkodjoD3sEov7NmKdC2jMAuZvGwlHqh
-	2ctiCvgmZc4vdRI0opTnq165YmOO/V2mWB2J3xs0qfSpSeo9mZSaansAcjHSF/sl6dqv2dmV9b8
-	bxYg==
-X-Gm-Gg: ATEYQzzVyIylg9UqMq28UJyMICVtWO8m1XpN6LS1MKa2NIxWudLanZeDrxSPSgxDfrr
-	4Ug/lsBY66LAhPsTV8BZIw+gSYHsjZVVi2R/lNksc6WdG7FwthLLA5cMAvPn0RvJEGpRl3zH4rh
-	efTjLJYx/DeXD1Qzl0utXOmrgoHFHhDq+kzy0H0uxvAHOUPd48vSAYmxeXGB5sZILrIWe+ksfDv
-	VypsRK5LkE1fY78UjTqgaeTrUZjK90sVxHKWkDpWLWWLPWzFvMKvONsVZS/ZD7lwcRBRcBjUt3r
-	32Kb6O6pG+HuggcDXhhEXeZf6VJAS0nabhLw2KBRra2kHBjJDyUBfnm+T0bbyOQb8YmZxIHaoBw
-	lTpngHDxI0fxsJ+EILAGJklUjget59ZwIIodU9lwdFXC3
-X-Received: by 2002:a05:620a:6c0d:b0:8cd:9231:8b51 with SMTP id af79cd13be357-8cdb5a176fcmr119087885a.5.1773343102882;
-        Thu, 12 Mar 2026 12:18:22 -0700 (PDT)
-X-Received: by 2002:a05:620a:6c0d:b0:8cd:9231:8b51 with SMTP id af79cd13be357-8cdb5a176fcmr119083185a.5.1773343102255;
-        Thu, 12 Mar 2026 12:18:22 -0700 (PDT)
+        bh=tQF+bUvrjP6KDpXJchl5G1P5gPqcLe+6v4T2uhK4av0=;
+        b=cxeqt5Hzf00sEKHsCDeuT9BUWgrIUxQ2Y/1KD84PwmyNRHXuq+BjcAMSB9aoV/o4De
+         G6L29EGkB8d9IE3V5XUlZkz4Wocl2TncDK2Cw/2AYH/WBSd+ZNYgMXKMXBheXxwRWMxf
+         W6SRnOhH2R4wJBuqPNx11lof3VWwjJwO5InYEZ4ONGh6jXnyEysDvO0S7QGBhLLRbHF5
+         7Q98S7CxuGwQgyjakDQbqR4MX0p8zJ/LBtYCbdExhSdyiPmilJmoBnJBB7raMRS12TMi
+         H8E4UO08QzbEVs36OuL4rMh42j/RXQyPrggUwxNq7SdNlhuQ5Lkweambrl5akLynHSlq
+         e1zg==
+X-Forwarded-Encrypted: i=1; AJvYcCVlpPpGeoktXm0cjCqC26eMtUGYgxCpF50Wf6Wyb2YhXYIXY5oBGcLLRFkPy1L3QCgsZWEuBtZVTbdZGjuGwT9Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/B2vb75MUo/Dg0swK4S2WTmJVAnCrOW5Shr3EOrNX+9+6rVSc
+	9iQyT7SQUH0REnsAbhkCDsrKcYhbYm44lFUUp4MGR8PzenjJPM0VRzWxnaDTGsHr1zASY2VScV+
+	3oVuCTjXJCaNKOSiQbBMutgzrp+rcuSF61EfFNngWaMTAAokc+84pKYEbbDjQlUpkvqCZCH1LFR
+	1eqA==
+X-Gm-Gg: ATEYQzyYU+ar7lbvHjzKsCfu0yqoBLRYcTkVqTBHOEIDdfjETZHB7cQ2WoiWbd9w4T+
+	3ZwMWDibqqCUiNPVMsoMEKUStfBml8PZx1e/8CZ38ThXe6iOmK91bgp3TpkfCJ2zCId3VZvgBDE
+	ToBQ0tHzIoJKNOm15wshZ9zMR6SE034J47QD3mBqSpSgZmSe1G0U9MjUz+BW0jQ7q+NxJVeCpNO
+	zLHIeRdmgpuQ9UqFX94swq7IU1q2LhvfXkhfi7G5N1V9eCC9tIf7XZ7NoA71My30ISQG2Lxzzm1
+	lpLkBDslbWefNld55qgCAtFomlBzZ4aIv6WBV6ELx5eL8/sTQnbZQSwvn/od+l7p++/43K7weBA
+	/MtKgwrBytmzh7C0dCQE0bpcd6pKDvV8XeA8HBtsxlYBO
+X-Received: by 2002:a05:620a:2943:b0:8cd:99de:6b61 with SMTP id af79cd13be357-8cdb5bfdb69mr127768085a.80.1773343107947;
+        Thu, 12 Mar 2026 12:18:27 -0700 (PDT)
+X-Received: by 2002:a05:620a:2943:b0:8cd:99de:6b61 with SMTP id af79cd13be357-8cdb5bfdb69mr127762785a.80.1773343107527;
+        Thu, 12 Mar 2026 12:18:27 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485577835ebsm1874935e9.7.2026.03.12.12.18.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485577835ebsm1874935e9.7.2026.03.12.12.18.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 12:18:21 -0700 (PDT)
+        Thu, 12 Mar 2026 12:18:25 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Thu, 12 Mar 2026 20:17:53 +0100
-Subject: [PATCH v2 06/12] arm64: dts: imx8mm: Use undeprecated reset-gpios
+Date: Thu, 12 Mar 2026 20:17:55 +0100
+Subject: [PATCH v2 08/12] arm64: dts: imx8mq: Use undeprecated reset-gpios
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260312-dts-snps-reset-gpios-v2-6-0d5040eb4a1e@oss.qualcomm.com>
+Message-Id: <20260312-dts-snps-reset-gpios-v2-8-0d5040eb4a1e@oss.qualcomm.com>
 References: <20260312-dts-snps-reset-gpios-v2-0-0d5040eb4a1e@oss.qualcomm.com>
 In-Reply-To: <20260312-dts-snps-reset-gpios-v2-0-0d5040eb4a1e@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -126,50 +126,51 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
         Alexander Stein <alexander.stein@ew.tq-group.com>,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11981;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4367;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=sCSn8EaGxkJ7RiSv19pVk9Xndqm5kr9dkfsOD4kkNJY=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpsxFlzbqEAUQEwbYJpQBlH0V5JVv1IwRXLtXfl
- F98jRc0UAOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCabMRZQAKCRDBN2bmhouD
- 1zUyEACILJNe9W63El4gdsnpg064Tjij1fLDF/xadAM/dLeJD9+oM2dRRhPKNMPhps8tmW/McOV
- wZjNz3ekcdhKfHugq/L5f+sZB4Fo8ezo7khehDDdQgxidmU/Kukr/C6gP7doWTEKSvE8w6wKTjs
- ti7sRk/bqMUSNX7JFISqw/dlxba9FIGlEVoMP4Iil0IFGrECc9Zl3x5yBhZY5oZmhEgNDM7XWLl
- zEfpk5xTtMkJixWzxumcLLFw5AB3Zi5zoQWzra9AuZhhQM4+R7aYguXLA+pGOTt5z8DD6bhCiJq
- V4smAU0x6/QviQo3cjf/XWnGIFEp6c6ETQjfEfsFtcF3XXxLAqG8Bkv/YPE9UIrBppj1RXRX4lP
- 63zmKrDMSGaXo63sl00Tdq+fZV6IRxVH/774skkcT/WBZvSOIwZgz8ZRhU1vmIwAgBq8lkMVy79
- r2PLFVBw6JdEk7hqHnEswdSOamcstErn3jhg49CMdfEWxUT9cyr4hdUQvNEm6VTzAf05sy9bJQd
- ju7KQbkVhEAZTYx56xSl/XIuqN5MLKUcR564oit2LY7v0Px5Sa8I1k+XxJGIChANocfw5u8Roi6
- SH9hmZMkczM+DFvJrgG29GKiSVwE0N3eHpXT/0vlfFQsvdsk72QPi33kEk4tUMSyJZEpz9zlFOz
- oskb7J9SJo5SVaA==
+ bh=ketqLeJvphOERTzcwSuzGEPndeI0EjSYQVG8iMUwDuk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpsxFnXSgcn3d011T7YS07Ob2bLGT6L/wEitz+h
+ //phXY1q7uJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCabMRZwAKCRDBN2bmhouD
+ 11gmD/43J8iGdLsLnSAVQKjH1u5zpsQ/oIeg2wpSCHGwactwtUTBJH7dSoIxfufErPykpi7Yb8R
+ LH+Y0pUjbxQst2H6TdTHNMsKQn0eRnbTMEzHLg3OzHHG4HtPiqeE4iCtE8s4/Aq5bc0mFQaq6BO
+ z1p34Hh50P6+SRoFMQ2fgVkR92cDpSXZJwMuWxBEjvj1l0nDkR7/UeYVcxdus711FdVDdpLJHHA
+ X43cuWrogOLL8DT5QVcRSiQo6GcnoKB02/X2D4R2SlyQhABpirgkjgFV9CgTqyaq1sOqk9DQxI2
+ fWBwuG5AQsg8oQ52NXXdizlsmF9K50cNibIQVpMfPPGAHdbRDrtbWDjm4798cH8Gny5NqZK+vXU
+ 3bS2+mJr7LXgLxZUN0LaHNMDrb/wlAij8T6zzNDt6lcbazscyTVfb9O3IuwxYceC175NZb1CZBS
+ ZMcpjiKQ/D+zVvVoMj2wHe26reJzVzeFG9qBO8YtdZRnvVF92dSocmhmQ1d3nFc477EqMdhNOIc
+ js1Cf5pcSxnbfATEXMuVJndiyp54cO3X0PJjK/dg5tsWQRw9E+3Y+YONzCwHryR9oe+gxPU1fCy
+ d/gvALrUZA4EBtdhicl8oiViy/IfepFNtBvbv47eI5LgwqfP1mHLg+kUkqVi5mAOMnM3O1eTPVk
+ VNQlLzs5PwixteA==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-ORIG-GUID: zTg2Vw4ws4CVhcv0L-FyOMK2mU-AEoMP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDE1NiBTYWx0ZWRfX93VAr88aZVEm
- eec+HZZFB+2zJiU4EVT8rCsm+M8EHyzJgdcnlsfWvHqWQYv7lyBmTZOwzXeLsjsGoueHjHJv4bl
- 0JXgKbTo1gG7MvF50SrVLKskFATBxuhIRRwIPpYG/Vset3bXQUOc+Q5eisSgcMDp3xYCDKC76/E
- TljikKRMOTZvjLsJvHx1rZYmEvxb1Ju0fuJZOEw8C7yvJ+D+o1IK469ZLRKbp+nFU+BF2swVBDa
- ZCNBy9hmlRK0Cc1YcKHTGaAM3aP3CZ59hJhMuCirws9ZWlwOT1PxWMpl5zTCZ5HrCqrl9zZlhyd
- 1xSKF0CcEZHk4okDDD9vuqeRlZvII9o6FoBNJYesEC/h6cy9RMj2bwJBt1i2dIEmpZmrJ6is8gC
- YVYxSIFEpgosriqU7TX2xl6MiqHC6FqiMC5PA/WWRQNF9bZ5zaWuhpBYbvGHZb+yF9iVO2g/78o
- Ap2Iza8gYRRsj+I7aeQ==
-X-Authority-Analysis: v=2.4 cv=YucChoYX c=1 sm=1 tr=0 ts=69b31180 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+X-Authority-Analysis: v=2.4 cv=GcoaXAXL c=1 sm=1 tr=0 ts=69b31184 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=8f9FM25-AAAA:8 a=EUspDBNiAAAA:8 a=Z2WWPTJv0FA8N6Tej9wA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=uSNRK0Bqq4PXrUp6LDpb:22
-X-Proofpoint-GUID: zTg2Vw4ws4CVhcv0L-FyOMK2mU-AEoMP
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=8f9FM25-AAAA:8 a=EUspDBNiAAAA:8 a=nTlmypLvTDh5NzCj0PYA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=uSNRK0Bqq4PXrUp6LDpb:22
+X-Proofpoint-GUID: XBTUQDXNd8P4ItocLJ1f60OTWEdxGfNW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDE1NiBTYWx0ZWRfX9fw4m36DFTjl
+ ndxAEjgNOUqAvKr4Gs846rkv9rJZ/jpuwuHE6qgoaHS0pu1WK+tc8tkSKIdTCYZ9/FAmrSzj3RD
+ aiOhsPw9loX/YPLIBbVq2gixtVX0vFunhNpHNLDQMf8sz85lZrQuc7Bx/Iv31BiLJXXxQ4yGugo
+ f2C27QLn4x61U8hsm2fHAVEPIsvyQqioUtbHgCSveoo9E8P6EXOb4PqKwahfggaZYkFucucwATD
+ 2H70D2VVn8d4FJAcvpnPqZejyLtayi1c7c06xQRq3eYw4alEeWclN+4T77ABIYYgE50ag8o47jW
+ ZGV9MJvRrufQBHZDiOCQKHycVLv0bcDg5UZk+W+JC24a06M69byKwwth8VgHo5qcMMkfFICXiXr
+ T//w8njNHMi6kgKtQ+WOCAnFfiOhgRPb/PhfgjVYBYxGp2IvYwYwgBbSLu6VyimafkkrmTYPOyz
+ LQAxvxmNU/wOjOLUzOw==
+X-Proofpoint-ORIG-GUID: XBTUQDXNd8P4ItocLJ1f60OTWEdxGfNW
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-12_02,2026-03-12_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- adultscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120156
+ clxscore=1015 phishscore=0 suspectscore=0 spamscore=0 adultscore=0
+ impostorscore=0 malwarescore=0 priorityscore=1501 bulkscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603120156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_191826_349324_7AB4403D 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260312_191831_081024_6DF5C1DC 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,246 +194,96 @@ like Linux kernel did for a long time.  Use the preferred form over
 Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi  | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dts | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi               | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-innocomm-wb15.dtsi     | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-iot-gateway.dts        | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts    | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx.dts   | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw71xx.dtsi     | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi     | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi     | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw75xx.dtsi     | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts      | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts      | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts      | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts      | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi            | 2 +-
- 17 files changed, 17 insertions(+), 17 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts                | 4 ++--
+ arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts        | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts     | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi         | 4 ++--
+ 5 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
-index ea1d5b9c6bae..5642139ebaec 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
-@@ -301,7 +301,7 @@ &pcie_phy {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
+index d48f901487d4..54826420740c 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
+@@ -369,7 +369,7 @@ mipi_dsi_out: endpoint {
  &pcie0 {
  	pinctrl-names = "default";
  	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 21 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 21 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk_gated>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dts b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dts
-index 472c584fb3bd..6a874f3ec22a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dts
-@@ -919,7 +919,7 @@ &pcie_phy {
+-	reset-gpio = <&gpio5 28 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
+@@ -392,7 +392,7 @@ &pcie0_ep {
+ &pcie1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_pcie1>;
+-	reset-gpio = <&gpio5 12 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio5 12 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
+index d8cf1f27c3ec..2296ff065467 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
+@@ -243,7 +243,7 @@ &i2c3 {
  &pcie0 {
  	pinctrl-names = "default";
  	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio1 5 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcieclk 0>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi
-index 8be44eaf4e1e..31052ca1971e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi
-@@ -533,7 +533,7 @@ &pcie_phy {
- &pcie0 {
+-	reset-gpio = <&gpio1 9 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
+index 3ae3824be027..09f2fb1ad57b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
+@@ -195,7 +195,7 @@ mipi_dsi_out: endpoint {
+ &pcie1 {
  	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 21 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 21 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-innocomm-wb15.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-innocomm-wb15.dtsi
-index 299752aa8277..7eca9127bb9e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-innocomm-wb15.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-innocomm-wb15.dtsi
-@@ -209,7 +209,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio5 21 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio5 21 GPIO_ACTIVE_LOW>;
- 	fsl,max-link-speed = <1>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>, <&clk IMX8MM_CLK_PCIE1_CTRL>;
- 	assigned-clock-rates = <10000000>, <250000000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-iot-gateway.dts b/arch/arm64/boot/dts/freescale/imx8mm-iot-gateway.dts
-index 370558a8ba46..e5b8415dbe0f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-iot-gateway.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-iot-gateway.dts
-@@ -137,7 +137,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio3 20 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio3 20 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-index 6043e7d16306..0165ae04c6ae 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-@@ -205,7 +205,7 @@ &pcie0 {
- 	assigned-clock-rates = <10000000>, <250000000>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie>;
--	reset-gpio = <&gpio4 9 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 9 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-index 2ecc8b3c67da..a5f3dfe06a4a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-@@ -182,7 +182,7 @@ &pcie0 {
- 	assigned-clock-rates = <10000000>, <100000000>, <250000000>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie>;
--	reset-gpio = <&gpio3 22 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio3 22 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx.dts b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx.dts
-index 8dcc5cbcb8f6..ce785b103a57 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx.dts
-@@ -90,7 +90,7 @@ &pcie_phy {
+ 	pinctrl-0 = <&pinctrl_pcie1>;
+-	reset-gpio = <&gpio3 23 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio3 23 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcie1_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
+index 0165f3a25985..aa54182def4f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
+@@ -93,7 +93,7 @@ &led2 {
  
  /* PCIe slot on X36 */
  &pcie0 {
 -	reset-gpio = <&expander0 14 GPIO_ACTIVE_LOW>;
 +	reset-gpios = <&expander0 14 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcieclk 3>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw71xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw71xx.dtsi
-index 320806d3d073..bb441fd4aa23 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw71xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw71xx.dtsi
-@@ -122,7 +122,7 @@ &pcie_phy {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcieclk 3>,
+ 		 <&pcieclk 2>,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
+index c7bbba45f368..f3d0ebe98d5e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
+@@ -547,7 +547,7 @@ &usb_dwc3_1 {
  &pcie0 {
  	pinctrl-names = "default";
  	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 6 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 6 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi
-index 266038fbbef9..184fdfb26cd5 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi
-@@ -147,7 +147,7 @@ &pcie_phy {
- &pcie0 {
+-	reset-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 	         <&pcie0_refclk>,
+ 	         <&clk IMX8MQ_CLK_PCIE1_PHY>,
+@@ -559,7 +559,7 @@ &pcie0 {
+ &pcie1 {
  	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 6 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 6 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi
-index 2aa6c1090fc7..1e84c365b2cf 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi
-@@ -167,7 +167,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 6 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 6 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw75xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw75xx.dtsi
-index 53004c4a13aa..e0982b4cb663 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw75xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw75xx.dtsi
-@@ -152,7 +152,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 6 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 6 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
-index 272c2b223d16..a31bd864c022 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
-@@ -726,7 +726,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio5 2 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio5 2 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-index 468c7e993c52..4c839dfa3ce0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-@@ -626,7 +626,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio4 5 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio4 5 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
-index 636daa3d6ca2..ea67654c9ded 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
-@@ -559,7 +559,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio5 11 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio5 11 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-index 99572961d9e1..7028d028657a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-@@ -623,7 +623,7 @@ &pcie_phy {
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
--	reset-gpio = <&gpio5 11 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio5 11 GPIO_ACTIVE_LOW>;
- 	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
- 		 <&clk IMX8MM_CLK_PCIE1_AUX>;
- 	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-index 1594ce9182a5..3b656f8a81b6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-@@ -672,7 +672,7 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	/* PCIE_1_RESET# (SODIMM 244) */
--	reset-gpio = <&gpio3 19 GPIO_ACTIVE_LOW>;
-+	reset-gpios = <&gpio3 19 GPIO_ACTIVE_LOW>;
- };
- 
- &pcie_phy {
+ 	pinctrl-0 = <&pinctrl_pcie1>;
+-	reset-gpio = <&gpio1 6 GPIO_ACTIVE_LOW>;
++	reset-gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 	         <&pcie1_refclk>,
+ 	         <&clk IMX8MQ_CLK_PCIE2_PHY>,
 
 -- 
 2.51.0
