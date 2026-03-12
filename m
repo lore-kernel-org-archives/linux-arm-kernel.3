@@ -4,145 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B2B105A591
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDF8105A591
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dUS0qjRBBvnsHRyc6Ssp3+838fG4QYMApousIEusUjA=; b=DiwZUEmAFGE+m9Wd11hJNY5Q+l
-	5b04uXNWapT1FS4jT/8M9mIa/IUTkdTG9FFtog0JtOlEfb8hRPD84gVneb4bxv4NLR91+p3lJOMFk
-	j2rnMfNuF5y6ukWVkowLfeALxi2IJ8hKbfLnfzta3nEMpGDx2iLXD/WAiUbOHbIMM5cv8rQs7l3hf
-	fpG7i3smHY7BGzLFW5lh+TNlUJqDJlM12KN4/K62AKrzudOX2DZ7S3CSKM86QAKHFC6TwMhg5QEDh
-	satAzxvwv7VXEsHGVTv8s+M8WTJTP2alrGshFvVvk4bNAFh2OeWGCc/CuR+z0WBOC0HK9DQlz0IL6
-	+MBW+GWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ky7U0hmCeNi6OyUrf2MxogfDAlaxZWXxIQIvc2Y9k8Y=; b=GbowJvnS/W/R4YVyqa1F4TwNE+
+	ESuMlYTGqnkqwUA7CjtZmLCCyeMQ3X5hokRORkj3Z3xTuC1D5lSwoCkZC6VontJnbaQcFauWkV+sw
+	Xjej66wCqf6WU+VuS30mzbQS7YcUeqUfRcl2wwpIVeDUgcWef1u4dwOKnkHgiOyE7J82uSHYyD+dm
+	DhBjLjT/J97KLaaz3gs9ctD7noWY64NSN2GA6zIIRvlMqchrR9iwlUCF8lmdKsiaWc5/wO9WzQ6f/
+	fUacUby7VytMvAd0QmlOhp4yKWkmIkv3eR7AFmD3MVKW4Gaf1dPi2wHHD9WCijoKJX4N8OQikWzHW
+	dKrb00pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fVu-0000000E4rB-3KQC;
-	Thu, 12 Mar 2026 12:51:43 +0000
-Received: from mail-westeuropeazon11010027.outbound.protection.outlook.com ([52.101.69.27] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w0fXx-0000000E502-1HdI;
+	Thu, 12 Mar 2026 12:53:50 +0000
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fVs-0000000E4qg-45Nc
+	id 1w0fXu-0000000E4yu-3eCf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:51:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bUNzR5FRiEOYLsJDq+7HjH3gwRgEUcnk1vVSLef0mwtFpaL1KpnfhlEYeZ2iBRN/OQzZ4xnzyyBDf16eGj2kLrW0aNj8qc4IziJo3nTCyBafyjDMq4vQLTCRSjDAfuJa6EIf0s57khfY2KgyoMn+nTCZ/p8MWUwp+4VHH7+1oeC3Zj3ap82nb35O5kUnpVc0996yx8Og1h5bu7Q9JDbP85PrwVCTfozXfMrJmiY9K25FUFZCcysO6PwQidrwi4AVIPPaHuTti6UwLm2NsJTO1W9nWsw5tTN64pM1dm/i9SJBAAg+bhrxhOg3nLBdvuNj2BWmp+vO5wN1ip4tPj2umg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dUS0qjRBBvnsHRyc6Ssp3+838fG4QYMApousIEusUjA=;
- b=C0U5KbcKP9KCTKfaIwMT9yn+yMYMgXrP/FvyZHQ7Pe/YvG/Gx4g8u36MhT7JtvMRY7BSejUlU3+Yr9DdoNW3CeN+tg6y41tVxZ6hDX+VBVmLTucYVlL2r7sklm6t9Yjs61e98MFcWOfkN49sWhoUqTatYhyZ4X3S8ZYKK9t7CtWzcrgKlAOvABOsKubc2t6d7Bqq0b1FH72lv8xjl7sUBq/GtTg5scSih7Hn6tRjpr/YAwdNqWq/PztMqzAD+7BFOtNcio53G7x4/zSf1JCkA4m28wmLlGN0+cwfEkpoEPlM+KIWzK3y4s923JLIWfTuOrfAjhac6eRGVKZxqv5pXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dUS0qjRBBvnsHRyc6Ssp3+838fG4QYMApousIEusUjA=;
- b=qvUVXSXoFVIBiQvpzaBJpigsaktxBgjvyMr9plXzhXjdNBRd4kH1cC/FJ6GFa9tNoyM4DigIZBqebkG/hViHYGWn5YCvl9A23U23NuP53NMIJwTk4TbZWQrXrinInQBRCbVks/E4GiuwI/NHK9Np8BGNMP4bRD6oOoLpAof5Z1hq4U+m8OQgkIMIHAU54789vq8lWMLPsK8+7HDIxlPqBfvkwy0bCcBg9TRkzo2K9YhUfMnis/RwRDtoyHZdSip81RXDppBIl09bXax7kqKgjfml8ww2CW+nKelkNAh96kyBE+dlkzite2srnga+z1dxiUbadCIPRb6d7eI7cwGpOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by FRWPR04MB11271.eurprd04.prod.outlook.com (2603:10a6:d10:19c::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 12:35:30 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9700.013; Thu, 12 Mar 2026
- 12:35:30 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: [PATCH 0/4] Add i.MX94 remoteproc support and reset vector
- handling improvements
-Date: Thu, 12 Mar 2026 20:36:55 +0800
-Message-Id: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAGezsmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDY0ND3czcCksTY92igqL8ZF0jA1ODVAODJDPTNHMloJaCotS0zAqwcdG
- xtbUAE+MxoV4AAAA=
-X-Change-ID: 20260311-imx943-rproc-2050e00b65f7
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SI2PR01CA0050.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::21) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 12 Mar 2026 12:53:48 +0000
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-4043b27ddeaso637493fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 05:53:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773320025; x=1773924825; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ky7U0hmCeNi6OyUrf2MxogfDAlaxZWXxIQIvc2Y9k8Y=;
+        b=PqKx9b8gCq1X4S5smoMl8y9rJhMPkJWPaAbrXVvWDmsnPs4tUnMako8OB+pUeId1eE
+         7hVu8O6udJf/FOiFcNn6OdZCI8Th2KAKOAL5GscD75vh8H7wtOEo0rmv2MdsnaurOhb9
+         kJr22L1Nxjw8UCfTn82G0B0lz8su5MWy68nURKKpNkryEhavSRp+MTJqzxHdUYOqp8WE
+         XvVwwrsBIgu9NwNkHo1j+RBY1dRr3WOuV8f0ixBnXPZQFboAsPsITPzw2++37PjR1uqN
+         zzuiW3E932+orTLSpT8roXMh5IpJW+LAIZ/IqDzSWKjrUCHMD9gImWCgOWF1yi+2sCJM
+         wFhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773320025; x=1773924825;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ky7U0hmCeNi6OyUrf2MxogfDAlaxZWXxIQIvc2Y9k8Y=;
+        b=MaZVwyReJmq7bhGjh72LjA1fgRWeBeQHYWc6fOaB+LnELy3ginW7R1cHJjeWW5coSi
+         kMmf+XGj+HIK2wD7luueQ97+UkJHDBJj/6cPGqJWzDufTV4RgPXWuZXJn+7vOcNza6jS
+         qvKt1AysIvSteAf9b6gEgTDr0ezY+l81ccUf4YRsH4GO+qGa9h/peidb7ynMk/mBaU0g
+         tpOFjp1ZkT3aO6WursqYdWHXwgtVN65Mc/jggYVmko9iJDYCxLJrP72Vw3NLl4qD9BSZ
+         FyGbglwyeU5J17HE/z5i89+6PYsMnjycIE0wf8ctYa6F6SGugZE6s5PVUicBKKEomFVC
+         lxFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWX4Pofo/rqXb3t2wZRZN7OGjwMEyXCVSjOzxuqzzN8bri5F4pGPNx1FJRO81mLGWQstjjI8kzQyjmR6/ZEJTp8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4ovrbj7uze1/LhHjQ5OC6W+mPd24vpIrQ0SqhwMsML2Wreu/S
+	blFWSasfFWlUoyCfeglAvCqH8PErZ5dBAP+I/XSR6qIMCW09fAhQf3PUabOeWmjQyHA=
+X-Gm-Gg: ATEYQzzqiEPftXolEYcYbyQnolqlGAHGLYulEOw/MlnAtHdR7UFNgX1yQpGdSKwEnFR
+	PcxTDlQqZTDxxtIGgA9UyK7gnTwS92ZOqFouf0oNg7Ye9fpmsdDp+/jy1YLEFQ78klEl3DVpP39
+	Yh+znOjc96EIIZ98wKvaOqzor36qryJmnbWsKbduuB91fO2Rp0pdmpwiM4HoNHzZfQGU0XrBNg7
+	hftvDEozrfdwfTKRB0170ZjB9G4P1uPL6q8bmaKXrokNaoSXWIjmHans1LQvKf2IKvQaVz+eQse
+	lDP5QrZaeL3koFvB1tsnyyPiPgpYH+Fh7cPgsUdwyQrYbbieJ6cCr7RKYMTfRMfzhx/Xd75zGYQ
+	zlhNx175c3JZLyIhS6KH1zLz93h6MeseSkCPc15ngLXwOUewPXduh+pf8QYM5vZ9kkU4kV21naC
+	WiTO2JZBYrDmG8kO9BTbwJ4r2M5R93iQRR887zqQE=
+X-Received: by 2002:a05:6870:649f:b0:409:74c7:1cbb with SMTP id 586e51a60fabf-4177c6f1d08mr3392540fac.7.1773320024820;
+        Thu, 12 Mar 2026 05:53:44 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.0])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41791432d87sm3765785fac.1.2026.03.12.05.53.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Mar 2026 05:53:44 -0700 (PDT)
+Message-ID: <f7054184-dca2-4c7c-9e2e-4a5e3e1c81da@sifive.com>
+Date: Thu, 12 Mar 2026 07:53:42 -0500
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|FRWPR04MB11271:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad641b65-13ac-4e20-ff03-08de8033d83b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|19092799006|366016|38350700014|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: eo5LWnx0CF37JTxEuWsc1dHbxSPVCxA6Y43due1+0maz3qGwJggKgKWZvExRWXIb2UkF8wXTa2dcCSK+RB51fOLqnrsQB+E3YfSlNc6q72f4x9aetmW6Hmm6WTfhtlOnYZSsLr0svc1PwxMCIojL52By0VrryMxQ533lC29PnsROTZIHqkgTo4GW+Pc1nqJQIjHDpCdFS+lfD0I3RLgKwaO9Opy7islrLe/o1R2YLTxgN7FWOfiHxJNUkGX+9Qs3Kh853o9zl3gbcJFWrdeq7GD/9dgt6WS0S2EEV/1C0bzOP43fxYKvY/i6NKoOshaXg7MstORr9GluTy+sEbBfVacqF1hgwHh2TEFcooeHf3E3gsnLeJl9gsL0UQREmjFeiBh2JUH+/vuCvV+dP2jSRFl1mgQZMI8OFTX3x6FeoijlhuDwMFXWCqwB10l9tMZQJRS3/hsqmUQQTBwJA5fADfgFjuWgTtu17g1rXUfYIaXUTDj9K6Rz4yc4M5roTU8o1VG0KSjVYYbP63h60QD4fVJJzT0tSpfknFsS8bjcdNeknfaVZwXmEc4LT/ou93xDUu9VKx6m9uLVaY8bJO9RrrAE0gwtAlqjdpdqYOFJFdYoiyLv5f6sGc0bisGtlZnySjnEVG5NTiwSrz80F2ebFBUHdjBlH7zBIRdZNk8oO4Xi/NfOiD73r69t4rzuEKh5e9yJoxUKcA96ZfvGmCXQmRxaggFrCSzprTUeRJ/n6nfqCdPM8Qmr13KpEBzhZqfCueoV4k/a4s/NO/bj2nhUPOAn0L7QXpwGV0ET94Mq6ns=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(19092799006)(366016)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L3J3c1ZWdVdBZkxSdWpRMkRqZzF2dDZDZGZQSURwU2w2c0Z3bXRIb1VDNXB1?=
- =?utf-8?B?MVhJVVhhT0VpUmwrODZ0b3pESFBwNkdqdEE4QUx3amZuM0xzU3BhVUVkTW02?=
- =?utf-8?B?Y1VVVTA0TXp3OGg4OUNDWVFSK3Z0UlVOdzJLWjRTRW92QVZaU0RFaTBUYWIx?=
- =?utf-8?B?UGFBTG1nMmladTR0YnJzbVlEWjhQYVdWMHJPWWNnbGhaV1NCUXlBanhSbTVK?=
- =?utf-8?B?K2hkVFBNblVrMWxCZW5mdHUybUs2Nit5QmRxOFA2MnpnRDE2MTlHSjJxRWFa?=
- =?utf-8?B?VmpNNFhjb05nYnc3WGwyT2N1dzB2RFljN0pqUW9ObWJPc3pxOGJYYUVmSUdZ?=
- =?utf-8?B?UDV5SXBLamowRnhPWmNNWXYyMklxUVR0WFR1OFM3V2laN3I4MmZmNGJPWm1q?=
- =?utf-8?B?aGl1YU14Y2lWRWJHdDRMNmM1dWtDRmFrTGp2VVRpNTQ0NGtSTTJ2MmRIK2ww?=
- =?utf-8?B?UFc0NHZzbVFUWW53VGtwYmkzTDdMbEFNdnVrVHN3STY5NU1GUDFsbWpxR2hw?=
- =?utf-8?B?Y0VycGh3aTIwNm81RWdhOWFocTlTM3BiaFhoZkxIOGNuL0dSVjJ1UU9GMk13?=
- =?utf-8?B?Z3Z3SEFtUVM1bFFwcUdSMklxdEg3MjhsY004N3U1ZGZsVEVXZWM3QkpaRmpM?=
- =?utf-8?B?UXlibDBmZVNJaUFaTG1Tak9xaUR5bXNjdUpZczFVV2ViQ1VFNHdWU2NOdWRa?=
- =?utf-8?B?STBJNHVCcWJDRmJrY2ZnNW1qZVRSelUxTVU0MnZFaDlvdnFKWFlOV01OTFkv?=
- =?utf-8?B?MmpDdVU3cTBKc3ZqZjh5QTQyVjQ4Q0xtS1ZsWE9jcTR6alNaeFhqVmpjM2s0?=
- =?utf-8?B?QXp4T2FoMHJKdVpWQmtIKzdnWkdJN3NXU2NvRFBHK2FQTUxhTk41TVJ3S09x?=
- =?utf-8?B?VFQvamJnY3BaMmh4K2F1NVJpL2FUYVVMZURvb0d6Nit1RWZIN1VuU25ybHV1?=
- =?utf-8?B?TTdsdHpwYm1GV0VaMkRRNUg5anhEcElCOEIzUmJVZzhDT1FSRCt1dEUxN2Jm?=
- =?utf-8?B?N1prY3RPOWdDeTRQWjVEK3VvRU40d0RSZHZ6ci9ic0s1R1ZFK0V5WXhDcWt1?=
- =?utf-8?B?SDg0Y3JoblNWR0xibWIrc1J4RTBJWklkSVV1d2JaRXFLNXUxeDVWVTJ0VHRG?=
- =?utf-8?B?RWNtM1k1SzZlNWR6ZGtvSDlMZ01FM3lDZndyYzZOL09ibkJuYjZ4V2NwWHEz?=
- =?utf-8?B?eTdqQzFLL3FZQU9ENkNZZHM2VkZUckpuaE9OZEI3aEd6YUZrcklIazc3N2ZB?=
- =?utf-8?B?TEZna2lvSEh6cmRjdGVpTlFYanNyNkRrZVlVNDNiTm95WFdJcU5SV1B1dXJs?=
- =?utf-8?B?d0dtV291bkY3MnNUQzhaQXNuVHVsMktJc2dac2lHM25SeHhLUVF1VGtvSmFF?=
- =?utf-8?B?WkVCbEVGY2d5Q2hpWWg3V1BTUzFaRkZRS0ZpMGFUVHdKUUtTNlpkUUtHejhM?=
- =?utf-8?B?ZkpUTy9nQnFBK0tXRGhNNkp0RGNJdEUzZnNQS01Na0EwT0dCK0k4Y1RJT0JP?=
- =?utf-8?B?NVlmaXNqcW5RKzQyYnl6dnB0UWFkY0ViU2YzWDl5QUpGbWthVkdHNlRBcTJ2?=
- =?utf-8?B?bTZaVHhJWjRvMEJuTC9Ca3ZLTGtab2I3Q09zYndyYis2aVEzVUkvLy9WcXZM?=
- =?utf-8?B?dEtMamhCZTE2R2ZHN1ZJdkIySWI2TGhqdjR1TkVMVHpNNHExRjBjZ3hWWnNT?=
- =?utf-8?B?MTN3WkJBSFJOZjdDMU4yck9SellXOGcxbkhQMGJJTytRVnRCZWIxZDRIWjly?=
- =?utf-8?B?THoxNnEwYzNtak5mS1h3anBWTDBlUGl4STI1ODVTeWhVTU5NNDVlYzFHOHdw?=
- =?utf-8?B?TVVkcjIrMC9kcDNlbml2QWZSZGw4RGlPdUVabHJ3eHFQSkFyY3pzT0sxT3NM?=
- =?utf-8?B?N2hkamxPMEFLY2p2c1M5RnhjRC9vQ0NBVERzeVk5anlWOWxHWlhqVU9WRk5S?=
- =?utf-8?B?OWJxWUNqcHVOVFJMejFGajIvNWM2ME9NcEhRbTR1eHhSUFU5ZkxWTlV2Rjd0?=
- =?utf-8?B?dzFJOWFjTlh1ZkVKblcyZzhTbjZZQzVjVlRzdVRVdmZvTEpXOU1FTGtsVldm?=
- =?utf-8?B?UElFdml5Vk5tZ2RTMTBDcjFmbUY2ejczQ2FFN1YzKzhoMmlabzFkZWRnTzYy?=
- =?utf-8?B?N1dKZTEyNjdGNFNGd0wxenZkU3BJbS8wL293clJNcTJNVENMczhIY3F0NGJB?=
- =?utf-8?B?ckJBK0thVUNWcHJycFZQK0h4MXgwRUJ6cUxqOWhuNHkyeWJPVVV1VldjMmsv?=
- =?utf-8?B?S3QwNHBiYmFDRkJ3UDNPV3RBcEplNytZYXhmSW5xaloxa29BaTNmbDhNWXJK?=
- =?utf-8?B?U2hGQlI4RkVhTXlQcU5FcSsvQkZXUDhKc0FIeDdVWTdEM3lxUTdPdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad641b65-13ac-4e20-ff03-08de8033d83b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:35:30.3123
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +bM77y3f9CoNDFcYAIxYdf8C7FFQUpiVq5MpnRSlXk5bfb+9/XJfLRb3/c09m6ZAtvlq28x6q+4KWrIXZKjKTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11271
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 14/15] mm/kasan: add document into
+ kernel-parameters.txt
+To: Baoquan He <bhe@redhat.com>, kasan-dev@googlegroups.com
+Cc: linux-mm@kvack.org, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
+ glider@google.com, dvyukov@google.com, linux-kernel@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, chris@zankel.net,
+ jcmvbkbc@gmail.com, linux-s390@vger.kernel.org, hca@linux.ibm.com
+References: <20260225081412.76502-1-bhe@redhat.com>
+ <20260225081412.76502-15-bhe@redhat.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260225081412.76502-15-bhe@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_055141_008888_560161EF 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260312_055346_952055_BADCE7BA 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,60 +107,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds remoteproc support for the i.MX94 family, including the
-CM70, CM71, and CM33S cores, and introduces a new device‑tree property to
-correctly derive the hardware reset vector for Cortex‑M processors whose
-ELF entry point does not directly correspond to the actual reset address.
+Hi Baoquan,
 
-Background:
-Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
-table. While ELF images embed the entry point (e_entry), this value is
-not always aligned to the hardware reset address. On platforms such as
-i.MX94 CM33S, masking is required to compute the correct reset vector
-address before programming the SoC reset registers.
+On 2026-02-25 2:14 AM, Baoquan He wrote:
+> And also remove the relevant description in dev-tools/kasan.rst
+> which is hw_tags specificially.
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>  Documentation/admin-guide/kernel-parameters.txt | 4 ++++
+>  Documentation/dev-tools/kasan.rst               | 2 --
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index cb850e5290c2..e0115fad9e60 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2899,6 +2899,10 @@ Kernel parameters
+>  	js=		[HW,JOY] Analog joystick
+>  			See Documentation/input/joydev/joystick.rst.
+>  
+> +	kasan=		[KNL] controls whether KASAN is enabled.
+> +			Format: off | on
+> +			default: on
+> +
+>  	kasan_multi_shot
+>  			[KNL] Enforce KASAN (Kernel Address Sanitizer) to print
+>  			report on every invalid memory access. Without this
+> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
+> index a034700da7c4..eaae83fcb5e4 100644
+> --- a/Documentation/dev-tools/kasan.rst
+> +++ b/Documentation/dev-tools/kasan.rst
+> @@ -129,8 +129,6 @@ Hardware Tag-Based KASAN mode is intended for use in production as a security
+>  mitigation. Therefore, it supports additional boot parameters that allow
+>  disabling KASAN altogether or controlling its features:
 
-Similarly, on i.MX95, the existing implementation always programs a reset
-vector of 0x0, which only works when executing entirely from TCM. When
-firmware is loaded into DDR, the driver must pass the correct reset vector
-to the SM CPU/LMM interfaces.
+The sentence above is now incorrect as well. I would recommend documenting the
+parameter earlier in the "Boot parameters" section instead of removing it from
+this document entirely.
 
-This series addresses these issues and provides the necessary DT bindings
-and driver support.
+Regards,
+Samuel
 
-Summary of patches:
-[1]dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-Adds a new DT property allowing SoCs to specify a mask for deriving the
-hardware reset vector from the ELF entry point.
-
-[2]dt-bindings: remoteproc: imx-rproc: Support i.MX9[4,52]
-Adds compatible strings for i.MX94 CM70, CM71, and CM33S processors.
-
-[3]remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM reset vector
-Ensures the correct reset vector is passed to SM APIs by introducing a
-driver‑level helper (imx_rproc_get_boot_addr()) that applies the
-reset‑vector mask.
-
-[4]remoteproc: imx_rproc: Add support for i.MX94 remoteproc
-Adds address translation tables and configuration data for CM70, CM71,
-and CM33S, enabling full remoteproc operation on i.MX94.
-
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
-Peng Fan (4):
-      dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-      dt-bindings: remoteproc: imx-rproc: Support i.MX94
-      remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM reset vector
-      remoteproc: imx_rproc: Add support for i.MX94
-
- .../bindings/remoteproc/fsl,imx-rproc.yaml         |  9 +++
- drivers/remoteproc/imx_rproc.c                     | 85 +++++++++++++++++++++-
- 2 files changed, 91 insertions(+), 3 deletions(-)
----
-base-commit: 7109a2155340cc7b21f27e832ece6df03592f2e8
-change-id: 20260311-imx943-rproc-2050e00b65f7
-
-Best regards,
--- 
-Peng Fan <peng.fan@nxp.com>
+>  
+> -- ``kasan=off`` or ``=on`` controls whether KASAN is enabled (default: ``on``).
+> -
+>  - ``kasan.mode=sync``, ``=async`` or ``=asymm`` controls whether KASAN
+>    is configured in synchronous, asynchronous or asymmetric mode of
+>    execution (default: ``sync``).
 
 
