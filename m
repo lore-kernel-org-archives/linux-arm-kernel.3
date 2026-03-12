@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D98106703C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BC7106703B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUnAL/HDMFp5BhdQcFLL0KxkT1Hbv3v6h13dMnx62Js=; b=PCz/qFffSOR5bv9xwaxeYojh1y
-	BVEeRD3s2AQWMQH4Y3IVSOedo3eFoI3pr+Dih9hkXj3qNcjqJMShNb7UtzQQ/KpgphpT3m5+VDDt3
-	CC5jVW5WVzGAPhc79JRcw3FGYEG8C2jzgAlS7YOvF6EpFcxr0Ua33ahb6QnclkIXeHzhywHHwgYwh
-	PGKGyc04+qvajnsspZMstfCajmO9Q/3rJ6HqogdCTDIu5oW8Q+SV6/R+6169POQ1wr22iweECis6j
-	7KvY8rLyneacFlI1Jx3C7JwtKt/Dz6HhMZt0ME0mR/H4nTYl+EtcUno+Cbr6J8nGs/4N8LLxRA8UO
-	mPV5sjtA==;
+	bh=K6n4CvkDQwfZuGO8lkDKj+djG8yXoligbc/BFyaKYgM=; b=qGM9+gviwVrUE00puxM3tT2+hS
+	yBTfa/KHZCLnlqCKT1VJ2XEtZ3l21hZ44eEMYcD7eJVBncy7AXvOZUZLR4AQ9M4INuzG7TzV4st3L
+	hkS91mXVDDFLNbY8Yc+8zFMr8Ztp5uNMRWXErrEDHUkbJnoGzIUyeyrPngvnCX02Q8mIFkIe1hsGb
+	h1TAFY8Xg+juZ3PWWby84LIcmW9t4KPEKJI/avgYcSPqo99PFLtIUsgz3MT2yfY01u2PcgkPEOmsF
+	77djM27gtcR6AckGqHbGnytwIXpz7bKpanpqGcOKvBOkeO9jZ/AXhnIpvNR0r+f4sMOPL0yT2koPU
+	9K48rOzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0h1u-0000000EDCp-2MP2;
-	Thu, 12 Mar 2026 14:28:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0h6C-0000000EDU5-15Wt;
+	Thu, 12 Mar 2026 14:33:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0h1t-0000000EDCM-2Xbv
+	id 1w0h69-0000000EDTV-3djd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:28:49 +0000
+	Thu, 12 Mar 2026 14:33:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 83D0561335;
-	Thu, 12 Mar 2026 14:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC0C1C19424;
-	Thu, 12 Mar 2026 14:28:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CEC9401FA;
+	Thu, 12 Mar 2026 14:33:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3179C4CEF7;
+	Thu, 12 Mar 2026 14:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773325728;
-	bh=0ml+Q98EptT34egOhj01zpNadcyKErIvcXbVRXe78rw=;
+	s=k20201202; t=1773325993;
+	bh=hAqiSIPHV6ZBtT4ry40ie+ToTsclopBhbBmC3I37NGI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F/R2MqkxRaFGdDrypldqAySx0xX7uGfp8X8A7zHUS7U85/Cx368kUAYo/jEGxsO3s
-	 4xDzMTHXsUB764cDYP2Px27NmK7zmVOFF4hci1QSAX7cVgxhQUa8uIi4ZP1YduRsLJ
-	 R6FnsuUQDBONV0meUbOY1pV1okHzQK5HO225St/TSAOXKm/IHqkX6TeY99MG+ECU6t
-	 lz0F0dEh59g/fFpWOBzeyeRIxEnR+VeRnq+iAfzggGeTxVJSo2QrE7RdwfCxtgHBrl
-	 pkwhtEE0SbG6GNreY8KwNbFKA/o6AfDippUvoDhEKyURQ8exW+YcSVDgbvMGiO+4u5
-	 2u5CqUd9/0Uiw==
-Date: Thu, 12 Mar 2026 14:28:43 +0000
-From: Will Deacon <will@kernel.org>
-To: "feng.zhou" <realsummitzhou@gmail.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	suzuki.poulose@arm.com, robin.murphy@arm.com
-Subject: Re: [QUESTION] ARM DSU PMU: 32-bit counter assumption and handling
- of 64-bit event counters
-Message-ID: <abLNm2gs8qszYVWK@willie-the-truck>
-References: <20260206035138.1377-1-realsummitzhou@gmail.com>
+	b=RcSOu1SnEJQJuIIa4HOnXsEmrDTtj2Eq/Y4YzU1yzmHbRx1bJL+NCNR6Tl7twkZkw
+	 hh0ItLcS3/IYKU6IBAN/XGDH9fySq3ULcSBAcDegHRpIatPOWR97xugE49nDTs/9mv
+	 uMvoHa0lUo9mFVyY76byD8zxQpBAlEElnQPpsmZMqTTH/453cCqpN7eJXHiA7qh6sb
+	 pt3CbCSSosij9eVHRMG1pLnFJZTn8BjycpF4y6iBmnBSTtIAQr3NBvUHdkAftgpRtQ
+	 MrJ/VgJd7DE6hJsy6Z26G2h389OmPQrjiutt9vdJy3gANgIMG6PLd8SvoCUk5+1DRT
+	 xjluM+5aId5hw==
+Date: Thu, 12 Mar 2026 14:33:05 +0000
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+Subject: Re: [PATCH v3 7/7] ASoC: tas2770: expose SDOUT bus keeper via
+ set_tdm_idle
+Message-ID: <6a3cc78a-77bc-473e-bfbf-caffbe8f25bb@sirena.org.uk>
+References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+ <20260301-tdm-idle-slots-v3-7-c6ac5351489a@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IXXiSMaL5DxziIGM"
 Content-Disposition: inline
-In-Reply-To: <20260206035138.1377-1-realsummitzhou@gmail.com>
+In-Reply-To: <20260301-tdm-idle-slots-v3-7-c6ac5351489a@gmail.com>
+X-Cookie: I feel better about world problems now!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_073313_954668_2FAC521E 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,56 +87,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Robin and Suzuki]
 
-On Fri, Feb 06, 2026 at 11:51:38AM +0800, feng.zhou wrote:
-> Hi Will and Mark,
-> 
-> I have a question regarding the ARM DSU PMU driver implementation in
-> drivers/perf/arm_dsu_pmu.c, specifically about the counter width
-> assumptions.
-> 
-> Current Implementation:
-> ======================
-> The driver currently assumes all event counters are 32-bit wide, with
-> only the cycle counter being 64-bit (lines 69-71):
-> 
-> /* All event counters are 32bit, with a 64bit Cycle counter */
-> #define DSU_PMU_COUNTER_WIDTH(idx)	\
-> 	(((idx) == DSU_PMU_IDX_CYCLE_COUNTER) ? 64 : 32)
-> 
-> This assumption is used throughout the code for handling counter
-> overflow and calculating deltas (e.g., line 344 in dsu_pmu_event_update).
-> 
-> Issue Observed:
-> ===============
-> I've encountered overflow issues when using perf tools on newer ARM CPUs
-> where the event counters appear to be 64-bit rather than 32-bit. The
-> current implementation causes incorrect event counting and potential data
-> loss due to premature overflow handling based on the 32-bit mask.
+--IXXiSMaL5DxziIGM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I suspect either the hardware or the architecture have evolved since the
-driver was initially written, possibly in a non-backwards-compatible way
-which is why you see problems.
+On Sun, Mar 01, 2026 at 06:05:26PM +1000, James Calligeros wrote:
 
-> Questions:
-> ==========
-> 1. Is the 32-bit event counter assumption based on the ARMv8 PMU
->    specification or DSU-specific hardware documentation?
-> 
-> 2. Are there known ARM CPU implementations where DSU event counters
->    exceed 32 bits? If so, how should the driver handle this variation?
-> 
-> 3. Would it be appropriate to detect the actual counter width at runtime
->    (similar to how num_counters is probed in dsu_pmu_probe_pmu), or
->    should this be handled through device tree / ACPI properties?
-> 
-> 4. Should there be a mechanism to query the hardware for the actual
->    counter width to ensure compatibility with future implementations?
-> 
-> Thank you for your time and any insights you can provide.
+> +static int tas2770_set_dai_tdm_idle(struct snd_soc_dai *dai,
+> +				    unsigned int tx_mask,
+> +				    unsigned int rx_mask,
+> +				    int tx_mode, int rx_mode)
+> +{
 
-Suzuki and Robin should be able to help with these...
+> +	switch (tx_mode) {
+> +	case SND_SOC_DAI_TDM_IDLE_PULLDOWN:
+> +		ret = snd_soc_component_update_bits(component, TAS2770_DIN_PD,
+> +						    TAS2770_DIN_PD_SDOUT,
+> +						    TAS2770_DIN_PD_SDOUT);
+> +		if (ret)
+> +			return ret;
+> +
+> +		break;
 
-Will
+This and all the other cases only updates the bits it's specifically
+setting for the mode, so _ZERO and _HIZ don't update the pull and this
+doesn't update the _KEEP/_FILL settings.  Not sure how often anyone is
+going to change this at runtime though.
+
+> +	case SND_SOC_DAI_TDM_IDLE_OFF:
+> +		ret = snd_soc_component_update_bits(component, TAS2770_DIN_PD,
+> +						    TAS2770_DIN_PD_SDOUT, 0);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = snd_soc_component_update_bits(component, TAS2770_TDM_CFG_REG4,
+> +						    TAS2770_TDM_CFG_REG4_TX_KEEPER, 0);
+
+Actually this does _KEEP but not _FILL.
+
+--IXXiSMaL5DxziIGM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmyzqEACgkQJNaLcl1U
+h9C9VQf/fZCHVpmQ9kpNtJbiGpHrvPe+rIlhBNyQU3d3Ae6pe9l6B5REJOofNuXd
+93N4y6V0PdC8ua1LFqj7YsQXCNcvEFBXhRS+NY8K6+6QwqG4umZ1PwI8G7zMWw/i
+kkboFELiFULhwmm1iTWox0SYqLnUTY0dwyTHnli0mTLApQA4fiaHYFFSp2uWl4WY
+rbxnjqQbQtRVi08wPAUU/QoSAw42L72c3DZBhug+eWONv1u54O4G0ssZVc9SqWQ5
+xAa9PzAWPRasGfrSzPuUHBh4AT29P1tI3Z+a1eRkiTL8e8zG9qW9E8iRTU3Cnfri
+7ebNB/ybAN6A+DlJmlSnVXW1zzIaog==
+=mZC6
+-----END PGP SIGNATURE-----
+
+--IXXiSMaL5DxziIGM--
 
