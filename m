@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D23DFED2E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299E9FED2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFt0wV0dGz06pYWhrhL9XwF8NljX3erbOsb9IGlzi/s=; b=G9kbgZYFyV/2ttHBPFVOR7+Oui
-	6ORnkhF45xUyVlKyY0oXcAPxWpCNAHEa0vJ9ZKbYq7Nd9QZXs1c7Bjp3G0P9R9d8yhyi71TahmFHr
-	54zRkWQVWziG/axjvKKHevPZ7cjxbz53FVJCswcQxKZii3+x+41cMKOmtFZ7tGSUMn/AAODiSrkh9
-	Vux502pvdZOZD2/vbsZZgZuGLJxuJp/wCWr2H5yHTwPOi/n5gZJG0dmiRtMdk3QaPDPvfHwilTQdL
-	fOQUd76OnZaVeTZoJEzUNlKAPnM2vtFD+icsN/7MVlUKYGegyw8Ju/sbfbEn0vjophe06EQ2H7crh
-	rjWDFzyw==;
+	bh=YKwzMF4Jues8v9L8adOzb6dNb4/nlEvbqWvzaKf2xQ4=; b=s24MJOQpwjXrZiIrBSfEMaOGPT
+	pOQ9GOLYhY6z1Fmf/dX2u4ZxcBghYAcGOt1OI1cMjW+w3VfSWd7s07X2fho9h8bNHPp4mO2EkVFFt
+	o19YlASZHgu/IJ1NogmNOSFu2p7hW+B4FRRGxPw1uinHQ/YVf6lqGMYX+2f1BudhGkoLQzlYldpmG
+	MnbMrzccRLrr32fmKWRakR7tRDLjWxBk+XyIFmHWZUTfJ2YYl6DlvPJ7JZ96peHYjrbESwRUowhag
+	C970Xe9jvrMSZ5l5MzAFTnleeW3g5ba9sAAq0OeYjDMkZdmLOwYWH+BR+qmUylfFTho56l2leBUnY
+	ma4kMS7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b0B-0000000DZSb-1Nmm;
-	Thu, 12 Mar 2026 08:02:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0b0E-0000000DZUT-0m9k;
+	Thu, 12 Mar 2026 08:02:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0b07-0000000DZQR-2Gfw
+	id 1w0b0C-0000000DZTF-30yY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:02:37 +0000
+	Thu, 12 Mar 2026 08:02:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 31CE544332;
+	by tor.source.kernel.org (Postfix) with ESMTP id EE1F36057A;
+	Thu, 12 Mar 2026 08:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1EEBC116C6;
 	Thu, 12 Mar 2026 08:02:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A27E6C2BCB0;
-	Thu, 12 Mar 2026 08:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773302555;
-	bh=za/IJI/M4boNse0krvOPCedzdOn+suKa0F46ZZO+gZg=;
+	s=k20201202; t=1773302559;
+	bh=iT902Kks+8Y5KbHMSujhzXpOT2Flu5+M48nmim2dfB8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RI+nA7ukMybNnkm3lH6oVEgqiYcpyFBnzTFL2NOQgUdbOm74tb7wEhZUC/D/XXy4r
-	 +4cOwBl14c/GXbc4AtgSZpsLAhoEMvkVKLvlFz9ROvUyWhAaSnUhdhHQXcYjq7M78W
-	 Av0vAr7sM9UvyMb9lFS79sYWoDMUd6NLqRoa+YyjVuf+jMmVGR1ojevgW5QXjSRNrG
-	 CbbiQOggMSfgBdEaMxXQq6/uPscz4Ad8mxTS/+5+dYVemLKkDPhXZdq7WIcYXPYw4D
-	 dblKI6MXASVTOqJvhlmyOwyP2MQkwDstJZm4wvBSzxNHs3Oqf7H76ozgOHcPIrafMr
-	 u0jbUW/HX0chw==
+	b=hWMkA/Ea6OIu1WDUL3C9QpZJXw7J8zW7YEFh882hbWj+cjUngEws4TWpm7wBMVZXy
+	 gQlSXscA3R/6QHuPORiOV9FeOsXJdEip7kIYZ5KTHHP4mX6hTcev+KRZvdIboruDLI
+	 MAw0Wf2LYk0ysQm2nhKhA+EIU4tZSBJaDvMRkl4MoXgb+/gpK64cvrkod9868J4YSq
+	 wQ1c3msyKg2GKa6grQSTN9b1t5KC8c4y5ZeDGLHwMLFB4F/6rOIkCZ30IokcrUgkus
+	 lc/jd7UglBbDtzg/A4Fo3Z5/xlXPBav4wkK5ok828dr2zUrFIDksEEVv8m+xnhLd00
+	 zOMp9nNLqF4pQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
+	Lukas Wunner <lukas@wunner.de>,
 	Dan Williams <dan.j.williams@intel.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [RFC PATCH v3 06/10] coco: host: arm64: Instantiate RMM pdev during device connect
-Date: Thu, 12 Mar 2026 13:31:25 +0530
-Message-ID: <20260312080129.3483585-7-aneesh.kumar@kernel.org>
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v3 07/10] X.509: Make certificate parser public
+Date: Thu, 12 Mar 2026 13:31:26 +0530
+Message-ID: <20260312080129.3483585-8-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260312080129.3483585-1-aneesh.kumar@kernel.org>
 References: <20260312080129.3483585-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_010235_710955_B0FD3208 
-X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,83 +75,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An RMM pdev object represents a communication channel between the RMM
-and a physical device, for example a PCIe device. With the required
-helpers now in place, update the connect callback to create an RMM pdev
-object.
+From: Lukas Wunner <lukas@wunner.de>
 
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Alexey Kardashevskiy <aik@amd.com>
-Cc: Samuel Ortiz <sameo@rivosinc.com>
-Cc: Xu Yilun <yilun.xu@linux.intel.com>
-Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+The upcoming support for PCI device authentication with CMA-SPDM
+(PCIe r6.1 sec 6.31) requires validating the Subject Alternative Name
+in X.509 certificates.
+
+High-level functions for X.509 parsing such as key_create_or_update()
+throw away the internal, low-level struct x509_certificate after
+extracting the struct public_key and public_key_signature from it.
+The Subject Alternative Name is thus inaccessible when using those
+functions.
+
+Afford CMA-SPDM access to the Subject Alternative Name by making struct
+x509_certificate public, together with the functions for parsing an
+X.509 certificate into such a struct and freeing such a struct.
+
+The private header file x509_parser.h previously included <linux/time.h>
+for the definition of time64_t.  That definition was since moved to
+<linux/time64.h> by commit 361a3bf00582 ("time64: Add time64.h header
+and define struct timespec64"), so adjust the #include directive as part
+of the move to the new public header file <keys/x509-parser.h>.
+
+No functional change intended.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/virt/coco/arm-cca-host/arm-cca.c | 23 +++++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+ crypto/asymmetric_keys/x509_parser.h | 42 +--------------------
+ include/keys/x509-parser.h           | 55 ++++++++++++++++++++++++++++
+ 2 files changed, 56 insertions(+), 41 deletions(-)
+ create mode 100644 include/keys/x509-parser.h
 
-diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
-index 4ed5e8ec9e91..987c1be566ba 100644
---- a/drivers/virt/coco/arm-cca-host/arm-cca.c
-+++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
-@@ -67,8 +67,8 @@ static void cca_tsm_pci_remove(struct pci_tsm *tsm)
- 	}
- }
+diff --git a/crypto/asymmetric_keys/x509_parser.h b/crypto/asymmetric_keys/x509_parser.h
+index b7aeebdddb36..39f1521b773d 100644
+--- a/crypto/asymmetric_keys/x509_parser.h
++++ b/crypto/asymmetric_keys/x509_parser.h
+@@ -5,51 +5,11 @@
+  * Written by David Howells (dhowells@redhat.com)
+  */
  
--static __maybe_unused int init_dev_communication_buffers(struct pci_dev *pdev,
--							 struct cca_host_comm_data *comm_data)
-+static int init_dev_communication_buffers(struct pci_dev *pdev,
-+					  struct cca_host_comm_data *comm_data)
- {
- 	int ret = -ENOMEM;
+-#include <linux/cleanup.h>
+-#include <linux/time.h>
+-#include <crypto/public_key.h>
+-#include <keys/asymmetric-type.h>
+-#include <crypto/sha2.h>
+-
+-struct x509_certificate {
+-	struct x509_certificate *next;
+-	struct x509_certificate *signer;	/* Certificate that signed this one */
+-	struct public_key *pub;			/* Public key details */
+-	struct public_key_signature *sig;	/* Signature parameters */
+-	u8		sha256[SHA256_DIGEST_SIZE]; /* Hash for blacklist purposes */
+-	char		*issuer;		/* Name of certificate issuer */
+-	char		*subject;		/* Name of certificate subject */
+-	struct asymmetric_key_id *id;		/* Issuer + Serial number */
+-	struct asymmetric_key_id *skid;		/* Subject + subjectKeyId (optional) */
+-	time64_t	valid_from;
+-	time64_t	valid_to;
+-	const void	*tbs;			/* Signed data */
+-	unsigned	tbs_size;		/* Size of signed data */
+-	unsigned	raw_sig_size;		/* Size of signature */
+-	const void	*raw_sig;		/* Signature data */
+-	const void	*raw_serial;		/* Raw serial number in ASN.1 */
+-	unsigned	raw_serial_size;
+-	unsigned	raw_issuer_size;
+-	const void	*raw_issuer;		/* Raw issuer name in ASN.1 */
+-	const void	*raw_subject;		/* Raw subject name in ASN.1 */
+-	unsigned	raw_subject_size;
+-	unsigned	raw_skid_size;
+-	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
+-	unsigned	index;
+-	bool		seen;			/* Infinite recursion prevention */
+-	bool		verified;
+-	bool		self_signed;		/* T if self-signed (check unsupported_sig too) */
+-	bool		unsupported_sig;	/* T if signature uses unsupported crypto */
+-	bool		blacklisted;
+-};
++#include <keys/x509-parser.h>
  
-@@ -172,6 +172,16 @@ static int cca_tsm_connect(struct pci_dev *pdev)
- 	if (rc)
- 		goto err_tsm;
- 
-+	rc = init_dev_communication_buffers(pdev, &pf0_dsc->comm_data);
-+	if (rc)
-+		goto err_comm_buff;
-+	rc = cca_pdev_create(pdev);
-+	if (rc)
-+		goto err_pdev_create;
+ /*
+  * x509_cert_parser.c
+  */
+-extern void x509_free_certificate(struct x509_certificate *cert);
+-DEFINE_FREE(x509_free_certificate, struct x509_certificate *,
+-	    if (!IS_ERR(_T)) x509_free_certificate(_T))
+-extern struct x509_certificate *x509_cert_parse(const void *data, size_t datalen);
+ extern int x509_decode_time(time64_t *_t,  size_t hdrlen,
+ 			    unsigned char tag,
+ 			    const unsigned char *value, size_t vlen);
+diff --git a/include/keys/x509-parser.h b/include/keys/x509-parser.h
+new file mode 100644
+index 000000000000..8b68e720693a
+--- /dev/null
++++ b/include/keys/x509-parser.h
+@@ -0,0 +1,55 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/* X.509 certificate parser
++ *
++ * Copyright (C) 2012 Red Hat, Inc. All Rights Reserved.
++ * Written by David Howells (dhowells@redhat.com)
++ */
 +
-+	rc = cca_pdev_ide_setup(pdev);
-+	if (rc)
-+		goto err_ide_setup;
- 	/*
- 	 * Once ide is setup, enable the stream at the endpoint
- 	 * Root port will be done by RMM
-@@ -179,6 +189,12 @@ static int cca_tsm_connect(struct pci_dev *pdev)
- 	pci_ide_stream_enable(pdev, ide);
- 	return 0;
- 
-+err_ide_setup:
-+	cca_pdev_stop_and_destroy(pdev);
-+err_pdev_create:
-+	free_dev_communication_buffers(&pf0_dsc->comm_data);
-+err_comm_buff:
-+	tsm_ide_stream_unregister(ide);
- err_tsm:
- 	pci_ide_stream_teardown(rp, ide);
- 	pci_ide_stream_teardown(pdev, ide);
-@@ -205,6 +221,9 @@ static void cca_tsm_disconnect(struct pci_dev *pdev)
- 	ide = pf0_dsc->sel_stream;
- 	stream_id = ide->stream_id;
- 
-+	cca_pdev_stop_and_destroy(pdev);
-+	free_dev_communication_buffers(&pf0_dsc->comm_data);
++#ifndef _KEYS_X509_PARSER_H
++#define _KEYS_X509_PARSER_H
 +
- 	pci_ide_stream_release(ide);
- 	pf0_dsc->sel_stream = NULL;
- 	clear_bit(stream_id, cca_stream_ids);
++#include <linux/cleanup.h>
++#include <linux/time.h>
++#include <crypto/public_key.h>
++#include <keys/asymmetric-type.h>
++#include <crypto/sha2.h>
++
++struct x509_certificate {
++	struct x509_certificate *next;
++	struct x509_certificate *signer;	/* Certificate that signed this one */
++	struct public_key *pub;			/* Public key details */
++	struct public_key_signature *sig;	/* Signature parameters */
++	u8		sha256[SHA256_DIGEST_SIZE]; /* Hash for blacklist purposes */
++	char		*issuer;		/* Name of certificate issuer */
++	char		*subject;		/* Name of certificate subject */
++	struct asymmetric_key_id *id;		/* Issuer + Serial number */
++	struct asymmetric_key_id *skid;		/* Subject + subjectKeyId (optional) */
++	time64_t	valid_from;
++	time64_t	valid_to;
++	const void	*tbs;			/* Signed data */
++	unsigned	tbs_size;		/* Size of signed data */
++	unsigned	raw_sig_size;		/* Size of signature */
++	const void	*raw_sig;		/* Signature data */
++	const void	*raw_serial;		/* Raw serial number in ASN.1 */
++	unsigned	raw_serial_size;
++	unsigned	raw_issuer_size;
++	const void	*raw_issuer;		/* Raw issuer name in ASN.1 */
++	const void	*raw_subject;		/* Raw subject name in ASN.1 */
++	unsigned	raw_subject_size;
++	unsigned	raw_skid_size;
++	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
++	unsigned	index;
++	bool		seen;			/* Infinite recursion prevention */
++	bool		verified;
++	bool		self_signed;		/* T if self-signed (check unsupported_sig too) */
++	bool		unsupported_sig;	/* T if signature uses unsupported crypto */
++	bool		blacklisted;
++};
++
++struct x509_certificate *x509_cert_parse(const void *data, size_t datalen);
++void x509_free_certificate(struct x509_certificate *cert);
++
++DEFINE_FREE(x509_free_certificate, struct x509_certificate *,
++	    if (!IS_ERR(_T)) x509_free_certificate(_T))
++
++#endif /* _KEYS_X509_PARSER_H */
 -- 
 2.43.0
 
