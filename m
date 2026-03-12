@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D34106ACF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8D0106ACF1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=BOQPFUygErdEhR+VhLQ8d5SqWsIL2z8SybdB1Lqp5qg=; b=UEOiKj46ya44A+
-	Fb1w2ttqUH0u8zuzhzzu8d09TJ2B6W/Ea99taAeP/IwtLMN840kZS2rAIHBfD1m25bhvEOq/Y6FDA
-	/Oh7T9zv0HPNHIXB9SNkRoEz66uf1h+liPh5kYeZPLOPvo19gAq20wGl9ID/z55H900GI2TAqz9dY
-	ccQc0QAAhYdnGvISldw1SCvTn9RBLPk2ydqRBzGlY5BNa5RIkS/g5imMLHhUcbsrUmnjs6Sm3P9Hg
-	VVSrZ4Xa8wP0je3+x3Rism0TCUKhQcdLRSOqJD+jhsSOt1K/FV5wOPZp4mNuT9gyKBXc+3QZENG54
-	l3c5kmGcVIqUZ7uZA8Dw==;
+	List-Owner; bh=SmkGviBwoE6ujafdNpWKA+3+jPQC/zPRTGdWWZWDMA0=; b=K9VIUSRBy9+ge3
+	pqLZ1MUl/9Z9Z9a2QUvblNsOJmvKbJSa5gc6hbrk9MQf6zM/BJl0YjIU4kUEm0ZOpoVtQMVvcjGSn
+	YgM4CuaBugTHGMPEHA1sA9eox4MqSemiOxTz4AHLi6lUwnRMdgqGrkk06at0HqNLKAbTYY975Qyw/
+	2/M8SNxnK/YeXzUylLfuCoTeCk25ZPPf6xWBPyi1xd4cWx4cblVW4kzVtEfBBwZlmHVb+8l1GQekO
+	OKSYdj6awTnr/FR4cShqpgyZfHLCkoza/+wufSAb8/rhaYDV+jBFLE1BlP4n+rmlfriXiWxubpPhh
+	2cx8bCQfSK43Pn6cgnCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0of3-0000000Ff0x-2oCb;
-	Thu, 12 Mar 2026 22:37:45 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1w0ofC-0000000Ff4P-27O5;
+	Thu, 12 Mar 2026 22:37:54 +0000
+Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0of0-0000000Ff0H-434Z
+	id 1w0of9-0000000Ff2c-1Gfp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 22:37:44 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-67bca522419so6589931eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 15:37:42 -0700 (PDT)
+	Thu, 12 Mar 2026 22:37:53 +0000
+Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-4171d16aad4so13520749fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 15:37:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773355061; x=1773959861; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773355069; x=1773959869; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=BOQPFUygErdEhR+VhLQ8d5SqWsIL2z8SybdB1Lqp5qg=;
-        b=kL29DiBS321wgcrvoovSbdQhtsaO9beV7XMydbq3Sk0IyIHyJMbtJX0b6ut7fxNSWx
-         E+Y5a9NToVRFbpyD3wj1lj/tjmU1AjVqySuXBka1yIUIO4TsK0Alq/jcvx3TcmgtI9bV
-         3Q4ATP4wus2VPtqHNrrmiIoYToRa3FyTNJnNVKlAl5Q9SrR3BIP+nZYARn+fQLI698Jq
-         88NeyubUtKS28CZnHWz4bBOxeuhktIpfgdnlW7lOVZvak3sxW2IEsHe52AQKd3E5h+hq
-         MD6wahOxfs1o7JOuqHUNqHaJ9NXdQ0baf/rWH0W3Ib/37qcDkrnFBHwvE+FiVs4KbcrC
-         m5Iw==
+        bh=SmkGviBwoE6ujafdNpWKA+3+jPQC/zPRTGdWWZWDMA0=;
+        b=f67syYUbGc5B/MVtdPewiwNgYIix/FHjMAL8wxSfWh4VrB9FyOya/jLriYcuCi4Z+k
+         0Z6It5iwglKXGqeQqvEArR5yRSkVJW584BPA1HgxnwH5tBCV1sTUJqt8Jh+lgUsEDE1l
+         8V57/SUkVecJzZvkSL1W1EVxyw2eKtnYxFRuXfBVR1go1CBiWs7dRoqkTPO4oGJKmm74
+         Ev2IsS6zxSSlnuQL/5wiSAy4PUUv6DTQINGztz5UjGeP2eC7Qjn12DXvSP8jEFfiFTRu
+         CG1I7q3qfKkpbVmIwdZXqw14ZjsQUulyqOqG1zuBSMDIFipdZaUBW8SsrOFKI5Wij9mU
+         YK1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773355061; x=1773959861;
+        d=1e100.net; s=20251104; t=1773355069; x=1773959869;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BOQPFUygErdEhR+VhLQ8d5SqWsIL2z8SybdB1Lqp5qg=;
-        b=GfEuBvpIBrV9N1GTquaDmHxfPk0qt9Skp2aoqEBo3+CM04haSwda+13PswuM3EI/K2
-         BmrLqxJsFXkwl/N0hECUgt39IG+uBC6/m7noQ8qUJW9LTJu9bmHY1JEXkpHg2E62gSb0
-         +jbYCXLLgJyHh4vBCNwTAv5FAwS1s8/lWiDUBSY2gqACNrmkqKI7R+ZO6Na2aCSk+GV2
-         qMI7G98NHCWFr1JaUmd2Ye1fgLQGiVj0bvmuD+mSBf2SjnN+fkpVx7Odlt4SryFnaDOp
-         e9DXOEer2639dfaMvhEC8QEf/H8Jbv7j8Jd+HcpQjExfU+8/EG4NveZSWPZFTj/mYdzF
-         +OvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWhmm2uILtk/nuz/z69MwyUE5LghnENKKvNu+Yblja29lGRyHxI4zwAmNIpRSmsoSsrg+wcmMftxSkIvAX8jsnE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgFr0CMUDqEykcRapQ3Ptimj850GUWoMCEjHq+C1tWbphwLz/Z
-	mwbewA5BMk4ViaUEJDg2YY5UXO1Yumt9WEbPwMqQMDcdoU9IVz5Kc+IvIG7kFum0ccezmBbGmkD
-	XG+127jE962yWz6lAwVLjqZI+aw==
-X-Received: from iobif40.prod.google.com ([2002:a05:6602:1e28:b0:960:f5a:2cea])
+        bh=SmkGviBwoE6ujafdNpWKA+3+jPQC/zPRTGdWWZWDMA0=;
+        b=EnSAiSWXTChy1TP1Kv81lwH768f/5yWwT459OlTD/bidS5yyV7tC986i9NSrA1yw8b
+         jR0t/6izVuzyCTarmTQkmiw2FJgDaQ/LVeC6L4ZXEFRpv+4ZIcbyt8iMyfNW9lhdXCXX
+         VH+3qQUJS+hsILzTby++xhPbntsTmxDEQZa0lQtLqvNhBwiTFvoz8/D2z38k+/+cvWO4
+         2brg5+83StgwxfU8/5vISMZ3C/fOOCDo4KVNag1AEXXJqtQgbpZ4sVP1cWZSnAuTNm+R
+         R6yyrgRDLg666b32TahT4gsg3U8QKzOl2fnqK5uao8qryruMUSYmuXOaykJej68BZN2E
+         UUyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnHWOKY7XTcjHVb6/RjNgPaGB8Ldl9tbaATNkRFJJ+pYx5dDUEznCQQOdnxnKP2L6abOsf0RaZGD7YP3qcchkR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWqvRHn3uih/0wXSxltKLTYYnZ5/096YNVTcVtDVV5IxoZwm4z
+	EYZHjfa4XK5Re6o0P0765E2kytlylO0Sko10boZdG7fe67Lf4u149RI17DSJsp+FT7TdADvYR7v
+	sAQGR8kjut/8bk8mTqhbFiiXC7A==
+X-Received: from ilmt3.prod.google.com ([2002:a05:6e02:103:b0:4f6:f377:166a])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:228b:b0:662:f8bd:fc9 with SMTP id 006d021491bc7-67bdaa2ddeamr684027eaf.41.1773355061163;
- Thu, 12 Mar 2026 15:37:41 -0700 (PDT)
-Date: Thu, 12 Mar 2026 22:37:40 +0000
-In-Reply-To: <a75924dd-0fa7-4574-837c-1778366195a6@linaro.org> (message from
- James Clark on Wed, 11 Mar 2026 17:45:55 +0000)
+ 2002:a05:6820:4df3:b0:677:48f4:3c66 with SMTP id 006d021491bc7-67bdaa927d6mr720368eaf.67.1773355068888;
+ Thu, 12 Mar 2026 15:37:48 -0700 (PDT)
+Date: Thu, 12 Mar 2026 22:37:47 +0000
+In-Reply-To: <47592c2d-2b12-4d28-ae5d-9d2f68ec7186@linaro.org> (message from
+ James Clark on Wed, 11 Mar 2026 11:59:31 +0000)
 Mime-Version: 1.0
-Message-ID: <gsntfr64oerv.fsf@coltonlewis-kvm.c.googlers.com>
+Message-ID: <gsnteclooero.fsf@coltonlewis-kvm.c.googlers.com>
 Subject: Re: [PATCH v6 04/19] perf: arm_pmuv3: Introduce method to partition
  the PMU
 From: Colton Lewis <coltonlewis@google.com>
@@ -78,8 +78,8 @@ Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_153743_022367_D8907212 
-X-CRM114-Status: GOOD (  31.13  )
+X-CRM114-CacheID: sfid-20260312_153752_021240_CF184F45 
+X-CRM114-Status: GOOD (  33.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -269,6 +269,16 @@ James Clark <james.clark@linaro.org> writes:
 >> + * clearing the guest-reserved counters from the counter mask.
 >> + *
 >> + * Return: 0 on success, -ERROR otherwise
+
+> Hi Colton,
+
+> Couple of minor nits. But this error return value isn't used by the  
+> caller.
+
+Fair point. I don't think the caller can do anything with it, so I'll
+make the function void (if it still exists in the same form with the
+dynamic reservation approach)
+
 >> + */
 >> +static int armv8pmu_partition(struct arm_pmu *pmu, int host_counters)
 >> +{
@@ -286,6 +296,13 @@ James Clark <james.clark@linaro.org> writes:
 >> +
 >> +	pmu->max_guest_counters = hpmn;
 >> +	armv8pmu_max_guest_counters = hpmn;
+
+> And this could be more like 'bool armv8pmu_partitioned'. PMUs will have
+> different numbers of counters so it's a bit misleading to have one
+> global, and the actual value isn't used either.
+
+I can do that.
+
 >> +
 >> +	bitmap_clear(pmu->cntr_mask, 0, hpmn);
 >> +	bitmap_set(pmu->cntr_mask, hpmn, host_counters);
@@ -293,18 +310,82 @@ James Clark <james.clark@linaro.org> writes:
 >> +
 >> +	if (pmuv3_has_icntr())
 >> +		clear_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
+>> +
+>> +	pr_info("Partitioned PMU with %d host counters -> %u guest counters",  
+>> host_counters, hpmn);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>    static void __armv8pmu_probe_pmu(void *info)
+>>    {
+>>    	struct armv8pmu_probe_info *probe = info;
+>> @@ -1323,10 +1390,10 @@ static void __armv8pmu_probe_pmu(void *info)
 
-> We take the fixed instruction counter away from the host here but then
-> guest never gets it because AA64DFR1 is RAZ. Probably doesn't need to be
-> a blocker to expose the instruction counter, but worth noting that using
-> this feature results in losing a counter completely.
+>>    	cpu_pmu->pmuver = pmuver;
+>>    	probe->present = true;
+>> +	cpu_pmu->max_guest_counters = -1;
 
-> There's a comment above kvm_pmu_guest_counter_mask() that suggests the
-> instruction counter is available for guests, which is why I was looking
-> here. I think "Compute the bitmask that selects the guest-reserved
-> counters ... These are the counters in 0..HPMN and the cycle and
-> instruction counters." shouldn't include "instruction counters".
+>>    	/* Read the nb of CNTx counters supported from PMNC */
+>> -	bitmap_set(cpu_pmu->cntr_mask,
+>> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
+>> +	bitmap_set(cpu_pmu->cntr_mask, 0, armv8pmu_pmcr_n_read());
 
-Good point. Early iterations intended to expose the instruction counter
-to guests but that was dropped. I will drop it here too.
+>>    	/* Add the CPU cycles counter */
+>>    	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
+>> @@ -1335,6 +1402,13 @@ static void __armv8pmu_probe_pmu(void *info)
+>>    	if (pmuv3_has_icntr())
+>>    		set_bit(ARMV8_PMU_INSTR_IDX, cpu_pmu->cntr_mask);
+
+>> +	if (reserved_host_counters >= 0) {
+>> +		if (has_host_pmu_partition_support())
+>> +			armv8pmu_partition(cpu_pmu, reserved_host_counters);
+>> +		else
+>> +			pr_err("PMU partition is not supported");
+>> +	}
+>> +
+>>    	pmceid[0] = pmceid_raw[0] = read_pmceid0();
+>>    	pmceid[1] = pmceid_raw[1] = read_pmceid1();
+
+>> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+>> index 24a471cf59d56..e7172db1e897d 100644
+>> --- a/include/kvm/arm_pmu.h
+>> +++ b/include/kvm/arm_pmu.h
+>> @@ -47,7 +47,10 @@ struct arm_pmu_entry {
+>>    	struct arm_pmu *arm_pmu;
+>>    };
+
+>> +extern int armv8pmu_max_guest_counters;
+>> +
+>>    bool kvm_supports_guest_pmuv3(void);
+>> +bool has_host_pmu_partition_support(void);
+>>    #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >=  
+>> VGIC_NR_SGIS)
+>>    u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
+>>    void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx,  
+>> u64 val);
+>> @@ -117,6 +120,11 @@ static inline bool kvm_supports_guest_pmuv3(void)
+>>    	return false;
+>>    }
+
+>> +static inline bool has_host_pmu_partition_support(void)
+>> +{
+>> +	return false;
+>> +}
+>> +
+>>    #define kvm_arm_pmu_irq_initialized(v)	(false)
+>>    static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
+>>    					    u64 select_idx)
+>> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+>> index 52b37f7bdbf9e..1bee8c6eba46b 100644
+>> --- a/include/linux/perf/arm_pmu.h
+>> +++ b/include/linux/perf/arm_pmu.h
+>> @@ -129,6 +129,7 @@ struct arm_pmu {
+
+>>    	/* Only to be used by ACPI probing code */
+>>    	unsigned long acpi_cpuid;
+>> +	int		max_guest_counters;
+>>    };
+
+>>    #define to_arm_pmu(p) (container_of(p, struct arm_pmu, pmu))
 
