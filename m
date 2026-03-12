@@ -4,114 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C9F105A585
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04515105A583
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFwb11X0zrrF96hDRnrNne+UfFUOQp/uf8JCpdTCVwI=; b=tazzJq1/fmacj/An0wX8aAaKoG
-	/65BX+q3Nl7+yFEKXlRql9AyEQQRsGiDkeQJZH1OO5i3lvrSIotuamgm049yogQaEUYQlJG5RJNba
-	fBWpjuXz5uqGCqfU1j8rF43ZGEF8AXEcG7b3n/6cZyMmxCs7p+sNReaCVW1lV2dCIm2WU/BcR/q3w
-	Co7v63xbUaxqFfWhRaDajyTkydYmzbfz3CVtbiUPaj1bbalD2NF4l/jASqKLq++PlnUl3iIuuxPi6
-	eyIN32ydeNMnZjk0THUx4naoQipTtdiifYiyuP7XWx82zFAI6mGvC+kLDK3vYjoTU8UhsNAM7RCnP
-	J7birPrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Srzef1m2vzdBOubJLzt/Mh362n1FMAaRIpcXrDz98lo=; b=ogfqpomNoVTm1kUE8Y1n8W8KoJ
+	5rl3CmtScn60hYTtFtaJK7GVUpsTwhtJntuf3+wmOrogUXyiUKkIBHJ7sx9dQqB7HBW8Adt9qllne
+	jY46UJTyd9PFvShnH6syLZ8AWQlnKGHfHTcRivkSHcnjBmnV1RPzDbVNKop6AyiSEpkfxS/rzKaFO
+	0a543e/4EC+gH5Mz6en3Xa3tOgZhs70lh3tCs8kieXVbYTMC4dAjw8rKByEU52gOWiu7ZSUBZpvWH
+	nRtSic+Y9nRVWvImKXzmNGp6B6VEwwSjEJ1TSpBIRZLM2J3/CNBQb5DCzSv3kbCUvEoZjA2WubKfP
+	T3n48oaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dyR-0000000DvB6-3OF4;
-	Thu, 12 Mar 2026 11:13:03 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w0e39-0000000Dvji-3apj;
+	Thu, 12 Mar 2026 11:17:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dyP-0000000DvAG-0kq1;
-	Thu, 12 Mar 2026 11:13:02 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62BMWPq02279397;
-	Thu, 12 Mar 2026 11:12:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=qFwb11
-	X0zrrF96hDRnrNne+UfFUOQp/uf8JCpdTCVwI=; b=CkvJemL88mOKrQnUYcuUw9
-	v/lgsBx8TN5vdU6h/SIF8Ldu3K8Ug6D+Yp5oOpfuyZmsQt8w7UWAJS27LWxzO2AB
-	qJiJZKWL+I2Ssbtc0opT3qdsA44BKHuwAaYqVM6g7nsQbGEODsco5l+huQ5I+xxx
-	BZauCHcdzpBAr+cc4WxU22UEDZypALbDY+VCjW8DLlk/6wxbAXi1ZFzuAYIAmh+O
-	k+3Slj+7c9xAMUhN9xjLSefjQUt4axPosk4bfZ0jp7bigiV9LjFIJtfSfaUqWV/p
-	lktUd/dgHUAUJ+cXeQbwo7JBL0aKhao8/lM1CDSj9CGS2NQB30kI8Vv4JtgGvZwA
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh91jb9v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 11:12:53 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62C9aRxI014797;
-	Thu, 12 Mar 2026 11:12:52 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cuha8a1xj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 11:12:51 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CBCoTr36503948
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Mar 2026 11:12:50 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F28362004B;
-	Thu, 12 Mar 2026 11:12:49 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1A21220040;
-	Thu, 12 Mar 2026 11:12:47 +0000 (GMT)
-Received: from [9.109.204.116] (unknown [9.109.204.116])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 12 Mar 2026 11:12:46 +0000 (GMT)
-Message-ID: <71921cca-b890-41c4-93e9-957d3f647ffa@linux.ibm.com>
-Date: Thu, 12 Mar 2026 16:42:45 +0530
+	id 1w0e38-0000000DvjR-1evu;
+	Thu, 12 Mar 2026 11:17:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9421760137;
+	Thu, 12 Mar 2026 11:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0DECC116C6;
+	Thu, 12 Mar 2026 11:17:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773314271;
+	bh=wBedHcPA+Jr+vf+qz66g3+kvQVhwPxMWfDbP3CM01lA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IVs8wrlI91czMoggK0JSP9g8pChndUrcaYTLje9aIDwaobXvtLF5yzouiYPuJAf9D
+	 BQtSjkyoL4qEaPUeQTw6b9FlDP0m3HgB2FNzFy1HVzWFh0u9yUBn+cNd9K0XMBb/mY
+	 koTrTBKkI5FGPIhHw+uVBwzjAFR0HFUbWpWH9c2H9xzCr1ydJMLjsMcTHi1Zqe57TE
+	 EKKyIPWzPeiuFPszClrntZ5mbiJkWb/eBzGmJRT5i5sw3k14YsyBe9dwmc9scNgZ1z
+	 VICWYtn1PrwyGmeNHE0PVkhZytFNzf+bRoEw2RQlveiEYnFZA8IWmRyVYa9LMShJ/p
+	 JR0qEpZE78ySA==
+Date: Thu, 12 Mar 2026 11:17:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Alexey Charkov <alchark@flipper.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Gene Chen <gene_chen@richtek.com>, Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 3/4] usb: typec: tcpci_rt1711h: Add support for Hynetek
+ HUSB311
+Message-ID: <20260312-malformed-cruelly-b27dc90fffff@spud>
+References: <20260311-husb311-v1-0-f25bcb58cff7@flipper.net>
+ <20260311-husb311-v1-3-f25bcb58cff7@flipper.net>
+ <20260311-married-democrat-f6eb1c651e97@spud>
+ <CAKTNdwFQnySkhpLDrFh5kwX=_tvci=g0Y6Q5y-15Qsogd=FxOw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/15] arch/powerpc: don't initialize kasan if it's
- disabled
-To: Baoquan He <bhe@redhat.com>, kasan-dev@googlegroups.com
-Cc: linux-mm@kvack.org, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
-        glider@google.com, dvyukov@google.com, linux-kernel@vger.kernel.org,
-        linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, x86@kernel.org, chris@zankel.net,
-        jcmvbkbc@gmail.com, linux-s390@vger.kernel.org, hca@linux.ibm.com
-References: <20260225081412.76502-1-bhe@redhat.com>
- <20260225081412.76502-10-bhe@redhat.com>
-Content-Language: en-US
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-In-Reply-To: <20260225081412.76502-10-bhe@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: sK4H9fwZp-KLt_Uh6QEN1FURiK-VcUay
-X-Authority-Analysis: v=2.4 cv=E6/AZKdl c=1 sm=1 tr=0 ts=69b29fb5 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=20KFwNOVAAAA:8
- a=voM4FWlXAAAA:8 a=VnNF1IyMAAAA:8 a=e6XaAvPcIE9lEXRYuwcA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=IC2XNlieTeVoXbcui8wp:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDA4NyBTYWx0ZWRfX/mtfNCEYEuc6
- WHnW4p9iVwWYhz47Or92vnI3HCFHwJtfujDrjNzVlJPrH+HNMFrM5rei+tcs68Z8xKbUMLW4OGS
- nCC3o1olVSQZigyKu8dPplVewbl+wRYHv9pug6m4GgXDTxjkx/bFrguphZ3UlQo8DTuZgOK7pT7
- XoX/Pn2toTKs0nsYAIR0bSRishOkQI7WvgwwfqCbulME6FSQeiA+c1uiCQVkk5pmlyfJAVn0xAp
- Pd2bmli4VyUJXDxXTGZdXRFpkSuVHPAXPQU/E02hIaN/9uTz9550KWyukcPEC/RWPfdtgQaWvnT
- dA5KdZMWC431ZuagttMr9l48fgf2ZsGNNBHZ778481DcVjv3LdLN4uwlF7NKiDY3IpRloCGz839
- sR9Hlsf9U+wi24kTc7YK1aOscBc/I0desU0vcau1oECfMdpaWfrggI5bqsG8fSprzOHFsV0rdAa
- 5fL4EVBZVPzrPv5kKmA==
-X-Proofpoint-ORIG-GUID: appgZUPYvO44oILc1-ob_bhU232DA-fp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-11_02,2026-03-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 clxscore=1011 malwarescore=0 phishscore=0
- suspectscore=0 priorityscore=1501 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120087
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_041301_224130_C5E8F653 
-X-CRM114-Status: GOOD (  20.18  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="288jPNk02s7OMmIL"
+Content-Disposition: inline
+In-Reply-To: <CAKTNdwFQnySkhpLDrFh5kwX=_tvci=g0Y6Q5y-15Qsogd=FxOw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,87 +80,105 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--288jPNk02s7OMmIL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 25/02/26 13:44, Baoquan He wrote:
-> Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
->
-> This includes 32bit, book3s/64 and book3e/64.
->
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> ---
->   arch/powerpc/mm/kasan/init_32.c        | 6 +++++-
->   arch/powerpc/mm/kasan/init_book3e_64.c | 4 ++++
->   arch/powerpc/mm/kasan/init_book3s_64.c | 4 ++++
->   3 files changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/powerpc/mm/kasan/init_32.c b/arch/powerpc/mm/kasan/init_32.c
-> index 1d083597464f..0ea2a636c992 100644
-> --- a/arch/powerpc/mm/kasan/init_32.c
-> +++ b/arch/powerpc/mm/kasan/init_32.c
-> @@ -141,6 +141,10 @@ void __init kasan_init(void)
->   	u64 i;
->   	int ret;
->   
-> +	/* If KASAN is disabled via command line, don't initialize it. */
-> +	if (kasan_arg_disabled)
-> +		return;
-> +
->   	for_each_mem_range(i, &base, &end) {
->   		phys_addr_t top = min(end, total_lowmem);
->   
-> @@ -170,7 +174,7 @@ void __init kasan_init(void)
->   
->   void __init kasan_late_init(void)
->   {
-> -	if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
-> +	if (IS_ENABLED(CONFIG_KASAN_VMALLOC) && kasan_enabled())
->   		kasan_unmap_early_shadow_vmalloc();
->   }
->   
-> diff --git a/arch/powerpc/mm/kasan/init_book3e_64.c b/arch/powerpc/mm/kasan/init_book3e_64.c
-> index 0d3a73d6d4b0..fbe4c9a7e460 100644
-> --- a/arch/powerpc/mm/kasan/init_book3e_64.c
-> +++ b/arch/powerpc/mm/kasan/init_book3e_64.c
-> @@ -111,6 +111,10 @@ void __init kasan_init(void)
->   	u64 i;
->   	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL_RO);
->   
-> +	/* If KASAN is disabled via command line, don't initialize it. */
-> +	if (kasan_arg_disabled)
-> +		return;
-> +
->   	for_each_mem_range(i, &start, &end)
->   		kasan_init_phys_region(phys_to_virt(start), phys_to_virt(end));
->   
-> diff --git a/arch/powerpc/mm/kasan/init_book3s_64.c b/arch/powerpc/mm/kasan/init_book3s_64.c
-> index dcafa641804c..f7906f9ef9be 100644
-> --- a/arch/powerpc/mm/kasan/init_book3s_64.c
-> +++ b/arch/powerpc/mm/kasan/init_book3s_64.c
-> @@ -54,6 +54,10 @@ void __init kasan_init(void)
->   	u64 i;
->   	pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL);
->   
-> +	/* If KASAN is disabled via command line, don't initialize it. */
-> +	if (kasan_arg_disabled)
-> +		return;
-> +
->   	if (!early_radix_enabled()) {
->   		pr_warn("KASAN not enabled as it requires radix!");
->   		return;
+On Thu, Mar 12, 2026 at 11:09:43AM +0400, Alexey Charkov wrote:
+> On Wed, Mar 11, 2026 at 10:33=E2=80=AFPM Conor Dooley <conor@kernel.org> =
+wrote:
+> >
+> > On Wed, Mar 11, 2026 at 08:20:46PM +0400, Alexey Charkov wrote:
+> > > HUSB311 is a pin-compatible and register-compatible drop-in replaceme=
+nt
+> > > for RT1711H, so add its IDs to the existing driver.
+> > >
+> > > Link: https://www.hynetek.com/uploadfiles/site/219/news/0863c0c7-f535=
+-4f09-bacd-0440d2c21088.pdf
+> > > Link: https://dl.xkwy2018.com/downloads/RK3588S/03_Product%20Line%20B=
+ranch_Tablet/02_Key%20Device%20Specifications/HUSB311%20introduction%202021=
+0526.pdf
+> > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > > ---
+> > >  drivers/usb/typec/tcpm/tcpci_rt1711h.c | 21 +++++++++++++++++++--
+> > >  1 file changed, 19 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/usb/typec/tcpm/tcpci_rt1711h.c b/drivers/usb/typ=
+ec/tcpm/tcpci_rt1711h.c
+> > > index 88c50b984e8a..ac5917c1e253 100644
+> > > --- a/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+> > > +++ b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+> > > @@ -18,6 +18,9 @@
+> > >  #include <linux/regmap.h>
+> > >  #include <linux/regulator/consumer.h>
+> > >
+> > > +#define HUSB311_VID          0x2E99
+> > > +#define HUSB311_PID          0x0311
+> > > +#define HUSB311_DID          0x0000
+> > >  #define RT1711H_VID          0x29CF
+> > >  #define RT1711H_PID          0x1711
+> > >  #define RT1711H_DID          0x2171
+> > > @@ -55,6 +58,8 @@
+> > >
+> > >  struct rt1711h_chip_info {
+> > >       u32 rxdz_sel;
+> > > +     u16 vid;
+> > > +     u16 pid;
+> > >       u16 did;
+> > >       bool enable_pd30_extended_message;
+> > >  };
+> > > @@ -308,14 +313,14 @@ static int rt1711h_check_revision(struct i2c_cl=
+ient *i2c, struct rt1711h_chip *c
+> > >       ret =3D i2c_smbus_read_word_data(i2c, TCPC_VENDOR_ID);
+> > >       if (ret < 0)
+> > >               return ret;
+> > > -     if (ret !=3D RT1711H_VID) {
+> > > +     if (ret !=3D chip->info->vid) {
+> > >               dev_err(&i2c->dev, "vid is not correct, 0x%04x\n", ret);
+> >
+> > Why are we checking vids and pids here? Rejecting a non-match prevents
+> > using fallback compatibles, so I'd like to know why the code exists.
+> >
+> > Is it just here for the sake of it, or to prevent some actual issues?
+> > Not really familiar with USB devices unfortunately.
+>=20
+> Hi Conor,
+>=20
+> It looks like a relic of some original vendor provided driver code.
+> Rockchip's implementation of a HUSB311 driver [1] contains similar
+> checks but I don't think it adds practical value in the world of
+> Device Tree (after all, it's just an I2C device - I haven't seen many
+> I2C drivers reject a DT match based on hardware IDs found in
 
-Should we log in the kernel log buffer that KASAN is disabled?
+There's been a lot of drivers in drivers/iio that do this kind of
+although they're gradually being modified over time to support using
+fallback compatibles.
 
-Right now, I don't see the kernel advertising the same.
+> registers). I chose to avoid removing them with my patch though,
+> because I don't have any Richtek hardware to test such a change.
+>=20
+> Maybe the error could be downgraded to a warning though.
 
-$ dmesg | grep -i kasan
-[    0.000000] Kernel command line: 
-BOOT_IMAGE=(ieee1275//vdevice/v-scsi@30000070/disk@8100000000000000,msdos2)/vmlinuz-7.0.0-rc3+ 
-crashkernel=2G kasan=off
+To make use of a fallback, it can't produce a warning. If you wanna keep
+it, just make them dev_dbg() I think.
 
-Tested this series on powerpc Pseries platform.
-So feel free to add:
-Tested-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+Also, the devicetree binding should then be modified to support using
+the fallback.
 
-- Sourabh Jain
+Cheers,
+Conor.
+
+--288jPNk02s7OMmIL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabKg2gAKCRB4tDGHoIJi
+0kk2AQDyPSMsaOdJAVhjM9GUu81QMjVh+OQxeTyTVc9oxZggkgD+PwjQxS3n6dhI
+EGB+VVnwp4ser4OBFZFXWgb3WuPt4AQ=
+=6uRW
+-----END PGP SIGNATURE-----
+
+--288jPNk02s7OMmIL--
 
