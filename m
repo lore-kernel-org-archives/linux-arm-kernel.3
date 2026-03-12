@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012B1105A593
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F70E105A593
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dx5xrfB8QljT3YKbLMbYG97YqGaj2w38cqstIXSxVL0=; b=mudZQnqN23fTedE7gU9raxuoo/
-	R6ltgB3uHI0mX6I8rvLpBHN/LBfw2g5q9nK28x9ICM5pWOQ5ujp6Zl8lQRgEZPj4PCoFnFqvTz2Kn
-	LY9AJv3/2PD9lCh6Gewa7k1lLLwE+/mTd8mGvS2Iuth5CmJqbareO1bo3DCusfDPFRVdeCNzvJ8OG
-	akqr/Nvpk+FxVsK4rIpmI4MVFRcOePumUYXaWBjuJJYHm3CoY2eaJqOQ48f0BI7whVJqR6knbhWzN
-	pnjKlVyFdJsJ23QUu1FO6aYABmez8HagN/xEYowSMsWi76FQPf5/bX6aSwMbLuqArNXVaGvzcCV5N
-	mPdY9kLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+VYAGwg3xJVqZ6ED+4iEbnnq6LZZq3rNWT+MD/LpG68=; b=2yp6DnzpRVyXN4Y7A+BZoFIQIl
+	wSU0+iN30H8dMmwa0362xMc3NHxhqX6C9c9aMhRW5KiAePBPbMJtTtOuARN45KTZY+h7Uw/EP4IUB
+	JIMgdvcT6hPN+2S2Q0yxr9lRACxBb3Xm6LYF7JLngCjYHLbOb8hsh/GbSt/hqsjLS7SPVh0yppDpj
+	aNnqEsPIHQ+aBq/ehBI3ujsPQEb6Xyp5ECyD3PoBwIEMWAebXG3GAnaS5OIK1WephGzRKwRmGqtd2
+	MdKthjxUkCihKTrZ+TQ7rAQ5nuEkQdcllKz+A/U4lyIUYzWtlOC+RC9Y9dxvOB9+pUnMwY01vBpDu
+	vIgHvuOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fDe-0000000E2y7-0ht2;
-	Thu, 12 Mar 2026 12:32:50 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1w0fF6-0000000E39X-3JKI;
+	Thu, 12 Mar 2026 12:34:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fDb-0000000E2ws-0CUw;
-	Thu, 12 Mar 2026 12:32:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773318764;
-	bh=o2UthO2WXzmSPYdwO0w/waxNRhhzupLP6L1ZNdbYEYE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=G0STWHdqnJMF17OLN9SHIkyTCwRJMshhFVor33igF9UbKgMbSXRj6a07H4kmcB/nH
-	 QvEJEwwTRLaeq1UnbZ+TMFjOK18j1AGkRptVxhVCJNt3DkQ34+D7m2+x9QsuXOqS0z
-	 0Yqz4tTWIvJj7MR22SPc9bh77yjmFs5KZEDfpCCT63BDJBTloTgLZnD2iy59oj9Dug
-	 GFp6A+4gZLEHkBiiB1R7mN0xCkemziqDr0MiBffLXGwGbYa8kQcmIe2biEXHDAl1E4
-	 trVNlbuoTKODkdX+2T5nCX9PFEpkF8OuOMoPp//lUAue1bJIk4BtbO4yu+TC9yLZDW
-	 Z0tYcVs9NlLHQ==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBCEA17E05B5;
-	Thu, 12 Mar 2026 13:32:43 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- matthias.bgg@gmail.com, sean.wang@kernel.org, linusw@kernel.org, 
- Akari Tsuyukusa <akkun11.open@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-gpio@vger.kernel.org, hui.liu@mediatek.com, nfraprado@collabora.com, 
- mars.cheng@mediatek.com, andy.teng@mediatek.com, hanks.chen@mediatek.com, 
- sam.shih@mediatek.com, rafal@milecki.pl, ben.ho@mediatek.com, 
- erin.lo@mediatek.com, zhiyong.tao@mediatek.com, Jason-ch.Chen@mediatek.com, 
- amergnat@baylibre.com, seiya.wang@mediatek.com, tinghan.shen@mediatek.com, 
- Linus Walleij <linusw@kernel.org>
-In-Reply-To: <20260312041533.187553-1-akkun11.open@gmail.com>
-References: <20260312041533.187553-1-akkun11.open@gmail.com>
-Subject: Re: (subset) [PATCH 0/6] pinctrl: mediatek: Fix gpio-ranges and
- include guard issues
-Message-Id: <177331876391.53170.11935383567217800525.b4-ty@collabora.com>
-Date: Thu, 12 Mar 2026 13:32:43 +0100
+	id 1w0fF4-0000000E38k-1iE9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 12:34:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+VYAGwg3xJVqZ6ED+4iEbnnq6LZZq3rNWT+MD/LpG68=; b=q78eQRd6Wb12x9J6acMLNga4Vi
+	rjSqiJgA/qNQ/+/Kuzn7C9NMhYDmt8QprMs0sgeZRxC7ibKWngo7LvWcFlTZlsYegwNePc/9DUedc
+	wAQwH8N5uYMXSRKENZKIHKvoWhvQHhzZGOgu7t7hmmqvPJ7uZ/JV/GUFthcd5pT08+LTIrnTPcd34
+	UIoXpHG403jiIa/+3gDHoZPOaUQwUCu/bhxwgD2Lf/sc/k8V0H4MsUnhrK2JBs68y+6xr+c1yULmm
+	oVGF4qRt2jVpcyDCvNwcj//teDOlpGzNKxPb3rJrK0fWyxImiqUk6baorIEq7+4LXsWnk1aNxv5nS
+	xV3aj6MA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40838)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w0fEv-000000007n5-2Vv8;
+	Thu, 12 Mar 2026 12:34:09 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w0fEs-000000007Dk-3LAp;
+	Thu, 12 Mar 2026 12:34:06 +0000
+Date: Thu, 12 Mar 2026 12:34:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: Re: [PATCH net-next v2 13/15] net: stmmac: add helper to set
+ transmit tail pointer
+Message-ID: <abKyvowPxQW9iTCc@shell.armlinux.org.uk>
+References: <abKQWloxp9_4OuJh@shell.armlinux.org.uk>
+ <E1w0czK-0000000CzH7-19Fb@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1w0czK-0000000CzH7-19Fb@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_053247_234381_803AFDA2 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260312_053418_463977_81293E4E 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +90,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 13:15:27 +0900, Akari Tsuyukusa wrote:
-> While looking at MediaTek's Pinctrl driver and device tree, I discovered
-> that on some SoCs, the gpio-ranges count was a little less than the pins
-> defined. This means that the last pin will no longer be available.
-> 
-> And fixing this issue, I also discovered that the #endif comment in the
-> include guard for some header files was different from the macro name at
-> the beginning. These issues do not affect the compiled kernel, but they
-> affect the readability and consistency of the code.
-> 
-> [...]
+On Thu, Mar 12, 2026 at 10:09:54AM +0000, Russell King (Oracle) wrote:
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> index 1bbf02504dad..d5c003f3fbbc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> @@ -427,7 +427,7 @@ static void dwmac4_display_ring(void *head, unsigned int size, bool rx,
+>  			extp++;
+>  		}
+>  	} else if (desc_size == sizeof(struct dma_edesc)) {
+> -		struct dma_edesc *ep = (struct dma_edesc *)head;
+> +		struct dma_edesc *ep = dma_desc_to_edesc(head);
 
-Applied to v7.0-next/dts64, thanks!
+Too-many-outstanding-patches-itis strikes again (I have more than 100
+outstnading patches at the moment.) dma_desc_to_edesc() is in a later
+patch that isn't part of this series.
 
-[1/6] arm64: dts: mediatek: mt6795: Fix gpio-ranges pin count
-      commit: c4c4823c8a5baa10b8100b01f49d7c3f4a871689
-[2/6] arm64: dts: mediatek: mt7981b: Fix gpio-ranges pin count
-      commit: b62a927f4a46a7f58d88ba3d5fb6e88e1a4b4603
-[3/6] arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count
-      commit: 820ed0c1a13c5fafb36232538d793f99a0986ef3
-
-Cheers,
-Angelo
-
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
