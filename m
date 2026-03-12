@@ -4,140 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D80B106ACDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEE9106ACDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=; b=IxKBQIhgzfcxRBU1jSv1AVopKa
-	LMGiLzfmn3gCkRv63G3iKx4FuY2xKBuY64XGgePbwapExcX0hCPVm11ArkGsnD8h+Tg8oJZXs7v4y
-	NaITT6fO1dstcP3q8y9J+kAApvKv0d25W48H0SCkRg4HAUEECWPJxWeaEOeud12UNR7ygRBopaGjJ
-	fG7LczncvQO/SP2NprnE+WRN4lV2umplm7G9RJAa/T4Vsr/R60Qj6AutmtBCDWw/NvhUFnS26yZ9l
-	ARy+QUEEEHNXmQYNmsAJCYLuHNXIHuNeBw/bRZz+KNR3iuJW6S5TrjNS3tG0pXQ7gfDrJc1qOFeMq
-	sVYQFBLw==;
+	bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=; b=c39xvJNIVR3+2n5xMi0fqPfTTn
+	LQwob5zbAgUZrBHUMX/1n1o3XK76DDSOFLZX1iu+D3TdCT27EmaWkZ4K6qqA46KL/QSUpHLHS4tQT
+	oYZ6413l3f6hjQY0hSGaKBUaWdYmuhUFGbLH3z5aajJAjofgDtInlbGeZA+3K2h0kjmB75IxOy8ed
+	rW7plhX8iXyBUdZ9zoVz6wLWBf5gswiLGyyx4Dhh0xvQOuV14cyeYYGAAf87fFWgwTJ1CYYIiYz35
+	qFdgnO+g5/Ofad/hNScSSyHUUeDAuS6QpN35W/CAzMHL70DDoJ9Ban1Q4hADH3vCafXigLh9Hnvyo
+	qxfLExXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lGx-0000000ExzP-3HH2;
-	Thu, 12 Mar 2026 19:00:39 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1w0lM7-0000000EyvY-2JLX;
+	Thu, 12 Mar 2026 19:05:59 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lGu-0000000ExwN-0skK
+	id 1w0lM4-0000000Eyuq-43df
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 19:00:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ifawU5zUF1vuWgETXkf+S2zl19lGkf3W9VXdhVMMGoGeYqeR++SsiGuSVJw5BMYx6N4GYpPiMmDDIRBpZM5cJvxFFEHJkWuf62vygrdu42p9vEx7xsGG07jQ5Vx2JSxsfALJDwsBRgQdhNR0Y/CJ1vk33hYarmzpjwx7WHioJumnuHgA3ozZ3Ay0bPIrIqxZpQ5pdw9jXiy8FN5lPfUD1tWq4PDMKgu3bClMKeX185S281l0Pr1DFN1ew/MLQ5VYeuLLZvQvtfBJv3akpj6ANY4IO9MWfRPOPShtLG00fsE8oWwzp38me3xVYD0K/+H8LAhK5Dj+FSknxJjftz4f+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=;
- b=Ff1pTzsGiwIShh7stO2+9Kpqbq8dE1ccAvGKVSRlsKPb1eM4+f34F5acpdrf5zgr/oXnFFpaDg5zuI0KfFNJCJyGNVrEuN5VT/VnuCGQs53fDJFe23jjkl6K4029jikJmlY2FzpdOB8aE4xgXglREKodZO/obr5AC5tJqGDxAakIaLGR3/vzowrClW7rgBmR08Ds6MzgN5suXa7b6mkf8tSJnIfY8YUePu4bW3n6G6XbOjGA4Nz0CMaFX8t6KtW7ng1INo5qrR05W6aDIeTNWW8ZFB5eh74c3VKxTO7WLWc9XyYhaN2Ap1cESySMrezY/PoE1AKGXXzmzjbNu5oDgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=;
- b=P5lwGXPnrvYMP5VaYi5+mAttF2c6GLTfnByKgFJGAmCaSor4QV+xwtSn81JN320twn+O4K3jUQ75qAwHqES9ZeF4w74mYS9j7Ex7VeJujspaiR7sDw74EH/rhxLpn+YqsHrHdXrJQdRwCTHyTsSP1rvkWWhlb9Bys2RmEsALWe2roHP3oTCAQVl8gowJa6AFxThlQ+IfhSlVqFWX7Ous/qnTP9kdFLvNug5LWZz5zFMBJYUSGkSdE/wN/vYBGBF8PoDxfHyHUiNF5CCduDFxFAUaN82XcR4C8RwGy+TWDhQts9UTk8zcZpQN5MnrJ/upYHHRm4MLZvm/JKP+qmi+sw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
- by DM4PR12MB6111.namprd12.prod.outlook.com (2603:10b6:8:ac::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 19:00:26 +0000
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391%5]) with mapi id 15.20.9723.000; Thu, 12 Mar 2026
- 19:00:25 +0000
-Message-ID: <d7a8271e-f6a5-491c-be2a-7ebc7d37645d@nvidia.com>
-Date: Thu, 12 Mar 2026 19:00:21 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
- for SYSTEM_SUSPEND
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- mark.rutland@arm.com, lpieralisi@kernel.org
-Cc: bjorn.andersson@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com,
- mani@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla
- <sudeep.holla@arm.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
-Content-Language: en-US
-From: Jon Hunter <jonathanh@nvidia.com>
-In-Reply-To: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO3P123CA0024.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:388::7) To DS2PR12MB9750.namprd12.prod.outlook.com
- (2603:10b6:8:2b0::12)
+	Thu, 12 Mar 2026 19:05:58 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50906a98ffeso98261cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:05:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773342355; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SQVTMDIbhJxG/hWYAHjUh0CAPzBCwktZcGe15qTzbA8iiGjOK/52P/CeVX7sn5dh6+
+         CuxVa0U5Aj7X9pRkvV1j/YJ1JIQF88S1KIQxPaztYVXFuedpxASrjiCErHa4kdaoIDTa
+         lecmGZpwyOsvFfumSTyLc8OuBUPnnFH9wu2VlIYj7U1icUkFA4pXI8eQtS7D/a1ITrSR
+         UeBumUjJOopENoFjLqBivATU/NPmmPOh42HtfJGTHJ9ic1nbrwlPh7GBmvhUcTBfyMQT
+         b80Me9Wk1swVuoc1KjJ8eNRUWQPY2lQ6xwalE75UTMJG19H8OpQFMp93hN26anBmoVQ/
+         1hMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
+        fh=B6CwWKjXTMabVYELoJvARHUPvHTfRjLm27hSUvNcoFA=;
+        b=TxdTNDrzxjsAmm0UqpDPhMfSTtiacFE12UXOApPbaDTp2iGDVzu2ksWk0eAg5PMKMY
+         ShfEwedE8cG/YioalzOX34LV5dpAKZ8xlUi0vSYWUulAHr/yaeQvuPMrWg6bovB9rHT7
+         rzKRVCWFYSt6vbe0Wg3wfMAAd/+C6uhk/6Ji3jwp/R5//pYh8RNmuOCX+SzwQyw37dRw
+         QoxCf9MChvD8D/68Lbjqr+mN8V1+Z8CbSCnnzRRIxCtfUWJzF8klC2A3dGZlyLio0Bsg
+         l/IPamCvLEoiTkL3BA/uIGuv/TwfWf6bSIz6h/cODFp2ZgWFiXRmQhH3N2vx6S2oNi3L
+         Obqw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773342355; x=1773947155; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
+        b=JxrfXCUUdYAPtkY1ElQvRZV6aLSTl8d5WpOBvLu4jad3sr3tI3SB+8LZXeaovKMTy3
+         AlI1qpa1F87/0/uttg/uzee4/VD1jGien07ozC1Uw5fpdQEdkYDdPwYN3Q9dj+t/D8Ap
+         u1CcevX1m3G/DXrfAd3D+BV4mOdKLO7kPFVhUvn3fOKtI7JG93PV6tzEaCRX214GGw82
+         HLhLaW3Gm+WrrJXbE1ZWsoi4g8T4+zdJyhlCXcG9l27QPiGwFWAq3WJ+XlmHngmZ5u+I
+         Sa0AB2+CcVLQ2m+nLHnrHZaRjxsr0DlT34Q8GhIy2fo/7zQ+bGBNfNx6kKYRqVEgN3eT
+         Q9pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773342355; x=1773947155;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
+        b=JiKv1GQF2lDBDHy+l4KN9Zgll7kigbs164jzDFyNN4HJDf9Pg9/koIOtp0DPKLARtm
+         PeWvdwIa7+biSwqqkF679jasN2+B97aIh8kqhznCwpcjmaAD0KoGZVNMfBiqIPpJ4GmD
+         ft84BTb3p8v44p7sCvF0I/CCLMxJh8w4ydDTTeVw0ojwIAlSuFAVUwKbWkeet2MUZ7Nj
+         HUb9kV9oyJRZ8J/HK6c3b05L8Wi2f5ohAIZ9o/X9rrtOlClzXr60+QC2ACuUsDCB0OK2
+         NXzoOpjeipgPKD4b78hc3MK8CJQbOLvjkQ94yc9ueiBuMhv7S87xqTSG5XsWlu89CmLq
+         TjNA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2ml6Ryq37xpkE6OKCtdwF73UCtU/PN+SKeW9Zqpwha2vnvqZnj94xjUKnd5Ge9aM6AHWfjX49rKKbBx3DIh1W@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9MN2LqzlcYkr/yz4ZWVjBemLVmYiqhz1ee7GTVI9N2zPWIDU2
+	Z2Y3DtcsOOx7PDCAl2hC+307iLynuq3EAD7c4BgNLu6ahWx21AFq5k3xP55gkSy4Z0XlKymyloc
+	xCQGFABQfcKWKg3XyOCnocrmFuC2CSsRTUINu/F5f
+X-Gm-Gg: ATEYQzyAuVg0TwQmuMvuinBVAzYPuaWob0Fiz0CsMmhnZVvkKs0P28KBTjPtBh45h7Y
+	HonQqPHe/pKSyliANrJQQ6yvLXtXuqiL5Ya3b3lI/0IT+UyTZZiVHBVgsF2xAZ9htWarAd+C+b6
+	pbzwsi/lTrhteB/4QpgGXN5HWU3E2GRFun/Hj0IjEcbEzL7OGYxhAx5sREqC+X8oqaWagOzcXvh
+	Ucb9XyiLJp8YxD1AuQDHiY2Nggem/9oJweZsbalSSxFADV+H5DUS+jCWPWmt6Ef8Uvm7pfxzU6k
+	IEQSSW9V
+X-Received: by 2002:ac8:570e:0:b0:509:21ff:cd49 with SMTP id
+ d75a77b69052e-509583f2b67mr2191931cf.4.1773342354514; Thu, 12 Mar 2026
+ 12:05:54 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|DM4PR12MB6111:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4906ce26-3972-49cc-8a37-08de80699ecc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: vkrKTJQY0vk8NP8t+92k+H/PHWqcafBVdvPxTlaxbuDbcjIc8jZgDz2bntKu0Lyl0XJ9b9xLzHxwpoG0JYpInlMfrHzNcKzOo1TFX3mvLD6JL2vNbzOPReeoJH73Kwfq3A0MhhJ/AZEa5h8BB9RE7ONvw0F+Pno/KaJtu0WWUlwluzj8WLKSOPbV66UfIWmefKFzgmHAuFTG4/v4TI1xb0k9EhzqA8ke1wcjkSBkmWNgWvo8JCIauNrLGjL1DM9CHgBYIK15oVPnpl5x6/bQWVAbZkcF2q6rrHbzGkmcC7ECOS1zq0iFX8KAdA2u4uSvNXi1VYKhp2+rUc3SMNbdtr3szUzrpd08F0lYbQW/AIOpC2oCHou49eX71nMJdzEA3Ry+9iTts4Aiz+gGEKvt3SuUzEmD5aU5/VnR9gMXcTzmOvd15QAlekJKLANswmTR5M9AnOmp98fv31sdk3ei6PuPOGAB86o1uMIe0siVWc9w91AgVhWeMqpG8IMUSQ6xas7cmQG10oy2q1czm4LF3MFMPfuR7fUBmxtJxhD0tclazyXcGMuNQVSSV/fAmGZZ3a5byr5adQ7Je+4WCmnStuvv815S4XV3EmQCJP8O0rfLyoTTwV0bpLnSia2O/VlH1f0R6fl96/9LdqSCJKUbB0UCW50Elli8msKHOiLr60GmiSajS/lVBwq8WyclFCZ4VrD2bIvf6TdRdISoBKZTTeQmsoLT8Cw/RVFWnlbQI8vaAllwoJtlGbVwLx8uW8vB
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1lVdVVTVkFPdWJDemZ4RkpOSTNSWHN2Wi9sWUlpaEtVTHlQRVJrM28zWEp6?=
- =?utf-8?B?T2xUcHdYMFVoLzJIZExGNlVXVisvTjNld0kyT1IyR04xbEp5NXRYM2FjdkNw?=
- =?utf-8?B?Z1JBc0lIVm1FNVBwMHJCejNsanBsMjVRc2dwb2QxTkpVZHhjKzJ0NkhYRDVw?=
- =?utf-8?B?MUZJc3lGS05Ud0xWTmlhNnl3bFlVemdMR3dNWVZwaGhYNVdKMmY4bVlobk51?=
- =?utf-8?B?d2k4UmIybHl4VU8vRkRuVkZWbm0zU3NDZ1Nsd1JXWGhxVnd6MEZzcmNvVldl?=
- =?utf-8?B?T2t0U0pWWE0zeG10akxVdW84Q3RQMThHb2d2NjBMcFJldTFUa0wwa2xuZ2RR?=
- =?utf-8?B?ZWxjNDRHVFNaRU43TzB3U2tLNE1TK0xsazhnQjlPNS9nTUFvTE5iSHpGYVpp?=
- =?utf-8?B?U2htcHpZdU0vWjByYUtkd0xhMDRlMzBoTUdPM2lsaFFlOHkyZ1ZiQXN0V1lp?=
- =?utf-8?B?NVlTN1EybGNvQ2I5bW1xUXBObTE3eVNoM3lNVHluVmRZdisxWUVramU3bkM1?=
- =?utf-8?B?ZzZpZUlwejg3SzF3TllGM0NKbGhRSmFHRTlRc0paWXI3aDVuUHVGLzBEWkx5?=
- =?utf-8?B?ZzVDdGxUK005emI0cTVvOVFoZmpUeDBhWi9wVzMrUFk0bEF1dis4UXdDb3Z3?=
- =?utf-8?B?c0ZSOVIwTTh3dWdnMmpxbkU1UjVEVmlDMkpJSHB0Y1dkaEI5UzlNRnNIaU1q?=
- =?utf-8?B?LzNpZEk1YUdVaEswNEsxYnh2M0tZeGt0cVpvcTF3bndOZTlIMzYwUWtMWWh4?=
- =?utf-8?B?WUc2azI2UnlYM05rejZuWHVkY3NEejZDeXd4Q25VS254Z2xSdjBZZnlyZVBV?=
- =?utf-8?B?R3ZEdkJsci9pRmZSUTFDL01zRUlYVWYxeVVLeVZ4RXJ3bm5KWUZ2dTlJLyt5?=
- =?utf-8?B?c21hYlhiR1hlTE4xbTFtZklLTFZxZjFWWHhuTHQ3M1lPRkZvSkIrMjV0Ylkv?=
- =?utf-8?B?VktWemZERGVDV3pCcjhxME92cTdDY0ZiWDhaNFhmc2h4NjdURjkxaS9UdVRG?=
- =?utf-8?B?cXdERzN6Snp5dEpDUlV6M0UyZGtGSHVndVNoZFF0Tm81ZDF1ZEFPOElVOWhy?=
- =?utf-8?B?OUNVRTFoMGJxeldWWmp5L0pOY3YzcnBtbGVUSGxCb0FRc0lKRnR1OUM3S3pS?=
- =?utf-8?B?THhkUDJHV05OdEUvTGFBdkV4eHZOdEd3Uld2dEpabzlsZmc3Yi9sNnNCMFUw?=
- =?utf-8?B?UlVZdnR1ajVSWFJnRnJqTElTbTN0ZWpGNkZsK1A0amNqbTJ2eVVndXlVNzBL?=
- =?utf-8?B?dlRFTENGUGNucktZc2o3dlpYL2IvT1hvMVJvclFvYThleFFHU3lHSHdjODNP?=
- =?utf-8?B?OTBqeDJ0TjFEemZOZHZxWDZhY29nZUZKSXRCUUxYS25BVUk2cFh6QU5RQ3ZT?=
- =?utf-8?B?OGVhdnpLNjJhSHcwWm5Ua2d5NlFhcHVEWFFMNmxlWUpwb0NiN0NsYUdSL0JL?=
- =?utf-8?B?UXFIZXoxWjcrQVdwZEJlVUR1YStpZW40RDBlMys5cGxqby9xTzVqZWYwRXgy?=
- =?utf-8?B?WHZpQ3J1REUzYkVEYWxBTkdGN2t3eFNyZmdZcitkWHdMaVpZRXZ2STVxVjJQ?=
- =?utf-8?B?RUk2Uys0QnNiYVpJTmpJeXBuS0RsaDN6ZVB1MmFic3NuQU9ncy9DNDN5dFk2?=
- =?utf-8?B?dVRWYVlzeVh1RDZFT0YrOVBuTFgrQ1dzbkR0THRBaTkzZFJ3aXdONVdoM1l0?=
- =?utf-8?B?UmQ1VXk1SmVYZWh1WnVUOXBrZlRIQWlSYk1jWE5Pb3lTc01BczIzSFV6ZUUz?=
- =?utf-8?B?YitZenVxTFIvb3lMZXR0eDh4NUg5QmFhcEpabmxNK0hnWEhTdGtORTBJM3Fs?=
- =?utf-8?B?UWh5S0FGZGJhcjRiUTVWdHBDZEprcGhuSVFqU0JWUk9WTFZJRWExR0kycnYw?=
- =?utf-8?B?OUFJNENBUUtCNVp5MFpqWURXeXRINzRQdjJpN0hCRlVvR3hha3JGT3FkRkUy?=
- =?utf-8?B?NlBhaVBHc2pkb0hSQkhlY253ajJ5N1lJYXhYZFFSRk51SFl6SnovZDdWczBK?=
- =?utf-8?B?Y2IwbThFYzRNK2F5VVpYZUNIZnR6T2xyZHNuQXZTcFZkOFI4VFk2Q2RMczFn?=
- =?utf-8?B?RFc0aFNWeDBqR3NsSFlCanRHRjgxNTNqRDJOb044VktXTytDeFBWOU1id1pV?=
- =?utf-8?B?RzQ5K2kwVk5IMVQvaWh6RlRIZ3E5SzRralVzTDE3OTZFS25EN2ljd2hGVVBV?=
- =?utf-8?B?eGZYMXNQMHpFTGVQb0JIN1I3SUhYVDRhREpsSGhZZExGeklHQjcrNVZtOUpJ?=
- =?utf-8?B?ajEvNWxnbGQ3NlNhSlRIczNuaUpYWXRzV0dwS1FUc29obTdmdGpIdDVkQnRm?=
- =?utf-8?B?Nks5aDUweUxaSDc3WEo3V0NJaVo3K1JRQTZ5ODlYbTRWWmJ0OGdZdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4906ce26-3972-49cc-8a37-08de80699ecc
-X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 19:00:25.9301
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XBV0q656AODtW6TIWMMDXAFvpLCwas/R88DdERG3ZN8TJHdk3FDvu7axvYmALQwbfBVIbMGYBgG/Z+WqXvlnDQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6111
+References: <20260310124933.830025-1-sebastianene@google.com> <20260310124933.830025-3-sebastianene@google.com>
+In-Reply-To: <20260310124933.830025-3-sebastianene@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 12 Mar 2026 19:05:16 +0000
+X-Gm-Features: AaiRm50KV_wpisOqPhBXIc_wURyzMu0dLQv8LiQKoIvYnfkELQ5oUW5aGq7nCAA
+Message-ID: <CA+EHjTwDkgF5GV-k_VZ_nXbmUmwrAXaQJ5sFsk2tgr8LL3j4DA@mail.gmail.com>
+Subject: Re: [PATCH 02/14] KVM: arm64: Track host-unmapped MMIO regions in a
+ static array
+To: Sebastian Ene <sebastianene@google.com>
+Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, catalin.marinas@arm.com, dbrazdil@google.com, 
+	joey.gouly@arm.com, kees@kernel.org, mark.rutland@arm.com, maz@kernel.org, 
+	oupton@kernel.org, perlarsen@google.com, qperret@google.com, 
+	rananta@google.com, smostafa@google.com, suzuki.poulose@arm.com, 
+	tglx@kernel.org, vdonnefort@google.com, bgrzesik@google.com, will@kernel.org, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_120036_262349_A3A36C53 
-X-CRM114-Status: GOOD (  27.31  )
+X-CRM114-CacheID: sfid-20260312_120557_042936_3CD967BD 
+X-CRM114-Status: GOOD (  26.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,92 +121,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi Sebastian,
 
-On 31/12/2025 16:21, Manivannan Sadhasivam wrote:
-> From: Konrad Dybcio <konradybcio@kernel.org>
-> 
-> PSCI specification defines the SYSTEM_SUSPEND feature which enables the
-> firmware to implement the suspend to RAM (S2RAM) functionality by
-> transitioning the system to a deeper low power state. When the system
-> enters such state, the power to the peripheral devices might be removed. So
-> the respective device drivers must prepare for the possible removal of the
-> power by performing actions such as shutting down or resetting the device
-> in their system suspend callbacks.
-> 
-> The Linux PM framework allows the platform drivers to convey this info to
-> device drivers by calling the pm_set_suspend_via_firmware() and
-> pm_set_resume_via_firmware() APIs.
-> 
-> Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the above
-> mentioned APIs in the psci_system_suspend_begin() and
-> psci_system_suspend_enter() callbacks.
-> 
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> [mani: reworded the description to be more elaborative]
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+On Tue, 10 Mar 2026 at 12:49, Sebastian Ene <sebastianene@google.com> wrote:
+>
+> Introduce a registry to track protected MMIO regions that are unmapped
+> from the host stage-2 page tables. These regions are stored in a
+> fixed-size array and their ownership is donated to the hypervisor during
+> initialization to ensure host-exclusion and persistent tracking.
+>
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
 > ---
-> 
-> This patch was part of an old series that didn't make it to mainline due to
-> objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
-> https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com/
-> 
-> But this patch on its own is useful for platforms implementing the S2RAM
-> feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
-> resending it.
-> 
->   drivers/firmware/psci/psci.c | 10 ++++++++++
->   1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index 38ca190d4a22..e73bae6cb23a 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long unused)
->   
->   static int psci_system_suspend_enter(suspend_state_t state)
->   {
-> +	pm_set_resume_via_firmware();
+>  arch/arm64/include/asm/kvm_pkvm.h     | 10 ++++++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c |  3 +++
+>  arch/arm64/kvm/hyp/nvhe/setup.c       | 25 +++++++++++++++++++++++++
+>  3 files changed, 38 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 757076ad4ec9..48ec7d519399 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -17,6 +17,16 @@
+>
+>  #define HYP_MEMBLOCK_REGIONS 128
+>
+> +#define PKVM_PROTECTED_REGS_NUM        8
 > +
->   	return cpu_suspend(0, psci_system_suspend);
->   }
->   
-> +static int psci_system_suspend_begin(suspend_state_t state)
+> +struct pkvm_protected_reg {
+> +       u64 start_pfn;
+> +       size_t num_pages;
+> +};
+> +
+> +extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
+> +extern unsigned int kvm_nvhe_sym(num_protected_reg);
+> +
+>  int pkvm_init_host_vm(struct kvm *kvm);
+>  int pkvm_create_hyp_vm(struct kvm *kvm);
+>  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 0808367c52e5..7c125836b533 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -23,6 +23,9 @@
+>
+>  struct host_mmu host_mmu;
+>
+> +struct pkvm_protected_reg pkvm_protected_regs[PKVM_PROTECTED_REGS_NUM];
+> +unsigned int num_protected_reg;
+> +
+>  static struct hyp_pool host_s2_pool;
+>
+>  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> index 90bd014e952f..ad5b96085e1b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -284,6 +284,27 @@ static int fix_hyp_pgtable_refcnt(void)
+>                                 &walker);
+>  }
+>
+> +static int unmap_protected_regions(void)
+
+I think the name of this function is confusing. It's not really
+unmapping, it's donating the regions to hyp. Maybe
+donate_protected_regions() or claim_protected_mmio_regions to reflect
+that we are doing an ownership transfer?
+
 > +{
-> +	pm_set_suspend_via_firmware();
+> +       struct pkvm_protected_reg *reg;
+> +       int i, ret, j = 0;
+
+Please don't interleave the iterators with ret. Moreover, you can
+define ret inside the loop below. Also, you don't need to initialze j.
+
 > +
-> +	return 0;
+> +       for (i = 0; i < num_protected_reg; i++) {
+> +               reg = &pkvm_protected_regs[i];
+> +               for (j = 0; j < reg->num_pages; j++) {
+> +                       ret = __pkvm_host_donate_hyp_mmio(reg->start_pfn + j);
+> +                       if (ret)
+> +                               goto err_setup;
+> +               }
+> +       }
+> +
+> +       return 0;
+> +err_setup:
+> +       for (j = j - 1; j >= 0; j--)
+> +               __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
+
+This rolls back the regions only for the latest `i` iteration, not all
+the `i` iterations.
+
+How about (not tested):
+
++    err_setup:
++       while (j--)
++           __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
++
++       while (i--) {
++           reg = &pkvm_protected_regs[i];
++           for (j = reg->num_pages - 1; j >= 0; j--)
++               __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
++       }
+
+Thanks,
+/fuad
+
+
+> +       return ret;
 > +}
 > +
->   static const struct platform_suspend_ops psci_suspend_ops = {
->   	.valid          = suspend_valid_only_mem,
->   	.enter          = psci_system_suspend_enter,
-> +	.begin          = psci_system_suspend_begin,
->   };
->   
->   static void __init psci_init_system_reset2(void)
-
-
-I wanted to ask what the status of this patch is?
-
-It turns out that since commit f3ac2ff14834 ("PCI/ASPM: Enable all 
-ClockPM and ASPM states for devicetree platforms"), this fix is also 
-need for Tegra platforms that have NVMe devices to ensure that they are 
-suspended as needed. There is some more background in this thread [0].
-
-So for Tegra ...
-
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-Acked-by: Jon Hunter <jonathanh@nvidia.com>
-
-Cheers
-Jon
-
-[0] 
-https://lore.kernel.org/lkml/kkly3z4durpagtenadvmzdpojlctachgfgi2fdapt6zthdl2gx@n2qhmlud2zb7/
-
--- 
-nvpublic
-
+>  void __noreturn __pkvm_init_finalise(void)
+>  {
+>         struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
+> @@ -324,6 +345,10 @@ void __noreturn __pkvm_init_finalise(void)
+>         if (ret)
+>                 goto out;
+>
+> +       ret = unmap_protected_regions();
+> +       if (ret)
+> +               goto out;
+> +
+>         ret = hyp_ffa_init(ffa_proxy_pages);
+>         if (ret)
+>                 goto out;
+> --
+> 2.53.0.473.g4a7958ca14-goog
+>
 
