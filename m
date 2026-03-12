@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CE8105A598
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AF0105A597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wkTGkmqzikfNaSbExFmva/vvpfA5O4wv5NIuhANKd+s=; b=oKoq9kpkpJbV9jUyvZW9NwzQ2I
-	sr8nn8nmHSws6RRZDgLIsmPNX9+ya+n/sRs493eDsgBUQT7SyPER82YaI1iyUWpr++hpdsaLz7F+b
-	SMsYRxXT+0xl8Yd1gLfmPppoL+aPj0mSG926agnYAndnbFVZ91X+nJvTp4O7HhW8P6dQk0AznIJfP
-	e5hm9MltBGxqNz1IRx5G+bkLzUX+G2DILSMgJy3iaIBafM1XfCqUT36h8lP0hs+XnCi+5yqnJyib8
-	yfbXCF6RM0CUyyOF+WC8sFpokkPhBqbQ5NUrZph1BS4sGaRc005DvmHepD6yfnBbaQVW33t182LhA
-	RJQzUfGQ==;
+	bh=CH81gtykJXIOVXe5s+MGyFet0dHU8Xr2AXw313xYU8g=; b=ksOuGwOAGmHdfT9r1jTyQ3ZFwq
+	xnQdIlkW3zBPpM9YNhM1cR5IAgDoa8dcbELT8itlYoV+FEJ5wI07Ww+eSwi9cXJ/Hz/nOS9jpgeiR
+	tpYN6aamz2NhvwAdXMDiAhyvaWmTXGoQYdGII2W74Bm7MNlAy0fajFQiyl0SomD0w5ialOVjgX+gK
+	QNJOydCsLxdd6F7hEF+Y8HkQ4byZsAT+O3HqGr5B+X0T7Jtmk07GZ4SbpHSZ5fSWUhnje5mnFqLdL
+	FK1TRSAY+jWV+O/AdoxGiGhIoLdGSZfFDK0zx9frh0617D3paarkmoGrJvVJ8GMYS6gV6g5PaT+Fq
+	LrO7zHow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fh3-0000000E6Kv-3qC2;
-	Thu, 12 Mar 2026 13:03:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0fhD-0000000E6Rr-42KA;
+	Thu, 12 Mar 2026 13:03:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fh1-0000000E6JJ-4Bdr;
-	Thu, 12 Mar 2026 13:03:13 +0000
+	id 1w0fhC-0000000E6R4-3hIq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 13:03:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 324054187B;
-	Thu, 12 Mar 2026 13:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 324ABC4CEF7;
-	Thu, 12 Mar 2026 13:03:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DE4D460054;
+	Thu, 12 Mar 2026 13:03:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D7BC19424;
+	Thu, 12 Mar 2026 13:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773320591;
-	bh=cEWEtVNxn7YA4HCPF4joB80toxgCA1BCz1lWZNuQ6rw=;
+	s=k20201202; t=1773320600;
+	bh=ZCBIIybt8lnKr9jRT9qv66H2m2IVQcwITj/TT5M7ZNc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PTjvjjpiibuQ2rlWJcLLx8nGT/ksAGWZMYUCLVX72eNtj1Rmwo/kl7RB5JFuTEGoj
-	 iYamGA0aXcvHoLY1KyNIf2ZLj/iUWJJ420hLYGEoEmfX96yZPIE8vYrIW7BBMCzLNT
-	 elfcyow5Ql2m3n7gb3xX5d2MeyfvElRvrJVoaSIaqm5KP9+zqggTr6W0IkRmGfYQ2m
-	 mUoYZ7PHoPDlCtYFi7w6TI9HBudWKai2QKxPVLiYwYWV4hA7g4tE/L2RoJ5Vw7EeKE
-	 nWANYUVv9AhZHxvfQdCFB62aGs+QZD3SZgSv3+AFpbc8u3xhNehfA1HNeZjAlKEX6a
-	 vlGtm2Bka3btw==
+	b=LDK5iwKlRpMIOYZ0y+o2WLWgp+ECjtiMmcBuzAIjaKk0fjTohdSVojkjoda4Ui/86
+	 LxQidBOU8LzykSXol0HwnhX/Va89agPjPkgB8zF2CqoLpcGkIXfkHh3NiTLEllwpVO
+	 UiAXwzfDleuVI6KsJeNwrniuVnrR7eNOWUBjOs1mP5GOzXW7vct2YJNEjyv3QOA7w6
+	 g3CGHfcNt1yirF4Yu0i/Kee6BhigIUO9pJpeBwEnXv0m6E9IJQLA5AqImPkFLfu0qR
+	 3/mxRAIw4sFoL3upuhf0Dzv3brLPoqU0nKokCWs2PV8KEB74vtGqgBViJ9ZD8zMSdT
+	 fQI4mE0NCU6QA==
 From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+To: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>
 Cc: Manikanta Maddireddy <mmaddireddy@nvidia.com>,
 	Koichiro Den <den@valinux.co.jp>,
 	Damien Le Moal <dlemoal@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
 	Niklas Cassel <cassel@kernel.org>,
 	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v4 04/10] PCI: dw-rockchip: Describe RK3588 BAR4 DMA ctrl window
-Date: Thu, 12 Mar 2026 14:02:32 +0100
-Message-ID: <20260312130229.2282001-16-cassel@kernel.org>
+	imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH v4 06/10] PCI: dwc: Replace certain BAR_RESERVED with BAR_DISABLED in glue drivers
+Date: Thu, 12 Mar 2026 14:02:34 +0100
+Message-ID: <20260312130229.2282001-18-cassel@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260312130229.2282001-12-cassel@kernel.org>
 References: <20260312130229.2282001-12-cassel@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2154; i=cassel@kernel.org; h=from:subject; bh=f1LYtE3q/j0+VWpsNcU5CJsbxfsJPELN/5WncWLOpCY=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDI37cxZ2er2uvFMyu051nzC3TFxarNEApatEnD+GnzQ5 6qBG5dcRykLgxgXg6yYIovvD5f9xd3uU44r3rGBmcPKBDKEgYtTACbiG8/wvz7wnZzTt7itIq/X l8/eNlduGXvE56RZecYGjqcWCb9boMzwv6RByfP34QnXZv/467Prkr/CVIv47X0rrmk/3OtiPS1 zFgcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5965; i=cassel@kernel.org; h=from:subject; bh=ZCBIIybt8lnKr9jRT9qv66H2m2IVQcwITj/TT5M7ZNc=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDI37cwNYfVWmmjHdJpv/n7J/0rRj5I36d8+cMrx1N55M uGfNne2dpSyMIhxMciKKbL4/nDZX9ztPuW44h0bmDmsTCBDGLg4BWAilz0ZGVYKnlVeX1lfPF1y y5Oo1liZNvPIrO1TzUX0emboCRnOfcXwm+W95FKXhKdb567Ya/tWc2W+ZHVwVaZZZ0a/W8aJ5E2 nGQA=
 X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_060312_087730_9CF9B84A 
-X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +95,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Koichiro Den <den@valinux.co.jp>
+Most DWC based EPC glue drivers that have BARs marked as BAR_RESERVED in
+epc_features also call dw_pcie_ep_reset_bar() for these reserved BARs in
+ep->ops->init(). (The only exception is pci-keystone.c.)
 
-On RK3588 PCIe3_4L in EP mode, the integrated DMA controller registers
-are permanently mapped to BAR4 and must not be repurposed by EPF
-drivers.
+An EPF driver will be able to get/enable BARs that have been disabled/reset
+using dw_pcie_ep_reset_bar(), except if the BAR is marked as BAR_RESERVED
+(see pci_epc_get_next_free_bar()).
 
-When the remote peer needs to access these registers, it must use the
-fixed BAR4 window instead of creating another inbound mapping in a
-different BAR. Mixing the fixed window with an additional mapping can
-lead to incorrect behavior.
+Thus, all EPC drivers that have BARs marked as BAR_RESERVED in epc_features
+and call dw_pcie_ep_reset_bar(), should really have these BARs marked as
+BAR_DISABLED. If dw_pcie_ep_reset_bar() is not called by the glue driver,
+the BARs are kept as BAR_RESERVED.
 
-Advertise the DMA controller MMIO window as a reserved BAR subregion so
-EPF drivers can reuse it safely.
+No EPC drivers outside drivers/pci/controllers/dwc mark their BARs as
+BAR_RESERVED, so there is nothing to do in non-DWC based EPC drivers.
 
-Reviewed-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Signed-off-by: Koichiro Den <den@valinux.co.jp>
+Tested-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Tested-by: Koichiro Den <den@valinux.co.jp>
 Signed-off-by: Niklas Cassel <cassel@kernel.org>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ drivers/pci/controller/dwc/pci-imx6.c         | 12 ++++++------
+ drivers/pci/controller/dwc/pci-keystone.c     | 12 ++++++++++++
+ drivers/pci/controller/dwc/pcie-rcar-gen4.c   |  6 +++---
+ drivers/pci/controller/dwc/pcie-tegra194.c    |  8 ++++----
+ drivers/pci/controller/dwc/pcie-uniphier-ep.c |  4 ++--
+ 5 files changed, 27 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 5b17da63151d..ecc28093c589 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -403,6 +403,15 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3568 = {
- 	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index a5b8d0b71677..ec1e3557ca53 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1433,19 +1433,19 @@ static int imx_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+ static const struct pci_epc_features imx8m_pcie_epc_features = {
+ 	DWC_EPC_COMMON_FEATURES,
+ 	.msi_capable = true,
+-	.bar[BAR_1] = { .type = BAR_RESERVED, },
+-	.bar[BAR_3] = { .type = BAR_RESERVED, },
++	.bar[BAR_1] = { .type = BAR_DISABLED, },
++	.bar[BAR_3] = { .type = BAR_DISABLED, },
+ 	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = SZ_256, },
+-	.bar[BAR_5] = { .type = BAR_RESERVED, },
++	.bar[BAR_5] = { .type = BAR_DISABLED, },
+ 	.align = SZ_64K,
  };
  
-+static const struct pci_epc_bar_rsvd_region rk3588_bar4_rsvd[] = {
-+	{
-+		/* DMA_CAP (BAR4: DMA Port Logic Structure) */
-+		.type = PCI_EPC_BAR_RSVD_DMA_CTRL_MMIO,
-+		.offset = 0x0,
-+		.size = 0x2000,
-+	},
-+};
-+
- /*
-  * BAR4 on rk3588 exposes the ATU Port Logic Structure to the host regardless of
-  * iATU settings for BAR4. This means that BAR4 cannot be used by an EPF driver,
-@@ -420,7 +429,11 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3588 = {
- 	.bar[BAR_1] = { .type = BAR_RESIZABLE, },
+ static const struct pci_epc_features imx8q_pcie_epc_features = {
+ 	DWC_EPC_COMMON_FEATURES,
+ 	.msi_capable = true,
+-	.bar[BAR_1] = { .type = BAR_RESERVED, },
+-	.bar[BAR_3] = { .type = BAR_RESERVED, },
+-	.bar[BAR_5] = { .type = BAR_RESERVED, },
++	.bar[BAR_1] = { .type = BAR_DISABLED, },
++	.bar[BAR_3] = { .type = BAR_DISABLED, },
++	.bar[BAR_5] = { .type = BAR_DISABLED, },
+ 	.align = SZ_64K,
+ };
+ 
+diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+index 20fa4dadb82a..278d2dba1db0 100644
+--- a/drivers/pci/controller/dwc/pci-keystone.c
++++ b/drivers/pci/controller/dwc/pci-keystone.c
+@@ -933,6 +933,18 @@ static const struct pci_epc_features ks_pcie_am654_epc_features = {
+ 	DWC_EPC_COMMON_FEATURES,
+ 	.msi_capable = true,
+ 	.msix_capable = true,
++	/*
++	 * TODO: This driver is the only DWC glue driver that had BAR_RESERVED
++	 * BARs, but did not call dw_pcie_ep_reset_bar() for the reserved BARs.
++	 *
++	 * To not change the existing behavior, these BARs were not migrated to
++	 * BAR_DISABLED. If this driver wants the BAR_RESERVED BARs to be
++	 * disabled, it should migrate them to BAR_DISABLED.
++	 *
++	 * If they actually should be enabled, then the driver must also define
++	 * what is behind these reserved BARs, see the definition of struct
++	 * pci_epc_bar_rsvd_region.
++	 */
+ 	.bar[BAR_0] = { .type = BAR_RESERVED, },
+ 	.bar[BAR_1] = { .type = BAR_RESERVED, },
  	.bar[BAR_2] = { .type = BAR_RESIZABLE, },
- 	.bar[BAR_3] = { .type = BAR_RESIZABLE, },
+diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+index a6912e85e4dd..9dd05bac22b9 100644
+--- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
++++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+@@ -422,10 +422,10 @@ static int rcar_gen4_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+ static const struct pci_epc_features rcar_gen4_pcie_epc_features = {
+ 	DWC_EPC_COMMON_FEATURES,
+ 	.msi_capable = true,
+-	.bar[BAR_1] = { .type = BAR_RESERVED, },
+-	.bar[BAR_3] = { .type = BAR_RESERVED, },
++	.bar[BAR_1] = { .type = BAR_DISABLED, },
++	.bar[BAR_3] = { .type = BAR_DISABLED, },
+ 	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = 256 },
+-	.bar[BAR_5] = { .type = BAR_RESERVED, },
++	.bar[BAR_5] = { .type = BAR_DISABLED, },
+ 	.align = SZ_1M,
+ };
+ 
+diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
+index f1f70fb824b2..61b9771004da 100644
+--- a/drivers/pci/controller/dwc/pcie-tegra194.c
++++ b/drivers/pci/controller/dwc/pcie-tegra194.c
+@@ -1993,10 +1993,10 @@ static const struct pci_epc_features tegra_pcie_epc_features = {
+ 	.msi_capable = true,
+ 	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M,
+ 			.only_64bit = true, },
+-	.bar[BAR_2] = { .type = BAR_RESERVED, },
+-	.bar[BAR_3] = { .type = BAR_RESERVED, },
 -	.bar[BAR_4] = { .type = BAR_RESERVED, },
-+	.bar[BAR_4] = {
-+		.type = BAR_RESERVED,
-+		.nr_rsvd_regions = ARRAY_SIZE(rk3588_bar4_rsvd),
-+		.rsvd_regions = rk3588_bar4_rsvd,
-+	},
- 	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
+-	.bar[BAR_5] = { .type = BAR_RESERVED, },
++	.bar[BAR_2] = { .type = BAR_DISABLED, },
++	.bar[BAR_3] = { .type = BAR_DISABLED, },
++	.bar[BAR_4] = { .type = BAR_DISABLED, },
++	.bar[BAR_5] = { .type = BAR_DISABLED, },
+ 	.align = SZ_64K,
+ };
+ 
+diff --git a/drivers/pci/controller/dwc/pcie-uniphier-ep.c b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
+index b7020131f626..d6ec6823e180 100644
+--- a/drivers/pci/controller/dwc/pcie-uniphier-ep.c
++++ b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
+@@ -427,8 +427,8 @@ static const struct uniphier_pcie_ep_soc_data uniphier_pro5_data = {
+ 		.align = 1 << 16,
+ 		.bar[BAR_0] = { .only_64bit = true, },
+ 		.bar[BAR_2] = { .only_64bit = true, },
+-		.bar[BAR_4] = { .type = BAR_RESERVED, },
+-		.bar[BAR_5] = { .type = BAR_RESERVED, },
++		.bar[BAR_4] = { .type = BAR_DISABLED, },
++		.bar[BAR_5] = { .type = BAR_DISABLED, },
+ 	},
  };
  
 -- 
