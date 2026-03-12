@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542DD106703C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D29A106703C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltlhWB/R+dYGhwgGAypvr2FmzCOvy+OJ80K5UktbZIE=; b=1ELaeKZTiTXKlgiQ8Up92Q/Pcz
-	Y4I5l8kxEZTZX+2ZndfeG/7e6OvRtM0BRNSireyL8m1hyHheemr7lnxO9gSfIWEkGfwwAge4hvGqA
-	cu3GZGFhVRoTcuBDGtthcG/S9Sdp/65t34u37r7IaW5BvKKEhrRvJxn1MJ2kscdK8YbldAYzNgjxK
-	qDTHjm+I9McaoJ6SUtnAUkMSBptGRqgdFrOvuiYBbay8ppDqYtDrKNrsteAjSr47PuecDbZCE8Uar
-	ArmDrcuOYB3MsqMBOKpkfO8mSa7Vk78QT190CA8k2pTRQR/DkHYVlq+EyJmVHO38y5edqvhidOzOy
-	RIc/Wf2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qdcSOBiZTb/6XBwzLl+1OgXcvspf5Ab6aZwR/qn0GcU=; b=yuSk4CN/Pq0FEf+7VvoCqiqzOt
+	fRRCiMmeC60QlzcWQUnehaheTPI+ORl3TKMwLoWkNEr1nOg5Blhflq7eaYPPAd2iaBiM+cNM3zumW
+	Y8M/qYtp5mehjKolFFM9qNY3CxuX34d3CjMwjK6bctkKvMx8fe/h0nR8U2aC8cBMPZEUQVTBHyfRf
+	lh7h8T4dUDI0UAakEbUDbCwq9LOrNlfqXwLdyJ46cyaVcvw8OAa5GWuWWTxK3kMUwFiAjn9miIg++
+	qeEk+41poVKbpWzIzBfu7bUrGui2Nv3rJWWvCPpzyIyq+fMYW/dC6LjA6YolunCElfStNIsM6Cu6H
+	xfuYFs0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hEZ-0000000EDsZ-2MTv;
-	Thu, 12 Mar 2026 14:41:55 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hEU-0000000EDrj-3t1i
+	id 1w0hEl-0000000EDw5-1iXR;
+	Thu, 12 Mar 2026 14:42:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0hEj-0000000EDuS-1rv4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:41:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9182A4E42504;
-	Thu, 12 Mar 2026 14:41:44 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5D5475FDEB;
-	Thu, 12 Mar 2026 14:41:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F0A210369D80;
-	Thu, 12 Mar 2026 15:41:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773326503; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ltlhWB/R+dYGhwgGAypvr2FmzCOvy+OJ80K5UktbZIE=;
-	b=kV0XiLLpl4YNjd6gU8pjNriysy8QLHtVqlgAPiNuSIDpxocFAZ98E0y6tD6BaKry4u3SFN
-	KAEvXGtWCbFfJtsbTk7yJq3ZoVQ9N7aclod3WLXq6l/Y+jorST7y0mPhxgv2doAaI7dLY3
-	2slj7/07RR5LtJZhp8A151pDaMflTE7+Qmp16V6a9/ckHcHP+gDvQjm7iJIjB3jT568ATs
-	YwmvkArjHljO9a3iz7FyOpyoWz6YTyJUCcczcGtrMWWQvnbmzz2+pA09scVrJX9nMfuvUo
-	8Ngy9QYTATB++eYBEmYgM1qsF1qEupUNEHf4LbsyjXVDXYQWXcKb//pz1dNoIA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Chen-Yu Tsai <wens@csie.org>,  Jernej Skrabec
- <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,  Wentao
- Liang <vulab@iscas.ac.cn>,  Maxime Ripard <mripard@kernel.org>,  Boris
- Brezillon <bbrezillon@kernel.org>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] mtd: rawnand: sunxi: introduce variable user
- data length
-In-Reply-To: <20260305100137.2558423-7-richard.genoud@bootlin.com> (Richard
-	Genoud's message of "Thu, 5 Mar 2026 11:01:37 +0100")
-References: <20260305100137.2558423-1-richard.genoud@bootlin.com>
-	<20260305100137.2558423-7-richard.genoud@bootlin.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Thu, 12 Mar 2026 15:41:37 +0100
-Message-ID: <87a4wdkt3y.fsf@bootlin.com>
+	Thu, 12 Mar 2026 14:42:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 587F2165C;
+	Thu, 12 Mar 2026 07:41:55 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6134B3F7BD;
+	Thu, 12 Mar 2026 07:41:59 -0700 (PDT)
+Date: Thu, 12 Mar 2026 14:41:57 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
+	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
+	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v15 4/8] arm64: futex: refactor futex atomic operation
+Message-ID: <abLQtbbYidcmPg-7@arm.com>
+References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+ <20260227151705.1275328-5-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227151705.1275328-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_074151_158208_BE7E8A39 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260312_074205_523072_5FF83DC1 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +67,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Richard,
+On Fri, Feb 27, 2026 at 03:17:01PM +0000, Yeoreum Yun wrote:
+> Refactor futex atomic operations using ll/sc method with
+> clearing PSTATE.PAN to prepare to apply FEAT_LSUI on them.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+>  arch/arm64/include/asm/futex.h | 137 +++++++++++++++++++++------------
+>  1 file changed, 87 insertions(+), 50 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index bc06691d2062..9a0efed50743 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -7,21 +7,25 @@
+>  
+>  #include <linux/futex.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/stringify.h>
 
-On 05/03/2026 at 11:01:37 +01, Richard Genoud <richard.genoud@bootlin.com> =
-wrote:
+Nit: what needs stringify.h in this file? It get removed (or rather
+moved to lsui.h) in the next patch.
 
-> In Allwinner SoCs, user data can be added in OOB before each ECC data.
-> For older SoCs like A10, the user data size was the size of a register
-> (4 bytes) and was mandatory before each ECC step.
-> So, the A10 OOB Layout is:
-> [4Bytes USER_DATA_STEP0] [ECC_STEP0 bytes]
-> [4bytes USER_DATA_STEP1] [ECC_STEP1 bytes]
-> ...
-> NB: the BBM is stored at the beginning of the USER_DATA_STEP0.
->
-> Now, for H6/H616 NAND flash controller, this user data can have a
-> different size for each step.
-> And the vendor has chosen a different layout from the one on A10, using
-> 8 bytes for step 0 and nothing for further steps:
-> [8bytes USER_DATA_STEP0] [ECC_STEP0 bytes] [ECC_STEP1 bytes]...
-> (Still with BBM stored at the beginning of the USER_DATA_STEP0)
-
-I would rather be in favour of not following $(random vendor) firmware
-layout. Upstream, it makes probably more sense to just allow access to
-the maximum number of bytes that can be covered by the ECC engine, so I
-would rather be in favour of computing the maximum size that you can set
-for each step, without going over the OOB size.
-
-Once this set up, I believe adapting the driver locally (out of tree) to
-match a specific vendor layout would be rather straightforward, as all
-the configuration pieces would already be in place.
-
-Thanks,
-Miqu=C3=A8l
+-- 
+Catalin
 
