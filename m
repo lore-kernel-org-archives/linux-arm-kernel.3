@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49521FED2E9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B990106703C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+BHwLwGTC9buFNuVJJj2C5HiiQN1vRFWKn+Wc70FFA=; b=RHiLKUJvdh3S1EfFI1TQxZFfGY
-	cQEMoLky2d/VpevNQxid2lUwdkHhRB9WPieCQx7TJi58z6sEG6wY/SJPjPjWdIjBlrVZ8dhPP6Fif
-	Vq5QuN4w4WuJoEmmKqK2qQPVWalJHj/OM4AfD1jVN1p8t7iScorv+ieAnEulaotJXdZByVT8MU3O2
-	ZO0l8C0aEj5rEDxS498fp0DC25Og+U3KLJfjp+fTQ0XGBnmVnEActrIp0gRDWMBFjD4mY9vXuKi0w
-	L5lJcdyA0vU4wPfj2RXZLl6eP9AsdCMRwBTqKkmyniduozVaswbztFOWOf7ISn1WkWP9ipnkxo9Aw
-	e5d0ni0Q==;
+	bh=bLD4oFW0N84FTSmWx5ntsoxLfj62Uc+/bcYXLFwb2jo=; b=XaNPDr/KSpOby1sF32edHnrNpA
+	h03/awmfl9G4hBTO9tmFvx/SINhJQAX8x/zX78Kjz0My4vp3KPEME7311WZWrAC3Qqr6v+J6lnXyI
+	2hEhYIXmYm2cuiAD1pFLfTYRKXMKXb1+9JUcAjZBh44gSM+CBOJxoX5iz+nw3sOrumhye2l2mGOY2
+	2NhlioFEmThPBWdznaTiNyMXAx3UZYQj+I6sETNJJIhvz8EUa++uqg/38ym7AYWE+mfJMT1uP87e9
+	A7V41yHtXmQD8LRuHMA75+QXtUPOfTPWIUK+RA7MAPlUnOjHItaJRZ5g9deKgLOirzTCT9QsGt63t
+	YdfH/nbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hMq-0000000EFrM-2dxE;
-	Thu, 12 Mar 2026 14:50:28 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hMk-0000000EFp3-0fWO
+	id 1w0hNl-0000000EFxj-1HDU;
+	Thu, 12 Mar 2026 14:51:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0hNh-0000000EFwT-0cnt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:50:25 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fWr9X4TXYzJ46fS;
-	Thu, 12 Mar 2026 22:49:20 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9CA7540572;
-	Thu, 12 Mar 2026 22:50:08 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 12 Mar
- 2026 14:50:07 +0000
-Date: Thu, 12 Mar 2026 14:50:06 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-CC: <devicetree@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<Dmitry.Lamerov@arm.com>, <catalin.marinas@arm.com>, <bp@alien8.de>,
-	<robh@kernel.org>, <rafael@kernel.org>, <will@kernel.org>,
-	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <krzk+dt@kernel.org>, <Michael.Zhao2@arm.com>,
-	<tony.luck@intel.com>
-Subject: Re: [PATCH v2 11/11] RAS: add DeviceTree firmware-first CPER
- provider
-Message-ID: <20260312145006.00000770@huawei.com>
-In-Reply-To: <4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
-	<20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
-	<20260224155520.00004e92@huawei.com>
-	<4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 12 Mar 2026 14:51:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7406F165C;
+	Thu, 12 Mar 2026 07:51:13 -0700 (PDT)
+Received: from [10.57.59.155] (unknown [10.57.59.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ECD23F7BD;
+	Thu, 12 Mar 2026 07:51:18 -0700 (PDT)
+Message-ID: <8f72b0f2-d517-4ac6-a593-3b654ac6344d@arm.com>
+Date: Thu, 12 Mar 2026 14:51:16 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [QUESTION] ARM DSU PMU: 32-bit counter assumption and handling of
+ 64-bit event counters
+To: Will Deacon <will@kernel.org>, "feng.zhou" <realsummitzhou@gmail.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com
+References: <20260206035138.1377-1-realsummitzhou@gmail.com>
+ <abLNm2gs8qszYVWK@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <abLNm2gs8qszYVWK@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_075022_504895_E8C95E9D 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20260312_075122_432821_735E61EF 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +67,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-> >> +Firmware-first CPER via DeviceTree
-> >> +----------------------------------
-> >> +
-> >> +Some systems expose Common Platform Error Record (CPER) data
-> >> +via DeviceTree instead of ACPI HEST tables.  
-> > 
-> > I'd argue this isn't really DT specific, it's just not ACPI table.
-> > You could for instance use PRP0001 and wire this up on ACPI with only
-> > one trivial change to generic property.h accessor for the boolean.
-> > 
-> > Or use another firmware information source entirely.  
+On 2026-03-12 2:28 pm, Will Deacon wrote:
+> [+Robin and Suzuki]
 > 
-> I'm intentionally keeping the scope DT-only for this series,
-> so I'll keep the wording DT-focused.
-
-Why?  Generally when the support works fine with generic firmware
-accessors that's preferred because there are no real disadvantages.
-
-> >> +#include <acpi/ghes.h>
-> >> +#include <acpi/ghes_cper.h>
-> >> +
-> >> +static atomic_t ghes_ffh_source_ids = ATOMIC_INIT(0);  
-> > I'd normally expect an IDA or similar. If nothing else it clearly
-> > indicates we only want a unique ID.  
+> On Fri, Feb 06, 2026 at 11:51:38AM +0800, feng.zhou wrote:
+>> Hi Will and Mark,
+>>
+>> I have a question regarding the ARM DSU PMU driver implementation in
+>> drivers/perf/arm_dsu_pmu.c, specifically about the counter width
+>> assumptions.
+>>
+>> Current Implementation:
+>> ======================
+>> The driver currently assumes all event counters are 32-bit wide, with
+>> only the cycle counter being 64-bit (lines 69-71):
+>>
+>> /* All event counters are 32bit, with a 64bit Cycle counter */
+>> #define DSU_PMU_COUNTER_WIDTH(idx)	\
+>> 	(((idx) == DSU_PMU_IDX_CYCLE_COUNTER) ? 64 : 32)
+>>
+>> This assumption is used throughout the code for handling counter
+>> overflow and calculating deltas (e.g., line 344 in dsu_pmu_event_update).
+>>
+>> Issue Observed:
+>> ===============
+>> I've encountered overflow issues when using perf tools on newer ARM CPUs
+>> where the event counters appear to be 64-bit rather than 32-bit. The
+>> current implementation causes incorrect event counting and potential data
+>> loss due to premature overflow handling based on the 32-bit mask.
 > 
-> I'll keep the atomic for now; it's just a monotonic unique ID with no
-> lifetime tracking. If you strongly prefer IDA I can switch.
-
-If it doesn't 'need' to be monotonic due to some design issue then
-yes I'd prefer an IDA.
-
-
-> >> +	spinlock_t lock;
-> >> +};  
-> > 
-> >   
-> >> +
-> >> +static void ghes_ffh_process(struct ghes_ffh *ctx)
-> >> +{
-> >> +	unsigned long flags;
-> >> +	int sev;
-> >> +
-> >> +	spin_lock_irqsave(&ctx->lock, flags);  
-> > 
-> > guard() + include cleanup.h. Then can do returns in error paths.  
+> I suspect either the hardware or the architecture have evolved since the
+> driver was initially written, possibly in a non-backwards-compatible way
+> which is why you see problems.
 > 
-> Agreed. I'll switch to guard() and include <linux/cleanup.h>.
-A general process thing.  If you agree with a suggestion, just
-do it and crop that section of the email thread out.
-Reply that you agree tends not to benefit anyone!
-
-
+>> Questions:
+>> ==========
+>> 1. Is the 32-bit event counter assumption based on the ARMv8 PMU
+>>     specification or DSU-specific hardware documentation?
+>>
+>> 2. Are there known ARM CPU implementations where DSU event counters
+>>     exceed 32 bits? If so, how should the driver handle this variation?
+>>
+>> 3. Would it be appropriate to detect the actual counter width at runtime
+>>     (similar to how num_counters is probed in dsu_pmu_probe_pmu), or
+>>     should this be handled through device tree / ACPI properties?
+>>
+>> 4. Should there be a mechanism to query the hardware for the actual
+>>     counter width to ensure compatibility with future implementations?
+>>
+>> Thank you for your time and any insights you can provide.
 > 
-> >> +			ghes_estatus_cache_add(ctx->generic, ctx->estatus);
-> >> +	}
-> >> +
-> >> +	ghes_cper_handle_status(ctx->dev, ctx->generic, ctx->estatus, ctx->sync);
-> >> +
-> >> +	ghes_ffh_ack(ctx);
-> >> +
-> >> +out:
-> >> +	spin_unlock_irqrestore(&ctx->lock, flags);
-> >> +}
-...
+> Suzuki and Robin should be able to help with these...
 
-> >> +{
-> >> +	struct ghes_ffh *ctx;
-> >> +	struct resource *res;
-> >> +	int rc;
-> >> +
-> >> +	ctx = devm_kzalloc(&pdev->dev, sizeof(*ctx), GFP_KERNEL);
-> >> +	if (!ctx)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	spin_lock_init(&ctx->lock);
-> >> +	ctx->dev = &pdev->dev;
-> >> +	ctx->sync = of_property_read_bool(pdev->dev.of_node, "arm,sea-notify");  
-> > Hmm. I'd allow for other firmware types with
-> > 	device_property_read_bool() instead.  
-> 
-> Given DT-only scope, I'll keep of_property_read_bool() here.
-> 
-> >> +
-> >> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> >> +	if (!res) {
-> >> +		dev_err(&pdev->dev, "status region missing\n");  
+Yup, indeed newer DSUs subtly evolved, and the patches are already in 
+7.0-rc ;)
 
-Jonathan
-
+Cheers,
+Robin.
 
