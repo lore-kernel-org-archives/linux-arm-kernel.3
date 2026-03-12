@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE640106ACD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550D2106ACD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kg9hUzKHbhCYALNgzTiam+WBq+jyj3BckJioppHrELk=; b=Vv/LpRxbGLIc5RM+mgWZaCVY4L
-	gGJ/hWRkCsCOm0wvK3PwKzTgiXcfTlpGciORdx7DQJtqTNGIJNsY+Ux7WmWPKOkU14akctwwnRvhd
-	yXXjEY4gsB5QouuIt/ZrflaMTKSNHz4kOlRMmdRUSE6hN16c0jt+Q1g5pJ2NWhrTufH9VcPcnACh3
-	4I8rwgRwl5AH9h3w4+XEi0n2hBS5E00tlwNrxLUk451cLygq/IrUJVQdBj+4QPVYY6KCHzzmMhhpP
-	a1B75w3rwrHCM2CsBIAjYyILfJd/dM/VYNbOWblxERNOG9w+2/cIKiBoeAv2/nEkLUW4HDb1VGE66
-	2eWuTBNQ==;
+	bh=J4bg8vgp9lNIUnQuGlZbVueXJl1Qs+jq91xeTejIW88=; b=ORoB5kq9VvA7QasA/LquEpQ2aJ
+	GkDuz6lmI+ge6rWEj4Gzw+w5hrmP5q/9RydqPqsDXVkwrMfmZALDn0VUMVPQjmbQC4/HR/UXCoaZt
+	Pz5kTB4O7ItZ/mEoKHcIJmRWcF1AN8gr6FOq/eoSuv0n+GVJEo6nCzPbcVW4PuREflGcCrOiUkIzr
+	jjjKWr2KBtz/uqD2/peANdtNRx8pHX+X/+Um2wmKDJwlrbtNHRDo98A71/uVUYXWgNRcHxf0DUuEg
+	pYvgPN6DLW0ahdPxMIzJRGXLdabSfV4WfGzV5ZqEZHFf1FdScc1+x0NmxuOxmHMMjpTlsimwnbBhK
+	jKBW1VAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kB2-0000000EmLO-1Dfo;
-	Thu, 12 Mar 2026 17:50:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0kB9-0000000EmNb-2aa0;
+	Thu, 12 Mar 2026 17:50:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kAz-0000000EmKa-0OcY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 17:50:26 +0000
+	id 1w0kB7-0000000EmMg-3vED;
+	Thu, 12 Mar 2026 17:50:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05804418A2;
-	Thu, 12 Mar 2026 17:50:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46092C4CEF7;
-	Thu, 12 Mar 2026 17:50:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5E76B61335;
+	Thu, 12 Mar 2026 17:50:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99C49C4CEF7;
+	Thu, 12 Mar 2026 17:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773337822;
-	bh=7LHsz76bEPqqBt9H8LYH0PqAphw8gf+XDpTaqmgHOmI=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=Y5MfLluO4eYtVYnyRsyCg4YgMaE467xspw1/uiQe2SJreUpRoMggueZPG5j5w54io
-	 3WOmwjGq6lyvPFvi5DwbaCAhnMOlpKUGghaWXTs9XvDrZzvtZslSbz3chuRz+2aA+T
-	 qpSFAJ5gcYJu44pF1C5lrS3ADap7MIWLI7oEgZfvyNkk6B5CK6zUYNxoZJolKEHv1k
-	 CG9BeD02oAmwoShQsfAhaVjqXXTLQiqH/QwEPOrnShxBYoWdSerxnzBRNpy3uYbgI6
-	 IaEshcZZ4Y8MtsEOqPorJ5lamF7AftIP8NExndqjcldWd0XLsLh9dXPZWBt/wMFt5C
-	 cTe61v1IpLI5Q==
-Content-Type: multipart/mixed; boundary="===============1276411357989145504=="
+	s=k20201202; t=1773337833;
+	bh=KenJYZKQMESmdjBYhz51YSRSfZ9967IRk4t3Gg1r3Gs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hDEHrdjvqz/MSMlfNSDxSUfMgfLBa5NbMksNsP12fREdHuaLP0aNobY8SPGe44x3T
+	 hLv0YEeaFGOrYxVTn4fZmMAj5LdLofgqsCD6sXyjwqUVhD4POx+Sodo3eqL3rHkjVn
+	 A3ADHv2uwlBzxfwGoc3jbUCnGOVPlAfRiPD2wfAiVdmAzn6ZM0eiyWUnDFRWpZhktw
+	 3/eOBtODVr0SsX43YuGFNLPHN9xAtoxkntlPKMx7pGJ33CYtLjbCD3DHQRrhtMv9Dn
+	 qMtLbzqi6odHsTwMjvFOqo2ueCJvy07NDJWl5PX/88/JAVuBu4iEw+KT79Ch/Mc9oI
+	 rCM0jv2N3Htbg==
+Date: Thu, 12 Mar 2026 17:50:26 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: alexandre.belloni@bootlin.com, Frank.Li@nxp.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
+	linux@armlinux.org.uk, mturquette@baylibre.com, sboyd@kernel.org,
+	ardb@kernel.org, ebiggers@google.com, martin.petersen@oracle.com,
+	tytso@mit.edu, cristian.birsan@microchip.com,
+	adrian.hunter@intel.com, jarkko.nikula@linux.intel.com,
+	kees@kernel.org, npitre@baylibre.com, linux-i3c@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: i3c: mipi-i3c-hci: add Microchip
+ SAMA7D65 compatible
+Message-ID: <20260312-ardently-untoasted-4f4b79be27c4@spud>
+References: <20260312042056.309237-1-manikandan.m@microchip.com>
+ <20260312042056.309237-2-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Message-Id: <23f4b038b245167ff440b79c0a445fcbc12e0a102884759623dd59b3d64d2ade@mail.kernel.org>
-In-Reply-To: <20260312170255.3427799-2-xukuohai@huaweicloud.com>
-References: <20260312170255.3427799-2-xukuohai@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v9 1/5] bpf: Move constants blinding out of arch-specific JITs
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Thu, 12 Mar 2026 17:50:22 +0000 (UTC)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_105025_175536_7A106276 
-X-CRM114-Status: GOOD (  15.91  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MqJz2bOHOp/6kCsJ"
+Content-Disposition: inline
+In-Reply-To: <20260312042056.309237-2-manikandan.m@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,88 +78,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============1276411357989145504==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 4fbacd2149cd..3ccefd13121b 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
+--MqJz2bOHOp/6kCsJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[ ... ]
+On Thu, Mar 12, 2026 at 09:50:52AM +0530, Manikandan Muralidharan wrote:
+> Add the microchip,sama7d65-i3c-hci compatible string to the MIPI I3C
+> HCI binding. The Microchip SAMA7D65 I3C controller is based on the
+> MIPI HCI specification but requires two clocks, so add a conditional
+> constraint when this compatible is present.
+>=20
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  .../devicetree/bindings/i3c/mipi-i3c-hci.yaml | 22 +++++++++++++++----
+>  1 file changed, 18 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml b/Do=
+cumentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> index 39bb1a1784c9..db659388a27d 100644
+> --- a/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> +++ b/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> @@ -9,9 +9,6 @@ title: MIPI I3C HCI
+>  maintainers:
+>    - Nicolas Pitre <npitre@baylibre.com>
+> =20
+> -allOf:
+> -  - $ref: /schemas/i3c/i3c.yaml#
+> -
+>  description: |
+>    MIPI I3C Host Controller Interface
+> =20
+> @@ -28,7 +25,9 @@ description: |
+> =20
+>  properties:
+>    compatible:
+> -    const: mipi-i3c-hci
+> +    enum:
+> +      - mipi-i3c-hci
+> +      - microchip,sama7d65-i3c-hci
+>    reg:
+>      maxItems: 1
+>    interrupts:
+> @@ -39,6 +38,21 @@ required:
+>    - reg
+>    - interrupts
+> =20
+> +allOf:
+> +  - $ref: /schemas/i3c/i3c.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: microchip,sama7d65-i3c-hci
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +      required:
+> +        - clocks
 
-> @@ -22843,17 +22843,23 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
->
->  static int jit_subprogs(struct bpf_verifier_env *env)
->  {
-> -	struct bpf_prog *prog = env->prog, **func, *tmp;
-> +	struct bpf_prog *orig_prog = env->prog, *prog, **func, *tmp;
->  	int i, j, subprog_start, subprog_end = 0, len, subprog;
->  	struct bpf_map *map_ptr;
->  	struct bpf_insn *insn;
->  	void *old_bpf_func;
->  	int err, num_exentries;
-> -	int old_len, subprog_start_adjustment = 0;
-> +	bool blinded = false;
->
->  	if (env->subprog_cnt <= 1)
->  		return 0;
->
-> +	prog = bpf_jit_blind_constants(env, NULL);
-> +	if (IS_ERR(prog))
-> +		return -ENOMEM;
-> +	if (prog != orig_prog)
-> +		blinded = true;
+Properties should be defined at the top level, and only restricted in
+conditional schemas. Please add them at the top level, and provide some
+information as to what each clock is via a description.
 
-When env is non-NULL, bpf_jit_blind_constants() uses
-bpf_patch_insn_data() to insert blinding instructions.
-bpf_patch_insn_data() calls adjust_insn_aux_data(), which expands
-and shifts entries in env->insn_aux_data to match the now-longer
-blinded program.
+pw-bot: changes-requested
+
+Thanks,
+Conor.
 
 > +
->  	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+>  unevaluatedProperties: false
+> =20
+>  examples:
+> --=20
+> 2.25.1
+>=20
 
-[ ... ]
+--MqJz2bOHOp/6kCsJ
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> @@ -23114,6 +23122,10 @@ static int jit_subprogs(struct bpf_verifier_env *env)
->  	}
->  	kfree(func);
->  out_undo_insn:
-> +	if (blinded) {
-> +		bpf_jit_prog_release_other(orig_prog, prog);
-> +		env->prog = prog = orig_prog;
-> +	}
->  	/* cleanup main prog to be interpreted */
->  	prog->jit_requested = 0;
->  	prog->blinding_requested = 0;
-> +	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
->  		if (!bpf_pseudo_call(insn))
->  			continue;
->  		insn->off = 0;
->  		insn->imm = env->insn_aux_data[i].call_imm;
->  	}
+-----BEGIN PGP SIGNATURE-----
 
-After bpf_jit_prog_release_other() reverts to orig_prog, this loop
-iterates using the original program's indices and length. However,
-env->insn_aux_data was expanded and shifted by bpf_patch_insn_data()
-during blinding to match the blinded program's instruction count.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL84gAKCRB4tDGHoIJi
+0hwzAQDHnz6O+/P97VuIJwNyaCiCSQPZ7MZTZ7H2o3gahOSGrwEAwavDxaOoHF7y
+GpcyvuVbOusizFUCT/bZu8hFfGO9NAg=
+=L5KA
+-----END PGP SIGNATURE-----
 
-The call_imm values were saved at blinded indices (earlier in
-jit_subprogs, after the bpf_jit_blind_constants call), so reading
-them back at original indices gets the wrong aux data entries.
-
-On !CONFIG_BPF_JIT_ALWAYS_ON configs, could this cause incorrect
-imm values to be restored into pseudo_call instructions, breaking
-interpreter fallback?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23013190773
---===============1276411357989145504==--
+--MqJz2bOHOp/6kCsJ--
 
