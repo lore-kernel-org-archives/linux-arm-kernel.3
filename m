@@ -4,72 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF2A106ACD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206C7106ACD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JR/B2dFDOfK/tmEdPLA1FD2R6WjIJ7KHea/shfA4u74=; b=Lx6BKJWvQKOEE/PdVdPqFZQ8cU
-	ebvwdglCHGKtaVIlQbMPhXunY18qGcO++zcHGXhXpuWZ+6IJbYfLYjY6SFeXp60ueEozMH7z5jJV6
-	QEINIjwWE3Bc7SeY9L/uHoxuGu9dzu2yMm3UUsf9gYFeC/8CiUWvHHgdAVlA1UXaNG7iH8QOGp7HJ
-	gu0pCx6i/8tTqCcmQVN3bwGuWm1Tlk4zCT2BBrR7UjHnn3Wqe8OgwBNgBm8SpNzu/5j9osS+2lC10
-	aTyFrX5j8WYTXBXenCyTypSOHnSDlG0C66Ia/8VDLlILu3Oq20t3ogDRbqJYBK/n3bBci0Cj2csjU
-	meblPbtA==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O3QPGH2WlRqdAb7NkXUjdb8ssG3QHNvfm3I1BvJyDjY=; b=GWaYgPBpAPcOWEZ9cO+/oOugVz
+	ZzBIZh/XWk9WtaRqa/PSVS1lLh2mfEpKyuav/uJ7fmHF4N3jYHFkpvwX49155s/3bJktnlaIZGR2M
+	Bol1VtQIbc090WaP4dGA1tGPyi2Jdfk//1ewOexuWVk5FZnnrdMsdQYMQFkpgPS4lAkzY+t7bJo5K
+	ikAI3jHQUnugSlrFKSiTHM6gE0elqgMVdxJA4imVcefXviU9j36IvMqgvVbGfZ9y89Z8NhYvn3sm1
+	XWl6x/pnCs6dMnblUtCfcCuqhKVC8Qj6vhfJ0z4gBYqleA5fxYosjGkznKHLiU8q9e1UGIpGpqEnm
+	UvpNevpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0knF-0000000EtPQ-3MCP;
-	Thu, 12 Mar 2026 18:29:57 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1w0kt7-0000000EuQI-0aDp;
+	Thu, 12 Mar 2026 18:36:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0knA-0000000EtLQ-2YKW;
-	Thu, 12 Mar 2026 18:29:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:subject:date:message-id:reply-to;
-	bh=JR/B2dFDOfK/tmEdPLA1FD2R6WjIJ7KHea/shfA4u74=; b=qMQtASNc/qr6quYrPy2H+lf8ry
-	jcAAZ/5H8x/HX8pKxRGVtSGKJNkhC+SG3AHMUMFVgt2wZJEL7FV1fTbA+Mz6dJzaz3S5z4h3+rf+u
-	5UPUX9X+ZDMTjPxFgJhYyc+Z3cgiZXh6xKGmHsmzFjuLmu517lLsI+23PUWeKi4Y/Io8=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1w0kNI-000000008Fl-00uW;
-	Thu, 12 Mar 2026 14:03:08 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: robin@protonic.nl,
-	andy@kernel.org,
-	geert@linux-m68k.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com,
-	hvilleneuve@dimonoff.com,
-	mkorpershoek@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lee@kernel.org,
-	alexander.sverdlin@gmail.com,
-	marek.vasut@gmail.com,
-	akurz@blala.de
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	hugo@hugovil.com
-Subject: [PATCH v5 0/4] input: add GPIO-based charlieplex keypad
-Date: Thu, 12 Mar 2026 14:00:54 -0400
-Message-ID: <20260312180304.3865850-1-hugo@hugovil.com>
-X-Mailer: git-send-email 2.47.3
+	id 1w0kt4-0000000EuOw-1FVx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 18:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F0A141B49
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 18:35:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6C9C4AF09;
+	Thu, 12 Mar 2026 18:35:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773340556;
+	bh=f0ZimfGbQPBnbAQ7OvTTb30QQF/vnBQr3IOLZihzVJA=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=bg+Aj46CYyIjYm9nmhEDyxLSroiQxXAbURXjtfU+DGHz0qDus/Qnd2LGvZ8BYkmAa
+	 9vER0hw8kuhuO0SPDtx1qWN7K8HKwZc+DdnXhMgYcGzVQho8J4Sy4Axjn+bY2IkSYA
+	 yoVnL4o7BHis1OMJ/g3ZNsfjPuN9EVravXuTH5XJKgzbbB3usGH7UIBdyvpaJbSvqZ
+	 stx+b7Icbxe9OFZa9gl0akdnCP+eOMB6o9bFaW4sysY/CMivGgvnurcliyOVfKWa1X
+	 R+QMkHlTS09m6wTu11+d5iw7vwiG9+F0Eak572DszpcAFwbPEIVe1EA7EbdD2YhXCP
+	 6tZq+gqnacplw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 45196F4006C;
+	Thu, 12 Mar 2026 14:35:55 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Thu, 12 Mar 2026 14:35:55 -0400
+X-ME-Sender: <xms:iwezacee8tVcHbQdjMkUTZELWa9ZeaOICgqWz_d168pxnrXmcSe3FA>
+    <xme:iwezaZA499_sID95CH1V71r9aDiWk5F8x9POoRuVBrXyiznZxvoYBoXaHOkI56FfM
+    -_GW6hDfWfrmTGjJWiwb8WNmdrZh-q4_NVm25smBBXvUe-mmnfDPA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvkeejheduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeekvdffkefhgfegveekfedtieffhfelgeetiedvieffhfekfeeikeetueeg
+    teetteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
+    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
+    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
+    udehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
+    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepjhgrmhgvshdrmhhorhhsvgesrghrmhdr
+    tghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtph
+    htthhopehkvggvshgtohhokhestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtoheprhho
+    shhtvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopegtmhhllhgrmhgrshesgh
+    hoohhglhgvrdgtohhmpdhrtghpthhtohepqhhpvghrrhgvthesghhoohhglhgvrdgtohhm
+    pdhrtghpthhtohepshgrmhhithholhhvrghnvghnsehgohhoghhlvgdrtghomhdprhgtph
+    htthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:iwezaQZI6XY49JZxSekMUfYkQvRa6i12xbFwnnJYfl8LFHnt785AAg>
+    <xmx:iwezaa0y-OzZnj0D_-l4CTxzG3CMO65M-GN_92kkh8iAJL5-P1YB1Q>
+    <xmx:iwezacAG3DTHGK4AWwinlYfCENA5TZ159LD8c-Tak-WokBxb3FvUTg>
+    <xmx:iwezae_SaRwOKC9yHAADpJ-S2tbfpww3p5ehISdv1bYsFOxLELVIjg>
+    <xmx:iwezafX5yEPhtyzARs5OSmnSS7-uFJ4zODYVH5WcI_wD6dg3zy3LsnGb>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1AC38700069; Thu, 12 Mar 2026 14:35:55 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spam_score: -1.0
-X-Spam_bar: -
+X-ThreadId: ABOARHXOdhSZ
+Date: Thu, 12 Mar 2026 19:35:34 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Carlos Llamas" <cmllamas@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Mark Rutland" <mark.rutland@arm.com>, "Quentin Perret" <qperret@google.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "James Morse" <james.morse@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Frederic Weisbecker" <frederic@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Kees Cook" <keescook@chromium.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Andy Lutomirski" <luto@kernel.org>, "Josh Poimboeuf" <jpoimboe@redhat.com>,
+ "Steven Rostedt" <rostedt@goodmis.org>
+Message-Id: <83c36b0a-7e7d-4651-8e2c-86452c3bd96b@app.fastmail.com>
+In-Reply-To: <abL_ulvlC9JT7Zgw@google.com>
+References: <20211105145917.2828911-1-ardb@kernel.org>
+ <20211105145917.2828911-3-ardb@kernel.org> <abL_ulvlC9JT7Zgw@google.com>
+Subject: Re: [PATCH v6 2/2] arm64: implement support for static call trampolines
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_112952_640559_80AC46F0 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20260312_113558_384826_473290F0 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +115,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Hi Carlos,
 
-Hello,
-this patch series add a new GPIO charlieplex keypad driver.
+On Thu, 12 Mar 2026, at 19:02, Carlos Llamas wrote:
+> On Fri, Nov 05, 2021 at 03:59:17PM +0100, Ard Biesheuvel wrote:
+>> Implement arm64 support for the 'unoptimized' static call variety, which
+>> routes all calls through a single trampoline that is patched to perform a
+>> tail call to the selected function.
+>> 
+>> It is expected that the direct branch instruction will be able to cover
+>> the common case. However, given that static call targets may be located
+>> in modules loaded out of direct branching range, we need a fallback path
+>> that loads the address into R16 and uses a branch-to-register (BR)
+>> instruction to perform an indirect call.
+>> 
+>> Unlike on x86, there is no pressing need on arm64 to avoid indirect
+>> calls at all cost, but hiding it from the compiler as is done here does
+>> have some benefits:
+>> - the literal is located in .text, which gives us the same robustness
+>>   advantage that code patching does;
+>> - no performance hit on CFI enabled Clang builds that decorate compiler
+>>   emitted indirect calls with branch target validity checks.
+>> 
+>> Acked-by: Peter Zijlstra <peterz@infradead.org>
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>> ---
+>
+> I'm starting to testing this out on top of 7.0-rc3...
+>
 
-The first two patches simply commonize two properties that are present in
-a few bindings, so that the actual patches for the charlieplex keypad driver
-can reuse them instead of also redefining them.
+Please use the v3 I referred to on the thread. The code patching is a bit hairy, and so we should only consider that if there is a real use case for it.
 
-I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
-with three charlieplex keyboards, all connected thru a single PCAL6416 I2C GPIO
-expander.
+Same goes for the special handling of the ret0 case - AFAIR, the v3 handles that transparently as it will just use the generic RET0 handler as the target.
 
-Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
-Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
-Link: [v3] https://lore.kernel.org/all/20260225155409.612478-1-hugo@hugovil.com/
-Link: [v4] https://lore.kernel.org/all/20260305192101.2125660-1-hugo@hugovil.com/
+...
 
-Changes for v5:
-- Add Reviewed-by tags (Rob)
-- Replace GPIO with line in settling-time-us property description (Rob)
-- Reorder Makefile entry (Andy)
-- Change copyright date to 2026 (Andy)
-- Change some signed variables to unsigned (Andy)
-- Move some variables declaration within loop (Andy)
-- Add proper labels for GPIO pin names (Andy)
+>
+> A CFI crash was reported in [1]. Also, I was able to reproduce a CFI
+> failure with just a simple "linux-perf" command. With this patchset I no
+> longer see these issues. Awesome!
+>
+> [1] https://lore.kernel.org/all/YfrQzoIWyv9lNljh@google.com/
+>
 
-Changes for v4:
-- Fix indentation in comments (Andy)
-- Add missing includes (Andy)
-- Remove OF dependency (Andy/Dmitry)
-- Uniformize return code variables to "err" (Andy/Dmitry)
-- Change signed iterator to unsigned and move within loop (Andy)
-- Remove unused platform_set_drvdata() (Andy)
-- Fixed typo in cover letter PCAL6416 (Geert)
-- Changed name in bindings example (Geert)
-- Added pull resistors to bindings doc and example (Geert)
-
-Changes for v3:
-- Add ASCII diagram in bindings, and reference to it in example
-- Reorder properties alphabetically
-- Add patch to define common input settling-time-us property
-- Add patch to define common input debounce-delay-ms property
-
-Changes for v2:
-- Fix yamllint error for example
-- Remove unused debug variable (nkeys)
-- Remove support for custom linux,no-autorepeat DT property
-- Remove support for custom gpio-activelow DT property
-
-Thank you.
-
-Hugo Villeneuve (4):
-  dt-bindings: input: add debounce-delay-ms common property
-  dt-bindings: input: add settling-time-us common property
-  dt-bindings: input: add GPIO charlieplex keypad
-  Input: charlieplex_keypad: add GPIO charlieplex keypad
-
- .../bindings/auxdisplay/holtek,ht16k33.yaml   |   5 +-
- .../bindings/input/cirrus,ep9307-keypad.yaml  |   7 +-
- .../input/gpio-charlieplex-keypad.yaml        | 108 +++++++++
- .../bindings/input/gpio-matrix-keypad.yaml    |   5 +-
- .../devicetree/bindings/input/input.yaml      |  16 ++
- .../input/mediatek,mt6779-keypad.yaml         |   1 +
- .../devicetree/bindings/mfd/fsl,mc13xxx.yaml  |   2 -
- MAINTAINERS                                   |   7 +
- drivers/input/keyboard/Kconfig                |  14 ++
- drivers/input/keyboard/Makefile               |   1 +
- drivers/input/keyboard/charlieplex_keypad.c   | 223 ++++++++++++++++++
- 11 files changed, 377 insertions(+), 12 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
- create mode 100644 drivers/input/keyboard/charlieplex_keypad.c
-
-
-base-commit: 6d4b67a2a76a4ff2393fe88119ae4332821b82b4
--- 
-2.47.3
+Awesome!
 
 
