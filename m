@@ -4,130 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15015106703B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CFC106703B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bav5cnaVJjgsE90sUHCEPDMaHi8+85fVbsWclBM+M4s=; b=OMwepdokaH37eTilx0g6uAJdNo
-	MZjlGvzjMyW7kt5R2lrQZI+wN9NP722k+5Ut3o2eb6fulAfFv4bBxMjb/IjXkq3Cj5YdIqlqyDUoC
-	9ktMapdJRqZGUXssc/WaN0uAh7wGBHTUhxdetCoF8J64MQMzKpSCe1/VhPSkCCFuZYdv1XC5/5T0a
-	Aq/VitKTUOf6im/OJJQKfIv90r4udiUM9W4hpLAP8yq0wOFUr6C6rX1x3qRN6VKvXtHCBrEwyzsRQ
-	1LfpPJM6+U8/Qhw285te8zVJ9OKdVgHMdrKxqJDjCJVqMN2GUX9Cu6SkGSMMX/274pORHonqfhFf0
-	drRVpdoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TncSGhYh6Cgobjc2jqCVR8ntXXvRgea6FHrn+YTXRpc=; b=1ZoK/d0iBMvwgc95X6/gn0R85B
+	cisfrfZPwxpm150JzDZWAw6cICA66Zf3jKs1S3qt1EfQnE6pFpHbYzbF/mQWuonlgFGtOQXg9fPmL
+	7IQ4V3dX9MMAv5LHxuyAPEFVWn5u97O6wARHrLVBGRVGWw+pIEnXJoPChPkqXqkca+IwTx64C2sTX
+	VH19yiwI4S89H2pIQkyw4Pr4d0Uekb+bgkMCl/ZxgwCzrQrZc1hES8YKmrQbM1hfEYLkz5bAE+LPf
+	nnUf2CNLkQKsc7cW46P5Wg5pctOZL2auR4GvRXmx4eYFLoCEioSjDR2II/WvbpCtlePuzTc9DyzHz
+	mbtzctzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gyZ-0000000ECih-14IA;
-	Thu, 12 Mar 2026 14:25:23 +0000
-Received: from mail-westus3azon11010071.outbound.protection.outlook.com ([52.101.201.71] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1w0h0m-0000000ECtp-32Wy;
+	Thu, 12 Mar 2026 14:27:40 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gyV-0000000ECi0-3FbE
+	id 1w0h0k-0000000ECsg-27LA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:25:21 +0000
+	Thu, 12 Mar 2026 14:27:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jBzW1QS/Hlg91VAMqRj+fs6yEVLDNJs5HHhCrPRQW9oXC+Pm6XbFPf5iIKdw7cMYmtRy+88PVdDjiyTHwv4BTKrruzHQpQf9z0uC2qMkgbkuGB42kd5T0ghGgjQav1w5FPifh7D78SbL8/m56r6dVE5m8NlZndIPeOBaVT6M7zNjYaPEDg8KLXeBxCb8rDjZlT0gHIdUxq6UJQsflcErAYaT9ODTp/oaLlkK51l4qmmOC+R2YdCuj45sdkgMlL9WpYd2YtaHwVByyHAgI0IVNaxGl8yUcXIi2YDWCMksdSbLoxYVGHzvNr8bB/h3nDaBoNqHrEKvsVhS540Nk5H7Xg==
+ b=Y56zMPNsO2rcViyhwdSCTiSC2VX5gmiArtebJ8+dOHy1dEfVE1UKxWEK9PRCwNRunXIhX2ivPKlzXWLOANRr6KMopzXPkD12PJf+lV0xv3MeFBZCtblBeDQLrV2FrmMFMoxJtYVmDsdtMLMXERxZ56T861mSpRx/+96RPGcuc/hlSyRWmHPef4fKYhcEyKpbUhMmMy3k6r3dmgsCMy7xGkHppDlpHZSeDpdccVgzrMx41Im8dtEJBxaccwkeyTkoW6hcjpRz9+0NNRQ81ut6aWTNq0V9vqv0gThdOzdkjrvMcXa1QnwkJ4bKrZk3b0yFu99LdYdnIyubKK3AIZzXGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bav5cnaVJjgsE90sUHCEPDMaHi8+85fVbsWclBM+M4s=;
- b=zPcVnPq0TJ7HQysUSKAx+5zlPyPChlEfAjIg1JtC3HY/JtvqwwJ9eotPH2U9XxwKox6r9T2o2Oj6n1tZogwa+uXCNSuavclbHzYuCl+SU+1ZXrULUpMVVrjHh2gQsAJMbnteBaFbjEnNwAqE3GDSBQUs6rK/c/nUQSLWVJWFfRr2xb9Zea6kI8CslkLcGz+KfuB32+wJN/xJDVRnjfDLFKjcMZbd64iWf8g8Dh6WkLKBNLt3ZER6UEyD35alSCjtUzfkYaKgBBOdefgz34blJ1DwdAv2bIczKqrl/tPmQixbKv+Vb2QS7SQLLetFUJR4/YXXvbI/RF+1fPmwaPDDhA==
+ bh=TncSGhYh6Cgobjc2jqCVR8ntXXvRgea6FHrn+YTXRpc=;
+ b=A/aBI90p02NWVh5eumLchvQjy1sYtj8yYe3zctYdtXTsgk3b6PJS7sLk+e5/IRVp05Lwaoni2O4bACtG90/V/GccR4mmxLmkkERD913SWP7ZRbyj9pIso589NzUMZisALuepqA3DtNFR39eEcoY6jFpY3yZFAeImFrmay1oiZPQtAS8lWqKlocTn+2KSEhs74Vml+Ta5zmEbQ4rO6hVnNgk7Nm0LojYEdcIai+BKNtIXWg7LHE6VhLMTxlF4m7wh9qLIMoMNXg6a38NC6XgdxoMeYHfRZYRyxxK5j5LT9LClagDqUnLVhKG8JHvDPxDbz4WSxWseje4iuANNLCifXg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bav5cnaVJjgsE90sUHCEPDMaHi8+85fVbsWclBM+M4s=;
- b=qcYhoFauLOo/mCiU0c93SialWAFZQu/B/doifSfbZsMYdzKMAR8joJGVRoGw6M8fFMpaA/TF+Lwm1RrHKrzhM3SWokuRpv7ka2HAkKT7gGlnqV0Iyz9N6wvPY0kHi79Puw66J8GN5gScaxHq5X0a2Mm3m2OYRf1EqAi6lHBR4Lurv4Qnbi7yyaY+yM3kKyrxRH21RjItMJVaJ1Q9V7lssqohDZ1W0OtBcTa3z0iPbwlnuzd+r/o9fp/Smsh9b274kVufclqYOKJf+L8jUt7C55JWKzlEvLyJlIQBM6rRYiqiu8fZXOujhE41b0cC9zsnxAE9IA/lJOreOTDcwTucMw==
+ bh=TncSGhYh6Cgobjc2jqCVR8ntXXvRgea6FHrn+YTXRpc=;
+ b=tmCqMW06l7gAv8IfUqOYwEGDSGeU300FDElMXVfMZAj3ufoqKT186yXhdN+Natv5StfHYYOQTk3LqtRqwoDmdR4taUEC3BXFj9mC9uRRmoI+rCLpxTF6hnw+adgdAJr6iEzH+QhVK+LdK7j04nC2RAb4/tirkGojGVN1cXgVJpbgoipBHsVUcSk4AjRU9NTbmnO2hxJepQOzRRyQwGl/eju9Zeaoyqy6mQxfsdwvSE05NqfjM6D3JKQpHH3HOGk2HLVY2odqautydjD3h0nZpzIG5mOa0HfJRn5f8YUp6VwwTsfWJ8DWqoFPCGKwb4ypv5pbWHCi/Rq9gwdJMDdJaw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS0PR12MB8341.namprd12.prod.outlook.com (2603:10b6:8:f8::10) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by AM9PR04MB8196.eurprd04.prod.outlook.com (2603:10a6:20b:3e9::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.6; Thu, 12 Mar
- 2026 14:25:10 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Thu, 12 Mar 2026
- 14:25:10 +0000
-Date: Thu, 12 Mar 2026 11:25:09 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, praan@google.com, mmarrid@nvidia.com,
-	kees@kernel.org, Alexander.Grest@microsoft.com,
-	baolu.lu@linux.intel.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, bbiber@nvidia.com,
-	skaestle@nvidia.com
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
-Message-ID: <20260312142509.GA1586734@nvidia.com>
-References: <20260307001723.964956-1-nicolinc@nvidia.com>
- <abLE3rdM9YAu81tq@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abLE3rdM9YAu81tq@willie-the-truck>
-X-ClientProxiedBy: MN0P223CA0007.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:52b::27) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 14:27:30 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 14:27:25 +0000
+From: florin.leotescu@oss.nxp.com
+To: Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: daniel.baluta@nxp.com,
+	viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	festevam@gmail.com,
+	Florin Leotescu <florin.leotescu@nxp.com>
+Subject: [RFC PATCH v3 0/2] hwmon: emc2305: Support configurable fan PWM at shutdown
+Date: Thu, 12 Mar 2026 16:43:23 +0200
+Message-Id: <20260312144325.1311314-1-florin.leotescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR2P281CA0129.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9e::16) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS0PR12MB8341:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7aad57c6-5fcb-45ac-0609-08de80432a92
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|AM9PR04MB8196:EE_
+X-MS-Office365-Filtering-Correlation-Id: f12fba84-4118-4986-457a-08de80437ae9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2N68ywPb/f28ta5D3LFCIImqgy7ebVVvgTOI698gGDKSpq3hinnNBi0wQIJSrYGTUg3dWb6X+dgNHZpbxHE7HN8CqDpO3X8aQ54o2B5mZYdDwsoxAYTAMNcharGAig468Pp5AhBOLTdIgcRqUo1NGDqjT9M4TilkmGcb3lvVv19pSNo7EbZ/zwMhiucL5cGMamuIPG1KHYOJKOZGeOTfypZisIoVweC7uKt8UeDopLLknkHxbb57x5R6YZ7MZLvTMrMJWH6xKLPbWFdk1i2XMva3XzJYy7C8LzPNxR1Q5G2DMl7IXxwpqCueGIxLi9tl0/nwZZEn/BB49tDrzN9d3/fS0sf2h6hBQqdxt/7CTbpu/7/Lb2IPUqonECppbb1nfmLDYwiKlwLbPU6nEZzeLqJo4SlPdGThoHPbW19xmEerf5homvJ/8h3wPJBmq0FsypH1jaEg3GvEbHJaNRoft6eWblPZq0C/QOfNDQxUlT39CFD/gWEUsV9D4laK2C36UZdxDiMBDyA3/5C59FStge3+RFHI5CuhYXTjiYysrbJR2diItIsZEXYibycBYCW4Nlphs32AI+K6OPVnjxB/qaJst5PPzKprA+SEad9ttiIM1TEcOHo+7TjjxOAm5c2eXBLRSYHxM4fySZ7ihQFXNiFme8JMqKyWf+QQhuYuPhtIny6fFPryAPPf2M+I+xFmtS3VwnDkfN7f7oG0CUK8Djp5N+oZzQDAW7jGfU5Y/mI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: IjvbPHLzrUpLOEGDlK49pyy8lSHC2kQUHVaDol61tN2aT8dwGVoSy+4ac+QgmRKqMjni442RrjdmQNEzIxQx/6NMs3uiKjo6x7FTLgYG2CT5XVQIgAF3R8aKHduYWb21fejvpSgPQWuJbgi5VAdoyloZurAOgeg6GchTTjTtGBTG22OhBWv0FLDVqOxFxTW07XlMqQ/N88/oxT0FK9bUY1vVPWWv/KkVnKvDSkkHD9NkUQFbaSuSQPKkVCIPJ31zNOdNFag+Pqp4qJZv0ZzWPObXalXM2OgWsccuU2rJBRAg9ySy9UTXbVRHNn8Qtn9bqWQ9bRcyTC606Q07M/I2E7+CDe6cIxsM8OZyrAhLtUnNqEu++E8mVOmia4N9tYqzFrTTQFZIZPX9b+HxcmtbhO4/DLIQzz8+JpQVyHm2SADbvtSFqVGvOP1/rlz3rc9fXyfaqtgNU4Pul8znZgfDihNJR9WdeccSJ6Ko0QiOWCXjz+uqqgeIyBAKNCZSs8wL6tUxPPwbu7+ck/++NGf8okOmZHScezNDVVvx/n3ct5S3SBJIEF4PP9qAk8FTbwJM5uLJHOUi7cS9RDTqfQvXxCLRmqlLxJMyTi+K32Y7iCqfp0yS6yO6Uv8UWggQfwMtq7e6yJIjD/yxv1R8mrgxEE9YRKSUOfu4NuPf9hOEN9KRMAQ+zNYPqXWPPLof1uW4e19RFSue703CDTXEGBSf8EPE4EX7ln55hWJulEQ8VWU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iE/sWu7Gfa66UL1zLCHalHU7/+FcfraAFYjYMODRTe3+2UraS6TQsCx05uHF?=
- =?us-ascii?Q?aIJwHw0oSP7FKwZsI3yIpfhcW+OSFZUVh76wEHprnwOfKDAEzUOYCXbki9Ap?=
- =?us-ascii?Q?oKlDgRpDTzzsBeQwRibP5W8novBeZS1VmaO4mPnHy37M+fKN+BzkRUeK4FK4?=
- =?us-ascii?Q?UyIDAg2njTNkyy98RdNCosimkUFIvEhSebO0/tMg/oP4nNClMdGH6J5hzvBZ?=
- =?us-ascii?Q?Aegv29Gdz89plCfXkz8sQ6FbxAkVAQrxnFi///WZq9JY77VKtDfT89/K56pk?=
- =?us-ascii?Q?KUIad0yBfG+/WK2bMRW8DziNfw1anAoV7FriurCByAv/pACBWWCljDsAzofv?=
- =?us-ascii?Q?jOx6kDAcsD4W4YpdCsY2MLm+bowdBqCK13kXFpl3Ee7hLor8H9Mjp9mz2kds?=
- =?us-ascii?Q?Fh8VuPj9ZzjpquNOfJ8gJNAgXMHD6gwlQFA6YAUuexGD/SP0Vh0dyfQnJ6Y9?=
- =?us-ascii?Q?D+OGaKOEcXQtkidf5ve/7R3lpTu7O6I/jfT0VpEY+0iElMwjM5gbIOnjdpHP?=
- =?us-ascii?Q?IxhXjTGqj9TURwpvU37EPqGHG8PLkvTePxPEFOQTdF5savyRwEYKPkVhtT3K?=
- =?us-ascii?Q?xT4QgMlGjcd9pyy5hTBg8PBCS3IyNoBcYTee+n07VLOpGuxpFibQ35zRLNHj?=
- =?us-ascii?Q?bBmN7H2Ay3lutDph+7pIfch42J4o2Y+AcjOzD62ogQl2fwshtEx4gv3hZcun?=
- =?us-ascii?Q?7rKglcBApqwaX67Pxxpul4mUih3ignXl7J3xQVjcR4f71C/PZIsImY9V4oyd?=
- =?us-ascii?Q?yQE5HDdRqtjHpliN35Nd5aRdGLWBd2OV322oT31mQNmd9CfGs1xGI6oEAuU5?=
- =?us-ascii?Q?Y+38/z8HavUBJK1m182H8hQ2mibHNxVRXJ2vNigxex5+SqmdFbiHYitbKUAE?=
- =?us-ascii?Q?DXonVUmmIcwJdeKur13tgUIcK+o3/yZr4r36ao4JcOLEdE6oJe+q4uwfNFX+?=
- =?us-ascii?Q?NVg8mjUdBTfyyspF32C9O2srX6ulhk9bhxUpVVIYd/Ml2JEpn1BLq7RPsKp3?=
- =?us-ascii?Q?ViXO10gmnl6TNzdEdstaziJ6TS+dKzoPIua3+YRJ+4yNiyUfiK7Z8zL4GMJI?=
- =?us-ascii?Q?BP4RXO5Iqyh9lvCXBA9INgizt/rZFfqoXyUGjdl86AbwS5PBT5/CvgCtNv+X?=
- =?us-ascii?Q?NCge1lSNVXCl+TieM1+XZV9tgD1zgyn9dK+MdNVI4uNNqS9l3zRRjcrFGW7A?=
- =?us-ascii?Q?v0T4/jMfznY+/jbQB+QKGlYHq1CrEMaOs00IhNgQKh17ceF8J9qdASkfD+LG?=
- =?us-ascii?Q?vcNOdgKUl4FfnKEl9xgGKnkjDszKmW0gk81dYg0cIfipeCt3TcCVRhgoOaec?=
- =?us-ascii?Q?LidRHKAMXv8tOMFFCQUhEe5kvjGn0hE3urTuEVGXJwCyHtMfmBu0S8ByHyV4?=
- =?us-ascii?Q?cQqAHWbaA7xuZF3hTfrgJNI01jILN2fB7INvIxorY6G/Q22JdfWhDPAnPQ3k?=
- =?us-ascii?Q?9qg9lv5jZ06z63NExge9GBSpz/obqOOJ+xCoV9Jeg+5e6OEDORQvWnDWMhYF?=
- =?us-ascii?Q?Txy3tvlTTdOak1vK76480hVImJ44tjHcLqSW1st0IQ9pQoj+mZtvBthALsTD?=
- =?us-ascii?Q?APtkB3SPaP3e2H2TmUpA0QSZSp8Rm2WIkXSK26hU+3IvFB3gEJEqmUuzn67U?=
- =?us-ascii?Q?gWT11ABfb7WhkY+glwP/2adSiWZ/G4zhhTxgEAGmm8EH0knKqSC/Zt1THm8U?=
- =?us-ascii?Q?XEA+MobGXgPv1sW8u7i4N5g6vXNGj0p+MJw6krjuBaQsQ8O3KyhKcD+DLepO?=
- =?us-ascii?Q?UIUad+yFZA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7aad57c6-5fcb-45ac-0609-08de80432a92
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?Q+dqEZgUen8T/ofnmB4t2Jjv4uNiow+C8t2ZCnmUmkuP+aeRwJfSp2F1k9?=
+ =?iso-8859-1?Q?HnDZK84y0IMiUXQkUBRQkzJecyhiXgVow6Kc4DABkYa3wz9qHKHizN2mG6?=
+ =?iso-8859-1?Q?Wi0Vm2WPLrTCQcpxpMibn/fUeWtKC7EzrVbj9s0xtThSmJ5lEvMucXpmop?=
+ =?iso-8859-1?Q?RC8FUMVe8DkV9jlX2leT0NGl/jLXorZzETMI13hGqkFBa9tPzYea5o9IRN?=
+ =?iso-8859-1?Q?BS+Ll875ybmNyngLbSjJSr/7qYNRae/XvwlvAOy1ooimI39AAU9ZpWWmNs?=
+ =?iso-8859-1?Q?eS6izcWejMN/MFFUXKvLG/IHGfby0xCwE4g9h2asI++APjG7NzKyDi1dCY?=
+ =?iso-8859-1?Q?PYwRt2RnPcPQUXBSUpJlUDsN4WdG+Wr2wAYsQIcDxNvH6R6Vxjfh5AU24/?=
+ =?iso-8859-1?Q?2mcNJgo9KM6ESOYIQSBlgFeUGEn1RphcIkzYdAbDTdvK3uvV4EVZehFzul?=
+ =?iso-8859-1?Q?sYjHwGebKNu0KqcT+tzelx5RzLOd0lIRYxhFwOMrC9pzVyRxgeHqkg1d26?=
+ =?iso-8859-1?Q?lCWrBtSEXoIZIAmijrlDatd/prO7gLH5r2t1FbP/ZAW0zofAxTDqXtomv7?=
+ =?iso-8859-1?Q?OqjenoriBg8JZ+MeRfw9t1uZY0QhfQy0r8zVTIBmLT1xayZ57sUVisuNc3?=
+ =?iso-8859-1?Q?ggkItAdCbLEkdbrBLWIyizpF8JMdqwb40bKYSwArjlVcHNzDelarqt/HFi?=
+ =?iso-8859-1?Q?gJf5B/gSe1L7RiCLw0KXzfOemXyWRp8N7e8rER8JfshC4frc9NcUWKZMAb?=
+ =?iso-8859-1?Q?piljFBszJoAE3RHLbXCo/Bx5dPYPFMULRI4+NtiTRN4JH6ZJ2SJL2/ZXNP?=
+ =?iso-8859-1?Q?oiqCRzP1MI4VJaPKlXTo/n0McHGH3uIPB4PDdaTMBJ3DNDMr9IwRr1fyXp?=
+ =?iso-8859-1?Q?6k5aanYIK4K7h0dV6wUAVe+HUzCxSjDUGYAJD2UTr8JoyO/yJ7I+VDDgD6?=
+ =?iso-8859-1?Q?FIL1A4zcZ7ZCcmwP+eKymnDYO+Tbt/+JU92Pbs6rE9Slx7pHg5B6xvT8By?=
+ =?iso-8859-1?Q?TYekbZEUdbF8f0BOCgTUkzAvHO3DEfxku636eoaYt8JNl7xkQVcuiB3qIJ?=
+ =?iso-8859-1?Q?EQwI8Owv3hyJWpTCXSSRy0z4RYSTYAwbRdbwtKqNLwEvvaNtv0L7rKK5we?=
+ =?iso-8859-1?Q?r7H0lKui8INYL75ULIzQikULkYAEv10MgR3HYaFHtCbYqPwcCIlRUHTzKd?=
+ =?iso-8859-1?Q?z8GkYD2DZQXKQM0nRnILjj9nSpYOQl209Qw+y0dBQ6sYwoBaiJuDZy6NZE?=
+ =?iso-8859-1?Q?O27bP1pHdp91Us/6nOhZY+v/a0u7xgTGWK9QRSTrB3zTWxxWcViv2swIkC?=
+ =?iso-8859-1?Q?kYfey0hnGkjLHjzh+mZqMIPs+/Btqp4JyRBrAx4KsyZBu1IQ9Sr7+gT7uD?=
+ =?iso-8859-1?Q?6XYlFGwX8HlkpJn5ocnl4bgBCx6F76EN74i6LpyCwg0o+MWUg3Dho846kd?=
+ =?iso-8859-1?Q?/fSWK51RaVPJrewLij9bxCtHDwsUDyXLTpQytC51KyIISJ0vfm2zY89yaQ?=
+ =?iso-8859-1?Q?7kl2yiIWRFE2zKenMyzcuR1x9y0qib4sI2Co1WJbhhubRzVwyljvY9hdgQ?=
+ =?iso-8859-1?Q?EhH7NX3f03wsCUa3De66jassEHB8ihoMdXUdW0fQ9BIxQZygRQGj0yWdby?=
+ =?iso-8859-1?Q?b6ZqfX/u+R3R7Ta2X9uyEUDh5koYJAQH5511ygOdyaPcid5gm2OyVX1LPn?=
+ =?iso-8859-1?Q?l32XUrxBS+Efxbw1U8RAcZB+wiruaSWUL6qCJ8HxLyxfd1Gcx5jqK96J14?=
+ =?iso-8859-1?Q?QOrQZOVHPRDQUuXVXT1wRA5hl7l63yrsWVIXziaVOfzqWeO/uVFFc6rxy+?=
+ =?iso-8859-1?Q?LCA+fEs1Ow=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f12fba84-4118-4986-457a-08de80437ae9
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 14:25:10.0660
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 14:27:24.9098
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KM90yTrER7KfPdIBVRyNqrUldpJf7FnIHM1NDQ85OLNWtFO0IPQ5CO8boh8WD+Xq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8341
+X-MS-Exchange-CrossTenant-UserPrincipalName: +k/BnhTnpYU8wGssv7BlWrZ/0AF8I2d5Giow+kJ+GloAVwUwexVwpZxe2yTp/cF+JsgbspIss9Gv0/reDAabqw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_072519_841263_0EBFB690 
-X-CRM114-Status: GOOD (  32.44  )
+X-CRM114-CacheID: sfid-20260312_072738_566977_02A55759 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,96 +149,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 01:51:26PM +0000, Will Deacon wrote:
-> On Fri, Mar 06, 2026 at 04:17:23PM -0800, Nicolin Chen wrote:
-> > From: Malak Marrid <mmarrid@nvidia.com>
-> > 
-> > When a device is switching away from a domain, either through a detach or a
-> > replace operation, it must drain its IOPF queue that only contains the page
-> > requests for the old domain.
-> > 
-> > Currently, the IOPF infrastructure is used by master->stall_enabled. So the
-> > stalled transaction for the old domain should be resumed/terminated. Fix it
-> > properly.
-> > 
-> > Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
-> > Cc: stable@vger.kernel.org
-> > Co-developed-by: Barak Biber <bbiber@nvidia.com>
-> > Signed-off-by: Barak Biber <bbiber@nvidia.com>
-> > Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
-> > Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
-> > Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++++++-
-> >  1 file changed, 10 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > index 4d00d796f0783..2176ee8bec767 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > @@ -2843,6 +2843,12 @@ static int arm_smmu_enable_iopf(struct arm_smmu_master *master,
-> >  	if (master->iopf_refcount) {
-> >  		master->iopf_refcount++;
-> >  		master_domain->using_iopf = true;
-> > +		/*
-> > +		 * If the device is already on the IOPF queue (domain replace),
-> > +		 * drain in-flight fault handlers so nothing will hold the old
-> > +		 * domain when the core switches the attach handle.
-> > +		 */
-> > +		iopf_queue_flush_dev(master->dev);
-> 
-> So this drains the iopf workqueue, but don't you still have a race with
-> the hardware generating a fault on the old domain and then that only
-> showing up once you've switched to the new one? What is the actual
-> problem you're trying to solve with this patch?
+From: Florin Leotescu <florin.leotescu@nxp.com>
 
-HW doesn't generate faults on domains, it calls
-iommu_report_device_fault() which calls find_fault_handler() that
-uses iommu_attach_handle_get() to find the domain. It then shoves the
-domain pointer onto a WQ.
+This series adds support for configuring the fan PWM duty cycle applied
+during system shutdown for the EMC2305 fan controller.
 
-The ordering is supposed to be
- 1) IOMMU HW starts using the new domain
- 2) iommu_attach_handle_get() returns the new domain
- 3) IOMMU driver flushes its own IRQs/queues that may be concurrently
-    calling iommu_attach_handle_get()
- 4) iopf_queue_flush_dev() to clear the iopf work queue
- 5) domain is freed, no pointers in WQs or other threads
+Some platforms require fans to transition to a predefined safe state
+during shutdown or reboot handoff until firmware or the next boot stage
+reconfigures the controller.
 
-So the naked iopf_queue_flush_dev() doesn't seem right, I'd expect a
-synchronize_irq() (is that right for threaded IRQs?) too as the
-threaded IRQ is concurrently calling iommu_attach_handle_get().
+The new optional Device Tree property "fan-shutdown-percent" allows the
+shutdown PWM duty cycle to be configured per fan output.
 
-Next, something has gone wrong with the ordering of the xarray stores
-in iommu_replace_device_pasid(), it doesn't follow the above since the
-store for replace is after attach and flushing. Not sure how that
-happened, I remember pointing this ordering out at various times..
+Changes in v3:
+- Rebased on current upstream
+- Dropped already upstreamed of_node_put(child) fix
+Changes in v2:
+- Address feedback from Guenter Roeck
+- Make shutdown behavior configurable via Device Tree
+- Add optional fan-shutdown-percent property
+- Apply shutdown PWM only for channels defining the property
 
-Maybe we need to add a dedicated driver callback that does 
-#3 and have the core do #4 internally. The driver shouldn't disable
-its iopf during attach, it should happen in the flush handler.
+Florin Leotescu (2):
+  dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
+  hwmon: emc2305: Support configurable fan PWM at shutdown
 
-> > @@ -2866,8 +2872,11 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
-> >  		return;
-> >  
-> >  	master->iopf_refcount--;
-> > -	if (master->iopf_refcount == 0)
-> > +	if (master->iopf_refcount == 0) {
-> > +		/* Drain in-flight fault handlers before removing device */
-> > +		iopf_queue_flush_dev(master->dev);
-> >  		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
-> 
-> Why doesn't iopf_queue_remove_device() handle the draining? Is there a
-> case where you _don't_ want to drain the faults on the disable path?
+ .../bindings/hwmon/microchip,emc2305.yaml     |  8 +++++
+ drivers/hwmon/emc2305.c                       | 34 +++++++++++++++++++
+ 2 files changed, 42 insertions(+)
 
-Because it isn't needed, this hunk is redundant.
+-- 
+2.34.1
 
-We never disable iopf on a master that currently has an attached iopf
-capable domain. When the domain was changed all the required flushing
-should have been done - there should be exactly one
-iopf_queue_flush_dev() inside a driver and it must be inside the
-attach flow.
-
-Jason
 
