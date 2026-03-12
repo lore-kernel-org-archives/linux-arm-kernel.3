@@ -4,75 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB11FED2C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 03:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9BBFED2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 03:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a3oBWEROh2PkFyqoROhd6xHLFfK43ow4rSTMXglL4YE=; b=YeMlPm+wm1IFc0AEeg9s81X1P4
-	IgHP9vB/p0EMqbVE8XpW4JRyiV+q3XCN1SFm4HF5QPRysoGDNpKqTCHfz+AOxNLooXB0UR3+v9N/Q
-	SDKcyZq8QxtQTrUg1D3ssGTwH1RBwgRBO/ISp5wsb90+N6QLdelDC7fkiybyJ7bjuCKoYk76QkogV
-	lcHgLf61r8/fxzml3JuttGVv8IaQUnS/Wmh0k9vazeMwMWBTbWlA/zkkKTQ5EDAUVphUu+0GUo8ia
-	T0Fuqp3QreCOs0EVOHWwkcgQb0I8a4zMXifoDZ1niJy6Ml0v7fYNiziscV/FSbzqqMGfuVPW2A3y+
-	2JzGTFFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mE9m/pqtPfMEZ2uiwpzmmfYx5lYDaK+7jETh7S8l79Q=; b=zt4JU6J52wakHT6lujeqZkplld
+	e7fcNc4iF9XBl8QHaaoDaHJeJaa7tBO8i6mJ0dgjGkn1sOOxXS30LCxAdOqXUsmnLue7n36ny6isT
+	VmlMV9sj9+Twf/BgF1y8ncJbEpLt/zqA8MJw2j8Xyf06WO0QW0/x/VcR/3eJlsujmLEYJmzcKsL+J
+	IOcn7Krc8zeUHUMIDX/fK9g/jbWWRNMLTr6IbVnYvMVo0qmzcXIRK4qLSIyVtwTnlpMGK6zOCo/uS
+	JbqgohFWygD5lkraArgoQ1ppR8U6qOyW4xnrZz7XW1opwr1S4pIzmwjOZYcq0kCrSgTw2gJiyzFuq
+	Fctqu+1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0WrJ-0000000D9KF-140a;
-	Thu, 12 Mar 2026 03:37:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0X1i-0000000DApE-2X4P;
+	Thu, 12 Mar 2026 03:47:58 +0000
+Received: from mail-francecentralazon11013047.outbound.protection.outlook.com ([40.107.162.47] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0WrH-0000000D9Jb-0K4I
+	id 1w0X1f-0000000DAnP-3Io5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 03:37:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63F63404DC;
-	Thu, 12 Mar 2026 03:37:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1EEC4CEF7;
-	Thu, 12 Mar 2026 03:37:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773286630;
-	bh=sJfbpv0cFhrG9HZt+fsACC7pn1MLtg8z11mYBSar9xA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IGbGB67mDMMpmHF3SDOFpmf4xmV/KbBqkj15/sPwkFU6+Y6Wto1mBwMUZfmyotisi
-	 /Dt5PDTFZaWT5uY7EZ1/64o4LRAfDhmtyahZ+opdXN3Ys+g/X6vYnUP2Jn6LhKPPqv
-	 XtssRw1xT31UjSTPLJF5L1Hl3h0Uud/SYmeNGiusUNtgquVoVaGq2K5Nhn90yHtuaI
-	 84lC+XW1hSNT4lBa8e3r5Vm+GMT+Rh8m3IRItGYnl/QA/nthOaRTAzpMWpqZErd4P6
-	 zEAS/1wYIxtS5puOktW6fz6FzOtOoJSp9ttNjmCCbru8Lx2Dp+c0Rp6RMuVmgczAF9
-	 odhbJxVnfPxKA==
-Date: Wed, 11 Mar 2026 20:37:07 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Cc: jan.petrous@oss.nxp.com, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Chester Lin
- <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, Ghennadi
- Procopciuc <ghennadi.procopciuc@oss.nxp.com>, NXP S32 Linux Team
- <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org,
- rmk+kernel@armlinux.org.uk, vladimir.oltean@nxp.com,
- boon.khai.ng@altera.com
-Subject: Re: [PATCH v8 1/5] net: stmmac: Use helper macro for loop over
- queue-based arrays
-Message-ID: <20260311203707.1d5ba94c@kernel.org>
-In-Reply-To: <20260309-dwmac_multi_irq-v8-1-f0cc5bc811a7@oss.nxp.com>
-References: <20260309-dwmac_multi_irq-v8-0-f0cc5bc811a7@oss.nxp.com>
-	<20260309-dwmac_multi_irq-v8-1-f0cc5bc811a7@oss.nxp.com>
+	Thu, 12 Mar 2026 03:47:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yZPi9nEg1bplisj3CGT86DPdMLqy3eon0dpk/VnVXo3zadtR8IjXhNYbfTXhcF+PgTnogxt1lB0APcAWCnGsn+YZoK0KqyuEHeDrNuSRN3YTkZtwrc37Gscd35tk8s6I3SSQwJkvArdoADR9QjAFaKthNR5mbO1Tr/tFo+Hb4GYg4Yso4kKU2UaUWwStvrfdvHXXvM4LXp9WkU7iwOJMFMaq9Lpq6iSWOEQ8mInKmzoDnSLIj5hn2h8j3Vw0p5uMQ/tgdIACwIxr141v/Ly7g4YlRo8aWBFVEx50AOIEy9vsTbob+1ShXQ9J/CCrwAsDG/82nf41zR+uB37EPKHUzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mE9m/pqtPfMEZ2uiwpzmmfYx5lYDaK+7jETh7S8l79Q=;
+ b=wqJMg9Gp+094cW7oa5dekXyp755hjeJ7RoZQ2YX3ZrcE0P1gULXzwlwvYHF4XLcaNqk8ZnEmWSVrxjeYn1ewuky3QIqRpgtZmLtADYHk51Z4Cs14B8n00Q3UAwxs0OHjZv1uQpkJCKK5iNlfDRfN3QRuzlxHvNryo1wm5IO2DqnanAUOorPTA5TI4IH4jgJyCu60R9tXnfnKnR1VrgMZlpx/pczYyLvMoa9b55DRZnQyC6v4Q7UgFiHX6d2i9t+nIeND7rciGbqMYkejSvUI/ftFOXRAmHVvNo8lvV0JW8+663G0Ib0gXKIa8PkeTWDlxtiauG1gbN/LKoyIOypT+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mE9m/pqtPfMEZ2uiwpzmmfYx5lYDaK+7jETh7S8l79Q=;
+ b=I4uDZjN5YXmhTEnbnTpJNO7kxASzrrb7er8UuK/U86DSYLvrSOBvdVLNu91ZO+C487d2lUuGdQ/ObQdFLf2uUQo8jLQaJ7ynWv/ku7GDiTJimsk6M2fB45IK8bFLfMx0ZoFXouPIMHnw0fT/SBQHoiS5TZE/mz5blk7L1cJULtzkYoMOKU1PuI7sd9V1gU6uad3X6s1YP1kljlOXiPVb0GQxkyAQcaECgZlewuMO1JZv56TQDIAhRKWnQyJfb39F49jOGrAdEGT7dxpmWZGUqfzwJwMft1GF83XNmVC/tB3dUpFOklVdBrcLqruim6CAgsJ/U1VLmLfOPxyDYzNLag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by AM9PR04MB7636.eurprd04.prod.outlook.com (2603:10a6:20b:281::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
+ 2026 03:47:43 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b%3]) with mapi id 15.20.9700.013; Thu, 12 Mar 2026
+ 03:47:45 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] arm64: dts: imx952-evk: Add audio sound cards
+Date: Thu, 12 Mar 2026 11:49:08 +0800
+Message-Id: <20260312034912.4007057-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0014.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:177::11) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AM9PR04MB7636:EE_
+X-MS-Office365-Filtering-Correlation-Id: e300613c-c73d-4ae4-5539-08de7fea1eea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: EY2YHYUdlJ5WJcyu5Q8Cf2NOwNXqzHOC422kjG0XKmkVg3uhI58vgdnGR8EcXdmVjAfp/qvwsGtGmDQnvpvIq0+wkDBcNZx2NToeBSF9/gL1064AAWUkriqusd4jBXcB/6ungGbzUiMx8xJ2gj+Lbvn6Wi6JuxoD2UpxIxPVRpWBSgc+XdYinqirlvQIxqwOjbsuiPp8kMEWPoRqXtUdSo5EulN3Q7CU2hL95xltX3xjFgrkj6yx0mSYby4DGx0iiz/sX2rqjyAFWwLzsDd8Zc+APqRxQbMu4k9UOAKj/kAq8HsTSvw9Yu2PHqBOE9xjWPZIK/CF7HPdYfGkcTZMCIAns2qxSK2E9TYtRn9JRME7UVKUQVyGWzXWsK2wuHZit0rg2c1oQmPoXENqL3T6zsNdGzaNvBxQODtkBxWdu6CIw/U49ZC4V1RZAtlbCHXEAxF3X6+HDhCxV+LBKEihJra90ORt5Fgrmi5ae3mw6DMzZppZkL1zYvznQaedEC6TKBfKFguILeQB50csC19QpFbdCgQpwCAwZcU0Juyg1bpyDh91kKtoJSZHVORfFPLclH7TQF5TCg8dYevCzAvU+m6mcBR/p8y35sPavhp5V1H8T3cQWZqsMwoP9zIYJZLswKxsU5JbA7GbxQwDgsJc0UpiRSRC0v5kX2Gz5lLKO63raVL6ZJzuIy18CMMDS8zUwa31Ku99osLpaXu2RU6Dla9EPt9RKIg0HZY06v9neNU/WQ9IB1iH6gKbmNHomqp1gzuHL71FjTGmxT+hf+JsI0eu0uovvjlSlmlrVYWNYpFrYlwoOFUrshLpUq8pW3qD
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fe7tEWRXkdGyL3SE5XDZUiSbRoQ7X5xoDCTSWFjm7R2KTkx3T08TJOyMQieC?=
+ =?us-ascii?Q?nRGOh2/3QRIsM/vdd1r1XJLb0TjOdzbkIhMFlW8JAvP6c6KtxQvJZKA45hZB?=
+ =?us-ascii?Q?eOfiE7WR514Hq1c/ibskzI8/eevbLixtcUnFenISiBYawjiG7g1xTq7pCJH1?=
+ =?us-ascii?Q?xZ1x8O1XcwVLnNpjDFM+dxj3BnRPpygPOtOkoWKXyLaowdJMRWTZ4IEAhZKg?=
+ =?us-ascii?Q?E+ioueoDBkayyaJCi8YXzquxphWJ0TKJDUDyPq7NN4mQU08WpBpCPLqOIwTr?=
+ =?us-ascii?Q?e9LIJ80rzXkkTjx1Umhkxmpl6hid7AUaPJ0rvMLUHbb/iB6/zQCAmpG1UWY9?=
+ =?us-ascii?Q?69JDveCetGgO0qO2g6AgDlL/DsRpvJpkvUqz3/oJgfdb7HbiGTIFQYUi9Wfn?=
+ =?us-ascii?Q?hdxG5USkOYWMdMYcjsaXPBTTURP6mDfPbjm7wkbgd9P/Fmhd8Q8olLrXW9d5?=
+ =?us-ascii?Q?Q/sZh8uIu98YHM6kZQDCVWkpxg9azfs/KbGxSpb23mpHjoswarC64id+UtTF?=
+ =?us-ascii?Q?0we2VsyLUdQi+R6p+IisOeJXfWde0cNylmeR+mZGjfs/FWDQjmMShfp78VHD?=
+ =?us-ascii?Q?TU07OApn5jRoG4+9FnTn1bWy7BKd+lFvG36wn/4bzoNE+Jsb/Y05ex95yVEA?=
+ =?us-ascii?Q?QX9qMWBXZKe1QEDr6yFeSGTUy2jc8CD2XBf5a4pSACvJuLmcAKma+/psbFXS?=
+ =?us-ascii?Q?271edqEt0ZmyQmihCaOpOgem6jRvXuXpH90kKAzI/lwTNqBBvBirdtnFgiHz?=
+ =?us-ascii?Q?Dmn36JcIHGtlgg9X0U6Wqh0YO5yF2WP+2nOF7+555AIrN+BrPXlFqvVhI/KR?=
+ =?us-ascii?Q?AcfCkHhHwQvTkeNZTTk7BG4ydtNzr08A7VsWG3/8Ws1ZzIr9trJqEmetUWVH?=
+ =?us-ascii?Q?rr+76FTCH4JDpAY3R6OO7wI27Xg5Dimtw7RImKQ/twZtl7J8zIQoy4ayH5N7?=
+ =?us-ascii?Q?m4dyWuLXRBrqIXTZF2UgUBIm69/D+sm9dnjzLbMAiefv33FA0mowHoxVF8PT?=
+ =?us-ascii?Q?oP/h6bpjXg3KphG6ep+VMq0Tb9P5XtehagBi3HaK/DdmR/4IDfdDZF+wO7me?=
+ =?us-ascii?Q?cc8+R1myLu+rH7H/Llzlu+7ygJ20EHKz8s5OS1cZk0Zc3cTE9LmKVv1/3+tP?=
+ =?us-ascii?Q?fcKrW24aF9IFzwYSEgHA5mOwuEA829snLGqFoTMczdNb7ir6hLnnAw/mIFG6?=
+ =?us-ascii?Q?xPzljpzCPvZX2dfeI9b5jC/eW2AhGHj/bGylJzT9NPaqnfunUMCUsvgvcpr7?=
+ =?us-ascii?Q?FzAGiqphZZLbLjIUWTBTJ+jwhCSn6ezOhzJw/X919wbWJKrFN7Egb9i1k6yK?=
+ =?us-ascii?Q?FS80DNJEx4hSen+kxbiFJcHLJ3sjFTPuLJeZhRforCS3LS/RLQQSW7NeCZpn?=
+ =?us-ascii?Q?BSc6MX3AY0flVzY4L6BO7lYKrfvdtc5oSMgrJh3w3Otes2DYT+U5eKpY4L1J?=
+ =?us-ascii?Q?ldXkeXIZ2aEHhdN3d5yhDsdkOlhIK8XwEy2LtDyQmRLjYTgVDmVwrJO0ePSd?=
+ =?us-ascii?Q?LB7MqHtR0sfeJcd68LXeqPGMJ99ZXVRjS/N6rS+mJSD2+q0sSCIKrGiPSBTn?=
+ =?us-ascii?Q?PL3QQts4Oi2vIfwRNAFSrSfJ4ysXqhhsnvXbsH+q9EDs3ydE/fqvdnp0zslt?=
+ =?us-ascii?Q?MFufXswWzkAdE2dISgcHo6yhtnspK8i7tstGPNYzhKCQHB4p9cDBo0wvzjp6?=
+ =?us-ascii?Q?5rO3opFDBUBPQQVbpOuWEochpdJ8CWjb20IidvTNjvQrA0vYpXW/shUMPgT8?=
+ =?us-ascii?Q?mjzYKuzuIw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e300613c-c73d-4ae4-5539-08de7fea1eea
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 03:47:45.4075
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MBCVk03jng5PNkhpxgo8M7ZjvOZUGxM/DDIqsyeYJl5IFvVwvMTtVaamC2C48ijZMJU4sm16dIDk1HBHvhmDJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7636
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_203711_144917_EB1DE021 
-X-CRM114-Status: UNSURE (   6.21  )
+X-CRM114-CacheID: sfid-20260311_204755_846186_3CD00298 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,13 +142,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Mar 2026 18:55:20 +0100 Jan Petrous via B4 Relay wrote:
-> The stmmac driver contains similar pattern for processing queue-based
-> arrays, ie. interrupt lines, etc. Factor out the for loop and provide
-> a macro STMMAC_FOREACH_MTL_QUEUE(var, limit).
+Add audio device nodes and sound card (wm8962, PDM microphone, bt-sco).
 
-This is macro is neither shorter nor more readable.
-I really don't see any benefit here..
+Shengjiu Wang (4):
+  arm64: dts: imx952: Add audio device nodes
+  arm64: dts: imx952-evk: Add sound-wm8962 support
+  arm64: dts: imx952-evk: Add bt-sco sound card support
+  arm64: dts: imx952-evk: Add PDM microphone sound card support
+
+ arch/arm64/boot/dts/freescale/imx952-evk.dts | 232 +++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx952.dtsi    | 199 ++++++++++++++++
+ 2 files changed, 431 insertions(+)
+
 -- 
-pw-bot: cr
+2.34.1
+
 
