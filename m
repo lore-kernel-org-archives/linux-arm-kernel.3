@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4B31067055
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7871106705A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3iW59Rq94iMJ0of46dXFu361mU75QK0Mi9ODqjR2rE=; b=ucx9+rPDuyDWbQodtwJljrooZR
-	frh9j5HTkqrqFKuRK6i51RF/Mpab+JNLzs6FjfQznhdBQTYp2Os1rHhh9P82AF7KvjSOPVK9kZdSs
-	aqvw+O+gsPd4TjjosyH2Aisg2HN+YWU7hnsd0rWFtxQrEF2Ahdh11PmGKLG7P+WnZqTXvuVk4MW5v
-	9WyeDzkb4utPYe5pfHWYjcYxEfihOqVMgnx46/uzF3PRk+1bWnEYatFbzGabYcO/7klvaSCGnEtd1
-	iK6BsNhi4FgVeA/o1C/t0FsY4V0w52oirKZVRDX5HRMTOpFkLZIU6ZpzZ+cIRDf+QudeE7TSk9TQ6
-	GHuGeS9g==;
+	bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=; b=sJBpyL8vL7ZMTSDXXZUGI0afwN
+	ooFRUjXJOIYn4JYMPnuDkYae+wxts5zO+P0B9eBs0o3ibP+8dSeTuO1qXnNJL+7u/85dJZUObKweh
+	giwWECPvWZJ/fev+IS0OfvLKq7EV1EWegg45tbAO2KJHgKQG988lZBEcJ9uB/+BWG/yb+Ig/Zw+U+
+	1DFexzcdJD+2gxGDxJujzd3+/twM/5ZkyXJ4aOEZqULd+gElEDGbMEQi8rAzGnzPYFjiW9sZubMCk
+	LWctWyY3qF4mjlTRfbj8fsKTUIOylgAnxQGzez5nD9QEhzjQZBvwwMA2fX7Y/WC3Wh/tWUEd9M1BC
+	Rgh7844g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0i7i-0000000EPW7-2o8X;
-	Thu, 12 Mar 2026 15:38:54 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w0iBv-0000000EQAU-1FbW;
+	Thu, 12 Mar 2026 15:43:15 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0i7c-0000000EPUE-3VS9
+	id 1w0iBs-0000000EQ9B-2hDf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 15:38:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=A3iW59Rq94iMJ0of46dXFu361mU75QK0Mi9ODqjR2rE=; b=kiz7YYbC8J/DCCvncsRKf4mUhS
-	YnOhX1MP9MRh5bXbzFZTGuyZ3abw+P/61Opku+Wnh4WcK2hhCpHGjX+sCLYt7fCvc0yYIUor8BsWK
-	FZlFQCmoryGsbc/+voxkq/L5nIVyOSKj5ZAAdJ5VeYCjeckbIeoLrXMRCFIbkZcacJ2w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w0i7O-00BLJS-M4; Thu, 12 Mar 2026 16:38:34 +0100
-Date: Thu, 12 Mar 2026 16:38:34 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: phy: Handle PHY reset during initial PHY
- ID read
-Message-ID: <eb4bb781-18a3-4d72-8118-1c86eba9997f@lunn.ch>
-References: <20260302144458.3180702-1-wens@kernel.org>
- <5f8e32e1-c73c-4a3f-a1ff-21b78f764bfd@lunn.ch>
- <CAGb2v66MY02xvA_Mvt=6O001XEgz1AVH6ePorPvNtL0s8=W8rw@mail.gmail.com>
+	Thu, 12 Mar 2026 15:43:13 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43a03cb1df9so546879f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:43:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773330190; x=1773934990; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=;
+        b=WqATUtLVQJHGjmOpUMxoX5ejEvKHmrDYe0rUY9zeWNIl1Nwl1fmB3BN8XX+Q5R2RDx
+         4Kl1kG3lbFVa+tAio/sMTKbtsujfOeTL0nF7R9GtGUtOMpc/L2JUM1xfBkGPHtcXyw8q
+         Oc5/qC+Hv+sSnZQdMiKUGsNWXm5geMdpXcZpTDNjufqxE/cOQReqVVHkDyJNq2aFWYF4
+         pCBO2rhvGm0DFW/6C2szsikff2PG+0xTIB6zOTALr3VnVDwYU3qZ/bs/sVyBzsSGKjBt
+         FtyCN3gvQjbtpYkyp5DD7tK3wF0TtVBMn/vfFRw+zB61SPcGnkKquZbAUDSlYLj8wSB8
+         gAvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773330190; x=1773934990;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=a0FWnXZcfmBjSJmvownu5+w9xLPXUji+K3un2IYyipc=;
+        b=DiOn5wdNJBgxVhbKlc8L0recCVtJE18zbyE3l9OxWd+4l3MTJZNzJlUAza6UYajZ6v
+         PbPNAY3KRAcSnZ90r+UUbE6hTabZCt82/mWklU1R8XkKynCrkavQ/x8Zd5V1m7aD2isT
+         bZQcSX0ERALr8r6j/QIdZCLsLeSrRuS5F0g3pekJN76d9VjCuXaTqaOTiUHxGpNLGpZ1
+         l7oJAByLLpOtT7v6TpvE6v3b+b+J2/SNLvGs8VrrCbRNnzXK/Nk975jjo6GaMSWLbFVe
+         hcnkzmLUZ9E6iH1oU/6T7E6HUKy5H6e8aHnveU8tuTZzAmrlwAgUZaFuqhsD4sSP2HNw
+         SUQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgcULC6/aSpxO+PZwHb9lQea7V0g2FrCTNqxrwvJQRO8BapLkiImpak8kVgFgMoDsVqnS4GNu4jWafQ3BaGE3q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2IiYIYsWi5e3V3DZzWbJUFnLqpZMfFqmk2f7jC7wIaS5fd2cu
+	ukc1bM4c21OFsN8EPttB718+5kQF6XUZjZ+eIYU4yaXvTeTJMnhBVpsC
+X-Gm-Gg: ATEYQzx9NtBFwS3IFIE6nZFUx+1ZQfirmZcX0Fmn4toXQywQ9ggyrAY92xm+ehOT7yq
+	YdlLGOV3KS2ZhvYFkPE6EQAfIj8kZIVs57LZs/+ADLcmmcE+fDqFYJ4eZsjPOD7C1qNPlLKwGPD
+	DocCG44bAeH1mPG+uD/nkCWrUwr1DWzlyHXjPnIhdCXwyLZdzFseb9A1EQosyIMR1o7xFNvRQYL
+	GaYdrxwH4DsSS9zxI7J4Fmnr5hNcjvMb3f3Ey3kM+Y2a4SDFxhIlT0daLGrqjL1kmeFi1IxWjys
+	qZ3EB2GHVmOMjc0u8d4e+vxZz/DHGw8MhvcHKwDBf8LL1NKohLkE5S/fIk8g3ePffWHwHjOCWOh
+	nTietZ6CKXhJssYa6rj5j/gl/bCcjF44sGFGVFf76GYFVj/RgB4wfjf+BngUVytJTTCH4dfd+u0
+	Yl1/dHxCx3sOUh34CMNYNcL7jjeuiBGUYnYqm9tbBJFzapr5RuH8eNGqVkPXXDERzEj3Xi5ILXp
+	/alqg==
+X-Received: by 2002:a5d:5e01:0:b0:439:be67:a034 with SMTP id ffacd0b85a97d-43a04dc0c3fmr244402f8f.47.1773330189741;
+        Thu, 12 Mar 2026 08:43:09 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-12-163.dynamic.telemach.net. [86.58.12.163])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43a03cfd18fsm2132231f8f.36.2026.03.12.08.43.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 08:43:09 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-sunxi@lists.linux.dev,
+ Paul Kocialkowski <paulk@sys-base.io>, linux-mediatek@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/4] drm/sun4i: Use backend/mixer as dedicated DMA device
+Date: Thu, 12 Mar 2026 16:43:07 +0100
+Message-ID: <2820906.mvXUDI8C0e@jernej-laptop>
+In-Reply-To: <20260311094929.3393338-5-wenst@chromium.org>
+References: <20260311094929.3393338-1-wenst@chromium.org>
+ <20260311094929.3393338-5-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAGb2v66MY02xvA_Mvt=6O001XEgz1AVH6ePorPvNtL0s8=W8rw@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_083848_873596_14B42B97 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260312_084312_699495_FD188C46 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +110,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I agree it's not just a MDIO/PHY problem. I am looking into it for all
-> the common enumerable bus types.
+Dne sreda, 11. marec 2026 ob 10:49:28 Srednjeevropski standardni =C4=8Das j=
+e Chen-Yu Tsai napisal(a):
+> The sun4i DRM driver deals with DMA constraints in a peculiar way.
+> Instead of using the actual DMA device in various helpers, it justs
+> reconfigures the DMA constraints of the virtual display device using
+> the DMA device's device tree node by calling of_dma_configure().
+>=20
+> Turns out of_dma_configure() should only be called from bus code.
+> Lately this also triggers a big warning through of_iommu_configure()
+> and ultimately __iommu_probe_device():
+>=20
+>     late IOMMU probe at driver bind, something fishy here!
+>=20
+> Now that the GEM DMA helpers have proper support for allocating
+> and mapping buffers with a dedicated DMA device, switch over to
+> it as the proper solution.
+>=20
+> The mixer change was tested on a Pine H64 model B. The backend change
+> was only compile tested. Though I don't expect any issues, help testing
+> on an older device would be appreciated.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Great.
+Thanks for fixing this!
 
-> We already have the power sequencing framework (drivers/power/sequencing).
-> So instead of the open coded reset GPIO I did in this patch, it would
-> just be calls to pwrseq_get() and pwrseq_power_on(). I would need to
-> figure out how to actually work them into the MDIO subsystem, and also
-> how to model a generic PHY power sequencing provider. But the recent
-> M.2 slot work [1] provides some good examples.
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-You need to be careful with "generic PHY". That generally means
-drivers/phy and the config symbol GENERIC_PHY. Ethernet PHYs have been
-around a long time, so PHY generally means Ethernet PHY. But
-"recently", devices with SERDES interfaces, PCIe, SATA, USB, Ethernet
-PCS have a 'phy' which needs configuring, so we gained the Generic PHY
-subsystem. And we gained the confusion of PHY vs Generic PHY.
+Best regards,
+Jernej
 
-> Does that sound more acceptable?
 
-Yes it does.
-
-Thanks
-	Andrew
 
