@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CF21067020
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4397A1067020
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HdWU2KXXZiV8tMZH2zrm7oSs+hJu0maGIcfjpDRK++E=; b=z/H9PtGxchvOSi870Vstgg2Mj/
-	IUdh/Y04vVGAfokrTHvHuLOfRmo6x/DTI90G97G+RkEg+gl3Yohf2ZfKu4NiqR25ulB9wE1L36PXe
-	sPAZmKMjvlC0rGYgypK2Sau78ZxbeStELwVLBQ4fSYIeg21SZ2uBSVjm8SlChqLaNYuWztNo3N8B+
-	nta62SsBm4nmb0hcqEJJbxsSO8R3592J6exo1/FahQCYiDr9JjtyeE5gOjqaT7tDhjv2n332hIJ7U
-	1bGb40A2V72UHmYZ4iUF0RlnSDTxFvx2dkEdD6M4ac/RWcKptn1tzSmNBX+vkxfAzNHmQ4pzx0AI4
-	FMMrmf5g==;
+	bh=4oHjwSYdMo6wbQaoARBQB1p5khSJ3cYUmF/TszysH+k=; b=C5pd5v0mNsA4q/15HIDfjjqmwA
+	kumxLbdPl2cMEdcExsBvSmHa/yXT4J5RHfFs62BeVz577UFw4BY5ejntdhLatvx1jrOz85WoZ9tnZ
+	YiijESXM3WkRmevFKOWd136Ag+b84bgs7uFXZVc+Tx69j8D5IM8Sr6+2w2sq4ZBPSQmjTbaJ+lBFx
+	lDpS/GGw3XmhsBUCv6KIVTG2ux26JUJ8qikEbCHxFgJ2yGEH/jAX6TDRn++ptZeetrqiuIGkMKNzJ
+	yAFbVjZpgOSXgjVfr2AVchjuPxuU9suroT/kOZr/n+QWHIgCwjjYz8wywLHozkcH1Ob4YSdBIsnhb
+	Qbj1GquQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gRq-0000000EA3p-2yD0;
-	Thu, 12 Mar 2026 13:51:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0gT5-0000000EAEQ-2XGW;
+	Thu, 12 Mar 2026 13:52:51 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0gRp-0000000EA3h-1Pby
+	id 1w0gT0-0000000EADn-2jvE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 13:51:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A538660137;
-	Thu, 12 Mar 2026 13:51:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71A11C4CEF7;
-	Thu, 12 Mar 2026 13:51:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773323492;
-	bh=PtSQ2Ji9q7XrnlvdmM/5zKCUgRKhbcNIzSsBGPLburI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xp4kGILZZoZG5mZO5MA4SQjgRU9aeQOtahllK7QTjyngC8DSEWRdrR6ZtRdlLyYtD
-	 jIzQK5EPE18m9+V+3gZo7yEW7QwUrcim9204Sqm7QPeR24mzGu1rd1HcxGQee2eJx7
-	 UoXhhyIvw4evqAD5J/B2/x2xHVpukB/fM2xAgbaznDlV8/xxFbSrXLMyZA30gU7Neh
-	 koOCGw754sJuWUx4uBJQ7FiAzpAOmG9EwcO8FgHww1mN9c2iCHcLhjRBVChXYMUfZR
-	 M32XVIj7KmWwNPZ1oYTVrCaIBpZfyGjz/vCV04fsHijCk0uNBJK5JJYOpGd94IA9XL
-	 6QKXEfJEFKFtw==
-Date: Thu, 12 Mar 2026 13:51:26 +0000
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com, praan@google.com,
-	mmarrid@nvidia.com, kees@kernel.org, Alexander.Grest@microsoft.com,
-	baolu.lu@linux.intel.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, bbiber@nvidia.com,
-	skaestle@nvidia.com
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
-Message-ID: <abLE3rdM9YAu81tq@willie-the-truck>
-References: <20260307001723.964956-1-nicolinc@nvidia.com>
+	Thu, 12 Mar 2026 13:52:49 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso8857445e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 06:52:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773323564; x=1773928364; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4oHjwSYdMo6wbQaoARBQB1p5khSJ3cYUmF/TszysH+k=;
+        b=t+rezL8V4+RdVNO/VhdGkyXWjvt1ZeuwQi3/8XxA/7Bc5ibWgevePBSavWvlVCK6wr
+         oQ6AK9UpBWNzYQYW8c/0evyd3NhiPzAHUmsi2t/p7+kk52lmrW9/RvjJcsDooCV0ycLo
+         sP6qo08ULLzeBUFGnMxsycwQzOhnZP+nAijwEFy6ItD8yvSH27BI3q0ycdoK6f314tPU
+         4tA5ZO3f24q/ZQBJOYPd/CUC8liCuHhcrob25LqshrggjWsKfQwPtC+cQeYYm9Bk0DtP
+         lb/4hPf8MgiNovN4TWfOyl9+NIqTLRIp6Gc8wxldyEOCVu9sP5vvEfwJrW+/usYa8zSu
+         Ci3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773323564; x=1773928364;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4oHjwSYdMo6wbQaoARBQB1p5khSJ3cYUmF/TszysH+k=;
+        b=hvCnChaKkzfJcF6oJ2BrYWwFP/rbgkJXsBZ4fFXT6zzeNqpKSCK1lKZUIwvEkpGHwF
+         kOjKSd1xF1DTWldrrjlODzlexKPuHf9adbpMf6plPXhExHPwYRKQNzRccbcBP7v3ck1n
+         eypndq3HYkq1klt/+t7ZxIS3x2StuQOezBZUjo49Fm0HTmr5Phkh/WrS0rjO4I6oAfwW
+         AAdkPAl/Nbz2nAfefwW+/vHR2uqN0AqnErawzkkm2XW1z33YS4lKeIqTRlRyNjWYPPN4
+         18Ww+NqTH9UjbdiIE6vt9ctY+dqnBjW6T4yccIIZWWY4SehgQlOadZ5auFB6S/saIxRK
+         6Eng==
+X-Forwarded-Encrypted: i=1; AJvYcCXRZWJSY8ninwV82mjMnFooKe3t6LLgU9NRBBD4SG+y4cxpj54ndP8CpO0SkSmoh/LuaW5kQfcQpZPxwlQKt3y3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9s+AnzjHVvtcafBZkl+LW2WwMbdDqHXr2BsAYRgp9A+jzIFyE
+	d1G8+kJ4mmMqNhI6N2zTScLy1XanYIXKQ2zZG/K452QR+H6YnVfiB5/BXe9S/G7scw==
+X-Gm-Gg: ATEYQzzaZxF/gSd/7hSscGHVTwLAouYmHb5Pmyo921K6bCz/5NEjl35Fys0GlIrd47E
+	1jEbejhO6kjEW0/e+q8qrJ9378LYhX8SZ6uI9ub5HNDwlV5FSzg9rsSPV2GDHPksg+fx3MjscXD
+	lTxcf96hz90l+bdnW/nMNfZrVCBWtHAApp/c+DRGulem4tgihEWFBIp+vRtW6YYR4i7UHQPxR74
+	kGs5iZrlvnJnlJWuk0lQhGOz9gQkWBOPjO+0FgO0YBy1mJTtZ+1K0NUcUu6fJS7i9uw3mz+5Bs1
+	l7J0d3Y6qQPQor5VjVj64c2Fdef36yhQoDMW9tma+0W24wxabjdmLwqjsSLrQiVk4WHShmHrma4
+	EV/7QhI8GFjPn/FF6/LD8G36B7MPwWHgr0BQpHu4nStkw1YDSeTUi8hb6zPwSU2jo3Wef8O4+8F
+	99eMj/hJ5vxgbS7DwrOIX6ZOF+uxhVwvsa11jdNueOfZgvwndcOlmTSEgI0hUEunGLb0U=
+X-Received: by 2002:a05:600c:c4b7:b0:485:419c:4eab with SMTP id 5b1f17b1804b1-4854b0a6c24mr109977735e9.6.1773323564047;
+        Thu, 12 Mar 2026 06:52:44 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b65fe27sm140260795e9.9.2026.03.12.06.52.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 06:52:43 -0700 (PDT)
+Date: Thu, 12 Mar 2026 13:52:40 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] KVM: arm64: tracing: add ftrace dependency
+Message-ID: <abLFKEhE7XMXbTWE@google.com>
+References: <20260312123601.625063-1-arnd@kernel.org>
+ <20260312123601.625063-3-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260307001723.964956-1-nicolinc@nvidia.com>
+In-Reply-To: <20260312123601.625063-3-arnd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_065247_661590_9C778D4F 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +108,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 04:17:23PM -0800, Nicolin Chen wrote:
-> From: Malak Marrid <mmarrid@nvidia.com>
+On Thu, Mar 12, 2026 at 01:35:44PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> When a device is switching away from a domain, either through a detach or a
-> replace operation, it must drain its IOPF queue that only contains the page
-> requests for the old domain.
+> Selecting CONFIG_TRACE_REMOTE causes a build time warning when FTRACE
+> is disabled:
 > 
-> Currently, the IOPF infrastructure is used by master->stall_enabled. So the
-> stalled transaction for the old domain should be resumed/terminated. Fix it
-> properly.
+> WARNING: unmet direct dependencies detected for TRACE_REMOTE
+>   Depends on [n]: FTRACE [=n]
+>   Selected by [y]:
+>   - NVHE_EL2_TRACING [=y] && VIRTUALIZATION [=y] && KVM [=y] && NVHE_EL2_DEBUG [=y] && TRACING [=y]
 > 
-> Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Barak Biber <bbiber@nvidia.com>
-> Signed-off-by: Barak Biber <bbiber@nvidia.com>
-> Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
-> Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
-> Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Add this as another dependency to ensure a clean build.
+> 
+> Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++++++-
->  1 file changed, 10 insertions(+), 1 deletion(-)
+>  arch/arm64/kvm/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 4d00d796f0783..2176ee8bec767 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2843,6 +2843,12 @@ static int arm_smmu_enable_iopf(struct arm_smmu_master *master,
->  	if (master->iopf_refcount) {
->  		master->iopf_refcount++;
->  		master_domain->using_iopf = true;
-> +		/*
-> +		 * If the device is already on the IOPF queue (domain replace),
-> +		 * drain in-flight fault handlers so nothing will hold the old
-> +		 * domain when the core switches the attach handle.
-> +		 */
-> +		iopf_queue_flush_dev(master->dev);
-
-So this drains the iopf workqueue, but don't you still have a race with
-the hardware generating a fault on the old domain and then that only
-showing up once you've switched to the new one? What is the actual
-problem you're trying to solve with this patch?
-
->  		return 0;
->  	}
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 32c7a4f85e75..bcc87f9dad33 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -78,7 +78,7 @@ if NVHE_EL2_DEBUG
 >  
-> @@ -2866,8 +2872,11 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
->  		return;
+>  config NVHE_EL2_TRACING
+>  	bool
+> -	depends on TRACING
+> +	depends on TRACING && FTRACE
+>  	select TRACE_REMOTE
+>  	default y
+
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+
 >  
->  	master->iopf_refcount--;
-> -	if (master->iopf_refcount == 0)
-> +	if (master->iopf_refcount == 0) {
-> +		/* Drain in-flight fault handlers before removing device */
-> +		iopf_queue_flush_dev(master->dev);
->  		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
-
-Why doesn't iopf_queue_remove_device() handle the draining? Is there a
-case where you _don't_ want to drain the faults on the disable path?
-
-Will
+> -- 
+> 2.39.5
+> 
 
