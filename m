@@ -4,74 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD78C106ACD9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC003106ACCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QP65QPw5R6QEOwFP1EXlhwulSaa9GL5K/VwO1HQfsdo=; b=otSnJxfNNwW8Wo/bECgKwB3QEK
-	N9a4lFUhpNZ/1+GvZ4Z2Na3STbhQwJGqzudonBlcUfNGBTrLqPNM0GvYnPlqca0uXz/rkHF+7JbdP
-	KOef0WkvtfyY3NQstLy+kt7m3vI6SfuNaEEWxtpvHjshPFFh4jfjPyfQwW+gToyTHciZwGYpCwPIZ
-	Bi4Z0uVbervNrjHm5pjzGLUnRx4P8pW9zRFhiwxRM6cVUR62mcwoEmfknnAlrg5P/fu4f4X+byZPW
-	vrrin8yGINcv/2aXRVfpgyvSb7j0aXFX+F3cZy7yK9QT3jK88ziuA/+qOPC/UjU721Rma+LULMdZp
-	r+ynohgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=; b=XZf5HY6HPkPpAfLHJjpLLRww1S
+	X3VZDvBUp5GTXgAfd+Zphj4jPPCyamvEA+FhFca/v6xfq62iHcRtcJy4xNp3lpe0ZCBi1/eJvlKoO
+	GTSu1VMTQPM1qTwuRCk8oBItGuJ2aKzfvN/qRcc9OwK0AG5pQUEjRSwhfcytzdV+AcdAPKdl1f/4S
+	pADnlQE5qLNnar5BYYVNYgOB5qiZq2JYrWPETLslDzBjZoraow712xc72fmxXRBQXVJeftWVlnl2i
+	bDU1h/V3oI75hrnSOjE79ARee02OTH5SXQFaPRUTTbep1PDDCO6mXQEkXWgub6t6ZLK+aAn2/BCDw
+	8ivxR1eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kNU-0000000EpM3-14PW;
-	Thu, 12 Mar 2026 18:03:20 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1w0kRu-0000000Eq9t-0371;
+	Thu, 12 Mar 2026 18:07:54 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kNP-0000000EpIe-0Cim;
-	Thu, 12 Mar 2026 18:03:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:subject:date:message-id:reply-to;
-	bh=QP65QPw5R6QEOwFP1EXlhwulSaa9GL5K/VwO1HQfsdo=; b=pkRqJJlYzzTix2dnjDsKhHXPji
-	erlS1V36ljnu/PE0eI/X3dCtjCe085U7PEjldnYGxisozy13kaOQuMl9KS4kLBKzZclWlgioWSSa0
-	e1IeFMQZQr/g3Eg/g7EGc0FjBoxnc4LH7QjA+jTNLptHe/Yxc7dfNPtnYLEI1cm8AvwY=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1w0kNJ-000000008Fl-3z1K;
-	Thu, 12 Mar 2026 14:03:10 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: robin@protonic.nl,
-	andy@kernel.org,
-	geert@linux-m68k.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com,
-	hvilleneuve@dimonoff.com,
-	mkorpershoek@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lee@kernel.org,
-	alexander.sverdlin@gmail.com,
-	marek.vasut@gmail.com,
-	akurz@blala.de
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	hugo@hugovil.com
-Subject: [PATCH v5 1/4] dt-bindings: input: add debounce-delay-ms common property
-Date: Thu, 12 Mar 2026 14:00:55 -0400
-Message-ID: <20260312180304.3865850-2-hugo@hugovil.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260312180304.3865850-1-hugo@hugovil.com>
-References: <20260312180304.3865850-1-hugo@hugovil.com>
+	id 1w0kRr-0000000Eq8i-0F5b
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 18:07:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NOK4EHfNFT/ahMY8wmkyeZmWZtms0hbhVj2vWNu2WDz65DQ9l/ENqWaiJKREzY/Brrz032wtMfzkqQ6Y1JFgosM8xvROFZjiNRJEQE8ERvBAY6hBY+OmPLfiYd9kherdoqy+tS61TOejmlrCjm9RnuvfHZ9OIDOJzkgooFYDZ0Zu88VwUvWBVyJqcb0sNyIYT+snuzSt+nb/yffAgpyfqQBzoKbMWDoi6impjizDl6/yS2xGy9Xb3Pw9jizVkAjAxcCcMumaoWWPvn/1SasT++sGs6M6pryfPFqY9IRHJHgOJ6JgIdAWLN9M8s2VAOPqfASeyiR23+/hMhx756lrWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=;
+ b=TfPquJEWVNDXOn2lSUtPVCznLn+xN+SRYEUyft8gZWFZXvZE8wvqtXw33kTX7zOW6P+/3vhjFw2saHOKEpka0yOdCaxHKYMLIDY3wP82Dn5jKjc90jKkJUiW32JzHPJbqQUcpTak2eJd/fm4ySwYiWZZm+3u6wxoErPrZHCrH0ILmu3yLfHDDDddAR5s5hPhC0MrIHi4QaO0QIZqz7eRx7KkaPca3rEFpMJOjh7dgU3wfE1AtVzVjTBZLUUTgp+3MpZqil4WlK6uRPx7X7v6SVTJyzapZLJsrebGRn/1FhxA5iWXGpUgkrRc5yp2reuBgpvH+xeVOafmYCryFOzuPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=;
+ b=LuQnGydc7wnNT6dJBiLi499gQd8LG0XHzEvto7ejXTEqfLuYTTZS5DFJQ7FNyoBdFcJCkWA6dyimxU3Ny98C7C9xAyDD4P/LnTPkTtzwV4DjaRQiU8CSsB8QKfQhN328sHF3pREqLktOxmQ3dDU2gM0zbolfx0HNOYG9/TACOd6FDvPguncyNWOID2mAE2qaSvMsXkmhds9/+OmxPcTP6Npzrn0Wmlxc8kIZwVGyzHKCNiqJBra7IVzGcKcri0O2oHrqJQXkSKlWPVqXT5K8hY7fwTf4js+Uo6cFdI6WVrHFdKpFvz3dRBDxd0VR88v6Mr+FqMZNPusA6ogloGR49w==
+Received: from DB9PR02CA0003.eurprd02.prod.outlook.com (2603:10a6:10:1d9::8)
+ by AS8PR10MB7681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:631::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
+ 2026 18:07:44 +0000
+Received: from DU2PEPF0001E9C2.eurprd03.prod.outlook.com
+ (2603:10a6:10:1d9:cafe::8e) by DB9PR02CA0003.outlook.office365.com
+ (2603:10a6:10:1d9::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
+ 12 Mar 2026 18:07:37 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF0001E9C2.mail.protection.outlook.com (10.167.8.71) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Thu, 12 Mar 2026 18:07:40 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 19:10:10 +0100
+Received: from localhost (10.252.14.128) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 19:07:40 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Thu, 12 Mar 2026 19:07:08 +0100
+Subject: [PATCH] dt-bindings: media: st,stm32-dcmi: add 'power-domains'
+ property
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spam_score: -1.0
-X-Spam_bar: -
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260312-stm32-dcmi-power-domain-v1-1-07cc47216a76@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAMsAs2kC/x3MQQqDMBBA0avIrB1IRmnRqxQXMTNpZ5FEkqIF8
+ e4NLt/i/xOqFJUKc3dCkV2r5tRg+w78x6W3oHIzkKGHGSxh/caBkH1U3PIhBTlHpwmDH5+TW5l
+ 4DdDqrUjQ331+Ldf1B2g41uVpAAAA
+X-Change-ID: 20260312-stm32-dcmi-power-domain-fc479abd2dbf
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Alain Volmat
+	<alain.volmat@foss.st.com>
+X-Mailer: b4 0.14.3
+X-Originating-IP: [10.252.14.128]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C2:EE_|AS8PR10MB7681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b0c17a0-40e1-4485-645b-08de8062406f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|1800799024|376014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: HARNlQPuV4Lzq4ybYSuMOeRFUwRS7TmQdoauCB7Nc9Qn1AUBMPMcqZooUbM3bIRf4QrAK+GJZtYd2o85Fre63aQ3v6pjohiCrnZvpTqxvAP6e5ssu3EQhlXxJ2iZ0Hf+GamSs9hUG4W+RcC66wXJETllQbUgFvH6eI129zeNUyOr7x7jXsIlRGlq4z0Ysk3OdkfYJkBg4z08tolNF2vhLIqlT5D3a5sNpacy8g2fFMADjon7tRfW21vedf8TMoB8Cb8/737Qv4uEj6i5U/Lw7nvlxA04BvmZ4ShRZFKpwD9tvArmJ9eF820nKZb4QPdZXF3FMYZ5nI26cJZRVnEF9PP4DOdxxQPo4JUOdOGPbnpeux37slhD91oI1EXmikpbLEj7NDeBMCpNtPLHAsofXKkAdsdc5xWazArFckEQOP8uHXw0BiQQ6yFGFNTB+4Ih2U4Qh0jZ+THhyQ+hb9wrdJRDyuxkUs/ZNfHWrFE/QNk/3Z/D7aCDAQ+H1wiXmo7f1rIY4bwc4wGUYMAMezxIuYVyKS3bYp6z8nXDWFF5A7Xw740EhXQMOlPfkhvWaW8pRY2XbmvduL4RlaP880xqqIXqooBwsjX4DkHDw00ofgEJPnXIh+OtjPi9jWmQhbwPGwQbIYgB0qFrIJCkzoJ7e8cSS3Iway9ApSmTBx0KpoHWxkvnBe/bQJPLGF0XVLwwq8OWbCDiirOWnRe/XFyX2Uy1znObApTY4LwNff05OhTbAN69lsSGHFh98hBEqYM/XUxFM3oeIYtMHZMAVQ8WiA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(1800799024)(376014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: UUbaw77jBFaCxwN8/V43IzqWLJgC+rSNJF9yjXV4q10WzrJYnBi9gwmlJ7QAs7a8XTzNdeU0zBgXVQXhO5bCywBzpw+Lmru4kDGVBaUYzP1mrR/QeK+79WX68syAhHpWsW+dICwBTptFe2a4ewTPKjFk0O09BWxHIUva0572upg3MlXE2QD01hJyQlyN5slwchMODn4Vfk8+vBBd4nMCzYOakoPd3rQTXRtyz4PMkPPHBCcgyaE0WKZgPinZJ3a6xt4Whq0m9LT3VEHs48T4+8clVuMuMmdNPu7mD3KHSYH67jyjoEdiX9/GRwLIki78WBI+oGfsv7GtecQDU9OXSG1d5HlpL1oDdgSdhoYqTLmPQkaP1w/javxRJaKS52mHczhIK0ubJiyutkBDljqeG0nFZASNRzq8/1bTAZelkroAhh6KU6oZEAPxUKkmdULa
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 18:07:40.8262
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b0c17a0-40e1-4485-645b-08de8062406f
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_110315_088687_85429306 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260312_110751_615516_36C6343A 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,138 +135,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+STM32 DCMI may be in a power domain which is the case for the STM32MP2x
+based boards. Allow a single 'power-domains' entry for STM32 DCMI.
 
-A few bindings are already defining a debounce-delay-ms property, so
-add it to the input binding to reduce redundant redefines.
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- .../devicetree/bindings/auxdisplay/holtek,ht16k33.yaml    | 5 ++---
- .../devicetree/bindings/input/cirrus,ep9307-keypad.yaml   | 7 +++----
- .../devicetree/bindings/input/gpio-matrix-keypad.yaml     | 5 ++---
- Documentation/devicetree/bindings/input/input.yaml        | 8 ++++++++
- .../devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 1 +
- Documentation/devicetree/bindings/mfd/fsl,mc13xxx.yaml    | 2 --
- 6 files changed, 16 insertions(+), 12 deletions(-)
+ Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/auxdisplay/holtek,ht16k33.yaml b/Documentation/devicetree/bindings/auxdisplay/holtek,ht16k33.yaml
-index b90eec2077b4b..c46a2471f8b10 100644
---- a/Documentation/devicetree/bindings/auxdisplay/holtek,ht16k33.yaml
-+++ b/Documentation/devicetree/bindings/auxdisplay/holtek,ht16k33.yaml
-@@ -10,6 +10,7 @@ maintainers:
-   - Robin van der Gracht <robin@protonic.nl>
+diff --git a/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml b/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
+index 979360e9099e..d9fbb90b0977 100644
+--- a/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
++++ b/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
+@@ -43,6 +43,9 @@ properties:
+     minItems: 1
+     maxItems: 2
  
- allOf:
-+  - $ref: /schemas/input/input.yaml#
-   - $ref: /schemas/input/matrix-keymap.yaml#
- 
- properties:
-@@ -33,9 +34,7 @@ properties:
-   interrupts:
-     maxItems: 1
- 
--  debounce-delay-ms:
--    maxItems: 1
--    description: Debouncing interval time in milliseconds
-+  debounce-delay-ms: true
- 
-   linux,keymap: true
- 
-diff --git a/Documentation/devicetree/bindings/input/cirrus,ep9307-keypad.yaml b/Documentation/devicetree/bindings/input/cirrus,ep9307-keypad.yaml
-index a0d2460c55ab6..25b8b29c87d70 100644
---- a/Documentation/devicetree/bindings/input/cirrus,ep9307-keypad.yaml
-+++ b/Documentation/devicetree/bindings/input/cirrus,ep9307-keypad.yaml
-@@ -10,6 +10,7 @@ maintainers:
-   - Alexander Sverdlin <alexander.sverdlin@gmail.com>
- 
- allOf:
-+  - $ref: input.yaml#
-   - $ref: /schemas/input/matrix-keymap.yaml#
- 
- description:
-@@ -37,10 +38,8 @@ properties:
-   clocks:
-     maxItems: 1
- 
--  debounce-delay-ms:
--    description: |
--          Time in microseconds that key must be pressed or
--          released for state change interrupt to trigger.
-+  # Time for state change interrupt to trigger
-+  debounce-delay-ms: true
- 
-   cirrus,prescale:
-     description: row/column counter pre-scaler load value
-diff --git a/Documentation/devicetree/bindings/input/gpio-matrix-keypad.yaml b/Documentation/devicetree/bindings/input/gpio-matrix-keypad.yaml
-index ebfff9e42a365..69df24a5ae701 100644
---- a/Documentation/devicetree/bindings/input/gpio-matrix-keypad.yaml
-+++ b/Documentation/devicetree/bindings/input/gpio-matrix-keypad.yaml
-@@ -18,6 +18,7 @@ description:
-   report the event using GPIO interrupts to the cpu.
- 
- allOf:
-+  - $ref: input.yaml#
-   - $ref: /schemas/input/matrix-keymap.yaml#
- 
- properties:
-@@ -46,9 +47,7 @@ properties:
-       Force GPIO polarity to active low.
-       In the absence of this property GPIOs are treated as active high.
- 
--  debounce-delay-ms:
--    description: Debounce interval in milliseconds.
--    default: 0
-+  debounce-delay-ms: true
- 
-   col-scan-delay-us:
-     description:
-diff --git a/Documentation/devicetree/bindings/input/input.yaml b/Documentation/devicetree/bindings/input/input.yaml
-index 94f7942189e8c..502e0b7eb500a 100644
---- a/Documentation/devicetree/bindings/input/input.yaml
-+++ b/Documentation/devicetree/bindings/input/input.yaml
-@@ -14,6 +14,14 @@ properties:
-     description: Enable autorepeat when key is pressed and held down.
-     type: boolean
- 
-+  debounce-delay-ms:
-+    description:
-+      Debounce delay in milliseconds. This is the time during which the key
-+      press or release signal must remain stable before it is considered valid.
-+    minimum: 0
-+    maximum: 999
-+    default: 0
++  power-domains:
++    maxItems: 1
 +
-   linux,keycodes:
+   sram:
+     $ref: /schemas/types.yaml#/definitions/phandle
      description:
-       Specifies an array of numeric keycode values to be used for reporting
-diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-index e365413732e7b..914dd3283df33 100644
---- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-+++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-@@ -10,6 +10,7 @@ maintainers:
-   - Mattijs Korpershoek <mkorpershoek@kernel.org>
- 
- allOf:
-+  - $ref: input.yaml#
-   - $ref: /schemas/input/matrix-keymap.yaml#
- 
- description: |
-diff --git a/Documentation/devicetree/bindings/mfd/fsl,mc13xxx.yaml b/Documentation/devicetree/bindings/mfd/fsl,mc13xxx.yaml
-index d2886f2686a8d..542ba51144243 100644
---- a/Documentation/devicetree/bindings/mfd/fsl,mc13xxx.yaml
-+++ b/Documentation/devicetree/bindings/mfd/fsl,mc13xxx.yaml
-@@ -76,8 +76,6 @@ properties:
-           debounce-delay-ms:
-             enum: [0, 30, 150, 750]
-             default: 30
--            description:
--              Sets the debouncing delay in milliseconds.
- 
-           active-low:
-             description: Set active when pin is pulled low.
+
+---
+base-commit: 621887bc7b9a6c37a5ed3b1f24dd446e3034253e
+change-id: 20260312-stm32-dcmi-power-domain-fc479abd2dbf
+
+Best regards,
 -- 
-2.47.3
+Alain Volmat <alain.volmat@foss.st.com>
 
 
