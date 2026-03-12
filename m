@@ -4,65 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F362BFED2F9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36147FED2F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Le43Oaq0SOwBUJc/07CArE8IrYsLIDJZjBoZH9RqaP4=; b=YYYatmTwvPsrY8di3ZshB8sP40
-	zf1K6/sLSjGau4+X/B6oU1x2A7UfAB8opdGPF70UzU5M6lv+FUoDfhwg9Obnt9XOuRxZS8qO7iCH2
-	xYyt8DKnCkkylDiPuXy2VeY3gzEV+sCT8zc45iSxTrLBRI0hq+F7NcVuSeN2R43vD3szeCqQa7Hdr
-	SKeF8KO4DN6zYadVZNyOKftmmWid4C//fTl+cUvUZrkwnQlulGjDLBURHiCNXPzOgZghEUt0oiowN
-	tsYyxNJ7zPzkxa5OMpZYNVlLwLvcPA5LflVHvT3rFLEvugMqXAbtucA1oYpXsFubbIjVPeRRl7xc9
-	UNxcRkTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8/PK2NoM2XgmfEiVVn39HbEOc1b+SZKe5Qd43oQ7yJc=; b=0BE10b8dje1rukICyoZYrIUz+4
+	QdNRnVOczorz5Q4rS9uqo2+QP9ZZd2bqZWqgAOqUFksqx3DvopOs2j/tL2g3onPNrdcKLD/rF/uvq
+	hAEd+Tw8uC4QeX16DwhjZH/DqGsuVUwdHPqiThXiNBH+kU6PtjCl2gaeED4ENaERWFImZvokYsJVT
+	EsUbEPYvWs0ke4hWs3V246LBo3WXNjq+LFDPSKk+dP+ZWW7UqzJhkQiuMiju3/a44qg8+OKuTCnTf
+	n1BBn2aZ4vmLlRxGkv0Z6qDWKHD6OVX/ZQe5FSA87cjwn0PKsXfUM5V8/JNp9C72fLbkuBBmHm4h3
+	fRzRJP3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cLD-0000000Disw-1miK;
-	Thu, 12 Mar 2026 09:28:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cLA-0000000Dis2-41Tu
+	id 1w0cLx-0000000DixY-2Q26;
+	Thu, 12 Mar 2026 09:29:13 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0cLs-0000000Diwt-24UH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 09:28:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66510165C;
-	Thu, 12 Mar 2026 02:28:14 -0700 (PDT)
-Received: from [10.57.18.49] (unknown [10.57.18.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CABE63F694;
-	Thu, 12 Mar 2026 02:28:17 -0700 (PDT)
-Message-ID: <dd6f4715-e8be-41d1-af60-00f068e9d730@arm.com>
-Date: Thu, 12 Mar 2026 09:28:16 +0000
+	Thu, 12 Mar 2026 09:29:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773307749; x=1804843749;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lEOtM4zhrzldYTBWFHJI+Dhum9TqJxp4kJWyKgJHjgI=;
+  b=jA0tfWLuzauzj02fuwXwtpZSOdsY4IOexlp/s4UEi+h4MPlsTfhu8LzT
+   esE+11xQwx5tXBL7eMLQGOE0LxRvVLmC2vZ6McH/Vt9O58L4XbkRV6L8i
+   hE4zRyJ2UDnvZQmeewJRFDrr1wEiN2DZQckAsM2huNo7xAAKl+hVsIvmc
+   cpkUujhq5EinxkdONSH5W223yRwCZSTHvjKlUhQfsN70M6nOB8G3Lsp9y
+   0eXkbR1yi6sZmrJWOfN5/R9msnt6gf7RfHA+zmhWmARI5v7qWbMiZ2hi4
+   4q2tCwESrOU0xYG0qtx3Av5SV+loHtpUd1oCS4UhLn8nU33dZELwLCNQq
+   A==;
+X-CSE-ConnectionGUID: ny/X4TkJR9Suua3/WohAiw==
+X-CSE-MsgGUID: nDn7deQ/R5W/+wJcEmnOoA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11726"; a="74285422"
+X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
+   d="scan'208";a="74285422"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:29:05 -0700
+X-CSE-ConnectionGUID: Bmp7J73lQ2KkDt15aqIghA==
+X-CSE-MsgGUID: VGjzDg/3SbWUY6CwzC6H8A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
+   d="scan'208";a="225466070"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.112])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:28:57 -0700
+Date: Thu, 12 Mar 2026 11:28:55 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: wens@kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v4 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <abKHV7RSJWI0U-sK@ashevche-desk.local>
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-3-b51f97b1abd8@linaro.org>
+ <921ba8ce-b18e-4a99-966d-c763d22081e2@nvidia.com>
+ <CAHp75VevThmDMm6VoVB9P0YbUGGGsmgnzr2gn9=1xtJZt-kuQw@mail.gmail.com>
+ <64f6e02d-c7cb-40cb-b1fb-2d3523433c66@nvidia.com>
+ <CAGb2v67mmt=X8rbsUo+Gwe6uHXTNpBFGzBbrXZYEGsftHL4Ejg@mail.gmail.com>
+ <2d4e69cb-a43c-4d13-9f7b-20b95cee43a7@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
- <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com> <87v7f2chde.wl-maz@kernel.org>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <87v7f2chde.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2d4e69cb-a43c-4d13-9f7b-20b95cee43a7@nvidia.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_022825_051599_3D3AA5D1 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20260312_022908_861667_48CB7A0A 
+X-CRM114-Status: GOOD (  28.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +117,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2026 19:10, Marc Zyngier wrote:
-> On Mon, 02 Mar 2026 15:23:44 +0000,
-> Steven Price <steven.price@arm.com> wrote:
->>
->>>> +  struct kvm_arm_rmi_populate {
->>>> +	__u64 base;
->>>> +	__u64 size;
->>>> +	__u64 source_uaddr;
->>>> +	__u32 flags;
->>>> +	__u32 reserved;
->>>> +  };
->>>> +
->>>> +Populate a region of protected address space by copying the data from the user
->>>> +space pointer provided. This is only valid before any VCPUs have been run.
->>>> +The ioctl might not populate the entire region and user space may have to
->>>> +repeatedly call it (with updated pointers) to populate the entire region.
->>>
->>> size as a __u64 is odd, as the return value from the ioctl is a signed
->>> int. This implies that you can't really report how many bytes you have
->>> copied.  Some form of consistency wouldn't hurt.
->>
->> Good spot. In practice this works because >2GB in one operation is
->> highly unlikely to be processed in one go. But I guess I'll change this
->> to have an output size argument. I guess I could make the kernel update
->> all of base,size,source_uaddr which would simplify user space.
-> 
-> In a conversation with Suzuki, I suggested that splice(2) could be a
-> nicer way to express this, and allow asynchronous use with io-uring.
-> 
-> After all, having a guestmem backend for CCA is not exactly
-> outlandish, and having a splice implementation realistic enough.
-> 
-> Thoughts?
+On Thu, Mar 12, 2026 at 08:41:03AM +0000, Jon Hunter wrote:
+> On 12/03/2026 07:49, Chen-Yu Tsai wrote:
 
-One issue that I realised, is about the "flags" for the populate.
-Data can be loaded as measured vs unmeasured in CCA (and in TDX
-and SNP). I don't see a way to convey this with splice.
+...
 
-Suzuki
+> > > > To me it sounds like a bad design of the driver for this SoC/platform.
+> > > 
+> > > I am not sure why you think that. Assuming a 1:1 mapping of the kernel's
+> > > GPIO index to the GPIO controller + h/w port + 1 GPIO number seems fragile.
 
+You may use valid mask (which is also available via GPIO device properties) or
+as said below. In any case this thread just convinces me even more that driver
+has a design flaw.
+
+> > If the hardware has uneven number of actual pins for each bank, either
+> > you end up using the deprecated static GPIO number allocation and
+> > have holes in the GPIO range (sunxi currently does this), or you use
+> > dynamic allocation, which gives you no holes in the GPIO range, but
+> > not directly calculable mapping between DT and GPIO numbers.
+> > 
+> > The driver handles the mapping by providing an .xlate callback. A
+> > consumer shouldn't assume anything. The shared GPIO library probably
+> > shouldn't be try parsing the property itself and use the result to
+> > grab the GPIO descriptor, but just rely on the gpiochip's .xlate
+> > callback in some way.
 > 
-> 	M.
+> Right. I was thinking that isn't this why we have the xlate callbacks in the
+> first place to handle such things and not make these assumptions?
 > 
+> I am curious if other platforms could have the same issue? I did not see
+> this immediately with v6.19 because it is only one specific platform  we
+> have that showed this. So very much a corner case that will only be seen if
+> a platform uses shared GPIOs and the shared GPIO happens to be high enough
+> to overflow the descriptor array. Even if we don't crash, at least for
+> Tegra, we could be using the wrong descriptor too for shared GPIOs.
+
+None of Intel platforms has this issue, for the rest I have no clue.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
