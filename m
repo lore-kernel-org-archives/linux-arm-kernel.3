@@ -4,136 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7778A105A594
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A2F105A594
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ym/VbL5bsPxyFp+0m8In5qBUiKJEtyuTcJaQUiDrRQ=; b=24h8E1YrYV9FK58caDZCs42/MB
-	pa1BdumfUfdvV2Z1Cf2Mq0WXYGLOjSxF4P+SG9NN8UZLaJgLCiL5jN8gXhcKWvcoVlMS/8VuQQDiQ
-	Nwz9JiwvfzPUsxKKy0T3+pJj1j5LERNy2I8UK/99k+lYsTMMAmy3C7MTxB2ZcNDGPR5mbsNDzLvib
-	zmDtL7sGKAshn41dRBoMW6r+UDRRflreKCtAlQdeRaZUOvZPY2YsiP6LParLKqdlrGeh3YsEFf3kl
-	oNLHMeYni7OORjuQZqxt/3eqlSwkJKxxeGK8+YQPqdYcPQXVwSquCe2AuRRWe+Dgy5CLPSzx7iKXD
-	widK6+dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=; b=ZyTGs4POOXX9C3C1ov38p4FNdA
+	dT4K3QwEAD2FrgMQ3l/NzN5D29FQJliUvmH/oVc1/2yC8uJ4kxhDmZPr0k9ONhgj89dePG2wF6Dyw
+	oGF2xeIi35uqnI3lvzVAmBQWAP29l+pwNkIQL/3uVO1W+txBX8qCdPhTvsTfMm98+AuYlpNmchycu
+	9JJA1aQWrx9feZl0wX2tPqf8N/0YdiCfoqrdVX7gYvSb7AWbJFNz4VFOEtzA0Zzgc+CDMuEUxGnZR
+	Sy5probto1/Je4jxkvwygwoSfnGKQ722k7CBzbi9oUBjBrhK1rVp/FZGtWiuwtE4JCLVufl0o4+kS
+	zspt9uuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0f2j-0000000E20z-2Ivq;
-	Thu, 12 Mar 2026 12:21:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0f6H-0000000E2Ek-089t;
+	Thu, 12 Mar 2026 12:25:13 +0000
+Received: from mail-northeuropeazon11010059.outbound.protection.outlook.com ([52.101.84.59] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0f2i-0000000E20h-0525
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 12 Mar 2026 12:21:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2Ym/VbL5bsPxyFp+0m8In5qBUiKJEtyuTcJaQUiDrRQ=; b=Et2jvkUgEFaLjINsjU4hjhcEAx
-	kiibDdUO8Ahncb16bfUP3JWwUEhrDBni/espXW6RG8aevolGsG3bzasQ7jDIqSiw3dPMaL3BhWM4n
-	0UaU9Au40ESBJyP3j6PVatbo03eHKEHRJEpV4Ox8oGSs2rMXjPC4baUV83UIzqkBH3punLlK/tqWD
-	oFN19r5zGmdpr2Ks6Y4rqazFJAVjqrt/+HL2NuoDfUhgkxYg115t6FXTbaiC3uzNUdi5xlWoaXkb5
-	n8coA3LqitX8Ex52Roux1nfrF9jW7UWxx08LhEoSmpzgAncJpBhMd+w43Vq6ymCImhdepTSVWUZdI
-	HZm65z6g==;
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0f2e-000000016oi-1C32
+	id 1w0f6C-0000000E2Dh-2l0L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:21:30 +0000
+	Thu, 12 Mar 2026 12:25:10 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=L7VhD+dWILsaPhNS47CJeNRSrVFCa/UusjkkuFoEXGkWyfjH21vIE+3Rfw5ZPOsKKIrmoxGV+J+/aZRbS140oBq+Rj9lkwa/eXP5tLvq0FV7T0f2hUT/XEYxb8PHd6DFpmxitGj+W/6drYKd5znsWmjTn+iLnh1FL3f1gxifWl4ne0AJMUi0M8g+++60WrWu5M5KJo8RmUxhugECVHj9u6Ilu0E0kAxFruqDuC0IPl/2QBBAU/pZSmPcm2dO3PTzuZ4pBPI3hSkrQenlYJ0H+Bcp8B6SQPpg2U558XYF0O4rVYPZW9Q4pv/QFebNkZ2fKYc9Qf2dObVfb7nKe8hc5Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
+ b=dclnjtE31Ce7vpx/ZD3CwgenElJjV7xKUJyi42b3JWVJVSY3p7wM1Bytrxo72I0d+u+FLUosgYGeEpwdkppQmbTe0GFvsNq4v1Kx2Ccslf3n+OpGJ5FO8N2HBxp7XcskgzxoR92hR/7vXD55hm6BIpHFSIlnS7wvd60HAWzpKV7xPyT3rR16VQxCM34e2CGeAei/HkEV/TeQP9+V+a0CO6+PoHn6tXPME+kx61fOgk8qxuyBMjMNMKDQPncTLlC5j9nF7mRIxRjvbmnnZHE83S7xKSsjvU2xMcAJnGvgZcg3DpTi8/yENKzg+MibX/v51eqFh4y/sv2Ti3IV7t0yzQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
+ b=DHRS0PN6/e+ky3pV+BOol9tZN44SOON0gWFk/CAGc/32IhkXoooivmKRzf6HMnkZWQyFlhje+HdZyQh4gUojdf9UY4F001PRdLsCLZuusdZpkYmNbSAaSSVUF6IgQk0EtUS9bvp0XMrRKEJt0Zg5oJxeBlCNFspk3Gu9qp3jyGk=
+Received: from AS4P195CA0027.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:5d6::16)
+ by AS8PR08MB10221.eurprd08.prod.outlook.com (2603:10a6:20b:63e::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 12:24:57 +0000
+Received: from AMS0EPF000001A9.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d6:cafe::90) by AS4P195CA0027.outlook.office365.com
+ (2603:10a6:20b:5d6::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.28 via Frontend Transport; Thu,
+ 12 Mar 2026 12:24:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001A9.mail.protection.outlook.com (10.167.16.149) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
+ via Frontend Transport; Thu, 12 Mar 2026 12:24:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uo8/dg49pAClz8hGL9ZwKVg3bzPdI/s5UTpwNM/hXwgu2msdLkL4+SJrq4bF532+bcflOYOWtMA0IkaITFTgGvYPBZVCGySTj/5Ek1A9KHZ4PXyKHQCGz9ChIkbQaE1OrjN6cfXC9oRvz6ksCpGnu1uAxqzfEw8bYXl+rESEpQC39QPnlbb683J+xJZbCgNN6qsYTT2BywBEodbYJHvHefC7Bf9eOW0bELQDdt3a2HkA7iBX7YurwXQqtx/G5GB5BWmElF96oiIMX0jQj96OHe3zFFNMQvtguaZ2vyI5EbYqY86R2kRVElbd/ceRCumd7+z5G9qjZ6yq9rAiSUpjDA==
+ b=PhAcuy+17cqLh4Y01RuSgNOLhwqPriUntYgxxKQaPshc9IGDn/Qcm4W4HKssVVcnGmduqqKJpbnrN8UcavSjLEgXnW3McgTP1nULgaSkPMADVcDGcTjMkA+I8GhihwsXoqF2K8JYpI3Od/GMeASeuNC0YedYJc/wHkMheYbHIy+w95igYmmvfBAZDPlMmUmp0qv5PChXzEkuKiRa8HkSYcmlSDbV/f/QGaPTmgLOrnngRtlrekqbNUx2nqvkQQClStBXVY2ETgPrR04qG3fSWjUVotm7rjDIkpzk5ig7dJJ852YpVGSTndx2MvT4TGpTsrAGeKpccqjlkTCXT5fI7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2Ym/VbL5bsPxyFp+0m8In5qBUiKJEtyuTcJaQUiDrRQ=;
- b=hMLxPMrgCbN9Mzyy4TUeiYVNCgVGpRJxUjp7OMvT3VITT219bTIaLVVHxTBCBML8VmdoqQYtMsyAE/cTqHpzIv4j0c1Aay8krqxF6SCa5XdHf/sQL/Hi4Q1mrQdrrtBi7tAhQ7HWIVyhSgK+6/ELGKyDJ/leQFrbXux33h2XQbDMKq9oUtedhsXZ8p23c5k+EmjdMgKcbWyVkLs2wR8tqWH6Y3k4nX1i6eLZ641+URMqsGsiaOAxC0wPZmhzfXzM+f3QkFX5tfgHtxkd71ASwTaSPp/Aqs/gtyvKjPA0UzTprxCPZ41rnodd+/vVF/23fRUttz+H0gILJjo7UPqS+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
+ b=t/AOjxH1vme12cPvI9lhNwvHeC30NRZ47wM2n3G1UXITb0XIKV1KwIXQGgpjwzoZ4P2wVgM3tH3QhLER0y7dQet32dzj0mp9bUUUeOw6yLJ0/+PKJG06sUV/vQXNgANAwGEvTZVMObFWnKd5NA63WJSu7wnyuUzWte9PTE+4UkGACLgV/k0uKC6vhcu7G9eRpnM69vDml3RBQGtHVM8ZwpTsKTNc6Bk5ymZuJQyrQWX4H+kcesVlIRXLO7lfFk6gb3W+X3/U6S9aNQf27QhPgENcSK6fE68JX529r0IjK9GWGasW92pDpctWbMhxPnmXOAcimtVljkaBAkL7XNNPzQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2Ym/VbL5bsPxyFp+0m8In5qBUiKJEtyuTcJaQUiDrRQ=;
- b=EKNOgXkyWMPIYQtAlJCCnSdGsk6OZlKzJeDpSM5nSYr2TwLP5HPJ3EipXvP4ZvWXk3rtW3GomDN7bs810UwScCi7mCBnTqPzVDBk8c7iODBd10VRKyQWZXh7Q7viZuHNNGAUJUcQiLHhX80j0mxytTPvqJSUIneSqcY34SD2gb4rfH1mbk+m1yr/Ln/wixL3d60qiji7OOx+7PlJKpIX686dTIzq8V548Av+WN2A4xvSsCxxQkZ/8NeVHHdxDJBV4usrofii0Ili3+p9uOxB3K3ey1NsPmE0A1jRj84TzMbw0zmss7wlQnmgds5uFmib1ot5gAXJZ068G17UsDCNFQ==
-Received: from AM9P192CA0012.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:21d::17)
- by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10) with
+ bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
+ b=DHRS0PN6/e+ky3pV+BOol9tZN44SOON0gWFk/CAGc/32IhkXoooivmKRzf6HMnkZWQyFlhje+HdZyQh4gUojdf9UY4F001PRdLsCLZuusdZpkYmNbSAaSSVUF6IgQk0EtUS9bvp0XMrRKEJt0Zg5oJxeBlCNFspk3Gu9qp3jyGk=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
+ by DU0PR08MB9300.eurprd08.prod.outlook.com (2603:10a6:10:41f::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 12:21:11 +0000
-Received: from AMS0EPF000001A4.eurprd05.prod.outlook.com
- (2603:10a6:20b:21d:cafe::87) by AM9P192CA0012.outlook.office365.com
- (2603:10a6:20b:21d::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
- 12 Mar 2026 12:21:11 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS0EPF000001A4.mail.protection.outlook.com (10.167.16.229) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 12:21:11 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 13:23:41 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 13:21:10 +0100
-Message-ID: <975aa10c-c4e2-4dd8-8f80-31fdbf133cf5@foss.st.com>
-Date: Thu, 12 Mar 2026 13:21:09 +0100
-MIME-Version: 1.0
+ 2026 12:23:49 +0000
+Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
+ ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
+ ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 12:23:49 +0000
+Message-ID: <4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
+Date: Thu, 12 Mar 2026 12:23:41 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ARM: dts: stm32: Add DT overlays for DH
- STM32MP13xx/STM32MP15xx DHSOM
-To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
-CC: Amelie Delaunay <amelie.delaunay@foss.st.com>, Christoph Niedermaier
-	<cniedermaier@dh-electronics.com>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Rob Herring <robh@kernel.org>,
-	<devicetree@vger.kernel.org>, <kernel@dh-electronics.com>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260121085347.10368-1-marex@nabladev.com>
- <20260121085347.10368-3-marex@nabladev.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260121085347.10368-3-marex@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v2 11/11] RAS: add DeviceTree firmware-first CPER provider
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+ Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
+ robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+ <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
+ <20260224155520.00004e92@huawei.com>
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+In-Reply-To: <20260224155520.00004e92@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001A4:EE_|PA4PR10MB5681:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28117fc0-5145-49e3-b5fc-08de8031d902
+X-ClientProxiedBy: LO4P265CA0130.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c6::19) To VI0PR08MB11823.eurprd08.prod.outlook.com
+ (2603:10a6:800:324::5)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|DU0PR08MB9300:EE_|AMS0EPF000001A9:EE_|AS8PR08MB10221:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3359a33-25b2-4eb5-735a-08de80325f90
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|7053199007|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 3zwfWNYG/AIxjDM7tqlgcPOtvj4ujZZB6BksdoEH3Cki3Odk04ANsNfnDMmJ3hSysIYqh1GAQqzNzuuJeAtvtYQwioYRXhMMr3qoWnXbMT7/IivW0pZ4A2HxpFhMIGIEPUNPOtfEtOd6JPb1KBPSufmY9isb1fkBmK9VoWAKHf7njyP1QOkLwE666dlliZisqUYrDw0FrBDgwRkNJOl7jw+YeANGg4iWT7f5mtiB7+rQRx8kB4/V5AOiZCHgkvFR9csiZ7AIGKp7ZSDdNDvLZFwoilxDrgaiOnrgslzpao2/7B+fy0crqtPbVOvRcg8mgA+uQGrG95AKj3E84/BNp5ywNLBKjENQvJHkDzsETM5QIw2Wnpx6jx12ujZlGizz+pm+MUPMLJJqFrJQLkwJYAybSDJcrNuytDpnEazdV3c7awBxkng0Wt3RM5lnUehgNMRBhh2ZCK+H3hK3d+eA0/hzTcoF/dlaIwavpUhGNFD3f6rx+df5OP8Tut3Y+u4pW9Ewuzc8N5hocZJcchxzw6oY2CyF306njbBk8REHwl36/8ZhmAZSjymaiX1ass5h52lIBvuvDuw+Cn9BoYXiaQyP3ZThsrVhPt2EaRnjWYm7yS2MPkpCHGw49Op2RI2pulK890F5biMi4evIvMvDbS6auMFXfklgBbER+eTCW/xlk62XS7MYGw79ahZL6A4PsXjctfuDrSdXwjOPWH5RMboGyyjsh2OzRTG8X9RsVYSuEWA0DTvwFvdGBAJ7q3djc2yGqsoDFgRcx9htywGDAg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(7053199007)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info-Original: uwNy+hhFBWac9ZFXIkK//QiZVVMgE5Rff76Gs3PaLc6z3I3ms2zxnc17SyBKidK7Bl81mT8UJy3WIiLXewasVLEclsEeR6d5AKKWWRQ/VLKtqySDjcTMYzsr/huDWIXEhWXDRrNUw6UMHT7vUqJHVJ69EFFVMBgfREu8dZbUMPxMKjR6GyvB5ASkvIs8g5Jid/uBsdIPJmuaxy9fe4wtOtaJnQT4Y6KnGwwiDncjKvd9VdlgRxqg6whsk08sfKaJR+7VLepk7Xf+MQEFCD4ZFSS1ya3UVxDt4jums6fPoZY/chGcvpCp/te9AnJKEYNvBylyBFZ69dpnbd7lw5yJdxwTuxj4lMvfphYJCk55Ru5jTC5UZyALisi0WsQi73szfD1iPTkcvypc/MbH08hAcQ9qPakoNlFPoKv8azJ4JBfKRQpSD8GeDkm6RwXUYwranVatyUOHiafkvZ/KqpCcArRT4SG5E6tLKipS3pybk4yJjIfvhneqY/Xfssj1+sME8XO9W8IDO3Sk/Vv9Cff7co9NyxOl0jwgFhodfLu8OoPqX2Bz5RaBVPFyNTldPTczRFnSb1a4IsCEb5xKmPG7MkXjIpcyhrL7zNPZIsrelzuOO0Ci1Xx57bBJmt0ZHgCh9VjSlWymSE/P75Do7Ehf3gZk+L5rDhgnWV/WsUfUUe0+5kuQcFoQJUtI2Nq5jYqbA6ZWnF4zvxDQnr5d8JCXhiG6jKOHZzbw4ze+nSExnCw=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: TX/iK20PomtSzE7PVIMiugbqVn4QCsXLvRWFMYB2Vx81ZBm32/Jd1Px9HHpH2YHTmfP2sDujTYdTZOIZyN2H+L6PYo17RgG1sBqW+SFE3b0ChbKlHmOANS5vtQHkd/TNUeFoFRILGrH7qbd6USMgZ2H6xTPBjw3kSEzah2rHO3sHrlJmE4TRedN5ACWEHDMCT/jqP0+qGwqVHYavpTntKe1igfhauAzquR1bECRWx6ZiT/pK02qeSaorMdnV24Fbh/DKeMloHSZf0G8B69ENIr0gCn7xQxXZS5c0dM2UxtHNtyVmPW2a5+PT+dG1xyPCWDeZ157vYRj5awdLsbNtAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9300
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A9.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: d084e39b-ef54-4b47-3d81-08de803236e6
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|30052699003|36860700016|35042699022|14060799003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: iEdQ5l/E70orGl/i7m6AyoNukf7RgirDhG2H7/vghhW/xzw9wO9kzKGnMLmqLOaap8/8e7nt8Rkf2s9bAiEgjQdH2dUywmjhFBAUpctUw2jY9Rmnr/P79CoBrxSPDJIJxO37S13ZB+QewVnIVkyn8Fm2f+3EqkLIuBKJST+ZP/fEFV1C2FaffsuW/bRls+MtAgfswf7J41DBMAwPflUkH6/ISYz6eS9GspcULbPR+7RVeNtQjpB1WUnuQFN87jY+YfmW2T3MCx9Nq12FbC8q/yp8WvY7NXLRA+RKEGrfUSmyE3xFSynfCOWESpa2Fc1/syrELrRsMvuZhJCgLU8yD5PnCWEY/ldl+m8zwZgym1KhpX8asH1LKYWgcMeji7O4vF/yy3ZWZQwy0fbefm5vXDhjvbEvqqh/OvRo4pJdAnmpc8lobQLus24Z0SCLS8Jp2te+XIasRY8niD0cZvat+dOr7Vbagg3FTtKdNk8n+B95eiBHRwr4aLYY79Lqftxa4A5aDgVpGYkctX4c1lpgomjffdCZl+cgTPlP+K0int2+Uk25gyfhfxOt+vd4oJMl6pVym94CzmpPd++kqabagIV+JbUhP5VLohT3By9oczF2BukNe9qp+P2SgYVIGETpwbO295I7aJUKscVIvftBipGESfIlVUTCSkHDJRaFZjfGZTG6ID/0Lm4+iWu/S6p+e3775f97uPBhyqIVPT4C6y6NxQms6xixfhN94x3QdlRuo65LhAZBU/2ALZWloZOt9Yof8zUiLuQ9dX19rttyxg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(30052699003)(36860700016)(35042699022)(14060799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RjNw/0YJltuGEIPyC4NZPaKJEQPyqyy8G+jyOzQsJHIKUKdfkNx41Z4wrXk5FxsaY1WZcMIC9k2lpMVQQa5HuWbTBLaQTI9n6mxK2IBqGsJTfkhZejgNSO8udDIxH4BpGOxmRCfW5rW8OoWHVKQj7MZWkglB3Z9UHTGBr0xRsm8xsSEWkWKH1WeXUgLgNvNcVuQ2D3Ob88xhdMOG/9Qx3/MEMW1pYTdbkCGlY6t14PSgH6VCjeN1CAYFDa/6Yam2QooXwppB4WIBs3X1evhsMOI4mPdrDQPjPUKL7SxswHG6KU3JLZ5N6NODKLvJ8pASW/GIaKEFNxcEbl3JzYtyZTiAxuiggowRg/cPQVk5+SEupAzU2DTJYIH6kugdqrY604iCrsnTMCQABLCtTr1i2vo1FD6Kp8PmG1nohmawZF+Vo+0S6Tx4px0qwX4FH2Fs
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:21:11.4969
+X-MS-Exchange-AntiSpam-MessageData-0: G5EYKejkYnbFh0XvMohkgbKvXaE8eJz3icfbtXAftkKu/sxaeVGp7UyMJUhjWVHl02pBYb6Y9W1bQDwFZlLnvxJIXI+CV/noyQF0x52u12V+KeoPGK2otV3NOrKL2SyVGHi4gvMvaXEdnq6h/3Hke5YaYoSohkKmHyxHo2ZVbAvkPC+Ty67eJzTqDYN21oOwPJTOqzoZ3ncAXop1KiB52gJP59gXJhackfp0vegyEhwDR6JSBbK0d0S1I2zl6+JdI1Lji/AtCXdJ15UoGPMH5duHWd8OhXIrckz7yuG5oIWbAi5uQ0tW+RRyvJW6GAqHAsatN9fseNj0uQgCyYZS4Zs5v+e9QciXyRia7+DW2hR7VkMOAm05vKyq0KRPw+8e6H91CktFp0qzKtV6/9LIqMSFBXqwVwVb+pK/k08LqjOYTorfFXxfszi92Nqzp22y
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:24:57.2160
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28117fc0-5145-49e3-b5fc-08de8031d902
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3359a33-25b2-4eb5-735a-08de80325f90
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A9.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5681
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10221
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_122128_564868_67B92955 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260312_052508_995078_EF1C12F1 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,1480 +158,439 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek
-
-On 1/21/26 09:53, Marek Vasut wrote:
-> The following DTOs are supported on STM32MP15xx DHCOM PDK2:
->   - DH 460-200 SRAM board in header X11
->   - DH 497-200 adapter card with EDT ETM0700G0EDH6 Parallel RGB panel
->   - DH 505-200 adapter card with Chefree CH101OLHLWH-002 LVDS panel
->   - DH 531-100 SPI/I2C board in header X21
->   - DH 531-200 SPI/I2C board in header X22
->   - DH 560-200 7" LCD board in header X12
->   - DH 638-100 mezzanine card with RPi 7" DSI panel attached on top
->   - DH 672-100 expansion card, which contains CAN/FD transceiver and
->                enables PDK2 to use one more CAN/FD interface
+On 24/02/2026 15:55, Jonathan Cameron wrote:
+> On Fri, 20 Feb 2026 13:42:29 +0000
+> Ahmed Tiba <ahmed.tiba@arm.com> wrote:
 > 
-> The following DTOs are supported on STM32MP15xx DHCOM DRC02:
->   - Enable configuration where the DHSOM inserted into the DRC02 has
->     RSI 9116 WiFi populated on the SoM and where the microSD slot on
->     the bottom of DRC02 must not be used.
->     This permits a non-default configuration of the SoM and DRC02 board
->     used for custom device setup with on-SoM WiFi.
+>> Add a DeviceTree firmware-first CPER provider that reuses the shared
+>> GHES helpers, wire it into the RAS Kconfig/Makefile and document it in
+>> the admin guide. Update MAINTAINERS now that the driver exists.
+>>
+>> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> Hi Ahmed,
 > 
-> The following DTOs are supported on STM32MP15xx DHCOM PicoITX:
->   - DH 548-200 adapter card with Multi-Inno MI0700D4T-6 7" DPI panel
->   - DH 553-100 adapter card with Team Source Display TST043015CMHX 4.3" DPI panel
->   - DH 626-100 adapter card with Chefree CH101OLHLWH-002 LVDS panel
+> Various comments inline.
 > 
-> The following DTOs are supported on STM32MP15xx DHCOR Avenger96:
->   - FDCAN1 on low-speed expansion X6
->   - FDCAN2 on low-speed expansion X6
->   - AT24C04 I2C EEPROM on low-speed expansion X6 I2C1
->   - AT24C04 I2C EEPROM on low-speed expansion X6 I2C2
->   - AT25AA010A SPI EEPROM on low-speed expansion X6 SPI2
->   - 96boards OV5640 mezzanine card with sensor connected to port J3.
->   - DH 644-100 mezzanine card with Orisetech OTM8009A DSI panel
->   - DH 644-100 mezzanine card with RPi 7" DSI panel
+> Jonathan
 > 
-> The following DTOs are supported on STM32MP13xx DHCOR DHSBC:
->   - joy-IT RB-TFT3.2-V2 240x320 SPI LCD and XPT2046 resistive touch controller
+>> ---
+>>   Documentation/admin-guide/RAS/main.rst |  18 +++
+>>   MAINTAINERS                            |   1 +
+>>   drivers/acpi/apei/apei-internal.h      |  10 +-
+>>   drivers/acpi/apei/ghes_cper.c          |   2 +
+>>   drivers/ras/Kconfig                    |  12 ++
+>>   drivers/ras/Makefile                   |   1 +
+>>   drivers/ras/esource-dt.c               | 264 +++++++++++++++++++++++++++++++++
+>>   include/acpi/ghes_cper.h               |   9 ++
+>>   8 files changed, 308 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/Documentation/admin-guide/RAS/main.rst b/Documentation/admin-guide/RAS/main.rst
+>> index 5a45db32c49b..4ffabaaeabb1 100644
+>> --- a/Documentation/admin-guide/RAS/main.rst
+>> +++ b/Documentation/admin-guide/RAS/main.rst
+>> @@ -205,6 +205,24 @@ Architecture (MCA)\ [#f3]_.
+>>   .. [#f3] For more details about the Machine Check Architecture (MCA),
+>>     please read Documentation/arch/x86/x86_64/machinecheck.rst at the Kernel tree.
+>>   
+>> +Firmware-first CPER via DeviceTree
+>> +----------------------------------
+>> +
+>> +Some systems expose Common Platform Error Record (CPER) data
+>> +via DeviceTree instead of ACPI HEST tables.
 > 
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-
-
-Applied on stm32-next.
-
-Thanks
-Alex
-
-
-
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>
-> Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Raphael Gallais-Pou <rgallaispou@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
->   arch/arm/boot/dts/st/Makefile                 | 127 ++++++++++++++++++
->   ...p13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtso |  85 ++++++++++++
->   ...avenger96-overlay-644-100-x6-otm8009a.dtso |  61 +++++++++
->   ...avenger96-overlay-644-100-x6-rpi7inch.dtso |  31 +++++
->   ...m32mp15xx-avenger96-overlay-fdcan1-x6.dtso |  10 ++
->   ...m32mp15xx-avenger96-overlay-fdcan2-x6.dtso |  10 ++
->   ...15xx-avenger96-overlay-i2c1-eeprom-x6.dtso |  17 +++
->   ...15xx-avenger96-overlay-i2c2-eeprom-x6.dtso |  17 +++
->   ...m32mp15xx-avenger96-overlay-ov5640-x7.dtso |  89 ++++++++++++
->   ...15xx-avenger96-overlay-spi2-eeprom-x6.dtso |  24 ++++
->   ...32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtso |  10 ++
->   ...x-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi |  75 +++++++++++
->   .../stm32mp15xx-dhcom-overlay-panel-dpi.dtsi  |  74 ++++++++++
->   ...mp15xx-dhcom-pdk2-overlay-460-200-x11.dtso |  27 ++++
->   ...mp15xx-dhcom-pdk2-overlay-497-200-x12.dtso |  24 ++++
->   ...-pdk2-overlay-505-200-x12-ch101olhlwh.dtso |  26 ++++
->   ...mp15xx-dhcom-pdk2-overlay-531-100-x21.dtso |  35 +++++
->   ...mp15xx-dhcom-pdk2-overlay-531-100-x22.dtso |  19 +++
->   ...mp15xx-dhcom-pdk2-overlay-560-200-x12.dtso |  66 +++++++++
->   ...com-pdk2-overlay-638-100-x12-rpi7inch.dtso |  28 ++++
->   ...mp15xx-dhcom-pdk2-overlay-672-100-x18.dtso |  13 ++
->   .../boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi   |  72 ----------
->   ...icoitx-overlay-548-200-x2-mi0700s4t-6.dtso |  35 +++++
->   ...oitx-overlay-553-100-x2-tst043015cmhx.dtso |  35 +++++
->   ...icoitx-overlay-626-100-x2-ch101olhlwh.dtso |   8 ++
->   .../dts/st/stm32mp15xx-dhcor-avenger96.dtsi   |   6 -
->   ...15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi |  97 +++++++++++++
->   27 files changed, 1043 insertions(+), 78 deletions(-)
->   create mode 100644 arch/arm/boot/dts/st/stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan1-x6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan2-x6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-ov5640-x7.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi.dtsi
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
->   create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi
+> I'd argue this isn't really DT specific, it's just not ACPI table.
+> You could for instance use PRP0001 and wire this up on ACPI with only
+> one trivial change to generic property.h accessor for the boolean.
 > 
-> diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
-> index e906bf6ba0041..5d29ff125d993 100644
-> --- a/arch/arm/boot/dts/st/Makefile
-> +++ b/arch/arm/boot/dts/st/Makefile
-> @@ -16,6 +16,91 @@ dtb-$(CONFIG_ARCH_STI) += \
->   	stih410-b2260.dtb \
->   	stih418-b2199.dtb \
->   	stih418-b2264.dtb
-> +
-> +stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2-dtbs := \
-> +	stm32mp135f-dhcor-dhsbc.dtb \
-> +	stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-fdcan1-x6-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-fdcan1-x6.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-fdcan2-x6-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-fdcan2-x6.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-ov5640-x7-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-ov5640-x7.dtbo
-> +
-> +stm32mp15xx-avenger96-overlay-spi2-eeprom-x6-dtbs := \
-> +	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtbo
-> +
-> +stm32mp15xx-dhcom-drc02-overlay-wifi-rsi-dtbs := \
-> +	stm32mp153c-dhcom-drc02.dtb \
-> +	stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtbo
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-460-200-x11-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-497-200-x12-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-531-100-x21-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-531-100-x22-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-560-200-x12-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtbo \
-> +
-> +stm32mp15xx-dhcom-pdk2-overlay-672-100-x18-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtbo \
-> +
-> +stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6-dtbs := \
-> +	stm32mp157c-dhcom-picoitx.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtbo \
-> +
-> +stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtbo \
-> +
-> +stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh-dtbs := \
-> +	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtbo \
-> +
->   dtb-$(CONFIG_ARCH_STM32) += \
->   	stm32f429-disco.dtb \
->   	stm32f469-disco.dtb \
-> @@ -30,6 +115,8 @@ dtb-$(CONFIG_ARCH_STM32) += \
->   	stm32h750i-art-pi.dtb \
->   	stm32mp133c-prihmb.dtb \
->   	stm32mp135f-dhcor-dhsbc.dtb \
-> +	stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtb \
-> +	stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtbo \
->   	stm32mp135f-dk.dtb \
->   	stm32mp151a-prtt1a.dtb \
->   	stm32mp151a-prtt1c.dtb \
-> @@ -39,12 +126,30 @@ dtb-$(CONFIG_ARCH_STM32) += \
->   	stm32mp151c-mect1s.dtb \
->   	stm32mp151c-plyaqm.dtb \
->   	stm32mp153c-dhcom-drc02.dtb \
-> +	stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtb \
-> +	stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtbo \
->   	stm32mp153c-dhcor-drc-compact.dtb \
->   	stm32mp153c-lxa-fairytux2-gen1.dtb \
->   	stm32mp153c-lxa-fairytux2-gen2.dtb \
->   	stm32mp153c-lxa-tac-gen3.dtb \
->   	stm32mp153c-mecio1r1.dtb \
->   	stm32mp157a-avenger96.dtb \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtb \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtbo \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtb \
-> +	stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtbo \
-> +	stm32mp15xx-avenger96-overlay-fdcan1-x6.dtb \
-> +	stm32mp15xx-avenger96-overlay-fdcan1-x6.dtbo \
-> +	stm32mp15xx-avenger96-overlay-fdcan2-x6.dtb \
-> +	stm32mp15xx-avenger96-overlay-fdcan2-x6.dtbo \
-> +	stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtb \
-> +	stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtbo \
-> +	stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtb \
-> +	stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtbo \
-> +	stm32mp15xx-avenger96-overlay-ov5640-x7.dtb \
-> +	stm32mp15xx-avenger96-overlay-ov5640-x7.dtbo \
-> +	stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtb \
-> +	stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtbo \
->   	stm32mp157a-dhcor-avenger96.dtb \
->   	stm32mp157a-dk1.dtb \
->   	stm32mp157a-dk1-scmi.dtb \
-> @@ -56,7 +161,29 @@ dtb-$(CONFIG_ARCH_STM32) += \
->   	stm32mp157a-icore-stm32mp1-edimm2.2.dtb \
->   	stm32mp157a-stinger96.dtb \
->   	stm32mp157c-dhcom-pdk2.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtbo \
-> +	stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtb \
-> +	stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtbo \
->   	stm32mp157c-dhcom-picoitx.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtbo \
-> +	stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtbo \
-> +	stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtb \
-> +	stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtbo \
->   	stm32mp157c-dk2.dtb \
->   	stm32mp157c-dk2-scmi.dtb \
->   	stm32mp157c-ed1.dtb \
-> diff --git a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtso b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtso
-> new file mode 100644
-> index 0000000000000..3801dab141e8f
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtso
-> @@ -0,0 +1,85 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2024 Marek Vasut
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/input/linux-event-codes.h>
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&{/} {
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		button-1 {
-> +			label = "KEY2";
-> +			linux,code = <KEY_2>;
-> +			gpios = <&gpiog 10 GPIO_ACTIVE_LOW>;
-> +			wakeup-source;
-> +		};
-> +	};
-> +
-> +	gpio-keys-polled {
-> +		compatible = "gpio-keys-polled";
-> +		poll-interval = <20>;
-> +
-> +		button-0 {
-> +			label = "KEY1";
-> +			linux,code = <KEY_1>;
-> +			/* IRQ bank A shared with PA1 touch controller */
-> +			gpios = <&gpioa 4 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		button-2 {
-> +			label = "KEY3";
-> +			linux,code = <KEY_3>;
-> +			/* IRQ line 0 taken by PI0 / SoM RTC IRQ */
-> +			gpios = <&gpiod 0 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +};
-> +
-> +&m_can1 {
-> +	/* Collides with KEY2/PG10 KEY3/PD0 */
-> +	status = "disabled";
-> +};
-> +
-> +&m_can2 {
-> +	/* Collides with TP_CS/PE6 */
-> +	status = "disabled";
-> +};
-> +
-> +&usart2 {
-> +	/* Collides with TP_IRQ/PA1 */
-> +	status = "disabled";
-> +};
-> +
-> +&spi3 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	cs-gpios = <&gpiof 3 0>, <&gpioe 0 0>;
-> +	status = "okay";
-> +
-> +	lcd@0 {
-> +		compatible = "adafruit,yx240qv29", "ilitek,ili9341";
-> +		reg = <0>;
-> +		spi-max-frequency = <10000000>;
-> +		dc-gpios = <&gpioe 4 GPIO_ACTIVE_HIGH>;
-> +		reset-gpios = <&gpiod 3 GPIO_ACTIVE_HIGH>;
-> +		rotation = <90>;
-> +	};
-> +
-> +	tp@1 {
-> +		compatible = "ti,tsc2046";
-> +		reg = <1>;
-> +		interrupt-parent = <&gpioa>;
-> +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
-> +		pendown-gpio = <&gpioa 1 GPIO_ACTIVE_LOW>;
-> +		spi-max-frequency = <500000>;
-> +		ti,pressure-max = /bits/ 16 <255>;
-> +		ti,x-plate-ohms = /bits/ 16 <60>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtso
-> new file mode 100644
-> index 0000000000000..103a2f0cf57b0
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-otm8009a.dtso
-> @@ -0,0 +1,61 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&dsi {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	phy-dsi-supply = <&reg18>;
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +			dsi_in: endpoint {
-> +				remote-endpoint = <&ltdc_ep1_out>;
-> +			};
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +			dsi_out: endpoint {
-> +				remote-endpoint = <&panel_in>;
-> +			};
-> +		};
-> +	};
-> +
-> +	panel@0 {
-> +		compatible = "orisetech,otm8009a";
-> +		reg = <0>;
-> +		reset-gpios = <&gpiod 8 GPIO_ACTIVE_LOW>;
-> +		power-supply = <&v3v3>;
-> +		status = "okay";
-> +
-> +		port {
-> +			panel_in: endpoint {
-> +				remote-endpoint = <&dsi_out>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&ltdc {
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		ltdc_ep1_out: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&dsi_in>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtso
-> new file mode 100644
-> index 0000000000000..cde2f8f68f86b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-644-100-x6-rpi7inch.dtso
-> @@ -0,0 +1,31 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	touchscreen: touchscreen@38 {
-> +	};
-> +
-> +	attiny: regulator@45 {
-> +	};
-> +};
-> +
-> +#include "stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi"
-> +
-> +&ltdc {
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		ltdc_ep_out: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&dsi_in>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan1-x6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan1-x6.dtso
-> new file mode 100644
-> index 0000000000000..a9916aa8df752
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan1-x6.dtso
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&m_can1 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan2-x6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan2-x6.dtso
-> new file mode 100644
-> index 0000000000000..c994ff0552272
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-fdcan2-x6.dtso
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&m_can2 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtso
-> new file mode 100644
-> index 0000000000000..1edfff973a815
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c1-eeprom-x6.dtso
-> @@ -0,0 +1,17 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@56 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x56>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtso
-> new file mode 100644
-> index 0000000000000..bb3db38e3e63c
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-i2c2-eeprom-x6.dtso
-> @@ -0,0 +1,17 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@56 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x56>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-ov5640-x7.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-ov5640-x7.dtso
-> new file mode 100644
-> index 0000000000000..3056be6cd1962
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-ov5640-x7.dtso
-> @@ -0,0 +1,89 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +#include <dt-bindings/clock/stm32mp1-clks.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&{/} {
-> +	camera0_1v5_pwr: regulator-camera0-1v5 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "camera0-1v5-reg";
-> +		regulator-min-microvolt = <1500000>;
-> +		regulator-max-microvolt = <1500000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	camera0_1v8_pwr: regulator-camera0-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "camera0-1v8-reg";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	camera0_2v8_pwr: regulator-camera0-2v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "camera0-2v8-reg";
-> +		regulator-min-microvolt = <2800000>;
-> +		regulator-max-microvolt = <2800000>;
-> +		regulator-always-on;
-> +	};
-> +};
-> +
-> +&dcmi {
-> +	status = "okay";
-> +};
-> +
-> +&dcmi_0 {
-> +	hsync-active = <0>;
-> +	vsync-active = <0>;
-> +	pclk-sample = <0>;
-> +};
-> +
-> +&i2c2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	camera@3c {
-> +		compatible = "ovti,ov5640";
-> +		reg = <0x3c>;
-> +		clocks = <&rcc CK_MCO1>;
-> +		clock-names = "xclk";
-> +		pinctrl-names = "default", "sleep";
-> +		pinctrl-0 = <&mco1_pins_a>;
-> +		pinctrl-1 = <&mco1_sleep_pins_a>;
-> +		assigned-clocks = <&rcc CK_MCO1>;
-> +		assigned-clock-parents = <&rcc CK_HSE>;
-> +		assigned-clock-rates = <24000000>;
-> +		AVDD-supply = <&camera0_2v8_pwr>;
-> +		DOVDD-supply = <&camera0_1v8_pwr>;
-> +		DVDD-supply = <&camera0_1v5_pwr>;
-> +		/* GPIO-J on the Dragonboard Dual-Leopard OV5640 board */
-> +		powerdown-gpios = <&gpiob 5 GPIO_ACTIVE_HIGH>;
-> +		/* GPIO-I on the Dragonboard Dual-Leopard OV5640 board */
-> +		reset-gpios = <&gpioa 12 GPIO_ACTIVE_LOW>;
-> +		rotation = <180>;
-> +		status = "okay";
-> +
-> +		port {
-> +			ov5640_0: endpoint {
-> +				remote-endpoint = <&stmipi_0>;
-> +				clock-lanes = <0>;
-> +				data-lanes = <1 2>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&stmipi {
-> +	status = "okay";
-> +};
-> +
-> +&stmipi_0 {
-> +	data-lanes = <1 2>;
-> +	remote-endpoint = <&ov5640_0>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtso
-> new file mode 100644
-> index 0000000000000..acfd25c5bbcd2
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-avenger96-overlay-spi2-eeprom-x6.dtso
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&spi2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&spi2_pins_a>;
-> +	status = "okay";
-> +	cs-gpios = <&gpioi 0 0>;
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@0 {
-> +		compatible = "microchip,25aa010a", "atmel,at25";
-> +		reg = <0>;
-> +		address-width = <8>;
-> +		pagesize = <16>;
-> +		size = <128>;
-> +		spi-max-frequency = <5000000>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtso
-> new file mode 100644
-> index 0000000000000..aa79f95906f8c
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02-overlay-wifi-rsi.dtso
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2021 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&sdmmc3 {
-> +	broken-cd;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
-> new file mode 100644
-> index 0000000000000..be9eb1e11ecd2
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
-> @@ -0,0 +1,75 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2021 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi.dtsi"
-> +
-> +&{/} {
-> +	lvds-encoder {
-> +		compatible = "onnn,fin3385", "lvds-encoder";
-> +		pclk-sample = <1>;
-> +
-> +		ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +
-> +				lvds_bridge_in: endpoint {
-> +					remote-endpoint = <&ltdc_dpi_out>;
-> +				};
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +
-> +				lvds_bridge_out: endpoint {
-> +					remote-endpoint = <&panel_in>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&display_bl {
-> +	pwms = <&pwm2 3 5000000 0>;
-> +};
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	ili251x@41 {
-> +		compatible = "ilitek,ili251x";
-> +		reg = <0x41>;
-> +		interrupt-parent = <&gpioi>;
-> +		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-> +		reset-gpios = <&gpiod 6 GPIO_ACTIVE_LOW>;
-> +		touchscreen-size-x = <16384>;
-> +		touchscreen-size-y = <9600>;
-> +		touchscreen-inverted-x;
-> +		touchscreen-inverted-y;
-> +	};
-> +
-> +	eeprom@50 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +&ltdc_dpi_out {
-> +	remote-endpoint = <&lvds_bridge_in>;
-> +};
-> +
-> +&panel {
-> +	compatible = "chefree,ch101olhlwh-002";
-> +};
-> +
-> +&panel_in {
-> +	remote-endpoint = <&lvds_bridge_out>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi.dtsi
-> new file mode 100644
-> index 0000000000000..41229ec680cc4
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-overlay-panel-dpi.dtsi
-> @@ -0,0 +1,74 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2021 Marek Vasut
-> + */
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/pwm/pwm.h>
-> +
-> +&{/} {
-> +	display_bl: display-bl {
-> +		compatible = "pwm-backlight";
-> +		brightness-levels = <0 16 22 30 40 55 75 102 138 188 255>;
-> +		default-brightness-level = <8>;
-> +		enable-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
-> +		power-supply = <&reg_panel_bl>;
-> +		status = "okay";
-> +	};
-> +
-> +	panel: panel {
-> +		backlight = <&display_bl>;
-> +		power-supply = <&reg_panel_bl>;
-> +
-> +		port {
-> +			panel_in: endpoint {
-> +			};
-> +		};
-> +	};
-> +
-> +	reg_panel_bl: regulator-panel-bl {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "panel_backlight";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&reg_panel_supply>;
-> +	};
-> +
-> +	reg_panel_supply: regulator-panel-supply {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "panel_supply";
-> +		regulator-min-microvolt = <24000000>;
-> +		regulator-max-microvolt = <24000000>;
-> +	};
-> +};
-> +
-> +&timers2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-> +
-> +	pwm2: pwm {
-> +		#pwm-cells = <3>;
-> +		pinctrl-0 = <&pwm2_pins_a>;
-> +		pinctrl-names = "default";
-> +		status = "okay";
-> +	};
-> +
-> +	timer@1 {
-> +		reg = <1>;
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&ltdc {
-> +	pinctrl-names = "default", "sleep";
-> +	pinctrl-0 = <&ltdc_pins_b>;
-> +	pinctrl-1 = <&ltdc_sleep_pins_b>;
-> +	status = "okay";
-> +
-> +	port {
-> +		ltdc_dpi_out: endpoint {
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtso
-> new file mode 100644
-> index 0000000000000..161e401f5e21b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-460-200-x11.dtso
-> @@ -0,0 +1,27 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&fmc {
-> +	#address-cells = <2>;
-> +	#size-cells = <1>;
-> +
-> +	sram@3,0 {
-> +		compatible = "mtd-ram";
-> +		reg = <3 0x0 0x80000>;
-> +		bank-width = <2>;
-> +
-> +		/* Timing values are in nS */
-> +		st,fmc2-ebi-cs-mux-enable;
-> +		st,fmc2-ebi-cs-transaction-type = <4>;
-> +		st,fmc2-ebi-cs-buswidth = <16>;
-> +		st,fmc2-ebi-cs-address-setup-ns = <6>;
-> +		st,fmc2-ebi-cs-address-hold-ns = <6>;
-> +		st,fmc2-ebi-cs-data-setup-ns = <127>;
-> +		st,fmc2-ebi-cs-bus-turnaround-ns = <9>;
-> +		st,fmc2-ebi-cs-data-hold-ns = <9>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtso
-> new file mode 100644
-> index 0000000000000..1de2445450540
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-497-200-x12.dtso
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi.dtsi"
-> +
-> +&display_bl {
-> +	pwms = <&pwm2 3 500000 PWM_POLARITY_INVERTED>;
-> +};
-> +
-> +&ltdc_dpi_out {
-> +	remote-endpoint = <&panel_in>;
-> +};
-> +
-> +&panel {
-> +	compatible = "dataimage,scf0700c48ggu18";
-> +};
-> +
-> +&panel_in {
-> +	remote-endpoint = <&ltdc_dpi_out>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
-> new file mode 100644
-> index 0000000000000..6ef9bcf527ad0
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi"
-> +
-> +&{/} {
-> +	gpio-keys-polled {
-> +		/* BUTTON1 GPIO-B conflicts with touchscreen reset */
-> +		button-1 {
-> +			/* Use status as /delete-node/ does not work in DTOs */
-> +			status = "disabled";
-> +		};
-> +	};
-> +
-> +	led {
-> +		/* LED7 GPIO-H conflicts with touchscreen IRQ */
-> +		led-2 {
-> +			/* Use status as /delete-node/ does not work in DTOs */
-> +			status = "disabled";
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtso
-> new file mode 100644
-> index 0000000000000..ce291736abbb2
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x21.dtso
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@56 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x56>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +&spi1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&spi1_pins_a>;
-> +	status = "okay";
-> +	cs-gpios = <&gpioz 3 0>;
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@0 {
-> +		compatible = "microchip,25aa010a", "atmel,at25";
-> +		reg = <0>;
-> +		address-width = <8>;
-> +		pagesize = <16>;
-> +		size = <128>;
-> +		spi-max-frequency = <5000000>;
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtso
-> new file mode 100644
-> index 0000000000000..7e040b2d8f248
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-531-100-x22.dtso
-> @@ -0,0 +1,19 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@56 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x56>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +/* SPI2 is not connected on STM32MP1 DHCOM SoM */
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtso
-> new file mode 100644
-> index 0000000000000..a5cef9ba7dd2a
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-560-200-x12.dtso
-> @@ -0,0 +1,66 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi.dtsi"
-> +
-> +&{/} {
-> +	gpio-keys {
-> +		/*
-> +		 * The EXTi IRQ line 6 is shared with touchscreen IRQ,
-> +		 * so operate button-1 as polled GPIO key.
-> +		 */
-> +		button-1 {
-> +			/* Use status as /delete-node/ does not work in DTOs */
-> +			status = "disabled";
-> +		};
-> +	};
-> +
-> +	gpio-keys-polled {
-> +		button-1 {
-> +			label = "TA2-GPIO-B";
-> +			linux,code = <KEY_B>;
-> +			gpios = <&gpiod 6 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +	led {
-> +		/* LED5 GPIO-E conflicts with touchscreen IRQ */
-> +		led-0 {
-> +			/* Use status as /delete-node/ does not work in DTOs */
-> +			status = "disabled";
-> +		};
-> +	};
-> +};
-> +
-> +&display_bl {
-> +	pwms = <&pwm2 3 500000 PWM_POLARITY_INVERTED>;
-> +};
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	touchscreen@38 {
-> +		compatible = "edt,edt-ft5406";
-> +		reg = <0x38>;
-> +		/* Touchscreen IRQ GPIO-E conflicts with LED5 GPIO */
-> +		interrupt-parent = <&gpioc>;
-> +		interrupts = <6 IRQ_TYPE_EDGE_FALLING>; /* GPIO E */
-> +	};
-> +};
-> +
-> +&ltdc_dpi_out {
-> +	remote-endpoint = <&panel_in>;
-> +};
-> +
-> +&panel {
-> +	compatible = "edt,etm0700g0edh6";
-> +};
-> +
-> +&panel_in {
-> +	remote-endpoint = <&ltdc_dpi_out>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtso
-> new file mode 100644
-> index 0000000000000..ee8a2d1a7b87a
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-638-100-x12-rpi7inch.dtso
-> @@ -0,0 +1,28 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	touchscreen: touchscreen@38 {
-> +	};
-> +
-> +	attiny: regulator@45 {
-> +	};
-> +};
-> +
-> +#include "stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi"
-> +
-> +&ltdc {
-> +	status = "okay";
-> +	port {
-> +		ltdc_ep_out: endpoint {
-> +			remote-endpoint = <&dsi_in>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtso
-> new file mode 100644
-> index 0000000000000..41e473986189b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2-overlay-672-100-x18.dtso
-> @@ -0,0 +1,13 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&m_can2 {
-> +	pinctrl-names = "default", "sleep";
-> +	pinctrl-0 = <&m_can2_pins_a>;
-> +	pinctrl-1 = <&m_can2_sleep_pins_a>;
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-> index 5c77202ee1966..0075d93911812 100644
-> --- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-> @@ -13,15 +13,6 @@ clk_ext_audio_codec: clock-codec {
->   		clock-frequency = <24000000>;
->   	};
->   
-> -	display_bl: display-bl {
-> -		compatible = "pwm-backlight";
-> -		pwms = <&pwm2 3 500000 PWM_POLARITY_INVERTED>;
-> -		brightness-levels = <0 16 22 30 40 55 75 102 138 188 255>;
-> -		default-brightness-level = <8>;
-> -		enable-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
-> -		power-supply = <&reg_panel_bl>;
-> -	};
-> -
->   	gpio-keys-polled {
->   		compatible = "gpio-keys-polled";
->   		poll-interval = <20>;
-> @@ -75,7 +66,6 @@ led-0 {
->   			label = "green:led5";
->   			gpios = <&gpioc 6 GPIO_ACTIVE_HIGH>;
->   			default-state = "off";
-> -			status = "disabled";
->   		};
->   
->   		led-1 {
-> @@ -97,33 +87,6 @@ led-3 {
->   		};
->   	};
->   
-> -	panel {
-> -		compatible = "edt,etm0700g0edh6";
-> -		backlight = <&display_bl>;
-> -		power-supply = <&reg_panel_bl>;
-> -
-> -		port {
-> -			lcd_panel_in: endpoint {
-> -				remote-endpoint = <&lcd_display_out>;
-> -			};
-> -		};
-> -	};
-> -
-> -	reg_panel_bl: regulator-panel-bl {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "panel_backlight";
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		vin-supply = <&reg_panel_supply>;
-> -	};
-> -
-> -	reg_panel_supply: regulator-panel-supply {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "panel_supply";
-> -		regulator-min-microvolt = <24000000>;
-> -		regulator-max-microvolt = <24000000>;
-> -	};
-> -
->   	sound {
->   		compatible = "audio-graph-card";
->   		widgets = "Headphone", "Headphone Jack",
-> @@ -188,26 +151,6 @@ sgtl5000_rx_endpoint: endpoint@1 {
->   		};
->   
->   	};
-> -
-> -	touchscreen@38 {
-> -		compatible = "edt,edt-ft5406";
-> -		reg = <0x38>;
-> -		interrupt-parent = <&gpioc>;
-> -		interrupts = <6 IRQ_TYPE_EDGE_FALLING>; /* GPIO E */
-> -	};
-> -};
-> -
-> -&ltdc {
-> -	pinctrl-names = "default", "sleep";
-> -	pinctrl-0 = <&ltdc_pins_b>;
-> -	pinctrl-1 = <&ltdc_sleep_pins_b>;
-> -	status = "okay";
-> -
-> -	port {
-> -		lcd_display_out: endpoint {
-> -			remote-endpoint = <&lcd_panel_in>;
-> -		};
-> -	};
->   };
->   
->   &sai2 {
-> @@ -259,21 +202,6 @@ sai2b_endpoint: endpoint {
->   	};
->   };
->   
-> -&timers2 {
-> -	/* spare dmas for other usage (un-delete to enable pwm capture) */
-> -	/delete-property/dmas;
-> -	/delete-property/dma-names;
-> -	status = "okay";
-> -	pwm2: pwm {
-> -		pinctrl-0 = <&pwm2_pins_a>;
-> -		pinctrl-names = "default";
-> -		status = "okay";
-> -	};
-> -	timer@1 {
-> -		status = "okay";
-> -	};
-> -};
-> -
->   &usart3 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&usart3_pins_a>;
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtso
-> new file mode 100644
-> index 0000000000000..c462c6a08833d
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-548-200-x2-mi0700s4t-6.dtso
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2021 Andreas Geisreiter <ageisreiter@dh-electronics.com>
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi.dtsi"
-> +
-> +&display_bl {
-> +	pwms = <&pwm2 3 10000000 0>;
-> +};
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@50 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +&ltdc_dpi_out {
-> +	remote-endpoint = <&panel_in>;
-> +};
-> +
-> +&panel {
-> +	compatible = "multi-inno,mi0700s4t-6";
-> +};
-> +
-> +&panel_in {
-> +	remote-endpoint = <&ltdc_dpi_out>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtso
-> new file mode 100644
-> index 0000000000000..06338b7f7b679
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-553-100-x2-tst043015cmhx.dtso
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2023 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi.dtsi"
-> +
-> +&display_bl {
-> +	pwms = <&pwm2 3 10000000 0>;
-> +};
-> +
-> +&i2c5 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	eeprom@50 {
-> +		compatible = "atmel,24c04";
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +&ltdc_dpi_out {
-> +	remote-endpoint = <&panel_in>;
-> +};
-> +
-> +&panel {
-> +	compatible = "team-source-display,tst043015cmhx";
-> +};
-> +
-> +&panel_in {
-> +	remote-endpoint = <&ltdc_dpi_out>;
-> +};
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
-> new file mode 100644
-> index 0000000000000..bf5c1f6eece0d
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
-> @@ -0,0 +1,8 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2020 Marek Vasut
-> + */
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include "stm32mp15xx-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi"
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcor-avenger96.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcor-avenger96.dtsi
-> index aceeff6c38ba1..85d93ddfa12a1 100644
-> --- a/arch/arm/boot/dts/st/stm32mp15xx-dhcor-avenger96.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcor-avenger96.dtsi
-> @@ -258,15 +258,9 @@ &i2c2 {	/* X6 I2C2 */
->   &i2c4 {
->   	stmipi: stmipi@14 {
->   		compatible = "st,st-mipid02";
-> -		pinctrl-names = "default", "sleep";
-> -		pinctrl-0 = <&mco1_pins_a>;
-> -		pinctrl-1 = <&mco1_sleep_pins_a>;
->   		reg = <0x14>;
->   		clocks = <&rcc CK_MCO1>;
->   		clock-names = "xclk";
-> -		assigned-clocks = <&rcc CK_MCO1>;
-> -		assigned-clock-parents = <&rcc CK_HSE>;
-> -		assigned-clock-rates = <24000000>;
->   		VDDE-supply = <&v1v8>;
->   		VDDIN-supply = <&v1v8>;
->   		reset-gpios = <&gpioz 0 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi
-> new file mode 100644
-> index 0000000000000..518c269a1dba1
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhsom-overlay-panel-dsi-rpi7inch.dtsi
-> @@ -0,0 +1,97 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) 2021 Marek Vasut
-> + */
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&{/} {
-> +	panel {
-> +		compatible = "powertip,ph800480t013-idf02";
-> +		backlight = <&attiny>;
-> +		power-supply = <&attiny>;
-> +
-> +		port {
-> +			panel_in: endpoint {
-> +				remote-endpoint = <&bridge_out>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&attiny {
-> +	compatible = "raspberrypi,7inch-touchscreen-panel-regulator";
-> +	gpio-controller;
-> +	#gpio-cells = <2>;
-> +	reg = <0x45>;
-> +};
-> +
-> +&dsi {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	phy-dsi-supply = <&reg18>;
-> +	status = "okay";
-> +
-> +	bridge@0 {
-> +		compatible = "toshiba,tc358762";
-> +		reg = <0>;
-> +		reset-gpios = <&attiny 0 GPIO_ACTIVE_HIGH>;
-> +		vddc-supply = <&attiny>;
-> +		status = "okay";
-> +
-> +		ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +				bridge_in: endpoint {
-> +					remote-endpoint = <&dsi_out>;
-> +				};
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +				bridge_out: endpoint {
-> +					remote-endpoint = <&panel_in>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +			dsi_in: endpoint {
-> +				remote-endpoint = <&ltdc_ep_out>;
-> +			};
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +			dsi_out: endpoint {
-> +				remote-endpoint = <&bridge_in>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&touchscreen {
-> +	compatible = "edt,edt-ft5406";
-> +	reg = <0x38>;
-> +	reset-gpios = <&attiny 1 GPIO_ACTIVE_LOW>;
-> +	/*
-> +	 * Disabled, since the IRQ line is not on
-> +	 * the FPC cable, so we cannot get touch
-> +	 * IRQs unless its connected otherwise. In
-> +	 * that case, add entry like this one and
-> +	 * enable below.
-> +	 *
-> +	 * interrupt-parent = <&gpiog>;
-> +	 * interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-> +	 */
-> +	status = "disabled";
-> +};
+> Or use another firmware information source entirely.
+
+I'm intentionally keeping the scope DT-only for this series,
+so I'll keep the wording DT-focused.
+
+>> +Enable ``CONFIG_RAS_ESOURCE_DT`` to build the ``drivers/ras/esource-dt.c``
+>> +driver and describe the CPER error source buffer with the
+>> +``Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml`` binding.
+>> +The driver reuses the GHES CPER helper object in
+>> +``drivers/acpi/apei/ghes_cper.c`` so the logging, notifier chains, and
+>> +memory failure handling match the ACPI GHES behaviour even when
+>> +ACPI is disabled.
+>> +
+>> +Once a platform describes a firmware-first provider, both ACPI GHES and the
+>> +DeviceTree driver reuse the same code paths. This keeps the behaviour
+>> +consistent regardless of whether the error source is described via ACPI
+>> +tables or DeviceTree.
+> 
+>> diff --git a/drivers/ras/Kconfig b/drivers/ras/Kconfig
+>> index fc4f4bb94a4c..ea6d96713020 100644
+>> --- a/drivers/ras/Kconfig
+>> +++ b/drivers/ras/Kconfig
+>> @@ -34,6 +34,18 @@ if RAS
+>>   source "arch/x86/ras/Kconfig"
+>>   source "drivers/ras/amd/atl/Kconfig"
+>>   
+>> +config RAS_ESOURCE_DT
+>> +	bool "DeviceTree firmware-first CPER error source block provider"
+> It isn't really DT specific other than one call that I've suggested you
+> replace with a generic firmware accessor.
+> 
+
+I'll keep it DT-specific for this series.
+
+>> +	depends on OF
+> 
+> Generally we don't gate on OF unless there are OF specific calls. Here there
+> aren't so you are just reducing build coverage. || COMPILE_TEST
+> maybe.
+> 
+Agreed. I'll drop OF and add COMPILE_TEST.
+
+
+>> +	depends on ARM64
+> 
+> Likewise, nothing in here is arm64 specific that I can spot.
+> 
+
+Agreed. I'll drop ARM64.
+
+>> +	select GHES_CPER_HELPERS
+>> +	help
+>> +	  Enable support for firmware-first Common Platform Error Record (CPER)
+>> +	  error source block providers that are described via DeviceTree
+>> +	  instead of ACPI HEST tables. The driver reuses the existing GHES
+>> +	  CPER helpers so the error processing matches the ACPI code paths,
+>> +	  but it can be built even when ACPI is disabled.
+>> +
+> 
+>> diff --git a/drivers/ras/esource-dt.c b/drivers/ras/esource-dt.c
+>> new file mode 100644
+>> index 000000000000..b575a2258536
+>> --- /dev/null
+>> +++ b/drivers/ras/esource-dt.c
+>> @@ -0,0 +1,264 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * DeviceTree provider for firmware-first CPER error source block.
+>> + *
+>> + * This driver shares the GHES CPER helpers so we keep the reporting and
+>> + * notifier behaviour identical to ACPI GHES
+>> + *
+>> + * Copyright (C) 2025 ARM Ltd.
+>> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
+>> + */
+>> +
+>> +#include <linux/atomic.h>
+>> +#include <linux/bitops.h>
+>> +#include <linux/device.h>
+>> +#include <linux/interrupt.h>
+>> +#include <linux/io.h>
+>> +#include <linux/io-64-nonatomic-lo-hi.h>
+> Used?
+
+No, I'll drop it.
+
+>> +#include <linux/module.h>
+> mod_devicetable.h for of_device_id definition.
+> 
+
+Ack. I'll add <linux/mod_devicetable.h> and keep module.h.
+
+>> +#include <linux/of_address.h>
+>> +#include <linux/of_irq.h>
+> Generally very little reason to include these.  Not sure why you need
+> them here.
+> 
+
+Agreed, I'll drop both.
+
+>> +#include <linux/panic.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/spinlock.h>
+>> +
+>> +#include <acpi/ghes.h>
+>> +#include <acpi/ghes_cper.h>
+>> +
+>> +static atomic_t ghes_ffh_source_ids = ATOMIC_INIT(0);
+> I'd normally expect an IDA or similar. If nothing else it clearly
+> indicates we only want a unique ID.
+
+I'll keep the atomic for now; it's just a monotonic unique ID with no
+lifetime tracking. If you strongly prefer IDA I can switch.
+
+>> +
+>> +struct ghes_ffh_ack {
+>> +	void __iomem *addr;
+>> +	u64 preserve;
+>> +	u64 set;
+>> +	u8 width;
+>> +	bool present;
+>> +};
+>> +
+>> +struct ghes_ffh {
+>> +	struct device *dev;
+>> +	void __iomem *status;
+>> +	size_t status_len;
+>> +
+>> +	struct ghes_ffh_ack ack;
+>> +
+>> +	struct acpi_hest_generic *generic;
+>> +	struct acpi_hest_generic_status *estatus;
+>> +
+>> +	bool sync;
+>> +	int irq;
+>> +
+>> +	/* Serializes access to the firmware-owned buffer. */
+> If we are serializing it, in what sense is it owned by the firmware?
+> 
+
+I'll clarify the comment:
+firmware owns the buffer contents and the OS only serializes access.
+
+>> +	spinlock_t lock;
+>> +};
+> 
+> 
+>> +
+>> +static void ghes_ffh_process(struct ghes_ffh *ctx)
+>> +{
+>> +	unsigned long flags;
+>> +	int sev;
+>> +
+>> +	spin_lock_irqsave(&ctx->lock, flags);
+> 
+> guard() + include cleanup.h. Then can do returns in error paths.
+
+Agreed. I'll switch to guard() and include <linux/cleanup.h>.
+
+>> +
+>> +	if (ghes_ffh_copy_status(ctx))
+>> +		goto out;
+> Like here to give simpler lfow.
+> 
+> 
+>> +
+>> +	sev = ghes_severity(ctx->estatus->error_severity);
+>> +	if (sev >= GHES_SEV_PANIC)
+>> +		ghes_ffh_fatal(ctx);
+>> +
+>> +	if (!ghes_estatus_cached(ctx->estatus)) {
+>> +		if (ghes_print_estatus(NULL, ctx->generic, ctx->estatus))
+> 
+> Combine the two if statements with &&
+>
+
+Will do.
+
+>> +			ghes_estatus_cache_add(ctx->generic, ctx->estatus);
+>> +	}
+>> +
+>> +	ghes_cper_handle_status(ctx->dev, ctx->generic, ctx->estatus, ctx->sync);
+>> +
+>> +	ghes_ffh_ack(ctx);
+>> +
+>> +out:
+>> +	spin_unlock_irqrestore(&ctx->lock, flags);
+>> +}
+>> +
+>> +static irqreturn_t ghes_ffh_irq(int irq, void *data)
+>> +{
+>> +	struct ghes_ffh *ctx = data;
+>> +
+>> +	ghes_ffh_process(ctx);
+>> +
+>> +	return IRQ_HANDLED;
+>> +}
+>> +
+>> +static int ghes_ffh_init_ack(struct platform_device *pdev,
+>> +			     struct ghes_ffh *ctx)
+>> +{
+>> +	struct resource *res;
+>> +	size_t size;
+>> +
+>> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+>> +	if (!res)
+>> +		return 0;
+>> +
+>> +	ctx->ack.addr = devm_ioremap_resource(&pdev->dev, res);
+> Why not devm_platform_get_and_ioremap_resource()?
+
+Will switch to devm_platform_get_and_ioremap_resource().
+
+>> +	if (IS_ERR(ctx->ack.addr))
+>> +		return PTR_ERR(ctx->ack.addr);
+>> +
+>> +	size = resource_size(res);
+>> +	switch (size) {
+>> +	case 4:
+>> +		ctx->ack.width = 32;
+>> +		ctx->ack.preserve = ~0U;
+>> +		break;
+>> +	case 8:
+>> +		ctx->ack.width = 64;
+>> +		ctx->ack.preserve = ~0ULL;
+>> +		break;
+>> +	default:
+>> +		dev_err(&pdev->dev, "Unsupported ack resource size %zu\n", size);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	ctx->ack.set = BIT_ULL(0);
+>> +	ctx->ack.present = true;
+>> +	return 0;
+>> +}
+>> +
+>> +static int ghes_ffh_probe(struct platform_device *pdev)
+> 
+> Consider using a
+> 	struct device *dev = &pdev->dev;
+> given there is only one device around and it will shorten a bunch of
+> lines a little.
+
+I'll use a local dev pointer.
+
+>> +{
+>> +	struct ghes_ffh *ctx;
+>> +	struct resource *res;
+>> +	int rc;
+>> +
+>> +	ctx = devm_kzalloc(&pdev->dev, sizeof(*ctx), GFP_KERNEL);
+>> +	if (!ctx)
+>> +		return -ENOMEM;
+>> +
+>> +	spin_lock_init(&ctx->lock);
+>> +	ctx->dev = &pdev->dev;
+>> +	ctx->sync = of_property_read_bool(pdev->dev.of_node, "arm,sea-notify");
+> Hmm. I'd allow for other firmware types with
+> 	device_property_read_bool() instead.
+
+Given DT-only scope, I'll keep of_property_read_bool() here.
+
+>> +
+>> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>> +	if (!res) {
+>> +		dev_err(&pdev->dev, "status region missing\n");
+> In probe you can always use dev_err_probe. It pretty prints the return value etc and
+> saves lines of code.
+> 		return dev_err_probe(&pdev->dev, -EINVAL, "status region missing\n");
+
+Agreed. I'll use dev_err_probe() here and for zero length.
+
+> Don't worry about slightly long line.
+> 
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	ctx->status_len = resource_size(res);
+>> +	if (!ctx->status_len) {
+>> +		dev_err(&pdev->dev, "Status region has zero length\n");
+> As above, use dev_err_probe()
+> 
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	ctx->status = devm_ioremap_resource(&pdev->dev, res);
+> I'd be tempted to use devm_platform_get_and_ioremap_resource() and just
+> not worry about mapping and unmapping that will unnecessarily occur in the
+> case of error.
+
+Will do (as above).
+
+>> +	if (IS_ERR(ctx->status))
+>> +		return PTR_ERR(ctx->status);
+>> +
+>> +	rc = ghes_ffh_init_ack(pdev, ctx);
+>> +	if (rc)
+>> +		return rc;
+>> +
+>> +	rc = ghes_ffh_init_pool();
+>> +	if (rc)
+>> +		return rc;
+>> +
+>> +	ctx->estatus = devm_kzalloc(&pdev->dev, ctx->status_len, GFP_KERNEL);
+>> +	if (!ctx->estatus)
+>> +		return -ENOMEM;
+>> +
+>> +	ctx->generic = devm_kzalloc(&pdev->dev, sizeof(*ctx->generic), GFP_KERNEL);
+>> +	if (!ctx->generic)
+>> +		return -ENOMEM;
+>> +
+>> +	ctx->generic->header.type = ACPI_HEST_TYPE_GENERIC_ERROR;
+>> +	ctx->generic->header.source_id =
+>> +		atomic_inc_return(&ghes_ffh_source_ids);
+>> +	ctx->generic->notify.type = ctx->sync ?
+>> +		ACPI_HEST_NOTIFY_SEA : ACPI_HEST_NOTIFY_EXTERNAL;
+>> +	ctx->generic->error_block_length = ctx->status_len;
+>> +
+>> +	ctx->irq = platform_get_irq_optional(pdev, 0);
+>> +	if (ctx->irq <= 0) {
+>> +		if (ctx->irq == -EPROBE_DEFER)
+>> +			return ctx->irq;
+>> +		dev_err(&pdev->dev, "interrupt is required (%d)\n", ctx->irq);
+> If it's required, why call get_irq_optional?
+> That only serves to suppress the error message inside the call.  Use
+> the non optional version and drop this.
+
+I'll use platform_get_irq().
+
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	rc = devm_request_threaded_irq(&pdev->dev, ctx->irq,
+>> +				       NULL, ghes_ffh_irq,
+>> +				       IRQF_ONESHOT,
+>> +				       dev_name(&pdev->dev), ctx);
+>> +	if (rc)
+>> +		return rc;
+>> +
+>> +	platform_set_drvdata(pdev, ctx);
+> 
+> I can't immediately spot where this is used.  If it isn't don't set it as that
+> will mislead people into thinking it's needed.
+
+Agreed. I'll drop it.
+
+>> +	dev_info(&pdev->dev, "Firmware-first CPER status provider (interrupt)\n");
+> 
+> Krysztof already commented on this one.
+> 
+>> +	return 0;
+>> +}
+>> +
+>> +static void ghes_ffh_remove(struct platform_device *pdev)
+>> +{
+> 
+> If nothing to do, platform drivers don't need a remove so get rid of it.
+
+Agreed. I'll remove it.
+
+>> +}
+>> +
+>> +static const struct of_device_id ghes_ffh_of_match[] = {
+>> +	{ .compatible = "arm,ras-ffh" },
+>> +	{ /* sentinel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, ghes_ffh_of_match);
+>> +
+>> +static struct platform_driver ghes_ffh_driver = {
+>> +	.driver = {
+>> +		.name = "esource-dt",
+>> +		.of_match_table = ghes_ffh_of_match,
+>> +	},
+>> +	.probe = ghes_ffh_probe,
+>> +	.remove = ghes_ffh_remove,
+>> +};
+>> +
+> Common convention is keep this tightly coupled with the
+> struct platform_driver but not having a blank line here.
+
+I'll drop the blank line.
+
+>> +module_platform_driver(ghes_ffh_driver);
+>> +
+>> +MODULE_AUTHOR("Ahmed Tiba <ahmed.tiba@arm.com>");
+>> +MODULE_DESCRIPTION("Firmware-first CPER provider for DeviceTree platforms");
+>> +MODULE_LICENSE("GPL");
+> 
+> 
 
 
