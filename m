@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8915A106ACD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5107106ACD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BkVIqASBvUB6MvCP9opWtLwJbXnMP6r+Pw/l8BiZ+VU=; b=sJm+WcN8/aX6JH5Va7BPhtKOCf
-	aKQuPfT8bZDeuQDC2F7kVnBlq/jNSsUMR7CmboA0zlQUVI1CM4wp1fQbLLXrSWwX5NBfdfx2yLn24
-	mBGudi0gyFrcTIk0zcd0S4w9QfRqe1KwXAmAIK2jv8phagiFqrtCUeIpjwjUuJGVhXpKaNCAYX189
-	47CEyeAokr1tAnnIeH3ZP+QBQOv31fDcDvUge260sIJkMkBNYAC7lkGth/Ae4ZELwhphJc0sdXIVz
-	AnSBXYwBaFdlBIjLM+oA2xM+TMaFAMC6rgUEh0W+EV9GRMn/BkD63CciUroSg49uaiHJdb2Cpg+Ht
-	v5O0oTvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HqFenvKToaGFHD7apBHmTyZW1VSv42rnw2JY1Okmk60=; b=BIbXfR7Jxnny4gb07l8x2Qh0hY
+	FA5lThzvL3WtnQtf0XRxA/R0Uz6rXEqfUOiQwT/ONK9GG2wx8tlWaUUtpuO+wxT5a2YIRL1oC38kL
+	c3U0/xn4lyFNSsDQEifmr3bMi4DqnDmQ2JqGEsjzqSnICHEul7bQXymstj7XXWp3CCVnFhFoVOV6h
+	6GaSsUyMhm9N7ZZViDVNG5gBpo/vsW4RhI9Sh4lVf8JTp/zs10VZpORycvxVzTVgAHx9Jvk8O1HQS
+	1HBzli/zHcsRlynzupoTz/8cURnPMrTEvVf2a5RvNg4154sdPDbIuf/SscsutU9WbnRasWes2pRRE
+	0CO27KUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kDF-0000000Emia-3tQs;
-	Thu, 12 Mar 2026 17:52:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kDD-0000000Emhw-2xMd;
-	Thu, 12 Mar 2026 17:52:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54DA1442C5;
-	Thu, 12 Mar 2026 17:52:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5449C4CEF7;
-	Thu, 12 Mar 2026 17:52:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773337963;
-	bh=juOBK+JARNjtYHa7J953QFJ72MkXtnPKnRQL0PoJjKQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rPJz/bB6+glHH73SLx8hGVkx0l9tUzG4IFNHUsdfn+5UCoebZ+uR4mv6v1CnqPIoz
-	 +B2pxRgvYNrsL/0J23iTIW9Zlr/htHthdACzdZAMooiqtbicFqzZ4X7jx18CuwAiWs
-	 Tug1XH6nyPGz4KBj+gWi0FbyZQPHv21fOSan6TYRqPC7GU0x7JzvkvVKeaxCn6ghqi
-	 4+I9gEJ6s9YY0QNQ4BiOZA1smBIBW7wcRDmbXcHHny97X3nIEHKHPP+VPFTmxZVLSs
-	 SaPwreBDXUS2iGNaCuxJnS0FhCu7ATagW8j7ocQLb+M73YP28zMsfhf9OgAVce+iYa
-	 b1C4M1bG1AQmQ==
+	id 1w0kDO-0000000Emmd-0hNz;
+	Thu, 12 Mar 2026 17:52:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0kDM-0000000EmlS-13WQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 17:52:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BBF21A9A;
+	Thu, 12 Mar 2026 10:52:44 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C3563F73B;
+	Thu, 12 Mar 2026 10:52:48 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	oupton@kernel.org,
+	miko.lenczewski@arm.com,
+	kevin.brodsky@arm.com,
+	broonie@kernel.org,
+	ardb@kernel.org,
+	suzuki.poulose@arm.com,
+	lpieralisi@kernel.org,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	yeoreum.yun@arm.com
+Subject: [PATCH v16 1/8] arm64: cpufeature: add FEAT_LSUI
 Date: Thu, 12 Mar 2026 17:52:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Manikandan Muralidharan <manikandan.m@microchip.com>,
-	alexandre.belloni@bootlin.com, Frank.Li@nxp.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
-	linux@armlinux.org.uk, mturquette@baylibre.com, sboyd@kernel.org,
-	ardb@kernel.org, ebiggers@google.com, martin.petersen@oracle.com,
-	tytso@mit.edu, cristian.birsan@microchip.com,
-	jarkko.nikula@linux.intel.com, kees@kernel.org, npitre@baylibre.com,
-	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 3/5] i3c: mipi-i3c-hci: add microchip sama7d65 SoC
- compatible with the appropriate quirk
-Message-ID: <20260312-ricotta-unusable-44c25a03eff8@spud>
-References: <20260312042056.309237-1-manikandan.m@microchip.com>
- <20260312042056.309237-4-manikandan.m@microchip.com>
- <a41378a0-d2f1-4fa4-ac6d-1d0916590b47@intel.com>
+Message-Id: <20260312175243.1593864-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260312175243.1593864-1-yeoreum.yun@arm.com>
+References: <20260312175243.1593864-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aXc9ewpzkSl2ifoe"
-Content-Disposition: inline
-In-Reply-To: <a41378a0-d2f1-4fa4-ac6d-1d0916590b47@intel.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_105243_783116_ADB27E29 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20260312_105252_331643_DBCEC48D 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +77,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since Armv9.6, FEAT_LSUI introduces load/store instructions that allow
+privileged code to access user memory without clearing the PSTATE.PAN bit.
 
---aXc9ewpzkSl2ifoe
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add CPU feature detection for FEAT_LSUI and enable its use
+when FEAT_PAN is present so that removes the need for SW_PAN handling
+when using LSUI instructions.
 
-On Thu, Mar 12, 2026 at 11:29:25AM +0200, Adrian Hunter wrote:
-> On 12/03/2026 06:20, Manikandan Muralidharan wrote:
-> > Add support for microchip sama7d65 SoC I3C HCI master only IP
-> > with additional clock support to enable bulk clock acquisition
-> > for Microchip platforms using HCI_QUIRK_CLK_SUPPORT quirk.
-> > Introduce MCHP_I3C_CLK_IDX to define the maximum peripheral
-> > clock index
-> >=20
-> > Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> > ---
-> > Changes in v3:
-> > - Make use of existing HCI_QUIRK_* code base
-> > - Introduce HCI_QUIRK_CLK_SUPPORT to handle/enable the required Periphe=
-ral
-> > and system generic clk in bulk
-> >=20
-> > Changes in v2:
-> > - Platform specific changes are integrated in the existing mipi-i3c-hci
-> > driver by introducing separate MCHP_HCI_QUIRK_* quirks and vendor
-> > specific quirk files
-> >=20
-> > ---
-> >  drivers/i3c/master/mipi-i3c-hci/core.c | 12 ++++++++++++
-> >  drivers/i3c/master/mipi-i3c-hci/hci.h  |  4 ++++
-> >  2 files changed, 16 insertions(+)
-> >=20
-> > diff --git a/drivers/i3c/master/mipi-i3c-hci/core.c b/drivers/i3c/maste=
-r/mipi-i3c-hci/core.c
-> > index 5879bba78164..6b7716bd517e 100644
-> > --- a/drivers/i3c/master/mipi-i3c-hci/core.c
-> > +++ b/drivers/i3c/master/mipi-i3c-hci/core.c
-> > @@ -8,6 +8,7 @@
-> >   */
-> > =20
-> >  #include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> >  #include <linux/device.h>
-> >  #include <linux/errno.h>
-> >  #include <linux/i3c/master.h>
-> > @@ -918,6 +919,7 @@ static int i3c_hci_probe(struct platform_device *pd=
-ev)
-> >  {
-> >  	const struct mipi_i3c_hci_platform_data *pdata =3D pdev->dev.platform=
-_data;
-> >  	struct i3c_hci *hci;
-> > +	struct clk_bulk_data *clks;
-> >  	int irq, ret;
-> > =20
-> >  	hci =3D devm_kzalloc(&pdev->dev, sizeof(*hci), GFP_KERNEL);
-> > @@ -946,6 +948,13 @@ static int i3c_hci_probe(struct platform_device *p=
-dev)
-> >  	if (!hci->quirks && platform_get_device_id(pdev))
-> >  		hci->quirks =3D platform_get_device_id(pdev)->driver_data;
-> > =20
-> > +	if (hci->quirks & HCI_QUIRK_CLK_SUPPORT) {
-> > +		ret =3D devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
-> > +		if (ret < MCHP_I3C_CLK_IDX)
->=20
-> Is MCHP_I3C_CLK_IDX really needed?  Why not just:
->=20
-> 		if (ret <=3D 0)
->=20
-> i.e. don't you anyway have to assume DT has the clocks defined
-> correctly.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/cpucaps.h |  2 ++
+ arch/arm64/kernel/cpufeature.c   | 10 ++++++++++
+ arch/arm64/tools/cpucaps         |  1 +
+ 3 files changed, 13 insertions(+)
 
-Ye, I think this is kinda silly. Trust dtbs_check to have the correct
-number for your platform set, and let this be specific.
+diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+index 177c691914f8..6e3da333442e 100644
+--- a/arch/arm64/include/asm/cpucaps.h
++++ b/arch/arm64/include/asm/cpucaps.h
+@@ -71,6 +71,8 @@ cpucap_is_possible(const unsigned int cap)
+ 		return true;
+ 	case ARM64_HAS_PMUV3:
+ 		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
++	case ARM64_HAS_LSUI:
++		return IS_ENABLED(CONFIG_ARM64_LSUI);
+ 	}
+ 
+ 	return true;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c31f8e17732a..5074ff32176f 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -281,6 +281,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar2[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FPRCVT_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_LSUI_SHIFT, 4, ID_AA64ISAR3_EL1_LSUI_NI),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_LSFE_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FAMINMAX_SHIFT, 4, 0),
+ 	ARM64_FTR_END,
+@@ -3169,6 +3170,15 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.cpu_enable = cpu_enable_ls64_v,
+ 		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64_V)
+ 	},
++#ifdef CONFIG_ARM64_LSUI
++	{
++		.desc = "Unprivileged Load Store Instructions (LSUI)",
++		.capability = ARM64_HAS_LSUI,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64ISAR3_EL1, LSUI, IMP)
++	},
++#endif
+ 	{},
+ };
+ 
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 7261553b644b..b7286d977788 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -48,6 +48,7 @@ HAS_LPA2
+ HAS_LSE_ATOMICS
+ HAS_LS64
+ HAS_LS64_V
++HAS_LSUI
+ HAS_MOPS
+ HAS_NESTED_VIRT
+ HAS_BBML2_NOABORT
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
---aXc9ewpzkSl2ifoe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL9ZAAKCRB4tDGHoIJi
-0mFzAQD8sb5isGyPPaQE3kYoakuj+6ep/IS3t3IZhJUaZ7Z3dAD/Vw8LKqh45H8H
-HpMjIeSZSkof2M251PwPTxeNv7o5Bwk=
-=LkO0
------END PGP SIGNATURE-----
-
---aXc9ewpzkSl2ifoe--
 
