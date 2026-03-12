@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8821106ACD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4C2106ACD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=meviQmyqF1kqc9YGmZkuHNtSHzTX0EVSt/TuohoolFU=; b=aV+8PuZq2pyw0bzb7wH69VnFi6
-	5kwXFws7djrTVljc8/OqcFHGG/LYHFIHYU98V9Lp2qG+g8DwRdvl5dJtSYZMKeHUvkymsraoTNr/V
-	CpIxs6BDu2Ec+nCKUmJQqHZ5WP489A1dSQE5HnSTvR85uUXh8bh+1bFPcto755kt/1dUyeYmOgmDi
-	+Iq0bGUetXlwuzhw0wZkIxMyj38eywSFZPLUN5mhQvgcbTp5EBmZ9S0VoWdB9gPgDRtxH8SU/5ly0
-	wJjbO653iX8mhrnnLS6j/Yr50pNyaXTytVW9fdFZ00F5JiJgASxFzu1TPBd/+96V2YwRc+yD9wBYW
-	PhUZKyAw==;
+	bh=1rV6tB2UrIvebLsDTw0Q+b/NV2We2jfKg1ufjU1Bq7k=; b=r5JzhsavjVMLQBc3vKNYWXq/O1
+	DDxe5iIVdqJwhY6TAdiLBxjAequwmnRBiBnGFmXn4cVRvglziMYZx3eTnCS6oG/daWLkq8Az2ibxx
+	+ajyM5yaLQ8yP2GK9J1yRZF8ho7Kyj324S5N5k5LrGotkurq3d6G/v1qTT153+LyQj6CbtcYJRV+Z
+	SJb1BP4kuGcSsBDl+5Qmxjqcc5S91HeewvtNVVQr3YMhiMMImH4Glz0uYbiYH8JrHlK1k+CozvBhZ
+	8mhOy2vhh2RWNSBao+XW7Kiu3Rdfsm7dH2DMAU6OAml9+/ISSqDWW6yGOy8xeEYRJM4S6/D0FhZTK
+	VqDUNyRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0k72-0000000ElcT-0kQu;
-	Thu, 12 Mar 2026 17:46:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0k8J-0000000Elu7-348T;
+	Thu, 12 Mar 2026 17:47:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0k70-0000000ElbR-1S41;
-	Thu, 12 Mar 2026 17:46:19 +0000
+	id 1w0k8I-0000000EltU-1qrq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 17:47:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 911F04407A;
-	Thu, 12 Mar 2026 17:46:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A732C4CEF7;
-	Thu, 12 Mar 2026 17:46:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD5EE61335;
+	Thu, 12 Mar 2026 17:47:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13C9C4CEF7;
+	Thu, 12 Mar 2026 17:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773337577;
-	bh=meviQmyqF1kqc9YGmZkuHNtSHzTX0EVSt/TuohoolFU=;
+	s=k20201202; t=1773337657;
+	bh=wMvtMWbR5Rj73AQJqGHUhW527Tb27PV6JT2/uOlrqcc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eJno1Os4TyC+orQ3q2f7ippncDXGpK7OY6C1d0KzUtzsQ2vQgEgqusv8gquOWj5su
-	 wNhhfkVTof7D3YmVOh4jJwWATk/m++0XmqZm8GV74MYX4H/z4EQol2CZYff5Bhhv7m
-	 5ExjK7PV7loPSD0iANbuT6iCsTE5zSFdypnNzoejzW1eZgDjoXsj71WKeeWZ8VGMdT
-	 ZboF8iifUztyoyxzq+DU3/GI+YaYxzL74kS4vtdAGrEegcYCmFVPI17UAI27eZ5xW+
-	 Bw7vkqfFYAz18iKVaZKUcrAOIUViyPxBKUH8/+rsnOvHJ+oPQPR+8x3/1NfiLq+m3n
-	 Hq5+HJoAtXhpQ==
-Date: Thu, 12 Mar 2026 17:46:12 +0000
+	b=GeM3E+nJRDYrZQpRJ87vLFXFSyxyG/EAVXgwfF3EJGdwNfH1RCSsUSSIwbd+TiIcU
+	 QbeY77pSfxF49LYTwJtaUs+ycd7DwArmo6+wxfeuO3799jx0i1clQXJP2VcBdhfMQx
+	 G6modkOreHw4npBGs1w9WDOvcw+O1T02bj2oKCIMd9gSAx3554t8wjnapozKzYxmrB
+	 W/e9uv6/Nw9WdARJsjF2MNYlYXcAa+quTQyIxK9hipKKNL+bx6Wjy9wPMS5CMLXcoc
+	 0J8rTRg6OrGrIQN54n/hmwRS5/4bDP3m+OhI2fHHyVrzzxWksAPmlfS79rK1OTIx40
+	 B2f+f5f33tD4Q==
+Date: Thu, 12 Mar 2026 17:47:32 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: linusw@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, afaerber@suse.com,
-	bartosz.golaszewski@oss.qualcomm.com, james.tai@realtek.com,
-	cy.huang@realtek.com, stanley_chang@realtek.com,
-	tychang@realtek.com, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org
-Subject: Re: [PATCH v3 4/7] dt-bindings: pinctrl: realtek: Add RTD1625
- pinctrl binding
-Message-ID: <20260312-fabulous-enigmatic-a7da953094b8@spud>
-References: <20260312113040.68189-1-eleanor.lin@realtek.com>
- <20260312113040.68189-5-eleanor.lin@realtek.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, amitsd@google.com, gregkh@linuxfoundation.org,
+	kyletso@google.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: connector: add pd-disable dependency
+Message-ID: <20260312-facial-backshift-7e810ca5f996@spud>
+References: <20260312071609.388047-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nYKNSAcxTp+Skt4e"
+	protocol="application/pgp-signature"; boundary="wr13SwXvugaUCQW1"
 Content-Disposition: inline
-In-Reply-To: <20260312113040.68189-5-eleanor.lin@realtek.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_104618_403219_1FC9475B 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260312071609.388047-1-xu.yang_2@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +74,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---nYKNSAcxTp+Skt4e
+--wr13SwXvugaUCQW1
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Mar 12, 2026 at 07:30:37PM +0800, Yu-Chun Lin wrote:
-> From: Tzuyi Chang <tychang@realtek.com>
+On Thu, Mar 12, 2026 at 03:16:08PM +0800, Xu Yang wrote:
+> When Power Delivery is not supported, the source is unable to obtain the
+> current capability from the Source PDO. As a result, typec-power-opmode
+> needs to be added to advertise such capability.
+
+What's the impact on any users of making this a dependency?
+I assume nothing negative, since this will only impact systems that
+don't work properly at present?
+
 >=20
-> Add device tree bindings for RTD1625.
->=20
-> Signed-off-by: Tzuyi Chang <tychang@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Fixes: 7a4440bc0d86 ("dt-bindings: connector: Add pd-disable property")
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 > ---
-> Changes in v3:
-> - Changed slew-rate to use valid numbers.
-> - Revert realtek,pulse-width-adjust to realtek,duty-cycle.
-> - Fixed example values from hexadecimal to decimal format.
+>  Documentation/devicetree/bindings/connector/usb-connector.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/connector/usb-connector.ya=
+ml b/Documentation/devicetree/bindings/connector/usb-connector.yaml
+> index 901986de3e2b..671d7775b635 100644
+> --- a/Documentation/devicetree/bindings/connector/usb-connector.yaml
+> +++ b/Documentation/devicetree/bindings/connector/usb-connector.yaml
+> @@ -335,6 +335,7 @@ properties:
+>      maximum: 100000
+> =20
+>  dependencies:
+> +  pd-disable: [typec-power-opmode]
+>    sink-vdos-v1: [ sink-vdos ]
+>    sink-vdos: [ sink-vdos-v1 ]
+> =20
+> --=20
+> 2.34.1
+>=20
 
-Modulo commentary on the new generic property,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
---nYKNSAcxTp+Skt4e
+--wr13SwXvugaUCQW1
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL75AAKCRB4tDGHoIJi
-0iExAP0TS9ZR4jIaJv+WfNqXT1+/YBx7PrC0FvRZHXR73TBOEQEA2hD7PTwMl5zi
-+A/E3kN/Dz0IcLWvJicp8ZpLvf6mPww=
-=+01R
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL8NAAKCRB4tDGHoIJi
+0nwiAQDQ56ujTvFrDP3c0yVVvsagFKg0Z0+t5X7xitqXTKLfjQD/exOakRzb+SJA
+CPWE9IyUVD27QdG5+TIUbF3XRVvcAg0=
+=Jyu8
 -----END PGP SIGNATURE-----
 
---nYKNSAcxTp+Skt4e--
+--wr13SwXvugaUCQW1--
 
