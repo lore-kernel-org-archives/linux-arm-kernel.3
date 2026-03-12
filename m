@@ -4,55 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64A1106ACCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA3F106ACCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sXNu0+M1oUG4WNnJP19IA9hK1g6BtRGTO2pEOPi0Dno=; b=zOTGUvVJQlZiy63pdZZyOiGwJu
-	KZBcOh3B6mN7mZL2URxNfMLoMExyzr2iFOb09zR+F+T+6EFMW9f1MHo9V2ueCVEoc8MjkuHhC/O8u
-	s7ZqfbggTEv2thA5KqegrU9aaU4nukPiJzk/4E29TFkLa1SngR14zqMq8Y4ojwQVK04A6iUyLD+x+
-	JcNPeZ3e2NiTJMLWcmfa9HqvBDdi0N05lzspgYshQ+bx0vknkO5rCRG+pofNgf+DGWH2kYa+cDDQr
-	uUMgqHTOH5Pi0rS5AgA6L1amoMSRztwP65TANQ0PIR+/I2SFz71+CEAhRUn56ly6Xf7xF5ytDounI
-	N8SWDTIQ==;
+	bh=MK0tVrkFlYhtOCZ0KvjIJMhJp307ZXYuWb0oUy4onRw=; b=B2xsFIRpr1bSFmsvGaTUrdg6q4
+	QTJ3pJHQa3B2T5Pbqqm7Gg/1rXY/xdRGrCrCS4gBp3wfpg/MQNFNTJdv+VFl+NZC5nrnvegpJyxG2
+	jEfbqce4op1PQrFg8F9Su9gX663nPmWw1zutFO00UKQ18lN0qCSQjcTagBu4Zi6XXO9hCcF3tuUEj
+	MBXNRIJgi+YbEy92fxtmnLcrfcSFhAXauF2FrbFBlUgQTEkuXJvsLq4Vhyyn5Q/lG+LKxQRQmLGPn
+	nwVwkLBhXI6J2TuLTAVTKMs5kx8w49QeXPrJ4nS5Tk5jWrHu1bwMff0Y6VxmFdev2e4cmgWPfO0nY
+	dZfL8DyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kbI-0000000Erbv-4AIs;
-	Thu, 12 Mar 2026 18:17:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kbG-0000000ErbE-41VG
+	id 1w0khl-0000000Esay-31zi;
+	Thu, 12 Mar 2026 18:24:17 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0khi-0000000EsaQ-3moq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 18:17:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75E22165C;
-	Thu, 12 Mar 2026 11:17:26 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B4223F73B;
-	Thu, 12 Mar 2026 11:17:30 -0700 (PDT)
-Date: Thu, 12 Mar 2026 18:17:28 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
-	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
-	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH v15 5/8] arm64: futex: support futex with FEAT_LSUI
-Message-ID: <abMDOC5DYEm74And@arm.com>
-References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
- <20260227151705.1275328-6-yeoreum.yun@arm.com>
+	Thu, 12 Mar 2026 18:24:16 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-82418b0178cso845515b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 11:24:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773339853; x=1773944653; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MK0tVrkFlYhtOCZ0KvjIJMhJp307ZXYuWb0oUy4onRw=;
+        b=T6Q/NW8q93ZPWNIl/iA4LBzcTxBfb8UKLS6ELDLs0eyd8Pa77jIAuzxcbWYpkabTn8
+         +8YULPIvmMR7ktz7L2aRNik6HWUGqlnNEAx00UJJGUKTt94dUEjcwJ05SKP+Gx28LaDw
+         acfkJwy5PTdQGfOI9Jq99PqgQiCAcYY8ci3BCJEHG+IO1kMrhXlM5+bF2I4akK+3I0q1
+         ZmX83qe2Wa2wSr0UII865X8zFHWxathApN3aiKaO4jRO3Yb8eq5F9ngyTGkL6DDpO6mV
+         dduDdw1sz+fjmLNtkTo2DcbvgYc3KsjIPZek2592YUC0pStAwmU+OCcCcWu38Ic6dNPx
+         oplQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773339853; x=1773944653;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MK0tVrkFlYhtOCZ0KvjIJMhJp307ZXYuWb0oUy4onRw=;
+        b=pb7SgIapgkc0kuWoFWFnEXP0E4etDg+TBVeNM0pvTgdO/6EszoLgbLhM8eZNihppx4
+         JT8AXnAyED/4g5i1GPxaXmj24j5iMLkmXfyHOr659fLYGBYZPAKiCI5+qPCfC2oNRXsV
+         V97hb/UjtXLD0Khxs+ROlJ6+mp8RlGUl6EnADpdEzrMlBUGhkhKpAI3PUBe6In432MZd
+         V7ok4Dr6QDoD8mKWljrgkcRXfoTlVJytNdA+jYnxiHNZmCDIw6szstgIjRJEmdblN9DB
+         UuSVhjYoWO4+SEFCrZnEnEIBdBjRZFONCDNqAvP8DpNt0wLsBnr4elvzsc4PbKNPF00J
+         9+ug==
+X-Forwarded-Encrypted: i=1; AJvYcCXAXJMVNMBL6ODsYlk8dpQbyERHSdZrPEoUULQsHzod8h0YTVUBVNfNrCpMjiPQtNjzILGiHWiIZCBiLXfAY04e@lists.infradead.org
+X-Gm-Message-State: AOJu0YwklboQGtetwQiRKei/KB0Y/qcmPGFh5+Yy38Ww3OKqxCmWAwJV
+	1bJTkwaVWEb53ZdTVD0GNNiUWmY6gTvFh7J+F7XNxrzAQ/iLxFHV5shh
+X-Gm-Gg: ATEYQzzd3zUjdquXksTd2l9TcQXaOw3ubE62L/wV/sTDUiGfHU0leqQcnd0eDJsrhQd
+	Fj5TMMcpCfMDv6QYLf0TYSozR8QvDT+285hxHiTvm0j6P4m7Dh2kCqlWxBtQqoopMnMUOYNI6gd
+	Zc5QomqP6AaqEYfKlg3P1umq539N/+DfpI2kJo+G8Ip1P8d1wq7XafJOmkH0Y/yHmFCuplOMRar
+	vluNWk3KwAMFRrZxogKwJ3QLZHZawsW65b1nOa1ZSKQ2BIvEWabC1uyTraG7K2oJXkANflVDbQN
+	yICfx/RyWVPaZucxnPoqsm86EzZ1WdoHxB51F+StojRdpxlDeQ8h0ZHOMknAaAq2tBdsY1Jww/Z
+	tMKw3+lF4P4J7VCofyT3maywUwEC2XOYQ+rXwjVzmI5cd//DQs2siesKq9JJQvUkMqusu5jYdi8
+	UsKuPFsDaLhL1JIUaoLNjlnHn/ur5pUZ9y+S7fRpVpCRH1qO1+ZNH0ou2o8O1f
+X-Received: by 2002:a05:6a00:23d2:b0:829:7b15:848 with SMTP id d2e1a72fcca58-82a198d6a4cmr413604b3a.48.1773339853254;
+        Thu, 12 Mar 2026 11:24:13 -0700 (PDT)
+Received: from eric-acer (36-225-72-126.dynamic-ip.hinet.net. [36.225.72.126])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a0738528fsm3708429b3a.56.2026.03.12.11.24.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 11:24:12 -0700 (PDT)
+Date: Fri, 13 Mar 2026 02:24:09 +0800
+From: Cheng-Yang Chou <yphbchou0911@gmail.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: will@kernel.org, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	jserv@ccns.ncku.edu.tw
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allocate cmdq_batch on the heap
+Message-ID: <abMEybRcTskHOjd1@eric-acer>
+References: <20260311094444.3714302-1-yphbchou0911@gmail.com>
+ <abF6un_jrQ8zGZZ4@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260227151705.1275328-6-yeoreum.yun@arm.com>
+In-Reply-To: <abF6un_jrQ8zGZZ4@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_111735_088077_2CC00702 
-X-CRM114-Status: GOOD (  29.18  )
+X-CRM114-CacheID: sfid-20260312_112414_966607_7612B285 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,218 +99,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 03:17:02PM +0000, Yeoreum Yun wrote:
-> +#ifdef CONFIG_ARM64_LSUI
-> +
-> +/*
-> + * FEAT_LSUI is supported since Armv9.6, where FEAT_PAN is mandatory.
-> + * However, this assumption may not always hold:
-> + *
-> + *   - Some CPUs advertise FEAT_LSUI but lack FEAT_PAN.
-> + *   - Virtualisation or ID register overrides may expose invalid
-> + *     feature combinations.
-> + *
-> + * Rather than disabling FEAT_LSUI when FEAT_PAN is absent, wrap LSUI
-> + * instructions with uaccess_ttbr0_enable()/disable() when
-> + * ARM64_SW_TTBR0_PAN is enabled.
-> + */
+On Wed, Mar 11, 2026 at 02:22:50PM +0000, Pranjal Shrivastava wrote:
+> On Wed, Mar 11, 2026 at 05:44:44PM +0800, Cheng-Yang Chou wrote:
+> > The arm_smmu_cmdq_batch structure is large and was being allocated on
+> > the stack in four call sites, causing stack frame sizes to exceed the
+> > 1024-byte limit:
+> > 
+> > - arm_smmu_atc_inv_domain: 1120 bytes
+> > - arm_smmu_atc_inv_master: 1088 bytes
+> > - arm_smmu_sync_cd: 1088 bytes
+> > - __arm_smmu_tlb_inv_range: 1072 bytes
+> > 
+> > Move these allocations to the heap using kmalloc_obj() and kfree() to
+> > eliminate the -Wframe-larger-than=1024 warnings and prevent potential
+> > stack overflows.
+> > 
+> 
+> Thanks for the patch. I agree that we should address these warnings, but
+> moving these allocations to the heap via kmalloc_obj() in the fast path
+> is problematic. Introducing heap allocation adds unnecessary latency and
+> potential for allocation failure in hot paths.
+> 
+> So, yes, we are using a lot of stack but we're using it to do good
+> things.. 
+> 
+> IMO, if we really want to address these, instead of kmalloc, we could
+> potentially consider some pre-allocated per-CPU buffers (that's a lot of
+> additional book-keeping though) to keep the data off the stack or
+> something similar following a simple rule: The fast path must be 
+> deterministic- no SLAB allocations and no introducing new failure points
+> 
+> The last thing we'd want is a graphic driver's shrinker calling
+> dma-unmaps when the system is already under heavy memory pressure and 
+> calling kmalloc leading to a circular dependency or allocation failure
+> exactly when the system needs to perform the unmap the most.
+> 
+> Thanks,
+> Praan
 
-I'd just keep this comment in the commit log. Here you could simply say
-that user access instructions don't require (hardware) PAN toggling. It
-should be obvious why we use ttbr0 toggling like for other uaccess
-routines.
+Hi Praan,
 
-> +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op)				\
-> +static __always_inline int						\
-> +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-> +{									\
-> +	int ret = 0;							\
-> +	int oldval;							\
-> +									\
-> +	uaccess_ttbr0_enable();						\
-> +									\
-> +	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-> +	__LSUI_PREAMBLE							\
-> +"1:	" #asm_op "al	%w3, %w2, %1\n"					\
+Thanks for the feedback.
+I agree that kmalloc() is unsuitable for the SMMU fast path due to
+potential deadlocks and the need for determinism.
 
-As I mentioned on a previous patch, can we not use named operators here?
-
-> +"2:\n"									\
-> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-> +	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
-> +	: "r" (oparg)							\
-> +	: "memory");							\
-> +									\
-> +	uaccess_ttbr0_disable();					\
-> +									\
-> +	if (!ret)							\
-> +		*oval = oldval;						\
-> +	return ret;							\
-> +}
-> +
-> +LSUI_FUTEX_ATOMIC_OP(add, ldtadd)
-> +LSUI_FUTEX_ATOMIC_OP(or, ldtset)
-> +LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr)
-> +LSUI_FUTEX_ATOMIC_OP(set, swpt)
-> +
-> +static __always_inline int
-> +__lsui_cmpxchg64(u64 __user *uaddr, u64 *oldval, u64 newval)
-> +{
-> +	int ret = 0;
-> +
-> +	uaccess_ttbr0_enable();
-> +
-> +	asm volatile("// __lsui_cmpxchg64\n"
-> +	__LSUI_PREAMBLE
-> +"1:	casalt	%2, %3, %1\n"
-> +"2:\n"
-> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-> +	: "+r" (ret), "+Q" (*uaddr), "+r" (*oldval)
-> +	: "r" (newval)
-> +	: "memory");
-> +
-> +	uaccess_ttbr0_disable();
-> +
-> +	return ret;
-
-So here it returns EFAULT only if the check failed. The EAGAIN is only
-possible in cmpxchg32. That's fine but I have more comments below.
-
-> +}
-> +
-> +static __always_inline int
-> +__lsui_cmpxchg32(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> +{
-> +	u64 __user *uaddr64;
-> +	bool futex_pos, other_pos;
-> +	int ret, i;
-> +	u32 other, orig_other;
-> +	union {
-> +		u32 futex[2];
-> +		u64 raw;
-> +	} oval64, orig64, nval64;
-> +
-> +	uaddr64 = (u64 __user *) PTR_ALIGN_DOWN(uaddr, sizeof(u64));
-
-Nit: we don't use space after the type cast.
-
-> +	futex_pos = !IS_ALIGNED((unsigned long)uaddr, sizeof(u64));
-> +	other_pos = !futex_pos;
-> +
-> +	oval64.futex[futex_pos] = oldval;
-> +	ret = get_user(oval64.futex[other_pos], (u32 __user *)uaddr64 + other_pos);
-> +	if (ret)
-> +		return -EFAULT;
-> +
-> +	ret = -EAGAIN;
-> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-
-I was wondering if we still need the FUTEX_MAX_LOOPS bound with LSUI. I
-guess with CAS we can have some malicious user that keeps updating the
-futex location or the adjacent one on another CPU. However, I think we'd
-need to differentiate between futex_atomic_cmpxchg_inatomic() use and
-the eor case.
-
-> +		orig64.raw = nval64.raw = oval64.raw;
-> +
-> +		nval64.futex[futex_pos] = newval;
-
-I'd keep orig64.raw = oval64.raw and set the nval64 separately (I find
-it clearer, not sure the compiler cares much):
-
-		nval64.futex[futex_pos] = newval;
-		nval64.futex[other_pos] = oval64.futex[other_pos];
-
-> +
-> +		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
-> +			return -EFAULT;
-> +
-> +		oldval = oval64.futex[futex_pos];
-> +		other = oval64.futex[other_pos];
-> +		orig_other = orig64.futex[other_pos];
-> +
-> +		if (other == orig_other) {
-> +			ret = 0;
-> +			break;
-> +		}
-
-Is this check correct? What if the cmpxchg64 failed because futex_pos
-was changed but other_pos remained the same, it will just report success
-here. You need to compare the full 64-bit value to ensure the cmpxchg64
-succeeded.
-
-> +	}
-> +
-> +	if (!ret)
-> +		*oval = oldval;
-> +
-> +	return ret;
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-> +{
-> +	/*
-> +	 * Undo the bitwise negation applied to the oparg passed from
-> +	 * arch_futex_atomic_op_inuser() with FUTEX_OP_ANDN.
-> +	 */
-> +	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-> +{
-> +	u32 oldval, newval, val;
-> +	int ret, i;
-> +
-> +	if (get_user(oldval, uaddr))
-> +		return -EFAULT;
-> +
-> +	/*
-> +	 * there are no ldteor/stteor instructions...
-> +	 */
-> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-> +		newval = oldval ^ oparg;
-> +
-> +		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
-
-Since we have a FUTEX_MAX_LOOPS here, do we need it in cmpxchg32 as
-well?
-
-For eor, we need a loop irrespective of whether futex_pos or other_pos
-have changed. For cmpxchg, we need the loop only if other_pos has
-changed and return -EAGAIN if futex_pos has changed since the caller
-needs to update oldval and call again.
-
-So try to differentiate these cases, maybe only keep the loop outside
-cmpxchg32 (I haven't put much though into it).
-
-> +		if (ret)
-> +			return ret;
-> +
-> +		if (val == oldval) {
-> +			*oval = val;
-> +			return 0;
-> +		}
-
-I can see you are adding another check here for the actual value which
-solves the other_pos comparison earlier but that's only for eor and not
-the __lsui_futex_cmpxchg() case.
-
-> +
-> +		oldval = val;
-> +	}
-> +
-> +	return -EAGAIN;
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> +{
-> +	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
-> +}
-> +#endif	/* CONFIG_ARM64_LSUI */
+To resolve the stack warnings, I'm considering using per-CPU buffers in v2. 
+Does this direction sound reasonable, or would you prefer to keep it as-is
+to avoid the added complexity?
 
 -- 
-Catalin
+Thanks,
+Cheng-Yang
 
