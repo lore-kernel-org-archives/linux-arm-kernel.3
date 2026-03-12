@@ -4,140 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E616FED2F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E83FED2F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 08:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=; b=VOBYH6bDxrtslfjPA5aRbqjgNK
-	hHZtBzlcCK52mq9sgbl8w6z/Zaqg6AWhNbWY0RwBLZM7d/X+0IeLdDYvmBmwwcbmgDz/ejzYxU0km
-	dRbSq2kQpqPXIP/Y0ej40rPlVRXk+6hd48G5r9bHQL+90fZGt/E/iXeP1AdqfKM1WIpiNfN7CrG1F
-	Drh1hBDGcV5kbiGwUHZrJv3uJeQUQAvqsNzNHpjERrkqomXG323PhDDxWMhakS89Xu8CucfET5yPO
-	/HEEQwXSysqD8bKoGV4optjiPNCIQGpNhMEqOqvTaqiq+dm396rCY4ENlM+vgPd+ouOfzm2zkhw10
-	vnyQwlyQ==;
+	bh=6m3iVjAJ3GnbX16/A8yr0Uv8IZ6KsZjKuUcZqEbIVJA=; b=osxdG4RspToC4RWUKaNG3F1q50
+	Js5Wp23aWlHKPKymv9eaNaAhDSSP/32rXBrDl38OiuemGm0n4KoJ1VF3d+ouqtxsaFDyW3fMktaHm
+	ZzBJcqaLY9EdTdA21mpEsP5JGvdU2/oysj/Dwt+BctbT+1UXMlnP160fIB54uuvTA4di85yL/wH1a
+	ZmFbZhxWzh6TgnAvKlIe07I78v6BOO9d1Wm26Ek0XgrZKYfUqXmhOrYmzOrcq8I1yxeD7DIYQaLvb
+	p9A8ArL2usxXL27DZjh0mZ9QRMebCelmSbtHf5oUdMgI16u0rsYBbeG0Mx0SF1d68LBCciT1DtKNJ
+	Sab8wcRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0boz-0000000DfV7-1Wxv;
-	Thu, 12 Mar 2026 08:55:09 +0000
-Received: from mail-francesouthazon11011036.outbound.protection.outlook.com ([40.107.130.36] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w0bpD-0000000DfYl-2vTq;
+	Thu, 12 Mar 2026 08:55:23 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bow-0000000DfTy-3Rao
+	id 1w0bpA-0000000DfXn-3OLg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 08:55:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gzeTy/pGqANj7dSUnaue6aIsSfKx0JzmtWScVfXRKeG6wHSNfsfuR/5ufYQU7NUDg0OnRPPLRo63mS9dNK87ZzlIWQ1efY8zVr/s8BHpFlBuR12Cym98niCcRC7Wf3ot+esPW7pw1SH8NPNKfJgD+entBplv6X+vU73oVRPdYkBpBBqTLVYvS8pyqes4twuyW4HE+4gsKMiv/CXvBu7+OB5EnIieV+582EAAdG8gMVMEQZZLes4H64o86j++NZj6NBF5iMAVCXvFuNSVgASoOMcHdwKXw5YLsyQE3Oc6PywkCQaGqgsGfoTYxpSNWSZnSUax+uE7hRQaMWPGaDs47w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=;
- b=Yi1IahF1uDiNrQMYWXDVs+7Ez2ePLMxkEtxQt12tvXzZgIPjLPbBmTWXXfp8w3o4JGPhLvGYxAGh/73LIpOeI9M1OXNfhNXGsRB9cXWxsUa6iIv5Z+QLDGuGDJfw71H2b+1FAuvF+lc2S4Wud0pscTzmPb6p4uzJWpL6TmAObObcD0NTKsM7va6wYOJzU/HSZicK6OGptMm+Kp/KG8eJyuo0oy4hleKoNp2MJh6t/Is5msgGs7Fp/tUeDf9SNsWtD7Hhlw0caEoICoYouAunIZhQvpOWAsVOfoA5xr/FZ0Sk8LiMW2azmndwsNHNY5oKhLxTGNuqhlYcNchJ86TD6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3XEBbCb9OieLRQFXyFnGiUhcK/OCRhGmflI/lBToLls=;
- b=To79ECfuPdPoQq3MCtJ8GU7CdbS+WQLl+ki+tizD/3h0ffWHQ78fj9tkT9ZMPAOW2xaYc+Rz2xoBE7Ul6JVfo9SGsKIeLDrd8e6SeZh2m8Ckk7qCm882KUoiwpReS0KR10LDUPnejHqDpF8a3t9Sv/2w0zTjt1VyHiGXgj0qjnMkZTaoXcvqkZugTEdizkJ0VUA+Dvn7WB1Tsej6lnw9A+XSSnpjabVXEyjn3Qo9eu0CtsMcia9iPAOiKXDP0P6CPxHte8EZrRkIcV8VkNDS6draxpIBSYMZBE412pkszlAws/tXZZ+5UZlAGtqa8/ygd7PHrpP597NhIHfEoG0iEg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by GVUPR04MB12196.eurprd04.prod.outlook.com (2603:10a6:150:33b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 08:54:54 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed%3]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
- 08:54:58 +0000
-Message-ID: <603a09c7-1b08-4d49-92a0-58e6c1b9a003@oss.nxp.com>
-Date: Thu, 12 Mar 2026 10:58:01 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] pmdomain: imx: Fix i.MX8MP VC8000E power up sequence
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
- Jacky Bai <ping.bai@nxp.com>, Frank Li <frank.li@nxp.com>
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
-References: <20260228-imx8mp-vc8000e-pm-v2-1-fd255a0d5958@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260228-imx8mp-vc8000e-pm-v2-1-fd255a0d5958@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FRYP281CA0016.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10::26)
- To AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+	Thu, 12 Mar 2026 08:55:22 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4852f73d0a3so6798545e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 01:55:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773305719; x=1773910519; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6m3iVjAJ3GnbX16/A8yr0Uv8IZ6KsZjKuUcZqEbIVJA=;
+        b=Sb/eZap21jrg6FHEcy602lJ2VhXtllFeJkz24xx2fn0OvQgi3yrFQZ8fHGHfgqd9x2
+         YzqVzb8Vnxl5XY5cw4oSAITY0c2K2E2mO+IFy8J74Nl9FHH6IEgLoKeJi1v8GAo2GQq6
+         r1kUeNITwPkAmoMXfUwNxzQSzx9SZXwU6OfWFCEIlmOMPHoZBEF/k2PNFyXgsEFaAlYj
+         Yfadrjdm6nIZVdwd5Y23+RyBT8YxzP7vPVgxEZD0RRsEkH/5cU5BoQBMWqlLNB31d6ou
+         dwG0GVzW0GB5ThcbKt5RQWTe0CfARlgOOSnQR6QmolfjZrwF+JNuOEUiEu81pf1GyG1+
+         c44w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773305719; x=1773910519;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6m3iVjAJ3GnbX16/A8yr0Uv8IZ6KsZjKuUcZqEbIVJA=;
+        b=ubuTGOXXTI9/VQna4lCK5G3vURVzyGkeiS7GOgS40ofRzQ+RyCLpJksx8oUHTVWR6o
+         TQeIBlr2xg8gdtKSo6EdPysVZjhuSvuuW2I75exNtjbTU83b/WkNrua7/foNa62+RYNp
+         FUvuO68BnkKppGX6L3SfmwegJfixbEP0rAF9aZJZsFY+mjZj4OLXb+eSXCFr7ps3yFr1
+         IqggSWMASKqQxmVQgpAJY8/2yaJgd8NzbXmzvNQuCq7X41zEP1A2H3v/6moFfkFkpQk5
+         i8YfzmpGDNpwacunsTZ7o1CaTUrmFVGf2fH/9pOuB88utjtGBEBnP38AdXZJ44l3RNY4
+         2M5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWGlurjQfewpKmW4wU+OEQKRdTw0EID+cxGyjkEcjhDjfZefo6h7Vp30+O2ZnThzn2pe7xB6jTIMeb3ZqMa08qy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjwBeo+Gbx2uP/D66wd51nx7dmdF1Lhqj9dYjTk4a+my3ptluY
+	AHyVYpvlQZmNfm/XYqI+wIt3AzLT+6DoBVUH0cnP8u2P4Ma8s5Jm2tVMi71JfI2d5A==
+X-Gm-Gg: ATEYQzwr6RQ2avAbtgZNf4iulaPReXVbsi9QyH4spSmDIuF20m87kDVFbUwp0v/2Lmc
+	rrUJdkiqIF7LOOLEk+5uC3FPQvIYKDj/Ao1S6hkP77Ax/79REEC/6pWQn99kfKx1n+85SPoyLlq
+	4KCNOTsV+35c9wAr3vYTEYH1F7Eu5UhwQPAvdEzQoYygWUEo2NOE6K9jwQ0x49invpJ5qcEmJNu
+	0Bnqi3I1643+XUukYIrjLOZk4J0Axzued09EepCk3txtoACAg42ZeoK2Wjh4BPLqbLSLs3YvKpB
+	5sOfe2MKZf2JaiGHdxGXpjfQt821Bb7mtmxPGbGqKcAajp/kxy+k9UX9rRXQQzAwJsCKfNZM6Kz
+	e66nDeT6bypp/S94HI169X4i5VFGJlFssgXg5y+H5bU0ZCP3tq4JFjD9OiqvpaNR4lY7LQmibTP
+	4U5hdDcUYV1R2gxPq09yuvgta/TVLmgOD1D6qPSvOziBFMl/8Ykb7Gthsp56x0d76/m0s=
+X-Received: by 2002:a05:600c:4455:b0:485:3e6c:aa84 with SMTP id 5b1f17b1804b1-4854b13b3cbmr83483945e9.33.1773305718060;
+        Thu, 12 Mar 2026 01:55:18 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b47145dsm110869815e9.0.2026.03.12.01.55.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 01:55:17 -0700 (PDT)
+Date: Thu, 12 Mar 2026 08:55:14 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com, qperret@google.com, will@kernel.org,
+	aneesh.kumar@kernel.org, kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v14 18/30] tracing: Check for undefined symbols in
+ simple_ring_buffer
+Message-ID: <abJ_cm_yM3Q-99GL@google.com>
+References: <20260309162516.2623589-1-vdonnefort@google.com>
+ <20260309162516.2623589-19-vdonnefort@google.com>
+ <20260311221816.GA316631@ax162>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|GVUPR04MB12196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 84a7b9b3-807b-4903-8776-08de801509ed
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: uOsjoPeixQaFc7jc+GN6Rm8PohKFA3U6Yp3N8wGPxnA5BBvE75q0ZSgK0vhkSog4RKQmmv8LNtikNC7SZyfO6WhgTAHN+qOgxBrei+U4+ER+krlF15lg7uwk8+yCQcaiXOaSftVRDsLcNJi6bIXSINZKhaYLYlf28SRwnFJwJZwBI8iv5bXyun3l8BYP3xrHKAv9qtJ/Hok7wkfJRTNF/UdaTtgsjsOIsp4yaWveUOEEUWL+bXTm26Ks7qchRT8DbZoRRvN+FnkTkEmZzpkFyRoVvmE23gg1IRi18HVjzCvAStk7Bq9vuwZz9UFNPX/RVX56LS3Sc2v6/LkMNNwhqA4OB1JDb9fW+cc9IYh5mUTpHydZKLoqblDHsVBNGB1qb7a2eCb9DBG/7xeHR7cn3LEfBnpQHhN7NUJFVFNdNfeheGRbs9YrGCjkiyjihHO7C18DdkM+HGEIXAMKFFB7680URpfL2Pdy2M6s9uB2YMhYz/n9JIm4xxbDuA2N7pWD72c7rELcRUSvClfsdyNc/na+f6qMasYwlXDHzP9Y5twH8Pu9/zxU3zdRJ+MovoS/kYKQSq42X5qIU3/gPYtHwut1zKimi61e/oljuC5VD5fjhC8fPlDeoiSnfmnPEO0zLxiUBSLnH03HEWC/IoYcGshiVSL7UU4RTaT/sd9XuGgHHZu7tA45X41LnottWKM98S32/wzuqChPRyCA2tW8TIy94l9RgUO0XF4/hi6iOBgC36ALScOAkI6DaEbzGqsc
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y1Y2cXJBNzRMVXVBSUFWb3NORVZsWTZsRlhWbHo3ZzZVTWEyQ29YamNOYUVZ?=
- =?utf-8?B?OU5DcUVXUG92TUVSQ3Byd2xYNUI4T1pnbTZjZUxtOUZwbUJZUFJvQ3F5UWts?=
- =?utf-8?B?TXUyWnpFN0VSWEpES2hkSGZnZ0d1VTV2RWZFWHVNenQxOWVXcy9tVFJoYTB1?=
- =?utf-8?B?WkowdGo0cDNWQStJTjczUEpleGoxM3FSVUREcGt6UHVhZWRmMHBBdVk0dXI0?=
- =?utf-8?B?aitlZ09uR3JOK01YekhRelRYT2FmTnJtMVRPMWFYVnhjL1UxZ2VWOXNVNUNl?=
- =?utf-8?B?Q0QvazNqRFVjZ1dZUzQ4clU0bzZrMVcrUkgrR3lubko4ajQybXF0SlVKK2VT?=
- =?utf-8?B?M25RUE10YmMyU01sa2Q3aGtXZ1NFYzVRK1kveFRnZXdyUGowTE94N1RHd2xt?=
- =?utf-8?B?UDVCQU10R0xhVzVyRGlVZlFaQXlzUHNNOGU5S2kwK3E2bmN4VVpZZGtxeXM1?=
- =?utf-8?B?RGdNZ0ZMUU51TTlpbVhnWHR5YUczVGxJbkVTM2FYTWhwd0d6Ymk0ZDNhQ2oy?=
- =?utf-8?B?dUQrRk5leEZRcDVZTGp1bjNlRjRsTVRFSlhrY2JqSFhSRjVBRm1yQTZXTFky?=
- =?utf-8?B?c2YwWG1jTDh0VXh6NTFiU2w3d0tiODBuM01qN2lqMG1qSUtva25WRTZ2Z1Mr?=
- =?utf-8?B?azRwOTZYZzB5SmMvcGFzOUpudndNZEdxcWJ3S3RveWc2aGVFem5tblVpQUNz?=
- =?utf-8?B?NXorOVAvcUhsM0ljSXkxK04rN1JDenNmZCs5TzIvdUlsSGpTSHhvTkhEalpK?=
- =?utf-8?B?SjdnR0dTZ2ZWaHA3UHgwaUR2bkFtVzNtYm5JMDc2SHU0aTFvYWQ4YzZNSlJG?=
- =?utf-8?B?ZWt3bFFqaW1JYzMza1crNzMwaDcyVGtlckpLQy90bzA4R3pjQm5Rc29YWXhs?=
- =?utf-8?B?Ky9NaXFjVGJXRnNrZmJJZWVvMFFuNmJvVkg0dlhJcTdZZUdkU203OGhLNURK?=
- =?utf-8?B?R0dPd0Y2RWJWY0N0RWh6Z0daQ0ZjTDZvUU1Tc01mNVArb0d6aytLeGwyYXBT?=
- =?utf-8?B?TkFjeW0rUHA5QVdUU2NlOEE4akNlaVk3MW9NVHlFcmp6ZFp5MUVJbGUxY3FF?=
- =?utf-8?B?SFQvZ1NIdUZ5WklkcjN3V2kycFdTNTRpbnZEaGtXaTNyVk02ZVJML09MRFdD?=
- =?utf-8?B?TmJQTVNkU0R0eGxmK3owbGlFbCtxUjkyeFlFanhGcFFyWmRMelVnbU5WRWZX?=
- =?utf-8?B?a3h6TE1mOUVoeFdUbkhqZnRvUFg5enRxbWRQRXZzeW05RHdxWGhVVnN3RjUr?=
- =?utf-8?B?dXFCQlBFSkNPNlhNVWdUemxlaTFrYWFkYmlFVnVpWUxMTks1VDZEVVBwYktT?=
- =?utf-8?B?SXpaMnNpdGhwdXdvN2xuTk8va2MyS0RRQStzOXRwRmN2TEFJK2I4RWovM3dI?=
- =?utf-8?B?THFhaC82a3VCMTVzN2VYbVNFRnB2ZHVLT3p4RFRBM0hoeGRVT0wwbElMTHIz?=
- =?utf-8?B?ZXl5aWszeUczMkM0dXRsY2JiVk9hNi9JQVdESnQ5VWk4OC9mK213dEg0Mity?=
- =?utf-8?B?SEt5NUIzbk95WjhFQUtVTjhNYTMvTDdKL2hidmJ1NzlYaHI0Vy8rYjZ3RkJI?=
- =?utf-8?B?bWIyZlMrb3ZUTG5wVklCUVdWd1BhekVTNTJnazhleDIxTmxTVHRqL1pEN1BZ?=
- =?utf-8?B?ZVQ1ZENWbzFZZFNpbENCWGxzajJxYjlVa0pGOGJWTStMdWVuVEN6dnorS3lV?=
- =?utf-8?B?N0pLc2NMcHdmVUxHMlNCQ2JDYmJ2OUIvTXpYaHFsZ1Rtd2VrY0FXR1JJdXJJ?=
- =?utf-8?B?OXZCd01JcDZSZmg2SEMvaHBEMHNSenE0eTBVRW96RE83QWVNZ0hOSnA4OGgy?=
- =?utf-8?B?Z0pLMWZEK0RiMC85aG5HU2VDaXpaQjl3ZGhHNUpLYm9tV0xhSThla2ZKMW9h?=
- =?utf-8?B?eENPQ2tEenZUc2M1WUlTZjJBRkF5TEk1bUE2enlwRjNVa3Zqcjh1c2ptd1Fk?=
- =?utf-8?B?ZlNVOFhkb05BNzlPd2JKMlNqeHdsb0tvcDRhM3dRcHM4UG9xaHE3citBdFAy?=
- =?utf-8?B?bGFzNHBqeENhZjVDMXlSSGpqd3dLZUNqblkydStJeTNxemdrcWVlNjkxeG13?=
- =?utf-8?B?VFZJT3lWSmkyNlZ3cjBWWER1WTdHYTl4WDRPcExJSFp1Yis3RzdBMHhCRCsv?=
- =?utf-8?B?czZvb3N1WCtSYWdOWER6WkdYT1JkNVJvUTI4bkwwN09yVzNaOUI0M3J1UXdo?=
- =?utf-8?B?RzNvUG1lMEs3VXJKWVI2SDU1NjZ6OWFHU3p4VXhwaEEvYnRYYmFlZFQ2T2lr?=
- =?utf-8?B?bmtFRkNFNWUxK0xhV3RhcTJndEg5bUZuWkFsYStyVXdQRnl4cXYxdHNwZ1VC?=
- =?utf-8?B?aUI2MDhkSFNDdTNpZkhtMUwzaHZBc1d5VVRCWDhhMTc5WHpsaGJOUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 84a7b9b3-807b-4903-8776-08de801509ed
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 08:54:58.7111
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tzBeK38NBP9maxR7w1uJY3k1vpscMKYj5UJ+ghxFbX0FTKATBbcuhfvAQE9SqFpbjcUYBGWFRjFs7cZIdz09Kg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVUPR04MB12196
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260311221816.GA316631@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_015506_862844_4F725F07 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20260312_015521_463954_634EBF48 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,37 +106,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/28/26 03:12, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Per errata[1]:
-> ERR050531: VPU_NOC power down handshake may hang during VC8000E/VPUMIX
-> power up/down cycling.
-> Description: VC8000E reset de-assertion edge and AXI clock may have a
-> timing issue.
-> Workaround: Set bit2 (vc8000e_clk_en) of BLK_CLK_EN_CSR to 0 to gate off
-> both AXI clock and VC8000E clock sent to VC8000E and AXI clock sent to
-> VPU_NOC m_v_2 interface during VC8000E power up(VC8000E reset is
-> de-asserted by HW)
->
-> Add a bool variable is_errata_err050531 in
-> 'struct imx8m_blk_ctrl_domain_data' to represent whether the workaround
-> is needed. If is_errata_err050531 is true, first clear the clk before
-> powering up gpc, then enable the clk after powering up gpc.
->
-> While at here, using imx8mm_vpu_power_notifier() is wrong, as it ungates
-> the VPU clocks to provide the ADB clock, which is necessary on i.MX8MM,
-> but on i.MX8MP there is a separate gate (bit 3) for the NoC. So add
-> imx8mp_vpu_power_notifier() for i.MX8MP.
->
-> [1] https://www.nxp.com/webapp/Download?colCode=IMX8MP_1P33A
->
-Peng,
+On Wed, Mar 11, 2026 at 03:18:16PM -0700, Nathan Chancellor wrote:
+> Hi Vincent,
+> 
+> On Mon, Mar 09, 2026 at 04:25:04PM +0000, Vincent Donnefort wrote:
+> > The simple_ring_buffer implementation must remain simple enough to be
+> > used by the pKVM hypervisor. Prevent the object build if unresolved
+> > symbols are found.
+> > 
+> > Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> > index d106beca8d7f..3182e1bc1cf7 100644
+> > --- a/kernel/trace/Makefile
+> > +++ b/kernel/trace/Makefile
+> > @@ -132,4 +132,20 @@ obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
+> >  obj-$(CONFIG_SIMPLE_RING_BUFFER) += simple_ring_buffer.o
+> >  obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+> >  
+> > +#
+> > +# simple_ring_buffer is used by the pKVM hypervisor which does not have access
+> > +# to all kernel symbols. Fail the build if forbidden symbols are found.
+> > +#
+> > +UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
+> > +UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+> > +UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+> > +
+> > +quiet_cmd_check_undefined = NM      $<
+> > +      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
+> 
+> This check triggers when building allmodconfig targeting arm, arm64,
+> powerpc, and x86_64 (at least, I did not test more at the moment) with
+> clang. If this is a hard failure, this really needs to print something
+> out to the developer/user to help them debug off the bat, versus having
+> to manually dig the $(NM) command out from the .cmd file or V=1. I came
+> up with
+> 
+> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> index 3182e1bc1cf7..c725b06876bc 100644
+> --- a/kernel/trace/Makefile
+> +++ b/kernel/trace/Makefile
+> @@ -141,7 +141,13 @@ UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sani
+>  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+>  
+>  quiet_cmd_check_undefined = NM      $<
+> -      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
+> +      cmd_check_undefined = \
+> +          undefsyms=$$($(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST) || true); \
+> +          if [ -n "$$undefsyms" ]; then \
+> +              echo "Unexpected symbols in $<:" >&2; \
+> +              echo "$$undefsyms" >&2; \
+> +              false; \
+> +          fi
+>  
+>  $(obj)/%.o.checked: $(obj)/%.o FORCE
+>  	$(call if_changed,check_undefined)
+> --
+> 
+> which prints
+> 
+>   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+>                    U llvm_gcda_emit_arcs
+>                    U llvm_gcda_emit_function
+>                    U llvm_gcda_end_file
+>                    U llvm_gcda_start_file
+>                    U llvm_gcda_summary_info
+>                    U llvm_gcov_init
+> 
+> for arm64, which makes sense since these are LLVM specific GCOV symbols,
+> so they should probably get the same treatment as the other ones:
+> 
+> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> index c725b06876bc..d464e3aa5bdd 100644
+> --- a/kernel/trace/Makefile
+> +++ b/kernel/trace/Makefile
+> @@ -136,8 +136,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+>  # simple_ring_buffer is used by the pKVM hypervisor which does not have access
+>  # to all kernel symbols. Fail the build if forbidden symbols are found.
+>  #
+> -UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
+> -UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+> +UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
+> +UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+>  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+>  
+>  quiet_cmd_check_undefined = NM      $<
+> --
+> 
+> For x86_64, I see
+> 
+>   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+>                    U __clear_pages_unrolled
+>                    U __memmove
+>                    U copy_page
+> 
+> which comes from the use of KCFI_ADDRESSABLE(), since allmodconfig has
+> CONFIG_CFI=y.
+> 
+> For powerpc (with both clang and GCC), I see
+> 
+>   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+>                    U .TOC.
+> 
+> For arm (with both clang and GCC), I see
+> 
+>   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
+>            U __stack_chk_guard
+>            U warn_slowpath_fmt
+> 
+> Presumably adding all of those should be fine as well?
+> 
+> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> index d464e3aa5bdd..4f120cb8c79c 100644
+> --- a/kernel/trace/Makefile
+> +++ b/kernel/trace/Makefile
+> @@ -137,7 +137,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+>  # to all kernel symbols. Fail the build if forbidden symbols are found.
+>  #
+>  UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
+> -UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
+> +UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail __stack_chk_guard stackleak_track_stack __ref_stack __sanitizer
+> +UNDEFINED_ALLOWLIST += \.TOC\. __clear_pages_unrolled __memmove copy_page warn_slowpath_fmt
+>  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
+>  
+>  quiet_cmd_check_undefined = NM      $<
+> --
+> 
+> I don't mind sending a series for these, I just wanted to make sure I
+> was reasoning about everything correctly.
 
-Is using imx8mm_vpu_power_notifier wrong no matter on the errata? If so, I think you should fix
+Yes this is all fine. If you have something already, please send it. Meanwhile, I'll try
+something a bit more durable. 
 
-that problem first, e.g create a separate patch that fixes the notifier and then add support for the errata. In the future, if the chips with the errata are deprecated we could only revert that given patch. thanks,
+Thanks,
+Vincent
 
-Daniel.
-
+> 
+> Cheers,
+> Nathan
 
