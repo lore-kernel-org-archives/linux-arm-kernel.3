@@ -4,146 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A2F105A594
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA889105A594
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=; b=ZyTGs4POOXX9C3C1ov38p4FNdA
-	dT4K3QwEAD2FrgMQ3l/NzN5D29FQJliUvmH/oVc1/2yC8uJ4kxhDmZPr0k9ONhgj89dePG2wF6Dyw
-	oGF2xeIi35uqnI3lvzVAmBQWAP29l+pwNkIQL/3uVO1W+txBX8qCdPhTvsTfMm98+AuYlpNmchycu
-	9JJA1aQWrx9feZl0wX2tPqf8N/0YdiCfoqrdVX7gYvSb7AWbJFNz4VFOEtzA0Zzgc+CDMuEUxGnZR
-	Sy5probto1/Je4jxkvwygwoSfnGKQ722k7CBzbi9oUBjBrhK1rVp/FZGtWiuwtE4JCLVufl0o4+kS
-	zspt9uuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QxGYC5mRfJl3mAwui4FDoKmn6y8ODP6aaHPdAGtnxfk=; b=R+l1Qyvqnw89Ya1FQVWpflgqiW
+	GclnJbaoTuIA+e1m2YbsAtnmZOj6wk+zkjX6/lCQ6NgXZtMYJbqDmDG0+ryqsJPEGWa/Vy9K6GCAG
+	TQWEvKrMS4gQGR92kmnvuAwvmCOX4602YOr2CFH70AVKuAx0UNdzcvwCqmuXGf/cJ9jqrkjU8QTCd
+	1U6t5LsC2civycpKABwkfXYrPAtcKbCgjvD6r2Lndz0lfLvYju8Blrl3OKGs2ixRs2A0zdmOeFLRZ
+	rg955+qVgXyKq+REKsN/1cJz4lA+yt64K+wfhLE+ojnQK4cdpzLrZDZe3HB9SF4oZ9NxlC6hW7DfF
+	MEPtCguw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0f6H-0000000E2Ek-089t;
-	Thu, 12 Mar 2026 12:25:13 +0000
-Received: from mail-northeuropeazon11010059.outbound.protection.outlook.com ([52.101.84.59] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w0fAR-0000000E2a5-0EVB;
+	Thu, 12 Mar 2026 12:29:31 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0f6C-0000000E2Dh-2l0L
+	id 1w0fAO-0000000E2ZZ-3xgd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:25:10 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=L7VhD+dWILsaPhNS47CJeNRSrVFCa/UusjkkuFoEXGkWyfjH21vIE+3Rfw5ZPOsKKIrmoxGV+J+/aZRbS140oBq+Rj9lkwa/eXP5tLvq0FV7T0f2hUT/XEYxb8PHd6DFpmxitGj+W/6drYKd5znsWmjTn+iLnh1FL3f1gxifWl4ne0AJMUi0M8g+++60WrWu5M5KJo8RmUxhugECVHj9u6Ilu0E0kAxFruqDuC0IPl/2QBBAU/pZSmPcm2dO3PTzuZ4pBPI3hSkrQenlYJ0H+Bcp8B6SQPpg2U558XYF0O4rVYPZW9Q4pv/QFebNkZ2fKYc9Qf2dObVfb7nKe8hc5Q==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
- b=dclnjtE31Ce7vpx/ZD3CwgenElJjV7xKUJyi42b3JWVJVSY3p7wM1Bytrxo72I0d+u+FLUosgYGeEpwdkppQmbTe0GFvsNq4v1Kx2Ccslf3n+OpGJ5FO8N2HBxp7XcskgzxoR92hR/7vXD55hm6BIpHFSIlnS7wvd60HAWzpKV7xPyT3rR16VQxCM34e2CGeAei/HkEV/TeQP9+V+a0CO6+PoHn6tXPME+kx61fOgk8qxuyBMjMNMKDQPncTLlC5j9nF7mRIxRjvbmnnZHE83S7xKSsjvU2xMcAJnGvgZcg3DpTi8/yENKzg+MibX/v51eqFh4y/sv2Ti3IV7t0yzQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
- b=DHRS0PN6/e+ky3pV+BOol9tZN44SOON0gWFk/CAGc/32IhkXoooivmKRzf6HMnkZWQyFlhje+HdZyQh4gUojdf9UY4F001PRdLsCLZuusdZpkYmNbSAaSSVUF6IgQk0EtUS9bvp0XMrRKEJt0Zg5oJxeBlCNFspk3Gu9qp3jyGk=
-Received: from AS4P195CA0027.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:5d6::16)
- by AS8PR08MB10221.eurprd08.prod.outlook.com (2603:10a6:20b:63e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 12:24:57 +0000
-Received: from AMS0EPF000001A9.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d6:cafe::90) by AS4P195CA0027.outlook.office365.com
- (2603:10a6:20b:5d6::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.28 via Frontend Transport; Thu,
- 12 Mar 2026 12:24:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001A9.mail.protection.outlook.com (10.167.16.149) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
- via Frontend Transport; Thu, 12 Mar 2026 12:24:57 +0000
+	Thu, 12 Mar 2026 12:29:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PhAcuy+17cqLh4Y01RuSgNOLhwqPriUntYgxxKQaPshc9IGDn/Qcm4W4HKssVVcnGmduqqKJpbnrN8UcavSjLEgXnW3McgTP1nULgaSkPMADVcDGcTjMkA+I8GhihwsXoqF2K8JYpI3Od/GMeASeuNC0YedYJc/wHkMheYbHIy+w95igYmmvfBAZDPlMmUmp0qv5PChXzEkuKiRa8HkSYcmlSDbV/f/QGaPTmgLOrnngRtlrekqbNUx2nqvkQQClStBXVY2ETgPrR04qG3fSWjUVotm7rjDIkpzk5ig7dJJ852YpVGSTndx2MvT4TGpTsrAGeKpccqjlkTCXT5fI7g==
+ b=FQuT7Vds34GmDBWWKebJHMbfT190ByWmCV3jiWb5k91BMblhtUAp/n7RkWI8yCBhmnHHgwkS2bICvAj53a34b9Az9WK4Enio8t/NRDu1DKIyQvJ9GW+ICFE1eDGWZFpoasLrBxkqA51imXYkUHadKdYad+5KWK/F0MYlNSEncR9eJQeTNMeiPynHSW3I4v/X9akUu0aRUi2GkUPUVYjXiHM9xqVo5LAo56uvd6EZtUNrzDx7r29hR+m7XmL8y8w/u/+ZaG5ijXnXm8iY0U6/avJZtiKG0krQnhBih/9W9fxRw05MImuTH+swRU88W8LEKl/OYkHUqcB+B3t7kh5DHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
- b=t/AOjxH1vme12cPvI9lhNwvHeC30NRZ47wM2n3G1UXITb0XIKV1KwIXQGgpjwzoZ4P2wVgM3tH3QhLER0y7dQet32dzj0mp9bUUUeOw6yLJ0/+PKJG06sUV/vQXNgANAwGEvTZVMObFWnKd5NA63WJSu7wnyuUzWte9PTE+4UkGACLgV/k0uKC6vhcu7G9eRpnM69vDml3RBQGtHVM8ZwpTsKTNc6Bk5ymZuJQyrQWX4H+kcesVlIRXLO7lfFk6gb3W+X3/U6S9aNQf27QhPgENcSK6fE68JX529r0IjK9GWGasW92pDpctWbMhxPnmXOAcimtVljkaBAkL7XNNPzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ bh=QxGYC5mRfJl3mAwui4FDoKmn6y8ODP6aaHPdAGtnxfk=;
+ b=ee/WQpN1sE5XV/UJ9elao/h87x3PZl21bii7fQK4X5DBb62yJL8IvK7DpV5ihiNdNmnTYTlY6NWPS2tgdPY9WEHPIYbZWk4M/ctn5g9dhu+0G1H7M7OAShZbebIzawR23tLKEjYB2SsyZiReoqksr1T8jC6c+MIDE6zdC5OseMjkYiR7txmpCc5klJ+danK4OtIfMzOcbL6GuT0b8lAuQRveU6hQlDswcnMzqBOcCC+qiDT1F9I6pSuD54dekj1p2TaBTIZqEq8uhzSoC+pBWKwPqXaXQwXYG+ofatoPu4vqA41oNktclULnDgyaybxj/y/LAw0v0/7j4o/SqSfO2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6aMI/mTg9wW2n5ALbgftnvbEcBsoJN4eJu6ca1REITk=;
- b=DHRS0PN6/e+ky3pV+BOol9tZN44SOON0gWFk/CAGc/32IhkXoooivmKRzf6HMnkZWQyFlhje+HdZyQh4gUojdf9UY4F001PRdLsCLZuusdZpkYmNbSAaSSVUF6IgQk0EtUS9bvp0XMrRKEJt0Zg5oJxeBlCNFspk3Gu9qp3jyGk=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
- by DU0PR08MB9300.eurprd08.prod.outlook.com (2603:10a6:10:41f::13) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=QxGYC5mRfJl3mAwui4FDoKmn6y8ODP6aaHPdAGtnxfk=;
+ b=l+ZpVJ57LcBhw6I4AqN+GPD01s5LCesc68STFwA7M+1tCjwV8qmrJydDCZ7fs0NY6o3teRcHyQUypEie6B46nc/fBx+S0p2k/efVnWm4/wk5rOLy4r0EQUXLqBY0g0E3JRc1nV9WB9zFWz3ARHl6RTAc+APh3hN/QwpZijBmGEGu6XXGDKp55sdjtJJ72Vgd25TKPejC8nnsrNUR4iqaGq2oZlwGL7uFcJ7xJVzenP9NzF52LfUgKc3Rk3pKcgc6y+4mhZA2fDxjxN2HBq2OzAjm+r/Ap8XcbOaGNXgsqSkBU1GR8AHyyGesFT2LB58Phl8sD89oWc/6K6BUOcdAHg==
+Received: from DUZPR01CA0289.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b7::20) by GVXPR10MB8314.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:150:1df::8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 12:23:49 +0000
-Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
- ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
- 12:23:49 +0000
-Message-ID: <4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
-Date: Thu, 12 Mar 2026 12:23:41 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/11] RAS: add DeviceTree firmware-first CPER provider
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- Dmitry.Lamerov@arm.com, catalin.marinas@arm.com, bp@alien8.de,
- robh@kernel.org, rafael@kernel.org, will@kernel.org, conor@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- krzk+dt@kernel.org, Michael.Zhao2@arm.com, tony.luck@intel.com
-References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
- <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
- <20260224155520.00004e92@huawei.com>
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-In-Reply-To: <20260224155520.00004e92@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P265CA0130.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c6::19) To VI0PR08MB11823.eurprd08.prod.outlook.com
- (2603:10a6:800:324::5)
+ 2026 12:29:21 +0000
+Received: from DB1PEPF000509FA.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b7:cafe::8b) by DUZPR01CA0289.outlook.office365.com
+ (2603:10a6:10:4b7::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
+ 12 Mar 2026 12:29:24 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509FA.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Thu, 12 Mar 2026 12:29:21 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 13:31:50 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 13:29:19 +0100
+Message-ID: <24a1be11-8c4b-43eb-9223-919eb87efb17@foss.st.com>
+Date: Thu, 12 Mar 2026 13:29:19 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|DU0PR08MB9300:EE_|AMS0EPF000001A9:EE_|AS8PR08MB10221:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3359a33-25b2-4eb5-735a-08de80325f90
-x-checkrecipientrouted: true
-NoDisclaimer: true
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] dts: st: various additions / fixes in STM32 i2c nodes
+To: Alain Volmat <alain.volmat@foss.st.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+References: <20260224-stm32-i2c-dt-updates-v1-0-347cf6fca7d1@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260224-stm32-i2c-dt-updates-v1-0-347cf6fca7d1@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509FA:EE_|GVXPR10MB8314:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8fbbea0-f422-40d1-94b5-08de8032fcd8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: uwNy+hhFBWac9ZFXIkK//QiZVVMgE5Rff76Gs3PaLc6z3I3ms2zxnc17SyBKidK7Bl81mT8UJy3WIiLXewasVLEclsEeR6d5AKKWWRQ/VLKtqySDjcTMYzsr/huDWIXEhWXDRrNUw6UMHT7vUqJHVJ69EFFVMBgfREu8dZbUMPxMKjR6GyvB5ASkvIs8g5Jid/uBsdIPJmuaxy9fe4wtOtaJnQT4Y6KnGwwiDncjKvd9VdlgRxqg6whsk08sfKaJR+7VLepk7Xf+MQEFCD4ZFSS1ya3UVxDt4jums6fPoZY/chGcvpCp/te9AnJKEYNvBylyBFZ69dpnbd7lw5yJdxwTuxj4lMvfphYJCk55Ru5jTC5UZyALisi0WsQi73szfD1iPTkcvypc/MbH08hAcQ9qPakoNlFPoKv8azJ4JBfKRQpSD8GeDkm6RwXUYwranVatyUOHiafkvZ/KqpCcArRT4SG5E6tLKipS3pybk4yJjIfvhneqY/Xfssj1+sME8XO9W8IDO3Sk/Vv9Cff7co9NyxOl0jwgFhodfLu8OoPqX2Bz5RaBVPFyNTldPTczRFnSb1a4IsCEb5xKmPG7MkXjIpcyhrL7zNPZIsrelzuOO0Ci1Xx57bBJmt0ZHgCh9VjSlWymSE/P75Do7Ehf3gZk+L5rDhgnWV/WsUfUUe0+5kuQcFoQJUtI2Nq5jYqbA6ZWnF4zvxDQnr5d8JCXhiG6jKOHZzbw4ze+nSExnCw=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: TX/iK20PomtSzE7PVIMiugbqVn4QCsXLvRWFMYB2Vx81ZBm32/Jd1Px9HHpH2YHTmfP2sDujTYdTZOIZyN2H+L6PYo17RgG1sBqW+SFE3b0ChbKlHmOANS5vtQHkd/TNUeFoFRILGrH7qbd6USMgZ2H6xTPBjw3kSEzah2rHO3sHrlJmE4TRedN5ACWEHDMCT/jqP0+qGwqVHYavpTntKe1igfhauAzquR1bECRWx6ZiT/pK02qeSaorMdnV24Fbh/DKeMloHSZf0G8B69ENIr0gCn7xQxXZS5c0dM2UxtHNtyVmPW2a5+PT+dG1xyPCWDeZ157vYRj5awdLsbNtAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9300
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A9.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d084e39b-ef54-4b47-3d81-08de803236e6
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|30052699003|36860700016|35042699022|14060799003|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: iEdQ5l/E70orGl/i7m6AyoNukf7RgirDhG2H7/vghhW/xzw9wO9kzKGnMLmqLOaap8/8e7nt8Rkf2s9bAiEgjQdH2dUywmjhFBAUpctUw2jY9Rmnr/P79CoBrxSPDJIJxO37S13ZB+QewVnIVkyn8Fm2f+3EqkLIuBKJST+ZP/fEFV1C2FaffsuW/bRls+MtAgfswf7J41DBMAwPflUkH6/ISYz6eS9GspcULbPR+7RVeNtQjpB1WUnuQFN87jY+YfmW2T3MCx9Nq12FbC8q/yp8WvY7NXLRA+RKEGrfUSmyE3xFSynfCOWESpa2Fc1/syrELrRsMvuZhJCgLU8yD5PnCWEY/ldl+m8zwZgym1KhpX8asH1LKYWgcMeji7O4vF/yy3ZWZQwy0fbefm5vXDhjvbEvqqh/OvRo4pJdAnmpc8lobQLus24Z0SCLS8Jp2te+XIasRY8niD0cZvat+dOr7Vbagg3FTtKdNk8n+B95eiBHRwr4aLYY79Lqftxa4A5aDgVpGYkctX4c1lpgomjffdCZl+cgTPlP+K0int2+Uk25gyfhfxOt+vd4oJMl6pVym94CzmpPd++kqabagIV+JbUhP5VLohT3By9oczF2BukNe9qp+P2SgYVIGETpwbO295I7aJUKscVIvftBipGESfIlVUTCSkHDJRaFZjfGZTG6ID/0Lm4+iWu/S6p+e3775f97uPBhyqIVPT4C6y6NxQms6xixfhN94x3QdlRuo65LhAZBU/2ALZWloZOt9Yof8zUiLuQ9dX19rttyxg==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(30052699003)(36860700016)(35042699022)(14060799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 4ATxXA0HZSrmv94Gx79UOx/kDZfZ4ONjOU31jDz2iPt+WCPLjF9eIL8ey2+FPNBMQABfFlpXl/vjTnq7I0eWfGTmwMn0o+l/gXy0zGTcjWz+XlJkyO5dofmZS59NktJbVNLd70eIzYz0pd/Jp6f9mfRSDwFWyh+MWdCVNhqOjOTclBFl8swiMEkwGi/bmy8G51T/yOXJepFQo1LwFFPQK0gH4HWgLYlgzdXOcbYwy+xgeIBW4H2A5+K5R6hW8rUsfHsAEsR0ZkRAgksc8c8FsLLK6QJbrZEszUjjKHbN6vei7qB6pjVHaXLdd6oE+PgNWvxI2+j9jzTMJ1ZozYzYz+u4x4GwjeXl4OiXnGkBNSYuNzVTJzsvXgWJvs3u1/QCAE7eyitxNBKK/H5dNTak1kWcpNFiMboCi3D6sXgGUhe4+oNG/uLRNHNPgI7FW7Lv/kDPkwp7PNkn5rUUrXRqHu1Yu6VaU3bL94zYJLvncRw0YKRPGhM3SB2XDyRmrWiUNUarqRCRTQnqTSAht1xgMJMGlMYOW80MprVGBgHVQRY49SENic90NUGQ41zBZzLdCfMx+k3x1dCEEq/sfMnMBsjAamfegfs7SIAQbJXSchHv6Tj2zZDxh8Ody/3lrIGuJTojXW9bE9vl5Zjj9YIW9gM3786NahDT/GTnzDEbflQD9uo2mWru6zN/rRqJmo3mS3cRY8Xt1QMUA2hpNJ+rvp6d4FY0RjkPT2D0U1A7jUBaosbQOUaep4x2c7CZ1iK5sGmxoAKtYfsQZ+TOlmjDiQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: G5EYKejkYnbFh0XvMohkgbKvXaE8eJz3icfbtXAftkKu/sxaeVGp7UyMJUhjWVHl02pBYb6Y9W1bQDwFZlLnvxJIXI+CV/noyQF0x52u12V+KeoPGK2otV3NOrKL2SyVGHi4gvMvaXEdnq6h/3Hke5YaYoSohkKmHyxHo2ZVbAvkPC+Ty67eJzTqDYN21oOwPJTOqzoZ3ncAXop1KiB52gJP59gXJhackfp0vegyEhwDR6JSBbK0d0S1I2zl6+JdI1Lji/AtCXdJ15UoGPMH5duHWd8OhXIrckz7yuG5oIWbAi5uQ0tW+RRyvJW6GAqHAsatN9fseNj0uQgCyYZS4Zs5v+e9QciXyRia7+DW2hR7VkMOAm05vKyq0KRPw+8e6H91CktFp0qzKtV6/9LIqMSFBXqwVwVb+pK/k08LqjOYTorfFXxfszi92Nqzp22y
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:24:57.2160
+X-MS-Exchange-AntiSpam-MessageData-0: TAPZPWHrMpG5FAnuVpw9Y95fu3naq6WO6FO7QuxohpgkcNIRQkc/Ic2LmJxTmwNLpErEq6FSY2PYQ0PxRbcr0srX4njY6QLIZpz5wtAjpHqPaUAPuXGxrmS4FifVViB2Y0kXYpxi/FwxSrm08QN/QHWVwHh0BGEsOaO0IFe1K5sk19HHeSPkPguV4i4GtQgfdR+D9hUb2rwW0AiqnR21a5fihOO5muq26OVk3MHJkt0p8yATINSrRXqtFhTHWL/rZ6vJlrGVYOLK3glsAbGGHIXfE9O7P8IE2xiu25ZpzEV7vk7GgPT2kdxIwAzkWfuCkgNXK357yra2f6qTOtYUvPpU5fz0QfOadFqqKpkp8N2Xi8PcaNWfVqPdCJgjDLv7MYTAyQ2+S5fm0bi0nTBXGNg72yqZJ/S/zMUGQW7hegpvwTbz4xXSHRwu1eOd4cCl
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:29:21.0864
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3359a33-25b2-4eb5-735a-08de80325f90
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A9.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8fbbea0-f422-40d1-94b5-08de8032fcd8
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FA.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10221
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_052508_995078_EF1C12F1 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20260312_052929_058011_6DD00518 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,439 +129,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2026 15:55, Jonathan Cameron wrote:
-> On Fri, 20 Feb 2026 13:42:29 +0000
-> Ahmed Tiba <ahmed.tiba@arm.com> wrote:
+Salut Alain
+
+On 2/24/26 16:48, Alain Volmat wrote:
+> This series perform various improvements in STM32MP1x and
+> STM32MP2x i2c nodes, including:
+>    - usage of exti interrupt controller in order to allow
+>      wakeup-source
+>    - enabling of dma mode
+>    - addition of boards i2c node
 > 
->> Add a DeviceTree firmware-first CPER provider that reuses the shared
->> GHES helpers, wire it into the RAS Kconfig/Makefile and document it in
->> the admin guide. Update MAINTAINERS now that the driver exists.
->>
->> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> Hi Ahmed,
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> ---
+> Alain Volmat (8):
+>        ARM: dts: stm32: update i2c nodes interrupt/dma in stm32mp151
+>        ARM: dts: stm32: update i2c nodes interrupt/wakeup-source in stm32mp131
+>        arm64: dts: st: update i2c nodes interrupt/wakeup-source in stm32mp251
+>        arm64: dts: st: update i2c nodes interrupt/wakeup-source in stm32mp231
+>        arm64: dts: st: add i2c2 pinmux nodes in stm32mp25-pinctrl.dtsi
+>        arm64: dts: st: disable DMA usage for i2c on stm32mp257f-ev1
+>        arm64: dts: st: describe i2c2 / i2c8 on stm32mp257f-dk
+>        arm64: dts: st: describe i2c2 / i2c8 on stm32mp235f-dk
 > 
-> Various comments inline.
+> Olivier Moysan (1):
+>        ARM: dts: stm32: remove i2c dma properties in stm32mp157c-ev1
 > 
-> Jonathan
+>   arch/arm/boot/dts/st/stm32mp131.dtsi          | 25 +++++++++-------
+>   arch/arm/boot/dts/st/stm32mp151.dtsi          | 42 +++++++++++++++++++--------
+>   arch/arm/boot/dts/st/stm32mp157c-ev1.dts      |  4 +++
+>   arch/arm64/boot/dts/st/stm32mp231.dtsi        | 12 +++++---
+>   arch/arm64/boot/dts/st/stm32mp235f-dk.dts     | 26 +++++++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 17 +++++++++++
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi        | 24 ++++++++++-----
+>   arch/arm64/boot/dts/st/stm32mp257f-dk.dts     | 26 +++++++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  6 ++++
+>   9 files changed, 148 insertions(+), 34 deletions(-)
+> ---
+> base-commit: 291f393298f72091490dfa70ab4a0ebdbb4c7d7e
+> change-id: 20260224-stm32-i2c-dt-updates-418a40f03734
 > 
->> ---
->>   Documentation/admin-guide/RAS/main.rst |  18 +++
->>   MAINTAINERS                            |   1 +
->>   drivers/acpi/apei/apei-internal.h      |  10 +-
->>   drivers/acpi/apei/ghes_cper.c          |   2 +
->>   drivers/ras/Kconfig                    |  12 ++
->>   drivers/ras/Makefile                   |   1 +
->>   drivers/ras/esource-dt.c               | 264 +++++++++++++++++++++++++++++++++
->>   include/acpi/ghes_cper.h               |   9 ++
->>   8 files changed, 308 insertions(+), 9 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/RAS/main.rst b/Documentation/admin-guide/RAS/main.rst
->> index 5a45db32c49b..4ffabaaeabb1 100644
->> --- a/Documentation/admin-guide/RAS/main.rst
->> +++ b/Documentation/admin-guide/RAS/main.rst
->> @@ -205,6 +205,24 @@ Architecture (MCA)\ [#f3]_.
->>   .. [#f3] For more details about the Machine Check Architecture (MCA),
->>     please read Documentation/arch/x86/x86_64/machinecheck.rst at the Kernel tree.
->>   
->> +Firmware-first CPER via DeviceTree
->> +----------------------------------
->> +
->> +Some systems expose Common Platform Error Record (CPER) data
->> +via DeviceTree instead of ACPI HEST tables.
-> 
-> I'd argue this isn't really DT specific, it's just not ACPI table.
-> You could for instance use PRP0001 and wire this up on ACPI with only
-> one trivial change to generic property.h accessor for the boolean.
-> 
-> Or use another firmware information source entirely.
+> Best regards,
 
-I'm intentionally keeping the scope DT-only for this series,
-so I'll keep the wording DT-focused.
+Series applied on stm32-next.
 
->> +Enable ``CONFIG_RAS_ESOURCE_DT`` to build the ``drivers/ras/esource-dt.c``
->> +driver and describe the CPER error source buffer with the
->> +``Documentation/devicetree/bindings/firmware/arm,ras-ffh.yaml`` binding.
->> +The driver reuses the GHES CPER helper object in
->> +``drivers/acpi/apei/ghes_cper.c`` so the logging, notifier chains, and
->> +memory failure handling match the ACPI GHES behaviour even when
->> +ACPI is disabled.
->> +
->> +Once a platform describes a firmware-first provider, both ACPI GHES and the
->> +DeviceTree driver reuse the same code paths. This keeps the behaviour
->> +consistent regardless of whether the error source is described via ACPI
->> +tables or DeviceTree.
-> 
->> diff --git a/drivers/ras/Kconfig b/drivers/ras/Kconfig
->> index fc4f4bb94a4c..ea6d96713020 100644
->> --- a/drivers/ras/Kconfig
->> +++ b/drivers/ras/Kconfig
->> @@ -34,6 +34,18 @@ if RAS
->>   source "arch/x86/ras/Kconfig"
->>   source "drivers/ras/amd/atl/Kconfig"
->>   
->> +config RAS_ESOURCE_DT
->> +	bool "DeviceTree firmware-first CPER error source block provider"
-> It isn't really DT specific other than one call that I've suggested you
-> replace with a generic firmware accessor.
-> 
-
-I'll keep it DT-specific for this series.
-
->> +	depends on OF
-> 
-> Generally we don't gate on OF unless there are OF specific calls. Here there
-> aren't so you are just reducing build coverage. || COMPILE_TEST
-> maybe.
-> 
-Agreed. I'll drop OF and add COMPILE_TEST.
-
-
->> +	depends on ARM64
-> 
-> Likewise, nothing in here is arm64 specific that I can spot.
-> 
-
-Agreed. I'll drop ARM64.
-
->> +	select GHES_CPER_HELPERS
->> +	help
->> +	  Enable support for firmware-first Common Platform Error Record (CPER)
->> +	  error source block providers that are described via DeviceTree
->> +	  instead of ACPI HEST tables. The driver reuses the existing GHES
->> +	  CPER helpers so the error processing matches the ACPI code paths,
->> +	  but it can be built even when ACPI is disabled.
->> +
-> 
->> diff --git a/drivers/ras/esource-dt.c b/drivers/ras/esource-dt.c
->> new file mode 100644
->> index 000000000000..b575a2258536
->> --- /dev/null
->> +++ b/drivers/ras/esource-dt.c
->> @@ -0,0 +1,264 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * DeviceTree provider for firmware-first CPER error source block.
->> + *
->> + * This driver shares the GHES CPER helpers so we keep the reporting and
->> + * notifier behaviour identical to ACPI GHES
->> + *
->> + * Copyright (C) 2025 ARM Ltd.
->> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
->> + */
->> +
->> +#include <linux/atomic.h>
->> +#include <linux/bitops.h>
->> +#include <linux/device.h>
->> +#include <linux/interrupt.h>
->> +#include <linux/io.h>
->> +#include <linux/io-64-nonatomic-lo-hi.h>
-> Used?
-
-No, I'll drop it.
-
->> +#include <linux/module.h>
-> mod_devicetable.h for of_device_id definition.
-> 
-
-Ack. I'll add <linux/mod_devicetable.h> and keep module.h.
-
->> +#include <linux/of_address.h>
->> +#include <linux/of_irq.h>
-> Generally very little reason to include these.  Not sure why you need
-> them here.
-> 
-
-Agreed, I'll drop both.
-
->> +#include <linux/panic.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/slab.h>
->> +#include <linux/spinlock.h>
->> +
->> +#include <acpi/ghes.h>
->> +#include <acpi/ghes_cper.h>
->> +
->> +static atomic_t ghes_ffh_source_ids = ATOMIC_INIT(0);
-> I'd normally expect an IDA or similar. If nothing else it clearly
-> indicates we only want a unique ID.
-
-I'll keep the atomic for now; it's just a monotonic unique ID with no
-lifetime tracking. If you strongly prefer IDA I can switch.
-
->> +
->> +struct ghes_ffh_ack {
->> +	void __iomem *addr;
->> +	u64 preserve;
->> +	u64 set;
->> +	u8 width;
->> +	bool present;
->> +};
->> +
->> +struct ghes_ffh {
->> +	struct device *dev;
->> +	void __iomem *status;
->> +	size_t status_len;
->> +
->> +	struct ghes_ffh_ack ack;
->> +
->> +	struct acpi_hest_generic *generic;
->> +	struct acpi_hest_generic_status *estatus;
->> +
->> +	bool sync;
->> +	int irq;
->> +
->> +	/* Serializes access to the firmware-owned buffer. */
-> If we are serializing it, in what sense is it owned by the firmware?
-> 
-
-I'll clarify the comment:
-firmware owns the buffer contents and the OS only serializes access.
-
->> +	spinlock_t lock;
->> +};
-> 
-> 
->> +
->> +static void ghes_ffh_process(struct ghes_ffh *ctx)
->> +{
->> +	unsigned long flags;
->> +	int sev;
->> +
->> +	spin_lock_irqsave(&ctx->lock, flags);
-> 
-> guard() + include cleanup.h. Then can do returns in error paths.
-
-Agreed. I'll switch to guard() and include <linux/cleanup.h>.
-
->> +
->> +	if (ghes_ffh_copy_status(ctx))
->> +		goto out;
-> Like here to give simpler lfow.
-> 
-> 
->> +
->> +	sev = ghes_severity(ctx->estatus->error_severity);
->> +	if (sev >= GHES_SEV_PANIC)
->> +		ghes_ffh_fatal(ctx);
->> +
->> +	if (!ghes_estatus_cached(ctx->estatus)) {
->> +		if (ghes_print_estatus(NULL, ctx->generic, ctx->estatus))
-> 
-> Combine the two if statements with &&
->
-
-Will do.
-
->> +			ghes_estatus_cache_add(ctx->generic, ctx->estatus);
->> +	}
->> +
->> +	ghes_cper_handle_status(ctx->dev, ctx->generic, ctx->estatus, ctx->sync);
->> +
->> +	ghes_ffh_ack(ctx);
->> +
->> +out:
->> +	spin_unlock_irqrestore(&ctx->lock, flags);
->> +}
->> +
->> +static irqreturn_t ghes_ffh_irq(int irq, void *data)
->> +{
->> +	struct ghes_ffh *ctx = data;
->> +
->> +	ghes_ffh_process(ctx);
->> +
->> +	return IRQ_HANDLED;
->> +}
->> +
->> +static int ghes_ffh_init_ack(struct platform_device *pdev,
->> +			     struct ghes_ffh *ctx)
->> +{
->> +	struct resource *res;
->> +	size_t size;
->> +
->> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
->> +	if (!res)
->> +		return 0;
->> +
->> +	ctx->ack.addr = devm_ioremap_resource(&pdev->dev, res);
-> Why not devm_platform_get_and_ioremap_resource()?
-
-Will switch to devm_platform_get_and_ioremap_resource().
-
->> +	if (IS_ERR(ctx->ack.addr))
->> +		return PTR_ERR(ctx->ack.addr);
->> +
->> +	size = resource_size(res);
->> +	switch (size) {
->> +	case 4:
->> +		ctx->ack.width = 32;
->> +		ctx->ack.preserve = ~0U;
->> +		break;
->> +	case 8:
->> +		ctx->ack.width = 64;
->> +		ctx->ack.preserve = ~0ULL;
->> +		break;
->> +	default:
->> +		dev_err(&pdev->dev, "Unsupported ack resource size %zu\n", size);
->> +		return -EINVAL;
->> +	}
->> +
->> +	ctx->ack.set = BIT_ULL(0);
->> +	ctx->ack.present = true;
->> +	return 0;
->> +}
->> +
->> +static int ghes_ffh_probe(struct platform_device *pdev)
-> 
-> Consider using a
-> 	struct device *dev = &pdev->dev;
-> given there is only one device around and it will shorten a bunch of
-> lines a little.
-
-I'll use a local dev pointer.
-
->> +{
->> +	struct ghes_ffh *ctx;
->> +	struct resource *res;
->> +	int rc;
->> +
->> +	ctx = devm_kzalloc(&pdev->dev, sizeof(*ctx), GFP_KERNEL);
->> +	if (!ctx)
->> +		return -ENOMEM;
->> +
->> +	spin_lock_init(&ctx->lock);
->> +	ctx->dev = &pdev->dev;
->> +	ctx->sync = of_property_read_bool(pdev->dev.of_node, "arm,sea-notify");
-> Hmm. I'd allow for other firmware types with
-> 	device_property_read_bool() instead.
-
-Given DT-only scope, I'll keep of_property_read_bool() here.
-
->> +
->> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->> +	if (!res) {
->> +		dev_err(&pdev->dev, "status region missing\n");
-> In probe you can always use dev_err_probe. It pretty prints the return value etc and
-> saves lines of code.
-> 		return dev_err_probe(&pdev->dev, -EINVAL, "status region missing\n");
-
-Agreed. I'll use dev_err_probe() here and for zero length.
-
-> Don't worry about slightly long line.
-> 
->> +		return -EINVAL;
->> +	}
->> +
->> +	ctx->status_len = resource_size(res);
->> +	if (!ctx->status_len) {
->> +		dev_err(&pdev->dev, "Status region has zero length\n");
-> As above, use dev_err_probe()
-> 
->> +		return -EINVAL;
->> +	}
->> +
->> +	ctx->status = devm_ioremap_resource(&pdev->dev, res);
-> I'd be tempted to use devm_platform_get_and_ioremap_resource() and just
-> not worry about mapping and unmapping that will unnecessarily occur in the
-> case of error.
-
-Will do (as above).
-
->> +	if (IS_ERR(ctx->status))
->> +		return PTR_ERR(ctx->status);
->> +
->> +	rc = ghes_ffh_init_ack(pdev, ctx);
->> +	if (rc)
->> +		return rc;
->> +
->> +	rc = ghes_ffh_init_pool();
->> +	if (rc)
->> +		return rc;
->> +
->> +	ctx->estatus = devm_kzalloc(&pdev->dev, ctx->status_len, GFP_KERNEL);
->> +	if (!ctx->estatus)
->> +		return -ENOMEM;
->> +
->> +	ctx->generic = devm_kzalloc(&pdev->dev, sizeof(*ctx->generic), GFP_KERNEL);
->> +	if (!ctx->generic)
->> +		return -ENOMEM;
->> +
->> +	ctx->generic->header.type = ACPI_HEST_TYPE_GENERIC_ERROR;
->> +	ctx->generic->header.source_id =
->> +		atomic_inc_return(&ghes_ffh_source_ids);
->> +	ctx->generic->notify.type = ctx->sync ?
->> +		ACPI_HEST_NOTIFY_SEA : ACPI_HEST_NOTIFY_EXTERNAL;
->> +	ctx->generic->error_block_length = ctx->status_len;
->> +
->> +	ctx->irq = platform_get_irq_optional(pdev, 0);
->> +	if (ctx->irq <= 0) {
->> +		if (ctx->irq == -EPROBE_DEFER)
->> +			return ctx->irq;
->> +		dev_err(&pdev->dev, "interrupt is required (%d)\n", ctx->irq);
-> If it's required, why call get_irq_optional?
-> That only serves to suppress the error message inside the call.  Use
-> the non optional version and drop this.
-
-I'll use platform_get_irq().
-
->> +		return -EINVAL;
->> +	}
->> +
->> +	rc = devm_request_threaded_irq(&pdev->dev, ctx->irq,
->> +				       NULL, ghes_ffh_irq,
->> +				       IRQF_ONESHOT,
->> +				       dev_name(&pdev->dev), ctx);
->> +	if (rc)
->> +		return rc;
->> +
->> +	platform_set_drvdata(pdev, ctx);
-> 
-> I can't immediately spot where this is used.  If it isn't don't set it as that
-> will mislead people into thinking it's needed.
-
-Agreed. I'll drop it.
-
->> +	dev_info(&pdev->dev, "Firmware-first CPER status provider (interrupt)\n");
-> 
-> Krysztof already commented on this one.
-> 
->> +	return 0;
->> +}
->> +
->> +static void ghes_ffh_remove(struct platform_device *pdev)
->> +{
-> 
-> If nothing to do, platform drivers don't need a remove so get rid of it.
-
-Agreed. I'll remove it.
-
->> +}
->> +
->> +static const struct of_device_id ghes_ffh_of_match[] = {
->> +	{ .compatible = "arm,ras-ffh" },
->> +	{ /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, ghes_ffh_of_match);
->> +
->> +static struct platform_driver ghes_ffh_driver = {
->> +	.driver = {
->> +		.name = "esource-dt",
->> +		.of_match_table = ghes_ffh_of_match,
->> +	},
->> +	.probe = ghes_ffh_probe,
->> +	.remove = ghes_ffh_remove,
->> +};
->> +
-> Common convention is keep this tightly coupled with the
-> struct platform_driver but not having a blank line here.
-
-I'll drop the blank line.
-
->> +module_platform_driver(ghes_ffh_driver);
->> +
->> +MODULE_AUTHOR("Ahmed Tiba <ahmed.tiba@arm.com>");
->> +MODULE_DESCRIPTION("Firmware-first CPER provider for DeviceTree platforms");
->> +MODULE_LICENSE("GPL");
-> 
-> 
-
+Cheers
+Alex
 
