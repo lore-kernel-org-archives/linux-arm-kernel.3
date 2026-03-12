@@ -4,136 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0A1106ACDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A2D106ACDD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HEamJxtaKlHadrfFvcusAILYjU4Ri7LBqM0L+cVGLAA=; b=oTlNHNNo7ACTAWc6MAOKvKSzfk
-	f2TJCyjNUK9v7orHdubBK7Pz8kfIa86NfxfHzg/s+NMACVYgMpFDTDqfAAbzF8pcsuyLckJNRBH23
-	SKAIGmOHLyMRqamlCoZzaMeZSqcqfdCSNwWPhQ5S1a7I71HYEyD2v/nBKoHHc9POWodY75maFKO4T
-	M2w0i4YFi07XybefC0IhTst5xq9KREFHP9XcjLMck4wAfn6aA29YfL/4o0rxeh1rc1MaRMZ4MKjqy
-	3kZ/5sSLAGSUqjiKBEhX71xhQb3S8M0nVde7K39tI94x/IyijVVEvHnNQJGQ4eJhRm4wF8MvEfg4s
-	OMwFsUBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UUxQK5QJNlcyTiSWRj3BOnT+rEkUhbC9Gnm0lW0kamY=; b=jjRsplS38WwrupNp4KvbVXgCc7
+	ZL9ZYGnaqAQbkAj1FPZ9pBiI61jAOZ94hh6JhkKic5zvTso457DeYsmYFebES50ojlxzg7wBF3haV
+	d8JmTx/BzvbW6jeIDP+lpal3wrOwVJUrqG+BlhmSVOaFO2NxSSLBBnL+1EgbXZLtb0F1twAFErnSK
+	xjSIz/ydWp3gEvWguJpnXxyoAYOQOvTNJTmVPMAG61M1rhFUGNnQi9Zf3hSvIFR6WzYpINyGhdaRY
+	twCVidVuzo5Lq8hfptZuBub+RfGst0+kSLpO9xg4Uc5uJWwX/j6azplwk/axwrdXnfh44eRu/ODYU
+	AhzKGkbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0leA-0000000F5QA-3wcp;
-	Thu, 12 Mar 2026 19:24:38 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w0lfq-0000000F5iA-1VPT;
+	Thu, 12 Mar 2026 19:26:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0le7-0000000F5PP-3f4L
+	id 1w0lfo-0000000F5hN-3x2g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Mar 2026 19:26:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=UUxQK5QJNlcyTiSWRj3BOnT+rEkUhbC9Gnm0lW0kamY=; b=P3B5WoeERRokJ+KkFSlaGgQxV9
+	JJcpVoiyZGCCbGXpeDKcDIopmT98XA42/St04AbHPSDwbVvihiHVBwpw5UVnyRNhQUGvJvyAFt0x1
+	n1Eaxj6yuCMEHLeMtrmflbWaW3m/clsc30TdyJeyqnS/OXrnDHwVHXfRKMS2VmS5HkzY0MXgLZ+Jr
+	pa0FgDSi2okU8JopW9OFfj0XsxOpISysFWj+qxSOu/4AZKZmrSX7l/JSTPkM60beHehE71+xLouf4
+	7wCGzCTRCaGd3WOlXfz+KLgev7hfhYkxrd3YfrhmM/JaMyoBoT6A2I1DLopkdgvi2tOGFifkLPV1r
+	rweajFsw==;
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0lfj-00000001snp-1KqI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 19:24:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gfeIhnBYpnH4U7+UUiEySIEJ13r9QiktD8jQq00VaJ2KqOXHoMnwxgPD+Drgxhn2ZQKVNWfNjCq1cjcdDeYT7jip7EZi1jr91mVFv4xcHFAGxU4koHTTuMwY3RZmQIfyc17UnaA4oxjQKdx43HJdPooh9WQxibeYv0vqmoD5ym4wHMsqopWizTbnPod+XRv3NRQkdcxMJqm8EtZ1tpGL4k5G8TycgZkXMh+2YYf6oPnsFwop5T5+apq1edKzKibfd6Q/RUp9BUiSAePeY1SBJqLv/zsn3kcx3C94XKFoi7xVOKye1M9+FCylB9ya9TDMirZCqwxloHMMcd8ExBSjNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HEamJxtaKlHadrfFvcusAILYjU4Ri7LBqM0L+cVGLAA=;
- b=GQSB0vgpVbfonau5KxOVQ7QCCs/Lqf2zfybZGnprK6n8U7uZp3Kv9DeuUdLFxhbVleT8Q+aYtje6ejJT8rndO3/yxYV4d0w41uf+h2YQlzq3Sq8MIhQImTnlnA+uhaRMXboEF46uBTO3aGoVfQTETfjLKDjaLanHAjmfZkPtS8N4lg0ysilo8KcoDPvN5FXoKNSOWrreAxIEAI29njja1F7DYCMYzTclcbaQt7Zmf1sTdVu8+wZvj18SlXDiHGIE/ski3KhtcmCfhUyiH2WgYj5DX4kW2T1BI1V6fxY16TqV3bkZ2fI/Ijwrvj3viEa7gfVA9+0nEzzYxJuCmgjfdg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HEamJxtaKlHadrfFvcusAILYjU4Ri7LBqM0L+cVGLAA=;
- b=dcznTCpxykOw2f9kHi9Ku0bZLUvt+dS+6P72rxa2kA7oNBrf2xFxoBAy27Yvjw/MQVzkWXtzj//K/WItx4o9HlQz0fYAV0GqpzHMPQXghl6llDsOZQA41X61DQxSEGnjq1g5Iv05zG/j8qjO58Ge3LzaUxkZ5tOn6155v4QtqcBLAxOLkPXhdM4qgY3CrX73lAFxLwsXj/GUB9sS9r2yEZRYAzhGgNO9C4pzP2RxAxXI7sq78eawqcLtNPHHECgdqlc7MryUrbzsDZT3Bp3PX4QJzb9HDiy33K0OIgQwYGFJjuqpBy4r3J3Cv9U6yJBP0unUxJcdA0INkWWnrOpt2Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM7PR04MB6935.eurprd04.prod.outlook.com (2603:10a6:20b:10e::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
- 2026 19:24:28 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
- 19:24:28 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <frank.li@nxp.com>,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 4/4] remoteproc: imx_rproc: Add support for i.MX94
-Date: Thu, 12 Mar 2026 15:24:13 -0400
-Message-ID: <20260312192415.3486965-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260312-imx943-rproc-v1-4-3e66596592a8@nxp.com>
-References: <20260312-imx943-rproc-v1-4-3e66596592a8@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH8PR02CA0016.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 12 Mar 2026 19:26:18 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2aec4a71ef9so5505595ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:26:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773343572; x=1773948372; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UUxQK5QJNlcyTiSWRj3BOnT+rEkUhbC9Gnm0lW0kamY=;
+        b=LugSJ3N0xrbmx1WvgB06CVetWUVspr4cRGIxXOIR1NHtrxkhWavqIL6BtZSU/AZy2j
+         akjefDz8nOHZdVs/s3yPeDZDe4t6Ly7S8Ajx5TFcQv6dZdh+t6r8OuHe9A2Fx8chyG5H
+         E/Hsp4Wnns+/qQ7ZgCmyzEoyoGj+titNcqiRV4HGsnu9hlwtI/lY2As+ZsNFlBhWF+E0
+         nd0ksIgf5/PWYWqS7cT6DWJPsXdzPNJMRGUlR0Y6fmU3uMgSE22Y8MpPIoHnkpsm000C
+         iVyKR+Z/nRpEV8+8PDE4r2YOd6REwxIfDbBlEwlxLw6rNu99t1Tb/R9bSa8hNwiJHVG4
+         L6NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773343572; x=1773948372;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UUxQK5QJNlcyTiSWRj3BOnT+rEkUhbC9Gnm0lW0kamY=;
+        b=mUhqnMJNVIDpli6l4lqJ1pjASQZFZdSv3GZq8HNJlHceqES68I8WsZMOUHln3hN5km
+         aRnlSYg3CxOOOMiTHvnZyg82PDKEFs605MwC8D0YWNdUFRwTXG0CcDHttxLVqBhAKJBV
+         +9Z6GYoYk/zyovgSqv4b6vCx3oCBbDdjpAJflHvDoPPxp4cDvmaTXGQg5yt2bj5eXiLz
+         a8+lWi2fqxO6BJXO24buwvl2+kwixx7Tmb1PAjPtoPBY/SIe3f70/5BuPkfgVPAiiWWD
+         4SvFoRrKp1KOHaQW9O1XMFv0prvD7+14lpkk576ezopXOATKnokJhwSlEm3tNLcbhQbB
+         gnpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvC4u/Rrb4PIvo5vGjZ+G44pKAno2oUyH4IowHfmEpypIGFbfmabE3Ssb4hIzWU5mia51+MuVKpFjZPjdUhApX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKjjCG9/wC5j3xfNN/lErsMb/rU6qcf66GPwiXspndSHUkfPJ/
+	MNa0UtsAo1CnRyI6/lIiiApLaSJIpeE6y6emjf3DzzpAMnw90sLXmEZ+
+X-Gm-Gg: ATEYQzxmuhs/huCAnYIODrqi7AReuS8qqDHguh7WQETpDtY/pRvBG7jdR4drBQ/0I2h
+	ry/jVxsAMS2IhFtC446DUkiH6ADoNrpTZS/fJaVfKWPFSrdUWZF/+Nd5KWQUjnEY6nAuuouJCS+
+	T51P6eSLnNGy43CCgyQ2nQKr+7X4D7o9cSH5hj3VdK18TYQQzHMeuwoMHKY9NJOh6XOA3M+H/Fs
+	lPfmT0/hEAPUl6+vaKqDI/1ZYNMO5NW0/QAAbA2ifT52PvaQbQx7jGgVTxD1tMSarmxvQZJ2PtZ
+	SEuBo7tUHMu5zkit3ebh/m0/G913lliN2Fsjz/uAFFHh3FfUDNFUPigzsKmMzAyBcz6icwCiUnW
+	/RDfg+OQB6DqDsjQ7wmxl6TsZU/KZyu3Gikdnjkb2t8q0Oj6nuj6b0oFC+hSXCLsOKsxvL35evH
+	QyWO9mNvFyuhFt1Om9IMNx3eXsH2XtPypAjNxg/Djp8T8TARf4MQInig==
+X-Received: by 2002:a17:902:ecd1:b0:2ae:5655:b42 with SMTP id d9443c01a7336-2aeca95988bmr5392935ad.12.1773343572347;
+        Thu, 12 Mar 2026 12:26:12 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aeae34de2dsm67068375ad.59.2026.03.12.12.26.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 12:26:11 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
+Subject: [PATCHv2] irqchip/stm32-exti: Use kzalloc_flex
+Date: Thu, 12 Mar 2026 12:25:49 -0700
+Message-ID: <20260312192549.4453-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM7PR04MB6935:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e30d926-2903-4972-6b5b-08de806cfa3d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|7416014|1800799024|366016|376014|18002099003|56012099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: fLAyvp1T9+yGEqxV2FhXXXeu67cJ0u5yTxwkKPdgHzpOqbuqIcqhs3SN7by/dONYogbN3w4kDBQ5ee0GlN/A4vUClXpJXeLQHDAqg/g3H+pCYjxCThdzOdVunHFW5N1DUrFa+HrRqtJ913f+M2p6N4u/Lk7luGii0GbW/DnlTKrIF/Qixcixhh6j0ui2ohNVE43jBxqXsmoijetnIUmDT2Dmr5tyWCigeqO4BwyIBmB1lIxesn8KUrKnaKeteNdvDK4wn1FaxvAaZF+cZbkBsVKJtUntsxXzdhQRqN8d5JfJtwVXmgB99VBjG9NUxa9m9zJeiaSN4OYlKHyGY22MWjb91/8qRnG5uNC+sxnVyEYkeE0MGAO399kyI+FjbEYqXUNr5Z1LRGuPx61ke/h9aD2iA/41gmBYirfJ96McIShiWb4g1aEhUzuIbrxCtEQYUShrJJOLJdbaYkfIrwlLbiNPW0X0ErTzK5nwjtj6tP0+Yw0GyjwS6cWvaNShmKbyqdJJ5Psq1Hchz7iy/OgE3YhzjlA9dH8YbpuNcFW3nJr3kp4IA8Q9dOwFXH4ZIWeYqXSotVvLv0hMOdUP7qN0hYV47AXgR7xcTIsaKpR9nJG/u4Xbeu80Z6NaI6THlHfp+LbqukNu6eOy5ZVnn72S5h8oVaIl9gmsBJRPukPoeLmLnTFNiUP8GBqIkdN8y93d9rmfjkob+rePGZWi88hQe1XUFviAP1GKKfI6FSqhjox0nNItuO1GlB8tYTqMWxVpq7oTyrwqDohQjlolOspHCYtD3VSnWUP41t+16ndKGkQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(7416014)(1800799024)(366016)(376014)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AhI4RbtczUK+Bf2zj/84/xV8Vd7+Z9cbX0wte2cq5DDyH4ZOx7K2lCFUCDm+?=
- =?us-ascii?Q?/YEy37DGUy4aoJ+x73RvEPxwzXaVbbIPIWtA0Bc7duBq+tE5Y8s3BctruhCj?=
- =?us-ascii?Q?jTfF9hDUwxo6X8oCkJpGbBFuDHU8Gl9Rl55biQaCsgNnM9vMVht+3UkOKTRN?=
- =?us-ascii?Q?Z29OwepBN+BK8kcjqSOSoJIeBsBl2Au2pix19M5q55kHz5WlDoqqedBZ0y6/?=
- =?us-ascii?Q?28Yacm3Ur6//Pr13FMFCFZABlzVeO18crw4WscKHwCUFbw5yu2+ALr+en8FJ?=
- =?us-ascii?Q?hW840zJk94khv1HhhwrI0IO/TI+5fFBOe1Je9RJAql48uX618Q50+7fhe3Uk?=
- =?us-ascii?Q?tgsf7d1+3dfP+Szt9ENnqgHpjh7PJzTJ4coKsPqwvo+Hxej0HzaVfZybJALU?=
- =?us-ascii?Q?nhWPUD+c/XeRH51gMkYLtCVFjEdFqhjYCc/m78d+9oj6lUX0d8WWjxfGa80o?=
- =?us-ascii?Q?RQCyTCJN3okAg2+dHfTeKDVvSE1R5nBS9lpz4hzuZ3T6QVXkGhPZVAzxgfwZ?=
- =?us-ascii?Q?ChxGp4YC12ne0eHKt949L/3BmOQKcXeiiR8qvGcZGmDPsyMncgr9X2y9wM1I?=
- =?us-ascii?Q?cm0i9PIp79vujbPZolTntEpJ4MwUsYLfw1qbbhxi7lAnA9TYTACzN8kannkk?=
- =?us-ascii?Q?YfBoUn52KVATmFRc5raMBcC53BVRgunUXeKIMfrH7V34/OvxLKabi5NrCUn1?=
- =?us-ascii?Q?0AcoLdJ8us5IOMQRya+rr/bPnoNk02jhERfzX2ASz9lpThYPCDreQ0MbXTao?=
- =?us-ascii?Q?DvZMleWugzl9WeQMNfIp8aU9Ejbmlzi18MmIPpfXBD0SoHiPzjou0DqAgbTn?=
- =?us-ascii?Q?sW0p+MA+KlhLc5irvwcDmxiwcL8o3yeW+P5ef717g+5QeQofWTtp3P8MwTqA?=
- =?us-ascii?Q?TuSndZxAgJJ8CA6rmkU+hLXWcv7tWPgR3PcmvB7SOcpkiqpjWYxXrkyO3R2P?=
- =?us-ascii?Q?RFcZxEoDH7KcNxXoiEgIIjVpBdQ4HwXAPd7CcErQNsgOEZuA5xsHHLA0u8Kq?=
- =?us-ascii?Q?O4VwYIaIjdICAVOTjqtMG6FJFH6CqClt8WPE8ml97DTup/ZbdhdQffFBS3/C?=
- =?us-ascii?Q?XEr1WFIm6uH4VA8PD5iOFy+BtiKqNdlAvKrbYtddiKfPXSiRcLMpBt8/KZnt?=
- =?us-ascii?Q?gVzDlo22Bm38bBEr18BehEs1piyITpE9COIEJO62hS4iPIBTe807lhjR2lIA?=
- =?us-ascii?Q?6D5npxBxfp2QbYE9hoKgseE19Tqz/DzXn7eAv3tBPZJou/Kr0d0UF0YduACJ?=
- =?us-ascii?Q?MWF9dRF48MneDtLDHGMskTqfke15GyXA5nzDOY96FCn8kZmr1q8y2K6y683p?=
- =?us-ascii?Q?gf3PN/aiFP+CC+vBHs4NPqtRyo6ol+9KZ7rLmUF8Sw4ckD2wa/grLvkhgVOg?=
- =?us-ascii?Q?jovP+vfd//H71rf/5Fh4DFwaD5Gq0t/ExGgW8sz3DIgMPYvFOQX9/3J8zbrn?=
- =?us-ascii?Q?xe61MTdRpkSXwGd85B8bDaoBW5E1Q8C8cGJ2lG46pxWwC+yHHyg3iBUdsM+h?=
- =?us-ascii?Q?e72IpYY27asgMIWjRwhmHtzEZgf7aTh1fszbHxVIZ69chot8iLF45D1EJ9BH?=
- =?us-ascii?Q?s67tRUzroCXek26o6+y/BXJj0Z7N+H5Zv3tW/ZUQtdezLpP2DsRRoc2bOP4m?=
- =?us-ascii?Q?dMk0eO3hla/jDpOuc6sYVhgHh4H/pcPzgnF3AkaVOncnc4IoOk4dxH3kXk1N?=
- =?us-ascii?Q?vZJ6ooxuhC4UDH139rz3e2Ee0vJvzgQ/CDg5pItbNQ3LmRtm?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e30d926-2903-4972-6b5b-08de806cfa3d
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 19:24:27.9879
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6Xoeu9aWFVzOc8aSWuUy+Md5/ZCO9Nsrjv5+XkMiyfMu1JaoX0UAwIhqJAZs5T0WxtlSLDyEDh5ty0ASYb69bA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6935
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_122436_602115_DAABAE74 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260312_192615_445279_DCE0AC78 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,16 +113,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li (AI-BOT) <frank.li@nxp.com>
+Simplifies allocations by using a flexible array member in these structs.
+No need for a second kfree.
 
-> +	/* TCM CODE SECURE */
-> +	{ 0x1FFC0000, 0x209C0000, 0x00040000, ATT_OWN | ATT_IOMEM },
-> +
-> +	/* TCM SYS NON-SECURE */
-> +	{ 0x20000000, 0x20A00000, 0x00040000, ATT_OWN | ATT_IOMEM },
-> +	/* TCM SYS NON-SECURE */
-AI: Duplicate comment label. The second one should clarify which TCM SYS region
-this is (e.g., "TCM SYS NON-SECURE (alias)" or similar).
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: fix title
+ drivers/irqchip/irq-stm32-exti.c | 13 +++----------
+ 1 file changed, 3 insertions(+), 10 deletions(-)
 
-Frank
+diff --git a/drivers/irqchip/irq-stm32-exti.c b/drivers/irqchip/irq-stm32-exti.c
+index 5fdf335acb46..144120cadfa0 100644
+--- a/drivers/irqchip/irq-stm32-exti.c
++++ b/drivers/irqchip/irq-stm32-exti.c
+@@ -45,8 +45,8 @@ struct stm32_exti_chip_data {
+ struct stm32_exti_host_data {
+ 	void __iomem *base;
+ 	struct device *dev;
+-	struct stm32_exti_chip_data *chips_data;
+ 	const struct stm32_exti_drv_data *drv_data;
++	struct stm32_exti_chip_data chips_data[];
+ };
+
+ static const struct stm32_exti_bank stm32f4xx_exti_b1 = {
+@@ -269,26 +269,20 @@ stm32_exti_host_data *stm32_exti_host_init(const struct stm32_exti_drv_data *dd,
+ {
+ 	struct stm32_exti_host_data *host_data;
+
+-	host_data = kzalloc_obj(*host_data);
++	host_data = kzalloc_flex(*host_data, chips_data, dd->bank_nr);
+ 	if (!host_data)
+ 		return NULL;
+
+ 	host_data->drv_data = dd;
+-	host_data->chips_data = kzalloc_objs(struct stm32_exti_chip_data,
+-					     dd->bank_nr);
+-	if (!host_data->chips_data)
+-		goto free_host_data;
+
+ 	host_data->base = of_iomap(node, 0);
+ 	if (!host_data->base) {
+ 		pr_err("%pOF: Unable to map registers\n", node);
+-		goto free_chips_data;
++		goto free_host_data;
+ 	}
+
+ 	return host_data;
+
+-free_chips_data:
+-	kfree(host_data->chips_data);
+ free_host_data:
+ 	kfree(host_data);
+
+@@ -389,7 +383,6 @@ static int __init stm32_exti_init(const struct stm32_exti_drv_data *drv_data,
+ 	irq_domain_remove(domain);
+ out_unmap:
+ 	iounmap(host_data->base);
+-	kfree(host_data->chips_data);
+ 	kfree(host_data);
+ 	return ret;
+ }
+--
+2.53.0
+
 
