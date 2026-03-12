@@ -4,129 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FA0105A592
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C1B105A58D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=; b=CqDPl8uTt0f4TsZP8l6MdNF7+x
-	c8qKMJCliYg47BrGiEXTBMjWg6QTnObNw0fQwxMeuYLPFvwgQV261xPXjkgfgJe+2JLUeAGDCWrl3
-	kUBuuMSG0HeGix+05/u/IFeLY20AtsHRdVKHhHrd51VnoUKaFqDprRsVx721+wF67TTO0FGZx03Lv
-	R6itHgenfVpstjD9ic0INkRvzRHTDwPQJwBkPaN16+qn6QOKX/cpUfBewEjl4LZLsTqXsQgxdr0um
-	b8hV/QCq+xJv8RTkH9qgboyn0YgeW35FgAC5wwHuTHsuvXYzeGM1OnAwZ4Klh0zLbBm1KqYmlFnQ4
-	XfBos+iw==;
+	bh=6h0QIfIG1FqCPbr/IC9lGC2Dm3QyO7Jeit7XU4Dft9I=; b=INxMdgvrFk4CFLldHCSxSOWWBs
+	cVjM8Yra7TC0zje2HuML8evhOmfLY/0y0kJEFtyVloe/WPUGjuhNhQ3vyrnUCppfqezfKQ2HVKPcA
+	ZEBfQXQC5xVKCB5HM/KRk6w3c66idV9cC4ouwylj2dAu8ue0lEAiwCFZrF3lGPQx8RspH94B7NIpU
+	m0/1qAV/9i7SHHiOxfR8MsuVDTJUMoxAHHrUniMykYtnnK+JehLM/4qJRNwFp4vQls2I3L0TWX/lb
+	FT+3OpEox7M/KxcBYDUr72h93YSAr5tc7ugmM31ldWq2QTAKruhkpf6vkLpktylgK7ydICsOqr100
+	C16lgkBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0esF-0000000E0Py-0kjc;
-	Thu, 12 Mar 2026 12:10:43 +0000
-Received: from mail-northeuropeazon11010012.outbound.protection.outlook.com ([52.101.84.12] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w0esK-0000000E0S5-2Bdd;
+	Thu, 12 Mar 2026 12:10:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0esB-0000000E0On-0w4T
+	id 1w0esH-0000000E0Qs-3arP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Mar 2026 12:10:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6h0QIfIG1FqCPbr/IC9lGC2Dm3QyO7Jeit7XU4Dft9I=; b=V+hCaxRmOqBjs+7oOlGqSobCje
+	j8w9TeHzy7jdLsnQHTUL8wJd1kgeOFOSg3qhZ7U4RyNpuf5XY9MpQe81CaZDFXaQwiW3Q+5Gr3sgk
+	wX7Me5B8YAnrv3m2uO3xDwwxMrFgWDxdDdNGSaVUgPNlNYcITRMP8t3jpUak67FL0eaFi0yTqO98I
+	I1VfIfyeuginfOJsGMEH/LaujzWREgGC1ENi2pKT8PwEn9TAKsI4s0jMpfNYmrSako42UbmUAd7bQ
+	tHdUDX/FEgGYZOeZF4ooOZE3+5qrNu/UsccV+8ANdTiRgf/a6XGVyBbS1BzLeRU7nU5VNcgZcUZY6
+	8OfxeUJg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0esE-000000015Qe-0hkU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:10:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LwwFk3gdZtFI7OS0im0EDFH2MDB7imvgANGxl2VCv6DFKPjZlQtTxzx5pLVcCVf3MFbp5tQ6d+MKez58Gfd4m3H2qK0QShZtWMXGP9S1BPUS/Ko28lVBk3mN6KeFh8swP403KeNJ6eiwrwwe9/Tk25iS6qXJ3aSzGIv2mzEVVhC4fq1FZ+60lTLypk02pDjzClE/5KicuvV14TtlGfq3q3SFq+j1XCDm+CAFd0uYROrK72zkczVJRCVNypeIT+oI2HWA0272EU7zzwJpdisMcWOcHMowThq2cZQ3HEr7VnvJyfezVsbw5TLjtzvafOLq1CBYJisvFH6hwOI+ib/3Fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=;
- b=iTwqvqbz5XzTl3mMwWK6bIli4PIsn7zs4WEjUVGyEDEWKuiPUjWrXx9qGYPgvfohTyPbpdEMGeqga8KrLLpXoaheoAqfj2N7cMQ20tws5gcAQlx6tq9R6ndsA/LY1+3znuP65vDv4zbMSt0KyO76iiO+uo2UkJ+WpJ4q1DvarQ8azRsCJXcQ5BXKBAzT0bFrHuADhvg6+70h7OJGVGevV9cUkNO0VbqeLrBsc2xCYEx5fSAc94YKfhiHJFilFUxG8ZLtjM5OF7K2gQlDB+TmfQGz3LM/nESxb82Fj2bCkdVXM0VG3Q/3Z4lGiWkVN+GA6nZ9mNtP7zNdPYwwEDeA8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=;
- b=g4JdTgZLNxOsxB+KaT5/N2LHq3shbx3MFQn0Jcmr4Ovi8DhtJcpseoNVASPRoAXkR4u09xjEm119rc95zTdtVeLtWiKCDmml6OPFghVDKX9DklXSh4jhfl7V13hxKnhGu4ZTuYuElXZ2SJ4ixnCKmTjEHjIfutJ5I9xJLQLVWOxmvDU12v1nvDk2EhFa5w07lsdq1LBFxTZoxa1cKjTdGd3PXwE0QoZSx5MeRtvmqa2af6arH8L6KHvA5v8MaRRol4v0F5/2Uya51IUEjBrf7GR9h/G7T/tKGh1ApWFAGWutOn7duuEn/CAjFan7BECoDTKdO4oLxX/4au9ad4x7Jw==
-Received: from DUZPR01CA0149.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bd::25) by AM0PR10MB9583.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:6fd::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Thu, 12 Mar
- 2026 12:10:32 +0000
-Received: from DB5PEPF00014B8F.eurprd02.prod.outlook.com
- (2603:10a6:10:4bd:cafe::9a) by DUZPR01CA0149.outlook.office365.com
- (2603:10a6:10:4bd::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
- 12 Mar 2026 12:10:26 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB5PEPF00014B8F.mail.protection.outlook.com (10.167.8.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 12:10:31 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 13:12:46 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 13:10:30 +0100
-Message-ID: <521dc906-e26c-4a47-af07-137ce00b176d@foss.st.com>
-Date: Thu, 12 Mar 2026 13:10:29 +0100
+	Thu, 12 Mar 2026 12:10:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5636A40278;
+	Thu, 12 Mar 2026 12:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8DBDC4CEF7;
+	Thu, 12 Mar 2026 12:10:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773317436;
+	bh=nQuXQCfJ/SfXG9YfnkL7myftheQ9u5GoCmA3GEgvOX4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kzp5oTipiNOs9fmIBpi1nmmSuQ4uLVNq08LPCSch8yiIeOkyJ8Az9MBCTybE7cm5d
+	 AMxfwpohLYKZvdRcwY6FVWNb1PtjdZE3EgpeQC628X0efwh2wRrw0LhWn9yaxAQfpf
+	 w6ZUYG6LkLltn75gOmO38N55qeVwus4Wr+Sb10hyo0888DrxKRH5rYKA32g+xfcRRS
+	 vWwOBuST+wlsK+dHrf7tH4G3ruupinYIHv4ZCjmtIer0Zb+wbl+bwIETcNIuNLPGvg
+	 W1154YFBZI0Xw+DtOH34QkYfcH3Ndv6eraBdM09caT66SnioiGB/fgmwobzxV3sXLI
+	 1S2FtYnyjdp3A==
+From: Nicolas Schier <nsc@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Nicolas Schier <nsc@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH 0/2] kbuild: Switch from '-fms-extensions' to '-fms-anonymous-structs' when available
+Date: Thu, 12 Mar 2026 13:08:48 +0100
+Message-ID: <177331711843.39835.18126183139184363231.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
+References: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/12] bus: add stm32 debug bus and coresight support
- for stm32mp1x platforms
-To: Linus Walleij <linusw@kernel.org>
-CC: Gatien Chevallier <gatien.chevallier@foss.st.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, James Clark
-	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, <cristian.marussi@arm.com>,
-	<jens.wiklander@linaro.org>, <etienne.carriere@foss.st.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, Antonio Borneo
-	<antonio.borneo@foss.st.com>
-References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
- <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
- <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B8F:EE_|AM0PR10MB9583:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19df66d8-90b8-48fa-7fe6-08de80305bb4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|7416014|376014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: e7DwyLvanSAM7Z3lixpfV/146yNRKTbcaqUPYCoE9fEoMtuyWMsDldRhuKDqBLJqnS8MGEZFZMZ1rXmLsckcxKu0QGPHHQ6DzCsAK521x+qiQgDhveRE0q1LOoqMLVaeh7E7FOFD9zTMvKu5KQJv+5ktaWWB6rfqF6kDaiMLInS0ArQTTQmxGvMqun4P0a/C3EgRKbRQpmExEOagXanE5tZo/ZXBOVq79JaJEYD8FdJX+6ZK0p6UFDoBoM73LkMD1Z4w73a7ppy9qlG+axjYlkVq101NWZT6+H1S7wtCl55DTTXXoe6Wzc/Eim3Z3pRK2ZYqwlpPVEHFkMOPB24koIUK+vwamI+z7yOVA8LVIPoRMOOE9uTSus2x38ekqOL2kUUcFshoWGrE5e9PXka4RW9iZL4A454XiSqILb/GrRK/BWkap96nOMxFGKpzTgENXiahRCDTrMHJ4xEyMPMXBr6WreByVpOLDASZ16Zcbhzhqdy1f0qOJ6Sh9YEm/34wd536T57l0xeFKNx4cRKWPTy4exCcPVLhLb9XHcEFT252n7xh+8tgE/ZrPPAkDpG9au564aZskQckdq6gsUx07YIqq3+PfkhcckVMVWVvRmKxeY3BIC5RiRnOYHV1HJzcPMhMjUEy89TKeM0m1doYTeiUuCiCqCj6GDijgYd6Z0w7Y5zQYQ/QCZPCPFMeSBeI/NT2vN3JZkLbKKoNplFZPo4sBBVro5WvY4394APYN6s5v5I6oFZp8DBK6nEz00mrFgQ7fzz1jN03Wi1rZoXa8Q==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: o/8/wizWjvk21fAFxvva3W00B+MtIYhrhlHDjwLkdw1j1RWKebVOfOo8uAztDtNWUrCvyOLHpCeBZuVn6YaVmyLJPTOXHZT+lSUBO5VAC6kj/sOs0TjHsFLcz+dv/F+mNKZXv9esY5Q7NeZDIbRbj7/YqAY6h580XnbQvPC4uTOwRoDdcIUPLi/FXpfrU6hAltdoULsKtOBgsTII4Pp67B29XP8FVw2sCZzV+OCCaqdJ2xN1pR+Ps+MI8JsIW/2tuj1t8D6FLjjPRc+XmXM9pNYfXZJK9z/MZXyA2xJ2xW0k/WnSrGGM4DzaZ1qsZ8HQ/FBda2pjwJrEd8dCMGkpDYZecdCibH2HjGMumb89BMMQ7ZCeoApBKvC5kMlcsptLjO1IPLlqW0m7MjNAddyEaZAU+j6TnjpuCzD+H41igvYCy/ZhHbz+JPGzL/nfayuI
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:10:31.7411
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19df66d8-90b8-48fa-7fe6-08de80305bb4
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B8F.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB9583
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_051039_740449_E4D51D63 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260312_121042_560692_197B0790 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,27 +123,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/11/26 10:28, Linus Walleij wrote:
-> On Tue, Mar 10, 2026 at 10:07 AM Alexandre TORGUE
-> <alexandre.torgue@foss.st.com> wrote:
+On Mon, 23 Feb 2026 12:10:27 -0700, Nathan Chancellor wrote:
+> The kernel enabled '-fms-extensions' in commit c4781dc3d1cf ("Kbuild:
+> enable -fms-extensions") in 6.19 to gain access to a Microsoft
+> (originally Plan 9) extension around including a tagged structure/union
+> anonymously in an other structure/union. Since then, Clang 23.0.0
+> (current main) has added a flag to enable only that extension, rather
+> than all Microsoft extensions, '-fms-anonymous-structs' [1]. Using this
+> narrower compiler option would have avoided the build error fixed by
+> commit a6773e6932cb ("jfs: Rename _inline to avoid conflict with clang's
+> '-fms-extensions'"). While these errors are not expected to be common,
+> using the narrower option when available has no drawbacks because the
+> kernel only cares about this extension in '-fms-extensions', no others.
+> While this could result in build errors for folks using
+> '-fms-anonymous-structs' if a developer uses another extension in
+> '-fms-extensions' (either intentionally or unintentionally), flagging
+> these uses for further scrutiny seems worthwhile.
 > 
->> Patch 1 to 11 applied on stm32-next. Linus, let me know if I take the
->> pinctrl one or you prefer to take it.
-> 
-> AFAIU you *have* to take it because there are compile-time dependencies?
-> 
-> I provided my Reviewed-by so go ahead and apply it!
+> [...]
 
-Ok done.
+Applied to kbuild/kbuild-next.git (kbuild-next), thanks!
 
-Thanks Linus.
+[1/2] kbuild: Consolidate C dialect options
+      https://git.kernel.org/kbuild/c/ec4c2827
+[2/2] kbuild: Use '-fms-anonymous-structs' if it is available
+      https://git.kernel.org/kbuild/c/0d3fccf6
 
-alex
+Please look out for regression or issue reports or other follow up
+comments, as they may result in the patch/series getting dropped,
+reverted or modified (e.g. trailers).
 
-> 
-> Yours,
-> Linus Walleij
+Acks from arch maintainers are still welcome!
+
+Best regards,
+-- 
+Nicolas
 
 
