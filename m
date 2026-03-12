@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C27A3FED2FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D05FED2FE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gv/D+u/ILu59/Czfp3UcvkVs1fHRKXwMIsDNuCoKEDk=; b=MX94hPlgCzVEXKERs7A9nQFCSh
-	/EGXrZBRtv/yq2lFeAW/1MGKwmWzQ7aBColv8rJ5swkSK3V328qvsaoqR437CVINqNvR/WxLacdwD
-	Ny8YG5R84fjwowmfc0S8ca+d419hUBYboOPX+Xr9uc+IW15Hc8VEuurgSoRWiCOvBiAhfiRnLkHXQ
-	EoQrIwEXYHAv55IgDD0tZWapZ16+3KTGj2Axn0sbSd8hHvbHIzN8ryraxFDOQzxXyh+VszvphGHOA
-	U9SJIJJcM8qI3F/DwrqOkZPXPSzOJxl8tyF+2t/PEFQWqRvc8lWIy7eC3GSH798Wn4BQ8LmC/oRNn
-	7PFALeOw==;
+	bh=h1uHovn6Yup6c3SyQUieodwk4UlRm93zEwCbjt4JOGM=; b=fx6J2PIidoevoLHo5WlSKh6E6u
+	gLzf9gzQjJptCPx6vL7boCe7uzsHRRqNS4YY4K1SmvirvIVfc7sJTRwLhdjM6H2BBJJSNXtGbsj2c
+	DkZVOrccR/BJIGOqcJ2sbZMyao4XuGbJcg1WCmWbUf8MmGmhEVX8pml6p09GWweHJy9hJAIHpvrKP
+	rFzfYDYgkIfnmc6N35PMl5mdFktmlMowbQ4uOeCmPKtkyqpxOUi+EcItZ45+Y1pMwaFKuBIqJIGsD
+	EcmEZSe+LXbPvmpi5ZkHLObVJWLh+YcI4OQSYAWaYGxIKO2QFvJ4AEWLxOmz8dM9Qga9FtK6h7CoM
+	i2oHUJWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dXo-0000000DtDx-2ss0;
-	Thu, 12 Mar 2026 10:45:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dXl-0000000DtDS-3l93
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 10:45:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC80E165C;
-	Thu, 12 Mar 2026 03:45:18 -0700 (PDT)
-Received: from [10.1.26.37] (e122027.cambridge.arm.com [10.1.26.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B85C3F694;
-	Thu, 12 Mar 2026 03:45:21 -0700 (PDT)
-Message-ID: <45798b53-e18b-4e7b-a49c-37d1783f3444@arm.com>
-Date: Thu, 12 Mar 2026 10:45:19 +0000
+	id 1w0daF-0000000DtNg-0qOC;
+	Thu, 12 Mar 2026 10:48:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0daC-0000000DtNP-0Ym9;
+	Thu, 12 Mar 2026 10:48:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=h1uHovn6Yup6c3SyQUieodwk4UlRm93zEwCbjt4JOGM=; b=KOZaB6VPojpyXbSwMlxld0miNm
+	7g16fLh0k658rRfHRByxz/cYK+Czak0HvB0cjq1Unamdkddq9Jy0OXiIBQH1YliCbtT/owrnof8d7
+	CKa5UkVy2W9R8ONXG1rKZQPQnmX6KvONtr+knwQdowiMI8outbs9Gemi2mG+NIBCt372NLD/8s1cP
+	adTR2PRPPSaA3Y+qmus4a3zymTg4jxIG2k4wgW9CSuCOGAeFW+ozCrGtj+8VosmxDPwcyPL4XvOPl
+	jyOpHjfkPsFXvSJKeas08oUU6/8+Xc10zfpixFPMJ2oks5lEol6rozarrh9NN6Qa/UphXJI+HvkjZ
+	moD80Tiw==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0da9-0000000BCaI-1IQ4;
+	Thu, 12 Mar 2026 10:47:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E5435C415A7;
+	Thu, 12 Mar 2026 10:47:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FF315FDEB;
+	Thu, 12 Mar 2026 10:47:38 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11EC610369C88;
+	Thu, 12 Mar 2026 11:47:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773312457; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=h1uHovn6Yup6c3SyQUieodwk4UlRm93zEwCbjt4JOGM=;
+	b=JaEHHHnqNbNmuD8Ch3LK6QaSJ74j0vNJCsrjA+LWq/5L84WfkVe1vDxAxQd+IxrJfZCa1a
+	hT3qgXKMi0iGpoktI5bUvrNGNbafIDHPdCkcQys8BES2om5Es4IjiDSF/O0NYiWFZrs30b
+	DK4n3LOBf79X8IKhHUEh9IB9rQMgmLhLlhR4iOAT0CWpesvwWDc4XGF7RkeJGsv6bna/9H
+	h9sYoyn5cTcxoftMpAGK8iDeO31EkiuaiefYWnVbyAWxFLVIigg42FUZ8oO0FunKdNZIAR
+	Ty/zLOLgE1raczyrfSphyi7ytsCEAGr/zaIPQg9Wg+rbyi3Ut/2oFnlepKEmww==
+Message-ID: <a157ebaf-c8bc-4123-a7fa-e38beac8f268@bootlin.com>
+Date: Thu, 12 Mar 2026 11:47:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-To: Marc Zyngier <maz@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
- <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com> <87v7f2chde.wl-maz@kernel.org>
- <dd6f4715-e8be-41d1-af60-00f068e9d730@arm.com> <86342575ev.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86342575ev.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 5/6] mtd: rawnand: sunxi: make the code mode
+ self-explanatory
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Wentao Liang <vulab@iscas.ac.cn>,
+ Maxime Ripard <mripard@kernel.org>, Boris Brezillon <bbrezillon@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260305100137.2558423-1-richard.genoud@bootlin.com>
+ <20260305100137.2558423-6-richard.genoud@bootlin.com>
+ <874impne0n.fsf@bootlin.com>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <874impne0n.fsf@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_034530_056754_16C8D297 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20260312_104757_397094_E12C555F 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2026 09:39, Marc Zyngier wrote:
-> On Thu, 12 Mar 2026 09:28:16 +0000,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> On 11/03/2026 19:10, Marc Zyngier wrote:
->>> On Mon, 02 Mar 2026 15:23:44 +0000,
->>> Steven Price <steven.price@arm.com> wrote:
->>>>
->>>>>> +  struct kvm_arm_rmi_populate {
->>>>>> +	__u64 base;
->>>>>> +	__u64 size;
->>>>>> +	__u64 source_uaddr;
->>>>>> +	__u32 flags;
->>>>>> +	__u32 reserved;
->>>>>> +  };
->>>>>> +
->>>>>> +Populate a region of protected address space by copying the data from the user
->>>>>> +space pointer provided. This is only valid before any VCPUs have been run.
->>>>>> +The ioctl might not populate the entire region and user space may have to
->>>>>> +repeatedly call it (with updated pointers) to populate the entire region.
->>>>>
->>>>> size as a __u64 is odd, as the return value from the ioctl is a signed
->>>>> int. This implies that you can't really report how many bytes you have
->>>>> copied.  Some form of consistency wouldn't hurt.
->>>>
->>>> Good spot. In practice this works because >2GB in one operation is
->>>> highly unlikely to be processed in one go. But I guess I'll change this
->>>> to have an output size argument. I guess I could make the kernel update
->>>> all of base,size,source_uaddr which would simplify user space.
->>>
->>> In a conversation with Suzuki, I suggested that splice(2) could be a
->>> nicer way to express this, and allow asynchronous use with io-uring.
->>>
->>> After all, having a guestmem backend for CCA is not exactly
->>> outlandish, and having a splice implementation realistic enough.
->>>
->>> Thoughts?
->>
->> One issue that I realised, is about the "flags" for the populate.
->> Data can be loaded as measured vs unmeasured in CCA (and in TDX
->> and SNP). I don't see a way to convey this with splice.
+Le 09/03/2026 à 17:50, Miquel Raynal a écrit :
+> On 05/03/2026 at 11:01:36 +01, Richard Genoud <richard.genoud@bootlin.com> wrote:
 > 
-> Surely that should me a property of the memory region, and not the way
-> it is copied, right?
+> In the title: s/mode/more/?
+> 
+>> In sunxi_nfc_hw_ecc_{read,write}_chunk(), the ECC step was force to 0,
+> 
+> forced!
 
-I'm not sure what the current thoughts on the matter are, but there was
-an intention in the past that some data could be measured and some not
-within a region which is logically the same. E.g. the DT might be
-deliberately unmeasured so that the same measurement would cover a
-selection of different configurations (with the guest obviously
-validating that it was sane before continuing). Forcing the memory to be
-split into multiple memslots just so a measurement flag can be set
-correctly seems like a poor uAPI.
+Will fix that.
 
-While splice(2) certainly looks similar to what we want, it does
-(according to the man page at least) have the requirement that "one of
-the file descriptors must refer to a pipe" which seems less than ideal
-for the DT case where it's likely to be generated in memory by the VMM.
-Or is my man page out of date and the pipe restriction isn't there in
-the kernel?
+Thanks!
 
-Thanks,
-Steve
+> 
+>> the reason is not trivial to get when reading the code.
+>>
+>> The explanation is that, from the NAND flash controller perspective, we
+>> are indeed at step 0 for user data length and ECC errors.
+>>
+>> Just add a const value with an explanation to clarify things.
+>>
+> 
+> 
 
 
