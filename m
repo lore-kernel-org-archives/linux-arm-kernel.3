@@ -4,123 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC003106ACCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64A1106ACCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 18:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=; b=XZf5HY6HPkPpAfLHJjpLLRww1S
-	X3VZDvBUp5GTXgAfd+Zphj4jPPCyamvEA+FhFca/v6xfq62iHcRtcJy4xNp3lpe0ZCBi1/eJvlKoO
-	GTSu1VMTQPM1qTwuRCk8oBItGuJ2aKzfvN/qRcc9OwK0AG5pQUEjRSwhfcytzdV+AcdAPKdl1f/4S
-	pADnlQE5qLNnar5BYYVNYgOB5qiZq2JYrWPETLslDzBjZoraow712xc72fmxXRBQXVJeftWVlnl2i
-	bDU1h/V3oI75hrnSOjE79ARee02OTH5SXQFaPRUTTbep1PDDCO6mXQEkXWgub6t6ZLK+aAn2/BCDw
-	8ivxR1eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sXNu0+M1oUG4WNnJP19IA9hK1g6BtRGTO2pEOPi0Dno=; b=zOTGUvVJQlZiy63pdZZyOiGwJu
+	KZBcOh3B6mN7mZL2URxNfMLoMExyzr2iFOb09zR+F+T+6EFMW9f1MHo9V2ueCVEoc8MjkuHhC/O8u
+	s7ZqfbggTEv2thA5KqegrU9aaU4nukPiJzk/4E29TFkLa1SngR14zqMq8Y4ojwQVK04A6iUyLD+x+
+	JcNPeZ3e2NiTJMLWcmfa9HqvBDdi0N05lzspgYshQ+bx0vknkO5rCRG+pofNgf+DGWH2kYa+cDDQr
+	uUMgqHTOH5Pi0rS5AgA6L1amoMSRztwP65TANQ0PIR+/I2SFz71+CEAhRUn56ly6Xf7xF5ytDounI
+	N8SWDTIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kRu-0000000Eq9t-0371;
-	Thu, 12 Mar 2026 18:07:54 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kRr-0000000Eq8i-0F5b
+	id 1w0kbI-0000000Erbv-4AIs;
+	Thu, 12 Mar 2026 18:17:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0kbG-0000000ErbE-41VG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 18:07:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NOK4EHfNFT/ahMY8wmkyeZmWZtms0hbhVj2vWNu2WDz65DQ9l/ENqWaiJKREzY/Brrz032wtMfzkqQ6Y1JFgosM8xvROFZjiNRJEQE8ERvBAY6hBY+OmPLfiYd9kherdoqy+tS61TOejmlrCjm9RnuvfHZ9OIDOJzkgooFYDZ0Zu88VwUvWBVyJqcb0sNyIYT+snuzSt+nb/yffAgpyfqQBzoKbMWDoi6impjizDl6/yS2xGy9Xb3Pw9jizVkAjAxcCcMumaoWWPvn/1SasT++sGs6M6pryfPFqY9IRHJHgOJ6JgIdAWLN9M8s2VAOPqfASeyiR23+/hMhx756lrWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=;
- b=TfPquJEWVNDXOn2lSUtPVCznLn+xN+SRYEUyft8gZWFZXvZE8wvqtXw33kTX7zOW6P+/3vhjFw2saHOKEpka0yOdCaxHKYMLIDY3wP82Dn5jKjc90jKkJUiW32JzHPJbqQUcpTak2eJd/fm4ySwYiWZZm+3u6wxoErPrZHCrH0ILmu3yLfHDDDddAR5s5hPhC0MrIHi4QaO0QIZqz7eRx7KkaPca3rEFpMJOjh7dgU3wfE1AtVzVjTBZLUUTgp+3MpZqil4WlK6uRPx7X7v6SVTJyzapZLJsrebGRn/1FhxA5iWXGpUgkrRc5yp2reuBgpvH+xeVOafmYCryFOzuPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R55QbJljTiHFEbnNkjyT77w5Y3/q5z2Pb3PYw2JisRc=;
- b=LuQnGydc7wnNT6dJBiLi499gQd8LG0XHzEvto7ejXTEqfLuYTTZS5DFJQ7FNyoBdFcJCkWA6dyimxU3Ny98C7C9xAyDD4P/LnTPkTtzwV4DjaRQiU8CSsB8QKfQhN328sHF3pREqLktOxmQ3dDU2gM0zbolfx0HNOYG9/TACOd6FDvPguncyNWOID2mAE2qaSvMsXkmhds9/+OmxPcTP6Npzrn0Wmlxc8kIZwVGyzHKCNiqJBra7IVzGcKcri0O2oHrqJQXkSKlWPVqXT5K8hY7fwTf4js+Uo6cFdI6WVrHFdKpFvz3dRBDxd0VR88v6Mr+FqMZNPusA6ogloGR49w==
-Received: from DB9PR02CA0003.eurprd02.prod.outlook.com (2603:10a6:10:1d9::8)
- by AS8PR10MB7681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:631::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
- 2026 18:07:44 +0000
-Received: from DU2PEPF0001E9C2.eurprd03.prod.outlook.com
- (2603:10a6:10:1d9:cafe::8e) by DB9PR02CA0003.outlook.office365.com
- (2603:10a6:10:1d9::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
- 12 Mar 2026 18:07:37 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF0001E9C2.mail.protection.outlook.com (10.167.8.71) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.16 via Frontend Transport; Thu, 12 Mar 2026 18:07:40 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 19:10:10 +0100
-Received: from localhost (10.252.14.128) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
- 2026 19:07:40 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Thu, 12 Mar 2026 19:07:08 +0100
-Subject: [PATCH] dt-bindings: media: st,stm32-dcmi: add 'power-domains'
- property
+	Thu, 12 Mar 2026 18:17:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75E22165C;
+	Thu, 12 Mar 2026 11:17:26 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B4223F73B;
+	Thu, 12 Mar 2026 11:17:30 -0700 (PDT)
+Date: Thu, 12 Mar 2026 18:17:28 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
+	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
+	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v15 5/8] arm64: futex: support futex with FEAT_LSUI
+Message-ID: <abMDOC5DYEm74And@arm.com>
+References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+ <20260227151705.1275328-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260312-stm32-dcmi-power-domain-v1-1-07cc47216a76@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAMsAs2kC/x3MQQqDMBBA0avIrB1IRmnRqxQXMTNpZ5FEkqIF8
- e4NLt/i/xOqFJUKc3dCkV2r5tRg+w78x6W3oHIzkKGHGSxh/caBkH1U3PIhBTlHpwmDH5+TW5l
- 4DdDqrUjQ331+Ldf1B2g41uVpAAAA
-X-Change-ID: 20260312-stm32-dcmi-power-domain-fc479abd2dbf
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Alain Volmat
-	<alain.volmat@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.252.14.128]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C2:EE_|AS8PR10MB7681:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b0c17a0-40e1-4485-645b-08de8062406f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|1800799024|376014|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: HARNlQPuV4Lzq4ybYSuMOeRFUwRS7TmQdoauCB7Nc9Qn1AUBMPMcqZooUbM3bIRf4QrAK+GJZtYd2o85Fre63aQ3v6pjohiCrnZvpTqxvAP6e5ssu3EQhlXxJ2iZ0Hf+GamSs9hUG4W+RcC66wXJETllQbUgFvH6eI129zeNUyOr7x7jXsIlRGlq4z0Ysk3OdkfYJkBg4z08tolNF2vhLIqlT5D3a5sNpacy8g2fFMADjon7tRfW21vedf8TMoB8Cb8/737Qv4uEj6i5U/Lw7nvlxA04BvmZ4ShRZFKpwD9tvArmJ9eF820nKZb4QPdZXF3FMYZ5nI26cJZRVnEF9PP4DOdxxQPo4JUOdOGPbnpeux37slhD91oI1EXmikpbLEj7NDeBMCpNtPLHAsofXKkAdsdc5xWazArFckEQOP8uHXw0BiQQ6yFGFNTB+4Ih2U4Qh0jZ+THhyQ+hb9wrdJRDyuxkUs/ZNfHWrFE/QNk/3Z/D7aCDAQ+H1wiXmo7f1rIY4bwc4wGUYMAMezxIuYVyKS3bYp6z8nXDWFF5A7Xw740EhXQMOlPfkhvWaW8pRY2XbmvduL4RlaP880xqqIXqooBwsjX4DkHDw00ofgEJPnXIh+OtjPi9jWmQhbwPGwQbIYgB0qFrIJCkzoJ7e8cSS3Iway9ApSmTBx0KpoHWxkvnBe/bQJPLGF0XVLwwq8OWbCDiirOWnRe/XFyX2Uy1znObApTY4LwNff05OhTbAN69lsSGHFh98hBEqYM/XUxFM3oeIYtMHZMAVQ8WiA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(1800799024)(376014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: UUbaw77jBFaCxwN8/V43IzqWLJgC+rSNJF9yjXV4q10WzrJYnBi9gwmlJ7QAs7a8XTzNdeU0zBgXVQXhO5bCywBzpw+Lmru4kDGVBaUYzP1mrR/QeK+79WX68syAhHpWsW+dICwBTptFe2a4ewTPKjFk0O09BWxHIUva0572upg3MlXE2QD01hJyQlyN5slwchMODn4Vfk8+vBBd4nMCzYOakoPd3rQTXRtyz4PMkPPHBCcgyaE0WKZgPinZJ3a6xt4Whq0m9LT3VEHs48T4+8clVuMuMmdNPu7mD3KHSYH67jyjoEdiX9/GRwLIki78WBI+oGfsv7GtecQDU9OXSG1d5HlpL1oDdgSdhoYqTLmPQkaP1w/javxRJaKS52mHczhIK0ubJiyutkBDljqeG0nFZASNRzq8/1bTAZelkroAhh6KU6oZEAPxUKkmdULa
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 18:07:40.8262
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b0c17a0-40e1-4485-645b-08de8062406f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7681
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227151705.1275328-6-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_110751_615516_36C6343A 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260312_111735_088077_2CC00702 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,35 +67,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STM32 DCMI may be in a power domain which is the case for the STM32MP2x
-based boards. Allow a single 'power-domains' entry for STM32 DCMI.
+On Fri, Feb 27, 2026 at 03:17:02PM +0000, Yeoreum Yun wrote:
+> +#ifdef CONFIG_ARM64_LSUI
+> +
+> +/*
+> + * FEAT_LSUI is supported since Armv9.6, where FEAT_PAN is mandatory.
+> + * However, this assumption may not always hold:
+> + *
+> + *   - Some CPUs advertise FEAT_LSUI but lack FEAT_PAN.
+> + *   - Virtualisation or ID register overrides may expose invalid
+> + *     feature combinations.
+> + *
+> + * Rather than disabling FEAT_LSUI when FEAT_PAN is absent, wrap LSUI
+> + * instructions with uaccess_ttbr0_enable()/disable() when
+> + * ARM64_SW_TTBR0_PAN is enabled.
+> + */
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+I'd just keep this comment in the commit log. Here you could simply say
+that user access instructions don't require (hardware) PAN toggling. It
+should be obvious why we use ttbr0 toggling like for other uaccess
+routines.
 
-diff --git a/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml b/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
-index 979360e9099e..d9fbb90b0977 100644
---- a/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
-+++ b/Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml
-@@ -43,6 +43,9 @@ properties:
-     minItems: 1
-     maxItems: 2
- 
-+  power-domains:
-+    maxItems: 1
-+
-   sram:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
+> +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op)				\
+> +static __always_inline int						\
+> +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> +{									\
+> +	int ret = 0;							\
+> +	int oldval;							\
+> +									\
+> +	uaccess_ttbr0_enable();						\
+> +									\
+> +	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
+> +	__LSUI_PREAMBLE							\
+> +"1:	" #asm_op "al	%w3, %w2, %1\n"					\
 
----
-base-commit: 621887bc7b9a6c37a5ed3b1f24dd446e3034253e
-change-id: 20260312-stm32-dcmi-power-domain-fc479abd2dbf
+As I mentioned on a previous patch, can we not use named operators here?
 
-Best regards,
+> +"2:\n"									\
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
+> +	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
+> +	: "r" (oparg)							\
+> +	: "memory");							\
+> +									\
+> +	uaccess_ttbr0_disable();					\
+> +									\
+> +	if (!ret)							\
+> +		*oval = oldval;						\
+> +	return ret;							\
+> +}
+> +
+> +LSUI_FUTEX_ATOMIC_OP(add, ldtadd)
+> +LSUI_FUTEX_ATOMIC_OP(or, ldtset)
+> +LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr)
+> +LSUI_FUTEX_ATOMIC_OP(set, swpt)
+> +
+> +static __always_inline int
+> +__lsui_cmpxchg64(u64 __user *uaddr, u64 *oldval, u64 newval)
+> +{
+> +	int ret = 0;
+> +
+> +	uaccess_ttbr0_enable();
+> +
+> +	asm volatile("// __lsui_cmpxchg64\n"
+> +	__LSUI_PREAMBLE
+> +"1:	casalt	%2, %3, %1\n"
+> +"2:\n"
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
+> +	: "+r" (ret), "+Q" (*uaddr), "+r" (*oldval)
+> +	: "r" (newval)
+> +	: "memory");
+> +
+> +	uaccess_ttbr0_disable();
+> +
+> +	return ret;
+
+So here it returns EFAULT only if the check failed. The EAGAIN is only
+possible in cmpxchg32. That's fine but I have more comments below.
+
+> +}
+> +
+> +static __always_inline int
+> +__lsui_cmpxchg32(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+> +{
+> +	u64 __user *uaddr64;
+> +	bool futex_pos, other_pos;
+> +	int ret, i;
+> +	u32 other, orig_other;
+> +	union {
+> +		u32 futex[2];
+> +		u64 raw;
+> +	} oval64, orig64, nval64;
+> +
+> +	uaddr64 = (u64 __user *) PTR_ALIGN_DOWN(uaddr, sizeof(u64));
+
+Nit: we don't use space after the type cast.
+
+> +	futex_pos = !IS_ALIGNED((unsigned long)uaddr, sizeof(u64));
+> +	other_pos = !futex_pos;
+> +
+> +	oval64.futex[futex_pos] = oldval;
+> +	ret = get_user(oval64.futex[other_pos], (u32 __user *)uaddr64 + other_pos);
+> +	if (ret)
+> +		return -EFAULT;
+> +
+> +	ret = -EAGAIN;
+> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
+
+I was wondering if we still need the FUTEX_MAX_LOOPS bound with LSUI. I
+guess with CAS we can have some malicious user that keeps updating the
+futex location or the adjacent one on another CPU. However, I think we'd
+need to differentiate between futex_atomic_cmpxchg_inatomic() use and
+the eor case.
+
+> +		orig64.raw = nval64.raw = oval64.raw;
+> +
+> +		nval64.futex[futex_pos] = newval;
+
+I'd keep orig64.raw = oval64.raw and set the nval64 separately (I find
+it clearer, not sure the compiler cares much):
+
+		nval64.futex[futex_pos] = newval;
+		nval64.futex[other_pos] = oval64.futex[other_pos];
+
+> +
+> +		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
+> +			return -EFAULT;
+> +
+> +		oldval = oval64.futex[futex_pos];
+> +		other = oval64.futex[other_pos];
+> +		orig_other = orig64.futex[other_pos];
+> +
+> +		if (other == orig_other) {
+> +			ret = 0;
+> +			break;
+> +		}
+
+Is this check correct? What if the cmpxchg64 failed because futex_pos
+was changed but other_pos remained the same, it will just report success
+here. You need to compare the full 64-bit value to ensure the cmpxchg64
+succeeded.
+
+> +	}
+> +
+> +	if (!ret)
+> +		*oval = oldval;
+> +
+> +	return ret;
+> +}
+> +
+> +static __always_inline int
+> +__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	/*
+> +	 * Undo the bitwise negation applied to the oparg passed from
+> +	 * arch_futex_atomic_op_inuser() with FUTEX_OP_ANDN.
+> +	 */
+> +	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
+> +}
+> +
+> +static __always_inline int
+> +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	u32 oldval, newval, val;
+> +	int ret, i;
+> +
+> +	if (get_user(oldval, uaddr))
+> +		return -EFAULT;
+> +
+> +	/*
+> +	 * there are no ldteor/stteor instructions...
+> +	 */
+> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
+> +		newval = oldval ^ oparg;
+> +
+> +		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
+
+Since we have a FUTEX_MAX_LOOPS here, do we need it in cmpxchg32 as
+well?
+
+For eor, we need a loop irrespective of whether futex_pos or other_pos
+have changed. For cmpxchg, we need the loop only if other_pos has
+changed and return -EAGAIN if futex_pos has changed since the caller
+needs to update oldval and call again.
+
+So try to differentiate these cases, maybe only keep the loop outside
+cmpxchg32 (I haven't put much though into it).
+
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (val == oldval) {
+> +			*oval = val;
+> +			return 0;
+> +		}
+
+I can see you are adding another check here for the actual value which
+solves the other_pos comparison earlier but that's only for eor and not
+the __lsui_futex_cmpxchg() case.
+
+> +
+> +		oldval = val;
+> +	}
+> +
+> +	return -EAGAIN;
+> +}
+> +
+> +static __always_inline int
+> +__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+> +{
+> +	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
+> +}
+> +#endif	/* CONFIG_ARM64_LSUI */
+
 -- 
-Alain Volmat <alain.volmat@foss.st.com>
-
+Catalin
 
