@@ -4,100 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694E4106ACDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D80B106ACDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1uRNP8sj9zOHORQvbyaXxs4QwcaBwFw81kautX3rWdo=; b=Ek0W6r7OrBRdePW+dyiOOmsKXB
-	yoDStAwJvCsV3kxPvqNWGA7j3KK42QOHLTnwdN4MiBYzdhAhdpvE0xlIUA8A+4AoBWdUE0C2AViny
-	hbq6hOrQD8snP+3+nv+fSW3XXi06ohb+abIGIDNA+iRuJUF8OW3AyZqfc+jibENalnLOgWqnHUiu+
-	3wCEcspMBGoT6yQtZNGoYa/2ugnrpopuTJMEEPZPrgXlHhieN73ILb2CNgIlnT0nkVUFW6XPZWP6H
-	wCOEcxvRIcBt0ubq/J7TJyv1WucmTL0GBHII3RwOTOoj0/fJ635Q0kaFJyy5Gs7YJxfRleVoxgaoX
-	O6PyA3ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=; b=IxKBQIhgzfcxRBU1jSv1AVopKa
+	LMGiLzfmn3gCkRv63G3iKx4FuY2xKBuY64XGgePbwapExcX0hCPVm11ArkGsnD8h+Tg8oJZXs7v4y
+	NaITT6fO1dstcP3q8y9J+kAApvKv0d25W48H0SCkRg4HAUEECWPJxWeaEOeud12UNR7ygRBopaGjJ
+	fG7LczncvQO/SP2NprnE+WRN4lV2umplm7G9RJAa/T4Vsr/R60Qj6AutmtBCDWw/NvhUFnS26yZ9l
+	ARy+QUEEEHNXmQYNmsAJCYLuHNXIHuNeBw/bRZz+KNR3iuJW6S5TrjNS3tG0pXQ7gfDrJc1qOFeMq
+	sVYQFBLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lGn-0000000ExuO-38Us;
-	Thu, 12 Mar 2026 19:00:30 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1w0lGx-0000000ExzP-3HH2;
+	Thu, 12 Mar 2026 19:00:39 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lGg-0000000ExrC-0jvt
+	id 1w0lGu-0000000ExwN-0skK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 19:00:25 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4852f8ac7e9so15515765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:00:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773342020; x=1773946820; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1uRNP8sj9zOHORQvbyaXxs4QwcaBwFw81kautX3rWdo=;
-        b=JgCc7e4FajjfsLcTceWUdFrnkJc5l2U9M2l/BxxzZBOKfNom+I5MwzKeBgluHML8lh
-         6pORnQk6rqIV15k8pgbcFIjz8w3v1uRcDU/27mBc5zFuR+iybYqo3UntJiDDTEjKsVYU
-         DNNMMQDsiUMu9vLvESGm0mZ3tYECfjxzqq3IFmOZrA4GWIposhg+ydmQ0Wyc8uVTcUFw
-         Ob33bURvRkWPzIJbCVt4eCmp0gzpld1k7KmthACSAB/fH8buDoPn1PGOOJkPclh8qYgB
-         9ssQ5TOdIVo/64ao+U49j7hwZJhqgh1gwYduayOjTeOl+mBLQwUT7+FZgfSVZKwdIRCW
-         mBMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773342020; x=1773946820;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1uRNP8sj9zOHORQvbyaXxs4QwcaBwFw81kautX3rWdo=;
-        b=rZWW9vW+mnUZ8pwY7cYaiw7zvaKn4YGTPJGcZLDQ8byqJMd3iHhTBCZ5cZA10pnrzR
-         RfWA8aBM2EakVUhGEkjYpC2H1gZRlTuy5ZUtpFgrVs7hhehurMsBY3a8R8YemHJlTUZH
-         Litb1QfuK4BxPc/ZyNQM/KWjFZQ8qv2Rm4ws0/olKx5/OnueyyOosWmGVzYGNR3qwxb+
-         eQ+LS0EOinvmI098dg2oQzDQ8Pyyq9KP/SBcIfitrcrqt6sNrR/I9n7LpGgkAuDhWLN3
-         cC1WEhbVBbHxTQzclazTa3/Zu+aK4Vf5I/fS7O6+/GrYxz9SgJ8pGtV2PcrY58hCCLtl
-         wsrw==
-X-Forwarded-Encrypted: i=1; AJvYcCXtNCDRdboS10RVbxR+DRKifzeSg0PTSq+c5kGT0282Kb4Uzftxi9bEh1lu44M7hlxUIrfWymHSDa04Ia7nkq6v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoubvZWnSH+QTvPniJt+QJpT4KuiQq4oR/5iVVn+qoxFklEy5S
-	3k47Mqv2/UioepFwIiz7DJEEoDicoRXwWTDePV9v5GEmmYZLy7iYcUwo
-X-Gm-Gg: ATEYQzyDqp+q/gsuZz7fQwY6Qh66rHA/Ut741BbRD2KGDZ38sEyIpkBgepuk1d8fV+G
-	Mfy/swhuLiLspnA/reYueFBvvRaeWqlh5NuICE7I87/ZCiSJPGM2lWu8BjIEtoLvuB/U5ie3ulc
-	k+Og/7l4j8tj1xpZHjkSDTfeCgTzxt4LfkwSNicImQhebAwVasf3qi+L8c/vnVJ2PSjs1w/ZMrQ
-	YcJeBYaZsP3JlPeqbHYUQFyLZE/Jab9jdXFyoqFEacjgbETnHUPRFcqJaLBGe9baXrC3wZhvZBm
-	xCrkuvltrlSqoPAvj5WVi3VFygksF0BTl6Lqi2SdWmQMwL7Th0rY6ly4ZXQpEf11cor5zY4UbmS
-	rX8IbOIcchaUQNH7z9L8fUMM+AbPtE08Ut7bVoaIS92k7wy04TKaPv33OsHxd3C5FL/N8TbmlRh
-	p53cpryplsDcOd4ssPX+i+InthsNR07bUNGks0tIR5lP9OY7Ps4AdPND0xSjMQm2nPU2kKa9VP4
-	Cg=
-X-Received: by 2002:a05:600c:8286:b0:485:34b3:8585 with SMTP id 5b1f17b1804b1-485566d6dffmr6984515e9.8.1773342019666;
-        Thu, 12 Mar 2026 12:00:19 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe19ac5fsm10964630f8f.1.2026.03.12.12.00.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 12:00:19 -0700 (PDT)
-Date: Thu, 12 Mar 2026 19:00:18 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Johannes Zink <j.zink@pengutronix.de>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
- <alexis.lothore@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Bartosz
- Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Gatien
- Chevallier <gatien.chevallier@foss.st.com>, Jakub Kicinski
- <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, "Russell King
- (Oracle)" <rmk+kernel@armlinux.org.uk>, Richard Cochran
- <richardcochran@gmail.com>
-Subject: Re: [PATCH resend net-next 1/1] net: stmmac: actually error
- requests to change the auxiliary snapshot capture channel
-Message-ID: <20260312190018.15e6310e@pumpkin>
-In-Reply-To: <09528d3a-e08a-4942-aff7-b59610f6b13e@redhat.com>
-References: <20260310140155.3359-1-david.laight.linux@gmail.com>
-	<09528d3a-e08a-4942-aff7-b59610f6b13e@redhat.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Thu, 12 Mar 2026 19:00:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ifawU5zUF1vuWgETXkf+S2zl19lGkf3W9VXdhVMMGoGeYqeR++SsiGuSVJw5BMYx6N4GYpPiMmDDIRBpZM5cJvxFFEHJkWuf62vygrdu42p9vEx7xsGG07jQ5Vx2JSxsfALJDwsBRgQdhNR0Y/CJ1vk33hYarmzpjwx7WHioJumnuHgA3ozZ3Ay0bPIrIqxZpQ5pdw9jXiy8FN5lPfUD1tWq4PDMKgu3bClMKeX185S281l0Pr1DFN1ew/MLQ5VYeuLLZvQvtfBJv3akpj6ANY4IO9MWfRPOPShtLG00fsE8oWwzp38me3xVYD0K/+H8LAhK5Dj+FSknxJjftz4f+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=;
+ b=Ff1pTzsGiwIShh7stO2+9Kpqbq8dE1ccAvGKVSRlsKPb1eM4+f34F5acpdrf5zgr/oXnFFpaDg5zuI0KfFNJCJyGNVrEuN5VT/VnuCGQs53fDJFe23jjkl6K4029jikJmlY2FzpdOB8aE4xgXglREKodZO/obr5AC5tJqGDxAakIaLGR3/vzowrClW7rgBmR08Ds6MzgN5suXa7b6mkf8tSJnIfY8YUePu4bW3n6G6XbOjGA4Nz0CMaFX8t6KtW7ng1INo5qrR05W6aDIeTNWW8ZFB5eh74c3VKxTO7WLWc9XyYhaN2Ap1cESySMrezY/PoE1AKGXXzmzjbNu5oDgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K+N1zwAxafAS4WSArAVeIZmEEUdGZLqyw3q4U3b8jZc=;
+ b=P5lwGXPnrvYMP5VaYi5+mAttF2c6GLTfnByKgFJGAmCaSor4QV+xwtSn81JN320twn+O4K3jUQ75qAwHqES9ZeF4w74mYS9j7Ex7VeJujspaiR7sDw74EH/rhxLpn+YqsHrHdXrJQdRwCTHyTsSP1rvkWWhlb9Bys2RmEsALWe2roHP3oTCAQVl8gowJa6AFxThlQ+IfhSlVqFWX7Ous/qnTP9kdFLvNug5LWZz5zFMBJYUSGkSdE/wN/vYBGBF8PoDxfHyHUiNF5CCduDFxFAUaN82XcR4C8RwGy+TWDhQts9UTk8zcZpQN5MnrJ/upYHHRm4MLZvm/JKP+qmi+sw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
+ by DM4PR12MB6111.namprd12.prod.outlook.com (2603:10b6:8:ac::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 19:00:26 +0000
+Received: from DS2PR12MB9750.namprd12.prod.outlook.com
+ ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
+ ([fe80::56a8:d6bf:e24c:b391%5]) with mapi id 15.20.9723.000; Thu, 12 Mar 2026
+ 19:00:25 +0000
+Message-ID: <d7a8271e-f6a5-491c-be2a-7ebc7d37645d@nvidia.com>
+Date: Thu, 12 Mar 2026 19:00:21 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
+ for SYSTEM_SUSPEND
+To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+ mark.rutland@arm.com, lpieralisi@kernel.org
+Cc: bjorn.andersson@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com,
+ mani@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla
+ <sudeep.holla@arm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+Content-Language: en-US
+From: Jon Hunter <jonathanh@nvidia.com>
+In-Reply-To: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO3P123CA0024.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:388::7) To DS2PR12MB9750.namprd12.prod.outlook.com
+ (2603:10b6:8:2b0::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|DM4PR12MB6111:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4906ce26-3972-49cc-8a37-08de80699ecc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: vkrKTJQY0vk8NP8t+92k+H/PHWqcafBVdvPxTlaxbuDbcjIc8jZgDz2bntKu0Lyl0XJ9b9xLzHxwpoG0JYpInlMfrHzNcKzOo1TFX3mvLD6JL2vNbzOPReeoJH73Kwfq3A0MhhJ/AZEa5h8BB9RE7ONvw0F+Pno/KaJtu0WWUlwluzj8WLKSOPbV66UfIWmefKFzgmHAuFTG4/v4TI1xb0k9EhzqA8ke1wcjkSBkmWNgWvo8JCIauNrLGjL1DM9CHgBYIK15oVPnpl5x6/bQWVAbZkcF2q6rrHbzGkmcC7ECOS1zq0iFX8KAdA2u4uSvNXi1VYKhp2+rUc3SMNbdtr3szUzrpd08F0lYbQW/AIOpC2oCHou49eX71nMJdzEA3Ry+9iTts4Aiz+gGEKvt3SuUzEmD5aU5/VnR9gMXcTzmOvd15QAlekJKLANswmTR5M9AnOmp98fv31sdk3ei6PuPOGAB86o1uMIe0siVWc9w91AgVhWeMqpG8IMUSQ6xas7cmQG10oy2q1czm4LF3MFMPfuR7fUBmxtJxhD0tclazyXcGMuNQVSSV/fAmGZZ3a5byr5adQ7Je+4WCmnStuvv815S4XV3EmQCJP8O0rfLyoTTwV0bpLnSia2O/VlH1f0R6fl96/9LdqSCJKUbB0UCW50Elli8msKHOiLr60GmiSajS/lVBwq8WyclFCZ4VrD2bIvf6TdRdISoBKZTTeQmsoLT8Cw/RVFWnlbQI8vaAllwoJtlGbVwLx8uW8vB
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1lVdVVTVkFPdWJDemZ4RkpOSTNSWHN2Wi9sWUlpaEtVTHlQRVJrM28zWEp6?=
+ =?utf-8?B?T2xUcHdYMFVoLzJIZExGNlVXVisvTjNld0kyT1IyR04xbEp5NXRYM2FjdkNw?=
+ =?utf-8?B?Z1JBc0lIVm1FNVBwMHJCejNsanBsMjVRc2dwb2QxTkpVZHhjKzJ0NkhYRDVw?=
+ =?utf-8?B?MUZJc3lGS05Ud0xWTmlhNnl3bFlVemdMR3dNWVZwaGhYNVdKMmY4bVlobk51?=
+ =?utf-8?B?d2k4UmIybHl4VU8vRkRuVkZWbm0zU3NDZ1Nsd1JXWGhxVnd6MEZzcmNvVldl?=
+ =?utf-8?B?T2t0U0pWWE0zeG10akxVdW84Q3RQMThHb2d2NjBMcFJldTFUa0wwa2xuZ2RR?=
+ =?utf-8?B?ZWxjNDRHVFNaRU43TzB3U2tLNE1TK0xsazhnQjlPNS9nTUFvTE5iSHpGYVpp?=
+ =?utf-8?B?U2htcHpZdU0vWjByYUtkd0xhMDRlMzBoTUdPM2lsaFFlOHkyZ1ZiQXN0V1lp?=
+ =?utf-8?B?NVlTN1EybGNvQ2I5bW1xUXBObTE3eVNoM3lNVHluVmRZdisxWUVramU3bkM1?=
+ =?utf-8?B?ZzZpZUlwejg3SzF3TllGM0NKbGhRSmFHRTlRc0paWXI3aDVuUHVGLzBEWkx5?=
+ =?utf-8?B?ZzVDdGxUK005emI0cTVvOVFoZmpUeDBhWi9wVzMrUFk0bEF1dis4UXdDb3Z3?=
+ =?utf-8?B?c0ZSOVIwTTh3dWdnMmpxbkU1UjVEVmlDMkpJSHB0Y1dkaEI5UzlNRnNIaU1q?=
+ =?utf-8?B?LzNpZEk1YUdVaEswNEsxYnh2M0tZeGt0cVpvcTF3bndOZTlIMzYwUWtMWWh4?=
+ =?utf-8?B?WUc2azI2UnlYM05rejZuWHVkY3NEejZDeXd4Q25VS254Z2xSdjBZZnlyZVBV?=
+ =?utf-8?B?R3ZEdkJsci9pRmZSUTFDL01zRUlYVWYxeVVLeVZ4RXJ3bm5KWUZ2dTlJLyt5?=
+ =?utf-8?B?c21hYlhiR1hlTE4xbTFtZklLTFZxZjFWWHhuTHQ3M1lPRkZvSkIrMjV0Ylkv?=
+ =?utf-8?B?VktWemZERGVDV3pCcjhxME92cTdDY0ZiWDhaNFhmc2h4NjdURjkxaS9UdVRG?=
+ =?utf-8?B?cXdERzN6Snp5dEpDUlV6M0UyZGtGSHVndVNoZFF0Tm81ZDF1ZEFPOElVOWhy?=
+ =?utf-8?B?OUNVRTFoMGJxeldWWmp5L0pOY3YzcnBtbGVUSGxCb0FRc0lKRnR1OUM3S3pS?=
+ =?utf-8?B?THhkUDJHV05OdEUvTGFBdkV4eHZOdEd3Uld2dEpabzlsZmc3Yi9sNnNCMFUw?=
+ =?utf-8?B?UlVZdnR1ajVSWFJnRnJqTElTbTN0ZWpGNkZsK1A0amNqbTJ2eVVndXlVNzBL?=
+ =?utf-8?B?dlRFTENGUGNucktZc2o3dlpYL2IvT1hvMVJvclFvYThleFFHU3lHSHdjODNP?=
+ =?utf-8?B?OTBqeDJ0TjFEemZOZHZxWDZhY29nZUZKSXRCUUxYS25BVUk2cFh6QU5RQ3ZT?=
+ =?utf-8?B?OGVhdnpLNjJhSHcwWm5Ua2d5NlFhcHVEWFFMNmxlWUpwb0NiN0NsYUdSL0JL?=
+ =?utf-8?B?UXFIZXoxWjcrQVdwZEJlVUR1YStpZW40RDBlMys5cGxqby9xTzVqZWYwRXgy?=
+ =?utf-8?B?WHZpQ3J1REUzYkVEYWxBTkdGN2t3eFNyZmdZcitkWHdMaVpZRXZ2STVxVjJQ?=
+ =?utf-8?B?RUk2Uys0QnNiYVpJTmpJeXBuS0RsaDN6ZVB1MmFic3NuQU9ncy9DNDN5dFk2?=
+ =?utf-8?B?dVRWYVlzeVh1RDZFT0YrOVBuTFgrQ1dzbkR0THRBaTkzZFJ3aXdONVdoM1l0?=
+ =?utf-8?B?UmQ1VXk1SmVYZWh1WnVUOXBrZlRIQWlSYk1jWE5Pb3lTc01BczIzSFV6ZUUz?=
+ =?utf-8?B?YitZenVxTFIvb3lMZXR0eDh4NUg5QmFhcEpabmxNK0hnWEhTdGtORTBJM3Fs?=
+ =?utf-8?B?UWh5S0FGZGJhcjRiUTVWdHBDZEprcGhuSVFqU0JWUk9WTFZJRWExR0kycnYw?=
+ =?utf-8?B?OUFJNENBUUtCNVp5MFpqWURXeXRINzRQdjJpN0hCRlVvR3hha3JGT3FkRkUy?=
+ =?utf-8?B?NlBhaVBHc2pkb0hSQkhlY253ajJ5N1lJYXhYZFFSRk51SFl6SnovZDdWczBK?=
+ =?utf-8?B?Y2IwbThFYzRNK2F5VVpYZUNIZnR6T2xyZHNuQXZTcFZkOFI4VFk2Q2RMczFn?=
+ =?utf-8?B?RFc0aFNWeDBqR3NsSFlCanRHRjgxNTNqRDJOb044VktXTytDeFBWOU1id1pV?=
+ =?utf-8?B?RzQ5K2kwVk5IMVQvaWh6RlRIZ3E5SzRralVzTDE3OTZFS25EN2ljd2hGVVBV?=
+ =?utf-8?B?eGZYMXNQMHpFTGVQb0JIN1I3SUhYVDRhREpsSGhZZExGeklHQjcrNVZtOUpJ?=
+ =?utf-8?B?ajEvNWxnbGQ3NlNhSlRIczNuaUpYWXRzV0dwS1FUc29obTdmdGpIdDVkQnRm?=
+ =?utf-8?B?Nks5aDUweUxaSDc3WEo3V0NJaVo3K1JRQTZ5ODlYbTRWWmJ0OGdZdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4906ce26-3972-49cc-8a37-08de80699ecc
+X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 19:00:25.9301
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XBV0q656AODtW6TIWMMDXAFvpLCwas/R88DdERG3ZN8TJHdk3FDvu7axvYmALQwbfBVIbMGYBgG/Z+WqXvlnDQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_120022_256945_0FDA152E 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20260312_120036_262349_A3A36C53 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +152,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 15:07:49 +0100
-Paolo Abeni <pabeni@redhat.com> wrote:
+Hi all,
 
-> On 3/10/26 3:01 PM, david.laight.linux@gmail.com wrote:
-> > From: David Laight <david.laight.linux@gmail.com>
-> > 
-> > Commit 2ddd05d1d5ed ("net: stmmac: do not silently change auxiliary snapshot capture channel")
-> > added code that attempted to return -EBUSY to a PTP_CLK_REQ_EXTTS
-> > request whan a snapshot was already enabled.
-> > However it tested bits in 'acr_value' after they had been masked off
-> > so the check would never return an error.
-> > 
-> > Change the code so that the test actually works.
-> > Note that when the commit message says:
-> >     Previously in case of a PTP_CLK_REQ_EXTTS request, previously active
-> >     auxiliary snapshot capture channels were silently dropped and the new
-> >     channel was activated.
-> > this only refers to two commits earlier (a few minutes earlier).
-> > Prior to that only a single fixed snapshot channel could be enabled.
-> > 
-> > Note that the check will reject requests to re-enable the currently
-> > enabled channel.
-> > Plausibly the best fix is just to delete the check completely.  
+On 31/12/2025 16:21, Manivannan Sadhasivam wrote:
+> From: Konrad Dybcio <konradybcio@kernel.org>
 > 
-> I agree with this last statement. Enforcing the check could potentially
-> break the user-space.
+> PSCI specification defines the SYSTEM_SUSPEND feature which enables the
+> firmware to implement the suspend to RAM (S2RAM) functionality by
+> transitioning the system to a deeper low power state. When the system
+> enters such state, the power to the peripheral devices might be removed. So
+> the respective device drivers must prepare for the possible removal of the
+> power by performing actions such as shutting down or resetting the device
+> in their system suspend callbacks.
+> 
+> The Linux PM framework allows the platform drivers to convey this info to
+> device drivers by calling the pm_set_suspend_via_firmware() and
+> pm_set_resume_via_firmware() APIs.
+> 
+> Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the above
+> mentioned APIs in the psci_system_suspend_begin() and
+> psci_system_suspend_enter() callbacks.
+> 
+> Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> [mani: reworded the description to be more elaborative]
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> ---
+> 
+> This patch was part of an old series that didn't make it to mainline due to
+> objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
+> https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com/
+> 
+> But this patch on its own is useful for platforms implementing the S2RAM
+> feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
+> resending it.
+> 
+>   drivers/firmware/psci/psci.c | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
+> 
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index 38ca190d4a22..e73bae6cb23a 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long unused)
+>   
+>   static int psci_system_suspend_enter(suspend_state_t state)
+>   {
+> +	pm_set_resume_via_firmware();
+> +
+>   	return cpu_suspend(0, psci_system_suspend);
+>   }
+>   
+> +static int psci_system_suspend_begin(suspend_state_t state)
+> +{
+> +	pm_set_suspend_via_firmware();
+> +
+> +	return 0;
+> +}
+> +
+>   static const struct platform_suspend_ops psci_suspend_ops = {
+>   	.valid          = suspend_valid_only_mem,
+>   	.enter          = psci_system_suspend_enter,
+> +	.begin          = psci_system_suspend_begin,
+>   };
+>   
+>   static void __init psci_init_system_reset2(void)
 
-I did wonder why the 'half hearted' support for multiple snapshots
-was added at all.
-Either it is needed and should be done properly or always using a fixed
-snapshot bit is fine.
-Not that I've any idea what this code is for...
 
-	David
+I wanted to ask what the status of this patch is?
 
-> 
-> /P
-> 
-> 
+It turns out that since commit f3ac2ff14834 ("PCI/ASPM: Enable all 
+ClockPM and ASPM states for devicetree platforms"), this fix is also 
+need for Tegra platforms that have NVMe devices to ensure that they are 
+suspended as needed. There is some more background in this thread [0].
+
+So for Tegra ...
+
+Tested-by: Jon Hunter <jonathanh@nvidia.com>
+Acked-by: Jon Hunter <jonathanh@nvidia.com>
+
+Cheers
+Jon
+
+[0] 
+https://lore.kernel.org/lkml/kkly3z4durpagtenadvmzdpojlctachgfgi2fdapt6zthdl2gx@n2qhmlud2zb7/
+
+-- 
+nvpublic
 
 
