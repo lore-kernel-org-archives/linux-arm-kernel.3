@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95647105A583
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D8D105A589
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHgPc4c+EM1wDk0QatI4ONB6TYrHc3Tzig8f9b6Zjag=; b=KMEICBXYdOk4l4sDSqw+7OYIFN
-	HPEWbWbN/R22/hCbXzzvEU6K1Up415eAtFl2oa+3mseDl/hyNWC5tYJHHEQEGlwWK3NH/Odmfx2eQ
-	2g4BUK4ODbNXkM6a4pDcuMSnmT64WbcgKFPMSha6x6eHqdMD7IQdA8ARtrs/7wdDqD9o6osScuIdK
-	EpHh8vtUjptslGkCIixgDzQ4f1QOYc9l+dMpR1TZq5q+xdSK1OOowPc2tm/vFMzRLDYiA0AFBC9P1
-	+8p5yXMz5L8Ei7nUlz75u/3RjC6BmO+3UZqbddggVNIQW07f5GKI0FoKtPoZpF144LmUR1tkbOIZ/
-	a+RKvW2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J7IFS+Nq88jf8GKKNBe7mAAapyjw4fDD+dL+TVSwaL0=; b=e+Bl9zSgyd3WJdhplb1Qk6LLDz
+	9HgujDKlE06ahxl70+7W1BsrvUnlkz1iR+PW0uwwxVGDglw0n4xiuj/XjL7GxTOWofFyfzKUV11sZ
+	b3UMaEFZT13ll3E58Km1te6qMW9YPb+10DZsqwT5Rucxk9WJoZUnhKyyTst/JqJMsGw8DrvfzpZHM
+	AAUCTcyAPNMzvoT0C5wTNymqOJ7Rfsx54X8D0dBj9i30A0Rah9vzoI2y8ZqLNG4ut9T+yJc4zV+GM
+	OnvhvzTsPTD95Imqd5u65e/AvyWKmOhghsSDlNwJjAD1ajPxchmQvbJ4eyelxg5eDKeKXmPFTY2LX
+	dgbRP1Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0e94-0000000DwHB-2kJZ;
-	Thu, 12 Mar 2026 11:24:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0eIG-0000000Dx84-1opO;
+	Thu, 12 Mar 2026 11:33:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0e92-0000000DwGf-1NbB;
-	Thu, 12 Mar 2026 11:24:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88FA9403C8;
-	Thu, 12 Mar 2026 11:23:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C32B8C4CEF7;
-	Thu, 12 Mar 2026 11:23:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773314639;
-	bh=QmUndoWKkvGu15ytPgiNk/W/zfIzuga6NPM0kq37X6g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gddxThvuN8nEkxb1oe2xYVqYBPcAGoZjE0JamctgWmvcBJC+2RXK4H1Oaf+f3JOwW
-	 fxwH+WLkxZbJY0MknBkur5pI7FCchUtXNdDKsThu5lMuoBANKs+UeoyfTMkJ1sO3+r
-	 4hpyJwTo29UlAt3cBAFFMBFuxc1orHcop3iw89T3rJ87yz2VKPaAXnDxEi2c/fTd87
-	 eJ/zbtp6tA8W/XODS6RYQsmWksPaTPRpOv5PRjQnkFFww5eYDtX/ErhgfeDObPX20h
-	 SEdGEgkqgOZOHOJQuURbLLXig62kg6JD5Fx4CH2RFeTqabIPhh1ARDfQqZ3yTDKMjS
-	 /FQjMq5HRAp3w==
-Message-ID: <0bc30137-3f1d-4a4a-8573-8f26866fcc26@kernel.org>
-Date: Thu, 12 Mar 2026 12:23:50 +0100
+	id 1w0eIE-0000000Dx6H-1kO2;
+	Thu, 12 Mar 2026 11:33:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=J7IFS+Nq88jf8GKKNBe7mAAapyjw4fDD+dL+TVSwaL0=; b=XdYuc07T9WWaLtMuS7lDKXXfrl
+	elf5PxVdO1WJkeTR8hWHOi6mOfcdPmjMWtwd3t3jaBmsv35jyHQO80wQOZslAvoYAnHTDsrBCA9//
+	roueW4EgOqLXeyMl9zCNRbR3XEpP5DCPzAndy7z2I2xL5UWdIpcV1Exc+UAq7tBFh29Bfj5KQUBkU
+	GWS6+Bq0QOxAwlMH8MaIHVG4insROxtmwweLaPpS34q5K874k4o1VM/QLgLK3UfBD8VOQmE68aio6
+	e+pUzQZ+sEIGdal+EsBCT3h9Dka08720hkuw9H1YPV/tOR1vBsOpGwtEJCkKy2qNEkw1XYuCMpZcv
+	9lJmHV8Q==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0eI9-000000011UH-3M4a;
+	Thu, 12 Mar 2026 11:33:28 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62CBUevxE2456770, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1773315041; bh=J7IFS+Nq88jf8GKKNBe7mAAapyjw4fDD+dL+TVSwaL0=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=VSzbmUkm0aF8/l06bUGmL+bA5BzD1OzXoo+8necBJrjxEVvMYJdDgDeOn1x/tc1Oy
+	 +H4PGxCa/fjz43KEPkOHsX8IxDllYPrm478hPoWf8l9rs9WO/RF2OeNzeJJeDPz7y4
+	 sYKvqEAmyBCtIcrAihNc8DwNBTCtyoF53mSF6G1VnS6RFeNtxqg3IJGaKoIwbwWC/v
+	 pArqJFHrFuRs7iFBMyXJmxpYgbi1RRG3a1nv4Brnu/jmI0obCs5S5pMv2gcH7KjCOl
+	 AeVA0M9g6vzlnaePtDMI5I4vuRh5woA8HNVePSCfj+x99MaZoxnJ3JrP0F1SAOMjDh
+	 FIvwS3EumkORA==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62CBUevxE2456770
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Mar 2026 19:30:40 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 12 Mar 2026 19:30:40 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 12 Mar 2026 19:30:40 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <afaerber@suse.com>
+CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>, <tychang@realtek.com>,
+        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>
+Subject: [PATCH v3 1/7] dt-bindings: pincfg-node: Add input-voltage-microvolt property
+Date: Thu, 12 Mar 2026 19:30:34 +0800
+Message-ID: <20260312113040.68189-2-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260312113040.68189-1-eleanor.lin@realtek.com>
+References: <20260312113040.68189-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/15] arch/powerpc: don't initialize kasan if it's
- disabled
-To: Sourabh Jain <sourabhjain@linux.ibm.com>, Baoquan He <bhe@redhat.com>,
- kasan-dev@googlegroups.com
-Cc: linux-mm@kvack.org, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
- glider@google.com, dvyukov@google.com, linux-kernel@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, chris@zankel.net,
- jcmvbkbc@gmail.com, linux-s390@vger.kernel.org, hca@linux.ibm.com
-References: <20260225081412.76502-1-bhe@redhat.com>
- <20260225081412.76502-10-bhe@redhat.com>
- <71921cca-b890-41c4-93e9-957d3f647ffa@linux.ibm.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <71921cca-b890-41c4-93e9-957d3f647ffa@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_042400_408801_4179A2AD 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260312_113326_897778_B64CE941 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Tzuyi Chang <tychang@realtek.com>
 
+Add a generic pin configuration property "input-voltage-microvolt" to
+support hardware designs where the input logic threshold is decoupled
+from the power supply voltage.
 
-Le 12/03/2026 à 12:12, Sourabh Jain a écrit :
-> 
-> 
-> On 25/02/26 13:44, Baoquan He wrote:
->> Here, kasan is disabled if specified 'kasan=off' in kernel cmdline.
->>
->> This includes 32bit, book3s/64 and book3e/64.
->>
->> Signed-off-by: Baoquan He <bhe@redhat.com>
->> Cc: linuxppc-dev@lists.ozlabs.org
->> ---
->>   arch/powerpc/mm/kasan/init_32.c        | 6 +++++-
->>   arch/powerpc/mm/kasan/init_book3e_64.c | 4 ++++
->>   arch/powerpc/mm/kasan/init_book3s_64.c | 4 ++++
->>   3 files changed, 13 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/powerpc/mm/kasan/init_32.c b/arch/powerpc/mm/kasan/ 
->> init_32.c
->> index 1d083597464f..0ea2a636c992 100644
->> --- a/arch/powerpc/mm/kasan/init_32.c
->> +++ b/arch/powerpc/mm/kasan/init_32.c
->> @@ -141,6 +141,10 @@ void __init kasan_init(void)
->>       u64 i;
->>       int ret;
->> +    /* If KASAN is disabled via command line, don't initialize it. */
->> +    if (kasan_arg_disabled)
->> +        return;
->> +
->>       for_each_mem_range(i, &base, &end) {
->>           phys_addr_t top = min(end, total_lowmem);
->> @@ -170,7 +174,7 @@ void __init kasan_init(void)
->>   void __init kasan_late_init(void)
->>   {
->> -    if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
->> +    if (IS_ENABLED(CONFIG_KASAN_VMALLOC) && kasan_enabled())
->>           kasan_unmap_early_shadow_vmalloc();
->>   }
->> diff --git a/arch/powerpc/mm/kasan/init_book3e_64.c b/arch/powerpc/mm/ 
->> kasan/init_book3e_64.c
->> index 0d3a73d6d4b0..fbe4c9a7e460 100644
->> --- a/arch/powerpc/mm/kasan/init_book3e_64.c
->> +++ b/arch/powerpc/mm/kasan/init_book3e_64.c
->> @@ -111,6 +111,10 @@ void __init kasan_init(void)
->>       u64 i;
->>       pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), 
->> PAGE_KERNEL_RO);
->> +    /* If KASAN is disabled via command line, don't initialize it. */
->> +    if (kasan_arg_disabled)
->> +        return;
->> +
->>       for_each_mem_range(i, &start, &end)
->>           kasan_init_phys_region(phys_to_virt(start), phys_to_virt(end));
->> diff --git a/arch/powerpc/mm/kasan/init_book3s_64.c b/arch/powerpc/mm/ 
->> kasan/init_book3s_64.c
->> index dcafa641804c..f7906f9ef9be 100644
->> --- a/arch/powerpc/mm/kasan/init_book3s_64.c
->> +++ b/arch/powerpc/mm/kasan/init_book3s_64.c
->> @@ -54,6 +54,10 @@ void __init kasan_init(void)
->>       u64 i;
->>       pte_t zero_pte = pfn_pte(virt_to_pfn(kasan_early_shadow_page), 
->> PAGE_KERNEL);
->> +    /* If KASAN is disabled via command line, don't initialize it. */
->> +    if (kasan_arg_disabled)
->> +        return;
->> +
->>       if (!early_radix_enabled()) {
->>           pr_warn("KASAN not enabled as it requires radix!");
->>           return;
-> 
-> Should we log in the kernel log buffer that KASAN is disabled?
-> 
-> Right now, I don't see the kernel advertising the same.
+This property allows the pinctrl driver to configure the correct internal
+reference voltage for pins that need to accept input signals at a different
+voltage level than their power supply. For example, a pin powered by 3.3V
+may need to accept 1.8V logic signals.
 
-When KASAN is enabled it is advertised with:
+This defines the reference for VIH (Input High Voltage) and VIL (Input Low
+Voltage) thresholds, enabling proper signal detection across different
+voltage domains.
 
-	pr_info("KernelAddressSanitizer initialized (generic)\n");
+Signed-off-by: Tzuyi Chang <tychang@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v3:
+- Rebased onto the devel branch of the pinctrl tree.
+- Improved commit message and description.
+---
+ Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Isn't the absence of that message enough to understand KASAN is not there ?
-
-> 
-> $ dmesg | grep -i kasan
-> [    0.000000] Kernel command line: BOOT_IMAGE=(ieee1275//vdevice/v- 
-> scsi@30000070/disk@8100000000000000,msdos2)/vmlinuz-7.0.0-rc3+ 
-> crashkernel=2G kasan=off
-> 
-> Tested this series on powerpc Pseries platform.
-> So feel free to add:
-> Tested-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-> 
-> - Sourabh Jain
-> 
+diff --git a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+index fe936ab09104..fd49a0d53bf0 100644
+--- a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+@@ -162,6 +162,11 @@ properties:
+       this affects the expected delay in ps before latching a value to
+       an output pin.
+ 
++  input-voltage-microvolt:
++    description: Specifies the input voltage level of the pin in microvolts.
++      This defines the reference for  VIH (Input High Voltage) and VIL
++      (Input Low Voltage) thresholds for proper signal detection.
++
+ allOf:
+   - if:
+       required:
+-- 
+2.34.1
 
 
