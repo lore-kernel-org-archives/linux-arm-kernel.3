@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05BB106ACCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 16:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79766106ACCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 16:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqSuO3F12+BG9vDtSc8L1vzzspX/dhmwJJslZsHS+5w=; b=Lww+xidODc4B5yxw4mWTZeF/Ds
-	gRU3Sq5SQ4yjJGm6HjFk46pAPyots5zs11sJZzM92xtPUBOWae3dfmg1/u15a4So/TYtHgy8PBdk0
-	GAa7Ln8C7WiNgdjxDE4wteD+d08XOp2Y/uF9riHDU8yqJnpLLPKEiS/IGosTi00t/OQQlRrXPvT4t
-	90L8E+NHqRdF8Qe+AKlcOX1ig1Jkc48j4DGcItQXTvfl00U8/lfgNso07BTNlsOWm6aqPShxXkuur
-	zwyKHqkiUg1YTQzOXs+pDw89RujsJkWeeNY45s8GNsuCaLkUZVA1BxZ4QcSQ0PeobIlNGVI0BzQ2j
-	EdB8EpGg==;
+	bh=B0FmF+DsXQX7GOkjZHLkLGAuMKOJtSb12a+vbzhQook=; b=pIXG15lrTQmNBIGMS828mVJGSb
+	zOyjG2QCKdo0y9DyI6H0RptBB9evZLSW0h8IQC9mO9KwCLg/Y/vLyj5FRULQYvRg9GXmaBWjqjI/P
+	ROVzNrzcretFlWBvzn4N8op0VbYB5TpZ80DeebIU6sgeNI0qY2zO1RMBICgmpiZhcN0zDOQNReWDK
+	7hF2bdES2ym9OF5LWyUnEVaWKHwHUXcVKlNyqbS4ylaJdeCR4x3nltAvFKcw4XhBdG98mncWfsN6J
+	L+vlP0qU4eUf0Rk/t3UD+DLfgOQJw3rB6F5j1TvflxQX4zHm6r3KIcLjzwBWHi5b7n9zNxIT69V9E
+	wPp7ffNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j3L-0000000EaRp-1BB5;
-	Thu, 12 Mar 2026 16:38:27 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1w0j73-0000000EbVp-2oPC;
+	Thu, 12 Mar 2026 16:42:17 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j3C-0000000EaGw-1vCY;
-	Thu, 12 Mar 2026 16:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=jq
-	SuO3F12+BG9vDtSc8L1vzzspX/dhmwJJslZsHS+5w=; b=X2NtGY0w8SBaIDWXj5
-	Il37UHQvb343cKnDnms4MUpmABVPpI9rNone/r00hKvAMwWSH449oZcM9PLYLNel
-	49+SQmv2PRoO2drBhMBpbnm10yvwzTJ9xAxa+DnrjZLU3nJ7BJehmDf1FWJIgOvF
-	L74Z2m3KlLuP6+Y6PtqCHbIz4=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDnN1Gl67JpMC_OAQ--.12929S5;
-	Fri, 13 Mar 2026 00:37:01 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: lpieralisi@kernel.org,
-	jingoohan1@gmail.com,
-	mani@kernel.org,
-	kwilczynski@kernel.org,
-	bhelgaas@google.com,
-	helgaas@kernel.org,
-	florian.fainelli@broadcom.com,
-	jim2101024@gmail.com
-Cc: robh@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	claudiu.beznea.uj@bp.renesas.com,
-	linux-mediatek@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v8 3/5] PCI: j721e: Validate max-link-speed from DT
-Date: Fri, 13 Mar 2026 00:36:50 +0800
-Message-Id: <20260312163652.113228-4-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260312163652.113228-1-18255117159@163.com>
-References: <20260312163652.113228-1-18255117159@163.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnN1Gl67JpMC_OAQ--.12929S5
-X-Coremail-Antispam: 1Uf129KBjvdXoW7JF4rZw1ftr4xWFyxGF1DGFg_yoWDXFXE9F
-	1UXFWrAr4Uuryakr1YyryayF95A34Uuw18Wa4rtF4fAFyxWay5ZrnxAFWUWa97u3W7JF17
-	JFyDKFn5J3ZFkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRMjjg7UUUUU==
-X-Originating-IP: [240e:b8f:927e:1000:1caf:6d92:f4ee:5e02]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxA0t0Gmy661RhQAA39
+	id 1w0j6z-0000000EbUB-2YEJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 16:42:15 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3CCA31A2E14;
+	Thu, 12 Mar 2026 16:42:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 03A3C6001B;
+	Thu, 12 Mar 2026 16:42:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3719810369E3A;
+	Thu, 12 Mar 2026 17:41:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773333725; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=B0FmF+DsXQX7GOkjZHLkLGAuMKOJtSb12a+vbzhQook=;
+	b=FswO7ROdPc4bZ3FXD4JYr3MHBPxofY/AMnw70L6CzfVcXCjar5dW7hRC57P83dRVeJx+pj
+	BjPuPR1Af/NkNEK9rOhLZRTb9gdGg3jDtU+eKmhui8hFss66u2UvEtonwU1iIYXaDfJbyj
+	yf0l6m2iPSvIdvse2U3VJrigTFfKdPZ+CRVJ4Vmg1dv2QTP8KreuNhCLnD0NiXcSmsuEiC
+	75WsxRv05LcBWrDGgUC1Z3gOcRegLK9bG7HCFjWmUdgm2DU9iF+Tb6ou22OIq/9m23PjRC
+	lF9MdP3nyeyIYVtshqQerqIqx7/36XmJABnakwd1d8BtHsCYJ8cd2zPWrhrCRg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 12 Mar 2026 17:41:58 +0100
+Message-Id: <DH0YC7M9YFU7.31DSHCPV381WC@bootlin.com>
+Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, "Peng Fan" <peng.fan@nxp.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
+ <Frank.Li@nxp.com>, <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>
+To: "Liu Ying" <victor.liu@nxp.com>, "Marco Felsch"
+ <m.felsch@pengutronix.de>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de> <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de> <33e09cc9-69bd-468b-8361-b92a50686f74@nxp.com> <DGZ2XYTVUR28.16ITKRM9S2ACV@bootlin.com> <ot5qypkeirkiweicjijholt2hwfpnnfhrcm3d6euqfnupptsab@din4bkq2sh5h> <ccce0f8c-88bf-4cd8-a806-b62049606cfe@nxp.com>
+In-Reply-To: <ccce0f8c-88bf-4cd8-a806-b62049606cfe@nxp.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_093818_907173_67AA5116 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260312_094213_920508_1A591841 
+X-CRM114-Status: GOOD (  43.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +90,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new pcie_get_link_speed() helper to validate the value read from
-the "max-link-speed" DT property.  If the value is missing or invalid,
-fall back to Gen2 (speed = 2).  This prepares for the removal of the
-range check in of_pci_get_max_link_speed().
+Hello Marco, Liu,
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/cadence/pci-j721e.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+On Thu Mar 12, 2026 at 10:15 AM CET, Liu Ying wrote:
+> On Wed, Mar 11, 2026 at 08:45:25PM +0100, Marco Felsch wrote:
+>> Hi Liu, Luca,
+>
+> Hi,
+>
+>>
+>> sorry for the delayed response, I was at the EW26.
+>
+> Np at all, it's good to go out to meet people sometimes :)
+>
+>>
+>> On 26-03-10, Luca Ceresoli wrote:
+>>> Hi Liu, Marco,
+>>>
+>>> On Tue Mar 10, 2026 at 3:57 AM CET, Liu Ying wrote:
+>>>> Hi Marco, Luca,
+>>>>
+>>>> On Tue, Mar 03, 2026 at 11:34:27AM +0100, Marco Felsch wrote:
+>>>>
+>>>> [...]
+>>>>
+>>>>> +	next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+>>>>> +	if (IS_ERR(next_bridge))
+>>>>> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
+>>>>> +				     "failed to get next bridge\n");
+>>>>> +	pdfc->dev =3D dev;
+>>>>> +	pdfc->bridge.of_node =3D dev->of_node;
+>>>>> +	pdfc->bridge.type =3D DRM_MODE_CONNECTOR_DPI;
+>>>>> +	pdfc->bridge.next_bridge =3D next_bridge;
+>>>>
+>>>> When I was reviewing another patch[1], I was aware of the necessity of
+>>>> calling drm_bridge_get() for next_bridge to balance the next bridge's
+>>>> refcount put from __drm_bridge_free() for this bridge.  I'd be good if
+>>>> Luca may confirm this is correct.  Sorry for bringing this up late.
+>>>
+>>> Indeed you have a good point.
+>>
+>> At which stage did you faced this issue? During driver probe, because of
+>> EPROBE_DEFER?
+>
+> I just want to balance the get/put for the next bridge's refcount by
+> calling drm_bridge_get() for next_bridge, as I said above.  There could
+> be some way to trigger some particular Use-After-Free issues if you don't
+> do that.  I did take some time today to try to trigger UAF, but no luck,
+> though I found a potential bug in encoder_bridges_show() and generated a
+> fix[1](Cc'ed Marco) when I played with debugfs to read the refcounts.
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 6f2501479c70..bfdfe98d5aba 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -202,7 +202,8 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
- 	int ret;
- 
- 	link_speed = of_pci_get_max_link_speed(np);
--	if (link_speed < 2)
-+	if ((link_speed < 2) ||
-+	    (pcie_get_link_speed(link_speed) == PCI_SPEED_UNKNOWN))
- 		link_speed = 2;
- 
- 	val = link_speed - 1;
--- 
-2.34.1
+The whole need for refcounting DRM bridges exists if such bridges can be
+removed when other parts of the kernel still have a pointer (=3D a referenc=
+e)
+to them. This is not the case with current DRM because you cannot remove
+some bridges without removing the whole pipeline (card). However I am
+working since a long time to suppor hardware where the last part of the
+display pipeline is hot-pluggable, causing DRM bridges to be added and
+removed at runtime without removal of the initial part of the pipeline
+(CRCT, encoder and 0 or more bridges).
 
+See these links for more background info:
+
+ * ELCE 2025:
+   - https://www.youtube.com/watch?v=3DC8dEQ4OzMnc
+   - https://bootlin.com/pub/conferences/2025/elce/ceresoli-hotplug-status.=
+pdf
+ * Lots of links in the slides about previous activity
+ * LPC 2024 has a general description fo the use case:
+   - https://lpc.events/event/18/contributions/1696/
+
+> My idea to trigger UAF is to remove imx_lcdif/imx93_pdfc/simple_panel
+> modules when doing pageflips.  Dunno if EPROBE_DEFER may trigger UAF.
+
+Perhaps there is some possible UAF on probe errors or deferrals, but the
+typical case is when removing the final part of a pipeline, including 1+
+bridges. This was discussed in detail in [0], but here's an excerpt with
+the typical UAF scenario with hotplug:
+
+  1. pipeline: encoder --> bridge A --> bridge B --> bridge C
+  2. encoder takes a reference to bridge B
+     using devm_drm_of_find_bridge() or other means
+  3. bridge B takes a next_bridge reference to bridge C
+     using devm_drm_of_find_bridge()
+  4. encoder calls (bridge B)->foo(), which in turns references
+     next_bridge, e.g.:
+
+       b_foo() {
+           bar(b->next_bridge);
+       }
+
+If bridges B and C are removed, bridge C can be freed but B is still
+allocated because the encoder holds a ref. So when step 4 happens, 'b->c'
+would be a use-after-free (or NULL deref if b.remove cleared it, which is
+just as bad).
+
+[0] https://lore.kernel.org/all/DEH2CVQV21Z2.25PJBAQAKFJSG@bootlin.com/
+
+>> That's the reason for having the local next_bridge variable since I
+>> faced with the same issue. In other words this driver is correct and
+>> it's on purpose to not assign it directly. Albeit I could/should have
+>> added a comment.
+>
+> What's the issue your faced?  How would using next_bridge variable impact=
+?
+> Without knowing these info, I presume that you still need to call
+> drm_bridge_get() for next_bridge, since it's kind of obvious if you take
+> a look at __drm_bridge_free().
+
+Exactly. The idea in a nutshell is: every pointer to a drm_bridge stored
+somewhere is a reference to a bridge. So:
+
+ * When you take a reference (=3D you set a pointer to the address of a
+   bridge) you need to call drm_bridge_get() to increment the
+   refcount.
+ * When you clear a reference (set it to NULL) or the pointer becomes
+   unreachable (the device goes away, the struct holding it is not
+   reachable anymore, etc) you need to call drm_bridge_put() to decrement
+   the refcount.
+
+This way the struct drm_bridge (or, typically, the private driver struct
+embedding it) will be freed only when the refcount goes to 0, avoiding UAF.
+
+I have been converting most of the accessors returning a drm_bridge pointer
+in order to drm_bridge_get() the bridge before returning it. A few random
+examples:
+
+ - https://lore.kernel.org/lkml/20250620-drm-bridge-alloc-getput-drm-bridge=
+-c-v9-0-ca53372c9a84@bootlin.com/
+ - https://lore.kernel.org/lkml/20250709-drm-bridge-alloc-getput-drm_bridge=
+_get_prev_bridge-v1-0-34ba6f395aaa@bootlin.com/
+ - https://lore.kernel.org/lkml/20260109-drm-bridge-alloc-getput-drm_of_fin=
+d_bridge-2-v2-4-8bad3ef90b9f@bootlin.com/
+
+I hope this clarifies the general refcount topic. Now to *_of_get_bridge().
+
+>>> After re-checking devm_drm_of_get_bridge(), as I wrote on the other thr=
+ead
+>>> you pointed to, you should call drm_bridge_get():
+>>>
+>>> -	pdfc->bridge.next_bridge =3D next_bridge;
+>>> +	pdfc->bridge.next_bridge =3D drm_bridge_get(next_bridge);
+>>>
+>>> Marco, you can keep my R-by if you resend with just this change.
+>>>
+>>> Sorry about the confusion here.
+>>>
+>>> As mention on the other thread, devm_drm_of_get_bridge() is unable to
+>>> support bridge hotplug. So it should be deprecated, but as of now there=
+ is
+>>> no alternative.
+>>
+>> Sorry I need a bit more context. What's the issue?
+
+The issue with devm_drm_of_get_bridge(MYDEV, ...) (similarly for other
+*_of_get_bridge() functions) is it can return one of:
+
+ A) an existing bridge, returned by drm_of_find_panel_or_bridge() in the
+    &bridge parameter
+ B) a panel_bridge it creates on the fly calling
+    devm_drm_panel_bridge_add(MYDEV) based on the panel returned by
+    drm_of_find_panel_or_bridge() in the &panel parameter
+
+The caller of devm_drm_of_get_bridge() gets a drm_bridge pointer but
+doesn't know whether case A or B happened.
+
+This is not a problem if the entire card is torn down at once because
+devm/drmm will take care or the removal. Even easier if the card is not
+torn down at all.
+
+Now imagine adding hotplug so you can keep MYDEV present but remove any
+bridges after MYDEV and the panel. The devm action added by
+devm_drm_of_get_bridge() won't trigger (because MYDEV is not going
+away). The caller of devm_drm_of_get_bridge(), i.e. the MYDEV driver,
+should remove the panel_bridge in case B but it has no way to know whether
+case A or B happened.
+
+So, this is tricky. The good news for you is you're not supposed to fix
+it. The *_of_get_bridge() API is just unable to handle hotplug, that will
+be fixed at some point. For now just ensure you get a reference for every
+bridge pointer you store, and to put it when that reference goes away.
+
+>> How can I trigger the
+>> issue?
+
+See the example above.
+
+>> Why is bridge hotplug required at this stage?
+
+Because there is hot-pluggable hardware we want to support, see the ELCE
+and even better the LPC links above.
+
+>> Why is only this
+>> bridge affecte by the hotplug issue?
+
+It's not only this driver. Hotplug can potentially be used on any hardware,
+so I'm working to implement it in a general way in the DRM common code, but
+all drviers need to at least do the refcounting on their side. I'm trying
+to catch all patches involving bridge pointers and check whether they do
+refcounting right. This is just one of many patches I have commented about
+in the past months.
+
+I hope this clarified a bit.
+
+Best regards,
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
