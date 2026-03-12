@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9A4106ACCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 16:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AA9106ACCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 16:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aat1lGU179uhJKT9Br6FkerR3aKYbiR+88vAjPcRdis=; b=bnR28eysvTgsQfGJT3H2JxeZdL
-	G/oO9x/EcLjNpJL8A8+n1P5L5/kqaQihYwnSC49Ah4KYWgo/XpAMq0mc0X7yagnpLR2cXW7r6nfCt
-	5y+dxojhJZjotSO3v+z2sm0fRG7t5/9C+g7KpSNNnzVWvUisLbYepZVvPNQp7OhRtjkjp99YZROq0
-	GJZeD9jEbReXMWwb/eUQSotp+gt25C0XlvmeLZJFswwxBim0g5Q3GTV0Ug17SkE3rfGsi9JNywn7G
-	ycVxE5my5Fjo9ISiq9xfjoIAWuKrvrgjVaIVEQulf8+zTREQSELoYjrtbzTPGtToHqlXNOawzu1aj
-	OhYKoTZg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kip7BomIi9srRR9oV0NiCwlYHn1GDDnBXi25irvTx0Q=; b=gDPzjxJ0hpXMjmwQBEWa5q2rsZ
+	qKzo5XHyuhKiPh9VNFXc6K3Yoskao6WA/uLf+pkINcAfCD7yNrfXHBXC+uL1BqgcjbruU9mhqt36h
+	brSjYNlNm4zCEBHaLo/MJg73JCuPK+SvxmU6vGJlD5kS7jg66CKmRZALoisQaTmjF2mdjvBk7IMYJ
+	imWThZIe2B2h+QLQc3IMVNsazPJWPUkNcUEqmCJrukT/VFyKMs02aII2O+nDgn8S19chW2pp9DxLK
+	6bnL7behlSGL2WVTcIBVSHzGqvRgWQQeDIdKzy8pj9zbX4wjHcrU7vDeUED738nXdewNYgXmpeCnT
+	AJBZseAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j1V-0000000EZNK-32In;
-	Thu, 12 Mar 2026 16:36:33 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1w0j1Q-0000000EZLc-47ox;
+	Thu, 12 Mar 2026 16:36:29 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j1N-0000000EZIl-1nGN
+	id 1w0j1N-0000000EZIf-0DiA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 16:36:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fWtXV5Q8QzKHMrN
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 00:35:54 +0800 (CST)
+	Thu, 12 Mar 2026 16:36:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fWtWv4bh9zYQtw1
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 00:35:23 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 641B940591
+	by mail.maildlp.com (Postfix) with ESMTP id 0D70040573
 	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 00:36:13 +0800 (CST)
 Received: from k01.k01 (unknown [10.67.174.197])
-	by APP4 (Coremail) with SMTP id gCh0CgAX8Ut567JpyHCmAg--.44387S4;
-	Fri, 13 Mar 2026 00:36:13 +0800 (CST)
+	by APP4 (Coremail) with SMTP id gCh0CgAX8Ut567JpyHCmAg--.44387S2;
+	Fri, 13 Mar 2026 00:36:10 +0800 (CST)
 From: Xu Kuohai <xukuohai@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -67,36 +67,33 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	"David S . Miller" <davem@davemloft.net>,
 	Wang YanQing <udknight@gmail.com>
-Subject: [PATCH bpf-next v9 2/5] bpf: Pass bpf_verifier_env to JIT
-Date: Fri, 13 Mar 2026 01:02:52 +0800
-Message-ID: <20260312170255.3427799-3-xukuohai@huaweicloud.com>
+Subject: [-next v9 0/5] emit ENDBR/BTI instructions for indirect jump targets
+Date: Fri, 13 Mar 2026 01:02:50 +0800
+Message-ID: <20260312170255.3427799-1-xukuohai@huaweicloud.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260312170255.3427799-1-xukuohai@huaweicloud.com>
-References: <20260312170255.3427799-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgAX8Ut567JpyHCmAg--.44387S4
-X-Coremail-Antispam: 1UD129KBjvAXoW3ZF4fKFWrur4DXr18Jw4rGrg_yoW8XFWxGo
-	W3tFn0yF48t3ykGrW7trn7JF1UXw17G397Zr4fWan5Wayxt34jkr97WrsrK3WSqa1rGrWD
-	uFyxGa15ArsxKF9xn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUO57kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
-	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr
-	yl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrV
-	C2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE
-	7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262
-	kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
-	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GF
-	v_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
-	c7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67
-	AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuY
-	vjxUIID7DUUUU
+X-CM-TRANSID: gCh0CgAX8Ut567JpyHCmAg--.44387S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuryrZF47Ar17Kr15Zw48tFb_yoWrCryfpF
+	savw13ur4kKr4fXr1fJF40kryaqw48J3W7ZFnxK3yxA3Z09rnruF4Sgw4FvF98Ary0k34Y
+	qr4a9r95G34DX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6x
+	kF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE
+	5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeV
+	CFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07jxCztUUUUU=
 X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_093625_826239_2CE821E2 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20260312_093625_451959_A3C9B070 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,400 +108,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xu Kuohai <xukuohai@huawei.com>
+On architectures with CFI protection enabled that require landing pad
+instructions at indirect jump targets, such as x86 with CET/IBT enabled
+and arm64 with BTI enabled, kernel panics when an indirect jump lands on
+a target without landing pad. Therefore, the JIT must emit landing pad
+instructions for indirect jump targets.
 
-Pass bpf_verifier_env to bpf_int_jit_compile(). The follow-up patch will
-use env->insn_aux_data in the JIT stage to detect indirect jump targets.
+The verifier already recognizes which instructions are indirect jump
+targets during the verification phase. So we can store this information
+in env->insn_aux_data and pass it to the JIT as new parameter, so the JIT
+knows which instructions are indirect jump targets.
 
-Since bpf_prog_select_runtime() can be called by cbpf and lib/test_bpf.c
-code without verifier, introduce helper __bpf_prog_select_runtime()
-to accept the env parameter.
+During JIT, constants blinding is performed. It rewrites the private copy
+of instructions for the JITed program, but it does not adjust the global
+env->insn_aux_data array. As a result, after constants blinding, the
+instruction indexes used by JIT may no longer match the indexes in
+env->insn_aux_data, so the JIT can not lookup env->insn_aux_data directly.
 
-Remove the call to bpf_prog_select_runtime() in bpf_prog_load(), and
-switch to call __bpf_prog_select_runtime() in the verifier, with env
-variable passed. The original bpf_prog_select_runtime() is preserved for
-cbpf and lib/test_bpf.c, where env is NULL.
+To avoid this mismatch, and considering that all existing arch-specific JITs
+already implement constants blinding with largely duplicated code, move
+constants blinding from JIT to generic code.
 
-Now all constants blinding calls are moved into the verifier, except
-the cbpf and lib/test_bpf.c cases. The instructions arrays are adjusted
-by bpf_patch_insn_data() function for normal cases, so there is no need
-to call adjust_insn_arrays() in  bpf_jit_blind_constants(). Remove it.
+v9:
+- Make constant blinding available for classic bpf (Eduard)
+- Clear prog->bpf_func, prog->jited ... on the error path of extra pass (Eduard)
+- Fix spelling errors and remove unused parameter (Anton Protopopov)
 
-Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
-Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
----
- arch/arc/net/bpf_jit_core.c      |  2 +-
- arch/arm/net/bpf_jit_32.c        |  2 +-
- arch/arm64/net/bpf_jit_comp.c    |  2 +-
- arch/loongarch/net/bpf_jit.c     |  2 +-
- arch/mips/net/bpf_jit_comp.c     |  2 +-
- arch/parisc/net/bpf_jit_core.c   |  2 +-
- arch/powerpc/net/bpf_jit_comp.c  |  2 +-
- arch/riscv/net/bpf_jit_core.c    |  2 +-
- arch/s390/net/bpf_jit_comp.c     |  2 +-
- arch/sparc/net/bpf_jit_comp_64.c |  2 +-
- arch/x86/net/bpf_jit_comp.c      |  2 +-
- arch/x86/net/bpf_jit_comp32.c    |  2 +-
- include/linux/filter.h           |  4 +-
- kernel/bpf/core.c                | 63 ++++++++++++--------------------
- kernel/bpf/syscall.c             |  4 --
- kernel/bpf/verifier.c            |  8 +++-
- 16 files changed, 44 insertions(+), 59 deletions(-)
+v8: https://lore.kernel.org/bpf/20260309140044.2652538-1-xukuohai@huaweicloud.com/
+- Define void bpf_jit_blind_constants() function when CONFIG_BPF_JIT is not set 
+- Move indirect_target fixup for insn patching from bpf_jit_blind_constants()
+  to adjust_insn_aux_data()
 
-diff --git a/arch/arc/net/bpf_jit_core.c b/arch/arc/net/bpf_jit_core.c
-index 973ceae48675..639a2736f029 100644
---- a/arch/arc/net/bpf_jit_core.c
-+++ b/arch/arc/net/bpf_jit_core.c
-@@ -1400,7 +1400,7 @@ static struct bpf_prog *do_extra_pass(struct bpf_prog *prog)
-  * (re)locations involved that their addresses are not known
-  * during the first run.
-  */
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	vm_dump(prog);
- 
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index e6b1bb2de627..1628b6fc70a4 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -2142,7 +2142,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *header;
- 	struct jit_ctx ctx;
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index cd5a72fff500..7212ec89dfe3 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2006,7 +2006,7 @@ struct arm64_jit_data {
- 	struct jit_ctx ctx;
- };
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	int image_size, prog_size, extable_size, extable_align, extable_offset;
- 	struct bpf_binary_header *header;
-diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 75a3a8fc6368..da0c7257a068 100644
---- a/arch/loongarch/net/bpf_jit.c
-+++ b/arch/loongarch/net/bpf_jit.c
-@@ -1909,7 +1909,7 @@ int arch_bpf_trampoline_size(const struct btf_func_model *m, u32 flags,
- 	return ret < 0 ? ret : ret * LOONGARCH_INSN_SIZE;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	bool extra_pass = false;
- 	u8 *image_ptr, *ro_image_ptr;
-diff --git a/arch/mips/net/bpf_jit_comp.c b/arch/mips/net/bpf_jit_comp.c
-index d2b6c955f18e..6ee4abe6a1f7 100644
---- a/arch/mips/net/bpf_jit_comp.c
-+++ b/arch/mips/net/bpf_jit_comp.c
-@@ -909,7 +909,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *header = NULL;
- 	struct jit_context ctx;
-diff --git a/arch/parisc/net/bpf_jit_core.c b/arch/parisc/net/bpf_jit_core.c
-index 35dca372b5df..172770132440 100644
---- a/arch/parisc/net/bpf_jit_core.c
-+++ b/arch/parisc/net/bpf_jit_core.c
-@@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	unsigned int prog_size = 0, extable_size = 0;
- 	bool extra_pass = false;
-diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
-index c9daa1a72378..e478e4e96ab0 100644
---- a/arch/powerpc/net/bpf_jit_comp.c
-+++ b/arch/powerpc/net/bpf_jit_comp.c
-@@ -129,7 +129,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *fp)
- {
- 	u32 proglen;
- 	u32 alloclen;
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 527baa50dc68..768ac686b359 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	unsigned int prog_size = 0, extable_size = 0;
- 	bool extra_pass = false;
-diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
-index db42a79e9004..9ccf811b7370 100644
---- a/arch/s390/net/bpf_jit_comp.c
-+++ b/arch/s390/net/bpf_jit_comp.c
-@@ -2303,7 +2303,7 @@ static struct bpf_binary_header *bpf_jit_alloc(struct bpf_jit *jit,
- /*
-  * Compile eBPF program "fp"
-  */
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *fp)
- {
- 	struct bpf_binary_header *header;
- 	struct s390_jit_data *jit_data;
-diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_comp_64.c
-index e83e29137566..2fa0e9375127 100644
---- a/arch/sparc/net/bpf_jit_comp_64.c
-+++ b/arch/sparc/net/bpf_jit_comp_64.c
-@@ -1477,7 +1477,7 @@ struct sparc64_jit_data {
- 	struct jit_ctx ctx;
- };
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct sparc64_jit_data *jit_data;
- 	struct bpf_binary_header *header;
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 77d00a8dec87..72d9a5faa230 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -3713,7 +3713,7 @@ struct x64_jit_data {
- #define MAX_PASSES 20
- #define PADDING_PASSES (MAX_PASSES - 5)
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *rw_header = NULL;
- 	struct bpf_binary_header *header = NULL;
-diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
-index 5f259577614a..852baf2e4db4 100644
---- a/arch/x86/net/bpf_jit_comp32.c
-+++ b/arch/x86/net/bpf_jit_comp32.c
-@@ -2518,7 +2518,7 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *header = NULL;
- 	int proglen, oldproglen = 0;
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index 2f433182372c..3dd609fa7249 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -1108,6 +1108,8 @@ static inline int sk_filter_reason(struct sock *sk, struct sk_buff *skb,
- 	return sk_filter_trim_cap(sk, skb, 1, reason);
- }
- 
-+struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env, struct bpf_prog *fp,
-+					   int *err);
- struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err);
- void bpf_prog_free(struct bpf_prog *fp);
- 
-@@ -1153,7 +1155,7 @@ u64 __bpf_call_base(u64 r1, u64 r2, u64 r3, u64 r4, u64 r5);
- 	((u64 (*)(u64, u64, u64, u64, u64, const struct bpf_insn *)) \
- 	 (void *)__bpf_call_base)
- 
--struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog);
-+struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog);
- void bpf_jit_compile(struct bpf_prog *prog);
- bool bpf_jit_needs_zext(void);
- bool bpf_jit_inlines_helper_call(s32 imm);
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 4c20417c301a..78c550d8f663 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -1469,23 +1469,6 @@ void bpf_jit_prog_release_other(struct bpf_prog *fp, struct bpf_prog *fp_other)
- 	bpf_prog_clone_free(fp_other);
- }
- 
--static void adjust_insn_arrays(struct bpf_prog *prog, u32 off, u32 len)
--{
--#ifdef CONFIG_BPF_SYSCALL
--	struct bpf_map *map;
--	int i;
--
--	if (len <= 1)
--		return;
--
--	for (i = 0; i < prog->aux->used_map_cnt; i++) {
--		map = prog->aux->used_maps[i];
--		if (map->map_type == BPF_MAP_TYPE_INSN_ARRAY)
--			bpf_insn_array_adjust(map, off, len);
--	}
--#endif
--}
--
- struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_insn insn_buff[16], aux[2];
-@@ -1558,12 +1541,6 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bp
- 
- 		if (env)
- 			env->prog = clone;
--		else
--			/* Instructions arrays must be updated using absolute xlated offsets.
--			 * The arrays have already been adjusted by bpf_patch_insn_data() when
--			 * env is not NULL.
--			 */
--			adjust_insn_arrays(clone, subprog_start + i, rewritten);
- 
- 		/* Walk new program and skip insns we just inserted. */
- 		insn = clone->insnsi + i + insn_delta;
-@@ -2526,13 +2503,13 @@ static bool bpf_prog_select_interpreter(struct bpf_prog *fp)
- 	return select_interpreter;
- }
- 
--static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
-+static struct bpf_prog *bpf_prog_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- #ifdef CONFIG_BPF_JIT
- 	bool blinded = false;
- 	struct bpf_prog *orig_prog = prog;
- 
--	prog = bpf_jit_blind_constants(NULL, orig_prog);
-+	prog = bpf_jit_blind_constants(env, orig_prog);
- 	/* If blinding was requested and we failed during blinding, we must fall
- 	 * back to the interpreter.
- 	 */
-@@ -2542,7 +2519,7 @@ static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
- 	if (prog != orig_prog)
- 		blinded = true;
- 
--	prog = bpf_int_jit_compile(prog);
-+	prog = bpf_int_jit_compile(env, prog);
- 	if (blinded) {
- 		if (!prog->jited) {
- 			bpf_jit_prog_release_other(orig_prog, prog);
-@@ -2555,18 +2532,8 @@ static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
- 	return prog;
- }
- 
--/**
-- *	bpf_prog_select_runtime - select exec runtime for BPF program
-- *	@fp: bpf_prog populated with BPF program
-- *	@err: pointer to error variable
-- *
-- * Try to JIT eBPF program, if JIT is not available, use interpreter.
-- * The BPF program will be executed via bpf_prog_run() function.
-- *
-- * Return: the &fp argument along with &err set to 0 for success or
-- * a negative errno code on failure
-- */
--struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
-+struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env, struct bpf_prog *fp,
-+					   int *err)
- {
- 	/* In case of BPF to BPF calls, verifier did all the prep
- 	 * work with regards to JITing, etc.
-@@ -2594,7 +2561,7 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
- 		if (*err)
- 			return fp;
- 
--		fp = bpf_prog_jit_compile(fp);
-+		fp = bpf_prog_jit_compile(env, fp);
- 		bpf_prog_jit_attempt_done(fp);
- 		if (!fp->jited && jit_needed) {
- 			*err = -ENOTSUPP;
-@@ -2620,6 +2587,22 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
- 
- 	return fp;
- }
-+
-+/**
-+ *	bpf_prog_select_runtime - select exec runtime for BPF program
-+ *	@fp: bpf_prog populated with BPF program
-+ *	@err: pointer to error variable
-+ *
-+ * Try to JIT eBPF program, if JIT is not available, use interpreter.
-+ * The BPF program will be executed via bpf_prog_run() function.
-+ *
-+ * Return: the &fp argument along with &err set to 0 for success or
-+ * a negative errno code on failure
-+ */
-+struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
-+{
-+	return __bpf_prog_select_runtime(NULL, fp, err);
-+}
- EXPORT_SYMBOL_GPL(bpf_prog_select_runtime);
- 
- static unsigned int __bpf_prog_ret1(const void *ctx,
-@@ -3107,7 +3090,7 @@ const struct bpf_func_proto bpf_tail_call_proto = {
-  * It is encouraged to implement bpf_int_jit_compile() instead, so that
-  * eBPF and implicitly also cBPF can get JITed!
-  */
--struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_prog *prog)
-+struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	return prog;
- }
-diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-index 274039e36465..fb07be46c936 100644
---- a/kernel/bpf/syscall.c
-+++ b/kernel/bpf/syscall.c
-@@ -3090,10 +3090,6 @@ static int bpf_prog_load(union bpf_attr *attr, bpfptr_t uattr, u32 uattr_size)
- 	if (err < 0)
- 		goto free_used_maps;
- 
--	prog = bpf_prog_select_runtime(prog, &err);
--	if (err < 0)
--		goto free_used_maps;
--
- 	err = bpf_prog_mark_insn_arrays_ready(prog);
- 	if (err < 0)
- 		goto free_used_maps;
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 3ccefd13121b..c8c4d7ea8588 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -22992,7 +22992,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 		func[i]->aux->might_sleep = env->subprog_info[i].might_sleep;
- 		if (!i)
- 			func[i]->aux->exception_boundary = env->seen_exception;
--		func[i] = bpf_int_jit_compile(func[i]);
-+		func[i] = bpf_int_jit_compile(env, func[i]);
- 		if (!func[i]->jited) {
- 			err = -ENOTSUPP;
- 			goto out_free;
-@@ -23036,7 +23036,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 	}
- 	for (i = 0; i < env->subprog_cnt; i++) {
- 		old_bpf_func = func[i]->bpf_func;
--		tmp = bpf_int_jit_compile(func[i]);
-+		tmp = bpf_int_jit_compile(env, func[i]);
- 		if (tmp != func[i] || func[i]->bpf_func != old_bpf_func) {
- 			verbose(env, "JIT doesn't support bpf-to-bpf calls\n");
- 			err = -ENOTSUPP;
-@@ -26304,6 +26304,10 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
- 		convert_pseudo_ld_imm64(env);
- 	}
- 
-+	env->prog = __bpf_prog_select_runtime(env, env->prog, &ret);
-+	if (ret)
-+		goto err_release_maps;
-+
- 	adjust_btf_func(env);
- 
- err_release_maps:
+v7: https://lore.kernel.org/bpf/20260307103949.2340104-1-xukuohai@huaweicloud.com
+- Move constants blinding logic back to bpf/core.c
+- Compute ip address before switch statement in x86 JIT
+- Clear JIT state from error path on arm64 and loongarch 
+
+v6: https://lore.kernel.org/bpf/20260306102329.2056216-1-xukuohai@huaweicloud.com/
+- Move constants blinding from JIT to verifier
+- Move call to bpf_prog_select_runtime from bpf_prog_load to verifier
+
+v5: https://lore.kernel.org/bpf/20260302102726.1126019-1-xukuohai@huaweicloud.com/
+- Switch to pass env to JIT directly to get rid of coping private insn_aux_data for
+  each prog
+
+v4: https://lore.kernel.org/all/20260114093914.2403982-1-xukuohai@huaweicloud.com/
+- Switch to the approach proposed by Eduard, using insn_aux_data to indentify indirect
+  jump targets, and emit ENDBR on x86
+
+v3: https://lore.kernel.org/bpf/20251227081033.240336-1-xukuohai@huaweicloud.com/
+- Get rid of unnecessary enum definition (Yonghong Song, Anton Protopopov)
+
+v2: https://lore.kernel.org/bpf/20251223085447.139301-1-xukuohai@huaweicloud.com/
+- Exclude instruction arrays not used for indirect jumps (Anton Protopopov)
+
+v1: https://lore.kernel.org/bpf/20251127140318.3944249-1-xukuohai@huaweicloud.com/
+
+
+Xu Kuohai (5):
+  bpf: Move constants blinding out of arch-specific JITs
+  bpf: Pass bpf_verifier_env to JIT
+  bpf: Add helper to detect indirect jump targets
+  bpf, x86: Emit ENDBR for indirect jump targets
+  bpf, arm64: Emit BTI for indirect jump target
+
+ arch/arc/net/bpf_jit_core.c      |  41 ++++-------
+ arch/arm/net/bpf_jit_32.c        |  43 +++--------
+ arch/arm64/net/bpf_jit_comp.c    |  87 ++++++++---------------
+ arch/loongarch/net/bpf_jit.c     |  61 +++++-----------
+ arch/mips/net/bpf_jit_comp.c     |  22 +-----
+ arch/parisc/net/bpf_jit_core.c   |  75 ++++++++------------
+ arch/powerpc/net/bpf_jit_comp.c  |  70 +++++++-----------
+ arch/riscv/net/bpf_jit_core.c    |  63 ++++++-----------
+ arch/s390/net/bpf_jit_comp.c     |  61 ++++++----------
+ arch/sparc/net/bpf_jit_comp_64.c |  63 ++++++-----------
+ arch/x86/net/bpf_jit_comp.c      |  71 ++++++-------------
+ arch/x86/net/bpf_jit_comp32.c    |  35 ++-------
+ include/linux/bpf.h              |   2 +
+ include/linux/bpf_verifier.h     |   9 +--
+ include/linux/filter.h           |  15 +++-
+ kernel/bpf/core.c                | 118 +++++++++++++++++++++----------
+ kernel/bpf/syscall.c             |   4 --
+ kernel/bpf/verifier.c            |  66 ++++++++++++-----
+ 18 files changed, 372 insertions(+), 534 deletions(-)
+
 -- 
 2.47.3
 
