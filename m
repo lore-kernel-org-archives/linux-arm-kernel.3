@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07411067027
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359131067029
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viC1gPLlOGctSWu83HWjGEsXF70NJAe1D+sqpq58byY=; b=KuUW19wYjLxhQElb1al985wW+1
-	m0xVXrQaRhepv2q+1PCs5eaJ34TAZGn30a9tcTv2iH6cra6r1PaC/QOxR8nakgn1WukSy/TVGbhY0
-	lNCEE6nQasTNeUxeWBzstbw2/gj87P2x8etCGO6rO3qT2SLRzZpG9pDz7MaPJLwf6FlPvkpZG0AfC
-	tllcThF2oZwFSiiAGDIWyFQN5DfW3yMw1FqNMNUXRHZc1US6EXVDcSkSMYs/huJ6Ye69UMxPGe1WJ
-	TaA23P0Pyi3T6nl7ecZGg9H//dWlK60asCzj5OdRtDZnT1S+ZBoMztt2HBTEItCW0Tb39DB5r0kbN
-	gNZChrDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Khzpn5Mx56KvyAQlDdussK+xDM01SpYAZGq0vABXvB8=; b=r1Ndcw9+ReEmyCxfC10V+ec6Se
+	KfpDgeg1JQIJvwoXV/qxWNZQ7VrsL+G5pX4bJatE6dZzIceMFiyiUD4Eo1myebtqmrYSW8CnuHx1I
+	iufOI8aJvxhH8A/T1sev1AldW6zIkUEq3zxij+337dLEyCCS7KDHRmP5t/UidC8KD1Qf5YK6Eq8eq
+	9yi8s8X0yikJh097M7PrdgqDP+6IkNlDdLdr2ZQ1nm37Ij+eUAGAXj/AW5TI2GWdUSrKge0usSTD/
+	MIrIRCqhta715I3bpYCPYraX0y7xIefh/ljMXAi3LRGw6k4Qzsc1UxDM3IyBPvCHuyHI8O5jd5s+C
+	3IvCsD6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ghg-0000000EB07-1VDu;
-	Thu, 12 Mar 2026 14:07:56 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1w0ghm-0000000EB1L-2ixt;
+	Thu, 12 Mar 2026 14:08:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ghd-0000000EAzk-0mP8
+	id 1w0ghi-0000000EB0D-20fP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:07:55 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-439ce3605ecso871451f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 07:07:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773324471; x=1773929271; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=viC1gPLlOGctSWu83HWjGEsXF70NJAe1D+sqpq58byY=;
-        b=a8rrlhoUjbDfEXMNWQMauAG4ACkAQrf8zES0mbtomGV1mCvwaYNHlP789g79KuM3TR
-         k0GIGRqzF8r5isfw66EUoRXXxcFSTe4yXjcfRqz7qKavXyeUJE9f4JYMw+TcD+8vz46H
-         Ov+kna/IvmisBeRs6BHqhtIHYBK6Zxvg3G9EmgjCRfMjkAX+laTBRDztzbkoBpSoph+3
-         tJqYjQKUzPmKuobQobW4d0L+17p8D+w5SvNA3WZXbtc2Y75SNEfwiADFAVDqeyljuO07
-         ePokxn6jA9oX0UWJqXePIFkKtPQnpYb2JefK4Iy/OaQ5cb9LizI4pQ/yWrHZOb+ZMZQJ
-         NYxQ==
+	Thu, 12 Mar 2026 14:08:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1773324477;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Khzpn5Mx56KvyAQlDdussK+xDM01SpYAZGq0vABXvB8=;
+	b=Ef/ocbx8wYsAiuvgs/42BRGjrLyOmLxpGr3yHS6b1QyZd9ItXPSwM+HkB7EXy9r0P/9zuB
+	agm31A3za9THH0oRiMgfZ2u3IqDVu4Jf/P0ps30iN4k9uzpDhsiu078Xs8HvbXYcDLFg+T
+	Z7N3jiWSymYPhxsC3Z4ezDSG17Ua3oU=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-594-y8-zVmHRP5umKzFJ5jb5lQ-1; Thu, 12 Mar 2026 10:07:55 -0400
+X-MC-Unique: y8-zVmHRP5umKzFJ5jb5lQ-1
+X-Mimecast-MFC-AGG-ID: y8-zVmHRP5umKzFJ5jb5lQ_1773324473
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-485375aa56eso7543465e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 07:07:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773324471; x=1773929271;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=viC1gPLlOGctSWu83HWjGEsXF70NJAe1D+sqpq58byY=;
-        b=t04owBUa5L7b0oNqwlv+GPOCZCSP5lps9XqmEA8Zq2YVl0B8wBzDizI1SwzABpWuoc
-         QEF5MILFgw6FeZi6KOxhw7bTrfgrnNvxDr0MlO+99iLbrcSXfGJR1WqgGu2pq/umWEBm
-         28/Dsjs6ZQL07xDYXGBglASG5jpy5CCpsqnU7S+/U6S4djEiXWnykpZzXC0ZDoYDEq+y
-         rKumhQLpDNOBUB3+c0XsmtDmLki8clFPwWZSGzgtQDWlV3qwq3QhqQ15shBjGFhSou0K
-         tx9/qZbGw8Bu+gXAynDnV0TBD++FsvjjFuJZZr9GvgW2MOeQlDrnFNhuhfJb750SumHr
-         kqFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVGZIRVwa7VR2LndUpLXLcoMMFRzW5TprAa7Z6Cj2WsijCKcteFdRT+cq/sQxrI3rK+phPVNErTVyBRH42+hVRD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOwdKszNgmg95/2DPVxXP057G48XnF7xrJAEMIj4zK+7XiImJx
-	dDB9I+K/ftJMi2IvfusMq1x2kKNQE58cwHpXG8I90R4sdK1qUA4f7BbMbnDAW0fyMQ==
-X-Gm-Gg: ATEYQzz+AQfaHFWAFu+2KOdKL4vE+fCaJSNBgPk0DCtPh0ICHleuwbcwRxoIHxKUJHP
-	mdn4z/jKRmXDZlICT1YHdKZSgAeuTI+48mEJ0s0bF7qc1fFHJABxFrLcFIVHACZiGCUktRrhp5Q
-	FUV5MNp1CofHFyfzEc7sXFuraJZycDqcNph1N7N3dBVyyYPpO4sgXlKn+GFlSVPphg85OXjuZeK
-	0Bp4gfPoY/by/X1iJ7Sq2vmfz50tO/92n+8oWlDyyBD0oGexJSudKmY48XGxGx4UFnrpBLUIHHW
-	A8ZAePUlwiAPRXyxvCYtiRR/tq0U2834lRWmQQnSDtL++sunPaw7rInTxlISVN3QTLKCiwWhZof
-	OL0A9XM6OQq+dYk3P8SJWoepWvj1rGo0+bzZX/PYt4ehFl1j+/HLEcv2DIlQg0TqzdaSjiKIYxD
-	zgqq2QgUHPxzjORbs1cnHmfVgD/Dl1NNOqONmUpp3nK/mMxJqJ3DnmPCoICY1ZozZLaX4YW1QFE
-	RpUDA==
-X-Received: by 2002:a05:6000:2012:b0:439:cb20:f30c with SMTP id ffacd0b85a97d-439f81c77c9mr13119179f8f.23.1773324470601;
-        Thu, 12 Mar 2026 07:07:50 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe1a76e5sm8108613f8f.12.2026.03.12.07.07.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 07:07:50 -0700 (PDT)
-Date: Thu, 12 Mar 2026 14:07:46 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	jstultz@google.com, qperret@google.com, will@kernel.org,
-	aneesh.kumar@kernel.org, kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v14 18/30] tracing: Check for undefined symbols in
- simple_ring_buffer
-Message-ID: <abLIslqIcVscZRFg@google.com>
-References: <20260309162516.2623589-1-vdonnefort@google.com>
- <20260309162516.2623589-19-vdonnefort@google.com>
- <20260311221816.GA316631@ax162>
- <abJ_cm_yM3Q-99GL@google.com>
+        d=1e100.net; s=20230601; t=1773324473; x=1773929273;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Khzpn5Mx56KvyAQlDdussK+xDM01SpYAZGq0vABXvB8=;
+        b=fZ9r6PY6sCX1WHD5bnk+ejMDM3geeHQnFuDgCmglN8+CFRzMJzX+oUYOLYlxASy4IM
+         j3BYQET/O9m6BXKCUNgEkB8sn6G452KjgsIN7ARioEDU8A7KLp4l37bBonMHk6Cf3c5q
+         Wefw4kdAax43etjW1B/iQ4LAN4NtHTyFkSZSFviHYubaM61jjjU6CeZ6qcmMVREqBJZe
+         LBqCeqD0Qd1yBfJ5SwEJlRNFuYBilQNRs3RYbnjfaVM6VSUI2+jWRnWsKJj4+Eqjo/t8
+         LiuK/XFj/2KexIZd/PWLdiwgJqX23e0XILjQc7EvUdsr1nblJ+hRrO2zlk7YkGoOHRbo
+         FQWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUe9x5ep+oE3GRXuBxMitgbHuCz+wcDKy9jmV/EAzK1WNohcWEkE8agE6fg2kxuF6T3SEwGJeDbD56xQRguELMO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqyo5+lFoUCaX0/pZ/W9LSbxkGzwc72zMsxjJFdVEA2WLuokHo
+	7WidWe66LygTEVOj2Vutrz0nmiP7LGn3lXcbmyyuv0bdoKsZcHkxHRNxcdyn3s8Gi4wy3vSjyju
+	A0MY4lDNXiWI5I5UaE7goJv1J9wNWSg3IiBKkcu1Vo8cOnLppUzr7COV9RjtAt4IvbwjQRsoOFZ
+	vS
+X-Gm-Gg: ATEYQzy7Vj/+tcT5+6qn/rSzQHhGIB2fh+J5uSKU4UzgejL7Jig5j0M+t2mUU+XSGJS
+	Wjh3qryBdnYDpYNS7tDFNLD/EC2EKbniVHfSf+5k347F4QO9tgaiP4Ghb0Oszx/StxfYXSbDmmg
+	9UeWggykKwGOlKgEWbwLk+QJiF68CZOecuHrfE0zd0B+TlCDuyo+mWP52QkhhBs4+sQCuArwk+0
+	Y+g4LWK2fY9dW9GcSGalIgJZj8JbdpoVIjKFEFKtGPZ6qgscuUs6PbqMeyHlrwpDmufaS05HXKC
+	2v3kFQsqel9W75M+kNZVC/Mepu9i1ATGFQlkV9vK5YavSgA66+K/+K16HWZ0qEMZtc5HeI+AjSF
+	BmjNULJbHhQMsr5kYTL9pf6Z+VSVE1koPUaYY9rfYNa9XhQ3x9yG9zF4=
+X-Received: by 2002:a05:600c:8b0a:b0:485:3ae8:2236 with SMTP id 5b1f17b1804b1-4854b123cd6mr107431285e9.32.1773324473121;
+        Thu, 12 Mar 2026 07:07:53 -0700 (PDT)
+X-Received: by 2002:a05:600c:8b0a:b0:485:3ae8:2236 with SMTP id 5b1f17b1804b1-4854b123cd6mr107430595e9.32.1773324472680;
+        Thu, 12 Mar 2026 07:07:52 -0700 (PDT)
+Received: from [192.168.88.32] ([216.128.11.95])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b6756e4sm154581925e9.15.2026.03.12.07.07.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Mar 2026 07:07:52 -0700 (PDT)
+Message-ID: <09528d3a-e08a-4942-aff7-b59610f6b13e@redhat.com>
+Date: Thu, 12 Mar 2026 15:07:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abJ_cm_yM3Q-99GL@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH resend net-next 1/1] net: stmmac: actually error requests
+ to change the auxiliary snapshot capture channel
+To: david.laight.linux@gmail.com, Johannes Zink <j.zink@pengutronix.de>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Bartosz Golaszewski <brgl@kernel.org>,
+ Chen-Yu Tsai <wens@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>,
+ Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Richard Cochran <richardcochran@gmail.com>
+References: <20260310140155.3359-1-david.laight.linux@gmail.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260310140155.3359-1-david.laight.linux@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UwQHCo9gjR-oA_cbuIPYL9AEexRlNXFPSHcf5Pni04A_1773324473
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_070754_455416_910F6D58 
-X-CRM114-Status: GOOD (  34.43  )
+X-CRM114-CacheID: sfid-20260312_070758_599270_D6D8CFC7 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,148 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 08:55:14AM +0000, Vincent Donnefort wrote:
-> On Wed, Mar 11, 2026 at 03:18:16PM -0700, Nathan Chancellor wrote:
-> > Hi Vincent,
-> > 
-> > On Mon, Mar 09, 2026 at 04:25:04PM +0000, Vincent Donnefort wrote:
-> > > The simple_ring_buffer implementation must remain simple enough to be
-> > > used by the pKVM hypervisor. Prevent the object build if unresolved
-> > > symbols are found.
-> > > 
-> > > Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-> > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > > 
-> > > diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-> > > index d106beca8d7f..3182e1bc1cf7 100644
-> > > --- a/kernel/trace/Makefile
-> > > +++ b/kernel/trace/Makefile
-> > > @@ -132,4 +132,20 @@ obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
-> > >  obj-$(CONFIG_SIMPLE_RING_BUFFER) += simple_ring_buffer.o
-> > >  obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
-> > >  
-> > > +#
-> > > +# simple_ring_buffer is used by the pKVM hypervisor which does not have access
-> > > +# to all kernel symbols. Fail the build if forbidden symbols are found.
-> > > +#
-> > > +UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
-> > > +UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
-> > > +UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
-> > > +
-> > > +quiet_cmd_check_undefined = NM      $<
-> > > +      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
-> > 
-> > This check triggers when building allmodconfig targeting arm, arm64,
-> > powerpc, and x86_64 (at least, I did not test more at the moment) with
-> > clang. If this is a hard failure, this really needs to print something
-> > out to the developer/user to help them debug off the bat, versus having
-> > to manually dig the $(NM) command out from the .cmd file or V=1. I came
-> > up with
-> > 
-> > diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-> > index 3182e1bc1cf7..c725b06876bc 100644
-> > --- a/kernel/trace/Makefile
-> > +++ b/kernel/trace/Makefile
-> > @@ -141,7 +141,13 @@ UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sani
-> >  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
-> >  
-> >  quiet_cmd_check_undefined = NM      $<
-> > -      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
-> > +      cmd_check_undefined = \
-> > +          undefsyms=$$($(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST) || true); \
-> > +          if [ -n "$$undefsyms" ]; then \
-> > +              echo "Unexpected symbols in $<:" >&2; \
-> > +              echo "$$undefsyms" >&2; \
-> > +              false; \
-> > +          fi
-> >  
-> >  $(obj)/%.o.checked: $(obj)/%.o FORCE
-> >  	$(call if_changed,check_undefined)
-> > --
-> > 
-> > which prints
-> > 
-> >   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
-> >                    U llvm_gcda_emit_arcs
-> >                    U llvm_gcda_emit_function
-> >                    U llvm_gcda_end_file
-> >                    U llvm_gcda_start_file
-> >                    U llvm_gcda_summary_info
-> >                    U llvm_gcov_init
-> > 
-> > for arm64, which makes sense since these are LLVM specific GCOV symbols,
-> > so they should probably get the same treatment as the other ones:
-> > 
-> > diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-> > index c725b06876bc..d464e3aa5bdd 100644
-> > --- a/kernel/trace/Makefile
-> > +++ b/kernel/trace/Makefile
-> > @@ -136,8 +136,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
-> >  # simple_ring_buffer is used by the pKVM hypervisor which does not have access
-> >  # to all kernel symbols. Fail the build if forbidden symbols are found.
-> >  #
-> > -UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
-> > -UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
-> > +UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
-> > +UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
-> >  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
-> >  
-> >  quiet_cmd_check_undefined = NM      $<
-> > --
-> > 
-> > For x86_64, I see
-> > 
-> >   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
-> >                    U __clear_pages_unrolled
-> >                    U __memmove
-> >                    U copy_page
-> > 
-> > which comes from the use of KCFI_ADDRESSABLE(), since allmodconfig has
-> > CONFIG_CFI=y.
-> > 
-> > For powerpc (with both clang and GCC), I see
-> > 
-> >   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
-> >                    U .TOC.
-> > 
-> > For arm (with both clang and GCC), I see
-> > 
-> >   Unexpected symbols in kernel/trace/simple_ring_buffer.o:
-> >            U __stack_chk_guard
-> >            U warn_slowpath_fmt
-> > 
-> > Presumably adding all of those should be fine as well?
-> > 
-> > diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-> > index d464e3aa5bdd..4f120cb8c79c 100644
-> > --- a/kernel/trace/Makefile
-> > +++ b/kernel/trace/Makefile
-> > @@ -137,7 +137,8 @@ obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
-> >  # to all kernel symbols. Fail the build if forbidden symbols are found.
-> >  #
-> >  UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov llvm_gcda llvm_gcov
-> > -UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
-> > +UNDEFINED_ALLOWLIST += __aeabi_unwind __stack_chk_fail __stack_chk_guard stackleak_track_stack __ref_stack __sanitizer
-> > +UNDEFINED_ALLOWLIST += \.TOC\. __clear_pages_unrolled __memmove copy_page warn_slowpath_fmt
-> >  UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
-> >  
-> >  quiet_cmd_check_undefined = NM      $<
-> > --
-> > 
-> > I don't mind sending a series for these, I just wanted to make sure I
-> > was reasoning about everything correctly.
+On 3/10/26 3:01 PM, david.laight.linux@gmail.com wrote:
+> From: David Laight <david.laight.linux@gmail.com>
 > 
-> Yes this is all fine. If you have something already, please send it. Meanwhile, I'll try
-> something a bit more durable. 
+> Commit 2ddd05d1d5ed ("net: stmmac: do not silently change auxiliary snapshot capture channel")
+> added code that attempted to return -EBUSY to a PTP_CLK_REQ_EXTTS
+> request whan a snapshot was already enabled.
+> However it tested bits in 'acr_value' after they had been masked off
+> so the check would never return an error.
 > 
-> Thanks,
-> Vincent
+> Change the code so that the test actually works.
+> Note that when the commit message says:
+>     Previously in case of a PTP_CLK_REQ_EXTTS request, previously active
+>     auxiliary snapshot capture channels were silently dropped and the new
+>     channel was activated.
+> this only refers to two commits earlier (a few minutes earlier).
+> Prior to that only a single fixed snapshot channel could be enabled.
+> 
+> Note that the check will reject requests to re-enable the currently
+> enabled channel.
+> Plausibly the best fix is just to delete the check completely.
 
-In the end to unblock linux-next I have already sent an updated list of symbols.
-However feel free to send the logging bit, that is surely useful.
+I agree with this last statement. Enforcing the check could potentially
+break the user-space.
 
-> 
-> > 
-> > Cheers,
-> > Nathan
+/P
+
 
