@@ -4,80 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C33103E2FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 01:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F0F103E2FF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 02:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ZuXcANpbO5f9lJpjp5DojLJZeC/g1ENjyYfealo8kY=; b=Ze+cX/xvlWWaBdAg/VXVJ0lCY3
-	1mey01yDYVQVoYT6KxW72KPZY89x11A+seEvTsC7MBPblY59EUjbJEXQvcjxmJzrG+YcmW5nvr+BY
-	MPU8UB4KnX5CvkNu5ykz6OcRee3tvsbxRj6YOVRciQwgBXm0M9lubwKTixV04Bs1VLBnuxlTIwxGY
-	sMytve05fhvp2csNNy58/OaZUcBiNXIuHUSUNPmCG6MhE9c1OfsF3CSy7TVderEh7TKExqGMrehYk
-	htzwmu3qNZnrk8PyFbL++gvwlYe/MbK22dmAGCRUK3c1pJ/9Cg8szyDQ7Ggf34an85PBu0cl/0ol4
-	VyJN5/KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YUUPz6VOkjomjGV1G59gyNh4za1ZA9zlRGSZp4SL3PQ=; b=tjU5mFiS5o1osBmG9NTLjPMgzd
+	HKW+FiP4K+CRJNHebsXvC5VsMuA879W1WIOcAik1hIpPCWFxews9mMkV7T7TcGPHQuRfvcDoyFNSv
+	UNWnNYJB9LIZ7WaN6/NdlXHfj1SE0pvgsTYh9R93hns/E6PgD2dp+11BYYuA8LSELpL+aE52SoM4S
+	yaF/8lVvF7L4mFdyH0W4tUGVwsS7l5PToEMkCntXhdCrMeXqjpsHCQzItruAfvxGNHrWacTQH3NwX
+	uM8t6TPLFeK3SVYKws3yFHuwlJzg4tu9JaJ6LxJ0qRNPMt2Z2tazTwebaT/uwIIN0CBTA6Wszk1G+
+	DPp5xpwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UvS-0000000D0s3-0Wlx;
-	Thu, 12 Mar 2026 01:33:22 +0000
-Received: from mail-m3291.qiye.163.com ([220.197.32.91])
+	id 1w0VPU-0000000D1gz-2YwG;
+	Thu, 12 Mar 2026 02:04:24 +0000
+Received: from mail-francecentralazon11013038.outbound.protection.outlook.com ([40.107.162.38] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UvP-0000000D0rM-1XVm;
-	Thu, 12 Mar 2026 01:33:21 +0000
-Received: from [192.168.61.151] (unknown [110.83.51.2])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 36a07fd9a;
-	Thu, 12 Mar 2026 09:33:14 +0800 (GMT+08:00)
-Cc: shawn.lin@rock-chips.com, Robin Murphy <robin.murphy@arm.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
- Hans Zhang <18255117159@163.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>,
- Grimmauld <grimmauld@grimmauld.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev,
- Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-To: Danilo Krummrich <dakr@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
- <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
- <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <7b5592e7-8a9d-2cf0-bb3e-e306a6337165@rock-chips.com>
-Date: Thu, 12 Mar 2026 09:33:10 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+	id 1w0VPR-0000000D1gX-2YyM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 02:04:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=upNvhNiTbYvad6me7YndXUIUmn8YXKTG11Gk/+86A3UgoM0e5v2Cl8/64+4uPAsMlRnn9qh3K2swdEBQ1ycFlp6PffxL90nnoaBQeJbfQZLBc8f6bVhNaB1ulUyBAZuY4ABCRx4n4PZb+G4c5RilbNpAOXVS1h0IzQGk7r810tPtoxaKZuX8mkztXRWhKB+sTvBZcZVfbgieIH2246p0PK4V35rnf5qPCbitbMXfIICtcvMHL+6zi1CYo7Upulb7+/KF06cV4K8/UyiHAFDgfPeqgYaOXuSMMOuYPSvz4UFPT8xjmnI3R+lo4KkylZGiC02Y8zcl+wjgt1yDN6oNBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YUUPz6VOkjomjGV1G59gyNh4za1ZA9zlRGSZp4SL3PQ=;
+ b=DvIWLHGeshKBNb6HPCNlvelZbXv14LGtJLA/PF0dK1O4SuyJA/qvKo/WAf89tHfUhi+o8kJKCCYTEMitxAtsAftteqUFko4Is562TIPHsKuiBl+/ZXbBxWsOzQZVvQ3WwnWIm5+W8ttzg4Cy9BWMzf5mnthTtgb8gmi8Y/nUbD2OTYy4Yb/TwJwwUwGh/QVDL8dodogSn2GZdLsAJqe/Q0N7qW6z4kS/2IDaSdtF1lWCuZZUCNZmMOQ4RvHjU5pwwrWK2AmZj2583xPE6sfbX/BCdrfp0XtgO9hCXxci4Qbrj7c6vC8oN9fJO7Utp446hWiNOvvgyfFECL6nWAaY5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YUUPz6VOkjomjGV1G59gyNh4za1ZA9zlRGSZp4SL3PQ=;
+ b=HCi7vf8dhySMEPRdgkmuLXFgHMNqZiPaqF+3YpX7b568tUwdiljGudmLKxlu3IafrEWjXno+eUQ/OIc/QkoxZ8e+HPf9fuBg+e04Z5xkUEupFhHALlZBbZkaLvhGHIvRbDzG+70LkpT0pQGli0xwLeDynIOqyx2oDmRLr3TnIan9hwgEGxXJpMNidWUwvZkp+T2pvCuYKefTSih2Pdn2QWD8z8ivyNPCJnCMtk2vTy3yzEG0gXwH47NtnKIj+ED4Nx0t6RtoQ0yNzBftXoG6W/LSxiN6bbHyKzerYKxrQ377e+3Ca5MHhLzlsFUpqPxI3QwLeDfG+0tFYo4mVpuIPA==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AMBPR04MB11763.eurprd04.prod.outlook.com
+ (2603:10a6:20b:6f2::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
+ 2026 02:04:13 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 02:04:15 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH V7 02/13] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Thread-Topic: [PATCH V7 02/13] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Thread-Index: AQHcsDCq7m53HNRMHk2x8UrCaDSWs7WoFx2AgADdkaCAAIevAIAAAJRQ
+Date: Thu, 12 Mar 2026 02:04:15 +0000
+Message-ID: <VI0PR04MB12114D3D7D397365D69165AC89244A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260310015426.365675-3-sherry.sun@nxp.com>
+ <20260310182854.2226939-1-Frank.Li@nxp.com>
+ <GV2PR04MB121020F9D89A4025C6C59535E9247A@GV2PR04MB12102.eurprd04.prod.outlook.com>
+ <abGOlFxj0yK53tRO@lizhi-Precision-Tower-5810>
+In-Reply-To: <abGOlFxj0yK53tRO@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|AMBPR04MB11763:EE_
+x-ms-office365-filtering-correlation-id: 3fce478d-913d-4efe-dd3c-08de7fdba984
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|19092799006|366016|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: adgMdPhTzbSZ4nT86MvqDt4C0m6MvHgY/qmlePf7bCp4qDAh0IatWPvbTWDipMUrBF9Vap/57el2XokfmFexuOnTu8G3glOq1BEMPEQKSRHuPadVvp2fZR7d3EbcZIFXoDjGWRPdPYRlqTt2wsqAEOR4Y4JWC3D0ipzwRYnZeCfXifq7Cx02e/oONTn1myXY1w72UrXkyqWsDuv2yklBVtp0HohimQ01b3nZryiKfALE7GCAeXVXMMVWaA8aLAQtOqs+0l6p1O1sa8atBueNdCuedb/d9fAO+4iYSGT/CHFNndxkIGQ7Xwq1j+8bBqkapkYbF5pjLufJ5VWoIgvHgIbw0nUX9IO+yAUXrtKrICyzl1k0HIGX2OC47WBzJeVNiKlYy4/PWjaXuI2rqBtG/iiTLKuzTripSWbFHXyBIdgYuDp8yTCsKFLiBU+MFP2flQLtKwbCQ5IPBWhcfaowFRb6MLh/+Y+gijgwsRludgWU3kJdWjBKvvaG3DpK1CXDFyYvIjl2Rxs281H/0bQ3n2FGWMUmL93TWYe7V6KIc51seUm/HOdFITiMB30aqq1w9zY79kbgkabds/AWAIefyOs/G4GvQ/DHkc0EGezz4TxYJ0/cfb7BOMuWUcsHlECNjze+UC/BElH4BeiBdYgbflC1aG+BrAYlYxqmTY+0IVO3GHPPI8hjjs1H0lpIPw7gJccEQnnPTpkx3RTwhWIq6t6RGHMXw2DtxNTeC35gXpVLH7M+ZnMX9TKY6uKevQEntfwE5t4OdvWtnPqoNUv3mE61fwZTMlBDw76aUUBREuw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(19092799006)(366016)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?7aT91/1cD0p9x7kpfwt2lID+sI+s47Vn1lZoJEp6DKc0OXnr0Fh8IkqMTKmf?=
+ =?us-ascii?Q?Tlg6lQYADa+A1X7SrHYhmwQJZ6qQyPHmcsHSjm0g5lq1yfGwdgMv1EN/BhZT?=
+ =?us-ascii?Q?iUSMJwOlv+h+5PN0ic8hF8nwZUd5NKfyqgz9qCsViMfUBByrTWkt8MiUkty6?=
+ =?us-ascii?Q?lWvsQTL09Rvb+ncm/mMs3fUCMTbGQQI4SSNOQ/CXr0OzbtPKf1pkv7Q28b+Z?=
+ =?us-ascii?Q?OF3jC29ZEzhfpY5S7tWM27KsNC2fqw5zIPh1PHZzjAkLvgYfeH9r7zMeyP3d?=
+ =?us-ascii?Q?wDKCbrDKXlzPVRjFLh75m3obearkJUazWRWR9wsIOd+qgbWb30cccktPC18W?=
+ =?us-ascii?Q?7i2kgsn5V9SlSB0AzHuXurqvxHHcf3PZETjGznhPZEPNkXavQdEvtuznx2A4?=
+ =?us-ascii?Q?l2CF//NCFqLunu5qaHwZX5lbtgbcxQ8VfHbCBzJZpotvBWo81zo9/7s4yi1x?=
+ =?us-ascii?Q?Ddrr5i1fLODVD/aP1rgCX0WOrx4e+F+8fm0qAeI8tTqgHC6UkWkju2ooUtn5?=
+ =?us-ascii?Q?tgKKt8K493+buyg27OgsifER2gaBKn4ZAbTZYW1+q5NsCkYG7WoAP3kWBzue?=
+ =?us-ascii?Q?hvnzrNq+Y+/jca6UxMjRuCgUwIuSXYeGFWPzIM+0Yig+PFF7MPtr/sJiMoh5?=
+ =?us-ascii?Q?Os/J+F3oiAZ11ehSPgmt68UBU1m0qkuZbky6OvCTASJK6oJaW0LC5GAilnfi?=
+ =?us-ascii?Q?hz2jRkw33sUI9+LvlD2HNXbhSxDLRJul8tPxPYeVqa58i1f4J0gTnjJw37RC?=
+ =?us-ascii?Q?ahhxt3WsBded2yzxat9W1PGV0f7Dcj5FKhfFGxOPKbKGMCgfjT3/1wDj7dDq?=
+ =?us-ascii?Q?pwwCurzSWXHIGtkvH+D7QY4tvBK8+rirtrnJldhz5VhDxJDL0kHJc5k0JHiJ?=
+ =?us-ascii?Q?Sw4RHWI1i+viYifl+cmMrpaRDPQM9l1ry9ZNS7viqD9jP00J3+yUCjrXJrca?=
+ =?us-ascii?Q?1pZEdx8H0bE/euHp0gBbLcX4KAbG9irSs9wg2wexppok30smEVq6z/ultIlW?=
+ =?us-ascii?Q?V5cpKL0IxXdqpIt1NArJKpLuMEXJFpzW3UUzhNzqCO1P7n8oyIOLK6H7OUgA?=
+ =?us-ascii?Q?xDSeZ+/GN1BskjOVcwBn78q8ZPhxQlQWJThhyy4EVI0UTQ4c8f6SUy/GhK4P?=
+ =?us-ascii?Q?lzXRvhRdgRLYKk9h5sFEcVEMVah11GncppWTct6oh//ZuDrYtv/nKYFEfk6x?=
+ =?us-ascii?Q?4jnp0f3ZQQGDt9kDpBfGon2ZgbzEgSZu2+YykXQA1lbNCuZvoscx5R8gOOy7?=
+ =?us-ascii?Q?7yaGDlPZy/m1RZItvcEAmflVPaRY+BPDOgFEOpbFGFYsqVwpIk/t0U2pUZvH?=
+ =?us-ascii?Q?Jr3cEUK8MhvaWwsQv9duBf4VZcxndjAG7SkeVaSKLJvj21EtDRvUlJcIbIAt?=
+ =?us-ascii?Q?RyB78BWruSwhRNQEDZPsxSyYGa8zEfj1UDF8Zf6+TTkZKhVMit98vZaRtfJB?=
+ =?us-ascii?Q?HIJcFvn4rekLXe3QcS5WIaiIc5EFIJb/5tdhG2tXXgctZVwC1gHlsixdWqX6?=
+ =?us-ascii?Q?iDZcHI3Oz1+0bQ/RCAydVVqGIvMdNAL7pVO9UNUdHiF3EhcM7c8T/Bc4BFZ/?=
+ =?us-ascii?Q?bfRUEtYC5dZyNR6Tq2R6DSrcskgd2lq4K5yWyIC7mSYyqmn8ZHI/V/mAA3tv?=
+ =?us-ascii?Q?UMhhpNqY01MFV6Z1I3uagYFYrfpaLJUvMLb+qIeQ8Ty/0pghuKWboxqTNO/5?=
+ =?us-ascii?Q?4DN/Eho8UrAw4QZMU2Swl56QCVaYHy0FKZyzepDM8i2WOFUL?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-In-Reply-To: <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cdfad2d6809cckunm494d1a9c5f1dd
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCT0NCVklOHx1DSklNGB4YS1YVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSktVQ0hVTkpVSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0tVSk
-	JLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=Sed4lWnDmwfKYVOVkbc4Y2rVhQcql/iiS/F9miQlGz9uPMIyj3zv76EbAV+aISfTpvB1Pl0bTfUZ8ldLKi584Z60igIIaGZ1u201GT2RVB3PU4/whmHBZz4C1IcfkvB7Echqz08J9oPFiIQyh0MGyr09uqGtdX4YzS4OFnJPaHc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=0ZuXcANpbO5f9lJpjp5DojLJZeC/g1ENjyYfealo8kY=;
-	h=date:mime-version:subject:message-id:from;
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3fce478d-913d-4efe-dd3c-08de7fdba984
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Mar 2026 02:04:15.1215
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: HETy9W7h6NV6yGkkYRwJyGbRty3zLB5o+tekwitJGV7ezyB+U0dUyUyQIRSgob2Kgzyu30trS2SkxOU5/Wne6g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB11763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_183319_604552_DC9C1672 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20260311_190421_692650_AC096135 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,99 +152,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani and Danilo,
+> Subject: Re: [PATCH V7 02/13] PCI: host-generic: Add common helpers for
+> parsing Root Port properties
+>=20
+> On Wed, Mar 11, 2026 at 10:03:01AM +0000, Sherry Sun wrote:
+> > > From: Frank Li (AI-BOT) <frank.li@nxp.com>
+> > >
+> > > > +int pci_host_common_parse_ports(struct device *dev, struct
+> > > > +pci_host_bridge *bridge) {
+> > > > +	int ret =3D -ENOENT;
+> > > > +
+> > > > +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+> > > > +		if (!of_node_is_type(of_port, "pci"))
+> > > > +			continue;
+> > > > +		ret =3D pci_host_common_parse_port(dev, bridge, of_port);
+> > > > +		if (ret)
+> > > > +			return ret;
+> > > > +	}
+> > > > +
+> > > > +	return ret;
+> > > > +}
+> > >
+> > > AI: Returning -ENOENT when no ports are found may be unexpected by
+> > > callers.
+> > > Consider whether this should return 0 (success, zero ports parsed)
+> > > or if callers must explicitly handle -ENOENT. Document the semantics
+> clearly.
+> > >
+> >
+> > Returning -ENOENT when no ports are found is intentional and aligns
+> > with the design requirements for this use case. This pattern is common
+> > in the kernel where parsing functions return -ENOENT when expected
+> nodes/properties are missing.
+> >
+> > 1. -ENOENT semantically means  "the expected entity was not found", whi=
+ch
+> accurately
+> >     reflects the situation when no Root Port nodes exist in the device =
+tree.
+> > 2. The callers of this function need to distinguish between:
+> >    - Success with ports found (return 0)
+> >    - No ports found in DT (-ENOENT) - this may be a DT configuration is=
+sue,
+> for controllers
+> >      where ports are optional, they can explicitly check for -ENOENT an=
+d treat
+> it as non-fatal.
+> >    - Actual parsing errors (other negative error codes like -ENOMEM,
+> > -EPROBE_DEFER)
+>=20
+> I think no ports under bridge should treat as 0. otherwise it may broken =
+other
+> platform, which dt have not added child node yet.
+>=20
 
-在 2026/03/12 星期四 5:09, Danilo Krummrich 写道:
-> On Wed Mar 11, 2026 at 1:28 PM CET, Manivannan Sadhasivam wrote:
->> On Wed, Mar 11, 2026 at 12:46:03PM +0100, Danilo Krummrich wrote:
->>> On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
->>>> I have a contrary view here. If just a single driver or lib doesn't handle async
->>>> probe, it cannot just force other drivers to not take the advantage of async
->>>> probe. As I said above, enabling async probe easily saves a few hunderd ms or
->>>> even more if there are more than one Root Port or Root Complex in an SoC.
->>>
->>> Then the driver or lib has to be fixed / improved first or the driver core has
->>> to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is requested
->>> from an async path, etc.
->>>
->>> In any case, applying the patch and breaking things (knowingly?) doesn't seem
->>> like the correct approach.
->>>
->>>> I strongly agree with you here that the underlying issue should be fixed. But
->>>> the real impact to end users is not this splat, but not having the boot time
->>>> optimization that this patch brings in. As an end user, one would want their
->>>> systems to boot quickly and they wouldn't bother much about a harmless warning
->>>> splat appearing in the dmesg log.
->>>
->>> You mean quickly booting into a "harmless" potential deadlock condition the
->>> warning splat tries to make people aware of? :)
->>>
->>
->> Hmm, I overlooked the built-as-module part where the deadlock could be possible
->> as indicated by the comment about the WARN_ON_ONCE().
->>
->> But what is the path forward here? Do you want the phylib to fix the
->> request_module() call or fix the driver core instead?
-> 
-> Here are a few thoughts.
-> 
-> In general, I think the best would be to get rid of the (affected)
-> PROBE_FORCE_SYNCHRONOUS cases.
-> 
-> Now, I guess this can be pretty hard for a PCI controller driver, as you can't
-> really predict what ends up being probed from you async context, i.e. it could
-> even be some other bus controller and things could even propagate further.
-> 
-> Not sure how big of a deal it is in practice though, there are not a lot of
-> PROBE_FORCE_SYNCHRONOUS drivers (left), but note that specifying neither
-> PROBE_FORCE_SYNCHRONOUS nor PROBE_PREFER_ASYNCHRONOUS currently results in
-> synchronous by default.
-> 
-> (Also, quite some other PCI controller drivers do set PROBE_PREFER_ASYNCHRONOUS
-> and apparently got lucky with it.)
-> 
->>From a driver-core perspective I think we're rather limited on what we can do;
-> we are already in async context at this point and can't magically go back to
-> initcall context.
-> 
-> So, the only thing I can think of is to kick off work on a workqueue, which in
-> the end would be the same as the deferred probe handling.
-> 
-> Another alternative would be to let the subsystem handle such cases, which in
-> this case would probably mean to handle the current_is_async() case in
-> pci_host_probe() or pci_bus_add_devices().
-> 
-> On the other hand, this would probably end up to be a subsystem specific
-> implementation of "kick of work on a workqueue".
+Hi Frank, no, it will not break the old platforms, the caller will explicit=
+ly check for
+-ENOENT and treat it as non-fatal for such optional properties. You can che=
+ck my patch#3.
+This is a common behavior in linux, for example, we also do the same check =
+when
+calling devm_regulator_get_optional() or devm_pm_opp_of_add_table().
 
-Actually, this is exactly what we've been doing in our downstream
-code[1] for quite a long time. We've even pushed this optimization down
-to the individual driver level.
+@@ -581,6 +582,13 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
 
-To be honest, I'm not particularly fond of this approach either.
-However, on our platform, we have more than 5 Root Port instances that
-need to be initialized during boot. When all of them probe
-synchronously, it significantly delays the execution of many other
-critical drivers. Our customers have been complaining about the boot
-time, and our downstream team had no real choice but to kick off a
-kthread similar to your suggestion.
+        pp->bridge =3D bridge;
 
-The code is very ugly and expose a lot of corner cases problem which
-wasted quite lot of time to fix. That's why I was hesitant to bring
-up the this approach upstream initially. But since you mentioned it, I
-think it's worth evaluating whether we can implement this at the
-subsystem level instead of forcing each driver to handle it
-individually. This way, the complexity would be centralized, and drivers
-that benefit from async probe (like multi-Root-Port SoCs) could opt-in
-without worrying about the request_module() deadlock scenario.
++       /* Parse Root Port nodes if present */
++       ret =3D pci_host_common_parse_ports(dev, bridge);
++       if (ret && ret !=3D -ENOENT) {
++               dev_err(dev, "Failed to parse Root Port nodes: %d\n", ret);
++               return ret;
++       }
 
-What do you think?
+Best Regards
+Sherry
 
-
-[1] 
-https://github.com/rockchip-linux/kernel/blob/develop-6.6/drivers/pci/controller/dwc/pcie-dw-rockchip.c#L1764
-
-> 
->> I can drop this patch in the meantime. But holding this prolong wouldn't help.
-> 
+> Frank
+>=20
+> >
+> > > > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c index
+> > > > bccc7a4bdd79..9cc3f4ebb370 100644
+> > > > --- a/drivers/pci/probe.c
+> > > > +++ b/drivers/pci/probe.c
+> > > > @@ -647,6 +647,7 @@ static void pci_release_host_bridge_dev(struct
+> > > > device *dev)
+> > > >
+> > > >  	pci_free_resource_list(&bridge->windows);
+> > > >  	pci_free_resource_list(&bridge->dma_ranges);
+> > > > +	pci_free_resource_list(&bridge->ports);
+> > >
+> > > AI: pci_free_resource_list() expects struct resource_entry nodes.
+> > > The ports list contains struct pci_host_port nodes. This will
+> > > corrupt memory or crash. Use
+> > > list_for_each_entry_safe() with proper cleanup, or define a
+> > > dedicated
+> > > pci_free_host_ports() function.
+> >
+> > Yes, thanks for catching this, pci_free_resource_list() expects struct
+> > resource_entry nodes and cannot be used for struct pci_host_port nodes.
+> > I will add back the cleanup function pci_host_common_delete_ports() in
+> > earlier version patchset to properly handles the ports list.
+> >
+> > Best regards,
+> > Sherry
 
