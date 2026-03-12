@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87838106703C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49521FED2E9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 14:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5QsAZcxYXRQp5npZY097jPPuoS8V9KMbg0r8WNaSLE=; b=eN7r6+dcaoWw5t121LAlyw4A+/
-	gcWrGvhm5PUMPkiLAJ6uLJTMnsvArnCQ4jMCRXw7Dcnav26d4HUvD8t1XQo5DsjReXPtpuRw69+R8
-	uME/Bnqx+I2h7H1CrN9t5+de//43J4Xc2ox3pN8W2aKlfZKTCwcBI0Ie6U+kOHMHpVYj5f48DDCmz
-	LmawquwKj4iyQB3vF/+kqsmBxCCQbPvcCyc98CJnof1TCng1Vqh3ogi+/PbdVeysEi7bH25jIN2hC
-	Um/ylQvdmcKU11HWSbV/XULyMfqgOxaxY8n9ecjGjYiVDi5CldandiUvylmR0NSd565psoiVDG8bL
-	qscKIRvQ==;
+	bh=d+BHwLwGTC9buFNuVJJj2C5HiiQN1vRFWKn+Wc70FFA=; b=RHiLKUJvdh3S1EfFI1TQxZFfGY
+	cQEMoLky2d/VpevNQxid2lUwdkHhRB9WPieCQx7TJi58z6sEG6wY/SJPjPjWdIjBlrVZ8dhPP6Fif
+	Vq5QuN4w4WuJoEmmKqK2qQPVWalJHj/OM4AfD1jVN1p8t7iScorv+ieAnEulaotJXdZByVT8MU3O2
+	ZO0l8C0aEj5rEDxS498fp0DC25Og+U3KLJfjp+fTQ0XGBnmVnEActrIp0gRDWMBFjD4mY9vXuKi0w
+	L5lJcdyA0vU4wPfj2RXZLl6eP9AsdCMRwBTqKkmyniduozVaswbztFOWOf7ISn1WkWP9ipnkxo9Aw
+	e5d0ni0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hLp-0000000EFje-13LN;
-	Thu, 12 Mar 2026 14:49:25 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1w0hMq-0000000EFrM-2dxE;
+	Thu, 12 Mar 2026 14:50:28 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hLm-0000000EFid-2xiQ
+	id 1w0hMk-0000000EFp3-0fWO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 14:49:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=c5QsAZcxYXRQp5npZY097jPPuoS8V9KMbg0r8WNaSLE=; b=DTuMplg/qSpQbz2bJ1ocK3S24w
-	XAiZ8sGu6lVSatTTeXDNBaLt6sl79+p+RLCsUN3pf55oSIDXbOrFEtU7gUhgmUp1fAmaF2dEFNg47
-	ngcb8tlkLczAx3UeAr8QQgzIxyfKxKu1S/ymrLl4jZELuCaxHioT8Lt9vbDxMeuWW5MrIgp/PlvYP
-	7kinJL/6qX6jt8eI1YNUwJ0rce4X+GdMCXx3SXNXO8Yg/NPb0T4TCpNIrYym2XrVw853HydlkgxfW
-	mNX29BdFfPgZAjavYHVRVaiEXfZcpIxSeUEN9iZdwhELIhKQG/vMLpTzd55u9Ulo3UrrcL9Bp8csX
-	RyBPfUqQ==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <max.merchel@ew.tq-group.com>)
-	id 1w0hLc-000JBc-1m;
-	Thu, 12 Mar 2026 15:49:12 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <max.merchel@ew.tq-group.com>)
-	id 1w0hLb-0003qq-34;
-	Thu, 12 Mar 2026 15:49:11 +0100
-Message-ID: <82977bbb-6363-42bd-9739-20f57eb00c61@ew.tq-group.com>
-Date: Thu, 12 Mar 2026 15:49:11 +0100
+	Thu, 12 Mar 2026 14:50:25 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fWr9X4TXYzJ46fS;
+	Thu, 12 Mar 2026 22:49:20 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9CA7540572;
+	Thu, 12 Mar 2026 22:50:08 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 12 Mar
+ 2026 14:50:07 +0000
+Date: Thu, 12 Mar 2026 14:50:06 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+CC: <devicetree@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<Dmitry.Lamerov@arm.com>, <catalin.marinas@arm.com>, <bp@alien8.de>,
+	<robh@kernel.org>, <rafael@kernel.org>, <will@kernel.org>,
+	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <krzk+dt@kernel.org>, <Michael.Zhao2@arm.com>,
+	<tony.luck@intel.com>
+Subject: Re: [PATCH v2 11/11] RAS: add DeviceTree firmware-first CPER
+ provider
+Message-ID: <20260312145006.00000770@huawei.com>
+In-Reply-To: <4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
+References: <20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-0-347fa2d7351b@arm.com>
+	<20260220-topics-ahmtib01-ras_ffh_arm_internal_review-v2-11-347fa2d7351b@arm.com>
+	<20260224155520.00004e92@huawei.com>
+	<4a193f85-e0ed-4367-b69b-587b2cbc977f@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/12] arm64: dts: imx8: Use undeprecated reset-gpios
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- Marek Vasut <marex@denx.de>, Russell King <linux@armlinux.org.uk>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@dh-electronics.com, linux@ew.tq-group.com
-References: <20260311-dts-snps-reset-gpios-v1-0-ea1cc09fba84@oss.qualcomm.com>
- <20260311-dts-snps-reset-gpios-v1-7-ea1cc09fba84@oss.qualcomm.com>
-Content-Language: en-US
-From: Max Merchel <max.merchel@ew.tq-group.com>
-In-Reply-To: <20260311-dts-snps-reset-gpios-v1-7-ea1cc09fba84@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27938/Thu Mar 12 07:24:01 2026)
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_074922_854539_8DB708F0 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20260312_075022_504895_E8C95E9D 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +79,93 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 3/11/26 17:08, Krzysztof Kozlowski wrote:
-> Freescale i.MX6 PCIe host controller bindings through referenced
+> >> +Firmware-first CPER via DeviceTree
+> >> +----------------------------------
+> >> +
+> >> +Some systems expose Common Platform Error Record (CPER) data
+> >> +via DeviceTree instead of ACPI HEST tables.  
+> > 
+> > I'd argue this isn't really DT specific, it's just not ACPI table.
+> > You could for instance use PRP0001 and wire this up on ACPI with only
+> > one trivial change to generic property.h accessor for the boolean.
+> > 
+> > Or use another firmware information source entirely.  
+> 
+> I'm intentionally keeping the scope DT-only for this series,
+> so I'll keep the wording DT-focused.
 
-I think you mean i.MX8
+Why?  Generally when the support works fine with generic firmware
+accessors that's preferred because there are no real disadvantages.
 
-> snps,dw-pcie-common.yaml schema already document "reset-gpios", just
-> like Linux kernel did for a long time.  Use the preferred form over
-> "reset-gpio" deprecated since commit 42694f9f6407 ("dt-bindings: PCI:
-> add snps,dw-pcie.yaml") in 2021.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->   arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi | 4 ++--
->   arch/arm64/boot/dts/freescale/imx8dxl-evk.dts       | 4 ++--
->   arch/arm64/boot/dts/freescale/tqma8xxs.dtsi         | 2 +-
->   3 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-> index 6fc82b5eb58c..6d8a57ff56c2 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-> @@ -806,7 +806,7 @@ &pciea {
->   	pinctrl-0 = <&pinctrl_reset_moci>;
->   	phys = <&hsio_phy 0 PHY_TYPE_PCIE 0>;
->   	phy-names = "pcie-phy";
-> -	reset-gpio = <&lsio_gpio0 30 GPIO_ACTIVE_LOW>;
-> +	reset-gpios = <&lsio_gpio0 30 GPIO_ACTIVE_LOW>;
->   	vpcie-supply = <&reg_pcie_switch>;
->   };
->   
-> @@ -816,7 +816,7 @@ &pcieb {
->   	pinctrl-0 = <&pinctrl_pcieb>, <&pinctrl_wifi>;
->   	phys = <&hsio_phy 1 PHY_TYPE_PCIE 1>;
->   	phy-names = "pcie-phy";
-> -	reset-gpio = <&lsio_gpio5 0 GPIO_ACTIVE_LOW>;
-> +	reset-gpios = <&lsio_gpio5 0 GPIO_ACTIVE_LOW>;
->   	status = "okay";
->   };
->   
-> diff --git a/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts b/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
-> index 5c68d33e19f2..bdd1dbc6b322 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
-> @@ -651,7 +651,7 @@ &pcie0 {
->   	phy-names = "pcie-phy";
->   	pinctrl-0 = <&pinctrl_pcieb>;
->   	pinctrl-names = "default";
-> -	reset-gpio = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
-> +	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
->   	vpcie-supply = <&reg_pcieb>;
->   	vpcie3v3aux-supply = <&reg_pcieb>;
->   	status = "okay";
-> @@ -662,7 +662,7 @@ &pcie0_ep {
->   	phy-names = "pcie-phy";
->   	pinctrl-0 = <&pinctrl_pcieb>;
->   	pinctrl-names = "default";
-> -	reset-gpio = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
-> +	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
->   	vpcie-supply = <&reg_pcieb>;
->   	status = "disabled";
->   };
-> diff --git a/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi b/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
-> index bfc918f18d01..677a05b38391 100644
-> --- a/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
-> @@ -407,7 +407,7 @@ &pcieb {
->   	phy-names = "pcie-phy";
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&pinctrl_pcieb>;
-> -	reset-gpio = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
-> +	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
->   };
->   
->   &sai1 {
->
--- 
-Best regards,
-Max
+> >> +#include <acpi/ghes.h>
+> >> +#include <acpi/ghes_cper.h>
+> >> +
+> >> +static atomic_t ghes_ffh_source_ids = ATOMIC_INIT(0);  
+> > I'd normally expect an IDA or similar. If nothing else it clearly
+> > indicates we only want a unique ID.  
+> 
+> I'll keep the atomic for now; it's just a monotonic unique ID with no
+> lifetime tracking. If you strongly prefer IDA I can switch.
 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+If it doesn't 'need' to be monotonic due to some design issue then
+yes I'd prefer an IDA.
+
+
+> >> +	spinlock_t lock;
+> >> +};  
+> > 
+> >   
+> >> +
+> >> +static void ghes_ffh_process(struct ghes_ffh *ctx)
+> >> +{
+> >> +	unsigned long flags;
+> >> +	int sev;
+> >> +
+> >> +	spin_lock_irqsave(&ctx->lock, flags);  
+> > 
+> > guard() + include cleanup.h. Then can do returns in error paths.  
+> 
+> Agreed. I'll switch to guard() and include <linux/cleanup.h>.
+A general process thing.  If you agree with a suggestion, just
+do it and crop that section of the email thread out.
+Reply that you agree tends not to benefit anyone!
+
+
+> 
+> >> +			ghes_estatus_cache_add(ctx->generic, ctx->estatus);
+> >> +	}
+> >> +
+> >> +	ghes_cper_handle_status(ctx->dev, ctx->generic, ctx->estatus, ctx->sync);
+> >> +
+> >> +	ghes_ffh_ack(ctx);
+> >> +
+> >> +out:
+> >> +	spin_unlock_irqrestore(&ctx->lock, flags);
+> >> +}
+...
+
+> >> +{
+> >> +	struct ghes_ffh *ctx;
+> >> +	struct resource *res;
+> >> +	int rc;
+> >> +
+> >> +	ctx = devm_kzalloc(&pdev->dev, sizeof(*ctx), GFP_KERNEL);
+> >> +	if (!ctx)
+> >> +		return -ENOMEM;
+> >> +
+> >> +	spin_lock_init(&ctx->lock);
+> >> +	ctx->dev = &pdev->dev;
+> >> +	ctx->sync = of_property_read_bool(pdev->dev.of_node, "arm,sea-notify");  
+> > Hmm. I'd allow for other firmware types with
+> > 	device_property_read_bool() instead.  
+> 
+> Given DT-only scope, I'll keep of_property_read_bool() here.
+> 
+> >> +
+> >> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> >> +	if (!res) {
+> >> +		dev_err(&pdev->dev, "status region missing\n");  
+
+Jonathan
 
 
