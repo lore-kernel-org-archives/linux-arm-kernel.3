@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6943B105A58B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97368105A58C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 11:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRKwlNptv66mBAar+PaEyJl/1lwLb25U/oESD7/00jc=; b=ORtGU97t7w6CobG7PONf7/uzBz
-	S+f9SzX/fuXYCk+Z7hln3Gi+fMiR3JhcT5gaB15l9+Tr4/KGFHyMC9kxi1Rawl1Zub5nCZMa8ZXpW
-	Xu2aFjNIyC0lbVJrgFpIeA+ke76GnkoRBICa5viRBRl8Zii7VC0swWC6T02SjpgJJ5Xt1zNl8FGnc
-	MFSCnucWaLFvgjU9wUJpl/OAPlOsda8cl4mEijDvahTfspI8Uq/nEwQv6UgKLpw9YyFBBaHDnLMBC
-	PEkXzVSK+vGe571vugo6a3c9buViWqLHTnV1dq0/7u1UYuo1vw0MnOKGqOVHBpD83bv0QX9LnBKPy
-	njUCaMTA==;
+	bh=VOg0kg9B4oX7eNFY7+A1Vyl/cekXuCfFTruiO1KPDpo=; b=PSwBCcrnnSlDBsTJd37Ngco6rQ
+	rtyDt8sYB08AJSctpQMAcfIvHfHohoPDKg0N3CKAiBhieAUg/1GMz5C8N2mdjtB0MjLHSUJZbmt/P
+	D2Ny5soWUgwO1Sp5W1P/zM9vaX+bIeccbRVgoX/XpsMELo0qwYeUsm2QiRseLsVhaXIUcsmz4frMX
+	7kN2TlkYbXJ9sRBuCVFXxhAn1sZSQalSxLWrv+oJxibn2jnnPxZdx72ZvU/7WxCnO0wUpEgkpoxbX
+	4KvgWvmYehvKNRx/RoM2EXPPYgni49iDd8LfI7cR7McG51sYDkTOOdP9Pi/c2HMtTb2ZGrxIIFu30
+	2ZlQKHaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eIH-0000000Dx92-1XEV;
-	Thu, 12 Mar 2026 11:33:33 +0000
+	id 1w0eIG-0000000Dx7o-0aDV;
+	Thu, 12 Mar 2026 11:33:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eIE-0000000Dx6I-1sVp;
+	id 1w0eIE-0000000Dx6G-1VmJ;
 	Thu, 12 Mar 2026 11:33:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KRKwlNptv66mBAar+PaEyJl/1lwLb25U/oESD7/00jc=; b=oEsBHpExkrx9SqlZr7UDSRUjWi
-	SxUCXrly7JVjlllCrAduDpT6oZr4OEVjYXNUEQSkKzh+Lq5W2tpG9uza5ySS0LmfaIkp8a2kSs9Y0
-	GXuoiS/ykSLZ3pkFWdJRFmuqvueWcTJ1G/USQYqFPgm+9Qq0/tnrPSdlSpe6dWfWbYttLvEAONS79
-	CAISRT0b2iDwF6XZD/m2zsM6Tuy6cC6BHZdcpqAlEfCtjSZ/Zcvx8Y11DOAL5uUGkhYDaLHNrTygq
-	z5dY/r75+X29EsSJXjyNsYkp3CpPbeFnKR5nYwNhJM3Ps5e33jn0TuDMElXU+VEL6LQ0os0B9LGD3
-	NL7Z+THg==;
+	bh=VOg0kg9B4oX7eNFY7+A1Vyl/cekXuCfFTruiO1KPDpo=; b=MetY7oHJ1mpohftJhaM4dm71ss
+	O4cRpMFdW/2/4oHejOXcaVKlEE5qQectn+eCo8CAt1JGFYBAwcdBB7WuheDiUIMm7V+Mb5wS+JagL
+	6IVvwc1xq8pbIy7+uJTeKhQDNyCwLqpQpCJRPlFqjj22XxIasfIund+jIj0BcECGkqZTXG3MY8UJO
+	VPlBbFiVe/6TTiwooiQFlaloIRXrpzV+xTzTv/3vJHAyW5hus7nEca3tTleTJeLunpvbH/IypUs/W
+	h4y1cnaeZJD/jJR0fAcplk9IgrJSkgHVNG344op1A3ok0bQHmdNUWp6UumsxExKH9vHaHvLKTs3mk
+	MhhVpeGw==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eI9-000000011UL-3MQB;
+	id 1w0eI9-000000011UE-3LxV;
 	Thu, 12 Mar 2026 11:33:28 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62CBUfGvA2456775, This message is accepted by code: ctloc85258
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62CBUf7D22456777, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773315041; bh=KRKwlNptv66mBAar+PaEyJl/1lwLb25U/oESD7/00jc=;
+	t=1773315041; bh=VOg0kg9B4oX7eNFY7+A1Vyl/cekXuCfFTruiO1KPDpo=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=ZzCWWUzaat8+qCWpQYlggnzePtw/1QRuJvQqglXvbmM0Y3KTAP1LJWPtxiQfnykJ8
-	 CMDso3rp27Gunl8FG/ZeC7a3CVc0YkhFaIODTKF1G71J14RNdGCCbwCA20nyNlUFfE
-	 Oyotk5Vcl6p2bSG4/8Gt3hJwm50bbGhZwRdbiyak8EMg+cpH/It0P5wsgN9imw6MYk
-	 Gg/8ndAR3/XiuiOkfuEaOXLzyn4wxYcs2KIGdKc3leLxNNwlMsa8OhfOwbTfrhpBvf
-	 tDf34H9WcPbJ9mIKQzc1kTi0zk3L20v02Sdw2VbUbxbA0911tXacvT+M38HGAPkyMb
-	 K7rxwXP3miTKQ==
+	b=XcrK/Tymdh0bgKgiyMxmktlKxtNBkJK0FckaCBuzSu2izCcty2jd2Y/MbTkDcVOTW
+	 9mwPc8aoofFzWUnxJ08UZ3SDN8noJIJMj88pVAbCnoNqhquevfF2tI8/YRuRjq2V08
+	 rtPBqVxZb7OwblleUAj3cJ7Wgx8ouM9o9Q5E1GgrjODopMkVDBCUOcQu7ETpH7ULXN
+	 A+5N7jJ/rt+BlRJ7wpS+eRF8CcSfIQM7Vw5uafCjCj1z1Z68Juim9V3IGSOEHQ9Edc
+	 fexsjm9S0MNDKN2NiP5hdOctKHt06G58mNFqb7MdUjVq+jrYwKzRNaAm3NxydCwhK/
+	 mq6+QDB6AuvRw==
 Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62CBUfGvA2456775
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62CBUf7D22456777
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Thu, 12 Mar 2026 19:30:41 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
@@ -71,9 +71,9 @@ CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
         <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH v3 3/7] dt-bindings: pinctrl: realtek: Improve 'realtek,duty-cycle' description
-Date: Thu, 12 Mar 2026 19:30:36 +0800
-Message-ID: <20260312113040.68189-4-eleanor.lin@realtek.com>
+Subject: [PATCH v3 4/7] dt-bindings: pinctrl: realtek: Add RTD1625 pinctrl binding
+Date: Thu, 12 Mar 2026 19:30:37 +0800
+Message-ID: <20260312113040.68189-5-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260312113040.68189-1-eleanor.lin@realtek.com>
 References: <20260312113040.68189-1-eleanor.lin@realtek.com>
@@ -81,8 +81,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_113326_891817_6AB972A0 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260312_113326_840850_E1875137 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,80 +97,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous description was misleading because this hardware block is not
-a PWM generator. It does not generate a signal with a specific frequency
-and duty ratio.
+From: Tzuyi Chang <tychang@realtek.com>
 
-Instead, it provides a fixed nanosecond-level adjustment to the rising/
-falling edges of an existing signal.
+Add device tree bindings for RTD1625.
 
-The property name is kept as 'realtek,duty-cycle' rather than being
-renamed to strictly preserve Device Tree ABI backward compatibility.
-
+Signed-off-by: Tzuyi Chang <tychang@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v3:
-- Reverted property name change.
+- Changed slew-rate to use valid numbers.
+- Revert realtek,pulse-width-adjust to realtek,duty-cycle.
+- Fixed example values from hexadecimal to decimal format.
 ---
- .../bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml         | 7 +++++--
- .../bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml         | 7 +++++--
- .../bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml         | 7 +++++--
- 3 files changed, 15 insertions(+), 6 deletions(-)
+ .../pinctrl/realtek,rtd1625-pinctrl.yaml      | 260 ++++++++++++++++++
+ 1 file changed, 260 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-index 90bd49d87d2e..2a640e495cc7 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-@@ -135,8 +135,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
+diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
+new file mode 100644
+index 000000000000..9562a043707e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
+@@ -0,0 +1,260 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2025 Realtek Semiconductor Corporation
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/realtek,rtd1625-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Realtek DHC RTD1625 Pin Controller
++
++maintainers:
++  - Tzuyi Chang <tychang@realtek.com>
++  - Yu-Chun Lin <eleanor.lin@realtek.com>
++
++description:
++  The Realtek DHC RTD1625 is a high-definition media processor SoC. The
++  RTD1625 pin controller is used to control pin function, pull-up/down
++  resistors, drive strength, slew rate, Schmitt trigger, power source
++  (I/O output voltage), input threshold domain selection and a higher-VIL mode.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - realtek,rtd1625-iso-pinctrl
++          - realtek,rtd1625-main2-pinctrl
++          - realtek,rtd1625-isom-pinctrl
++          - realtek,rtd1625-ve4-pinctrl
++
++  reg:
++    maxItems: 1
++
++patternProperties:
++  '-pins$':
++    type: object
++    allOf:
++      - $ref: pincfg-node.yaml#
++      - $ref: pinmux-node.yaml#
++
++    properties:
++      pins:
++        items:
++          enum: [gpio_0, gpio_1, gpio_2, gpio_3, gpio_4, gpio_5, gpio_6,
++                 gpio_7, gpio_8, gpio_9, gpio_10, gpio_11, gpio_12, gpio_13,
++                 gpio_14, gpio_15, gpio_16, gpio_17, gpio_18, gpio_19, gpio_20,
++                 gpio_21, gpio_22, gpio_23, gpio_24, gpio_25, gpio_28, gpio_29,
++                 gpio_30, gpio_31, gpio_32, gpio_33, gpio_34, gpio_35, gpio_40,
++                 gpio_41, gpio_42, gpio_43, gpio_44, gpio_45, gpio_46, gpio_47,
++                 gpio_48, gpio_49, gpio_50, gpio_51, gpio_52, gpio_53, gpio_54,
++                 gpio_55, gpio_56, gpio_57, gpio_58, gpio_59, gpio_60, gpio_61,
++                 gpio_62, gpio_63, gpio_64, gpio_65, gpio_66, gpio_67, gpio_80,
++                 gpio_81, gpio_82, gpio_83, gpio_84, gpio_85, gpio_86, gpio_87,
++                 gpio_88, gpio_89, gpio_90, gpio_91, gpio_92, gpio_93, gpio_94,
++                 gpio_95, gpio_96, gpio_97, gpio_98, gpio_99, gpio_100,
++                 gpio_101, gpio_102, gpio_103, gpio_104, gpio_105, gpio_106,
++                 gpio_107, gpio_108, gpio_109, gpio_110, gpio_111, gpio_112,
++                 gpio_128, gpio_129, gpio_130, gpio_131, gpio_132, gpio_133,
++                 gpio_134, gpio_135, gpio_136, gpio_137, gpio_138, gpio_139,
++                 gpio_140, gpio_141, gpio_142, gpio_143, gpio_144, gpio_145,
++                 gpio_146, gpio_147, gpio_148, gpio_149, gpio_150, gpio_151,
++                 gpio_152, gpio_153, gpio_154, gpio_155, gpio_156, gpio_157,
++                 gpio_158, gpio_159, gpio_160, gpio_161, gpio_162, gpio_163,
++                 gpio_164, gpio_165, ai_i2s1_loc, ao_i2s1_loc, arm_trace_dbg_en,
++                 csi_vdsel, ejtag_acpu_loc, ejtag_aucpu0_loc, ejtag_aucpu1_loc,
++                 ejtag_pcpu_loc, ejtag_scpu_loc, ejtag_ve2_loc, emmc_clk,
++                 emmc_cmd, emmc_data_0, emmc_data_1, emmc_data_2, emmc_data_3,
++                 emmc_data_4, emmc_data_5, emmc_data_6, emmc_data_7,
++                 emmc_dd_sb, emmc_rst_n, etn_phy_loc, hif_clk, hif_data,
++                 hif_en, hif_rdy, hi_width, i2c6_loc, ir_rx_loc, rgmii_vdsel,
++                 sf_en, spdif_in_mode, spdif_loc, uart0_loc, usb_cc1, usb_cc2,
++                 ve4_uart_loc]
++
++      function:
++        enum: [gpio, ai_i2s0, ai_i2s2, ai_tdm0, ai_tdm1, ai_tdm2, ao_i2s0,
++               ao_i2s2, ao_tdm0, ao_tdm1, ao_tdm2, csi0, csi1, csi_1v2, csi_1v8,
++               csi_2v5, csi_3v3, dmic0, dmic1, dmic2, dptx_hpd, edptx_hdp, emmc,
++               gspi0, gspi1, gspi2, hi_width_1bit, hi_width_disable, i2c0, i2c1,
++               i2c3, i2c4, i2c5, i2c7, iso_tristate, pcie0, pcie1, pcm, pctrl,
++               pwm4, pwm5, pwm6, rgmii, rgmii_1v2, rgmii_1v8, rgmii_2v5,
++               rgmii_3v3, rmii, sd, sdio, sf_disable, sf_enable,
++               spdif_in_coaxial, spdif_in_gpio, spdif_out, spi, ts0, ts1, uart1,
++               uart2, uart3, uart4, uart5, uart6, uart7, uart8, uart9, uart10,
++               usb_cc1, usb_cc2, vi0_dtv, vi1_dtv, vtc_ao_i2s, vtc_dmic,
++               vtc_i2s, ai_i2s1_loc0, ai_i2s1_loc1, ao_i2s0_loc0, ao_i2s0_loc1,
++               ao_i2s1_loc0, ao_i2s1_loc1, ao_tdm1_loc0, ao_tdm1_loc1,
++               etn_led_loc0, etn_led_loc1, etn_phy_loc0, etn_phy_loc1,
++               i2c6_loc0, i2c6_loc1, ir_rx_loc0, ir_rx_loc1, pwm0_loc0,
++               pwm0_loc1, pwm0_loc2, pwm0_loc3, pwm1_loc0, pwm1_loc1, pwm2_loc0,
++               pwm2_loc1, pwm3_loc0, pwm3_loc1, spdif_loc0, spdif_loc1,
++               uart0_loc0, uart0_loc1, ve4_uart_loc0, ve4_uart_loc1,
++               ve4_uart_loc2, acpu_ejtag_loc0, acpu_ejtag_loc1, acpu_ejtag_loc2,
++               aucpu0_ejtag_loc0, aucpu0_ejtag_loc1, aucpu0_ejtag_loc2,
++               aucpu1_ejtag_loc0, aucpu1_ejtag_loc1, aucpu1_ejtag_loc2,
++               aupu0_ejtag_loc1, aupu1_ejtag_loc1, gpu_ejtag_loc0,
++               pcpu_ejtag_loc0, pcpu_ejtag_loc1, pcpu_ejtag_loc2,
++               scpu_ejtag_loc0, scpu_ejtag_loc1, scpu_ejtag_loc2,
++               ve2_ejtag_loc0, ve2_ejtag_loc1, ve2_ejtag_loc2, pll_test_loc0,
++               pll_test_loc1, dbg_out1, isom_dbg_out, arm_trace_debug_disable,
++               arm_trace_debug_enable]
++
++      drive-strength:
++        enum: [4, 8]
++
++      bias-pull-down: true
++
++      bias-pull-up: true
++
++      bias-disable: true
++
++      input-schmitt-enable: true
++
++      input-schmitt-disable: true
++
++      input-voltage-microvolt:
++        description: |
++          Select the input receiver voltage domain for the pin.
++          Valid arguments are:
++          - 1800000: 1.8V input logic level
++          - 3300000: 3.3V input logic level
++        enum: [1800000, 3300000]
++
++      drive-push-pull: true
++
++      power-source:
++        description: |
++          Valid arguments are described as below:
++          0: power supply of 1.8V
++          1: power supply of 3.3V
++        enum: [0, 1]
++
++      slew-rate:
++        description: |
++          Valid arguments are described as below:
++            1: ~1ns falling time
++            10: ~10ns falling time
++            20: ~20ns falling time
++            30: ~30ns falling time
++        enum: [1, 10, 20, 30]
++
++      realtek,drive-strength-p:
++        description: |
++          Some of pins can be driven using the P-MOS and N-MOS transistor to
++          achieve finer adjustments. The block-diagram representation is as
++          follows:
++                         VDD
++                          |
++                      ||--+
++               +-----o||     P-MOS-FET
++               |      ||--+
++          IN --+          +----- out
++               |      ||--+
++               +------||     N-MOS-FET
++                      ||--+
++                          |
++                         GND
++          The driving strength of the P-MOS/N-MOS transistors impacts the
++          waveform's rise/fall times. Greater driving strength results in
++          shorter rise/fall times. Each P-MOS and N-MOS transistor offers
++          8 configurable levels (0 to 7), with higher values indicating
++          greater driving strength, contributing to achieving the desired
++          speed.
++
++          The realtek,drive-strength-p is used to control the driving strength
++          of the P-MOS output.
++
++          This value is not a simple count of transistors. Instead, it
++          represents a weighted configuration. There is a base driving
++          capability (even at value 0), and each bit adds a different weight to
++          the total strength. The resulting current is non-linear and varies
++          significantly based on the IO voltage (1.8V vs 3.3V) and the specific
++          pad group.
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 0
++        maximum: 7
++
++      realtek,drive-strength-n:
++        description: |
++          Similar to the realtek,drive-strength-p, the realtek,drive-strength-n
++          is used to control the driving strength of the N-MOS output.
++
++          This property uses the same weighted configuration logic where values
++          0-7 represent non-linear strength adjustments rather than a transistor
++          count.
++
++          Higher values indicate greater driving strength, resulting in shorter
++          fall times.
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 0
++        maximum: 7
++
++      realtek,duty-cycle:
++        description: |
 +          An integer describing the level to adjust the output pulse width, it
 +          provides a fixed nanosecond-level adjustment to the rising/falling
 +          edges of an existing signal. It is used for Signal Integrity tuning
 +          (adding/subtracting delay to fine-tune the high/low duration), rather
 +          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-index b6211c8544ca..2136546adec8 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-@@ -134,8 +134,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
-+          An integer describing the level to adjust the output pulse width, it
-+          provides a fixed nanosecond-level adjustment to the rising/falling
-+          edges of an existing signal. It is used for Signal Integrity tuning
-+          (adding/subtracting delay to fine-tune the high/low duration), rather
-+          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-index e88bc649cc73..e8ea1362b16d 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-@@ -133,8 +133,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
-+          An integer describing the level to adjust the output pulse width, it
-+          provides a fixed nanosecond-level adjustment to the rising/falling
-+          edges of an existing signal. It is used for Signal Integrity tuning
-+          (adding/subtracting delay to fine-tune the high/low duration), rather
-+          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
++
++          Valid arguments are described as below:
++          0: 0ns
++          2: + 0.25ns
++          3: + 0.5ns
++          4: -0.25ns
++          5: -0.5ns
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 2, 3, 4, 5]
++
++      realtek,high-vil-microvolt:
++        description: |
++          The threshold value for the input receiver's LOW recognition (VIL).
++
++          This property is used to address specific HDMI I2C compatibility
++          issues where some sinks (TVs) have weak pull-down capabilities and
++          fail to pull the bus voltage below the standard VIL threshold
++          (~0.7V).
++
++          Setting this property to 1100000 (1.1V) enables a specialized input
++          receiver mode that raises the effective VIL threshold to improve
++          detection.
++        enum: [1100000]
++
++    required:
++      - pins
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    pinctrl@4e000 {
++        compatible = "realtek,rtd1625-iso-pinctrl";
++        reg = <0x4e000 0x130>;
++
++        emmc-hs200-pins {
++            pins = "emmc_clk",
++                   "emmc_cmd",
++                   "emmc_data_0",
++                   "emmc_data_1",
++                   "emmc_data_2",
++                   "emmc_data_3",
++                   "emmc_data_4",
++                   "emmc_data_5",
++                   "emmc_data_6",
++                   "emmc_data_7";
++            function = "emmc";
++            realtek,drive-strength-p = <2>;
++            realtek,drive-strength-n = <2>;
++        };
++
++        i2c-0-pins {
++            pins = "gpio_12",
++                   "gpio_13";
++            function = "i2c0";
++            drive-strength = <4>;
++        };
++    };
 -- 
 2.34.1
 
