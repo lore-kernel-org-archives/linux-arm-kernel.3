@@ -4,62 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465EC106ACEA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FA0106ACEC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 21:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PI0QF6B7GTpvs2phHUpBZw7BOsfXgNyP/NfUwECWnrI=; b=YzohkXBe5DJTNSqREqH0JiKM8X
-	RjUnXSKrs/i4alwIti9RPqFUF4macjk6CB1KAzChR7iPAC9G34x6Gqnvz5LQxENdhOAV5pkroOvnj
-	yVnOi+78NJ0HW70DdHyYC7kBb6bb0N8e75+zLOvd4aQkXy62FFYBMaR6MPMD0e2hfy0J9c5vgLtQB
-	7cDMONZgCXaFp7XRUC9R8uI7gPsbpmvwb1GzX9YYUXO8uPCR0gq7jaqLEUdSoxyFdenivWkTMJXEB
-	U/faenS32LbhWkWgRw7ZzSt+kSTKJPruxBh1sf7b8rYlO2B9bCjCCLJWegXTz7xWIqWk2V3bercHO
-	aGuc4CZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VaKdAPIhRe7hUwa3N1bm3F+VQZ/SJ2cN2wS/xw5qz0k=; b=te9DYHfU5ykv7cQf7JZSSavEV3
+	b2Zf+QWKeTTEffRRQNd4FzNCTwPt/MG8gnucl0RpzZ64zEdKY6SHnQnOniV0xJGl+lYPx8O/UAKuW
+	3QKLdhNUlScH1QDatpdEpclDu6x3rgH3N8t52S4M8vo8PMUCxUAk7LAPcw618tUi9vg3pHdJZeIqV
+	0IsQytv8LHwcIuQWRFK5i9SIpOip45/Kow6jetOXqJAwgVYlSOkQgyeYNa2XielxVSWydTqiGvl6R
+	Ft7YroMIIGsEu5keH3svjjJaMtEMxkLnrpIJIX8UrkY0V4skPJlrJcEfTzklGrwYj1Y3+VdgCdfM0
+	+Inhstmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0nMf-0000000FQJV-1JF2;
-	Thu, 12 Mar 2026 21:14:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0nMd-0000000FQIT-2viM;
-	Thu, 12 Mar 2026 21:14:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA42D61336;
-	Thu, 12 Mar 2026 21:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DF7FC4CEF7;
-	Thu, 12 Mar 2026 21:14:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773350078;
-	bh=PI0QF6B7GTpvs2phHUpBZw7BOsfXgNyP/NfUwECWnrI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=clkxEPBKZxEf659r5ImYpASzkk9EJQaPrZpJfHhDr81HRo8Un+bWQ1x/DZoTK1VYS
-	 jKCQKBN2NTj7eIX+eEYhb98SKzN0GuqCCIIVXLbXv3UIeNeU6hhQx/K736A9gxBnu7
-	 Heq2q+j6rbsvy8e4IRwA67aZUA6x19egSiOOPdEyJebBl2eZjOAU3qf1U7OJBwkc04
-	 HBtoe4AubLHSj7Jys1zlysVWhllflJ5GMTQtKaGc1g22BBA92wFdVgh363oAbGFwPU
-	 98YKpYspsudCb1rMglQnFP/f52la01xFU2fNptxEbPGJsWVDiqqDES6qgTIGYZrBSm
-	 4XPlMxZzMyOOw==
-Date: Thu, 12 Mar 2026 22:14:36 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: select QDMA block according
- LAN/WAN configuration
-Message-ID: <abMsvOMnnuTdoG-9@lore-desk>
-References: <20260310-airoha-qdma-lan-wan-mode-v1-1-64ec74dea872@kernel.org>
- <20260312172430.GA1267298@kernel.org>
+	id 1w0nUH-0000000FRwz-20Wh;
+	Thu, 12 Mar 2026 21:22:33 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0nUE-0000000FRw7-1uEG;
+	Thu, 12 Mar 2026 21:22:30 +0000
+Message-ID: <b60ce38c-e4c8-4fd3-b1cd-6b1b5cd04cfc@infradead.org>
+Date: Thu, 12 Mar 2026 14:22:29 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aKPrcNYyqP8X8EOx"
-Content-Disposition: inline
-In-Reply-To: <20260312172430.GA1267298@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 1/5] docs: driver-api: gpio: rpmsg gpio driver over
+ rpmsg bus
+To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, arnaud.pouliquen@foss.st.com
+Cc: Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com
+References: <20260312192957.1978329-1-shenwei.wang@nxp.com>
+ <20260312192957.1978329-2-shenwei.wang@nxp.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260312192957.1978329-2-shenwei.wang@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +66,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---aKPrcNYyqP8X8EOx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> On Tue, Mar 10, 2026 at 03:46:53PM +0100, Lorenzo Bianconi wrote:
-> > Select the QDMA block used to send the traffic to host cpu according to
-> > LAN/WAN port confiugration:
-> > - QDMA0 is used for LAN devices
-> > - QDMA1 is used for WAN devices
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> Hi Lorenzo,
+On 3/12/26 12:29 PM, Shenwei Wang wrote:
+> diff --git a/Documentation/driver-api/gpio/gpio-rpmsg.rst b/Documentation/driver-api/gpio/gpio-rpmsg.rst
+> new file mode 100644
+> index 000000000000..b2daa387143d
+> --- /dev/null
+> +++ b/Documentation/driver-api/gpio/gpio-rpmsg.rst
+> @@ -0,0 +1,266 @@
+> +.. SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +GPIO RPMSG (Remote Processor Messaging) Protocol
+> +===================
 
-Hi Simon,
+'make htmldocs' build warning:
 
->=20
-> Is this a bug fix?
-> If so, perhaps it is for net with a fixes tag.
+Documentation/driver-api/gpio/gpio-rpmsg.rst:4: WARNING: Title underline too short.
 
-I guess we do not need to target net tree since airoha_eth driver currently
-supports just the LAN interface via the MT7530 DSA switch connected to GDM1
-and there are no WAN interfaces officially supported (PCS/external phy is n=
-ot
-merged mainline yet, it is only available in OpenWrt).
+GPIO RPMSG (Remote Processor Messaging) Protocol
+=================== [docutils]
 
->=20
-> And at any rate, could you add some description of the before and after
-> behaviour?
+The "underline" must be at least as long as the heading text line.
 
-Theoretically, before this patch, GDM ports were equally distributed between
-QDMA0 and QDMA1 while this patch assigns LAN interfaces to QDMA0 and WAN
-interface to QDMA1. However, for the reason explained above, this change is
-not currently visible to the user.
+> +
+> +The GPIO RPMSG transport protocol is used for communication and interaction
+> +with GPIO controllers located on remote cores on the RPMSG bus.
 
-Regards,
-Lorenzo
+-- 
+~Randy
 
---aKPrcNYyqP8X8EOx
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabMsvAAKCRA6cBh0uS2t
-rFDmAP93V3ccszOsfcw+0zhgr1R1obkSmoIKk52roRfL4F4otQEA5pU4amZ23tfr
-L8d+Ej1Fj3I3fcJLP56yYMmhSvkcTAA=
-=5Q0S
------END PGP SIGNATURE-----
-
---aKPrcNYyqP8X8EOx--
 
