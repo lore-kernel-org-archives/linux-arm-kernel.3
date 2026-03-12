@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD16FED2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 04:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3203FED2C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 04:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TU3zKdAv8f6aur/yAOI6IEeaGLd3rNJfqjevfSWZ60U=; b=f4jK3dun9T1BIQsosiw0RVXQUv
-	UYpmv3aoG7pU4X2X7kNiwyeTKgih0uwQ1ORiDxdRaGafa3XR/UBUKnauH6BLHmt3jQdPoOlPKNyf1
-	LQt+8mhYThjI6byFcyQQ+YpLO75XA1AMrAOOVEao5HkMpODHnuNmYWRq5cYnJm2AvRDHHHeVuokqX
-	U/2bKu2zQFcFYjpeYYaY8DwmvMrnKsUceVjAWNt8yG/yko5O951ZDbET6A/hqbFQRkIFjov+jxj/C
-	MjQnPYEUISZMpARSlZh4rzNdmq6/0yJDeA1yQZItV7bUR9PeUmMJJWl6x8l0Fflgtbr3AcB1yfRbZ
-	a3S3qnsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hnedHzAYlPQKd7QJbPUan0F8bZqTEegvPKwIKwzWtW4=; b=ukxhaksI39lLDHMkgNqdpfaGA1
+	TW5QI+GjDm50QmiF+T479oe+ylu/tx9mCE8MlJ+kaUgoBUsbs7xFd5fCpTpCqPTlAe0sJf1atlkYe
+	sKs5i+ddU7pmoTpC3yRhdvcHLwQUiEBTWerES/OhJensLxw1V30eg8xl9/IwqmXmlhmao7yOLSYWV
+	odVkuoHJ7nWUQUUlAm5j0uwLF/L5CW5Ux3jmMkS2g/pJQe9cZfJJm7czj0fb1NbnSEOHMErWefDks
+	R0QsP35uv4iUsjekQ4/5WSXaTQThL9sHpCEj4y6lHAir3uGwFI+jYx0Sg1KL42R8H5Z+rhP3o+nca
+	r3WZQAbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0XTN-0000000DEXt-1eX0;
-	Thu, 12 Mar 2026 04:16:33 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1w0XYR-0000000DFJg-2o6k;
+	Thu, 12 Mar 2026 04:21:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0XTK-0000000DERj-2tjH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 04:16:31 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-358e3cc5e7eso285989a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Mar 2026 21:16:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773288988; x=1773893788; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TU3zKdAv8f6aur/yAOI6IEeaGLd3rNJfqjevfSWZ60U=;
-        b=Hmo06y7tIRM5WuBcZ6SJ1NzHh6wn/8FhuoVo+lrSLyxC29S8YKlQtquXag1UnDfEj1
-         25WAPUqjtZ88/PFh+sVPpzUk6G4ag2awXnleD+UusSPxZNfQzcheuVHfwAGBE5Dl3nQG
-         XZ6aFN5mylgsYfGKxw6YBEpP0l8gtW/Ary91lhNyxxKZGObun6USigC9CUgsPvZmT005
-         zfBGvayhIClJLzUfEbdvlJ/SCfhvdGMHEXc/lZD8gSY2XfAApgpE70UTTs9BuYDGe4cY
-         U+wvURcQujgecQzzzhzeRn7sY5R4vsXAIDUpNBtY0xTZQ7B4hsNEIAYcjT4trVdDZsAG
-         TMpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773288988; x=1773893788;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TU3zKdAv8f6aur/yAOI6IEeaGLd3rNJfqjevfSWZ60U=;
-        b=YbclY5VribZRgS7wAcr6CxokZKJGhp0tjrYySgzhCBmeZN/D5ihzXgh3DIVnf8oTRF
-         DnPjx5iOq+dk/Ms33ee2/whVEMI/S8Q6Yxwd1lb7x5amnfjh/cRXn4HuzyEt3p/Qp1tU
-         Uy418smI0Xc2GNH4M9Cp9qfFS9lmA1Aw9M8TxPfHm+1XEmOIpJImwQYwxxqxfTdXUS1e
-         bemOAce4LyIqqEk4VkLACSgbwjC7VlcJyAwjGy+MTZD9xINDGpoeus5EMEYEYPiqmb5B
-         EtgkFd3FIKZlECLsr94qslRlvJi4n5G6xjKC6Sxvkqw6TMZ5z9l6OP1svAtnEVEw0NTU
-         l93g==
-X-Forwarded-Encrypted: i=1; AJvYcCWJJT5oDzSZl7pTXndLcJS9xwLUaNgAkzQJV9hnMwS8RXL0MqsMSbqTvCBeWDZrgB5hcRsqunBUcG/ozqYU/P8B@lists.infradead.org
-X-Gm-Message-State: AOJu0YziklKztdQj0GHfvXfsiCNkfomhLWHm63MC/fwNdR7XVssf7c3s
-	VNx3Cqz7EJdFD6H0sU81k7/Fpg0TV3AxVy54P6kdL0PK/X+5UYPPmGxx
-X-Gm-Gg: ATEYQzxde0XyaPak2fmqfbMmo/PaLBz1B6D/XeFtoPhPg3J3eRkKDkpzZOt2XwDO4Pl
-	qSmF2i0MH2VWxvMpfpMtCeA7eQaZXAFCYRIZ4Ef42IpkeA7JyYhrmxI+CEtaH8gLlOzX6VFrXsb
-	KiK1Tf6MrxP/gBm6ZezVF0vRehnaKBTPwJLBnmCpOfqB5bYsmP/Uk456p3dCGjWeTs0MDJcXyLd
-	/M4pmyRdL1k23PMled2XdYsBKMferm+lnvVZdoS7dtLhiWZ4mcWWHnOmW/kncMzlz33S/xb0sOO
-	agOw1JBtfY1+TiKFbe8Au5tFMaYIsx5w71HGvf/K0Qy8V+eZ9SzxOAzQXadbl2lifA6tIdnZF8C
-	HsldZWL65af8PxZghQctoRSOocwhiD/1vK/GKT5fDcc6ZkzDugTERFODxmcIxYlEwHE8p/VdyaD
-	M3kdKf+wb+CIN9voXGu1owJDudXXLEzer0lnIgxCXIIdDPr4F1cXP0XHhZhKld+5MHBmpHlwny2
-	eaMWOg=
-X-Received: by 2002:a17:90b:37ce:b0:359:120f:d3aa with SMTP id 98e67ed59e1d1-35a01201dd9mr4941745a91.14.1773288988147;
-        Wed, 11 Mar 2026 21:16:28 -0700 (PDT)
-Received: from buffalo-ssd.taila54753.ts.net (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a02fca40bsm5018229a91.10.2026.03.11.21.16.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 21:16:27 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	sean.wang@kernel.org,
-	linusw@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	hui.liu@mediatek.com,
-	nfraprado@collabora.com,
-	linus.walleij@linaro.org,
-	mars.cheng@mediatek.com,
-	andy.teng@mediatek.com,
-	hanks.chen@mediatek.com,
-	sam.shih@mediatek.com,
-	rafal@milecki.pl,
-	ben.ho@mediatek.com,
-	erin.lo@mediatek.com,
-	zhiyong.tao@mediatek.com,
-	Jason-ch.Chen@mediatek.com,
-	amergnat@baylibre.com,
-	seiya.wang@mediatek.com,
-	tinghan.shen@mediatek.com,
-	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH 6/6] dt-bindings: pinctrl: mediatek: mt8188: Fix include guard comment
-Date: Thu, 12 Mar 2026 13:15:33 +0900
-Message-ID: <20260312041533.187553-7-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260312041533.187553-1-akkun11.open@gmail.com>
-References: <20260312041533.187553-1-akkun11.open@gmail.com>
+	id 1w0XYN-0000000DFHg-2eFY;
+	Thu, 12 Mar 2026 04:21:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1773289301; x=1804825301;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=wdI0p60YaCgXLrj/iUxMmmz6VvOV20Yk+z+tHEbhKv8=;
+  b=PLN4to3W/1YDU9sAsu8eFmA5rk/ib03I84KrVn+00DUayIXdPsQV7dlc
+   V9dHABu2FgMNqIX/sg0cY0a8UYcVYHkZ4M+WvA1qcTyTJIQf+BBbQjSja
+   3TvVrwpTkrNwJB/fKmhbmqCG5ytQkApGKa9DNzMH2JHQhRxsiC4BP2q78
+   OHVbA9/OUJhvReBXEahU8w+NkNkrEhomw/fEgAjfGxhCSifTtzOl9sO4Z
+   WPiw8C0TUExix1SL+CmAOZnqhyZhqa3fuJGK+6hWhLxt7icS6snOw40QK
+   yeJTwYHyI2qrVEwh6xXZ1W12M3r4ewcrXZ8iiFbq1RXHEtwb/QrS+Ueti
+   w==;
+X-CSE-ConnectionGUID: uJrHAOLBREOlPHbMYZOtwQ==
+X-CSE-MsgGUID: R7IJWLvAS6qm15x3KGqO0g==
+X-IronPort-AV: E=Sophos;i="6.23,115,1770620400"; 
+   d="scan'208";a="53801522"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Mar 2026 21:21:39 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 11 Mar 2026 21:21:10 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 11 Mar 2026 21:21:02 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <alexandre.belloni@bootlin.com>, <Frank.Li@nxp.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <ardb@kernel.org>,
+	<ebiggers@google.com>, <martin.petersen@oracle.com>, <tytso@mit.edu>,
+	<cristian.birsan@microchip.com>, <adrian.hunter@intel.com>,
+	<jarkko.nikula@linux.intel.com>, <kees@kernel.org>, <npitre@baylibre.com>,
+	<linux-i3c@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH v3 0/5] Add microchip sama7d65 SoC I3C support
+Date: Thu, 12 Mar 2026 09:50:51 +0530
+Message-ID: <20260312042056.309237-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_211630_729625_7D2EF027 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260311_212143_728591_2187E2EA 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +90,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the mismatched macro name in the #endif comment.
+Add support for microchip sama7d65 SoC I3C master only IP which is
+based on mipi-i3c-hci from synopsys implementing version 1.0
+specification. The platform specific changes are integrated in the
+existing mipi-i3c-hci driver by introducing a quirk
 
-Fixes: 9f1bdd7e8221 ("dt-bindings: pinctrl: mediatek: add support for mt8188")
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
----
- include/dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I3C in master mode supports up to 12.5MHz, SDR mode data transfer in
+mixed bus mode (I2C and I3C target devices on same i3c bus).
 
-diff --git a/include/dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h b/include/dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h
-index 2688da2f621f..66a451953838 100644
---- a/include/dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h
-+++ b/include/dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h
-@@ -1277,4 +1277,4 @@
- #define PINMUX_GPIO176__FUNC_B_GPIO176 (MTK_PIN_NO(176) | 0)
- #define PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA (MTK_PIN_NO(176) | 1)
- 
--#endif /* __MEDIATEK_MT8188-PINFUNC_H */
-+#endif /* __MEDIATEK_MT8188_PINFUNC_H */
+Durai Manickam KR (3):
+  clk: at91: sama7d65: add peripheral clock for I3C
+  ARM: dts: microchip: add I3C controller
+  ARM: configs: at91: sama7: add sama7d65 i3c-hci
+
+Manikandan Muralidharan (2):
+  dt-bindings: i3c: mipi-i3c-hci: add Microchip SAMA7D65 compatible
+  i3c: mipi-i3c-hci: add microchip sama7d65 SoC compatible with the
+    appropriate quirk
+
+ .../devicetree/bindings/i3c/mipi-i3c-hci.yaml | 22 +++++++++++++++----
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     |  8 +++++++
+ arch/arm/configs/sama7_defconfig              |  2 ++
+ drivers/clk/at91/sama7d65.c                   |  1 +
+ drivers/i3c/master/mipi-i3c-hci/core.c        | 12 ++++++++++
+ drivers/i3c/master/mipi-i3c-hci/hci.h         |  4 ++++
+ 6 files changed, 45 insertions(+), 4 deletions(-)
+
 -- 
-2.53.0
+2.25.1
 
 
