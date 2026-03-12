@@ -4,108 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB655FED2FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2FFFED2F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvkQ2gOXPfEgvVdYXifa8peVJAvhJSw87S/AMCZBBQs=; b=jUGHjYj6Npnx9SB52FYcpcU/5x
-	7CmJus1I9xWFiB8STPGjgRui8Ue3CGXZFQ5PPmcOUv7z1ZZNFDo+sXZ12hevw9tXLVR11zxzn/N+c
-	mz8VDwbaUwninxL98mey7ARJdB4b2fn1Fo1SHf1xlAoVK6Bj9Nd0VllYzUZvRcN7kur1xiGYnMO1A
-	g9eCU+OPWMmeB9fZGJZWo+LxM4LpBMqaAmU66WRBpvbonYboRcEYjgZJDs+QYSYqHNsSsB+LlTZXW
-	kIo3d0CaiDV4HMdxSwnGTsxGukcCh7iO48TKA2hy+El6eYQvgxQd9zxHBrlkUlU7bkuJbNu8OqoqY
-	uM6eY73A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=026O+Z6ChtonOf53bFF420g9yfhgQKiBcP0o2NC/PHM=; b=Mo0Rc3/Woyn3mUNFXzvhN89sXi
+	DwmO7C6zskf196W+E+Kt6MHwffsq4xBoCGhDiyb/tZc31Z+7sIy+gf0bf+drFrRrxEcPjHMG3WglI
+	rcgs4nB3nWf1DSF3OWa0L8xKHcjT6rDa8OCRlWyWbUsuUr6afJr0w1x/WA84u7/LoW8ujL+uNxYjZ
+	jvrYwF2k2BGQ7mT9KPbfzzPZXAKl63h/bxOA7kyPmYVR2PCUe9p3z+PKr5daUASQI1+keWSlkthwu
+	UY1j25qfVzfhVnyhALkO9zW9fJ7OcbFB7tIfSdAED5lfe3RjUCZRGCdzdN5eFQr4g7cQCge+Ty/Px
+	IMd5/yHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cfc-0000000Dnu5-2lDD;
-	Thu, 12 Mar 2026 09:49:32 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1w0cfm-0000000DnwM-28jr;
+	Thu, 12 Mar 2026 09:49:42 +0000
+Received: from mail-japaneastazon11022123.outbound.protection.outlook.com ([52.101.126.123] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cfZ-0000000Dnta-0Q8g
+	id 1w0cfj-0000000DnvX-1Q8A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 09:49:30 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c73bbdc01b7so290088a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 02:49:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773308968; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dYI8Pra/M1kmEDraxCPcZRQk1UQWpGnoONnmrrv33zPOA150oxAzmv7NR5cUJBAw5W
-         nOvg3x1oqy1Yll6I5zZMaucO4vLiT0vzxESFo6S0+EXdzqhL+kvof0Oa2fA0DoBo4kGy
-         YbU7D/g9xqUSM0FLHClR1OtxNJx1ITSGla/LPitXv0dPXMQQGJsk3CzPB2M3UaSBUfjE
-         GYSlA9yQIgK8f+0vUdYwe5y37N47l/c2lDcvg2iQnaIiC3cbRHORckon343Q4BbhB2h4
-         YVZgyGrm547VFFFl1ZsTMiAGB7udr8uetN3cO2wLGHjFy01GArVUSH7xV4Ehs0wazer0
-         wEiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qvkQ2gOXPfEgvVdYXifa8peVJAvhJSw87S/AMCZBBQs=;
-        fh=eX3XgTRC4cyxjIsaGoBugCsJTW/Rn46Ao7Z5XIFCo+0=;
-        b=a8jDHeea2HlpFqchNA7nImRg6sppJ8B3sUqLzykhWmxbPsPqy3IKZRQPu69PSP9nLf
-         t4ZF90TDSZ4I9tGAsRflMvBFgyT1TigndBwOn50MkjyNrDdPn1224Z9/UEm+aZNw/WBL
-         2UHmtYZbPlKjxCO6ehlZvK62US5ewM8ggFuvJ5mc6fkGCRJ1cgbTKu0jcyOfhwZaEuuI
-         WGPd8jNI//IddhrmFkvEA8VRCTeIpYFq9j96HyRHaKewSSBIBgZi+g9hXXMcQd7FXnDf
-         Wp4v5WqH+/k612C09JmNnSqgPiQVfZeBbELj0bGsclwfwFjVXM2AayqLgv0zLRZM1v7Y
-         yNjg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773308968; x=1773913768; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qvkQ2gOXPfEgvVdYXifa8peVJAvhJSw87S/AMCZBBQs=;
-        b=Al6RFEC5BNkGunW3GUCDeV3dx3Z6ZeLiMTWVo468HqwUq0AFj6G55ZF+QIoefcOrHA
-         IFOOICPG8+xfSI5+GAyh9c0JyJxHUDHCZnshK1OeiBuy3pzDKSvE40OfR3jO7w3FTE4U
-         VT8dyxsX2pVWz1aUd3q7bfvJ4uArJqcruygBOAgUO6jFoPBvkrbTQD4YVaELmU+AHlZT
-         SOa9rcFMdnSgz+muUX7Wa0SqW0MZ9dDTOhpRacs+TmTtk5mSeUqtIOlLo+IYcFAztQf5
-         4XPZ77Kji6N50mVfVFNijm+TnJVCYR7McKC4Cc7e6BOmvT0QUYFk/1eh+kSwj91LG7J6
-         0Nqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773308968; x=1773913768;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qvkQ2gOXPfEgvVdYXifa8peVJAvhJSw87S/AMCZBBQs=;
-        b=NL+bEMGi9FkvxjGkgGWUd1Uv4a71/muXkIeO2YQkXJOZAOgdNbyLr0HaJ00DbQkksg
-         fpxZqPq+1cF/G7UDR+ZCwp6m4utdu9SHx/QWT0/iwmNWem6OJdB9wThmRuNrvbF7HEGo
-         x+Wuv6z0syStK9voPDbF1mFcj++S4YqUKKulXwtHIV7MTM+WX591vxJXwskr4by9cbh0
-         cviq2AEclpNuh2rmFJGPgggVxoAZwRMaP5FwF+pZSkcMisTV6qG7wFxmq2mGxi3bo+Pq
-         kn3qt9IAgNIyq5pj+mPhnfaWMAiVpkKYutnO+TvNpvY0SE8K9ubpfq365V+voPSfe0Bn
-         qPWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUrRLTaaD/UZ7ymVuUtYNtB9cjN5sRqOfdgIuXdqj3Sk5726bw8DCrrj//lUyHcePcj7GjPCeQBZf+Zfd7j7b1J@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIaBQ3HL7K7zFZlpMC0y6SfSJojmbtdX+p73lANRmyyq1gcGq6
-	aA4xX+FOTAs0nUtofX94w6sZDFpHenXnATfC9ddjMe2kiUVBtTqvXhWqCYiVfJF5z9gZodRIp4H
-	GuuCn0RjC5Knts3XfpBCmopLV676qq7A=
-X-Gm-Gg: ATEYQzyuVdkHcZFQ2ptCXkbx52dAPup+h9P/kZRrsK90aF/2LkmgUfVD4bkQlyJAAmV
-	0zJ/HZ7bnq7wW4XFf6MTU+uoRB3hZKx9T0LXrmteKZpj8XwH4sPC3PQReem+PYC0G4foCs/NfrF
-	dgzQvqA2Br7WLdcC165LlRikMQp2zojKtPQfvte+9Qjps1PgsGiSjLdwN506ZYOCQW+6l216e2Z
-	SvhzQ6zl8fj4aK7ejIme2xT3tkb+pBUIhoNllC31VYoeI2kjWU2EwDbAgXZE12MxSlULxSzgMGE
-	zVPWjTc=
-X-Received: by 2002:a17:902:db11:b0:2ae:572a:9f39 with SMTP id
- d9443c01a7336-2aeae7ae390mr54703625ad.18.1773308967815; Thu, 12 Mar 2026
- 02:49:27 -0700 (PDT)
+	Thu, 12 Mar 2026 09:49:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p2JM27egz/2IygjMAcPx4v4D4lmVkMIlJqzvjIb9IPMFy2C8aVR3c6pE64TxnCJUL1wy27ywYszJXoUsLmfnWKAAWUScgPH+LnBcXLMA0pQwKIlabw3VNWOFS+o0wtRQIFZDkOzaeCu9BIqlP3d7iEwYog16JdHN9TaNuwXIDG2cSeI0m8q5kTqNeGPHd5ypuLdFpe2NzCyk13N5L/fGuyp3obFKHt3N0p4DjhajIzIDDxqCP2rgtqoU6v5T5Iz9YB4GY3jpifCautQfHOmI60ADYqTudZjFhln3p7sn3YkDBT7iCcji8ZEzhS4tNdGZ/W/RsmItSAWoCfMO5caEIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=026O+Z6ChtonOf53bFF420g9yfhgQKiBcP0o2NC/PHM=;
+ b=SxDIXLHqidAMexCH6rQXnNcQuGFMHNUV4QzJ30Hk0kU/ycB1gPdcoHjhvgFfHNT2ry4ni8hO1LGi8LiH/gKakUWzn8RFu1yKQZaO0fVtDRJR+pxUSpcSIKbE9xm69rUgORMxRH+AzO0rHb818m9ZvHg7QpRMy8/oAVEEtBGwFjtRzP4emd572lvN7nKlcDqsxRcDCHYx1byk7HEORJmLPu/WkhGuET+28rXjDRF3Qjqw1tCsS5yu1sSto7D9Mau0iGv9lYZiD55TAIjSo8EG2hVOkvWnTDrg2jxQyuLSuc1PKVQO8YmFpCYtG3usqDdp+CqJ5gWcMor7mh9lHGBWDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2PR01CA0160.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::16) by SEYPR06MB6154.apcprd06.prod.outlook.com
+ (2603:1096:101:dc::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
+ 2026 09:49:25 +0000
+Received: from OSA0EPF000000C8.apcprd02.prod.outlook.com
+ (2603:1096:4:28:cafe::96) by SG2PR01CA0160.outlook.office365.com
+ (2603:1096:4:28::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
+ 12 Mar 2026 09:49:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C8.mail.protection.outlook.com (10.167.240.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 09:49:24 +0000
+Received: from ZicharPC.. (unknown [172.16.64.205])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id BC40B41604E2;
+	Thu, 12 Mar 2026 17:49:23 +0800 (CST)
+From: Zichar Zhang <zichar.zhang@cixtech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	peter.chen@cixtech.com,
+	fugang.duan@cixtech.com
+Cc: linusw@kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Zichar Zhang <zichar.zhang@cixtech.com>
+Subject: [PATCH v2 1/1] arm64: dts: cix: add FCH(S0)/S5 GPIO controllers for sky1
+Date: Thu, 12 Mar 2026 17:49:23 +0800
+Message-Id: <20260312094923.3473444-2-zichar.zhang@cixtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260312094923.3473444-1-zichar.zhang@cixtech.com>
+References: <20260312094923.3473444-1-zichar.zhang@cixtech.com>
 MIME-Version: 1.0
-References: <20260312034912.4007057-1-shengjiu.wang@nxp.com>
- <20260312034912.4007057-3-shengjiu.wang@nxp.com> <3918649.ElGaqSPkdT@steina-w>
-In-Reply-To: <3918649.ElGaqSPkdT@steina-w>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Thu, 12 Mar 2026 17:49:09 +0800
-X-Gm-Features: AaiRm50CUazvc_T7zmj0XI6ARnrNtJthYpyJMVhYBvsd-m3gH044OghfQFK0Z8w
-Message-ID: <CAA+D8AP=cobxaw=0CuM=J_Q+3LMtJoO-B5LvScQWqE-9NswKXA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] arm64: dts: imx952-evk: Add sound-wm8962 support
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C8:EE_|SEYPR06MB6154:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 26155abe-698f-465b-98fb-08de801ca505
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: JXCNLPSfeY/TaezGU2ROpKl0OTHY13Z5YCe+x6HPSOIdUtWTBPug8SzWkrLEAcBPPOsbS44+955yx3Ok4PZMwqrvwuaVdPBulmColeYesTZRm3nnHgde+mF4q7ozSkuLeNu5kH7Qixy7gIdXjhxcCPyyUrsh4cyCIYeC5UACsJPCLuAbR8aXUEsAiv8YG4E7ZmPP5q+CJgS+FLdGB/mv6Sj/roVRvNKxDbYxyJGiTVxIkYJfNvfcNweB/p9FiSqBXz0Gyz9/xyzPZl7fFxaUeFvFUCzjo/xs3ZUXe8ApNy+YscbDwsD6WeruX0ssUM/pwwJcCJkG+dk+kj5EaETiyUBzp+htOnyObPUGLC5p5KncisgYklVMIiFDnHkmVHpbUGcohU8z8jD7PkntWH3sw+lA7F4lBch2jG8jdPlNqn0bq6iTiLDm7dFINpdga1am9E/vhkD0+GWuGspG3Ut0GDzM3hKL7L26MtFGBQXPtZFOCPV6K/sz061ZDJUrtzJcsE9aoZg/y5Zisyw0LZj6RyF56C3BmmaRkuJMWh998V6OGI6SztonLkFNRKeg+q7+H/pNKOer1XmLuMPTwl+drJ650aGhgno8y8yTHMcIOZXlS4SfqLC0e/fEQSax4v5NuHGEEacmL9VffYTIvc8HCW2czcFYrVy/Erst43nbipYVCIbB0ZlZzw3X6OIchoH44IHQAD92ocJLBmrPI3+bcyXfseK1fpzUYt9qaWsp/+x+UaS38RYEZ9HYYqNRJjIC4hd8Ch+DouVKuUD/MclFlA==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ww5NcDPvfIQtRA5r/vBtmFA97Qm7xSQx1q5s9AnNiQeS5D7Lei5WeCg6tlt5z6y8dptua7fisW3kucHXcx35TCbPPEjJ4GgIS/WgHOaGq/tlNfsfj4sDnOLQ5oA5wF8HjwJ9S7r526Ss4GAUpoDenl33QjXuE67xS/LI+9UjnFZ73NRljrTER7AYukBHr+eMDvqaE53+HP3+vMieKbxtmTDdAV0BZLxoAoh5qL39U47raNDdF1R6/SqNpBmcVkbXdoOPk3GvwVsaXX1tHSYdgt3kVU7/jiPQ9fsLroX99rZyKqZATpaaK4JOeJUrSwzzwspVquBQuTt7VJegzRb+G5rzeasozeMZBmRrDq2PlTkUeityNFKJFS+4RGF+5DfzE2Q8YjW5H6FVw91F0vxRvdXXZSZlrUssDWwYZCxB4KPeekKTnIqLZ+mjbYBW9sTO
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 09:49:24.6687
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26155abe-698f-465b-98fb-08de801ca505
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_024929_149293_D0602627 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260312_024939_924610_838FA9C9 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,222 +121,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 5:45=E2=80=AFPM Alexander Stein
-<alexander.stein@ew.tq-group.com> wrote:
->
-> Am Donnerstag, 12. M=C3=A4rz 2026, 04:49:10 CET schrieb Shengjiu Wang:
-> > Add wm8962 sound card. By connecting with ASRC1, the sound card support
-> > sample rate conversion.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx952-evk.dts | 119 +++++++++++++++++++
-> >  1 file changed, 119 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx952-evk.dts b/arch/arm64/=
-boot/dts/freescale/imx952-evk.dts
-> > index 509704c23e89..ef0058b98573 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx952-evk.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-> > @@ -110,6 +110,15 @@ reg_vref_1v8: regulator-adc-vref {
-> >               regulator-max-microvolt =3D <1800000>;
-> >       };
-> >
-> > +     reg_audio_pwr: regulator-audio-pwr {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "audio-pwr";
-> > +             regulator-max-microvolt =3D <3300000>;
-> > +             regulator-min-microvolt =3D <3300000>;
-> > +             gpio =3D <&i2c4_pcal6408 1 GPIO_ACTIVE_HIGH>;
-> > +             enable-active-high;
-> > +     };
-> > +
-> >       reg_usdhc2_vmmc: regulator-usdhc2 {
-> >               compatible =3D "regulator-fixed";
-> >               pinctrl-names =3D "default";
-> > @@ -131,6 +140,51 @@ reg_usb_vbus: regulator-vbus {
-> >               enable-active-high;
-> >       };
-> >
-> > +     sound-wm8962 {
-> > +             compatible =3D "fsl,imx-audio-wm8962";
-> > +             audio-asrc =3D <&asrc1>;
-> > +             audio-codec =3D <&wm8962>;
-> > +             audio-cpu =3D <&sai3>;
-> > +             audio-routing =3D "Headphone Jack", "HPOUTL",
-> > +                             "Headphone Jack", "HPOUTR",
-> > +                             "Ext Spk", "SPKOUTL",
-> > +                             "Ext Spk", "SPKOUTR",
-> > +                             "AMIC", "MICBIAS",
-> > +                             "IN3R", "AMIC",
-> > +                             "IN1R", "AMIC";
-> > +             hp-det-gpio =3D <&gpio2 11 GPIO_ACTIVE_HIGH>;
-> > +             model =3D "wm8962-audio";
-> > +             pinctrl-0 =3D <&pinctrl_hp>;
-> > +             pinctrl-names =3D "default";
-> > +     };
-> > +};
-> > +
-> > +&asrc1 {
-> > +     assigned-clocks =3D <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-> > +                       <&scmi_clk IMX952_CLK_ASRC1>;
-> > +     assigned-clock-parents =3D <0>, <0>, <0>, <0>,
-> > +                              <&scmi_clk IMX952_CLK_AUDIOPLL1>;
-> > +     assigned-clock-rates =3D <3932160000>, <3612672000>,
-> > +                            <393216000>, <361267200>, <49152000>;
-> > +     fsl,asrc-rate  =3D <48000>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&asrc2 {
-> > +     assigned-clocks =3D <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-> > +                       <&scmi_clk IMX952_CLK_ASRC2>;
-> > +     assigned-clock-parents =3D <0>, <0>, <0>, <0>,
-> > +                              <&scmi_clk IMX952_CLK_AUDIOPLL1>;
-> > +     assigned-clock-rates =3D <3932160000>, <3612672000>,
-> > +                            <393216000>, <361267200>, <49152000>;
-> > +     fsl,asrc-rate  =3D <48000>;
-> > +     status =3D "okay";
->
-> Is asrc2 actually required? AFAICS this is not referenced.
+Add Cadence GPIO controller nodes for Sky1 FCH(S0) and S5 domains in
+sky1.dtsi, and enable those controllers on sky1-orion-o6.
 
-Yes. It can provide memory to memory interface to user space standalone.
+Signed-off-by: Zichar Zhang <zichar.zhang@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  28 +++++
+ arch/arm64/boot/dts/cix/sky1.dtsi         | 119 ++++++++++++++++++++++
+ 2 files changed, 147 insertions(+)
 
-Best regards
-Shengjiu Wang
+diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+index 4dee8cd0b86d..e39c87774c12 100644
+--- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
++++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+@@ -36,6 +36,22 @@ linux,cma {
+ 
+ };
+ 
++&fch_gpio0 {
++	status = "okay";
++};
++
++&fch_gpio1 {
++	status = "okay";
++};
++
++&fch_gpio2 {
++	status = "okay";
++};
++
++&fch_gpio3 {
++	status = "okay";
++};
++
+ &iomuxc {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_hog>;
+@@ -86,6 +102,18 @@ &pcie_x1_1_rc {
+ 	status = "okay";
+ };
+ 
++&s5_gpio0 {
++	status = "okay";
++};
++
++&s5_gpio1 {
++	status = "okay";
++};
++
++&s5_gpio2 {
++	status = "okay";
++};
++
+ &uart2 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 72f3b195a927..3772548e8c0b 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -185,6 +185,13 @@ psci {
+ 		method = "smc";
+ 	};
+ 
++	s5_gpio_apb_clk: clock-100000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++		clock-output-names = "s5_gpio_apb_clk";
++	};
++
+ 	soc@0 {
+ 		compatible = "simple-bus";
+ 		ranges = <0 0 0 0 0x20 0>;
+@@ -348,6 +355,70 @@ i3c1: i3c@4100000 {
+ 			status = "disabled";
+ 		};
+ 
++		fch_gpio0: gpio-controller@4120000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x4120000 0x0 0x1000>;
++			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
++
++			interrupts = <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <32>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
++		fch_gpio1: gpio-controller@4130000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x4130000 0x0 0x1000>;
++			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
++
++			interrupts = <GIC_SPI 305 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <32>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
++		fch_gpio2: gpio-controller@4140000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x4140000 0x0 0x1000>;
++			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
++
++			interrupts = <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <32>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
++		fch_gpio3: gpio-controller@4150000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x4150000 0x0 0x1000>;
++			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
++
++			interrupts = <GIC_SPI 307 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <17>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
+ 		syscon: syscon@4160000 {
+ 			compatible = "cix,sky1-system-control", "syscon";
+ 			reg = <0x0 0x4160000 0x0 0x100>;
+@@ -587,6 +658,54 @@ s5_syscon: syscon@16000000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		s5_gpio0: gpio-controller@16004000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x16004000 0x0 0x1000>;
++			clocks = <&s5_gpio_apb_clk>;
++
++			interrupts = <GIC_SPI 372 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <32>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
++		s5_gpio1: gpio-controller@16005000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x16005000 0x0 0x1000>;
++			clocks = <&s5_gpio_apb_clk>;
++
++			interrupts = <GIC_SPI 373 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <10>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
++		s5_gpio2: gpio-controller@16006000 {
++			compatible = "cdns,gpio-r1p02";
++			reg = <0x0 0x16006000 0x0 0x1000>;
++			clocks = <&s5_gpio_apb_clk>;
++
++			interrupts = <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			ngpios = <10>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			status = "disabled";
++		};
++
+ 		iomuxc_s5: pinctrl@16007000 {
+ 			compatible = "cix,sky1-pinctrl-s5";
+ 			reg = <0x0 0x16007000 0x0 0x1000>;
+-- 
+2.34.1
 
->
-> Best regards,
-> Alexander
->
-> >  };
-> >
-> >  /* pin conflict with PDM */
-> > @@ -185,6 +239,27 @@ &lpi2c4 {
-> >       pinctrl-0 =3D <&pinctrl_lpi2c4>;
-> >       status =3D "okay";
-> >
-> > +     wm8962: audio-codec@1a {
-> > +             compatible =3D "wlf,wm8962";
-> > +             reg =3D <0x1a>;
-> > +             clocks =3D <&scmi_clk IMX952_CLK_SAI3>;
-> > +             AVDD-supply =3D <&reg_audio_pwr>;
-> > +             CPVDD-supply =3D <&reg_audio_pwr>;
-> > +             DBVDD-supply =3D <&reg_audio_pwr>;
-> > +             DCVDD-supply =3D <&reg_audio_pwr>;
-> > +             gpio-cfg =3D < 0x0000 /* 0:Default */
-> > +                     0x0000 /* 1:Default */
-> > +                     0x0000 /* 2:FN_DMICCLK */
-> > +                     0x0000 /* 3:Default */
-> > +                     0x0000 /* 4:FN_DMICCDAT */
-> > +                     0x0000 /* 5:Default */
-> > +                     >;
-> > +             MICVDD-supply =3D <&reg_audio_pwr>;
-> > +             PLLVDD-supply =3D <&reg_audio_pwr>;
-> > +             SPKVDD1-supply =3D <&reg_audio_pwr>;
-> > +             SPKVDD2-supply =3D <&reg_audio_pwr>;
-> > +     };
-> > +
-> >       i2c4_pcal6408: gpio@21 {
-> >               compatible =3D "nxp,pcal6408";
-> >               reg =3D <0x21>;
-> > @@ -312,6 +387,24 @@ &lpspi7 {
-> >       status =3D "okay";
-> >  };
-> >
-> > +&sai3 {
-> > +     assigned-clocks =3D <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-> > +                       <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-> > +                       <&scmi_clk IMX952_CLK_SAI3>;
-> > +     assigned-clock-parents =3D <0>, <0>, <0>, <0>,
-> > +                              <&scmi_clk IMX952_CLK_AUDIOPLL1>;
-> > +     assigned-clock-rates =3D <3932160000>, <3612672000>,
-> > +                            <393216000>, <361267200>, <12288000>;
-> > +     pinctrl-0 =3D <&pinctrl_sai3>;
-> > +     pinctrl-1 =3D <&pinctrl_sai3_sleep>;
-> > +     pinctrl-names =3D "default", "sleep";
-> > +     fsl,sai-amix-mode =3D "bypass";
-> > +     fsl,sai-mclk-direction-output;
-> > +     status =3D "okay";
-> > +};
-> > +
-> >  &scmi_misc {
-> >       nxp,ctrl-ids =3D <BRD_SM_CTRL_SD3_WAKE            1
-> >                       BRD_SM_CTRL_M2E_WAKE            1
-> > @@ -402,6 +495,12 @@ IMX952_PAD_GPIO_IO27__WAKEUPMIX_TOP_CAN2_RX       =
-       0x39e
-> >               >;
-> >       };
-> >
-> > +     pinctrl_hp: hpgrp {
-> > +             fsl,pins =3D <
-> > +                     IMX952_PAD_GPIO_IO11__WAKEUPMIX_TOP_GPIO2_IO_11  =
-       0x31e
-> > +             >;
-> > +     };
-> > +
-> >       pinctrl_lpi2c2: lpi2c2grp {
-> >               fsl,pins =3D <
-> >                       IMX952_PAD_I2C2_SCL__AONMIX_TOP_LPI2C2_SCL       =
-       0x40000b9e
-> > @@ -476,6 +575,26 @@ IMX952_PAD_SD2_RESET_B__WAKEUPMIX_TOP_GPIO3_IO_7 0=
-x31e
-> >               >;
-> >       };
-> >
-> > +     pinctrl_sai3: sai3grp {
-> > +             fsl,pins =3D <
-> > +                     IMX952_PAD_GPIO_IO17__WAKEUPMIX_TOP_SAI3_MCLK    =
-               0x31e
-> > +                     IMX952_PAD_GPIO_IO16__WAKEUPMIX_TOP_AUDMIX_TDM_OU=
-T_TXBCLK       0x31e
-> > +                     IMX952_PAD_GPIO_IO26__WAKEUPMIX_TOP_AUDMIX_TDM_OU=
-T_TXSYNC       0x31e
-> > +                     IMX952_PAD_GPIO_IO20__WAKEUPMIX_TOP_SAI3_RX_DATA_=
-0              0x31e
-> > +                     IMX952_PAD_GPIO_IO21__WAKEUPMIX_TOP_AUDMIX_TDM_OU=
-T_TXDATA       0x31e
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_sai3_sleep: sai3sleepgrp {
-> > +             fsl,pins =3D <
-> > +                     IMX952_PAD_GPIO_IO17__WAKEUPMIX_TOP_GPIO2_IO_17  =
-       0x31e
-> > +                     IMX952_PAD_GPIO_IO16__WAKEUPMIX_TOP_GPIO2_IO_16  =
-       0x31e
-> > +                     IMX952_PAD_GPIO_IO26__WAKEUPMIX_TOP_GPIO2_IO_26  =
-       0x31e
-> > +                     IMX952_PAD_GPIO_IO20__WAKEUPMIX_TOP_GPIO2_IO_20  =
-       0x31e
-> > +                     IMX952_PAD_GPIO_IO21__WAKEUPMIX_TOP_GPIO2_IO_21  =
-       0x31e
-> > +             >;
-> > +     };
-> > +
-> >       pinctrl_tpm3: tpm3grp {
-> >               fsl,pins =3D <
-> >                       IMX952_PAD_GPIO_IO12__WAKEUPMIX_TOP_TPM3_CH2     =
-       0x51e
-> >
->
->
-> --
-> TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Ge=
-rmany
-> Amtsgericht M=C3=BCnchen, HRB 105018
-> Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan S=
-chneider
-> http://www.tq-group.com/
->
->
->
 
