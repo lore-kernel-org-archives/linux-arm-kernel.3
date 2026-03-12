@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE83FFED2FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0385103E301
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 10:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7M4qvN4KUZhWeHz0+r2If9XfOaCaAnmKNLe00xCAwms=; b=rcLm0zYAuLWeKBFZdJ6d6dw+AM
-	kqbrm1Q2G3p9C5WEgVXa5/3ZsTiLUELnUVZ6uGyqyP+LlIugVm9Akuxh64E+5oLs9278diVGun+Qr
-	P2DNYqUCDBFrch3P/M3R9RdYC4QZlhjIlCahlVBod8efNofm1vpkqXj/NA1mTPvMzmY3TUszGSf/X
-	IU5WM47PncEulIKyw37wOOfLLjX7mSRavx4VhN9hjyb0gdQWoPQ9orpi4VRpJBxYWVw+ajv+npOpA
-	2xRsUpSuqZSo6dIDB+eA4SSV9op2Uq+c6lQzaTUdOhjsx2gjGQkOum+v8CzKEzjd/XAVhvjxacSdX
-	HmFuT4kQ==;
+	bh=ZLlL868sX2T7LiELOAOF8/VB5w2gI8YwwhfKb0vI5/E=; b=ylg8rMLzWLhGh3K5uUuggeWDEs
+	DytE6jst9UwvJ+0z8WmPYSFRy0qC6dHUryLiIs6RUtcou+g0TWed2CaZ5PYf8ymfBrzNLjQAQ5b5x
+	tZvA0XDxpobsVGhFTGeLUMnVqAM7Zm7Z8bEHx4Ad6nh14HeS4jCsjC9kQBOyNmgjYWrG5bzE5w7It
+	JaVjYiDx9nOhAzSZ/b0uh7bGlYRTj4aftN53Kk2JjAnEvuLXbGaB2SLbQvgnzVnYh5Wk1MHMrtq7N
+	l9a+i+wWWQIK7VlIEinZoZIWNZnyMLoUAXeZHSDOYFYSAvfmrLKRiP5rTocpRetoO00gmL8Sdeufx
+	yeE3V31A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0d9Q-0000000DrPi-3A5T;
-	Thu, 12 Mar 2026 10:20:20 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w0dSR-0000000DsjH-096I;
+	Thu, 12 Mar 2026 10:39:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0d9P-0000000DrP4-1rlN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 10:20:20 +0000
+	id 1w0dSP-0000000Dsj3-0mJn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Mar 2026 10:39:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7M4qvN4KUZhWeHz0+r2If9XfOaCaAnmKNLe00xCAwms=; b=AgHfX0ywq0f8GgRoj9tWRutBkV
-	9wnzNsFoonOhOX5BtxqwJQH+uO0MYHFSue9LQlpxcby+RMPfwLaOaUudOEeJT3ZHeQw+J+oN+MLbS
-	GfDdQ15a8DgIlOxl5s3wzciXSFUYvALymQDHArQ/jCrfLayRWv+X6gn66l1K7m8gQsTQe+Ob0IKjX
-	jXcVj2jLqKYgyNZB6o0rKLA/vv8W7rlQ0xzLocuArRZfaOe71f08qAm7U7iQRxdcigPGIyKRe1cxz
-	Jwj4caBAZ1Io7HuLhixt/2utknZkHkT92OyiZ6hxxnJaOcXPhg4lA5igrPkaj4/gfG0E7frtUZQ8Q
-	AJglKbMA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54042 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w0czU-000000007bH-3XYl;
-	Thu, 12 Mar 2026 10:10:05 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w0czP-0000000CzHE-1hSo;
-	Thu, 12 Mar 2026 10:09:59 +0000
-In-Reply-To: <abKQWloxp9_4OuJh@shell.armlinux.org.uk>
-References: <abKQWloxp9_4OuJh@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	bpf@vger.kernel.org,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v2 14/15] net: stmmac: remove tx_tail_addr
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=ZLlL868sX2T7LiELOAOF8/VB5w2gI8YwwhfKb0vI5/E=; b=FhGhvJMNkJjJX1Pc0xFwmYgi2W
+	HmwjMl9ZfM4+NMzUK8nmPLJJknUAiKcMb4vnSRAN7tyamxskwBRU9/82tdO60Dd0Hqu8KBaINy927
+	bXYRny/BHJwEU/DTEwXWlRhtF5leXcc3j7McL/86CXvBW9thFpL3/UhLqsVXQFohoNn0JPxjfiQum
+	BGgwIt2PPwhvX+dxS1SIuagU1+dzGShfwi+zBAgQ49S4CKicgHgFnrolCNvmA/uZAhL1U3dEeW0si
+	IsTx8fZ7k/mOe3S8Vm9FaLJcSnDsFlhpjsv2PGvY2vRYJK/PNRX972wmZ7kcR7eZI92kSX2wqKOfo
+	+8jO2TCQ==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0dSM-0000000BC1j-0SKp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 10:39:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id ABA7D4E4264F;
+	Thu, 12 Mar 2026 10:39:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 808525FDEB;
+	Thu, 12 Mar 2026 10:39:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A0ED10369D8A;
+	Thu, 12 Mar 2026 11:39:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773311987; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ZLlL868sX2T7LiELOAOF8/VB5w2gI8YwwhfKb0vI5/E=;
+	b=UbtyNxEbiaH7gAFdQXLW+F+ORZ/7MJw1ZZXiNNyVGDange3pY2lfAPxgn1XkQqem2J2+9t
+	SvU6ZNDWjNxHCywkmfqe3BaugenAcWZzijr7sfDIUBHiZ3WY0zAxw1WjGDkYk4EpO+2YXH
+	rzuvCz1opCTPfoq4OYJAlCAzjJnSbz9oK4iXUo7K6Q151y5f6qKGjmbjLnB1rKUaE5Ccyr
+	Tci5Iiefaqvvn3cMgN9xyuiZAvLyX80Ykr3y1NfvntXQTHzGXyWJaRcWvud1kRpFRen5OE
+	mz180vFyYRUfhop2pYi7leqwbb0JF+6OcnlCuXYXSjn0kOfJKNbKI+zDiJzRLQ==
+Message-ID: <21e24f72-aa91-463d-a7a4-d4c2f877e527@bootlin.com>
+Date: Thu, 12 Mar 2026 11:39:40 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/6] mtd: rawnand: sunxi: do not count BBM bytes twice
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Wentao Liang <vulab@iscas.ac.cn>,
+ Maxime Ripard <mripard@kernel.org>, Boris Brezillon <bbrezillon@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260305100137.2558423-1-richard.genoud@bootlin.com>
+ <20260305100137.2558423-4-richard.genoud@bootlin.com>
+ <87a4whnhu9.fsf@bootlin.com>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <87a4whnhu9.fsf@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w0czP-0000000CzHE-1hSo@rmk-PC.armlinux.org.uk>
-Date: Thu, 12 Mar 2026 10:09:59 +0000
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_032019_480929_AF264DD5 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260312_103954_199929_BC407DBF 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is only one place where tx_q->tx_tail_addr is used - the new
-stmmac_set_queue_tx_tail_ptr(). Make this a local variable and remove
-it from struct stmmac_tx_queue.
+Le 09/03/2026 à 16:27, Miquel Raynal a écrit :
+> Hello Richard,
+> 
+> On 05/03/2026 at 11:01:34 +01, Richard Genoud <richard.genoud@bootlin.com> wrote:
+> 
+>> BBM is part of USER_DATA section, so we should remove it twice
+> 
+> Maybe you mean "is already part" and as such the end of the sentence
+> should be that "we should *not* remove it twice"?
+yes indeed.
 
-This commit does not change the semantics - the hardware relies upon
-the descriptor ring not crossing a 4GiB boundary as the high address
-bits are programmed into a separate register via stmmac_init_tx_chan().
-Hence, truncating the DMA address to 32-bit is fine as the register it
-will be programmed into is 32-bit, and the high bits are handled
-elsewhere.
+Thanks !
 
-Also change the type of desc_size to size_t, as this variable is
-initialised from sizeof().
+> 
+>> This was working ok because we are on the safe size, advertising that
+>> there was 2 bytes less available than in reality.
+>>
+>> But we can't change old platforms, since it may lead to a different ECC
+>> strength, so, introduce a legacy flag for old platforms, and switch the
+>> new platforms to the correct count.
+>>
+>> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> 
+> Thanks,
+> Miquèl
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index d1f8383d1c04..7cc5967aecd7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -79,7 +79,6 @@ struct stmmac_tx_queue {
- 	unsigned int cur_tx;
- 	unsigned int dirty_tx;
- 	dma_addr_t dma_tx_phy;
--	dma_addr_t tx_tail_addr;
- 	u32 mss;
- };
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 4521469c5e1d..55b79e9e637f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -389,12 +389,13 @@ static void stmmac_set_queue_tx_tail_ptr(struct stmmac_priv *priv,
- 					 struct stmmac_tx_queue *tx_q,
- 					 unsigned int chan, unsigned int index)
- {
--	int desc_size;
-+	size_t desc_size;
-+	u32 tx_tail_addr;
- 
- 	desc_size = stmmac_get_tx_desc_size(priv, tx_q);
- 
--	tx_q->tx_tail_addr = tx_q->dma_tx_phy + index * desc_size;
--	stmmac_set_tx_tail_ptr(priv, priv->ioaddr, tx_q->tx_tail_addr, chan);
-+	tx_tail_addr = tx_q->dma_tx_phy + index * desc_size;
-+	stmmac_set_tx_tail_ptr(priv, priv->ioaddr, tx_tail_addr, chan);
- }
- 
- static size_t stmmac_get_rx_desc_size(struct stmmac_priv *priv)
--- 
-2.47.3
 
 
