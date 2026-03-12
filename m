@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16EF1067041
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932741067041
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hwn4JeBMYebP/GCQQ4396drDmip61xqmjZjOmL2zuIY=; b=k7Wf82upOLcfbSYNGBPuSmFIoQ
-	ZNMWN4OincAHSMMvJ6wX37TRpeA14xI0jR9RBrfgmrSbNrrPnPbL/x4BQCVb1qPjxZC5pYo1+DMtC
-	CiKYQat4BgQDORg65Rz15A/Uup2CxeVSyCdY9VBqXbjalxVflOm7DptL9VdfRgH49Ifm3FJLp3K56
-	vkUKzYl9b2so8VL05NTT9OZP+IExT2tToed5fDzOKg2M9CXz2jWu3dwN9ZXO8YdPwC95SdXUOpZEu
-	FeA8YgW7NsbDI+pAPvfHQI9XKEQySuyBitIiD9CxTGI+H5nkpeEJgjNcGuZTAlJZxSGyRpWTlTW4S
-	TwSOdPWA==;
+	bh=0jWlLUSeN29Pq02QcM+6J989J3yKVwQy0x52kUrHLWk=; b=3t1Ohobp5k24Ue34QG7sF/tbcp
+	8TVnG8FQK4KK917w2WK52iEEfe3Z0YJT2E/3FxQWfzgoDAFE7/H/SO/IW6UegQJIDIZ7zSshcxVFl
+	u0MFBFxLswpHAG1brXiGgmS+TQ1loyZmoFeq7oce6M3LUQdCLwqiyo2xMaWsUWq0xUHny0HrVDsKP
+	AMRUQ8Dfvx6Z+QQ8sCFb4ucNmbco81i04pCR9YbzwYaYUIr2wHwTf8MWAGulZ+aIYoauI/vC/2IeX
+	AZ/zPIcv2005JMRH5HtCr2VHsR35js24W8lAa3xx9jxd/EP3KhDHMsJBzmg3JsGK/1jmQ7RB4dnSv
+	gH6sn5Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hcc-0000000EJUp-1yPX;
-	Thu, 12 Mar 2026 15:06:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0hcp-0000000EJZe-3Ck1;
+	Thu, 12 Mar 2026 15:06:59 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hca-0000000EJUO-2Hjm
+	id 1w0hcm-0000000EJYE-1tMv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 15:06:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC2BE61337
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 15:06:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55E99C4AF0B;
-	Thu, 12 Mar 2026 15:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773328003;
-	bh=BiY9g8dsfUKQ+mbtD+R66zQhvcpqyPZPnsUL5w9nrgs=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=lOj8/+OX3Tk20DGLwZqeGUzhkObtUVTTo9Kj2C2wG8HrcshWJE8YPv9cx8+3PKvzS
-	 R/+V/4oci/tLLUKm68ApcfFWaen0kxW9aG0xVh6F3P50xUX4Sv80GAjxGQRggPcGhD
-	 gjiDRGkOJsKdU+kBVwqv02GntuWnc12cRMDNg6kQ8DyEMu9m5+CWDfRYfRBUGgYHzt
-	 lFzvyfwO9H74g0jFLHY0lMz3t+VcAINDuHnwdDlFJoKvuOJebntt+NFAiPk+Y9HoQK
-	 cKCCMvM8DIk0NC7mZYQd9y+7c5NFMKv9GEtyQkR425kaSbcD8l60YOR0g62Vi+wucp
-	 lSBOTywJ/dw/A==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 48D7EF4006B;
-	Thu, 12 Mar 2026 11:06:42 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Thu, 12 Mar 2026 11:06:42 -0400
-X-ME-Sender: <xms:gtayaRjFODlWltU5aSHBpK6e493ZTwdrMA6eu9-IbJ9A1jFVa07yFA>
-    <xme:gtayaQ1P7rtExzIFf8RR_njz5x2_D7QBnBfwn4iZq--85wA3kMMIy3E4rsfCZn43j
-    sVO-2Daj0o1Nu0VMKySRUMpzEFeUAlqdwVMko6Kd3GD3lcbxp05LUg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvkeejtdelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeei
-    jeefudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
-    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
-    gurdgtohhmpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfi
-    hilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghr
-    nhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehhvghllh
-    hosehpvghpphgvrhhgrhgrhidrgiihii
-X-ME-Proxy: <xmx:gtayaUKl5lGqk1v2n8Nnhxza2CrczKY7-qVVqzylmDiRSTSVEDbTvA>
-    <xmx:gtayaR-3pYXzMk8tf_dtEhdgW57cgw-txz6eXIyRdVjeU0gO7SdsLA>
-    <xmx:gtayafIH6imT4ExgcxXGopbNC-BsHxHZw_8x7KetKBJeRiz0LmuN2w>
-    <xmx:gtayaekbd5mm_W2JPwJqDoLU-uLg3c1AIoZk9FG1MZozLijlginC4g>
-    <xmx:gtayabNLgavWWPyAMcIamU13ktFa-VXSbX8xZqjrDf7B6jhRdQAY2FaO>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 25059700065; Thu, 12 Mar 2026 11:06:42 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 12 Mar 2026 15:06:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=0jWlLUSeN29Pq02QcM+6J989J3yKVwQy0x52kUrHLWk=; b=c/D2t2/VpkFqdXBjHh3Pe4TtEP
+	lxbnyWJAJ4/jjMZ6vl2/qlH+G+HkKTgsVbREd8BEzHTPWqEYU2GJ1M8nK2RIhyGXXdQgmE3pmpe9M
+	ayL5NlNrX10feY2yxK0ptjPT1yNnzqUNwTPLMn/eL3q91uNWpPLFq9aVEd2iQ4ub6ymTJoTdsNLKF
+	/pg5QgHwaLpniRJjcCrW/HDIbxIzz3/dA4EourHP97dOZWEXbng1vKd3ZAalt21rb4gXYrfAkdMqJ
+	IP3Ig/SQW2KeK2YHQx1Es5Pj053TC6tSohzFWr5YUmx3WmRdJUGswr62ri3GHcrthfmFzAKoBVXu1
+	W4d+K4Eg==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <max.merchel@ew.tq-group.com>)
+	id 1w0hMP-000JL7-2a;
+	Thu, 12 Mar 2026 15:50:01 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <max.merchel@ew.tq-group.com>)
+	id 1w0hMP-000AiT-0Z;
+	Thu, 12 Mar 2026 15:50:01 +0100
+Message-ID: <e9c0606c-82e7-4979-a6a4-efea6a570009@ew.tq-group.com>
+Date: Thu, 12 Mar 2026 15:50:00 +0100
 MIME-Version: 1.0
-X-ThreadId: Ao84xJFSPmL7
-Date: Thu, 12 Mar 2026 16:06:21 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>, "Pepper Gray" <hello@peppergray.xyz>
-Cc: linux-arm-kernel@lists.infradead.org,
- "Catalin Marinas" <catalin.marinas@arm.com>
-Message-Id: <4141e534-0d81-45f7-a341-98ae1a6dcd8b@app.fastmail.com>
-In-Reply-To: <abLGwg1aFyoCosHi@willie-the-truck>
-References: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
- <abLGwg1aFyoCosHi@willie-the-truck>
-Subject: Re: [PATCH] arm64/scs: Fix handling of advance_loc4
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/12] ARM: dts: imx7d: Use undeprecated reset-gpios
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+ Marek Vasut <marex@denx.de>, Russell King <linux@armlinux.org.uk>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel@dh-electronics.com, linux@ew.tq-group.com
+References: <20260311-dts-snps-reset-gpios-v1-0-ea1cc09fba84@oss.qualcomm.com>
+ <20260311-dts-snps-reset-gpios-v1-6-ea1cc09fba84@oss.qualcomm.com>
+Content-Language: en-US
+From: Max Merchel <max.merchel@ew.tq-group.com>
+In-Reply-To: <20260311-dts-snps-reset-gpios-v1-6-ea1cc09fba84@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27938/Thu Mar 12 07:24:01 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_080656_598264_07A77CB6 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +92,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 3/11/26 17:08, Krzysztof Kozlowski wrote:
+> Freescale i.MX6 PCIe host controller bindings through referenced
+should be i.MX7
+> snps,dw-pcie-common.yaml schema already document "reset-gpios", just
+> like Linux kernel did for a long time.  Use the preferred form over
+> "reset-gpio" deprecated since commit 42694f9f6407 ("dt-bindings: PCI:
+> add snps,dw-pcie.yaml") in 2021.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>   arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts | 2 +-
+>   arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts  | 2 +-
+>   2 files changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts b/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
+> index e3ee16f1aaa9..a5fc7f80f651 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
+> @@ -122,7 +122,7 @@ &pcie {
+>   	/* 1.5V logically from 3.3V */
+>   	/* probe deferral not supported */
+>   	/* pcie-bus-supply = <&reg_mpcie_1v5>; */
+> -	reset-gpio = <&gpio5 12 GPIO_ACTIVE_LOW>;
+> +	reset-gpios = <&gpio5 12 GPIO_ACTIVE_LOW>;
+>   	status = "disabled";
+>   };
+>   
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts b/arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts
+> index a370e868cafe..ab7cabe5552d 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts
+> @@ -456,7 +456,7 @@ display_out: endpoint {
+>   };
+>   
+>   &pcie {
+> -	reset-gpio = <&extended_io 1 GPIO_ACTIVE_LOW>;
+> +	reset-gpios = <&extended_io 1 GPIO_ACTIVE_LOW>;
+>   	status = "okay";
+>   };
+>   
+>
+-- 
+Best regards,
+Max
 
-On Thu, 12 Mar 2026, at 14:59, Will Deacon wrote:
-> [+Ard]
->
-> On Tue, Mar 10, 2026 at 03:15:56PM +0100, Pepper Gray wrote:
->> DW_CFA_advance_loc4 is defined but no handler is implemented. Its
->> CFA opcode defaults to EDYNSCS_INVALID_CFA_OPCODE triggering an
->> error which wrongfully prevents modules from loading.
->
-> Can you provide some instructions for reproducing this, please? For
-> example, which toolchain you are using and which module are you building?
->
->> Signed-off-by: Pepper Gray <hello@peppergray.xyz>
->> ---
->>  arch/arm64/kernel/pi/patch-scs.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->> 
->> diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
->> index bbe7d30ed12b32..dac568e4a54f23 100644
->> --- a/arch/arm64/kernel/pi/patch-scs.c
->> +++ b/arch/arm64/kernel/pi/patch-scs.c
->> @@ -192,6 +192,14 @@ static int scs_handle_fde_frame(const struct
->> eh_frame *frame,
->>   size -= 2;
->>   break;
->> 
->> + case DW_CFA_advance_loc4:
->> + loc += *opcode++ * code_alignment_factor;
->> + loc += (*opcode++ << 8) * code_alignment_factor;
->> + loc += (*opcode++ << 16) * code_alignment_factor;
->> + loc += (*opcode++ << 24) * code_alignment_factor;
->> + size -= 4;
->> + break;
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-The logic looks sound to me, although I'd also be interested in understanding under which circumstances these are emitted.
 
