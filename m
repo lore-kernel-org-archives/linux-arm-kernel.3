@@ -4,138 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91439105A593
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FA0105A592
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=; b=qukRXqd+P2TMu7o7LtabGRYGeY
-	lF4p7bcfhBocP0LhrMs5VzjmoSP1oQTbhyVosdRzBRuuQH0heOpI1YAEzIJ9tkvKtB2XkfSlHbk46
-	X27xs2ensn6lEEMWsX0Z/5zyql/QiPpz/3TYDOIXZkhkAOJK4iwEFWDELnJO7LG5Ed9iSdC98l1ZQ
-	dKxhNeSoTp8iFG+QYXJtD7rWz+04wpTqlzu2bSpqYNBvBDg9wZ5OQMBIBLF3gFxBRLVEVuDDeSZon
-	X/32rwClaBmdHSiTvcUtUhEhRwR/bZ/lmVZ4PNkqzBHisj56Ba+N93ctknm9vRu0TKmqw4G1cAxzO
-	FqDnmgAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=; b=CqDPl8uTt0f4TsZP8l6MdNF7+x
+	c8qKMJCliYg47BrGiEXTBMjWg6QTnObNw0fQwxMeuYLPFvwgQV261xPXjkgfgJe+2JLUeAGDCWrl3
+	kUBuuMSG0HeGix+05/u/IFeLY20AtsHRdVKHhHrd51VnoUKaFqDprRsVx721+wF67TTO0FGZx03Lv
+	R6itHgenfVpstjD9ic0INkRvzRHTDwPQJwBkPaN16+qn6QOKX/cpUfBewEjl4LZLsTqXsQgxdr0um
+	b8hV/QCq+xJv8RTkH9qgboyn0YgeW35FgAC5wwHuTHsuvXYzeGM1OnAwZ4Klh0zLbBm1KqYmlFnQ4
+	XfBos+iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eos-0000000DzyE-43wW;
-	Thu, 12 Mar 2026 12:07:16 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w0esF-0000000E0Py-0kjc;
+	Thu, 12 Mar 2026 12:10:43 +0000
+Received: from mail-northeuropeazon11010012.outbound.protection.outlook.com ([52.101.84.12] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0eoo-0000000Dzva-06k7
+	id 1w0esB-0000000E0On-0w4T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:07:11 +0000
+	Thu, 12 Mar 2026 12:10:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BJohdoKINcs57WfwnYj7OkN0Js9g5q92Zd80t3uhhY/h/RKUW/K/cIq3hCmDNd6jPLigD1XSa0QOkJqSjrck02U3Yqog+BM2MSqT5B1YEpFuGTjiyt58LvkoPOMrQOHKIoY5sC2rQczDIP3QbwXXGVuWLFldyqgLpGK+iTUzaHu5aIQtam/y8J6U+QWIYZm6fRn4h/6hclhIEVMc7xUuT2mUtopyPUqcuykCiRjUtibiaTp76RNCyZLX8qDTHYm2THjXs54PpiCnOdkuN4yxpssm57HBeEJKrNwXx31aAVHZZT+I4ycbjQsf9cJypkaOBMljaL65LC1CdwiLK549sw==
+ b=LwwFk3gdZtFI7OS0im0EDFH2MDB7imvgANGxl2VCv6DFKPjZlQtTxzx5pLVcCVf3MFbp5tQ6d+MKez58Gfd4m3H2qK0QShZtWMXGP9S1BPUS/Ko28lVBk3mN6KeFh8swP403KeNJ6eiwrwwe9/Tk25iS6qXJ3aSzGIv2mzEVVhC4fq1FZ+60lTLypk02pDjzClE/5KicuvV14TtlGfq3q3SFq+j1XCDm+CAFd0uYROrK72zkczVJRCVNypeIT+oI2HWA0272EU7zzwJpdisMcWOcHMowThq2cZQ3HEr7VnvJyfezVsbw5TLjtzvafOLq1CBYJisvFH6hwOI+ib/3Fg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=;
- b=IjD6m/kOgEHIAZ+q/FCequdVG5yHOQBJrABsuLXeFtQR0uuTa3JqmjfXMOutdZsLyw0ylsle0Qw4AdvqVVEj5+6FSuerSJEb/LPhR10K2+MWWdy/p5CSuTz0y8syCyAXy3qExcbRZNFd4erLMi0OP/VwH4B/pWE8IQXfDwgSZvT22kQ2S3wCFjkt5QbpqDJR2c0udau58akGTZV0rGC4QtEt4lIesyBp1xvHx47IdgN7qXd9GKPJNVTLbPL8c+OcziPyWnLQTqdVEkIJH1NcjKrA3OU1iIvI64LtUJb718hczgEJaNLM8eh5S4IN5ND3oNOsWYGi+pzxNKKe/mrPKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=;
+ b=iTwqvqbz5XzTl3mMwWK6bIli4PIsn7zs4WEjUVGyEDEWKuiPUjWrXx9qGYPgvfohTyPbpdEMGeqga8KrLLpXoaheoAqfj2N7cMQ20tws5gcAQlx6tq9R6ndsA/LY1+3znuP65vDv4zbMSt0KyO76iiO+uo2UkJ+WpJ4q1DvarQ8azRsCJXcQ5BXKBAzT0bFrHuADhvg6+70h7OJGVGevV9cUkNO0VbqeLrBsc2xCYEx5fSAc94YKfhiHJFilFUxG8ZLtjM5OF7K2gQlDB+TmfQGz3LM/nESxb82Fj2bCkdVXM0VG3Q/3Z4lGiWkVN+GA6nZ9mNtP7zNdPYwwEDeA8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=;
- b=T7sFxJSZ4k0GBy0fOLiTmIaNwzXS5fO2+LC0YauAQcGMFRQ3nRjUUXbx4kx98RJlvfl6/LIi7dvavIABJAxyXvmbvDCC3o5CoHOAVWmHDnCaXTftfZ0Y+0FQvRSyKp9hwNHpAnKEOd1qvVCSLR+oUKbwSXfVjjUaEJPvU3qNl3xmbnSMKpRmTQOK0ipuRYLxIGMynz/bd1EUqjU/xbQrI1KEOmckOs9m5PVAVquQkGtRnzqf8KZA/TQwkBZz0Yc5yzrkfiLqS0WgpNMVrhnIr8+mBN74gaBqz5e/7cjlrVLKqDdNDzYxsFf4wFPdHOR6ia/Kucvh4j0siFBgJ06KGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by PAXPR04MB8864.eurprd04.prod.outlook.com (2603:10a6:102:20f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Thu, 12 Mar
- 2026 12:06:57 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
- 12:06:59 +0000
-From: florin.leotescu@oss.nxp.com
-To: Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: daniel.baluta@nxp.com,
-	viorel.suman@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>
-Subject: [RFC PATCH v2 1/2] dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
-Date: Thu, 12 Mar 2026 14:22:47 +0200
-Message-Id: <20260312122248.1281572-2-florin.leotescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260312122248.1281572-1-florin.leotescu@oss.nxp.com>
-References: <20260312122248.1281572-1-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P192CA0026.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e1::10) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+ bh=5SP9tbqSAbZOTl7IkJ5Lu7yLKFV+r3s9kSp5RAVzkYE=;
+ b=g4JdTgZLNxOsxB+KaT5/N2LHq3shbx3MFQn0Jcmr4Ovi8DhtJcpseoNVASPRoAXkR4u09xjEm119rc95zTdtVeLtWiKCDmml6OPFghVDKX9DklXSh4jhfl7V13hxKnhGu4ZTuYuElXZ2SJ4ixnCKmTjEHjIfutJ5I9xJLQLVWOxmvDU12v1nvDk2EhFa5w07lsdq1LBFxTZoxa1cKjTdGd3PXwE0QoZSx5MeRtvmqa2af6arH8L6KHvA5v8MaRRol4v0F5/2Uya51IUEjBrf7GR9h/G7T/tKGh1ApWFAGWutOn7duuEn/CAjFan7BECoDTKdO4oLxX/4au9ad4x7Jw==
+Received: from DUZPR01CA0149.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bd::25) by AM0PR10MB9583.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:6fd::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.11; Thu, 12 Mar
+ 2026 12:10:32 +0000
+Received: from DB5PEPF00014B8F.eurprd02.prod.outlook.com
+ (2603:10a6:10:4bd:cafe::9a) by DUZPR01CA0149.outlook.office365.com
+ (2603:10a6:10:4bd::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.27 via Frontend Transport; Thu,
+ 12 Mar 2026 12:10:26 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB5PEPF00014B8F.mail.protection.outlook.com (10.167.8.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 12:10:31 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 13:12:46 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 12 Mar
+ 2026 13:10:30 +0100
+Message-ID: <521dc906-e26c-4a47-af07-137ce00b176d@foss.st.com>
+Date: Thu, 12 Mar 2026 13:10:29 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/12] bus: add stm32 debug bus and coresight support
+ for stm32mp1x platforms
+To: Linus Walleij <linusw@kernel.org>
+CC: Gatien Chevallier <gatien.chevallier@foss.st.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, James Clark
+	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, <cristian.marussi@arm.com>,
+	<jens.wiklander@linaro.org>, <etienne.carriere@foss.st.com>, Sudeep Holla
+	<sudeep.holla@kernel.org>, <coresight@lists.linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, Antonio Borneo
+	<antonio.borneo@foss.st.com>
+References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
+ <ed019efc-d1e0-4e77-bf9c-79da40f0c707@foss.st.com>
+ <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <CAD++jLkkVcRrT=NRyFD6s9=MYaOQSWun0v4z3z01BZoQ2tTvDA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|PAXPR04MB8864:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1e322a5-0196-4af3-2d79-08de802fdcb0
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B8F:EE_|AM0PR10MB9583:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19df66d8-90b8-48fa-7fe6-08de80305bb4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1SnDMhxVsJPpWes43HW0iGe+/m7Tfjpu76fxOEMKOhxxBkor6TNCK3FfE9RyMtS4uml5sHEo47zH/duOlcseMSoMASQNknFeqSgeyf5v5wvREJWtWw8XOz5+y0ryLPkGzGOG0aPZKSvKjVZhitegyMWER6OLDU9Rxt+q1sTx2+uLcFOWvU/d8OBTjzxR7O/Cn8bKGrIi6j34N6kAI/vO2/h9cYIijZYnxdFwsX4X+YQt1cJ2xInEivxQ+6QFu5TUULoin7fTlJVl6QdfwyoPlSCYB/1O9gZC9NSwRgRxlgkag1O5c91pGOnHJkcFkDFajXRjBBMBEM2KN/MWJpxHbYMvpwOuZyaML1nt+HLe7uKGf8fr8BeN0tQaHJguxUVyBgb2v5PO/FmS+IBHHQrv7Yfw1QyJxD8wfiJHAICYjEEchnJ9loN6nPT1bIB/YQA0RFZuVNyLnaGh8iUrK1p5GaSU3QHdHnIbsX1FQXSLI1H/JIay9Xw8DxWMkXODebcP/HZSjiIBewkL6pnnSO5KbPx0PANdkHR1aZ8TGq3yOiIDBZ/on/VH/NswRlXk5NW6w8lr/Eoc00vpcJukP/YlymI1rUzXIAjhQBTGeqLq7xQgnlT7EoKqOR8A63vanzTLg8xvyZFwWGqy7DBdZW72kKAPvNHxtAtcQaNDD05bEskBdY1dve28BKA2531e9i3d32zuEG72F1IBtxgmso7EFf2Xwel0QPVTCtGXwa6NurI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|7416014|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: e7DwyLvanSAM7Z3lixpfV/146yNRKTbcaqUPYCoE9fEoMtuyWMsDldRhuKDqBLJqnS8MGEZFZMZ1rXmLsckcxKu0QGPHHQ6DzCsAK521x+qiQgDhveRE0q1LOoqMLVaeh7E7FOFD9zTMvKu5KQJv+5ktaWWB6rfqF6kDaiMLInS0ArQTTQmxGvMqun4P0a/C3EgRKbRQpmExEOagXanE5tZo/ZXBOVq79JaJEYD8FdJX+6ZK0p6UFDoBoM73LkMD1Z4w73a7ppy9qlG+axjYlkVq101NWZT6+H1S7wtCl55DTTXXoe6Wzc/Eim3Z3pRK2ZYqwlpPVEHFkMOPB24koIUK+vwamI+z7yOVA8LVIPoRMOOE9uTSus2x38ekqOL2kUUcFshoWGrE5e9PXka4RW9iZL4A454XiSqILb/GrRK/BWkap96nOMxFGKpzTgENXiahRCDTrMHJ4xEyMPMXBr6WreByVpOLDASZ16Zcbhzhqdy1f0qOJ6Sh9YEm/34wd536T57l0xeFKNx4cRKWPTy4exCcPVLhLb9XHcEFT252n7xh+8tgE/ZrPPAkDpG9au564aZskQckdq6gsUx07YIqq3+PfkhcckVMVWVvRmKxeY3BIC5RiRnOYHV1HJzcPMhMjUEy89TKeM0m1doYTeiUuCiCqCj6GDijgYd6Z0w7Y5zQYQ/QCZPCPFMeSBeI/NT2vN3JZkLbKKoNplFZPo4sBBVro5WvY4394APYN6s5v5I6oFZp8DBK6nEz00mrFgQ7fzz1jN03Wi1rZoXa8Q==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?94+KbgS0+R7/6XyxGG/9DcrsG71csLiuAN9LQS6D2UgCb5ViAQ+Q8Redan?=
- =?iso-8859-1?Q?xWwuKS5qh9ClH96qQzDa8rTQsQlyvjUaOdtGHQE+DIn9PA9nZZxqyH2t9v?=
- =?iso-8859-1?Q?/oa2e0qwo5B23Ti6xwIIc+uacpcVe7UKktV8HSnAhClO4gRFNnQvjsz3i+?=
- =?iso-8859-1?Q?zukkbVtLtryzgyuATYXUyXivJv9ouOlYZnJSVEMP6dtXOLYZbD4mDWvG6I?=
- =?iso-8859-1?Q?0eqPaoWZb2udlKlSp632c2zP0cL8JEI3p21pfKZRZsxHybNmTZLBLP0EL7?=
- =?iso-8859-1?Q?cAlHWkQCdDmCXWAxXWjPjFNzAroWQ1pWBGcOTJuPmwQekbknTgwE718/bP?=
- =?iso-8859-1?Q?UjbWjXR3mhkwfoKBbY/w+lq1DjR4tm8b5eXvgzf0+1j/JVH4dVWbPySuAj?=
- =?iso-8859-1?Q?oiDHG++2EY8HaOMnPwNWCpnJvvDv9rkTH69xf0ymw+HoX7M6cU8QCDULGc?=
- =?iso-8859-1?Q?ax3FBAxx7MJnda6p9DLDqXEhlM8xRLDEbn3ZT4SiEkC+v/JK9kNuVqwDqO?=
- =?iso-8859-1?Q?2fs9BC5UXwpAwPzEWsCEOY7eot4QyvIgb9GIofS+/pq9YJFy6sKXBAz1U3?=
- =?iso-8859-1?Q?Sj2RccrdFwMThhiCZIKwPjbO3fUzDgqmIfi5Q6hdBWvUaJBe2zL12n2U38?=
- =?iso-8859-1?Q?BuU1aoKCUgJMyxCeRib4m+CUvIEiLGgVqs3JEQsP6pDmMROn4yWkP12ETd?=
- =?iso-8859-1?Q?TNTlb96bFRnQcSwd9MW5BLasM22F8MPkauktW9qWU9PESmbjmwKrWIu947?=
- =?iso-8859-1?Q?IhCS9+Y6C2qdCw5UPHH7UTrn+neehnCbDh11+m4k6oTkoD/8ByowT6EPoG?=
- =?iso-8859-1?Q?8H75Ju+o0Uuha65uCOqBm2S9uAMa8O89MHng7uw0iQ7qFoZbHTKi/m8/Pu?=
- =?iso-8859-1?Q?shW5FneLO6zJwRZLFv1mI1jVgSlWguQ1l7OjP+8VQBNhMlMgBbVCfsMdWC?=
- =?iso-8859-1?Q?l1HeZFhlRTvwIZAL1qt2Jj9K+IT7kGv+AdiscnBs0g2JFNReAuE/+3Zx92?=
- =?iso-8859-1?Q?YeXUXcZxQ3Ps5/kP66zN0ULM2XC2RUDncox5BKNPPIvw4HZMUw0sIPQ4or?=
- =?iso-8859-1?Q?5uU4V5i1IDZHo0l/YNEdWdlYjf4m6kJR7CI6u+epDr4cEU3sI2BuZySJeC?=
- =?iso-8859-1?Q?yY/53WOqVozlMZLITDVkwGV3w2gbLDotQOq1FjZf7X7rJvCkJqjXz6VZEu?=
- =?iso-8859-1?Q?ZZ6+3eEAmxrZsQwtVkqWRLFXJIqq5JS2qz/h65r7qMsfykKD60OM9OJVwX?=
- =?iso-8859-1?Q?x2Man+d3EAnwhOpEHrdxBbwNwUMlJFSjXmxV4T7629AZSlqTJqZSN0gNLi?=
- =?iso-8859-1?Q?lkbvLm9iMGUmRJHxyfgMWVYukruZCmZgq8M0/71Jhs4EsMaC4QoHtThlHZ?=
- =?iso-8859-1?Q?SdZMHMPNdKerMSIFYtjU8nXkg+yzM91L0N5QuOpf2MoJlb3LQ4Rcs5jwhA?=
- =?iso-8859-1?Q?2QdsAcUJoGjeLoCezt3cN6S8n0CHRi95J3E7rNhr/vO9rPa8k61yVisd7N?=
- =?iso-8859-1?Q?+OIYG0vdNNr2u/3ve4VhbOc9VVIWHD+K5EUPR2MYNVQVQeIhkyU/S4AtTG?=
- =?iso-8859-1?Q?IzjS79zDcp6RlvkGfqfHe5h3cETIMAuDdnfxPflQa+NEjtaAC+grVOQJSx?=
- =?iso-8859-1?Q?vLz2AW1vBQ9huHIufQ7qeJBwLgRjvueporY3NqOiQx/TeoYsdg0lPmea5l?=
- =?iso-8859-1?Q?aRVzdgPWzP6WuETMDZLjX/A56tdPTNK0DsLxdKhr9OqVSQH9mhe50hpoof?=
- =?iso-8859-1?Q?sarbDYZHyv00DpN0c7RQfz4qDzk/+g/D+ZxC8LaXJ6G+aX7+rNm46f07v3?=
- =?iso-8859-1?Q?0Atx3qhbhA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1e322a5-0196-4af3-2d79-08de802fdcb0
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:06:59.0734
+X-MS-Exchange-AntiSpam-MessageData-0: o/8/wizWjvk21fAFxvva3W00B+MtIYhrhlHDjwLkdw1j1RWKebVOfOo8uAztDtNWUrCvyOLHpCeBZuVn6YaVmyLJPTOXHZT+lSUBO5VAC6kj/sOs0TjHsFLcz+dv/F+mNKZXv9esY5Q7NeZDIbRbj7/YqAY6h580XnbQvPC4uTOwRoDdcIUPLi/FXpfrU6hAltdoULsKtOBgsTII4Pp67B29XP8FVw2sCZzV+OCCaqdJ2xN1pR+Ps+MI8JsIW/2tuj1t8D6FLjjPRc+XmXM9pNYfXZJK9z/MZXyA2xJ2xW0k/WnSrGGM4DzaZ1qsZ8HQ/FBda2pjwJrEd8dCMGkpDYZecdCibH2HjGMumb89BMMQ7ZCeoApBKvC5kMlcsptLjO1IPLlqW0m7MjNAddyEaZAU+j6TnjpuCzD+H41igvYCy/ZhHbz+JPGzL/nfayuI
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 12:10:31.7411
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yZCJYjXUq4aT5Cy3GC5NbFr8UF8t0L60UeOHh6gKFs2/cNQ/Cly0Ms8a11EXl5HXUyYJDVV5ph6X57WEbH8Ltg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8864
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19df66d8-90b8-48fa-7fe6-08de80305bb4
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B8F.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB9583
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_050710_068465_755AB901 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20260312_051039_740449_E4D51D63 
+X-CRM114-Status: UNSURE (   8.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,54 +141,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
 
-The EMC2305 fan controller supports multiple independent PWM fan
-outputs. Some systems require fans to enter a defined safe state
-during system shutdown or reboot handoff, until firmware or the next
-boot stage reconfigures the controller.
 
-Add an optional "fan-shutdown-percent" property to fan child nodes
-allowing the shutdown fan speed to be configured per fan output.
+On 3/11/26 10:28, Linus Walleij wrote:
+> On Tue, Mar 10, 2026 at 10:07 AM Alexandre TORGUE
+> <alexandre.torgue@foss.st.com> wrote:
+> 
+>> Patch 1 to 11 applied on stm32-next. Linus, let me know if I take the
+>> pinctrl one or you prefer to take it.
+> 
+> AFAIU you *have* to take it because there are compile-time dependencies?
+> 
+> I provided my Reviewed-by so go ahead and apply it!
 
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
----
- .../devicetree/bindings/hwmon/microchip,emc2305.yaml      | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Ok done.
 
-diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-index d3f06ebc19fa..7bcadfab9fc4 100644
---- a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-+++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-@@ -54,6 +54,12 @@ patternProperties:
-           The fan number used to determine the associated PWM channel.
-         maxItems: 1
- 
-+      fan-shutdown-percent:
-+        description:
-+          Fan RPM in percent set during shutdown.
-+        minimum: 0
-+        maximum: 100
-+
-     required:
-       - reg
- 
-@@ -80,12 +86,14 @@ examples:
-             fan@0 {
-                 reg = <0x0>;
-                 pwms = <&fan_controller 26000 PWM_POLARITY_INVERTED 1>;
-+                fan-shutdown-percent = <100>;
-                 #cooling-cells = <2>;
-             };
- 
-             fan@1 {
-                 reg = <0x1>;
-                 pwms = <&fan_controller 26000 0 1>;
-+                fan-shutdown-percent = <50>;
-                 #cooling-cells = <2>;
-             };
- 
--- 
-2.34.1
+Thanks Linus.
+
+alex
+
+> 
+> Yours,
+> Linus Walleij
 
 
