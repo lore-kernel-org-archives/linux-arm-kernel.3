@@ -4,78 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79766106ACCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 16:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1B6106ACCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 17:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0FmF+DsXQX7GOkjZHLkLGAuMKOJtSb12a+vbzhQook=; b=pIXG15lrTQmNBIGMS828mVJGSb
-	zOyjG2QCKdo0y9DyI6H0RptBB9evZLSW0h8IQC9mO9KwCLg/Y/vLyj5FRULQYvRg9GXmaBWjqjI/P
-	ROVzNrzcretFlWBvzn4N8op0VbYB5TpZ80DeebIU6sgeNI0qY2zO1RMBICgmpiZhcN0zDOQNReWDK
-	7hF2bdES2ym9OF5LWyUnEVaWKHwHUXcVKlNyqbS4ylaJdeCR4x3nltAvFKcw4XhBdG98mncWfsN6J
-	L+vlP0qU4eUf0Rk/t3UD+DLfgOQJw3rB6F5j1TvflxQX4zHm6r3KIcLjzwBWHi5b7n9zNxIT69V9E
-	wPp7ffNw==;
+	bh=r5d3U58A7EbRwEFn4KrmQ5cld9P0wudWqSFmPnXCnnU=; b=ZNsdJLIKamioZnEedIaxm3vfdI
+	ET1O2uY7b4XdaKo/xXcYYNWYzgdSsTZkpWFZ8actaUh5/g7qDkjufvfkf3xRCKqUHt0l+uIUbAAW7
+	+eriM6aBYLfVq2YU2hgcLW0o34tAdUJzPTbf3wD0CnI6o1gfznH89SQrUJot/ME5pReLsLmyaueOz
+	p6ypTW42r/JNvqF3MOE5L5nz0PJk7V3UFauFwDDvF+p2RBpqY0ss5ir92Oq5Q/vy9iKaA7e+2tRRC
+	rDe1cgV42DHDyZ9HbaSeFL7olABWqP0thBGyle+pVqwHS5SagLcr9Vvd24OyLDuOEDZFRBmnuUEzH
+	NG77lXpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j73-0000000EbVp-2oPC;
-	Thu, 12 Mar 2026 16:42:17 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1w0jV9-0000000EfIX-3Ehh;
+	Thu, 12 Mar 2026 17:07:11 +0000
+Received: from mail-ot1-x362.google.com ([2607:f8b0:4864:20::362])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0j6z-0000000EbUB-2YEJ
+	id 1w0jV6-0000000EfH5-0flS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 16:42:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3CCA31A2E14;
-	Thu, 12 Mar 2026 16:42:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 03A3C6001B;
-	Thu, 12 Mar 2026 16:42:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3719810369E3A;
-	Thu, 12 Mar 2026 17:41:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773333725; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=B0FmF+DsXQX7GOkjZHLkLGAuMKOJtSb12a+vbzhQook=;
-	b=FswO7ROdPc4bZ3FXD4JYr3MHBPxofY/AMnw70L6CzfVcXCjar5dW7hRC57P83dRVeJx+pj
-	BjPuPR1Af/NkNEK9rOhLZRTb9gdGg3jDtU+eKmhui8hFss66u2UvEtonwU1iIYXaDfJbyj
-	yf0l6m2iPSvIdvse2U3VJrigTFfKdPZ+CRVJ4Vmg1dv2QTP8KreuNhCLnD0NiXcSmsuEiC
-	75WsxRv05LcBWrDGgUC1Z3gOcRegLK9bG7HCFjWmUdgm2DU9iF+Tb6ou22OIq/9m23PjRC
-	lF9MdP3nyeyIYVtshqQerqIqx7/36XmJABnakwd1d8BtHsCYJ8cd2zPWrhrCRg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 12 Mar 2026 17:41:58 +0100
-Message-Id: <DH0YC7M9YFU7.31DSHCPV381WC@bootlin.com>
-Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
- format configuration support
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>, "Peng Fan" <peng.fan@nxp.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
- <Frank.Li@nxp.com>, <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>
-To: "Liu Ying" <victor.liu@nxp.com>, "Marco Felsch"
- <m.felsch@pengutronix.de>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de> <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de> <33e09cc9-69bd-468b-8361-b92a50686f74@nxp.com> <DGZ2XYTVUR28.16ITKRM9S2ACV@bootlin.com> <ot5qypkeirkiweicjijholt2hwfpnnfhrcm3d6euqfnupptsab@din4bkq2sh5h> <ccce0f8c-88bf-4cd8-a806-b62049606cfe@nxp.com>
-In-Reply-To: <ccce0f8c-88bf-4cd8-a806-b62049606cfe@nxp.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 12 Mar 2026 17:07:10 +0000
+Received: by mail-ot1-x362.google.com with SMTP id 46e09a7af769-7d556c1a79eso1396121a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 10:07:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773335226; x=1773940026;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=r5d3U58A7EbRwEFn4KrmQ5cld9P0wudWqSFmPnXCnnU=;
+        b=iNH6BbqgLWAXjSMm/DLcupod9h8Uk5o6T0MkCufFLTb+PJbFDN083AqHRcAAiAQKU7
+         uLPS6uR9tIG2pnLk6EwBgexaemPv6Q1Q5OTagw6f6pPLU0+53Ar+LOYDipXHipU5nzkG
+         fx8cCwQVALA68s6GKdnCkTSI8GtYjRzgswYy6ZAsW9lK2ZryLkwGbN8tXux/4CkuY46g
+         puEN2gDlx74clrAv88uC0+gMLxJXcy7BQ4D9qvKqMDSc6C7BOyFqbN3mYX9zcNnIib1k
+         alO1ot6XtsE+swZuW++U3wSaYMW2iueFImE10XugGsPcV0uYjMs9L7l3bs7T7xrMG2xE
+         Ft6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVATWEnvaII8PlnTRdML0Q6AuuUSgSm0PRaFFd1rQouTQtzzlZvmLmXBZsO/+lUAvn7UFzISHXGkJz2TnB9UfCj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVbamGNLi9pVfDbUa8WbPHr7DyMvp0owL4zv1zjPSq8zRFwA9e
+	3nvXHzOcR6VGO74kJWmSeeUHwVb4TfuqKCHQl0z6jToPYnV2Lgx+JlkgnE0R73lCRYjs3BXfubZ
+	XRzWwLY38LCYOnz4LFEQYVs86TGdr3gD+UynDxiW8JnssNr68rOvXuTaRD15drFOJwxObvHckAa
+	9JzpWtuturJEIAL7yRA63/0LriFSoxn7TrB3ZL5J6Va5TwQvBWOAXfIyOpJDBehgM2nWLWhPjR1
+	QP6981iY5Sq2mNhjtpDpF0IHZYmPXN8h5Y=
+X-Gm-Gg: ATEYQzzco6Cx21raB4cm4H/AEK4hdCMHPCb2130p09vIqK5k4mbTb9ZjrJyEBjzphz+
+	FsK5FgQrpCXkTwx1laJFTGBtj+7iVvy1Fw09UgLO6X14FR92972gGMGGPnehl9hrnb+UaoMsV7L
+	juccxcm0s09H63l60dt0zoroh9neeHVthILcMb387DlgjvAS4trZ09WtIh4H2ePvejDNkRfiFJN
+	4ogcMCH5wFlOYqUiFoJ4NYWgr1PCp20e7c2sYgC1j/uskzD9t0dOfukk8GCx3HCxztWkHWidFUB
+	2NK+UterF1hZWT+mSF6afbmOf4U3qB004oFYFRV19C8cb4ujSVFymteSMh79xg9lQuIWdRFqf/U
+	StUrU9CqJG7mhb6/xxWXPr/ajjSNst2cBJHa+9U9WuCH9hO24g1BE+SuJyI2sw7w5/EjTcTq8vh
+	mFmjyC7KHQmRNPn7T+5xcu7K2mGPQSZlZq4Vx/zH06B+9Hb34eDYcYTGOKWBKerQ==
+X-Received: by 2002:a05:6820:883:b0:67a:1d28:7bae with SMTP id 006d021491bc7-67bdaa2eedbmr74433eaf.37.1773335226316;
+        Thu, 12 Mar 2026 10:07:06 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-27.dlp.protect.broadcom.com. [144.49.247.27])
+        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-67bc9100623sm517850eaf.3.2026.03.12.10.07.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Mar 2026 10:07:06 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-899edf0171bso80145606d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 10:07:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1773335225; x=1773940025; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=r5d3U58A7EbRwEFn4KrmQ5cld9P0wudWqSFmPnXCnnU=;
+        b=BkP0uoDG275QgTYWd9u9oDfIuu6+NIUu32H0dtvGxPE2MTgVTLcZBMVbwuzHzw1KSc
+         SfaRRgjaInscN5wZRtLOMXmc6vVosD0/CKGhIhgHOISSZzTl7I6QIKdnMPyr5fLqctU9
+         gnpj6fTifERm2xN2nHzWyQ/llZF9Upb6MdllE=
+X-Forwarded-Encrypted: i=1; AJvYcCU25l0SM+O6XeToe102nSISn+7/wX6OjpIzbEVp8IdD4FNipFrZ3SE6vNp/errbKmLkeXImwfG17N85RBQ1N9UD@lists.infradead.org
+X-Received: by 2002:a05:6214:29c8:b0:89a:116b:e674 with SMTP id 6a1803df08f44-89a81d5dfcemr7819556d6.20.1773335225379;
+        Thu, 12 Mar 2026 10:07:05 -0700 (PDT)
+X-Received: by 2002:a05:6214:29c8:b0:89a:116b:e674 with SMTP id 6a1803df08f44-89a81d5dfcemr7818666d6.20.1773335224670;
+        Thu, 12 Mar 2026 10:07:04 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a65d17023sm38864336d6.49.2026.03.12.10.07.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Mar 2026 10:07:04 -0700 (PDT)
+Message-ID: <9040aef7-1981-44c8-a25b-2179b892d37e@broadcom.com>
+Date: Thu, 12 Mar 2026 10:06:59 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 4/5] PCI: controller: Validate max-link-speed
+To: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org,
+ jingoohan1@gmail.com, mani@kernel.org, kwilczynski@kernel.org,
+ bhelgaas@google.com, helgaas@kernel.org, florian.fainelli@broadcom.com,
+ jim2101024@gmail.com
+Cc: robh@kernel.org, ilpo.jarvinen@linux.intel.com,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, claudiu.beznea.uj@bp.renesas.com,
+ linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-omap@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260312163652.113228-1-18255117159@163.com>
+ <20260312163652.113228-5-18255117159@163.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260312163652.113228-5-18255117159@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_094213_920508_1A591841 
-X-CRM114-Status: GOOD (  43.93  )
+X-CRM114-CacheID: sfid-20260312_100708_270435_BA403177 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,214 +156,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marco, Liu,
+On 3/12/26 09:36, Hans Zhang wrote:
+> Add validation for the "max-link-speed" DT property in three more
+> drivers, using the pcie_get_link_speed() helper.
+> 
+> - brcmstb: If the value is missing or invalid, fall back to no
+>    limitation (pcie->gen = 0).  Fix the previous incorrect logic.
+> - mediatek-gen3: If the value is missing or invalid, use the maximum
+>    speed supported by the controller.
+> - rzg3s-host: If the value is missing or invalid, fall back to Gen2.
+> 
+> This ensures that all users of of_pci_get_max_link_speed() are ready
+> for the removal of the central range check.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>   drivers/pci/controller/pcie-brcmstb.c       | 5 +++--
 
-On Thu Mar 12, 2026 at 10:15 AM CET, Liu Ying wrote:
-> On Wed, Mar 11, 2026 at 08:45:25PM +0100, Marco Felsch wrote:
->> Hi Liu, Luca,
->
-> Hi,
->
->>
->> sorry for the delayed response, I was at the EW26.
->
-> Np at all, it's good to go out to meet people sometimes :)
->
->>
->> On 26-03-10, Luca Ceresoli wrote:
->>> Hi Liu, Marco,
->>>
->>> On Tue Mar 10, 2026 at 3:57 AM CET, Liu Ying wrote:
->>>> Hi Marco, Luca,
->>>>
->>>> On Tue, Mar 03, 2026 at 11:34:27AM +0100, Marco Felsch wrote:
->>>>
->>>> [...]
->>>>
->>>>> +	next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
->>>>> +	if (IS_ERR(next_bridge))
->>>>> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
->>>>> +				     "failed to get next bridge\n");
->>>>> +	pdfc->dev =3D dev;
->>>>> +	pdfc->bridge.of_node =3D dev->of_node;
->>>>> +	pdfc->bridge.type =3D DRM_MODE_CONNECTOR_DPI;
->>>>> +	pdfc->bridge.next_bridge =3D next_bridge;
->>>>
->>>> When I was reviewing another patch[1], I was aware of the necessity of
->>>> calling drm_bridge_get() for next_bridge to balance the next bridge's
->>>> refcount put from __drm_bridge_free() for this bridge.  I'd be good if
->>>> Luca may confirm this is correct.  Sorry for bringing this up late.
->>>
->>> Indeed you have a good point.
->>
->> At which stage did you faced this issue? During driver probe, because of
->> EPROBE_DEFER?
->
-> I just want to balance the get/put for the next bridge's refcount by
-> calling drm_bridge_get() for next_bridge, as I said above.  There could
-> be some way to trigger some particular Use-After-Free issues if you don't
-> do that.  I did take some time today to try to trigger UAF, but no luck,
-> though I found a potential bug in encoder_bridges_show() and generated a
-> fix[1](Cc'ed Marco) when I played with debugfs to read the refcounts.
+For pcie-brcmstb.c:
 
-The whole need for refcounting DRM bridges exists if such bridges can be
-removed when other parts of the kernel still have a pointer (=3D a referenc=
-e)
-to them. This is not the case with current DRM because you cannot remove
-some bridges without removing the whole pipeline (card). However I am
-working since a long time to suppor hardware where the last part of the
-display pipeline is hot-pluggable, causing DRM bridges to be added and
-removed at runtime without removal of the initial part of the pipeline
-(CRCT, encoder and 0 or more bridges).
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
-See these links for more background info:
-
- * ELCE 2025:
-   - https://www.youtube.com/watch?v=3DC8dEQ4OzMnc
-   - https://bootlin.com/pub/conferences/2025/elce/ceresoli-hotplug-status.=
-pdf
- * Lots of links in the slides about previous activity
- * LPC 2024 has a general description fo the use case:
-   - https://lpc.events/event/18/contributions/1696/
-
-> My idea to trigger UAF is to remove imx_lcdif/imx93_pdfc/simple_panel
-> modules when doing pageflips.  Dunno if EPROBE_DEFER may trigger UAF.
-
-Perhaps there is some possible UAF on probe errors or deferrals, but the
-typical case is when removing the final part of a pipeline, including 1+
-bridges. This was discussed in detail in [0], but here's an excerpt with
-the typical UAF scenario with hotplug:
-
-  1. pipeline: encoder --> bridge A --> bridge B --> bridge C
-  2. encoder takes a reference to bridge B
-     using devm_drm_of_find_bridge() or other means
-  3. bridge B takes a next_bridge reference to bridge C
-     using devm_drm_of_find_bridge()
-  4. encoder calls (bridge B)->foo(), which in turns references
-     next_bridge, e.g.:
-
-       b_foo() {
-           bar(b->next_bridge);
-       }
-
-If bridges B and C are removed, bridge C can be freed but B is still
-allocated because the encoder holds a ref. So when step 4 happens, 'b->c'
-would be a use-after-free (or NULL deref if b.remove cleared it, which is
-just as bad).
-
-[0] https://lore.kernel.org/all/DEH2CVQV21Z2.25PJBAQAKFJSG@bootlin.com/
-
->> That's the reason for having the local next_bridge variable since I
->> faced with the same issue. In other words this driver is correct and
->> it's on purpose to not assign it directly. Albeit I could/should have
->> added a comment.
->
-> What's the issue your faced?  How would using next_bridge variable impact=
-?
-> Without knowing these info, I presume that you still need to call
-> drm_bridge_get() for next_bridge, since it's kind of obvious if you take
-> a look at __drm_bridge_free().
-
-Exactly. The idea in a nutshell is: every pointer to a drm_bridge stored
-somewhere is a reference to a bridge. So:
-
- * When you take a reference (=3D you set a pointer to the address of a
-   bridge) you need to call drm_bridge_get() to increment the
-   refcount.
- * When you clear a reference (set it to NULL) or the pointer becomes
-   unreachable (the device goes away, the struct holding it is not
-   reachable anymore, etc) you need to call drm_bridge_put() to decrement
-   the refcount.
-
-This way the struct drm_bridge (or, typically, the private driver struct
-embedding it) will be freed only when the refcount goes to 0, avoiding UAF.
-
-I have been converting most of the accessors returning a drm_bridge pointer
-in order to drm_bridge_get() the bridge before returning it. A few random
-examples:
-
- - https://lore.kernel.org/lkml/20250620-drm-bridge-alloc-getput-drm-bridge=
--c-v9-0-ca53372c9a84@bootlin.com/
- - https://lore.kernel.org/lkml/20250709-drm-bridge-alloc-getput-drm_bridge=
-_get_prev_bridge-v1-0-34ba6f395aaa@bootlin.com/
- - https://lore.kernel.org/lkml/20260109-drm-bridge-alloc-getput-drm_of_fin=
-d_bridge-2-v2-4-8bad3ef90b9f@bootlin.com/
-
-I hope this clarifies the general refcount topic. Now to *_of_get_bridge().
-
->>> After re-checking devm_drm_of_get_bridge(), as I wrote on the other thr=
-ead
->>> you pointed to, you should call drm_bridge_get():
->>>
->>> -	pdfc->bridge.next_bridge =3D next_bridge;
->>> +	pdfc->bridge.next_bridge =3D drm_bridge_get(next_bridge);
->>>
->>> Marco, you can keep my R-by if you resend with just this change.
->>>
->>> Sorry about the confusion here.
->>>
->>> As mention on the other thread, devm_drm_of_get_bridge() is unable to
->>> support bridge hotplug. So it should be deprecated, but as of now there=
- is
->>> no alternative.
->>
->> Sorry I need a bit more context. What's the issue?
-
-The issue with devm_drm_of_get_bridge(MYDEV, ...) (similarly for other
-*_of_get_bridge() functions) is it can return one of:
-
- A) an existing bridge, returned by drm_of_find_panel_or_bridge() in the
-    &bridge parameter
- B) a panel_bridge it creates on the fly calling
-    devm_drm_panel_bridge_add(MYDEV) based on the panel returned by
-    drm_of_find_panel_or_bridge() in the &panel parameter
-
-The caller of devm_drm_of_get_bridge() gets a drm_bridge pointer but
-doesn't know whether case A or B happened.
-
-This is not a problem if the entire card is torn down at once because
-devm/drmm will take care or the removal. Even easier if the card is not
-torn down at all.
-
-Now imagine adding hotplug so you can keep MYDEV present but remove any
-bridges after MYDEV and the panel. The devm action added by
-devm_drm_of_get_bridge() won't trigger (because MYDEV is not going
-away). The caller of devm_drm_of_get_bridge(), i.e. the MYDEV driver,
-should remove the panel_bridge in case B but it has no way to know whether
-case A or B happened.
-
-So, this is tricky. The good news for you is you're not supposed to fix
-it. The *_of_get_bridge() API is just unable to handle hotplug, that will
-be fixed at some point. For now just ensure you get a reference for every
-bridge pointer you store, and to put it when that reference goes away.
-
->> How can I trigger the
->> issue?
-
-See the example above.
-
->> Why is bridge hotplug required at this stage?
-
-Because there is hot-pluggable hardware we want to support, see the ELCE
-and even better the LPC links above.
-
->> Why is only this
->> bridge affecte by the hotplug issue?
-
-It's not only this driver. Hotplug can potentially be used on any hardware,
-so I'm working to implement it in a general way in the DRM common code, but
-all drviers need to at least do the refcounting on their side. I'm trying
-to catch all patches involving bridge pointers and check whether they do
-refcounting right. This is just one of many patches I have commented about
-in the past months.
-
-I hope this clarified a bit.
-
-Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
