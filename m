@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36147FED2F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFD9FED2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 09:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/PK2NoM2XgmfEiVVn39HbEOc1b+SZKe5Qd43oQ7yJc=; b=0BE10b8dje1rukICyoZYrIUz+4
-	QdNRnVOczorz5Q4rS9uqo2+QP9ZZd2bqZWqgAOqUFksqx3DvopOs2j/tL2g3onPNrdcKLD/rF/uvq
-	hAEd+Tw8uC4QeX16DwhjZH/DqGsuVUwdHPqiThXiNBH+kU6PtjCl2gaeED4ENaERWFImZvokYsJVT
-	EsUbEPYvWs0ke4hWs3V246LBo3WXNjq+LFDPSKk+dP+ZWW7UqzJhkQiuMiju3/a44qg8+OKuTCnTf
-	n1BBn2aZ4vmLlRxGkv0Z6qDWKHD6OVX/ZQe5FSA87cjwn0PKsXfUM5V8/JNp9C72fLbkuBBmHm4h3
-	fRzRJP3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ugOuw7T4v0idjV2XykkyxgOkdjTkO0dLS5Nelx4Rb/8=; b=sugEt0zlFSyEXUJ4NnH8kxApKH
+	YEEcgcNEC7xPuAvy7jntY347vHT53M5z0Vjr5iMahWtKH9fUyb0pacmIZ199XX1fqeTrA+BpppoBR
+	9JpVloYf+Mar/z6oQ6o6hODiEtaORphZtxlTBUDDpvZjjNPXPcprkIaFr439FKzfjY/nCjDmbfFYG
+	vWe8V8OCnmFQ1e2u0nynjHNT9BnLCkFqzRB661LlocJoGFmXGqllGFWlGLanpVIEO37V/hPJ3AhQH
+	t8RHNxxAN88zgDVkZK+X2IQnLv8nc6HNJb2xqCZ0/lUjzxiXzZh6Y4B+8O1gocfeiuTR8y8z0Q/8z
+	eaeLi8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cLx-0000000DixY-2Q26;
-	Thu, 12 Mar 2026 09:29:13 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1w0cMG-0000000Dj5v-2WDt;
+	Thu, 12 Mar 2026 09:29:32 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0cLs-0000000Diwt-24UH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 09:29:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773307749; x=1804843749;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lEOtM4zhrzldYTBWFHJI+Dhum9TqJxp4kJWyKgJHjgI=;
-  b=jA0tfWLuzauzj02fuwXwtpZSOdsY4IOexlp/s4UEi+h4MPlsTfhu8LzT
-   esE+11xQwx5tXBL7eMLQGOE0LxRvVLmC2vZ6McH/Vt9O58L4XbkRV6L8i
-   hE4zRyJ2UDnvZQmeewJRFDrr1wEiN2DZQckAsM2huNo7xAAKl+hVsIvmc
-   cpkUujhq5EinxkdONSH5W223yRwCZSTHvjKlUhQfsN70M6nOB8G3Lsp9y
-   0eXkbR1yi6sZmrJWOfN5/R9msnt6gf7RfHA+zmhWmARI5v7qWbMiZ2hi4
-   4q2tCwESrOU0xYG0qtx3Av5SV+loHtpUd1oCS4UhLn8nU33dZELwLCNQq
-   A==;
-X-CSE-ConnectionGUID: ny/X4TkJR9Suua3/WohAiw==
-X-CSE-MsgGUID: nDn7deQ/R5W/+wJcEmnOoA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11726"; a="74285422"
-X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
-   d="scan'208";a="74285422"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:29:05 -0700
-X-CSE-ConnectionGUID: Bmp7J73lQ2KkDt15aqIghA==
-X-CSE-MsgGUID: VGjzDg/3SbWUY6CwzC6H8A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,116,1770624000"; 
-   d="scan'208";a="225466070"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.112])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2026 02:28:57 -0700
-Date: Thu, 12 Mar 2026 11:28:55 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: wens@kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Alexey Klimov <alexey.klimov@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v4 03/10] gpiolib: implement low-level, shared GPIO
- support
-Message-ID: <abKHV7RSJWI0U-sK@ashevche-desk.local>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-3-b51f97b1abd8@linaro.org>
- <921ba8ce-b18e-4a99-966d-c763d22081e2@nvidia.com>
- <CAHp75VevThmDMm6VoVB9P0YbUGGGsmgnzr2gn9=1xtJZt-kuQw@mail.gmail.com>
- <64f6e02d-c7cb-40cb-b1fb-2d3523433c66@nvidia.com>
- <CAGb2v67mmt=X8rbsUo+Gwe6uHXTNpBFGzBbrXZYEGsftHL4Ejg@mail.gmail.com>
- <2d4e69cb-a43c-4d13-9f7b-20b95cee43a7@nvidia.com>
+	id 1w0cMB-0000000DizO-3RIH;
+	Thu, 12 Mar 2026 09:29:29 +0000
+X-UUID: ee98c7281df511f1a21c59e7364eecb8-20260312
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:364da13e-4297-4e51-b36c-abb76dbed6cc,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:89c9d04,CLOUDID:3fe1568a4ae880f33e74b65e970bdd58,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ee98c7281df511f1a21c59e7364eecb8-20260312
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 885957485; Thu, 12 Mar 2026 17:29:13 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	broonie@kernel.org
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH 00/17] cleanup in spi by use devm_clk_get_enabled
+Date: Thu, 12 Mar 2026 17:28:52 +0800
+Message-Id: <cover.1773306858.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2d4e69cb-a43c-4d13-9f7b-20b95cee43a7@nvidia.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_022908_861667_48CB7A0A 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20260312_022928_165785_3A90775E 
+X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 08:41:03AM +0000, Jon Hunter wrote:
-> On 12/03/2026 07:49, Chen-Yu Tsai wrote:
+I know that many old SPI drivers should not be modified for hardware
+stability and to reduce maintenance effort. But I can't help cleaning them
+up. To minimize the introduction of issues, I tried not to modify the
+timing of those hardware clock enables.
 
-...
+Pei Xiao (17):
+  spi: axiado: Use helper function devm_clk_get_enabled()
+  spi: bcm63xx-hsspi: Use helper function devm_clk_get_enabled()
+  spi: bcmbca-hsspi: Use helper function devm_clk_get_enabled()
+  spi: img-spfi: Use helper function devm_clk_get_enabled()
+  spi: imx: Use helper function devm_clk_get_enabled()
+  spi: npcm-pspi: Use helper function devm_clk_get_enabled()
+  spi: orion: Use helper function devm_clk_get_enabled()
+  spi: rockchip-sfc: Use helper function devm_clk_get_enabled()
+  spi: sifive: Use helper function devm_clk_get_enabled()
+  spi: slave-mt27xx: Use helper function devm_clk_get_enabled()
+  spi: st: Use helper function devm_clk_get_enabled()
+  spi: stm32-qspi: Use helper function devm_clk_get_enabled()
+  spi: stm32: Use helper function devm_clk_get_enabled()
+  spi: sunplus-sp7021: Use helper function devm_clk_get_enabled()
+  spi: uniphier: Use helper function devm_clk_get_enabled()
+  spi: zynq-qspi: Use helper function devm_clk_get_enabled()
+  spi: zynqmp-gqspi: Use helper function devm_clk_get_enabled()
 
-> > > > To me it sounds like a bad design of the driver for this SoC/platform.
-> > > 
-> > > I am not sure why you think that. Assuming a 1:1 mapping of the kernel's
-> > > GPIO index to the GPIO controller + h/w port + 1 GPIO number seems fragile.
-
-You may use valid mask (which is also available via GPIO device properties) or
-as said below. In any case this thread just convinces me even more that driver
-has a design flaw.
-
-> > If the hardware has uneven number of actual pins for each bank, either
-> > you end up using the deprecated static GPIO number allocation and
-> > have holes in the GPIO range (sunxi currently does this), or you use
-> > dynamic allocation, which gives you no holes in the GPIO range, but
-> > not directly calculable mapping between DT and GPIO numbers.
-> > 
-> > The driver handles the mapping by providing an .xlate callback. A
-> > consumer shouldn't assume anything. The shared GPIO library probably
-> > shouldn't be try parsing the property itself and use the result to
-> > grab the GPIO descriptor, but just rely on the gpiochip's .xlate
-> > callback in some way.
-> 
-> Right. I was thinking that isn't this why we have the xlate callbacks in the
-> first place to handle such things and not make these assumptions?
-> 
-> I am curious if other platforms could have the same issue? I did not see
-> this immediately with v6.19 because it is only one specific platform  we
-> have that showed this. So very much a corner case that will only be seen if
-> a platform uses shared GPIOs and the shared GPIO happens to be high enough
-> to overflow the descriptor array. Even if we don't crash, at least for
-> Tegra, we could be using the wrong descriptor too for shared GPIOs.
-
-None of Intel platforms has this issue, for the rest I have no clue.
+ drivers/spi/spi-axiado.c         | 23 +++----------
+ drivers/spi/spi-bcm63xx-hsspi.c  | 44 +++++++-----------------
+ drivers/spi/spi-bcmbca-hsspi.c   | 47 +++++++++----------------
+ drivers/spi/spi-img-spfi.c       | 14 ++------
+ drivers/spi/spi-imx.c            | 15 ++------
+ drivers/spi/spi-npcm-pspi.c      | 19 ++++------
+ drivers/spi/spi-orion.c          | 10 ++----
+ drivers/spi/spi-rockchip-sfc.c   | 20 ++---------
+ drivers/spi/spi-sifive.c         | 20 ++++-------
+ drivers/spi/spi-slave-mt27xx.c   |  8 +----
+ drivers/spi/spi-st-ssc4.c        | 14 +++-----
+ drivers/spi/spi-stm32-qspi.c     | 17 +++------
+ drivers/spi/spi-stm32.c          | 59 ++++++++++----------------------
+ drivers/spi/spi-sunplus-sp7021.c | 15 +-------
+ drivers/spi/spi-uniphier.c       | 15 +++-----
+ drivers/spi/spi-zynq-qspi.c      | 28 ++++-----------
+ drivers/spi/spi-zynqmp-gqspi.c   | 17 ++-------
+ 17 files changed, 95 insertions(+), 290 deletions(-)
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.25.1
 
 
