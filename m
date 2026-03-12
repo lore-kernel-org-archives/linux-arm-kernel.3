@@ -4,112 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB31106ACE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 20:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E50B106ACE5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 20:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TE8SfkVbVBBUM4eryiGIysgS23QgsEj7qFxF34WfEmM=; b=DqG6rUE73Kfg7fhPlOKsi/+3n6
-	/a7BRc/nvoUgscjSVkl9eeogckD7Gn/AkNFEszU2AS+a5liVYj3ne9mcr3ZH655ncZ7xXIbgMlaSz
-	nXBnu8JrOy1HBN4OAoeoB4X8sJ/rg2hxlTzAy0g4o5otOa52AMYKZ2yzO4ZJH53A/FnPZbF7lIhuH
-	QK+OG+36Tmsv2Mc1cdqmNpbJB6BiEp/JAQM6s7EzkMpZfZ2SmOobIu4BsjwcLG2m4CD478GzrgLGm
-	kLIjVdSG+4E2cppjONTAd+HPpBia8PMQDm7WzqXO57R+esOquD3CsDG/AX395JyNpmcAHkt5FqYaQ
-	5X7DdY9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4QtKqKrKXA9mINSd6Rhs9VqIBwngxO4PNYOuvXQmlPU=; b=VFmnODKheIvh5UJMFO7gfgb9PB
+	kdIwm3pMccBdqYX2v7kP8IA/Hgh1ck3u0e9xaNG7h5sZyMV6PjsXCTZa1Gl6IH25nT7Q20daBMKWA
+	bJ97GbtOzn8JNZnkJ4x0rTKO1md8ooMr8nCjQ0vIntEXO+Y9Um5Sn40bfEF9byjiaLH6Du3FZQ+VL
+	D3UIUiF2VdvNYuaK4TSkKHL6fPcgFVhTGB4Xl+2jVuVlFnLZhH64AuH6qFWLLYZUzAfYUv37MCsiy
+	gvBJFVp7FC91E4bEfGkU76xBUrON0UzbWz77mpPl4tCbuvuOcwy3F52Yw8sd5NvySIxrfQJphYmm+
+	Y3MaJBFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0mJV-0000000FDYu-1qqJ;
-	Thu, 12 Mar 2026 20:07:21 +0000
-Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
+	id 1w0maM-0000000FGAD-04ok;
+	Thu, 12 Mar 2026 20:24:46 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0mJN-0000000FDUh-1ruk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 20:07:14 +0000
-Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-467161c4b89so907302b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 13:07:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773346032; x=1773950832; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TE8SfkVbVBBUM4eryiGIysgS23QgsEj7qFxF34WfEmM=;
-        b=T/FG2qwVb74PA99SfIKZYPEV2HFSfR4PMDFkJgLdWwr/p63jaDxpZIsXj1lUy6BQug
-         31Rk2z0Bn3lJ/q5u2ytrJdI9SZ41BsEzfob8mePdD5rk+BuTJpZ3hmigVrSZ47kkZiaG
-         GFrM0/jmOQBmY26RM7K7Ki2YzZR07KZZNhzIOHUXDKg0PcK0wXJyUumpNX+hB2pB+G3A
-         PNeFauBonN45qz3sODQn8JwSiNTVjGaD3HkAHOq83Be/9qL4FEV/zsL8wLXxEU1738Tz
-         VL/5q6RykpuBL0wVpt/c513+DhoFIbXRTVSxp5Ax+JhKc0tuxxcS3gczX8gY0svPPqdb
-         3QIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773346032; x=1773950832;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TE8SfkVbVBBUM4eryiGIysgS23QgsEj7qFxF34WfEmM=;
-        b=qOaHNe/lQVUckeP2mn0uJukcV78Iktp7W934yOU8grEXlDeWpnLeCREJnvV/dpqfVv
-         VaH00IyJ5GyM0J7LSqfUPKm1Y17CJCVY2zhV+HapmuSxD9Pqk/9ANIl8QjVLArcAXvTS
-         WdgdihwKnMhAvEp/s3PXppnu0q7+03PKUkQDdnJ2sL0/3Tt1LKfgo9eNM8FdymjsMy6+
-         vjB3hPeh8n00Z+gL3QuO3Th0E3nXi49oFzMGtqoZsUkdFkqnGl/wCGk4HpgCSsSJBVWh
-         g7HaHBDzMMgABGq44qW88DV30o8HMSiyLEzgLB/Ul2dFnBJWJNF4/FtgLHVX6LLx7UW8
-         F6Gg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9M4yk5+F2z6IXtAVelTkKT55Lit7gUWFQGDh4OzkfZCRAWcNDoVX8VFZMn0/ySbO7YBSxOqDM9kWsDIrtVr+k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyis86nBJw5EJm5UCZqnB65Q8v954W81IcKvfDpl7/sACijmZBb
-	yGepo3778E67KIRTMAB+2hjrgkiBbmf2+ziFP9ZqltltFBBoOMjkDQA/+jS2t9qjT0E=
-X-Gm-Gg: ATEYQzxwgdbuW3fA9x2/FVuP1Yp+mlawVSIfiFTNa/ynw/1IRV7Kl9NupGHS7UHd1nH
-	JTkTFM2tcRvO/mHQ7XUpWN5lQ3IiRa2UfvtLowYppRfH4DLFye0Boc5ZchkfBU3x2Adi41SrIEH
-	xqH++P3o8GGRwsWfWHPugukRFvv/TannIWYeozhlIlHS2Ke64QpND8WrChBor2pJE6sbHmFDWIR
-	5Kg3P5BQ2pOhjHrYG/mUwEWLRO+eQUWdU8xH7kfFZB8AhfKCOrrS4Ep3ZDxfAlG6j2/OYzYuO7m
-	dbGq2t1OR+1ghHCsu4B7EMRqQ19ZVeOM/JDC+aPod1A1SKZMn+ye9qyRSuU20EAbQvTeRoAhi1R
-	yhdnx2WuY22WofW9GjrhcDWbeg1O3/l5OAItMlV3Ky8W9OXfkQ0hemIyykTF5LdD0QHSK5g3iJ3
-	FBEkeXc930jir8X+matTWTj/N0EY7r69nMbfYnFt0=
-X-Received: by 2002:a05:6808:86a4:b0:467:2584:873f with SMTP id 5614622812f47-467575432eamr241621b6e.40.1773346032433;
-        Thu, 12 Mar 2026 13:07:12 -0700 (PDT)
-Received: from [127.0.1.1] ([2600:8803:e7e4:500:1f95:f82e:8747:8137])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4177e6c7885sm5600081fac.17.2026.03.12.13.07.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 13:07:12 -0700 (PDT)
+	id 1w0maJ-0000000FG9I-2J0s;
+	Thu, 12 Mar 2026 20:24:44 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout1.routing.net (Postfix) with ESMTP id B171140288;
+	Thu, 12 Mar 2026 20:24:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1773347080;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=4QtKqKrKXA9mINSd6Rhs9VqIBwngxO4PNYOuvXQmlPU=;
+	b=h7QOH/3kOksmM3xBpdfa3Z+KmgGvA09uoldDw407O3IuE3YKf2t61zwpP8tjwsUmijYXjX
+	CAxLS80gpKblSFZS5eE6j6YY13MlithH2blXzjDqnZ4N9i+eWDJSTgleIM37edcbqLM33P
+	RLqwccn/sRnGhHksz8bzf1emPSuIkX0=
+Received: from frank-u24.. (fttx-pool-217.61.148.188.bambit.de [217.61.148.188])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 78AC71226B7;
+	Thu, 12 Mar 2026 20:24:40 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Laura Nao <laura.nao@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] thermal/drivers/mediatek/lvts: add missing fields for mt7987
+Date: Thu, 12 Mar 2026 21:24:32 +0100
+Message-ID: <20260312202433.39092-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 15/18] clk: mediatek: Add MT8189 dispsys clock
- support
-From: David Lechner <dlechner@baylibre.com>
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
- Miles Chen <miles.chen@mediatek.com>, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Project_Global_Chrome_Upstream_Group@mediatek.com, 
- Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-In-Reply-To: <20260309120512.3624804-16-irving-ch.lin@mediatek.com>
-References: <20260309120512.3624804-1-irving-ch.lin@mediatek.com>
- <20260309120512.3624804-16-irving-ch.lin@mediatek.com>
-Date: Thu, 12 Mar 2026 15:06:36 -0500
-Message-Id: <177334599652.4124794.12067751220383417571@freyr>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=622; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=CMNpkQG0OX1ZmIY4eNoRhc5pN1fKRttQ1DPPmQGZ5Ok=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpsxzklpGpUf/ZQQIyqz1DGbRxkAj3JX3gj9Fst
- kHYKcWEcLiJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCabMc5AAKCRDCzCAB/wGP
- wAB9B/0amsj5mtHGl7JwYJ4m/8bCDd5vMrY9EYIYFmV67HC/3VsGnfj1wPsBIVVvEBbRl+IhIIA
- ZsVi+f/fEjvU6prplQZ/YZd8np1yTT1IWdeKgbGDDKpmhj+ay9gbv30oTZ7hntcUeH8jUMJrP/q
- tZU8uftAxgDKfME+lIWGswpoBwlUSOzobxeouycG+WNAHOkJA6P9MGeEtvRIK+FKpHbvhe8km04
- Ox8e94DXUVshX9UMS9lDnF5G0nMYaWHn1RibGjXUQ/s0dnAAbbdC5p20fdx+NRF7/D6TTyYAO4N
- AauC6vpKcGuJ+POQeLop+wx9WdMiq97CgGUQthHxIRLRvwFx
-X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
- fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_130713_494097_B47406C7 
-X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-CacheID: sfid-20260312_132443_799578_2B422DC3 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,24 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Mar 2026 20:04:57 +0800, irving.ch.lin <irving-ch.lin@mediatek.com> wrote:
-> Add support for the MT8189 dispsys clock controller,
-> which provides clock gate control for display system.
-> 
+From: Frank Wunderlich <frank-w@public-files.de>
 
+Commit a4c40559499f ("thermal/drivers/mediatek/lvts: Add platform ops to
+support alternative conversion logic") added new ops field which causes
+crash on mt7987.
+
+[    1.518540] Internal error: Oops: 0000000096000005 [#1]  SMP
 ...
+[    1.564481] pc : lvts_get_temp+0x84/0xc4
+[    1.564492] lr : lvts_get_temp+0x60/0xc4
+...
+[    1.620900] Call trace:
+[    1.631753]  lvts_get_temp+0x84/0xc4 (P)
+[    1.645471]  __thermal_zone_get_temp+0x24/0x11c
+[    1.656502]  __thermal_zone_device_update+0x9c/0x52c
 
-> +	GATE_MM0(CLK_MMSYS_0_DISP_DVO, "mmsys_0_disp_dvo", "disp0_sel", 20),
-> +	GATE_MM0(CLK_MMSYS_0_DISP_DSI0, "mmsys_0_CLK0", "disp0_sel", 21),
+Add the new ops member added in 7.0-rc1 for mt7987 too.
 
-Why the random CAPS here? Seems like the name should be "mmsys_0_disp_dsi0"
-instead of "mmsys_0_CLK0".
+Commit 6931d597c5ef ("thermal/drivers/mediatek/lvts: Make number of
+calibration offsets configurable") introduced field num_cal_offsets
+in lvts_data. Add this for mt7987 too.
 
-> +	/* MM1 */
-> +	GATE_MM1(CLK_MMSYS_1_DISP_DSI0, "mmsys_1_CLK0", "dsi_occ_sel", 0),
+Fixes: 78c24e67d6f8 ("thermal/drivers/mediatek/lvts_thermal: Add mt7987 support")
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+ drivers/thermal/mediatek/lvts_thermal.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Similar case here.
-
+diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+index a9617d5e0077..1224ce0c1507 100644
+--- a/drivers/thermal/mediatek/lvts_thermal.c
++++ b/drivers/thermal/mediatek/lvts_thermal.c
+@@ -2026,6 +2026,8 @@ static const struct lvts_data mt7987_lvts_ap_data = {
+ 	.temp_offset	= LVTS_COEFF_B_MT7987,
+ 	.gt_calib_bit_offset = 32,
+ 	.def_calibration = 19380,
++	.num_cal_offsets = LVTS_NUM_CAL_OFFSETS_MT7988,
++	.ops = &lvts_platform_ops_mt7988,
+ };
+ 
+ static const struct lvts_data mt7988_lvts_ap_data = {
 -- 
-David Lechner <dlechner@baylibre.com>
+2.43.0
+
 
