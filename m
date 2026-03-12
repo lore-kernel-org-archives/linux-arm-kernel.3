@@ -4,109 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEE9106ACDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63F8106ACDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 19:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=; b=c39xvJNIVR3+2n5xMi0fqPfTTn
-	LQwob5zbAgUZrBHUMX/1n1o3XK76DDSOFLZX1iu+D3TdCT27EmaWkZ4K6qqA46KL/QSUpHLHS4tQT
-	oYZ6413l3f6hjQY0hSGaKBUaWdYmuhUFGbLH3z5aajJAjofgDtInlbGeZA+3K2h0kjmB75IxOy8ed
-	rW7plhX8iXyBUdZ9zoVz6wLWBf5gswiLGyyx4Dhh0xvQOuV14cyeYYGAAf87fFWgwTJ1CYYIiYz35
-	qFdgnO+g5/Ofad/hNScSSyHUUeDAuS6QpN35W/CAzMHL70DDoJ9Ban1Q4hADH3vCafXigLh9Hnvyo
-	qxfLExXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vi2x/PAsbGQMSdNCuMzYP/IPgcG+NUlHm4qA77xxBk8=; b=MIqspRY5NkZsBq1HJOhkLEnq81
+	tSYTJXtZ2QZvRVBEA9qaOMY9e4PVDE2GPBYo98nQhYGIo2onE6vqO5vewGtG6pz5KUgD1kHDWXygA
+	5TDvSIDQBqRFVB3DIRgRE50xQZWmoJqzSB+LVpussTNhaaxitIx7H7h7T1ZFpTngE9utLLJAiqcJu
+	XivgdiEgDVD6KRllh317DqC6VOoe9i4zOc49zOKVgyi7+9LaNoZEVCPSWybBFv+09Lq8Hoy/+Gpw9
+	T7ZtcmYZ6Ge+Wa1yGWHXCuHfAGVjLbAdDLR0Ibetme7krstCz5hDwsz9CzMK50O0A0O8zKpFLpSQa
+	51otMd7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lM7-0000000EyvY-2JLX;
-	Thu, 12 Mar 2026 19:05:59 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1w0lTv-0000000EzwP-03fO;
+	Thu, 12 Mar 2026 19:14:03 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lM4-0000000Eyuq-43df
+	id 1w0lTt-0000000Ezvj-0ELJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 19:05:58 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50906a98ffeso98261cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 12:05:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773342355; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SQVTMDIbhJxG/hWYAHjUh0CAPzBCwktZcGe15qTzbA8iiGjOK/52P/CeVX7sn5dh6+
-         CuxVa0U5Aj7X9pRkvV1j/YJ1JIQF88S1KIQxPaztYVXFuedpxASrjiCErHa4kdaoIDTa
-         lecmGZpwyOsvFfumSTyLc8OuBUPnnFH9wu2VlIYj7U1icUkFA4pXI8eQtS7D/a1ITrSR
-         UeBumUjJOopENoFjLqBivATU/NPmmPOh42HtfJGTHJ9ic1nbrwlPh7GBmvhUcTBfyMQT
-         b80Me9Wk1swVuoc1KjJ8eNRUWQPY2lQ6xwalE75UTMJG19H8OpQFMp93hN26anBmoVQ/
-         1hMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
-        fh=B6CwWKjXTMabVYELoJvARHUPvHTfRjLm27hSUvNcoFA=;
-        b=TxdTNDrzxjsAmm0UqpDPhMfSTtiacFE12UXOApPbaDTp2iGDVzu2ksWk0eAg5PMKMY
-         ShfEwedE8cG/YioalzOX34LV5dpAKZ8xlUi0vSYWUulAHr/yaeQvuPMrWg6bovB9rHT7
-         rzKRVCWFYSt6vbe0Wg3wfMAAd/+C6uhk/6Ji3jwp/R5//pYh8RNmuOCX+SzwQyw37dRw
-         QoxCf9MChvD8D/68Lbjqr+mN8V1+Z8CbSCnnzRRIxCtfUWJzF8klC2A3dGZlyLio0Bsg
-         l/IPamCvLEoiTkL3BA/uIGuv/TwfWf6bSIz6h/cODFp2ZgWFiXRmQhH3N2vx6S2oNi3L
-         Obqw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773342355; x=1773947155; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
-        b=JxrfXCUUdYAPtkY1ElQvRZV6aLSTl8d5WpOBvLu4jad3sr3tI3SB+8LZXeaovKMTy3
-         AlI1qpa1F87/0/uttg/uzee4/VD1jGien07ozC1Uw5fpdQEdkYDdPwYN3Q9dj+t/D8Ap
-         u1CcevX1m3G/DXrfAd3D+BV4mOdKLO7kPFVhUvn3fOKtI7JG93PV6tzEaCRX214GGw82
-         HLhLaW3Gm+WrrJXbE1ZWsoi4g8T4+zdJyhlCXcG9l27QPiGwFWAq3WJ+XlmHngmZ5u+I
-         Sa0AB2+CcVLQ2m+nLHnrHZaRjxsr0DlT34Q8GhIy2fo/7zQ+bGBNfNx6kKYRqVEgN3eT
-         Q9pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773342355; x=1773947155;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U6+OtjaK5kpQwDsWtWbZL7QFm/NMyVy7mbGZ1ghV8IA=;
-        b=JiKv1GQF2lDBDHy+l4KN9Zgll7kigbs164jzDFyNN4HJDf9Pg9/koIOtp0DPKLARtm
-         PeWvdwIa7+biSwqqkF679jasN2+B97aIh8kqhznCwpcjmaAD0KoGZVNMfBiqIPpJ4GmD
-         ft84BTb3p8v44p7sCvF0I/CCLMxJh8w4ydDTTeVw0ojwIAlSuFAVUwKbWkeet2MUZ7Nj
-         HUb9kV9oyJRZ8J/HK6c3b05L8Wi2f5ohAIZ9o/X9rrtOlClzXr60+QC2ACuUsDCB0OK2
-         NXzoOpjeipgPKD4b78hc3MK8CJQbOLvjkQ94yc9ueiBuMhv7S87xqTSG5XsWlu89CmLq
-         TjNA==
-X-Forwarded-Encrypted: i=1; AJvYcCX2ml6Ryq37xpkE6OKCtdwF73UCtU/PN+SKeW9Zqpwha2vnvqZnj94xjUKnd5Ge9aM6AHWfjX49rKKbBx3DIh1W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9MN2LqzlcYkr/yz4ZWVjBemLVmYiqhz1ee7GTVI9N2zPWIDU2
-	Z2Y3DtcsOOx7PDCAl2hC+307iLynuq3EAD7c4BgNLu6ahWx21AFq5k3xP55gkSy4Z0XlKymyloc
-	xCQGFABQfcKWKg3XyOCnocrmFuC2CSsRTUINu/F5f
-X-Gm-Gg: ATEYQzyAuVg0TwQmuMvuinBVAzYPuaWob0Fiz0CsMmhnZVvkKs0P28KBTjPtBh45h7Y
-	HonQqPHe/pKSyliANrJQQ6yvLXtXuqiL5Ya3b3lI/0IT+UyTZZiVHBVgsF2xAZ9htWarAd+C+b6
-	pbzwsi/lTrhteB/4QpgGXN5HWU3E2GRFun/Hj0IjEcbEzL7OGYxhAx5sREqC+X8oqaWagOzcXvh
-	Ucb9XyiLJp8YxD1AuQDHiY2Nggem/9oJweZsbalSSxFADV+H5DUS+jCWPWmt6Ef8Uvm7pfxzU6k
-	IEQSSW9V
-X-Received: by 2002:ac8:570e:0:b0:509:21ff:cd49 with SMTP id
- d75a77b69052e-509583f2b67mr2191931cf.4.1773342354514; Thu, 12 Mar 2026
- 12:05:54 -0700 (PDT)
+	Thu, 12 Mar 2026 19:14:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZMwSZXguht+bNw+zE/Azv7IzApH1GjGRXiE/k7YECCBn8zEFsgykhPg46A+QOSoWhHBdXiSucprJ2yG4pMeiqMIIvsSPT3AX/elTJ1rFd22DKgletp8bry7IP8edzESudXScbLkoczi/Kk00SEvmHPHq1pnATCFlm+U2HLI4KdMqFCKCnLONmU73yjcv5h1G9SDsED4EAygfEUL19FSzVxNxuO0NxccExL//Ff5yxbeBkWpPPZr/aUdWoV4TObFsJcoyYZGalXjeZ6p1RKO2gkj2/YUh0QhCB0dM/dMok3U3TX40CafyIdsN97Z5hyK85weWHsHK83f/LQ1Hk47ysQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vi2x/PAsbGQMSdNCuMzYP/IPgcG+NUlHm4qA77xxBk8=;
+ b=sk6fNy4mplKjUCgxrkPGYn1YbK/f8zrb3IUSsRgu6tcG4tgY1mQdx3HzHpsoYOBC3neUPm8BDaqosQJwHd6NCkfVdkkADg7dgskxmpXihO4QJ/u97f7O3h98T7qWQrScCJsxrjaJ4N3ULSko/PgwDgxio+ua5UskB2+6WixmFyAOSAsU12wIL2MCm/6tt9YhObBKR7AuaIZz4mksjRzkxcGzqNdBV98pHkS4tUT7HYUBF/HxvRu/pCvJXskn1xamVs7vhClM1ZkAMvo0Y917ZWhEVKf6Tvd3xcN9pOttbjqoZQ6wK9bedb8GoavN1on+JNO2LbOpc1H1wq3tBjjv7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vi2x/PAsbGQMSdNCuMzYP/IPgcG+NUlHm4qA77xxBk8=;
+ b=E9dgEqxNRBQ/1CEypz4QJ44oSzbc/Z+Tf5v3p6gxcxLva147xZ02N26qol1Gn5Z905BsOSMK2I2DqrTXirNL8dv7xY55Cn2FUeylYNGYJMo1CX9xRucB47w0/dzW7qsyPbxkBPRWbH8F/BFXWRpn38mH7sHpjuXA6qpFyO2a59hboO6IOUu7qa3J7EngMZPW1q5bKiWWOASfy9002d9+tTRf4McGymYTSOHk0udyWccSjoS2C7Fw8mF3QDqu2GWW2w9mn+lBj1E6pr0/W9BcfrEe2gymdkAoy8lnfXhiwBtwb7nHOROjAbMbjydhMQ38epdg0J6rR14PYw3gFAYl3w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAXPR04MB9124.eurprd04.prod.outlook.com (2603:10a6:102:22f::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
+ 2026 19:13:53 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
+ 19:13:53 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v5 3/5] arm64: dts: imx94: add pcie0 and pcie0-ep supports
+Date: Thu, 12 Mar 2026 15:13:39 -0400
+Message-ID: <20260312191341.3479958-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260312092745.295578-4-hongxing.zhu@nxp.com>
+References: <20260312092745.295578-4-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SA9PR13CA0079.namprd13.prod.outlook.com
+ (2603:10b6:806:23::24) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260310124933.830025-1-sebastianene@google.com> <20260310124933.830025-3-sebastianene@google.com>
-In-Reply-To: <20260310124933.830025-3-sebastianene@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 12 Mar 2026 19:05:16 +0000
-X-Gm-Features: AaiRm50KV_wpisOqPhBXIc_wURyzMu0dLQv8LiQKoIvYnfkELQ5oUW5aGq7nCAA
-Message-ID: <CA+EHjTwDkgF5GV-k_VZ_nXbmUmwrAXaQJ5sFsk2tgr8LL3j4DA@mail.gmail.com>
-Subject: Re: [PATCH 02/14] KVM: arm64: Track host-unmapped MMIO regions in a
- static array
-To: Sebastian Ene <sebastianene@google.com>
-Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com, catalin.marinas@arm.com, dbrazdil@google.com, 
-	joey.gouly@arm.com, kees@kernel.org, mark.rutland@arm.com, maz@kernel.org, 
-	oupton@kernel.org, perlarsen@google.com, qperret@google.com, 
-	rananta@google.com, smostafa@google.com, suzuki.poulose@arm.com, 
-	tglx@kernel.org, vdonnefort@google.com, bgrzesik@google.com, will@kernel.org, 
-	yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9124:EE_
+X-MS-Office365-Filtering-Correlation-Id: 946647a9-efcb-421d-6a15-08de806b801d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|52116014|38350700014|921020|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: XNLry3DGRrFdgrJBcWhp9slKei9fisMIIaXhcMrSgz70QuUZdg/9YOhH1PriGTNDukB0O78HE+w/RB68fjFh5MZYsnQu4+puqm2xT13j11K2Dtz84KPq8sbV83ZDEjJXotk+5bkqeqwG+Q7cJg9ztQBeTvXnEXFvho2ZT9god+8Z2gqH9K+ldWCvm55InA9om1c4rc9CEZbxEprdL1qtELHdQvc84CeFqPH6hEyHF8JOFemGEICZfSfpoU67tj5DaHusD4bmCcOrkXQmCkqguZ/N2DoF8/bAUxUTxQB04zqT07zdd04M+gFwmoVNX0qMBOfJZJsFoROS4iFZUZrWYrqecCoxxXekm2nTPiJvdMY5KI7bX9nq+2XBusDQ0yCQZDIIIRJbCqxzY1m8D96uWsKuUefmHMfI6IZSMWgf0ZmNFOkCuCC5q8Bef+pPwJ+xb3yvobKbYMCi5/I4S/wHs23n0FI5de3z5GcQZw8RBeOx1sAH1UzoZZK209OqijY191T/MeewcTqwg5JadLXBcD8lPKgulGbFlFWuRJQPr8Hd4SCKfHOEPDTDGC+Y4bWFqEPtYg2p1w0shZzy9LKVUv68+3/FYLDe96CDQWoIUlVv4xaUMtloVZhSY2V73w3N2fFLmpikfdSdnIzNXn93GQLLhRkHVMQpB+ojdJO1d4zCIPj/wEudd/hk9WNXrq6a3gsRD1Tr2SCtLY5ZSuuKHXmkbZDeB7kqB8vygYrLjcz4mbG6YM1nv3RvIX/6Z+NmMBmORw4WsM3bRgDNlwYlrn+QGP/K9KMB53jBuckNXWnwNtbkIqpbBFetyYRskvXJ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?enS/IGzccxDGlQZW6vYgWMnrar/zmdZcBXK9w25FlC/UF05zX+HCT3Co8bW2?=
+ =?us-ascii?Q?x/PKJwEWJvc0V/L1gZmDT0qLUUpAb/7tY/NGPQNG2X3N2izJTDofbOwvjxvp?=
+ =?us-ascii?Q?2ffn0aYQocXqjpDNQDd9IMEBUkOvvO5y+GXzkUh/TuRWaE1zt7FBrELu88lk?=
+ =?us-ascii?Q?UkjOHtLgSnh373qqfmNp/fEGzEoolf7DQfygSy4CtaTVptmyN2LzWvQTONAP?=
+ =?us-ascii?Q?i6038cz/wOIn+SEX+HzUX07xHA1G28kdpHbXkOTlnJQxNTEIAklA5JPtoJWt?=
+ =?us-ascii?Q?JIUdUiyl7XAqgR0aw5p1DyAUlSuL1Ll+Y9v3j0t/BiRYLCIHejF2eqNYlUN6?=
+ =?us-ascii?Q?BTs9iWLlH1ktsGu1+MfJwJiYV6GQZ9x/k8Fp2XldgAk5qzxaeVZ56Bv65/BL?=
+ =?us-ascii?Q?HbycBA3fAwmzB34LK/9JJbVM/i5yDwFmhD83XtLZA18iktbf5NiZwh+ZZNir?=
+ =?us-ascii?Q?rRZkKyvOiR8brraVFXBHhcazQJ9hTUO+OUNkxowCD6gvT3dwyN8tNrHq/8rE?=
+ =?us-ascii?Q?gMyPqPBCUjQRXOnzxpJHrRU0yq/4wv2vgxuf4I+ZwEYgrcFVRptvMW4oeQ7F?=
+ =?us-ascii?Q?CsRUDHvbCQ2W+B0+8aCYPEU8WUSrZlgxBTE4st0oMZp6ie48yF8Q+nqxj95G?=
+ =?us-ascii?Q?LACngeJOOc2m2GCbthCVTmuoSknwNgALXIuNS8xxsMkTWfseooIViU/4TQ53?=
+ =?us-ascii?Q?lFdM/3ki/oQ6aDuQzhzk+QSO3nBywzzWG3cVjmMT2Ouk8nJSdm1qvzV2mPYS?=
+ =?us-ascii?Q?J4DgFy8Y2Lenh5dPIeRET2xG6SQkNjQJP6Zr9xhRWQu6Gwmxwq4n1jKjOGtJ?=
+ =?us-ascii?Q?70L8j9KWfp7QF8m8NbNWpk6puNxCxbvSGBjcBmJHDeaNk3Cruw9BtTW7deoy?=
+ =?us-ascii?Q?VNvSBroXnkhjGzIlkB/y5MU9Q9/qZUMCzYp/2dcUHBRSmpDRbonSFleOlL5v?=
+ =?us-ascii?Q?5bNndq1exYkaHOIUS64ehvuPVNWBZOS1VYxg7N4kzjCuNfgT255tnOGOc/po?=
+ =?us-ascii?Q?zSp+nnv6YMW2EIonHS5DOozcKE4W2OGAM32JjQdF1FPNFvYO3aXnX/qBUlUz?=
+ =?us-ascii?Q?c5XrrxwOuTU+ykYgQgGFbkY2AlrVY5+QVmp/nALbzw5qnY6ZIGcF+Bcqz3Sr?=
+ =?us-ascii?Q?X8q8brIN1445wZc+OlXw41tAxcZRoqzR04uqCzSCa8vNqP4R6siX4s9msErd?=
+ =?us-ascii?Q?qx9EDjDs/hiJjlQ7bsb5ais3+zHqwsLNjjoE0ezFO/eQnVD01Ei2Ke5rp+Nu?=
+ =?us-ascii?Q?gO6aGcdIwI488DaThxs0aOhiQtISTStWCPGb+cU354jaTNUkYxgucYvfUDO1?=
+ =?us-ascii?Q?BiqmlpQTQ3yMpp0TloXWILQVRySqmx81AlQaW2vGng0u6tywt3DhjJZVFHqh?=
+ =?us-ascii?Q?UAEgYczbFJYzi5FOzXrKefZ1ygmxhm+xqrINT06x6NUZB1HgjbLWsCpcLJvu?=
+ =?us-ascii?Q?XM9nC3pQbI3mwjiyR4xtfSavxmxHmOMLm0A9e7M8jsJeIRfc0xg7e3fT0pHH?=
+ =?us-ascii?Q?+4o3kkHHfgsnIQy/B2Ne4kYAhRxS4Gr0MVvvNvByUuLuMRs6dF7gKnKJrSYJ?=
+ =?us-ascii?Q?QeJ74dnrZ1EXcHVymnPxDWodHm1kCYxBhjLEGeTfYYIfXHoBqcdMMe44eKjO?=
+ =?us-ascii?Q?KQv7Hd+KL2bE42p3GsRp5ns5/UiB10nxRl7tefis4S48Lf7TrRe+u48a8wrT?=
+ =?us-ascii?Q?hBmD+d/jwpvY3o/XYi9Xp6d/iTfxfn8nGsp1xhMvOAdlIeq8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 946647a9-efcb-421d-6a15-08de806b801d
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 19:13:53.5379
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H60njgQjtYnmTHFmmQ5KeMcZKNQ2edc/vwehXHgSDZdV//lGm/5lF7mYPKF5altTE+iAfIdngNSrRQH/G12p1Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_120557_042936_3CD967BD 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20260312_121401_122007_581B6C32 
+X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,131 +150,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+From: Frank Li (AI-BOT) <frank.li@nxp.com>
 
-On Tue, 10 Mar 2026 at 12:49, Sebastian Ene <sebastianene@google.com> wrote:
->
-> Introduce a registry to track protected MMIO regions that are unmapped
-> from the host stage-2 page tables. These regions are stored in a
-> fixed-size array and their ownership is donated to the hypervisor during
-> initialization to ensure host-exclusion and persistent tracking.
->
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> ---
->  arch/arm64/include/asm/kvm_pkvm.h     | 10 ++++++++++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c |  3 +++
->  arch/arm64/kvm/hyp/nvhe/setup.c       | 25 +++++++++++++++++++++++++
->  3 files changed, 38 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> index 757076ad4ec9..48ec7d519399 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -17,6 +17,16 @@
->
->  #define HYP_MEMBLOCK_REGIONS 128
->
-> +#define PKVM_PROTECTED_REGS_NUM        8
-> +
-> +struct pkvm_protected_reg {
-> +       u64 start_pfn;
-> +       size_t num_pages;
-> +};
-> +
-> +extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
-> +extern unsigned int kvm_nvhe_sym(num_protected_reg);
-> +
->  int pkvm_init_host_vm(struct kvm *kvm);
->  int pkvm_create_hyp_vm(struct kvm *kvm);
->  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 0808367c52e5..7c125836b533 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -23,6 +23,9 @@
->
->  struct host_mmu host_mmu;
->
-> +struct pkvm_protected_reg pkvm_protected_regs[PKVM_PROTECTED_REGS_NUM];
-> +unsigned int num_protected_reg;
-> +
->  static struct hyp_pool host_s2_pool;
->
->  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-> index 90bd014e952f..ad5b96085e1b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-> @@ -284,6 +284,27 @@ static int fix_hyp_pgtable_refcnt(void)
->                                 &walker);
->  }
->
-> +static int unmap_protected_regions(void)
+> +		assigned-clocks =<&scmi_clk IMX94_CLK_HSIOPLL_VCO>,
+AI: Missing space after '=' before '<'.
 
-I think the name of this function is confusing. It's not really
-unmapping, it's donating the regions to hyp. Maybe
-donate_protected_regions() or claim_protected_mmio_regions to reflect
-that we are doing an ownership transfer?
-
-> +{
-> +       struct pkvm_protected_reg *reg;
-> +       int i, ret, j = 0;
-
-Please don't interleave the iterators with ret. Moreover, you can
-define ret inside the loop below. Also, you don't need to initialze j.
-
-> +
-> +       for (i = 0; i < num_protected_reg; i++) {
-> +               reg = &pkvm_protected_regs[i];
-> +               for (j = 0; j < reg->num_pages; j++) {
-> +                       ret = __pkvm_host_donate_hyp_mmio(reg->start_pfn + j);
-> +                       if (ret)
-> +                               goto err_setup;
-> +               }
-> +       }
-> +
-> +       return 0;
-> +err_setup:
-> +       for (j = j - 1; j >= 0; j--)
-> +               __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
-
-This rolls back the regions only for the latest `i` iteration, not all
-the `i` iterations.
-
-How about (not tested):
-
-+    err_setup:
-+       while (j--)
-+           __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
-+
-+       while (i--) {
-+           reg = &pkvm_protected_regs[i];
-+           for (j = reg->num_pages - 1; j >= 0; j--)
-+               __pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
-+       }
-
-Thanks,
-/fuad
-
-
-> +       return ret;
-> +}
-> +
->  void __noreturn __pkvm_init_finalise(void)
->  {
->         struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
-> @@ -324,6 +345,10 @@ void __noreturn __pkvm_init_finalise(void)
->         if (ret)
->                 goto out;
->
-> +       ret = unmap_protected_regions();
-> +       if (ret)
-> +               goto out;
-> +
->         ret = hyp_ffa_init(ffa_proxy_pages);
->         if (ret)
->                 goto out;
-> --
-> 2.53.0.473.g4a7958ca14-goog
->
+Frank
 
