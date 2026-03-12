@@ -4,109 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F0D106ACF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10E4106ACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 22:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D8zOmmY8eeeaXFLebTpNVG/LsQlaEOKJAHWnrIeNJVA=; b=fDmTeqTL4djemKvA8FjWUdiP5g
-	yUO9q57cR/4i4EW+K9LTdK73j4GM3bWW+6D/ewPKTG0FgqgxeYZPZoLr/PgH3qw7UwR/jmJMWVfZ/
-	6lkr6plQck4RE1Dz1A29AhnTaU9q0Z17XGJyc95t5Mzpr4Zsn8jnCZl3ik4C05Ks5YK1MzSeABwTy
-	KpMJBRzCj20D9gtBQBOmPq3LhjPmbdjyunfBKKATnT3eyPnHhXdnEfN1jz7aaIMsrC8tQSax40LWE
-	A2lht0FSLAR+lRApU/s4p6pyWTNbVap8a/n74hVRQtQ+AXBm466ak3H6mUqtABcMLXvf+SeqkQ+Da
-	V1bqIhbw==;
+	bh=E54psImGNfS+wUOX02Nf1vwI0Mzm5awsBJNd8JsUlt0=; b=0GP1fgMpLysOX6vw3sJKKg7f9a
+	tzqhXRfkUTolCC7na5GSU9UNXrPG1nLqKI3P1iJB9dh0TLSmHFONRt89m3T+Z+DqwvbaHfEnM/HUQ
+	FJyfQaIor0+Rg1oVkk9ORelO+R59vw4P06xkU16t2WEX4/elE0+JIl/UwYScCsCuCGKo8yJi24VN+
+	mFnIqw1qSnpZZmwOjBb4CTvpTRu9P+1Qxoqmc/+Pv3J5dKZVDFsBCtcSUfdLw/3E2JC9JXQywaMj9
+	nk0QEa1jo/RqXtJ8iGvdoqLfiwvp2Dxm1UysWKnlup9XJMxNi0Lvjb2aXTGJSKuH91CjLhdLTPkPQ
+	6kq2tpXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0onk-0000000FgfE-2ViB;
-	Thu, 12 Mar 2026 22:46:44 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w0orb-0000000FhNa-1FdC;
+	Thu, 12 Mar 2026 22:50:43 +0000
+Received: from mail-northcentralusazon11012004.outbound.protection.outlook.com ([40.107.200.4] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0onh-0000000FgdP-1rOw;
-	Thu, 12 Mar 2026 22:46:42 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62CDgn1g2259751;
-	Thu, 12 Mar 2026 22:46:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=D8zOmmY8eeeaXFLebTpNVG/LsQlaEO
-	KJAHWnrIeNJVA=; b=d5n+sU79eoOn9F5TNsG+WjiggtWrEcbsRVXkeBYiV5vWYm
-	ivMwqxRtuuKxHBJLTmN0R/EqcQKgePNMaxtoFO/195J0uARNgOoPFezHGAkG79Gb
-	tnIL4WjD+hjdGThr2+ba0V1/7vl0opoBJ8EpxzsOcustk/WNZ9IiGR5jekM04X2M
-	X3SY1v3FwdqCrjDcUcaePqQc6Uy9a6NrXfEvRVJp3bjvg5L4B6paFgbVwJSrz05M
-	wFsopL+3T8BfZuZN/7q/6aPP6SOL9qSDoFDPzWQDVaNcRJ/y/UFkdI4+tt9KHvUd
-	Fw9mNp3mxrlnWGv8acyW3h8aS65PyJpXirrQulfA==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh92d53m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 22:46:29 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62CITFZx025686;
-	Thu, 12 Mar 2026 22:46:28 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cuha8capw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 22:46:28 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CMkPHL16449894
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Mar 2026 22:46:25 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0B0192004F;
-	Thu, 12 Mar 2026 22:46:25 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 279A32004E;
-	Thu, 12 Mar 2026 22:46:24 +0000 (GMT)
-Received: from localhost (unknown [9.111.83.60])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 12 Mar 2026 22:46:24 +0000 (GMT)
-Date: Thu, 12 Mar 2026 23:46:22 +0100
-From: Vasily Gorbik <gor@linux.ibm.com>
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Subject: Re: mm/pgtable: Support for page table check on s390
-Message-ID: <ttbt5xa@ub.hpns>
-References: <cover.1772812343.git.agordeev@linux.ibm.com>
+	id 1w0orY-0000000FhMc-0IRi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Mar 2026 22:50:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YIYvOb9Mmix0i11tKyEjnU4LG9Exl9NikuF1DfEQRaPUCrdBYTNrd3Hm7/sjTe+wI4H2VruumT95t+CB4bIJHK8BBSzE00vb+UgiibJ4syN4AlBoTBSHGQkZFIRrvuZQtezGZHHp+lRvfDrP/XT8JntzCTTtvw+SzGXo+FwV7aep+l1GHRWoOMSNJW5M688NYAAoLFx/PrOQu+8BddS4TVKxFD7C+pvWYet84Ylscx5HUKXW0VZUHvisiIBp07tV8SmW5SDA/YZvra66semvqwsvNP+KWTL+JWsTgV3nVyogGmsCoRcnAoWwmZVkNGaBY15wYy1B045Upq8sbJ57IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E54psImGNfS+wUOX02Nf1vwI0Mzm5awsBJNd8JsUlt0=;
+ b=V7mMR2W8Fvjs6ubyfnxXFbyXbVN5P6k11+z6mC96tX49DNAK4Pjs0msLGO9yx8Y5E3TsLv5EsACBrQQqVkWh8AUwnYXTjNLz+SW46s1mQhcRrURPsI1vOfzMV3xl8WyUKGTTF65hwdYXiG8xEJbfOmu9JLQiTPlwKaH43zt4n+eyRiaCPjk3W+tvQ25qAdUxDAtNmbygmv2yxh6jAnOqFCiQTlN1RfA0SHkDUZSrMeanyQnxJ7GJwjei5A9QHbGL9pIuNhK2Al60Wc4+7m4UStVs1NU2cx0ngssNKlAfIhh4h+clSFM91t2L2YVMXC5q9wuiY/KsSFFycwXvvISIzQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E54psImGNfS+wUOX02Nf1vwI0Mzm5awsBJNd8JsUlt0=;
+ b=UcBM+FIJn8iLlhgZDy8ieTYVPJoKlzw4BlOkPIdv9CRi2iVvQSY4dSHjTtbioFemRd7EBoNg46ZEV4B5VnDQyCfTRUXtiofLA/2WLX1iys4z9InOAGQ4niOqK+KReVzVTxAEZTk2g8LkMVuiOATlcifNWxkqCZ9qizJlZ0Y2+eMEXoTV9fTKfcVtKZvT/4L6RzOX6erfj1UalBZMbuteX7o+QBbfYR4qBbIu/yCPc57wh6CUAiYH4lxTnIEV91pI5/72+fbluvVD9qUMPzj6kP/fOJigWSHKHCaghcbbg6LsRX7PH5pa9DGuII8KmCgkt6LzLzLu+/58HW8LtFdTgw==
+Received: from CH2PR12CA0024.namprd12.prod.outlook.com (2603:10b6:610:57::34)
+ by SJ2PR12MB7944.namprd12.prod.outlook.com (2603:10b6:a03:4c5::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.4; Thu, 12 Mar
+ 2026 22:50:35 +0000
+Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
+ (2603:10b6:610:57:cafe::b4) by CH2PR12CA0024.outlook.office365.com
+ (2603:10b6:610:57::34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.29 via Frontend
+ Transport; Thu, 12 Mar 2026 22:50:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 12 Mar 2026 22:50:34 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 12 Mar
+ 2026 15:50:21 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 12 Mar 2026 15:50:20 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 12 Mar 2026 15:50:20 -0700
+Date: Thu, 12 Mar 2026 15:50:19 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Cheng-Yang Chou <yphbchou0911@gmail.com>
+CC: Pranjal Shrivastava <praan@google.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <jserv@ccns.ncku.edu.tw>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allocate cmdq_batch on the heap
+Message-ID: <abNDK/d/8CpLhcyb@Asurada-Nvidia>
+References: <20260311094444.3714302-1-yphbchou0911@gmail.com>
+ <abF6un_jrQ8zGZZ4@google.com>
+ <abMEybRcTskHOjd1@eric-acer>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <cover.1772812343.git.agordeev@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: XSb0EpCLqP-VvERd6yxhMyLpIuUmwWro
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDE4MSBTYWx0ZWRfX1dmLEh8veiIG
- JPH+TX+SKowHwqfzMq52we/QWAIDL+ZWYZX2jNbNGdZowW55EvpX8g/DRRACVzpVxsDhn+zENCd
- kt+vKYAw/S0oFGmt301uYKsD8hvRqZ8fzz7zhkSDwM+JaLyyhRiAgeGOnJ3hPl8tMmJ3cimrUTc
- QxD42P4vOhD0rEmJgmsyoBM6UnZ2cuDggfUF1CvtrrM+0LTZMLXqib5gODqi8G5g5/v7TOrtO19
- BcefUJ3xyGScJjhjkOzB/bUvD0msMt3gV9bVz0N7NvXQvpjkMyIFQG1IzgLmoPzrwhMTNoxMVFn
- Y0+8Amm8ExMPHkvoKIs8uraV6X8nzMyL0sT+rQUB8TJBgiVffvSrLfCwlAF1YfotN+3Js3OLFLS
- gs6mYwnnXZwsfG731r2xvnOUuIsc631T935DNRics0rmn4wCRiCXWx3KSKEofuyW7vZfthOAG16
- 0tM/zg+0I6iru1bvr5w==
-X-Proofpoint-GUID: XSb0EpCLqP-VvERd6yxhMyLpIuUmwWro
-X-Authority-Analysis: v=2.4 cv=XNk9iAhE c=1 sm=1 tr=0 ts=69b34245 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=euGEXw6tGDjZIu8w7pwA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-12_03,2026-03-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0
- bulkscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120181
+In-Reply-To: <abMEybRcTskHOjd1@eric-acer>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|SJ2PR12MB7944:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23f9664c-a757-49de-38a8-08de8089c5d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: /9ROpbfTbSjDJW8Sxq4jfYJKq8CM2zXPvV9Z2ArPl+0gHtIF4fEKt1dPmNXRnrxnsNwfzqKRZZgWdywBEkQviVJe+upmpYE2vRQQmLqWzvRbjkGixK3J+0vYSnxJRlOM4NqGy6TmZLoowpoQdcTnubQyjdWyG1sH6uX1RGNXC0Zs3hoqhhlpW4BVdiSxgCSJXay+TQSR7+eUdNcExFw3MpuguBJmXKv1bfUFaDbONg6HcbHOwM69c3FsetkGaicieNvYM7C2aF3nRHxqYkUhMqg+hqKO/yVlFSvRusX233wni1RUR7md61GtYZmklpBPY2yUMPRTy+B4qc1PrMsMIAN8zQGLSnYL5kmWN3/TlIJ+Totz1UXWvHOum8StoPbBnVncQ7vhJCLks4vNrVBN9VKgufyvHwuyolpIXtlHkuMhlJ/vML2NBIy4CkVxrqkafe7VzMWLWnh9by+35wQBlTls9LX/l13WIhQmn80WFzuNHtUSzh5s4PSJO7O+qTusmYGvAjD2IR4NO8qyi7dUNbU38s1wV7SMPoFmDdqSlHuNja/J3n+Vgeho1xsnz+Ds448X6thZGIoDhAjnK7+dqfFRwIY8fowtgVmh54YX1DMmer6c8vj10kYrGqRuicsUQk3p8aPDt4jXi2TCOKKP62E5/Ac5icFrJN9cn2oy+GCEMdmZQSYFE76CT2mFW4U1fwaOciGi4R0cSQswe4vKieQt7xad88dbi3i2Ogb0bqKn4pMToHJO3R4BHtqBFpStLk0j/Ed60xsAjd/8X6XZHQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AtfE4WH6ZpDJWnxsLV8k94GGDWjoGHjTgo0Kvw0Risg4wwMHS9gNfT3z0pycfTcJp6FEFXCJBVuJ7Us8J2FHYMw0HXZg3EtO4We7vG4jJ1bv1oSi2nlhxMPF6Fo48vBN64BkiIuxnbmWtoXe3Y/nBbc0KjsT7V1tIrBM2eCf+Cl3ilJnjfRIBZcEVCb2tryWb4Llsaq9+km/0gtH2EB9K5FF/qpni7ejLrI0CdAJ3jEERww4gAMHfe+QQsl8SlN7MEmFNYGiJID7hJpSD15kcS0dqRFIdj3QAc3MIj3KFeZH/DKgB4d2MgtIfZ/bfw0MCkZid4RMugpkPXuDoS4NlfZCwBwHLE/A3GyXlu5CfNoh74tBLxK2icaHGSUQmF3XNtfLlG801TOdtZomntmr7zYBTuIeNg7ghmlBltnF3RPlXAtqXdoiFn32vTXYICh1
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 22:50:34.9974
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23f9664c-a757-49de-38a8-08de8089c5d9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7944
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_154641_482707_1B65BCEF 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260312_155040_127945_38F36DA6 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,37 +129,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:16:29PM +0100, Alexander Gordeev wrote:
-> Hi All,
-> 
-> In v7.0-rc1 page table check support for PPC was added, which
-> conflicted with this series v1. Thus the only change in v2 is
-> PPC headers update, which still is NOP for non-s390.
-> 
-> I only did compile test for PPC.
-> 
-> Thanks!
-> 
-> Alexander Gordeev (2):
->   s390/pgtable: Use set_pmd_bit() to invalidate PMD entry
->   s390: Enable page table check for debug_defconfig
-> 
-> Tobias Huschle (2):
->   mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
->   s390/pgtable: Add s390 support for page table check
-> 
->  arch/arm64/include/asm/pgtable.h             |  6 +-
->  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 ++--
->  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
->  arch/powerpc/include/asm/pgtable.h           |  4 +-
->  arch/riscv/include/asm/pgtable.h             |  6 +-
->  arch/s390/Kconfig                            |  1 +
->  arch/s390/configs/debug_defconfig            |  2 +
->  arch/s390/include/asm/pgtable.h              | 60 +++++++++++++++++---
->  arch/x86/include/asm/pgtable.h               |  6 +-
->  mm/page_table_check.c                        | 15 ++---
->  11 files changed, 80 insertions(+), 34 deletions(-)
+On Fri, Mar 13, 2026 at 02:24:09AM +0800, Cheng-Yang Chou wrote:
+> On Wed, Mar 11, 2026 at 02:22:50PM +0000, Pranjal Shrivastava wrote:
+> > IMO, if we really want to address these, instead of kmalloc, we could
+> > potentially consider some pre-allocated per-CPU buffers (that's a lot of
+> > additional book-keeping though) to keep the data off the stack or
+> > something similar following a simple rule: The fast path must be 
+> > deterministic- no SLAB allocations and no introducing new failure points
 
-Applied to the s390 tree, thank you!
+> To resolve the stack warnings, I'm considering using per-CPU buffers in v2. 
+> Does this direction sound reasonable, or would you prefer to keep it as-is
+> to avoid the added complexity?
+
+I don't think per-CPU buffers would work here either..
+
+arm_smmu_atc_inv_master() is used in a preemptible context, while
+arm_smmu_atc_inv_domain() can be called from an irq context.
+
+Think of a !SMP case for simplification: we only have one per-CPU
+buffer, which is not enough if an IRQ preempts the task context.
+
+Maybe having a smaller backup array on the stack that can be used
+when the heap allocation fails? Still, I don't see how to address
+it elegantly without losing some of the performance optimization.
+
+Nicolin
 
