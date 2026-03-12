@@ -4,44 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D522D105A594
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0258105A593
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O47sIF8zQKYoqYAlMRmvipbo3GkUFYMUhAMMwnpwdyY=; b=WYKhNRaC3Fb6m5JXss94RTRhLg
-	00o22Wh7zbsNRWW4gbqczHMM5OBDk0BKqUJQjg+voiTdqWXgeioUJixuFvB4UeBDtAeZLpDH3wJPQ
-	oZiSGaiq1xATr4DZ9ixTkvtDEY/EeEBdr5xPcJdifmBJF+RUdfovFp5a6HrB/cKWNWB/tm/AnfSq/
-	HOrscDNPBjr9hz9i/+jugrHtjtA57qwmg7jwpek34ilsSC/f7f7WzJZjD9mByxMdQKWggz8uakcFS
-	HGqO4TswcgUTSJe/1JZqoYH5KZIW2N0j7puth3cc0i54Tg5qDkeT6c5nzD1Wl/ke19PI+DH1FLU2f
-	rEnEiKfA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xlTkkdBRxtJaKAxYoTfiRED2nKOGQ+J6g5fVtN4/y6M=; b=dvg/lk8OJGtgVOMp5Qiam4PqSO
+	qh8JCg6LYUWvHctJSY+UHl2QqW41bbrXKL9ZzwYFztDW6csjxHKStYcPbw8WzOZEo7wTzQYEzERuT
+	siHFOQu8JigsmORXYFoCdYd0StkxfzseF2DpmTFbrJl0aIZU83hhm7dSqckWpgxqlMwcM/4jTi6ry
+	Wju+aoOnoRcORqMmfMeTBEt667KqK+Ejs7eCZkPFbmHmhNexamCOM2bLHWqIAqI/SPOhzcYgRJrp9
+	LICMYF8uM6yM4hhNl2n4WLG/HdMIliBQjzSY99jvOXBh91nFQ/5qf54tLF04es4+AdAuPzCXRTXIz
+	b+bzUTPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fGt-0000000E3Ur-2FqJ;
-	Thu, 12 Mar 2026 12:36:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0fHS-0000000E3fS-3oCW;
+	Thu, 12 Mar 2026 12:36:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fGr-0000000E3T9-1FYo
+	id 1w0fHR-0000000E3en-2G1a
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Mar 2026 12:36:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xlTkkdBRxtJaKAxYoTfiRED2nKOGQ+J6g5fVtN4/y6M=; b=NPG5MdcqA1TAYHNJCOuf6KTmSq
+	IxuIxxpvsDEZkm+Lm4wn/bOE4ZzrJ8+ZzBAmdJ2HWSBAulsRe6oQKzTlZ1oFXFcpQtnv/7lc7uwBG
+	qA297WD8t7aayzCeGECjk81TFr/Y8bYYqpggpJDAnJ8oj3ysNpg5lgjAwLpmFWLpYVu54s2USBC/z
+	5e8OH84EK5YpaTntw/+5/gDuHH3Hn6stpiD5E+ifSoFieRLyxqw3sZFEZPxT0lPTewRcfoGBpZOcN
+	JWOdOa6BqSrKL4uzbhLLjXiyF+cEfNUX8qGhnQIc8oE+ptejMX/ItxCfSoU7LZCGYRxxnTeAiQg48
+	arlE6rSw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0fHN-0000000199d-1srY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:36:10 +0000
+	Thu, 12 Mar 2026 12:36:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CA8643CA6;
-	Thu, 12 Mar 2026 12:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B69C1C4AF0B;
-	Thu, 12 Mar 2026 12:36:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 95341418B9;
+	Thu, 12 Mar 2026 12:36:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37831C4CEF7;
+	Thu, 12 Mar 2026 12:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773318968;
-	bh=X83G1zyfy7cCirzYpJUDZb4XiY3Tr2OOZB5qt2lkQcw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=M/tPI1nqzSIdTEGcEnQl+bRkII7/fPTgtXqWHhtBdSEj2/BAXMr6mTTqUYHEKkgzQ
-	 /JPYboBSFs7yn2XYewKQQKaUmmisMmRKo0StMypYjsZzAIYhcK1HKx4BNw3TTGVZiS
-	 GaT63BCnmHa6CepfmE/AxgU53csICkZ5MEv4qRjz1DzsDdDh9ghCRfUFKVfIAJGmkl
-	 06a4eps2HGzqzQpfglGH5HUECN2A88xWHZMDPgcMqJYJOqStSI8DeCAJjdFvTCsWcZ
-	 CDmgPPv5pacMD678JdR4CYmwr4egXDDtX/s6ThPtj+79CUOslzVZHZ/Rk+bMvUP7ma
-	 716EUl0l2mKcA==
+	s=k20201202; t=1773318997;
+	bh=+K0U+39fI6wepOOuuwvoFFE12C+9HDXiqtjIeKJef6M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mm7RTqcw1KSrwUNMR0dCj+/GC69aa573HNd2XeT90H5+nPXEcDbtZc7IH2Cdkavbd
+	 1OPjRffOohUaPZoL3b9pWsXAJL1dpkSHzBa5WeUNh8dZWdhd/XSl/BcEYsk6oFv3iF
+	 Y88BQDoAdlJWczl60f5IRplcLYkJDwXNg/rOR8XAExLvFt8Ir0q3A2KbKk1+xZNhh8
+	 KYhGQnDYZJZOD+m3FzR0yNi36m7aVvpHItRLGMxGaemBvBe2/Ad7zHNYgiOxq3f06j
+	 175YOv8ovz54havhpEi1aMV7NoCDwsMvnHRdehy48S9K4qwRzRjNvM1VFKe8P+UCqp
+	 DxaT9+ZkOcrFg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Vincent Donnefort <vdonnefort@google.com>,
 	Marc Zyngier <maz@kernel.org>
@@ -53,18 +68,23 @@ Cc: Steven Rostedt <rostedt@goodmis.org>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] KVM: arm64: fix include path for ring buffer implementation
-Date: Thu, 12 Mar 2026 13:35:42 +0100
-Message-Id: <20260312123601.625063-1-arnd@kernel.org>
+Subject: [PATCH 3/3] KVM: arm64: tracing: add ftrace dependency
+Date: Thu, 12 Mar 2026 13:35:44 +0100
+Message-Id: <20260312123601.625063-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260312123601.625063-1-arnd@kernel.org>
+References: <20260312123601.625063-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_053609_358600_79BDEF46 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260312_123641_686651_0FBCD876 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +101,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The simple_ring_buffer.c file is in the source tree rather than
-generated at build time, so the include path is wrong when using
-separate object trees:
+Selecting CONFIG_TRACE_REMOTE causes a build time warning when FTRACE
+is disabled:
 
-arch/arm64/kvm/hyp/nvhe/trace.c:16:10: fatal error: simple_ring_buffer.c: No such file or directory
-   16 | #include "simple_ring_buffer.c"
+WARNING: unmet direct dependencies detected for TRACE_REMOTE
+  Depends on [n]: FTRACE [=n]
+  Selected by [y]:
+  - NVHE_EL2_TRACING [=y] && VIRTUALIZATION [=y] && KVM [=y] && NVHE_EL2_DEBUG [=y] && TRACING [=y]
 
-Include it from the source tree instead.
+Add this as another dependency to ensure a clean build.
 
-Fixes: 680a04c333fa ("KVM: arm64: Add tracing capability for the nVHE/pKVM hyp")
+Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/kvm/hyp/nvhe/Makefile | 2 +-
+ arch/arm64/kvm/Kconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index 143d55ec7298..3d33fbefdfc1 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -33,7 +33,7 @@ hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
- hyp-obj-y += $(lib-objs)
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 32c7a4f85e75..bcc87f9dad33 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -78,7 +78,7 @@ if NVHE_EL2_DEBUG
  
- # Path to simple_ring_buffer.c
--CFLAGS_trace.nvhe.o += -I$(objtree)/kernel/trace/
-+CFLAGS_trace.nvhe.o += -I$(srctree)/kernel/trace/
+ config NVHE_EL2_TRACING
+ 	bool
+-	depends on TRACING
++	depends on TRACING && FTRACE
+ 	select TRACE_REMOTE
+ 	default y
  
- ##
- ## Build rules for compiling nVHE hyp code
 -- 
 2.39.5
 
