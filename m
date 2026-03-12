@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B3E105A593
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E7A105A594
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 12:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbQJnucOKcC3aJSLlvHeTNE5s6GI46Y96VIQTdHJcpY=; b=nomsxp55jZ3hNtPW9BSXDMZyxG
-	GRGXnqsQo7UdN1vzk0mdosoQT2dPILnxjSWAzwajMf4y4M2ZgcDMMf9dnUJHDdueI5i+w+qHol5Lw
-	8G2T+zJxJhApLI9WwQ/xcpAz/mZwuunW/U8W862YLHbw1fbbLgonX8quhs8rYZJNQ4HTjtGh2lOzE
-	Kadfd/ZWvDebLR9hTTv7r9tJERREf+7ULa1+zLKui8MRO2jurVlIDtkyviCyUhz6xhfnXCqJTcVlG
-	qlIKAK7rosgi/ylFiljmtXaYXjdjvdgKAB7jjZfYKSxgyYjeKJ32HyOOK9FFsgiiwQ2ZLuBIy/0IJ
-	L+KCe1NQ==;
+	bh=Cu0/vkFmMk0Ue8ZkW498EotzCpiawJx4KvRh/Hyd1uQ=; b=BPYJp8r7VPJ8o11kVEZs53N18U
+	hEZzzzIXDdDgYwBL1eBYqRVwWfnB3435ZquDbGhEcZtuvQITmrFxb6UV4xc0OLUMSwQ/HPg/zq7Oi
+	qaerlJrR/Myxle+q/+EnEYhNZJxAeKmmLlIQeW97d1v8VF9CL5VxAzuMu9HQEO+hUdWkHyYLdEZlH
+	L2zMcEmfJLPmKcgIXwUsyH5+RmvlMvJ3o/QdDEnJlcIhMcKOzOVYBEHzoaBDzkIfmisVUwiRtpNec
+	mllHTJVMcOV9DgJPlus8thaly2Fb3ZO20dZVZzIOwn/DB+f5mGAptHfG87ehkRaZ/TebFPqts0Xah
+	Cf0Bz65w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fKn-0000000E3z6-0D6Y;
-	Thu, 12 Mar 2026 12:40:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0fR9-0000000E4Mn-1HeG;
+	Thu, 12 Mar 2026 12:46:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fKl-0000000E3y4-2Jtu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 12:40:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D5AD60141;
-	Thu, 12 Mar 2026 12:40:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0E01C4CEF7;
-	Thu, 12 Mar 2026 12:40:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773319210;
-	bh=PufnIx8LdWeVV3gpXlB9jKSjN6vMEdvNOnxRzhERNV8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=EXh/dFryv1w0ZniWRmTcjnfaGqaeTyFvQ4PXqyrw2dcx8PR4sU514nSObKn7MXx69
-	 fvgZ/PKVkG1uUwYd+vLGdMzw38+Hf0buXqjfCJKCFd5cZftC5tGrPsFggAv+uBZaPp
-	 Nih0la3jHhXzJJeY7looW0HHXaKssxciyCZvxx0qHpOAZG1NiEjtZK63joyPcKSe7r
-	 ijhNDxyf0AQ1LzsBZInsTc4pNY/F81rUftwxc+mHL/B+l6hB9oUISpFf6LuWgYo3xm
-	 gMz0YkfDSPmGT/d3V8zwr42Ai0wQUZS5kab7iKhZkbv54g1TY/tSLTfqG2BdtNtxNs
-	 dOtoupXZTM8Ow==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F2D3808200;
-	Thu, 12 Mar 2026 12:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1w0fR7-0000000E4MD-2rf1;
+	Thu, 12 Mar 2026 12:46:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773319601;
+	bh=mY+91mincze6m6Vha1kTJqvDpfgu54oXIdulrrOWVak=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jVierYV/GlJ8hYRKH5G0X3lUl+ORL1jv32MHDZPBr8uxj4Qg8i6fdzr2QgGOHFwXs
+	 UOls6/3zWdZT4CPpTYj7JUvCDTSB8lVXMqZXbV7K5zWYlKA0hRckuJES4CXKwnLPQ7
+	 rSdxWXl3iErmSh9C2vN03XFrXSR7uNNz5gSA/EmBkyPDGWe05E/cXd76aUn5/2eOCX
+	 FVfN6cL2YecwE602yiAeVnt2VX6P/RP2WeTZwhKnLiU+X+9X93CcCdaQTUl7NG64E/
+	 CyfThuVug++ZhGNRd14tzJiby6TrwWQZ0Mhsn2IgBvGy2iM4PdgMrnAqTPtrqGFs5n
+	 sCgN5+eQoxiNg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C776017E0E6C;
+	Thu, 12 Mar 2026 13:46:40 +0100 (CET)
+Message-ID: <108e6fad-401c-427a-bc30-8ddd00bd93a5@collabora.com>
+Date: Thu, 12 Mar 2026 13:46:40 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: ti: icssg: Fix wrong macro used in RX
- classifier configuration
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177331920555.4084292.14837207705389854005.git-patchwork-notify@kernel.org>
-Date: Thu, 12 Mar 2026 12:40:05 +0000
-References: <20260310132035.1299787-1-danishanwar@ti.com>
-In-Reply-To: <20260310132035.1299787-1-danishanwar@ti.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] pmdomain: mediatek: Fix power domain count
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Adam Ford <aford173@gmail.com>, linux-mediatek@lists.infradead.org,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
+References: <20260210053708.17239-1-aford173@gmail.com>
+ <CAPDyKFrsMY8q+rvrbOdppYnefX6TA1-EhF+e+pGG6k49KpeTRA@mail.gmail.com>
+ <7fd891b7-b1ff-4668-ac99-8f8ac244d90c@collabora.com>
+ <CAPDyKFqbS+PUkLXkjoHjbiVFCYM4FxQeHdJk_LVVfLA5nGEZ-A@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAPDyKFqbS+PUkLXkjoHjbiVFCYM4FxQeHdJk_LVVfLA5nGEZ-A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_054645_888202_5251FB1E 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,30 +83,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Tue, 10 Mar 2026 18:50:35 +0530 you wrote:
-> The RX_CLASS_OR_REG macro is being used with RX_CLASS_OR_EN parameter
-> when writing to the AND enable register. This should use RX_CLASS_AND_EN
-> instead to properly configure the classifier AND enable register.
+Il 11/03/26 18:29, Ulf Hansson ha scritto:
+> On Fri, 6 Mar 2026 at 10:50, AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 12/02/26 12:34, Ulf Hansson ha scritto:
+>>> On Tue, 10 Feb 2026 at 06:40, Adam Ford <aford173@gmail.com> wrote:
+>>>>
+>>>> The wrong value of the number of domains is wrong which leads to
+>>>> failures when trying to enumerate nested power domains.
+>>>>
+>>>>    PM: genpd_xlate_onecell: invalid domain index 0
+>>>>    PM: genpd_xlate_onecell: invalid domain index 1
+>>>>    PM: genpd_xlate_onecell: invalid domain index 3
+>>>>    PM: genpd_xlate_onecell: invalid domain index 4
+>>>>    PM: genpd_xlate_onecell: invalid domain index 5
+>>>>    PM: genpd_xlate_onecell: invalid domain index 13
+>>>>    PM: genpd_xlate_onecell: invalid domain index 14
+>>>>
+>>>> Attempts to use these power domains fail, so fix this by
+>>>> using the correct value of calculated power domains.
+>>>>
+>>>> Signed-off-by: Adam Ford <aford173@gmail.com>
+>>>
+>>> We should have a fixes tag for this too I think:
+>>>
+>>> Fixes: 88914db077b6 ("pmdomain: mediatek: Add support for Hardware
+>>> Voter power domains")
+>>>
+>>>
+>>>> ---
+>>>>    drivers/pmdomain/mediatek/mtk-pm-domains.c | 2 +-
+>>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+>>>> index 58648f4f689b..d2b8d0332951 100644
+>>>> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+>>>> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+>>>> @@ -1228,7 +1228,7 @@ static int scpsys_probe(struct platform_device *pdev)
+>>>>           scpsys->soc_data = soc;
+>>>>
+>>>>           scpsys->pd_data.domains = scpsys->domains;
+>>>> -       scpsys->pd_data.num_domains = soc->num_domains;
+>>>> +       scpsys->pd_data.num_domains = num_domains;
+>>>
+>>> Not sure this is the complete fix, as scpsys_add_one_domain() seems to
+>>> be using the wrong value of "num_domains" too, no?
+>>>
+>>
+>> No, scpsys_add_one_domain() uses num_domains from the soc_data for DIRECT_CTL,
+>> which is expected. Maybe that can be improved, but it's how it is supposed to work.
+>>
+>> So yeah, this patch is resolving an issue, and it is a complete fix.
 > 
-> Fix this by using the correct RX_CLASS_AND_EN macro parameter for
-> RX_CLASS_OR_REG when configuring the PTP duplicate and HSR tag
-> classifiers.
+> I had a closer look and unfortunately, it still looks weird to me.
 > 
+> More precisely, we are allocating and registering a number of genpds,
+> that corresponds to the sum of "soc->num_domains +
+> soc->num_hwv_domains". The index each genpd gets in the array (struct
+> genpd_onecell_data) must correspond to the index specified in DT, for
+> both a consumer-node and a child-domain-node, right?
+> 
+> It seems like adding them dynamically changes the index. In other
+> words, the index specified using the "reg" property in a
+> child-domain-node, may not match what a consumer-node should specify
+> in its "power-domains" property. Isn't that a problem? Perhaps not,
+> because we never have both "scpsys_domain_data" and
+> "scpsys_hwv_domain_data", but then why are we adding them in ->probe()
+> with "soc->num_domains + soc->num_hwv_domains"?
+> 
+
+As you understood, having both is not really supported right now, and the
+intention there was to have the flexibility to do so without restructuring
+the entire thing in the future.
+
+Though, from what I understand, the confusion comes from a single line (and
+reading it again, I do agree, because I got confused myself for a moment as
+well, and I'm the one who wrote this, so that's bad bad bad):
+
+	num_domains = soc->num_domains + soc->num_hwv_domains;
+
+where, to avoid confusion, this should've been:
+
+	num_domains = soc->num_domains ?
+		      soc->num_domains : soc->num_hwv_domains;
+
+(perhaps with a check `if (num_domains && num_hwv_domains) dev_err(only one
+  supported)` but being this taken from hardcoded data, I'm not really for it)
+
+...and still, like the proposed fix does:
+
+        scpsys->pd_data.num_domains = num_domains;
+
+
+While I agree, again, in that the code could be improved (and it shall be),
+how the logic behaves, right now, with the proposed fix, still looks good to me.
+
+I can eventually just send a patch that clarifies the `num_domains` if you prefer.
+
+Cheers,
+Angelo
+
 > [...]
-
-Here is the summary with links:
-  - [net-next] net: ti: icssg: Fix wrong macro used in RX classifier configuration
-    https://git.kernel.org/netdev/net-next/c/8e7adcf81564
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> 
+> Kind regards
+> Uffe
 
 
 
