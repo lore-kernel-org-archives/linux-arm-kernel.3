@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B6B106705C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CB5106705E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 15:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KeehGpxCmRtRJHUVE1AIUDSSmmOUpqcmolBf5xwx4fM=; b=pdpOFBVzFLoOoL
-	J7KD9Z+kq5QLMPRnRBlVuphvzF+6igyZJgnlotqi1fQ/5ME79pMEQdhkvB7Pl2Sp9ZaeVdtY4tXZI
-	m+v3tD6cXi1li62Z9BKyvuzkL+ckW4fv1dnAksZo5oPKYbQFB+oMoqWmQMmL6lWkPZtheoTp37CNr
-	WU+HcEQNvZfXQpHkY0cLE6EaJKBGRFS3RmaJBhSsezLJrBXE5AwjErI6N9rSocLQ6eujILIdiLkZr
-	+ON5kPstyBjocpvE5fiLCXxuYp9Vl01JkN9xFMZUta5Ed7f49zzD1rKE2f5zwEMMQPyzjGcjjbc/L
-	H5MnfjQq20XNsOorJtCw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fnIikZ33fceOx0YIGtLUvBXoWdyjzbgo3+1Q5/tnQ60=; b=yhg6Nv97pF7d+0VwrHd4b4Pni/
+	o5YE5P3grMfUN6Ftj3x3e0pASeZUNzBosv/z6d77N3CIGvejTtxR5fka9nTnbRpQvG7lFsVgs6RzD
+	xz7tpAKFfyOySWXAfA+o+TD34+JOJZPXazJyE6tHKc/9RCmsDlIU8rZV2QXy1rpemzk5wM/OJZ94Z
+	2+butoZymhUwViHnNJT4MhEZe+pAenPO6vZaFN1IzQho4i6kduaMGVwmhwIVhsgWiV4QocmBKN4q7
+	pbf40c8j5HPSN3BD8naTd5EhLgbr93HcqDtegl17gj6LYP3JuIvZUd2+G7Baa0VLXLQJgNTBgSJT4
+	P4XVx0mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0iIj-0000000ERX9-2hwE;
-	Thu, 12 Mar 2026 15:50:17 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1w0iIk-0000000ERZ6-40Cy;
+	Thu, 12 Mar 2026 15:50:18 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0iIb-0000000ERT8-20Od
+	id 1w0iIg-0000000ERUq-1roz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 15:50:11 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-485409ab264so8461865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:50:08 -0700 (PDT)
+	Thu, 12 Mar 2026 15:50:17 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4852c9b4158so9935985e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 08:50:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773330607; x=1773935407; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KeehGpxCmRtRJHUVE1AIUDSSmmOUpqcmolBf5xwx4fM=;
-        b=D2pPnyvEA+qAuzyRen39pkz+gwGPJotE4BVXtYMK1u5ijv+SxfFi6UJePpNmflOyt2
-         fthTRHQilyRr9WDl9/ZRDFwtu/6MiSttFSSmWTtjn+THKGUsnyD3Q0A4h1Lz21aSqT/z
-         5tgYhF+5LF/9xm5/Kp5CwF4JaTMyU84LFob59ufOI8jm9ClumySFvtFOj4+itgPK8P0X
-         Auomb0Higl5SE2+aiPKlfSe+wyl85Z2yoUqFNXOsvOYWfKgsm1Hf43YPlvDTsEKq9l6u
-         /tFHruODfc/YOOlQOT2UqeGNuMyDRskGyaFartFbzVsIt8OIVVGnE23INk1smvmpSAvN
-         eVmQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773330612; x=1773935412; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fnIikZ33fceOx0YIGtLUvBXoWdyjzbgo3+1Q5/tnQ60=;
+        b=i6Y8KCRbF7OivS34Nl+0Z2gsP9yVg0TLkR/VfeZUKH8AIpN8ZVdGgt+CSSv2L1+gW2
+         L4aC+XndK6k40iLhAXsMUP3Gs6e2y+DACR2q3w/S/ouxPHZ96L76LgpoyNs6m6iRrjeG
+         LFMbypHrPbilBQfKlugieZ1zDJsIBjnqyt712Lk2uZj47cowUHMzlpQB4XumChGDXKl4
+         3xnW0EPPRNusPCd/64pV91Yqvt6bZyZgaptbGFrYwePqI73HVOpS4gKiBQmu0yZNVuzw
+         tr54MPfjJR1hLCTzWQaxjIAQzvp8A3kx4sDzG1Ysze1BImZ2Dy5PYiaVeBNrZ7r/0clW
+         ZOtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773330607; x=1773935407;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KeehGpxCmRtRJHUVE1AIUDSSmmOUpqcmolBf5xwx4fM=;
-        b=QqSVG3O7G8rfoaxcP6iqgfJL5cBYSvwLl7vfKWhQ1BOc/QtZMC5NP2eaLH3hkXxt+Z
-         GEszVzURAHRD9Q59RztC5nkxRE2EoAuhLe1lgSj2vAoeI6Y8nb0VbzrGM3IZOnl0qkRU
-         g3VTPQ0AyfqtW8n+rvzOQoiaaWonUCpzIDYrOfdQ4hGzsEahK5+syeUhQkGBuAvWQc5W
-         TaIWhdNhjqBYjs8X75MG0Zu4NCizFtPGY1igNaGquqMku7t1aB3gJsG95vWhWlxy++eP
-         +9HYkEh+Q9/7TKfd+Yh/t8eMe8F4lSiXvx038GeCDTd+QjXXqnSejjtNuYBtIWVSRxuE
-         nWWg==
-X-Forwarded-Encrypted: i=1; AJvYcCW31J+E35pQ8hPI5JgrqKj9bD/PVjCImv0MBhHQVNOKI7DgA0z7KV3NpMs/k0Rb6LSSXLfqNRl54QNiOBRM+Cg8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz5Q5t0R/85M4wc2/pqB8UmRdfpZWkl/Qy2D2q4rVRJxXtuIik
-	OgvTBD5YtlkPnc58iLUahozYiVil7HrVi9OR5gMEJfxDuEVa9hy7+SPKaOzXUP+38Ck=
-X-Gm-Gg: ATEYQzw9ZCNwo19oVhH6OZJZWGzdzdrkpCkCVV6HJ4GLMOHziLwwkC0ZlUayUq/M1hp
-	7bg7MLjpvrDdy/HuHOhH/BOO8KeUO2TMG1aXJBzKgiK6/X9x79t59wVQoDYsP6lKvMEzWL0z1y7
-	R3Vy84GHjpCCGPrTgXAWa3XPNFnTriU10tXvLZU19E1Irj2+hmUZLcEXmA9jbeIJ0ZZOK4eZY72
-	qRNrn77aNZ/v0TRCVSfd+D7DA8l9VWWpOvVQ3OKnXuFgoFtcM0GVBMcb5tswZaI6Nnf9Q1MZfFa
-	iSx1WxyEkVDYAlZhrbMegr8+SONiLb/ZIKEYlIosxiSNtNefYiWQzgxzYJnswNa/FgRWjvYvY49
-	LdYcGMuIecJEJqt1wnwtglIAm9UoviGYhDVlc4kaZTZvbFZ+kaCH8oP63D3IhHVw1aqIa30P8CE
-	xndJtkLSg+iJnyyEllV0lK
-X-Received: by 2002:a05:600c:1f0f:b0:485:3f58:da2 with SMTP id 5b1f17b1804b1-48555b4b087mr2534445e9.16.1773330606655;
-        Thu, 12 Mar 2026 08:50:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1773330612; x=1773935412;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=fnIikZ33fceOx0YIGtLUvBXoWdyjzbgo3+1Q5/tnQ60=;
+        b=aLYhcrnJDbY3aehUZk0K2z3MEXGOOY4pIJUuIzl+muGpBoejV4feGkbrnKAKer6DRZ
+         91FxLg32/bo2rI1qixuLnN1K0fxxiFnyN4wCY92mOr7iQJAG0IhgQBpTamlyjfbDT4iC
+         qjRa78lurK8+7kaOFhIjpRIzZQZfuiEMxVPAAdosecOJmqM2JPMy8C7vKbius0AQrzO+
+         CHoNml1jkPcZyWUHT9acUtGPfyBvGkMHfaeTKjaFzpMgNngojCmFyWe/H2co5m9r5uU2
+         eYMaj/idvjmotcBMUi1wXSKmuU+8Vh1i+J9gGqeupgmFFbJK2X98BP3xhdVddoWRWV1i
+         HjqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsvM0gGURhV/cyJ2TsEqV7YJ1x9aZW9GR9BfKhXTdGKJDhl41HCC0rL7uDtdfCDYTzKmYfjORiqXLkZ4hUp3Gs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsifedBGCx/2rKuDMEdwrG6Zs7pfxVgyKLupNX5MRlEv75+9TW
+	+ipFEif0ofZspcFg0dC9UyrsxdVVhEQNWBfC40hBkKe9Dd6Jups+c1L0cp4kZa32mHav/GWL08a
+	NR94Y
+X-Gm-Gg: ATEYQzybqOgAYcty9ktKqmsQWR6W7+XDYNlxSsmNQzvQNEmLhsOVX7oO9kL7EijbgUQ
+	GXCkyUZXIuFTWPxWJbw+bwae3ExFFR+cnHvQWZaVrO+n8jBhRmcv6RYFds65b9viZdCcaoyURS3
+	rrSPPStpkRm5PM3FBy1BjG0FHY+8Q3eBeFziKXNULTUE0KhIy4pP/0R9c1Viy3gCuboZUKnrC//
+	6Y9B49oZLDF5pLmUFm6BJqxxFH2quI8XtZyXK22yxhjG0/GLdv8PiF4MhlRPxYo2OhSDCg25G3g
+	4X9u1y/79Fn/WikE1/R6aKdhWqKXh5CqWd1q465UslEw0Q/6bJS7s2l+77rhPQFz+bw6xCXOlkI
+	0lx1lBNrpQ01RnfwxtYGf7TEXawZNBeHopMGLhnttjY+6vqoCp/0mq12xr/+OtsbXz8FWlGKBzv
+	Nv9UyVcFnXt2s2ExsyaQtz
+X-Received: by 2002:a05:600c:8b05:b0:485:303b:c50a with SMTP id 5b1f17b1804b1-4854b0f064emr120153505e9.13.1773330612434;
+        Thu, 12 Mar 2026 08:50:12 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:8139:5278:cf5a:3494:5e80])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854e67ea40sm98150185e9.7.2026.03.12.08.50.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541acea11sm269787315e9.7.2026.03.12.08.50.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 08:50:06 -0700 (PDT)
+        Thu, 12 Mar 2026 08:50:12 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Subject: [PATCH v2 0/8] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
- region
-Date: Thu, 12 Mar 2026 16:48:54 +0100
-Message-Id: <20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com>
+Date: Thu, 12 Mar 2026 16:48:59 +0100
+Subject: [PATCH v2 5/8] arm64: dts: ti: k3-am62a7-sk: Add r5f nodes to
+ pre-ram bootphase
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGbgsmkC/33NQQ6CMBCF4auQrh0zHQxVV97DsGjpIJOIJS1pJ
- IS7W3Hv8n+L760qcRRO6lqtKnKWJOFVgg6V6gb7ejCIL60IqUHSCHOYpAM7NmRBgvcR/Ay5AX0
- B9NYYTXjW3qgCTJF7ee/4vS09SJpDXPavrL/rj62x/sdmDQiaejbk3Ak93ZxdnuIiH7swqnbbt
- g/0ods9xwAAAA==
-X-Change-ID: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
+Message-Id: <20260312-topic-am62a-ioddr-dt-v6-19-v2-5-37cb7ceec658@baylibre.com>
+References: <20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com>
+In-Reply-To: <20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com>
 To: Bjorn Andersson <andersson@kernel.org>, 
  Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -94,17 +93,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3504; i=msp@baylibre.com;
- h=from:subject:message-id; bh=6jsNMOL+D8KolGRI7DunLwHkPvgs8sfX18pRqxzELco=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhsxNDzJ+ra8/MHX3rUrnxOPRp/fzLI+3fvHEc2HpyWdtO
- wKEtVTjOkpZGMS4GGTFFFk6E0PT/svvPJa8aNlmmDmsTCBDGLg4BWAiTKsYGS7lfJ/59qBRTkvn
- i/IstgU3F/IY9c+6tudMDJOCWI1/vAgjw+LiT/8V0hneBy2T2mG/LCLIwaFvmfVThzN71CpLXQ9
- 1MgMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1183; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=edVr0rbhOgkFhSfFFpjtgCVxX4FcaJ3T2Pi370Z0o0o=;
+ b=kA0DAAoWhcFWaZAVSlMByyZiAGmy4I6g3ZLR83kcQhbcT+FK7suc2HUjOfNOmusY1ybZ3Szav
+ Yh1BAAWCgAdFiEEiWFVZv8fucZjoqazhcFWaZAVSlMFAmmy4I4ACgkQhcFWaZAVSlN5cAEAxmek
+ R+iMfvZ7Ha523ikLYNBTzD0cWFBa1VsJt7ZqvpcA/iQKjzj92bSRqPvO9rmBaPloTrU5Mpsq75r
+ xUZv5BIsI
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_085009_805587_F6B80DDB 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260312_085014_504481_24FFF393 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,76 +118,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Split the firmware memory region in more specific parts so it is better
-described where which information is stored. Specifically the LPM metadata
-region is important as bootloader software like U-Boot has to know where
-that data is to be able to read that data and resume from RAM.
-
-IO+DDR is a deep sleep state in which a few pins are set to be sensitive
-for wakeup while the DDR is kept in self refresh. Everything else is
-powered off.
-
-The changes in this series were suggested as part of the IO+DDR u-boot series:
-  https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
-
-There are currently no real users of the memory-region that is split in
-this series. The size of the memory-region in total stays the same.
-The new layout is derived from the software running on the r5f
-processor:
-  https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd#L172
-  https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/source/drivers/device_manager/sciclient.h#L459
-
-Additionally the two important devicetree nodes for resuming from IO+DDR
-have the bootph-pre-ram flag added as this data needs to be read before
-the RAM is in use.
-
-Best
-Markus
+For IO+DDR the wkup_r5fss0_core0 and the
+wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
+setup is done. These are used to read the lpm metadata region in which
+data is stored to resume. This needs to be done before RAM is in use to
+avoid overwriting data.
 
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
-Changes in v2:
-- Make memory-region-names required if memory-region is present
-- Fixup memory-region and memory-region-names conditions. Require either
-  2 or 6 regions for memory-region and memory-region-names
-- Reword and restructure the binding documentation for memory-region and
-  memory-region-names
-- Add memory-region-names to all uses of memory-region
-- Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
----
-Markus Schneider-Pargmann (TI) (8):
-      dt-bindings: remoteproc: k3-r5f: Split up memory regions
-      dt-bindings: remoteproc: k3-r5f: Add memory-region-names
-      arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
-      arm64: dts: ti: k3-am62p5-sk: Split r5f memory region
-      arm64: dts: ti: k3-am62a7-sk: Add r5f nodes to pre-ram bootphase
-      arm64: dts: ti: k3-am62p5-sk: Add r5f nodes to pre-ram bootphase
-      arm64: dts: ti: k3: Use memory-region-names for r5f
-      dt-bindings: remoteproc: k3-r5f: Require memory-region-names
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index c381cc33064ec427751a9ac5bcdff745a9559a89..46483d4085c20fc297d28a49ca7ef5d4bfc4ae9a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -75,6 +75,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca08000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0x00 0x9ca08000 0x00 0x1000>;
+ 			no-map;
++			bootph-pre-ram;
+ 		};
+ 
+ 		wkup_r5fss0_core0_lpm_rest_region: memory@9ca09000 {
+@@ -957,4 +958,5 @@ &wkup_r5fss0_core0 {
+ 	memory-region-names = "dma", "ipc", "lpm-stub",
+ 			      "lpm-metadata", "lpm-context",
+ 			      "dm-firmware";
++	bootph-pre-ram;
+ };
 
- .../bindings/remoteproc/ti,k3-r5f-rproc.yaml       | 55 ++++++++++++++++++----
- .../arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi |  1 +
- .../boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi      |  2 +
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            | 42 ++++++++++++++++-
- .../boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi      |  2 +
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 42 ++++++++++++++++-
- .../arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi |  4 ++
- .../arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi |  2 +
- .../boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi      |  4 ++
- .../boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi      |  6 +++
- .../boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi     |  6 +++
- .../boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi      |  3 ++
- .../k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi   |  8 ++++
- 13 files changed, 163 insertions(+), 14 deletions(-)
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
-
-Best regards,
 -- 
-Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+2.53.0
 
 
