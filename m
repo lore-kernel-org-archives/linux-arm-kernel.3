@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1535F105A59C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42CF103E2EB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 13:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l40fN2Oy5b1WeAkX/KOEBOHplazcSCsYd0pIlMMyM2Q=; b=ZGfctcmENGnGvxLSbFEUmZZdLZ
-	NtHmYY6ihhWGvdoAMFbh923tQ7pKhPQZRwJvZXEPpJdTodZKp0r3jhLbrJnL552v1aVMYfnA5tvi3
-	V0MdZf2tpZcSNI9OSwV4rcgzeedA1+FtjILSWbttpDO8jZTXNrrdiDeZtyRmwz18O3GQ3twv6vlaA
-	phmV/ihu5SLSNaCdtCEmXCHYLZ0k++zDiJj5AgfUYaKsRz+yYWtnr7+/LSuk1hCdzscRbheZNQH9y
-	1dqMAp2sO4otmGNhHIeZQDM/bLIH6Y8wWGDRVhzSRFOLSJs1QnknBYjVGUHFQJvfq+TqwQShR4KOw
-	55Wmjzcg==;
+	bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=; b=aQi+hu8IVe+RN/QtX6Y3N2UjLI
+	7ezmBbuNNUBabTePlmwMcP4idF/YJJ1bI/8saotG0ithrG5DPKxfiBjCDdyusLeWzEhYOpku82+Ou
+	gwbGVz52VkcwsFrofuQsQTgYzAmlfhzR2COvJnLzTxdpKUBWqpx/nmu9RS9KpwQbPWCobpw/qA8gX
+	RTbqaHkVIZKZOVr5gpUmhpR6+f2IDUMkqm838jahR8/+xwB6ml4IjR2ND9ItTa/RLnGQePVYMAnMG
+	++VHt3Isg8aAGsBBCQOWDR9lJ70WPhzlOUniD4UOVPAiThJsUfYr7kLaAB9zgIn5B47qxr/XRYInZ
+	Kj27bjuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0g91-0000000E8Jx-0Nng;
-	Thu, 12 Mar 2026 13:32:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0gCJ-0000000E8bt-496x;
+	Thu, 12 Mar 2026 13:35:31 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0g8z-0000000E8JQ-3vwK
+	id 1w0gCH-0000000E8bX-1AZa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 13:32:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 003C36014B;
-	Thu, 12 Mar 2026 13:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828FBC19424;
-	Thu, 12 Mar 2026 13:32:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773322324;
-	bh=0EHfu8EBkTO2BFs0c4rn2ZmgflDAWNcNC/ordDOgUMk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jdO42dxM9tJSPv75IZsQjLk7V2acXzgKUIYacc2U9uJRnuqP64Er6Yf+NmHYXsOSd
-	 1qS+VbkhydnE9v+dg5/9+fQ9t8TTQA7D28of2GlZBmuWXKrjVh9NflaH4zYe3bvlw8
-	 cuWEJGsQFGrb6Z0d66mcMAdNcbEv41HplkqUuX4dT7WtAiWPWWcAHBAyKHngXso8+1
-	 URWUETSK/ZK5iywoo1yilhqD7+qevv1udKSXwUAmuiQ/XWxOT8v2I6DH2q662j3x8Y
-	 60MMJZIs7uVWD5ZmOOzSZySwplK87JYoEBd9gKcJyFAf7UYx9qdhRsyXWXfLWQbkHi
-	 vjBej2itOnGBw==
-Date: Thu, 12 Mar 2026 08:32:03 -0500
-From: Rob Herring <robh@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
-	frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	Thu, 12 Mar 2026 13:35:31 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-439b9b1900bso697292f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 06:35:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773322527; x=1773927327; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=;
+        b=pz7egw46S2IrFdrTY4g5dApbVe5bBPMpoaivczLLF/Gl8O80AUXKGcK/oOIQtmhf8z
+         j398IvzVd0U7E3nj0PF+W9Om5/pIeA5Llt8bV9Q+S0NMHoBEi6JtYLyXHKZhu7hyDNBz
+         z9/6IwPNEyRsqeUxRkxRyktMPst/k1HFLwfeiX/oLhtlfgipKPNHP63X8ZCPUhrjUZoy
+         7BQz7zRxW/vJzVvYK8+beLotgdQMPgzyM+0JD1wH6ntyt5K9K7Qdtqgkoy5cuuBk/LBo
+         4Ai/uBgZmgjUvGLD2eC6l1+7sW/VvCb+pUamAzX8hrxyuVtCPsQDPUmEhV/7tfYozLmE
+         8c/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773322527; x=1773927327;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e9Os4cgNh5i6cWimFgT9mmwNd3gOQ8i7NcYfdN809vU=;
+        b=pWsGW2d3aHZnrWC6fNkQtlovMfIr/Jt4nPcoM0wQ3en1DmaFTKsfa7FOCviGG4dcpY
+         2FmN1l/M84Ia5VH6VdPfGRYiliGMeOlXuVEdxvYV+nmxBRg6wVq0OjKgcLZjTxRzGWev
+         81bpfNldTx87GM3AnslEuqBAcRLXzXidQKUeVtbmQweb81j1fn01NvZctnnTgzDYBpws
+         vtYoZ++39QeJsG88OLIFEnl6MBU1JDKJN+FlNz4dNmg1B9wyY0pmnRb8MUV8JDKpEZZC
+         fhzPJJiBH0syCeWOU8VPIRhkPlUwBpaoMMo8YQgRQMV0pnTQkt2G1aV1CxmkC2I90aBT
+         Ewfw==
+X-Forwarded-Encrypted: i=1; AJvYcCWV4frdyJOUf4xmOxdYYCwjdvv4q/g7DKgI8N/qn5mcrM96bX+1dPkgZFAX/HOTf3tEdgiWFmAeEfEPQMBXs0hf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2a8pLygbwcwJ/tGbL9yH0DLZE45G1AMuQVVgB2hR8Tp9nSErh
+	kR9UYlAhvWQf0WcZ8tD+n7CQsU1OlXrvVLhLMfSk5rXGu0eR4mOfln5LCAllnLf72A==
+X-Gm-Gg: ATEYQzzgAuuk162zAlLxOBzkwsVp2jLDIcVufcJF24+PBUctEw6QqpRb79lioWoBWql
+	sien8zi16GG9PkPYTH+oPWNIBKwkSz1VY3+YnLOe5aEuM7vtMXAX4RFDW8vrWP8F/m2JMtTbn4A
+	DSShQHj4h84uryV9IfE5F5ftmiL57te4NVfSceWOSGjmtW5wUIV4Jv6IWW579/As50MpOKC3cDV
+	4R/X9IpN9RHWWPuBq1fGGGI4/QFwRbb/eYgAABdXUSmHCFbgFy2F0P1eZGPi5e1Sx8/9/kfEbQC
+	Vi1dEQXo/TzQErABR3RoqPrASyn2iWxrpDSUIwRakLwdDioO8wzLH+E6upPXMBazbD099yYXg3K
+	jLOpzM0Z8xm6Qg5QszFZ3qCxsF/3gH3TpLx4RZlkdPb6Eiy3Ip9dm4pPOLS+f0ToX+iDEOVF3/z
+	lDeydHfA06vrE3KqVwFO+6gP4jwd9qeaRjjrxgAwFEQ+osRwrBrzRLswbFOUtVN+mz1r0=
+X-Received: by 2002:a05:6000:2c04:b0:439:bfaa:ed99 with SMTP id ffacd0b85a97d-439f822309emr12897737f8f.44.1773322526701;
+        Thu, 12 Mar 2026 06:35:26 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe19acc6sm8523527f8f.8.2026.03.12.06.35.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Mar 2026 06:35:26 -0700 (PDT)
+Date: Thu, 12 Mar 2026 13:35:22 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
- i.MX943 PCIe compatible strings
-Message-ID: <20260312133203.GA2768492-robh@kernel.org>
-References: <20260312092745.295578-1-hongxing.zhu@nxp.com>
- <20260312092745.295578-3-hongxing.zhu@nxp.com>
+Subject: Re: [PATCH 1/3] KVM: arm64: fix include path for ring buffer
+ implementation
+Message-ID: <abLBGqgPkwYVYMa7@google.com>
+References: <20260312123601.625063-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260312092745.295578-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20260312123601.625063-1-arnd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_063529_369766_1DAFC975 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +105,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 05:27:42PM +0800, Richard Zhu wrote:
-> Add i.MX94 and i.MX943 PCIe compatible strings and fallback to
-> i.MX95 PCIe compatible string.
+On Thu, Mar 12, 2026 at 01:35:42PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> The simple_ring_buffer.c file is in the source tree rather than
+> generated at build time, so the include path is wrong when using
+> separate object trees:
+> 
+> arch/arm64/kvm/hyp/nvhe/trace.c:16:10: fatal error: simple_ring_buffer.c: No such file or directory
+>    16 | #include "simple_ring_buffer.c"
+> 
+> Include it from the source tree instead.
+> 
+> Fixes: 680a04c333fa ("KVM: arm64: Add tracing capability for the nVHE/pKVM hyp")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+I believe Marc has taken a fix already for that one
+
+https://lore.kernel.org/all/20260311164956.1424119-1-vdonnefort@google.com/
+
 > ---
->  .../bindings/pci/fsl,imx6q-pcie-ep.yaml       |  6 ++++
->  .../bindings/pci/fsl,imx6q-pcie.yaml          | 28 ++++++++++++-------
->  2 files changed, 24 insertions(+), 10 deletions(-)
+>  arch/arm64/kvm/hyp/nvhe/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> index 0b3526de1d62..323ed3105d33 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> @@ -24,6 +24,8 @@ properties:
->        - fsl,imx8mp-pcie-ep
->        - fsl,imx8q-pcie-ep
->        - fsl,imx95-pcie-ep
-> +      - fsl,imx94-pcie-ep
-> +      - fsl,imx943-pcie-ep
-
-How is it that the RC is compatible with imx95, but the EP is not? It's 
-the same h/w.
-
+> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> index 143d55ec7298..3d33fbefdfc1 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> @@ -33,7 +33,7 @@ hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
+>  hyp-obj-y += $(lib-objs)
 >  
->    clocks:
->      minItems: 3
-> @@ -94,6 +96,8 @@ allOf:
->          compatible:
->            enum:
->              - fsl,imx95-pcie-ep
-> +            - fsl,imx94-pcie-ep
-> +            - fsl,imx943-pcie-ep
->      then:
->        properties:
->          reg:
-> @@ -114,6 +118,8 @@ allOf:
->            enum:
->              - fsl,imx8mq-pcie-ep
->              - fsl,imx95-pcie-ep
-> +            - fsl,imx94-pcie-ep
-> +            - fsl,imx943-pcie-ep
->      then:
->        properties:
->          clocks:
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index 7fe1e0e9b565..46c1fabcd070 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -21,16 +21,24 @@ description: |+
+>  # Path to simple_ring_buffer.c
+> -CFLAGS_trace.nvhe.o += -I$(objtree)/kernel/trace/
+> +CFLAGS_trace.nvhe.o += -I$(srctree)/kernel/trace/
 >  
->  properties:
->    compatible:
-> -    enum:
-> -      - fsl,imx6q-pcie
-> -      - fsl,imx6sx-pcie
-> -      - fsl,imx6qp-pcie
-> -      - fsl,imx7d-pcie
-> -      - fsl,imx8mq-pcie
-> -      - fsl,imx8mm-pcie
-> -      - fsl,imx8mp-pcie
-> -      - fsl,imx95-pcie
-> -      - fsl,imx8q-pcie
-> +    oneOf:
-> +      - enum:
-> +          - fsl,imx6q-pcie
-> +          - fsl,imx6sx-pcie
-> +          - fsl,imx6qp-pcie
-> +          - fsl,imx7d-pcie
-> +          - fsl,imx8mq-pcie
-> +          - fsl,imx8mm-pcie
-> +          - fsl,imx8mp-pcie
-> +          - fsl,imx95-pcie
-> +          - fsl,imx8q-pcie
-> +          - fsl,imx94-pcie
-> +          - fsl,imx943-pcie
-> +      - items:
-> +          - enum:
-> +            - fsl,imx94-pcie
-> +            - fsl,imx943-pcie
-> +          - const: fsl,imx95-pcie
->  
->    clocks:
->      minItems: 3
+>  ##
+>  ## Build rules for compiling nVHE hyp code
 > -- 
-> 2.37.1
+> 2.39.5
 > 
 
