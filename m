@@ -4,159 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C014BFED2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 07:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212EDFED2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Mar 2026 07:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9azDxvxlyu0AGAWR/wtM/stY/3N4uFIPlGbGd0i2Z0=; b=fPHV6OBnafFyrIdGFIKrXVAes4
-	LSwW1NwLHRGIHp6K4SM/XRo8EHGbbweoufNMB8ZbgDXwpSjwX7Auw8IRcepJ4FaZb3m4dRJw8DWrt
-	HKW6JVzzh0+uz7tvUs7YW+IvlAU/t+oVixyRPM404QNv21cHC2KymPhHcevDX/m9XmGVjvIkPAvfP
-	3jSZkVbG16sfLnNG12mTkxhPEMIf8p9vU3WP3RdteDv1rP0ZNFHZxPHky5HQHY+pDMYyLRcgbGhvo
-	24aeD/MsR81B+Hu7Myhz3JddxFCAwH5bIJxPrCcUjGL1Ltnap0nmU2OYTUpMDx3izLvcKx6Ugsh1j
-	r6zLTcVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NGQFtN65jqZPHApCqR8fT1iH+UK6PY6v44zsFoBO/rU=; b=tpQMkZcu7uYX+CScMElJqZH0wf
+	dAMzxMP//svYMQjFDXpbC6w+7IKp5YNm5tFVZG/bjJ7YZ/Jq4LjTt3UupHyzEyEagpLqNTbymzR1A
+	qbF8E1LuYsbyh667WmbwhfwLU9n14fv7guKKuCpJaOWDFF+QilAhLfSTOQAa8fmdVAhNC71MJ0F3M
+	//EcujDF8zKG7NmBOcbBlLp8psCBJpUfatVCJ5cS6RNVHzgcPLbx6e/Q6lZ9P3XaXmkndZq91BIGD
+	l11xNMqMnzGTMxL51aKWGWrrUFZHaqjk8Uo1EL4MpU2qEgb4tSLJqeQerYIl3nbM6SJd1dkT2iocW
+	DTaBr/Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0aTk-0000000DY01-1r7a;
-	Thu, 12 Mar 2026 07:29:08 +0000
-Received: from mail-northcentralusazon11013005.outbound.protection.outlook.com ([40.107.201.5] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1w0adw-0000000DYHP-2Vtg;
+	Thu, 12 Mar 2026 07:39:40 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0aTg-0000000DXzc-08jb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Mar 2026 07:29:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YI8BWaJb+o5+GYvupMsMFWbx+BG7maYD2F4LMKMc16M9IQoiUiCicEZ+RHcF70MTS3FtDBN+CCYE9jUr76+FBv2a/lagRchl/M2BevMRNoJdAG4rKMNOnmSnAOFXWKXgzREuTSZEpzzhmo+atTZbN9QAp9v7TrB4EJoKB1RxGSgwtHr5IOqP82VGAKbdlC5XPaNZi79Y66iWKyXvPaEergztww/h2SS0kisxuzcoz/IkdfcnB2PRO//mefmY0b+3BV3E5ZQVeIu0pELueEM0r1S+EhIkk3+muzZHQClj2Og0LILPbK15gujV0HeL6T7eqcdP3vK7c50DrTYtRbgpcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/9azDxvxlyu0AGAWR/wtM/stY/3N4uFIPlGbGd0i2Z0=;
- b=Dsp14UvPpKxtvL8KfC9xMssG4+DSSwdPsZkO7jMZp2xYSRjTBswJw3suH9Seg8Xzed30KMi7rZOuUzQkl7utU4veIvrqbk2/vjzlZS3LDGUmknRC8acQ+OFfg8hubX0DMJxxNK7QJ501GdomylP/5p53Q7h31fL4288JRZqQcAxcU5oOpH4aixUuHDVH1psI5mrHzwQshatJxNngfOYvbwvBUxWvpqKBM32LGA/DONUc4Dkq9s6he2/DUEu/yLC9FQYjksRJSZiP7yal0GXxF4ksQPIeiziepJ59K8nzmPpAx4VG6BIpe36o0UjE4JS5t/ifIjiSrZxTnumzU+ghBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/9azDxvxlyu0AGAWR/wtM/stY/3N4uFIPlGbGd0i2Z0=;
- b=WwwYzV5w6UKzdSoEzVhxRsX6/Q+s30kTzYybgTKrYEsPZC0KZfdJgaIxGfPjG4lAXi2eYTpytSvkHRWYpj+scanf4zzLqi85J9dswpVxyXowwTPDPNtTyBkoRgiHzyErng293tDn7OcCFgVJVAj7xMy6jN99WPtqkR3T4D0UIvyoJuGRmUF8a9GJubj7a8IG0FDTs6WgkUkofND1NxkJwfDlOJkqw3c4YlX2QGCPQ+RtmnN22yFEhEGIR2FJHlUWG6C7f9SJgBygy/t7TqLpDd6K6qvJMw8eueAl9EEASKe101f34VJkVxFTtOBsWvrbTNvz6H0xrCmzcC7+CtxbgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
- by SN7PR12MB6910.namprd12.prod.outlook.com (2603:10b6:806:262::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.4; Thu, 12 Mar
- 2026 07:28:56 +0000
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391%5]) with mapi id 15.20.9723.000; Thu, 12 Mar 2026
- 07:28:56 +0000
-Message-ID: <64f6e02d-c7cb-40cb-b1fb-2d3523433c66@nvidia.com>
-Date: Thu, 12 Mar 2026 07:28:49 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/10] gpiolib: implement low-level, shared GPIO
- support
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
- Mika Westerberg <westeri@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andy@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-3-b51f97b1abd8@linaro.org>
- <921ba8ce-b18e-4a99-966d-c763d22081e2@nvidia.com>
- <CAHp75VevThmDMm6VoVB9P0YbUGGGsmgnzr2gn9=1xtJZt-kuQw@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <CAHp75VevThmDMm6VoVB9P0YbUGGGsmgnzr2gn9=1xtJZt-kuQw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO3P123CA0004.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:ba::9) To DS2PR12MB9750.namprd12.prod.outlook.com
- (2603:10b6:8:2b0::12)
+	id 1w0adr-0000000DYH0-0ymc;
+	Thu, 12 Mar 2026 07:39:39 +0000
+Received: from mxbox4.masterlogin.de (unknown [192.168.10.79])
+	by mxout2.routing.net (Postfix) with ESMTP id F0A8060244;
+	Thu, 12 Mar 2026 07:39:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1773301168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NGQFtN65jqZPHApCqR8fT1iH+UK6PY6v44zsFoBO/rU=;
+	b=WwL+dAsjvDAwGuZnVMJgvw+33+ocdTXcPGYqWKyxtPC9CadFv0zPwLqzVKS/bB3ZOlOMKe
+	BOfF0YtZEc+oTSCdBlCB4sqONtWFuk2NhKRDzkCtiyCun1BQOSsPf7F+AnWeb2uxhh8AE5
+	Iyoh/UEenaJm83mHOngDw9ZmtPzgZj0=
+Received: from ehlo.thunderbird.net (fttx-pool-217.61.148.188.bambit.de [217.61.148.188])
+	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id 542F08007E;
+	Thu, 12 Mar 2026 07:39:27 +0000 (UTC)
+Date: Thu, 12 Mar 2026 08:39:26 +0100
+From: Frank Wunderlich <linux@fw-web.de>
+To: Laura Nao <laura.nao@collabora.com>
+CC: angelogioacchino.delregno@collabora.com, daniel.lezcano@linaro.org,
+ daniel@makrotopia.org, frank-w@public-files.de, laura.nao@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+ lukasz.luba@arm.com, matthias.bgg@gmail.com, rafael@kernel.org,
+ rui.zhang@intel.com
+Subject: Re: [PATCH] thermal/drivers/mediatek/lvts: fix mt7987 thermal crash
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20260311093519.15810-1-laura.nao@collabora.com>
+References: <20260309064439.4296-1-linux@fw-web.de> <20260311093519.15810-1-laura.nao@collabora.com>
+Message-ID: <8B371D2A-3C7E-4514-B495-9ED58FB60A80@fw-web.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|SN7PR12MB6910:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58178983-a39c-4c15-5c8e-08de8009051a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|1800799024|366016|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: j3qQHS6GXcDs5HW7SCLqmzDtzZqODgydlf0deYoOYI3zulaSDcvWmMEhKg64Rq+65jyUyezsdyp+ORqtWoQEOcsM1LhQVL8d60S8U3ZpAPIFEEZ3wwJMFUnPop5vRDzrVJcCAYxeEkT69SOib4AZnWWDS5VsttVo+eOe6lIzxT4shTXHaj9WOiRgoREPk1IlUlCAqV7IZtP/4MzuzU/zb3Z9gyi3xImyZEQjDPEzqUNYafhvT7vxHWAWQ7DR6RhOvuUPCPSLg85GR4itbXdamP8OVSnT1Le+9esKnqhVX2FILEuaGSYGx5LB4z3S3e82oPqgSfTq1vzgI59Ha6yghGsJ6LWdGNd4HzjceZ+Jpo4yGop1l2GobNcoo0QGkhxMsKEwDoT+lplVfuirMy/Hrnt4RHDgBZozZIErZPHItnDptjD0K42Zy1dFCjIpo0kNjFmUBgnoPc4eSCe5SUscabuVL7FHjV9B37Spe8Bui2ZrLBIymOHnPZksZeRyZx8oL3AgzlVp1nMdA185KlwwA95SQ0dzm6GgPt0/8C1Ec0FrPTc+QeE6rEQvFMOq6dwP25LS2xX9tXycdYkuMwKFYWbBmPKF+83qTieOaOdU6lrs+rj6ES5B6kJR5hOSgeIfFBlCksS582TS2N64SQQ51zCCn6mouSm1z0u7EWoJIfbO7C/AOb1YQk18rWubpGSkLTuGcJNT/SVydKx15RRB4G+gKVjEIzXFJ+05jQi8TqQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(1800799024)(366016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWhLbXhBN2FmUW0rQnRuOVY4UXR4ZDlNUTNWN1EvclpLNWU3TFprZitCTXov?=
- =?utf-8?B?VVFsN1lqUWRCWUhTRFE0akFpT2NQK2hkYUllZ0NmcHFMVnoxNUhjMHVnc3px?=
- =?utf-8?B?YkZQYUdXRm9DNlI5VVpMazVpdnhuSENxYjB6ZDRJSkd1RmVlaXBBV1FhMysv?=
- =?utf-8?B?ajJRWFRwN1VVaUFtc0I3dmYxVUxsQS9jb3Jtcm1UWkJOc1VGU1pXTkpMczRS?=
- =?utf-8?B?MFVnV1NDZWh3NkNvU0F1WVFlWisyUUNsUTdyMWlXZ3M4aElpL25qbUZRWXFw?=
- =?utf-8?B?TmhTVWVYRHJxL0Rwc1hIcnJMc3VTTFJCL01xMHZVWTQ2RUxDQ1BGd3djZEZm?=
- =?utf-8?B?R2Y4OTZMQ0pBNjFjSnNRckxJZzM5SFVMOGFkc0dkeEl4b2FremN3UVBNT285?=
- =?utf-8?B?TkM4YkZsblJ4eEFDKzMvODViL1Q3cWk1dGc1U0dMa1VuUkJUYzBaOXlyREZZ?=
- =?utf-8?B?Y1RSMTdVZHhqTis0OHAwd3ZwMEVyQ1hEanViNDB3T3VWdHpxcktja0ZRZy80?=
- =?utf-8?B?eXBaelVUaDczczhSMFlOU0VvaXBxRDZDOHZJNVViZ28xZGVQb2dBWXZjakNm?=
- =?utf-8?B?YndkT3R0b0VOc1lCUVoybkRJZWpiUHJTYmJjR3dnNnRUZC9naGJCYVVaYy9K?=
- =?utf-8?B?RGt3RzdMNTl1ZkZzT0pLSzhLOUI0QWl4WU5QWTZTbHR4cmRUWXZJNy91N0dN?=
- =?utf-8?B?VEFYampYenUxeGs1bmI2dVY5ajlsZ3VxL2NRMUNxc2tsNkRReGpoRWNWREVw?=
- =?utf-8?B?OW8raUFVdU9URHdTQlovK20yQzFOUXd2aUE1T3ZPNmFZMTlPY0lYei90RU82?=
- =?utf-8?B?My9YQmhNVzNTaVAvVHR3OUVPdTlKQUNCRmNmengrN1FpNmszaVVnTWR0Q3d1?=
- =?utf-8?B?NHd0RCt0TjgwaGVsLzllb0U2TC9vZkZKdU5xQjJ6b0tqOVY1WWlNb25PRWZz?=
- =?utf-8?B?MmZKcmlPR0tZWEVKc3FLdnIxYjRYRnZ0VkZjL0ZNM3p3bDVTZHZSbWRyb0dl?=
- =?utf-8?B?VnpoZlA5Ull5MGRFYnBMS2h6WDFFYzBjZWR4aXlacy9ZTk9LSm1kRHhQUVpl?=
- =?utf-8?B?R2M3TjZrWEhyN1hPaCs4YUllOVFHTWZQSG9VVExSaFdMQ0R5Kzk5QU13R1Zl?=
- =?utf-8?B?RDJveDdtdFFwa1Raa0twVGdiekZQU1dIcGdYMlZPb2g3Y2UzalREYWJpdXhM?=
- =?utf-8?B?MmZqbG9wQUNiTlF5cGxWMjJrUEY4cU90WEN6UXlrL1ZhTjhKaWZibzRWZDlK?=
- =?utf-8?B?VUpFVHRBQkNRYThaQWhnYnRJeU1tSkFob3pnWDRJRzZWWVI3UmVvQ0FGc3JB?=
- =?utf-8?B?ZnczMjZ4YnBRa3VUUjU5LzVkTGpBY24zSklQeUJKTkY1Z3lsMHlqOWx2RG9y?=
- =?utf-8?B?dVJEeWNpeWRpenFYS2ZTRVY3MFlKK2hyK2h5SGdPNjk1NFJuQXRZS2RCMFl3?=
- =?utf-8?B?ZnZ5Qk1qV2xWNUNsNks5SmdXOG50eEJKQlQyWWRSeUltdVZuQWZ2M1R4MFpE?=
- =?utf-8?B?Z0VkNWd0aUg3UHBSMXBMcmx2VndjQVo0Q3dOUVJkZ085RTlLaGR5S2xWSVlo?=
- =?utf-8?B?cDBGajJxYmFCUEd0b1hjWkRoeWs1K3dEQmpvUXJLbldHaUg4ZS9ZazRIWXpu?=
- =?utf-8?B?NWZ3bWdNYTF5TXpwQWtDZTJPYVZUSkNKNUNYNUNlYi9WQlhaM05xVENHRUZj?=
- =?utf-8?B?eXRmcDAxSVo4SUZweC9maExLaGowREcreVBuRTdQYk9OSUgvMW1Ta09EN2ox?=
- =?utf-8?B?ZlVmUGZyaGozMjI0cE1XNHFFcVdJSEo5aCtNQ2RleVpTREtmSGFoOENnMWJP?=
- =?utf-8?B?cTVNWWYwdWdoMDJkQXlKQnQwMitZQnQ0VUV1VDNQd3dSaWRGRXhQZWRQWThE?=
- =?utf-8?B?VWZRYjROanZkcThVSkNXK0wvN0E2Y3ROTjkwMlZTRy9aMXpnc2l4VnVCRTBH?=
- =?utf-8?B?ai9rUFBSak9BOFg1ekd3SUJBL1Z1VzhSSkRIVHN6aUg4SUhQeUI3NjRFSFAw?=
- =?utf-8?B?N09kdUR6VTYxTlBucmdMYnJMbHh5cVRKU0IvZmNxSW5TSzJDQ0RPOVBOYzVl?=
- =?utf-8?B?KytBTEZjYkNUTGpGSm1mRlNBYVlNRG80ckcwSnFQNW1ORVlZUXBCM2hTSVBX?=
- =?utf-8?B?SWg1L2VUODlNQ1krc2FSK2FDSW1reUN6dFZpdWYzK1lJYXR3UFpDWUR3UElZ?=
- =?utf-8?B?NlFVRy9SVHhqbDZSQ0M4eXdvV2E0K25FTG9aallsVUczb2orUkQ4cTFBZ1lO?=
- =?utf-8?B?VS8xa3VTc3pObW1xb2RWN3g5bVJhVEU2ckE4ME9SaWRwL3hLZHRmb3ZHdS82?=
- =?utf-8?B?dC9SQ3BCeDF5SkhINVZNcFdPL2E0THUrbG5CdCtlZVowZ0JCMWlhQk5MVlVw?=
- =?utf-8?Q?tSl0D79KlTYu8kTwcaAt0wbaK9JEJ0VOl9InoO9hWJEzk?=
-X-MS-Exchange-AntiSpam-MessageData-1: 8z6zpuqrEyFIdQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58178983-a39c-4c15-5c8e-08de8009051a
-X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 07:28:56.3638
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7pZRk0elVgnf4CyIHDvkAAR0Ek8GM1Re7fVwXYHDK245izDoPYgjDhq3Dsti5fDjhLJ0ERU8c5iZxyyqOSxmJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6910
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mail-ID: 63a00dde-0e31-408d-98f9-570225501692
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_002904_485294_5AB69664 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260312_003935_561078_EEB36939 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,71 +78,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 11/03/2026 20:14, Andy Shevchenko wrote:
-> On Wed, Mar 11, 2026 at 8:38 PM Jon Hunter <jonathanh@nvidia.com> wrote:
->> On 12/11/2025 13:55, Bartosz Golaszewski wrote:
-> 
-> ...
-> 
->> On Tegra234, the main gpio controller has a total of 164 GPIOs (see
->> the tegra234_main_ports in drivers/gpio/gpio-tegra186.c). The GPIOs
->> are assigned a index by the kernel from 0-163, but these GPIOs are
->> not contiguous with respect to the device-tree specifier.
-> 
-> If I may ask...
-> 
-> Why? Is it sparse because there are pads that can't be used as GPIOs?
-
-It is purely how the different port for the GPIO controller are 
-configured in h/w ...
-
-static const struct tegra_gpio_port tegra234_main_ports[] = {
-         TEGRA234_MAIN_GPIO_PORT( A, 0, 0, 8),
-         TEGRA234_MAIN_GPIO_PORT( B, 0, 3, 1),
-         TEGRA234_MAIN_GPIO_PORT( C, 5, 1, 8),
-         TEGRA234_MAIN_GPIO_PORT( D, 5, 2, 4),
-         TEGRA234_MAIN_GPIO_PORT( E, 5, 3, 8),
-         TEGRA234_MAIN_GPIO_PORT( F, 5, 4, 6),
-         TEGRA234_MAIN_GPIO_PORT( G, 4, 0, 8),
-         TEGRA234_MAIN_GPIO_PORT( H, 4, 1, 8),
-         TEGRA234_MAIN_GPIO_PORT( I, 4, 2, 7),
-         TEGRA234_MAIN_GPIO_PORT( J, 5, 0, 6),
-         TEGRA234_MAIN_GPIO_PORT( K, 3, 0, 8),
-         TEGRA234_MAIN_GPIO_PORT( L, 3, 1, 4),
-         TEGRA234_MAIN_GPIO_PORT( M, 2, 0, 8),
-         TEGRA234_MAIN_GPIO_PORT( N, 2, 1, 8),
-         TEGRA234_MAIN_GPIO_PORT( P, 2, 2, 8),
-         TEGRA234_MAIN_GPIO_PORT( Q, 2, 3, 8),
-         TEGRA234_MAIN_GPIO_PORT( R, 2, 4, 6),
-         TEGRA234_MAIN_GPIO_PORT( X, 1, 0, 8),
-         TEGRA234_MAIN_GPIO_PORT( Y, 1, 1, 8),
-         TEGRA234_MAIN_GPIO_PORT( Z, 1, 2, 8),
-         TEGRA234_MAIN_GPIO_PORT(AC, 0, 1, 8),
-         TEGRA234_MAIN_GPIO_PORT(AD, 0, 2, 4),
-         TEGRA234_MAIN_GPIO_PORT(AE, 3, 3, 2),
-         TEGRA234_MAIN_GPIO_PORT(AF, 3, 4, 4),
-         TEGRA234_MAIN_GPIO_PORT(AG, 3, 2, 8),
-};
-
-Each port can have upto 8 pins, but some don't. Note the last number in 
-the column indicates the number of pins for a port.
-
->> For example, in device-tree, if I have a shared-gpio with the
->> following specifier ...
+Am 11=2E M=C3=A4rz 2026 10:35:19 MEZ schrieb Laura Nao <laura=2Enao@collabo=
+ra=2Ecom>:
+>Hi!
+>
+>On 3/9/26 07:44, Frank Wunderlich wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
 >>
->>    gpios = <&gpio TEGRA234_MAIN_GPIO(AF, 1) GPIO_ACTIVE_LOW>;
+>> On mt7987 we see a crash due to missing ops entry=2E
 >>
->> The macro TEGRA234_MAIN_GPIO(AF, 1) evaluates to (23 * 8) + 1 = 185.
-> 
-> To me it sounds like a bad design of the driver for this SoC/platform.
+>> [    1=2E518540] Internal error: Oops: 0000000096000005 [#1]  SMP
+>> =2E=2E=2E
+>> [    1=2E564481] pc : lvts_get_temp+0x84/0xc4
+>> [    1=2E564492] lr : lvts_get_temp+0x60/0xc4
+>> =2E=2E=2E
+>> [    1=2E620900] Call trace:
+>> [    1=2E631753]  lvts_get_temp+0x84/0xc4 (P)
+>> [    1=2E645471]  __thermal_zone_get_temp+0x24/0x11c
+>> [    1=2E656502]  __thermal_zone_device_update+0x9c/0x52c
+>>
+>> Add the new ops member added in 7=2E0-rc1 for mt7987 too=2E
+>>
+>> Fixes: a4c40559499f ("thermal/drivers/mediatek/lvts: Add platform ops t=
+o support alternative conversion logic")
+>
+>I think the Fixes tag should reference=20
+>"thermal/drivers/mediatek/lvts_thermal: Add mt7987 support", as the=20
+>commit introducing the ops also updated all existing data structs (seems=
+=20
+>like mt7987 support landed right after)=2E
 
-I am not sure why you think that. Assuming a 1:1 mapping of the kernel's 
-GPIO index to the GPIO controller + h/w port + 1 GPIO number seems fragile.
+Ok, i will change this=2E Have not looked on order how commits
+are applied=2E Both commits were new in 7=2E0=2E
 
-Jon
+>> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
+>> ---
+>>  drivers/thermal/mediatek/lvts_thermal=2Ec | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/thermal/mediatek/lvts_thermal=2Ec b/drivers/therma=
+l/mediatek/lvts_thermal=2Ec
+>> index a9617d5e0077=2E=2E5671531d4c23 100644
+>> --- a/drivers/thermal/mediatek/lvts_thermal=2Ec
+>> +++ b/drivers/thermal/mediatek/lvts_thermal=2Ec
+>> @@ -2026,6 +2026,7 @@ static const struct lvts_data mt7987_lvts_ap_data=
+ =3D {
+>>  	=2Etemp_offset	=3D LVTS_COEFF_B_MT7987,
+>>  	=2Egt_calib_bit_offset =3D 32,
+>>  	=2Edef_calibration =3D 19380,
+>
+>You'll probably need to define num_cal_offsets too, since the number of=
+=20
+>calibration bytes was also made configurable (not sure if this is=20
+>already addressed by a separate patch)=2E
 
--- 
-nvpublic
+Thanks for pointing to this=2E
+Should i change in same patch or in separate one?
 
+>> +	=2Eops =3D &lvts_platform_ops_mt7988,
+>>  };
+>> =20
+>>  static const struct lvts_data mt7988_lvts_ap_data =3D {
+>
+>Best,
+>
+>Laura
+
+
+
+regards Frank
 
