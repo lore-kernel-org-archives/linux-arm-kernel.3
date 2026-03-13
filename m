@@ -4,119 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A94106FD9A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD78106FD9A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r66TxYOTCOtYoUwluefKj7KQVnn8Sl+j46NKv9njfWs=; b=RvLEhI41AkphK52Z1SwEjofdFF
-	Uk7Ml61zF+zU7FYbuuA265Z2fKu3Qfq0GaIoadCI5ZQF8qm8mHsIq+Xp+BHdt1Y9V4Qhou2xRXL+L
-	LCfwrOmBBl3/yxKnBVY4pyRGr5xLEx3wITR/SdW5w6J3x3EyNAPe3QotWm5cNk3wZbmYarehCMMfo
-	l0D/zNnOZjTpf2Knes23gA2ugsrWN8+zITJpQdn+XUi8slf8e4nu0vXfyLhF+i/q4sSJj2s2mF+Xp
-	Pgw0yuKg5QQYRvBzhogfdTjO0kyBLAuWftRDSIzu3ufpkxEWT5BSjzN8dGjj0prO+zgMYX6/VEpjj
-	X/AyF6HQ==;
+	bh=0pNYRVJ9exxzvDp0qjffD6KkNxlbYKlcjyjrY+w+beA=; b=STjhxR5vW3pB+lvXPYM/+xHgEH
+	z4auNhJ8qF0Pnu1YwVabXV24bqCsIV+1P+MKxBAPKDgZz77VL8UU5BNt8KChll7uGX1J6Mop8G/Sy
+	peSxKi/80+jVqwu02rB9vPtnx7eKQ2Etelps/EZ3v50Uso0uDWgBaodJ27M9Zqc7Ked84Uxwq1B+/
+	RhdvyfYZUeTdLTuhULJ+VJfi20j04giWFxZbK6ghedxSvJ22vytfH7CvVNjGger3P0B/pL6cSnM6J
+	BAzRgyDBAJYHLCK7FGvVEctS3DGv02OyuGdK1+dXaLifjljb1VNDp1dr7EXafWVmDznSV8Rw8HHth
+	E4CEiXEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xLz-0000000H8Fi-1lVF;
-	Fri, 13 Mar 2026 07:54:39 +0000
-Received: from mail-southcentralusazon11012010.outbound.protection.outlook.com ([40.93.195.10] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xLw-0000000H8Ce-2Yg7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 07:54:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ec58+jG4E8QAw7ho7hPtm87jcM3fRiOpjPr/4H6DiKdKMqh+jx1/NwTteWYegei+oWUU2dkzUK4Y9i45VNeWI+nyV8Gu7ch+jR5r3rbGGCKlWATQ9V0G4GEn7/Ip8oU1FbmUVhYPBPLWAjhWitYHe3k/Pf9SA8VhuyoFmi9VabhNgPDRHPAcf04DR+RYwHoFGZSbXK/JHRtUY8hD5tmbM9bcHSRNzPnbCO4R+Z1gWZl4GNuOpUHkxObrVlH8M85b3uLVCV4AETnZ73AbFKbYNSoTfhlcj2ASNXqraXYkY6C60Jc8Ua8RZH9l3rujUsouxsy59L4q1VVfgWmYp6phrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r66TxYOTCOtYoUwluefKj7KQVnn8Sl+j46NKv9njfWs=;
- b=QwS3bFEGmByR32wENVvK89KlXLfgOBrUtkhleg6uMNwrbPt8j8srrhTq17NQ9GbTS5yzNhxHlFAWgV4e4S64C9NfHdAJFcpBCBVaTjpJSA8k3UqC6eh3MKWBtKkqzHCXhz98g7NWJxNIjw5i1QO1EhTgBkwU4uz92fggHbTW3cfe68PEolZHoaWYv474hTZJufv6e6ErQJE78Vi5J95zfxkjfR+YsRqrP/9bJcb8gjauPe+DkKY7LUitwxcErdZaowKUFXjmuR8O/pwiQRtrLdpm3EoQ1Gw3HuweIGkm50K0i7MQEJuK4fQeC3e4lRqWs8S42IY0d4FQIJLa3rF/Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r66TxYOTCOtYoUwluefKj7KQVnn8Sl+j46NKv9njfWs=;
- b=TxoeFy3aiTUzVR2+MSX849t5FllkCY5ZQAScIn3AseMZpETaJrC0JCjtUfRNHi22SaH49b89KJ5U9hVLIJdpbo1kViwjaq55U8tCwJlhQ1gN5yhjxLbcj2bfK7APtQUfGy0oPijLqRhzKroQMaEiYguW/XZwAn3yyB6vMAW4WuA=
-Received: from BLAPR03CA0089.namprd03.prod.outlook.com (2603:10b6:208:329::34)
- by MW5PR10MB5874.namprd10.prod.outlook.com (2603:10b6:303:19c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
- 2026 07:54:31 +0000
-Received: from BL6PEPF0001AB4E.namprd04.prod.outlook.com
- (2603:10b6:208:329:cafe::e8) by BLAPR03CA0089.outlook.office365.com
- (2603:10b6:208:329::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.28 via Frontend Transport; Fri,
- 13 Mar 2026 07:54:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BL6PEPF0001AB4E.mail.protection.outlook.com (10.167.242.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 07:54:30 +0000
-Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
- 2026 02:54:30 -0500
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
- 2026 02:54:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 13 Mar 2026 02:54:30 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62D7sQmS3855592;
-	Fri, 13 Mar 2026 02:54:27 -0500
-Message-ID: <680b0db2-7ac0-498a-b2a4-ceaf7f56a9ad@ti.com>
-Date: Fri, 13 Mar 2026 13:24:26 +0530
+	id 1w0xMH-0000000H8Rq-0UTV;
+	Fri, 13 Mar 2026 07:54:57 +0000
+Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0xMD-0000000H8O1-1RLF;
+	Fri, 13 Mar 2026 07:54:54 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgD3jHHBwrNpsxoIAA--.34817S2;
+	Fri, 13 Mar 2026 15:54:42 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	wens@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v4 3/3] riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller
+Date: Fri, 13 Mar 2026 15:54:38 +0800
+Message-ID: <20260313075438.1633-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
+In-Reply-To: <20260313075234.1567-1-lizhi2@eswincomputing.com>
+References: <20260313075234.1567-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j7: Reserve memory for LPM meta data
-To: Prasanth Babu Mantena <p-mantena@ti.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <nm@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20260312113446.1857592-1-p-mantena@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20260312113446.1857592-1-p-mantena@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4E:EE_|MW5PR10MB5874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36ba216a-57c3-41cf-b1ab-08de80d5c258
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: dzney8nVLQEyDbEzPUBbWXiSGlWoPOem4x3TVmhSqm3wCZiJ/6ai9sWBC8ocGTyldNYcgmAJpdOzaP/iNA5d6CG+bai6rKgaw05B06Iu/paC5S4PhVQmqd535ruWZWhM56gTy51BA0pnFB3cfYxceWvIXGq/0vVnkPNPty1e6gs6b9oeO0f18PjnB7/OAfdYVAeft3a0AxTyEudo8zj/950JPIysMT2IIwvzZ6kQKTDCrbx2uZ2/kaawN3fftqnBU+4cHJhArU3bWm+tmK+BkEE8F3Iun4XOxi1DPrJkGXChcDyKecamfuvj2BzUigC9jjT9N8aIJEiIT0PFWkbcrgkW8tpyLIlmAbaSzm+qDMOgPPPIuRS64NfRu2T2Yx9AhRvampDwuhFb+lJrNYjl20OZU33a1NOYNuUmXv8YPojzzmsrTZzQjQhcfg/qJrTblIvv7BXwdHm4niNajYQ9MIafbIK+2/zDAxJQIh2GjmolyzUttQ9tpDv7OLcqdrPP5qgeauH4hL8tM78N/zjN0+pTBrxQ5KqISdDs7DJXUtDFHDC0WoKiZmT3JQzaP3G4+skA1Cr9UzczBIlci4IBEU7YELWSP2Vh11O2OCRmF4c8aK3Fq9PPZhADPfx7Sj3xBcKORbVUj1aiEW0urNR0XaaaR9U47rMh+lWo6HAOTFHCM++R3Du0FNRc93756abeJExkT6vPTgVCrhLwAApgZ/H/NkkPG4v+Y+n3zQWZYa7DaOQrgMC6s/6OcUUahwJE7apgcky7fV0KFZTONS8vOw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 30FbpRdn4WkqNxEtYmk4vHDk1Ij92hhI1rmO0Dv6TjAnrgVFRDEqJGCLQU9cTAojphAD2tE43S+C4qDyPfC3wujJylSZ1+2HBg2JekJNetPpg8g7Y++UoJX2xOg6pQEm3DmsCGBaX0vPt/XdvaaCUuSncor6Sn4/AF6L0ZzCBmMFfNZmLvhH2/Y0E2KYgGa8eUY0RhodQ6li8L1XHrRVZbJmhEqA9evQ4+d1r1ppcEnODrprNj/TmMc+kMvLJV8slCVKvskA8DCPZxclw/Bo0UshgMZvM2rQv5QcPIUy4xXEv5GRGCN/spK8dVMxB4ta8rgdYKAT5nZq9kKz+omsBINvV3fXu9t/8wenIuLn1pTJ7ckN8wajirkhTo4K7kbYemXnRrp3oo2vIbnfZRjDpXXcaQ9VOm7uClVKg4RevyazLMCiYFFhKf17DmrqMGWl
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 07:54:30.9061
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36ba216a-57c3-41cf-b1ab-08de80d5c258
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5874
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TAJkCgD3jHHBwrNpsxoIAA--.34817S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxurWxtw1DWr1xtFy8WFWDCFg_yoWrGw45pF
+	47urZ5XrWrWr1xA34YvFy09FZxJws7GF95Krn7tFyDGF4q9FWYvr4jy3WfJF17ArWUX3y5
+	WFs3t34FkF4vy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRdWrXUUUUU=
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_005436_666121_A961D32D 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260313_005453_751906_34872B75 
+X-CRM114-Status: UNSURE (   6.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,88 +102,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zhi Li <lizhi2@eswincomputing.com>
 
+Enable the on-board Gigabit Ethernet controller on the
+HiFive Premier P550 development board.
 
-On 12/03/26 17:04, Prasanth Babu Mantena wrote:
-> For TI SOCs J7200, J784S4, J722S, which support low power modes,
-> A chunk of memory is reserved for LPM meta data, which is needed
-> for saving ATF context and the certificate information of ATF and
-> OPTEE and DM image. This LPM metadata area is firewalled to be
-> accessed only by TIFS.
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+---
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 42 ++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 66 +++++++++++++++++++
+ 2 files changed, 108 insertions(+)
 
-
-Which firmware accesses this memory? Could you point to the
-documentation / ABI that defines the same in the commit message?
-
-> 
-> Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi             | 6 ++++++
->  arch/arm64/boot/dts/ti/k3-j722s-evm.dts                 | 6 ++++++
->  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 6 ++++++
->  3 files changed, 18 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> index 5a8c2e707fde..26c2489c3b91 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> @@ -40,6 +40,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memories@a4800000 {
-
-Node name should be generic
-
-> +			reg = <0x00 0xa4800000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	mux0: mux-controller-0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> index e66330c71593..f2ca0354a917 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> @@ -63,6 +63,12 @@ wkup_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memory@a7000000 {
-> +			reg = <0x00 0xa7000000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	vmain_pd: regulator-0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> index ff3a85cbc524..3e79677792a5 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-> @@ -46,6 +46,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memory@ab000000 {
-
-Node name should be generic
-
-> +			reg = <0x00 0xab000000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	evm_12v0: regulator-evm12v0 {
-
+diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+index 131ed1fc6b2e..5a40be1d2a25 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
++++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+@@ -13,6 +13,8 @@ / {
+ 
+ 	aliases {
+ 		serial0 = &uart0;
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 	};
+ 
+ 	chosen {
+@@ -20,6 +22,46 @@ chosen {
+ 	};
+ };
+ 
++&gmac0 {
++	phy-handle = <&gmac0_phy0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gpio106_pins>;
++	rx-internal-delay-ps = <20>;
++	tx-internal-delay-ps = <100>;
++	status = "okay";
++
++	mdio {
++		gmac0_phy0: ethernet-phy@0 {
++			compatible = "ethernet-phy-id001c.c916";
++			reg = <0>;
++			reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <80000>;
++		};
++	};
++};
++
++&gmac1 {
++	phy-handle = <&gmac1_phy0>;
++	phy-mode = "rgmii-rxid";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gpio111_pins>;
++	rx-internal-delay-ps = <200>;
++	tx-internal-delay-ps = <200>;
++	status = "okay";
++
++	mdio {
++		gmac1_phy0: ethernet-phy@0 {
++			compatible = "ethernet-phy-id001c.c916";
++			reg = <0>;
++			reset-gpios = <&gpioD 15 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <80000>;
++		};
++	};
++};
++
+ &uart0 {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+index c3ed93008bca..f1a01d5736a1 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
++++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+@@ -5,6 +5,8 @@
+ 
+ /dts-v1/;
+ 
++#include <dt-bindings/gpio/gpio.h>
++
+ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+@@ -295,6 +297,70 @@ uart4: serial@50940000 {
+ 			status = "disabled";
+ 		};
+ 
++		gmac0: ethernet@50400000 {
++			compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
++			reg = <0x0 0x50400000 0x0 0x10000>;
++			interrupts = <61>;
++			interrupt-names = "macirq";
++			clocks = <&clk 186>,
++				 <&clk 171>,
++				 <&clk 40>,
++				 <&clk 193>;
++			clock-names = "axi", "cfg", "stmmaceth", "tx";
++			resets = <&reset 95>;
++			reset-names = "stmmaceth";
++			eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
++			snps,aal;
++			snps,fixed-burst;
++			snps,tso;
++			snps,axi-config = <&stmmac_axi_setup_gmac0>;
++			status = "disabled";
++
++			stmmac_axi_setup_gmac0: stmmac-axi-config {
++				snps,blen = <0 0 0 0 16 8 4>;
++				snps,rd_osr_lmt = <2>;
++				snps,wr_osr_lmt = <2>;
++			};
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
++		gmac1: ethernet@50410000 {
++			compatible = "eswin,eic7700-qos-eth-clk-inversion", "snps,dwmac-5.20";
++			reg = <0x0 0x50410000 0x0 0x10000>;
++			interrupts = <70>;
++			interrupt-names = "macirq";
++			clocks = <&clk 186>,
++				 <&clk 171>,
++				 <&clk 40>,
++				 <&clk 194>;
++			clock-names = "axi", "cfg", "stmmaceth", "tx";
++			resets = <&reset 94>;
++			reset-names = "stmmaceth";
++			eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
++			snps,aal;
++			snps,fixed-burst;
++			snps,tso;
++			snps,axi-config = <&stmmac_axi_setup_gmac1>;
++			status = "disabled";
++
++			stmmac_axi_setup_gmac1: stmmac-axi-config {
++				snps,blen = <0 0 0 0 16 8 4>;
++				snps,rd_osr_lmt = <2>;
++				snps,wr_osr_lmt = <2>;
++			};
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
+ 		gpio@51600000 {
+ 			compatible = "snps,dw-apb-gpio";
+ 			reg = <0x0 0x51600000 0x0 0x80>;
 -- 
-Regards
-Vignesh
-https://ti.com/opensource
+2.25.1
 
 
