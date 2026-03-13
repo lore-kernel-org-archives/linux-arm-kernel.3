@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F9E105F79A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91031105F78C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sRfhWRMqjk2L0JEOr5H6RNkI6u1UbzmNeAIOrMx/Kao=; b=g4EbhNeCJA+Icl1oPR1pqrA/J1
-	FstRWQBcFf0MeddFT3YJzPx7CDGZlKMvjAJsVGAu2V/R+VxaJeVl6dPMcS/FxpROlhrN2GXUGmW6X
-	PGukQ1JaZuYSqDD3/pxKfAfBjFNyxK+eoV9ZakreTfn3/cMOI9lDk+FdZp+3XMRWJn+rHgdgJ1h/u
-	9qUHcX93rXzK4OEarXBSKhs9V/2rsdkycFH/8HUlO4TErvFMgd6TP8A8Uy061V8/4bz3WCxYimcSG
-	VP1wc3t48TK9TS/WnsX6FVEIltd3LVTHKT1Au2uqXV01FMejcLPsE8En79CpM6bDghMMUv1i5S5Qh
-	QX2f65/Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ISruuGaH9bd1cZ7Pt0UKp6roao55Y0Fo4qDS4TWlKc0=; b=B62LBaDrwgLeWmB66PR/EiKCGD
+	OLUOyruZbs9KAYtA7s/gu8jTtbI0Hn3ly5ivFXORtjrVbUsykBc/Lf4IUW+SEK2j7DEAoHg+cU2Z8
+	0is1tsjgQJa/I+HPf2KaK1TUJ2eehsn4x5KXxoFI/Tv5JaAz6bs8y3xk51Z+0bTiVtPpHDIHi+C2t
+	5EP4LJXFpCeXdlfCOxdaGtxwu0xcm8A/dQ72mdS/b3eLBAKhYRmdSNR8KmDGma4pBpB27Y/c7kSGB
+	aB9lZVJgRX+4iAfiNirx+7AySk7ixQIKiLtw6mJiZUoNyEYM68cjIpd0W6hhm90A3o/nMqWNtJt2y
+	ARUzduFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10S3-0000000Hakl-1n8M;
-	Fri, 13 Mar 2026 11:13:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w10S6-0000000HamL-30Ri;
+	Fri, 13 Mar 2026 11:13:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10S1-0000000Hajv-2xKS
+	id 1w10S2-0000000Hak6-438n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:13:05 +0000
+	Fri, 13 Mar 2026 11:13:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB72660138;
+	by tor.source.kernel.org (Postfix) with ESMTP id 67FE260138;
+	Fri, 13 Mar 2026 11:13:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADBAC19424;
 	Fri, 13 Mar 2026 11:13:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A089C19421;
-	Fri, 13 Mar 2026 11:13:03 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
+To: soc@lists.linux.dev
 Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 0/4] Renesas SoC updates for v7.1
-Date: Fri, 13 Mar 2026 12:12:56 +0100
-Message-ID: <cover.1773399669.git.geert+renesas@glider.be>
+Subject: [GIT PULL 1/4] Renesas ARM defconfig updates for v7.1
+Date: Fri, 13 Mar 2026 12:12:57 +0100
+Message-ID: <cover.1773399670.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1773399669.git.geert+renesas@glider.be>
+References: <cover.1773399669.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -59,56 +60,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-This is my first pull request for the inclusion of Renesas SoC updates
-for v7.1.
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-It consists of 4 parts:
+are available in the Git repository at:
 
-  [GIT PULL 1/4] Renesas ARM defconfig updates for v7.1
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-arm-defconfig-for-v7.1-tag1
 
-    - Refresh the ARM SH-Mobile defconfig for v7.0-rc1.
+for you to fetch changes up to 8c6cccefb33e20224ef35497e3f55ee360942f14:
 
-  [GIT PULL 2/4] Renesas driver updates for v7.1
+  ARM: shmobile: defconfig: Refresh for v7.0-rc1 (2026-03-06 13:42:09 +0100)
 
-    - Initial support for the Renesas RZ/G3L (R9A08G046) SoC.
+----------------------------------------------------------------
+Renesas ARM defconfig updates for v7.1
 
-  [GIT PULL 3/4] Renesas DT binding updates for v7.1
+  - Refresh the ARM SH-Mobile defconfig for v7.0-rc1.
 
-    - Document RZ/G3L SoC variants, the RZ/G3L SYSC block, and RZ/G3L
-      SMARC SoM and Carrier-II EVK boards.
+----------------------------------------------------------------
+Geert Uytterhoeven (1):
+      ARM: shmobile: defconfig: Refresh for v7.0-rc1
 
-  [GIT PULL 4/4] Renesas DTS updates for v7.1
-
-    - Add CPU frequency scaling and QSPI NOR FLASH support on the RZ/N1
-      SoC and the RZN1D-DB development board,
-    - Add PCIe slot power control on the R-Car H3, M3-W(+), M3-N, and E3
-      SoCs,
-    - Add USB3.0 PHY support on the R-Car E3 SoC and the Ebisu development
-      board,
-    - Add PCIe/USB3.0 clock generator support on the Salvator-X(S), ULCB
-      King Fisher extension, and Ebisu development boards,
-    - Add RTC support on the RZ/V2N SoC and its EVK board,
-    - Add SPI DMA support on the RZ/T2H, RZ/N2H, RZ/V2H(P), and RZ/V2N
-      SoCs,
-    - Add support for the second SDHI channel on the Atmark Techno
-      Armadillo-800-EVA board,
-    - Miscellaneous fixes and improvements.
-
-Note that the fourth PR is based on "[GIT PULL] Renesas SoC fixes for
-v7.0".
-
-Thanks for pulling!
-
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+ arch/arm/configs/shmobile_defconfig | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
