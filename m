@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C7F106FD9B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3C2106FD9D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0tqqF6XkZYZpqUcuN1JR0OKYYyQ68kRuK7Q1mLhw+w=; b=m8VBIhfUQRaTyvskHTyRVyKCLp
-	r1h/4Xxl4U/y935P5CKsFA3RRUhEdLoCB70jjcOSuox7qkEuiUmeZFaC2hodcyG1VcfWCuBHBaIbI
-	0d9ypl6NFUUo5ytyjSlLAxdgA7y7HY5Me2cuwCLJWkli2al7WdaGN4BgD+m/yiyCauQpl3MP9ZLg+
-	6cCiNm6rAf2X9txSvepaCQgQWVmvj4L6uRXZ4xZvbt/TTRfb/eUBv43YDgP+HaCpkZeRXQmhAH3wU
-	ryWxQ6ekuUFOe/N27DYF9wwVhuvSk3dBn6NC0MOkDTY7wizQwWKDQD/QZHZr35tzpVed16x1ugKGV
-	4WU3ezRQ==;
+	bh=R8tCMG/oPkaIeRaLZUuC0PLQ4SE/rg0PgKCK6kflpU8=; b=srQmIg/VSAox9YvbGcJYN19GGG
+	skj1l/PVJKyGqm9Ao79pCXLSSzgBZNwdVSQydfnw0iBA/I1QkZp6uRIkzd6aK4yDes05sbMQULfVh
+	bEmCA0CAlCA25B8XIcfoIsfhchM0aKl+gmx32J0wRZ+xHawB2KAD31x5wGfo5FODoosVqE/P0l4QU
+	di3Dx65OfQU6ducFwoEdNsOUdl/LVe74uk8bQOqw8CL8hJDUdFvu9JwqiHRACKdHUtTPvh3ai8ohg
+	UTv4vYZANBkhMJcwKVkiSCIGcTMRFghsWcNKzD05qIv3nb/4YHtPe7w6GkBPUL7TrPhZU89cLG3U1
+	bRc90rKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xqD-0000000HF44-0kOL;
-	Fri, 13 Mar 2026 08:25:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0xqi-0000000HFFD-4Bgf;
+	Fri, 13 Mar 2026 08:26:25 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xqC-0000000HF3i-1vcU
+	id 1w0xqg-0000000HFCp-19dq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 08:25:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E98746012B;
-	Fri, 13 Mar 2026 08:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18DF7C19421;
-	Fri, 13 Mar 2026 08:25:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773390350;
-	bh=e0tqqF6XkZYZpqUcuN1JR0OKYYyQ68kRuK7Q1mLhw+w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XMGGPc2UegGprIlz956kluFuY01oBhvuv6TF3vxRVL/RmvaspfSjv+fdGgd9jiBHz
-	 jVlSIWTfgl1NR8OI6EvFGP0oD9st5fwUmbnORdNY0Wm5PMd1zEmV3G7cRwKtym7goU
-	 A6T0AmTgNoMLvtfIrt7eFkZfv8MFtj0aZ+xHuwlZYGanznUVoNB2QV05dOllFjV8eu
-	 6/sgmuVAzRBrVa2uSO/EAVbBQv3T7YUBVbQcqioIgDwPvmu2Z/80Y7XuLCyHOjv18G
-	 Kw7Iola19LzXHn7k+5fyt4XRAy8MQzwy7wBLuXm2EC5TSUVDgkBzw92n89c9Aamu5q
-	 mqb97+lm3dmcw==
-Date: Fri, 13 Mar 2026 09:25:48 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	peter.chen@cixtech.com, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: cix,sky1-pcie-host: Add
- power-domains
-Message-ID: <20260313-piquant-robin-of-honor-cb9f39@quoll>
-References: <20260313060308.1300518-1-gary.yang@cixtech.com>
- <20260313060308.1300518-2-gary.yang@cixtech.com>
+	Fri, 13 Mar 2026 08:26:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w0xq3-0005Ai-PR; Fri, 13 Mar 2026 09:25:43 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w0xq1-00039e-0C;
+	Fri, 13 Mar 2026 09:25:41 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w0xq0-000000002ma-45Cc;
+	Fri, 13 Mar 2026 09:25:40 +0100
+Message-ID: <352a522b5325e9db80c880dd7a3a052516f3b673.camel@pengutronix.de>
+Subject: Re: [PATCH 2/2] mmc: sdhci-of-aspeed: Add ast2700 support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery	
+ <andrew@codeconstruct.com.au>, Ulf Hansson <ulf.hansson@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen	
+ <ryanchen.aspeed@gmail.com>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Andrew Jeffery <andrew@aj.id.au>, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 13 Mar 2026 09:25:40 +0100
+In-Reply-To: <20260313-sdhci-v1-2-91cea19c8a67@aspeedtech.com>
+References: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
+	 <20260313-sdhci-v1-2-91cea19c8a67@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260313060308.1300518-2-gary.yang@cixtech.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_012622_309256_424DEF8C 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 02:03:07PM +0800, Gary Yang wrote:
-> add power-domains and power-domain-names property
+On Fr, 2026-03-13 at 13:27 +0800, Ryan Chen wrote:
+> Add support for the AST2700 SOC in the sd controller driver. AST2700 sd
+> controller requires an reset line, so hook up the optional reset control
+> and deassert it during probe.
+>=20
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+>  drivers/mmc/host/sdhci-of-aspeed.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>=20
+> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-=
+of-aspeed.c
+> index ca97b01996b1..91c36245e506 100644
+> --- a/drivers/mmc/host/sdhci-of-aspeed.c
+> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
+> @@ -520,6 +520,7 @@ static int aspeed_sdc_probe(struct platform_device *p=
+dev)
+> =20
+>  {
+>  	struct device_node *parent, *child;
+> +	struct reset_control *reset;
+>  	struct aspeed_sdc *sdc;
+>  	int ret;
+> =20
+> @@ -529,6 +530,15 @@ static int aspeed_sdc_probe(struct platform_device *=
+pdev)
+> =20
+>  	spin_lock_init(&sdc->lock);
+> =20
+> +	reset =3D reset_control_get_optional_exclusive(&pdev->dev, NULL);
 
-Nothing improved.
+This is missing a reset_control_put() in aspeed_sdc_remove(). Or use
+devm_reset_control_get_optional_exclusive().
 
-<form letter>
-This is a friendly reminder during the review process.
+Is it ok to assert this reset control in _remove()? If so, you could
+use devm_reset_control_get_optional_exclusive_deasserted().
 
-It seems my or other reviewer's previous comments were not fully
-addressed. Maybe the feedback got lost between the quotes, maybe you
-just forgot to apply it. Please go back to the previous discussion and
-either implement all requested changes or keep discussing them.
 
-Thank you.
-</form letter>
-
-Best regards,
-Krzysztof
-
+regards
+Philipp
 
