@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B190105F7A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEDA105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqpAYo2mlzUCPPquQ4nSkQ6HM7A6YvzLsKMSaZ4v+p8=; b=yXKWdUyo/3+PrUI7lOUVet6PL7
-	1sJ+XCYrZXGf3HvpbZNIE30bXID0SovW1LGpX5ymfDcC5Ae8yorOuOfjZqXDchUMVRPAGwi2ef/Lp
-	vqvSB66axjXlxGEfkFOkF8HYS9ughD+Eohi6AYR2fiUvAjmWib0g2S1nSGEKCnrvl52qyMMjHSRuk
-	AR1vD3QCycl+KYjoJ1Wp79jrSWv8j4uXg4NsExwvluOqpr+1ed4HG3+RC32p6EieIozzrGVapyDyt
-	PkI1Hxr7qFGml3iv/DeQuaywsT2IIcJfwRSxavvsHY7Eynyq4I3AcoevnDzG1uAd0+MYgD91Tf9qY
-	dKyOjedg==;
+	bh=1NourYiljIab2CcCKGK5HPDHBcdheENTz2uXh7vtjdk=; b=egz6YTmZl7fLkNWJXiMbkNfqDY
+	oNMMBhJPuOMd7agLKZ6RwktDXbUuvq4ol01iOJGFCXZAoNlY5Zn9r2nGBszEXKF9oPbXU12sm3l44
+	UgTqGRsUKP5/LB9EHy+CEsDtWdbZ7rHzk4dFDqbh6T7zdU/54oJUca6nIp9KflwUiouidNpzc6hPh
+	SuPcdAl2+KZypbkKKCSmIwy53ESWnA0w/rUSmE8tsrzi248NFJHaw5a9TQkH0d0Uu489BVeLuWvtc
+	Nm+GQ3IHTCbERRZxl+VWqJYOF6FXg3LUdLQge0lP9jX2AxUB+yfCe4LQqIGY2ZWjWm3ccynMEqyFj
+	YSiXXNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12Sa-00000000DOU-1kXl;
-	Fri, 13 Mar 2026 13:21:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12SQ-00000000DIH-37xn
+	id 1w12XJ-00000000E7z-1IIq;
+	Fri, 13 Mar 2026 13:26:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w12XH-00000000E7V-0VE3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 13:21:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADEF11C2B;
-	Fri, 13 Mar 2026 06:21:31 -0700 (PDT)
-Received: from e142892.manchester.arm.com (e142892.arm.com [10.33.8.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1265E3F73B;
-	Fri, 13 Mar 2026 06:21:35 -0700 (PDT)
-From: Mike Leach <mike.leach@arm.com>
-To: linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	linux-kernel@vger.kernel.org,
-	acme@kernel.org
-Cc: suzuki.poulose@arm.com,
-	leo.yan@linaro.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@redhat.com,
-	namhyung@kernel.org,
-	Mike Leach <mike.leach@arm.com>
-Subject: [PATCH 2/2] perf: tools: cs-etm: Enhance raw Coresight trace debug display
-Date: Fri, 13 Mar 2026 13:21:29 +0000
-Message-ID: <20260313132129.2743468-3-mike.leach@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260313132129.2743468-1-mike.leach@arm.com>
-References: <20260313132129.2743468-1-mike.leach@arm.com>
+	Fri, 13 Mar 2026 13:26:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1F4F4453C;
+	Fri, 13 Mar 2026 13:26:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 653FCC2BC87;
+	Fri, 13 Mar 2026 13:26:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773408398;
+	bh=6+2pNEqlkzPRnDr3BEkIgG1nxwqKeOZVrnLRAtULRU8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=WxdhvjJMjd4amZvQrKCl2agka//pWX8+zKA+382Ygf2qUnNxdQ6b6GYsf7GqCEe3o
+	 127/IIZj0ZtU4BDAq3gIhpHybdQWrEtHKRkOhIzAEyhedI4Bp9Aot8h1DXp4urMbal
+	 K4wC3mGzU44Ya1timo3ALjHw8LnpwEvZJjy+QClDxQ/vLbzcnZcvYQC0bQEPXyBZL6
+	 e0LWnEGF+mUwgdwGJgK1pvzannyAlM4+ZEVbTegTIGfZ3Usk+ntuYjuCV45NMmJA5K
+	 yUwFTpncZaY+b99+jHFJR14yqDmd6f/EuLJTS6rmnJ2TZTIn2UrFnB1T6ysvi/AFoj
+	 bogzb9cQBswVw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 3F84BF40068;
+	Fri, 13 Mar 2026 09:26:37 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 13 Mar 2026 09:26:37 -0400
+X-ME-Sender: <xms:jRC0aVdBb73GL2yZo1TWm4_PUDhFtLDcvslFMQcpnd0p5leIcNEx1g>
+    <xme:jRC0aeDP1SbIhGu_p9aLxn7P3JfaDxLOVCtGnAZhkgP1dkcF7WlCMRJ_nG13Y2j3i
+    ZzuN2TZPAQcpjoNViAM-5IdL9vOjIS09lEsBIZSCFmIGiNtYnVHyNQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvkeeljeejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeei
+    jeefudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
+    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
+    gurdgtohhmpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepmh
+    grrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepshgrmhhithholhhv
+    rghnvghnsehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhi
+    nhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:jRC0aYCywX9ClUiDmEZk6xoGIFWbW4tr_QJCD5A0gBDEoJ40I6kq9g>
+    <xmx:jRC0acAqeX8AEa4FlUAXS_b95brATkdjrEuSydCn5NS-22TMkiItjQ>
+    <xmx:jRC0abpwFUEGYvqnV-Uio9QqZVdQ6Q-Wi4ebuyD4Ol0B3WXJXBva7Q>
+    <xmx:jRC0ael03DSAMysRv2PKqY85LMeawHJs_aUT7dMLIagX5eURqR6hjw>
+    <xmx:jRC0aTxl7L0WUC97zTUs1HxLdFMUsNpRf7G4ap9AluCKfs9wVVVa8U9w>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1D568700065; Fri, 13 Mar 2026 09:26:37 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AAcvUmYsUZJJ
+Date: Fri, 13 Mar 2026 14:26:16 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Sami Tolvanen" <samitolvanen@google.com>
+Message-Id: <7b4debe3-d76c-4abe-8f7b-b2f3856f170f@app.fastmail.com>
+In-Reply-To: <20260313123220.29878-1-will@kernel.org>
+References: <20260313123220.29878-1-will@kernel.org>
+Subject: Re: [PATCH] arm64: scs: Remove redundant save/restore of SCS SP on entry
+ to/from EL0
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_062138_910235_AA17BEC6 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260313_062639_206977_BFC54E67 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When compiling perf with CORESIGHT=1, an additional build option may
-be used: CSTRACE_RAW=1, which will cause the CoreSight formatted trace
-frames to be printed out during a perf --dump command. This is useful
-when investigating issues with trace generation, decode or possible
-data corruption.
 
-e.g. for ETMv4 trace source into a formatted ETR sink a dump -
 
-. ... CoreSight ETMV4I Trace data: size 0x28c150 bytes
-Idx:0; ID:14;	I_ASYNC : Alignment Synchronisation.
-Idx:12; ID:14;	I_TRACE_INFO : Trace Info.; INFO=0x0 { CC.0 };
-                Decoder Sync point TINFO
-Idx:17; ID:14;	I_ADDR_L_64IS0 : Address, Long, 64 bit, IS0.;
-                Addr=0x0000000000000000;
+On Fri, 13 Mar 2026, at 13:32, Will Deacon wrote:
+> When returning to userspace, the SCS is empty and so the SCS SP just
+> points to the base address of the SCS page.
+>
+> Rather than saving and restoring this address in the current task, we
+> can simply restore the SCS SP to point at the base of the stack on entry
+> to EL1 from EL0.
+>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Sami Tolvanen <samitolvanen@google.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/scs.h | 8 ++++++++
+>  arch/arm64/kernel/entry.S    | 4 +---
+>  2 files changed, 9 insertions(+), 3 deletions(-)
+>
 
-becomes with CSTRACE_RAW=1:
-
-. ... CoreSight ETMV4I Trace data: size 0x28c150 bytes
-Frame Data; Index 0; ID_DATA[0x14]; 00 00 00 00 00 00 00 00
-                                    00 00 00 80 01 01
-Idx:0; ID:14;	I_ASYNC : Alignment Synchronisation.
-Frame Data; Index 16; ID_DATA[0x14]; 00 9d 00 00 00 00 00 00
-                                     00 00 04 85 57 08 f2
-Idx:12; ID:14;	I_TRACE_INFO : Trace Info.; INFO=0x0 { CC.0 };
-                Decoder Sync point TINFO
-Idx:17; ID:14;	I_ADDR_L_64IS0 : Address, Long, 64 bit, IS0.;
-                Addr=0x0000000000000000;
-
-CSTRACE_RAW=1 has no effect on ETE + TRBE trace as there is no trace
-formatting in the TRBE buffer.
-
-This patch enhances the output so that for each packet the individual
-bytes associated with the packet are printed.
-
-Thus for ETMv4 this now becomes:
-
-. ... CoreSight ETMV4I Trace data: size 0x28c150 bytes
-Frame Data; Index 0; ID_DATA[0x14]; 00 00 00 00 00 00 00 00
-                                    00 00 00 80 01 01
-Idx:0; ID:14;[0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x80];
-             I_ASYNC : Alignment Synchronisation.
-Frame Data; Index 16; ID_DATA[0x14]; 00 9d 00 00 00 00 00 00
-                                     00 00 04 85 57 08 f2
-Idx:12; ID:14; [0x01 0x01 0x00 ]; I_TRACE_INFO : Trace Info.; INFO=0x0
-                                  { CC.0 }; Decoder Sync point TINFO
-Idx:17; ID:14; [0x9d 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 ];
-               I_ADDR_L_64IS0 : Address, Long, 64 bit, IS0.;
-	       Addr=0x0000000000000000;
-
-ETE trace output changes from:
-
-Idx:0; ID:14; I_ASYNC : Alignment Synchronisation.
-Idx:12; ID:14; I_TRACE_INFO : Trace Info.; INFO=0x0 { CC.0, TSTATE.0 };
-               Decoder Sync point TINFO
-Idx:15; ID:14; I_ADDR_L_64IS0 : Address, Long, 64 bit, IS0.;
-               Addr=0xFFFF80007CF7F56C;
-becoming:
-
-Idx:0; ID:14;[0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x80];
-              I_ASYNC : Alignment Synchronisation.
-Idx:12; ID:14; [0x01 0x01 0x00 ]; I_TRACE_INFO : Trace Info.; INFO=0x0
-               { CC.0, TSTATE.0 }; Decoder Sync point TINFO
-Idx:15; ID:14; [0x9d 0x5b 0x7a 0xf7 0x7c 0x00 0x80 0xff 0xff ];
-               I_ADDR_L_64IS0 : Address, Long, 64 bit, IS0.;
-	       Addr=0xFFFF80007CF7F56C;
-
-Signed-off-by: Mike Leach <mike.leach@arm.com>
----
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index f7e89693cf16..229b28538757 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -22,12 +22,15 @@
- /* use raw logging */
- #ifdef CS_DEBUG_RAW
- #define CS_LOG_RAW_FRAMES
-+#define CS_PKT_MON	1
- #ifdef CS_RAW_PACKED
- #define CS_RAW_DEBUG_FLAGS (OCSD_DFRMTR_UNPACKED_RAW_OUT | \
- 			    OCSD_DFRMTR_PACKED_RAW_OUT)
- #else
- #define CS_RAW_DEBUG_FLAGS (OCSD_DFRMTR_UNPACKED_RAW_OUT)
- #endif
-+#else
-+#define CS_PKT_MON	0
- #endif
- 
- /*
-@@ -686,7 +689,7 @@ cs_etm_decoder__create_etm_decoder(struct cs_etm_decoder_params *d_params,
- 					   trace_config, &csid))
- 			return -1;
- 
--		if (ocsd_dt_set_pkt_protocol_printer(decoder->dcd_tree, csid, 0))
-+		if (ocsd_dt_set_pkt_protocol_printer(decoder->dcd_tree, csid, CS_PKT_MON))
- 			return -1;
- 
- 		return 0;
--- 
-2.43.0
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
 
