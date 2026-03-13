@@ -4,94 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEDA105F7A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DBC105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NourYiljIab2CcCKGK5HPDHBcdheENTz2uXh7vtjdk=; b=egz6YTmZl7fLkNWJXiMbkNfqDY
-	oNMMBhJPuOMd7agLKZ6RwktDXbUuvq4ol01iOJGFCXZAoNlY5Zn9r2nGBszEXKF9oPbXU12sm3l44
-	UgTqGRsUKP5/LB9EHy+CEsDtWdbZ7rHzk4dFDqbh6T7zdU/54oJUca6nIp9KflwUiouidNpzc6hPh
-	SuPcdAl2+KZypbkKKCSmIwy53ESWnA0w/rUSmE8tsrzi248NFJHaw5a9TQkH0d0Uu489BVeLuWvtc
-	Nm+GQ3IHTCbERRZxl+VWqJYOF6FXg3LUdLQge0lP9jX2AxUB+yfCe4LQqIGY2ZWjWm3ccynMEqyFj
-	YSiXXNdA==;
+	bh=7w9iToPiAuzGu88WMIveHubY5MSgj9Fj9hiEM3gbv+o=; b=IefwZ/na4a0mhRzThIfNNgEiwV
+	+WMlodT1dY4g+1h1QNAeQRHbI6X1uYqPkZlGSAO5XKoEnHb9S+KIXG0sxruZXAGsg+N2Pkw4IA0BK
+	k0ui5GXP9WfvZi+JmKfF66VftxMWm37Tm/OaSuqD+YJKKmw0s9Q2PUAdrBJ22fLJ/ns+UVElYSWi3
+	wIjIKOrVcluaFYJh/J/TIknxJloJ2mnqOMbmG76QBImYT5sGOWHDphbOoAe3vjkyE9BgU3lmgU4yK
+	ZdUyjr4jaIh9AXHLTh5HGB8L3bpGf/YuN4IoRYnmAn3b4ADJY0x8iqzmS3P10YnIbxlbAaWDabwRG
+	a99fYDNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12XJ-00000000E7z-1IIq;
-	Fri, 13 Mar 2026 13:26:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w12XV-00000000EGt-0oFH;
+	Fri, 13 Mar 2026 13:26:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12XH-00000000E7V-0VE3
+	id 1w12XU-00000000EF7-2rgo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 13:26:40 +0000
+	Fri, 13 Mar 2026 13:26:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1F4F4453C;
-	Fri, 13 Mar 2026 13:26:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 653FCC2BC87;
-	Fri, 13 Mar 2026 13:26:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E485660132
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 13:26:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B07AC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 13:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773408398;
-	bh=6+2pNEqlkzPRnDr3BEkIgG1nxwqKeOZVrnLRAtULRU8=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=WxdhvjJMjd4amZvQrKCl2agka//pWX8+zKA+382Ygf2qUnNxdQ6b6GYsf7GqCEe3o
-	 127/IIZj0ZtU4BDAq3gIhpHybdQWrEtHKRkOhIzAEyhedI4Bp9Aot8h1DXp4urMbal
-	 K4wC3mGzU44Ya1timo3ALjHw8LnpwEvZJjy+QClDxQ/vLbzcnZcvYQC0bQEPXyBZL6
-	 e0LWnEGF+mUwgdwGJgK1pvzannyAlM4+ZEVbTegTIGfZ3Usk+ntuYjuCV45NMmJA5K
-	 yUwFTpncZaY+b99+jHFJR14yqDmd6f/EuLJTS6rmnJ2TZTIn2UrFnB1T6ysvi/AFoj
-	 bogzb9cQBswVw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 3F84BF40068;
-	Fri, 13 Mar 2026 09:26:37 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 13 Mar 2026 09:26:37 -0400
-X-ME-Sender: <xms:jRC0aVdBb73GL2yZo1TWm4_PUDhFtLDcvslFMQcpnd0p5leIcNEx1g>
-    <xme:jRC0aeDP1SbIhGu_p9aLxn7P3JfaDxLOVCtGnAZhkgP1dkcF7WlCMRJ_nG13Y2j3i
-    ZzuN2TZPAQcpjoNViAM-5IdL9vOjIS09lEsBIZSCFmIGiNtYnVHyNQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvkeeljeejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeei
-    jeefudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
-    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
-    gurdgtohhmpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepmh
-    grrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepshgrmhhithholhhv
-    rghnvghnsehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhi
-    nhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:jRC0aYCywX9ClUiDmEZk6xoGIFWbW4tr_QJCD5A0gBDEoJ40I6kq9g>
-    <xmx:jRC0acAqeX8AEa4FlUAXS_b95brATkdjrEuSydCn5NS-22TMkiItjQ>
-    <xmx:jRC0abpwFUEGYvqnV-Uio9QqZVdQ6Q-Wi4ebuyD4Ol0B3WXJXBva7Q>
-    <xmx:jRC0ael03DSAMysRv2PKqY85LMeawHJs_aUT7dMLIagX5eURqR6hjw>
-    <xmx:jRC0aTxl7L0WUC97zTUs1HxLdFMUsNpRf7G4ap9AluCKfs9wVVVa8U9w>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1D568700065; Fri, 13 Mar 2026 09:26:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1773408411;
+	bh=AISdWu8eVoLKl2jhVTe4EddyX7ECqkH20VxhG1FYrSM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=uwrZWzrVfHpeUB+OCnSFBHpLfCVLyREVSNNmz/haQVUWDBx/9Q45PkDIcCabwEMrh
+	 rW0sibNFp8LiS3AAQMM3pLJsOu3hOqtXdgwO5QZQ8a3zQfOO2ROh3Ow6+GAUfPjHli
+	 1/QcrcOuoJJE6AJdcvp5Wolly6LBX3lgsuLs+3AAajzMjC0k06Fhy0dxWdkWkAAudR
+	 gZ6IhX0uLw0hPQ06A/Ji2XdzhOkyua2YI9B+Pc1AmUaRA0E9fvmHsTxRDehDakfO03
+	 ImrQ6I1o8FjQ8QUq2ExbsnClXn1DUMdJUj5MyJEara0tYRvIDr1xRKjAkzHFZGPm21
+	 1aPPNpZ5lrY0A==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-661b08b04deso2438944a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:26:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV/GfanlqW/nHw/lY9V/e9Xlo73bbPlb1BImgycdrWAZhqAWlwczlh+ZvIvAPIIjfTMp7kVeD/9GQzucWynMpKA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt4PcWsS/TwFOslFpZNJLuNiSHuHApIzp9Uxpy/L+3DwRiljye
+	qrMTkBT6QmhgciyhbVvu63U+iZkDqIzu+LVOV9qkez+ZIlTCW5/rT592aQacy+C4+6zz8LUXvdy
+	F0IxxfQJ2AiOp+BEPliC1lBLS8qw6Jw==
+X-Received: by 2002:a05:6402:1e91:b0:662:f822:d932 with SMTP id
+ 4fb4d7f45d1cf-663babbef8fmr1820274a12.15.1773408409847; Fri, 13 Mar 2026
+ 06:26:49 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AAcvUmYsUZJJ
-Date: Fri, 13 Mar 2026 14:26:16 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Sami Tolvanen" <samitolvanen@google.com>
-Message-Id: <7b4debe3-d76c-4abe-8f7b-b2f3856f170f@app.fastmail.com>
-In-Reply-To: <20260313123220.29878-1-will@kernel.org>
-References: <20260313123220.29878-1-will@kernel.org>
-Subject: Re: [PATCH] arm64: scs: Remove redundant save/restore of SCS SP on entry
- to/from EL0
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_062639_206977_BFC54E67 
-X-CRM114-Status: GOOD (  11.95  )
+References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
+ <20260306-gs101-pd-v7-4-03f7c7965ba5@linaro.org> <20260312151228.GA3136988-robh@kernel.org>
+ <da0726da3e59d83985650e8281ed945018a356e4.camel@linaro.org>
+In-Reply-To: <da0726da3e59d83985650e8281ed945018a356e4.camel@linaro.org>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 13 Mar 2026 08:26:38 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKeSimB6OYFzOk2tWy-nbFez3qRwWrc=yD8uKDALYP8pA@mail.gmail.com>
+X-Gm-Features: AaiRm50TuMWj7Ra8O56XpkSkM3G2RRk4u3p-yrp2uk72zHKmMKKqGtQffs4TDX4
+Message-ID: <CAL_JsqKeSimB6OYFzOk2tWy-nbFez3qRwWrc=yD8uKDALYP8pA@mail.gmail.com>
+Subject: Re: [PATCH v7 04/10] dt-bindings: soc: google: gs101-pmu: allow power
+ domains as children
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On Fri, 13 Mar 2026, at 13:32, Will Deacon wrote:
-> When returning to userspace, the SCS is empty and so the SCS SP just
-> points to the base address of the SCS page.
+On Fri, Mar 13, 2026 at 5:48=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@l=
+inaro.org> wrote:
 >
-> Rather than saving and restoring this address in the current task, we
-> can simply restore the SCS SP to point at the base of the stack on entry
-> to EL1 from EL0.
+> On Thu, 2026-03-12 at 10:12 -0500, Rob Herring wrote:
+> > On Fri, Mar 06, 2026 at 10:29:55AM +0000, Andr=C3=A9 Draszik wrote:
+> >
+> > >      system-controller@17460000 {
+> > >          compatible =3D "google,gs101-pmu";
+> > >          reg =3D <0x17460000 0x10000>;
+> > > +        #address-cells =3D <1>;
+> > > +        #size-cells =3D <1>;
+> > > +        ranges;
+> > >
+> > >          google,pmu-intr-gen-syscon =3D <&pmu_intr_gen>;
+> > > +
+> > > +        pd_g3d: power-domain@1e00 {
+> > > +            compatible =3D "google,gs101-pd";
+> > > +            reg =3D <0x1e00 0x80>;
+> >
+> > I'm assuming 0x1e00 is an offset from 0x17460000. That's not what range=
+s
+> > says though. It says both addresses are in the same address space
+> > (system-controller@17460000 parent's address space). You need:
+> >
+> > ranges =3D <0x0 0x17460000 0x10000>;
 >
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Sami Tolvanen <samitolvanen@google.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/scs.h | 8 ++++++++
->  arch/arm64/kernel/entry.S    | 4 +---
->  2 files changed, 9 insertions(+), 3 deletions(-)
+> Thanks Rob! On gs101, the PD driver can not do direct mmio. Instead it
+> needs to use the regmap that the parent has created and apply the
+> offset from the PD's reg property (using struct resource::start)
+> (patch 7).
 >
+> When using ranges as per your suggestion that doesn't work anymore,
+> as resource->start isn't the offset anymore but the final physical
+> address, and using that in combination with the parent's regmap
+> doesn't give us the right address anymore.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+You are mixing kernel implementation details and h/w. Are the
+registers in the child nodes MMIO or not? If not, then drop ranges. If
+they are, then what I suggested for ranges is correct.
 
+For MMIO, your kernel implementation options are what you suggested,
+do a regmap for each child, or use of_property_read_reg().
+
+Rob
 
