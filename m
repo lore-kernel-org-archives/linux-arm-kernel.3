@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745B6107BCE1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 19:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8B5107BCE1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 19:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YrydbLjVEJBQfYJGZmo0WpYPLlv6HaFoigGqVZG4mI=; b=2Mbb9fIivdBUIYwEeMUyOsMhdA
-	gQzNH8mfaskIGp2c0PliJ5kyNUc9n0JvkPU/sDdFB1paZH6Ozmu6fg1Ylh1f9uami6HIQKS0GqRO6
-	kn8oOWJRdmIBPaBGx4z56L1yTHy1jpfmPjRnbRiyqcPcvrD2jolS9KoggKZTuWgXAKiYmF6vvzux4
-	/A4hIwMad81f5MgNDEtdHPdXq8XJM0JGGn5l4lhChYgqgoDZlnZzZ15Ic8/26F0rY4Aw1u4p3tKm6
-	RWS3ns6FZgu3HtKftqOvVr+56VaAsK9/3b6KX29o0FvRok2L76F39AsoHR7oZ2GLWojEfraWDYvOP
-	j8Jli8GA==;
+	bh=a37QXwp3qEwDh9AgjIf+Tlc0+VKHZxoerRqHbO7hOHc=; b=YLA4al1UEtZYqTOriFb3o/l2TZ
+	AijTL/90Lm62PZGD4tzIzDxKYDuWbgXfI8nRQCWbJHAz+3jFhaIzJVTuH8XGxukFInRGNnv//3cDS
+	1RRH3lnJnwFvakvNgG21RTZMIHcdoaRjQu6mQaPvHWjJVRCUbo61tsXzmtwLy4TcDjE+c2i73qj8E
+	nW+X47fTaEje+fLfLmPuwW1m+XY2ws8GYmU6shXgLcJ2tthNdHmGyM2cCslDrO6LVquOY2GUFG4Lh
+	0WPhBTE1xo3E0scw5ZqOJKPxZp7mE0o40N8dJSusG0o63MnVtaTqeg1augQHpHnXy6HkqVfoqgGFB
+	jJhYa2yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w18IE-000000014ui-2Y8t;
-	Fri, 13 Mar 2026 19:35:30 +0000
+	id 1w18IW-0000000151Z-3z65;
+	Fri, 13 Mar 2026 19:35:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w18IC-000000014u5-1F2u
+	id 1w18IT-0000000150F-3ZZb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 19:35:29 +0000
+	Fri, 13 Mar 2026 19:35:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18B7114BF;
-	Fri, 13 Mar 2026 12:35:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8F7F14BF;
+	Fri, 13 Mar 2026 12:35:37 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD9503F694;
-	Fri, 13 Mar 2026 12:35:24 -0700 (PDT)
-Date: Fri, 13 Mar 2026 19:35:22 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC8E23F694;
+	Fri, 13 Mar 2026 12:35:41 -0700 (PDT)
+Date: Fri, 13 Mar 2026 19:35:39 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Barry Song <21cnbao@gmail.com>
-Subject: Re: [PATCH v3 2/5] arm64: Provide dcache_clean_poc_nosync helper
-Message-ID: <abRm-nRamCJPvulr@arm.com>
+Subject: Re: [PATCH v3 3/5] arm64: Provide dcache_inval_poc_nosync helper
+Message-ID: <abRnC8dlwyAdJc2Q@arm.com>
 References: <20260228221125.59863-1-21cnbao@gmail.com>
- <20260228221239.59903-1-21cnbao@gmail.com>
+ <20260228221258.59918-1-21cnbao@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260228221239.59903-1-21cnbao@gmail.com>
+In-Reply-To: <20260228221258.59918-1-21cnbao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_123528_373859_4C27B355 
-X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-CacheID: sfid-20260313_123545_969120_8854A44C 
+X-CRM114-Status: UNSURE (   7.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -63,12 +63,12 @@ Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Barry Song <baohua@kernel.org>, Rya
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 01, 2026 at 06:12:39AM +0800, Barry Song wrote:
+On Sun, Mar 01, 2026 at 06:12:58AM +0800, Barry Song wrote:
 > From: Barry Song <baohua@kernel.org>
 > 
-> dcache_clean_poc_nosync does not wait for the data cache clean to
-> complete. Later, we wait for completion of all scatter-gather entries
-> together.
+> dcache_inval_poc_nosync does not wait for the data cache invalidation to
+> complete. Later, we defer the synchronization so we can wait for all SG
+> entries together.
 > 
 > Cc: Leon Romanovsky <leon@kernel.org>
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
