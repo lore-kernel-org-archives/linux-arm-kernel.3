@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68F0107BCCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460BF107BCCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ioa4rs0AY+1xO/nDt/HduhJ3rE2814iMjAMBaaSwb7g=; b=HgS0s5Xr1PCy0JjbWAkbzDRi92
-	nh3g+4/TMwuAVWzjxn2xWHz7pBiW6Ewi2Zj6QM8e17K8UhnDgUPk13kQvWyKpTrH/n5ZC6Zx5JyvB
-	6JYK0v2T48y/bAJnQ3mBZvHF3hxRfVlMWFVb/xeGXVozgh9tSJOMywMl1tbeNqNduI9rF2FOGLmAR
-	9R0ZwHnwz9q0DomP836UqQjWFCdyfrkT44FTjDd8TO5P32aQiRwHH8nmfzKrrLnJi+o7zjwM+SZGJ
-	76k7e8arw3RP/wo+xok6s+nDIV/REdrj2GW1/QeOxk9MGqwsAYuIcy5MHKrMmC2RKBPipeb6JVnac
-	7sbdJs3w==;
+	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=; b=MPOmYtlv5idjKB2IxjkC0//G1v
+	ugRtEM9s+QoxZ2rfIyNGRmRR9TG0glUHSMyltkfMW2moMEM73ctKRM9hKIqw0afJt7R3xtVk6wwhX
+	KmLVxjQrgzgOLbT486aC+JUQSPg+BtrEFGoaaNJg9SiM30cj+JWE/G/gA9BVqI7T/Led35sz0mQi3
+	jyfxrTd+ZjOayHjRKE02MZB834n3zDHraf2rqlW+buvSVEdmtOLK1x3J3pAEKmb+qwE6hsWCAoRVt
+	WCglE72amqE3msnvLXp/hQeRe5on+AZBBlymIRlqEkqzMqC+0J4y4GxdwaR0AdjPwx04vwGjaNuB2
+	uqH/1B+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15Z9-00000000fQ9-31sa;
-	Fri, 13 Mar 2026 16:40:47 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1w15ZA-00000000fQX-07AC;
+	Fri, 13 Mar 2026 16:40:48 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15Z6-00000000fMe-2GW1
+	id 1w15Z5-00000000fM9-3MPL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:40:45 +0000
+	Fri, 13 Mar 2026 16:40:46 +0000
 Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4fXVbP0vhMz9tKQ;
-	Fri, 13 Mar 2026 17:40:33 +0100 (CET)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fXVbH2qZmz9v0n;
+	Fri, 13 Mar 2026 17:40:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420033;
+	t=1773420027;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ioa4rs0AY+1xO/nDt/HduhJ3rE2814iMjAMBaaSwb7g=;
-	b=RbLGuX7BJnbsX5Icu0ckNHxNJs0XlWZkRKBYM6SNG4dDks2Oeteg4J55QJv9vBi0VNZzqI
-	KtlWi6Q3vQbYxIN1S4MBqpdxjt6dS6Z9iZJvggkdozmjlUD+FfCNZN3Wmj/Nwm7acblgVV
-	2zwItSIHybFTN8BEygqHXbLdfNIuhtMjTvVfoLb9dhWPFSO8lF0DdbdGYwOfrEvz0Qc6pJ
-	e9YjF6o4rat3CS1Eo1oQLV/xe32kwqPF++PFbj/5XOoXKUr0cawnMc3I1l8leTpO1UZq9O
-	Ko0bUTEA+7XgIfH9aj8NhTKep+mVQxiz3qsFH4NlHd8/+C81xvky7X4vzRL9HQ==
+	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=;
+	b=AgFDCy54oGUGzqZ8449HAYFL0KLu9wBNvp3uNlkcghl88zk3tAepZU6+w5gWnHx1cgBHtC
+	g5KfF7HuQn5kBVEP7nXikx47jERKvpYL6JTA+HFub8mPaQPU3ux7izh0eAGVK9hYj9HHVT
+	9m+E7go//kFhNi6g2Etb0j4rJfhUn0rEHbIGFMTt4hhuzfpDd/r3PW+3W6hUjpAJxM978P
+	N7rwuAtUA1+wgPxBi4/BfN4ffVlZsC5SILhFqQsAcoUE9Bt0MJaNIWDFQsf4daFveMDZAz
+	nDNwTizuVTi/6y9kDfuB+TJniBNZA79lIGZrIB+jLCLREQNO6WdvZrloeMhkVQ==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420031;
+	t=1773420025;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ioa4rs0AY+1xO/nDt/HduhJ3rE2814iMjAMBaaSwb7g=;
-	b=MvEnR20yinIH41rDIQIvHoU7pITpDfBLh7rBEB3kHX+ntujEh4g9viFv7552PlC2EEhnAP
-	4zn0nSuHNYilG14KwobUIJjq3zz7oo6ao+EBxXkZJutzvHtfHze+rvSlb0gJKovT4G0Vs/
-	pxgM+3Y5hxAWf1UuG+L7DGjZX6Yj8IPq5dQ/4IR6Zkf8QmnvG6J88f4mU41GnO/0n8PDI8
-	1Ridx0EqBBh/70Bs6NTVM+FcWzCb8LWoXlzoztJ5NFV4hEzNIfWKb490bt+Kcs+XXARZYT
-	LW8dCL5QuEWl7G/W0Ylpz5rDlykA370662ZxoeqbTV4F7sOYx6epDSWLJH10TQ==
+	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=;
+	b=oN6uE6rpVwQSD3CXY9VPs9g1dXRZW+HYLEAAP8F/KrQcHXP3c6i7nqv7z/+IgzWvcDO9Li
+	Nr8lTgEgLE6khKU6BCrS5cPEZ9/7nk9FqlU6jD7/8YO6Qzebd2S6rneP1j9hS2qSE0PUDt
+	RfiDR80tCT947i9Y5gv4xojp4x9IDeYaGrZLTrmWqZecBgRCKpw+YW655mprn5KtKThr3W
+	w9tI1U+FGlr/uBmoV0jgjLwtGyBv2LUHKktpl4d+h74/ufDTWiLYopATz5DLqwTMl4pn+R
+	Ig/UyMCjqzxcI4VTp2AqneK8wzyb46B48LRMJbt/jCFz2U/o5aRoYb01udxjyg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
@@ -70,18 +70,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 3/4] arm64: dts: renesas: Drop KSZ9131 PHY C22 compatible string
-Date: Fri, 13 Mar 2026 17:39:05 +0100
-Message-ID: <20260313164008.40933-4-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 1/4] arm64: dts: renesas: Drop RTL8211E PHY C22 compatible string
+Date: Fri, 13 Mar 2026 17:39:03 +0100
+Message-ID: <20260313164008.40933-2-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
 References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 8knds6w3qsktbd964geswkbkd65bjtph
-X-MBO-RS-ID: f60970eea33126c8695
+X-MBO-RS-META: 6yg744pxjru14qnneqync5m7ybf8qkxf
+X-MBO-RS-ID: 3d426e35b99a79129b8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_094044_739434_3661AE79 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260313_094045_307224_681DAE51 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,8 +96,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Microchip KSZ9131 PHY schema indicates that compatible string
-"ethernet-phy-id0022.1640" must not be followed by any other
+Realtek RTL8211E PHY schema indicates that compatible string
+"ethernet-phy-id001c.c915" must not be followed by any other
 compatible string. Drop trailing "ethernet-phy-ieee802.3-c22"
 to match the schema.
 
@@ -114,159 +114,38 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi    | 3 +--
- arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts | 4 ++--
- arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts | 4 ++--
- arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi       | 6 ++----
- arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi      | 3 +--
- arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi      | 6 ++----
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi       | 6 ++----
- 7 files changed, 12 insertions(+), 20 deletions(-)
+ arch/arm64/boot/dts/renesas/cat875.dtsi         | 3 +--
+ arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi b/arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi
-index af6d15f90c65f..f8442b6a85a75 100644
---- a/arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi
-@@ -59,8 +59,7 @@ &avb {
+diff --git a/arch/arm64/boot/dts/renesas/cat875.dtsi b/arch/arm64/boot/dts/renesas/cat875.dtsi
+index 191b051ecfd45..5815e9d2d8a93 100644
+--- a/arch/arm64/boot/dts/renesas/cat875.dtsi
++++ b/arch/arm64/boot/dts/renesas/cat875.dtsi
+@@ -22,8 +22,7 @@ &avb {
  	status = "okay";
  
  	phy0: ethernet-phy@0 {
--		compatible = "ethernet-phy-id0022.1640",
+-		compatible = "ethernet-phy-id001c.c915",
 -			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
++		compatible = "ethernet-phy-id001c.c915";
+ 		reg = <0>;
+ 		interrupts-extended = <&gpio2 21 IRQ_TYPE_LEVEL_LOW>;
+ 		reset-gpios = <&gpio1 20 GPIO_ACTIVE_LOW>;
+diff --git a/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi b/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
+index 4113710d55226..83b6c04274ac9 100644
+--- a/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
++++ b/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
+@@ -24,8 +24,7 @@ &avb {
+ 	status = "okay";
+ 
+ 	phy0: ethernet-phy@0 {
+-		compatible = "ethernet-phy-id001c.c915",
+-			     "ethernet-phy-ieee802.3-c22";
++		compatible = "ethernet-phy-id001c.c915";
  		reg = <0>;
  		interrupts-extended = <&gpio2 11 IRQ_TYPE_LEVEL_LOW>;
  		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-index c191ecb397135..dd5e4b13f0f86 100644
---- a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-@@ -260,7 +260,7 @@ raa215300: pmic@12 {
- 
- &mdio0 {
- 	phy0: ethernet-phy@0 {
--		compatible = "ethernet-phy-id0022.1640", "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <0>;
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
-@@ -279,7 +279,7 @@ phy0: ethernet-phy@0 {
- 
- &mdio1 {
- 	phy1: ethernet-phy@1 {
--		compatible = "ethernet-phy-id0022.1640", "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <0>;
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
-diff --git a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-index dc4577ebf2e95..8ae7b6e3d712e 100644
---- a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-@@ -281,7 +281,7 @@ raa215300: pmic@12 {
- 
- &mdio0 {
- 	phy0: ethernet-phy@0 {
--		compatible = "ethernet-phy-id0022.1640", "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <0>;
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
-@@ -300,7 +300,7 @@ phy0: ethernet-phy@0 {
- 
- &mdio1 {
- 	phy1: ethernet-phy@1 {
--		compatible = "ethernet-phy-id0022.1640", "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <0>;
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
-diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-index d511e152d7c6c..7eccdaffb221f 100644
---- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-@@ -99,8 +99,7 @@ &eth0 {
- 	status = "okay";
- 
- 	phy0: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&irqc RZG2L_IRQ2 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <2400>;
-@@ -126,8 +125,7 @@ &eth1 {
- 	status = "okay";
- 
- 	phy1: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&irqc RZG2L_IRQ3 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <2400>;
-diff --git a/arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi
-index 3e8909a872e33..15f2e9eaaf0b6 100644
---- a/arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi
-@@ -79,8 +79,7 @@ &eth0 {
- 	status = "okay";
- 
- 	phy0: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&irqc RZG2L_IRQ0 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <2400>;
-diff --git a/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-index cd4275d86935b..0f917d7c99398 100644
---- a/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-@@ -75,8 +75,7 @@ &eth0 {
- 	status = "okay";
- 
- 	phy0: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&irqc RZG2L_IRQ2 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <2400>;
-@@ -103,8 +102,7 @@ &eth1 {
- 	status = "okay";
- 
- 	phy1: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&irqc RZG2L_IRQ7 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <2400>;
-diff --git a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-index 3b571c0967522..cb5066443722c 100644
---- a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-@@ -136,8 +136,7 @@ &i3c {
- 
- &mdio0 {
- 	phy0: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&icu 3 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <1400>;
-@@ -157,8 +156,7 @@ phy0: ethernet-phy@7 {
- 
- &mdio1 {
- 	phy1: ethernet-phy@7 {
--		compatible = "ethernet-phy-id0022.1640",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id0022.1640";
- 		reg = <7>;
- 		interrupts-extended = <&icu 16 IRQ_TYPE_LEVEL_LOW>;
- 		rxc-skew-psec = <1400>;
 -- 
 2.51.0
 
