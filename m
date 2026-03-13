@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4830107BCD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F77107BCD5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDjv6lj0xs4XAnUT9GLFnTkZ2gh6Ra2uKalbK9P5GpA=; b=Ewcs1rTFJssNpXtbPaS0Cg213p
-	HU+DOYSfv7C0DaDD3Ul+Of6smuyI9ZdAedxZd05+Fh9vVL7Ni3o0C82ncd/bIJV/b7p/tCL3TrIOu
-	aqVKN8zXhcl0UsToMZjF1nVwYbUEkEXohV36ZGKW//qxBREqyvlPAfudLkxsQwncAP5QoNF+ufWNb
-	hkirTtOtDsK4kEcPcX+lr8eOtUx5Aogp9cn7oep03H5a+wQMY2ZN62Ujjwm4AstuosmMKmPCvwsDr
-	bBiBYzibRGRvv5e+XwkN02fExBhNA/Q6NxopyrC3LD1amIp19fnQUPGTkW233MQfxs+TyJi5tbshT
-	LRjrSLLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tStJn4LBdNSDPTkcJ9F6SyDC95zUtjG8M5+cKBjWoxQ=; b=e60CLLGQnA3yva/w4xTmusP/e5
+	fNo+iKCveem8/d/K9WDc5uPQVSQJpufxA0iki/pTG4UdArG8Nsp9OvI3Z/7ZL8Lpb3P38pUthEple
+	O25BMJXhaFHZc/t5lry5BWkQktbF7Wm+0rUWtDmlinuv4/Obr6KMeCXZWE2HRKzdJYtxInYqr+pVi
+	CoAeTSB79yEtk08R8f8U0wTpvXkuovBzTF2rGsWg/p6zO0Hzszhzx2y6qCbn4bIAaR3Ke37TYjhaW
+	li/cbE1wc5W2H7sSS8UcwfBB8dRT4yNxrfai/kEcQ+fMhIMg69mC9EFfGcoeGVUtOnSh7gkALT+wh
+	DQC2AcKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16Ua-00000000mDr-3YYi;
-	Fri, 13 Mar 2026 17:40:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w16bu-00000000maT-0Fp5;
+	Fri, 13 Mar 2026 17:47:42 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16UY-00000000mDT-2hZV;
-	Fri, 13 Mar 2026 17:40:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3628943F15;
-	Fri, 13 Mar 2026 17:40:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF7FEC19421;
-	Fri, 13 Mar 2026 17:40:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773423606;
-	bh=PDjv6lj0xs4XAnUT9GLFnTkZ2gh6Ra2uKalbK9P5GpA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z7jDdA5hNBdPqR6CluugKTJvOAnuiKRttDzV9aIbeiuNP5DlzDXBzKdsTdJi+0UOJ
-	 +YSaSYoQudfpgl87Hl6hzQGq+hUuzqE82xnmxpGi6/YF3zd0Ft8RQePkPSOWweGjb/
-	 vYKmi1DRJ6IutTjJYn/8Cy8OpE/GA4Ye/H9t6xbBzAycQgr+4HWS/6asI5GPBmgoy0
-	 j3OQIJ1MLXpDrNkyVq6GAJIp1aJ0ax4IqRZTI6N+XaikwIW4jfiWAGTKlgTqUPgzJY
-	 pzyOlmuEm6Fw6jsnKv6PcNRAaMTNsLBj9t+dnoztdJV/tQHWBoqCrYndLxySPrvYkO
-	 AdwLJTL5rNcRg==
-Date: Fri, 13 Mar 2026 17:39:58 +0000
-From: Conor Dooley <conor@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net-next v4 1/3] dt-bindings: ethernet: eswin: add clock
- sampling control
-Message-ID: <20260313-stiffness-item-c451eaef970d@spud>
-References: <20260313075234.1567-1-lizhi2@eswincomputing.com>
- <20260313075351.1584-1-lizhi2@eswincomputing.com>
+	id 1w16br-00000000ma7-37TQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 17:47:40 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-483487335c2so23560605e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:47:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773424058; x=1774028858; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tStJn4LBdNSDPTkcJ9F6SyDC95zUtjG8M5+cKBjWoxQ=;
+        b=jSzC/9KRmphdy+Gzj7jEkhx9nMLI9wynpo0+JZqAfjKoBbD+ps+4zfv9BJrdebjK8j
+         /h73JWmExOICTBYyMvE/M4OUFd5MQ6IkLh8OqOUG5Nv+LDWPymmbo+/hLXF90gt1h5NH
+         QRSuNWujVDt0RdZZhEp7T+AldDDeaJ6kbFk+FhoCD4i5kDvhUDoeUm3HI1N2Io2ZRJbM
+         MeONUyVsVA5RB2qETC7juO1G/7eS2Pf1L3GuXXwrquDuMXU3iKvbP2ZVABuPQo0Y5Vvo
+         ZBRWPICsK6sR0srJzNqew1anJDGpVP9HBH7aSlqO2zg3SgpAjG0Hk5V/i/gyFkrdgOfi
+         qF9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773424058; x=1774028858;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tStJn4LBdNSDPTkcJ9F6SyDC95zUtjG8M5+cKBjWoxQ=;
+        b=FS3abp7mPsmkujO6GR/3FWolorWOpz8/VUBRW279514L2eGPuZ02Ib+YjxUaFOCXEY
+         vEPc98RnYMJCvD0mJgOw0rVeOjtPGnBp1UBr/glA2Tr/n4MnMBtKAHXGyCDP0sK/Hwu6
+         hBXolqxD+ajOsBuPF+YtVOnFndyDbZ5fZxRncj78FDrDznnOM4V6sToMRdQ/UgRDhuZ0
+         61isp1xw8NBM7pQJDNFUp26bIlXHfglo3hxXeMYhFK83Ie8mik2kyYeSkFswXWupEr0X
+         NqofmO4FLsIS9g+HabRR1Mfyjr8OXWV0ZjxlPrYdl95BI+/M1pqDbgVmcHmrL/otHJKV
+         5ZwA==
+X-Forwarded-Encrypted: i=1; AJvYcCURRodaQd1ICG/JXiv1kuoRq8JkNG3PqCxkGKnQ/HE7RajL1gApjw76mtT5KQBG2f50lwjHyKS3DjWXZGCS1yhU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqr6Py+eVsqNmPnaQZaGURK906sWR/usZItYq9YnIrkSrGwOnq
+	mH//WNZahk9bypJIbFCE7fCq/MOMkvY7z3E8piyg51XLojpOkozqGyx9
+X-Gm-Gg: ATEYQzx3/u6Y6s4mxPjjB9yzVelOdUeKcdULDHyf8e6DTKOysFTNfRnwjh9VVwIlN3L
+	KRCj3V6XntnyXMskau75K8Gd5wrgaWyziYue/FyTRd5PAmoKaL/OMucVQ4E3cbGWc39w74VKYJ1
+	l43+57Deiv4nBBIFS2s/MyJadL3z05T1ml3yIQ23mp+lEN3vBVewrYc1Z/RGPNaZoEyOBPJWSGk
+	X9pylMzpkwKoCJsjuJbu2kWyaDXw0y67fWhjEEfmYD95tgy7uUezRJIANP6Szg6pamvtrcEatjP
+	9pYaXtf636Foi7mGa/+2ou1u/xZiz33cNCXrEpjA3pMfPJQ0ZqCA07OipCaIgEWL5Gu69B8CNp8
+	IoZhziobQP4UIjAJ9zGcrTEAwJAz0GyRgkG/xhNTcVZyu1s/XDBVipWBDOH+F+8CUN5Q5dlGp90
+	6UYgEOHjH0jyeWFGhvASJ/K4s5j58aS+2u7xKc5oII9kg53Ao1xTm33I6tUSqwTBhVPSbsdepiT
+	0b7ruaRD6SUBx4FKQIQBMUmwcf2tqp9Fuc7fjk=
+X-Received: by 2002:a05:600c:4f8f:b0:485:4371:539a with SMTP id 5b1f17b1804b1-4855670f7admr60093835e9.31.1773424057534;
+        Fri, 13 Mar 2026 10:47:37 -0700 (PDT)
+Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b6756e4sm257213575e9.15.2026.03.13.10.47.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Mar 2026 10:47:37 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v7 0/2] Add support for Variscite DART-MX95 and Sonata board
+Date: Fri, 13 Mar 2026 18:47:01 +0100
+Message-ID: <20260313174707.26902-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7F9kwIhbyHy1RjqW"
-Content-Disposition: inline
-In-Reply-To: <20260313075351.1584-1-lizhi2@eswincomputing.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_104006_721982_20CE9A58 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260313_104739_805425_AB8ECD78 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,88 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds support for the Variscite DART-MX95 system on
+module and the Sonata carrier board.
 
---7F9kwIhbyHy1RjqW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The series includes:
+- Device tree bindings documentation for both SOM and carrier board
+- SOM device tree with on-module peripherals
+- Sonata carrier board device tree with board-specific features
 
-On Fri, Mar 13, 2026 at 03:53:51PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
->=20
-> Due to chip backend reasons, there is already an approximately 4-5 ns
-> skew between the RX clock and data of the eth1 MAC controller inside
-> the silicon.
->=20
-> For 1000M, the RX clock must be inverted since it is not possible to
-> meet the RGMII timing requirements using only rx-internal-delay-ps on
-> the MAC together with the standard 2 ns delay on the PHY. Therefore,
-> even on a properly designed board, eth1 still requires RX clock
-> inversion.
->=20
-> This behaviour effectively breaks the RGMII timing assumptions at the
-> SoC level.
->=20
-> For the TX path of eth1, there is also a skew between the TX clock
-> and data on the MAC controller inside the silicon. This skew happens
-> to be approximately 2 ns. Therefore, it can be considered that the
-> 2 ns delay of TX is provided by the MAC, so the TX is compliant with
-> the RGMII standard.
->=20
-> For 10/100 operation, the approximately 4-5 ns skew in the chip does
-> not break the standard. The RGMII timing table (Section 3.3) specifies
-> that for 10/100 operation the maximum value is unspecified:
-> https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processor=
-s/20655/1/RGMIIv2_0_final_hp.pdf
->=20
-> Due to the eth1 silicon behavior described above, a new compatible
-> string "eswin,eic7700-qos-eth-clk-inversion" is added to the device
-> tree. This allows the driver to handle the differences between eth1
-> and eth0 through dedicated logic.
->=20
-> The rx-internal-delay-ps and tx-internal-delay-ps properties now use
-> minimum and maximum constraints to reflect the actual hardware delay
-> range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
-> validation compared to the previous enum-based definition and avoids
-> regressions for existing DTBs while keeping the same hardware limits.
->=20
-> Treat the RX/TX internal delay properties as optional, board-specific
-> tuning knobs and remove them from the example to avoid encouraging
-> their use.
->=20
-> In addition, the binding now includes additional background information
-> about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
-> control registers are included so the driver can explicitly clear any
-> residual configuration left by the bootloader.
->=20
-> Background reference for the High-Speed Subsystem and HSP CSR block is
-> available in Chapter 10 ("High-Speed Interface") of the EIC7700X SoC
-> Technical Reference Manual, Part 4
-> (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
-> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual=
-/releases
->=20
-> There are currently no in-tree users of the EIC7700 Ethernet driver, so
-> these changes are safe.
->=20
-> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 =
-SoC")
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-Krzysztof might not yet be happy with the compatible naming, but from my
-pov:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+v7:
+- Order nodes in symphony dts
+v6:
+- Order by node name instead of by label
+v5:
+- Fix newlines and nodes order
+v4:
+- Fix typo in spacing
+- Remove vpu and cm7 reserved memory
+- Add GPIO_OPEN_DRAIN to i2c gpios
+- Move pinmux to eof
+v3:
+- Fix specific node names with generic ones
+- Remove fixed-link property for SFP
+- Audio regulator cleanup
+v2:
+- Add SFP cage node for enetc_port2 following sff,sfp.yaml binding
 
---7F9kwIhbyHy1RjqW
-Content-Type: application/pgp-signature; name="signature.asc"
+Stefano Radaelli (2):
+  arm64: dts: freescale: Add support for Variscite DART-MX95
+  arm64: dts: imx95-var-dart: Add support for Variscite Sonata board
 
------BEGIN PGP SIGNATURE-----
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx95-var-dart-sonata.dts   | 591 ++++++++++++++++++
+ .../boot/dts/freescale/imx95-var-dart.dtsi    | 425 +++++++++++++
+ 3 files changed, 1017 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRL7gAKCRB4tDGHoIJi
-0qJLAP0c1yh00ld+1PBzXG2QWRzTWLz4Bu2S3D1IL4VcXwRdmAD8D13YNNMzL8Jb
-WJXhFrH1ZO+pCsRM64k+gar0NbK4lwc=
-=pXlI
------END PGP SIGNATURE-----
 
---7F9kwIhbyHy1RjqW--
+base-commit: 40fbbd64bba6c6e7a72885d2f59b6a3be9991eeb
+prerequisite-patch-id: 7ed0e453f554c70d0fafd5147d4d9b62cac6c10f
+-- 
+2.47.3
+
 
