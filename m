@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DA4106FD9B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F44106FD9A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wraBJnKomnDad1E63JmhWsUtKztz3XVw3bEbJ4YF0IA=; b=vLiaL7oTh0lf9v21EtScFrApUu
-	rmtY3xAAIoXrjwFHfx2F2f3t1dttGDk7+r0dSePYK9AC4KtXVh/cbVsJXKxsTn01LWteBzFCsph61
-	AyEqDwTZGm6TC+rfgX/yWp6L74pJe13KeQLFmgGvRUvhYc4napyO3iB1sbbMeY/BDy58AvVatUVyV
-	iL4grl5hGS9D8XN9FNHRizyHkXCblBf7YehCywN6Dh0U4XgMGmwbMt3coxkuJCHBV0t08fKg4NJmE
-	AuQ/mnXyeW4NCOMrJCLOA8Cn7F0n4ETFCmk3YQlyLF9mDoOwIcT387TFwCy4T8FQpbWG2D6QnPa2C
-	BZ0iCMnQ==;
+	bh=SI7kvvlORt1MLBe5EpKWqMwmUJIg7AsT1i/YgKxgMOM=; b=doODabfBmwmFQ7WeDY3iGT9f5s
+	AuOqEihp3HLL+PlUVsC0YvUqnQONJlyIKW1v4TTkdNTnP+PmGEIW/DjsBW04gKsaDtU0uDQIx8RGL
+	BvV9bhNZU69EktTxTVRpmATyAYrow1AcsXj13iIw+npKb/ZH3cXyFykdN1/9h++yFj13QL/HmL2iF
+	wyCBMZ6tu4Sf8HirG6Ehr1B1JGk5V1i9MIXNZjdJxlBROiX00BRiRYGz5sR5FcUU68OYptc1M8Zvt
+	5Ji/5xN7akzxX5bW9/aXccDt8U1cklLXaMbnPbA3jucsj7rV42zl789ZQiwhV2Pr27sv3V6iG76TP
+	L+TU3wxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xYq-0000000HArs-49FX;
-	Fri, 13 Mar 2026 08:07:56 +0000
+	id 1w0xbx-0000000HBLl-48I8;
+	Fri, 13 Mar 2026 08:11:09 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xYq-0000000HArg-1SgL
+	id 1w0xbx-0000000HBLb-1lec
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 08:07:56 +0000
+	Fri, 13 Mar 2026 08:11:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 547386013C;
-	Fri, 13 Mar 2026 08:07:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00194C19421;
-	Fri, 13 Mar 2026 08:07:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C3CED6012B;
+	Fri, 13 Mar 2026 08:11:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7144EC19421;
+	Fri, 13 Mar 2026 08:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773389275;
-	bh=ODWFk73CHcFmSLAadPfMCSjy+h/1PZURDy8CTdcGFdU=;
+	s=k20201202; t=1773389468;
+	bh=I7egZhyYPxSTdGmXKgwu/pmNuCffmoqA8UbmTE7IuLI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=M2KuIDnJ2Ab4omaPCRDhzxgkq/j5C/KM4VyOPWdDxk+OAPxic2j6bFn7PKR4jJ2/v
-	 gDTgGzXVVJbiKbl0G1mkYHIFisHk3ZMkect4xCAWzF00Kxn0sp7FZXiXD4vd7s8xVk
-	 yZeYJIkf7eqB2qIP6p45WcK7fvSjjyl1mZdXncn3WR9N9bhJFpwEzON86yhZDK9Wzs
-	 /du5mdahT0iOOJJIGifhg9FfWKg1fg2xZ+fzv3OhMKmA6HihEh2rsky/sRkewaV3b1
-	 GcNf71Szvl2kBsfGWpJTEXhF4r1rOYFSsacZqZGhBkulAALTeIgLV5Rnu1mI95pWcB
-	 vI/JdoZLjR3lg==
+	b=eRzRKtYHJugy3r3yTn66FEMvREUPdydoCnE/gAyGxrgj/QK2VjT1/WhxaG+3T9v4p
+	 3yUCXLTt62f7w6v2m9r0WqKosEl4xzV1njAzvraSIJ2OPwii/qTKnOzGTuFgqHn3pl
+	 E0EdND0rKy5CPsWTHc+srPd5kT7zOgLMHtqbtXP5xf8xD+uZyZ0rX/q3U/myQR2gpI
+	 lLgqftl1kzqKsoGyOWiHIKNJUKP+D+kKDb987hFrdNgfpdqglJ2hi3HI3FNfCZ8tmE
+	 aOdyJ3+85Nzbq2r6iV1q8z7WcEAfC3OQxncRFptR8UEWlvFMShP2d9lcRb2CbgUHDo
+	 KfRWJUS00UMkg==
 Received: from 82-132-235-41.dab.02.net ([82.132.235.41] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w0xYm-00000001Zie-2UF2;
-	Fri, 13 Mar 2026 08:07:52 +0000
-Date: Fri, 13 Mar 2026 08:07:51 +0000
-Message-ID: <87pl58cfu0.wl-maz@kernel.org>
+	id 1w0xbu-00000001Zn1-0t0G;
+	Fri, 13 Mar 2026 08:11:06 +0000
+Date: Fri, 13 Mar 2026 08:11:04 +0000
+Message-ID: <87o6kscfon.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -89,38 +89,13 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, 13 Mar 2026 07:54:04 +0000,
 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
-> On 13/03/26 12:55 PM, Marc Zyngier wrote:
-> > On Fri, 13 Mar 2026 05:38:57 +0000,
-> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-> >>
-> >> Clear VTCR_EL2 along with VTTBR_EL2 register in __init_el2_stage2(), which
-> >> ensures that MMU stage-2 translation remain disabled. Although clearing out
-> >> VTTBR_EL2 probably should have been sufficient but adding VTCR_EL2 improves
-> >> overall safety.
-> > 
-> > This serves no purpose whatsoever. Even the write to VTTBR_EL2 is
-> > pointless, and writing 0 is no better than writing *any* other value.
-> > > The only thing that matters at this stage is HCR_EL2.VM, which
-> > actually controls stage-2 translation (contrary to your above
-> > assertion). This of course is not captured by this macro.
-> > 
-> > So what are you *really* trying to achieve?
-> 
-> To keep VTTBR_EL2 and VTCR_EL2 cleared (and prepared) if and when
-> HCR_EL2_VM gets enabled.
-
-How does that prepare anything? Zero is not even a valid value for
-VTCR_EL2!
-
 > But it can be argued that these registers
 > need not have to be cleared now and can just be initialised before
 > setting up HCR_EL2_VM itself. In which case should we drop
 > __init_el2_stage2() entirely ?
 
-I really like how you argue one thing and its opposite in two adjacent
-sentences.
-
-"If it ain't broke, don't fix it".
+And something worth thinking of: the role of VTTBR_EL2.VMID when
+HCR_EL2.VM is 0.
 
 	M.
 
