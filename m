@@ -4,87 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D48C105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D9F105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+AwSNKsqP9uyMoi7wCDO5D3Vl7M45gc8Ac0Z6peUks=; b=tbWbsycINXfZZXWt27PYJVtw1H
-	n1AB490oSFUGSafGFH8on7F5YA7QyG+uLqnuV2be0VUl9hlVd3wbbvHyZadP6NUxozgSPJTrRw2Rd
-	7uGbgr2qa+5lBW2oUbtQuF1ijY89zxqpuAs+6uNk66vELA4P7VcuEe+9Qp3gEgwLwEJBTRkhcOnKt
-	excx3Z3Ypq3N8Lufv/QvZIFmIzC+od3g9yj2IDULkPi/ifAqI03ccEFO4Y/z/1ZGrga6kDTVb34i+
-	FTK8LKFZupays7JFsOCNo1Vl4FCF163RFnsG5eJedB6LyYAI8h5fRvRofe4HkW8KGeptg2s9uQvA8
-	A8Mi8Oaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jnwd5OOe3VlPnGFelQa9jmVz4I5GwHEhBDcLXDD55Gc=; b=MZp24KnwYrEfGIerQCLwWMbmcB
+	lNQ2Fa6F2imBdOH8xVtW0Ggo+I8dj09dWHFV9D5dSy+awV4Cgjd/jtCnpjrgq0SX62QtjwNx2rjtG
+	+SwJod30OAI2EYq8XwFCHkBpxWqb1TmyzVa+bLXPtHH5izBsWO7lnoTTjF3/suZOplIcj2j2Q7ItW
+	RYzryQa/8WKX7kO7o/OMEo9wFvJv2INSMvMxMCsvL9i/iY90UfHJyQBZAhuEDyBab/vMQmDO6dgzG
+	JjSibtc+shRGQ+YaCr9fG2sArFk+kFhRTzzunUQbYgTnluWZXVhiGAMQmW7SMqQE931g+7tmaYFHJ
+	Yg8mVBrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13Ln-00000000MJ2-40oU;
-	Fri, 13 Mar 2026 14:18:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w13O2-00000000MlH-0L6P;
+	Fri, 13 Mar 2026 14:21:10 +0000
+Received: from mail-northeuropeazon11021124.outbound.protection.outlook.com ([52.101.65.124] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13Ll-00000000MIP-2BCi
+	id 1w13Nw-00000000Mji-1GqE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:18:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99F8E4428C
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 14:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46846C2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 14:18:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773411528;
-	bh=fvTckkhnbMq7uwwzCGXCJrHYXs6JuZFgC85Jq5N7fRc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iddmFkQSvfDZ5tAUcQPT7ytL++/j+bt2pfQq6lR0Dr5BypBlOdttcfzqiR7LGccYs
-	 ky+pNiZdDRvggvpMDrGrTPwK2lcMznUD/C99Ev2PwFxoU3oTIfCWTpo3XVRUbXPDcn
-	 2pz6+dngu+lLbi0lptawYJrBGgKii+fMwwPoCK6DOw4aIvtJBrs6MZDQujb7o7e1M0
-	 7fghieu/t+TkvLUPk6Te4rONoodESQT9v+zTG5ZC3E/wD1Y3jEXD+MuMpwQh1y1izl
-	 NYW2a/MR3RY4Tyrlu6Hz5XUT/EQ6itr3vOoJ2E4/SaFBosL9Ry/ca653O67cirHcVB
-	 sZJY6H4HaYHXA==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-59e4989dacdso2583642e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 07:18:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXfq8jSyDDs31L7XiZSMt65qGjzVoh8b0eoKjFS0uWN8N7d+C5isI8gQYo46j+GCWYg4SAJ4D0oy38P2nj20ix+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrFFV+bHC62ADyURiBCtIqKAE7YsSE2S9uq4NFB1ALPdefi/Gt
-	WhNFuBxOzb0hCabJ1jdpm+WvJC/ohIHlMjBTXcRcHVNcm6H1tkK5HNJi3ndFGxPs1XTIBic1VWV
-	SEM1DmQPcYUo9k0ior6OOZ/dJLllJzbUY0WNCzLYjmQ==
-X-Received: by 2002:a05:6512:6190:b0:5a1:444b:bcd1 with SMTP id
- 2adb3069b0e04-5a162b0c218mr1375016e87.31.1773411526639; Fri, 13 Mar 2026
- 07:18:46 -0700 (PDT)
+	Fri, 13 Mar 2026 14:21:08 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=qPegYToyOFeu/ZJVYDhFrNCEjv7oop0w4sR9V/TIk97VSugL61p3yWGE78EX0njj07pjZP7jsKwGTLzgCev/g6CTCJhPCNaQypDPcki6VCNPJcnV4+9kykwBo8zcb3WOAKo7UZ5qJclQIrEXe661wNgLNJ2CNMep/ingSYfJsWwALwLXUvhiqxIo706bA6EOgNuTL7v3b3Tvt9kj/YYV5FQ3Ks0AEx6gwof7bgbtiqfyuSD6r622m8pKPVcYkq8Rk0Tn6fU5bKV9BhDc9ruNYBZ6A/nRnppmDqPXLh74bANAbMuUEposOSTK9s4mwn5PkohNDs2RKsAah2j7ZPserw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jnwd5OOe3VlPnGFelQa9jmVz4I5GwHEhBDcLXDD55Gc=;
+ b=vPe7ymwUzY2SSTazRrX3oE3188GURON4yVcQHaVB34Yjq0ewcSGVfcwbHdL1C1pszUeUr/S9bQLod8e50D+sQVjn4kJKWwa6nE+312N8b60STI8Hp8UzcsYE6Hn+lRGLmlRnCg+HAbbZWbxBmC5FngO8+OwCe6s73igVHRV/TvMsvlO1J4sMhFMuqhy+3YojitfMRyPzBqkmmL2mfDqfO4P2HPgVWhx45csPiT34/v7ZK2ULx5d5vSqDTSib7XB2BQqhUowssuoZxx4TTobBogBtPF93E526V7FtPVNMO9fKgZa9CCw9GQ57zTJzMqyJUVSX0zvS+gnnnEa7EYXTaw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.17.62.50) smtp.rcpttodomain=kernel.org smtp.mailfrom=solid-run.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
+ dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
+ (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
+ dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jnwd5OOe3VlPnGFelQa9jmVz4I5GwHEhBDcLXDD55Gc=;
+ b=qZjRdRtuzzBZsQfuIUcrU0Tu5VhTOeVgFxkyOpIqzig/sHhn6fPk0PHHliTTUU1KHrv7wVoRDVkDlNalWc6F7u87OxnzqxLCjxOg5ryzKWV2L/5unmBCkEUB9+E6O3uzrVNFFIntZRkPNHgm05RQi9Ouhcec/wJqzkUz9mlEZJY=
+Received: from AS8PR07CA0054.eurprd07.prod.outlook.com (2603:10a6:20b:459::32)
+ by AM8PR04MB7796.eurprd04.prod.outlook.com (2603:10a6:20b:243::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
+ 2026 14:21:00 +0000
+Received: from AMS1EPF00000042.eurprd04.prod.outlook.com
+ (2603:10a6:20b:459:cafe::b) by AS8PR07CA0054.outlook.office365.com
+ (2603:10a6:20b:459::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Fri,
+ 13 Mar 2026 14:21:00 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
+ header.from=solid-run.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ solid-run.com discourages use of 52.17.62.50 as permitted sender)
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ AMS1EPF00000042.mail.protection.outlook.com (10.167.16.39) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.17
+ via Frontend Transport; Fri, 13 Mar 2026 14:21:00 +0000
+Received: from emails-1215738-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-17.eu-west-1.compute.internal [10.20.6.17])
+	by mta-outgoing-dlp-862-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id D2A4780C4A;
+	Fri, 13 Mar 2026 14:20:59 +0000 (UTC)
+X-Mailbox-Line: From b'josua@solid-run.com' Fri Mar 13 14:20:53 2026
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SoNSwyWoYbwH/RVBqpO8iPGl1qTZkD4oRshgB8MLy00b7hc4e5tQhO308oWU+wEaGRtA70jmM+gRvea2gQQcEvj1UrHsm60gLPxhwnp39PtTEbEcjSVUFYOuQXptY4fu/3czjEnjROkKRvn73BCiGzvpNG5m9S8KaiELezY29KRx/tP7+CsYwdO9fTNwGtJnP5C+0YISP1Z4lfnj4bKUvuLkUstJ93VC6l89uiBa1sNkGW3S6r1/WER2wDYaIq5W0ty+qlK+WxbCGa4l433LXbmsX6b1lpJPXqHswDPNnntBKJvkH+HilmzCOjT2wsn1p8b/JNn+lj2hVxL0ua4fNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jnwd5OOe3VlPnGFelQa9jmVz4I5GwHEhBDcLXDD55Gc=;
+ b=H4BXdsYfD3YgdiptBx4TJkhe8nvLnOBMkmYq0bMuI8877z27pMegn9upOvMf/clART6+GeNs2kg+NxZlhvF2gy/eaF0qmNbMK/4/hPqMTG21x8bRCwVAG+dsgCI6aeSbA1BfuTyfeYyd7sYA9Xo3uNVAb6ENorz7vgxmtbmVcpjXEHypYHH4WiBhzRu+5wnjVr/Am7zOi7euRmEb3E8aL+JELBQJf1jJPEWYj9zmQcyOQ3Ye/2kp3WS8wAvwfYd4Rx/V3ktNCQl2vnDjzCiEFV87CtNIZ3br6/48jePK5XvQtkzRHS3UT+wH8Ihl2rhCI4Zrr8vqJjygZvH8DE6nOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jnwd5OOe3VlPnGFelQa9jmVz4I5GwHEhBDcLXDD55Gc=;
+ b=qZjRdRtuzzBZsQfuIUcrU0Tu5VhTOeVgFxkyOpIqzig/sHhn6fPk0PHHliTTUU1KHrv7wVoRDVkDlNalWc6F7u87OxnzqxLCjxOg5ryzKWV2L/5unmBCkEUB9+E6O3uzrVNFFIntZRkPNHgm05RQi9Ouhcec/wJqzkUz9mlEZJY=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
+ by AM9PR04MB8355.eurprd04.prod.outlook.com (2603:10a6:20b:3b7::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
+ 2026 14:20:48 +0000
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9700.015; Fri, 13 Mar 2026
+ 14:20:36 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Fri, 13 Mar 2026 15:20:42 +0100
+Subject: [PATCH v4 01/10] arm64: dts: lx2160a-cex7/lx2162a-sr-som: fix
+ usd-cd & gpio pinmux
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260313-lx2160-sd-cd-v4-1-aabcf230fbff@solid-run.com>
+References: <20260313-lx2160-sd-cd-v4-0-aabcf230fbff@solid-run.com>
+In-Reply-To: <20260313-lx2160-sd-cd-v4-0-aabcf230fbff@solid-run.com>
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Carlos Song <carlos.song@nxp.com>
+Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>, 
+ Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Rabeeh Khoury <rabeeh@solid-run.com>, Frank Li <frank.li@nxp.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Josua Mayer <josua@solid-run.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: FR4P281CA0020.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c9::18) To PAXPR04MB8749.eurprd04.prod.outlook.com
+ (2603:10a6:102:21f::22)
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-3-b51f97b1abd8@linaro.org> <921ba8ce-b18e-4a99-966d-c763d22081e2@nvidia.com>
- <CAHp75VevThmDMm6VoVB9P0YbUGGGsmgnzr2gn9=1xtJZt-kuQw@mail.gmail.com>
- <64f6e02d-c7cb-40cb-b1fb-2d3523433c66@nvidia.com> <CAGb2v67mmt=X8rbsUo+Gwe6uHXTNpBFGzBbrXZYEGsftHL4Ejg@mail.gmail.com>
-In-Reply-To: <CAGb2v67mmt=X8rbsUo+Gwe6uHXTNpBFGzBbrXZYEGsftHL4Ejg@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 13 Mar 2026 15:18:33 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfVUYm2KJPE0qr1++RU4tATSxEJu-Wz45AKf==OW0feoQ@mail.gmail.com>
-X-Gm-Features: AaiRm5020hW7M7HXyH4EUOwtitIyz-fbkO8QSv1lOH4QtHUGeqFlIE81Bq7dwyM
-Message-ID: <CAMRc=MfVUYm2KJPE0qr1++RU4tATSxEJu-Wz45AKf==OW0feoQ@mail.gmail.com>
-Subject: Re: [PATCH v4 03/10] gpiolib: implement low-level, shared GPIO support
-To: wens@kernel.org
-Cc: Jon Hunter <jonathanh@nvidia.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|AM9PR04MB8355:EE_|AMS1EPF00000042:EE_|AM8PR04MB7796:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dadcd83-fff7-4dcf-8b16-08de810bc02c
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: jCP0/rB5DLK8+EcmEYHviqAx6HcYb9piKL2gRmC8fj02jngKKAWO5LBFwNriVHohxAlFCLVQOHo+y46UrpZmB97RNNC3fjXogvT7JhUcm1kiRNNBnU4iwQUx1n2+WTD31sbL32h3GMpRHZtLhQiFl5nH4J+66RoAyxhc/YqQumiYCBT6A4Sn379Q3pbB6JzUwXV2iojzv1asvXvaAK/tPFCQhmwSkxCnwZdUtkbSlAoswQzPSV/KHg7a+CZLEtwnXVeYWf8dEX+I5Cb7UCtUyfCsBIBsm6yec18fv3E5OXwhYalBGRBCMiHbE64wxAYwwHMqQrEGH/927VvX6yNBQ23AmczCS5J1i0Hh2/mzzSnA+rTCtRI/b7ABZ+dlLnhCr9o2CGGgSJw3x8Prd2rol5uNDWqFVbI6AcupBbiF25aCHM+tqLTQGUwKbOCoT5GjsFDRgkPfcB6BcQ0metAeNVe8d2uuandIAyXZ/vdy5jOVqtL8A8qnnwLAZ6QhcxoZ7qDoPapmrxZpKROEXej0zC13uJgy7B1t7SaCSf/CtajDdwhBRSHLydP8CD6FsPhpQi0SY+nyKQL5UOzt0taJyVIrhEzw8SM4mkbutA2h+8eBCuduYnQdu03dLZo+jq4sqEJr3bmiEKRf4cnjnlOodVYMlc1qNZ4ECz6Hx2L5iTLhJuV2gkOfbzbfDv6FeKAqugtF/S99nR2XzA7JDuiUl/yZpxomZb54zny3/CML8j0du//aigRnOU+MagnzNBl8YGH+yAvGlONNv/jhDftlJAMQXqTmfFTTncUPSuh6DM8=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-Exchange-RoutingPolicyChecked: kTevQSEoSCEKyiZXfL+rFxSD5hICh6hEV2YxBiflBCmOriZM14DuLTcs4rc3GIpUposmhCbPj9uYSRV38dreXFf2KzblyQfNAHEoulGHm5emWe7WxtBrgt+HZfDLBufH7s9pgVtdM8X66IWirGGFi45iKJ+dVQmaVWU2U/b82qB0rR0E5vebxDKxl8zbHFyuHchTntMgRvb2enMqaxZJlj9/bF6qMx3RBcLp7nzX/RZfBveNcZlpacKJVzKVE7ceXU/f3Hn5mA9BdmwAopRT0u2jfFnb6enoGKYsuHj+k/z5+iSLd70stG7v4KimpgHgGE4j0V/Wh6/+XZk7lOwtEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8355
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 79c58bf6023946fba7e83523ed236495:solidrun,office365_emails,sent,inline:952c2005d0ac146f0096286976e8bdc7
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000042.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 0792d59a-c467-4855-d274-08de810bb20e
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|14060799003|1800799024|35042699022|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: YXh5Ye1etn0U/2G/d4Qu4v15bs/oAl/1ptquEUvSK1s7usmkx/ZaoZdbTTewrsZZ2TEnxjJbhg0Sff0lsvuor4nqe+OZNjCEOji7+BGbzGnj/Bvmo6VnxUUHOM0xfzHghAwvM45D4Ol3tP1YtoQWhVIGoDmClQb7LKwqXJJ5nakKsFmP4FBBVXQPe0LEOt928BqkSyEPTfCU8FI7+t7ZoIO+ns844s5LEFMofdPniz3NugI0jJbYIJClnj9bqUR6AsR7NFzlwyA0qPYWH7rLLRHM9uZm1BFvgs4FuwFD2X/Ad76n5oz8wzLFwUJqfK+3t0wL2P0BptUF3PXStStTt4KuIXlYVopIfCoBWY0fj7u3tB9wZYi5Z8mbkdwm77YvAVy5Ef7BKaDo6thLvP0UnBhBYPVIevL/HJIwXghDpqQUXMY3XEOjBMw2bU8qBbiHy6TR9KIx8Wn8/6uzBTJpGWPiptIUjrCui/Q8EJHSh8G5l6dZpEhyxJjiUbaNcXupo9n3AXY57AEYNVvDqeF4c+GLWcLN3Hkc0iAZLmPZoF/MavvY5ElXkK3Cb1zuMFHxHIa23BVE9ll6SPZ2VXCyeqxDlUQIKJ3k6QHNhJW7nZuQpq3UnEjsigiohKO6HXwvMYMtXW4OCgVGpYHpd80l4oVH3oY8m5D3vvv9/2nn7kHHO+/EVxJC5h0ERL/1hdCsTD+qe7oWDq/rGaAyAXOta/WNmpNgyde1G4e0S/XI66EWVhw9syAtUYq2nT2x5cT7VDjXB3IT0+CRUZOZ381ktg==
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(14060799003)(1800799024)(35042699022)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: SQBjiqoZd+tq2HlmXcZwqiG7RUgJVTNluUVK3nvaihMiWjy9tPRnt9I3c4T2Si/ueLb4FBFy3klUz0h9hZgxAfNnM7/x4wOo6wEHxFl9dF+J3VtteEnDDXGNY+RMIPH7vS84JOX8f0u0eayxQhdUUAPBhjEwBQAEyZAiMaMRVyflIbPPuzQy8AOKMtyEXKR6GWCoQomSee06gugtTvmTjRjw2uc1x+lUjLDSKRc+LyP+kHkv9ld8fPly46s3PupS8v1rVhZ8EefcqVSHXZpWqSngFifnL3BV3tF0Pmr5pZjNfO8faYR7ETzAHmg+Awpnv6+AP/4chVMQSGllEEtdkwqumXRr81T2FlTUvKoq5tCR4kjd1sw6x+DSKD1tIr2U+uB4646MRv009ihufemLaRPPfC9SgGuURtl820k730xR6LQANJqW+i63aUBoMqKC
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 14:21:00.1139
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dadcd83-fff7-4dcf-8b16-08de810bc02c
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000042.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7796
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_071850_399024_2CAC9F1D 
-X-CRM114-Status: GOOD (  31.94  )
+X-CRM114-CacheID: sfid-20260313_072106_247096_322C09B3 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,93 +167,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 8:49=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
-e:
->
-> On Thu, Mar 12, 2026 at 3:29=E2=80=AFPM Jon Hunter <jonathanh@nvidia.com>=
- wrote:
-> >
-> >
-> > On 11/03/2026 20:14, Andy Shevchenko wrote:
-> > > On Wed, Mar 11, 2026 at 8:38=E2=80=AFPM Jon Hunter <jonathanh@nvidia.=
-com> wrote:
-> > >> On 12/11/2025 13:55, Bartosz Golaszewski wrote:
-> > >
-> > > ...
-> > >
-> > >> On Tegra234, the main gpio controller has a total of 164 GPIOs (see
-> > >> the tegra234_main_ports in drivers/gpio/gpio-tegra186.c). The GPIOs
-> > >> are assigned a index by the kernel from 0-163, but these GPIOs are
-> > >> not contiguous with respect to the device-tree specifier.
-> > >
-> > > If I may ask...
-> > >
-> > > Why? Is it sparse because there are pads that can't be used as GPIOs?
-> >
-> > It is purely how the different port for the GPIO controller are
-> > configured in h/w ...
-> >
-> > static const struct tegra_gpio_port tegra234_main_ports[] =3D {
-> >          TEGRA234_MAIN_GPIO_PORT( A, 0, 0, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( B, 0, 3, 1),
-> >          TEGRA234_MAIN_GPIO_PORT( C, 5, 1, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( D, 5, 2, 4),
-> >          TEGRA234_MAIN_GPIO_PORT( E, 5, 3, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( F, 5, 4, 6),
-> >          TEGRA234_MAIN_GPIO_PORT( G, 4, 0, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( H, 4, 1, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( I, 4, 2, 7),
-> >          TEGRA234_MAIN_GPIO_PORT( J, 5, 0, 6),
-> >          TEGRA234_MAIN_GPIO_PORT( K, 3, 0, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( L, 3, 1, 4),
-> >          TEGRA234_MAIN_GPIO_PORT( M, 2, 0, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( N, 2, 1, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( P, 2, 2, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( Q, 2, 3, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( R, 2, 4, 6),
-> >          TEGRA234_MAIN_GPIO_PORT( X, 1, 0, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( Y, 1, 1, 8),
-> >          TEGRA234_MAIN_GPIO_PORT( Z, 1, 2, 8),
-> >          TEGRA234_MAIN_GPIO_PORT(AC, 0, 1, 8),
-> >          TEGRA234_MAIN_GPIO_PORT(AD, 0, 2, 4),
-> >          TEGRA234_MAIN_GPIO_PORT(AE, 3, 3, 2),
-> >          TEGRA234_MAIN_GPIO_PORT(AF, 3, 4, 4),
-> >          TEGRA234_MAIN_GPIO_PORT(AG, 3, 2, 8),
-> > };
-> >
-> > Each port can have upto 8 pins, but some don't. Note the last number in
-> > the column indicates the number of pins for a port.
-> >
-> > >> For example, in device-tree, if I have a shared-gpio with the
-> > >> following specifier ...
-> > >>
-> > >>    gpios =3D <&gpio TEGRA234_MAIN_GPIO(AF, 1) GPIO_ACTIVE_LOW>;
-> > >>
-> > >> The macro TEGRA234_MAIN_GPIO(AF, 1) evaluates to (23 * 8) + 1 =3D 18=
-5.
-> > >
-> > > To me it sounds like a bad design of the driver for this SoC/platform=
-.
-> >
-> > I am not sure why you think that. Assuming a 1:1 mapping of the kernel'=
-s
-> > GPIO index to the GPIO controller + h/w port + 1 GPIO number seems frag=
-ile.
->
-> If the hardware has uneven number of actual pins for each bank, either
-> you end up using the deprecated static GPIO number allocation and
-> have holes in the GPIO range (sunxi currently does this), or you use
-> dynamic allocation, which gives you no holes in the GPIO range, but
-> not directly calculable mapping between DT and GPIO numbers.
->
-> The driver handles the mapping by providing an .xlate callback. A
-> consumer shouldn't assume anything. The shared GPIO library probably
-> shouldn't be try parsing the property itself and use the result to
-> grab the GPIO descriptor, but just rely on the gpiochip's .xlate
-> callback in some way.
->
+Commit 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c gpio to
+support bus recovery") introduced pinmux nodes for lx2160 i2c
+interfaces, allowing runtime change between i2c and gpio functions
+implementing bus recovery.
 
-Yes, it's a bug. I will fix it. Thanks for the report Jon.
+This has caused unintended side-effects on SolidRun boards where the
+first application of a pinmux node cleared all bits in a 32-bit word,
+corrupting the configuration previously set by bootloader.
 
-Bart
+The LX2160 SoC is configured at power-on from RCW (Reset
+Configuration Word) typically located in the first 4k of boot media.
+This blob configures various clock rates and pin functions.
+The pinmux for i2c specifically is part of configuration words RCWSR12,
+RCWSR13 and RCWSR14 size 32 bit each.
+These values are accessible at read-only addresses 0x01e0012c following.
+
+For runtime (re-)configuration the SoC has a dynamic configuration area
+where alternative settings can be applied. The counterparts of
+RCWSR[12-14] can be overridden at 0x70010012c following.
+
+The commit in question used this area to switch i2c pins between i2c and
+gpio function at runtime using the pinctrl-single driver - which reads a
+32-bit value, makes particular changes by bitmask and writes back the
+new value.
+
+SolidRun have observed that if the dynamic configuration is read first
+(before a write), it reads as zero regardless the initial values set by
+RCW. After the first write consecutive reads reflect the written value.
+
+Because multiple pins are configured from a single 32-bit value, this
+causes unintentional change of all bits (except those for i2c) being set
+to zero when the pinctrl driver applies the first configuration.
+
+See below a short list of which functions RCWSR12 alone controls:
+
+LX2162-CF RCWSR12: 0b0000100000000000 0000000000000110
+IIC2_PMUX              |||   |||   || |   |||   |||XXX : I2C/GPIO/CD-WP
+IIC3_PMUX              |||   |||   || |   |||   XXX    : I2C/GPIO/CAN/EVT
+IIC4_PMUX              |||   |||   || |   |||XXX|||    : I2C/GPIO/CAN/EVT
+IIC5_PMUX              |||   |||   || |   XXX   |||    : I2C/GPIO/SDHC-CLK
+IIC6_PMUX              |||   |||   || |XXX|||   |||    : I2C/GPIO/SDHC-CLK
+XSPI1_A_DATA74_PMUX    |||   |||   XX X   |||   |||    : XSPI/GPIO
+XSPI1_A_DATA30_PMUX    |||   |||XXX|| |   |||   |||    : XSPI/GPIO
+XSPI1_A_BASE_PMUX      |||   XXX   || |   |||   |||    : XSPI/GPIO
+SDHC1_BASE_PMUX        |||XXX|||   || |   |||   |||    : SDHC/GPIO/SPI
+SDHC1_DIR_PMUX         XXX   |||   || |   |||   |||    : SDHC/GPIO/SPI
+RESERVED             XX|||   |||   || |   |||   |||    :
+
+On LX2162A Clearfog the initial (and intended) value is 0x08000006 -
+enabling card-detect on IIC2_PMUX and control GPIOs on SDHC1_DIR_PMUX.
+Everything else is intentional zero (enabling I2C & XSPI).
+
+By reading zero from dynamic configuration area, the commit in question
+changes IIC2_PMUX to value 0 (I2C function), and SDHC1_DIR_PMUX to 0
+(SDHC data direction function) - breaking card-detect and led gpios.
+
+This issue should affect any board based on LX2160 SoC that is using the
+same or earlier versions of NXP bootloader as SolidRun have tested, in
+particular: LSDK-21.08 and LS-5.15.71-2.2.0.
+
+Whether NXP added some extra initialisation in the bootloader on later
+releases was not investigated. However bootloader upgrade should not be
+necessary to run a newer Linux kernel.
+
+To work around this issue it is possible to explicitly define ALL pins
+controlled by any 32-bit value so that gradually after processing all
+pinctrl nodes the correct value is reached on all bits.
+
+This is a large task that should be done carefully on a per-board basis
+and not globally through the SoC dtsi.
+Therefore reverting the commit in question altogether was considered,
+but received pushback in review with the argument that bus recovery was
+important.
+
+Instead add pinmux nodes for all fields of rcwsr12 as used by affected
+SolidRun LX2160A Clearfog-CX & Honeycomb, and LX2162A Clearfog boards.
+
+Fixes: 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c gpio to support bus recovery")
+Cc: stable@vger.kernel.org
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+ .../arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi |  7 +++++++
+ .../dts/freescale/fsl-lx2160a-clearfog-itx.dtsi    |  2 ++
+ arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi     | 24 ++++++++++++++++++++++
+ .../boot/dts/freescale/fsl-lx2162a-clearfog.dts    |  2 ++
+ .../boot/dts/freescale/fsl-lx2162a-sr-som.dtsi     |  7 +++++++
+ 5 files changed, 42 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
+index eec2cd6c6d32a..7f6e39e27ce5c 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
+@@ -162,6 +162,8 @@ rtc@51 {
+ };
+ 
+ &fspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&fspi_data74_pins>, <&fspi_data30_pins>, <&fspi_dqs_sck_cs10_pins>;
+ 	status = "okay";
+ 
+ 	flash@0 {
+@@ -177,6 +179,11 @@ flash@0 {
+ 	};
+ };
+ 
++&pinmux_i2crv {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gpio0_14_12_pins>;
++};
++
+ &usb0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
+index af6258b2fe826..580ee9b3026e3 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
+@@ -89,6 +89,8 @@ &emdio2 {
+ };
+ 
+ &esdhc0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&esdhc0_cd_wp_pins>, <&esdhc0_cmd_data30_clk_vsel_pins>;
+ 	sd-uhs-sdr104;
+ 	sd-uhs-sdr50;
+ 	sd-uhs-sdr25;
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+index 853b01452813a..af74e77efabc5 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+@@ -1721,6 +1721,10 @@ i2c1_scl_gpio: i2c1-scl-gpio-pins {
+ 				pinctrl-single,bits = <0x0 0x1 0x7>;
+ 			};
+ 
++			esdhc0_cd_wp_pins: iic2-sdhc-pins {
++				pinctrl-single,bits = <0x0 0x6 0x7>;
++			};
++
+ 			i2c2_scl: i2c2-scl-pins {
+ 				pinctrl-single,bits = <0x0 0 (0x7 << 3)>;
+ 			};
+@@ -1753,6 +1757,26 @@ i2c5_scl_gpio: i2c5-scl-gpio-pins {
+ 				pinctrl-single,bits = <0x0 (0x1 << 12) (0x7 << 12)>;
+ 			};
+ 
++			fspi_data74_pins: xspi1-data74-pins {
++				pinctrl-single,bits = <0x0 0x0 (0x7 << 15)>;
++			};
++
++			fspi_data30_pins: xspi1-data30-pins {
++				pinctrl-single,bits = <0x0 0x0 (0x7 << 18)>;
++			};
++
++			fspi_dqs_sck_cs10_pins: xspi1-base-pins {
++				pinctrl-single,bits = <0x0 0x0 (0x7 << 21)>;
++			};
++
++			esdhc0_cmd_data30_clk_vsel_pins: sdhc1-base-sdhc-vsel-pins {
++				pinctrl-single,bits = <0x0 0x0 (0x7 << 24)>;
++			};
++
++			gpio0_14_12_pins: sdhc1-dir-gpio-pins {
++				pinctrl-single,bits = <0x0 (0x1 << 27) (0x7 << 27)>;
++			};
++
+ 			i2c6_scl: i2c6-scl-pins {
+ 				pinctrl-single,bits = <0x4 0x2 0x7>;
+ 			};
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
+index eafef8718a0fe..8920326a06735 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
+@@ -223,6 +223,8 @@ ethernet_phy8: ethernet-phy@15 {
+ };
+ 
+ &esdhc0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&esdhc0_cd_wp_pins>, <&esdhc0_cmd_data30_clk_vsel_pins>;
+ 	sd-uhs-sdr104;
+ 	sd-uhs-sdr50;
+ 	sd-uhs-sdr25;
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
+index e914291e63a1a..e1344942eaaee 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
+@@ -30,6 +30,8 @@ &esdhc1 {
+ };
+ 
+ &fspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&fspi_data74_pins>, <&fspi_data30_pins>, <&fspi_dqs_sck_cs10_pins>;
+ 	status = "okay";
+ 
+ 	flash@0 {
+@@ -80,3 +82,8 @@ rtc@6f {
+ 		reg = <0x6f>;
+ 	};
+ };
++
++&pinmux_i2crv {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gpio0_14_12_pins>;
++};
+
+-- 
+2.51.0
+
 
