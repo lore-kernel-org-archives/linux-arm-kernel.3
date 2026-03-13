@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37524105F784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53409105F781
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MHwYA1W1IQi+TgYZi6GrR6X4lMBE3zhq0tACs7lCsMY=; b=t0OIWdNXAbcNdnGdC1JvMh6AnL
-	XVEnJEDOQYnemOspNbMCn+FPCXo88uedkrpyF75JgAXtySFbiQRJMGI4owbrtztNS5SuUcUZq9LSu
-	5a0z18XV5KnriIpGNJ1wKKtYX2QoHWM1TlTlv4bRaI+PxFElsXOH1k4Ew81GWhWN4TaK1WBlhZr4F
-	jzfWludK3cRD3k9iImbz+zi/Qm2MSTKY6RdIB8VSr5+lgnYjRd+PMRNCNbDBbPtTMPpZfK6Iz1u3B
-	oX3Z1MRJ+ujWar6oSF+JhqhdtzWqjpufaCRnG0EXb6N2YbPopnGvxUkGDgDMYTSkGBIG7F4uOvwnv
-	wdxNq8Zg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VUGb2Y1paTKp+Sa/bAh0fWvLo77hq2x/hm1Zugb16KI=; b=P+g9icWU+vfe4o0q4pVUg/tRQf
+	it6SGGEYSr6kB/NQCrnKNprOSU9tUBAQQ2hfZQ1mggRZCPbUr0idLdueSwPGQTlT/0lQIw5nP6ACS
+	BBL9Mt6KgPCQff3drQp7LRxNZROd4IU+vhkChqvef+JbFJ+t8ODLoldSZbSEqWiD4Ml/TLzgo/Rab
+	QzEisQEtplLvzw+pg5KGjkguyTjvEI/oaLycz6O2hoHslTKTyRe2vhOrKnIA04GrWzlrjhFaQSFrk
+	Qvu5I79xj26cSRtvfbY1nAFAXddSa4Kuiqs+Kwc42l2UHn6stdkTKQ614sCwkVb3BwKW50DOrEMN2
+	/9UtQ4Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0z8j-0000000HQJP-0aiM;
-	Fri, 13 Mar 2026 09:49:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w0z9E-0000000HQSG-30En;
+	Fri, 13 Mar 2026 09:49:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0z8g-0000000HQIB-18d0
+	id 1w0z9D-0000000HQRb-1o7Q
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 09:49:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=VUGb2Y1paTKp+Sa/bAh0fWvLo77hq2x/hm1Zugb16KI=; b=GZmBeZu9Ae92Yr9Sab3e2bz4UC
+	4H9qikN9Jd8Y3hne/xJtnEgVm/bq41FwtlMCifekHjveyW5vohjqWEPp1XgNJrM514ifiL5erEEnT
+	VUnUGfEs+6hqfKMEiqnVSRQ1RASUg3YGivQnmFCau+sIfCST0rCk0KbrK3SSYWr73gjlibZFsMZM6
+	s25ydodH2PnjpERpQ9wtPkbB1qLXj5kG1Cn54eRxRj/0kfBWHDQC7BBc2eBMle+39bHAUZaq8l7yB
+	Oo00DPFUR2NKWVrcR7N64DxJrhgVxzhh/sc6zELOElOJv+AEsAwe6dwe8v+giSKGxNVf4tmcZbKu2
+	05QzLrVQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0z9A-000000030cI-1gpP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:49:03 +0000
+	Fri, 13 Mar 2026 09:49:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA84443B0C;
-	Fri, 13 Mar 2026 09:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3000C2BC86;
-	Fri, 13 Mar 2026 09:48:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2876643FDB;
+	Fri, 13 Mar 2026 09:49:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F6D0C2BC87;
+	Fri, 13 Mar 2026 09:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773395341;
-	bh=oAgFwrScPql2AWiBscKgibXmMr5JSzF2SqWNp5f2qZA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kTw1ztA3KdCSP6Mv215qu8SBoPDb5oJ/cwv4S7mrqECq33qLuVHX/kyqNV3+oUyjF
-	 nG+oU4DcMcQt+fXw6U7b1T0x6YE0K2N8AYSLzHhpMQzmRL0cQ7paognxx6gFHGHLtE
-	 pmWm4TygnnqMZwLMLUVhNBuhGp4m/5On8thpLrkKqLHe6xQh3UcFgLF/vOFnUoR8kO
-	 27KkcAsLYKGaRAA9dvTNKpYfOIbTNJHmiXU3tKiy6GxVI/sy2JcpxFPElSJOl4HdnL
-	 xAH63oGiBMy+hHpuZF5TZtYENpYXxJgnGPVkigzqijfmLIhLSrOakYngzhFkQa6Xlt
-	 VPhmZddj+fQaQ==
-Message-ID: <7e0425c2-debe-448a-a5f9-26039de71db5@kernel.org>
-Date: Fri, 13 Mar 2026 10:48:54 +0100
+	s=k20201202; t=1773395371;
+	bh=rUQb+Z8XCOJJahxSZ1DbE4oOFCh6UGrqUYNgYHqSvAc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FOFe69m1WQfLhVow/0Ckx8JOq7W24G+NglJ4NKzNaolAFffFHSiFOHMKX1KnAOyp2
+	 DPiVvZfYC9fp7NYsn+Rg0wFPY89hoJv0M8r7kc64yKHjP+gVS/mf6qr6jtezqWSoCX
+	 gUGxAz8O7vTGBLzXDzlfas+C1Hsg0t4fTaTQ+zJLtn0YMTNh4yWau+TgDeZv92ZUsQ
+	 ugT/wNX90RTDc64tOcq3B51ufIG7syS7EigPbQnZaME0q5IIoehOuWiKlda494jEml
+	 X3tAAumWhc7XYRxSkIiJY8sR54prjDVQeXZwe2YvyiylIw0gNJpcPT4f3QNa5y9F/5
+	 kfev1hEH9EBOw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: avoid unused-variable warning
+Date: Fri, 13 Mar 2026 10:49:16 +0100
+Message-Id: <20260313094925.3749287-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: Fix potential NULL pointer dereference in
- qe_reset()
-To: Wang Jun <1742789905@qq.com>, Qiang Zhao <qiang.zhao@nxp.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, gszhai@bjtu.edu.cn, 25125332@bjtu.edu.cn,
- 25125283@bjtu.edu.cn, 23120469@bjtu.edu.cn
-References: <tencent_770FE404794D670E2ACDFA144EFDA35AC305@qq.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <tencent_770FE404794D670E2ACDFA144EFDA35AC305@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_024902_348121_283D9A76 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20260313_094932_669076_A1580674 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
+The 'cpu' variable is only used inside of an #ifdef block and causes
+a warning if there is no user:
 
-Le 10/03/2026 à 13:11, Wang Jun a écrit :
-> [Vous ne recevez pas souvent de courriers de 1742789905@qq.com. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> The function qe_reset() uses qe_immr without checking if it is NULL,
-> which could happen if ioremap() failed earlier. Add a NULL check and
-> perform ioremap() if needed; if it still fails, print an error and
-> return to avoid crashing the system.
+arch/arm64/kvm/hyp_trace.c: In function 'kvm_hyp_trace_init':
+arch/arm64/kvm/hyp_trace.c:422:13: error: unused variable 'cpu' [-Werror=unused-variable]
+  422 |         int cpu;
+      |             ^~~
 
-I don't understand what you are trying to say here. What you say is 
-already what qe_reset() does: it does a NULL check and performs 
-ioremap() when it is NULL:
+Change the #ifdef to an equivalent IS_ENABLED() check to avoid
+the warning.
 
-	if (qe_immr == NULL)
-		qe_immr = ioremap(get_qe_base(), QE_IMMAP_SIZE);
+Fixes: b22888917fa4 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm64/kvm/hyp_trace.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-You are adding a second NULL check and return early from qe_reset(). But 
-it doesn't really fix the problem because qe_immr is used in many other 
-places so you are just delaying the problem.
-
-What needs to be done is that if qe_immr remap fails, all drivers 
-depending on it don't get probed.
-
-> 
-> Signed-off-by: Wang Jun <1742789905@qq.com>
-> ---
->   drivers/soc/fsl/qe/qe.c | 7 ++++++-
->   1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/fsl/qe/qe.c b/drivers/soc/fsl/qe/qe.c
-> index 70b6eddb867b..6dcfa340970a 100644
-> --- a/drivers/soc/fsl/qe/qe.c
-> +++ b/drivers/soc/fsl/qe/qe.c
-> @@ -86,8 +86,13 @@ static phys_addr_t get_qe_base(void)
-> 
->   void qe_reset(void)
->   {
-> -       if (qe_immr == NULL)
-> +       if (qe_immr == NULL) {
->                  qe_immr = ioremap(get_qe_base(), QE_IMMAP_SIZE);
-> +               if (qe_immr == NULL) {
-> +                       pr_err("QE: cannot remap IMMR\n");
-> +                       return;
-> +               }
-> +       }
-> 
->          qe_snums_init();
-> 
-> --
-> 2.43.0
-> 
+diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+index c1e28f6581ab..8b7f2bf2fba8 100644
+--- a/arch/arm64/kvm/hyp_trace.c
++++ b/arch/arm64/kvm/hyp_trace.c
+@@ -424,17 +424,16 @@ int __init kvm_hyp_trace_init(void)
+ 	if (is_kernel_in_hyp_mode())
+ 		return 0;
+ 
+-#ifdef CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND
+ 	for_each_possible_cpu(cpu) {
+ 		const struct arch_timer_erratum_workaround *wa =
+ 			per_cpu(timer_unstable_counter_workaround, cpu);
+ 
+-		if (wa && wa->read_cntvct_el0) {
++		if (IS_ENABLED(CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND) &&
++		    wa && wa->read_cntvct_el0) {
+ 			pr_warn("hyp trace can't handle CNTVCT workaround '%s'\n", wa->desc);
+ 			return -EOPNOTSUPP;
+ 		}
+ 	}
+-#endif
+ 
+ 	hyp_trace_init_events();
+ 
+-- 
+2.39.5
 
 
