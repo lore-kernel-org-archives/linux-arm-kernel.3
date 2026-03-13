@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBAB107BCD5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150F107BCD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AEUMLFjDYFgWNo8Isf+AOvMOIf2xHR2rlWAPHYKPpSQ=; b=t5LF1kAFueUrReXMCmLlq7E9xs
-	IdkkjbBzHzrG3n0medwU7tRwG3kb8MuyeYezKPndn6CRz8qpxGvzJV75Y+Q1p8XU2spc9d8qEgOKq
-	qvoXBVP7YA2V5e0RBB1Z68TDy4aWeo5q/Lc9qbpZxuZGdZY0yg+hSVvOhRFEQA1eubsMSBco97/H+
-	a+Tu18OqlTpivc116FXpnM8BRF5eSlxdTgLuLCZgCRYs9905NagNDDuZGvCUBimF+SuD40JNw2J5Z
-	y56FwzhODFVGjJXHaajfIsxEXJZunZamUij+HIaJ4e65nCTshVUa6D+so+ciUj0cUgP1eYmGa75B3
-	Wpx0PnCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zZNYqBYQpWUnW/tLMvfUh2kjUY/YDWM5Q+UdXtOlsMw=; b=Es+pYnS8qVUtSeJkpj8ll/NTcK
+	GkZZk/jG5ccMmiaBpbNYYxUB7Q4evltNt+2D2/CuAZPeMS65KRyMhsTZ/1jbKUTYO4KSVcIxujeA3
+	cPp4aZqqfmUVdJj7oo736YqWc8ZhzJ/EJWMPmyUIehXEz43D0tZU7wODvzcOmwdHROHuOaOlHbdra
+	yxDFbG2/OaWNMZD0ju/uP4BSOk3TMJmlFBro2304WwI+a7uFWUp4CmjiM8bwkz7vcVANWaXkjcAwF
+	F08qjXnqJAbnlCfYItoN5mcDANDQOWyojkLY+bll0h5lg7oPdt/auUjATmDGTUUcYWsza63vcM62j
+	MpnHDLnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16GO-00000000lKu-3O0e;
-	Fri, 13 Mar 2026 17:25:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w16H0-00000000lR0-3Bds;
+	Fri, 13 Mar 2026 17:26:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16GM-00000000lKW-11T6
+	id 1w16Gy-00000000lQZ-2zN9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 17:25:27 +0000
+	Fri, 13 Mar 2026 17:26:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D810A4430A;
-	Fri, 13 Mar 2026 17:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F630C19421;
-	Fri, 13 Mar 2026 17:25:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 03FC043F3A;
+	Fri, 13 Mar 2026 17:26:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CCA1C19421;
+	Fri, 13 Mar 2026 17:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773422724;
-	bh=ml4brZgYysNGyVbeOm8a2m9JHM+roqQsETGmno23LcY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bPWw+Wm2vENS0R2etVUo52Ys6ZStKULfae6XmmOinT+dnd68U5DQmopUMqGOmzdG8
-	 a8uRfq6QRCj7WOd3kChdIl0lSXD4JwFks82csjU2kB/1V8ij/f2U5TOQ6yGD2hqDr7
-	 g8LXhAYWIfp/F5jR5tDh+qNBIE/zapkVjgg6OUKJ5Xx3Z69Quslgi/ibnXv7Huyruh
-	 SukHaYpysqQ5cHSBmCAaZksdyFAaUJT0kQn/bmC3rJ6bd6pClR+I4m9yctJ5dsoPOM
-	 6Iy5ydxLRU1Cd2ReN+qVOHlbEMoQnMgZpid7aYuPCL3JMzbnc+WkksBepuN12v4r27
-	 RB3f7cGYxRsLA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 033165FDD4; Sat, 14 Mar 2026 01:25:21 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH RESEND] dt-bindings: media: sun4i-a10-video-engine: Add interconnect properties
-Date: Sat, 14 Mar 2026 01:25:03 +0800
-Message-ID: <20260313172505.2321212-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1773422763;
+	bh=zZNYqBYQpWUnW/tLMvfUh2kjUY/YDWM5Q+UdXtOlsMw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iLAW11TQMPOsxVrmWlW/razPRVJT/XzIxRENzZzEZi08nlNqc5BwR6QDve3cyQc8s
+	 FKNe8qqR4s+fiCl3NZXfLPzVi7l4MNelmQRHbhhTEpf5QcvuTulzbKf7OvxGdz205J
+	 v2PsYjA4wnU3vYXWzxywydeL+qHIs+Lge3CnzdY0uAO3LmPUZ9ZCUXstGxN6HesHUd
+	 bxsYA6/2a3UtLWf1yp5g2p505N8B52jtZZHq8tTjOMwbub/+8KFA0lMEayGH6qeOCu
+	 hgG1wfvrI5kWtMX6y5G4S/EjW7KYmzlJ5XjKQeCnhGi9/yEWVM2HNzWnDGocHmTayR
+	 kP5EKJb/2YxeQ==
+Date: Fri, 13 Mar 2026 17:25:58 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, amitsd@google.com, gregkh@linuxfoundation.org,
+	kyletso@google.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: connector: add pd-disable dependency
+Message-ID: <20260313-cradling-rocker-7ea6db821916@spud>
+References: <20260312071609.388047-1-xu.yang_2@nxp.com>
+ <20260312-facial-backshift-7e810ca5f996@spud>
+ <eew6denbcj2orizphwwl34qhbwfnumas44vx3f5t722csugmp2@zbsmhpcqazao>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6USddsxsDHkuXizf"
+Content-Disposition: inline
+In-Reply-To: <eew6denbcj2orizphwwl34qhbwfnumas44vx3f5t722csugmp2@zbsmhpcqazao>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_102526_303798_E9824612 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260313_102604_767397_338DC107 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner video engine sits behind the MBUS that is represented as
-an interconnect.
 
-Make sure that the interconnect properties are valid in the binding.
+--6USddsxsDHkuXizf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: d41662e52a03 ("media: dt-bindings: media: allwinner,sun4i-a10-video-engine: Add R40 compatible")
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
-This was part of a series to clean up warnings for the Allwinner device
-trees. This patch was not picked up by the media maintainers.
+On Fri, Mar 13, 2026 at 09:58:18AM +0800, Xu Yang wrote:
+> On Thu, Mar 12, 2026 at 05:47:32PM +0000, Conor Dooley wrote:
+> > On Thu, Mar 12, 2026 at 03:16:08PM +0800, Xu Yang wrote:
+> > > When Power Delivery is not supported, the source is unable to obtain =
+the
+> > > current capability from the Source PDO. As a result, typec-power-opmo=
+de
+> > > needs to be added to advertise such capability.
+> >=20
+> > What's the impact on any users of making this a dependency?
+> > I assume nothing negative, since this will only impact systems that
+> > don't work properly at present?
+>=20
+> Yes, right. Most of the user satisfy this requirement,
+> expect imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso.
+> I suppose this user can't work well, so patch#2 is added.
 
+Okay.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
- .../media/allwinner,sun4i-a10-video-engine.yaml        | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+--6USddsxsDHkuXizf
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-index 541325f900a1..01f2afa023f0 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-@@ -63,6 +63,16 @@ properties:
-       CMA pool to use for buffers allocation instead of the default
-       CMA pool.
- 
-+  # FIXME: This should be made required eventually once every SoC will
-+  # have the MBUS declared.
-+  interconnects:
-+    maxItems: 1
-+
-+  # FIXME: This should be made required eventually once every SoC will
-+  # have the MBUS declared.
-+  interconnect-names:
-+    const: dma-mem
-+
- required:
-   - compatible
-   - reg
--- 
-2.47.3
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRIpgAKCRB4tDGHoIJi
+0hTeAP0V1CWIyzl7ZQX9Pnvcy+h+Cv/hX+KNv50caRHWkfZH8wEA+tCGP/dGbZRT
+gRj/q/9O7SsxXuj0iSXiNORmQNAeOgY=
+=jVap
+-----END PGP SIGNATURE-----
+
+--6USddsxsDHkuXizf--
 
