@@ -4,118 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA7A105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E740105F7AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6Y/n2o5yEo+tuZB5cloL22Tzkf84YmlhIt4ugqI5/U=; b=EPsJy1I9MQUbNmTr6YAfrPzUrM
-	5gBsuLI0ahV9s53ryV81DAU2DlFV4vmCxmKNQucXjXc9Dii3YAoKs3wCUblvcrxoHlUp7UMfZFh2s
-	JNmKYOyopwKOaImZnee+Dhv7GIAbRDwqMmo/Qs2N0CQMNpCniOUDr3R2X6jVHMjoOsbL4BBOpzpvg
-	y25gAIsqYc1TiuqrUfNUiewr7jCIsLHuHP5EBkNK+7sHp1Nos+WlHKe3SZf9xiBoJED6c/GAZKpu5
-	GmK9128HUUzfyRWuEvN/Tap5zbOcq4Eh4cU8d+2LOQ3tXcCg1OnuHNBiTed9mjKnrckkbvu0FWpxJ
-	pLWS6b+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4HUM5Peji35ebwET4gUkp+UHqMLMeBn40HuXvqqkAUU=; b=bxZdjiPDZh4JVZptzxw749TBfN
+	CxI97QJAwIWoEluFxYn1oqZZzwkud3qeBA8bmxKT9ZlZGq0f/Y113zO9HoJLKJ9KvbDg2Rb5h0koP
+	nM7TqG5WDbOXpSu66NZSbXjDc5dE5kEZr5cE/7A5/vmAoiTKvs58fQIvm713xK9s/dKwEVqNNzcn1
+	ONcGmJYo1HIouKypUGoUAXZyv2GzZGV5GYiYdfj35vceg1utKywpzS4ZsuJEFL/8C74LGCYSo95fk
+	cxHlCiMbUabZI9/htqj1vXM4CveKBhr5snyvqXy/wkZakiFIWJmmBrp7Cpr2wFSIr3LWQdntio0MH
+	pACRh9pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13if-00000000Pmx-1LRx;
-	Fri, 13 Mar 2026 14:42:29 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13ic-00000000Pln-3KWh
+	id 1w13il-00000000PoC-2Yap;
+	Fri, 13 Mar 2026 14:42:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13ie-00000000Plm-0TpL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:42:28 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a7a9b8ed69so27515675ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 07:42:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hev-cc.20230601.gappssmtp.com; s=20230601; t=1773412945; x=1774017745; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D6Y/n2o5yEo+tuZB5cloL22Tzkf84YmlhIt4ugqI5/U=;
-        b=JQrsE1rJ1Vtqtos3lzetGcOXa+9SeuAQdwzTIYbweSycScLDrb3BqQRIB3wocUFTM6
-         hzkvT8cxhLGwFawt9KRhfagFJfWR1il4j/YjxGLdKyQA4YnpLzWo84QkkQEeJWO5lGsD
-         0KGHaOmdxZ7GUeCKvqypufinL3Vbsq31anx1ysV9zRtp2/Qqb3PwU3KhUiIl+qu31Eza
-         9MDCuEXJFtXCeXEoTu6ozCAI5AC4irOFhLxT6upif++lWuyIJpyfRX2MT40FRVyhlL6m
-         2u1o2+sq4WkST9AzHx4Y0T8nptqXfnTvdxr5Ra6351+zxEsVIddxWGAIjO9uCG6H+fH1
-         T65g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773412945; x=1774017745;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=D6Y/n2o5yEo+tuZB5cloL22Tzkf84YmlhIt4ugqI5/U=;
-        b=VMCGBOQIS53MIu1tSuQtNK8c3BsvJ+CrL+Ye129lxmwMGESGv5PzLRaEnVsaQoZpPi
-         DqHiyTqO7aN405envtgUoEiBlSvMf5p8kJnE1xtpTbxsZF4bs8D3dqIWQ/37yVarCKyi
-         sDfsPg3v4Iz/b5HVu11E8gK7gqvgVspoC0JTOLuNhyww/DrWx+0VwC/knlbRykpF1qVs
-         7iX1ReInKyNxLzAq4G3v2sPwe9FsjGmKc6KZh003ZdRxVG55tNM2ekDJ/c4P6JPAAiZd
-         25sTw7MQQThHPyN/Y69WwpGIk/iiV4D4tGzkJVFQPL6vKGfBwJmtEiYlkK5LDNPIuXlR
-         sX5A==
-X-Forwarded-Encrypted: i=1; AJvYcCWLSVtP/htgau3H3lt6crOnQePpwCkEip3H/llNz71Yz+3E7AHEB3s18y4+ZiOC7dsHK6SS/OrhX+E8JGHIieoG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlyUUttBIWvm92dYJi13t1wDczZcqFnJU2alwDdDv9yB2uMGqx
-	M4YS6NYPdecR2JjkP/4HKuoAtpSVNTP7vtfEBA4yTwhQu9JlpKjs56cHFU828FLSR3A=
-X-Gm-Gg: ATEYQzwxc042m81ar2ecALr8ntwtDjufVubWOrPV17oA0+kmXphT6pvuF8gyMwJhrO6
-	DzGjNZ/Lq+O5aInb9Qec6GgH0N5aBOMvhL+gZRv7qYhQkB8gK7QZZE/tO037ucP8VDjkg2Ciees
-	clb7gLmJtNm3aQT7t7KhzUB1yPEgnKbvmG9TOOUU7Lmov6J08HV2bIjL3yi9aODpt75UP72VtHB
-	se/gPFrLNaeHc+0q43EP90mPjuE1M0AnTeoFA9xhli67A7AzZzmSZ9hjbpL+2vCT3SlOheti5v0
-	SZrsWpa0N30gh77R0NLxpBtn7L71fH7Wphxs8L5uqs2qEhdS3z6mLz++F356nrgCbfHKUQV3TMn
-	3w8JqK9yBagvGr9tLgAgyqSeaCoh6xTofB8Yu3Ct+cEBkviU3bbsaPY6NO3VJhvBp59ZgcxrklH
-	RGa6pygxq6VkQ=
-X-Received: by 2002:a17:902:cf12:b0:2a0:c1ed:d0d9 with SMTP id d9443c01a7336-2aecab32ec3mr35478735ad.46.1773412945451;
-        Fri, 13 Mar 2026 07:42:25 -0700 (PDT)
-Received: from gpc ([2400:8902:e002:de08:5754:7dac:85df:935a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece7ed9cdsm25651935ad.60.2026.03.13.07.42.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 07:42:24 -0700 (PDT)
-From: WANG Rui <r@hev.cc>
-To: usama.arif@linux.dev
-Cc: Liam.Howlett@oracle.com,
-	ajd@linux.ibm.com,
-	akpm@linux-foundation.org,
-	anshuman.khandual@arm.com,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	brauner@kernel.org,
-	catalin.marinas@arm.com,
-	david@kernel.org,
-	dev.jain@arm.com,
-	hannes@cmpxchg.org,
-	jack@suse.cz,
-	kas@kernel.org,
-	kees@kernel.org,
-	kernel-team@meta.com,
-	kevin.brodsky@arm.com,
-	lance.yang@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	npache@redhat.com,
-	rmclure@linux.ibm.com,
-	ryan.roberts@arm.com,
-	shakeel.butt@linux.dev,
-	viro@zeniv.linux.org.uk,
-	will@kernel.org,
-	willy@infradead.org,
-	ziy@nvidia.com,
-	WANG Rui <r@hev.cc>
-Subject: [PATCH 3/4] elf: align ET_DYN base to exec folio order for contpte mapping
-Date: Fri, 13 Mar 2026 22:42:13 +0800
-Message-ID: <20260313144213.95686-1-r@hev.cc>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260310145406.3073394-4-usama.arif@linux.dev>
-References: <20260310145406.3073394-4-usama.arif@linux.dev>
+	Fri, 13 Mar 2026 14:42:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87823165C;
+	Fri, 13 Mar 2026 07:42:17 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B60C3F7BD;
+	Fri, 13 Mar 2026 07:42:21 -0700 (PDT)
+Date: Fri, 13 Mar 2026 14:42:18 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
+	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
+	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v15 5/8] arm64: futex: support futex with FEAT_LSUI
+Message-ID: <abQiSiX_xxjSY96-@arm.com>
+References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+ <20260227151705.1275328-6-yeoreum.yun@arm.com>
+ <abMDOC5DYEm74And@arm.com>
+ <abPXrvl9tC+nv6q9@e129823.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abPXrvl9tC+nv6q9@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074226_832674_46926864 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_074228_283523_58481EE1 
+X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,19 +69,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Usama,
+On Fri, Mar 13, 2026 at 09:23:58AM +0000, Yeoreum Yun wrote:
+> > On Fri, Feb 27, 2026 at 03:17:02PM +0000, Yeoreum Yun wrote:
+> > > +
+> > > +		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
+> > > +			return -EFAULT;
+> > > +
+> > > +		oldval = oval64.futex[futex_pos];
+> > > +		other = oval64.futex[other_pos];
+> > > +		orig_other = orig64.futex[other_pos];
+> > > +
+> > > +		if (other == orig_other) {
+> > > +			ret = 0;
+> > > +			break;
+> > > +		}
+> >
+> > Is this check correct? What if the cmpxchg64 failed because futex_pos
+> > was changed but other_pos remained the same, it will just report success
+> > here. You need to compare the full 64-bit value to ensure the cmpxchg64
+> > succeeded.
+> 
+> This is not matter since "futex_cmpxchg_value_locked()" checks
+> the "curval" and "oldval" IOW, though it returns success,
+> caller of this function always checks the "curval" and "oldval"
+> and when it's different, It handles to change return as -EAGAIN.
 
-Glad to see you're pushing on this, I'm also following it. I first noticed this when rustc's perf regressed after a binutils upgrade. I'm trying to make ld.so to aware THP and adjust PT_LOAD alignment to increase the chances of shared libraries being mapped by THP [1]. As you're probably seen, I'm doing something similar in the kernel to improve it for executables [2].
+Ah, ok, it makes sense (I did not check the callers).
 
-> +			if (exec_folio_order())
-> +				alignment = max(alignment,
-> +					(unsigned long)PAGE_SIZE << exec_folio_order());
+> > > +	}
+> > > +
+> > > +	if (!ret)
+> > > +		*oval = oldval;
+> > > +
+> > > +	return ret;
+> > > +}
+> > > +
+> > > +static __always_inline int
+> > > +__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
+> > > +{
+> > > +	/*
+> > > +	 * Undo the bitwise negation applied to the oparg passed from
+> > > +	 * arch_futex_atomic_op_inuser() with FUTEX_OP_ANDN.
+> > > +	 */
+> > > +	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
+> > > +}
+> > > +
+> > > +static __always_inline int
+> > > +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
+> > > +{
+> > > +	u32 oldval, newval, val;
+> > > +	int ret, i;
+> > > +
+> > > +	if (get_user(oldval, uaddr))
+> > > +		return -EFAULT;
+> > > +
+> > > +	/*
+> > > +	 * there are no ldteor/stteor instructions...
+> > > +	 */
+> > > +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
+> > > +		newval = oldval ^ oparg;
+> > > +
+> > > +		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
+> >
+> > Since we have a FUTEX_MAX_LOOPS here, do we need it in cmpxchg32 as
+> > well?
+> >
+> > For eor, we need a loop irrespective of whether futex_pos or other_pos
+> > have changed. For cmpxchg, we need the loop only if other_pos has
+> > changed and return -EAGAIN if futex_pos has changed since the caller
+> > needs to update oldval and call again.
+> >
+> > So try to differentiate these cases, maybe only keep the loop outside
+> > cmpxchg32 (I haven't put much though into it).
+> 
+> I think we can remove loops on __lsui_cmpxchg32() and return -EAGAIN
+> when other_pos is different. the __lsui_cmpxchg32() will be called
+> "futex_cmpxchg_value_locked()" and as I said, this always checks
+> whether curval & oldval when it successed.
 
-I’m curious, does it make sense to add some constraints here, like only increasing p_align when the segment length, virtual address, and file offset are all huge-aligned, as I did in my patch? This has come up several times in the glibc review, where increasing alignment was noted to reduce ASLR entropy.
+Yes, I think for the futex_cmpxchg_value_locked(), the bounded loop
+doesn't matter since the core would invoke it back on -EAGAIN. It's nice
+not to fail if the actual futex did not change but in practice it
+doesn't make any difference and I'd rather keep the code simple.
 
-[1] https://sourceware.org/pipermail/libc-alpha/2026-March/175776.html
-[2] https://lore.kernel.org/linux-fsdevel/20260313005211.882831-1-r@hev.cc
+> But in "eor" when it receive "-EAGAIN" from __lsui_cmxchg32()
+> we can simply continue the loop.
 
-Thanks,
-Rui
+Yes, for eor we need the bounded loop. Only return -EAGAIN to the user
+if we finished the loop and either __lsui_cmpxchg32() returned -EAGAIN
+or the updated on futex_pos failed.
+
+Thanks.
+
+-- 
+Catalin
 
