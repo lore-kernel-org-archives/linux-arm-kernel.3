@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFE6106FD94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3C8106FD91
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaMHQTim7wtAUttB9nLZCk7zK8OasosIv8k/pLoEtW4=; b=xi1mbDPK5aMB5tIBrXWcTMne02
-	83XJ6so6H7IAl31RcOAWv/zBUMIrFpFMqwCIH+2p8qIKn1N6TVTtcEb5xpPEb1toCyuVmWJy1FZ21
-	ZphTAHgu4HKJ6Fqs6vLLd31tDiiVYj7Hw8s391ISNI+vWnUPzFTCMD+D5C+wNW6kFB20fU0mHWEzQ
-	XZzSJhZKiZqck09PcBhBcQb7CXWBwHSxt75AqTSXF1yH+1lNMm8PUhRFvJ5NOHIDnwihaOoXaj0dc
-	2wO1errd5V41EAXF6AaCwSgFoeo34Mkn42aTn/7CF+Lb1luwbIyrDn5G+71VbQvdPBneCxZaUQUoC
-	HlGL/oWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tGiEKHvG0g+JUevNm144GYTeOt4tfkfBWS8EbLISuQs=; b=FcM6Sad3YJh7moGFRvZdklBxuo
+	D4REWQUUjFNZWjP3oZRYm0gOXnv5ovuwKtcSSrEJlwwVPa/+CWFXtxgJjbSm2m7PAGUZxjcAI3Qty
+	RzWQQ9EZn0JH6FvBTHZoItZcOtlT7TIVioXxGZK7FLlkBaPmsp3SqRDUjmE/9BccrA+NL5DSZUOnV
+	/Lb5+bnrUncLM2F5Bzcrfw2bZIFnOyNKJbYzxAQw36tg1D7XFzDsWhdczfBCyEubkWk5Fyl+0bl92
+	LXyTQ/BO6ajS2AyB6F92DCBkTG3sqZYnH9elH8A5p4bH3V6iHyzXBDNg/8NWYDRRgwUPLm3ZCTU/2
+	BrXMwtTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wVt-0000000GwIy-0LvL;
-	Fri, 13 Mar 2026 07:00:49 +0000
-Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
+	id 1w0wXg-0000000Gwwc-3lLi;
+	Fri, 13 Mar 2026 07:02:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wVn-0000000GwER-2Zvu;
-	Fri, 13 Mar 2026 07:00:44 +0000
-Received: from rd03-sz.software.amlogic (10.28.11.121) by mailsc.amlogic.com
- (10.8.11.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Thu, 12 Mar
- 2026 23:59:44 -0700
-From: Jian Hu <jian.hu@amlogic.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, robh+dt
-	<robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
-	<linux-amlogic@lists.infradead.org>, linux-kernel
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, Ronald Claveau
-	<linux-kernel-dev@aliel.fr>, Ferass El Hafidi <funderscore@postmarketos.org>
-Subject: [PATCH v2 2/3] dt-bindings: clock: amlogic: t7: Add missing mpll3 parent clock
-Date: Fri, 13 Mar 2026 15:00:21 +0800
-Message-ID: <20260313070022.700437-3-jian.hu@amlogic.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20260313070022.700437-1-jian.hu@amlogic.com>
-References: <20260313070022.700437-1-jian.hu@amlogic.com>
+	id 1w0wXf-0000000Gwvg-3Ioz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 07:02:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=tGiEKHvG0g+JUevNm144GYTeOt4tfkfBWS8EbLISuQs=; b=kOyu1hUXRVmZtR8Hu5pzZJYGTs
+	OIR3e8pUgd9Gncj78qQ1jC8Kcm/P9IeDAFEus/U8WB097vFtCzSGdCoahp24i2pEjF9jYDn3HCY8Q
+	BtUBs5BcprFWqKsphEPME6GU+Wrc+cg93RqTtDB07wpNMS+lyQhV3ptWgSYGe7ni4hJ/fXw6rNZXc
+	/xrkUU27vG5UKHON5rsjLP3Md4NCOeO9YobSQwsHJWYCd/jI8fiNLxedPYyrLTsp++eN2GxjPsOxw
+	N8xXV5wY96biCdrN5yT5ZjuxtbPqbEoxW4uFW5Lf7xslv0z+AdU+ZVYy+iBuYKIuUQcWpd8mu9TgE
+	805T7elw==;
+Received: from www537.your-server.de ([188.40.3.216])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0wXc-00000002iOU-1dbS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 07:02:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=tGiEKHvG0g+JUevNm144GYTeOt4tfkfBWS8EbLISuQs=; b=Wzsa58Ce4qlLYJzvuUqM0NhVZV
+	qw+otAaDsVs2CC98o/wa7TmwRmr4bZhFvwHiU5vBiwGvE8amYSYY4VosNRkCXO2I3UrBWUslQNLVz
+	VhJnuFehUbGOMhrT8/rH4/dTYWLoM3S3ChjWdpQti77QgO5vnMKF2nNptE9VSVnERT7ivbPPbRVPd
+	P4mLIa+P0KjoCgx3MWHwsoo5YWkBuh/mV6kCbWY6KNYyuM4iYe/Iy8rmCpJRJ4yBxy9sRhGwfyykU
+	Ax9Gs+wmO6sb+VbfY2O2wSWG5CapvLfeibtVYmcAz98/uzTgqbND8oOF5St+RNTWZX2+h1eT3C0pJ
+	EZaZnYQg==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w0wXa-000BWa-1B;
+	Fri, 13 Mar 2026 08:02:34 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w0wXZ-0005Xv-2j;
+	Fri, 13 Mar 2026 08:02:33 +0100
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 3/5] arm64: dts: imx8mq-tqma8mq-mba8mx-tm070jvhg33: Remove compatible from overlay
+Date: Fri, 13 Mar 2026 08:02:22 +0100
+Message-ID: <20260313070226.579939-3-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260313070226.579939-1-alexander.stein@ew.tq-group.com>
+References: <20260313070226.579939-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.28.11.121]
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27938/Thu Mar 12 07:24:01 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_000043_653924_4DD48EE5 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_070236_758923_CB09B8B2 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,80 +105,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mpll3 clock is one parent clock of the sd_emmc and mipi_isp clocks
-on the Amlogic T7 SoC, but was missing from t7-peripherals-clkc.yaml
-bindings. Add the mpll3 clock source to the T7 peripherals clock
-controller input clock list, so that sd_emmc and mipi_isp can use it.
+Override of board compatible is unexpected, especially when the same dtso
+override difference mainboard. So remove it and update the copyright year.
 
-For logical consistency, place the required mpll3 entry before the
-optional entry.
-
-This change breaks the ABI, but while the amlogic,t7-peripherals-clkc
-bindings have been merged upstream, the corresponding DT has not been
-merged yet. Thus, no real users or systems are affected.
-
-Fixes: b4156204e0f5 ("dt-bindings: clock: add Amlogic T7 peripherals clock controller")
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- .../bindings/clock/amlogic,t7-peripherals-clkc.yaml  | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+Changes in v2:
+* Improved commit message
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
-index 55bb73707d58..a4b214a941ea 100644
---- a/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
-+++ b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
-@@ -24,7 +24,7 @@ properties:
-     const: 1
+ .../freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtso   | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtso
+index 306977d6ba0cb..78f24f72cc690 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtso
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+- * Copyright (c) 2019-2023 TQ-Systems GmbH <linux@ew.tq-group.com>,
++ * Copyright (c) 2019-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
+  * D-82229 Seefeld, Germany.
+  * Author: Alexander Stein
+  */
+@@ -10,10 +10,6 @@
  
-   clocks:
--    minItems: 14
-+    minItems: 15
-     items:
-       - description: input oscillator
-       - description: input sys clk
-@@ -40,12 +40,13 @@ properties:
-       - description: input gp1 pll
-       - description: input mpll1
-       - description: input mpll2
-+      - description: input mpll3
-       - description: external input rmii oscillator (optional)
-       - description: input video pll0 (optional)
-       - description: external pad input for rtc (optional)
+ #include <dt-bindings/gpio/gpio.h>
  
-   clock-names:
--    minItems: 14
-+    minItems: 15
-     items:
-       - const: xtal
-       - const: sys
-@@ -61,6 +62,7 @@ properties:
-       - const: gp1
-       - const: mpll1
-       - const: mpll2
-+      - const: mpll3
-       - const: ext_rmii
-       - const: vid_pll0
-       - const: ext_rtc
-@@ -97,7 +99,8 @@ examples:
-                      <&gp0 1>,
-                      <&gp1 1>,
-                      <&mpll 4>,
--                     <&mpll 6>;
-+                     <&mpll 6>,
-+                     <&mpll 8>;
-             clock-names = "xtal",
-                           "sys",
-                           "fix",
-@@ -111,6 +114,7 @@ examples:
-                           "gp0",
-                           "gp1",
-                           "mpll1",
--                          "mpll2";
-+                          "mpll2",
-+                          "mpll3";
-         };
-     };
+-&{/} {
+-	compatible = "tq,imx8mq-tqma8mq-mba8mx", "tq,imx8mq-tqma8mq", "fsl,imx8mq";
+-};
+-
+ &backlight_lvds {
+ 	status = "okay";
+ };
 -- 
-2.47.1
+2.43.0
 
 
