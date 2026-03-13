@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35484105F784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D98105F781
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6hkohxCO/ytpPdaDg0zksBr2z8ASgevlBWMrR5Z9phU=; b=OO2zXBR9Mohfjy5L1KxDdg7HHn
-	yhy3zK6drVIw9W5IZAgX9ogHz4HFL9IAT/lcTy69H+ZvkQEL5L6/vs9VAqF6Cji9q9JtD4k7cthHd
-	KyjXarpA9YkB4AUVD/vkBSR61oNlRYMwe0fFXGLTczb5flLCTnWrIHVKHtk7mAmP0mNTFyXb1Puxr
-	bR1fQGRbktqxfkbuAxhulKILqjuVUJZNmPpqCilEvN7vkoO3rex1awDpuPUur4mHfeIIe8EXdPXZ0
-	u4qd752xS47Q6rFBaHi0RkJ8gM2ZR+in0RwPdD21D9x/GeLzARjAk93T7U85XZM8zUQnT0OVANG7d
-	E8B5o1nQ==;
+	bh=X5QnXfVQ0hqJvfUwJ7gOEOH7kwY3Eu5ATH2Q/qu+Ugo=; b=3rAammwjpphIXe03Ct/x72f/Lt
+	aCWvWZ1IL4E09KIGaQHzvufPB1RcCo6Dn6NGSALYNIjeKwAXkTsf2y+I2mPJkYxnb/ZgJDxYHsxyq
+	uDz9svNNvSw1f9KQcqMvPyjv01ClMaHwfqQRUAp8GQVJg5LvkbR0g0vUgQyQA85vKYTP0PKRXh0Xy
+	QLwv7aJguWvDILK4dPrY/KjH08RjEsBceYSgyMmxywjJ3zE06TvRSaAN1XF4wu7iiKdVNtOhPge/q
+	HUT4F+ltdNMDme2X4SixwktY8nVrwrGaYuRh1H1GvNnUAWiGSf/8vCVltCcah08pwjTRszL9VuDlu
+	ZG7J+3tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yjI-0000000HNF2-48eP;
-	Fri, 13 Mar 2026 09:22:49 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1w0yjW-0000000HNJx-3aqr;
+	Fri, 13 Mar 2026 09:23:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yjG-0000000HNEY-1ZUG;
-	Fri, 13 Mar 2026 09:22:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773393767; x=1804929767;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iWPfnSUIcQh2r/4xOFGM1kwIjo5t36uxHeaHCPe0Lak=;
-  b=QKUrh1nUf5r8a6G6rdlwGKfEicOxPBZIYQ+yKu9YRpY/RqZNkL79R/Hr
-   3ch08gVGTrELj6ntfDXupxABLFkjoQRETF5SEESaOFxnvMhbH3nLcIvt/
-   Kpmw1K0oFhbPM/g4jo2yGzp1gaENhJ791MLbNZR4XAl8mOjPCobZ9yBtL
-   Jp5l5O4k5q2dH2m2ROSrzpVDDZIdN9QoAl/sTFYUqK9emMZ8Qw5eJvxVu
-   Xo3qV5WPW9U04f4dPbS0K+3HGaGsPYPKRSMNk2xznYt/gnKxx4v3AzzR0
-   FNN6/LFw17SzgttRBt19Gm/PgAKk8AP/nw9xRqNgbmWKb2+RW3pW/e1JP
-   w==;
-X-CSE-ConnectionGUID: gkgKE0CkTriLsAS4qFhk3Q==
-X-CSE-MsgGUID: hWLVuKc9TOyIUDyPGhb4Lw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11727"; a="74686951"
-X-IronPort-AV: E=Sophos;i="6.23,118,1770624000"; 
-   d="scan'208";a="74686951"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Mar 2026 02:22:46 -0700
-X-CSE-ConnectionGUID: feumLp8MRSSSUjNa0zQJNA==
-X-CSE-MsgGUID: hsqv2FpmRcmQlwBdfCq1/g==
-X-ExtLoop1: 1
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.246])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Mar 2026 02:22:41 -0700
-Date: Fri, 13 Mar 2026 11:22:39 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
-	mkorpershoek@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, lee@kernel.org,
-	alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
+	id 1w0yjU-0000000HNJA-1HuM
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 09:23:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38F8D4347E;
+	Fri, 13 Mar 2026 09:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67B8DC19421;
+	Fri, 13 Mar 2026 09:22:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1773393779;
+	bh=OSkNcbUS9YGvPKDa8n1+2Deyv3usv6l4sfKN/25R4mE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KP5AFQsVD2fnagL9ktzranuODnZj5yec3IGDn8dCtYe3/snhvHtHl4hCuJDk5mIFX
+	 XTi/wT2P5RBqBcwVVK9nopqfH93px8aj7zV3cxTXaMox5XwwKQhJr6ATgMV4ahilsI
+	 wa5hi4eh1jsInBssCel8lPW4fKrsAbdJ0wHbpL84=
+Date: Fri, 13 Mar 2026 10:22:48 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Frank Li <Frank.Li@nxp.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-Message-ID: <abPXX1eWoq7C7J1R@ashevche-desk.local>
-References: <20260312180304.3865850-1-hugo@hugovil.com>
- <20260312180304.3865850-5-hugo@hugovil.com>
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 0/9] soc: remove direct accesses to of_root from
+ drivers/soc/
+Message-ID: <2026031332-widen-unpack-1f6f@gregkh>
+References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
+ <20260224183832.GB3239922-robh@kernel.org>
+ <CAMRc=Mft5vc-C8miKVdw6C-qRdYsqfgm-UgLZJOctFwagMF0iA@mail.gmail.com>
+ <2026031231-whiff-speculate-805a@gregkh>
+ <CAMRc=MdhhEMJn5JTB3wn_ScmV=a0o6fTnaUDSDjOLN5WH5rOFQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260312180304.3865850-5-hugo@hugovil.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MdhhEMJn5JTB3wn_ScmV=a0o6fTnaUDSDjOLN5WH5rOFQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_022246_453395_FBD31246 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_022300_644877_BCE9FFC7 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,20 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 02:00:58PM -0400, Hugo Villeneuve wrote:
+On Fri, Mar 13, 2026 at 01:36:49AM -0700, Bartosz Golaszewski wrote:
+> On Thu, 12 Mar 2026 16:18:38 +0100, Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> said:
+> > On Thu, Feb 26, 2026 at 10:28:26AM +0100, Bartosz Golaszewski wrote:
+> >> On Tue, Feb 24, 2026 at 7:38 PM Rob Herring <robh@kernel.org> wrote:
+> >> >
+> >> > On Mon, Feb 23, 2026 at 02:37:15PM +0100, Bartosz Golaszewski wrote:
+> >> > > linux/of.h declares a set of variables providing addresses of certain
+> >> > > key OF nodes. The pointers being variables can't profit from stubs
+> >> > > provided for when CONFIG_OF is disabled which means that drivers
+> >> > > accessing these variables can't profit from CONFIG_COMPILE_TEST=y
+> >> > > coverage.
+> >> > >
+> >> > > There are drivers under drivers/soc/ that access the of_root node. This
+> >> > > series introduces new OF helpers for reading the machine compatible and
+> >> > > model strings, exports an existing SoC helper that reads the machine
+> >> > > string from the root node and finally replaces all direct accesses to
+> >> > > of_root with new or already existing helper functions.
+> >> > >
+> >> > > Merging strategy: first two patches should be either acked by Rob or
+> >> > > picked up into an immutable branch based on v7.0-rc1, the rest can go
+> >> > > through the SoC tree.
+> >> >
+> >> > SoC tree is good.
+> >> >
+> >> > For all but patch 8,
+> >> >
+> >> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> >> >
+> >>
+> >> FYI Rob also reviewed patch 8 now. Who would pick the patches up? Greg
+> >> KH? There does not seem to be a centralized SoC maintainer in
+> >> MAINTAINERS?
+> >
+> > Sure, let me take them now, thanks.
+> >
+> > greg k-h
+> >
 > 
-> Add support for GPIO-based charlieplex keypad, allowing to control
-> N^2-N keys using N GPIO lines.
-> 
-> Reuse matrix keypad keymap to simplify, even if there is no concept
-> of rows and columns in this type of keyboard.
+> In the meantime Geert sent an alternative to patch 8/9 so this single one can
+> be dropped from the series.
 
-LGTM,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Ick, ok, I've now dropped that one commit from the tree.
 
--- 
-With Best Regards,
-Andy Shevchenko
+thanks,
 
-
+greg k-h
 
