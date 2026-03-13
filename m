@@ -4,73 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7FD105F7BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7115C105F7BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EScH/iZRrWyJvokcgkUDFUYdd2laUzZcUnk1Bjef3WI=; b=z2iabt42JXwMYT7cY1YlLFLJK2
-	bzZXM0CjbX7nM7lQyLDOFnrLrztJlxq8S2ADoVf8nuyt5N6yYIqlkKes7IjWXsMwQumDJPp3oboDL
-	ci2dZmK1JqaWe1HJyeiVeTpI1cn2bvTa2/knHyWVTGh8wg6WIusP1WQTLrJ7L5zhQzy4Tcjbaa10i
-	Qo6eaAjgL+BgTSGVrFEiLHlZ4XSOfKxgRSICbqcNw8xbed5cRBPccp2ZR7oF2IaM9eIwewCS55+Ql
-	MKL5qxQOAyMbC7SJRp4aTF21AgpoBUtmhu6kPh2JJ3eD+73N4/T8b3OtrxxdilJqXnm5wxnjUrQIs
-	gmbZWFNw==;
+	bh=nw4hzbpOJL5YmzCGvirq40CjEwql3JhlrZMOxHbuxEs=; b=QeSeMO7llD0f+Sn6ETEycrU9XI
+	QYikeldSbipYCasaqpzmSsNI1F5EBXmwMXis1QFJPqK3cIe+75saEWNLD4aR4hFQBRkkEEKEP1fmb
+	KVw2DRK4AXLe+o8+otEmZ6UT8Uja5AZtAlURQPCQmN30DV3EQx/TJxYBfcmEXhGlNvkqOT8M8QCY5
+	LdJhLjm13KWE+jNFy2TkHKDiSDjqnsiY3gBrdPxNhiI5bxHo6zjnwdAcjzicj4EKiw4j83lxrmK53
+	plS0LrFvrlz9USs9ID+kY8Wk6qkM6HT1Rx2DCUTcNgF6ANv92jsnrqie2MKbo6Vc8uIFSv2uo2x9p
+	gbfMcypQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14tt-00000000b8W-022Z;
-	Fri, 13 Mar 2026 15:58:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w14u5-00000000bAu-1eIV;
+	Fri, 13 Mar 2026 15:58:21 +0000
+Received: from mail-westeuropeazon11011006.outbound.protection.outlook.com ([52.101.70.6] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14tq-00000000b7R-2toR
+	id 1w14u1-00000000b9f-1O2W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 15:58:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 62BD143E55;
-	Fri, 13 Mar 2026 15:58:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1672CC19421;
-	Fri, 13 Mar 2026 15:58:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773417486;
-	bh=D5PZYTno7wOL/03mIkv0E+olwq3141aLAIhD7Irlnrs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XbwkpZr23ptn7RjEE1ds5M5eycyiQfArVY32wh34TPy0ZCw0IknmU11KovTOclJaq
-	 mmEiJMMzLrCZ2+9CJU6qaEe8bCRtuH0KYq9IwADrH+0+bZLGMGpWW9E3y0OWvG1KnJ
-	 f1orJ+SeoI1hJpAnLijhT39gszxlOYhtrCt00F3xNNZutL0b95lFJdvv/3KEdI+NGA
-	 HTMKN7Oep24UfQJPVifqg20cEEQAXqU4vfQthysWK6URuyAe/pQLuYn9hNF2yOklGC
-	 vFJj/2Czq6st4ipiOdasgaJtXALdXU32VNODpgVJ283iFEMPbcORYUeHFxtTZI0fmE
-	 3Q3B/h9jm6whQ==
-Date: Fri, 13 Mar 2026 15:58:00 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <abQ0CKop8Sy3hqhC@willie-the-truck>
-References: <20260302165801.3014607-1-catalin.marinas@arm.com>
- <20260302165801.3014607-4-catalin.marinas@arm.com>
- <aamT6-Mvr9nI1unq@willie-the-truck>
- <aarB3iv8963UDn5E@arm.com>
- <c4a302df-511b-40b2-97f2-06576748c999@arm.com>
- <abA6N6ctPoscIbBe@arm.com>
- <abLT05Nq-9J-uBEY@willie-the-truck>
- <abQx6Q_FJH92cjXj@arm.com>
-MIME-Version: 1.0
+	Fri, 13 Mar 2026 15:58:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c/bDczlf1gM6ToXkrYhLMGCH5U1beGE4XkpJuNpErNKMFJO7D8NrIK8pX6HY7gxaY6pXXtPBQl3mhvnnE56N4dZuJpd9II02P0lJJ4h4joCW45SGnVi7RMVLF0mqJcYXKezcukHUm99cjpHsYHdsWiLc6pEOZVIm1kF2Jv1BNzlu0w8prCiOfQ5aHTpZ3nE1Vz1Yoqx7DRFBIsMZQknshWjWn5JvJGDkyFdYbB97Q+vehLF6cAVYtkgIPeOsNzFhj2e98w8RiF5i2PCngK26EUfQABFC7LtOJZXAXWE5b6w4hykPzbqS/6Gfqxs8YGkyRre+RqJqMUe+BFAIXm1vjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nw4hzbpOJL5YmzCGvirq40CjEwql3JhlrZMOxHbuxEs=;
+ b=x5p40MVtnCjPBxbQIjcBXBNZHEfCteZgvTV4m3GgYXW2DBa8G26aJ0UN0XAXuwuRuLmyxMQvFyKM4F/OQAQu60HN9JN35NIS/o5A2g05MXynYMhGbFtiGVerkriUMv0jh70v4IesC4PoAf2WRDYWImgZjTJYbfMSAjmFWL6G+B5BXn0ZL4CoLDEHG3ihxE+UQOA1LM4j8ih033JXQv5Y3+4hEVzLtb0Cy9ff1VKwtuKCSelPaHSZktSle2iAOLe84AuVK/Rc5aYzJZv7AW0tjru4E3HyxBQddjNtoioEDlJBHJHrwPDglziXuFR/lGnrEV+6WNxn87X/G9n7zYWo8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nw4hzbpOJL5YmzCGvirq40CjEwql3JhlrZMOxHbuxEs=;
+ b=RIClZbvtTSFMpPzpwfYnwKqE1axA3TJMbyS/kn9sOSku9musGokK8vuauduLZazs6A6aloAep5LUcF0+NMBejcQuwztf2EfmlXZdIVk8SQ7IbK7KOv3eYtm77msa7YzKaOv1L8Z8hW762D0cy2HMABKaRgjYXFNmeI5z654ksnxlVb20yNknnAuX5952MEbff95VvWj5QDuDvQ3BDfAHB4jYOosrqDBKXI2IMYafdy8D7VwjrPUsvpixPKFdXW94Ot2WYQ8+VnSzfysE1IrTMr+RnUpp5pATEKVCnB5N+lGzG8cVU/LcOJxlNtKyax47FPESbLYkxvs4/oxFyP2sjA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DBAPR04MB7382.eurprd04.prod.outlook.com (2603:10a6:10:1ab::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
+ 2026 15:58:06 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 15:58:10 +0000
+Date: Fri, 13 Mar 2026 11:58:05 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v3 05/11] arm64: dts: freescale: imx8mm-var-som: Add
+ MCP251xFD CAN controller
+Message-ID: <abQ0DT1jtWVNQfL3@lizhi-Precision-Tower-5810>
+References: <cover.1772898346.git.stefano.radaelli21@gmail.com>
+ <d007d05d5927820aa06389c07dad55357d5f8d4e.1772898346.git.stefano.radaelli21@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <abQx6Q_FJH92cjXj@arm.com>
+In-Reply-To: <d007d05d5927820aa06389c07dad55357d5f8d4e.1772898346.git.stefano.radaelli21@gmail.com>
+X-ClientProxiedBy: SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:41b::9) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DBAPR04MB7382:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83746e9b-8470-4f4b-f4d0-08de81195310
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|1800799024|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: SVpSfCHd17aFqNgMd6mdoDuNf9cnHyztazsN9d/AkDAnrLc2pHhGCXp2Akahpm529qURqXQySTH3pRNTJnkDXO7tyNWzMlxMYCFezslCtPW75thKYjIJCk2vfMRXqOmTl/Uf+Ntv+HHB6IqQfGmwZlP1mYX8BIYu3+5GdnnTMvDZHapdqxyqurDVGSPshkocATSKor3UqF4+Zs/MkmuNtmU3MXPGLvPZ2dFjWmYG6OtBe2s4W3lx+tnP33X5sw2iF0TJDfLreB/KhL8Trqe/+Ijf+vRcBdqf/gLJNzlHasE7tCC3vBfzjpZy4AqoSB+pB3kU+M5WAqnJ6ZUHd+Bhr9M/T8YW2WXfeybN/NUualLlzU3irSvdm929uCbq8HCr+IQPk9IRHjJQONEQzDKbiTtPG/QzAGCqzuy3TflFbsdMan4vrIkfBcB61YK4RrhqCoAjbHm4npvYxBnyvSuql87La+aEF4RxV+gOzu07rMCuENWGKEmJeso3b8rUHTLo1C0r+++PB9Q3glXF7HOOQM5iXRiuckf1e+U5pLnlLSLnoZ6/vrcgeEefiizhyl7BkYyy7pJ/I3SbAUPwj4zNi8TSRNDKX48y2z42o5EcnKvlapHMscLm3cRBiEHoAlcEQqfBHJHkb1WfTwyKTbIbtaGqEokdC413s7Ii2dgalM9nzHAlP6Q1rF08YoX+QQa4gkoJIebFI+lMSQZg3hL+11CQSY8I+1WDdZ49NKyPoWxeV4eaez4W7txUr2RWQtSEnMJbz1u56kAK4ZzpnYqTHIYKL0KqaI1JS+gGZWPZJvk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(1800799024)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MVDvh8p4oW9UnZyBVrK+FjZgDmxnVkFEgez1/3fHdxthOsIwVgHgRuY7pDE5?=
+ =?us-ascii?Q?IwaLSkKeRi3aCAoLjEhA6DP6Bt/QkVpobg8DYX2rQ/QPpsVBQn7DGKtSfeBW?=
+ =?us-ascii?Q?oivDg1IbRHvnFtzLKm7utseMRYftpVtA4vvhvC9ZApfE4yDzo3fLU2dCgcYs?=
+ =?us-ascii?Q?ta/MuChIVVOde9Su5UmKD+fxPcCCtCS78KaEMOLyvJzofwADdwgmp72HXvgE?=
+ =?us-ascii?Q?5RKAY4h5qwtVbUplH4mB6iH7oE/L7v627vsadGWvOpYfMUSAveWiI7d88A7g?=
+ =?us-ascii?Q?uQRmAvgSZndbDWtzR/tsPOegQmeXWP7spAPBO0F3h7xtQi5SU9KZgVJKOpx5?=
+ =?us-ascii?Q?D8BY/keWXX6IauXQdNRAAdqtWfcksaUWjO/v/04XUqoviw10Rg+i99yOoKYW?=
+ =?us-ascii?Q?s2V/GBpjaRO4spy8grPie3o01swBWo9TiyTtVraJSAy0RBdx+anwX+p2A048?=
+ =?us-ascii?Q?+W3GqCRY1FEM+B7mT1spEierCisJe28l9+mzLoWrl7u8NWvwGKF0rKWLt5UJ?=
+ =?us-ascii?Q?Fx8cFXXtF70h8Bm8kRx2GPPlHhO9d4WZ0QpnIKOqGHkMX2u0fqK9qfvvCQgn?=
+ =?us-ascii?Q?drFsUYyH2i6fcPwAK8Ay8Js80Lq2Qr3lIYWX1uzGPZv+3N+IkIvstbnsuN5Q?=
+ =?us-ascii?Q?J03esQdkf/saZ+1WimFvsyMrFL998mwEseoQlU9iWsD92bFQlGonfVdSDF6D?=
+ =?us-ascii?Q?xHTb352FGRBhDuIlvMQGdQ0R4vniK3Uk0aRiDyjdenJuN1fL70kOhQIt3IGt?=
+ =?us-ascii?Q?OdaGn1YunVQdYzO63c0q6z2MA5jel+spwNu2hz4lOvgx5mRI28DZ5fBbAz6v?=
+ =?us-ascii?Q?0A7ceAVtL88P516PS7XLQPPIiEuSH4311SSTh4dzCOx47rdaeC/zfywLsiR4?=
+ =?us-ascii?Q?VCsQjdzCz2veeIJZIuEpZWthKolMIkw/E2P13CS6ikD99MQr7jNJylZ3MyMN?=
+ =?us-ascii?Q?dZBt9lKu204A+5ZhrPEVXzlgGuwPaYx7+MPgZyuNkLuOMsJBuoqzpK35r8SL?=
+ =?us-ascii?Q?PhNwjipO4YQETVCiUQVurYcDYptSyfPlIT8ioxXQGx06Xsr3Saz+I8fC9ECi?=
+ =?us-ascii?Q?BVyx11Q4muePa3AYYet4j6aw1fx+n4VeJ9IyFXF32EseTE2fa6DacVjKmmZd?=
+ =?us-ascii?Q?Gy16wjUxkC4vBO9DNWXFc+jWz3xdSG+sAbxj83Nju2V99Szm+1jQHdYGy0IS?=
+ =?us-ascii?Q?AKyU4a84mx6CO+w8L0slmsV/1yZvbMzcH8ChKlQdvGUv2cQZ9Gcmsqj1cBnj?=
+ =?us-ascii?Q?kluzVd6xay4jCnGPvgNodWWbCQDO3Pqr3p15Z57eJCnU097RIsjmf8UVS4lf?=
+ =?us-ascii?Q?Mv7z2p+9F5yiBP8nIMiuxoh4gVxOqCtyr1OwtnGZO9RFF4FnOsAgWACAVzTG?=
+ =?us-ascii?Q?AB5OuR34pAjJ40dAz3V7sGBkxFwEnidAsq9IiubhtIGXM2zw8M2QPvql70Cj?=
+ =?us-ascii?Q?IMJApAAmUEIzR2DHv4vY6UuVTi7aOjVWFhV506wK8MWptLrJnGIiGl1GPtWd?=
+ =?us-ascii?Q?torXk8wWqy+gxLO5zWp1h8w+DDbYxLnTRS3kEIzVDqEaFbKyiNYVMNsD+0vO?=
+ =?us-ascii?Q?4HEkfXAifXOcRIzR0Svb99mW/UdPAxWS/9Fpgsx8NeISHszdyYyCEjXK3xQU?=
+ =?us-ascii?Q?q3p2Y6h6ku6KiisvzCtu+q5qytUiLJw+VIWoQzCAOfPR/P1A1AOaC2Nuszt7?=
+ =?us-ascii?Q?BAbKvqgbhWCzRCF5qkyyoEHwctljS8ji8JBtVObQ9O07er0TavxdPSutdO89?=
+ =?us-ascii?Q?SNd6GOEWng=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83746e9b-8470-4f4b-f4d0-08de81195310
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 15:58:10.2190
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: h57VwEPmww+x5mTAsb/n7K5/AryTbZitA0c+XKJ0zQZKx8DSKRxT/Acw1jo4yStH0pxQxYhC2DrRUmP/S4GMjg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7382
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_085806_772138_554111F9 
-X-CRM114-Status: GOOD (  40.94  )
+X-CRM114-CacheID: sfid-20260313_085817_370781_83CEFD39 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,142 +145,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 03:48:57PM +0000, Catalin Marinas wrote:
-> On Thu, Mar 12, 2026 at 02:55:15PM +0000, Will Deacon wrote:
-> > On Tue, Mar 10, 2026 at 03:35:19PM +0000, Catalin Marinas wrote:
-> > > On Mon, Mar 09, 2026 at 10:13:20AM +0000, Vladimir Murzin wrote:
-> > > > On 3/6/26 12:00, Catalin Marinas wrote:
-> > > > >>> @@ -1358,6 +1360,85 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
-> > > > >>>  	put_cpu_fpsimd_context();
-> > > > >>>  }
-> > > > >>>  
-> > > > >>> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
-> > > > >>> +
-> > > > >>> +/*
-> > > > >>> + * SME/CME erratum handling
-> > > > >>> + */
-> > > > >>> +static cpumask_var_t sme_dvmsync_cpus;
-> > > > >>> +static cpumask_var_t sme_active_cpus;
-> > > > >>> +
-> > > > >>> +void sme_set_active(unsigned int cpu)
-> > > > >>> +{
-> > > > >>> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_SME_DVMSYNC))
-> > > > >>> +		return;
-> > > > >>> +	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
-> > > > >>> +		return;
-> > > > >>> +
-> > > > >>> +	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
-> > > > >>> +		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
-> > > > >>> +
-> > > > >>> +	cpumask_set_cpu(cpu, sme_active_cpus);
-> > > > >>> +
-> > > > >>> +	/*
-> > > > >>> +	 * Ensure subsequent (SME) memory accesses are observed after the
-> > > > >>> +	 * cpumask and the MMCF_SME_DVMSYNC flag setting.
-> > > > >>> +	 */
-> > > > >>> +	smp_mb();
-> > > > >>
-> > > > >> I can't convince myself that a DMB is enough here, as the whole issue
-> > > > >> is that the SME memory accesses can be observed _after_ the TLB
-> > > > >> invalidation. I'd have thought we'd need a DSB to ensure that the flag
-> > > > >> updates are visible before the exception return.
-> > > > > 
-> > > > > This is only to ensure that the sme_active_cpus mask is observed before
-> > > > > any SME accesses. The mask is later used to decide whether to send the
-> > > > > IPI. We have something like this:
-> > > > > 
-> > > > > P0
-> > > > > 	STSET	[sme_active_cpus]
-> > > > > 	DMB
-> > > > > 	SME access to [addr]
-> > > > > 
-> > > > > P1
-> > > > > 	TLBI	[addr]
-> > > > > 	DSB
-> > > > > 	LDR	[sme_active_cpus]
-> > > > > 	CBZ	out
-> > > > > 	Do IPI
-> > > > > out:
-> > > > > 
-> > > > > If P1 did not observe the STSET to [sme_active_cpus], P0 should have
-> > > > > received and acknowledged the DVMSync before the STSET. Is your concern
-> > > > > that P1 can observe the subsequent SME access but not the STSET?
-> > > > > 
-> > > > > No idea whether herd can model this (I only put this in TLA+ for the
-> > > > > main logic check but it doesn't do subtle memory ordering).
-> > > > 
-> > > > JFYI, herd support for SME is still work-in-progress (specifically it misses
-> > > > updates in cat), yet it can model VMSA.
-> > > > 
-> > > > IIUC, expectation here is that either
-> > > > - P1 observes sme_active_cpus, so we have to do_IPI or
-> > > > - P0 observes TLBI (say shutdown, so it must fault)
-> > > > 
-> > > > anything else is unexpected/forbidden.
-> > > > 
-> > > > AArch64 A
-> > > > variant=vmsa
-> > > > {
-> > > >  int x=0;
-> > > >  int active=0;
-> > > > 
-> > > >  0:X1=active;
-> > > >  0:X3=x;
-> > > > 
-> > > >  1:X0=(valid:0);
-> > > >  1:X1=PTE(x);
-> > > >  1:X2=x;
-> > > >  1:X3=active;
-> > > >  
-> > > > }
-> > > >  P0                                 | P1                                            ;
-> > > >  MOV W0,#1                          | STR X0,[X1]                                   ;
-> > > >  STR W0,[X1] (* sme_active_cpus  *) | DSB ISH                                       ;
-> > > >  DMB SY                             | LSR X9,X2,#12                                 ;
-> > > >  LDR W2,[X3] (* access to [addr] *) | TLBI VAAE1IS,X9 (* [addr] *)                  ;
-> > > >                                     | DSB ISH                                       ;
-> > > >                                     | LDR W4,[X3]     (* sme_active_cpus *)         ;
-> > > > 
-> > > > exists ~(1:X4=1 \/ fault(P0,x))
-> > > > 
-> > > > Is that correct understanding? Have I missed anything?
-> > > 
-> > > Yes, I think that's correct. Another tweak specific to this erratum
-> > > would be for P1 to do a store to x via another mapping after the
-> > > TLBI+DSB and the P0 load should not see it.
-> > > 
-> > > Even with the CPU erratum, if the P1 DVMSync is received/acknowledged by
-> > > P0 before its STR to sme_active_cpus, I don't see how the subsequent SME
-> > > load would overtake the STR given the DMB. The erratum messed up the
-> > > DVMSync acknowledgement, not the barriers.
-> > 
-> > I'm still finding this hard to reason about.
-> > 
-> > Why can't:
-> > 
-> > 1. P0 translates its SME load and puts the valid translation into its TLB
-> > 2. P1 runs to completion, sees sme_active_cpus as 0 and so doesn't IPI
-> > 3. P0 writes to sme_active_cpus and then does the SME load using the
-> >    translation from (1)
-> > 
-> > I guess it's diving into ugly corners of what the erratum actually is...
-> 
-> From discussing with the microarchitects at the time, a DMB ISH was
-> sufficient on the ERET path. Whether they thought about your scenario,
-> not sure. Memory ordering isn't broken by this bug, only the DVMSync
-> acknowledgement not waiting for the CME unit (shared by multiple CPUs)
-> to complete an in-flight memory access. My assumption is that step (1)
-> won't actually start until the STR in (3) is issued and this would
-> include the TLB lookup.
+On Sat, Mar 07, 2026 at 04:54:41PM +0100, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> Add support for the Microchip MCP251xFD CAN-FD controller connected
+> to the SPI bus on the i.MX8MM VAR-SOM.
+>
+> The controller uses a 40 MHz external oscillator and requires an
+> interrupt line and a dedicated RX interrupt GPIO.
+>
+> This patch adds the fixed clock, the MCP251xFD device node with the
 
-Maybe, but that sounds slow...
+Remove "This patch", Just said Add the fixed clock ...
 
-> Anyway, I'll ask them again to be sure.
+Frank
 
-Thanks.
-
-If you're speaking to them, it might also be worth asking whether or not
-the exception return alone is sufficient (given that we run with IESB=1).
-
-Will
 
