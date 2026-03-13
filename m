@@ -4,161 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBA9105F78F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 10:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1460105F791
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 10:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vRvY0IU7QJJPUdsJolBIFF+B/ivl6zY5hLn2OMvZN8=; b=LuKP9+gFHS1+Y+qHywQAu+jBmn
-	DHTBbAoBsbq+NBFIZO0fdAB+UczmcETebYgf07v9oiuouinbdRVxU2Ri3q2tJlchacyoGUjxSJg2g
-	TU3Si9Tgr36BhRR6o5tNoNFbp34xcOhHXErZJR9X3aFbMVW2NLpGhPV2k4R4487BQsqp3zDqVDgvv
-	yCnZe+an/uCOdTJi3kUx/PhZVhVc/7uX+82epHzviqYbX7ApPqqzDYnXgcQmxZy4Mrwcn3EGwuJgo
-	b0yxKWMiwqa2uOHv0AXCy5HqufGekZL2Io4aLZGY2Pxk/Hyxff39oAe7wPt8K8VvVLkUNR9++npRE
-	GWYbZENw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xdroUf42OnaRsZaNXVIwjIuoiVOsASCk4ZWCqNs2gp8=; b=sa9gc4v5blYMNC1y6bkUYmiNmC
+	F711eKTamBU7B27I8AyPsaSmTmDj9dVUtiAjL4kTU42qpXJxuDg94K8f75ipPwOeYrkIPOeXKY3Vu
+	8eyC2Q82XYG7GXu1bxK8fSYxrE58FFcWPGbNQrE0Zh10oehQgnQcKaNfz6QMRfMp7sTa2nq0QyOMr
+	KSd1dq+0Sw9V8EbBWchTQa/CW9iS7o7A7iVIlW08joZwx/qj0R+mgmPMlIgW3uD0UNJZwhuE/gvxd
+	37V9up++ESz1W6UqaZzlbQMA06LpAq3lfA/XMR5Td5RlfL7PIby1cGWKs8Wh7mPRrxoQhYpGBXL9C
+	7bbiRpMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zaH-0000000HVAH-25aA;
-	Fri, 13 Mar 2026 10:17:33 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w0zgg-0000000HVmV-1Zzw;
+	Fri, 13 Mar 2026 10:24:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zaD-0000000HV94-3xvK
+	id 1w0zge-0000000HVm4-03Fo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 10:17:32 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=eEeyYAvBCK6syzkYjJYO/lupJhebg82H4QcbXB2acXEE72xj99Z7MCW9cdLJ33pU+ulcYwRebFQ3Tmo5O1cLVG4yVaPvxXxPkO7LMs+1eanqckt5dyQaWgb0mqOY6UuhZonD4sAGP0et+8rcbOsoUIEAndOK188f2z/Gzsi28ADszegGA+eaeyBpH+6aGUzPJUVg/mfJeqc12Bq+4F6TCfxSglk0On5WzJGz5O7oHPcYuSIzkwyPd0Uen63LOnff7tpv8533yRrLglnmcw7mcEf2mneHBH+ehJ1D+0+SgAtYpZPakHkx5jG8uJZFNdwGIpslxBYLDL8hTzK4xEJu2A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1vRvY0IU7QJJPUdsJolBIFF+B/ivl6zY5hLn2OMvZN8=;
- b=qJR6C4bnQbooPBq+pv8GY27YIcBwk11Uf6+2cEg1sYrcmNHEqIcw9xUMpXUZpom7hlujuxHq7uTGOMeBkt2zQ0V9FxJthJhMsPOAIlynTFdeRBhmPwt5tWOo0edQIsmFtXVpCqUXvNPqqcaw00q/MwNVSPFHwR9xHsMVvag1/q6Ugfyuvr/kTZYh2VBEAJLJZCV6Q6pOkhRgU0A6RwqGCDyyQ3JCWa5A4v45qgrnNV+/V71wh95dr5doIV0aoQLVWdH5bYOACBXKev+KsYaQguzl6cIey4lf5HdkkXX96Mr9DA6JCes51nyjAv5s0FxBk8CNuMFyT0qgB9M4STpSGg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
- is 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
- dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
- (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
- dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+	Fri, 13 Mar 2026 10:24:09 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62D7JSNr240513
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:24:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=xdroUf42OnaRsZaNXVIwjI
+	uoiVOsASCk4ZWCqNs2gp8=; b=nEgHuo5sHIlSGtourKRKx/NaKjQE0MTjlXa1ae
+	JlsOEV2ZJ1aS72PzqWf504d/PBjC8yqUYg2RJ2yE6K7/6EeGztR6zH6ZX3vSUbe3
+	BVUt9ES9/gT8I4J6R95nnMcERZDKH5/qo+hWjFT7g4Hk3Edvc6Nw0wl0PT4IOrY3
+	idi26aY1Y0w4rq7ybs7miaupTsAzn/HdfT2KmK2ZoObRgv9ntU3raX9cqTeTv49F
+	NC47V4wEs7TDZ5UoAYiwF4MWuFkGH0P0euZxOSunNsekQH29ealV5Sorsr2rc18q
+	VlF6p+litw26pjqsy5rBa6choxenef97ZC6xoGxK+Fu8PZjA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cve3d8nnx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:24:06 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35984ef203bso1946555a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 03:24:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1vRvY0IU7QJJPUdsJolBIFF+B/ivl6zY5hLn2OMvZN8=;
- b=cLo31cQe2wZQaujrLHsXABJ6fFBEQxoLVKJZj4dEiPQlSvdwrR8fjxW58E3xBVEqgBZ2vxI3VePSjCP3tsFLDr5eOwRNAgn93TUn104sCXVb+DZGmWlxTHNpOzglayRWI3zHHOGYGDZnyBOG5zDkPxOF+/FrcPANrtx+BucNFEk=
-Received: from AS4P192CA0033.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:658::27)
- by AM9PR04MB8275.eurprd04.prod.outlook.com (2603:10a6:20b:3ec::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
- 2026 10:01:28 +0000
-Received: from AMS0EPF000001B6.eurprd05.prod.outlook.com
- (2603:10a6:20b:658:cafe::ce) by AS4P192CA0033.outlook.office365.com
- (2603:10a6:20b:658::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.16 via Frontend Transport; Fri,
- 13 Mar 2026 10:01:30 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
- header.from=solid-run.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- solid-run.com discourages use of 52.17.62.50 as permitted sender)
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- AMS0EPF000001B6.mail.protection.outlook.com (10.167.16.170) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.17
- via Frontend Transport; Fri, 13 Mar 2026 10:01:30 +0000
-Received: from emails-1266110-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-17.eu-west-1.compute.internal [10.20.6.17])
-	by mta-outgoing-dlp-467-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 505ED7FEED;
-	Fri, 13 Mar 2026 10:01:30 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Fri Mar 13 10:01:23 2026
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wUN8gl2kbF5tRqMMNgLNTie7xXlCXjguVDXcC6FMnBmpiYnOp+ysG29lzMUoUQM56M59rJu+3+JgVsU2WhfPmIWvjwjrXHC7gTWPPDKMbUJF71dcC27hOFw/3K9n8rCp848epQor8xn8m1pmT/dRvZ/ii19Fd+L+sUZ9xNGq3mU3i0R9IeqAwbGdvpAYhZksrOGZokxbIjx4jvOK4y20gFNCiDMpMgDHW4hkLjEWBDE9XGIaXkGa3/3w0CRl6oT5Hd4icjlMz3+N6UF2Y7sBKeHgWnk9JejnU8jLHO6tQ1xD6YUh7kc5ClR8RtVDJ/U+ja4mvKQhif3WSRmmbGBlGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1vRvY0IU7QJJPUdsJolBIFF+B/ivl6zY5hLn2OMvZN8=;
- b=QDymIg1h3oYsbM0+yXqTemhakxb+xkrfEGF9c6S2GmgMTbHn5CsHPXirDFSAjf89o0+L3gUdOPlghGFcB9zCDv7k4KwnFt1ONt0ziDgLMvy6EshrFgG4wFM0zberldo2qJxu9UjaO09uAF2funY0AzdjtcIK26oiBAj0PocxZderQ6JFsY1ynXLaEOTvWshrD9Jjgeu4tROR96baVZcjshFKcmNoHfT/FIV6vIdgcCud7sqYbp4cp6aXBNLBgfJkLR/Z3dEhyu2JfW+z6vzTJFB3QE1t7UqJI4JFq/ov9phoLgg8ZfNOMvVe4p4iTgbbdZLG/CcLw3gDa+KPgIo13w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1vRvY0IU7QJJPUdsJolBIFF+B/ivl6zY5hLn2OMvZN8=;
- b=cLo31cQe2wZQaujrLHsXABJ6fFBEQxoLVKJZj4dEiPQlSvdwrR8fjxW58E3xBVEqgBZ2vxI3VePSjCP3tsFLDr5eOwRNAgn93TUn104sCXVb+DZGmWlxTHNpOzglayRWI3zHHOGYGDZnyBOG5zDkPxOF+/FrcPANrtx+BucNFEk=
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
- by PR3PR04MB7417.eurprd04.prod.outlook.com (2603:10a6:102:8e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
- 2026 10:01:16 +0000
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9700.015; Fri, 13 Mar 2026
- 10:01:08 +0000
-From: Josua Mayer <josua@solid-run.com>
-To: Frank Li <Frank.li@nxp.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Mikhail Anikin
-	<mikhail.anikin@solid-run.com>, Yazan Shhady <yazan.shhady@solid-run.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v9 8/8] arm64: dts: add description for solidrun i.mx8mm
- som and evb
-Thread-Topic: [PATCH v9 8/8] arm64: dts: add description for solidrun i.mx8mm
- som and evb
-Thread-Index: AQHcpz4a7szQRaQXb0aCoWZsVdtKILWmmXiAgAW4ugA=
-Date: Fri, 13 Mar 2026 10:01:08 +0000
-Message-ID: <ee743a02-103a-4f20-91da-99d6cba699ff@solid-run.com>
-References: <20260226-imx8mp-hb-iiot-v9-0-4533235eeb34@solid-run.com>
- <20260226-imx8mp-hb-iiot-v9-8-4533235eeb34@solid-run.com>
- <aa8TvVC8KWBiVGrG@lizhi-Precision-Tower-5810>
-In-Reply-To: <aa8TvVC8KWBiVGrG@lizhi-Precision-Tower-5810>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solid-run.com;
-x-ms-traffictypediagnostic: PAXPR04MB8749:EE_|PR3PR04MB7417:EE_|AMS0EPF000001B6:EE_|AM9PR04MB8275:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b99835a-93ee-4521-9090-08de80e78020
-x-cloud-sec-av-info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: 48FARr8o9J8NnnJD6ofsYf+T4ttRvOobXtWczLloVqLdBMJFQW4jkq4gkhfYfo625s0x+Ht9pBybxR7mx3y27xD1F0+gR/gTzQrlArmdeVK/miJVKRAUo+0yM04aZ4cXxfA4KRLHUQKDvMA/2poTXoZ5z727y8AS2v07AzQ5j7yAp7IMY4NLbkRz9UIGomwSRjPGvJWPA4suWawEckLjUz6qOUjCxL/ipj/qYT0DaQJtlLatk5hvVJxmv5vUKL8TuavZunOoiNHDV8a72iieQrMkYuA4QLHVqu4FEiufJGk48NM7wg28D4D4QB4U3jOfncOkZf83nLrf3eVJ/anrLM8bJZWYkK1hniSbeMIR1Mo/s5SB0NPs310voIgfWE5g1OScr4nIQNcNAN224pnXwtfwuNy4R/X4ndEZk+VGMMehOPukRL6xvfXdepJc8thBLxDMITUimlwmqkTkhj+qq1vk438MshRR2HZu/tNWpu0am2Z9MWmfhJ3kUqhz5L5VRxhM3TXOolheJ0dWIXqvOnFf8+I2cbBBxrXasnXDY4b+wj1WSJF3pUMfPlvj/g9jRyZsSIv8S98HB4jAByI4xc5HgpAEj8oiAYAVm46am4f9wJ56bZHxnTyKNMB2oh+AekNfie0Zzn9FmNAE6Lv1ce5UScLs67Y32HegK30o55ZwDP5UA9qAaGydKjrNncTpidApdCGbVYKI+7QBK560hhkxXMxnAFMYMDTXI7pBPw2zh5OEsXCpPrZROXJOadWg
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <C0CF06843D4BE34D861DD7684890F17B@eurprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=oss.qualcomm.com; s=google; t=1773397446; x=1774002246; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xdroUf42OnaRsZaNXVIwjIuoiVOsASCk4ZWCqNs2gp8=;
+        b=O5DG0UUkIoSmk73otWBXZMAlQKqziuul1CNzkKnpn0NFUCtPlwhnBVn6YRyeepqjxq
+         Nn+DwiIh5EDpohoiZvUI0OYR/BS2bf1oJ75D2B6h6nfQyTS5/L2E/SLY94Nkmwq0UXhp
+         8rmlRyzlnrn3Pt4CVK5J2MH0y9A7cvIxjekIg7nSlnf+p7T5fM0cFnXAFk64biKC1uNY
+         9AWQkqfROObxzQC9dTzHFQohz5MXx0ePauhJEtdYjxRVHuwo0g+5maU2tQhIXGyslmm8
+         q0/Xq7n8dw0K1yEhFaRC6FkkqlH9OTxKrMgDhQlXD2D1XvZ+sC9RiNaoMWwjd4eoSoSm
+         VCPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773397446; x=1774002246;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xdroUf42OnaRsZaNXVIwjIuoiVOsASCk4ZWCqNs2gp8=;
+        b=Jr9h0F7bv6QNjABkkzLSj6wxu2WmPg7quVZyQENtVoy8865vugRyBN1MhlyQ09rGu3
+         13xVDx6PwM3Y4egxdXIoZueDEWmDtzB1va5Z8jxLDpmLDT97hS5OxUlmhL2z+va3qSD/
+         5NVeCuhAxa5ZCLUuK4dkA9pTfO9lYD/GMnW1ZdJMhM36T1UsYlA316nOpvblaBhe2OPn
+         9YZ4ug4jzvFB7ZV7DrOyt01bZnQtul1jCD4fsqHOY4vr1yI9qdsvH9tZiFB5WyMb6zL+
+         c+aPcsMLeccSWXA5q8nA7QqMhUkUsA1kWxmHdlzJhm9+Pw9AQN6zejgWcuOdOFaxgn6e
+         Kf2w==
+X-Forwarded-Encrypted: i=1; AJvYcCVRneDpa3cSLrnXfooELwB6p2Mhdh9ffvFTWkKYedrGcb45VG6flMUpttxT4Vr6holUO3Ypvbi9EqcDKtahrrnw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxORt+QVM1g9cptIRHOovs5xm1bZJ0GWCH/pxbu7kTGVF8Ep191
+	d6ohrHaJyHaddTztqlcfWr3JQOwMECyNQ12mAz90WcydxQjqWIy5bRUxL8NyVPgQZpnIqumkWin
+	5+E0GgiCgcNf79nu5PT43ke+SLYdsRgXGIEUWjoZHSiAk+QuI48UUDTHZtI7FaFRTePRlzv/nIs
+	ABQQ==
+X-Gm-Gg: ATEYQzyifIDtA5rj3yvjT9QjTNUrrW5el3312xnCxhMBD8Doyqvww6WC57LA1LiiJPn
+	E8gZCIRvFFX3kKd0WR1M9ytLhDnc9mKfSA7yMDGHyURhU8HzdrApWNAWhHgOawqeqMAQZUbAsCQ
+	BMnmyIQEruOgCPj9iIj4ixXESxPAlP0c/oPqeq5fOykLvUHdjop+NafjjGYkSGZHrDnwXbKKf72
+	hNCLsh+wLgScCRI8y9Dtbij5Wss+vnVbCaa6RfqwMLRfsM1UqOQL+lrsaV2of+VaRmhNhYlnCrp
+	tC680kHYEW60aTnlvEK7Fpm2fxmh6PfP2bSo1Q/Q+eRQnzuCC+1MtjL4ZwhnM2hyQ5nAU+cOEjt
+	N/yRAZ8It3HQkM54RR+IOWvWR78WVCD0RMKjgtVwMISznmZC7VmGh
+X-Received: by 2002:a17:90b:4a46:b0:359:f0e1:f8c0 with SMTP id 98e67ed59e1d1-35a21e1ca44mr2497542a91.6.1773397445737;
+        Fri, 13 Mar 2026 03:24:05 -0700 (PDT)
+X-Received: by 2002:a17:90b:4a46:b0:359:f0e1:f8c0 with SMTP id 98e67ed59e1d1-35a21e1ca44mr2497521a91.6.1773397445204;
+        Fri, 13 Mar 2026 03:24:05 -0700 (PDT)
+Received: from hu-guptap-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a02ffe078sm8437602a91.13.2026.03.13.03.24.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Mar 2026 03:24:04 -0700 (PDT)
+From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Date: Fri, 13 Mar 2026 15:53:53 +0530
+Subject: [PATCH v2] iommu/arm-smmu: Use pm_runtime in fault handlers
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: P2vHKNJ10CyWcwUhS04h7Yv9xhvpDaXJxj7rU2FUadmwmDC/ipopcl5HJFnXmGcTRKzKh7yteRBOoYgPxYQvEXPJP85y2gwrzyhudnHKudXWM2zzm9L8G5lN6DdseuvNAug1U6pS7vFPs9m4Tz7WwXNmfHU0WvzNgybBcptWf8QNQP2cs3x07fSWm5lP7iWzilKqMFOoLpsuDTK3BmhjRzfbl6VvP3Xdwaalp9r2IAS8SowtJo257lcb7YZZgha+QLSbUDHrwQg08fYIhA8eWsvHytWU74WlL8x2FoblZk6H2ZrxcHkxFfgaz9maFvS9U+ypZ9VE5nEAoGCTjLkMog==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7417
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 3b530648d5024875b7f5471019a4af96:solidrun,office365_emails,sent,inline:542bd80e4450dd43529c7d8f437737e6
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B6.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3012e0d8-ccbf-4ce6-49a8-08de80e77309
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|14060799003|35042699022|1800799024|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: smerMzT9fF8zw7qYTpnhIQHGfaCFlXUwEqGGymP9RYC4T4gV/Fw/Jyx1DhwjaW5ZNPrXU/0BaZJXaY79dFh4u96ROa1I5YKYdLrdRDHIy1A9vqnG+Wi3xs5JKt4nhuPenFulLnCzgmH+p5uIVsE9s3xOK9bx2BQKzrTMSDk407wEyBGq5XuEweRGr90yj0MNHADHrPz2v2kYS2QBd15r93NVuh/3qo3wwNMEfEyuMCQ/oBr5SvKOphZRzEzTudGrtCJohrk67CjIO5h3J+nXp9cLRkukWwRvANi1nz0Vdxq73iiF/qwK1MJnrTGUpBjhs7HPNeajNOY5a6sdUuc4WycuX50uvFm1yBJZwKghVGeQTXt2IyOGPTX4UzXDcFThqHwSHkM/MSc08USRYm7cqw6x03Rb5VDGVyPfapqA3NsFVDUzWyZmnW2qEDQCX29oVeprV0kOECDL3Uyo+qRSkldBA1m/mdS1sYloGUab8sPv8OrKs+cFJ92G6wXZvFM+5XHdHOmE9A2Cc9NPOcI/CJA1ZeF1MmHn8vPWccXQUwbVnvSNRIafrVxN4vhJe8GyOcQe0STnft9Gv5AFEWgueVB3x0E3NVoOjj6L3T73b9JatzFRfvlqMPfRTYAW5cqBUBA9B6clw0adwx7xzXDBTX6CwyvyRqwAZTxPEUnYW5TupePyIK5t1RgZk8Y+9pbJXK5cl0NtM6QN4lpSldFlYFgK4cizvzYJQgmvIjKfwJ0=
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(14060799003)(35042699022)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DsJ2sFWdUjHDENktDUhwubKItI6ehnyf9XS3f5fDH0QcTyyd/CM7Xy2aCpKzHpcM1sTe7m0jU0m0TTqzHlduUcxa8gV23Vb6i8S9rWL3EdCcsKLRG+neT6ym387VgrHZXgyzAEtEQsHBBIojX/Yy2+mtgz4dbtL2iZK6CZna1l5dO2kMGjRQahxPuVb234bJKujPqiqpZIWah1NE0uB2Vs7qVuSJBwFErWjDKDZ91MH3JH5SFHU7P1796zVhOhTZmivIZ+ncGignatia3q60CYuuAE3tL6d1CotBn5S8Jayqoghxy/ELrs6UzVEScmMRcFgaZXdTcGFYQHAl4J4TDIAgp9mt+qoDgybUsVdXBE1SG/Gd2pT3ql5dtTWA8XeN1VdJ2UCWMfndcgq6/N0vwQoqRuSZjmmIM8/SBLVAruoWGYnfkKNkCxiY8yO8Pym1
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 10:01:30.7489
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b99835a-93ee-4521-9090-08de80e78020
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B6.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8275
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIALnls2kC/0XMQQ6DIBCF4auYWRcDY1HbVe/RuFDASlLEMpW0M
+ dy96KabSf7Jy7cBmWANwbXYIJhoyfo5B54KUFM/PwyzOjcgRymQt4ycW1lYHGsHXTd6uFRa9ZD
+ nSzCj/RzUvcs9WXr78D3kKPbvjtRcYPNHomCCoRlxPKtWVlzePFH5Wvun8s6V+UCXUvoBXtg2u
+ 6cAAAA=
+X-Change-ID: 20251208-smmu-rpm-8bd67db93dca
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Connor Abbott <cwabbott0@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Pranjal Shrivastava <praan@google.com>,
+        Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>,
+        Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-47773
+X-Proofpoint-ORIG-GUID: FDrttT8wAMvaw14LrbYDMMVgsh7GUbei
+X-Authority-Analysis: v=2.4 cv=FLwWBuos c=1 sm=1 tr=0 ts=69b3e5c6 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=FOn0AWhus2eDxXApaSoA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEzMDA4MSBTYWx0ZWRfX7MH2HKAsKILh
+ 2Z85piBhiZPmwTlJREA45Lv0SvCbCHXSXTRMBQjF6ACqpP7StDV7XInd3y6wISfQ+Tdjo+fwG9d
+ boYMNNLiHGhAh7VAPzzqVXLdcuf/T0BlFGiY1rEfe+5M20TrLnGF7dulo1aiCvMHQIYE2ASJ6ol
+ ASdQSrgSXPT11QC9TFReBFl3OVvtuDBLnPbelih/uPYVK2gpcNWw4K/sirjQHnJgBGzmUbR/MU+
+ 7KqJg6itbAenZrdK8WTpB7w5xIokHRvbFREXjFW6Vi29N4g0Xg4r3j6qhDv393ec3dnM7vhvh0d
+ 76cqJ+z4NiBvDpwHiAw1hKAhHy+4VH3Egmccj835SEgG38Cr29A02w2Jdjo7DuxsuHhenH+QNaZ
+ Mo7b1o4824iWs+6INp9dwFht73bZg/42ovWgbEZf9S4jgrRkAryoyGRUi8kb8lF8VvCn1A1BMuX
+ PbknOS2XnODFkBUK6dQ==
+X-Proofpoint-GUID: FDrttT8wAMvaw14LrbYDMMVgsh7GUbei
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-13_02,2026-03-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603130081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_031730_179159_D3A7E608 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260313_032408_085796_8F48992B 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,48 +151,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgRnJhbmssDQoNCkFtIDA5LjAzLjI2IHVtIDE5OjM4IHNjaHJpZWIgRnJhbmsgTGk6DQo+IE9u
-IFRodSwgRmViIDI2LCAyMDI2IGF0IDA2OjM2OjM3UE0gKzAyMDAsIEpvc3VhIE1heWVyIHdyb3Rl
-Og0KPj4gQWRkIGRlc2NyaXB0aW9uIGZvciB0aGUgU29saWRSdW4gaS5NWDhNIE1pbmkgU29NIG9u
-IEh1bW1pbmdCb2FyZCBSaXBwbGUuDQo+Pg0KPj4gVGhlIFNvTSBmZWF0dXJlczoNCj4+IC0gMUdi
-cHMgRXRoZXJuZXQgd2l0aCBQSFkNCj4+IC0gZU1NQw0KPj4gLSAxLzJHQiBERFINCj4+IC0gTlBV
-IChhc3NlbWJseSBvcHRpb24pDQo+PiAtIFdpRmkgKyBCbHVldG9vdGgNCj4+DQo+PiBUaGUgSHVt
-bWluZ0JvYXJkIFJpcHBsZSBmZWF0dXJlczoNCj4+IC0gMnggVVNCLTIuMCBUeXBlLUEgY29ubmVj
-dG9yDQo+PiAtIDFHYnBzIFJKNDUgRXRoZXJuZXQgd2l0aCBQb0UNCj4+IC0gbWljcm9TRCBjb25u
-ZWN0b3INCj4+IC0gbWljcm9IRE1JIGNvbm5lY3Rvcg0KPj4gLSBtcGNpZSBjb25uZWN0b3Igd2l0
-aCBVU0ItMi4wIGludGVyZmFjZSArIFNJTSBjYXJkIGhvbGRlcg0KPj4gLSBtaWNyb1VTQiBjb25u
-ZWN0b3IgZm9yIGNvbnNvbGUgKHVzaW5nIGZkdGRpIGNoaXApDQo+PiAtIFJUQyB3aXRoIGJhY2t1
-cCBiYXR0ZXJ5DQo+Pg0KPj4gU2lnbmVkLW9mZi1ieTogSm9zdWEgTWF5ZXIgPGpvc3VhQHNvbGlk
-LXJ1bi5jb20+DQo+PiAtLS0NCj4+ICBhcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9NYWtl
-ZmlsZSAgICAgICAgICAgICB8ICAgMiArDQo+PiAgLi4uL2R0cy9mcmVlc2NhbGUvaW14OG1tLWh1
-bW1pbmdib2FyZC1yaXBwbGUuZHRzICAgfCAzMzUgKysrKysrKysrKysrKysrKysrDQo+PiAgYXJj
-aC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXNyLXNvbS5kdHNpICAgfCAzOTMgKysr
-KysrKysrKysrKysrKysrKysrDQo+PiAgMyBmaWxlcyBjaGFuZ2VkLCA3MzAgaW5zZXJ0aW9ucygr
-KQ0KPiBQbGVhc2UgcnVuIGh0dHBzOi8vZ2l0aHViLmNvbS9sem51YWEvZHQtZm9ybWF0IGZvciBu
-ZXcgZHRzKGkpIGZpbGVzLg0KPg0KPj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMv
-ZnJlZXNjYWxlL01ha2VmaWxlIGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvTWFrZWZp
-bGUNCj4+IGluZGV4IGE2MWVkMDk4ZmY4ZC4uMTMxNGFlYzY2MzRiIDEwMDY0NA0KPj4gLS0tIGEv
-YXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvTWFrZWZpbGUNCj4+ICsrKyBiL2FyY2gvYXJt
-NjQvYm9vdC9kdHMvZnJlZXNjYWxlL01ha2VmaWxlDQo+PiBAQCAtMTI2LDYgKzEyNiw4IEBAIGlt
-eDhtbS1ldmstcGNpZS1lcC1kdGJzICs9IGlteDhtbS1ldmsuZHRiIGlteC1wY2llMC1lcC5kdGJv
-DQo+PiAgaW14OG1tLWV2a2ItcGNpZS1lcC1kdGJzICs9IGlteDhtbS1ldmtiLmR0YiBpbXgtcGNp
-ZTAtZXAuZHRibw0KPj4gIGR0Yi0kKENPTkZJR19BUkNIX01YQykgKz0gaW14OG1tLWV2ay1wY2ll
-LWVwLmR0YiBpbXg4bW0tZXZrYi1wY2llLWVwLmR0Yg0KPj4gKw0KPj4gKwljYXJyaWVyX2VlcHJv
-bTogZWVwcm9tQDU3ew0KPiBOZWVkIHNwYWNlIGJlZm9yZSB7LCBkdC1mb3JtYXQgY2FuIGZpeCB0
-aGlzIGZvciB5b3UuIHBhdGNoIDEtNCBhbHJlYWR5DQo+IHBpY2tlZCwgb25seSBuZWVkIHJlc2Vu
-dCA1LTggYWZ0ZXIgcnVuIGR0LWZvcm1hdC4NCg0KSSB0cmllZCBydW5uaW5nIHRoZSB0b29sIGFn
-YWluLCBhbmQgaXQgbmljZWx5IHJlLW9yZGVyZWVkIHRoZSBuZXcgaW14OG1tLWh1bW1pbmdib2Fy
-ZC1yaXBwbGUuZHRzDQoNCllldCBpdCBjcmFzaGVzIG9uIGlteDhtbi1zb2xpZHNlbnNlLW44LWNv
-bXBhY3QuZHRzOg0KDQrina8gLi9kdC1mb3JtYXQgL29wdC93b3Jrc3BhY2UvbGludXgvYXJjaC9h
-cm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1uLXNvbGlkc2Vuc2UtbjgtY29tcGFjdC5kdHMN
-CnRlcm1pbmF0ZSBjYWxsZWQgYWZ0ZXIgdGhyb3dpbmcgYW4gaW5zdGFuY2Ugb2YgJ3N0ZDo6b3V0
-X29mX3JhbmdlJw0KwqAgd2hhdCgpOsKgIGJhc2ljX3N0cmluZzo6c3Vic3RyOiBfX3BvcyAod2hp
-Y2ggaXMgMjYpID4gdGhpcy0+c2l6ZSgpICh3aGljaCBpcyAxOCkNClsxXcKgIMKgIDEyMDMwIElP
-VCBpbnN0cnVjdGlvbiAoY29yZSBkdW1wZWQpwqAgLi9kdC1mb3JtYXQNCg0KVGhlbiBJIHJhbiBp
-dCBvbiB0aGUgaWlvdCBib2FyZCBkdHMgYW5kIGR0c28sIGFuZCBpdCBzdWdnZXN0cyBvbmUgcGFy
-dGljdWxhciBjaGFuZ2UgSSB3YXMgbm90IGV4cGVjdGluZzoNCg0KLSZ7L30gew0KKyYge307DQor
-DQorLyB7DQoNCuKdryBmaW5kIC4gLWluYW1lICIqLmR0c28iIC1leGVjIGdyZXAgLUggIiZ7L30i
-IHt9IFw7IHwgd2MgLWwNCjExMA0KDQrina8gZmluZCAuIC1pbmFtZSAiKi5kdHNvIiAtZXhlYyBn
-cmVwIC1IICIvIHsiIHt9IFw7IHwgd2MgLWwNCjE1DQoNCldoaWNoIG9uZSBpcyBwcmVmZXJyZWQg
-Z29pbmcgZm9yd2FyZD8NCg0K
+Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
+enabled pm_runtime for the arm-smmu device. On systems where the SMMU
+sits in a power domain, all register accesses must be done while the
+device is runtime active to avoid unclocked register reads and
+potential NoC errors.
+
+So far, this has not been an issue for most SMMU clients because
+stall-on-fault is enabled by default. While a translation fault is
+being handled, the SMMU stalls further translations for that context
+bank, so the fault handler would not race with a powered-down
+SMMU.
+
+Adreno SMMU now disables stall-on-fault in the presence of fault
+storms to avoid saturating SMMU resources and hanging the GMU. With
+stall-on-fault disabled, the SMMU can generate faults while its power
+domain may no longer be enabled, which makes unclocked accesses to
+fault-status registers in the SMMU fault handlers possible.
+
+Guard the context and global fault handlers with pm_runtime_get_if_active()
+and pm_runtime_put_autosuspend() so that all SMMU fault register accesses
+are done with the SMMU powered. In case pm_runtime is not active we can
+safely ignore the fault as for pm runtime resume the smmu device is
+reset and fault registers are cleared.
+
+Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
+Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+---
+Changes in v2:
+- Switched from arm_smmu_rpm_get()/arm_smmu_rpm_put() wrappers to
+  pm_runtime_get_if_active()/pm_runtime_put_autosuspend() APIs
+- Added support for smmu->impl->global_fault callback in global fault handler
+- Remove threaded irq context fault restriction to allow modifying stall
+  mode for adreno smmu
+- Link to v1: https://patch.msgid.link/20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu.c | 60 +++++++++++++++++++++++------------
+ 1 file changed, 39 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index 5e690cf85ec9..f4c46491a03d 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -462,10 +462,20 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+ 	int idx = smmu_domain->cfg.cbndx;
+ 	int ret;
+ 
++	if (!pm_runtime_get_if_active(smmu->dev))
++		return IRQ_NONE;
++
++	if (smmu->impl && smmu->impl->context_fault) {
++		ret = smmu->impl->context_fault(irq, dev);
++		goto out_power_off;
++	}
++
+ 	arm_smmu_read_context_fault_info(smmu, idx, &cfi);
+ 
+-	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
+-		return IRQ_NONE;
++	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT)) {
++		ret = IRQ_NONE;
++		goto out_power_off;
++	}
+ 
+ 	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+ 		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+@@ -480,7 +490,12 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+ 				  ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
+ 	}
+ 
+-	return IRQ_HANDLED;
++	ret = IRQ_HANDLED;
++
++out_power_off:
++	pm_runtime_put_autosuspend(smmu->dev);
++
++	return ret;
+ }
+ 
+ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+@@ -489,14 +504,25 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+ 	struct arm_smmu_device *smmu = dev;
+ 	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
+ 				      DEFAULT_RATELIMIT_BURST);
++	int ret;
++
++	if (!pm_runtime_get_if_active(smmu->dev))
++		return IRQ_NONE;
++
++	if (smmu->impl && smmu->impl->global_fault) {
++		ret = smmu->impl->global_fault(irq, dev);
++		goto out_power_off;
++	}
+ 
+ 	gfsr = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSR);
+ 	gfsynr0 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR0);
+ 	gfsynr1 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR1);
+ 	gfsynr2 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR2);
+ 
+-	if (!gfsr)
+-		return IRQ_NONE;
++	if (!gfsr) {
++		ret = IRQ_NONE;
++		goto out_power_off;
++	}
+ 
+ 	if (__ratelimit(&rs)) {
+ 		if (IS_ENABLED(CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT) &&
+@@ -513,7 +539,11 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+ 	}
+ 
+ 	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sGFSR, gfsr);
+-	return IRQ_HANDLED;
++	ret = IRQ_HANDLED;
++
++out_power_off:
++	pm_runtime_put_autosuspend(smmu->dev);
++	return ret;
+ }
+ 
+ static void arm_smmu_init_context_bank(struct arm_smmu_domain *smmu_domain,
+@@ -683,7 +713,6 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
+ 	enum io_pgtable_fmt fmt;
+ 	struct iommu_domain *domain = &smmu_domain->domain;
+ 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+-	irqreturn_t (*context_fault)(int irq, void *dev);
+ 
+ 	mutex_lock(&smmu_domain->init_mutex);
+ 	if (smmu_domain->smmu)
+@@ -850,19 +879,14 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
+ 	 */
+ 	irq = smmu->irqs[cfg->irptndx];
+ 
+-	if (smmu->impl && smmu->impl->context_fault)
+-		context_fault = smmu->impl->context_fault;
+-	else
+-		context_fault = arm_smmu_context_fault;
+-
+ 	if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
+ 		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
+-						context_fault,
++						arm_smmu_context_fault,
+ 						IRQF_ONESHOT | IRQF_SHARED,
+ 						"arm-smmu-context-fault",
+ 						smmu_domain);
+ 	else
+-		ret = devm_request_irq(smmu->dev, irq, context_fault, IRQF_SHARED,
++		ret = devm_request_irq(smmu->dev, irq, arm_smmu_context_fault, IRQF_SHARED,
+ 				       "arm-smmu-context-fault", smmu_domain);
+ 
+ 	if (ret < 0) {
+@@ -2125,7 +2149,6 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	int num_irqs, i, err;
+ 	u32 global_irqs, pmu_irqs;
+-	irqreturn_t (*global_fault)(int irq, void *dev);
+ 
+ 	smmu = devm_kzalloc(dev, sizeof(*smmu), GFP_KERNEL);
+ 	if (!smmu) {
+@@ -2205,18 +2228,13 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 		smmu->num_context_irqs = smmu->num_context_banks;
+ 	}
+ 
+-	if (smmu->impl && smmu->impl->global_fault)
+-		global_fault = smmu->impl->global_fault;
+-	else
+-		global_fault = arm_smmu_global_fault;
+-
+ 	for (i = 0; i < global_irqs; i++) {
+ 		int irq = platform_get_irq(pdev, i);
+ 
+ 		if (irq < 0)
+ 			return irq;
+ 
+-		err = devm_request_irq(dev, irq, global_fault, IRQF_SHARED,
++		err = devm_request_irq(dev, irq, arm_smmu_global_fault, IRQF_SHARED,
+ 				       "arm-smmu global fault", smmu);
+ 		if (err)
+ 			return dev_err_probe(dev, err,
+
+---
+base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
+change-id: 20251208-smmu-rpm-8bd67db93dca
+
+Best regards,
+--  
+Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+
 
