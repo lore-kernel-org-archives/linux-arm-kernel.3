@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB52105F784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB42C105F784
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9p0rSsXOHVPiLPE9YB/i36bApTaz8+E8i1mIA/i01iU=; b=Gi/vC0iriMw0C/L+bFbeOXIOcI
-	nGDZ6Skm/FYTGAIocZgTSEOjz7tsPrf2nKLz74Eh5Xp+QppUS7Q2IeS/D8M/h2ddTPSMOX3rLAYEH
-	+IvEC52el/BAIHI9y4+FEBMBVkCIAhkoE+o/vdwQgyOLUu5eFhMNpF+FfRhDQiTIyL6okUMxS79/K
-	QvlCIEiKEEXE5iSsCf1psw9tEKAV1F2MKuZTrZ3R6vfryt0fOPaLAym5CSCBph/cTJB7kvAQP/rS3
-	NLJR4ggnyWEn6WhmDUCiJOU6JYsnGnEPhQoEnvl2yJ9W672CTEIogDBWMr9xIj4MF9Vjk8yMx8WLR
-	abk/xHew==;
+	bh=sjmjh9LqgSfqY7476rGy7BOUo6MdY+yHA2slM9LQGLY=; b=SLCfhqxUnQ3lbwG1Hh7W+VsDGi
+	8ASy/lJp1c81U1dS7DoyVHihL8XhQ8U29ZvFXt+L/MiMSmG8tvndVlBSc32KXA+vjDWc66UkDWUmb
+	x/RDJ6vkFkFxr6rOxxE+rPkF3vbWjnFyKpWaXt6DXNHliWLrSOsmVQqEEcxT7oR0j9jY4F8RCg4/U
+	W7Sxvj4GXCxoVCASSsLb3O+Y6J0fIsYT8SnKaTS8zpjbnL7N4/tuzba9JMpm1sebIuqsuMaIjooOH
+	zSEOJQQgEAHgEjA7IsFxxetyv6X0qQFm8iDVeq+ldDNa3CTOljY1fB2R3gksQ6r7nQFSOqo+0h6M4
+	o+hHVhbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zB4-0000000HQtv-478C;
-	Fri, 13 Mar 2026 09:51:30 +0000
+	id 1w0zB9-0000000HQwT-3HXU;
+	Fri, 13 Mar 2026 09:51:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zB2-0000000HQt5-0dam
+	id 1w0zB7-0000000HQuq-2uFJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 09:51:28 +0000
+	Fri, 13 Mar 2026 09:51:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=9p0rSsXOHVPiLPE9YB/i36bApTaz8+E8i1mIA/i01iU=; b=IEQRgg2MkuL60pYYtR5nx4NLv1
-	1gbbK6oICvreIJQDYh4sn7TNxHqF94NUnuVqIp+pP+QqUlmzNVETSL5MF2IHBJfJbHZ1s/N6wZCG+
-	cEu0NJJAHKHxi5L/dQwBjvV1jCgAdw0IX+9xrrxRczlVc3o0tF2aA4LRcwaNeE/0syju9uwGCSQtD
-	T1B0Wc6U7u+uT9/HdtyipCaze/7I/FtdjyC6IE4n9YQUAYPOGN6/q8UswYss7NICVTcNVRSGRJ0KP
-	ienZX/VblqtLDETWEs9aSAkhkYGtMsN/aJvcOs+JhNqTybt+SsCI7Le9DuiMZG6YGPw0LqSlw9zV4
-	38qsrMVw==;
+	bh=sjmjh9LqgSfqY7476rGy7BOUo6MdY+yHA2slM9LQGLY=; b=Fia9a60M5KWN5VpoQiylWs9hIL
+	riQPL3oEcIcXLUAx6jVkb0tq1cTIRR7sxsp8gL3r26Fo7vPzB33nuXCWArjWiJmxrGK+5beaQACJG
+	NQzOojGITZMOQBJp5SzAj3+nfTykOb0wNN2t9jw3HpUC0oy/vWQGLGyjq1FAVL9Qsy7Sjw+mOqvKj
+	cR6zsldiw8EQwuY8CASMAqhsL5sDOi7moSCd5XDz7QdS8iGPYIz+z4FC+m7uoeEIBXBpk4TVAU5rc
+	kCdWZLjaUfiNY5R1ADpqri/oBDnjnLSenDFrJlRsQEmCn3V/Il1rWqjHJ7Cb6ETLADl43FXgruUtA
+	nu0hwL0Q==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zAz-0000000311f-19rA
+	id 1w0zB4-0000000312Z-2wts
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:51:26 +0000
+	Fri, 13 Mar 2026 09:51:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9p0rSsXOHVPiLPE9YB/i36bApTaz8+E8i1mIA/i01iU=; b=ng1NtnHXdcGB13nYO7cWqw3FOM
-	dRjsZkIFuvM9Kt0KhXC+709SjM5jiciGxveNXkDj2FDct2GYYh4h5qEP77VeaN76P8jBBdAjVeg5J
-	Zr9KZlzKEwuUQ5ignMn19VdeJYKVbUmFMDXM+dqL1Et35rN36af47JwM28h3Hennr+m4wvuqmpFrV
-	TmXFttXUGrC+C8lO27UQHrkOvNrWYUEyWM7ggrNhqEllY8U389L5Rz/X+REs8zStRYI9NrFPF0yqI
-	wvOMsqIyzkGpWdM9lhdO96qFibE0gQuTO3qY4ioxOAYGWt4FAHOwPAJpV/mTLYmSrCvuVDh0Eiw3/
-	w4izRfGw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36402 helo=rmk-PC.armlinux.org.uk)
+	bh=sjmjh9LqgSfqY7476rGy7BOUo6MdY+yHA2slM9LQGLY=; b=TfJ+ZPbADoRBW5h4JAWJIJzdB9
+	lX8KOG09DluJIJcwjectYOT1pihLzznojU2g+4KKl9MCMIfymCy/fTFDwn6+kU9ttmsjUxFBu33v/
+	omU3r62Plp7Iz9anNgnZQJI9c7za/8to41a4nT+Hg/mrCOsJBQwiDDzhMg31n3tMORltrdj6GAlmL
+	e4UzpbIeOAVraADNjsFWMapFhTS5m+J55AcYlT7CgDlJNA9yxy/co6L2wrvYxNf9har2doF0/8o+j
+	+0VrDuY4GFGcjbgkKs0WZTqN4aILfdPXyZ5caZ4mr2CmH7+yVD1C5tl45jQoXbDDq0mvyNiN8QcaI
+	QQXL0mLw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36416 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w0zAo-000000000cp-05sD;
-	Fri, 13 Mar 2026 09:51:14 +0000
+	id 1w0zAt-000000000d5-0Hnu;
+	Fri, 13 Mar 2026 09:51:19 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w0zAn-0000000D4FA-01WH;
-	Fri, 13 Mar 2026 09:51:13 +0000
+	id 1w0zAs-0000000D4FG-0VlV;
+	Fri, 13 Mar 2026 09:51:18 +0000
 In-Reply-To: <abPdzyXJHqt5v3bi@shell.armlinux.org.uk>
 References: <abPdzyXJHqt5v3bi@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -82,17 +82,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v3 03/15] net: stmmac: clean up
- stmmac_clear_rx_descriptors()
+Subject: [PATCH net-next v3 04/15] net: stmmac: add helper to get hardware
+ receive descriptor
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w0zAn-0000000D4FA-01WH@rmk-PC.armlinux.org.uk>
-Date: Fri, 13 Mar 2026 09:51:13 +0000
+Message-Id: <E1w0zAs-0000000D4FG-0VlV@rmk-PC.armlinux.org.uk>
+Date: Fri, 13 Mar 2026 09:51:18 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_095125_443250_B07F603A 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20260313_095130_846580_A2178542 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +107,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The two paths calling stmmac_init_rx_desc() are identical apart from
-the way the pointer to the descriptor is fetched. Split this out.
+Provide a helper to get a hardware receive descriptor that takes
+account of whether extended format is being used, but returning the
+base struct dma_desc pointer. This avoids multiple instances where
+this is open coded.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c  | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 76 +++++++------------
+ 1 file changed, 26 insertions(+), 50 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 0dcf4a31e314..765b168df50d 100644
+index 765b168df50d..a3dfd3501604 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1514,20 +1514,20 @@ static void stmmac_clear_rx_descriptors(struct stmmac_priv *priv,
- 					u32 queue)
- {
- 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
-+	struct dma_desc *desc;
- 	int i;
- 
- 	/* Clear the RX descriptors */
--	for (i = 0; i < dma_conf->dma_rx_size; i++)
-+	for (i = 0; i < dma_conf->dma_rx_size; i++) {
- 		if (priv->extend_desc)
--			stmmac_init_rx_desc(priv, &rx_q->dma_erx[i].basic,
--					priv->use_riwt, priv->mode,
--					(i == dma_conf->dma_rx_size - 1),
--					dma_conf->dma_buf_sz);
-+			desc = &rx_q->dma_erx[i].basic;
- 		else
--			stmmac_init_rx_desc(priv, &rx_q->dma_rx[i],
--					priv->use_riwt, priv->mode,
--					(i == dma_conf->dma_rx_size - 1),
--					dma_conf->dma_buf_sz);
-+			desc = &rx_q->dma_rx[i];
-+
-+		stmmac_init_rx_desc(priv, desc, priv->use_riwt, priv->mode,
-+				    (i == dma_conf->dma_rx_size - 1),
-+				    dma_conf->dma_buf_sz);
-+	}
+@@ -362,6 +362,16 @@ static inline u32 stmmac_tx_avail(struct stmmac_priv *priv, u32 queue)
+ 			  priv->dma_conf.dma_tx_size);
  }
  
++static struct dma_desc *stmmac_get_rx_desc(struct stmmac_priv *priv,
++					   struct stmmac_rx_queue *rx_q,
++					   unsigned int index)
++{
++	if (priv->extend_desc)
++		return &rx_q->dma_erx[index].basic;
++	else
++		return &rx_q->dma_rx[index];
++}
++
  /**
+  * stmmac_rx_dirty - Get RX queue dirty
+  * @priv: driver private structure
+@@ -1421,13 +1431,11 @@ static void stmmac_display_rx_rings(struct stmmac_priv *priv,
+ 
+ 		pr_info("\tRX Queue %u rings\n", queue);
+ 
+-		if (priv->extend_desc) {
+-			head_rx = (void *)rx_q->dma_erx;
++		head_rx = stmmac_get_rx_desc(priv, rx_q, 0);
++		if (priv->extend_desc)
+ 			desc_size = sizeof(struct dma_extended_desc);
+-		} else {
+-			head_rx = (void *)rx_q->dma_rx;
++		else
+ 			desc_size = sizeof(struct dma_desc);
+-		}
+ 
+ 		/* Display RX ring */
+ 		stmmac_display_ring(priv, head_rx, dma_conf->dma_rx_size, true,
+@@ -1519,10 +1527,7 @@ static void stmmac_clear_rx_descriptors(struct stmmac_priv *priv,
+ 
+ 	/* Clear the RX descriptors */
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+-		if (priv->extend_desc)
+-			desc = &rx_q->dma_erx[i].basic;
+-		else
+-			desc = &rx_q->dma_rx[i];
++		desc = stmmac_get_rx_desc(priv, rx_q, i);
+ 
+ 		stmmac_init_rx_desc(priv, desc, priv->use_riwt, priv->mode,
+ 				    (i == dma_conf->dma_rx_size - 1),
+@@ -1731,10 +1736,7 @@ static int stmmac_alloc_rx_buffers(struct stmmac_priv *priv,
+ 		struct dma_desc *p;
+ 		int ret;
+ 
+-		if (priv->extend_desc)
+-			p = &((rx_q->dma_erx + i)->basic);
+-		else
+-			p = rx_q->dma_rx + i;
++		p = stmmac_get_rx_desc(priv, rx_q, i);
+ 
+ 		ret = stmmac_init_rx_buffers(priv, dma_conf, p, i, flags,
+ 					     queue);
+@@ -1789,10 +1791,7 @@ static int stmmac_alloc_rx_buffers_zc(struct stmmac_priv *priv,
+ 		dma_addr_t dma_addr;
+ 		struct dma_desc *p;
+ 
+-		if (priv->extend_desc)
+-			p = (struct dma_desc *)(rx_q->dma_erx + i);
+-		else
+-			p = rx_q->dma_rx + i;
++		p = stmmac_get_rx_desc(priv, rx_q, i);
+ 
+ 		buf = &rx_q->buf_pool[i];
+ 
+@@ -4954,10 +4953,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 		struct dma_desc *p;
+ 		bool use_rx_wd;
+ 
+-		if (priv->extend_desc)
+-			p = (struct dma_desc *)(rx_q->dma_erx + entry);
+-		else
+-			p = rx_q->dma_rx + entry;
++		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		if (!buf->page) {
+ 			buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+@@ -5355,10 +5351,7 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ 			}
+ 		}
+ 
+-		if (priv->extend_desc)
+-			rx_desc = (struct dma_desc *)(rx_q->dma_erx + entry);
+-		else
+-			rx_desc = rx_q->dma_rx + entry;
++		rx_desc = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		dma_addr = xsk_buff_xdp_get_dma(buf->xdp);
+ 		stmmac_set_desc_addr(priv, rx_desc, dma_addr);
+@@ -5416,14 +5409,12 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 	int status = 0;
+ 
+ 	if (netif_msg_rx_status(priv)) {
+-		void *rx_head;
++		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
+ 
+ 		netdev_dbg(priv->dev, "%s: descriptor ring:\n", __func__);
+ 		if (priv->extend_desc) {
+-			rx_head = (void *)rx_q->dma_erx;
+ 			desc_size = sizeof(struct dma_extended_desc);
+ 		} else {
+-			rx_head = (void *)rx_q->dma_rx;
+ 			desc_size = sizeof(struct dma_desc);
+ 		}
+ 
+@@ -5461,10 +5452,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 			dirty = 0;
+ 		}
+ 
+-		if (priv->extend_desc)
+-			p = (struct dma_desc *)(rx_q->dma_erx + entry);
+-		else
+-			p = rx_q->dma_rx + entry;
++		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		/* read the status of the incoming frame */
+ 		status = stmmac_rx_status(priv, &priv->xstats, p);
+@@ -5477,10 +5465,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 						priv->dma_conf.dma_rx_size);
+ 		next_entry = rx_q->cur_rx;
+ 
+-		if (priv->extend_desc)
+-			np = (struct dma_desc *)(rx_q->dma_erx + next_entry);
+-		else
+-			np = rx_q->dma_rx + next_entry;
++		np = stmmac_get_rx_desc(priv, rx_q, next_entry);
+ 
+ 		prefetch(np);
+ 
+@@ -5616,16 +5601,13 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	limit = min(priv->dma_conf.dma_rx_size - 1, (unsigned int)limit);
+ 
+ 	if (netif_msg_rx_status(priv)) {
+-		void *rx_head;
++		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
+ 
+ 		netdev_dbg(priv->dev, "%s: descriptor ring:\n", __func__);
+-		if (priv->extend_desc) {
+-			rx_head = (void *)rx_q->dma_erx;
++		if (priv->extend_desc)
+ 			desc_size = sizeof(struct dma_extended_desc);
+-		} else {
+-			rx_head = (void *)rx_q->dma_rx;
++		else
+ 			desc_size = sizeof(struct dma_desc);
+-		}
+ 
+ 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
+ 				    rx_q->dma_rx_phy, desc_size);
+@@ -5658,10 +5640,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		entry = next_entry;
+ 		buf = &rx_q->buf_pool[entry];
+ 
+-		if (priv->extend_desc)
+-			p = (struct dma_desc *)(rx_q->dma_erx + entry);
+-		else
+-			p = rx_q->dma_rx + entry;
++		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		/* read the status of the incoming frame */
+ 		status = stmmac_rx_status(priv, &priv->xstats, p);
+@@ -5673,10 +5652,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 						priv->dma_conf.dma_rx_size);
+ 		next_entry = rx_q->cur_rx;
+ 
+-		if (priv->extend_desc)
+-			np = (struct dma_desc *)(rx_q->dma_erx + next_entry);
+-		else
+-			np = rx_q->dma_rx + next_entry;
++		np = stmmac_get_rx_desc(priv, rx_q, next_entry);
+ 
+ 		prefetch(np);
+ 
 -- 
 2.47.3
 
