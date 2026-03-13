@@ -4,87 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4D3107BCC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0475E107BCC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LKCi1LdMRa/nTQmsjcvTF7FgMJMrPE2rqGtwqTyCa9Q=; b=2fkdMQg7opcgGSKbdj67GRT4yn
-	21pdVhvhhjAxaDxTAEQUnu3wMht+5pcDgGNCZUxeNdoYUnvoI/LMEp1YGGnjB9I+XKVKBO1+khbUf
-	Spwmmtd+16sNPI2ENhoWD9VBULdB1y0Kq8ojVkqUq5cwzDohapFpOpNTYxGVfgGkPsv1sVpoDD2MD
-	e1ybDppLtvcFim45+gDivLF48YyGcfwpNz9MDOiyUVUBMx7ovn0k4IeLnjJxN2nwT1cQTDvq4DEdu
-	OEmgkwqCM6oqJMQouD0LeB433pui1aMB35sPJzMhvkrMmy+r3aVivjj+LE1fIuyP5Nn3QBMtnqnaS
-	8bSFcsow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p1khvoxiEDdM527QIOesEZT8qJCGR/+aGLLHUNEWxc8=; b=zO1PLZzJK8QWulqGOp6/N/gY5/
+	EUYwFGNmeDEYA3c2UlNnR4GvefhP8+MLlRJCovDtc6qPEsGsYmL4kdYGN32vkweGatuXfFy8SgzHD
+	oVvQsXI7fZeFt+1mg+DJmdExDMNyj6yPbuj+amjFXMkMis9Thz1EoGOBHQ74WfHO0r4jHj4+rmhKF
+	hNcWvWxMWgjM+vRdq2pUUjSc6O9p3mXzohxM1X0vQZwcN+pzRDZ1mJA+a4lNJhPvAtZGh4+uPC5PF
+	a9Pig0AjZ0Y9OEN9Aq9og5bn31j0kaHJFakQk75lZdtspBLNo+3vezBEeOBRQb6xfhiyl9LtT0MFh
+	CPLsXPnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w158Z-00000000cRW-0WE8;
-	Fri, 13 Mar 2026 16:13:19 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w158W-00000000cR8-3y2S
+	id 1w15BW-00000000cka-2Yc2;
+	Fri, 13 Mar 2026 16:16:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w15BU-00000000cjr-2ybz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:13:18 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2aeab6ff148so91145ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 09:13:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773418394; x=1774023194; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LKCi1LdMRa/nTQmsjcvTF7FgMJMrPE2rqGtwqTyCa9Q=;
-        b=Ae0i6Q3A5JrQOQhKTFzVe4zC8y4qSze6f7oiUUOgRlYKA1M0EG4CSGIgoDwkcxya3D
-         EhV02GRK/9oU6dDZF1OsygUPg4yiymMll3SQU7s7mq7IO62F9QBmr1gfvyNeqWBgsMx+
-         55Onqp54Ph+tGgm+6LiVtQaD1kOLUtn089JWoNWoLfzhNswyHP3G9v3VTS0n/IGnE8q0
-         hQJ19KEOKHL0+ICcnfHRZa772BaodE8o6t+wCJhvgx3mUXUfBrpZdRey2R09xZPFC3Bc
-         ED1/JO50hta8WP0/jnHhUqho/+VwzjDq4Z4bbb7R5DsUJclpTbeRi2B3+pZN1TQvIW5r
-         FKQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773418394; x=1774023194;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LKCi1LdMRa/nTQmsjcvTF7FgMJMrPE2rqGtwqTyCa9Q=;
-        b=J/g+/ut7jFzcJngmNmr7njpTyl0Yzhlh0PeyCHtWWNsDRzsz+9Tik0/h3UOWgIgIqv
-         ktRS7W8dbxScrdyJLNbolJwrMK/l+KCgE/eTOoQH/ZZnZfyLjGWuxCPejKoXIdFiY95i
-         j+FhvF+rBkhMcj5UUp7FTifu9cOQE+Jfor7HKinmhEvMSgTwviJXhhEW2MAjPpBOWcbU
-         jzHB7y6cT/SRXhOTJLiHRsGnJ1DMHLi6As09gyX6pVUR2FbeGrkTvtzI22Qqp/bZeUYN
-         l/vzAuZ4fCzFzG52naZjW4BA4RJqJXmy5rXyZAcpIxEEmGYepD7ZT24XJIBhwZE/svyk
-         ua8g==
-X-Gm-Message-State: AOJu0Yw94JMh2c9rfIAKeLDp3HH3FMTvzLOH6QxWDIz3rAw3jp4dhfvp
-	mJeGMiJMkbzVRV28mHdTDpzvy3mb/Cwh9QmtsA0m6hwLGqyJCnTgU5yFbcKH4MkPCxQICByurpd
-	IzFBs9sQ4
-X-Gm-Gg: ATEYQzxFz/mrPyY3H/JrSCKZbhqQk89RgextGuujlDoY5NAhOLq1+RvzzUIA52Wruci
-	ik7aoeUOdKOOwWMxpUzkYsnhw2feMPF2gqgJK3vC5gWmaghDsEuIYFdRrOTheWSMkNZYGwrAysT
-	VBQ5sC+xOoVjPYvoCB2tyzKy2MgwAMNNBHV1bRkmYZVzzGcGoDm23MN7AnW9LmFT6ZaWWmrkU/F
-	M6Dgjv+nAB7Y/4FrZrVZ2g85rMdm73cGFYKYqYyXlLKh7FvQ5Ai4vFngBzJ4xelw5AlhAr3M8bB
-	Y+yg8dXrfnm2p0mth0HG0HFY/FxaRBLMJM/xwMSdbEfbY0AKwHt/2S8QpDi135hWj9mQ926uPWx
-	hfvYtcXfgL5OptKthg7Sny66u2z3gWObus7Glo704f7Dg6LDFrFFHjOV6nFrcYpcv7Kch1dwcUc
-	eNt1Kfw6Tl4NfGDEBHTr4PIohsFuC38jjqfSRClgk4nA7C7gOkD2XqZOZ6q6F2MAt2lbzC
-X-Received: by 2002:a17:903:287:b0:2ae:8a37:94b5 with SMTP id d9443c01a7336-2aecd612daemr2630275ad.13.1773418393802;
-        Fri, 13 Mar 2026 09:13:13 -0700 (PDT)
-Received: from google.com (197.23.125.34.bc.googleusercontent.com. [34.125.23.197])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece5c1465sm38199815ad.21.2026.03.13.09.13.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 09:13:13 -0700 (PDT)
-Date: Fri, 13 Mar 2026 16:13:08 +0000
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] arm64: scs: Remove redundant save/restore of SCS SP on
- entry to/from EL0
-Message-ID: <20260313161308.GA213695@google.com>
-References: <20260313123220.29878-1-will@kernel.org>
+	Fri, 13 Mar 2026 16:16:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B102176A;
+	Fri, 13 Mar 2026 09:16:11 -0700 (PDT)
+Received: from [10.57.18.169] (unknown [10.57.18.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9780F3F7BD;
+	Fri, 13 Mar 2026 09:16:16 -0700 (PDT)
+Message-ID: <10f5de0b-1fdc-4867-8ccb-e9362fc553fe@arm.com>
+Date: Fri, 13 Mar 2026 16:16:15 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313123220.29878-1-will@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Discard PC update state on vcpu reset
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, stable@vger.kernel.org
+References: <20260312140850.822968-1-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260312140850.822968-1-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_091317_008011_36C07E94 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260313_091620_821610_FACB0C23 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +65,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 12:32:19PM +0000, Will Deacon wrote:
-> When returning to userspace, the SCS is empty and so the SCS SP just
-> points to the base address of the SCS page.
+On 12/03/2026 14:08, Marc Zyngier wrote:
+> Our vcpu reset suffers from a particularly interesting flaw, as it
+> does not correctly deal with state that will have an effect on the
+> execution flow out of reset.
 > 
-> Rather than saving and restoring this address in the current task, we
-> can simply restore the SCS SP to point at the base of the stack on entry
-> to EL1 from EL0.
+> Take the following completely random example, never seen in the wild
+> and that never resulted in a couple of sleepless nights: /s
 > 
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Sami Tolvanen <samitolvanen@google.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+> - vcpu-A issues a PSCI_CPU_OFF using the SMC conduit
+> 
+> - SMC being a trapped instruction (as opposed to HVC which is always
+>    normally executed), we annotate the vcpu as needing to skip the
+>    next instruction, which is the SMC itself
+> 
+> - vcpu-A is now safely off
+> 
+> - vcpu-B issues a PSCI_CPU_ON for vcpu-A, providing a starting PC
+> 
+> - vcpu-A gets reset, get the new PC, and is sent on its merry way
+> 
+> - right at the point of entering the guest, we notice that a PC
+>    increment is pending (remember the earlier SMC?)
+> 
+> - vcpu-A skips its first instruction...
+> 
+> What could possibly go wrong?
+> 
+> Well, I'm glad you asked. For pKVM as a NV guest, that first instruction
+> is extremely significant, as it indicates whether the CPU is booting
+> or resuming. Having skipped that instruction, nothing makes any sense
+> anymore, and CPU hotplugging fails.
+> 
+> This is all caused by the decoupling of PC update from the handling
+> of an exception that triggers such update, making it non-obvious
+> what affects what when.
+> 
+> Fix this train wreck by discarding all the PC-affecting state on
+> vcpu reset.
+> 
+> Fixes: f5e30680616ab ("KVM: arm64: Move __adjust_pc out of line")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
 > ---
->  arch/arm64/include/asm/scs.h | 8 ++++++++
->  arch/arm64/kernel/entry.S    | 4 +---
->  2 files changed, 9 insertions(+), 3 deletions(-)
+>   arch/arm64/kvm/reset.c | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
 > 
-> I just spotted this by inspection when I was hacking on our exception
-> entry code.
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index 959532422d3a3..b963fd975aaca 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -247,6 +247,20 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>   			kvm_vcpu_set_be(vcpu);
+>   
+>   		*vcpu_pc(vcpu) = target_pc;
+> +
+> +		/*
+> +		 * We may come from a state where either a PC update was
+> +		 * pending (SMC call resulting in PC being increpented to
+> +		 * skip the SMC) or a pending exception. Make sure we get
+> +		 * rid of all that, as this cannot be valid out of reset.
+> +		 *
+> +		 * Note that clearing the exception mask also clears PC
+> +		 * updates, but that's an implementation detail, and we
+> +		 * really want to make it explicit.
+> +		 */
+> +		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+> +		vcpu_clear_flag(vcpu, EXCEPT_MASK);
+> +		vcpu_clear_flag(vcpu, INCREMENT_PC);
+>   		vcpu_set_reg(vcpu, 0, reset_state.r0);
+>   	}
 
-Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
+Wow! Thats it finally !! Glad you found the root cause.
 
-Sami
+
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
 
