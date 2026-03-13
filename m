@@ -4,105 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F80107BCCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2128107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ZHP+nmQxYBG9XCuehu/97dhHO1vliPQgGZ+V2Z0h3w=; b=DRFiKJytDhovOUVzRYRFB2aNt5
-	kPo1QM4r3ZxST3K5dpT8uSDGb+A7KfvXdX2oVcBo6TCUSfQ8594cQr7Lf4h01FD6qpfrIQUn7xn9C
-	YpBSjBvNtqHA8jSD5wxwXCXq6Yk/pbW4xtGeYlVpxytzlAQSsyxgSJZuaNSDarOea2HYh9936+G/y
-	I+WCkXII9Rwwfi414FXecrHz/3aiIwTfb3rCI82pdEXDyJwTlTTdEq7naxiAtoREL6EDwW/K3Qjkp
-	P0wsp4o/jKly88KsJeOxRcQSyGBiRuwRCB6dg6G2Q+/UvxLeR/AJJ7KPAiogoUAfJiBJK47Pzf9v2
-	2nql7+/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OkJydil17J/bKKSpOmhf5pXuHazCRZk9UtAzqTsen3Q=; b=idh7//YnliAjpZj+H616WC38r1
+	7WGu86e4i95fVvNuh2f/6/K9XEwIk1Xeg9vjJsJT4zIGUfc3lsHRZl9yH/UK5ibanTzzobWCB1/q6
+	BDcIbQUOqwd/zP5ABzIi9Vaq8ojJeFbzp0qSwJfXXpElffaiqXVMIOzafSzehaYKowsobS1UV0qga
+	rwu0B1A4/CRcIMkGdgZkrTKUwAU8V5D34oLatvk/jfPXWwLEy4Wvlv7gbrmqwIK/68iYlemHLR6Q7
+	ih0xQljdmF988M6PhwujGke0Mizp0+qyJbKnYk768rstJIi2sXXft3y80CmhRkZk5tOXtpIHj7NDO
+	AVPelBOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15oD-00000000hRm-1r94;
-	Fri, 13 Mar 2026 16:56:21 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1w15oO-00000000hVZ-12A1;
+	Fri, 13 Mar 2026 16:56:34 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15o6-00000000hRF-44OT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:56:19 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-485410a0a8aso22251515e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 09:56:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773420973; x=1774025773; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0ZHP+nmQxYBG9XCuehu/97dhHO1vliPQgGZ+V2Z0h3w=;
-        b=ei38Gy3teX0sDCqghsG/ns75+bwmEv6qhQj95mtyzJIdkSa9zB/xLk5JpCuK91V2MN
-         HYhYiyZkGzr30IAabZVf2zhIfTkfGyyOlHzCPdPQ9rijY1s/D03CGIFB3bQGwMAxpnsO
-         kzEcKfve9tCp3MbvujhFiSsXg4lcMNITUFnnY+gwC3R1Mx12XeFDEi/eefJ6ndBB3CMg
-         Wl6StPeBFcwmrIMiHpmoNWLWAlisAsqikMgHeONQ6ew6+KBO4vMmeLvT1JJQ2GfID3NQ
-         nyMJ3HhtPUkioi9UjplaXLdV+MlDhbACdSoDwzCl1vPlsrFdak/UvhbdtzsJcuqM9Otg
-         nJKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773420973; x=1774025773;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0ZHP+nmQxYBG9XCuehu/97dhHO1vliPQgGZ+V2Z0h3w=;
-        b=mOxQeA1kLB/FBkk+1GVWG9DdVIXeNZDLVPcsK2kYMR2E53d+dgIjE2Ym6I3Y8J8zWs
-         KRItP3lr137t2kxmXIvD0YSauaTbPcvxb8vhQ05MupN+Jxz5nSfK78tr4bWaSW1EwuLT
-         A1/bBHftGeCxfWdE182KQ28a4u09Jl32ZeK/mYd8aktTNJ1yTA05wxenlYJYuj179GMU
-         tnvToXx5WB8ygiOOBwLVrtHIinsai8fEtLtbMuL6Q1ZzIYTR6iG0UKxI/JPn6lmt2DHj
-         gYSkKXz8Ohkdlp7TqG48jlp7xmG3ldXxNpU7vYYFJ8YtSRMRdDvy0IRKBZ+ZB9CoBpOP
-         Gl4g==
-X-Forwarded-Encrypted: i=1; AJvYcCWzs8h5f0/Kd2JfKJ26LK6y9dcKIA3/GPpErqkR97CYFKaWHw99/Nuwk1pfZN2yhhIJC9ZY2SdX71zuENSMPtW2@lists.infradead.org
-X-Gm-Message-State: AOJu0YySW++KFpDcw6Wm2WZ41TL8TB08127VVXDlWyHxvflbAOXi8LM+
-	t6wFVjBKxi5gXOvOpJ+vtrnqyHBNAYj831xG2oBjJgsJW0PPGpBszg0C
-X-Gm-Gg: ATEYQzy5KwhDIB5MRj+WmWTCDZx9fLpMs7TxqNEG0LSWuKwjDwrF9Fzn0mUTZKFM8IV
-	c0wF3SWXJDdvGrh22/AViJzzRo8E7TqgQ+UcaqIJ8syvkd7EvJ7OMcYyapowqLpkwEbb8T6dGrz
-	HCCdBcd0m6LQurggHQ25vmOncfSoKFYOi1TSUCqPqtB/KhvSxgD4mmtXZGiv5623QpfHniYg0JQ
-	OGn+puBHzq5NSfnWypX1xhgdyEI5o7RU0dEJAoOphNfWfU3NmkIN2DOhkKPOcEKM6SwGobzreoG
-	W+qf6y5t6aqoVSpeoplPx7e9sqli9NZzRxigfAsJ4V9A8yoICK8UCo2ngKydH/JmLdQRRxTOI70
-	WweoPzoTwHMOlO4rA9NQkHZp3VMog/5HEE7AZVo3D6jDquPKh1K7VzPDrr/3VSfnlASjI265nrj
-	MUEOzWrt1MuHM42mV52/eZge858Jm1QSyhgoyZbEZY6Qo+aXrG/6FL/ZoIzMYe7/w1fggRDuH9f
-	+jXytdM/l56XjgdWU33vzSDp0tYhVUAbKHJ1wXCyW+D5Q==
-X-Received: by 2002:a05:600c:3590:b0:485:3b34:2f61 with SMTP id 5b1f17b1804b1-485566c9464mr70256375e9.7.1773420972648;
-        Fri, 13 Mar 2026 09:56:12 -0700 (PDT)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b65fed7sm202895695e9.11.2026.03.13.09.56.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 09:56:12 -0700 (PDT)
-Date: Fri, 13 Mar 2026 17:56:09 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Matthias Schiffer <matthias.schiffer@tq-group.com>,
-	Yannic Moog <y.moog@phytec.de>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 0/3] Add support for Variscite DART-MX91 and Sonata
- board
-Message-ID: <abRBqaTybiVv7mv2@Lord-Beerus.station>
-References: <cover.1772642881.git.stefano.r@variscite.com>
- <abQpn9whz_o4n86u@lizhi-Precision-Tower-5810>
- <abQzQnmG0Xh7wXjt@Lord-Beerus.station>
- <abRAaZkks9Jilo-S@lizhi-Precision-Tower-5810>
+	id 1w15oL-00000000hSn-3eFH;
+	Fri, 13 Mar 2026 16:56:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ok
+	Jydil17J/bKKSpOmhf5pXuHazCRZk9UtAzqTsen3Q=; b=ilnG01luwp4pP7OtqS
+	TeutnXAU6Ie9XpK9O0LxT8hJVpPwJeTyCsUp07tSOFcvHSSbbTrwFIMmG4J1wpqE
+	bbPVjL2lOpuHzhAYmvO8SowPA/HrN3pCfsAcwjQ4cZkJ95DZfFr6jHHolzwk/W2q
+	RSKrp86ldpZmjMP11D7JsY9RU=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wAX2JV7QbRpTApJAw--.54345S2;
+	Sat, 14 Mar 2026 00:55:24 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: lpieralisi@kernel.org,
+	jingoohan1@gmail.com,
+	mani@kernel.org,
+	kwilczynski@kernel.org,
+	bhelgaas@google.com,
+	helgaas@kernel.org,
+	florian.fainelli@broadcom.com,
+	jim2101024@gmail.com
+Cc: robh@kernel.org,
+	ilpo.jarvinen@linux.intel.com,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	claudiu.beznea.uj@bp.renesas.com,
+	linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	shawn.lin@rock-chips.com,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v9 0/5] PCI: of: Remove max-link-speed generation validation
+Date: Sat, 14 Mar 2026 00:55:17 +0800
+Message-Id: <20260313165522.123518-1-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abRAaZkks9Jilo-S@lizhi-Precision-Tower-5810>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wAX2JV7QbRpTApJAw--.54345S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAw1kuw17CF4kAF4DCFyfZwb_yoWrtr1fpa
+	y2qFWFyF1xtF4ava17J3WUuFyYg3ZxAFWjkryfWw17ZFnxCF13XFySgF4FvF9rKrZF9r12
+	q3W2q3W7KFyjyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi2-esUUUUU=
+X-Originating-IP: [240e:b8f:927e:1000:ce47:698d:adec:5bb5]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxB32mmm0QX3JqwAA32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_095615_879357_5AEBFB51 
-X-CRM114-Status: GOOD (  29.19  )
+X-CRM114-CacheID: sfid-20260313_095630_349047_D5CEB66E 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,63 +88,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Hi,
 
-On Fri, Mar 13, 2026 at 12:50:49PM -0400, Frank Li wrote:
-> On Fri, Mar 13, 2026 at 04:54:42PM +0100, Stefano Radaelli wrote:
-> > Hi Frank,
-> >
-> > On Fri, Mar 13, 2026 at 11:13:35AM -0400, Frank Li wrote:
-> > >
-> > > Can you rebase to my for-next tree
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git/log/?h=for-next
-> > >
-> > > And new file, run https://github.com/lznuaa/dt-format to keep node nice
-> > > ordered.
-> > >
-> >
-> > Sure, I will rebase the series on top of your for-next branch and send an
-> > updated version.
-> > If possible, it would be great if the series could be merged as soon as
-> > possible, to avoid having to rebase it again on newer changes.
-> 
-> I try best. I go though as reverse order patchwork order.
-> 
-> https://patchwork.kernel.org/project/imx/list/?series=&submitter=&state=1&q=&archive=&delegate=
-> 
-> Small fix go high priority.
-> 
-> >
-> > Regarding dt-format, I can run it, but in my experience it is a bit buggy.
-> 
-> Put bugg in issue list, I will fix it.
-> 
-> > It sometimes moves comments to completely unrelated locations and does not
-> > always keep a logical ordering of nodes.
-> 
-> Logical order is hard to follow. Each one have difference opinion about
-> logic group. I am trying to normalize and machine script. I use same rule
-> for every new dts file.  property order is not so important. The key is
-> node orders, which try to avoid add duplicate one in future.
-> 
-> > For example, I saw cases where usdhc3_wlan was moved before usdhc3_sleep,
-> 
-> > and pinctrl nodes were not kept
-> > at the end of the file.
-> 
-> About pinctrl nodes at end of the file, we don't stick this rule. There will
-> be more than one pinctrl nodes.
-> 
+This series moves the validation from the common OF function to the
+individual PCIe controller drivers.  To protect against out-of-bounds
+accesses to the pcie_link_speed[] array, we first introduce a helper
+function pcie_get_link_speed() that safely returns the speed value
+(or PCI_SPEED_UNKNOWN) for a given generation number.
 
-Thank you for the clarification and for the work you are putting into
-reviewing and maintaining these patches.
+Then all direct uses of pcie_link_speed[] as an array are converted to
+use the new helper, ensuring that even if an invalid generation number
+reaches those code paths, no out-of-bounds access occurs.
 
-Regarding dt-format, I will open issues for the cases where I noticed
-incorrect behavior (such as comments being moved to unrelated sections),
-so they can be tracked and fixed.
+For several drivers that read the "max-link-speed" property
+(pci-j721e, brcmstb, mediatek-gen3, rzg3s-host), we add an explicit
+validation step: if the value is missing, out of range, or unsupported
+by the hardware, a safe default is used (usually Gen2). Other drivers
+(mainly DesignWare glue drivers) rely on the helper to safely handle
+invalid values, but do not yet include fallback logic or warnings.
 
-Thanks again for your support and for maintaining the i.MX tree.
+Finally, the range check is removed from of_pci_get_max_link_speed(),
+so that future PCIe generations can be supported without modifying
+drivers/pci/of.c.
 
-Best regards,
-Stefano
+---
+Changes for v9:
+- Modify the parameter passed to pcie_get_link_speed to unsigned int. If the DT
+  configuration specifies max-link-speed = -1, the obtained max_link_speed will
+  be 0xff. Therefore, it will be greater than the length of the array pcie_link_speed.
+  Thus, the condition speed <= 0 is removed. (For patch 0001. Shawn)
+- Modify the commit message for patch 0005. (Shawn)
+
+Changes for v8:
+https://patchwork.kernel.org/project/linux-pci/cover/20260312163652.113228-1-18255117159@163.com/
+
+- Expand series from 2 to 5 patches to introduce pcie_get_link_speed() helper
+  and split validation into per-driver changes.
+- Add pcie_get_link_speed() helper for safe pcie_link_speed[] array access (Bjorn)
+- Move max-link-speed validation from DWC core to individual drivers; add explicit
+  fallback logic only for pci-j721e, brcmstb, mediatek-gen3, rzg3s-host.
+- Convert all remaining direct pcie_link_speed[] accesses to use the new helper.
+- Update commit messages to reflect the new design.
+
+Changes for v7:
+https://patchwork.kernel.org/project/linux-pci/cover/20260308142629.75392-1-18255117159@163.com/
+
+- Add validation in dw_pcie_get_link_speed() (Bjorn)
+- Modify it so that two patches constitute one series.
+
+Changes for v6:
+https://patchwork.kernel.org/project/linux-pci/patch/20251218132036.308094-1-18255117159@163.com/
+
+- It'd be good to return the actual errno as of_property_read_u32() can return
+  -EINVAL, -ENODATA and -EOVERFLOW. (Mani)
+
+Changes for v5:
+https://patchwork.kernel.org/project/linux-pci/patch/20251218125909.305300-1-18255117159@163.com/
+
+- Delete the check for speed. (Mani)
+
+Changes for v4:
+https://patchwork.kernel.org/project/linux-pci/patch/20251105134701.182795-1-18255117159@163.com/
+
+- Add pcie_max_supported_link_speed.(Ilpo)
+
+Changes for v3:
+https://patchwork.kernel.org/project/linux-pci/patch/20251101164132.14145-1-18255117159@163.com/
+
+- Modify the commit message.
+- Add Reviewed-by tag.
+
+Changes for v2:
+https://patchwork.kernel.org/project/linux-pci/cover/20250529021026.475861-1-18255117159@163.com/
+- The following files have been deleted:
+  Documentation/devicetree/bindings/pci/pci.txt
+
+  Update to this file again:
+  dtschema/schemas/pci/pci-bus-common.yaml
+---
+
+Hans Zhang (5):
+  PCI: Add pcie_get_link_speed() helper for safe array access
+  PCI: dwc: Use pcie_get_link_speed() and validate max-link-speed
+  PCI: j721e: Validate max-link-speed from DT
+  PCI: controller: Validate max-link-speed
+  PCI: of: Remove max-link-speed generation validation
+
+ drivers/pci/controller/cadence/pci-j721e.c       |  3 ++-
+ .../pci/controller/dwc/pcie-designware-host.c    |  2 +-
+ drivers/pci/controller/dwc/pcie-designware.c     |  2 +-
+ drivers/pci/controller/dwc/pcie-qcom-common.c    |  2 +-
+ drivers/pci/controller/dwc/pcie-qcom-ep.c        |  4 ++--
+ drivers/pci/controller/dwc/pcie-qcom.c           |  6 +++---
+ drivers/pci/controller/dwc/pcie-tegra194.c       |  2 +-
+ drivers/pci/controller/pcie-brcmstb.c            |  5 +++--
+ drivers/pci/controller/pcie-mediatek-gen3.c      |  2 +-
+ drivers/pci/controller/pcie-rzg3s-host.c         |  2 +-
+ drivers/pci/of.c                                 | 16 ++++++++--------
+ drivers/pci/pci.h                                |  2 ++
+ drivers/pci/probe.c                              | 16 ++++++++++++++++
+ 13 files changed, 42 insertions(+), 22 deletions(-)
+
+
+base-commit: 80234b5ab240f52fa45d201e899e207b9265ef91
+-- 
+2.34.1
+
 
