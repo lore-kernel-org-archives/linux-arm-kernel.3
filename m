@@ -4,73 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47930105F79D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1228F105F79F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pjvmOUdFPEzL0W797PPwOdGoxTvJI66nOK1+4vE46v4=; b=dz9g9kNlbrkoW4GFvxiRTb/ZCy
-	Dd2UOBcggmUZXo9lChArsd0+HxTjGK2yCqAb+joaKbdG0LvLEEVF1585CHtheGQLgelNgoNIkfI3w
-	2pcZDNUyuNvFsVRjDdOXkuCMA2YjG3tQoPyDfL9V8KCssx553qVrNHTfq6dGYr4e/ZmTb1U6qX5tm
-	mJl3XX0asvojaS4IGqfMJVX9pNZrRVNtfKF+9Uzv0nRegJb7Nh6zuPHgb6qF+KA5fgJ1wX3LmhDz/
-	8jhIFKZ38S8U12hsTEwT4rJy74mh1UY0HhXdMQ7PquTwWMp+24L8thsUGH5RA7zi0T19bsp8P3PgN
-	OiuovjGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=; b=oToY0E9hVeqSqWsTOo4igN1eV7
+	6tJYZmcWAqRRW7/VFaTXVP68Yl5Ekef+SP43rmAqWk24mjMSMrRyoYlWs2ezGj3zh3FnJMgGi5L6e
+	s7teUS61KvcWbYI8+FGr+O0hLUlmVdimulkPcsVbjp/K0qS+N9j+v8vPs1SB8HXCAzVFAV2PWSAhK
+	vRg9OcWGh8myoOt9Y7z9v6T6PFzvoGQu+KRR+fz5YTSmeU8j21w74WZZDI7x5nazSqL0nmXHTb6Vy
+	Ijn/I7vZtVJWl1JkCLCclNvqqWUOe4vGQMs4Q3azh1fvEkfhwyKSwnX9HpDBrrvS/hS/4AzRqW2ee
+	ZTqQ4xqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w113u-0000000045e-2scO;
-	Fri, 13 Mar 2026 11:52:14 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w117C-000000004KE-3WXx;
+	Fri, 13 Mar 2026 11:55:38 +0000
+Received: from mail-northcentralusazon11010024.outbound.protection.outlook.com ([52.101.193.24] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w113n-0000000045I-1kU2
+	id 1w1179-000000004JM-3vE6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=pjvmOUdFPEzL0W797PPwOdGoxTvJI66nOK1+4vE46v4=; b=JrW+dX61X5zpzTRcfWVGANZhVw
-	akbCHK4En9AlQSYOFQZlAsDlOT3mthJ0KX6b91qJfQXoSvPK9oQ2w+Vm0cxkFSBuAgcencFUnzvt4
-	Zxkgyej65rrMzz/WhV9I96XnyBF8SQ589jArWrIQIAyR4hmkKxnEKFtWZZ/BgC9I9qC7Zg9Bjdj1q
-	ztTxldxKrizJgiLFG2qE0INDVQswoIuEZvYbDoKy82APv52xpkYB8mgwKvPSQOewEWN/Dl17is2gg
-	CJszDMO3hWfPbeCZ3K6akCFEnEKRozGpaVYx1qo094TydePWFHsJDIVuWvHW1u5HzNVVAzMVW3kU4
-	BaNPqclg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41352 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w113f-000000000sI-25Ix;
-	Fri, 13 Mar 2026 11:51:59 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w113e-0000000DDwc-2oRv;
-	Fri, 13 Mar 2026 11:51:58 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2] net: stmmac: move MSI data out of struct
- stmmac_priv
+	Fri, 13 Mar 2026 11:55:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wA25JG1aHcLQ/mN4UWu9Maiua4LjAZsNcCAg7vsELIjJOzGkPqryRH4OQVwK8Z9SoUggqiZj+IRYVWTjr1PkI8BB86kyHly8oyt1dWjGgJtNJ609w4BnbpvObE6YX7sk20PK0aIzK+EII97Otey4qeoAdLM/vGoPI52JLKF8+WEDpYJQYVn9fS6lbGH5d/GQLZC/RdMSoLO3tCZEhzCvKI2quGil+JMtLNxCLyBSyoh7f95/BM1u9ioz8vb9Aj9EYEx37zOn9oP6O23T0G3trCqKtjH/5/V1FzbSPUgO/TyjVBrDMpp4EYndM8pYkPmDogZXDX/qS+XH7PIEeh3xsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=;
+ b=sQqFQIdqkkWLHSgyQ8a4Kua8/Af65Ep9OHy50x9hGYBMQc8bVSkRC1kS4GtzqWSkzHLleo49HA42z5F2Uk3omXcedJavhtUfNq3wQm1Ux6e4l7alVIFl1RtfQ8DCJoxN39q0nMuWGohtjY57fNW2fQzAhmujnLxxFPBaTPGXo239zCVpPe096zm0DwPfuQts6C/gtunmhacXIDIN7dp7hf6hGB/+IBHzLvSX4JjpLzl+wOkfoXZOtHS5DfamqcwnfrodCkTjop6Ozyjc2z1b7imYOx9fVJ0vf2w6j8Yd7jLoxqB8QLbqNyr+QjASz8LZoxDGmxLtFixNot23wtjZjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=;
+ b=QO2iVZA/YCYpMFnhF79ByY2G9azGq3y8s9gZMzmwjn5K7nuRZYOmceiOGfJ8IgfkzbcVDe0+0Imb9W7fDD7c93/KQzCxv30roYDbxFJUWw4lQzaAKO/p8awV+wyakDq52kBCugS4rq01cUIIXRPRtMoVdwX8clmxmEbqBeR4VoU=
+Received: from BY5PR03CA0004.namprd03.prod.outlook.com (2603:10b6:a03:1e0::14)
+ by MW5PR10MB5761.namprd10.prod.outlook.com (2603:10b6:303:19a::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
+ 2026 11:55:30 +0000
+Received: from CO1PEPF000075EF.namprd03.prod.outlook.com
+ (2603:10b6:a03:1e0:cafe::f2) by BY5PR03CA0004.outlook.office365.com
+ (2603:10b6:a03:1e0::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.16 via Frontend Transport; Fri,
+ 13 Mar 2026 11:55:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CO1PEPF000075EF.mail.protection.outlook.com (10.167.249.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 11:55:28 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
+ 2026 06:55:26 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
+ 2026 06:55:26 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 13 Mar 2026 06:55:26 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62DBtPNb485559;
+	Fri, 13 Mar 2026 06:55:25 -0500
+Date: Fri, 13 Mar 2026 17:25:24 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: "Kevin Hilman (TI)" <khilman@baylibre.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	"Geert Uytterhoeven" <geert@linux-m68k.org>, <linux-pm@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 2/3] pmdomain: core: add support for
+ power-domains-child-ids
+Message-ID: <20260313115524.6eqm7xle5umhttzb@lcpd911>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w113e-0000000DDwc-2oRv@rmk-PC.armlinux.org.uk>
-Date: Fri, 13 Mar 2026 11:51:58 +0000
+In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075EF:EE_|MW5PR10MB5761:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6fba719-e184-47e8-1bcb-08de80f76bf8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: BaPH4Pu0Zkeh7TzumQsCq5MkMnLEOeAMczvW6VAadAUrEf5iVYY4fCf3JeOx/wfrebZVod9/7Q4IbTbU1GyiOwqpM8Y0LHSW5Nayf9t4tefcTmobZ5o4xG/wRchrbVDyp0Uofwa7whPvOFMg8lgGL6G2FbV/3sl2Tv4LXSs/nTv+zeb7bHnka6zke1F2vKKZQTu5hFlt400lAcIOEZK8s51c3iQxyk6HjJgW/OZllnmCkeOCJNHQM8OX2+vaS91zh5/5W6Kk7eWS9TaSd0L9xSeUAcT5UGY3uKYzaRdi1gJa8n1EyB8ppuCWX1pylCfIydr1T2gPDVhMkHdsHOZEsCRWg+8G4v1kH45PvveSqgEUnB5fUk8RpDeTNa3+uddA5sA8j/tb41yl3SUG8VEQhwguNCSlGN6fDmfQVJer/0GdoM2vuL0Kr7xY6h8HIPgDXXSZchAUqxeoBEDSR7ZMziWJgd4x5W8eXTrpZ1mI/LLusUnt3HH/wOoYZeCSxEYG+EJXCYDk9ifF8ptSd9egU8TJZ+CZ7cSIwAhc40gi2oHsou/5vvVtt/Qxix5aee5DImOJtzWjjvkpbEkRISY135/g1UYED264VEkqKEbhhuWLRl0J1n0poioUvrD498uZucFgrQk8/7n4VbQjgEqRGlJFOYtrBFRh1ftqgcx27il+ZJ2PXz4XOyPVN+8JgbwXXk9Guw9rjKBJ5OKYNV6tz0d/fCv6Hiwkaqm+ahcuBTxheygpksGTI7tbeC+hVjA5k4vIP3tOk9+n5yu+gk6/mA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: R9ax/2FKM6Xi3WHhXKP+6RWb1tCjJ8MO/trhG/DwJcXvtwEwnfuLX3LKxqX2RIsAyNhICgzqd/IIeSRfwTuLRH/BKVOod5m32YZOq0ujKZLG3qs1axnnnmLg4F3Xu5V0iNRPHYN6kTBxyu+vd70/RgbCVrlVPWzmUJUJYH/vM70IhTx8O0P3rJ5GJdIjbLm/xEIInQhdnBXXjbxcTS7ba2346VCaYXgc3xzDKXcwh5+FRg3EtbivRO8Nsub9OgrtezdhqyQkUdJKex0g3Sb+wk8W3Z4s3X5KTCGgR6t+0zWO2hcD5oezpxgFbdtZpW/gyxW9N2DBUW99KgfYmvv3ufNvG+R8bHu3iSO5VI1Z5e9Lu/vDJhKX3uzEWc1s+AxfvT5anC8jCB/1lpdP5bXOfJwYrJHdZEGMZE+fvOsVqYUJQvcbZlZYYGTAPICQ+ZZy
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 11:55:28.8534
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6fba719-e184-47e8-1bcb-08de80f76bf8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_045207_635614_BB134060 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260313_045536_099105_80330011 
+X-CRM114-Status: GOOD (  31.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,310 +132,312 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only three platforms supprt MSIs, which means having all the strings
-and interrupt arrays always allocated wastes space. None of this data
-is performance critical - this data is only used when requesting and
-releasing the MSI interrupts.
+Hi Kevin,
 
-Move the MSI data out of struct stmmac_priv into its own separately
-allocated structure, and move its initialisation to a separate
-function.
+On Mar 10, 2026 at 17:19:24 -0700, Kevin Hilman (TI) wrote:
+> Currently, PM domains can only support hierarchy for simple
+> providers (e.g. ones with #power-domain-cells = 0).
+> 
+> Add support for oncell providers as well by adding a new property
+> `power-domains-child-ids` to describe the parent/child relationship.
+> 
+> For example, an SCMI PM domain provider has multiple domains, each of
+> which might be a child of diffeent parent domains. In this example,
 
-This removes 768 bytes from struct stmmac_priv.
+s/diffeent/different
 
-Link: https://lore.kernel.org/r/aYtq4ypxXTvn_Is6@shell.armlinux.org.uk
-Reviewed-by: Florian Bezdeka <florian.bezdeka@siemens.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-v2: fix AI review comments in stmmac_free_irq() and resolve the 80 column
-wrap.
+> the parent domains are MAIN_PD and WKUP_PD:
+> 
+>     scmi_pds: protocol@11 {
+>         reg = <0x11>;
+>         #power-domain-cells = <1>;
+>         power-domains = <&MAIN_PD>, <&WKUP_PD>;
+>         power-domains-child-ids = <15>, <19>;
+>     };
+> 
+> With this example using the new property, SCMI PM domain 15 becomes a
+> child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
+> WKUP_PD.
+> 
+> To support this feature, add two new core functions
+> 
+> - of_genpd_add_child_ids()
+> - of_genpd_remove_child_ids()
+> 
+> which can be called by pmdomain providers to add/remove child domains
+> if they support the new property power-domains-child-ids.
+> 
+> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+> ---
 
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  31 +++---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 102 +++++++++++-------
- 2 files changed, 81 insertions(+), 52 deletions(-)
+I've tested multiple possibilities with this series on the TI AM62L,
+Tested-by: Dhruva Gole <d-gole@ti.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index bba9bb9c95bf..7a66edba8f66 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -243,6 +243,23 @@ struct stmmac_est {
- 	u32 max_sdu[MTL_MAX_TX_QUEUES];
- };
- 
-+struct stmmac_msi {
-+	int sfty_ce_irq;
-+	int sfty_ue_irq;
-+	int rx_irq[MTL_MAX_RX_QUEUES];
-+	int tx_irq[MTL_MAX_TX_QUEUES];
-+
-+	/*irq name */
-+	char int_name_mac[IFNAMSIZ + 9];
-+	char int_name_wol[IFNAMSIZ + 9];
-+	char int_name_lpi[IFNAMSIZ + 9];
-+	char int_name_sfty[IFNAMSIZ + 10];
-+	char int_name_sfty_ce[IFNAMSIZ + 10];
-+	char int_name_sfty_ue[IFNAMSIZ + 10];
-+	char int_name_rx_irq[MTL_MAX_RX_QUEUES][IFNAMSIZ + 14];
-+	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
+I tried having more parents than child nodes. That failed.
+Tried less parents, more child nodes, failed as well.
+< All as expected >
+
+Tried the proper thing , worked :) (attached a short log of working case)
+
+8<-----------------------
+root@am62lxx-evm:~# cat /sys/kernel/debug/pm_genpd/power-controller-cluster/sub_domains
+GPMC0
+ELM0
+root@am62lxx-evm:~# cat /sys/kernel/debug/pm_genpd/power-controller-main/sub_domains
+power-controller-cluster
+WKUP_GTC0
+MSRAM_96K0
+MCSPI0
+root@am62lxx-evm:~# uname -a
+Linux am62lxx-evm 7.0.0-rc3-next-20260312-00003-g9556feac2532-dirty #2 SMP PREEMPT Fri Mar 13 16:13:51 IST 2026 aarch64 GNU/Linux
+---------------------->8
+
+changes in DT:
+
+8<------------------------------------------
++&scmi_pds {
++       power-domains = <&MAIN_PD>, <&MAIN_PD>, <&CLUSTER_PD>,<&CLUSTER_PD>, <&CLUSTER_PD>;
++       power-domains-child-ids = <58>, <63>, <72>, <37>, <25>;
 +};
 +
- struct stmmac_priv {
- 	/* Frequently used values are kept adjacent for cache effect */
- 	u32 tx_coal_frames[MTL_MAX_TX_QUEUES];
-@@ -329,19 +346,7 @@ struct stmmac_priv {
- 	unsigned long active_vlans[BITS_TO_LONGS(VLAN_N_VID)];
- 	unsigned int num_double_vlans;
- 	int sfty_irq;
--	int sfty_ce_irq;
--	int sfty_ue_irq;
--	int rx_irq[MTL_MAX_RX_QUEUES];
--	int tx_irq[MTL_MAX_TX_QUEUES];
--	/*irq name */
--	char int_name_mac[IFNAMSIZ + 9];
--	char int_name_wol[IFNAMSIZ + 9];
--	char int_name_lpi[IFNAMSIZ + 9];
--	char int_name_sfty[IFNAMSIZ + 10];
--	char int_name_sfty_ce[IFNAMSIZ + 10];
--	char int_name_sfty_ue[IFNAMSIZ + 10];
--	char int_name_rx_irq[MTL_MAX_RX_QUEUES][IFNAMSIZ + 14];
--	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
-+	struct stmmac_msi *msi;
- 
- #ifdef CONFIG_DEBUG_FS
- 	struct dentry *dbgfs_dir;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 11150bddd872..124d7a00f9f0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3725,6 +3725,7 @@ static void stmmac_free_irq(struct net_device *dev,
- 			    enum request_irq_err irq_err, int irq_idx)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
-+	struct stmmac_msi *msi = priv->msi;
- 	int j;
- 
- 	switch (irq_err) {
-@@ -3732,28 +3733,30 @@ static void stmmac_free_irq(struct net_device *dev,
- 		irq_idx = priv->plat->tx_queues_to_use;
- 		fallthrough;
- 	case REQ_IRQ_ERR_TX:
--		for (j = irq_idx - 1; j >= 0; j--) {
--			if (priv->tx_irq[j] > 0) {
--				irq_set_affinity_hint(priv->tx_irq[j], NULL);
--				free_irq(priv->tx_irq[j], &priv->dma_conf.tx_queue[j]);
-+		for (j = irq_idx - 1; msi && j >= 0; j--) {
-+			if (msi->tx_irq[j] > 0) {
-+				irq_set_affinity_hint(msi->tx_irq[j], NULL);
-+				free_irq(msi->tx_irq[j],
-+					 &priv->dma_conf.tx_queue[j]);
- 			}
- 		}
- 		irq_idx = priv->plat->rx_queues_to_use;
- 		fallthrough;
- 	case REQ_IRQ_ERR_RX:
--		for (j = irq_idx - 1; j >= 0; j--) {
--			if (priv->rx_irq[j] > 0) {
--				irq_set_affinity_hint(priv->rx_irq[j], NULL);
--				free_irq(priv->rx_irq[j], &priv->dma_conf.rx_queue[j]);
-+		for (j = irq_idx - 1; msi && j >= 0; j--) {
-+			if (msi->rx_irq[j] > 0) {
-+				irq_set_affinity_hint(msi->rx_irq[j], NULL);
-+				free_irq(msi->rx_irq[j],
-+					 &priv->dma_conf.rx_queue[j]);
- 			}
- 		}
- 
--		if (priv->sfty_ue_irq > 0 && priv->sfty_ue_irq != dev->irq)
--			free_irq(priv->sfty_ue_irq, dev);
-+		if (msi && msi->sfty_ue_irq > 0 && msi->sfty_ue_irq != dev->irq)
-+			free_irq(msi->sfty_ue_irq, dev);
- 		fallthrough;
- 	case REQ_IRQ_ERR_SFTY_UE:
--		if (priv->sfty_ce_irq > 0 && priv->sfty_ce_irq != dev->irq)
--			free_irq(priv->sfty_ce_irq, dev);
-+		if (msi && msi->sfty_ce_irq > 0 && msi->sfty_ce_irq != dev->irq)
-+			free_irq(msi->sfty_ce_irq, dev);
- 		fallthrough;
- 	case REQ_IRQ_ERR_SFTY_CE:
- 		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
-@@ -3773,9 +3776,30 @@ static void stmmac_free_irq(struct net_device *dev,
- 	}
- }
- 
-+static int stmmac_msi_init(struct stmmac_priv *priv,
-+			   struct stmmac_resources *res)
-+{
-+	int i;
++&psci {
++       CLUSTER_PD: power-controller-cluster {
++               #power-domain-cells = <0>;
++               power-domains = <&MAIN_PD>;
++       };
 +
-+	priv->msi = devm_kmalloc(priv->device, sizeof(*priv->msi), GFP_KERNEL);
-+	if (!priv->msi)
-+		return -ENOMEM;
-+
-+	priv->msi->sfty_ce_irq = res->sfty_ce_irq;
-+	priv->msi->sfty_ue_irq = res->sfty_ue_irq;
-+
-+	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
-+		priv->msi->rx_irq[i] = res->rx_irq[i];
-+	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
-+		priv->msi->tx_irq[i] = res->tx_irq[i];
-+
-+	return 0;
-+}
-+
- static int stmmac_request_irq_multi_msi(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
-+	struct stmmac_msi *msi = priv->msi;
- 	enum request_irq_err irq_err;
- 	int irq_idx = 0;
- 	char *int_name;
-@@ -3783,7 +3807,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	int i;
- 
- 	/* For common interrupt */
--	int_name = priv->int_name_mac;
-+	int_name = msi->int_name_mac;
- 	sprintf(int_name, "%s:%s", dev->name, "mac");
- 	ret = request_irq(dev->irq, stmmac_mac_interrupt,
- 			  0, int_name, dev);
-@@ -3799,7 +3823,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	 * is used for WoL
- 	 */
- 	if (priv->wol_irq > 0 && priv->wol_irq != dev->irq) {
--		int_name = priv->int_name_wol;
-+		int_name = msi->int_name_wol;
- 		sprintf(int_name, "%s:%s", dev->name, "wol");
- 		ret = request_irq(priv->wol_irq,
- 				  stmmac_mac_interrupt,
-@@ -3817,7 +3841,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	 * Error line in case of another line is used
- 	 */
- 	if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq) {
--		int_name = priv->int_name_sfty;
-+		int_name = msi->int_name_sfty;
- 		sprintf(int_name, "%s:%s", dev->name, "safety");
- 		ret = request_irq(priv->sfty_irq, stmmac_safety_interrupt,
- 				  0, int_name, dev);
-@@ -3833,16 +3857,16 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	/* Request the Safety Feature Correctible Error line in
- 	 * case of another line is used
- 	 */
--	if (priv->sfty_ce_irq > 0 && priv->sfty_ce_irq != dev->irq) {
--		int_name = priv->int_name_sfty_ce;
-+	if (msi->sfty_ce_irq > 0 && msi->sfty_ce_irq != dev->irq) {
-+		int_name = msi->int_name_sfty_ce;
- 		sprintf(int_name, "%s:%s", dev->name, "safety-ce");
--		ret = request_irq(priv->sfty_ce_irq,
-+		ret = request_irq(msi->sfty_ce_irq,
- 				  stmmac_safety_interrupt,
- 				  0, int_name, dev);
- 		if (unlikely(ret < 0)) {
- 			netdev_err(priv->dev,
- 				   "%s: alloc sfty ce MSI %d (error: %d)\n",
--				   __func__, priv->sfty_ce_irq, ret);
-+				   __func__, msi->sfty_ce_irq, ret);
- 			irq_err = REQ_IRQ_ERR_SFTY_CE;
- 			goto irq_error;
- 		}
-@@ -3851,16 +3875,16 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	/* Request the Safety Feature Uncorrectible Error line in
- 	 * case of another line is used
- 	 */
--	if (priv->sfty_ue_irq > 0 && priv->sfty_ue_irq != dev->irq) {
--		int_name = priv->int_name_sfty_ue;
-+	if (msi->sfty_ue_irq > 0 && msi->sfty_ue_irq != dev->irq) {
-+		int_name = msi->int_name_sfty_ue;
- 		sprintf(int_name, "%s:%s", dev->name, "safety-ue");
--		ret = request_irq(priv->sfty_ue_irq,
-+		ret = request_irq(msi->sfty_ue_irq,
- 				  stmmac_safety_interrupt,
- 				  0, int_name, dev);
- 		if (unlikely(ret < 0)) {
- 			netdev_err(priv->dev,
- 				   "%s: alloc sfty ue MSI %d (error: %d)\n",
--				   __func__, priv->sfty_ue_irq, ret);
-+				   __func__, msi->sfty_ue_irq, ret);
- 			irq_err = REQ_IRQ_ERR_SFTY_UE;
- 			goto irq_error;
- 		}
-@@ -3870,23 +3894,23 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
- 		if (i >= MTL_MAX_RX_QUEUES)
- 			break;
--		if (priv->rx_irq[i] == 0)
-+		if (msi->rx_irq[i] == 0)
- 			continue;
- 
--		int_name = priv->int_name_rx_irq[i];
-+		int_name = msi->int_name_rx_irq[i];
- 		sprintf(int_name, "%s:%s-%d", dev->name, "rx", i);
--		ret = request_irq(priv->rx_irq[i],
-+		ret = request_irq(msi->rx_irq[i],
- 				  stmmac_msi_intr_rx,
- 				  0, int_name, &priv->dma_conf.rx_queue[i]);
- 		if (unlikely(ret < 0)) {
- 			netdev_err(priv->dev,
- 				   "%s: alloc rx-%d  MSI %d (error: %d)\n",
--				   __func__, i, priv->rx_irq[i], ret);
-+				   __func__, i, msi->rx_irq[i], ret);
- 			irq_err = REQ_IRQ_ERR_RX;
- 			irq_idx = i;
- 			goto irq_error;
- 		}
--		irq_set_affinity_hint(priv->rx_irq[i],
-+		irq_set_affinity_hint(msi->rx_irq[i],
- 				      cpumask_of(i % num_online_cpus()));
- 	}
- 
-@@ -3894,23 +3918,23 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
- 		if (i >= MTL_MAX_TX_QUEUES)
- 			break;
--		if (priv->tx_irq[i] == 0)
-+		if (msi->tx_irq[i] == 0)
- 			continue;
- 
--		int_name = priv->int_name_tx_irq[i];
-+		int_name = msi->int_name_tx_irq[i];
- 		sprintf(int_name, "%s:%s-%d", dev->name, "tx", i);
--		ret = request_irq(priv->tx_irq[i],
-+		ret = request_irq(msi->tx_irq[i],
- 				  stmmac_msi_intr_tx,
- 				  0, int_name, &priv->dma_conf.tx_queue[i]);
- 		if (unlikely(ret < 0)) {
- 			netdev_err(priv->dev,
- 				   "%s: alloc tx-%d  MSI %d (error: %d)\n",
--				   __func__, i, priv->tx_irq[i], ret);
-+				   __func__, i, msi->tx_irq[i], ret);
- 			irq_err = REQ_IRQ_ERR_TX;
- 			irq_idx = i;
- 			goto irq_error;
- 		}
--		irq_set_affinity_hint(priv->tx_irq[i],
-+		irq_set_affinity_hint(msi->tx_irq[i],
- 				      cpumask_of(i % num_online_cpus()));
- 	}
- 
-@@ -7806,12 +7830,12 @@ static int __stmmac_dvr_probe(struct device *device,
- 	priv->dev->irq = res->irq;
- 	priv->wol_irq = res->wol_irq;
- 	priv->sfty_irq = res->sfty_irq;
--	priv->sfty_ce_irq = res->sfty_ce_irq;
--	priv->sfty_ue_irq = res->sfty_ue_irq;
--	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
--		priv->rx_irq[i] = res->rx_irq[i];
--	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
--		priv->tx_irq[i] = res->tx_irq[i];
-+
-+	if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN) {
-+		ret = stmmac_msi_init(priv, res);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if (!is_zero_ether_addr(res->mac))
- 		eth_hw_addr_set(priv->dev, res->mac);
--- 
-2.47.3
++       MAIN_PD: power-controller-main {
++               #power-domain-cells = <0>;
++       };
+ };
+--------------------------------------------->8
 
+>  drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/pm_domain.h |  16 ++++++++++++++++
+>  2 files changed, 185 insertions(+)
+> 
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 61c2277c9ce3..acb45dd540b7 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
+>  	return genpd;
+>  }
+>  
+> +/**
+> + * of_genpd_add_child_ids() - Parse power-domains-child-ids property
+> + * @np: Device node pointer associated with the PM domain provider.
+> + * @data: Pointer to the onecell data associated with the PM domain provider.
+> + *
+> + * Parse the power-domains and power-domains-child-ids properties to establish
+> + * parent-child relationships for PM domains. The power-domains property lists
+> + * parent domains, and power-domains-child-ids lists which child domain IDs
+> + * should be associated with each parent.
+> + *
+> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
+> + */
+> +int of_genpd_add_child_ids(struct device_node *np,
+> +			   struct genpd_onecell_data *data)
+> +{
+> +	struct of_phandle_args parent_args;
+> +	struct generic_pm_domain *parent_genpd, *child_genpd;
+> +	struct of_phandle_iterator it;
+> +	const struct property *prop;
+> +	const __be32 *item;
+> +	u32 child_id;
+> +	int ret;
+> +
+> +	/* Check if both properties exist */
+> +	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
+> +		return -ENOENT;
+> +
+> +	prop = of_find_property(np, "power-domains-child-ids", NULL);
+> +	if (!prop)
+> +		return -ENOENT;
+> +
+> +	item = of_prop_next_u32(prop, NULL, &child_id);
+> +
+> +	/* Iterate over power-domains phandles and power-domains-child-ids in lockstep */
+> +	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
+> +		if (!item) {
+> +			pr_err("power-domains-child-ids shorter than power-domains for %pOF\n", np);
+> +			ret = -EINVAL;
+> +			goto err_put_node;
+> +		}
+> +
+> +		/*
+> +		 * Fill parent_args from the iterator. it.node is released by
+> +		 * the next of_phandle_iterator_next() call at the top of the
+> +		 * loop, or by the of_node_put() on the error path below.
+> +		 */
+> +		parent_args.np = it.node;
+> +		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
+> +								  MAX_PHANDLE_ARGS);
+> +
+> +		/* Get the parent domain */
+> +		parent_genpd = genpd_get_from_provider(&parent_args);
+> +		if (IS_ERR(parent_genpd)) {
+> +			pr_err("Failed to get parent domain for %pOF: %ld\n",
+> +			       np, PTR_ERR(parent_genpd));
+> +			ret = PTR_ERR(parent_genpd);
+> +			goto err_put_node;
+> +		}
+> +
+> +		/* Validate child ID is within bounds */
+> +		if (child_id >= data->num_domains) {
+> +			pr_err("Child ID %u out of bounds (max %u) for %pOF\n",
+> +			       child_id, data->num_domains - 1, np);
+> +			ret = -EINVAL;
+> +			goto err_put_node;
+> +		}
+> +
+> +		/* Get the child domain */
+> +		child_genpd = data->domains[child_id];
+> +		if (!child_genpd) {
+> +			pr_err("Child domain %u is NULL for %pOF\n", child_id, np);
+> +			ret = -EINVAL;
+> +			goto err_put_node;
+> +		}
+> +
+> +		/* Establish parent-child relationship */
+> +		ret = genpd_add_subdomain(parent_genpd, child_genpd);
+> +		if (ret) {
+> +			pr_err("Failed to add child domain %u to parent in %pOF: %d\n",
+> +			       child_id, np, ret);
+> +			goto err_put_node;
+> +		}
+> +
+> +		pr_debug("Added child domain %u (%s) to parent %s for %pOF\n",
+> +			 child_id, child_genpd->name, parent_genpd->name, np);
+> +
+> +		item = of_prop_next_u32(prop, item, &child_id);
+> +	}
+> +
+> +	/* of_for_each_phandle returns -ENOENT at natural end-of-list */
+> +	if (ret && ret != -ENOENT)
+> +		return ret;
+> +
+> +	/* All power-domains phandles were consumed; check for trailing child IDs */
+> +	if (item) {
+> +		pr_err("power-domains-child-ids longer than power-domains for %pOF\n", np);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_put_node:
+> +	of_node_put(it.node);
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(of_genpd_add_child_ids);
+> +
+> +/**
+> + * of_genpd_remove_child_ids() - Remove parent-child PM domain relationships
+> + * @np: Device node pointer associated with the PM domain provider.
+> + * @data: Pointer to the onecell data associated with the PM domain provider.
+> + *
+> + * Reverses the effect of of_genpd_add_child_ids() by parsing the same
+> + * power-domains and power-domains-child-ids properties and calling
+> + * pm_genpd_remove_subdomain() for each established relationship.
+> + *
+> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error
+> + * code on failure.
+> + */
+> +int of_genpd_remove_child_ids(struct device_node *np,
+> +			   struct genpd_onecell_data *data)
+> +{
+> +	struct of_phandle_args parent_args;
+> +	struct generic_pm_domain *parent_genpd, *child_genpd;
+> +	struct of_phandle_iterator it;
+> +	const struct property *prop;
+> +	const __be32 *item;
+> +	u32 child_id;
+> +	int ret;
+> +
+> +	/* Check if both properties exist */
+> +	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
+> +		return -ENOENT;
+> +
+> +	prop = of_find_property(np, "power-domains-child-ids", NULL);
+> +	if (!prop)
+> +		return -ENOENT;
+> +
+> +	item = of_prop_next_u32(prop, NULL, &child_id);
+> +
+> +	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
+> +		if (!item)
+> +			break;
+> +
+> +		parent_args.np = it.node;
+> +		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
+> +								  MAX_PHANDLE_ARGS);
+> +
+> +		if (child_id >= data->num_domains || !data->domains[child_id]) {
+> +			item = of_prop_next_u32(prop, item, &child_id);
+> +			continue;
+> +		}
+> +
+> +		parent_genpd = genpd_get_from_provider(&parent_args);
+> +		if (IS_ERR(parent_genpd)) {
+> +			item = of_prop_next_u32(prop, item, &child_id);
+> +			continue;
+> +		}
+> +
+> +		child_genpd = data->domains[child_id];
+> +		pm_genpd_remove_subdomain(parent_genpd, child_genpd);
+> +
+> +		item = of_prop_next_u32(prop, item, &child_id);
+> +	}
+> +
+> +	return (ret == -ENOENT) ? 0 : ret;
+> +}
+> +EXPORT_SYMBOL_GPL(of_genpd_remove_child_ids);
+> +
+>  /**
+>   * of_genpd_add_device() - Add a device to an I/O PM domain
+>   * @genpdspec: OF phandle args to use for look-up PM domain
+> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+> index f67a2cb7d781..b44615d79af6 100644
+> --- a/include/linux/pm_domain.h
+> +++ b/include/linux/pm_domain.h
+> @@ -465,6 +465,10 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np);
+>  int of_genpd_parse_idle_states(struct device_node *dn,
+>  			       struct genpd_power_state **states, int *n);
+>  void of_genpd_sync_state(struct device_node *np);
+> +int of_genpd_add_child_ids(struct device_node *np,
+> +			   struct genpd_onecell_data *data);
+> +int of_genpd_remove_child_ids(struct device_node *np,
+> +			      struct genpd_onecell_data *data);
+>  
+>  int genpd_dev_pm_attach(struct device *dev);
+>  struct device *genpd_dev_pm_attach_by_id(struct device *dev,
+> @@ -534,6 +538,18 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np)
+>  {
+>  	return ERR_PTR(-EOPNOTSUPP);
+>  }
+> +
+> +static inline int of_genpd_add_child_ids(struct device_node *np,
+> +					 struct genpd_onecell_data *data)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline int of_genpd_remove_child_ids(struct device_node *np,
+> +					    struct genpd_onecell_data *data)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+>  #endif /* CONFIG_PM_GENERIC_DOMAINS_OF */
+>  
+>  #ifdef CONFIG_PM
+> 
+> -- 
+> 2.51.0
+> 
+> 
+
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
