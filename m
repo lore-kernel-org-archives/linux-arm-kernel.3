@@ -4,143 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED875107BCD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 18:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF7F107BCD7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 18:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhGkXtrQN1K+aEqLd4J4qlis38y8NElxUycgorcr8CM=; b=BPWzbtyOUTLerkodjhg8rTL7hP
-	onrEp7sk9p0uX+jllvDtuGcsZACKMqxoDxGWLl9XLn1k54Zv3eBE/BW3Ex9ojZPGgU73gOuOpQu6i
-	u/js1SJ7UZQQa5ZTdcMrsZUfT2bxlmGWcxsswszGPiu18Gu2MB2a8OSZKCBhx3F6w9gvEkerB4UVA
-	GG8hUNmWmXrS+oQMfFPiHOHvXzZcW/TjrgRKc8aQw+jPymNG1h+O6YQ9DNwcImfBszqkb0BaIbwOn
-	XFsRSAevU8AQBbwFqefJ7zHcpDrxLcxBTEiylRsxPXHeHpXorf7W1UPlGhYQearYkT7I6DkUZd5cJ
-	7Xy/cp+A==;
+	bh=T+qVS4z1gzmGHTn3yGgVuL3BnpF+9hxqm2vWf7jAJi0=; b=FWjXrQaIRcuBerkmg8cdxOADjv
+	z5KEL9T6i3z8a6Rqd7zFNDQofmds7QgE7YNj7+ex3EZMgxgempX8IkmD+z/E+Retbtefek4SBEqvR
+	YKmtTKVN1uOgyaw9vgK/x6pOB7DWs3gozKiRvKBC2h07WnKoVtRULwoyOETmw/jkD8kXR45q3lMDn
+	ics8ggWtcwRx7VGr8ieTb3o0df5s5VvrPZQ7QowaTV+0D5ULDqKDPPupQ//6HE98V18afueO5E6Yn
+	QovAYWFyidsYAriiUoxiIwS8zDWXFZdVVZFhHkuYzn9O/xv81ZrchmRKDcHcI30y8i9XyOXeIaFtQ
+	BY/HnagQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w17OG-00000000voT-3t34;
-	Fri, 13 Mar 2026 18:37:40 +0000
-Received: from mail-swedencentralazon11013026.outbound.protection.outlook.com ([52.101.83.26] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w17Py-00000000wAN-3prO;
+	Fri, 13 Mar 2026 18:39:26 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w17OD-00000000vnL-3v74
+	id 1w17Ps-00000000w8k-40vo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 18:37:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q7HM5G3Fd5JIctBs5RNkIyntIyr9X+lGYTcbbczmrTVH0Zswdib80g7LOAO01m5uKkzWPi0jynZ8YNXzNgOVp5DZA8mkrNz/oM/rlo07wppestDF1XBsbiZTvkX+NxO4HcH0/YNEJFhSiybzWyIkfqb6/HIpyA0tcjIo8GjKrCXdeZiH841E9A13MjDfXgPjzoNHxjwTg3iekpxEvlOAA/Vi3NhsoLkqVX5RFB2wSoy6RLzyEqnV7Kd4JHmaN5u7leHg/nVMEMkgH9X8zPrOJbrhbVG4/vetIJ2nQQkQoRVpi4oehECvyaC0NohUKWopOQ07zcYnE2m07ay311iZsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FhGkXtrQN1K+aEqLd4J4qlis38y8NElxUycgorcr8CM=;
- b=WzsTlcac2Uz06ssrMbwCm68VUKrPvp0Ow7s4D4c1Gs4ERPP/5RIV7W7YZeL98Tu7WSvgQ9BWzDCDuYA5NhpziCs47eZGjKDBLAmzXlDbD+FzeWV7Ze9oEuVPREpJhpbKXdq4rW6LxtV+Wb1sOsjmaAxHBCmgYq/qYZNQUtKqoDOHhoRAKRrU4nAsJ8hkGFkjbLqpjDg/F0J1/vwM6wz/ZCGuujPy/pFYSva6NSmODtS/xgecWC0NEkX7ckPql6KFBCeK/GOepaVBpq4sEUTpYl2jFeSwt2tu87HNBF8RCNqAWMYxIeVirOgtO0hTwX1eGVYRAA8v/MQQLW6ry6esUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FhGkXtrQN1K+aEqLd4J4qlis38y8NElxUycgorcr8CM=;
- b=QRNTUX/KA6brkdVxF9V3WoAxjfjTZ0tR6A8gb8x3gvpgqjgOY2DbYLERqT/arb7G7iojlf9UU45DEMQ8ulw/ht/uNxRmZNq2deSb6O9gkUHdLnSNIhuWTN6/GMnDycMEelGqxJMpsUQnkxQyq4YbDorJ57Q30f/OIJHrZOB+sN1Fl21Bwr9UQQIrD/nR+wMouptZD+kFZRXAS/56gq9Pl7KtlM1aj3Sv2gRfb22YXassk2DPTh0875l2211TLfITENMXEnt+wO9LLpK/6zBOD3hxdw3BP1+jP7e0qigKlJp4XEFCBz6k+K8rKN/eQBgYATbZVAw4FsxlBRDlFum7Fg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU4PR04MB10458.eurprd04.prod.outlook.com (2603:10a6:10:565::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
- 2026 18:37:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 18:37:28 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Fri, 13 Mar 2026 18:39:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=T+qVS4z1gzmGHTn3yGgVuL3BnpF+9hxqm2vWf7jAJi0=; b=0bDTK99wzI5gcfsFCw/9TTqyvQ
+	KUZ968+cdLFxfiKtAfFQu2DvC+TSzGcRZuWZwaQOmbDVWrs912dhyjQAb3YreNegieJzFI6GiVqi2
+	8NAU/EW2VrGHzqA22iUborfuRt3H/nLyk0Wi0RGfv5FovQhyUzHwsAl9XC4Xvsej03OE3R6GR2ADC
+	0DThwqqPwI9cUdfzTVyy0jEPziXG2PbbhPCFqsehDLbQkq1qIybH3g7d03l+WbOtz26BMUW9Pni4U
+	PEAn4bKy8K0nt8ZnX2V0PgwEkREDjnzS0GSSwNJWibL81/kvi+vIyOXxcZ2nT9Uxn9HNK8rUbXQqk
+	v3+eT2HQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52306)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w17Pj-000000001P2-3sGf;
+	Fri, 13 Mar 2026 18:39:12 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w17Pg-000000008RL-2anq;
+	Fri, 13 Mar 2026 18:39:08 +0000
+Date: Fri, 13 Mar 2026 18:39:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Georg Gottleuber <ggo@tuxedocomputers.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: freescale: imx95-toradex-smarc: Support Cortex M7
-Date: Fri, 13 Mar 2026 14:37:12 -0400
-Message-ID: <177342687227.211387.1252876243196615140.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260303210125.1781197-1-ghidoliemanuele@gmail.com>
-References: <20260303210125.1781197-1-ghidoliemanuele@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0082.namprd04.prod.outlook.com
- (2603:10b6:806:121::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Christoffer Sandberg <cs@tuxedocomputers.com>,
+	Werner Sembach <wse@tuxedocomputers.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix dwmac4 transmit performance
+ regression
+Message-ID: <abRZzNmfK13nrxhR@shell.armlinux.org.uk>
+References: <E1vgY1k-00000003vOC-0Z1H@rmk-PC.armlinux.org.uk>
+ <6f4929c3-d727-44a3-abc5-c33923dc69d7@tuxedocomputers.com>
+ <abQ8tlRYrU5W4VaK@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10458:EE_
-X-MS-Office365-Filtering-Correlation-Id: f996cf2b-4994-4404-4259-08de812f9451
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|7416014|1800799024|366016|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 71mMrTX0eRvP999CiE1VtPWNv4/pbxPVfqC45Ap6se9I15Y7VmJ2eI6pCnA2IkjmcBbfqu0PMzCQAhENVSXNZnvRUmgyd8rLZUyqXK6L5+J2nAmm5Jb/ENpBrhW6p1d0u0Z2NHPiiKgzWImahtCkhonxU16hH5k+CohP2PcBfsvtJE1KgPrP+AOjZ/eqQUuCYQsXC8/RVuAgRJUgI2s/evnXZdqRzrA6HhB2TD3afWahGRl5eko4ZLXJhIExxQ1W/NNKgfYr92D7OBxaSGMvFJ68QL7PiDXiOXhA7xrCGP6e6fI2SChJzIERVB3dCIrgHpFA0KsoAbLINEkR0BJCYtDvEFygAOlcSKt4LAAE7KovBqF6f5uHrj6ikcqXvSFm7KxjKHeq7b2QDE9KMV9X9q5vfX2a1NuDOfx5xmJeA5xMKydjObo/N8DvL6w4EH+sdSLnsW/QubeMSgYIxj4bqVT8rvoopkoFBes01ugiFtfMEO9ree+i0pAZtMUOGjFom8B6nRd4HUbUxyMU7+nblR1qwY4gNCRnDBqxQDArSCSEMMOHmallZRnI9R1E3Am3PpeR8lK+yWGheOdd1HARxRO6F/xe4CUlMjvDlL56rV5zjC5/rrUNf6NnUuoYcmBl4UREjk/L+HTnFliDvA0b4tLWnCkppEKxrbIbxVkV8KfsN/2sh9SVo/udW9vR3Rz6HoO0dt5aE2O1Y8Ebll/RPYwekxQX+357Y3sw8qWpnhflhuGuiYxqfiupkDG1uXk9aTlGKS1lvma44vDYhryss3EV0CEE6KPfrq0XDKQ/V7g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(7416014)(1800799024)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blB2aGdydmpHbHF6QWFKdHAvc21zdFkvdEpYZW5aaWQ1NHRIL2M3R0h0Nkla?=
- =?utf-8?B?VTgyOGR2S0JJOU9xWDk2VitxRFRQdHJ4RmlmK091UktMcVNNL0JSNFZkRWJy?=
- =?utf-8?B?ZUY1QkF1cGROa2lvYUdsRVlPcWtzV3RReThCWjdMR0ZZeFJsamZ3NkpPVlN4?=
- =?utf-8?B?WEl6SUtreHRPM2o2MjFQcXozYzBqM0hlckovQVZSaGQzK0UyQzEwQSs5dWR1?=
- =?utf-8?B?VXMrWlJLeUMrVEIzVW0xeTFOaWhJL2ZYdGtLY2JSSTMzMkV5VWY3VThTSjdS?=
- =?utf-8?B?SFpRWURMK0xBYmViVVV4cFRvQ0dtUXY3bjFwZTYzR3EwVWdiRG93bW0wUHY1?=
- =?utf-8?B?cmNVZVdWdm5jazV2L2RDdUVvMTF4UTE3NGswVXlkbUg5K2Z2Zis5MExQK2Zp?=
- =?utf-8?B?dnRHQXR6MnNhRUQ0Yml5aGFQdmM3NXlleVVyUnRRQ0RmRG8valB5bTMyRnJl?=
- =?utf-8?B?ZUp3Rkl6a2pia1FFWE14ZFVRSjFRU29uK1M5OVlwSXFiNWZlenVVaEZXTWZ5?=
- =?utf-8?B?V1Y5RFQxVG9HeVdTalFVZWZOZS9VR2VpdUxaU2pyVEhSQmN5a1VhMGMzT3Zx?=
- =?utf-8?B?Si9wNUw4U290clVXdm5aWU1HNzNaRXdhVkVRd2pNY3lIUDFnQnJqRTgzRGZq?=
- =?utf-8?B?Mm5seGVDdDhoem9mSWtZMkZCbEwxVUlTUW1PUThKZERHQ1pubVNLMjE2aGg5?=
- =?utf-8?B?UEVBVS9FZVRROEwwVENnZ3p3TU5wdFY3ZEowNUJLUHZBODI4bVZ2b3dkTzlD?=
- =?utf-8?B?VGc0ZVBYNHVxaTZqVGtlMEJjWlVuRHdpRUV2MTh1NExJVVNFRFZJQm5zV05j?=
- =?utf-8?B?WU1DUFNFRnNzVmN5dDNVdTFWcjI5Wkh0emU3RVZyZExuSFJEVS9hRURnVmZW?=
- =?utf-8?B?aW41akxwN1hOcTJYRWx3cGdxMnVSUE50akdUYm9mcS9PTlo5ZFB4d1Y0R1Vx?=
- =?utf-8?B?a0pWeWlSTjVBSWFFS2lzekgzK0xWUWxoaXlxWTZHVDBFYmRyWlZ2eGN2M0Jp?=
- =?utf-8?B?Mzc4Q09WQVNnZ1VTZFJxWXU5VExFV05aT1JLb21NYjY1em8rTUh2L1M3YnJB?=
- =?utf-8?B?eStISWxvMVFyWUtvdWxFOWt1WkxkZ0pDaG5LZXFBMGFFMFlUSnY0S3JYb21H?=
- =?utf-8?B?NUhhQTE4SkhrQkFWaG9ueHlITStVa2VpendzUzBadkNFQUlZeXkzN0h3Vnpo?=
- =?utf-8?B?NTV5N3VaWWlFRmJEdUpMZEU3b2pPNlJZTkhQc1pzaGF1czl6YnBDYUsyOVFS?=
- =?utf-8?B?c0p3RUIzS2hCYmNiN0dlTE00M1JXV0JiU0lUelVZNnNGN29RMGZ1VG9zRVdr?=
- =?utf-8?B?NEM4VDE5RDFoYVIvNlAxNHQyRkNmOWZ4NDlNd01NUFJBekVTRUROVVYzbnB2?=
- =?utf-8?B?SjBPNHNKdUxhZ25xYUZidWt6cXZxYUZ0MDZVODVyYm8yLzdsTUIwNkZRY3BR?=
- =?utf-8?B?d2gxaVZJc3FPbFd5MjBlOHZ5d3NJeFR3UjlCaG5KbXJJOWZrckY1RjY0Tmp1?=
- =?utf-8?B?ZWFGUVFLWXk2NE1IREM4bjVmejZkMU9QaXJtbHcrTWkwcitwN2Zsa0Fubzg2?=
- =?utf-8?B?dDEwY3BSand4T0habjBIMVVOSktjdUdaUEpSK3A1cjArekFBU0NlZ2dPNERl?=
- =?utf-8?B?eGhWQ2xoSCt1bTYwMkszOHlPUndDci9qbjhkR1EwZUZiUVoySlh2WjV0cnQ5?=
- =?utf-8?B?S2t6WFIxakhIbnJpTzhlQ2tzOUxQZUd2TmhLdjhYTmc2UE9VYlpnYzBZQnJ2?=
- =?utf-8?B?Y1pFTnRERXJuSGRNbm5ObG1hWEZ6c0lyWUs1anZ1TkRGRkgyeVF2YnhvUWRz?=
- =?utf-8?B?VDZYS2FNeUhtNVNDNjJ4Y0dmUVhzUG1yaXpodzVkNiszR2dtaUJ6M0l4Q2p0?=
- =?utf-8?B?cVFNejBVN21mejRPYjltUkNwS1BwYlBMUS9qWkphU251TjA2b2orTFNyeDVH?=
- =?utf-8?B?Y2gzNlVVa1Ywd1gzanRQRzN6d3QvbFRlTVhCbUY5ejBCckQ0aUtiVjlBS1ZE?=
- =?utf-8?B?bGtBRnBKQXJYaWF6UFY4Vm1UUU5SQmFaeXpTcTRqcThaZnVJMXdTM2JNRzBy?=
- =?utf-8?B?dFZJWC9xdGNuZGMyZEl1U2hUWkJjdlRxOXpZR3l4L05wOUJ6OXcrTmZyMmti?=
- =?utf-8?B?K3FlRW1oUjVnMTA1TnZHTnN1WFFCeVBmb2Y1RlhoMytUUU91ZDB5M1BhaGJi?=
- =?utf-8?B?aFpzZHA5NEo5TUljUUYzRmg5WWpOTXlrVVBoUmY1dWc1YnBIS1BvTVR5MjMw?=
- =?utf-8?B?MG1xRjAxdHBiYVdzRHk2Ynpic016aWNwSGlRTGRWbXphcGZPTmRIWFptT0hR?=
- =?utf-8?Q?F6KTcry7mZOOQ3Vbpc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f996cf2b-4994-4404-4259-08de812f9451
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 18:37:28.8936
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q+tGhINaQT5mOIiFcEB/qEZCXnoEe81xx8DZdHmFjj5T1UGMuA/6+4+F6iSLEX4rMD2X++ij+y6srXqkLjA4OQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10458
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abQ8tlRYrU5W4VaK@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_113737_991842_DBC85983 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_113921_019882_80C4333D 
+X-CRM114-Status: GOOD (  34.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,25 +91,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 13, 2026 at 04:35:02PM +0000, Russell King (Oracle) wrote:
+> On Fri, Mar 13, 2026 at 04:03:16PM +0100, Georg Gottleuber wrote:
+> > Am 16.01.26 um 01:49 schrieb Russell King (Oracle):
+> > > dwmac4's transmit performance dropped by a factor of four due to an
+> > > incorrect assumption about which definitions are for what. This
+> > > highlights the need for sane register macros.
+> > > 
+> > > Commit 8409495bf6c9 ("net: stmmac: cores: remove many xxx_SHIFT
+> > > definitions") changed the way the txpbl value is merged into the
+> > > register:
+> > > 
+> > >         value = readl(ioaddr + DMA_CHAN_TX_CONTROL(dwmac4_addrs, chan));
+> > > -       value = value | (txpbl << DMA_BUS_MODE_PBL_SHIFT);
+> > > +       value = value | FIELD_PREP(DMA_BUS_MODE_PBL, txpbl);
+> > > 
+> > > With the following in the header file:
+> > > 
+> > >  #define DMA_BUS_MODE_PBL               BIT(16)
+> > > -#define DMA_BUS_MODE_PBL_SHIFT         16
+> > > 
+> > > The assumption here was that DMA_BUS_MODE_PBL was the mask for
+> > > DMA_BUS_MODE_PBL_SHIFT, but this turns out not to be the case.
+> > > 
+> > > The field is actually six bits wide, buts 21:16, and is called
+> > > TXPBL.
+> > > 
+> > > What's even more confusing is, there turns out to be a PBLX8
+> > > single bit in the DMA_CHAN_CONTROL register (0x1100 for channel 0),
+> > > and DMA_BUS_MODE_PBL seems to be used for that. However, this bit
+> > > et.al. was listed under a comment "/* DMA SYS Bus Mode bitmap */"
+> > > which is for register 0x1004.
+> > > 
+> > > Fix this up by adding an appropriately named field definition under
+> > > the DMA_CHAN_TX_CONTROL() register address definition.
+> > > 
+> > > Move the RPBL mask definition under DMA_CHAN_RX_CONTROL(), correctly
+> > > renaming it as well.
+> > > 
+> > > Also move the PBL bit definition under DMA_CHAN_CONTROL(), correctly
+> > > renaming it.
+> > > 
+> > > This removes confusion over the PBL fields.
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > 
+> > Thank you for this patch, which significantly speeds up the transmit (by
+> > more than a factor of nine on our devices with Motorcomm yt6801).
+> > 
+> > Unfortunately, this patch also causes DMA errors on two of our devices;
+> > logs from a iperf3 test are attached.
+> > 
+> > Strangely enough, a third device with the same Motorcomm yt6801 does not
+> > appear to be affected by the DMA errors. However, further testing is needed.
+> > 
+> > Do you have any ideas for further tests?
+> 
+> I would suggest dumping the contents of these control registers prior
+> to commit 8409495bf6c9, and after this commit, comparing their values
+> to identify what has changed. I'm sorry, I don't have the bandwidth to
+> inspect the patches to see what may have been inadvertently changed.
 
-On Tue, 03 Mar 2026 22:01:07 +0100, Emanuele Ghidoli wrote:
-> Enable Cortex M7, the vring nodes, a mailbox and reserve DDR memory for
-> the M7. The remoteproc framework is so capable to load and run the M7
-> firmware.
->
->
+Note that dwmac-motorcomm was merged between the broken commit
+8409495bf6c9 and the fix 5ccde4c81e84. However, the broken commit was
+merged on 12 Jan, but there were postings of dwmac-motorcomm before
+this:
 
-Applied, thanks!
+https://lore.kernel.org/netdev/20251014164746.50696-5-ziyao@disroot.org/
 
-[1/1] arm64: dts: freescale: imx95-toradex-smarc: Support Cortex M7
-      commit: f0e54db969cd2af80d065ee45827ff24317d507a
+which uses the same parameters.
 
-Remove unused cm4 label. Put remoteproc-cm7 node just before node
-reserved-memory to keep original order.
+So, I wonder whether what you're running into is that with the
+breakage, the PCIe errors are masked. However, what I will note is that
+setting TxPBL to zero (as will happen with the breakage, since 32 & 1
+is 0) is documented as having undefined behaviour - so it's definitely
+wrong. Even if zero works there, you're operating the IP in undefined
+documented territory. If you really want to test that, with commit
+5ccde4c81e84 applied, set txpbl to 64, as
 
-Move mbox-names after mboxes.
+	FIELD_PREP(DMA_CHAN_TX_CTRL_TXPBL_MASK, 64)
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+will be zero because it overflows the 21:16 bitmask.
+
+I suspect if you wind the kernel tree back to the before 8409495bf6c9,
+and then apply the motorcomm support patches, you may well see these
+PCIe errors - and that would rule out these changes. It would suggest
+that this is a pre-existing problem, or maybe a hardware issue.
+
+Another idea would be to try reducing txpbl to see if there's a value
+where things stabilise.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
