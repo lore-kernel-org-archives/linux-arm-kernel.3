@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F513107BCD0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B54107BCD5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIxQ2Fo6sUkPiArsMOA/uuDzA9mk66YXAI1U73hTdt4=; b=n63+0yOd0waz6I920MYBb/J2zn
-	nRHZNR37S8kOwVa1bLeSIaGWwiLmdiJxmj3ytONjaHlcXyeooNObIs5zQpuFNWPvRGl4tZoDmK+Hb
-	MPZjB0H2WXzF6McICCLvFKzLM9p4Lrxu2fxCV1TdDjpfAmAEBNVJMWem17EOLM5zEaEC/awYlmCJ/
-	q8ml3AYoRF6FbtVSyDY7/2pCewvJS6Ip7DtTMc0u/51quDpkS5fPYaexxG3DZ+xFPpZINfvth5X8t
-	cORgATL3npqm9m3Fzx8TaFgWV93jy1OyX5vmEplI54uXVyvU82Fzmm1zV42XBoNHL2Ws9sFXIRP19
-	E2GuIBJA==;
+	bh=d2XPGYctZPiViWQ3wP7B9IH/kBgnAdO9UdeKusCr3AI=; b=sXCtRTm4WpMI57jOJ4AP7KefCd
+	7iXPAZ7EC83UF2TkmQyTlW/468k4rGZMiOiP2D0icm6S6gO6Si0GKqEfUU+4r35uxrvh2XRl5dtHx
+	vSpwrpNnNUu5Q6ZPxjOBmCBoy61pXWOwyVULkR8jpNX9Vpyu9cIEgtaxUCrlVK5Pwt8wlPaXqo6Ju
+	ALyaMDSiuSFivEVw6BtXESJU0/YZhVJRK1jILgkzZ+lEXmoZtvoHK6mqEpE7wDN+CdrrexTPCU3IZ
+	udD1+xZOZiacMdyZiqO5b4f615JvZh/3i4R7YMSMkYJ7olpvIIHfruSIzCQkTNxsD7TbqO/WtFHeW
+	nQEU7i5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16li-00000000oFM-0N18;
-	Fri, 13 Mar 2026 17:57:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w16lv-00000000oSq-12OL;
+	Fri, 13 Mar 2026 17:58:03 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16lN-00000000nnp-3qy2;
-	Fri, 13 Mar 2026 17:57:32 +0000
+	id 1w16lO-00000000noT-3clg;
+	Fri, 13 Mar 2026 17:57:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773424641;
-	bh=dUOuRcSdmkPT5OJpNxAO8iMCG2oRg7tjpzo/g+O1Qks=;
+	s=mail; t=1773424642;
+	bh=3CbLlBaufLDxfZtgOTb9BIEC6oe+KEgCuzyOu5r6v94=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XMqFpRclhrcMeBZAcLeuRp8MHH2eceTJDReKnizd96ZOK3OfkY+aJaLUwhOcL2DPM
-	 Wrns7aTiMAnTq02qF2IEfPfE6g1GgHxNQ3Vd0QZUxxB8nakoO/Q1OFEsGaPWz+TwfT
-	 KOomxTThEPzMOKwrsN0+P5HNdN4tnFZFKxhFFHZtZtC7Ye76v6pjcAJ/oOXS3lNq/0
-	 ZK3AwdTkXGWyjp6xW+zz5I8LvcgpKf1Kgy0TqB/MjtNx1y5qjr279rV3JuM1qux67w
-	 QjmxlX2VmjuI1xe7pUbcrmIs4TmRvjrDXR2/Y/Z4L5M9iitaERejwAWNVlkzqDNWZu
-	 X0rfAJCBbnvGw==
+	b=VvKdHxNSLKe12JhjV7zF9sNJO1SNrStyddQk1LZOK4GoSPYgEJ3Y24L+MihQGZT33
+	 jl8ZYZhkV/pPcbvqB8ROnxKjYvv6e49ameK/hTm4ylWsnoWgN09qEiwRijGc0t/jdw
+	 xsuH7kH7LfjRNGkydL3et4wXtlqOBNDM1OHyxPymFC1AdYMPNKIzh1Xuq4T+Cnrna5
+	 v9END1na9/XSV8NIkKriyHf36SESaJDXWGIpMJ2XjqJd+3lqXLumH5rr45W2AF9ABa
+	 bubiExtur8zI9mzh9g8CTVrn3KRwp4wEVTZD68GN1+Bxxk9qVp8aRK5fIxX4mxZ7RO
+	 q54Q5qB8smJ5Q==
 Received: from jupiter.universe (dyndsl-091-248-210-078.ewe-ip-backbone.de [91.248.210.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C347A17E1380;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC6AC17E1457;
 	Fri, 13 Mar 2026 18:57:21 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 2AFEB48002C; Fri, 13 Mar 2026 18:57:21 +0100 (CET)
+	id 31795480031; Fri, 13 Mar 2026 18:57:21 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 13 Mar 2026 18:57:15 +0100
-Subject: [PATCH v3 06/12] phy: rockchip: usbdp: Add missing mode_change
- update
+Date: Fri, 13 Mar 2026 18:57:20 +0100
+Subject: [PATCH v3 11/12] phy: rockchip: usbdp: Register DP aux bridge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260313-rockchip-usbdp-cleanup-v3-6-3e8fe89a35b5@collabora.com>
+Message-Id: <20260313-rockchip-usbdp-cleanup-v3-11-3e8fe89a35b5@collabora.com>
 References: <20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com>
 In-Reply-To: <20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -68,26 +67,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  devicetree@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1949;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2365;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=dUOuRcSdmkPT5OJpNxAO8iMCG2oRg7tjpzo/g+O1Qks=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGm0UAAjzWVTyiaU43Tu76Ye4dA1ydrje8x7h
- N7BxGXby+c9AIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJptFAAAAoJENju1/PI
- O/qaASIP/0oQWcQqq8bP2zhl5IIVUCMot9dWgfM01QJr3/wL195cHYgE899te2/Sag9kx/a+bYm
- T9FmAyGQ0X+hl5S5yMAprYE1PQGs1xftTBxXDgmBMeMWM53R3CcSGMGkHKg1C3JBPKB1felbZjv
- 0DbuBHA9hfabEz4VNzT6iwauvrdgcXV/6iQ+rwL4SzXV6BgmDnzsQ8a3zNmtsUqXPcDr6CCriY5
- 3aiPbWLQ0VOzA70fulqP3QYeBf0AHkqcFXzBjjEPoTeNG0i+O38FGwGUQk8TrRdvPfeqoNpjCd7
- L4kqVsDs1bEciR9AelkSibLVbOhkfVOKwico4pP17An2muq3wHdVUeCR+c23QVcT9//qiW4YBgj
- C9jsewvaqubqf3d+tf1GrlAFihqdHVJzxS1uygigMA4j1NcINU49dX4DfGw+M8aWlYO6iMRniIN
- lu/TMqMV+3rX0t5TBpieowhda3LBCIP5YBjCj2SjmGszpd31uThFf9vmwUcOG4uB1RUD5cEmF6T
- 5ZhotQxYcCec0hJxScxGrV8Z5viNKuWSPYv9bDMxNy2V4aoHMmiPJgJEHQK/W91kstR0PjKamnJ
- 4cgtkE288rc7aJ4PKuFRaVzvDrA3LNCCwv0+C153GxMtwsgM2jrhyEYdo8z79RO+lBZpgWO2R+G
- WNrueUkb2Md6FQNCDCxovZQ==
+ bh=3CbLlBaufLDxfZtgOTb9BIEC6oe+KEgCuzyOu5r6v94=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGm0UAHMv1Crdlq7VDQ1Yj2uZU6dR98CzKcnl
+ AxX8F0etPL8uIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJptFABAAoJENju1/PI
+ O/qayxwP/2VFHqz/gH2MX4/w/WpjuiH7tVrGG/oNjV1oKvmx0cgMR99okDg2bAOatzkYFUK7UIZ
+ 1fZYSsD1FMBEXlwP/Mi05asOje3V+/dlvv8aGXdkfArb6SXvZ/8L7eLJW9bva6Alo7RRsdpOx/u
+ p9wJj01xLxzv/R8BBw5gpFfHpBchi877upxsKMjnVOnM5J7l15zukylV6TSB7MHugmkB+8Ecxt3
+ TTElHWL0UaUUU0Fn43cSMUrAFYdnSCc+xkDeMjUUfi1J35FNpD2RwqifaOtyVGy/UoEWyGNg/09
+ WUKU9BRVasx2NdCIcGGElFgX8l6f6tcYZshnIYngZnO04AADUkR1lUIMnHPlv5681HrXzdMVCid
+ sVZwj1lWaMdOFLWFa1VtSej+efP6QVklRnTaO4gxq7uIyicSEMLn/L0xfyNTzcb5vI+PPnrXczQ
+ gaoDJC3VHj/3rsDHK4SZMnqdtapUrwmwOdJC/88H5oLPGWjtVlfI5ebsGVH/aJDt+T4D2wxtfBc
+ +uegZBd9jXiB8ZX6KKipl01/g2kXRXdxXN0wOOvTRf6RSW50Pyx4Pe38Hn8WpJAeYwMtKik6Zen
+ Vv+gZtkxy4Hzb7KdcWETiJ6EJOY5Icz5/ChH09xSFU3+xvTgqwF6jryaIV8/BqUz7IuaSaJ8Dx6
+ B275C9OnAzDTahwdaDk07kw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_105730_129191_59EF66B7 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260313_105731_050521_76FC4E56 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +101,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk_udphy_set_typec_default_mapping() updates the available modes,
-but does not set the mode_change as required. This results in
-missing re-initialization and thus non-working DisplayPort.
+Add support to use USB-C connectors with the DP altmode helper code on
+devicetree based platforms. To get this working there must be a DRM
+bridge chain from the DisplayPort controller to the USB-C connector.
+E.g. on Rockchip RK3576:
 
-Fix this issue by introducing a new helper to update the available
-modes.
+root@rk3576 # cat /sys/kernel/debug/dri/0/encoder-0/bridges
+bridge[0]: dw_dp_bridge_funcs
+        refcount: 7
+        type: [10] DP
+        OF: /soc/dp@27e40000:rockchip,rk3576-dp
+        ops: [0x47] detect edid hpd
+bridge[1]: drm_aux_bridge_funcs
+        refcount: 4
+        type: [0] Unknown
+        OF: /soc/phy@2b010000:rockchip,rk3576-usbdp-phy
+        ops: [0x0]
+bridge[2]: drm_aux_hpd_bridge_funcs
+        refcount: 5
+        type: [10] DP
+        OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+        ops: [0x4] hpd
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/phy/rockchip/Kconfig              | 2 ++
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 5 +++++
+ 2 files changed, 7 insertions(+)
 
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index 14698571b607..39759bb2fa1d 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -136,8 +136,10 @@ config PHY_ROCKCHIP_USBDP
+ 	tristate "Rockchip USBDP COMBO PHY Driver"
+ 	depends on ARCH_ROCKCHIP && OF
+ 	depends on TYPEC
++	depends on DRM || DRM=n
+ 	select GENERIC_PHY
+ 	select USB_COMMON
++	select DRM_AUX_BRIDGE if DRM_BRIDGE
+ 	help
+ 	  Enable this to support the Rockchip USB3.0/DP combo PHY with
+ 	  Samsung IP block. This is required for USB3 support on RK3588.
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 97e53b933225..febc148a754e 100644
+index beab20e4c512..2de7b66ee813 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -619,6 +619,15 @@ static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)
- 	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_trigger, hpd);
- }
+@@ -6,6 +6,7 @@
+  * Copyright (C) 2024 Collabora Ltd
+  */
  
-+static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
-+{
-+	if (udphy->mode == mode)
-+		return;
-+
-+	udphy->mode_change = true;
-+	udphy->mode = mode;
-+}
-+
- static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
- {
- 	if (udphy->flip) {
-@@ -649,7 +658,7 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
- 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
++#include <drm/bridge/aux-bridge.h>
+ #include <dt-bindings/phy/phy.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
+@@ -1492,6 +1493,10 @@ static int rk_udphy_probe(struct platform_device *pdev)
+ 			return ret;
  	}
  
--	udphy->mode = UDPHY_MODE_DP_USB;
-+	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
- }
- 
- static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-@@ -1385,10 +1394,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
- 			usleep_range(750, 800);
- 			rk_udphy_dp_hpd_event_trigger(udphy, true);
- 		} else if (data->status & DP_STATUS_HPD_STATE) {
--			if (udphy->mode != mode) {
--				udphy->mode = mode;
--				udphy->mode_change = true;
--			}
-+			rk_udphy_mode_set(udphy, mode);
- 			rk_udphy_dp_hpd_event_trigger(udphy, true);
- 		} else {
- 			rk_udphy_dp_hpd_event_trigger(udphy, false);
++	ret = drm_aux_bridge_register(dev);
++	if (ret)
++		return ret;
++
+ 	udphy->phy_u3 = devm_phy_create(dev, dev->of_node, &rk_udphy_usb3_phy_ops);
+ 	if (IS_ERR(udphy->phy_u3)) {
+ 		ret = PTR_ERR(udphy->phy_u3);
 
 -- 
 2.51.0
