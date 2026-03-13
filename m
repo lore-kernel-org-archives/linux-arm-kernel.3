@@ -4,79 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68465106FD85
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D83F106FD87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/7Avksm2DO+mVglS65ohDrmnD6ZqO7r/NBeBe/i4gQI=; b=qdkCbE3se2aHPtMkH4CGokqYPi
-	ADO+YH9biqjlMGFY9u8cn4yD0uXm2Gm59OS/mSx3CMyjWfg9pPI+XvN/aImO/jZxc+5M91DRZRdty
-	VU7GcNLrNwkiCjPhdTQ1zp7X897IlN57F0fI4e+dZxe3N5a0ebNlAzRqTEWYnYIw7ygFl8ajKl4Yo
-	po8vi4YqB2tG+ENwFsGV7fJmGmdX9vtwe/sptDxA9eur7WPqR7xZgVtg6PkTjjdQMmWoqDS7VdGRn
-	VCb1IB18Lt6ZN5fEN4ZA3wAsr10TzPWEV5Vp7DQ3+DX74ZePwncG7RLGiYUL2aW9O4UT8axijLMnZ
-	KKST/obQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lNPwALV0Tf2qKWYJJ3DkoHTbtblOZ1UjGKeyPm7Y1GE=; b=sh8TmAsNv19+UYCeBxapDh0FGl
+	TxSaoGn8h4ATIAGu7fq4FnaejsCJcBnRCkSYDq5X7aKL7vWhUjP9T+ZfVDMv52f8wrHC32ZmHxkcN
+	+5FYEKgoTgzq86jLm4oiGfXQzrVgvhjvxcOHOzzo/hMD3sgEIuqCnzSMdvYZ091AWl6uO7SWcr3JC
+	9+0h81TG+HLmbSkhfgivOQIWb25D22xpK+TWbOEH54nanSRDdzez/xPZ99XitT4b2DsqNQaReRR/g
+	+lOTj4BQkaxVjzuv5besYyIng/VMiLFaPFinhScF3wiSGC4tgQKLvka213gkC+hSTkxEi+Yqczl+a
+	BpJcx29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vra-0000000GpKC-0iA7;
-	Fri, 13 Mar 2026 06:19:10 +0000
-Received: from mail-dl1-f73.google.com ([74.125.82.73])
+	id 1w0vy1-0000000Gqb0-1CJQ;
+	Fri, 13 Mar 2026 06:25:49 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vrX-0000000GpHp-24og
+	id 1w0vxy-0000000GqZm-2U1N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 06:19:08 +0000
-Received: by mail-dl1-f73.google.com with SMTP id a92af1059eb24-12737f276a2so2647534c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 23:19:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773382745; x=1773987545; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=/7Avksm2DO+mVglS65ohDrmnD6ZqO7r/NBeBe/i4gQI=;
-        b=BIzUDQ4nTrIklVon1MUXqvQvA1yvNIqkyqtTwCsftJ7JVhig3G0Qu1Ceq23+O6GK5G
-         RTDDyUCNNFDDEEfnL90gN6NOelmEt3+11nQ5OmSXgIXTmbBqXfv6+KiIi2FA4OrSDUCT
-         Vx0ZC0pmExVyWniz21EXNgUsFPwX2TZ9Y7j1O3gm3hgHW4iDXcdqs7WD8ySUJWbyItUR
-         F1jGXvhcluYnsrL+7piBDDsQ0ORvjPqjtQjJqegxdDHjc0WOzmyxsHd3Y6uLFGOSdSeG
-         qsDbUMvEW7LvVss0wJazB0PA5gefugPCQbbFdrmwJAW1RPTa2eUS9bSCunFxY/U1tlT6
-         AxqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773382745; x=1773987545;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/7Avksm2DO+mVglS65ohDrmnD6ZqO7r/NBeBe/i4gQI=;
-        b=NU+taksTvenvT4RsLzO9xgIBpLk2eML6W6mOGfu9hD4w/UsrwTWwWvuORrOiacTRQC
-         vU51vnn3dLeGrQyOE5DE8EWB2uGDB5SpGUiYIliDdbChC9yaEcVyC0SrWf4w8XOnyi9c
-         d4ottFgXv8XHJ3lgl9iMEqTm5NbBqIlumXfWt3zqoogvP4obCyJMT+MqTR8BEFj4V50W
-         54tDX/6QZ2asGijJ+TxYlrZwUFJj7TDBo1r9U/tvdfC7Eu5JpHkgoeSiFXNR+6Tk1jpk
-         2Pf0t4jZwSfBg0iGPF8oyG9Wqu8S81dRsVrO7M0w1EaKU4tmbfLBr0kVNTgwekQEEexD
-         NZoA==
-X-Gm-Message-State: AOJu0YyfQHGeJyU1WHpjsskFmxlY4rMtCTuRcH/iVlWG7vgrCQ+jromR
-	2g9QpkVyJqY5RO9kwN3GaUEhI0IlzJn3fzu0V8qXot0ONg1IXhVTsGfx1/LVuYmpo2lvAgseb1r
-	qQCSWC8BYeGdxIVRu4Ne7ACUthKRupN7ON+Pn110UUwokt+/OxgH2qE9OtPeMSiCsuq0+s41Tsn
-	xrW/MNJrMnRMKHBFSATGKiezrMxJHCarFQ+yEFRmkaqHFuYoF7ggsuZeeEC6s7d9yotA==
-X-Received: from dybse11.prod.google.com ([2002:a05:7301:490b:b0:2be:12e0:e206])
- (user=cmllamas job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7022:458b:b0:11d:f44d:401d with SMTP id a92af1059eb24-128f3db298emr812133c88.22.1773382744700;
- Thu, 12 Mar 2026 23:19:04 -0700 (PDT)
-Date: Fri, 13 Mar 2026 06:18:52 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.53.0.880.g73c4285caa-goog
-Message-ID: <20260313061852.4025964-1-cmllamas@google.com>
-Subject: [PATCH v7] arm64: implement support for static call trampolines
-From: Carlos Llamas <cmllamas@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Sami Tolvanen <samitolvanen@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, 
-	Quentin Perret <qperret@google.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Will McVicker <willmcvicker@google.com>, Sean Christopherson <seanjc@google.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Carlos Llamas <cmllamas@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 13 Mar 2026 06:25:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tlEOOeN6MbqOl412eypckqtEzNarCO30cGVjjTLH37BEVVKtwRGp54l6sXOsSDI/1vtnIvgSg0UkKTh6by1zeY4G2uXbPu73HuA6AdFlZKjxQQF85oXX++rJOA/0a2+JtK8YjL4viHk+ZHivXjhMuw9e0B9VKGe1J/9HkaW8Aqo4rRWxS9G7IG88lDEPWgMXsrfC9d5ZDazedrUzrhPLscsw+du0RHMgD8pWE97X1QJWP0p47/qBwL5dHKkvqiZnIJK4WY7bUvbkMHETVtw1RqSvnKAHQQSX/t4iL9zMTkLG/GVtDgSqLKtYXbeC4HZH7dgrGUpqmheQeFUV4u87Pw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lNPwALV0Tf2qKWYJJ3DkoHTbtblOZ1UjGKeyPm7Y1GE=;
+ b=Rw2h0zx+UfIJDX4H8CnBtBxLL/AhUz6Jgtt9PD9IgHvxi7fV7mwt+c21cAdUTx0+bDuctscC5/6sN7vbz8EcSR9VaOjtOecBtx55dDJicJqtSoAJRAP1cwFIvgJDAQgmcP2azbhVggGLFBXEh1hfTVn8UinEgGE5e4VBBYB1rvB6dUsLaCs85uXCYf5S3PgHIKqFLJkckqmw7qnVyHhFpz7Cu04MEc5td9y8ngn4EGvPxVXbEulu6cvPyhfnTl7Gp4IjwXhx4ErDklZKDrQYFEZACmwTYcbACRZT3ea2mHcTB5xXFUrDkU/uElv8NICFY/J+6yybt0zT27NpVHgnCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lNPwALV0Tf2qKWYJJ3DkoHTbtblOZ1UjGKeyPm7Y1GE=;
+ b=AZoT85VDpgly9Hj6EyzJHe3cU0J++gvVt8tPbAOnjxdYxU79nWUhI8517CGTA+FBVRC+s/Z8o6qIWfvkzPpc4pI4jXfvDQ3WrQQhMM76k1SxWDlChAeFeGrMO2ETDQ4vlRWvKTIRQFDGGWPrQBH9k748h2CR6d/bfM4OLyAzJ7w=
+Received: from CH0PR13CA0034.namprd13.prod.outlook.com (2603:10b6:610:b2::9)
+ by BL3PR12MB9049.namprd12.prod.outlook.com (2603:10b6:208:3b8::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.7; Fri, 13 Mar
+ 2026 06:25:40 +0000
+Received: from CH1PEPF0000AD75.namprd04.prod.outlook.com
+ (2603:10b6:610:b2:cafe::d6) by CH0PR13CA0034.outlook.office365.com
+ (2603:10b6:610:b2::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.13 via Frontend
+ Transport; Fri, 13 Mar 2026 06:25:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH1PEPF0000AD75.mail.protection.outlook.com (10.167.244.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Fri, 13 Mar 2026 06:25:40 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 13 Mar
+ 2026 01:25:38 -0500
+Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Fri, 13 Mar 2026 01:25:34 -0500
+From: Srinivas Neeli <srinivas.neeli@amd.com>
+To: Vinod Koul <vkoul@kernel.org>, <git@amd.com>, <srinivas.neeli@amd.com>
+CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Suraj Gupta <suraj.gupta2@amd.com>, "Radhey
+ Shyam Pandey" <radhey.shyam.pandey@amd.com>, Thomas Gessler
+	<thomas.gessler@brueckmann-gmbh.de>, Folker Schwesinger
+	<dev@folker-schwesinger.de>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Kees Cook <kees@kernel.org>, Abin Joseph
+	<abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH V2 0/5] dmaengine: xilinx_dma: MCDMA descriptor and metadata handling improvements
+Date: Fri, 13 Mar 2026 11:55:28 +0530
+Message-ID: <20260313062533.421249-1-srinivas.neeli@amd.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD75:EE_|BL3PR12MB9049:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23d46346-f1f0-46c6-1458-08de80c958e5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|13003099007|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: A35DDyB6xbL0V8gnW1N5w5lWdmDGkAQraqKrKbSvg9IJmzMW1m9VPrp3EbaQo0AYBkr2pnzWgJBxAZUgziIxaJ+LqCQE6X4jrl9VJZ80jC2nUEr235eMLnIKLe0u3Z/kaICtveixR/RzITZ1NR1uAbrOJJEwfuxgTqCL3Czy/aTTLswAFlhTce2kG03BttsWiDYl/EnMUQNkfKFUJI1kWBpNps2m4QRU01eqi3LNm0eWHwHBiRTYtVbWaFHE5+z2V3SkhwqeyKBW0Q3ZfSySSdh2A67mpdwnocK8BnJwU6iAytdBUpyvpsbf7lCR/JH5bg24PTbzaryHFU9keHDhbYS/emj29y8jL7CVfH98+g9VIcDcRJskntPMvgxhpbqI4D9FurjwyJZAuERQBCc/QgsyqJ9IvrQfSLG3dZTe76FN0Ihoi0eE7l5ARzD7ewyG2h6ZdgzcLxtvigLnN6cIB7qGLdKgixH6x7j26ApmqAAuYcarpLE4c0igN9nBpMkmOVzeMaWoRf+7P5aroICKyPRe17pMMQasvziRDfo3s8o5gjUTEMfnbKatSdkRQfH1lYzy5amewcflT4Oa3R+6/dfoNELRf2umPq6VIC2lg7KK63/IXp7qPy0JTnbYkry3s3Y5d9zIutcUFyi1YV/u2s/aeC5AG7juxApfzlEXdANNxhAhEQrjl5THIk03W8GJIiyy+vXyM+xvKLWW03CONeVeThj9zBhlyi8fO9myp+Jx5fRaXBS6XEzFsk3aLV0E6VkHJpNpo4LGYd/gqofoTA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(13003099007)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: zUdeI0NcvzK1KDm1A8+UKMyV+dDjq1MPxEqlRmIdhkzBsIonorh5DSmGwZR/AyOqTb2v0uC5sDkAYg5cUD0zG+eXSNsqKB7CxzFeb7vK2ImlVX2KZEKtxsd7nB4atC5RCI1jHWNl0nTC4dvPwQNwX45RX8HeK1qAzE047lJ26dk62WFOgQkz9mTEpDmqABN70SN3dqtPQd9zud+XWPJoLP1X3iRMA0exx3rPjXmhpdGK7WTCaZCddw/Q/JBed9aIoVj6R3VzCsVWTHyXivi5qhw8ILckjCnm7Vj27dlU6FACp/kXg0r/smO7OYvp+vc5caFJ9Z5sW2P0r6id5xStJ2Fa7iscbNnbTDcEKer2ooQjWRIx9H1z23++dwt9su7O3F8p9d6TKreVLNz9Zmx9Je0cobXUveO3aT4ogHoxljiHJkCghtgJW9U9ykh2CpXB
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 06:25:40.0810
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23d46346-f1f0-46c6-1458-08de80c958e5
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD75.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB9049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_231907_540357_D4BEED38 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20260312_232546_674876_ED75DCE0 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,149 +127,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+This series improves the Xilinx AXI MCDMA driver's descriptor handling
+and metadata reporting. It fixes direction specific descriptor field
+usage, ensures completion is based on the hardware completion bit
+(important with delay interrupts), and extends metadata handling so APP
+fields are used when the AXI4-Stream status/control interface is enabled.
+When APP fields are unavailable, the series still reports transferred byte
+count via the status field, enabling clients to track progress in both
+configurations. Device tree bindings are updated to expose the
+status/control stream presence with a dedicated property, distinct from
+stream connectivity.
 
-Implement arm64 support for the 'unoptimized' static call variety, which
-routes all calls through a single trampoline that is patched to perform a
-tail call to the selected function.
+Changes in V2:
+- Rebased on the AXI DMA binding YAML conversion.
+- Added xlnx,include-stscntrl-strm in the YAML binding.
+- Clarified cover letter to reflect metadata behavior with and without
+  APP fields.
+https://lore.kernel.org/all/20260309033444.3472359-1-abin.joseph@amd.com/
 
-Since static call targets may be located in modules loaded out of direct
-branching range, we need to use a ADRP/ADD pair to load the branch target
-into R16 and use a branch-to-register (BR) instruction to perform an
-indirect call. Unlike on x86, there is no pressing need on arm64 to avoid
-indirect calls at all cost, but hiding it from the compiler as is done
-here does have some benefits:
-- the literal is located in .rodata, which gives us the same robustness
-  advantage that code patching does;
-- no performance hit on CFI enabled Clang builds that decorate compiler
-  emitted indirect calls with branch target validity checks.
+Srinivas Neeli (3):
+  dmaengine: xilinx_dma: Fix MCDMA descriptor fields for MM2S vs S2MM
+  dmaengine: xilinx_dma: Move descriptors to done list based on
+    completion bit
+  dt-bindings: dma: xlnx,axi-dma: Add "xlnx,include-stscntrl-strm"
+    property
 
-Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Carlos Llamas <cmllamas@google.com>
----
-v7:
-  - Took Ard's v3 patch (as it leaves the code patching logic out) and
-    rebased it on top  of mainline 7.0-rc3.
-  - Dropped the changes to arch/arm64/lib/insn.c and instead switched to
-    the (now) existing aarch64_insn_write_literal_u64().
-  - Added the RET0 trampoline define which points to the generic stub
-    __static_call_return0.
-  - Made the HAVE_STATIC_CALL conditional on CFI as suggested by Ard.
-  - Added .type and .size sections to the trampoline definition to
-    support ABI tools.
+Suraj Gupta (2):
+  dmaengine: xilinx_dma: Extend metadata handling for AXI MCDMA
+  dmaengine: xilinx_dma: Add support for reporting transfer size to AXI
+    DMA / MCDMA client when app fields are unavailable
 
- arch/arm64/Kconfig                   |  1 +
- arch/arm64/include/asm/static_call.h | 33 ++++++++++++++++++++++++++++
- arch/arm64/kernel/Makefile           |  1 +
- arch/arm64/kernel/static_call.c      | 20 +++++++++++++++++
- arch/arm64/kernel/vmlinux.lds.S      |  1 +
- 5 files changed, 56 insertions(+)
- create mode 100644 arch/arm64/include/asm/static_call.h
- create mode 100644 arch/arm64/kernel/static_call.c
+ .../bindings/dma/xilinx/xlnx,axi-dma.yaml     |  4 +
+ drivers/dma/xilinx/xilinx_dma.c               | 93 ++++++++++++++++---
+ 2 files changed, 84 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..9ea19b74b6c3 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -252,6 +252,7 @@ config ARM64
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
- 	select HAVE_STACKPROTECTOR
-+	select HAVE_STATIC_CALL if CFI
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select HAVE_KPROBES
- 	select HAVE_KRETPROBES
-diff --git a/arch/arm64/include/asm/static_call.h b/arch/arm64/include/asm/static_call.h
-new file mode 100644
-index 000000000000..331580542fd4
---- /dev/null
-+++ b/arch/arm64/include/asm/static_call.h
-@@ -0,0 +1,33 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_STATIC_CALL_H
-+#define _ASM_STATIC_CALL_H
-+
-+#define __ARCH_DEFINE_STATIC_CALL_TRAMP(name, target)			    \
-+	asm("	.pushsection .static_call.text, \"ax\"			\n" \
-+	    "	.align	3						\n" \
-+	    "	.globl	" STATIC_CALL_TRAMP_STR(name) "			\n" \
-+	    STATIC_CALL_TRAMP_STR(name) ":				\n" \
-+	    "	hint	34	/* BTI C */				\n" \
-+	    "	adrp	x16, 1f						\n" \
-+	    "	ldr	x16, [x16, :lo12:1f]				\n" \
-+	    "	cbz	x16, 0f						\n" \
-+	    "	br	x16						\n" \
-+	    "0:	ret							\n" \
-+	    "	.type	" STATIC_CALL_TRAMP_STR(name) ", %function	\n" \
-+	    "	.size	" STATIC_CALL_TRAMP_STR(name) ", . - " STATIC_CALL_TRAMP_STR(name) " \n" \
-+	    "	.popsection						\n" \
-+	    "	.pushsection .rodata, \"a\"				\n" \
-+	    "	.align	3						\n" \
-+	    "1:	.quad	" target "					\n" \
-+	    "	.popsection						\n")
-+
-+#define ARCH_DEFINE_STATIC_CALL_TRAMP(name, func)			\
-+	__ARCH_DEFINE_STATIC_CALL_TRAMP(name, #func)
-+
-+#define ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)			\
-+	__ARCH_DEFINE_STATIC_CALL_TRAMP(name, "0x0")
-+
-+#define ARCH_DEFINE_STATIC_CALL_RET0_TRAMP(name)			\
-+	ARCH_DEFINE_STATIC_CALL_TRAMP(name, __static_call_return0)
-+
-+#endif /* _ASM_STATIC_CALL_H */
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 76f32e424065..fe627100d199 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -46,6 +46,7 @@ obj-$(CONFIG_MODULES)			+= module.o module-plts.o
- obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
- obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
- obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
-+obj-$(CONFIG_HAVE_STATIC_CALL)		+= static_call.o
- obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
- obj-$(CONFIG_KGDB)			+= kgdb.o
- obj-$(CONFIG_EFI)			+= efi.o efi-rt-wrapper.o
-diff --git a/arch/arm64/kernel/static_call.c b/arch/arm64/kernel/static_call.c
-new file mode 100644
-index 000000000000..944ecabb821f
---- /dev/null
-+++ b/arch/arm64/kernel/static_call.c
-@@ -0,0 +1,20 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/static_call.h>
-+#include <linux/memory.h>
-+#include <asm/text-patching.h>
-+
-+void arch_static_call_transform(void *site, void *tramp, void *func, bool tail)
-+{
-+	u64 literal;
-+	int ret;
-+
-+	/* decode the instructions to discover the literal address */
-+	literal = ALIGN_DOWN((u64)tramp + 4, SZ_4K) +
-+		  aarch64_insn_adrp_get_offset(le32_to_cpup(tramp + 4)) +
-+		  8 * aarch64_insn_decode_immediate(AARCH64_INSN_IMM_12,
-+						    le32_to_cpup(tramp + 8));
-+
-+	ret = aarch64_insn_write_literal_u64((void *)literal, (u64)func);
-+	WARN_ON_ONCE(ret);
-+}
-+EXPORT_SYMBOL_GPL(arch_static_call_transform);
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index 2964aad0362e..2d1e75263f03 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -191,6 +191,7 @@ SECTIONS
- 			LOCK_TEXT
- 			KPROBES_TEXT
- 			HYPERVISOR_TEXT
-+			STATIC_CALL_TEXT
- 			*(.gnu.warning)
- 	}
- 
 -- 
-2.53.0.880.g73c4285caa-goog
+2.43.0
 
 
