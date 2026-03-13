@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E6A105F7AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC9C105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdYl7O4q3KgRO/6x/vHQ3/Oisgb9kH7NyUT9boDvc74=; b=v91RJPYxkxL3KYe/xLCSdN7ryW
-	OuO3vlKUoyJgIoEDgT4S7ddoB7ppfUFh/dpS0bkA7kR7BYSRCe2rL+Mh84gKdWmrWZCDGldpZPC9x
-	TyXFktS58qEcdyDWafeZnkdPQS+NPwWRJNT6l3xNX9XUvnZL6NuQxpUmwxyE2NdF2loqkfIdcnDJ4
-	gZ/jHBoxwLQTPQzJJyQ+OBXTUSYoN4i9sVYx7LU5jYTXWIVdThWe1o1HfiVhObQUl9INErIwJEww2
-	e0Fdb15l3DYb6n48IA8J9Pajxetz0+HPgIAyLjZK+kWB6xEYWxXHYMTi5uBpp1YfkPkyXV0hzYzc/
-	T/ElxqrQ==;
+	bh=YTCEGiMX14O+vqXrG1XNBk9r8kK+UmRQmKBf6t30aPQ=; b=n2FQ80P/szMjPSonq3C1kYYAEq
+	gyEPq+qVKEjoQjBWf1oFliv58Q2dWc8wNcf4XGAJZlgC599Jm6ba3Oy2XV/Y8qKm6ggrNXxOdA3wv
+	qiALDFZHdjrS6PLURAisTuMTi0sSYRK7VFLOujQmf7qdXWRP+N9GejjrrjdV16WK9ZlJHxAz+vhtE
+	TosJl8KsNH4UyoGIkTl9IIoB8SQNnRQms4HS/XSNKgijK7plUWG54cWq5tfRiY8CckfIrSKgoBrpV
+	BH7RBD9gr8WqsDSVh+vHtTXTAJUyei+JSKsp49Utt/W9RGaKD2YXdomqrOhLwC7Sni2PDekvrG+xk
+	T4w7LA3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13oG-00000000Rhl-0LtL;
-	Fri, 13 Mar 2026 14:48:16 +0000
+	id 1w13oM-00000000RpM-0xYs;
+	Fri, 13 Mar 2026 14:48:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13oI-00000000RjS-1YgZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 14:48:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=YTCEGiMX14O+vqXrG1XNBk9r8kK+UmRQmKBf6t30aPQ=; b=WFb0BZO+oQZQSA/2GmbH5pSKtm
+	sCwc3I1saPFfgie4A9WI2hojQ0qvKpBA53aTPsjhvrDpax7cbm5g+qa1j8ZzcrQ9A1KCfaQhN4OMe
+	FhH5xrCsRwZmfZccGuyO4fCRVTD56tLdEMbKmSpMY5Pe9UTQXrBrnorOZp6Sh8YZ4VTP04Utewm01
+	osnudP9M1E0YDFgOfROtMN4GtJYR9tSHJtReRwSbY0g2awmR+9oJDjvna1tbUF3oe1WtNpH9/8GxT
+	sHiSoRVdyq1tEzQOy+EyQDkei9WFbD1EBdx9MIrwg0xdTJOsUiDzp/rBJJ16TvtSKd3p+vX/dUiCI
+	TWsf4AAQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13o5-00000000RWg-1RQB
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13oE-00000003a1p-30rR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:48:08 +0000
+	Fri, 13 Mar 2026 14:48:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A813B2308;
-	Fri, 13 Mar 2026 07:47:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E5E21CC4;
+	Fri, 13 Mar 2026 07:48:07 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C120B3F7BD;
-	Fri, 13 Mar 2026 07:48:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4D9503F7BD;
+	Fri, 13 Mar 2026 07:48:09 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -69,19 +84,18 @@ Cc: amitsinght@marvell.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
-	Dave Martin <Dave.Martin@arm.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 22/40] arm_mpam: resctrl: Convert to/from MPAMs fixed-point formats
-Date: Fri, 13 Mar 2026 14:45:59 +0000
-Message-ID: <20260313144617.3420416-23-ben.horgan@arm.com>
+Subject: [PATCH v6 24/40] arm_mpam: resctrl: Wait for cacheinfo to be ready
+Date: Fri, 13 Mar 2026 14:46:01 +0000
+Message-ID: <20260313144617.3420416-25-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074805_481927_ED4E7590 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260313_144815_297094_32228F18 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,13 +110,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Martin <Dave.Martin@arm.com>
-
-MPAM uses a fixed-point formats for some hardware controls.  Resctrl
-provides the bandwidth controls as a percentage. Add helpers to convert
-between these.
-
-Ensure bwa_wd is at most 16 to make it clear higher values have no meaning.
+In order to calculate the rmid realloc threshold the size of the cache
+needs to be known. Cache domains will also be named after the cache id. So
+that this information can be extracted from cacheinfo we need to wait for
+it to be ready. The cacheinfo information is populated in device_initcall()
+so we wait for that.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -112,106 +124,64 @@ Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
 Signed-off-by: James Morse <james.morse@arm.com>
+[horgan: split out from another patch]
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v2:
-Ensure bwa_wd is at most 16 (moved from patch 40: arm_mpam: Generate a
-configuration for min controls)
-Expand comments
+This is moved into it's own patch to allow all uses of cacheinfo to be
+valid when they are introduced.
 ---
- drivers/resctrl/mpam_devices.c |  7 +++++
- drivers/resctrl/mpam_resctrl.c | 51 ++++++++++++++++++++++++++++++++++
- 2 files changed, 58 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 0e5e24ef60fe..0c97f7708722 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -713,6 +713,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 			mpam_set_feature(mpam_feat_mbw_part, props);
- 
- 		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-+
-+		/*
-+		 * The BWA_WD field can represent 0-63, but the control fields it
-+		 * describes have a maximum of 16 bits.
-+		 */
-+		props->bwa_wd = min(props->bwa_wd, 16);
-+
- 		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
- 			mpam_set_feature(mpam_feat_mbw_max, props);
- 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index cab3e9ccb5c7..adaec522c1a1 100644
+index 940446395ae1..93c8a9608ed4 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -10,6 +10,7 @@
- #include <linux/errno.h>
- #include <linux/limits.h>
- #include <linux/list.h>
-+#include <linux/math.h>
- #include <linux/printk.h>
- #include <linux/rculist.h>
+@@ -16,6 +16,7 @@
  #include <linux/resctrl.h>
-@@ -242,6 +243,56 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
- 	return class->props.cpbm_wd <= 32;
- }
+ #include <linux/slab.h>
+ #include <linux/types.h>
++#include <linux/wait.h>
+ 
+ #include <asm/mpam.h>
+ 
+@@ -42,6 +43,13 @@ static DEFINE_MUTEX(domain_list_lock);
+  */
+ static bool cdp_enabled;
  
 +/*
-+ * Each fixed-point hardware value architecturally represents a range
-+ * of values: the full range 0% - 100% is split contiguously into
-+ * (1 << cprops->bwa_wd) equal bands.
-+ *
-+ * Although the bwa_bwd fields have 6 bits the maximum valid value is 16
-+ * as it reports the width of fields that are at most 16 bits. When
-+ * fewer than 16 bits are valid the least significant bits are
-+ * ignored. The implied binary point is kept between bits 15 and 16 and
-+ * so the valid bits are leftmost.
-+ *
-+ * See ARM IHI0099B.a "MPAM system component specification", Section 9.3,
-+ * "The fixed-point fractional format" for more information.
-+ *
-+ * Find the nearest percentage value to the upper bound of the selected band:
++ * We use cacheinfo to discover the size of the caches and their id. cacheinfo
++ * populates this from a device_initcall(). mpam_resctrl_setup() must wait.
 + */
-+static u32 mbw_max_to_percent(u16 mbw_max, struct mpam_props *cprops)
-+{
-+	u32 val = mbw_max;
++static bool cacheinfo_ready;
++static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
 +
-+	val >>= 16 - cprops->bwa_wd;
-+	val += 1;
-+	val *= MAX_MBA_BW;
-+	val = DIV_ROUND_CLOSEST(val, 1 << cprops->bwa_wd);
-+
-+	return val;
-+}
-+
-+/*
-+ * Find the band whose upper bound is closest to the specified percentage.
-+ *
-+ * A round-to-nearest policy is followed here as a balanced compromise
-+ * between unexpected under-commit of the resource (where the total of
-+ * a set of resource allocations after conversion is less than the
-+ * expected total, due to rounding of the individual converted
-+ * percentages) and over-commit (where the total of the converted
-+ * allocations is greater than expected).
-+ */
-+static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
-+{
-+	u32 val = pc;
-+
-+	val <<= cprops->bwa_wd;
-+	val = DIV_ROUND_CLOSEST(val, MAX_MBA_BW);
-+	val = max(val, 1) - 1;
-+	val <<= 16 - cprops->bwa_wd;
-+
-+	return val;
-+}
-+
- /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
- static void mpam_resctrl_pick_caches(void)
+ bool resctrl_arch_alloc_capable(void)
  {
+ 	struct mpam_resctrl_res *res;
+@@ -757,6 +765,8 @@ int mpam_resctrl_setup(void)
+ 	struct mpam_resctrl_res *res;
+ 	enum resctrl_res_level rid;
+ 
++	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
++
+ 	cpus_read_lock();
+ 	for_each_mpam_resctrl_control(res, rid) {
+ 		INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
+@@ -794,3 +804,12 @@ int mpam_resctrl_setup(void)
+ 
+ 	return 0;
+ }
++
++static int __init __cacheinfo_ready(void)
++{
++	cacheinfo_ready = true;
++	wake_up(&wait_cacheinfo_ready);
++
++	return 0;
++}
++device_initcall_sync(__cacheinfo_ready);
 -- 
 2.43.0
 
