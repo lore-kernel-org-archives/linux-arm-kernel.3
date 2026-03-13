@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79FA105F7A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C81105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pd4dJh0IITSAEGp2NDoLdgntbPLTaNGVP+DG53wVqf8=; b=E4oLygPvQXR8SFN+czuqI3V4ty
-	DNFkDIeTWgNDXEq+m4ZbB5VxDyoyYIOVL2F0/q7L42tRdil4EsaixbOsw77PC23+Td+RqSObEYdOC
-	TMHewxFsa1Dc3JPCLFv5V0EMPOXOdftfGqCTSBiKfDIthWoI1UACQAAS5PAvXTAuvACdtULtWfOpV
-	qkNVpJwBVyXi58nn+KlIj+90uSAsJB+qz/p+ETHUmzsOBZjx6XDnfWwqlwlJ+oRKuSakV+3a75sfD
-	w/Kok4SQKZ0ZR5F7MUeHIQGavAbTO4JMS4VyIG6PYqITRomU7XMEW7KSOqc86D+4B06eoX/7Hcyze
-	bj9FcOrA==;
+	bh=wWlBJ6OXQDPh+vuwxwfoFkg3YaNm2MzHk06qnHUwL0c=; b=JGK3rgMtjtnfEgAcRBp2qDi6V9
+	VGsa72c+bXWIV5OCWGZDS7V1Ppu4dSmKNwwJo/w23Ps1cJQPVUqQ54h1vVdncgoAAXJhSNrXBmqLV
+	jfY+4Y4ZYPYPDB9E5qzy63t8ACQ7oICts9rhXq3X28JlVH+UwHa2JgPDLlpo+dMJjQLL/EP5o9mt5
+	tBXbQZyadlaiaMMN2musYBRMNfVcnd5X70yRQnhQRPKAS3/aCwftPLOvide1vfbAwFl89+ONHw5F5
+	gMMSKIVWvb/iYNGWUGkGyNbfob+y48D46Gi1BKHpg/Ly6y1KJ7Fw/zu8MkKWusgakSO0ZeI7qvnPH
+	+sARWirA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13p1-00000000Saa-1wy2;
-	Fri, 13 Mar 2026 14:49:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13ox-00000000SUP-0oqn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 14:48:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pd4dJh0IITSAEGp2NDoLdgntbPLTaNGVP+DG53wVqf8=; b=dC0khHlchxlcRkCH2PwK2msmzp
-	GcTJvfKg8mbM1PDyC+cuDU4mY6p3H8xsWv/1DYQmFLjfpxDve6xkopbLI4NButG67qrjYHCIRKT1Y
-	bam+jDxdgVgfUYR7mb7WDSk2Ra7etCV0Cwzfg8P+ujjPwXjlRwimykpMDaEZ/ekOcBAQTxuw9LBmd
-	bDhH7fi3ZcpXLn8HGhGtc9pZ4CvbIE/eQb+PVa0ix6kx5GwtY94LOP7N6t+7Z7zrvUCSzfZR6Cpul
-	VDHV/G4EHyXDSNT8j7CbVDBeiyKO6FYwiqssY20s/Y2Bqhpkt8MDTgFUResfU1Htrvcy+XpNWUKQS
-	XLJToHcA==;
+	id 1w13p6-00000000Sgt-25uV;
+	Fri, 13 Mar 2026 14:49:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13om-00000003aBc-1yQQ
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13oy-00000000SWf-0JUX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:48:50 +0000
+	Fri, 13 Mar 2026 14:49:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D043824C0;
-	Fri, 13 Mar 2026 07:48:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 727882576;
+	Fri, 13 Mar 2026 07:48:53 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0DDC83F7BD;
-	Fri, 13 Mar 2026 07:48:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A30EA3F7BD;
+	Fri, 13 Mar 2026 07:48:55 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -85,17 +70,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 32/40] arm_mpam: resctrl: Add empty definitions for assorted resctrl functions
-Date: Fri, 13 Mar 2026 14:46:09 +0000
-Message-ID: <20260313144617.3420416-33-ben.horgan@arm.com>
+Subject: [PATCH v6 35/40] arm_mpam: Add quirk framework
+Date: Fri, 13 Mar 2026 14:46:12 +0000
+Message-ID: <20260313144617.3420416-36-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_144848_891181_B292554C 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260313_074900_241336_86BDC35C 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,146 +95,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+From: Shanker Donthineni <sdonthineni@nvidia.com>
 
-A few resctrl features and hooks need to be provided, but aren't needed or
-supported on MPAM platforms.
+The MPAM specification includes the MPAMF_IIDR, which serves to uniquely
+identify the MSC implementation through a combination of implementer
+details, product ID, variant, and revision. Certain hardware issues/errata
+can be resolved using software workarounds.
 
-resctrl has individual hooks to separately enable and disable the
-closid/partid and rmid/pmg context switching code. For MPAM this is all the
-same thing, as the value in struct task_struct is used to cache the value
-that should be written to hardware. arm64's context switching code is
-enabled once MPAM is usable, but doesn't touch the hardware unless the
-value has changed.
-
-For now event configuration is not supported, and can be turned off by
-returning 'false' from resctrl_arch_is_evt_configurable().
-
-The new io_alloc feature is not supported either, always return false from
-the enable helper to indicate and fail the enable.
-
-Add this, and empty definitions for the other hooks.
+Introduce a quirk framework to allow workarounds to be enabled based on the
+MPAMF_IIDR value.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+Co-developed-by: James Morse <james.morse@arm.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
+Changes by James:
+Stash the IIDR so this doesn't need an IPI, enable quirks only
+once, move the description to the callback so it can be pr_once()d, add an
+enum of workarounds for popular errata. Add macros for making lists of
+product/revision/vendor half readable
+
+Changes since rfc:
+remove trailing commas in last element of enums
+Make mpam_enable_quirks() in charge of mpam_set_quirk() even if there
+is an enable.
+
 Changes since v3:
-Add resctrl_arch_pre_mount() {}
-resctrl_arch_reset_rmid_all() signature update
-add stubs for abmc
-keep empty definitions together
-
-Changes since v5:
-Add resctrl_arch_reset_rmid() since mbwu will always use abmc
+Brackets in macro
 ---
- drivers/resctrl/mpam_resctrl.c | 65 ++++++++++++++++++++++++++++++++++
- include/linux/arm_mpam.h       |  9 +++++
- 2 files changed, 74 insertions(+)
+ drivers/resctrl/mpam_devices.c  | 32 ++++++++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h | 25 +++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 3979808f7253..0db147271b0c 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -91,6 +91,71 @@ bool resctrl_arch_mon_capable(void)
- 	return l3->mon_capable;
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 37b31a1cf376..e66631f3f732 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -630,6 +630,30 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+ 	return ERR_PTR(-ENOENT);
  }
  
-+bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)
++static const struct mpam_quirk mpam_quirks[] = {
++	{ NULL } /* Sentinel */
++};
++
++static void mpam_enable_quirks(struct mpam_msc *msc)
 +{
-+	return false;
++	const struct mpam_quirk *quirk;
++
++	for (quirk = &mpam_quirks[0]; quirk->iidr_mask; quirk++) {
++		int err = 0;
++
++		if (quirk->iidr != (msc->iidr & quirk->iidr_mask))
++			continue;
++
++		if (quirk->init)
++			err = quirk->init(msc, quirk);
++
++		if (err)
++			continue;
++
++		mpam_set_quirk(quirk->workaround, msc);
++	}
 +}
 +
-+void resctrl_arch_mon_event_config_read(void *info)
-+{
-+}
-+
-+void resctrl_arch_mon_event_config_write(void *info)
-+{
-+}
-+
-+void resctrl_arch_reset_rmid_all(struct rdt_resource *r, struct rdt_l3_mon_domain *d)
-+{
-+}
-+
-+void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 closid, u32 rmid, enum resctrl_event_id eventid)
-+{
-+}
-+
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 closid, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
-+{
-+}
-+
-+void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
-+			      u32 cntr_id, bool assign)
-+{
-+}
-+
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			   u32 unused, u32 rmid, int cntr_id,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
-+{
-+	return false;
-+}
-+
-+int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
-+{
-+	return -EINVAL;
-+}
-+
-+int resctrl_arch_io_alloc_enable(struct rdt_resource *r, bool enable)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+bool resctrl_arch_get_io_alloc_enabled(struct rdt_resource *r)
-+{
-+	return false;
-+}
-+
-+void resctrl_arch_pre_mount(void)
-+{
-+}
-+
- bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
- {
- 	return mpam_resctrl_controls[rid].cdp_enabled;
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index 86d5e326d2bd..f92a36187a52 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -67,6 +67,15 @@ struct rdt_resource;
- void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
- void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
+ /*
+  * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
+  * of NRDY, software can use this bit for any purpose" - so hardware might not
+@@ -864,8 +888,11 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 	/* Grab an IDR value to find out how many RIS there are */
+ 	mutex_lock(&msc->part_sel_lock);
+ 	idr = mpam_msc_read_idr(msc);
++	msc->iidr = mpam_read_partsel_reg(msc, IIDR);
+ 	mutex_unlock(&msc->part_sel_lock);
  
-+/*
-+ * The CPU configuration for MPAM is cheap to write, and is only written if it
-+ * has changed. No need for fine grained enables.
-+ */
-+static inline void resctrl_arch_enable_mon(void) { }
-+static inline void resctrl_arch_disable_mon(void) { }
-+static inline void resctrl_arch_enable_alloc(void) { }
-+static inline void resctrl_arch_disable_alloc(void) { }
++	mpam_enable_quirks(msc);
 +
- static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
- {
- 	return val;
+ 	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+ 
+ 	/* Use these values so partid/pmg always starts with a valid value */
+@@ -1972,6 +1999,7 @@ static bool mpam_has_cmax_wd_feature(struct mpam_props *props)
+  * resulting safe value must be compatible with both. When merging values in
+  * the tree, all the aliasing resources must be handled first.
+  * On mismatch, parent is modified.
++ * Quirks on an MSC will apply to all MSC in that class.
+  */
+ static void __props_mismatch(struct mpam_props *parent,
+ 			     struct mpam_props *child, bool alias)
+@@ -2091,6 +2119,7 @@ static void __props_mismatch(struct mpam_props *parent,
+  * nobble the class feature, as we can't configure all the resources.
+  * e.g. The L3 cache is composed of two resources with 13 and 17 portion
+  * bitmaps respectively.
++ * Quirks on an MSC will apply to all MSC in that class.
+  */
+ static void
+ __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
+@@ -2104,6 +2133,9 @@ __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
+ 	dev_dbg(dev, "Merging features for class:0x%lx &= vmsc:0x%lx\n",
+ 		(long)cprops->features, (long)vprops->features);
+ 
++	/* Merge quirks */
++	class->quirks |= vmsc->msc->quirks;
++
+ 	/* Take the safe value for any common features */
+ 	__props_mismatch(cprops, vprops, false);
+ }
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index ce9e0e0483fb..e28a168419d4 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -85,6 +85,8 @@ struct mpam_msc {
+ 	u8			pmg_max;
+ 	unsigned long		ris_idxs;
+ 	u32			ris_max;
++	u32			iidr;
++	u16			quirks;
+ 
+ 	/*
+ 	 * error_irq_lock is taken when registering/unregistering the error
+@@ -216,6 +218,28 @@ struct mpam_props {
+ #define mpam_set_feature(_feat, x)	__set_bit(_feat, (x)->features)
+ #define mpam_clear_feature(_feat, x)	__clear_bit(_feat, (x)->features)
+ 
++/* Workaround bits for msc->quirks */
++enum mpam_device_quirks {
++	MPAM_QUIRK_LAST
++};
++
++#define mpam_has_quirk(_quirk, x)	((1 << (_quirk) & (x)->quirks))
++#define mpam_set_quirk(_quirk, x)	((x)->quirks |= (1 << (_quirk)))
++
++struct mpam_quirk {
++	int (*init)(struct mpam_msc *msc, const struct mpam_quirk *quirk);
++
++	u32 iidr;
++	u32 iidr_mask;
++
++	enum mpam_device_quirks workaround;
++};
++
++#define MPAM_IIDR_MATCH_ONE	(FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0xfff) | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0xf)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0xf)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0xfff))
++
+ /* The values for MSMON_CFG_MBWU_FLT.RWBW */
+ enum mon_filter_options {
+ 	COUNT_BOTH	= 0,
+@@ -259,6 +283,7 @@ struct mpam_class {
+ 
+ 	struct mpam_props	props;
+ 	u32			nrdy_usec;
++	u16			quirks;
+ 	u8			level;
+ 	enum mpam_class_types	type;
+ 
 -- 
 2.43.0
 
