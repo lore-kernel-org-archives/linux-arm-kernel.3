@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C86105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C25105F7AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6sfx0BeCK4o2PZRm2XbT6L66llJyNvYMEO46iAjdFYg=; b=RkdAJ9J9609EpsfT7W3aFEmawk
-	PtfcTCObSnXf+wSCoBb0LOCmolj+weViGOeBtwsUZk+9O77qM5hd0Nu/pE7s0tlQA5CpIO9oik5BP
-	fNQNn2O82GYZBNUVlzFpb/iChDinmm+ZpY65gzLl3dplb0zYW5nKJwz97lVi3dRc6H2AqK/b+vTIq
-	EzPpPiYvY415TaBbMbkKGfL+TIGfB2O/ML0a6mpcbvK2CkDkOuwPuehoulgYDOpf1OWK4Eu1OB77o
-	AkQ/lW29O5aNBSrZdu9auEBtGI7pISloW8ALAHWHRjEm+KGO5u8Me1BbCJXX1V0YkAO1/7dTdpgaQ
-	1zqx+62g==;
+	bh=YRJb9RR02DBOi9W1Z7QclF/+fI6GYJBOW1avvCEMu7o=; b=LZvAW7gma0GhIM4UufoqkzENc/
+	C+DtbCtSaeAxPNTDTL4WW+Pxh8KEa9wFBi2/9++vRccZFqRbxZRXQYmjH1RRmMwRIENbjdGb8VEIM
+	RTfGou6zHAxYRR3HDZy1CU3efNZDNLc87ajKbF1OmgSVpTpvEvphG3bae7ABDj3hmky+W4xsNES2r
+	uV4NOLTXQja3ulhzjXjLD5sqFwUpPj7npzAxjm24Murd5CdMjbPmd+/EJ3RD8ePgMfZcJ6D5saXky
+	1SGAJVZuoa1xGrKRWRKi9IAreZJv1FJWombEOE6a8Jzj1tm3uv3DraCBO18RATJYkMlRST9BTzSG3
+	QIMORhfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nX-00000000QyL-26m1;
-	Fri, 13 Mar 2026 14:47:31 +0000
+	id 1w13nc-00000000R35-3ZjE;
+	Fri, 13 Mar 2026 14:47:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13nX-00000000Qxy-3snT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 14:47:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=YRJb9RR02DBOi9W1Z7QclF/+fI6GYJBOW1avvCEMu7o=; b=kcmM8TOSbHr6ATHdGc7BOCOAGJ
+	jNNaMQoRMcGfwARyOSLXW2atVCwhxmOQkWBtKzMvt+8Z+oSA78NhRnZsSROPEs/lZsU6CY+V/exmg
+	RDqp8n3M+ivFml5TWBKJRjid3N114g55JMwQG3Gn0Xi5WrVR8Vfn3Antek7TdipU+ncT8m+v78+yN
+	7vfN61c7NGrG0rGGIC7WV4WtHZOGeI1zP8LEHFYirFcxgEgJQ+9RiGwXsCosLpxdFO2w/odeDbyKT
+	x2tOJZQPpXLOcFsA384orPJ8hl/8FrdRMeFDSFgrB8SdLgOWhSUzTt6db99a3jfiSgNoVk1cQHq6U
+	PNrIYZsQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nU-00000000QvA-0FaP
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13nP-00000003ZoL-2wq7
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 13 Mar 2026 14:47:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9C141E7D;
-	Fri, 13 Mar 2026 07:47:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88F531CC4;
+	Fri, 13 Mar 2026 07:47:16 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EAE403F7BD;
-	Fri, 13 Mar 2026 07:47:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FED73F7BD;
+	Fri, 13 Mar 2026 07:47:18 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -69,18 +84,19 @@ Cc: amitsinght@marvell.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 13/40] KVM: arm64: Force guest EL1 to use user-space's partid configuration
-Date: Fri, 13 Mar 2026 14:45:50 +0000
-Message-ID: <20260313144617.3420416-14-ben.horgan@arm.com>
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Dave Martin <Dave.Martin@arm.com>
+Subject: [PATCH v6 12/40] arm64: mpam: Add helpers to change a task or cpu's MPAM PARTID/PMG values
+Date: Fri, 13 Mar 2026 14:45:49 +0000
+Message-ID: <20260313144617.3420416-13-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074728_223665_1519E52D 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260313_144727_550124_2F58FF80 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +113,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-While we trap the guest's attempts to read/write the MPAM control
-registers, the hardware continues to use them. Guest-EL0 uses KVM's
-user-space's configuration, as the value is left in the register, and
-guest-EL1 uses either the host kernel's configuration, or in the case of
-VHE, the UNKNOWN reset value of MPAM1_EL1.
+Care must be taken when modifying the PARTID and PMG of a task in any
+per-task structure as writing these values may race with the task being
+scheduled in, and reading the modified values.
 
-We want to force the guest-EL1 to use KVM's user-space's MPAM
-configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
-programmed the same and on VHE copy MPAM0_EL1 into the guest's
-MPAM1_EL1. There is no need to restore as this is out of context once TGE
-is set.
+Add helpers to set the task properties, and the CPU default value.  These
+use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
+avoid causing torn values.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Cc: Dave Martin <Dave.Martin@arm.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-Acked-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
 Changes since rfc:
-Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
-Defer EL2 handling until next patch
+Keep comment attached to mpam_get_regval()
+Add internal helper, __mpam_regval() (Jonathan)
 
-Changes since v2:
-Use mask (Oliver)
-
-Changes since v4:
-Explicitly set the mpam enable bit
+Changes since v3:
+Remove extra CONFIG_ARM64_MPAM guarding
+Extend CONFIG_ARM64_MPAM guarding
 ---
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/arm64/include/asm/mpam.h | 28 +++++++++++++++++++++++++++-
+ 1 file changed, 27 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-index b254d442e54e..be685b63e8cf 100644
---- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-+++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-@@ -183,6 +183,21 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
- }
- NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
+diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+index 6bccbfdccb87..05aa71200f61 100644
+--- a/arch/arm64/include/asm/mpam.h
++++ b/arch/arm64/include/asm/mpam.h
+@@ -4,6 +4,7 @@
+ #ifndef __ASM__MPAM_H
+ #define __ASM__MPAM_H
  
-+/*
-+ * The _EL0 value was written by the host's context switch and belongs to the
-+ * VMM. Copy this into the guest's _EL1 register.
-+ */
-+static inline void __mpam_guest_load(void)
++#include <linux/bitfield.h>
+ #include <linux/jump_label.h>
+ #include <linux/percpu.h>
+ #include <linux/sched.h>
+@@ -22,6 +23,23 @@ DECLARE_PER_CPU(u64, arm64_mpam_current);
+  */
+ extern u64 arm64_mpam_global_default;
+ 
++#ifdef CONFIG_ARM64_MPAM
++static inline u64 __mpam_regval(u16 partid_d, u16 partid_i, u8 pmg_d, u8 pmg_i)
 +{
-+	u64 mask = MPAM0_EL1_PARTID_D | MPAM0_EL1_PARTID_I | MPAM0_EL1_PMG_D | MPAM0_EL1_PMG_I;
-+
-+	if (system_supports_mpam()) {
-+		u64 val = (read_sysreg_s(SYS_MPAM0_EL1) & mask) | MPAM1_EL1_MPAMEN;
-+
-+		write_sysreg_el1(val, SYS_MPAM1);
-+	}
++	return FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d) |
++	       FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i) |
++	       FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d) |
++	       FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
 +}
 +
- /**
-  * __vcpu_load_switch_sysregs - Load guest system registers to the physical CPU
-  *
-@@ -222,6 +237,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
- 	 */
- 	__sysreg32_restore_state(vcpu);
- 	__sysreg_restore_user_state(guest_ctxt);
-+	__mpam_guest_load();
++static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16 partid_i,
++					 u8 pmg_d, u8 pmg_i)
++{
++	u64 default_val = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
++
++	WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
++}
++
+ /*
+  * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+  * which may race with reads in mpam_thread_switch(). Ensure only one of the old
+@@ -30,12 +48,20 @@ extern u64 arm64_mpam_global_default;
+  * value to be stored with cache allocations, despite being considered 'free' by
+  * resctrl.
+  */
+-#ifdef CONFIG_ARM64_MPAM
+ static inline u64 mpam_get_regval(struct task_struct *tsk)
+ {
+ 	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+ }
  
- 	if (unlikely(is_hyp_ctxt(vcpu))) {
- 		__sysreg_restore_vel2_state(vcpu);
++static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
++					    u16 partid_d, u16 partid_i,
++					    u8 pmg_d, u8 pmg_i)
++{
++	u64 regval = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
++
++	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
++}
++
+ static inline void mpam_thread_switch(struct task_struct *tsk)
+ {
+ 	u64 oldregval;
 -- 
 2.43.0
 
