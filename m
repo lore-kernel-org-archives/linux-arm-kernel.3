@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE22105F79C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F55105F79C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjnQd5X78Z17qUNY/CjSBfwHi61igTR49wOu82EKJas=; b=U6iHv3BmOvGFntn47ptVO5ILSr
-	Yqqs9cUsquZlNq3lpES5VGiarTRgAWdKY20zxcTtuuYcGYpClfXGZslpwRSCTOSEgaodS+OX1Oipr
-	SZCoSM+KrmT4lRPuJ/AU7nNZixNA5hYC0aCD/hNuUxbdbcthAtFfWfNc1IRAPeDTDsfLlmTLMjun5
-	/mllYW8tGSVOr1+/REiTfWHA3f14qZ7YMj2jFHkz4slD/5gTUCM+ddIMKFLg2OS0ephJsKdMaywRI
-	UQ9ZPKaXxZqyAxXZXBuy/2Uwz6bzakuM8ba3XAB+2eMu2pPgN6ojwBsV0QukOpBsp41PWJYpWKdGi
-	NBThtQSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6UUBpcPvPMAWRYqT1JRM1Mjfzyj2T0c0/GqtAU3kekg=; b=xHCF8RcLrqHgmuR3aEY2UDuTOl
+	Usks1qma38KHMjC8g/TZA44PauZbWRyuDNvUv1wsqqCmmAfswXOKhgKd/BYzUj4EWjm1a3GoToutU
+	brk1ngydt5UIaXwLFO5orEU+J2OG6fN0BrKPxItNQ5IihjNV55WCzlCEyBmfOuyYNxR42+pefzXw/
+	7H47N1GB3nWy6iX52thA+s0e/LQ54KFY2qo7naNIjEEqp2mq0/wW2Jm8OqHtm0wd3EHfM4gL4fTYd
+	mep+Goon91shftE8+NrUyw1P4MA02ft0R+AknQDyQRoTR9azckWcWglBJYFp95sMi3Zj08Y9FhLpq
+	J7fHPifA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10mq-000000002M9-3IFL;
-	Fri, 13 Mar 2026 11:34:36 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1w10nf-000000002Y8-0lky;
+	Fri, 13 Mar 2026 11:35:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10mj-000000002Ib-2Z5M
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:34:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=VjnQd5X78Z17qUNY/CjSBfwHi61igTR49wOu82EKJas=; b=C24+MHx9Mgb4ZQAmDbZ3j0qR1J
-	lpDhTw+lompiKtfEAz3xllYrJ0Rad4/aNAdT2DGJpYmoo4o2Y8uYNCQsBpxG6xnVoGX4pEgFjoxjn
-	NVFyhjgDyPc4uKHjJkt0PtmwCU2d+32E9fMBJhAmTqrFGSVkpGs8ByTQjA9R5CIZVtCZ6UGJteIIh
-	cNJwqsQ6xLovSOI6p+ibqSnVd/4fJAlzJ0DjhIt+eN9cuxh8+++/i8ZDXbvUz9cOglCsP+cBhNEj9
-	1Xt/ANSkGG8ivu5BgGpJVPw/zd4T3z6cwVB0JslpykGiq5vzfnBdp5yjFg+vb8GTKGXR0wIMfq4Lo
-	/I2kdujw==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w10mh-00070m-2p;
-	Fri, 13 Mar 2026 12:34:27 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w10mh-0004VU-1H;
-	Fri, 13 Mar 2026 12:34:27 +0100
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	imx@lists.linux.dev,
+	id 1w10nY-000000002X0-05aF;
+	Fri, 13 Mar 2026 11:35:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 185B86183F;
+	Fri, 13 Mar 2026 11:35:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E3B0C19421;
+	Fri, 13 Mar 2026 11:35:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773401718;
+	bh=6UUBpcPvPMAWRYqT1JRM1Mjfzyj2T0c0/GqtAU3kekg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o6JNIl1MfZo9S0LPzeyR1gEJNG3JxCj/7FNZtIxtHQ/c0Pln/241h3TeIM0rcKeEs
+	 Qr4JPB8imfy4+s02TXe0/iMzV3geD63eEQXQUEfugyZuoYSU5SrKxc3ipDRV9Nxc71
+	 MDkaopq+JvPWDzU5AYb5qnTPPh0GVeaHBH7yuuKYMCxYAlngD9rqWw4yX5LpFLi8Yv
+	 +tPO9Xbdl4yY0vV2p7YvMfYCu9bUM0P8bAk66FkSbwmjMHD/EJZicJhxmSvyPFEr9M
+	 qbwGNS+rcKCnBwOwQPru4ZZT50YABI/4tYzzwCNCV7uuFuA0aMvyytt7/M7RyFgCtS
+	 X0k8mFCwIO2vg==
+Date: Fri, 13 Mar 2026 12:35:16 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH 3/3] arm64: dts: freescale: tqma8mqnl-mba8mx: Add dual-channel LVDS overlay
-Date: Fri, 13 Mar 2026 12:34:20 +0100
-Message-ID: <20260313113422.1722787-3-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260313113422.1722787-1-alexander.stein@ew.tq-group.com>
-References: <20260313113422.1722787-1-alexander.stein@ew.tq-group.com>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: select QDMA block according
+ LAN/WAN configuration
+Message-ID: <abP2dLNIw6zqkxL4@lore-desk>
+References: <20260310-airoha-qdma-lan-wan-mode-v1-1-64ec74dea872@kernel.org>
+ <20260312172430.GA1267298@kernel.org>
+ <abMsvOMnnuTdoG-9@lore-desk>
+ <20260312172248.68742f98@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27939/Fri Mar 13 07:24:42 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_043429_647015_AF5F5A3F 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MeKNmnGIFj0GyFIk"
+Content-Disposition: inline
+In-Reply-To: <20260312172248.68742f98@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds an overlay for the supported LVDS display AUO G133HAN01.
-The same overlay as for TQMa8MxML can be applied.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
+--MeKNmnGIFj0GyFIk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index f1b54f1b0a23a..18fe5134ff407 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -216,8 +216,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mn-vhip4-evalboard-v1.dtb \
- 			  imx8mn-vhip4-evalboard-v2-overlay-ksz8794.dtb \
- 			  imx8mn-vhip4-evalboard-v2-overlay-ksz8794.dtbo
- 
-+imx8mn-tqma8mqnl-mba8mx-lvds-g133han01-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
- imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtbo
- imx8mn-tqma8mqnl-mba8mx-usbotg-dtbs += imx8mn-tqma8mqnl-mba8mx.dtb imx8mn-tqma8mqnl-mba8mx-usbotg.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-g133han01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mn-tqma8mqnl-mba8mx-usbotg.dtb
- 
--- 
-2.43.0
+> On Thu, 12 Mar 2026 22:14:36 +0100 Lorenzo Bianconi wrote:
+> > > Is this a bug fix?
+> > > If so, perhaps it is for net with a fixes tag. =20
+> >=20
+> > I guess we do not need to target net tree since airoha_eth driver curre=
+ntly
+> > supports just the LAN interface via the MT7530 DSA switch connected to =
+GDM1
+> > and there are no WAN interfaces officially supported (PCS/external phy =
+is not
+> > merged mainline yet, it is only available in OpenWrt).
+> >=20
+> > >=20
+> > > And at any rate, could you add some description of the before and aft=
+er
+> > > behaviour? =20
+> >=20
+> > Theoretically, before this patch, GDM ports were equally distributed be=
+tween
+> > QDMA0 and QDMA1 while this patch assigns LAN interfaces to QDMA0 and WAN
+> > interface to QDMA1. However, for the reason explained above, this chang=
+e is
+> > not currently visible to the user.
+>=20
+> Please update the commit message. And please try harder to explain=20
+> the patches, this happens a lot with your submissions..
 
+ack, fine. Sorry for not beeing very clear about this (and other
+patches), I will pay more attention in the future.
+Do you think we should target net-next or net for this patch?
+
+Regards,
+Lorenzo
+
+--MeKNmnGIFj0GyFIk
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabP2dAAKCRA6cBh0uS2t
+rE54AQC1mMaAyrYlZgokGGCJNLPOxAyImBcax4o0k8v1VJY9UwEA0dzu7dEQaV39
+KehzNqgq9qHcA+qpmY3Zu8uwmj+WzAc=
+=9Tm6
+-----END PGP SIGNATURE-----
+
+--MeKNmnGIFj0GyFIk--
 
