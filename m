@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05FE107BCE6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 23:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B284E107BCEA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 23:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=On0n+ZgwGExywHbKGNex5GexKXAAeVsLqdDE9AFDmxc=; b=Nv13xH2oSlD0uTBjHBMpSZZbHa
-	0QQeA3P4CRd/J6HBQ6kDD91fedQtol1nNlzU/ypCToKLk7MpnI1jKBDfxeW9Id+vTPGp/T3qCNu3z
-	RddXcUt2EvcDP+GCUZbvpc13f9xI81prCH1Hvcb4ct3gbMyjIeszFnjiYsCRoVRFHAr9OVirzi3n0
-	uy8P7KGMFyVFQJ4+/yn94eF97Ps12KW0lX1hHnB35XifI7nRBBZ6lt3PV26sF/N7tic4FmA7bjGrt
-	48gAD0QrRr+yFYSMRvjbx+5B3zHJ8RVb0b7D/ZbZWgeyg/tFhN1xz23b79Asf27+hGHrMUY2CVjwh
-	ykdcBS7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=888cROttyB4Mj3b/fjU2ay+60B251y1m25xcSu13rsg=; b=Flqwi2uSacNFIVLFbSLvGPCkP4
+	p1qCKcrsEPXGpxrn9hOuZEFEgETsGmHkObFqpgUnucGvzBasG35D7fV6MRYRITFa0O8f+WnQQVT5C
+	6+/qRRRrB87OcD/wp42KriCaAJvNLP4Az3Msvf/YWNP1xCVYM+JF+SoWURBCRs/hKmhQZ64fH1q+s
+	fXFmn0Sxnj7xbn7w7IOjszQ99lkdZLd/0mebhZAm4zTEHIw8TATsduXAU9KSiUU/5PoYzxhJoF7nN
+	09QHabXDRZ4DzFyaUnEg+EWcS2jNs9d3notiauFRdDf2K1Lc6V7tKiDF/551vdfThECUUxG5XaGrH
+	/bYfhlaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1BWM-00000001IXM-3Ppr;
-	Fri, 13 Mar 2026 23:02:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w1Bhw-00000001Itp-0MzZ;
+	Fri, 13 Mar 2026 23:14:16 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1BWJ-00000001IWS-1YEV
+	id 1w1Bht-00000001ItS-1oPp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 23:02:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773442932;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=On0n+ZgwGExywHbKGNex5GexKXAAeVsLqdDE9AFDmxc=;
-	b=h8oMGMoT9+Sto2F2hAfO9r1dh6Z5GERCc2Ru4rU/FkzzMvFyjWQzIylhWME4h0YbPRZElf
-	iADTsNr4woW4f/behhLb2nnMY3n0fryaeY/WjadMRHpzwn9sxN3vvPR1mVb47PYqc8pvuF
-	zEo11/pMnoexpghK9/5ikI72AubzVLo=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-614-KqpfImMLOfi3KmieCvJTeA-1; Fri,
- 13 Mar 2026 19:02:08 -0400
-X-MC-Unique: KqpfImMLOfi3KmieCvJTeA-1
-X-Mimecast-MFC-AGG-ID: KqpfImMLOfi3KmieCvJTeA_1773442927
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1058B1956095;
-	Fri, 13 Mar 2026 23:02:07 +0000 (UTC)
-Received: from [172.20.219.202] (unknown [10.30.44.44])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7D1681800361;
-	Fri, 13 Mar 2026 23:02:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc3,
- upstream-arm-next, d118f322)
-Date: Fri, 13 Mar 2026 23:02:05 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	Fri, 13 Mar 2026 23:14:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=888cROttyB4Mj3b/fjU2ay+60B251y1m25xcSu13rsg=; b=xXc7051f1MEEuQmjSkevTHfm/f
+	RVZsc7Fd5Ygud2adC6JbbtX3Gmvt5co0Ax3Y5gXAyQdtdCV9avbke7TyZ5nzj/rOnizztf1BZkKOe
+	OteMcqZE3GJC2GRj5jGTPbyGoN8HLOWvwtfziTMe8ZnCn7oIuYFIr781jB7sd3kj+qIzWIeobG8vW
+	ggrGLs77qR9CY4gcyPhv3qmtzowjlqJ5D4TPPjivUbOYGYDmFdV+a3RmfIsk5GQeb7S40aXnkbNPX
+	yrVGyWKdQEJYUm8Q8lhA1pLjo00eiAdN2HNX580Dha9HC7SaJGDsydNDvEH2+z37o8datC3XxZfy3
+	sBJkoPRA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54294)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w1BhZ-000000001bH-1R66;
+	Fri, 13 Mar 2026 23:13:53 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w1BhR-000000000Bt-4A74;
+	Fri, 13 Mar 2026 23:13:46 +0000
+Date: Fri, 13 Mar 2026 23:13:45 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "\\Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
+Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
+	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+	john.fastabend@gmail.com, rohan.g.thomas@altera.com,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me,
+	me@ziyao.cc, siyanteng@cqsoftware.com.cn,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	weishangjuan@eswincomputing.com, wens@kernel.org,
+	vladimir.oltean@nxp.com, lizhi2@eswincomputing.com,
+	boon.khai.ng@altera.com, maxime.chevallier@bootlin.com,
+	matthew.gerlach@altera.com, chenchuangyu@xiaomi.com,
+	yangtiezhu@loongson.cn, ovidiu.panait.rb@renesas.com,
+	chenhuacai@kernel.org, florian.fainelli@broadcom.com,
+	quic_abchauha@quicinc.com
+Subject: Re: [PATCH net-next v7 2/5] net: stmmac: Add DW25GMAC support in
+ stmmac core driver
+Message-ID: <abSaKe3d4fcBMqLm@shell.armlinux.org.uk>
+References: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
+ <20260313222206.778760-3-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <89370.126031319020801911@us-mta-614.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: EP1UDLjkUJFVrsAdiFRI2HNl-Pb8XGZ_1oMv9McNItc_1773442927
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313222206.778760-3-jitendra.vegiraju@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_160215_823563_CD52E615 
-X-CRM114-Status: UNSURE (   6.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_161413_474495_DF5499DA 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Mar 13, 2026 at 03:22:03PM -0700, \Jitendra Vegiraju wrote:
+> @@ -42,13 +42,18 @@
+>  #define DWXGMAC_CORE_2_20	0x22
+>  #define DWXLGMAC_CORE_2_00	0x20
+>  
+> +#define DW25GMAC_CORE_3_20	0x32
+> +#define DW25GMAC_CORE_4_00	0x40
+> +
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Do these live in the same versioning numberspace as DWXGMAC and
+DWXLGMAC?
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> +int dw25gmac_setup(struct stmmac_priv *priv)
+> +{
+> +	struct mac_device_info *mac = priv->hw;
+> +
+> +	dev_info(priv->device, "\tDW25GMAC\n");
+> +
+> +	priv->dev->priv_flags |= IFF_UNICAST_FLT;
+> +	mac->pcsr = priv->ioaddr;
+> +	mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+> +	mac->unicast_filter_entries = priv->plat->unicast_filter_entries;
+> +	mac->mcast_bits_log2 = 0;
+> +
+> +	if (mac->multicast_filter_bins)
+> +		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
 
-Kernel information:
-    Commit message: Merge branches 'for-next/misc' and 'for-next/tlbflush',=
- remote-tracking branch 'arm64/for-next/read-once' into for-next/core
+The above seems to be common amongst the other two setup functions.
+Maybe there should be a helper for this?
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2384491386
+> +
+> +	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
+> +			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
+> +			 MAC_10000FD | MAC_25000FD;
+> +	mac->link.duplex = 0;
+> +	mac->link.speed10 = XGMAC_CONFIG_SS_10_MII;
+> +	mac->link.speed100 = XGMAC_CONFIG_SS_100_MII;
+> +	mac->link.speed1000 = XGMAC_CONFIG_SS_1000_GMII;
+> +	mac->link.speed2500 = XGMAC_CONFIG_SS_2500_GMII;
+> +	mac->link.xgmii.speed2500 = XGMAC_CONFIG_SS_2500;
+> +	mac->link.xgmii.speed5000 = XGMAC_CONFIG_SS_5000;
+> +	mac->link.xgmii.speed10000 = XGMAC_CONFIG_SS_10000;
+> +	mac->link.xgmii.speed25000 = XGMAC_CONFIG_SS_25000;
+> +	mac->link.speed_mask = XGMAC_CONFIG_SS_MASK;
 
+Is there any point populating link.speed10 and link.speed100 ?
+You're telling phylink that 10/100M speeds aren't supported in
+link.caps, so these speeds won't ever be used.
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+> +
+> +	mac->mii.addr = XGMAC_MDIO_ADDR;
+> +	mac->mii.data = XGMAC_MDIO_DATA;
+> +	mac->mii.addr_mask = GENMASK(20, 16);
+> +	mac->mii.reg_mask = GENMASK(15, 0);
+> +	mac->mii.clk_csr_mask = GENMASK(21, 19);
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+This will be the third instance of this particular mii data setup.
+Please consider adding a function to do this setup.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Thanks.
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
