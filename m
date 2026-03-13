@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01B2106FD80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 05:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0CCF106FD7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 05:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tj1vQp/OZqFigt0p+7kevEE400SH3+d2YJ4SVBK5lwo=; b=XDMI8sPJJqTWTMW1Eh9Ny7peqb
-	66CWqE+7tyrdbf8GbFrMGmtC5l6NTuxmgXUuhsu+RASD2YqvPpQASXfj6QG4x3LBbChHsZhMkbKEL
-	gk+Gor3uPPg5J/Tv/syK5XiFjs6Xi6B3cWCj+9aC1elMiI9GLipyhWhowA5zQsEcdDRCebRQd3/PX
-	SEtWtjbAkhT9N+UqbKkiIVQBzD0CgcEhcndZ3oyROOP+5Frye9NgWAcRSKFX7u57f02SkOqXX2rCq
-	asOz8xujytduUJ4k8OqPEcyx7MAtqMa3Ktb0dr36MHhdCpZIkweIb4Ik+QvRY8g+Vi3tWr1F/mJjd
-	61tdZQ9g==;
+	bh=w2AZ7nJTxh85jyBMjQZ+6yTZ/5s2Z8wG6IvqnF83U6I=; b=RFJ/zMdjmGt0IkPdGC2jHoaARr
+	gLeGtBUbvWx7yMEadX21eZmPSnZXWA8AWEUoDZ47MYD1WZYaU0NJgRW/HN96p2EqSkh1aUk9lxcMc
+	MVVsphLG3EWjuFmaW+jkWJIUR8K8BmyzV5HK0EH8zUa7kYrHaMHQH9SemdCtiHe0kyWFCsT/ZNUIg
+	ldT+QCry9DvYaWbbze+f0j2t/CzjEwXFA23Z1aOkcvD9LLb2uHZ6ytoLdIL+GNeWCRlMRx08tki9G
+	DyvgeALN9TwobnXb/iwWJPrlwU/3kTRcOjOqfFj31zl1PRtvUtQMnqEvGaUu62Bz4QsNvyx2M3lDb
+	NtUBe1Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0v4I-0000000GeHw-2ttd;
+	id 1w0v4I-0000000GeHc-1ZRh;
 	Fri, 13 Mar 2026 05:28:14 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0v4G-0000000GeEs-1If9
+	id 1w0v4E-0000000GeEs-1XST
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 05:28:13 +0000
+	Fri, 13 Mar 2026 05:28:11 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 13 Mar
@@ -35,12 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Fri, 13 Mar 2026 13:27:57 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 13 Mar 2026 13:27:57 +0800
-Subject: [PATCH 2/2] mmc: sdhci-of-aspeed: Add ast2700 support
+Date: Fri, 13 Mar 2026 13:27:56 +0800
+Subject: [PATCH 1/2] dt-bindings: mmc: sdhci-of-aspeed : Add ast2700
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260313-sdhci-v1-2-91cea19c8a67@aspeedtech.com>
+Message-ID: <20260313-sdhci-v1-1-91cea19c8a67@aspeedtech.com>
 References: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
 In-Reply-To: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>, Ulf Hansson
@@ -53,16 +54,17 @@ CC: Andrew Jeffery <andrew@aj.id.au>, <linux-aspeed@lists.ozlabs.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773379677; l=1605;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773379677; l=1588;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=hRhcm7i6Ipu+U8ypFOSg4nwRS0+xKrmtHEwCMOzK03U=;
- b=+CWnn9LIycIPd3L9+5pOLuYnU8iouEreNTfMj0wiRQr+N0l2JHaHUTeKm+G/aSNdNmiUtEa/o
- T8y8ZEVTBEqD8KG2ovwz7ONlHR17cotJYowKSXpJxzY+ZQwvUj2CbSq
+ bh=q02tFnoGppa7W4iZi/yxC4p7ULpWPHKGK+xBBuI6DQI=;
+ b=tPuwiH/wlFeRK57OmtmPuPTeGLy5Gna1WX3SgFWWsijMl4zAe9YFqsG3IVSTnVJRi+UVewyzg
+ 4JPKEb8JmZPDM1xfahIUGMKwoFtm/bp1Ces22FDee1T4qdrpwWVR3Iz
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_222812_349910_45786E6A 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260312_222810_409132_FEC100F2 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the AST2700 SOC in the sd controller driver. AST2700 sd
-controller requires an reset line, so hook up the optional reset control
-and deassert it during probe.
+Add the "aspeed,ast2700-sd-controller" compatible. The ast2700 sdhci
+controller requires an reset, so make the "resets" property mandatory
+for this compatible to reflect the hardware requirement.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- drivers/mmc/host/sdhci-of-aspeed.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-of-aspeed.c
-index ca97b01996b1..91c36245e506 100644
---- a/drivers/mmc/host/sdhci-of-aspeed.c
-+++ b/drivers/mmc/host/sdhci-of-aspeed.c
-@@ -520,6 +520,7 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
- 
- {
- 	struct device_node *parent, *child;
-+	struct reset_control *reset;
- 	struct aspeed_sdc *sdc;
- 	int ret;
- 
-@@ -529,6 +530,15 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
- 
- 	spin_lock_init(&sdc->lock);
- 
-+	reset = reset_control_get_optional_exclusive(&pdev->dev, NULL);
-+	if (IS_ERR(reset))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(reset),
-+				     "unable to acquire reset\n");
-+	ret = reset_control_deassert(sdc->rst);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "reset deassert failed\n");
+diff --git a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
+index d24950ccea95..a2ff9a94db13 100644
+--- a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
+@@ -26,6 +26,7 @@ properties:
+       - aspeed,ast2400-sd-controller
+       - aspeed,ast2500-sd-controller
+       - aspeed,ast2600-sd-controller
++      - aspeed,ast2700-sd-controller
+   reg:
+     maxItems: 1
+     description: Common configuration registers
+@@ -37,6 +38,20 @@ properties:
+   clocks:
+     maxItems: 1
+     description: The SD/SDIO controller clock gate
++  resets:
++    maxItems: 1
++if:
++  properties:
++    compatible:
++      contains:
++        const: aspeed,ast2700-sd-controller
++then:
++  required:
++    - resets
 +
- 	sdc->clk = devm_clk_get(&pdev->dev, NULL);
- 	if (IS_ERR(sdc->clk))
- 		return PTR_ERR(sdc->clk);
-@@ -577,6 +587,7 @@ static const struct of_device_id aspeed_sdc_of_match[] = {
- 	{ .compatible = "aspeed,ast2400-sd-controller", },
- 	{ .compatible = "aspeed,ast2500-sd-controller", },
- 	{ .compatible = "aspeed,ast2600-sd-controller", },
-+	{ .compatible = "aspeed,ast2700-sd-controller", },
- 	{ }
- };
++else:
++  properties:
++    resets: false
  
+ patternProperties:
+   "^sdhci@[0-9a-f]+$":
+@@ -50,6 +65,7 @@ patternProperties:
+           - aspeed,ast2400-sdhci
+           - aspeed,ast2500-sdhci
+           - aspeed,ast2600-sdhci
++          - aspeed,ast2700-sdhci
+       reg:
+         maxItems: 1
+         description: The SDHCI registers
 
 -- 
 2.34.1
