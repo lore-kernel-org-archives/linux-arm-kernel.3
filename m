@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBEC105F797
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FCB105F797
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Treo8+ILHQ1M2ArKnaNpioch/szegt3Svu0aZTIh4xM=; b=OPezHpa8f8ViOcb2Q3OPc+2iHf
-	atzH2bfVrxf7fJrvCTES/jbIvjhlohSsng9rDrw+Kivc7jU5p937SYeGz0chU6KPPKHk3oJGvmlbL
-	FvnKXd7MthAcjGIlrt/Yrh98/EmeN26gcBtsLZV60+WZCUiEAQT+b8WkGZVZMT7CCjAaSIbSyQcn3
-	iF/die1JVeLrFZMKAwQqplRWMceouZ6tCvvAVKR+JueLoDj8ICgb4X/fxkhhdqahHI3XoDyXNbnHQ
-	j+ZiZHzom3FA21oiwPce+HdIVlinRbKQNf0u9TIk5AAn3NcEX1ydPcKHkOxqDDiJdORbLPL4MLTnb
-	o5BvMAOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F4uzVIqz7pq7OLZ2jBdjHr4kmFUvKLHY52M+cHA2QeM=; b=lSGfXjSFhUL5LfMyr9P3WHIKsW
+	qXc6oxrSn/tiCP+Q7srIApvYRMadlu2hCg5haC2lpLsovox0CDA65KMDi883CATxpGkFHDO+OoYcz
+	deTqCOlCOuA2mGv5SIXCCASRg9B92v8yHiuu83e0HpiHcsq5o+xx5p8041B3WBOSTGUPbnhpUUVNV
+	KXMBq71fkanwKIARJnDvrsDpsZuubpOpAWI5MvI0TKCL7gn/G9bMLT7X/qJaQytBo7sSfo+b7X4Kz
+	R40NRA7WE71iV6NvhxF8vZyEVvp6hAqGTt923Gcf7mtC75VAg/CLrALfo53tOf4gyXFq1x0HHMrg1
+	dpdtRs5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10Mr-0000000HZYI-36P8;
-	Fri, 13 Mar 2026 11:07:45 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1w10ND-0000000HZdN-2JNM;
+	Fri, 13 Mar 2026 11:08:07 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10Mp-0000000HZXx-0GJq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:07:44 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48535a0ef86so17031175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 04:07:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773400060; x=1774004860; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Treo8+ILHQ1M2ArKnaNpioch/szegt3Svu0aZTIh4xM=;
-        b=C9cq1bWLZppg9vEceGgnhqAOfWiTC0CeE772G/vVIp0JBVLCU3VeQTNRZYO4s1Y2R2
-         tZzWSiYea9hMWuBC+JDKlUKyg1LsnfoRyGjB2hJhOE3Ci31ZDGqiL+wYk9eXFo5wpW9i
-         VVsVccN3I1oIaUpGVO7mfUGyMZ0m0QfaES5142pySIm3fvGvFOGoby5VeWyPbuAXPG5S
-         J481e3TDbmlcmno2k5h/krPirqksRBuCiDak16/qgww+OL/8qPO3JbcCGrBexx7nzuFr
-         sb67D32aPmA3z2VGjFDZsjD4iF6DDBbFV1ZwjupZuDI1dsIOgHLnWGgivyn9Tbxs0gdB
-         Rgrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773400060; x=1774004860;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Treo8+ILHQ1M2ArKnaNpioch/szegt3Svu0aZTIh4xM=;
-        b=Lx+2f5XVsCJ3zFYA1So4/RAB151Z6+Zz+VI8ALpfyHJbTw106NlYHxgUPVICAr3dR4
-         U4p9Xt3k3+qbgUysPms2MxmPVEr2cyeFjOwHrmPA7MCM3LtNx2FHVizag24WwLBPsIZH
-         HMj4sQwnXA8jWouUxsntT/yZWYpL5IHleRWYy2l1wJJMvJX+qPvkIus2GIkhQcMJaChC
-         jjrkdmUw8a1mRWgWVt+yIX0rDi+MRsWLGSEowI/j+3rhtrj4rJwMD5AWJvPuUMNS7bg9
-         AKHNXACgJbp1CRZ+8WOAhbSJS2fFw1LLzOQJROiFQ/5iS7naR1Lzf6Ec6LHQivpebFkP
-         4JcA==
-X-Forwarded-Encrypted: i=1; AJvYcCXaarezV61nnGjJVqO77Y8luZH8ls6atFLqTBl5gdFJpoRBkFI5g5rJ4u5YZ5bTOLvDICSsy/VDk6DwOKfVNOUv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzBSilikASKKAOnoercC4C5smGCnSJ41m2kIEy7eKKdVE9eZXN
-	k5tKw4zpX2f6e7QJyyn/45TSSUp1Yv7BPFE0e/lwLkCiVsmh8gHkTuMMc50Fftds4w==
-X-Gm-Gg: ATEYQzxLnaOg/UXSOzVqUC7y2h1sLaJqEDhDzScLMwpwoRNV8D32qz2ULrkrhq+5fPe
-	s0aHDot9V5yF37tFuHcfHvsvakEl2X6EC/+KFHyeWBvLEGs5zQXouDU06vCwXDlJvrsp1pEjdXg
-	81gxn2LJgvPBm5FH/ebnl50wncc1KH60h9C8+2a2oWaFkj7qYqu6saxXBHQ0TIR3BsKYI0bMiDm
-	UvU9dye8EbaYlEGuLJcWM1YUHfkNGiwnLBNH+w5iu7+qEkkRXUsKXjZBpZMmvuiS64C1RV5LkUo
-	0bOeIRG9SocVuM3KnD+41Datbgh6jsX9YSH0yEfnQuRa1aCQ5YZ5IlPEQfxjSNfzFX2ebhyUZL4
-	Swol825lu1vna6Vf87l+Ja/WeJmG7xI1qg1C5LJz9Zr1QHjds/fLWc1HjDQL7vATSR4HfxPE2M+
-	LU/oXkz/hIpEItqH9Zf8l/4xccz+oGPE9p5dEXVit0p3jzyFKg8nFYgDxNsU7ThPX4dWs=
-X-Received: by 2002:a05:600c:a09:b0:483:9139:4c1d with SMTP id 5b1f17b1804b1-485566e1a4cmr47428785e9.14.1773400059656;
-        Fri, 13 Mar 2026 04:07:39 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48557c6ece3sm18109795e9.29.2026.03.13.04.07.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 04:07:39 -0700 (PDT)
-Date: Fri, 13 Mar 2026 11:07:35 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: avoid unused-variable warning
-Message-ID: <abPv9_8F38yEiAQ9@google.com>
-References: <20260313094925.3749287-1-arnd@kernel.org>
+	id 1w10NA-0000000HZbu-2NCc;
+	Fri, 13 Mar 2026 11:08:05 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773400079;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F4uzVIqz7pq7OLZ2jBdjHr4kmFUvKLHY52M+cHA2QeM=;
+	b=V+cY0BjRyCwwv+an7013A6hvA3GyXKTxVzI0c7mg6CUX4RHl0JdUtUuEibl7yaHJKANQrY
+	sfoNtKukyd5R0qYUnFCiFxmhMBVUE3qhkBh4TFl3MaFTV1RL2OfuYZ423tSWXHrbh2SiI7
+	HmHqIv7Jx07xOw2GrVC1AFAIcvl9ClA=
+From: Usama Arif <usama.arif@linux.dev>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: Usama Arif <usama.arif@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Clemens Ladisch <clemens@ladisch.de>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Bodo Stroesser <bostroesser@gmail.com>,
+	"Martin K . Petersen" <martin.petersen@oracle.com>,
+	David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Jann Horn <jannh@google.com>,
+	Pedro Falcato <pfalcato@suse.de>,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mtd@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-scsi@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-afs@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org,
+	Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH 05/15] fs: afs: correctly drop reference count on mapping failure
+Date: Fri, 13 Mar 2026 04:07:43 -0700
+Message-ID: <20260313110745.2573005-1-usama.arif@linux.dev>
+In-Reply-To: <4a5fa45119220b9d99ed72a36308aed01a30d2c1.1773346620.git.ljs@kernel.org>
+References: 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313094925.3749287-1-arnd@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_040743_169554_F4382CDC 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20260313_040804_904264_85DBB5D8 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +108,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 10:49:16AM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Thu, 12 Mar 2026 20:27:20 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
+
+> Commit 9d5403b1036c ("fs: convert most other generic_file_*mmap() users to
+> .mmap_prepare()") updated AFS to use the mmap_prepare callback in favour of
+> the deprecated mmap callback.
 > 
-> The 'cpu' variable is only used inside of an #ifdef block and causes
-> a warning if there is no user:
+> However, it did not account for the fact that mmap_prepare can fail to map
+> due to an out of memory error, and thus should not be incrementing a
+> reference count on mmap_prepare.
 > 
-> arch/arm64/kvm/hyp_trace.c: In function 'kvm_hyp_trace_init':
-> arch/arm64/kvm/hyp_trace.c:422:13: error: unused variable 'cpu' [-Werror=unused-variable]
->   422 |         int cpu;
->       |             ^~~
+> With the newly added vm_ops->mapped callback available, we can simply defer
+> this operation to that callback which is only invoked once the mapping is
+> successfully in place (but not yet visible to userspace as the mmap and VMA
+> write locks are held).
 > 
-> Change the #ifdef to an equivalent IS_ENABLED() check to avoid
-> the warning.
+> Therefore add afs_mapped() to implement this callback for AFS.
 > 
-> Fixes: b22888917fa4 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> In practice the mapping allocations are 'too small to fail' so this is
+> something that realistically should never happen in practice (or would do
+> so in a case where the process is about to die anyway), but we should still
+> handle this.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 > ---
->  arch/arm64/kvm/hyp_trace.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
+>  fs/afs/file.c | 20 ++++++++++++++++----
+>  1 file changed, 16 insertions(+), 4 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-> index c1e28f6581ab..8b7f2bf2fba8 100644
-> --- a/arch/arm64/kvm/hyp_trace.c
-> +++ b/arch/arm64/kvm/hyp_trace.c
-> @@ -424,17 +424,16 @@ int __init kvm_hyp_trace_init(void)
->  	if (is_kernel_in_hyp_mode())
->  		return 0;
+> diff --git a/fs/afs/file.c b/fs/afs/file.c
+> index f609366fd2ac..69ef86f5e274 100644
+> --- a/fs/afs/file.c
+> +++ b/fs/afs/file.c
+> @@ -28,6 +28,8 @@ static ssize_t afs_file_splice_read(struct file *in, loff_t *ppos,
+>  static void afs_vm_open(struct vm_area_struct *area);
+>  static void afs_vm_close(struct vm_area_struct *area);
+>  static vm_fault_t afs_vm_map_pages(struct vm_fault *vmf, pgoff_t start_pgoff, pgoff_t end_pgoff);
+> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
+> +		      const struct file *file, void **vm_private_data);
 >  
-> -#ifdef CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND
->  	for_each_possible_cpu(cpu) {
->  		const struct arch_timer_erratum_workaround *wa =
->  			per_cpu(timer_unstable_counter_workaround, cpu);
+>  const struct file_operations afs_file_operations = {
+>  	.open		= afs_open,
+> @@ -61,6 +63,7 @@ const struct address_space_operations afs_file_aops = {
+>  };
 >  
-> -		if (wa && wa->read_cntvct_el0) {
-> +		if (IS_ENABLED(CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND) &&
-> +		    wa && wa->read_cntvct_el0) {
->  			pr_warn("hyp trace can't handle CNTVCT workaround '%s'\n", wa->desc);
->  			return -EOPNOTSUPP;
->  		}
->  	}
-> -#endif
->  
->  	hyp_trace_init_events();
+>  static const struct vm_operations_struct afs_vm_ops = {
+> +	.mapped		= afs_mapped,
+>  	.open		= afs_vm_open,
+>  	.close		= afs_vm_close,
+>  	.fault		= filemap_fault,
+> @@ -500,13 +503,22 @@ static int afs_file_mmap_prepare(struct vm_area_desc *desc)
+>  	afs_add_open_mmap(vnode);
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Is the above afs_add_open_mmap an additional one, which could cause a reference
+leak? Does the above one need to be removed and only the one in afs_mapped()
+needs to be kept?
 
 >  
+>  	ret = generic_file_mmap_prepare(desc);
+> -	if (ret == 0)
+> -		desc->vm_ops = &afs_vm_ops;
+> -	else
+> -		afs_drop_open_mmap(vnode);
+> +	if (ret)
+> +		return ret;
+> +
+> +	desc->vm_ops = &afs_vm_ops;
+>  	return ret;
+>  }
+>  
+> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
+> +		      const struct file *file, void **vm_private_data)
+> +{
+> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
+> +
+> +	afs_add_open_mmap(vnode);
+> +	return 0;
+> +}
+> +
+>  static void afs_vm_open(struct vm_area_struct *vma)
+>  {
+>  	afs_add_open_mmap(AFS_FS_I(file_inode(vma->vm_file)));
 > -- 
-> 2.39.5
+> 2.53.0
+> 
 > 
 
