@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150F107BCD0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66841107BCD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZNYqBYQpWUnW/tLMvfUh2kjUY/YDWM5Q+UdXtOlsMw=; b=Es+pYnS8qVUtSeJkpj8ll/NTcK
-	GkZZk/jG5ccMmiaBpbNYYxUB7Q4evltNt+2D2/CuAZPeMS65KRyMhsTZ/1jbKUTYO4KSVcIxujeA3
-	cPp4aZqqfmUVdJj7oo736YqWc8ZhzJ/EJWMPmyUIehXEz43D0tZU7wODvzcOmwdHROHuOaOlHbdra
-	yxDFbG2/OaWNMZD0ju/uP4BSOk3TMJmlFBro2304WwI+a7uFWUp4CmjiM8bwkz7vcVANWaXkjcAwF
-	F08qjXnqJAbnlCfYItoN5mcDANDQOWyojkLY+bll0h5lg7oPdt/auUjATmDGTUUcYWsza63vcM62j
-	MpnHDLnA==;
+	bh=X4CpsdGFbMbI7tOvEswPlTmMEckGSY4N9ExaDjo0Rjc=; b=oKrR2wbEyuxGb1G8J2nNP/a+oc
+	4JUVwJ6iB+dKd+OzosYTBxHxy2NqVP3DcFIJuDcVAD3fQyx1gUibM+L1VxexBKF8j1DEmTKBk4791
+	odnKiTfl22zzEVrPX0QEBB1sc8Jl/4toCmCwerhrxtZ6S+B5R7pbjm+FugouakcngqimZq/wtVWA9
+	WNPnKOVA6KGoRzKn509o/PJljrK5ZLyO99KxctMYyAoYctlOrigYfV2bUE4xOoipp0c00BBdw7cuT
+	52CVpCnXpv7X4rzerPKXxP3rcllL6e7+qff1sKnj4YoXWtoiOGG/kMnazDfcpGVIR71XO91KPiI6J
+	Qe6P7jtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16H0-00000000lR0-3Bds;
-	Fri, 13 Mar 2026 17:26:06 +0000
+	id 1w16LK-00000000ldd-1rBY;
+	Fri, 13 Mar 2026 17:30:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16Gy-00000000lQZ-2zN9
+	id 1w16LH-00000000ldJ-2wU2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 17:26:05 +0000
+	Fri, 13 Mar 2026 17:30:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03FC043F3A;
-	Fri, 13 Mar 2026 17:26:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CCA1C19421;
-	Fri, 13 Mar 2026 17:26:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4395744504;
+	Fri, 13 Mar 2026 17:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F574C19421;
+	Fri, 13 Mar 2026 17:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773422763;
-	bh=zZNYqBYQpWUnW/tLMvfUh2kjUY/YDWM5Q+UdXtOlsMw=;
+	s=k20201202; t=1773423031;
+	bh=X4CpsdGFbMbI7tOvEswPlTmMEckGSY4N9ExaDjo0Rjc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iLAW11TQMPOsxVrmWlW/razPRVJT/XzIxRENzZzEZi08nlNqc5BwR6QDve3cyQc8s
-	 FKNe8qqR4s+fiCl3NZXfLPzVi7l4MNelmQRHbhhTEpf5QcvuTulzbKf7OvxGdz205J
-	 v2PsYjA4wnU3vYXWzxywydeL+qHIs+Lge3CnzdY0uAO3LmPUZ9ZCUXstGxN6HesHUd
-	 bxsYA6/2a3UtLWf1yp5g2p505N8B52jtZZHq8tTjOMwbub/+8KFA0lMEayGH6qeOCu
-	 hgG1wfvrI5kWtMX6y5G4S/EjW7KYmzlJ5XjKQeCnhGi9/yEWVM2HNzWnDGocHmTayR
-	 kP5EKJb/2YxeQ==
-Date: Fri, 13 Mar 2026 17:25:58 +0000
+	b=Dh2QU9kcBFEYWzQw5hrRi6oLIX4WEV049KPRhXIRoxlCZF6whuxnErZHNqBusMPte
+	 MrK3YT44m36jWAlsVswaBhbuANAtMsu+nJfgN9DF3fJSAZQ68HhzmHbZ9MtT9JuPEd
+	 bvsj9s7tHhToX+ZJtTImxMXsUcRmS3XeDiZYwJUDFzeI9zImww8GIih9ZZQFJD/S5q
+	 p6bLw3+sMf7LkYYCLWwcGf4tFRs+uj8wxstKHyktXa37QynpYfQlQhYfFGoAlfYkjc
+	 xUg7/ksMNIx9OC7GP67dv4dErGTEkVbiFhTzhwc1tMPrRQFszTCbrbPeb9m91wFNV9
+	 uEGcn3P46MW+A==
+Date: Fri, 13 Mar 2026 17:30:26 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, amitsd@google.com, gregkh@linuxfoundation.org,
-	kyletso@google.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: connector: add pd-disable dependency
-Message-ID: <20260313-cradling-rocker-7ea6db821916@spud>
-References: <20260312071609.388047-1-xu.yang_2@nxp.com>
- <20260312-facial-backshift-7e810ca5f996@spud>
- <eew6denbcj2orizphwwl34qhbwfnumas44vx3f5t722csugmp2@zbsmhpcqazao>
+To: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Subject: Re: [PATCH] dt-bindings: media: st,stm32-dcmi: add 'power-domains'
+ property
+Message-ID: <20260313-cheddar-wavy-c4c1deda70bc@spud>
+References: <20260312-stm32-dcmi-power-domain-v1-1-07cc47216a76@foss.st.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6USddsxsDHkuXizf"
+	protocol="application/pgp-signature"; boundary="sJ8wY+4DHeSlHDaa"
 Content-Disposition: inline
-In-Reply-To: <eew6denbcj2orizphwwl34qhbwfnumas44vx3f5t722csugmp2@zbsmhpcqazao>
+In-Reply-To: <20260312-stm32-dcmi-power-domain-v1-1-07cc47216a76@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_102604_767397_338DC107 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260313_103031_775606_195E8E1E 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +84,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---6USddsxsDHkuXizf
+--sJ8wY+4DHeSlHDaa
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 13, 2026 at 09:58:18AM +0800, Xu Yang wrote:
-> On Thu, Mar 12, 2026 at 05:47:32PM +0000, Conor Dooley wrote:
-> > On Thu, Mar 12, 2026 at 03:16:08PM +0800, Xu Yang wrote:
-> > > When Power Delivery is not supported, the source is unable to obtain =
-the
-> > > current capability from the Source PDO. As a result, typec-power-opmo=
-de
-> > > needs to be added to advertise such capability.
-> >=20
-> > What's the impact on any users of making this a dependency?
-> > I assume nothing negative, since this will only impact systems that
-> > don't work properly at present?
->=20
-> Yes, right. Most of the user satisfy this requirement,
-> expect imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso.
-> I suppose this user can't work well, so patch#2 is added.
-
-Okay.
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---6USddsxsDHkuXizf
+--sJ8wY+4DHeSlHDaa
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRIpgAKCRB4tDGHoIJi
-0hTeAP0V1CWIyzl7ZQX9Pnvcy+h+Cv/hX+KNv50caRHWkfZH8wEA+tCGP/dGbZRT
-gRj/q/9O7SsxXuj0iSXiNORmQNAeOgY=
-=jVap
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRJsgAKCRB4tDGHoIJi
+0kleAQDXGAulLqgZbTIoSAz103uNiuY79YYvml9BDUgEgzQb3QD8CyMhxSzinwOc
+XJ31tRkhVwhibWIMqMOXS8b3ULvMcA4=
+=Hh2Q
 -----END PGP SIGNATURE-----
 
---6USddsxsDHkuXizf--
+--sJ8wY+4DHeSlHDaa--
 
