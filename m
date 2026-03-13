@@ -4,146 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F19C105F786
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 10:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D29105F787
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 10:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=; b=Grr5TkT4PrxLlSppXq5oYMS9R6
-	ZHRcBs+jljUwM4mlT3Y2b/XBSOuiHwPj/n/gc0ofBdshd8Jrc+iYID6bqQsVs8sQ71HI3p7sUy32E
-	FyJB06eEO6inMx1VrEcmxNUBmSvpwTAVBT2hW3W7fLJ73eV9o4dnSTr660h/pLYaaMXxxNd1UjC9Y
-	Hmr/SS2rEuBN0866BzvXmErQedlkVxA/Bu5c3ncgFBlnOp4S/l11lL7HAUuSQCrNilYrPzTn588bC
-	Yx0dokvDYGC4Su/i/2QKUxfeWFxAfxzwKUxrKOEqh5xNWN4jp8WtPBGAkP0bHERlbCBOYG48/Qf5W
-	KstzvdEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A939J4iWGdtlVWArFdZqUZziIm4200CdJ3vSkDQy8t4=; b=aXLzLaXHiX0YQxONDOXErUVPIL
+	O6c+BLg5vAkZNZ+X98bkCguyq/WPauvnhFnlfgq0LYlmX5senxkzlLKf7C/BwKL4jDce22x4s+1oY
+	cOwXcwqsqDESTqbrQytX1fLrdIvs2O4T+UxpgSpmagru5W/3K76FklG2X1aq4RZFpE+mFO2on6Tft
+	unpTGIba5jrBB8qsaWy+IN3yGouhu7advUoRM95XhRuSLcgVRd66/swKkSUwCNweR5TNdJM41y/hc
+	BG9+HTGb6Slxhql6anuzYc1pl35R3vxwWZTaFzbQjyigt17tOis6eo3tJFNT6wcoxEWHpSDorC7NZ
+	0KShdzsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zKH-0000000HT7D-1RDR;
-	Fri, 13 Mar 2026 10:01:01 +0000
-Received: from mail-northeuropeazon11010048.outbound.protection.outlook.com ([52.101.84.48] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w0zLp-0000000HTJx-0Jj0;
+	Fri, 13 Mar 2026 10:02:37 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zKF-0000000HT5Y-00yv
+	id 1w0zLl-0000000HTJN-41gW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 10:01:00 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=UCN+lFqEVRkoWZxA5TpKRZXzRml4mvON4OhZYNLs+li27kroBjS88oxIgCp4PVYkGGET2Pe8hBY5SMx4X/O/8p4FYBVLTccHrIADdEZn4rlJ2H+8uTAHwP0RqTab+sbN15t1eOUCgly8A4zNVucIyYRizS/smk64iZms7j+ApJh6f4QnasUldYBzB6EkWWXMiHlYvGeOxtvxKrT7pZp2y0WKvJ7Fufv2yUxNK3A5wu15BrlKv+4hvRbX9NxHt1ZgPjSTD1Meeg4FB2jhqbuINxR3OryZDzyPAryt01z9p35c11qgnos3hohRODaEFfjJZX9saSnRN5YNE19z+kMCcg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
- b=V0uZBxhghZnEaD4REmbhwF5GAYRl+Qa9CQ1hNa8adjMqdjgd1/e3yYSCPbuqQkcF98so9GlaVQ/KuRy/5JmBfftkk4sncq5t+ITyMLiZSUjiiMcUnfuOk+AFCIgGcd3xrhH00mjhInyx+sDqQ96MpW9JLgiXYiA8lxjysxudmse1xuAqRcKDAWnwy0cJMm1ibhw5QBHdoeQwjGlwP81G2JNjgRcVedf2c2v3oCA8T+s0hvdZoGFWwE4b3kSzSCqWg1unD6R3ti1JlTgMJ5VGhAntTxAE7hfas5Rx2qWcmoCOs1Fqv+Pol9R0h13o/WKbqSSn4KhVEif6mafFQv8ctw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
- b=geTup90p242/h8ApWeaKeXfovmNAxKusV0InGk62Qavja3jCsXhWB7OWr0SMAYCDK3yuzRVvLqweZydbZznBprFyQ5Qx1Ti8FR42N4A+d2bPdwiFIpG8oBo2FYkl3U02VW7EPuCr+sHqE6E4HO5cO83DpfrAw+DfZjgSHj0nCrQ=
-Received: from DU7P251CA0026.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:551::30)
- by DU0PR08MB8229.eurprd08.prod.outlook.com (2603:10a6:10:3a7::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 10:00:54 +0000
-Received: from DU2PEPF00028D08.eurprd03.prod.outlook.com
- (2603:10a6:10:551:cafe::20) by DU7P251CA0026.outlook.office365.com
- (2603:10a6:10:551::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.16 via Frontend Transport; Fri,
- 13 Mar 2026 10:00:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D08.mail.protection.outlook.com (10.167.242.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
- via Frontend Transport; Fri, 13 Mar 2026 10:00:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j5G8s8rexyj2WLVfGOfmCR266WepfNfMpOU2roBx9+CcNj5t7QmiP+FAM/MWZTvfrpglv56FK4fYtVcUqPMLqkiQmRL9r5VzFW1VYRvNqpJHe9YkJOmvKWFD2jTc2IOpt/jVOgNXbaPRJH4cVWi4D4G4/E6Y9xWlI1xWtBxsELOUeCDQ78eHCYCeNUXdaLc4MdcQyquCV3iabPd7j5lnheVJaCQd9x+nO1czVgqtFPaxqTU3ugX/E3oZjIHHm34pYkT9v0xdxtqJ+7leVE00K78fvxqGy/zlgmpIUIrAaZtRwpU4V14B2E9acJu9mg1xT/bWw2KeeJw1hSsOKxVmXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
- b=Hd8EEnDNAx68UnsT3er9srlHhQ74omgbYrEy0AqHtjj+DRQ5K2yTnpV9y7Ze2MAQGCzH9SSsrdpJ3BYFjRZfB8BG1j8IU4zOBs5XA0VC/CykbAk8amBfW1UgrPE8foovuOWSMoWmcUSOHJV8BM5MPk5vlndbENMgM3iFS8E4H7IpKOtH6+y1X440RmT+hww5zBF+10JNCkyKJrEYRxu23U+0VWe4iHg0HF3KCY4TMg7gMtgG64iY3a/ykxVVIO9IF8K9hzBaAXX8BTjT/GciyRqBdhQgCMdRjAKREpr0PCRzw5PueCEx+4YtgcHrbQi1BsBBw1aIW/mVzkuQYy0dvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
- b=geTup90p242/h8ApWeaKeXfovmNAxKusV0InGk62Qavja3jCsXhWB7OWr0SMAYCDK3yuzRVvLqweZydbZznBprFyQ5Qx1Ti8FR42N4A+d2bPdwiFIpG8oBo2FYkl3U02VW7EPuCr+sHqE6E4HO5cO83DpfrAw+DfZjgSHj0nCrQ=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV1PR08MB8237.eurprd08.prod.outlook.com
- (2603:10a6:150:5d::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
- 2026 09:59:47 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%4]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 09:59:47 +0000
-Date: Fri, 13 Mar 2026 09:59:43 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
-	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
-	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH v15 7/8] KVM: arm64: use CAST instruction for swapping
- guest descriptor
-Message-ID: <abPgD8JkDAg8kgJK@e129823.arm.com>
-References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
- <20260227151705.1275328-8-yeoreum.yun@arm.com>
- <abPfZ27gbcBoAhEi@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abPfZ27gbcBoAhEi@arm.com>
-X-ClientProxiedBy: LO2P123CA0064.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1::28) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Fri, 13 Mar 2026 10:02:35 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 13 Mar
+ 2026 18:02:24 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 13 Mar 2026 18:02:24 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Date: Fri, 13 Mar 2026 18:02:16 +0800
+Subject: [PATCH] iio: adc: aspeed: Reserve battery sensing channel for
+ on-demand use
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB8237:EE_|DU2PEPF00028D08:EE_|DU0PR08MB8229:EE_
-X-MS-Office365-Filtering-Correlation-Id: c527f024-e1cb-47b2-be78-08de80e76a41
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: Qje4Wz00KhbWdnUgBxdUBeHUntxRhhH4IZXsd2KThFyrTnvZVmTdIA1d5dRyx6yLRnRpWZFJSdHdV306RAfvlalMCgiCIcUVVsQdxUA9/rSJVWH9V0qZWladLbnEYMO/M4N7g1w/XPB97iZKlfZxxTRijX2QsM+jYYVgRe4PRObmYa5xkGKc4iI6hqeN+UBxRYpzE/4acH3iWTq1cdBsMCePMSGl0dwl3RxXlMf7Ht9AZogBE8PeU7XcE6i/ndh8Acz3LvLnhm/cg5d8h6RakWT+lk86iGo7AP00lV8j1cozAG5yG9ZbFR1589QWQ2Hsj0CwTLIw497VYNxuO3XZC0YXNZAaNW+aO7DpjpCZ/feTaOh4gIUNkG48PdZq2BpK+dSgl5nwzh2Gd+o1mjqPc5zXK6RGcKEbC2WDiDvSA86cBXaWZCTf2VILMwKWTxhuNbE9S2HC8zDLWU/wP2G9v0goP9WsbhHE7Iq0ghL7PlR/L36rfrupqeutaSyA8xoSbzUJrg+8LoLEYrjB6Ovx3Zgh8yzaSz6UG2r0V3Qp2QZS6+Y5FL9LyAGz1YgNoiDYc/jauQ1Mjk3czrKiYrZJm2zcTB6QRiByRcVCHDiM5DjAsGP/5M0bPFQEpD6UgYImWTP3eHUNiku8tpDdQgUS23NSA7aQv2I8PIUBsHn6FGRG2exrUUkxYnetBmQeCftXjuHKTT0L/vOfdNG63jN6jJOpeDJGY8QzydyoG2Do/VqRig7bLPvuh64aCKgteH+w
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: CkYo7e/cbgtZd4/PXzpyuOZWWa5QcaNtu9SSJJt9reg8fGfcjKqjl3oLqlsVnm2MSw7IqJN9LRRsi3tRM0bERgv05M4tNpOrIqCFhtsun+pkVZlWiCP/ZLxkw7/Z+gkHmEqQ1wVxMa+RgSd9rvk6oIIodyuQTpC6X+ceAzGnU0sJRJgG44XZwuqfAb7zopQKtVrNUtecQID9e1ojLJpI8VtmBer5kXkFI/P/kNkQbJ0/UJFbtgu+938AUsDA6OuO9MXpQAVaP8dwjJrcU9FCciFxAaDtxES3BSIpd3hc5rGdRaynizbQ9e85cfx+gNKZrEL8dVgI4PnBwsWTz3r9Mg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8237
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D08.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: cd35e026-b06d-4ea5-3330-08de80e74221
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|7416014|36860700016|376014|35042699022|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: IZgDw0tVNMy0IYXUfw4MTzsyJIRrpEIWQ7sfV6CcGmTYJZRWCmxFUGlKhQctcnjMS5gUDQzVNQ3ea/4bSg9SwBi0O6cn2wkY++hmPtHPrMvyDf+Gv8n/ZMKBz7RMQvTysS9PIvUO4TMllRk4YaR0ahfeYkWRAUo8Qpl5sIz9ulS+wkuH4I4aPpjobexXlwtQopziErdPb4la+T1eM693mvGVP+g+5miSSc2McwCeLAxCgX2d5dJDmOGJwCZJPxWoaxaIsyePntoakZBoJyVpR8oDG7MphtwCMb0V2FJRW1pKTDFWIlwjFIcwulEGAxSigohNQpBoCazYehgcL7JhPe/1PgaR1ya5Trz/8o2lBChXX9FrnPZOjfIrHPgzYfWj03JWVtAif2nNKFDnAI8IBhIBh2BOi1kDIkDkrPkTx9qoY+16GdKjEvakcqL7IIbsa6IIPNFXOwpSmpcyiwZbBDJxU4G+augADRxJrVz5ds71PkqigDv/kz3dok0jwvKn7drWKUw+ksa1JfWlOOHP1XFofGO70qYhSrHYd5mS3YuDlnnYwaJtDsz0TCTeMxhoGaTRHtYHK7BSQMe58V16Ija46K4HNR3armUCwlPIJ7qgoMdkypPxFmjLOReslhQW6/ITv2Xx3JZWEZua3pnVhDySWxdciPiYCZtuCuUTRNEonuBh1L533XnMICoClOyFOglG3OoEKLGKKmsu2vTkF/jStxBkj83g8np/enYgM10vXViULzeNjZbVosM2AT7r1x8FzOOmzri0x5Ew3U+ngA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(7416014)(36860700016)(376014)(35042699022)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SNZaPnFZ038QchoHBY80dcROTRj4bTztFIs10cD0gOY1u1/+JAFaxZ4JxCIbXf7mETNxtmeFO8RXljdGIrn+qqK1aO1Y/yc/6hsX+cVG9Z89vOuaSCmNKGW4tqSjHgkCLHibJ81CNPT72NbPwvJDJBjCSNdzyVp8QWv8qJWzHgeapRWkIkjpzeBoywCnxktARhMuRFwp4iP3ZyjcOaJXWNI0otXqkA9JZwyuZTQKihG5YZnf6jgwilk+OUKKmKo0DxseTX/9fYk1/Ws/hHK7TJBj1mUG1BbE3kTrOfAO1N1iSdb10ZkUMIV6Df7tub70klo8EVap3WER9Shrd9XhDCV/fZFwL5GSfYLaWxO/f7n15mx5ZgONAhxZxOmgPdzwVgUN58hIIHQojm2SBelwdA4dxW636d4ilyV43eJ29O4sRvsRTeNqd1HuKDNBfO7I
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 10:00:54.0712
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c527f024-e1cb-47b2-be78-08de80e76a41
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D08.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8229
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260313-adc-v1-1-7a2edb4e5664@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIAKfgs2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDY0Nj3cSUZF0Tc8skg8QkA8ukxFQloMqCotS0zAqwKdGxtbUA9f8ANlU
+ AAAA=
+X-Change-ID: 20260313-adc-479b0ab09bae
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<morris_mao@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773396144; l=6286;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=EUOMjFM/rFziWkFH4VEIzdpUTOeldEDjn+7qcp7rxEU=;
+ b=Xdi0AH3kN54e+ecLGXWjtxc7b+xDzUWduaZgLFqjkrogFUSi/KvCrfGlJtR0QmP5YdPGmMu0T
+ t6RU8GR6a30DS4/VyYBoJNw5xiFAQstlILViGDMnPRhmy8HU4rJCFwR
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_030059_041937_988A8512 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260313_030234_003294_3C7E0592 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,40 +78,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+For controllers with battery sensing capability (AST2600/AST2700), the last
+channel uses a different circuit design optimized for battery voltage
+measurement. This channel should not be enabled by default along with other
+channels to avoid potential interference and power efficiency issues.
 
-> On Fri, Feb 27, 2026 at 03:17:04PM +0000, Yeoreum Yun wrote:
-> > +static int __lsui_swap_desc(u64 __user *ptep, u64 old, u64 new)
-> > +{
-> > +	u64 tmp = old;
-> > +	int ret = 0;
-> > +
-> > +	/*
-> > +	 * FEAT_LSUI is supported since Armv9.6, where FEAT_PAN is mandatory.
-> > +	 * However, this assumption may not always hold:
-> > +	 *
-> > +	 *   - Some CPUs advertise FEAT_LSUI but lack FEAT_PAN.
-> > +	 *   - Virtualisation or ID register overrides may expose invalid
-> > +	 *     feature combinations.
-> > +	 *
-> > +	 * Rather than disabling FEAT_LSUI when FEAT_PAN is absent, wrap LSUI
-> > +	 * instructions with uaccess_ttbr0_enable()/disable() when
-> > +	 * ARM64_SW_TTBR0_PAN is enabled.
-> > +	 */
-> > +	uaccess_ttbr0_enable();
-> > +
-> > +	asm volatile(__LSUI_PREAMBLE
->
-> I haven't tried, so just asking. Does the toolchain complain if it does
-> not support LSUI or is this path eliminated (due to
-> cpucap_is_possible()) before being handed over to gas? It's probably
-> fine but worth checking.
+Changes made:
+- Introduce aspeed_adc_get_active_channels() to return the number of
+  channels that should be enabled by default
+- For battery sensing capable controllers, exclude the last channel
+  from the default channel enable mask
+- Enable the battery sensing channel only when explicitly accessed
+  via read_raw()
+- Replace hardcoded channel numbers with ASPEED_ADC_BATTERY_CHANNEL macro
+- Add helper functions for cleaner channel management
 
-Yes I did with clang-19 and that's one of v14's modification:
-  - https://lore.kernel.org/all/20260225182708.3225211-1-yeoreum.yun@arm.com/
+This ensures optimal power efficiency for normal ADC operations while
+maintaining full functionality when battery sensing is needed.
 
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+ drivers/iio/adc/aspeed_adc.c | 88 ++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 76 insertions(+), 12 deletions(-)
 
---
-Sincerely,
-Yeoreum Yun
+diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
+index 4be44c524b4d..376a024341e3 100644
+--- a/drivers/iio/adc/aspeed_adc.c
++++ b/drivers/iio/adc/aspeed_adc.c
+@@ -73,6 +73,31 @@
+ #define ASPEED_ADC_CTRL_CHANNEL			GENMASK(31, 16)
+ #define ASPEED_ADC_CTRL_CHANNEL_ENABLE(ch)	FIELD_PREP(ASPEED_ADC_CTRL_CHANNEL, BIT(ch))
+ 
++/*
++ * Enable multiple consecutive channels starting from channel 0.
++ * This creates a bitmask for channels 0 to (num_channels - 1).
++ * For example: num_channels=3 creates mask 0x0007 (channels 0,1,2)
++ */
++static inline u32 aspeed_adc_channels_mask(unsigned int num_channels)
++{
++	if (num_channels == 0)
++		return 0;
++	if (num_channels >= 16)
++		return GENMASK(15, 0);
++	return GENMASK(num_channels - 1, 0);
++}
++
++/*
++ * Helper function to enable multiple channels in the control register
++ */
++static inline u32 aspeed_adc_enable_channels(unsigned int num_channels)
++{
++	return FIELD_PREP(ASPEED_ADC_CTRL_CHANNEL, aspeed_adc_channels_mask(num_channels));
++}
++
++/* Battery sensing is typically on the last channel */
++#define ASPEED_ADC_BATTERY_CHANNEL		7
++
+ #define ASPEED_ADC_INIT_POLLING_TIME	500
+ #define ASPEED_ADC_INIT_TIMEOUT		500000
+ /*
+@@ -121,6 +146,18 @@ struct aspeed_adc_data {
+ 	struct adc_gain		battery_mode_gain;
+ };
+ 
++static inline unsigned int aspeed_adc_get_active_channels(const struct aspeed_adc_data *data)
++{
++	/*
++	 * For controllers with battery sensing capability, the last channel
++	 * is reserved for battery sensing and should not be included in
++	 * normal channel operations.
++	 */
++	if (data->model_data->bat_sense_sup)
++		return data->model_data->num_channels - 1;
++	return data->model_data->num_channels;
++}
++
+ #define ASPEED_CHAN(_idx, _data_reg_addr) {			\
+ 	.type = IIO_VOLTAGE,					\
+ 	.indexed = 1,						\
+@@ -281,13 +318,35 @@ static int aspeed_adc_read_raw(struct iio_dev *indio_dev,
+ 			       int *val, int *val2, long mask)
+ {
+ 	struct aspeed_adc_data *data = iio_priv(indio_dev);
+-	u32 adc_engine_control_reg_val;
++	u32 adc_engine_control_reg_val = readl(data->base + ASPEED_REG_ENGINE_CONTROL);
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_RAW:
+-		if (data->battery_sensing && chan->channel == 7) {
+-			adc_engine_control_reg_val =
+-				readl(data->base + ASPEED_REG_ENGINE_CONTROL);
++		/*
++		 * For battery sensing capable controllers, we need to enable
++		 * the specific channel before reading. This is required because
++		 * the battery channel may not be enabled by default.
++		 */
++		if (data->model_data->bat_sense_sup &&
++		    chan->channel == ASPEED_ADC_BATTERY_CHANNEL) {
++			u32 ctrl_reg = adc_engine_control_reg_val & ~ASPEED_ADC_CTRL_CHANNEL;
++
++			ctrl_reg |= ASPEED_ADC_CTRL_CHANNEL_ENABLE(chan->channel);
++			writel(ctrl_reg, data->base + ASPEED_REG_ENGINE_CONTROL);
++			/*
++			 * After enable a new channel need to wait some time for adc stable
++			 * Experiment result is 1ms.
++			 */
++			mdelay(1);
++		}
++
++		/*
++		 * Battery sensing mode requires special configuration:
++		 * - Set channel 7 to battery mode
++		 * - Enable battery sensing functionality
++		 * - Apply voltage divider compensation
++		 */
++		if (data->battery_sensing && chan->channel == ASPEED_ADC_BATTERY_CHANNEL) {
+ 			writel(adc_engine_control_reg_val |
+ 				       FIELD_PREP(ASPEED_ADC_CH7_MODE,
+ 						  ASPEED_ADC_CH7_BAT) |
+@@ -301,15 +360,15 @@ static int aspeed_adc_read_raw(struct iio_dev *indio_dev,
+ 			*val = readw(data->base + chan->address);
+ 			*val = (*val * data->battery_mode_gain.mult) /
+ 			       data->battery_mode_gain.div;
+-			/* Restore control register value */
+-			writel(adc_engine_control_reg_val,
+-			       data->base + ASPEED_REG_ENGINE_CONTROL);
+ 		} else
+ 			*val = readw(data->base + chan->address);
++		/* Restore control register value */
++		writel(adc_engine_control_reg_val,
++				data->base + ASPEED_REG_ENGINE_CONTROL);
+ 		return IIO_VAL_INT;
+ 
+ 	case IIO_CHAN_INFO_OFFSET:
+-		if (data->battery_sensing && chan->channel == 7)
++		if (data->battery_sensing && chan->channel == ASPEED_ADC_BATTERY_CHANNEL)
+ 			*val = (data->cv * data->battery_mode_gain.mult) /
+ 			       data->battery_mode_gain.div;
+ 		else
+@@ -607,10 +666,15 @@ static int aspeed_adc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	aspeed_adc_compensation(indio_dev);
+-	/* Start all channels in normal mode. */
+-	adc_engine_control_reg_val =
+-		readl(data->base + ASPEED_REG_ENGINE_CONTROL);
+-	adc_engine_control_reg_val |= ASPEED_ADC_CTRL_CHANNEL;
++	adc_engine_control_reg_val = readl(data->base + ASPEED_REG_ENGINE_CONTROL);
++	/*
++	 * Enable channels for normal operation. For battery sensing capable
++	 * controllers, the battery channel is handled separately and is not
++	 * included in the normal channel enable mask.
++	 */
++	adc_engine_control_reg_val |=
++		aspeed_adc_enable_channels(aspeed_adc_get_active_channels(data));
++
+ 	writel(adc_engine_control_reg_val,
+ 	       data->base + ASPEED_REG_ENGINE_CONTROL);
+ 
+
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260313-adc-479b0ab09bae
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
