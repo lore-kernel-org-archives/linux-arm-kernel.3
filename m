@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99D7105F7AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C466105F7A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=; b=Cp9DLXeW0h+yIWUKj/hCQVs9oV
-	sIMPjSLgfd5KZp+HOmKrtjZLUXA3HLDRYn0buEavw1W3oFdTytd4cjCjlFPPKnMyoYmds5qCmrMRa
-	/FryCsC4LkEGENHcfoxg0qZg7apBl+O8IyhplGvmGeT1IVbqCLGtMDafv2GXYIXGklmIPMEve5tZr
-	qym5YQj9gyx4jFOl+13r1Umf+kmFSab/rVFH6KaeZqczP3+NYFWO/veisUdnNNKkP4sCNR8vHmsCB
-	xbeJanUiPi/HWE9slaofeQurEkcuP04Y6fAVcrTLA3N2n+mpVao8rmhl0ZdR3sETntXUka1Q20/ce
-	a3U6W3JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MeQo0CPJIJMydU8RkQeA+jd1TL+DTx6MtFkmSKkGNCs=; b=QG0KevcnKOmiOOrCPZRRDfLD6x
+	JdRpFKxzVltD+SywKalNUJv6dOh48zp2Bx0llFBu+7TsCeC7mlPADt0EEdY+joVGDep7eX53qhYf6
+	Tw+KL49S6Quga9JY4r2TaSqjRkdllIvMIjuzsjp7AFiZuHCfgWoAiJsZzGRlqxThN9v2C6tgdGl6K
+	y0/sjCJhvDkqQ2zv3z8eDYUUNP+zr6OSTKPzm/WtSnXwGHhsTF1MbmwL4lDWxyfJd7lR90wpoolQn
+	wFP4dq+cuX8X0Ou4/NsJ1Jv97YiL0DZYCXoRo6959cHNxnFS8a6sgZq5k22p7C80wLNQLcvX/u4tl
+	eLPB/+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12Zm-00000000FAu-11sT;
-	Fri, 13 Mar 2026 13:29:14 +0000
-Received: from mail-pf1-f169.google.com ([209.85.210.169])
+	id 1w12br-00000000FNQ-0fg2;
+	Fri, 13 Mar 2026 13:31:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12Zj-00000000FAQ-3Azp
+	id 1w12bp-00000000FNI-2Zfo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 13:29:12 +0000
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-829865a8471so2064324b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:29:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773408551; x=1774013351; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=;
-        b=nnNs1v1GqgeYTVVjYapQYRGytHSYBJGlq4n63zn/vysFViZGlZTLYHg1dkAeOE3BWI
-         NDZ2KVTE3XT1lPtgPHM4JKsAHBHhMYGij4Ht5CBYQZlEzK+ofwqzorBNCewS4I7yLt7L
-         4qb/hBD5SAtZS/SKaASXLiA9EIytlK36am23NOHKaQ+1+vrMZTP8XK+MsjQfuL1Tn0Ch
-         NKTj9naiolixjqMi2uzfERNd5wq/ojhy7Ry2nent78IZkfq18X5VkgJCPpSmoUiLTgsG
-         s2i8SWrHSdZTVwAnk2eBrDnEbuR/L8VuQtjzfMpPpF2LVZ/0RBJozZbxBCUakdWHa7eW
-         HzwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773408551; x=1774013351;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=;
-        b=fjxs0Ym8bJJylyuspvqast6YAGCVeSx8KzeqMMYGbteB92AnjS7KXb+qq/R4MtvB4K
-         gUy3JTl9t7UMfwAkgku2sIChsxKfxkMmHDbNhfzWEDF3RpeebvY9WYuG+zLJYP9+Mdvh
-         nzmOdryIgaKZXmXFwn/dwmRCjj9SHAxbBR/Uqk2hyV79Dy0PI0yzcbLH9emVNZ5iXd3L
-         b/OUzFathZxE18Q43WwZQN5yw73zFFWVIEnYxQfj2EQUEP2XTA+Lu9lGNbv0NhDgdvqy
-         p/USSwjeEyR+VdGQmqVX3kNE91YlhCBahFMSW6jm3HYVhz2R4W4j4a3eKo230x308rJT
-         nmJw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvq08VGGXJX0l10UPzaaxjzwqavXxg/+ku+T6IUkWqeTa6sQaAEZw268eh0JcnazbDI0LV6N8LYPUl0J3uyt8t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6IYNGJQG6yAa5V7WhLOU50fZt+YCdTtYD6zKoG0PeYX4ny1lT
-	y0qhD4q56OylvxvbvuxId5GsnX7XKz+pPDGGItFxezGVx6JU82PYSwOK
-X-Gm-Gg: ATEYQzxE4ILS6wA4H86/zftJh2hH3IT73bZcj8Or2cLgg/aeuOfNvyiEdeQM5Z3xLvD
-	kfJWtgmoqyqlmuuLx9mDJV0gKA5hcVb16uV1+NQqG3mNi445TbGObR0LXLwL2MI9X2qwtTwT2n5
-	c3zQL7vyK1YfIhlx9mBHApbsd8FROP4AvacQNnZRFVI8ZeEg3vkfAEFbaVbIMwlwjnKnz1TcpdK
-	XZ6wMf/S0nEg2MtbAMaO3XY+a6Tiy1ahvtF03TET0FPGZ6NkXlKMLZnjP2R3hb3xknuVRUnZJWS
-	IeZ6VEIp/1yVYW8tScojQtG60GAACyuKsg9euGWyQ7NmVOF47WlA8k5r7I32MgaCaFiDc68Z8eh
-	AdDcFeO9fqi7+pmaDR2M2XNGHUvtxlgDMy8aQgRw9RDYEevIH9SUZuWklYSvmXCrOJoWIgPb3pl
-	Jp24TqXiSJYKZD2ZnfU4+PGhGO4iyooC8u4/1WG8K8pMFMfb9nKYKCs6E=
-X-Received: by 2002:a05:6a00:94e3:b0:81f:9b09:ad02 with SMTP id d2e1a72fcca58-82a196f589emr3056858b3a.1.1773408550556;
-        Fri, 13 Mar 2026 06:29:10 -0700 (PDT)
-Received: from [192.168.1.5] ([27.7.215.222])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a0738bca8sm5870880b3a.60.2026.03.13.06.29.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 06:29:10 -0700 (PDT)
-Message-ID: <db8639c3-c7b1-446f-b178-d1e47fae776d@gmail.com>
-Date: Fri, 13 Mar 2026 18:59:03 +0530
+	Fri, 13 Mar 2026 13:31:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A83AE60142;
+	Fri, 13 Mar 2026 13:31:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03FCAC19421;
+	Fri, 13 Mar 2026 13:31:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773408680;
+	bh=rjDxboEbN9PBbRfJRIEBNS24aeg6irTXidxj5ateeII=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DWjdx58wOVYhoSoJR4FcnGaavF+YH3YlsFNH428rWhwV0xwvYXeoC869SDVfXZwTV
+	 k53lIQ2crmAWyD4Vq2fPYN8YQuTVYH8DI6zS1tR1CzNYAmfob+s2zJlrQWfRulxhd7
+	 hZdlFqRNnD5avftUsauqGZR39Wb3yioCecz+S2tAttstBnRtH+aSno0VoWFHU3Dg++
+	 2idSw6g9i9+IEUCcxJprhjvWvqrYsAabqzSXznSVLkYGSOZIUi6m308foPG42kniva
+	 k8yuh6rGI1K0lbpatLeDoDhHh/jhKLTsd+hg27bIbr28jhSGSzYY1ey74u6ay6kpMo
+	 VS9g4dUeIKZKQ==
+Date: Fri, 13 Mar 2026 13:31:15 +0000
+From: Simon Horman <horms@kernel.org>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Meghana Malladi <m-malladi@ti.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Roger Quadros <rogerq@kernel.org>
+Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add HSR multicast FDB
+ port membership management
+Message-ID: <20260313133115.GY461701@kernel.org>
+References: <20260311082923.2962937-1-danishanwar@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] dt-bindings: usb: atmel,at91sam9rl-udc: convert to
- DT schema
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Herve Codina <herve.codina@bootlin.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260307-atmel-usb-v3-0-3dc48fe772be@gmail.com>
- <20260307-atmel-usb-v3-5-3dc48fe772be@gmail.com>
- <20260308-cherubic-misty-cricket-80fad0@quoll>
-Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <20260308-cherubic-misty-cricket-80fad0@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_062911_802678_6A08CCBC 
-X-CRM114-Status: GOOD (  16.46  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260311082923.2962937-1-danishanwar@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,95 +75,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 08-03-2026 14:59, Krzysztof Kozlowski wrote:
-> On Sat, Mar 07, 2026 at 09:16:22AM +0000, Charan Pedumuru wrote:
->> +
->> +  reg:
->> +    maxItems: 2
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    minItems: 2
+On Wed, Mar 11, 2026 at 01:59:23PM +0530, MD Danish Anwar wrote:
+> In HSR offload mode, multicast addresses can be added via HSR master
+> (hsr0) or directly to slave ports (eth1/eth2). The FDB must track port
+> membership: P0 (0x1) for HSR master, P1 (0x2) for slave port 1, and P2
+> (0x4) for slave port 2. When the same address is added from multiple
+> paths, memberships must accumulate.
 > 
-> Drop
-
-Sure.
-
+> Implement a hybrid approach using __dev_mc_sync() callbacks to track
+> basic add/delete operations, checking netdev_hw_addr->synced to
+> distinguish HSR-synced addresses from direct additions. Post-process
+> to handle overlapping memberships by checking refcount:
+> - refcount=2 with synced=1: HSR only (P0)
+> - refcount>=3 with synced=1: HSR + direct (P0|P1/P2)
+> - synced=0 with P0 set: HSR removed, clean up orphaned P0
 > 
->> +    maxItems: 2
->> +
->> +  clock-names:
->> +    minItems: 2
->> +    maxItems: 2
->> +    items:
->> +      enum: [pclk, hclk]
+> On add operations, accumulate new membership with existing ports. On
+> delete operations, remove only the specific port and clean up orphaned
+> P0 bits if needed.
 > 
-> No, list the items instead. Why is this flexible? Nothing in commit msg
-> explains that.
-
-Some of the DTS files use those clock-names in different order, I will write this in the commit message.
-
+> Add error handling for icssg_fdb_lookup() which can return negative
+> error codes (e.g., -ETIMEDOUT). On lookup failure in add/delete path,
+> default to no existing membership. In the post-processing path, skip
+> the address update to avoid corrupting FDB entries with garbage values.
 > 
->> +
->> +  atmel,vbus-gpio:
->> +    description: GPIO used to detect the presence of VBUS, indicating that
->> +      the USB cable is connected.
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/irq.h>
->> +    #include <dt-bindings/clock/at91.h>
->> +    #include <dt-bindings/gpio/gpio.h>
->> +    gadget@fff78000 {
->> +        compatible = "atmel,at91sam9g45-udc";
->> +        reg = <0x00600000 0x80000
->> +               0xfff78000 0x400>;
->> +        interrupts = <27 IRQ_TYPE_LEVEL_HIGH 0>;
->> +        clocks = <&pmc PMC_TYPE_PERIPHERAL 27>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
->> +        clock-names = "pclk", "hclk";
->> +        atmel,vbus-gpio = <&pioC 15 GPIO_ACTIVE_HIGH>;
->> +    };
->> +...
->> diff --git a/Documentation/devicetree/bindings/usb/atmel-usb.txt b/Documentation/devicetree/bindings/usb/atmel-usb.txt
->> deleted file mode 100644
->> index 12183ef47ee4..000000000000
->> --- a/Documentation/devicetree/bindings/usb/atmel-usb.txt
->> +++ /dev/null
->> @@ -1,125 +0,0 @@
->> -Atmel SOC USB controllers
->> -
->> -OHCI
->> -
->> -Required properties:
->> - - compatible: Should be "atmel,at91rm9200-ohci" for USB controllers
+> VLAN Interface Handling:
+> Add support for multicast addresses added to VLAN interfaces on the HSR
+> master (e.g., hsr0.7). These addresses require P0 (HSR master) bit to be
+> set along with the port bits, since VLAN-tagged packets use separate FDB
+> entries per VLAN ID. Without P0, the HSR master would not receive
+> multicast packets on VLAN interfaces.
 > 
-> Why do you remove OHCI here? There is no conversion of this compatible.
-> Don't combine multiple different changes in one commit.
-
-I will remove each binding from the text file for each patch while converting them.
-
+> Track whether the add/del operation came from a VLAN interface path and
+> set P0 when in HSR offload mode with VLAN interfaces. Update orphaned P0
+> cleanup logic to preserve P0 for VLAN interfaces.
 > 
-> 
-> Best regards,
-> Krzysztof
-> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> ---
+> v1 -> v2: 
+>    Added a helper function as suggested by Simon Horman <horms@kernel.org>
 
--- 
-Best Regards,
-Charan.
+Thanks for the update.
 
+Reviewed-by: Simon Horman <horms@kernel.org>
+
+It is unclear to me why this is marked as Not Applicable in patchwork.
 
