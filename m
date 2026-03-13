@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A673107BCEA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 23:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05FE107BCE6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 23:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9olc9FEMIPBTpzCEvFssSp2raytyU4R431IhWwd+KXk=; b=CBSF2+JqJRkW1LKom6E+yXTvoJ
-	a8NlbPRu6HD/gY6RqeFELagzZpjXNOwnOO7BShqhb4uEJ4E1BcdN0sabctpBXrReYO+9b1rgJMfus
-	N4RRvdDowxTSIwMpRVEOyK8dbDp+Mx2A1EKKv7EvNDHshwmQ7Qkybyfm6p/VeWNZUceO5mrD2EiDt
-	JIzkDk4PRGrgaaVk8kKwXrvi4Qez1ss96C/hN5TsMQbkJhLvvfLBgKA8QZWICSolWALDg2S58Jyd4
-	IyIYfE/BsEYxVvjTeMfULGKrLdjGPCLCOhno/2Kjc4gvZ2mrZA5ioPgPwRWtWpe6Uzj4RtNpftq82
-	5zGu+5tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=On0n+ZgwGExywHbKGNex5GexKXAAeVsLqdDE9AFDmxc=; b=Nv13xH2oSlD0uTBjHBMpSZZbHa
+	0QQeA3P4CRd/J6HBQ6kDD91fedQtol1nNlzU/ypCToKLk7MpnI1jKBDfxeW9Id+vTPGp/T3qCNu3z
+	RddXcUt2EvcDP+GCUZbvpc13f9xI81prCH1Hvcb4ct3gbMyjIeszFnjiYsCRoVRFHAr9OVirzi3n0
+	uy8P7KGMFyVFQJ4+/yn94eF97Ps12KW0lX1hHnB35XifI7nRBBZ6lt3PV26sF/N7tic4FmA7bjGrt
+	48gAD0QrRr+yFYSMRvjbx+5B3zHJ8RVb0b7D/ZbZWgeyg/tFhN1xz23b79Asf27+hGHrMUY2CVjwh
+	ykdcBS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1BW0-00000001IUk-27KN;
-	Fri, 13 Mar 2026 23:01:56 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w1BWM-00000001IXM-3Ppr;
+	Fri, 13 Mar 2026 23:02:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1BVy-00000001IUQ-19nR
+	id 1w1BWJ-00000001IWS-1YEV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 23:01:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9olc9FEMIPBTpzCEvFssSp2raytyU4R431IhWwd+KXk=; b=veeipGsjcHjrrKyYCG8wldOYrj
-	q1y+pb/krI5uUkJrOb3dQr/Z9cW5CYxF22iriL9I6hQEK5wYsPnZ/GZAs91Ns0hDROPlWzZL010d7
-	C28mEDCcmUYekCMXSna37l/Zm1HlSfw81pJ0pk01GGGsQHTVRi4vR63Xtg1TpIzWkOaPjtaYJ6yAW
-	MFnkD/tcYTKrpwk8mi/e+pZx9q0fjbXqfbnZRwjV+hlKWAkklQUpI36/EaGx7yFzZq+f2Ww+V2UQ2
-	vvS5Bc+yGDoFjdeU1ALdgFL4rD2eW8igCpmMFvgqzJDq1Sq+xvQ39xG0JAZwAMUVGlkb2v7M3jDHs
-	uzopc42A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57004)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w1BVb-000000001aJ-24ij;
-	Fri, 13 Mar 2026 23:01:31 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w1BVP-000000000Ar-3IxC;
-	Fri, 13 Mar 2026 23:01:19 +0000
-Date: Fri, 13 Mar 2026 23:01:19 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: "\\Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
-Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me,
-	me@ziyao.cc, siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com, wens@kernel.org,
-	vladimir.oltean@nxp.com, lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com, maxime.chevallier@bootlin.com,
-	matthew.gerlach@altera.com, chenchuangyu@xiaomi.com,
-	yangtiezhu@loongson.cn, ovidiu.panait.rb@renesas.com,
-	chenhuacai@kernel.org, florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com
-Subject: Re: [PATCH net-next v7 4/5] net: stmmac: Add PCI driver support for
- BCM8958x
-Message-ID: <abSXP3gMFQEiC5Lm@shell.armlinux.org.uk>
-References: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
- <20260313222206.778760-5-jitendra.vegiraju@broadcom.com>
+	Fri, 13 Mar 2026 23:02:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1773442932;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=On0n+ZgwGExywHbKGNex5GexKXAAeVsLqdDE9AFDmxc=;
+	b=h8oMGMoT9+Sto2F2hAfO9r1dh6Z5GERCc2Ru4rU/FkzzMvFyjWQzIylhWME4h0YbPRZElf
+	iADTsNr4woW4f/behhLb2nnMY3n0fryaeY/WjadMRHpzwn9sxN3vvPR1mVb47PYqc8pvuF
+	zEo11/pMnoexpghK9/5ikI72AubzVLo=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-614-KqpfImMLOfi3KmieCvJTeA-1; Fri,
+ 13 Mar 2026 19:02:08 -0400
+X-MC-Unique: KqpfImMLOfi3KmieCvJTeA-1
+X-Mimecast-MFC-AGG-ID: KqpfImMLOfi3KmieCvJTeA_1773442927
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1058B1956095;
+	Fri, 13 Mar 2026 23:02:07 +0000 (UTC)
+Received: from [172.20.219.202] (unknown [10.30.44.44])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7D1681800361;
+	Fri, 13 Mar 2026 23:02:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc3,
+ upstream-arm-next, d118f322)
+Date: Fri, 13 Mar 2026 23:02:05 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313222206.778760-5-jitendra.vegiraju@broadcom.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <89370.126031319020801911@us-mta-614.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EP1UDLjkUJFVrsAdiFRI2HNl-Pb8XGZ_1oMv9McNItc_1773442927
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_160154_334719_3F1558B6 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20260313_160215_823563_CD52E615 
+X-CRM114-Status: UNSURE (   6.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,33 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 03:22:05PM -0700, \Jitendra Vegiraju wrote:
-> +	plat = devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
-> +	if (!plat)
-> +		return -ENOMEM;
-> +
-> +	plat->dma_cfg = devm_kzalloc(&pdev->dev, sizeof(*plat->dma_cfg),
-> +				     GFP_KERNEL);
-> +	if (!plat->dma_cfg)
-> +		return -ENOMEM;
+Hi, we tested your kernel and here are the results:
 
-Please use stmmac_plat_dat_alloc() - this will allocate and initialise
-struct plat_stmmacenet_data, and as of commit 7a6387dec8ce in net-next,
-will also avoid the need to allocate  dma_cfg.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-> +
-> +	plat->suspend		= stmmac_pci_plat_suspend;
-> +	plat->resume		= brcm_pci_resume;
-> +	plat->bsp_priv = brcm_priv;
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Populating suspend/resume means that plat->init and plat->exit
-will only be called on driver probe (former), probe failure (latter)
-or remove (latter). Please consider using these to ensure that
-all appropriate resources are properly cleaned up in all cases.
+Kernel information:
+    Commit message: Merge branches 'for-next/misc' and 'for-next/tlbflush',=
+ remote-tracking branch 'arm64/for-next/read-once' into for-next/core
 
-Thanks.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2384491386
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
