@@ -4,139 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DC9106FD69
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 02:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D75B106FD66
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 02:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQyhKF7mVTGKt1VJ4tCDKmZndhbwG+m2EFBRAafYluY=; b=XhCRt2m8uoxAV4oeavwPYx/5mZ
-	h7N3SbUoUF9HI/8T5OHs4xxCT4D7oo5O6iBPvmxBwDXGI9W3sS+1fXOCf/j7WBNn77tAdfq9abouU
-	usbvvVtoLuHO+PxxMWxpI3xLGOriKWijEmgHEppVw9ibgHsJSZJt5C/yxJ2QfW1mRSgw6LtPyCYa+
-	vZfC/UxEcqRKT8KFFsJ78DccpTeGHUhfwrV1+YbMmiAXn9zMLKKzHDgmnt/H6fu0UU3Rxd/bB9fW7
-	XnDD7gnYUroiPoW6/AChYqZ10Q4gCa3Eznj0gtbqp1BejPlGAqJeJQypdimka3Th4BOWBwluKQ2QI
-	/CIhxegA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RHMmieepRvO2atiAhZKhFUtPs6xWXbKu4a1I0DCXNzM=; b=Ib5qY8kCmBvH3fG0YKETCbyUiK
+	nZYWLTWPsuFvWXsVgds2BOfTYUeHZqioFXK5AcyQOnUNFGffDRxtBzt3xC7AM6SlMlMuXmdopbxkk
+	qPBfT2GeqdKhb4i+Wj6mXpgb5ksLLDYgko+RFSHfubJf9KPmUYg3EwH+Y0zmcOw45L/BFzUiJ+OdI
+	OuD+rWIm9pxUTtGZe+i5b9chiRmsyWvQ1SGL3Ys+USluOTgZPDq0eHKju5XCaoul3eSIYWWUvtoGH
+	VSuk+/WBmeA2/BvtFMJ6SOjjO8fpUlm7Zfk8pNCFlrbeyD1DjktL7jsouf2iPpkNLlt6VYDhZAKzH
+	D4VIqbTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0sFN-0000000GEb7-2Gqv;
-	Fri, 13 Mar 2026 02:27:29 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w0sKK-0000000GFOG-1A3W;
+	Fri, 13 Mar 2026 02:32:37 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0sFL-0000000GEZy-0Nql
+	id 1w0sKF-0000000GFMN-1qHc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 02:27:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bZGUQNFEhnKFXhuy9PC8RSQDQhQQ3uGxHNagrpr1mRCqRwSsqlPc6HRQmH0vzynbSWNRTqH3/ezZPpA3PH2uewViMabw1K/InOJrMjLLEujjxEZi6n+P8/0Cxwijuqu9m6HeRap8qkqstGPBMAWUiLwkyXlsxhznb4GH2fEX22Y+nIssP4wuJ9N/hx9BI0qJOPQymyzJiu/ij5qXpWlX2mhHLJsb5430C45yYkyxQiWr3oP0JaWNV73ZAqQIr8/axFft71kQT2ZOlcbMlji03odMrrejsMw+P1soYKxAEw4m0XaMwrLOQxaDIq7ehiDwYo+zIp4AfGvpTdCKN4WNRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nQyhKF7mVTGKt1VJ4tCDKmZndhbwG+m2EFBRAafYluY=;
- b=YYGmzkd4mNSpdlrmSk9/k5vWNgUZuvSFg5uzRrZbLwCN+k2QKvfrsGWtr2iKvnNBC7EhkozNONbyZgCHUd+TJaiz2R4vBlvizh18K0e/g9gZzVl4zwbxWw4GTN4uyZ5EeH1nbDI/L6yokkg6tpNSAzlOicOw2d34Q09Lso8ttDMbGaFBC52ZW5m3q33jgRBfX3Hr/ED7ivD9WLqbr6izU014VDdLo8sc4X+UuTFMuldfg4PZMKQH2xQgv4nuSFk0TF/I1urWflJ/pJ95SbnHh4xFsdWh2h4KUT/wv+yAA23wqzWmTWQYve+rurzgyHfVosYPdFg1u5TM7DK+2x2JeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nQyhKF7mVTGKt1VJ4tCDKmZndhbwG+m2EFBRAafYluY=;
- b=LkrthrFla1a167nHqDwLCMHiswYDe5RnksGuaYD9lKTR43E5L+tnuvf6lvm9NEsrsEa9/1BNNJGz5wqHKKWXGVqnBEfdyrDjk471JaEEWE6w1mi4tLUAGZVK8lbXiXFSCDQTrAaSq4seQhblwdhM+8ryT1hXyj8jEl++2NDG7CH2NgUenWs+W2HvtmHNn2fzo9i98k/+XeTBi/E+dPudCbYZ3HhYXhIo1hRoktg/YwkvVb2o5sl/pOxi/WIP8J25tcWJ7UEYhjzBFCROcPDdElIaPnzhdOKCz1IThh33c5jy5tbQW3/6AAAi6Zr3yKlEV8qJ/SxWSVGuZSQNW8y/Lg==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by PA1PR04MB10940.eurprd04.prod.outlook.com
- (2603:10a6:102:480::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 02:27:09 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 02:27:18 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Hongxing Zhu
-	<hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
-	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
- Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jingoo Han
-	<jingoohan1@gmail.com>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
- deprecate reset-gpio
-Thread-Topic: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
- deprecate reset-gpio
-Thread-Index: AQHcslAvPRd3NV8vsUK8f1lUXc6zS7WrvElA
-Date: Fri, 13 Mar 2026 02:27:18 +0000
-Message-ID: <VI0PR04MB1211433ABEE52392089255E639245A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260312184344.42337-3-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260312184344.42337-3-krzysztof.kozlowski@oss.qualcomm.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PA1PR04MB10940:EE_
-x-ms-office365-filtering-correlation-id: 4d3cd569-0b0f-46e6-0d63-08de80a80ca2
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|22082099003|56012099003|18002099003|38070700021|921020;
-x-microsoft-antispam-message-info: txOZo3qEgF7aJ/0k8QqOdO8GkyYD0VaF5ULymAb4n8yldsffS/Vb4y88rdAsOIx1ebAiyZx2LfSOxYk6yJJJi9SxLQTmC8l2OclgX0xaDDrjDPJEIHRlkR2WrCP7ZKxq7SG7SNIWQGwyGy2a1ouzP1Y4pb1FTI06+Mzvfs8NkBDrwKoB2U/lmw+s/8gFuY+n15I9+fy71R16HnDi9WBcSEfGDpYUuH7hGttIOUQC4TdV8IEg9FLJlTPPu5pC4sY7vD+tUlTI+hfUCPkTXnhtQFLJxKOA2hIQRE3DeK3r293HWE7t0ttkCsD7gL2lDpd281jCQZWOyBFEi1u38hq0DQ2Udt6uykQMcZWOAF3W7XIc/4/8oD8tEzLFPqMmAWgJW+v2o3qefgoSYZAMF2DYMLsEJEqFf35RSNfiy88PtIrI9HfpKheuESqP6L10/B4YlRq06TdQh9kVrVkAKNm9Dn73yNZ4tjFA1+Z9xEddB/pOHB3z2mgElM4lcHfD/EB96MsjpwsL7WeN32HrvWgeBaqDkdWnIqKgBo6JSBA2wkfceLTg9vuOghBQMa3jYPDUlWswSiJUtk8QMqtibls6hvy1hJRn2puv+9hySW3sUesD6wx+lbrY5/CfuPNeBUrny9MPTG/PlWZ6WTMy2xbvIKcvFhNv1kdjCTdqX9UoOQzZXnc8jg7/sygKaHGSFf+cMh0vlSI3lpJ8VQiDejJkawYivGRfceh7rVgHF3GWIHr16zfMsYUmJ31DBXTFAK8D
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(22082099003)(56012099003)(18002099003)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?4dsahqLFfNeA0fPqIQKiLP8fht0KPySUV2fuoQOMYmbxXg3UmH6I8of1Ag?=
- =?iso-8859-2?Q?yNSzULMCQ62MYccGIfzBUa5Q8N11P2orD0celWuVtBWxwOwftp8LzZDYoD?=
- =?iso-8859-2?Q?+78Uczbg6mlaRfQ06D358Nx5m17Kg4ek4RTuna8kA+jmd1pGEBhn5wFJg5?=
- =?iso-8859-2?Q?2/DZEmjb4YTgfIhi1+m84kPS65l7VlZfo86iMphbF8JQP6iwmXRhd1Y/S+?=
- =?iso-8859-2?Q?Me6KBRTUa9hg79VEXTqm1k6Qeu4ju4EL4/Xjlh7PMmgKLZQbPGBwTNgSYq?=
- =?iso-8859-2?Q?VbGDpc+3QXGNuxBUIjzAch1LvIDfL3xQ9k6+ChxfnJv10i3TB82mLEFH5A?=
- =?iso-8859-2?Q?1s8h6Aro2PU/hDhDVLzV7puYuV0+K/J6ZRfH1yCfWQtBfmmC+svEp4J6CW?=
- =?iso-8859-2?Q?1Yb0x0PegHXelJPdjxorpg+zFHmiRMgJHN/Ps954ZzhDuu3TekGfTx1u/a?=
- =?iso-8859-2?Q?KvYnwUQftTcjBNqmqQeNrglXO9VHi10ulz/L/VvGlConIlZIz9xwkWup9+?=
- =?iso-8859-2?Q?DKw/iM+KF882jaGMLC1JIXzgibZ/R4PcqfmbVqGjckPwetJaUGhyVIn2ku?=
- =?iso-8859-2?Q?a4sze0wV4klxDIe7gGGoLjAAf95MRrDduo8vNDjecb09u6W2pa+9J4Gbty?=
- =?iso-8859-2?Q?AS/uSWscwk5NFGcXIrUh/IbEUId2PHIJJKarFRZJTo2x9eQ/LMl50HOL7i?=
- =?iso-8859-2?Q?eiENDMoZ1COxghEVXayOD4KpoWq8VUyfdwrAezqzf4w2+RI7PMdEdy2Udb?=
- =?iso-8859-2?Q?cf1PEthxECvKRuVUTHARcRKbGaiyYbW0RlB8fEfRqt0S5+fF9E+nOjLpHy?=
- =?iso-8859-2?Q?CiNBEID551qBflp/4DDVIoCrPjDoa7M5ZakNXeD6btwk8kwjywTlMfNLJX?=
- =?iso-8859-2?Q?rA7SiEsS7DeiuMkU8nQwiOjW0zwDbCRkVUjosOTXIM8Gh3bpicsjTUh6Px?=
- =?iso-8859-2?Q?JeuARMBuToouOHzUBx2sVF89iwTOOUMhTo7+KGpxwPmB4I730/SFavfncn?=
- =?iso-8859-2?Q?Toin0DF35O2n1vMKG1kOSTNIY6rfZr5Rrkv8ZEXkz4BjR5uV8iQVo95GNC?=
- =?iso-8859-2?Q?rH2Wuw1yLTiA1BusfDiZOSTqr7NGRCMxG3zKaimStV9mTRLw1DZO/iDwMb?=
- =?iso-8859-2?Q?6E3HGZU7Ti8bZjcla9WsMMTqmO3rldEbn7UzLD8sh8QcMHwY4VEsP421d4?=
- =?iso-8859-2?Q?ISv2rCCLaPPtNe9v3kam/EwTijA9r6nHooIF7Rnh/EBp3oTn9EdINfDLPi?=
- =?iso-8859-2?Q?jCgT2z+XP+kgr1EpML9wbWqMz8aYZiger+RO8GKkbHGOYXjmCY4mWW87Kj?=
- =?iso-8859-2?Q?ephGNo89og7S4INKTfJE8irJMpXYLcdrWmy5bmwtvtk0vaoJY+pHCyJ9B/?=
- =?iso-8859-2?Q?qYI+iRnL/LG0gzG2Zx99lJ5BrQcRBhpiiX1eM9nZmcXBopeb75lBwkBqob?=
- =?iso-8859-2?Q?NK4NcLn8Dt9KVun32FtoHALCZmmgEpd8Cbl1X2Y++m17Gaavdj5tQVjqJF?=
- =?iso-8859-2?Q?oeXDN1Yf+6mcKbolLtzusbRe6hunXyLb4wK5zf5zXWfwutHh3xq4EJ8N6i?=
- =?iso-8859-2?Q?5Ik48ZNbuznvdzSyFULysPL0HFUU4IxFj+LLRM+cw6p2fyWSfjAtPs3u2Y?=
- =?iso-8859-2?Q?YsfKio1hKMIEpSIMFkKIVoUt46SNy0onS+WhJf5wWND4rZdOwcLYha4SFa?=
- =?iso-8859-2?Q?Y7T+teJWIVZmgVoJtBJIfrpyYn0B6qx9iyeQLs0wxAeYWsb+tKaOGPIzc/?=
- =?iso-8859-2?Q?woyuq3dSv9Is6EbSXJlAL2CqzEJmtTTs2SYW/DE4niMr4w?=
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 13 Mar 2026 02:32:34 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fX7mM0GV7zKHLxk
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:32:03 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 5337E4056F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:32:22 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP4 (Coremail) with SMTP id gCh0CgCngEs0d7NpbWnZAg--.21976S2;
+	Fri, 13 Mar 2026 10:32:21 +0800 (CST)
+Message-ID: <6538d913-7341-47bb-8717-3ef8685caf5d@huaweicloud.com>
+Date: Fri, 13 Mar 2026 10:32:20 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d3cd569-0b0f-46e6-0d63-08de80a80ca2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 02:27:18.7389
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: heMqa1DX7ljP+BmByBkXXGgch1QWE6ie9wH4TvQfnp3jHpYM/SE0iVI6O7JxzCJ8ymrvTBy5Ks3blWLvkRdiWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10940
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v9 1/5] bpf: Move constants blinding out of
+ arch-specific JITs
+Content-Language: en-US
+To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, eddyz87@gmail.com, yonghong.song@linux.dev,
+ puranjay@kernel.org, a.s.protopopov@gmail.com, alexis.lothore@bootlin.com,
+ list+bpf@vahedi.org, linux@armlinux.org.uk, yangtiezhu@loongson.cn,
+ hengqi.chen@gmail.com, johan.almbladh@anyfinetworks.com,
+ paulburton@kernel.org, hbathini@linux.ibm.com, chleroy@kernel.org,
+ naveen@kernel.org, luke.r.nels@gmail.com, xi.wang@gmail.com,
+ bjorn@kernel.org, pulehui@huawei.com, iii@linux.ibm.com, hca@linux.ibm.com,
+ gor@linux.ibm.com, davem@davemloft.net, udknight@gmail.com,
+ martin.lau@kernel.org, clm@meta.com, ihor.solodrai@linux.dev
+References: <20260312170255.3427799-2-xukuohai@huaweicloud.com>
+ <23f4b038b245167ff440b79c0a445fcbc12e0a102884759623dd59b3d64d2ade@mail.kernel.org>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <23f4b038b245167ff440b79c0a445fcbc12e0a102884759623dd59b3d64d2ade@mail.kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgCngEs0d7NpbWnZAg--.21976S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJFWUKrWDWFWfKw4DtFW3GFg_yoW5AF4rpa
+	y0gFWkKF4qqF40qw17ZFWkAFW3tF4kJwnrGr45Wa43JF4jgrn3GF18KrsYvFWYkrykKr1I
+	vr4j9r98uw1DJFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUVZ2-UUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_192727_159125_6DB3DBCE 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260312_193231_835152_11B8B631 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,94 +96,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly depr=
-ecate
-> reset-gpio
->
-> The binding references snps,dw-pcie-common.yaml which already deprecates
-> "reset-gpio", however mentioning this property here lacks this mark thus
-> code is confusing and suggests property is not deprecated.
->
-> OTOH, the property cannot be removed from this schema, because it is an
-> ABI implemented by Linux kernel in gpiolib-of.c in backwards-compatible m=
-ap
-> between compatibles, "reset-gpio" and "reset-gpio-active-high"
-> properties.
->
-> This creates code and binding which is not obvious to follow, so rewrite =
-it and
-> be more explicit about:
-> 1. Deprecation of "reset-gpio",
-> 2. Relation that "reset-gpio-active-high" is used only for that property
->    and not proper "reset-gpios".
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
+On 3/13/2026 1:50 AM, bot+bpf-ci@kernel.org wrote:
+>> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+>> index 4fbacd2149cd..3ccefd13121b 100644
+>> --- a/kernel/bpf/verifier.c
+>> +++ b/kernel/bpf/verifier.c
+> 
+> [ ... ]
+> 
+>> @@ -22843,17 +22843,23 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
+>>
+>>   static int jit_subprogs(struct bpf_verifier_env *env)
+>>   {
+>> -	struct bpf_prog *prog = env->prog, **func, *tmp;
+>> +	struct bpf_prog *orig_prog = env->prog, *prog, **func, *tmp;
+>>   	int i, j, subprog_start, subprog_end = 0, len, subprog;
+>>   	struct bpf_map *map_ptr;
+>>   	struct bpf_insn *insn;
+>>   	void *old_bpf_func;
+>>   	int err, num_exentries;
+>> -	int old_len, subprog_start_adjustment = 0;
+>> +	bool blinded = false;
+>>
+>>   	if (env->subprog_cnt <= 1)
+>>   		return 0;
+>>
+>> +	prog = bpf_jit_blind_constants(env, NULL);
+>> +	if (IS_ERR(prog))
+>> +		return -ENOMEM;
+>> +	if (prog != orig_prog)
+>> +		blinded = true;
+> 
+> When env is non-NULL, bpf_jit_blind_constants() uses
+> bpf_patch_insn_data() to insert blinding instructions.
+> bpf_patch_insn_data() calls adjust_insn_aux_data(), which expands
+> and shifts entries in env->insn_aux_data to match the now-longer
+> blinded program.
+> 
+>> +
+>>   	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+> 
+> [ ... ]
+> 
+>> @@ -23114,6 +23122,10 @@ static int jit_subprogs(struct bpf_verifier_env *env)
+>>   	}
+>>   	kfree(func);
+>>   out_undo_insn:
+>> +	if (blinded) {
+>> +		bpf_jit_prog_release_other(orig_prog, prog);
+>> +		env->prog = prog = orig_prog;
+>> +	}
+>>   	/* cleanup main prog to be interpreted */
+>>   	prog->jit_requested = 0;
+>>   	prog->blinding_requested = 0;
+>> +	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+>>   		if (!bpf_pseudo_call(insn))
+>>   			continue;
+>>   		insn->off = 0;
+>>   		insn->imm = env->insn_aux_data[i].call_imm;
+>>   	}
+> 
+> After bpf_jit_prog_release_other() reverts to orig_prog, this loop
+> iterates using the original program's indices and length. However,
+> env->insn_aux_data was expanded and shifted by bpf_patch_insn_data()
+> during blinding to match the blinded program's instruction count.
+> 
+> The call_imm values were saved at blinded indices (earlier in
+> jit_subprogs, after the bpf_jit_blind_constants call), so reading
+> them back at original indices gets the wrong aux data entries.
+> 
+> On !CONFIG_BPF_JIT_ALWAYS_ON configs, could this cause incorrect
+> imm values to be restored into pseudo_call instructions, breaking
+> interpreter fallback?
+> 
+
+Right, I overlooked that insn_aux_data is used here. In fact, when
+blinded is true, we have rolled back to the clean, original program,
+so there is no need to restore call_imm.
+
+> 
 > ---
->
-> Cc: Sherry Sun <sherry.sun@nxp.com>
->
-> Changes in v2:
-> 1. Rewrite the commit completely after Sherry Sun comments - keep the
->    property, but add "not" clause to forbid usavge of
->    "reset-gpio-active-high" and "reset-gpios".
-> 2. Because of above not adding Richard's ack.
->
-> v1:
-> https://lore.ke/
-> rnel.org%2Fr%2F20260311154955.145120-3-
-> krzysztof.kozlowski%40oss.qualcomm.com&data=3D05%7C02%7Csherry.sun%4
-> 0nxp.com%7Cc630bed6bc4f46715b4408de80675002%7C686ea1d3bc2b4c6fa
-> 92cd99c5c301635%7C0%7C0%7C639089378371805072%7CUnknown%7CTWF
-> pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4
-> zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DA%2BiFa
-> kDVdjPn0JJxUDlTDt1ej4iqnBivDktjwbcpFK4%3D&reserved=3D0
-> ---
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index 12a01f7a5744..12cd1b9f78d0 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -62,6 +62,9 @@ properties:
->      description: Should specify the GPIO for controlling the PCI bus dev=
-ice
->        reset signal. It's not polarity aware and defaults to active-low r=
-eset
->        sequence (L=3Dreset state, H=3Doperation state) (optional required=
-).
-> +      Deprecated, use reset-gpios which respects the polarity expressed =
-in
-> +      phandle argument.
-> +    deprecated: true
->
->    reset-gpio-active-high:
->      description: If present then the reset sequence using the GPIO
-
-Hi Krzysztof,
-This property also needs to be deprecated as Rob suggested in my previous p=
-atch :)
-https://lore.kernel.org/all/20260121164002.GA3427694-robh@kernel.org/
-
-Best Regards
-Sherry
-
- @@ -224,6
-> +227,11 @@ allOf:
->              - const: ref
->              - const: extref  # Optional
->
-> +  - not:
-> +      required:
-> +        - reset-gpios
-> +        - reset-gpio-active-high
-> +
->  unevaluatedProperties: false
->
->  examples:
-> --
-> 2.51.0
+> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+> 
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23013190773
 
 
