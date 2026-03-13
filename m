@@ -4,142 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BDB107BCCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF87107BCCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFUnciPSh/c4//pNwqANKlwCc1ovVn1de14fhxu2v0U=; b=2oPUTj5b74ryRLjGdnMmjmoT1W
-	AXvzjogc5sqZw4UDgzSDqLJE9tr+jjzfttqAHU86jf10Ece7GQx/f7qXVh04/9qEnlrcSR6/s+yfz
-	3pD1SIdsEB/Y4yDzexHe8UbWT7HLg5Lzc4iUcJ400bakum756kr2UbCj1/9u0DDWl0CQiqPX9RZeX
-	4wsub2VqVDH/Yeo+hjslsqaZ0+KnjRFk/ZOs9u/77+ox8uwGwro/sAZmnCSkIAqHFt1fK5oM2wgRQ
-	t1N1MKTtqpM0YS39754tdxDvvixhWJtuLFRs3qMxxT7PaPT9h5UBnKA3Qzma87jR7X/la5zCRzTMS
-	FrHwlfxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U70pcD6CBvSBjufcD0tBLvF1Itbr6aV/iwsDafCK3zw=; b=CHH2DX5hUxjtOLWC6gznI2E27m
+	htfB7581AqkjDhW/b+iIvJdqcvJ6HWbEENBEYLiOLChj4ZO3xomYOKkVXiMOsTJISUNzP5Hibw9g/
+	YPwOLPkMSzEw/wCt4XCjOKG4t9iLGwEormRNzCjZLH2GEMa44zftRPf/kAf9dhfHLKvGp9cyy8NhY
+	xrlzDVXAKuPV435pKBabpIEh5fQLrFu59UaclqdQSz1VUxD9OyoeEoK71MxY2T+qAk8uByDQx/1pq
+	YT6/PhyxXuMwhPkaikwS0o70tKRavCvrHC1pTuyy5iC5V/mgbViSTrKjtin0M6EsMKiNcBBj5aEVl
+	iZIbNrKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15SH-00000000egq-0deq;
-	Fri, 13 Mar 2026 16:33:41 +0000
-Received: from mail-westeuropeazon11013059.outbound.protection.outlook.com ([52.101.72.59] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15SE-00000000egN-3tIp
+	id 1w15SV-00000000ejk-1ud2;
+	Fri, 13 Mar 2026 16:33:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w15SS-00000000eim-34W6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:33:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HHXXio8oqfiPbyTZEohW4iLPr6d2cR7ipWu2cW5KAj/KoQLNM59nj3IYBQOj6KW3iL+hIha7eJTSWrEa22Aou2Tb0OFFfLoNWUeDJXY62h84BgANqKswn1lpEMiN3G/sUYPiNAs6vp70fiCpmcerXOaKh2TurzYSppIlBz2EzGikUmuGjh//w/ARnnpIuUI+eKpDmZXu0lWaX7JPBzOSIJG/EJvCXF+upob9+Aqhy9BEMOFVilq8/31+AHxpZ7WMm8fUhI9vB9ptwHh7LbeEDCghy1wj3EhSsnoQfhTEg8b6yLrMN7e+LkD2bc0p3EhltL8UPr4lZzteFMLqo1Y5Mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jFUnciPSh/c4//pNwqANKlwCc1ovVn1de14fhxu2v0U=;
- b=kK6YihzFKos2zhrmqoLVnNPtNLgARs//XG9grQ0J5NoZ/PrPhFsWv9DpABhgfbY1LTjDaCFO83DWCXhZg6Zz/AomESHHzvfnX9ey0KdyUGDWAzusQyl0uxxNDgosrmSCapPtojeU9lRbdP5HzkXxcaMXjDUiHnnblYL8Q6VeK6JNDl8r6+3dyTq9TL9mbHfiT1RAKPW/cUgChr61UUhfsWWOleGbre9/OGAAKXNBcQZeT1CWsd2XNiNDg6eNGxTWRnGQGC7p6Fh0Ps839bDIZyb1iEoKjtwQrM32ly9hJx+eHjpGjC8OfJNfk0I0/nOMIxuzWf3lz2KGI+ahgt0J4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jFUnciPSh/c4//pNwqANKlwCc1ovVn1de14fhxu2v0U=;
- b=LKKcWloZe6xaZGtTMNeKQm/egp4f7dXPtVHynDYVGn0Hausg74RW1DjD9ylbad0/8PKqCX+45SDoWFcYJcqigDqpax2LKsar5NqSE9BdYIQn425NupBI/VqiA04wEbz7+IZARBGJDsXIPYafydkFtlLoRkmrG2t9dPBJG6snqu2XwOkkduZkHEU6Ryqv9LOorfuyO/6sgyOFnxGGtx5einUkOdDLYm6KKvXoEojqWd4LgshT9fsdrpc6Al6An24dgjDVedS5mqxUT2QYEnwrM0rdMAZuowMHeWezsnPgGNaDIR2P79FE/nWBjJo4ZHAPp3ye8qyY+p2TbQOT/SVuFg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 16:33:19 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 16:33:31 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>, 
- Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
- Eric Chanudet <echanude@redhat.com>
-In-Reply-To: <20260311081154.381881-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260311081154.381881-1-ciprianmarian.costea@oss.nxp.com>
-Subject: Re: (subset) [PATCH v6 0/5] arm64: Add initial support for NXP
- S32N79 SoC
-Message-Id: <177341960983.122442.2667579002982756339.b4-ty@nxp.com>
-Date: Fri, 13 Mar 2026 12:33:29 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SJ2PR07CA0012.namprd07.prod.outlook.com
- (2603:10b6:a03:505::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Mar 2026 16:33:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 964C8176A;
+	Fri, 13 Mar 2026 09:33:43 -0700 (PDT)
+Received: from [10.57.83.238] (unknown [10.57.83.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 223D43F7BD;
+	Fri, 13 Mar 2026 09:33:43 -0700 (PDT)
+Message-ID: <cfdfca9c-4752-4037-a289-03e6e7a00d47@arm.com>
+Date: Fri, 13 Mar 2026 16:33:42 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8585:EE_
-X-MS-Office365-Filtering-Correlation-Id: c41ad634-3232-4c24-9429-08de811e435e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|376014|7416014|38350700014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: +okZ1XSlPR+8GBhZxD5inglMZipELAaykAqw6TwJgulyVVnuDwZNpM7lukcBMFIvsD1UYpCKXg6dbBsn7rsy9thSCOsmEH7X8FbVld3ndRaPr6p/01m/FmdupP99ppobZj7qNsKw0+ey0+0PyQ0o8i85mvh0nH69f5KRfGWSt6zWwRL2WBXSf8uzsABTNVd/PhVgoAEof3oQQdkL5ymLmDmW2pzKWIN7X9pj4eEcxpo8trs2f2NVIZKiPtr1u+PHIM3sKQFrxg7jKwr9arUPX4alGTWSK4oENs52Sc46eICtQ9/lEFspD3boXLhu6sl2MkkMJfV8Fp7C6r1SY0mOry1IE4pn27v2T0oqQRX377I4i7GnJPCOjd0i7mIvo6aqyEdXdeyHx1Cb7w3n+oookGlpdO9mt6o4zdC+STZRH/652OVgd+zhRieHTG8YiqfjE7uLVYlA8jpowLGVDjUA9SrAjeZSX8gjLmK4mYFkTdZbpKOQ2IYwXauBQ1Tofi9fGqRMsVWw+8yN3+U2BY6CiFSCPtcURdRvQVp5g1fDJ27oph8EFojDqxs4gC8hNFf4/7GeV8GNcMLcMDvrMi+5DISkcOcigfkSxHReGyG+toUjB5QRMdIYFz5TP8lN3EZf9Nj6v7WX1NGJOb6F9gnmzZ/D1eDo9ZdAmIjY1hd0qniMzTL3lLxNUupJlbhUcmWgpVxk9ICQ9O7veFR94j6WaMZrZC0rcKBDX7gabx3e09NfHDyweqLd0VlK9wiyNaqmoYPrPAwf02fkoOGK3ZZwHWNmJi91olF7SpyyqU33lY0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(376014)(7416014)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?emlGOW1JVjBkQWJvQ3JhWkdWVWVLb3ZjSXBTOXRVN1BWTnhFQmNvRGNYcXJO?=
- =?utf-8?B?N0xNeUVvNG9BTThVYUdJTG13VWlCYWxMUjIzbGZaWkwvYm5rUldySG5mbnNa?=
- =?utf-8?B?Y0RKWXN6czFKd0pTN0hPQzhhWHVQWThlS1ZzQ0NkSmZ5cU9zRVo4UjJqYlpQ?=
- =?utf-8?B?U0RBZUhqaTBlMmZpdm5EMXEyWWFseU5UME9HZXYwVnBTdnE5RTd4WmZNODk4?=
- =?utf-8?B?VDVjMnh6aFMvemlvL1RGNmhIQjA1NzFwbHpOS3pVRVdyVXgvZ3pNaTNIWGtH?=
- =?utf-8?B?bFZJM3Z4RXJ2aEtHVTE0NDEvYXpTckxkL1BQQmgyN2NsK2VEZ1VwVEZOd3lU?=
- =?utf-8?B?MHByZ1lxYkx0ZDlyY2RZYjJtVnQyaldXZWQ0RUdFSTIyc3dUOUFnZU5BMU5P?=
- =?utf-8?B?UC9uMnR5eTlmK25ER09uOU9SV3BGa0JOVjhwZlE4ZGltVHFnQ0pGTEFRZlpa?=
- =?utf-8?B?Q294MFo0NjFRdm5BRkdYQ2ovWDVoeFNPSHpkc0xMWnVKLytFajdJa3RHQmRp?=
- =?utf-8?B?bWdSV3lvVmJMbjlwMHo3aXBnL1NYVmpjTDN5RDZUNlRxcG1KbjJOb0ZLMW1a?=
- =?utf-8?B?VVdFMndNL3FwYUloZDh5cXpQRDRDcFNiRW9lL3pPS0hZZUNSZmo5OU1vc0pu?=
- =?utf-8?B?ZVgxNTV2M1BUL2hpZ1ZGdkFjbUdaeVdVaWJPZExCck1YaUpFQnpWMlhjRSty?=
- =?utf-8?B?REtDMzNuTmxUQnQxMm5PcGQrZUtURG9ickpyZWlwd1l4Z0E3UTl6SFZQSlZr?=
- =?utf-8?B?Q1FzN0hhdGd6RUliY2QrdVplR3FkK1liL0F2V3lvc0daeTJqUVBvbDF4ekU0?=
- =?utf-8?B?Ui9Oa3lZT2VzWEZQRkV0emVqVzduV1owekpoWEtWdXY1WXorYWw5emJiWnpq?=
- =?utf-8?B?bHJSN0Fibk5Ea094SGYxNWU2Y2dBeDBKWlRIWmJHMGNuYllPbWxWUDJQc212?=
- =?utf-8?B?R28xZTVQbXg1YzQxdjdDTTJ4WjdRYWMzdjNieDMxK0VGb1ZaaHpuNnNpZm1t?=
- =?utf-8?B?N3RPMllQbXhvb3RKeDJ5eFA1V3R2WWgwZXBsRzRSak4yZ2JoYTlYQmFBZC9m?=
- =?utf-8?B?OHFUcUZOOGtsQmRpUkdpcy84UFNlNWw2enorUW9LM2VudnU4ekhWMlRVSWJa?=
- =?utf-8?B?YTdKUlR3eG13RjJOTDEzY1QyN1g0SmN4dlJ4WlJWMXgvQWpicXJrM2llVkVa?=
- =?utf-8?B?a1ZVbVBkVzFZMmhhTGVHMW91QVJuNlJodzFTOVF5WUhUeHZFUVRXc0w0QzNm?=
- =?utf-8?B?RG1hMk5aaGl6SnZnNE03NE10MmxOVUZHL2NYYXZJMkczaFpaUHlQUC9kb2k4?=
- =?utf-8?B?ZHkyYzFkOFBZS2N2cGs2TkdxcCt1eHlrNld4Zk1CSkZHcmNUc2ZkNVdsaW1P?=
- =?utf-8?B?cVpnSzhCbTBHOUNSdjFPUjVXNU1pZ0RYY0dPNVF4eVpUMy81OUdqazhDa2FH?=
- =?utf-8?B?bEJjd0VHeWhZaHVQc3BUUldBeUlVMlErRk9reXZNdWQ2blpjaG1hQk1kaHlJ?=
- =?utf-8?B?d0lZdG80Y3BYOWYxMnQzZ3Q2WWgvVUtGbmxOclJabTBmbjZqT0JwcWJlRHVE?=
- =?utf-8?B?WEVJVUswVjIvWXI1QnRFb1dwWnBTUi9LOEc1Ty80SUVTQWZvM0pVVW5CNnRj?=
- =?utf-8?B?WnN5ZS94b2lZMlZzV1JxZE1oQjlaMlZMWFBXT0dJaFdnOUNQUnRVMWQ0cXJQ?=
- =?utf-8?B?bzhmaW4rQ3l4QWFOZkp1WEJVMXN3aU5pVlJ0U2dUeWJRTWl6bCtBM3h3aCsz?=
- =?utf-8?B?WitJMDl2WVdiQVJTbTI1YzBacVM4TEhhTlhZUHpoSmtGWDU0aTNSMzdVVUVD?=
- =?utf-8?B?ekh0dkszNkV3clA4a2RhOFQ5T0dYeTN6aDQzVFh3cDZuWUwyMCtYZUFtS1Qr?=
- =?utf-8?B?Wjk0TjV6MkltZ3h5MkZaUG9nUUx3RFh5czFYWENuZ1VseEdnQitWbnUvcUEy?=
- =?utf-8?B?dGt4Y3VKZjc3OUtGeHFhMnQzZ2Y1N1k1TC9RUStmeDdDS0p2NWJTR1NpWnhH?=
- =?utf-8?B?dkkxNEtCcFlXMVVRUEMzMmcrazR6bERYYVNVTWxsQ1ZQZi85eHQ5WFdwdXpt?=
- =?utf-8?B?N0dNbDc4UVdUdVNTN3BSb3FHcXAvRDNUYUJKaUJYSEVuRlJWU01VU1puYVFr?=
- =?utf-8?B?dlpxM1dZTDN3RkJaUzI2VTBlWjhmNStPOHhXcXlmaHVHNFNUY25Mbm5yYzRx?=
- =?utf-8?B?b29Ja3FZQm1CVDdudXlRSkZHdktSWEUyeGw0YmpFRGxZSnFCWUdaMVZoMCth?=
- =?utf-8?B?bmxnTU1DVGY5MVJoMllkYzQ5UGFMZjJzSEx3eGZUVnNOejNrdVoybVBTQXJx?=
- =?utf-8?Q?e4CbDzfOtmxe2LfV0G?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c41ad634-3232-4c24-9429-08de811e435e
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 16:33:31.3712
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vYgEvsii0r06KWj/tP4bvXgaBMr0v+nhKYEa0+skuglYy+dZRxZ+1yAZvF8S08HPL8p0W1SHK0IZ6qLNCjUekQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8585
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K
+ pages
+Content-Language: en-GB
+To: Usama Arif <usama.arif@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, david@kernel.org
+Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
+ baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
+ catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
+ kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
+ Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20260310145406.3073394-1-usama.arif@linux.dev>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_093338_968914_F4A973F4 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_093352_858339_D1615451 
+X-CRM114-Status: GOOD (  28.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,29 +74,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 11 Mar 2026 09:11:49 +0100, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On 10/03/2026 14:51, Usama Arif wrote:
+> On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
+> into a single iTLB entry, reducing iTLB pressure for large executable
+> mappings.
 > 
-> This series introduces initial device tree support for the NXP S32N79
-> automotive SoC and its Reference Design Board (RDB).
+> exec_folio_order() was introduced [1] to request readahead at an
+> arch-preferred folio order for executable memory, enabling contpte
+> mapping on the fault path.
 > 
-> The S32N79 is an automotive-grade system-on-chip featuring eight Arm
-> Cortex-A78AE cores organized in four dual-core clusters. It is designed
-> for high-performance networking and gateway applications vehicle
-> architectures [1]
+> However, several things prevent this from working optimally on 16K and
+> 64K page configurations:
 > 
-> [...]
+> 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
+>    produces the optimal contpte order for 4K pages. For 16K pages it
+>    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
+>    returns order 0 (64K) instead of order 5 (2M). 
 
-Applied, thanks!
+This was deliberate, although perhaps a bit conservative. I was concerned about
+the possibility of read amplification; pointlessly reading in a load of memory
+that never actually gets used. And that is independent of page size.
 
-[1/5] dt-bindings: interrupt-controller: fsl,irqsteer: add S32N79 support
-      commit: 0c8fb9a7a1004b13adb921c637f06a7b9c2d0806
-[2/5] dt-bindings: arm: fsl: Add NXP S32N79 SoC and RDB board
-      commit: 14233f267406e6b991923a11e8eda2857a8ec948
+2M seems quite big as a default IMHO, I could imagine Android might complain
+about memory pressure in their 16K config, for example.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Additionally, ELF files are normally only aligned to 64K and you can only get
+the TLB benefits if the memory is aligned in physical and virtual memory.
+
+> Patch 1 fixes this by
+>    using ilog2(CONT_PTES) which evaluates to the optimal order for all
+>    page sizes.
+> 
+> 2. Even with the optimal order, the mmap_miss heuristic in
+>    do_sync_mmap_readahead() silently disables exec readahead after 100
+>    page faults. The mmap_miss counter tracks whether readahead is useful
+>    for mmap'd file access:
+> 
+>    - Incremented by 1 in do_sync_mmap_readahead() on every page cache
+>      miss (page needed IO).
+> 
+>    - Decremented by N in filemap_map_pages() for N pages successfully
+>      mapped via fault-around (pages found in cache without faulting,
+>      evidence that readahead was useful). Only non-workingset pages
+>      count and recently evicted and re-read pages don't count as hits.
+> 
+>    - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
+>      marker page is found (indicates sequential consumption of readahead
+>      pages).
+> 
+>    When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
+>    disabled. On 64K pages, both decrement paths are inactive:
+> 
+>    - filemap_map_pages() is never called because fault_around_pages
+>      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
+>      requires fault_around_pages > 1. With only 1 page in the
+>      fault-around window, there is nothing "around" to map.
+> 
+>    - do_async_mmap_readahead() never fires for exec mappings because
+>      exec readahead sets async_size = 0, so no PG_readahead markers
+>      are placed.
+> 
+>    With no decrements, mmap_miss monotonically increases past
+>    MMAP_LOTSAMISS after 100 faults, disabling exec readahead
+>    for the remainder of the mapping.
+>    Patch 2 fixes this by moving the VM_EXEC readahead block
+>    above the mmap_miss check, since exec readahead is targeted (one
+>    folio at the fault location, async_size=0) not speculative prefetch.
+
+Interesting!
+
+> 
+> 3. Even with correct folio order and readahead, contpte mapping requires
+>    the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
+>    The readahead path aligns file offsets and the buddy allocator aligns
+>    physical memory, but the virtual address depends on the VMA start.
+>    For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
+>    granularity, giving only a 1/32 chance of 2M alignment. When
+>    misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
+>    any folio in the VMA, resulting in zero iTLB coalescing benefit.
+> 
+>    Patch 3 fixes this for the main binary by bumping the ELF loader's
+>    alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
+> 
+>    Patch 4 fixes this for shared libraries by adding a contpte-size
+>    alignment fallback in thp_get_unmapped_area_vmflags(). The existing
+>    PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
+>    libraries, so this smaller fallback (2M) succeeds where PMD fails.
+
+I don't see how you can reliably influence this from the kernel? The ELF file
+alignment is, by default, 64K (16K on Android) and there is no guarrantee that
+the text section is the first section in the file. You need to align the start
+of the text section to the 2M boundary and to do that, you'll need to align the
+start of the file to some 64K boundary at a specific offset to the 2M boundary,
+based on the size of any sections before the text section. That's a job for the
+dynamic loader I think? Perhaps I've misunderstood what you're doing...
+
+> 
+> I created a benchmark that mmaps a large executable file and calls
+> RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
+> fault + readahead cost. "Random" first faults in all pages with a
+> sequential sweep (not measured), then measures time for calling random
+> offsets, isolating iTLB miss cost for scattered execution.
+> 
+> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
+> 512MB executable file on ext4, averaged over 3 runs:
+> 
+>   Phase      | Baseline     | Patched      | Improvement
+>   -----------|--------------|--------------|------------------
+>   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
+>   Random     | 76.0 ms      | 58.3 ms      | 23% faster
+
+I think the proper way to do this is to link the text section with 2M alignment
+and have the dynamic linker mark the region with MADV_HUGEPAGE?
+
+Thanks,
+Ryan
+
+
+> 
+> [1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
+> 
+> Usama Arif (4):
+>   arm64: request contpte-sized folios for exec memory
+>   mm: bypass mmap_miss heuristic for VM_EXEC readahead
+>   elf: align ET_DYN base to exec folio order for contpte mapping
+>   mm: align file-backed mmap to exec folio order in
+>     thp_get_unmapped_area
+> 
+>  arch/arm64/include/asm/pgtable.h |  9 ++--
+>  fs/binfmt_elf.c                  | 15 +++++++
+>  mm/filemap.c                     | 72 +++++++++++++++++---------------
+>  mm/huge_memory.c                 | 17 ++++++++
+>  4 files changed, 75 insertions(+), 38 deletions(-)
+> 
 
 
