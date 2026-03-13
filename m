@@ -4,88 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB54107BCCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 323C2107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmfDud7/vj53ZDYfVvEyX3xy5JPfLlI3+SZjlGxlJLk=; b=dwMU7j888JwzQ88RzEzrTevow8
-	4JCjokf6ORs60gpNnjgcvBHwYBAp2OXXaYsMMQ2Pyv9OVzFD8/E1TbeXYkL7F2QqIRu5jAtHbPPmN
-	aGjYbIXooTMSCmb15WsI+VEa0HJab46bmSSCp/r8QBmHT9gEUp0R+nOQDCF905FV1YMfhU1BgBslG
-	FaN3pT+4AppVa01vDjXjdfEVxpyI2o+RboUb7ebZqMeon56q4n88mu+7Y8fMyxTuytR95P+kkon1j
-	zwvGJjSl/gLAsUO2f5kmrtrTdbgRAoWkQAud9ktggbRSgRungxlnUqrn6eNPwtN/T2jdwA1W0DtF4
-	4DSTMkuw==;
+	bh=7ebijAavojuxgzNpkroUxDtvAf3sJTdP3uqS+Pqvjz4=; b=MGB9VvZJ2AGI/N4Ddxfv2cB/qM
+	tfYkjitKyF42VQ4UFgzpp2PTIPQ3lKMRn0dY+f0ME/yWsfmCNTj+S9rIvXh6P5m0E0FHhw9lG9tah
+	w85g2Gwr8ano7JA6ePdHf3RYqD2I80d+a+lu+wU4JgEYbEm5HiTQWjIVHIIfDyKRblgtwFahgeLPH
+	C6gk533aC1QQl/BC6rtMfobQMlsqTNCdTnNtg7QA3d2FGktsEl/pg6GP+59HVgNouEDA/OWYE/VgG
+	iACgc/Dm9enC2VN0AnF35LXZNIujyobKWQPlSePj8tDzcvGmrxP7NX7qzp9tQEvpx01AM+dAAaShK
+	9QT+q9Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15ZJ-00000000fVL-3Wh4;
-	Fri, 13 Mar 2026 16:40:57 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1w15Ze-00000000fhT-2shl;
+	Fri, 13 Mar 2026 16:41:18 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15ZC-00000000fMv-1Oec
+	id 1w15Zc-00000000ffU-0xrZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:40:51 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fXVbR6WXxz9vC0;
-	Fri, 13 Mar 2026 17:40:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420036;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vmfDud7/vj53ZDYfVvEyX3xy5JPfLlI3+SZjlGxlJLk=;
-	b=ZGj35T3tusMVvrO6yQWyfepb2e9Hm/oaOWt8/hvNNQSjB2ZKk9RTV9hiN8BJYkUI1ZE542
-	xeJs/keY6e4NKNNW417gDBmOmfh2WdiI1H1G+x3qkO4cq6gmR4OWhsEhH7zoa0t12lGkj4
-	AdyHb8y7PG3b6pap6MBqwnFpmJWdhbzARi+2UWLfonXQT0agXbmoAeyziXj4zalyzpjG2G
-	gxKjbHd+eWBaqzrWWWjoNOqPas+jRo4X/QmPkQr3VSbhxRB3pDYgek5A7WQAbxJmrBsq1z
-	IuXD99MF8mgjm8MW81J6K9o5R0FemDs47NaYKJFyC5+Ty/luGrIIT1kdzWGJbg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=o218skv+;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420034;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vmfDud7/vj53ZDYfVvEyX3xy5JPfLlI3+SZjlGxlJLk=;
-	b=o218skv+0Qm+US9vfFfa7gbYvOVg83V6U96J6ZxyTPs50Apw9bPb3wGh8SdtKgtqVEitwf
-	y/WF9UYOqvBTF9uVLoTaOabrzYbZ123MIw4RLXDnQHFF9sCm3TPjB37S1W4J8tV8NZw/bw
-	jCQ5uebtY/JN5b1sVV4RO4d/yEXl13aPNNfalEhJ/mjaK1ZzDWg+c6uxdYHolv7JUDU4QZ
-	pPaXBWQT/UbYuUF2D9HHez4l57MP0M2N5SzIwdbiEemk4d725txrQoHAUJwXu8LY/HORPJ
-	4OsX9ULBOVRFbua95R5uGXuMu6yBsr5MeEL/Xr0Rpee1r72S1zlRcBs0PBzQaA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 4/4] arm64: dts: renesas: Fix KSZ9131 PHY bogus txdv-skew-psec property
-Date: Fri, 13 Mar 2026 17:39:06 +0100
-Message-ID: <20260313164008.40933-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
-References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
+	Fri, 13 Mar 2026 16:41:17 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-38704f70ea3so20283891fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 09:41:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773420074; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gUgDyjq0HhhaT3vqgJjgHMayZqxUonQOF7jxMEnY2RuDmn52AjtU2gB5RRxHMKHWf3
+         7D+Yvho4DTCDDqpG/pXPFXvAB7mezV1kdWdCiwgBsZCh8CPLmZhTOY7mJF/Ql9B4f0/x
+         6F8iwJuG2YQtOD/Q734lBCSEZYamxKcToqIXF15OWDpnJz8BiNPeCAphafJCp3+GAETQ
+         x0rXiCzscesBbXGKVtnAQgNWYROFUgqmiFN+0y/GXblk7gxP9eZ1jMTuiDpxq4ixOjPU
+         VuWk80pz3zvSIaF2uwgrvP0KOC1xeHByPmVq5vXAipBeZWOiLmqefYaq4YM4lPukfaxy
+         QoqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7ebijAavojuxgzNpkroUxDtvAf3sJTdP3uqS+Pqvjz4=;
+        fh=lJhdSL7UI0qLs2QEuwJR5dh7jV1WOR/BhObrX9NURKg=;
+        b=GvSa0KLQDRFQOq80/LowAwCMIM2FkX1H/GAcxfdCxKytvc6nV1w/1FfgcnT70IKqKU
+         Hip1R/5yJFWgOImLBPeCrhkJ5JOUgQRphZWJ8CJHB0gUNCEgrvvyzM8QKeNUG2JKO1YF
+         5lFx8iwFR2JDYk2ZSVmsHfGWpGdZ5TYq8H48Ubq233QkmqOaq0Bg757safGrdjuPyFCx
+         //p9nj+aBB100hTWYcS3Cs3Wz7ba3SZSsraeP9FPN6dZlorgoTB4MHO2zWJi1RUIed1r
+         oJTejGELbhhKEah6GyDk5RSoPU+lc3sjC3GajdrT1/C5FirJUzEqVNBp6mIazyWcAFtl
+         zplQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773420074; x=1774024874; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7ebijAavojuxgzNpkroUxDtvAf3sJTdP3uqS+Pqvjz4=;
+        b=m8v9NNqObQg0gXXzcCNJwOfL0UqHmplGfZTh42dfFJDnpsin+ezMRIMiPL5214hSHr
+         N6rYUFbTidw2wN3OBADf3sOw0kJGRHnF6WvRXsv/wD/TRggXqKHkkL2GfkOR+XkEClu9
+         ZRG+D+i1a4J7wWUdVW7DIPY9F/DLsilYPmsMfk+Z7U1LqBBwLphEBXL6Vy5jiniRaBoH
+         SFN2Ccdbm0eAwSH3Tn0mUMx0Ty449gxrTY/9e9vGNZkVZAorS2xnAeRvP1C9BRUntuc1
+         oDc035Qz2bXub3VlvF22qQy2fhl0s3RSwertLUXPbPjHoUbagc21kUx0z3lYYsPTWtAa
+         8ymA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773420074; x=1774024874;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7ebijAavojuxgzNpkroUxDtvAf3sJTdP3uqS+Pqvjz4=;
+        b=qdIUxTyZezAjkXv24MXpJ1/hBqFny5GTACivitv6NIFeXhNMCV3sVaXXqn8hOvABcE
+         xztRLssXGCWD+E3ecVUL2+jtvvYXcQ0JYCxDraW7KiPcry7jH1Sr+48Rho1hdj0Kb6mc
+         xMH+sZwhclxGJ9P0vht1KNWj2KsOsm+7aeEtFBdq6M+msKu5CjvVfnvwk8xVaqw7miJw
+         tOYPFfw61M0HVuhEKFxgWFmt6f2UInRfVIMi2+cXLX1eCPgzDLXqzhhTuIDutl7MD3z7
+         pF3o/Voy9WWJZIDDwlaLZRCpfuWCyp6U1/ahJ9USbmibjFL7RFrop6UZppkGCm+eXV5N
+         oxPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXLekfUJwPF8LSrec624ks8JEpz19PBMwh4dTE5ZylIwvzf+aKcoVKDRadsVOhbXyKelhDrM+y9vrM35FCYtcQn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwogjOHjDp94txwXvREzD2fuU6D8Djb2veGSoP0yA9CCeBFvRak
+	3swKXSC/6AaImakMLuTQyRKgrALNaoF9/tKhrZ5RGHjipnlSyl+9eZZVInrR69P5/WuMifTcOYj
+	12bs9++mgczjvyDlxJ7dhUeRzfWbfdpY=
+X-Gm-Gg: ATEYQzzExAKMKYzd3OYYL6LupkAIh9Lq23ZhgqYmLCUmt5QJ9qmsfaF3DLZ6EpKweY+
+	pEjNmX5MDngGYaV4YcbNQQKfK2F5nT1Sp9EtZ1xOrGGsZUY1zRAG6M0jUvMN8o+Q8oqiEm/oZ1n
+	HduqKJXhH5pDX0lkwH4TbXonuyW2SxQ+3H3Tp7RGQ2bUMj3zUWeNMomhfHXukAuAQ5u2lYN6cDt
+	GZZLW5h9Yy04IL24eIRX81NrN9TckXCe+lcX5xFBFlxytOlUeVHN7mc1MqVlUU1zmwLSwzHWPqW
+	IPyX5VyommC7iV+3p0jot/iTQ00eLi3/s4pvButpFJPKox7ayz5Dg5MIUgmKKG6u3EVq8ydj+kW
+	G5+hudwE=
+X-Received: by 2002:a05:651c:411a:b0:38a:6acc:85f with SMTP id
+ 38308e7fff4ca-38a8983b635mr8205961fa.36.1773420073322; Fri, 13 Mar 2026
+ 09:41:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 2c656e22b26b43c5092
-X-MBO-RS-META: a36cx7pc3wbwhupfwt86kx9gr1emr6pg
-X-Rspamd-Queue-Id: 4fXVbR6WXxz9vC0
+References: <cover.1772898346.git.stefano.radaelli21@gmail.com> <7c84625f82c562bb9cd2b455465d63a1a25bf19e.1772898346.git.stefano.radaelli21@gmail.com>
+In-Reply-To: <7c84625f82c562bb9cd2b455465d63a1a25bf19e.1772898346.git.stefano.radaelli21@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 13 Mar 2026 13:41:02 -0300
+X-Gm-Features: AaiRm53S_d12Zw5UGPcEotGK3352SUR9b8Vel1YzgYrE0c2WVa0HFOKlHx3vKPQ
+Message-ID: <CAOMZO5C+USp34WQ9ap+N9ha6EgU7JgsYkRsLEW=ZdizbkMQvPA@mail.gmail.com>
+Subject: Re: [PATCH v3 06/11] arm64: dts: freescale: imx8mm-var-som: Update
+ WiFi/BT with variants
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_094050_533735_ECDA55B6 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260313_094116_289709_7E323445 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The KSZ9131 schema does not document "txdv-skew-psec" property, neither
-does the kernel driver support this property. It does however document
-and support "txen-skew-psec" property. Fix what is likely a copy-paste
-error from the matching "rxdv-skew-psec" property, use "txen-skew-psec"
-property instead of "txdv-skew-psec" property.
+On Sat, Mar 7, 2026 at 12:55=E2=80=AFPM Stefano Radaelli
+<stefano.radaelli21@gmail.com> wrote:
+>
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> From: Stefano Radaelli <stefano.r@variscite.com>
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts | 4 ++--
- arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts | 4 ++--
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi       | 4 ++--
- 3 files changed, 6 insertions(+), 6 deletions(-)
+One From line is enough.
 
-diff --git a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-index dd5e4b13f0f86..00e5455ea5abf 100644
---- a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
-@@ -265,7 +265,7 @@ phy0: ethernet-phy@0 {
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
-@@ -284,7 +284,7 @@ phy1: ethernet-phy@1 {
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
-diff --git a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-index 8ae7b6e3d712e..4643c61cf06a7 100644
---- a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-@@ -286,7 +286,7 @@ phy0: ethernet-phy@0 {
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
-@@ -305,7 +305,7 @@ phy1: ethernet-phy@1 {
- 		rxc-skew-psec = <0>;
- 		txc-skew-psec = <0>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
-diff --git a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-index cb5066443722c..880bd3fc9da18 100644
---- a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
-@@ -142,7 +142,7 @@ phy0: ethernet-phy@7 {
- 		rxc-skew-psec = <1400>;
- 		txc-skew-psec = <1400>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
-@@ -162,7 +162,7 @@ phy1: ethernet-phy@7 {
- 		rxc-skew-psec = <1400>;
- 		txc-skew-psec = <1400>;
- 		rxdv-skew-psec = <0>;
--		txdv-skew-psec = <0>;
-+		txen-skew-psec = <0>;
- 		rxd0-skew-psec = <0>;
- 		rxd1-skew-psec = <0>;
- 		rxd2-skew-psec = <0>;
--- 
-2.51.0
+>
+> The VAR-SOM-MX8MM currently integrates the NXP IW61x wireless module,
+> providing WiFi over SDIO and Bluetooth over UART.
+>
+> Move the wireless module configuration out of the base
+> imx8mm-var-som.dtsi and provide dedicated variant includes.
+> The IW61x configuration is moved to imx8mm-var-som-wifi-bt-iw61x.dtsi
+> and used by the Symphony evaluation board device tree.
+>
+> A separate imx8mm-var-som-wifi-brcm-legacy.dtsi include is added to keep
+> the configuration for the legacy Broadcom SDIO WiFi module used on
+> earlier SOM revisions.
+> The Broadcom-based SOM revision is no longer in production, but the
+> configuration is kept separately to preserve compatibility with existing
+> boards.
 
+ imx8mm-var-som-wifi-brcm-legacy.dtsi is not included anywhere, right?
 
