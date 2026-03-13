@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B58107BCCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C761107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtcNUMGKVVgSM3uf08zTcKGbo2CYKpe7hKWLv4V5pfg=; b=RhBY6bx9ymeqwLH8OO3eWiRdKW
-	7JCq7ZFRlIQdEyhkDCB4Y8tbJRMS+rXcsHZ6iPD8EQnsbprUcGmiGoUakdX9BGPvN9SSRcsYdfA8U
-	QHn4wCoMbcEFNG0hOp8dPYmufNnjvP3waSiBvQXlJUNuU67XEpBkc0ofRKt8+2tLbY8JpNp3jLjnV
-	EyAl9K4eHCH+scE569NRutBtchSUSLA7Pmpabt055iAWYz2WD5K0HwH4bPHeiy7sJhztHirTxPSjK
-	P7uzFBFNFNJGTiiEmF/V/0gwxE3BrNJg4ZpiYbEAn/tJBJuGD/MuCUuyQbt08ASMoLEGbawIo5i7Q
-	DMd5QaPA==;
+	bh=+ik6+NaHiadag0VJT/CIGDgof4Ly2SNbMb75Q4wpL4Q=; b=1PX9NnzW1j0Mse4MKQW+O46Zfr
+	YBZLHr9tBFrTixxvLPnd2GMuqGRhTNoQ07hI+ujcRJea21z7ioLpMxVOhQHMm64HVcdKa199Ej+2N
+	FupCHyMsR6zXpyNOIvX/Te+ABLU8oWsVr4+xwQV4luulXixz8J86K0Qjw4Dj03BkB2WSCa5fZ/IPp
+	/8rTZbPzmdUa5uhtPxvmtAhn77i3c8SKDwpf9DaOY6FYYclZjQNUX8PdJmSZVIK3TOOCYz7qFhojp
+	05LqZidEM/MV3FVrVsJrReaxj+hniN+d7XMEpiVb7BmAh8lP1+CxOsIYioDh5wm+jZ0NCXFsEpcg9
+	VLTBq1Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15pR-00000000iHO-1J5c;
-	Fri, 13 Mar 2026 16:57:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w15pd-00000000iOz-36L8;
+	Fri, 13 Mar 2026 16:57:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15pP-00000000iG4-26Wx
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:57:35 +0000
+	id 1w15pX-00000000iKZ-2Plq;
+	Fri, 13 Mar 2026 16:57:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E755060142;
-	Fri, 13 Mar 2026 16:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A5AC19421;
-	Fri, 13 Mar 2026 16:57:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D298440413;
+	Fri, 13 Mar 2026 16:57:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D4DC19421;
+	Fri, 13 Mar 2026 16:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773421054;
-	bh=MTmIlUNYfXXnCtYkphjtUGyol0ytTPCJ+MfxqNUsfM4=;
+	s=k20201202; t=1773421062;
+	bh=khXFvWj9lIYktByP7ZJX+6n1NUtFwKtwOcL+GNs+f6A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AuI3+9HmBaEN1ebQ3DX/E6l5JyTzQpzp/3gEvaJ4Uz1vZbXGHV0Mlh/kenhsU9R0o
-	 m+e8q7ZVdeQAWzAa7H8nhKLvfrTegfdH/tuSlbjYWzsXSzf+lrKm/AOpQfARaAhhry
-	 Nsovi3o1l5ys6wT24pt0QQzOL6Cip/aLB5+x4uTFH7zRa8vFkRmPEBO5H5toYdhqSZ
-	 y9wMG1bsxs/qfjDBnJ9Dw0yCUYz8XsPQlzH1W/yqKhw2pGIGUP0cO1lsHtheiL73kV
-	 YDlqNOFMeAzUshb1fH+bBR3cIxL+mHdUsrY0E8om/bBM/jeqmfPRi/zcCUineRoVp/
-	 xpx5QrRMtSxBA==
-Date: Fri, 13 Mar 2026 16:57:30 +0000
-From: Will Deacon <will@kernel.org>
-To: Pepper Gray <hello@peppergray.xyz>
-Cc: Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH] arm64/scs: Fix handling of advance_loc4
-Message-ID: <abRB-raKFBZItDQP@willie-the-truck>
-References: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
- <abLGwg1aFyoCosHi@willie-the-truck>
- <4141e534-0d81-45f7-a341-98ae1a6dcd8b@app.fastmail.com>
- <CAHLDejw4XKZ3-dbFFRYVGAZyYkmkzW5cdkvJNVJ9p3ARMUUyjQ@mail.gmail.com>
+	b=H1Pv4bwH7GGTyhgN07TlIWhPaCc06Qelcl21hcmWFA2gCFRfNJKy2ZLuxzPK0AEp7
+	 WdU/Fo/NZZgUemhcypakqg8A3v/bCy+D0tTldNYzzZAZROCpPuk7mxLrWfGHj+0LeN
+	 MzHlqH6GiI1lXjzi+HAukG1zsCvSCk+2a8FUqMMr9cao/1Qjzk/rV97tyGEqUCrfbw
+	 CUzlAMBrw7UbsQkmJoiAUBtK6xQWVsOr01lwr9jEzO0a2DdnSDCf1ixpseg4u0LY1g
+	 aQpZQ/N6p3Ht6qlgqDyojPphS/iejYhtOb+GemlTRdroKEfP+k1YVNxuBIDjspZcDZ
+	 NUD4m99qPvyBg==
+Date: Fri, 13 Mar 2026 16:57:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: michael.riesch@collabora.com
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/9] media: dt-bindings: add rockchip rk3588 vicap
+Message-ID: <20260313-coyness-jab-ff0c85654555@spud>
+References: <20250430-rk3588-vicap-v1-0-b3bddf749914@collabora.com>
+ <20250430-rk3588-vicap-v1-2-b3bddf749914@collabora.com>
+ <20260313-quickly-imperial-47638c9f0d4f@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S7d/qyDaD5sp6+Yh"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHLDejw4XKZ3-dbFFRYVGAZyYkmkzW5cdkvJNVJ9p3ARMUUyjQ@mail.gmail.com>
+In-Reply-To: <20260313-quickly-imperial-47638c9f0d4f@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_095743_671276_901ED781 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +88,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 08:13:01AM +0100, Pepper Gray wrote:
->    This is my system:
->    6.19.6-gentoo-dist-hardened
->    LLVM-22, aarch64-unknown-linux-musl, clang version 22.1.0+libcxx
->    Ampere Altra (ARM64, Neoverse N1)
->    Some patches are needed which I linked
->    here: [1]https://bugs.gentoo.org/971060
->    I'm working on a script to reproduce the error, will share it asap!
 
-Thanks.
+--S7d/qyDaD5sp6+Yh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-In the meantime, I've picked up your fix:
+On Fri, Mar 13, 2026 at 04:56:29PM +0000, Conor Dooley wrote:
+> On Fri, Mar 13, 2026 at 04:20:44PM +0100, Michael Riesch via B4 Relay wro=
+te:
+> > From: Michael Riesch <michael.riesch@collabora.com>
+> >=20
+> > Add documentation for the Rockchip RK3588 Video Capture (VICAP) unit.
+> >=20
+> > Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> > ---
+> >  .../bindings/media/rockchip,rk3588-vicap.yaml      | 256 +++++++++++++=
+++++++++
+> >  MAINTAINERS                                        |   1 +
+> >  2 files changed, 257 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3588-vi=
+cap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.ya=
+ml
+> > new file mode 100644
+> > index 000000000000..7fd4214921cb
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml
+> > @@ -0,0 +1,256 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/media/rockchip,rk3588-vicap.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Rockchip RK3588 Video Capture (VICAP)
+> > +
+> > +maintainers:
+> > +  - Michael Riesch <michael.riesch@collabora.com>
+> > +
+> > +description:
+> > +  The Rockchip RK3588 Video Capture (VICAP) block features a digital v=
+ideo
+> > +  port (DVP, a parallel video interface) and six MIPI CSI-2 ports. It =
+receives
+> > +  the data from camera sensors, video decoders, or other companion ICs=
+ and
+> > +  transfers it into system main memory by AXI bus and/or passes it to =
+the image
+> > +  signal processing (ISP) blocks.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - rockchip,rk3588-vicap
+>=20
+> Curious why this cannot share a binding with the existing 3568-vicap.
+> Looks pretty similar binding wise at least.
+> If it's an entirely different architecture or whatever, please mention
+> that in your commit message.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?h=for-next/fixes&id=d499e9627d70b1269020d59b95ed3e18bee6b8cd
+Looking further, it's using the same driver too...
 
-Will
+--S7d/qyDaD5sp6+Yh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRCAAAKCRB4tDGHoIJi
+0uVoAQC9aktstpY3Ps5YxtEBxqUOAWA83YHM85wd6hzwHPdf/AEAyxeasFwEek0/
+pjKkmZ1ye2nqzV7ZMXoKzZ+qV26aoQ4=
+=AHWC
+-----END PGP SIGNATURE-----
+
+--S7d/qyDaD5sp6+Yh--
 
