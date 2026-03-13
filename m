@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08B6105F79A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F9E105F79A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8latpqdRJXcFNbZL8a9dypIhEmg29FJfWJfdQvLnAjE=; b=jc8vw407LYWazFQyS6F1z2MG1H
-	YmY+H3sgSNrXtD1Od/3eNlqMOMfPD9rhNkxjX/mqEKEcvVxS86v/hn57AiMFT+JBhksG+I5Zkc909
-	lgDPiPto2u80f7WYTjHA1bDDkhkkaWsckfG4Q1qH210273EeYPMpeGw4H8iDYqCrImRrQu/fLgdvc
-	goN5LAEsk0jex0TfpRVCiCwBi8w97dVr0sa2y8SeVU2GaLAt+siA9HcX5Wz2KOu88XwsSmDdVOCSm
-	Xmo6wdxF8u+X8Spw14b29aFWzdSqH0L3QwdWM5XY5WHXZXFk9IMoOIFuE2TGjhbZYpiytJexSnggm
-	pvp3vNkQ==;
+	bh=sRfhWRMqjk2L0JEOr5H6RNkI6u1UbzmNeAIOrMx/Kao=; b=g4EbhNeCJA+Icl1oPR1pqrA/J1
+	FstRWQBcFf0MeddFT3YJzPx7CDGZlKMvjAJsVGAu2V/R+VxaJeVl6dPMcS/FxpROlhrN2GXUGmW6X
+	PGukQ1JaZuYSqDD3/pxKfAfBjFNyxK+eoV9ZakreTfn3/cMOI9lDk+FdZp+3XMRWJn+rHgdgJ1h/u
+	9qUHcX93rXzK4OEarXBSKhs9V/2rsdkycFH/8HUlO4TErvFMgd6TP8A8Uy061V8/4bz3WCxYimcSG
+	VP1wc3t48TK9TS/WnsX6FVEIltd3LVTHKT1Au2uqXV01FMejcLPsE8En79CpM6bDghMMUv1i5S5Qh
+	QX2f65/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10RH-0000000HabI-0LKz;
-	Fri, 13 Mar 2026 11:12:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w10S3-0000000Hakl-1n8M;
+	Fri, 13 Mar 2026 11:13:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10RG-0000000Haan-1GCZ
+	id 1w10S1-0000000Hajv-2xKS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:12:18 +0000
+	Fri, 13 Mar 2026 11:13:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B88EE6012B;
-	Fri, 13 Mar 2026 11:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24881C19421;
-	Fri, 13 Mar 2026 11:12:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB72660138;
+	Fri, 13 Mar 2026 11:13:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A089C19421;
+	Fri, 13 Mar 2026 11:13:03 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: soc@lists.linux.dev,
 	soc <soc@kernel.org>
@@ -39,12 +39,11 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL] Renesas SoC fixes for v7.0
-Date: Fri, 13 Mar 2026 12:12:09 +0100
-Message-ID: <cover.1773398984.git.geert+renesas@glider.be>
+Subject: [GIT PULL 0/4] Renesas SoC updates for v7.1
+Date: Fri, 13 Mar 2026 12:12:56 +0100
+Message-ID: <cover.1773399669.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -62,53 +61,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 	Hi SoC folks,
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+This is my first pull request for the inclusion of Renesas SoC updates
+for v7.1.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+It consists of 4 parts:
 
-are available in the Git repository at:
+  [GIT PULL 1/4] Renesas ARM defconfig updates for v7.1
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-fixes-for-v7.0-tag1
+    - Refresh the ARM SH-Mobile defconfig for v7.0-rc1.
 
-for you to fetch changes up to 85c2601e2c2feb60980c7ca23de28c49472f61f1:
+  [GIT PULL 2/4] Renesas driver updates for v7.1
 
-  arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers (2026-03-06 13:15:21 +0100)
+    - Initial support for the Renesas RZ/G3L (R9A08G046) SoC.
 
-----------------------------------------------------------------
-Renesas fixes for v7.0
+  [GIT PULL 3/4] Renesas DT binding updates for v7.1
 
-  - Fix SD card initialization on the RZ/T2H and RZ/N2H EVK boards,
-  - Remove WDT nodes meant for other CPU cores on the RZ/V2H(P) SoC,
-  - Fix Clock Pulse Generator registers on the RZ/T2H and RZ/N2H SoCs,
-  - Fix Versa3-related boot hangs on the RZ/G3S SoM,
-  - Fix Extended SPI interrupts on the R-Car X5H SoC.
+    - Document RZ/G3L SoC variants, the RZ/G3L SYSC block, and RZ/G3L
+      SMARC SoM and Carrier-II EVK boards.
+
+  [GIT PULL 4/4] Renesas DTS updates for v7.1
+
+    - Add CPU frequency scaling and QSPI NOR FLASH support on the RZ/N1
+      SoC and the RZN1D-DB development board,
+    - Add PCIe slot power control on the R-Car H3, M3-W(+), M3-N, and E3
+      SoCs,
+    - Add USB3.0 PHY support on the R-Car E3 SoC and the Ebisu development
+      board,
+    - Add PCIe/USB3.0 clock generator support on the Salvator-X(S), ULCB
+      King Fisher extension, and Ebisu development boards,
+    - Add RTC support on the RZ/V2N SoC and its EVK board,
+    - Add SPI DMA support on the RZ/T2H, RZ/N2H, RZ/V2H(P), and RZ/V2N
+      SoCs,
+    - Add support for the second SDHI channel on the Atmark Techno
+      Armadillo-800-EVA board,
+    - Miscellaneous fixes and improvements.
+
+Note that the fourth PR is based on "[GIT PULL] Renesas SoC fixes for
+v7.0".
 
 Thanks for pulling!
-
-----------------------------------------------------------------
-Claudiu Beznea (1):
-      arm64: dts: renesas: rzg3s-smarc-som: Set bypass for Versa3 PLL2
-
-Fabrizio Castro (1):
-      arm64: dts: renesas: r9a09g057: Remove wdt{0,2,3} nodes
-
-Geert Uytterhoeven (1):
-      arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers
-
-Lad Prabhakar (4):
-      arm64: dts: renesas: rzt2h-n2h-evk: Add ramp delay for SD0 card regulator
-      arm64: dts: renesas: rzv2-evk-cn15-sd: Add ramp delay for SD0 regulator
-      arm64: dts: renesas: r9a09g077: Fix CPG register region sizes
-      arm64: dts: renesas: r9a09g087: Fix CPG register region sizes
-
- arch/arm64/boot/dts/renesas/r8a78000.dtsi          | 16 ++++++------
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         | 30 ----------------------
- arch/arm64/boot/dts/renesas/r9a09g077.dtsi         |  4 +--
- arch/arm64/boot/dts/renesas/r9a09g087.dtsi         |  4 +--
- arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi   |  2 +-
- .../boot/dts/renesas/rzt2h-n2h-evk-common.dtsi     |  1 +
- arch/arm64/boot/dts/renesas/rzv2-evk-cn15-sd.dtso  |  1 +
- 7 files changed, 15 insertions(+), 43 deletions(-)
 
 Gr{oetje,eeting}s,
 
