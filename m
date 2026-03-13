@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247DC105F7AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 12:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7F5105F7A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GN4mbAtPPqI7eb/w8hWseJ9vXifrvUMqwbIm6ZtN9p0=; b=k1CnpUDFzrPOgzjTj7oBp0fJrY
-	Q0GMPbm+Rxw+VWM1DzMVp6PU4rbEURVgr+dChSBQLwR5egqbgW2cMNveJukgwWnJXpK71mttVqc6s
-	3FYWoolbigwG4HCoQ8rs831Mmp1DUsAtEl0Q4IZwJ9n3xcvxAOvi65po5Az8dWNELpX4rMQxnN3i4
-	qy5oo0GXbW7Cp2JiXMRWr/3sw1bajRlo143SkK9i80uzNt0zvzwWCNX37UKq1xo+RKARMw5lcKaNw
-	iWzS3YqDURas+Vq4ls+rhOtkfO0yIIZZrE8pWV5So58vega/n8MtP/NXFclsXFxTkWRUpKW8QTOJv
-	OgqIDs5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qsmU3+KHC+79pXEFoWAli1oSj80e3a/HpsprpoFgQoM=; b=aw/9Ivqc/EW7P94eF1QaSOQI2Z
+	DTGc+ZQD/IJ3E+QJd9CBakhW5yH5rps/B8e7rQ5XQPmMnzFmhDbGTLwGMldlIlKMPim+F8yGGbCVB
+	sJO8bD54usj12lijnjEtqiMeq+s9ihPWl4XR5yWVdZ433coGDEE/7TbhnIeiDYKwQeZihkzO+6euP
+	OvQnGXX2EyQCGPTLV7EJ78PiXA8bJIlvJNmQscswc+LUWO/74tfj9MV9vKJjxxogLxnL0OfudB9DN
+	n497TfDW3mPRF6MPMoUd1ciHCS4KmG13CLXv0Nf4fSdaJhqPRPe96/2MmFJdxzsn6N+FycoFYqTKO
+	ToPm1Tww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w123b-00000000A1y-0fyF;
-	Fri, 13 Mar 2026 12:56:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w12G3-00000000B4F-2hku;
+	Fri, 13 Mar 2026 13:08:51 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w123Z-00000000A1Z-2bRw;
-	Fri, 13 Mar 2026 12:55:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F07486012B;
-	Fri, 13 Mar 2026 12:55:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8865AC19421;
-	Fri, 13 Mar 2026 12:55:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773406556;
-	bh=Zjx0eOHVxG9gyRtEPqgdCcdKSmIhSdKw+KfUYhGrs8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LKDNhWqZ9gcLlJdoxr0XynPiyUoe0daj5KnfLIG4JofOAQVLnpfys+tsWuBfR2BP+
-	 6BJj6yZqfdm3hP9/V+3GjcABC4QPZaLJh+UehwPfjEiiPgBRLJ6mgswvf9usqZ5HyW
-	 B35LWJTwY7IrxQ1ooNqsQWH1kQI+VgfVN7nqixPusURihdngD8rUG+kVXzeu3RPREe
-	 HL0ID1LecKPKPy/Ia8QeXmRWoF6BA05QvmnIjDA4KKqSsmWbqzdha1+mMcteN7bbhf
-	 Hzm7r3p3USkrdmFn6vaEWdLOJOjaqX2Y8UmAlpDxnlihm5RiCIr2WOGSb3NBQJJndm
-	 MHJylAxBihjJQ==
-Date: Fri, 13 Mar 2026 12:55:51 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 01/17] spi: axiado: Use helper function
- devm_clk_get_enabled()
-Message-ID: <d54214f4-b57a-455e-991e-8700d03eea95@sirena.org.uk>
-References: <cover.1773381582.git.xiaopei01@kylinos.cn>
- <d78ba5faa6ed3f5e009b41fc1ee1c2bcdaff882b.1773381582.git.xiaopei01@kylinos.cn>
+	id 1w12G1-00000000B3R-0LTn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 13:08:50 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2bdfc4b191fso2488268eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:08:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773407328; x=1774012128; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qsmU3+KHC+79pXEFoWAli1oSj80e3a/HpsprpoFgQoM=;
+        b=mL90c/iriT5Pbspmcs9lAT9wFV/B5yDzGuH+JI0Vz322fvdpcHOQKhOXe/rK9lge6l
+         M4VxmpnofOmY23t3alYTznH+o3UHKdSPkRL2F1FqCO5jgCMd4WgM0GsoTBXy0Rr8jm7/
+         pE2+gjdoWWp5JmktLCrnBZA5Vr+SlmTdqXDXbwt3C/Xh7OIYvJujwY5hBXet7fE37ksr
+         sbQvDgnkFVqlZmrDpRYoLSVerrdVrcj/MpdPUyLZyaxoq1q2PDaPMRXUAVcB8W0hpVWe
+         ygaJElS1p7fEOU/fSSvPBMoYdicJBCzcLh6CXyx8lvgl0JnqhAQi/MEeAbu0/oH9pl7R
+         UcJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773407328; x=1774012128;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qsmU3+KHC+79pXEFoWAli1oSj80e3a/HpsprpoFgQoM=;
+        b=KceFpEvJwNqTuq8Q9R5l90Fm9DmOgqhwmwvLCq2O6nYuSgrASTYAxTVEHzg7tqBLYg
+         COE5dvvwLk0SVe9zwvB2j5wBY/n7uK3wb1ApUn7pAU9Gnth7Aq+KkM/mhg7+x3PzF2l/
+         BnkGvcgvHV2jMEy9qFgRPY87DfD68drWav91BUhHkQS9ib4O+G/+cO0taTPZopdvwOkk
+         1B0NKr45osUIG8uuBcTDXiylZt+CCTB2BDedY7gYdvD8FlLSlcqwtJSb41k0BLRzN5bg
+         FQFEuVHyHY2g+iXHVsDYbQdBzXpqiFW9HM38M8SFm84mdfdC+tUnwpbDMZMr1aX5pHX/
+         +89w==
+X-Forwarded-Encrypted: i=1; AJvYcCX7bD3x+EW3qooGNtOHadsj8A3dEN39neEKwKl9/0Wd1CzLntSHQQjewd3qYiqQ8uNq+I/TcLT5EeYGqFHzHS50@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk9AlqcYM76kRl/MI7s2rD27GkqTlgo0QtjoigIz6FxS3lufS5
+	tKRXK+kkIkHPRwiyQdXPKY3EDTuznb1e4pKFRa5SvfFYYOpee4CQnked
+X-Gm-Gg: ATEYQzzCocxgnO+GuzSvNOQwbuQpIlK5IkayaK+QpdPFLrwm+FOC2YjHmHe7sNfKVzt
+	PygmN3bIApyr+wxYInZMGbVFxF55rTza/TIdbH0KMIXGMV7H+aaJQQKSpYJVKSbBCxur4rdBQLE
+	SveTfXV8Mq5ui3yojRSle87mKevELi8DwaG5na0yMBZp79fW216vRxObKyi07pfpfbFPWghQeK3
+	CXhMWYC7U9xpOhFQV5OmRGt4uy31GNOuyiC2f+4x+D8yrxs7gLKWWBWbUPItJTO5UXV+TqLpgdP
+	P8rWthE5HJOmdyIvPZrOn/BB9Nsv0r4VYd4r4xr/dJhfjQoLe1D/KQ+a6zxNJ0x6GLDs2/bXEdo
+	huiopSXzbXnY+6KIh+VoMakA/yT1oudkTZ9SJf2LFpLPOhRV3s3m0BqkXToJ/Y6DO2hS7rrFhGr
+	rWgwhXFyyKpulsP4+Vzfwk6JfX0oa2Kb16xxQ44mIrf58RfMgh9gJSh2i3zC4xWGzRtA==
+X-Received: by 2002:a05:7300:6d23:b0:2be:19e:3064 with SMTP id 5a478bee46e88-2bea547d159mr1501145eec.11.1773407327739;
+        Fri, 13 Mar 2026 06:08:47 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:1b3:a803:148f:b6b5:4:db6e:9a2c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab5706bdsm2831454eec.28.2026.03.13.06.08.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Mar 2026 06:08:47 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: ulf.hansson@linaro.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	shawn.lin@rock-chips.com,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fabio Estevam <festevam@nabladev.com>
+Subject: [PATCH] dt-bindings: mmc: rockchip-dw-mshc: Fix the RV1103B compatible
+Date: Fri, 13 Mar 2026 10:08:35 -0300
+Message-ID: <20260313130835.708066-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1oJhbZS/zdMQ8Obt"
-Content-Disposition: inline
-In-Reply-To: <d78ba5faa6ed3f5e009b41fc1ee1c2bcdaff882b.1773381582.git.xiaopei01@kylinos.cn>
-X-Cookie: Monitor not included.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_060849_122666_4F3EF256 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fabio Estevam <festevam@nabladev.com>
 
---1oJhbZS/zdMQ8Obt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+RV1103B uses the same DesignWare MSHC controller IP version as RK3576.
 
-On Fri, Mar 13, 2026 at 02:08:17PM +0800, Pei Xiao wrote:
-> devm_clk_get() and clk_prepare_enable() can now be replaced by
-> devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
-> longer necessary to unprepare and disable the clocks explicitly.
-> Simplify code.
+They have no "ciu-drive" nor "ciu-sample" clocks and use the phase
+tuning inside the controller.
 
-> -	xspi->pclk = devm_clk_get(&pdev->dev, "pclk");
-> +	xspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
->  	if (IS_ERR(xspi->pclk)) {
+Fix it accordingly.
 
-This doesn't update the remove function which while it doesn't free the
-clock does disable it.  Please check all the other patches for similar
-issues too.
+Fixes: 517b1e3c9455 ("dt-bindings: mmc: rockchip-dw-mshc: Add RV1103B compatible")
+Suggested-by: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+---
+ Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
---1oJhbZS/zdMQ8Obt
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+index a75209bd2710..4965bb518c54 100644
+--- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
++++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+@@ -43,11 +43,14 @@ properties:
+               - rockchip,rk3562-dw-mshc
+               - rockchip,rk3568-dw-mshc
+               - rockchip,rk3588-dw-mshc
+-              - rockchip,rv1103b-dw-mshc
+               - rockchip,rv1108-dw-mshc
+               - rockchip,rv1126-dw-mshc
+           - const: rockchip,rk3288-dw-mshc
+       # for Rockchip RK3576 with phase tuning inside the controller
++      - items:
++          - enum:
++              - rockchip,rv1103b-dw-mshc
++          - const: rockchip,rk3576-dw-mshc
+       - const: rockchip,rk3576-dw-mshc
+ 
+   reg:
+-- 
+2.43.0
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm0CVcACgkQJNaLcl1U
-h9AmBQf+NZmcjADEavTXUkEkwog1B2fWsPoumOErBPGPp/uNMBzFPkj7gtNd5btL
-ucVKvAua02jhgHneB/r1FG0shTauJc9wVpal3XmgRnMdqN8XRjML+ZWlF1SI+tpc
-v45g2somStcn0QaQOUiGzrwcZddKdUwXCKwidznhryq4fm4Qm0d0jSLg5ayUdLhN
-iavAAr+18xMj0UyCJQttiVZ5oR4PdExtioX/4xm4pJhL+H9TPdBC1fouESmEEOG4
-krxSjVZLRrIxK8ZTjQ4RCV9ykypPyOl3bheFPN7rtI234NlAhUQu6ujoUgoC4aXU
-IoIqyGMXFEt63B8KRgz9kIl/lz6DCw==
-=oV3/
------END PGP SIGNATURE-----
-
---1oJhbZS/zdMQ8Obt--
 
