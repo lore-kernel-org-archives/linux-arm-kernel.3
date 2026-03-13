@@ -4,89 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A60106FD9E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89ACA106FD9D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jU3vo23MmmC4RnwvBRAD2L860hYSJvVrafINp6r+N6g=; b=bCKqmjfnQN26TRLRqk9fPLbbSh
-	DEWUjCnxqSQBPD9Q766YpufbV9psmYvChcyBLdnLYYs7rHYNSqDVMSY+l0yzee+YhXVEfefibnDzK
-	Qgg26dU8JRKdKlRJ4i02ovjtveKHPtiY66L3g3Vzvl99rofJvtvk/bRdLyl+lm0iX6FJVHX7V+8jm
-	ZwyJgR5yJz6zGJ7sKpe2IQm19EcmImILf+j2LgOLMPjhZMPBNndPlv3wAgJMhfMjCkUiAD6mcHhdU
-	d+q4ayQnTmbND0IXOME+vgEeb/moQCRAAJrQJlxIgQzHpRdiQDcaScpnHKE1JHVJN8jHPupbHTU2o
-	zTQr2CCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hAFGGUj97wUgKBI4E0D3p+1miO3lf4NeLxQAlqvBWVs=; b=O3LPewaaVwABJnfeVBKdDBRDP1
+	ML/nI1rxzHHctpBvqqzmCvZdtfJNlh27mg8p1bUoJu0KynsyN3KXjG5vyxBKF4b+4k6AnlczgM1uU
+	wgUMdWaV+Ip56Rr8fHfwEbMwD5Onb8gdLTIp6u1w2QPDqu9FBqbXhoqKsxhJBissJCb2qSyJxIveI
+	P/qngfK1hJFeCFN7VOocEWQk8yRtNempY+n9xAV71YrRtdw5Jz1uHehXID403OuJnXUogCggRmtiQ
+	BI+SvYACXNzt+Dvh0TA+E61WzWZmfb+ySTOUdiBfRr9p119dH+4E2zHLe01TlgGnJ7ufrL80RNCUx
+	IRynidwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xeU-0000000HC6R-3uBt;
-	Fri, 13 Mar 2026 08:13:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0xpL-0000000HEu7-3Cfe;
+	Fri, 13 Mar 2026 08:24:59 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xeN-0000000HBxb-09ex;
-	Fri, 13 Mar 2026 08:13:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=jU3vo23MmmC4RnwvBRAD2L860hYSJvVrafINp6r+N6g=; b=dnJ/8VhX3rbPKa1KlqSw1OER9p
-	JPnHE2vHHWb+GqqEOwhqsCF+UcPj6koNArTiM/0ZIM/DcKonMXy0xm4nEB7f7lMW5jzRHksD1m2QA
-	zcfaDLeCml4rIIC2JS+6Lst73W5uNZnUlEHfS6flS1gvKtyYFv6jhB72ArjaiLECAVU1SkqKeSXRa
-	Z1SfrGoZBMpm5aJFIbwuJPKVTwSH6ci/uT8Q4TY+n9Pz1PsYecm8dRkktZdbEiXPYIYQ8uBAwJDoy
-	jqiKeLmYG9Ki/F2jZmKiAlLW/t9wJv9aAUNeHYvWyDpnBIo7HEnsV744cvIh0bblknjpy+buTI5tR
-	0h7zk7qA==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xeG-00000002pFy-0R2j;
-	Fri, 13 Mar 2026 08:13:37 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62D8B3w34053119, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773389463; bh=jU3vo23MmmC4RnwvBRAD2L860hYSJvVrafINp6r+N6g=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=tP/28O86B9LkBLUWv6edthQ8CLsoUd9v5SLL4hJMyVmmBvF+z+cGExs8j+XeqNDhr
-	 z3MQ0/cBjgg5kzNcPMCbE92rDPDpXDM/0BEdU2gRltUTeW/qVRio+QtTRqWiU4qyL7
-	 NGXAHyhaCh2DHBINOC+KpHMfsH/bHuC2Ktv6tHP8QXSya/RnbJWgNdbVuW2pSkpGje
-	 JZ/jf1m9y+/90uPI9kUHK6lQVEWHrlAg6f3bxpvmHy1ZBDA0PMrf3Exuo1v7y2CaeQ
-	 KQsLNatrDjLTsCCHe5P/nHLsiNS2PYz2Y74NDeqmv2WK0L/AUoW2pfNtKXNmQZojNR
-	 UZOlr26CNrOUw==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62D8B3w34053119
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 13 Mar 2026 16:11:03 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 13 Mar 2026 16:11:03 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 13 Mar 2026 16:11:02 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 13 Mar 2026 16:11:02 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        <eleanor.lin@realtek.com>
-Subject: [PATCH v4 09/10] clk: realtek: Add RTD1625-CRT clock controller driver
-Date: Fri, 13 Mar 2026 16:10:59 +0800
-Message-ID: <20260313081100.596224-10-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260313081100.596224-1-eleanor.lin@realtek.com>
-References: <20260313081100.596224-1-eleanor.lin@realtek.com>
+	id 1w0xpJ-0000000HEtF-1l2d
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 08:24:59 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4852c9b4158so16139505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 01:24:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773390294; x=1773995094; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hAFGGUj97wUgKBI4E0D3p+1miO3lf4NeLxQAlqvBWVs=;
+        b=K36JRda9TFUrSy5ZPb/buYwFwEZV5469mtjH3XbX85Oij+iCIMTavf0vqFzhBslsar
+         1pIJ278JC40LnJL9VByZkb/X6k87Th1pZmgneH5EgC3I+LqBZ/mvu7h7afo9VIRzyHE/
+         4qzTBUQfvVOZG+5bZDW1sbe9rnE22eZR34/uPWYbo4I+ulR2Vw8Fx0Y2o31gslhKJ+OV
+         VlFyr/OWjOrFj8AU3hCmHZbCxAXPL+wTKaJTo3GtPc0HhON9ebxmZA7kXAD9qbnDi9Ln
+         qIMtESynXXjmQ9Twp0Ci8xAvQfc4hs7p+R/cZ90OnbX2MsmpfvqRqF+kvqVs52SiKlzl
+         ipWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773390294; x=1773995094;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hAFGGUj97wUgKBI4E0D3p+1miO3lf4NeLxQAlqvBWVs=;
+        b=Gl1CzqUjKdja8/CRlsPBMLq0arn5/QIfLrklzZYzc7X5dimp/vet9KSRS6TLpnrXa8
+         b/SOMnodMubRe4dC58iKfOq1zSDJTjRTmXaKpMReGZ8TAvHe2mQwcPJSoazWXQd2kK5a
+         F+FBTv7GEqO7RIbxA5YOfbhfhjDxQn3ZiIrzPfoGFnJkGiGP5rZDE/nPpYkrEUzobcxj
+         Mt36xPcXSiOc3fwThKwr1WgaFuCRz0qvAfESAFjMFVIsLUq+QvOnbkt5tR7ok7twlzc/
+         m/+eKfSCvFM2UASxJJyA6bEvkLH+15J2svXTESTuq1pRYyIG4bd/6MDVSBvTJfDdL5rm
+         OqeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwPw3AshlnNnJ9NOE/VLRfAhxIF0kIxd6o5qcMFCYfRsk2hxVafDujvI7xil7UzLJaruyXozjfBm1yZuoXnXPR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRR69ckg6Cs3MIm4GWvbSdVXogGuZk5TLjzE766UoqwIkM2+v7
+	dG/sHoyceaWRFDAlbQNJWU/ybzzc8sncZqdNYuh/oiFneOLQOfcs5SnI
+X-Gm-Gg: ATEYQzxKxGd4dDXZ5M/DRR1E8FkvnMXSP9lUdaBER6i/zkVkVSED2ZbGcqwbQV5dZXD
+	yPhAnjmTP8LuSL40RXd3ltOprgFQpjdBsdU0eufMLohriUwXcmHrlE8OjfVchzRjIiETQYpJJzL
+	2VbggIcmMAbnn67dSUIIJL6GHYE3/vVYRjWoJKKIsjSY1DKRirhxmKVSmK6UOKcuG5Zl/+sKhsn
+	48aCXrco2SxRuOW5D74j64VVm3Sl+5MY6q69xx8Y9pkXTD9QQuxilkMNE+LSAq8W2lZm0ByQmLO
+	zEsUd4h6+5gFl4gNLkRXf+hKYwQuK45PZlHPVTi5r1oDBp9fag1RKxB778rElPBgHPzVfnaza+j
+	6KdzXZBx2imct0jNhgfh5YgoxOWaWRH+eAvq4mqaG0R6XPbYLcygxRCdV325iT01cKyxVLCDALx
+	DXEesWNY7K2r/9ZW215ifkE0N2MwuWxh+c64n+k/PIIn71q7Brdi4mYZyFtmPh5XsrJz7AnrXRx
+	K83Z5Y6DWeRriKVYAD1tQtTYvX2ts1ki/TNdEH/0zgxWPUg9E/HjGrf93WXFsH8SMJr1Q==
+X-Received: by 2002:a05:600c:3492:b0:483:c3f3:1dad with SMTP id 5b1f17b1804b1-48556713589mr34343685e9.34.1773390294105;
+        Fri, 13 Mar 2026 01:24:54 -0700 (PDT)
+Received: from ?IPV6:2a01:cb08:91f5:5e00:f7a6:cd23:3f76:a7e? (2a01cb0891f55e00f7a6cd233f760a7e.ipv6.abo.wanadoo.fr. [2a01:cb08:91f5:5e00:f7a6:cd23:3f76:a7e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b65fd3dsm194645545e9.10.2026.03.13.01.24.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Mar 2026 01:24:53 -0700 (PDT)
+Message-ID: <7d1c36ba-2699-4b33-8343-8e0c74fcfe59@gmail.com>
+Date: Fri, 13 Mar 2026 09:24:51 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/3] Register the STM32MP25 RCC driver as an access
+ controller.
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20260210-b4-rcc-upstream-v9-0-17ca1db7613f@gmail.com>
+Content-Language: en-US, fr
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <20260210-b4-rcc-upstream-v9-0-17ca1db7613f@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_081333_071002_9F4CCC76 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260313_012457_488609_227251DD 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,853 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+Hello,
 
-Add support for the CRT (Clock, Reset, and Test) controller on the Realtek
-RTD1625 SoC. This driver provides clock and reset management for the
-system, allowing peripheral clients to request necessary resources for
-operation.
+On 2/10/26 8:32 PM, Clément Le Goffic wrote:
+> The STM32MP25 RCC peripheral as an access controller is allowed to know
+> whether the clocks are secured or not.
+> The STM32MP25 RCC peripheral knows about the clock secure configuration
+> of all non RIF-aware peripheral.
+> In parallel all the RIF-aware peripheral configuration information
+> are known by the RIFSC peripheral which is already an access
+> controller.
+> 
+> Changes in v9:
+> - Rebase on v6.19.0
+> - Add Gabriel Fernandez's Reviewed-by
+> - Link to v8: https://lore.kernel.org/r/20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com
+> 
+> Changes in v8:
+> - Use uppercase for peripheral name in commit message
+> - Add the '#access-controller-cells' property to the RCC in
+>    stm32mp231.dtsi
+> - Link to v7: https://lore.kernel.org/r/20250922-b4-rcc-upstream-v7-0-2dfc4e018f40@gmail.com
+> 
+> The v7 is a subset of the v6 and other prior versions, split to simplify
+> the review and merging process.
+> 
+> Changes in v7:
+> - None
+> - Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-2-ce082cc801b5@gmail.com/
+> 
+> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+> ---
+> Clément Le Goffic (3):
+>        dt-bindings: stm32: stm32mp25: add `#access-controller-cells` property
+>        clk: stm32mp25: add firewall grant_access ops
+>        arm64: dts: st: set RCC as an access-controller
+> 
+>   .../bindings/clock/st,stm32mp25-rcc.yaml           |  7 ++++
+>   arch/arm64/boot/dts/st/stm32mp231.dtsi             |  1 +
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi             |  1 +
+>   drivers/clk/stm32/clk-stm32mp25.c                  | 40 +++++++++++++++++++++-
+>   4 files changed, 48 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 05f7e89ab9731565d8a62e3b5d1ec206485eeb0b
+> change-id: 20250916-b4-rcc-upstream-8a8ea3af6a0d
+> prerequisite-change-id: 20250916-b4-firewall-upstream-dfe8588a21f8:v8
+> prerequisite-patch-id: e4a708d9c6df5725c9598fbd2169636e4e7dc46b
+> 
+> Best regards,
+> --
+> Clément Le Goffic <legoffic.clement@gmail.com>
+> 
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
-Changes in v4:
-- None.
----
- drivers/clk/realtek/Kconfig           |  14 +
- drivers/clk/realtek/Makefile          |   1 +
- drivers/clk/realtek/clk-rtd1625-crt.c | 788 ++++++++++++++++++++++++++
- 3 files changed, 803 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-rtd1625-crt.c
+Everything seems fine here, does anyone is able to take it ?
 
-diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
-index de462c2bb892..34a7607a9e7e 100644
---- a/drivers/clk/realtek/Kconfig
-+++ b/drivers/clk/realtek/Kconfig
-@@ -28,4 +28,18 @@ config RTK_CLK_COMMON
- config RTK_CLK_PLL_MMC
- 	bool
- 
-+config COMMON_CLK_RTD1625
-+	tristate "RTD1625 Clock Controller"
-+	select RTK_CLK_COMMON
-+	select RTK_CLK_PLL_MMC
-+	default y
-+	help
-+	  Support for the clock controller on Realtek RTD1625 SoCs.
-+
-+	  This driver provides clock sources, gating, multiplexing, and
-+	  reset control for peripherals on the RTD1625 platform.
-+
-+	  Say Y here if your system is based on the RTD1625 and you need
-+	  its peripheral devices to function.
-+
- endif
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 3d5c93e79dbd..3cda1e600172 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -10,3 +10,4 @@ clk-rtk-y += freq_table.o
- clk-rtk-y += reset.o
- 
- clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
-+obj-$(CONFIG_COMMON_CLK_RTD1625) += clk-rtd1625-crt.o
-diff --git a/drivers/clk/realtek/clk-rtd1625-crt.c b/drivers/clk/realtek/clk-rtd1625-crt.c
-new file mode 100644
-index 000000000000..a2938fe147c8
---- /dev/null
-+++ b/drivers/clk/realtek/clk-rtd1625-crt.c
-@@ -0,0 +1,788 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2022 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#include <linux/platform_device.h>
-+#include <dt-bindings/clock/realtek,rtd1625-clk.h>
-+#include "clk-pll.h"
-+#include "clk-regmap-gate.h"
-+#include "clk-regmap-mux.h"
-+
-+#define RTD1625_CRT_CLK_MAX               172
-+
-+#define RTD1625_REG_PLL_ACPU1             0x10c
-+#define RTD1625_REG_PLL_ACPU2             0x110
-+#define RTD1625_REG_PLL_SSC_DIG_ACPU0     0x5c0
-+#define RTD1625_REG_PLL_SSC_DIG_ACPU1     0x5c4
-+#define RTD1625_REG_PLL_SSC_DIG_ACPU2     0x5c8
-+#define RTD1625_REG_PLL_SSC_DIG_ACPU_DBG2 0x5dc
-+
-+#define RTD1625_REG_PLL_VE1_1             0x114
-+#define RTD1625_REG_PLL_VE1_2             0x118
-+#define RTD1625_REG_PLL_SSC_DIG_VE1_0     0x580
-+#define RTD1625_REG_PLL_SSC_DIG_VE1_1     0x584
-+#define RTD1625_REG_PLL_SSC_DIG_VE1_2     0x588
-+#define RTD1625_REG_PLL_SSC_DIG_VE1_DBG2  0x59c
-+
-+#define RTD1625_REG_PLL_GPU1              0x1c0
-+#define RTD1625_REG_PLL_GPU2              0x1c4
-+#define RTD1625_REG_PLL_SSC_DIG_GPU0      0x5a0
-+#define RTD1625_REG_PLL_SSC_DIG_GPU1      0x5a4
-+#define RTD1625_REG_PLL_SSC_DIG_GPU2      0x5a8
-+#define RTD1625_REG_PLL_SSC_DIG_GPU_DBG2  0x5bc
-+
-+#define RTD1625_REG_PLL_NPU1              0x1c8
-+#define RTD1625_REG_PLL_NPU2              0x1cc
-+#define RTD1625_REG_PLL_SSC_DIG_NPU0      0x800
-+#define RTD1625_REG_PLL_SSC_DIG_NPU1      0x804
-+#define RTD1625_REG_PLL_SSC_DIG_NPU2      0x808
-+#define RTD1625_REG_PLL_SSC_DIG_NPU_DBG2  0x81c
-+
-+#define RTD1625_REG_PLL_VE2_1             0x1d0
-+#define RTD1625_REG_PLL_VE2_2             0x1d4
-+#define RTD1625_REG_PLL_SSC_DIG_VE2_0     0x5e0
-+#define RTD1625_REG_PLL_SSC_DIG_VE2_1     0x5e4
-+#define RTD1625_REG_PLL_SSC_DIG_VE2_2     0x5e8
-+#define RTD1625_REG_PLL_SSC_DIG_VE2_DBG2  0x5fc
-+
-+#define RTD1625_REG_PLL_HIFI1             0x1d8
-+#define RTD1625_REG_PLL_HIFI2             0x1dc
-+#define RTD1625_REG_PLL_SSC_DIG_HIFI0     0x6e0
-+#define RTD1625_REG_PLL_SSC_DIG_HIFI1     0x6e4
-+#define RTD1625_REG_PLL_SSC_DIG_HIFI2     0x6e8
-+#define RTD1625_REG_PLL_SSC_DIG_HIFI_DBG2 0x6fc
-+
-+#define RTD1625_REG_PLL_BUS1              0x524
-+
-+#define RTD1625_REG_PLL_SSC_DIG_DDSA1     0x564
-+
-+#define RTD1625_REG_PLL_SSC_DIG_DCSB1     0x544
-+
-+static const char * const clk_gpu_parents[] = {"pll_gpu", "clk_sys"};
-+static CLK_REGMAP_MUX(clk_gpu, clk_gpu_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
-+		      0x28, 12, 0x1);
-+static const char * const clk_ve_parents[] = {"pll_vo", "clk_sysh", "pll_ve1", "pll_ve2"};
-+static CLK_REGMAP_MUX(clk_ve1, clk_ve_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
-+		      0x4c, 0, 0x3);
-+static CLK_REGMAP_MUX(clk_ve2, clk_ve_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
-+		      0x4c, 3, 0x3);
-+static CLK_REGMAP_MUX(clk_ve4, clk_ve_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
-+		      0x4c, 6, 0x3);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_misc, CLK_IS_CRITICAL, 0x50, 0, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_pcie0, 0, 0x50, 2, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_gspi, 0, 0x50, 6, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_iso_misc, 0, 0x50, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sds, 0, 0x50, 12, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_hdmi, 0, 0x50, 14, 1);
-+static CLK_REGMAP_GATE(clk_en_gpu, "clk_gpu", CLK_SET_RATE_PARENT, 0x50, 18, 1);
-+static CLK_REGMAP_GATE(clk_en_ve1, "clk_ve1", CLK_SET_RATE_PARENT, 0x50, 20, 1);
-+static CLK_REGMAP_GATE(clk_en_ve2, "clk_ve2", CLK_SET_RATE_PARENT, 0x50, 22, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_se, 0, 0x50, 30, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_md, 0, 0x54, 4, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_tp, CLK_IS_CRITICAL, 0x54, 6, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_rcic, 0, 0x54, 8, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_nf, 0, 0x54, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_emmc, 0, 0x54, 12, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sd, 0, 0x54, 14, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sdio_ip, 0, 0x54, 16, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mipi_csi, 0, 0x54, 18, 1);
-+static CLK_REGMAP_GATE(clk_en_emmc_ip, "pll_emmc", CLK_SET_RATE_PARENT, 0x54, 20, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sdio, 0, 0x54, 22, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sd_ip, 0, 0x54, 24, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_tpb, 0, 0x54, 28, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_sc1, "clk_en_misc", 0, 0x54, 30, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_i2c_3, "clk_en_misc", 0, 0x58, 0, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_jpeg, 0, 0x58, 4, 1);
-+static CLK_REGMAP_GATE(clk_en_acpu, "pll_acpu", CLK_SET_RATE_PARENT,
-+		       0x58, 6, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_sc0, "clk_en_misc", 0, 0x58, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_hdmirx, 0, 0x58, 26, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_hse, CLK_IS_CRITICAL, 0x58, 28, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_fan, 0, 0x5c, 2, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sata_wrap_sys, 0, 0x5c, 8, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sata_wrap_sysh, 0, 0x5c, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_sata_mac_sysh, 0, 0x5c, 12, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_r2rdsc, 0, 0x5c, 14, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_pcie1, 0, 0x5c, 18, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_i2c_4, "clk_en_misc", 0, 0x5c, 20, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_i2c_5, "clk_en_misc", 0, 0x5c, 22, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_tsio, 0, 0x5c, 24, 1);
-+static CLK_REGMAP_GATE(clk_en_ve4, "clk_ve4", CLK_SET_RATE_PARENT,
-+		       0x5c, 26, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_edp, 0, 0x5c, 28, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_tsio_trx, 0, 0x5c, 30, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_pcie2, 0, 0x8c, 0, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_earc, 0, 0x8c, 4, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_lite, 0, 0x8c, 6, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mipi_dsi, 0, 0x8c, 8, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_npupp, 0, 0x8c, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_npu, 0, 0x8c, 12, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_aucpu0, 0, 0x8c, 14, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_aucpu1, 0, 0x8c, 16, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_nsram, 0, 0x8c, 18, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_hdmitop, 0, 0x8c, 20, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_aucpu_iso_npu, 0, 0x8c, 24, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_keyladder, 0, 0x8c, 26, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_ifcp_klm, 0, 0x8c, 28, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_ifcp, 0, 0x8c, 30, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mdl_genpw, 0, 0xb0, 0, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mdl_chip, 0, 0xb0, 2, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mdl_ip, 0, 0xb0, 4, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mdlm2m, 0, 0xb0, 6, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_mdl_xtal, 0, 0xb0, 8, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_test_mux, 0, 0xb0, 10, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_dla, 0, 0xb0, 12, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_tpcw, 0, 0xb0, 16, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_gpu_ts_src, 0, 0xb0, 18, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_vi, 0, 0xb0, 22, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_lvds1, 0, 0xb0, 24, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_lvds2, 0, 0xb0, 26, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_aucpu, 0, 0xb0, 28, 1);
-+static CLK_REGMAP_GATE(clk_en_ur1, "clk_en_ur_top", 0, 0x884, 0, 1);
-+static CLK_REGMAP_GATE(clk_en_ur2, "clk_en_ur_top", 0, 0x884, 2, 1);
-+static CLK_REGMAP_GATE(clk_en_ur3, "clk_en_ur_top", 0, 0x884, 4, 1);
-+static CLK_REGMAP_GATE(clk_en_ur4, "clk_en_ur_top", 0, 0x884, 6, 1);
-+static CLK_REGMAP_GATE(clk_en_ur5, "clk_en_ur_top", 0, 0x884, 8, 1);
-+static CLK_REGMAP_GATE(clk_en_ur6, "clk_en_ur_top", 0, 0x884, 10, 1);
-+static CLK_REGMAP_GATE(clk_en_ur7, "clk_en_ur_top", 0, 0x884, 12, 1);
-+static CLK_REGMAP_GATE(clk_en_ur8, "clk_en_ur_top", 0, 0x884, 14, 1);
-+static CLK_REGMAP_GATE(clk_en_ur9, "clk_en_ur_top", 0, 0x884, 16, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_ur_top, CLK_IS_CRITICAL, 0x884, 18, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_i2c_7, "clk_en_misc", 0, 0x884, 28, 1);
-+static CLK_REGMAP_GATE(clk_en_misc_i2c_6, "clk_en_misc", 0, 0x884, 30, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_spi0, 0, 0x894, 0, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_spi1, 0, 0x894, 2, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_spi2, 0, 0x894, 4, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_lsadc0, 0, 0x894, 16, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_lsadc1, 0, 0x894, 18, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_isomis_dma, 0, 0x894, 20, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_dptx, 0, 0x894, 24, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_npu_mipi_csi, 0, 0x894, 26, 1);
-+static CLK_REGMAP_GATE_NO_PARENT(clk_en_edptx, 0, 0x894, 28, 1);
-+
-+#define FREQ_NF_MASK       0x7ffff
-+#define FREQ_NF(_r, _nf)   {.rate = _r, .val = (_nf),}
-+
-+static const struct freq_table acpu_tbl[] = {
-+	FREQ_NF(513000000, 0x11000),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table ve_tbl[] = {
-+	FREQ_NF(553500000, 0x12800),
-+	FREQ_NF(661500000, 0x16800),
-+	FREQ_NF(688500000, 0x17800),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table bus_tbl[] = {
-+	FREQ_NF(513000000, 0x11000),
-+	FREQ_NF(540000000, 0x12000),
-+	FREQ_NF(553500000, 0x12800),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table ddsa_tbl[] = {
-+	FREQ_NF(432000000, 0xe000),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table gpu_tbl[] = {
-+	FREQ_NF(405000000, 0xd000),
-+	FREQ_NF(540000000, 0x12000),
-+	FREQ_NF(661500000, 0x16800),
-+	FREQ_NF(729000000, 0x19000),
-+	FREQ_NF(810000000, 0x1c000),
-+	FREQ_NF(850500000, 0x1d800),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table hifi_tbl[] = {
-+	FREQ_NF(756000000, 0x1a000),
-+	FREQ_NF(810000000, 0x1c000),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct freq_table npu_tbl[] = {
-+	FREQ_NF(661500000, 0x16800),
-+	FREQ_NF(729000000, 0x19000),
-+	FREQ_NF(810000000, 0x1c000),
-+	FREQ_TABLE_END
-+};
-+
-+static const struct reg_sequence pll_acpu_seq_power_on[] = {
-+	{RTD1625_REG_PLL_ACPU2,         0x5},
-+	{RTD1625_REG_PLL_ACPU2,         0x7},
-+	{RTD1625_REG_PLL_ACPU1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_ACPU2, 0x1e1f8e},
-+	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x5, 200},
-+	{RTD1625_REG_PLL_ACPU2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_acpu_seq_power_off[] = {
-+	{RTD1625_REG_PLL_ACPU2,         0x4},
-+};
-+
-+static const struct reg_sequence pll_acpu_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_acpu_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x5},
-+};
-+
-+static struct clk_pll pll_acpu = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_acpu", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_acpu_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_acpu_seq_power_on),
-+	.seq_power_off         = pll_acpu_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_acpu_seq_power_off),
-+	.seq_pre_set_freq      = pll_acpu_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_acpu_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_acpu_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_acpu_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_ACPU1,
-+	.freq_tbl              = acpu_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_ACPU_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_ACPU2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static const struct reg_sequence pll_ve1_seq_power_on[] = {
-+	{RTD1625_REG_PLL_VE1_2,         0x5},
-+	{RTD1625_REG_PLL_VE1_2,         0x7},
-+	{RTD1625_REG_PLL_VE1_1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_VE1_0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_VE1_0, 0x5, 200},
-+	{RTD1625_REG_PLL_VE1_2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_ve1_seq_power_off[] = {
-+	{RTD1625_REG_PLL_VE1_2,         0x4},
-+};
-+
-+static const struct reg_sequence pll_ve1_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_VE1_0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_ve1_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_VE1_0, 0x5},
-+};
-+
-+static struct clk_pll pll_ve1 = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_ve1", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_ve1_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_ve1_seq_power_on),
-+	.seq_power_off         = pll_ve1_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_ve1_seq_power_off),
-+	.seq_pre_set_freq      = pll_ve1_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_ve1_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_ve1_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_ve1_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_VE1_1,
-+	.freq_tbl              = ve_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_VE1_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_VE1_2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static struct clk_pll pll_ddsa = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_ddsa", "osc27m", &rtk_clk_pll_ro_ops,
-+				    CLK_GET_RATE_NOCACHE),
-+	.freq_reg     = RTD1625_REG_PLL_SSC_DIG_DDSA1,
-+	.freq_tbl     = ddsa_tbl,
-+	.freq_mask    = FREQ_NF_MASK,
-+};
-+
-+static struct clk_pll pll_bus = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_bus", "osc27m", &rtk_clk_pll_ro_ops, CLK_GET_RATE_NOCACHE),
-+	.freq_reg     = RTD1625_REG_PLL_BUS1,
-+	.freq_tbl     = bus_tbl,
-+	.freq_mask    = FREQ_NF_MASK,
-+};
-+
-+static CLK_FIXED_FACTOR(clk_sys, "clk_sys", "pll_bus", 2, 1, 0);
-+
-+static struct clk_pll pll_dcsb = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_dcsb", "osc27m", &rtk_clk_pll_ro_ops,
-+				    CLK_GET_RATE_NOCACHE),
-+	.freq_reg     = RTD1625_REG_PLL_SSC_DIG_DCSB1,
-+	.freq_tbl     = bus_tbl,
-+	.freq_mask    = FREQ_NF_MASK,
-+};
-+
-+static CLK_FIXED_FACTOR(clk_sysh, "clk_sysh", "pll_dcsb", 1, 1, 0);
-+
-+static const struct reg_sequence pll_gpu_seq_power_on[] = {
-+	{RTD1625_REG_PLL_GPU2,         0x5},
-+	{RTD1625_REG_PLL_GPU2,         0x7},
-+	{RTD1625_REG_PLL_GPU1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_GPU0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_GPU0, 0x5, 200},
-+	{RTD1625_REG_PLL_GPU2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_gpu_seq_power_off[] = {
-+	{RTD1625_REG_PLL_GPU2,         0x4},
-+};
-+
-+static const struct reg_sequence pll_gpu_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_GPU0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_gpu_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_GPU0, 0x5},
-+};
-+
-+static struct clk_pll pll_gpu = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_gpu", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_gpu_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_gpu_seq_power_on),
-+	.seq_power_off         = pll_gpu_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_gpu_seq_power_off),
-+	.seq_pre_set_freq      = pll_gpu_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_gpu_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_gpu_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_gpu_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_GPU1,
-+	.freq_tbl              = gpu_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_GPU_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_GPU2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static const struct reg_sequence pll_npu_seq_power_on[] = {
-+	{RTD1625_REG_PLL_NPU2,         0x5},
-+	{RTD1625_REG_PLL_NPU2,         0x7},
-+	{RTD1625_REG_PLL_NPU1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_NPU0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_NPU0, 0x5, 200},
-+	{RTD1625_REG_PLL_NPU2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_npu_seq_power_off[] = {
-+	{RTD1625_REG_PLL_NPU2,         0x4},
-+	{RTD1625_REG_PLL_NPU1,         0x54010},
-+};
-+
-+static const struct reg_sequence pll_npu_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_NPU0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_npu_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_NPU0, 0x5},
-+};
-+
-+static struct clk_pll pll_npu = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_npu", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_npu_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_npu_seq_power_on),
-+	.seq_power_off         = pll_npu_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_npu_seq_power_off),
-+	.seq_pre_set_freq      = pll_npu_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_npu_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_npu_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_npu_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_NPU1,
-+	.freq_tbl              = npu_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_NPU_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_NPU2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static CLK_FIXED_FACTOR(clk_npu, "clk_npu", "pll_npu", 1, 1, CLK_SET_RATE_PARENT);
-+static CLK_FIXED_FACTOR(clk_npu_mipi_csi, "clk_npu_mipi_csi", "pll_npu", 1, 1,
-+			CLK_SET_RATE_PARENT);
-+
-+static const struct reg_sequence pll_ve2_seq_power_on[] = {
-+	{RTD1625_REG_PLL_VE2_2,         0x5},
-+	{RTD1625_REG_PLL_VE2_2,         0x7},
-+	{RTD1625_REG_PLL_VE2_1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_VE2_0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_VE2_0, 0x5, 200},
-+	{RTD1625_REG_PLL_VE2_2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_ve2_seq_power_off[] = {
-+	{RTD1625_REG_PLL_VE2_2,         0x4},
-+};
-+
-+static const struct reg_sequence pll_ve2_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_VE2_0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_ve2_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_VE2_0, 0x5},
-+};
-+
-+static struct clk_pll pll_ve2 = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_ve2", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_ve2_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_ve2_seq_power_on),
-+	.seq_power_off         = pll_ve2_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_ve2_seq_power_off),
-+	.seq_pre_set_freq      = pll_ve2_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_ve2_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_ve2_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_ve2_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_VE2_1,
-+	.freq_tbl              = ve_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_VE2_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_VE2_2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static const struct reg_sequence pll_hifi_seq_power_on[] = {
-+	{RTD1625_REG_PLL_HIFI2,         0x5},
-+	{RTD1625_REG_PLL_HIFI2,         0x7},
-+	{RTD1625_REG_PLL_HIFI1,         0x54000},
-+	{RTD1625_REG_PLL_SSC_DIG_HIFI0, 0x4},
-+	{RTD1625_REG_PLL_SSC_DIG_HIFI0, 0x5, 200},
-+	{RTD1625_REG_PLL_HIFI2,         0x3},
-+};
-+
-+static const struct reg_sequence pll_hifi_seq_power_off[] = {
-+	{RTD1625_REG_PLL_HIFI2,         0x4},
-+};
-+
-+static const struct reg_sequence pll_hifi_seq_pre_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_HIFI0, 0x4},
-+};
-+
-+static const struct reg_sequence pll_hifi_seq_post_set_freq[] = {
-+	{RTD1625_REG_PLL_SSC_DIG_HIFI0, 0x5},
-+};
-+
-+static struct clk_pll pll_hifi = {
-+	.clkr.hw.init = CLK_HW_INIT("pll_hifi", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-+	.seq_power_on          = pll_hifi_seq_power_on,
-+	.num_seq_power_on      = ARRAY_SIZE(pll_hifi_seq_power_on),
-+	.seq_power_off         = pll_hifi_seq_power_off,
-+	.num_seq_power_off     = ARRAY_SIZE(pll_hifi_seq_power_off),
-+	.seq_pre_set_freq      = pll_hifi_seq_pre_set_freq,
-+	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_hifi_seq_pre_set_freq),
-+	.seq_post_set_freq     = pll_hifi_seq_post_set_freq,
-+	.num_seq_post_set_freq = ARRAY_SIZE(pll_hifi_seq_post_set_freq),
-+	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_HIFI1,
-+	.freq_tbl              = hifi_tbl,
-+	.freq_mask             = FREQ_NF_MASK,
-+	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_HIFI_DBG2,
-+	.freq_ready_mask       = BIT(20),
-+	.freq_ready_val        = BIT(20),
-+	.power_reg             = RTD1625_REG_PLL_HIFI2,
-+	.power_mask            = 0x7,
-+	.power_val_on          = 0x3,
-+};
-+
-+static CLK_FIXED_FACTOR(pll_emmc_ref, "pll_emmc_ref", "osc27m", 1, 1, 0);
-+
-+static struct clk_pll_mmc pll_emmc = {
-+	.pll_ofs        = 0x1f0,
-+	.ssc_dig_ofs    = 0x6b0,
-+	.clkr.hw.init   = CLK_HW_INIT("pll_emmc", "pll_emmc_ref", &rtk_clk_pll_mmc_ops, 0),
-+	.phase0_hw.init = CLK_HW_INIT("pll_emmc_vp0", "pll_emmc", &rtk_clk_pll_mmc_phase_ops, 0),
-+	.phase1_hw.init = CLK_HW_INIT("pll_emmc_vp1", "pll_emmc", &rtk_clk_pll_mmc_phase_ops, 0),
-+};
-+
-+static struct clk_regmap *rtd1625_crt_regmap_clks[] = {
-+	&clk_en_misc.clkr,
-+	&clk_en_pcie0.clkr,
-+	&clk_en_gspi.clkr,
-+	&clk_en_iso_misc.clkr,
-+	&clk_en_sds.clkr,
-+	&clk_en_hdmi.clkr,
-+	&clk_en_gpu.clkr,
-+	&clk_en_ve1.clkr,
-+	&clk_en_ve2.clkr,
-+	&clk_en_se.clkr,
-+	&clk_en_md.clkr,
-+	&clk_en_tp.clkr,
-+	&clk_en_rcic.clkr,
-+	&clk_en_nf.clkr,
-+	&clk_en_emmc.clkr,
-+	&clk_en_sd.clkr,
-+	&clk_en_sdio_ip.clkr,
-+	&clk_en_mipi_csi.clkr,
-+	&clk_en_emmc_ip.clkr,
-+	&clk_en_sdio.clkr,
-+	&clk_en_sd_ip.clkr,
-+	&clk_en_tpb.clkr,
-+	&clk_en_misc_sc1.clkr,
-+	&clk_en_misc_i2c_3.clkr,
-+	&clk_en_jpeg.clkr,
-+	&clk_en_acpu.clkr,
-+	&clk_en_misc_sc0.clkr,
-+	&clk_en_hdmirx.clkr,
-+	&clk_en_hse.clkr,
-+	&clk_en_fan.clkr,
-+	&clk_en_sata_wrap_sys.clkr,
-+	&clk_en_sata_wrap_sysh.clkr,
-+	&clk_en_sata_mac_sysh.clkr,
-+	&clk_en_r2rdsc.clkr,
-+	&clk_en_pcie1.clkr,
-+	&clk_en_misc_i2c_4.clkr,
-+	&clk_en_misc_i2c_5.clkr,
-+	&clk_en_tsio.clkr,
-+	&clk_en_ve4.clkr,
-+	&clk_en_edp.clkr,
-+	&clk_en_tsio_trx.clkr,
-+	&clk_en_pcie2.clkr,
-+	&clk_en_earc.clkr,
-+	&clk_en_lite.clkr,
-+	&clk_en_mipi_dsi.clkr,
-+	&clk_en_npupp.clkr,
-+	&clk_en_npu.clkr,
-+	&clk_en_aucpu0.clkr,
-+	&clk_en_aucpu1.clkr,
-+	&clk_en_nsram.clkr,
-+	&clk_en_hdmitop.clkr,
-+	&clk_en_aucpu_iso_npu.clkr,
-+	&clk_en_keyladder.clkr,
-+	&clk_en_ifcp_klm.clkr,
-+	&clk_en_ifcp.clkr,
-+	&clk_en_mdl_genpw.clkr,
-+	&clk_en_mdl_chip.clkr,
-+	&clk_en_mdl_ip.clkr,
-+	&clk_en_mdlm2m.clkr,
-+	&clk_en_mdl_xtal.clkr,
-+	&clk_en_test_mux.clkr,
-+	&clk_en_dla.clkr,
-+	&clk_en_tpcw.clkr,
-+	&clk_en_gpu_ts_src.clkr,
-+	&clk_en_vi.clkr,
-+	&clk_en_lvds1.clkr,
-+	&clk_en_lvds2.clkr,
-+	&clk_en_aucpu.clkr,
-+	&clk_en_ur1.clkr,
-+	&clk_en_ur2.clkr,
-+	&clk_en_ur3.clkr,
-+	&clk_en_ur4.clkr,
-+	&clk_en_ur5.clkr,
-+	&clk_en_ur6.clkr,
-+	&clk_en_ur7.clkr,
-+	&clk_en_ur8.clkr,
-+	&clk_en_ur9.clkr,
-+	&clk_en_ur_top.clkr,
-+	&clk_en_misc_i2c_7.clkr,
-+	&clk_en_misc_i2c_6.clkr,
-+	&clk_en_spi0.clkr,
-+	&clk_en_spi1.clkr,
-+	&clk_en_spi2.clkr,
-+	&clk_en_lsadc0.clkr,
-+	&clk_en_lsadc1.clkr,
-+	&clk_en_isomis_dma.clkr,
-+	&clk_en_dptx.clkr,
-+	&clk_en_npu_mipi_csi.clkr,
-+	&clk_en_edptx.clkr,
-+	&clk_gpu.clkr,
-+	&clk_ve1.clkr,
-+	&clk_ve2.clkr,
-+	&clk_ve4.clkr,
-+	&pll_ve1.clkr,
-+	&pll_ddsa.clkr,
-+	&pll_bus.clkr,
-+	&pll_dcsb.clkr,
-+	&pll_gpu.clkr,
-+	&pll_npu.clkr,
-+	&pll_ve2.clkr,
-+	&pll_hifi.clkr,
-+	&pll_emmc.clkr,
-+	&pll_acpu.clkr,
-+};
-+
-+static struct rtk_reset_bank rtd1625_crt_reset_banks[] = {
-+	{.ofs = 0x0, .write_en = 1,},
-+	{.ofs = 0x4, .write_en = 1,},
-+	{.ofs = 0x8, .write_en = 1,},
-+	{.ofs = 0xc, .write_en = 1,},
-+	{.ofs = 0x68, .write_en = 1,},
-+	{.ofs = 0x90, .write_en = 1,},
-+	{.ofs = 0xb8, .write_en = 1,},
-+	{.ofs = 0x454,},
-+	{.ofs = 0x458,},
-+	{.ofs = 0x464,},
-+	{.ofs = 0x880, .write_en = 1,},
-+	{.ofs = 0x890, .write_en = 1,},
-+};
-+
-+static struct clk_hw_onecell_data rtd1625_crt_hw_data = {
-+	.num = RTD1625_CRT_CLK_MAX,
-+	.hws = {
-+		[RTD1625_CRT_CLK_EN_MISC]     = &__clk_regmap_gate_hw(&clk_en_misc),
-+		[RTD1625_CRT_CLK_EN_PCIE0]    = &__clk_regmap_gate_hw(&clk_en_pcie0),
-+		[RTD1625_CRT_CLK_EN_GSPI]     = &__clk_regmap_gate_hw(&clk_en_gspi),
-+		[RTD1625_CRT_CLK_EN_ISO_MISC] = &__clk_regmap_gate_hw(&clk_en_iso_misc),
-+		[RTD1625_CRT_CLK_EN_SDS]      = &__clk_regmap_gate_hw(&clk_en_sds),
-+		[RTD1625_CRT_CLK_EN_HDMI]     = &__clk_regmap_gate_hw(&clk_en_hdmi),
-+		[RTD1625_CRT_CLK_EN_GPU]      = &__clk_regmap_gate_hw(&clk_en_gpu),
-+		[RTD1625_CRT_CLK_EN_VE1]      = &__clk_regmap_gate_hw(&clk_en_ve1),
-+		[RTD1625_CRT_CLK_EN_VE2]      = &__clk_regmap_gate_hw(&clk_en_ve2),
-+		[RTD1625_CRT_CLK_EN_MD]       = &__clk_regmap_gate_hw(&clk_en_md),
-+		[RTD1625_CRT_CLK_EN_TP]       = &__clk_regmap_gate_hw(&clk_en_tp),
-+		[RTD1625_CRT_CLK_EN_RCIC]     = &__clk_regmap_gate_hw(&clk_en_rcic),
-+		[RTD1625_CRT_CLK_EN_NF]       = &__clk_regmap_gate_hw(&clk_en_nf),
-+		[RTD1625_CRT_CLK_EN_EMMC]     = &__clk_regmap_gate_hw(&clk_en_emmc),
-+		[RTD1625_CRT_CLK_EN_SD]       = &__clk_regmap_gate_hw(&clk_en_sd),
-+		[RTD1625_CRT_CLK_EN_SDIO_IP]  = &__clk_regmap_gate_hw(&clk_en_sdio_ip),
-+		[RTD1625_CRT_CLK_EN_MIPI_CSI] = &__clk_regmap_gate_hw(&clk_en_mipi_csi),
-+		[RTD1625_CRT_CLK_EN_EMMC_IP]  = &__clk_regmap_gate_hw(&clk_en_emmc_ip),
-+		[RTD1625_CRT_CLK_EN_SDIO]     = &__clk_regmap_gate_hw(&clk_en_sdio),
-+		[RTD1625_CRT_CLK_EN_SD_IP]    = &__clk_regmap_gate_hw(&clk_en_sd_ip),
-+		[RTD1625_CRT_CLK_EN_TPB]      = &__clk_regmap_gate_hw(&clk_en_tpb),
-+		[RTD1625_CRT_CLK_EN_MISC_SC1] = &__clk_regmap_gate_hw(&clk_en_misc_sc1),
-+		[RTD1625_CRT_CLK_EN_MISC_I2C_3] = &__clk_regmap_gate_hw(&clk_en_misc_i2c_3),
-+		[RTD1625_CRT_CLK_EN_ACPU]     = &__clk_regmap_gate_hw(&clk_en_acpu),
-+		[RTD1625_CRT_CLK_EN_JPEG]     = &__clk_regmap_gate_hw(&clk_en_jpeg),
-+		[RTD1625_CRT_CLK_EN_MISC_SC0] = &__clk_regmap_gate_hw(&clk_en_misc_sc0),
-+		[RTD1625_CRT_CLK_EN_HDMIRX]   = &__clk_regmap_gate_hw(&clk_en_hdmirx),
-+		[RTD1625_CRT_CLK_EN_HSE]      = &__clk_regmap_gate_hw(&clk_en_hse),
-+		[RTD1625_CRT_CLK_EN_FAN]      = &__clk_regmap_gate_hw(&clk_en_fan),
-+		[RTD1625_CRT_CLK_EN_SATA_WRAP_SYS] = &__clk_regmap_gate_hw(&clk_en_sata_wrap_sys),
-+		[RTD1625_CRT_CLK_EN_SATA_WRAP_SYSH] = &__clk_regmap_gate_hw(&clk_en_sata_wrap_sysh),
-+		[RTD1625_CRT_CLK_EN_SATA_MAC_SYSH] = &__clk_regmap_gate_hw(&clk_en_sata_mac_sysh),
-+		[RTD1625_CRT_CLK_EN_R2RDSC]   = &__clk_regmap_gate_hw(&clk_en_r2rdsc),
-+		[RTD1625_CRT_CLK_EN_PCIE1]    = &__clk_regmap_gate_hw(&clk_en_pcie1),
-+		[RTD1625_CRT_CLK_EN_MISC_I2C_4] = &__clk_regmap_gate_hw(&clk_en_misc_i2c_4),
-+		[RTD1625_CRT_CLK_EN_MISC_I2C_5] = &__clk_regmap_gate_hw(&clk_en_misc_i2c_5),
-+		[RTD1625_CRT_CLK_EN_TSIO]     = &__clk_regmap_gate_hw(&clk_en_tsio),
-+		[RTD1625_CRT_CLK_EN_VE4]      = &__clk_regmap_gate_hw(&clk_en_ve4),
-+		[RTD1625_CRT_CLK_EN_EDP]      = &__clk_regmap_gate_hw(&clk_en_edp),
-+		[RTD1625_CRT_CLK_EN_TSIO_TRX] = &__clk_regmap_gate_hw(&clk_en_tsio_trx),
-+		[RTD1625_CRT_CLK_EN_PCIE2]    = &__clk_regmap_gate_hw(&clk_en_pcie2),
-+		[RTD1625_CRT_CLK_EN_EARC]     = &__clk_regmap_gate_hw(&clk_en_earc),
-+		[RTD1625_CRT_CLK_EN_LITE]     = &__clk_regmap_gate_hw(&clk_en_lite),
-+		[RTD1625_CRT_CLK_EN_MIPI_DSI] = &__clk_regmap_gate_hw(&clk_en_mipi_dsi),
-+		[RTD1625_CRT_CLK_EN_NPUPP]    = &__clk_regmap_gate_hw(&clk_en_npupp),
-+		[RTD1625_CRT_CLK_EN_NPU]      = &__clk_regmap_gate_hw(&clk_en_npu),
-+		[RTD1625_CRT_CLK_EN_AUCPU0]   = &__clk_regmap_gate_hw(&clk_en_aucpu0),
-+		[RTD1625_CRT_CLK_EN_AUCPU1]   = &__clk_regmap_gate_hw(&clk_en_aucpu1),
-+		[RTD1625_CRT_CLK_EN_NSRAM]    = &__clk_regmap_gate_hw(&clk_en_nsram),
-+		[RTD1625_CRT_CLK_EN_HDMITOP]  = &__clk_regmap_gate_hw(&clk_en_hdmitop),
-+		[RTD1625_CRT_CLK_EN_AUCPU_ISO_NPU] = &__clk_regmap_gate_hw(&clk_en_aucpu_iso_npu),
-+		[RTD1625_CRT_CLK_EN_KEYLADDER] = &__clk_regmap_gate_hw(&clk_en_keyladder),
-+		[RTD1625_CRT_CLK_EN_IFCP_KLM]  = &__clk_regmap_gate_hw(&clk_en_ifcp_klm),
-+		[RTD1625_CRT_CLK_EN_IFCP]      = &__clk_regmap_gate_hw(&clk_en_ifcp),
-+		[RTD1625_CRT_CLK_EN_MDL_GENPW] = &__clk_regmap_gate_hw(&clk_en_mdl_genpw),
-+		[RTD1625_CRT_CLK_EN_MDL_CHIP]  = &__clk_regmap_gate_hw(&clk_en_mdl_chip),
-+		[RTD1625_CRT_CLK_EN_MDL_IP]    = &__clk_regmap_gate_hw(&clk_en_mdl_ip),
-+		[RTD1625_CRT_CLK_EN_MDLM2M]    = &__clk_regmap_gate_hw(&clk_en_mdlm2m),
-+		[RTD1625_CRT_CLK_EN_MDL_XTAL]  = &__clk_regmap_gate_hw(&clk_en_mdl_xtal),
-+		[RTD1625_CRT_CLK_EN_TEST_MUX]  = &__clk_regmap_gate_hw(&clk_en_test_mux),
-+		[RTD1625_CRT_CLK_EN_DLA]       = &__clk_regmap_gate_hw(&clk_en_dla),
-+		[RTD1625_CRT_CLK_EN_TPCW]      = &__clk_regmap_gate_hw(&clk_en_tpcw),
-+		[RTD1625_CRT_CLK_EN_GPU_TS_SRC] = &__clk_regmap_gate_hw(&clk_en_gpu_ts_src),
-+		[RTD1625_CRT_CLK_EN_VI]        = &__clk_regmap_gate_hw(&clk_en_vi),
-+		[RTD1625_CRT_CLK_EN_LVDS1]     = &__clk_regmap_gate_hw(&clk_en_lvds1),
-+		[RTD1625_CRT_CLK_EN_LVDS2]     = &__clk_regmap_gate_hw(&clk_en_lvds2),
-+		[RTD1625_CRT_CLK_EN_AUCPU]     = &__clk_regmap_gate_hw(&clk_en_aucpu),
-+		[RTD1625_CRT_CLK_EN_UR1]       = &__clk_regmap_gate_hw(&clk_en_ur1),
-+		[RTD1625_CRT_CLK_EN_UR2]       = &__clk_regmap_gate_hw(&clk_en_ur2),
-+		[RTD1625_CRT_CLK_EN_UR3]       = &__clk_regmap_gate_hw(&clk_en_ur3),
-+		[RTD1625_CRT_CLK_EN_UR4]       = &__clk_regmap_gate_hw(&clk_en_ur4),
-+		[RTD1625_CRT_CLK_EN_UR5]       = &__clk_regmap_gate_hw(&clk_en_ur5),
-+		[RTD1625_CRT_CLK_EN_UR6]       = &__clk_regmap_gate_hw(&clk_en_ur6),
-+		[RTD1625_CRT_CLK_EN_UR7]       = &__clk_regmap_gate_hw(&clk_en_ur7),
-+		[RTD1625_CRT_CLK_EN_UR8]       = &__clk_regmap_gate_hw(&clk_en_ur8),
-+		[RTD1625_CRT_CLK_EN_UR9]       = &__clk_regmap_gate_hw(&clk_en_ur9),
-+		[RTD1625_CRT_CLK_EN_UR_TOP]    = &__clk_regmap_gate_hw(&clk_en_ur_top),
-+		[RTD1625_CRT_CLK_EN_MISC_I2C_7] = &__clk_regmap_gate_hw(&clk_en_misc_i2c_7),
-+		[RTD1625_CRT_CLK_EN_MISC_I2C_6] = &__clk_regmap_gate_hw(&clk_en_misc_i2c_6),
-+		[RTD1625_CRT_CLK_EN_SPI0]      = &__clk_regmap_gate_hw(&clk_en_spi0),
-+		[RTD1625_CRT_CLK_EN_SPI1]      = &__clk_regmap_gate_hw(&clk_en_spi1),
-+		[RTD1625_CRT_CLK_EN_SPI2]      = &__clk_regmap_gate_hw(&clk_en_spi2),
-+		[RTD1625_CRT_CLK_EN_LSADC0]    = &__clk_regmap_gate_hw(&clk_en_lsadc0),
-+		[RTD1625_CRT_CLK_EN_LSADC1]    = &__clk_regmap_gate_hw(&clk_en_lsadc1),
-+		[RTD1625_CRT_CLK_EN_ISOMIS_DMA] = &__clk_regmap_gate_hw(&clk_en_isomis_dma),
-+		[RTD1625_CRT_CLK_EN_DPTX]      = &__clk_regmap_gate_hw(&clk_en_dptx),
-+		[RTD1625_CRT_CLK_EN_NPU_MIPI_CSI] = &__clk_regmap_gate_hw(&clk_en_npu_mipi_csi),
-+		[RTD1625_CRT_CLK_EN_EDPTX] = &__clk_regmap_gate_hw(&clk_en_edptx),
-+		[RTD1625_CRT_CLK_GPU]          = &__clk_regmap_mux_hw(&clk_gpu),
-+		[RTD1625_CRT_CLK_VE1]          = &__clk_regmap_mux_hw(&clk_ve1),
-+		[RTD1625_CRT_CLK_VE2]          = &__clk_regmap_mux_hw(&clk_ve2),
-+		[RTD1625_CRT_CLK_VE4]          = &__clk_regmap_mux_hw(&clk_ve4),
-+		[RTD1625_CRT_PLL_VE1]          = &__clk_pll_hw(&pll_ve1),
-+		[RTD1625_CRT_PLL_DDSA]         = &__clk_pll_hw(&pll_ddsa),
-+		[RTD1625_CRT_PLL_BUS]          = &__clk_pll_hw(&pll_bus),
-+		[RTD1625_CRT_CLK_SYS]          = &clk_sys.hw,
-+		[RTD1625_CRT_PLL_DCSB]         = &__clk_pll_hw(&pll_dcsb),
-+		[RTD1625_CRT_CLK_SYSH]         = &clk_sysh.hw,
-+		[RTD1625_CRT_PLL_GPU]          = &__clk_pll_hw(&pll_gpu),
-+		[RTD1625_CRT_PLL_NPU]          = &__clk_pll_hw(&pll_npu),
-+		[RTD1625_CRT_PLL_VE2]          = &__clk_pll_hw(&pll_ve2),
-+		[RTD1625_CRT_PLL_HIFI]         = &__clk_pll_hw(&pll_hifi),
-+		[RTD1625_CRT_PLL_EMMC_REF]     = &pll_emmc_ref.hw,
-+		[RTD1625_CRT_PLL_EMMC]         = &__clk_pll_mmc_hw(&pll_emmc),
-+		[RTD1625_CRT_PLL_EMMC_VP0]     = &pll_emmc.phase0_hw,
-+		[RTD1625_CRT_PLL_EMMC_VP1]     = &pll_emmc.phase1_hw,
-+		[RTD1625_CRT_PLL_ACPU]         = &__clk_pll_hw(&pll_acpu),
-+		[RTD1625_CRT_CLK_NPU]          = &clk_npu.hw,
-+		[RTD1625_CRT_CLK_NPU_MIPI_CSI] = &clk_npu_mipi_csi.hw,
-+
-+		[RTD1625_CRT_CLK_MAX]          = NULL,
-+	},
-+};
-+
-+static const struct rtk_clk_desc rtd1625_crt_desc = {
-+	.clk_data        = &rtd1625_crt_hw_data,
-+	.clks            = rtd1625_crt_regmap_clks,
-+	.num_clks        = ARRAY_SIZE(rtd1625_crt_regmap_clks),
-+	.reset_banks     = rtd1625_crt_reset_banks,
-+	.num_reset_banks = ARRAY_SIZE(rtd1625_crt_reset_banks),
-+};
-+
-+static int rtd1625_crt_probe(struct platform_device *pdev)
-+{
-+	const struct rtk_clk_desc *desc;
-+
-+	desc = of_device_get_match_data(&pdev->dev);
-+	if (!desc)
-+		return -EINVAL;
-+
-+	return rtk_clk_probe(pdev, desc);
-+}
-+
-+static const struct of_device_id rtd1625_crt_match[] = {
-+	{.compatible = "realtek,rtd1625-crt-clk", .data = &rtd1625_crt_desc,},
-+	{/* sentinel */}
-+};
-+
-+static struct platform_driver rtd1625_crt_driver = {
-+	.probe = rtd1625_crt_probe,
-+	.driver = {
-+		.name = "rtk-rtd1625-crt-clk",
-+		.of_match_table = rtd1625_crt_match,
-+	},
-+};
-+
-+static int __init rtd1625_crt_init(void)
-+{
-+	return platform_driver_register(&rtd1625_crt_driver);
-+}
-+subsys_initcall(rtd1625_crt_init);
-+
-+MODULE_DESCRIPTION("Reatek RTD1625 CRT Controller Driver");
-+MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
-
+Best regards,
+Clément
 
