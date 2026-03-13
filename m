@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9950105F7A7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29944105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2gyPgwE+tH8G28thfupQLVdZYMSffYT282vffIFtYk=; b=LoaggcR4xVOBJZV8gLlo6J3pI5
-	7odlnPnHO+RfeLgjrwz6sYQketVZOCyDeUcZYnXs92bknvNcEldeN9F59VJs+QeDDVwcZnCn98C/q
-	hd2zm2g20i6GDIC9ncPakRpflMko8EDSPboB9bockPAsy1YJtIjP/eEWKAEoXqE4yW/8fhuN7YHfc
-	CgNIL4zrg8+WLC33cXKPkDGDA0onafkTfPfJgS51AOblwWMoQYWugkeBkvoVK3ltdLNNFa4HELZSk
-	naJDmqhRfM0aAoiFHQkWBvA8utT5HzIh0IxNpfOasPri25mLFRKoXT5ynDRBDzBdfqDDweJmE+esZ
-	nfS3MbqA==;
+	bh=JOFoYAGJVyyk6xus0Z9WrQazmgihSHEPBTdXrGtZqcU=; b=gQTQly9zqTnT7hGc9W+BWpOISL
+	7TqAO9dlYb1wc4CkUNo9wcWds9YZlhnhrZ3yKvvATSTi4/IOtnXPaXV0nHeAh7RIkTyyQWxWXk43l
+	cd5H5ma3y/WqJS1azv9OHFaqPy8y+nX1XTJDrZwM0/QaG3G4RuYOc1pTpgUuITqsWrh0whJUkJuED
+	xu5unEB3Nh03MrNBS09/4USqReX819Guzx8yizs3xgU1eZk4i3ClcHk5LkV9lO0u0nyCHVnZS7rrS
+	cICr3a1YYZoeyKsoFq7LL2VAHsB0wEhyjm0t1XzFvtjnkvRn5MQ6A9/z/CPeCrtCmvAx6xuLIOm0v
+	ZfounKxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12N5-00000000CSn-1Zw3;
-	Fri, 13 Mar 2026 13:16:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12Ms-00000000COy-38K4;
-	Fri, 13 Mar 2026 13:16:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 558D8497;
-	Fri, 13 Mar 2026 06:15:45 -0700 (PDT)
-Received: from [10.57.59.200] (unknown [10.57.59.200])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D39153F73B;
-	Fri, 13 Mar 2026 06:15:47 -0700 (PDT)
-Message-ID: <6cfe4bda-036f-4bb9-8a08-ed75f61cae24@arm.com>
-Date: Fri, 13 Mar 2026 13:15:45 +0000
+	id 1w12OH-00000000Ci2-1V8d;
+	Fri, 13 Mar 2026 13:17:21 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w12OE-00000000Cfw-1AGB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 13:17:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 4C69EC4270C;
+	Fri, 13 Mar 2026 13:17:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EFCFA60027;
+	Fri, 13 Mar 2026 13:17:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8601B10369EFA;
+	Fri, 13 Mar 2026 14:17:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773407832; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=JOFoYAGJVyyk6xus0Z9WrQazmgihSHEPBTdXrGtZqcU=;
+	b=VvoaKN1dElbt5A/ybhYmCk6wEI1Ngpxe3iW3oiNxdyeYLq1bqdTWhYNUJrTky/N5PLukYP
+	+SX8Pxiy0Amwukf7dJZ0u1o3+9D+hjQri/gJIOkGvLzoeunqOR83EhbIwSNY4T1MfA2fpq
+	OjmOjaa8OKvYpQP173AzLyfCYegCnyzfkYNCfLRi8p/Q2rq79ZosUn3F4oKIUPvVZCWtoR
+	rW6a1Fdzan6FZ6YcGjglY+5bxobYNRmAVtVpYqAFHIWdMLbrf09qfKh6Z/59CMG/T6UzDS
+	AHhAfsXlSebetCMmVajdULN7rrm8taDoo3nq/adst4SvEmeygDrg3B+PiH1DiQ==
+Message-ID: <8d33c193-995c-4225-9998-8c81a2268065@bootlin.com>
+Date: Fri, 13 Mar 2026 14:17:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>,
- Grimmauld <grimmauld@grimmauld.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev,
- Lukas Wunner <lukas@wunner.de>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
- <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
- <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
- <55c28218-1638-4b90-a9cd-a177fb5abcb6@arm.com>
- <DH0TM60TVX5D.20W4O1X696ALA@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <DH0TM60TVX5D.20W4O1X696ALA@kernel.org>
+Subject: Re: [PATCH v2 6/6] mtd: rawnand: sunxi: introduce variable user data
+ length
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Wentao Liang <vulab@iscas.ac.cn>,
+ Maxime Ripard <mripard@kernel.org>, Boris Brezillon <bbrezillon@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260305100137.2558423-1-richard.genoud@bootlin.com>
+ <20260305100137.2558423-7-richard.genoud@bootlin.com>
+ <87a4wdkt3y.fsf@bootlin.com>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <87a4wdkt3y.fsf@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_061559_789353_5CB7EFE1 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260313_061718_451349_B477404E 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,68 +86,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-12 12:59 pm, Danilo Krummrich wrote:
-> On Thu Mar 12, 2026 at 1:48 PM CET, Robin Murphy wrote:
->> On 2026-03-11 9:09 pm, Danilo Krummrich wrote:
->>>   From a driver-core perspective I think we're rather limited on what we can do;
->>> we are already in async context at this point and can't magically go back to
->>> initcall context.
->>>
->>> So, the only thing I can think of is to kick off work on a workqueue, which in
->>> the end would be the same as the deferred probe handling.
+Le 12/03/2026 à 15:41, Miquel Raynal a écrit :
+> Hello Richard,
+> 
+> On 05/03/2026 at 11:01:37 +01, Richard Genoud <richard.genoud@bootlin.com> wrote:
+> 
+>> In Allwinner SoCs, user data can be added in OOB before each ECC data.
+>> For older SoCs like A10, the user data size was the size of a register
+>> (4 bytes) and was mandatory before each ECC step.
+>> So, the A10 OOB Layout is:
+>> [4Bytes USER_DATA_STEP0] [ECC_STEP0 bytes]
+>> [4bytes USER_DATA_STEP1] [ECC_STEP1 bytes]
+>> ...
+>> NB: the BBM is stored at the beginning of the USER_DATA_STEP0.
 >>
->> Hmm, in fact, isn't the deferred probe mechanism itself actually quite
->> appropriate?
+>> Now, for H6/H616 NAND flash controller, this user data can have a
+>> different size for each step.
+>> And the vendor has chosen a different layout from the one on A10, using
+>> 8 bytes for step 0 and nothing for further steps:
+>> [8bytes USER_DATA_STEP0] [ECC_STEP0 bytes] [ECC_STEP1 bytes]...
+>> (Still with BBM stored at the beginning of the USER_DATA_STEP0)
 > 
-> Yes, I've also mentioned this in [1], including the fact that it technically
-> even complies with the guarantees given by PROBE_FORCE_SYNCHRONOUS. I.e. the
-> documentation says:
-> 
-> 	Use this to annotate drivers that need their probe routines to run
-> 	synchronously with driver and device registration (with the exception of
-> 	-EPROBE_DEFER handling - re-probing always ends up being done
-> 	asynchronously).
-> 
-> However, I'm still not sure how I feel about this, since I consider this to be
-> more like a workaround that just moves things to a "more approprite" async
-> context.
+> I would rather be in favour of not following $(random vendor) firmware
+> layout. Upstream, it makes probably more sense to just allow access to
+> the maximum number of bytes that can be covered by the ECC engine, so I
+> would rather be in favour of computing the maximum size that you can set
+> for each step, without going over the OOB size.
+Ok, I'll write an implementation for that.
 
-I guess the underlying problem there is that there are at least 3 
-different significant aspects to what "synchronous" can mean:
-
-- literally in the context or device/driver registration as documented. 
-Off-hand I'm not really sure what useful property may be *specific* to 
-those conditions that a driver might rely on, other than for 
-super-special cases like platform_driver_probe().
-
-- serialised, i.e. probes of multiple devices won't happen concurrently 
-on multiple threads. This is probably the one hiding the most driver 
-bugs, e.g. internal shared/global state without sufficient 
-synchronisation. I guess this falls out as a side-effect of the first 
-condition, but AFAICS it *can* also still provided by deferred probe 
-(given that it's a single work item iterating a list one-by-one)
-
-- in some regular thread context that isn't liable to have issues 
-synchronising against other async_func workers (i.e. the request_module 
-case). Again, deferred can't have a problem here, or it wouldn't have 
-worked properly in general for the last decade.
-
-So it's not that we'd be relying on some dubious "deferred is always 
-synchronous" assumption - AFAICS deferred *can* launch async if the 
-driver permits it - more just ratifying that deferred is still able to 
-effectively honour all the useful properties of PROBE_FORCE_SYNCHRONOUS 
-other than "during registration of the thing". And where people do want 
-the semantics for a platform_driver_probe()-like thing, then I think 
-it's reasonable to say that they should definitely never be invoking 
-that from the probe routine of some other driver which permits async itself.
-
-Thanks,
-Robin.
+Thanks !
 
 > 
-> On the other hand, eventually we want everything to work with
-> PROBE_PREFER_ASYNCHRONOUS, so maybe it's also good enough for the time being.
+> Once this set up, I believe adapting the driver locally (out of tree) to
+> match a specific vendor layout would be rather straightforward, as all
+> the configuration pieces would already be in place.
 > 
-> [1] https://lore.kernel.org/driver-core/DGZJBMG2Y738.2MU5LXVGEDD47@kernel.org/
+> Thanks,
+> Miquèl
+
+
 
 
