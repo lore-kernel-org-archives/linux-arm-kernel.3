@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0CCF106FD7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 05:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27180106FD7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 05:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2AZ7nJTxh85jyBMjQZ+6yTZ/5s2Z8wG6IvqnF83U6I=; b=RFJ/zMdjmGt0IkPdGC2jHoaARr
-	gLeGtBUbvWx7yMEadX21eZmPSnZXWA8AWEUoDZ47MYD1WZYaU0NJgRW/HN96p2EqSkh1aUk9lxcMc
-	MVVsphLG3EWjuFmaW+jkWJIUR8K8BmyzV5HK0EH8zUa7kYrHaMHQH9SemdCtiHe0kyWFCsT/ZNUIg
-	ldT+QCry9DvYaWbbze+f0j2t/CzjEwXFA23Z1aOkcvD9LLb2uHZ6ytoLdIL+GNeWCRlMRx08tki9G
-	DyvgeALN9TwobnXb/iwWJPrlwU/3kTRcOjOqfFj31zl1PRtvUtQMnqEvGaUu62Bz4QsNvyx2M3lDb
-	NtUBe1Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s33UMciHTjXjznKdEMoLYJ0u/g2itc1f+GoECQwuXpg=; b=YgEZsumBH9LXfVgKdgaqs6j5Oa
+	X4NtQqz5cyrHxjf6Yd1w73+8JD9GkvrVQWAVPQCWFcguW+gaNMxdzEXItppzoII69ssByV5+rWiIs
+	o6tLaXne8wEe/ZsbS7f/Yr+a2+fckQ68v2UAB1Ztl+O7+nlKrUMf9vIgGhiUi8H2LxuMfd1lbcP6J
+	kx2rynMYDmwtrH0AQod8C4c6ujKWcMWCXHqzDctf84oIK6XPmW4q1eSruZlxJmE0VdVi65f0PrKFO
+	NwOIp6DZ6rNSeKTCzJOMiUH4/aTEswYn6yNdLf5NjNqJfEdx/er/DUEUOXqOZfG1WFNIvNRt7r88B
+	X1WkKWfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0v4I-0000000GeHc-1ZRh;
-	Fri, 13 Mar 2026 05:28:14 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0v4E-0000000GeEs-1XST
+	id 1w0vEu-0000000GfnP-14cy;
+	Fri, 13 Mar 2026 05:39:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0vEr-0000000Gfme-19m9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 05:28:11 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 13 Mar
- 2026 13:27:57 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 13 Mar 2026 13:27:57 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 13 Mar 2026 13:27:56 +0800
-Subject: [PATCH 1/2] dt-bindings: mmc: sdhci-of-aspeed : Add ast2700
- support
+	Fri, 13 Mar 2026 05:39:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1099165C;
+	Thu, 12 Mar 2026 22:38:58 -0700 (PDT)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 928B93F7BD;
+	Thu, 12 Mar 2026 22:39:03 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: Clear VTCR_EL2 in __init_el2_stage2()
+Date: Fri, 13 Mar 2026 05:38:57 +0000
+Message-Id: <20260313053857.1277828-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260313-sdhci-v1-1-91cea19c8a67@aspeedtech.com>
-References: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
-In-Reply-To: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Ryan Chen <ryanchen.aspeed@gmail.com>, Adrian Hunter
-	<adrian.hunter@intel.com>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: Andrew Jeffery <andrew@aj.id.au>, <linux-aspeed@lists.ozlabs.org>,
-	<openbmc@lists.ozlabs.org>, <linux-mmc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773379677; l=1588;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=q02tFnoGppa7W4iZi/yxC4p7ULpWPHKGK+xBBuI6DQI=;
- b=tPuwiH/wlFeRK57OmtmPuPTeGLy5Gna1WX3SgFWWsijMl4zAe9YFqsG3IVSTnVJRi+UVewyzg
- 4JPKEb8JmZPDM1xfahIUGMKwoFtm/bp1Ces22FDee1T4qdrpwWVR3Iz
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_222810_409132_FEC100F2 
-X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-CacheID: sfid-20260312_223909_359413_9429F3A0 
+X-CRM114-Status: UNSURE (   6.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,58 +66,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the "aspeed,ast2700-sd-controller" compatible. The ast2700 sdhci
-controller requires an reset, so make the "resets" property mandatory
-for this compatible to reflect the hardware requirement.
+Clear VTCR_EL2 along with VTTBR_EL2 register in __init_el2_stage2(), which
+ensures that MMU stage-2 translation remain disabled. Although clearing out
+VTTBR_EL2 probably should have been sufficient but adding VTCR_EL2 improves
+overall safety.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/arm64/include/asm/el2_setup.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-index d24950ccea95..a2ff9a94db13 100644
---- a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-+++ b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-@@ -26,6 +26,7 @@ properties:
-       - aspeed,ast2400-sd-controller
-       - aspeed,ast2500-sd-controller
-       - aspeed,ast2600-sd-controller
-+      - aspeed,ast2700-sd-controller
-   reg:
-     maxItems: 1
-     description: Common configuration registers
-@@ -37,6 +38,20 @@ properties:
-   clocks:
-     maxItems: 1
-     description: The SD/SDIO controller clock gate
-+  resets:
-+    maxItems: 1
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: aspeed,ast2700-sd-controller
-+then:
-+  required:
-+    - resets
-+
-+else:
-+  properties:
-+    resets: false
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 85f4c1615472..2c88033591bb 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -189,6 +189,7 @@
+ /* Stage-2 translation */
+ .macro __init_el2_stage2
+ 	msr	vttbr_el2, xzr
++	msr	vtcr_el2, xzr
+ .endm
  
- patternProperties:
-   "^sdhci@[0-9a-f]+$":
-@@ -50,6 +65,7 @@ patternProperties:
-           - aspeed,ast2400-sdhci
-           - aspeed,ast2500-sdhci
-           - aspeed,ast2600-sdhci
-+          - aspeed,ast2700-sdhci
-       reg:
-         maxItems: 1
-         description: The SDHCI registers
-
+ /* GICv3 system register access */
 -- 
-2.34.1
+2.30.2
 
 
