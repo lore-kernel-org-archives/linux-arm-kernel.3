@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18604105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5877105F7AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssSgdRSI41/zPAJvlGRDEzQhsl+equo0JIIAZ1qutL8=; b=fenTbRUXRRVF7bCHUXIKIo8z2V
-	VCy2fw+3ytdbPG6Kt7YR+IEdgbN0OWwtTPyU1fQlHYa9Lq8Pj6A4ebbGgSMMyt++c90ET6Y4v+lEA
-	DpmcfZnSbC9hQIhi/J6vrtrhFVVD3RsK1bZ/98CGgFFHrL3eM7FW3Zv9VN294rQ/hZcTOfHxsSzt8
-	HVZBm/NEqCMI91IFbopE0C1E4BsfdXKo5ohzDrW2bmXsWLkzk8KGtAGbPfqqA/bn8fakxfObg7Y5M
-	uz5oL+wH4YJHUqlH6BJDMysbA9p15K5x7h08F/DJnUxj1UQsGsYWZpSSlfAd7wx2HDVhGhY+IU0kk
-	d7TwqqIA==;
+	bh=sEXv3I1PgMyW3ypnmOFTQLAHLQKQJjvCelJ/MnCaX4s=; b=GAcHlSv0xZy23ipEynufudif6K
+	YaIXtkr7Xrf8g9P80I1GR3p8eTR/6EhxXSHbbh/hHJrj8mSZphe2CjdAd4AIbFqzqe0TNtWVrscTX
+	ZXMm1IUkpAXTHg9EVn41SDj0mVCyGb6neGpae/8U5h2Sfgg0OR2ihzWj4yo2RmP+PORCGHnUovGRn
+	cATou7LaL6EWXv0pdmlYNJAeDt8Rh9wfsx0DgZtxzG/UbzkEh4cc4+bZijCCbtN2e1C8ey7DU9ytw
+	bw3tWG3uLMVEmp/I5S9tXo+nDLlDfa91qrTrtXUKHYqfo6RmCFBTGWooiwEP5KQIoVz2kgOtuhTmx
+	aqx17Nqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nL-00000000Qnb-2SXk;
-	Fri, 13 Mar 2026 14:47:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nK-00000000Qli-2rld
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 14:47:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ssSgdRSI41/zPAJvlGRDEzQhsl+equo0JIIAZ1qutL8=; b=hcT2NuYzV1lGnr4sDG5BjZxx77
-	3UbYOVYIatWnyCQWDNVViZQVRdoZiXR4US3ayznwsqRCBWddfNzkYSjetunjh+EqAxxaoCXTUMkKf
-	wF++g/KmfrwAS61hpGpEDRzACL8O4NZt0cLRxJE9E8k2Et/WX/Hpn42nNb/blMncjQ1S12zlbjSld
-	sPKmMNNAhgduvowhUFPMmslP7xaRtZZEwOL8ZXmFUHZrjZRTLGx32svJ31RNhKV2wZBAIJSqZ6G4h
-	V7gb9yb8Z2n2p1aJFqvJUP+aSZlqg01YxvlwU0XZ9DaHgvrO9VcAH/JXEzek2OcKm26Qh/JIfYGkj
-	zamwjl+A==;
+	id 1w13nP-00000000Qri-3onK;
+	Fri, 13 Mar 2026 14:47:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nH-00000003Zn6-1zB3
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13nL-00000000Qn6-1bQo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:47:17 +0000
+	Fri, 13 Mar 2026 14:47:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B6C51E7D;
-	Fri, 13 Mar 2026 07:47:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 399481CC4;
+	Fri, 13 Mar 2026 07:47:12 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3CCBA3F7BD;
-	Fri, 13 Mar 2026 07:47:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6E9693F7BD;
+	Fri, 13 Mar 2026 07:47:14 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -85,17 +70,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 10/40] arm64: mpam: Add cpu_pm notifier to restore MPAM sysregs
-Date: Fri, 13 Mar 2026 14:45:47 +0000
-Message-ID: <20260313144617.3420416-11-ben.horgan@arm.com>
+Subject: [PATCH v6 11/40] arm64: mpam: Initialise and context switch the MPAMSM_EL1 register
+Date: Fri, 13 Mar 2026 14:45:48 +0000
+Message-ID: <20260313144617.3420416-12-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_144715_831959_ADD7BECA 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20260313_074719_512007_FD7F1DF1 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,16 +95,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+The MPAMSM_EL1 sets the MPAM labels, PMG and PARTID, for loads and stores
+generated by a shared SMCU. Disable the traps so the kernel can use it and
+set it to the same configuration as the per-EL cpu MPAM configuration.
 
-The MPAM system registers will be lost if the CPU is reset during PSCI's
-CPU_SUSPEND.
+If an SMCU is not shared with other cpus then it is implementation
+defined whether the configuration from MPAMSM_EL1 is used or that from
+the appropriate MPAMy_ELx. As we set the same, PMG_D and PARTID_D,
+configuration for MPAM0_EL1, MPAM1_EL1 and MPAMSM_EL1 the resulting
+configuration is the same regardless.
 
-Add a PM notifier to restore them.
-
-mpam_thread_switch(current) can't be used as this won't make any changes if
-the in-memory copy says the register already has the correct value. In
-reality the system register is UNKNOWN out of reset.
+The range of valid configurations for the PARTID and PMG in MPAMSM_EL1 is
+not currently specified in Arm Architectural Reference Manual but the
+architect has confirmed that it is intended to be the same as that for the
+cpu configuration in the MPAMy_ELx registers.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -131,73 +120,77 @@ Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v3:
-Always set MPAM1_EL1.MPAMEN rather than relying on it being read only
-Bail out early if mpam not supported (Gavin)
----
- arch/arm64/kernel/mpam.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Changes since v2:
+Mention PMG_D and PARTID_D specifically int he commit message
+Add paragraph in commit message on range of MPAMSM_EL1 fields
 
+Changes since v3:
+Use cpus_have_cap() in cpu_enable_mpam()
+add {}
+---
+ arch/arm64/include/asm/el2_setup.h | 3 ++-
+ arch/arm64/include/asm/mpam.h      | 2 ++
+ arch/arm64/kernel/cpufeature.c     | 2 ++
+ arch/arm64/kernel/mpam.c           | 4 ++++
+ 4 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 85f4c1615472..4d15071a4f3f 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -513,7 +513,8 @@
+ 	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
+ 
+ .Linit_mpam_\@:
+-	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
++	mov	x0, #MPAM2_EL2_EnMPAMSM_MASK
++	msr_s	SYS_MPAM2_EL2, x0		// use the default partition,
+ 						// and disable lower traps
+ 	mrs_s	x0, SYS_MPAMIDR_EL1
+ 	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@  // skip if no MPAMHCR reg
+diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+index 0747e0526927..6bccbfdccb87 100644
+--- a/arch/arm64/include/asm/mpam.h
++++ b/arch/arm64/include/asm/mpam.h
+@@ -53,6 +53,8 @@ static inline void mpam_thread_switch(struct task_struct *tsk)
+ 		return;
+ 
+ 	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
++	if (system_supports_sme())
++		write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
+ 	isb();
+ 
+ 	/* Synchronising the EL0 write is left until the ERET to EL0 */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c3f900f81653..4f34e7a76f64 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2500,6 +2500,8 @@ cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
+ 		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+ 
+ 	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
++	if (cpus_have_cap(ARM64_SME))
++		write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
+ 	isb();
+ 
+ 	/* Synchronising the EL0 write is left until the ERET to EL0 */
 diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
-index e6feff2324ac..48ec0ffd5999 100644
+index 48ec0ffd5999..3a490de4fa12 100644
 --- a/arch/arm64/kernel/mpam.c
 +++ b/arch/arm64/kernel/mpam.c
-@@ -4,6 +4,7 @@
- #include <asm/mpam.h>
+@@ -28,6 +28,10 @@ static int mpam_pm_notifier(struct notifier_block *self,
+ 		 */
+ 		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+ 		write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
++		if (system_supports_sme()) {
++			write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D),
++				       SYS_MPAMSM_EL1);
++		}
+ 		isb();
  
- #include <linux/arm_mpam.h>
-+#include <linux/cpu_pm.h>
- #include <linux/jump_label.h>
- #include <linux/percpu.h>
- 
-@@ -13,12 +14,44 @@ DEFINE_PER_CPU(u64, arm64_mpam_current);
- 
- u64 arm64_mpam_global_default;
- 
-+static int mpam_pm_notifier(struct notifier_block *self,
-+			    unsigned long cmd, void *v)
-+{
-+	u64 regval;
-+	int cpu = smp_processor_id();
-+
-+	switch (cmd) {
-+	case CPU_PM_EXIT:
-+		/*
-+		 * Don't use mpam_thread_switch() as the system register
-+		 * value has changed under our feet.
-+		 */
-+		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-+		write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+		isb();
-+
-+		write_sysreg_s(regval, SYS_MPAM0_EL1);
-+
-+		return NOTIFY_OK;
-+	default:
-+		return NOTIFY_DONE;
-+	}
-+}
-+
-+static struct notifier_block mpam_pm_nb = {
-+	.notifier_call = mpam_pm_notifier,
-+};
-+
- static int __init arm64_mpam_register_cpus(void)
- {
- 	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
- 	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
- 	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
- 
-+	if (!system_supports_mpam())
-+		return 0;
-+
-+	cpu_pm_register_notifier(&mpam_pm_nb);
- 	return mpam_register_requestor(partid_max, pmg_max);
- }
- /* Must occur before mpam_msc_driver_init() from subsys_initcall() */
+ 		write_sysreg_s(regval, SYS_MPAM0_EL1);
 -- 
 2.43.0
 
