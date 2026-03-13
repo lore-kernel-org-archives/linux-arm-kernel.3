@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6AA107BCE6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 21:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1979B107BCE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 21:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pMrp7QFPYIlbrLMp+HZgW7atJSL3fSFR1EuK/IswdM=; b=bKyPH07PRn2sOIpnJbptP19+FJ
-	MGYhQ8vwT+pjXHsh8Q+rRAYwLtyePGjOHdnC3Zk4tEH6NvWZB1x6PJk88AOxkefo+pflF+H5BlNag
-	qP/SVpLMTCfhNiNxoAM7+EqFHjtO63AhiyVzqlI+m3lXmI4afu5SdzmK5HXGQIbqTetcAoElYWe9q
-	G3ogEnAGXfLLNls6t7Gq0HD2gY/tVGNt10AfLt0ixupCDWzKQ3ZRvt5rJQIlmo76jR75j22xWjhw8
-	s0OfXzSkNttFmPp3BlgaB+givZZiEhaSC24YxBYWx3+sFUFQYYDuoNRLUZ+5eefCOiuJ+lWVkE5t9
-	4EoLSCjw==;
+	bh=V4oZSkQu6T/a0BfmXwdgdm6hzaytdJTtyyvou5AvV8o=; b=0kxMz06POrx8q1EVJ9Nf9Xtv6z
+	/f3pHPy+laXFDJpbv1z62LuCrkwgnVdXDPc8zLSUt71mC0W8qvc0/ScWE2qzyKmvSUQiq/gvb/QXR
+	aLGYDupc4TU++nADDRs2YKYPR/xdVGv44+4mt2tmhXI+1EXgWRjYcPX7Htn8au7vXc7dRG2OZ9lPN
+	7BIG+R7bjvvuJpXv26QAaRXu+r2nIdiCfsocN4e+im+ji85j3PeJlU1fT1vgegg2nyasJeYtF2fc9
+	PapFfhil5wn370COTijnILz+2j2kNQs05ndFLcXF1l4wQfd+u9aiXepVCOCS54MUeeji4BLUTmQPz
+	O1qpinBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ABj-00000001Dv8-1mO9;
-	Fri, 13 Mar 2026 21:36:55 +0000
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
+	id 1w1AUq-00000001FOm-0ChL;
+	Fri, 13 Mar 2026 21:56:40 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ABh-00000001Dui-1F8f
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 21:36:54 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 93B8E1400105;
-	Fri, 13 Mar 2026 17:36:49 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 13 Mar 2026 17:36:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1773437809;
-	 x=1773524209; bh=7pMrp7QFPYIlbrLMp+HZgW7atJSL3fSFR1EuK/IswdM=; b=
-	cAo6k1+5+nosN1sCm0enMvd9CKWn6pa8U0HG4Y5VjJSVTTxW+7HPe5iEM+d6ll6g
-	ozZNArgiQcDkG7u6r+Xt8K2Z55ju3OTbFNr9npCQsl1LfLaM45zfX1G4irXruLKR
-	l4wDEy/L4OZ+QVf5z/dQoplIZEZeq0tcqlxExlljfYZTPt0sl21mlBDZu3XaFoeB
-	soAzufFuk8lSQWxsiiIuk/ZB0bBufiYlIaCp/XZ16XDvhfAhoX6+lDd0iTjb1XBD
-	qc6pRCSfqbVLwiuNXRIEbzJhVqUUn18msQ1gHfGPODXH4axhbmkX5xEAjnbN/U4k
-	/YfIAR0RNFRiGjlkLuHYjA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773437809; x=
-	1773524209; bh=7pMrp7QFPYIlbrLMp+HZgW7atJSL3fSFR1EuK/IswdM=; b=P
-	Fowjt9YS6Do1BVQbtcb2RXAG7+rbWHr3QS+aW3NffjVzDlTpZfLKfcITI3YF63S0
-	SFkTpPyQW/GmwcdfccV/XW26pkXpGslazgt6UyUpTMFC90pEVv14i48+KmXQgpYw
-	romgTAc2XNbCj7AOXsvsf6jymyBG9TGY1JaSJCGeSP23zFp25UnLjGOhDq9i4V3L
-	QU/tdpOyry67C9oDTuelEb91ylGKCC89iTMSLc7z8KCsKDFf+dyjFGQ/p5XMxGm6
-	EFhG9D5h7puaY2A9LzsML6wXNP1wmAFJ7kEnXuIqIIrRVr+V/AhNcSdIbTSlAlVu
-	w367Sr6oUMm8vy1btMMWw==
-X-ME-Sender: <xms:b4O0aRvQFjGyv9GOyunRSo1Ojn3of9HvevxGrX8bR4yatcqbN3vQ8w>
-    <xme:b4O0aVSxIYRJRAjMWGRiEfdkTrjrQxxXJE94b6KFHdJU7RJNUmmtgnN8Rh9vqy5aw
-    7uZF0UsuHmAW8pmwrhzptoneA0Z6OJGow5_4hHEjzoUzkEb-0vwL8Iz>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvledtjeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudeipdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehrhigrnhgptghhvghnsegrshhpvggvughtvggthhdrtghomhdprh
-    gtphhtthhopeihhhgptghhuhhnghesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthht
-    oheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtth
-    hopehmrggtihgvjhdrlhgrfihnihgtiigrkhesihhnthgvlhdrtghomhdprhgtphhtthho
-    pehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtoheptghonhhorheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkod
-    gutheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:b4O0aZ4G5qt_rgvhSsT7ELLuZk7BoC5vWKCjem0FYTXw7sLxAqchmA>
-    <xmx:b4O0aS2Ez0EwiYmU6TtfsuajpwORU-Cp7H43_tMSajUfKYpw9S4RKA>
-    <xmx:b4O0aWlReRj-L7JI3fYRjfYubNEU7_VbW205DdpNNZDBFHC7IaPn1g>
-    <xmx:b4O0aYjYPajBz2aaXL0UPH0ACExr6HF7034Rq5-qYClkG0QLs3OytA>
-    <xmx:cYO0ac4FpKHz4EEFh5AoSYjRVz8gUgjh4aZvLe0PZujSvqH99efjQEmM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 15C76700065; Fri, 13 Mar 2026 17:36:47 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w1AUl-00000001FO7-0R0i;
+	Fri, 13 Mar 2026 21:56:38 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4fXdbv0371zlgqw4;
+	Fri, 13 Mar 2026 21:56:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1773438982; x=1776030983; bh=V4oZSkQu6T/a0BfmXwdgdm6h
+	zaytdJTtyyvou5AvV8o=; b=zUbDJSr5v0j8Kv1asu7xXLMF3lDZvqSWJW36+5sw
+	P9O00VBGURLzMj2hysAuyYr0vqIkJbhOaf904Lj+dQSc0Ipk7LwohmsmmFIPLsyU
+	y4Dab3KMDtj55xPpdi9q3B4GO8Kdyi8fcpGTBPZA1g4kHBfQdjw8yX8w3C5uY7qd
+	O0zD4yuob+FM6zrYDS9YL/4HpuomE3/0X7Xks6+Gcqrx1YWXejiJAic1e7wjaqWl
+	DVfNAbeY7YuvDmGr7MPlaj2qFXPv8ThWpfI3RHgfZnESkCTB6hIQ++BqI40iFSx5
+	UPznAjzbBOYripOKvip0Tkeq3NZ/ZRZYRTv2gmRbTp5KRQ==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id 6gERkaWR6Y9l; Fri, 13 Mar 2026 21:56:22 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4fXdbl444Kzlgd7G;
+	Fri, 13 Mar 2026 21:56:19 +0000 (UTC)
+Message-ID: <d4b09db7-db5c-4d99-afb2-47deffc0cd17@acm.org>
+Date: Fri, 13 Mar 2026 14:56:17 -0700
 MIME-Version: 1.0
-X-ThreadId: A224H4bSXjB-
-Date: Fri, 13 Mar 2026 22:36:02 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Conor Dooley" <conor@kernel.org>, aspeedyh <yh_chung@aspeedtech.com>
-Cc: "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Joel Stanley" <joel@jms.id.au>,
- "Andrew Jeffery" <andrew@codeconstruct.com.au>,
- "Ryan Chen" <ryan_chen@aspeedtech.com>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
- maciej.lawniczak@intel.com, "Mark Brown" <broonie@kernel.org>
-Message-Id: <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
-In-Reply-To: <20260313-energy-casket-ca8adc1f1fd1@spud>
-References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
- <20260313-energy-casket-ca8adc1f1fd1@spud>
-Subject: Re: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] scsi: ufs: Add TX Equalization support for UFS
+ 5.0
+To: Can Guo <can.guo@oss.qualcomm.com>, avri.altman@wdc.com,
+ beanhuo@micron.com, martin.petersen@oracle.com, mani@kernel.org
+Cc: linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "open list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <20260308151409.3779137-1-can.guo@oss.qualcomm.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260308151409.3779137-1-can.guo@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_143653_767368_E91E1A86 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20260313_145635_995532_9D2BBF28 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,49 +91,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026, at 17:24, Conor Dooley wrote:
-> On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
->> This series adds initial support for the eSPI controller found on ASPEED
->> AST2600 BMC SoCs.
->> 
->> The series introduces a eSPI controller framework for ASPEED SoCs under
->> drivers/soc/aspeed/, adds AST2600-specific controller support for
->> peripheral and flash channels, defines the corresponding devicetree 
->> binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
->> 
->> The driver is intended to support host-BMC communication over the BMC-side
->> eSPI slave controller present on AST2600 systems.
->
-> This all seems to be in the wrong places entirely, shouldn't an eSPI
-> driver and bindings go in the spi subsystem?
+On 3/8/26 8:13 AM, Can Guo wrote:
+> The UFS v5.0 and UFSHCI v5.0 standards have published, introducing support
 
-From an initial reading, my impression is that patches 1, 2, 3 and 7
-should be modified to use the normal SPI interfaces to implement
-an spi target driver, possibly a combined host/target driver.
-Reworking this should be fairly straightforward because the interfaces
-to the SPI core are well documented.
+have -> have been?
 
-It is possible that the hardware can only be used to provide espi
-device emulation. From what I could see in the code, there is
-not much special in there, but I'm not that familiar with SPI
+> for HS-G6 (23.2 Gbps per lane)
 
-Patches 4, 5 and 6 in consequently would need to be reworked so
-these can implement the TAFS spec independent of the SPI controller,
-and can be shared e.g. with other OpenBMC targets using the same
-module and the same user interface. None of this should be aspeed
-specific. 
+Hmm ... my version of the M-PHY version 6 standard says 46.6 Gbps for
+rate B or about the double of the rate mentioned above (table 11 /
+page 45).
 
-There is a good chance that both the user interface and the placing
-of the code will need a more debate, but I would suggest first trying
-to move everything over to use the SPI subsystem but leave other
-parts untouched for the moment.
+Thanks,
 
-> FSL's appears to be there.
-
-I think this is just a similarly named device: Freescale/NXP's eSPI
-device driver is unrelated to the Intel eSPI spec but rather implements
-a normal SPI driver the same way that eDMA and eSDHC are Freescale's
-implementation of dmaengine and SDHCI drivers.
-
-    Arnd
+Bart.
 
