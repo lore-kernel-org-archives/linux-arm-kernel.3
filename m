@@ -4,97 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EB9107BCEC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 22:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95997107BCEA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 22:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RO4aK3G64Ly54JmWRnPO+Z5g2GjzkF4byedsNQOnjs=; b=lex4MyKJOUVEf5iOOMdoz5xZb/
-	tmFDDi5IVXeKNUYD1UFgyMcjH8+tDo6t4TsrYZYALhUXtJoM3taWGJFBE3l3OqOjMhLdRkcjuAEZ3
-	LpvwuO3cBiYaPYDzteW3Ta80AOfOByBMD1DNkWeitFgiu5+Cq22n6O9aphOswACjGuqjcHcoEGOAV
-	BYqIS7ApXkeVYoEkkJQiMajs1R85hJpseHxJf/HP3jNPLpA8ODN3a4IBowkWz1hnCQEj1T9f3bpuX
-	U8Taeb4bHCot5S398fSEkn++EBeqbGFz80gFTEmvj4PyEqDGwEyV/q6C6ubGfpojHfOoomd0INQP7
-	2O74C1CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FAy6rVKtNfVS7zo27CLjXIGGNW/eCEoPErRnOIb4SWw=; b=eQ6OfVwpixw+mXY/cMF4E7xhSr
+	vtSDEtLtMJwGKUnEFAsJcEhuhgeRjN8kgV3DbHXPzvrS7x1x+CeVGT6rSSiukrl0+c3VUHBtNtc7U
+	5GlN81XbDI9ijrYO1GCtyB1sUJwU06oi/rceub2DfPZUXaKmLXX5DkRgGqXDtht7h8wWKp4lRyAWv
+	nlVf3oV+4Alxcd4OU91nVMbmCSuXLtyurTxce5wC2yAoDyVEthndXeFfO4sNeI6gYNWnf7CHyA19d
+	WV5HSy1gQxe/A40exkfr5GPkCEM7R6npCMwG7hfSIaxFq2MIV/dOIufmI6qB/uxp7NAyRT1jjyHmV
+	6mbDg2GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Au2-00000001Guw-3jTc;
-	Fri, 13 Mar 2026 22:22:42 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Ato-00000001Gom-2dNY
+	id 1w1B05-00000001HaY-2nKJ;
+	Fri, 13 Mar 2026 22:28:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w1B03-00000001HaD-0DkT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 22:22:31 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id E03F8C008EEA;
-	Fri, 13 Mar 2026 15:22:24 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com E03F8C008EEA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1773440545;
-	bh=Wtaaj1f3ECS55N5jjE+tNqpgRkM2wx8aPa/eGJrh2u4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OUTl/mQ7KSKB3EixnHI4xce0WqyaglZOB8GKmFY/TFb+8LpCrdvyOTN3WM8ErFJkc
-	 BNLFw7AZotUVGHv3IkhBkWPvexVcV46u85Qu2TxGWM4APuLLikGYyT/BL1AZuPtYun
-	 aDi54hM1YPF8c1zwEBKYF63OFlfpLdSDY6u+YUoc=
-Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D8860B90;
-	Fri, 13 Mar 2026 15:22:24 -0700 (PDT)
-From: "\\Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	jitendra.vegiraju@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	richardcochran@gmail.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	rmk+kernel@armlinux.org.uk,
-	rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	sdf@fomichev.me,
-	me@ziyao.cc,
-	siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com,
-	wens@kernel.org,
-	vladimir.oltean@nxp.com,
-	lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com,
-	maxime.chevallier@bootlin.com,
-	matthew.gerlach@altera.com,
-	chenchuangyu@xiaomi.com,
-	yangtiezhu@loongson.cn,
-	ovidiu.panait.rb@renesas.com,
-	chenhuacai@kernel.org,
-	florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com
-Subject: [PATCH net-next v7 2/5] net: stmmac: Add DW25GMAC support in stmmac core driver
-Date: Fri, 13 Mar 2026 15:22:03 -0700
-Message-ID: <20260313222206.778760-3-jitendra.vegiraju@broadcom.com>
-X-Mailer: git-send-email 2.45.4
-In-Reply-To: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
-References: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
+	Fri, 13 Mar 2026 22:28:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A58114BF;
+	Fri, 13 Mar 2026 15:28:45 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 393353F7BD;
+	Fri, 13 Mar 2026 15:28:49 -0700 (PDT)
+Date: Fri, 13 Mar 2026 22:28:38 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in
+ debugfs
+Message-ID: <3virc5zxa7aow3qfuyyjwvzlmnjk4wlsfmmg7lixhder7rhd6q@qtlumbj33fks>
+References: <20260308231829.864983-1-weilin.chang@arm.com>
+ <20260308231829.864983-3-weilin.chang@arm.com>
+ <abGNLOfKLcNGYcxh@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abGNLOfKLcNGYcxh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_152228_736985_98FBE798 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20260313_152855_179447_CFADE420 
+X-CRM114-Status: GOOD (  34.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,583 +68,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+On Wed, Mar 11, 2026 at 03:41:32PM +0000, Sebastian Ene wrote:
+> On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
+> > Exposing shadow page tables in debugfs improves the debugability and
+> > testability of NV. With this patch a new directory "nested" is created
+> > for each VM created if the host is NV capable. Within the directory each
+> > valid s2 mmu will have its shadow page table exposed as a readable file
+> > with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
+> > creation and removal of the files happen at the points when an s2 mmu
+> > becomes valid, or the context it represents change. In the future the
+> > "nested" directory can also hold other NV related information.
+> > 
+> > This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
+> > 
+> > Suggested-by: Marc Zyngier <maz@kernel.org>
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h |  7 +++++++
+> >  arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
+> >  arch/arm64/kvm/nested.c           |  6 +++++-
+> >  arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
+> >  4 files changed, 43 insertions(+), 1 deletion(-)
+> 
+> Hi,
+> 
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 5d5a3bbdb95e..f88f6c4d646e 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+> >  	 */
+> >  	bool	nested_stage2_enabled;
+> >  
+> > +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> > +	struct dentry *shadow_pt_debugfs_dentry;
+> > +#endif
+> > +
+> >  	/*
+> >  	 * true when this MMU needs to be unmapped before being used for a new
+> >  	 * purpose.
+> > @@ -405,6 +409,9 @@ struct kvm_arch {
+> >  	 * the associated pKVM instance in the hypervisor.
+> >  	 */
+> >  	struct kvm_protected_vm pkvm;
+> > +
+> > +	/* Nested virtualization info */
+> > +	struct dentry *debugfs_nv_dentry;
+> >  };
+> >  
+> >  struct kvm_vcpu_fault_info {
+> > diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> > index d968aca0461a..01e9c72d6aa7 100644
+> > --- a/arch/arm64/include/asm/kvm_mmu.h
+> > +++ b/arch/arm64/include/asm/kvm_mmu.h
+> > @@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
+> >  
+> >  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> >  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
+> > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
+> > +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
+> >  #else
+> >  static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
+> > +static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
+> > +static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
+> >  #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
+> >  
+> >  #endif /* __ASSEMBLER__ */
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index eeea5e692370..31d74ed8449e 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+> >  	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
+> >  
+> >  	/* Make sure we don't forget to do the laundry */
+> > -	if (kvm_s2_mmu_valid(s2_mmu))
+> > +	if (kvm_s2_mmu_valid(s2_mmu)) {
+> > +		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
+> >  		s2_mmu->pending_unmap = true;
+> > +	}
+> >  
+> >  	/*
+> >  	 * The virtual VMID (modulo CnP) will be used as a key when matching
+> > @@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+> >  	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+> >  	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
+> >  
+> > +	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
+> > +
+> >  out:
+> >  	atomic_inc(&s2_mmu->refcnt);
+> >  
+> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > index 98763b291956..3a70f633fc8b 100644
+> > --- a/arch/arm64/kvm/ptdump.c
+> > +++ b/arch/arm64/kvm/ptdump.c
+> > @@ -10,6 +10,7 @@
+> >  #include <linux/kvm_host.h>
+> >  #include <linux/seq_file.h>
+> >  
+> > +#include <asm/cpufeature.h>
+> >  #include <asm/kvm_mmu.h>
+> >  #include <asm/kvm_pgtable.h>
+> >  #include <asm/ptdump.h>
+> > @@ -277,6 +278,29 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+> >  	.release	= kvm_pgtable_debugfs_close,
+> >  };
+> >  
+> > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
+> > +{
+> > +	struct dentry *dent;
+> > +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
+> > +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
+> 
+> Can you hide the size of this definition behind a macro ?
 
-The DW25GMAC adds new DMA architecture called Hyper-DMA (HDMA) for
-virtualization scalability.
-This is realized by decoupling physical DMA channels (PDMA) from a
-potentially large number of virtual DMA channels (VDMA). The VDMAs provide
-software abstraction to facilitate more dma channels in driver that map to
-available PDMAs for frame transmission and reception.
-Since the 25GMAC is a derivative of XGMAC, majority of IP is common to
-both MAC IPs.
+Sure, no problem.
 
-To add support for the HDMA in 25GMAC, a new instance of dma_ops,
-dw25gmac400_dma_ops is introduced.
-To support the current needs, a simple one-to-one mapping of dw25gmac's
-logical VDMA (channel) to TC to PDMAs is used. Most of the other dma
-operation functions in existing dwxgamc2_dma.c file are reused whereever
-applicable.
-Added setup function for DW25GMAC's stmmac_hwif_entry in stmmac core.
+> 
+> > +
+> > +	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
+> > +		 mmu->tlb_vttbr,
+> > +		 mmu->tlb_vtcr,
+> > +		 mmu->nested_stage2_enabled ? "en" : "dis");
+> > +
+> > +	dent = debugfs_create_file(file_name, 0400,
+> > +				   mmu->arch->debugfs_nv_dentry, mmu,
+> > +				   &kvm_ptdump_guest_fops);
+> > +
+> > +	mmu->shadow_pt_debugfs_dentry = dent;
+> > +}
+> > +
+> > +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
+> > +{
+> > +	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
+> > +}
+> > +
+> >  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+> >  {
+> >  	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+> > @@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+> >  			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
+> >  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+> >  			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
+> > +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> > +		kvm->arch.debugfs_nv_dentry =
+> > +			debugfs_create_dir("nested", kvm->debugfs_dentry);
+> >  }
+> 
+> Other than that this looks good to me, thanks
+> Reviewed-by: Sebastian Ene <sebastianene@google.com>
 
-Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
----
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   2 +-
- drivers/net/ethernet/stmicro/stmmac/common.h  |  12 +-
- .../net/ethernet/stmicro/stmmac/dw25gmac.c    | 161 ++++++++++++++++++
- .../net/ethernet/stmicro/stmmac/dw25gmac.h    |  92 ++++++++++
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |   1 +
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   |  39 +++++
- .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  51 ++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |   1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  35 ++++
- 9 files changed, 392 insertions(+), 2 deletions(-)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.h
+Thanks for the review!
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c9263987ef8d..99734014976a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -6,7 +6,7 @@ stmmac-objs:= stmmac_main.o stmmac_ethtool.o stmmac_mdio.o ring_mode.o	\
- 	      mmc_core.o stmmac_hwtstamp.o stmmac_ptp.o dwmac4_descs.o	\
- 	      dwmac4_dma.o dwmac4_lib.o dwmac4_core.o dwmac5.o hwif.o \
- 	      stmmac_tc.o dwxgmac2_core.o dwxgmac2_dma.o dwxgmac2_descs.o \
--	      stmmac_xdp.o stmmac_est.o stmmac_fpe.o stmmac_vlan.o \
-+	      stmmac_xdp.o stmmac_est.o stmmac_fpe.o stmmac_vlan.o dw25gmac.o \
- 	      stmmac_pcs.o $(stmmac-y)
- 
- stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 46454e2886ce..75a862a92d9d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -42,13 +42,18 @@
- #define DWXGMAC_CORE_2_20	0x22
- #define DWXLGMAC_CORE_2_00	0x20
- 
-+#define DW25GMAC_CORE_3_20	0x32
-+#define DW25GMAC_CORE_4_00	0x40
-+
- /* Device ID */
- #define DWXGMAC_ID		0x76
-+#define DW25GMAC_ID		0x55
- #define DWXLGMAC_ID		0x27
- 
- static inline bool dwmac_is_xmac(enum dwmac_core_type core_type)
- {
--	return core_type == DWMAC_CORE_GMAC4 || core_type == DWMAC_CORE_XGMAC;
-+	return core_type == DWMAC_CORE_GMAC4 || core_type == DWMAC_CORE_XGMAC ||
-+	       core_type == DWMAC_CORE_25GMAC;
- }
- 
- #define STMMAC_CHAN0	0	/* Always supported and default for all chips */
-@@ -328,6 +333,9 @@ struct stmmac_safety_stats {
- #define PHY_INTF_GMII		0
- #define PHY_INTF_RGMII		1
- 
-+/* DW25GMAC uses different encoding - defaults to XGMII */
-+#define PHY_INTF_DW25GMAC_XGMII	0
-+
- /* MSI defines */
- #define STMMAC_MSI_VEC_MAX	32
- 
-@@ -596,6 +604,7 @@ struct mac_link {
- 		u32 speed2500;
- 		u32 speed5000;
- 		u32 speed10000;
-+		u32 speed25000;
- 	} xgmii;
- 	struct {
- 		u32 speed25000;
-@@ -655,6 +664,7 @@ int dwmac100_setup(struct stmmac_priv *priv);
- int dwmac1000_setup(struct stmmac_priv *priv);
- int dwmac4_setup(struct stmmac_priv *priv);
- int dwxgmac2_setup(struct stmmac_priv *priv);
-+int dw25gmac_setup(struct stmmac_priv *priv);
- int dwxlgmac2_setup(struct stmmac_priv *priv);
- 
- void stmmac_set_mac_addr(void __iomem *ioaddr, const u8 addr[6],
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
-new file mode 100644
-index 000000000000..82eb22bff73e
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
-@@ -0,0 +1,161 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2024-2026 Broadcom Corporation
-+ */
-+#include "stmmac.h"
-+#include "dwxgmac2.h"
-+#include "dw25gmac.h"
-+
-+u32 dw25gmac_decode_vdma_count(u32 regval)
-+{
-+	/* compressed encoding for vdma count */
-+	if (regval < 16) /* Direct mapping */
-+		return regval + 1;
-+	else if (regval < 20) /* 20, 24, 28, 32 */
-+		return 20 + (regval - 16) * 4;
-+	else if (regval < 24) /* 40, 48, 56, 64 */
-+		return 40 + (regval - 20) * 8;
-+	else if (regval < 28) /* 80, 96, 112, 128 */
-+		return 80 + (regval - 24) * 16;
-+	else  /* not defined */
-+		return 0;
-+}
-+
-+static int rd_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel)
-+{
-+	u32 reg_val = 0;
-+
-+	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
-+	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
-+	reg_val |= XXVGMAC_CMD_TYPE | XXVGMAC_OB;
-+	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
-+	return readl(ioaddr + XXVGMAC_DMA_CH_IND_DATA);
-+}
-+
-+static void wr_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel, u32 val)
-+{
-+	u32 reg_val = 0;
-+
-+	writel(val, ioaddr + XXVGMAC_DMA_CH_IND_DATA);
-+	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
-+	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
-+	reg_val |= XGMAC_OB;
-+	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
-+}
-+
-+void dw25gmac_dma_init(void __iomem *ioaddr,
-+		       struct stmmac_dma_cfg *dma_cfg)
-+{
-+	u32 tx_pdmas, rx_pdmas;
-+	u32 hw_cap;
-+	u32 value;
-+	u32 i;
-+
-+	value = readl(ioaddr + XGMAC_DMA_SYSBUS_MODE);
-+	value &= ~(XGMAC_AAL | XGMAC_EAME);
-+	if (dma_cfg->aal)
-+		value |= XGMAC_AAL;
-+	if (dma_cfg->eame)
-+		value |= XGMAC_EAME;
-+	writel(value, ioaddr + XGMAC_DMA_SYSBUS_MODE);
-+
-+	/* Get PDMA counts from HW */
-+	hw_cap = readl(ioaddr + XGMAC_HW_FEATURE2);
-+	tx_pdmas = FIELD_GET(XGMAC_HWFEAT_TXQCNT, hw_cap) + 1;
-+	rx_pdmas = FIELD_GET(XGMAC_HWFEAT_RXQCNT, hw_cap) + 1;
-+
-+	/* Initialize all PDMAs with burst length fields */
-+	for (i = 0; i < tx_pdmas; i++) {
-+		value = rd_dma_ch_ind(ioaddr, MODE_TXEXTCFG, i);
-+		value &= ~(XXVGMAC_TXPBL | XXVGMAC_TPBLX8_MODE);
-+		if (dma_cfg->pblx8)
-+			value |= XXVGMAC_TPBLX8_MODE;
-+		value |= FIELD_PREP(XXVGMAC_TXPBL, dma_cfg->pbl);
-+		wr_dma_ch_ind(ioaddr, MODE_TXEXTCFG, i, value);
-+	}
-+
-+	for (i = 0; i < rx_pdmas; i++) {
-+		value = rd_dma_ch_ind(ioaddr, MODE_RXEXTCFG, i);
-+		value &= ~(XXVGMAC_RXPBL | XXVGMAC_RPBLX8_MODE);
-+		if (dma_cfg->pblx8)
-+			value |= XXVGMAC_RPBLX8_MODE;
-+		value |= FIELD_PREP(XXVGMAC_RXPBL, dma_cfg->pbl);
-+		wr_dma_ch_ind(ioaddr, MODE_RXEXTCFG, i, value);
-+	}
-+}
-+
-+void dw25gmac_dma_init_tx_chan(struct stmmac_priv *priv,
-+			       void __iomem *ioaddr,
-+			       struct stmmac_dma_cfg *dma_cfg,
-+			       dma_addr_t dma_addr, u32 chan)
-+{
-+	u32 value;
-+	u32 tc;
-+
-+	/* Descriptor cache size and prefetch threshold size */
-+	value = rd_dma_ch_ind(ioaddr, MODE_TXDESCCTRL, chan);
-+	value &= ~XXVGMAC_TXDCSZ;
-+	value |= FIELD_PREP(XXVGMAC_TXDCSZ,
-+			    XXVGMAC_TXDCSZ_256BYTES);
-+	value &= ~XXVGMAC_TDPS;
-+	value |= FIELD_PREP(XXVGMAC_TDPS, XXVGMAC_TDPS_HALF);
-+	wr_dma_ch_ind(ioaddr, MODE_TXDESCCTRL, chan, value);
-+
-+	/* Use one-to-one mapping between VDMA, TC, and PDMA. */
-+	tc = chan;
-+
-+	/* 1-to-1 PDMA to TC mapping */
-+	value = rd_dma_ch_ind(ioaddr, MODE_TXEXTCFG, chan);
-+	value &= ~XXVGMAC_TP2TCMP;
-+	value |= FIELD_PREP(XXVGMAC_TP2TCMP, tc);
-+	wr_dma_ch_ind(ioaddr, MODE_TXEXTCFG, chan, value);
-+
-+	/* 1-to-1 VDMA to TC mapping */
-+	value = readl(ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
-+	value &= ~XXVGMAC_TVDMA2TCMP;
-+	value |= FIELD_PREP(XXVGMAC_TVDMA2TCMP, tc);
-+	writel(value, ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
-+
-+	writel(upper_32_bits(dma_addr),
-+	       ioaddr + XGMAC_DMA_CH_TxDESC_HADDR(chan));
-+	writel(lower_32_bits(dma_addr),
-+	       ioaddr + XGMAC_DMA_CH_TxDESC_LADDR(chan));
-+}
-+
-+void dw25gmac_dma_init_rx_chan(struct stmmac_priv *priv,
-+			       void __iomem *ioaddr,
-+			       struct stmmac_dma_cfg *dma_cfg,
-+			       dma_addr_t dma_addr, u32 chan)
-+{
-+	u32 value;
-+	u32 tc;
-+
-+	/* Descriptor cache size and prefetch threshold size */
-+	value = rd_dma_ch_ind(ioaddr, MODE_RXDESCCTRL, chan);
-+	value &= ~XXVGMAC_RXDCSZ;
-+	value |= FIELD_PREP(XXVGMAC_RXDCSZ,
-+			    XXVGMAC_RXDCSZ_256BYTES);
-+	value &= ~XXVGMAC_RDPS;
-+	value |= FIELD_PREP(XXVGMAC_RDPS, XXVGMAC_RDPS_HALF);
-+	wr_dma_ch_ind(ioaddr, MODE_RXDESCCTRL, chan, value);
-+
-+	/* Use one-to-one mapping between VDMA, TC, and PDMA. */
-+	tc = chan;
-+
-+	/* 1-to-1 PDMA to TC mapping */
-+	value = rd_dma_ch_ind(ioaddr, MODE_RXEXTCFG, chan);
-+	value &= ~XXVGMAC_RP2TCMP;
-+	value |= FIELD_PREP(XXVGMAC_RP2TCMP, tc);
-+	wr_dma_ch_ind(ioaddr, MODE_RXEXTCFG, chan, value);
-+
-+	/* 1-to-1 VDMA to TC mapping */
-+	value = readl(ioaddr + XGMAC_DMA_CH_RX_CONTROL(chan));
-+	value &= ~XXVGMAC_RVDMA2TCMP;
-+	value |= FIELD_PREP(XXVGMAC_RVDMA2TCMP, tc);
-+	writel(value, ioaddr + XGMAC_DMA_CH_RX_CONTROL(chan));
-+
-+	writel(upper_32_bits(dma_addr),
-+	       ioaddr + XGMAC_DMA_CH_RxDESC_HADDR(chan));
-+	writel(lower_32_bits(dma_addr),
-+	       ioaddr + XGMAC_DMA_CH_RxDESC_LADDR(chan));
-+}
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dw25gmac.h b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.h
-new file mode 100644
-index 000000000000..b2eee66f04d5
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.h
-@@ -0,0 +1,92 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/* Copyright (c) 2024-2026 Broadcom Corporation
-+ * DW25GMAC definitions.
-+ */
-+#ifndef __STMMAC_DW25GMAC_H__
-+#define __STMMAC_DW25GMAC_H__
-+
-+/* Hardware features */
-+#define XXVGMAC_HWFEAT_VDMA_RXCNT	GENMASK(16, 12)
-+#define XXVGMAC_HWFEAT_VDMA_TXCNT	GENMASK(22, 18)
-+
-+/* DMA Indirect Registers*/
-+#define XXVGMAC_DMA_CH_IND_CONTROL	0x00003080
-+#define XXVGMAC_MODE_SELECT		GENMASK(27, 24)
-+enum dma_ch_ind_modes {
-+	MODE_TXEXTCFG	 = 0x0,	  /* Tx Extended Config */
-+	MODE_RXEXTCFG	 = 0x1,	  /* Rx Extended Config */
-+	MODE_TXDBGSTS	 = 0x2,	  /* Tx Debug Status */
-+	MODE_RXDBGSTS	 = 0x3,	  /* Rx Debug Status */
-+	MODE_TXDESCCTRL	 = 0x4,	  /* Tx Descriptor control */
-+	MODE_RXDESCCTRL	 = 0x5,	  /* Rx Descriptor control */
-+};
-+
-+#define XXVGMAC_ADDR_OFFSET		GENMASK(14, 8)
-+#define XXVGMAC_AUTO_INCR		GENMASK(5, 4)
-+#define XXVGMAC_CMD_TYPE		BIT(1)
-+#define XXVGMAC_OB			BIT(0)
-+#define XXVGMAC_DMA_CH_IND_DATA		0x00003084
-+
-+/* TX Config definitions */
-+#define XXVGMAC_TXPBL			GENMASK(29, 24)
-+#define XXVGMAC_TPBLX8_MODE		BIT(19)
-+#define XXVGMAC_TP2TCMP			GENMASK(18, 16)
-+#define XXVGMAC_ORRQ			GENMASK(13, 8)
-+
-+/* RX Config definitions */
-+#define XXVGMAC_RXPBL			GENMASK(29, 24)
-+#define XXVGMAC_RPBLX8_MODE		BIT(19)
-+#define XXVGMAC_RP2TCMP			GENMASK(18, 16)
-+#define XXVGMAC_OWRQ			GENMASK(13, 8)
-+
-+/* Tx Descriptor control */
-+#define XXVGMAC_TXDCSZ			GENMASK(2, 0)
-+#define XXVGMAC_TXDCSZ_0BYTES		0
-+#define XXVGMAC_TXDCSZ_64BYTES		1
-+#define XXVGMAC_TXDCSZ_128BYTES		2
-+#define XXVGMAC_TXDCSZ_256BYTES		3
-+#define XXVGMAC_TDPS			GENMASK(5, 3)
-+#define XXVGMAC_TDPS_ZERO		0
-+#define XXVGMAC_TDPS_1_8TH		1
-+#define XXVGMAC_TDPS_1_4TH		2
-+#define XXVGMAC_TDPS_HALF		3
-+#define XXVGMAC_TDPS_3_4TH		4
-+
-+/* Rx Descriptor control */
-+#define XXVGMAC_RXDCSZ			GENMASK(2, 0)
-+#define XXVGMAC_RXDCSZ_0BYTES		0
-+#define XXVGMAC_RXDCSZ_64BYTES		1
-+#define XXVGMAC_RXDCSZ_128BYTES		2
-+#define XXVGMAC_RXDCSZ_256BYTES		3
-+#define XXVGMAC_RDPS			GENMASK(5, 3)
-+#define XXVGMAC_RDPS_ZERO		0
-+#define XXVGMAC_RDPS_1_8TH		1
-+#define XXVGMAC_RDPS_1_4TH		2
-+#define XXVGMAC_RDPS_HALF		3
-+#define XXVGMAC_RDPS_3_4TH		4
-+
-+/* DWCXG_DMA_CH(#i) Registers*/
-+#define XXVGMAC_DSL			GENMASK(20, 18)
-+#define XXVGMAC_MSS			GENMASK(13, 0)
-+#define XXVGMAC_TFSEL			GENMASK(30, 29)
-+#define XXVGMAC_TQOS			GENMASK(27, 24)
-+#define XXVGMAC_IPBL			BIT(15)
-+#define XXVGMAC_TVDMA2TCMP		GENMASK(6, 4)
-+#define XXVGMAC_RPF			BIT(31)
-+#define XXVGMAC_RVDMA2TCMP		GENMASK(30, 28)
-+#define XXVGMAC_RQOS			GENMASK(27, 24)
-+
-+u32 dw25gmac_decode_vdma_count(u32 regval);
-+
-+void dw25gmac_dma_init(void __iomem *ioaddr,
-+		       struct stmmac_dma_cfg *dma_cfg);
-+
-+void dw25gmac_dma_init_tx_chan(struct stmmac_priv *priv,
-+			       void __iomem *ioaddr,
-+			       struct stmmac_dma_cfg *dma_cfg,
-+			       dma_addr_t dma_addr, u32 chan);
-+void dw25gmac_dma_init_rx_chan(struct stmmac_priv *priv,
-+			       void __iomem *ioaddr,
-+			       struct stmmac_dma_cfg *dma_cfg,
-+			       dma_addr_t dma_addr, u32 chan);
-+#endif /* __STMMAC_DW25GMAC_H__ */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index 51943705a2b0..eb302a885dd3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -17,6 +17,7 @@
- #define XGMAC_CONFIG_SS_OFF		29
- #define XGMAC_CONFIG_SS_MASK		GENMASK(31, 29)
- #define XGMAC_CONFIG_SS_10000		(0x0 << XGMAC_CONFIG_SS_OFF)
-+#define XGMAC_CONFIG_SS_25000		(0x1 << XGMAC_CONFIG_SS_OFF)
- #define XGMAC_CONFIG_SS_2500_GMII	(0x2 << XGMAC_CONFIG_SS_OFF)
- #define XGMAC_CONFIG_SS_1000_GMII	(0x3 << XGMAC_CONFIG_SS_OFF)
- #define XGMAC_CONFIG_SS_100_MII		(0x4 << XGMAC_CONFIG_SS_OFF)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 915e7c2ab11f..c6b08d751c7f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -13,6 +13,7 @@
- #include "stmmac_vlan.h"
- #include "dwxlgmac2.h"
- #include "dwxgmac2.h"
-+#include "dw25gmac.h"
- 
- static void dwxgmac2_core_init(struct mac_device_info *hw,
- 			       struct net_device *dev)
-@@ -1559,6 +1560,44 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
- 	return 0;
- }
- 
-+int dw25gmac_setup(struct stmmac_priv *priv)
-+{
-+	struct mac_device_info *mac = priv->hw;
-+
-+	dev_info(priv->device, "\tDW25GMAC\n");
-+
-+	priv->dev->priv_flags |= IFF_UNICAST_FLT;
-+	mac->pcsr = priv->ioaddr;
-+	mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
-+	mac->unicast_filter_entries = priv->plat->unicast_filter_entries;
-+	mac->mcast_bits_log2 = 0;
-+
-+	if (mac->multicast_filter_bins)
-+		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
-+
-+	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-+			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
-+			 MAC_10000FD | MAC_25000FD;
-+	mac->link.duplex = 0;
-+	mac->link.speed10 = XGMAC_CONFIG_SS_10_MII;
-+	mac->link.speed100 = XGMAC_CONFIG_SS_100_MII;
-+	mac->link.speed1000 = XGMAC_CONFIG_SS_1000_GMII;
-+	mac->link.speed2500 = XGMAC_CONFIG_SS_2500_GMII;
-+	mac->link.xgmii.speed2500 = XGMAC_CONFIG_SS_2500;
-+	mac->link.xgmii.speed5000 = XGMAC_CONFIG_SS_5000;
-+	mac->link.xgmii.speed10000 = XGMAC_CONFIG_SS_10000;
-+	mac->link.xgmii.speed25000 = XGMAC_CONFIG_SS_25000;
-+	mac->link.speed_mask = XGMAC_CONFIG_SS_MASK;
-+
-+	mac->mii.addr = XGMAC_MDIO_ADDR;
-+	mac->mii.data = XGMAC_MDIO_DATA;
-+	mac->mii.addr_mask = GENMASK(20, 16);
-+	mac->mii.reg_mask = GENMASK(15, 0);
-+	mac->mii.clk_csr_mask = GENMASK(21, 19);
-+
-+	return 0;
-+}
-+
- int dwxlgmac2_setup(struct stmmac_priv *priv)
- {
- 	struct mac_device_info *mac = priv->hw;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index 03437f1cf3df..99f5b5598fcf 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -7,6 +7,7 @@
- #include <linux/iopoll.h>
- #include "stmmac.h"
- #include "dwxgmac2.h"
-+#include "dw25gmac.h"
- 
- static int dwxgmac2_dma_reset(void __iomem *ioaddr)
- {
-@@ -470,6 +471,26 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
- 	return 0;
- }
- 
-+static int dw25gmac_get_hw_feature(void __iomem *ioaddr,
-+				   struct dma_features *dma_cap)
-+{
-+	u32 hw_cap;
-+	int ret;
-+
-+	ret = dwxgmac2_get_hw_feature(ioaddr, dma_cap);
-+
-+	/* For DW25GMAC VDMA channel count is channel count */
-+	hw_cap = readl(ioaddr + XGMAC_HW_FEATURE2);
-+	dma_cap->number_tx_channel =
-+		dw25gmac_decode_vdma_count(FIELD_GET(XXVGMAC_HWFEAT_VDMA_TXCNT,
-+						     hw_cap));
-+	dma_cap->number_rx_channel =
-+		dw25gmac_decode_vdma_count(FIELD_GET(XXVGMAC_HWFEAT_VDMA_RXCNT,
-+						     hw_cap));
-+
-+	return ret;
-+}
-+
- static void dwxgmac2_rx_watchdog(struct stmmac_priv *priv, void __iomem *ioaddr,
- 				 u32 riwt, u32 queue)
- {
-@@ -611,3 +632,33 @@ const struct stmmac_dma_ops dwxgmac210_dma_ops = {
- 	.enable_sph = dwxgmac2_enable_sph,
- 	.enable_tbs = dwxgmac2_enable_tbs,
- };
-+
-+const struct stmmac_dma_ops dw25gmac400_dma_ops = {
-+	.reset = dwxgmac2_dma_reset,
-+	.init = dw25gmac_dma_init,
-+	.init_chan = dwxgmac2_dma_init_chan,
-+	.init_rx_chan = dw25gmac_dma_init_rx_chan,
-+	.init_tx_chan = dw25gmac_dma_init_tx_chan,
-+	.axi = dwxgmac2_dma_axi,
-+	.dump_regs = dwxgmac2_dma_dump_regs,
-+	.dma_rx_mode = dwxgmac2_dma_rx_mode,
-+	.dma_tx_mode = dwxgmac2_dma_tx_mode,
-+	.enable_dma_irq = dwxgmac2_enable_dma_irq,
-+	.disable_dma_irq = dwxgmac2_disable_dma_irq,
-+	.start_tx = dwxgmac2_dma_start_tx,
-+	.stop_tx = dwxgmac2_dma_stop_tx,
-+	.start_rx = dwxgmac2_dma_start_rx,
-+	.stop_rx = dwxgmac2_dma_stop_rx,
-+	.dma_interrupt = dwxgmac2_dma_interrupt,
-+	.get_hw_feature = dw25gmac_get_hw_feature,
-+	.rx_watchdog = dwxgmac2_rx_watchdog,
-+	.set_rx_ring_len = dwxgmac2_set_rx_ring_len,
-+	.set_tx_ring_len = dwxgmac2_set_tx_ring_len,
-+	.set_rx_tail_ptr = dwxgmac2_set_rx_tail_ptr,
-+	.set_tx_tail_ptr = dwxgmac2_set_tx_tail_ptr,
-+	.enable_tso = dwxgmac2_enable_tso,
-+	.qmode = dwxgmac2_qmode,
-+	.set_bfsize = dwxgmac2_set_bfsize,
-+	.enable_sph = dwxgmac2_enable_sph,
-+	.enable_tbs = dwxgmac2_enable_tbs,
-+};
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 374f326efa01..bb50b4fa9db7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -686,6 +686,7 @@ extern const struct stmmac_dma_ops dwmac410_dma_ops;
- extern const struct stmmac_ops dwmac510_ops;
- extern const struct stmmac_tc_ops dwmac4_tc_ops;
- extern const struct stmmac_tc_ops dwmac510_tc_ops;
-+extern const struct stmmac_dma_ops dw25gmac400_dma_ops;
- 
- #define GMAC_VERSION		0x00000020	/* GMAC CORE Version */
- #define GMAC4_VERSION		0x00000110	/* GMAC4+ CORE Version */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f0160ff54a59..05d0c369ad05 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -144,6 +144,10 @@ static const char *stmmac_dwxgmac_phyif[4] = {
- 	[PHY_INTF_RGMII]	= "RGMII",
- };
- 
-+static const char *stmmac_dw25gmac_phyif[2] = {
-+	[PHY_INTF_DW25GMAC_XGMII]	= "XGMII",
-+};
-+
- static irqreturn_t stmmac_interrupt(int irq, void *dev_id);
- /* For MSI interrupts handling */
- static irqreturn_t stmmac_mac_interrupt(int irq, void *dev_id);
-@@ -1019,6 +1023,32 @@ static void stmmac_mac_link_up(struct phylink_config *config,
- 		default:
- 			return;
- 		}
-+	} else if (interface == PHY_INTERFACE_MODE_XGMII) {
-+		switch (speed) {
-+		case SPEED_25000:
-+			ctrl |= priv->hw->link.xgmii.speed25000;
-+			break;
-+		case SPEED_10000:
-+			ctrl |= priv->hw->link.xgmii.speed10000;
-+			break;
-+		case SPEED_5000:
-+			ctrl |= priv->hw->link.xgmii.speed5000;
-+			break;
-+		case SPEED_2500:
-+			ctrl |= priv->hw->link.xgmii.speed2500;
-+			break;
-+		case SPEED_1000:
-+			ctrl |= priv->hw->link.speed1000;
-+			break;
-+		case SPEED_100:
-+			ctrl |= priv->hw->link.speed100;
-+			break;
-+		case SPEED_10:
-+			ctrl |= priv->hw->link.speed10;
-+			break;
-+		default:
-+			return;
-+		}
- 	} else if (interface == PHY_INTERFACE_MODE_XLGMII) {
- 		switch (speed) {
- 		case SPEED_100000:
-@@ -7343,6 +7373,11 @@ static void stmmac_print_actphyif(struct stmmac_priv *priv)
- 		phyif_table = stmmac_dwxgmac_phyif;
- 		phyif_table_size = ARRAY_SIZE(stmmac_dwxgmac_phyif);
- 		break;
-+
-+	case DWMAC_CORE_25GMAC:
-+		phyif_table = stmmac_dw25gmac_phyif;
-+		phyif_table_size = ARRAY_SIZE(stmmac_dw25gmac_phyif);
-+		break;
- 	}
- 
- 	if (priv->dma_cap.actphyif < phyif_table_size)
--- 
-2.34.1
-
+Thanks,
+Wei-Lin Chang
+> 
+> > -- 
+> > 2.43.0
+> > 
 
