@@ -4,125 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3918C106FD66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 01:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082DC106FD60
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 01:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Rb/kC9KYsO0qkJGkYkgDbUgNiLAb6vIOx4ow1C0K2M=; b=kvFFubuzEKk/ok9j+8C4+ymKX6
-	XeyZXVLMWmzgEU5MNnIEqbvIb82uhcDYnroIe0u3IofhSaTdwH83mHB5HMqnBpspmEHPixnYx6P7r
-	P+1I5fA+DxSwPP9JZa9ZyMwAQU4OUaXW4OHYNIMnRYiP4T0csy+qXOwl+7IcFb5M8BdNFd2d5l4wh
-	L1jimBXC5Umz4GwPmGvKG1sMyM5KWDNEr4VzrBTD7bhjGE8vFhhYUAbh7u/U+cxci+5FfsbpxSs7r
-	xeOSDPW+7Iy47XrTBhBJlvw2jiPCpdfYS1fGzk6Jywu+bQ93lgSxuhnQ1ZXGqDlhLkbecTZne3ntA
-	ldEYP19A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=maJp5b6SCmboZuSBDGXwFIAF2kE51SGwpSO+ttB/dC4=; b=qMxHZGLdhCzDOClxQjU/bOv0ar
+	zsNXMBn4QMxAfkOafuZzQ9Axx0S8v/gYZQeQzThLgimfNA/4UxcFdmnVncH0S634w9jcwRginsdK9
+	1ZYBXoiiuY6q7NgeKmpWPnQX2GC1MTCS2Z5ehTRlm+Dt7g3sbcu31VhUiyovDpzQxvcNJ5GgUACQW
+	O4GWmCE8eg2uRBOSIXfMwomMe8s5NbLKGyU0458Mv5k7rpgGCnbCU2evSvwBHHtyqLZ4t5UyIC53J
+	iE0i0/Rf0L3Sc78ZZhUn3qLgmwWb2GlbTr0OP/2fT2VwHVlPFjnByq+jPQglVEBQS9BFnu351iZk8
+	krArRHQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0rR6-0000000G5kl-0Gim;
-	Fri, 13 Mar 2026 01:35:32 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1w0rf4-0000000G7Uf-44KH;
+	Fri, 13 Mar 2026 01:49:58 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0rR2-0000000G5ja-0Wq0
+	id 1w0rf2-0000000G7Ti-1EF3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 01:35:30 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-2be06c02f66so3303167eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 18:35:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773365726; x=1773970526; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Rb/kC9KYsO0qkJGkYkgDbUgNiLAb6vIOx4ow1C0K2M=;
-        b=fELN17CVgKHNr/GTTB/ytqz27P4CIf6bDXn0feL6uIJOdpND9CNMnVfQ1P77chgBYJ
-         IxXBuBEVm3SYUE0HAbTDfwJHl8QzWV8PlJu79WZa2+AErwf4eviu/jottf6dMpxuhD/a
-         uaeFukmZExoKR2FPZq0ooMsYjmqJddukOa0vhEqeYmimanWNzGrFxi9mOvStMuxbsxW5
-         zv5zjoi+omWZ1bw1sxKzO7NY5ViNxAm2Nt71iu6/dBhE1pGSe05UgowNoop6A5vyYTpF
-         NlJiG6c5La0ULVIDwq5mUTW/t39TKMFNPhBot3jIESwm6cpav6PGQ30dDel6ZLMby9Sf
-         0i7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773365726; x=1773970526;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3Rb/kC9KYsO0qkJGkYkgDbUgNiLAb6vIOx4ow1C0K2M=;
-        b=N/fbpRrm84+XynGwC07mZjY84gnso510eOpg+jpNCjJhw6SKvGOJaesGSogTbn3Xlz
-         hArJWLtXmrApViTyEn9i+vKncDRXZn1s+U7fYYW17v89geyDBxnD0LX0ARjm4XCkzDPh
-         KgQQxlINax7GSoII7CGPTL4pJDlHcGPaQzsrj82gzw6/kO8websHrODnb4yVKteKPdUD
-         kOgGet2WT/oX6zOxW3iFvGAv3tZQBEMjYNWT0gnf2FB4o9ryLg5F1NBPWIi+qQPG8g0A
-         teelGplfxc6VbHyTzbs9rVU4BaFBI85l3mhgEVnXLyQ/XeN1WOcOuFhYt+uD/HjDzjug
-         TMPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUgoCkxBBJWVo5OptiOZXHIvMxeYEIfU26J2YPvmCM9N6ZV7iI+D2G07dyT4jaSCXFqepwLwHeNDFufvbqHmI4e@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsVXbO2Syy+NkhfUoyj0niCTfq2/7Uiw4SNRgSDoh8LemlQ63P
-	XvNozVuFxUoo7I+88uwKPuA5gVDBxrLsxJQISpiTCRS9d1+CXyiOsZS9
-X-Gm-Gg: ATEYQzx9inmKIYng+HAGIAiFmHjRLep4CvuPCYSfOfccuWMNZS6XpDJIExaXomsowX4
-	WfpJRmcYXW1SuFjQMFO9r5H8H+fyv37o3h3DQ/9svHkM2FKN1dsRdgAW1VlGg4CfKDgubiYBKfm
-	i1xV92C4va+qYEjfIW+L2kxS4cKrFnR3rUwLUjaNKIbWPO49RdBGBLK/E5DEkKFDNYORaM5tLhx
-	3rBPAizRgS+SUOC8yBCW2NfrhKvmHGnmslurYVB6ciduCxjXPW8WgJA9vzExKM6ijXCQoUFaLlC
-	xaA/y0/FGqi0YBT/zDfpJpfyReRC1wkyZDflPz/7eXa85J7Zbe3Ef56V0U2sLC2NFwvxaxScfeY
-	eG7hUUyOhKB9EQxhLd59alcg/0vBIrsyBW2GRlvwRkyLN3KFooG4ljEv8WGJyIIOnj0DxtR7aZY
-	Dk97REo7EghJKUJN0H4h+2YzdaabFBFZOytiQksM3/E+nVPY6KplPMKnEDAdIuMXrbacaLqNvIa
-	o8nV3iTqV9KyjNuh6FbUU6ywuAce3c5VuZXbRJ5qN+qB65/0vEsIF2FkSNpqobjAspftI+iVQxM
-	/lrvzdwDK9nr7FU+2q5U
-X-Received: by 2002:a05:7300:3721:b0:2be:9dea:a31d with SMTP id 5a478bee46e88-2bea560cbe7mr847892eec.35.1773365726031;
-        Thu, 12 Mar 2026 18:35:26 -0700 (PDT)
-Received: from Lewboski.localdomain ([181.191.143.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab52702asm634483eec.16.2026.03.12.18.35.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 18:35:25 -0700 (PDT)
-From: Tomas Borquez <tomasborquez13@gmail.com>
-To: Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Alisa-Dariana Roman <alisa.roman@analog.com>,
-	Peter Rosin <peda@axentia.se>,
-	Marius Cristea <marius.cristea@microchip.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Benson Leung <bleung@chromium.org>,
-	Jyoti Bhayana <jbhayana@google.com>,
-	Kim Seer Paller <kimseer.paller@analog.com>,
-	Mariel Tinaco <Mariel.Tinaco@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Ariana Lazar <ariana.lazar@microchip.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Giorgi Tchankvetadze <giorgitchankvetadze1997@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Shi Hao <i.shihao.999@gmail.com>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Dixit Parmar <dixitparmar19@gmail.com>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Gwendal Grignou <gwendal@chromium.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Kurt Borja <kuurtb@gmail.com>,
-	Waqar Hameed <waqar.hameed@axis.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	chuguangqing <chuguangqing@inspur.com>,
-	Erikas Bitovtas <xerikasxx@gmail.com>,
-	=?UTF-8?q?M=C3=A5rten=20Lindahl?= <marten.lindahl@axis.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev,
-	Tomas Borquez <tomasborquez13@gmail.com>
-Subject: [PATCH] cleanup: uintptr_t to unsigned long
-Date: Thu, 12 Mar 2026 22:34:35 -0300
-Message-ID: <20260313013435.25731-1-tomasborquez13@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 13 Mar 2026 01:49:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UMnO2x4U5xVsjtlUtNp75TnTASAhuV+BiBXiJ4fP4xZysib5aPxo9RPOUBAsdaocdvc32pc/1zx20AqR/uu99MlhUC4Wod3bSuIDUCRFkkmLmcLMv5ZPrCf1AmCusswJnSkNCOc4Qjf6s519jvUKuy9TeocwzNxkDI+pHe86X9JFn8co9v4tWhQ504zquQGYADgaxoONZZN7LaalzXaVZ7a1hWFRpUtW/T4w3TBsvUjuLhP3XjwamiBtf+N/HalE7oHUO3Da8t/n6sheV+uG6PVPbc7YJdHwtqAH9egX9eikzu/g0dM8V6vcJ2h7g3YGW7Squ4Ractb1EN24yB4MYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=maJp5b6SCmboZuSBDGXwFIAF2kE51SGwpSO+ttB/dC4=;
+ b=r2ldx81JQSyDQrX6LQsZfzZFHt1HxaxhkidvFZSL9TszJJZfSJkzPg9S0nx7kp0mve02RPdA/uwt9aQiBoDvYFPmMZJ4wYU33UYu3rHWuXcKMCT/OzZU1Xr7eWY8jCL1qndiW21gZ9ZbdxqNHLBnzSnWD7mA64Z2jzWdSP6JztRaq24EM9ZreRTGzeBRuKh39DhilnESori0VyixYvgJMTOfoI9xzkunDaQzgjDqjoV2EzoChza6tBJKZksdNSuPB1Ut2VKLKdOLZpHBCRQlExl7sqv9Y2u6qCgv2/hMlD6nxvUL4NQLENc70nEEpORcR3mjX7cMfahfnHL/IGmoQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=maJp5b6SCmboZuSBDGXwFIAF2kE51SGwpSO+ttB/dC4=;
+ b=MwB3FOqhCkI7ru4lTdUXZuqA2Xi24Csr3xLrgtL1gHUYHU4G4096W+u+L5uVeOZQVhUJ4JKpkQ6PthQOb8jJIja0fOlpjL9NAh5S0CGjnUXT4RC3q81JdPq76AJ85aGFa0Ydo0aRDQ1E5hQKNYcKPl8n9Dp3f3xlrJ2Xykyi54pa/KviiPuX9siH+S0xbrGg8ZiBQRms2WPFnqaNLbBETbePaf2FD1jG0Ri2Ed5qMpKDm54t0LTipw+Zj2i0gBJBNhGpfWvTF2MMtA1Rya5i9KuL2jnMr+S3hVDplhX2BoPv+ra68KeNpRlXsWjMJYBF1SMd9XcWYEnA/7yc0HG/2g==
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by PAXPR04MB8735.eurprd04.prod.outlook.com (2603:10a6:102:21f::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
+ 2026 01:49:44 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9700.015; Fri, 13 Mar 2026
+ 01:49:44 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Rob Herring <robh@kernel.org>
+CC: "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, Frank Li
+	<frank.li@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v5 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
+ i.MX943 PCIe compatible strings
+Thread-Topic: [PATCH v5 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
+ i.MX943 PCIe compatible strings
+Thread-Index: AQHcsgJTKNEJJEpTmkq32cipnoVJNLWq5TSAgACx5wA=
+Date: Fri, 13 Mar 2026 01:49:44 +0000
+Message-ID: <AS8PR04MB883326B2CE4C86837DD8195F8C45A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+References: <20260312092745.295578-1-hongxing.zhu@nxp.com>
+ <20260312092745.295578-3-hongxing.zhu@nxp.com>
+ <20260312133203.GA2768492-robh@kernel.org>
+In-Reply-To: <20260312133203.GA2768492-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|PAXPR04MB8735:EE_
+x-ms-office365-filtering-correlation-id: 3593fafc-59f7-4b7d-5482-08de80a2ccc1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|1800799024|376014|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: qIcS2vgfK9qi1afVLX5Fc5NLWy/nOgNTQIANwWHDjmA4Pdfm2SLq9W6bYYFutL5n7ExukcOvKNuZB7DxbCZyIz7K6/JZ/4Svf08PplLsY7yUQXOV2YQZr1TFhEUGL0l93Eo68GlSonGpuVciK/nAfHoYX4Q7aFt24366bNqVU3ddiakbHOtWDcS9VETsM1O7m2TK14m+hY9y3eGzkOGui+UyqXdcdBph/zYO/rhYt0hI1fVyw30D11zQTZGHx94+DV4FFIqtWL4ZSOlyN1+1/cwRoEniSQqgmATh3V0BFgPtrcVFjYPu/zVs4oN5tO1wZEYCQGIso5Qmfn0qczCPzd3Y+2A1nK2uk5v0D0MKzpkNLerkt4fyqqk7516PpNPqbIE7F0hCR9PflMNglnagSeKQFe/MJpy8lCD1V/fjdQ5rfde1P34p4COtT0HLM3qDMXkIbsADFEogvqti4izdxufArlThnrComknQ96Y0ERplf0vOWFAwu1rMlkf9OIwhYc09XZein3bFjhz4+YFU5UkrBgqqQsRNJiSOEW+hianxBLJu4GjVvaJNlh9EvmAMA2q/g/+GJU3wdy7oT4L9ZczD50B+2w9jSS6QWiMiBiwEiB0HLcMJnxlX5kLYZF6sACUNdVkDB0hnzT7ozZjHICYwYCH36dxtFkMc/WqR/0XsN+My7A3Rm+YF2zxKhY27cZlHt2wb3JZt/yfY3473yvF9qBmxdek6EyZA0gxz9SBPF3tllV1tiS0OS6mBZ49K4z6D1ENmJgYBN1UW8OeOOwWRKh0jOYJuh9kc9gIk6CI=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(1800799024)(376014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?NXlqT0VnZjhTb2xJb0dzSVhoaGJnMzhsV3hoNHYzTzdpSFI0bFJhdHlNNFFh?=
+ =?gb2312?B?cS8ydjVJbk1FeDhUNjJteXV5bk9QWE0zWU1IMnZmS1BYWWVlTjlMaE9PUGFO?=
+ =?gb2312?B?MXFpUGJ6QWFpTFo5UHNERWt0ODZSMnVZblhqKzBvUkJ5THZoUXRMZGZCbnZC?=
+ =?gb2312?B?S254RzE2RFpPSUhPK3ZvS0Eyczk5SFZKM3orNE5LT2gyOEI3ZXNOQmhYV0pC?=
+ =?gb2312?B?ampjazNlQnBGN2NlMW5NMUxBQzJ6ZzNOcGYxRzdrb0hFOXNGTkI0NVlwWHla?=
+ =?gb2312?B?NzFKeG15UTRzWVZzdXFPdGxjWkEzdXluOWpueEpBcmVDS1hCOHBMVHRMQW94?=
+ =?gb2312?B?RCt0Qk1uVnVYcm95amlMTEJjRnpSQ0lEYVhWc2NaK01kUng5S0lSWXplU1Fs?=
+ =?gb2312?B?bmNJMGFvRFRzaDZYUm1udzVuZDMyY1V6dkpCY0laQWkrcVFGdktlR0ZFT2k3?=
+ =?gb2312?B?aVJESE9sbTUrVURUb3BFZDgzMWVmRlh6MGFGMmlnc0Q2U3JYS1dtM2swMmww?=
+ =?gb2312?B?a0p5MmhDTWc1UzJpM1p3Rzl3YkdObUcxMlBNb0RtRW5Jdy9laGF5Rkk3Q2F3?=
+ =?gb2312?B?eEFYZm93M0Z2QlVxeHNrR214bHU1alVJekllZVROcnFMcFF2S2RWVEhPdjNw?=
+ =?gb2312?B?dWFzVDVzczJUSEdqbi8vNnBHKzVZampOblowZ2RTV09IenFEOGlpTjdwOVdq?=
+ =?gb2312?B?UEx5Y0lJWFIrTnNRb2xtWEt1M2lzV0cyQWdybEVteUx4eUIrY3d5Qk5nQTJt?=
+ =?gb2312?B?QXRtMk44c2VrcXgwcGNyRTRWcndiaHNGR2VYK0tVclJRTFFJakZTNFhGb21N?=
+ =?gb2312?B?dE1oMFI4ZDk0RE9KQkZCeXUxb1FVa1pGRVhqdVlGczZBVlBLOXhmSWU0ajJL?=
+ =?gb2312?B?MzloTHBTLzBqN2dmMXAwK2dNWk95VkNVUmNpYkRiYTVBYWFQS3dNa0FBcHBN?=
+ =?gb2312?B?SmhMaDk2bG42bWpuYUxiN3E5S1ZyLzgvN3JhSEhoSE9PcG80TTRNSzZJR01a?=
+ =?gb2312?B?dFZyQ2JJMjBKVTZpWDZPZVExc0tWa1YzL2M0ZDZPWldEY0d5cGdrTzdmTjlr?=
+ =?gb2312?B?QTB0T1A1ellyYjkxU1BqaERPYm9TY1o1dk5semRTeExYeVhZRXZkK2lVbGNY?=
+ =?gb2312?B?WDFuNEMyRUdzdTBOTjgxOWdvcVQxbkZ4SFVOVzVSV1lzU0tCZEJhR2M4eS8x?=
+ =?gb2312?B?d3NzTjZ6N2NyZ0Fhc2VQc0dxMjQyK3IwaDduQ0NhemtUeCtaU1lLUE9GWkRx?=
+ =?gb2312?B?L3VHTFVYTktkK0ZJaCtYSzA0M1hPRVk1OFYvWVlDQUFkUjd0YzVpQ1hLNkRI?=
+ =?gb2312?B?T3lOYUtTdkJPTVltODBqblBzVTFxUnBtTkh4ZjBnaFFVcE5kR212VUZQTk04?=
+ =?gb2312?B?M3pUVTJySm0va0FwMStnSjB6M3VHK1paMVM3K0F2ZHMvM0JWQTNsa2dNd3BI?=
+ =?gb2312?B?d3BVYVFCV21FK3BQalVxeVVDYUIrZDR6QkZIU1FFaUVhcVNYbURZZmIyWmMr?=
+ =?gb2312?B?M0hBS0Z2MU5wMTFXdExNNUY5dGVqQm9obTV2Vjlqa2JQYTByZHpNWFJtQjNH?=
+ =?gb2312?B?cm5RdzZoZ1dpVGtEUXNxT25YMkVBVGt0dHcrMnZ2VWpxUC8vWEJMSERFek83?=
+ =?gb2312?B?eGpoWS84TGVIWWhNdXcxQUhpRVY0L3lXRTRzU3QvSmpNK3NDVU1Yd1E1dHNh?=
+ =?gb2312?B?V1JkVEF1QkxSazVqWVZvV1Z1bkRsejJEdVNRNDc1WVBFd0Q1QmV3YUI5UUNG?=
+ =?gb2312?B?cldIdkNJT2paNVdxZjRHaE12UTFIWXkxVjhQSml0SU9udzYvbXFzM3dvSDl0?=
+ =?gb2312?B?TDFnU1o2TW5ycXdocUwrYkNqTk9DWE1Pb0hEdnhuMjRyWmF6eE5DdWZmTjJu?=
+ =?gb2312?B?MTE1V1h0M1hpQjFHWGtHZEZ6MlBoVVpCeDB1QjE0Wm9DRTRWS1J5UXE5WTBw?=
+ =?gb2312?B?dGRjSUUyVGpCcDNPZ1Nvd3BsZTNQM3lCWXFqejcydFRGYlkwTXNqNzMrNDRB?=
+ =?gb2312?B?OEhLMjlkTDhZU2JCejdYU0JSZ0svYW14QXRDVUQ5VERZQkphaEQ1blhPM2k1?=
+ =?gb2312?B?V2x4L2NTZjlVRU1wMWdwSEJpZkg0V2c1bjhqdnNUYnJJc3lMQmc5K1pFd00r?=
+ =?gb2312?B?VFBBdEtjWGg4eFhrVEtxS2ZTSmYzZ0FpcEx1eHFrNC9DdkVEL0hhTTRoWXJF?=
+ =?gb2312?B?WWNtVGdYVC8rOGtpV2QxSDNFSDE1NXNTZnhnY3B3OFhpYkdab2JVUmZZdFho?=
+ =?gb2312?B?ZjlmSlFkcTZzSGdjTXcwaFdndWI5SmsrTXpKYzVqODFnS04yL3p2ZUdOeUFo?=
+ =?gb2312?Q?T/bCmFWslzvwGRE0OJ?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3593fafc-59f7-4b7d-5482-08de80a2ccc1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 01:49:44.1334
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LbSmEs3bOXATkBWpJuN1bFK580MjU74TPJEUJAGksJ7QW/CAGhhBPbc+P4EtoEwFT9clirA04VWxm98vdHmacg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_183528_238886_36FB5D50 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260312_184956_761850_F0AEEDB0 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,1513 +160,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linus has been explicit that uintptr_t should not be used in the kernel.
-
-The iio_chan_spec_ext_info struct uses uintptr_t for the private field
-and in its read/write function pointer signatures. Jonathan Cameron noted
-this should be cleaned up in one go across all users [1].
-
-Update the struct definition in iio.h and backend.h, along with all
-drivers implementing or using iio_chan_spec_ext_info callbacks.
-
-No functional change intended.
-
-[1] https://lore.kernel.org/linux-iio/20260111122034.174c754c@jic23-huawei/
-
-Suggested-by: Jonathan Cameron <jic23@kernel.org>
----
- drivers/iio/adc/ad7124.c                      |  2 +-
- drivers/iio/adc/ad7173.c                      |  2 +-
- drivers/iio/adc/ad7192.c                      |  2 +-
- drivers/iio/adc/ad7280a.c                     |  8 ++++----
- drivers/iio/adc/envelope-detector.c           |  8 ++++----
- drivers/iio/adc/mcp3564.c                     |  2 +-
- drivers/iio/adc/pac1921.c                     |  6 +++---
- drivers/iio/adc/stm32-adc.c                   |  2 +-
- drivers/iio/adc/stm32-dfsdm-adc.c             |  4 ++--
- drivers/iio/afe/iio-rescale.c                 |  4 ++--
- drivers/iio/amplifiers/hmc425a.c              |  4 ++--
- drivers/iio/chemical/sunrise_co2.c            |  8 ++++----
- .../cros_ec_sensors/cros_ec_sensors_core.c    |  4 ++--
- drivers/iio/common/scmi_sensors/scmi_iio.c    |  2 +-
- drivers/iio/dac/ad3530r.c                     |  4 ++--
- drivers/iio/dac/ad5064.c                      |  4 ++--
- drivers/iio/dac/ad5380.c                      |  4 ++--
- drivers/iio/dac/ad5446.c                      |  4 ++--
- drivers/iio/dac/ad5504.c                      |  4 ++--
- drivers/iio/dac/ad5592r-base.c                |  2 +-
- drivers/iio/dac/ad5624r_spi.c                 |  4 ++--
- drivers/iio/dac/ad5686.c                      |  4 ++--
- drivers/iio/dac/ad5755.c                      |  4 ++--
- drivers/iio/dac/ad5758.c                      |  4 ++--
- drivers/iio/dac/ad5766.c                      |  4 ++--
- drivers/iio/dac/ad5770r.c                     |  4 ++--
- drivers/iio/dac/ad5791.c                      |  4 ++--
- drivers/iio/dac/ad7303.c                      |  4 ++--
- drivers/iio/dac/ad8460.c                      | 16 +++++++--------
- drivers/iio/dac/adi-axi-dac.c                 |  4 ++--
- drivers/iio/dac/ltc2632.c                     |  4 ++--
- drivers/iio/dac/ltc2664.c                     |  8 ++++----
- drivers/iio/dac/ltc2688.c                     | 14 ++++++-------
- drivers/iio/dac/max22007.c                    |  4 ++--
- drivers/iio/dac/max5821.c                     |  4 ++--
- drivers/iio/dac/mcp4725.c                     |  4 ++--
- drivers/iio/dac/mcp4728.c                     |  4 ++--
- drivers/iio/dac/mcp47feb02.c                  |  4 ++--
- drivers/iio/dac/stm32-dac.c                   |  4 ++--
- drivers/iio/dac/ti-dac082s085.c               |  4 ++--
- drivers/iio/dac/ti-dac5571.c                  |  4 ++--
- drivers/iio/dac/ti-dac7311.c                  |  4 ++--
- drivers/iio/frequency/adf4350.c               |  4 ++--
- drivers/iio/frequency/adf4371.c               |  4 ++--
- drivers/iio/frequency/adf4377.c               |  4 ++--
- drivers/iio/frequency/admv1013.c              |  4 ++--
- drivers/iio/frequency/admv1014.c              |  4 ++--
- drivers/iio/industrialio-backend.c            |  4 ++--
- drivers/iio/industrialio-core.c               |  8 ++++----
- drivers/iio/light/ltr501.c                    |  2 +-
- drivers/iio/light/stk3310.c                   |  2 +-
- drivers/iio/light/vcnl4000.c                  |  2 +-
- drivers/iio/multiplexer/iio-mux.c             |  4 ++--
- drivers/iio/proximity/isl29501.c              |  4 ++--
- drivers/iio/proximity/sx9324.c                |  2 +-
- drivers/iio/trigger/stm32-timer-trigger.c     |  4 ++--
- include/linux/iio/backend.h                   |  8 ++++----
- include/linux/iio/iio.h                       | 20 +++++++++----------
- 58 files changed, 137 insertions(+), 137 deletions(-)
-
-diff --git a/drivers/iio/adc/ad7124.c b/drivers/iio/adc/ad7124.c
-index 5c1a8f886bcc..5e9fcb65554e 100644
---- a/drivers/iio/adc/ad7124.c
-+++ b/drivers/iio/adc/ad7124.c
-@@ -1054,7 +1054,7 @@ static int ad7124_syscalib_locked(struct ad7124_state *st, const struct iio_chan
- }
- 
- static ssize_t ad7124_write_syscalib(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     const struct iio_chan_spec *chan,
- 				     const char *buf, size_t len)
- {
-diff --git a/drivers/iio/adc/ad7173.c b/drivers/iio/adc/ad7173.c
-index f76a9e08f39e..828d7034e2b0 100644
---- a/drivers/iio/adc/ad7173.c
-+++ b/drivers/iio/adc/ad7173.c
-@@ -367,7 +367,7 @@ static int ad7173_get_syscalib_mode(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7173_write_syscalib(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     const struct iio_chan_spec *chan,
- 				     const char *buf, size_t len)
- {
-diff --git a/drivers/iio/adc/ad7192.c b/drivers/iio/adc/ad7192.c
-index 8b1664f6b102..076bd9a28315 100644
---- a/drivers/iio/adc/ad7192.c
-+++ b/drivers/iio/adc/ad7192.c
-@@ -245,7 +245,7 @@ static int ad7192_get_syscalib_mode(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7192_write_syscalib(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     const struct iio_chan_spec *chan,
- 				     const char *buf, size_t len)
- {
-diff --git a/drivers/iio/adc/ad7280a.c b/drivers/iio/adc/ad7280a.c
-index ba12a3796e2b..0862462dc8ce 100644
---- a/drivers/iio/adc/ad7280a.c
-+++ b/drivers/iio/adc/ad7280a.c
-@@ -469,7 +469,7 @@ static int ad7280_chain_setup(struct ad7280_state *st)
- }
- 
- static ssize_t ad7280_show_balance_sw(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad7280_state *st = iio_priv(indio_dev);
-@@ -480,7 +480,7 @@ static ssize_t ad7280_show_balance_sw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7280_store_balance_sw(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-@@ -511,7 +511,7 @@ static ssize_t ad7280_store_balance_sw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7280_show_balance_timer(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 char *buf)
- {
-@@ -533,7 +533,7 @@ static ssize_t ad7280_show_balance_timer(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7280_store_balance_timer(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  const char *buf, size_t len)
- {
-diff --git a/drivers/iio/adc/envelope-detector.c b/drivers/iio/adc/envelope-detector.c
-index 5b16fe737659..107d0c42be03 100644
---- a/drivers/iio/adc/envelope-detector.c
-+++ b/drivers/iio/adc/envelope-detector.c
-@@ -228,7 +228,7 @@ static int envelope_detector_read_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t envelope_show_invert(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    struct iio_chan_spec const *ch, char *buf)
- {
- 	struct envelope *env = iio_priv(indio_dev);
-@@ -237,7 +237,7 @@ static ssize_t envelope_show_invert(struct iio_dev *indio_dev,
- }
- 
- static ssize_t envelope_store_invert(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     struct iio_chan_spec const *ch,
- 				     const char *buf, size_t len)
- {
-@@ -267,7 +267,7 @@ static ssize_t envelope_store_invert(struct iio_dev *indio_dev,
- }
- 
- static ssize_t envelope_show_comp_interval(struct iio_dev *indio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   struct iio_chan_spec const *ch,
- 					   char *buf)
- {
-@@ -277,7 +277,7 @@ static ssize_t envelope_show_comp_interval(struct iio_dev *indio_dev,
- }
- 
- static ssize_t envelope_store_comp_interval(struct iio_dev *indio_dev,
--					    uintptr_t private,
-+					    unsigned long private,
- 					    struct iio_chan_spec const *ch,
- 					    const char *buf, size_t len)
- {
-diff --git a/drivers/iio/adc/mcp3564.c b/drivers/iio/adc/mcp3564.c
-index 36675563829e..f2cebdbff84b 100644
---- a/drivers/iio/adc/mcp3564.c
-+++ b/drivers/iio/adc/mcp3564.c
-@@ -533,7 +533,7 @@ static const struct iio_chan_spec_ext_info mcp3564_ext_info[] = {
- 		.name = "boost_current_gain_available",
- 		.shared = IIO_SHARED_BY_ALL,
- 		.read = iio_enum_available_read,
--		.private = (uintptr_t)&mcp3564_current_boost_mode_enum,
-+		.private = (unsigned long)&mcp3564_current_boost_mode_enum,
- 	},
- 	{ }
- };
-diff --git a/drivers/iio/adc/pac1921.c b/drivers/iio/adc/pac1921.c
-index bce7185953ec..e1de1cf8d2a4 100644
---- a/drivers/iio/adc/pac1921.c
-+++ b/drivers/iio/adc/pac1921.c
-@@ -768,7 +768,7 @@ static const struct iio_info pac1921_iio = {
- };
- 
- static ssize_t pac1921_read_shunt_resistor(struct iio_dev *indio_dev,
--					    uintptr_t private,
-+					    unsigned long private,
- 					    const struct iio_chan_spec *chan,
- 					    char *buf)
- {
-@@ -787,7 +787,7 @@ static ssize_t pac1921_read_shunt_resistor(struct iio_dev *indio_dev,
- }
- 
- static ssize_t pac1921_write_shunt_resistor(struct iio_dev *indio_dev,
--					    uintptr_t private,
-+					    unsigned long private,
- 					    const struct iio_chan_spec *chan,
- 					    const char *buf, size_t len)
- {
-@@ -862,7 +862,7 @@ static ssize_t pac1921_format_scale_avail(const int (*const scales_tbl)[2],
-  * instead.
-  */
- static ssize_t pac1921_read_scale_avail(struct iio_dev *indio_dev,
--					uintptr_t private,
-+					unsigned long private,
- 					const struct iio_chan_spec *chan,
- 					char *buf)
- {
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 46106200bb86..28adf4d23e4c 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -2008,7 +2008,7 @@ static const struct iio_chan_spec_ext_info stm32_adc_ext_info[] = {
- 		.name = "trigger_polarity_available",
- 		.shared = IIO_SHARED_BY_ALL,
- 		.read = iio_enum_available_read,
--		.private = (uintptr_t)&stm32_adc_trig_pol,
-+		.private = (unsigned long)&stm32_adc_trig_pol,
- 	},
- 	{ }
- };
-diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
-index 9664b9bd75d4..85073bbee9cb 100644
---- a/drivers/iio/adc/stm32-dfsdm-adc.c
-+++ b/drivers/iio/adc/stm32-dfsdm-adc.c
-@@ -740,7 +740,7 @@ static int stm32_dfsdm_generic_channel_parse_of(struct stm32_dfsdm *dfsdm,
- }
- 
- static ssize_t dfsdm_adc_audio_get_spiclk(struct iio_dev *indio_dev,
--					  uintptr_t priv,
-+					  unsigned long priv,
- 					  const struct iio_chan_spec *chan,
- 					  char *buf)
- {
-@@ -774,7 +774,7 @@ static int dfsdm_adc_set_samp_freq(struct iio_dev *indio_dev,
- }
- 
- static ssize_t dfsdm_adc_audio_set_spiclk(struct iio_dev *indio_dev,
--					  uintptr_t priv,
-+					  unsigned long priv,
- 					  const struct iio_chan_spec *chan,
- 					  const char *buf, size_t len)
- {
-diff --git a/drivers/iio/afe/iio-rescale.c b/drivers/iio/afe/iio-rescale.c
-index ecaf59278c6f..19a490f2427a 100644
---- a/drivers/iio/afe/iio-rescale.c
-+++ b/drivers/iio/afe/iio-rescale.c
-@@ -255,7 +255,7 @@ static const struct iio_info rescale_info = {
- };
- 
- static ssize_t rescale_read_ext_info(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     struct iio_chan_spec const *chan,
- 				     char *buf)
- {
-@@ -267,7 +267,7 @@ static ssize_t rescale_read_ext_info(struct iio_dev *indio_dev,
- }
- 
- static ssize_t rescale_write_ext_info(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      struct iio_chan_spec const *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/amplifiers/hmc425a.c b/drivers/iio/amplifiers/hmc425a.c
-index 4dbf894c7e3b..da982aa95be1 100644
---- a/drivers/iio/amplifiers/hmc425a.c
-+++ b/drivers/iio/amplifiers/hmc425a.c
-@@ -232,7 +232,7 @@ static const struct iio_info hmc425a_info = {
- };
- 
- static ssize_t ltc6373_read_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -242,7 +242,7 @@ static ssize_t ltc6373_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc6373_write_powerdown(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf,
- 				       size_t len)
-diff --git a/drivers/iio/chemical/sunrise_co2.c b/drivers/iio/chemical/sunrise_co2.c
-index 158be9d798d2..a978d07b8a68 100644
---- a/drivers/iio/chemical/sunrise_co2.c
-+++ b/drivers/iio/chemical/sunrise_co2.c
-@@ -234,7 +234,7 @@ static int sunrise_calibrate(struct sunrise_dev *sunrise,
- }
- 
- static ssize_t sunrise_cal_factory_write(struct iio_dev *iiodev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 const char *buf, size_t len)
- {
-@@ -259,7 +259,7 @@ static ssize_t sunrise_cal_factory_write(struct iio_dev *iiodev,
- }
- 
- static ssize_t sunrise_cal_background_write(struct iio_dev *iiodev,
--					    uintptr_t private,
-+					    unsigned long private,
- 					    const struct iio_chan_spec *chan,
- 					    const char *buf, size_t len)
- {
-@@ -316,7 +316,7 @@ static const struct iio_enum sunrise_error_statuses_enum = {
- };
- 
- static ssize_t sunrise_error_status_read(struct iio_dev *iiodev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 char *buf)
- {
-@@ -369,7 +369,7 @@ static const struct iio_chan_spec_ext_info sunrise_concentration_ext_info[] = {
- 		.name = "error_status_available",
- 		.shared = IIO_SHARED_BY_ALL,
- 		.read = iio_enum_available_read,
--		.private = (uintptr_t)&sunrise_error_statuses_enum,
-+		.private = (unsigned long)&sunrise_error_statuses_enum,
- 	},
- 	{ }
- };
-diff --git a/drivers/iio/common/cros_ec_sensors/cros_ec_sensors_core.c b/drivers/iio/common/cros_ec_sensors/cros_ec_sensors_core.c
-index 5133755c2ea6..1df2c77424d3 100644
---- a/drivers/iio/common/cros_ec_sensors/cros_ec_sensors_core.c
-+++ b/drivers/iio/common/cros_ec_sensors/cros_ec_sensors_core.c
-@@ -431,7 +431,7 @@ int cros_ec_motion_send_host_cmd(struct cros_ec_sensors_core_state *state,
- EXPORT_SYMBOL_GPL(cros_ec_motion_send_host_cmd);
- 
- static ssize_t cros_ec_sensors_calibrate(struct iio_dev *indio_dev,
--		uintptr_t private, const struct iio_chan_spec *chan,
-+		unsigned long private, const struct iio_chan_spec *chan,
- 		const char *buf, size_t len)
- {
- 	struct cros_ec_sensors_core_state *st = iio_priv(indio_dev);
-@@ -460,7 +460,7 @@ static ssize_t cros_ec_sensors_calibrate(struct iio_dev *indio_dev,
- }
- 
- static ssize_t cros_ec_sensors_id(struct iio_dev *indio_dev,
--				  uintptr_t private,
-+				  unsigned long private,
- 				  const struct iio_chan_spec *chan, char *buf)
- {
- 	struct cros_ec_sensors_core_state *st = iio_priv(indio_dev);
-diff --git a/drivers/iio/common/scmi_sensors/scmi_iio.c b/drivers/iio/common/scmi_sensors/scmi_iio.c
-index 5136ad9ada04..5fe0ab359f0b 100644
---- a/drivers/iio/common/scmi_sensors/scmi_iio.c
-+++ b/drivers/iio/common/scmi_sensors/scmi_iio.c
-@@ -368,7 +368,7 @@ static const struct iio_info scmi_iio_info = {
- };
- 
- static ssize_t scmi_iio_get_raw_available(struct iio_dev *iio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  char *buf)
- {
-diff --git a/drivers/iio/dac/ad3530r.c b/drivers/iio/dac/ad3530r.c
-index b97b46090d80..b78c0581de0f 100644
---- a/drivers/iio/dac/ad3530r.c
-+++ b/drivers/iio/dac/ad3530r.c
-@@ -134,7 +134,7 @@ static const struct iio_enum ad3530r_powerdown_mode_enum = {
- };
- 
- static ssize_t ad3530r_get_dac_powerdown(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 char *buf)
- {
-@@ -145,7 +145,7 @@ static ssize_t ad3530r_get_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad3530r_set_dac_powerdown(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ad5064.c b/drivers/iio/dac/ad5064.c
-index 84be5174babd..bd8973ae4305 100644
---- a/drivers/iio/dac/ad5064.c
-+++ b/drivers/iio/dac/ad5064.c
-@@ -273,7 +273,7 @@ static const struct iio_enum ltc2617_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5064_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5064_state *st = iio_priv(indio_dev);
- 
-@@ -281,7 +281,7 @@ static ssize_t ad5064_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5064_write_dac_powerdown(struct iio_dev *indio_dev,
--	 uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	 unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	 size_t len)
- {
- 	struct ad5064_state *st = iio_priv(indio_dev);
-diff --git a/drivers/iio/dac/ad5380.c b/drivers/iio/dac/ad5380.c
-index 8b813cee7625..005829440ee1 100644
---- a/drivers/iio/dac/ad5380.c
-+++ b/drivers/iio/dac/ad5380.c
-@@ -77,7 +77,7 @@ enum ad5380_type {
- };
- 
- static ssize_t ad5380_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5380_state *st = iio_priv(indio_dev);
- 
-@@ -85,7 +85,7 @@ static ssize_t ad5380_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5380_write_dac_powerdown(struct iio_dev *indio_dev,
--	 uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	 unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	 size_t len)
- {
- 	struct ad5380_state *st = iio_priv(indio_dev);
-diff --git a/drivers/iio/dac/ad5446.c b/drivers/iio/dac/ad5446.c
-index 46a2eadb1d9b..9ae9633f0a57 100644
---- a/drivers/iio/dac/ad5446.c
-+++ b/drivers/iio/dac/ad5446.c
-@@ -54,7 +54,7 @@ static const struct iio_enum ad5446_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5446_read_dac_powerdown(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 char *buf)
- {
-@@ -64,7 +64,7 @@ static ssize_t ad5446_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5446_write_dac_powerdown(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ad5504.c b/drivers/iio/dac/ad5504.c
-index 355bcb6a8ba0..58f35d3908ff 100644
---- a/drivers/iio/dac/ad5504.c
-+++ b/drivers/iio/dac/ad5504.c
-@@ -166,7 +166,7 @@ static const struct iio_enum ad5504_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5504_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5504_state *st = iio_priv(indio_dev);
- 
-@@ -175,7 +175,7 @@ static ssize_t ad5504_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5504_write_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	size_t len)
- {
- 	bool pwr_down;
-diff --git a/drivers/iio/dac/ad5592r-base.c b/drivers/iio/dac/ad5592r-base.c
-index 4720733d66b2..1aecae4db92d 100644
---- a/drivers/iio/dac/ad5592r-base.c
-+++ b/drivers/iio/dac/ad5592r-base.c
-@@ -451,7 +451,7 @@ static const struct iio_info ad5592r_info = {
- };
- 
- static ssize_t ad5592r_show_scale_available(struct iio_dev *iio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   const struct iio_chan_spec *chan,
- 					   char *buf)
- {
-diff --git a/drivers/iio/dac/ad5624r_spi.c b/drivers/iio/dac/ad5624r_spi.c
-index 13aefe769bad..8c0f98e0e78b 100644
---- a/drivers/iio/dac/ad5624r_spi.c
-+++ b/drivers/iio/dac/ad5624r_spi.c
-@@ -113,7 +113,7 @@ static const struct iio_enum ad5624r_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5624r_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5624r_state *st = iio_priv(indio_dev);
- 
-@@ -122,7 +122,7 @@ static ssize_t ad5624r_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5624r_write_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	size_t len)
- {
- 	bool pwr_down;
-diff --git a/drivers/iio/dac/ad5686.c b/drivers/iio/dac/ad5686.c
-index 4b18498aa074..c31180af33ff 100644
---- a/drivers/iio/dac/ad5686.c
-+++ b/drivers/iio/dac/ad5686.c
-@@ -53,7 +53,7 @@ static const struct iio_enum ad5686_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5686_read_dac_powerdown(struct iio_dev *indio_dev,
--		uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+		unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5686_state *st = iio_priv(indio_dev);
- 
-@@ -62,7 +62,7 @@ static ssize_t ad5686_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5686_write_dac_powerdown(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  const char *buf,
- 					  size_t len)
-diff --git a/drivers/iio/dac/ad5755.c b/drivers/iio/dac/ad5755.c
-index d0e5f35462b1..3c368b168a85 100644
---- a/drivers/iio/dac/ad5755.c
-+++ b/drivers/iio/dac/ad5755.c
-@@ -487,7 +487,7 @@ static int ad5755_write_raw(struct iio_dev *indio_dev,
- 	return ad5755_write(indio_dev, reg, val);
- }
- 
--static ssize_t ad5755_read_powerdown(struct iio_dev *indio_dev, uintptr_t priv,
-+static ssize_t ad5755_read_powerdown(struct iio_dev *indio_dev, unsigned long priv,
- 	const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5755_state *st = iio_priv(indio_dev);
-@@ -496,7 +496,7 @@ static ssize_t ad5755_read_powerdown(struct iio_dev *indio_dev, uintptr_t priv,
- 			  (bool)(st->pwr_down & (1 << chan->channel)));
- }
- 
--static ssize_t ad5755_write_powerdown(struct iio_dev *indio_dev, uintptr_t priv,
-+static ssize_t ad5755_write_powerdown(struct iio_dev *indio_dev, unsigned long priv,
- 	struct iio_chan_spec const *chan, const char *buf, size_t len)
- {
- 	bool pwr_down;
-diff --git a/drivers/iio/dac/ad5758.c b/drivers/iio/dac/ad5758.c
-index 4ed4fda76ea9..d06576fd4c3a 100644
---- a/drivers/iio/dac/ad5758.c
-+++ b/drivers/iio/dac/ad5758.c
-@@ -567,7 +567,7 @@ static int ad5758_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5758_read_powerdown(struct iio_dev *indio_dev,
--				     uintptr_t priv,
-+				     unsigned long priv,
- 				     const struct iio_chan_spec *chan,
- 				     char *buf)
- {
-@@ -577,7 +577,7 @@ static ssize_t ad5758_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5758_write_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t priv,
-+				      unsigned long priv,
- 				      struct iio_chan_spec const *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ad5766.c b/drivers/iio/dac/ad5766.c
-index f6a0a0d84fef..d09ab5abe0e4 100644
---- a/drivers/iio/dac/ad5766.c
-+++ b/drivers/iio/dac/ad5766.c
-@@ -355,7 +355,7 @@ static const struct iio_enum ad5766_dither_scale_enum = {
- };
- 
- static ssize_t ad5766_read_ext(struct iio_dev *indio_dev,
--			       uintptr_t private,
-+			       unsigned long private,
- 			       const struct iio_chan_spec *chan,
- 			       char *buf)
- {
-@@ -379,7 +379,7 @@ static ssize_t ad5766_read_ext(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5766_write_ext(struct iio_dev *indio_dev,
--				 uintptr_t private,
-+				 unsigned long private,
- 				 const struct iio_chan_spec *chan,
- 				 const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ad5770r.c b/drivers/iio/dac/ad5770r.c
-index cd47cb1c685c..d5b8245b764e 100644
---- a/drivers/iio/dac/ad5770r.c
-+++ b/drivers/iio/dac/ad5770r.c
-@@ -426,7 +426,7 @@ static int ad5770r_store_output_range(struct ad5770r_state *st,
- }
- 
- static ssize_t ad5770r_read_dac_powerdown(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  char *buf)
- {
-@@ -436,7 +436,7 @@ static ssize_t ad5770r_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5770r_write_dac_powerdown(struct iio_dev *indio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   const struct iio_chan_spec *chan,
- 					   const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ad5791.c b/drivers/iio/dac/ad5791.c
-index ae7297f08398..e0236bc9517a 100644
---- a/drivers/iio/dac/ad5791.c
-+++ b/drivers/iio/dac/ad5791.c
-@@ -185,7 +185,7 @@ static const struct iio_enum ad5791_powerdown_mode_enum = {
- };
- 
- static ssize_t ad5791_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad5791_state *st = iio_priv(indio_dev);
- 
-@@ -193,7 +193,7 @@ static ssize_t ad5791_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad5791_write_dac_powerdown(struct iio_dev *indio_dev,
--	 uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	 unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	 size_t len)
- {
- 	bool pwr_down;
-diff --git a/drivers/iio/dac/ad7303.c b/drivers/iio/dac/ad7303.c
-index a88cc639047d..da28ce1473af 100644
---- a/drivers/iio/dac/ad7303.c
-+++ b/drivers/iio/dac/ad7303.c
-@@ -61,7 +61,7 @@ static int ad7303_write(struct ad7303_state *st, unsigned int chan,
- }
- 
- static ssize_t ad7303_read_dac_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad7303_state *st = iio_priv(indio_dev);
- 
-@@ -70,7 +70,7 @@ static ssize_t ad7303_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ad7303_write_dac_powerdown(struct iio_dev *indio_dev,
--	 uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
-+	 unsigned long private, const struct iio_chan_spec *chan, const char *buf,
- 	 size_t len)
- {
- 	struct ad7303_state *st = iio_priv(indio_dev);
-diff --git a/drivers/iio/dac/ad8460.c b/drivers/iio/dac/ad8460.c
-index 6e45686902dd..34b1eb69738c 100644
---- a/drivers/iio/dac/ad8460.c
-+++ b/drivers/iio/dac/ad8460.c
-@@ -173,7 +173,7 @@ static int ad8460_set_hvdac_word(struct ad8460_state *state, int index, int val)
- 				 &state->spi_tx_buf, AD8460_DATA_BYTE_WORD_LENGTH);
- }
- 
--static ssize_t ad8460_dac_input_read(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_dac_input_read(struct iio_dev *indio_dev, unsigned long private,
- 				     const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad8460_state *state = iio_priv(indio_dev);
-@@ -187,7 +187,7 @@ static ssize_t ad8460_dac_input_read(struct iio_dev *indio_dev, uintptr_t privat
- 	return sysfs_emit(buf, "%u\n", reg);
- }
- 
--static ssize_t ad8460_dac_input_write(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_dac_input_write(struct iio_dev *indio_dev, unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-@@ -204,7 +204,7 @@ static ssize_t ad8460_dac_input_write(struct iio_dev *indio_dev, uintptr_t priva
- 	return ad8460_set_hvdac_word(state, private, reg);
- }
- 
--static ssize_t ad8460_read_symbol(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_read_symbol(struct iio_dev *indio_dev, unsigned long private,
- 				  const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad8460_state *state = iio_priv(indio_dev);
-@@ -218,7 +218,7 @@ static ssize_t ad8460_read_symbol(struct iio_dev *indio_dev, uintptr_t private,
- 	return sysfs_emit(buf, "%lu\n", FIELD_GET(AD8460_PATTERN_DEPTH_MSK, reg));
- }
- 
--static ssize_t ad8460_write_symbol(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_write_symbol(struct iio_dev *indio_dev, unsigned long private,
- 				   const struct iio_chan_spec *chan,
- 				   const char *buf, size_t len)
- {
-@@ -238,7 +238,7 @@ static ssize_t ad8460_write_symbol(struct iio_dev *indio_dev, uintptr_t private,
- 				  FIELD_PREP(AD8460_PATTERN_DEPTH_MSK, sym));
- }
- 
--static ssize_t ad8460_read_toggle_en(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_read_toggle_en(struct iio_dev *indio_dev, unsigned long private,
- 				     const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad8460_state *state = iio_priv(indio_dev);
-@@ -252,7 +252,7 @@ static ssize_t ad8460_read_toggle_en(struct iio_dev *indio_dev, uintptr_t privat
- 	return sysfs_emit(buf, "%ld\n", FIELD_GET(AD8460_APG_MODE_ENABLE_MSK, reg));
- }
- 
--static ssize_t ad8460_write_toggle_en(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_write_toggle_en(struct iio_dev *indio_dev, unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-@@ -272,7 +272,7 @@ static ssize_t ad8460_write_toggle_en(struct iio_dev *indio_dev, uintptr_t priva
- 	return ret;
- }
- 
--static ssize_t ad8460_read_powerdown(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_read_powerdown(struct iio_dev *indio_dev, unsigned long private,
- 				     const struct iio_chan_spec *chan, char *buf)
- {
- 	struct ad8460_state *state = iio_priv(indio_dev);
-@@ -286,7 +286,7 @@ static ssize_t ad8460_read_powerdown(struct iio_dev *indio_dev, uintptr_t privat
- 	return sysfs_emit(buf, "%ld\n", FIELD_GET(AD8460_HVDAC_SLEEP_MSK, reg));
- }
- 
--static ssize_t ad8460_write_powerdown(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t ad8460_write_powerdown(struct iio_dev *indio_dev, unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/adi-axi-dac.c b/drivers/iio/dac/adi-axi-dac.c
-index 451fad34e7ee..43b454a27ae0 100644
---- a/drivers/iio/dac/adi-axi-dac.c
-+++ b/drivers/iio/dac/adi-axi-dac.c
-@@ -433,7 +433,7 @@ static int axi_dac_phase_set(struct axi_dac_state *st,
- 	return len;
- }
- 
--static int axi_dac_ext_info_set(struct iio_backend *back, uintptr_t private,
-+static int axi_dac_ext_info_set(struct iio_backend *back, unsigned long private,
- 				const struct iio_chan_spec *chan,
- 				const char *buf, size_t len)
- {
-@@ -457,7 +457,7 @@ static int axi_dac_ext_info_set(struct iio_backend *back, uintptr_t private,
- 	}
- }
- 
--static int axi_dac_ext_info_get(struct iio_backend *back, uintptr_t private,
-+static int axi_dac_ext_info_get(struct iio_backend *back, unsigned long private,
- 				const struct iio_chan_spec *chan, char *buf)
- {
- 	struct axi_dac_state *st = iio_backend_get_priv(back);
-diff --git a/drivers/iio/dac/ltc2632.c b/drivers/iio/dac/ltc2632.c
-index 105f939f7e54..761ad4baff03 100644
---- a/drivers/iio/dac/ltc2632.c
-+++ b/drivers/iio/dac/ltc2632.c
-@@ -128,7 +128,7 @@ static int ltc2632_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2632_read_dac_powerdown(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  char *buf)
- {
-@@ -139,7 +139,7 @@ static ssize_t ltc2632_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2632_write_dac_powerdown(struct iio_dev *indio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   const struct iio_chan_spec *chan,
- 					   const char *buf,
- 					   size_t len)
-diff --git a/drivers/iio/dac/ltc2664.c b/drivers/iio/dac/ltc2664.c
-index 67f14046cf77..08e1352a145a 100644
---- a/drivers/iio/dac/ltc2664.c
-+++ b/drivers/iio/dac/ltc2664.c
-@@ -284,7 +284,7 @@ static int ltc2664_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2664_reg_bool_get(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    const struct iio_chan_spec *chan,
- 				    char *buf)
- {
-@@ -313,7 +313,7 @@ static ssize_t ltc2664_reg_bool_get(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2664_reg_bool_set(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    const struct iio_chan_spec *chan,
- 				    const char *buf, size_t len)
- {
-@@ -363,7 +363,7 @@ static ssize_t ltc2664_reg_bool_set(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2664_dac_input_read(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -381,7 +381,7 @@ static ssize_t ltc2664_dac_input_read(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2664_dac_input_write(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ltc2688.c b/drivers/iio/dac/ltc2688.c
-index 02f408229681..a5792cf68dcb 100644
---- a/drivers/iio/dac/ltc2688.c
-+++ b/drivers/iio/dac/ltc2688.c
-@@ -344,7 +344,7 @@ static int ltc2688_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_dither_toggle_set(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 const char *buf, size_t len)
- {
-@@ -369,7 +369,7 @@ static ssize_t ltc2688_dither_toggle_set(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_reg_bool_get(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    const struct iio_chan_spec *chan,
- 				    char *buf)
- {
-@@ -385,7 +385,7 @@ static ssize_t ltc2688_reg_bool_get(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_reg_bool_set(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    const struct iio_chan_spec *chan,
- 				    const char *buf, size_t len)
- {
-@@ -421,7 +421,7 @@ static ssize_t ltc2688_dither_freq_avail(const struct ltc2688_state *st,
- }
- 
- static ssize_t ltc2688_dither_freq_get(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       char *buf)
- {
-@@ -446,7 +446,7 @@ static ssize_t ltc2688_dither_freq_get(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_dither_freq_set(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-@@ -482,7 +482,7 @@ static ssize_t ltc2688_dither_freq_set(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_dac_input_read(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -506,7 +506,7 @@ static ssize_t ltc2688_dac_input_read(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ltc2688_dac_input_write(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/max22007.c b/drivers/iio/dac/max22007.c
-index 182ac7155a89..0834f49840f2 100644
---- a/drivers/iio/dac/max22007.c
-+++ b/drivers/iio/dac/max22007.c
-@@ -275,7 +275,7 @@ static const struct iio_info max22007_info = {
- };
- 
- static ssize_t max22007_read_dac_powerdown(struct iio_dev *indio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   const struct iio_chan_spec *chan,
- 					   char *buf)
- {
-@@ -294,7 +294,7 @@ static ssize_t max22007_read_dac_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t max22007_write_dac_powerdown(struct iio_dev *indio_dev,
--					    uintptr_t private,
-+					    unsigned long private,
- 					    const struct iio_chan_spec *chan,
- 					    const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/max5821.c b/drivers/iio/dac/max5821.c
-index e7e29359f8fe..6ce59516064b 100644
---- a/drivers/iio/dac/max5821.c
-+++ b/drivers/iio/dac/max5821.c
-@@ -77,7 +77,7 @@ static const struct iio_enum max5821_powerdown_mode_enum = {
- };
- 
- static ssize_t max5821_read_dac_powerdown(struct iio_dev *indio_dev,
--					  uintptr_t private,
-+					  unsigned long private,
- 					  const struct iio_chan_spec *chan,
- 					  char *buf)
- {
-@@ -107,7 +107,7 @@ static int max5821_sync_powerdown_mode(struct max5821_data *data,
- }
- 
- static ssize_t max5821_write_dac_powerdown(struct iio_dev *indio_dev,
--					   uintptr_t private,
-+					   unsigned long private,
- 					   const struct iio_chan_spec *chan,
- 					   const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/mcp4725.c b/drivers/iio/dac/mcp4725.c
-index 23b9e3a09ec8..eef50058dc55 100644
---- a/drivers/iio/dac/mcp4725.c
-+++ b/drivers/iio/dac/mcp4725.c
-@@ -179,7 +179,7 @@ static int mcp4725_set_powerdown_mode(struct iio_dev *indio_dev,
- }
- 
- static ssize_t mcp4725_read_powerdown(struct iio_dev *indio_dev,
--	uintptr_t private, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long private, const struct iio_chan_spec *chan, char *buf)
- {
- 	struct mcp4725_data *data = iio_priv(indio_dev);
- 
-@@ -187,7 +187,7 @@ static ssize_t mcp4725_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t mcp4725_write_powerdown(struct iio_dev *indio_dev,
--	 uintptr_t private, const struct iio_chan_spec *chan,
-+	 unsigned long private, const struct iio_chan_spec *chan,
- 	 const char *buf, size_t len)
- {
- 	struct mcp4725_data *data = iio_priv(indio_dev);
-diff --git a/drivers/iio/dac/mcp4728.c b/drivers/iio/dac/mcp4728.c
-index 4f30b99110b7..7de6389e637e 100644
---- a/drivers/iio/dac/mcp4728.c
-+++ b/drivers/iio/dac/mcp4728.c
-@@ -236,7 +236,7 @@ static int mcp4728_set_powerdown_mode(struct iio_dev *indio_dev,
- }
- 
- static ssize_t mcp4728_read_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -246,7 +246,7 @@ static ssize_t mcp4728_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t mcp4728_write_powerdown(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/mcp47feb02.c b/drivers/iio/dac/mcp47feb02.c
-index b218f0c3a0bd..05c77fad2579 100644
---- a/drivers/iio/dac/mcp47feb02.c
-+++ b/drivers/iio/dac/mcp47feb02.c
-@@ -626,7 +626,7 @@ static int mcp47feb02_set_powerdown_mode(struct iio_dev *indio_dev, const struct
- 	return 0;
- }
- 
--static ssize_t mcp47feb02_read_powerdown(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t mcp47feb02_read_powerdown(struct iio_dev *indio_dev, unsigned long private,
- 					 const struct iio_chan_spec *ch, char *buf)
- {
- 	struct mcp47feb02_data *data = iio_priv(indio_dev);
-@@ -635,7 +635,7 @@ static ssize_t mcp47feb02_read_powerdown(struct iio_dev *indio_dev, uintptr_t pr
- 	return sysfs_emit(buf, "%d\n", data->chdata[ch->address].powerdown);
- }
- 
--static ssize_t mcp47feb02_write_powerdown(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t mcp47feb02_write_powerdown(struct iio_dev *indio_dev, unsigned long private,
- 					  const struct iio_chan_spec *ch, const char *buf,
- 					  size_t len)
- {
-diff --git a/drivers/iio/dac/stm32-dac.c b/drivers/iio/dac/stm32-dac.c
-index b860e18d52a1..2c4c5e2329e0 100644
---- a/drivers/iio/dac/stm32-dac.c
-+++ b/drivers/iio/dac/stm32-dac.c
-@@ -195,7 +195,7 @@ static int stm32_dac_set_powerdown_mode(struct iio_dev *indio_dev,
- }
- 
- static ssize_t stm32_dac_read_powerdown(struct iio_dev *indio_dev,
--					uintptr_t private,
-+					unsigned long private,
- 					const struct iio_chan_spec *chan,
- 					char *buf)
- {
-@@ -208,7 +208,7 @@ static ssize_t stm32_dac_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t stm32_dac_write_powerdown(struct iio_dev *indio_dev,
--					 uintptr_t private,
-+					 unsigned long private,
- 					 const struct iio_chan_spec *chan,
- 					 const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ti-dac082s085.c b/drivers/iio/dac/ti-dac082s085.c
-index 715870c8a9c4..51569e624f97 100644
---- a/drivers/iio/dac/ti-dac082s085.c
-+++ b/drivers/iio/dac/ti-dac082s085.c
-@@ -115,7 +115,7 @@ static const struct iio_enum ti_dac_powerdown_mode = {
- };
- 
- static ssize_t ti_dac_read_powerdown(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     const struct iio_chan_spec *chan,
- 				     char *buf)
- {
-@@ -125,7 +125,7 @@ static ssize_t ti_dac_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ti_dac_write_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ti-dac5571.c b/drivers/iio/dac/ti-dac5571.c
-index 455d61fc3f13..954c5e9bfe68 100644
---- a/drivers/iio/dac/ti-dac5571.c
-+++ b/drivers/iio/dac/ti-dac5571.c
-@@ -162,7 +162,7 @@ static const struct iio_enum dac5571_powerdown_mode = {
- };
- 
- static ssize_t dac5571_read_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -172,7 +172,7 @@ static ssize_t dac5571_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t dac5571_write_powerdown(struct iio_dev *indio_dev,
--				       uintptr_t private,
-+				       unsigned long private,
- 				       const struct iio_chan_spec *chan,
- 				       const char *buf, size_t len)
- {
-diff --git a/drivers/iio/dac/ti-dac7311.c b/drivers/iio/dac/ti-dac7311.c
-index 5c1c5213962f..e1c381d107c6 100644
---- a/drivers/iio/dac/ti-dac7311.c
-+++ b/drivers/iio/dac/ti-dac7311.c
-@@ -104,7 +104,7 @@ static const struct iio_enum ti_dac_powerdown_mode = {
- };
- 
- static ssize_t ti_dac_read_powerdown(struct iio_dev *indio_dev,
--				     uintptr_t private,
-+				     unsigned long private,
- 				     const struct iio_chan_spec *chan,
- 				     char *buf)
- {
-@@ -114,7 +114,7 @@ static ssize_t ti_dac_read_powerdown(struct iio_dev *indio_dev,
- }
- 
- static ssize_t ti_dac_write_powerdown(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/frequency/adf4350.c b/drivers/iio/frequency/adf4350.c
-index 3883b63dcc3c..6303260d9cca 100644
---- a/drivers/iio/frequency/adf4350.c
-+++ b/drivers/iio/frequency/adf4350.c
-@@ -260,7 +260,7 @@ static int adf4350_set_freq(struct adf4350_state *st, unsigned long long freq)
- }
- 
- static ssize_t adf4350_write(struct iio_dev *indio_dev,
--				    uintptr_t private,
-+				    unsigned long private,
- 				    const struct iio_chan_spec *chan,
- 				    const char *buf, size_t len)
- {
-@@ -320,7 +320,7 @@ static ssize_t adf4350_write(struct iio_dev *indio_dev,
- }
- 
- static ssize_t adf4350_read(struct iio_dev *indio_dev,
--				   uintptr_t private,
-+				   unsigned long private,
- 				   const struct iio_chan_spec *chan,
- 				   char *buf)
- {
-diff --git a/drivers/iio/frequency/adf4371.c b/drivers/iio/frequency/adf4371.c
-index d6dc7827fb41..0e0d002fe472 100644
---- a/drivers/iio/frequency/adf4371.c
-+++ b/drivers/iio/frequency/adf4371.c
-@@ -334,7 +334,7 @@ static int adf4371_set_freq(struct adf4371_state *st, unsigned long long freq,
- }
- 
- static ssize_t adf4371_read(struct iio_dev *indio_dev,
--			    uintptr_t private,
-+			    unsigned long private,
- 			    const struct iio_chan_spec *chan,
- 			    char *buf)
- {
-@@ -377,7 +377,7 @@ static ssize_t adf4371_read(struct iio_dev *indio_dev,
- }
- 
- static ssize_t adf4371_write(struct iio_dev *indio_dev,
--			     uintptr_t private,
-+			     unsigned long private,
- 			     const struct iio_chan_spec *chan,
- 			     const char *buf, size_t len)
- {
-diff --git a/drivers/iio/frequency/adf4377.c b/drivers/iio/frequency/adf4377.c
-index ce3a396624c3..4fea3c5a39c1 100644
---- a/drivers/iio/frequency/adf4377.c
-+++ b/drivers/iio/frequency/adf4377.c
-@@ -804,7 +804,7 @@ static int adf4377_init(struct adf4377_state *st)
- 	return 0;
- }
- 
--static ssize_t adf4377_read(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t adf4377_read(struct iio_dev *indio_dev, unsigned long private,
- 			    const struct iio_chan_spec *chan, char *buf)
- {
- 	struct adf4377_state *st = iio_priv(indio_dev);
-@@ -823,7 +823,7 @@ static ssize_t adf4377_read(struct iio_dev *indio_dev, uintptr_t private,
- 	}
- }
- 
--static ssize_t adf4377_write(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t adf4377_write(struct iio_dev *indio_dev, unsigned long private,
- 			     const struct iio_chan_spec *chan, const char *buf,
- 			     size_t len)
- {
-diff --git a/drivers/iio/frequency/admv1013.c b/drivers/iio/frequency/admv1013.c
-index b852378b3f68..10d52823220c 100644
---- a/drivers/iio/frequency/admv1013.c
-+++ b/drivers/iio/frequency/admv1013.c
-@@ -257,7 +257,7 @@ static int admv1013_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t admv1013_read(struct iio_dev *indio_dev,
--			     uintptr_t private,
-+			     unsigned long private,
- 			     const struct iio_chan_spec *chan,
- 			     char *buf)
- {
-@@ -286,7 +286,7 @@ static ssize_t admv1013_read(struct iio_dev *indio_dev,
- }
- 
- static ssize_t admv1013_write(struct iio_dev *indio_dev,
--			      uintptr_t private,
-+			      unsigned long private,
- 			      const struct iio_chan_spec *chan,
- 			      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/frequency/admv1014.c b/drivers/iio/frequency/admv1014.c
-index 25e8cd8135ad..320cafde3c9d 100644
---- a/drivers/iio/frequency/admv1014.c
-+++ b/drivers/iio/frequency/admv1014.c
-@@ -360,7 +360,7 @@ static int admv1014_write_raw(struct iio_dev *indio_dev,
- }
- 
- static ssize_t admv1014_read(struct iio_dev *indio_dev,
--			     uintptr_t private,
-+			     unsigned long private,
- 			     const struct iio_chan_spec *chan,
- 			     char *buf)
- {
-@@ -402,7 +402,7 @@ static ssize_t admv1014_read(struct iio_dev *indio_dev,
- }
- 
- static ssize_t admv1014_write(struct iio_dev *indio_dev,
--			      uintptr_t private,
-+			      unsigned long private,
- 			      const struct iio_chan_spec *chan,
- 			      const char *buf, size_t len)
- {
-diff --git a/drivers/iio/industrialio-backend.c b/drivers/iio/industrialio-backend.c
-index 1afd00763da9..4e73a2065dee 100644
---- a/drivers/iio/industrialio-backend.c
-+++ b/drivers/iio/industrialio-backend.c
-@@ -620,7 +620,7 @@ static struct iio_backend *iio_backend_from_indio_dev_parent(const struct device
-  * RETURNS:
-  * Number of bytes written to buf, negative error number on failure.
-  */
--ssize_t iio_backend_ext_info_get(struct iio_dev *indio_dev, uintptr_t private,
-+ssize_t iio_backend_ext_info_get(struct iio_dev *indio_dev, unsigned long private,
- 				 const struct iio_chan_spec *chan, char *buf)
- {
- 	struct iio_backend *back;
-@@ -656,7 +656,7 @@ EXPORT_SYMBOL_NS_GPL(iio_backend_ext_info_get, "IIO_BACKEND");
-  * RETURNS:
-  * Buffer length on success, negative error number on failure.
-  */
--ssize_t iio_backend_ext_info_set(struct iio_dev *indio_dev, uintptr_t private,
-+ssize_t iio_backend_ext_info_set(struct iio_dev *indio_dev, unsigned long private,
- 				 const struct iio_chan_spec *chan,
- 				 const char *buf, size_t len)
- {
-diff --git a/drivers/iio/industrialio-core.c b/drivers/iio/industrialio-core.c
-index 22eefd048ba9..eab4fb9a1413 100644
---- a/drivers/iio/industrialio-core.c
-+++ b/drivers/iio/industrialio-core.c
-@@ -522,7 +522,7 @@ static ssize_t iio_write_channel_ext_info(struct device *dev,
- }
- 
- ssize_t iio_enum_available_read(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long priv, const struct iio_chan_spec *chan, char *buf)
- {
- 	const struct iio_enum *e = (const struct iio_enum *)priv;
- 	unsigned int i;
-@@ -545,7 +545,7 @@ ssize_t iio_enum_available_read(struct iio_dev *indio_dev,
- EXPORT_SYMBOL_GPL(iio_enum_available_read);
- 
- ssize_t iio_enum_read(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, char *buf)
-+	unsigned long priv, const struct iio_chan_spec *chan, char *buf)
- {
- 	const struct iio_enum *e = (const struct iio_enum *)priv;
- 	int i;
-@@ -564,7 +564,7 @@ ssize_t iio_enum_read(struct iio_dev *indio_dev,
- EXPORT_SYMBOL_GPL(iio_enum_read);
- 
- ssize_t iio_enum_write(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, const char *buf,
-+	unsigned long priv, const struct iio_chan_spec *chan, const char *buf,
- 	size_t len)
- {
- 	const struct iio_enum *e = (const struct iio_enum *)priv;
-@@ -598,7 +598,7 @@ static int iio_setup_mount_idmatrix(const struct device *dev,
- 	return 0;
- }
- 
--ssize_t iio_show_mount_matrix(struct iio_dev *indio_dev, uintptr_t priv,
-+ssize_t iio_show_mount_matrix(struct iio_dev *indio_dev, unsigned long priv,
- 			      const struct iio_chan_spec *chan, char *buf)
- {
- 	const struct iio_mount_matrix *mtx;
-diff --git a/drivers/iio/light/ltr501.c b/drivers/iio/light/ltr501.c
-index 4d99ae336f61..e4bc395cb330 100644
---- a/drivers/iio/light/ltr501.c
-+++ b/drivers/iio/light/ltr501.c
-@@ -522,7 +522,7 @@ static int ltr501_write_intr_prst(struct ltr501_data *data,
- }
- 
- static ssize_t ltr501_read_near_level(struct iio_dev *indio_dev,
--				      uintptr_t priv,
-+				      unsigned long priv,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index a75a83594a7e..09dfd1921180 100644
---- a/drivers/iio/light/stk3310.c
-+++ b/drivers/iio/light/stk3310.c
-@@ -148,7 +148,7 @@ static const struct iio_event_spec stk3310_events[] = {
- };
- 
- static ssize_t stk3310_read_near_level(struct iio_dev *indio_dev,
--				       uintptr_t priv,
-+				       unsigned long priv,
- 				       const struct iio_chan_spec *chan,
- 				       char *buf)
- {
-diff --git a/drivers/iio/light/vcnl4000.c b/drivers/iio/light/vcnl4000.c
-index 5e03c3d8874b..f1348218d196 100644
---- a/drivers/iio/light/vcnl4000.c
-+++ b/drivers/iio/light/vcnl4000.c
-@@ -1587,7 +1587,7 @@ static irqreturn_t vcnl4040_irq_thread(int irq, void *p)
- }
- 
- static ssize_t vcnl4000_read_near_level(struct iio_dev *indio_dev,
--					uintptr_t priv,
-+					unsigned long priv,
- 					const struct iio_chan_spec *chan,
- 					char *buf)
- {
-diff --git a/drivers/iio/multiplexer/iio-mux.c b/drivers/iio/multiplexer/iio-mux.c
-index b742ca9a99d1..cc42b7bdcc09 100644
---- a/drivers/iio/multiplexer/iio-mux.c
-+++ b/drivers/iio/multiplexer/iio-mux.c
-@@ -175,7 +175,7 @@ static const struct iio_info mux_info = {
- 	.write_raw = mux_write_raw,
- };
- 
--static ssize_t mux_read_ext_info(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t mux_read_ext_info(struct iio_dev *indio_dev, unsigned long private,
- 				 struct iio_chan_spec const *chan, char *buf)
- {
- 	struct mux *mux = iio_priv(indio_dev);
-@@ -195,7 +195,7 @@ static ssize_t mux_read_ext_info(struct iio_dev *indio_dev, uintptr_t private,
- 	return ret;
- }
- 
--static ssize_t mux_write_ext_info(struct iio_dev *indio_dev, uintptr_t private,
-+static ssize_t mux_write_ext_info(struct iio_dev *indio_dev, unsigned long private,
- 				  struct iio_chan_spec const *chan,
- 				  const char *buf, size_t len)
- {
-diff --git a/drivers/iio/proximity/isl29501.c b/drivers/iio/proximity/isl29501.c
-index f69db6f2f380..718a49744a32 100644
---- a/drivers/iio/proximity/isl29501.c
-+++ b/drivers/iio/proximity/isl29501.c
-@@ -256,7 +256,7 @@ static u32 isl29501_register_write(struct isl29501_private *isl29501,
- }
- 
- static ssize_t isl29501_read_ext(struct iio_dev *indio_dev,
--				 uintptr_t private,
-+				 unsigned long private,
- 				 const struct iio_chan_spec *chan,
- 				 char *buf)
- {
-@@ -378,7 +378,7 @@ static unsigned int isl29501_find_corr_exp(unsigned int val,
- }
- 
- static ssize_t isl29501_write_ext(struct iio_dev *indio_dev,
--				  uintptr_t private,
-+				  unsigned long private,
- 				  const struct iio_chan_spec *chan,
- 				  const char *buf, size_t len)
- {
-diff --git a/drivers/iio/proximity/sx9324.c b/drivers/iio/proximity/sx9324.c
-index c7b2d03c23bc..3b2bc82b808c 100644
---- a/drivers/iio/proximity/sx9324.c
-+++ b/drivers/iio/proximity/sx9324.c
-@@ -174,7 +174,7 @@
- static const char * const sx9324_cs_pin_usage[] = { "HZ", "MI", "DS", "GD" };
- 
- static ssize_t sx9324_phase_configuration_show(struct iio_dev *indio_dev,
--					       uintptr_t private,
-+					       unsigned long private,
- 					       const struct iio_chan_spec *chan,
- 					       char *buf)
- {
-diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
-index 3b9a3a6cbb25..702a2b4c32f8 100644
---- a/drivers/iio/trigger/stm32-timer-trigger.c
-+++ b/drivers/iio/trigger/stm32-timer-trigger.c
-@@ -669,7 +669,7 @@ static const struct iio_enum stm32_enable_mode_enum = {
- };
- 
- static ssize_t stm32_count_get_preset(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      char *buf)
- {
-@@ -682,7 +682,7 @@ static ssize_t stm32_count_get_preset(struct iio_dev *indio_dev,
- }
- 
- static ssize_t stm32_count_set_preset(struct iio_dev *indio_dev,
--				      uintptr_t private,
-+				      unsigned long private,
- 				      const struct iio_chan_spec *chan,
- 				      const char *buf, size_t len)
- {
-diff --git a/include/linux/iio/backend.h b/include/linux/iio/backend.h
-index 4d15c2a9802c..60bb2ae4724b 100644
---- a/include/linux/iio/backend.h
-+++ b/include/linux/iio/backend.h
-@@ -167,10 +167,10 @@ struct iio_backend_ops {
- 			    struct iio_buffer *buffer);
- 	int (*extend_chan_spec)(struct iio_backend *back,
- 				struct iio_chan_spec *chan);
--	int (*ext_info_set)(struct iio_backend *back, uintptr_t private,
-+	int (*ext_info_set)(struct iio_backend *back, unsigned long private,
- 			    const struct iio_chan_spec *chan,
- 			    const char *buf, size_t len);
--	int (*ext_info_get)(struct iio_backend *back, uintptr_t private,
-+	int (*ext_info_get)(struct iio_backend *back, unsigned long private,
- 			    const struct iio_chan_spec *chan, char *buf);
- 	int (*interface_type_get)(struct iio_backend *back,
- 				  enum iio_backend_interface_type *type);
-@@ -242,10 +242,10 @@ int iio_backend_ddr_disable(struct iio_backend *back);
- int iio_backend_data_stream_enable(struct iio_backend *back);
- int iio_backend_data_stream_disable(struct iio_backend *back);
- int iio_backend_data_transfer_addr(struct iio_backend *back, u32 address);
--ssize_t iio_backend_ext_info_set(struct iio_dev *indio_dev, uintptr_t private,
-+ssize_t iio_backend_ext_info_set(struct iio_dev *indio_dev, unsigned long private,
- 				 const struct iio_chan_spec *chan,
- 				 const char *buf, size_t len);
--ssize_t iio_backend_ext_info_get(struct iio_dev *indio_dev, uintptr_t private,
-+ssize_t iio_backend_ext_info_get(struct iio_dev *indio_dev, unsigned long private,
- 				 const struct iio_chan_spec *chan, char *buf);
- int iio_backend_interface_type_get(struct iio_backend *back,
- 				   enum iio_backend_interface_type *type);
-diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
-index a9ecff191bd9..8c244cd4a28d 100644
---- a/include/linux/iio/iio.h
-+++ b/include/linux/iio/iio.h
-@@ -50,12 +50,12 @@ struct iio_dev;
- struct iio_chan_spec_ext_info {
- 	const char *name;
- 	enum iio_shared_by shared;
--	ssize_t (*read)(struct iio_dev *, uintptr_t private,
-+	ssize_t (*read)(struct iio_dev *, unsigned long private,
- 			struct iio_chan_spec const *, char *buf);
--	ssize_t (*write)(struct iio_dev *, uintptr_t private,
-+	ssize_t (*write)(struct iio_dev *, unsigned long private,
- 			 struct iio_chan_spec const *, const char *buf,
- 			 size_t len);
--	uintptr_t private;
-+	unsigned long private;
- };
- 
- /**
-@@ -82,11 +82,11 @@ struct iio_enum {
- };
- 
- ssize_t iio_enum_available_read(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, char *buf);
-+	unsigned long priv, const struct iio_chan_spec *chan, char *buf);
- ssize_t iio_enum_read(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, char *buf);
-+	unsigned long priv, const struct iio_chan_spec *chan, char *buf);
- ssize_t iio_enum_write(struct iio_dev *indio_dev,
--	uintptr_t priv, const struct iio_chan_spec *chan, const char *buf,
-+	unsigned long priv, const struct iio_chan_spec *chan, const char *buf,
- 	size_t len);
- 
- /**
-@@ -103,7 +103,7 @@ ssize_t iio_enum_write(struct iio_dev *indio_dev,
- 	.shared = (_shared), \
- 	.read = iio_enum_read, \
- 	.write = iio_enum_write, \
--	.private = (uintptr_t)(_e), \
-+	.private = (unsigned long)(_e), \
- }
- 
- /**
-@@ -120,7 +120,7 @@ ssize_t iio_enum_write(struct iio_dev *indio_dev,
- 	.name = (_name "_available"), \
- 	.shared = _shared, \
- 	.read = iio_enum_available_read, \
--	.private = (uintptr_t)(_e), \
-+	.private = (unsigned long)(_e), \
- }
- 
- /**
-@@ -132,7 +132,7 @@ struct iio_mount_matrix {
- 	const char *rotation[9];
- };
- 
--ssize_t iio_show_mount_matrix(struct iio_dev *indio_dev, uintptr_t priv,
-+ssize_t iio_show_mount_matrix(struct iio_dev *indio_dev, unsigned long priv,
- 			      const struct iio_chan_spec *chan, char *buf);
- int iio_read_mount_matrix(struct device *dev, struct iio_mount_matrix *matrix);
- 
-@@ -150,7 +150,7 @@ typedef const struct iio_mount_matrix *
- 	.name = "mount_matrix", \
- 	.shared = (_shared), \
- 	.read = iio_show_mount_matrix, \
--	.private = (uintptr_t)(_get), \
-+	.private = (unsigned long)(_get), \
- }
- 
- /**
--- 
-2.43.0
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBSb2IgSGVycmluZyA8cm9iaEBr
+ZXJuZWwub3JnPg0KPiBTZW50OiAyMDI2xOoz1MIxMsjVIDIxOjMyDQo+IFRvOiBIb25neGluZyBa
+aHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiBDYzoga3J6aytkdEBrZXJuZWwub3JnOyBjb25v
+citkdEBrZXJuZWwub3JnOyBiaGVsZ2Fhc0Bnb29nbGUuY29tOyBGcmFuayBMaQ0KPiA8ZnJhbmsu
+bGlAbnhwLmNvbT47IGwuc3RhY2hAcGVuZ3V0cm9uaXguZGU7IGxwaWVyYWxpc2lAa2VybmVsLm9y
+ZzsNCj4ga3dpbGN6eW5za2lAa2VybmVsLm9yZzsgbWFuaUBrZXJuZWwub3JnOyBzLmhhdWVyQHBl
+bmd1dHJvbml4LmRlOw0KPiBrZXJuZWxAcGVuZ3V0cm9uaXguZGU7IGZlc3RldmFtQGdtYWlsLmNv
+bTsgbGludXgtcGNpQHZnZXIua2VybmVsLm9yZzsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5p
+bmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsNCj4gaW14QGxpc3RzLmxp
+bnV4LmRldjsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiBTdWJqZWN0OiBSZTogW1BB
+VENIIHY1IDIvNV0gZHQtYmluZGluZ3M6IFBDSTogaW14NnEtcGNpZTogQWRkIGkuTVg5NCBhbmQN
+Cj4gaS5NWDk0MyBQQ0llIGNvbXBhdGlibGUgc3RyaW5ncw0KPiANCj4gT24gVGh1LCBNYXIgMTIs
+IDIwMjYgYXQgMDU6Mjc6NDJQTSArMDgwMCwgUmljaGFyZCBaaHUgd3JvdGU6DQo+ID4gQWRkIGku
+TVg5NCBhbmQgaS5NWDk0MyBQQ0llIGNvbXBhdGlibGUgc3RyaW5ncyBhbmQgZmFsbGJhY2sgdG8N
+Cj4gPiBpLk1YOTUgUENJZSBjb21wYXRpYmxlIHN0cmluZy4NCj4gPg0KPiA+IFNpZ25lZC1vZmYt
+Ynk6IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gPiAtLS0NCj4gPiAgLi4u
+L2JpbmRpbmdzL3BjaS9mc2wsaW14NnEtcGNpZS1lcC55YW1sICAgICAgIHwgIDYgKysrKw0KPiA+
+ICAuLi4vYmluZGluZ3MvcGNpL2ZzbCxpbXg2cS1wY2llLnlhbWwgICAgICAgICAgfCAyOCArKysr
+KysrKysrKystLS0tLS0tDQo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMjQgaW5zZXJ0aW9ucygrKSwg
+MTAgZGVsZXRpb25zKC0pDQo+ID4NCj4gPiBkaWZmIC0tZ2l0DQo+ID4gYS9Eb2N1bWVudGF0aW9u
+L2RldmljZXRyZWUvYmluZGluZ3MvcGNpL2ZzbCxpbXg2cS1wY2llLWVwLnlhbWwNCj4gPiBiL0Rv
+Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNsLGlteDZxLXBjaWUtZXAueWFt
+bA0KPiA+IGluZGV4IDBiMzUyNmRlMWQ2Mi4uMzIzZWQzMTA1ZDMzIDEwMDY0NA0KPiA+IC0tLSBh
+L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNsLGlteDZxLXBjaWUtZXAu
+eWFtbA0KPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNs
+LGlteDZxLXBjaWUtZXAueWFtbA0KPiA+IEBAIC0yNCw2ICsyNCw4IEBAIHByb3BlcnRpZXM6DQo+
+ID4gICAgICAgIC0gZnNsLGlteDhtcC1wY2llLWVwDQo+ID4gICAgICAgIC0gZnNsLGlteDhxLXBj
+aWUtZXANCj4gPiAgICAgICAgLSBmc2wsaW14OTUtcGNpZS1lcA0KPiA+ICsgICAgICAtIGZzbCxp
+bXg5NC1wY2llLWVwDQo+ID4gKyAgICAgIC0gZnNsLGlteDk0My1wY2llLWVwDQo+IA0KPiBIb3cg
+aXMgaXQgdGhhdCB0aGUgUkMgaXMgY29tcGF0aWJsZSB3aXRoIGlteDk1LCBidXQgdGhlIEVQIGlz
+IG5vdD8gSXQncyB0aGUgc2FtZQ0KPiBoL3cuDQo+IA0KSGkgUmI6DQpUaGFua3MgZm9yIHlvdXIg
+Y29tbWVudHMuDQpJIGRpc2NvdmVyZWQgdGhhdCBteSBzY2hlbWFfY2hlY2sgc2NyaXB0IHdhc24n
+dCB2YWxpZGF0aW5nICotZXAueWFtbCANCmVuZHBvaW50IGJpbmRpbmcgZmlsZXMuIFdvdWxkIGNo
+YW5nZSB0aGVtIGxhdGVyLg0KDQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQo+ID4NCj4gPiAg
+ICBjbG9ja3M6DQo+ID4gICAgICBtaW5JdGVtczogMw0KPiA+IEBAIC05NCw2ICs5Niw4IEBAIGFs
+bE9mOg0KPiA+ICAgICAgICAgIGNvbXBhdGlibGU6DQo+ID4gICAgICAgICAgICBlbnVtOg0KPiA+
+ICAgICAgICAgICAgICAtIGZzbCxpbXg5NS1wY2llLWVwDQo+ID4gKyAgICAgICAgICAgIC0gZnNs
+LGlteDk0LXBjaWUtZXANCj4gPiArICAgICAgICAgICAgLSBmc2wsaW14OTQzLXBjaWUtZXANCj4g
+PiAgICAgIHRoZW46DQo+ID4gICAgICAgIHByb3BlcnRpZXM6DQo+ID4gICAgICAgICAgcmVnOg0K
+PiA+IEBAIC0xMTQsNiArMTE4LDggQEAgYWxsT2Y6DQo+ID4gICAgICAgICAgICBlbnVtOg0KPiA+
+ICAgICAgICAgICAgICAtIGZzbCxpbXg4bXEtcGNpZS1lcA0KPiA+ICAgICAgICAgICAgICAtIGZz
+bCxpbXg5NS1wY2llLWVwDQo+ID4gKyAgICAgICAgICAgIC0gZnNsLGlteDk0LXBjaWUtZXANCj4g
+PiArICAgICAgICAgICAgLSBmc2wsaW14OTQzLXBjaWUtZXANCj4gPiAgICAgIHRoZW46DQo+ID4g
+ICAgICAgIHByb3BlcnRpZXM6DQo+ID4gICAgICAgICAgY2xvY2tzOg0KPiA+IGRpZmYgLS1naXQg
+YS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGNpL2ZzbCxpbXg2cS1wY2llLnlh
+bWwNCj4gPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNsLGlteDZx
+LXBjaWUueWFtbA0KPiA+IGluZGV4IDdmZTFlMGU5YjU2NS4uNDZjMWZhYmNkMDcwIDEwMDY0NA0K
+PiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvZnNsLGlteDZx
+LXBjaWUueWFtbA0KPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9w
+Y2kvZnNsLGlteDZxLXBjaWUueWFtbA0KPiA+IEBAIC0yMSwxNiArMjEsMjQgQEAgZGVzY3JpcHRp
+b246IHwrDQo+ID4NCj4gPiAgcHJvcGVydGllczoNCj4gPiAgICBjb21wYXRpYmxlOg0KPiA+IC0g
+ICAgZW51bToNCj4gPiAtICAgICAgLSBmc2wsaW14NnEtcGNpZQ0KPiA+IC0gICAgICAtIGZzbCxp
+bXg2c3gtcGNpZQ0KPiA+IC0gICAgICAtIGZzbCxpbXg2cXAtcGNpZQ0KPiA+IC0gICAgICAtIGZz
+bCxpbXg3ZC1wY2llDQo+ID4gLSAgICAgIC0gZnNsLGlteDhtcS1wY2llDQo+ID4gLSAgICAgIC0g
+ZnNsLGlteDhtbS1wY2llDQo+ID4gLSAgICAgIC0gZnNsLGlteDhtcC1wY2llDQo+ID4gLSAgICAg
+IC0gZnNsLGlteDk1LXBjaWUNCj4gPiAtICAgICAgLSBmc2wsaW14OHEtcGNpZQ0KPiA+ICsgICAg
+b25lT2Y6DQo+ID4gKyAgICAgIC0gZW51bToNCj4gPiArICAgICAgICAgIC0gZnNsLGlteDZxLXBj
+aWUNCj4gPiArICAgICAgICAgIC0gZnNsLGlteDZzeC1wY2llDQo+ID4gKyAgICAgICAgICAtIGZz
+bCxpbXg2cXAtcGNpZQ0KPiA+ICsgICAgICAgICAgLSBmc2wsaW14N2QtcGNpZQ0KPiA+ICsgICAg
+ICAgICAgLSBmc2wsaW14OG1xLXBjaWUNCj4gPiArICAgICAgICAgIC0gZnNsLGlteDhtbS1wY2ll
+DQo+ID4gKyAgICAgICAgICAtIGZzbCxpbXg4bXAtcGNpZQ0KPiA+ICsgICAgICAgICAgLSBmc2ws
+aW14OTUtcGNpZQ0KPiA+ICsgICAgICAgICAgLSBmc2wsaW14OHEtcGNpZQ0KPiA+ICsgICAgICAg
+ICAgLSBmc2wsaW14OTQtcGNpZQ0KPiA+ICsgICAgICAgICAgLSBmc2wsaW14OTQzLXBjaWUNCj4g
+PiArICAgICAgLSBpdGVtczoNCj4gPiArICAgICAgICAgIC0gZW51bToNCj4gPiArICAgICAgICAg
+ICAgLSBmc2wsaW14OTQtcGNpZQ0KPiA+ICsgICAgICAgICAgICAtIGZzbCxpbXg5NDMtcGNpZQ0K
+PiA+ICsgICAgICAgICAgLSBjb25zdDogZnNsLGlteDk1LXBjaWUNCj4gPg0KPiA+ICAgIGNsb2Nr
+czoNCj4gPiAgICAgIG1pbkl0ZW1zOiAzDQo+ID4gLS0NCj4gPiAyLjM3LjENCj4gPg0K
 
