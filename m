@@ -4,76 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C761107BCCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0D0107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ik6+NaHiadag0VJT/CIGDgof4Ly2SNbMb75Q4wpL4Q=; b=1PX9NnzW1j0Mse4MKQW+O46Zfr
-	YBZLHr9tBFrTixxvLPnd2GMuqGRhTNoQ07hI+ujcRJea21z7ioLpMxVOhQHMm64HVcdKa199Ej+2N
-	FupCHyMsR6zXpyNOIvX/Te+ABLU8oWsVr4+xwQV4luulXixz8J86K0Qjw4Dj03BkB2WSCa5fZ/IPp
-	/8rTZbPzmdUa5uhtPxvmtAhn77i3c8SKDwpf9DaOY6FYYclZjQNUX8PdJmSZVIK3TOOCYz7qFhojp
-	05LqZidEM/MV3FVrVsJrReaxj+hniN+d7XMEpiVb7BmAh8lP1+CxOsIYioDh5wm+jZ0NCXFsEpcg9
-	VLTBq1Hw==;
+	bh=DQuU6FlFdBBlOUdgBP0iK/pkfsCErqdikP44QAvSWEQ=; b=T08YXUXu47NB+oU8Wvbz5WNYOj
+	GOcHGjm2Ka+9t6UuM41cJl4s28Aqx7rnCBbX+zk1COfSkN3WD4C5wYr0Q1bBfX66zn0hMEA0SX6TS
+	Zga9I/78JrzpfKTH44a2GZDO+0sGGVBfpTM5YGrBapR2qT20rnZKI25RyttQqoAHZYrAlwZCPKojz
+	FRvDij0z0nfkaY3sFwUCGCFaIgLu64exVGg1KyIOszMic+7hvQHeK0DvyFbc99vlISWwnYTQ52Bvq
+	Qv9XWe12c1LjFShVKqToE1ctW//Np0lZTt9o7eYZCzRWie0Q0265GlHVVpLw48Ymen5LIMNCORXrk
+	Ieuabcug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15pd-00000000iOz-36L8;
-	Fri, 13 Mar 2026 16:57:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w15qf-00000000inn-223Y;
+	Fri, 13 Mar 2026 16:58:53 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15pX-00000000iKZ-2Plq;
-	Fri, 13 Mar 2026 16:57:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D298440413;
-	Fri, 13 Mar 2026 16:57:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D4DC19421;
-	Fri, 13 Mar 2026 16:57:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773421062;
-	bh=khXFvWj9lIYktByP7ZJX+6n1NUtFwKtwOcL+GNs+f6A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H1Pv4bwH7GGTyhgN07TlIWhPaCc06Qelcl21hcmWFA2gCFRfNJKy2ZLuxzPK0AEp7
-	 WdU/Fo/NZZgUemhcypakqg8A3v/bCy+D0tTldNYzzZAZROCpPuk7mxLrWfGHj+0LeN
-	 MzHlqH6GiI1lXjzi+HAukG1zsCvSCk+2a8FUqMMr9cao/1Qjzk/rV97tyGEqUCrfbw
-	 CUzlAMBrw7UbsQkmJoiAUBtK6xQWVsOr01lwr9jEzO0a2DdnSDCf1ixpseg4u0LY1g
-	 aQpZQ/N6p3Ht6qlgqDyojPphS/iejYhtOb+GemlTRdroKEfP+k1YVNxuBIDjspZcDZ
-	 NUD4m99qPvyBg==
-Date: Fri, 13 Mar 2026 16:57:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: michael.riesch@collabora.com
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1w15qb-00000000ilU-2gl9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 16:58:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=elOujBJtEleTJFfDWsQtGWiwXkmuGavuDa81yl/47PSzXo7AyrC/L5VxjfBO1hRNnfOYToLvJ6hTi5m/uw9d8p8/PGub0jeQYeOfcODmH2+QwfqR3JCShQ0e5olCpJVwV59I0M2QMhdGxyM95pVaheV2o1p70e5XFzFNASlojuj6x9+QM6o7cxTDs6PzzipqNQ/psByD4lPAWm28PtWn6mjx5F2nxNev/srywYfm7BRmL0Fkrbla+LLqBE8su7LYn52NXYNNEhGPDrIoXkKXT2lGCtOyfT4paRdhArFqSHDbuVWPMWLvvdkZyCRgNDv/bGVBT54L93fHucoKBeY7yA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DQuU6FlFdBBlOUdgBP0iK/pkfsCErqdikP44QAvSWEQ=;
+ b=Sx9/LmtxJ95bBLOAWK7xJwN/5t3X/wI5FoycxpvJb8BNIc0zGdpgHePShbC3ETkWI7pEZCefOG4Mo8NKagSeigXopEbN5OC/CflOXY/wVoCX7k2L/qNVIrfb8fhpUh1gDadFUY7jTRwe1tP+V0Tat5chQglp79g/f+/ChEaCk3ApzbEtBabhWm3ElDvnf53/zt3Hiu8qqsAauMbLQOJ6sjKBHm9rgjhB1aj1IqeMrSwOHAOfyWp5/LPLQDWbhYCDMU3qoOy/cRyGEPx4/B1H6EGHuWhkKjZQ3iyUIixvWkXH4OdD4s58lfWxKewfjeSwJianTQidPgVzj9S4ND/CQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DQuU6FlFdBBlOUdgBP0iK/pkfsCErqdikP44QAvSWEQ=;
+ b=Nqy1qcKAu37OdSIKKhC4dN3wMBeADatrgYln9lO5p7zbMXUY9qQHvzJ0wMR1O/EAtZ1KTuUQ73lBet08NV8AcpjumU83tQRqS+SzGqHpfnByJ0jUPfi4ZXRolJKO5Z8jgeu5pRahO4VcZjfD7yCFn07fBJXSlxbW3qsB0dPbO9OUq735whJ7JsD8mtwNq7ZPZI0vfOCts13+AKydIBSg+cjXsKu3kGeEP0352uRSaXOhbb9rW9B4fDpg3ODbCcJGCtaH+sR4FPYleNcYgy3chaRw1dClpmalldGDMSB/UoJkoNaMk5/Q/udiMtJl7UpG6JjKODksHenMIcPT2JS+Aw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by PA4PR04MB7584.eurprd04.prod.outlook.com (2603:10a6:102:ed::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
+ 2026 16:58:29 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 16:58:28 +0000
+Date: Fri, 13 Mar 2026 19:14:33 +0200
+From: Florin Leotescu <florin.leotescu@oss.nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/9] media: dt-bindings: add rockchip rk3588 vicap
-Message-ID: <20260313-coyness-jab-ff0c85654555@spud>
-References: <20250430-rk3588-vicap-v1-0-b3bddf749914@collabora.com>
- <20250430-rk3588-vicap-v1-2-b3bddf749914@collabora.com>
- <20260313-quickly-imperial-47638c9f0d4f@spud>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="S7d/qyDaD5sp6+Yh"
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com, viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+Subject: Re: [RFC PATCH v2 1/2] dt-bindings: hwmon: emc2305: Add
+ fan-shutdown-percent property
+Message-ID: <abRF+TPKuXFDJc55@ro-kernel-workstation>
+References: <20260312122248.1281572-1-florin.leotescu@oss.nxp.com>
+ <20260312122248.1281572-2-florin.leotescu@oss.nxp.com>
+ <20260312-triage-shallot-1b3d9f07d250@spud>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260313-quickly-imperial-47638c9f0d4f@spud>
+In-Reply-To: <20260312-triage-shallot-1b3d9f07d250@spud>
+X-ClientProxiedBy: FR2P281CA0048.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:92::19) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|PA4PR04MB7584:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8cb421e-c284-4033-c502-08de8121bfa6
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: EFLgMCAFgK514/1GHjXUmAcC5JnYz3CtAJ/HdMalOPANNLXsJM3JmKWv87JV/Ckop2tpZDP0PNdz2cIAnc5Eiag0KBFBD8LcjYRT5xrAwiX6gHvED/hj1CWio8xwLxo0nygynrXNryjYDItaKL0n5Hr5E1hdUP+YM8rKn8rAKNPOwIuJrHKFEszI7AM5SBi/Wet9dbb6d9gazi1uiIaJ/eJ1dxY+XDpVrRn6MXI+ghmTNZKbG/tVebTjG3TQLeaUGdgLXMzgOqzq9npcgcRlTArQ+QukcIDs6JFb3RkwxA3RKY00/Zgs61Ix2FNMllvzMLgzjZz64IsFMz8VEFdxtXAiolFNuu5FFPX/0NmzpiW0KjIKKBnyU81SN18mLMfmpm3VeShcCD+uR/lKv3GGjONckYNwVpHI89S0xCUL/LYAXjWsOgI9qdq1xyBgZQHY4jq6Qf41AsM1ksnJOxfhFDyahQduqBJm4Mzkhm26EwmCBJJb9BUzUgdN48gFntU4lQWjRFKOkVahGxBBKbmtNWDplwbDfqtoJc5AX3aFD+J2zYCBIt0cfjr5RXFkkG8kztJIBqxIx2K7xjVzrDcDHdfeBkwlNDRRycUwqIBTQonDQ0klI/j2JPYNdNZ/cPFz8xz5yuyFh9luHT4yX0DQSGM4+XqZDqLhmUC6qL5h66VHoseQJ3njt52BsjldlUPjbInbrm/PxxlChvh6ycA45cVnPNX6G4dXsRKQyyVDxjE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Gpc152Vfszb5uUlr61Aw0hMKLN57+WNFUFmolafZwqzWMFq5PC4OyonAS1aj?=
+ =?us-ascii?Q?6uhv5wO078DyNOYBwajQGcsjTa4tJoZ4L23IuizlpwAbnOJW1OVpSivAJVZv?=
+ =?us-ascii?Q?gsOSDQ1D5WTK7lY7SyvNz/2p9qFJbOMhmsp28t32IGs/kXbZ8Cthko1lXLil?=
+ =?us-ascii?Q?FfPHuXMk6NuDvIZhUZvqq0p3VJnbo9ERxXOBk/oZJUagQMxq6p46ke5FS4WK?=
+ =?us-ascii?Q?ofmlpeKwSuAJPCV7yR/w1PW5a8aW0hVKSdqprdR57GA/g3dEs+QgEJFcTepz?=
+ =?us-ascii?Q?EKOjEAoBp0V30TmIi3aJtQwLSLCJaKox/pS7JdQEjSb3xmFzlp0dhGJF5rof?=
+ =?us-ascii?Q?Lhz1hs9riZ6UMMsjqbK7ZKktJ5HXUaBegEc39xp4SJdcrg91XMXEmdzlwGgR?=
+ =?us-ascii?Q?8xHHoMH/+CBk5FRnaNwaPVmAkRWpKzVEsMLSEUdTYfYH+rcmy8K4m/hmONB4?=
+ =?us-ascii?Q?+4DqkzZ7p3YfPC1VLRLIBOo1HWEajJwMcc91cp8D8sokVZHX11iJZLf2YByq?=
+ =?us-ascii?Q?zVnI6ea2om/UCSt0AfQ1PzHQHSQa8haIhBTf58fL3USKt0gbwtZXNgk4EFMp?=
+ =?us-ascii?Q?j1VpFdOj38+f87RgUcNN+ffcWITbces9aXwYs3byKXd0Pal/AmwTDZhW8Ype?=
+ =?us-ascii?Q?E8cflknrPIhW246ThSU2xjLPB9RAKz+J8IBAHeQVZMlOvQmECGwsyjqy0JV6?=
+ =?us-ascii?Q?nD3jtiI+B9aXHBSjnaCHTvqg8l8XMv7M7d4D0Rl9AGXuPZS1aC9cek0doQRt?=
+ =?us-ascii?Q?pjUQl/23l9hc78LksxBSg34WurpwxjUY7j0TR7OwnE+rnZAoQOWfcyLRjEpG?=
+ =?us-ascii?Q?ixcf9hBC0g5XHdfi+KIEmvzPiM9MHqBEiIalw2lzNetjbo0cxHqbUx7kGv1q?=
+ =?us-ascii?Q?XIFIvOgRD+i+fSrtHf82uDnXV9HRyAUo3dxuCN2h0jZK36C4UjJ7gCDXpW5A?=
+ =?us-ascii?Q?x28Ccg8LxD0x40jt4IvzBdWOTSp6q9T6+k8o9O36rjgQTsO+lJDtK6d03muq?=
+ =?us-ascii?Q?FpRSQIBYQ6b4PeaOLJQqp6RnzIm3bnKkjnzrGm2LOzuw0zx5bHMzRw2mS2A1?=
+ =?us-ascii?Q?zLVfMSm/+dumgM7vwtsGKMkjGvhK1e4MQTxQjWcwtQtwaIpvLUqfIK5+L5wm?=
+ =?us-ascii?Q?sQMIaNRs5UIWrMGEn8gTpZA0wEowYtv/2/wq53hr4vV86GEwrtFkldga9wTu?=
+ =?us-ascii?Q?UHugCbC4oJGwimvMsh10wKiT/lD9g0rhLv57kcd0JXFVyORDNfjvG8JfkPav?=
+ =?us-ascii?Q?GgRgeYcmBP9Cs6EE27b1bNaBBEqBN4YLr432XOTnK48KsdKD5/i0fERZ9l0X?=
+ =?us-ascii?Q?ouihuIWtixNa4iTv4FUtjLtd0Vz3QOxIAiIFTKUuUjajZOe2iwmYXSkD45wL?=
+ =?us-ascii?Q?RwEGZcfHMSz/C0Th2zXpci2/3LhnaK989HCK9OCf13A1s5PVdJJw4nvqzTqC?=
+ =?us-ascii?Q?6gTDjqBX9iwd81ylx3p8BUTj2q50CWsk/4SyJt4gmOD8kEVW/qFH24F7tyxz?=
+ =?us-ascii?Q?R7E0gGuSdKYuFCZNX4a1hPOYXn+/wJ0ePvjnQDpn8IeX4A28rxTacM2nhI/J?=
+ =?us-ascii?Q?C+4mZfUPsFGAe7hXKmwH7vyqpBcME6r4LCub6BBwlpn94UOn/MnEaEx4tP6u?=
+ =?us-ascii?Q?DYoG7F7uyolMwWMLdg6n77v4rO7aqWLcdz5sBdcMjfpCdWN4iDwUoSbIZ7qc?=
+ =?us-ascii?Q?koBzatEzW1jga3CzETD3dQZV9JYUD25fs6MRWBNIu5So8HdQ++FFHoKYkeor?=
+ =?us-ascii?Q?lkGMrnymHQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8cb421e-c284-4033-c502-08de8121bfa6
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 16:58:28.4265
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KSn0Uj2kUOx6OKsEnlmvIPEi4TYr6WlyuMps64PRIOl13OUPVePonNG+5yW9JtlWuTeGY8XMspQvs1BdA+eI/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7584
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_095743_671276_901ED781 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20260313_095849_683329_ABE587D7 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +146,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---S7d/qyDaD5sp6+Yh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 13, 2026 at 04:56:29PM +0000, Conor Dooley wrote:
-> On Fri, Mar 13, 2026 at 04:20:44PM +0100, Michael Riesch via B4 Relay wro=
-te:
-> > From: Michael Riesch <michael.riesch@collabora.com>
-> >=20
-> > Add documentation for the Rockchip RK3588 Video Capture (VICAP) unit.
-> >=20
-> > Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+On Thu, Mar 12, 2026 at 05:37:51PM +0000, Conor Dooley wrote:
+> On Thu, Mar 12, 2026 at 02:22:47PM +0200, florin.leotescu@oss.nxp.com wrote:
+> > From: Florin Leotescu <florin.leotescu@nxp.com>
+> > 
+> > The EMC2305 fan controller supports multiple independent PWM fan
+> > outputs. Some systems require fans to enter a defined safe state
+> > during system shutdown or reboot handoff, until firmware or the next
+> > boot stage reconfigures the controller.
+> > 
+> > Add an optional "fan-shutdown-percent" property to fan child nodes
+> > allowing the shutdown fan speed to be configured per fan output.
+> > 
+> > Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
 > > ---
-> >  .../bindings/media/rockchip,rk3588-vicap.yaml      | 256 +++++++++++++=
-++++++++
-> >  MAINTAINERS                                        |   1 +
-> >  2 files changed, 257 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3588-vi=
-cap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.ya=
-ml
-> > new file mode 100644
-> > index 000000000000..7fd4214921cb
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml
-> > @@ -0,0 +1,256 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/media/rockchip,rk3588-vicap.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >  .../devicetree/bindings/hwmon/microchip,emc2305.yaml      | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> > index d3f06ebc19fa..7bcadfab9fc4 100644
+> > --- a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> > +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> > @@ -54,6 +54,12 @@ patternProperties:
+> >            The fan number used to determine the associated PWM channel.
+> >          maxItems: 1
+> >  
+> > +      fan-shutdown-percent:
+> > +        description:
+> > +          Fan RPM in percent set during shutdown.
+> 
+> This sounds like something generic, that other devices might need and
+> should be in fan-common.yaml?
+>
+Thanks for the feedback.
+
+The property name was reused from pwm-fan.yaml where it already exists
+with the same meaning. I kept it local to minimize the scope of the change.
+
+However, if you prefer it to be modelled as a common property, I can adjust it in the next revision.
+
+> > +        minimum: 0
+> > +        maximum: 100
 > > +
-> > +title: Rockchip RK3588 Video Capture (VICAP)
-> > +
-> > +maintainers:
-> > +  - Michael Riesch <michael.riesch@collabora.com>
-> > +
-> > +description:
-> > +  The Rockchip RK3588 Video Capture (VICAP) block features a digital v=
-ideo
-> > +  port (DVP, a parallel video interface) and six MIPI CSI-2 ports. It =
-receives
-> > +  the data from camera sensors, video decoders, or other companion ICs=
- and
-> > +  transfers it into system main memory by AXI bus and/or passes it to =
-the image
-> > +  signal processing (ISP) blocks.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3588-vicap
->=20
-> Curious why this cannot share a binding with the existing 3568-vicap.
-> Looks pretty similar binding wise at least.
-> If it's an entirely different architecture or whatever, please mention
-> that in your commit message.
+> >      required:
+> >        - reg
+> >  
+> > @@ -80,12 +86,14 @@ examples:
+> >              fan@0 {
+> >                  reg = <0x0>;
+> >                  pwms = <&fan_controller 26000 PWM_POLARITY_INVERTED 1>;
+> > +                fan-shutdown-percent = <100>;
+> >                  #cooling-cells = <2>;
+> >              };
+> >  
+> >              fan@1 {
+> >                  reg = <0x1>;
+> >                  pwms = <&fan_controller 26000 0 1>;
+> > +                fan-shutdown-percent = <50>;
+> >                  #cooling-cells = <2>;
+> >              };
+> >  
+> > -- 
+> > 2.34.1
+> > 
 
-Looking further, it's using the same driver too...
 
---S7d/qyDaD5sp6+Yh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabRCAAAKCRB4tDGHoIJi
-0uVoAQC9aktstpY3Ps5YxtEBxqUOAWA83YHM85wd6hzwHPdf/AEAyxeasFwEek0/
-pjKkmZ1ye2nqzV7ZMXoKzZ+qV26aoQ4=
-=AHWC
------END PGP SIGNATURE-----
-
---S7d/qyDaD5sp6+Yh--
 
