@@ -4,120 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1228F105F79F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48115105F79F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=; b=oToY0E9hVeqSqWsTOo4igN1eV7
-	6tJYZmcWAqRRW7/VFaTXVP68Yl5Ekef+SP43rmAqWk24mjMSMrRyoYlWs2ezGj3zh3FnJMgGi5L6e
-	s7teUS61KvcWbYI8+FGr+O0hLUlmVdimulkPcsVbjp/K0qS+N9j+v8vPs1SB8HXCAzVFAV2PWSAhK
-	vRg9OcWGh8myoOt9Y7z9v6T6PFzvoGQu+KRR+fz5YTSmeU8j21w74WZZDI7x5nazSqL0nmXHTb6Vy
-	Ijn/I7vZtVJWl1JkCLCclNvqqWUOe4vGQMs4Q3azh1fvEkfhwyKSwnX9HpDBrrvS/hS/4AzRqW2ee
-	ZTqQ4xqA==;
+	bh=9WIZF8M+VVWtUM1h+b0PzSCkMMMbyBLLph7AX19YABc=; b=v8bIPycK8Bt2HRHx9u67Q8hpT5
+	cEFyMCMyzU+eVBGHy2CJUHtMWnWT1LsV42vNkK7jPmDeDTR5b8N84L1s5BEOe8/Y2cn+VkjC5OV9j
+	6KdzUZRADEU8JW+qnsKL+JX+DCpR7p77Iyr6i9h1odJxICGc63yJDscGUJH92ZjwSiPk/n03hqgsI
+	GNYfSuRZzd2q3uZ37xS1blwauCF6jlhuUslmfkKfg/11c+3xEwS+b9PkUdlqZN0538Da48xUCsmdx
+	J3pwFU1HVqw/YHIXVZrCEeI8b/0RvJmuQAX0SMvU3VWy74x1K7pbm2JRXfiNBaZWbs6lcCDHbO6iI
+	V6VWds3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w117C-000000004KE-3WXx;
-	Fri, 13 Mar 2026 11:55:38 +0000
-Received: from mail-northcentralusazon11010024.outbound.protection.outlook.com ([52.101.193.24] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1w11AI-000000004aP-0mmS;
+	Fri, 13 Mar 2026 11:58:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1179-000000004JM-3vE6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:55:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wA25JG1aHcLQ/mN4UWu9Maiua4LjAZsNcCAg7vsELIjJOzGkPqryRH4OQVwK8Z9SoUggqiZj+IRYVWTjr1PkI8BB86kyHly8oyt1dWjGgJtNJ609w4BnbpvObE6YX7sk20PK0aIzK+EII97Otey4qeoAdLM/vGoPI52JLKF8+WEDpYJQYVn9fS6lbGH5d/GQLZC/RdMSoLO3tCZEhzCvKI2quGil+JMtLNxCLyBSyoh7f95/BM1u9ioz8vb9Aj9EYEx37zOn9oP6O23T0G3trCqKtjH/5/V1FzbSPUgO/TyjVBrDMpp4EYndM8pYkPmDogZXDX/qS+XH7PIEeh3xsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=;
- b=sQqFQIdqkkWLHSgyQ8a4Kua8/Af65Ep9OHy50x9hGYBMQc8bVSkRC1kS4GtzqWSkzHLleo49HA42z5F2Uk3omXcedJavhtUfNq3wQm1Ux6e4l7alVIFl1RtfQ8DCJoxN39q0nMuWGohtjY57fNW2fQzAhmujnLxxFPBaTPGXo239zCVpPe096zm0DwPfuQts6C/gtunmhacXIDIN7dp7hf6hGB/+IBHzLvSX4JjpLzl+wOkfoXZOtHS5DfamqcwnfrodCkTjop6Ozyjc2z1b7imYOx9fVJ0vf2w6j8Yd7jLoxqB8QLbqNyr+QjASz8LZoxDGmxLtFixNot23wtjZjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GJYI/zjKJrFc266SciK9o33O1nT9aXWTY401E7EaJ5E=;
- b=QO2iVZA/YCYpMFnhF79ByY2G9azGq3y8s9gZMzmwjn5K7nuRZYOmceiOGfJ8IgfkzbcVDe0+0Imb9W7fDD7c93/KQzCxv30roYDbxFJUWw4lQzaAKO/p8awV+wyakDq52kBCugS4rq01cUIIXRPRtMoVdwX8clmxmEbqBeR4VoU=
-Received: from BY5PR03CA0004.namprd03.prod.outlook.com (2603:10b6:a03:1e0::14)
- by MW5PR10MB5761.namprd10.prod.outlook.com (2603:10b6:303:19a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
- 2026 11:55:30 +0000
-Received: from CO1PEPF000075EF.namprd03.prod.outlook.com
- (2603:10b6:a03:1e0:cafe::f2) by BY5PR03CA0004.outlook.office365.com
- (2603:10b6:a03:1e0::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.16 via Frontend Transport; Fri,
- 13 Mar 2026 11:55:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CO1PEPF000075EF.mail.protection.outlook.com (10.167.249.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 11:55:28 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
- 2026 06:55:26 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
- 2026 06:55:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 13 Mar 2026 06:55:26 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62DBtPNb485559;
-	Fri, 13 Mar 2026 06:55:25 -0500
-Date: Fri, 13 Mar 2026 17:25:24 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: "Kevin Hilman (TI)" <khilman@baylibre.com>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	"Geert Uytterhoeven" <geert@linux-m68k.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 2/3] pmdomain: core: add support for
- power-domains-child-ids
-Message-ID: <20260313115524.6eqm7xle5umhttzb@lcpd911>
-References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
- <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
+	id 1w11AH-000000004aD-2T1I;
+	Fri, 13 Mar 2026 11:58:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 598406012B;
+	Fri, 13 Mar 2026 11:58:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4395C19421;
+	Fri, 13 Mar 2026 11:58:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773403128;
+	bh=tJ78C2ydWglS/s0futzZmXxSLW3lVjkdvHe7e96jLE0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YH9fi2HVtrdakURceyoTnR9imhhUqeHiuq7JHN+6HvuFrlUSJsiuF29UcGpLCKg3o
+	 yR+UyV1f1BFpqY+IWXugGiLi9NVJZrpDyh/aROXOje2VjRHWkUFB0oujSJlQlpAdQo
+	 u5lUPCjabMabw5dVPXLEIbrudAxf4v8i3DazYXIs6lho6UiGsyEDdl7A1lHoyDebMe
+	 e+Emrt9EFSCc8cYmkL35NpZo/jInX4DicI/FKQ9McovSfhd9+0QvLF/owOnrwsnPBW
+	 AaZB7F9noxWYSNs2Bod/B5FC9NnzCvnUnqzQPLstIM2ufZOs1XOXeNpfH7g8JYzT3u
+	 K5SwuaZiCuw+w==
+Date: Fri, 13 Mar 2026 11:58:36 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
+	Long Li <longli@microsoft.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
+	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
+	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH 04/15] mm: add vm_ops->mapped hook
+Message-ID: <24cbbaf6-19f2-4403-8cb7-415007597345@lucifer.local>
+References: <0e0fe47852e6009f662b1fa42f836447b8d1283a.1773346620.git.ljs@kernel.org>
+ <20260313110238.2500603-1-usama.arif@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075EF:EE_|MW5PR10MB5761:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6fba719-e184-47e8-1bcb-08de80f76bf8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: BaPH4Pu0Zkeh7TzumQsCq5MkMnLEOeAMczvW6VAadAUrEf5iVYY4fCf3JeOx/wfrebZVod9/7Q4IbTbU1GyiOwqpM8Y0LHSW5Nayf9t4tefcTmobZ5o4xG/wRchrbVDyp0Uofwa7whPvOFMg8lgGL6G2FbV/3sl2Tv4LXSs/nTv+zeb7bHnka6zke1F2vKKZQTu5hFlt400lAcIOEZK8s51c3iQxyk6HjJgW/OZllnmCkeOCJNHQM8OX2+vaS91zh5/5W6Kk7eWS9TaSd0L9xSeUAcT5UGY3uKYzaRdi1gJa8n1EyB8ppuCWX1pylCfIydr1T2gPDVhMkHdsHOZEsCRWg+8G4v1kH45PvveSqgEUnB5fUk8RpDeTNa3+uddA5sA8j/tb41yl3SUG8VEQhwguNCSlGN6fDmfQVJer/0GdoM2vuL0Kr7xY6h8HIPgDXXSZchAUqxeoBEDSR7ZMziWJgd4x5W8eXTrpZ1mI/LLusUnt3HH/wOoYZeCSxEYG+EJXCYDk9ifF8ptSd9egU8TJZ+CZ7cSIwAhc40gi2oHsou/5vvVtt/Qxix5aee5DImOJtzWjjvkpbEkRISY135/g1UYED264VEkqKEbhhuWLRl0J1n0poioUvrD498uZucFgrQk8/7n4VbQjgEqRGlJFOYtrBFRh1ftqgcx27il+ZJ2PXz4XOyPVN+8JgbwXXk9Guw9rjKBJ5OKYNV6tz0d/fCv6Hiwkaqm+ahcuBTxheygpksGTI7tbeC+hVjA5k4vIP3tOk9+n5yu+gk6/mA==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R9ax/2FKM6Xi3WHhXKP+6RWb1tCjJ8MO/trhG/DwJcXvtwEwnfuLX3LKxqX2RIsAyNhICgzqd/IIeSRfwTuLRH/BKVOod5m32YZOq0ujKZLG3qs1axnnnmLg4F3Xu5V0iNRPHYN6kTBxyu+vd70/RgbCVrlVPWzmUJUJYH/vM70IhTx8O0P3rJ5GJdIjbLm/xEIInQhdnBXXjbxcTS7ba2346VCaYXgc3xzDKXcwh5+FRg3EtbivRO8Nsub9OgrtezdhqyQkUdJKex0g3Sb+wk8W3Z4s3X5KTCGgR6t+0zWO2hcD5oezpxgFbdtZpW/gyxW9N2DBUW99KgfYmvv3ufNvG+R8bHu3iSO5VI1Z5e9Lu/vDJhKX3uzEWc1s+AxfvT5anC8jCB/1lpdP5bXOfJwYrJHdZEGMZE+fvOsVqYUJQvcbZlZYYGTAPICQ+ZZy
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 11:55:28.8534
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6fba719-e184-47e8-1bcb-08de80f76bf8
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EF.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5761
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_045536_099105_80330011 
-X-CRM114-Status: GOOD (  31.60  )
+In-Reply-To: <20260313110238.2500603-1-usama.arif@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,312 +85,441 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
+On Fri, Mar 13, 2026 at 04:02:36AM -0700, Usama Arif wrote:
+> On Thu, 12 Mar 2026 20:27:19 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
+>
+> > Previously, when a driver needed to do something like establish a reference
+> > count, it could do so in the mmap hook in the knowledge that the mapping
+> > would succeed.
+> >
+> > With the introduction of f_op->mmap_prepare this is no longer the case, as
+> > it is invoked prior to actually establishing the mapping.
+> >
+> > To take this into account, introduce a new vm_ops->mapped callback which is
+> > invoked when the VMA is first mapped (though notably - not when it is
+> > merged - which is correct and mirrors existing mmap/open/close behaviour).
+> >
+> > We do better that vm_ops->open() here, as this callback can return an
+> > error, at which point the VMA will be unmapped.
+> >
+> > Note that vm_ops->mapped() is invoked after any mmap action is
+> > complete (such as I/O remapping).
+> >
+> > We intentionally do not expose the VMA at this point, exposing only the
+> > fields that could be used, and an output parameter in case the operation
+> > needs to update the vma->vm_private_data field.
+> >
+> > In order to deal with stacked filesystems which invoke inner filesystem's
+> > mmap() invocations, add __compat_vma_mapped() and invoke it on
+> > vfs_mmap() (via compat_vma_mmap()) to ensure that the mapped callback is
+> > handled when an mmap() caller invokes a nested filesystem's mmap_prepare()
+> > callback.
+> >
+> > We can now also remove call_action_complete() and invoke
+> > mmap_action_complete() directly, as we separate out the rmap lock logic to
+> > be called in __mmap_region() instead via maybe_drop_file_rmap_lock().
+> >
+> > We also abstract unmapping of a VMA on mmap action completion into its own
+> > helper function, unmap_vma_locked().
+> >
+> > Additionally, update VMA userland test headers to reflect the change.
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+> > ---
+> >  include/linux/fs.h              |  9 +++-
+> >  include/linux/mm.h              | 17 +++++++
+> >  mm/internal.h                   | 10 ++++
+> >  mm/util.c                       | 86 ++++++++++++++++++++++++---------
+> >  mm/vma.c                        | 41 +++++++++++-----
+> >  tools/testing/vma/include/dup.h | 34 ++++++++++++-
+> >  6 files changed, 158 insertions(+), 39 deletions(-)
+> >
+> > diff --git a/include/linux/fs.h b/include/linux/fs.h
+> > index a2628a12bd2b..c390f5c667e3 100644
+> > --- a/include/linux/fs.h
+> > +++ b/include/linux/fs.h
+> > @@ -2059,13 +2059,20 @@ static inline bool can_mmap_file(struct file *file)
+> >  }
+> >
+> >  int compat_vma_mmap(struct file *file, struct vm_area_struct *vma);
+> > +int __vma_check_mmap_hook(struct vm_area_struct *vma);
+> >
+> >  static inline int vfs_mmap(struct file *file, struct vm_area_struct *vma)
+> >  {
+> > +	int err;
+> > +
+> >  	if (file->f_op->mmap_prepare)
+> >  		return compat_vma_mmap(file, vma);
+> >
+> > -	return file->f_op->mmap(file, vma);
+> > +	err = file->f_op->mmap(file, vma);
+> > +	if (err)
+> > +		return err;
+> > +
+> > +	return __vma_check_mmap_hook(vma);
+> >  }
+> >
+> >  static inline int vfs_mmap_prepare(struct file *file, struct vm_area_desc *desc)
+> > diff --git a/include/linux/mm.h b/include/linux/mm.h
+> > index 12a0b4c63736..7333d5db1221 100644
+> > --- a/include/linux/mm.h
+> > +++ b/include/linux/mm.h
+> > @@ -759,6 +759,23 @@ struct vm_operations_struct {
+> >  	 * Context: User context.  May sleep.  Caller holds mmap_lock.
+> >  	 */
+> >  	void (*close)(struct vm_area_struct *vma);
+> > +	/**
+> > +	 * @mapped: Called when the VMA is first mapped in the MM. Not called if
+> > +	 * the new VMA is merged with an adjacent VMA.
+> > +	 *
+> > +	 * The @vm_private_data field is an output field allowing the user to
+> > +	 * modify vma->vm_private_data as necessary.
+> > +	 *
+> > +	 * ONLY valid if set from f_op->mmap_prepare. Will result in an error if
+> > +	 * set from f_op->mmap.
+> > +	 *
+> > +	 * Returns %0 on success, or an error otherwise. On error, the VMA will
+> > +	 * be unmapped.
+> > +	 *
+> > +	 * Context: User context.  May sleep.  Caller holds mmap_lock.
+> > +	 */
+> > +	int (*mapped)(unsigned long start, unsigned long end, pgoff_t pgoff,
+> > +		      const struct file *file, void **vm_private_data);
+> >  	/* Called any time before splitting to check if it's allowed */
+> >  	int (*may_split)(struct vm_area_struct *vma, unsigned long addr);
+> >  	int (*mremap)(struct vm_area_struct *vma);
+> > diff --git a/mm/internal.h b/mm/internal.h
+> > index 7bfa85b5e78b..f0f2cf1caa36 100644
+> > --- a/mm/internal.h
+> > +++ b/mm/internal.h
+> > @@ -158,6 +158,8 @@ static inline void *folio_raw_mapping(const struct folio *folio)
+> >   * mmap hook and safely handle error conditions. On error, VMA hooks will be
+> >   * mutated.
+> >   *
+> > + * IMPORTANT: f_op->mmap() is deprecated, prefer f_op->mmap_prepare().
+> > + *
+> >   * @file: File which backs the mapping.
+> >   * @vma:  VMA which we are mapping.
+> >   *
+> > @@ -201,6 +203,14 @@ static inline void vma_close(struct vm_area_struct *vma)
+> >  /* unmap_vmas is in mm/memory.c */
+> >  void unmap_vmas(struct mmu_gather *tlb, struct unmap_desc *unmap);
+> >
+> > +static inline void unmap_vma_locked(struct vm_area_struct *vma)
+> > +{
+> > +	const size_t len = vma_pages(vma) << PAGE_SHIFT;
+> > +
+> > +	mmap_assert_locked(vma->vm_mm);
+> > +	do_munmap(vma->vm_mm, vma->vm_start, len, NULL);
+> > +}
+> > +
+> >  #ifdef CONFIG_MMU
+> >
+> >  static inline void get_anon_vma(struct anon_vma *anon_vma)
+> > diff --git a/mm/util.c b/mm/util.c
+> > index dba1191725b6..2b0ed54008d6 100644
+> > --- a/mm/util.c
+> > +++ b/mm/util.c
+> > @@ -1163,6 +1163,55 @@ void flush_dcache_folio(struct folio *folio)
+> >  EXPORT_SYMBOL(flush_dcache_folio);
+> >  #endif
+> >
+> > +static int __compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
+> > +{
+> > +	struct vm_area_desc desc = {
+> > +		.mm = vma->vm_mm,
+> > +		.file = file,
+> > +		.start = vma->vm_start,
+> > +		.end = vma->vm_end,
+> > +
+> > +		.pgoff = vma->vm_pgoff,
+> > +		.vm_file = vma->vm_file,
+> > +		.vma_flags = vma->flags,
+> > +		.page_prot = vma->vm_page_prot,
+> > +
+> > +		.action.type = MMAP_NOTHING, /* Default */
+> > +	};
+> > +	int err;
+> > +
+> > +	err = vfs_mmap_prepare(file, &desc);
+> > +	if (err)
+> > +		return err;
+> > +
+> > +	err = mmap_action_prepare(&desc, &desc.action);
+> > +	if (err)
+> > +		return err;
+> > +
+> > +	set_vma_from_desc(vma, &desc);
+> > +	return mmap_action_complete(vma, &desc.action);
+> > +}
+> > +
+> > +static int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
+> > +{
+> > +	const struct vm_operations_struct *vm_ops = vma->vm_ops;
+> > +	void *vm_private_data = vma->vm_private_data;
+> > +	int err;
+> > +
+> > +	if (!vm_ops->mapped)
+> > +		return 0;
+> > +
+>
+> Hello!
+>
+> Can vm_ops be NULL here?  __compat_vma_mapped() is called from
+> compat_vma_mmap(), which is reached when a filesystem provides
+> mmap_prepare.  If the mmap_prepare hook does not set desc->vm_ops,
+> vma->vm_ops will be NULL and this dereferences a NULL pointer.
 
-On Mar 10, 2026 at 17:19:24 -0700, Kevin Hilman (TI) wrote:
-> Currently, PM domains can only support hierarchy for simple
-> providers (e.g. ones with #power-domain-cells = 0).
-> 
-> Add support for oncell providers as well by adding a new property
-> `power-domains-child-ids` to describe the parent/child relationship.
-> 
-> For example, an SCMI PM domain provider has multiple domains, each of
-> which might be a child of diffeent parent domains. In this example,
+I _think_ for this to ever be invoked, you would need to be dealing with a
+file-backed VMA so vm_ops->fault would HAVE to be defined.
 
-s/diffeent/different
+But you're right anyway as a matter of principle we should check it! Will fix.
 
-> the parent domains are MAIN_PD and WKUP_PD:
-> 
->     scmi_pds: protocol@11 {
->         reg = <0x11>;
->         #power-domain-cells = <1>;
->         power-domains = <&MAIN_PD>, <&WKUP_PD>;
->         power-domains-child-ids = <15>, <19>;
->     };
-> 
-> With this example using the new property, SCMI PM domain 15 becomes a
-> child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
-> WKUP_PD.
-> 
-> To support this feature, add two new core functions
-> 
-> - of_genpd_add_child_ids()
-> - of_genpd_remove_child_ids()
-> 
-> which can be called by pmdomain providers to add/remove child domains
-> if they support the new property power-domains-child-ids.
-> 
-> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
-> ---
+>
+> For e.g. drivers/char/mem.c, mmap_zero_prepare() would trigger
+> a NULL pointer dereference here.
+>
+> Would need to do
+> 	if (!vm_ops || !vm_ops->mapped)
+> 		return 0;
+>
+> here
 
-I've tested multiple possibilities with this series on the TI AM62L,
-Tested-by: Dhruva Gole <d-gole@ti.com>
+Yes.
 
-I tried having more parents than child nodes. That failed.
-Tried less parents, more child nodes, failed as well.
-< All as expected >
+>
+>
+> > +	err = vm_ops->mapped(vma->vm_start, vma->vm_end, vma->vm_pgoff, file,
+> > +			     &vm_private_data);
+> > +	if (err)
+> > +		unmap_vma_locked(vma);
+>
+> when mapped() returns an error, unmap_vma_locked(vma) is called
+> but execution continues into the vm_private_data update below.  After
+> unmap_vma_locked() the VMA may be freed (do_munmap can remove the VMA
+> entirely), so accessing vma->vm_private_data after that is a
+> use-after-free.
 
-Tried the proper thing , worked :) (attached a short log of working case)
+Very good point :) will fix thanks!
 
-8<-----------------------
-root@am62lxx-evm:~# cat /sys/kernel/debug/pm_genpd/power-controller-cluster/sub_domains
-GPMC0
-ELM0
-root@am62lxx-evm:~# cat /sys/kernel/debug/pm_genpd/power-controller-main/sub_domains
-power-controller-cluster
-WKUP_GTC0
-MSRAM_96K0
-MCSPI0
-root@am62lxx-evm:~# uname -a
-Linux am62lxx-evm 7.0.0-rc3-next-20260312-00003-g9556feac2532-dirty #2 SMP PREEMPT Fri Mar 13 16:13:51 IST 2026 aarch64 GNU/Linux
----------------------->8
+Probably:
 
-changes in DT:
+	if (err)
+		unmap_vma_locked(vma);
+	else if (vm_private_data != vma->vm_private_data)
+		vma->vm_private_data = vm_private_data;
 
-8<------------------------------------------
-+&scmi_pds {
-+       power-domains = <&MAIN_PD>, <&MAIN_PD>, <&CLUSTER_PD>,<&CLUSTER_PD>, <&CLUSTER_PD>;
-+       power-domains-child-ids = <58>, <63>, <72>, <37>, <25>;
-+};
-+
-+&psci {
-+       CLUSTER_PD: power-controller-cluster {
-+               #power-domain-cells = <0>;
-+               power-domains = <&MAIN_PD>;
-+       };
-+
-+       MAIN_PD: power-controller-main {
-+               #power-domain-cells = <0>;
-+       };
- };
---------------------------------------------->8
+	return err;
 
->  drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  include/linux/pm_domain.h |  16 ++++++++++++++++
->  2 files changed, 185 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index 61c2277c9ce3..acb45dd540b7 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
->  	return genpd;
->  }
->  
-> +/**
-> + * of_genpd_add_child_ids() - Parse power-domains-child-ids property
-> + * @np: Device node pointer associated with the PM domain provider.
-> + * @data: Pointer to the onecell data associated with the PM domain provider.
-> + *
-> + * Parse the power-domains and power-domains-child-ids properties to establish
-> + * parent-child relationships for PM domains. The power-domains property lists
-> + * parent domains, and power-domains-child-ids lists which child domain IDs
-> + * should be associated with each parent.
-> + *
-> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
-> + */
-> +int of_genpd_add_child_ids(struct device_node *np,
-> +			   struct genpd_onecell_data *data)
-> +{
-> +	struct of_phandle_args parent_args;
-> +	struct generic_pm_domain *parent_genpd, *child_genpd;
-> +	struct of_phandle_iterator it;
-> +	const struct property *prop;
-> +	const __be32 *item;
-> +	u32 child_id;
-> +	int ret;
-> +
-> +	/* Check if both properties exist */
-> +	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
-> +		return -ENOENT;
-> +
-> +	prop = of_find_property(np, "power-domains-child-ids", NULL);
-> +	if (!prop)
-> +		return -ENOENT;
-> +
-> +	item = of_prop_next_u32(prop, NULL, &child_id);
-> +
-> +	/* Iterate over power-domains phandles and power-domains-child-ids in lockstep */
-> +	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
-> +		if (!item) {
-> +			pr_err("power-domains-child-ids shorter than power-domains for %pOF\n", np);
-> +			ret = -EINVAL;
-> +			goto err_put_node;
-> +		}
-> +
-> +		/*
-> +		 * Fill parent_args from the iterator. it.node is released by
-> +		 * the next of_phandle_iterator_next() call at the top of the
-> +		 * loop, or by the of_node_put() on the error path below.
-> +		 */
-> +		parent_args.np = it.node;
-> +		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
-> +								  MAX_PHANDLE_ARGS);
-> +
-> +		/* Get the parent domain */
-> +		parent_genpd = genpd_get_from_provider(&parent_args);
-> +		if (IS_ERR(parent_genpd)) {
-> +			pr_err("Failed to get parent domain for %pOF: %ld\n",
-> +			       np, PTR_ERR(parent_genpd));
-> +			ret = PTR_ERR(parent_genpd);
-> +			goto err_put_node;
-> +		}
-> +
-> +		/* Validate child ID is within bounds */
-> +		if (child_id >= data->num_domains) {
-> +			pr_err("Child ID %u out of bounds (max %u) for %pOF\n",
-> +			       child_id, data->num_domains - 1, np);
-> +			ret = -EINVAL;
-> +			goto err_put_node;
-> +		}
-> +
-> +		/* Get the child domain */
-> +		child_genpd = data->domains[child_id];
-> +		if (!child_genpd) {
-> +			pr_err("Child domain %u is NULL for %pOF\n", child_id, np);
-> +			ret = -EINVAL;
-> +			goto err_put_node;
-> +		}
-> +
-> +		/* Establish parent-child relationship */
-> +		ret = genpd_add_subdomain(parent_genpd, child_genpd);
-> +		if (ret) {
-> +			pr_err("Failed to add child domain %u to parent in %pOF: %d\n",
-> +			       child_id, np, ret);
-> +			goto err_put_node;
-> +		}
-> +
-> +		pr_debug("Added child domain %u (%s) to parent %s for %pOF\n",
-> +			 child_id, child_genpd->name, parent_genpd->name, np);
-> +
-> +		item = of_prop_next_u32(prop, item, &child_id);
-> +	}
-> +
-> +	/* of_for_each_phandle returns -ENOENT at natural end-of-list */
-> +	if (ret && ret != -ENOENT)
-> +		return ret;
-> +
-> +	/* All power-domains phandles were consumed; check for trailing child IDs */
-> +	if (item) {
-> +		pr_err("power-domains-child-ids longer than power-domains for %pOF\n", np);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_put_node:
-> +	of_node_put(it.node);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(of_genpd_add_child_ids);
-> +
-> +/**
-> + * of_genpd_remove_child_ids() - Remove parent-child PM domain relationships
-> + * @np: Device node pointer associated with the PM domain provider.
-> + * @data: Pointer to the onecell data associated with the PM domain provider.
-> + *
-> + * Reverses the effect of of_genpd_add_child_ids() by parsing the same
-> + * power-domains and power-domains-child-ids properties and calling
-> + * pm_genpd_remove_subdomain() for each established relationship.
-> + *
-> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error
-> + * code on failure.
-> + */
-> +int of_genpd_remove_child_ids(struct device_node *np,
-> +			   struct genpd_onecell_data *data)
-> +{
-> +	struct of_phandle_args parent_args;
-> +	struct generic_pm_domain *parent_genpd, *child_genpd;
-> +	struct of_phandle_iterator it;
-> +	const struct property *prop;
-> +	const __be32 *item;
-> +	u32 child_id;
-> +	int ret;
-> +
-> +	/* Check if both properties exist */
-> +	if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
-> +		return -ENOENT;
-> +
-> +	prop = of_find_property(np, "power-domains-child-ids", NULL);
-> +	if (!prop)
-> +		return -ENOENT;
-> +
-> +	item = of_prop_next_u32(prop, NULL, &child_id);
-> +
-> +	of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
-> +		if (!item)
-> +			break;
-> +
-> +		parent_args.np = it.node;
-> +		parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
-> +								  MAX_PHANDLE_ARGS);
-> +
-> +		if (child_id >= data->num_domains || !data->domains[child_id]) {
-> +			item = of_prop_next_u32(prop, item, &child_id);
-> +			continue;
-> +		}
-> +
-> +		parent_genpd = genpd_get_from_provider(&parent_args);
-> +		if (IS_ERR(parent_genpd)) {
-> +			item = of_prop_next_u32(prop, item, &child_id);
-> +			continue;
-> +		}
-> +
-> +		child_genpd = data->domains[child_id];
-> +		pm_genpd_remove_subdomain(parent_genpd, child_genpd);
-> +
-> +		item = of_prop_next_u32(prop, item, &child_id);
-> +	}
-> +
-> +	return (ret == -ENOENT) ? 0 : ret;
-> +}
-> +EXPORT_SYMBOL_GPL(of_genpd_remove_child_ids);
-> +
->  /**
->   * of_genpd_add_device() - Add a device to an I/O PM domain
->   * @genpdspec: OF phandle args to use for look-up PM domain
-> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-> index f67a2cb7d781..b44615d79af6 100644
-> --- a/include/linux/pm_domain.h
-> +++ b/include/linux/pm_domain.h
-> @@ -465,6 +465,10 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np);
->  int of_genpd_parse_idle_states(struct device_node *dn,
->  			       struct genpd_power_state **states, int *n);
->  void of_genpd_sync_state(struct device_node *np);
-> +int of_genpd_add_child_ids(struct device_node *np,
-> +			   struct genpd_onecell_data *data);
-> +int of_genpd_remove_child_ids(struct device_node *np,
-> +			      struct genpd_onecell_data *data);
->  
->  int genpd_dev_pm_attach(struct device *dev);
->  struct device *genpd_dev_pm_attach_by_id(struct device *dev,
-> @@ -534,6 +538,18 @@ struct generic_pm_domain *of_genpd_remove_last(struct device_node *np)
->  {
->  	return ERR_PTR(-EOPNOTSUPP);
->  }
-> +
-> +static inline int of_genpd_add_child_ids(struct device_node *np,
-> +					 struct genpd_onecell_data *data)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static inline int of_genpd_remove_child_ids(struct device_node *np,
-> +					    struct genpd_onecell_data *data)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
->  #endif /* CONFIG_PM_GENERIC_DOMAINS_OF */
->  
->  #ifdef CONFIG_PM
-> 
-> -- 
-> 2.51.0
-> 
-> 
+Would be fine.
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+>
+> Probably need to do:
+> 	if (err) {
+> 		unmap_vma_locked(vma);
+> 		return err;
+> 	}
+>
+> > +	/* Update private data if changed. */
+> > +	if (vm_private_data != vma->vm_private_data)
+> > +		vma->vm_private_data = vm_private_data;
+> > +
+> > +	return err;
+> > +}
+> > +
+> >  /**
+> >   * compat_vma_mmap() - Apply the file's .mmap_prepare() hook to an
+> >   * existing VMA and execute any requested actions.
+> > @@ -1191,34 +1240,26 @@ EXPORT_SYMBOL(flush_dcache_folio);
+> >   */
+> >  int compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
+> >  {
+> > -	struct vm_area_desc desc = {
+> > -		.mm = vma->vm_mm,
+> > -		.file = file,
+> > -		.start = vma->vm_start,
+> > -		.end = vma->vm_end,
+> > -
+> > -		.pgoff = vma->vm_pgoff,
+> > -		.vm_file = vma->vm_file,
+> > -		.vma_flags = vma->flags,
+> > -		.page_prot = vma->vm_page_prot,
+> > -
+> > -		.action.type = MMAP_NOTHING, /* Default */
+> > -	};
+> >  	int err;
+> >
+> > -	err = vfs_mmap_prepare(file, &desc);
+> > -	if (err)
+> > -		return err;
+> > -
+> > -	err = mmap_action_prepare(&desc, &desc.action);
+> > +	err = __compat_vma_mmap(file, vma);
+> >  	if (err)
+> >  		return err;
+> >
+> > -	set_vma_from_desc(vma, &desc);
+> > -	return mmap_action_complete(vma, &desc.action);
+> > +	return __compat_vma_mapped(file, vma);
+> >  }
+> >  EXPORT_SYMBOL(compat_vma_mmap);
+> >
+> > +int __vma_check_mmap_hook(struct vm_area_struct *vma)
+> > +{
+> > +	/* vm_ops->mapped is not valid if mmap() is specified. */
+> > +	if (WARN_ON_ONCE(vma->vm_ops->mapped))
+> > +		return -EINVAL;
+>
+> I think vma->vm_ops can be NULL here. Should be:
+>
+> 	if (vma->vm_ops && WARN_ON_ONCE(vma->vm_ops->mapped))
+> 		return -EINVAL;
+
+I think again you'd probably only invoke this on file-backed so be ok, but again
+as a matter of principle we should check it so will fix, thanks!
+
+>
+> > +
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL(__vma_check_mmap_hook);
+> > +
+> >  static void set_ps_flags(struct page_snapshot *ps, const struct folio *folio,
+> >  			 const struct page *page)
+> >  {
+> > @@ -1316,10 +1357,7 @@ static int mmap_action_finish(struct vm_area_struct *vma,
+> >  	 * invoked if we do NOT merge, so we only clean up the VMA we created.
+> >  	 */
+> >  	if (err) {
+> > -		const size_t len = vma_pages(vma) << PAGE_SHIFT;
+> > -
+> > -		do_munmap(current->mm, vma->vm_start, len, NULL);
+> > -
+> > +		unmap_vma_locked(vma);
+> >  		if (action->error_hook) {
+> >  			/* We may want to filter the error. */
+> >  			err = action->error_hook(err);
+> > diff --git a/mm/vma.c b/mm/vma.c
+> > index 054cf1d262fb..ef9f5a5365d1 100644
+> > --- a/mm/vma.c
+> > +++ b/mm/vma.c
+> > @@ -2705,21 +2705,35 @@ static bool can_set_ksm_flags_early(struct mmap_state *map)
+> >  	return false;
+> >  }
+> >
+> > -static int call_action_complete(struct mmap_state *map,
+> > -				struct mmap_action *action,
+> > -				struct vm_area_struct *vma)
+> > +static int call_mapped_hook(struct vm_area_struct *vma)
+> >  {
+> > -	int ret;
+> > +	const struct vm_operations_struct *vm_ops = vma->vm_ops;
+> > +	void *vm_private_data = vma->vm_private_data;
+> > +	int err;
+> >
+> > -	ret = mmap_action_complete(vma, action);
+> > +	if (!vm_ops || !vm_ops->mapped)
+> > +		return 0;
+> > +	err = vm_ops->mapped(vma->vm_start, vma->vm_end, vma->vm_pgoff,
+> > +			     vma->vm_file, &vm_private_data);
+> > +	if (err) {
+> > +		unmap_vma_locked(vma);
+> > +		return err;
+> > +	}
+> > +	/* Update private data if changed. */
+> > +	if (vm_private_data != vma->vm_private_data)
+> > +		vma->vm_private_data = vm_private_data;
+> > +	return 0;
+> > +}
+> >
+> > -	/* If we held the file rmap we need to release it. */
+> > -	if (map->hold_file_rmap_lock) {
+> > -		struct file *file = vma->vm_file;
+> > +static void maybe_drop_file_rmap_lock(struct mmap_state *map,
+> > +				      struct vm_area_struct *vma)
+> > +{
+> > +	struct file *file;
+> >
+> > -		i_mmap_unlock_write(file->f_mapping);
+> > -	}
+> > -	return ret;
+> > +	if (!map->hold_file_rmap_lock)
+> > +		return;
+> > +	file = vma->vm_file;
+> > +	i_mmap_unlock_write(file->f_mapping);
+> >  }
+> >
+> >  static unsigned long __mmap_region(struct file *file, unsigned long addr,
+> > @@ -2773,8 +2787,11 @@ static unsigned long __mmap_region(struct file *file, unsigned long addr,
+> >  	__mmap_complete(&map, vma);
+> >
+> >  	if (have_mmap_prepare && allocated_new) {
+> > -		error = call_action_complete(&map, &desc.action, vma);
+> > +		error = mmap_action_complete(vma, &desc.action);
+> > +		if (!error)
+> > +			error = call_mapped_hook(vma);
+> >
+> > +		maybe_drop_file_rmap_lock(&map, vma);
+> >  		if (error)
+> >  			return error;
+> >  	}
+> > diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+> > index 908beb263307..47d8db809f31 100644
+> > --- a/tools/testing/vma/include/dup.h
+> > +++ b/tools/testing/vma/include/dup.h
+> > @@ -606,12 +606,34 @@ struct vm_area_struct {
+> >  } __randomize_layout;
+> >
+> >  struct vm_operations_struct {
+> > -	void (*open)(struct vm_area_struct * area);
+> > +	/**
+> > +	 * @open: Called when a VMA is remapped or split. Not called upon first
+> > +	 * mapping a VMA.
+> > +	 * Context: User context.  May sleep.  Caller holds mmap_lock.
+> > +	 */
+> > +	void (*open)(struct vm_area_struct *vma);
+> >  	/**
+> >  	 * @close: Called when the VMA is being removed from the MM.
+> >  	 * Context: User context.  May sleep.  Caller holds mmap_lock.
+> >  	 */
+> > -	void (*close)(struct vm_area_struct * area);
+> > +	void (*close)(struct vm_area_struct *vma);
+> > +	/**
+> > +	 * @mapped: Called when the VMA is first mapped in the MM. Not called if
+> > +	 * the new VMA is merged with an adjacent VMA.
+> > +	 *
+> > +	 * The @vm_private_data field is an output field allowing the user to
+> > +	 * modify vma->vm_private_data as necessary.
+> > +	 *
+> > +	 * ONLY valid if set from f_op->mmap_prepare. Will result in an error if
+> > +	 * set from f_op->mmap.
+> > +	 *
+> > +	 * Returns %0 on success, or an error otherwise. On error, the VMA will
+> > +	 * be unmapped.
+> > +	 *
+> > +	 * Context: User context.  May sleep.  Caller holds mmap_lock.
+> > +	 */
+> > +	int (*mapped)(unsigned long start, unsigned long end, pgoff_t pgoff,
+> > +		      const struct file *file, void **vm_private_data);
+> >  	/* Called any time before splitting to check if it's allowed */
+> >  	int (*may_split)(struct vm_area_struct *area, unsigned long addr);
+> >  	int (*mremap)(struct vm_area_struct *area);
+> > @@ -1345,3 +1367,11 @@ static inline void vma_set_file(struct vm_area_struct *vma, struct file *file)
+> >  	swap(vma->vm_file, file);
+> >  	fput(file);
+> >  }
+> > +
+> > +static inline void unmap_vma_locked(struct vm_area_struct *vma)
+> > +{
+> > +	const size_t len = vma_pages(vma) << PAGE_SHIFT;
+> > +
+> > +	mmap_assert_locked(vma->vm_mm);
+> > +	do_munmap(vma->vm_mm, vma->vm_start, len, NULL);
+> > +}
+> > --
+> > 2.53.0
+> >
+> >
+
+Cheers, Lorenzo
 
