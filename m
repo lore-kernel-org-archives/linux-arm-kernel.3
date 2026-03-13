@@ -4,139 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D317C105F7B4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8056D105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RcRf3d583AbTWG0IwV75Q1ljj29J3NiwvL48y8XlcZE=; b=uuoSoqL0A3CsGKWHgoBrZO7ZXG
-	CAlhkBHWbfv2v9MX2IsyCmddkDbnYOjcEDXUl7w1q/Sxb7DMPMeSwqB8gEV1l+8C1QP4vPdcFKf/p
-	uXZE6LRb5Y4uSrIKcI4Yi3BhuX2DOFE+2O5lAVyq9LfJbPXMeDhBrsx8Hm2L1WrukHoL3CZH23pWp
-	FySIovJfJ4NOMgMOCpm/jGm6UFeG2I3WG2NCTGGUKsH9976TL5+22nhHiWXOHaOKpo6uo8rV07ENN
-	0j4oucupAgfXdYijsrluzEP0Qkais5eUltQgND7eDy8ISTqwCoEz9TFepdXSXzalVHNGt1W4oeN/1
-	xJfGCvtg==;
+	bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=; b=ZcSgxJ16b9uzXYdOM6Oj6Oags3
+	QElLWUo7ceaRIP9VqjvIk6u7CDV+V8W10EF9O0d/GVXHe2QbwWpKOay8Ld+cJsCZOI54OWYv9+WmE
+	haZ8yQYHmS3hWigLqOvM/RgKDQPyzcPEoAj0QeYFu2fNn/wRgRZUUg8j9vf/7NfAIl3q2sCT7qq+a
+	nAdUp3HRSVGOQORuRzRpem4+51ThA/iBMjwb+PWj2D0yizHch9QvpiUhDNRmPQ7s4FH5+Z1tMjV5I
+	KjXgrlH3lHo4v4cYGL85grfhcwRuX//pK+KGgYq7l+VokA48KZMsMAJTBmZr0+vYryHsljNEjFrq7
+	cH+zwVsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14D0-00000000VgR-1Vck;
-	Fri, 13 Mar 2026 15:13:50 +0000
-Received: from mail-northeuropeazon11010025.outbound.protection.outlook.com ([52.101.84.25] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w14HC-00000000W7K-4Bzq;
+	Fri, 13 Mar 2026 15:18:11 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14Cx-00000000Vfl-3C4G
+	id 1w14HA-00000000W6N-0mgD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 15:13:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xO9iWIjirc6lw9AkdeS+4zPrNwPkkbFYw1xOz1gF/Qc7V2ZU5WpwQdYAmunMEvErkRKWF/WMn0XNx3mdOSdqcY3SZfIebRMWLwS2NMuyy5gT6kzDZEAQ5t4Cw0aLdJdyYx4VJxK2XbJdsGBI7u2GZopyYk6sseCZQGAsnYu8tl9BuzovqX9kDnsV83+8tfeM5Ac5TN9yBdO9fBHkxbfv6xbasO2rqQGB2RjhKwDRqy+XoJwm8dX4OlGxvafLA795KAwsDwKwIyx6DWJqLWU+PYG4FA1QisIbiV/12OmsskNBg1lt3jJM2DCNhUhirOv4+RqpApnGRloe3noZ7XKx3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RcRf3d583AbTWG0IwV75Q1ljj29J3NiwvL48y8XlcZE=;
- b=g0bijr2G6byOooFSZ9+G3B3kIHK9Kq98UtAKUXMLcgUaKmtL4YqKzBIg87gOG8EDYqbVbGpEtuH5dYdAghb0ER6W3ezbFK2lyg/b8tA+3xCpOXvyTUEmy7xwtENBWM8WmSxPUMWs5+vgxcRtPRIsvLS31XZneUS5ihFkvxX1uZxXj2Ndm5xi3bOsRZaewX+rUG0WSQMzLs370gZm7aOaUPuJzkDImaAru7QK/LBfxjYXUhCrOiFyBTM4HMmYmnxDua3JDMaeuzipSSpAGzrQOBIV65tLcO8B1jhQCOYASJGr5xRA2hxkuGGDQD/NahrxETght6+dNOsdd/3Myrix4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RcRf3d583AbTWG0IwV75Q1ljj29J3NiwvL48y8XlcZE=;
- b=lhe4/IJKCFCgiUqG6qdMVgbl+Odasu6qC9fWdsT2uw7XGm5twRXpO7zhw1iEdCJzqQkOfjZVEnK/+BsIxlxZOu5DMza40rhb2WrXD4ASzlE41ss1DWcp+QUv5yWOQzICGJ5Mpn0FodVLCbFF89JEvZr/XaM96s/SkRN7CA/yzAlM1dcJRmUA/ZMXAehZ6+hNhuVW5tZgidRSYsdJ4QO1NmuZVo/zx0oJbwF16AxrF+iPrP/sYvOWScMsIY0HuTFeyQXtPMpZWrfZaBE3blS70SBthtYH9dl08q2XpxjmhRZOy04v05GW82rFWKdtnc8JSxQq6Z1P0q6FiDpPxpYvaA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB7743.eurprd04.prod.outlook.com (2603:10a6:102:b8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
- 2026 15:13:27 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 15:13:40 +0000
-Date: Fri, 13 Mar 2026 11:13:35 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Matthias Schiffer <matthias.schiffer@tq-group.com>,
-	Yannic Moog <y.moog@phytec.de>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 0/3] Add support for Variscite DART-MX91 and Sonata
- board
-Message-ID: <abQpn9whz_o4n86u@lizhi-Precision-Tower-5810>
-References: <cover.1772642881.git.stefano.r@variscite.com>
+	Fri, 13 Mar 2026 15:18:09 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so66435e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 08:18:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1773415086; x=1774019886; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=;
+        b=bCAIJDJrF9Z7d2iU/fLNBNPd89O9bSYjLxZbkRK8V961MxbVe7bq5bxzD6B3MymaH7
+         qYGIa1LYJCw67yRlE3Dw01EYB9rZylg+EizH/IzsERVovrjcfCpfbhmpmPqhHsRn3Xuv
+         HmCgk/dHpqkLuimiVgb7LSTixtGCaeu93SpizEegrF0YKdyEO71TJPJRXnz9PGFU0b2f
+         BQNBktWNLJkJmnBQWhdDvBsgS44038cStdr07itHl0UiQ47XRG1YO7L6auXXJH/J8A6b
+         RHl6G8Ls9Yw2jValopbKYWjLnnCV4T0sJbpIDCTxPWrwEWQObOnShY8R3o42euJJyGsf
+         1bpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773415086; x=1774019886;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=;
+        b=AzG0gzKmeiiSAD7HzwIge6X8d1FdeOsL4PJlHMfVswtQx3n1sUPYpxgl3qz+r+lfcx
+         3dC2mS2pYO91cXUIkZO9MRJ0u6y5tqxsV4zoEYs67a8sb0BT4+sSS5Uq7t/moHl8DS88
+         qw4nucG97DOnbjLttdrMH7F0gYye6umhtBqMrqyqOEtzJco47fPspefGDS3DhBWLEwYc
+         oaSRta45ZawHGfMkGPtzePgFeH6MyHLgQo+FDCvxczBwwIw194kskJufQl2/yj2YeQx4
+         AOJW+9yKvXOazagkSgkTgg+FxUNEKrDCvhClVY6/mz2gIeYD+PllilKJK2JizzDS8m6M
+         p7jA==
+X-Forwarded-Encrypted: i=1; AJvYcCWSgDSFk176j1KsjtSRceuQE6WbxvJ+LES/ljKAPEhylcq0wbvrNR+1vTSob/HMTO8YNA7LbXJcNq4WOI5Ebr1e@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFiJMHwhrufp23T2qY+zEoTDmqgIEQCrTNYHd3fJJBl2qyY0YY
+	32rlH/hfjAsfqu0DjEimd5KVDpHSAeusvEGV6YE5W0hccFl9Yxl9w9lWFAplI32bfQ==
+X-Gm-Gg: ATEYQzzTWb6hOf6J9iI4SzotnrIdNBtHYjTAIRIs3LCJEo9bhanr9aFi7KA4RBZisAZ
+	YHjiCNZnKAub1PAOzmWf0Nb4b5H/tefEwXq8hq6GbxgvRNHFxLmpQ0UzxOEcU8Hoqixu6O5xhTn
+	6pYVdqbO+shbdulMLI0AO2tKpbDTTmiA2/2dS9MACifjLNIAv1YCmbr/Z894vEukyoQYarV5I0Y
+	8BV1QIEyICB4F5xAVgwdXer4QbxzxlwnjmNU4TTNdEglMktrTthXjYhYoCb4jX/PSOSVmEfBfkQ
+	ro1gXQwWYvDqJiqtGud3uirBKL8PFHYGvev0nKDDnZtGkI58tNkv2ukKAZRz2pCe5uz0aiWKurK
+	6dH6kO34OOmTHBW7+LNU7l5HlM+cdw1Xh5N3ETY6vZ3hJPf8u1sEITTt3/3RmSsHk+/rxVse8I9
+	NHZnZtruHy+Fj5kovlI0olXPw6v4G1JLs3OhDDIE5ZVNI2a012TEKMwGiC
+X-Received: by 2002:a05:600c:2148:b0:483:1093:f29b with SMTP id 5b1f17b1804b1-4855670e644mr774745e9.8.1773415084951;
+        Fri, 13 Mar 2026 08:18:04 -0700 (PDT)
+Received: from google.com (54.95.38.34.bc.googleusercontent.com. [34.38.95.54])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541b6f708sm455930345e9.11.2026.03.13.08.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Mar 2026 08:18:04 -0700 (PDT)
+Date: Fri, 13 Mar 2026 15:18:01 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, catalin.marinas@arm.com,
+	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
+	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
+	perlarsen@google.com, qperret@google.com, rananta@google.com,
+	suzuki.poulose@arm.com, tabba@google.com, tglx@kernel.org,
+	vdonnefort@google.com, bgrzesik@google.com, will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [RFC PATCH 00/14] KVM: ITS hardening for pKVM
+Message-ID: <abQqqTYvmrtGp9l7@google.com>
+References: <20260310124933.830025-1-sebastianene@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1772642881.git.stefano.r@variscite.com>
-X-ClientProxiedBy: SN7PR04CA0079.namprd04.prod.outlook.com
- (2603:10b6:806:121::24) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7743:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab78b252-eb69-4bcd-c399-08de81131b86
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: lvPCNnoBdk+fDqpHxWOc/lsdpqbbyZsfejR1pXfS2bQm41EH7yYfMMoMTi4NXXu2/X/2pOJ8nAKTi9nz0x4e8lzZC2npoChUgoVO2woZO5nB3VRq0YXykYJQImg+UPXOM0Ryh2ikhdz4Nr0SljK45siNTPGGWEJqWTfH6VXWzNbtCuKzP1X176MsV5ddEP+wxfRPZajp1hfCsSlX8FUIhwP1XBqogV4mbx3HxjY8JWouN4lnxvmG8bPeR8QoTGJ52bFsa8DuQ+eTD8t7Ft67Aa9xQ8WZUYhJm7xjd+oOmAae3e9E9CLdL240vHUasz2gf+ushfc/WtH5jva5V3R79JsI7ZcLY9lw6SmizYQbHLsDx/zxsJBQpCUSpuvtP6Bdqr0fewL52BgD/T3xUFttCK3te9ZwQANrmCcWNjKU/PI6p/K5J6lLR7fUEQ5wIEJ8q8QwYRmyX4EInEXpk9vUB5ne0P6NWX7Mz6St5v/zQm2KxF0CiwWCb+faS6XCWbCuZGsewb2mlDp4q+mmAxYyJRn+OBe0/2+GHUWGj8roBaPKaY8xUBtyg4gNiQBSv4dq0+Vm78KxX2vBAwN0/IzfMAkgPw1SqqoH68K2fXH5aXR8+QHBwIJKqNP2l1Z8AHBC580OYV+JuELGWXzqNhgCJkE3o6HGCZ1ir0JQ0n9uV8ovEPK1IHkXLckCx7sKwGdH/j4PLPguVJZWSwMh78zQ0yxI41/L+BZl+DZdY8Tk3RAfHblT12lDZ7Yt1iJg7Za/
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uZ6ONWrdnvchdFKTv37dIgD/bna0yDBuz2II1/+FYuHdf4jezEmIntwkA32g?=
- =?us-ascii?Q?5bQ2NaQmVUJy0Kl2zQrK87opl2bMkRVXgWEKkwnYTru/BWzRWnUERBDrME8c?=
- =?us-ascii?Q?EKVKjTxIr9mc/VyrvLm++ejOWnnGeSynbQMYxXQsW8VpfoV6aWUgMro90Z6C?=
- =?us-ascii?Q?8VI04RUBPt72POhN0PSbpVM4MwNFIFXEKNcV+QJaFtt5/cr82kn9Qcswdjqo?=
- =?us-ascii?Q?KvSwX6z/73FgSyMt4tIIo08KkYOpldx4uIOcfFt3f+1ootaki8CA9HPoG3yO?=
- =?us-ascii?Q?SWhwnfDCTyc7ej2LE1/JnK7Dq38VO5SsrQLlXcd52mzggXxao4rfwIrreW9A?=
- =?us-ascii?Q?WTqc7+Wxlmhq3kHr1sm5GOi0EJ1eXNR7OkZPNz7BkofwWEv2X0shzNj3ENYi?=
- =?us-ascii?Q?Pjj35QuOeKlTboU9BPrK5We4HlFSqQzK3pPee8sedoXvNcR6H8DMvs/VJxss?=
- =?us-ascii?Q?DS3ymdzohyzWdmOpp+VIY0+9n6sl1bBNzx/xjrT4s0nU60ZehD0S33wAj2E5?=
- =?us-ascii?Q?NM0Txx2ZxdYUHvG0p0QM+yxuwDTmsq1azBVF2S0P1Tug1nnPmQtHVzS9d+7z?=
- =?us-ascii?Q?a/fIBj5nB+97uRjIAzFOyuRPpAUnaEo+3rg30g2bA/PqQwi3qXfRdYuTWSqZ?=
- =?us-ascii?Q?DhlCkGRf865TqbgjzrNnLEJSKSj8dDHu+7tSnOAke2KtIVfArNiCbRg77TR6?=
- =?us-ascii?Q?q4zik102lbENrkuXKNKmFzsq01/4s5hgddfAO5jblqxepgMWKdDtDU4W3ubt?=
- =?us-ascii?Q?SIt5J/JYf63Mo1qQyglEFFQIQr0I6DXoQ6mmVG6uOGotE52AtSejGBdBLkUU?=
- =?us-ascii?Q?2G1R2HpKLUy0joAsjn2+qZtZ3hniAx0bmRdjnfNZj2w1RX4TqClhCc3RSRHj?=
- =?us-ascii?Q?x1WNeKDmCE9/gqDxNV/9xouWnk8QO7Bixi0oO4JDbj1eti7nVcH2vGacrb00?=
- =?us-ascii?Q?Lac+7TUyroIXLAcAXz8bYjv1EKi7HcB8uGuueNS4o+AizWFVqrKXqJMsgfWb?=
- =?us-ascii?Q?4vkxtqW7dYG2Dnsy350EbLU6yauASnETFtl/CUhcV3y5dNOpMWjb6RM2fMMN?=
- =?us-ascii?Q?IRnPPGfzpXHXXWW+IqMOhqyYUrmXfKFfMbsE2xfV2CCjXL8d3tGUaAIoaFul?=
- =?us-ascii?Q?2+0vrb5yqpQptTCypttbalid34RwxyRNFSK69yazutDb5IEyibCJqke64Bvn?=
- =?us-ascii?Q?OvgzIvTyJdwkP5m3DgpAQPlOrbzbNB2aAiDA/7RMHDaP6Kpp+1w3YVVZsi/O?=
- =?us-ascii?Q?bdnQHnF5+fd95FFPn76bZfDLcp4L1mm73tUGmteG9OATsKdoETpBNpl4ZOMh?=
- =?us-ascii?Q?ZjS62MWECB96ewhGA1akDJ807a6bCOj0r7wXW2agMAcSfRu3pjHPPYm1iFEp?=
- =?us-ascii?Q?qjFnWXEgqnYwRpaarpzWVwaLxptalkMUw+AXSxYlpAUdDxecf3Z7EqwNezcD?=
- =?us-ascii?Q?/HFXbvCb5BhueXD0qNW0u3QZ5DEYLzW+nxg/kLc7CHBoKtPce7043CkxLOrE?=
- =?us-ascii?Q?COhzmkZXntpCbJgk5CY4W5N6mu1GlSbD6xd3Yx2RO9zMSpHfTptBL4LBliF0?=
- =?us-ascii?Q?bryramftCkVHddoNJ78gBU65gJJkibPStalkGeLGzIf0q4c1Y004Wj9eMOsk?=
- =?us-ascii?Q?9bwbjO0nXht5yplWxpLrlMkH/5roMHqZ+z0PlUwfdA2tor1PlUUXBqmbwK10?=
- =?us-ascii?Q?/1Omhtgrdk5LhIeRmRmU3wyE0dnSoWD0he51hY56nKAqA5n9+avXZZys9/FJ?=
- =?us-ascii?Q?prP2xX58rg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab78b252-eb69-4bcd-c399-08de81131b86
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 15:13:40.1282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wjh2IKxJ0YhLanoRYGAPVm+0DOj6niiajWASA831PloOyz3Jp8Fj/qlcMHitFdMSKgHGvj6+/xNabTxrB2AQJw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7743
+In-Reply-To: <20260310124933.830025-1-sebastianene@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_081347_804483_3E04FADF 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260313_081808_353894_45247119 
+X-CRM114-Status: GOOD (  61.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,54 +104,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 05:59:52PM +0100, Stefano Radaelli wrote:
-> This patch series adds support for the Variscite DART-MX91 system on
-> module and the Sonata carrier board.
->
-> The series includes:
-> - Device tree bindings documentation for both SOM and carrier board
-> - SOM device tree with on-module peripherals
-> - Sonata carrier board device tree with board-specific features
->
-> The implementation follows the standard SOM + carrier board pattern
-> where the SOM dtsi contains only peripherals mounted on the module,
-> while carrier-specific interfaces are enabled in the board dts.
->
-> v3->v4:
->  - Fix space between BUCK4/BUCK5 aned parenthesis
->  - Remove unused pinctrl groups
->
-> v2->v3:
->  - Rebased the series to fix DTS apply issues.
->
-> v1->v2:
->  - Ordering by hex and node name.
->
-> Stefano Radaelli (3):
->   dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
->   arm64: dts: freescale: Add support for Variscite DART-MX91
->   arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
+Hi Seb,
 
-Can you rebase to my for-next tree
-https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git/log/?h=for-next
+On Tue, Mar 10, 2026 at 12:49:19PM +0000, Sebastian Ene wrote:
+> This series introduces the necessary machinery to perform trap & emulate
+> on device access in pKVM. Furthermore, it hardens the GIC/ITS controller to
+> prevent an attacker from tampering with the hypervisor protected memory
+> through this device. 
+> 
+> In pKVM, the host kernel is initially trusted to manage the boot process but
+> its permissions are revoked once KVM initializes. The GIC/ITS device is
+> configured before the kernel deprivileges itself. Once the hypervisor
+> becomes available, sanitize the accesses to the ITS controller by
+> trapping and emulating certain registers and by shadowing some memory
+> structures used by the ITS.
+> 
+> This is required because the ITS can issue transactions on the memory
+> bus *directly*, without having an SMMU in front of it, which makes it
+> an interesting target for crossing the hypervisor-established privilege
+> boundary.
+> 
+> 
+> Patch overview
+> ==============
+> 
+> The first patch is re-used from Mostafa's series[1] which brings SMMU-v3
+> support to pKVM.
+> 
+> [1] https://lore.kernel.org/linux-iommu/20251117184815.1027271-1-smostafa@google.com/#r
+> 
+> Some of the infrastructure built in that series might intersect and we
+> agreed to converge on some changes. The patches [1 - 3] allow unmapping
+> devices from the host address space and installing a handler to trap
+> accesses from the host. While executing in the handler, enough context
+> has to be given from mem-abort to perform the emulation of the device
+> such as: the offset, the access size, direction of the write and private
+> related data specific to the device. 
+> The unmapping of the device from the host address space is performed
+> after the host deprivilege (during _kvm_host_prot_finalize call).
+> 
+> The 4th patch looks up the ITS node from the device tree and adds it to
+> an array of unmapped devices. It install a handler that forwards all the
+> MMIO request to mediate the host access inside the emulation layer and
+> to prevent breaking ITS functionality. 
+> 
+> The 5th patch changes the GIC/ITS driver to exposes two new methods
+> which will be called from the KVM layer to setup the shadow state and
+> to take the appropriate locks. This one is the most intrusive as it
+> changes the current GIC/ITS driver. I tried to avoid creating a
+> dependency with KVM to keep the GIC driver agnostic of the virtualization
+> layer but I am happy to explore other options as well. 
+> To avoid re-programming the ITS device with new shadow structures after
+> pKVM is ready, I exposed two functions to change the
+> pointers inside the driver for the following structures:
+> - the command queue points to a newly allocated queue
+> - the GITS_BASER<n> tables configured with an indirect layout have the
+>   first layer shadowed and they point to a new memory region
+> 
+> Patch 6 adds the entry point into the emulation setup and sets up the
+> shadow command queue. It adds some helper macros to define the offset
+> register and the associate action that we want to execute in the
+> emulation. It also unmaps the state passed from the host kernel
+> to prevent it from playing nasty games later on. The patch
+> traps accesses to CWRITER register and copies the commands from the
+> host command queue to the shadow command queue. 
+> 
+> Patch 7 prevents the host from directly accessing the first layer of the
+> indirect tables held in GITS_BASER<n>. It also prevents the host from
+> directly accesssing the last layer of the Device Table (since the entries
+> in this table hold the address of the ITT table) and of the vPE Table
+> (since the vPE table entries hold the address of the virtual LPI pending
+> table.
+> 
+> Patches [8-10] sanitize the commands sent to the ITS and their
+> arguments.
+> 
+> Patches [11-13] restrict the access of the host to certain registers
+> and prevent undefined behaviour. Prevent the host from re-programming
+> the tables held in the GITS_BASER register.
+> 
+> The last patch introduces an hvc to setup the ITS emulation and calls
+> into the ITS driver to setup the shadow state. 
+> 
+> 
+> Design
+> ======
+> 
+> 
+> 1. Command queue shadowing
+> 
+> The ITS hardware supports a command queue which is programmed by the driver
+> in the GITS_CBASER register. To inform the hardware that a new command
+> has been added, the driver updates an index into the GITS_CWRITER
+> register. The driver then reads the GITS_CREADR register to see if the
+> command was processed or if the queue is stalled.
+>  
+> To create a new command, the emulation layer mirrors the behavior
+> as following:
+>  (i) The host ITS driver creates a command in the shadow queue:
+> 	its_allocate_entry() -> builder()
+>  (ii) Notifies the hardware that a new command is available:
+> 	its_post_commands()
+>  (iii) Hypervisor traps the write to GITS_CWRITER:
+> 	handle_host_mem_abort() -> handle_host_mmio_trap() ->
+>             pkvm_handle_gic_emulation()
+>  (iv) Hypervisor copies the command from the host command queue
+>       to the original queue which is not accessible to the host.
+>       It parses the command and updates the hardware write.
+> 
+> The driver allocates space for the original command queue and programs
+> the hardware (GITS_CWRITER). When pKVM becomes available, the driver
+> allocates a new (shadow) queue and replaces its original pointer to
+> the queue with this new one. This is to prevent a malicious host from
+> tampering with the commands sent to the ITS hardware.
+> 
+> The entry point of our emulation shares the memory of the newly
+> allocated queue with the hypervisor and donates the memory of the
+> original queue to make it inaccesible to the host.
+> 
+> 
+> 2. Indirect tables first level shadowing
+> 
+> The ITS hardware supports indirection to minimize the space required to
+> accommodate large tables (eg. deviceId space used to index the Device Table
+> is quite sparse). This is a 2-level indirection, with entries from the
+> first table pointing to a second table.
+> 
+> An attacker in control of the host can insert an address that points to
+> the hypervisor protected memory in the first level table and then use
+> subsequent ITS commands to write to this memory (MAPD).
+> 
+> To shadow this tables, we rely on the driver to allocate space for it
+> and we copy the original content from the table into the copy. When
+> pKVM becomes available we switch the pointers that hold the orginal
+> tables to point to the copy.
+> To keep the tables from the hypervisor in sync with what the host
+> has, we update the tables when commands are sent to the ITS.
+> 
+> 
+> 3. Hiding the last layer of the Device Table and vPE Table from the host
+> 
+> An attacker in control of the host kernel can alter the content of these
+> tables directly (the Arm IHI 0069H.b spec says that is undefined behavior
+> if entries are created by software). Normally these entries are created in
+> response of commands sent to the ITS.
+> 
+> A Device Table entry that has the following structure:
+> 
+> type DeviceTableEntry is (
+> 	boolean Valid,
+> 	Address ITT_base,
+> 	bits(5) ITT_size
+> ) 
+> 
+> This can be maliciously created by an attacker and the ITT_base can be
+> pointed to hypervisor protected memory. The MAPTI command can then be
+> used to write over the ITT_base with an ITE entry.
+> 
+> Similarly a vCPU Table entry has the following structure:
+> 
+> type VCPUTableEntry is (
+> 	boolean Valid,
+> 	bits(32) RDbase,
+> 	Address VPT_base,
+> 	bits(5) VPT_size
+> )
+> 
+> VPT_base can be pointed to hypervisor protected memory and then a
+> command can be used to raise interrupts and set the corresponding
+> bit. This would give a 1-bit write primitive so is not "as generous"
+> as the others.
+> 
+> 
+> Notes
+> =====
+> 
+> 
+> Performance impact is expected with this as the emulation dance is not
+> cost free.
+> I haven't implemented any ITS quirks in the emulation and I don't know
+> whether we will need it ? (some hardware needs explicit dcache flushing
+> ITS_FLAGS_CMDQ_NEEDS_FLUSHING). 
+> 
+> Please note that Redistributors trapping hasn't been addressed at all in
+> this series and the solution is not sufficient but this can be extended
+> afterwards. 
+> The current series has been tested with Qemu (-machine
+> virt,virtualization=true,gic-version=4) and with Pixel 10.
+> 
+> 
+> Thanks,
+> Sebastian E.
+> 
+> Mostafa Saleh (1):
+>   KVM: arm64: Donate MMIO to the hypervisor
+> 
+> Sebastian Ene (13):
+>   KVM: arm64: Track host-unmapped MMIO regions in a static array
+>   KVM: arm64: Support host MMIO trap handlers for unmapped devices
+>   KVM: arm64: Mediate host access to GIC/ITS MMIO via unmapping
+>   irqchip/gic-v3-its: Prepare shadow structures for KVM host deprivilege
+>   KVM: arm64: Add infrastructure for ITS emulation setup
+>   KVM: arm64: Restrict host access to the ITS tables
+>   KVM: arm64: Trap & emulate the ITS MAPD command
+>   KVM: arm64: Trap & emulate the ITS VMAPP command
+>   KVM: arm64: Trap & emulate the ITS MAPC command
+>   KVM: arm64: Restrict host updates to GITS_CTLR
+>   KVM: arm64: Restrict host updates to GITS_CBASER
+>   KVM: arm64 Restrict host updates to GITS_BASER
+>   KVM: arm64: Implement HVC interface for ITS emulation setup
 
-And new file, run https://github.com/lznuaa/dt-format to keep node nice
-ordered.
+I tested the patches on Lenovo ideacenter Mini X Gen 10 Snapdragon,
+and the kernel hangs at boot for me with messags the following log:
 
-Frank
+[    2.735838] ITS queue timeout (1056 1024)
+[    2.739969] ITS cmd its_build_mapd_cmd failed
+[    4.776344] ITS queue timeout (1120 1024)
+[    4.780472] ITS cmd its_build_mapti_cmd failed
+[    6.816677] ITS queue timeout (1184 1024)
+[    6.820806] ITS cmd its_build_mapti_cmd failed
+[    8.857009] ITS queue timeout (1248 1024)
+[    8.861129] ITS cmd its_build_mapti_cmd failed
 
->
->  .../devicetree/bindings/arm/fsl.yaml          |   6 +
->  arch/arm64/boot/dts/freescale/Makefile        |   1 +
->  .../dts/freescale/imx91-var-dart-sonata.dts   | 471 ++++++++++++++++++
->  .../boot/dts/freescale/imx91-var-dart.dtsi    | 468 +++++++++++++++++
->  4 files changed, 946 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
->
->
-> base-commit: a251f9ed77f01f16adaaa1b3d2f568fc1b5acbfd
-> --
-> 2.47.3
->
+I am happy to do more debugging, let me know if I can try anything.
+
+Thanks,
+Mostafa
+
+> 
+>  arch/arm64/include/asm/kvm_arm.h              |   3 +
+>  arch/arm64/include/asm/kvm_asm.h              |   1 +
+>  arch/arm64/include/asm/kvm_pkvm.h             |  20 +
+>  arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  17 +
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   2 +
+>  arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  14 +
+>  arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 653 ++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 134 ++++
+>  arch/arm64/kvm/hyp/nvhe/setup.c               |  28 +
+>  arch/arm64/kvm/hyp/pgtable.c                  |   9 +-
+>  arch/arm64/kvm/pkvm.c                         |  60 ++
+>  drivers/irqchip/irq-gic-v3-its.c              | 177 ++++-
+>  include/linux/irqchip/arm-gic-v3.h            |  36 +
+>  14 files changed, 1126 insertions(+), 31 deletions(-)
+>  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+>  create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
+> 
+> -- 
+> 2.53.0.473.g4a7958ca14-goog
+> 
 
