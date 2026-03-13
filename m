@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FCB105F797
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA80F105F79A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4uzVIqz7pq7OLZ2jBdjHr4kmFUvKLHY52M+cHA2QeM=; b=lSGfXjSFhUL5LfMyr9P3WHIKsW
-	qXc6oxrSn/tiCP+Q7srIApvYRMadlu2hCg5haC2lpLsovox0CDA65KMDi883CATxpGkFHDO+OoYcz
-	deTqCOlCOuA2mGv5SIXCCASRg9B92v8yHiuu83e0HpiHcsq5o+xx5p8041B3WBOSTGUPbnhpUUVNV
-	KXMBq71fkanwKIARJnDvrsDpsZuubpOpAWI5MvI0TKCL7gn/G9bMLT7X/qJaQytBo7sSfo+b7X4Kz
-	R40NRA7WE71iV6NvhxF8vZyEVvp6hAqGTt923Gcf7mtC75VAg/CLrALfo53tOf4gyXFq1x0HHMrg1
-	dpdtRs5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=04gqaMJ7nWJ/la8QtGxvljhh8gpBd2Y7ie/l7eGhAn4=; b=0g+3ODkpTEL50qp+gZJUqabK/W
+	Eqj4gGIp40dBCd5saE773wduCo0C9MWPpKF17yXAA8rh3Vyr+ujuUA9+CVKGbKATcpJAhLotWr0En
+	GG5M1fyd1ZBl8bT5BjCV4DT0bCOBkWR5xB+zkvAb/YrOsdLHPEIMojSBz/28/3dZZqGCRT7BV4p0/
+	OFjP4tpVWwyk5Gasz6l/sr0jU1U1g4fjrrNAPD79BmdfHUkWYwe3Jca6tNJNt24lIa60lUFa9l8r0
+	NIgUsJL7Tm/YSbfQ6rJ3c5StaLBQKKHroX8nWuqH9K9cK9zIJCSz5WEXbqsBD55+1Svk9hGKAZ/9P
+	xPTQbEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10ND-0000000HZdN-2JNM;
-	Fri, 13 Mar 2026 11:08:07 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1w10Nf-0000000HZmC-00JJ;
+	Fri, 13 Mar 2026 11:08:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10NA-0000000HZbu-2NCc;
-	Fri, 13 Mar 2026 11:08:05 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773400079;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F4uzVIqz7pq7OLZ2jBdjHr4kmFUvKLHY52M+cHA2QeM=;
-	b=V+cY0BjRyCwwv+an7013A6hvA3GyXKTxVzI0c7mg6CUX4RHl0JdUtUuEibl7yaHJKANQrY
-	sfoNtKukyd5R0qYUnFCiFxmhMBVUE3qhkBh4TFl3MaFTV1RL2OfuYZ423tSWXHrbh2SiI7
-	HmHqIv7Jx07xOw2GrVC1AFAIcvl9ClA=
-From: Usama Arif <usama.arif@linux.dev>
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Usama Arif <usama.arif@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Clemens Ladisch <clemens@ladisch.de>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	id 1w10Nb-0000000HZkd-44G5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 11:08:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=04gqaMJ7nWJ/la8QtGxvljhh8gpBd2Y7ie/l7eGhAn4=; b=tlJw/A1UbK0Q9vbFr93ejntT8I
+	Nx2iJiwkgP75sChivKom8AZW7s/EOxvo/Ru3oDOMoC69QkTIzdqfG1XBfEkGwV4Q5o7EcXv1a117s
+	R+1GRBsMit93xU/oBixJPaXPcmjmf8Q5R1UwEHvJN8hX1QcWhFMEp3+9CD0tgSS9DHHmCtWyTjflZ
+	myvFkHzbjmwpr67coCFDb2rlXm0aTx13cfyLaumHRkiNpG2ZvCtrSio0v0fHkPHH/WJ98ZTHygxIv
+	/pVJpimEzyjiqdOo1EOcgj52QvpqQ5ovJNa1nHHdp+0e798YiZEJ2Pjzs0n9AazKO/XUdL4QNT2Ny
+	pKctI1AA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53580)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w10NP-000000000o3-05kB;
+	Fri, 13 Mar 2026 11:08:19 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w10NK-0000000089x-2nw7;
+	Fri, 13 Mar 2026 11:08:14 +0000
+Date: Fri, 13 Mar 2026 11:08:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Christophe Roullier <christophe.roullier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Bodo Stroesser <bostroesser@gmail.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linusw@kernel.org,
+	antonio.borneo@foss.st.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mtd@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH 05/15] fs: afs: correctly drop reference count on mapping failure
-Date: Fri, 13 Mar 2026 04:07:43 -0700
-Message-ID: <20260313110745.2573005-1-usama.arif@linux.dev>
-In-Reply-To: <4a5fa45119220b9d99ed72a36308aed01a30d2c1.1773346620.git.ljs@kernel.org>
-References: 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: stmmac: fix pinctrl management during
+ suspend/resume
+Message-ID: <abPwHh12MLwMwOIs@shell.armlinux.org.uk>
+References: <20260313105718.359614-1-christophe.roullier@foss.st.com>
+ <20260313105718.359614-2-christophe.roullier@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313105718.359614-2-christophe.roullier@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_040804_904264_85DBB5D8 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20260313_040832_020110_9029A964 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,88 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 20:27:20 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
+On Fri, Mar 13, 2026 at 11:57:16AM +0100, Christophe Roullier wrote:
+> In the deepest low-power modes, the pinctrl configuration is lost
+> and is never restored if the interface is down.
+> This commit ensures that the pinctrl state is set in all cases.
 
-> Commit 9d5403b1036c ("fs: convert most other generic_file_*mmap() users to
-> .mmap_prepare()") updated AFS to use the mmap_prepare callback in favour of
-> the deprecated mmap callback.
-> 
-> However, it did not account for the fact that mmap_prepare can fail to map
-> due to an out of memory error, and thus should not be incrementing a
-> reference count on mmap_prepare.
-> 
-> With the newly added vm_ops->mapped callback available, we can simply defer
-> this operation to that callback which is only invoked once the mapping is
-> successfully in place (but not yet visible to userspace as the mmap and VMA
-> write locks are held).
-> 
-> Therefore add afs_mapped() to implement this callback for AFS.
-> 
-> In practice the mapping allocations are 'too small to fail' so this is
-> something that realistically should never happen in practice (or would do
-> so in a case where the process is about to die anyway), but we should still
-> handle this.
-> 
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> ---
->  fs/afs/file.c | 20 ++++++++++++++++----
->  1 file changed, 16 insertions(+), 4 deletions(-)
-> 
-> diff --git a/fs/afs/file.c b/fs/afs/file.c
-> index f609366fd2ac..69ef86f5e274 100644
-> --- a/fs/afs/file.c
-> +++ b/fs/afs/file.c
-> @@ -28,6 +28,8 @@ static ssize_t afs_file_splice_read(struct file *in, loff_t *ppos,
->  static void afs_vm_open(struct vm_area_struct *area);
->  static void afs_vm_close(struct vm_area_struct *area);
->  static vm_fault_t afs_vm_map_pages(struct vm_fault *vmf, pgoff_t start_pgoff, pgoff_t end_pgoff);
-> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> +		      const struct file *file, void **vm_private_data);
->  
->  const struct file_operations afs_file_operations = {
->  	.open		= afs_open,
-> @@ -61,6 +63,7 @@ const struct address_space_operations afs_file_aops = {
->  };
->  
->  static const struct vm_operations_struct afs_vm_ops = {
-> +	.mapped		= afs_mapped,
->  	.open		= afs_vm_open,
->  	.close		= afs_vm_close,
->  	.fault		= filemap_fault,
-> @@ -500,13 +503,22 @@ static int afs_file_mmap_prepare(struct vm_area_desc *desc)
->  	afs_add_open_mmap(vnode);
+Shouldn't the pin state be restored by the pinctrl layer?
 
-Is the above afs_add_open_mmap an additional one, which could cause a reference
-leak? Does the above one need to be removed and only the one in afs_mapped()
-needs to be kept?
-
->  
->  	ret = generic_file_mmap_prepare(desc);
-> -	if (ret == 0)
-> -		desc->vm_ops = &afs_vm_ops;
-> -	else
-> -		afs_drop_open_mmap(vnode);
-> +	if (ret)
-> +		return ret;
-> +
-> +	desc->vm_ops = &afs_vm_ops;
->  	return ret;
->  }
->  
-> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> +		      const struct file *file, void **vm_private_data)
-> +{
-> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> +
-> +	afs_add_open_mmap(vnode);
-> +	return 0;
-> +}
-> +
->  static void afs_vm_open(struct vm_area_struct *vma)
->  {
->  	afs_add_open_mmap(AFS_FS_I(file_inode(vma->vm_file)));
-> -- 
-> 2.53.0
-> 
-> 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
