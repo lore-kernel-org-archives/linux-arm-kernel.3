@@ -4,155 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB64E105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6FA105F7AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TV3Bp7ypsj5/5LFVVMLalB6K+UQpGjbjOiVYswysFRM=; b=R4HI3w1vVveR4uXC7dYPNl3+vR
-	b9GK8MHxwAOpmhBn3YSVAp0A7CqDPQ2nY+OlitJVm9xCSNx8ueYJaz5IJ1FkwXUEp6HJUMc6J4I9h
-	3dQ0MUL7We/qOzaLjW5NpbQSB5OCGdlkrmQe3Me0gADSuS8m/+CX1q9PfWJHxuVeMVgA9muUSBBSv
-	AsfQCoplLWkOZBkVvNkPIjjj9TewXu8i8OqqzqhKRixHJkwjWMEhhjQSyQGG19+o7quNAEFLhV1cb
-	atY2PLeoScbMDOiq8xZ4209RpO3/mbhzXs5jeYKZ0lrDeNIC/rJEl5KuMf4kbhqdNOBwCfunfpuYl
-	aQXKx2Fw==;
+	bh=MA0+aNr3KA7zULcrduqmgAYyzjL6Nx9Y4OB6opkusTA=; b=rL6TrNeauaOevubYQDdqDeNQFn
+	aQvSLTbrJJ8Uy2gMwf3E3gvkpeLJTX52KUwgl9Ur63SQXISAQtr4sSNg+gpAllrZnAcZMzHvaAXpx
+	dITnX9DqQrwJlnYXf5JiT4VBlOlyETuBLtZioLVvT6cv2tSVYnfPq+eNZfNVwqyv+FLSQg8KsK/cM
+	ObKxcxOmSER4wlBrVfMTckxWGSOy9i6wqTO4L5bkZeUGHfC0NaHipx+AjczZozGbhSFbNargZVd5I
+	95ru5GcS2vnI8gVKuNwMGDdNMSAbSPh6w1SMHNjLxjCifIjEmKEin2rBvYuc1275r3OlUd7D5bS9E
+	YYpP/HAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13c2-00000000P4h-0LR7;
-	Fri, 13 Mar 2026 14:35:38 +0000
-Received: from mail-francesouthazon11021088.outbound.protection.outlook.com ([40.107.130.88] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w13fL-00000000PKf-0gTP;
+	Fri, 13 Mar 2026 14:39:03 +0000
+Received: from mail-westeuropeazon11011067.outbound.protection.outlook.com ([52.101.70.67] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13by-00000000P3j-2kgX
+	id 1w13fH-00000000PK5-3e1q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:35:35 +0000
+	Fri, 13 Mar 2026 14:39:01 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=nBib3pvgzSTCzisL+BJrCI1Xi9Sj8S+Dbg5/t9zaT/9Z6Kj6gSpNGfDnUneKGxgMSWibhnEFM0UnPtxsNxALcPxvGz4sGM1rpWq9LOdoLXIbgBd7TkuF4KSui+2PMLDyudkPDFXQD4JQs9madGGtki0zftwF/112tcb/QGnQ7Wp8raiDBj9Lquyl5frH0RvDDQHt2vmNOK6DAYeKohpG+531niVtJgw4RgdE5F7AqkjShXzV9TrwOPQdxWxq/PzbVpKqhjHTSjgautXScG7Ar/GYzQZnvomy/XrSLhHsouxyMIzxJrPaulHW0mwkX1tqkbbn3vXIjjAnbvottOaRFQ==
+ b=YKXYj9KSoGUndLk3Pi5Y1lGAr/H/L9rlGbbNONDm5D51xBOYtsHB85NKU2brveZSFO5zog+GlGYaiPcBQG/183cMH0zOAch4eU5twPq/mUBCRqMnAlZFJAhwzWJBa8eAjyw5TUXM9wgKcj5Oy7ZxZf25yXBPx04EeWXk8DB8Jsh598Pj9tv1VtYKSBLo91fK+AJXip9EJLf7rb/u5PfYlt8zY+Z7434CBhhhBvfm1kUhvWNDX6Zz3ZpUpy5Ij1B/L8GGcQ+wImtD4zackt95qkWaBJkPgBDoBUE/qWko0l96VC/aCwJOZhwJhNj0xlcfhXGHiwVaiuFFubKSeLNSzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TV3Bp7ypsj5/5LFVVMLalB6K+UQpGjbjOiVYswysFRM=;
- b=ONpaUMtdM6FOJIr9jq0vLZd3tzDo1OrV9F2tZ3S0rptjjCb9mKtdQSTtm+5Qw0OBHQKavfsPr9g6qznI9FasjE+9Ah08+vJzcLZiJKAM8jxYA9c8ldZ2dPV2TpPl8N2Cj9u8DhrvrWqcN1LXmp7r4JGN4nRbrHyryzY08aKoqVyJZD76rs7uIlC7oTeozMxJJveEuigru29WEaWsrydlpmh+kFlKeI0FUUVDNhZoQ7nWhew1WldqDSxIT4cQRuFEaYtPDWBBd5Uki7/+TxU6ZXiVBQVF8xDsBYZS6FhP5SKb+5axkDUrmvMkCtrin8teJU/xPuMgpxsaAnTZh3n7CA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
- is 52.17.62.50) smtp.rcpttodomain=kernel.org smtp.mailfrom=solid-run.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
- dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
- (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
- dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ bh=MA0+aNr3KA7zULcrduqmgAYyzjL6Nx9Y4OB6opkusTA=;
+ b=wS6yBEAI2QyfM7nyf+kylUO7zNnb23u3jrpSNUTccLsBrxuDW396wS82VZxgOrik/qcVIn2I01qF8ubBWoDLE42j6MBTQYeJHYr9++7kPLQv3+7I2weGpyZ1cXL3enbblqtirdnbr3uGyIpA+NyrQo7bhTC2nJHNo1/nbrg1Jn4P+ELnogpToSDYjwN7quN8+JFlzA1QlEVoHcdHnqLBUzIbxw1ZhkCnU/RvQqSiSnxAQGyEYvAIbTyi5VH/zkoqhQEwNe6zNiE9rgk30+trJyWWPXiIHWD80JoU6ke12L3w6Yug6zIlgKx6oVQ57NmEv+pFddozwFO/qRzowfOOAw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TV3Bp7ypsj5/5LFVVMLalB6K+UQpGjbjOiVYswysFRM=;
- b=MeWbFovYQMcKu+2xYN2t/l8HNGgFKqB+VBO2V0e5WECKj4YtnTFh1gC3ybhsHSXv6S6rk1XkQkmq88oDr9sJtRzqhpORmPIOxd4um3Nq+htVH+gmu7z3ADT0kbSb89jiHG0zA9Vx/RHndBDWMPK1+DW+BVYc8ZofhmxL2VAM0Vc=
-Received: from AS4P250CA0001.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5df::6)
- by VI0PR04MB11671.eurprd04.prod.outlook.com (2603:10a6:800:302::6) with
+ bh=MA0+aNr3KA7zULcrduqmgAYyzjL6Nx9Y4OB6opkusTA=;
+ b=m+RzIpNUKpJXXAIhALG/ekEt9qYZRIBN65DHAIPARKX3Um2+RQfvy2ddg5C6ANCkaf0GIWZPompAXRXKYSrgaENkfRR8WU3oD8dSnWZ+75uQeZiRFAgMXC/ka+ttk65t8Clmvd5WQEy5gZi2eWXDG3tScCNAKnTY+iN9azYOUeg=
+Received: from AS8PR04CA0071.eurprd04.prod.outlook.com (2603:10a6:20b:313::16)
+ by PAVPR08MB10331.eurprd08.prod.outlook.com (2603:10a6:102:32a::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
- 2026 14:20:59 +0000
-Received: from AMS1EPF00000040.eurprd04.prod.outlook.com
- (2603:10a6:20b:5df:cafe::85) by AS4P250CA0001.outlook.office365.com
- (2603:10a6:20b:5df::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.28 via Frontend Transport; Fri,
- 13 Mar 2026 14:21:06 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
- header.from=solid-run.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- solid-run.com discourages use of 52.17.62.50 as permitted sender)
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- AMS1EPF00000040.mail.protection.outlook.com (10.167.16.37) with Microsoft
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
+ 2026 14:38:53 +0000
+Received: from AM3PEPF0000A78F.eurprd04.prod.outlook.com
+ (2603:10a6:20b:313:cafe::88) by AS8PR04CA0071.outlook.office365.com
+ (2603:10a6:20b:313::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.29 via Frontend Transport; Fri,
+ 13 Mar 2026 14:38:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A78F.mail.protection.outlook.com (10.167.16.118) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.17
- via Frontend Transport; Fri, 13 Mar 2026 14:21:06 +0000
-Received: from emails-9471980-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-180.eu-west-1.compute.internal [10.20.5.180])
-	by mta-outgoing-dlp-141-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id F20F380C9C;
-	Fri, 13 Mar 2026 14:21:05 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Fri Mar 13 14:20:57 2026
+ via Frontend Transport; Fri, 13 Mar 2026 14:38:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CSJfQcwPN5Q1DA7ZIP3/1tIkAzEl0DTsQVp8u9OFxKNa1to1zLxCHPphKZ5g5gqyXSkH94qMJ1PV+87UlHBTQ8cwZubHhdERSPCt5KGtMD1449qXZwrt5gbJljSTMOOPQi+n1E/CVPQBDAsI9QKZx22rwTJ7q8nduE37NLa/oeb2heJmWRTPIYUkIsJMUjy6cQpaU2l4Wcunj7eRViATgMCGh2OY4bWyK111PjzBCsLhcRNbzztkPMAaHLcV4hcofXge276jKrDqBojYTrIpOyibRk+1Bbj2/fw4jwGI1zk6tR9pefSePf9WISoKqeBZwM6+hEZondSfJelWOFQDrQ==
+ b=itPbJoT8/hHk4zwHUcwXyNj4wsF8UuGezowis5v0aUQkL2TL3rP1kjnzfiad5rJfnPP4SUBNUUcN/3aZJL/ZE/Jsp4midpQoeN1qQ+JDJQO0/hDB1C/qlpVuwYwjBeJl+xJuIMJnQF/Zt7bSgZ1egebrwizBlm4OTU1ZAxCosn45gp54t3toXnN1fblEEe94H9qDFgP2h0AzcfCeGgBOEvpVbxgE9iiO4+C/T15161Q4NxpuIaq2xeyZP2LSbWoGWr/iYQlLJ3SYoeFvzThEWJ7luhY6n80dlUEl7Bg3bRHBtrFo1LcNEyTfUUY6tjw+n15r6QaBjZsC6utA4I1rJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TV3Bp7ypsj5/5LFVVMLalB6K+UQpGjbjOiVYswysFRM=;
- b=oOPmLsRVCNJB31F6PX0KZy0t8x5NVVx9Dm4z9WRU/XElfIbIek1h/+3L+DxsIvGKYv1rT1XkbRhsiYCWghAJuvRAE0bqeXjtaHW2DmFr5ymWW7H2BpxFQ1o/Z5crpahJ1kuonkRgGWst79tXKw9qgTU8b7ge06GX9ZIGq1MUMaQXch7G8bPaElrf2DRv55c9CQRR58MBmNLLPkz6H7wRRAQXmcMR3UR5Fyf3ILtc9bTos6zPXy15+95ZzTQuBtonmdd+rDgtLLdKKfPOgc1hBkFqbHId6No2HNLK/M6CfkqP/XreVRr3vRnFChthrH5/N/PNYPGVonmXFLgbeyhwcQ==
+ bh=MA0+aNr3KA7zULcrduqmgAYyzjL6Nx9Y4OB6opkusTA=;
+ b=Xc8vQfUDs49jKjyU8s9xZ3YVC/ikrmdnw6US1prU+5F8AKweoYXraSnnqm+rY5TjU9VhVeed2r9eYQVJqwfkK17q/itGrYQZ+X7lV3Gc7qaHtdFtMZXeDz3/emTlR0E5fKk6x1zeWQFJZe8IWkKAlYDfF/LiXCUjZm4nNS7sxT5mQM1Xtdl17xawAvH5L+HxqwO5iAhk9AGMTU1gP45iQeo9rHo+FavrCnkk1kpiIltQ4jPZumXOxtNKxX4GaDRq1ERqPqK/b0i1fV1jvJACLAQlPyDAiAWSC+zHMECtCW0gEbU9/yYkugRndSr78XyR4H/oyKIvnvsfjXSlzLQIUA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TV3Bp7ypsj5/5LFVVMLalB6K+UQpGjbjOiVYswysFRM=;
- b=MeWbFovYQMcKu+2xYN2t/l8HNGgFKqB+VBO2V0e5WECKj4YtnTFh1gC3ybhsHSXv6S6rk1XkQkmq88oDr9sJtRzqhpORmPIOxd4um3Nq+htVH+gmu7z3ADT0kbSb89jiHG0zA9Vx/RHndBDWMPK1+DW+BVYc8ZofhmxL2VAM0Vc=
+ bh=MA0+aNr3KA7zULcrduqmgAYyzjL6Nx9Y4OB6opkusTA=;
+ b=m+RzIpNUKpJXXAIhALG/ekEt9qYZRIBN65DHAIPARKX3Um2+RQfvy2ddg5C6ANCkaf0GIWZPompAXRXKYSrgaENkfRR8WU3oD8dSnWZ+75uQeZiRFAgMXC/ka+ttk65t8Clmvd5WQEy5gZi2eWXDG3tScCNAKnTY+iN9azYOUeg=
 Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solid-run.com;
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
- by AM9PR04MB8355.eurprd04.prod.outlook.com (2603:10a6:20b:3b7::20) with
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by DU0PR08MB9797.eurprd08.prod.outlook.com (2603:10a6:10:446::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 14:20:54 +0000
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9700.015; Fri, 13 Mar 2026
- 14:20:42 +0000
-From: Josua Mayer <josua@solid-run.com>
-Date: Fri, 13 Mar 2026 15:20:51 +0100
-Subject: [PATCH v4 10/10] arm64: dts: lx2162a-clearfog: set sfp connector
- leds function and source
-Content-Type: text/plain; charset="utf-8"
+ 2026 14:37:50 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 14:37:50 +0000
+Message-ID: <50588d97-238d-4d42-a588-c4f47dfa1c78@arm.com>
+Date: Fri, 13 Mar 2026 14:37:49 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 13/19] coresight: Add 'in_idle' argument to path
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-13-eff765d211a9@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260305-arm_coresight_path_power_management_improvement-v6-13-eff765d211a9@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260313-lx2160-sd-cd-v4-10-aabcf230fbff@solid-run.com>
-References: <20260313-lx2160-sd-cd-v4-0-aabcf230fbff@solid-run.com>
-In-Reply-To: <20260313-lx2160-sd-cd-v4-0-aabcf230fbff@solid-run.com>
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Carlos Song <carlos.song@nxp.com>
-Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>, 
- Yazan Shhady <yazan.shhady@solid-run.com>, 
- Rabeeh Khoury <rabeeh@solid-run.com>, Frank Li <frank.li@nxp.com>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Josua Mayer <josua@solid-run.com>
-X-Mailer: b4 0.14.3
-X-ClientProxiedBy: FR4P281CA0020.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c9::18) To PAXPR04MB8749.eurprd04.prod.outlook.com
- (2603:10a6:102:21f::22)
+X-ClientProxiedBy: LO4P123CA0124.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:192::21) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|AM9PR04MB8355:EE_|AMS1EPF00000040:EE_|VI0PR04MB11671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 48489168-4d20-468d-3e48-08de810bc3d4
-X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|DU0PR08MB9797:EE_|AM3PEPF0000A78F:EE_|PAVPR08MB10331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7de85051-880e-4dc8-bec1-08de810e3fe1
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: G+dKucX/idCUKltfIC2EkygT277eG6MHlV+jw4WyLzbrFEa9sH1E0jdL9raxIQz+FqtwCx8NoElh2Y0aMUTI5JKKEIKvJCHrTw4VQ2GYg1NXo26f6H9Yl+OCKfrsvzGayMrQVaujAht1hAbA8puHefsfLr1RnT/Gua5pu1QWhEzEvDuHz4LT0qm6W4s9aMi68Ue/rI2LXXZ6KDUeOLFIYkHGRqCHkGpoVCw3j5qmX/1x0K6HLKaaXJuELW9KpIQbiDLqFsu1fqOLC4ppUkn7FrZQ9iLq4F2GrKs3pAP7k4xSf1A+YJBJ0kg0o405JT36Qv/tzMV1erAkeJ8R5T1g88gIfRmRaIHrqIAEvtjtS33OAwviDMcKagGS/2t+ia12KtoaOA987WyZtiH/gHno2TZVdBMLJwHRZvC9OvVLaUCWQaGmeq4U9bHS6giGW7lN327LWFCYZN+toY4uCmdpvPI/AKSijv/T0PepXBam4uxzRx/9T8nHaDS3FXrvfkfQg/eN1nFDVFd8Ma9uGqafRldqP0g4+k9uPsc6GL9FHi3Ko7pJkIV/8htzDBBWAtNFfBA0mkA9jWNRz344yfzLKvCmzXAWT5Gcscys2p8Z35/R3ORccWHE/3xatveCf7TxWX6pfQ+sIf9zo89h5f5W/CuUuK+v9v1JP+VHPHM5AcfcQ0FRFw/EogNwh7N0H+yyx4g0EKCUy4W592GoNlnBNvUCHTaVouT3EbyWW99XKww5SfW+Qjo5b4mzbFaRh148mblJY0QZ3f6PGm+OeFs9X9WDZULF3T9jb77Xu5UenPo=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked: CvIVRNF6crLXRQouOfBlhuKJJRqyUJpw7cF6Van+/b/4BkmzuvBAjw44fVXTvOuTyy7P9uJxLdR7iSL8FsjNN7nOwTuUOBZBGmrpuXwbWo4fRIhKVbRdfAcIhmFP2yOXG/xIz2jOjJXH/Knjswk6CY2xag7rypY3WbAduK2CLCXaNUAPJlP4sLzzdoRprIzKFfcSJYuuhP4AorEQw7x8aWoDPdm9IbaVb6oyVQNbv50WrZ4Y1UVmaUes9c+cDTwBK+iTwUPiXRENlXhFV/smynQrmfOc2/5JrO5SR8rOMKEB8ZBnd7Be6rtGlM2CBms+x2zQtz44qxtXSdAJL2MdYg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8355
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 07557889abc1462289f3a0e947e76a05:solidrun,office365_emails,sent,inline:63fc3aa5d97fb79fbbc6fc70877a80c6
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016|921020|56012099003|22082099003|18002099003|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: 3XyMYpUdn0/VVB4bFoqeS8rNtBW6qHxf55skqR5YTY9KqmJg+ESZLd1jf1dKPkL7QfdCXSC1/NIzQ71P4ltipItpkgLHtZLf7Kq46yBTdAbEfiiQv5IOHOiOPt7qcg7w43hRIb/uUkdIsoSn2IXvFl1SvXCUpncrMm72rVfjBHLOjB+4WvlVS3v0+U7PCOgEUNKi64xUukZ1HZ9TQnaRXaCq1NGFh0t/gUjmm2I8E9IlacaEO/Aq0EWlWD7MSYzfCdxDbSYAFjRQfbx6Xi3cyBbF9sYYk2N1+63tYUOdZDieeplu4j2WcN2f+Mzy48uIuWEQWnBn75sWt4Yy6E46qVQP8Xaz5P3PvJw6/fYhScmRYPIrhfnE1E7tHk+5z23+aJgvvEyF0rhDyvrkwPGdD5ZNAZkq1wKrXXdldp/USa+w2EJOpaLBV9+zaeXamq5c6Y7xcxcdT6HDIqmVL3TZp7KAH7A9vNejw/mxwRnA/m8jTGL/iWdtYLdXpnCrQse/GfACQ96RJ1FQ/iO9JWCBoIZN/XpxFmW3wqU4qwcENfRdQCIsvY9UD+NfseFaHxx4jD/RxqB0mQ77kCNpxIZdFwSG75SKUW7lLWntkS68VMFpPNdgp+lI1RFjgRY8jHK31uezWoUkW4bEeimdTGkZzgWmWr4tNktKIZRJp0SoCKQcYQExdw5hXriqqnVeG/jnUGAdL5LQSI/chfhgwGeNkdzGACFQuDqmZyKjaJHLXXKfiASJoTlmzsKnttor5dOgB7FCpUnGGKAF5Bf2viEX6w==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(921020)(56012099003)(22082099003)(18002099003)(7053199007);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: KMo74pyX7/dyg/GIuz3UIhxQOBwndYXLrg7yRSP4twr5QuWwo3eM4rgr+BAH1thEf74ni4t+D5DanLxZ52nrMnk+IWU2wVDqPuqLkT4JJP9dyJPoc3Myg/GwOEDqeQ9bQWQd72CjPlaPGUyuN7veuNYN+N9OvyX+MBe2ORVeuThnroUz8jedljUyZXiSPOZkGMBkcYikd6HUnMsQc9RnkUCv+zVjwo0PIadxdc7NxUYIZr622J7jkjm/OIyTRfNzkVJ1wp2m/00lIebulIbQ6Z9FXszF4f7a0QxFqs561kyfPFATyJ7pCGV273Rh4VPvFcJpNUu03EWhhhlsAZRU5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9797
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000040.eurprd04.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A78F.eurprd04.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 54e218c4-dc8c-48c3-e625-08de810bb548
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|14060799003|36860700016|82310400026|35042699022|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: TUoct9leLsRFmlu8mzLwOFfuzDr6Z/jt71EK6MT71Qkbe946uN1PMDEs1kaV7abRNjZXwb6vtNN8LDnZVSEtvlFUwVQwLs+v9oe2PD2QWCPXn/gYmedVX3/cZpohLpWjy6rWj2wlJpLmjzrGBw2Yg3rtzRpwMNWyQu2PI5H+bONqf5SeLy2o3MLpd7vlw3yiOgyhhU0aL8b0ONtfK9SWVUeEXRyiOzqv8bNolh6nWgcqn3DnuWNWc9OUJnvmbsYDBRL++Y+MsbbIaQQQbVD1MsivjJ6ib/vaCFxzGqju7oWrhWvVpi+E7XdBgtK6yPR7tObHj4frtHHKDONxornZlIjZtFPrqTiqvpxlNpmiD+Lslsm6vQEn13Fa+exvRSQuFYZy3RWXkIuDMQES0zC4YZxG/sC47c3hjxP0IbN+lHYJ4i+YKiSKzktMnM5ChWMwdSUUa0znmbtneN3jjdseU5OsZMDiO9988ZxlsShoa8ZJCdRY6WxGcTSe9Lejq3IsyXuPNjhuffeS44X0ZZtd6VXzPXd5fTzbN7cGyCO8xV9VXPHiO4R/JOa/PIEg1K9uR49olGt+n/IEvfwbM7qdl0CrHoGrei7SBiij4DYzJYiTqZ0Q73cxl3wtgM4A2h3W9ub+C/pdfFViYIefmLaheAUPDiFtYZneivw56Sz5YhTHd2uMnGxbWwj+nY1Ms0xkKT3ZVy26U3e0eKLz1qN4Xyx7cDsQQHooZTmVOLpSGXv/5TforD7IDGGK7ph2fsorybTvq/WfOSbpv0zzBN4JUw==
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(14060799003)(36860700016)(82310400026)(35042699022)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 620537d2-00e6-4fc9-00fb-08de810e1a0d
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|14060799003|376014|35042699022|82310400026|921020|18002099003|56012099003|22082099003|7053199007;
+X-Microsoft-Antispam-Message-Info: Y3lN0DS8x5larfuHFedB0XuOD5yO6I8NJ3Jzbd1PC+JVmaGhne/mqcop9cMus1fWCJkjUSO80sd7jytGyOiK0dfQjWbE0S2i8aBJDg7a5n3AeBQ+NYMpo+RWSXXc0SRGt4AyM5QU5IRMwix8d9velLOHgXRhS4PViYpREHuvceyL/r64JSgZ7j+c00Mg5om4MxiyBu1E3ZvJU5qjjrraYRKmfMnwBcc8wK9i3tSiJjEzSMtthYQRGAMygYisqRO+Ddops2dVxb60IUWmCertGWZRrMndiXjEkd07iD+olZx0hHk66QV8eyIdUIEO7YChGPkC5q+sEK4eA0oWm8KGYjWYktgTjmcpMD47EJZvSXDOw/Y+WlxRgjOZO6RJMHC0mASuNrl7KupfJrpf0i0DGA/eHVUHB7l1u/bBDQZ7+aHOnO7Kpvw46vJbmNLGjG0prJrsocespDWv3RBcRzo+WtN93mroT3u04HowJSH6LgBFlYcXwyx1WRGM/PzjouCWgOt2zHdpBx6hR2TUfGiKEx2t/ck6sUZyuaW2c49C9PDkdAoStS15jv3qQywHl4W5Ro1ZxnCTS6EVwviNYilTU+sQCf1WdlKfvKOO1Clb91QlwE63QesAaFR3N257NbnE5qR13VP3B8fkoKe20K0twWagSJAA3uQMPgwUIdQwDb1epFIjYADnb6vcp8CXImxVoBvtIKLEcc9c7vtnwAdKYiKrhnQidx5lbz1yqu9+gUH42JCkemKgp2dv0//Uwj7Xn7yb3lO/4o9ey+xb1J//7B/x3JQvvHDou/cO2eJqrxuiXclGbKIF5LXsYNAeRv14
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(14060799003)(376014)(35042699022)(82310400026)(921020)(18002099003)(56012099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XNpuCZCyVYYoGBtbBEcpGpwEZplEz8sKaMxFBMx28NPA4uNSfDenoyeOTJXgQowyAJKVuNjHcd3tY7LDh1sRtGrNutdXG62kQv5Mwh9FtiuY4430BdiOnRqUmfSbO7O9pRDz4yf1j4T7qg/jcJ85dOa7I2LAHzpnmcQ7AX+FpdTlFD/OolPO6feoOJhuW4osms/S9yF3HKRxhlTkax8Z8TiuZbGh46V8z4sI34/L+scy7JXdX07zQYl0Pci/Ma1i03kwkRUyUHnE+MQiFW09iY6tggoGsRKc3Ph87QCcqoYRLZXbY20QWggzBhMOYskhUr/CvCzZ9EP0lhgmGpIZbeipyK6TTZo68MhFfv7cq2S005QMyScqKBYMDl4G5xQqF5FMCApJCj19mTgmzF7CPo2MbiCYLulNjlKWl5SD3WxpicBdznkXL091gOqg6oTp
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 14:21:06.2250
+X-MS-Exchange-AntiSpam-MessageData-0: W3Ry3JPPFZOgKJqvtXoDXRE32B6maPo5RsSPxG59ilODcNu16MYCgL+BLwGLSeuokQe3aaodMvazLhnwU3I8LNNm3tWLZG3PcBAO4mmYIueVmmpviI7yFzVLbdb1sPK/Z7xa0wnGaf2MdPM35vqW1E34xCOBlzUXLbN+zx08fU+pl4N0B0buaG6sg7eyQXhTdw8861my8fyXCw+G150MtM5ZnqxNpAZneHtloeN1Y0KdNLVPsy/KZavWfeE+S+Ulaa0XEXb1X0Z8uMGw30RaOf4mD0QB1L4gHhjNlFeUlcxu4x105MBfkslsZoW08AeKWPKEz86iba4thcvaEGsX593ANmghP9YvxMRctjMYjJ6TTbPx/REp6nJXA5zt/oZsfH6+XmJ2yaFu13OBHLzejBXsUHBlPy7sKluPSP5eGWLShmLUOp0tjsFNHeUCnSWA
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 14:38:53.3424
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48489168-4d20-468d-3e48-08de810bc3d4
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000040.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7de85051-880e-4dc8-bec1-08de810e3fe1
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78F.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11671
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB10331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_073534_767537_D354B5E2 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_073900_063176_9AD32F14 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,54 +160,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LX2162A Clearfog has four LEDs attached physically to the 4-port SFP
-connector. They are intended to show information relating to network
-interface status.
+On 05/03/2026 10:17, Leo Yan wrote:
+> Introduce an 'in_idle' argument to the path.  When set to true for idle
+> flow, it skips to touch the sink device to avoid long latency caused by
+> the sink operations.
+> 
+> This is a preparation for managing the path during CPU idle.
+> 
+> Tested-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-Select "netdev" as default trigger for each LED, and link each one to
-the respective dpmac instance as trigger-source.
+Does this need to be saved in the path ?  Could we solve this by doing 
+something like :
 
-Signed-off-by: Josua Mayer <josua@solid-run.com>
----
- arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+coresight_disable_path_till(coresight_path, list_head* end)
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-index 8920326a06735..9d50d3e2761da 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-@@ -41,21 +41,29 @@ leds {
- 		led_sfp_at: led-sfp-at {
- 			gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>; /* PROC_IRQ5 */
- 			default-state = "off";
-+			linux,default-trigger = "netdev";
-+			trigger-sources = <&dpmac3>;
- 		};
- 
- 		led_sfp_ab: led-sfp-ab {
- 			gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>; /* PROC_IRQ11 */
- 			default-state = "off";
-+			linux,default-trigger = "netdev";
-+			trigger-sources = <&dpmac4>;
- 		};
- 
- 		led_sfp_bt: led-sfp-bt {
- 			gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>; /* EVT1_B */
- 			default-state = "off";
-+			linux,default-trigger = "netdev";
-+			trigger-sources = <&dpmac5>;
- 		};
- 
- 		led_sfp_bb: led-sfp-bb {
- 			gpios = <&gpio2 14 GPIO_ACTIVE_HIGH>; /* EVT2_B */
- 			default-state = "off";
-+			linux,default-trigger = "netdev";
-+			trigger-sources = <&dpmac6>;
- 		};
- 	};
- 
+Disable path till "end" node.
 
--- 
-2.51.0
+coresight_disable_path(path)
+{
+   coresight_disable_path_till(path, coresight_get_sink(path);
+}
+
+Suzuki
+
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c | 17 +++++++++++++----
+>   include/linux/coresight.h                    |  2 ++
+>   2 files changed, 15 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 80489d38f690e0139c8712161c663ee63a8a7fb3..420e5a9cf38e64f133aa6780987d2d7c2804feb4 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -531,6 +531,10 @@ static void coresight_disable_path_from(struct coresight_path *path,
+>   						CORESIGHT_DEV_TYPE_SINK :
+>   						CORESIGHT_DEV_TYPE_LINK;
+>   
+> +		/* To reduce latency, CPU idle does not touch the sink */
+> +		if (path->in_idle && type == CORESIGHT_DEV_TYPE_SINK)
+> +			continue;
+> +
+>   		switch (type) {
+>   		case CORESIGHT_DEV_TYPE_SINK:
+>   			coresight_disable_sink(csdev);
+> @@ -597,10 +601,6 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+>   		csdev = nd->csdev;
+>   		type = csdev->type;
+>   
+> -		/* Enable all helpers adjacent to the path first */
+> -		ret = coresight_enable_helpers(csdev, mode, path);
+> -		if (ret)
+> -			goto err_disable_path;
+>   		/*
+>   		 * ETF devices are tricky... They can be a link or a sink,
+>   		 * depending on how they are configured.  If an ETF has been
+> @@ -612,6 +612,15 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+>   						CORESIGHT_DEV_TYPE_SINK :
+>   						CORESIGHT_DEV_TYPE_LINK;
+>   
+> +		/* To reduce latency, CPU idle does not touch the sink */
+> +		if (path->in_idle && type == CORESIGHT_DEV_TYPE_SINK)
+> +			continue;
+> +
+> +		/* Enable all helpers adjacent to the path first */
+> +		ret = coresight_enable_helpers(csdev, mode, path);
+> +		if (ret)
+> +			goto err_disable_path;
+> +
+>   		switch (type) {
+>   		case CORESIGHT_DEV_TYPE_SINK:
+>   			ret = coresight_enable_sink(csdev, mode, path);
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 96a1af3425a5d588fccb185a428cef5c88febdbd..5f778cd41e6bbb58393278f72feeaedabb0094d2 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -332,11 +332,13 @@ struct coresight_dev_list {
+>    * @path_list:		path from source to sink.
+>    * @trace_id:		trace_id of the whole path.
+>    * @handle:		handle of the aux_event.
+> + * @in_idle:		A flag to indicate if it is in CPU idle.
+>    */
+>   struct coresight_path {
+>   	struct list_head		path_list;
+>   	u8				trace_id;
+>   	struct perf_output_handle	*handle;
+> +	bool				in_idle;
+>   };
+>   
+>   enum cs_mode {
+> 
 
 
