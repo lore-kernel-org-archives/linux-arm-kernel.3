@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A026106FD82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD94A106FD88
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=usWIIk9dbk+WzTwF2qByIwW3dROKldfPMVwsNMlY308=; b=GyUu+VvHIvhGkg
-	LU4fB+CJKdcs6ifXGCBVXoMU0TbZRpgmNDiIrotbTH5j9sHWmLy1+F0oSFlaMbifuczVRdpJhqkgq
-	AFbj4Qfmhvw1z2h4GimA/FYKaW5tLKm0JH7Prf3mUtgZKhjnjwzUFalYHCN5rig1w91a16lItgUyL
-	7I1H/tQtCQsKIM0isZ/qHxCRG5b0pAEIkcTmiu6Svwa0mkZ3ZGxbYt4OMJvcc/OAPa1BPpkxr47NH
-	XoS83fhNcXsGUgNZLEdCFKe341Klyj91U6N3S6YOAItZJZPKk0EE7ajupAU0yVi2PfmBG8PFb9wlc
-	s7OsMld03xwJ3bi/MZ9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7Dt1/l/WoXyTuy6aqz2OOvey0lNxSk4HxxKWUs5Xeac=; b=oQVdcBea5GL4S9DTZmt2TJ7LKB
+	8gZMj1MFY0HmHu5EAjN60A4PzhdtLClPewZUZKDXl/rmb25dEXuTuSOMyRLF7yc9ahTy2PCtK4eLm
+	VVdl+nPEh94yKuiK9W6ZazK/FLD6p7SDZzdZhR4bJURl3+sf0YCOVC7GkiEyy+xwwx3JF3/fL9UVX
+	piXqxrNfKflzW69L4qcqA20Lvx5Fbbum+zhbskt1lVjSNbBcB8Qg+GSBDvthMlvTVa1WvGD1TFAU4
+	e7KxHMn5FleBYRL+wxs1UCXGIkUGkRLdpm8jula/QlSTZVaNxCmmhKo9sAt5vdlk52J3t1/9iEX7S
+	XF2hUyxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vh9-0000000Gjsb-3sZ8;
-	Fri, 13 Mar 2026 06:08:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0vhs-0000000Gk37-0ShU;
+	Fri, 13 Mar 2026 06:09:08 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vh8-0000000Gjrl-39F3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 06:08:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4190160130
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E973BC19424
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:08:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773382101;
-	bh=orM5K8/7CHqa8T7Py1fyX7mMHWEfOFajrWwcTwGiGbo=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=WM97ZEW/dU787GDBAOVCbEUV7wIXAuxHkjisG6RX7bDJmWx6rJpXUeZsZ33EmzATW
-	 GbKfoc7u6z/r0qPatxS8Jx2MQiXxb96emzM1g1pK0uAF8Bh6K26vSbEr4zjwr8xyKN
-	 k36RRr3eqMv+WDbgSo0JdvBOM89Take9aeHKfMy68XNIX7YWQv0G9OeK/o8J9GY8al
-	 nRwbMDmMJ/MvKVrRe1WIKtCs9obZGJXh2UY0RjvxohbXiMwnI3w0XHHIsunscDjh4I
-	 k7bew+KDGLN6/57RMIc0cnvDds+b35s2LNrHRHqzhtZJaCAh5YN/bMeWay17j14dGR
-	 a+t3bK/seWkCQ==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38a46657a9fso18462761fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Mar 2026 23:08:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWB9HJzOA/XHd8z4UIKRJWw1e+SBIrY4TpihfySXymMnJgXZ/v5vJfOOfi/nXaoj5f3Hq9e4lVQzf4Bnkvq/Wjl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI6jrikHVzHnvYS655v7cri//4k67qON0zqd5DemmYb2bqkbpz
-	t4LmBMm09KdeSr2yxZA+zGLGRzvQpZ+i43Y9AP5m2z/zrRkNCkRkhCxGJk4URkrHX2q56visGip
-	SoCT5PGXHAi+CkuDxkUy0ZaYBiDpCGrQ=
-X-Received: by 2002:a2e:8a86:0:b0:387:2df:f3ee with SMTP id
- 38308e7fff4ca-38a8978752fmr6557441fa.33.1773382099086; Thu, 12 Mar 2026
- 23:08:19 -0700 (PDT)
+	id 1w0vho-0000000Gk0Q-1HOz;
+	Fri, 13 Mar 2026 06:09:06 +0000
+X-UUID: 1f3293ac1ea311f1a21c59e7364eecb8-20260313
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:7bc6b968-39e1-4f72-bcff-73ca10c27e16,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:89c9d04,CLOUDID:c109a704f89f73548902f755b0defa24,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1f3293ac1ea311f1a21c59e7364eecb8-20260313
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 288646284; Fri, 13 Mar 2026 14:08:57 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: broonie@kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v2 00/17] cleanup in spi by use devm_clk_get_enabled
+Date: Fri, 13 Mar 2026 14:08:16 +0800
+Message-Id: <cover.1773381582.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260313020823.1592389-1-sherry.sun@nxp.com> <20260313020823.1592389-7-sherry.sun@nxp.com>
-In-Reply-To: <20260313020823.1592389-7-sherry.sun@nxp.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Fri, 13 Mar 2026 14:08:05 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65dvWRqugwBAORB_dD+3Part+OieCe9hnSR781g-6NgZA@mail.gmail.com>
-X-Gm-Features: AaiRm52-YD_vTip-QztGRiYxgL7k6zRpm-Clb44P3TJreIxPFicxmd8vkCMHT1k
-Message-ID: <CAGb2v65dvWRqugwBAORB_dD+3Part+OieCe9hnSR781g-6NgZA@mail.gmail.com>
-Subject: Re: [PATCH V8 06/13] arm: dts: imx6qdl: Add Root Port node and PERST property
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
-	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
-	kernel@pengutronix.de, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_230904_657509_2DCC8602 
+X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,106 +78,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 10:08=E2=80=AFAM Sherry Sun <sherry.sun@nxp.com> wr=
-ote:
->
-> Since describing the PCIe PERST# property under Host Bridge node is now
-> deprecated, it is recommended to add it to the Root Port node, so
-> creating the Root Port node and add the reset-gpios property in Root
-> Port.
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 +++++
->  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
->  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 +++++
->  3 files changed, 21 insertions(+)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi b/arch/arm/bo=
-ot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> index ba29720e3f72..fe9046c03ddd 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> @@ -754,11 +754,16 @@ lvds0_out: endpoint {
->  &pcie {
->         pinctrl-names =3D "default";
->         pinctrl-0 =3D <&pinctrl_pcie>;
-> +       /* This property is deprecated, use reset-gpios from the Root Por=
-t node. */
->         reset-gpio =3D <&gpio7 12 GPIO_ACTIVE_LOW>;
+I know that many old SPI drivers should not be modified for hardware
+stability and to reduce maintenance effort. But I can't help cleaning them
+up. To minimize the introduction of issues, I tried not to modify the
+timing of those hardware clock enables.
+---
+changes in v2: fix error message but having a line break
+Missing error code argument to dev_err_probe()
+---
+Pei Xiao (17):
+  spi: axiado: Use helper function devm_clk_get_enabled()
+  spi: bcm63xx-hsspi: Use helper function devm_clk_get_enabled()
+  spi: bcmbca-hsspi: Use helper function devm_clk_get_enabled()
+  spi: img-spfi: Use helper function devm_clk_get_enabled()
+  spi: imx: Use helper function devm_clk_get_enabled()
+  spi: npcm-pspi: Use helper function devm_clk_get_enabled()
+  spi: orion: Use helper function devm_clk_get_enabled()
+  spi: rockchip-sfc: Use helper function devm_clk_get_enabled()
+  spi: sifive: Use helper function devm_clk_get_enabled()
+  spi: slave-mt27xx: Use helper function devm_clk_get_enabled()
+  spi: st: Use helper function devm_clk_get_enabled()
+  spi: stm32-qspi: Use helper function devm_clk_get_enabled()
+  spi: stm32: Use helper function devm_clk_get_enabled()
+  spi: sunplus-sp7021: Use helper function devm_clk_get_enabled()
+  spi: uniphier: Use helper function devm_clk_get_enabled()
+  spi: zynq-qspi: Use helper function devm_clk_get_enabled()
+  spi: zynqmp-gqspi: Use helper function devm_clk_get_enabled()
 
-I'd say just remove the old description.
+ drivers/spi/spi-axiado.c         | 23 +++----------
+ drivers/spi/spi-bcm63xx-hsspi.c  | 44 +++++++-----------------
+ drivers/spi/spi-bcmbca-hsspi.c   | 47 +++++++++-----------------
+ drivers/spi/spi-img-spfi.c       | 14 ++------
+ drivers/spi/spi-imx.c            | 15 ++-------
+ drivers/spi/spi-npcm-pspi.c      | 19 ++++-------
+ drivers/spi/spi-orion.c          | 10 ++----
+ drivers/spi/spi-rockchip-sfc.c   | 20 ++---------
+ drivers/spi/spi-sifive.c         | 20 ++++-------
+ drivers/spi/spi-slave-mt27xx.c   |  8 +----
+ drivers/spi/spi-st-ssc4.c        | 14 +++-----
+ drivers/spi/spi-stm32-qspi.c     | 17 +++-------
+ drivers/spi/spi-stm32.c          | 58 ++++++++++----------------------
+ drivers/spi/spi-sunplus-sp7021.c | 15 +--------
+ drivers/spi/spi-uniphier.c       | 15 +++------
+ drivers/spi/spi-zynq-qspi.c      | 28 ++++-----------
+ drivers/spi/spi-zynqmp-gqspi.c   | 17 ++--------
+ 17 files changed, 94 insertions(+), 290 deletions(-)
 
-You're asking for trouble by describing the same thing in two different pla=
-ces.
+-- 
+2.25.1
 
->         vpcie-supply =3D <&reg_pcie>;
-
-I would probably also take this chance to just convert to the proper PCI
-slot supply, and just add pwrctrl support into your PCIe driver.
-
-
->         status =3D "okay";
->  };
->
-> +&pcie_port0 {
-> +       reset-gpios =3D <&gpio7 12 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &pwm1 {
->         pinctrl-names =3D "default";
->         pinctrl-0 =3D <&pinctrl_pwm1>;
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/n=
-xp/imx/imx6qdl.dtsi
-> index 4dc2c410cf61..9438862b9927 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> @@ -302,6 +302,17 @@ pcie: pcie@1ffc000 {
->                                  <&clks IMX6QDL_CLK_PCIE_REF_125M>;
->                         clock-names =3D "pcie", "pcie_bus", "pcie_phy";
->                         status =3D "disabled";
-> +
-> +                       pcie_port0: pcie@0 {
-> +                               compatible =3D "pciclass,0604";
-> +                               device_type =3D "pci";
-> +                               reg =3D <0x0 0x0 0x0 0x0 0x0>;
-> +                               bus-range =3D <0x01 0xff>;
-> +
-> +                               #address-cells =3D <3>;
-> +                               #size-cells =3D <2>;
-> +                               ranges;
-> +                       };
->                 };
->
->                 aips1: bus@2000000 { /* AIPS1 */
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts b/arch/arm/bo=
-ot/dts/nxp/imx/imx6qp-sabreauto.dts
-> index c5b220aeaefd..6b12cab7175f 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> @@ -45,10 +45,15 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ         0x000b1
->  };
->
->  &pcie {
-> +       /* This property is deprecated, use reset-gpios from the Root Por=
-t node. */
->         reset-gpio =3D <&max7310_c 5 GPIO_ACTIVE_LOW>;
->         status =3D "okay";
->  };
->
-> +&pcie_port0 {
-> +       reset-gpios =3D <&max7310_c 5 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &sata {
->         status =3D "okay";
->  };
-> --
-> 2.37.1
->
->
 
