@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8DF105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18604105F7AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPwuO7cTKUbdSa+bWZ8NuvGO49Vsk/bEKDNGZaO29t0=; b=k915k8GvZtpll2ml8PMbZ0FJt5
-	Ix+tbP5tTycTMUOgWC2gkTI3r8j7JW/Ge0Yj2br85gzBZDxw+L02XJLLL5u/U4QAIbyNUCn1Aej4C
-	p6RAaxE3Yxam/uTdm2VjLbKakDYc7Sw/g6LjX86tqfZjSqWNzFiQ79I49OGDMJXg+BY13u0Iub9bQ
-	6omU3USBrOQIbVQJtB7DE0LviN+wojp7E3Spp0Vw3Esut01RGOWrklXTGMeX981xaHP6mjnzTP9qB
-	6nkE5DCCw1F372qHDw+8JcFV2lUlYoUl/bDAnnwGHYoYfCGrwo9OfZzzBOe3FTvJIpi+NJhrHneB1
-	0gnchLBg==;
+	bh=ssSgdRSI41/zPAJvlGRDEzQhsl+equo0JIIAZ1qutL8=; b=fenTbRUXRRVF7bCHUXIKIo8z2V
+	VCy2fw+3ytdbPG6Kt7YR+IEdgbN0OWwtTPyU1fQlHYa9Lq8Pj6A4ebbGgSMMyt++c90ET6Y4v+lEA
+	DpmcfZnSbC9hQIhi/J6vrtrhFVVD3RsK1bZ/98CGgFFHrL3eM7FW3Zv9VN294rQ/hZcTOfHxsSzt8
+	HVZBm/NEqCMI91IFbopE0C1E4BsfdXKo5ohzDrW2bmXsWLkzk8KGtAGbPfqqA/bn8fakxfObg7Y5M
+	uz5oL+wH4YJHUqlH6BJDMysbA9p15K5x7h08F/DJnUxj1UQsGsYWZpSSlfAd7wx2HDVhGhY+IU0kk
+	d7TwqqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nF-00000000Qhr-32Y6;
-	Fri, 13 Mar 2026 14:47:13 +0000
+	id 1w13nL-00000000Qnb-2SXk;
+	Fri, 13 Mar 2026 14:47:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13nK-00000000Qli-2rld
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 14:47:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ssSgdRSI41/zPAJvlGRDEzQhsl+equo0JIIAZ1qutL8=; b=hcT2NuYzV1lGnr4sDG5BjZxx77
+	3UbYOVYIatWnyCQWDNVViZQVRdoZiXR4US3ayznwsqRCBWddfNzkYSjetunjh+EqAxxaoCXTUMkKf
+	wF++g/KmfrwAS61hpGpEDRzACL8O4NZt0cLRxJE9E8k2Et/WX/Hpn42nNb/blMncjQ1S12zlbjSld
+	sPKmMNNAhgduvowhUFPMmslP7xaRtZZEwOL8ZXmFUHZrjZRTLGx32svJ31RNhKV2wZBAIJSqZ6G4h
+	V7gb9yb8Z2n2p1aJFqvJUP+aSZlqg01YxvlwU0XZ9DaHgvrO9VcAH/JXEzek2OcKm26Qh/JIfYGkj
+	zamwjl+A==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13nD-00000000Qfp-2ep9
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13nH-00000003Zn6-1zB3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:47:12 +0000
+	Fri, 13 Mar 2026 14:47:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD59F244B;
-	Fri, 13 Mar 2026 07:47:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B6C51E7D;
+	Fri, 13 Mar 2026 07:47:08 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0A94D3F7BD;
-	Fri, 13 Mar 2026 07:47:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3CCBA3F7BD;
+	Fri, 13 Mar 2026 07:47:10 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +85,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 09/40] arm64: mpam: Advertise the CPUs MPAM limits to the driver
-Date: Fri, 13 Mar 2026 14:45:46 +0000
-Message-ID: <20260313144617.3420416-10-ben.horgan@arm.com>
+Subject: [PATCH v6 10/40] arm64: mpam: Add cpu_pm notifier to restore MPAM sysregs
+Date: Fri, 13 Mar 2026 14:45:47 +0000
+Message-ID: <20260313144617.3420416-11-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074711_750311_EFC619DA 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260313_144715_831959_ADD7BECA 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,19 +112,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-Requestors need to populate the MPAM fields for any traffic they send on
-the interconnect. For the CPUs these values are taken from the
-corresponding MPAMy_ELx register. Each requestor may have a limit on the
-largest PARTID or PMG value that can be used. The MPAM driver has to
-determine the system-wide minimum supported PARTID and PMG values.
+The MPAM system registers will be lost if the CPU is reset during PSCI's
+CPU_SUSPEND.
 
-To do this, the driver needs to be told what each requestor's limit is.
+Add a PM notifier to restore them.
 
-CPUs are special, but this infrastructure is also needed for the SMMU and
-GIC ITS. Call the helper to tell the MPAM driver what the CPUs can do.
-
-The return value can be ignored by the arch code as it runs well before the
-MPAM driver starts probing.
+mpam_thread_switch(current) can't be used as this won't make any changes if
+the in-memory copy says the register already has the correct value. In
+reality the system register is UNKNOWN out of reset.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -119,41 +129,75 @@ Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/kernel/mpam.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Changes since v3:
+Always set MPAM1_EL1.MPAMEN rather than relying on it being read only
+Bail out early if mpam not supported (Gavin)
+---
+ arch/arm64/kernel/mpam.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
 diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
-index 9866d2ca0faa..e6feff2324ac 100644
+index e6feff2324ac..48ec0ffd5999 100644
 --- a/arch/arm64/kernel/mpam.c
 +++ b/arch/arm64/kernel/mpam.c
-@@ -3,6 +3,7 @@
- 
+@@ -4,6 +4,7 @@
  #include <asm/mpam.h>
  
-+#include <linux/arm_mpam.h>
+ #include <linux/arm_mpam.h>
++#include <linux/cpu_pm.h>
  #include <linux/jump_label.h>
  #include <linux/percpu.h>
  
-@@ -11,3 +12,14 @@ DEFINE_PER_CPU(u64, arm64_mpam_default);
- DEFINE_PER_CPU(u64, arm64_mpam_current);
+@@ -13,12 +14,44 @@ DEFINE_PER_CPU(u64, arm64_mpam_current);
  
  u64 arm64_mpam_global_default;
-+
-+static int __init arm64_mpam_register_cpus(void)
+ 
++static int mpam_pm_notifier(struct notifier_block *self,
++			    unsigned long cmd, void *v)
 +{
-+	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
-+	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
-+	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
++	u64 regval;
++	int cpu = smp_processor_id();
 +
-+	return mpam_register_requestor(partid_max, pmg_max);
++	switch (cmd) {
++	case CPU_PM_EXIT:
++		/*
++		 * Don't use mpam_thread_switch() as the system register
++		 * value has changed under our feet.
++		 */
++		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
++		write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
++		isb();
++
++		write_sysreg_s(regval, SYS_MPAM0_EL1);
++
++		return NOTIFY_OK;
++	default:
++		return NOTIFY_DONE;
++	}
 +}
-+/* Must occur before mpam_msc_driver_init() from subsys_initcall() */
-+arch_initcall(arm64_mpam_register_cpus)
++
++static struct notifier_block mpam_pm_nb = {
++	.notifier_call = mpam_pm_notifier,
++};
++
+ static int __init arm64_mpam_register_cpus(void)
+ {
+ 	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
+ 	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
+ 	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
+ 
++	if (!system_supports_mpam())
++		return 0;
++
++	cpu_pm_register_notifier(&mpam_pm_nb);
+ 	return mpam_register_requestor(partid_max, pmg_max);
+ }
+ /* Must occur before mpam_msc_driver_init() from subsys_initcall() */
 -- 
 2.43.0
 
