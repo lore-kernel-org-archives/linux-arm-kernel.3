@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E60F105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E53D105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B9VeP4J7AlmS7/wflFsOogaWSxUxuQKCDnh6UIpxl7Y=; b=B2sODO9yyYzURrFt6Plqn0ZpUj
-	b+Ut9rSqGoDrFcJdI1sLQ3fbpfFjgK1vb18PcmidGtD7TkYURekYvZX2LjyEM6G3hkTEhchMTSRNl
-	4zzQZFxz2FkF0NJBCMJOOBdRJZKBg3kaWTCgtBj6rohnWSNOjOa7H08dAcFCDvyeP2WaeRUexMsCB
-	TqGLKYA6mvmI7md9TsbI9dEsJG3EmcXAysPgfyAWFsoI97kUCwJmyA6am+hNDV3r1brKkMSYnhrSN
-	N4ANtXdvykawN55udsI5O5spXfKsCUyoy7CSBAaW53tQT2GTsx9OP8n0+b+suoUh6oLxOKQsueMi8
-	Hb/AjkrA==;
+	bh=jzvf1fpALGanrDb8lRdX5EJ4E5N7W60j2YvHF74BtQo=; b=4+LN8CLId/RKvT6YpoeBw+RgDi
+	qDYaimROUY8RwUmgeLoMC+iWvZgKvJg8jAIzZLekzEHp8Rxrom2RAtSmvlEWntFWdKMIdwRz/L0bl
+	DEOZUHH01ILlO91+F2cllaIL1EgH2+GOgeyQU1srLCbzmh+UQL8/pTOkOPTL4JCRfT3l3uN7rZ1m2
+	TAZDrN1WS723flPvBIRk9XFjS5kZU+blZgAPyqZBc3VamdRuUulVdOHnDOAuxNLdlJx6qwmC2ODrH
+	0MXaCl+2SnSl8eDtMIkFU4V7Un1CqplPoBi0BBF4BROBzEvSs1yG6lRLfXxJj4wXO3A12kg+Q8BvF
+	PrcUzjBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13oR-00000000Rul-0Caf;
-	Fri, 13 Mar 2026 14:48:29 +0000
+	id 1w13oX-00000000S1B-3ngJ;
+	Fri, 13 Mar 2026 14:48:33 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13oV-00000000Rxq-3nJo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 14:48:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=jzvf1fpALGanrDb8lRdX5EJ4E5N7W60j2YvHF74BtQo=; b=jHwNUZBLtI+kCWlNhSaE43VvsD
+	qAEk1hGZzAYz03KnQr2K/ePuTWnz8XVQi4OrnbEDjz/CTNRSYNjficEE082xH/umh7Q/k379ddM+0
+	IVRY3r9uxQ1C0wnfhCWIxKOPuke0Z6UHD2isaqPM9+xp4ZT26zkYAGFfwdc/wUn0mnlB7ZujOEF0t
+	FptbdbKRB3H4f4L8gVSlzukPUgnNtpiYvSvreAKUiG74QdnkXfWV7BQresqFV6CU7CApTAQ95q0Jv
+	wdjMwAU/LcTj9mNodEVJjbIrJAAyAwMuw9rH2Dc0JkEPFlE89ll2mSj0R57uT0zYf4Bf7DZQLTyJq
+	0/7xJNag==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13oI-00000000RkG-0kVN
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w13oR-0000000DG7J-0Kmx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:48:23 +0000
+	Fri, 13 Mar 2026 14:48:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A0F322C7;
-	Fri, 13 Mar 2026 07:48:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CAEC622C7;
+	Fri, 13 Mar 2026 07:48:19 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8122F3F7BD;
-	Fri, 13 Mar 2026 07:48:13 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 236753F7BD;
+	Fri, 13 Mar 2026 07:48:22 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -68,20 +83,18 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [PATCH v6 25/40] arm_mpam: resctrl: Add support for 'MB' resource
-Date: Fri, 13 Mar 2026 14:46:02 +0000
-Message-ID: <20260313144617.3420416-26-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org
+Subject: [PATCH v6 27/40] arm_mpam: resctrl: Add monitor initialisation and domain boilerplate
+Date: Fri, 13 Mar 2026 14:46:04 +0000
+Message-ID: <20260313144617.3420416-28-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074818_403261_321BB2AA 
-X-CRM114-Status: GOOD (  36.30  )
+X-CRM114-CacheID: sfid-20260313_144827_417839_BF69F26A 
+X-CRM114-Status: GOOD (  28.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,413 +109,433 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Add the boilerplate that tells resctrl about the mpam monitors that are
+available. resctrl expects all (non-telemetry) monitors to be on the L3 and
+so advertise them there and invent an L3 resctrl resource if required. The
+L3 cache itself has to exist as the cache ids are used as the domain
+ids.
 
-resctrl supports 'MB', as a percentage throttling of traffic from the
-L3. This is the control that mba_sc uses, so ideally the class chosen
-should be as close as possible to the counters used for mbm_total. If there
-is a single L3, it's the last cache, and the topology of the memory matches
-then the traffic at the memory controller will be equivalent to that at
-egress of the L3. If these conditions are met allow the memory class to
-back MB.
+Bring the resctrl monitor domains online and offline based on the cpus
+they contain.
 
-MB's percentage control should be backed either with the fixed point
-fraction MBW_MAX or bandwidth portion bitmaps. The bandwidth portion
-bitmaps is not used as its tricky to pick which bits to use to avoid
-contention, and may be possible to expose this as something other than a
-percentage in the future.
+Support for specific monitor types is left to later.
 
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Co-developed-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v2:
-Code flow change
-Commit message 'or'
-
-Changes since v3:
-initialise tmp_cpumask
-update commit message
-check the traffic matches l3
-update comment on candidate_class update, only mbm_total
-drop tags due to rework
-
-Changes since v4:
-Move __free declarations to point of first use
-New line for a '{'
-set r->alloc_capable last (Reinette)
+New patch but mostly moved from the existing patches to
+separate the monitors from the controls and the boilerplate
+from the specific counters.
+Use l3->mon_capable in resctrl_arch_mon_capable() as
+resctrl_enable_mon_event() now returns a bool.
 
 Changes since v5:
-Mention L3 needs to be the last cache in commit message
-Consider memory side caches and numa nodes
+Use r->mon_capable instead of resctrl_arch_mon_capable() as specific
+to the resource
+Comment line wrap
+Include offline_ctrl_domain cleanup from controls boilerplate patch
+Include any_mon_comp finding and
+Halve num_rmid when cdp_enabled
+Move mpam_resctrl_get_mon_domain_from_cpu() from boilerplate patch
 ---
- drivers/resctrl/mpam_resctrl.c | 287 ++++++++++++++++++++++++++++++++-
- 1 file changed, 286 insertions(+), 1 deletion(-)
+ drivers/resctrl/mpam_internal.h |  15 +++
+ drivers/resctrl/mpam_resctrl.c  | 231 ++++++++++++++++++++++++++++++--
+ 2 files changed, 235 insertions(+), 11 deletions(-)
 
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 57c3d9b962b9..d58428ba2005 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -340,7 +340,16 @@ struct mpam_msc_ris {
+ 
+ struct mpam_resctrl_dom {
+ 	struct mpam_component		*ctrl_comp;
++
++	/*
++	 * There is no single mon_comp because different events may be backed
++	 * by different class/components. mon_comp is indexed by the event
++	 * number.
++	 */
++	struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
++
+ 	struct rdt_ctrl_domain		resctrl_ctrl_dom;
++	struct rdt_l3_mon_domain	resctrl_mon_dom;
+ };
+ 
+ struct mpam_resctrl_res {
+@@ -349,6 +358,12 @@ struct mpam_resctrl_res {
+ 	bool			cdp_enabled;
+ };
+ 
++struct mpam_resctrl_mon {
++	struct mpam_class	*class;
++
++	/* per-class data that resctrl needs will live here */
++};
++
+ static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+ {
+ 	struct mpam_props *cprops = &class->props;
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 93c8a9608ed4..cad65cf7d12d 100644
+index 398ca3fe5369..88895d704625 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -267,6 +267,33 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
- 	return class->props.cpbm_wd <= 32;
+@@ -34,6 +34,23 @@ static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+ 	     rid < RDT_NUM_RESOURCES;						\
+ 	     rid++, res = &mpam_resctrl_controls[rid])
+ 
++/*
++ * The classes we've picked to map to resctrl events.
++ * Resctrl believes all the worlds a Xeon, and these are all on the L3. This
++ * array lets us find the actual class backing the event counters. e.g.
++ * the only memory bandwidth counters may be on the memory controller, but to
++ * make use of them, we pretend they are on L3. Restrict the events considered
++ * to those supported by MPAM.
++ * Class pointer may be NULL.
++ */
++#define MPAM_MAX_EVENT QOS_L3_MBM_TOTAL_EVENT_ID
++static struct mpam_resctrl_mon mpam_resctrl_counters[MPAM_MAX_EVENT + 1];
++
++#define for_each_mpam_resctrl_mon(mon, eventid)					\
++	for (eventid = QOS_FIRST_EVENT, mon = &mpam_resctrl_counters[eventid];	\
++	     eventid <= MPAM_MAX_EVENT;						\
++	     eventid++, mon = &mpam_resctrl_counters[eventid])
++
+ /* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
+ static DEFINE_MUTEX(domain_list_lock);
+ 
+@@ -63,6 +80,15 @@ bool resctrl_arch_alloc_capable(void)
+ 	return false;
  }
  
-+static bool mba_class_use_mbw_max(struct mpam_props *cprops)
++bool resctrl_arch_mon_capable(void)
 +{
-+	return (mpam_has_feature(mpam_feat_mbw_max, cprops) &&
-+		cprops->bwa_wd);
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
++	struct rdt_resource *l3 = &res->resctrl_res;
++
++	/* All monitors are presented as being on the L3 cache */
++	return l3->mon_capable;
 +}
 +
-+static bool class_has_usable_mba(struct mpam_props *cprops)
-+{
-+	return mba_class_use_mbw_max(cprops);
-+}
+ bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
+ {
+ 	return mpam_resctrl_controls[rid].cdp_enabled;
+@@ -89,6 +115,8 @@ static void resctrl_reset_task_closids(void)
+ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+ {
+ 	u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d = RESCTRL_RESERVED_CLOSID;
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
++	struct rdt_resource *l3 = &res->resctrl_res;
+ 	int cpu;
+ 
+ 	if (!IS_ENABLED(CONFIG_EXPERT) && enable) {
+@@ -110,6 +138,11 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+ 	cdp_enabled = enable;
+ 	mpam_resctrl_controls[rid].cdp_enabled = enable;
+ 
++	if (enable)
++		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx() / 2;
++	else
++		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
 +
-+/*
-+ * Calculate the worst-case percentage change from each implemented step
-+ * in the control.
-+ */
-+static u32 get_mba_granularity(struct mpam_props *cprops)
+ 	/* The mbw_max feature can't hide cdp as it's a per-partid maximum. */
+ 	if (cdp_enabled && !mpam_resctrl_controls[RDT_RESOURCE_MBA].cdp_enabled)
+ 		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = false;
+@@ -680,6 +713,56 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+ 	return comp->comp_id;
+ }
+ 
++static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
++				     enum resctrl_event_id type)
 +{
-+	if (!mba_class_use_mbw_max(cprops))
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
++	struct rdt_resource *l3 = &res->resctrl_res;
++
++	lockdep_assert_cpus_held();
++
++	/*
++	 * There also needs to be an L3 cache present.
++	 * The check just requires any online CPU and it can't go offline as we
++	 * hold the cpu lock.
++	 */
++	if (get_cpu_cacheinfo_id(raw_smp_processor_id(), 3) == -1)
 +		return 0;
 +
 +	/*
-+	 * bwa_wd is the number of bits implemented in the 0.xxx
-+	 * fixed point fraction. 1 bit is 50%, 2 is 25% etc.
++	 * If there are no MPAM resources on L3, force it into existence.
++	 * topology_matches_l3() already ensures this looks like the L3.
++	 * The domain-ids will be fixed up by mpam_resctrl_domain_hdr_init().
 +	 */
-+	return DIV_ROUND_UP(MAX_MBA_BW, 1 << cprops->bwa_wd);
++	if (!res->class) {
++		pr_warn_once("Faking L3 MSC to enable counters.\n");
++		res->class = mpam_resctrl_counters[type].class;
++	}
++
++	/*
++	 * Called multiple times!, once per event type that has a
++	 * monitoring class.
++	 * Setting name is necessary on monitor only platforms.
++	 */
++	l3->name = "L3";
++	l3->mon_scope = RESCTRL_L3_CACHE;
++
++	/*
++	 * num-rmid is the upper bound for the number of monitoring groups that
++	 * can exist simultaneously, including the default monitoring group for
++	 * each control group. Hence, advertise the whole rmid_idx space even
++	 * though each control group has its own pmg/rmid space. Unfortunately,
++	 * this does mean userspace needs to know the architecture to correctly
++	 * interpret this value.
++	 */
++	l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
++
++	if (resctrl_enable_mon_event(type, false, 0, NULL))
++		l3->mon_capable = true;
++
++	return 0;
 +}
 +
- /*
-  * Each fixed-point hardware value architecturally represents a range
-  * of values: the full range 0% - 100% is split contiguously into
-@@ -317,6 +344,166 @@ static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
- 	return val;
- }
- 
-+static u32 get_mba_min(struct mpam_props *cprops)
-+{
-+	if (!mba_class_use_mbw_max(cprops)) {
-+		WARN_ON_ONCE(1);
-+		return 0;
-+	}
-+
-+	return mbw_max_to_percent(0, cprops);
-+}
-+
-+/* Find the L3 cache that has affinity with this CPU */
-+static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
-+{
-+	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
-+
-+	lockdep_assert_cpus_held();
-+
-+	return mpam_get_cpumask_from_cache_id(cache_id, 3, tmp_cpumask);
-+}
-+
-+/*
-+ * topology_matches_l3() - Is the provided class the same shape as L3
-+ * @victim:		The class we'd like to pretend is L3.
-+ *
-+ * resctrl expects all the world's a Xeon, and all counters are on the
-+ * L3. We allow some mapping counters on other classes. This requires
-+ * that the CPU->domain mapping is the same kind of shape.
-+ *
-+ * Using cacheinfo directly would make this work even if resctrl can't
-+ * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
-+ * Using the L3 resctrl domain list also depends on CPUs being online.
-+ * Using the mpam_class we picked for L3 so we can use its domain list
-+ * assumes that there are MPAM controls on the L3.
-+ * Instead, this path eventually uses the mpam_get_cpumask_from_cache_id()
-+ * helper which can tell us about offline CPUs ... but getting the cache_id
-+ * to start with relies on at least one CPU per L3 cache being online at
-+ * boot.
-+ *
-+ * Walk the victim component list and compare the affinity mask with the
-+ * corresponding L3. The topology matches if each victim:component's affinity
-+ * mask is the same as the CPU's corresponding L3's. These lists/masks are
-+ * computed from firmware tables so don't change at runtime.
-+ */
-+static bool topology_matches_l3(struct mpam_class *victim)
-+{
-+	int cpu, err;
-+	struct mpam_component *victim_iter;
-+
-+	lockdep_assert_cpus_held();
-+
-+	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
-+	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
-+		return false;
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(victim_iter, &victim->components, class_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (cpumask_empty(&victim_iter->affinity)) {
-+			pr_debug("class %u has CPU-less component %u - can't match L3!\n",
-+				 victim->level, victim_iter->comp_id);
-+			return false;
-+		}
-+
-+		cpu = cpumask_any_and(&victim_iter->affinity, cpu_online_mask);
-+		if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
-+			return false;
-+
-+		cpumask_clear(tmp_cpumask);
-+		err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
-+		if (err) {
-+			pr_debug("Failed to find L3's equivalent component to class %u component %u\n",
-+				 victim->level, victim_iter->comp_id);
-+			return false;
-+		}
-+
-+		/* Any differing bits in the affinity mask? */
-+		if (!cpumask_equal(tmp_cpumask, &victim_iter->affinity)) {
-+			pr_debug("class %u component %u has Mismatched CPU mask with L3 equivalent\n"
-+				 "L3:%*pbl != victim:%*pbl\n",
-+				 victim->level, victim_iter->comp_id,
-+				 cpumask_pr_args(tmp_cpumask),
-+				 cpumask_pr_args(&victim_iter->affinity));
-+
-+			return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
-+/*
-+ * Test if the traffic for a class matches that at egress from the L3. For
-+ * MSC at memory controllers this is only possible if there is a single L3
-+ * as otherwise the counters at the memory can include bandwidth from the
-+ * non-local L3.
-+ */
-+static bool traffic_matches_l3(struct mpam_class *class)
-+{
-+	int err, cpu;
-+
-+	lockdep_assert_cpus_held();
-+
-+	if (class->type == MPAM_CLASS_CACHE && class->level == 3)
-+		return true;
-+
-+	if (class->type == MPAM_CLASS_CACHE && class->level != 3) {
-+		pr_debug("class %u is a different cache from L3\n", class->level);
-+		return false;
-+	}
-+
-+	if (class->type != MPAM_CLASS_MEMORY) {
-+		pr_debug("class %u is neither of type cache or memory\n", class->level);
-+		return false;
-+	}
-+
-+	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
-+	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL)) {
-+		pr_debug("cpumask allocation failed\n");
-+		return false;
-+	}
-+
-+	if (class->type != MPAM_CLASS_MEMORY) {
-+		pr_debug("class %u is neither of type cache or memory\n",
-+			 class->level);
-+		return false;
-+	}
-+
-+	cpu = cpumask_any_and(&class->affinity, cpu_online_mask);
-+	err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
-+	if (err) {
-+		pr_debug("Failed to find L3 downstream to cpu %d\n", cpu);
-+		return false;
-+	}
-+
-+	if (!cpumask_equal(tmp_cpumask, cpu_possible_mask)) {
-+		pr_debug("There is more than one L3\n");
-+		return false;
-+	}
-+
-+	/* Be strict; the traffic might stop in the intermediate cache. */
-+	if (get_cpu_cacheinfo_id(cpu, 4) != -1) {
-+		pr_debug("L3 isn't the last level of cache\n");
-+		return false;
-+	}
-+
-+	if (num_possible_nodes() > 1) {
-+		pr_debug("There is more than one numa node\n");
-+		return false;
-+	}
-+
-+#ifdef CONFIG_HMEM_REPORTING
-+	if (node_devices[cpu_to_node(cpu)]->cache_dev) {
-+		pr_debug("There is a memory side cache\n");
-+		return false;
-+	}
-+#endif
-+
-+	return true;
-+}
-+
- /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
- static void mpam_resctrl_pick_caches(void)
+ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+ 			    u32 closid, enum resctrl_conf_type type)
  {
-@@ -358,9 +545,68 @@ static void mpam_resctrl_pick_caches(void)
- 	}
+@@ -907,11 +990,26 @@ static void mpam_resctrl_domain_insert(struct list_head *list,
+ 	list_add_tail_rcu(&new->list, pos);
  }
  
-+static void mpam_resctrl_pick_mba(void)
++static struct mpam_component *find_component(struct mpam_class *class, int cpu)
 +{
-+	struct mpam_class *class, *candidate_class = NULL;
-+	struct mpam_resctrl_res *res;
-+
-+	lockdep_assert_cpus_held();
++	struct mpam_component *comp;
 +
 +	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
++	list_for_each_entry_srcu(comp, &class->components, class_list,
 +				 srcu_read_lock_held(&mpam_srcu)) {
-+		struct mpam_props *cprops = &class->props;
++		if (cpumask_test_cpu(cpu, &comp->affinity))
++			return comp;
++	}
 +
-+		if (class->level != 3 && class->type == MPAM_CLASS_CACHE) {
-+			pr_debug("class %u is a cache but not the L3\n", class->level);
-+			continue;
-+		}
++	return NULL;
++}
 +
-+		if (!class_has_usable_mba(cprops)) {
-+			pr_debug("class %u has no bandwidth control\n",
-+				 class->level);
-+			continue;
-+		}
+ static struct mpam_resctrl_dom *
+ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ {
+ 	int err;
+ 	struct mpam_resctrl_dom *dom;
++	struct rdt_l3_mon_domain *mon_d;
+ 	struct rdt_ctrl_domain *ctrl_d;
+ 	struct mpam_class *class = res->class;
+ 	struct mpam_component *comp_iter, *ctrl_comp;
+@@ -951,8 +1049,56 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	} else {
+ 		pr_debug("Skipped control domain online - no controls\n");
+ 	}
 +
-+		if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
-+			pr_debug("class %u has missing CPUs\n", class->level);
-+			continue;
-+		}
-+
-+		if (!topology_matches_l3(class)) {
-+			pr_debug("class %u topology doesn't match L3\n",
-+				 class->level);
-+			continue;
-+		}
-+
-+		if (!traffic_matches_l3(class)) {
-+			pr_debug("class %u traffic doesn't match L3 egress\n",
-+				 class->level);
-+			continue;
-+		}
++	if (r->mon_capable) {
++		struct mpam_component *any_mon_comp;
++		struct mpam_resctrl_mon *mon;
++		enum resctrl_event_id eventid;
 +
 +		/*
-+		 * Pick a resource to be MBA that as close as possible to
-+		 * the L3. mbm_total counts the bandwidth leaving the L3
-+		 * cache and MBA should correspond as closely as possible
-+		 * for proper operation of mba_sc.
++		 * Even if the monitor domain is backed by a different
++		 * component, the L3 component IDs need to be used... only
++		 * there may be no ctrl_comp for the L3.
++		 * Search each event's class list for a component with
++		 * overlapping CPUs and set up the dom->mon_comp array.
 +		 */
-+		if (!candidate_class || class->level < candidate_class->level)
-+			candidate_class = class;
++
++		for_each_mpam_resctrl_mon(mon, eventid) {
++			struct mpam_component *mon_comp;
++
++			if (!mon->class)
++				continue;       // dummy resource
++
++			mon_comp = find_component(mon->class, cpu);
++			dom->mon_comp[eventid] = mon_comp;
++			if (mon_comp)
++				any_mon_comp = mon_comp;
++		}
++		if (!any_mon_comp) {
++			WARN_ON_ONCE(0);
++			err = -EFAULT;
++			goto offline_ctrl_domain;
++		}
++
++		mon_d = &dom->resctrl_mon_dom;
++		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
++		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
++		err = resctrl_online_mon_domain(r, &mon_d->hdr);
++		if (err)
++			goto offline_ctrl_domain;
++
++		mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
++	} else {
++		pr_debug("Skipped monitor domain online - no monitors\n");
 +	}
 +
-+	if (candidate_class) {
-+		pr_debug("selected class %u to back MBA\n",
-+			 candidate_class->level);
-+		res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
-+		res->class = candidate_class;
+ 	return dom;
+ 
++offline_ctrl_domain:
++	if (r->alloc_capable) {
++		mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
++		resctrl_offline_ctrl_domain(r, ctrl_d);
 +	}
+ free_domain:
+ 	kfree(dom);
+ 	dom = ERR_PTR(err);
+@@ -960,6 +1106,35 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	return dom;
+ }
+ 
++/*
++ * We know all the monitors are associated with the L3, even if there are no
++ * controls and therefore no control component. Find the cache-id for the CPU
++ * and use that to search for existing resctrl domains.
++ * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
++ * for anything that is not a cache.
++ */
++static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
++{
++	int cache_id;
++	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
++
++	lockdep_assert_cpus_held();
++
++	if (!l3->class)
++		return NULL;
++	cache_id = get_cpu_cacheinfo_id(cpu, 3);
++	if (cache_id < 0)
++		return NULL;
++
++	list_for_each_entry_rcu(dom, &l3->resctrl_res.mon_domains, resctrl_mon_dom.hdr.list) {
++		if (dom->resctrl_mon_dom.hdr.id == cache_id)
++			return dom;
++	}
++
++	return NULL;
 +}
 +
- static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+ static struct mpam_resctrl_dom *
+ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
  {
- 	struct mpam_class *class = res->class;
-+	struct mpam_props *cprops = &class->props;
- 	struct rdt_resource *r = &res->resctrl_res;
- 
- 	switch (r->rid) {
-@@ -392,6 +638,19 @@ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
- 		r->cache.shareable_bits = resctrl_get_default_ctrl(r);
- 		r->alloc_capable = true;
- 		break;
-+	case RDT_RESOURCE_MBA:
-+		r->schema_fmt = RESCTRL_SCHEMA_RANGE;
-+		r->ctrl_scope = RESCTRL_L3_CACHE;
-+
-+		r->membw.delay_linear = true;
-+		r->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
-+		r->membw.min_bw = get_mba_min(cprops);
-+		r->membw.max_bw = MAX_MBA_BW;
-+		r->membw.bw_gran = get_mba_granularity(cprops);
-+
-+		r->name = "MB";
-+		r->alloc_capable = true;
-+		break;
- 	default:
- 		return -EINVAL;
+@@ -973,7 +1148,11 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+ 			return dom;
  	}
-@@ -406,7 +665,17 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
- 	if (class->type == MPAM_CLASS_CACHE)
- 		return comp->comp_id;
  
--	/* TODO: repaint domain ids to match the L3 domain ids */
-+	if (topology_matches_l3(class)) {
-+		/* Use the corresponding L3 component ID as the domain ID */
-+		int id = get_cpu_cacheinfo_id(cpu, 3);
+-	return NULL;
++	if (r->rid != RDT_RESOURCE_L3)
++		return NULL;
 +
-+		/* Implies topology_matches_l3() made a mistake */
-+		if (WARN_ON_ONCE(id == -1))
-+			return comp->comp_id;
-+
-+		return id;
-+	}
-+
- 	/* Otherwise, expose the ID used by the firmware table code. */
- 	return comp->comp_id;
++	/* Search the mon domain list too - needed on monitor only platforms. */
++	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
  }
-@@ -446,6 +715,12 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	case RDT_RESOURCE_L3:
- 		configured_by = mpam_feat_cpor_part;
- 		break;
-+	case RDT_RESOURCE_MBA:
-+		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
-+			configured_by = mpam_feat_mbw_max;
-+			break;
-+		}
-+		fallthrough;
- 	default:
- 		return resctrl_get_default_ctrl(r);
- 	}
-@@ -457,6 +732,8 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	switch (configured_by) {
- 	case mpam_feat_cpor_part:
- 		return cfg->cpbm;
-+	case mpam_feat_mbw_max:
-+		return mbw_max_to_percent(cfg->mbw_max, cprops);
- 	default:
- 		return resctrl_get_default_ctrl(r);
- 	}
-@@ -504,6 +781,13 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 		cfg.cpbm = cfg_val;
- 		mpam_set_feature(mpam_feat_cpor_part, &cfg);
- 		break;
-+	case RDT_RESOURCE_MBA:
-+		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
-+			cfg.mbw_max = percent_to_mbw_max(cfg_val, cprops);
-+			mpam_set_feature(mpam_feat_mbw_max, &cfg);
-+			break;
-+		}
-+		fallthrough;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -775,6 +1059,7 @@ int mpam_resctrl_setup(void)
  
- 	/* Find some classes to use for controls */
- 	mpam_resctrl_pick_caches();
-+	mpam_resctrl_pick_mba();
+ int mpam_resctrl_online_cpu(unsigned int cpu)
+@@ -998,6 +1177,11 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
  
- 	/* Initialise the resctrl structures from the classes */
+ 				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+ 			}
++			if (r->mon_capable) {
++				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
++
++				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
++			}
+ 		}
+ 		if (IS_ERR(dom))
+ 			return PTR_ERR(dom);
+@@ -1018,8 +1202,9 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 	guard(mutex)(&domain_list_lock);
  	for_each_mpam_resctrl_control(res, rid) {
+ 		struct mpam_resctrl_dom *dom;
++		struct rdt_l3_mon_domain *mon_d;
+ 		struct rdt_ctrl_domain *ctrl_d;
+-		bool ctrl_dom_empty;
++		bool ctrl_dom_empty, mon_dom_empty;
+ 		struct rdt_resource *r = &res->resctrl_res;
+ 
+ 		if (!res->class)
+@@ -1038,7 +1223,16 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 			ctrl_dom_empty = true;
+ 		}
+ 
+-		if (ctrl_dom_empty)
++		if (r->mon_capable) {
++			mon_d = &dom->resctrl_mon_dom;
++			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
++			if (mon_dom_empty)
++				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
++		} else {
++			mon_dom_empty = true;
++		}
++
++		if (ctrl_dom_empty && mon_dom_empty)
+ 			kfree(dom);
+ 	}
+ }
+@@ -1048,12 +1242,15 @@ int mpam_resctrl_setup(void)
+ 	int err = 0;
+ 	struct mpam_resctrl_res *res;
+ 	enum resctrl_res_level rid;
++	struct mpam_resctrl_mon *mon;
++	enum resctrl_event_id eventid;
+ 
+ 	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
+ 
+ 	cpus_read_lock();
+ 	for_each_mpam_resctrl_control(res, rid) {
+ 		INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
++		INIT_LIST_HEAD_RCU(&res->resctrl_res.mon_domains);
+ 		res->resctrl_res.rid = rid;
+ 	}
+ 
+@@ -1069,25 +1266,37 @@ int mpam_resctrl_setup(void)
+ 		err = mpam_resctrl_control_init(res);
+ 		if (err) {
+ 			pr_debug("Failed to initialise rid %u\n", rid);
+-			break;
++			goto internal_error;
+ 		}
+ 	}
+-	cpus_read_unlock();
+ 
+-	if (err) {
+-		pr_debug("Internal error %d - resctrl not supported\n", err);
+-		return err;
++	for_each_mpam_resctrl_mon(mon, eventid) {
++		if (!mon->class)
++			continue;	// dummy resource
++
++		err = mpam_resctrl_monitor_init(mon, eventid);
++		if (err) {
++			pr_debug("Failed to initialise event %u\n", eventid);
++			goto internal_error;
++		}
+ 	}
+ 
+-	if (!resctrl_arch_alloc_capable()) {
+-		pr_debug("No alloc(%u) found - resctrl not supported\n",
+-			 resctrl_arch_alloc_capable());
++	cpus_read_unlock();
++
++	if (!resctrl_arch_alloc_capable() && !resctrl_arch_mon_capable()) {
++		pr_debug("No alloc(%u) or monitor(%u) found - resctrl not supported\n",
++			 resctrl_arch_alloc_capable(), resctrl_arch_mon_capable());
+ 		return -EOPNOTSUPP;
+ 	}
+ 
+ 	/* TODO: call resctrl_init() */
+ 
+ 	return 0;
++
++internal_error:
++	cpus_read_unlock();
++	pr_debug("Internal error %d - resctrl not supported\n", err);
++	return err;
+ }
+ 
+ static int __init __cacheinfo_ready(void)
 -- 
 2.43.0
 
