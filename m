@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C581106FD87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A181F106FD87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kkt3A1e6l/KLgh24uOCTImlNQ3maInjpGSRh0bHez1U=; b=BAlP/M4MElauNrGeIhrLnaTlsx
-	MqAcGzYGzchzBNwbxnE+Eaa/Kcs+puw9YkIOnD3vXHWm3CdqNScwQMWawSi2QZsteBJFNuuqad7XJ
-	M3knlaYSTKb1T0ImDqHao8WZW/30DilCHkjx2yhtQQBaKqua7FIOlT7vwVugpDcXIfhX4L4Y2fawF
-	bQY8Sct7JzcypYawXOvafzZYLDG7ZugyF92AyjOmOOILT5CLDpAstr5hDaxA2B6BuKpE6cIzazTTg
-	r1K0I1Bskf19ZSIFIl/6kAA0AEirQO7gYl6DqIMpMxTjE3WcXuEkbctxSbYx16SdKi1wUX8hrzP9O
-	+60jkfKg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2G2+7E4OZr6a8UGqF32h4K7HFEK0pdzuC9zxUMQjz/Q=; b=pg0PapfVEQz9be7PeI4Qpj1222
+	PyG31XCR4HQ2kJgG8NMZfKWD5lDsdinhx6Smgce+0rWxqHPpQgysGYioAsGFNERp0KKNNijHt9JcE
+	qpzIa0qDwsS9uynKoRbFf4GYTG3ymwbkDHL1WWTPLvpJYq43jCR8VJoO7Kea91bNlZkp1bozSdQZw
+	/2EBMRJKNWQrUgiT4byVseeSQtxtZje0fY7jggnLNBU1a/5/ymu/LYtHP6a2qgZNuZYYdtDErK1WM
+	co70DIoVJNymnFN+6fHK7zF7L6xUi6Ed12FTK/S1HQKih4iW2cEOE9ES4Dfc8Sb7wyx8Dyp3rPUhg
+	9D2hjtfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wcf-0000000GyGi-1lGl;
+	id 1w0wcf-0000000GyH0-32dk;
 	Fri, 13 Mar 2026 07:07:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wce-0000000GyGJ-3vWi
+	id 1w0wce-0000000GyGK-3shz
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 13 Mar 2026 07:07:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Kkt3A1e6l/KLgh24uOCTImlNQ3maInjpGSRh0bHez1U=; b=JuohmyuHoS3O+OdD8or4jlfAhC
-	WnW6c+nnzpPCXh7Jq8Su9CCIW1aw7obh71l8/6FgSzfuRNbumTD8nGkeRkG0XPACfZFrDQkAxyrz9
-	IcEgpyrFlltfNCzzM0Ef3CVaTZM1vgby7NS7J7l0gDmdcKDdpj1/DFuZePdntCwPKZM2wscsSMQfP
-	pgvKz2X2JOfHLW52VMRBSieT2cZNHQ6nIQueRCDL4QYjnug4aRredBOVKOtr0CgBEClOzktBjG3Ah
-	DzM8TQ9PG1wfyyPvAej2lccfupolWtLdaJ06xqabbe8li10akzcBNMy54yg0zLJdfayNu72IJwUUI
-	E7nWSHNw==;
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=2G2+7E4OZr6a8UGqF32h4K7HFEK0pdzuC9zxUMQjz/Q=; b=WocNFn0kjUGfJiXZdgmZhuZIuG
+	xfWrQaeNtMq1X9StYpoKfP/ndWMJ4K6CKEqOJKtcotBSJ9dxugiWI8nhg6QiZdktNtSBgSdYvJRT4
+	FmlFvqZYjdsbRRlEQmBwYrUgEkV/i8mo9k6sBWp3AqgOcuYKkOD25pHggWkfnIW6OaQGrjxFVyDgU
+	EJIW9wbAHWUuvjHvjQ1bH08vzdij9ukIvGR64F6fYowQNpeFin23lNOL7Ekh1qSUD9JBmBsSMaa6L
+	2jw7u9r+jhmj7fQH7A8sX2rTRMZ95EtIlabsCGVmiGeQ+2IyMn0nXAkbHWLGuZvaKZrpzD8jF9CPq
+	BN1I3o1w==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wcb-00000002io4-0G3u
+	id 1w0wcb-00000002io5-0Fz7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 07:07:47 +0000
+	Fri, 13 Mar 2026 07:07:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=Kkt3A1e6l/KLgh24uOCTImlNQ3maInjpGSRh0bHez1U=; b=LbX4mAKwv7C4HUfxwhNXS7VlEh
-	hmvcLa/leBzkzWdz0p6xBwZXLRlGDiGWbdStfzh8qnLx1U3hBb0nlJzc0bMs2eGYKHyW+0QOdAtmO
-	RrDiyIazA141ISX3qUm7EVm6QWYqAIN/pRlHKw+t661OHH45g++qtekm+rJ1OeqckomtMeIa8elKj
-	IaNiwb9So1RFgfHoBvYAi7PaRvAjXDwaWmRTl7latpUxEsYgbQECHNxjzxyi9bb1fKB1vGFZmlQuF
-	Emvofw1cWpf/f0/0AUNY5rXbSEhvGfiKNumGvyjKgWkS9cgqEgPGxfdExkYSlzJZXVDUgicZMNKYx
-	qjjFN14A==;
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=2G2+7E4OZr6a8UGqF32h4K7HFEK0pdzuC9zxUMQjz/Q=; b=mZ3vl0PSTm7XQAZj85HUESBd3q
+	PQtYnhMzLn/Z7d268hhbq1pZsU6HtsAWbJ4gkbvwbfJlqSaauq64Js2QXAitfSpq/vxQJTukFFrM3
+	2xaY/E9Wn0V+0US9GqBEM+ACITRoFrH0l5eo76DlZHqFuQt2SXxOX/66Xk1dICLwJwKzuQ8rLwjg9
+	U905g7HXmiaWVaH0oxhadVH3GMF+lHSKrMg6cmo781BqfGRhEHsgM4JUHyMCIPdH3jgirFusp14Qb
+	ctYPaOnegSHRZGKKpp9l20opYZxxHScbdcZPQeCDT+TW7zlNtJ0R2k3xkemHo/1uynx0HO5bJYoKI
+	jcGZtZtg==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w0wcZ-000CUj-1k;
-	Fri, 13 Mar 2026 08:07:43 +0100
+	id 1w0wca-000CUo-1M;
+	Fri, 13 Mar 2026 08:07:44 +0100
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w0wcY-000IYT-2s;
-	Fri, 13 Mar 2026 08:07:42 +0100
+	id 1w0wcZ-000IYT-2V;
+	Fri, 13 Mar 2026 08:07:43 +0100
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
@@ -84,16 +84,19 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com,
 	linux-clk@vger.kernel.org
-Subject: [PATCH v2 0/6] TQMa91/TQMa93: display support on MBa91xxCA
-Date: Fri, 13 Mar 2026 08:07:30 +0100
-Message-ID: <20260313070740.585043-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/6] clk: imx: fracn-gppll: Add 333.333333 MHz support
+Date: Fri, 13 Mar 2026 08:07:31 +0100
+Message-ID: <20260313070740.585043-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260313070740.585043-1-alexander.stein@ew.tq-group.com>
+References: <20260313070740.585043-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27938/Thu Mar 12 07:24:01 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_070745_349328_5A1F3B0C 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260313_070745_453825_A008264E 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +111,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Some parallel panels have a pixelclk of 33.30 MHz. Add support for
+333.333333 MHz so a by 10 divider can be used to derive the exact pixelclk.
 
-this series adds support for parallel and LVDS displays on MBa91xxCA, both for
-TQMa91 and TQMa93. The parallel display is attached directly, while the LVDS
-uses an LVDS-Encoder. To actually work it needs the pdfc driver from [1].
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* None
 
-The first two patches add required (Video) PLL configurations to achieve the
-necessary pixel clocks for both displays.
-The last 4 patches add the overlays for TQMa91 and TQMa93, although the
-overlays for TQMa91 use the same overlay for TQMa93.
+ drivers/clk/imx/clk-fracn-gppll.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Best regards,
-Alexander
-
-[1] https://lore.kernel.org/all/20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de/
-
-Alexander Stein (6):
-  clk: imx: fracn-gppll: Add 333.333333 MHz support
-  clk: imx: fracn-gppll: Add 477.4MHz support
-  arm64: dts: imx93-tqma9352-mba91xxca: Add parallel display overlay
-  arm64: dts: imx93-tqma9352-mba91xxca: Add LVDS display overlay
-  arm64: dts: imx91-tqma9131-mba91xxca: Add parallel display overlay
-  arm64: dts: imx91-tqma9131-mba91xxca: Add LVDS display overlay
-
- arch/arm64/boot/dts/freescale/Makefile        | 12 ++++
- ...3-tqma9352-mba91xxca-lvds-tm070jvhg33.dtso | 56 ++++++++++++++++
- ...93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtso | 66 +++++++++++++++++++
- drivers/clk/imx/clk-fracn-gppll.c             |  2 +
- 4 files changed, 136 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca-lvds-tm070jvhg33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtso
-
+diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
+index 89ed7749bf47e..fe6ee77ba1485 100644
+--- a/drivers/clk/imx/clk-fracn-gppll.c
++++ b/drivers/clk/imx/clk-fracn-gppll.c
+@@ -88,6 +88,7 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
+ 	PLL_FRACN_GP(445333333U, 167, 0, 1, 0, 9),
+ 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
+ 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
++	PLL_FRACN_GP(333333333U, 125, 0, 1, 1, 9),
+ 	PLL_FRACN_GP(332600000U, 138, 584, 1000, 0, 10),
+ 	PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12),
+ 	PLL_FRACN_GP(241900000U, 201, 584, 1000, 0, 20),
 -- 
 2.43.0
 
