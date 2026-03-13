@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8056D105F7A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20964103E300
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=; b=ZcSgxJ16b9uzXYdOM6Oj6Oags3
-	QElLWUo7ceaRIP9VqjvIk6u7CDV+V8W10EF9O0d/GVXHe2QbwWpKOay8Ld+cJsCZOI54OWYv9+WmE
-	haZ8yQYHmS3hWigLqOvM/RgKDQPyzcPEoAj0QeYFu2fNn/wRgRZUUg8j9vf/7NfAIl3q2sCT7qq+a
-	nAdUp3HRSVGOQORuRzRpem4+51ThA/iBMjwb+PWj2D0yizHch9QvpiUhDNRmPQ7s4FH5+Z1tMjV5I
-	KjXgrlH3lHo4v4cYGL85grfhcwRuX//pK+KGgYq7l+VokA48KZMsMAJTBmZr0+vYryHsljNEjFrq7
-	cH+zwVsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IIgNAqLr07WaG8vjfJrqkvsGoD1ItqhD2t/PvKCEK7c=; b=G/O5+BjXfmT+maf8lcr6p/3iwI
+	eo1rWpEAWz+W1V3V9lULF8GstrOn5bFZfqz3MiGVZhqSWeoDvp88Z7Q3SPyBpORyuEQhbCuuonoZw
+	F7AGHZu9TtePZ/gv8eSmUruW6Pln9fRd2Mm3WBPO51/OHgn0HPwJ/QOo87kA5oPwM202Ih/fbQ/zc
+	Qd31SYKy9CwH7z8uHD2HYUm/7nrU/70TiQA8VC04seOEXilwc0/Kkm4BkUMOI3oSiZ9WroEjTOqla
+	Qxzy6yGMoZxIZN7C17NBKaf7HUbzWO123mK5Xrn1w8CGRn9oZwbaAS9mC0+IRFCCQIvQAYOzQRjXM
+	Be0Ip+6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14HC-00000000W7K-4Bzq;
-	Fri, 13 Mar 2026 15:18:11 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w14Jq-00000000WVN-02ba;
+	Fri, 13 Mar 2026 15:20:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14HA-00000000W6N-0mgD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 15:18:09 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so66435e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 08:18:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773415086; x=1774019886; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=;
-        b=bCAIJDJrF9Z7d2iU/fLNBNPd89O9bSYjLxZbkRK8V961MxbVe7bq5bxzD6B3MymaH7
-         qYGIa1LYJCw67yRlE3Dw01EYB9rZylg+EizH/IzsERVovrjcfCpfbhmpmPqhHsRn3Xuv
-         HmCgk/dHpqkLuimiVgb7LSTixtGCaeu93SpizEegrF0YKdyEO71TJPJRXnz9PGFU0b2f
-         BQNBktWNLJkJmnBQWhdDvBsgS44038cStdr07itHl0UiQ47XRG1YO7L6auXXJH/J8A6b
-         RHl6G8Ls9Yw2jValopbKYWjLnnCV4T0sJbpIDCTxPWrwEWQObOnShY8R3o42euJJyGsf
-         1bpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773415086; x=1774019886;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ta2Ou5gCtU/aepAMrwAyagN15663lqpJZVH28HIpAIg=;
-        b=AzG0gzKmeiiSAD7HzwIge6X8d1FdeOsL4PJlHMfVswtQx3n1sUPYpxgl3qz+r+lfcx
-         3dC2mS2pYO91cXUIkZO9MRJ0u6y5tqxsV4zoEYs67a8sb0BT4+sSS5Uq7t/moHl8DS88
-         qw4nucG97DOnbjLttdrMH7F0gYye6umhtBqMrqyqOEtzJco47fPspefGDS3DhBWLEwYc
-         oaSRta45ZawHGfMkGPtzePgFeH6MyHLgQo+FDCvxczBwwIw194kskJufQl2/yj2YeQx4
-         AOJW+9yKvXOazagkSgkTgg+FxUNEKrDCvhClVY6/mz2gIeYD+PllilKJK2JizzDS8m6M
-         p7jA==
-X-Forwarded-Encrypted: i=1; AJvYcCWSgDSFk176j1KsjtSRceuQE6WbxvJ+LES/ljKAPEhylcq0wbvrNR+1vTSob/HMTO8YNA7LbXJcNq4WOI5Ebr1e@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFiJMHwhrufp23T2qY+zEoTDmqgIEQCrTNYHd3fJJBl2qyY0YY
-	32rlH/hfjAsfqu0DjEimd5KVDpHSAeusvEGV6YE5W0hccFl9Yxl9w9lWFAplI32bfQ==
-X-Gm-Gg: ATEYQzzTWb6hOf6J9iI4SzotnrIdNBtHYjTAIRIs3LCJEo9bhanr9aFi7KA4RBZisAZ
-	YHjiCNZnKAub1PAOzmWf0Nb4b5H/tefEwXq8hq6GbxgvRNHFxLmpQ0UzxOEcU8Hoqixu6O5xhTn
-	6pYVdqbO+shbdulMLI0AO2tKpbDTTmiA2/2dS9MACifjLNIAv1YCmbr/Z894vEukyoQYarV5I0Y
-	8BV1QIEyICB4F5xAVgwdXer4QbxzxlwnjmNU4TTNdEglMktrTthXjYhYoCb4jX/PSOSVmEfBfkQ
-	ro1gXQwWYvDqJiqtGud3uirBKL8PFHYGvev0nKDDnZtGkI58tNkv2ukKAZRz2pCe5uz0aiWKurK
-	6dH6kO34OOmTHBW7+LNU7l5HlM+cdw1Xh5N3ETY6vZ3hJPf8u1sEITTt3/3RmSsHk+/rxVse8I9
-	NHZnZtruHy+Fj5kovlI0olXPw6v4G1JLs3OhDDIE5ZVNI2a012TEKMwGiC
-X-Received: by 2002:a05:600c:2148:b0:483:1093:f29b with SMTP id 5b1f17b1804b1-4855670e644mr774745e9.8.1773415084951;
-        Fri, 13 Mar 2026 08:18:04 -0700 (PDT)
-Received: from google.com (54.95.38.34.bc.googleusercontent.com. [34.38.95.54])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541b6f708sm455930345e9.11.2026.03.13.08.18.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 08:18:04 -0700 (PDT)
-Date: Fri, 13 Mar 2026 15:18:01 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com,
-	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
-	perlarsen@google.com, qperret@google.com, rananta@google.com,
-	suzuki.poulose@arm.com, tabba@google.com, tglx@kernel.org,
-	vdonnefort@google.com, bgrzesik@google.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [RFC PATCH 00/14] KVM: ITS hardening for pKVM
-Message-ID: <abQqqTYvmrtGp9l7@google.com>
-References: <20260310124933.830025-1-sebastianene@google.com>
+	id 1w14Jj-00000000WS7-2ghu;
+	Fri, 13 Mar 2026 15:20:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F4CC6184C;
+	Fri, 13 Mar 2026 15:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 28715C19425;
+	Fri, 13 Mar 2026 15:20:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773415246;
+	bh=fA0XSaPbu/0YVoBoDhWzlwA8+Y4Naq/u9fbi/LssJ1k=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=nplko2XCiIw0eOEIC92USwdyGSA2Fg0nIOoiGXkClS+0GGcDaITXTw/4s2SkB6xC1
+	 Yn0hBJTP5168aC4S/Oks7jbRG/v+OTv9xWeNzALVrLmnfHO8RU3pQuxOS9girvnBjY
+	 nQYIjs9hQL/WJWdLlpI1suZhpem3lXXq/+w/nWMJbqD1ussnxvb9ltJtkRROAcK0bX
+	 /MN1TK4e9A19LV5+PzZ+4NNf+Y5daCd4/PUI/2UmpCWsY84HOTFEf1rKZybypaa8uU
+	 mCdXx8pIl0omLhBzUlzI9I0otdES+ZxnuvkEreb8QcjPwqvu95HpvajuSxyGOgsTRI
+	 SKpwmyHMePZ8w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 180E3105F797;
+	Fri, 13 Mar 2026 15:20:46 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Subject: [PATCH 0/9] media: rockchip: rkcif: add support for rk3588 vicap
+Date: Fri, 13 Mar 2026 16:20:42 +0100
+Message-Id: <20250430-rk3588-vicap-v1-0-b3bddf749914@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260310124933.830025-1-sebastianene@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_081808_353894_45247119 
-X-CRM114-Status: GOOD (  61.49  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEortGkC/03OSwrCMBgE4KuUf20gb5NcRbpI87BBqDXRoJTe3
+ dBSdDkD8zELlJBTKGC6BXKoqaT71AI5deBGO10DSr5loJgKzBlG+caEUqgmZ2ekPZHcKUGVPUO
+ bzDnE9N64S7/nHB6vpj738oearpEcU7qT8iAHPbCoNRWRc1MV/B/ZNgJLIo8briTk5/GDnA6eW
+ s+d19FUAv26fgFrtVKh3AAAAA==
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ =?utf-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2_=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773415244; l=3521;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=fA0XSaPbu/0YVoBoDhWzlwA8+Y4Naq/u9fbi/LssJ1k=;
+ b=R9TyBuoWMeuKHTcCTnYQAdIjt4L+FqBVAqLReZVZ04CZPxf7YF7WEkLaxO6+RTTc7EM95LdhK
+ MdjNRTJb8tDAzBAXlhLFCw43vJHfbbx7/tzAmcfDn1QpNvAAbX9M1AL
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,256 +92,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Seb,
+Habidere,
 
-On Tue, Mar 10, 2026 at 12:49:19PM +0000, Sebastian Ene wrote:
-> This series introduces the necessary machinery to perform trap & emulate
-> on device access in pKVM. Furthermore, it hardens the GIC/ITS controller to
-> prevent an attacker from tampering with the hypervisor protected memory
-> through this device. 
-> 
-> In pKVM, the host kernel is initially trusted to manage the boot process but
-> its permissions are revoked once KVM initializes. The GIC/ITS device is
-> configured before the kernel deprivileges itself. Once the hypervisor
-> becomes available, sanitize the accesses to the ITS controller by
-> trapping and emulating certain registers and by shadowing some memory
-> structures used by the ITS.
-> 
-> This is required because the ITS can issue transactions on the memory
-> bus *directly*, without having an SMMU in front of it, which makes it
-> an interesting target for crossing the hypervisor-established privilege
-> boundary.
-> 
-> 
-> Patch overview
-> ==============
-> 
-> The first patch is re-used from Mostafa's series[1] which brings SMMU-v3
-> support to pKVM.
-> 
-> [1] https://lore.kernel.org/linux-iommu/20251117184815.1027271-1-smostafa@google.com/#r
-> 
-> Some of the infrastructure built in that series might intersect and we
-> agreed to converge on some changes. The patches [1 - 3] allow unmapping
-> devices from the host address space and installing a handler to trap
-> accesses from the host. While executing in the handler, enough context
-> has to be given from mem-abort to perform the emulation of the device
-> such as: the offset, the access size, direction of the write and private
-> related data specific to the device. 
-> The unmapping of the device from the host address space is performed
-> after the host deprivilege (during _kvm_host_prot_finalize call).
-> 
-> The 4th patch looks up the ITS node from the device tree and adds it to
-> an array of unmapped devices. It install a handler that forwards all the
-> MMIO request to mediate the host access inside the emulation layer and
-> to prevent breaking ITS functionality. 
-> 
-> The 5th patch changes the GIC/ITS driver to exposes two new methods
-> which will be called from the KVM layer to setup the shadow state and
-> to take the appropriate locks. This one is the most intrusive as it
-> changes the current GIC/ITS driver. I tried to avoid creating a
-> dependency with KVM to keep the GIC driver agnostic of the virtualization
-> layer but I am happy to explore other options as well. 
-> To avoid re-programming the ITS device with new shadow structures after
-> pKVM is ready, I exposed two functions to change the
-> pointers inside the driver for the following structures:
-> - the command queue points to a newly allocated queue
-> - the GITS_BASER<n> tables configured with an indirect layout have the
->   first layer shadowed and they point to a new memory region
-> 
-> Patch 6 adds the entry point into the emulation setup and sets up the
-> shadow command queue. It adds some helper macros to define the offset
-> register and the associate action that we want to execute in the
-> emulation. It also unmaps the state passed from the host kernel
-> to prevent it from playing nasty games later on. The patch
-> traps accesses to CWRITER register and copies the commands from the
-> host command queue to the shadow command queue. 
-> 
-> Patch 7 prevents the host from directly accessing the first layer of the
-> indirect tables held in GITS_BASER<n>. It also prevents the host from
-> directly accesssing the last layer of the Device Table (since the entries
-> in this table hold the address of the ITT table) and of the vPE Table
-> (since the vPE table entries hold the address of the virtual LPI pending
-> table.
-> 
-> Patches [8-10] sanitize the commands sent to the ITS and their
-> arguments.
-> 
-> Patches [11-13] restrict the access of the host to certain registers
-> and prevent undefined behaviour. Prevent the host from re-programming
-> the tables held in the GITS_BASER register.
-> 
-> The last patch introduces an hvc to setup the ITS emulation and calls
-> into the ITS driver to setup the shadow state. 
-> 
-> 
-> Design
-> ======
-> 
-> 
-> 1. Command queue shadowing
-> 
-> The ITS hardware supports a command queue which is programmed by the driver
-> in the GITS_CBASER register. To inform the hardware that a new command
-> has been added, the driver updates an index into the GITS_CWRITER
-> register. The driver then reads the GITS_CREADR register to see if the
-> command was processed or if the queue is stalled.
->  
-> To create a new command, the emulation layer mirrors the behavior
-> as following:
->  (i) The host ITS driver creates a command in the shadow queue:
-> 	its_allocate_entry() -> builder()
->  (ii) Notifies the hardware that a new command is available:
-> 	its_post_commands()
->  (iii) Hypervisor traps the write to GITS_CWRITER:
-> 	handle_host_mem_abort() -> handle_host_mmio_trap() ->
->             pkvm_handle_gic_emulation()
->  (iv) Hypervisor copies the command from the host command queue
->       to the original queue which is not accessible to the host.
->       It parses the command and updates the hardware write.
-> 
-> The driver allocates space for the original command queue and programs
-> the hardware (GITS_CWRITER). When pKVM becomes available, the driver
-> allocates a new (shadow) queue and replaces its original pointer to
-> the queue with this new one. This is to prevent a malicious host from
-> tampering with the commands sent to the ITS hardware.
-> 
-> The entry point of our emulation shares the memory of the newly
-> allocated queue with the hypervisor and donates the memory of the
-> original queue to make it inaccesible to the host.
-> 
-> 
-> 2. Indirect tables first level shadowing
-> 
-> The ITS hardware supports indirection to minimize the space required to
-> accommodate large tables (eg. deviceId space used to index the Device Table
-> is quite sparse). This is a 2-level indirection, with entries from the
-> first table pointing to a second table.
-> 
-> An attacker in control of the host can insert an address that points to
-> the hypervisor protected memory in the first level table and then use
-> subsequent ITS commands to write to this memory (MAPD).
-> 
-> To shadow this tables, we rely on the driver to allocate space for it
-> and we copy the original content from the table into the copy. When
-> pKVM becomes available we switch the pointers that hold the orginal
-> tables to point to the copy.
-> To keep the tables from the hypervisor in sync with what the host
-> has, we update the tables when commands are sent to the ITS.
-> 
-> 
-> 3. Hiding the last layer of the Device Table and vPE Table from the host
-> 
-> An attacker in control of the host kernel can alter the content of these
-> tables directly (the Arm IHI 0069H.b spec says that is undefined behavior
-> if entries are created by software). Normally these entries are created in
-> response of commands sent to the ITS.
-> 
-> A Device Table entry that has the following structure:
-> 
-> type DeviceTableEntry is (
-> 	boolean Valid,
-> 	Address ITT_base,
-> 	bits(5) ITT_size
-> ) 
-> 
-> This can be maliciously created by an attacker and the ITT_base can be
-> pointed to hypervisor protected memory. The MAPTI command can then be
-> used to write over the ITT_base with an ITE entry.
-> 
-> Similarly a vCPU Table entry has the following structure:
-> 
-> type VCPUTableEntry is (
-> 	boolean Valid,
-> 	bits(32) RDbase,
-> 	Address VPT_base,
-> 	bits(5) VPT_size
-> )
-> 
-> VPT_base can be pointed to hypervisor protected memory and then a
-> command can be used to raise interrupts and set the corresponding
-> bit. This would give a 1-bit write primitive so is not "as generous"
-> as the others.
-> 
-> 
-> Notes
-> =====
-> 
-> 
-> Performance impact is expected with this as the emulation dance is not
-> cost free.
-> I haven't implemented any ITS quirks in the emulation and I don't know
-> whether we will need it ? (some hardware needs explicit dcache flushing
-> ITS_FLAGS_CMDQ_NEEDS_FLUSHING). 
-> 
-> Please note that Redistributors trapping hasn't been addressed at all in
-> this series and the solution is not sufficient but this can be extended
-> afterwards. 
-> The current series has been tested with Qemu (-machine
-> virt,virtualization=true,gic-version=4) and with Pixel 10.
-> 
-> 
-> Thanks,
-> Sebastian E.
-> 
-> Mostafa Saleh (1):
->   KVM: arm64: Donate MMIO to the hypervisor
-> 
-> Sebastian Ene (13):
->   KVM: arm64: Track host-unmapped MMIO regions in a static array
->   KVM: arm64: Support host MMIO trap handlers for unmapped devices
->   KVM: arm64: Mediate host access to GIC/ITS MMIO via unmapping
->   irqchip/gic-v3-its: Prepare shadow structures for KVM host deprivilege
->   KVM: arm64: Add infrastructure for ITS emulation setup
->   KVM: arm64: Restrict host access to the ITS tables
->   KVM: arm64: Trap & emulate the ITS MAPD command
->   KVM: arm64: Trap & emulate the ITS VMAPP command
->   KVM: arm64: Trap & emulate the ITS MAPC command
->   KVM: arm64: Restrict host updates to GITS_CTLR
->   KVM: arm64: Restrict host updates to GITS_CBASER
->   KVM: arm64 Restrict host updates to GITS_BASER
->   KVM: arm64: Implement HVC interface for ITS emulation setup
+The RK3588 Video Capture (VICAP) constitutes an essential piece of the
+RK3588 camera interface with one DVP, six MIPI CSI-2 receivers,
+scale/crop units, and a data path multiplexer (to scaler units, to ISP,
+...). This series introduces basic support for the RK3588 VICAP unit
+to the rkcif driver, thus paving the way for video capture in general
+and for camera sensor image processing in particular.
 
-I tested the patches on Lenovo ideacenter Mini X Gen 10 Snapdragon,
-and the kernel hangs at boot for me with messags the following log:
+The changes have been tested successfully on a Radxa ROCK 5B+ with two
+Radxa 4K cameras attached to it. The raw images from the sensors can
+be streamed after configuring the hardware pipeline with
 
-[    2.735838] ITS queue timeout (1056 1024)
-[    2.739969] ITS cmd its_build_mapd_cmd failed
-[    4.776344] ITS queue timeout (1120 1024)
-[    4.780472] ITS cmd its_build_mapti_cmd failed
-[    6.816677] ITS queue timeout (1184 1024)
-[    6.820806] ITS cmd its_build_mapti_cmd failed
-[    8.857009] ITS queue timeout (1248 1024)
-[    8.861129] ITS cmd its_build_mapti_cmd failed
+media-ctl -d 0 --set-v4l2 '"dw-mipi-csi2rx fdd30000.csi":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"rkcif-mipi2":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"dw-mipi-csi2rx fdd50000.csi":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"rkcif-mipi4":0 \ 
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
 
-I am happy to do more debugging, let me know if I can try anything.
+and using e.g., GStreamer
 
-Thanks,
-Mostafa
+gst-launch-1.0 v4l2src \
+  device=/dev/v4l/by-path/platform-fdce0000.video-capture-video-index0 \
+  ! video/x-bayer,format=gbrg10le,width=3864,height=2192 ! bayer2rgb \
+  ! ...
+(or -index4 for the other camera sensor).
 
-> 
->  arch/arm64/include/asm/kvm_arm.h              |   3 +
->  arch/arm64/include/asm/kvm_asm.h              |   1 +
->  arch/arm64/include/asm/kvm_pkvm.h             |  20 +
->  arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  17 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   2 +
->  arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  14 +
->  arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 653 ++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 134 ++++
->  arch/arm64/kvm/hyp/nvhe/setup.c               |  28 +
->  arch/arm64/kvm/hyp/pgtable.c                  |   9 +-
->  arch/arm64/kvm/pkvm.c                         |  60 ++
->  drivers/irqchip/irq-gic-v3-its.c              | 177 ++++-
->  include/linux/irqchip/arm-gic-v3.h            |  36 +
->  14 files changed, 1126 insertions(+), 31 deletions(-)
->  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
->  create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
-> 
-> -- 
-> 2.53.0.473.g4a7958ca14-goog
-> 
+Note that this series requires the RK3588 MIPI CSI-2 receiver patches
+[0]. I included them here to provide the possibility to test the changes
+without any nasty merge conflicts.
+
+Looking forward to your comments!
+
+[0] https://lore.kernel.org/all/20260305-rk3588-csi2rx-v2-0-79d01b615486@collabora.com
+
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+Michael Riesch (9):
+      Documentation: admin-guide: media: add rk3588 vicap
+      media: dt-bindings: add rockchip rk3588 vicap
+      media: rockchip: rkcif: add support for rk3588 vicap mipi capture
+      [DONOTMERGE] media: dt-bindings: rockchip,rk3568-mipi-csi2: add rk3588 compatible
+      [DONOTMERGE] arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3588
+      arm64: dts: rockchip: add vicap node to rk3588
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam0
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam1
+      arm64: defconfig: enable designware mipi csi-2 receiver
+
+ .../admin-guide/media/rkcif-rk3588-vicap.dot       |  29 +++
+ Documentation/admin-guide/media/rkcif.rst          |  32 +++
+ .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |   8 +-
+ .../bindings/media/rockchip,rk3588-vicap.yaml      | 256 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   7 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 139 +++++++++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      |  89 +++++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      |  89 +++++++
+ arch/arm64/configs/defconfig                       |   1 +
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 136 +++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   |   2 +-
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  18 ++
+ 14 files changed, 805 insertions(+), 3 deletions(-)
+---
+base-commit: f6390408a846aacc2171c17d88b062e202d84e86
+change-id: 20250430-rk3588-vicap-9d164c8528a7
+
+Best regards,
+-- 
+Michael Riesch <michael.riesch@collabora.com>
+
+
 
