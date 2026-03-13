@@ -4,135 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD1D105F784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB8C1105F785
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=; b=lot2C63hPYUkrBXf7je4FlFZzV
-	xwTWKq3iqADLhETkgaondR8P66Uv3arIvYdIrFWc1HmHVUQEcMU2o06twCMbdyZGvKSDSMRr/MFEo
-	o4AvfiqVZagtQwAbjS1LgUYYNBlt7z9RVBok30LqBIUZuHBJSXtLSnJcc5WWJP4uMIcIUFimZX9vb
-	IdgRJvisGog56/K8FcMUoKfFjnHLylAyH0BqdkjjaWC7KP72QBGk5rUJZTn/5/9W/iP/bqNcmLWSo
-	sdFQDaPDmFO2tvQR8CRYuQcU1sJqDA1iGIPJ9wKYPma9GBrrteDTfSulE/u359mEL2SSzh6elZrip
-	jZhHgZeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dlE92pMBDxcqf7pEJi1EWDiZ3PurhMMxo1VeKrJwWqs=; b=N+c2mzGltRs3nRFP7NF58/Ljpa
+	SUavu51u3XtiH6Q3eRZORdWzUJNBRUVyooKpl8eOgBJFuBB9By201mYww+k5Tk+XhY+hC4bTWC3og
+	YKmFz/L9Oj14QQF5bsALabJuG8M6xSZvpqQwM7Js6Oj8+eKxWz+eJ27lGxC6jG8UQ6WqhceP3/2DD
+	vfvB11Ae390IrmN78WMFkl8DFpCoFShJDrLpEUq4aQ+f7dWSehH0ptsvXxxzpwUUsOI3t8tJNVEbh
+	QI8YHDNL9J8mx5fvzpv9UwhW7XO5IR7vAoblRTEmhxaPKWnxXf0ewFUJ7wHeCaWgToF5QqJpldN8M
+	sY9zgKVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yxw-0000000HPAP-00Jc;
-	Fri, 13 Mar 2026 09:37:56 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w0z06-0000000HPKn-30OC;
+	Fri, 13 Mar 2026 09:40:10 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yxs-0000000HP9r-2fbl
+	id 1w0z04-0000000HPJs-0mei
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:37:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a+mMV94E4u821e1Y++VAVF0HqsY+mEK96sDuO3ZKC/5GCddx3Y1psosdCzsJRq0Y4BuCi3cUt96YcCQvVL26q2MmF5KLHic/OQ8+METejV7DBJrdpWGnYJ1MB6hjUEXp/Ye1/QvYYoVNvB0+/wJIVt1LJkcTQkkkAO/qo8KPrqPXxCdOHZ3WdWQIYkuLONOWZoDi+mt/3kdyAksZdeP6s9yxbqBkc+rLOnruEW9ZSLBUqQ+zRINBFwKosX5/8OQGgPf5By4btxIaLOAe1YkeVVZLvwK7/xefM/rdTbrs3deXAVJ01dt3avTu2bpY1P4v8m0oPFkF5w+z566nctPK1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=;
- b=Kxk/bBGvjvH/Kyl6bTj8dYIA0IExEfB33UMi+ohkxFNNzlMqr6woBSff2pKfkpx/hVkvKJjzB/31zq4Ae6p8ZL+c9Rh7t49alEYPPWDvLFCEKuBUQHpnRYB1URdK7mP+zPG6sEHindrSO0IuwhiaqF+CWtj9l2YoOBXjFiwF08ij/qCAZ+NP3jsxiz2kiYuSjCBTg5UGvsRzaUXSZe++T0GTF3CjW2vaVO8N/9bVLcP83bdfQ7U4lvYsp09tMvKKVhdA3Nr0pG16PL7nI2T9hR+HtiwHwnnDpfwgaHpH8bQM/CvioMGkii6usY1VpMyH1fNnAdulAPbpFGgbHF9FSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=;
- b=hXmAw5n8KO82+gNiIap3BuL2BNDP9cSLh7qZXHkHUHsJy903WJs1orKw352akakpzNb9KYYUM5fibMymVOLAgLLtGmvk3ZIOt6jKx4YuYELuXi5+CNjhZiltOixESg8KJVRRWrwD9mikD/HjqUHDOelyctmxJS7Us3EGOeLXAvi4KAveAVrNN8JL6w+YojznCI0tDJg3K0RD7DG/AxPsUAoOZux/77aKp1NZxq1Fym7BSnS0CC/GJ37CK0jtcCjNLG8wVDX/EPrxKyCDv5rQZQs4URwGgXU+MLBpJA/cg5TGv/Y9s5CEJJAI63+X55LBleDUeUnTFtNaY0tG9G4tJA==
-Received: from CH3PR12MB7548.namprd12.prod.outlook.com (2603:10b6:610:144::12)
- by SJ1PR12MB6145.namprd12.prod.outlook.com (2603:10b6:a03:45c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.8; Fri, 13 Mar
- 2026 09:37:44 +0000
-Received: from CH3PR12MB7548.namprd12.prod.outlook.com
- ([fe80::b710:d6a1:ab16:76de]) by CH3PR12MB7548.namprd12.prod.outlook.com
- ([fe80::b710:d6a1:ab16:76de%5]) with mapi id 15.20.9723.006; Fri, 13 Mar 2026
- 09:37:44 +0000
-From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, Jason Gunthorpe
-	<jgg@nvidia.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "eric.auger@redhat.com"
-	<eric.auger@redhat.com>
-Subject: RE: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
- tegra241_vcmdq_hw_init()
-Thread-Topic: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
- tegra241_vcmdq_hw_init()
-Thread-Index: AQHcsoGGN4pApmoWSEeF3k5/8VyGGrWsM8EQ
-Date: Fri, 13 Mar 2026 09:37:43 +0000
-Message-ID: <CH3PR12MB7548EBC8ADC2A4C34EA06678AB45A@CH3PR12MB7548.namprd12.prod.outlook.com>
-References: <cover.1773361875.git.nicolinc@nvidia.com>
- <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
-In-Reply-To: <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
-Accept-Language: en-US, en-GB
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CH3PR12MB7548:EE_|SJ1PR12MB6145:EE_
-x-ms-office365-filtering-correlation-id: 87038564-6837-484c-bed7-08de80e42dac
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700021|18002099003|22082099003|56012099003|7053199007;
-x-microsoft-antispam-message-info: GN934vUZIJts+A5dfBQuRDoX2wgVg/952HS35pRYi5jibNElpEoahZlKUDRrCHKRUzfU0kgVdnTPchAqKK7+ypZX4L+7YjYblpQ3rXPTW6FTEmdR7NVxWXG26orXdjtI83DiENWQEei//IyGDHXWC0t3LGHIBYubZBgqyJ63rFgNC/l8Si5eaqsn69CbEp8z5tEnApg6N+lGXre39G/IJfXd028vT+I8PVd5o/V2BEZoWI62WCdzZTsA1LsWm6z8HARr0lFN45qaD3mr5uUy1UJtduqUszYBI67/lLOPrmYSx4KPWfN4V9U8T1Q7n7ADfWYuLwuEW52iyEFc7Dg8Rgz3o6B8Z07NruoceZ4k7UKdcme/ampeYPOZ7bEU7VFC5ShTU6vs5HBKO0E6EP+qDyZ/YspH8KwZNQ3nB86ZTeBeuzDzRK7M+sEbY9AWa/qJ/1RxIv4a4k9QqDSQgrQhQnlXTytv68W0Sn7pL4LHH3VD0mF4zkRiU2pTpP9WTy5RY7Z+45sdygKHFQer3KeHaRiB+knwNYqkVHiJ4X1swdTY3wrXv9SN82IoA6eUoEBmNa9BKt6eOcAf5uzhpZ3/b21o3g4Qu7I0fkXD7hAwv5V37zgfIpGcOfbidbevgsmFtQmFU0S5DZdOL8yAb6DL9Owqf+rOO5gADsv5tw2tD/o4vejVodN33bGx2K4btBbeUo4BMkIwkan7LhqMItqgm+vzKIt1shpwKt0d5l0HUTdYLR3lvAnNYDJQIc7cxVwMg2N4iafMQgkqI1Mh5F0uGRmlgGgpQK+q8dYJt6jb170=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB7548.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021)(18002099003)(22082099003)(56012099003)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uIR56yK08JgzNURzTUDAj/uvvNv9W663TfLsV3l/kEah7BfgpxqdYAT8Dix4?=
- =?us-ascii?Q?duoK6HVP+rAw26LpdvyMP/gHF8LA1gOzzntR7K1e6btG0B2yQ7e3D11CL6oE?=
- =?us-ascii?Q?/VlSLg2LSNcv06GAD/fznTQ2jZq2jgifbcWK4hhq1cyZjV4MDBD6BkK0SVQk?=
- =?us-ascii?Q?jzp/fb3ZIJi7Na5A+fCg6aRF7WH3JyVYb7gW+Dl49kqr6ZtWAfWtIKWgm2lg?=
- =?us-ascii?Q?GM/lvM+zU8xRVWR2Nca34M+EdzvKoqWkmbIDbgP6TS1vavNy/pq8sozUd5Or?=
- =?us-ascii?Q?V9oruVihHi+FMAM+HBwaDzPJGfD2GS9z+ulNTcv5PhR2VtW/e/0OO34IJwGq?=
- =?us-ascii?Q?vWIub72PcOKeq/kOsxu7z8tFfrEiiJOlRRCjMHENBGUWLq4qGCBtAUhemIh0?=
- =?us-ascii?Q?cQ72g60bYJEFfRMzRE4B7919mNqRCZ/GI2I2GBEwIsWa/O91bv3NDJMZtdcw?=
- =?us-ascii?Q?olM1PUYj3cg92YvWS7GdrBwIAVyoZerGq5QAQdmDBxIsmDlJl/2NrXsKJEoz?=
- =?us-ascii?Q?On0udVwnFiA2HWhm8JnrIwVqpoY4Nd92HYp8s0IbONxwJTiw0hy1QnOtrYIK?=
- =?us-ascii?Q?FWNJKeRl/eYJC2oP2xviQBTCNQXVuvWrQUDJKRSde7P3Qq9OJuyzBC+8JgF+?=
- =?us-ascii?Q?ggTw+YiU+SaN1XrfWuLyEnZvP88gkSWQJJtKpGrRkw3LPo1yp+JiVKOlvnBT?=
- =?us-ascii?Q?LNKPPgaa0Gvs2UU14ebTV37uqsKcVnz7VYk9Hm8rBKUygQftYpcWhffitOey?=
- =?us-ascii?Q?gCsg2syM3bEQU6gzLbS0U6CekB8hy18bfVNHs39tCjuJYdQzdUmM3leFrRHy?=
- =?us-ascii?Q?jt0COT9rSdraRymYSf6NihnfVb6aHB2lC7c58VR8B0Gnh4oA9BsLvk3iDGTS?=
- =?us-ascii?Q?V6uWmHBPjF7iLr0bcxuI1+xJopfn9b5dlgtatmBLX8vn9LFEThZUw6h5oVkQ?=
- =?us-ascii?Q?asllcqA0zTqBf+Ewd+vl78RReDCosYVDHCJz+MBEoyxoh7gE7h96b0AsFN/0?=
- =?us-ascii?Q?cBUgm5ND6PEyyuze7MGbyujb7TZ4Mo07SilbmmSBy+/hRMcdL7TusvKmPCJO?=
- =?us-ascii?Q?X+4+5f8ni58Me5iEUuFaMKSZN06/jepOX2irnXlriprnWClRDGD1X0dnk4yq?=
- =?us-ascii?Q?gvQodjtrJVjWaL98X1omr0OnYg6oOolB4fq6zq24pGMcZxzHzYjKvH0mg3g6?=
- =?us-ascii?Q?Ge+tyKmPzeXi9L6tLTHM5F90S+Qhs1sMIeFrygIsTBLSh/39mvX/sxDetOHa?=
- =?us-ascii?Q?mCWeDTwrUoA8hBhPvBuylz4VT0TkcWMb7gPDnuIsl6QY/amUSihdktR1GgJp?=
- =?us-ascii?Q?vIKNf4kmPaGE8BxE+jfKGN82ScX8HV/FwHKLJc4M3jNOM8Xz9uaY0HBFPeLv?=
- =?us-ascii?Q?FSKlLx1ysmLStqZHZ6pgoefOU0wQ6QttXuHfhM+614+bbynRXHRGdvSORocq?=
- =?us-ascii?Q?7RfevsxjU5bQGi8Xuc9E05ZNs3cQx5EGtoXdFdh7BG+vc2oBalbmxQgPE2/s?=
- =?us-ascii?Q?J1wE0bs6ZIsHiLwKzVLB5LbYrDSzcWKl66ts6oZkG60DE7BoTDBNuO3Mh/7+?=
- =?us-ascii?Q?5C8DkN14GxZTz0N0JcJhkcIXhbtuh7ZW2znmEwNXRo2SFnJEshtd67SfPLDc?=
- =?us-ascii?Q?aaP+ufVxN8VVL7jC11DqCD8CA/WoruFLOjFm7fnbCI/NpYx8s82blF/ozEfp?=
- =?us-ascii?Q?UwtifRbIWw4GzGNyI/GWj5gytcSzl0GVVuebXbEYhwRbj8bUV4++30MJg5Tc?=
- =?us-ascii?Q?29YQFpc9mw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 13 Mar 2026 09:40:09 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8cd751a4e93so108118185a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 02:40:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773394806; cv=none;
+        d=google.com; s=arc-20240605;
+        b=D97KpykyDsBCil33H0/A/Jet1ls6vv69qblpX+5GsnFixo6e+ikUe/vGSmF5wHkt6l
+         0KN0jB1CDhgBIuvjxJclgvxTLi6Rv/Bs3RsD/6Q/VypLjqBLUhd8J1H3Kd0GlcO3wC/c
+         le44glHuv1SF4KOdYoGlUmtepd2G+App7tBXvrSBDrPpyXGstpUAyIJZ+P27YDQ0evpd
+         lvOWAiLC37MwhVTOvOD3lV8dOscq9hXbBPUVjwn/3r53tFQpVj7OXxMnz/Z2Pq0nGQGw
+         wLWPYZtSrwskY29HnSZBfMDAr+Cq4/Yu6WRoOaeqK0uMweQjpROySdQZlXFozBtM7wZN
+         SGpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dlE92pMBDxcqf7pEJi1EWDiZ3PurhMMxo1VeKrJwWqs=;
+        fh=d10mc/bSBxkodGWT3PAHjIW4JZEBEQoQrFp6K/XQDv4=;
+        b=lZXIQiGWq/A9UyWGxDKNiWhxm3jbh8JIHehjUoP+4wc4aswdhMDPpEI9SF53C1uVkq
+         h1DQZWGcgl4g5y9az7KtRs3G2J18B9BDvYEos41f20mahterFXCNhawbOULdS+aGIYwP
+         5WPhpeD3Kc1/z6ewacPRTV7jjGPlMSH/glK/ZzY1YrRpHNyeFJp5OQDOQ3AQLGvaEbvx
+         iv16JFUr53FS1kTyeQnba7SkDzUPRU9opwOq2cim+MPXOOD2PXug0JYQwVS5q2E4clkA
+         JAszOthdMcaSmA6CNJhnOsKqoDZplf2qtysW86bJhiAOaAjCNYCjecmCwOgbrtGr7OBC
+         K5FQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773394806; x=1773999606; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dlE92pMBDxcqf7pEJi1EWDiZ3PurhMMxo1VeKrJwWqs=;
+        b=T6k00z/lYMWFW0AVnwAceEWvNmDFDRfZmdMhgl4yMDnv/H5MgeAEj0caO7uy3KB1UW
+         Fd+5KPLRP2yTDbzk0Q+saiczVS+zxW/M+jURB++ZqOaJcd3M5s54yhXoXqdSHTnQzRof
+         thpqOrs83zMztNaMBUsm/b8WzEf38zydyhYKxPHYECUWvyyeMFRgwf3ssrlEf7Sn2eoZ
+         FCUWhhALxERh+vrkRFFokXgXdfxGS0zqPFL2g8H1pl7Aw0twZtBETA7cfAOx1Vk4TQmz
+         FegPFMg+w3209aur1mAEjXHAfnGt/hPLrysWJlg1i/siCUguarWqE9jMEGO9vmNd8m2n
+         WgZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773394806; x=1773999606;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=dlE92pMBDxcqf7pEJi1EWDiZ3PurhMMxo1VeKrJwWqs=;
+        b=W0PuyzJomTq730Ftyz58w4xn4bejpeEDCL6qh/E/arqJvF/tAHbt8OEdYVQYEtM5zM
+         GNZ8UsA/2DqDelHl9TpdGKmsxRi6rcs+IFqv7pff/531ZmEV2FRQh8tqzpv+LH+aDLZN
+         QiXY5e60Cxt0oERzeCN2ya9/HGS2Jy02NVDwygicu15lkRo6pUuj3KZtUQQ+S1w7gA6u
+         CDanFhWxSEMG2da/CMVeYgskCJjSlwsNCq7LCAYdbYvh2Xw4QpMMZPvdrWX2yKwBxquY
+         Hfn7xTbH0hVRz6fglqxGClx/GTK411k+4FBdQ16C6vBFSzu2TbDZXUfM+zRwv455OPlj
+         5wMg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjN/3rgHKWfTh1Tz8nEjMsA/7GeBZ2/+fcY6ScnGuOUqCH1n5M5CVvTMHQCRLX3pk/txGlI6ZS47HSgJWqqPdM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJkhnWfVpRkUiCbDeg9e3AE11CLCVety23NhlqX/Xv/9tjJJqJ
+	OagTR0v5nJ5RbuHSLGDnvA/RwyTHa/gKFaEd/m1eXaLZHsm71KrF/qza1MKV3hael4u3RCHckac
+	McVNDmlClOhtbn6uTzGcBrA3LnUvWmV/GcY6d
+X-Gm-Gg: ATEYQzzOvj73VuOnICrwVyYPHcd9N9pPm4NoYvbyJSXonY8PiW7hCdqZa/CIQzxH/JK
+	pQLXu9Q9Uxsx51YZz8qmoFjvSLjIjIo9/ifMRydvu04XQjeWwvcfn1q0L+YJrbse3MPsDLlVacA
+	XonrMFoYHE+KP5u8Wg6r2Sr77M8y1tjQlnxakRB6saDXOAhBz7KVy8DkeZSIdUmZXLmiwxg+qs+
+	ZNWljFScrlrtP45RsANIfjuMPRWctnTs7Oo/s1d+BDFBhQ1mtbszTlrhrsw/Z+iSklhDZ26F4bE
+	RvTgmbbRbVj86bAIwsJyJRQiJXpdmgzPjw==
+X-Received: by 2002:a05:620a:690d:b0:8cd:8f18:d1c4 with SMTP id
+ af79cd13be357-8cdb5b3203amr295554085a.56.1773394806425; Fri, 13 Mar 2026
+ 02:40:06 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB7548.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87038564-6837-484c-bed7-08de80e42dac
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 09:37:44.0014
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cK9ZxIiKBwtFkGMoC0JP/XP4fBhNhp7vs2k0cIFxbdaXkjiiTF15pWeItzkrRsvbPapuhqPTLKfnSDWAfXvbtw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6145
+References: <20260305185116.781184-1-akkun11.open@gmail.com> <20260305185116.781184-3-akkun11.open@gmail.com>
+In-Reply-To: <20260305185116.781184-3-akkun11.open@gmail.com>
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+Date: Fri, 13 Mar 2026 18:39:54 +0900
+X-Gm-Features: AaiRm513Z0tfTZUa8grZ-svVd-KIsw6SByNnlN-BN7-Nvit_VHPm6CosTcm2fXM
+Message-ID: <CAKr_iV7GRaiXp8VFVEAo8VHoPQzcD6Z=Av38R6_fAs5t7aQkDg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm: dts: mediatek: mt6589: add basic support for
+ Lenovo B8000-F
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	sean.wang@mediatek.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_023752_859657_FABCB65C 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260313_024008_245309_F9A8B06F 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,95 +119,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: 13 March 2026 00:37
-> To: will@kernel.org; robin.murphy@arm.com; Jason Gunthorpe
-> <jgg@nvidia.com>; kevin.tian@intel.com
-> Cc: joro@8bytes.org; linux-tegra@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; iommu@lists.linux.dev; linux-
-> kernel@vger.kernel.org; eric.auger@redhat.com; Shameer Kolothum Thodi
-> <skolothumtho@nvidia.com>
-> Subject: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
-> tegra241_vcmdq_hw_init()
->=20
-> vintf->hyp_own is finalized in tegra241_vintf_hw_init(). On the other han=
-d,
-> tegra241_vcmdq_alloc_smmu_cmdq() is called via an init_structures callbac=
-k,
-> which is earlier than tegra241_vintf_hw_init().
->=20
-> This results in the supports_cmd op always being set to the guest functio=
-n,
-> although this doesn't break any functionality nor have some noticeable pe=
-rf
-> impact since non-invalidation commands are not issued in the perf sensiti=
-ve
-> context.
->=20
-> Fix this by moving supports_cmd to tegra241_vcmdq_hw_init().
->=20
-> After this change,
->  - For a guest kernel, this will be a status quo
->  - For a host kernel, non-invalidation commands will be issued to VCMDQ(s=
-)
->=20
-> Fixes: a9d40285bdef ("iommu/tegra241-cmdqv: Limit CMDs for VCMDQs of a
-> guest owned VINTF")
-> Reported-by: Eric Auger <eric.auger@redhat.com>
-> Reported-by: Shameer Kolothum <skolothumtho@nvidia.com>
-> Closes: https://lore.kernel.org/qemu-
-> devel/CH3PR12MB754836BEE54E39B30C7210C0AB44A@CH3PR12MB7548
-> .namprd12.prod.outlook.com/
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+On Fri, Mar 6, 2026 at 3:51=E2=80=AFAM Akari Tsuyukusa <akkun11.open@gmail.=
+com> wrote:
+>
+> Lenovo YOGA Tablet 10 (Wi-Fi) - B8000-F is a tablet which belongs
+> to the "blade" product family. It is powered by MT8125 SoC,
+> which is the tablet version of MediaTek MT6589, and has 1GB RAM.
+>
+> Like other devices in the "blade" family, it uses a framebuffer
+> initialized by the bootloader at a consistent memory address and size.
+> This patch adds basic support including UART and simple-framebuffer.
+>
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 > ---
-
-Ran few tests with QEMU toggling HYP_OWN bit, and this now enforces
-that QEMU sets HYP_OWN for VCMDQ to work properly.
-
-Tested-by: Shameer Kolothum <skolothumtho@nvidia.com>
-
-Thanks,
-Shameer
-
->  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> index 6fe5563eaf9eb..83f6e9f6c51d6 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> @@ -479,6 +479,10 @@ static int tegra241_vcmdq_hw_init(struct
-> tegra241_vcmdq *vcmdq)
->  	/* Reset VCMDQ */
->  	tegra241_vcmdq_hw_deinit(vcmdq);
->=20
-> +	/* vintf->hyp_own is a HW state finalized in tegra241_vintf_hw_init()
-> */
-> +	if (!vcmdq->vintf->hyp_own)
-> +		vcmdq->cmdq.supports_cmd =3D
-> tegra241_guest_vcmdq_supports_cmd;
+>  arch/arm/boot/dts/mediatek/Makefile           |  1 +
+>  .../dts/mediatek/mt6589-lenovo-b8000-f.dts    | 15 ++++++++
+>  .../dts/mediatek/mt6589-lenovo-blade.dtsi     | 37 +++++++++++++++++++
+>  3 files changed, 53 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
+>  create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-blade.dtsi
+>
+> diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/medi=
+atek/Makefile
+> index 37c4cded0eae..b67b94b7cbd0 100644
+> --- a/arch/arm/boot/dts/mediatek/Makefile
+> +++ b/arch/arm/boot/dts/mediatek/Makefile
+> @@ -8,6 +8,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D \
+>         mt6582-prestigio-pmt5008-3g.dtb \
+>         mt6589-aquaris5.dtb \
+>         mt6589-fairphone-fp1.dtb \
+> +       mt6589-lenovo-b8000-f.dtb \
+>         mt6592-evb.dtb \
+>         mt7623a-rfb-emmc.dtb \
+>         mt7623a-rfb-nand.dtb \
+> diff --git a/arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts b/arch/=
+arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
+> new file mode 100644
+> index 000000000000..47bb6ab1fe72
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
+> @@ -0,0 +1,15 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/*
+> + * Copyright (c) 2026 Akari Tsuyukusa <akkun11.open@gmail.com>
+> + */
 > +
->  	/* Configure and enable VCMDQ */
->  	writeq_relaxed(vcmdq->cmdq.q.q_base,
-> REG_VCMDQ_PAGE1(vcmdq, BASE));
->=20
-> @@ -639,9 +643,6 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct
-> tegra241_vcmdq *vcmdq)
->  	q->q_base =3D q->base_dma & VCMDQ_ADDR;
->  	q->q_base |=3D FIELD_PREP(VCMDQ_LOG2SIZE, q->llq.max_n_shift);
->=20
-> -	if (!vcmdq->vintf->hyp_own)
-> -		cmdq->supports_cmd =3D
-> tegra241_guest_vcmdq_supports_cmd;
-> -
->  	return arm_smmu_cmdq_init(smmu, cmdq);
->  }
->=20
+> +#include "mt6589-lenovo-blade.dtsi"
+> +
+> +/ {
+> +       model =3D "Lenovo YOGA Tablet 10 (Wi-Fi)";
+> +       compatible =3D "lenovo,b8000-f", "mediatek,mt6589";
+> +};
+> +
+> +&uart0 {
+> +       status =3D "okay";
+> +};
+> diff --git a/arch/arm/boot/dts/mediatek/mt6589-lenovo-blade.dtsi b/arch/a=
+rm/boot/dts/mediatek/mt6589-lenovo-blade.dtsi
+> new file mode 100644
+> index 000000000000..3a6e0d8c8a64
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/mediatek/mt6589-lenovo-blade.dtsi
+> @@ -0,0 +1,37 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/*
+> + * Copyright (c) 2026 Akari Tsuyukusa <akkun11.open@gmail.com>
+> + */
+> +
+> +/dts-v1/;
+> +#include "mt6589.dtsi"
+> +
+> +/ {
+> +       chosen {
+> +               framebuffer0: framebuffer@bf600000 {
+> +                       compatible =3D "simple-framebuffer";
+> +                       memory-region =3D <&framebuffer_reserved>;
+> +                       width =3D <1280>;
+> +                       height =3D <800>;
+> +                       stride =3D <(1280 * 2)>;
+> +                       format =3D "r5g6b5";
+> +               };
+> +       };
+> +
+> +       memory@80000000 {
+> +               device_type =3D "memory";
+> +               reg =3D <0x80000000 0x40000000>;
+> +       };
+> +
+> +       reserved-memory {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <1>;
+> +
+> +               ranges;
+> +
+> +               framebuffer_reserved: memory@bf600000{
+> +                       reg =3D <0xbf600000 0xa00000>;
+> +                       no-map;
+> +               };
+> +       };
+> +};
 > --
-> 2.43.0
+> 2.52.0
+>
 
+Hi,
+
+Please ignore this patch for now.
+
+I found that the panel on the Lenovo YOGA Tablet 8 is 800x1200,
+which is incompatible with the current simple-framebuffer configuration.
+
+I will fix the Device Tree in v3.
+
+Best regards,
+Akari Tsuyukusa
 
