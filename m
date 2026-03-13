@@ -4,67 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C08105F789
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F19C105F786
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 10:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86FZvQSPCl867RJ7yY+gpvVu/WKWsCxG782ZR1R285g=; b=FDQy0dqAmwAEcavHLhqxHDEj6n
-	E61COWwbZNymZaq8VTbjHiRn3XLNM3X6D/EukH8u3FUpPvegR52Opy+bOHry1lyNhj30/5LTqdmLA
-	Oiyy2JUAMzDHp9Pxpwf211nyDQGxXDQEju04Lo1ZRInXJ+cRfRUlLNuUmhh+j5d6sZkkpHgHeDoAF
-	FSpUOZ7XoIfU2keQhr9axnl4QVK6dUs2OWNgo11oDn+hvm1fb+7bmbXsRoNt7b3r8xQkgMGfNdZ8c
-	HLTNQ1G5F33Jc53gbF1uQUXZyny5hQTFyJYISM0E9OrgTibYBmTb4dGnbd/GQxfdok5a9lLclFLqX
-	hcdrRvhw==;
+	bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=; b=Grr5TkT4PrxLlSppXq5oYMS9R6
+	ZHRcBs+jljUwM4mlT3Y2b/XBSOuiHwPj/n/gc0ofBdshd8Jrc+iYID6bqQsVs8sQ71HI3p7sUy32E
+	FyJB06eEO6inMx1VrEcmxNUBmSvpwTAVBT2hW3W7fLJ73eV9o4dnSTr660h/pLYaaMXxxNd1UjC9Y
+	Hmr/SS2rEuBN0866BzvXmErQedlkVxA/Bu5c3ncgFBlnOp4S/l11lL7HAUuSQCrNilYrPzTn588bC
+	Yx0dokvDYGC4Su/i/2QKUxfeWFxAfxzwKUxrKOEqh5xNWN4jp8WtPBGAkP0bHERlbCBOYG48/Qf5W
+	KstzvdEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zJ6-0000000HSx8-3f0T;
-	Fri, 13 Mar 2026 09:59:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0zKH-0000000HT7D-1RDR;
+	Fri, 13 Mar 2026 10:01:01 +0000
+Received: from mail-northeuropeazon11010048.outbound.protection.outlook.com ([52.101.84.48] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zJ5-0000000HSwM-0Rqq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 09:59:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=86FZvQSPCl867RJ7yY+gpvVu/WKWsCxG782ZR1R285g=; b=OSfKiNZFm9P7pI6QUB7i3tim41
-	NDb7Jnu7dZ5RriOLYoUF4kBdieE25e8xZ9vZNglM5HMts7Q4RMtcc8mSuVMCce0hOQgJUC9ZEmEg/
-	dmYy6nRWhUt5vueteLyveoZsQumY1qorXwAwCqmSLVRdlrUg7h2r5z5GLUdxnM6xT7ojcfBJAA+yU
-	sjl2iGOv28YmfcFpya16d22fC6L2KV2efQFxQ6ixlrM5Abr5h/RJ5uxW+0VGIZ6JYiiBcpBYQfCVE
-	6uNRy/kKCay/rTGiBPzrbmZMKbsZLRH7P5dzizY3SIT79QIAF65a4UAoj/3ygpEk8RhamUVr+d+CZ
-	Jr5bl2jA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0zIy-0000000327z-1QwU
+	id 1w0zKF-0000000HT5Y-00yv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:59:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D33CE165C;
-	Fri, 13 Mar 2026 02:59:30 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA0773F73B;
-	Fri, 13 Mar 2026 02:59:35 -0700 (PDT)
-Date: Fri, 13 Mar 2026 09:59:30 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: Clear VTCR_EL2 in __init_el2_stage2()
-Message-ID: <abPgAi2oDd_jFK_s@J2N7QTR9R3>
-References: <20260313053857.1277828-1-anshuman.khandual@arm.com>
-MIME-Version: 1.0
+	Fri, 13 Mar 2026 10:01:00 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=UCN+lFqEVRkoWZxA5TpKRZXzRml4mvON4OhZYNLs+li27kroBjS88oxIgCp4PVYkGGET2Pe8hBY5SMx4X/O/8p4FYBVLTccHrIADdEZn4rlJ2H+8uTAHwP0RqTab+sbN15t1eOUCgly8A4zNVucIyYRizS/smk64iZms7j+ApJh6f4QnasUldYBzB6EkWWXMiHlYvGeOxtvxKrT7pZp2y0WKvJ7Fufv2yUxNK3A5wu15BrlKv+4hvRbX9NxHt1ZgPjSTD1Meeg4FB2jhqbuINxR3OryZDzyPAryt01z9p35c11qgnos3hohRODaEFfjJZX9saSnRN5YNE19z+kMCcg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
+ b=V0uZBxhghZnEaD4REmbhwF5GAYRl+Qa9CQ1hNa8adjMqdjgd1/e3yYSCPbuqQkcF98so9GlaVQ/KuRy/5JmBfftkk4sncq5t+ITyMLiZSUjiiMcUnfuOk+AFCIgGcd3xrhH00mjhInyx+sDqQ96MpW9JLgiXYiA8lxjysxudmse1xuAqRcKDAWnwy0cJMm1ibhw5QBHdoeQwjGlwP81G2JNjgRcVedf2c2v3oCA8T+s0hvdZoGFWwE4b3kSzSCqWg1unD6R3ti1JlTgMJ5VGhAntTxAE7hfas5Rx2qWcmoCOs1Fqv+Pol9R0h13o/WKbqSSn4KhVEif6mafFQv8ctw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
+ b=geTup90p242/h8ApWeaKeXfovmNAxKusV0InGk62Qavja3jCsXhWB7OWr0SMAYCDK3yuzRVvLqweZydbZznBprFyQ5Qx1Ti8FR42N4A+d2bPdwiFIpG8oBo2FYkl3U02VW7EPuCr+sHqE6E4HO5cO83DpfrAw+DfZjgSHj0nCrQ=
+Received: from DU7P251CA0026.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:551::30)
+ by DU0PR08MB8229.eurprd08.prod.outlook.com (2603:10a6:10:3a7::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
+ 2026 10:00:54 +0000
+Received: from DU2PEPF00028D08.eurprd03.prod.outlook.com
+ (2603:10a6:10:551:cafe::20) by DU7P251CA0026.outlook.office365.com
+ (2603:10a6:10:551::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.16 via Frontend Transport; Fri,
+ 13 Mar 2026 10:00:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D08.mail.protection.outlook.com (10.167.242.168) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
+ via Frontend Transport; Fri, 13 Mar 2026 10:00:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j5G8s8rexyj2WLVfGOfmCR266WepfNfMpOU2roBx9+CcNj5t7QmiP+FAM/MWZTvfrpglv56FK4fYtVcUqPMLqkiQmRL9r5VzFW1VYRvNqpJHe9YkJOmvKWFD2jTc2IOpt/jVOgNXbaPRJH4cVWi4D4G4/E6Y9xWlI1xWtBxsELOUeCDQ78eHCYCeNUXdaLc4MdcQyquCV3iabPd7j5lnheVJaCQd9x+nO1czVgqtFPaxqTU3ugX/E3oZjIHHm34pYkT9v0xdxtqJ+7leVE00K78fvxqGy/zlgmpIUIrAaZtRwpU4V14B2E9acJu9mg1xT/bWw2KeeJw1hSsOKxVmXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
+ b=Hd8EEnDNAx68UnsT3er9srlHhQ74omgbYrEy0AqHtjj+DRQ5K2yTnpV9y7Ze2MAQGCzH9SSsrdpJ3BYFjRZfB8BG1j8IU4zOBs5XA0VC/CykbAk8amBfW1UgrPE8foovuOWSMoWmcUSOHJV8BM5MPk5vlndbENMgM3iFS8E4H7IpKOtH6+y1X440RmT+hww5zBF+10JNCkyKJrEYRxu23U+0VWe4iHg0HF3KCY4TMg7gMtgG64iY3a/ykxVVIO9IF8K9hzBaAXX8BTjT/GciyRqBdhQgCMdRjAKREpr0PCRzw5PueCEx+4YtgcHrbQi1BsBBw1aIW/mVzkuQYy0dvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F6Fx5OYIX866jELJrogbB69hAUhkdK9GqDE6v8G3RCA=;
+ b=geTup90p242/h8ApWeaKeXfovmNAxKusV0InGk62Qavja3jCsXhWB7OWr0SMAYCDK3yuzRVvLqweZydbZznBprFyQ5Qx1Ti8FR42N4A+d2bPdwiFIpG8oBo2FYkl3U02VW7EPuCr+sHqE6E4HO5cO83DpfrAw+DfZjgSHj0nCrQ=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by GV1PR08MB8237.eurprd08.prod.outlook.com
+ (2603:10a6:150:5d::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
+ 2026 09:59:47 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98%4]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 09:59:47 +0000
+Date: Fri, 13 Mar 2026 09:59:43 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
+	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
+	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v15 7/8] KVM: arm64: use CAST instruction for swapping
+ guest descriptor
+Message-ID: <abPgD8JkDAg8kgJK@e129823.arm.com>
+References: <20260227151705.1275328-1-yeoreum.yun@arm.com>
+ <20260227151705.1275328-8-yeoreum.yun@arm.com>
+ <abPfZ27gbcBoAhEi@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260313053857.1277828-1-anshuman.khandual@arm.com>
+In-Reply-To: <abPfZ27gbcBoAhEi@arm.com>
+X-ClientProxiedBy: LO2P123CA0064.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1::28) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB8237:EE_|DU2PEPF00028D08:EE_|DU0PR08MB8229:EE_
+X-MS-Office365-Filtering-Correlation-Id: c527f024-e1cb-47b2-be78-08de80e76a41
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: Qje4Wz00KhbWdnUgBxdUBeHUntxRhhH4IZXsd2KThFyrTnvZVmTdIA1d5dRyx6yLRnRpWZFJSdHdV306RAfvlalMCgiCIcUVVsQdxUA9/rSJVWH9V0qZWladLbnEYMO/M4N7g1w/XPB97iZKlfZxxTRijX2QsM+jYYVgRe4PRObmYa5xkGKc4iI6hqeN+UBxRYpzE/4acH3iWTq1cdBsMCePMSGl0dwl3RxXlMf7Ht9AZogBE8PeU7XcE6i/ndh8Acz3LvLnhm/cg5d8h6RakWT+lk86iGo7AP00lV8j1cozAG5yG9ZbFR1589QWQ2Hsj0CwTLIw497VYNxuO3XZC0YXNZAaNW+aO7DpjpCZ/feTaOh4gIUNkG48PdZq2BpK+dSgl5nwzh2Gd+o1mjqPc5zXK6RGcKEbC2WDiDvSA86cBXaWZCTf2VILMwKWTxhuNbE9S2HC8zDLWU/wP2G9v0goP9WsbhHE7Iq0ghL7PlR/L36rfrupqeutaSyA8xoSbzUJrg+8LoLEYrjB6Ovx3Zgh8yzaSz6UG2r0V3Qp2QZS6+Y5FL9LyAGz1YgNoiDYc/jauQ1Mjk3czrKiYrZJm2zcTB6QRiByRcVCHDiM5DjAsGP/5M0bPFQEpD6UgYImWTP3eHUNiku8tpDdQgUS23NSA7aQv2I8PIUBsHn6FGRG2exrUUkxYnetBmQeCftXjuHKTT0L/vOfdNG63jN6jJOpeDJGY8QzydyoG2Do/VqRig7bLPvuh64aCKgteH+w
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: CkYo7e/cbgtZd4/PXzpyuOZWWa5QcaNtu9SSJJt9reg8fGfcjKqjl3oLqlsVnm2MSw7IqJN9LRRsi3tRM0bERgv05M4tNpOrIqCFhtsun+pkVZlWiCP/ZLxkw7/Z+gkHmEqQ1wVxMa+RgSd9rvk6oIIodyuQTpC6X+ceAzGnU0sJRJgG44XZwuqfAb7zopQKtVrNUtecQID9e1ojLJpI8VtmBer5kXkFI/P/kNkQbJ0/UJFbtgu+938AUsDA6OuO9MXpQAVaP8dwjJrcU9FCciFxAaDtxES3BSIpd3hc5rGdRaynizbQ9e85cfx+gNKZrEL8dVgI4PnBwsWTz3r9Mg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8237
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D08.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: cd35e026-b06d-4ea5-3330-08de80e74221
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|7416014|36860700016|376014|35042699022|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: IZgDw0tVNMy0IYXUfw4MTzsyJIRrpEIWQ7sfV6CcGmTYJZRWCmxFUGlKhQctcnjMS5gUDQzVNQ3ea/4bSg9SwBi0O6cn2wkY++hmPtHPrMvyDf+Gv8n/ZMKBz7RMQvTysS9PIvUO4TMllRk4YaR0ahfeYkWRAUo8Qpl5sIz9ulS+wkuH4I4aPpjobexXlwtQopziErdPb4la+T1eM693mvGVP+g+5miSSc2McwCeLAxCgX2d5dJDmOGJwCZJPxWoaxaIsyePntoakZBoJyVpR8oDG7MphtwCMb0V2FJRW1pKTDFWIlwjFIcwulEGAxSigohNQpBoCazYehgcL7JhPe/1PgaR1ya5Trz/8o2lBChXX9FrnPZOjfIrHPgzYfWj03JWVtAif2nNKFDnAI8IBhIBh2BOi1kDIkDkrPkTx9qoY+16GdKjEvakcqL7IIbsa6IIPNFXOwpSmpcyiwZbBDJxU4G+augADRxJrVz5ds71PkqigDv/kz3dok0jwvKn7drWKUw+ksa1JfWlOOHP1XFofGO70qYhSrHYd5mS3YuDlnnYwaJtDsz0TCTeMxhoGaTRHtYHK7BSQMe58V16Ija46K4HNR3armUCwlPIJ7qgoMdkypPxFmjLOReslhQW6/ITv2Xx3JZWEZua3pnVhDySWxdciPiYCZtuCuUTRNEonuBh1L533XnMICoClOyFOglG3OoEKLGKKmsu2vTkF/jStxBkj83g8np/enYgM10vXViULzeNjZbVosM2AT7r1x8FzOOmzri0x5Ew3U+ngA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(7416014)(36860700016)(376014)(35042699022)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: SNZaPnFZ038QchoHBY80dcROTRj4bTztFIs10cD0gOY1u1/+JAFaxZ4JxCIbXf7mETNxtmeFO8RXljdGIrn+qqK1aO1Y/yc/6hsX+cVG9Z89vOuaSCmNKGW4tqSjHgkCLHibJ81CNPT72NbPwvJDJBjCSNdzyVp8QWv8qJWzHgeapRWkIkjpzeBoywCnxktARhMuRFwp4iP3ZyjcOaJXWNI0otXqkA9JZwyuZTQKihG5YZnf6jgwilk+OUKKmKo0DxseTX/9fYk1/Ws/hHK7TJBj1mUG1BbE3kTrOfAO1N1iSdb10ZkUMIV6Df7tub70klo8EVap3WER9Shrd9XhDCV/fZFwL5GSfYLaWxO/f7n15mx5ZgONAhxZxOmgPdzwVgUN58hIIHQojm2SBelwdA4dxW636d4ilyV43eJ29O4sRvsRTeNqd1HuKDNBfO7I
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 10:00:54.0712
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c527f024-e1cb-47b2-be78-08de80e76a41
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D08.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8229
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_095942_646303_39E6AE98 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260313_030059_041937_988A8512 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +158,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 05:38:57AM +0000, Anshuman Khandual wrote:
-> Clear VTCR_EL2 along with VTTBR_EL2 register in __init_el2_stage2(), which
-> ensures that MMU stage-2 translation remain disabled.
+Hi Catalin,
 
-As Marc noted, that's not true -- whether stage 2 is enabled is governed
-entirely by HCR_EL2.VM.
+> On Fri, Feb 27, 2026 at 03:17:04PM +0000, Yeoreum Yun wrote:
+> > +static int __lsui_swap_desc(u64 __user *ptep, u64 old, u64 new)
+> > +{
+> > +	u64 tmp = old;
+> > +	int ret = 0;
+> > +
+> > +	/*
+> > +	 * FEAT_LSUI is supported since Armv9.6, where FEAT_PAN is mandatory.
+> > +	 * However, this assumption may not always hold:
+> > +	 *
+> > +	 *   - Some CPUs advertise FEAT_LSUI but lack FEAT_PAN.
+> > +	 *   - Virtualisation or ID register overrides may expose invalid
+> > +	 *     feature combinations.
+> > +	 *
+> > +	 * Rather than disabling FEAT_LSUI when FEAT_PAN is absent, wrap LSUI
+> > +	 * instructions with uaccess_ttbr0_enable()/disable() when
+> > +	 * ARM64_SW_TTBR0_PAN is enabled.
+> > +	 */
+> > +	uaccess_ttbr0_enable();
+> > +
+> > +	asm volatile(__LSUI_PREAMBLE
+>
+> I haven't tried, so just asking. Does the toolchain complain if it does
+> not support LSUI or is this path eliminated (due to
+> cpucap_is_possible()) before being handed over to gas? It's probably
+> fine but worth checking.
 
-The only reason to initialize VTCR_EL2 here would be if some field in
-VTCR_EL2 applies when stage 2 is *disabled*.
+Yes I did with clang-19 and that's one of v14's modification:
+  - https://lore.kernel.org/all/20260225182708.3225211-1-yeoreum.yun@arm.com/
 
-> Although clearing out VTTBR_EL2 probably should have been sufficient
-> but adding VTCR_EL2 improves overall safety.
 
-It's unhelpful to send patches like this with unclear or non-existent
-rationale, and vague statements about what the patch might do. Was there
-some specific reason to send this? e.g.
-
-* Did you have any specific reason to believe that setting some field in
-  VTCR_EL2 was necessary? e.g. is there some misleading documentation,
-  or comment elsewhere in the kernel?
-
-* Are you trying to fix some problem you've encountered, but haven't
-  managed to debug?
-
-* Was this purely from inspection?
-
-Mark.
-
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/el2_setup.h | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index 85f4c1615472..2c88033591bb 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -189,6 +189,7 @@
->  /* Stage-2 translation */
->  .macro __init_el2_stage2
->  	msr	vttbr_el2, xzr
-> +	msr	vtcr_el2, xzr
->  .endm
->  
->  /* GICv3 system register access */
-> -- 
-> 2.30.2
-> 
+--
+Sincerely,
+Yeoreum Yun
 
