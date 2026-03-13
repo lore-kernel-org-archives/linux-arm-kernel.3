@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D07105F7AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3A1105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zo63nR/GgNbbPAPEw+8SfW4LdWx0P3sA3NeLdC1qWxA=; b=0JdouIvNYog4yJRGNEO0LRWHbx
-	tdbxawymOQD1fSPVoBKMUXALoeDkKg97NU1V8iZAXqVGzGIEQMVk0OlKBaTFPBTixdDe44ZaW2nXe
-	6BGTcLWV8mLvkCVlUVKJJgbKrtMfbmJtAuSCRNn8Yg0K5E4pZIXLxktb7qDVn/wCVzPNvqACpJUv0
-	HN7FexmKYPzJz+agEikTOem33IS8SEI1B6YDVkisf+i9rdcGEHfF5M18N0rZfxnCSw2jHni9UJS5v
-	Djy8GmiVolXbpaAKUYIdWdj1QPJghl7O0+N3MZ2oNNhUkIofbulm0Dr9Mx3qSEgBpbwnlbPteFUmS
-	X5a7ojog==;
+	bh=9T9jNennlerLe3uuA03n7ak9JRhdsHnnl0b5uLOkty4=; b=DvHiKH74JidSw0ce79trZVePU1
+	Wwn29V5IGE/8LZtx0KCTBjiZJ9cftZKW3OgqDZAckQUXz/hOrdkFXbTHZ5dFVOdbjQ4RnX7Sh+goD
+	dOUsUZrGDt1PrznuWHJcj/FxwG7Boum0PZPHvoAqoocr7sqlxwRJoGX0oFI1OLGYfycb4AIivarSS
+	PiOBN/ttPR00Cdbna3SVeFMHRmhtGaXkl5L6ork05NXmXIYhK8rW0FXvqhiivBDe9bRuUDrP6bEY7
+	8/3/3bIrC8RNqJUW2AI3XknGj213FAfhaPcKhGxMO2ccPHDBPsj3RlSI84eg0SjaBV07pws37lKiF
+	H3+rY97Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13pJ-00000000Sw2-05ZC;
-	Fri, 13 Mar 2026 14:49:21 +0000
+	id 1w13pR-00000000T3F-3cXJ;
+	Fri, 13 Mar 2026 14:49:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13pE-00000000Sp2-3ByW
+	id 1w13pJ-00000000SvF-1v5E
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 14:49:16 +0000
+	Fri, 13 Mar 2026 14:49:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=zo63nR/GgNbbPAPEw+8SfW4LdWx0P3sA3NeLdC1qWxA=; b=aThc40kj5UPJwpLG35B4Cr4KOj
-	XPY2TTBBDXl+NHOb6XV2dWzLry6x9pwKPr98iCLtHjq1v7xyfiYvmxr83qnDGahSKmegfOsGPJnHw
-	A0DCM0JLGU2ov9cGVGtMtVftuV7yt70NCRxxQJI/tIGVhZcnyuW7wBYJ+pAA4oVVI/HsbVJSCSr2N
-	jNp71xHsvrR+cnFuDLY9vv+ru9YO97gnEenR5FVpytmRVEdHOq4UOqj4bc/XeGg8l7MemzFgQfk6k
-	9oO1uV2RbrcVsixbL+EvwCLqmQkdEAutH0PYdPx0HQNdDvKdQAPjaHL+7WKHuCocG+dQaHwRIY8mj
-	9nlfohXQ==;
+	bh=9T9jNennlerLe3uuA03n7ak9JRhdsHnnl0b5uLOkty4=; b=cG04/QEFBfsid6zgUnKu/uvzyy
+	fvFK2jvD+SwdtoVqhrKzlV4XZO7MHC+VLiZr5G+1VF3eDRhzZPW7a7cAk16lp60TXOoZshH6AblaN
+	fkWCr2Q0GQkTsZr+6qoA2A+Wu3tZsxmSR9auzH5jparOd++V2YcCK+EDUMWbF13Wk1ir97azkOd7d
+	slVP7G5cfi1vwayCNn1VHjnyaknL7mDu/kMj/hV96j/eFc1OcBCCVxtistzqYR/UVaqnsCZNaCjZP
+	MwTOOMWyNczNvoFwJC0EBhiRWO3ph6lgAj8zFxReOH8bp6+RAStp0KgppUvSbY4oT4oOQe98KD//x
+	QSt6Xffw==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13p6-00000003aHP-40CB
+	id 1w13pF-00000003aJQ-1UVi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:49:10 +0000
+	Fri, 13 Mar 2026 14:49:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D374425DC;
-	Fri, 13 Mar 2026 07:49:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29F0425DD;
+	Fri, 13 Mar 2026 07:49:10 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 134313F7BD;
-	Fri, 13 Mar 2026 07:49:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 764B13F7BD;
+	Fri, 13 Mar 2026 07:49:12 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -83,19 +83,18 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v6 37/40] arm_mpam: Add workaround for T241-MPAM-4
-Date: Fri, 13 Mar 2026 14:46:14 +0000
-Message-ID: <20260313144617.3420416-38-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org
+Subject: [PATCH v6 39/40] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+Date: Fri, 13 Mar 2026 14:46:16 +0000
+Message-ID: <20260313144617.3420416-40-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_144909_392148_2EA63CBC 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260313_144918_103828_FE93B39B 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,169 +109,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shanker Donthineni <sdonthineni@nvidia.com>
+From: James Morse <james.morse@arm.com>
 
-In the T241 implementation of memory-bandwidth partitioning, in the absence
-of contention for bandwidth, the minimum bandwidth setting can affect the
-amount of achieved bandwidth. Specifically, the achieved bandwidth in the
-absence of contention can settle to any value between the values of
-MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
-zero (below 0.78125%), once a core enters a throttled state, it will never
-leave that state.
+CMN-650 is afflicted with an erratum where the CSU NRDY bit never clears.
+This tells us the monitor never finishes scanning the cache. The erratum
+document says to wait the maximum time, then ignore the field.
 
-The first issue is not a concern if the MPAM software allows to program
-MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
-MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+Add a flag to indicate whether this is the final attempt to read the
+counter, and when this quirk is applied, ignore the NRDY field.
 
-In the scenario where the resctrl doesn't support the MBW_MIN interface via
-sysfs, to achieve bandwidth closer to MBW_MAX in the absence of contention,
-software should configure a relatively narrow gap between MBW_MIN and
-MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
+This means accesses to this counter will always retry, even if the counter
+was previously programmed to the same values.
 
-Clear the feature MBW_MIN feature from the class to ensure we don't
-accidentally change behaviour when resctrl adds support for a MBW_MIN
-interface.
+The counter value is not expected to be stable, it drifts up and down with
+each allocation and eviction. The CSU register provides the value for a
+point in time.
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-[ morse: Added as second quirk, adapted to use the new intermediate values
-in mpam_extend_config() ]
-
-Changes since rfc:
-MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
-Handling when reset_mbw_min is set
-
 Changes since v3:
-Move the 5% gap policy back here
-Clear mbw_min feature in class
-
-Changes since v5:
-Calculate min from max when resetting
+parentheses in macro
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- drivers/resctrl/mpam_devices.c              | 55 +++++++++++++++++++--
- drivers/resctrl/mpam_internal.h             |  1 +
- 3 files changed, 55 insertions(+), 3 deletions(-)
+ Documentation/arch/arm64/silicon-errata.rst |  3 +++
+ drivers/resctrl/mpam_devices.c              | 12 ++++++++++++
+ drivers/resctrl/mpam_internal.h             |  6 ++++++
+ 3 files changed, 21 insertions(+)
 
 diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index a65620f98e3a..a4b246655e37 100644
+index 1aa3326bb320..65ed6ea33751 100644
 --- a/Documentation/arch/arm64/silicon-errata.rst
 +++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -249,6 +249,8 @@ stable kernels.
+@@ -214,6 +214,9 @@ stable kernels.
  +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
+ | ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
  +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
++| ARM            | CMN-650         | #3642720        | N/A                         |
 ++----------------+-----------------+-----------------+-----------------------------+
+++----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
  +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
- +----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index b1753498f07f..f13537ec7ab5 100644
+index b6f68ddae8bc..02518b455c89 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -679,6 +679,12 @@ static const struct mpam_quirk mpam_quirks[] = {
+@@ -691,6 +691,12 @@ static const struct mpam_quirk mpam_quirks[] = {
  	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
- 	.workaround = T241_SCRUB_SHADOW_REGS,
+ 	.workaround = T241_MBW_COUNTER_SCALE_64,
  	},
 +	{
-+	/* NVIDIA t241 erratum T241-MPAM-4 */
-+	.iidr       = MPAM_IIDR_NVIDIA_T241,
++	/* ARM CMN-650 CSU erratum 3642720 */
++	.iidr       = MPAM_IIDR_ARM_CMN_650,
 +	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-+	.workaround = T241_FORCE_MBW_MIN_TO_ONE,
++	.workaround = IGNORE_CSU_NRDY,
 +	},
  	{ NULL } /* Sentinel */
  };
  
-@@ -1464,6 +1470,37 @@ static void mpam_quirk_post_config_change(struct mpam_msc_ris *ris, u16 partid,
- 		mpam_apply_t241_erratum(ris, partid);
- }
+@@ -1003,6 +1009,7 @@ struct mon_read {
+ 	enum mpam_device_features	type;
+ 	u64				*val;
+ 	int				err;
++	bool				waited_timeout;
+ };
  
-+static u16 mpam_wa_t241_force_mbw_min_to_one(struct mpam_props *props)
-+{
-+	u16 max_hw_value, min_hw_granule, res0_bits;
+ static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+@@ -1249,6 +1256,10 @@ static void __ris_msmon_read(void *arg)
+ 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+ 			nrdy = now & MSMON___NRDY;
+ 		now = FIELD_GET(MSMON___VALUE, now);
 +
-+	res0_bits = 16 - props->bwa_wd;
-+	max_hw_value = ((1 << props->bwa_wd) - 1) << res0_bits;
-+	min_hw_granule = ~max_hw_value;
++		if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
++			nrdy = false;
 +
-+	return min_hw_granule + 1;
-+}
-+
-+static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
-+					  struct mpam_config *cfg)
-+{
-+	u16 val = 0;
-+	u16 max;
-+	u16 delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
-+
-+	if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
-+		max = cfg->mbw_max;
-+	} else {
-+		/* Resetting. Hence, use the ris specific default. */
-+		max = GENMASK(15, 16 - props->bwa_wd);
-+	}
-+
-+	if (max > delta)
-+		val = max - delta;
-+
-+	return val;
-+}
-+
- /* Called via IPI. Call while holding an SRCU reference */
- static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 				      struct mpam_config *cfg)
-@@ -1504,9 +1541,18 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 			mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
- 	}
+ 		break;
+ 	case mpam_feat_msmon_mbwu_31counter:
+ 	case mpam_feat_msmon_mbwu_44counter:
+@@ -1386,6 +1397,7 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 			.ctx = ctx,
+ 			.type = type,
+ 			.val = val,
++			.waited_timeout = true,
+ 		};
+ 		*val = 0;
  
--	if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
--	    mpam_has_feature(mpam_feat_mbw_min, cfg))
--		mpam_write_partsel_reg(msc, MBW_MIN, 0);
-+	if (mpam_has_feature(mpam_feat_mbw_min, rprops)) {
-+		u16 val = 0;
-+
-+		if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, msc)) {
-+			u16 min = mpam_wa_t241_force_mbw_min_to_one(rprops);
-+
-+			val = mpam_wa_t241_calc_min_from_max(rprops, cfg);
-+			val = max(val, min);
-+		}
-+
-+		mpam_write_partsel_reg(msc, MBW_MIN, val);
-+	}
- 
- 	if (mpam_has_feature(mpam_feat_mbw_max, rprops)) {
- 		if (mpam_has_feature(mpam_feat_mbw_max, cfg))
-@@ -2288,6 +2334,9 @@ static void mpam_enable_merge_class_features(struct mpam_component *comp)
- 
- 	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
- 		__class_props_mismatch(class, vmsc);
-+
-+	if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, class))
-+		mpam_clear_feature(mpam_feat_mbw_min, &class->props);
- }
- 
- /*
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index e38954a735d8..010f4e16a637 100644
+index 1c9e07955fc8..dbb99d9b0795 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -224,6 +224,7 @@ struct mpam_props {
- /* Workaround bits for msc->quirks */
- enum mpam_device_quirks {
+@@ -226,6 +226,7 @@ enum mpam_device_quirks {
  	T241_SCRUB_SHADOW_REGS,
-+	T241_FORCE_MBW_MIN_TO_ONE,
+ 	T241_FORCE_MBW_MIN_TO_ONE,
+ 	T241_MBW_COUNTER_SCALE_64,
++	IGNORE_CSU_NRDY,
  	MPAM_QUIRK_LAST
  };
  
+@@ -251,6 +252,11 @@ struct mpam_quirk {
+ 				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
+ 				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x36b))
+ 
++#define MPAM_IIDR_ARM_CMN_650	(FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)	 | \
++				 FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x43b))
++
+ /* The values for MSMON_CFG_MBWU_FLT.RWBW */
+ enum mon_filter_options {
+ 	COUNT_BOTH	= 0,
 -- 
 2.43.0
 
