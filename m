@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FABC105F7AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78817105F7AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 14:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hmrc7E4N1O33Dgmjo3wpHwaqQJ3tUam2wicpgCLnlA=; b=L2m0vqCkBXe/J5fT61+du/H7TJ
-	Dfq80BeSmnIcJD8ore7hF8hJsxNBanEwjB82V3btczk9XAgXwdIYnsEutwXkICQESegOeXzdSuPOl
-	nl+woNbO3efqahwKq9PUncMlta58YEYihAPHCfqKDF4iuXI6p9zEIcn+cWX6Zl4PH5bzoFPPo/hJT
-	V7c8zwV3m5Q2TvRwFRQ15gzi5cPB6R/HTFbplTpzrfrPdmiCQ2TIbn7LugBZ6awEjtYwDlQwws101
-	XnkOrQDM5b7SZ/EuVk5CHo38gHWVtCq7OCnLNyAAIso9ucfO+Hh8l5eoUTe+UR3HGC1orR0kh7DD3
-	9A7XhEnA==;
+	bh=WBLKBRHNsXFh8imSzslYv8gQEABDHKgC68iOHayW4QY=; b=MbikNVpqbYP5iIdgG46Ig0RkM6
+	1/79uhiSUa/ssqf6M+fz9Sy8NZ+6i3ipT2oOcAjyirrVxo7tRx7l6SqukNT1vo/NqFM/057bqu/3B
+	innjo6wZHnWrXBbQ9Foj/C1GJwtoShLeEoKciXVoGJPxOOpcNdaPZXgWBkmq6FZhM3xPDu5SnJcCz
+	BBSa/XqpGQRoFwJ9V0lajYFCuK2Y8XAH2usePKaVqM41PvVJ4B8GxS2nJKFSP4aotQ8ZcGMDVHVHe
+	sBR+/EDi/aTVUhkuzTT5s5NekBb9hqkbOIdZ8gx+Dq8LQw3LFG7hRcqu9a+KiIdLWgXV5127BhHZ1
+	K4eTbvRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13mi-00000000QLE-32t6;
-	Fri, 13 Mar 2026 14:46:40 +0000
+	id 1w13ml-00000000QMT-07ma;
+	Fri, 13 Mar 2026 14:46:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w13mf-00000000QJf-1mGl
+	id 1w13mi-00000000QLG-3rpj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 14:46:38 +0000
+	Fri, 13 Mar 2026 14:46:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B1D91E7D;
-	Fri, 13 Mar 2026 07:46:30 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 534C522C7;
+	Fri, 13 Mar 2026 07:46:34 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 861153F7BD;
-	Fri, 13 Mar 2026 07:46:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F6D73F7BD;
+	Fri, 13 Mar 2026 07:46:36 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -69,18 +69,17 @@ Cc: amitsinght@marvell.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org
-Subject: [PATCH v6 01/40] arm_mpam: Ensure in_reset_state is false after applying configuration
-Date: Fri, 13 Mar 2026 14:45:38 +0000
-Message-ID: <20260313144617.3420416-2-ben.horgan@arm.com>
+Subject: [PATCH v6 02/40] arm_mpam: Reset when feature configuration bit unset
+Date: Fri, 13 Mar 2026 14:45:39 +0000
+Message-ID: <20260313144617.3420416-3-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_074637_512516_8165908D 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_074641_048834_A7A00B57 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +94,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zeng Heng <zengheng4@huawei.com>
+To indicate that the configuration, of the controls used by resctrl, in a
+RIS need resetting to driver defaults the reset flags in mpam_config are
+set. However, these flags are only ever set temporarily at RIS scope in
+mpam_reset_ris() and hence mpam_cpu_online() will never reset these
+controls to default. As the hardware reset is unknown this leads to unknown
+configuration when the control values haven't been configured away from the
+defaults.
 
-The per-RIS flag, in_reset_state, indicates whether or not the MSC
-registers are in reset state, and allows avoiding resetting when they are
-already in reset state. However, when mpam_apply_config() updates the
-configuration it doesn't update the in_reset_state flag and so even after
-the configuration update in_reset_state can be true and mpam_reset_ris()
-will skip the actual register restoration on subsequent resets.
-
-Once resctrl has a MPAM backend it will use resctrl_arch_reset_all_ctrls()
-to reset the MSC configuration on unmount and, if the in_reset_state flag
-is bogusly true, fail to reset the MSC configuration. The resulting
-non-reset MSC configuration can lead to persistent performance restrictions
-even after resctrl is unmounted.
-
-Fix by clearing in_reset_state to false immediately after successful
-configuration application, ensuring that the next reset operation
-properly restores MSC register defaults.
+Use the policy that an unset feature configuration bit means reset. In this
+way the mpam_config in the component can encode that it should be in reset
+state and mpam_reprogram_msc() will reset controls as needed.
 
 Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-Acked-by: Ben Horgan <ben.horgan@arm.com>
-[Horgan: rewrite commit message to not be specific to resctrl unmount]
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Subject was originally:
-arm_mpam: Fix MPAM reset on resctrl unmount by clearing in_reset_state
+This goes back to the initial feature configuration policy that James
+used in the MPAM base driver rfc but I unfortunately
+suggested him to change it.
 ---
- drivers/resctrl/mpam_devices.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/resctrl/mpam_devices.c | 40 ++++++++++------------------------
+ 1 file changed, 12 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 1eebc2602187..0fd6590a9b5c 100644
+index 0fd6590a9b5c..ff861291bd4e 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -2692,6 +2692,7 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			arg.ris = ris;
- 			mpam_touch_msc(msc, __write_config, &arg);
-+			ris->in_reset_state = false;
- 		}
- 		mutex_unlock(&msc->cfg_lock);
+@@ -1364,17 +1364,15 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 		__mpam_intpart_sel(ris->ris_idx, partid, msc);
  	}
+ 
+-	if (mpam_has_feature(mpam_feat_cpor_part, rprops) &&
+-	    mpam_has_feature(mpam_feat_cpor_part, cfg)) {
+-		if (cfg->reset_cpbm)
+-			mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
+-		else
++	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
++		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
+ 			mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
++		else
++			mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
+ 	}
+ 
+-	if (mpam_has_feature(mpam_feat_mbw_part, rprops) &&
+-	    mpam_has_feature(mpam_feat_mbw_part, cfg)) {
+-		if (cfg->reset_mbw_pbm)
++	if (mpam_has_feature(mpam_feat_mbw_part, rprops)) {
++		if (mpam_has_feature(mpam_feat_mbw_part, cfg))
+ 			mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+ 		else
+ 			mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
+@@ -1384,16 +1382,14 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 	    mpam_has_feature(mpam_feat_mbw_min, cfg))
+ 		mpam_write_partsel_reg(msc, MBW_MIN, 0);
+ 
+-	if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
+-	    mpam_has_feature(mpam_feat_mbw_max, cfg)) {
+-		if (cfg->reset_mbw_max)
+-			mpam_write_partsel_reg(msc, MBW_MAX, MPAMCFG_MBW_MAX_MAX);
+-		else
++	if (mpam_has_feature(mpam_feat_mbw_max, rprops)) {
++		if (mpam_has_feature(mpam_feat_mbw_max, cfg))
+ 			mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
++		else
++			mpam_write_partsel_reg(msc, MBW_MAX, MPAMCFG_MBW_MAX_MAX);
+ 	}
+ 
+-	if (mpam_has_feature(mpam_feat_mbw_prop, rprops) &&
+-	    mpam_has_feature(mpam_feat_mbw_prop, cfg))
++	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
+ 		mpam_write_partsel_reg(msc, MBW_PROP, 0);
+ 
+ 	if (mpam_has_feature(mpam_feat_cmax_cmax, rprops))
+@@ -1491,16 +1487,6 @@ static int mpam_save_mbwu_state(void *arg)
+ 	return 0;
+ }
+ 
+-static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+-{
+-	*reset_cfg = (struct mpam_config) {
+-		.reset_cpbm = true,
+-		.reset_mbw_pbm = true,
+-		.reset_mbw_max = true,
+-	};
+-	bitmap_fill(reset_cfg->features, MPAM_FEATURE_LAST);
+-}
+-
+ /*
+  * Called via smp_call_on_cpu() to prevent migration, while still being
+  * pre-emptible. Caller must hold mpam_srcu.
+@@ -1508,14 +1494,12 @@ static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+ static int mpam_reset_ris(void *arg)
+ {
+ 	u16 partid, partid_max;
+-	struct mpam_config reset_cfg;
++	struct mpam_config reset_cfg = {};
+ 	struct mpam_msc_ris *ris = arg;
+ 
+ 	if (ris->in_reset_state)
+ 		return 0;
+ 
+-	mpam_init_reset_cfg(&reset_cfg);
+-
+ 	spin_lock(&partid_max_lock);
+ 	partid_max = mpam_partid_max;
+ 	spin_unlock(&partid_max_lock);
 -- 
 2.43.0
 
