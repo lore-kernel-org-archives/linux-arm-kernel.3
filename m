@@ -4,55 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CFF103E302
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AB6103E302
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBGeKWKKKMA/GYKVdnALvhIQ+8mrBUlUzmRZ9SlygL8=; b=V/diCI0Gsw05KGBJVwkssrye7t
-	BwW6LkmZyJcgV2cQ0wMvkxO0RH6ijOCiokrEw++BG3MgX8S3DViccNjUtuznEL5PbfRn5GIE04P6p
-	6SfZjN/pOa22XoHB/P3Ad4I+n3RunglRudX3LLGXl8OnMRNb32jNj6q8c7UL38xYeE6Kj71+rApUH
-	DP+WKW0qSTimrud8sZSqMmAfp/cWw+ad3yy5btJ7zcBZzbKSPZb0utkwK7efAfPta0viybwyJe7UN
-	jmQ3Kn27nqwA0vXpJ267qmevUW8QRtQ7Ckc92ajN9vebVBA3AfV95OOwfpU2HkUINXzaX/slYKlPb
-	l2DMNgIA==;
+	bh=QN552TZqrouE4+tCPS0mMoQgQIkZUkN7DTnt9deeNgM=; b=O6dnkHrB8VnQR1MJpW3sIy5lFh
+	QOkjh3uhHuneWH6IJKebHBPteTPEitwqdJ5WR/Af2sOBCWaCX6JhoYL7NLxOhxsq3VoczOiDLquxE
+	cYgzg9QUO/XvyYhOmgisCVlLTaBp5C1MaoKqn0joEpOn9te8gBOCHyI4Ur8IndrN/oDneQRu/SgDr
+	bT2ini7okCBMncGCzYnjPuLPoYSW0r9R0Mqw9pm0KtChHRsjENKRijAsJWSVfEDtOSWmsayccuTGZ
+	HNpirxgTI8CoPOfOE/zTSUgcYlJVfJ/nF7ifi2eoSxTqau6UQRhdU5+iPqyqMhTH6/iy8jgme+a7G
+	bignwZqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14OU-00000000Y1i-1NaT;
-	Fri, 13 Mar 2026 15:25:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w14Oa-00000000Y3b-3wBh;
+	Fri, 13 Mar 2026 15:25:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14OS-00000000Y0s-0wRi;
-	Fri, 13 Mar 2026 15:25:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=FBGeKWKKKMA/GYKVdnALvhIQ+8mrBUlUzmRZ9SlygL8=; b=siZ3hLr/RBuaALUlg0nh7FZcY7
-	lWf5bv5S/xfRiWZ7Kz/z2JTrBN3OdMkK4ZjW9DJWtdfXn3BiamcMdU31fI5nlqK48075qsDryk5NH
-	gMPGOKk/7zQbpuhCsELAjcw2ffuRfNmj/bRb/3yCjIAgf3VGvPr8YLOiGyT4QVagg/qo5NXKdtFyN
-	hQVidV3y9NX/XujTtkD5r+6ixUjpWNGCb3nX7jc28er9fN7xsVcXIoqvIFC+OeZgn6UW20Ch0J/kX
-	Nd0GrGT+Jf7HZDJJi2VpQbCE4WWBJs9KF7xvbTEYEhFJCaPJ+bhRaMz1yrZC93UrHH7tK2jxby+xw
-	CNQ9m07Q==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: ulf.hansson@linaro.org, Fabio Estevam <festevam@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawn.lin@rock-chips.com, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Fabio Estevam <festevam@nabladev.com>
-Subject: Re: [PATCH] dt-bindings: mmc: rockchip-dw-mshc: Fix the RV1103B compatible
-Date: Fri, 13 Mar 2026 16:25:30 +0100
-Message-ID: <12853156.O9o76ZdvQC@phil>
-In-Reply-To: <20260313130835.708066-1-festevam@gmail.com>
-References: <20260313130835.708066-1-festevam@gmail.com>
+	id 1w14OX-00000000Y2R-0ekq;
+	Fri, 13 Mar 2026 15:25:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D811E6012B;
+	Fri, 13 Mar 2026 15:25:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16977C19425;
+	Fri, 13 Mar 2026 15:25:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773415542;
+	bh=QN552TZqrouE4+tCPS0mMoQgQIkZUkN7DTnt9deeNgM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fv+rSfGYabwP29m0niuzYlLhX9bOxuPNCmBYvMs+Ek1Dz3+5ljQy9LX0Cd2Dsx6As
+	 Q1OaGBzr6TzuiTRXxmFZHiXnz79grkRBVLyFXAeOnsHZO8frG+9i3VYFaTTpICT2Ar
+	 AtYKENf4NqVPykJDonzFGRhX2TD5cMBF1Og7tUv5RPKq9TOkyJetHCps0o3AYetZs0
+	 pV3DyvRCNjiRvL/ExWJbryBjn2OU6+ZmqPcRPAW3FhRp+v8+tjbSB5Y0x+NmTQJqTR
+	 cUMXJZdl5U+qAJDqjWPDxOtdUvurTS054bCgDfwMjYkRQWrMDwxY6RziW9bb2rkRad
+	 vtUc20nJA39oQ==
+Date: Fri, 13 Mar 2026 16:25:39 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: select QDMA block according
+ LAN/WAN configuration
+Message-ID: <abQsc6sPZ4d4tekm@lore-desk>
+References: <20260310-airoha-qdma-lan-wan-mode-v1-1-64ec74dea872@kernel.org>
+ <20260312172430.GA1267298@kernel.org>
+ <abMsvOMnnuTdoG-9@lore-desk>
+ <20260312172248.68742f98@kernel.org>
+ <abP2dLNIw6zqkxL4@lore-desk>
+ <20260313143018.GD461701@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_082540_283429_9DAC6B52 
-X-CRM114-Status: GOOD (  14.52  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GSGfyO71opm8Yq0x"
+Content-Disposition: inline
+In-Reply-To: <20260313143018.GD461701@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,52 +77,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 13. M=C3=A4rz 2026, 14:08:35 Mitteleurop=C3=A4ische Normalzeit =
-schrieb Fabio Estevam:
-> From: Fabio Estevam <festevam@nabladev.com>
->=20
-> RV1103B uses the same DesignWare MSHC controller IP version as RK3576.
->=20
-> They have no "ciu-drive" nor "ciu-sample" clocks and use the phase
-> tuning inside the controller.
->=20
-> Fix it accordingly.
->=20
-> Fixes: 517b1e3c9455 ("dt-bindings: mmc: rockchip-dw-mshc: Add RV1103B com=
-patible")
-> Suggested-by: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+--GSGfyO71opm8Yq0x
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> ---
->  Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+> On Fri, Mar 13, 2026 at 12:35:16PM +0100, Lorenzo Bianconi wrote:
+> > > On Thu, 12 Mar 2026 22:14:36 +0100 Lorenzo Bianconi wrote:
+> > > > > Is this a bug fix?
+> > > > > If so, perhaps it is for net with a fixes tag. =20
+> > > >=20
+> > > > I guess we do not need to target net tree since airoha_eth driver c=
+urrently
+> > > > supports just the LAN interface via the MT7530 DSA switch connected=
+ to GDM1
+> > > > and there are no WAN interfaces officially supported (PCS/external =
+phy is not
+> > > > merged mainline yet, it is only available in OpenWrt).
+> > > >=20
+> > > > >=20
+> > > > > And at any rate, could you add some description of the before and=
+ after
+> > > > > behaviour? =20
+> > > >=20
+> > > > Theoretically, before this patch, GDM ports were equally distribute=
+d between
+> > > > QDMA0 and QDMA1 while this patch assigns LAN interfaces to QDMA0 an=
+d WAN
+> > > > interface to QDMA1. However, for the reason explained above, this c=
+hange is
+> > > > not currently visible to the user.
+> > >=20
+> > > Please update the commit message. And please try harder to explain=20
+> > > the patches, this happens a lot with your submissions..
+> >=20
+> > ack, fine. Sorry for not beeing very clear about this (and other
+> > patches), I will pay more attention in the future.
+> > Do you think we should target net-next or net for this patch?
 >=20
-> diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml =
-b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> index a75209bd2710..4965bb518c54 100644
-> --- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> @@ -43,11 +43,14 @@ properties:
->                - rockchip,rk3562-dw-mshc
->                - rockchip,rk3568-dw-mshc
->                - rockchip,rk3588-dw-mshc
-> -              - rockchip,rv1103b-dw-mshc
->                - rockchip,rv1108-dw-mshc
->                - rockchip,rv1126-dw-mshc
->            - const: rockchip,rk3288-dw-mshc
->        # for Rockchip RK3576 with phase tuning inside the controller
-> +      - items:
-> +          - enum:
-> +              - rockchip,rv1103b-dw-mshc
-> +          - const: rockchip,rk3576-dw-mshc
->        - const: rockchip,rk3576-dw-mshc
-> =20
->    reg:
+> Hi Lorenzo,
 >=20
+> As per your explanation above it seems to me that there is
+> no user-visible change. And I assume that implies no bug manifests.
+>=20
+> If so, net-next sounds right to me.
 
+ack, I will rework the commit log and repost to net-next.
 
+Regards,
+Lorenzo
 
+--GSGfyO71opm8Yq0x
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabQscwAKCRA6cBh0uS2t
+rCrfAQCuZd7o/lQVJ85m7ozENElbP9fJ7xRXRRkm8z78rsSGewEAt4L9X5zunMFy
+HP3y/+3pF9RbCTIWqcdw6i6Z4JT7yAA=
+=y/aX
+-----END PGP SIGNATURE-----
+
+--GSGfyO71opm8Yq0x--
 
