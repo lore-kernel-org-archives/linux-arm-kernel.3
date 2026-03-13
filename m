@@ -4,143 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10299107BCC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632AD107BCCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lfu1P72zyVwGaM+f25X+nX8LNJ/2cVjYo4FiPGIzNc8=; b=bdf4cAbBVIosfgqHgoIyWYNO/n
-	xm5gxeVb+qeWXX1I+qFEBwNmF7JYVVtvep/uAAdwxd1QEH35Fl4+7OJ+oc96DHDUbn5St2qhLeI4q
-	P5cfKxx90S/lb0xaYukrKzP5owizsbmIcU+Mhub3PHisWVlO+XGXWJj+ONlgRsPAlrD2bOpS5MZu3
-	tbpxpx4DY1j6rcFZUpfuMQ/5AZB1qWWgCKQbYDxbDSPNUkYKHId5tJtzGd8ZloWdu5V4ktzJjkPqS
-	hox5/aLWCT7AJvqfIclA+0Pl268/DfgWVO2yWpVQl2YIbP4T3p32Mw9SjhWSUvp/CVLM9HjzjOGsL
-	Drn4LGMw==;
+	bh=WDoG6lWL1T3lToH/x6cJPVB9JP2JhQbK4YLDXdEvjis=; b=REQsFuUc1mCwWAkaZd/UR06Sty
+	Cz02nUfvx3XqcJPWeCzNZjJg6JX+M86XCbjjztb+UV854vbBVxJZ9MpAtUXZkzRbHc5CBjZGkiwsc
+	Y/HcXxVYZtBlLhbgHJPf83yPoygbRJMF5P5KkqJ1SBdMe8gvF4x5vy5k4FHAhC9OxK9soUzTlxPxF
+	Sn5pgps6A0mN0hzu0mtyBYabyHqn03/tSzD/V1tkH4k+/Flup2e92YG3QJU09KcFDmc6Hh4+mGsKb
+	0v92ls46WHsZJzGtCT3DeMPHDvryjwNuOon5NYVm4PhKATg3JSl+rt3iHQ3uV9qXt2lZqhcECNqJq
+	ZxB0WBhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15Io-00000000dhT-2pkI;
-	Fri, 13 Mar 2026 16:23:54 +0000
-Received: from mail-northeuropeazon11012047.outbound.protection.outlook.com ([52.101.66.47] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w15JP-00000000dmq-02Rz;
+	Fri, 13 Mar 2026 16:24:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15Im-00000000dgz-0Ygr
+	id 1w15JL-00000000dmA-4B88
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:23:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tW7p7Tw1csqEmBtk13HM9JCzUKBfJFT5w0vB8x2Rm5PCy8nTCqBLSFkzQ+bVgqf9GdkOovjq1R2e8dd0B10dGKhRfXp7WAAm7Em4t8DM/noQ1UpgdGfE6xrMVgZLKNxVRM5GDDsbVY5NISD32FBF4j8mu0sY9Pj+9ICl1TDVX704BzdetmFcYL12zEWleeJFmKRxlKTBqQ8nuX9WfovqY8nCYZ5lWU2kCtrZFQhomW3b3bgk/K66JHFq6G8orrBjPtM5XyhZ88amNbYw5VrTPCKjrAl3b6v6S8k8ddvvdcOaz14wFTFukUGcbCR8Tp9ixEcLVXIdID09HYb06k6EAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lfu1P72zyVwGaM+f25X+nX8LNJ/2cVjYo4FiPGIzNc8=;
- b=v5Q/60aKMTt513Q5gHkzYjaNKTy4RIYv3RJr6I3xTkOwyOOltklCNDcR83d21xTi5zl5/b81+ruicjNAB7k0SPZ7DC5VkwTMobP3gZvVd7/CDn1LOGnRwA+JiZS/YCAzgZjamEDoAltG/FVl3i5dfGkrFai2LmJcPLHxMVxDViW2mLpPdJmQmJ1TKLLTvUHiLokgfI5Zhqrv6IAv2ud0Zw2HSbBNMK9KFrFgUSlQFsTxt6PhcJdSmFBuRIV9Ut99Wsexgee88sxCg73BH8J2s0/5f3uURCtVbFhQFUcZaw/z/XopBnynqZjPTw2YkyFIX6yjSxn5iBplct514bixOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lfu1P72zyVwGaM+f25X+nX8LNJ/2cVjYo4FiPGIzNc8=;
- b=LpSC+XI7jp5JFgQjt/lXIzY1qBbH/DBa7C0m7449Fu89B+wNH0U+cS9ngBcs3SZIOJVSWL/+DUUQe9EfdP+0Cmuxm5Vxg1SCy6VGPYkYNcGLwBbYMJ4IBECutmaM3z5AsiUSfJJiJVdHxcjVH7e0aQur3K2debCTqUnJ5TPX1e1lVkkDDdv+OOvl7IqcbJzIjagq0bofXKAd/0u5ExlpiRl90mXmzoxnNlQZnk/UnmX7NKEZSddwL+FQ7sQrD7Ab7p9eZE0THNaClKM5cmvdQaoN7u2cXEz2PmpssToxmDggkcEcdHwM/y/6ldCytQBwHkBD2w6OlNYl2bp5SQBwHA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB9PR04MB10036.eurprd04.prod.outlook.com (2603:10a6:10:4c8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 16:23:45 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 16:23:44 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	Xu Yang <xu.yang_2@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: Re: [PATCH v3 1/2] arm64: dts: imx94: add USB nodes
-Date: Fri, 13 Mar 2026 12:23:28 -0400
-Message-ID: <177341888317.113602.5751555114928894300.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260309100807.2844925-1-xu.yang_2@nxp.com>
-References: <20260309100807.2844925-1-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0231.namprd04.prod.outlook.com
- (2603:10b6:806:127::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Mar 2026 16:24:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 625CF41AFE;
+	Fri, 13 Mar 2026 16:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CC9CC19421;
+	Fri, 13 Mar 2026 16:24:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773419067;
+	bh=nO2xN0bDN0di6NgmvrvHhZmDL3VlQvUs/UOpTeiuJe0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NYtH8FoCr6ad2IGGddfsQz/i3/rgc4qD74Qn/NXfwLySdulz3ldgIt7/Iuwmq74as
+	 +JcUXGNF78o2C73GYhk/AXAeXOg1QvyMw/Nk0CvB7itIB9K8CWmL/DsF/CC8Sxehsj
+	 zFchOBuN4oE5yrqNUUwaFkgpADo4Ok5WUHWdD9Opd57YYyAwQe2mvEBtB8DtPVHaMx
+	 FeUfzB1C4DfIBWOcSRIKHbCWvWMuI/la9OwP0z9382xeOFGhbhhVoa/oxvGDIDMOCl
+	 86FIfIl01DgJnrhGMYENdeylbCF3WxPqjoQNRTYY+g8lbpjzV6HWwKu4FcnwgeRr7q
+	 wT34YX1lhTIJA==
+Date: Fri, 13 Mar 2026 16:24:22 +0000
+From: Conor Dooley <conor@kernel.org>
+To: aspeedyh <yh_chung@aspeedtech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	maciej.lawniczak@intel.com, broonie@kernel.org
+Subject: Re: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Message-ID: <20260313-energy-casket-ca8adc1f1fd1@spud>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB10036:EE_
-X-MS-Office365-Filtering-Correlation-Id: d481b349-ed6c-4c7e-bdec-08de811ce597
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|52116014|38350700014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1yqOJs9aLT4GGBIJkg787EirS18NCxwGJwRJFZV+nWRcF019yAzGIvp4SkH7H2e8ktdhDmdAZrpii6IVDqttD3VXdWMh+FossyzLN3AL8uUouJeL/GP8oll3+qd7eLYcV7ch9rK+iplNy/YvqxPumFJgZQDTGKSaNTvV4PWsmYweja+Bfiu5EpAPHpe7HMtwbNHHNDPB+1tTjTUL3G3Oy2KiO2Y00OHu27+AXk404z+ZeiiMfjExbma+7oBHEombJMEavmhU+cZWw30/9VWHRlPSj68C6Rj2z/A28O4jGcQ1BEn+CIhFry7LBi1gJXuDNm7K/joaLQ7eLFYg/mo9x/I4IIDE5n8cPPUMbOkeK10gEqDDU5FrvtD2z+HTPRE62YQj/zC6mGv1DOW3JFwoITdgWBoqgkrRXEHHyW0vmpdzgkBlnN+u4D6gJ+QAbsBu7EWzaPZBJukl7exgeKwz2Vptww6rlhjWOPhYDhMg9kKedcbsFfeT5gWwIQhYFdTFKFvQql9XjWCjBnXJmNhIwU3rrmr20hQqB26p4+CoNdW7/Lg2kFiknXJ+7rIUlQUmuoNQpEv7MIKSqNgDiGfSEz7KYlRoO03uu8KtaenLflhJppMrBorKen+Y5FbPMCz0BDHHnzcshjt7ynClJ9SNIhdP0wIDBnICR/PGT7IsulFwqBHRtimxzThMX6PuU1b2qsGtbYDNmOLIHGdrB/O/wLt6irVXLCq6h41KyBsrZnMuuUj1/Rd1Ujb2LddatUvhItr/4DwUOk/zyP9yjB6FLGip+UMNEyC9dK0S3sR7OP0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OVE0d0NQL080M0NucDhDZ3hSWjRrVGp0U0ZnU2JKWjc5eW1UcDI3SE5qWFhi?=
- =?utf-8?B?WERoaldibC8rL3Z2UzBMQ0lmakpVWjVrYkY4SDNrRE1xa0N6V2w0K3FHZEpR?=
- =?utf-8?B?b3lnRlNGNkRyUmE3K0w0M3NtQVRoajMzeWRtNjNMeTFxaVIxWFBuSkFJWEtz?=
- =?utf-8?B?V1NtZkVaamJZTVo1M2pQOUxqbjFLR1VtVy9la0RWc2FsNk5IdEtpMm1rcGp0?=
- =?utf-8?B?dFFYdVd2UTVadWN1bktZZndOb1ZZNXQrd0RLaXZDc3JhSnNHbmRhRzJxeFhZ?=
- =?utf-8?B?Nyt5bVkrR1U0RTZhZktnV1hvTTRoTDQwdXhhcHhXcFowVVJlaXl5MHR0RWRI?=
- =?utf-8?B?cE1jZHd3Wm9tVXJBb3VVTnN3M3MyTGVsdURDeG9mbEJqSWdNQUlIRHRjMW9m?=
- =?utf-8?B?SVJmVjJMZDlEQ1AyMUJ4eDBEZ21iZWsrWFBIODFpVTdXQUpRM09mVWJ5NjFO?=
- =?utf-8?B?NVJUSkZyajdISk13UGVTMmsxcUwwamg2K0tmcFdId21QVGdyKzB1OFJjUUFk?=
- =?utf-8?B?NTFPdUhGUFQ0YnBaRHl4SmNvZkxaQWZXcmhURVRTVkRwMFV0QXZSeUNYeFFL?=
- =?utf-8?B?UjVITHZiRkp2T1pGRDBrOTlzT2lLd2N5Szd4SUJBSEtuZ3JPdUtNWjVmTmdr?=
- =?utf-8?B?enBpcjJYUmtXUGw5dXM3ODVvNzNpNm51Y3oxVkkralRGY1VSTnpuZURpNXlN?=
- =?utf-8?B?YzhrblNpZis5a3oxclVBSFBpancyQlhVMFJxYU9TZHdQdXR0QlhqcWowRWRQ?=
- =?utf-8?B?cXFSSG1RWXRSRmJvOHErVWw1TEt4L0gzbUVQRDhFMnlMTE53VmtYaTJQVnFY?=
- =?utf-8?B?ZkRnT0VxSUlGZjdOZFQ0TWFZOXEvNy9lNTAvTklUUzZDMk9WWEhSUlVJREJv?=
- =?utf-8?B?YlRVdDFHdnpTSXJSYmdVYkxsZzE4NWhIMTRkemJ2bXp0dEZldWJBemw3RlN3?=
- =?utf-8?B?d0k0VEZ2ODBrVkYzcTR5N3lQa2M1NFUxNTl6YWFqdmdSR2dGbjU4Z0dUM08x?=
- =?utf-8?B?YzY0U25mYnFYUEJ3OUZJT3lTb1ExNWI5YnZsTGJNVlY2RG1UalYyVGlHNlUz?=
- =?utf-8?B?QzdNTGgyblhyL2VhZk50Ylo4UkF6SzBPQ3g2SHN0Z3hGQjZEbWZuSmpxRHcx?=
- =?utf-8?B?Vitma1dMdWdyR3hRbE55Z1N1Rm52anZEanJBUXRKNk43Vm1wRnp6K3VMeHRj?=
- =?utf-8?B?ZWYxbnJLcmRqQWNoZzlkcGlCenBIZzNwNXNrWHhEV0FER1cvQWlnT0ZHbWVV?=
- =?utf-8?B?TXkyZUJ4eE5RZVdhcWwvZEk0UmZuRVhKcU5Kem85UG5NSGVtTzZoSllURkwv?=
- =?utf-8?B?eGE4dkhsenpIWjN3RS91NUNGV3N3MFpVNXEwSlU4Z0s4c1M1ckcwRnVVUEpU?=
- =?utf-8?B?YzNGcTlQZnRmcHE5eUNkdkFBS1NkL24wL0ozR0RCWjkwSmVFaTZaNkRHdU80?=
- =?utf-8?B?VXpDaFhPMk5TdW5vS2lNTU1iZ2EzWGlUcTBEWGFxNFBIeTY3eDZzZ3QwNjZz?=
- =?utf-8?B?YUhnYmdtaFl3MlFhSmdST3UvNmtySkd6Mk1JbWNySk5mUUJtcldENzNEVWls?=
- =?utf-8?B?UEVBcURyajRSWXZtNGtQSzN1bXdZL01BOW5JZmlyUHdEendwMHF1Mk44bitU?=
- =?utf-8?B?Ulh4K2RsQm1WUXk3cVpqQnNBUHBieHRoQlBsQTVGNDdweklLWElRTGh5V2tK?=
- =?utf-8?B?RjBpa2Mwc3NwN0Qvb05IOGVLSitHbTBMUm9qNHpEcUlGS2RsdGJBVDdsM3hR?=
- =?utf-8?B?TGI1Z1gvaGNuOElEVXJVUEhHb2ExVjdQOHBWZEREUmpLUi9GcGQ0SzY3azNw?=
- =?utf-8?B?Q0YzaXg5VmprbVg0M1VqK280R1RrQ1FNbFVicDFqbFYraVI0cXdjeFoyRmRu?=
- =?utf-8?B?UkRyYTFxN1VsV3J4ak4xSmQwTUZueHMyenRYeDdRRmFsdHluWmxlVVEzMUhi?=
- =?utf-8?B?TUNMdHlrZUVaWndidkFsdUtQZW5Ud1FUVVhYdXVTc2FadFhxTXVkV1lPQVYv?=
- =?utf-8?B?ZXROMkQwZXpZT3VRRFIyLzVmM1VraEhOT2F5TkUzaWp3eUtCeW5NTzdzMHhZ?=
- =?utf-8?B?S1J5dU5QTHBLdjVvN3FHYzRXSm84RUVSQWNVMURROHYvOWkwcXFpN0xqZjRu?=
- =?utf-8?B?OEtaeVZvTWtiMVU0MDJGK2FXUDBYb3M2OGUxQXl3Q0R3ZG4wd2hveXQxSStR?=
- =?utf-8?B?SXJwTTE0c3hjMFVQZHlwblMrZGtnT1lDSENJU0lWbHhDbUVXTjBYMTJvTEhX?=
- =?utf-8?B?am1TdVJJK3B0cGY2RjNQUWF2N2M4QVpkKzJ2U0FyNUFCQkFFeURYUi9RMjFO?=
- =?utf-8?Q?OLZ+G8c1v+UdKqKcnt?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d481b349-ed6c-4c7e-bdec-08de811ce597
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 16:23:44.6666
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OIraIEYSOeGm4s144S1ee/VycPrjdsVtcSiXY7l17nsbtey4mW+Trh+QjkpkQ/RAv5Owh1uxT0EpPBjRbPJU/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB10036
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Ri4H3n7qcgGpiS4k"
+Content-Disposition: inline
+In-Reply-To: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_092352_186119_65302485 
-X-CRM114-Status: UNSURE (   7.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_092428_076907_C13A709C 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,21 +79,88 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 09 Mar 2026 18:08:06 +0800, Xu Yang wrote:
-> add USB2.0, USB3.0 controller and USB phy nodes.
->
->
+--Ri4H3n7qcgGpiS4k
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
+> This series adds initial support for the eSPI controller found on ASPEED
+> AST2600 BMC SoCs.
+>=20
+> The series introduces a eSPI controller framework for ASPEED SoCs under
+> drivers/soc/aspeed/, adds AST2600-specific controller support for
+> peripheral and flash channels, defines the corresponding devicetree=20
+> binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
+>=20
+> The driver is intended to support host-BMC communication over the BMC-side
+> eSPI slave controller present on AST2600 systems.
 
-[1/2] arm64: dts: imx94: add USB nodes
-      commit: fa65387eb60afc58f2566e71bf4aa60785157e95
-[2/2] arm64: dts: imx943-evk: add Type-C and USB related nodes
-      commit: 7f8e49b258acea68c5c31e41a44682eb9cb403d2
+This all seems to be in the wrong places entirely, shouldn't an eSPI
+driver and bindings go in the spi subsystem? FSL's appears to be there.
+Mark?
 
-Move property orientation-switch before fsl,* in &usb3_phy
+>=20
+> Patch summary:
+> 1. dt-bindings: soc: aspeed: Add AST2600 eSPI controller
+> 2. soc: aspeed: Introduce core eSPI controller support
+> 3. soc: aspeed: Add AST2600 peripheral channel port I/O support
+> 4. soc: aspeed: Add eSPI TAFS backend support
+> 5. soc: aspeed: Add espi flash channel support
+> 6. soc: aspeed: Add sysfs controls for flash LUN selection
+> 7. arm: dts: aspeed: Add eSPI node for AST2600
+>=20
+> This series has been tested on AST2600 platform with Intel's host eSPI
+> controller.
+>=20
+> Signed-off-by: aspeedyh <yh_chung@aspeedtech.com>
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+Unless you're an fanatical employee of Aspeed, I doubt that this signoff
+reflects your actual name!
+
+> ---
+> aspeedyh (7):
+>       dt-bindings: soc: aspeed: Add AST2600 eSPI controller
+>       soc: aspeed: Introduce core eSPI controller support
+>       soc: aspeed: Add AST2600 peripheral channel port I/O support
+>       soc: aspeed: Add eSPI TAFS backend support
+>       soc: aspeed: Add eSPI flash channel support
+>       soc: aspeed: Add sysfs controls for flash backend selection
+>       arm: dts: aspeed: Add eSPI node for AST2600
+>=20
+>  .../bindings/soc/aspeed/aspeed,ast2600-espi.yaml   |  74 +++
+>  arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |  11 +
+>  drivers/soc/aspeed/Kconfig                         |   7 +
+>  drivers/soc/aspeed/Makefile                        |   1 +
+>  drivers/soc/aspeed/espi/Makefile                   |   1 +
+>  drivers/soc/aspeed/espi/aspeed-espi-comm.h         |  62 +++
+>  drivers/soc/aspeed/espi/aspeed-espi.c              | 618 +++++++++++++++=
+++++++
+>  drivers/soc/aspeed/espi/aspeed-espi.h              |  63 +++
+>  drivers/soc/aspeed/espi/ast2600-espi.c             | 304 ++++++++++
+>  drivers/soc/aspeed/espi/ast2600-espi.h             | 302 ++++++++++
+>  drivers/soc/aspeed/espi/espi_storage.c             | 322 +++++++++++
+>  drivers/soc/aspeed/espi/espi_storage.h             |  32 ++
+>  12 files changed, 1797 insertions(+)
+> ---
+> base-commit: 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
+> change-id: 20260313-upstream_espi-d9fea66d1772
+>=20
+> Best regards,
+> --=20
+> aspeedyh <yh_chung@aspeedtech.com>
+>=20
+
+--Ri4H3n7qcgGpiS4k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabQ6NgAKCRB4tDGHoIJi
+0r9rAQCzRJj+qeLcVgcLte6ZhkBlAd80bAZXjUF47eDDrK5abgD/bQdbCvmv8GKV
+PXvZhB78H2Kl0OTJ/ssW+ILpkoWz9Q8=
+=dRsP
+-----END PGP SIGNATURE-----
+
+--Ri4H3n7qcgGpiS4k--
 
