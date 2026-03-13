@@ -4,112 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E82105F7A9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F7D105F7A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xoVCkaRL5ArTeFn5HXzBiHYcDamtm0rtc12IXw4XsgY=; b=JhfmQUs2yJ72cmt31fZJcoTAVO
-	DsRVf1nvR1tSFijwGAYnWBycL76cRXGlFF0DtaBYWvhWwFIxva5jf8mTqJANy03TCjJRS6O45yFbo
-	MyXIkKSNj4zIu/SCaSTHMxVzdsCyApSZ8wFxLOHK5A9TlB1Pb9gfKywo/pZwQcGBmLK9xgLucXD8r
-	LXE8IvMQRkQ+uRs6qE32yaUPS0/gdlomm6VTLI0deq1stk4/qAJQII23STsJTS7vzHKXwiyWjNvC+
-	oYVC0QMgsJq1e/Wicl83k2kTAP4MpoWh+Ibo6ua4kHr9mWZNYxBV4kGPX4WaZTqPMYjHzgS5LL+Tz
-	F9yqXXfQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hVS0P9DJVgojc+Au1ojllmLN38KSGK/jCUvNVfA8RaU=; b=4bMznLZB4rhpJtd11Qh7vZeOye
+	NpdT2UhyG8w3Uir4jBvntjHQ+Pbu2IygNsSnzuUGDTgavrDLCxXI8mNpMJmpdn4sLoZmgtFnlxB5c
+	heSWYwn9+PoDyZk2z+VTC5/7t7HM0CvLXZlviX/zVhSbF0vWZyb9/cHmtTnW+Ddu+1F74MLoz25Fn
+	gplVeUGPfetITlE+mGOVJQYeAevpfKnjMpusUOiWjtzr7gsUC04WY/DhbgNdho2GOK4dr3/nM7Uu0
+	IrKxJ05H5HYhRCRgXqB2lE8wu5PphoG1yFWHOvh84ZohpXsCuSOxaPuriKZyxWR60WSIiMsXTwpnQ
+	Ki98eKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12RV-00000000DAd-1y6n;
-	Fri, 13 Mar 2026 13:20:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12RT-00000000DAN-43E1
+	id 1w12ST-00000000DJp-0qPh;
+	Fri, 13 Mar 2026 13:21:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w12SQ-00000000DHc-37rs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 13:20:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F3936184D;
-	Fri, 13 Mar 2026 13:20:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D804FC2BC86;
-	Fri, 13 Mar 2026 13:20:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773408038;
-	bh=ECDmW2RVnagmwfRcq3Xt66rfTo13jyhMFuXzJXSegoo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BfcDfTu5kMhfOFwtq2aussdMKxyjF4VYbIYn9mu6LXi4xciiTyoj8dkh0g83w9bDm
-	 b4fM2hILOrIZLAnBRF4eYfWBrp6ZVLRGHbbZ9j2xjrwQVaK6hPqpLKzGbeAkpEe+xw
-	 nfXM4TBg1aI91r+OT2cwUdWoaJvMRTOnHutn8xwMMtgB0CSReXlf5HCaOUCfD7/PSF
-	 Zg5fA7pWT0ekUlTLAQ5zW3uP2+nM9Ikn1iixVJoatyfDUAXfKhhhsN5MDk1NpX/VEG
-	 wU6cXDvcEumt6f92G3Zt7PJMo7rIwEeWAG9Z+QbijFCAAgQnzHOnRheZl8QcxhGq2W
-	 /vEGRSEgZS2ug==
-Message-ID: <608c87ce-10d9-4012-b6e9-298d5a356801@kernel.org>
-Date: Fri, 13 Mar 2026 14:20:26 +0100
+	Fri, 13 Mar 2026 13:21:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78D47497;
+	Fri, 13 Mar 2026 06:21:27 -0700 (PDT)
+Received: from e142892.manchester.arm.com (e142892.arm.com [10.33.8.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D0E583F73B;
+	Fri, 13 Mar 2026 06:21:31 -0700 (PDT)
+From: Mike Leach <mike.leach@arm.com>
+To: linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org,
+	linux-kernel@vger.kernel.org,
+	acme@kernel.org
+Cc: suzuki.poulose@arm.com,
+	leo.yan@linaro.org,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@redhat.com,
+	namhyung@kernel.org,
+	Mike Leach <mike.leach@arm.com>
+Subject: [PATCH 0/2] perf: tools: cs-etm: Fixes for CoreSight debug dump
+Date: Fri, 13 Mar 2026 13:21:27 +0000
+Message-ID: <20260313132129.2743468-1-mike.leach@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K
- pages
-To: Usama Arif <usama.arif@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com
-Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
- Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_062138_834748_BA74777D 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,102 +72,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/10/26 15:51, Usama Arif wrote:
-> On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
-> into a single iTLB entry, reducing iTLB pressure for large executable
-> mappings.
-> 
-> exec_folio_order() was introduced [1] to request readahead at an
-> arch-preferred folio order for executable memory, enabling contpte
-> mapping on the fault path.
-> 
-> However, several things prevent this from working optimally on 16K and
-> 64K page configurations:
-> 
-> 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
->    produces the optimal contpte order for 4K pages. For 16K pages it
->    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
->    returns order 0 (64K) instead of order 5 (2M). Patch 1 fixes this by
->    using ilog2(CONT_PTES) which evaluates to the optimal order for all
->    page sizes.
-> 
-> 2. Even with the optimal order, the mmap_miss heuristic in
->    do_sync_mmap_readahead() silently disables exec readahead after 100
->    page faults. The mmap_miss counter tracks whether readahead is useful
->    for mmap'd file access:
-> 
->    - Incremented by 1 in do_sync_mmap_readahead() on every page cache
->      miss (page needed IO).
-> 
->    - Decremented by N in filemap_map_pages() for N pages successfully
->      mapped via fault-around (pages found in cache without faulting,
->      evidence that readahead was useful). Only non-workingset pages
->      count and recently evicted and re-read pages don't count as hits.
-> 
->    - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
->      marker page is found (indicates sequential consumption of readahead
->      pages).
-> 
->    When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
->    disabled. On 64K pages, both decrement paths are inactive:
-> 
->    - filemap_map_pages() is never called because fault_around_pages
->      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
->      requires fault_around_pages > 1. With only 1 page in the
->      fault-around window, there is nothing "around" to map.
-> 
->    - do_async_mmap_readahead() never fires for exec mappings because
->      exec readahead sets async_size = 0, so no PG_readahead markers
->      are placed.
-> 
->    With no decrements, mmap_miss monotonically increases past
->    MMAP_LOTSAMISS after 100 faults, disabling exec readahead
->    for the remainder of the mapping.
->    Patch 2 fixes this by moving the VM_EXEC readahead block
->    above the mmap_miss check, since exec readahead is targeted (one
->    folio at the fault location, async_size=0) not speculative prefetch.
-> 
-> 3. Even with correct folio order and readahead, contpte mapping requires
->    the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
->    The readahead path aligns file offsets and the buddy allocator aligns
->    physical memory, but the virtual address depends on the VMA start.
->    For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
->    granularity, giving only a 1/32 chance of 2M alignment. When
->    misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
->    any folio in the VMA, resulting in zero iTLB coalescing benefit.
-> 
->    Patch 3 fixes this for the main binary by bumping the ELF loader's
->    alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
-> 
->    Patch 4 fixes this for shared libraries by adding a contpte-size
->    alignment fallback in thp_get_unmapped_area_vmflags(). The existing
->    PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
->    libraries, so this smaller fallback (2M) succeeds where PMD fails.
-> 
-> I created a benchmark that mmaps a large executable file and calls
-> RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
-> fault + readahead cost. "Random" first faults in all pages with a
-> sequential sweep (not measured), then measures time for calling random
-> offsets, isolating iTLB miss cost for scattered execution.
-> 
-> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
-> 512MB executable file on ext4, averaged over 3 runs:
-> 
->   Phase      | Baseline     | Patched      | Improvement
->   -----------|--------------|--------------|------------------
->   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
->   Random     | 76.0 ms      | 58.3 ms      | 23% faster
+perf will output additional CoreSight debug information, from the
+'perf report --dump' command, when the build option CSTRACE_RAW=1
+is added to the usual CORESIGHT=1 at build time.
 
-I'm curious: is a single order really what we want?
+This additional information consists of raw trace data in the form of
+CoreSight formatted trace frames. This is intended to be used to
+investigate possible issues relating to trace data corruption,
+trace hardware issues or problems with decode.
 
-I'd instead assume that we might want to make decisions based on the
-mapping size.
+The CoreSight formatted trace frames are used when multiple ETMs trace
+into an ETR, and not present when a single ETE traces into the TRBE.
 
-Assume you have a 128M mapping, wouldn't we want to use a different
-alignment than, say, for a 1M mapping, a 128K mapping or a 8k mapping?
+When the build option is used and perf is used to dump an ETE/TRBE
+generated buffer a segfault will occur in the OpenCSD library.
+
+Patch 1 of this set removes the unnecessary call to print the raw trace
+frames when not needed, and fixes the segfault where older versions
+of OpenCSD are in use.
+
+Patch 2 enhances the debug output to associate raw data with individual
+packets, which means that raw data is now present for ETE and extended
+for ETM.
+
+OpenCSD is being fixed independently.
+
+Mike Leach (2):
+  perf: tools: cs-etm: Fix print issue for Coresight debug in ETE/TRBE
+    trace
+  perf: tools: cs-etm: Enhance raw Coresight trace debug display
+
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 -- 
-Cheers,
+2.43.0
 
-David
 
