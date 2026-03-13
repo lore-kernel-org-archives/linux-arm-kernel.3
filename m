@@ -4,71 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3C2106FD9D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD1D106FD9D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R8tCMG/oPkaIeRaLZUuC0PLQ4SE/rg0PgKCK6kflpU8=; b=srQmIg/VSAox9YvbGcJYN19GGG
-	skj1l/PVJKyGqm9Ao79pCXLSSzgBZNwdVSQydfnw0iBA/I1QkZp6uRIkzd6aK4yDes05sbMQULfVh
-	bEmCA0CAlCA25B8XIcfoIsfhchM0aKl+gmx32J0wRZ+xHawB2KAD31x5wGfo5FODoosVqE/P0l4QU
-	di3Dx65OfQU6ducFwoEdNsOUdl/LVe74uk8bQOqw8CL8hJDUdFvu9JwqiHRACKdHUtTPvh3ai8ohg
-	UTv4vYZANBkhMJcwKVkiSCIGcTMRFghsWcNKzD05qIv3nb/4YHtPe7w6GkBPUL7TrPhZU89cLG3U1
-	bRc90rKQ==;
+	bh=QMKW6du2uTW1hJG11G2XVHNPEulX3F2D6sncsCSQGTs=; b=spFWgY1R0hPm5VzAAkK0vTj36B
+	KC3aBbmrfHMRikEiJWCqxAZSnmIkxZgDOyo+7JdRDLnvAO+5BG2MaNGf9Imn2J866Kexw8ZxYUiv9
+	awBCFecvzQbFnAyhC3RzoDTsLpWlNDzWTEWS2AYUDGDIvmuRDzkiE1tUvPedpizKlhrc6wlV0HUVZ
+	8nQun/KY66uezLYFor5BBYbdvXkKxzwID2enaaWLx8v6vfLyMeh5mBU+RztA/1xEteZvokKaXqZ/6
+	hLMYNpkEyiZvo+ALk6hLAlGWfbbnN/UPtu2ZIoW9z1xExpwLuOwmBucL9C3F7jgkJ+Kk1Utijf1xg
+	uXa17e9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xqi-0000000HFFD-4Bgf;
-	Fri, 13 Mar 2026 08:26:25 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w0xuL-0000000HFzt-3AWW;
+	Fri, 13 Mar 2026 08:30:09 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xqg-0000000HFCp-19dq
+	id 1w0xuJ-0000000HFzC-3VJW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 08:26:23 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w0xq3-0005Ai-PR; Fri, 13 Mar 2026 09:25:43 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w0xq1-00039e-0C;
-	Fri, 13 Mar 2026 09:25:41 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w0xq0-000000002ma-45Cc;
-	Fri, 13 Mar 2026 09:25:40 +0100
-Message-ID: <352a522b5325e9db80c880dd7a3a052516f3b673.camel@pengutronix.de>
-Subject: Re: [PATCH 2/2] mmc: sdhci-of-aspeed: Add ast2700 support
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery	
- <andrew@codeconstruct.com.au>, Ulf Hansson <ulf.hansson@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen	
- <ryanchen.aspeed@gmail.com>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: Andrew Jeffery <andrew@aj.id.au>, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 13 Mar 2026 09:25:40 +0100
-In-Reply-To: <20260313-sdhci-v1-2-91cea19c8a67@aspeedtech.com>
-References: <20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com>
-	 <20260313-sdhci-v1-2-91cea19c8a67@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 13 Mar 2026 08:30:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rAdH7QLDSlook5/Kw5uxmYHnDf4v2J/9Ez++0eEKjHbEf364SalXIMT6+gGR3vzxWJjt9tuOcSHeTB16T7r5GxCLdbhS8CpwyWEGFgXWXdJcJwyzqwJElWtTNcpnC4+Y7OTiMC85Nf+6tRK2Ww2jcxevd8IuQfSLD72xj1rxVTKXMy9tiBBfGibUSAL056296/rFnSFUzaVgLiB3xX2g3UzGYE3AiNlJRsb+nm8wfS9amr5q1sI2OttL2fLMILK4rvLmT7B0t3p/8DQDb1vV6MN01jentMFSOUG6kyQrNMfSXJ66+di83PEIkRVWV2n9Jw4CmtI/HsfOSWqZATnYJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QMKW6du2uTW1hJG11G2XVHNPEulX3F2D6sncsCSQGTs=;
+ b=nR2de7M5BX9Di9AL5gqAWQYshwqgDAweQwHd36cSSoxwvoglPic3mpthOaefi5kgEco9fXs2/sFK8OzOZl7H8rkBWfUrA/QQDQ+eQPHmr3/AnZG1eRTcDtHytJv3px7pC4dLoOUbqMqBuuFtSqh8HF0empXC6ZxqXhvPKhB5RSY73mfh+I5TqD+Wf8mzpCbiIRc4lVxJ1yeJDNTJCw74uyDAOwned3fP2o2FLnLuNsqNRExdPeXCb3Yp6k5ctNjOmlZm6+Mee20K8cYRXzdfH7Xoj/XOR0A84C0q00Sfem8sfhV7bcMC4bD4C7LIeL7u87oMKdlx1k6QFlusR43kKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QMKW6du2uTW1hJG11G2XVHNPEulX3F2D6sncsCSQGTs=;
+ b=n5eZNe65pqc3iXMz4WXUweCyCwSMKKVNNl3h9/wbGzdv8gB4rjbqhgPHggsz9LS1HCDtrrv+ga/gZbCHtkEqz+YyNOWY984hYqecU/lZd4GSgEe0omMxj0StRDncelzrCDZDP38J271QligjuxLDTim58KNOhX2vS3ZnO7Y2zFCsL5C1uW+ooB0ycqxTnVnQZA/+VGF7dhFGYc9o8Qn7YAjIXEmqZRA9D0buZ9AlUy/2eoiR5hsDYbv9rcgdcR8G8SDFQ0Ir0cKxnqGoaynmF4FXxbXxr/cdBo68aB8it9c4GzqSboVvumpbIgbkXylGhLDPT7+kqvC7ORjHqwSNoQ==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by DB9PR04MB9329.eurprd04.prod.outlook.com
+ (2603:10a6:10:36f::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
+ 2026 08:29:57 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 08:30:00 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Hongxing Zhu
+	<hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
+	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
+ Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li
+	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
+ Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jingoo Han
+	<jingoohan1@gmail.com>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
+ deprecate reset-gpio
+Thread-Topic: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
+ deprecate reset-gpio
+Thread-Index: AQHcslAvPRd3NV8vsUK8f1lUXc6zS7WrvElAgABWzoCAAA7CoA==
+Date: Fri, 13 Mar 2026 08:30:00 +0000
+Message-ID: <VI0PR04MB1211419C790AE195AE73548DE9245A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260312184344.42337-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <VI0PR04MB1211433ABEE52392089255E639245A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+ <2d658e4c-6840-4218-af78-b01a09218410@oss.qualcomm.com>
+In-Reply-To: <2d658e4c-6840-4218-af78-b01a09218410@oss.qualcomm.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DB9PR04MB9329:EE_
+x-ms-office365-filtering-correlation-id: 18a2e9f2-eef2-42aa-2295-08de80dab7bb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|921020|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: QMhlwT3Vlc2IGaKRKG298sUnfhN/U55sLZBIxOLzT6VmU/OwOo+y/6edLjtYCW0EEI0J2GRunySkTdghjjmkZfnMR0rhpOmkC4XWhTuBTxEvRQNvHiUiqNphL3KNrrZ+hrIqouTzqwythwCPtdx+XAhxfLZmXAMv/aVn0vamvocBKW0EMsjzAakuXj+2zHzJpAZlqVX1RGuexRdrmG/oAqWLY45p2PQ+t9bDpOCISaNs9ndMYwvovd9ZH4Vm3bT5LcRlNv3f3lfBmcPMbt3efspJqw6BzAKlmXhc2MOZ/P+XJnla8DDkM6n5fmuWTxJcLWnhnfLBhhCe0wqk0FvEFFEa7gYuI7OyHIldJvYgwdkZN1lzkxr2W+N0zv7tH+7l8Dq/yGGi2E0SU+Aqt7npfCJi7jwTy2fNHyDh69idajDxHvoMb7JLx7O2QeKVICeN/v0Doh6vpo9E4vCtPGUq9Tn4QLO9nl6SYuss0rJwwEO3birETafjN0O+ByMCrc6lkk1CPLk1V+C7NMxdvlBWgNRdeDH29mGadn+xm6RkFHhsQK4wMPAX/kIIyntL5ETKdZM0YHj53DB4UXUlLCHdCDBG/SD1odOUsHeqM4roiCIwECk5C+sqnX7vfTFDaZQ2+3jvK4oSiFz4L+m2unERKj+qRtuLD3eOu9ohpGViZvxDUGdf/I/s53P9jm8N2CzD3cm2K6QXs4q4PmssyEnDczH9PRTAqKojV50s4T7qujYYsEzIIpRm0M2KrwQDizi5ewi+74iB0l+ZGMvnWEK4kg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(921020)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?XOYpxpC+eYGRs7bo6zSxDSPTEX21go3/jfy28236OSrJ6/SYyWW+U5MP4G?=
+ =?iso-8859-2?Q?sazsqHKOAkiGkNixmnkRiGU+ByGynCHUqizWvOJFZvjnI+Ef4ckDXDjGAJ?=
+ =?iso-8859-2?Q?cdWSZyZw0M9jg0jN80IcmUXCnLrP59w3tXewruTAIFIlkdqdjVawUiEh5S?=
+ =?iso-8859-2?Q?V1XpoKQyFtwoUK+yA/yYNOEb1yYBZtOSlnKzZKiByhK7VhEFgpJtzWb+/J?=
+ =?iso-8859-2?Q?d8b/6J9uxvBCHBDxWshL+SnJMJ3mgeoTzC2UMphgRaT/eJxM6mYzrwOCsy?=
+ =?iso-8859-2?Q?kB/EySuE5c5b51npwQwgVhhXyAPAkcf0qXmVePWOBgjIEBbk0gOQYuNbIA?=
+ =?iso-8859-2?Q?otwTg3WkJt6DRNfpcjFWpsUUrhK9CLHGt/D+hcNX4xIS2SdJgXwzHZNpov?=
+ =?iso-8859-2?Q?guU9ONccGOiCRrxyqOC3+FLEIcZCNzRPXhPS4h26uI9smZKP7yhhFNsx7F?=
+ =?iso-8859-2?Q?6LTptl0I9YKrT8kIDeMcRYuvOCRNu+rRXVK45/+GkEjWmsFnbVRinFRodQ?=
+ =?iso-8859-2?Q?Yc5sHB4KjGTuvbB1rbIW5VKs+WLVJ5G+6zSQbrkEAyb2inKMAzJYqCrObY?=
+ =?iso-8859-2?Q?JleALkvp36ptei3P1V3u512ISFizUnBy27eSFJm2n3K6U0EjPzdiiAsI2k?=
+ =?iso-8859-2?Q?CNKBtiUM4vGk3jYahK0B/Z1KrMYe45zNM8Y9yLiZ7V661fJKOcPErBWm1s?=
+ =?iso-8859-2?Q?LsKIbN/1vXt1MXo06jPb5g03a9Ay1JhDAsReYhqO/9ALB8kFnTZ6uWGPtC?=
+ =?iso-8859-2?Q?V2G4IRxA8oP0OxHaZR8Mw0JLW1vD9fiHgAokgeGlCAafFcPsdTqufISZvC?=
+ =?iso-8859-2?Q?P6+UpA38Mn5osagJ4DKBCchGwH0YHJCOA9Y2unu6ZP0qhu8BcLT0Hrl/m9?=
+ =?iso-8859-2?Q?KctC34pbF0xhJc6sFDNV4xpnKIeifgtD0z717AUjQKr9VeO2bBF1CsOHge?=
+ =?iso-8859-2?Q?14sr7t3EeaWlOf+34GEgQ7MoYkt6MVHlK4Z4N2eAEO33qET9PYFjdwgppX?=
+ =?iso-8859-2?Q?cyITrmD5mnuT58pUYhWi/K1zwvxqcSMsmvdKpsnXwoFyCxaHJ0T6yqPTkj?=
+ =?iso-8859-2?Q?klscf0HMz5+JHgZ+glQLzru6gBegc1h1CfzNlYYniUzHy2kfcuW6Jc8IXx?=
+ =?iso-8859-2?Q?2DmhyTmmnQcpXa01iOilD8N33Nx2nCO6qfXSNOkl9tC26tbtpbYC+DV7qT?=
+ =?iso-8859-2?Q?QQ6ixln+jGnUzUFejQVn5m929fuI5u3U3oFZOCD2ghUHP6qrD6ryBagNYP?=
+ =?iso-8859-2?Q?ndLS+M54C5v+z1a17QFjjhzigTzxc5/gXEEVv+nAQ5GoBKtTLzz7IlUiqt?=
+ =?iso-8859-2?Q?+Ybm5Qdgp68AoiLvAxVKoMIlON0bf+YfvuUV+V9EdtOUzXkahjpLfTgnqp?=
+ =?iso-8859-2?Q?oCf7RrW5z/Yiu2RIyuTsw6DJStx5gI5lPFefeG2neJVbvLgef2C9rBeY2Z?=
+ =?iso-8859-2?Q?RsSRZRSd4nO+CJGxrM5xYw4koTavhPizqavMIICVEMnkZUizY+gzsUKFWb?=
+ =?iso-8859-2?Q?72e82BhVHTFTEDp6JMflvozuhoRmEn1TatQEWnMhGErQIvqO5MCssjcSTN?=
+ =?iso-8859-2?Q?vpHsHCAkoi2U1hUaYYmj08EzAfz6IY4dsNjZmiDBvwUWgdQuQJh/g5hSrK?=
+ =?iso-8859-2?Q?H6YwrymBohjeDo4vYhQfLuvtsPeOro83OFEOZRWXB6PJVlWDGLDxyACBvv?=
+ =?iso-8859-2?Q?DkD70qQoExYayEjx/B26ZlF67xXb/5gMt6/1c0fG2XxVHePFW4l4x4zv8x?=
+ =?iso-8859-2?Q?GzY6WuILivC0ZpXLTP51hU94MitXRwFABFqSi18hnxT9rw?=
+Content-Type: text/plain; charset="iso-8859-2"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18a2e9f2-eef2-42aa-2295-08de80dab7bb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 08:30:00.5848
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sjet2NmsMJHUuEqUaW1S5vPz4MvHAc8dOShf/vM3GIvP9+h8OLX926RFvdaZfp9CJ+bTabsqwn0X+aVBo3LbMA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_012622_309256_424DEF8C 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260313_013007_879985_EE5E9D0B 
+X-CRM114-Status: GOOD (  25.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +153,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-03-13 at 13:27 +0800, Ryan Chen wrote:
-> Add support for the AST2700 SOC in the sd controller driver. AST2700 sd
-> controller requires an reset line, so hook up the optional reset control
-> and deassert it during probe.
+> Subject: Re: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
+> deprecate reset-gpio
 >=20
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
->  drivers/mmc/host/sdhci-of-aspeed.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+> On 13/03/2026 03:27, Sherry Sun wrote:
+> >> Subject: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
+> >> deprecate reset-gpio
+> >>
+> >> The binding references snps,dw-pcie-common.yaml which already
+> >> deprecates "reset-gpio", however mentioning this property here lacks
+> >> this mark thus code is confusing and suggests property is not deprecat=
+ed.
+> >>
+> >> OTOH, the property cannot be removed from this schema, because it is
+> >> an ABI implemented by Linux kernel in gpiolib-of.c in
+> >> backwards-compatible map between compatibles, "reset-gpio" and "reset-
+> gpio-active-high"
+> >> properties.
+> >>
+> >> This creates code and binding which is not obvious to follow, so
+> >> rewrite it and be more explicit about:
+> >> 1. Deprecation of "reset-gpio",
+> >> 2. Relation that "reset-gpio-active-high" is used only for that proper=
+ty
+> >>    and not proper "reset-gpios".
+> >>
+> >> Signed-off-by: Krzysztof Kozlowski
+> >> <krzysztof.kozlowski@oss.qualcomm.com>
+> >>
+> >> ---
+> >>
+> >> Cc: Sherry Sun <sherry.sun@nxp.com>
+> >>
+> >> Changes in v2:
+> >> 1. Rewrite the commit completely after Sherry Sun comments - keep the
+> >>    property, but add "not" clause to forbid usavge of
+> >>    "reset-gpio-active-high" and "reset-gpios".
+> >> 2. Because of above not adding Richard's ack.
+> >>
+> >> v1:
+> >> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flo=
+r
+> >>
+> e.ke%2F&data=3D05%7C02%7Csherry.sun%40nxp.com%7C6967142eb77047384
+> 81e08d
+> >>
+> e80d303e5%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6390898
+> 4094660
+> >>
+> 3723%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwL
+> jAuMDAw
+> >>
+> MCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C
+> &sda
+> >> ta=3D4JQjEBcOsTdGVZZxRf2ov1IkD4DizXpsfNhMBZQVnIs%3D&reserved=3D0
+> >> rnel.org%2Fr%2F20260311154955.145120-3-
+> >>
+> krzysztof.kozlowski%40oss.qualcomm.com&data=3D05%7C02%7Csherry.sun%4
+> >>
+> 0nxp.com%7Cc630bed6bc4f46715b4408de80675002%7C686ea1d3bc2b4c6fa
+> >>
+> 92cd99c5c301635%7C0%7C0%7C639089378371805072%7CUnknown%7CTWF
+> >>
+> pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4
+> >>
+> zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DA%2BiFa
+> >> kDVdjPn0JJxUDlTDt1ej4iqnBivDktjwbcpFK4%3D&reserved=3D0
+> >> ---
+> >>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 8
+> >> ++++++++
+> >>  1 file changed, 8 insertions(+)
+> >>
+> >> diff --git
+> >> a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> >> b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> >> index 12a01f7a5744..12cd1b9f78d0 100644
+> >> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> >> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> >> @@ -62,6 +62,9 @@ properties:
+> >>      description: Should specify the GPIO for controlling the PCI bus =
+device
+> >>        reset signal. It's not polarity aware and defaults to active-lo=
+w reset
+> >>        sequence (L=3Dreset state, H=3Doperation state) (optional requi=
+red).
+> >> +      Deprecated, use reset-gpios which respects the polarity express=
+ed in
+> >> +      phandle argument.
+> >> +    deprecated: true
+> >>
+> >>    reset-gpio-active-high:
+> >>      description: If present then the reset sequence using the GPIO
+> >
+> > Hi Krzysztof,
+> > This property also needs to be deprecated as Rob suggested in my
+> > previous patch :)
+> > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flor=
+e
+> > .kernel.org%2Fall%2F20260121164002.GA3427694-
+> robh%40kernel.org%2F&data
+> >
+> =3D05%7C02%7Csherry.sun%40nxp.com%7C6967142eb7704738481e08de80d3
+> 03e5%7C6
+> >
+> 86ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C639089840946618268%7
+> CUnknown
+> > %7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIl
+> AiOiJXaW4
+> >
+> zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DduSx4R
+> MO9WjKX
+> > 0aUSEM49tQpEpUEc%2B7aVATwASdFSGE%3D&reserved=3D0
 >=20
-> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-=
-of-aspeed.c
-> index ca97b01996b1..91c36245e506 100644
-> --- a/drivers/mmc/host/sdhci-of-aspeed.c
-> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
-> @@ -520,6 +520,7 @@ static int aspeed_sdc_probe(struct platform_device *p=
-dev)
-> =20
->  {
->  	struct device_node *parent, *child;
-> +	struct reset_control *reset;
->  	struct aspeed_sdc *sdc;
->  	int ret;
-> =20
-> @@ -529,6 +530,15 @@ static int aspeed_sdc_probe(struct platform_device *=
-pdev)
-> =20
->  	spin_lock_init(&sdc->lock);
-> =20
-> +	reset =3D reset_control_get_optional_exclusive(&pdev->dev, NULL);
+> Heh, why that patchset isn't merged already?
 
-This is missing a reset_control_put() in aspeed_sdc_remove(). Or use
-devm_reset_control_get_optional_exclusive().
+The V8 patch set is still under reviewing due to some pcie driver part chan=
+ges ;)
+https://lore.kernel.org/linux-devicetree/20260313020823.1592389-1-sherry.su=
+n@nxp.com/
 
-Is it ok to assert this reset control in _remove()? If so, you could
-use devm_reset_control_get_optional_exclusive_deasserted().
-
-
-regards
-Philipp
+Best Regards
+Sherry
 
