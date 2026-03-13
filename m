@@ -4,95 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583D9107BCCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA19E107BCD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQLmomcwIGHuwBkBk5aL5CzzrX9th7u6tDkwCmp4rSA=; b=p55P+SCFB2aim+uy7QVKQE05Su
-	cqNpEWB6KJZEI8ae5LmJ+DOTuzdhIzvnRMLS3mRC9d5XJiWIgFjA3kZLWKB5VvaRkjoTrxBLo2Ate
-	eY8YOpmVN5ivul1SWP9hX5V5yUg2oI16vIv/mTwBA9KyrJC9mYtON9vZMc1zEh/8YpF6ioZnFxmLb
-	p7qdc49KzF5rm1aYErOTOw6vCIdiRSFm9+b4Fi7sbFbYZ15gdbJ8KI/eFKDlCXeyREdS8oZB7gswG
-	69dIYlVN3bBAUwssB3TLdx3hW1zofc8/+uULsM8fseZ8JjaEMtGhR5/16yXYr7MRrh8h31whJkgNR
-	i66M9kSw==;
+	bh=HeFMjrmeD5sD85jfV+AAm0iFGryK5wwW5I1q1pAoG4A=; b=jI1ZD89bxOZwKnR0OJB/VI+AML
+	w7YIywd3sOuVNuT+DZs1sbquFOcxitpqNtanPMVBhROK8VYxuHcOIvjtxPfBvyF4l4HMInn2N8qFi
+	e0kKHMPoU/rZE/SdxGXF0AZi0pDlVT1127tZPm9Fu2IGaM7m2tc8IqWqh91jfKZfukkr5DjNiwPNR
+	E9mFxqVNCx+qqr6JL9uqen4mlcToGqXzDTY2nP2/EAFV86AZBFKjTJBhD89LMr05wUL6jd3c2OAav
+	lXUBhAZRv2uyrQV3xQ872F9ZJxJwdnMYgS2AeZqKu4KKtfKd+bOD5BdiTC90oMxDS34L8ldUchp/e
+	n808qMpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w166u-00000000kAc-3ukJ;
-	Fri, 13 Mar 2026 17:15:40 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1w168B-00000000kOb-1MWA;
+	Fri, 13 Mar 2026 17:17:00 +0000
+Received: from mail-japanwestazon11011066.outbound.protection.outlook.com ([40.107.74.66] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w166s-00000000k9z-1R7b
+	id 1w1688-00000000kNl-0peb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 17:15:39 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2aeab6ff148so3765ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 10:15:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773422135; x=1774026935; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tQLmomcwIGHuwBkBk5aL5CzzrX9th7u6tDkwCmp4rSA=;
-        b=mCxWoH4EU4Ywpsj5cBZQRs6kQ4/kaf+T0L7UCbxKp3P/WEK3JFZlJMyLYnFXkz9212
-         gnByo7rMp4lruRtmia9iXqVNZMkD2lgb8dB6uHUwTKwGb7H3DnrvN2V9bDyvuQQq8RER
-         IVJgnRU/UxLBAzU6xSbyn+ozM676qLP3Q46qEyldpys8iT+2gp0yotPwYnrJHqlM4x6/
-         uiFOoeiJh+LAW+hRLxe2mGCG2ddMpQYxbJOwMOUJ1gNOKXnSGYPGfpPn5C9e+7CgYKcE
-         rj+Apt4hNOPRYDU3W+/pt4t3er3l1Z9G2rQjnHqx4V7f63Gb40vgv6O7k5oItrqVvTuz
-         5PYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773422135; x=1774026935;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tQLmomcwIGHuwBkBk5aL5CzzrX9th7u6tDkwCmp4rSA=;
-        b=UKHNPn8GTCdWRglqqnuchsxUIwB2hYLIGjDcf/15uNYefZCu7WR7d3EKik5u9xDBay
-         vicfWgU6wa8E9JJ2l6iMockpT6cOUguXmwPyTkzzshNAeaB+I6FwwVcmdMlcM0S6A9ZU
-         6+4LJqpTuBg7CLzuSxmkP3MEGAm9fqXhuwE6Ri4edWbBTMHV2648BRVVCUQK1M1v8b8R
-         YUWq77ECKAtGAF3gT589wbzMsvNgNuLOO1ekQ5Ia/DA3WOR52dRPwzNpmR5lNMWIBFyH
-         F/5TPCFOcfztF7MGc23K9osOD28fmU140XvxiAp4VL7nFFMGoFwl1QV1kktizJPceDeK
-         OMHQ==
-X-Gm-Message-State: AOJu0YybPIhjA55n16TYSakDWozjUHHkzCJN7Wc4L5yERHT9A/A+mB9Z
-	/gjdUTLvYJ1awmvMIn40kqKlkbys+ojuhi/HO2HaneLZMVXfgTQTLgobQNtZHKDrVQ==
-X-Gm-Gg: ATEYQzzvwd4NeRoxp/NOjHcLT1F2MmhxfA9s7OHnh5FKmWrzaLztM6IMOQN2Ur3W5Um
-	IjmzjNTb/azPOP+se0qL/hULIZgxFAGY59aLFQwHlxdKUv/fCJJbOa66ylToKRawTSQuokM6/yk
-	j9GWaauevVyOHtGOWhTvki0tTzyYTa1jb4yWTwkS6x9mjkakEaLXknPGI619KpZNIOnJ1fvI6+r
-	k97u3pRgHV4MdFYpsoUZf/sVZmwDYzSLc+7dhW74g8ItjdG2+AVUCKMlKvHk4Y5Ub16BwjffNz/
-	70dkAx1IIOtNjmyfXZefbqSg3ddprZRHsNrv1wvpEQ2GiYFn1+sErJm5k+ZsaUOFW07Y+G4jJHd
-	ZRKASrVqqm67HUC9FIFg+0ecfs45EQ17Ke8rvqomuuQIOV4avxwtIgt2zXQfJJe0kVWPjSy1jTh
-	dPo5FRxYTgFVvoXsgxjKohdjhNq/Dz4KoWZyUBjpIVbK7O+AN3JcpX4zr63n2ojXg=
-X-Received: by 2002:a17:902:e5c4:b0:2ad:6f9b:7818 with SMTP id d9443c01a7336-2b04223ffffmr445ad.23.1773422134975;
-        Fri, 13 Mar 2026 10:15:34 -0700 (PDT)
-Received: from google.com (154.52.125.34.bc.googleusercontent.com. [34.125.52.154])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece85e9dfsm27191075ad.87.2026.03.13.10.15.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 10:15:34 -0700 (PDT)
-Date: Fri, 13 Mar 2026 17:15:29 +0000
-From: Carlos Llamas <cmllamas@google.com>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Will McVicker <willmcvicker@google.com>,
-	Sean Christopherson <seanjc@google.com>, kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7] arm64: implement support for static call trampolines
-Message-ID: <abRGMfYdu72Lv8d-@google.com>
-References: <20260313061852.4025964-1-cmllamas@google.com>
- <20260313164856.GB213695@google.com>
+	Fri, 13 Mar 2026 17:16:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SyoG6SZu4fSFd87eeM/oFKWnr94b6jOh846TIvkNCfdcHTn+qnLGmZZYo4aM+fTCAZSCMm4/XqAg/GGfgYOpT30XwLiljHyu/ilPZchaYI0TuSpA/Z4Ar31hYRU0wL+xn0MWgxIe6WwwCEscLa6ck3NSFePFUG0jaVRVwDFOtCszLR4MisjDnjmA1uVFLqauiHiGDEDjFKfwF/829NHMGFCczYvt6Bh8I2I9JFztZZgFyWA2vLZImaL0iHGDxGLXmWkMGkX4dZLwX4VR9QZ+xOMRRHY6ysrVN0vgWPQ8U7cd1jozrfkrr1E2lSsTqmZyEgYn5EflDnuqAVmBkXAXhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HeFMjrmeD5sD85jfV+AAm0iFGryK5wwW5I1q1pAoG4A=;
+ b=CeCC3XUcol9falUnpDOLHoMfEHk34JmVI3cADhMDa83cUcNBHUNzD/qbeIACjVJnHuYHguPRiOBLtS91JAY88RQJmO99XD7wSySW7TMzwJPy+BJMmPUyXJJe3VWdurB507vuW/4q+jrn7HNUwPk/cjS4meK7EzKoL3z11QPuJ+WeYPJ9a0D5PXS7NwGEqw1GM7GcJe1iwEw9WIH6f3AzhHwqyXw0XnTl/yqSVr1gAN0vtxd3RnJU6wipxtay/nMMlE08xp+jYWJWtsW/N1FQMiyncV+xgWc+GvxEQr3Wfv6cxuJ0WuAu5BZmjaGRofgv6jNaF3BmJKIJNObWff3RCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HeFMjrmeD5sD85jfV+AAm0iFGryK5wwW5I1q1pAoG4A=;
+ b=sc6G0P8lZXaY2Ce5+vvF/6/06oDdgOo3lStyVcXd+AMempL9ienytGv5cqY1ggKnAEdZX+TSBzmweYiIaW07qWbRzMLazPw/vxJrQ+dRDQKNw9BN+7NCn1DxoVANcBLZ1sPo/OHAE+m86zX2JLv+8MfTUC5nRIaexZHKNja/yvs=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by TY1PR01MB10754.jpnprd01.prod.outlook.com (2603:1096:400:31c::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
+ 2026 17:16:42 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9700.017; Fri, 13 Mar 2026
+ 17:16:38 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+CC: Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, magnus.damm
+	<magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
+Subject: RE: [PATCH 4/4] arm64: dts: renesas: Fix KSZ9131 PHY bogus
+ txdv-skew-psec property
+Thread-Topic: [PATCH 4/4] arm64: dts: renesas: Fix KSZ9131 PHY bogus
+ txdv-skew-psec property
+Thread-Index: AQHcswgdmJumhvZ/r0uXEmF8FzKIfLWss9Bw
+Date: Fri, 13 Mar 2026 17:16:37 +0000
+Message-ID: <TY3PR01MB113465D11CF77CB9C4C871E058645A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
+ <20260313164008.40933-5-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260313164008.40933-5-marek.vasut+renesas@mailbox.org>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TY1PR01MB10754:EE_
+x-ms-office365-filtering-correlation-id: d298248d-cfcd-45db-c4f3-08de812448f7
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: 7VcTw9Vy7+KDNX8AAjkJnuQNEQwbd3DG9nsDW9UBN1n8xtbQ/9LCK4lN/w3/JYeIU6ZCeyjQgBzeGF3qHVkkzp3GFN/hewZaJ/5/sN0kuL3wwmpbMDYjexVjqt2YlXeEOQyFYG0EXiHBlr6P3Hl/CYxJYEXUKH6+9IrSWNdF7I1LNTkGD0Jl9rH7L8OpSnRE7W7f/eidoIDcWPUUkHpGRMQBqb9aWNvhRIijc0qAD7WXCmS0S+6Mf1z+KdLinUhtzFET7k3ZevQ6LZdw7AVA2UvbW6l2LQYjel6NH8p5DZ+TKGuza5nj0ZuilWX/ZyyiD5YnCqvcmfSIBTy0lBMCb6ouNvlbUqtYWQlMZX9lGCcs0nzhi2eZmhtJ6UAdnJE4khSqCwgpjmFtmPZYGEJGpsHvHzQ/g0sYWnDHK1QwaW5Qf1RjKuS7VlWLqD91taOr2NXeWgCXj9MIG7fZ/zSmRMVTqGRbNJniJPCAglaqqGnAXCjGII1gHraKUJCLJezh0t8VnWGBNd5QHlHBWV37LyvIWEUQhYg1JDB4o2NYFSWG9Y2mgwODhe5GjHr2jLQ9K/fmb4twASQDfa3K5z995tS5Lvo2uahjS+nLHSE/ioZvEoAoB6X2oKIeQvbUr8MNE2i6KEDZv0J0JF/PkYFZSNFNdYjQHF3ZlMaPX+61aTOLqX76m/hYw/kfpu8aO7j2hPL8HKrusig9Vzl85qtaXtPkDRyxMwLaY9tXe9eG7Z2hzKZoNY/lIaJkEe0YfqJsojNZaLXk9ikQupaSBTqncFs21CY4ytRC1KVSN+jm+Ns=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ov1sb8Fu0zfpVoelNtrbnilc9uL9Z515to4a5EXTIcFJC38bPpbklE6cxaNM?=
+ =?us-ascii?Q?MiftwZWxn6WLb+QH9cBsNPUOfjVAMZKX9LX8L+oNMu3QjALRjZljxBAxDsbE?=
+ =?us-ascii?Q?eoOVb4/EwIb8iDJjWjFqMglsOdIz+wSVJcIVl8woUoDyZjNCkbdjZzpufTUr?=
+ =?us-ascii?Q?2IjXxCo0GOqT+802MopVF5GwsZdKzvVP3QCGdLJkC2IVnORLH7UE2sUSkPrR?=
+ =?us-ascii?Q?cbjscWaWunbfnxbEHfzAtu7TkkdGTZK/cWxE6eraIKZSEoqUUIHESRXn34aA?=
+ =?us-ascii?Q?QCzG8i6u20mixTci90Brk7iw37EpEWWLH7av5AF/O3EzKhJb8dSQSdMlEMy1?=
+ =?us-ascii?Q?sJ1/IeziqNZOOzVY7krRisrq8iTd2TNOiUZKsU7iB/wwSxzVlwmC6oPDaS+0?=
+ =?us-ascii?Q?4auxsRUyQ0erhBFaHV0HP44EoYGl77b3H4ahl+gusLNwDP+yXTJyuXvj7hpM?=
+ =?us-ascii?Q?ALOYBmo25l/Bk0Rl1OmZIZqYjEnZA1TQbLLZ81eSl0Ng6FfnCOGe7+32Orms?=
+ =?us-ascii?Q?ch1pFuJYnWsKH5bDMSvw4yVTIiwxVbnkzqN8eKv3R0hrf4SR620cmN0kijm+?=
+ =?us-ascii?Q?Ly+oonOwXCH9hJbpg6R7iN9DhL+1fsatOphHP6C8fHiDUtc/E3XVMsz2yBEV?=
+ =?us-ascii?Q?LI7t+EFMc7qfkXNDLh+rI20ScnkrZwk9SENIeFwyMIwKH0sw10DSlDn0TtyK?=
+ =?us-ascii?Q?dR38H+TyyJ8t4qQJrxLnddx13k9uM43VjkOB/SU2Uqaj7M8ZglX3wGaO8UOr?=
+ =?us-ascii?Q?bnDrZBDBu4qaxsYmIqkS70jrib5k5o+KZXsnLdLXOPI+EwBc1iNgSUiNveHM?=
+ =?us-ascii?Q?7DLG8pzoubNhh0UbsK2q8fRM4Nx+QTZ93f7dwGjNLuG2YEINhQCO6K3Fe+r+?=
+ =?us-ascii?Q?mtfYL3AeAjk5w+Hw/eMCXUqhI8AypDDHmDQr9VMGu0KjQPp8u4imnoVlPgER?=
+ =?us-ascii?Q?WxpIBXPj2TB4I0DMrID8Azkg3iHol+1Dp4w4cHn6maxkvKkvsERbSHN7x7KY?=
+ =?us-ascii?Q?JskATZi22IDO11GBnIA+lIkvb3s+I6sr7LOfZkGQZyTZuTSG4wuxokAyc3S6?=
+ =?us-ascii?Q?HSIoFj3X2NVKiahUKuuQAsPPQC8bKdYbS0Z0wIS60EToiTbfsUkMiCJs8+cb?=
+ =?us-ascii?Q?IgVv5MSdF9tsgi8+O5FDMvLpQuyKVW5gl5bM8iPQCjzt8Z+tfXLT6uzAM4wD?=
+ =?us-ascii?Q?K5nOrEOkfMktKmFym1W5i04Bv5o/LYogqgicbhBQKBnySzNnrtlHYbYoyyad?=
+ =?us-ascii?Q?wBFLWewaD7WM9PJV2Ot2/QhlJqEIE8DPB/5chr5Ua8rOLOdsaqNpN5RjKMVs?=
+ =?us-ascii?Q?5SQiAWe/DCHrZBhJM1tg1dOrqEQ8cyxxkYItryeTj4a8gdJd5sRTFHasgMke?=
+ =?us-ascii?Q?5U8h7wLcYhXJi0sZplJkgzr9dnVZpG5KDxIhRKITutarghKzsqoiI9ml/3qH?=
+ =?us-ascii?Q?dtiS4WnaFgPgpRT0COemErUlFAx4uVatXYKtvBIp7+WIqzSbKIZ9VGLrL+kg?=
+ =?us-ascii?Q?cm8NfyoHNpRQORX2674jeDrbyStFkE8tLXkg+6sENIUHwHdRlZMg8Ue/9nhP?=
+ =?us-ascii?Q?wxunmhkYr1kUmE5esW5ksk0dPsUl4isjgMy0+Jwk36QvZzSxFHVzzuxBW9oH?=
+ =?us-ascii?Q?464lXdwtrr+5U0qS+6gvl1QENGfR2Cs9WvMPy+adFdNsoTCYubnd2KkQQDbu?=
+ =?us-ascii?Q?fiu44h3z9w/N5ih3kSP+fNP+5yDO2GLHVUAP0hyGb4CENlwYjavPeL+Zx7V2?=
+ =?us-ascii?Q?6yyB/knE0g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313164856.GB213695@google.com>
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d298248d-cfcd-45db-c4f3-08de812448f7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 17:16:37.5973
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: f0bto6OMz57olln16snh1UQKzpGF/oerqYb5yu6mn2aVsyGhA2+01Uf63ppZMQ2n0k+hduNpVXspF8lp4yantGA49i8Cjwgw2VLc0lqQfOE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PR01MB10754
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_101538_406383_43D59681 
-X-CRM114-Status: GOOD (  34.56  )
+X-CRM114-CacheID: sfid-20260313_101656_349592_088699CD 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,100 +148,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 04:48:56PM +0000, Sami Tolvanen wrote:
-> On Fri, Mar 13, 2026 at 06:18:52AM +0000, Carlos Llamas wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> > 
-> > Implement arm64 support for the 'unoptimized' static call variety, which
-> > routes all calls through a single trampoline that is patched to perform a
-> > tail call to the selected function.
-> > 
-> > Since static call targets may be located in modules loaded out of direct
-> > branching range, we need to use a ADRP/ADD pair to load the branch target
-> > into R16 and use a branch-to-register (BR) instruction to perform an
-> > indirect call. Unlike on x86, there is no pressing need on arm64 to avoid
-> > indirect calls at all cost, but hiding it from the compiler as is done
-> > here does have some benefits:
-> > - the literal is located in .rodata, which gives us the same robustness
-> >   advantage that code patching does;
-> > - no performance hit on CFI enabled Clang builds that decorate compiler
-> >   emitted indirect calls with branch target validity checks.
-> > 
-> > Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > Signed-off-by: Carlos Llamas <cmllamas@google.com>
-> 
-> Does this need a Co-developed-by tag as well?
+Hi Marek,
 
-The bulk of modifications came from the rebase itself and suggestions
-from Ard. I skipped the Co-developed-by tag for this reason.
+Thanks for the patch.
 
-> 
-> > ---
-> > v7:
-> >   - Took Ard's v3 patch (as it leaves the code patching logic out) and
-> >     rebased it on top  of mainline 7.0-rc3.
-> >   - Dropped the changes to arch/arm64/lib/insn.c and instead switched to
-> >     the (now) existing aarch64_insn_write_literal_u64().
-> >   - Added the RET0 trampoline define which points to the generic stub
-> >     __static_call_return0.
-> >   - Made the HAVE_STATIC_CALL conditional on CFI as suggested by Ard.
-> >   - Added .type and .size sections to the trampoline definition to
-> >     support ABI tools.
-> > 
-> >  arch/arm64/Kconfig                   |  1 +
-> >  arch/arm64/include/asm/static_call.h | 33 ++++++++++++++++++++++++++++
-> >  arch/arm64/kernel/Makefile           |  1 +
-> >  arch/arm64/kernel/static_call.c      | 20 +++++++++++++++++
-> >  arch/arm64/kernel/vmlinux.lds.S      |  1 +
-> >  5 files changed, 56 insertions(+)
-> >  create mode 100644 arch/arm64/include/asm/static_call.h
-> >  create mode 100644 arch/arm64/kernel/static_call.c
-> > 
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 38dba5f7e4d2..9ea19b74b6c3 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -252,6 +252,7 @@ config ARM64
-> >  	select HAVE_RSEQ
-> >  	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
-> >  	select HAVE_STACKPROTECTOR
-> > +	select HAVE_STATIC_CALL if CFI
-> >  	select HAVE_SYSCALL_TRACEPOINTS
-> >  	select HAVE_KPROBES
-> >  	select HAVE_KRETPROBES
-> > diff --git a/arch/arm64/include/asm/static_call.h b/arch/arm64/include/asm/static_call.h
-> > new file mode 100644
-> > index 000000000000..331580542fd4
-> > --- /dev/null
-> > +++ b/arch/arm64/include/asm/static_call.h
-> > @@ -0,0 +1,33 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef _ASM_STATIC_CALL_H
-> > +#define _ASM_STATIC_CALL_H
-> > +
-> > +#define __ARCH_DEFINE_STATIC_CALL_TRAMP(name, target)			    \
-> > +	asm("	.pushsection .static_call.text, \"ax\"			\n" \
-> > +	    "	.align	3						\n" \
-> > +	    "	.globl	" STATIC_CALL_TRAMP_STR(name) "			\n" \
-> > +	    STATIC_CALL_TRAMP_STR(name) ":				\n" \
-> > +	    "	hint	34	/* BTI C */				\n" \
-> 
-> It doesn't really matter either way, but do we still support toolchains
-> that don't understand "bti c"?
+> -----Original Message-----
+> From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Sent: 13 March 2026 16:39
+> Subject: [PATCH 4/4] arm64: dts: renesas: Fix KSZ9131 PHY bogus txdv-skew=
+-psec property
+>=20
+> The KSZ9131 schema does not document "txdv-skew-psec" property, neither d=
+oes the kernel driver support
+> this property. It does however document and support "txen-skew-psec" prop=
+erty. Fix what is likely a
+> copy-paste error from the matching "rxdv-skew-psec" property, use "txen-s=
+kew-psec"
+> property instead of "txdv-skew-psec" property.
+>=20
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-I tested with this early. A 8.2 gcc from the arm archives and it failed
-to build:
+Tested-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-   Error: selected processor does not support `bti c'
+Cheers,
+Biju
 
-However, this was _before_ I added the conditional on CFI. Maybe clang
-doesn't have this problem and technically speaking CFI would gate the
-"bti c" usage? Because you can't have CFI and "old" gcc.
+> ---
+> Cc: Biju Das <biju.das.jz@bp.renesas.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts | 4 ++--
+> arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts | 4 ++--
+>  arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi       | 4 ++--
+>  3 files changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
+> b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
+> index dd5e4b13f0f86..00e5455ea5abf 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts
+> @@ -265,7 +265,7 @@ phy0: ethernet-phy@0 {
+>  		rxc-skew-psec =3D <0>;
+>  		txc-skew-psec =3D <0>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> @@ -284,7 +284,7 @@ phy1: ethernet-phy@1 {
+>  		rxc-skew-psec =3D <0>;
+>  		txc-skew-psec =3D <0>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> diff --git a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> index 8ae7b6e3d712e..4643c61cf06a7 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> @@ -286,7 +286,7 @@ phy0: ethernet-phy@0 {
+>  		rxc-skew-psec =3D <0>;
+>  		txc-skew-psec =3D <0>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> @@ -305,7 +305,7 @@ phy1: ethernet-phy@1 {
+>  		rxc-skew-psec =3D <0>;
+>  		txc-skew-psec =3D <0>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> diff --git a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi b/arch/arm6=
+4/boot/dts/renesas/rzg3e-
+> smarc-som.dtsi
+> index cb5066443722c..880bd3fc9da18 100644
+> --- a/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi
+> @@ -142,7 +142,7 @@ phy0: ethernet-phy@7 {
+>  		rxc-skew-psec =3D <1400>;
+>  		txc-skew-psec =3D <1400>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> @@ -162,7 +162,7 @@ phy1: ethernet-phy@7 {
+>  		rxc-skew-psec =3D <1400>;
+>  		txc-skew-psec =3D <1400>;
+>  		rxdv-skew-psec =3D <0>;
+> -		txdv-skew-psec =3D <0>;
+> +		txen-skew-psec =3D <0>;
+>  		rxd0-skew-psec =3D <0>;
+>  		rxd1-skew-psec =3D <0>;
+>  		rxd2-skew-psec =3D <0>;
+> --
+> 2.51.0
 
-The CFI conditional might be later removed though so maybe lets keep it
-as is?
-
---
-Carlos Llamas
 
