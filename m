@@ -4,129 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6BF107BCCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79CE107BCD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uvdd3xVsDp/Mz3nsW+R8XkOYxdc11wSdo6dxJbaUABo=; b=Q4UFsNn+782JD7ICqpX/Stvv+m
-	KKG58qOhGMCvtBbXpWGj/Kb2TXgpYsXU4swcxs59ZAWA7J4hmRNWvnDMgoWKVHcDWikvR0GsDlDgU
-	8uqp0KSYnQ5kUaObdvBNDkcg1gnc8syzB5dooY9mr1ye1l2sCVImq3r3ZErRaD7wJJFMnbcIg7F4M
-	6R6U3WlVOAFQNGfJyDKUw8tkFyolHKwms5neXIULmQX13t5imLEsxjEoRInKSUbXhqZCBrBYDwIDy
-	QkzwyrhTTDWDUpfv646liYNEnDnSTjlqID3/NaFteAjS1H+EHqnUc2FWLrbNmxJjvyDiq9/NKx6GD
-	m0/tjINQ==;
+	bh=sWN7mR8hhlLflSgSx7L+rGxa42YNgcjhiWs/sTnP90E=; b=Z0J2yjro7Zy4UUisKuaoDnamf3
+	wOHwkTI3Q7lCKAltm+hvGNrggW3+UnoBaqdc6mWJ+QoIGZ5Q5ViCxAx0HLsoVlr8a6+EJXbZUEh3S
+	CCRyfhfjcZtfhZZFZDN7mRsDJs5WhzqYEwqpCBkfrrD3BgYO7+ms18JaYkJXdpLVuR4wySncFsjbB
+	EHBzGUv58r0NAJHo3pnBXIW5+mWps95Js/rAVBbKdTZ0U8saR29568WCJIT2gDR+8mFZmrdnNmKYQ
+	wNCe1yEpUO3M+WypxuscG+I6iLTjkPVICB1AnkJXPeGI7W819I+68ZYcPRD05PJSHCy5/M6xrJ/0v
+	8FRcAC/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w161q-00000000jUS-23Xc;
-	Fri, 13 Mar 2026 17:10:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w162h-00000000jdC-1pJl;
+	Fri, 13 Mar 2026 17:11:19 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w161n-00000000jTn-1z4H
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 17:10:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F6E46183E;
-	Fri, 13 Mar 2026 17:10:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3E78C19421;
-	Fri, 13 Mar 2026 17:10:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773421822;
-	bh=v2vK+UcagkF2ySsZwbLEP8QRzHCoZx+uyEcEB79nZ+Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E+RHGF+euMGxrwG6J1jkUGHURKrEnFD9MUEjrZZBCnXnLvZnwa1a8S3fjAORSoYTV
-	 Wfmy6gBXGO0/OmmwAazHL8QplK0ooZ9zPU7i84FzfJ1weVLvK6QM0Zgrj5tTLCPJrG
-	 3IONROHy1gqRPFklxShZ9S4vxExjCoWl6L4Uubu11Wh798trpMb8sZvHQ1uaG1f6J9
-	 jvqsnVtU7BCskx0Ac5r5r2Fv3q3sBx1e72fCr8Pl02o0/DWlNz7qnD+UNREHgVlgE9
-	 xhzpsvj43ZFxDMuAd5IdflXXfpshc96U2IBaFM9J233FB0mZJNu+DWkAiHH6PK572Y
-	 645KQU5ScG2OA==
-Message-ID: <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
-Date: Fri, 13 Mar 2026 18:10:14 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "Vincent Guittot devicetree @ vger . kernel . org"
- <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
- <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
- <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
+	id 1w162d-00000000jbu-0Fgr;
+	Fri, 13 Mar 2026 17:11:17 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D18C31A2E1B;
+	Fri, 13 Mar 2026 17:11:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 950A860027;
+	Fri, 13 Mar 2026 17:11:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8AD9410369EB3;
+	Fri, 13 Mar 2026 18:10:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773421865; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=sWN7mR8hhlLflSgSx7L+rGxa42YNgcjhiWs/sTnP90E=;
+	b=SE3yhlFsKqX9la54BlcGeTn3MbBSNhgAE46gJLM27etqIvuJoPv9/huZfYVMW9pJmUUM2Q
+	FK9x+xCgx11jgA0B8RK5PNYAeKOy4tN4YMJ26mysbNs219sWH8ILr2es0HoYp4AGtPOFIi
+	7neL84Yhwo+TROshQ9GT2AiKVhcXsiX3ACnixqrzBvIqlMVggFLBEgI7yLaJh0QcT88wXI
+	8AOpDresz7XivMX1Vq3EFLAM12STKTbvq3103ljKKe0iyb4Ekmp0Zhv+IqdsHCAdD9qzPF
+	S9/buoMATnkXLmNmm+smfAzx4PLH5AUIGlwlmguOS/TZJj0OUyN8h3Z0ZRfaCA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Date: Fri, 13 Mar 2026 18:10:54 +0100
+Message-Id: <DH1TKWREZMFK.3BY4NY36BXLXG@bootlin.com>
+Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+ <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
+ <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+ <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
+ <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
+ <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
+ <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
+ <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
+ <andy.yan@rock-chips.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+ <dianders@chromium.org>, <m.szyprowski@samsung.com>,
+ <jani.nikula@intel.com>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
+To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v10 11/18] drm/bridge: analogix_dp: Apply
+ drm_bridge_connector helper
+X-Mailer: aerc 0.20.1
+References: <20260310012458.169272-1-damon.ding@rock-chips.com>
+ <20260310012458.169272-12-damon.ding@rock-chips.com>
+In-Reply-To: <20260310012458.169272-12-damon.ding@rock-chips.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_101115_229947_80EB45AD 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,113 +89,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2026 10:40, Ghennadi Procopciuc wrote:
-> On 2/23/2026 3:14 PM, Krzysztof Kozlowski wrote:
->> On 23/02/2026 12:51, Khristine Andreea Barbulescu wrote:
->>> On 2/20/2026 4:41 PM, Krzysztof Kozlowski wrote:
->>>> On 20/02/2026 15:36, Khristine Andreea Barbulescu wrote:
->>>>> Hello Krzysztof,
->>>>>
->>>>> On 2/20/2026 12:16 PM, Krzysztof Kozlowski wrote:
->>>>>> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>>>>>
->>>>>> On 19/02/2026 12:36, Khristine Andreea Barbulescu wrote:
->>>>>>>>
->>>>>>>>> +      reg:
->>>>>>>>> +        maxItems: 1
->>>>>>>>
->>>>>>>> You have 'reg' so the node name should have unit-address.
->>>>>>>>
->>>>>>>> However, there's not any real DT resources in this child node, so you
->>>>>>>> should just drop it.
->>>>>>>>
->>>>>>>
->>>>>>> For context, SIUL2 exposes a set of platform‑capability and SoC identification registers that are split across the two discontiguous ranges: SIUL2-0 and SIUL2-1. These registers are the source of SoC information (e.g. identification and capability flags) that other subsystems are expected to consume (e.g. PCI Express). Because those fields are physically divided between the two SIUL2 ranges, consumers need reliable access to both ranges to correctly discover and configure the platform.
->>>>>>>
->>>>>>> Hence, my proposal is to keep the two 'syscon' child nodes.
->>>>>>
->>>>>> Please wrap your replies correctly, so this will be easily parseable.
->>>>>>
->>>>>> I do not understand the reasoning. If you have two register ranges, you
->>>>>> have two <reg> entries and having a child node has nothing to do with it.
->>>>>>
->>>>>
->>>>> I’ve reorganized the SIUL2 node with two syscon subnodes for the two
->>>>> register regions used to read system info, and a separate
->>>>> pinctrl/GPIO child (as discussed in the v8 06/10 thread [0]). The parent
->>>>> SIUL2 node now carries the bus addressing and ranges:
->>>>
->>>> That's not the answer to the comment. Read again:
->>>>
->>>> 1. Reviewer: No resources, so no separate node.
->>>> 2. Your answer: some soc capability and two address spaces
->>>> 3. Reviewer: Does not matter, address spaces can go again to original place
->>>> 4. Irrelevant reply.
->>>>
->>>> So again, read the first comment - do you have dedicated resources in
->>>> children?
->>>>
->>>>>  
->>>>>     siul2: siul2@4009c000 {
->>>>>         compatible = "nxp,s32g3-siul2", "nxp,s32g2-siul2";
->>>>>         #address-cells = <1>;
->>>>>         #size-cells = <1>;
->>>>>         ranges = <0x4009c000 0x4009c000 0x179c>,
->>>>> 		 <0x44010000 0x44010000 0x17b0>;
->>>>>  
->>>>>         siul20: siul20@4009c000 {
->>>>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
->>>>>             reg = <0x4009c000 0x179c>;
->>>>
->>>> 0x179c is odd size. Looks fake.
->>>>
->>>>
->>>>>         };
->>>>>  
->>>>>         siul21: siul21@44010000 {
->>>>>             compatible = "nxp,s32g-siul2-syscfg", "syscon";
->>>>
->>>> And two same devices with same compatible proof it.
->>>>
->>>> Best regards,
->>>> Krzysztof
->>>
->>> We don’t have dedicated resources for children. In particular,
->>
->> Then previous comments/review stay.
->>
->>> there are no resources allocated specifically for nodes like
->>> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
->>> driver and other drivers that read SoC‑specific information from
->>> those shared registers.
->>>  
->>> My alternative is to keep two separate syscon providers for the
->>
->> You got review already.
->>
->> Best regards,
->> Krzysztof
-> 
-> Hi Krzysztof & Arnd,
-> 
-> I still believe that nvmem is a suitable and accurate mechanism for
-> describing SoC‑specific identification information, as originally
-> proposed in [0], assuming the necessary adjustments are made.
-> 
-> More specifically, instead of modeling software-defined cells, the nvmem
-> layout would describe the actual hardware registers backing this
-> information. One advantage of this approach is that consumer nodes (for
-> example PCIe, Ethernet, or other IPs that need SoC identification data)
-> can reference these registers using the standard nvmem-cells /
-> nvmem-cell-names mechanism, without introducing custom, per-subsystem
-> bindings.
+Hello Damon,
 
-nvmem is applicable only if this is NVMEM. Information about the soc is
-not NVMEM, unless this are blow out fuses / efuse. Does not look like,
-because SoC information is set probably during design phase, not board
-assembly.
+On Tue Mar 10, 2026 at 2:24 AM CET, Damon Ding wrote:
+> Initialize bridge_connector for both Rockchip and Exynos encoder sides.
+> Then, make DRM_BRIDGE_ATTACH_NO_CONNECTOR mandatory for Analogix bridge
+> side, as the private &drm_connector is no longer created.
+>
+> The previous &drm_connector_funcs and &drm_connector_helper_funcs APIs
+> are replaced by the corresponding &drm_bridge_funcs APIs:
+>
+> analogix_dp_atomic_check() -> analogix_dp_bridge_atomic_check()
+> analogix_dp_detect()       -> analogix_dp_bridge_detect()
+> analogix_dp_get_modes()    -> analogix_dp_bridge_get_modes()
+>                               analogix_dp_bridge_edid_read()
+>
+> Additionally, the compatibilities of Analogix DP bridge based on whether
+> the next bridge is a 'panel'. If it is, OP_MODES and OP_DETECT are
+> supported; If not (the next bridge is a 'monitor' or a bridge chip),
+> OP_EDID and OP_DETECT are supported.
+>
+> The devm_drm_bridge_add() is placed in analogix_dp_bind() instead of
+> analogix_dp_probe(), because the type of next bridge (the panel, monitor
+> or bridge chip) can only be determined after the probe process has fully
+> completed.
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
+...
 
-Best regards,
-Krzysztof
+> @@ -73,15 +72,12 @@ static int exynos_dp_bridge_attach(struct analogix_dp=
+_plat_data *plat_data,
+>  				   struct drm_bridge *bridge)
+>  {
+>  	struct exynos_dp_device *dp =3D to_dp(plat_data);
+> -	enum drm_bridge_attach_flags flags =3D 0;
+>  	int ret;
+>
+>  	/* Pre-empt DP connector creation if there's a bridge */
+>  	if (plat_data->next_bridge) {
+> -		if (dp->has_of_bridge)
+> -			flags =3D DRM_BRIDGE_ATTACH_NO_CONNECTOR;
+> -
+> -		ret =3D drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge=
+, flags);
+> +		ret =3D drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge=
+,
+> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+
+Should this be 'flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR' to be future-proof?
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
