@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04501107BCCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01BA107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyVi9ie4kjBemkSiAX2WnD6MGaPKy+GHNmKR/i8NVt4=; b=fYV8eijcvVW+RpHVmox+EIfTqq
-	OTEosAmDq58KDMPYY5h9u/gby8iwkrmuUoAt8SCa0+MpcxaTsORnv3E/mLo/90259jk09gUAd57Mu
-	KSyJGTAmYb/TXNg2ccAqWhhI8zcJi4sX4HVKRgCZRMjiMBsXRsNpupwQj3CqH1x4YFoB5nbAVX1b3
-	fc0uPnA6sS12nJlCi5KvH0fLvNESkFPfd+ClSzdblnauZb3h3gJUwfCkyQ1WoaeZiWpa6Na8/j7R3
-	J3/RCtq79iovSSR+qvmsKxpdL5M3QCGPk77B3hbipKvQLmL3/Td1oJNVODuaTpUqD/2wyDE4M25Cf
-	elCXp91w==;
+	bh=aCmb03AT0Z9uOVWvUD6gxDyM9KZ8csF4y3lfbWNQJag=; b=LeqHrcEvwfqIi6nziUCCZ1IqMb
+	Zkmoog64SAnPQVfimdQAiG3Os0gGxW0V0Uf86yK6TmeJfW2aRkpSOzzufkfVO56VTE+Ne0JRhcyP2
+	igTCtzgXU3+rxHed+9smf2sTcxUI5KKImt0nlTtwc7BrRG7CreI+BBKALo43V1t4cHezOsQyAlyjg
+	kb6/GBiUeU7OiSp4plOnvkqpT4z0+wcYGL266ufq91uAQUyr7NcLwXvIPlf5ccZUxFBdH1bgLQrHA
+	X1uSz1CHKorSUvYqUkbTH4elWdrSJ6p0rUgjr8DlN5kQpU7SeVeiImGzgsm3cpcCGdvvDpmYf80nn
+	cVX4DqQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15f3-00000000gUM-49ui;
-	Fri, 13 Mar 2026 16:46:54 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1w15gv-00000000gce-22mM;
+	Fri, 13 Mar 2026 16:48:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15f2-00000000gU2-1JGb
+	id 1w15gu-00000000gcX-0SZg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:46:53 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4838c15e3cbso21896935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 09:46:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773420410; x=1774025210; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XyVi9ie4kjBemkSiAX2WnD6MGaPKy+GHNmKR/i8NVt4=;
-        b=cuyKGBZjs/Rdg6hZoRfAEAR313+meYMmbBA23Z33zvSrsNKpgtaCUbkpsv3tDsKJiq
-         9QOADMXdQ1RK9eV7p6rZ1V7iYHhS/pd3tafA6jBZJvxONi6ZaL3Fsaf70DBT6lupOY04
-         nXE/IySv7B9yrwvVs/DfhN2n3TFcaGg91BaDDb757nFA7f1YEZQSz87jTivBAiF+6tNS
-         fu4ksprwy84wWRGxY8ut1jyMpxw2RBbfpXaq+lgpNC/q8WMFYREybKd7s/uZ2WjDbpgA
-         1QYxBrnNS8Bwjp4ygu4qRvaDU6r5fpN7BG7SoB/7eZGJqUzokMhiE94Z7RzXyuilHtTZ
-         j1ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773420410; x=1774025210;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XyVi9ie4kjBemkSiAX2WnD6MGaPKy+GHNmKR/i8NVt4=;
-        b=Yc/z1HR6/uPHwknv76UNtPkoKqsWIZMd002oV0kh6xeow+zlTQj+6OHPHHQMeOuPmd
-         8ujbGsghmZIeLxntXM6an5gurum0lgxKC9uWXdU8SNJyfHVWXbWl9pBLNxz5izj9YBud
-         y9RriBEfJfJACGys/CvgZWdcxg5LJ6ixCwNkGk/xtP6Y5Xwkl9rKJNasi6dbV91R0kDn
-         LO11YL59XsJnmLDzrG2sbCU0WYj+xewbZMLSLPypfn8PeWr2HGzm4hfc5yb1PzNCsPiS
-         OJjFYvJfB/n5JicvGheGeLEAYNBQlol0hpQ0d3AmFsGAKIPdatwh17CKMJZ0yFKaiqJv
-         2Feg==
-X-Forwarded-Encrypted: i=1; AJvYcCXDy4SPvHcEAWm1tEJIacm81PKPdfkWzgkJ/tFCaLb7pFJEkl9JJyNQa2h7ocvhkFfycUFSaqViAY0iKfEeKI2x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6WqxZ1A3FQBPyJtUTw0uG6abpcWG1kOVnii7fkl5/cHJ8P/+c
-	COKiq0PuUjNeEohmQdPB1E+6vadxGobTHBuDeLc54snY/iW4f1tO8UM0
-X-Gm-Gg: ATEYQzwT+WtUfm5egMmll6SFAmQTSt3qnQGbWr7Zk/zQuHFbWCkmTNKjkoYjoZn65//
-	j4SK72nvihAC/48XOZ9Ai4JB1OOrYs2h1nqvpV5X6FgTa7YbG1Gs54HYWB/zYiJCKVCO8ZZeLQx
-	oihzRnJnVtE7B74vs6lpt03NSd7yCt4w26qvHRYApnmENyGn2PnU5PJthNjZpISIUHlaVTQV6LZ
-	TwKzM2VlkSJvAlKftDnNExWe+q0L2eunYvR34dn1LqN0MMHxVIXT+xQyYAatpHCVTNil//b2rfY
-	qSZQ0ECOFY/RomCMiYNRTx59nTNM4KgTbfzQ/3DF8cP+6Xso8HnRV4tC4jWqr+spoYeJqGcj9RN
-	u7dyWNIOhqAD+iHqsDGaDLhfMmfY5tqnjYV1mQz13YZ+9ZPE7vWLGqQHNJC9RQRhcyJwATJWJLT
-	CV6+m/zjrTNXIRVyMD3GprvTbfa2Sbjk3hKxin+7j1fPIJc30p3LQURylIslSVHYiqdEkVDNgMa
-	hgbO4mpV0YzVsJq3sHo3CUuR3hq4VMrYrWnG4s45DZC6g==
-X-Received: by 2002:a05:600c:a4b:b0:485:3692:e8f7 with SMTP id 5b1f17b1804b1-48556707ddbmr67083435e9.25.1773420409865;
-        Fri, 13 Mar 2026 09:46:49 -0700 (PDT)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4855638cebcsm59182635e9.0.2026.03.13.09.46.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 09:46:49 -0700 (PDT)
-Date: Fri, 13 Mar 2026 17:46:47 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
+	Fri, 13 Mar 2026 16:48:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 49E8F60142;
+	Fri, 13 Mar 2026 16:48:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E4F3C19421;
+	Fri, 13 Mar 2026 16:48:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773420527;
+	bh=OuMawjsTQP6cRs8Og0jene1oaf3BQHmjfu6JPCuI+qw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sGt6MihzN7ZITGSFxs3kQmaBpJSHcy2h7b/kBGbIrykgGW64Q7NwHNZx8gArniJX2
+	 ch1szy2zLk4bRsr9AfJr7SWq5NNNaPcqfx/38ysRBN8TeyhONvikvoYPh0C9CkkrnD
+	 acPFQDeVsCcqBHibaSQ/ioWYqfhmsIoO9s5Hrg0qoMa7nnbsCw0qVA4orbGD2YAWOn
+	 5Bb+P3DFuBGlHsizaULb+8fPR6gWUjcbLAnfvqm9py5OWuvDihuPCoVmr9vM4+IW16
+	 kediO84vA6SEq13UnD617uoU09BD04Lh5fq49icVt0jPiwGrhK4L4pkkhRowMjwobn
+	 jFYVArGOWpfHw==
+Date: Fri, 13 Mar 2026 16:48:41 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v3 06/11] arm64: dts: freescale: imx8mm-var-som: Update
- WiFi/BT with variants
-Message-ID: <abQ_d9fGarNobYdo@Lord-Beerus.station>
-References: <cover.1772898346.git.stefano.radaelli21@gmail.com>
- <7c84625f82c562bb9cd2b455465d63a1a25bf19e.1772898346.git.stefano.radaelli21@gmail.com>
- <CAOMZO5C+USp34WQ9ap+N9ha6EgU7JgsYkRsLEW=ZdizbkMQvPA@mail.gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	maciej.lawniczak@intel.com
+Subject: Re: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Message-ID: <de40d5d7-2d2b-46a6-a725-c691005b63bd@sirena.org.uk>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+ <20260313-energy-casket-ca8adc1f1fd1@spud>
+ <903bcc13-5b50-462c-8fa8-051f07748127@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JTpyDRd0+0jBU6j/"
 Content-Disposition: inline
-In-Reply-To: <CAOMZO5C+USp34WQ9ap+N9ha6EgU7JgsYkRsLEW=ZdizbkMQvPA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_094652_377934_614F4852 
-X-CRM114-Status: GOOD (  11.70  )
+In-Reply-To: <903bcc13-5b50-462c-8fa8-051f07748127@sirena.org.uk>
+X-Cookie: Monitor not included.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,25 +79,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio,
 
-On Fri, Mar 13, 2026 at 01:41:02PM -0300, Fabio Estevam wrote:
-> 
-> One From line is enough.
-> 
+--JTpyDRd0+0jBU6j/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yes, that was a mistake on my side. Something in my workflow ended up
-adding the "From:" line twice. I will fix it in the next revision.
+On Fri, Mar 13, 2026 at 04:32:31PM +0000, Mark Brown wrote:
+> On Fri, Mar 13, 2026 at 04:24:22PM +0000, Conor Dooley wrote:
+> > On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
+> > > This series adds initial support for the eSPI controller found on ASP=
+EED
+> > > AST2600 BMC SoCs.
+> > >=20
+> > > The series introduces a eSPI controller framework for ASPEED SoCs und=
+er
+> > > drivers/soc/aspeed/, adds AST2600-specific controller support for
+> > > peripheral and flash channels, defines the corresponding devicetree=
+=20
+> > > binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
+> > >=20
+> > > The driver is intended to support host-BMC communication over the BMC=
+-side
+> > > eSPI slave controller present on AST2600 systems.
+> >=20
+> > This all seems to be in the wrong places entirely, shouldn't an eSPI
+> > driver and bindings go in the spi subsystem? FSL's appears to be there.
+> > Mark?
+>=20
+> As documented in submitting-patches.rst please send patches to the=20
+> maintainers for the code you would like to change.  The normal kernel
+> workflow is that people apply patches from their inboxes, if they aren't
+> copied they are likely to not see the patch at all and it is much more
+> difficult to apply patches.
+>=20
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
 
-> 
->  imx8mm-var-som-wifi-brcm-legacy.dtsi is not included anywhere, right?
+If this is a driver for SPI hardware it should be under drivers/spi and
+use the framework there.
 
-Correct. It is not included anywhere at the moment.
-The Symphony evaluation board uses the IW61x configuration.
-The imx8mm-var-som-wifi-brcm-legacy.dtsi file is kept as a separate include
-so that carrier boards using the legacy Broadcom-based SOM revision can
-include it if needed.
+--JTpyDRd0+0jBU6j/
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best Regards,
-Stefano
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm0P+gACgkQJNaLcl1U
+h9B1bAgAhjDExdU7nWhBppym32h9JFvlNIdUal4t5ZuJWbf/lg8HFHnKImexzapT
+oqN8FEnJdxLhzctp0aZE6FFgGWBc6Qk6Jkv+WoSyp+sS1bLUHjiwJlh4ecwb2cVU
+g4WdcDGRRhx1dQSz8TW8oO22pViEYB7Q2FKXQAcZ3LMqPJV74ApRW0tzit+Z4bQd
+PIQambqXcdo93X4Q2o+wZVmwFeHbJ5vYIYYfleaW5jYK1qb1ONdAd4L+1L521cyy
+M6SeYTGeKJQqoqYRkVZlQ63dxnzWgOtJ3QQ7xppqXAYZTOZPHSiW4T00XlKfpBRT
+2CLzUfNjBHHo43MpAzeQghjxjs0t8w==
+=Qtsp
+-----END PGP SIGNATURE-----
+
+--JTpyDRd0+0jBU6j/--
 
