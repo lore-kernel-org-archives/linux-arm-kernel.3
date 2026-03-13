@@ -4,100 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09014105F784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD1D105F784
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6oGlsV387MSkeGlfgdCPnuYQ1UUU9UaeP1u0pOYQpk=; b=Y5YQQTrdUbW/CUeSDY7+4e5lRt
-	VlbLr4R7L9Xwn4jwiWL+WRzt5tBkfGTUaXVoqRqsyK0rVuAzpj5JPVY/+4W0UtoZhN7F6Iita2UPM
-	c5lJkWeq+EFlKn0HgZi5hdkN6LrnT427pzXIUAsxBoEXTRkTdaxlh0r+/Bx0x3A5CJRX0SubrTHf0
-	NteDJMKaJw2t4PBL519DumIsp/24wwmnxwxOY0uKJfmmgYa1YIkixubJE25P48tP8L0AcOIu/cnCS
-	LkFpHemOnsoGK6UpJf+1Mbz9GTLqLSXjZm6oh/RyqVNHjBdw+gdn96m7bofEAgO5J4cHOXPekjiqk
-	vM5JqGAQ==;
+	bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=; b=lot2C63hPYUkrBXf7je4FlFZzV
+	xwTWKq3iqADLhETkgaondR8P66Uv3arIvYdIrFWc1HmHVUQEcMU2o06twCMbdyZGvKSDSMRr/MFEo
+	o4AvfiqVZagtQwAbjS1LgUYYNBlt7z9RVBok30LqBIUZuHBJSXtLSnJcc5WWJP4uMIcIUFimZX9vb
+	IdgRJvisGog56/K8FcMUoKfFjnHLylAyH0BqdkjjaWC7KP72QBGk5rUJZTn/5/9W/iP/bqNcmLWSo
+	sdFQDaPDmFO2tvQR8CRYuQcU1sJqDA1iGIPJ9wKYPma9GBrrteDTfSulE/u359mEL2SSzh6elZrip
+	jZhHgZeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yt1-0000000HOgj-08hk;
-	Fri, 13 Mar 2026 09:32:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0yxw-0000000HPAP-00Jc;
+	Fri, 13 Mar 2026 09:37:56 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ysz-0000000HOgA-1vh5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Mar 2026 09:32:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=A6oGlsV387MSkeGlfgdCPnuYQ1UUU9UaeP1u0pOYQpk=; b=N4dpvghOoD7lsNNjAitvRoB2VT
-	KDOZfxflxPR7RlSM7Bxbc4BhFrTdX0eBtXi4PwkxlUg1JB5V691o4lGAOHd6gO558NHmHygOLiQPU
-	3FaJNki/os1e3P+wuwI+3n1ugn0absEymOO3PNFpW6RT3D1lAQ7uypbdVb99Pvi2dcJ4LKrUk5dc/
-	+2xlJDh7saBa+z/6TqIyLIrydtV6nxDY9lNAC+vYDEGuUM1UjwDVy9YvEgsRTT5+k73uoZD1ECK/Q
-	VcYda5X1jFhvPr5jpp1x0hzbwnx/r52GvT5Sq4rCvgHX7cZDB7Du3B45ie3nU4St41euY3EOS8gAL
-	w5rFL81g==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ysr-00000002yba-49ae
+	id 1w0yxs-0000000HP9r-2fbl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:32:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=A6oGlsV387MSkeGlfgdCPnuYQ1UUU9UaeP1u0pOYQpk=; b=KXkh2Yw3uuUce4xfJqcyDT6oXr
-	NRROy1CK1FouZHjjYNBKR2TFjMoRAZ2pWKnrY+1cq9s/8a+FY9Nft+WGiMUC8FWoaHV/2x5ubEhYH
-	XaU/j2ue9XT2gar4kfcuZzK397RG7LTkvzV+2bkjezPlGbaFkd3pRlXRthrAg2M+A6mi7PAlniBiv
-	vVVabrRHlZRVtvPeJY5k7iYghXxYTi0jmWjOEGsP0rW3hbOLvqNmcX+0rnaJ8YdjfBcYIIYGKXGVH
-	WB3ZOeLd4KmXSxr7a+/NyvLj12mwLVSr+P4XCVeMiTYKvAYg3/+BwoMe2FI3QdJyQGGBmYt/S/b0o
-	I2ghAwcg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54034)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w0ysa-000000000Zx-4BKS;
-	Fri, 13 Mar 2026 09:32:25 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w0ysY-0000000086W-3QeX;
-	Fri, 13 Mar 2026 09:32:22 +0000
-Date: Fri, 13 Mar 2026 09:32:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: jan.petrous@oss.nxp.com
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	vladimir.oltean@nxp.com, boon.khai.ng@altera.com
-Subject: Re: [PATCH net-next v12 4/4] stmmac: s32: enable support for
- Multi-IRQ mode
-Message-ID: <abPZpiCsirNzvqJt@shell.armlinux.org.uk>
-References: <20260313-dwmac_multi_irq-v12-0-b5c9d0aa13d6@oss.nxp.com>
- <20260313-dwmac_multi_irq-v12-4-b5c9d0aa13d6@oss.nxp.com>
+	Fri, 13 Mar 2026 09:37:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a+mMV94E4u821e1Y++VAVF0HqsY+mEK96sDuO3ZKC/5GCddx3Y1psosdCzsJRq0Y4BuCi3cUt96YcCQvVL26q2MmF5KLHic/OQ8+METejV7DBJrdpWGnYJ1MB6hjUEXp/Ye1/QvYYoVNvB0+/wJIVt1LJkcTQkkkAO/qo8KPrqPXxCdOHZ3WdWQIYkuLONOWZoDi+mt/3kdyAksZdeP6s9yxbqBkc+rLOnruEW9ZSLBUqQ+zRINBFwKosX5/8OQGgPf5By4btxIaLOAe1YkeVVZLvwK7/xefM/rdTbrs3deXAVJ01dt3avTu2bpY1P4v8m0oPFkF5w+z566nctPK1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=;
+ b=Kxk/bBGvjvH/Kyl6bTj8dYIA0IExEfB33UMi+ohkxFNNzlMqr6woBSff2pKfkpx/hVkvKJjzB/31zq4Ae6p8ZL+c9Rh7t49alEYPPWDvLFCEKuBUQHpnRYB1URdK7mP+zPG6sEHindrSO0IuwhiaqF+CWtj9l2YoOBXjFiwF08ij/qCAZ+NP3jsxiz2kiYuSjCBTg5UGvsRzaUXSZe++T0GTF3CjW2vaVO8N/9bVLcP83bdfQ7U4lvYsp09tMvKKVhdA3Nr0pG16PL7nI2T9hR+HtiwHwnnDpfwgaHpH8bQM/CvioMGkii6usY1VpMyH1fNnAdulAPbpFGgbHF9FSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TAdngspIBDFZvPECOlmugWGJ8NA3z0HdNBKqEkBSb6E=;
+ b=hXmAw5n8KO82+gNiIap3BuL2BNDP9cSLh7qZXHkHUHsJy903WJs1orKw352akakpzNb9KYYUM5fibMymVOLAgLLtGmvk3ZIOt6jKx4YuYELuXi5+CNjhZiltOixESg8KJVRRWrwD9mikD/HjqUHDOelyctmxJS7Us3EGOeLXAvi4KAveAVrNN8JL6w+YojznCI0tDJg3K0RD7DG/AxPsUAoOZux/77aKp1NZxq1Fym7BSnS0CC/GJ37CK0jtcCjNLG8wVDX/EPrxKyCDv5rQZQs4URwGgXU+MLBpJA/cg5TGv/Y9s5CEJJAI63+X55LBleDUeUnTFtNaY0tG9G4tJA==
+Received: from CH3PR12MB7548.namprd12.prod.outlook.com (2603:10b6:610:144::12)
+ by SJ1PR12MB6145.namprd12.prod.outlook.com (2603:10b6:a03:45c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.8; Fri, 13 Mar
+ 2026 09:37:44 +0000
+Received: from CH3PR12MB7548.namprd12.prod.outlook.com
+ ([fe80::b710:d6a1:ab16:76de]) by CH3PR12MB7548.namprd12.prod.outlook.com
+ ([fe80::b710:d6a1:ab16:76de%5]) with mapi id 15.20.9723.006; Fri, 13 Mar 2026
+ 09:37:44 +0000
+From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@nvidia.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "eric.auger@redhat.com"
+	<eric.auger@redhat.com>
+Subject: RE: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
+ tegra241_vcmdq_hw_init()
+Thread-Topic: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
+ tegra241_vcmdq_hw_init()
+Thread-Index: AQHcsoGGN4pApmoWSEeF3k5/8VyGGrWsM8EQ
+Date: Fri, 13 Mar 2026 09:37:43 +0000
+Message-ID: <CH3PR12MB7548EBC8ADC2A4C34EA06678AB45A@CH3PR12MB7548.namprd12.prod.outlook.com>
+References: <cover.1773361875.git.nicolinc@nvidia.com>
+ <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
+In-Reply-To: <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH3PR12MB7548:EE_|SJ1PR12MB6145:EE_
+x-ms-office365-filtering-correlation-id: 87038564-6837-484c-bed7-08de80e42dac
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700021|18002099003|22082099003|56012099003|7053199007;
+x-microsoft-antispam-message-info: GN934vUZIJts+A5dfBQuRDoX2wgVg/952HS35pRYi5jibNElpEoahZlKUDRrCHKRUzfU0kgVdnTPchAqKK7+ypZX4L+7YjYblpQ3rXPTW6FTEmdR7NVxWXG26orXdjtI83DiENWQEei//IyGDHXWC0t3LGHIBYubZBgqyJ63rFgNC/l8Si5eaqsn69CbEp8z5tEnApg6N+lGXre39G/IJfXd028vT+I8PVd5o/V2BEZoWI62WCdzZTsA1LsWm6z8HARr0lFN45qaD3mr5uUy1UJtduqUszYBI67/lLOPrmYSx4KPWfN4V9U8T1Q7n7ADfWYuLwuEW52iyEFc7Dg8Rgz3o6B8Z07NruoceZ4k7UKdcme/ampeYPOZ7bEU7VFC5ShTU6vs5HBKO0E6EP+qDyZ/YspH8KwZNQ3nB86ZTeBeuzDzRK7M+sEbY9AWa/qJ/1RxIv4a4k9QqDSQgrQhQnlXTytv68W0Sn7pL4LHH3VD0mF4zkRiU2pTpP9WTy5RY7Z+45sdygKHFQer3KeHaRiB+knwNYqkVHiJ4X1swdTY3wrXv9SN82IoA6eUoEBmNa9BKt6eOcAf5uzhpZ3/b21o3g4Qu7I0fkXD7hAwv5V37zgfIpGcOfbidbevgsmFtQmFU0S5DZdOL8yAb6DL9Owqf+rOO5gADsv5tw2tD/o4vejVodN33bGx2K4btBbeUo4BMkIwkan7LhqMItqgm+vzKIt1shpwKt0d5l0HUTdYLR3lvAnNYDJQIc7cxVwMg2N4iafMQgkqI1Mh5F0uGRmlgGgpQK+q8dYJt6jb170=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB7548.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021)(18002099003)(22082099003)(56012099003)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uIR56yK08JgzNURzTUDAj/uvvNv9W663TfLsV3l/kEah7BfgpxqdYAT8Dix4?=
+ =?us-ascii?Q?duoK6HVP+rAw26LpdvyMP/gHF8LA1gOzzntR7K1e6btG0B2yQ7e3D11CL6oE?=
+ =?us-ascii?Q?/VlSLg2LSNcv06GAD/fznTQ2jZq2jgifbcWK4hhq1cyZjV4MDBD6BkK0SVQk?=
+ =?us-ascii?Q?jzp/fb3ZIJi7Na5A+fCg6aRF7WH3JyVYb7gW+Dl49kqr6ZtWAfWtIKWgm2lg?=
+ =?us-ascii?Q?GM/lvM+zU8xRVWR2Nca34M+EdzvKoqWkmbIDbgP6TS1vavNy/pq8sozUd5Or?=
+ =?us-ascii?Q?V9oruVihHi+FMAM+HBwaDzPJGfD2GS9z+ulNTcv5PhR2VtW/e/0OO34IJwGq?=
+ =?us-ascii?Q?vWIub72PcOKeq/kOsxu7z8tFfrEiiJOlRRCjMHENBGUWLq4qGCBtAUhemIh0?=
+ =?us-ascii?Q?cQ72g60bYJEFfRMzRE4B7919mNqRCZ/GI2I2GBEwIsWa/O91bv3NDJMZtdcw?=
+ =?us-ascii?Q?olM1PUYj3cg92YvWS7GdrBwIAVyoZerGq5QAQdmDBxIsmDlJl/2NrXsKJEoz?=
+ =?us-ascii?Q?On0udVwnFiA2HWhm8JnrIwVqpoY4Nd92HYp8s0IbONxwJTiw0hy1QnOtrYIK?=
+ =?us-ascii?Q?FWNJKeRl/eYJC2oP2xviQBTCNQXVuvWrQUDJKRSde7P3Qq9OJuyzBC+8JgF+?=
+ =?us-ascii?Q?ggTw+YiU+SaN1XrfWuLyEnZvP88gkSWQJJtKpGrRkw3LPo1yp+JiVKOlvnBT?=
+ =?us-ascii?Q?LNKPPgaa0Gvs2UU14ebTV37uqsKcVnz7VYk9Hm8rBKUygQftYpcWhffitOey?=
+ =?us-ascii?Q?gCsg2syM3bEQU6gzLbS0U6CekB8hy18bfVNHs39tCjuJYdQzdUmM3leFrRHy?=
+ =?us-ascii?Q?jt0COT9rSdraRymYSf6NihnfVb6aHB2lC7c58VR8B0Gnh4oA9BsLvk3iDGTS?=
+ =?us-ascii?Q?V6uWmHBPjF7iLr0bcxuI1+xJopfn9b5dlgtatmBLX8vn9LFEThZUw6h5oVkQ?=
+ =?us-ascii?Q?asllcqA0zTqBf+Ewd+vl78RReDCosYVDHCJz+MBEoyxoh7gE7h96b0AsFN/0?=
+ =?us-ascii?Q?cBUgm5ND6PEyyuze7MGbyujb7TZ4Mo07SilbmmSBy+/hRMcdL7TusvKmPCJO?=
+ =?us-ascii?Q?X+4+5f8ni58Me5iEUuFaMKSZN06/jepOX2irnXlriprnWClRDGD1X0dnk4yq?=
+ =?us-ascii?Q?gvQodjtrJVjWaL98X1omr0OnYg6oOolB4fq6zq24pGMcZxzHzYjKvH0mg3g6?=
+ =?us-ascii?Q?Ge+tyKmPzeXi9L6tLTHM5F90S+Qhs1sMIeFrygIsTBLSh/39mvX/sxDetOHa?=
+ =?us-ascii?Q?mCWeDTwrUoA8hBhPvBuylz4VT0TkcWMb7gPDnuIsl6QY/amUSihdktR1GgJp?=
+ =?us-ascii?Q?vIKNf4kmPaGE8BxE+jfKGN82ScX8HV/FwHKLJc4M3jNOM8Xz9uaY0HBFPeLv?=
+ =?us-ascii?Q?FSKlLx1ysmLStqZHZ6pgoefOU0wQ6QttXuHfhM+614+bbynRXHRGdvSORocq?=
+ =?us-ascii?Q?7RfevsxjU5bQGi8Xuc9E05ZNs3cQx5EGtoXdFdh7BG+vc2oBalbmxQgPE2/s?=
+ =?us-ascii?Q?J1wE0bs6ZIsHiLwKzVLB5LbYrDSzcWKl66ts6oZkG60DE7BoTDBNuO3Mh/7+?=
+ =?us-ascii?Q?5C8DkN14GxZTz0N0JcJhkcIXhbtuh7ZW2znmEwNXRo2SFnJEshtd67SfPLDc?=
+ =?us-ascii?Q?aaP+ufVxN8VVL7jC11DqCD8CA/WoruFLOjFm7fnbCI/NpYx8s82blF/ozEfp?=
+ =?us-ascii?Q?UwtifRbIWw4GzGNyI/GWj5gytcSzl0GVVuebXbEYhwRbj8bUV4++30MJg5Tc?=
+ =?us-ascii?Q?29YQFpc9mw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313-dwmac_multi_irq-v12-4-b5c9d0aa13d6@oss.nxp.com>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB7548.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87038564-6837-484c-bed7-08de80e42dac
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2026 09:37:44.0014
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cK9ZxIiKBwtFkGMoC0JP/XP4fBhNhp7vs2k0cIFxbdaXkjiiTF15pWeItzkrRsvbPapuhqPTLKfnSDWAfXvbtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_093246_145968_6FE48CAE 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260313_023752_859657_FABCB65C 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,83 +147,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 08:13:35AM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> 
-> Based on previous changes in platform driver, the vendor
-> glue driver can enable Multi-IRQ mode, if needed.
-> 
-> To get enabled Multi-IRQ mode for dwmac-s32, the driver checks:
-> 
->   1) property of 'snps,mtl-xx-config' subnode
->      defines 'snps,xx-queues-to-use' bigger then one, ie:
-> 
->      ethernet@4033c000 {
->          compatible = "nxp,s32g2-dwmac";
->          ...
->          snps,mtl-rx-config = <&mtl_rx_setup>;
->          ...
-> 
->          mtl_rx_setup: rx-queues-config {
->              snps,rx-queues-to-use = <2>;
->          };
-> 
->   2) queue based IRQs are set, ie:
-> 
->      ethernet@4033c000 {
->          compatible = "nxp,s32g2-dwmac";
->          ...
->          interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
->                       /* CHN 0: tx, rx */
->                       <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
->                       <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
->                       /* CHN 1: tx, rx */
->                       <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
->                       <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
->          interrupt-names = "macirq",
->                            "tx-queue-0", "rx-queue-0",
->                            "tx-queue-1", "rx-queue-1";
-> 
-> If those prerequisites are met, the driver switches to Multi-IRQ mode,
-> using per-queue IRQs for rx/tx data pathr:
-> 
-> [    1.387045] s32-dwmac 4033c000.ethernet: Multi-IRQ mode (per queue IRQs) selected
-> 
-> Now the driver owns all queues IRQs:
-> 
-> root@s32g399aevb3:~# grep eth /proc/interrupts
->  29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
->  30:    0    0    0    0    0    0    0    0    GICv3  91 Level   eth0:rx-0
->  31:    0    0    0    0    0    0    0    0    GICv3  93 Level   eth0:rx-1
->  32:    0    0    0    0    0    0    0    0    GICv3  95 Level   eth0:rx-2
->  33:    0    0    0    0    0    0    0    0    GICv3  97 Level   eth0:rx-3
->  34:    0    0    0    0    0    0    0    0    GICv3  99 Level   eth0:rx-4
->  35:    0    0    0    0    0    0    0    0    GICv3  90 Level   eth0:tx-0
->  36:    0    0    0    0    0    0    0    0    GICv3  92 Level   eth0:tx-1
->  37:    0    0    0    0    0    0    0    0    GICv3  94 Level   eth0:tx-2
->  38:    0    0    0    0    0    0    0    0    GICv3  96 Level   eth0:tx-3
->  39:    0    0    0    0    0    0    0    0    GICv3  98 Level   eth0:tx-4
-> 
-> Otherwise, if one of the prerequisite don't met, the driver
-> continue with MAC IRQ mode:
-> 
-> [    1.387045] s32-dwmac 4033c000.ethernet: MAC IRQ mode selected
-> 
-> And only MAC IRQ will be attached:
-> 
-> root@s32g399aevb3:~# grep eth /proc/interrupts
->  29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
-> 
-> What represents the original MAC IRQ mode and is fully backward
-> compatible.
-> 
-> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Thanks!
+> -----Original Message-----
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: 13 March 2026 00:37
+> To: will@kernel.org; robin.murphy@arm.com; Jason Gunthorpe
+> <jgg@nvidia.com>; kevin.tian@intel.com
+> Cc: joro@8bytes.org; linux-tegra@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; iommu@lists.linux.dev; linux-
+> kernel@vger.kernel.org; eric.auger@redhat.com; Shameer Kolothum Thodi
+> <skolothumtho@nvidia.com>
+> Subject: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
+> tegra241_vcmdq_hw_init()
+>=20
+> vintf->hyp_own is finalized in tegra241_vintf_hw_init(). On the other han=
+d,
+> tegra241_vcmdq_alloc_smmu_cmdq() is called via an init_structures callbac=
+k,
+> which is earlier than tegra241_vintf_hw_init().
+>=20
+> This results in the supports_cmd op always being set to the guest functio=
+n,
+> although this doesn't break any functionality nor have some noticeable pe=
+rf
+> impact since non-invalidation commands are not issued in the perf sensiti=
+ve
+> context.
+>=20
+> Fix this by moving supports_cmd to tegra241_vcmdq_hw_init().
+>=20
+> After this change,
+>  - For a guest kernel, this will be a status quo
+>  - For a host kernel, non-invalidation commands will be issued to VCMDQ(s=
+)
+>=20
+> Fixes: a9d40285bdef ("iommu/tegra241-cmdqv: Limit CMDs for VCMDQs of a
+> guest owned VINTF")
+> Reported-by: Eric Auger <eric.auger@redhat.com>
+> Reported-by: Shameer Kolothum <skolothumtho@nvidia.com>
+> Closes: https://lore.kernel.org/qemu-
+> devel/CH3PR12MB754836BEE54E39B30C7210C0AB44A@CH3PR12MB7548
+> .namprd12.prod.outlook.com/
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Ran few tests with QEMU toggling HYP_OWN bit, and this now enforces
+that QEMU sets HYP_OWN for VCMDQ to work properly.
+
+Tested-by: Shameer Kolothum <skolothumtho@nvidia.com>
+
+Thanks,
+Shameer
+
+>  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> index 6fe5563eaf9eb..83f6e9f6c51d6 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> @@ -479,6 +479,10 @@ static int tegra241_vcmdq_hw_init(struct
+> tegra241_vcmdq *vcmdq)
+>  	/* Reset VCMDQ */
+>  	tegra241_vcmdq_hw_deinit(vcmdq);
+>=20
+> +	/* vintf->hyp_own is a HW state finalized in tegra241_vintf_hw_init()
+> */
+> +	if (!vcmdq->vintf->hyp_own)
+> +		vcmdq->cmdq.supports_cmd =3D
+> tegra241_guest_vcmdq_supports_cmd;
+> +
+>  	/* Configure and enable VCMDQ */
+>  	writeq_relaxed(vcmdq->cmdq.q.q_base,
+> REG_VCMDQ_PAGE1(vcmdq, BASE));
+>=20
+> @@ -639,9 +643,6 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct
+> tegra241_vcmdq *vcmdq)
+>  	q->q_base =3D q->base_dma & VCMDQ_ADDR;
+>  	q->q_base |=3D FIELD_PREP(VCMDQ_LOG2SIZE, q->llq.max_n_shift);
+>=20
+> -	if (!vcmdq->vintf->hyp_own)
+> -		cmdq->supports_cmd =3D
+> tegra241_guest_vcmdq_supports_cmd;
+> -
+>  	return arm_smmu_cmdq_init(smmu, cmdq);
+>  }
+>=20
+> --
+> 2.43.0
+
 
