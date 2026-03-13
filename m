@@ -4,77 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D36105F79C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 12:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D42105F79C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 12:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEtRmgtBuaQBIl3ANu0PJJAy2POIxwPh/+1J+CSbFkY=; b=l/1edbRXrmUGpAGaNK5USIoYfY
-	Ong1cI4WndXGna4QlAiSq0KcGadL/a4Kb5VgRt/BtuFkmP7+0po6f63HUT3BS1YHnL4ga62Z5l34o
-	w6gdzudIvWz8xZ7cVu5pelNsFtvVM9Wza+VHxtfmiTBnhZJWwjMVlHQ+YzbJWUGg3bffzmFLpncCY
-	YXEttkYTCovCL2wkU30kTlZsp4lckMdDEPR4oLVbLzwPZQ8fKLmsP56NfXY1rp4wENQxPGZfIZ99M
-	+2RMeQx9VeOXQG9+kIyvCIn8r4i94Z9jkz5J+QWLJWMQmsX6IJ0N6KMZ8Cr91rmzTibrxQbA+Ke7M
-	NiMqVZPg==;
+	bh=AP/ZwzjFJlK94M1WuxoATn9Is2JUsSWPV6rrSthpLgU=; b=TS6LVN97Ha/Q/CBgwLKFjvTjln
+	gdGxTUFGXDvZxchZ0gzAYZXAZ5VOPF5QFMhnBZGDmaRmmOAU7FU/2iFvnaEa1UDTlRsgOC/V5IzDT
+	ZN/OV6WX8ANVIEVhq2u/fry9Y9cBx7BMZzuTc/dQipQUOrWN5Pn5UsROObK7Mz3A44tqw5wtqp5+W
+	PxP2fMr4BgPJswXo84PylEJ+jmibyUmjbd77dDF71IfEpbkcFMG2hRFkJA2jfKTgRD6iCScHm4Vjh
+	4eDkPx0C1KxONxVUwq2ngNz29xVPacwfYd0sVRKgKkWLo60TKHyCOzOzEUotWtHqwro6y3QGS9xuh
+	gVw2SdaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w11Bi-000000004o0-3TAx;
-	Fri, 13 Mar 2026 12:00:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w11IU-0000000059d-2S0x;
+	Fri, 13 Mar 2026 12:07:18 +0000
+Received: from mail-southcentralusazon11012064.outbound.protection.outlook.com ([40.93.195.64] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w11Bg-000000004nA-03hV;
-	Fri, 13 Mar 2026 12:00:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FEC14405C;
-	Fri, 13 Mar 2026 12:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC72C19421;
-	Fri, 13 Mar 2026 12:00:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773403215;
-	bh=oJXek/425Du8hdak6ZAKOrvHZlv0IlGG9djsmRtUsQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AfKnv5A1okg9eNUiDxAyQy2xL/uhZe8tJX6hGHDskVrVUSvtmRufjkpjd+43UzOoT
-	 j+/00iEd+AcyU75UVscGSS97YkUSD3Xj7ph8IVySNVl0YuO0W0k6uG2Gm4Ig3K3L9G
-	 GxvPH9Z+HCSmaRFDcS/l0JZpB+sCZ4V3tnWxMZ9AkjTNkVBhEe3p5SvVjG3qcpMRfm
-	 lj3LNsVtqxvYmqV38UIqIAegY9wtrOU6PtJCJEn1jXPI8FdDrMhoQN2V9ApulNo8Hv
-	 BjUfQu7SLOUWuC9ypjjkfA3Vzk6PSSxyeIkwbc1RRGgwaSCvM4p930Dh4y7vVgEcK7
-	 EjEmbpAxgrV0A==
-Date: Fri, 13 Mar 2026 12:00:03 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Long Li <longli@microsoft.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
-	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
-	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH 05/15] fs: afs: correctly drop reference count on mapping
- failure
-Message-ID: <c62305d7-22c4-4cf7-969b-fbe214c93b64@lucifer.local>
-References: <4a5fa45119220b9d99ed72a36308aed01a30d2c1.1773346620.git.ljs@kernel.org>
- <20260313110745.2573005-1-usama.arif@linux.dev>
+	id 1w11IS-0000000059E-1D3B
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Mar 2026 12:07:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wv7ywo2hrHSnvgcWkcdMkijG50ZxjGrNJsMrP2A9hlu92ctOv3Ee4YSMEzN+iKVwZZvuNL966LHLWzQ7aYnydPoxoJm+Ue9x4vaWjS9OU+WXpxAjDSSThDzItGa6w991cNKgtd/q19VZ8795646nMdm2A5Az2Xf3wjnt5r8VmypoakoXIIsIYmJStEmh2KegSgret48LXiRVm5qqmmMt/hgM2BGu18HAuu4244koGo4hrwUtTUjwUQbTLizSJ28Iw7W85eJWNJSKg9FFgn/K2RxKK8uv2YGOHhm3UjjAdgqLj+37n/IprOKwjDipyB7Uxqhbfd4oHiNflnblyL23jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AP/ZwzjFJlK94M1WuxoATn9Is2JUsSWPV6rrSthpLgU=;
+ b=tAEDvl/jcTfgrYxgMfYDr0/W2h+k24ZCyPCXXChu0LQb8kkEYj5jYDW1LenLcr4fD4A2iVQWSe6zHFQGur7U248J0Ey1eO+qKC005jH0dQ99WY0TyXc5np2srKDDMYUPrWAyT3hYVLegl4Aif/0IBoLvaezy636lXIRdISuuyh/ophvHDm56lso9HDMVW+ywA4xPRnctDjWFfUyYWWNRSykkeWX7EHSl8egqLxedGdqZup3w+WDMQeoOr8lSxWVWIe9HW9n+AI62TrPZa916471zH5TkfQYnnBLozud8QgpZyovKAYVY4O2q1V99swNItU1wavaVY+kBqoAKMOe1KA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AP/ZwzjFJlK94M1WuxoATn9Is2JUsSWPV6rrSthpLgU=;
+ b=hVVZ16YunGvdxYLdG58m9yT3m3hG4aapz0FGJEiUXuxNdcQB+AAn9ryjSESyt6cqGJMgsm7yT+lpw12LfnkmNPoEfbjrK+ot9maKXCJ5+1je5jGkk9IRq4U5DdEch45fqBr+Q+wkPZfhsybmba9rXFoQU99i6RFW58oSMaOfoBY=
+Received: from MN2PR06CA0003.namprd06.prod.outlook.com (2603:10b6:208:23d::8)
+ by SJ0PR10MB6423.namprd10.prod.outlook.com (2603:10b6:a03:44d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
+ 2026 12:07:10 +0000
+Received: from BL6PEPF0001AB59.namprd02.prod.outlook.com
+ (2603:10b6:208:23d:cafe::ae) by MN2PR06CA0003.outlook.office365.com
+ (2603:10b6:208:23d::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.17 via Frontend Transport; Fri,
+ 13 Mar 2026 12:07:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL6PEPF0001AB59.mail.protection.outlook.com (10.167.241.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 12:07:09 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
+ 2026 07:07:09 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
+ 2026 07:07:09 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 13 Mar 2026 07:07:09 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62DC78X94190594;
+	Fri, 13 Mar 2026 07:07:08 -0500
+Date: Fri, 13 Mar 2026 17:37:07 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: "Kevin Hilman (TI)" <khilman@baylibre.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	"Geert Uytterhoeven" <geert@linux-m68k.org>, <linux-pm@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 3/3] pmdomain: arm_scmi: add support for domain
+ hierarchies
+Message-ID: <20260313120707.jhkyd772wzuwmlhd@lcpd911>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-3-5361687a18ff@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260313110745.2573005-1-usama.arif@linux.dev>
+In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-3-5361687a18ff@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB59:EE_|SJ0PR10MB6423:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3551a4f3-7057-4f99-e3d8-08de80f90dd6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 4AXoEWM65yj4hXN14eJFFp7aZrIHiXyBUXUZWGs5hLms0YpokEAHBr76+PlwzHm/4URfqVSC+RcE3xdO+SjkcP1LPL0pSnloFP20HLg83M9UcjjmMh09PE88jHQZLMMr3JvOeQUE6b0KRn85JQ2xnXMHVw8FhwwNeoVDcZW1fZTxEc4fG4vGPnYLCh3yblV1HjEW4zdaF5AAyEVbzpxjo5YQPbT7O+vLFiKfUPCQQWIOn8dzg9kq5iBtKMrH5lL7/iAemqlQITiylQfWgJduSujF9J2k5qPmzg0f2dTHtmaMFTvaH0Jp1D/qdljJsHF91Y6b34vS/O6+v/rBQ+Srko5x/fOI6/dYeGuTUout245MRrIEbAVHxOZKgyOcULDXLDk9ycvUVLSsX0yVLMqLy4qUXOoLilDqUnJSUvaFSrckQ6X0GM4uuCkF85roBOu/hG0AeEiJupw11zfYX0pXTvXcvrfWNtsFwBJxjRI5xnMZics08YWKqOUkydRkpZmhOz54Hy8KMQcbVLDLw/X/Q2KyLodA/abNLVWYvbN/o8kAHzOEQ/TFPxKjlzM/Q13Vhp87QLri0T7+VFzW6y5lcp+0L7G1Fa0P4TG/zPSrjQeukaExIyXGvKeAY9pUwVxWKgjJ3I4EWjTC1T6OVbOieLIZMS0ox4fpdtUTN1L0QMTnZvMbxl1/ruB5P0BR+xaFuuXxsYVt1VxwbrauIDTMS32qxdg6cljMr2AM3t6HjGSXUaFxmPcxplufAy70xUYbezas+CVYyBk5rKogGE0VCw==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: onGWnT9YmDzSqRQIQTfYWwroRumveI/buJLEXltbIJq56q1FEIpsU/Ai450PTqJUm14mHZDWI0fmqQT98+eAqQeP2uZewUhqwF5g+ML086Tujhi3mEQzEiAiLfC6kOqbudSUv11yrPn+kSnOUq7Ss5Yg8acUbdl9z/5JRoLadMwB2ar+2A1+WDu6nyJDhExSdB/m5IDISBx+VIbttG5/vKJx9s3cUsNKJlQRaFO96UgYhOsYh1pZ4+ixLUcdckpCyi/ajzArBlsfaR2k0ppN1UNMcYuVP7n4m76kbJU+NPwTtwlwo5v3002DmDBQmke6/vO5H0KmlsFv+SDHYIUJ/kiukgZz/yKI5CodseUNINGsdniNYoyGGn0OJNudCvczIPCoN+FsWjHklyZ9iHkdrjsJNiWgh/T+w+r5u/Jr59syaI+YlOTMgUdG5WJtuOhl
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 12:07:09.9409
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3551a4f3-7057-4f99-e3d8-08de80f90dd6
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB59.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB6423
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_050016_090226_614E38BA 
-X-CRM114-Status: GOOD (  32.39  )
+X-CRM114-CacheID: sfid-20260313_050716_354938_FCB43CE8 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,94 +132,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 04:07:43AM -0700, Usama Arif wrote:
-> On Thu, 12 Mar 2026 20:27:20 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
->
-> > Commit 9d5403b1036c ("fs: convert most other generic_file_*mmap() users to
-> > .mmap_prepare()") updated AFS to use the mmap_prepare callback in favour of
-> > the deprecated mmap callback.
-> >
-> > However, it did not account for the fact that mmap_prepare can fail to map
-> > due to an out of memory error, and thus should not be incrementing a
-> > reference count on mmap_prepare.
-> >
-> > With the newly added vm_ops->mapped callback available, we can simply defer
-> > this operation to that callback which is only invoked once the mapping is
-> > successfully in place (but not yet visible to userspace as the mmap and VMA
-> > write locks are held).
-> >
-> > Therefore add afs_mapped() to implement this callback for AFS.
-> >
-> > In practice the mapping allocations are 'too small to fail' so this is
-> > something that realistically should never happen in practice (or would do
-> > so in a case where the process is about to die anyway), but we should still
-> > handle this.
-> >
-> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> > ---
-> >  fs/afs/file.c | 20 ++++++++++++++++----
-> >  1 file changed, 16 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/fs/afs/file.c b/fs/afs/file.c
-> > index f609366fd2ac..69ef86f5e274 100644
-> > --- a/fs/afs/file.c
-> > +++ b/fs/afs/file.c
-> > @@ -28,6 +28,8 @@ static ssize_t afs_file_splice_read(struct file *in, loff_t *ppos,
-> >  static void afs_vm_open(struct vm_area_struct *area);
-> >  static void afs_vm_close(struct vm_area_struct *area);
-> >  static vm_fault_t afs_vm_map_pages(struct vm_fault *vmf, pgoff_t start_pgoff, pgoff_t end_pgoff);
-> > +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> > +		      const struct file *file, void **vm_private_data);
-> >
-> >  const struct file_operations afs_file_operations = {
-> >  	.open		= afs_open,
-> > @@ -61,6 +63,7 @@ const struct address_space_operations afs_file_aops = {
-> >  };
-> >
-> >  static const struct vm_operations_struct afs_vm_ops = {
-> > +	.mapped		= afs_mapped,
-> >  	.open		= afs_vm_open,
-> >  	.close		= afs_vm_close,
-> >  	.fault		= filemap_fault,
-> > @@ -500,13 +503,22 @@ static int afs_file_mmap_prepare(struct vm_area_desc *desc)
-> >  	afs_add_open_mmap(vnode);
->
-> Is the above afs_add_open_mmap an additional one, which could cause a reference
-> leak? Does the above one need to be removed and only the one in afs_mapped()
-> needs to be kept?
+On Mar 10, 2026 at 17:19:25 -0700, Kevin Hilman (TI) wrote:
+> After primary SCMI pmdomain is created, use new of_genpd helper which
+> checks for child domain mappings defined in power-domains-child-ids.
+> 
+> Also remove any child domain mappings when SCMI domain is removed.
+> 
+> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+> ---
 
-Ah yeah good spot, will fix thanks!
+Again, since it worked fine on my AM62L,
+Tested-by: Dhruva Gole <d-gole@ti.com>
 
->
-> >
-> >  	ret = generic_file_mmap_prepare(desc);
-> > -	if (ret == 0)
-> > -		desc->vm_ops = &afs_vm_ops;
-> > -	else
-> > -		afs_drop_open_mmap(vnode);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	desc->vm_ops = &afs_vm_ops;
-> >  	return ret;
-> >  }
-> >
-> > +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> > +		      const struct file *file, void **vm_private_data)
-> > +{
-> > +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> > +
-> > +	afs_add_open_mmap(vnode);
-> > +	return 0;
-> > +}
-> > +
-> >  static void afs_vm_open(struct vm_area_struct *vma)
-> >  {
-> >  	afs_add_open_mmap(AFS_FS_I(file_inode(vma->vm_file)));
-> > --
-> > 2.53.0
-> >
-> >
+But I had some thoughts further down...
 
-Cheers, Lorenzo
+>  drivers/pmdomain/arm/scmi_pm_domain.c | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+> index b5e2ffd5ea64..9d8faef44aa9 100644
+> --- a/drivers/pmdomain/arm/scmi_pm_domain.c
+> +++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+> @@ -114,6 +114,14 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+>  
+>  	dev_set_drvdata(dev, scmi_pd_data);
+>  
+> +	/*
+> +	 * Parse (optional) power-domains-child-ids property to
+> +	 * establish parent-child relationships
+> +	 */
+> +	ret = of_genpd_add_child_ids(np, scmi_pd_data);
+> +	if (ret < 0 && ret != -ENOENT)
+> +		pr_err("Failed to parse power-domains-child-ids for %pOF: %d\n", np, ret);
+
+Nit: I think the style of this driver is to use dev_err than pr_err
+
+Also, maybe a dev_warn makes more sense since we're not even returning
+the error or doing anything different if we get certain error path.
+
+I am wondering if it makes sense to just abort the whole idea of
+creating power-domain child ids if anything goes wrong?
+
+Basically just of_genpd_remove_child_ids if we face a condition where we
+have different number of parents/ children or id > num etc...
+
+All are error cases where the system behaviour can go on to become very
+unpredictable if we end up making a false/ incomplete parent-child ID
+map.
+
+Thoughts?
+
+PS.
+If we go on to do a of_genpd_remove_child_ids here incase of failure then it makes sense to
+scream a dev_err here.
+
+
+> +
+>  	return 0;
+>  err_rm_genpds:
+>  	for (i = num_domains - 1; i >= 0; i--)
+> @@ -129,9 +137,13 @@ static void scmi_pm_domain_remove(struct scmi_device *sdev)
+>  	struct device *dev = &sdev->dev;
+>  	struct device_node *np = dev->of_node;
+>  
+> +	scmi_pd_data = dev_get_drvdata(dev);
+> +
+> +	/* Remove any parent-child relationships established at probe time */
+> +	of_genpd_remove_child_ids(np, scmi_pd_data);
+> +
+>  	of_genpd_del_provider(np);
+>  
+> -	scmi_pd_data = dev_get_drvdata(dev);
+>  	for (i = 0; i < scmi_pd_data->num_domains; i++) {
+>  		if (!scmi_pd_data->domains[i])
+>  			continue;
+> 
+> -- 
+> 2.51.0
+> 
+> 
+
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
