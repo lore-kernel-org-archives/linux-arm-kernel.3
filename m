@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48808105F782
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185B8105F787
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 08:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMXiZZ3HH6dJoAhlgKlj3UsaxgGuuhGNtyMC3OWYCtw=; b=lQCo2bGA4Uyj1lyQToWz6+5Tum
-	DeRJighfvGIelt5X5wISZiNG6J3QF8BcoCuQ4I2AB85KhNI+BbpeQ6MJMHFuthu8Wg3nWOC12XIzy
-	984XIxUCiUox/F5ipvXNMm1YbOZ9Rd3IWPG7XbDUGBXNLtba0AtABveFwXtduDz+0duje38IiQXz7
-	NJg8g+7+/XtrUcr66pYqjeOqW6ucbwdOVpTMnLEevJbM6yGkOUQMAO5o+yMofqmwLeqBpVUoznm5V
-	4oGKN+s4RVETRD/nVCnvFqd3bKeU7qMcOimPpj1iiDklBxyqLqbxCj1rz8cztqY2IJ2zHKmWs3iOA
-	d+9s99Fw==;
+	bh=wn/UD6BZCdexx1c4zCWwh2htyXc5RV8C9vfJwOLQF/M=; b=TrDBJt8XLuOkwY8r7dZcd5D4KN
+	Chy7/wAA/i9m5/87DPUIIC5bjwPSiooFuZ/wlfxwTH/WT6NvkSYXkuqCPH6B6sB1ZpSWv46h0HJ5C
+	DDllLvm6AShb9kErrLZ0zF1b6DW2566rnSK8KeLfjZ9A4xQQR3Vs7J4UmInhq0zzvFB/gVWWn0Vu8
+	NHyK5+mD6mdynIVqnfjuPX/OnqU36tlpeL/6HrOl9Y4NtsWN+7WHRzgtsdxGulmQnm0kVVOsaQIba
+	/jmPWJmMqe+rQZm2zIkVnn529JKJrqPFBA6ecdQ+hdc4TPf7f+nKWzCaxO9kc5e3II+MunY18/bhw
+	gJDQ+hRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yLW-0000000HKHT-3f1q;
-	Fri, 13 Mar 2026 08:58:14 +0000
-Received: from mail-wm1-f42.google.com ([209.85.128.42])
+	id 1w0yLX-0000000HKIE-2984;
+	Fri, 13 Mar 2026 08:58:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yLS-0000000HKEa-0k1t
+	id 1w0yLT-0000000HKFn-3zFP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 08:58:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=wn/UD6BZCdexx1c4zCWwh2htyXc5RV8C9vfJwOLQF/M=; b=CclZbzSLIE8cTcNvfvCgd7sQO0
+	7HTC8o4vMq5dlIf279F+SZHsCujt3/bGYNQTkLEeeKxhsTMas/J3jxazVo70mWl76OwbMi+JtHIMW
+	30jZnRA2GJr49t5hZ7SNai/ts4ASTanEQB0I1hWqpQiSDezP3ytPKLpRums+4Ko5bhdjW3d332q6z
+	tVOU1KpkwqrX/gEbDm9NHi5vJpyOBROLZjx9lZP5TMYAuu0PoVOthNAcL4vHD+VZYfUP7/K/8jSel
+	B+f5Jdf2iAVY2V19Et3ETqmA5gwaNn4qVmnpRKjURnnjXyddP5NpQ1hR7/69vP1qtWqUSbqU+fgaE
+	NP0NkF4g==;
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0yLP-00000002uKn-2U03
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 08:58:11 +0000
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so15372225e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 01:58:09 -0700 (PDT)
+	Fri, 13 Mar 2026 08:58:10 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-439c9bdc1eeso1823286f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 01:58:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773392288; x=1773997088; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773392286; x=1773997086; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zMXiZZ3HH6dJoAhlgKlj3UsaxgGuuhGNtyMC3OWYCtw=;
-        b=eVVFmN5f2Ggs9H/x3oy6tiYt1VRsGfrCDUqJ5nYJBc8KuJ2/jpPrrHy81KbE2mBUn2
-         PBntaaNzkX/zOqif2IqvzNXzsIBHOzLMZ+uXq/PklGrJuPlHzra5vXUCjt4QIiovWBjH
-         DGrfK5kECiaUuqMA46oOEp1FV86N+WY9g4nfVU8CBvs6H1JUFkZaQoJlP4MO07XugIMp
-         PXenYJqC+C9r4zcX81/5UCy65p2uvUAjopKARDIx7b4aYGuaX/wLgK1pb2dUgdZIJoZi
-         QlQ6BOu3UkvGvPGo+ke6cV7HOLVihSweCi/s6DBfdgTIO1bj4R4afBJzysJZ0gHKbZdr
-         07jA==
+        bh=wn/UD6BZCdexx1c4zCWwh2htyXc5RV8C9vfJwOLQF/M=;
+        b=kRCC69DlIVf4UeYJwWYohUJ0bitmINbbJglxMAcwlUT5k4QUpOccpWN/2pnOxdaY2d
+         U9cnuxuiUW0VPI+Rru/D+GLh+42MeB9J1GC62vtHFLmfr8xheMdb3L94tOSS5LEEJReW
+         LM3twdqYNv2d6KcQeWp01ef9PNnBdwMMTN7VkQL+sTx/yd5kStH0M/hGBHkdq5wG7PPU
+         goJBDz1bYAtazHfJ6kCce6CbEkIFlDOvJSGPhQH4ESJDHEbihrmgYGvur+PO4eoP0h18
+         Sh8kOLlbVYzyuFAnZ2v/AZzqv3gGcmJDU511CdCgqwFI1MuDaZsPAFXIvO4j8qs2C75z
+         beFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773392288; x=1773997088;
+        d=1e100.net; s=20251104; t=1773392286; x=1773997086;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=zMXiZZ3HH6dJoAhlgKlj3UsaxgGuuhGNtyMC3OWYCtw=;
-        b=gxfMWYm0kT/PkLpbjdw6J1by/8Jyt8r4AxPuWNp6PaUgQGCy+WMXaZOMsdTrScjTRt
-         YZ2gOk8hYOODIHU56azWZmcxk8QycBGgZoS5kHeebh2XcwNoYTeGonGonmD++0BrYz+O
-         7LHxSSgiMbpLUTD69eEciwsnfQ6nzCdf4AUid7TNL1ZD2A6G5rz/sTC+ihoZlThXJ17Q
-         azcEFwnrukaS5gnKEwvv3ycRedF6+wlkXe0hmJuQh8xIG1mp6GDZykoHucqfiYou4Q76
-         ZUT2IHCOPsAAtMT6J2QM8EqDuQM+E1MuFYglF3O3QBfKtqv/JyUUWcJmR/kAD8E/FIXW
-         CT2w==
-X-Forwarded-Encrypted: i=1; AJvYcCWdfaw9Wl9wRls27TK9MPAakGTmH9pGvObGpUxN/aZgFhjabd33AZGrlQIwfT67bB32jPRvwyQjvMmXPUcdvrtG@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjmm+7x/eFWBbLwfDU+blU48MVMjJBJA28wVgBRdWOG3E72Gml
-	OwjBbZy05WA90QwgyN2tKArBTBqIH9POP9UvIK9WBdhJ1Z/d3yTPERWX
-X-Gm-Gg: ATEYQzyfmGY+gWT8QKPUOEJky2dIHP7mLMrEFU+7QdrsCFAwECGdf6TiSyBks7x4ubW
-	me07Vu6vxVgvXZR2JHyPg+p6k68A8vZzh81BXYOseZ2RbBxHrwZPeu6ftOSrawW+/y+xeKzzL7z
-	IEuTe1KsApmML+REqd8OItXydD/c63pQnJ+0sKYfEjkQU4rUkR0iboMQJLMJp09ju903R3IXG3l
-	EqhQilOZjBDcJsyLR2hlpZSudLC/9WhrjsfiW0tjdd7dy7JyiUeWXh9itgZcxOLL3C+emyVJjRi
-	qzbVGIlVfq06sENxvi7KpunViTIELbotBYaGcPhTlYXJOKui/Io6f294kdQDqdUK8t1YueEwdYf
-	gMjI2tKyNsAwTPqei1H1vnb/tzKKfNOjXnjD27YSrXzHixzYOevGZTJGGQ4luyRDCxFHHkK3mZL
-	Y/Zdon/hEjcWtSBhM/4ZJM7CubtcvhE8CUsuhBUZ+EKXM2/GTY0BeGH2cltOY3rqqEgpNTziydR
-	ujQerjRDg6r/8FvTK4LaKRDrKs=
-X-Received: by 2002:a05:600c:c0d1:20b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-485570ce1cfmr23520155e9.4.1773392287655;
-        Fri, 13 Mar 2026 01:58:07 -0700 (PDT)
+        bh=wn/UD6BZCdexx1c4zCWwh2htyXc5RV8C9vfJwOLQF/M=;
+        b=RGCtDxwIjk47uX+OfvttAfNxcgKtCl5nTZqe4/WXcVW18NtAmcsPqNPrMiVs5xb9DN
+         i2riHCCbakJ3UCToHxGmNHRSZnvWaA8Cc3gi1QIJwnAVFtMURNuQ37+tVPycwYwxdCKp
+         L3VjQH7PHESH/itckj9HOt/zJPdX9O7LLUEWwK7IRnEQo66Cm+oLY+MVUc3sX4tLM7z9
+         oUlr7KZDJ2ZYuRXcg7NBfgxU7WP6jk5O1tP6EOJRHCPGzEqd9k+N0ba3x7XoegXQHTKm
+         vlAkeeL4fn/ce6gHFfhKprcvr4AdUL48WmXXlIhca1gvi5L2+EKRf6/W4QONtcalAWxN
+         ZZbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTn/NQW1FzdtUtDIft053gFLxDOlOLeA0uRklforPX4Tq+yYGqhOd9LXiKu5eMNAPYmgBHYadxoSIiMhUgVSUD@lists.infradead.org
+X-Gm-Message-State: AOJu0YykTKy81i7ZaqKIaMFx6HzUPDt7xiwYjV1Ez3yMsIOAIJKd7MM9
+	Kc7MbuGdb0ko6DF0EIggp6MAghazudff1hDcIJE5budFYKLpenK7u44g
+X-Gm-Gg: ATEYQzxAcm/9n/wGmTNOk0zww3lkK+KpqrRRbkJ1FjLSQhJ5M5LE6U6iDQ6rd+rkjz1
+	u2yTYXfqndYLimJbUmukh0HzyE2h7pZPnecYRn4124jV2mVnd4WJpq/TX8cagvPlIo+fGQHo+6w
+	TmEwSWcuIsNdCOHHWM/Iv3Qv+vqGN8ipGuF1YLgpDjBFX++u3TDJBiIdyP9f1mi7lcdpBl7ys0+
+	YRThcbAKX9e0DLyM4Hm7/b2abXsSZwiaa6MWPcvetyZfk97g98SwcIh8xIUeAB0198o4AfQ/+UP
+	nJWQHaQxXyEEOjHc1G1f2yZDWtYY4BzN/2dO6z3RbghGWWqpd8rZDoXKFQzURe9jDxnnwCaIyJp
+	EgtHBRFTmNZ19HJc8KCa41lozdXJ8QEiHdPj35AqMT58rZ5uRXKv2CShAX8AAwSFVtLrN2i745f
+	fAAQFNAyOcG2L5KR0NCc9CMt/mvFbsKfPHPy3N18ZAYbZkDa8ugYac+xt0UZ6RDrqWTHrtHH7zs
+	udVxL1v8MAJ7dbN+C62zSFy4po=
+X-Received: by 2002:a05:6000:1ac8:b0:435:94c1:3714 with SMTP id ffacd0b85a97d-43a04d130e8mr5113241f8f.0.1773392285759;
+        Fri, 13 Mar 2026 01:58:05 -0700 (PDT)
 Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43a03cfd18fsm7663718f8f.36.2026.03.13.01.58.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43a03cfd18fsm7663718f8f.36.2026.03.13.01.58.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Mar 2026 01:58:07 -0700 (PDT)
+        Fri, 13 Mar 2026 01:58:05 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Fri, 13 Mar 2026 09:57:46 +0100
-Subject: [PATCH v2 5/6] arm64: dts: freescale: imx95-verdin: Add Mallow
+Date: Fri, 13 Mar 2026 09:57:44 +0100
+Subject: [PATCH v2 3/6] arm64: dts: freescale: imx95-verdin: Add Dahlia
  carrier board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260313-verdin-imx95-upstream-frank-li-base-v2-5-bd488be7c699@toradex.com>
+Message-Id: <20260313-verdin-imx95-upstream-frank-li-base-v2-3-bd488be7c699@toradex.com>
 References: <20260313-verdin-imx95-upstream-frank-li-base-v2-0-bd488be7c699@toradex.com>
 In-Reply-To: <20260313-verdin-imx95-upstream-frank-li-base-v2-0-bd488be7c699@toradex.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -92,8 +107,8 @@ Cc: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_015810_280468_45B2A581 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260313_085808_074351_85C094EB 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,99 +125,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-Add support for the Verdin i.MX95 SoM mated with the Mallow carrier
+Add support for the Verdin i.MX95 mated with the Verdin Dahlia carrier
 board.
 
 Link: https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-Link: https://www.toradex.com/products/carrier-board/mallow-carrier-board
+Link: https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
-v2: no changes
-v1: https://lore.kernel.org/all/20260305-verdin-imx95-upstream-frank-li-base-v1-5-823fad02def9@toradex.com/
+v2: Reordered nodes alphanumerically by node name
+v1: https://lore.kernel.org/all/20260305-verdin-imx95-upstream-frank-li-base-v1-3-823fad02def9@toradex.com/
 ---
  arch/arm64/boot/dts/freescale/Makefile             |   2 +
- .../boot/dts/freescale/imx95-verdin-mallow.dtsi    | 223 +++++++++++++++++++++
- .../dts/freescale/imx95-verdin-nonwifi-mallow.dts  |  21 ++
- .../dts/freescale/imx95-verdin-wifi-mallow.dts     |  21 ++
- 4 files changed, 267 insertions(+)
+ .../boot/dts/freescale/imx95-verdin-dahlia.dtsi    | 270 +++++++++++++++++++++
+ .../dts/freescale/imx95-verdin-nonwifi-dahlia.dts  |  21 ++
+ .../dts/freescale/imx95-verdin-wifi-dahlia.dts     |  21 ++
+ 4 files changed, 314 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 34af11b1ef6b..e3c34f8f40cd 100644
+index 12cbb60cb0cd..952268856cac 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -455,9 +455,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-dahlia.dtb
+@@ -452,7 +452,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-dahlia.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-ivy.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-dahlia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-dahlia.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-ivy.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
  
  imx95-15x15-evk-pcie0-ep-dtbs = imx95-15x15-evk.dtb imx-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-mallow.dtsi b/arch/arm64/boot/dts/freescale/imx95-verdin-mallow.dtsi
+diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-dahlia.dtsi b/arch/arm64/boot/dts/freescale/imx95-verdin-dahlia.dtsi
 new file mode 100644
-index 000000000000..53506b7550f5
+index 000000000000..889b71aa3de0
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-mallow.dtsi
-@@ -0,0 +1,223 @@
++++ b/arch/arm64/boot/dts/freescale/imx95-verdin-dahlia.dtsi
+@@ -0,0 +1,270 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
-+ * Common dtsi for Verdin iMX95 SoM on Mallow carrier board
++ * Common dtsi for Verdin iMX95 SoM on Dahlia carrier board
 + *
 + * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/mallow-carrier-board
++ * https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
 + */
-+
-+#include <dt-bindings/leds/common.h>
 +
 +/ {
 +	aliases {
 +		eeprom1 = &carrier_eeprom;
 +	};
 +
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_qspi1_clk_gpio>,
-+			    <&pinctrl_qspi1_cs_gpio>,
-+			    <&pinctrl_qspi1_io0_gpio>,
-+			    <&pinctrl_qspi1_io1_gpio>;
++	reg_1v8_sw: regulator-1v8-sw {
++		compatible = "regulator-fixed";
++		regulator-max-microvolt = <1800000>;
++		regulator-min-microvolt = <1800000>;
++		regulator-name = "On-carrier +V1.8_SW";
++	};
 +
-+		/* SODIMM 52 - USER_LED_1_RED */
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_DEBUG;
-+			function-enumerator = <1>;
-+			gpios = <&gpio5 9 GPIO_ACTIVE_HIGH>;
++	reg_pcie: regulator-pcie {
++		compatible = "regulator-fixed";
++		/* Verdin CTRL_SLEEP_MOCI# (SODIMM 256) */
++		gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-boot-on;
++		regulator-name = "PCIE_1_PWR_EN";
++	};
++
++	reg_usb_hub: regulator-usb-hub {
++		compatible = "regulator-fixed";
++		/* Verdin CTRL_SLEEP_MOCI# (SODIMM 256) */
++		gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-boot-on;
++		regulator-name = "HUB_PWR_EN";
++	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&codec_dai>;
++		simple-audio-card,format = "i2s";
++		simple-audio-card,frame-master = <&codec_dai>;
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,name = "verdin-wm8904";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPOUTL",
++			"Headphone Jack", "HPOUTR",
++			"IN2L", "Line In Jack",
++			"IN2R", "Line In Jack",
++			"Microphone Jack", "MICBIAS",
++			"IN1L", "Microphone Jack";
++		simple-audio-card,widgets =
++			"Microphone", "Microphone Jack",
++			"Headphone", "Headphone Jack",
++			"Line", "Line In Jack";
++
++		codec_dai: simple-audio-card,codec {
++			sound-dai = <&wm8904_1a>;
 +		};
 +
-+		/* SODIMM 54 - USER_LED_1_GREEN */
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_DEBUG;
-+			function-enumerator = <1>;
-+			gpios = <&gpio5 10 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* SODIMM 56 - USER_LED_2_RED */
-+		led-2 {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_DEBUG;
-+			function-enumerator = <2>;
-+			gpios = <&gpio5 0 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* SODIMM 58 - USER_LED_2_GREEN */
-+		led-3 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_DEBUG;
-+			function-enumerator = <2>;
-+			gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
++		simple-audio-card,cpu {
++			sound-dai = <&sai3>;
 +		};
 +	};
 +};
@@ -224,6 +247,11 @@ index 000000000000..53506b7550f5
 +
 +/* Verdin CAN_2 */
 +&flexcan2 {
++	status = "okay";
++};
++
++/* Verdin QSPI_1 */
++&flexspi1 {
 +	status = "okay";
 +};
 +
@@ -268,8 +296,30 @@ index 000000000000..53506b7550f5
 +&lpi2c4 {
 +	status = "okay";
 +
++	wm8904_1a: audio-codec@1a {
++		compatible = "wlf,wm8904";
++		reg = <0x1a>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_sai3_mclk>;
++		clocks = <&scmi_clk IMX95_CLK_SAI3>;
++		clock-names = "mclk";
++		#sound-dai-cells = <0>;
++		AVDD-supply = <&reg_1v8_sw>;
++		CPVDD-supply = <&reg_1v8_sw>;
++		DBVDD-supply = <&reg_1v8_sw>;
++		DCVDD-supply = <&reg_1v8_sw>;
++		MICVDD-supply = <&reg_1v8_sw>;
++	};
++
++	/* Current measurement into module VCC */
++	hwmon@40 {
++		compatible = "ti,ina219";
++		reg = <0x40>;
++		shunt-resistor = <10000>;
++	};
++
 +	temperature-sensor@4f {
-+		compatible = "ti,tmp1075";
++		compatible = "ti,tmp75c";
 +		reg = <0x4f>;
 +	};
 +
@@ -283,27 +333,6 @@ index 000000000000..53506b7550f5
 +/* Verdin I2C_4_CSI */
 +&lpi2c5 {
 +	status = "okay";
-+};
-+
-+/* Verdin SPI_1 */
-+&lpspi6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpspi6>,
-+		    <&pinctrl_spi1_cs>,
-+		    <&pinctrl_qspi1_cs2_gpio>;
-+	cs-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>,
-+		   <&som_gpio_expander 13 GPIO_ACTIVE_LOW>,
-+		   <&gpio5 11 GPIO_ACTIVE_LOW>;
-+
-+	tpm@2 {
-+		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
-+		reg = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_qspi1_dqs_gpio>;
-+		interrupt-parent = <&gpio5>;
-+		interrupts = <8 IRQ_TYPE_EDGE_FALLING>;
-+		spi-max-frequency = <18500000>;
-+	};
 +};
 +
 +/* Verdin UART_3, used as the Linux console */
@@ -328,6 +357,18 @@ index 000000000000..53506b7550f5
 +
 +/* Verdin PCIE_1 */
 +&pcie0 {
++	vpcie-supply = <&reg_pcie>;
++
++	status = "okay";
++};
++
++/* We support turning off sleep moci on Dahlia */
++&reg_force_sleep_moci {
++	status = "disabled";
++};
++
++/* Verdin I2S_1 */
++&sai3 {
 +	status = "okay";
 +};
 +
@@ -358,6 +399,25 @@ index 000000000000..53506b7550f5
 +	status = "okay";
 +};
 +
++&usb3_dwc3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	usb_hub_3_0: usb-hub@1 {
++		compatible = "usb424,5744";
++		reg = <1>;
++		peer-hub = <&usb_hub_2_0>;
++		vdd-supply = <&reg_usb_hub>;
++	};
++
++	usb_hub_2_0: usb-hub@2 {
++		compatible = "usb424,2744";
++		reg = <2>;
++		peer-hub = <&usb_hub_3_0>;
++		vdd-supply = <&reg_usb_hub>;
++	};
++};
++
 +&usb3_phy {
 +	status = "okay";
 +};
@@ -371,56 +431,56 @@ index 000000000000..53506b7550f5
 +&verdin_gpio_keys {
 +	status = "okay";
 +};
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-mallow.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-mallow.dts
+diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-dahlia.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-dahlia.dts
 new file mode 100644
-index 000000000000..5a9c0e4a79c9
+index 000000000000..16975ae12fcb
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-mallow.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-dahlia.dts
 @@ -0,0 +1,21 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
 + * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/mallow-carrier-board
++ * https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
 + */
 +
 +/dts-v1/;
 +
 +#include "imx95-verdin.dtsi"
 +#include "imx95-verdin-nonwifi.dtsi"
-+#include "imx95-verdin-mallow.dtsi"
++#include "imx95-verdin-dahlia.dtsi"
 +
 +/ {
-+	model = "Toradex Verdin iMX95 on Mallow Board";
-+	compatible = "toradex,verdin-imx95-nonwifi-mallow",
++	model = "Toradex Verdin iMX95 on Dahlia Board";
++	compatible = "toradex,verdin-imx95-nonwifi-dahlia",
 +		     "toradex,verdin-imx95-nonwifi",
 +		     "toradex,verdin-imx95",
 +		     "fsl,imx95";
 +};
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-mallow.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-mallow.dts
+diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-dahlia.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-dahlia.dts
 new file mode 100644
-index 000000000000..eaa67a39be1c
+index 000000000000..bafbe1179ec8
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-mallow.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-dahlia.dts
 @@ -0,0 +1,21 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
 + * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/mallow-carrier-board
++ * https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
 + */
 +
 +/dts-v1/;
 +
 +#include "imx95-verdin.dtsi"
 +#include "imx95-verdin-wifi.dtsi"
-+#include "imx95-verdin-mallow.dtsi"
++#include "imx95-verdin-dahlia.dtsi"
 +
 +/ {
-+	model = "Toradex Verdin iMX95 WB on Mallow Board";
-+	compatible = "toradex,verdin-imx95-wifi-mallow",
++	model = "Toradex Verdin iMX95 WB on Dahlia Board";
++	compatible = "toradex,verdin-imx95-wifi-dahlia",
 +		     "toradex,verdin-imx95-wifi",
 +		     "toradex,verdin-imx95",
 +		     "fsl,imx95";
