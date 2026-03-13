@@ -4,110 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA10107BCE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 21:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247D2107BCE2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 21:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=; b=mdscRa1hP3Y8oiT/Y2A66Re1cy
-	WCS5AQdM7oYtb1IWwoRPH365Hv5+V2kdToZ6yvPNpNctqZvBtLOwJMCvnyvhsRPttyVV8/vZQAvTK
-	sy/J7xgrrKOfPVHa9kwTQAnEg5d0wiIwx8Nb58/zdVhh1dI6iHu9Z7hBjCgtEmn+NIA8Ef9V6KTrp
-	vd6QedDL1ZVodmKszl8/s0lMydYGhnQ9XVNmNAzBl3lMM5+KCxXvS7EooyE2kber6lzRXkZFPJPB2
-	BKfk2etYWTnQmchfhqc5gmX4qFaxOtrFiMSktjLSYoxFbH4wzI75pJwDdA5JHDl3loRpehUEwtiO/
-	x4SXMHgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PKwDZaTDo06owffy8igLydKb2h1BiI7iUKQZP6VZBDY=; b=otUkSJ/59wZBxvYkN94EmsE9AF
+	NZuXj0fiYxIroJ9YKEJhtogo2vF2doAmzra1sU0MjSl9UGWM7JXyMecj+9siZH//+/XfwZV2Tkqwe
+	f2d9uRJAJFumDJtvrh0J+9Q+seqFLiX0ogwfcn/a1SWv4xQ9fQDozWpR/mlFuJdD8ZCBUho4I/G9H
+	JwNbCzOk5mK6AOPRTY4aerwKDmJuVEbbJamw/MOYcfo57GtTamIHXDWz+yojQXjC6Yr3KjuwHfq6s
+	GCLaCDXmHsmIE2mVn2Chfp9kqFVPKBBpDuY14IS9iMH1jPmjSJbTIqtGLNuU67FqWYHqOYepnvzZJ
+	tkpKeuVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w19ft-00000001CHm-1YmA;
-	Fri, 13 Mar 2026 21:04:01 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1w19gZ-00000001CMB-30mE;
+	Fri, 13 Mar 2026 21:04:43 +0000
+Received: from mail-eastus2azon11010070.outbound.protection.outlook.com ([52.101.56.70] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w19fq-00000001CHQ-1dof
+	id 1w19gX-00000001CLH-0GT9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 21:04:00 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6642a16be1cso1456930a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 14:03:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773435836; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QWbLfjxALb9R36BlyKCb6ULo5cBJ7vSsWAVB/r7B37lr62O/BBc8CIXKr/2mUdFr93
-         +XypbchoWNVwNbBRLrKzGJkARKXrFvLUEsRYHQ41ec+zdRNztVEZCGAfqK1pauBpJ3nX
-         dBaPA+8lsLi+0EIHQwM/RoTVvEdr5y2q07Tu4XZvT4gRkT/hRk8iLMikC2IYT1Iln6ig
-         CrxBGF/cH4k1abHQtQtMJYDASmgVo1y4Z16IRmZhy/THk8th+y0nbVnFJv3mgcEdk5sC
-         HBYAs13fzLhFgKklFERDgp3rVGpIQ/Ih4KceWWOdFkdkYg8Q3gZ2WWU7mfMhm+uuM1gb
-         4TrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
-        fh=8dnyOd/i6qZCiNBreG5mXqf7O+AgKkk/E5yYxRfnKKs=;
-        b=XGZj4Q4+6fKf5slUobh57GxqN1mtPiUfm7aAzZayYtT9H9o57uXr3gTngmJOmjisBR
-         t6YJug7F8nJGWVYksEOStVHojdQLNHcWVctMXrVXGIpMA0nzQ0oxAMNtNGMOK7o7G5kt
-         mOUKMnoXbDiIEBwz3KqTTrSkI6lc5JojKlErIgYzXlaXvjGCAVZwLk6zx1P9hkrWRg3q
-         JaCn+BOR+NcHEaVgKd2wo64CAj5yQhHOdxfSGabvIl6nSfgCQv5NteQl+2dE3z2+GB8G
-         YFRUWkSIg5cqYEkGB5ASXX+WApHQfVEq2v7PkXb82orcfe7Rx88c7vc24USHYDELQ/SL
-         Q3cA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773435836; x=1774040636; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
-        b=SN1l6CIljPwccHzTVzF0blzrCUoBphQNgHJQrazEf1253Gs1lyaJcQnDkuJti4Sm/5
-         +djcTouYpffO7TSg0IpA1Tn+O9bwcUzHgGnCxbQKvqqvvFCKd+y1PZYLZ0pKxpHF8Zny
-         92rBVI0kKQHTf9R3/h7iR5ER7+Hs80RLixZCS1kc5k42jDHPjehf3Q/mUi2tfaHclleu
-         NocWje2G14HotxNtKyM4QpZrC9eGk9GObafnkFxn+oujKDTFJpJKr3CXKkcwiILxOieP
-         NzhUc+uqahbnz0c6f3JeIWa0m4eLIxEohT5HH7Yb0Yq4C0lAegj4IQyt6inOwlWvJJEl
-         N6Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773435836; x=1774040636;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
-        b=G6SJp71+3KKi6JUdriloGI10PNfA8ei+cs4BHpcc04D/TFOT6TvhknJKurgj/PeFki
-         RTL7QGlcYhiBR7ywdP6LzEPGRavouOHjO8cRwxIEfXtwERSW/wSwckO40rxTbDABQtwL
-         rqQEa12j+5nXojxsHFFVrxcAVQuyJ/rkHBh0RSAx281yjT+1FX03DWpay3YAB6u5501q
-         tYQLw9NpMQIuLG39hGl5Z7O0kEMq2mqOfEC/WBogc1DGF0h5FRlBLMnIVHdxktC2WmXR
-         3VksZDXZwqgXRp8/eyW7ZiyRV744BDmJJNsbenG/DA3tJWMlarIvtXSLz6zEPoTRRm0y
-         TXvg==
-X-Forwarded-Encrypted: i=1; AJvYcCVxQ2CDR2A2WbMxzHdHvL2PIM1KXJ3PErkQ/pGb7/CkXoq2jYA5chKCHscpwo3bSMmOpIcZTNdqen/ZXrVRhp56@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuXgYpGR42QVVsQ2XsJpqwi6u6K59jK9A5ZQBK4migTZUlP+f6
-	SgPYFrSuAhI22plPS9+Ni+9O4DJEYR9riVFvDT0YH+p984+grv013S5HDTPDoki+U3+i8qvqo6L
-	IDRhAE3Uz1xI45N6mBHjc8o9gAZ3/o7Y=
-X-Gm-Gg: ATEYQzwvBQyAJ09TZwUsmI7lLs7jsRtXQyyGzJ+H/Em99LAU4L9bGVCx1h9DsbvNqbe
-	mmJphoOIL+nfHtbGHQgkGdW9PallsB+F1VNRv9eLEPNXV0QVCJkMLaJJjtrb3CAfMmW3T4HRwYq
-	n0tekWo6Y6jRwX705m3FYSj55vkzDGA2AgedS2I7dXIAdHxvUsH+iIddmuRGsOi58lPRKgE2bKL
-	1Id5dMv8YR3rCKR8k84sQrP9KFYYf2yfqcVPIXbJSQsBezLSZd8jOqsivcHOcdQEmvHuP7GwjXB
-	prHBRiJ2svmBfrC00EDqlCP2lLF7T7+bRL+1pj4VLQ==
-X-Received: by 2002:a05:6402:1ecf:b0:662:a4d4:abe0 with SMTP id
- 4fb4d7f45d1cf-663ba9c2abemr3063467a12.3.1773435835673; Fri, 13 Mar 2026
- 14:03:55 -0700 (PDT)
+	Fri, 13 Mar 2026 21:04:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SaZO7jRnOTaXvgyq52QbZ5HMG4KsqmmHjjCN4V/wwE71Jnl2cWjvzDsY/aJ833Vwg7fI+m3HZ52Cb6icg5C6L1OUEWZYEsOBgxiupsVBQ2kaAs2dhalI/pxfjEocSGI90bBZ2NtHRH5b21Ubzv6u9mrpkcPtueXvwg/7hnPc9Ib0/iYSx8zHxpGSkEE0Hdiv+k+tx7QjkoHh9zXgZTijjTaCWujBq7JnT34C8CqH+V5KyywwBIkJ6f+RxZ2svFM9DefB9/IbLeCBklgvuXX0i25duR8gVgwgMLZtw/z4jfspHzaBsyj1Q5VWK0mhtjLlc3i8KwZ1XEaVi0dLrMTWFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PKwDZaTDo06owffy8igLydKb2h1BiI7iUKQZP6VZBDY=;
+ b=oqynfgg9zfO6nemrpqK0J+pVZIZq0P//rF3eKWSTwTlMF+KyI61+1O7zBNl7X5xk8TLbIKFzNa6R2xx9pH6DHD87MMSDwu8CxMqqNzY11d2/GIJw0Bi4fcidaV3VeGvGTlkkPdSNwfk+cF0+UKRXkBLURLL58eaVF2mTFwlcmBuDR3KCv1xYIXhXa1XS3tbhS5Mqi9NnL/hSj7ZiseD0YnWthH7wI27hBE8iRgFjEHms+2BfhhgOMa4hd1uS5Aq+VkItKytZCnRYOjZ6OBspqxsXfmM7E5fB5/BVT658Fj+g8ULezs98dYBNTJNyyLs4h38r9yhWHTEUo49HWbvDxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PKwDZaTDo06owffy8igLydKb2h1BiI7iUKQZP6VZBDY=;
+ b=KbS46Kxhleqlou1PASV11doaOLD69+5JZhzdalwg30YbvkqVlmj1vhSsD9+trBl0YCzN/NPEGVI4rptbKgwQVpdKAx09OWeXttfjjwYSX6k25dRUL8o8ETKQKvutnPQ9XZ51VuGgbhx4xOdjCNyNFUDtNlW1Cxit0FPexhsu3+e5zBsOFS67rIlWrXW6UxFV9L8/tUEWRYCLYSg585xEbEhIwOavm+QTojRI/WkA3wz0MocOFCLoIen1I1CUTWF/1GXUPYJ1i8MU748NpkAmRpg6CIL2R/zEmXoPSXwTqZOEBFTyd4+md2NcImnEYkGaKhJeEGWoKuqXXMYvGwq4wg==
+Received: from MW4PR04CA0228.namprd04.prod.outlook.com (2603:10b6:303:87::23)
+ by CH2PR12MB4230.namprd12.prod.outlook.com (2603:10b6:610:aa::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.8; Fri, 13 Mar
+ 2026 21:04:33 +0000
+Received: from MWH0EPF000C6194.namprd02.prod.outlook.com
+ (2603:10b6:303:87:cafe::12) by MW4PR04CA0228.outlook.office365.com
+ (2603:10b6:303:87::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.29 via Frontend Transport; Fri,
+ 13 Mar 2026 21:04:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ MWH0EPF000C6194.mail.protection.outlook.com (10.167.249.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 21:04:31 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 13 Mar
+ 2026 14:04:12 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 13 Mar 2026 14:04:11 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 13 Mar 2026 14:04:11 -0700
+Date: Fri, 13 Mar 2026 14:04:10 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Qinxin Xia <xiaqinxin@huawei.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<wangzhou1@hisilicon.com>, <prime.zeng@hisilicon.com>,
+	<fanghao11@huawei.com>, <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+Subject: Re: [RFC PATCH 5/5] iommu/arm-smmu-v3: Add Context Descriptor
+ display to debugfs
+Message-ID: <abR7ys1LYRhJ8Hn6@Asurada-Nvidia>
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-6-xiaqinxin@huawei.com>
 MIME-Version: 1.0
-References: <20260313180352.3800358-1-puranjay@kernel.org> <20260313180352.3800358-3-puranjay@kernel.org>
- <CANk7y0jjd6XC7nd2BxtsVhs8vWp_9cC-ckXPGRQK_CW5BSuogQ@mail.gmail.com>
-In-Reply-To: <CANk7y0jjd6XC7nd2BxtsVhs8vWp_9cC-ckXPGRQK_CW5BSuogQ@mail.gmail.com>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Fri, 13 Mar 2026 21:03:44 +0000
-X-Gm-Features: AaiRm509-qHusHx4y7ZJiuiluPbpVvicudHEcA8o5FlqQsneTuZnsmCxW0jMUuM
-Message-ID: <CANk7y0iGmXCLNPJ=W4ZV9tRwWXXK4KmTATfV081kLX51RxJmkQ@mail.gmail.com>
-Subject: Re: [PATCH bpf 2/3] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, Breno Leitao <leitao@debian.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260313104351.3502293-6-xiaqinxin@huawei.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6194:EE_|CH2PR12MB4230:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8261023b-c7a0-44b1-a5ae-08de81441f75
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: sWKp3/B4GszCH0GERBqr+rXeX62zZYXOromZlgziI1G2i7Ec2/hvR7VampJdBEECLFaQCdCNXFoaZzp4053yX6pKDCcPtI26yrfaS3bMqeUb4M9+LA6EyDjkq/T5LxZvPcJP4VyYmwBzhNsFT7L+luEhlORuOmRRTR3cQx0TX7CpnfXpezPU9qguQZg6+FM3uErN4vc2yNw5c24frdQ/wme6e80ECAAoBLyzR+t/nWlG0sxX+XzWBzAxReBhkKuueZMZR2pPZSxAKDSCyaXKmJpxfB9+JVaHRAUg+jqxrLkKBatF3rstXu7MeRkrEejlXC7yiggfHjEb/zS9u0POQIabrsAyY2IZAeFn35AjEBkg4pd3iJjfJ4PbZEIyUm4tGBnwjVjZs12syAI09Ix4tJ0FrJQL3hHZ34Tkfpe1HmdlCGr4tHgfzh+w44TFpCtStgKjkxJjH1MNb4BjEKJ7bkw1i8raf+kSf4kyqDEMj9GnTmzj/jF1Ss5hBdB/MuU9ho8RVRYU1q1/ei/rmghTB5pxzMNTh0LU6nW8+IXXmahmUhtyj4+gZVwpkUCXrxMA/mM8ujkeYppRQ2uNdzu05Upb11iVGOBRMNe0pvpQX9Mu+E98T2XFmOyyLW2BKz/A6cdHcXFgPe4HPpy81RzNIqvnmN4CvGX501XG3q7CEUlJIKV4wzf0ybp6kMSSoJZYOWix+ple5QzhoJLqqwqmo6W4R4uMeq9QBoaecClcL9/zcNyuYvx0H+MKsjoXl6lr5sJ3I4jo7wtbg1h2RaKEOw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Yde8qgit3JOIY3KnRxW/tkAKeBU3GnRBZkfvChgtdr8ACZY/pzGezF893XjpjULJ/dTMphMn5SlFhvkM4Q3Ym0jnCaEx8VwOc/N9TJ3GxVBcAopAitP0eTVeES1x2EAP3ivnTucj1M9TwR6wnAFMXPPvti1WLXKAApIlIZXC/YeohT1gwnmYLFwXjwO17xexBiLoCLTknehNy0hzu59DKU0YcQvVZs2YF+RndogzmR62jLimAdyU1v+OppKN9QxdeqvoXB8pXhqGxOb2+dAMw5bq8Ve965xTL0VAqaUUFVU5VQLvhf+Nh3f/l6ZPcIQy2P02Q1h9qddeti3s8AQTbspB4WopAvMMfK/nW8uZsHRX5bPgB1aTOSOW8txpI06NQhaqSLxSM0nGYokE5swsgr7sLJ3r+gs9/aA3RY1rSBTBuvkgzqmbfD4/BHNectE9
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 21:04:31.6945
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8261023b-c7a0-44b1-a5ae-08de81441f75
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6194.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4230
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_140358_497852_E015A976 
-X-CRM114-Status: GOOD (  35.49  )
+X-CRM114-CacheID: sfid-20260313_140441_106445_5C4CDD29 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,123 +131,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 7:59=E2=80=AFPM Puranjay Mohan <puranjay12@gmail.co=
-m> wrote:
->
-> On Fri, Mar 13, 2026 at 6:04=E2=80=AFPM Puranjay Mohan <puranjay@kernel.o=
-rg> wrote:
-> >
-> > Implement the perf_snapshot_branch_stack static call for ARM's Branch
-> > Record Buffer Extension (BRBE), enabling the bpf_get_branch_snapshot()
-> > BPF helper on ARM64.
-> >
-> > This is a best-effort snapshot helper intended for tracing and debuggin=
-g
-> > use. It favors non-invasive snapshotting over strong serialization, and
-> > returns 0 whenever a clean snapshot cannot be obtained. Nested
-> > invocations are not serialized; callers may observe a 0-length result
-> > when a clean snapshot cannot be preserved.
-> >
-> > BRBE is paused before the helper does any other work to avoid recording
-> > its own branches. The sysreg writes used to pause are branchless.
-> > local_daif_save() blocks local exception delivery while reading the
-> > buffer. If a PMU overflow raced before that point and re-enabled BRBE,
-> > the helper detects the cleared PAUSED state and returns 0.
-> >
-> > Branch records are read using perf_entry_from_brbe_regset() without
-> > event-specific filtering. The BPF program is responsible for applying
-> > its own filter criteria. The BRBE buffer is invalidated after reading
-> > to maintain contiguity for other consumers.
-> >
-> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> > ---
-> >  drivers/perf/arm_brbe.c  | 70 ++++++++++++++++++++++++++++++++++++++--
-> >  drivers/perf/arm_brbe.h  |  9 ++++++
-> >  drivers/perf/arm_pmuv3.c |  5 ++-
-> >  3 files changed, 81 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
-> > index ba554e0c846c..db5e000b2575 100644
-> > --- a/drivers/perf/arm_brbe.c
-> > +++ b/drivers/perf/arm_brbe.c
-> > @@ -9,6 +9,7 @@
-> >  #include <linux/types.h>
-> >  #include <linux/bitmap.h>
-> >  #include <linux/perf/arm_pmu.h>
-> > +#include <asm/daifflags.h>
-> >  #include "arm_brbe.h"
-> >
-> >  #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
-> > @@ -618,10 +619,10 @@ static bool perf_entry_from_brbe_regset(int index=
-, struct perf_branch_entry *ent
-> >
-> >         brbe_set_perf_entry_type(entry, brbinf);
-> >
-> > -       if (!branch_sample_no_cycles(event))
-> > +       if (!event || !branch_sample_no_cycles(event))
-> >                 entry->cycles =3D brbinf_get_cycles(brbinf);
-> >
-> > -       if (!branch_sample_no_flags(event)) {
-> > +       if (!event || !branch_sample_no_flags(event)) {
-> >                 /* Mispredict info is available for source only and com=
-plete branch records. */
-> >                 if (!brbe_record_is_target_only(brbinf)) {
-> >                         entry->mispred =3D brbinf_get_mispredict(brbinf=
-);
-> > @@ -803,3 +804,68 @@ void brbe_read_filtered_entries(struct perf_branch=
-_stack *branch_stack,
-> >  done:
-> >         branch_stack->nr =3D nr_filtered;
-> >  }
-> > +
-> > +/*
-> > + * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
-> > + * self-recording and return 0 if the snapshot state appears disturbed=
-.
-> > + */
-> > +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, =
-unsigned int cnt)
-> > +{
-> > +       unsigned long flags;
-> > +       int nr_hw, nr_banks, nr_copied =3D 0;
-> > +       u64 brbidr, brbfcr, brbcr;
-> > +
-> > +       if (!cnt)
-> > +               return 0;
-> > +
-> > +       /* Pause BRBE first to avoid recording our own branches. */
-> > +       brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
-> > +       brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
-> > +       write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
-> > +       isb();
-> > +
-> > +       /* Block local exception delivery while reading the buffer. */
-> > +       flags =3D local_daif_save();
-> > +
-> > +       /*
-> > +        * A PMU overflow before local_daif_save() could have re-enable=
-d
-> > +        * BRBE, clearing the PAUSED bit. Bail out.
-> > +        */
-> > +       if (!(read_sysreg_s(SYS_BRBFCR_EL1) & BRBFCR_EL1_PAUSED))
-> > +               goto out;
-> > +
->
-> The code below doesn't implement filtering, I am currently trying to
-> figure out the best way to implement that by reusing
-> read_branch_records() somehow.
->
+On Fri, Mar 13, 2026 at 06:43:51PM +0800, Qinxin Xia wrote:
+>   * Directory Structure:
+>   * /sys/kernel/debug/iommu/arm_smmu_v3/
+>   * └── smmu0/
+> @@ -35,6 +42,8 @@
+>   *     └── stream_table
+>   *	   └── 0000:01:00.0:0/                    # PCI device with Stream ID 0
+>   *             ├── ste                           # Stream Table Entry
+> + *             └── context_descriptors/
+> + *                 └── all                       # All Context Descriptors
 
-So, I thought about this more and feel that we don't need to filter
-for a specific event because the BPF program is not associated with a
-specific event, rather it is associated with the CPU where it is
-running, So bpf_get_branch_snapshot() should return the branch records
-from the PMU of that CPU. Now, if there are two events on that cpu
-with different branch filter types, let's say
-PERF_SAMPLE_BRANCH_IND_CALL in one event and
-PERF_SAMPLE_BRANCH_ANY_RETURN in another event, the perf subsystem
-configures BRBE to record the union and then does per event filtering
-in software (brbe_read_filtered_entries()), but the BPF program should
-still return everything that was recorded on the CPU, which this patch
-is doing.
+I wonder if we should do per-RID/PASID v.s. all. Otherwise, cd_dir
+seems unnecessary, as it could be a file instead?
+
+> +/**
+> + * smmu_debug_dump_cd() - Dump Context Descriptor details to seq_file
+> + * @seq: seq_file to write to
+> + * @dev: device associated with the CD
+> + * @ssid: Substream ID
+> + */
+> +static void smmu_debug_dump_cd(struct seq_file *seq, struct device *dev, u32 ssid)
+> +{
+> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+> +	struct arm_smmu_cd *cd;
+> +	u64 data;
+> +	int i;
+> +
+> +	if (!master) {
+> +		seq_puts(seq, "No master data\n");
+> +		return;
+> +	}
+> +
+> +	cd = arm_smmu_get_cd_ptr(master, ssid);
+> +	if (!cd) {
+> +		seq_printf(seq, "CD not available for SSID %u\n", ssid);
+> +		return;
+> +	}
+
+master->cd_table can be free-ed. We could hit UAF in a race. This
+very likely needs arm_smmu_asid_lock.
+
+> +	seq_printf(seq, "CD for Substream ID %u:\n", ssid);
+> +
+> +	/* CD 0 */
+> +	data = le64_to_cpu(cd->data[0]);
+> +	seq_printf(seq, "  Valid: %s\n", data & CTXDESC_CD_0_V ? "Yes" : "No");
+> +	seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
+> +	seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? "Yes" : "No");
+> +	seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? "Yes" : "No");
+
+All these are unnecessary if V=0? Maybe the per-SSID output should
+depend on V=1 at all. Same might apply to STE.
+
+> +/* All CDs debugfs file operations */
+> +static int smmu_debugfs_all_cds_show(struct seq_file *seq, void *v)
+> +{
+> +	struct device *dev = seq->private;
+> +
+> +	smmu_debug_dump_all_cds(seq, dev);
+> +	return 0;
+
+Just unwrap the smmu_debug_dump_all_cds().
+
+Nicolin
 
