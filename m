@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86EA103E305
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A11103E305
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WX4qYM6yIxT0a2DLuaOkGAno/i1iuimCEnc1Sg4uSlk=; b=KyOkFFdXKRFu5gGNF7dfThtTZu
-	kd8UvR6m76/SwhZOlADhfwoJcup+inPCgBvT1IArfWUCsTUWBdaEkdspbreC0JvoZrJBfpaGJoLC5
-	MgfPOpneCev2QXv5SQmVuYARF0jXd24ks+gC//z/eB3eAZKVZT3wA14NQUYRUcdf5QIkAHW1hsMJG
-	5QZuoE0WtkmvDkDgM0SrJL5ta8xojIlmLMyPn8Dni7qNperBsGSG/i702xYK52QY3Qqke+Hq6g0qj
-	8ClsWWtpm7hPRnv15PcAvx7QlT0f+fku0WwdVbBIm0FmL2UCDebREmNqrVpK7/YQwJwxtkxgy+B9A
-	l7zuEcjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pd3lTWjZ+5rSyJMewkwT1eT+19Jc15PppiNJcmSogXg=; b=cfHbTm0RFRMLc5oAL6LaXChQ0D
+	WeR/w88ymh2xC21Ly/xOlQg1NpIifIceJYlLybmw5KRebssEE4/Uw8qEQ1WewCJYcprNhABzfAG1b
+	qfoUq+P1AC6saVYXit8Nw3H015J6C4mPhv4ATM39JRoNH7ArKuhOLvtjhMfMNZ3DSJzrF56i+YEiL
+	Yb82+9ib9Yw11z4gJUX4SLo0CM+Ye9TlZ6lYxiI5FXpviFj7uKmZwOkJtZ8yLxpHvq76qmemtGfD0
+	hNKS8PjktIIYpFq1Ic7Wntuo/KiUe73LzuYQR871da/OpG2b7D7PyAlqmiAJ8jOoXqiCxWkwxyTOU
+	7KBb3Tpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14Xy-00000000ZEf-2QyK;
-	Fri, 13 Mar 2026 15:35:30 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w14jw-00000000ZoE-2J4F;
+	Fri, 13 Mar 2026 15:47:52 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14Xw-00000000ZDw-2AIf
+	id 1w14js-00000000Znv-1G0I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 15:35:29 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w14Xo-0002MH-Ua; Fri, 13 Mar 2026 16:35:20 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w14Xo-0006RT-0u;
-	Fri, 13 Mar 2026 16:35:20 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w14Xo-00000000Ep8-0oQK;
-	Fri, 13 Mar 2026 16:35:20 +0100
-Message-ID: <3d65ce5f3f6217e68ce6be3bb75ae722ba9bc151.camel@pengutronix.de>
-Subject: Re: [PATCH v2 0/2] drm/imx: ipuv3-plane: support underlay plane
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Michael Tretter <m.tretter@pengutronix.de>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Shawn Guo	 <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Date: Fri, 13 Mar 2026 16:35:20 +0100
-In-Reply-To: <20260219-drm-imx-underlay-plane-v2-0-26ef829c5483@pengutronix.de>
-References: <20260219-drm-imx-underlay-plane-v2-0-26ef829c5483@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 13 Mar 2026 15:47:50 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6B9B51077B0;
+	Fri, 13 Mar 2026 16:47:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1773416863;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=pd3lTWjZ+5rSyJMewkwT1eT+19Jc15PppiNJcmSogXg=;
+	b=jGTeG0gcswCkMeJGtupDnz72P0d6dI51r/nmE4P4w55YUQ16dGl8KS+2sOuA0lowqveU4M
+	Yxds52mkPDbMqzq6DTB3WZDzuSG/0dWwHof2IxGvZHV4JJ/Xliug9O6+v8igmgm5MkD2Kp
+	Gxz45U/QfjzeY+l2EZ36wqfTrYfQoqS1WqYSpucyRaVMpHbaiuAy74k0n3Q1a5q0m4NUkW
+	Mn8K1c+2PUQtjc7U0AioKQ2h+d6DPvWhJI3AjHZcn2d//VoLPJ8pco12r66m4xa87lgCPC
+	adhiF49yTUnlA5A5f9GpDXCFHP+FrhOoEUyg2mcROG1PIkDsbKFx5w/XfEnM/Q==
+Message-ID: <3c6d81c6-500c-4ff6-b923-9f446678a6bc@nabladev.com>
+Date: Fri, 13 Mar 2026 16:47:39 +0100
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/imx: parallel-display: Prefer bus format set via
+ legacy "interface-pix-fmt" DT property
+To: Philipp Zabel <p.zabel@pengutronix.de>, dri-devel@lists.freedesktop.org
+Cc: stable@vger.kernel.org, David Airlie <airlied@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260110171510.692666-1-marex@nabladev.com>
+ <30511e1e0ffd6579091fc4ed1cad084fd81b9c96.camel@pengutronix.de>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <30511e1e0ffd6579091fc4ed1cad084fd81b9c96.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_083528_550495_7D8811F9 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260313_084748_583246_8DA50799 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2026-02-19 at 12:32 +0100, Michael Tretter wrote:
-> The IPUv3 overlay plane may be placed over or under the primary plane.
-> This series allows user space tools to properly detect that the overlay
-> plane may be used as an underlay.
->=20
-> The first patch removes the assumption that the primary plane has the
-> default zpos 0 and the overlay plane has zpos 1. This allows changing
-> the zpos more freely.
->=20
-> The second patch changes the default zpos of the planes. The primary
-> plane always has the fixed zpos 1, which allows the overlay plane with
-> zpos 0 to 2 to be placed relative to this fixed primary plane.
->=20
-> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-
-Applied to drm-misc-next, thanks!
-
-[1/2] drm/imx: ipuv3-plane: decouple zpos from plane type
-      commit: a872e90e3668f9f8d0bc9c2fae3c328835b98bf0
-[2/2] drm/imx: ipuv3-plane: support underlay plane
-      commit: ecbcceea4767dc11881986cb41a9962cac6f6c39
-
-regards
-Philipp
+On 3/13/26 4:33 PM, Philipp Zabel wrote:
+> On Sa, 2026-01-10 at 18:14 +0100, Marek Vasut wrote:
+>> Prefer bus format set via legacy "interface-pix-fmt" DT property
+>> over panel bus format. This is necessary to retain support for
+>> DTs which configure the IPUv3 parallel output as 24bit DPI, but
+>> connect 18bit DPI panels to it with hardware swizzling.
+>>
+>> This used to work up to Linux 6.12, but stopped working in 6.13,
+>> reinstate the behavior to support old DTs.
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: 5f6e56d3319d ("drm/imx: parallel-display: switch to drm_panel_bridge")
+>> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> 
+> Applied to drm-misc-next, thanks!
+Thank you
 
