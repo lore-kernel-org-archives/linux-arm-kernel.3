@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460BF107BCCA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE97107BCCE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=; b=MPOmYtlv5idjKB2IxjkC0//G1v
-	ugRtEM9s+QoxZ2rfIyNGRmRR9TG0glUHSMyltkfMW2moMEM73ctKRM9hKIqw0afJt7R3xtVk6wwhX
-	KmLVxjQrgzgOLbT486aC+JUQSPg+BtrEFGoaaNJg9SiM30cj+JWE/G/gA9BVqI7T/Led35sz0mQi3
-	jyfxrTd+ZjOayHjRKE02MZB834n3zDHraf2rqlW+buvSVEdmtOLK1x3J3pAEKmb+qwE6hsWCAoRVt
-	WCglE72amqE3msnvLXp/hQeRe5on+AZBBlymIRlqEkqzMqC+0J4y4GxdwaR0AdjPwx04vwGjaNuB2
-	uqH/1B+w==;
+	bh=NiKj1Ae1Nq30oWJYukoJ9UQDHdKLGJRPFU6TG2WIN9k=; b=VA+tUgI5BjH24F0zXgG72DMSva
+	NKGi2fiG0jZDHvSITv7OwtgXUbJZUTUn9N31lfWtbPrYxNf078WbeWt3+OM+Z4rN4ymR/ewXDN+rZ
+	1KinzAaeX88RPNrDLiL/P4Yjid6YdRQccsTlykL/fhWrHBNVCiTNaY1BHpYKZ5NCq5AL7wpPfdkeP
+	I7LClyVKRDoXlYr7ueSDy8RqYeDZ6jofaoq9mXOk40yZokEodewZZCuxtK8N5/xZO7UfbOr5ajtyk
+	VmoKVGc9D7sYLJUUk/n0RdPIkj2hBM0rNbCLKZGloueJw68+RbwyNgV1HTUSM7kUD4Boxxzgnds4t
+	v+rRY8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15ZA-00000000fQX-07AC;
-	Fri, 13 Mar 2026 16:40:48 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1w15Z9-00000000fPl-1hfE;
+	Fri, 13 Mar 2026 16:40:47 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15Z5-00000000fM9-3MPL
+	id 1w15Z6-00000000fML-0ov4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:40:46 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	Fri, 13 Mar 2026 16:40:45 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fXVbH2qZmz9v0n;
-	Fri, 13 Mar 2026 17:40:27 +0100 (CET)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4fXVbL59npz9twv;
+	Fri, 13 Mar 2026 17:40:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420027;
+	t=1773420030;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=;
-	b=AgFDCy54oGUGzqZ8449HAYFL0KLu9wBNvp3uNlkcghl88zk3tAepZU6+w5gWnHx1cgBHtC
-	g5KfF7HuQn5kBVEP7nXikx47jERKvpYL6JTA+HFub8mPaQPU3ux7izh0eAGVK9hYj9HHVT
-	9m+E7go//kFhNi6g2Etb0j4rJfhUn0rEHbIGFMTt4hhuzfpDd/r3PW+3W6hUjpAJxM978P
-	N7rwuAtUA1+wgPxBi4/BfN4ffVlZsC5SILhFqQsAcoUE9Bt0MJaNIWDFQsf4daFveMDZAz
-	nDNwTizuVTi/6y9kDfuB+TJniBNZA79lIGZrIB+jLCLREQNO6WdvZrloeMhkVQ==
+	bh=NiKj1Ae1Nq30oWJYukoJ9UQDHdKLGJRPFU6TG2WIN9k=;
+	b=BauD8D3RH7U+Zvn5Bg3Kgot0+k9/2eZ7Y1YX0DLKx5Os5AZx0DTsM5WAj1ogzRwrvNfZEe
+	NAJft0r6+drWeRGM6lFarE3KZI1mMcMI8ODskPVIliZ8KwW84fkAxZvFf+Ng4pPU0wahiN
+	AyhD8/r3JCdJixI05572ZShuwa9+zP3rO+v0SbTBWDadByIK0cCYaZ4u2hiVmsVMIYb4QM
+	LlJZUwOKrCRWOhf7SxzhLX434zirBxmcixsWQaKuNawPISN0FfgYet3Nz/++1SupnTgss+
+	UEDZBipuRK2ijXmCge28ieySo2b7FjoqXQWHGarv6qSyJzqO82IgRqYHkDHZAQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=r57eZVFS;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1773420025;
+	t=1773420028;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=z453Tyol3L3VETEDAmcm0JWJt+RA5s/ri+ONurGIO58=;
-	b=oN6uE6rpVwQSD3CXY9VPs9g1dXRZW+HYLEAAP8F/KrQcHXP3c6i7nqv7z/+IgzWvcDO9Li
-	Nr8lTgEgLE6khKU6BCrS5cPEZ9/7nk9FqlU6jD7/8YO6Qzebd2S6rneP1j9hS2qSE0PUDt
-	RfiDR80tCT947i9Y5gv4xojp4x9IDeYaGrZLTrmWqZecBgRCKpw+YW655mprn5KtKThr3W
-	w9tI1U+FGlr/uBmoV0jgjLwtGyBv2LUHKktpl4d+h74/ufDTWiLYopATz5DLqwTMl4pn+R
-	Ig/UyMCjqzxcI4VTp2AqneK8wzyb46B48LRMJbt/jCFz2U/o5aRoYb01udxjyg==
+	bh=NiKj1Ae1Nq30oWJYukoJ9UQDHdKLGJRPFU6TG2WIN9k=;
+	b=r57eZVFSA8SyI9M2/6ocb0l12cqrywsHrjT4gKvRVUuPwhJsfflFCN6pdUH30wK7t0ZSPs
+	5aOK0oP5fsR2HHLvYzoPGvBGB7f6ww9xVrJfP67WacNAc83HKfHNZLuYbXHn4+p/T2wxJ2
+	e56v9CGAKfMLMjyN7cQCG9fI6tG+34slHrDPKrkCuz+yMENKfRNCB1ck2FKMcu3kbzidpi
+	Jc/F2FJ7uFGbAW0Uu3jnMqzAjmlYTDJ7p/LLQ3W53DeQZoGCfwX+6CavwiQdH0vXozW9Z0
+	VVE4AN9kx8bVflreD8gz/ag/3B9itLBz/EiHZZ/s4AI7kVRoSHRCoSwYTp94Aw==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
@@ -70,18 +73,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/4] arm64: dts: renesas: Drop RTL8211E PHY C22 compatible string
-Date: Fri, 13 Mar 2026 17:39:03 +0100
-Message-ID: <20260313164008.40933-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 2/4] arm64: dts: renesas: Drop RTL8211F PHY C22 compatible string
+Date: Fri, 13 Mar 2026 17:39:04 +0100
+Message-ID: <20260313164008.40933-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
 References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 6yg744pxjru14qnneqync5m7ybf8qkxf
-X-MBO-RS-ID: 3d426e35b99a79129b8
+X-MBO-RS-ID: 20084bdbc68b0394571
+X-MBO-RS-META: bwrdb1zj9q7o9fojgjnb8p4buuew8dq6
+X-Rspamd-Queue-Id: 4fXVbL59npz9twv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_094045_307224_681DAE51 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260313_094044_395459_88829ACA 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,8 +100,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Realtek RTL8211E PHY schema indicates that compatible string
-"ethernet-phy-id001c.c915" must not be followed by any other
+Realtek RTL8211F PHY schema indicates that compatible string
+"ethernet-phy-id001c.c916" must not be followed by any other
 compatible string. Drop trailing "ethernet-phy-ieee802.3-c22"
 to match the schema.
 
@@ -114,38 +118,23 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/cat875.dtsi         | 3 +--
- arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/cat875.dtsi b/arch/arm64/boot/dts/renesas/cat875.dtsi
-index 191b051ecfd45..5815e9d2d8a93 100644
---- a/arch/arm64/boot/dts/renesas/cat875.dtsi
-+++ b/arch/arm64/boot/dts/renesas/cat875.dtsi
-@@ -22,8 +22,7 @@ &avb {
+diff --git a/arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts b/arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts
+index 39fe3f94991e3..07147743de93f 100644
+--- a/arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts
++++ b/arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts
+@@ -100,8 +100,7 @@ &avb {
  	status = "okay";
  
  	phy0: ethernet-phy@0 {
--		compatible = "ethernet-phy-id001c.c915",
+-		compatible = "ethernet-phy-id001c.c916",
 -			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id001c.c915";
++		compatible = "ethernet-phy-id001c.c916";
  		reg = <0>;
- 		interrupts-extended = <&gpio2 21 IRQ_TYPE_LEVEL_LOW>;
- 		reset-gpios = <&gpio1 20 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi b/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
-index 4113710d55226..83b6c04274ac9 100644
---- a/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
-+++ b/arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi
-@@ -24,8 +24,7 @@ &avb {
- 	status = "okay";
- 
- 	phy0: ethernet-phy@0 {
--		compatible = "ethernet-phy-id001c.c915",
--			     "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id001c.c915";
- 		reg = <0>;
- 		interrupts-extended = <&gpio2 11 IRQ_TYPE_LEVEL_LOW>;
- 		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
+ 	};
+ };
 -- 
 2.51.0
 
