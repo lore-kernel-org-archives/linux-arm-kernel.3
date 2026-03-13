@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E714107BCD5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0BD107BCD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 17:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z1T40iBP/BEcS2Gbcp0xja1nt1myecU5WbcaOae1LKo=; b=oY6xhNzVEDu9yXUb/oDN78zTnk
-	fkiLTE7BYx9brB53W3jrQgwIi3ODv55L90QnSCwJUbjvFZfPOTxlS3VPS/sLT9A8Fkwetc718O6W+
-	G/D3Ss+tplzGSP22CtUi2I2fPU3xYS9rn1gRA9dytFLvDETyWDzuoZDntsbH/QnOkWPklSas/pXdQ
-	CxJQ6zS+qrruQLcHqnPnIXVRhdsXJm8xXisaKAyV4UrOHa5GvmUxmYL9/baCxn3gU+wTCALDj+ni0
-	aO2D1mS2QpzJKQGfusqaKzQQ4d9SYgpymlKLvVRe05zcsDtNSwlHMCvL6Oj5xLAsjufoMG6nvYTPD
-	/pO+2twg==;
+	bh=+emT4wXmiJNAywpNUkx9muWy/TANM4dWezSJLgzgVTI=; b=ae14lidtcBoeabPiilL8fDEwKG
+	sWL24/QgKoWUGVEZb1bL8ANSMyYtN3qrxqgg/rZCfftgQb2uq8uTcHV+PQxmSC8ida39xw3yKoklg
+	cXq7FQGPvbchUJspmZiWruShUoWy8tGvHpFmlqen2nDH1O5v490dwE0Fsl5ijIsbfmIPc43OWRHhj
+	jovqxFdlrT+01W1r22wsLCkKDcetFLjsZqyGMBrloPxI3NR3nyUkFUrjJ1OkH1aXbxzLfg6E4s0QI
+	Cl2D3sg61lvgkwODDPP3T6JynK1weizT/iBOFaz5RA7rgTvcMWMVXQLt3x/tgUXBugB0k5H6m3PRi
+	khj4Yctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16ld-00000000o8s-0bhd;
+	id 1w16ld-00000000o9O-2F9r;
 	Fri, 13 Mar 2026 17:57:45 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w16lN-00000000nno-3dnn;
+	id 1w16lN-00000000nnn-2vJs;
 	Fri, 13 Mar 2026 17:57:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773424641;
-	bh=wJZwMH5VNSE/o5UNMK6zuMUZDJCLHOUN4lmKhidacts=;
+	s=mail; t=1773424642;
+	bh=nkXYQxPq+lB3vzjnwGcNOGOuenfLKxQwMSun5YGuw0M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WvnYFtbY57K+ac6FBs3eg5Lo+L9B+Ldzkxlrd710Tm8UkNxNYorM6YKqV62SXX41e
-	 y5FN1rUiBcQKuHTxi/ZPlvzR0amg0lFIskIrlIb3ZuTXbxq4XW6vVOivqj/HZWjnT6
-	 b70KZnYZyuTf42231rWsQ9rk5T2vvQrIbZb5dPmHQ0sqJ8+DCY0J7WaMkM19PgDjYF
-	 z2J+zXdLmFlu3BIYv9cI/1ZzBpuY6baDHVEmR22Sa5ebDqwzvQJ2mhahf89t8D+0S+
-	 2JIQNIvfwrknLhOew5mPeJhe8QiY3geCgcz5mTdaSRNQBdlh73+JTHaSYDmtN7aP1W
-	 Of/3wPaZZQKBw==
+	b=D8Q3gcKX4omgByf9PxuvnSmacsWGoL1khHlw7zA5iXjAX06E/aMOuAfRuaGgY4n+X
+	 nqbuD/QNefABw3OdlGG7Zc2eQUDWXiVplyn4rcg4HtXuLcJXEURWoAUP2TE9QV1nka
+	 j8M7b3WGBlPE1F2ErXWXhn48aNRT5hLv0vJuCYCZFmd9OzJTFsxlIMMN/EfxzEoGzu
+	 qlSB4YZDTz7Mi91h2dKKU9jOWjTc52ILhUOFj7jQkt+cnnrUmq9c8xS26q8zK4FMsv
+	 Jg3JI3yOGFd9SC0xIB+k/oi1XdS0tLaQ0ey2NtYRLMFXgzlHNVRIKJ+SfZ5sFPrHhZ
+	 tukE/gnJ0yDwQ==
 Received: from jupiter.universe (dyndsl-091-248-210-078.ewe-ip-backbone.de [91.248.210.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D6AA817E13A8;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DCA5417E13B2;
 	Fri, 13 Mar 2026 18:57:21 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 2EE5C48002F; Fri, 13 Mar 2026 18:57:21 +0100 (CET)
+	id 299ED48002B; Fri, 13 Mar 2026 18:57:21 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 13 Mar 2026 18:57:18 +0100
-Subject: [PATCH v3 09/12] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
+Date: Fri, 13 Mar 2026 18:57:14 +0100
+Subject: [PATCH v3 05/12] phy: rockchip: usbdp: Fix LFPS detect threshold
+ control
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260313-rockchip-usbdp-cleanup-v3-9-3e8fe89a35b5@collabora.com>
+Message-Id: <20260313-rockchip-usbdp-cleanup-v3-5-3e8fe89a35b5@collabora.com>
 References: <20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com>
 In-Reply-To: <20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -65,28 +66,29 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ William Wu <william.wu@rock-chips.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1489;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1464;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=wJZwMH5VNSE/o5UNMK6zuMUZDJCLHOUN4lmKhidacts=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGm0UAByLSx+ishzSoLVEUgcjdh2ubFoSoBs7
- Hv06J44ZO+MSokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJptFAAAAoJENju1/PI
- O/qaj9AP+wXt6JbzZqt5ymAqbDIEAzGKOq5pWCk50mwOjJCmcJYUqZHu6mAb/tOjxQQ1LC39p4z
- nP41t8odHGLzET3d9aM6uhh7Sb2A6fmQA3hsXufUL2nlh/ugC9gpYMBt6fdZLtwBhFLvAoGOM3F
- K8DyQNgGvt0ddN6hmLsYt9gMmBCrqFn0C0elli8oBDGnIWxCQwHsdXRrQxOhHJV54i0tjgq9n/A
- 9iw8J1vZsYhXL7Py2znMkv6Hhf22wYSukwUtO1BJoPbxC9aum+w2kNTaWeb7+opf+oCH9lYzm0e
- T34PDSfNE3Oqf9yt0b5LTYyAlz6cyvyNgIZVDS24iJu7cibB/ItpZrXZF4ooQiQ3369ukvPFrha
- 3+1hf+2vBGHOTln/w4ahfaFmAzJS36Ru0RJD1GpZjJokbDjoleSBBW0/f0cyh5WDcm5HoQQcEVQ
- U9JpdWpxXC5akvHZPbfm/lqaf8G3CFPfesxuJp4WCY+Hp2tiUguTVYAtsRz3h0znZhxbaqKYfXV
- N3Pj5A6n2GiK6cAGyS5KDl+No5YFspIHQBv/wIOLmJNxjYEGagOHsc+/sUvmiUjvj2CS/2S7Cxc
- hCJkmrNqdKcfPSKuYpJaN+BewmBNXrcfq9JOAwkiGvlnqL1rcVA0EUJ+v9GDCeP8+yQyk6Lh+2b
- qby/Zw9IdcmtEe6att18n8A==
+ bh=idTUPP5e91uhF/EzTIc6KkaVZGLtsNP2d+inYWbkKyo=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGm0UACTg8FUAnM+6G0AFOb/vn0xB6r1JAutN
+ 6fdot7h+0ejp4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJptFAAAAoJENju1/PI
+ O/qapDIP/3kvhY7gB8KjKkOKCaOAq3wsuYc91u9zgDkTZI4HDhNBwi38JvdGAsHMCkJoS0HVBOf
+ rpY7vHLczPmOYvFqHTc5yU3Ou6Zx0AhCWMwlm3WkLT0YxjezgKHA/F3835MQBcJuht8hgRUtfFH
+ FzjoTMi0roKf92rTBYSZTwQBOcofIP7G/DO50Q8hA9zHjLYcXUZLiDayq49b8jtkOsZoCie7M3I
+ HvbB1UmwgYDm56kQylfpl0dVPIqpwEFm1ZbVeEflOSMJhIBA+rZkhxq448pWl6P5L8rKoSfcqBS
+ sdW3NufHQUj0SJykKV7XvUxZ67DIVse9reWtXIX9EybSodYWHiFza5gFIvJhBGw8FtSD9uU4mYn
+ DKEYK3k2JSRQildBBs/HOsHNn9j3tjnQ9eHG6PIvlMzl9K4NDRlcoYWwybvzidJQQkhSHL+Bqnb
+ 7pYA0T2xsB1zFcssU/8B3FJOXwUZXgzjTgXJBFuUZb2zgLIput8XN4e4jH7yjsegZL3fduhnVR8
+ tWrRA9lBlQeIpEEWlpRsCFiWJOKWXf8xZvCbhvpLKFBoWPuxiF93lsGd7OtgQMvJ7b+q1tHYRmU
+ lFpgS17eSPVN2Jbgq+CZDooL+RHtDc+evfEkHnhKpdgoHmOFI/xD5q0p+tGSf2GdVDaVao6FoiC
+ 50ojaU9jA6xBG2404c9ElgA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_105730_057703_89F0D2EC 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260313_105729_905375_32325185 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cleanup code by replacing open-coded version of FIELD_PREP_WM16_CONST
-with the existing helper macro.
+From: William Wu <william.wu@rock-chips.com>
 
+According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],
+the device under test(DUT) must not respond if LFPS below the
+minimum LFPS Rx Detect Threshold 100mV. Test fail on Rockchip
+platforms, because the default LFPS detect threshold is set to
+65mV.
+
+The USBDP PHY LFPS detect threshold voltage could be set to
+30mV ~ 140mV, and since there could be 10-20% PVT variation,
+we set LFPS detect threshold voltage to 110mV.
+
+[1] https://compliance.usb.org/resources/LFPS_Rx_Tx_Low_Power_Compliance_Update_Rev5.pdf
+
+Signed-off-by: William Wu <william.wu@rock-chips.com>
+[Taken over from rockchip's kernel tree; the registers are not described
+in the TRM]
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 6d7ca11b308e..1bfc365e2b2c 100644
+index 1f686844c337..97e53b933225 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -12,6 +12,7 @@
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/gpio.h>
-+#include <linux/hw_bitfield.h>
- #include <linux/mfd/syscon.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
-@@ -75,7 +76,6 @@
- #define TRSV_LN2_MON_RX_CDR_DONE_OFFSET		0x1b84	/* trsv_reg06E1 */
- #define TRSV_LN2_MON_RX_CDR_LOCK_DONE		BIT(0)
+@@ -413,7 +413,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
+ 	{0x0070, 0x7d}, {0x0074, 0x68},
+ 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
+ 	{0x0440, 0x3f}, {0x10d4, 0x08},
+-	{0x20d4, 0x08}, {0x0024, 0x6e}
++	{0x20d4, 0x08}, {0x0024, 0x6e},
++	{0x09c0, 0x0a}, {0x19c0, 0x0a}
+ };
  
--#define BIT_WRITEABLE_SHIFT			16
- #define PHY_AUX_DP_DATA_POL_NORMAL		0
- #define PHY_AUX_DP_DATA_POL_INVERT		1
- #define PHY_LANE_MUX_USB			0
-@@ -104,8 +104,8 @@ struct rk_udphy_grf_reg {
- #define _RK_UDPHY_GEN_GRF_REG(offset, mask, disable, enable) \
- {\
- 	offset, \
--	FIELD_PREP_CONST(mask, disable) | (mask << BIT_WRITEABLE_SHIFT), \
--	FIELD_PREP_CONST(mask, enable) | (mask << BIT_WRITEABLE_SHIFT), \
-+	FIELD_PREP_WM16_CONST(mask, disable), \
-+	FIELD_PREP_WM16_CONST(mask, enable), \
- }
- 
- #define RK_UDPHY_GEN_GRF_REG(offset, bitend, bitstart, disable, enable) \
+ static inline int rk_udphy_grfreg_write(struct regmap *base,
 
 -- 
 2.51.0
