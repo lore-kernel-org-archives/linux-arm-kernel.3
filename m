@@ -4,84 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCC9107BCE2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 20:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA10107BCE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 21:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXlJyvFaDSUeU2InKFWUTUR4qu/Qcpq4+p/Os9IN1Fw=; b=PZeuzZll4+s2vGV45HaP/utSKv
-	we65vdUc3KCmCKOCHIEULS2UA3RbPovFcSkGsw79sVa0xK5ifAfm90xV7R7AWZ+VhrVznOyj8odSq
-	L9ZTUNNJ7LYw4e5FxbKQCqJjwELxTTNKr73NzOZJlJaLBrtweX5HVvt71Gj1aAEAtDAg0Kck99jsX
-	5T7QOBmk6tWl6uwpMmfamSKPXmzHdfb0DB+CPfPE421zX6x1UB0v4fF/XDuy+f0LAgjXtug5fbafi
-	1izmB2vGjtJoizp9d8xJLqennSrBSyCaD6tZBqpQYN8OCUz2qTGCOCvcJ6uPxt+NNEqPLymbuu+kY
-	AZJhi9Ig==;
+	bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=; b=mdscRa1hP3Y8oiT/Y2A66Re1cy
+	WCS5AQdM7oYtb1IWwoRPH365Hv5+V2kdToZ6yvPNpNctqZvBtLOwJMCvnyvhsRPttyVV8/vZQAvTK
+	sy/J7xgrrKOfPVHa9kwTQAnEg5d0wiIwx8Nb58/zdVhh1dI6iHu9Z7hBjCgtEmn+NIA8Ef9V6KTrp
+	vd6QedDL1ZVodmKszl8/s0lMydYGhnQ9XVNmNAzBl3lMM5+KCxXvS7EooyE2kber6lzRXkZFPJPB2
+	BKfk2etYWTnQmchfhqc5gmX4qFaxOtrFiMSktjLSYoxFbH4wzI75pJwDdA5JHDl3loRpehUEwtiO/
+	x4SXMHgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w19Y4-00000001Bx5-1mij;
-	Fri, 13 Mar 2026 20:55:56 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1w19ft-00000001CHm-1YmA;
+	Fri, 13 Mar 2026 21:04:01 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w19Y0-00000001Bvo-2kFy
+	id 1w19fq-00000001CHQ-1dof
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 20:55:54 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773435348;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tXlJyvFaDSUeU2InKFWUTUR4qu/Qcpq4+p/Os9IN1Fw=;
-	b=ApaiXJQFxRXVAx9DDLq9RZwe4REbPzug7MwIVwkyVrwgGTTKM067WGOEC1OvqGMuKccV1z
-	4g+PUS+RPIbPSGHphASw8n44kNhZovGOMPS5Qm8Eg7gpxLAZ6e84OCytvss97G1SO6utJ/
-	Q8z40Og4I69boCHij4m6ZmAFUR1ertQ=
-From: Usama Arif <usama.arif@linux.dev>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Usama Arif <usama.arif@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	david@kernel.org,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	brauner@kernel.org,
-	catalin.marinas@arm.com,
-	dev.jain@arm.com,
-	jack@suse.cz,
-	kees@kernel.org,
-	kevin.brodsky@arm.com,
-	lance.yang@linux.dev,
-	Liam.Howlett@oracle.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	npache@redhat.com,
-	rmclure@linux.ibm.com,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	will@kernel.org,
-	willy@infradead.org,
-	ziy@nvidia.com,
-	hannes@cmpxchg.org,
-	kas@kernel.org,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com
-Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K pages
-Date: Fri, 13 Mar 2026 13:55:38 -0700
-Message-ID: <20260313205541.3830595-1-usama.arif@linux.dev>
-In-Reply-To: <cfdfca9c-4752-4037-a289-03e6e7a00d47@arm.com>
-References: 
+	Fri, 13 Mar 2026 21:04:00 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6642a16be1cso1456930a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 14:03:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773435836; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QWbLfjxALb9R36BlyKCb6ULo5cBJ7vSsWAVB/r7B37lr62O/BBc8CIXKr/2mUdFr93
+         +XypbchoWNVwNbBRLrKzGJkARKXrFvLUEsRYHQ41ec+zdRNztVEZCGAfqK1pauBpJ3nX
+         dBaPA+8lsLi+0EIHQwM/RoTVvEdr5y2q07Tu4XZvT4gRkT/hRk8iLMikC2IYT1Iln6ig
+         CrxBGF/cH4k1abHQtQtMJYDASmgVo1y4Z16IRmZhy/THk8th+y0nbVnFJv3mgcEdk5sC
+         HBYAs13fzLhFgKklFERDgp3rVGpIQ/Ih4KceWWOdFkdkYg8Q3gZ2WWU7mfMhm+uuM1gb
+         4TrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
+        fh=8dnyOd/i6qZCiNBreG5mXqf7O+AgKkk/E5yYxRfnKKs=;
+        b=XGZj4Q4+6fKf5slUobh57GxqN1mtPiUfm7aAzZayYtT9H9o57uXr3gTngmJOmjisBR
+         t6YJug7F8nJGWVYksEOStVHojdQLNHcWVctMXrVXGIpMA0nzQ0oxAMNtNGMOK7o7G5kt
+         mOUKMnoXbDiIEBwz3KqTTrSkI6lc5JojKlErIgYzXlaXvjGCAVZwLk6zx1P9hkrWRg3q
+         JaCn+BOR+NcHEaVgKd2wo64CAj5yQhHOdxfSGabvIl6nSfgCQv5NteQl+2dE3z2+GB8G
+         YFRUWkSIg5cqYEkGB5ASXX+WApHQfVEq2v7PkXb82orcfe7Rx88c7vc24USHYDELQ/SL
+         Q3cA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773435836; x=1774040636; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
+        b=SN1l6CIljPwccHzTVzF0blzrCUoBphQNgHJQrazEf1253Gs1lyaJcQnDkuJti4Sm/5
+         +djcTouYpffO7TSg0IpA1Tn+O9bwcUzHgGnCxbQKvqqvvFCKd+y1PZYLZ0pKxpHF8Zny
+         92rBVI0kKQHTf9R3/h7iR5ER7+Hs80RLixZCS1kc5k42jDHPjehf3Q/mUi2tfaHclleu
+         NocWje2G14HotxNtKyM4QpZrC9eGk9GObafnkFxn+oujKDTFJpJKr3CXKkcwiILxOieP
+         NzhUc+uqahbnz0c6f3JeIWa0m4eLIxEohT5HH7Yb0Yq4C0lAegj4IQyt6inOwlWvJJEl
+         N6Gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773435836; x=1774040636;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+/kZwgdWmNGCktNPe763uSTYgyKSmDilnHXCY6tJkRM=;
+        b=G6SJp71+3KKi6JUdriloGI10PNfA8ei+cs4BHpcc04D/TFOT6TvhknJKurgj/PeFki
+         RTL7QGlcYhiBR7ywdP6LzEPGRavouOHjO8cRwxIEfXtwERSW/wSwckO40rxTbDABQtwL
+         rqQEa12j+5nXojxsHFFVrxcAVQuyJ/rkHBh0RSAx281yjT+1FX03DWpay3YAB6u5501q
+         tYQLw9NpMQIuLG39hGl5Z7O0kEMq2mqOfEC/WBogc1DGF0h5FRlBLMnIVHdxktC2WmXR
+         3VksZDXZwqgXRp8/eyW7ZiyRV744BDmJJNsbenG/DA3tJWMlarIvtXSLz6zEPoTRRm0y
+         TXvg==
+X-Forwarded-Encrypted: i=1; AJvYcCVxQ2CDR2A2WbMxzHdHvL2PIM1KXJ3PErkQ/pGb7/CkXoq2jYA5chKCHscpwo3bSMmOpIcZTNdqen/ZXrVRhp56@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuXgYpGR42QVVsQ2XsJpqwi6u6K59jK9A5ZQBK4migTZUlP+f6
+	SgPYFrSuAhI22plPS9+Ni+9O4DJEYR9riVFvDT0YH+p984+grv013S5HDTPDoki+U3+i8qvqo6L
+	IDRhAE3Uz1xI45N6mBHjc8o9gAZ3/o7Y=
+X-Gm-Gg: ATEYQzwvBQyAJ09TZwUsmI7lLs7jsRtXQyyGzJ+H/Em99LAU4L9bGVCx1h9DsbvNqbe
+	mmJphoOIL+nfHtbGHQgkGdW9PallsB+F1VNRv9eLEPNXV0QVCJkMLaJJjtrb3CAfMmW3T4HRwYq
+	n0tekWo6Y6jRwX705m3FYSj55vkzDGA2AgedS2I7dXIAdHxvUsH+iIddmuRGsOi58lPRKgE2bKL
+	1Id5dMv8YR3rCKR8k84sQrP9KFYYf2yfqcVPIXbJSQsBezLSZd8jOqsivcHOcdQEmvHuP7GwjXB
+	prHBRiJ2svmBfrC00EDqlCP2lLF7T7+bRL+1pj4VLQ==
+X-Received: by 2002:a05:6402:1ecf:b0:662:a4d4:abe0 with SMTP id
+ 4fb4d7f45d1cf-663ba9c2abemr3063467a12.3.1773435835673; Fri, 13 Mar 2026
+ 14:03:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+References: <20260313180352.3800358-1-puranjay@kernel.org> <20260313180352.3800358-3-puranjay@kernel.org>
+ <CANk7y0jjd6XC7nd2BxtsVhs8vWp_9cC-ckXPGRQK_CW5BSuogQ@mail.gmail.com>
+In-Reply-To: <CANk7y0jjd6XC7nd2BxtsVhs8vWp_9cC-ckXPGRQK_CW5BSuogQ@mail.gmail.com>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Fri, 13 Mar 2026 21:03:44 +0000
+X-Gm-Features: AaiRm509-qHusHx4y7ZJiuiluPbpVvicudHEcA8o5FlqQsneTuZnsmCxW0jMUuM
+Message-ID: <CANk7y0iGmXCLNPJ=W4ZV9tRwWXXK4KmTATfV081kLX51RxJmkQ@mail.gmail.com>
+Subject: Re: [PATCH bpf 2/3] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_135553_398353_E9B740E7 
-X-CRM114-Status: GOOD (  42.64  )
+X-CRM114-CacheID: sfid-20260313_140358_497852_E015A976 
+X-CRM114-Status: GOOD (  35.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,185 +122,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Mar 2026 16:33:42 +0000 Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> On 10/03/2026 14:51, Usama Arif wrote:
-> > On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
-> > into a single iTLB entry, reducing iTLB pressure for large executable
-> > mappings.
-> > 
-> > exec_folio_order() was introduced [1] to request readahead at an
-> > arch-preferred folio order for executable memory, enabling contpte
-> > mapping on the fault path.
-> > 
-> > However, several things prevent this from working optimally on 16K and
-> > 64K page configurations:
-> > 
-> > 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
-> >    produces the optimal contpte order for 4K pages. For 16K pages it
-> >    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
-> >    returns order 0 (64K) instead of order 5 (2M). 
-> 
-> This was deliberate, although perhaps a bit conservative. I was concerned about
-> the possibility of read amplification; pointlessly reading in a load of memory
-> that never actually gets used. And that is independent of page size.
-> 
-> 2M seems quite big as a default IMHO, I could imagine Android might complain
-> about memory pressure in their 16K config, for example.
-> 
-
-The force_thp_readahead path in do_sync_mmap_readahead() reads at
-HPAGE_PMD_ORDER (2M on x86) and even doubles it to 4M for
-non VM_RAND_READ mappings (ra->size *= 2), with async readahead
-enabled. exec_folio_order() is more conservative. a single 2M folio
-with async_size=0, no speculative prefetch. So I think the memory
-pressure would not be worse than what x86 has?
-
-For memory pressure on Android 16K: the readahead is clamped to VMA
-boundaries, so a small shared library won't read 2M.
-page_cache_ra_order() reduces folio order near EOF and on allocation
-failure, so the 2M order is a preference, not a guarantee with the
-current code?
-
-> Additionally, ELF files are normally only aligned to 64K and you can only get
-> the TLB benefits if the memory is aligned in physical and virtual memory.
-> 
-> > Patch 1 fixes this by
-> >    using ilog2(CONT_PTES) which evaluates to the optimal order for all
-> >    page sizes.
-> > 
-> > 2. Even with the optimal order, the mmap_miss heuristic in
-> >    do_sync_mmap_readahead() silently disables exec readahead after 100
-> >    page faults. The mmap_miss counter tracks whether readahead is useful
-> >    for mmap'd file access:
-> > 
-> >    - Incremented by 1 in do_sync_mmap_readahead() on every page cache
-> >      miss (page needed IO).
-> > 
-> >    - Decremented by N in filemap_map_pages() for N pages successfully
-> >      mapped via fault-around (pages found in cache without faulting,
-> >      evidence that readahead was useful). Only non-workingset pages
-> >      count and recently evicted and re-read pages don't count as hits.
-> > 
-> >    - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
-> >      marker page is found (indicates sequential consumption of readahead
-> >      pages).
-> > 
-> >    When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
-> >    disabled. On 64K pages, both decrement paths are inactive:
-> > 
-> >    - filemap_map_pages() is never called because fault_around_pages
-> >      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
-> >      requires fault_around_pages > 1. With only 1 page in the
-> >      fault-around window, there is nothing "around" to map.
-> > 
-> >    - do_async_mmap_readahead() never fires for exec mappings because
-> >      exec readahead sets async_size = 0, so no PG_readahead markers
-> >      are placed.
-> > 
-> >    With no decrements, mmap_miss monotonically increases past
-> >    MMAP_LOTSAMISS after 100 faults, disabling exec readahead
-> >    for the remainder of the mapping.
-> >    Patch 2 fixes this by moving the VM_EXEC readahead block
-> >    above the mmap_miss check, since exec readahead is targeted (one
-> >    folio at the fault location, async_size=0) not speculative prefetch.
-> 
-> Interesting!
-> 
-> > 
-> > 3. Even with correct folio order and readahead, contpte mapping requires
-> >    the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
-> >    The readahead path aligns file offsets and the buddy allocator aligns
-> >    physical memory, but the virtual address depends on the VMA start.
-> >    For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
-> >    granularity, giving only a 1/32 chance of 2M alignment. When
-> >    misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
-> >    any folio in the VMA, resulting in zero iTLB coalescing benefit.
-> > 
-> >    Patch 3 fixes this for the main binary by bumping the ELF loader's
-> >    alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
-> > 
-> >    Patch 4 fixes this for shared libraries by adding a contpte-size
-> >    alignment fallback in thp_get_unmapped_area_vmflags(). The existing
-> >    PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
-> >    libraries, so this smaller fallback (2M) succeeds where PMD fails.
-> 
-> I don't see how you can reliably influence this from the kernel? The ELF file
-> alignment is, by default, 64K (16K on Android) and there is no guarrantee that
-> the text section is the first section in the file. You need to align the start
-> of the text section to the 2M boundary and to do that, you'll need to align the
-> start of the file to some 64K boundary at a specific offset to the 2M boundary,
-> based on the size of any sections before the text section. That's a job for the
-> dynamic loader I think? Perhaps I've misunderstood what you're doing...
+On Fri, Mar 13, 2026 at 7:59=E2=80=AFPM Puranjay Mohan <puranjay12@gmail.co=
+m> wrote:
+>
+> On Fri, Mar 13, 2026 at 6:04=E2=80=AFPM Puranjay Mohan <puranjay@kernel.o=
+rg> wrote:
+> >
+> > Implement the perf_snapshot_branch_stack static call for ARM's Branch
+> > Record Buffer Extension (BRBE), enabling the bpf_get_branch_snapshot()
+> > BPF helper on ARM64.
+> >
+> > This is a best-effort snapshot helper intended for tracing and debuggin=
+g
+> > use. It favors non-invasive snapshotting over strong serialization, and
+> > returns 0 whenever a clean snapshot cannot be obtained. Nested
+> > invocations are not serialized; callers may observe a 0-length result
+> > when a clean snapshot cannot be preserved.
+> >
+> > BRBE is paused before the helper does any other work to avoid recording
+> > its own branches. The sysreg writes used to pause are branchless.
+> > local_daif_save() blocks local exception delivery while reading the
+> > buffer. If a PMU overflow raced before that point and re-enabled BRBE,
+> > the helper detects the cleared PAUSED state and returns 0.
+> >
+> > Branch records are read using perf_entry_from_brbe_regset() without
+> > event-specific filtering. The BPF program is responsible for applying
+> > its own filter criteria. The BRBE buffer is invalidated after reading
+> > to maintain contiguity for other consumers.
+> >
+> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> > ---
+> >  drivers/perf/arm_brbe.c  | 70 ++++++++++++++++++++++++++++++++++++++--
+> >  drivers/perf/arm_brbe.h  |  9 ++++++
+> >  drivers/perf/arm_pmuv3.c |  5 ++-
+> >  3 files changed, 81 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+> > index ba554e0c846c..db5e000b2575 100644
+> > --- a/drivers/perf/arm_brbe.c
+> > +++ b/drivers/perf/arm_brbe.c
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/types.h>
+> >  #include <linux/bitmap.h>
+> >  #include <linux/perf/arm_pmu.h>
+> > +#include <asm/daifflags.h>
+> >  #include "arm_brbe.h"
+> >
+> >  #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
+> > @@ -618,10 +619,10 @@ static bool perf_entry_from_brbe_regset(int index=
+, struct perf_branch_entry *ent
+> >
+> >         brbe_set_perf_entry_type(entry, brbinf);
+> >
+> > -       if (!branch_sample_no_cycles(event))
+> > +       if (!event || !branch_sample_no_cycles(event))
+> >                 entry->cycles =3D brbinf_get_cycles(brbinf);
+> >
+> > -       if (!branch_sample_no_flags(event)) {
+> > +       if (!event || !branch_sample_no_flags(event)) {
+> >                 /* Mispredict info is available for source only and com=
+plete branch records. */
+> >                 if (!brbe_record_is_target_only(brbinf)) {
+> >                         entry->mispred =3D brbinf_get_mispredict(brbinf=
+);
+> > @@ -803,3 +804,68 @@ void brbe_read_filtered_entries(struct perf_branch=
+_stack *branch_stack,
+> >  done:
+> >         branch_stack->nr =3D nr_filtered;
+> >  }
+> > +
+> > +/*
+> > + * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
+> > + * self-recording and return 0 if the snapshot state appears disturbed=
+.
+> > + */
+> > +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, =
+unsigned int cnt)
+> > +{
+> > +       unsigned long flags;
+> > +       int nr_hw, nr_banks, nr_copied =3D 0;
+> > +       u64 brbidr, brbfcr, brbcr;
+> > +
+> > +       if (!cnt)
+> > +               return 0;
+> > +
+> > +       /* Pause BRBE first to avoid recording our own branches. */
+> > +       brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> > +       brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> > +       write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> > +       isb();
+> > +
+> > +       /* Block local exception delivery while reading the buffer. */
+> > +       flags =3D local_daif_save();
+> > +
+> > +       /*
+> > +        * A PMU overflow before local_daif_save() could have re-enable=
+d
+> > +        * BRBE, clearing the PAUSED bit. Bail out.
+> > +        */
+> > +       if (!(read_sysreg_s(SYS_BRBFCR_EL1) & BRBFCR_EL1_PAUSED))
+> > +               goto out;
+> > +
+>
+> The code below doesn't implement filtering, I am currently trying to
+> figure out the best way to implement that by reusing
+> read_branch_records() somehow.
 >
 
-I only started looking into how this works a few days before sending these
-patches, so I could be wrong (please do correct me if thats the case!)
-
-For the main binary (patch 3): load_elf_binary() controls load_bias.
-Each PT_LOAD segment is mapped at load_bias + p_vaddr via elf_map().
-The alignment variable feeds directly into load_bias calculation.
-If p_vaddr=0 and p_offset=0, mapped_addr = load_bias + 0 = load_bias. By
-ensuring load_bias is folio size aligned, the text segment's virtual address
-is also folio size aligned.
-
-For shared libraries (patch 4): ld.so loads these via mmap(), and the
-kernel's get_unmapped_area callback (thp_get_unmapped_area for ext4,
-xfs, btrfs) picks the virtual address. The existing code tries
-PMD_SIZE alignment first (512M on 64K pages), which is too large for
-typical shared libraries and always fails. Patch 4 adds a fallback
-that tries folio-size alignment (2M), which is small enough to succeed
-for most libraries.
-
-> > 
-> > I created a benchmark that mmaps a large executable file and calls
-> > RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
-> > fault + readahead cost. "Random" first faults in all pages with a
-> > sequential sweep (not measured), then measures time for calling random
-> > offsets, isolating iTLB miss cost for scattered execution.
-> > 
-> > The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
-> > 512MB executable file on ext4, averaged over 3 runs:
-> > 
-> >   Phase      | Baseline     | Patched      | Improvement
-> >   -----------|--------------|--------------|------------------
-> >   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
-> >   Random     | 76.0 ms      | 58.3 ms      | 23% faster
-> 
-> I think the proper way to do this is to link the text section with 2M alignment
-> and have the dynamic linker mark the region with MADV_HUGEPAGE?
-> 
-
-On arm64 with 64K pages, the force_thp_readahead path triggered by
-MADV_HUGEPAGE reads at HPAGE_PMD_ORDER (512M). Even with file and
-anon khugepaged support aded for khugpaged, the collapse won't happen
-form the start.
-
-Yes I think dynamic linker is also a good alternate approach from Wangs
-patches [1]. But doing it in the kernel would be more transparent?
-
-[1] https://sourceware.org/pipermail/libc-alpha/2026-March/175776.html
-
-> Thanks,
-> Ryan
-> 
-> 
-> > 
-> > [1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
-> > 
-> > Usama Arif (4):
-> >   arm64: request contpte-sized folios for exec memory
-> >   mm: bypass mmap_miss heuristic for VM_EXEC readahead
-> >   elf: align ET_DYN base to exec folio order for contpte mapping
-> >   mm: align file-backed mmap to exec folio order in
-> >     thp_get_unmapped_area
-> > 
-> >  arch/arm64/include/asm/pgtable.h |  9 ++--
-> >  fs/binfmt_elf.c                  | 15 +++++++
-> >  mm/filemap.c                     | 72 +++++++++++++++++---------------
-> >  mm/huge_memory.c                 | 17 ++++++++
-> >  4 files changed, 75 insertions(+), 38 deletions(-)
-> > 
-> 
-> 
+So, I thought about this more and feel that we don't need to filter
+for a specific event because the BPF program is not associated with a
+specific event, rather it is associated with the CPU where it is
+running, So bpf_get_branch_snapshot() should return the branch records
+from the PMU of that CPU. Now, if there are two events on that cpu
+with different branch filter types, let's say
+PERF_SAMPLE_BRANCH_IND_CALL in one event and
+PERF_SAMPLE_BRANCH_ANY_RETURN in another event, the perf subsystem
+configures BRBE to record the union and then does per event filtering
+in software (brbe_read_filtered_entries()), but the BPF program should
+still return everything that was recorded on the CPU, which this patch
+is doing.
 
