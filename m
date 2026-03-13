@@ -4,117 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D3F105F785
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F19105F781
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 09:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zhdSL5TZ0+7QU3R0xnxIo4ImepctE4X0d6M5LPIqcs=; b=XqKijX5VRmPcgjGrcbZRxOrd/6
-	JUZqq6CsXJvMt+9UaZ36Ma19gVW0plAUSQXB0IaQQxza6/009QOXHDIGBn+vhGC054gsKmMNoSyQY
-	q7KKaa4ouWbI8nkW9reRszyMK6Lscpl29f+e1wGKX98gHk1aguyYdSmvC/+HHZOCpNbIEl0Q9ah8J
-	u4vLM1tQktmrbpDLJBYXWN8ZP/E2ujvlQr2ro8jV0tYZpxOytb7C2J/EPQ1u8HK14z2o7Xg/ywdLr
-	UqBEROU3A00mpW9nBW/xqkrlpmfbjP5qBu0HjLkVm9ExRMPc9FeiDEIiI2kC2CvxX3OV6pXbBGIpb
-	7sWKi/wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MeXmCnU6DkpJjDmOkF4Kl8YHcZPKKCKszdRslHD03ME=; b=LvQ4VcKUKsCmiptFOv6De/CnxK
+	RkySfIOcwBvMZl7SvBUJmgRpHrLOwIJCGPTnj17fGUFqj0lqoNaM9xckVcuyRM7faOp6zh8zfcnvi
+	HoosrK62oKxOt7szaAtjLrpQw7Lvyq4BAhJqxacoUtEyvCoJy5FlldC+ej8Y5EpZr5FB3CvDPr6jX
+	ykdHHFB4TdbFfodKfbzQjQEx/5l7W0o0xC5SfiVvNue7FQ+rDb9x0Q+ZnFoE5oUFNAoQljE8IKwWB
+	cCH7aZ+dfChK5bMVu81Wo7whTdGDgvY+p0lu1f7tUPSdaF9MP0YNOCFkHKvUdFfOcDYPhPYMrjk1O
+	YMv9SM3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ynC-0000000HNw6-3DF6;
-	Fri, 13 Mar 2026 09:26:50 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1w0ypN-0000000HO9E-37MI;
+	Fri, 13 Mar 2026 09:29:05 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0yn7-0000000HNun-3sPy
+	id 1w0ypK-0000000HO8t-2TtD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 09:26:49 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b940f962a82so305369066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 02:26:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773394004; cv=none;
-        d=google.com; s=arc-20240605;
-        b=k3bqXI6sGQq5M+Pw1ZasQLK08mkcP/hzQakaFjkaYj2KPF1QOpxDwbBmpTy4w4kHMU
-         Q6oVMrmGxBLcPuFaWsmstTdl4ITQHiISt4H8iDfQhOkEKE4gC01Q1ADiRBzlLkJ0Ns5X
-         41eCaBTbH1Nd/f4zoN9lW4gz34DBi8/ckqBa6sTkxSMc9NNxs7Lmqo0orfmEJKpvlDC9
-         d09pkkzOJAMxIngNSVkvHX2cqdfB4GT0XrawC9Uf/g0HMgIY8lEB/xVbpGLGHp6+bQUx
-         gWGSMTsIwZ7aL3bwcvax5EGSletwcsEV7yHdx4EmDYUwFDHjx9KDwI9/Zf5ZUORDggaV
-         X/2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9zhdSL5TZ0+7QU3R0xnxIo4ImepctE4X0d6M5LPIqcs=;
-        fh=1Wa2KAzUOmjNAX0ndvMaY1oii9RhFaQsC8aRQ+C1CbI=;
-        b=EdwaOhCAxxSCTLaOZaepKLiPicCzm/w2hGkLTp5yDduex2a3aURalLYAPdR4RKLByW
-         KpwDKLz9DZSB3225gomf2rz3l/07AXmTXgzOGJAz1HuDDRftggjgUl8Lm1rTRP8OYgHH
-         1nDehm4Oti81AjNikaFCWLml2ayDf7aiohyLlrqfqWMkS6803NM/oKDxb4qUNa9FgYbt
-         TeDfP6uGifhtfzvH9lgYdVca5LfFrR2254BiIXF3Vg+wb0zyJL6lS0LQl53JUO+GxoGm
-         QJXYeBg4Ned3YTEkbkE5w2URA9h2y/cpV8GxyFMmKtB2lOlm3PQpq85z9haHjHdDnXwh
-         duHg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773394004; x=1773998804; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9zhdSL5TZ0+7QU3R0xnxIo4ImepctE4X0d6M5LPIqcs=;
-        b=ANjJGJbSUBJUhRnm0O+cjwb0AXQ3/xMWF2gsh5u6l2gx41glNeWMorAWuiWyqjK6Ip
-         RRbPdExpHIcdgURrx9uixdkQTf5Yc4WBlfZ9Ibv6zlGTSO//ey5P8JeEORrLj6lspg66
-         6C+tBVdAR/BT0bvC2N2pfMZrDhiK2Qbctaa7gNL/aAMCvPRb5lZYdn9jUWB6oVp15tj+
-         Xy3N47ZOs+oIU5IcF2CasrrqRpTujaH7RgfDWbbi89YMnKA9veByZK4d3oEbhfs8g7HP
-         W3aUYIYgXxlYydTJprZ+IpbBR5wcrrPe1YILzqQzjVVHbwTOW1weVtoTIfv6kIw8SD4s
-         NdkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773394004; x=1773998804;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9zhdSL5TZ0+7QU3R0xnxIo4ImepctE4X0d6M5LPIqcs=;
-        b=POOo0j0eH9mhEf1vvQdDlgRhiLevFufjuN881a9Z5Fe/hpVqP0pUE5kPfnmOQp+ryy
-         yAnoVTq3Ua9t+uTtG/GGwJcgWtyxxfZlV0dzRYh3F7rRMGJXNZJRkYLsMB+3+KQNgP2K
-         qlkQ21vJ/4XoqG9bysXv8yBYuS8oxBBfUq3R522ljNKin850q1sRK+p789A5pyhcp2MS
-         XeMUnzn0q/G0HJiVLLnT9kO5Dk+KPhYtyca2LeWmo4S+DsW7dFr3DyPyrGakNp0cVeZB
-         Rmv52aB7k5cGVLMxAm1hHa0rv9ly0UjpuI6+lsU1Mv9dgPVlOaoSle5ib+fW2z5uw/nn
-         D79w==
-X-Forwarded-Encrypted: i=1; AJvYcCXsG3bAfiDp7cRDcF28TZZyF3MG6+sYwOBL+UtflVqR/7OnU6PPAEvZebMuTRGyCLD8iq29JWpIoJ6H8rsdi67a@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuVsWdkyZ4QGErAXgVR+PDPEYiIWj9w6Hv0a95p0kwXCIbam0P
-	C+toET0a0BrT8e/D+9BmNyQgh4N4LLmmoMBzg9ZGb2caUhtxuwJDH6n8qtgRxwMsGfM1p764nvJ
-	cZ2meRV3No5iNm+aAuUKf41tV/YItBW8=
-X-Gm-Gg: ATEYQzwC0Ukadjdls7ldZBtFGxEfONhRLHE2sdhyLadxnbqnbHJkStuF2VRFIZ+pfp7
-	2jvtNrdX9gmBiMoK5Ce8HWLWU/T+yRq2RDV7lya//Mq3RNGU1LAaLDiBuS5AAGLqFEV0CewUWg8
-	QMMGc307B/DvTSbgB9T3tIEwOZLCKtsqhSd7vlYVZs7GlgIg/bW6C96yYg95tU07D/8cUiCOeJt
-	F2J8Io3NRirrQyH6T0TFjUx+uATHsR2MQZ4mFxR6W83XE8n8dTAKmaaJQSbHIffN/Kza6ToE/+o
-	241Yqg==
-X-Received: by 2002:a17:907:6d24:b0:b95:53ff:5e00 with SMTP id
- a640c23a62f3a-b97651ec2fcmr160615366b.58.1773394003605; Fri, 13 Mar 2026
- 02:26:43 -0700 (PDT)
+	Fri, 13 Mar 2026 09:29:04 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5421E4E42680;
+	Fri, 13 Mar 2026 09:28:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24B3960027;
+	Fri, 13 Mar 2026 09:28:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B88510369555;
+	Fri, 13 Mar 2026 10:28:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773394138; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MeXmCnU6DkpJjDmOkF4Kl8YHcZPKKCKszdRslHD03ME=;
+	b=EDn0BA/Np4DWs10goVewjq2nRwiiWAdgjN1OO52/TU46cKug/fB4LXKFTooud2iCJ7WFAM
+	yIAqT5YepKsqHa3lrxEd2DYfzm88Ky+XC84kZzE9B4R3bS6R56Sv7e1wj5kDnUseMs9IMw
+	bMD4qaRz3DmyYibHFl4Av5D6gVIKWihqomEPUaQboC2wXM6LGTD5GTr2czSHmtcboZ60iT
+	qkNfahVXekJOPEc3EdTw4x8WOzD5nghJWlItGidksZkOhgDvHzAjqQXjpumqlGJODE54AU
+	VnuUg8GSyjAjb/C6lVv1uwlwKe/lLeOVbZkKqXjuwLgK8CNsfPaz8ZcogAFaUw==
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>, Frieder Schrempf <frieder.schrempf@kontron.de>, 
+ imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Frieder Schrempf <frieder@fris.de>
+Cc: Annette Kobou <annette.kobou@kontron.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+In-Reply-To: <20260309085749.25747-1-frieder@fris.de>
+References: <20260309085749.25747-1-frieder@fris.de>
+Subject: Re: (subset) [PATCH v3 0/2] Kontron i.MX8MP OSM Devicetree Fixups
+Message-Id: <177339410764.2782875.6884612032294375531.b4-ty@bootlin.com>
+Date: Fri, 13 Mar 2026 10:28:27 +0100
 MIME-Version: 1.0
-References: <20260226101032.1042-1-linux.amoon@gmail.com> <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com> <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com> <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org> <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
- <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org> <7b5592e7-8a9d-2cf0-bb3e-e306a6337165@rock-chips.com>
- <CANAwSgTaZqsHYXD_ACkJGGLgk4knc7N72f4qrJaaenE-cXM8BA@mail.gmail.com> <DH0S7TSFKDJV.2YPSBH9F142LL@kernel.org>
-In-Reply-To: <DH0S7TSFKDJV.2YPSBH9F142LL@kernel.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 13 Mar 2026 14:56:28 +0530
-X-Gm-Features: AaiRm53rZCLp_kErJJxBMXMWmeLwePiSPPATSICps4w1XibNQCvpnT-mxDnWsvY
-Message-ID: <CANAwSgQCQ4z7p7Z8qe2mRqUY7zKe0w0wE+1RfYtD4NePzoit3A@mail.gmail.com>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Grimmauld <grimmauld@grimmauld.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=439;
+ i=alexandre.belloni@bootlin.com; h=from:subject:message-id;
+ bh=nYRFnLPrTONi7U7O1Enq4WB5OEJpZYPZGRPBstu1j9I=;
+ b=owEBbQKS/ZANAwAKAWOk3DBscDoyAcsmYgBps9jI1uZM7eWpDS8rTcWpBXfEtGRKFhN+YxZMF
+ yZmooD0hC+JAjMEAAEKAB0WIQQGqwVVleHyz/Q7kmJjpNwwbHA6MgUCabPYyAAKCRBjpNwwbHA6
+ MlhnD/4+HCdR7zX8Z+uBkvQwNxwW1gwSrniKNKkxjYztDiGeFGH7NWiLecjKwfqw/TYsvqY1Fz8
+ y4GeFdusQtmplFJ90uqQ/2Oq7u+bgsM2p8O8LtEfdToqpnnm+lEiWfEOLG1J8cq63h5yhFeJdM4
+ tvh97+PxquzdrOD3xSCTy8oUKUssqKPMzLpgifgYSysrdvvY6+vxv8lqD1fBeGEDFf4R80bH47G
+ HX9suO2A1Jhjlf/n/3/c/LiHS2/lqfFpWpdiQ74xBIwMgXgNiqlJFm795Qr6OkWZ3ljxqrU+tUA
+ maQ6I5l+B1Ep1IuGmNO6xLVAd+Gwza2isxomF4Ik05JhNufWiajlw0CDO1TepHh+8jRFqr5EtMo
+ yK3f2PrXfqo0VZDf6E9TFtrtXc6WjGj5ARogE5EzKBaRltlsNKotm0YxiI95ioS50GQ/gTYaCr3
+ 1841EXYY3o8BX0vun2h93YRkVvxE8T678hc5olnnHMietCfNg+MhPGaEo1g5x4oP2cptZKdL/o3
+ dg2nKsnazMcGYv4dDgknywEWYT/cHIT/eoj/DBom5Np0Xm2pghaYqDWBgoOtWrqeWFO7pLM95Nl
+ wS75hU/bnsNrEi1Oua69YS1072MxINGSSadX0s/HOL8xm9+VDFB2fVJF1QsV7KSaJRn1Iv9x8IU
+ pQNUThWh9LI9KRQ==
+X-Developer-Key: i=alexandre.belloni@bootlin.com; a=openpgp;
+ fpr=D42657F65BEB9D45A004FCFAA6CD9F096F642CB3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_022647_101339_64F9BC14 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260313_022902_769800_FA1758BD 
+X-CRM114-Status: UNSURE (   5.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,20 +100,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Danilo,
+On Mon, 09 Mar 2026 09:57:41 +0100, Frieder Schrempf wrote:
+> Kontron i.MX8MP OSM Devicetree Fixups
+> 
+> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+> 
+> This contains three fixes and one cosmetic change for
+> the Kontron i.MX8MP OSM devices.
+> 
+> [...]
 
-On Thu, 12 Mar 2026 at 17:24, Danilo Krummrich <dakr@kernel.org> wrote:
->
-> On Thu Mar 12, 2026 at 12:40 PM CET, Anand Moon wrote:
-> > I've reproduced the issue on my end. Following Danilo's suggestion,
-> > I used PROBE_FORCE_SYNCHRONOUS to resolve the warning.
->
-> I did not propose to add PROBE_FORCE_SYNCHRONOUS, I just noted that we should
-> not force all subsequent drivers into async probe() by adding
-> PROBE_PREFER_ASYNCHRONOUS before the issue is resolved.
+Applied, thanks!
 
-My apologies,Thanks for clarifying. I misunderstood your point.
+[1/2] dt-bindings: rtc: microcrystal,rv3028: Allow to specify vdd-supply
+      https://git.kernel.org/abelloni/c/10663044bee5
 
-Thanks
--Anand
+Best regards,
+
 
