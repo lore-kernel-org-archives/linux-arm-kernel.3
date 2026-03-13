@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DB7107BCEA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 22:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BBB107BCEA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 22:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRiEXXMW9kfULB090ZSYP9P0h3HCzweXbhfUPZ3LHvI=; b=LriDQvRopUnYg2zZz7FckTxoSy
-	ACjbIiyy9A+Y61oIxpwA4pfp21RTQT0JSV0lsFmkb+PHXDIiCNfzgXr2xs2CpfCZ4SfkpLpUbQnu2
-	WTJl8d7iyok91lXi0/0uJKmZp+goKfYwmj88I5y6aNKeHvhP6N1cxVEVhZ42F6dCuWXsyBetNB3U5
-	+uYAk8F7oTSQOSR8w/hp28jqPEYUlQIiI7suygD48kT13/liTIPzeA9JtywKeA/xn6P5CjeXT3inF
-	0fF/oG2Y2IEu7Fmh4eEBb+1R3H17OXyJhPVqQ6t0W7/nBeW2hBO3L6HQQnXE8DhKbg/GFNzmMSAh5
-	cMmXqmRQ==;
+	bh=b+F+jCt1kFDUvR8I0HYpT4eKb3S23G0GKaNUjEuSXqc=; b=Gylsu4J9cHFjiYBvPWZXgY4gRW
+	OvnPhb+g/9wSCBW/xv5XeTePdcMbX0CK6YHmUebYOgou8s3+RXCcxmM5atzXS+yCDHAi8m5NgMBlQ
+	RrKrHBrhKzYtckVSFjcI5ii2fnB7IeiQCBQGyKL+XOj5a07vSfWfW+6SNWkmdod7Od9WY+S8rxJZB
+	5Z3bHcCglctf6a0yX5sum87QNfeWCWmoQ5p0iFFURcbekbM8lFoUqwx+j1ZApHOCK6m1+T7fqj8vK
+	IaXyiDInPiFtNGiwwqYn6ZV5byBeiA/RZYtmttIPFV/b+ADVL6O+ZvzLRWw8OWCCcI3h+l03M8mIX
+	zIx51eDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Atr-00000001GrF-46Tu;
-	Fri, 13 Mar 2026 22:22:31 +0000
-Received: from lpdvsmtp11.broadcom.com ([192.19.166.231] helo=relay.smtp-ext.broadcom.com)
+	id 1w1Aty-00000001GtA-3DS4;
+	Fri, 13 Mar 2026 22:22:42 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Ato-00000001Goi-2d2y
+	id 1w1Ato-00000001Gon-2mYx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 22:22:29 +0000
+	Fri, 13 Mar 2026 22:22:31 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id E4904C008F5B;
-	Fri, 13 Mar 2026 15:22:24 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com E4904C008F5B
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 19ADFC0005C1;
+	Fri, 13 Mar 2026 15:22:25 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 19ADFC0005C1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1773440545;
-	bh=m36zMtLCYP06krKPmSdQ8+ztwBDnNOvOGGjcu4ZqGvQ=;
+	bh=2hRxoXPHiiTTfcfjiyVMbqrDc68Jy2CknleYd+4iGqw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sFDD0SqIIafCvWJxVukPLk4yOOg7sOF0zYNtLhMRVN66M/ehrKZrnJUoHOCLHDy/Y
-	 9rGYMM9sfd+hzlPKg+c0GWlhb1dT3AFXXvYpz8742ZJ9V3juu6UlGnE6+mNQVh3qMm
-	 c1KrD64+mJnoIXUe8wO7fyAuAyj8PAyGN9HbsiQ4=
+	b=eM65V7JU0ki++LTx2bQ5be1ZdJoScWJ8H/gtIL68opfUUG1tPQB5jrBUvcX22RiIw
+	 7iNubcPOj0CjDbj8+Of8nH5eUh6Phnt5F9Pju/sbTAj04jy5b+EwyFulXoiR0mNj4O
+	 PP5I/4NkzNU0fLoMH7bZNL4AtI2jj3CcBBTA4Uqg=
 Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id DD434B91;
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id CA93DB7E;
 	Fri, 13 Mar 2026 15:22:24 -0700 (PDT)
 From: "\\Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
 To: netdev@vger.kernel.org
@@ -84,17 +84,17 @@ Cc: alexandre.torgue@foss.st.com,
 	chenhuacai@kernel.org,
 	florian.fainelli@broadcom.com,
 	quic_abchauha@quicinc.com
-Subject: [PATCH net-next v7 3/5] net: stmmac: Integrate dw25gmac into hwif handling
-Date: Fri, 13 Mar 2026 15:22:04 -0700
-Message-ID: <20260313222206.778760-4-jitendra.vegiraju@broadcom.com>
+Subject: [PATCH net-next v7 1/5] net: stmmac: Add 25GMAC core type to dwmac_core_type enum
+Date: Fri, 13 Mar 2026 15:22:02 -0700
+Message-ID: <20260313222206.778760-2-jitendra.vegiraju@broadcom.com>
 X-Mailer: git-send-email 2.45.4
 In-Reply-To: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
 References: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_152228_722900_A28D37EA 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20260313_152228_807233_201C0121 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,45 +112,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 
-Integrate dw25gmac support into stmmac hardware interface handling.
-Added a new entry to the stmmac_hw table in hwif.c.
+The DW25GMAC is a newer ethernet MAC IP block from Synopsys that introduced
+new DMA architecure called Hyper-DMA. Define a new dwmac_core_type
+enum in include/linux/stmmac.h file.
 
 Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/hwif.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ include/linux/stmmac.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-index 71dac8c1a3ca..d982dca394b5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-@@ -287,6 +287,26 @@ static const struct stmmac_hwif_entry {
- 		.mmc = &dwxgmac_mmc_ops,
- 		.est = &dwmac510_est_ops,
- 		.setup = dwxlgmac2_setup,
-+	}, {
-+		.core_type = DWMAC_CORE_25GMAC,
-+		.min_id = DW25GMAC_CORE_3_20,
-+		.regs = {
-+			.ptp_off = PTP_XGMAC_OFFSET,
-+			.mmc_off = MMC_XGMAC_OFFSET,
-+			.est_off = EST_XGMAC_OFFSET,
-+		},
-+		.desc = &dwxgmac210_desc_ops,
-+		.dma = &dw25gmac400_dma_ops,
-+		.mac = &dwxgmac210_ops,
-+		.vlan = &dwxgmac210_vlan_ops,
-+		.hwtimestamp = &stmmac_ptp,
-+		.ptp = &stmmac_ptp_clock_ops,
-+		.mode = NULL,
-+		.tc = &dwmac510_tc_ops,
-+		.mmc = &dwxgmac_mmc_ops,
-+		.est = &dwmac510_est_ops,
-+		.setup = dw25gmac_setup,
-+		.quirks = NULL,
- 	},
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 965ada809fdf..c8535476276b 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -176,6 +176,7 @@ enum dwmac_core_type {
+ 	DWMAC_CORE_GMAC,
+ 	DWMAC_CORE_GMAC4,
+ 	DWMAC_CORE_XGMAC,
++	DWMAC_CORE_25GMAC,
  };
  
+ #define STMMAC_FLAG_SPH_DISABLE			BIT(1)
 -- 
 2.34.1
 
