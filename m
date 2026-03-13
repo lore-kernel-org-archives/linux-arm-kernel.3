@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DBC105F7A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99D7105F7AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 13:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7w9iToPiAuzGu88WMIveHubY5MSgj9Fj9hiEM3gbv+o=; b=IefwZ/na4a0mhRzThIfNNgEiwV
-	+WMlodT1dY4g+1h1QNAeQRHbI6X1uYqPkZlGSAO5XKoEnHb9S+KIXG0sxruZXAGsg+N2Pkw4IA0BK
-	k0ui5GXP9WfvZi+JmKfF66VftxMWm37Tm/OaSuqD+YJKKmw0s9Q2PUAdrBJ22fLJ/ns+UVElYSWi3
-	wIjIKOrVcluaFYJh/J/TIknxJloJ2mnqOMbmG76QBImYT5sGOWHDphbOoAe3vjkyE9BgU3lmgU4yK
-	ZdUyjr4jaIh9AXHLTh5HGB8L3bpGf/YuN4IoRYnmAn3b4ADJY0x8iqzmS3P10YnIbxlbAaWDabwRG
-	a99fYDNQ==;
+	bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=; b=Cp9DLXeW0h+yIWUKj/hCQVs9oV
+	sIMPjSLgfd5KZp+HOmKrtjZLUXA3HLDRYn0buEavw1W3oFdTytd4cjCjlFPPKnMyoYmds5qCmrMRa
+	/FryCsC4LkEGENHcfoxg0qZg7apBl+O8IyhplGvmGeT1IVbqCLGtMDafv2GXYIXGklmIPMEve5tZr
+	qym5YQj9gyx4jFOl+13r1Umf+kmFSab/rVFH6KaeZqczP3+NYFWO/veisUdnNNKkP4sCNR8vHmsCB
+	xbeJanUiPi/HWE9slaofeQurEkcuP04Y6fAVcrTLA3N2n+mpVao8rmhl0ZdR3sETntXUka1Q20/ce
+	a3U6W3JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12XV-00000000EGt-0oFH;
-	Fri, 13 Mar 2026 13:26:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w12Zm-00000000FAu-11sT;
+	Fri, 13 Mar 2026 13:29:14 +0000
+Received: from mail-pf1-f169.google.com ([209.85.210.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12XU-00000000EF7-2rgo
+	id 1w12Zj-00000000FAQ-3Azp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 13:26:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E485660132
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 13:26:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B07AC2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 13:26:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773408411;
-	bh=AISdWu8eVoLKl2jhVTe4EddyX7ECqkH20VxhG1FYrSM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uwrZWzrVfHpeUB+OCnSFBHpLfCVLyREVSNNmz/haQVUWDBx/9Q45PkDIcCabwEMrh
-	 rW0sibNFp8LiS3AAQMM3pLJsOu3hOqtXdgwO5QZQ8a3zQfOO2ROh3Ow6+GAUfPjHli
-	 1/QcrcOuoJJE6AJdcvp5Wolly6LBX3lgsuLs+3AAajzMjC0k06Fhy0dxWdkWkAAudR
-	 gZ6IhX0uLw0hPQ06A/Ji2XdzhOkyua2YI9B+Pc1AmUaRA0E9fvmHsTxRDehDakfO03
-	 ImrQ6I1o8FjQ8QUq2ExbsnClXn1DUMdJUj5MyJEara0tYRvIDr1xRKjAkzHFZGPm21
-	 1aPPNpZ5lrY0A==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-661b08b04deso2438944a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:26:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV/GfanlqW/nHw/lY9V/e9Xlo73bbPlb1BImgycdrWAZhqAWlwczlh+ZvIvAPIIjfTMp7kVeD/9GQzucWynMpKA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzt4PcWsS/TwFOslFpZNJLuNiSHuHApIzp9Uxpy/L+3DwRiljye
-	qrMTkBT6QmhgciyhbVvu63U+iZkDqIzu+LVOV9qkez+ZIlTCW5/rT592aQacy+C4+6zz8LUXvdy
-	F0IxxfQJ2AiOp+BEPliC1lBLS8qw6Jw==
-X-Received: by 2002:a05:6402:1e91:b0:662:f822:d932 with SMTP id
- 4fb4d7f45d1cf-663babbef8fmr1820274a12.15.1773408409847; Fri, 13 Mar 2026
- 06:26:49 -0700 (PDT)
+	Fri, 13 Mar 2026 13:29:12 +0000
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-829865a8471so2064324b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 06:29:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773408551; x=1774013351; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=;
+        b=nnNs1v1GqgeYTVVjYapQYRGytHSYBJGlq4n63zn/vysFViZGlZTLYHg1dkAeOE3BWI
+         NDZ2KVTE3XT1lPtgPHM4JKsAHBHhMYGij4Ht5CBYQZlEzK+ofwqzorBNCewS4I7yLt7L
+         4qb/hBD5SAtZS/SKaASXLiA9EIytlK36am23NOHKaQ+1+vrMZTP8XK+MsjQfuL1Tn0Ch
+         NKTj9naiolixjqMi2uzfERNd5wq/ojhy7Ry2nent78IZkfq18X5VkgJCPpSmoUiLTgsG
+         s2i8SWrHSdZTVwAnk2eBrDnEbuR/L8VuQtjzfMpPpF2LVZ/0RBJozZbxBCUakdWHa7eW
+         HzwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773408551; x=1774013351;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ajhis7YBLb7dOjMFcfePYTC4MgS14P3pGiFFUMVogos=;
+        b=fjxs0Ym8bJJylyuspvqast6YAGCVeSx8KzeqMMYGbteB92AnjS7KXb+qq/R4MtvB4K
+         gUy3JTl9t7UMfwAkgku2sIChsxKfxkMmHDbNhfzWEDF3RpeebvY9WYuG+zLJYP9+Mdvh
+         nzmOdryIgaKZXmXFwn/dwmRCjj9SHAxbBR/Uqk2hyV79Dy0PI0yzcbLH9emVNZ5iXd3L
+         b/OUzFathZxE18Q43WwZQN5yw73zFFWVIEnYxQfj2EQUEP2XTA+Lu9lGNbv0NhDgdvqy
+         p/USSwjeEyR+VdGQmqVX3kNE91YlhCBahFMSW6jm3HYVhz2R4W4j4a3eKo230x308rJT
+         nmJw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvq08VGGXJX0l10UPzaaxjzwqavXxg/+ku+T6IUkWqeTa6sQaAEZw268eh0JcnazbDI0LV6N8LYPUl0J3uyt8t@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6IYNGJQG6yAa5V7WhLOU50fZt+YCdTtYD6zKoG0PeYX4ny1lT
+	y0qhD4q56OylvxvbvuxId5GsnX7XKz+pPDGGItFxezGVx6JU82PYSwOK
+X-Gm-Gg: ATEYQzxE4ILS6wA4H86/zftJh2hH3IT73bZcj8Or2cLgg/aeuOfNvyiEdeQM5Z3xLvD
+	kfJWtgmoqyqlmuuLx9mDJV0gKA5hcVb16uV1+NQqG3mNi445TbGObR0LXLwL2MI9X2qwtTwT2n5
+	c3zQL7vyK1YfIhlx9mBHApbsd8FROP4AvacQNnZRFVI8ZeEg3vkfAEFbaVbIMwlwjnKnz1TcpdK
+	XZ6wMf/S0nEg2MtbAMaO3XY+a6Tiy1ahvtF03TET0FPGZ6NkXlKMLZnjP2R3hb3xknuVRUnZJWS
+	IeZ6VEIp/1yVYW8tScojQtG60GAACyuKsg9euGWyQ7NmVOF47WlA8k5r7I32MgaCaFiDc68Z8eh
+	AdDcFeO9fqi7+pmaDR2M2XNGHUvtxlgDMy8aQgRw9RDYEevIH9SUZuWklYSvmXCrOJoWIgPb3pl
+	Jp24TqXiSJYKZD2ZnfU4+PGhGO4iyooC8u4/1WG8K8pMFMfb9nKYKCs6E=
+X-Received: by 2002:a05:6a00:94e3:b0:81f:9b09:ad02 with SMTP id d2e1a72fcca58-82a196f589emr3056858b3a.1.1773408550556;
+        Fri, 13 Mar 2026 06:29:10 -0700 (PDT)
+Received: from [192.168.1.5] ([27.7.215.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a0738bca8sm5870880b3a.60.2026.03.13.06.29.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Mar 2026 06:29:10 -0700 (PDT)
+Message-ID: <db8639c3-c7b1-446f-b178-d1e47fae776d@gmail.com>
+Date: Fri, 13 Mar 2026 18:59:03 +0530
 MIME-Version: 1.0
-References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
- <20260306-gs101-pd-v7-4-03f7c7965ba5@linaro.org> <20260312151228.GA3136988-robh@kernel.org>
- <da0726da3e59d83985650e8281ed945018a356e4.camel@linaro.org>
-In-Reply-To: <da0726da3e59d83985650e8281ed945018a356e4.camel@linaro.org>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 13 Mar 2026 08:26:38 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKeSimB6OYFzOk2tWy-nbFez3qRwWrc=yD8uKDALYP8pA@mail.gmail.com>
-X-Gm-Features: AaiRm50TuMWj7Ra8O56XpkSkM3G2RRk4u3p-yrp2uk72zHKmMKKqGtQffs4TDX4
-Message-ID: <CAL_JsqKeSimB6OYFzOk2tWy-nbFez3qRwWrc=yD8uKDALYP8pA@mail.gmail.com>
-Subject: Re: [PATCH v7 04/10] dt-bindings: soc: google: gs101-pmu: allow power
- domains as children
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/5] dt-bindings: usb: atmel,at91sam9rl-udc: convert to
+ DT schema
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Herve Codina <herve.codina@bootlin.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260307-atmel-usb-v3-0-3dc48fe772be@gmail.com>
+ <20260307-atmel-usb-v3-5-3dc48fe772be@gmail.com>
+ <20260308-cherubic-misty-cricket-80fad0@quoll>
+Content-Language: en-US
+From: Charan Pedumuru <charan.pedumuru@gmail.com>
+In-Reply-To: <20260308-cherubic-misty-cricket-80fad0@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_062911_802678_6A08CCBC 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +110,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 5:48=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@l=
-inaro.org> wrote:
->
-> On Thu, 2026-03-12 at 10:12 -0500, Rob Herring wrote:
-> > On Fri, Mar 06, 2026 at 10:29:55AM +0000, Andr=C3=A9 Draszik wrote:
-> >
-> > >      system-controller@17460000 {
-> > >          compatible =3D "google,gs101-pmu";
-> > >          reg =3D <0x17460000 0x10000>;
-> > > +        #address-cells =3D <1>;
-> > > +        #size-cells =3D <1>;
-> > > +        ranges;
-> > >
-> > >          google,pmu-intr-gen-syscon =3D <&pmu_intr_gen>;
-> > > +
-> > > +        pd_g3d: power-domain@1e00 {
-> > > +            compatible =3D "google,gs101-pd";
-> > > +            reg =3D <0x1e00 0x80>;
-> >
-> > I'm assuming 0x1e00 is an offset from 0x17460000. That's not what range=
-s
-> > says though. It says both addresses are in the same address space
-> > (system-controller@17460000 parent's address space). You need:
-> >
-> > ranges =3D <0x0 0x17460000 0x10000>;
->
-> Thanks Rob! On gs101, the PD driver can not do direct mmio. Instead it
-> needs to use the regmap that the parent has created and apply the
-> offset from the PD's reg property (using struct resource::start)
-> (patch 7).
->
-> When using ranges as per your suggestion that doesn't work anymore,
-> as resource->start isn't the offset anymore but the final physical
-> address, and using that in combination with the parent's regmap
-> doesn't give us the right address anymore.
 
-You are mixing kernel implementation details and h/w. Are the
-registers in the child nodes MMIO or not? If not, then drop ranges. If
-they are, then what I suggested for ranges is correct.
 
-For MMIO, your kernel implementation options are what you suggested,
-do a regmap for each child, or use of_property_read_reg().
+On 08-03-2026 14:59, Krzysztof Kozlowski wrote:
+> On Sat, Mar 07, 2026 at 09:16:22AM +0000, Charan Pedumuru wrote:
+>> +
+>> +  reg:
+>> +    maxItems: 2
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    minItems: 2
+> 
+> Drop
 
-Rob
+Sure.
+
+> 
+>> +    maxItems: 2
+>> +
+>> +  clock-names:
+>> +    minItems: 2
+>> +    maxItems: 2
+>> +    items:
+>> +      enum: [pclk, hclk]
+> 
+> No, list the items instead. Why is this flexible? Nothing in commit msg
+> explains that.
+
+Some of the DTS files use those clock-names in different order, I will write this in the commit message.
+
+> 
+>> +
+>> +  atmel,vbus-gpio:
+>> +    description: GPIO used to detect the presence of VBUS, indicating that
+>> +      the USB cable is connected.
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - clocks
+>> +  - clock-names
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +    #include <dt-bindings/clock/at91.h>
+>> +    #include <dt-bindings/gpio/gpio.h>
+>> +    gadget@fff78000 {
+>> +        compatible = "atmel,at91sam9g45-udc";
+>> +        reg = <0x00600000 0x80000
+>> +               0xfff78000 0x400>;
+>> +        interrupts = <27 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +        clocks = <&pmc PMC_TYPE_PERIPHERAL 27>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
+>> +        clock-names = "pclk", "hclk";
+>> +        atmel,vbus-gpio = <&pioC 15 GPIO_ACTIVE_HIGH>;
+>> +    };
+>> +...
+>> diff --git a/Documentation/devicetree/bindings/usb/atmel-usb.txt b/Documentation/devicetree/bindings/usb/atmel-usb.txt
+>> deleted file mode 100644
+>> index 12183ef47ee4..000000000000
+>> --- a/Documentation/devicetree/bindings/usb/atmel-usb.txt
+>> +++ /dev/null
+>> @@ -1,125 +0,0 @@
+>> -Atmel SOC USB controllers
+>> -
+>> -OHCI
+>> -
+>> -Required properties:
+>> - - compatible: Should be "atmel,at91rm9200-ohci" for USB controllers
+> 
+> Why do you remove OHCI here? There is no conversion of this compatible.
+> Don't combine multiple different changes in one commit.
+
+I will remove each binding from the text file for each patch while converting them.
+
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+
+-- 
+Best Regards,
+Charan.
+
 
