@@ -4,132 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8F7105F7BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110AB103E305
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 15:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CfSqn97JrjW1Rq05tc0cDLF8mmwAwSh5iNqoltTNzYI=; b=qtvMSPTqsGKjchM6m57zoxH2FB
-	4VsmV7wBe7YMA3e2CFvhle7c/Oz1Fp5y4ZUe6yk+VfmlJMYm9eo+GnvD0akvg8p8NdMxhYtF0205G
-	EGpkVXa7QmuTFuETPHy7Zg0OpnCueZby4ZCqTZkJ3VMiv9XOkki5ns8GYweh1quj+PVirmCqjf6d6
-	QH6VvNCP82oWkp8YniWavIVPWOo0Faizl4zi1C0NRkppsugKJyI1e2wAePvfPxplqNEFms3NUcGR2
-	PLS2jOqjDGG/v2ygYupsQ7ds4Q5LCNVoFEUjcQNu3KJixDLdjoI8bkgEjFsOgklGYFTWoIUEcIEcD
-	3W/mzUMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MoF3QQCgUBtPBs0REwD2E8i1ubx1T9i27G2lzB3OK88=; b=hoW6ur2ZV1Y2r56YMFCoQDY0/T
+	kksmy4mwNZEmp52LLXgiM+lC9EkmwbiFvvjVbCFuqC0Hn5DwIBIn9NeQB1JpWsK4VS54leZfYMfE9
+	cFbyaRagOeCWYzVceRhYOS1xmT5sdHhD78YlAaonkRE+8K8Fw4aCHF3D45YNLaAOB73b28wyG2yzM
+	P1iz/IzVkyI1hhxJyFLRwpdwitw/PviYzwfGE2y/STXAZzaB+rTO5C3Ck3Zaqlri7HQYol3Ckd19e
+	OXKiPk1IBErZs5nQdmGMaVTm5HVQesKb6BTgZI42nmacWBayS1RhPP2ZwOaIwZNMTyp8JJ6txZ40O
+	fvb9gx7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14rk-00000000asX-0sQO;
-	Fri, 13 Mar 2026 15:55:58 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1w14tV-00000000b51-2wLe;
+	Fri, 13 Mar 2026 15:57:45 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w14ri-00000000asB-1F45
+	id 1w14tR-00000000b4Q-3vJH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 15:55:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yHDQWTzZ6cSZW4aOvtsVAFoOJSzTiOVNVSEWof0vB+G92x0xUTHIC95GFBc79fSjpfRuNrNeRBX8L+lqflKFpWlnXsWrXuemLTFfmAgWN7HwJJWhGpNxlx6WwKD27hTcL7nVBfUdcTLs7HvsBeKzaTg+VcXKJeZE4OQQkMNvyse3+bY3wLwHIRkaBmqY1ncmUpf6DrPo0Bip90FfdjhI0X+dWGGW6yAAqGiQvVVQjIB53Fy5GCueqSmSVvr9J5lpVOSQGiMpR9O8ATtXC3Nacc6Gtr1PlBV7RAssEKEIXNhd0QoYFhfh1ql58NSDWNIeEQ2/CwSDTO3njRLTBh8DwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CfSqn97JrjW1Rq05tc0cDLF8mmwAwSh5iNqoltTNzYI=;
- b=ZyLjAMoBy9cI7AqfUWoRMmUxEAFYieOHaOPlboCNOI0DwLOv6efIzJ6aRvt/MOC0Md9aSLNnyCF0+NVJmPfmMJ6iRMeMav1dY/tWBqL31Qa5UmPeOIEA3oUTuZMmOjjSPDkUSiFMoyvTRThFrPxNvI+5NyNJ5wjce4P+2xs1jmZM1UxvmKG7bt5bkpPYpqJr6bl6zxzqLAYzQwyxs+cxtcvgjIMZn/IOBx2FqopSXJg5ioU5WGIq1qWhC14MzhfYJN5eMf8m5z6CpHk37eKVeaNSmNluVi+nuTsXRDTFHhyiLB9uiUr02uv/QPOi7NynvkIJajpfbo/zSuq1W155zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CfSqn97JrjW1Rq05tc0cDLF8mmwAwSh5iNqoltTNzYI=;
- b=l45Eip459wUG/u5OPaNER2kn9BZ4PlnqgoYjwxeTUZS5NBss1X+eHf7JfjtZQPBWdVvSUetGlCDxe/qsn+SyHS4kf38THVPx+oRXAAtdVTR/OdKol8tP1jCk1Z7Vm28JOLfQ467gqo6lB+HibEkzLj9uIopvp2ySeBYkoLnSxeRco4F/q3tM2qTYpQm8Ajzw+mha/b0TUO4PO9kWS3RDZfGVDc/lLN+MOzyBCmUq4I2DxP4lHnCm2/dJHlmriJb1Pbmho2OkLHH3HgEaSUF8nmJWqTjiEglbYy8QOh4eqtRgn3N8hqYK2xQmGvW3t4NYGnE3P+dIXlO5Fv/eKN0rqg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB10898.eurprd04.prod.outlook.com (2603:10a6:150:214::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
- 2026 15:55:40 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 15:55:46 +0000
-Date: Fri, 13 Mar 2026 11:55:41 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v3 04/11] arm64: dts: freescale: imx8mm-var-som: Add
- support for WM8904 audio codec
-Message-ID: <abQzffCVdVFNvoZM@lizhi-Precision-Tower-5810>
-References: <cover.1772898346.git.stefano.radaelli21@gmail.com>
- <bb76d92b9bfb164827f53eafceada37fb3312145.1772898346.git.stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bb76d92b9bfb164827f53eafceada37fb3312145.1772898346.git.stefano.radaelli21@gmail.com>
-X-ClientProxiedBy: PH8PR07CA0031.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Mar 2026 15:57:43 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 83E241A2E04;
+	Fri, 13 Mar 2026 15:57:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5833C60027;
+	Fri, 13 Mar 2026 15:57:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7738210369F3A;
+	Fri, 13 Mar 2026 16:57:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773417459; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MoF3QQCgUBtPBs0REwD2E8i1ubx1T9i27G2lzB3OK88=;
+	b=huDnKXF9EG1bHiZ4YXebhCBw0dPf2W6er7dNNtRkaArdHgRrT8jEh127IBB19MiXk81bF5
+	OnVrgKgctALyS1COGZZe2ARL6jGIa11GP1jHUE20n6xNrDVwTpQ+B6t/YUAitT8vfZACi5
+	cGPE//aGd9FeAdsanFvOXqPTnvvWNI0USqJsZOPVsPR9UkMqmy/773aoVxIIh04ADLWZyk
+	VW/h9DwzmypPj88h6SxQJBhHipdrH1VQzWPkkqaHNLjAp4P9E2ELF+FRudAM4lVS8R+u3v
+	blynlo2Bbv3phdOWEtDoRgjcKilox3E/nxGZwlG8QpHx4PCt9OJfKco0GBRgRw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Gabor Juhos <j4g8y7@gmail.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' properties
+In-Reply-To: <41a42087-dc36-41de-a8f2-0c8b39425ffd@gmail.com>
+References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
+ <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
+ <874imug18l.fsf@BLaptop.bootlin.com>
+ <cacefc69-dba3-4ff6-a039-85fe35a91e0b@lunn.ch>
+ <41a42087-dc36-41de-a8f2-0c8b39425ffd@gmail.com>
+Date: Fri, 13 Mar 2026 16:57:37 +0100
+Message-ID: <87pl5767ta.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB10898:EE_
-X-MS-Office365-Filtering-Correlation-Id: 752c7e4c-848e-4319-39c0-08de8118fd2e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|19092799006|7416014|376014|366016|18002099003|22082099003|56012099003|38350700014;
-X-Microsoft-Antispam-Message-Info: hSXB38LSM7p5h3YGztzEDI5WQDQl0y5IqXM+d9uciDWpM0hdASHQPLKwhu5Bev3B+lkiDtZgddeAS2xV/I0LxI2pjN+tsXTt98flhUiypJiqlNvd9hfGCkWZ8hGwIM0qtysnXYy4OD4f5eBD6jCloqXy0exQHmnQJ8KdXMY3xtNA7fRnyCjO4ISEf4QUHSmMg08+8VKcO3i3xfbE7g9yzuwLr/CGLl544E34EGKYjLdN+8z6IuWScOGo/ufDFAD4LT2cVpSW2yDHuz2/yJUWYw+wxL9MSjn5DV6OqLIUp6nPOYJelTV2LIJxL0IDoT4JjE0pA/kszjcDHWek4G7AUIUTewATesXdIPOiSn6WlxTSYwsymzYEl8+ddf2yBro1R8wZok8T4PcoXBQwRQooJSRoMLF776GqcdTBG7v0/NCOsX9hF/0PjnKA4X6GSxooOO2OB84bwhlUj2fkpDcNHJXtpTJe5F8hRDd9wxbIQkBT9ftntt4u79/8yAHe1MXsslJUHy1dAljlQMac1XNcB7TF9ODIYr5oq5bThPtW8pj+Uth3rWLIkvX1yh3Xxye6+xTJ9vQlg111QeDu6QIAaPDbalofuw9gtsocWVz8eNLaJDUtdD1euLQKcXVh0aY//8IC8EiRhIQhyImUIKZRojyO2ZDAp0Sp7HWuttjF8uDtv66Su7LcsTAmbkUp3EkpQYxb9RQ5ZiOjv6FIePolEm6VOqM25vyu0qPwkibC3v8nRaN4ZE2n3VWH8NgxMeav9w3J4aXaDSMT+SWN1hRFFx59cYNbNb/fdmwZgCxcrGE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(19092799006)(7416014)(376014)(366016)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yXUmxk8PRdwg1RBfvA4Zc4C25KYa+u7/5EGce4bEqKmG/QzdTPSKbD4mDonJ?=
- =?us-ascii?Q?NlUODXFc3hF2AJMbWAPvCx2VVF9AOho7yparqm/IFcUm/qa/FrCM5NeCwPZi?=
- =?us-ascii?Q?01XMOq0n+8Ik79/2dqnaYNpY/NsJHfiEQ+7lSDWqi7qeRqpfyENRxZhI2sTb?=
- =?us-ascii?Q?AcxEAtFD1c4Eafj0du+/5zdUd4bzTL3JDh2vZZMpUMLqyPW/lysoXIjISsQw?=
- =?us-ascii?Q?PCdD+JmrbrRmnVqQiyKrmyY4qi+tV18GW0f9Sc0L0zS/+Atp1CwpGxGOJlwi?=
- =?us-ascii?Q?XNrm8wfL2DBVtcJRfu1l70A1ZSrpm6dPUT3R05N9MmiHZUlNtrfgmE+H3vDH?=
- =?us-ascii?Q?soTg6c70nZFVfYscK9lrzDQSlVG8bKF8hV4zsz/1BkuRVktCHBdTsERiUORB?=
- =?us-ascii?Q?HJDmIqcyF2ArNlrtMzfGJIdPcOp/ED93v9lBugIL9zHNWb10nv8eHr28oLDg?=
- =?us-ascii?Q?88IZJrkLWdukJ+JWqfptPlffPe7bkToW2Z1+lty6c9ax/uMiZET4S9pL+ve2?=
- =?us-ascii?Q?jVoTzVz0SlUCZboRORG1KeRsqG74KR5s/vrNCUXIm2bRgI1qT2ZCkBuXm/cc?=
- =?us-ascii?Q?bVAubg3u/cIqSNWKFJZWPvOUqBBPz4H2lHOQQveg5VMn5U6js0/X54akaOo3?=
- =?us-ascii?Q?Uehpc1Xzrx2yERST13sHDl8quTRiPYpDDvdIp2DMqzhc8YzvYX+ubgmOvqDe?=
- =?us-ascii?Q?ob+pRbQNUSq6SLY+WQLyPzmkHCkHbykj/T1V9x/OYhPofP8FUbUpoUyqYNvD?=
- =?us-ascii?Q?Vjpe9LGQYTZfTywa7sVELwwro9Jip3K5xNciIi9Cqwn19TKYjaPXOoyoiYN5?=
- =?us-ascii?Q?vHLUxqXhrJ79V5Vd7NAk7DjNMCVNSiIp0D8rfeGtiZvPlu/oetTuOnjYfh38?=
- =?us-ascii?Q?pmhq9r/c/SexEyQEAq55S1jZsB2Do3klR1mjfF7TWpFz1Qo1M0ogttPzRBRD?=
- =?us-ascii?Q?dY6dJK4zn/WEW6/88GQS7HVxz7msKhw/wfyGTN4mKFtOmZX2mCaRdJuA766K?=
- =?us-ascii?Q?NUnzx48aokCBMdFyGZmq0db2eC78NGRcTsO99Xi5Rz8PXmbqea4+h7PDwYe/?=
- =?us-ascii?Q?MOebUK8PO0i2bSLsnqxtPVYi3AUNDOANJinqx5AnjVejEr/uTf6BmT3ghW2L?=
- =?us-ascii?Q?uRSvE8aDqySpRPC6iDaTnFrn9IsKMAGbFwWNqQdqodyYDr2Lb6MZpN+CwDz4?=
- =?us-ascii?Q?fee8KRPF2w2SlNCrc37V2HSZ6m8uADhSCr4Nz4N0pMxGiH6ovwn1LfBqvoY+?=
- =?us-ascii?Q?9RFk0pBMrSJmq6ie5L1Mxjfx2cH0402pSl3BJ0nFCp6EbB+csrT4hxyjKfh8?=
- =?us-ascii?Q?OL2aQ2zG72h18amVUWcZWTnchPwOCVU2aQh4aqa0Bezy7l0S1I7iY32GS4qu?=
- =?us-ascii?Q?CQnYjjL0sevqht3FDzQB64Bllt0RGBge6dilgbmz9jd+mlc67DiyF5LBZ5xr?=
- =?us-ascii?Q?f6Y0I0pJcKRJBVzWWYaT43/IuzGLFTaQvMVTIsqh8IeWdRTusbex2Xge8eqr?=
- =?us-ascii?Q?WFQgv2IiPqOv3EVUQktPBQprA4O/m6XlkXcVtqGtGs6CedIxcJT0sG6Vy4OB?=
- =?us-ascii?Q?TG99nwrF4cvcEk2aD/uzuQrp2wQOwgSfcD2u981LwCLR2ZFguzn9SsxQx4Mo?=
- =?us-ascii?Q?XXguZ6+5zO4WwYLen2h0lcouHEFWpcueNTiEjr3ItZyJbM69IevZ/86Cb5Ze?=
- =?us-ascii?Q?/gvNao2ARqlesTtSs2+Hqs5dCH6A6OS/2PqhOAwJSlgvXIBv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 752c7e4c-848e-4319-39c0-08de8118fd2e
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 15:55:46.2991
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nCFxFMm9HKNLOjQdAnuMm33xjYDxzzuKpoERIvwNuY+PnTsb8G1NukUhKGUhm/WtxD3P5ha/Zu9KU+m7KiXi0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10898
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_085554_333212_3718F0D2 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260313_085742_110661_CAC0502F 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,18 +81,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 07, 2026 at 04:54:40PM +0100, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> The VAR-SOM-MX8MM can integrate the WM8904, a high-performance
-> ultra-low-power stereo codec optimized for portable audio applications.
->
-> This patch adds the WM8904 device to the appropriate I2C bus, enables
+Gabor Juhos <j4g8y7@gmail.com> writes:
 
-Remove words "This patch", Just said Add the WM8904 ...
-
-Frank
+> Hi Andrew,
 >
+> 2026. 03. 05. 14:28 keltez=C3=A9ssel, Andrew Lunn =C3=ADrta:
+>> On Thu, Mar 05, 2026 at 08:54:34AM +0100, Gregory CLEMENT wrote:
+>>> Hello Andrew,
+>>>
+>>>> On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
+>>>>> The 'marvell,usb-misc-reg' property is present both in the EHCI and
+>>>>> in the XHCI USB host device nodes, however it is not documented. Thus
+>>>>> 'make dtbs_check' produces warnings like these:
+>>>>>
+>>>>>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell=
+,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-mis=
+c-reg' was unexpected)
+>>>>>           from schema $id: http://devicetree.org/schemas/usb/generic-=
+xhci.yaml
+>>>>>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell=
+,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-mi=
+sc-reg' was unexpected)
+>>>>>           from schema $id: http://devicetree.org/schemas/usb/generic-=
+ehci.yaml
+>>>>>
+>>>>> Apart from the fact that the properties are not documented, those are
+>>>>> not even used by any USB host drivers. At least 'git grep' says this:
+>>>>>
+>>>>>   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
+>>>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-=
+utmi-phy.yaml:30:  marvell,usb-misc-reg:
+>>>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-=
+utmi-phy.yaml:41:  - marvell,usb-misc-reg
+>>>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-=
+utmi-phy.yaml:50:      marvell,usb-misc-reg =3D <&usb2_syscon>;
+>>>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:         =
+                     marvell,usb-misc-reg =3D <&usb32_syscon>;
+>>>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:         =
+                     marvell,usb-misc-reg =3D <&usb32_syscon>;
+>>>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:         =
+                     marvell,usb-misc-reg =3D <&usb2_syscon>;
+>>>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:         =
+                     marvell,usb-misc-reg =3D <&usb2_syscon>;
+>>>>>   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:           =
+                                              "marvell,usb-misc-reg");
+>>>>
+>>>
+>>> I don't follow:
+>>>
+>>>> The phy-mvebu-a3700-utmi.c does use it, and does document it:
+>>>>
+>>>>   marvell,usb-misc-reg:
+>>>>     description:
+>>>>       Phandle on the "USB miscellaneous registers" shared region
+>>>>       covering registers related to both the host controller and
+>>>>       the PHY.
+>>>>     $ref: /schemas/types.yaml#/definitions/phandle
+>>>>
+>>>> And the patch which added the property to the USB nodes also added the
+>>>> PHY nodes.
+>>>>
+>>>> commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
+>>>> Author: Miquel Raynal <miquel.raynal@bootlin.com>
+>>>> Date:   Tue Jan 29 10:36:34 2019 +0100
+>>>>
+>>>>     arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
+>>>>
+>>>
+>>> You stated that the property is used and was properly added.
+>>=20
+>> I can understand your confusion. The commit message is not great. I
+>> had to read quite a bit of code to convince myself the change is
+>> correct.
+>
+>> The property is used and documented in the Generic PHY driver,
+>> phy-mvebu-a3700-utmi.c. And the properties being removed are in USB
+>> nodes. The properties in the PHY node are not removed.
+>>=20
+>> The properties in the USB node have never been used, as far as i can
+>> see.
+>
+> Thank you for the review, and sorry about the confusing commit message. P=
+erhaps
+> I should have skipped the 'git grep' part.
+>
+> @Gregory: Shall I send a v2 with a reworded the commit message?
+
+Yes please it would be nice if you can do it.
+
+Gregory
+
+>
+> Regards,
+> Gabor
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
