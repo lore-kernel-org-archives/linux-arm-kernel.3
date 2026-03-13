@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A229F105F79D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B93105F79D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 11:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4pxR76JMOqIQBEMiXt7xgkvKZiqrBwwZ0oEQFjBAmk=; b=r+s6kStv2yJ8DLJOuS7vofSTe/
-	smB6F3Bz4A4uPFxhbvBhavr5zPAjQYgN4kZlMeqT4p+EV13fo4Xla1nE3ycC7jRv4wslW1r9SXiQO
-	o+jRNykKz0HG+RCtWq6VdKGS6BPMAbDZ712gm9lGlOGCtCXc94KEZvdX9M4ZMOTzgdm0aoWVjOf1Q
-	Iqq/HstELIfXaCDlzmKhXdEsVsMnUuM9u3SGl1Xc/o4gVanehff9/fzImKQ4Ek+Vlx9McCVFthfGQ
-	39r4IgcRPMQZU6AvHE4BDR7sKLlKIfyKhIap2jKGO861iiQnyo1C3StpVQBSabHO2qaQctNOfmXX3
-	Riw+SE1g==;
+	bh=3LMRVIDJvFleD8CgS35G+B9Sbt0o19PlcIhsFypxh2Q=; b=10Ck+Zt0RuTzD0fUXTZNB2DZx5
+	BldN2IrhhLOQz7ZgzgVepsWL4LHKLCMywH3p8RJ8ZA0Jn2NipLPPvpvuLPDksUHJ+SBVtn76ksCsK
+	rmmL1HT8FYkZ3OZwoKIB8K7ZSEBQz0W8SKnfc7e7vW5szbx42Ufhe8/ylG8QPO50i09yu+mrHd+Zn
+	H5H+RZDZK3UV408aNL5b2zkYJdRrDmTO78AbYW8s2wfEhoSPzr/uPKHXUQIo32hts+5nhSq62m/bq
+	VdxqsNXz75SeBJ7W/M8OGoezevaIzXkDwVJg33Kd2sol3sRKB2yT9fZNI4e2UE5iyL7PVrqcdlVKJ
+	dzKmmdrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w111D-000000003gB-43fS;
-	Fri, 13 Mar 2026 11:49:27 +0000
-Received: from mail-japaneastazon11022138.outbound.protection.outlook.com ([52.101.126.138] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1w111J-000000003hW-14eW;
+	Fri, 13 Mar 2026 11:49:33 +0000
+Received: from mail-japanwestazon11022125.outbound.protection.outlook.com ([40.107.75.125] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w111A-000000003eu-18Ku
+	id 1w111A-000000003eq-1Fwj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 11:49:25 +0000
+	Fri, 13 Mar 2026 11:49:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=webGxCfzsDEi+UgvOYjK9aYRdAoU5XjJBDmajb5k3cHhBWGaNAIblzvm9EjyAtONZfs/G1bSLfLlfb3jetPhr0u6YfqeyxjL9DNKDz3B0yjU9nmEA74WTD9P4xUpBP7hT/Tlt8eaqo4lzqogyezCzKYScg113aMwnh9tTtvvLiv3ftlfmyDg4phhEVgRS7cEnhD1QNfFQJjecGay6PwISQIIpWfFOtXDQApHsM2TekKq5LN6wnXhXYQqcsI2eX33w8kt2Yz1GInWnsIxmUrf+0CECK5/OQpPeurqf/ZLzuXOE2DYpKrWTqfP2Cs+GJigV/UDwj1jFX9b1nVbGjFMYA==
+ b=B9mrkQ9o6p4951vHHRuEQ0zDMC5GybxkCSTP4CWN4T4oKlILSZbY1WMFNdoF5YlnPoo4odUUS5IMmYT620iUSBBhuyAzeswOXgaveHaYkFBy0aCUqn9SAfVr78jL6vB+SHMXMGahhCA1lawuGc4PYSVJD0VLW45ElNwrzAJ8KsFclwaYpMG7Jnn+alDuLJQKYln3cAOXHL5/fuHDZgaBJuZpyUX0jVSzSv3Umhg9O4vdRc8o76C5S1WBuausVBlkdQDen3D0co9aFIdJ6AyyZtAau0SzFaJsaCwEVho2a4MmNwxHGhySZhsQb66RJvuCb43WaLkGx16zVXAii2dX/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y4pxR76JMOqIQBEMiXt7xgkvKZiqrBwwZ0oEQFjBAmk=;
- b=AhgUtvwQSp72VomGLLRcmwCoO19hPNrU/MEgDBTJFjPrxfua5C1bYM4NXF0gel5ERUxCJ2jw2A3ouErv35PoKnE/9+1lXmj+t9gxH+YRRDYc/0KPxxA5v+rMu9IXqc/5p0Us8fao4c9NQwBZgq4qC0PVNj4xyNuJ4T0Z9+JB6mF4yGBy5oA8FjQChp17zBbd60ejRtWfo/fCSzVAa8gGWkOolwHrgz3pHcapmuJ1BP3e0iscOto5dj2pTlTk/xbt6pwVHjDzwf45u6p86nyMhR8D4csiTY2R7rYzhIYxtq92BYPCM5KRyTtO1zvdgMum80GGj0gDTKmsBUYxNIOnDQ==
+ bh=3LMRVIDJvFleD8CgS35G+B9Sbt0o19PlcIhsFypxh2Q=;
+ b=pVeddSxccMkZRIgqPv3bQ2MaUNi7io+w5v9MepjjNllhPtbhyQew5FOlKu5uTfPsZIuNf7/hYW2Nt+KsHOpE51MBr3yARfRwvA1Bj7GR0DRNHkkQBVG3kI37hjbSgBtvfeHcde436gE5CQVIX1XUgqaitPw3IHZYMw2eqY/PR6nruKBmnQ/SGmUd9NyUMyXNrb0Z2CVZSw1J7JsqQljqi+/MuNe5oSb9w3ECu+zj+Cuf5R6AN3plxdVVaqmquCDrtwg5qxv+kjco2sgrC0xNwO7+snMo0ETuDaeoxtejxDGHMrgxcR0dUeMTVdtxWA/iST6+PPH+PjX0PjlEbaYQAg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from TYCP301CA0029.JPNP301.PROD.OUTLOOK.COM (2603:1096:400:381::15)
- by SEZPR06MB5000.apcprd06.prod.outlook.com (2603:1096:101:48::14) with
+Received: from TYCP286CA0076.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:2b3::13)
+ by JH0PR06MB6776.apcprd06.prod.outlook.com (2603:1096:990:33::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.16; Fri, 13 Mar
  2026 11:49:17 +0000
-Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
- (2603:1096:400:381:cafe::3b) by TYCP301CA0029.outlook.office365.com
- (2603:1096:400:381::15) with Microsoft SMTP Server (version=TLS1_3,
+Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
+ (2603:1096:400:2b3:cafe::cc) by TYCP286CA0076.outlook.office365.com
+ (2603:1096:400:2b3::13) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.30 via Frontend Transport; Fri,
- 13 Mar 2026 11:49:18 +0000
+ 13 Mar 2026 11:49:19 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
+ TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Fri, 13 Mar 2026 11:49:16 +0000
+ 15.20.9678.18 via Frontend Transport; Fri, 13 Mar 2026 11:49:16 +0000
 Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0A1A740A5BD8;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1906D40A5BDA;
 	Fri, 13 Mar 2026 19:49:15 +0800 (CST)
 From: Gary Yang <gary.yang@cixtech.com>
 To: lpieralisi@kernel.org,
@@ -76,9 +76,9 @@ Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	cix-kernel-upstream@cixtech.com,
 	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v4 1/2] dt-bindings: PCI: cix,sky1-pcie-host: Add power-domains
-Date: Fri, 13 Mar 2026 19:49:13 +0800
-Message-ID: <20260313114914.1564115-2-gary.yang@cixtech.com>
+Subject: [PATCH v4 2/2] arm64: dts: cix: Add scmi powerdomain nodes for sky1
+Date: Fri, 13 Mar 2026 19:49:14 +0800
+Message-ID: <20260313114914.1564115-3-gary.yang@cixtech.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20260313114914.1564115-1-gary.yang@cixtech.com>
 References: <20260313114914.1564115-1-gary.yang@cixtech.com>
@@ -86,30 +86,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|SEZPR06MB5000:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|JH0PR06MB6776:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 6bc40ccf-9578-43b1-cd91-08de80f68e4f
+X-MS-Office365-Filtering-Correlation-Id: 0743d0e6-e564-442e-7e16-08de80f68dfc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700016|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: k6XQPeG+w8wAJSf1eIHI4xviWUvfvlwV5tNcYZxelkY/3TUmCVBPWQNuqdiik3pbfTDIBc+MS/QEAamqi3IuYKneF0FCxKNye8o6cMykAGFwVrcvfdKQ/WNMzfxEXBEj45/1eMqCANSHqhWIxXQKvqwWxqJ3xwhFUOiz4uxoud7PnlZa6PxzCuSHpyVYw+ju3gkSFbAx+DHd4mQ9HdtTslLMmikjgpao1GEOmBX3PMfkxGJHLg1Vmg8dh3lFZYvpWvv5WpavayhNyqaX9CwG559Jwd0C10i3TBNEcN8fi+7w+jQ64cF8O6zgZGV3kJQUQpKkuCZCSkPtqX9Bh5FwQIrj57jFAGDMHqMGqSDkRzMVFgGQwbTYK1qakp2iTlPdDphIuQOFLb3SjoWZN37baCPmfRwhwWHuUFb5owKR1QrRMyHH7fUKd2CSIA3WbU4maeAM9OaSHOugRiUO5gsTaYqULRdhzbVqw9K4YEAMxZN4WVmKvLUGIlK78Nut5RomdTPD3caBwUlP7AvzSAN7ZBddXBF45EaGcEtSOfxA3F7bO8A72TjMAISDF2z8FKU72WAtI+dlNBVzrlFfMib7T8imu1aLuxJ43zp5eFFtmcM45Ua58yfVxEdq+/R4LsqjNBRqsk7oS8WzviBolPEwLtm9Kl0IR3PDrmUzlPTOPBsl5mmbSx3ML4Cgzt1cgrDKm8kGJ3TXohLiXD6MbPT8r4m26HXha1ijWXWth7nL5WwR/iYQ5Uv3LsULl7drvsoXbciQoTVUip9SdfiuyOtjdA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 7NzhdXmf/gZ9eyWz2TfhM7Zt/2FrfYbow5JaAiqVFp1m1x1irev64PuvnSl5UPXC4sBnH5u2e5vQ1dZiyBGmzliYTKx6Wurph/woHChdaSGvXrfXfbHEmeJfo2oZqoIcqtd9+pRf4ObJUnX88AVbLyr4QxAoBFymFqSFSHBXaRktDO/66jOZKmg9EPElxunEfduZzMHilupIwuEz3ZXne3ovacyi5q/Ahf2HBBtAxhdFqszGGw7704X8FL8zP3Rox6TeW0+J3LSOhKVESq2rnDxa1lkwoH35pjbg6GoIU+vufVbWnxTk3POtAWZiDXSG8LJlMRscT84Z18TQBdyRwQIR/Z106Q4IUGlvM1ld8vfuttX4tuJVpdhnwnxNg5qSQ+HFnKYATv1WIra5Qo1aVuzLBDvYpokxfzejjnDOj/qbhPv8jdM/qJEHOZgOEXmumN5XiM7Zj6e1JhB33ygyghDSvPa7Js5G3a7hj9hu50eohwMm2ls0SoyJXxLuWkvFdvMxS1Bawx54c7S570WwMOEBGi4fRKpUcjqyUDZmxlcIEu9M4inWK1EDIGjd45of0NJwOA++sixj3YNaL8/88IaJ2VCNo5UFDNSzUAuwfPSWwNcVk9L75p9S4Q+BmIbRSRntYGWZ0qEvmaqUiNeaUt85sqUGdTZI17X0PF9jVz/CY/rMZkNsFVD9EZHmq7cUhq8Ed+5rVU0Cuic1utgzJqbbNicOoRmXzayWIKXojS5YA7FGuW+Bof2J8DSaO99O5VyWCOvTrdpTf2uKI+WcXQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Lv8kwz+kcDf0aLSC6tRx38WRfsb8nTmIYy+t2FsJdcLi3sVLxhes9tUNcsdGM1xAot1qn2chS70tJ3CGIJYqpwMjhy+e4XRs137lBni4BpSAcodTrqh9xf6LUBlCSRpoEfU29I2aVEl2ebqzqUUzMaDA2TJLhse2Djeqa06S7wQOgf69AX+XbeUgXz++2xatqYn4/PuKrui1yj8iCzAMN/pEjbQZW4P0dmDEvJdCX7rNz8JwVuctduyixjC0y6RTiVsZY8oAOfiLHbGUjqKwm0j8MesuqQg5QA+qzGYGwOWLFjaEVoefpdhcAlDCjGGbiZqqxY61gtlDv8dN5Tl6HKzz34ZN0Q/liE0VFVnRIQPuC8U575iRRlKVhX/Q7YZdR0UYJEr0XNXVn7/6ZOffAG7MBWJbUxE/0oU1YjuFLIq19SgoPf6CmszbxGSqKZ25
+X-MS-Exchange-AntiSpam-MessageData-0: XXO3tX1BAHw4hOLNTJP4XvuRlM9hef1P72Cq0XzGiRVFyqMX9WnkCmFxaZPSdcALZ4CNIad2FAkgKSuR3JOMY214Qxh1jq4DXR8lBfkPPrveNoVaZ+L/YLDJN/3iFSp193YMQF7FfT/F468BuQtumThTWxnKocG+raQJf2M8Rl7OP923de1Yr5q0mIWDvs2IEQVfPPsncXzghAi5oprFh2Z9L+gUUlf3Cmywg3+oBEpEoNfTbruW2FG6Czkci5IhuvvESZHi1sbCSQQ9Qwfruk1q4+vvtWwdJqZVD6LjgMqX2Wpg2TUNDO6GyhnSBBRNvKN9v1euIztsWRou4PiCc8MWQitdB+Mtqut3a067YB41/AmvBnpGzwg1J0FXqqTR6zyWPqQz300zBbVsnX8V8PfjUhVjHufh6dw8pHFEfwgTC4SW9ec5QSl0lH6oQS20
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 11:49:16.3913
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 11:49:16.3530
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6bc40ccf-9578-43b1-cd91-08de80f68e4f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0743d0e6-e564-442e-7e16-08de80f68dfc
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB87.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB88.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6776
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_044924_314666_B45D672A 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_044924_339174_291C6D86 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +123,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Sky1 PCIe controller resides in a dedicated power domain managed
-via SCMI. Add the power-domains property to the binding to allow
-describing this dependency.
+Add a second SCMI channel using SMC transport to communicate with TF-A
+for power domain management on the Sky1 SoC.
 
 Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 ---
- Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/cix/sky1-power.h | 33 ++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi    | 21 ++++++++++++++++++
+ 2 files changed, 54 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-power.h
 
-diff --git a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-index b910a42e0843..d55d165f1e94 100644
---- a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-@@ -38,6 +38,9 @@ properties:
-   ranges:
-     maxItems: 3
- 
-+  power-domains:
-+    maxItems: 1
+diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
+new file mode 100644
+index 000000000000..53f4a3af36b3
+--- /dev/null
++++ b/arch/arm64/boot/dts/cix/sky1-power.h
+@@ -0,0 +1,33 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2026 Cix Technology Group Co., Ltd.
++ */
 +
- required:
-   - compatible
-   - ranges
++#ifndef __SKY1_POWER_H__
++#define __SKY1_POWER_H__
++
++/* The Rich OS need flow the macro */
++#define SKY1_PD_AUDIO		0
++#define SKY1_PD_PCIE_CTRL0	1
++#define SKY1_PD_PCIE_DUMMY	2
++#define SKY1_PD_PCIEHUB		3
++#define SKY1_PD_MMHUB		4
++#define SKY1_PD_MMHUB_SMMU	5
++#define SKY1_PD_DPU0		6
++#define SKY1_PD_DPU1		7
++#define SKY1_PD_DPU2		8
++#define SKY1_PD_DPU3		9
++#define SKY1_PD_DPU4		10
++#define SKY1_PD_VPU_TOP		11
++#define SKY1_PD_VPU_CORE0	12
++#define SKY1_PD_VPU_CORE1	13
++#define SKY1_PD_VPU_CORE2	14
++#define SKY1_PD_VPU_CORE3	15
++#define SKY1_PD_NPU_CORE0	16
++#define SKY1_PD_NPU_CORE1	17
++#define SKY1_PD_NPU_CORE2	18
++#define SKY1_PD_NPU_TOP		19
++#define SKY1_PD_ISP0		20
++#define SKY1_PD_GPU		21
++
++#endif
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 64b76905cbff..495ea91a63f5 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -6,6 +6,7 @@
+ 
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/cix,sky1.h>
++#include "sky1-power.h"
+ 
+ / {
+ 	interrupt-parent = <&gic>;
+@@ -168,6 +169,19 @@ scmi_clk: protocol@14 {
+ 				#clock-cells = <1>;
+ 			};
+ 		};
++
++		ap_to_tfa_scmi: scmi-1 {
++			compatible = "arm,scmi-smc";
++			arm,smc-id = <0xc2000001>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			shmem = <&ap_tfa_scmi_mem>;
++
++			smc_devpd: protocol@11 {
++				reg = <0x11>;
++				#power-domain-cells = <1>;
++			};
++		};
+ 	};
+ 
+ 	pmu-a520 {
+@@ -428,6 +442,7 @@ pcie_x8_rc: pcie@a010000 {
+ 			#size-cells = <2>;
+ 			bus-range = <0xc0 0xff>;
+ 			device_type = "pci";
++			power-domains = <&smc_devpd SKY1_PD_PCIE_CTRL0>;
+ 			#interrupt-cells = <1>;
+ 			interrupt-map-mask = <0 0 0 0x7>;
+ 			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH 0>,
+@@ -572,6 +587,12 @@ iomuxc_s5: pinctrl@16007000 {
+ 			compatible = "cix,sky1-pinctrl-s5";
+ 			reg = <0x0 0x16007000 0x0 0x1000>;
+ 		};
++
++		ap_tfa_scmi_mem: shmem@84380000 {
++			compatible = "arm,scmi-shmem";
++			reg = <0x0 0x84380000 0x0 0x80>;
++			reg-io-width = <4>;
++		};
+ 	};
+ 
+ 	timer {
 -- 
 2.49.0
 
