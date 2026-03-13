@@ -4,120 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2183106FD90
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED0B106FD8E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 06:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgbqRhipMDIayaFDocmfzNt0wzgprzN9K19aATD0X/A=; b=ee/nLu35l6uCzyy0nx2Ehxy5UX
-	C6MRd2iaRyt27HaBYZ4THnwH7Sj+Qn9sWgtSn2HZKeudFdd2sQ9dBKsgcF8ajBf77RENhIG7vAK5l
-	vP/S1qXT0Fef/g3V9f25HNGcwOS6frBiikc6oYmzEJbWVjgjOdJWg/v81TMnDGMRq87q8htr7BGx9
-	jAU36Lr1KbOAp6dSWUo6KjSpYKHQIGUiw+yAPRYU6yX/CFo2KL3wXwRl7rGcBKROlHM2zmLBgqnho
-	3HeGByb99l5EpUjzXg8XUqyXz83Fzq56WHrwbyG+46Y/PdWC3ej47KGrRrLBo2fceXbUCjsdNart0
-	efuJfusA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=90fNp47ognxeUGeFye4NvjKTcsTUL1RSo4zhTe/DsRg=; b=Jl2/ekY9xmJaAP3iDXKKGV7Egs
+	kgw6ZkAdIAx39Lwjfn5dkRXuIGQ4nDylWij7HNoAHDHsp2wRdFDe8YwLQHQtnZFHc4jmCI48CdJgw
+	Pi47MtMYotBpfYMvsFDduHESkpmZFbGAproiYj8mhMBunlo36onwfW9/Pvl4oTyfqDnUltq8bkVyh
+	QDhFW8axWznAYq//mTZoDYElD9wtQ1EVA8e14lwo65W5nND7WghaUL/mWkY5ZXM9yTzpTg9CSYHBu
+	rCgUgvKTrgp3xwOeLn3urHGsgf8eUCYKgd9Dzd4/iPWKAOjYaORE5zFZJOCYqTbs991VzkK+WoVH9
+	wIRlwWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wDy-0000000GtYQ-2zn4;
-	Fri, 13 Mar 2026 06:42:18 +0000
-Received: from mail-westusazon11010052.outbound.protection.outlook.com ([52.101.85.52] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1w0wJx-0000000GuNh-0aLn;
+	Fri, 13 Mar 2026 06:48:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wDw-0000000GtXw-0J01
+	id 1w0wJv-0000000GuN7-2Xc2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Mar 2026 06:48:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=90fNp47ognxeUGeFye4NvjKTcsTUL1RSo4zhTe/DsRg=; b=VSF72yZZ7IQdJug/DX5BYKPNw+
+	6fekCLwJ4pXCRpiCvpoLevq+LC1/A5yfE5AHBKARhgkKQ/rEfnW7uHVHTMuqmexaXI/RiBFllxKWf
+	6V2W/oaD4cMWA+WQ179u4X9yYyyagOsuc9gGA3+LFSYJUaoLlyKNWguVdVydSuk0f8E4mXRmfKleP
+	8oPuW/Zeuk6RNwX3gj4058QDFCGWVLNqzv0t2ImwFunEIQRgdZHkAnTiulRrmv83GBtaI3mFiz27z
+	5Id5PPuNPUl7hqIidi1gsVVGXUbebeddvt/KkW1BLQ6Qt5PXU2m1+KaM9iTpwkVA2qB++LgHQ0jit
+	6e8DJ0fA==;
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0wJi-00000002hHX-3iT8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 06:42:17 +0000
+	Fri, 13 Mar 2026 06:48:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C+zAZlJM0UlsXqB+REgcwtLcbWLQ6IDfa9mebfGpwth1Eq98zsXfwDtzrFaLGHgpcL2uMZmTa6Mwk+mHlUMtESsRr5vzypgU3WPL/LlaTMSk9+dNcGuOAhwR9txiIhBSkZmcQKZXZOSNWVzlQqn8mZVpKXYLRSAs3Oyh4tY8VADj4R6H8Ew7bh7kdVGYCOd/xVH4Qqpdr2VOfUvrxJ9iCTIPSUqiPm+rGY24OhekLwj0PARafkgidGE8qR+mRLB/uG9zLb88zPmVISPVNIqokmovhR/ak5HkMiXUilxdgQnswi5TDu9wySoJvHWpLuGJNK3D7HvZsZ7qezErxNtSdA==
+ b=pW6ipnZ3rPOVrS0A82h1ECYkXawcjzzKnIXxUjrCa0E8D2vFeFvJL3h1pHj82KvPWT2NEkII7nc6eqWYHfYZvPxPZg2IRwdRDHGJidGaZ3zpdSO7JENlHd5Tqrj2EuAy8TktTZL72weR6S5knUwTsHCjUS9vqqb2Dnxt/rNTob1zprBg0MzWaaY8yzIjCgxvXswLY9n6MgvDyv01WU2lWvqj52W2HcYHUI/p4b4d8qmMfnlDtfceWtB6ZdW6d1V5fK54936E8qsSXLDObhpDfGyqjkPKpJE6tfTxjjCsOIUrHCiP8byDb6m/v25yefcTUa+urPZfPw4OhkVkf+Mbyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sgbqRhipMDIayaFDocmfzNt0wzgprzN9K19aATD0X/A=;
- b=byEYfYLdbcObb9aI8eFQ/ezUHKqixEOGz/PCcpO/xN8/aIdejO/TIdQsbK75YFLT5/VMCkhfhUEm+g/NZXipGNV8KfivIE46csBFw0I2knHVFdT9hqT0Dn4WDNMKyW7inJVMKsoimqxPrHG54PvQOq1gzfSG4ii8XyMCJQ2BCan3bmGfktTSLv+CBtiApzc9t3jtW7q6zArFJ7fSOHnz9a4pzvKUYCphkZUGxgL7lTq4O4wKcBgqLy/U8gNCbtIp1OQBW9VLtwHtOkg6rICPIuZdiwi/i9yRZb/Ia3Gcrxmw7MSZvsAdnStYEGP9KNsSZM9CVGFKImFAZ+8/3EzUfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=90fNp47ognxeUGeFye4NvjKTcsTUL1RSo4zhTe/DsRg=;
+ b=o/Ae+TgcvAIca3lDeAPttFc+1CKMSuhQIHyEqWHn/Uho99lmedTAJJB9TAwMjkNsyVYTnwmu6MbmvyNyGu8HPqjrfnBTI4XSbu6e4amYZbYz+Jza674IS8SyZpKaqw6lvXZloPJBwg4gIc0KGW8az4D6uFx+pSyGPjWVOMQB8ZoEVUIu1kk05ahB0rN8MhujtJiwCcoSNX9Wyj//D2HTYvybJY2p8ELetYZkQspIxTw0qLb/DYE9yr/L53paGqGHLRkeKRmti3d1Q0Nch2ywifH045LguppwN4iiqXrFDDRYSQ7XoTrMUh6LC07ZagP6Te/WAlaj9KEITHr2KXl4BA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sgbqRhipMDIayaFDocmfzNt0wzgprzN9K19aATD0X/A=;
- b=QBQyIg1WMIaOiJgvNbffstedRJegcjfWQ66IjSnYIaOkdMmnuImR0gQC34qxFeHFnSPyK1kFFmXSP/JG5FECK8KCmVQgPpkB+8H8WbMOVYKtSkhRmZWrkiW1bjMip8wWmFVj4LdouabtxQL/7yR0VVy8zeLD5SlICS3E7lEtcpA=
-Received: from BY1P220CA0014.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::9)
- by IA0PPF6E99B1BC1.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd1) with
+ bh=90fNp47ognxeUGeFye4NvjKTcsTUL1RSo4zhTe/DsRg=;
+ b=BfKWCG9ZgqaiEpKcwNuMZ9SG/2ITxVguJ0wdFf4EoLDYh8muAWhVyP2AL0jE4XVZ+dvFWE9HP49RfxjdaKKil0Hx1BMaYR60ECMqOxc+WbUo3+60YpwxlAKNnx+76AF8f+C3G/RHmUvy4xCrnXvJSwdAXzVPKZnNDA+FPY0DYuqJT0auUoQ7MgdEL7MEK6tiRCG472mCVhVG8zUvCZQyMfvmma2foBs0S7t5uino+7FdWXIjdiwtdSQRHszXqcZDKBfPtyMgwCx02x6UYNVIBkR89dlpz6Sb2VD78r4xWIWTxgATslLVcbGZ+JVmKs9DXOzFVtfcNCglAmKeF7/VCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8840.eurprd04.prod.outlook.com (2603:10a6:10:2e3::6)
+ by GV4PR04MB11377.eurprd04.prod.outlook.com (2603:10a6:150:29c::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.7; Fri, 13 Mar
- 2026 06:26:07 +0000
-Received: from SJ1PEPF000023D4.namprd21.prod.outlook.com
- (2603:10b6:a03:59d:cafe::f7) by BY1P220CA0014.outlook.office365.com
- (2603:10b6:a03:59d::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.29 via Frontend Transport; Fri,
- 13 Mar 2026 06:26:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF000023D4.mail.protection.outlook.com (10.167.244.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.1 via Frontend Transport; Fri, 13 Mar 2026 06:26:06 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 13 Mar
- 2026 01:26:03 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 13 Mar
- 2026 01:26:02 -0500
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 13 Mar 2026 01:25:58 -0500
-From: Srinivas Neeli <srinivas.neeli@amd.com>
-To: Vinod Koul <vkoul@kernel.org>, <git@amd.com>, <srinivas.neeli@amd.com>
-CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Suraj Gupta <suraj.gupta2@amd.com>, "Radhey
- Shyam Pandey" <radhey.shyam.pandey@amd.com>, Thomas Gessler
-	<thomas.gessler@brueckmann-gmbh.de>, Folker Schwesinger
-	<dev@folker-schwesinger.de>, Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, Kees Cook <kees@kernel.org>, Abin Joseph
-	<abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH V2 5/5] dmaengine: xilinx_dma: Add support for reporting transfer size to AXI DMA / MCDMA client when app fields are unavailable
-Date: Fri, 13 Mar 2026 11:55:33 +0530
-Message-ID: <20260313062533.421249-6-srinivas.neeli@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260313062533.421249-1-srinivas.neeli@amd.com>
-References: <20260313062533.421249-1-srinivas.neeli@amd.com>
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.17; Fri, 13 Mar
+ 2026 06:47:56 +0000
+Received: from DU2PR04MB8840.eurprd04.prod.outlook.com
+ ([fe80::7c5d:60c1:2432:86a1]) by DU2PR04MB8840.eurprd04.prod.outlook.com
+ ([fe80::7c5d:60c1:2432:86a1%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
+ 06:47:57 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: imx6: Don't remove MSI capability For i.MX7D/i.MX8M
+Date: Fri, 13 Mar 2026 14:49:27 +0800
+Message-Id: <20260313064927.2092800-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: SG2PR02CA0060.apcprd02.prod.outlook.com
+ (2603:1096:4:54::24) To DU2PR04MB8840.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e3::6)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D4:EE_|IA0PPF6E99B1BC1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58494e2e-b0b1-495a-c236-08de80c96893
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8840:EE_|GV4PR04MB11377:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68429082-df3e-4436-6871-08de80cc75ff
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|7416014|376014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: g66BXdbgrgwR1ZAUOWxopkTcD5tvwSM4zwuHCReZcCDx9dgFsp2RT0qK6NKSGQeQ+JrkkNooAx1PmIT8nZ5hzM23cVO8mhZ1qqe1i7Mg8AKH0Pf1J2WSy84ryO3Fl5ep0HkAIcPMWZqoRCQLgEfk1LcEI+Skn6DLCkQvv4QsaZ04z3HYvP8VuQb1WqM49IhTxE3O1Omm40RXzTHNHa+TZENcRd0yi61+7EIELmwWCPDoOua7qFfAzgA43T2tca/SMMQKE1pwxAXyRvJBiSdMcWA0g5oyb2Lqk8QC1nURPlrUsXMQlwrbAng7YoraS4Dj/zj5WlhhPvtRXQF2VBaDJAKi4gId4outzfVqBrKvrTlP5tfXnfFbskhJiMoLqNaYCLpFsoTTwrZjczDQl0xsEbkDrJ/H7TgOw01887GXT8T2UGWNScmzuLPM85byRD4Y/AyT0FvL44t/RaIH1yuk+OF+s5Ynm/Z8E3/BXpRtG2mnyFY9ALVpzbGEIp9UbJa9Tk4+c4afF2U4BIrD0CsaqrJj8l2Atu9rKTmXtzJApzrW1m/yflUrLXg8CUBu+L3mMUD9rDWz3VvCRoaBVqX9cUGAHjuKiX+HmC7TT+Q7gL+fgbNHuwjv5VkbCGuhnQOohRGoS1WEl+Cj54bMbnpBQmyw9+YXA8B1FgAYdYK0nhjugDWddZhZobvCP+OMXytN6CmR9N7niX6afFVm1f2NWNVybrpYHK6iVqhMOmdM9es8BDL61sVFP2vEAzn4DoT7qjE+E0bPGbH8vi2dZxHBRA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|366016|19092799006|1800799024|376014|18002099003|56012099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: eSbaVKPwoXlMgufqPCzsncmrpxVrxYKfuWlYRlwwsWxvcR7MTTbmywiXPWXAnFumYgffrJs6PEPRZclPZET+TQqVUsc5okhvRYdcUdZK1vnKljAMSlTn3zJN6Pl6/rJqgjw/lJSysPMEfo7zkPc+ozGKHgPXMB51+JayUGLKNMNE8brCL+rnKf1+ObMlO9qU446lkVmNSBRG4C+z0d/gqlZNAIJGwZMIGPaDiWmJMjGx2oyLLZYQ/twvx1adSrySRjnbqv0yKNmjd5huX0KbgAsvzoQrsO+gaIp7dEk+6aRLdyf5/LAYYZTwny7adk7Xt9rugUl/DgKHj5dQOYjZrOs59pXc2d8nV1fytidNfBRDkZrlcX7ag44sm8GT9sW9CRgOwqgz+x2c61EaCppC0GGljulQu2sCdfgo/xwJUt/8jg1qV72AtMgrJxAOZRnS+7y67qfIsBPOWCRBEEnAPZRsvxtuQUStV9YJkvZGoaBp0Q1t2g0fOnf0bFw0b0GiSmaVnoRvjeL/A3di8AePK1MF3RP9WtIAzrtGtqU31eRoFJRPbt5+g0orXZEZKCQBXcKRK62TuxSNSG9X0rraebtgmNkwM45DYEiIk/NNrUTCeGrwaxmTq/L6GVqU7kx32luoiww0uO9R1wldBV9frDAdFhK5+bSY/t1Zy7OSDbYxv5GXm3FyWR2QMUihiouPMdE3tpkXxGpfbW+ojbX4vvu5VJy70kbQzC+AV8/MgHCU7tGv5+sFXuSSdNyQFunQ19DLfKmNxoqsYtPdt/Bb/TixZxuOEiTxwdP50PGOjNOUWekcrJ8OyqQVymw+wT3Y
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8840.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(366016)(19092799006)(1800799024)(376014)(18002099003)(56012099003)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: N/gjkjgmWcGlLPV0dXES7G8tDXZrHRSHpv7QvO0qmDzpC3eEcP9Vr1634+zrXTY/xef6Zr8yHZEE0PKiUxAXQKIDaYUhmoN9rcvpxjNgpbQD8+u5R0N5BWagRPXRXvS21p04IhWGB0awixlTnKuUxkE1QWPDAhWha0ohkB+FkmjmSY9VuUIyKD3IbqzZAkPLTTafj/jY/Css0TxTP8H5magyfZRusiV6/VlT1gAU/8qDqPrMeVrjU1LakPVBvqDMpfgQRf+5UWAKg3eaivoKOKaMTH7fucaoMKzwaBD6oVb4Mx4ZjBAEAt0IFWEFIG8d4iXI2DVv0AqJOpvSVrvNZMOjArhDs1XS8pdputes1FFq+iSGCagkHp5qrdcqC3LvzM6Oz8vAw9KsfUiz5c/kNiLGgy3ytCcznt5pGRnYRkh4zLiUEufjF5Gz/BNgYDhX
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 06:26:06.3386
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2t67TA+LKqziKhrKLeZjclGy1v3U3c9IfDewTgDjOuPjwR5KjX2JTXYfBvoy?=
+ =?us-ascii?Q?x/Q3CFkgTXRNfyf72nbKDofntln5s5PWwrW+KX1wBusx0pRdWAoijAw9x3Xn?=
+ =?us-ascii?Q?KHASe7xffLmb1ieGveMY4sp4iF7OXM8NNAcJc+GUhcPjS/7BPSItrKZUSLNM?=
+ =?us-ascii?Q?zF5NzAoAfcCwPSptn+2L9eVvzww6ffZcAt0KFL2scR9/HxhYfqOg6RY+vpu7?=
+ =?us-ascii?Q?NPLDuGfrTjnX1o4qgfQAzEXzummn+1R053Dy4DGHrqpG9Bum1vDxuiNpMv3Z?=
+ =?us-ascii?Q?t8Ez02VRiughGKkISkKRt3HVfU+MwAcV3U85OEd+cVq/+7SQfMNGy4s6P39J?=
+ =?us-ascii?Q?zoajUoz+3ZLDOUbd5QvUhXrOTBAZmCv2TbbKZ08NGKqzfHgvUxaqoitYTKC9?=
+ =?us-ascii?Q?7JMUEQErTqrTI763SB5bWS090+FlyheQvbG/yRBoj/n7RIk/YnfokKJnqSw/?=
+ =?us-ascii?Q?g0OQumJ3sUvp4pdXNBsrEFeVtMlTIcym2HNEzvWZhr0xOwbzcD3zxhQw/nmf?=
+ =?us-ascii?Q?VC9SY8PXaBwT3N57dQkeG9vmtgYc++m2gRLIRec6uPLnjydRXfvh0Kj2wP9i?=
+ =?us-ascii?Q?yHmZ2s7Nrw7oe7j7aAcKDA0RbNFcxZDv5yTaczKGZf3WFZzHQv41+Ij51rJj?=
+ =?us-ascii?Q?J0frQablLmFbQm9+cbb/1bQAI4JvtnfkNbzIyOW0EVJKfDqYPJe8H55a5BOi?=
+ =?us-ascii?Q?FDZwC67MdMcS4pXmZaO6K/dxBEJYv91UvH76vt3nTGOdJVQj0SEYdIS9VIuU?=
+ =?us-ascii?Q?G4ojPEhrci6hWbYYaLxEI+oKh8b91x2jJfd6KcpVkwCJVcelksDx4RP5YjxX?=
+ =?us-ascii?Q?msG2J4XHPSLJmZqNd0WidGLeWztx8/PYje6Q5sfInnWkSJE1ud4qw4lGNOgl?=
+ =?us-ascii?Q?HeO4mrCejDk9gHrdVxWy4CKLVcDPRIerpTyr10uM2Vz6nSKhHFKSymsJtH6I?=
+ =?us-ascii?Q?mbkkZ5k1SPxQctrGCTK8CcECbXE2TkzVqqvBBZChSg6fEVBfYaMEXryNscE8?=
+ =?us-ascii?Q?yMs3uTos+eXulvRbNNwOlf+x6H9vOdNRg2ennNkOnwDSk6bh709rZtapQX+D?=
+ =?us-ascii?Q?WH+1rAZ+7JkJzGaEkFktnFkRee3Y8d088u/eQ0iLxkRRN8Nr2tL/tKOw9Y6P?=
+ =?us-ascii?Q?/y92UmuUFtpV5g+VO5Xx4rUvMJjEJtX6rHLku6qS8HvSrVdT5TvEk+AmKTcq?=
+ =?us-ascii?Q?Jf8S/7mHrmPPcf3vFwu3ndTdR4+OgEk6JnhPG5ZkZGZWpWEvuAyvDwcfdmNO?=
+ =?us-ascii?Q?8e3mrGATJWs/m//dXySdPTDAiuULhEevBuckwVq1nSXW+u2bo9sWTQ8wertH?=
+ =?us-ascii?Q?gv+n2vkRVvdcyb+5RUFpTD5HYswU+7+QB4XcmwBW++Bgcqb7juY0W67CxKfD?=
+ =?us-ascii?Q?tOA3I8BGcljdpW71Rk0V5hv8k1+ZaCqmueJ77bfgUDgw/sV0AFgZfb6IPjgL?=
+ =?us-ascii?Q?XTot7FCyVf216lfS1LtANyl5jrGCaUUqXetGRGZoz0ZjsLrCaY/At2RNOBPR?=
+ =?us-ascii?Q?TJTH0pcXuRmNX6mcc3vCPxI6EJiWlQEi4QnnMED85bJtfumRjumCNqvjgUYy?=
+ =?us-ascii?Q?bcP8PWod1zY4nmbn7cXKsQDbv24at4pxUleTpxchz3ubn3VWM9o50W2B+Pi/?=
+ =?us-ascii?Q?GrFccE0JfzCmMB0OW8uMM0euhteAgRi8bRRjZY51yLYVqZup2TEGTb8ChvkJ?=
+ =?us-ascii?Q?I9xjPMqCJX73v/isIZoIQG9I1EMYGmF03NVytgsRIpR2LAYgRRZ2+ELVTbOB?=
+ =?us-ascii?Q?hH7H0jVRuQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68429082-df3e-4436-6871-08de80cc75ff
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8840.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 06:47:57.6803
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58494e2e-b0b1-495a-c236-08de80c96893
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D4.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF6E99B1BC1
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8MI6p7LQtmHBhZjC7swQ3X6zSIBByIFgc348PMihoXq0WzpWLmhikmWApM7w2um4FjVP4jxkt0L5NPqNSRao8g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11377
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_234216_139797_D295F1BF 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260313_064820_424405_E85FC8DA 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,142 +161,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Suraj Gupta <suraj.gupta2@amd.com>
+The MSI trigger mechanism for endpoint devices connected to i.MX7D,
+i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
+capability register settings in the root complex. Removing the MSI
+capability breaks MSI functionality for these endpoints.
 
-The AXI4-stream status and control interface is optional in the AXI DMA /
-MCDMA IP design; when it is not present, app fields are not available in
-DMA descriptor. In such cases, the transferred byte count can be
-communicated to the client using the status field (bits 0-25) of
-AXI DMA / MCDMA descriptor.
+Preserve the MSI capability for i.MX7D/i.MX8M PCIe root complex to
+maintain MSI functionality.
 
-Add a xferred_bytes field to struct xilinx_dma_tx_descriptor to record the
-number of bytes transferred for each transaction. The value is calculated
-using the existing xilinx_dma_get_residue() function, which traverses all
-hardware descriptors associated with the async transaction descriptor,
-avoiding redundant traversal.
-
-The driver uses the xlnx,include-stscntrl-strm device tree property to
-determine if the status/control stream interface is present and selects the
-appropriate metadata source accordingly.
-
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- drivers/dma/xilinx/xilinx_dma.c | 28 ++++++++++++++++++++++++----
- 1 file changed, 24 insertions(+), 4 deletions(-)
+ drivers/pci/controller/dwc/pci-imx6.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 52203d44e7a4..f5ef03a1297c 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -380,6 +380,8 @@ struct xilinx_cdma_tx_segment {
-  * @cyclic: Check for cyclic transfers.
-  * @err: Whether the descriptor has an error.
-  * @residue: Residue of the completed descriptor
-+ * @xferred_bytes: Number of bytes transferred by this transaction
-+ *                 descriptor.
-  */
- struct xilinx_dma_tx_descriptor {
- 	struct xilinx_dma_chan *chan;
-@@ -389,6 +391,7 @@ struct xilinx_dma_tx_descriptor {
- 	bool cyclic;
- 	bool err;
- 	u32 residue;
-+	u32 xferred_bytes;
- };
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 81a7093494c8..b86d22db4a13 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -41,6 +41,7 @@
+ #define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
+ #define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
+ #define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11, 8)
++#define IMX8MM_PCIE_MSI_CAP_OFFSET		0x50
  
- /**
-@@ -515,6 +518,7 @@ struct xilinx_dma_config {
-  * @mm2s_chan_id: DMA mm2s channel identifier
-  * @max_buffer_len: Max buffer length
-  * @has_axistream_connected: AXI DMA connected to AXI Stream IP
-+ * @has_stsctrl_stream: AXI4-stream status and control interface is enabled
-  */
- struct xilinx_dma_device {
- 	void __iomem *regs;
-@@ -534,6 +538,7 @@ struct xilinx_dma_device {
- 	u32 mm2s_chan_id;
- 	u32 max_buffer_len;
- 	bool has_axistream_connected;
-+	bool has_stsctrl_stream;
- };
+ #define IMX95_PCIE_PHY_GEN_CTRL			0x0
+ #define IMX95_PCIE_REF_USE_PAD			BIT(17)
+@@ -117,6 +118,7 @@ enum imx_pcie_variants {
+ #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
+ #define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
+ #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
++#define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
  
- /* Macros */
-@@ -672,8 +677,12 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
- 				       struct xilinx_axidma_tx_segment, node);
- 		metadata_ptr = seg->hw.app;
- 	}
--	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
--	return metadata_ptr;
-+	if (desc->chan->xdev->has_stsctrl_stream) {
-+		*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
-+		return metadata_ptr;
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+@@ -976,10 +978,17 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+ {
+ 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
+ 	struct device *dev = pci->dev;
+-	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	u8 offset;
+ 	u32 tmp;
+ 	int ret;
+ 
++	if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_KEEP_MSI_CAP) {
++		offset = dw_pcie_find_capability(pci, PCI_CAP_ID_PM);
++		dw_pcie_dbi_ro_wr_en(pci);
++		dw_pcie_writeb_dbi(pci, offset + 1, IMX8MM_PCIE_MSI_CAP_OFFSET);
++		dw_pcie_dbi_ro_wr_dis(pci);
 +	}
-+	*max_len = *payload_len = sizeof(desc->xferred_bytes);
-+	return (void *)&desc->xferred_bytes;
- }
- 
- static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
-@@ -864,6 +873,7 @@ xilinx_dma_alloc_tx_descriptor(struct xilinx_dma_chan *chan)
- 		return NULL;
- 
- 	desc->chan = chan;
-+	desc->xferred_bytes = 0;
- 	INIT_LIST_HEAD(&desc->segments);
- 
- 	return desc;
-@@ -1014,6 +1024,7 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
- 	struct xilinx_aximcdma_desc_hw *aximcdma_hw;
- 	struct list_head *entry;
- 	u32 residue = 0;
-+	u32 xferred = 0;
- 
- 	list_for_each(entry, &desc->segments) {
- 		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) {
-@@ -1031,25 +1042,32 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
- 			axidma_hw = &axidma_seg->hw;
- 			residue += (axidma_hw->control - axidma_hw->status) &
- 				   chan->xdev->max_buffer_len;
-+			xferred += axidma_hw->status & chan->xdev->max_buffer_len;
- 		} else {
- 			aximcdma_seg =
- 				list_entry(entry,
- 					   struct xilinx_aximcdma_tx_segment,
- 					   node);
- 			aximcdma_hw = &aximcdma_seg->hw;
--			if (chan->direction == DMA_DEV_TO_MEM)
-+			if (chan->direction == DMA_DEV_TO_MEM) {
- 				residue +=
- 					(aximcdma_hw->control -
- 					 aximcdma_hw->s2mm_status) &
- 					chan->xdev->max_buffer_len;
--			else
-+				xferred += aximcdma_hw->s2mm_status &
-+					chan->xdev->max_buffer_len;
-+			} else {
- 				residue +=
- 					(aximcdma_hw->control -
- 					 aximcdma_hw->mm2s_status) &
- 					chan->xdev->max_buffer_len;
-+				xferred += aximcdma_hw->mm2s_status &
-+					chan->xdev->max_buffer_len;
-+			}
- 		}
- 	}
- 
-+	desc->xferred_bytes = xferred;
- 	return residue;
- }
- 
-@@ -3284,6 +3302,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
- 	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
- 		xdev->has_axistream_connected =
- 			of_property_read_bool(node, "xlnx,axistream-connected");
-+		xdev->has_stsctrl_stream =
-+			of_property_read_bool(node, "xlnx,include-stscntrl-strm");
- 	}
- 
- 	if (xdev->dma_config->dmatype == XDMA_TYPE_VDMA) {
++
+ 	if (!(imx_pcie->drvdata->flags &
+ 	    IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND)) {
+ 		imx_pcie_ltssm_enable(dev);
+@@ -991,6 +1000,7 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+ 	 * started in Gen2 mode, there is a possibility the devices on the
+ 	 * bus will not be detected at all.  This happens with PCIe switches.
+ 	 */
++	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+ 	dw_pcie_dbi_ro_wr_en(pci);
+ 	tmp = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
+ 	tmp &= ~PCI_EXP_LNKCAP_SLS;
+@@ -1907,6 +1917,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX7D] = {
+ 		.variant = IMX7D,
+ 		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET |
+ 			 IMX_PCIE_FLAG_SKIP_L23_READY |
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET,
+@@ -1919,6 +1930,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX8MQ] = {
+ 		.variant = IMX8MQ,
+ 		.flags = IMX_PCIE_FLAG_HAS_APP_RESET |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.gpr = "fsl,imx8mq-iomuxc-gpr",
+@@ -1933,6 +1945,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX8MM] = {
+ 		.variant = IMX8MM,
+ 		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET,
+ 		.gpr = "fsl,imx8mm-iomuxc-gpr",
 -- 
-2.43.0
+2.37.1
 
 
