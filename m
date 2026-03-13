@@ -4,141 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C526107BCCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AEC8107BCCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 16:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IILWd9UZQBuMVznqlI+VceGF/DfhgdPFw5lpNhmf86o=; b=GwSpI5u7+cVBYJ/A5wAY5ZvgzR
-	WdiE8UiJti8RgqQKsgWD/VV/U7iUHmzU18EQn/Nn8XFkX/HjIcybRnY4Y79/Z4h4mqkFFTNupOd/P
-	j6Bk8b57guXv827Fp9bacjq/NEebx0xASsD7ragUK7wZmP+M4N1wPe/7FG01a/NfnX5gg7dDzkPLY
-	qwsVuzOIVRZP1PofDwQYmpkMGRpMDDRwLY+88sBC7E8iglcWNcfytGpeHXcH1YkA7/pgRpYmrhtKh
-	e031e05UTvwuW7/1BHoOdi65qNh6ylNMSyqsbl4mlJzAKYJyTgNJuZV189by1ioyJo4H6FzRAck6N
-	HCQoS0zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JNJNBe744ZGzg9YjQ2tzTZC5HYngRHwBIcHZRRMHlWs=; b=SjDTk2I1XbbVkduvOmtnc11KAS
+	ieuxzZdUMOLuQ91wQBpT6KbMm0bYjgRaC/AvokHifZ8nUiHDCG1lVWpRt4tltksaXmPqyxLnZmOIB
+	lWql7/yMONxdSmJbjbBu/6d8+bH3+DsAlmV5jcPE1z/iclZycQ3GNKYe2doG3CE0mug/Av+8IwJl8
+	ADVsyF4CZAwOYl34E7VMUxk/j3XvKa9Bl6CW0GNkNW9GDZ6QJ1I/B2HVVIVL8qqFnyblEQyq+rWid
+	efzTNoqJHWAsPpDH04Pg4/hV30nhbll0bWeuRV/9JclUvwDptDfeMjOZJImGowG97Mm666QD2ukX1
+	NuwGF29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15W9-00000000fBq-107A;
-	Fri, 13 Mar 2026 16:37:41 +0000
-Received: from mail-swedencentralazon11013064.outbound.protection.outlook.com ([52.101.83.64] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w15Z5-00000000fNg-0U9M;
+	Fri, 13 Mar 2026 16:40:43 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w15W6-00000000fBA-2RxC
+	id 1w15Z2-00000000fLt-1oNb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 16:37:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IMwJN8F5SwUf/CrR3nTf5aWpiQnIPh0qXNrOnOFlir6BqnoOM+JW642gJNyIdqMjHnBQ/TDXogB5amXV9qi++HZSkNwVorJ22cAysbuzPe/isZnDAMDG97EIe712jUtecvxAcveikSPkYOCIJcXjEZlJ1VkO5pJpv+s1GVnOJ5bBNoOXAxnGZ6E7ykUkKX0n8JY3PObzbvRgyhynz+dtzfpU91UIRBWSD9T+GVZ5OZ/XwFXGdXegniXCVpk3vXFa+LJWOmNGVAW6oPEZ8//YxFtrMTQJDE7Tdpy1CSYIWVzaCQ5XdGcXbBAAT4VbeJsM5RB1znqcfCZINf+cfo1UjA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IILWd9UZQBuMVznqlI+VceGF/DfhgdPFw5lpNhmf86o=;
- b=p7oJnEe0tdN1Liiar7A6x2D8z7mjz6VL5JR1ykxdB2WQHZ/zGPwFXiD/Llu3kwCcyIgLW8VlPj9LEKYnvqVUQxCNg4VkbuUI9ydjzq0W9mdo27uxLMxGjCEXQBqu5uAs3OwozjYWPwu2hBbyE/p7T2RmG+cwjyD3m7bHx4F/bOehGj5fOVtsltJGvjN56zUXmXBoe+1Afv88GFu3JxSK7BFydxqMOOgBqn5AhuZkekm4w7OA4HoAyw52sfdud25vMbAUazVk5HQdzvY3bqlSE/xau/m724j8VcEBFfBR1pRbvKuEuL0tV/AD2nWqA954z7J7Og/r8JNDtWvn7Ow9wA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IILWd9UZQBuMVznqlI+VceGF/DfhgdPFw5lpNhmf86o=;
- b=NuVkm0GCWwcZPZmER6QnPtyC8RKPJ7VoqLXnBQX0CnOi+9thVOOFId1uUqPZze7w2X+Dswz+oS/xlaCIiBidOoiQAG36IGRtXreWDBjFQ00O8xKR+RI23x+17mUjzr8697fJLiOAUlnZK6dvCItdjIuItXrnBd92tIjBhYWtZCWq3XA0N2TkPtlJ7uzY/KJcLLct3rsXRLvEFIKIyGdRpx73Z6jeMJS6FR5SydeXYS96+Uyz41H6z3k5yNBqHz09xNa8/gO4oRPRBPJh48fYncE/x5p/tEdnGugkav7xR1m+QS5BE92YlX+qXKFU8FS3YJmqxrpDOnUfg3Tx5Z68Ig==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB9PR04MB9703.eurprd04.prod.outlook.com (2603:10a6:10:302::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Fri, 13 Mar
- 2026 16:37:29 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 16:37:27 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>, 
- Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
- Eric Chanudet <echanude@redhat.com>
-In-Reply-To: <20260311081154.381881-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260311081154.381881-1-ciprianmarian.costea@oss.nxp.com>
-Subject: Re: (subset) [PATCH v6 0/5] arm64: Add initial support for NXP
- S32N79 SoC
-Message-Id: <177341984573.125057.1781471017875719268.b4-ty@nxp.com>
-Date: Fri, 13 Mar 2026 12:37:25 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SJ0PR03CA0218.namprd03.prod.outlook.com
- (2603:10b6:a03:39f::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Mar 2026 16:40:41 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fXVbD6Vkcz9v0l;
+	Fri, 13 Mar 2026 17:40:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1773420025;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JNJNBe744ZGzg9YjQ2tzTZC5HYngRHwBIcHZRRMHlWs=;
+	b=eYQEFcPirCKORhXsborpIu+UncfhB0e8PsdjV6dPalSujgIrHJ/U03m3ODQgq6yismLwnT
+	L7EZvmus6MTNbpEBt3FDd+I9TSYhCUpUGVddJobsSXcv8YYozesxujSndFTwo8UaVI8Txp
+	Axr5ReXic9C55x+1ueCLwKs+4d0nRYqAz1WVUeae0GaaFL9UPwCkk+RpUG4ScZ0zAPgFX6
+	ApADSt4m/gJT/ipqbXtOw0DeBsXmVaV3ZpVw0Pbmk8wybDlpT5xtTTCKfXADVXxOlwHI45
+	qvv0EFFrW+51GTgbevnx+ZNu5oes6dL53VJaPcJ930Fm96spFDDmRYZOHfgKTg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=muToOyAR;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1773420023;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JNJNBe744ZGzg9YjQ2tzTZC5HYngRHwBIcHZRRMHlWs=;
+	b=muToOyARr9J+fp5D1Xw6JdAqbemighDb3yVmE4sIyMqOsFFgUU1q7NXvTwAVephyWIDvns
+	x1buh3bgFN922iSjxV/GmnvIS/LWsY9B4RKdwuuM2rOf2yAMHW+cG+ubIDOwXJ2O7w9gsj
+	dKA4CuzDWsgTn6Oyu9/TbppeprQVsrs2odQa8KhrU04uNFhO2E8t2orbyK8wRyxEK60g/A
+	+GNFbjiDrRJB9c3H13qnY6PcO32Rxa8nQFiUUSIBSSZjKvQGmoRItcTAEmMrgBjjF6kZFn
+	t9kJS/brZT/kcGgIH5YisIIuRCEom1p81DDmWLgucuvGTjAKsspNCIBQ75ZLdw==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 0/4] arm64: dts: renesas: Fix PHY C22 compatible strings
+Date: Fri, 13 Mar 2026 17:39:02 +0100
+Message-ID: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB9703:EE_
-X-MS-Office365-Filtering-Correlation-Id: d26531f1-14cd-4d8d-d94d-08de811ecfef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|366016|376014|19092799006|56012099003|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: pvraSr+DxXu993UbtcnYqfMlEvXFDsr/+si5KJcSHLYdN6EGpPU5HiRJzTtysiPi+TMj5Pzd5yyQz+fY8A+KDNtar0pd1zol01DjlknEIRjUq014cEj81hmp/C1HCK52nRVGQnfMgNU04FnbxB3vTqzK9qZmS0rWnanyyWTzIrXye0myYPf20uj/ZzTVQOhPzmHwQDU/k117xnLVXCs3g13GOlppF4mrPTJMlriwfoalZO5/9cvyrlFWPDBor0q0FiDMheuU0rd+pC+aYN6U9F+oDazbeJvrKq3BwqCVEx9B+4H5xeG9raZmqNoYyS/gbnlPM3ScZz8myty6TMmtUNm0AnwWFnKJyWuB7V6ZQsldpuBGHSrs5iU89E2tdjSXyQMpBVuf1mJx+fmmGoCUqtH9ACBWDSVtM7WMljQundPp4tTNCZgayIpxu/CNTeE7cF1+1OPXoilrff7YNmOb7Mc+fSNdrFJyMcEFzGx3tqY3nif0Y+Gt33zFlsJSCM3msL16fB+B8kmNOVqGdRGt50F/fzmfJOVBjvf3KEt5ztXC5GnsJRSszpWHDsHK7980MNkt0xuDWlLEagVYJYn6QTwLozndO/rM2ZZHIxqatJLGKtWdLzVDJtnZ1Y2fGodxqbZEds5TxafcgUyAMoLGie9ms3i0uw/uzZZWwRRdCIZjS+pmDQA5gSrqs8bULQhkCe61hhEGKFkkbAs0jEvWDg5kEQ+LJ5a8hSG1ke4rQ3zJQbLrSMthvWio4ZXrqNtpeDMfzqB0mMWKTaN2PgXmZAXMSMUWIZnLurowJujY68M=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(366016)(376014)(19092799006)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UVZtMjdVdHZwaThVRGVBRmhsclg1blNpSHFxVnNEZmJYY1dKeXRqQ0N4MVky?=
- =?utf-8?B?REtxc1ZabW9HeGh5L1JpRFczU0E4QWl2VXVBeHZoT1ZxTkdBdXRkYURQa012?=
- =?utf-8?B?U1hmQnZ3Zk9zWTQvSDZBNjJnTGRXQk53amFqMHZDM0RLWFc5VXpsNXVhK2J0?=
- =?utf-8?B?bG8xeVdpYkZnU2dNRStsMHhCQ3BhbUN5Sk5NZ0pxbHZ2NTgvM0tRZGdBZ1pD?=
- =?utf-8?B?YWVDUUV1dGdPa25wc280UnFjejlpRjErOUUvUlFjc3dLN3VJTU9OdGdPK3Y3?=
- =?utf-8?B?VkZ0TlFHM0QybnhoRE9YUTRMZTVuWVdERW9SdVhkQVZ2SElZd0I1TWVSVVdS?=
- =?utf-8?B?L093TWJoQlJGV3dyTXNiYlZKaitxeU9HcnBvem1xMFJOeHpSZERmTm91R05M?=
- =?utf-8?B?Uzdrd0t5N2taOWZxNFNOaGhjNjVYUksxMEJQTmJ4TVlNMEtJM1pHREVOVytW?=
- =?utf-8?B?NHVGeGNiMjJXSzFXSzNyeVhLU2cycU8xRjJqKzJnUWNOc2ZRNEY3QXEwaGJO?=
- =?utf-8?B?ZUtGQ1cvdzg1QlpCaHUxRHB4WGFQYXhOSmIxc3dPM09reHFjVFpuQWNYK2k0?=
- =?utf-8?B?YWloK0lTQjhXREpMVmErUWVWSjNHRS8raGlCRGxLU2tDOXEydjd0Z0RuUDd0?=
- =?utf-8?B?aHRqVHgrWkNPMmpQeEovdWVKWGFOb0d5YTIrV2RtR3NubjF3ZkhoVVQ3MHJT?=
- =?utf-8?B?a1VSUW55TEt6SGxPTVEyOWtHNXNVRlNKT3RlZStHeTUxV3VXRkc5SDB0Ly9r?=
- =?utf-8?B?b295TGQ4SjZCMHd3cjdqakdCUTBuSGRKa1dIc0x5ZVRESDdmM3AzL21oNzJF?=
- =?utf-8?B?a1NrU2tBeDRvd2Z3bkp3QzFqM1FZMEZlaldxbTdVajVqNXVuYTNWUm9mRWF2?=
- =?utf-8?B?cmx4QXlRYVZuRWZwUW83MXc3Zyt4ZXAzYWtxRXdGY3E0ZHczUHYwZFJXR3Z1?=
- =?utf-8?B?aGpJd1U4TWZoZS9FRmNHK3dobVNTU2hUYVdGMXZiYTlHcytKN3Eya3dJV2dq?=
- =?utf-8?B?SS9ZWFI4T1FNeTlHTytJUm5iUjFnRzhZNExOcGpwbTF6T2grMW1lSTJZbHR0?=
- =?utf-8?B?eXRvUTZ0NjRLUlhxODVjc0h4M3lOZkU0MVNxZGczZklTWFk3QTdKcUhnN2FW?=
- =?utf-8?B?VWxXdkFnUmk2UlBtVGVCdkUzOVRMYWxsWVBPeURNZzBWY0dNOGxvdEltY1Vp?=
- =?utf-8?B?VVZhQ05pYy95ckVsaGI0em5heG1YNG9WZ2gwVlc0QTVXZ1hZcTF4YVhXNDlq?=
- =?utf-8?B?WjZZUDB5ekIzVmppVmpVUzhvZUoxSlA0UEZieXI3V3lVMlY4MHNGaHN4YWpT?=
- =?utf-8?B?Y3BHUENid25Gb0YzV1FSVDZaekF3WjBSY3BhdkgveVZnNG4wRlAyeFAxb2hw?=
- =?utf-8?B?MXdTTEVncjVUai9uYmhhM0ZxaUdkdE5FTFlGZk5KMFRSbitLU2dLY3JtbXFF?=
- =?utf-8?B?bE44MFVLSGJFaC9YaGt3cWFoemFxU3NZVnljOWRxZXBkcEZ3ZXFtMndNUXds?=
- =?utf-8?B?SXJWd3hoaUw4TGlBQ3ZmTlViaGlRWmtyNHlTL3dNZ2I3aXYyV0h3Mnh3WlJk?=
- =?utf-8?B?bzBXQktPVVZLeWNYZmJjUytxTjI4VktUU1I3LzlSNVVtclZWQ01ZbW1tbjRv?=
- =?utf-8?B?YzdXWk5FV29oek41ZjRoNnB6cU12ak56eGxHSTF0WVczOXFOb21IbDd6UVp5?=
- =?utf-8?B?elpoM0hGME1rRDNvVWNrdDQrQUhRVUpuTWR4MER3dFp4NDAzeFdzd1hUV1F4?=
- =?utf-8?B?YjdwM2dpUXgwbXJQZFdaeHB4K3Y5clNxLzJ2Rzc4ZnVTSG9wMXg5RUdwMGtv?=
- =?utf-8?B?YVlJeFpxb0gzZ0V4MW42dzIxQmdFS1RnY0V2Nm1JVzZOVzFBR3pKeE5sakNs?=
- =?utf-8?B?V0xMK3AyZXpUYVNrS21CRzdxbXhPQ0RBTVp0YkVVTmtSeUdRbFpYM1h3UHdi?=
- =?utf-8?B?aGFZZVdDWjlnQXdkUGVVaEZEMHFGMlo3QS9ML2xOQ2JkeExtaklsc3ZpYjht?=
- =?utf-8?B?Tk51NEdkSEJTVXl1emdjeDE5aDVJdGQ4ZFhHdGJPRHd5SHNZeVh0VVRLaXZr?=
- =?utf-8?B?NmxFL3ozZHI5NmMvMDE1dWVpL051SktJRTZ5MGpseW5KQXg4UThRc2dlWDVi?=
- =?utf-8?B?ZWNqTzRyc0M4a1RUVy96QXQvY3Z5OGd6Zy8ydFlHVjdpai9uWm9JUXhDeGZO?=
- =?utf-8?B?YzJXZlRqTWk0SFdKZW10cTJaTDNkTHY1S2NYbkdzM2RabmZ6bWRveGdNQ28z?=
- =?utf-8?B?QmxwTVduVzN4bmlTdXVRRFh4ZkJTbU5SY2ZDTThKdU1NbCt4Zk9SM1VDeXdG?=
- =?utf-8?B?M0tKVnZJZHJpMEFET0xIR2JYenBXT1Q4Q2kwTlNBTjV6Y2pmdmRhUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d26531f1-14cd-4d8d-d94d-08de811ecfef
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 16:37:27.2042
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VAQJBR/W6KyDvKBB+uh4d+GLKep2cu9miqkY+VH/G2CRnorM+gWSjLxyYT2b1yYaNC58nO7BKjfCv69fRjamSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9703
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: d6638a3d09f41d33cf0
+X-MBO-RS-META: qicis6mnxoqgbbuayxctnws8fx9coqp7
+X-Rspamd-Queue-Id: 4fXVbD6Vkcz9v0l
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_093738_633138_F9EFF4AE 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20260313_094040_747735_58AA5D6B 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -154,29 +97,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Realtek RTL8211E/RTL8211F and Microchip KSZ9131 PHY schemas
+indicate that compatible string "ethernet-phy-id001c.c91[56]"
+and "ethernet-phy-id0022.1640" must not be followed by any
+other compatible string. Drop "ethernet-phy-ieee802.3-c22"
+to match the schemas.
 
-On Wed, 11 Mar 2026 09:11:49 +0100, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> 
-> This series introduces initial device tree support for the NXP S32N79
-> automotive SoC and its Reference Design Board (RDB).
-> 
-> The S32N79 is an automotive-grade system-on-chip featuring eight Arm
-> Cortex-A78AE cores organized in four dual-core clusters. It is designed
-> for high-performance networking and gateway applications vehicle
-> architectures [1]
-> 
-> [...]
+The KSZ9131 schema does not document "txdv-skew-psec" property.
+Fix what is likely a copy-paste error from the "rxdv-skew-psec"
+property, use "txen-skew-psec" property instead.
 
-Applied, thanks!
+This is compile-tested and schema validated only. I have discussed
+this with Biju and they could perform tests on real hardware to
+assure no breakage. Please wait for their TB before applying.
 
-[4/5] arm64: dts: freescale: Add NXP S32N79 SoC support
-      commit: e93e5057d86be6d3212ec6441b97e3af28726dc2
-[5/5] arm64: dts: freescale: Add NXP S32N79-RDB board support
-      commit: 8c2bd27ac9cc41a68ee526e79850587064b3a074
+Marek Vasut (4):
+  arm64: dts: renesas: Drop RTL8211E PHY C22 compatible string
+  arm64: dts: renesas: Drop RTL8211F PHY C22 compatible string
+  arm64: dts: renesas: Drop KSZ9131 PHY C22 compatible string
+  arm64: dts: renesas: Fix KSZ9131 PHY bogus txdv-skew-psec property
 
-Best regards,
+ arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi    |  3 +--
+ arch/arm64/boot/dts/renesas/cat875.dtsi                |  3 +--
+ arch/arm64/boot/dts/renesas/hihope-rzg2-ex.dtsi        |  3 +--
+ arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dts      |  3 +--
+ arch/arm64/boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts |  8 ++++----
+ arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts |  8 ++++----
+ arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi       |  6 ++----
+ arch/arm64/boot/dts/renesas/rzg2lc-smarc-som.dtsi      |  3 +--
+ arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi      |  6 ++----
+ arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi       | 10 ++++------
+ 10 files changed, 21 insertions(+), 32 deletions(-)
+
+---
+Cc: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.51.0
 
 
