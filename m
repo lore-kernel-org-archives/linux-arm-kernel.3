@@ -4,75 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE73107BCD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 18:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA47F107BCD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 18:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6tdpzCjfd9Ry9f1CUsXXFtWyu0Swm3ZLAk7lZVu01fo=; b=OykH8SdqQeJ3tcEcwrVpzUcE5L
-	jpMKfQki0Lz5NsX8wFdGqHPAHZWA7yeb1AEGhXTx3XdLBmNMIoAqIMm4rQoJDJ/J0jznxCfRNTlls
-	JhtdmX9Pl1BJkaWw9hv7/HjGPzuRY+fIpbytO22fITrW7nLLz7wwvcw+YvtXsXHsFp8/YE2w0K8lx
-	4WoKz/0wN5JrEy6rG/xT+wUvmvtPPUScLIoMZkAawZ8xTDiBuymKaT3gYnLLyJAtM453mLDzPfHh2
-	Ax0rQbPKp78UCJqxECo3c66+gpABKU0qgnp6FwtCD+lOlUluyCOwLKkiHYtpPuyDp8aXFcQ/lyaEX
-	TYum9bTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XC6EVWrdTcXnfhaslU0vQnQnQfjR+CHD2QfenH6YYkI=; b=S86254/SxgGcDDokX7S3yp5ZLU
+	+4kVcQTblY+zgEKvRX25pjLhNwhOOs6S+iXOTADtxy3d7JydSjn2u86PUsbWQPUzXGkUd+ksQxwkF
+	zfYzhndOO8o6iYbxilAITkOGliqzfL1Rlsg9ECjMO8//NBc8hTpy4JK3WwpKCYni8hID2LepqOpq+
+	0uHeol71kkT4ZvZ9SASsa8pOW5+qCn+ovKyBlVx09iB1TuAspBHmbpOoVGujo4T4K3CX2Js7KjmiA
+	r/jVRAdH1Y3vopPeE/mJ+7eSiXJA0AyR7CPPNIqaoypu7WjrEVE3Ex/w/7AEa1qV79A3g4vITZoj8
+	rjj+AANg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w17St-00000000wep-3ZRt;
-	Fri, 13 Mar 2026 18:42:27 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w17Tm-00000000wnR-0oAJ;
+	Fri, 13 Mar 2026 18:43:22 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w17Sr-00000000wdu-2YBy
+	id 1w17Th-00000000wmA-3Wx4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 18:42:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6tdpzCjfd9Ry9f1CUsXXFtWyu0Swm3ZLAk7lZVu01fo=; b=k0QvlEX9IYsfeTo+hPcc2ovRdk
-	E3ERkxj1kciouvsK0NuqjZC2XrplYyqUqMJakrTRYFPPB5s21rLvjoN5A+I+hhrLvk+iCJo6QdfWp
-	tPAiSpAdnyzYKnClPN/vQzFaswO01+mHVby6ji+Tww2Rx2lbhVQlNTXAPKV7IqRNhkHk7YtUHJsec
-	w2gwBldUXZYtBFnXXzqfSwL4UlI7iuFDKdNbGKOm4Qq9roL++w/Sn8TodY+0H0q9kbi1gQePDeUhN
-	jNEKg4FpGInqMpWjyH4sP4cD39rBbcY9I3d3BSaidaM+dSDXhitpMEb9XQnngRAKTuIwHCELdlSFz
-	29NWMItA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54202)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w17Sk-000000001PR-2lDL;
-	Fri, 13 Mar 2026 18:42:18 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w17Si-000000008RT-2T8o;
-	Fri, 13 Mar 2026 18:42:16 +0000
-Date: Fri, 13 Mar 2026 18:42:16 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 8/8] net: stmmac: report PCS configuration
- changes
-Message-ID: <abRaiCW9oJ8IfFcy@shell.armlinux.org.uk>
-References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
- <E1w11dz-0000000DEie-3fyA@rmk-PC.armlinux.org.uk>
+	Fri, 13 Mar 2026 18:43:20 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id 25AE11D001CE;
+	Fri, 13 Mar 2026 14:43:14 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Fri, 13 Mar 2026 14:43:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=schnwalter.eu;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:message-id:mime-version
+	:reply-to:subject:subject:to:to; s=fm2; t=1773427393; x=
+	1773513793; bh=XC6EVWrdTcXnfhaslU0vQnQnQfjR+CHD2QfenH6YYkI=; b=X
+	0rIWR6YKILA9ZL9ERxmhCzCBSbSDZXkP/DfO8lSgCNBrvOairRqVipIm5yf/qYFn
+	c62k7kgEVs4aFvIlQXvPe5hlpY1iRjNN0uHfS6jyDy8ft+lpbsxWmTJtun2chU9i
+	Kqi4rCcUZvFQqNW+AOHrnzz1Z2SEu9ffJuSvpEkpSyQ5eLmUQWnmPIjGc+yAPR5O
+	U8Yj5DqE8EHkvWc0LoxT66d9AbUJbV8STHfSRsNPGf0DZCeZgbfQbzngMh61N2mB
+	JXk++pcMZkRwihMbrd1ELcoAJTWIxmW2mYc+CIXTKMZghRPFGDV08esMF4f/5fdI
+	UrosJMDPfJ6zGtB9Nwr/g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1773427393; x=1773513793; bh=XC6EVWrdTcXnfhaslU0vQnQnQfjR
+	+CHD2QfenH6YYkI=; b=LMKPobux6aCEvJCfz5ruVaXowOoPXPZ046WDX8+4ueEB
+	y8uLC+c9BZIJTC4cjMxXfj1KGaUjZHC7adHf4Y+j4FsZdAX5KIKQSrtyQpVXHyaM
+	O4iEJGDvzEAB+vCNxEW8znHp5NpUN2M8o5zil2N3dmcbsdyhar47Eo+YbsZcHzAa
+	ZmHWIPJSGjJ0Pf0Y2X42qF+UbcUeRu/HhDxB3us/p5ws4FntAfMZxHtk88BDrcnO
+	r6nKiodyoUlxHqPfbwCcB5wU32sblNqAkPWIHF/cVRL680kygr15MCB+69uQ25S4
+	cIsfrUw2b467VUFQyj3UfuqBN1wLoCXRIG0qTsOHuA==
+X-ME-Sender: <xms:wVq0abgt06cTVyA8LZHUgl5jSXJhAPxjCpcXbnLx4muNUSQgX6sWDQ>
+    <xme:wVq0absID93j3DRBXlxpR1Hud35wUWoB1SA8qldvWCbhXAucN-VOGmhSSiO3v8lYv
+    EFb8S0b20FIC051O0chURjhdZCV71vjdsUNCyUC2Lid_myV8AvWng>
+X-ME-Received: <xmr:wVq0aU4UZiAtCPl_J7l7UDpytHYcKqqzwJjutCDsuD3eAtzZbB8c4xGOD3cv6A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvledtgeduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucenucfjughrpefhfffugggtgffkvfevofesthejredtre
+    dtjeenucfhrhhomhephggrlhhtvghrucghvghrnhgvrhcuufgthhhnvghiuggvrhcuoegt
+    ohhnthgrtghtsehstghhnhifrghlthgvrhdrvghuqeenucggtffrrghtthgvrhhnpeefve
+    ehieejleekkeffuedvjeelgeduudffgedvtefgkeeileetveeftdejledvueenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegtohhnthgrtghtse
+    hstghhnhifrghlthgvrhdrvghupdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhp
+    ohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtg
+    hpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggv
+    rggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqshhouhhnugesvhhgvghrrdhkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopegtohhnthgrtghtsehstghhnhifrghlthgvrhdrvg
+    hu
+X-ME-Proxy: <xmx:wVq0afMoisGaieliBp-VlYV87FIfbX2TG6VBLRO3SQzkRHL0LOPqPQ>
+    <xmx:wVq0aauQF2ksThNufX8ve5Z7xeboW90jMkYI401-qygK_d1pWAeOyQ>
+    <xmx:wVq0aaZZ1iEEcfeiApGmZRyfXfNlElH97Qj92mPTFz_r4awEkctFUQ>
+    <xmx:wVq0aUzG36O-2aT7FDCqTsXkAzrqCF_S1LomB25b_or1vb6fsBtroA>
+    <xmx:wVq0aTJ-80f4E6F7pEzSil7CHD55rzGHEURd5VZCsBM5uA8NIY-FC1V3>
+Feedback-ID: i455149b6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 13 Mar 2026 14:43:12 -0400 (EDT)
+From: Walter Werner Schneider <contact@schnwalter.eu>
+Date: Fri, 13 Mar 2026 20:42:45 +0200
+Subject: [PATCH] defconfig: Remove stale CONFIG_SND_SOC_ROCKCHIP
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1w11dz-0000000DEie-3fyA@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260313-rockchip-snd-cleanup-v1-1-77d9a953fd1b@schnwalter.eu>
+X-B4-Tracking: v=1; b=H4sIAKRatGkC/x3MMQqAMAxA0atIZgONlQ5eRRw0jRqUWloUQby7x
+ fEN/z+QJalk6KoHklya9QgFVFfA6xgWQfXF0JjGGUsW08EbrxoxB4+8yxjOiJNraTaOiYyHksY
+ ks97/th/e9wPvrt4/ZgAAAA==
+X-Change-ID: 20260313-rockchip-snd-cleanup-b641f06c110d
+To: Russell King <linux@armlinux.org.uk>, linux-sound@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Walter Werner Schneider <contact@schnwalter.eu>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773427392; l=1564;
+ i=contact@schnwalter.eu; s=20251106; h=from:subject:message-id;
+ bh=n5O8kmjDXqJfQ0yqnK/0XI7wM6X8VHL3FnDeo/WMLfs=;
+ b=ie/GopnkxP+azHiXC+21sVOvMdKEWvbY+tVDrR81JPPIbhG6XDqhrM2VAx2NVUZyXwr5MVBWt
+ DKvy17gmSVkDob0mtf/emJZnAG/dWn5BmJTOK8nTfP0zHeN/sdJKiZ9
+X-Developer-Key: i=contact@schnwalter.eu; a=ed25519;
+ pk=OoafUGtB7zQJLYhKA7ALCjqddXAaem/uP/eb3GGNkTI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_114225_650509_0999B5EB 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260313_114318_581744_AC4FB277 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,23 +121,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 12:29:31PM +0000, Russell King (Oracle) wrote:
-> +#define REPORT_BIT(x) \
-> +		if (diff & GMAC_AN_CTRL_##x) \
-> +			pr_warn("dwmac: %8s %u -> %u\n", #x, \
-> +				!!(old & GMAC_AN_CTRL_##x), \
-> +				!!(value & GMAC_AN_CTRL_##x))
-> +		REPORT_BIT(ANE);
-> +		REPORT_BIT(SGMRAL);
-> +#undef REPORT_BIT
+Cleanup arm and arm64 defconfig files containing the recently removed
+CONFIG_SND_SOC_ROCKCHIP option.
 
-I see checkpatch wants the if() inside the macro to be wrapped in a
-do-while loop, which is overkill for this - this is not a macro that
-is used throughout the kernel, it's only used in the next two lines
-where we can plainly see that this is safe. There is no need to make
-this unnecessarily more complex - and thus less readable.
+Fixes: cae3cc435db5 ("ASoC: rockchip: Standardize ASoC menu")
+Signed-off-by: Walter Werner Schneider <contact@schnwalter.eu>
+---
+ arch/arm/configs/multi_v7_defconfig | 1 -
+ arch/arm64/configs/defconfig        | 1 -
+ 2 files changed, 2 deletions(-)
 
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index f75d75cf91c88c8274d1f4c1315ff1dc9ba096d5..f16080e059871cd19911f4b91e47e932c43c5179 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -814,7 +814,6 @@ CONFIG_SND_MMP_SOC_SSPA=m
+ CONFIG_SND_PXA910_SOC=m
+ CONFIG_SND_SOC_QCOM=m
+ CONFIG_SND_SOC_APQ8016_SBC=m
+-CONFIG_SND_SOC_ROCKCHIP=m
+ CONFIG_SND_SOC_SH4_FSI=m
+ CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index b67d5b1fc45b03aab531bc1313a54103acd43b7a..7e0cb17fc92224892115f59f89a74a43a2f95407 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1097,7 +1097,6 @@ CONFIG_SND_SOC_SC8280XP=m
+ CONFIG_SND_SOC_SC7180=m
+ CONFIG_SND_SOC_SC7280=m
+ CONFIG_SND_SOC_X1E80100=m
+-CONFIG_SND_SOC_ROCKCHIP=m
+ CONFIG_SND_SOC_ROCKCHIP_I2S_TDM=m
+ CONFIG_SND_SOC_ROCKCHIP_SAI=m
+ CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
+
+---
+base-commit: 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
+change-id: 20260313-rockchip-snd-cleanup-b641f06c110d
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Walter Werner Schneider <contact@schnwalter.eu>
+
 
