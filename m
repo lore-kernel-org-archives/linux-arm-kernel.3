@@ -4,129 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E9A107BCD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 19:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6127A107BCD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 19:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hh6eexd331/JqawqmiHeHowM5Jtr54pxljSZZUZQlxQ=; b=CN+hb8sdWRXlFjVPN774mP7Txa
-	ZvbPzcRMCvj0Ib5gAl05TNkjrfRvNPpHUgpDU4t2AuPN1i3/HsAy2r+arirr5/nedxjiM2nXXR8Ew
-	UJVYREysNuQcEjLS5/OVejm47Ul9Llv/YMPNogHETf5wYg/PWMgNg7yGR9KXBrZDDaFyjwTw9LXtH
-	UA0pBILqK6HW7ENuwss8OeZtTjsqpNE5ddmiwjP0v6wC/RKX4i1P9m8Lc0hDW/ae55frHeraqCVco
-	rlMJEysXvK6lM3Z5YluD2QU59Vwa0J0JpdbnjAni99X43ND3i3fBRxNDFq8nS60tQpmTNc5Kmsbd4
-	IpIQ13CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7qk9o5w5pN/whF6xyjkdP2hsByxiZCU1yFYz//xI0dw=; b=Ue6MNTX29J+2WeUJ3jf18Kum8w
+	Tt6inyWC0uKcdUTYB/0CcJnDYIwRRpF8swWkNSvvlwGYpdtO6YUwq6Dw0uygbAK4+8zUWUVpO89sT
+	lDB+kMJcPCUQFk6NMHeB9BAQpJkXd0WsZpR6qQfS1NI13iOFEaTOpF+b8lo18PmBI/+MQrwC0NmrH
+	UIXCLeMJmEQzNWa++zoIOlAgr8+nn5XcI5HHvWV9s2QGUwOY7Ynv5wxl43Zbmam62XXmDcDwDBCmc
+	amtw9tS2JxOMbnyWaP8l1SLFaKjuOQlyqOt4/cy3MHdupKlvpe0rYe+OYOytTZ7znYA2lkgZnq+3G
+	Xg1O382w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w185r-000000012yz-10ws;
-	Fri, 13 Mar 2026 19:22:43 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1w18ER-000000014H7-2LOv;
+	Fri, 13 Mar 2026 19:31:35 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w185p-000000012wx-1Ary
+	id 1w18EP-000000014GG-1BYp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 19:22:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hrKAGReqM1FxwsxKRYCDY1gLO5Sui+Lb7P8HodfCrIrpj6UpURZa4312oVoprGmP2MzJ/QLUhQznE5rQWFKm1TWlj/EXLb6NaMeLqaFb/EJFQJEASUFXd7QGGuJvyEMxIPp2dSmQHdTd+7oLJIKqe1ZCa3dGcEY+30knbrft5gSnbNxV2gZ5omB/zEk8zSVnzl1o7DGUSr/3m4YAEktSwWpWgoD6t4X+vabCNAI7xKFyqckBUToCQFGKzPxDJpNuXLhGTnNq6X1DPnwuzThbuy92w25kjTjb6LjP81pPbkf5HOHJiPlucYe61uZ3Xaia5qeqEyp/6NctADFj5NpSfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hh6eexd331/JqawqmiHeHowM5Jtr54pxljSZZUZQlxQ=;
- b=b+maEjca02aAbLd9jxPYCero56Mapu7FuOqhljm7xPELtEo9/lpNFtXAxRUnzIfjjk6h0FtYAfYitS3vAn0u9hX+NZtiUJ8vpo2VGcFsRWtvRntVAr60Hc5suOFpWVUc9GQKHYIIi+JmKeR4qRuvFeDS2V4/jgA/dxB7oxswlgpJA0MkyteKDF6If68bad9xO1oY5qSH0wRchWnZ42msWjH21C6R/OwbroaM3HlI2yCizRybhy9/krU67NojVmpY8wrv4bniWcbCmP10HRrOw+08FTWV3wX6s1aJ4X/HnoaxztUsMWQdUzdlTuh1/xCwZ8xWNQKYdXN9YnI8CWIFfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hh6eexd331/JqawqmiHeHowM5Jtr54pxljSZZUZQlxQ=;
- b=LWc+mAeVRHxM28L9hfHT/nrKkiMxsTkFMtdHY5oL95Lx1dxhku7HlIE8CqUujN8FlAi9DfOafZfg/GPxKA5TOyd9/2DTy4eow8qgkuce+OMVvjyFmKOUbPQ0wQMocfOuHG+oVZphdpMOmduRD34G88pf9UvNJE1RYlaAIPUaqBHYYyGB4eoWbT5GY+N+MlB4gYLGj4Q02WRsJeumbFlACeuIa/G5w6sbbDyW5gtsOUlI8toq9fY4QHzu5M0N8Cv9ZfbQZpt9dmGPPQg+XxSZSUvuAxWoC+iImifoV1aeiNzB88ZIRTG/eOcZQJG5ufqwGaJ9RZrPlKkV2XGNh18Pkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB7512.eurprd04.prod.outlook.com (2603:10a6:20b:29e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Fri, 13 Mar
- 2026 19:22:24 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Fri, 13 Mar 2026
- 19:22:32 +0000
-Date: Fri, 13 Mar 2026 15:22:27 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: tqma8mqml-mba8mx: Add
- dual-channel LVDS overlay
-Message-ID: <abRj84Rpgq-nEt4S@lizhi-Precision-Tower-5810>
-References: <20260313113422.1722787-1-alexander.stein@ew.tq-group.com>
- <20260313113422.1722787-2-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313113422.1722787-2-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: PH8PR07CA0017.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 13 Mar 2026 19:31:34 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-38a2a59baa6so21587041fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 12:31:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773430291; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hvi7tTwSnPCgHlTCIiSgNlEtI4cDBtvHrcr6XWHcbeQHF7LkOMtWZNHyS9ied9gz0t
+         yOODdwtuFB+PwDVm6ioQ4UJ5y5gHzit25rRRZ169A56qiSWjoZDLMCHWMts7JDFLyvbv
+         zviPXUx4h9mzyYL/50reVRcA5HI/IlH8btJFkSOhuMjs4NAtCRIODv9NMG3wPGG7I9KQ
+         8FK9ywhqWLlRW/2g6WH38dhQ86nPf5dNlmX7CxJ+ZmLhOI1qKeNzXbCb/fwDIZbUc0jf
+         RB55FkckOYrQkzP8JotHe1ZSLk+l2600yulPqeZAoli0UflwqHUrWxAsPQV+p+zX9xFt
+         TWBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7qk9o5w5pN/whF6xyjkdP2hsByxiZCU1yFYz//xI0dw=;
+        fh=09xlfnPGbhtRckDKzyHwFXctn9025XnQMuThSOVqYrc=;
+        b=aSQuontd36b166PSfJgjzU392Dkv3ob/R0ZzpKFzCmcZuOiim9fLrgplnJvfDYqxxB
+         wZSyUn3+apT1RyL+bO6VD193Pfy/6DalwFirH+ReV96HeJ/EuSe4nIg+cCZhECqqp/wD
+         BKERPcJQwYc9kEP0AMBOg2KAUkNdTRjjAsbFHIXHeyU7/2e/KA5/e1WW7UptgKEtq4vJ
+         sHaOxOpSQnwFhq2h7rhuwRM+m5iDx9KldkfO//7/sZ8rz9gm3bRi5nZG53+jUJ8Fi7EE
+         Bgq+xCbPkl4rCRkf4fQBBA0cUBnLlig7A1xTT/dmuYWH3ZMjdaMrfXBnVnuVcBLZz9M4
+         Dzbw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773430291; x=1774035091; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7qk9o5w5pN/whF6xyjkdP2hsByxiZCU1yFYz//xI0dw=;
+        b=duD6s1cxQ4LT8juT6yCdTd67I+zMnz7GaqGdPx2lOFLRb6tD6m9WsVqMsxYR/69UBG
+         nrV+pkjVJ75JCP4L7M9qaznMvwKVIxHunR+coesSaxd2fbrAhQ/1hsHGRgM9y5bQ9tL8
+         53QXoihiTsOZ3rLXVuMcODbwz/yaH/USD8zGGH+cCKCZB5lSxtrWuNvMOSHV4xWFkcT2
+         yAu/hNn9ABhAEVPK3ULZbJo/2gPokRnprIyw+VKJVlW/Kcze+zLgS9QtSE+60hk+HYdF
+         inFUQJ2dgNuArK5vCBVSiwnIdw7qQSKt5eSaVO2yT+/9nMmpRMg4oYKsVsbZCOF6sSn8
+         HwEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773430291; x=1774035091;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7qk9o5w5pN/whF6xyjkdP2hsByxiZCU1yFYz//xI0dw=;
+        b=XFqOVXyPqeJhwG10iiKnrwK6+tkYOEvP+hUWC7M9wQ06Esk53+Cs186Wvn7JRkboTy
+         g+RJuwGv51t0VESwUKNOzFpih7XirlNJVYCt7pwRbg3ZWSZBd6T8qbDJezBJDi2h4aZD
+         azu4H3r8aPEBX0fpyF/q/7SOhypvnHn6oYAJ8YMV0hTsUU1+nvmhBEU4UGkgKncqgI4b
+         80LzS2pCxgyaZ3IK1hXexOU4BKt1ip70cZU5P9immopSYrDnoDU8Fkp4OFerTiPMXT/E
+         Qci09T7A8cEyndC50WO/7yyFgUZUn1TLcVwLlDh8ShQlPKMyLgRg77U5ZG03XTDzhcJS
+         Yy/g==
+X-Forwarded-Encrypted: i=1; AJvYcCW07ypziekLcxpAjb4/OL9YEjGGZEDaiXgaClOLC2VHPuXwSridE12Xp48V7PElLWoB10nuc9rGFgpfJVmA0I4Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNtuhbG+pl94W3Ko5GKAkbWqJ+HKw3ypbRITLWEDOJvkO0Lort
+	H/Ql4MT2YJA6H65WVOAtgcwEClQIU6broxM9n4MR9wGBoT9Zg8IpUltm4nn+C9RBL/w8/e/Tvhf
+	cowrYeTx+GChwdH5BJM7S209QZvmbBZc=
+X-Gm-Gg: ATEYQzyAdFh8B4BieANWElxo3eCJI3hcmzFBkmbqX2MAv6+besaG6ZocVV8k47yF/GE
+	wdbp7R0SC9qTp+t4EsHSnFKCWsVDqMrk/p4aMqmN406KYignQFgLvvHGllcAhfESH7/07MKyxkL
+	6vVjRHsls1EI+SlO9eB37OWjgjXL86XBPICQYawj6m7kld0eAAyLKSJpfBSnsOLzZWR0+zKa1Eo
+	yW/FseF8OotD4MXmS779ntgF6WYNwFMokUNX963JCyUogZAzJHopKdAQQAxx/7vBZYrFvsSh2Q/
+	hD/+9clbgZ9uGDvHuGfIK2/cfXME5vrf1LF5RgXaRVe+G/kS/hIv113PVpoSaX/lqOI7D/sc13B
+	aJ9KX+dA=
+X-Received: by 2002:a2e:a36c:0:b0:38a:1a50:d843 with SMTP id
+ 38308e7fff4ca-38a8981c174mr11402461fa.36.1773430290368; Fri, 13 Mar 2026
+ 12:31:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB7512:EE_
-X-MS-Office365-Filtering-Correlation-Id: c10ad63c-fcc5-49be-5850-08de8135dfc9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|7416014|38350700014|7053199007|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 5cJMl9w1YTSWtmpXJEsM039qOVvSU/9VvN3yqPqyY8lRBoEKsU4ldG11NYqTihioWc0erN8pcQ9p6s84VTpMsSWhI5ZEJS6T/nDQghedwkyIVyXHYRlX9Ld4rH2YSLuY22qdYJ2q1AU+saZ5vgpfkAwdXoa75y4zXsl87yJBQgrT7yrcG7aVJkPfdtbw3VMTVs0rEn3Xtj6IRwDMOeKxkqXhJUMS3NOD5qBi0slJ1zEDZ1zm1QhB3WrEE6Ipao736UiyYn6aQ2tZRofD1o68TbgaPQtEeOwbgBRjlY9Q34uyaml3x+JmE30C19me1nLnHlF+byYOJgJeFCPcA1SwIA97B7eI5re4J0iWwS3SODxTjvKd5LBUCuGHkcamKOtFd2geqilf4wCvYEoRTqgBHPw2lvYGoCc0hydXvpMUoQp+nVc2kkwJjGfWWX8wcHRxIOCdhC5lbNy90nVhPNchxINTASjTDhZa4OG4WFwHwglKgLMBl+tvQIOzY7hlXzQXOZG4N/dWf3fS+ZYAyG3tes/izMtliIDX9EtQDDDmgXbse3gxKYROLFZYCHsaYBQsht2bdL/RvRum2JrwHz/fcVlybpeIueOPqNh+UGmML5WKJZzAMuP+3xvOpuMPFIA5BW5bwR0Rw2RfyqcsmIspEDJfYBYtlvnRKYP7C0gILZ6Lh+oSRwmBQsGJQZJOhLKSSOhrA7vyKtmUARry7XmTtFUdCNk6Y9uU3jDAgp6rVAZZ5soxSnX+p5vYR72/f6GuXHVRJvqJykdCvvB2k4tAT8AjvAAe9o+RhV8qQPyKt/c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(7416014)(38350700014)(7053199007)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JLrO6ki1DC51gUlfzI0lj/Qs87USyxvOGu+OVmRnXfWM4xlsWFZiE0ZA/HA4?=
- =?us-ascii?Q?AfVB7PXosNUX/YpJe55O2NfuSZxjy+wxc8Vy58Vbv9OmpcPxYWWnd+4+r66Y?=
- =?us-ascii?Q?Pjh7iS2iEudgOawWXh2XNvQbBRVWvmcLCxciT7j/XQC2/wX7BaJJdEuX3wzu?=
- =?us-ascii?Q?wfV8GYfC1BPWT1BbtxzAWlGDo6cWt2xKo8L2TSZkFKQ2bUEygWwADfM2vcAr?=
- =?us-ascii?Q?9Ylvg8frtNqEUzqlyN7BWZvcLyFlEEcIpH2L3enx6FrtJ7iIUSW2pwb0s6BU?=
- =?us-ascii?Q?bROz676Yz09rvl5mPn2Tersy+ODkte6ZY5YvkSgGwGP+UFIVwi0Vr2CTQ/3N?=
- =?us-ascii?Q?YktUoe7BnrndSs7pdk+QNqJqWE2FXnfH2w/50Yi9novOptas+NDQUONcrZd8?=
- =?us-ascii?Q?XMW7hxSNeEtWDDPDCKh/90oEO5tL1dYc+jG/CzjbZ0QHbjbZPwU4ETeAvurP?=
- =?us-ascii?Q?qNa5QPHaJW/AlXe9AKYi9U3TUELgWxJGuGeeomHpLMxn7Pte/8kXyipe7+BF?=
- =?us-ascii?Q?uSZE5aFvHMiftyMbjtzrWVmOjxHllIdOY1DSeSl8Qr/+xr0cdElx09xL74Fw?=
- =?us-ascii?Q?jWExi3d0m6vtOVr8mRiB9m5rSjSnLFzHuf+AjYovoBiYgra/a3gJywlA2RLQ?=
- =?us-ascii?Q?p3/LQB+3nOS6FIB4eyrQi0+0uCb9tDgVkkVnNfKdHFOI/Hzx+AWviyJ8vit1?=
- =?us-ascii?Q?Kj1Vkig6ejDVM43gKqR5aQmwrdGSRMeXh+PTn0S/s0un9LR/z6FDYksB7XFX?=
- =?us-ascii?Q?zg6IhhyQS8vvJ6kPc1aoFQ4aaJ7PIrxnxTieuBH1ElpaHEHkm3PaRoucJAop?=
- =?us-ascii?Q?Q7H2dQs3ZyjWvZ7eEcL8mTq9eEWIwuBpwoF82WmpHNu3uvslCYFhW4Hj8DQ6?=
- =?us-ascii?Q?B8bfShsBTpjM28zA+kdWEM00rwnokoQLOI4vfk9VvPdEfATMBg1veP+vvRCw?=
- =?us-ascii?Q?Vy5hQJgYYpsFb7qgHTYVN9zgU6JtSdzCgGCvVMVpwBuUpaiR9G3XEzC9HKCr?=
- =?us-ascii?Q?IsbTekmbJZa3j7A9nLbF9/HE+q69leNyq64CHV5BTYPcditWqSiOplwimsve?=
- =?us-ascii?Q?+oLYkU4raayPoyl0banpcwgAGf0uEE3xLT3e/4ppJGbs3d9+UWEYMzpY7ilR?=
- =?us-ascii?Q?Gl8kWDvjkPx3hiTYp+19VA7ZFZ+BcC4HjoMpD4zqYjs2VYRQXm6EdbG/T6lE?=
- =?us-ascii?Q?D3ZhbVC7nRe0FViX4uIBbzxPl210O1QgfBVAMHGB0aHFBNWEpB1/1sgsRv89?=
- =?us-ascii?Q?wXgFZ1pNaHKb08SakhBAI4FL2InmGMAZ6k8DJkinipwPek0CdSm1qSsT9lwn?=
- =?us-ascii?Q?wrjl2r2GzjIPC2STROhhe3ivRzToHij2+AJ1okwJ5JmrNZKeH27qod0JDFK7?=
- =?us-ascii?Q?TphbcrIhcBcYbmPftzdMoD8TzTDJW0vI58623GRvfR3DWIkCJgOmAoiJkXEi?=
- =?us-ascii?Q?HuExMpf+lfF5gxr5/2Z1FIrh4YY9h6/2jrC5FjWUckFzC5TGPnb+IsK0Z7mk?=
- =?us-ascii?Q?iOLD8Wxb3N6FbXf6Cywl691wazuVQue+hxDxT90IFiGgRDhKtfRcy1xsw6t5?=
- =?us-ascii?Q?kNS+zlTQtDQvPMCeCQFOeauT2LuVlMF0fvgbTC23d7g/6Y6hsHnlVEAgApfG?=
- =?us-ascii?Q?IliZlgdiOX7BW3Ayf79ignHzUmGUoWy5LXqWu1z3zgGHoWBYIsnA/SLcgNuO?=
- =?us-ascii?Q?vd+seJARYSRTP2bkYB7qmnyaKUxheprjHAh3z0yTSsG8Xgr06Lu95h9dyGo0?=
- =?us-ascii?Q?L+2lZGxCkw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c10ad63c-fcc5-49be-5850-08de8135dfc9
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2026 19:22:32.3092
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d700sqxOWVnv1todmPqKBbnf5VsobD8RLuOgE+Pw+dR3P21t4Lxmb5aZ/E/72bvWs5LQYXZa/7RHf/Fu9mTWeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7512
+References: <cover.1772898346.git.stefano.radaelli21@gmail.com>
+ <7c84625f82c562bb9cd2b455465d63a1a25bf19e.1772898346.git.stefano.radaelli21@gmail.com>
+ <CAOMZO5C+USp34WQ9ap+N9ha6EgU7JgsYkRsLEW=ZdizbkMQvPA@mail.gmail.com>
+ <abQ_d9fGarNobYdo@Lord-Beerus.station> <CAOMZO5BnuGc8sddmfhKJhFgWa+K2gExeRN5097794j48+Dw-AQ@mail.gmail.com>
+ <abRDxRK_GFYwmAGE@Lord-Beerus.station>
+In-Reply-To: <abRDxRK_GFYwmAGE@Lord-Beerus.station>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 13 Mar 2026 16:31:18 -0300
+X-Gm-Features: AaiRm50pUUd5PlDELi1jeVhIygeT3DuOuUYNivL7Ni7NnylRuT23VDH4JhtqGGg
+Message-ID: <CAOMZO5A7XJL8TFHZJAgJAV=yHzqHEb4+AyDEoiBR4Zas3zMisA@mail.gmail.com>
+Subject: Re: [PATCH v3 06/11] arm64: dts: freescale: imx8mm-var-som: Update
+ WiFi/BT with variants
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_122241_533595_783FBCDE 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20260313_123133_345914_A6CACC6B 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,128 +126,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 12:34:19PM +0100, Alexander Stein wrote:
-> This adds an overlay for the supported LVDS display AUO G133HAN01.
+On Fri, Mar 13, 2026 at 2:05=E2=80=AFPM Stefano Radaelli
+<stefano.radaelli21@gmail.com> wrote:
 
-Just said "Add an overlay ..." and apply to ... (from patch 3).
+> Thanks for the feedback!
+>
+> I might have misunderstood the best approach here. The reason I split the
+> WiFi/BT configuration into separate dtsi files was to follow the directio=
+n
+> discussed in the previous revision, where we decided to keep support for =
+the
+> legacy Broadcom-based SOM while moving the configuration out of the
+> device tree, giving the support for both modules revisions.
+>
+> However, I see your point that if it is not referenced anywhere it become=
+s
+> dead code:
+> Would it make sense to add a legacy Symphony DTS that includes the Broadc=
+om
+> configuration, in addition to the current Symphony DTS that uses the IW61=
+x?
+> This way the existing boards would keep working while the default board
+> description reflects the currently produced hardware.
 
-Frank
-
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile        |  2 +
->  ...mx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtso | 86 +++++++++++++++++++
->  2 files changed, 88 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtso
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 8a85b5c39f3cc..f1b54f1b0a23a 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -180,7 +180,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-ivy.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-mallow.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-yavia.dtb
->
-> +imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
->  imx8mm-tqma8mqml-mba8mx-lvds-tm070jvhg33-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-tm070jvhg33.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mm-tqma8mqml-mba8mx-lvds-tm070jvhg33.dtb
->
->  dtb-$(CONFIG_ARCH_MXC) += imx8mn-beacon-kit.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtso b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtso
-> new file mode 100644
-> index 0000000000000..ce12bc46553dc
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtso
-> @@ -0,0 +1,86 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright (c) 2019-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Alexander Stein
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/clock/imx8mq-clock.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&backlight_lvds {
-> +	status = "okay";
-> +};
-> +
-> +&dsi_lvds_bridge {
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@2 {
-> +			reg = <2>;
-> +
-> +			lvds_bridge_out0: endpoint {
-> +				remote-endpoint = <&panel_in_lvds0>;
-> +			};
-> +		};
-> +
-> +		port@3 {
-> +			reg = <3>;
-> +
-> +			lvds_bridge_out1: endpoint {
-> +				remote-endpoint = <&panel_in_lvds1>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&expander0 {
-> +	dsi-mux-oe-hog {
-> +		gpio-hog;
-> +		gpios = <10 GPIO_ACTIVE_LOW>;
-> +		output-high;
-> +		line-name = "DSI_MUX_OE#";
-> +	};
-> +};
-> +
-> +&lcdif {
-> +	status = "okay";
-> +};
-> +
-> +&mipi_dsi {
-> +	status = "okay";
-> +};
-> +
-> +&panel {
-> +	compatible = "auo,g133han01";
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +			dual-lvds-odd-pixels;
-> +
-> +			panel_in_lvds0: endpoint {
-> +				remote-endpoint = <&lvds_bridge_out0>;
-> +			};
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +			dual-lvds-even-pixels;
-> +
-> +			panel_in_lvds1: endpoint {
-> +				remote-endpoint = <&lvds_bridge_out1>;
-> +			};
-> +		};
-> +	};
-> +};
-> --
-> 2.43.0
->
+Yes, the idea is not to break the old boards with the Broadcom Wifi.
 
