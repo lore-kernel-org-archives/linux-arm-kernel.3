@@ -4,55 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAB5106FD9A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AE9106FD98
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 07:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1D+eNjb1aH+Mf9wRQwgiLe9AWCZFvULZc3D+Z58y1C0=; b=v0RJlnQU9zwGFhssvt5f3jYHg4
-	DsMD03SvS2sNHo8k4FISfcug3zLak3eT+m9J0UGGQ6ZnMi8N9nK85aTFOQSsBkYOzBXr3N0n7+BTN
-	glW4vZsef9HFy0NKmS3nUZQdlJxruvKtu3f3KYNP/nWyetkU1ohV9ldnAUK9HQaz2t64aZL3nXwLs
-	cWnCUwmzZHXhxOyvOmC6kPXwZzYbU0xG8k/6gxcnFYZE4o/sPBhcg/S43ASxVKfp/XtVU4Ue5BfsP
-	tmGREcJko0eT49IgzI/5rX5lkMNM3se1tz+FScbF1pzCGW6/oOZv/E5kZBjfm3yPFO4fpfhlUIUrM
-	lxzpy3dg==;
+	bh=ZXYzyP44gz40Rj0kommn1R9UkmX7OW5CSraNWXend6M=; b=KtTiau3DWvJ3Wt+i2+PPGNzIbO
+	BbGJ5bb+NALT2FbcILPbQ9EpnQ6+5jn6/eRwv6qGhdwYF229+scWnNLh3M1ZtSmWYPdiTYxYl1c7O
+	tRX/DYWjCHviPEQgbFCkczcmJ7vPWDHtWexnXGaMkkpL8bnJG/7hhMlN9nGZhMn+pmSr41zkXcIDM
+	rvWc2Mpb+xVGEYFGe79zMLLTk8eum6Ha8dMvdzj+TSH1Wdf4NEEUEpTlKgn/iRk4cYNbeYsJr5PNV
+	qG6TnhqhSDBjxJfDypt7AVg3/dFCWVm3BGrJuNbJxkztSTCJ8l002E1/5Qf5l258N02ST8XgUyhW4
+	LvlIxePQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xLZ-0000000H828-3kvF;
+	id 1w0xLZ-0000000H81j-2U8t;
 	Fri, 13 Mar 2026 07:54:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0xLX-0000000H80P-0CPY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 07:54:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A27B71596;
-	Fri, 13 Mar 2026 00:54:03 -0700 (PDT)
-Received: from [10.164.18.48] (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C2793F73B;
-	Fri, 13 Mar 2026 00:54:07 -0700 (PDT)
-Message-ID: <edcb9acf-359f-45db-9574-10337c0928fd@arm.com>
-Date: Fri, 13 Mar 2026 13:24:04 +0530
+	id 1w0xLV-0000000H7zf-1Ql4;
+	Fri, 13 Mar 2026 07:54:11 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgDX7J+RwrNpCRYIAA--.10080S2;
+	Fri, 13 Mar 2026 15:53:54 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	wens@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v4 1/3] dt-bindings: ethernet: eswin: add clock sampling control
+Date: Fri, 13 Mar 2026 15:53:51 +0800
+Message-ID: <20260313075351.1584-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
+In-Reply-To: <20260313075234.1567-1-lizhi2@eswincomputing.com>
+References: <20260313075234.1567-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Clear VTCR_EL2 in __init_el2_stage2()
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- linux-kernel@vger.kernel.org
-References: <20260313053857.1277828-1-anshuman.khandual@arm.com>
- <87sea4chrw.wl-maz@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <87sea4chrw.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgDX7J+RwrNpCRYIAA--.10080S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKr1rtr45ur43Xr1UXr17trb_yoWxuw47pF
+	W5CrW5GFs5Xr1fCa17tF10kFyfJws7uF9xCr10y3Z7Xws09FWYqr12ya45Ga4UCr4xZFy5
+	WFWYgay8ua42k3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRimiiDUUUU
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_005411_601508_9F8CD57B 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20260313_005409_741675_4ED97BFB 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,26 +101,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/03/26 12:55 PM, Marc Zyngier wrote:
-> On Fri, 13 Mar 2026 05:38:57 +0000,
-> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
->>
->> Clear VTCR_EL2 along with VTTBR_EL2 register in __init_el2_stage2(), which
->> ensures that MMU stage-2 translation remain disabled. Although clearing out
->> VTTBR_EL2 probably should have been sufficient but adding VTCR_EL2 improves
->> overall safety.
-> 
-> This serves no purpose whatsoever. Even the write to VTTBR_EL2 is
-> pointless, and writing 0 is no better than writing *any* other value.
-> > The only thing that matters at this stage is HCR_EL2.VM, which
-> actually controls stage-2 translation (contrary to your above
-> assertion). This of course is not captured by this macro.
-> 
-> So what are you *really* trying to achieve?
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-To keep VTTBR_EL2 and VTCR_EL2 cleared (and prepared) if and when
-HCR_EL2_VM gets enabled. But it can be argued that these registers
-need not have to be cleared now and can just be initialised before
-setting up HCR_EL2_VM itself. In which case should we drop
-__init_el2_stage2() entirely ?
+Due to chip backend reasons, there is already an approximately 4-5 ns
+skew between the RX clock and data of the eth1 MAC controller inside
+the silicon.
+
+For 1000M, the RX clock must be inverted since it is not possible to
+meet the RGMII timing requirements using only rx-internal-delay-ps on
+the MAC together with the standard 2 ns delay on the PHY. Therefore,
+even on a properly designed board, eth1 still requires RX clock
+inversion.
+
+This behaviour effectively breaks the RGMII timing assumptions at the
+SoC level.
+
+For the TX path of eth1, there is also a skew between the TX clock
+and data on the MAC controller inside the silicon. This skew happens
+to be approximately 2 ns. Therefore, it can be considered that the
+2 ns delay of TX is provided by the MAC, so the TX is compliant with
+the RGMII standard.
+
+For 10/100 operation, the approximately 4-5 ns skew in the chip does
+not break the standard. The RGMII timing table (Section 3.3) specifies
+that for 10/100 operation the maximum value is unspecified:
+https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/20655/1/RGMIIv2_0_final_hp.pdf
+
+Due to the eth1 silicon behavior described above, a new compatible
+string "eswin,eic7700-qos-eth-clk-inversion" is added to the device
+tree. This allows the driver to handle the differences between eth1
+and eth0 through dedicated logic.
+
+The rx-internal-delay-ps and tx-internal-delay-ps properties now use
+minimum and maximum constraints to reflect the actual hardware delay
+range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
+validation compared to the previous enum-based definition and avoids
+regressions for existing DTBs while keeping the same hardware limits.
+
+Treat the RX/TX internal delay properties as optional, board-specific
+tuning knobs and remove them from the example to avoid encouraging
+their use.
+
+In addition, the binding now includes additional background information
+about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
+control registers are included so the driver can explicitly clear any
+residual configuration left by the bootloader.
+
+Background reference for the High-Speed Subsystem and HSP CSR block is
+available in Chapter 10 ("High-Speed Interface") of the EIC7700X SoC
+Technical Reference Manual, Part 4
+(EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+There are currently no in-tree users of the EIC7700 Ethernet driver, so
+these changes are safe.
+
+Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+---
+ .../bindings/net/eswin,eic7700-eth.yaml       | 69 +++++++++++++++----
+ 1 file changed, 55 insertions(+), 14 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+index 91e8cd1db67b..0b27719feb7d 100644
+--- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -20,6 +20,7 @@ select:
+       contains:
+         enum:
+           - eswin,eic7700-qos-eth
++          - eswin,eic7700-qos-eth-clk-inversion
+   required:
+     - compatible
+ 
+@@ -29,7 +30,9 @@ allOf:
+ properties:
+   compatible:
+     items:
+-      - const: eswin,eic7700-qos-eth
++      - enum:
++          - eswin,eic7700-qos-eth
++          - eswin,eic7700-qos-eth-clk-inversion
+       - const: snps,dwmac-5.20
+ 
+   reg:
+@@ -63,16 +66,29 @@ properties:
+       - const: stmmaceth
+ 
+   rx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
+ 
+   tx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
+ 
+   eswin,hsp-sp-csr:
+     description:
+       HSP CSR is to control and get status of different high-speed peripherals
+       (such as Ethernet, USB, SATA, etc.) via register, which can tune
+       board-level's parameters of PHY, etc.
++
++      Additional background information about the High-Speed Subsystem
++      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
++      of the EIC7700X SoC Technical Reference Manual, Part 4
++      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
++      publicly available at
++      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
++
++      This reference is provided for background information only.
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     items:
+       - items:
+@@ -82,6 +98,8 @@ properties:
+           - description: Offset of AXI clock controller Low-Power request
+                          register
+           - description: Offset of register controlling TX/RX clock delay
++          - description: Offset of register controlling TXD delay
++          - description: Offset of register controlling RXD delay
+ 
+ required:
+   - compatible
+@@ -93,8 +111,6 @@ required:
+   - phy-mode
+   - resets
+   - reset-names
+-  - rx-internal-delay-ps
+-  - tx-internal-delay-ps
+   - eswin,hsp-sp-csr
+ 
+ unevaluatedProperties: false
+@@ -104,24 +120,49 @@ examples:
+     ethernet@50400000 {
+         compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
+         reg = <0x50400000 0x10000>;
++        interrupt-parent = <&plic>;
++        interrupts = <61>;
++        interrupt-names = "macirq";
+         clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
+                 <&d0_clock 193>;
+         clock-names = "axi", "cfg", "stmmaceth", "tx";
++        resets = <&reset 95>;
++        reset-names = "stmmaceth";
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
++        phy-handle = <&gmac0_phy0>;
++        phy-mode = "rgmii-id";
++        snps,aal;
++        snps,fixed-burst;
++        snps,tso;
++        snps,axi-config = <&stmmac_axi_setup_gmac0>;
++
++        stmmac_axi_setup_gmac0: stmmac-axi-config {
++            snps,blen = <0 0 0 0 16 8 4>;
++            snps,rd_osr_lmt = <2>;
++            snps,wr_osr_lmt = <2>;
++        };
++    };
++
++    ethernet@50410000 {
++        compatible = "eswin,eic7700-qos-eth-clk-inversion", "snps,dwmac-5.20";
++        reg = <0x50410000 0x10000>;
+         interrupt-parent = <&plic>;
+-        interrupts = <61>;
++        interrupts = <70>;
+         interrupt-names = "macirq";
+-        phy-mode = "rgmii-id";
+-        phy-handle = <&phy0>;
+-        resets = <&reset 95>;
++        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
++                <&d0_clock 194>;
++        clock-names = "axi", "cfg", "stmmaceth", "tx";
++        resets = <&reset 94>;
+         reset-names = "stmmaceth";
+-        rx-internal-delay-ps = <200>;
+-        tx-internal-delay-ps = <200>;
+-        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
+-        snps,axi-config = <&stmmac_axi_setup>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
++        phy-handle = <&gmac1_phy0>;
++        phy-mode = "rgmii-id";
+         snps,aal;
+         snps,fixed-burst;
+         snps,tso;
+-        stmmac_axi_setup: stmmac-axi-config {
++        snps,axi-config = <&stmmac_axi_setup_gmac1>;
++
++        stmmac_axi_setup_gmac1: stmmac-axi-config {
+             snps,blen = <0 0 0 0 16 8 4>;
+             snps,rd_osr_lmt = <2>;
+             snps,wr_osr_lmt = <2>;
+-- 
+2.25.1
+
 
