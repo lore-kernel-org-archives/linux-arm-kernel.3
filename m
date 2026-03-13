@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7068103E302
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 00:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6868105A586
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Mar 2026 00:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mIFc/uEzWs/Jv/GutHNakd36l/15dAsS+EbiPHnMa4s=; b=nDJGd65VNwnK3eALpeADGzg9S/
-	Ui6+mHPqJsH2KHYWtwZ85F2lx2QAQ7t+mH8CkD3/BUbC1oHEPEh/jvZx089jENXpwHoqPL5dRNIml
-	eVr+AOQUICdlIthSqOrvg9aqd5UxkoCpqp6ttvwguj9YwXbEoYQQox7VwWd0TRdi8CeGDoha7QfIE
-	8MWzO3IFTCjUKvk9Hmv918Id26NPYpCfH8b5SVEFkkcZ1/OtPikxB7dtspr5FEmT6bCC9IZa7slaF
-	PxkvLR2xYW103lFfdm6u3ZKRiEcxGp2KvxKD5rfvSuXq2ptmp3FnaG/sQ5MC33j6BNPg53PJCszHR
-	qVu3NX3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+GAI1yniehNGO2chwWjeJzMqefzHRGvnktfqEKsFLzY=; b=o5x3nsRJEooFvICOPI0ohhzxuc
+	eFbq8X+LrBXvi+x7Z1P2sSX31Qun9GBCfN13Agt3FWhIoNsaTpiGfqroegt+rURDjbv+6jRqLmaIw
+	Assup0h5Wac4P+4WglTZDTATRgWeJAmN1SsfyJpZoebcMdB4TqQsW60PWJQ5Jh+7VlIl2iiH93gVa
+	enfauPXPRcfq8+FT1EiR559N2pPgGAjei152V7ycmQLV2Ml71oQDXgc4B2xBvOeaAd1euQ7FfbHPf
+	+Fm/N1c63ChJZyCFQDqn1ypSWiQEiYYDyGRUkX+VjRzVsQxHpTsifgtrqPkATutbZKvwYY8u1wGJB
+	OJgTsNeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0q5G-0000000Frvo-2tLE;
-	Fri, 13 Mar 2026 00:08:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0q5C-0000000Frtp-1zmD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Mar 2026 00:08:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72A84165C;
-	Thu, 12 Mar 2026 17:08:38 -0700 (PDT)
-Received: from ryzen.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C24DC3F694;
-	Thu, 12 Mar 2026 17:08:42 -0700 (PDT)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
-Date: Fri, 13 Mar 2026 01:06:52 +0100
-Message-ID: <20260313000652.11470-1-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.4
+	id 1w0q8P-0000000FsR2-08uF;
+	Fri, 13 Mar 2026 00:12:09 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0q8L-0000000FsPm-2hlm;
+	Fri, 13 Mar 2026 00:12:05 +0000
+Content-Type: multipart/mixed; boundary="------------27O3bLyj7x6zyBk5Hv9GUKC3"
+Message-ID: <f0e33b51-d465-462d-b0f6-98a1db66bb15@infradead.org>
+Date: Thu, 12 Mar 2026 17:12:04 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_170850_630569_C214F27A 
-X-CRM114-Status: GOOD (  27.23  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/15] mm: add documentation for the mmap_prepare file
+ operation callback
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1773346620.git.ljs@kernel.org>
+ <c5bb61cf789df1ecb32facc29df9749987c7ddfc.1773346620.git.ljs@kernel.org>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <c5bb61cf789df1ecb32facc29df9749987c7ddfc.1773346620.git.ljs@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,404 +82,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
-register frame. So far we were instantiating one GPIO chip per pinctrl
-device, which covers multiple banks of up to 32 GPIO pins per bank. The
-GPIO numbers were set to match the absolute pin numbers, even across the
-typically two instances of the pinctrl device.
+This is a multi-part message in MIME format.
+--------------27O3bLyj7x6zyBk5Hv9GUKC3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Convert the GPIO part of the sunxi pinctrl over to use the gpio_generic
-framework. This alone allows to remove some sunxi specific code, which
-is replaced with the existing generic code. This will become even more
-useful with the upcoming A733 support, which adds set and clear
-registers for the output.
-As a side effect this also changes the GPIO device and number
-allocation: Each bank is now represented by its own gpio_chip, with only
-as many pins as there are actually implemented. The numbering is left up
-to the kernel (.base = -1).
+(Andrew: patch attached)
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/pinctrl/sunxi/Kconfig         |   1 +
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 245 ++++++++++++--------------
- drivers/pinctrl/sunxi/pinctrl-sunxi.h |  11 +-
- 3 files changed, 124 insertions(+), 133 deletions(-)
 
-diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-index dc62eba96348e..5905810dbf398 100644
---- a/drivers/pinctrl/sunxi/Kconfig
-+++ b/drivers/pinctrl/sunxi/Kconfig
-@@ -4,6 +4,7 @@ if ARCH_SUNXI
- config PINCTRL_SUNXI
- 	bool
- 	select PINMUX
-+	select GPIO_GENERIC
- 	select GENERIC_PINCONF
- 	select GPIOLIB
- 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index 48434292a39b5..4235f9feff00d 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -13,6 +13,7 @@
- #include <linux/clk.h>
- #include <linux/export.h>
- #include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/irqchip/chained_irq.h>
-@@ -86,17 +87,6 @@ static void sunxi_mux_reg(const struct sunxi_pinctrl *pctl,
- 	*mask  = (BIT(MUX_FIELD_WIDTH) - 1) << *shift;
- }
- 
--static void sunxi_data_reg(const struct sunxi_pinctrl *pctl,
--			   u32 pin, u32 *reg, u32 *shift, u32 *mask)
--{
--	u32 offset = pin % PINS_PER_BANK * DATA_FIELD_WIDTH;
--
--	*reg   = sunxi_bank_offset(pctl, pin) + DATA_REGS_OFFSET +
--		 offset / BITS_PER_TYPE(u32) * sizeof(u32);
--	*shift = offset % BITS_PER_TYPE(u32);
--	*mask  = (BIT(DATA_FIELD_WIDTH) - 1) << *shift;
--}
--
- static void sunxi_dlevel_reg(const struct sunxi_pinctrl *pctl,
- 			     u32 pin, u32 *reg, u32 *shift, u32 *mask)
- {
-@@ -930,99 +920,22 @@ static const struct pinmux_ops sunxi_pmx_ops = {
- 	.strict			= true,
- };
- 
--static int sunxi_pinctrl_gpio_direction_input(struct gpio_chip *chip,
--					unsigned offset)
--{
--	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
--
--	return sunxi_pmx_gpio_set_direction(pctl->pctl_dev, NULL,
--					    chip->base + offset, true);
--}
--
--static int sunxi_pinctrl_gpio_get(struct gpio_chip *chip, unsigned offset)
--{
--	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
--	bool set_mux = pctl->desc->irq_read_needs_mux &&
--		gpiochip_line_is_irq(chip, offset);
--	u32 pin = offset + chip->base;
--	u32 reg, shift, mask, val;
--
--	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
--
--	if (set_mux)
--		sunxi_pmx_set(pctl->pctl_dev, pin, SUN4I_FUNC_INPUT);
--
--	val = (readl(pctl->membase + reg) & mask) >> shift;
--
--	if (set_mux)
--		sunxi_pmx_set(pctl->pctl_dev, pin, SUN4I_FUNC_IRQ);
--
--	return val;
--}
--
--static int sunxi_pinctrl_gpio_set(struct gpio_chip *chip, unsigned int offset,
--				  int value)
--{
--	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
--	u32 reg, shift, mask, val;
--	unsigned long flags;
--
--	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
--
--	raw_spin_lock_irqsave(&pctl->lock, flags);
--
--	val = readl(pctl->membase + reg);
--
--	if (value)
--		val |= mask;
--	else
--		val &= ~mask;
--
--	writel(val, pctl->membase + reg);
--
--	raw_spin_unlock_irqrestore(&pctl->lock, flags);
--
--	return 0;
--}
--
--static int sunxi_pinctrl_gpio_direction_output(struct gpio_chip *chip,
--					unsigned offset, int value)
--{
--	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
--
--	sunxi_pinctrl_gpio_set(chip, offset, value);
--	return sunxi_pmx_gpio_set_direction(pctl->pctl_dev, NULL,
--					    chip->base + offset, false);
--}
--
--static int sunxi_pinctrl_gpio_of_xlate(struct gpio_chip *gc,
--				const struct of_phandle_args *gpiospec,
--				u32 *flags)
--{
--	int pin, base;
--
--	base = PINS_PER_BANK * gpiospec->args[0];
--	pin = base + gpiospec->args[1];
--
--	if (pin > gc->ngpio)
--		return -EINVAL;
--
--	if (flags)
--		*flags = gpiospec->args[2];
--
--	return pin;
--}
--
- static int sunxi_pinctrl_gpio_to_irq(struct gpio_chip *chip, unsigned offset)
- {
- 	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
- 	struct sunxi_desc_function *desc;
--	unsigned pinnum = pctl->desc->pin_base + offset;
--	unsigned irqnum;
-+	unsigned int pinnum, irqnum, i;
- 
- 	if (offset >= chip->ngpio)
- 		return -ENXIO;
- 
-+	for (i = 0; i < SUNXI_PINCTRL_MAX_BANKS; i++)
-+		if (pctl->banks[i].chip.gc.base == chip->base)
-+			break;
-+	if (i == SUNXI_PINCTRL_MAX_BANKS)
-+		return -EINVAL;
-+	pinnum = pctl->desc->pin_base + i * PINS_PER_BANK + offset;
-+
- 	desc = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
- 	if (!desc)
- 		return -EINVAL;
-@@ -1039,18 +952,19 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
- {
- 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
- 	struct sunxi_desc_function *func;
--	int ret;
-+	int pinnum = pctl->irq_array[d->hwirq], ret;
-+	int bank = (pinnum - pctl->desc->pin_base) / PINS_PER_BANK;
- 
--	func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
--					pctl->irq_array[d->hwirq], "irq");
-+	func = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
- 	if (!func)
- 		return -EINVAL;
- 
--	ret = gpiochip_lock_as_irq(pctl->chip,
--			pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
-+	ret = gpiochip_lock_as_irq(&pctl->banks[bank].chip.gc,
-+				   d->hwirq % IRQ_PER_BANK);
- 	if (ret) {
- 		dev_err(pctl->dev, "unable to lock HW IRQ %lu for IRQ\n",
- 			irqd_to_hwirq(d));
-+
- 		return ret;
- 	}
- 
-@@ -1063,9 +977,10 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
- static void sunxi_pinctrl_irq_release_resources(struct irq_data *d)
- {
- 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
-+	int pinnum = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
-+	struct gpio_chip *gc = &pctl->banks[pinnum / PINS_PER_BANK].chip.gc;
- 
--	gpiochip_unlock_as_irq(pctl->chip,
--			      pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
-+	gpiochip_unlock_as_irq(gc, pinnum);
- }
- 
- static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned int type)
-@@ -1493,6 +1408,84 @@ static int sunxi_pinctrl_setup_debounce(struct sunxi_pinctrl *pctl,
- 	return 0;
- }
- 
-+static bool sunxi_of_node_instance_match(struct gpio_chip *chip, unsigned int i)
-+{
-+	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
-+
-+	if (i >= SUNXI_PINCTRL_MAX_BANKS)
-+		return false;
-+
-+	return (chip->base == pctl->banks[i].chip.gc.base);
-+}
-+
-+static int sunxi_num_pins_of_bank(struct sunxi_pinctrl *pctl, int bank)
-+{
-+	int max = -1, i;
-+
-+	for (i = 0; i < pctl->desc->npins; i++) {
-+		int pinnum = pctl->desc->pins[i].pin.number - pctl->desc->pin_base;
-+
-+		if (pinnum / PINS_PER_BANK < bank)
-+			continue;
-+		if (pinnum / PINS_PER_BANK > bank)
-+			break;
-+		if (pinnum % PINS_PER_BANK > max)
-+			max = pinnum % PINS_PER_BANK;
-+	}
-+
-+	return max + 1;
-+}
-+
-+static int sunxi_gpio_add_bank(struct sunxi_pinctrl *pctl, int index)
-+{
-+	char bank_name = 'A' + index + pctl->desc->pin_base / PINS_PER_BANK;
-+	struct sunxi_gpio_bank *bank = &pctl->banks[index];
-+	struct gpio_generic_chip_config config;
-+	struct gpio_chip *gc = &bank->chip.gc;
-+	int ngpio, ret;
-+
-+	ngpio = sunxi_num_pins_of_bank(pctl, index);
-+	bank->pctl = pctl;
-+	bank->base = pctl->membase + index * pctl->bank_mem_size;
-+	if (!ngpio) {
-+		gc->owner = THIS_MODULE;
-+		gc->ngpio = 0;
-+		gc->base = -1;
-+		gc->of_gpio_n_cells = 3;
-+
-+		return 0;
-+	}
-+
-+	config = (struct gpio_generic_chip_config) {
-+		.dev = pctl->dev,
-+		.sz = 4,
-+		.dat = bank->base + DATA_REGS_OFFSET,
-+		.set = bank->base + DATA_REGS_OFFSET,
-+		.clr = NULL,
-+		.flags = GPIO_GENERIC_READ_OUTPUT_REG_SET |
-+			 GPIO_GENERIC_PINCTRL_BACKEND,
-+	};
-+
-+	ret = gpio_generic_chip_init(&bank->chip, &config);
-+	if (ret)
-+		return dev_err_probe(pctl->dev, ret,
-+				     "failed to init generic gpio chip\n");
-+
-+	gc->owner		= THIS_MODULE;
-+	gc->label		= devm_kasprintf(pctl->dev, GFP_KERNEL,
-+						 "%s-P%c", gc->label,
-+						 bank_name);
-+	gc->ngpio		= ngpio;
-+	gc->base		= -1;
-+	gc->of_gpio_n_cells	= 3;
-+	gc->of_node_instance_match = sunxi_of_node_instance_match;
-+	gc->set_config		= gpiochip_generic_config;
-+	gc->to_irq		= sunxi_pinctrl_gpio_to_irq;
-+	gc->can_sleep		= false;
-+
-+	return gpiochip_add_data(gc, pctl);
-+}
-+
- int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 				  const struct sunxi_pinctrl_desc *desc,
- 				  unsigned long flags)
-@@ -1503,6 +1496,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 	struct sunxi_pinctrl *pctl;
- 	struct pinmux_ops *pmxops;
- 	int i, ret, last_pin, pin_idx;
-+	int gpio_banks;
- 	struct clk *clk;
- 
- 	pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
-@@ -1590,38 +1584,23 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 		return PTR_ERR(pctl->pctl_dev);
- 	}
- 
--	pctl->chip = devm_kzalloc(&pdev->dev, sizeof(*pctl->chip), GFP_KERNEL);
--	if (!pctl->chip)
--		return -ENOMEM;
--
--	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
--	pctl->chip->owner = THIS_MODULE;
--	pctl->chip->request = gpiochip_generic_request;
--	pctl->chip->free = gpiochip_generic_free;
--	pctl->chip->set_config = gpiochip_generic_config;
--	pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
--	pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
--	pctl->chip->get = sunxi_pinctrl_gpio_get;
--	pctl->chip->set = sunxi_pinctrl_gpio_set;
--	pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
--	pctl->chip->to_irq = sunxi_pinctrl_gpio_to_irq;
--	pctl->chip->of_gpio_n_cells = 3;
--	pctl->chip->can_sleep = false;
--	pctl->chip->ngpio = round_up(last_pin, PINS_PER_BANK) -
--			    pctl->desc->pin_base;
--	pctl->chip->label = dev_name(&pdev->dev);
--	pctl->chip->parent = &pdev->dev;
--	pctl->chip->base = pctl->desc->pin_base;
--
--	ret = gpiochip_add_data(pctl->chip, pctl);
--	if (ret)
--		return ret;
-+	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number -
-+		   pctl->desc->pin_base;
-+	for (gpio_banks = 0;
-+	     gpio_banks <= last_pin / PINS_PER_BANK;
-+	     gpio_banks++) {
-+		ret = sunxi_gpio_add_bank(pctl, gpio_banks);
-+		if (ret)
-+			goto gpiochip_error;
-+	}
- 
- 	for (i = 0; i < pctl->desc->npins; i++) {
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
-+		int bank = (pin->pin.number - pctl->desc->pin_base) / PINS_PER_BANK;
-+		struct gpio_chip *gc = &pctl->banks[bank].chip.gc;
- 
--		ret = gpiochip_add_pin_range(pctl->chip, dev_name(&pdev->dev),
--					     pin->pin.number - pctl->desc->pin_base,
-+		ret = gpiochip_add_pin_range(gc, dev_name(&pdev->dev),
-+					     pin->pin.number % PINS_PER_BANK,
- 					     pin->pin.number, 1);
- 		if (ret)
- 			goto gpiochip_error;
-@@ -1690,6 +1669,8 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 	return 0;
- 
- gpiochip_error:
--	gpiochip_remove(pctl->chip);
-+	while (--gpio_banks >= 0)
-+		gpiochip_remove(&pctl->banks[gpio_banks].chip.gc);
-+
- 	return ret;
- }
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index ad26e4de16a85..085131caa02fe 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -14,6 +14,7 @@
- #define __PINCTRL_SUNXI_H
- 
- #include <linux/kernel.h>
-+#include <linux/gpio/generic.h>
- #include <linux/spinlock.h>
- 
- #define PA_BASE	0
-@@ -159,9 +160,17 @@ struct sunxi_pinctrl_regulator {
- 	refcount_t		refcount;
- };
- 
-+struct sunxi_pinctrl;
-+
-+struct sunxi_gpio_bank {
-+	struct gpio_generic_chip chip;
-+	struct sunxi_pinctrl *pctl;
-+	void __iomem *base;
-+};
-+
- struct sunxi_pinctrl {
- 	void __iomem			*membase;
--	struct gpio_chip		*chip;
-+	struct sunxi_gpio_bank		banks[SUNXI_PINCTRL_MAX_BANKS];
- 	const struct sunxi_pinctrl_desc	*desc;
- 	struct device			*dev;
- 	struct sunxi_pinctrl_regulator	regulators[11];
+On 3/12/26 1:27 PM, Lorenzo Stoakes (Oracle) wrote:
+
+Documentation/filesystems/mmap_prepare.rst: WARNING: document isn't included in any toctree [toc.not_included]
+
+Should be in some index.rst file. In filesystems I suppose.
+
+> ---
+>  Documentation/filesystems/mmap_prepare.rst | 131 +++++++++++++++++++++
+>  1 file changed, 131 insertions(+)
+>  create mode 100644 Documentation/filesystems/mmap_prepare.rst
+> 
+> diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentation/filesystems/mmap_prepare.rst
+> new file mode 100644
+> index 000000000000..76908200f3a1
+> --- /dev/null
+> +++ b/Documentation/filesystems/mmap_prepare.rst
+> @@ -0,0 +1,131 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +===========================
+> +mmap_prepare callback HOWTO
+> +===========================
+> +
+> +Introduction
+> +############
+
+Kernel style is "=============" above instead of "############".
+
+> +
+> +The `struct file->f_op->mmap()` callback has been deprecated as it is both a
+> +stability and security risk, and doesn't always permit the merging of adjacent
+> +mappings resulting in unnecessary memory fragmentation.
+> +
+> +It has been replaced with the `file->f_op->mmap_prepare()` callback which solves
+> +these problems.
+> +
+> +## How To Use
+> +
+> +In your driver's `struct file_operations` struct, specify an `mmap_prepare`
+> +callback rather than an `mmap` one, e.g. for ext4:
+> +
+> +
+> +.. code-block:: C
+> +
+> +    const struct file_operations ext4_file_operations = {
+> +        ...
+> +        .mmap_prepare    = ext4_file_mmap_prepare,
+> +    };
+> +
+> +This has a signature of `int (*mmap_prepare)(struct vm_area_desc *)`.
+> +
+> +Examining the `struct vm_area_desc` type:
+> +
+> +.. code-block:: C
+> +
+> +    struct vm_area_desc {
+> +        /* Immutable state. */
+> +        const struct mm_struct *const mm;
+> +        struct file *const file; /* May vary from vm_file in stacked callers. */
+> +        unsigned long start;
+> +        unsigned long end;
+> +
+> +        /* Mutable fields. Populated with initial state. */
+> +        pgoff_t pgoff;
+> +        struct file *vm_file;
+> +        vma_flags_t vma_flags;
+> +        pgprot_t page_prot;
+> +
+> +        /* Write-only fields. */
+> +        const struct vm_operations_struct *vm_ops;
+> +        void *private_data;
+> +
+> +        /* Take further action? */
+> +        struct mmap_action action;
+> +    };
+> +
+> +This is straightforward - you have all the fields you need to set up the
+> +mapping, and you can update the mutable and writable fields, for instance:
+> +
+> +.. code-block:: Cw
+
+   .. code-block:: C
+
+Documentation/filesystems/mmap_prepare.rst:60: WARNING: Pygments lexer name 'Cw' is not known [misc.highlighting_failure]
+
+Maybe a typo?
+
+> +
+> +    static int ext4_file_mmap_prepare(struct vm_area_desc *desc)
+> +    {
+> +        int ret;
+> +        struct file *file = desc->file;
+> +        struct inode *inode = file->f_mapping->host;
+> +
+> +        ...
+> +
+> +        file_accessed(file);
+> +        if (IS_DAX(file_inode(file))) {
+> +            desc->vm_ops = &ext4_dax_vm_ops;
+> +            vma_desc_set_flags(desc, VMA_HUGEPAGE_BIT);
+> +        } else {
+> +            desc->vm_ops = &ext4_file_vm_ops;
+> +        }
+> +        return 0;
+> +    }
+> +
+> +Importantly, you no longer have to dance around with reference counts or locks
+> +when updating these fields - __you can simply go ahead and change them__.
+> +
+> +Everything is taken care of by the mapping code.
+> +
+> +VMA Flags
+> +=========
+
+and then use "---------------" here instead of "==============".
+
+(from Documentation/doc-guide/sphinx.rst)
+
+> +
+> +Along with `mmap_prepare`, VMA flags have undergone an overhaul. Where before
+> +you would invoke one of `vm_flags_init()`, `vm_flags_reset()`, `vm_flags_set()`,
+> +`vm_flags_clear()`, and `vm_flags_mod()` to modify flags (and to have the
+> +locking done correctly for you, this is no longer necessary.
+> +
+> +Also, the legacy approach of specifying VMA flags via `VM_READ`, `VM_WRITE`,
+> +etc. - i.e. using a `VM_xxx` macro has changed too.
+> +
+> +When implementing `mmap_prepare()`, reference flags by their bit number, defined
+> +as a `VMA_xxx_BIT` macro, e.g. `VMA_READ_BIT`, `VMA_WRITE_BIT` etc., and use one
+> +of (where `desc` is a pointer to `struct vma_area_desc`):
+> +
+> +* `vma_desc_test_flags(desc, ...)` - Specify a comma-separated list of flags you
+> +  wish to test for (whether _any_ are set), e.g. - `vma_desc_test_flags(desc,
+> +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)` - returns `true` if either are set,
+> +  otherwise `false`.
+> +* `vma_desc_set_flags(desc, ...)` - Update the VMA descriptor flags to set
+> +  additional flags specified by a comma-separated list,
+> +  e.g. - `vma_desc_set_flags(desc, VMA_PFNMAP_BIT, VMA_IO_BIT)`.
+> +* `vma_desc_clear_flags(desc, ...)` - Update the VMA descriptor flags to clear
+> +  flags specified by a comma-separated list, e.g. - `vma_desc_clear_flags(desc,
+> +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)`.
+> +
+> +Actions
+> +=======
+> +
+> +You can now very easily have actions be performed upon a mapping once set up by
+> +utilising simple helper functions invoked upon the `struct vm_area_desc`
+> +pointer. These are:
+> +
+> +* `mmap_action_remap()` - Remaps a range consisting only of PFNs for a specific
+> +  range starting a virtual address and PFN number of a set size.
+> +
+> +* `mmap_action_remap_full()` - Same as `mmap_action_remap()`, only remaps the
+> +  entire mapping from `start_pfn` onward.
+> +
+> +* `mmap_action_ioremap()` - Same as `mmap_action_remap()`, only performs an I/O
+> +  remap.
+> +
+> +* `mmap_action_ioremap_full()` - Same as `mmap_action_ioremap()`, only remaps
+> +  the entire mapping from `start_pfn` onward.
+> +
+> +**NOTE:** The 'action' field should never normally be manipulated directly,
+> +rather you ought to use one of these helpers.
+
+I also see this warning, but I don't know what it is referring to:
+
+Documentation/filesystems/mmap_prepare.rst:132: ERROR: Anonymous hyperlink mismatch: 1 references but 0 targets.
+See "backrefs" attribute for IDs. [docutils]
+
+(OK, I found/fixed that also.)
+
+There are also lots of single ` marks which mean italics. I thought those were
+not what was intended, so I changed (most of) them to `` marks, which means
+"code block / monospace". I can fix those if needed.
+
+from the patch file:
+@Lorenzo: ISTR that you prefer explicit quoting on structs and
+functions. I didn't do that here since kernel automarkup does that,
+but if you prefer, I can redo the patch with those changes.
+
+HTH.
 -- 
-2.46.4
+~Randy
 
+--------------27O3bLyj7x6zyBk5Hv9GUKC3
+Content-Type: text/x-patch; charset=UTF-8;
+ name="mmap-prepare-docs-fixes.patch"
+Content-Disposition: attachment; filename="mmap-prepare-docs-fixes.patch"
+Content-Transfer-Encoding: base64
+
+RnJvbTogUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+ClN1YmplY3Q6IFtQ
+QVRDSF0gRG9jczogbW1hcF9wcmVwYXJlOiBmaXggc3BoaW54IHdhcm5pbmdzIGFuZCBmb3Jt
+YXQKCkZpeCAnbWFrZSBodG1sZG9jcycgYnVpbGQgd2FybmluZ3MsIGhlYWRpbmdzIHN0eWxl
+LCBhbmQgcXVvdGluZwpzdHlsZS4KCkRvY3VtZW50YXRpb24vZmlsZXN5c3RlbXMvbW1hcF9w
+cmVwYXJlLnJzdDogV0FSTklORzogZG9jdW1lbnQgaXNuJ3QgaW5jbHVkZWQgaW4gYW55IHRv
+Y3RyZWUgW3RvYy5ub3RfaW5jbHVkZWRdCkRvY3VtZW50YXRpb24vZmlsZXN5c3RlbXMvbW1h
+cF9wcmVwYXJlLnJzdDo2MDogV0FSTklORzogUHlnbWVudHMgbGV4ZXIgbmFtZSAnQ3cnIGlz
+IG5vdCBrbm93biBbbWlzYy5oaWdobGlnaHRpbmdfZmFpbHVyZV0KRG9jdW1lbnRhdGlvbi9m
+aWxlc3lzdGVtcy9tbWFwX3ByZXBhcmUucnN0OjEzMjogRVJST1I6IEFub255bW91cyBoeXBl
+cmxpbmsgbWlzbWF0Y2g6IDEgcmVmZXJlbmNlcyBidXQgMCB0YXJnZXRzLgpTZWUgImJhY2ty
+ZWZzIiBhdHRyaWJ1dGUgZm9yIElEcy4gW2RvY3V0aWxzXQoKU2lnbmVkLW9mZi1ieTogUmFu
+ZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+Ci0tLQpATG9yZW56bzogSVNUUiB0
+aGF0IHlvdSBwcmVmZXIgZXhwbGljaXQgcXVvdGluZyBvbiBzdHJ1Y3RzIGFuZApmdW5jdGlv
+bnMuIEkgZGlkbid0IGRvIHRoYXQgaGVyZSBzaW5jZSBrZXJuZWwgYXV0b21hcmt1cCBkb2Vz
+IHRoYXQsCmJ1dCBpZiB5b3UgcHJlZmVyLCBJIGNhbiByZWRvIHRoZSBwYXRjaCB3aXRoIHRo
+b3NlIGNoYW5nZXMuCgogRG9jdW1lbnRhdGlvbi9maWxlc3lzdGVtcy9pbmRleC5yc3QgICAg
+ICAgIHwgICAgMSAKIERvY3VtZW50YXRpb24vZmlsZXN5c3RlbXMvbW1hcF9wcmVwYXJlLnJz
+dCB8ICAgNzQgKysrKysrKysrLS0tLS0tLS0tLQogMiBmaWxlcyBjaGFuZ2VkLCAzOCBpbnNl
+cnRpb25zKCspLCAzNyBkZWxldGlvbnMoLSkKCi0tLSBsaW51eC1uZXh0Lm9yaWcvRG9jdW1l
+bnRhdGlvbi9maWxlc3lzdGVtcy9pbmRleC5yc3QKKysrIGxpbnV4LW5leHQvRG9jdW1lbnRh
+dGlvbi9maWxlc3lzdGVtcy9pbmRleC5yc3QKQEAgLTI5LDYgKzI5LDcgQEAgYWxnb3JpdGht
+cyB3b3JrLgogICAgZmllbWFwCiAgICBmaWxlcwogICAgbG9ja3MKKyAgIG1tYXBfcHJlcGFy
+ZQogICAgbXVsdGlncmFpbi10cwogICAgbW91bnRfYXBpCiAgICBxdW90YQotLS0gbGludXgt
+bmV4dC5vcmlnL0RvY3VtZW50YXRpb24vZmlsZXN5c3RlbXMvbW1hcF9wcmVwYXJlLnJzdAor
+KysgbGludXgtbmV4dC9Eb2N1bWVudGF0aW9uL2ZpbGVzeXN0ZW1zL21tYXBfcHJlcGFyZS5y
+c3QKQEAgLTUsMTkgKzUsMTkgQEAgbW1hcF9wcmVwYXJlIGNhbGxiYWNrIEhPV1RPCiA9PT09
+PT09PT09PT09PT09PT09PT09PT09PT0KIAogSW50cm9kdWN0aW9uCi0jIyMjIyMjIyMjIyMK
+Kz09PT09PT09PT09PQogCi1UaGUgYHN0cnVjdCBmaWxlLT5mX29wLT5tbWFwKClgIGNhbGxi
+YWNrIGhhcyBiZWVuIGRlcHJlY2F0ZWQgYXMgaXQgaXMgYm90aCBhCitUaGUgYGBzdHJ1Y3Qg
+ZmlsZS0+Zl9vcC0+bW1hcCgpYGAgY2FsbGJhY2sgaGFzIGJlZW4gZGVwcmVjYXRlZCBhcyBp
+dCBpcyBib3RoIGEKIHN0YWJpbGl0eSBhbmQgc2VjdXJpdHkgcmlzaywgYW5kIGRvZXNuJ3Qg
+YWx3YXlzIHBlcm1pdCB0aGUgbWVyZ2luZyBvZiBhZGphY2VudAogbWFwcGluZ3MgcmVzdWx0
+aW5nIGluIHVubmVjZXNzYXJ5IG1lbW9yeSBmcmFnbWVudGF0aW9uLgogCi1JdCBoYXMgYmVl
+biByZXBsYWNlZCB3aXRoIHRoZSBgZmlsZS0+Zl9vcC0+bW1hcF9wcmVwYXJlKClgIGNhbGxi
+YWNrIHdoaWNoIHNvbHZlcwotdGhlc2UgcHJvYmxlbXMuCitJdCBoYXMgYmVlbiByZXBsYWNl
+ZCB3aXRoIHRoZSBgYGZpbGUtPmZfb3AtPm1tYXBfcHJlcGFyZSgpYGAgY2FsbGJhY2sgd2hp
+Y2gKK3NvbHZlcyB0aGVzZSBwcm9ibGVtcy4KIAogIyMgSG93IFRvIFVzZQogCi1JbiB5b3Vy
+IGRyaXZlcidzIGBzdHJ1Y3QgZmlsZV9vcGVyYXRpb25zYCBzdHJ1Y3QsIHNwZWNpZnkgYW4g
+YG1tYXBfcHJlcGFyZWAKLWNhbGxiYWNrIHJhdGhlciB0aGFuIGFuIGBtbWFwYCBvbmUsIGUu
+Zy4gZm9yIGV4dDQ6CitJbiB5b3VyIGRyaXZlcidzIHN0cnVjdCBmaWxlX29wZXJhdGlvbnMg
+c3RydWN0LCBzcGVjaWZ5IGFuIGBgbW1hcF9wcmVwYXJlYGAKK2NhbGxiYWNrIHJhdGhlciB0
+aGFuIGFuIGBgbW1hcGBgIG9uZSwgZS5nLiBmb3IgZXh0NDoKIAogCiAuLiBjb2RlLWJsb2Nr
+OjogQwpAQCAtMjcsOSArMjcsOSBAQCBjYWxsYmFjayByYXRoZXIgdGhhbiBhbiBgbW1hcGAg
+b25lLCBlLmcuCiAgICAgICAgIC5tbWFwX3ByZXBhcmUgICAgPSBleHQ0X2ZpbGVfbW1hcF9w
+cmVwYXJlLAogICAgIH07CiAKLVRoaXMgaGFzIGEgc2lnbmF0dXJlIG9mIGBpbnQgKCptbWFw
+X3ByZXBhcmUpKHN0cnVjdCB2bV9hcmVhX2Rlc2MgKilgLgorVGhpcyBoYXMgYSBzaWduYXR1
+cmUgb2YgYGBpbnQgKCptbWFwX3ByZXBhcmUpKHN0cnVjdCB2bV9hcmVhX2Rlc2MgKilgYC4K
+IAotRXhhbWluaW5nIHRoZSBgc3RydWN0IHZtX2FyZWFfZGVzY2AgdHlwZToKK0V4YW1pbmlu
+ZyB0aGUgc3RydWN0IHZtX2FyZWFfZGVzYyB0eXBlOgogCiAuLiBjb2RlLWJsb2NrOjogQwog
+CkBAIC01Nyw3ICs1Nyw3IEBAIEV4YW1pbmluZyB0aGUgYHN0cnVjdCB2bV9hcmVhX2Rlc2Ng
+IHR5cGUKIFRoaXMgaXMgc3RyYWlnaHRmb3J3YXJkIC0geW91IGhhdmUgYWxsIHRoZSBmaWVs
+ZHMgeW91IG5lZWQgdG8gc2V0IHVwIHRoZQogbWFwcGluZywgYW5kIHlvdSBjYW4gdXBkYXRl
+IHRoZSBtdXRhYmxlIGFuZCB3cml0YWJsZSBmaWVsZHMsIGZvciBpbnN0YW5jZToKIAotLi4g
+Y29kZS1ibG9jazo6IEN3CisuLiBjb2RlLWJsb2NrOjogQwogCiAgICAgc3RhdGljIGludCBl
+eHQ0X2ZpbGVfbW1hcF9wcmVwYXJlKHN0cnVjdCB2bV9hcmVhX2Rlc2MgKmRlc2MpCiAgICAg
+ewpAQCAtNzgsNTQgKzc4LDU0IEBAIG1hcHBpbmcsIGFuZCB5b3UgY2FuIHVwZGF0ZSB0aGUg
+bXV0YWJsZQogICAgIH0KIAogSW1wb3J0YW50bHksIHlvdSBubyBsb25nZXIgaGF2ZSB0byBk
+YW5jZSBhcm91bmQgd2l0aCByZWZlcmVuY2UgY291bnRzIG9yIGxvY2tzCi13aGVuIHVwZGF0
+aW5nIHRoZXNlIGZpZWxkcyAtIF9feW91IGNhbiBzaW1wbHkgZ28gYWhlYWQgYW5kIGNoYW5n
+ZSB0aGVtX18uCit3aGVuIHVwZGF0aW5nIHRoZXNlIGZpZWxkcyAtICoqeW91IGNhbiBzaW1w
+bHkgZ28gYWhlYWQgYW5kIGNoYW5nZSB0aGVtKiouCiAKIEV2ZXJ5dGhpbmcgaXMgdGFrZW4g
+Y2FyZSBvZiBieSB0aGUgbWFwcGluZyBjb2RlLgogCiBWTUEgRmxhZ3MKLT09PT09PT09PQor
+LS0tLS0tLS0tCiAKLUFsb25nIHdpdGggYG1tYXBfcHJlcGFyZWAsIFZNQSBmbGFncyBoYXZl
+IHVuZGVyZ29uZSBhbiBvdmVyaGF1bC4gV2hlcmUgYmVmb3JlCi15b3Ugd291bGQgaW52b2tl
+IG9uZSBvZiBgdm1fZmxhZ3NfaW5pdCgpYCwgYHZtX2ZsYWdzX3Jlc2V0KClgLCBgdm1fZmxh
+Z3Nfc2V0KClgLAotYHZtX2ZsYWdzX2NsZWFyKClgLCBhbmQgYHZtX2ZsYWdzX21vZCgpYCB0
+byBtb2RpZnkgZmxhZ3MgKGFuZCB0byBoYXZlIHRoZQorQWxvbmcgd2l0aCBgYG1tYXBfcHJl
+cGFyZWBgLCBWTUEgZmxhZ3MgaGF2ZSB1bmRlcmdvbmUgYW4gb3ZlcmhhdWwuIFdoZXJlIGJl
+Zm9yZQoreW91IHdvdWxkIGludm9rZSBvbmUgb2Ygdm1fZmxhZ3NfaW5pdCgpLCB2bV9mbGFn
+c19yZXNldCgpLCB2bV9mbGFnc19zZXQoKSwKK3ZtX2ZsYWdzX2NsZWFyKCksIGFuZCB2bV9m
+bGFnc19tb2QoKSB0byBtb2RpZnkgZmxhZ3MgKGFuZCB0byBoYXZlIHRoZQogbG9ja2luZyBk
+b25lIGNvcnJlY3RseSBmb3IgeW91LCB0aGlzIGlzIG5vIGxvbmdlciBuZWNlc3NhcnkuCiAK
+LUFsc28sIHRoZSBsZWdhY3kgYXBwcm9hY2ggb2Ygc3BlY2lmeWluZyBWTUEgZmxhZ3Mgdmlh
+IGBWTV9SRUFEYCwgYFZNX1dSSVRFYCwKLWV0Yy4gLSBpLmUuIHVzaW5nIGEgYFZNX3h4eGAg
+bWFjcm8gaGFzIGNoYW5nZWQgdG9vLgorQWxzbywgdGhlIGxlZ2FjeSBhcHByb2FjaCBvZiBz
+cGVjaWZ5aW5nIFZNQSBmbGFncyB2aWEgYGBWTV9SRUFEYGAsIGBgVk1fV1JJVEVgYCwKK2V0
+Yy4gLSBpLmUuIHVzaW5nIGEgYGAtVk1feHh4YGAtIG1hY3JvIGhhcyBjaGFuZ2VkIHRvby4K
+IAotV2hlbiBpbXBsZW1lbnRpbmcgYG1tYXBfcHJlcGFyZSgpYCwgcmVmZXJlbmNlIGZsYWdz
+IGJ5IHRoZWlyIGJpdCBudW1iZXIsIGRlZmluZWQKLWFzIGEgYFZNQV94eHhfQklUYCBtYWNy
+bywgZS5nLiBgVk1BX1JFQURfQklUYCwgYFZNQV9XUklURV9CSVRgIGV0Yy4sIGFuZCB1c2Ug
+b25lCi1vZiAod2hlcmUgYGRlc2NgIGlzIGEgcG9pbnRlciB0byBgc3RydWN0IHZtYV9hcmVh
+X2Rlc2NgKToKLQotKiBgdm1hX2Rlc2NfdGVzdF9mbGFncyhkZXNjLCAuLi4pYCAtIFNwZWNp
+ZnkgYSBjb21tYS1zZXBhcmF0ZWQgbGlzdCBvZiBmbGFncyB5b3UKLSAgd2lzaCB0byB0ZXN0
+IGZvciAod2hldGhlciBfYW55XyBhcmUgc2V0KSwgZS5nLiAtIGB2bWFfZGVzY190ZXN0X2Zs
+YWdzKGRlc2MsCi0gIFZNQV9XUklURV9CSVQsIFZNQV9NQVlXUklURV9CSVQpYCAtIHJldHVy
+bnMgYHRydWVgIGlmIGVpdGhlciBhcmUgc2V0LAotICBvdGhlcndpc2UgYGZhbHNlYC4KLSog
+YHZtYV9kZXNjX3NldF9mbGFncyhkZXNjLCAuLi4pYCAtIFVwZGF0ZSB0aGUgVk1BIGRlc2Ny
+aXB0b3IgZmxhZ3MgdG8gc2V0CitXaGVuIGltcGxlbWVudGluZyBtbWFwX3ByZXBhcmUoKSwg
+cmVmZXJlbmNlIGZsYWdzIGJ5IHRoZWlyIGJpdCBudW1iZXIsIGRlZmluZWQKK2FzIGEgYGBW
+TUFfeHh4X0JJVGBgIG1hY3JvLCBlLmcuIGBgVk1BX1JFQURfQklUYGAsIGBgVk1BX1dSSVRF
+X0JJVGBgIGV0Yy4sCithbmQgdXNlIG9uZSBvZiAod2hlcmUgYGBkZXNjYGAgaXMgYSBwb2lu
+dGVyIHRvIHN0cnVjdCB2bWFfYXJlYV9kZXNjKToKKworKiBgYHZtYV9kZXNjX3Rlc3RfZmxh
+Z3MoZGVzYywgLi4uKWBgIC0gU3BlY2lmeSBhIGNvbW1hLXNlcGFyYXRlZCBsaXN0IG9mIGZs
+YWdzCisgIHlvdSB3aXNoIHRvIHRlc3QgZm9yICh3aGV0aGVyIF9hbnlfIGFyZSBzZXQpLCBl
+LmcuIC0gYGB2bWFfZGVzY190ZXN0X2ZsYWdzKAorICBkZXNjLCBWTUFfV1JJVEVfQklULCBW
+TUFfTUFZV1JJVEVfQklUKWBgIC0gcmV0dXJucyBgYHRydWVgYCBpZiBlaXRoZXIgYXJlIHNl
+dCwKKyAgb3RoZXJ3aXNlIGBgZmFsc2VgYC4KKyogYGB2bWFfZGVzY19zZXRfZmxhZ3MoZGVz
+YywgLi4uKWBgIC0gVXBkYXRlIHRoZSBWTUEgZGVzY3JpcHRvciBmbGFncyB0byBzZXQKICAg
+YWRkaXRpb25hbCBmbGFncyBzcGVjaWZpZWQgYnkgYSBjb21tYS1zZXBhcmF0ZWQgbGlzdCwK
+LSAgZS5nLiAtIGB2bWFfZGVzY19zZXRfZmxhZ3MoZGVzYywgVk1BX1BGTk1BUF9CSVQsIFZN
+QV9JT19CSVQpYC4KLSogYHZtYV9kZXNjX2NsZWFyX2ZsYWdzKGRlc2MsIC4uLilgIC0gVXBk
+YXRlIHRoZSBWTUEgZGVzY3JpcHRvciBmbGFncyB0byBjbGVhcgotICBmbGFncyBzcGVjaWZp
+ZWQgYnkgYSBjb21tYS1zZXBhcmF0ZWQgbGlzdCwgZS5nLiAtIGB2bWFfZGVzY19jbGVhcl9m
+bGFncyhkZXNjLAotICBWTUFfV1JJVEVfQklULCBWTUFfTUFZV1JJVEVfQklUKWAuCisgIGUu
+Zy4gLSBgYHZtYV9kZXNjX3NldF9mbGFncyhkZXNjLCBWTUFfUEZOTUFQX0JJVCwgVk1BX0lP
+X0JJVClgYC4KKyogYGB2bWFfZGVzY19jbGVhcl9mbGFncyhkZXNjLCAuLi4pYGAgLSBVcGRh
+dGUgdGhlIFZNQSBkZXNjcmlwdG9yIGZsYWdzIHRvIGNsZWFyCisgIGZsYWdzIHNwZWNpZmll
+ZCBieSBhIGNvbW1hLXNlcGFyYXRlZCBsaXN0LCBlLmcuIC0gYGB2bWFfZGVzY19jbGVhcl9m
+bGFncygKKyAgZGVzYywgVk1BX1dSSVRFX0JJVCwgVk1BX01BWVdSSVRFX0JJVClgYC4KIAog
+QWN0aW9ucwogPT09PT09PQogCiBZb3UgY2FuIG5vdyB2ZXJ5IGVhc2lseSBoYXZlIGFjdGlv
+bnMgYmUgcGVyZm9ybWVkIHVwb24gYSBtYXBwaW5nIG9uY2Ugc2V0IHVwIGJ5Ci11dGlsaXNp
+bmcgc2ltcGxlIGhlbHBlciBmdW5jdGlvbnMgaW52b2tlZCB1cG9uIHRoZSBgc3RydWN0IHZt
+X2FyZWFfZGVzY2AKK3V0aWxpc2luZyBzaW1wbGUgaGVscGVyIGZ1bmN0aW9ucyBpbnZva2Vk
+IHVwb24gdGhlIHN0cnVjdCB2bV9hcmVhX2Rlc2MKIHBvaW50ZXIuIFRoZXNlIGFyZToKIAot
+KiBgbW1hcF9hY3Rpb25fcmVtYXAoKWAgLSBSZW1hcHMgYSByYW5nZSBjb25zaXN0aW5nIG9u
+bHkgb2YgUEZOcyBmb3IgYSBzcGVjaWZpYworKiBtbWFwX2FjdGlvbl9yZW1hcCgpIC0gUmVt
+YXBzIGEgcmFuZ2UgY29uc2lzdGluZyBvbmx5IG9mIFBGTnMgZm9yIGEgc3BlY2lmaWMKICAg
+cmFuZ2Ugc3RhcnRpbmcgYSB2aXJ0dWFsIGFkZHJlc3MgYW5kIFBGTiBudW1iZXIgb2YgYSBz
+ZXQgc2l6ZS4KIAotKiBgbW1hcF9hY3Rpb25fcmVtYXBfZnVsbCgpYCAtIFNhbWUgYXMgYG1t
+YXBfYWN0aW9uX3JlbWFwKClgLCBvbmx5IHJlbWFwcyB0aGUKLSAgZW50aXJlIG1hcHBpbmcg
+ZnJvbSBgc3RhcnRfcGZuYCBvbndhcmQuCisqIG1tYXBfYWN0aW9uX3JlbWFwX2Z1bGwoKSAt
+IFNhbWUgYXMgbW1hcF9hY3Rpb25fcmVtYXAoKSwgb25seSByZW1hcHMgdGhlCisgIGVudGly
+ZSBtYXBwaW5nIGZyb20gYGBzdGFydF9wZm5gYCBvbndhcmQuCiAKLSogYG1tYXBfYWN0aW9u
+X2lvcmVtYXAoKWAgLSBTYW1lIGFzIGBtbWFwX2FjdGlvbl9yZW1hcCgpYCwgb25seSBwZXJm
+b3JtcyBhbiBJL08KKyogbW1hcF9hY3Rpb25faW9yZW1hcCgpIC0gU2FtZSBhcyBtbWFwX2Fj
+dGlvbl9yZW1hcCgpLCBvbmx5IHBlcmZvcm1zIGFuIEkvTwogICByZW1hcC4KIAotKiBgbW1h
+cF9hY3Rpb25faW9yZW1hcF9mdWxsKClgIC0gU2FtZSBhcyBgbW1hcF9hY3Rpb25faW9yZW1h
+cCgpYCwgb25seSByZW1hcHMKLSAgdGhlIGVudGlyZSBtYXBwaW5nIGZyb20gYHN0YXJ0X3Bm
+bmAgb253YXJkLgorKiBtbWFwX2FjdGlvbl9pb3JlbWFwX2Z1bGwoKSAtIFNhbWUgYXMgbW1h
+cF9hY3Rpb25faW9yZW1hcCgpLCBvbmx5IHJlbWFwcworICB0aGUgZW50aXJlIG1hcHBpbmcg
+ZnJvbSBgYHN0YXJ0X3BmbmBgIG9ud2FyZC4KIAotKipOT1RFOioqIFRoZSAnYWN0aW9uJyBm
+aWVsZCBzaG91bGQgbmV2ZXIgbm9ybWFsbHkgYmUgbWFuaXB1bGF0ZWQgZGlyZWN0bHksCisq
+Kk5PVEU6KiogVGhlIGBgYWN0aW9uYGAgZmllbGQgc2hvdWxkIG5ldmVyIG5vcm1hbGx5IGJl
+IG1hbmlwdWxhdGVkIGRpcmVjdGx5LAogcmF0aGVyIHlvdSBvdWdodCB0byB1c2Ugb25lIG9m
+IHRoZXNlIGhlbHBlcnMuCg==
+
+--------------27O3bLyj7x6zyBk5Hv9GUKC3--
 
