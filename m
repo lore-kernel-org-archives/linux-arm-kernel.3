@@ -4,114 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C2110706E6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 15:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8F410706E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 15:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79yloG2S6LSxDMg+2dBq+50iWkXEACUaWo+PxUDAKzk=; b=flhhuM+I4K1VmnUDh/SKFVNcIQ
-	hI+NPjEn6QoFIAhTEFrvYlespykB2rjZbKsdkTZ0DtO3tnbVaOo925RZ0y5VNtAs7I3XhZ6T1kMaw
-	yKCQzHVwfboLNp92xSxy47J2iVhdUlJHcQTV2wWKdhWmZNxqxEJEvc+WxcLTtOw2a62rIG4gY/vNA
-	a0BfoOozpIZ3gnt0MABdIHzJ9yPP/t2ALs/eLONGLFZUAO4uDsANsonLKjZOKnb0O0kAln0R+r6ww
-	ymjOw1IahY23bhJOWH5NoorvcdaWauL7Sj4q8/9/7PXfif0EmlCPXQcgMnFGf3+BLgYHMcWXp4o/H
-	CXPeMMZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EgCsQpLfP6jlSC3mUtz80d1LyhN5q7HHT6hn2BMEbcI=; b=KQYachtAdAqbyknA/fa0tDjt/0
+	7E800NVJJD8hSRJHf09DyNcwpCFz1vpYrOQ0HAguwP43lGdgkJsjhA8BX20I9dwmv2VzJyzIR84uA
+	XLNGvtrVBtXEYHpGYLkZrl2AFOB1Ok1M2HWDtuqBv5HPk7cRPsoTtQdB8sGaJuScnae2WL+S3qFeP
+	qitz3IXvphvNvhhpmUZaen4Xb1z1qh9QeZJ9NE+6T3pXKySzL4rRYEirtbTMgC1+iYcQaPGOt0SFD
+	ihqecsGZyL7Gbv5U5wN7nNcFPIMXtNeflWsooM4ijf/FbQeh8JCdDpuLDM37t66dkXzL9/Eo9NrrG
+	z8w5VBzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1QoJ-00000001xdc-2fIY;
-	Sat, 14 Mar 2026 15:21:51 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1w1Qv1-00000001xwt-2hA2;
+	Sat, 14 Mar 2026 15:28:47 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1QoH-00000001xcu-0qYz
+	id 1w1Qux-00000001xwb-3l51
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 15:21:50 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-50904a8f421so29505741cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 08:21:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773501707; cv=none;
-        d=google.com; s=arc-20240605;
-        b=G9GqOjYklfRA+bvTgzD4R6KC83+MhGG8TQYyF3HPTK5gaMM2esiQSNWvkPMs+lB9dg
-         dvWFJGK6WXeNUkIF/9zuZaODy+RE+Tq1S0eciJPrHp7ph8JhZr+LDYZ70FPrqDJ5iXlL
-         tktzSAUp39fEyF6m/sFVa1Whieyf+pZ8EkulzqPVgtDpIzioq8Bfw4qnwDqrrYpkEYo9
-         jUfRYFicYlYuxJmQlokWsjvbEMS8B4FzLvoPgfAJCtN3q9wjHYWfeic0zIpAgYVbjzGr
-         99+9cGoVJkDQiMLGwaxBtycrhecZsalO5FTLEzlxGROpqMh2hYqEZHP4SHHwQ3BPmfWE
-         UWyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=79yloG2S6LSxDMg+2dBq+50iWkXEACUaWo+PxUDAKzk=;
-        fh=fuqk5eg+vLgqP+jlTs6O8MypCe+RQvjvx89Mr96nTkM=;
-        b=E+dNJDg32hi15DNsm9nZ9OICuhPUKKIaFWoloi7Ro1m4Tlq6j2ErCcdU0nYN6r9ZW/
-         lNetUYZp9GIb+GnatZ2qIi9do2hgHLS04to7f5P5AtTKr/uOG6tyPkf1wYhnlHSRmjhY
-         wCu7cChSrqn8Q0gQZHfYZVv+mROPosjcFM1Zfxyk/toGkzSskoUjTIztZqVMhAcA7H9S
-         unej8aU5W9JqcN3oDp7IlSVaFrQFWeNHe8mjWlUU7ZkY8vLJWTplGjO9xxy0RE9HF9ze
-         IH19GcWsYpxCBT9XaQNUYzyyvLBtu4vlv+Rubaubnb6iDjgW98yk9j+U58yMUL31PK2u
-         uOzg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773501707; x=1774106507; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=79yloG2S6LSxDMg+2dBq+50iWkXEACUaWo+PxUDAKzk=;
-        b=UpwJd9AMJeYRMBwM8JX0CdAHsPkJwj+ps74WJ7446uENt/3URkKfMyyPEKmGd8ON+l
-         IXjL73EurynB69L0VB2Gq/aqOhvPZMQSF3w40uladP9hDnARyFkxAGqOxmb3OGiYoo2/
-         HcBHlIvYicemPNjvYjbd2YBcS1xFjtdzqJyzGBfS8Jem2tHlmb+JZLFzk1QLPaERSELL
-         FPHmasZDJPVCQB0Fg25sb07y2PSUpGNt39RrHwRpftkeEAp1X6P0LvDiAr3IWm/Y4b1d
-         /MIXJ21kCpGmr8XoHzkGUESBWbfVIKz/zHp80rAP3Xl1OWWrG/CIjJiImaTm9xsVAtG2
-         133g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773501707; x=1774106507;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=79yloG2S6LSxDMg+2dBq+50iWkXEACUaWo+PxUDAKzk=;
-        b=XrIfnU4TkYK1WLFeeafnSeZl+TWyGMI8gfvnmSuyYGCtpUrZBiQDBd9Jw2X0KoD9Ho
-         PrO0L0c4ajtecG3vJ7bIvev2h0CAVq+OHuP4ojhEgq9LmpjHz3uekrKjsP7NJb+18xNl
-         bLChm56NVLInkSnukWgAQYykqhDS+NbnKIsNQPIo5p5tWiBpM9EszEwEere6UqWnmVM5
-         QtDX6rVtOqjJYL1i+0d9ZnUh2mMmY3MBtJRu3YmBKrPKEwRdS2aNeZoAE+RyJvi173nh
-         xcdCwtEVHaFev5lbF2Ks5MC/ybubZhJ6nMHcHaxP1ZIRW3bUQflwMHxQXOsMOttPRKz1
-         PxfA==
-X-Forwarded-Encrypted: i=1; AJvYcCUhOlEZu/JU3IZK3csSqTLuhRW3JCfYjcb2lc4QQIqrpRPQA4CFFp6+uBIDWzM4BOsEmg/pXc5BKHAXg9rTpbP1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV9h4JPMC0ZmT1dcNpi2YnJqbAWmh3m8RGuAvlTTtHgzHiSi/c
-	QFvN+xvFp4NV1yRj1wiTonF7FdtYpC4B4p/0ppchfhIvAHQkp/u7BQ8wKcxOf+5nE3AHE1xDMyb
-	TpdZLHB3H+93IUJKdNdZc0YaBJ2RZFXQ=
-X-Gm-Gg: ATEYQzwcwOKCgAI1T2pDTSmHrinxYwEbhu4BD0zcjQcN7+cJo0vSeHNCjk4KkqLmG8t
-	gST064ZqZFIH2q4QJzz77/+oWD2mcosANZRaEDAQlJQjLVUacO6INPt3keAFe9tzGasADZyAd/F
-	a6kGREErZWmpNMWHDSRGTTjEHgYoBmPuqPomkNwk9GMNWbi/mFSgb+6NJHtKCVrNNZfqq3wiRoq
-	5HLUx5O9srR0OTzTXdBuKwzOl0ntAARDoTfvM+w2TaKhYJQUuFMRkLsHX1mM9E5176MfNbdCPGS
-	SKhV+k8y
-X-Received: by 2002:a05:622a:48f:b0:509:30b0:831e with SMTP id
- d75a77b69052e-50957cd8e8cmr91300511cf.21.1773501706958; Sat, 14 Mar 2026
- 08:21:46 -0700 (PDT)
+	Sat, 14 Mar 2026 15:28:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=EgCsQpLfP6jlSC3mUtz80d1LyhN5q7HHT6hn2BMEbcI=; b=ZNPvi+McsNM6sE7cSCcvs2gMnt
+	OsbLb7qY/gGb/PN6F/geAZ+HRQmKgclGugspuJIQa16LMG74KvYVkzb9Ikt1ykW4FsJqUoGHOYffM
+	BmbysA7+7zM9YaHvTMh2B2IfOxjl2Y2oK4wF43p/3+xeChXWl2dpGzU+nZI6ckmYM8BCyTxjoM62H
+	FLFPMVK4/W8RxaLgiHkLeyZ65J7KQKvnG8HEJTv1AwlH8rqqs2lvnLkVCIJnNcXFH29WgItZLjS+W
+	CUP3XtsrKfKEfGPM6W07UVbcn2GwfspKJYjg7AjiRJqn/cEtfQRQhgakkzglQGa49doBw6abKTMXM
+	hXYDmBfg==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1w1Qur-00000006o6Z-2wCk;
+	Sat, 14 Mar 2026 16:28:37 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Sat, 14 Mar 2026 16:27:46 +0100
+Subject: [PATCH] net: stmmac: skip VLAN restore when VLAN hash ops are
+ missing
 MIME-Version: 1.0
-References: <20260312041533.187553-1-akkun11.open@gmail.com>
- <20260312041533.187553-7-akkun11.open@gmail.com> <20260313-cunning-fresh-rattlesnake-ab8087@quoll>
-In-Reply-To: <20260313-cunning-fresh-rattlesnake-ab8087@quoll>
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-Date: Sun, 15 Mar 2026 00:21:36 +0900
-X-Gm-Features: AaiRm535EmprjKZQc-5oWppPCZE2tY_D2F_kXvT9geVdj9eW0363jXm8lhZ_OXM
-Message-ID: <CAKr_iV4m9Jaxv3SCR1Rxg4ZmKPCkDteVaLZNCJo+tjqhX0=6sw@mail.gmail.com>
-Subject: Re: [PATCH 6/6] dt-bindings: pinctrl: mediatek: mt8188: Fix include
- guard comment
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	sean.wang@kernel.org, linusw@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	hui.liu@mediatek.com, nfraprado@collabora.com, linus.walleij@linaro.org, 
-	mars.cheng@mediatek.com, andy.teng@mediatek.com, hanks.chen@mediatek.com, 
-	sam.shih@mediatek.com, rafal@milecki.pl, ben.ho@mediatek.com, 
-	erin.lo@mediatek.com, zhiyong.tao@mediatek.com, Jason-ch.Chen@mediatek.com, 
-	amergnat@baylibre.com, seiya.wang@mediatek.com, tinghan.shen@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl>
+X-B4-Tracking: v=1; b=H4sIAHF+tWkC/x3MTQqAIBBA4avIrBvQ/ukq0cJqrIHQGCOC8O5Jy
+ 2/x3guRhCnCoF4Qujly8BmmULDs1m+EvGZDqctWV6bG+7AeheIVhJBEgqDr58qapXONtpDDU8j
+ x80/HKaUP7JbUyWQAAAA=
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773502079; l=1719;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=/vy+c1nLswFOkWzuqJsjFYoXMYDn1ssIa4VCRdJjqZI=;
+ b=Cu15vltkrAWQrlPZvWghHLF0X7ub3MupcOdEB2OM0WisVyNFkoVZePcUctt+43i2PwPh4l1Fk
+ e83DoBoc1+pApN/haQ4gv2Vm+I4+fIuayVxZpr3tYcRVbiPRIH0qIQa
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_082149_251542_B7D30EB9 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20260314_082844_437818_9C72A674 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,24 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 10:39=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
-> No bug here, otherwise explain user-visible issues.
+stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
+NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
+->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
+-EINVAL via stmmac_do_void_callback(), resulting in a spurious
+"Failed to restore VLANs" error even when no VLAN filtering is in use.
 
-Ok, I'll be careful in the future.
+Check presence of VLAN hash ops before stmmac_vlan_update().
 
-> No, just a churn. This has no benefit, because it is obvious which if/end=
-if
-> this corresponds to.
+Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+---
+This patch fixes a noisy "Failed to restore VLANs" message on platforms
+where stmmac VLAN hash ops are not implemented.
+stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
+VLAN hash ops presence which results in -EINVAL. 
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-I understand your point.
-Certainly these patches do not affect the compiled kernel.
-However, I found that there are over 400 instances of mismatched include
-guard comments across the kernel. While it doesn't cause bugs, I thought
-this discrepancy should be addressed for consistency and readability.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 6827c99bde8c..bc09439ec00b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6869,6 +6869,9 @@ static int stmmac_vlan_restore(struct stmmac_priv *priv)
+ 	if (priv->hw->num_vlan)
+ 		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
+ 
++	if (!priv->hw->vlan || !priv->hw->vlan->update_vlan_hash)
++		return 0;
++
+ 	ret = stmmac_vlan_update(priv, priv->num_double_vlans);
+ 	if (ret)
+ 		netdev_err(priv->dev, "Failed to restore VLANs\n");
 
-Anyway, I withdraw patch 4, 5, 6.
+---
+base-commit: 1c9982b4961334c1edb0745a04cabd34bc2de675
+change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
 
 Best regards,
-Akari
+-- 
+Michal Piekos <michal.piekos@mmpsystems.pl>
+
 
