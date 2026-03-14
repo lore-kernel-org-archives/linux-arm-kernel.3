@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AD6105F79E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D45106FD9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NT4m2L6ivd8x0uOIb1rF7dcCz1xDn9BnrIlOHXUGqVg=; b=JP/ocH4uatN5vE+5LgvDpXBhJH
-	enmLzOq5ZsXafI/c1aNLIVdMpQnX8sET6dJZC9DDnvSdfPFD3cMnMGl+e3ONIlPzw/g8BlPCjL19u
-	iwWhs+ZAcfPAz1B6zcuvYJuVhTZiv0TrtKVxMRnSZLdqm+4fNHgbw1EJOpafFiLeOW8JbYg/S/j+k
-	UqH+bxNJmS3VY68T1fpXZRSczxR93Ka/AzViHRU3GEdALuNwgNiqvpBMV+yNN4LSiry4DDlqt0wEo
-	CZmz26hamYb2PjXmyNuoKAryLVZdj9BqTJdNVR/+MXYOUHuMxj/APtcKSK7t9ZgGe0lQDmJ1J/J5I
-	UZ8Rnabg==;
+	bh=5ndp3zA2g1cCzG71PAh2FVVuICjxSJZZtCNsRgXooM4=; b=V8nsj8YXGfXegDhgiWU/aKgazo
+	VJzVKVGYwUE1BdyfcTwfexfHk/cnvtS6IycMtR9AG0fJifG1hgIDg938aHB+QGoCGQ0ONwjZQ4cW4
+	w5UGtNukxUlqSe41NJJQMxxro7D17wCnPZUsW5YHUW2NLamKCyn91wV5l0fKeUDLt3pqoRIbcvSm8
+	MH/Jbyr4DIuMUJp04JX/fqwMqA3PPuvah4VEVe6Bg0PdB59/UOmLCBkVAzR+xCdnKv5x+SHn2nuKN
+	iUbveNlMn4a7zJEuZLJvpxxq6VTVsVI2fSSJHtoIXxTZR62ZGa2DbZLuhPsD/Q0srhOlz3l4qwg3d
+	kPQwstTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LGF-00000001gNU-3wKw;
-	Sat, 14 Mar 2026 09:26:19 +0000
+	id 1w1LSu-00000001gmW-0d5L;
+	Sat, 14 Mar 2026 09:39:24 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LGC-00000001gN9-3vVH
+	id 1w1LSr-00000001gmB-2cg3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 09:26:18 +0000
+	Sat, 14 Mar 2026 09:39:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21C6F40460;
-	Sat, 14 Mar 2026 09:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA7DBC116C6;
-	Sat, 14 Mar 2026 09:26:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 45C5840A24;
+	Sat, 14 Mar 2026 09:39:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C511C116C6;
+	Sat, 14 Mar 2026 09:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773480376;
-	bh=I0kYhW0BmPT/Cm2S7SgFFfnCYg7754lS3e+9dMO9GQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bimeqrTG5mTTo2RjPs0SpHZw9q0OtEJ14ixuintnXGYM/Kbf3t8WnJ5/AkqfL0qDH
-	 Z3bTbIIynD/HWVmZzBmP4bCFWWcPKmWevm7JDzo0p+K/NMWFzjvRnFRlVb+DTSyQYw
-	 Jkmnpzq9YRRuOc9MtWAdUcXMfmd0FlJPC7f2VpSJotESBnja/h7fEc8ekDg3Pu/paH
-	 DohamW/UPqhW1Al9sKqXVxEfSIzVGGWQf+zFJ99iSpAijyQrVqUHLCVZNH4kCvYnZJ
-	 bdRK8aoapEeq4KrM22vnSGPbH3fD0ErsYtfD8c4jZ4jKqblQJA63tIsrk+hplZh5Aw
-	 OWl07m8L87ytg==
-Date: Sat, 14 Mar 2026 10:26:11 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	peter.chen@cixtech.com, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v4 1/2] dt-bindings: PCI: cix,sky1-pcie-host: Add
- power-domains
-Message-ID: <20260314-maize-warthog-of-modernism-f74475@quoll>
-References: <20260313114914.1564115-1-gary.yang@cixtech.com>
- <20260313114914.1564115-2-gary.yang@cixtech.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260313114914.1564115-2-gary.yang@cixtech.com>
+	s=k20201202; t=1773481160;
+	bh=HwkVyx/aHIXnmb+H9DTjTRCjKgpN6+EWshBqsYuDWLI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YzNQYoNBPzaAsSuR1Axcu2SZy0ExrVcUOUlzwRnYw8E05dLCZGlNM6K+52qKCBMKA
+	 ezjcYL2GElQmJksWvi7EWcubk19e6vLV0t7vqAwds+UfupXwW1QmQeQxBE1bfAbXze
+	 XHQFuNZzN23VDRKnJB0uIOW8CyZjEyRpT2wJbqkReHsCAkLoQY0VJmIk7AUVe6faDX
+	 fuw8xHg1qSA5LD2NiVkQYxCf95E8G2PRAFG4S4KyKBLyB17QlBVh2LP1q6iXqDktcz
+	 mJCW6Y/ksqU0utSCroLse9WzuIeKLFiHOiXRFFlsaprjfg31HKvifZaLACVWw6jQHr
+	 M/ZCQt++MuyVg==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w1LSn-00000001vif-2ktP;
+	Sat, 14 Mar 2026 09:39:17 +0000
+Date: Sat, 14 Mar 2026 09:39:17 +0000
+Message-ID: <87ldfuda2i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in debugfs
+In-Reply-To: <3virc5zxa7aow3qfuyyjwvzlmnjk4wlsfmmg7lixhder7rhd6q@qtlumbj33fks>
+References: <20260308231829.864983-1-weilin.chang@arm.com>
+	<20260308231829.864983-3-weilin.chang@arm.com>
+	<abGNLOfKLcNGYcxh@google.com>
+	<3virc5zxa7aow3qfuyyjwvzlmnjk4wlsfmmg7lixhder7rhd6q@qtlumbj33fks>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_022616_993866_CC0AC9F7 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260314_023921_686052_C92C1220 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 07:49:13PM +0800, Gary Yang wrote:
-> The Sky1 PCIe controller resides in a dedicated power domain managed
-> via SCMI. Add the power-domains property to the binding to allow
-> describing this dependency.
+On Fri, 13 Mar 2026 22:28:38 +0000,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
 > 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> ---
->  Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+> On Wed, Mar 11, 2026 at 03:41:32PM +0000, Sebastian Ene wrote:
+> > On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+[...]
 
-Best regards,
-Krzysztof
+> > > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
+> > > +{
+> > > +	struct dentry *dent;
+> > > +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
+> > > +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
+> > 
+> > Can you hide the size of this definition behind a macro ?
+> 
+> Sure, no problem.
 
+I don't think a macro helps that much on its own. I'd rather this is
+made a bit more foolproof by directly expressing the actual string
+this results into, and use that for the size:
+
+  #define S2FNAMESZ sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
+
+  char file_name[S2FNAME];
+
+which is less ambiguous. The compiler will happily optimise this to a
+nice constant that also accounts for the final '\0'.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
