@@ -4,50 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E5B10706F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 18:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5430610706F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 19:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kE6rooa9lpNkvv+MRXc7iLpUu314ODoCUYLjOHYbKho=; b=mtndSpllt9xt+2aA0qLEi2sXJM
-	P6sM8WrmernPBNR/baZ2eTwzcJqjNgfo0wxFHkCze/szVILTAyV1tfoL9ZC3g/okatZAT3ivLSkAf
-	fN/uFY/jclR48Qyo1P3aH+2uukN+7renC4M92TzKpsFNmtaS5OC/2zjH3jicd6n3jcLzMLMw9cM7n
-	6bIAuSWxlQjUl5PeU6jERv97kLahAwH9Zyg6tlp6anhDmklm5NVGma/gDg/yG7za7JVUrXMqvZOel
-	pnrK2ypZ+HEVUlB3UdiHc0BBgbQ8PiGQaLJIhjdiP7UX3eEcVCFLwFIX28uaAkVA3zj0qwBcLlTOJ
-	7/e1SUlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=; b=rC+doZX7iZaO1LTHhTjoaw0Yp0
+	ZIA/Ks/ZiED2IwapYbpoXu/RWbHEWjyuzcwtgZkUV2cZAzwWNMKjjs7Dh2bh8z1ObOtXvHYw42+/o
+	cCpsY9RBUIS8UZnduiKSauztCFgu/UhlvE56MFPCDVs+eII8LQm6HcQN9FIbdwr5ygRzCDZgWuNr7
+	MF4e++8NTCvLxRTRaqpCK21Y2QkFVxXYERJ/YZvq1LualSUxxkxgSEQ9Kcekf1B1yM5K7SSkwxEtC
+	CykgG7VLEI1wSH0KKSx3aWZVWCYZYRXo/IAHHpJh4+1FzCmReqwZdxNIs++J7wm66fHK9HItYeISS
+	G0jtafcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1TzX-000000025NY-0CqE;
-	Sat, 14 Mar 2026 18:45:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w1UOl-000000026FI-2LT2;
+	Sat, 14 Mar 2026 19:11:43 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1TzU-000000025Mv-2DlM;
-	Sat, 14 Mar 2026 18:45:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=kE6rooa9lpNkvv+MRXc7iLpUu314ODoCUYLjOHYbKho=; b=Jj9xgp1gGQy3wARyMmNTlprcun
-	k6xqBSey9NBlP2aQ06vcaBmY1CWnZuXhMRA+qtsKB95C+KvME0ASEnOgk3IekAWWJtoJu9nx0rSM+
-	vw7NpNUsi5+2FiKvvDFGnwioEu9kDsYFB0jykcyt95AjShSbl7g0/Gj9nfYTlY0At4f79uVy3/GJ4
-	vSfGsJd6VGFJfzB/NSnJS+BsE557O8omCzTAayx6p6LsTVmdXQb6rA9deEKSjviTmN4bpieve2XdY
-	QDknAC0EymnX6y9lyoA48jchIeiR8Jd+HVfcq9TBOoSa0/nHg57umw4e6G6wY5GoREh6tuUho/CS3
-	jvvcQ5xQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 7.1 #1
-Date: Sat, 14 Mar 2026 19:45:34 +0100
-Message-ID: <13966995.uLZWGnKmhe@phil>
+	id 1w1UOj-000000026EZ-0gPJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Mar 2026 19:11:42 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35691a231a7so1805473a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 12:11:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773515500; x=1774120300; darn=lists.infradead.org;
+        h=user-agent:content-disposition:mime-version:mail-followup-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=;
+        b=YL0xIC6Vf/cGf9c0ade1RO6Vw8shLuR9Fjyp4DgFYVj9SW0P9E7EhgyCUIo3UCZ8WJ
+         LSDV/F3ifGZeHq2FLVNGEprZNq+bSla4SNxx4KdWJp3/mdQacdizG+TkUsOoLNe64R1o
+         Bf2RP2m3AfqOMlKpFjWp7wU7p2nYg1jQbOtCTRWxMNSRZ2zUyhqKnibvs+X/Un2owV55
+         pvp5FzLAsMf7KnXEACPgJEA4DvssbAJZGOrlvkgF+l+VAPTFk/Z2akFffH4TjbzQAclo
+         ySU8nvvKitrg45uwt1ef+TCcQMLEi4Qv6t2+mZBSnGLBY68vphfnYjznbhoJn1m2kRVk
+         AQpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773515500; x=1774120300;
+        h=user-agent:content-disposition:mime-version:mail-followup-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=;
+        b=gtxK38TQchdu3blomX91G1EZJN1F/K/TXUBMmawwqBu7VkPfxhqMqZCvgHbxtdTwfN
+         dpPhd0k7zI8+hbz2WV5SyRjLZM5UMa0lAXD25Jya37h4f9pD7vDtjpuhGxmRBHqzDHcC
+         BunNCsNgSH0d5tjRgX4yiu33UqB1Ky/Csza6sgb/BtZaTdi8d9eX4hzv3wePwx6IS6wD
+         M82a1D4QBsJncSGTXopJCBt5WQBoB+fNY2VtKLWVLgqeZNakzmqLSmrApN7L0g7BBwwn
+         qdQOKrEoC1sTy2vD91hhumP/MV7ROmI9zsyn3yrcMpS5yUfGam3Nxt/AUaxC6RlzSXB7
+         MfBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXePkLFS5s7+pjwrOnOlslt62u7vPO97sQNbdquAGEJ6i0Db6ynk4mFasS0sG/nO4eUZmAISoS1MnOh0X2y3NFw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXb5YbzPIOHbHGN4WdCDUZ0SnYYYBbkaJBwLRO4VEqdeYJZg7+
+	wk9KGphmj4ToWvoeaNkkKDLH77h97rP7FFrQfbfs3273WaDmUUlaOo/u
+X-Gm-Gg: ATEYQzz8u6FTZj2UcGmDwixHWj4C9iaDPZRB2F45gvhU1cqdm8Y5lODV+nTqrxOihH7
+	0N5z4VqNLHN5jXWsI/DTAyO3esyZgl032QBuozvBiwv0aFXVy7AJYDKJHjQ7d3jc+5+ISDfiI0c
+	HZhXrwZKwc1wK58fACX9Z3joKEspmz4eilrPLD+Wz6bUaEUn0SQUUtZ1s9oNdkxh90uS30jjctj
+	XDWqpHU5rd0bsIfegBxZx1nvzDSoVP0cDLRchRLgXUQz8p3vU3SAulWBUZP5/mvjeTNU74X6i3u
+	w1yUHIlTCn8OHmm7qYkWLbqcJ1c1R78d52W2fJ7wdE2SsqCajgWAuWmuwXonPWvocNVUqjnKAwi
+	fE0GmdwpxdNnVhIs1ZVxEI0P8PyjeqPI6l16lru/eXLj2cdkOWSP+2Yd9m30Kb57XG0nNNOzIsV
+	7g2LNAf3HvwmF9orM5prTQbDMS6vu61gCwzqG8RmEK
+X-Received: by 2002:a17:90b:5345:b0:35b:93d8:6aaf with SMTP id 98e67ed59e1d1-35b93d86c76mr586837a91.19.1773515499736;
+        Sat, 14 Mar 2026 12:11:39 -0700 (PDT)
+Received: from udknight.localhost ([120.36.202.188])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a2450ffd9sm2593217a91.6.2026.03.14.12.11.37
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 14 Mar 2026 12:11:38 -0700 (PDT)
+Received: from udknight.localhost (localhost [127.0.0.1])
+	by udknight.localhost (8.14.9/8.14.4) with ESMTP id 62EI04la008004;
+	Sun, 15 Mar 2026 02:00:04 +0800
+Received: (from root@localhost)
+	by udknight.localhost (8.14.9/8.14.9/Submit) id 62EHxw2u008000;
+	Sun, 15 Mar 2026 01:59:58 +0800
+Date: Sun, 15 Mar 2026 01:59:58 +0800
+From: Wang YanQing <udknight@gmail.com>
+To: linux@armlinux.org.uk, akpm@linux-foundation.org
+Cc: willy@infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH] arm: lpae: fix non-atomic page table entry update issue
+Message-ID: <20260314175958.GA7956@udknight>
+Mail-Followup-To: Wang YanQing <udknight@gmail.com>, linux@armlinux.org.uk,
+	akpm@linux-foundation.org, willy@infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.7.1 (2016-10-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_114536_572587_6963107B 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260314_121141_238501_9F26A50B 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,125 +106,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
 
-please find below Rockchip DT changes for the merge-window for 7.1 .
+The ARM Architecture Reference Manual explicitly dictates that writes of 64-bit
+translation table descriptors must be single-copy atomic, to archieve this 64-bit
+atomicity on a 32-bit architecture, the linux kernel relies on the STRD (Store
+Register Dual) instruction, but the copy_pmd() in pgtable-3level.h is C code, then
+compiler could do very crazy optimization for it and generate code that break the
+atomicity, for example, we get below copy_pmd() assembly code with gcc 12.4.0
+(Using CC_OPTIMIZE_FOR_PERFORMANCE, it is the default compile option):
+"
+gdb vmlinux
+gdb disassemble do_translation_fault
+gdb ...
+gdb 0xc020e544 <+136>:    ldr.w    r4, [r0, r1, lsl #3] @load low 32-bit of pmdps
+gdb 0xc020e548 <+140>:    ldr      r0, [r6, #4]         @load high 32-bit of pmdps
+gdb 0xc020e54a <+142>:    orrs.w   r6, r4, r0           @ pmd_none(pmd_k[index])
+gdb 0xc020e54e <+146>:    beq.n    0xc020e586 <do_translation_fault+202>
+gdb ...
+gdb 0xc020e562 <+166>:    str.w    r4, [r5, r1, lsl #3] @store low 32-bit to pmdpd
+gdb 0xc020e566 <+170>:    str      r0, [r2, #4]         @store hight 32-bit to pmdpd
 
-So far only arm64 changes :-)
+The code breaks the atomicity and valid bit is in the low 32-bit, page table walker
+could see and cache the partial write entry, this will cause very strange
+translation-related issues when next page table (level3 PTE table) physical address
+is larger than 32-bits.
 
+So let's use WRITE_ONCE() to protect the page table entry update functions from crazy
+optimization.
 
-Please pull.
-Thanks
-Heiko
+Signed-off-by: Wang YanQing <udknight@gmail.com>
+---
+ arch/arm/include/asm/pgtable-3level.h | 28 +++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.1-rockchip-dts64-1
-
-for you to fetch changes up to d7787a77cf8b129304f590233032556dec10dfc6:
-
-  arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander (2026-03-13 21:39:34 +0100)
-
-----------------------------------------------------------------
-New boards: RK3576-EVB2, OneThing Edge Cube
-New soc-peripherals: DisplayPort on RK3576
-New overlays: TSx33 device-revisions, HD702E display/touchscreen on
-NanoPC-T4
-
-And as always a number of per-board changes for added or enabled
-peripherals, added supplies, things moved to more fitting positions.
-
-----------------------------------------------------------------
-Alexey Charkov (1):
-      arm64: dts: rockchip: Add analog audio switches to RK3576 EVB1
-
-Andy Yan (1):
-      arm64: dts: rockchip: Add DisplayPort dt node for rk3576
-
-Chaoyi Chen (4):
-      dt-bindings: arm: rockchip: Add rk3576 evb2 board
-      arm64: dts: rockchip: Add rk3576 evb2 board
-      arm64: dts: rockchip: Fix sdmmc pwren pinctrl for rk3576-evb2
-      arm64: dts: rockchip: Enable displayport for rk3576 evb2
-
-Chris Morgan (1):
-      arm64: dts: rockchip: add Awinic aw87391 amplifiers for Anbernic RG-DS
-
-Heiko Stuebner (8):
-      arm64: dts: rockchip: Add port subnodes to RK356x SATA controllers
-      arm64: dts: rockchip: add overlay for qnap-ts433 device revision
-      arm64: dts: rockchip: add overlay for qnap-ts233 device revision
-      arm64: dts: rockchip: add overlay for qnap-ts133 device revision
-      arm64: dts: rockchip: use gated-fixed-clock for pcie-refclk on rk3588-jaguar
-      arm64: dts: rockchip: use gated-fixed-clock for pcie-refclk on rk3588-tiger
-      arm64: dts: rockchip: add pinctrl for clk-generator GPIO on rk3588-tiger
-      arm64: dts: rockchip: Make Jaguar PCIe-refclk pin use pull-up config
-
-Hugh Cole-Baker (1):
-      arm64: dts: rockchip: add pwm-fan for NanoPC-T6
-
-Jun Yan (3):
-      dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co., Ltd.
-      dt-bindings: arm: rockchip: Add OneThing Edge Cube series
-      arm64: dts: rockchip: Add OneThing Edge Cube series
-
-Michael Riesch (1):
-      arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander
-
-Robin Murphy (4):
-      arm64: dts: rockchip: Move RK3399 eDP pinctrl to boards
-      arm64: dts: rockchip: Add overlay for FriendlyElec HD702E
-      arm64: dts: rockchip: Clean up NanoPi-R2S Plus gmac2io
-      arm64: dts: rockchip: Describe HDMI supplies for nanopi4 boards
-
-Samuel Holland (2):
-      arm64: dts: rockchip: Add battery and charger on rk3566-pinenote
-      arm64: dts: rockchip: Enable GPU on rk3566-pinenote
-
-Shawn Lin (2):
-      arm64: dts: rockchip: add node name for RK3588_PD_RKVDEC0/1 and RK3588_PD_VENC0/1
-      arm64: dts: rockchip: Add supply for pd_rkvdec and pd_venc on rk3388-evbs
-
- .../devicetree/bindings/arm/rockchip.yaml          |    9 +-
- .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
- arch/arm64/boot/dts/rockchip/Makefile              |   22 +
- .../boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts   |   17 -
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi      |    3 +-
- .../boot/dts/rockchip/rk3399-gru-chromebook.dtsi   |    2 +
- .../boot/dts/rockchip/rk3399-nanopc-t4-hd702e.dtso |   96 ++
- arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi   |    2 +
- .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |    2 -
- .../dts/rockchip/rk3399-sapphire-excavator.dts     |    2 +
- .../dts/rockchip/rk3566-onething-edge-cube.dts     |  342 +++++++
- arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi  |   31 +
- .../dts/rockchip/rk3566-qnap-ts133-pcb-13.dtso     |   64 ++
- .../boot/dts/rockchip/rk3568-anbernic-rg-ds.dts    |   44 +-
- .../dts/rockchip/rk3568-qnap-ts233-pcb-12-11.dtso  |   93 ++
- .../dts/rockchip/rk3568-qnap-ts433-pcb-12-10.dtso  |  151 +++
- .../rk3568-wolfvision-pf5-io-expander.dtso         |   20 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |   27 +-
- arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts   |    1 +
- arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts   | 1071 ++++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           |   28 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |    8 +-
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts   |   16 +
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |   21 +-
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi |   39 +
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |   27 +-
- arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts  |   16 +
- 27 files changed, 2093 insertions(+), 63 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-nanopc-t4-hd702e.dtso
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-qnap-ts133-pcb-13.dtso
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-qnap-ts233-pcb-12-11.dtso
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433-pcb-12-10.dtso
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
-
-
-
+diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
+index 7b71a3d414b7..b077174a4231 100644
+--- a/arch/arm/include/asm/pgtable-3level.h
++++ b/arch/arm/include/asm/pgtable-3level.h
+@@ -120,15 +120,15 @@
+ 						 PMD_TYPE_SECT)
+ #define pmd_leaf(pmd)		pmd_sect(pmd)
+ 
+-#define pud_clear(pudp)			\
+-	do {				\
+-		*pudp = __pud(0);	\
+-		clean_pmd_entry(pudp);	\
++#define pud_clear(pudp)				\
++	do {					\
++		WRITE_ONCE(*pudp, __pud(0));	\
++		clean_pmd_entry(pudp);		\
+ 	} while (0)
+ 
+ #define set_pud(pudp, pud)		\
+ 	do {				\
+-		*pudp = pud;		\
++		WRITE_ONCE(*pudp, pud);	\
+ 		flush_pmd_entry(pudp);	\
+ 	} while (0)
+ 
+@@ -139,16 +139,16 @@ static inline pmd_t *pud_pgtable(pud_t pud)
+ 
+ #define pmd_bad(pmd)		(!(pmd_val(pmd) & PMD_TABLE_BIT))
+ 
+-#define copy_pmd(pmdpd,pmdps)		\
+-	do {				\
+-		*pmdpd = *pmdps;	\
+-		flush_pmd_entry(pmdpd);	\
++#define copy_pmd(pmdpd, pmdps)				\
++	do {						\
++		WRITE_ONCE(*pmdpd, READ_ONCE(*pmdps));	\
++		flush_pmd_entry(pmdpd);			\
+ 	} while (0)
+ 
+-#define pmd_clear(pmdp)			\
+-	do {				\
+-		*pmdp = __pmd(0);	\
+-		clean_pmd_entry(pmdp);	\
++#define pmd_clear(pmdp)				\
++	do {					\
++		WRITE_ONCE(*pmdp, __pmd(0));	\
++		clean_pmd_entry(pmdp);		\
+ 	} while (0)
+ 
+ /*
+@@ -241,7 +241,7 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 	else
+ 		pmd_val(pmd) |= PMD_SECT_AP2;
+ 
+-	*pmdp = __pmd(pmd_val(pmd) | PMD_SECT_nG);
++	WRITE_ONCE(*pmdp,  __pmd(pmd_val(pmd) | PMD_SECT_nG));
+ 	flush_pmd_entry(pmdp);
+ }
+ 
+-- 
+2.34.1
 
