@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1BD107BCEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 05:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEAF107BCEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 05:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wis8Ztt02echphqiraJLVLvNhZewKrw1vXf9atZnXgs=; b=rXVEiq4U9hqac9xP3GmObTW/ow
-	kiRp7UnpvI8pwSnlsyzHco9J64OZCpPrIGhoi55QmxSu+NHnXY0+Nn4mjAbiNyYJDTHmBon03kS4H
-	rFf9SkbhQwm/K3C8YvtIRY7G3b/hx7ysaH0/G7Y3G19VQ+kVKugXLrxWvT/4oEwLuH8lmnzPMDUST
-	T8+ALWgY6r+rJeZzyEcdntpCgBnFMCynCULqZk8nwRkW9Pa1gyhfgiEuU6Ctco/HNsio3bdX1OhLM
-	cr6sB44hlwDR+TNXdtVCDdqrCfxNStKCHtmkkjCZkXsSFBGne2RpmFjHj1TCGF0MM12tODazXdso6
-	g3hcur7Q==;
+	bh=EJmMBFmPGqTHkDwG1rY3Bg/JhJ5nB1wazIAAkQAXfx0=; b=IctkU4+hd+WSYzPUKu36ZpM/C6
+	aU2swFTnHl/9Q8T2TYPFqDPZEmusRXtd+PKyYx2xt/y3cj/uETeD87CFZQApTOfr31Sil/eSfsn6F
+	2eknCo09gFHj4/OVxxC9vOZGBvwEhJsWspCD8wZDweNMcTnKTpFux0Pmsyt4tF1NbHUDBlZCUIZHZ
+	LCwfs9lKoTYRXKvxVOwsRgY9V3Wb7axnXmPsbx/WfzCJhl+hJVcYvbZ6XXfPb5DLlToVVb88pqMbs
+	Ue2N5GBfL/c/vEoQCO5Uk4QK/ivQh7rkSbVR1D/PK0WDp3tF9BjQkU6ZPZCWAybseJmhMJ1kpZICN
+	pjw4YT2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1HL2-00000001WHL-2p1o;
-	Sat, 14 Mar 2026 05:15:00 +0000
+	id 1w1HNF-00000001Wbo-0gj3;
+	Sat, 14 Mar 2026 05:17:17 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1HKo-00000001W4i-1sC0
+	id 1w1HN8-00000001WbL-3xug
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 05:14:49 +0000
+	Sat, 14 Mar 2026 05:17:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=Wis8Ztt02echphqiraJLVLvNhZewKrw1vXf9atZnXgs=; 
-	b=fOHsND1CEQIhZXZBE7RXmXaLpWqbxgWHGC0f62NgVE8Lk1KJbmufIhlq/xEX4xFR4P2RV1PXMay
-	mFjFgnpiJknmlnPd+levPMxRMdie5na8MSRka+SBG7OQscfCgHiV+yiVu5+1PMl2Sa3+/I7v/00y6
-	Lt+5+XqN/gNodbxIwEeTNu1rBB690Q6ifHX3TegcAqQX0QJBAD1tIbkhEEuOa4uIEy824LbR7SfPL
-	krGqxa2pjLMkGjTRrPlUcK98ncC3YljWQc1uST/55VzZe2bVTcAGcIATxINNtwFMK/jzFGpc7FXCk
-	Lr/HI6CWqf2a6it8HAr6dVkvJiZ459CapcxQ==;
+	from:content-type:reply-to; bh=EJmMBFmPGqTHkDwG1rY3Bg/JhJ5nB1wazIAAkQAXfx0=; 
+	b=VL7CNb6lp2XD/NcSdTvMXNT2X57OWml7UIRIHUL8ATFY3RP3+6UAbn7Q5DcE09I/KebSnOwt/T/
+	SAKA7Afa8hKcKxvVYGn4ehAAfUt3ZI7YbSKJswq8TfR1CVgA57sLxQvJHnDW4RCT+ovR4qZ7tZo0Y
+	wcKlT12vrHjge7iPoHj1UpqOfve35HdQlxqllfUk5aAuD5begJFDslFC0EdbXpeJrolECDWUbSoL4
+	WeDJ60F3sTEgBA4ZuuerXkYPLrdOozK/NiYT5ume2XkGcH0QLCDOcW8zqlebww9ZVBPrljWNbzpAn
+	wxcWLtENIamp9FIIk4rS8E+HpztP3Libc/hw==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1w1HKc-00ELA5-0k;
-	Sat, 14 Mar 2026 13:14:35 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 14 Mar 2026 14:14:34 +0900
-Date: Sat, 14 Mar 2026 14:14:34 +0900
+	id 1w1HMt-00ELBR-0i;
+	Sat, 14 Mar 2026 13:16:56 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 14 Mar 2026 14:16:55 +0900
+Date: Sat, 14 Mar 2026 14:16:55 +0900
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-sha204a - Drop redundant I2C_FUNC_I2C check
-Message-ID: <abTuusheptf3Cx_m@gondor.apana.org.au>
-References: <20260304082402.89237-1-thorsten.blum@linux.dev>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: davem@davemloft.net, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] crypto: testmgr - Add test vectors for
+ authenc(hmac(sha1),rfc3686(ctr(aes)))
+Message-ID: <abTvRwX7p0msmGI8@gondor.apana.org.au>
+References: <20260305201036.63280-1-olek2@wp.pl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260304082402.89237-1-thorsten.blum@linux.dev>
+In-Reply-To: <20260305201036.63280-1-olek2@wp.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_221446_533571_145EEC7A 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_221711_746250_CE7452E6 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 09:24:02AM +0100, Thorsten Blum wrote:
-> atmel_i2c_probe() already verifies I2C_FUNC_I2C - remove the redundant
-> check in atmel_sha204a_probe().
+On Thu, Mar 05, 2026 at 09:08:20PM +0100, Aleksander Jan Bajkowski wrote:
+> Test vectors were generated starting from existing RFC3686(CTR(AES)) test
+> vectors and adding HMAC(SHA1) computed with software implementation.
+> Then, the results were double-checked on Mediatek MT7986 (safexcel).
+> Platform pass self-tests.
 > 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 > ---
->  drivers/crypto/atmel-sha204a.c | 4 ----
->  1 file changed, 4 deletions(-)
+> v2:
+> - rename aes-generic -> aes-lib
+> ---
+>  crypto/testmgr.c |   6 +-
+>  crypto/testmgr.h | 221 +++++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 226 insertions(+), 1 deletion(-)
 
-Patch applied.  Thanks.
+All applied.  Thanks.
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
