@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88633FD88ED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 06:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DCE107BCEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 06:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7LvRohA/aNlHWJlmtlHX7SzTIgOqnqCGYH4Im2uA6U=; b=yqOTpk2X6JlF3swPYfiXVL3KzZ
-	lGqfx7ujC7utQF2+rJFxhptVmYF3vfBddfH94WhiiduZejax9S897fxRS4vvHdthPgSInZOuz4Ya7
-	XyXAJHMe7WusjAtbMVPk1Z7XB8p1v5iteLNdin0jvcPH3yvhB4RYq0gXUkqIb509m5WAUd0iEKhUA
-	dLWY1H1PVid95nYyeu9iKahCxxmsxLT6oKbk4HKTtxHZj6CtSHyemZh+1fDx/tTl4U6F/YehQQ8Yt
-	Yxxb4ojGZPOP8mhqx4YH4j6fRTNmoYZXBpJo1windkl69yj/X0apmfivgg61ojxAEAcwVDTBSxtUS
-	MtNsKjPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OGqE3n15B8Oam7oaufyM4egmtIok/tvgCx592UaF9pQ=; b=Uh4hD1ZTnSjDZnze3Hkgg+NF6L
+	liwwjML3bRw1fV/QFksc6AZK9W25gfnvvn+zAKLB52Z5/BnQbcr0sp8gtQgB6KqwtK/UFPP8q+fPZ
+	fMTPmet8ud8C96DvQQ5PDbAlHOyqv/AV7uKIzfew9t+04fjRrDqiHTimtbj6EdYubqfESAZoPA+gz
+	rDwv83gf28FGIFwkRpi3fNr+saC7CS4b1nN9ohch0qJyX1iFuNx2+dKOkoKWiivrcNdfuTiTm2KFw
+	J84DCDxEGV1BlGGZ/cA44vTVqlA3VZYRcGOn7NC32RbYkISfbs5j2g6Lbxv+H6Y4gMlwGpXQuuBYf
+	aLMrFGKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Ink-00000001YyB-3Yj0;
-	Sat, 14 Mar 2026 06:48:44 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1w1Ise-00000001ZB8-2J7t;
+	Sat, 14 Mar 2026 06:53:48 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Ing-00000001Yxl-45Cy
+	id 1w1Isc-00000001ZAj-41gK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 06:48:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fXsPS1FfzzKHMdB
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 14:48:12 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 4C0E440573
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 14:48:33 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP4 (Coremail) with SMTP id gCh0CgA3EEu9BLVp9wZqAw--.757S2;
-	Sat, 14 Mar 2026 14:48:30 +0800 (CST)
-Message-ID: <f384599a-75b8-4387-80db-b20429a0bafd@huaweicloud.com>
-Date: Sat, 14 Mar 2026 14:48:29 +0800
+	Sat, 14 Mar 2026 06:53:48 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48374014a77so28260525e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Mar 2026 23:53:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773471224; x=1774076024; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OGqE3n15B8Oam7oaufyM4egmtIok/tvgCx592UaF9pQ=;
+        b=Le4P8eQY/8mcfMPGfvlkcsfAuYcb9Eseiyra5U8z4DpqaxFiAwrhZbBhSQcML+gDCR
+         +BMgmxcm2pnPZeu5CHKuqGmUwbrwwKL8qTDaqbXlR++ELeJcRMl1CzEoDJW073wLV6kN
+         vdeqBJPp3eAigYcFfllV/RhsgDkR2Iat999hEfkBwPWTNL/tYm58dlziY+IFVJav1wDr
+         6cyjk8Wx6QoMdJNhJbiMQyLFVtwMQ3x6p0X7NZQhETWzWzm5kResgsdj867TiSwKVG+a
+         qPlIEMaxfn5DfCLO6MXGcQ+e3wKVSQfIFFHqlRCKMGCjPA+gQ1pJEJ/M2/W1Om6LeyP5
+         WXtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773471224; x=1774076024;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OGqE3n15B8Oam7oaufyM4egmtIok/tvgCx592UaF9pQ=;
+        b=qk/QLA8gY/gLaFU09LuGsJHfpcJcm1Y+a+66kLJOJRYB/zU31gGG5F8iLDcvqNHCeM
+         0a+EoGsFzpVJrrIrAl/1DhK/ihHy3QPYcAaiDRCBxDHe2rP3JsSQbHWbr7C1tcUai8yH
+         ImutupkkpCEW31NEgzYY9w9MOOUIMeMUTtsGzDn5b8dNmF22FUah3HF06TSk0HPe3Id/
+         bMYkWAP3JlOS6YIbQR2ozyWDalrcyBPc0WUYvQDsmaLoWQuJtQWdIf/17MHiCL/70FKQ
+         AZHohutx40dJfC6JAldEV0cPI87fos3TmWy1e3c1J1LWh5suUQjzx74g9dBe5Uk3y6Ok
+         JmeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXEhk7/Ygf1SPw0LSroBHs90rqGXKrOiDdUkXIRBNu4qwgUmBGTHZMS3UsQgGF8mMKRAZXtWv2mXSGYSoiXEAcW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI7W6ac+cyKjm6RpSpTd1E4DzxDSV3Yig5NS9xQprzOs1JWaJi
+	94HvTohlbfvhLbpTEeqt4R9dfgcuXnPQ7CpYb2Nxyo6G9qJwCohhCmVs
+X-Gm-Gg: ATEYQzxbGrmq4876v6SkCAnE1/yKWJmZBX7GjgT3duES5Ol2j9x7ctvWkMvK7aG2hBh
+	/TLrHow1HHULawp67BoBSuMHd1wmk+oV5Cmzclw62Bogv9C4ZMl5NGOzBHv2WPmxPRfS8hXtEfX
+	3rhnp0+YzXdJKZWbon6P8pPfT3v85QnIYj77XLvWJ+0R0cf7MpKjRWWwvBmP6oTONAX/YsV9B8S
+	sK8YM+ijfHCVNr2fC2bmjxaWCNpqzvUUSs1HCuN+GwWwsjSY2B0g/JvI9E9lvX2H9cmbnzza4SI
+	PhFW75EZe0XvsEhaWsD6aN7Sv4S+uYtrPE/z0H7sSNqzsL4X5YvDRUtYKH0vxKSgQxmsHJ6UtXJ
+	Cj4/nk0epkTKUYtoa0deYOH+O2gxSJUoaIUwdETyAccm9xsI4aJnVKh/IV+lvOQ6Rd3O1+vqddD
+	72ypG64jMz1LdgIsFvlh475IVp+ZjBNnwsyM/QS/f3ymThAMjDATrAOOXGmq+OjoY9VpTZe6Vqs
+	etnbA==
+X-Received: by 2002:a05:600c:4f8b:b0:485:3a27:a960 with SMTP id 5b1f17b1804b1-485564981d8mr105428765e9.0.1773471224016;
+        Fri, 13 Mar 2026 23:53:44 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-12-163.dynamic.telemach.net. [86.58.12.163])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48556422338sm40021775e9.7.2026.03.13.23.53.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Mar 2026 23:53:43 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Yuanshen Cao <alex.caoys@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, Yuanshen Cao <alex.caoys@gmail.com>
+Subject: Re: [PATCH v2 2/2] pmdomain: sunxi: Add support for A733 to Allwinner PCK600
+ driver
+Date: Sat, 14 Mar 2026 07:53:42 +0100
+Message-ID: <5083201.31r3eYUQgx@jernej-laptop>
+In-Reply-To: <20260305-b4-pck600-a733-v2-2-ba6bbed7d253@gmail.com>
+References: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
+ <20260305-b4-pck600-a733-v2-2-ba6bbed7d253@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v9 4/5] bpf, x86: Emit ENDBR for indirect jump
- targets
-Content-Language: en-US
-To: Leon Hwang <leon.hwang@linux.dev>
-Cc: a.s.protopopov@gmail.com, alexis.lothore@bootlin.com, andrii@kernel.org,
- ast@kernel.org, bjorn@kernel.org, bpf@vger.kernel.org, chleroy@kernel.org,
- daniel@iogearbox.net, davem@davemloft.net, eddyz87@gmail.com,
- gor@linux.ibm.com, hbathini@linux.ibm.com, hca@linux.ibm.com,
- hengqi.chen@gmail.com, iii@linux.ibm.com, johan.almbladh@anyfinetworks.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@armlinux.org.uk, list+bpf@vahedi.org, luke.r.nels@gmail.com,
- martin.lau@linux.dev, naveen@kernel.org, paulburton@kernel.org,
- pulehui@huawei.com, puranjay@kernel.org, udknight@gmail.com,
- xi.wang@gmail.com, yangtiezhu@loongson.cn, yonghong.song@linux.dev
-References: <20260312170255.3427799-5-xukuohai@huaweicloud.com>
- <20260313101505.104686-1-leon.hwang@linux.dev>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <20260313101505.104686-1-leon.hwang@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgA3EEu9BLVp9wZqAw--.757S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrAr4kuryrAw18uFy7XF1fJFb_yoWxWFg_ZF
-	sY9r97urWkua4qgrWDA348uwn2q3WDGF98Gr15Kw17K340yr4Sqr1rCaykZws5Ca4vqrs3
-	A3W8Xa90yas09jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbx8YFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2
-	j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7x
-	kEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AK
-	xVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_Wryl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jxCz
-	tUUUUU=
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_234841_203469_0DDFBCA9 
-X-CRM114-Status: UNSURE (   6.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_235347_059524_1833C534 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,24 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/13/2026 6:15 PM, Leon Hwang wrote:
->> +#ifdef CONFIG_X86_KERNEL_IBT
->> +		if (bpf_insn_is_indirect_target(env, bpf_prog, i - 1))
->> +			EMIT_ENDBR();
->> +#endif
-> NIT: is this CONFIG check necessary?
-> 
-> EMIT_ENDBR already checks it.
-> 
-> #ifdef CONFIG_X86_KERNEL_IBT
-> #define EMIT_ENDBR()		EMIT(gen_endbr(), 4)
-> #define EMIT_ENDBR_POISON()	EMIT(gen_endbr_poison(), 4)
-> #else
-> #define EMIT_ENDBR()
-> #define EMIT_ENDBR_POISON()
-> #endif
+Dne =C4=8Detrtek, 5. marec 2026 ob 04:34:08 Srednjeevropski standardni =C4=
+=8Das je Yuanshen Cao napisal(a):
+> The Allwinner A733 PCK600, similar to A523 PCK600, is likely a
+> customized version of ARM PCK-600 power controller. It shares the same
+> BSP driver with A523. According to the BSP provided by Radxa, unlike
+> A523, it doesn't require reset, as well as a different pair of delay
+> values.
+>=20
+> Make reset optional in the sunxi pck600 driver and add support
+> for A733.
+>=20
+> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 
-Well, the code was originally written exactly without the #ifdef, but it triggered
--Wempty-body warning: https://lore.kernel.org/bpf/202603051414.AAMjmOHv-lkp@intel.com/.
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Best regards,
+Jernej
+
 
 
