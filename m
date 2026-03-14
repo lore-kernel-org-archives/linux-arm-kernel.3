@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CA2105F79E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 08:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A566105F79E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 08:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zs5ayvvkI5PTSLsGJL88a7+jQEKfQg3DX6WpRBk/6/0=; b=o8d1TDFRJqiwuw
-	WUb15i3outiOUnMd5yhvVe8woXbisSLZCgrQsbKyYR2yI4YniaqwdN/uF5if9MhQJDp/9SKWvsENq
-	Oy7HaHqY/t8oEGzHo3HunNt5qhO2wx9qHFvsqW9Uc3JHvsgOMoThE2ri9engYazYACKPgNocnhIeS
-	66Tmfv6Wws7Q+4/9le+JLqmtYNzuiDQZzkUSheFpK5dPoSAaWxL3Ac/VZj6Xk+b53mu8+NvKGA47y
-	MZH688RHtogbI2UfvVuH8Bx5S2Yq7jtGtUDkoSm1LyGJmvvgIhZuNdAEQF8aBVCFY1sKyjrMpeyru
-	/Rg9D1T3OUgDWuiAkTVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pg0oVFRscnlmYy+Eh/DH0v3AyH+o/BdVyC5aCHMXo/o=; b=dRA3QVP43FwLBOdzyC3H8Qvfds
+	9GcSITi/U/d5PhIvI5xrZKWTmmCOMUJ9R/Rw4gBcPykBvQ4oobvwn4kX7zt00knX7WdSLJaWOgdGk
+	+QVRzl6RhrC2g35+DF0IveNonPyFadDd6Uh8/1ay2ildbXICv36RQ/8UBOKAVMctZYy5K5pL5zPvq
+	yGaY00x9Xfu0EcYn1xniNc74tgcltvaU2rKpqsjBGtdB025HJ/LWFvpkHjerjfaE3+x5gxpc9TqRS
+	COvtZT1GHpMJzzGhRj5Yyw7Rk1GK/0epd71Xc1wcr2UGuRXaagFpvnyvyxtHHY7Rm7vmr/yfsaZod
+	5vOIyCwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1KWP-00000001dmu-3qvH;
-	Sat, 14 Mar 2026 08:38:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w1Kcm-00000001dzv-2xa6;
+	Sat, 14 Mar 2026 08:45:32 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1KWO-00000001dmO-2PvF
+	id 1w1Kci-00000001dzY-1alo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 08:38:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A69B16132E
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 08:38:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48FE0C2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 08:38:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773477505;
-	bh=zs5ayvvkI5PTSLsGJL88a7+jQEKfQg3DX6WpRBk/6/0=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=UgnxNAc7tAQWYiHcp5jJ2xvCpg1e0jf5AX9GdeHFfrS7HciaU9D4E4aZHr5jxtImp
-	 5nS0/gaBUxA61/0Rl8F1mT0OQnn39+zfnp62f4dBkEnF1KVtc7LRUpe9sF7VsMwXFc
-	 7yPwYlfZF5EZFI9g9Ph8LAIzAeSqLQtnyXTpHdhzz8cpe+aEFsUU1ZGftbixTRW/LC
-	 oj7xHRdpJe3v6Q94STrUW37Ms4HnajEPRwu++rcUCfMXufhoEbp4+pMR4B3jLeNUpI
-	 3pBoOJcYjuL4//elETUStMUlUsWKl47BLIwu0uoc694FneDtPf/UAFIpGn9f9/56Hk
-	 yAaefljBFFKsQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a159c1e65aso2912167e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 01:38:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWthbIVmQRji3LQDBm6+0EWaoif4yfYVZZK1sC/9h9iBs89mw4WUCNN6oyfHVbNqfnMoUs+1x8/DXadVUOZ/64o@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFOCRd7xyNKfYoVG0tOs5lX7pAP7TiLTHVDWB2vKWtJPRDXd6w
-	C5THbcwHJZPvsgNA90mhA4Er/Z25Wpb3Nijuc9sqPBdQpcCex/3AA5QCEVjxo4jiUgSO+dnuLwD
-	CQZG6oNjKEt2D6S+unXKJkJKgF52ZkZw=
-X-Received: by 2002:ac2:54af:0:b0:5a1:27a8:be28 with SMTP id
- 2adb3069b0e04-5a162af644cmr1432283e87.11.1773477503501; Sat, 14 Mar 2026
- 01:38:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260313000652.11470-1-andre.przywara@arm.com> <a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
-In-Reply-To: <a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 14 Mar 2026 16:38:11 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65RD3ksSnEC0RjYYQ1J-NoP9gGfeTR1UCfLgKCJEFBSTQ@mail.gmail.com>
-X-Gm-Features: AaiRm51E4965eeb0L_fn-2SZNoUKwdxVpJdCBkpbsBdc_UAFU6x4kPtBXXnJXuo
-Message-ID: <CAGb2v65RD3ksSnEC0RjYYQ1J-NoP9gGfeTR1UCfLgKCJEFBSTQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Andre Przywara <andre.przywara@arm.com>, Linus Walleij <linusw@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Sat, 14 Mar 2026 08:45:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:To:From:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Pg0oVFRscnlmYy+Eh/DH0v3AyH+o/BdVyC5aCHMXo/o=; b=q84TXm9tunwc9vj6azWkRxpIy2
+	FWFOuqEtx3jMzqBnQWhpH7NpVz/H9lUPGti7Ex6ittsHQ1TZtvJlwwyCJozJweSAhyzLlO/979lBu
+	rXgeSzdPzA99Zord2OfPYzXyER2kehKQy2AyIktwzprg/yZsd93OFyr1C3yGLQbaOV5b02HnwtFY0
+	R+/Tfz15ro0putZ9g6np/gVVtolTo9gXIhmCpZSTRZI9KSzo2R5RTP91wtg0tnNP1QmDz2CwVVX/H
+	Z4BcjAHSlIVIIY2J9cRk22Lpcl1K1yGKTk++7EZ5yebeqlMbe74bRGiXMkNQhoYKYQXXKAI1f3uaj
+	oW9XTfjg==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1w1Kcg-000HtS-1S;
+	Sat, 14 Mar 2026 09:45:26 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1w1Kcf-000M4O-0A;
+	Sat, 14 Mar 2026 09:45:25 +0100
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 14 Mar 2026 08:45:23 +0000
+Message-Id: <DH2DGEG9CHLG.1WO05WV70B987@folker-schwesinger.de>
+Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction
+ reporting via device_caps
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Frank Li" <Frank.Li@kernel.org>,
+ "Michal Simek" <michal.simek@amd.com>, "Suraj Gupta"
+ <suraj.gupta2@amd.com>, "Thomas Gessler"
+ <thomas.gessler@brueckmann-gmbh.de>, "Radhey Shyam Pandey"
+ <radhey.shyam.pandey@amd.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, "Rahul Navale" <rahulnavale04@gmail.com>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: <dmaengine@vger.kernel.org>
+X-Mailer: aerc 0.21.0-126-g9e77103592fe
+References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27940/Sat Mar 14 07:24:47 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260314_014528_423175_F1285DA7 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +84,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 1:14=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me> wrot=
-e:
+On Tue Feb 17, 2026 at 7:49 PM CET, Folker Schwesinger wrote:
+> Since commit 7e01511443c3 ("dmaengine: xilinx_dma: Set dma_device
+> directions") all channel directions are aggregated into
+> dma_device.directions so that dma_get_slave_caps() works for IIO
+> DMAEngine buffers.
 >
-> =E5=9C=A8 2026-03-13=E4=BA=94=E7=9A=84 01:06 +0100=EF=BC=8CAndre Przywara=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
-> > register frame. So far we were instantiating one GPIO chip per
-> > pinctrl
-> > device, which covers multiple banks of up to 32 GPIO pins per bank.
-> > The
-> > GPIO numbers were set to match the absolute pin numbers, even across
-> > the
-> > typically two instances of the pinctrl device.
-> >
-> > Convert the GPIO part of the sunxi pinctrl over to use the
-> > gpio_generic
-> > framework. This alone allows to remove some sunxi specific code,
-> > which
-> > is replaced with the existing generic code. This will become even
-> > more
-> > useful with the upcoming A733 support, which adds set and clear
-> > registers for the output.
-> > As a side effect this also changes the GPIO device and number
-> > allocation: Each bank is now represented by its own gpio_chip, with
-> > only
-> > as many pins as there are actually implemented. The numbering is left
-> > up
+> However, this caused a regression in ASoC audio on ZynqMP platforms,
+> that causes cyclic playback to fail after the first buffer period,
+> because ASoC dmaengine PCM expects fixed per-channel direction reporting
+> from dma_get_slave_caps().
 >
-> Ah, is this a userspace API break?
+> Implement optional device_caps() callback and override caps->directions
+> with the channel's fixed direction. This keeps device-wide direction
+> reporting for IIO intact while restoring correct per-channel semantics
+> for ASoC.
+> Other dma_slave_caps fields are left unchanged from their respective
+> values initialized from dma_get_slave_caps(). In case there should ever
+> be the need to override other fields, these can be added later.
+>
+> Fixes: 7e01511443c3 ("dmaengine: xilinx_dma: Set dma_device directions")
+> Cc: stable@vger.kernel.org
+> Reported-by: Rahul Navale <rahul.navale@ifm.com>
+> Closes: https://lore.kernel.org/dmaengine/20260211140051.8177-1-rahulnava=
+le04@gmail.com/T/#u
+> Closes: https://lore.kernel.org/dmaengine/CY1PR12MB96978AEBD6072FC469DFEA=
+F1B762A@CY1PR12MB9697.namprd12.prod.outlook.com/T/#u
+> Signed-off-by: Folker Schwesinger <dev@folker-schwesinger.de>
 
-Unfortunately, yes. This means the easily computable numbers that one can
-use with the (deprecated) sysfs interface is gone, and also the pins are
-now split amongst multiple gpiochip instances.
+@Xilinx/AMD maintainers:
 
-However if someone wanted the old "one gpiochip for one PIO instance with
-evenly spaced banks" scheme, I suppose we could put together something
-with the GPIO aggregator driver? It won't have same base pin number though.
+Even though this patch does not fix the reported regression and there
+may not be an immediate need for the implementation of the device_caps()
+callback, it might be an improvement to the Xilinx DMA driver. In case
+you see value in that addition, let me know and I resend the patch with
+the necessary editorial changes.
 
+Also during the debugging session, the following was identified:
 
-ChenYu
+> From a quick trace through the code I found that in the Xilinx DMA
+> residue_granularity is set for AXIDMA independently from the SG setting
+> of the DMA core [1].
+> However, in xilinx_dma_tx_status() one of the conditions for residue
+> calculations is that SG mode is enabled [2].
+>
+> [1]: https://elixir.bootlin.com/linux/v6.19.3/source/drivers/dma/xilinx/x=
+ilinx_dma.c#L3284
+> [2]: https://elixir.bootlin.com/linux/v6.19.3/source/drivers/dma/xilinx/x=
+ilinx_dma.c#L1293=20
+
+Not sure if this needs addressing, but this could have the potential for
+subtle bugs...
+
+Best regards
+Folker
 
