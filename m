@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0D2106FD9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1511A105F79E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31gW1Ez9RW21ry4PNLhw5rfo5103IhHkPkxFZmjfbYk=; b=NbcA5SShY4SMMpaJJyrtW4x7ve
-	vZ4lBjURnya1KR/tS+a2AiqhH4uc9z7subUJ6kGGHz1OqbRzch2309fvx7cF+A2CD6ApLsNpzXWMj
-	pijN5pKRTCx+xCwFMa6mgudVMHOLm+AC7vCf7d+sy6WPJ6uPFsT3Pl8Itimp05V5s8dV065bajVIw
-	xDhGLyyC5B++Y3faTHZELgh/vDO2Eteu6R2y/omwR02DVscVqKWFGCOLCNIDp5335RuFl1Iwwn4LU
-	+4z5JvPO/EXDEPkb22Sq53728z7EHzA2ZmmVKovhyUcaS5pogDJ0t0lwhC8RUQ14ZOEEn+zENRg3o
-	I6w4uphg==;
+	bh=WWguanKzx4dLZRgBponms/+CBeTYJZLbKyDkuByIfqc=; b=mQwOpqf6jLtgv1jCgxZXs/qxrA
+	nfcjjPuPRr0VK6sEVMgF3zGkEtSt1uQS4sMgKkYd2tERytcHjznmVg90Fa3gb76mXw7geAN0ZRRO7
+	/f0bOS3o3pK2J6zJL+gOZPkXSMe6dT6Zj+mrkqiM3bVp8t9NOO5H57U/TOY3L1Jbn91FQRkTxs2+f
+	JlJu0+8xipu1Phuw+yLBN/m2XDrTUV1RJajUu1JGlPfSckQYxpP3/QrFBwjJ8pu7HpGuHDynq1bCG
+	j8j5R1I+nmrbdrsoFlqCZ7faU2gbX28Qh/w2gMZYVhn6fF6J8YsL248t1dJLXrTzgv3nHGdWibDhS
+	8G4CXxvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LWe-00000001hHg-2A5w;
-	Sat, 14 Mar 2026 09:43:16 +0000
+	id 1w1LWo-00000001hO9-1VEU;
+	Sat, 14 Mar 2026 09:43:26 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LWc-00000001hEq-3DjV
+	id 1w1LWl-00000001hJ1-0pRH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 09:43:15 +0000
+	Sat, 14 Mar 2026 09:43:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=31gW1Ez9RW21ry4PNLhw5rfo5103IhHkPkxFZmjfbYk=; b=p+WOMe2eG8LiQNUnZ6GK1YQgMf
-	1H67AavRk+6y111sjFB1jGaveQTlvLrRnnZQ/spNJoatZc7EVKBWtrqndgn049XjSg/ibwGyVcd3J
-	mKHDgDF75EapWdbCaHLlkd4eRpeLNnaDiTvXPEDKxWMrthC7J3yaO/LyFbaMzkjHeofGLyFdPg9EW
-	tNPHeqCss7nI9D+d68mGiKudn9DO1KE8Tk3BicT91gs+8SOm38BrL8AMx9HlqHWgJvyVs2q69MMvy
-	PD0xQK+E+zr4dRKiexiK0Q4mWZSX/DoF1K+Sno41BJPUclZiuB/fRtivnNXOa4C/T/sd+tKAv4krx
-	MnUF9Ubw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42822 helo=rmk-PC.armlinux.org.uk)
+	bh=WWguanKzx4dLZRgBponms/+CBeTYJZLbKyDkuByIfqc=; b=CuuAsQa4bAH3tXb/dmTr3ZZ+fd
+	sUY8ogWIktZcmDMwCWRzZKr1dKoenMtVFi5f6ab/hlN3BZUXaokEG3pupHNzpi3V3Kx8AOXVuaeYl
+	GndPgI7h/ftkHM06g0orT7APVHZQ53wZk+GEtNkgMNu4nG31BVL9sj3rU5eQs5rMuE1MED3p8uY+B
+	Ku7IEKwCe+n68u40VJDUIGgWWacqP0rDQUBwTZZyuKFfCvCe4Bx0j59eb+eQJAmZfshvMZNgYsitV
+	XWJKN3Aug4WFh8EAglXrjpmrr2jlAzThnKGJZqaQsw3X99EzGc3x9bMz35Sp8ZdR3bOSFIyO/SfvI
+	KIvStadw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42828 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w1LWH-00000000215-3CHl;
-	Sat, 14 Mar 2026 09:42:53 +0000
+	id 1w1LWL-0000000021T-43Wt;
+	Sat, 14 Mar 2026 09:42:58 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w1LWE-0000000DGSF-2Hbs;
-	Sat, 14 Mar 2026 09:42:50 +0000
+	id 1w1LWJ-0000000DGSL-2jWd;
+	Sat, 14 Mar 2026 09:42:55 +0000
 In-Reply-To: <abUtGH9KB03PH5Ne@shell.armlinux.org.uk>
 References: <abUtGH9KB03PH5Ne@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -67,17 +67,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v4 06/15] net: stmmac: add helper to set receive tail
- pointer
+Subject: [PATCH net-next v4 07/15] net: stmmac: remove rx_tail_addr
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w1LWE-0000000DGSF-2Hbs@rmk-PC.armlinux.org.uk>
-Date: Sat, 14 Mar 2026 09:42:50 +0000
+Message-Id: <E1w1LWJ-0000000DGSL-2jWd@rmk-PC.armlinux.org.uk>
+Date: Sat, 14 Mar 2026 09:42:55 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_024314_810011_4F238CB1 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260314_024323_251765_1D2CDF73 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,104 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setting the queue receive tail pointer follows a common pattern:
-calculate the DMA address, and then call stmmac_set_rx_tail_ptr().
-The only difference between all the call sites is the index used.
+There is only one place where rx_q->rx_tail_addr is used - the new
+stmmac_set_queue_rx_tail_ptr(). Make this a local variable and remove
+it from struct stmmac_rx_queue.
 
-Factor this out into a static function, and add a comment about why
-it only uses the normal descriptor size.
+This commit does not change the semantics - the hardware relies upon
+the descriptor ring not crossing a 4GiB boundary as the high address
+bits are programmed into a separate register via stmmac_init_rx_chan().
+Hence, truncating the DMA address to 32-bit is fine as the register it
+will be programmed into is 32-bit, and the high bits are handled
+elsewhere.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 40 +++++++++----------
- 1 file changed, 20 insertions(+), 20 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index b096a9e090e3..d1f8383d1c04 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -131,7 +131,6 @@ struct stmmac_rx_queue {
+ 	unsigned int buf_alloc_num;
+ 	unsigned int napi_skb_frag_size;
+ 	dma_addr_t dma_rx_phy;
+-	u32 rx_tail_addr;
+ 	unsigned int state_saved;
+ 	struct {
+ 		struct sk_buff *skb;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index dca62e7b259a..8823f8f5b053 100644
+index 8823f8f5b053..1d40168ec68d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -380,6 +380,18 @@ static struct dma_desc *stmmac_get_rx_desc(struct stmmac_priv *priv,
- 		return &rx_q->dma_rx[index];
- }
- 
-+static void stmmac_set_queue_rx_tail_ptr(struct stmmac_priv *priv,
-+					 struct stmmac_rx_queue *rx_q,
-+					 unsigned int chan, unsigned int index)
-+{
-+	/* This only needs to deal with normal descriptors as enhanced
-+	 * descriptiors are only supported with dwmac1000 (<v4.0) which
-+	 * does not implement .set_rx_tail_ptr
-+	 */
-+	rx_q->rx_tail_addr = rx_q->dma_rx_phy + index * sizeof(struct dma_desc);
-+	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, chan);
-+}
+@@ -388,8 +388,9 @@ static void stmmac_set_queue_rx_tail_ptr(struct stmmac_priv *priv,
+ 	 * descriptiors are only supported with dwmac1000 (<v4.0) which
+ 	 * does not implement .set_rx_tail_ptr
+ 	 */
+-	rx_q->rx_tail_addr = rx_q->dma_rx_phy + index * sizeof(struct dma_desc);
+-	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, chan);
++	u32 rx_tail_addr = rx_q->dma_rx_phy + index * sizeof(struct dma_desc);
 +
- /**
-  * stmmac_rx_dirty - Get RX queue dirty
-  * @priv: driver private structure
-@@ -3302,11 +3314,8 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
- 		stmmac_init_rx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
- 				    rx_q->dma_rx_phy, chan);
- 
--		rx_q->rx_tail_addr = rx_q->dma_rx_phy +
--				     (rx_q->buf_alloc_num *
--				      sizeof(struct dma_desc));
--		stmmac_set_rx_tail_ptr(priv, priv->ioaddr,
--				       rx_q->rx_tail_addr, chan);
-+		stmmac_set_queue_rx_tail_ptr(priv, rx_q, chan,
-+					     rx_q->buf_alloc_num);
- 	}
- 
- 	/* DMA TX Channel Configuration */
-@@ -4999,9 +5008,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
- 		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_rx_size);
- 	}
- 	rx_q->dirty_rx = entry;
--	rx_q->rx_tail_addr = rx_q->dma_rx_phy +
--			    (rx_q->dirty_rx * sizeof(struct dma_desc));
--	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
-+	stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
- 	/* Wake up Rx DMA from the suspend state if required */
- 	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
++	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_tail_addr, chan);
  }
-@@ -5381,9 +5388,7 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
  
- 	if (rx_desc) {
- 		rx_q->dirty_rx = entry;
--		rx_q->rx_tail_addr = rx_q->dma_rx_phy +
--				     (rx_q->dirty_rx * sizeof(struct dma_desc));
--		stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
-+		stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
- 	}
- 
- 	return ret;
-@@ -6951,10 +6956,8 @@ void stmmac_enable_rx_queue(struct stmmac_priv *priv, u32 queue)
- 	stmmac_init_rx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
- 			    rx_q->dma_rx_phy, rx_q->queue_index);
- 
--	rx_q->rx_tail_addr = rx_q->dma_rx_phy + (rx_q->buf_alloc_num *
--			     sizeof(struct dma_desc));
--	stmmac_set_rx_tail_ptr(priv, priv->ioaddr,
--			       rx_q->rx_tail_addr, rx_q->queue_index);
-+	stmmac_set_queue_rx_tail_ptr(priv, rx_q, rx_q->queue_index,
-+				     rx_q->buf_alloc_num);
- 
- 	if (rx_q->xsk_pool && rx_q->buf_alloc_num) {
- 		buf_size = xsk_pool_get_rx_frame_size(rx_q->xsk_pool);
-@@ -7105,11 +7108,8 @@ int stmmac_xdp_open(struct net_device *dev)
- 		stmmac_init_rx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
- 				    rx_q->dma_rx_phy, chan);
- 
--		rx_q->rx_tail_addr = rx_q->dma_rx_phy +
--				     (rx_q->buf_alloc_num *
--				      sizeof(struct dma_desc));
--		stmmac_set_rx_tail_ptr(priv, priv->ioaddr,
--				       rx_q->rx_tail_addr, chan);
-+		stmmac_set_queue_rx_tail_ptr(priv, rx_q, chan,
-+					     rx_q->buf_alloc_num);
- 
- 		if (rx_q->xsk_pool && rx_q->buf_alloc_num) {
- 			buf_size = xsk_pool_get_rx_frame_size(rx_q->xsk_pool);
+ /**
 -- 
 2.47.3
 
