@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D11EFD88ED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 05:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC6B107BCF1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 05:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HN4c/md7ubCwGFV8iB4QQzxgqPerbYJNq+32KO8z7Z8=; b=4P6pnMSVb4+6rQY/HaAtfPFw0W
-	C8AUlH01C+OMlTn9O2odQkb6eY/vfxjZuqlKxfLjyswGTPxOe2XhO5S8pdgk5NJzDZopi9cOP5KKK
-	8cQtgkVv/8dxAQvXMvxWSYDVtIrPJ1HWiBmV/pXGNFvI2ihHoo2Of5FaEqmnm9hTWvkYR2eg+Q/+Z
-	Q05XQDiE1CFqJSFBQVWDa/l1L5acq33FSr8zfAXNNtyTwpGAnLXZh7K0am5ZS3rvLDh+46jje0zGo
-	ueleEm3NszfDqm4ViOwJbb9Kmvj8vdASVC5HgYMpzoNmiwxmlc6HQLf+O+NnMAFTzxisxbYqEsC2S
-	rnlh+E2g==;
+	bh=/qTAXHbi8wFOK4Xven3Jy2oD3hr9BGnd48GuXiXwDkw=; b=BS/Qr3I6nO5AQqvPFEqiKJiq6K
+	WHmUonZIP9J1g/jzzQN8Pvn8ZEJWWsgh3zMmH0riK/dRulSyxDuIfme4LvRg4DMsF7FGj97+tyDp7
+	t1JD3ROQq3jhx41Qus7xScx436Br3hon+nPq+d8/52X0cHvPk6dsfAVGt4KTzFl54LCdaBEI1FWaB
+	8lKE9LoFtdHT+yvCAtNh8gtTbZsduSB+IenbNvigU9lv0EA1x4COAHFYgVrrcHs5UBfSIheLKzaCY
+	B67HTFeTXd8VfVxF45k3z9CMM6OCisz2lj1l4sTtWm6DoVuiivFkfRduJqhBMY7NnotiNKeBQefeK
+	mWWhFkfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1HDW-00000001VHD-2yPP;
-	Sat, 14 Mar 2026 05:07:14 +0000
+	id 1w1HIK-00000001VZl-45rK;
+	Sat, 14 Mar 2026 05:12:14 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1HDU-00000001VGU-31e6
+	id 1w1HI9-00000001VYz-480y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 05:07:13 +0000
+	Sat, 14 Mar 2026 05:12:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=HN4c/md7ubCwGFV8iB4QQzxgqPerbYJNq+32KO8z7Z8=; 
-	b=MpGyM0n68D6QdNiLKQ1JFuuyEnUZ7u9mToS5Y4vXL6GAmMzXQgTJ+dh+7WD1L6fyiDIWx06tem9
-	+B3PiDe6OfX4FAf7GkdaEFM9Z1OBhbuKSF+3Yzot7SCxsa5LBAO3TnEH6X0jr0McEYcLTyrpkFbTA
-	j/gbE54UZOWYr+GgWJYZFqEkM83fY7PETke6zr8LmEJcuxvwOiA1v6PC4rNfWFZvxtxzYRFXCqMQ3
-	9z9aNGDl0kZJ0ybv2adSuhYEDn6MOy0nzQZZdnTLnNP4TbZ8KbUkxCuuETJNoFNLFEliztUkvES7z
-	pWcIPX2FfsD/EN/6Kk6auxPb5qWCL8TnycNQ==;
+	from:content-type:reply-to; bh=/qTAXHbi8wFOK4Xven3Jy2oD3hr9BGnd48GuXiXwDkw=; 
+	b=CebeX5XsrXyoZbxNL5JXZtac21WNi/Ii2vit9eIZqq0JkJUp0ENFTW3BDjZH/UfTyQ/0PS6NI/y
+	bcQxEEKwC83345K16jO/3Y+G7ZEHufbRabH9UIHWaGKKpDcEfKjxWdBMlY7zDeKAAA8ogq7tvXiu0
+	A9Hw31SnXy6BXfXeF/ncsukXYqYrXZwfjv/7hztrmJNmyNnDED4IJ84KTTyQVdVUlKlLgsYbMfkk3
+	4vnqRM4NWDhqhqd13Wjayae68QaPQLO2cGR/LyHl6LDqGIo65PIhtIGdtdoz5ly1Ji5Hv1TelwIYl
+	3WBntw562CLftSj99zudb6CWCzMDIEY2KTLg==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1w1HDB-00EL1R-1V;
-	Sat, 14 Mar 2026 13:06:54 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 14 Mar 2026 14:06:53 +0900
-Date: Sat, 14 Mar 2026 14:06:53 +0900
+	id 1w1HHy-00EL7k-1c;
+	Sat, 14 Mar 2026 13:11:51 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 14 Mar 2026 14:11:50 +0900
+Date: Sat, 14 Mar 2026 14:11:50 +0900
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, olivia@selenic.com,
-	radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org,
-	horatiu.vultur@microchip.com, Ryan.Wanner@microchip.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
-	daniel.machon@microchip.com, luka.perkov@sartura.hr,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v6 2/6] dt-bindings: rng: atmel,at91-trng: add
- microchip,lan9691-trng
-Message-ID: <abTs7exXXVPcvULD@gondor.apana.org.au>
-References: <20260302112153.464422-1-robert.marko@sartura.hr>
- <20260302112153.464422-3-robert.marko@sartura.hr>
+To: Joachim Vandersmissen <git@jvdsn.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
+Message-ID: <abTuFto8Tc3mhRRe@gondor.apana.org.au>
+References: <20260303060509.246038-1-git@jvdsn.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260302112153.464422-3-robert.marko@sartura.hr>
+In-Reply-To: <20260303060509.246038-1-git@jvdsn.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_220712_775891_203923BE 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_221209_457824_ECD8D6CC 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 12:20:10PM +0100, Robert Marko wrote:
-> Document Microchip LAN969X TRNG compatible.
+On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
+> xxhash64 is not a cryptographic hash algorithm, but is offered in the
+> same API (shash) as actual cryptographic hash algorithms such as
+> SHA-256. The Cryptographic Module Validation Program (CMVP), managing
+> FIPS certification, believes that this could cause confusion. xxhash64
+> must therefore be blocked in FIPS mode.
 > 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
+> ("btrfs: switch to library APIs for checksums") recently modified the
+> btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
+> API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
+> mode should now have no impact on btrfs usage.
+> 
+> Signed-off-by: Joachim Vandersmissen <git@jvdsn.com>
 > ---
-> Changes in v5:
-> * Pick Reviewed-by from Claudiu
-> 
-> Changes in v3:
-> * Pick Acked-by from Conor
-> 
->  Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  crypto/testmgr.c | 1 -
+>  1 file changed, 1 deletion(-)
 
 Patch applied.  Thanks.
 -- 
