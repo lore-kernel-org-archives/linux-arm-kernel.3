@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5430610706F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 19:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908E4105F79E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 19:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=; b=rC+doZX7iZaO1LTHhTjoaw0Yp0
-	ZIA/Ks/ZiED2IwapYbpoXu/RWbHEWjyuzcwtgZkUV2cZAzwWNMKjjs7Dh2bh8z1ObOtXvHYw42+/o
-	cCpsY9RBUIS8UZnduiKSauztCFgu/UhlvE56MFPCDVs+eII8LQm6HcQN9FIbdwr5ygRzCDZgWuNr7
-	MF4e++8NTCvLxRTRaqpCK21Y2QkFVxXYERJ/YZvq1LualSUxxkxgSEQ9Kcekf1B1yM5K7SSkwxEtC
-	CykgG7VLEI1wSH0KKSx3aWZVWCYZYRXo/IAHHpJh4+1FzCmReqwZdxNIs++J7wm66fHK9HItYeISS
-	G0jtafcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n/goX/dlFuPnopoo0eP8wASmQbxWtSHWawYsQi14SQk=; b=4CvHkmZVREP62PtFD/0yjDXTxk
+	ecNzsTc6Qwl0Bog+573AhB0tXsU+KDLby3LOxqtSXTA7M2zgvgb8i2XwW+Of8jN+ZH5/udD4wMrHp
+	nBLOFCAelBIWRYApgaxTQzc2XbxDwx5G9CE1JkpRGlitTohGc2VOvImYu9bpSkXzBmtCsUA8Y1Vwc
+	+DPmNpEdwUAKxKPuKT2Wr4Q3J8N1RqrouLWJa1wZTAiKGGXlFjYxleI7oL3qNAv14RqJ19CpfesZJ
+	hP9Y7dBX7gLpxjY78zz1AhqI5n34ldQo5CDlUZIM3DXuor/qPbBDi1lTtc8VilSys6BXiNrBTZMmJ
+	wFLTRdog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1UOl-000000026FI-2LT2;
-	Sat, 14 Mar 2026 19:11:43 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1w1UWz-000000026s1-2Cjq;
+	Sat, 14 Mar 2026 19:20:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1UOj-000000026EZ-0gPJ
+	id 1w1UWy-000000026ru-1whY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 19:11:42 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35691a231a7so1805473a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 12:11:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773515500; x=1774120300; darn=lists.infradead.org;
-        h=user-agent:content-disposition:mime-version:mail-followup-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=;
-        b=YL0xIC6Vf/cGf9c0ade1RO6Vw8shLuR9Fjyp4DgFYVj9SW0P9E7EhgyCUIo3UCZ8WJ
-         LSDV/F3ifGZeHq2FLVNGEprZNq+bSla4SNxx4KdWJp3/mdQacdizG+TkUsOoLNe64R1o
-         Bf2RP2m3AfqOMlKpFjWp7wU7p2nYg1jQbOtCTRWxMNSRZ2zUyhqKnibvs+X/Un2owV55
-         pvp5FzLAsMf7KnXEACPgJEA4DvssbAJZGOrlvkgF+l+VAPTFk/Z2akFffH4TjbzQAclo
-         ySU8nvvKitrg45uwt1ef+TCcQMLEi4Qv6t2+mZBSnGLBY68vphfnYjznbhoJn1m2kRVk
-         AQpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773515500; x=1774120300;
-        h=user-agent:content-disposition:mime-version:mail-followup-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=G1Rwy1rCypsS5rvd/5BlfnntkzTDDi7zIl48jCy+BOQ=;
-        b=gtxK38TQchdu3blomX91G1EZJN1F/K/TXUBMmawwqBu7VkPfxhqMqZCvgHbxtdTwfN
-         dpPhd0k7zI8+hbz2WV5SyRjLZM5UMa0lAXD25Jya37h4f9pD7vDtjpuhGxmRBHqzDHcC
-         BunNCsNgSH0d5tjRgX4yiu33UqB1Ky/Csza6sgb/BtZaTdi8d9eX4hzv3wePwx6IS6wD
-         M82a1D4QBsJncSGTXopJCBt5WQBoB+fNY2VtKLWVLgqeZNakzmqLSmrApN7L0g7BBwwn
-         qdQOKrEoC1sTy2vD91hhumP/MV7ROmI9zsyn3yrcMpS5yUfGam3Nxt/AUaxC6RlzSXB7
-         MfBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXePkLFS5s7+pjwrOnOlslt62u7vPO97sQNbdquAGEJ6i0Db6ynk4mFasS0sG/nO4eUZmAISoS1MnOh0X2y3NFw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXb5YbzPIOHbHGN4WdCDUZ0SnYYYBbkaJBwLRO4VEqdeYJZg7+
-	wk9KGphmj4ToWvoeaNkkKDLH77h97rP7FFrQfbfs3273WaDmUUlaOo/u
-X-Gm-Gg: ATEYQzz8u6FTZj2UcGmDwixHWj4C9iaDPZRB2F45gvhU1cqdm8Y5lODV+nTqrxOihH7
-	0N5z4VqNLHN5jXWsI/DTAyO3esyZgl032QBuozvBiwv0aFXVy7AJYDKJHjQ7d3jc+5+ISDfiI0c
-	HZhXrwZKwc1wK58fACX9Z3joKEspmz4eilrPLD+Wz6bUaEUn0SQUUtZ1s9oNdkxh90uS30jjctj
-	XDWqpHU5rd0bsIfegBxZx1nvzDSoVP0cDLRchRLgXUQz8p3vU3SAulWBUZP5/mvjeTNU74X6i3u
-	w1yUHIlTCn8OHmm7qYkWLbqcJ1c1R78d52W2fJ7wdE2SsqCajgWAuWmuwXonPWvocNVUqjnKAwi
-	fE0GmdwpxdNnVhIs1ZVxEI0P8PyjeqPI6l16lru/eXLj2cdkOWSP+2Yd9m30Kb57XG0nNNOzIsV
-	7g2LNAf3HvwmF9orM5prTQbDMS6vu61gCwzqG8RmEK
-X-Received: by 2002:a17:90b:5345:b0:35b:93d8:6aaf with SMTP id 98e67ed59e1d1-35b93d86c76mr586837a91.19.1773515499736;
-        Sat, 14 Mar 2026 12:11:39 -0700 (PDT)
-Received: from udknight.localhost ([120.36.202.188])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a2450ffd9sm2593217a91.6.2026.03.14.12.11.37
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 14 Mar 2026 12:11:38 -0700 (PDT)
-Received: from udknight.localhost (localhost [127.0.0.1])
-	by udknight.localhost (8.14.9/8.14.4) with ESMTP id 62EI04la008004;
-	Sun, 15 Mar 2026 02:00:04 +0800
-Received: (from root@localhost)
-	by udknight.localhost (8.14.9/8.14.9/Submit) id 62EHxw2u008000;
-	Sun, 15 Mar 2026 01:59:58 +0800
-Date: Sun, 15 Mar 2026 01:59:58 +0800
-From: Wang YanQing <udknight@gmail.com>
-To: linux@armlinux.org.uk, akpm@linux-foundation.org
-Cc: willy@infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH] arm: lpae: fix non-atomic page table entry update issue
-Message-ID: <20260314175958.GA7956@udknight>
-Mail-Followup-To: Wang YanQing <udknight@gmail.com>, linux@armlinux.org.uk,
-	akpm@linux-foundation.org, willy@infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	Sat, 14 Mar 2026 19:20:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CAAD60121;
+	Sat, 14 Mar 2026 19:20:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD3C6C116C6;
+	Sat, 14 Mar 2026 19:20:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773516010;
+	bh=mv9gRneToAJrV7gs2ldMrUIGYl8qxv9erSyv2O03I8k=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=JioKRn5phSWN+Pg9U/nDu8tULPa8K/S0HTFil7Iprr7qTyQHyzv+J5oZgqCPv6PGD
+	 Yt6nsRToT/SapJ8I3iW/WBWOTNQpSz2qdvOUrd339/V46piNjJbn2JPDts3Hjc5paA
+	 gy7akA7lp4vI5HSRoeT+Roqmc083GavdEgFU6Kn3w7Uc+xhVcENMQ2vij5rpxLLsUS
+	 JqNT85OoUoGKr1BFSaTsigUQ9XR4uleIe7anm0c8tpXPhWT8+zWYKUw1BEYI0Ad32D
+	 Kys43C2V2pGjqsuCs6ZxAcmZzmzpf0Ic31sRHMoYO6nS5NzWf0OuYG92c/ahINweDI
+	 8beNP4I73VXtg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FFD53808200;
+	Sat, 14 Mar 2026 19:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/1.7.1 (2016-10-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_121141_238501_9F26A50B 
-X-CRM114-Status: GOOD (  14.31  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix memory leak in XDP_DROP
+ for
+ non-zero-copy mode
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177351600505.1761235.8171503216454901330.git-patchwork-notify@kernel.org>
+Date: Sat, 14 Mar 2026 19:20:05 +0000
+References: <20260311095441.1691636-1-m-malladi@ti.com>
+In-Reply-To: <20260311095441.1691636-1-m-malladi@ti.com>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: vadim.fedorenko@linux.dev, haokexin@gmail.com, jacob.e.keller@intel.com,
+ sdf@fomichev.me, john.fastabend@gmail.com, hawk@kernel.org,
+ daniel@iogearbox.net, ast@kernel.org, pabeni@redhat.com, kuba@kernel.org,
+ edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
+ rogerq@kernel.org, danishanwar@ti.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,98 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-The ARM Architecture Reference Manual explicitly dictates that writes of 64-bit
-translation table descriptors must be single-copy atomic, to archieve this 64-bit
-atomicity on a 32-bit architecture, the linux kernel relies on the STRD (Store
-Register Dual) instruction, but the copy_pmd() in pgtable-3level.h is C code, then
-compiler could do very crazy optimization for it and generate code that break the
-atomicity, for example, we get below copy_pmd() assembly code with gcc 12.4.0
-(Using CC_OPTIMIZE_FOR_PERFORMANCE, it is the default compile option):
-"
-gdb vmlinux
-gdb disassemble do_translation_fault
-gdb ...
-gdb 0xc020e544 <+136>:    ldr.w    r4, [r0, r1, lsl #3] @load low 32-bit of pmdps
-gdb 0xc020e548 <+140>:    ldr      r0, [r6, #4]         @load high 32-bit of pmdps
-gdb 0xc020e54a <+142>:    orrs.w   r6, r4, r0           @ pmd_none(pmd_k[index])
-gdb 0xc020e54e <+146>:    beq.n    0xc020e586 <do_translation_fault+202>
-gdb ...
-gdb 0xc020e562 <+166>:    str.w    r4, [r5, r1, lsl #3] @store low 32-bit to pmdpd
-gdb 0xc020e566 <+170>:    str      r0, [r2, #4]         @store hight 32-bit to pmdpd
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-The code breaks the atomicity and valid bit is in the low 32-bit, page table walker
-could see and cache the partial write entry, this will cause very strange
-translation-related issues when next page table (level3 PTE table) physical address
-is larger than 32-bits.
+On Wed, 11 Mar 2026 15:24:41 +0530 you wrote:
+> Page recycling was removed from the XDP_DROP path in emac_run_xdp() to
+> avoid conflicts with AF_XDP zero-copy mode, which uses xsk_buff_free()
+> instead.
+> 
+> However, this causes a memory leak when running XDP programs that drop
+> packets in non-zero-copy mode (standard page pool mode). The pages are
+> never returned to the page pool, leading to OOM conditions.
+> 
+> [...]
 
-So let's use WRITE_ONCE() to protect the page table entry update functions from crazy
-optimization.
+Here is the summary with links:
+  - [net] net: ti: icssg-prueth: Fix memory leak in XDP_DROP for non-zero-copy mode
+    https://git.kernel.org/netdev/net/c/719d3e71691d
 
-Signed-off-by: Wang YanQing <udknight@gmail.com>
----
- arch/arm/include/asm/pgtable-3level.h | 28 +++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
-
-diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
-index 7b71a3d414b7..b077174a4231 100644
---- a/arch/arm/include/asm/pgtable-3level.h
-+++ b/arch/arm/include/asm/pgtable-3level.h
-@@ -120,15 +120,15 @@
- 						 PMD_TYPE_SECT)
- #define pmd_leaf(pmd)		pmd_sect(pmd)
- 
--#define pud_clear(pudp)			\
--	do {				\
--		*pudp = __pud(0);	\
--		clean_pmd_entry(pudp);	\
-+#define pud_clear(pudp)				\
-+	do {					\
-+		WRITE_ONCE(*pudp, __pud(0));	\
-+		clean_pmd_entry(pudp);		\
- 	} while (0)
- 
- #define set_pud(pudp, pud)		\
- 	do {				\
--		*pudp = pud;		\
-+		WRITE_ONCE(*pudp, pud);	\
- 		flush_pmd_entry(pudp);	\
- 	} while (0)
- 
-@@ -139,16 +139,16 @@ static inline pmd_t *pud_pgtable(pud_t pud)
- 
- #define pmd_bad(pmd)		(!(pmd_val(pmd) & PMD_TABLE_BIT))
- 
--#define copy_pmd(pmdpd,pmdps)		\
--	do {				\
--		*pmdpd = *pmdps;	\
--		flush_pmd_entry(pmdpd);	\
-+#define copy_pmd(pmdpd, pmdps)				\
-+	do {						\
-+		WRITE_ONCE(*pmdpd, READ_ONCE(*pmdps));	\
-+		flush_pmd_entry(pmdpd);			\
- 	} while (0)
- 
--#define pmd_clear(pmdp)			\
--	do {				\
--		*pmdp = __pmd(0);	\
--		clean_pmd_entry(pmdp);	\
-+#define pmd_clear(pmdp)				\
-+	do {					\
-+		WRITE_ONCE(*pmdp, __pmd(0));	\
-+		clean_pmd_entry(pmdp);		\
- 	} while (0)
- 
- /*
-@@ -241,7 +241,7 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	else
- 		pmd_val(pmd) |= PMD_SECT_AP2;
- 
--	*pmdp = __pmd(pmd_val(pmd) | PMD_SECT_nG);
-+	WRITE_ONCE(*pmdp,  __pmd(pmd_val(pmd) | PMD_SECT_nG));
- 	flush_pmd_entry(pmdp);
- }
- 
+You are awesome, thank you!
 -- 
-2.34.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
