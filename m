@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D45106FD9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA51105F79E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ndp3zA2g1cCzG71PAh2FVVuICjxSJZZtCNsRgXooM4=; b=V8nsj8YXGfXegDhgiWU/aKgazo
-	VJzVKVGYwUE1BdyfcTwfexfHk/cnvtS6IycMtR9AG0fJifG1hgIDg938aHB+QGoCGQ0ONwjZQ4cW4
-	w5UGtNukxUlqSe41NJJQMxxro7D17wCnPZUsW5YHUW2NLamKCyn91wV5l0fKeUDLt3pqoRIbcvSm8
-	MH/Jbyr4DIuMUJp04JX/fqwMqA3PPuvah4VEVe6Bg0PdB59/UOmLCBkVAzR+xCdnKv5x+SHn2nuKN
-	iUbveNlMn4a7zJEuZLJvpxxq6VTVsVI2fSSJHtoIXxTZR62ZGa2DbZLuhPsD/Q0srhOlz3l4qwg3d
-	kPQwstTQ==;
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=giw/FPcMzl3MM6EQUmYxXJkdtyw1xyqeK51ftMdqupE=; b=nHmHVnvU5P0QdWyZorfwL8Mnao
+	PNWlbWee+CmmWBilmW4yUGM+qZZGBNGj/t67LxtF188J08ZclCsLYNWPnzpTfgQOaT6eh6/QrIoAg
+	sNPsUEtL2CQT1KD3YhBZXeF0pVcCCFLFbjHH/M32h/h63A2G4987Gyjt569g04PSnSuvG411AELDG
+	CGxyehx9DBsmLb3KcaFWCXjHMeN7re2PihyGxZd4LiDN9BedNX0eTVnGGn5qhG/LVRCpigDEdfOlK
+	qd+pl7w9xJq+1kQKEGHpTOAJNMhcXJ6Z6kpZ1MHxPAR5D5hG9K0AtoxpvCBre1OMHcycI7nZlsnsN
+	EoxfFqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LSu-00000001gmW-0d5L;
-	Sat, 14 Mar 2026 09:39:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w1LUX-00000001gue-3RfC;
+	Sat, 14 Mar 2026 09:41:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1LSr-00000001gmB-2cg3
+	id 1w1LUU-00000001gtr-2FwO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 09:39:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45C5840A24;
-	Sat, 14 Mar 2026 09:39:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C511C116C6;
-	Sat, 14 Mar 2026 09:39:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773481160;
-	bh=HwkVyx/aHIXnmb+H9DTjTRCjKgpN6+EWshBqsYuDWLI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YzNQYoNBPzaAsSuR1Axcu2SZy0ExrVcUOUlzwRnYw8E05dLCZGlNM6K+52qKCBMKA
-	 ezjcYL2GElQmJksWvi7EWcubk19e6vLV0t7vqAwds+UfupXwW1QmQeQxBE1bfAbXze
-	 XHQFuNZzN23VDRKnJB0uIOW8CyZjEyRpT2wJbqkReHsCAkLoQY0VJmIk7AUVe6faDX
-	 fuw8xHg1qSA5LD2NiVkQYxCf95E8G2PRAFG4S4KyKBLyB17QlBVh2LP1q6iXqDktcz
-	 mJCW6Y/ksqU0utSCroLse9WzuIeKLFiHOiXRFFlsaprjfg31HKvifZaLACVWw6jQHr
-	 M/ZCQt++MuyVg==
-Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Sat, 14 Mar 2026 09:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=giw/FPcMzl3MM6EQUmYxXJkdtyw1xyqeK51ftMdqupE=; b=03V3inru0PLoJXwGQMDfz5TK2v
+	BpL62WmfhgC249rMgbEau0fi+HCUclWJL5+iPmbzp4qMEIzJ68VQKtS5xm6HcJY9cQLnA1dJ/Ypbo
+	9eSYCgQHavUv21avLBPDm7gdSc5P3YsOyL2IZmmLGgA0CD8r7ZMl/JSY02qkUfKP348laAEUBqeZj
+	XS2bgi+LJDD49LMElN54zuD+YQop7obZ8p60i2+A1ZZ0/YsDrWTGfxTSO+YdC1462gJ0WHQCRCtUb
+	B+NO3bmYdv0eA9vPdXlglCKC37IG/q21wkE+fwZKcBq+jF19cIdqh3mbA0djmX7UvICOaU7MsREmD
+	+aJ9Yl/Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46212)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w1LSn-00000001vif-2ktP;
-	Sat, 14 Mar 2026 09:39:17 +0000
-Date: Sat, 14 Mar 2026 09:39:17 +0000
-Message-ID: <87ldfuda2i.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Sebastian Ene <sebastianene@google.com>,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w1LUB-000000001zP-2tES;
+	Sat, 14 Mar 2026 09:40:43 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w1LU8-000000000hS-3fbY;
+	Sat, 14 Mar 2026 09:40:40 +0000
+Date: Sat, 14 Mar 2026 09:40:40 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in debugfs
-In-Reply-To: <3virc5zxa7aow3qfuyyjwvzlmnjk4wlsfmmg7lixhder7rhd6q@qtlumbj33fks>
-References: <20260308231829.864983-1-weilin.chang@arm.com>
-	<20260308231829.864983-3-weilin.chang@arm.com>
-	<abGNLOfKLcNGYcxh@google.com>
-	<3virc5zxa7aow3qfuyyjwvzlmnjk4wlsfmmg7lixhder7rhd6q@qtlumbj33fks>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 91.161.240.24
-X-SA-Exim-Rcpt-To: weilin.chang@arm.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v4 00/15] net: stmmac: clean up descriptor handling
+ part 1
+Message-ID: <abUtGH9KB03PH5Ne@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_023921_686052_C92C1220 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260314_024102_852962_4FF02A90 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +88,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Mar 2026 22:28:38 +0000,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> 
-> On Wed, Mar 11, 2026 at 03:41:32PM +0000, Sebastian Ene wrote:
-> > On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
+Hi,
 
-[...]
+Part 1 of cleaning up the stmmac descriptor handling. Rearrange the
+struct stmmac_tx_info to pack better, and introduce helpers for
+duplicated code handing the transmit and receive descriptors. Remove
+unnecessary struct members that are only transitorily used.
 
-> > > +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
-> > > +{
-> > > +	struct dentry *dent;
-> > > +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
-> > > +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
-> > 
-> > Can you hide the size of this definition behind a macro ?
-> 
-> Sure, no problem.
+v4: merge fixes from v2 into correct patch (11 not 13)
 
-I don't think a macro helps that much on its own. I'd rather this is
-made a bit more foolproof by directly expressing the actual string
-this results into, and use that for the size:
-
-  #define S2FNAMESZ sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
-
-  char file_name[S2FNAME];
-
-which is less ambiguous. The compiler will happily optimise this to a
-nice constant that also accounts for the final '\0'.
-
-Thanks,
-
-	M.
+ drivers/net/ethernet/stmicro/stmmac/descs.h        |   2 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   8 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 458 +++++++++------------
+ 4 files changed, 197 insertions(+), 273 deletions(-)
 
 -- 
-Jazz isn't dead. It just smells funny.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
