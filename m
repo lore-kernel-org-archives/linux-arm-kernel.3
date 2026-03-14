@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C63810706CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 11:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0AA10706CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 11:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NfsxpX2Rasu5M6lOP54anj3EUxKKXUqSaXOCQbWHIZI=; b=XSAA65kfKzManR5Ppq9jnqcZO+
-	sHSZAt+tW5WwryXA+TovOLZH5AnAVq4eHT5EakK3jDvKBtXVEM1C4Bnoi+s1IGQb3/OW5pA4FaKep
-	q9GEChwknDHk1Lif4yowH5FUcwUyj/e4kTUFQz5oXh9omXn+7bT2TjoiU1CYJlamvY7OfhucnXbOn
-	W2rSD/gJ2Owxuiy0sMdsi6yDaGfuzEKfxO99GutOaumq8OU6DiFgkaGDsNkCwFOSFXc5Eqfxj6vtW
-	W7oLil89qVTuId50hbZQ1m8dKEC9kus+fEK5V/B9HgjkZKFFJ4dq0Y9yZgBLZOVhylUh8PFBRKGb1
-	hd7s2Sxw==;
+	bh=mm6QCg8+KO8JsPRz+1xGDXZhvstkIPL3wZgnDNeK6LY=; b=UTgc5bn7rQ0HnMsvXNXGKYXbwY
+	t2E26BsSSMPq+0RmRv17SNSsjn4tUCnTbYoBG5dmdLK7zQ5knl153MA0AyWt6XaeRHB735uNqZrSj
+	Tr/uT4186pUivuM6pAyqbhHjglN6yKvp3jXYb5j1NdAN5oh1PxEQyTWzRrvFlFyYUfURP+3yWFflr
+	nggty8dfNsl9lOWLbw1Ycpnak0BrrkCog0at9YJoaY1jwa0PvDkyEbXPBH+tI7J2ED8v65Z5G47cb
+	SmM+qOwUMbpidOUFftsMSayQvFKkDoec/xIZ+u3FAxbZzJdCrWGvLFnIkTEVD1/YF3M4SMAO4iTq/
+	bGgvS0rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1MzY-00000001mKA-0ogw;
-	Sat, 14 Mar 2026 11:17:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w1N1g-00000001mSU-2diD;
+	Sat, 14 Mar 2026 11:19:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1MzW-00000001mK2-2Lck
+	id 1w1N1e-00000001mS8-1FMg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 11:17:10 +0000
+	Sat, 14 Mar 2026 11:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7300600CB;
-	Sat, 14 Mar 2026 11:17:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D991FC116C6;
-	Sat, 14 Mar 2026 11:17:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A980743CED;
+	Sat, 14 Mar 2026 11:19:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF4DC116C6;
+	Sat, 14 Mar 2026 11:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773487029;
-	bh=H/7h0gPFrDlitXMFs1sPT5rW+JyCN0I7ORuwPhfuYpU=;
+	s=k20201202; t=1773487161;
+	bh=dikWE6HNN6Di+3MQ32RIVivnTwpdoq5R2GHeIxhEZYM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JHIr2U4fGsapnSXWsvQ/rnm+Xbsyk3/g+u7XWWSOxjtRVrFjFX/Rtto/iExGOMDSE
-	 UNFTcN92EMWlGlMo2oERUDQgxMk2hFWr65TukadtBpLttTb7O1P5lNBLuV6Qm84Ijj
-	 QLgqYojh+1eXerw/2NbbXCBnrxNufsVEqfXd5+6rHWZ4JTlscae1x720bJYyuHk1Uj
-	 1ESOf3i9DwwEqOBP5S69LFfsOEWc6IM5singAeA2IT2cXeXoQwYuYgVpQQtBbqIHZ5
-	 sp8hia/H2hJceajfOzyycP3d9mj4Q6gcKq/bkkwIw2XL84/6QXcollIqE8OM9CoN23
-	 uSxEVVcVPyW7A==
-Date: Sat, 14 Mar 2026 12:17:06 +0100
+	b=WZs3lXwJKIV4tm+5E94URl5p7F2TmnEZg57gELtDtVsPsnFfe1GBnhoF1j8gX6g1i
+	 EIAIhTcatfalTEyYEQk5d4v30Vejup5QkTmQwnSF4+0rr/wZBSG+r7LaWvNzpUZG3f
+	 ApwvBvuUgxTNZqNE6uDFANqF57+J/b3myoTfvN79prKBWOff8FAVdH+ER3ZfoXn9Kr
+	 xhnjxYzocBCZvLPOmkuH1uv5FNghxUPi6HBKkZ+hJcK/fO4/s5GDzAcVqayNTvgBpt
+	 H8d1/L7GwFgx2Bdjg8e2VmvVTo5/Vxt3Re/+yFY25AT1P4oOMRg+howux7B5fMV5SD
+	 sJ7yAl/zlXhWg==
+Date: Sat, 14 Mar 2026 12:19:19 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Gregory CLEMENT <gregory.clement@bootlin.com>
 Cc: Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org, 
 	Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
 	linux-arm-kernel@lists.infradead.org
 Subject: Re: [GIT PULL] ARM: mvebu: fixes for v7.0 (#1)
-Message-ID: <20260314-illustrious-origami-pronghorn-964508@quoll>
+Message-ID: <20260314-laughing-vigilant-cricket-6a918e@quoll>
 References: <87sea3680w.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 In-Reply-To: <87sea3680w.fsf@BLaptop.bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260314_041922_361187_8ECF2148 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,11 +96,17 @@ On Fri, Mar 13, 2026 at 04:53:03PM +0100, Gregory CLEMENT wrote:
 > 
 > - Add bindings to validate the device tree that has already been merged.
 
-Merged when? Why is this a fix not a development (e.g. documenting
-something 10 years old)?
+This has 0 days in next:
 
-Please write informative pull requests. You want to here provide the
-context WHY maintainer should take this as fixes.
+Days in linux-next:
+----------------------------------------
+ 0 | + (1)
+
+Commits with 0 days in linux-next (1 of 1: 100.0%):
+
+So it will wait. Please send pull requests with code which was in the
+next for minimum one next release for fixes and few (5-10) for
+development.
 
 Best regards,
 Krzysztof
