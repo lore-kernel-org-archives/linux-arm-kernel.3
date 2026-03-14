@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76260105F7B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3891105F79E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 09:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QiwL16bjOziT5hiJB9OYiaVlhavbbKb1oaWep8hSRjk=; b=swDe6G0KZmnb/+AyVbniPxHdI3
-	h1y+CjpZLKng3sioFcU93vBYpht1jJjl6zUyPpyCNd7v0Rr0JZJ/M+jiYXRJX8YDopiuTpZnNo5nr
-	yUYRihF49Wo1lH92vcgFoIUwgzll2QaHUZ7nQ30Pq2jcw9+Jy00oLxoPk+ShkRu60qBU67fbHBdv9
-	v9GStZygVsqNz1U8jwihm/LfvqYou9FnX6wOE8upus8OgKO3l86+xGiDzqp3QbBmMtU5FrUYff67F
-	k0Cm7N4zy+7XCTRwH6zgGbLu/s9ojt/7gni69GZSJWGTsw7rTbiD3rkvqPu0xEq31Bb8i45i4ZZ9Q
-	V4KlmZnw==;
+	bh=4ZLE6MXsmBgPA5z2EWzrKDVh/VaIo/g3gqPs8mZAi3Q=; b=XKSXQ7sYR+/bdwvLJNpN4X1XQW
+	gc65hQ8z2jHZZrB8LXtA5cuqZuLWiG5zYhwgbB8fi3B89CLB00tXm802on4lyhEbtAibQB6EvMqLp
+	dm2YwNx0rngg3W6qoN/xE+tjK7mftF9HC1GwA6UXJaM09jOvjpuIPg5b7/yqE1U6tLXz5IRzIGYvu
+	KxFNaGR21JAnkGKka6m8xtAhwWCWMpwJwsXtCQUnJLnb43//jkizJndEN+Ke9HkXAfZc3MH9ux/1N
+	2Z0wihy2TjYAWsQ6WQBebrU9BdF9MsnGwc0Zjp9EcmzfsICxSuk7Kn1d+8waSuJSXTY/5yJuxYo3i
+	ZjjO79gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1L2S-00000001eq3-0eRk;
-	Sat, 14 Mar 2026 09:12:05 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1w1L7B-00000001fEh-3ha9;
+	Sat, 14 Mar 2026 09:16:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1L2P-00000001epi-2cWm
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 09:12:03 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-439b97a8a8cso3083135f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 02:12:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773479519; x=1774084319; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QiwL16bjOziT5hiJB9OYiaVlhavbbKb1oaWep8hSRjk=;
-        b=Ic7+KWG1cyhJP1frePrKDsUOUepPTToQ4XQ5pMdZHoneoxu0kkm38KNbTW/AHU+dPg
-         oWAYNI18wEgXAJJvFucJHqqj8735xc3J29IxJNh7ffPwQIY+Jfuh1J1dx29s3OJ19Kpk
-         1vZzEZaey5pwA3Ca8qQ9RDGbeIYMBPBF5+oFNVkQqh9HtaMA5mXFjU1GR93iYT90DA07
-         ae00Df+V3rJw53kkXUXHjdKV8cXH4cHuxsYb5E8DckM0FjerMz08bH13WgCULbOMeOmu
-         rP5xVjqb5FND0g4IjYBJzXT8TEBE8u6kaYVr60+pn/vy8laXEPB+qy4+iuKNr7iEuwo/
-         H+Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773479519; x=1774084319;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QiwL16bjOziT5hiJB9OYiaVlhavbbKb1oaWep8hSRjk=;
-        b=M9Ko3ENCXQeiGP2AQA5zi/qmUCZDFfo42YgrhKjjNYxTbdhu8ERzAG4O/a4W3g8k/a
-         cNcdlJVI3OjYx4psQfB7npVZ/yTFX8O2E6Pf2FQer3+hcibIYLPY71mWdGXxQDOeFxZb
-         0C3K7AdJdpBY2ElQrr0MH9c+XQ0q4oFC+jJFSrNzVwXKvOYDEe630mFQr/l8k8fUWhSO
-         H4M6MTmz/7kVIJhgTp+fAwlG3fT+89KskeDY5UAefniIRQwGyWMtHYpnq0SKwGkyi7vC
-         nks2tnr0tWie2xR5xjD/rbH4yiAEPFBTcBHIxDn7aFaENuVIy7Tbnte4D6xHHdesqKoI
-         uqkg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/dxtpIHj+QcWIzL1iBjTg7xy6G8ATe/gFaAbcy6yc1Vf+1flMR9WKl8XOAsXYq/wg556nk/tl1SQvhFbHFJq0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6Tal9nP9ska+4pL/0GlZnVqQfMZK0On2N3sGUyn4p53OJwDRf
-	dhJ93If2zBiDXwTwakS9hZA5JtdH4KZusWLjkvVFywR6gJHBDRrxcKGB
-X-Gm-Gg: ATEYQzz8S0wpa4BoUf5NO5hO+cTvwA3JcucyO271LB9XYq2Cwajxd0CIJrqEr2YgMOd
-	7pl8oRfTc9yDURhvB5ppaWVmuKxfqc4m/evofQGiU+60f8/DeHYXsKP9HNnXSy/cOgblmqE1YhY
-	KBBQxcSGRINkfbIFBM66kX75+1PB3bj14o+Ggy1yBmyIgAzBaNM3saxGDqpo15w4ZjQdZ/UIaJ9
-	tMr7vlhICgjQu12SUg2Umcqqxg8Cy71/eocexXd42T7CThuOPgEkWxPrynXQUOHjb9qP1icoUQZ
-	aWP2t7yW1aIpShAkBMUjf50hNJTcy+EjGt6V3T7q4Y+zS5Vvn2o/eM5CCt1zxsi7Fk4Q4RKOqBX
-	tFjFFf45wxIJzHhzCTz4P5eji8gcWd0CF4ef0+Bd+QDM/0dg6jRVeqLbM9A9ZEw/iibGwk2drmX
-	Ru94FUoRflqYYn+FAeSVaTjYgjmZZcvLBN0epMUukdxBbB3klqu9mH2kfdU+JEUkr2QYRlHO3tx
-	p3I4yzFNCg/Yl0=
-X-Received: by 2002:a05:6000:2f83:b0:439:b940:8bfb with SMTP id ffacd0b85a97d-43a04d87714mr11537033f8f.15.1773479519281;
-        Sat, 14 Mar 2026 02:11:59 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-12-163.dynamic.telemach.net. [86.58.12.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe2273e8sm25569590f8f.33.2026.03.14.02.11.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Mar 2026 02:11:58 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Icenowy Zheng <uwu@icenowy.me>, wens@kernel.org
-Cc: Andre Przywara <andre.przywara@arm.com>,
- Linus Walleij <linusw@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
-Date: Sat, 14 Mar 2026 10:11:57 +0100
-Message-ID: <1948361.tdWV9SEqCh@jernej-laptop>
-In-Reply-To: <CAGb2v65RD3ksSnEC0RjYYQ1J-NoP9gGfeTR1UCfLgKCJEFBSTQ@mail.gmail.com>
-References: <20260313000652.11470-1-andre.przywara@arm.com>
- <a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
- <CAGb2v65RD3ksSnEC0RjYYQ1J-NoP9gGfeTR1UCfLgKCJEFBSTQ@mail.gmail.com>
+	id 1w1L7A-00000001fEK-32Vz;
+	Sat, 14 Mar 2026 09:16:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A9C5C60008;
+	Sat, 14 Mar 2026 09:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93AEEC116C6;
+	Sat, 14 Mar 2026 09:16:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773479814;
+	bh=MfVQas0gCiKFS/zlSycX8J2HuTRWGxZqHMSgUvBEb8Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lPM+6IBKxNwbUxmav30nSkqJywJRYZv8V2Rl211p0UlXMRTQM4F3GIhYHDkMOajT7
+	 BUYhgeUWorLmRIDcTIEZIL85QVQD4HogCq487uuYyAzHEiKeDhU5ORky6HDXixl0xz
+	 QwvSBIWYUPpSVYz2ByTuqu/FX21LkW0xoRoHu6YcoHAk7HESrAgkqa04q6cqcDkIkM
+	 wodlHcEWq2yiHt8n8RJxiooJ58TvHi2AJGL221X5v0PSbWRui6S8DEPOdVX1ASwtju
+	 zyh8LFLOhAubAdIhXuIH2g++sTy7ypBdvJ0Af6eVlTsShvNxdf05DEw2kJQjf1d0Fh
+	 0efnjaHMKlfUA==
+Date: Sat, 14 Mar 2026 10:16:50 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, cylee12@realtek.com, 
+	afaerber@suse.com, jyanchou@realtek.com, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v4 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock &
+ Reset Controller
+Message-ID: <20260314-orange-foxhound-of-felicity-997667@quoll>
+References: <20260313081100.596224-1-eleanor.lin@realtek.com>
+ <20260313081100.596224-2-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_021201_737897_21CEF0B6 
-X-CRM114-Status: GOOD (  20.75  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260313081100.596224-2-eleanor.lin@realtek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +73,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 14. marec 2026 ob 09:38:11 Srednjeevropski standardni =C4=8Das =
-je Chen-Yu Tsai napisal(a):
-> On Sat, Mar 14, 2026 at 1:14=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me> wr=
-ote:
-> >
-> > =E5=9C=A8 2026-03-13=E4=BA=94=E7=9A=84 01:06 +0100=EF=BC=8CAndre Przywa=
-ra=E5=86=99=E9=81=93=EF=BC=9A
-> > > Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
-> > > register frame. So far we were instantiating one GPIO chip per
-> > > pinctrl
-> > > device, which covers multiple banks of up to 32 GPIO pins per bank.
-> > > The
-> > > GPIO numbers were set to match the absolute pin numbers, even across
-> > > the
-> > > typically two instances of the pinctrl device.
-> > >
-> > > Convert the GPIO part of the sunxi pinctrl over to use the
-> > > gpio_generic
-> > > framework. This alone allows to remove some sunxi specific code,
-> > > which
-> > > is replaced with the existing generic code. This will become even
-> > > more
-> > > useful with the upcoming A733 support, which adds set and clear
-> > > registers for the output.
-> > > As a side effect this also changes the GPIO device and number
-> > > allocation: Each bank is now represented by its own gpio_chip, with
-> > > only
-> > > as many pins as there are actually implemented. The numbering is left
-> > > up
-> >
-> > Ah, is this a userspace API break?
->=20
-> Unfortunately, yes. This means the easily computable numbers that one can
-> use with the (deprecated) sysfs interface is gone, and also the pins are
-> now split amongst multiple gpiochip instances.
+On Fri, Mar 13, 2026 at 04:10:51PM +0800, Yu-Chun Lin wrote:
+> +#endif /* __DT_BINDINGS_RTK_CLOCK_RTD1625_H */
+> diff --git a/include/dt-bindings/reset/realtek,rtd1625.h b/include/dt-bindings/reset/realtek,rtd1625.h
+> new file mode 100644
+> index 000000000000..e69b5ee14cc6
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/realtek,rtd1625.h
+> @@ -0,0 +1,195 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (C) 2025 Realtek Semiconductor Corp.
+> + */
+> +#ifndef __DT_BINDINGS_RTK_RESET_RTD1625_H
+> +#define __DT_BINDINGS_RTK_RESET_RTD1625_H
+> +
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET1     0
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET2     1
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET3     2
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET4     3
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET7     4
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET9     5
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET_BIST 6
+> +#define RTD1625_RSTN_REG_ID_DUMMY0          7
+> +#define RTD1625_RSTN_REG_ID_DUMMY1          8
+> +#define RTD1625_RSTN_REG_ID_DUMMY4          9
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET11    10
+> +#define RTD1625_RSTN_REG_ID_SOFT_RESET12    11
+> +
+> +#define _REG_ID(n) ((RTD1625_RSTN_REG_ID_ ## n) << 5)
+> +
 
-I don't mind this at all for new SoCs, e.g. A733, but not really for already
-supported SoCs.
+Not a binding.
 
->=20
-> However if someone wanted the old "one gpiochip for one PIO instance with
-> evenly spaced banks" scheme, I suppose we could put together something
-> with the GPIO aggregator driver? It won't have same base pin number thoug=
-h.
+> +#define RTD1625_CRT_RSTN_MISC      (_REG_ID(SOFT_RESET1) | 0)
+> +#define RTD1625_CRT_RSTN_DIP       (_REG_ID(SOFT_RESET1) | 2)
+> +#define RTD1625_CRT_RSTN_GSPI      (_REG_ID(SOFT_RESET1) | 4)
 
-IIUC, this can be instantiated only via sysfs or configfs?
+None of these are really bindings. Register offsets is hardware data,
+not a binding.
+
+Drop all of this above and further - actually nothing in this header
+look like a binding, since you called these "REG".
 
 Best regards,
-Jernej
-
-
-
+Krzysztof
 
 
