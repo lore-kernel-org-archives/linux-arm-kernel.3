@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1F5107BCEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 00:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66EF107BCEA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 00:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RxfV68uPaBvNKhPXXyfvlI6yblnGwbZBSFspehcg8rY=; b=DOFCRfGHfUo1f/bV9sWttc6rS+
-	NB6GIPEcs031S0eJVaapPrz/0mJVPwGBV46t8jsyZKdO/np7E+Y1/dSz1XRH8TMXmFmwIWMfco9q3
-	sY7Evnc063g3wnIph7P2YbQV7K1PKi9KQGcmKCG1+TJGVj7j02qj+glHdPrmz7YWjUTBesT6ZdNso
-	90oiMImrkQ5CePgGBtwmXxs9Mbv0gUSebAsfQsla/Z3q6PXOa8IEE3QNFSjk0KnDWDVk75EA1Z6r0
-	5Mt7FPVo9/3Oj0uWp21kiAUrsal2Fut21/LEx02U25Cy/F5QzCK+agoYAYmzw5yg+0qNSTqq5oQtH
-	fknYLMww==;
+	bh=NeTNM73eJG2bfjd9nDsIG1KEwHSf055KAcNUHmRsD4U=; b=tX/rXlrNfNWKnm3QkPDHsklUY2
+	cZeH3tCz+Idl1/+Aeqe3AnO2jBjEzqFxfbjOGJu6dtaCbkYPmR9gdERHn9ipRdOZj3SMFFqm9nngr
+	M9HyszK84mtREHkCpbq/MycZb0bhNAvGWD9kwL+JRBBZxyJkSa1waaan2mMWvTKb4SSHcWp2tk/bd
+	vV9xmwr1r7nGbFdKmHS4u/nrjS7hVbczjxhSM83JB5fSm6q4y5R+Y/TEROkVuAaaJ2jci0cSDo40z
+	wfEUIzllwcU0ynkrulawHrcop1vpbQpnk+0+fXkMSbJw5H5vSRA2sD6bhhUUo4GtbncR+2oXekk29
+	3L5lXIJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1D1z-00000001MXy-1VEq;
-	Sat, 14 Mar 2026 00:39:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w1D4v-00000001Mi2-3wp1;
+	Sat, 14 Mar 2026 00:42:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1D1x-00000001MXY-03qY
+	id 1w1D4t-00000001Mhh-0kwt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 00:39:01 +0000
+	Sat, 14 Mar 2026 00:42:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0BEAD60008;
-	Sat, 14 Mar 2026 00:39:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76799C19421;
-	Sat, 14 Mar 2026 00:38:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7514143E30;
+	Sat, 14 Mar 2026 00:42:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CB58C19421;
+	Sat, 14 Mar 2026 00:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773448739;
-	bh=mkaGOENEa1gmtvrXYu8nQ+hbKTdiqqEtszypw75YmEo=;
+	s=k20201202; t=1773448922;
+	bh=NpIW6+avHUeuRL5rtNbePolkZmBWuaSfoHwrvmExauM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CSMMdnS8V1wzMZQMhbCKNINtDMD9y6wXAU3MpkSL9L3U85rIfZE+OW8OFJ3DcdRBM
-	 YdlMha2l9YYahxR4kj2FjM9EIsGgGKsjGe240rTgY0FgMVJZ5AYHRLTwGvMLccLVNR
-	 sFz2WQNbn3o50gctD0mN1NXAuSglgXdq7HVcmkXMxw5GjT9mcelaYqR8Xsd8RMb8hK
-	 owYs8LuW6U1eIxAPP2q7x9okaM4PPhYfZCdM2ZMaZLIFY9zjOyBOMEgHdIwdOD2yZb
-	 nCB9x1UHtacCUygnKE9ucVaWoGCNHzYvZqhCViVk/gWDi/9RQutmV0b0MY/ZniJrZD
-	 73jOsFDGNuOXw==
-Date: Fri, 13 Mar 2026 19:38:58 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=k9OTGxeaHohHVeSl/HI1G5pG9InJARTa6fLCnM+HvoclYVbY0ghCbKLDj5ekxBYZY
+	 Vl/c+R8DoIgII2TOasKBtXTERZ+yrZ+0oNSfSkWkRsDNTL0ZWtllbc89KL17swTP9E
+	 IGS4nDsGOALcPexQkh37T36NZQqO/KLmM8+6wJ+1f8UZSWzV6nTfwlSwxUvC09FdoM
+	 Lw6CRN1gOVQVJcUcK5bGHyywIYhRxY1U2fpqycrtOuk6R4p0PxFA5Xj/EtDCM64OxO
+	 incLpA+kBb9eMP2d+zhriTP8uUOzrOe8e/WQhzAqaicWnN4EPASDVWPv7WzCZf9cBb
+	 S6JOPOgC/NYGQ==
+Date: Fri, 13 Mar 2026 19:42:01 -0500
+From: Rob Herring <robh@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
-	Sherry Sun <sherry.sun@nxp.com>, Jingoo Han <jingoohan1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
 	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev
-Subject: Re: [PATCH v2 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Explicitly
- deprecate reset-gpio
-Message-ID: <177344873783.3740802.16889031626294728182.robh@kernel.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] dt-bindings: PCI: snps,dw-pcie: Drop deprecated
+ reset-gpio
+Message-ID: <20260314004201.GA3741015-robh@kernel.org>
 References: <20260312184344.42337-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260312184344.42337-4-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260312184344.42337-3-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260312184344.42337-4-krzysztof.kozlowski@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_174203_348338_EA0B04F0 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 12 Mar 2026 19:43:45 +0100, Krzysztof Kozlowski wrote:
-> The binding references snps,dw-pcie-common.yaml which already deprecates
-> "reset-gpio", however mentioning this property here lacks this mark thus
-> code is confusing and suggests property is not deprecated.
+On Thu, Mar 12, 2026 at 07:43:46PM +0100, Krzysztof Kozlowski wrote:
+> GPIOs with "gpio" suffix were long time ago deprecated in favor of
+> "gpios" and this particular property was documented explicitly as
+> deprecated since commit 42694f9f6407 ("dt-bindings: PCI: add
+> snps,dw-pcie.yaml") in 2021.
 > 
-> OTOH, the property cannot be removed from this schema, because it is an
-> ABI implemented by Linux kernel in gpiolib-of.c in backwards-compatible
-> map between compatibles, "reset-gpio" and "reset-gpio-active-high"
-> properties.
+> Linux kernel supports both variants for a long time, thus listing the
+> deprecated one is redundant and instead legacy DTS should be updated.
 > 
-> This creates code and binding which is not obvious to follow, so rewrite
-> it and be more explicit about:
-> 1. Deprecation of "reset-gpio",
-> 2. Relation that "reset-gpio-active-high" is used only for that property
->    and not proper "reset-gpios".
-> 
+> Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > 
 > ---
 > 
-> Cc: Sherry Sun <sherry.sun@nxp.com>
-> 
-> Changes in v2:
-> 1. Rewrite the commit completely after Sherry Sun comments - keep the
->    property, but add "not" clause to forbid usavge of
->    "reset-gpio-active-high" and "reset-gpios".
-> 2. Because of above not adding Richard's ack.
-> 
-> v1:
-> https://lore.kernel.org/r/20260311154955.145120-3-krzysztof.kozlowski@oss.qualcomm.com
-> ---
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
+> I will fix DTS separately, so after applying this patch there will be
+> bunch of dtbs_check warnings. That's expected and fine.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Not fine. I only want to see warnings decreasing.
 
+The justification for dropping deprecated properties should be "there 
+aren't any more known users (for some amount of time)".
+
+Rob
 
