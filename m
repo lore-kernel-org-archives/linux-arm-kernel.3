@@ -4,58 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECB910706EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 17:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238E110706F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 18:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MceOidYJaHcKZ8OZiTpRENq1la6I2aa1Dj6FkLggYKw=; b=xssKbkIgaE8ZThRoY6fZ5YOBR1
-	Y8igbPQs2C1OBYcACX0+lwPRKnhVDECmQq2AID0/Hbbm73vonBhfnV8j9PZS+SOoYsOvNzITZVGFe
-	UKo32xTfjcRUzPOzEgrUS7qFVi8/Bt1nKEZ7EmIdcNB/FQcHpdOPWHBofE9BzyrrlqaZRsGnv8WpC
-	x4ziWop4S5mveMOOgj9Wk0F8qDH6lzyLPyO1LgA5RlYQUvTyz1O8E4nGi876nIVL2RvsUoKRdRT8V
-	iscbOixJsatqmZEB5tEcn2gg87dy8+2QTaGgG1ijDnjj8tp90RLmCOaRzDuGHYSOA255NmTs+aSBh
-	5RZfeovw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NJgmVqDKyi3M0P5AVrJpUB/6e5CaH26d3M8p3nfhSGg=; b=R/Xqjfc6dLWgIoVy+3WbZE0x+S
+	lYDXbts03JKS0Oxok/SkG2c+Caw4YTuBxjuIGmaZr15/pBm+DIpI+9enEMRiWy5CLRlup5b4hcvry
+	xhijjHCP8NliZCJ3l9s5/Ir0j3Lv3p6RutFnJhgpt8SfpyRhjfock4nus6soku6C95J9fTIX2705o
+	YaU2pSHymwK2i7CnOrvHkJoGEoQnOnknEBfIaUmb+0HAVTwyt8Wl0x37I7Hz8dCQ1wNxaF6kH+cTo
+	fe6ugX9r5QiFdXTJPebLa+Jew6eYzyQiYAKGM79KL4hAiwWypZRP/Rk7rAMAL74rNoUbTzlK60EcJ
+	FUdWQNzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1TGA-000000023an-3fJQ;
-	Sat, 14 Mar 2026 17:58:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w1TvR-000000024yG-1S6W;
+	Sat, 14 Mar 2026 18:41:25 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1TG9-000000023aG-0pDp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 17:58:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5FEAF600AD;
-	Sat, 14 Mar 2026 17:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5AA5C116C6;
-	Sat, 14 Mar 2026 17:58:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773511124;
-	bh=LywMY+JgQOoqvYnuILk1SbJlfvjgB43wfskpy5/iCeY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gOLq+2bSXKngpGELKWOh6uHJ9c4pUOvNi0cSGD3XfMSTZ/3u9CYQbpx6oG8EPQCu0
-	 TSA2T/gyOITQi8r8D/E5l9/L1GYzN+LfGpqeZ/2WDMFiTW1c9+ngWYar3MNVg5fXO7
-	 0ZJ/1OeL6huFICS7aBOYxnz/f5wgKxB2pvJhTTyboGEmOotpHK1/AJrAxnDdMwjXwF
-	 WrUwbM+ISlcuiMpf3nS6GggTKwpyLlvWsv78JG5sU/xnM7wKMz0l21WU/rdPSx7Ntx
-	 ETf9zel+3CRcSBQVP679j8o/zYf8KGW4LXlyz0OYgkEiNHOVsn4uJrxTJLW+XXqgCk
-	 D5Enco2E+Ks2A==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH] lib/crc: arm64: Drop check for CONFIG_KERNEL_MODE_NEON
-Date: Sat, 14 Mar 2026 10:57:44 -0700
-Message-ID: <20260314175744.30620-1-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	id 1w1TvP-000000024xm-06Om;
+	Sat, 14 Mar 2026 18:41:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=NJgmVqDKyi3M0P5AVrJpUB/6e5CaH26d3M8p3nfhSGg=; b=rqpLy3bfMnxLc4ptzdGEVOx4nS
+	3cvmrPOIOQlYhskL7UMTdYondSwDoFwEUgSajZuUeouUBHVNI8qUIE6EtjeroAWaKaMJ4PZM2sQMt
+	lih/cWVPxz+92Q55gURNigXMARCkU3EFGSin2A6JBlUW9Dux9Nue6jww7QtL2ZTkrah1njaRTsI1W
+	kGwG1f3MZEwg1eeKgn9QSDPFIgniEP7WJRfOv/BpROMU6+NcGzoJhNmwrayYJBrtOe+2iDxrhL9AG
+	lf7PgDE1Vz3NsHK1r+xPCCMr2/fQnq7rOFK2fRitltIUX26hc1T1kijIfQ1x0aeGGFTRNAe9IZs2J
+	Xdz9442w==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip driver fixes for 7.0 #1
+Date: Sat, 14 Mar 2026 19:41:19 +0100
+Message-ID: <4719110.LvFx2qVVIh@phil>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260314_114123_092045_9AE7E455 
+X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +63,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CONFIG_KERNEL_MODE_NEON is always enabled on arm64, and it always has
-been since its introduction in 2013.  Given that and the fact that the
-usefulness of kernel-mode NEON has only been increasing over time,
-checking for this option in arm64-specific code is unnecessary.  Remove
-this check from lib/crc/ to simplify the code and prevent any future
-bugs where e.g. code gets disabled due to a typo in this logic.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-This patch is targeting crc-next
-(https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next)
+are available in the Git repository at:
 
- lib/crc/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.0-rockchip-drvfixes1
 
-diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
-index cca228879bb5a..52e216f397468 100644
---- a/lib/crc/Kconfig
-+++ b/lib/crc/Kconfig
-@@ -46,11 +46,11 @@ config CRC_T10DIF
- 
- config CRC_T10DIF_ARCH
- 	bool
- 	depends on CRC_T10DIF && CRC_OPTIMIZATIONS
- 	default y if ARM && KERNEL_MODE_NEON
--	default y if ARM64 && KERNEL_MODE_NEON
-+	default y if ARM64
- 	default y if PPC64 && ALTIVEC
- 	default y if RISCV && RISCV_ISA_ZBC
- 	default y if X86
- 
- config CRC32
+for you to fetch changes up to 24ed11ee5bacf9a9aca18fc6b47667c7f38d578b:
 
-base-commit: c13cee2fc7f137dd25ed50c63eddcc578624f204
--- 
-2.53.0
+  soc: rockchip: grf: Add missing of_node_put() when returning (2026-02-22 23:27:20 +0100)
+
+----------------------------------------------------------------
+Fixing a missing of_node_put() call.
+
+----------------------------------------------------------------
+Shawn Lin (1):
+      soc: rockchip: grf: Add missing of_node_put() when returning
+
+ drivers/soc/rockchip/grf.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+
 
 
