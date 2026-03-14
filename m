@@ -4,102 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8D410706CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 11:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C27810706CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 11:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwL6p+WP6NGzf8AE6dkaRCKAblA5Z0KAEZ7KZja0vBg=; b=FHh4GGB4P1TisIOORj+0PUcAMG
-	9FpixRU5frIQ6dtR1+ampjRb4x+BGCnQa2d2tqqU4vjmIgIzB9vVg2x2Jx4c7U7Becz+NqAPExWGl
-	2ghnh9wZxWWqMg5/KUYbBOPheMYmf5SDMihaI/vudfahaajUJMnKOuamFfiFF9dhT02eQXOuhTDB4
-	A1Ai4ypT723/R1G7Tu8cR9uduLmBCK/VuP7N/M2/WkwjXZ0nX7+tTnrsS8/mtrqz4yXaps9TvviU5
-	GS7MhYx9WWBpc3hdOOJTSrCVfFpIyM7dv8H+UWguLEOpmieBadgWvFyyR0soG6fg9lNGb4CDPNC5R
-	ae4mQ+TA==;
+	bh=3BMXSnRbfY4RdzwBne5tYOn8tTWdKkKLBBngZAzW64M=; b=WXh+jwNkOB+6pMErjB4T8jVSPi
+	6egTXdQMNPp1i3DYmfa8mpiRp6t12eRVdscrrtpZsZgkJytnLzggwZhHW6zUMUZb1TEOt7C1z+pow
+	H3kJq03qOqOdCV0cMBPVw6yyCCjNfD3NcXMkRp1wnvBxBEnzjQu8fnHSBab0gJ2MMhKQTfsaE2PvU
+	dYUjj4ipTKD9yxoixayOoHdnzlUqzpIvLFeR7gVhzaHVjg0MXyXBdxrXGOvyIdF+KWzrdqGGwyEhA
+	HXpstwsV8uQOhy6aUWlLD3mBmFNNFySRhwLdjIKK556lElHdE/PYLtr3AZIpCaQfz8+3DFU+AFPpu
+	S35SeB5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1N5N-00000001md7-10nV;
-	Sat, 14 Mar 2026 11:23:13 +0000
+	id 1w1NHG-00000001mxY-1xIA;
+	Sat, 14 Mar 2026 11:35:30 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1N5K-00000001mca-2ZCx
+	id 1w1NHF-00000001mxS-2GP4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 11:23:11 +0000
+	Sat, 14 Mar 2026 11:35:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC98F60008;
-	Sat, 14 Mar 2026 11:23:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E0B7C116C6;
-	Sat, 14 Mar 2026 11:23:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B66560008;
+	Sat, 14 Mar 2026 11:35:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30F65C116C6;
+	Sat, 14 Mar 2026 11:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773487389;
-	bh=iMJWEBsdCzMdXrBxvCbIJO1LwyUcDHLq9NRxGRYwkw4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NHiIcIRykv8qn+OX6jC0YufjZ7VpZaQkVeCHz5MNPGpxEaDmEWKCoy5P25RaUbA6E
-	 ZsS/jbwVdHvoGNDKzPTcCTrxbgkjBWT1gtqaeoMWnFqP6/6dl4pKnfjIB8IAWTCPLI
-	 NzgUnoTVHNZC/ApdfW8najgEHeVuTZS0ZaMtcve4yWpJXJE5hFFWeHTTfx6Q+TypTt
-	 4hEAnwO+4dlY3qHSYX3FQge3tTCBW/0LOSxKVc2ARJarG2L3WnsJYQabP3WP4tPDqK
-	 gYrHYJhR5bG1LugL2xTkJxKrCqKzrdnOO6pS2KM+1dWNY80A+H/kKBwE+czgjtp90E
-	 d4wTTGoyHiH0Q==
-Message-ID: <44491e75-4c73-4c8b-bc34-888d1e047cff@kernel.org>
-Date: Sat, 14 Mar 2026 12:23:06 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 4/4] Renesas DTS updates for v7.1
-To: Geert Uytterhoeven <geert+renesas@glider.be>, soc@lists.linux.dev
-Cc: Magnus Damm <magnus.damm@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <cover.1773399675.git.geert+renesas@glider.be>
+	s=k20201202; t=1773488126;
+	bh=GdeoLiMA8CXFq4sEcs5A46LTC+bCki0pRPFIvoquzJw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=MKIrvyyH9CrmOreJeW6kGQPYzcwgwK9RS3SUJJy5xcGGO0PECSQF6P9P1rAo0+YTA
+	 2vAk+yBNfqnu9tAtTA2nKu6HMa9OwT0Q5ljbuOWNngsNPuZnfV6Ngp1vIV3OrAejuO
+	 CEXn/dy3GMPTVL0RKZ4iREOMGJffy1GQ6MsqcYfM8JzWAJEziSDsKDdQBcd5J6SBIp
+	 AyLPUMtHX8Jf0KYxdS3mr+wEILNPK0pb6l3Vq0wfcX7ya744Gh5NJGXr7Y3baP1v2F
+	 SqhoDbVul4Tm6EGBlaqCavnJFmzBwwzYZuXDNSrr4+qPF686A8tbVvREaJhcCmzKQ4
+	 xE3wHR2FaE8xg==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <cover.1773399675.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8
+To: Arnd Bergmann <arnd@arndb.de>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>, Nathan Chancellor <nathan@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, soc@lists.linux.dev
+In-Reply-To: <20260305-arm-defconfig-drop-duplicate-ti-pruss-v1-1-2839e3b42a8b@kernel.org>
+References: <20260305-arm-defconfig-drop-duplicate-ti-pruss-v1-1-2839e3b42a8b@kernel.org>
+Subject: Re: [PATCH] ARM: multi_v7_defconfig: Drop duplicate
+ CONFIG_TI_PRUSS=m
+Message-Id: <177348812490.386756.6377774746208273431.b4-ty@kernel.org>
+Date: Sat, 14 Mar 2026 12:35:24 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,16 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/03/2026 12:13, Geert Uytterhoeven wrote:
-> The following changes since commit 85c2601e2c2feb60980c7ca23de28c49472f61f1:
-> 
->   arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers (2026-03-06 13:15:21 +0100)
 
-Also nothing explains me what is this, IOW, why this is not RC1. Pull
-request email has place at the beginning where you explain such things
-and I can easily locate or understand the base.
+On Thu, 05 Mar 2026 15:25:18 -0700, Nathan Chancellor wrote:
+> Commit ee1ab82ee032 ("ARM: defconfig: move entries") added a duplicate
+> instance of CONFIG_TI_PRUSS=m, causing a Kconfig warning:
+> 
+>   arch/arm/configs/multi_v7_defconfig:1152:warning: override: reassigning to symbol TI_PRUSS
+> 
+> Drop the first instance, as the second instance added by the
+> aforementioned change is where savedefconfig puts it.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] ARM: multi_v7_defconfig: Drop duplicate CONFIG_TI_PRUSS=m
+      https://git.kernel.org/soc/soc/c/9e22e9c4a5bd208a2d17f0b1a8414c170b4e5939
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
