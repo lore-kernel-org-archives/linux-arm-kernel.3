@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016B510854B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 21:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E7E610854B4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 21:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Cx5R+nA4TSSGILJ6r48mLYO9Xhfo8aw3malNJW6mVZg=; b=q1UMi3c6M6pZ/1qzKL6pRq/HaS
-	6MsLy0ceShTWpSSPcXhNtSeqNP5fQFnE35EDRV0g2ERuP/GQbGIhj/zPgB6TRQH3aDjLzRUzQnMXg
-	vRab1igInt+UtwLI91Vln3bBIgIo4b0I7vSiROyEH79HRJNq94q9oo1nplzwQ0xczDMINhqESG/3F
-	QMjKuhJ76D+3OFx8NWLn8RapGZ5iCU8Y8VQmFFV+qz0bvs8sMm1gZT+HiSzmta1qITA5loh5Qj5Ks
-	J7CImC85UNm6j6hf7x1Jx0Q0xca8W2dbRN2hBDkZ0Sjt9T7uRM2BIGUMTUkOR030yGehQyhzUCcZ9
-	3pU1/f/Q==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HoD2nc/9awazqD3MDEIC/UsUdmvEeF4KuhfNx7frfFs=; b=QO6CWD0uwkdxIww4k+edR/k+Ge
+	kxgQhPvxSAIlMDHUuH/QnBkW+0mPKU/Lmp2T8OpmnBLy+RZjtoMfLR7FKO71BoTl4LGg97zVcyOs8
+	qH+lLvWhe0fm1YziThirEjJHCO5pmv+c8K3oCnlHIvL8c+UD4leR1woW0wcde6IJSdCTLNUqIHdF2
+	Xlizx+HQCovDL1bneK7lyvt2v5OilyQPzvkXssGBqPcVz9jRVhyghxDcBL7PntrcOi/R0aBSem3Hc
+	UOxTxqiCBLhQjVVDrplMh4YJJ1apKhm8TF/JtunBL7X9eTPAh+HvnIxX/4ql3IsmWZQhYZZLDJAgi
+	E8c+gWEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1WeQ-00000002AvQ-2Esg;
-	Sat, 14 Mar 2026 21:36:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w1WeY-00000002Ayu-0FuY;
+	Sat, 14 Mar 2026 21:36:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1WeO-00000002Au3-3D6n
+	id 1w1WeP-00000002Atz-3qVn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 21:36:00 +0000
+	Sat, 14 Mar 2026 21:36:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C74FC6013C;
-	Sat, 14 Mar 2026 21:35:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 69E33C116C6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 18B71443E4;
+	Sat, 14 Mar 2026 21:35:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C5B72C2BCB9;
 	Sat, 14 Mar 2026 21:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773524158;
-	bh=f00uJrynLNBeq1fp8KKlN/A/GMn2B9ae1DulfzNwyPQ=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=CIClaUQEzC26KSF8J5klewJyfr4hElKW2N5QG9B9wE6BbShuU6xVOx4Q5cX4rUO5P
-	 zOKbfBSDji8iVODllzi6HnBbcVYVsD03Nh3w9ILXFbYOOtKO54hJKgZt+OdMW1JIAg
-	 GTyLj0mcSXM3lIGMrdLLgEPNFXQwaTpijArVB3RADvDq1evUO6Pm51p1tEebzvmGbM
-	 BN0DS+4kCEM9WhZ71xIuFAjenaZ/h4ZNU94l4cdfZzlkggxHwjW3YSc3lHXSs0ylJs
-	 Qc3nDKuu8s6s9QoRyOxvVysWzkE6C0Dx1Y/i0e04rDmyrxCsNvqpxsyzEsIhcRv9hl
-	 ToGFYwPEhSr0w==
+	bh=JWRu3Ts4XCH6EVNWqY6K4/OGwPEsBoXK67d+4bDxyAw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Jn3DbppIuXycpowAYZc+X/VIcRxi0nH2FcyY88MA7H+5gDMz1jKzQC2v7lLQ2+/1S
+	 aYqVipWWvj9C3Wi+QAzjIhUrooeiKau0MGzdYFoOOC6y2gBfviqTR0/M6eMBIgBMUZ
+	 qORMzqrd7wo2wDp3u16yX3aHIJp11yoxcN+oom7QkRS9eDmCRi3O61NiW1QRbE+A2i
+	 8EZsJBkZN23YQP6TcKUW71oYbJuSjQ0tUak1HtRgSv9CYsbo/Ib4VE5IP2xw2Z2uC7
+	 yesrB6ve5Q6kWeS5xB6fixHgwr5dgj6j09tPoLAjMaFVpQt2hHMtmdbbEWsexlUMe8
+	 dR+CFukcfxxwQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C0D910854AB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA6BA10854AE;
 	Sat, 14 Mar 2026 21:35:58 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Subject: [PATCH RESEND v8 0/6] Introduce MAX77759 charger driver
-Date: Sat, 14 Mar 2026 21:35:35 +0000
-Message-Id: <20260314-max77759-charger-v8-0-226ca5f8c7d2@google.com>
+Date: Sat, 14 Mar 2026 21:35:39 +0000
+Subject: [PATCH RESEND v8 4/6] lib/linear_ranges: Add
+ linear_range_get_selector_high_array
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAKfUtWkC/23QTU/DMAwG4L8y5UxR4sZOwokDu3KAI+KQr3aR2
- IpaVA1N/e9kRWhFydG28th5L2yKY4oTe9hd2BjnNKXhlAt9t2P+YE99bFLINQMOKATH5mjPSik
- 0TR6PfRwbjeAIKBAJy/KzzzF26bySb+xl/7p/fmLvuX9I09cwfq+bZrFOf1FoS3QWDW/IQZROd
- 6pD+dgPQ/8R7/1wXLUZbgIIXREgC+AAjdHckqZCaDcCqIrQZgFlJJIdemugEOSfQDwfURHk9Rd
- GQiu9DjGIQsCbALyWA2bBIW8NtoosdoVAG0HIikDXHLTnxgWrpCuTVFuhlqTKQtTBcOUjGY+Fo
- DcC1G7QV8FpcgEVj8b/E5Zl+QHMNJU7hwIAAA==
-X-Change-ID: 20251105-max77759-charger-852b626d661a
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260314-max77759-charger-v8-4-226ca5f8c7d2@google.com>
+References: <20260314-max77759-charger-v8-0-226ca5f8c7d2@google.com>
+In-Reply-To: <20260314-max77759-charger-v8-0-226ca5f8c7d2@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -75,19 +71,21 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
- Amit Sunil Dhamne <amitsd@google.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Amit Sunil Dhamne <amitsd@google.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773524157; l=6377;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773524157; l=3003;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=f00uJrynLNBeq1fp8KKlN/A/GMn2B9ae1DulfzNwyPQ=;
- b=ssMe57JsMYjZhRJG94pjcao4tZCTKY8Mq7ojocIgx7mxddfSwIjQtomYQV/mztDOv1g/OwMue
- 6QqQQrAEkwvAtSOyVAB4sxh63NX7RVuE5y/UyUQU8D5hTphX6StBE5c
+ bh=uuyjXd7dWRAWN4xiKCoHmw/T2i4nCX6K/xcdYc4Jrhc=;
+ b=rClPlVLQ0lBkHwwSlvv6522AMU4iooGWIquWXhUEXeNpg3OLKrUpkh3/ip0mrBybe4SeBzG/J
+ /P1O7/wt3gJAUjoPyRKlkTbxzc9ZD1B51tJzKo+1potLF7GiWgmfust
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260314_143602_027333_F8FC2DA2 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,139 +101,83 @@ Reply-To: amitsd@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MAX77759 PMIC is used in Pixel 6 and 6 Pro (Oriole/Raven) boards.
-One of the functions of the MAX77759 PMIC is a battery charger. This
-patchset introduces a driver for this function. One of the unique
-features of this charger driver is that it works with a USB input where
-the Type-C controller is TCPCI based.
+From: Amit Sunil Dhamne <amitsd@google.com>
 
-Changes to the board files will follow soon once this patchset is reviewed.
-
-For reference to the MAX77759 MFD based patchset (present in upstream):
-https://lore.kernel.org/all/20250509-max77759-mfd-v10-0-962ac15ee3ef@linaro.org/
-
-Dependency list for patches (directionality indicates depends on):
-[6] -> [5] -> [4] & [3]
-
-The changes need to be applied in order. In this case this probably
-would be the USB subsystem as that's the leaf in the dependency list.
+Add a helper function to find the selector for a given value in a linear
+range array. The selector should be such that the value it represents
+should be higher or equal to the given value.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Acked-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v8:
-- Add an newline char at the end of dev_* prints. (André Draszik)
-- Return PTR_ERR() instead of -EPROBE_DEFER when devm_power_supply_register()
-  fails in max77759 charger probe. (André Draszik)
-- Link to v7: https://lore.kernel.org/r/20260218-max77759-charger-v7-0-e8d907ce69c5@google.com
+ include/linux/linear_range.h |  3 +++
+ lib/linear_ranges.c          | 36 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-Changes in v7:
-- Add register relock for protected registers in fail path. (André Draszik)
-- Switch to usage of scoped_guard instead of guard. (LKP test bot)
-- Link to v6: https://lore.kernel.org/r/20260214-max77759-charger-v6-0-28c09bda74b4@google.com
+diff --git a/include/linux/linear_range.h b/include/linux/linear_range.h
+index 2e4f4c3539c0..0f3037f1a94f 100644
+--- a/include/linux/linear_range.h
++++ b/include/linux/linear_range.h
+@@ -57,5 +57,8 @@ void linear_range_get_selector_within(const struct linear_range *r,
+ int linear_range_get_selector_low_array(const struct linear_range *r,
+ 					int ranges, unsigned int val,
+ 					unsigned int *selector, bool *found);
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found);
+ 
+ #endif
+diff --git a/lib/linear_ranges.c b/lib/linear_ranges.c
+index a1a7dfa881de..c85583678f6b 100644
+--- a/lib/linear_ranges.c
++++ b/lib/linear_ranges.c
+@@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct linear_range *r,
+ }
+ EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
+ 
++/**
++ * linear_range_get_selector_high_array - return linear range selector for value
++ * @r:		pointer to array of linear ranges where selector is looked from
++ * @ranges:	amount of ranges to scan from array
++ * @val:	value for which the selector is searched
++ * @selector:	address where found selector value is updated
++ * @found:	flag to indicate that given value was in the range
++ *
++ * Scan array of ranges for selector for which range value matches given
++ * input value. Value is matching if it is equal or higher than given value
++ * If given value is found to be in a range scanning is stopped and @found is
++ * set true. If a range with values greater than given value is found
++ * but the range min is being greater than given value, then the range's
++ * lowest selector is updated to @selector and scanning is stopped.
++ *
++ * Return: 0 on success, -EINVAL if range array is invalid or does not contain
++ * range with a value greater or equal to given value
++ */
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found)
++{
++	int i;
++	int ret;
++
++	for (i = 0; i < ranges; i++) {
++		ret = linear_range_get_selector_high(&r[i], val, selector,
++						     found);
++		if (!ret)
++			return 0;
++	}
++
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(linear_range_get_selector_high_array);
++
+ /**
+  * linear_range_get_selector_within - return linear range selector for value
+  * @r:		pointer to linear range where selector is looked from
 
-Changes in v6:
--  Linear Range usage (André Draszik):
-  - Dedicate individual arrays for inlim, chgcc & chg_cv_prm to simplify
-    code.
-  - Use numerical values instead of macros for linear_range array init.
-  - Remove macros defining current and voltage limits due to above.
-  - Didn't use Reviewed-by tag for Patch 3 due to the above.
-  - Add new linear_ranges api to leverage it for obtaining selector
-    values.
-  - Improve voltage and current getters and setters functions by leveraging
-    existing and new linear_ranges API.
-- IRQ related changes (André Draszik)
-  - Dedicated names for individual irqs.
-  - Refactor irq handlers.
-  - Ratelimit prints
-- Retry mechanism (André Draszik):
-  - Initialize error retry counter to 0 when psy work is scheduled on a
-    new notifier event.
-  - Protect the counter using a lock.
-  - Add appropriate prints.
-- Link to v5: https://lore.kernel.org/r/20260203-max77759-charger-v5-0-b50395376a5f@google.com
-
-Changes in v5:
-- Use linear_range library instead of reinventing it. (André Draszik)
-  - This requires a selector_max value so modified mfd/max77759.h to
-    include it for CHGCC and CHG_ILIM.
-  - Removed "reviewed-by" for Patch 3 (mfd) due to above
-- Use asnyc probe type. (André Draszik)
-- Retry mechanism for psy_work. (André Draszik)
-- Minor nits (André Draszik):
-  - Use named initializers for instantiating structs.
-  - Use static qualifier for `psy_name` variable.
-  - Refactor if-else ladder to remove else handling if return in prior
-    "if" loop.
-  - Remove redundant `unlikely`.
-- Link to v4: https://lore.kernel.org/r/20260121-max77759-charger-v4-0-694234c8ded1@google.com
-
-Changes in v4:
-- Removed a stray tabspace in mfd/max77759.h. (André Draszik)
-- Fixed the following issues in Patch 4/5 (André Draszik):
-  - Re-order Kconfig entry
-  - Refactored to not use global variable
-  - Use of clamp() to clamp values instead of duplicating logic
-  - Return IRQ_NONE for unhandled irqs or error conditions
-  - Remove debug messages in irq handler
-  - Refactor code to use dev_err_probe in *_init_irqhandler()
-  - Remove unneeded irq_flags
-  - Check return values of regmap ops
-  - Other nits like newlines, not using greedy init, using print stmnts
-- Link to v3: https://lore.kernel.org/r/20251227-max77759-charger-v3-0-54e664f5ca92@google.com
-
-Changes in v3:
-- Had incorrectly folded the charger sub-device with the pmic parent.
-  Corrected it. (Krzysztof Kozlowski)
-- Link to v2: https://lore.kernel.org/r/20251218-max77759-charger-v2-0-2b259980a686@google.com
-
-Changes in v2:
-- Fold charger binding in maxim,max77759-charger.yaml to its parent
-  node. (Krzysztof Kozlowski)
-- Renamed regulator supplier & consumer. (Krzysztof Kozlowski & Heikki
-  Krogerus)
-- Removed explicit setting of irq trigger types in max77759 driver.
-  (André Draszik & Krzysztof Kozlowski)
-- Complete bit definitions for IRQ registers. (André Draszik)
-- Consolidate all bit definitions for charger IP in mfd/max77759.h.
-  (André Draszik)
-- Modify the handling of charger IRQs such that regmap IRQ chip handles
-  masking, de-mux and acking of interrupts. (André Draszik)
-- Remove unused macro definitions relating to Charger modes in tcpci
-  maxim driver (André Draszik)
-- Add dependency on Regulator class in Kconfig definition for max77759
-  chg. (Kernel Test Robot)
-- Link to v1: https://lore.kernel.org/r/20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com
-
----
-Amit Sunil Dhamne (6):
-      dt-bindings: mfd: maxim,max77759: reference power-supply schema and add regulator property
-      dt-bindings: usb: maxim,max33359: Add supply property for vbus
-      mfd: max77759: add register bitmasks and modify irq configs for charger
-      lib/linear_ranges: Add linear_range_get_selector_high_array
-      power: supply: max77759: add charger driver
-      usb: typec: tcpm/tcpci_maxim: deprecate WAR for setting charger mode
-
- .../devicetree/bindings/mfd/maxim,max77759.yaml    |  16 +-
- .../devicetree/bindings/usb/maxim,max33359.yaml    |   4 +
- MAINTAINERS                                        |   6 +
- drivers/mfd/max77759.c                             |  91 ++-
- drivers/power/supply/Kconfig                       |  11 +
- drivers/power/supply/Makefile                      |   1 +
- drivers/power/supply/max77759_charger.c            | 774 +++++++++++++++++++++
- drivers/usb/typec/tcpm/tcpci_maxim.h               |   1 +
- drivers/usb/typec/tcpm/tcpci_maxim_core.c          |  54 +-
- include/linux/linear_range.h                       |   3 +
- include/linux/mfd/max77759.h                       | 176 ++++-
- lib/linear_ranges.c                                |  36 +
- 12 files changed, 1114 insertions(+), 59 deletions(-)
----
-base-commit: ecc64d2dc9ff9738d2a896beb68e02c2feaf9a02
-change-id: 20251105-max77759-charger-852b626d661a
-
-Best regards,
 -- 
-Amit Sunil Dhamne <amitsd@google.com>
+2.53.0.851.ga537e3e6e9-goog
 
 
 
