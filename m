@@ -4,135 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A468107BCFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 07:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8EB107BCFE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 07:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tr3JbOnsJoUpDM+B2gJBFvxjmzg4yKH8O1IiAlVJkN8=; b=jjdMtrYdt8RMNoAj++kEPJsgdI
-	V3ghdZR9Rrdfn/7aJJ+8M41l7wQOmOWnYUiPdjSg0mZU/kp77vdTGqFftreKCqMk7VlotACXcg0Rj
-	Kat/HPqd4lnJyyMdHo9BKZ7dJJDxzY1xWS0S7H+ZNOXM7vU59V7ZMRtfbQMo6FbfRHFt0kLOBh35d
-	GNh3Hu23SIWZVUhYj9D5pABWmYJOgWqnuCaqEeG4ee+Z8hKyRUY7sbnSch6TTN0/LyNtRLcwQ0wBk
-	a4jY5PjtuQvLyZ6qh1+6MZaL46GcfGijHLkKjtwT7SU8Md9PVivUmacg4Gq6NfVZaVvioAdDbNaEF
-	1DG8xV+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2hhVDHPdFpoLhFbgRe26hlKwyzjuViZ5djdYgKLBB/Y=; b=FVPdkO8TFmJC16
+	UpOdTC0/qmKNZGd0iPYuR0s1iUHadkpCabCrJRSDwnC9BG5YFr7Y1EUUOZhAy8zDjQ98TY1blaxDw
+	7FL8VjNVr7YdbP+taPu/GTq1C7Gkp6TLWGkRp6cOipSeO6tychQiKanlgbUk1KbEXHn8RppaJZcXm
+	rMcPIuEV8DDIWff7QDKfmrLHjWXsTAiXLTto6Z31MKZO5M2VgshPBa5EV8cn7+cJSR22lS3e95pII
+	hFVAkY9niGfHgASFuvk7nUu923D8SKIL2GCXmgS0t8LwZVpiH1u8VDyWYmia832aNzA5xIb552xHd
+	17W4w//aGr1XdTbf8GcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1JTP-00000001aY5-0Uln;
-	Sat, 14 Mar 2026 07:31:47 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1w1JVX-00000001aiK-2HO0;
+	Sat, 14 Mar 2026 07:33:59 +0000
+Received: from mail-lf1-f44.google.com ([209.85.167.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1JTL-00000001aXc-322R
+	id 1w1JVU-00000001ahw-40aV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 07:31:46 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 3129E14001B4;
-	Sat, 14 Mar 2026 03:31:42 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Sat, 14 Mar 2026 03:31:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1773473502;
-	 x=1773559902; bh=tr3JbOnsJoUpDM+B2gJBFvxjmzg4yKH8O1IiAlVJkN8=; b=
-	vIUGI6PUtGuLD9MmA7He5MaSxNXymLe5VmuYEFztVyE2ey+TWlMs9wpbxm5m0SHW
-	/2MY8ZrghTSl0nxKsljeSTgPW+7p2aNF0g4qV2yoO6XpYUj/LVu30Hj8CfWufek0
-	A1ntnxABTtEhR3xW+MmMkQfJsoh3KUtT1ghtLu1M5QbHvVh+GWUUHo8TgXT+f/X/
-	Kj4DEr+3ffZQQJXQpu8gspe5isusRZ6zNkuOU8WlCbigR6WWowRvClVOVkMGZTaL
-	PByD+pWip5jGOEaxIWOemgmWOR5EG5wYkProLjqgXoc3Y/ePf3F06VU/rN8mVjdo
-	+i9Y4A8uLsATQ5NmWUtUMA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773473502; x=
-	1773559902; bh=tr3JbOnsJoUpDM+B2gJBFvxjmzg4yKH8O1IiAlVJkN8=; b=5
-	th2kdid27NE2Q6Zf9HnTICg3grZm+GQN8HsdEBThJAfyx7j20KSsUU1MYkh+L3Cd
-	CqJltfa1L4xTSkgSbx+l0/ZTbNDjjMKLeEncvOBuhU2TYlOZzzd6D5Imus9dxltE
-	VqVX19DARJc5XHPxZVXM48Z+c4E2pBoYtf/iFLuaJPcd4IHeey22JaIbC0x6xGIb
-	ikkVsNzGteydWH2PtuZ0C/YslE7OPGkPhMQADG5wSXECX8PYBUu4BALVhFkKfKzE
-	QiWe3OcNb0B2Nj/iJB2T32XvubR3VQHwUA8jrRGMImZN2CJiDMjNSdBB4h/LgUtI
-	DEOymQpmWEWhgkE3k4cqg==
-X-ME-Sender: <xms:3Q61ae0qyzq46sW3iFr4nwLH-QablCM5EpxY18ktNc9I9ruTP7yZEg>
-    <xme:3Q61ab4IHYWF-tJxe2XeLHOdgsjAAth3Fk_lV_Qk70vSY_Fap-Uc2C7cQE3cdkeVZ
-    nKgVbw8tMpu_zRj8GS5FqDhxc4RXmd6wEi5fmdqsJM6wvSpxK3_9PU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvleduleekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsrhhglhessghguggvvhdrphhlpdhrtghpthhtoheptghhvghsth
-    gvrheivdehudehsehgmhgrihhlrdgtohhmpdhrtghpthhtohepfhgvshhtvghvrghmsehg
-    mhgrihhlrdgtohhmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrgh
-    dprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehk
-    rhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorh
-    hgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehr
-    ohgshheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:3Q61aUC5SLAg6F46AVIdW-J6XHLcwTogwGCVkA98DKm3dcj7q-gmNg>
-    <xmx:3Q61aUAQNtztZSaLvN0Ifx0l1VuiwS33s2iYj60XNAqazeuEZ51_1g>
-    <xmx:3Q61aTqBE9u_uyIR9Q5J02qjuzP-epogqXeYePga7yjWs8xHlmbrOw>
-    <xmx:3Q61aYAJUdlRMadUyUsf5YTcfIgInbuyUbMq4qleODkVz2y49zLAPA>
-    <xmx:3g61aW2PxF8orihiR3Uh8UCLvDymWO1grtBE7zb-D4zegmREAp-v4m3k>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 44D63700065; Sat, 14 Mar 2026 03:31:41 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sat, 14 Mar 2026 07:33:58 +0000
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5a1687f112bso576024e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 00:33:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773473633; x=1774078433;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2hhVDHPdFpoLhFbgRe26hlKwyzjuViZ5djdYgKLBB/Y=;
+        b=TslbUytTxCuBIhPBr7H0rBEhlmWNZaKX9sMLUqy9gA1CsJBQHfrGHh95gWWr+6h8CA
+         Qh9Uhy5JQKSyka0VqkxPLFVxMgT0nFbLcj2/Vbkfuv/MYD4g/kH9arJKJi3cMQ4SrbWZ
+         bXDMl33Ftt8FlUZn1c8ztGBwke9Eh5WNF0wpvO4D7TXAqZ6/j8JYgINg/u39txDsfW91
+         ifpgWc/I5K60tSn/o8SpltbUWGGXEwM0jeFsTnDLXZSZY6GfjVJZyyVE1a7vkz+TdUO9
+         KlQ6ld6+zk8/s/vKjV8sxyxQEsWdC5RtlHg1OAaEjrD3Kxp3VMwoJpejF3uCSYovx1TT
+         he2A==
+X-Forwarded-Encrypted: i=1; AJvYcCWk/XIqKJ19RLSzajdJP6UK9QQZpv3TJmbtMvG8N7pvcachnnLzvLuLAY20sR/QHQAkyWdsbgQoExndPx9rw5uC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzACrdjmfoNr/hH0ZoEDBh1APb0Iqp8U9kJcbTsyjf8fgACgoix
+	Vjmi5OXeprRhzsvRx6XWbqqbVSTVxGgfcEzEBsGBwB5hZtmqTdTmRLJHMAL/3txb
+X-Gm-Gg: ATEYQzxKYH303NwEJ6zYU0F7wlD5q6HMpuBZk0tO+YIvMNe6x9evmX2J2UsBxzhDiBD
+	vOPes133PjHRCb/PHqjIGB26rfQabGj6k5lXTqhBtlT4ql2VOePBGOsiB0Cymke6cOUne8JZO8t
+	gbB0aSIYcDhOf7gyUXc6lRB7X0gCKra19VYKU8rc4gzvH2OgC5HK+dBESoHt0V8ATFsI/mW/O5T
+	OX3deux/DVnYIvG2VYpE2dicuOwIJ/EPCy0bZ3XKIbL/ToiQQwfVSKwQC4zR3oSyrGiAEwkctF0
+	HCvrfeZ+w4jrfQ97IgopzL6RjfpMv+et77lBcHdzf0eqMtDvvCLALco7SYs/D3VFr7jJY+fdrWI
+	zIP9FlQBH2mozIEU+Wkh+qRUlqJS2c7wAgYIqjg+nb0TbZeK/Ro1mgmI+VJk4670TxT4tkCBw4d
+	Es+67bLxmEtEZIm40v6jMG7K4H0wJ/foXfdKJ9VQhiGFD9Iv9QtIZWA3Y=
+X-Received: by 2002:a05:6512:215a:b0:5a1:3f3f:a29b with SMTP id 2adb3069b0e04-5a162aea093mr1523586e87.6.1773473632397;
+        Sat, 14 Mar 2026 00:33:52 -0700 (PDT)
+Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a156162aa1sm2024293e87.60.2026.03.14.00.33.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 14 Mar 2026 00:33:52 -0700 (PDT)
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-389f9895c81so27193601fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Mar 2026 00:33:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUEbw+/2oUJlck/FTK6acadFXHAAaLbQxQlNmdZmuKCmlA9Vjddxi+yEq0aCqj8p+KT6CvG4UaSxzZQqJ+LNnN7@lists.infradead.org
+X-Received: by 2002:a2e:8f87:0:b0:38a:737c:411e with SMTP id
+ 38308e7fff4ca-38a8979c42emr19370561fa.21.1773473631837; Sat, 14 Mar 2026
+ 00:33:51 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: ABMmOHXEXk43
-Date: Sat, 14 Mar 2026 08:31:20 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Ghennadi Procopciuc" <ghennadi.procopciuc@oss.nxp.com>,
- "Khristine Andreea Barbulescu" <khristineandreea.barbulescu@oss.nxp.com>
-Cc: "Linus Walleij" <linus.walleij@linaro.org>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Chester Lin" <chester62515@gmail.com>,
- "Matthias Brugger" <mbrugger@suse.com>,
- "Ghennadi Procopciuc" <ghennadi.procopciuc@nxp.com>,
- "Larisa Grigore" <larisa.grigore@nxp.com>, "Lee Jones" <lee@kernel.org>,
- "Shawn Guo" <shawnguo@kernel.org>,
- "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Fabio Estevam" <festevam@gmail.com>,
- "Aisheng Dong" <aisheng.dong@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Alberto Ruiz" <aruizrui@redhat.com>,
- "Christophe Lizzi" <clizzi@redhat.com>, devicetree@vger.kernel.org,
- "Enric Balletbo" <eballetb@redhat.com>,
- "Eric Chanudet" <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-kernel@vger.kernel.org, "NXP S32 Linux Team" <s32@nxp.com>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Vincent Guittot" <vincent.guittot@linaro.org>,
- "Rob Herring" <robh@kernel.org>
-Message-Id: <3c454da1-d949-4258-87ce-8b545000bf01@app.fastmail.com>
-In-Reply-To: <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
- <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
- <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
- <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2 module
-Content-Type: text/plain; charset=utf-8
+References: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
+In-Reply-To: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Sat, 14 Mar 2026 15:33:38 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64PvGdViT6DWHiNGoK=5L8DpfjVAdv+LbNf_Uisy6v0Aw@mail.gmail.com>
+X-Gm-Features: AaiRm50HgMzViAFsiAKzBuJ21Dl_NGiSreFIiRIGHbKW53o8zq3pm2o3jOmNcYY
+Message-ID: <CAGb2v64PvGdViT6DWHiNGoK=5L8DpfjVAdv+LbNf_Uisy6v0Aw@mail.gmail.com>
+Subject: Re: [PATCH] bus: sunxi-rsb: Always check register address validity
+To: Andrey Skvortsov <andrej.skvortzov@gmail.com>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_003145_081082_833D9100 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260314_003356_995315_A35E203C 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,53 +94,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026, at 18:10, Krzysztof Kozlowski wrote:
-> On 25/02/2026 10:40, Ghennadi Procopciuc wrote:
->> On 2/23/2026 3:14 PM, Krzysztof Kozlowski wrote:
->>>> there are no resources allocated specifically for nodes like
->>>> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
->>>> driver and other drivers that read SoC=E2=80=91specific information=
- from
->>>> those shared registers.
->>>> =20
->>>> My alternative is to keep two separate syscon providers for the
->>>
->>> You got review already.
->>>
->> I still believe that nvmem is a suitable and accurate mechanism for
->> describing SoC=E2=80=91specific identification information, as origin=
-ally
->> proposed in [0], assuming the necessary adjustments are made.
->>=20
->> More specifically, instead of modeling software-defined cells, the nv=
-mem
->> layout would describe the actual hardware registers backing this
->> information. One advantage of this approach is that consumer nodes (f=
-or
->> example PCIe, Ethernet, or other IPs that need SoC identification dat=
-a)
->> can reference these registers using the standard nvmem-cells /
->> nvmem-cell-names mechanism, without introducing custom, per-subsystem
->> bindings.
+On Sun, Mar 1, 2026 at 10:50=E2=80=AFPM Andrey Skvortsov
+<andrej.skvortzov@gmail.com> wrote:
 >
-> nvmem is applicable only if this is NVMEM. Information about the soc is
-> not NVMEM, unless this are blow out fuses / efuse. Does not look like,
-> because SoC information is set probably during design phase, not board
-> assembly.
+> From: Samuel Holland <samuel@sholland.org>
+>
+> The register address was already validated for read operations in
+> regmap_sunxi_rsb_reg_read before being truncated to a u8. Write operation=
+s
+> have the same set of possible addresses, and the address is being truncat=
+ed
+> from u32 to u8 here as well, so the same check is needed.
+>
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> Signed-off-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
 
-Agreed, nvmem clearly makes no sense here, the patch description
-appears to accurately describe the MMIO area as hardware registers
-with a fixed meaning rather than a convention for how the
-memory is being used.
+Should probably have:
 
-That said, there is probably room for improvement, since some of
-the register contents are read-only and could just be accessed
-by the boot firmware in order to move the information into more
-regular DT properties instead of defining bindings for drivers
-to access the information in raw form.
+Fixes: d787dcdb9c8f ("bus: sunxi-rsb: Add driver for Allwinner Reduced
+Serial Bus")
 
-    Arnd
+I will added (via b4) when applying.
+
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
