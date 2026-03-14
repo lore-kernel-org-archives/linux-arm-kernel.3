@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C6310706EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 17:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB1F10706EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 17:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GwhdftaWOJhA48Js/C5AywKVoOK45/6fligsiPxNBqg=; b=t+SDOfVcWgcVC5UIcsnW7I1JFQ
-	9kzZ+Ujo6xidVhNUP6Ta5YHCw/cLREwwSPC8Y6xriLWS9CqjCtg7uk1p588Zn+8qCGD7fg8m3+Zrg
-	ejdXr8sIDxVdqqrzfUZAKd/yOJP+ix2jy3s6rSemXpJpPoPul2E92RMfC8PTeyfprX82AiXw7Xfet
-	RF8nr2Qu0oAgeS8AN7a3zq/l7Ig3ujYr0cOiVb17S0oVJ7s4ImZ8XDAQa7ggKV6TwnFmRpGshJsrq
-	qDo5fbkS+Sd2NBZzsXZGg+4nMWu6PDQ1m47vJfrShuZ4PNaAwLICZ/vZrNsRXsfqYyoMN4WYUhLt4
-	UDG4hMsw==;
+	bh=IXSrZ1wEKF9AWx6SNb0tpq+6v95d/wiLK6UPSvikvfw=; b=1DmW62KBTOerh1cdN95opo0iWF
+	hf2S2YsLUcbB651g9c88qQUwNSB5leqNw5iVfR0zxQrJaadpL5XQONRGs3IPMcyMHByKvmUcxKQ/1
+	uRtu66UOYEuT5AMZwFxEwRBrcduj0CQHpzHztMqfykc0kvFC1CsL1a7jb/WbIgKggSeUFidywvHZx
+	bewu2qhlCtTgqWwEmYNi+kisI8qVi39ZsEDgmC1rb6Y9QlnEfAn3zjCXmtLOnGRuTcn4SctyXEreI
+	kf0EOohoydtbFeTVeOM+jrGpeWwos2uwo9ztKCE3qGJNz/rgvNdZJyrN2YlZZbH1VehCsYgWrcJe9
+	uiW0eDNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1T9k-000000022hc-3yN3;
-	Sat, 14 Mar 2026 17:52:08 +0000
+	id 1w1T9l-000000022hy-15Qq;
+	Sat, 14 Mar 2026 17:52:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1T9a-000000022aM-0igf
+	id 1w1T9d-000000022cn-347r
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 17:51:59 +0000
+	Sat, 14 Mar 2026 17:52:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F739152B;
-	Sat, 14 Mar 2026 10:51:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2CA9152B;
+	Sat, 14 Mar 2026 10:51:53 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B28AB3F73B;
-	Sat, 14 Mar 2026 10:51:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7E58B3F73B;
+	Sat, 14 Mar 2026 10:51:57 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -52,17 +52,18 @@ Cc: catalin.marinas@arm.com,
 	joey.gouly@arm.com,
 	yuzenghui@huawei.com,
 	yeoreum.yun@arm.com
-Subject: [PATCH v17 7/8] KVM: arm64: use CAST instruction for swapping guest descriptor
-Date: Sat, 14 Mar 2026 17:51:32 +0000
-Message-Id: <20260314175133.1084528-8-yeoreum.yun@arm.com>
+Subject: [PATCH v17 8/8] arm64: Kconfig: add support for LSUI
+Date: Sat, 14 Mar 2026 17:51:33 +0000
+Message-Id: <20260314175133.1084528-9-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260314175133.1084528-1-yeoreum.yun@arm.com>
 References: <20260314175133.1084528-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_105158_246135_9D644A03 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260314_105202_947771_505C1821 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the CAST instruction to swap the guest descriptor when FEAT_LSUI
-is enabled, avoiding the need to clear the PAN bit.
+Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+previleged level to access to access user memory without clearing
+PSTATE.PAN bit.
 
-FEAT_LSUI is introduced in Armv9.6, where FEAT_PAN is mandatory. However,
-this assumption may not always hold:
-
- - Some CPUs may advertise FEAT_LSUI but lack FEAT_PAN.
- - Virtualization or ID register overrides may expose invalid feature
-   combinations.
-
-Therefore, instead of disabling FEAT_LSUI when FEAT_PAN is absent, wrap
-LSUI instructions with uaccess_ttbr0_enable()/disable() when
-ARM64_SW_TTBR0_PAN is enabled.
+Add Kconfig option entry for FEAT_LSUI.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- arch/arm64/kvm/at.c | 34 +++++++++++++++++++++++++++++++++-
- 1 file changed, 33 insertions(+), 1 deletion(-)
+ arch/arm64/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 6588ea251ed7..1adf88a57328 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -9,6 +9,7 @@
- #include <asm/esr.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
-+#include <asm/lsui.h>
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..890a1bedbf4a 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2215,6 +2215,26 @@ config ARM64_GCS
  
- static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
- {
-@@ -1681,6 +1682,35 @@ int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa, int *level)
- 	}
- }
+ endmenu # "ARMv9.4 architectural features"
  
-+static int __lsui_swap_desc(u64 __user *ptep, u64 old, u64 new)
-+{
-+	u64 tmp = old;
-+	int ret = 0;
++config AS_HAS_LSUI
++	def_bool $(as-instr,.arch_extension lsui)
++	help
++	  Supported by LLVM 20+ and binutils 2.45+.
 +
-+	/*
-+	 * Wrap LSUI instructions with uaccess_ttbr0_enable()/disable(),
-+	 * as PAN toggling is not required.
-+	 */
-+	uaccess_ttbr0_enable();
++menu "ARMv9.6 architectural features"
 +
-+	asm volatile(__LSUI_PREAMBLE
-+		     "1: cast	%[old], %[new], %[addr]\n"
-+		     "2:\n"
-+		     _ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w[ret])
-+		     : [old] "+r" (old), [addr] "+Q" (*ptep), [ret] "+r" (ret)
-+		     : [new] "r" (new)
-+		     : "memory");
++config ARM64_LSUI
++	bool "Support Unprivileged Load Store Instructions (LSUI)"
++	default y
++	depends on AS_HAS_LSUI && !CPU_BIG_ENDIAN
++	help
++	  The Unprivileged Load Store Instructions (LSUI) provides
++	  variants load/store instructions that access user-space memory
++	  from the kernel without clearing PSTATE.PAN bit.
 +
-+	uaccess_ttbr0_disable();
++	  This feature is supported by LLVM 20+ and binutils 2.45+.
 +
-+	if (ret)
-+		return ret;
-+	if (tmp != old)
-+		return -EAGAIN;
++endmenu # "ARMv9.6 architectural feature"
 +
-+	return ret;
-+}
-+
- static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
- {
- 	u64 tmp = old;
-@@ -1756,7 +1786,9 @@ int __kvm_at_swap_desc(struct kvm *kvm, gpa_t ipa, u64 old, u64 new)
- 		return -EPERM;
- 
- 	ptep = (u64 __user *)hva + offset;
--	if (cpus_have_final_cap(ARM64_HAS_LSE_ATOMICS))
-+	if (cpus_have_final_cap(ARM64_HAS_LSUI))
-+		r = __lsui_swap_desc(ptep, old, new);
-+	else if (cpus_have_final_cap(ARM64_HAS_LSE_ATOMICS))
- 		r = __lse_swap_desc(ptep, old, new);
- 	else
- 		r = __llsc_swap_desc(ptep, old, new);
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
