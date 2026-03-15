@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3103F3026D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A79F30274
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ubQ1v6PBsq99cAcF2yrnS1WsB85d1f/acmJVUU/lg1s=; b=wOgnbeSci049tWVGfdQzwDUlpU
-	/IEyBG3e6dN4md77Hiskl7zmGiyo/Uo7UMnzTvb/a7ZUVN67fRD4rsfuVinod3/06kLRCvLUHgqR2
-	CPTNJQTv5jg9uhTFRi6ZjVPW9tAfFx012tEJDB5kqBiRWLBrn0yDKwWRmDNb7gejDQj3NOKieDEZB
-	Of1kld3YNhKqYifSgsDk8dkqtEI4/zsIhILF/GNvHOP92htZ91RNTtQwimDNWh1aP38MsFYgJSWrQ
-	PEoM3zf2Lz5WbsEANFlSUbgTAXnQgwiXj/w1hRPJG+A0yWgs5TzgjuqF5hq71YeWC3uDCI6i6Rbfh
-	rSOia7vQ==;
+	bh=QBcY1jNO230ersIPOAT9WM1qbuR7iZiog4/B3vVvee0=; b=HfiorME3JV+Rjegug5EMBvmMAf
+	S5aR0+3qOst5CRUods6r5SmCo6c5p0yrQIAJInxSyc7GXzg24cLxG3j5XlYLK3zgWuGJV2fAXYtsj
+	YpbaUxSxm0fcPeEpmzUVVdRKprPDBc8+RVriCzpocx2xGxIRH4BC60X/Bk/TzWdKmDVg03KyzpVUZ
+	9NkiwqQiJcPChDsQzLKQdcTbH6WRS+u9ZaGHbfT+Y4QgCeek2v4YXlCC7OH9f0mCnj3f4PQQYIj8x
+	by0zJlmUxNstEDFgbyvBtKd1yg0z4xzzgxFQ6fhjjz8Fi/wk3VZG4+pw8qlYy1hg5LYrHM8FFdxnl
+	4+BMlDmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pDQ-00000002ltS-2hYc;
+	id 1w1pDQ-00000002lsi-1TUG;
 	Sun, 15 Mar 2026 17:25:24 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pDO-00000002lrI-0Ot8
+	id 1w1pDL-00000002lqL-3M0G
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 17:25:23 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4853fd7b59aso22711135e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:25:21 -0700 (PDT)
+	Sun, 15 Mar 2026 17:25:20 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48541edecf9so40985555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:25:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773595520; x=1774200320; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773595518; x=1774200318; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ubQ1v6PBsq99cAcF2yrnS1WsB85d1f/acmJVUU/lg1s=;
-        b=bUoopWOOSvE2nc+Ofssfn1d1hQQNwLcqfPB+t1VBHClqFB+10qL/Vk92M/ox6Cktpr
-         dfLvDjNLQYRoLsQlW15SOUeCj/F2DTwsmWFjIluo3Y9YepsGTJ+YGQkl8KLqhyPg1d91
-         75bJLbagMUwhYn1Gt4s21af1ppF/CnAGZD/u2jSzTAMdKlIs7Mq32ugMXpUx/4Uw28yP
-         GTcTU8mfzCYfcfgLJR3H9WeP4/YcGjUYf1UlPSfGv23TFDeYUch5h9h1+OtH0nygqEFc
-         em+bLT+wxK/RfUCjLfKW9zXs4A/1o9gicg50+NHWY7q2P7TkQe2bySf+HG22WHL5yMZa
-         EU3A==
+        bh=QBcY1jNO230ersIPOAT9WM1qbuR7iZiog4/B3vVvee0=;
+        b=Rav20hx2V04xjdpNrfzd77yJ7Z3L+leYPQ3y0c+LuU3Bx47SdcvOPGU49biicLy5Mt
+         GevX/uLk+WOs0zx54oC2ekWEcJk0be6StooTDiobpGT9X41f4Ic5jfoKeBa+kt2a3vlY
+         m59VxEztHDnSWc3Yh+8FATy+lYCscx6XSCyeJQHjPVhEes/Kujx1SOI1vRnQBfrAdnC0
+         MeZp5Zf9Tjh4mBGph1h79IGGNLbQEKFFU8rk1t6dgT+7b/9fc2a20lla9e2F/3oaP3bw
+         5Obs5oPP2rckDgOakcyxR5d+K7dsMWaaCpzay75GiRPBT6hoRpMxryu4qensFoz57+lS
+         QEQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773595520; x=1774200320;
+        d=1e100.net; s=20251104; t=1773595518; x=1774200318;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ubQ1v6PBsq99cAcF2yrnS1WsB85d1f/acmJVUU/lg1s=;
-        b=MtAx4ie3vw044IuVJwiOg4tI9JwcXXxVBkxS4eqymusWMXkxQk/mUH72p++Wt4ABXm
-         ZmpRdHZRrgR+BMTM58GvPP/hcMwaa4PJzETnFdLIhtN2bJHm6RpRP2JMM6m1haTYW6j3
-         BQP1aF7GO0UhlSaB1psUVmMFv/V6nCbCJeF3w3cv26rfWCxJ3+2Km47aR+/ddeUUk8Rj
-         CXD65h1GlPXaI3zluFzJsuKPRYITg7zn3ZATZn0WFOOnBPPTpDjU9ILRNnAgZkadNvhO
-         SlrXqyV9eKdD9QdA+bIBcjBuNMNtpah/e454DpdLOt2FHYYUNnvcuuLwaVrf3JcHpceq
-         0QOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU8nfndwrhD1H3hvVEx8GzfrCoHlXLE91LSvZoKCgEIpVvi4lqdr973NXf48kxXJaLXT3vaOA/bWduZbMgGcPSc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP18z3Bpx0brcAWcSX/7I4dOPua578kDG0O6Ckppb1thhwlWnl
-	TDkCUsgCAwhJ14O5ExxfthsssNPjX+7rLS2jCElKdbyoEIHm8mOaZxNC
-X-Gm-Gg: ATEYQzxesW9wV7KKOWBkRhxRZi04jDnVSeo0dCbBrUlwyJYomDq+KUDEZmIvyJ71bFh
-	Ia5Is6fwSEWQmqvPgyh85P6z74iywYg8H27cbkOUQjQeHBBX3OjXTkdMsnf/KK+Lzbg9/ZlxlpB
-	08mhxpUyG6oBhJM9Ok4ybj8Unrp8QLSGlJB4RblWk4aNJLpIFvxEBfiYfhBg/zqhO3EKJpT1LBx
-	9LOMVCW2FAGcgqKLhR48VotquyMLD9kBNE+TmJJQ7dZKZZetf0U5FvwmVigDj+YHaEqCxWxn+za
-	VRi5Ed2pfdba9LcHQin9cmGxhZ943MtYaenQlOoKqpEg5hxWJp8FcLBVEoRet9UpAbBkLEZ9OSN
-	wb4rn67U1Bgo6PpWp18tNRCfo/P06uYU8Ry9ehGhFvi5PpbzpD0+txQIPFBigFamHobAirikiq2
-	Bv1Kwzs4zKP6cICouQ9fQxz/RrMWcuhOigjUw1YI5QxM7Rig==
-X-Received: by 2002:a05:600c:4592:b0:485:3dfc:57a with SMTP id 5b1f17b1804b1-4855671044fmr171605205e9.32.1773595519800;
-        Sun, 15 Mar 2026 10:25:19 -0700 (PDT)
+        bh=QBcY1jNO230ersIPOAT9WM1qbuR7iZiog4/B3vVvee0=;
+        b=sCOeLfcWA+EH85hvCd20uTGaUFw5vOUM0MU/r1wnAZ6omfUtjV2CoHDqfTAG+xQRad
+         BIi+VlSIohwB92+jrWFOpgnhUkLijxoaykmxM9+QsMncVeGVxq9lb76bH4Re4pvi78AF
+         46nAAxIl0HIQG/HH6NzEXPtkQ2/LdJqgQR/4ZcOAkiMksC2iluZxB9J+l0hp0M6DLpqd
+         nOOs0JJ9ig9vdq55wl5ABfj2ftBoS0JWruYl8sAnDQTd3LIvYbQ/rNmCGIKdKcGoIvtl
+         U56sUnagvE0gyAezxY26v+NRVLymXgLI2mTzJiaUIRbB8pazOebk8Td3Rxe/RkjiV43S
+         7eow==
+X-Forwarded-Encrypted: i=1; AJvYcCV2U1R2CQ7PkuKbMb57KRD6qlit/8w0p8G97fRilvUX2MLctAOFoR7yL6VpbqEZN/vRfBO7dz/2HwZ6y+twss0/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVBfxPj/XYp3PPV7R5cxGURbOHSSU2NwQcqtJSf6n6N1WflKp9
+	xJefPtWIreA+pN8cBg8tobzUt3nDQoyAESNWYLcHkoRRF78JkPYi+Mxf
+X-Gm-Gg: ATEYQzx+TJVdF4B08rN2iN4z9V0G3tVDVyBilJek604ABDzAgy5Pg+pfO0fpD4M0YP4
+	MoAFzd1onkgZHeDg0xK65gh2iya32U9nFbSlOXNcZGb8FMs3q1aLteDnwiZkp6fbCidQLIvX+JL
+	zBKWp1bPacXd2yvL1ToToD7m1yhsu/YiLg4wyiOnyMawb1tkueboafF/ycVC9E4UtgH9AdIC5a/
+	w8gJYgOH/HKHThASb4u93oEUOtTzoTNvc3XfbEJ8alAsCfZtahci96xXyz4PuoGCmEEJMEvaory
+	6kYFyZZ6+DMSeDw2UathcHMjZnAkBYiHVUNTj25OrGigCUzoT5uRtr4jQkOsOnTYSjgRKSJ8Mbl
+	r9U9wFT0drXs4SE9xzRy4I1Vl32+kzbSHxL9IkAm8U0P9Hlb/nRz2gzy6N3UmMIAqnRIkDXESJq
+	eb1rfAQ8ZpbSjHrgzxilbY0AI5RE3DfMuoFjA=
+X-Received: by 2002:a05:600c:8489:b0:482:eec4:76d with SMTP id 5b1f17b1804b1-485566f7a2amr181338655e9.17.1773595517762;
+        Sun, 15 Mar 2026 10:25:17 -0700 (PDT)
 Received: from debian.lan ([171.22.84.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541aa73easm457168325e9.3.2026.03.15.10.25.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541aa73easm457168325e9.3.2026.03.15.10.25.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 10:25:19 -0700 (PDT)
+        Sun, 15 Mar 2026 10:25:17 -0700 (PDT)
 From: =?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Adrian Hunter <adrian.hunter@intel.com>,
@@ -89,17 +89,17 @@ Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>,
 	Adrian Garcia Cicuelo <adriangarciacicuelo@gmail.com>
-Subject: [PATCH v2 3/3] mmc: sdhci-esdhc-imx: consolidate imx25/35 data and add Kingston CID
-Date: Sun, 15 Mar 2026 18:25:07 +0100
-Message-ID: <20260315172507.270480-4-adriangarciacasado42@gmail.com>
+Subject: [PATCH v2 2/3] rust: block: rnull: update to Pin<KBox<QueueData>> for PinInit
+Date: Sun, 15 Mar 2026 18:25:06 +0100
+Message-ID: <20260315172507.270480-3-adriangarciacasado42@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260315172507.270480-1-adriangarciacasado42@gmail.com>
 References: <20260315172507.270480-1-adriangarciacasado42@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_102522_145760_9B8C6001 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260315_102519_870703_68735FBD 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,69 +114,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Consolidate esdhc_imx25 and esdhc_imx35 soc data into a single shared
-struct since they share the same flags. This reduces redundancy. Also
-add the CID_MANFID_KINGSTON definition to quirks.h for centralized
-management.
+Update the Rust rnull driver to use Pin<KBox<QueueData>> for queue data
+allocation. This aligns the driver with the latest PinInit zero-copy
+initialization abstractions in kernel 7.0 and fixes a type mismatch
+with GenDiskBuilder::build().
 
 Signed-off-by: Adrian Garcia Cicuelo <adriangarciacicuelo@gmail.com>
 ---
- drivers/mmc/core/quirks.h          |  4 ++++
- drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++--------
- 2 files changed, 8 insertions(+), 8 deletions(-)
+ drivers/block/rnull/rnull.rs | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/mmc/core/quirks.h b/drivers/mmc/core/quirks.h
-index c417ed34c..d736bb4be 100644
---- a/drivers/mmc/core/quirks.h
-+++ b/drivers/mmc/core/quirks.h
-@@ -15,6 +15,10 @@
+diff --git a/drivers/block/rnull/rnull.rs b/drivers/block/rnull/rnull.rs
+index 0ca8715fe..23df23936 100644
+--- a/drivers/block/rnull/rnull.rs
++++ b/drivers/block/rnull/rnull.rs
+@@ -54,7 +54,7 @@ fn new(
+     ) -> Result<GenDisk<Self>> {
+         let tagset = Arc::pin_init(TagSet::new(1, 256, 1), GFP_KERNEL)?;
  
- #include "card.h"
+-        let queue_data = Box::new(QueueData { irq_mode }, GFP_KERNEL)?;
++        let queue_data = Box::pin_init(QueueData { irq_mode }, GFP_KERNEL)?;
  
-+#ifndef CID_MANFID_KINGSTON
-+#define CID_MANFID_KINGSTON	0x70
-+#endif
-+
- static const struct mmc_fixup __maybe_unused mmc_sd_fixups[] = {
- 	/*
- 	 * Kingston Canvas Go! Plus microSD cards never finish SD cache flush.
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index a7a5df673..9cfa26722 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -256,11 +256,7 @@ struct esdhc_soc_data {
- 	u32 quirks;
- };
- 
--static const struct esdhc_soc_data esdhc_imx25_data = {
--	.flags = ESDHC_FLAG_ERR004536,
--};
--
--static const struct esdhc_soc_data esdhc_imx35_data = {
-+static const struct esdhc_soc_data esdhc_imx25_35_data = {
- 	.flags = ESDHC_FLAG_ERR004536,
- };
- 
-@@ -391,8 +387,8 @@ struct pltfm_imx_data {
- };
- 
- static const struct of_device_id imx_esdhc_dt_ids[] = {
--	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
--	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
-+	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
-+	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
- 	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
- 	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
- 	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
-@@ -414,7 +410,7 @@ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
- 
- static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
- {
--	return data->socdata == &esdhc_imx25_data;
-+	return data->socdata == &esdhc_imx25_35_data;
+         gen_disk::GenDiskBuilder::new()
+             .capacity_sectors(capacity_mib << (20 - block::SECTOR_SHIFT))
+@@ -65,16 +65,21 @@ fn new(
+     }
  }
  
- static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
++#[pin_data]
+ struct QueueData {
+     irq_mode: IRQMode,
+ }
+ 
+ #[vtable]
+ impl Operations for NullBlkDevice {
+-    type QueueData = KBox<QueueData>;
++    type QueueData = Pin<KBox<QueueData>>;
+ 
+     #[inline(always)]
+-    fn queue_rq(queue_data: &QueueData, rq: ARef<mq::Request<Self>>, _is_last: bool) -> Result {
++    fn queue_rq(
++        queue_data: Pin<&QueueData>,
++        rq: ARef<mq::Request<Self>>,
++        _is_last: bool,
++    ) -> Result {
+         match queue_data.irq_mode {
+             IRQMode::None => mq::Request::end_ok(rq)
+                 .map_err(|_e| kernel::error::code::EIO)
+@@ -87,7 +92,7 @@ fn queue_rq(queue_data: &QueueData, rq: ARef<mq::Request<Self>>, _is_last: bool)
+         Ok(())
+     }
+ 
+-    fn commit_rqs(_queue_data: &QueueData) {}
++    fn commit_rqs(_queue_data: Pin<&QueueData>) {}
+ 
+     fn complete(rq: ARef<mq::Request<Self>>) {
+         mq::Request::end_ok(rq)
 -- 
 2.47.3
 
