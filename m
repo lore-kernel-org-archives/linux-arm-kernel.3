@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0F210854B6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 00:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417F510854B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 00:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+o1XqCalYQnA+laKSrp8glNJDq0vbkvOj4gOv4j37E=; b=pVMmC0+A5EXc5pmkLqlmGOWP17
-	QkVPWMh8X0WZZkcF0BPCPc3qbJ6AvcxytpeArFWe4c6o9/7BQzPna7Axb4bGRb4Ins4eXh9i1z7dF
-	bDJWMpHKebnoSrzeFY9ega8BrfpcX/0BuoadwoajsieiI/Cd/sxKKdf6JpqRRjBK8srr5NaclqBBX
-	XF7dSY8496BULDmnfdNGk8fTOF18fblgthPAGDytdEuQRxCE5vG3y0hvUJMtXQCsCtEUF/Qw+xyb4
-	yU2e1KgeR2t7xJ/VInj0zucDlnErk6QsXeLvn3E9y1yFj51ohHGOhw+mJ9QCIByrPTY4thlPWtfa6
-	zqeBR5wA==;
+	bh=Nmp5nzSAV3AMcdo87vsXM3vB1XWhboXRsM43NnB7J50=; b=iYZWXZ9EBU8/OYRu70EW6m7GU8
+	3XWqW5gL4PTBfD/Foo1bH1YeOMXk3yr3G/a8GZfVWXwBwf1lg/8mChM8YscuHZsDYqL+7Ue97VneZ
+	4fTooDWX+f42lEubLV3JAihdLUVkysv3Ab4etTlwXiSjlHED6joA4p1MfmiPfyuHDx+K2NN9pJ0HY
+	OVcq0sqhzT6Z0xW5TRfKqm0X4N3P7f/72GIx66C8qAwbrK7juB0ofsEQDbSZo4V0vSW9DL6v9cJ8R
+	9/gUhoDUEz3MEDHqlrv0T8GGyRVUcvdyLaUre2W1yjjhu9ti/H2lqs2eMa0oP+OFf3FMWQEPpW7Fa
+	NO4dqAmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ZZi-00000002Gx5-0VBr;
-	Sun, 15 Mar 2026 00:43:22 +0000
-Received: from smtp.jvdsn.com ([2603:c020:1:bd00::1:3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ZZf-00000002Gwj-04HF
+	id 1w1ZaS-00000002H0S-1xm1;
+	Sun, 15 Mar 2026 00:44:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w1ZaM-00000002Gzb-3Fht
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 00:43:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=jvdsn.com; s=mail;
-	t=1773535396; bh=LU1uB/HE/c/73zPowr6km/30RYw7pRFXyU+zsrSKI7Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AL1xq9CHRXZnZYKrXiPg8HC0aDmz6xDNbxJnMgiI4k1KnR4DtrDcPBUcPTCpP26+Q
-	 Cs5iJ1A1EwiJu2XFsfvxB1e0+MLDNgt1MavHb3UUtDmwWL/UqfdX7At6lCt6WQuBVq
-	 /6e40lRRX99Q1HD8Vu7kYatWyOR9uu01tTvcL2/ahsPHwQYsZILfbyosb6+9vR+4D5
-	 kMx2tc0J9m68A1pp4K45Pe6OT6LVU3LrfdcEsAKLfMgYBM9mHqS2xjgncHqwvw/IF8
-	 TSzNQzLfuJ1/6wMvVO/MsGJYj9+G2oSE7z3RoAADQ9wP+n4ODySKTFoP3CHfRt3gKz
-	 KZ4YXmGfqG8mw==
-Message-ID: <64592fee-1956-4a70-a751-9ac3335cfc27@jvdsn.com>
-Date: Sat, 14 Mar 2026 19:43:15 -0500
+	Sun, 15 Mar 2026 00:44:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BCFA152B;
+	Sat, 14 Mar 2026 17:43:52 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 762313F7BD;
+	Sat, 14 Mar 2026 17:43:56 -0700 (PDT)
+Date: Sun, 15 Mar 2026 01:42:05 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland	
+ <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
+Message-ID: <20260315014205.471d6834@ryzen.lan>
+In-Reply-To: <a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
+References: <20260313000652.11470-1-andre.przywara@arm.com>
+	<a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
-To: Herbert Xu <herbert@gondor.apana.org.au>,
- Joachim Vandersmissen <git@jvdsn.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260303060509.246038-1-git@jvdsn.com>
- <abTuFto8Tc3mhRRe@gondor.apana.org.au>
-Content-Language: en-US
-From: Joachim Vandersmissen <git@jvdsn.com>
-In-Reply-To: <abTuFto8Tc3mhRRe@gondor.apana.org.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_174319_145236_B400C0AE 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260314_174402_909515_68FDF6FE 
+X-CRM114-Status: GOOD (  35.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,32 +68,489 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Herbert,
+On Sat, 14 Mar 2026 13:14:25 +0800
+Icenowy Zheng <uwu@icenowy.me> wrote:
 
-I don't think this one can be applied yet since dm-integrity still uses 
-xxhash64 through the crypto API. This would break fips=1 systems that 
-use it.
+> =E5=9C=A8 2026-03-13=E4=BA=94=E7=9A=84 01:06 +0100=EF=BC=8CAndre Przywara=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
+> > register frame. So far we were instantiating one GPIO chip per
+> > pinctrl
+> > device, which covers multiple banks of up to 32 GPIO pins per bank.
+> > The
+> > GPIO numbers were set to match the absolute pin numbers, even across
+> > the
+> > typically two instances of the pinctrl device.
+> >=20
+> > Convert the GPIO part of the sunxi pinctrl over to use the
+> > gpio_generic
+> > framework. This alone allows to remove some sunxi specific code,
+> > which
+> > is replaced with the existing generic code. This will become even
+> > more
+> > useful with the upcoming A733 support, which adds set and clear
+> > registers for the output.
+> > As a side effect this also changes the GPIO device and number
+> > allocation: Each bank is now represented by its own gpio_chip, with
+> > only
+> > as many pins as there are actually implemented. The numbering is left
+> > up =20
+>=20
+> Ah, is this a userspace API break?
 
-Kind regards,
-Joachim
+Was that ever a guaranteed user space API? Or just something
+that everyone relied on because it was always the same (until it
+wasn't)? Similar to /dev/mmcblk0 being the SD card?
+And ignoring the ill-fated old-style sysfs interface for now, how does
+this work with libgpiod? Would it still use the absolute pin numbers?
 
-On 3/14/26 12:11 AM, Herbert Xu wrote:
-> On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
->> xxhash64 is not a cryptographic hash algorithm, but is offered in the
->> same API (shash) as actual cryptographic hash algorithms such as
->> SHA-256. The Cryptographic Module Validation Program (CMVP), managing
->> FIPS certification, believes that this could cause confusion. xxhash64
->> must therefore be blocked in FIPS mode.
->>
->> The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
->> ("btrfs: switch to library APIs for checksums") recently modified the
->> btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
->> API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
->> mode should now have no impact on btrfs usage.
->>
->> Signed-off-by: Joachim Vandersmissen <git@jvdsn.com>
->> ---
->>   crypto/testmgr.c | 1 -
->>   1 file changed, 1 deletion(-)
-> Patch applied.  Thanks.
+I mean looking at that warning about the forced GPIO numbering we
+get, using base =3D -1 seems to be the recommended way?
+
+Cheers,
+Andre
+
+> Sincerely,
+> Icenowy
+>=20
+> > to the kernel (.base =3D -1).
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> > =C2=A0drivers/pinctrl/sunxi/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> > =C2=A0drivers/pinctrl/sunxi/pinctrl-sunxi.c | 245 ++++++++++++---------=
+---
+> > --
+> > =C2=A0drivers/pinctrl/sunxi/pinctrl-sunxi.h |=C2=A0 11 +-
+> > =C2=A03 files changed, 124 insertions(+), 133 deletions(-)
+> >=20
+> > diff --git a/drivers/pinctrl/sunxi/Kconfig
+> > b/drivers/pinctrl/sunxi/Kconfig
+> > index dc62eba96348e..5905810dbf398 100644
+> > --- a/drivers/pinctrl/sunxi/Kconfig
+> > +++ b/drivers/pinctrl/sunxi/Kconfig
+> > @@ -4,6 +4,7 @@ if ARCH_SUNXI
+> > =C2=A0config PINCTRL_SUNXI
+> > =C2=A0	bool
+> > =C2=A0	select PINMUX
+> > +	select GPIO_GENERIC
+> > =C2=A0	select GENERIC_PINCONF
+> > =C2=A0	select GPIOLIB
+> > =C2=A0
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > index 48434292a39b5..4235f9feff00d 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > @@ -13,6 +13,7 @@
+> > =C2=A0#include <linux/clk.h>
+> > =C2=A0#include <linux/export.h>
+> > =C2=A0#include <linux/gpio/driver.h>
+> > +#include <linux/gpio/generic.h>
+> > =C2=A0#include <linux/interrupt.h>
+> > =C2=A0#include <linux/io.h>
+> > =C2=A0#include <linux/irqchip/chained_irq.h>
+> > @@ -86,17 +87,6 @@ static void sunxi_mux_reg(const struct
+> > sunxi_pinctrl *pctl,
+> > =C2=A0	*mask=C2=A0 =3D (BIT(MUX_FIELD_WIDTH) - 1) << *shift;
+> > =C2=A0}
+> > =C2=A0
+> > -static void sunxi_data_reg(const struct sunxi_pinctrl *pctl,
+> > -			=C2=A0=C2=A0 u32 pin, u32 *reg, u32 *shift, u32 *mask)
+> > -{
+> > -	u32 offset =3D pin % PINS_PER_BANK * DATA_FIELD_WIDTH;
+> > -
+> > -	*reg=C2=A0=C2=A0 =3D sunxi_bank_offset(pctl, pin) + DATA_REGS_OFFSET +
+> > -		 offset / BITS_PER_TYPE(u32) * sizeof(u32);
+> > -	*shift =3D offset % BITS_PER_TYPE(u32);
+> > -	*mask=C2=A0 =3D (BIT(DATA_FIELD_WIDTH) - 1) << *shift;
+> > -}
+> > -
+> > =C2=A0static void sunxi_dlevel_reg(const struct sunxi_pinctrl *pctl,
+> > =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0 u32 pin, u32 *reg, u32 *shift, u32
+> > *mask)
+> > =C2=A0{
+> > @@ -930,99 +920,22 @@ static const struct pinmux_ops sunxi_pmx_ops =3D
+> > {
+> > =C2=A0	.strict			=3D true,
+> > =C2=A0};
+> > =C2=A0
+> > -static int sunxi_pinctrl_gpio_direction_input(struct gpio_chip
+> > *chip,
+> > -					unsigned offset)
+> > -{
+> > -	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > -
+> > -	return sunxi_pmx_gpio_set_direction(pctl->pctl_dev, NULL,
+> > -					=C2=A0=C2=A0=C2=A0 chip->base + offset,
+> > true);
+> > -}
+> > -
+> > -static int sunxi_pinctrl_gpio_get(struct gpio_chip *chip, unsigned
+> > offset)
+> > -{
+> > -	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > -	bool set_mux =3D pctl->desc->irq_read_needs_mux &&
+> > -		gpiochip_line_is_irq(chip, offset);
+> > -	u32 pin =3D offset + chip->base;
+> > -	u32 reg, shift, mask, val;
+> > -
+> > -	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
+> > -
+> > -	if (set_mux)
+> > -		sunxi_pmx_set(pctl->pctl_dev, pin,
+> > SUN4I_FUNC_INPUT);
+> > -
+> > -	val =3D (readl(pctl->membase + reg) & mask) >> shift;
+> > -
+> > -	if (set_mux)
+> > -		sunxi_pmx_set(pctl->pctl_dev, pin, SUN4I_FUNC_IRQ);
+> > -
+> > -	return val;
+> > -}
+> > -
+> > -static int sunxi_pinctrl_gpio_set(struct gpio_chip *chip, unsigned
+> > int offset,
+> > -				=C2=A0 int value)
+> > -{
+> > -	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > -	u32 reg, shift, mask, val;
+> > -	unsigned long flags;
+> > -
+> > -	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
+> > -
+> > -	raw_spin_lock_irqsave(&pctl->lock, flags);
+> > -
+> > -	val =3D readl(pctl->membase + reg);
+> > -
+> > -	if (value)
+> > -		val |=3D mask;
+> > -	else
+> > -		val &=3D ~mask;
+> > -
+> > -	writel(val, pctl->membase + reg);
+> > -
+> > -	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> > -
+> > -	return 0;
+> > -}
+> > -
+> > -static int sunxi_pinctrl_gpio_direction_output(struct gpio_chip
+> > *chip,
+> > -					unsigned offset, int value)
+> > -{
+> > -	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > -
+> > -	sunxi_pinctrl_gpio_set(chip, offset, value);
+> > -	return sunxi_pmx_gpio_set_direction(pctl->pctl_dev, NULL,
+> > -					=C2=A0=C2=A0=C2=A0 chip->base + offset,
+> > false);
+> > -}
+> > -
+> > -static int sunxi_pinctrl_gpio_of_xlate(struct gpio_chip *gc,
+> > -				const struct of_phandle_args
+> > *gpiospec,
+> > -				u32 *flags)
+> > -{
+> > -	int pin, base;
+> > -
+> > -	base =3D PINS_PER_BANK * gpiospec->args[0];
+> > -	pin =3D base + gpiospec->args[1];
+> > -
+> > -	if (pin > gc->ngpio)
+> > -		return -EINVAL;
+> > -
+> > -	if (flags)
+> > -		*flags =3D gpiospec->args[2];
+> > -
+> > -	return pin;
+> > -}
+> > -
+> > =C2=A0static int sunxi_pinctrl_gpio_to_irq(struct gpio_chip *chip,
+> > unsigned offset)
+> > =C2=A0{
+> > =C2=A0	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > =C2=A0	struct sunxi_desc_function *desc;
+> > -	unsigned pinnum =3D pctl->desc->pin_base + offset;
+> > -	unsigned irqnum;
+> > +	unsigned int pinnum, irqnum, i;
+> > =C2=A0
+> > =C2=A0	if (offset >=3D chip->ngpio)
+> > =C2=A0		return -ENXIO;
+> > =C2=A0
+> > +	for (i =3D 0; i < SUNXI_PINCTRL_MAX_BANKS; i++)
+> > +		if (pctl->banks[i].chip.gc.base =3D=3D chip->base)
+> > +			break;
+> > +	if (i =3D=3D SUNXI_PINCTRL_MAX_BANKS)
+> > +		return -EINVAL;
+> > +	pinnum =3D pctl->desc->pin_base + i * PINS_PER_BANK + offset;
+> > +
+> > =C2=A0	desc =3D sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum,
+> > "irq");
+> > =C2=A0	if (!desc)
+> > =C2=A0		return -EINVAL;
+> > @@ -1039,18 +952,19 @@ static int
+> > sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+> > =C2=A0{
+> > =C2=A0	struct sunxi_pinctrl *pctl =3D irq_data_get_irq_chip_data(d);
+> > =C2=A0	struct sunxi_desc_function *func;
+> > -	int ret;
+> > +	int pinnum =3D pctl->irq_array[d->hwirq], ret;
+> > +	int bank =3D (pinnum - pctl->desc->pin_base) / PINS_PER_BANK;
+> > =C2=A0
+> > -	func =3D sunxi_pinctrl_desc_find_function_by_pin(pctl,
+> > -					pctl->irq_array[d->hwirq],
+> > "irq");
+> > +	func =3D sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum,
+> > "irq");
+> > =C2=A0	if (!func)
+> > =C2=A0		return -EINVAL;
+> > =C2=A0
+> > -	ret =3D gpiochip_lock_as_irq(pctl->chip,
+> > -			pctl->irq_array[d->hwirq] - pctl->desc- =20
+> > >pin_base); =20
+> > +	ret =3D gpiochip_lock_as_irq(&pctl->banks[bank].chip.gc,
+> > +				=C2=A0=C2=A0 d->hwirq % IRQ_PER_BANK);
+> > =C2=A0	if (ret) {
+> > =C2=A0		dev_err(pctl->dev, "unable to lock HW IRQ %lu for
+> > IRQ\n",
+> > =C2=A0			irqd_to_hwirq(d));
+> > +
+> > =C2=A0		return ret;
+> > =C2=A0	}
+> > =C2=A0
+> > @@ -1063,9 +977,10 @@ static int
+> > sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+> > =C2=A0static void sunxi_pinctrl_irq_release_resources(struct irq_data *=
+d)
+> > =C2=A0{
+> > =C2=A0	struct sunxi_pinctrl *pctl =3D irq_data_get_irq_chip_data(d);
+> > +	int pinnum =3D pctl->irq_array[d->hwirq] - pctl->desc- =20
+> > >pin_base; =20
+> > +	struct gpio_chip *gc =3D &pctl->banks[pinnum /
+> > PINS_PER_BANK].chip.gc;
+> > =C2=A0
+> > -	gpiochip_unlock_as_irq(pctl->chip,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pctl->irq_array[d->hwirq] - pctl- =20
+> > >desc->pin_base); =20
+> > +	gpiochip_unlock_as_irq(gc, pinnum);
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned
+> > int type)
+> > @@ -1493,6 +1408,84 @@ static int sunxi_pinctrl_setup_debounce(struct
+> > sunxi_pinctrl *pctl,
+> > =C2=A0	return 0;
+> > =C2=A0}
+> > =C2=A0
+> > +static bool sunxi_of_node_instance_match(struct gpio_chip *chip,
+> > unsigned int i)
+> > +{
+> > +	struct sunxi_pinctrl *pctl =3D gpiochip_get_data(chip);
+> > +
+> > +	if (i >=3D SUNXI_PINCTRL_MAX_BANKS)
+> > +		return false;
+> > +
+> > +	return (chip->base =3D=3D pctl->banks[i].chip.gc.base);
+> > +}
+> > +
+> > +static int sunxi_num_pins_of_bank(struct sunxi_pinctrl *pctl, int
+> > bank)
+> > +{
+> > +	int max =3D -1, i;
+> > +
+> > +	for (i =3D 0; i < pctl->desc->npins; i++) {
+> > +		int pinnum =3D pctl->desc->pins[i].pin.number - pctl- =20
+> > >desc->pin_base; =20
+> > +
+> > +		if (pinnum / PINS_PER_BANK < bank)
+> > +			continue;
+> > +		if (pinnum / PINS_PER_BANK > bank)
+> > +			break;
+> > +		if (pinnum % PINS_PER_BANK > max)
+> > +			max =3D pinnum % PINS_PER_BANK;
+> > +	}
+> > +
+> > +	return max + 1;
+> > +}
+> > +
+> > +static int sunxi_gpio_add_bank(struct sunxi_pinctrl *pctl, int
+> > index)
+> > +{
+> > +	char bank_name =3D 'A' + index + pctl->desc->pin_base /
+> > PINS_PER_BANK;
+> > +	struct sunxi_gpio_bank *bank =3D &pctl->banks[index];
+> > +	struct gpio_generic_chip_config config;
+> > +	struct gpio_chip *gc =3D &bank->chip.gc;
+> > +	int ngpio, ret;
+> > +
+> > +	ngpio =3D sunxi_num_pins_of_bank(pctl, index);
+> > +	bank->pctl =3D pctl;
+> > +	bank->base =3D pctl->membase + index * pctl->bank_mem_size;
+> > +	if (!ngpio) {
+> > +		gc->owner =3D THIS_MODULE;
+> > +		gc->ngpio =3D 0;
+> > +		gc->base =3D -1;
+> > +		gc->of_gpio_n_cells =3D 3;
+> > +
+> > +		return 0;
+> > +	}
+> > +
+> > +	config =3D (struct gpio_generic_chip_config) {
+> > +		.dev =3D pctl->dev,
+> > +		.sz =3D 4,
+> > +		.dat =3D bank->base + DATA_REGS_OFFSET,
+> > +		.set =3D bank->base + DATA_REGS_OFFSET,
+> > +		.clr =3D NULL,
+> > +		.flags =3D GPIO_GENERIC_READ_OUTPUT_REG_SET |
+> > +			 GPIO_GENERIC_PINCTRL_BACKEND,
+> > +	};
+> > +
+> > +	ret =3D gpio_generic_chip_init(&bank->chip, &config);
+> > +	if (ret)
+> > +		return dev_err_probe(pctl->dev, ret,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0 "failed to init generic gpio
+> > chip\n");
+> > +
+> > +	gc->owner		=3D THIS_MODULE;
+> > +	gc->label		=3D devm_kasprintf(pctl->dev,
+> > GFP_KERNEL,
+> > +						 "%s-P%c", gc- =20
+> > >label, =20
+> > +						 bank_name);
+> > +	gc->ngpio		=3D ngpio;
+> > +	gc->base		=3D -1;
+> > +	gc->of_gpio_n_cells	=3D 3;
+> > +	gc->of_node_instance_match =3D sunxi_of_node_instance_match;
+> > +	gc->set_config		=3D gpiochip_generic_config;
+> > +	gc->to_irq		=3D sunxi_pinctrl_gpio_to_irq;
+> > +	gc->can_sleep		=3D false;
+> > +
+> > +	return gpiochip_add_data(gc, pctl);
+> > +}
+> > +
+> > =C2=A0int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+> > =C2=A0				=C2=A0 const struct sunxi_pinctrl_desc
+> > *desc,
+> > =C2=A0				=C2=A0 unsigned long flags)
+> > @@ -1503,6 +1496,7 @@ int sunxi_pinctrl_init_with_flags(struct
+> > platform_device *pdev,
+> > =C2=A0	struct sunxi_pinctrl *pctl;
+> > =C2=A0	struct pinmux_ops *pmxops;
+> > =C2=A0	int i, ret, last_pin, pin_idx;
+> > +	int gpio_banks;
+> > =C2=A0	struct clk *clk;
+> > =C2=A0
+> > =C2=A0	pctl =3D devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+> > @@ -1590,38 +1584,23 @@ int sunxi_pinctrl_init_with_flags(struct
+> > platform_device *pdev,
+> > =C2=A0		return PTR_ERR(pctl->pctl_dev);
+> > =C2=A0	}
+> > =C2=A0
+> > -	pctl->chip =3D devm_kzalloc(&pdev->dev, sizeof(*pctl->chip),
+> > GFP_KERNEL);
+> > -	if (!pctl->chip)
+> > -		return -ENOMEM;
+> > -
+> > -	last_pin =3D pctl->desc->pins[pctl->desc->npins -
+> > 1].pin.number;
+> > -	pctl->chip->owner =3D THIS_MODULE;
+> > -	pctl->chip->request =3D gpiochip_generic_request;
+> > -	pctl->chip->free =3D gpiochip_generic_free;
+> > -	pctl->chip->set_config =3D gpiochip_generic_config;
+> > -	pctl->chip->direction_input =3D
+> > sunxi_pinctrl_gpio_direction_input;
+> > -	pctl->chip->direction_output =3D
+> > sunxi_pinctrl_gpio_direction_output;
+> > -	pctl->chip->get =3D sunxi_pinctrl_gpio_get;
+> > -	pctl->chip->set =3D sunxi_pinctrl_gpio_set;
+> > -	pctl->chip->of_xlate =3D sunxi_pinctrl_gpio_of_xlate;
+> > -	pctl->chip->to_irq =3D sunxi_pinctrl_gpio_to_irq;
+> > -	pctl->chip->of_gpio_n_cells =3D 3;
+> > -	pctl->chip->can_sleep =3D false;
+> > -	pctl->chip->ngpio =3D round_up(last_pin, PINS_PER_BANK) -
+> > -			=C2=A0=C2=A0=C2=A0 pctl->desc->pin_base;
+> > -	pctl->chip->label =3D dev_name(&pdev->dev);
+> > -	pctl->chip->parent =3D &pdev->dev;
+> > -	pctl->chip->base =3D pctl->desc->pin_base;
+> > -
+> > -	ret =3D gpiochip_add_data(pctl->chip, pctl);
+> > -	if (ret)
+> > -		return ret;
+> > +	last_pin =3D pctl->desc->pins[pctl->desc->npins -
+> > 1].pin.number -
+> > +		=C2=A0=C2=A0 pctl->desc->pin_base;
+> > +	for (gpio_banks =3D 0;
+> > +	=C2=A0=C2=A0=C2=A0=C2=A0 gpio_banks <=3D last_pin / PINS_PER_BANK;
+> > +	=C2=A0=C2=A0=C2=A0=C2=A0 gpio_banks++) {
+> > +		ret =3D sunxi_gpio_add_bank(pctl, gpio_banks);
+> > +		if (ret)
+> > +			goto gpiochip_error;
+> > +	}
+> > =C2=A0
+> > =C2=A0	for (i =3D 0; i < pctl->desc->npins; i++) {
+> > =C2=A0		const struct sunxi_desc_pin *pin =3D pctl->desc->pins
+> > + i;
+> > +		int bank =3D (pin->pin.number - pctl->desc->pin_base)
+> > / PINS_PER_BANK;
+> > +		struct gpio_chip *gc =3D &pctl->banks[bank].chip.gc;
+> > =C2=A0
+> > -		ret =3D gpiochip_add_pin_range(pctl->chip,
+> > dev_name(&pdev->dev),
+> > -					=C2=A0=C2=A0=C2=A0=C2=A0 pin->pin.number - pctl- =20
+> > >desc->pin_base, =20
+> > +		ret =3D gpiochip_add_pin_range(gc, dev_name(&pdev- =20
+> > >dev), =20
+> > +					=C2=A0=C2=A0=C2=A0=C2=A0 pin->pin.number %
+> > PINS_PER_BANK,
+> > =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 pin->pin.number, 1);
+> > =C2=A0		if (ret)
+> > =C2=A0			goto gpiochip_error;
+> > @@ -1690,6 +1669,8 @@ int sunxi_pinctrl_init_with_flags(struct
+> > platform_device *pdev,
+> > =C2=A0	return 0;
+> > =C2=A0
+> > =C2=A0gpiochip_error:
+> > -	gpiochip_remove(pctl->chip);
+> > +	while (--gpio_banks >=3D 0)
+> > +		gpiochip_remove(&pctl->banks[gpio_banks].chip.gc);
+> > +
+> > =C2=A0	return ret;
+> > =C2=A0}
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > index ad26e4de16a85..085131caa02fe 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > @@ -14,6 +14,7 @@
+> > =C2=A0#define __PINCTRL_SUNXI_H
+> > =C2=A0
+> > =C2=A0#include <linux/kernel.h>
+> > +#include <linux/gpio/generic.h>
+> > =C2=A0#include <linux/spinlock.h>
+> > =C2=A0
+> > =C2=A0#define PA_BASE	0
+> > @@ -159,9 +160,17 @@ struct sunxi_pinctrl_regulator {
+> > =C2=A0	refcount_t		refcount;
+> > =C2=A0};
+> > =C2=A0
+> > +struct sunxi_pinctrl;
+> > +
+> > +struct sunxi_gpio_bank {
+> > +	struct gpio_generic_chip chip;
+> > +	struct sunxi_pinctrl *pctl;
+> > +	void __iomem *base;
+> > +};
+> > +
+> > =C2=A0struct sunxi_pinctrl {
+> > =C2=A0	void __iomem			*membase;
+> > -	struct gpio_chip		*chip;
+> > +	struct
+> > sunxi_gpio_bank		banks[SUNXI_PINCTRL_MAX_BANKS];
+> > =C2=A0	const struct sunxi_pinctrl_desc	*desc;
+> > =C2=A0	struct device			*dev;
+> > =C2=A0	struct sunxi_pinctrl_regulator	regulators[11]; =20
+>=20
+
 
