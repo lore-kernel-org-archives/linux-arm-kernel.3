@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66067F3027F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 18:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14575F30282
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 18:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBmwIIEmQQ7ALvfJXPmn7a1QXvubeC83z8NKyKJb0nA=; b=dZbMtPRCC72Y8zU9Y5m+WyTF94
-	lYQUQ9zVaFxGKVwC/BPOOE+9isTdePhtRhNlPMM+0It6PNwa+lGwhOSLrJH2ALyTA/hkAeebNE8wv
-	EDF0zIOw4yOYpzco/W+ZnlPhSNGSxElJB71JjKJGXg6kS4lnDo0f5/QvlNzMUmE4e3MWqQNU66Ig1
-	P4OgGcXDmPH1G3sw8cwbbG6bEMKnPGLMt0IWlcSlo3MBZBjNcZM58UIX40mtCj4vPvdzMghTlBdY6
-	Y0DF1Qwm3uzt6iTIu7LKG30pw2LLoe/PpvZ/9hnAhsX73o+6aiSD7ChW/fSqf9OdJ3sDvXGVt5CPr
-	eVqScv4w==;
+	bh=S6CR8ySS7cYhPN0VWnPLjS8GD2eGEF3lQmZe4RGDlaE=; b=n1jmnN1GRCcWA6TNvoeQoTtq1c
+	UBV1qfQ4gcfKaTNOwm271j1gWVa4kZ7lPSeOc+BYAffFhI6df2PWQODwn9tMCaj9Hr1ArFipK77/k
+	VWcTy6BN7Oj3+mL1Qg8s1VcLIsTyTz5aqXxbQQ0Bv3Bg1tS8T8H2lyaSHAhNvMrGd2fQ7cq+DXPT1
+	IqnJXUScjEZ86HUVrJjx+OBuYv0XJQ7GiA4HBPFKRutiKWDxZ/x2arni/S3VGlzResniX2Cg/Vmv+
+	ZDRbLXUAvZycde2NjiitQdLZk+Vtys1WQIARo0iKG3SJDOhq2xuupX+m5J/eN9ecgJLCPpk1fIei6
+	fysfxd4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1qa8-00000002pJz-3OWc;
-	Sun, 15 Mar 2026 18:52:56 +0000
+	id 1w1qa9-00000002pKX-1o92;
+	Sun, 15 Mar 2026 18:52:57 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1qa6-00000002pGs-1lGW
+	id 1w1qa6-00000002pGy-3PU3
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 15 Mar 2026 18:52:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D2D061333;
+	by tor.source.kernel.org (Postfix) with ESMTP id E0A5B61855;
 	Sun, 15 Mar 2026 18:52:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E7752C4AF09;
-	Sun, 15 Mar 2026 18:52:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9A998C2BCC4;
+	Sun, 15 Mar 2026 18:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773600773;
-	bh=bpoQ6IKRn/nSvcKPsUyUF/0JXmjhDnP5GYWVeoS0EgE=;
+	bh=6HW5C0SfqEBAxDJ9xWy7Rnz4x8QeHdPYr0Wv2/Kj0hE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iPqmzh8U68Hm7Y4tB4oFsmEvDowG0+zf//hpvsUrNnbehswQc2RIUEJeQvmZ9rHSP
-	 UQORJGs+WkyT811DmRbdR46XMtk/Cvq1vFt2Odi/ibiaxrfyfwQhNrUboQOdZP/WG9
-	 +0QkquFhas0oq8jV2Fp1IiASO4bALaHRNzN/9rP+/iCG3RRKvgpMZ3C5vxZWNzDuYo
-	 6y9H6nU+V/RQTBKEWNe1KxJ2lxmtM4jn3HhIRqxh18EAsJeRc4VQmo3Tu0OxRftQrO
-	 2XOi+pR/evBTi7E5pG6v55sxkVne+htR0IrMhHBZmmJeho1bwgd2bY2lGyAS1Q+zsc
-	 Y0uie53wPKObA==
+	b=ZZWrgbzxJFKKYMi4JI1C/slZsljv3rdIuPa88CSrA+9wkYKUBRJ03CAdE26ve0i/I
+	 xx8eZhZ8pqaMeiSCJIC1CVfNvnJC57N4b1ixfseUoIOUOAP/Eq43myk6be24uI+XGA
+	 CKhB/RrX1zO02jvpA1wRO9xeVHRd9UXNhgBoJFXA054BjZL57xNGQZotANPO2bUuUX
+	 gd6gJ6q4AcReYCBosG5iD/5Ov+NrGiZnFhCAZTphr1S8CgoqmBB5sNhYLHk+IVsPl7
+	 ccEHn1ffIBI+aaXvN7KK13kXHCFshRoeOmTmroOEAZGYobFgJ24p+1OppYld0DA070
+	 F4THZ27BgUhQA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5F48F30281;
-	Sun, 15 Mar 2026 18:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F399F30282;
+	Sun, 15 Mar 2026 18:52:53 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sun, 15 Mar 2026 19:52:38 +0100
-Subject: [PATCH WIP v2 02/11] Input: stmfts - Use dev struct directly
+Date: Sun, 15 Mar 2026 19:52:45 +0100
+Subject: [PATCH WIP v2 09/11] dt-bindings: input: touchscreen: st,stmfts:
+ Introduce STM FTS5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260315-stmfts5-v2-2-70bc83ee9591@ixit.cz>
+Message-Id: <20260315-stmfts5-v2-9-70bc83ee9591@ixit.cz>
 References: <20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz>
 In-Reply-To: <20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -68,21 +69,21 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3250; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1055; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=qhTFo7x1eamQnc3/H+5w4SpN3nDelhQhEumWc7k2sMo=;
- b=owEBbAKT/ZANAwAIAWACP8TTSSByAcsmYgBptv/5Yr34vjKy0xgLLgkBC0dOUx3DaiISzKFsn
- GzkYMtkz2SJAjIEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCabb/+QAKCRBgAj/E00kg
- cvQjD/dUpVDBUYUofQaoDk47EDAEsI2f+XX1V1uQdnNjhz059wkVp8lYqstPIcTC+b+vQMF/yY4
- G6VNezIC2/okkeDEyFXpg8WxIJUDftQZ4qqEnDeV50T/j7W/A+9xHnVt2/KLzxxKaGzkCEQUhuR
- x4XvUaNZj4fL9ThLwAnLxq3naluVRvFv3VwJT5wbJS48l/ZbmceLpBbKnkqoAk85bp7s1NNCcu0
- rp7XzfesUiOlttRBNAaj3kYY1vZuNBAnbli+xk+SNJZWD5ZuccH7zdBNwQ3HJJrbvaSI7TjP5oI
- hjnUNq70Mb1pkHJlrudI1bFL+555wTcanGVgQPDywH0ETKIaaMIT1QvYz6j4ZOUTCMZ/bdtA2Bk
- 6uXhGEo+OF63HOsaNbFeNA7rfNzghE6eUGxWpS+KCDygaoiJfPGHMGSJbW0oVkC2s8BWkFOvZYc
- Qy5J2FdX0/X1V5nr2dYkATsu1PJbKCdrTr+FtQrniuqPEOhVwLjx5xmapW53SoHrZRFVxKtYelb
- 2fDPHqq78TynzV53fRN8foRYutV1cQeAkEF0ViKH48spaPbyDaAKiv0h/H21qdq03+ANqskYeT8
- uFd/CM8cg/paqjKDunUEKnpLMTZW6WvK/0S+ZcBvRVL+ZqySctYZpv9qtWmTXfqpZaZkWlX4sp7
- +53rUohKjjSTX
+ bh=h9cECjq5ixf532xdPZjxPL80kJ11WrP4Xf5V/9RKA7Q=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBptv/6lnDIMavIrwcYtj0lh0pCOWzu3RevBl4UZ
+ /fzW91xkmuJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCabb/+gAKCRBgAj/E00kg
+ cvsJD/0Qp9xOpywUTHGKd9kmlHiS+une24wyAVlUwl4wIPH99T9Kz0GpdLiNi5iLoXZ+IVDMn55
+ 3EgVHXRuT0jTAb9x1gavYNq7Y6xjMhL1Nwy/kW4ihm8F6n60RjJUWlHCUK5hjtUgk3zdIcoO2Zi
+ 2uA09vJvOAyTyKLYUO6TwSab9cwEm3R5VqtJ1JMGCFMtUKGYY6QoThCx+B1Y0DnDE65L8WrsG+R
+ nhmbFZFT/J6hOz/e4K4hkwA2ZjCp2t/2UrwTBwEXH09LT/KUV/uoWdRoC4dxgFZVsi57+i+ogRf
+ Wknku5jEaEjXRJxk0EwP5rHkfmcdE0wbIQV1LUnlafnGEAEt2JW9aacE1mT7qBfdjCECl8xYPxZ
+ V4nBwCsNrJEiOj8ouYuWEFcnJ3pZU10+SUWn7I5eudR18D8RUgC0QhzR5p/ufmOBtz5jLja3xbL
+ ie1Hkv59fizlA3mST2/S2O3THCSS9NiIXznmHNeYhoIyHaz9Pz4Ufo0Bio3OM0tWs7d5rMIwUrr
+ YvbspcwL2xe4Cun+3BAXEy/CnVbKDt4aawnEsp7AN6BItGL7e99k7t0tX9KoJVMsynqt2tResa7
+ NP3lxa1bLZ2sRhDT0S/ipLJEnWvWf8pfTug4OXPzyNR5XELfhfgXemKqHiy/vjM0hxflN6DFsCw
+ NiiShg53lFQ9MXQ==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -104,100 +105,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Heidelberg <david@ixit.cz>
 
-Makes the code better readable and noticably shorter.
+Introduce more recent STM FTS5 touchscreen support.
 
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- drivers/input/touchscreen/stmfts.c | 21 +++++++++++----------
- 1 file changed, 11 insertions(+), 10 deletions(-)
+ .../devicetree/bindings/input/touchscreen/st,stmfts.yaml  | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
-index d93ce68feca51..1d63f63e43d48 100644
---- a/drivers/input/touchscreen/stmfts.c
-+++ b/drivers/input/touchscreen/stmfts.c
-@@ -620,6 +620,7 @@ static int stmfts_enable_led(struct stmfts_data *sdata)
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
+index 64c4f24ea3dd0..66255893a99fb 100644
+--- a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
++++ b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
+@@ -16,10 +16,23 @@ description:
  
- static int stmfts_probe(struct i2c_client *client)
- {
-+	struct device *dev = &client->dev;
- 	int err;
- 	struct stmfts_data *sdata;
+ allOf:
+   - $ref: touchscreen.yaml#
++  - if:
++      properties:
++        compatible:
++          const: st,stmfts5
++    then:
++      properties:
++        switch-gpios:
++          description: Switch between SLPI and AP mode.
++
++      required:
++        - switch-gpios
  
-@@ -628,7 +629,7 @@ static int stmfts_probe(struct i2c_client *client)
- 						I2C_FUNC_SMBUS_I2C_BLOCK))
- 		return -ENODEV;
+ properties:
+   compatible:
+-    const: st,stmfts
++    enum:
++      - st,stmfts
++      - st,stmfts5
  
--	sdata = devm_kzalloc(&client->dev, sizeof(*sdata), GFP_KERNEL);
-+	sdata = devm_kzalloc(dev, sizeof(*sdata), GFP_KERNEL);
- 	if (!sdata)
- 		return -ENOMEM;
- 
-@@ -640,13 +641,13 @@ static int stmfts_probe(struct i2c_client *client)
- 
- 	sdata->regulators[STMFTS_REGULATOR_VDD].supply = "vdd";
- 	sdata->regulators[STMFTS_REGULATOR_AVDD].supply = "avdd";
--	err = devm_regulator_bulk_get(&client->dev,
-+	err = devm_regulator_bulk_get(dev,
- 				      ARRAY_SIZE(sdata->regulators),
- 				      sdata->regulators);
- 	if (err)
- 		return err;
- 
--	sdata->input = devm_input_allocate_device(&client->dev);
-+	sdata->input = devm_input_allocate_device(dev);
- 	if (!sdata->input)
- 		return -ENOMEM;
- 
-@@ -665,7 +666,7 @@ static int stmfts_probe(struct i2c_client *client)
- 	input_set_abs_params(sdata->input, ABS_MT_PRESSURE, 0, 255, 0, 0);
- 	input_set_abs_params(sdata->input, ABS_DISTANCE, 0, 255, 0, 0);
- 
--	sdata->use_key = device_property_read_bool(&client->dev,
-+	sdata->use_key = device_property_read_bool(dev,
- 						   "touch-key-connected");
- 	if (sdata->use_key) {
- 		input_set_capability(sdata->input, EV_KEY, KEY_MENU);
-@@ -686,20 +687,20 @@ static int stmfts_probe(struct i2c_client *client)
- 	 * interrupts. To be on the safe side it's better to not enable
- 	 * the interrupts during their request.
- 	 */
--	err = devm_request_threaded_irq(&client->dev, client->irq,
-+	err = devm_request_threaded_irq(dev, client->irq,
- 					NULL, stmfts_irq_handler,
- 					IRQF_ONESHOT | IRQF_NO_AUTOEN,
- 					"stmfts_irq", sdata);
- 	if (err)
- 		return err;
- 
--	dev_dbg(&client->dev, "initializing ST-Microelectronics FTS...\n");
-+	dev_dbg(dev, "initializing ST-Microelectronics FTS...\n");
- 
- 	err = stmfts_power_on(sdata);
- 	if (err)
- 		return err;
- 
--	err = devm_add_action_or_reset(&client->dev, stmfts_power_off, sdata);
-+	err = devm_add_action_or_reset(dev, stmfts_power_off, sdata);
- 	if (err)
- 		return err;
- 
-@@ -716,13 +717,13 @@ static int stmfts_probe(struct i2c_client *client)
- 			 * without LEDs. The ledvdd regulator pointer will be
- 			 * used as a flag.
- 			 */
--			dev_warn(&client->dev, "unable to use touchkey leds\n");
-+			dev_warn(dev, "unable to use touchkey leds\n");
- 			sdata->ledvdd = NULL;
- 		}
- 	}
- 
--	pm_runtime_enable(&client->dev);
--	device_enable_async_suspend(&client->dev);
-+	pm_runtime_enable(dev);
-+	device_enable_async_suspend(dev);
- 
- 	return 0;
- }
+   reg:
+     maxItems: 1
 
 -- 
 2.53.0
