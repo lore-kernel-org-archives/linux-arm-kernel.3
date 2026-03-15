@@ -4,124 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C53F30283
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 23:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862E4F3027F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 23:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OT8Iw6M557aLYwHQwbfjFt5SgiwLxQR3GJ4aDtnOQyU=; b=P1AcGeoaUwgXR6/q6GoayBwDzI
-	gpakADD0IFjYeaX75DjHQbrq94dJoU3BRC5J9OaY/dwlnV14fhJSwlg1AKPEY/XF19Uo92I9WZ8Bg
-	seaVtyWjFaCI78/5VD6GO1XkGT0R8r74Px3tU4XSfF+iGN4QKc4qDX9rjYAZ4Oc6Sk+3BTvbude5l
-	SKAJNj2j7Sxcl1tutmeX5yvvzMGtJFmHBaRb1ImULYXJPtqFbNljEig5FhcFdL3LVCiqwdqCXo/Fr
-	9OL3gPwpnqVZy/Ep9cX6G4milsXuIq8IJk7R3oQov655DvUdC5Qmmbcz9nykpVQQvntVMm6hmZLLQ
-	y86l4O+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jtCQPLyj84+GsPspBnbaXy0yTRP7zEyOqjhe8ajtp8U=; b=mqUoYXo5opuNaNM744V7GrNMoW
+	yJnCtXepeEp+eDuGQ/e1oJVI7wsj7IJuHMs10/Wzo3JmlSsGDv7f1Bk5d3fJ6pccohP6w7RUBz2xv
+	8O5zoW2yzjI9BNKPJraOLMkLjuYbgBCx+ltYW6EoIr8xRJRcaKTrfsnMmHdJzZBlzn2/geXkQ8vYb
+	DAANDVmJB0y370LvSytvTmXUMkCmCa5xSKOQJMAkBM5+WlNjDggC36bWxkiLZcAj8A0+R0DzH4Ofp
+	XjPkhnzCNCaSze7feDfMA2vr8e7CQAO4ZuwKgsuJJhW9Ii/hRFRNgDakIyLZMmjqmoNz50K5cS+D4
+	/hgHt+fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1uny-000000030gy-0UXD;
-	Sun, 15 Mar 2026 23:23:30 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1w1v9s-000000031Xo-3daj;
+	Sun, 15 Mar 2026 23:46:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1unv-000000030fp-0NlB
+	id 1w1v9o-000000031XN-2SF2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 23:23:29 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-50906a98ffeso714461cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 16:23:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773617006; cv=none;
-        d=google.com; s=arc-20240605;
-        b=VwD19valW82XjxIzNZ0emrIAj0aIFKtfaVBU4dUWuyNoRUOav94Wjp1Ukp5gHxflus
-         28XBGtjTFJ6Ny1wwDCh2AYxYMJ6Hs3ZLzh/hTo5wEdYtGAzu2Bb802JTAOkcdxpapNek
-         RxUttXtVfikeaiv9CEr7jIPwpX+96oMA+QwYyeA4r0Yk/n9HkJ0xshWa/vS2jyXle5eP
-         i17XKNw8f93TGsClg+eVmo4GqljaEUYYi5Wexw/+3e6G57X/7tiNofuQCxt/pkd6QLsa
-         MEgeCUJ0SXS02QpUVd6Py533v63qJnUboGAKSSlzkeCTygqz405/8rEbzacLx2u/6PG2
-         2IXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OT8Iw6M557aLYwHQwbfjFt5SgiwLxQR3GJ4aDtnOQyU=;
-        fh=Gv0DIQcnK4uG6l408qzpckjS7GfugUx1X+kK4nfOeJc=;
-        b=Raegt0+g5utAveGM3ro35w7V6Jjcy8up80RwFeejx/F/dFz9VAOC3/v/6YSY5h2plV
-         d0RWypbNCix6JIW2XCmZIIKcHoD3ThVEIif7UUNblH+IjZuQrEvUVEkqSOwq617eWW3b
-         NKQkTL2UCNLvyd1hH4EfXUMdN1HQquGmlWJGkpBgVClvq9jVVzSnxtlsjKrmyy6YXcWV
-         5+ZCbluXmnK4Fma7QfMqNVW2eqsRshNP1iDgp9LdL5UCC8LQ7uFDjbSIZIBOrp1qj8/e
-         M1Gh5lZbfPwGiFXwChfidhtgqYHFrEfvAY1LlxEahtAtXgxH2rBpsi2nt4y1QJJoOt1L
-         dv0A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 15 Mar 2026 23:46:07 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62F6TnS62041931
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 23:46:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=jtCQPLyj84+GsPspBnbaXy0y
+	TRP7zEyOqjhe8ajtp8U=; b=HjieKR2NHTaR0CwoSzqXoqYE6PRpZxOASHyaEDNH
+	QFshIG5NlEVem27vTrGoaT878Ez1LcvJ5yroYihhQSlIfIsb4SWjehyOFqvFrggo
+	Kv3mt9KXQ9KPGVabe9T3vdIBUbyFvgN58FgzvPMxSgQAq+KxdmqwxDTVgF0DFqvk
+	kbQX0mkdZ/VYLq+QoT/R6wGACbbqXQxMP8qdfdT6Pah6uXNZR2S83++I+2/tKUYD
+	i4Gy2/SOAou9iJepI5mvkigfvpADUZsiI5wgfczhOQxjnzrE1h4o+eXNjuOkl5FH
+	Rcvg1kTObzAPWjcdiosC37p/YSrV8bfWCOw//vG07RXvjg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cw00bbkuc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 23:46:02 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-82988b04c5cso14229746b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 16:46:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773617006; x=1774221806; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OT8Iw6M557aLYwHQwbfjFt5SgiwLxQR3GJ4aDtnOQyU=;
-        b=oDCjL7vYxcibvucp70UdNud1iozh9buCQ/S1ubDECEGW/vvrFjBsWob87FT9WAhf9v
-         2gwFr+0E4mUKuDmRKK+EJ4HAuohp59xgB9Y9HR0VF4TRajrzj2T1OchbtRKmwnlPnkZV
-         Xnd8qLNDpwz5gAdGy4+cZmt3ZHeLQJyEbglZxGWEo3acJ8OHQFZzoQN9AOWGQ7qg5KmS
-         5lkJ2ZCrFbJiw4zU3H1R4jaijwYU9eqMD6G67vf4emsRAzQFil0bu8y7bVpoL0Dc81qk
-         ZpTwMt0hZuwHHyCXfu05ESUuAswTGzl76uSgIz0Yo55GqIvKSgV71w4vxN3x71L3rqBg
-         zOkQ==
+        d=oss.qualcomm.com; s=google; t=1773618361; x=1774223161; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jtCQPLyj84+GsPspBnbaXy0yTRP7zEyOqjhe8ajtp8U=;
+        b=Q9NDDLYJXZ+hbWmuhQt1ecCYovwbLRKsXTt2p8AGw5ofp/8gHwfGxbl+uK+LmJCrJZ
+         XrnyVA7kHJVKQapKP9s31a/wG5wIWykOp1V/SU6UuyBuENtWsnBDJcwy6bK4ShkPHVo2
+         pyGvahhdmjz9foRf3qFVe6kdO0qCczIBdrG0J17u5oZNjNwH8As9S6xfXlsNDWy4p0RC
+         4yk3mipVglXqg1N2S0xMpMW0K2Ej65ZFruF3u8DrdEOpcVCkmP3CLecG1pMFsPvqLO0i
+         eu2blw79eCG6PG+dTMcpc2vbxxhBg0Hk1AY/lRZkajeZ7XxU/ohGlIJEL4tMe37dB3iU
+         9HZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773617006; x=1774221806;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OT8Iw6M557aLYwHQwbfjFt5SgiwLxQR3GJ4aDtnOQyU=;
-        b=CteM6NAupW8aFPQ5JSPzfZJ935nEThV9f3TLTgOLPXicARcCcbXPgr6VlztPYcqMM9
-         KLgiROVZ8lhfYFEmaMa3Mw3idY5tVjaS3N6f+YUZo1BzdlQ/emYrzns0F0KMHdt2oKrF
-         6ikDk0bJAlhvoYox/yua8KPTYQOMbDS1OSPlwWPPqubP2rsxa+soORl+/nO4bG/2IHcu
-         GNNydQu+m4GKnuIjsk7adzPa2Am8MKOG7ucrIjOXTHJUeopzJpk/EzBqkIst1xceFvdL
-         ESNRmRef6DTA+qMrZ23evqsDKzIliLkiRgmI9qW9vSV9fYK9C/a/8nI5m7PaXMqEhYIR
-         hNeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUiZgUHKhv77UcaYAuQQdVzwRbhYrbJrwsvLBFAvNlLfh7cvZBVHiLTavUp/qU5GqUyVq1Qb6IHozIsFC04yDaP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwItMX4ZuygrhQ8z+A6O5lIg2zATdT3xQFHbEdwTyrbN65QZYv
-	LWpYqTB48zT2ZbQkowBZmHpSk8r6N5Ua0epKQ1i9UlKmKHgQAAE0UNlKAxS+af0Lz+ty59P7Xcn
-	lYs7wfgR1zK0ZybqDpYMdfv8L5F7eu+HSzDMkHR/B
-X-Gm-Gg: ATEYQzzyb3UhTJWdapvoc6NDHOdBzy4jcLv1vIvbPPc2wkSouaSw8Mo8pefqW08JBkE
-	I/rqm9v+e8fnCWMSD60m+wxD4gUuHMst0f6emlbEGYs14x/5HTAn2rOIBelkEppDoKZL7Ml8BK4
-	69Q8nYXQ9G5APVmJ52nPx60l5sVDnuy0uCEXYCNXyqzsV9T2C8ZTAqAFMZSh8MjAe2TqE8LZrrG
-	tdsc5cewlAL0o66CG5zcYphzyG+bqn1NwYNuYzQRMudKwacGro6gCSAGUFDovpqqO3lUSrIAQq5
-	nsD+9Xlh8Pgh1fYq
-X-Received: by 2002:a05:622a:1822:b0:509:1d4b:f86f with SMTP id
- d75a77b69052e-509694fc2a0mr18649221cf.14.1773617005021; Sun, 15 Mar 2026
- 16:23:25 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1773618361; x=1774223161;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jtCQPLyj84+GsPspBnbaXy0yTRP7zEyOqjhe8ajtp8U=;
+        b=rfsVjcVLIPR9RJrVmt+FJ6tJ7iWrku5YfwxZID4J7f8UV50dPlcwQmnPhPyyvEI1Er
+         qhvKG6oP0Ip8nMGh586LCjEetC5+Ey9c0iQOM25qSBcE156S12gPah7C27dp4BOMvHIf
+         CpYE2wCv7ntQS1502wE7JpmzqfjT+0JdjuabLmkjvz8BvapSvFDfacO09FtrPNOgfwRj
+         Fsu0EjZg19SBlTO1UsjgWAFhGXCagPJCo8GQw8h4BqTENYmWtMC0DQO21e4w9/CmRS4I
+         3fu8aQstFDJrMcPZlxZv+IcgNmAvpwlautY2KrDbpf65qZD3kmc5uTrJaJvwbgoQIfbV
+         MSug==
+X-Forwarded-Encrypted: i=1; AJvYcCXhzbGgkdd8k9+YhWp/+Kg1Y8nUNwOpRa9oVQTzsT0R+0x0CBbXyYkS/BCqUTiOfydBemp0o2YWM7g8RKYl2uqQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx39nPH4zvVVDg3BQbYjeqS9PKvL5wyRN4rgnU+R9mXeZBeu4qP
+	U9BNyyKFJCnSGazPpeBDuJbid6f2Ywq0gGzDlJvcUO+9n5J4DWbsLeYxKpMQRetLBck8fHk0cQ4
+	NWmmOi8Bum2EW8UQ3rRJnsy8K1TD/aJUIf2nKP+m2hpCj1vR5XZJiS/NHKnQWUb/UCZvyATK5N/
+	9Fug==
+X-Gm-Gg: ATEYQzwcMwnDMTBbCOqCIP7qEEOqEGlYQ46IKbsRQ1ReW9+/vFZnq7hZqHTwj1BixuM
+	81Y4ilhv7lPHip4tSRXNM1Dkd/PdruLyeaG/e3yUIFcTj0/CFjYCZ7ucidyxW7IEZYLTkKdIAd4
+	gkt0la9tlo3UqXxqylyJ3peNzn9nG5lkBq+y9xcsBRBiWRXFowBcgFnghqfu1C/kdzqH6bJ9iTo
+	CLlquKmn75EwBT1BMnlLuH2g8MehuDucJK3w9nSEfdC9K7dsm0Y+wDUc8mlGlcfOLROH6T8DlrD
+	q64Y1Hf+zZjR2ilXJtm8qbj1GKwtaDXhc3gp5rZR2G6zn/X8iBkiqoyL1uQcBsDbldcSQVexN3S
+	UDwA9wVAATRI1GiOkqOF89o6Hke3h7YIp4pQ=
+X-Received: by 2002:a05:6a00:1a93:b0:829:793f:da6c with SMTP id d2e1a72fcca58-82a19899de0mr9844297b3a.39.1773618361054;
+        Sun, 15 Mar 2026 16:46:01 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1a93:b0:829:793f:da6c with SMTP id d2e1a72fcca58-82a19899de0mr9844265b3a.39.1773618360324;
+        Sun, 15 Mar 2026 16:46:00 -0700 (PDT)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a073b1d29sm11455561b3a.63.2026.03.15.16.45.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Mar 2026 16:45:59 -0700 (PDT)
+Date: Mon, 16 Mar 2026 05:15:53 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <abdEscs44fU4kRag@oss.qualcomm.com>
+References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <cover.1773346620.git.ljs@kernel.org> <c5bb61cf789df1ecb32facc29df9749987c7ddfc.1773346620.git.ljs@kernel.org>
-In-Reply-To: <c5bb61cf789df1ecb32facc29df9749987c7ddfc.1773346620.git.ljs@kernel.org>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Sun, 15 Mar 2026 16:23:14 -0700
-X-Gm-Features: AaiRm50msQxab5MfkpLsIIibDHC-kfdIQCyqr3kXogsNup53_Z_U3j15wVPbEHM
-Message-ID: <CAJuCfpGd702=Xop3X5Aop9rrScdiAOQEEooTu1gcJqR9pmO5GA@mail.gmail.com>
-Subject: Re: [PATCH 02/15] mm: add documentation for the mmap_prepare file
- operation callback
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
-	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
-	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	Ryan Roberts <ryan.roberts@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
+X-Authority-Analysis: v=2.4 cv=IsATsb/g c=1 sm=1 tr=0 ts=69b744ba cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=LzynlxIp8I5r7-4e--YA:9 a=CjuIK1q_8ugA:10 a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE1MDE4OSBTYWx0ZWRfX86jNSdnJFwcu
+ nGFplICSFmk5q6c2zrYPi9qrwayiThmuGOpWgjl5bqj51j0vBJ7jjee/GdTcJSrF8TGBUxnzwhD
+ tqLm7mcT80evXbYbG8+m4bdLiP2mqVTkyGIgJAmnAOwQ3eBkFyCQzyIvnFD48kiOSgc/AbXDGUl
+ iiuYlfCE7aN1vJCYolZsX5HPHr/hjWuqHtrp11iUiK7UtgESrYHHKS/ZuiCxdq1FkihWjH11Opv
+ 2oxvUGZIiR63iNNrNDRZ/mBy0BFRE4d7vlhVZaViAvZuk1ExSNFivU3gUzIlFuVQzZcCKJ5mtpA
+ rgcTUFJxjjqd68a9FMFkLXVzcMCyFOLmIzQ8M0Z9DDNYb/soMsMpTq9ylj6Xe08P6HIrB752Xwf
+ RDDghVDwo7LSu7vgMmwDDV3CfVui2AHP3Z47BDkHwh16uQtIkud2iERrz9lRr15aQe7xYvuE/2w
+ +bhPXwDrLCZr054SJYw==
+X-Proofpoint-GUID: rR1uZXf7_dhWs8f58hnETpWFTm8mAHs0
+X-Proofpoint-ORIG-GUID: rR1uZXf7_dhWs8f58hnETpWFTm8mAHs0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-15_08,2026-03-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
+ lowpriorityscore=0 impostorscore=0 phishscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603150189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_162327_148212_463E454D 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20260315_164604_848251_1A1193A6 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,217 +145,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 1:27=E2=80=AFPM Lorenzo Stoakes (Oracle) <ljs@kerne=
-l.org> wrote:
+Hi Russell,
+On Fri, Mar 13, 2026 at 12:28:30PM +0000, Russell King (Oracle) wrote:
+> This series is the next of the three part series sorting out the PCS
+> support in stmmac, building on part 2:
+> 
+> 	net: stmmac: qcom-ethqos: further serdes reorganisation
+> 
+> Similar patches have been posted previously. This series does away with
+> the common SerDes PHY support, instead using a flag to indicate whether
+> 2500Mbps mode is supported (STMMAC_FLAG_SERDES_SUPPORTS_2500M.) At this
+> time, I have no plans to resurect the common SerDes PHY support - the
+> generic PHY layer implementations are just too random to consider that,
+> and I certainly do not want the extra work of fixing that.
+> 
+> Changes from RFC v3:
+> - only set default_an_inband if using SGMII/2500BASE-X mode.
 >
-> This documentation makes it easier for a driver/file system implementer t=
-o
-> correctly use this callback.
->
-> It covers the fundamentals, whilst intentionally leaving the less lovely
-> possible actions one might take undocumented (for instance - the
-> success_hook, error_hook fields in mmap_action).
->
-> The document also covers the new VMA flags implementation which is the on=
-ly
-> one which will work correctly with mmap_prepare.
->
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> ---
->  Documentation/filesystems/mmap_prepare.rst | 131 +++++++++++++++++++++
->  1 file changed, 131 insertions(+)
->  create mode 100644 Documentation/filesystems/mmap_prepare.rst
->
-> diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentation/f=
-ilesystems/mmap_prepare.rst
-> new file mode 100644
-> index 000000000000..76908200f3a1
-> --- /dev/null
-> +++ b/Documentation/filesystems/mmap_prepare.rst
-> @@ -0,0 +1,131 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> +mmap_prepare callback HOWTO
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> +
-> +Introduction
-> +############
-> +
-> +The `struct file->f_op->mmap()` callback has been deprecated as it is bo=
-th a
-> +stability and security risk, and doesn't always permit the merging of ad=
-jacent
-> +mappings resulting in unnecessary memory fragmentation.
-> +
-> +It has been replaced with the `file->f_op->mmap_prepare()` callback whic=
-h solves
-> +these problems.
-> +
-> +## How To Use
-> +
-> +In your driver's `struct file_operations` struct, specify an `mmap_prepa=
-re`
-> +callback rather than an `mmap` one, e.g. for ext4:
-> +
-> +
-> +.. code-block:: C
-> +
-> +    const struct file_operations ext4_file_operations =3D {
-> +        ...
-> +        .mmap_prepare    =3D ext4_file_mmap_prepare,
-> +    };
-> +
-> +This has a signature of `int (*mmap_prepare)(struct vm_area_desc *)`.
-> +
-> +Examining the `struct vm_area_desc` type:
-> +
-> +.. code-block:: C
-> +
-> +    struct vm_area_desc {
-> +        /* Immutable state. */
-> +        const struct mm_struct *const mm;
-> +        struct file *const file; /* May vary from vm_file in stacked cal=
-lers. */
-> +        unsigned long start;
-> +        unsigned long end;
-> +
-> +        /* Mutable fields. Populated with initial state. */
-> +        pgoff_t pgoff;
-> +        struct file *vm_file;
-> +        vma_flags_t vma_flags;
-> +        pgprot_t page_prot;
-> +
-> +        /* Write-only fields. */
-> +        const struct vm_operations_struct *vm_ops;
-> +        void *private_data;
-> +
-> +        /* Take further action? */
-> +        struct mmap_action action;
 
-So, action still belongs to /* Write-only fields. */ section? This is
-nitpicky, but it might be better to have this as:
+I encountered two NULL pointer dereferences and had to add a few
+workarounds to proceed with testing.
 
-        /* Write-only fields. */
-        const struct vm_operations_struct *vm_ops;
-        void *private_data;
-        struct mmap_action action; /* Take further action? */
+1. On QCS9100 Ride R3, the mdio subnode is only defined for ethernet0
+   (see lemans-ride-ethernet-aqr115c.dtsi). ethernet1 uses ethernet0's
+   MDIO bus, so plat_dat->mdio_bus_data is NULL for ethernet1. Therefore,
+   we get:
+	[    9.205979] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
+	[    9.221071] pc : qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos]
+	[    9.221078] lr : qcom_ethqos_probe+0x7c/0x478 [dwmac_qcom_ethqos]
+	[    9.221080] sp : ffff800081aa37f0
+	[    9.221081] x29: ffff800081aa3860 x28: ffffcf84de69cfe8 x27: 0000000000000001
+	[    9.221084] x26: 0000000000000000 x25: ffff0000b4577c80 x24: ffff0000818fd010
+	[    9.221087] x23: ffff000ec7057628 x22: 0000000000000000 x21: ffffcf84ca2ce028
+	[    9.221089] x20: ffff0000818fd000
+	[    9.236975]  x19: ffff0000b3301740 x18: 00000000ffffffff
+	[    9.236977] x17: 0000000000000000 x16: ffffcf84dc4a5448 x15: ffff0000b3301ec5
+	[    9.236980] x14: 0000000000000000 x13: 0000000000000030 x12: 0101010101010101
+	[    9.236982] x11: 7f7f7f7f7f7f7f7f x10: 00000000001305b0 x9 : 0000000000000000
+	[    9.236984] x8 : ffff0000b3301780 x7 : 0000000000000000 x6 : 000000000000003f
+	[    9.236986] x5 : 0000000000000040 x4 : 0000000000000000 x3 : ffff0000818fd210
+	[    9.236988] x2 : 0000000000000017 x1 : 0000000000000000 x0 : 0000000000000001
+	[    9.236991] Call trace:
+	[    9.236991]  qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos] (P)
+	[    9.236994]  platform_probe+0x5c/0xac
+				...
+	[    9.343300] Code: 910a7000 f9400b21 f9010320 52800020 (39005420)
+	[    9.343302] ---[ end trace 0000000000000000 ]---
 
-> +    };
-> +
-> +This is straightforward - you have all the fields you need to set up the
-> +mapping, and you can update the mutable and writable fields, for instanc=
-e:
-> +
-> +.. code-block:: Cw
-> +
-> +    static int ext4_file_mmap_prepare(struct vm_area_desc *desc)
-> +    {
-> +        int ret;
-> +        struct file *file =3D desc->file;
-> +        struct inode *inode =3D file->f_mapping->host;
-> +
-> +        ...
-> +
-> +        file_accessed(file);
-> +        if (IS_DAX(file_inode(file))) {
-> +            desc->vm_ops =3D &ext4_dax_vm_ops;
-> +            vma_desc_set_flags(desc, VMA_HUGEPAGE_BIT);
-> +        } else {
-> +            desc->vm_ops =3D &ext4_file_vm_ops;
-> +        }
-> +        return 0;
-> +    }
-> +
-> +Importantly, you no longer have to dance around with reference counts or=
- locks
-> +when updating these fields - __you can simply go ahead and change them__=
-.
-> +
-> +Everything is taken care of by the mapping code.
-> +
-> +VMA Flags
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +
-> +Along with `mmap_prepare`, VMA flags have undergone an overhaul. Where b=
-efore
-> +you would invoke one of `vm_flags_init()`, `vm_flags_reset()`, `vm_flags=
-_set()`,
-> +`vm_flags_clear()`, and `vm_flags_mod()` to modify flags (and to have th=
-e
-> +locking done correctly for you, this is no longer necessary.
-> +
-> +Also, the legacy approach of specifying VMA flags via `VM_READ`, `VM_WRI=
-TE`,
-> +etc. - i.e. using a `VM_xxx` macro has changed too.
-> +
-> +When implementing `mmap_prepare()`, reference flags by their bit number,=
- defined
-> +as a `VMA_xxx_BIT` macro, e.g. `VMA_READ_BIT`, `VMA_WRITE_BIT` etc., and=
- use one
-> +of (where `desc` is a pointer to `struct vma_area_desc`):
-> +
-> +* `vma_desc_test_flags(desc, ...)` - Specify a comma-separated list of f=
-lags you
-> +  wish to test for (whether _any_ are set), e.g. - `vma_desc_test_flags(=
-desc,
-> +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)` - returns `true` if either are set,
-> +  otherwise `false`.
-> +* `vma_desc_set_flags(desc, ...)` - Update the VMA descriptor flags to s=
-et
-> +  additional flags specified by a comma-separated list,
-> +  e.g. - `vma_desc_set_flags(desc, VMA_PFNMAP_BIT, VMA_IO_BIT)`.
-> +* `vma_desc_clear_flags(desc, ...)` - Update the VMA descriptor flags to=
- clear
-> +  flags specified by a comma-separated list, e.g. - `vma_desc_clear_flag=
-s(desc,
-> +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)`.
-> +
-> +Actions
-> +=3D=3D=3D=3D=3D=3D=3D
-> +
-> +You can now very easily have actions be performed upon a mapping once se=
-t up by
-> +utilising simple helper functions invoked upon the `struct vm_area_desc`
-> +pointer. These are:
-> +
-> +* `mmap_action_remap()` - Remaps a range consisting only of PFNs for a s=
-pecific
-> +  range starting a virtual address and PFN number of a set size.
-> +
-> +* `mmap_action_remap_full()` - Same as `mmap_action_remap()`, only remap=
-s the
-> +  entire mapping from `start_pfn` onward.
-> +
-> +* `mmap_action_ioremap()` - Same as `mmap_action_remap()`, only performs=
- an I/O
-> +  remap.
-> +
-> +* `mmap_action_ioremap_full()` - Same as `mmap_action_ioremap()`, only r=
-emaps
-> +  the entire mapping from `start_pfn` onward.
-> +
-> +**NOTE:** The 'action' field should never normally be manipulated direct=
-ly,
-> +rather you ought to use one of these helpers.
+   I added the following workaround:
+	--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+	+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+	@@ -765,7 +767,10 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+			case PHY_INTERFACE_MODE_SGMII:
+					ethqos->configure_func = ethqos_configure_sgmii;
+					plat_dat->mac_finish = ethqos_mac_finish_serdes;
+	-               plat_dat->mdio_bus_data->default_an_inband = true;
+	+               if (plat_dat->mdio_bus_data)
+	+                       plat_dat->mdio_bus_data->default_an_inband = true;
+	+               else
+	+                       dev_err(dev, "plat_dat->mdio_bus_data is NULL");
+					break;
+			default:
+					dev_err(dev, "Unsupported phy mode %s\n",
 
-I'm guessing the start and size parameters passed to
-mmap_action_remap() and such are restricted by vm_area_desc.start
-vm_area_desc.end. If so, should we document those restrictions and
-enforce them in the code?
+2. After working around issue 1, I hit the following:
+	[   27.822907] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+	[   27.831944] Mem abort info:
+	[   27.834832]   ESR = 0x0000000086000006
+	[   27.838693]   EC = 0x21: IABT (current EL), IL = 32 bits
+	[   27.844163]   SET = 0, FnV = 0
+	[   27.847320]   EA = 0, S1PTW = 0
+	[   27.850563]   FSC = 0x06: level 2 translation fault
+	[   27.855587] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000134b1c000
+	[   27.862212] [0000000000000000] pgd=080000010185c403, p4d=080000010185c403, pud=0800000134884403, pmd=0000000000000000
+	[   27.873107] Internal error: Oops: 0000000086000006 [#1]  SMP
+	[   28.001619] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
+	[   28.008853] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+	[   28.016001] pc : 0x0
+	[   28.018259] lr : phylink_pcs_an_restart+0x50/0x5c
+	[   28.023092] sp : ffff8000869fb900
+				...
+	[   28.185967] ---[ end trace 0000000000000000 ]---
 
-> +    struct vm_area_desc {
-> +        /* Immutable state. */
-> +        const struct mm_struct *const mm;
-> +        struct file *const file; /* May vary from vm_file in stacked cal=
-lers. */
-> +        unsigned long start;
-> +        unsigned long end;
+   This occurs due to pl->pcs->ops->pcs_an_restart being NULL. I added
+   the following workaround:
+	--- a/drivers/net/phy/phylink.c
+	+++ b/drivers/net/phy/phylink.c
+	@@ -1026,7 +1026,8 @@ static void phylink_pcs_an_restart(struct phylink *pl)
+			if (pl->pcs && linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
+							 pl->link_config.advertising) &&
+			    phy_interface_mode_is_8023z(pl->link_config.interface) &&
+	-		    phylink_autoneg_inband(pl->act_link_an_mode))
+	+		    phylink_autoneg_inband(pl->act_link_an_mode) &&
+	+		    pl->pcs->ops->pcs_an_restart)
+					pl->pcs->ops->pcs_an_restart(pl->pcs);
+	 }
+
+3. With the recent VLAN filter changes in net-next, ndo_open takes a long
+   time to complete as vlan_restore_hw_rx_fltr() tries to write filters
+   for all 32 indices. This board previously timed out once, but now
+   times out for each index. This is a separate issue unrelated to this
+   series but I added the following workaround to rule out any timing
+   issues.
+	--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+	+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+	@@ -158,7 +158,8 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
+
+			/* Extended Rx VLAN Filter Enable */
+			for (i = 0; i < hw->num_vlan; i++)
+	-               vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
+	+               if (hw->vlan_filter[i])
+	+                       vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
+	 }
+
+	 static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
 
 
-> --
-> 2.53.0
->
+With the above workarounds in place, 2.5G works fine, but 1G (and 100M)
+do not. With the RFC v1 series, only the 2.5G->1G speed change was
+broken. With this series, the link does not come up at 1G at all.
+
+Some observations from my failed attempt at debugging so far:
+ - No change in behaviour after adding the provisioning code in
+   aqr_gen4_config_init().
+ - Setting GMAC_AN_CTRL_RAN in dwmac_integrated_pcs_config() did not
+   help.
+ - After shifting to 1G, GMAC_AN_STATUS reads 0x00000008, i.e.,
+   BMSR_LSTATUS (bit 2) is clear. 
+
+
+Sharing logs for two 1G scenarios (net-next + this series + the three
+workarounds above):
+
+# Booting up with a 1G link
+	[    8.730854] qcom-ethqos 23040000.ethernet: IRQ eth_wake_irq not found
+	[    8.766778] qcom-ethqos 23040000.ethernet: User ID: 0x20, Synopsys ID: 0x52
+	[    8.780465] qcom-ethqos 23040000.ethernet:   DWMAC4/5
+	[    8.794253] qcom-ethqos 23040000.ethernet: DMA HW capability register supported
+	[    8.794258] qcom-ethqos 23040000.ethernet: Active PHY interface: SGMII (2)
+	<snip>
+	[    8.865690] qcom-ethqos 23040000.ethernet: Using 36/40 bits DMA host/device width
+	[    8.865707] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+	[   10.860749] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-0
+	[   10.861119] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-1
+	[   10.861510] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-2
+	[   10.861906] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-3
+	[   10.871763] qcom-ethqos 23040000.ethernet eth1: Enabling Safety Features
+	[   10.907513] qcom-ethqos 23040000.ethernet eth1: IEEE 1588-2008 Advanced Timestamp supported
+	[   10.921216] qcom-ethqos 23040000.ethernet eth1: registered PTP clock
+	[   10.921220] qcom-ethqos 23040000.ethernet eth1: configuring for inband/2500base-x link mode
+	[   10.921223] qcom-ethqos 23040000.ethernet eth1: major config, requested inband/2500base-x
+	[   10.921226] qcom-ethqos 23040000.ethernet eth1: interface 2500base-x inband modes: pcs=01 phy=00
+	[   10.921228] qcom-ethqos 23040000.ethernet eth1: major config, active inband/inband,an-disabled/2500base-x
+	[   10.921230] qcom-ethqos 23040000.ethernet eth1: phylink_mac_config: mode=inband/2500base-x/none adv=00000000,00000000,00008000,0000e240 pause=04
+
+No further messages appear after this point, and the link does not come
+up at 1G.
+
+# Switching from 2.5G to 1G
+	[    8.368113] qcom-ethqos 23040000.ethernet: IRQ eth_wake_irq not found
+	[    8.379601] qcom-ethqos 23040000.ethernet: User ID: 0x20, Synopsys ID: 0x52
+	[    8.392900] qcom-ethqos 23040000.ethernet:   DWMAC4/5
+	[    8.432379] qcom-ethqos 23040000.ethernet: DMA HW capability register supported
+	<snip>
+	[    8.480319] qcom-ethqos 23040000.ethernet: Using 36/40 bits DMA host/device width
+	[    8.488609] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+	[   11.192140] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-0
+	[   11.200567] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-1
+	[   11.216466] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-2
+	[   11.232393] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-3
+	[   11.250011] qcom-ethqos 23040000.ethernet eth1: Enabling Safety Features
+	[   11.269722] qcom-ethqos 23040000.ethernet eth1: IEEE 1588-2008 Advanced Timestamp supported
+	[   11.286758] qcom-ethqos 23040000.ethernet eth1: registered PTP clock
+	[   11.300593] qcom-ethqos 23040000.ethernet eth1: configuring for inband/2500base-x link mode
+	[   11.300596] qcom-ethqos 23040000.ethernet eth1: major config, requested inband/2500base-x
+	[   11.300599] qcom-ethqos 23040000.ethernet eth1: interface 2500base-x inband modes: pcs=01 phy=00
+	[   11.316311] qcom-ethqos 23040000.ethernet eth1: major config, active inband/inband,an-disabled/2500base-x
+	[   11.316317] qcom-ethqos 23040000.ethernet eth1: phylink_mac_config: mode=inband/2500base-x/none adv=00000000,00000000,00008000,0000e240 pause=04
+	[   14.125773] qcom-ethqos 23040000.ethernet: PCS Link Up
+	[   14.131081] qcom-ethqos 23040000.ethernet eth1: pcs link up
+	[   14.147059] qcom-ethqos 23040000.ethernet eth1: Link is Up - 2.5Gbps/Full - flow control rx/tx
+	<link speed changed to 1G>
+	[   25.868674] qcom-ethqos 23040000.ethernet: PCS Link Down
+	[   25.874184] qcom-ethqos 23040000.ethernet eth1: pcs link down
+	[   25.874745] qcom-ethqos 23040000.ethernet eth1: Link is Down
+
+No further messages appear after "Link is Down".
+
+I have been having some issues with the IQ9 EVK (QCA8081 PHY), so no
+results to report for it yet.
+
+	Ayaan
+ 
 
