@@ -4,118 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59891F3026D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 15:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B99F30271
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 16:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6drqG0O4O0AKTzAz4HfPjF25blwHgCBvGYYrFt3dLpA=; b=deg+U4je6lzrmv68gIErGhMeJU
-	ZfJxrF3CNiJLj/xEhPkJshFkg+1HLj/9cWDqcdVhKvblsz7glXCD/aaLOZDdCiPkcIkt0bZUq+YF2
-	WosNYdf4U2X5sPJP+nn/zTJ629l7yVXkzF23eetyB9J7N0nw90KyPEO5PwywmoKR9V6MBa6WjD4Jd
-	3tW1IIN0xYt5/Dywn7I3+IuMgo5/BfUHMeRD2lEA6YEpxeL9chsH80NQue4KTcwn4SWUQ9QKE15Rt
-	mU0ZHLNTaHU+jxwNvtIgkBn/W0LHMTgBMdcnFmzOqSRVDbvkpp9kkpQMAibyaI5D+SYxO41JL4gwF
-	GTo6yvZQ==;
+	bh=LtOvFFiP0+lMSVcZtAaRoqq6E60ERprmvv1E9itwsLk=; b=q1CVPLBq2Eg3S7NKXG+Eg55/e1
+	opXaJTUHel7cwAs1qTi03P36VTBsB/KvDXKgF+EQezK58YMUJ6HKgfPX+5ajim9W8nyDFqygJTXpq
+	IWZTLnRtxHT8TeeNWCYtraY4JqLEq2qT1tZGycG80UCYR/N+W/Wq3/ern7C00JExl03uGPN2Fguz3
+	OndFYpFMLqLQ6JouvRJVHLXe3QTP4AUzHpFkJmr0/kX5l0JNBFzDIyD5+nMpRpOz2k6bc/JH4Nwtz
+	XUrY5cnOh/VH08BjCMeHrAh8AkRrPUZlornn/EAtw3hq2k/Wzlscfzq5/B83VdSBpKnkxUmnOe5rA
+	MO1pdqog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1nlJ-00000002hht-0iyt;
-	Sun, 15 Mar 2026 15:52:17 +0000
-Received: from ixit.cz ([185.100.197.86])
+	id 1w1oKC-00000002j23-0I1v;
+	Sun, 15 Mar 2026 16:28:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1nlF-00000002hhR-3WCk
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 15:52:15 +0000
-Received: from [IPV6:2a02:f000:10bd:e301::1d7] (unknown [IPv6:2a02:f000:10bd:e301::1d7])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 3716053414BC;
-	Sun, 15 Mar 2026 16:52:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1773589922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=6drqG0O4O0AKTzAz4HfPjF25blwHgCBvGYYrFt3dLpA=;
-	b=sur3uond+kX4e4Lgdu7Ywahn999EQBvi+FX+Zcr3zJyp2SOwsJuqWY9U/QscQX/cN9zosE
-	TT78GXoQ6pbkVLSnCYG2tBwDLvyEm1noob52xTzDVQAIhoML1wv2llmZRHKeWlvl1RMZpv
-	zM3eiMJVzZiVcjeQ4JpzliXhF+WOPng=
-Message-ID: <30606457-c28f-44c8-9811-63556a3e3f84@ixit.cz>
-Date: Sun, 15 Mar 2026 16:52:01 +0100
+	id 1w1oKB-00000002j1u-0688;
+	Sun, 15 Mar 2026 16:28:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AE3660130;
+	Sun, 15 Mar 2026 16:28:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97E1C4CEF7;
+	Sun, 15 Mar 2026 16:28:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773592096;
+	bh=xOjKR0tFQLh7NVKP3TuLU6yEiJpBek/7xxzo0eG2SsE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g7LkekBrPJ9cKt/zbK+Lo5Xfhdj3uJc5sNkE8qRDj9+aYIpOrz7GPNnbQ4TdC8GUc
+	 6GmCGs58jD6kKrvf+CAztmbX8gJTuPsJ6dgzCfxBWtRG81On1wtBnirmdNnJ3MFxgQ
+	 a6Jm3xF0RzTobFkLPSN3HzEjy5Iheldwz+WvOtjtfqzADfEbbZVoesidFnPkw41qte
+	 ydXYJS/4EmXl14omp/KQBYmMlQhC7uhtCHvFw2na3xwE228IBwvydRweuL4woSjER0
+	 WAsbhlPqvR5a6HR26rn2XBjTcAuIzzxZ9o8ylRAbYiUmWnWMd1AF50dSs0n0sdoXXV
+	 UoqKB4okRRJcQ==
+From: Simon Horman <horms@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: Simon Horman <horms@kernel.org>,
+	alexandre.torgue@foss.st.com,
+	devicetree@vger.kernel.org,
+	alex@ghiti.fr,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	ningyu@eswincomputing.com,
+	linux-riscv@lists.infradead.org,
+	krzk+dt@kernel.org,
+	davem@davemloft.net,
+	andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	weishangjuan@eswincomputing.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	edumazet@google.com,
+	pjw@kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	palmer@dabbelt.com,
+	mcoquelin.stm32@gmail.com,
+	pinkesh.vaghela@einfochips.com,
+	linux-kernel@vger.kernel.org,
+	pritesh.patel@einfochips.com,
+	pabeni@redhat.com,
+	aou@eecs.berkeley.edu,
+	wens@kernel.org,
+	netdev@vger.kernel.org,
+	linmin@eswincomputing.com
+Subject: Re: [net-next,v4,2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
+Date: Sun, 15 Mar 2026 16:27:35 +0000
+Message-ID: <20260315162735.1427325-1-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260313075416.1607-1-lizhi2@eswincomputing.com>
+References: <20260313075416.1607-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/10] arm64: dts: qcom: sdm845-google: Add STM FTS
- touchscreen support
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
-References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
- <20260301-stmfts5-v1-10-22c458b9ac68@ixit.cz>
- <b747b545-12c7-4e33-95ae-ffa114fa13ec@oss.qualcomm.com>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <b747b545-12c7-4e33-95ae-ffa114fa13ec@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_085214_253496_206DC6E9 
-X-CRM114-Status: GOOD (  16.90  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,80 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
 
-On 02/03/2026 12:06, Konrad Dybcio wrote:
-> On 3/1/26 6:51 PM, David Heidelberg via B4 Relay wrote:
->> From: Petr Hodina <petr.hodina@protonmail.com>
->>
->> Basic touchscreen connected to second i2c bus.
->>
->> Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
->> Co-developed-by: David Heidelberg <david@ixit.cz>
->> Signed-off-by: David Heidelberg <david@ixit.cz>
->> ---
->>   arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts | 21 ++++++++++++++++++++-
->>   1 file changed, 20 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
->> index fa89be500fb85..2501104b06e1b 100644
->> --- a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
->> +++ b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
->> @@ -26,7 +26,26 @@ &i2c2 {
->>   
->>   	status = "okay";
->>   
->> -	/* ST,FTS @ 49 */
->> +	touchscreen@49 {
->> +		compatible = "st,stmfts5";
->> +		reg = <0x49>;
->> +
->> +		pinctrl-0 = <&touchscreen_pins &touchscreen_reset>;
->> +		pinctrl-names = "default";
->> +
->> +		interrupt-parent = <&tlmm>;
->> +		interrupts = <125 IRQ_TYPE_LEVEL_LOW>;
->> +
->> +		irq-gpios = <&tlmm 125 GPIO_ACTIVE_HIGH>;
-> 
-> This is an anti-pattern - you can translate the GPIO handle to an
-> IRQ handle, but unless the hardware is spectacularly odd, an interrupt
-> reference is usually what you're after
+The second Ethernet controller (eth1) on the Eswin EIC7700 SoC may fail
+to sample RX data correctly at Gigabit speed due to EIC7700-specific
+receive clock to data skew at the MAC input in the silicon. The existing
+internal delay configuration does not provide sufficient adjustment range
+to compensate for this condition at 1000Mbps. Update the EIC7700 DWMAC
+glue driver to apply EIC7700-specific clock sampling inversion only
+during Gigabit operation on MAC instances that require it.
 
-Thanks, dropped in follow-up version.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> index bcb8e000e720..b230bc5b902a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
 
-> 
->> +		switch-gpios = <&tlmm 136 GPIO_ACTIVE_HIGH>;
->> +		reset-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
->> +
->> +		avdd-supply = <&vreg_l14a_1p8>;
->> +		vdd-supply = <&vreg_l19a_3p3>;
->> +
->> +		touchscreen-size-x = <1079>;
->> +		touchscreen-size-y = <2159>;
-> 
-> Are you sure about these off-by-ones?
+[ ... ]
 
-These we're extracted from st,maxcoords and yet, it should be 1080, 2160. Fixed 
-in follow-up version.
+> @@ -61,8 +81,26 @@ static int eic7700_clks_config(void *priv, bool enabled)
+>  static int eic7700_dwmac_init(struct device *dev, void *priv)
+>  {
+>  	struct eic7700_qos_priv *dwc = priv;
+> +	int ret;
+> +
+> +	ret = eic7700_clks_config(dwc, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(dwc->eic7700_hsp_regmap,
+> +			      dwc->eth_phy_ctrl_offset,
+> +			      EIC7700_ETH_TX_CLK_SEL |
+> +			      EIC7700_ETH_PHY_INTF_SELI);
+> +	if (ret)
+> +		return ret;
 
-Thanks
-David
+Does this code leak the enabled clocks? The function calls
+eic7700_clks_config(dwc, true) to enable the clocks, then later calls
+regmap_set_bits(). If regmap_set_bits() fails, the function returns
+without disabling the clocks.
 
-> 
-> FWIW
-> 
-> input/touchscreen.c:
-> 
-> touchscreen_get_prop_u32(dev, "touchscreen-size-x",
->                           input_abs_get_max(input,
->                                             axis_x) + 1,
-> 
-> 				            notice ^
-> 
-> Konrad
+Looking at the caller in stmmac_main.c:stmmac_dvr_probe():
 
--- 
-David Heidelberg
+    if (priv->plat->init) {
+        ret = priv->plat->init(priv->device, priv->plat->bsp_priv);
+        if (ret)
+            return ret;
+    }
 
+    ret = __stmmac_dvr_probe(priv->device, priv->plat, &res);
+    if (ret)
+        goto error_exit_init;
+
+The exit handler is only called when __stmmac_dvr_probe() fails, not
+when init() fails. This leaves the bulk clocks in the prepared-and-enabled
+state on this error path.
+
+> +
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
+> +		     EIC7700_ETH_CSYSREQ_VAL);
+>
+> -	return eic7700_clks_config(dwc, true);
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
+> +
+> +	return 0;
+>  }
+
+[ ... ]
 
