@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53894F3026D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1171F3026E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=; b=GlZSwpZEuoPivFVXqCqhQY9d46
-	XV5oJPMTx6qjSVPBzUgTgwfouMEYcWgXhQahUtN7EtyhpOIWEpke6gycvF6s9a6K5KZALYKs+w6ja
-	HFmLs3gnj66pITays7EAfMbm/s/xJPoeMXrflVYVbsol8iyGvaNMexm3Q1ph015fWd5M9kOJbsc8B
-	lZmQrv7rRmj/J9BdochvmVHlou94JfxqFDAha+EQgbngmcjFeE7gmJ47mP1vZ6QnUptAO6abLVBh3
-	sUHreZvojePAJoIpiDsxC/J+GOPtd/kc+z0EY0OgUN6EOH1VdRgSlXErU815ug5OSq3mpIZlKrFX1
-	Jry6d4Eg==;
+	bh=YIEg7cppvNlK1uJeRyCMqJFg9lbXRMhPBqnGtbbFM64=; b=igAVeW67fzP+KwBgnXAut2ZpRr
+	eWZmMnMyKhnMn4Mwbh48jragYg913pNrWiFLixwHOPW+6RU2uDgbVKCnK5gmRkDMe9RjFWQNiOqZ1
+	KhfDojcHRSkJr6UXOa9B81rtTlnPxUGOaNeCOviNLhZMweZpjCX9a6DVfifty/rrAQXfNf1duXDUQ
+	xDq9sSAmm0bJD6PhiF9OmrGG2N1/3vDIqiGMNYyky80dAVUJC2UddUeExMTAcjUgnQeICCD9pnUwv
+	GtSTrucLwy5hCeeRnvzIBlZThWn+p/8CGxDNFKNC2TUOuLAZS/Nr1MrTM59GtYlakZyiwztWhtlRp
+	rfmhp31w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pFz-00000002mRD-1GPg;
-	Sun, 15 Mar 2026 17:28:03 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1w1pG3-00000002mSy-2LYp;
+	Sun, 15 Mar 2026 17:28:07 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pFt-00000002mPQ-1qIh
+	id 1w1pFz-00000002mQh-2SiU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 17:28:01 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so29704465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:27:56 -0700 (PDT)
+	Sun, 15 Mar 2026 17:28:04 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso33629395e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:28:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773595675; x=1774200475; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773595681; x=1774200481; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=;
-        b=AY6VkhlxPte7X0fjZRl3GhkwyvULTz+6oPAl4hLMCg96uqR0unzrCkhueGIrP9Dl12
-         hioCAOyhVqhQvkecqcWt2TUoY6YXORWWoWGbfVGoxmT6hubg6ub9V4SC87mincqVm0QA
-         Nfzk4HauIRSu1pWbRroWKAx/6vTTMMsJ9FR5+pUCBIsE6Jmgn12pwrT6nB46rWkxgzg0
-         JzeEMNXjTwQ52bHkRfi4fM7UMXiMnsiKBUaZDlFCDVQeSGlD9c90gc22k23VXUcfjrx+
-         Wr1+g6gLLfT0WOxMa+D3hHYacw2J/z/uNXxnEs4V+kTjvq5oFfKgbTN6stAeLTk54S7m
-         T8ag==
+        bh=YIEg7cppvNlK1uJeRyCMqJFg9lbXRMhPBqnGtbbFM64=;
+        b=YiV7whDETMv8KZI4+vEBpXwi8R87Uk5znRKIKWMLRRcdfuI0pr9yV+q9N7xUECgcjZ
+         GeecI8bKeSuDnQGw19i3hERLKaCT+r91gGUBR7x6LT1fGVw8m1M5Qk8CU76/+45h7ySD
+         8BVeCKk8k1Y+JB04syE+4wPR4j8ca62072al5VgeDCAq2Bll2t5uh7cn0QunnFnYQjtZ
+         HksRfRCLPmP5zeuT3HzF7XfRsHEYJSpsWBWD/kfQgnUjHT5cGX2vxxQeG150CeQYgn/2
+         RBOKZmlOMU4D6//f/w++iGLFUDIHzizanod48EYWC64h+kvXOKXwTf5lXQDH8bWhgObu
+         k4BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773595675; x=1774200475;
+        d=1e100.net; s=20251104; t=1773595681; x=1774200481;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=;
-        b=hNeETYmCoiHNoEgswXXz9fm6c0+v5Z9TdDxWw110k7vQpEoxo4LWoF+0vP0xm4n99T
-         tWRlxAPN2IHwtEHlXHNJKiw84ZKFqprx/l6Vp14f777kTU0kY2ujS23/ZVkNTIDlnD3r
-         2s/RgZWK7ZdjvqX/wlLwlyr+F4JvXw+NTNKFASYSlcCZH+oUza0zLrYVs0yeWpcClb+2
-         eUg9u94jbROXfVQZZ046hVaChD42Zzh5OheTAKvb235tSyfwff9Mk73DsFk+Lt2U0yTn
-         GxWyjm5syrSk58QdnGVREWRvFaH7Sf4lgYIXvxBBEwuJzYarmK1vtBBIe5157u1RZQBl
-         5jZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqVM2+5KfOy7vKxXzcXAamQGoZDXuijj/BkXpxe6pLs8ztQ0ie5GISTDujlF8PThE6l7mF4ZT5Znnb/VNZQMSr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSPUgOePCOkFJcixUo6bDzNd3w0zAah7Gil7llBnReVUhpAbW/
-	jCp4qdCFHpP4Tu0KxU8U9OIxDKcDsZCf5r9iggch4Vw2LUZ/Ew1NwBW+
-X-Gm-Gg: ATEYQzwqZfRMepo+Lyd4taDdgMU7gUktlq0lv8DGYC0R1m/agany2S4BWYyzpesvEeV
-	FkAgpf5JX6HkW4peT8VLzWpYN/3ZeyxFmob/JFW3TIqzzhqMjznjGwlBQCuMq2CPH1Pf17vcpc3
-	+pOPTQPw+eWWVXj90uAt6b35j3GFGbvDB6mBpd0UmhtLx5gOf3tN4fVeCSKoD8iqOQJC5SNuM7K
-	HPp3x8aEI7MAIizppSfPEPLJpCOOgpzgQZqtqqEI3+09F2MCe4QBRcl8ACFJGlqnFas+PrKABkH
-	w38ypx9zMXINhG81lISNumAXZbJh34P7UZ99jQmbX6zUt858ONyD4yJ5Zs/xOngQfIPWE/2nhu+
-	rDD4K3N4gbU2G0oxtxmqMbsk+tlZvLZiMP3fnOaBNMs2pIDlB2cX+vWap0mm8D3gNkmRvBg9UD+
-	oRCeLd9aCtqZ15yR/7yryObzeZv2LAjmU40qQ=
-X-Received: by 2002:a05:600c:1395:b0:480:1c85:88bf with SMTP id 5b1f17b1804b1-4855670b72fmr170714095e9.27.1773595675367;
-        Sun, 15 Mar 2026 10:27:55 -0700 (PDT)
+        bh=YIEg7cppvNlK1uJeRyCMqJFg9lbXRMhPBqnGtbbFM64=;
+        b=dReSV+j/52TuQiOFJ83noV6kpIfXNC/TcivoxCYtVZTzbBNn9dbMWhttnPS9JgnFf2
+         x6K1+fuwHrBe0wTPOeaWFgL89vpY5yo2wC3IsHLNHsv2aZ3pI7DVBUUorDEyASnPA3Sz
+         aqDYvAzGvtRdVWS7+CyTV1+F0lL6MG54z3DtC4hpZFXtXnz7nD4P42S2clH68uAkX05N
+         iZp5D7tW7YWEGBQvfvwY3+V3JIultmytNPjciu0EBanHIgVEyKdmrRaGDQI39TewTbNQ
+         B7krw5AqhsQs/mNohOwOgpQ2/VBe3X3uUVjEWgAOHS3vP891EOg5Ob2ZnEzaWL9SNo/p
+         jkag==
+X-Forwarded-Encrypted: i=1; AJvYcCUaoFy5ScaDz1ae0aiSomIIf/FpOjy5tJePJAvb6ndDUnLK/9PimJIJQWzIoysSu+VCvAoSo7CreheYooFXYD0s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn23zlo9CcMn7LsMEKUnH9UFMxj72/8s2gGHKz8OtASFM0Ajxb
+	0mQsXQCcA5eZR9c4LeHavi/Gi8PVhM1sc9bhBBiDse/CgxtmtDTAzt4m
+X-Gm-Gg: ATEYQzxj9mx3diKrdOmRZJ7wH5qdKJNJ6EKG7qF81BuQn49ffyCgyQl0vZ1lrOBLeOa
+	xbn2JS6qEwQxE6S70rdEydftG/u8IgKaxKZ9HboakgCXb094+aTLX/QQLgtH0qRY2I7kBdwefz4
+	RWkua88G6XQnnYud1EYzLIGAKVLv6gF/1Do5uCFBaE6UtLlx3TPv1tdIQiyShnXvzxg7Oyl38Vb
+	b+K092la3R6daUp3MF+GO9TgQ43EueAQ1qjH9Ot/qOVBQGGwXii3TbsCY+RMQDkCCvfk/ZCe/VX
+	mkp0G7ff2exVIy6TaR8/hAY8W1c2sx14AnL1vaZhFaZfG6yhC5bqacl+ucQqokgrC1C/7DdWwa3
+	BotETKjq4fHMOFhzfOtnWjrEZ9x2ZVPcKC1m1CYfYLXFknU8G0UCMIlQ+RITCtUr+mp5gR9ZaqH
+	jIyd9hC0WEedwD0v2F1+dVUi62BhrM5JaRbSU=
+X-Received: by 2002:a05:600c:64cf:b0:477:561f:6fc8 with SMTP id 5b1f17b1804b1-485566cf81fmr167182995e9.5.1773595681386;
+        Sun, 15 Mar 2026 10:28:01 -0700 (PDT)
 Received: from debian.lan ([171.22.84.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48557c6586csm73644905e9.20.2026.03.15.10.27.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48557c6586csm73644905e9.20.2026.03.15.10.27.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 10:27:54 -0700 (PDT)
+        Sun, 15 Mar 2026 10:28:00 -0700 (PDT)
 From: =?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Adrian Hunter <adrian.hunter@intel.com>,
@@ -89,9 +89,9 @@ Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>,
 	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacicuelo@gmail.com>
-Subject: [PATCH v2 1/3] wifi: iwlwifi: pcie: optimize MSI-X interrupt affinity
-Date: Sun, 15 Mar 2026 18:26:38 +0100
-Message-ID: <20260315172746.270734-2-adriangarciacasado42@gmail.com>
+Subject: [PATCH v2 3/3] mmc: sdhci-esdhc-imx: consolidate imx25/35 data and add Kingston CID
+Date: Sun, 15 Mar 2026 18:26:40 +0100
+Message-ID: <20260315172746.270734-4-adriangarciacasado42@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
 References: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
@@ -99,8 +99,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_102757_492354_A4AE3B98 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20260315_102803_647478_7565F573 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,38 +115,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement a balanced RSS queue distribution by skipping CPU0 for
-high-rate MSI-X interrupts when multiple CPUs are online. This reduces
-contention with system housekeeping tasks on the boot core and improves
-overall throughput.
+Consolidate esdhc_imx25 and esdhc_imx35 soc data into a single shared
+struct since they share the same flags. This reduces redundancy. Also
+add the CID_MANFID_KINGSTON definition to quirks.h for centralized
+management.
 
 Signed-off-by: Adrián García Casado <adriangarciacicuelo@gmail.com>
 ---
- drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/mmc/core/quirks.h          |  4 ++++
+ drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++--------
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c b/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
-index 4560d92d7..87149f29e 100644
---- a/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
-+++ b/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
-@@ -1683,7 +1683,17 @@ static void iwl_pcie_irq_set_affinity(struct iwl_trans *trans,
- 		 * Get the cpu prior to the place to search
- 		 * (i.e. return will be > i - 1).
- 		 */
-+		/*
-+		 * Balanced distribution: skip CPU0 for high-rate RSS queues
-+		 * to avoid contention with system housekeeping.
-+		 */
- 		cpu = cpumask_next(i - offset, cpu_online_mask);
-+		if (cpu >= nr_cpu_ids)
-+			cpu = cpumask_first(cpu_online_mask);
+diff --git a/drivers/mmc/core/quirks.h b/drivers/mmc/core/quirks.h
+index c417ed34c..d736bb4be 100644
+--- a/drivers/mmc/core/quirks.h
++++ b/drivers/mmc/core/quirks.h
+@@ -15,6 +15,10 @@
+ 
+ #include "card.h"
+ 
++#ifndef CID_MANFID_KINGSTON
++#define CID_MANFID_KINGSTON	0x70
++#endif
 +
-+		if (cpu == 0 && num_online_cpus() > 1)
-+			cpu = cpumask_next(0, cpu_online_mask);
-+
- 		cpumask_set_cpu(cpu, &trans_pcie->affinity_mask[i]);
- 		ret = irq_set_affinity_hint(trans_pcie->msix_entries[i].vector,
- 					    &trans_pcie->affinity_mask[i]);
+ static const struct mmc_fixup __maybe_unused mmc_sd_fixups[] = {
+ 	/*
+ 	 * Kingston Canvas Go! Plus microSD cards never finish SD cache flush.
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index a7a5df673..9cfa26722 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -256,11 +256,7 @@ struct esdhc_soc_data {
+ 	u32 quirks;
+ };
+ 
+-static const struct esdhc_soc_data esdhc_imx25_data = {
+-	.flags = ESDHC_FLAG_ERR004536,
+-};
+-
+-static const struct esdhc_soc_data esdhc_imx35_data = {
++static const struct esdhc_soc_data esdhc_imx25_35_data = {
+ 	.flags = ESDHC_FLAG_ERR004536,
+ };
+ 
+@@ -391,8 +387,8 @@ struct pltfm_imx_data {
+ };
+ 
+ static const struct of_device_id imx_esdhc_dt_ids[] = {
+-	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+-	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
++	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
++	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+ 	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+ 	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+ 	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+@@ -414,7 +410,7 @@ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+ 
+ static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+ {
+-	return data->socdata == &esdhc_imx25_data;
++	return data->socdata == &esdhc_imx25_35_data;
+ }
+ 
+ static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
 -- 
 2.47.3
 
