@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744F2F3026E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53894F3026D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nwUo5hAkI8FkU3V+3kGLnu098RQoJ8LL+Qih0GJFD4o=; b=n8H31eMt8VFJfFfCSJKEJ8nUac
-	ZyShIJTaYfCWBeKwkKtveUFaGpO8tCTsqldNkSL89JAgbMBb8NdFsEHshdH3zNVKv6rnCTI6puJWl
-	/vutm3ac08HO/meqzCf0dQfo4sQnOpLCkENDbWpIK7I+uIsTd07JW3AevhEn39nYFuqJo9mi2400R
-	WGPkkkUcY2cRozGZOha8Nj/eNTgnYubuugzhQIrDtbzVOvkUQZs8neKpEvMKH82ZvhA9hNtDLInkv
-	TgaUIqB8r5M/3fUtoOGSlXcC+EIwEPUamRLR2u79qAQTTV6kOLMzaDIuS+vEzW9u4n81OoTi4X1bp
-	aOgZ3o9A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=; b=GlZSwpZEuoPivFVXqCqhQY9d46
+	XV5oJPMTx6qjSVPBzUgTgwfouMEYcWgXhQahUtN7EtyhpOIWEpke6gycvF6s9a6K5KZALYKs+w6ja
+	HFmLs3gnj66pITays7EAfMbm/s/xJPoeMXrflVYVbsol8iyGvaNMexm3Q1ph015fWd5M9kOJbsc8B
+	lZmQrv7rRmj/J9BdochvmVHlou94JfxqFDAha+EQgbngmcjFeE7gmJ47mP1vZ6QnUptAO6abLVBh3
+	sUHreZvojePAJoIpiDsxC/J+GOPtd/kc+z0EY0OgUN6EOH1VdRgSlXErU815ug5OSq3mpIZlKrFX1
+	Jry6d4Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pFr-00000002mP8-47zO;
-	Sun, 15 Mar 2026 17:27:56 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1w1pFz-00000002mRD-1GPg;
+	Sun, 15 Mar 2026 17:28:03 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1pFq-00000002mOO-1nNZ
+	id 1w1pFt-00000002mPQ-1qIh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 17:27:55 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48538c5956bso35274355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:27:53 -0700 (PDT)
+	Sun, 15 Mar 2026 17:28:01 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so29704465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:27:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773595673; x=1774200473; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nwUo5hAkI8FkU3V+3kGLnu098RQoJ8LL+Qih0GJFD4o=;
-        b=IMA9jiS0j664nRM1f4J6bvE+WXJK9For/Qur2Kwrps+zc0P3XNKx7pKZh/qBhLctw8
-         0vlAPBsfjtc8aRNXHiRux8KB/6gKKpzkoda257j868ifslTaYG9Axmg0h9ZHWMZVXgwp
-         ynjzWwx79BbTPS1vJ6hhgtd9GLIGu6ApHZrojo4/xBiA2jSgovD0H3eEenBVWrvdnTpw
-         aQfVdBeNivowST8ZdY/4ft/i9GL0+Maa8+ZIqS6XLXNoPE3LsmYjV1o85GOZAmkwpZTt
-         e0NcnvJyYXg8ThoKh7CWSK2QiZECIqAku1SoW6ZKoK5Y78bl0fd0jLKO672dDZk9Rh7q
-         h9rA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773595673; x=1774200473;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1773595675; x=1774200475; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nwUo5hAkI8FkU3V+3kGLnu098RQoJ8LL+Qih0GJFD4o=;
-        b=rJh9vhlexxzvgmHpVyi2KBgtVEkiy08HMR1CA+pTQ/MllMpcgJxAAfioYPeiEZYZvN
-         dfB5zAmPhtzJcETnwRAyyTK4sOZzILwKTh1N2iUtFDlEz5vFoXcSAudnxri7Fbts3LeS
-         Dfuk1Cwfpm9PbKyIcRlII5PM2INSlGtZDvgvca0aMbncIVH/VP7JFOlQP9P885wNOaQD
-         R8gJmvdZMDhGyeEKYjUaCtNrozFL37dJfXCciCEz2TCDFBAdtsLC7vhOhHEH9YT6yBqB
-         3pTJxZGTdMcEBHGB9uUCyVYrL049sxa4sVpopBZjOjTo9wtkzmbco2yeKj8TTE4mcE0v
-         aLkA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmyf3Gx6aBzvDptdOf5dZKiXkmWBN6dkHi89tdGDCXq+OihtDeUJF2tQzIsvgz6XmggZGseeIPN9fLAT2bi2b6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws7wdSeFEHBK1BdR1c4x9+z2Dn9XzLns0Pl8ZURRYfaxOgWLWe
-	cePbkTt+q+mnqx5Sj07PGyLPQ27sZXqYIJkpCNVyqfyGB0y6Uo9iQvR2
-X-Gm-Gg: ATEYQzzMaT2v1HqhATcLcr+N4L5+AjjJgYeq4zNDW6VER31LM7vW5r6Agc28FYgTxSN
-	Ksu7BE3JWH13W7nXUxlPaNG6PXaHXk9W2ZYFXdN7io8Lm+J0rum69p08jgpOgQVLYyAL5A9+Mz8
-	o+ZuGs/apTo/ubDiAnI33x3rrVG1MKAkUtrWK45NgbXbZNIjzuGyjk5LAlbgTvAqIlM1E4A7NuX
-	eCYl//lmBm4O8bg6TSqlT4eBUYY4Q6dFot2aDE+AjufOMMmIwl90DtD23PLPYwDITb8qwWsgjVy
-	/VwEN8y3ahzPfRQ3ZhU0ToZOJ2PbqhXfj+p77K5iUJIZt2o7oD4k/EUGRoS8+9KVx8DVzapGU+u
-	+JI1biFyou3k6T+ngJ2YkEAdFuU2iN5KfdifR9j3fWP4IZFcXduQlJB6//MsV/vUp0F5ej0Q9Uc
-	K1Ow78DWvvxQWKztKmfopROmD84At7eRu5bFmeVwBn1+5hVg==
-X-Received: by 2002:a05:600c:4594:b0:47e:e59c:67c5 with SMTP id 5b1f17b1804b1-48555acaddcmr154699455e9.8.1773595672220;
-        Sun, 15 Mar 2026 10:27:52 -0700 (PDT)
+        bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=;
+        b=AY6VkhlxPte7X0fjZRl3GhkwyvULTz+6oPAl4hLMCg96uqR0unzrCkhueGIrP9Dl12
+         hioCAOyhVqhQvkecqcWt2TUoY6YXORWWoWGbfVGoxmT6hubg6ub9V4SC87mincqVm0QA
+         Nfzk4HauIRSu1pWbRroWKAx/6vTTMMsJ9FR5+pUCBIsE6Jmgn12pwrT6nB46rWkxgzg0
+         JzeEMNXjTwQ52bHkRfi4fM7UMXiMnsiKBUaZDlFCDVQeSGlD9c90gc22k23VXUcfjrx+
+         Wr1+g6gLLfT0WOxMa+D3hHYacw2J/z/uNXxnEs4V+kTjvq5oFfKgbTN6stAeLTk54S7m
+         T8ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773595675; x=1774200475;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QBtR9VKnPKJgjfwnbtGvinYVj4EmpVw+ixE7+VzQpDU=;
+        b=hNeETYmCoiHNoEgswXXz9fm6c0+v5Z9TdDxWw110k7vQpEoxo4LWoF+0vP0xm4n99T
+         tWRlxAPN2IHwtEHlXHNJKiw84ZKFqprx/l6Vp14f777kTU0kY2ujS23/ZVkNTIDlnD3r
+         2s/RgZWK7ZdjvqX/wlLwlyr+F4JvXw+NTNKFASYSlcCZH+oUza0zLrYVs0yeWpcClb+2
+         eUg9u94jbROXfVQZZ046hVaChD42Zzh5OheTAKvb235tSyfwff9Mk73DsFk+Lt2U0yTn
+         GxWyjm5syrSk58QdnGVREWRvFaH7Sf4lgYIXvxBBEwuJzYarmK1vtBBIe5157u1RZQBl
+         5jZw==
+X-Forwarded-Encrypted: i=1; AJvYcCVqVM2+5KfOy7vKxXzcXAamQGoZDXuijj/BkXpxe6pLs8ztQ0ie5GISTDujlF8PThE6l7mF4ZT5Znnb/VNZQMSr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSPUgOePCOkFJcixUo6bDzNd3w0zAah7Gil7llBnReVUhpAbW/
+	jCp4qdCFHpP4Tu0KxU8U9OIxDKcDsZCf5r9iggch4Vw2LUZ/Ew1NwBW+
+X-Gm-Gg: ATEYQzwqZfRMepo+Lyd4taDdgMU7gUktlq0lv8DGYC0R1m/agany2S4BWYyzpesvEeV
+	FkAgpf5JX6HkW4peT8VLzWpYN/3ZeyxFmob/JFW3TIqzzhqMjznjGwlBQCuMq2CPH1Pf17vcpc3
+	+pOPTQPw+eWWVXj90uAt6b35j3GFGbvDB6mBpd0UmhtLx5gOf3tN4fVeCSKoD8iqOQJC5SNuM7K
+	HPp3x8aEI7MAIizppSfPEPLJpCOOgpzgQZqtqqEI3+09F2MCe4QBRcl8ACFJGlqnFas+PrKABkH
+	w38ypx9zMXINhG81lISNumAXZbJh34P7UZ99jQmbX6zUt858ONyD4yJ5Zs/xOngQfIPWE/2nhu+
+	rDD4K3N4gbU2G0oxtxmqMbsk+tlZvLZiMP3fnOaBNMs2pIDlB2cX+vWap0mm8D3gNkmRvBg9UD+
+	oRCeLd9aCtqZ15yR/7yryObzeZv2LAjmU40qQ=
+X-Received: by 2002:a05:600c:1395:b0:480:1c85:88bf with SMTP id 5b1f17b1804b1-4855670b72fmr170714095e9.27.1773595675367;
+        Sun, 15 Mar 2026 10:27:55 -0700 (PDT)
 Received: from debian.lan ([171.22.84.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48557c6586csm73644905e9.20.2026.03.15.10.27.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48557c6586csm73644905e9.20.2026.03.15.10.27.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 10:27:51 -0700 (PDT)
+        Sun, 15 Mar 2026 10:27:54 -0700 (PDT)
 From: =?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Adrian Hunter <adrian.hunter@intel.com>,
@@ -86,17 +87,20 @@ Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	rust-for-linux@vger.kernel.org,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
-Subject: [PATCH v2 0/3] Optimization and alignment for MMC, Rust and iwlwifi
-Date: Sun, 15 Mar 2026 18:26:37 +0100
-Message-ID: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
+	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>,
+	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacicuelo@gmail.com>
+Subject: [PATCH v2 1/3] wifi: iwlwifi: pcie: optimize MSI-X interrupt affinity
+Date: Sun, 15 Mar 2026 18:26:38 +0100
+Message-ID: <20260315172746.270734-2-adriangarciacasado42@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
+References: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_102754_476037_720E85EA 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260315_102757_492354_A4AE3B98 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,58 +115,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series provides functional optimizations and alignments for 
-multiple kernel components, specifically targeting MMC quirks, 
-Rust block driver abstractions, and iwlwifi interrupt affinity.
+Implement a balanced RSS queue distribution by skipping CPU0 for
+high-rate MSI-X interrupts when multiple CPUs are online. This reduces
+contention with system housekeeping tasks on the boot core and improves
+overall throughput.
 
-These changes were previously submitted as a single monolithic patch 
-but have now been split into logical, atomic commits as requested. 
-The code style has been verified against checkpatch.pl.
-
-Summary of changes:
-1. MMC: Consolidate imx25/35 quirk data and add Kingston CID support.
-2. Rust: Update rnull driver to use Pin<KBox<QueueData>> for alignment
-   with kernel 7.0 zero-copy initialization.
-3. iwlwifi: Optimize MSI-X interrupt affinity mapping by skipping 
-   the boot core (CPU0) for high-rate RSS queues.
-
-v1 -> v2:
-- Split monolithic patch into logical commits.
-- Updated author and email to Adrián García Casado <adriangarciacasado42@gmail.com>.
-- Removed accidental addition of nested kernel repository.
-- Fixed Rust code style (line wrapping).
-- Fixed iwlwifi white space issue.
-- Wrapped commit descriptions to 75 characters.
-
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Haibo Chen <haibo.chen@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Andreas Hindborg <a.hindborg@kernel.org>
-Cc: Jens Axboe <axboe@kernel.dk>
-Cc: Boqun Feng <boqun@kernel.org>
-Cc: Miri Korenblit <miriam.rachel.korenblit@intel.com>
-Cc: linux-mmc@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-block@vger.kernel.org
-Cc: rust-for-linux@vger.kernel.org
-Cc: linux-wireless@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-
-Adrián García Casado (3):
-  wifi: iwlwifi: pcie: optimize MSI-X interrupt affinity
-  rust: block: rnull: update to Pin<KBox<QueueData>> for PinInit
-  mmc: sdhci-esdhc-imx: consolidate imx25/35 data and add Kingston CID
-
- drivers/block/rnull/rnull.rs                         | 13 +++++++++----
- drivers/mmc/core/quirks.h                            |  4 ++++
- drivers/mmc/host/sdhci-esdhc-imx.c                   | 12 ++++--------
+Signed-off-by: Adrián García Casado <adriangarciacicuelo@gmail.com>
+---
  drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c | 10 ++++++++++
- 4 files changed, 27 insertions(+), 12 deletions(-)
+ 1 file changed, 10 insertions(+)
 
+diff --git a/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c b/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
+index 4560d92d7..87149f29e 100644
+--- a/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
++++ b/drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c
+@@ -1683,7 +1683,17 @@ static void iwl_pcie_irq_set_affinity(struct iwl_trans *trans,
+ 		 * Get the cpu prior to the place to search
+ 		 * (i.e. return will be > i - 1).
+ 		 */
++		/*
++		 * Balanced distribution: skip CPU0 for high-rate RSS queues
++		 * to avoid contention with system housekeeping.
++		 */
+ 		cpu = cpumask_next(i - offset, cpu_online_mask);
++		if (cpu >= nr_cpu_ids)
++			cpu = cpumask_first(cpu_online_mask);
++
++		if (cpu == 0 && num_online_cpus() > 1)
++			cpu = cpumask_next(0, cpu_online_mask);
++
+ 		cpumask_set_cpu(cpu, &trans_pcie->affinity_mask[i]);
+ 		ret = irq_set_affinity_hint(trans_pcie->msix_entries[i].vector,
+ 					    &trans_pcie->affinity_mask[i]);
 -- 
 2.47.3
+
 
