@@ -4,107 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801E1F3028A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 23:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12739F30283
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 23:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMCPSBmKWW117qnhfEXoCMhM6JqsDOVzqEruNBY+32c=; b=hNSlsABJ25HtsI7+ArTY6LXrW3
-	Yi/e7irIqC0JtyG0TrGW5utl4EpF80Oji+DXb09/1xWcgu/KECek/pZnp1Qn7GJPEAj3BS91cDnQR
-	4eZPvVFgtqL45hY1OTWKkyp2elAIPuaWbWRCq1jRqfLk2SpiTkAxxTzMYxkgUuLcuxJAHCrK8c4F8
-	yGK2GvGWeyQp/PWg8ERaEoZbqo2Q6BiUAkj8hO5rLd/FHayE+8IyyNWnXXjRDx5XJiAmqi8pEfaep
-	wkeWfOKsJSitW3ZbtM9DBeGNNx56in1cCU0JQk6U4yEtnUOoJcHVmdxBq2O9/npR1vmVrbVoQwkFp
-	QRgLQ09w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wIzof5uMfFAlq/YkbW90WMHyCk3LebQ4QmaEMSrM14c=; b=hsJW5bcsZqi3eiCSohURgI1xrW
+	2FWBnFpzSeb1Pp1R42zSKDEyOYP/aEFCv7/QLSQXNmZCT7hV6XiXxjUI78PVpZ4QpZLlpqssekP5r
+	5d/z7OCF4OUcn29WsFLQF8kiGuCcZXQUn/jo5mIeBu3rFAxROsyuj5rcysbR5AFXJ0Jfk+p6dDgKk
+	t4A2B9Un5alhIZ+1h791Ljq8yU+k+VLOhfobpAjRsggTLo0uhczMj7We/ABh9sDwgQMlLIbNl5O40
+	d7dsmsOpHvA/82FAy2tuIeXddrcBsqK0l5ELwPJd9sqw/L4YxJWBIVRN4DrJOaA4kOaPgduJU15En
+	CnlhvYLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1uYp-00000002zc0-04Xn;
-	Sun, 15 Mar 2026 23:07:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w1um0-000000030YN-0mTG;
+	Sun, 15 Mar 2026 23:21:28 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1uYn-00000002zbY-3G95;
-	Sun, 15 Mar 2026 23:07:50 +0000
+	id 1w1uly-000000030Xu-0LBf
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Mar 2026 23:21:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VMCPSBmKWW117qnhfEXoCMhM6JqsDOVzqEruNBY+32c=; b=UztHuUmH+DURIsl3JiGcDWT9wH
-	mY4RAnTeWqORSLznF5fKZIHzSRj1wZ/rA3kpD9vIXmk6/JgoNfnbHI3tVHt1wEUY0WqNsQ+Wbz7nZ
-	RLgXPijA7bmJJ5xvbzxoGgVF2Bb2W+DHOiny+cxDY2hl4G7oW+91+g4krvpGT+bYSNErHR2AKlrhx
-	F77uUdnUzte53NM0Qugz7JfmAcVeCYNdZ0F/uTT+KYuaPlNCdmjMqMYBFlX9sXtwmWYD3YoWe3ydD
-	jQcTBH1tjwtTOpFtm+W7uI7YVDEGU3lR7i4Eva6XFrLPr+Yw9PFfB/ePAMO7tlgTSgDz9mTeoNEyi
-	IL3UruGw==;
-Received: from mout.gmx.net ([212.227.15.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1uYd-00000005mWg-1ZJl;
-	Sun, 15 Mar 2026 23:07:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1773616053; x=1774220853; i=wahrenst@gmx.net;
-	bh=VMCPSBmKWW117qnhfEXoCMhM6JqsDOVzqEruNBY+32c=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ON3HXg1L7ih7TWuitHt6pRyWc2gJ+iSokjz43d4bbkKTMuKdYbmge0R1WUJ3BXSB
-	 A9UEx+pL9Pikw+6wSGc5aESZxtIOioXkB6whifPx2G+K4vLQ6DnIXObudZP4Wrbc2
-	 RMlrkVrL99/JEbXUCADfKrtEykDdaQguGuWz0GvBZqIATe2PawXcpdy6N5L4bbmoI
-	 hKbQD8KmXLvkq2eRuMpddOTst35KUqEdzQEq6Q9T+G6ggfuClk3R6uXTRBA5o/eOp
-	 Q6NOtfSj7sgM0PgIU5IQxVJVUQskkeuteY4WMXoBhCRDioszwdU1hkKiK9LRFCyKX
-	 JMreomHyo/EVKGuvUw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N1OXZ-1vd30Q1tL1-011y24; Mon, 16
- Mar 2026 00:07:33 +0100
-Message-ID: <bdae424d-f4b5-4181-9421-4393fe3ac8fb@gmx.net>
-Date: Mon, 16 Mar 2026 00:07:30 +0100
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=wIzof5uMfFAlq/YkbW90WMHyCk3LebQ4QmaEMSrM14c=; 
+	b=MoxBjgcG3VNAcppuB0AbYzC7W+XR/JictKa0OyeTbPsZzWwwUdfeu3Pv5uvJrm0Tbndb4nwW5Jg
+	kkDztmwQhMc3j4fZBICT/LAiVXxDnXYzSCj8p4eH/E+a7pbPyLTf7qjmisLwHGqsk67qmNaCmXZcL
+	lfcyI3TSpGv3A1Vr051YUjAoGkhCspQD3dTI5Mk64VaJ+9hjhgTyEiVBTE+kGRJngdwmJvbDDnJX7
+	eH/fLLDn4IiL3Kr+RV4JT/fFqRr+JRwN9zt97CPu1c0bR7S7Nnu6EVZlLKEz7lJNptNggnnzPPj80
+	cCvjOAJlMrS6Zo/zu5560irX2gGn4MyZuHAA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1w1ulY-00EgbJ-1r;
+	Mon, 16 Mar 2026 07:21:01 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 16 Mar 2026 08:21:00 +0900
+Date: Mon, 16 Mar 2026 08:21:00 +0900
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Linus Walleij <linusw@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	stable@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] crypto: atmel-sha204a - Fix potential UAF and memory
+ leak in remove path
+Message-ID: <abc-3OGP0kJpWfo3@gondor.apana.org.au>
+References: <20260314193627.728469-3-thorsten.blum@linux.dev>
+ <abY2HdOs0768G8G3@gondor.apana.org.au>
+ <abcMS4YYrHOF6ud1@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/5] pmdomain: bcm: bcm2835-power: Increase ASB control
- timeout
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
- Iago Toral Quiroga <itoral@igalia.com>,
- Chema Casanova <jmcasanova@igalia.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com,
- stable@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- linux-pm@vger.kernel.org
-References: <20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com>
- <20260312-v3d-power-management-v7-2-9f006a1d4c55@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260312-v3d-power-management-v7-2-9f006a1d4c55@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:/TS4HxQY5TivZuoGW+W8HuPijf3g1Y33tGVX19IspPImRfLdS+l
- mGRaX0xQXzL+rTovBJdd9n124GsVHj6yq4fAk0YjfYTt+ihwybN+w5C7yn+2a+ic6wxg0AV
- 8WoM01mBRHG83QjzwGQp+8ehdQ12V3BwihkK8qnKaWoO3O63nFhc75hjaBpnF8dAas3X+MY
- NKCG0IaT6VcrZ7Tn47WYg==
-UI-OutboundReport: notjunk:1;M01:P0:xlCW+9NPf/c=;9NSQeZ/QDaIr9hEogBnBqpDggU7 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abcMS4YYrHOF6ud1@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_230743_825356_DC56F58B 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260315_162126_122551_586A75F0 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,69 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ma=C3=ADra,
+On Sun, Mar 15, 2026 at 08:45:15PM +0100, Thorsten Blum wrote:
+>
+> Yes, it should be safe since explicitly unregistering the hwrng removes
+> the devres entry, and the automatic devm cleanup later essentially
+> becomes a no-op.
 
-Am 12.03.26 um 22:34 schrieb Ma=C3=ADra Canal:
-> The bcm2835_asb_control() function uses a tight polling loop to wait
-> for the ASB bridge to acknowledge a request. During intensive workloads,
-> this handshake intermittently fails for V3D's master ASB on BCM2711,
-> resulting in "Failed to disable ASB master for v3d" errors during
-> runtime PM suspend. As a consequence, the failed power-off leaves V3D in
-> a broken state, leading to bus faults or system hangs on later accesses.
->
-> As the timeout is insufficient in some scenarios, increase the polling
-> timeout from 1us to 5us, which is still negligible in the context of a
-> power domain transition. Also, move the start timestamp to after the
-> MMIO write, as the write latency is counted against the timeout,
-> reducing the effective wait time for the hardware to respond.
->
-> Cc: stable@vger.kernel.org
-I think, a Fixes tag would be helpful here. Also this fix should be the=20
-first patch of the series or separate.
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
->
-> ---
-> To: Ulf Hansson <ulf.hansson@linaro.org>
-> To: Ray Jui <rjui@broadcom.com>
-> To: Scott Branden <sbranden@broadcom.com>
-> Cc: linux-pm@vger.kernel.org
-This looks unusual. Is this intended?
+If it's safe then let's just keep it this way.
 
-Best regards
-> ---
->   drivers/pmdomain/bcm/bcm2835-power.c | 5 ++---
->   1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm=
-/bcm2835-power.c
-> index 0450202bbee2513c9116a36abaa839b460550935..1815eb4ee69b9b672b5e3144=
-02f1cc9897c57dcb 100644
-> --- a/drivers/pmdomain/bcm/bcm2835-power.c
-> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
-> @@ -166,8 +166,6 @@ static int bcm2835_asb_control(struct bcm2835_power =
-*power, u32 reg, bool enable
->   		break;
->   	}
->  =20
-> -	start =3D ktime_get_ns();
-> -
->   	/* Enable the module's async AXI bridges. */
->   	if (enable) {
->   		val =3D readl(base + reg) & ~ASB_REQ_STOP;
-> @@ -176,9 +174,10 @@ static int bcm2835_asb_control(struct bcm2835_power=
- *power, u32 reg, bool enable
->   	}
->   	writel(PM_PASSWORD | val, base + reg);
->  =20
-> +	start =3D ktime_get_ns();
->   	while (!!(readl(base + reg) & ASB_ACK) =3D=3D enable) {
->   		cpu_relax();
-> -		if (ktime_get_ns() - start >=3D 1000)
-> +		if (ktime_get_ns() - start >=3D 5000)
->   			return -ETIMEDOUT;
->   	}
->  =20
->
-
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
