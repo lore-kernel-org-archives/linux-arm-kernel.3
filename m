@@ -4,118 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C33F30271
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9043BF3026E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 17:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpKpWcE4rirX56wK1cuA2VwU8rzHhAoRcRhE8IIu4P8=; b=HKYg53tvlOnWCTO+bgczy6OsfK
-	195P8fXgiuZCCz76I5/GtwgU7AdflkasBub3fyM+kBeg1Ga1G/7wZYVtOE3uGnlGtZ5eYuXNPc5dF
-	Fb120XxEed5LJUlds8/+cFEeYTELrwpTuExh7kngFy4aa3Hy9yZXLO5yjvdWqg53JQyJAVG+kIgq1
-	VtIO3FPrwjR55lqpsRA31NntUjcVggXBQR6WzJoYHNssl9NuXg6EKSKcjBivbjFEM+Y8uW6hXBxj1
-	C4HSAbAExBQjevjjShjzyglqIXeZIwz1YXyovZTJ/DHA2MFvfZrI6JLv3ey3QyJ5eG5fpEKD+8COC
-	NcRi86Fw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MVyBXQRSzr9/lSeks120us8HXOhp+dnwI23FH9hEtAQ=; b=O/8SHnG6tv2j2ZMC5jMzomO2Fu
+	gEpxx6o5fOKY94cycjqdZrIsZgQrs8ZoTGdLPZMKJrrE5SJ4U0IJnQxppZXv5ZV6pbaTCLn6Bc3HZ
+	iD9zwDQg35k2kBIw8ytBoc8fUQnDVQlKfzDZGaODRTJJEIpLvgGk5Raom8+dMBVvNM5RCcbRqAQfC
+	6PQ5a/EYBBvbBvtzbWZl8jFgTcJociyUmlPIy0P+wzamSHQSrpvOGpXLW7hXUzZK/ZYp4NRfKjons
+	3R5FymBLnrGGemgjJnzdA/DXwCAB2Ekt4IweMiAsZMfVRNUSI438uEvpvoHotPV8yxTkyAg58m2S9
+	ZjwxfONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1oxx-00000002kU5-0HV7;
-	Sun, 15 Mar 2026 17:09:25 +0000
-Received: from [2a02:f000:10bd:e301::2] (helo=ixit.cz)
+	id 1w1p5K-00000002lBW-3DDU;
+	Sun, 15 Mar 2026 17:17:02 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1oxu-00000002kTE-0Ezx
+	id 1w1p5I-00000002lAo-1rRN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 17:09:24 +0000
-Received: from [IPV6:2a02:f000:10bd:e301::1d7] (unknown [IPv6:2a02:f000:10bd:e301::1d7])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id EC49653400BC;
-	Sun, 15 Mar 2026 18:09:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1773594556;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=gpKpWcE4rirX56wK1cuA2VwU8rzHhAoRcRhE8IIu4P8=;
-	b=JDAURPEBzqngX20RIdtqMbmfw7/J1wVHScRL52inZqhWiKjTTDlI4Epdt7hTK7aEKx34pv
-	+j3/ybQRUfpi3tfrccUnRSkSYYudDDAmWGhBSza51KBVcZVEdUyC9zAfT/5A36dCmXFyd3
-	XcyPVxORq2fmWABVDN1KMBjVb3e+eMo=
-Message-ID: <4b8c8d8c-d2f3-4938-a451-e8e9524d40c3@ixit.cz>
-Date: Sun, 15 Mar 2026 18:09:14 +0100
+	Sun, 15 Mar 2026 17:17:01 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48538c5956bso35228665e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 10:16:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773595017; x=1774199817; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MVyBXQRSzr9/lSeks120us8HXOhp+dnwI23FH9hEtAQ=;
+        b=ikh3Lh7/nk5bU6SYvA/GXHa7gmVVPf2ePpze5qGyfYq5/pYq02IAdgwzX9fGQOM3zL
+         CGy/MnJe/hPW9AH6WQS3e5fK6962BWWcARDQRWUh3PAPN9Zp2bUToWcjyRfqF9GJJWnP
+         xXCdPlrYs+kF7tv9eMp1vyf/cFlTOj3ijUwJpK3741Pi3stmX8Vs9Yxh9qTcFFjkAMn+
+         uJQwJVuY+bP8Bz6Eoe6p2mmFbYHEyS2twORtVFFUoqtK9FaOhsy3f6TRwqg5E07wVqe2
+         BEi6U5adYZT9Jo9Heh1ZiNA0GJmKMddjV9jfs03kPTSf+nHiMu4uPhan5xJ9DhAn+01B
+         q3og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773595017; x=1774199817;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MVyBXQRSzr9/lSeks120us8HXOhp+dnwI23FH9hEtAQ=;
+        b=ebzq3PAjcmfmP4Kz0QdUIlG897/BBxZUmWKyfKPplpXXrMUo/i4bjh0/lua10JFk0k
+         YWl4pgCDzyw/VMpU0hzkiWZv/mUUOs+WKXdRBG5HPKtDixds0pmpt5nMMzTLXmJCbNm0
+         a6KF+IDz1bdZVPlyVAxHyRP9tga61Znyuv2Q1bHo2nfNbORfT59LwoqlH2YbMtzfYJky
+         WQkk6EVg/0RcIu2NKwANrwtGvlU1jRTSra1zd4ZZ0cEGbiAhw290Yp9kajkH/NDcVMdP
+         eYBv6wwvJQJLcQ3KhcsZ281PDSj9kLRfIg41mVmhmby++BexXON/uDYA0+pbkWrLtmhr
+         Kw+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUwFi/zkHVO3/hPywuVP2FluReBc+78veYim+SI7OmAznJNOgyixk1goNweWIRHbE974bkqDzXblyHXRuoD5hfZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBYMTwyNS//c/zvSfrhhTO/DHfX0n+FCppvCyiV+qqs14grN7X
+	b5hvBnib3gFRjHet8Qi2VGDSDEFSRKeDhkVyAna+LJWN7nmfTot5UOjD
+X-Gm-Gg: ATEYQzyvSrlTzmcQD2uVtjw1nBBOJr61F+FNpfAIsfoRYTJLs8cl7VqEw7E6Xknbm/r
+	x0eZkSk86t1VdKl+mHejnwPfYL50oAVFWuSw+LDA14vE5HDmJCqYpHWJpJMbSnXDdnLhBnetR7k
+	8gVvKOm2zl0UI9TeqAB+AaNscf5iKJWKgNeJ1gR8OakkmEdQcXkdM3dWzWJREqDQ+K3Y8gLbau2
+	J4TH4HQmaIA6qSgX/J1tLWfclw9bbA2wQtgTpyuvWTKMN5YvYwu2GCUscuK6pTpD9eb7y3bgiQe
+	n23ML+ZFIMzthceO4Wkft+d5yrenesZIn+LpHlaeaI79LCseD/eh6ne28Xlri8oYSBkP1KcRWTt
+	XcKL+9I6C1C2rbPq9yifwTNOGro1JNRY9m2lZIok2WN4CbZEYwbe0UHlZS1F71m250JPHywt55N
+	8FB9+QJH3EaxJDWS1cJJFPkSgLFow+HwXzzw==
+X-Received: by 2002:a05:600c:230c:b0:485:3a4f:8bfb with SMTP id 5b1f17b1804b1-4854f56bf7bmr178045195e9.6.1773595016983;
+        Sun, 15 Mar 2026 10:16:56 -0700 (PDT)
+Received: from debian.lan ([171.22.84.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe21b631sm40536429f8f.27.2026.03.15.10.16.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Mar 2026 10:16:56 -0700 (PDT)
+From: Adrian Garcia Cicuelo <adriangarciacasado42@gmail.com>
+X-Google-Original-From: Adrian Garcia Cicuelo <adriangarciacicuelo@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Miri Korenblit <miriam.rachel.korenblit@intel.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Boqun Feng <boqun@kernel.org>,
+	linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Adrian Garcia Cicuelo <adriangarciacicuelo@gmail.com>
+Subject: [PATCH v2 0/3] Optimization and alignment for MMC, Rust and iwlwifi
+Date: Sun, 15 Mar 2026 18:16:49 +0100
+Message-ID: <20260315171652.269020-1-adriangarciacicuelo@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] dt-bindings: input: touchscreen: st,stmfts:
- Introduce STM FTS5
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
-References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
- <20260301-stmfts5-v1-8-22c458b9ac68@ixit.cz>
- <qibmsgfttxo6kiaqyjljj6otamqp7okfr4abwpmuo7daanl6qu@ka33zvoz7lte>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <qibmsgfttxo6kiaqyjljj6otamqp7okfr4abwpmuo7daanl6qu@ka33zvoz7lte>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_100922_776330_12803790 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20260315_101700_520400_7BE80392 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,50 +111,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/03/2026 23:40, Dmitry Baryshkov wrote:
+This patch series provides functional optimizations and alignments for 
+multiple kernel components, specifically targeting MMC quirks, 
+Rust block driver abstractions, and iwlwifi interrupt affinity.
 
-[...]
+These changes were previously submitted as a single monolithic patch 
+but have now been split into logical, atomic commits as requested. 
+The code style has been verified against checkpatch.pl.
 
->> +    then:
->> +      properties:
->> +        switch-gpio:
->> +          description: Switch between SLPI and AP mode.
-> 
-> This doesn't sounds like the GPIO on the touchscreen, more like the
-> external schematic component. If it need sto be turned to one position,
-> it might be better to use GPIO hog for that.
+Summary of changes:
+1. MMC: Consolidate imx25/35 quirk data and add Kingston CID support.
+2. Rust: Update rnull driver to use Pin<KBox<QueueData>> for alignment
+   with kernel 7.0 zero-copy initialization.
+3. iwlwifi: Optimize MSI-X interrupt affinity mapping by skipping 
+   the boot core (CPU0) for high-rate RSS queues.
 
-Right now yes, but the GPIO serves to switching between SLPI and AP mode at 
-runtime, see [1]
+v1 -> v2:
+- Split monolithic patch into logical commits.
+- Removed accidental addition of nested kernel repository.
+- Fixed Rust code style (line wrapping).
+- Fixed iwlwifi white space issue.
+- Wrapped commit descriptions to 75 characters.
 
-The driver lack supports for SLPI, but at moment when SLPI support lands, we 
-should be able do something like:
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Andreas Hindborg <a.hindborg@kernel.org>
+Cc: Jens Axboe <axboe@kernel.dk>
+Cc: Boqun Feng <boqun@kernel.org>
+Cc: Miri Korenblit <miriam.rachel.korenblit@intel.com>
+Cc: linux-mmc@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-block@vger.kernel.org
+Cc: rust-for-linux@vger.kernel.org
+Cc: linux-wireless@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
--> device starts, touchscreen works
--> screen goes to sleep, but instead of powering off touchscreen, it switches to 
-SLPI mode
--> user taps at touchscreen, device wakes up
+Adrian Garcia Cicuelo (3):
+  mmc: sdhci-esdhc-imx: consolidate imx25/35 data and add Kingston CID
+  rust: block: rnull: update to Pin<KBox<QueueData>> for PinInit
+  wifi: iwlwifi: pcie: optimize MSI-X interrupt affinity
 
-Thus I think we need to support this GPIO in the driver.
-
-David
-
-> 
->> +
->> +      required:
->> +        - switch-gpio
->> +
->>   examples:
->>     - |
->>       #include <dt-bindings/interrupt-controller/irq.h>
->>
->> -- 
->> 2.51.0
->>
->>
-> 
+ drivers/block/rnull/rnull.rs                         | 13 +++++++++----
+ drivers/mmc/core/quirks.h                            |  4 ++++
+ drivers/mmc/host/sdhci-esdhc-imx.c                   | 12 ++++--------
+ drivers/net/wireless/intel/iwlwifi/pcie/gen1_2/trans.c | 10 ++++++++++
+ 4 files changed, 27 insertions(+), 12 deletions(-)
 
 -- 
-David Heidelberg
-
+2.34.1
 
