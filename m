@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D16F30282
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 20:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D31F30282
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 20:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TCnQpp47QbhoPpRPIwACTTYpdk9OmiqiOQDc2IoOxcE=; b=gjbER49cIguL7UU/ImsCvVXLrk
-	59BDwZnnf9cIeNBGNAmz5N9qN9C0tvVG+l0ZK7eri4SmbCK+s3g2WwAHyYNLSlLCW8vDhdBeqWwt/
-	NlLOUNGMtmKhG4mnVdOHYm8pLPEvtZGCDJ98AiF0fq8bsj6/mcKInIX9IZlPVD0RZGxJVf34/Io5I
-	EKb2Uzx89C5ej5pfRi7pHbScZwoqmcEC3KOqkQewahYlXEghfOOSEDFJxKZ9wG+mRrdhAXM2xLeTe
-	y4R4Bi7IBCnAlCGITpKM4oVORdWosAN7yo0onFanrlCKpwOaIlk4dASngQU2lfTeUvrnxyZcE7S7n
-	rLcPtEfw==;
+	bh=CPceeNJxYcOrj32GCH9mA8vAA8Kap02ECqmiWtmSPh4=; b=RMCgIkOcYREm+4hxvjLPkDwb2K
+	wOA7dfBg8dxvgIssh5dvTt+3QP6v/eMDZtjB+63ofECYIEzIeipGKBTxKx/3w4bts/KDKQ2Bpzc0t
+	4Bf3BGTnPYL1G5EYwWAo0aF7wp8+5iJe56FC+k7X91z78Dtt0kfKy4VUSVdFG4r7QXvWnv8gtbAtp
+	4EWIJL62X4Qrat7jhg2Vxb97uHO88s2pgyIFbCeOCf1lNhCq6Vn6ElLytQsmj+AcbtkdjC+aTeJQH
+	YGPXUxbjQstxX4I9gZnPpxiQLM/90EURlxOJS7Kr7dYO0ZWpQwvIILEEbDWnNp7V22T9nldvdY6DQ
+	IbWdwEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1roe-00000002swX-3b99;
-	Sun, 15 Mar 2026 20:12:00 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1w1rvT-00000002tTu-2xn5;
+	Sun, 15 Mar 2026 20:19:03 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1roc-00000002sw7-0F6p
+	id 1w1rvR-00000002tTY-3Fhq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 20:11:59 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48538c5956bso36072145e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 13:11:56 -0700 (PDT)
+	Sun, 15 Mar 2026 20:19:02 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43b40003d13so462103f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 13:19:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773605515; x=1774210315; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TCnQpp47QbhoPpRPIwACTTYpdk9OmiqiOQDc2IoOxcE=;
-        b=AAoFsYf/hN+HsmUdX9IZ5tmyY4ThgSEPo1dD3F0xTVBaT2dmiqASpzy6cuTNHcCIro
-         f2OyFDGf1ye/ZBro60RYcRfwAi1z9w6zNA97LZrWoLMbo47mu2V5rN3IyJs6F+/Umy/g
-         MWNsWOkWblUAST2WsPEzs9THYe1L8LmacvBYsVE1O2uU0XZSetMusJOylRpPT69We4mD
-         ua+ddU3TDlKe8VpZTGKRRx4oxrVnwR0DGh7DvRwQ9b/j6DKXJbd24Z7WtqQux34LGt1R
-         eZb3VAG2+g3S40fj1v5qqTpYBW2cQctiB1hNwfe1uDtuGPvHZpt9SngprkEO858ciND6
-         6j7A==
+        d=gmail.com; s=20230601; t=1773605940; x=1774210740; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CPceeNJxYcOrj32GCH9mA8vAA8Kap02ECqmiWtmSPh4=;
+        b=NAhFectuHVI+rN+t371KNO+e/yNdPZg8y79vtu/NoaZYLU9rV/aREoFr4zaew7Iskz
+         z098eqBeuCVO2ZEpZcYE7hcDswfgwMRvgKAqRZvcRBYDr/Eo2VOD6utpdxc0mEsMkNLw
+         zC+7xin5vkozFIbZw2qqXzdnX5M2Lw1/XHfv2tPiOCKoO+S/shAx17JfSiXzO4N96ZCB
+         MotDhUqgkDVBuxIbZYuvpmFd2ln0omRzxKGocFw7AFRROHkLpZMXS4jvQ46sE81xYV9U
+         q0AZWvQXmPCT7mDpQMfnyet3Ucn9Ngu/DGr9ksE/Vpwxy8c6b5hFNl7eOAnhTMpQrCaz
+         ad8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773605515; x=1774210315;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TCnQpp47QbhoPpRPIwACTTYpdk9OmiqiOQDc2IoOxcE=;
-        b=m68W+NftUFPwnm9f+pWshmkUq4xHSL/GDVCLBLznCC5mvrOLu72l/XgLK6KSnor2NC
-         sqH1whe/UzHYUKuZv996fQqdJrGclTd0Eie4W1h6JuvGxE1exHfZnGhUF8Keb6tlszAK
-         1qKShs/9nBfLkbIPUIUhASlcp7cJIW4CkKQZ6P7Y4TNd2Iz0zZHkFqq2l5ilAFkRw9Wv
-         Ka/HBusj1MXKW1KAX0GK4OhxnpMEudesYTV+lxbktC/JJicT1OydvEHpkrdQs8dzjXSm
-         TxADlUhKyNFJ3uZBRZ7Ttcp68vK/C1WH4FDSY7sMBnIMyhguvWOCs89n5mVQ0zeC9z0i
-         5q+g==
-X-Forwarded-Encrypted: i=1; AJvYcCVR8vo8vQrinxYkH4wVWh7LRKE0vsgHf/F5U09K+2Nat5Sh2hz+umeylW9DcjWoUcs+DIcfYLpnFamyAF1FyeQ6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMI4XwA+PJ2RncCTKbFn491nnpPuFMCovxXgouVQZgPIwtqSa3
-	baSd1R4vsd7RCMQV2Eq+rWyVyWI7kN4F+IKPdYfKi4p5LI0jYm+3Qt/X
-X-Gm-Gg: ATEYQzxeYem6agR/1pIgM6JSJdxknTocEDLrc9tX/4DsmmoSuzbAWEGeNAbeAY72+8V
-	+84aawPLkMSF+vtsfIDOt5pJ6NUOTCoNysTXp8JTwv98i/eWbLyIrcPld5kKb6T5j8G8ScJP7dM
-	Beeac5BW+CvXVgeNrGRYz/I1PFoCILGzvyTMSqD74LyYfBxpYq4KbD75uxo5YC57x68Z1qBAiPt
-	wxRZGu6kjsAk9EB00ibAWf5mBr3UVSimQifLWIVYUQAUalecepsMSQBbfV5OH0U4zq6p+jEXpTa
-	q6f/4Ha4Q/VEsPFtaWOh59wWoa1yDreN7ZBt1o2bl70SqDNaq9y5w9AWiLfTXimSEBJL9lajPUJ
-	Ep6nGPLWp0okT8nH6YkuAFihT+3CtxiuzHLLmXAEI771BaEl2yU0lgLPJWkuwPjQWdsAKIghQ0e
-	5HEDjbn2RW+gTTC244pHHgtAdRbHRuqR0kAg0PxHjzxeYmtV+PZ13XflILZkZyPBFZOjITKEDHn
-	K0=
-X-Received: by 2002:a05:600c:4594:b0:47e:e59c:67c5 with SMTP id 5b1f17b1804b1-48555acaddcmr159457935e9.8.1773605515428;
-        Sun, 15 Mar 2026 13:11:55 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541b7f255sm477090505e9.12.2026.03.15.13.11.54
+        d=1e100.net; s=20251104; t=1773605940; x=1774210740;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CPceeNJxYcOrj32GCH9mA8vAA8Kap02ECqmiWtmSPh4=;
+        b=VMBqR/KBjTjSaPzEg9jKMenh8KQen8lEXF3t7ouYMzA+gLTfCS3zOX/hCODGIjY822
+         Jhdv9kuHG4NgxYgbNC/VUFJBzbO5ntlnKuT8mC+TvYBxf6HCGFzMszWgsEEcuFNFtYJW
+         NiYoHTnbsFk672iUM8zmJHjJoK1ilF8cfHTBEvPR1cRJhrubhI638QULKcA0zt0HErYk
+         SUipU3pUQGNHgQaPfFXRN4XFdxrpD3bqL+Llx2eVQ+TwH8DGRgb6Ow3bLdHVsMPkvLFj
+         lVJKqo+4wbZ2LTvA0MUgxeTBxQKt2n6WV/w6YLirECKLDtwKM5/fFjynVo4jFRmko3Sw
+         smdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWr9WrpYusHwafuA6xt2SsCpvL+o5lkYwmkJTN05aklP+lGcN9SAYq1qG1iXpsuzghUjTZzv/C3USshqW9EC+fU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQo3t6KD+Ultf0HWGz95kmGF3WjnKhf2pKN6gxzuFpSiSF8nEZ
+	3lbSN9iahylpS4GoF0gayUs0CPZzGkCdH2fvyV+720UW8F+NNPtuthB6
+X-Gm-Gg: ATEYQzwqGgaHuZDA7IPVXBVpqZbBsI1x3U4j0UeXlwzzhxHwYbdhACpcUP3IqwuLiC5
+	qPqrZU5SUF+FSGCRxb4tO1MIld+VvL0i4gWA3iaYtTWILTU8odAyJmFWhPUHRtsx5wJ1jQfWWBX
+	ZDmPz9MElPHKSgyGSzASa0tAUpMttSbz0Svp/kIW/JL21gJNkN/Nj2FcTJT1Z1ZCxO2wZMj+Jnr
+	hxHMXTNMdaz59ULOIogyTrFQarulom2yN/dyECXDPRoLg9Eq8Oj2okCd3vyTGb7bivhq58eXkPU
+	YvRfWCwCPqv+jAAVojXnR9QGAWgzeVfmf+crhyqUAF8iPAvs/V7bPO6lo4f9P88qBeh3xFjYS8I
+	m6IvGfcbYqIBkCbDetbjaIYyUjh0xQ8BsP3T9EI0Mdn8PfdUjmx/pplPgWNWt5COIMppubAXS6A
+	yeAak4aT+GaeM7Ay8EMsSFe48HsOTE6HRhPw==
+X-Received: by 2002:a05:6000:26d1:b0:439:d750:42f6 with SMTP id ffacd0b85a97d-43a04d8b557mr19733952f8f.24.1773605939326;
+        Sun, 15 Mar 2026 13:18:59 -0700 (PDT)
+Received: from debian.lan ([171.22.84.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b4389321csm3295618f8f.29.2026.03.15.13.18.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 13:11:55 -0700 (PDT)
-Date: Sun, 15 Mar 2026 20:11:53 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Boqun Feng <boqun@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Ingo Molnar <mingo@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Thomas Huth <thuth@redhat.com>, Waiman
- Long <longman@redhat.com>, Will Deacon <will@kernel.org>, Linus Torvalds
- <torvalds@linux-foundation.org>
-Subject: osq_lock on arm64
-Message-ID: <20260315201153.1d2ae1e3@pumpkin>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Sun, 15 Mar 2026 13:18:58 -0700 (PDT)
+From: =?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
+Subject: [PATCH v3 3/3] mmc: sdhci-esdhc-imx: consolidate imx25/35 data and add Kingston CID
+Date: Sun, 15 Mar 2026 21:17:31 +0100
+Message-ID: <20260315201853.15552-1-adriangarciacasado42@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_131158_141839_7E5A9114 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260315_131901_833367_2115CA28 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit f5bfdc8e3947 change the osq_lock (optimistic spin queue) code to
-use smp_cond_load_relaxed() to wait for another cpu to relase the lock.
+Consolidate esdhc_imx25 and esdhc_imx35 soc data into a single shared
+struct since they share the same flags. This reduces redundancy. Also
+add the CID_MANFID_KINGSTON definition to quirks.h for centralized
+management.
 
-It waits for 'VAL || need_resched()' with a comment that the IPI that
-sets need_resched() will break any monitor/wait code.
-However arm64 implements it as (03e3c2b7edbe and 1cfc63b5ae6):
+Signed-off-by: Adrián García Casado <adriangarciacasado42@gmail.com>
+---
+ drivers/mmc/core/quirks.h          |  4 ++++
+ drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++--------
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-#define smp_cond_load_acquire(ptr, cond_expr)                          \
-({                                                                     \
-       typeof(ptr) __PTR = (ptr);                                      \
-       typeof(*ptr) VAL;                                               \
-       for (;;) {                                                      \
-               VAL = smp_load_acquire(__PTR);                          \
-               if (cond_expr)                                          \
-                       break;                                          \
-               __cmpwait_relaxed(__PTR, VAL);                          \
-       }                                                               \
-       VAL;                                                            \
-})
-
-#define __CMPWAIT_CASE(w, sz, name)                                    \
-static inline void __cmpwait_case_##name(volatile void *ptr,           \
-                                        unsigned long val)             \
-{                                                                      \
-       unsigned long tmp;                                              \
-                                                                       \
-       asm volatile(                                                   \
-       "       sevl\n"                                                 \
-       "       wfe\n"                                                  \
-       "       ldxr" #sz "\t%" #w "[tmp], %[v]\n"                      \
-       "       eor     %" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"     \
-       "       cbnz    %" #w "[tmp], 1f\n"                             \
-       "       wfe\n"                                                  \
-       "1:"                                                            \
-       : [tmp] "=&r" (tmp), [v] "+Q" (*(unsigned long *)ptr)           \
-       : [val] "r" (val));                                             \
-}
-
-The "eor" and "cbnz" seem to be there to skip the "wfe" if the value has
-already changed, but this only works if the condition only depends on VAL.
-This means it can miss the IPI that makes need_resched() return non-zero.
-
-To work I think it would need the cmp_load_acquire() to be "ldxr" with
-a "wfe" instead of __cmpwait_relaxed().
-But that wouldn't work if 'cond_expr' issued another "ldx".
-
-The documentation I found for the arm64 instruction set doesn't mention that
-losing the exclusive access requested by ldx will wake wfe, I assume that
-is an omission from the docs?
-
-	David 
+diff --git a/drivers/mmc/core/quirks.h b/drivers/mmc/core/quirks.h
+index c417ed34c..d736bb4be 100644
+--- a/drivers/mmc/core/quirks.h
++++ b/drivers/mmc/core/quirks.h
+@@ -15,6 +15,10 @@
+ 
+ #include "card.h"
+ 
++#ifndef CID_MANFID_KINGSTON
++#define CID_MANFID_KINGSTON	0x70
++#endif
++
+ static const struct mmc_fixup __maybe_unused mmc_sd_fixups[] = {
+ 	/*
+ 	 * Kingston Canvas Go! Plus microSD cards never finish SD cache flush.
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index a7a5df673..9cfa26722 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -256,11 +256,7 @@ struct esdhc_soc_data {
+ 	u32 quirks;
+ };
+ 
+-static const struct esdhc_soc_data esdhc_imx25_data = {
+-	.flags = ESDHC_FLAG_ERR004536,
+-};
+-
+-static const struct esdhc_soc_data esdhc_imx35_data = {
++static const struct esdhc_soc_data esdhc_imx25_35_data = {
+ 	.flags = ESDHC_FLAG_ERR004536,
+ };
+ 
+@@ -391,8 +387,8 @@ struct pltfm_imx_data {
+ };
+ 
+ static const struct of_device_id imx_esdhc_dt_ids[] = {
+-	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+-	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
++	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
++	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+ 	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+ 	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+ 	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+@@ -414,7 +410,7 @@ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+ 
+ static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+ {
+-	return data->socdata == &esdhc_imx25_data;
++	return data->socdata == &esdhc_imx25_35_data;
+ }
+ 
+ static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
+-- 
+2.47.3
 
 
