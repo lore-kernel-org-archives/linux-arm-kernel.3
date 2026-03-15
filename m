@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5552F3026D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 15:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5284AF30271
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 15:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKu6KklZ6rAMhRpchPBbfEgz2Pvc3C1uf+gfkGCG+xM=; b=HLSNPIWwvJq2SqtubhkH1RfgVV
-	0m2Y7JlyfVnDOwYetEg0+HXgU7lWv+H7/qnn6dXP/US4cSS+6Qv6mJq/H23BVuF4sxt34rKixevrK
-	fpko0fScYn/anwmwz5oaaRdxwUGQSTpMsfYEDoeq9dvXaqrz0E5u4Mv2fxUqvj4OVmACZr0TaYShA
-	HXeyzDKuev2K3CrWIU5uaGEwxPcQBuZ91FK5dn6+1KknDqJP4KEdSwvEf5OM//2UL4c7/9iGo+Soi
-	2TEDduZvSbeSjWEhJQZ/p0mCh2xhKC5nZ7FoHV+CUbxzudLHTcBfD/Wj7G4EqDhIwMIBTXhF1/1T0
-	EstLEHSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ji/HiPx33LRvrrck2DevAZuVlZNRX98YJJjGEbG8cSA=; b=ggABKWkfXXYx6Z8Cqw0URtNqUf
+	45+GWEbBG0bZGnKEqqOc3x8pQCObguq6VETyLPkEQ0HpU8MpjPPJiCY9/iyK3KQ7PQfQLtcqr+X+S
+	4mpYB+Q5eXHY8YzEUXdgvvfN9PIQaFe6VjLImGG0WBfLxoIKWbnIttAUbhrOtYK/Bfy1nlGxwuBho
+	HvVMEx5jIECHMYJqiruEizySuTDFml86RuT/fWlrNsUQaPIPJA3UJDF1jN79I9PXfotpvDRe+U8wZ
+	kLi3LlMQxoNqqoUbLTyI/zDiB3AenHc9ziLG/Ip4BGJSH92t/MeMfpJXapmozMUCbORm6x8eWdn4x
+	JMW2Ovog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1n55-00000002g5r-1bek;
-	Sun, 15 Mar 2026 15:08:39 +0000
+	id 1w1n8L-00000002gFp-438i;
+	Sun, 15 Mar 2026 15:12:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1n52-00000002g5W-3LmZ
+	id 1w1n8K-00000002gFW-0cCA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Mar 2026 15:08:37 +0000
+	Sun, 15 Mar 2026 15:12:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C887F403BF;
-	Sun, 15 Mar 2026 15:08:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF03C4CEF7;
-	Sun, 15 Mar 2026 15:08:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D41644067;
+	Sun, 15 Mar 2026 15:11:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54BC0C4CEF7;
+	Sun, 15 Mar 2026 15:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773587314;
-	bh=8KQhjICoFEf0w5+Izp6hbsaiHtKKbVXNf0fBaoajEeU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YqIJZT2DaQRUqO8YzwaNrdzJpmg7wk6PLGRDIt1eDj87qq3URLdQMkCR1ENler+lC
-	 bUifCapND1G9yx6MfwUWXTOdCoPPLL8AeoqfLTrJ0T+ivMtrQFb+lz3FJwQM4tG8yE
-	 o/gUNej05xgaIONtRyjmM7xyzX2TpYFqi8PyisiW049jGUqD8s5CYiPC2fUj0AChju
-	 zqaoyMhRdXOl/1lOUTNie93rkSDULcjZOdNERFzKBzfS9QRor+s+XVK4uFRnU27r17
-	 rOx4hDmo1iz43Guhh2ORdPTXNWKXbW3a3L4sH/qkJUCJr04mN7f2tJwvZukYL25lrD
-	 8saov9JEoBY6A==
-Received: from [185.201.63.253] (helo=lobster-girl.misterjones.org)
+	s=k20201202; t=1773587519;
+	bh=6jQp4ea3K3hRb3fhb0FEeSzMJUsm3BVSJ/Pao5wNtNI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TuC6Tv/YRav5hWMQVY1n8ds6PVQRaEXmkqV5HnkMb8QUdDkq8pmhJCsS1yCSlufRT
+	 eIpjCx/DsXjz+/a+3iO4DTVBbCj7zLlfS6zFzTYlicEiggh0w+615rb7lN2IaIPGl/
+	 J2C2UqI2urx+SSaflRQI8y+g7nPPEu3cbi516dR3e+afM7vuRZfRzK5AwP7O5LqdfK
+	 RjbaITlZ6qeFaboki++hc9GIYW1fCOImjAc3u7y5oBTdqH7XL8VGvEMb80f/I8eIkV
+	 zR9UlU2386mCiJEfdxA1auuauhuGuQ4iI1qAnEQChOglz6dY/6IXwBm01ksLjmYaQm
+	 1Tsaq+ByWMYLg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w1n4x-00000002ATG-46M7;
-	Sun, 15 Mar 2026 15:08:32 +0000
-Date: Sun, 15 Mar 2026 15:08:29 +0000
-Message-ID: <87ikaxceqa.wl-maz@kernel.org>
+	id 1w1n8H-00000002AWr-0hpc;
+	Sun, 15 Mar 2026 15:11:57 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvmarm@lists.linux.dev,
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	stable@vger.kernel.org
 Subject: Re: [PATCH] KVM: arm64: Discard PC update state on vcpu reset
-In-Reply-To: <20260313143019.GA3369094@e124191.cambridge.arm.com>
+Date: Sun, 15 Mar 2026 15:11:53 +0000
+Message-ID: <177358750718.974845.17608338527108220660.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260312140850.822968-1-maz@kernel.org>
 References: <20260312140850.822968-1-maz@kernel.org>
-	<20260313143019.GA3369094@e124191.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.201.63.253
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, stable@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_080836_882933_6CEA6158 
-X-CRM114-Status: GOOD (  36.32  )
+X-CRM114-CacheID: sfid-20260315_081200_206917_90D2C62C 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Mar 2026 14:30:19 +0000,
-Joey Gouly <joey.gouly@arm.com> wrote:
+On Thu, 12 Mar 2026 14:08:50 +0000, Marc Zyngier wrote:
+> Our vcpu reset suffers from a particularly interesting flaw, as it
+> does not correctly deal with state that will have an effect on the
+> execution flow out of reset.
 > 
-> On Thu, Mar 12, 2026 at 02:08:50PM +0000, Marc Zyngier wrote:
-> > Our vcpu reset suffers from a particularly interesting flaw, as it
-> > does not correctly deal with state that will have an effect on the
-> > execution flow out of reset.
-> > 
-> > Take the following completely random example, never seen in the wild
-> > and that never resulted in a couple of sleepless nights: /s
-> > 
-> > - vcpu-A issues a PSCI_CPU_OFF using the SMC conduit
-> > 
-> > - SMC being a trapped instruction (as opposed to HVC which is always
-> >   normally executed), we annotate the vcpu as needing to skip the
-> >   next instruction, which is the SMC itself
-> > 
-> > - vcpu-A is now safely off
-> > 
-> > - vcpu-B issues a PSCI_CPU_ON for vcpu-A, providing a starting PC
-> > 
-> > - vcpu-A gets reset, get the new PC, and is sent on its merry way
-> > 
-> > - right at the point of entering the guest, we notice that a PC
-> >   increment is pending (remember the earlier SMC?)
-> > 
-> > - vcpu-A skips its first instruction...
-> > 
-> > What could possibly go wrong?
-> > 
-> > Well, I'm glad you asked. For pKVM as a NV guest, that first instruction
-> > is extremely significant, as it indicates whether the CPU is booting
-> > or resuming. Having skipped that instruction, nothing makes any sense
-> > anymore, and CPU hotplugging fails.
+> Take the following completely random example, never seen in the wild
+> and that never resulted in a couple of sleepless nights: /s
 > 
-> Would the normal method of offlining/onlining via sysfs also be affected?
+> [...]
 
-I'm not sure there's any other. That's how I tested it, anyway, since
-you can't do a late onlining with pKVM.
+Applied to fixes, thanks!
 
-> > 
-> > This is all caused by the decoupling of PC update from the handling
-> > of an exception that triggers such update, making it non-obvious
-> > what affects what when.
-> > 
-> > Fix this train wreck by discarding all the PC-affecting state on
-> > vcpu reset.
-> 
-> Good job on tracking it down.. makes you wonder why the DSB "fixed" things!
+[1/1] KVM: arm64: Discard PC update state on vcpu reset
+      commit: 1744a6ef48b9a48f017e3e1a0d05de0a6978396e
 
-Because it was exactly at the correct spot to hide the crap. But NOP,
-or even UDF would have had the same effect.
-
->
-> > 
-> > Fixes: f5e30680616ab ("KVM: arm64: Move __adjust_pc out of line")
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
-> > ---
-> >  arch/arm64/kvm/reset.c | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-> > index 959532422d3a3..b963fd975aaca 100644
-> > --- a/arch/arm64/kvm/reset.c
-> > +++ b/arch/arm64/kvm/reset.c
-> > @@ -247,6 +247,20 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
-> >  			kvm_vcpu_set_be(vcpu);
-> >  
-> >  		*vcpu_pc(vcpu) = target_pc;
-> > +
-> > +		/*
-> > +		 * We may come from a state where either a PC update was
-> > +		 * pending (SMC call resulting in PC being increpented to
->                                                            incremented
-> > +		 * skip the SMC) or a pending exception. Make sure we get
-> > +		 * rid of all that, as this cannot be valid out of reset.
-> > +		 *
-> > +		 * Note that clearing the exception mask also clears PC
-> > +		 * updates, but that's an implementation detail, and we
-> > +		 * really want to make it explicit.
-> > +		 */
-> > +		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
-> > +		vcpu_clear_flag(vcpu, EXCEPT_MASK);
-> > +		vcpu_clear_flag(vcpu, INCREMENT_PC);
-> >  		vcpu_set_reg(vcpu, 0, reset_state.r0);
-> >  	}
-> >  
-> 
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-
-Thanks!
+Cheers,
 
 	M.
-
 -- 
-Jazz isn't dead. It just smells funny.
+Without deviation from the norm, progress is not possible.
+
+
 
