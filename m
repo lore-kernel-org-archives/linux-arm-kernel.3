@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08805D58B1B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 10:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFE4D58B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 10:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8Jgnt0lCswQY2X7FzKdIHrGZgEWkyIhP0iPIEiyxkq4=; b=y6xJWaJvRVzjqo
-	ijIleWfps0HIZ1PLGFdmPvdTUkbmUDUsyA1iLCCTNwtkWV5Y7o0pqkjJelnOPTfal/k4Bl3cm7eE1
-	c4gFs9c889agptcNO8PIIB3cFcHZyvbdNZaCF9YS1s+M8x56fR6dKKPV++zIyCJOcb3FWc04WlKBI
-	hQHCeGG0uFlhFnwNJpE5eBJWFdon7ury3X5hmsiQnnCJz3okqNI6wFMIKgQ9MdJccSoleb1hduO0R
-	m/Fkqmp1r5TxrOAojRfqnh1DOabxgFyhzjhCwFsL5T4S3F8OtT0kznMrpDAsAXFY8xEEk4BaDkg0v
-	QuTDG6Y7suNwn9Q9tjqQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MlzBdqWq62Wnh6f8NfbgJRH+0MZCqGQuarTk1uk25WE=; b=DVtQWe5iXzJQld6PGkZOm3zzoP
+	DJDtkI0M1CHVg0Mu3A46K655rMfBch88t4/P/Paz3MpR1NboT18/xM5IZtck1ehFQ8GQaOPInRInI
+	ISkxJ/KBHWw8XmGN5K/rlDQ1ViWtMjDYKqMV4arWtzy5aVCLmo0/dLvpY0BnqVFmUMd1YJL0QutdV
+	klWlWZR65yrebAtxHCR4UY0sKG7afU0a8zxm2sNyLWhicF/QQl6OTOhs//uanFDvvRb6ldguMMSDe
+	yht3TFMCIy9JzzeFm2UbBbQg79leNF9SLQ+ZPkeQZt4gAb6E6DsMAMXGDwUcmS3XdI2BC3VgNh242
+	O/fCUNmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1igj-00000002XOA-1Szj;
-	Sun, 15 Mar 2026 10:27:13 +0000
+	id 1w1igo-00000002XQ2-1goN;
+	Sun, 15 Mar 2026 10:27:18 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1igi-00000002XNw-247B;
-	Sun, 15 Mar 2026 10:27:12 +0000
+	id 1w1ign-00000002XPS-1FVO;
+	Sun, 15 Mar 2026 10:27:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73D8660008;
-	Sun, 15 Mar 2026 10:27:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6FEC19424;
-	Sun, 15 Mar 2026 10:27:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B589860018;
+	Sun, 15 Mar 2026 10:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16BA3C2BC9E;
+	Sun, 15 Mar 2026 10:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773570431;
-	bh=9eAzYooisbP12oFc8Fb2q0lVRb3E7ZJX32SroUaFStQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=mRBkCMy9F69Keoh+WtONtq7vPc6ZwdtwagaN9exgvKWRSNxLz4w3rbJkn/kRLzLX8
-	 9+PihIjxmpyhPzNqxuYVl8XvfodSH357CC94DG3zw2eyUSOeKsbk86E1RB/wkwgFPP
-	 Io9H7dBUOwr7wQcqMbFlXSTp6yl5hM9fLZpPly6m6HLmZOEBz4gcGEhSLtPa0disgX
-	 UEsVX5sUpCeGTP4zCi0Klc/ajExh+BVCAuTH7lh2kgMYO4OpLJpOg0PMMWepYXrmgg
-	 IhY0sAoM57DU8dqq1+//V1lC7h+HAVDwblq7pb/JvUqb1tsReIjnSvU22/JdQ6+COd
-	 Th7oSGuDrK5vQ==
+	s=k20201202; t=1773570436;
+	bh=F+PGCaeu94wkXm0/Jhhmcj95zbnwqbnLVrkRX5Zg6Q0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GznWEAomdnMu1fJPW3iRbpXgKfryRc7LAXNPLr700OxSlqEzouYO5/nZo4/Ifek+F
+	 oMW3IWolBe5wms/sO4hxNUaXA3cefzq2FtQv1LzebC33yiXAVeSO+QWz406Jo4lUPm
+	 Fn2Ir+g8PXJDI86qPzqik/R4S0xW2AqqUQs8R4lYnmxjf/0fUJgvdm1QSBEE5CuRJo
+	 5IOUpNLaXjqHpjRSCVCKgS+t3Dw70UTQIOvoTGIUkjSuVehStQfpzWNbOdMWukeCFy
+	 lw4lhNtCUTivcFMxxAj5jYGIpes3XMm4JWFKhLiI5+3MV1qMsKW5H0YJuDWgpQ003k
+	 KuFtGCSi1G55Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH mt76 0/6] wifi: mt76: mt7996: Rework vif/sta links
- management for link reconfiguration
-Date: Sun, 15 Mar 2026 11:26:23 +0100
-Message-Id: <20260315-mt7996-mlo-link-reconf-v1-0-a8a634fbc927@kernel.org>
+Date: Sun, 15 Mar 2026 11:26:25 +0100
+Subject: [PATCH mt76 2/6] wifi: mt76: mt7996: Account active links in
+ valid_links fields
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDMBBA0avIrDuQjDVNehVx0cZRh2oiiZSC5
- O4NLv/i/RMyJ+EMz+aExF/JEkMNfWvAL68wM8pYG0iRUUQat+PhnMFtjbhK+GBiH8OEXctvy6O
- 7k1VQ8Z54kt817qEaA0Mpfx85TFhuAAAA
-X-Change-ID: 20260221-mt7996-mlo-link-reconf-53eb8ed94280
+Message-Id: <20260315-mt7996-mlo-link-reconf-v1-2-a8a634fbc927@kernel.org>
+References: <20260315-mt7996-mlo-link-reconf-v1-0-a8a634fbc927@kernel.org>
+In-Reply-To: <20260315-mt7996-mlo-link-reconf-v1-0-a8a634fbc927@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
  Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -75,36 +73,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework vif/sta links management since MT7996 hw requires to remove AP MLD
-links from MCU configuration during AP tear-down process (e.g. running
-mt7996_remove_interface() for vif links or mt7996_mac_sta_remove() for
-sta links).
+From: Shayne Chen <shayne.chen@mediatek.com>
 
+Track active vif links in mt7996_vif_link_add and mt7996_vif_link_remove
+routines.
+This is a preliminary patch in order to remove AP MLD links from MCU
+configuration during AP tear-down process and to support MLO link
+reconfiguration in MT7996 driver.
+
+Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Lorenzo Bianconi (3):
-      wifi: mt76: mt7996: Rely on msta_link link_id in mt7996_vif_link_remove()
-      wifi: mt76: mt7996: Destroy vif active links in mt7996_remove_interface()
-      wifi: mt76: mt7996: Destroy active sta links in mt7996_mac_sta_remove()
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 52 +++++++++++++-----------
+ 1 file changed, 29 insertions(+), 23 deletions(-)
 
-Shayne Chen (3):
-      wifi: mt76: mt7996: Account active links in valid_links fields
-      wifi: mt76: mt7996: Move mlink deallocation in mt7996_vif_link_remove()
-      wifi: mt76: mt7996: Add mcu APIs to enable/disable vif links.
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 21a240f0c8c275b9fb5532ff74bbf76b741dac84..07a266f7670c1d6b050e3790ce91cba014b18eab 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -367,12 +367,16 @@ int mt7996_vif_link_add(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 
+ 	ieee80211_iter_keys(mphy->hw, vif, mt7996_key_iter, &it);
+ 
+-	if (vif->txq && !mlink->wcid->offchannel &&
+-	    mvif->mt76.deflink_id == IEEE80211_LINK_UNSPECIFIED) {
+-		struct mt76_txq *mtxq = (struct mt76_txq *)vif->txq->drv_priv;
+-
+-		mvif->mt76.deflink_id = link_conf->link_id;
+-		mtxq->wcid = idx;
++	if (!mlink->wcid->offchannel) {
++		if (vif->txq &&
++		    mvif->mt76.deflink_id == IEEE80211_LINK_UNSPECIFIED) {
++			struct mt76_txq *mtxq;
++
++			mtxq = (struct mt76_txq *)vif->txq->drv_priv;
++			mvif->mt76.deflink_id = link_conf->link_id;
++			mtxq->wcid = idx;
++		}
++		mvif->mt76.valid_links |= BIT(link_conf->link_id);
+ 	}
+ 
+ 	if (vif->type == NL80211_IFTYPE_STATION) {
+@@ -419,28 +423,30 @@ void mt7996_vif_link_remove(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 
+ 	rcu_assign_pointer(dev->mt76.wcid[idx], NULL);
+ 
+-	if (vif->txq && !mlink->wcid->offchannel &&
+-	    mvif->mt76.deflink_id == link_id) {
+-		struct ieee80211_bss_conf *iter;
+-		struct mt76_txq *mtxq;
++	if (!mlink->wcid->offchannel) {
++		if (vif->txq && mvif->mt76.deflink_id == link_id) {
++			struct ieee80211_bss_conf *iter;
++			struct mt76_txq *mtxq;
+ 
+-		mvif->mt76.deflink_id = IEEE80211_LINK_UNSPECIFIED;
+-		mtxq = (struct mt76_txq *)vif->txq->drv_priv;
+-		/* Primary link will be removed, look for a new one */
+-		for_each_vif_active_link(vif, iter, link_id) {
+-			struct mt7996_vif_link *link;
++			mvif->mt76.deflink_id = IEEE80211_LINK_UNSPECIFIED;
++			mtxq = (struct mt76_txq *)vif->txq->drv_priv;
++			/* Primary link will be removed, look for a new one */
++			for_each_vif_active_link(vif, iter, link_id) {
++				struct mt7996_vif_link *link;
+ 
+-			if (link_id == msta_link->wcid.link_id)
+-				continue;
++				if (link_id == msta_link->wcid.link_id)
++					continue;
+ 
+-			link = mt7996_vif_link(dev, vif, link_id);
+-			if (!link)
+-				continue;
++				link = mt7996_vif_link(dev, vif, link_id);
++				if (!link)
++					continue;
+ 
+-			mtxq->wcid = link->msta_link.wcid.idx;
+-			mvif->mt76.deflink_id = link_id;
+-			break;
++				mtxq->wcid = link->msta_link.wcid.idx;
++				mvif->mt76.deflink_id = link_id;
++				break;
++			}
+ 		}
++		mvif->mt76.valid_links &= ~BIT(link_id);
+ 	}
+ 
+ 	dev->mt76.vif_mask &= ~BIT_ULL(mlink->idx);
 
- drivers/net/wireless/mediatek/mt76/channel.c       |   9 -
- .../net/wireless/mediatek/mt76/mt76_connac_mcu.h   |   2 +
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    |  22 +--
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 208 ++++++++++++++-------
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    |  66 +++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.h    |  34 ++++
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  11 +-
- 7 files changed, 255 insertions(+), 97 deletions(-)
----
-base-commit: dab5edc5546c90674cfff033abc2b797b3ad4bf4
-change-id: 20260221-mt7996-mlo-link-reconf-53eb8ed94280
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.53.0
 
 
