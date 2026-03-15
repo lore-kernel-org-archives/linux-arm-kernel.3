@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017EE10854B4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Mar 2026 22:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0F210854B6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Mar 2026 00:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QW0An8LTaaLsr9gcRU64u5fJQMloDr9Ncs0Mbic01OA=; b=HBTNMGLFgfWKKCzAYWK6wSSjgZ
-	12r8XI94pbfjRcrIXBESZNPKH7FAJ0iTfJt81vqTqzGVsu4kPsQak6XGO/kNz8g6EstVFW/S1XhQ4
-	MsyYMM9N+eBv+AI9lPAa9jr+quKbvr/h51bqg/kRCUbG4tCUhMfl1pNV5R9d9OrTBoRPum2Eb+RgF
-	9++aSI9tzzNQgqZYRY007XKNFZBlqPzAuM4H0afDqDVgzP0epya/NxY9h/u/oae/EF/bdym05glCD
-	oLrAFYkGj5xeqRz3lf88AcSOZrh7l3raCTU3r11Q7eULWfq4tnAsp9eDKdXFly8JGOcY33r4Vr6AK
-	tVvsb9zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+o1XqCalYQnA+laKSrp8glNJDq0vbkvOj4gOv4j37E=; b=pVMmC0+A5EXc5pmkLqlmGOWP17
+	QkVPWMh8X0WZZkcF0BPCPc3qbJ6AvcxytpeArFWe4c6o9/7BQzPna7Axb4bGRb4Ins4eXh9i1z7dF
+	bDJWMpHKebnoSrzeFY9ega8BrfpcX/0BuoadwoajsieiI/Cd/sxKKdf6JpqRRjBK8srr5NaclqBBX
+	XF7dSY8496BULDmnfdNGk8fTOF18fblgthPAGDytdEuQRxCE5vG3y0hvUJMtXQCsCtEUF/Qw+xyb4
+	yU2e1KgeR2t7xJ/VInj0zucDlnErk6QsXeLvn3E9y1yFj51ohHGOhw+mJ9QCIByrPTY4thlPWtfa6
+	zqeBR5wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Xuk-00000002DxA-3w2w;
-	Sat, 14 Mar 2026 22:56:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w1ZZi-00000002Gx5-0VBr;
+	Sun, 15 Mar 2026 00:43:22 +0000
+Received: from smtp.jvdsn.com ([2603:c020:1:bd00::1:3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Xui-00000002Dwn-2i09
+	id 1w1ZZf-00000002Gwj-04HF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Mar 2026 22:56:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9ACE643F0D;
-	Sat, 14 Mar 2026 22:56:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A79C116C6;
-	Sat, 14 Mar 2026 22:56:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773529015;
-	bh=HTBn76J+zrddAYfE5QCFlT+eHYur3YWWbRorIKZsH3E=;
-	h=From:Date:Subject:To:Cc:From;
-	b=cCKFpXVhrNM4vpHStdRLyUwRCcHinaMyRfIlmaNFrnFYhoInqLWPnjhD1aM0oYZXc
-	 zF9RQkrDXn3jLoPAFp116s/mxwS5Y9RFoambA3UZbcO1sUJyGFM8hMd5hRqG21IV4U
-	 bFLAlB7QNYl0NnICYleSn+EBhq1Zw5RBTEQpsAGINE4/KqRAUXC4+c2jQ8F4k9sMYk
-	 hYAurn7BOeKpoWUfeDQ8yUcmwOOKSXcSrMG983aUc0s6yCT0fpdtFX35rtusFxoWZh
-	 BCfsmOD9jaCUDGT4UYmOSDBFLTd2rW+MJGheQ3lWXnANtJkneQFsUA0eErYJWLyYfP
-	 31TArudNLM8HQ==
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 14 Mar 2026 23:56:49 +0100
-Subject: [PATCH] ASoC: codec: arizona: Convert to use GPIO descriptors
+	Sun, 15 Mar 2026 00:43:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=jvdsn.com; s=mail;
+	t=1773535396; bh=LU1uB/HE/c/73zPowr6km/30RYw7pRFXyU+zsrSKI7Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AL1xq9CHRXZnZYKrXiPg8HC0aDmz6xDNbxJnMgiI4k1KnR4DtrDcPBUcPTCpP26+Q
+	 Cs5iJ1A1EwiJu2XFsfvxB1e0+MLDNgt1MavHb3UUtDmwWL/UqfdX7At6lCt6WQuBVq
+	 /6e40lRRX99Q1HD8Vu7kYatWyOR9uu01tTvcL2/ahsPHwQYsZILfbyosb6+9vR+4D5
+	 kMx2tc0J9m68A1pp4K45Pe6OT6LVU3LrfdcEsAKLfMgYBM9mHqS2xjgncHqwvw/IF8
+	 TSzNQzLfuJ1/6wMvVO/MsGJYj9+G2oSE7z3RoAADQ9wP+n4ODySKTFoP3CHfRt3gKz
+	 KZ4YXmGfqG8mw==
+Message-ID: <64592fee-1956-4a70-a751-9ac3335cfc27@jvdsn.com>
+Date: Sat, 14 Mar 2026 19:43:15 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+ Joachim Vandersmissen <git@jvdsn.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260303060509.246038-1-git@jvdsn.com>
+ <abTuFto8Tc3mhRRe@gondor.apana.org.au>
+Content-Language: en-US
+From: Joachim Vandersmissen <git@jvdsn.com>
+In-Reply-To: <abTuFto8Tc3mhRRe@gondor.apana.org.au>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260314-asoc-arizona-v1-1-ecc9a165307c@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDY0MT3cTi/GTdxKLMqvy8RF1LCxMLc2Nj85RU8yQloJaCotS0zAqwcdG
- xtbUAAfs3+V4AAAA=
-X-Change-ID: 20260314-asoc-arizona-98487337de7b
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
- Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_155656_738205_22AFA43A 
-X-CRM114-Status: GOOD (  29.90  )
+X-CRM114-CacheID: sfid-20260314_174319_145236_B400C0AE 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,291 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This converts the Arizona driver to use GPIO descriptors
-exclusively, deletes the legacy code path an updates the
-in-tree user of legacy GPIO.
+Hi Herbert,
 
-The GPIO lines for mic detect polarity and headphone ID
-detection are made exclusively descriptor-oriented. The
-headphone ID detection could actually only be used by
-the legacy GPIO code, but I converted it to use a
-descriptor if someone would actually need it so we don't
-just drop useful code.
+I don't think this one can be applied yet since dm-integrity still uses 
+xxhash64 through the crypto API. This would break fips=1 systems that 
+use it.
 
-The compatible "wlf,hpdet-id-gpio" is not in the device
-tree bindings and only intended to be used by software
-nodes if any. If someone insists I can try to add a
-binding for it, but I doubt there is any real user so
-it seems pointless.
+Kind regards,
+Joachim
 
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
-This patch hits all over the place, but I think merging it to
-the ASoC tree would be the best.
----
- arch/arm/mach-s3c/mach-crag6410-module.c |  6 +-
- include/linux/mfd/arizona/pdata.h        | 10 ----
- sound/soc/codecs/arizona-jack.c          | 95 ++++++++++----------------------
- sound/soc/codecs/arizona.h               |  1 +
- 4 files changed, 34 insertions(+), 78 deletions(-)
-
-diff --git a/arch/arm/mach-s3c/mach-crag6410-module.c b/arch/arm/mach-s3c/mach-crag6410-module.c
-index 4ffcf024b09d..14b0f9cc103e 100644
---- a/arch/arm/mach-s3c/mach-crag6410-module.c
-+++ b/arch/arm/mach-s3c/mach-crag6410-module.c
-@@ -239,7 +239,6 @@ static struct gpiod_lookup_table wm8994_gpiod_table = {
- static struct arizona_pdata wm5102_reva_pdata = {
- 	.gpio_base = CODEC_GPIO_BASE,
- 	.irq_flags = IRQF_TRIGGER_HIGH,
--	.micd_pol_gpio = CODEC_GPIO_BASE + 4,
- 	.micd_rate = 6,
- 	.gpio_defaults = {
- 		[2] = 0x10000, /* AIF3TXLRCLK */
-@@ -265,6 +264,8 @@ static struct gpiod_lookup_table wm5102_reva_gpiod_table = {
- 	.table = {
- 		GPIO_LOOKUP("GPION", 7,
- 			    "wlf,ldoena", GPIO_ACTIVE_HIGH),
-+		GPIO_LOOKUP("arizona", 4,
-+			    "wlf,micd-pol", GPIO_ACTIVE_HIGH),
- 		{ },
- 	},
- };
-@@ -272,7 +273,6 @@ static struct gpiod_lookup_table wm5102_reva_gpiod_table = {
- static struct arizona_pdata wm5102_pdata = {
- 	.gpio_base = CODEC_GPIO_BASE,
- 	.irq_flags = IRQF_TRIGGER_HIGH,
--	.micd_pol_gpio = CODEC_GPIO_BASE + 2,
- 	.gpio_defaults = {
- 		[2] = 0x10000, /* AIF3TXLRCLK */
- 		[3] = 0x4,     /* OPCLK */
-@@ -297,6 +297,8 @@ static struct gpiod_lookup_table wm5102_gpiod_table = {
- 	.table = {
- 		GPIO_LOOKUP("GPION", 7,
- 			    "wlf,ldo1ena", GPIO_ACTIVE_HIGH),
-+		GPIO_LOOKUP("arizona", 2,
-+			    "wlf,micd-pol", GPIO_ACTIVE_HIGH),
- 		{ },
- 	},
- };
-diff --git a/include/linux/mfd/arizona/pdata.h b/include/linux/mfd/arizona/pdata.h
-index f72e6d4b14a7..d465dcd8c90a 100644
---- a/include/linux/mfd/arizona/pdata.h
-+++ b/include/linux/mfd/arizona/pdata.h
-@@ -117,11 +117,6 @@ struct arizona_pdata {
- 	/** Check for line output with HPDET method */
- 	bool hpdet_acc_id_line;
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
--	/** GPIO used for mic isolation with HPDET */
--	int hpdet_id_gpio;
--#endif
--
- 	/** Channel to use for headphone detection */
- 	unsigned int hpdet_channel;
- 
-@@ -131,11 +126,6 @@ struct arizona_pdata {
- 	/** Extra debounce timeout used during initial mic detection (ms) */
- 	unsigned int micd_detect_debounce;
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
--	/** GPIO for mic detection polarity */
--	int micd_pol_gpio;
--#endif
--
- 	/** Mic detect ramp rate */
- 	unsigned int micd_bias_start_time;
- 
-diff --git a/sound/soc/codecs/arizona-jack.c b/sound/soc/codecs/arizona-jack.c
-index 303c1d44ebd8..a9063bac2752 100644
---- a/sound/soc/codecs/arizona-jack.c
-+++ b/sound/soc/codecs/arizona-jack.c
-@@ -11,7 +11,6 @@
- #include <linux/interrupt.h>
- #include <linux/err.h>
- #include <linux/gpio/consumer.h>
--#include <linux/gpio.h>
- #include <linux/input.h>
- #include <linux/pm_runtime.h>
- #include <linux/property.h>
-@@ -459,11 +458,6 @@ static int arizona_hpdet_do_id(struct arizona_priv *info, int *reading,
- 			       bool *mic)
- {
- 	struct arizona *arizona = info->arizona;
--#ifdef CONFIG_GPIOLIB_LEGACY
--	int id_gpio = arizona->pdata.hpdet_id_gpio;
--#else
--	int id_gpio = 0;
--#endif
- 
- 	if (!arizona->pdata.hpdet_acc_id)
- 		return 0;
-@@ -474,9 +468,8 @@ static int arizona_hpdet_do_id(struct arizona_priv *info, int *reading,
- 	 */
- 	info->hpdet_res[info->num_hpdet_res++] = *reading;
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
- 	/* Only check the mic directly if we didn't already ID it */
--	if (id_gpio && info->num_hpdet_res == 1) {
-+	if (info->hpdet_id_gpio && info->num_hpdet_res == 1) {
- 		dev_dbg(arizona->dev, "Measuring mic\n");
- 
- 		regmap_update_bits(arizona->regmap,
-@@ -486,13 +479,12 @@ static int arizona_hpdet_do_id(struct arizona_priv *info, int *reading,
- 				   ARIZONA_ACCDET_MODE_HPR |
- 				   info->micd_modes[0].src);
- 
--		gpio_set_value_cansleep(id_gpio, 1);
-+		gpiod_set_value_cansleep(info->hpdet_id_gpio, 1);
- 
- 		regmap_update_bits(arizona->regmap, ARIZONA_HEADPHONE_DETECT_1,
- 				   ARIZONA_HP_POLL, ARIZONA_HP_POLL);
- 		return -EAGAIN;
- 	}
--#endif
- 
- 	/* OK, got both.  Now, compare... */
- 	dev_dbg(arizona->dev, "HPDET measured %d %d\n",
-@@ -514,7 +506,7 @@ static int arizona_hpdet_do_id(struct arizona_priv *info, int *reading,
- 	/*
- 	 * If we measure the mic as high impedance
- 	 */
--	if (!id_gpio || info->hpdet_res[1] > 50) {
-+	if (!info->hpdet_id_gpio || info->hpdet_res[1] > 50) {
- 		dev_dbg(arizona->dev, "Detected mic\n");
- 		*mic = true;
- 		info->detecting = true;
-@@ -533,9 +525,6 @@ static irqreturn_t arizona_hpdet_irq(int irq, void *data)
- {
- 	struct arizona_priv *info = data;
- 	struct arizona *arizona = info->arizona;
--#ifdef CONFIG_GPIOLIB_LEGACY
--	int id_gpio = arizona->pdata.hpdet_id_gpio;
--#endif
- 	int ret, reading, state, report;
- 	bool mic = false;
- 
-@@ -591,10 +580,8 @@ static irqreturn_t arizona_hpdet_irq(int irq, void *data)
- 
- 	arizona_extcon_hp_clamp(info, false);
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
--	if (id_gpio)
--		gpio_set_value_cansleep(id_gpio, 0);
--#endif
-+	if (info->hpdet_id_gpio)
-+		gpiod_set_value_cansleep(info->hpdet_id_gpio, 0);
- 
- 	/* If we have a mic then reenable MICDET */
- 	if (state && (mic || info->mic))
-@@ -1325,58 +1312,33 @@ int arizona_jack_codec_dev_probe(struct arizona_priv *info, struct device *dev)
- 		regmap_update_bits(arizona->regmap, ARIZONA_GP_SWITCH_1,
- 				ARIZONA_SW1_MODE_MASK, arizona->pdata.gpsw);
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
--	if (pdata->micd_pol_gpio > 0) {
--		if (info->micd_modes[0].gpio)
--			mode = GPIOF_OUT_INIT_HIGH;
--		else
--			mode = GPIOF_OUT_INIT_LOW;
--
--		ret = devm_gpio_request_one(dev, pdata->micd_pol_gpio,
--					    mode, "MICD polarity");
--		if (ret != 0) {
--			dev_err(arizona->dev, "Failed to request GPIO%d: %d\n",
--				pdata->micd_pol_gpio, ret);
--			return ret;
--		}
--
--		info->micd_pol_gpio = gpio_to_desc(pdata->micd_pol_gpio);
--	} else
--#endif
--	{
--		if (info->micd_modes[0].gpio)
--			mode = GPIOD_OUT_HIGH;
--		else
--			mode = GPIOD_OUT_LOW;
-+	if (info->micd_modes[0].gpio)
-+		mode = GPIOD_OUT_HIGH;
-+	else
-+		mode = GPIOD_OUT_LOW;
- 
--		/* We can't use devm here because we need to do the get
--		 * against the MFD device, as that is where the of_node
--		 * will reside, but if we devm against that the GPIO
--		 * will not be freed if the extcon driver is unloaded.
--		 */
--		info->micd_pol_gpio = gpiod_get_optional(arizona->dev,
--							 "wlf,micd-pol",
--							 mode);
--		if (IS_ERR(info->micd_pol_gpio)) {
--			ret = PTR_ERR(info->micd_pol_gpio);
--			dev_err_probe(arizona->dev, ret, "getting microphone polarity GPIO\n");
--			return ret;
--		}
-+	/* We can't use devm here because we need to do the get
-+	 * against the MFD device, as that is where the of_node
-+	 * will reside, but if we devm against that the GPIO
-+	 * will not be freed if the extcon driver is unloaded.
-+	 */
-+	info->micd_pol_gpio = gpiod_get_optional(arizona->dev,
-+						 "wlf,micd-pol",
-+						 mode);
-+	if (IS_ERR(info->micd_pol_gpio)) {
-+		ret = PTR_ERR(info->micd_pol_gpio);
-+		dev_err_probe(arizona->dev, ret, "getting microphone polarity GPIO\n");
-+		return ret;
- 	}
- 
--#ifdef CONFIG_GPIOLIB_LEGACY
--	if (arizona->pdata.hpdet_id_gpio > 0) {
--		ret = devm_gpio_request_one(dev, arizona->pdata.hpdet_id_gpio,
--					    GPIOF_OUT_INIT_LOW,
--					    "HPDET");
--		if (ret != 0) {
--			dev_err(arizona->dev, "Failed to request GPIO%d: %d\n",
--				arizona->pdata.hpdet_id_gpio, ret);
--			gpiod_put(info->micd_pol_gpio);
--			return ret;
--		}
-+	info->hpdet_id_gpio = gpiod_get_optional(arizona->dev,
-+						 "wlf,hpdet-id-gpio",
-+						 mode);
-+	if (IS_ERR(info->hpdet_id_gpio)) {
-+		ret = PTR_ERR(info->hpdet_id_gpio);
-+		dev_err_probe(arizona->dev, ret, "getting headphone detect ID GPIO\n");
-+		return ret;
- 	}
--#endif
- 
- 	return 0;
- }
-@@ -1385,6 +1347,7 @@ EXPORT_SYMBOL_GPL(arizona_jack_codec_dev_probe);
- int arizona_jack_codec_dev_remove(struct arizona_priv *info)
- {
- 	gpiod_put(info->micd_pol_gpio);
-+	gpiod_put(info->hpdet_id_gpio);
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(arizona_jack_codec_dev_remove);
-diff --git a/sound/soc/codecs/arizona.h b/sound/soc/codecs/arizona.h
-index ecd8890eefc1..0703182d87b3 100644
---- a/sound/soc/codecs/arizona.h
-+++ b/sound/soc/codecs/arizona.h
-@@ -100,6 +100,7 @@ struct arizona_priv {
- 	struct snd_soc_jack *jack;
- 	struct regulator *micvdd;
- 	struct gpio_desc *micd_pol_gpio;
-+	struct gpio_desc *hpdet_id_gpio;
- 
- 	u16 last_jackdet;
- 
-
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260314-asoc-arizona-98487337de7b
-
-Best regards,
--- 
-Linus Walleij <linusw@kernel.org>
-
+On 3/14/26 12:11 AM, Herbert Xu wrote:
+> On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
+>> xxhash64 is not a cryptographic hash algorithm, but is offered in the
+>> same API (shash) as actual cryptographic hash algorithms such as
+>> SHA-256. The Cryptographic Module Validation Program (CMVP), managing
+>> FIPS certification, believes that this could cause confusion. xxhash64
+>> must therefore be blocked in FIPS mode.
+>>
+>> The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
+>> ("btrfs: switch to library APIs for checksums") recently modified the
+>> btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
+>> API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
+>> mode should now have no impact on btrfs usage.
+>>
+>> Signed-off-by: Joachim Vandersmissen <git@jvdsn.com>
+>> ---
+>>   crypto/testmgr.c | 1 -
+>>   1 file changed, 1 deletion(-)
+> Patch applied.  Thanks.
 
