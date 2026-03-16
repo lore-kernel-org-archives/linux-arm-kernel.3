@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FE4F506D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE09F506D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9qImMPTFN9l13pEaVZexXF0+F/wHlqkeGvCWUWvFc0=; b=DMpR01d2GLAVXljdVsa4EPMH02
-	zd1MRs9vgjFFrujamZiHgNVzk0VHJy0N8Q77gCbLIxigPaz4gb2caTuiR8VLCs+2b15TTIdEPruxB
-	PD95VmLcCwH4YmH4QD1E11McjhjPsbwte7eTlAFL5jEvFaHnP8T3A7IFA63I7tbhCRaS519gYKGbi
-	0wtEHUvca8aSO09w75X2oJJQeTO9mHDBSKbR1EY/q0AGGsu67qOVMpu+nsT08yalqCPqF3CRWaUQK
-	PW5XwL8IygW/Xof0WR1z+n9g7aA0t3oU4HFoSWey134/tqeu6GxlDTBtbdTYcoMRGiEuKX7QKolxE
-	+D0DtI5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wk5UVaNS+P8NlqUtcWJ5r7+C8I6RPKAQ8HfHFd9yE7E=; b=Sev0ivFPomh0dYxVY8Xser16hJ
+	yKvFdVMGF4g0pyD6DRq5JgzmS+4vn0aoryN8XyFlJe3OG08YJPmJSPINQ/pLU5tzSXEYBgaNmqhJr
+	xNWvtSSqWr/LJguHY+NBGo0SRyveq7g45nC2ot77CKBNEaTwJuIXezSwphfJ82/N7Ixj75MCoI8Lb
+	gUKcR6kjHgPa8dXVTDaZ+DW8UuYHizFNNKwFiU1jpxe9WFsACIrAj0E/R0Z4gwMrTYHkFpxvfMY20
+	cR0qA/MXJEAt1GsONx+Wql6HqR3KsukU6L9kN5Kx+odoNfizKBp4POZ7fUSjYbOSfLTyanZ47qF3y
+	taOLXAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28rD-00000004AkF-3LwS;
-	Mon, 16 Mar 2026 14:23:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w28sz-00000004AwD-32EF;
+	Mon, 16 Mar 2026 14:25:37 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28rB-00000004Ajj-3iup
+	id 1w28sv-00000004Avq-2lUu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 14:23:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AB5F44564
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 14:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EFF2C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 14:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773671025;
-	bh=o9qImMPTFN9l13pEaVZexXF0+F/wHlqkeGvCWUWvFc0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NzGLe0MxaJ6b4oDrU7jIw7POfBs6WQhK9MokUeJZmK1iorKNGExFfp4+cbDRBy1+r
-	 MwB38IheT63yy32AjDHKZp26QAFHx2O1TgGdVGS1K8zk8OAf+7bqjMfJwfSpKyviIg
-	 GqlarZ/EtuYdo9tj1+ZfxKFY8Eg1WowSXVX5/nwLQn532pLRUGz/l6tZmIgur2SHGJ
-	 2VmiZe6iub9TvE32oTer3V0ZDOqZxyEEwYVd5k5gf64TFUB9dWjx3/HOkqu0h7Kx/g
-	 iiX/CXJHWsZ8TMzp1u/LZpLyE73G/91zUIjY6v3fJqALNCB1WKoBj5Uj7S8LVR0cLF
-	 bjajcaCpeBl/g==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a12f88d839so4727858e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 07:23:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX9Uomugm+SucRlapsuk045PkdGgbb+VRujvyfhvmoZaeQAFcl6eR34mhwf/i+71EHAATSMwhLj7bmgJuagVdca@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiRa3Mim1J9q8Blv7vcuApeTiKd3xCJeUaJqyO7mIy+2J1DJwy
-	HzMpO0n6a3VBWJx8xEE//9nE3XkDshdYv/8IcyAsq+fwiyNvwedSnMBSgl0e0g5x5lMGXiGofg3
-	C98BStngvvYjNK8LbQ4h1Sni9n7atgXQ=
-X-Received: by 2002:a05:6512:1589:b0:5a1:3f66:1d75 with SMTP id
- 2adb3069b0e04-5a162b1feb3mr3926051e87.43.1773671023606; Mon, 16 Mar 2026
- 07:23:43 -0700 (PDT)
+	Mon, 16 Mar 2026 14:25:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773671133; x=1805207133;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=BSgg6KtHp+XdA95gnl1/Q020tGtHqDxyhgpg7ceAYDE=;
+  b=eFaERYzAU9pNWDyN0ynEjFtl/eejGg7TJ7oYBwgHznEbuc5Tc0KjvJor
+   tADrLVj15dZZIg9wCLq5zCuWHI5ELTzZ3p+obErVb5ck6Z3Vov0Nyx6+V
+   DwKHo8TBMzsvHBmMb4JbA2kx/mC8ZJxvps0/dfVmCX2LoRJ4wEIfB37qx
+   oBqGoddBrzdW6vElKkSKuT0nAgQ65RqDS6YFzc0Ww+pSQhqFz50sNOaT6
+   PDJckiIA0wbYnZ4JZSsrBYShYY4iv7uw2/My84uBluKJNW2iyRJYuhHaR
+   TUU6g/ZL1r9XdpTI/c0kKPA44jOXbasSHowBKBe1d9cBSEfz5+x/okGeE
+   g==;
+X-CSE-ConnectionGUID: +XxZAKVpRaSwZ/9eyz+rig==
+X-CSE-MsgGUID: D8tbZx3XSiirWWtfrU6vlA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="73869887"
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="73869887"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 07:25:32 -0700
+X-CSE-ConnectionGUID: 9dSGBVBxSU+QgCbE+j0MPQ==
+X-CSE-MsgGUID: ekmacsyCTWuQio6UChNBFw==
+X-ExtLoop1: 1
+Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.237])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 07:25:29 -0700
+Date: Mon, 16 Mar 2026 16:25:26 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	morris_mao@aspeedtech.com
+Subject: Re: [PATCH v2 2/3] iio: adc: Enable multiple consecutive channels
+ based on model data
+Message-ID: <abgS1lOoEO1RTe9X@ashevche-desk.local>
+References: <20260316-adc-v2-0-21475a217b09@aspeedtech.com>
+ <20260316-adc-v2-2-21475a217b09@aspeedtech.com>
 MIME-Version: 1.0
-References: <20260313195801.2043306-1-shenwei.wang@nxp.com>
-In-Reply-To: <20260313195801.2043306-1-shenwei.wang@nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 16 Mar 2026 15:23:30 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkVZc7J+39eUtpWz4+YQm035HDtUyiyrEFGifQkcSMsCA@mail.gmail.com>
-X-Gm-Features: AaiRm51oPQ0PGDQyh1c2t_SBzYfjFDmFeidRXonO75pnfFoM__wwYFbbiMK8ux8
-Message-ID: <CAD++jLkVZc7J+39eUtpWz4+YQm035HDtUyiyrEFGifQkcSMsCA@mail.gmail.com>
-Subject: Re: [PATCH v12 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, arnaud.pouliquen@foss.st.com, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260316-adc-v2-2-21475a217b09@aspeedtech.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_072345_948555_32080780 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_072533_818825_FC6A26B6 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,17 +91,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shenwei,
+On Mon, Mar 16, 2026 at 11:00:47AM +0800, Billy Tsai wrote:
+> Add helpers to generate channel masks and enable multiple ADC channels
+> according to the device model's channel count.
 
-On Fri, Mar 13, 2026 at 8:58=E2=80=AFPM Shenwei Wang <shenwei.wang@nxp.com>=
- wrote:
+...
 
-> Support the remote devices on the remote processor via the RPMSG bus on
-> i.MX platform.
+> +
 
-I think v12 looks pretty good, if Arnaud gives his ACK on this patch
-series I think it's ripe for merge.
+(1)
 
-Yours,
-Linus Walleij
+> +/*
+> + * Enable multiple consecutive channels starting from channel 0.
+> + * This creates a bitmask for channels 0 to (num_channels - 1).
+> + * For example: num_channels=3 creates mask 0x0007 (channels 0,1,2)
+> + */
+> +static inline u32 aspeed_adc_channels_mask(unsigned int num_channels)
+> +{
+> +	if (num_channels == 0)
+> +		return 0;
+
+> +	if (num_channels >= 16)
+> +		return GENMASK(15, 0);
+> +	return GENMASK(num_channels - 1, 0);
+
+This entire function can be folded into
+
+	return BIT(min(num_channels, 16U)) - 1;
+
+Or
+
+	if (num_channels > 16)
+		return GENMASK(15, 0);
+
+	return BIT(num_channels) - 1;
+
+> +}
+
+> +/*
+> + * Helper function to enable multiple channels in the control register
+> + */
+> +static inline u32 aspeed_adc_enable_channels(unsigned int num_channels)
+> +{
+> +	return FIELD_PREP(ASPEED_ADC_CTRL_CHANNEL, aspeed_adc_channels_mask(num_channels));
+> +}
+
+> +
+
+One of these (see 1 above) new blank lines should be rather added in the previous patch.
+
+>  /* Battery sensing is typically on the last channel */
+>  #define ASPEED_ADC_BATTERY_CHANNEL		7
+
+...
+
+>  	/* Start all channels in normal mode. */
+> -	adc_engine_control_reg_val =
+> -		readl(data->base + ASPEED_REG_ENGINE_CONTROL);
+> -	adc_engine_control_reg_val |= ASPEED_ADC_CTRL_CHANNEL;
+> +	adc_engine_control_reg_val = readl(data->base + ASPEED_REG_ENGINE_CONTROL);
+
+> +	adc_engine_control_reg_val |=
+> +		aspeed_adc_enable_channels(aspeed_adc_get_active_channels(data));
+
+Why not FIELD_MODIFY()?
+
+>  	writel(adc_engine_control_reg_val,
+>  	       data->base + ASPEED_REG_ENGINE_CONTROL);
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
