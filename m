@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D618AF30297
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 02:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B948F30295
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 02:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWF2mf3kVPfppDp36uMCmkCxPdxULYmBpYhT7oMPfhU=; b=YsLyuFR5elxQIcFbTzYEcM7XkJ
-	yhf7qLPeA7VFCl5lg6NVPE7AcU+492i7KCw/jCVIAl9es21JvjjF2bhP+Og9fewVo/sm+EFUhJPfO
-	UTnePDkdjGeTtzNQYID1OQ51Y1jlMtrfdPqi61ljPmUSE8ioMcpfN1cM7hINlQP6+7yLz7MO9b4Xg
-	Q00mzk3gYZJN/DtYAjcLyIqJDZY4PQf5X+63pQlm5HWXkv7Za5/PHbFjfqccuVl6Q5UNHAUBgeT+r
-	gNX70kVLGU/WvEfzGz3ZxoxOOGvTDcmenk2+oNrXxUky7XqPWOSH+hEYgQqOlblutD5XoQK+zIHdl
-	805AdIhw==;
+	bh=5cK4DSgf4/rvokOqdV9NzEntXk8odHo4nT46mIGyGv8=; b=I0mnM/RhomlkBgd2886iD9N4cG
+	/0nGqAKl2BP+7e7Z1ENFG1etQxsEYo/YIVL/G5SOtvt5R98LSNCmR+G3LJol8l9+J75ba2oc/S3W5
+	1J8ew2WsjRTbTV7TdCRgp2LdHnBzOQZykfjBnPvjnqcVzs5zu0NJNinXWlAZ+p23hH0e06FP/cHyA
+	uV+gZjG8kEOWYvP+b+gFlEL1CP3zGy/aEORHHNegFFNOV/usglfEqihtqpV/G4XhbTLhQlE8pXb/N
+	67AMHGSAYnTGTh8WhJ7R7/DTv13jq4EMwJdfnppl5HZGRz6iE75Y2h0IopoHzXCs514VUpA8WJVKG
+	lYau7h7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1xPi-00000003B5u-0aGC;
-	Mon, 16 Mar 2026 02:10:38 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1w1xPq-00000003BDF-1VU3;
+	Mon, 16 Mar 2026 02:10:46 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1xPc-00000003B0D-3HBA
+	id 1w1xPo-00000003BB3-1s77
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 02:10:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=5cK4DSgf4/rvokOqdV9NzEntXk8odHo4nT46mIGyGv8=; b=LH781E95Aq0FAwABGaa8P2aOeS
+	q9GK6jantQoHLQH/3Z7nxHuoQcFObk4sbiixkW0TQHQJDV1cPsZKvxC6A1nIYgy6Wh9q1JXlJpm1/
+	6sq0rqlluIQYGE9Zy/MgqtquxewOiGP7swinDu/1YUosuiRjYA0SmFK5Jq4ysG+ryCrs5djbbw9Ie
+	2maVEwlazhmH+Y6CRHuYU6MfY2thPL883DmuXBmnLJcsQNjDUsD2lYtHlv13yRPz5JzQh9Me+CEcQ
+	euq1j4i0sfhL6WPgFsRrcf12rI4G2uGgLYIc1k6erFZz2LI5MnAWKUWlW/kWya00guM/l/ULpSGUN
+	eYwS+YkA==;
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w1xPi-00000000EKJ-0wdT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 02:10:35 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-35ba2ae4df3so153764a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 19:10:32 -0700 (PDT)
+	Mon, 16 Mar 2026 02:10:40 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c73a5473bbdso1514242a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 19:10:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773627032; x=1774231832; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773627034; x=1774231834; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MWF2mf3kVPfppDp36uMCmkCxPdxULYmBpYhT7oMPfhU=;
-        b=X6GPMxDsg71tKTJHOR3F+MmjBX2+g3Qf3Hk/TZes0lbEuZeYpGXW9KEv9PcuzQf2H9
-         8edTNv8NGBLeSsIWC8Nr0HhOP5evg9s3HL1JhCH8PoGQt8sT6GlN+WJ3VsXLEqCXQDWb
-         6S/Rmk43kDoykRtz964aK2x5p8+xDqJ9DNxSPnUTSwxHD5Y/iUVvXnK4vxY2uk+ayJmH
-         n8CMQsJxRmfTGTUXP4Xl9uUJvf1M6U2wX3xLhopYC7ac1gQV890Shc8YANiwgJxPf1ar
-         9ltInWXNzTowcnsJy9doWrOIS4i3fyDkPmtr+ht1qrWnLRoOOQfUiBc1UAonHp0OtseN
-         ndWQ==
+        bh=5cK4DSgf4/rvokOqdV9NzEntXk8odHo4nT46mIGyGv8=;
+        b=RzTKCglNnzh2wXoIhm2DGKn3kcBB+UyLLtMwjXxjWNR6k5SWRfp5dFpCNOWCa0L3PU
+         0ZqKejezSLDBJsJ+jrvD3AZSs1WN4Pq8nWp07lCQkp5mxQhss6rHtnVb9Ha5rf3pRzWu
+         A9XPdTrcrHtdIdw/Rwndvnxm32OEuJ/qfH/BpTfCraT7j4ML2oBbga23dPLZ4ybRCEOF
+         Lh/j4eYi/Mx5Guemg9awq/g0rGGG8umPtJvqrB2XwZGK9EgtualpYF9DAk9EMT82Seri
+         068YsCdruAbo9rGxQNtgMDZcsoGxDM7fHWvDZc1x1FBp6IPz+YgEM6RdesXOyO6t9w5/
+         8KLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773627032; x=1774231832;
+        d=1e100.net; s=20251104; t=1773627034; x=1774231834;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=MWF2mf3kVPfppDp36uMCmkCxPdxULYmBpYhT7oMPfhU=;
-        b=DXf+tMqnPAz0Wkppnbre5WuF6mcHDygg3G0qh1r1SktHtINVf9kE78AC48+EnRSmly
-         BsvT/OYS8VZX+nYTGBVUjMo9xC+5/lynqYo2vStwMoReKD4WTyCwRXXhac/b3fzJMbZr
-         n1oG8H9wrZ5eTP4yyDVgEuA+tw/eRnoBAzJ+lyxQ3Kmn8hvaTBllrTRvfe6nVeRtCqo7
-         U0epDowEK6BSdTCK+MbCfMJUz4O0SEkx87X+hA2GBLwWUVZRaeN8hgtrG93WeceSCIm+
-         THMXNHXYlTjt0BJsWseCtkjjniCRqHLIJIBIhrNN6eFZ3F02SdeVLLZYRHWBZypMd9xY
-         jXbw==
-X-Forwarded-Encrypted: i=1; AJvYcCV8kiazTrwCKSUlBggaLqAtzDREl84GgaC+lScjlJi4w+kZaHDNviRKNIFpj0FAuOjz/V0UjcCs37bNCbjaXUNa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/OvsCivaB1921qNzc6Ahf38M+BM3DIa3d8YuykBvA2Lj7Orq2
-	sZrqbGkbOrH0Sx30bAARWu7anliBCpLTvt/1nq/EZJzhZCmBrsMDeTrp
-X-Gm-Gg: ATEYQzwHlhL81L4kXm7hdIBboskVYrBfrdrr6po4r31ERnEZVxTvp5GgS0kKgNSYn4W
-	EY3OJkctyv2fU5eRJeGd2/FyLAuJyxuIDJlDyyZV8zGxYssTOXNVAptqQ43Z8GbGN8AZMI6rm/3
-	KR3TvtQpJkPOVcvA1htMWpXJxWJXG625cmzCqX3NX/Cz2iqdRanYUVpVJhtYhYet9a8KWNPXya5
-	wr2Sb9TC9EAFWhg/V/h0uiPs1GrefyErZSBW+DyPF6sNrAzkEIX07WeYucQ/U5mZC3AWsZsCj3q
-	FxqG0RmB0wrHqfDEwuV+OY9eGrTwSK3Ekvj/vp4HpgXKlNr7CO2pugkQlSbJkSkyYqwZHS40OTZ
-	klKosaEWkug2XKFPlBvo3ARzkaQN84orASYCHqchTaH/0eUQErpbhG1wJjFi90e/srYsonIHhbe
-	hTRuKLTjj+DhYcSZzGx6TaJBUrn7HJctRA7sWCxOF18FGFZ9dWUmiX99bGj/IRM7jk
-X-Received: by 2002:a17:90b:3501:b0:359:fa1e:2bc3 with SMTP id 98e67ed59e1d1-35a21ea5dbfmr10103044a91.6.1773627031911;
-        Sun, 15 Mar 2026 19:10:31 -0700 (PDT)
+        bh=5cK4DSgf4/rvokOqdV9NzEntXk8odHo4nT46mIGyGv8=;
+        b=XRf2WAC6peyfoAJfeaypBJEzfiOsrqLz7gAhzteaokLI3gGLtYw+sKwMPNCWEPKl4W
+         Sg0D1qcoFv0qeMnMQvHT5VZBP4WbD91BYl15HHA+d3l0lHwdt6jEaiCi7rQWlsR+ZnSg
+         E6wIcMmx1hshjgooGivyacpIuOGzN2us9BYqpnn+YzwyY/MGswRkqWLaj92bX7m/RzZO
+         kuWzk7ZTQH3g/U7T/CwV2Kl2v35HXy/0Rt/ET//OU7R8Pi5C3jYhFiqiMQr276f1V5AO
+         D5ufAnUPevJOv3vEj5MmAJv4td/epDE4lAOsT0/ky1YnQQWvWQwwlMfKOHL5ZIplnEb0
+         2c+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUY/1eEjhbPilUzVscNVVspvD/dumjHI2+Uf4QDePw66Fik8P8qjCBtDRlOnTavRIDBq9mZAPMmIqg2gE/Xa6vD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCWB67OJT7jlr9gSBFBJ9pdQMRpYDNooatRZrrsa4UjNYjNG79
+	dICfVHGTf1KVZoJjuzx2Nk+bp7WlkjcG3QFgSrPYjEruEr8IWb6fLb7CfkVgXwsW
+X-Gm-Gg: ATEYQzzWZJpLukkBaDRIvK0kjgY85fe/ZAbvMckWdkREUCx8nmnJIDk/tjUfv2Tmzsb
+	FboMeMZKApHFFAw3cI/yfuk0iaT+RTvMdAusGPsm/8/aWH59mVtDTbSmKJyyiCuAagxIcxoiRaG
+	55l7/ZtmahKjYcYtLYHSpyA0CxSvmv8o/Fm1yqexKPIEQA/L8TLGe7YV7oW5uEl5u/FKIdRnbrk
+	vay4MnFpqaO0/lcQUO7sFArxs259Jr1WdsuDOZLexcmuyPtIsW4O81tH+WuCts5cbcsUf7/fA0h
+	mJhChJ7AOCozD7Y1nMmjkQZdg7rVKAWfFl9+kaP0E0HLt4laAzYXzpqA6OgIN8SC9N4DnqDYJlo
+	d+9fkNajZ1I3H0m7XazOoj/LLeBLCP4nl1MwjX6DPCZ9UNkqjiXk8Jgo6b0lnglde8z/LjYFDXj
+	B0NcVaGZu2AYL2OKc63uBPWDGvBH1YiVf13jNQ7/9NHZdQroX7iR0aFRk9AqF6fXIj
+X-Received: by 2002:a17:90b:4ccf:b0:336:b60f:3936 with SMTP id 98e67ed59e1d1-35a21ebca88mr9426301a91.12.1773627033840;
+        Sun, 15 Mar 2026 19:10:33 -0700 (PDT)
 Received: from luna.turtle.lan (static-23-234-93-211.cust.tzulo.com. [23.234.93.211])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a02ffdfb7sm17705805a91.14.2026.03.15.19.10.30
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a02ffdfb7sm17705805a91.14.2026.03.15.19.10.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 19:10:31 -0700 (PDT)
+        Sun, 15 Mar 2026 19:10:33 -0700 (PDT)
 From: Sam Edwards <cfsworks@gmail.com>
 X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -85,19 +100,18 @@ Cc: Russell King <rmk+kernel@armlinux.org.uk>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/3] net: stmmac: Prevent indefinite RX stall on buffer exhaustion
-Date: Sun, 15 Mar 2026 19:10:08 -0700
-Message-ID: <20260316021009.262358-3-CFSworks@gmail.com>
+	Sam Edwards <CFSworks@gmail.com>
+Subject: [PATCH 3/3] net: stmmac: Remove stmmac_rx()'s `limit`, check desc validity instead
+Date: Sun, 15 Mar 2026 19:10:09 -0700
+Message-ID: <20260316021009.262358-4-CFSworks@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260316021009.262358-1-CFSworks@gmail.com>
 References: <20260316021009.262358-1-CFSworks@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_191032_921390_36009C53 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260316_021038_281673_1A73FB37 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,66 +126,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmmac driver handles interrupts in the usual NAPI way: an interrupt
-arrives, the NAPI instance is scheduled and interrupts are masked, and
-the actual work occurs in the NAPI polling function. Once no further
-work remains, interrupts are unmasked and the NAPI instance is put to
-sleep to await a future interrupt. In the receive case, the MAC only
-sends the interrupt when a DMA operation completes; thus the driver must
-make sure a usable RX DMA descriptor exists before expecting a future
-interrupt.
+A previous patch ("net: stmmac: Fix NULL deref when RX encounters a
+dirty descriptor") fixed a bug where the receive loop may advance to a
+still-dirty descriptor (i.e. one with OWN=0 but its buffer(s)
+removed+NULLed), causing a panic. That fix worked by tightening the
+loop's iteration limit so that it must stop short of the last non-dirty
+descriptor in the ring.
 
-The main receive loop in stmmac_rx() exits under one of 3 conditions:
-1) It encounters a DMA descriptor with OWN=1, indicating that no further
-   pending data exists. The MAC will use this descriptor for the next
-   RX DMA operation, so the driver can expect a future interrupt.
-2) It exhausts the NAPI budget. In this case, the driver doesn't know
-   whether the MAC has any usable DMA descriptors. But when the driver
-   consumes its full budget, that signals NAPI to keep polling, so the
-   question is moot.
-3) It runs out of (non-dirty) descriptors in the RX ring. In this case,
-   the MAC will only have a usable descriptor if stmmac_rx_refill()
-   succeeds (at least partially).
+This works, and is minimal enough for stable, but isn't an overall clean
+approach: it deliberately ignores a (potentially-ready) descriptor, and
+is avoiding the real issue -- that both "dirty" and "ready" descriptors
+are OWN=0, and the loop doesn't understand the ambiguity.
 
-Currently, stmmac_rx() lacks any check against scenario #3 and
-stmmac_rx_refill() failing: it will stop NAPI polling and unmask
-interrupts to await an interrupt that will never arrive, stalling the
-receive pipeline indefinitely.
+Thus, strengthen the loop by explicitly checking whether the page(s) are
+allocated for each descriptor, disambiguating "ready" pages from "dirty"
+ones. Next, because `cur_rx` is now allowed to advance to a dirty
+page, also remove the clamp from the beginning of stmmac_rx(). Finally,
+resolve the "head == tail ring buffer ambiguity" problem this creates in
+stmmac_rx_dirty() by explicitly checking if `cur_rx` is missing its
+buffer(s).
 
-Fix this by checking if stmmac_rx_dirty() returns its maximal value,
-returning the full budget (which tells NAPI to keep polling) if so.
+Note that this changes the valid range of stmmac_rx_dirty()'s return
+value from `0 <= x < dma_rx_size` to `0 <= x <= dma_rx_size`.
 
-Cc: stable@vger.kernel.org
 Signed-off-by: Sam Edwards <CFSworks@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f98b070073c0..d18ee145f5ca 100644
+index d18ee145f5ca..9074668db8be 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5593,6 +5593,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+@@ -375,8 +375,11 @@ static inline u32 stmmac_rx_dirty(struct stmmac_priv *priv, u32 queue)
+ {
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+ 	u32 dirty;
++	struct stmmac_rx_buffer *buf = &rx_q->buf_pool[rx_q->cur_rx];
+ 
+-	if (rx_q->dirty_rx <= rx_q->cur_rx)
++	if (!buf->page || (priv->sph_active && !buf->sec_page))
++		dirty = priv->dma_conf.dma_rx_size;
++	else if (rx_q->dirty_rx <= rx_q->cur_rx)
+ 		dirty = rx_q->cur_rx - rx_q->dirty_rx;
+ 	else
+ 		dirty = priv->dma_conf.dma_rx_size - rx_q->dirty_rx + rx_q->cur_rx;
+@@ -5593,7 +5596,6 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
   */
  static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
  {
-+	int budget = limit;
+-	int budget = limit;
  	u32 rx_errors = 0, rx_dropped = 0, rx_bytes = 0, rx_packets = 0;
  	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
  	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
-@@ -5870,6 +5871,12 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 	priv->xstats.rx_dropped += rx_dropped;
- 	priv->xstats.rx_errors += rx_errors;
+@@ -5610,8 +5612,6 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
  
-+	/* If the RX queue is completely dirty, we can't expect a future
-+	 * interrupt; tell NAPI to keep polling.
-+	 */
-+	if (unlikely(stmmac_rx_dirty(priv, queue) == priv->dma_conf.dma_rx_size - 1))
-+		return budget;
+ 	dma_dir = page_pool_get_dma_dir(rx_q->page_pool);
+ 	bufsz = DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
+-	limit = min(priv->dma_conf.dma_rx_size - stmmac_rx_dirty(priv, queue) - 1,
+-		    (unsigned int)limit);
+ 
+ 	if (netif_msg_rx_status(priv)) {
+ 		void *rx_head;
+@@ -5656,6 +5656,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		entry = next_entry;
+ 		buf = &rx_q->buf_pool[entry];
+ 
++		/* don't eat our own tail */
++		if (unlikely(!buf->page || (priv->sph_active && !buf->sec_page)))
++			break;
 +
+ 		if (priv->extend_desc)
+ 			p = (struct dma_desc *)(rx_q->dma_erx + entry);
+ 		else
+@@ -5874,8 +5878,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	/* If the RX queue is completely dirty, we can't expect a future
+ 	 * interrupt; tell NAPI to keep polling.
+ 	 */
+-	if (unlikely(stmmac_rx_dirty(priv, queue) == priv->dma_conf.dma_rx_size - 1))
+-		return budget;
++	if (unlikely(stmmac_rx_dirty(priv, queue) == priv->dma_conf.dma_rx_size))
++		return limit;
+ 
  	return count;
  }
- 
 -- 
 2.52.0
 
