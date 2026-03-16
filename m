@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DC7F30298
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 03:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647A6D58B21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 05:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euD4SQJWyl0XJtyrMHkwNbP+gc8j+sYgCcDACn9mPo4=; b=O/ZKRVyroVZ37AZUzOjCMYMsfs
-	lUS6HmaSULltmH23U5FmntW884pDVSh3hvWWBT5fysVAPA8gSOvx4Uxy1zyz8zTuiHr1DcZCidBYm
-	uoKd97+XOlFmXwHGj7MPSH7u6hQCm4h9xP1k2zkhBpFfhXORsAzWcz+YbN9i2mTgg+LzBXrHH1b7F
-	XXVzYq01uaTVpln45abh5apXj1wHkE9bEEqGLtJsrJPZMqryQstseGWZ4syWNMWxrhbiAnnVwNIkM
-	RPwxNj4kA+ntZhIPEBrXu9ThKUdfh6aGqjdSHJrqGYkWs0A7tzmlkmT4CGlQR4IjAg88baGc7zWfs
-	L3iHXZ2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4+MXNHD3sicekVlpoKxFy6pTl6XLuBxB5M3tHo2bUZg=; b=QVWiDctR88BROvfiE4mLPXEkOg
+	pgCWEx4/Y11ECPiJd+6L1bjYdkmSx5khXc/cTcQ7nAxQeqVPXWEidkF+T2fCk5QKjvc9dXOAFaXx2
+	HnAe26gBQpuP5RhkRUctwbpCydoeDYqt3EsK5hogdVN4SZIbqUcDQEho3muBeMJ065vJQrnoY1HOY
+	ggo4s4Y0a5ISOcVYwk67FtYD6XauHCF2Bmg1d6tCQ6P7CPh2zjciv3UhrUUgZPVTelZgo4VBDBTEw
+	JH5hWeysY3K4sI6XpZcajF4TnEAZJGA4dJw+lQ0SOzcpEwRarUlEpN/K+vseG0b8txmNpSFXdwh07
+	ci24Zmcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ySd-00000003G1j-2fqc;
-	Mon, 16 Mar 2026 03:17:43 +0000
-Received: from mail-m60108.netease.com ([210.79.60.108])
+	id 1w20Kd-00000003KAe-0hxu;
+	Mon, 16 Mar 2026 05:17:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ySZ-00000003G0U-3hIl;
-	Mon, 16 Mar 2026 03:17:41 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 370ae76b1;
-	Mon, 16 Mar 2026 11:17:30 +0800 (GMT+08:00)
-Message-ID: <bebadd3b-2fd1-404e-bc64-205c8b44880c@rock-chips.com>
-Date: Mon, 16 Mar 2026 11:17:30 +0800
+	id 1w20Kc-00000003KA9-0CHB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 05:17:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2587260008;
+	Mon, 16 Mar 2026 05:17:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B8ACC19425;
+	Mon, 16 Mar 2026 05:17:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773638252;
+	bh=8Kq0QOVq5TW1W5RtFpnmQ8CbqgCezmXcnXqBqPSEbhQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t2KdofcFE+0r8caqCK4Qc58hKhA89QcGGeZ7c30zCNgqXyqq8Kju6WpdCYZsrtb2Y
+	 Vbvaf8wJWEGPcszKoBavx+1OQqtmGFh5ob8nHXjRAQAKw1BIJa0xfZhb1PyczKcXCg
+	 VNlYsdQ+ri8GUJz2c+uUs/wgjlrMJQ+B6hLEoEaoloeLnHx/HoWqess5/GeWN3Caed
+	 DLJb+6vpUKYj82uZ4N6YBOp0FADEVS4D9t25W2cJzRAB9NCym+LyDedAlY+6xOaGVt
+	 CosZIbOipnqtzZsanhNqTgfZKMCvE6cryVwHAVdsbQc0b3HB9UDDLdYL4WL0y8PnKC
+	 I+LBUEDzFUzaA==
+Date: Mon, 16 Mar 2026 10:47:24 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com, 
+	bjorn.andersson@oss.qualcomm.com
+Subject: Re: [PATCH v3 1/5] PCI: host-common: Add helper to determine host
+ bridge D3cold eligibility
+Message-ID: <de4eszg7j54ijsbxaajnldm2zccxn3vcmxxty4zn5awwtq3w5h@7lisdbxc6la4>
+References: <20260311-d3cold-v3-0-4d85dc7c2695@oss.qualcomm.com>
+ <20260311-d3cold-v3-1-4d85dc7c2695@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 11/18] drm/bridge: analogix_dp: Apply
- drm_bridge_connector helper
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20260310012458.169272-1-damon.ding@rock-chips.com>
- <20260310012458.169272-12-damon.ding@rock-chips.com>
- <DH1TKWREZMFK.3BY4NY36BXLXG@bootlin.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <DH1TKWREZMFK.3BY4NY36BXLXG@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cf4a612fb03a3kunm3b3e64f61969b4
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkpLSFZMThlITR4aQx8eHh9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=BnqeoqLsGb84BqtPqXiW77m3kBjYMloScvhA6p+8X+sHkdC6G2lBx0K6yTjyx2Pd+6UWnlkIoQZFCKdzbWmIIexPdLKAY2fA5Z0jwBTHiGasgpMISS4eqkCCCA+fPdJ/F+0mi5Gxidvpe/xNvUK/wY8tWC6CoTyvjZ0pFwGHc0A=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=euD4SQJWyl0XJtyrMHkwNbP+gc8j+sYgCcDACn9mPo4=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_201740_520060_B631D6C8 
-X-CRM114-Status: GOOD (  12.65  )
+In-Reply-To: <20260311-d3cold-v3-1-4d85dc7c2695@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
-
-On 3/14/2026 1:10 AM, Luca Ceresoli wrote:
-> Hello Damon,
-> 
-> On Tue Mar 10, 2026 at 2:24 AM CET, Damon Ding wrote:
->> Initialize bridge_connector for both Rockchip and Exynos encoder sides.
->> Then, make DRM_BRIDGE_ATTACH_NO_CONNECTOR mandatory for Analogix bridge
->> side, as the private &drm_connector is no longer created.
->>
->> The previous &drm_connector_funcs and &drm_connector_helper_funcs APIs
->> are replaced by the corresponding &drm_bridge_funcs APIs:
->>
->> analogix_dp_atomic_check() -> analogix_dp_bridge_atomic_check()
->> analogix_dp_detect()       -> analogix_dp_bridge_detect()
->> analogix_dp_get_modes()    -> analogix_dp_bridge_get_modes()
->>                                analogix_dp_bridge_edid_read()
->>
->> Additionally, the compatibilities of Analogix DP bridge based on whether
->> the next bridge is a 'panel'. If it is, OP_MODES and OP_DETECT are
->> supported; If not (the next bridge is a 'monitor' or a bridge chip),
->> OP_EDID and OP_DETECT are supported.
->>
->> The devm_drm_bridge_add() is placed in analogix_dp_bind() instead of
->> analogix_dp_probe(), because the type of next bridge (the panel, monitor
->> or bridge chip) can only be determined after the probe process has fully
->> completed.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
-> 
-> ...
-> 
->> @@ -73,15 +72,12 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
->>   				   struct drm_bridge *bridge)
->>   {
->>   	struct exynos_dp_device *dp = to_dp(plat_data);
->> -	enum drm_bridge_attach_flags flags = 0;
->>   	int ret;
->>
->>   	/* Pre-empt DP connector creation if there's a bridge */
->>   	if (plat_data->next_bridge) {
->> -		if (dp->has_of_bridge)
->> -			flags = DRM_BRIDGE_ATTACH_NO_CONNECTOR;
->> -
->> -		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge, flags);
->> +		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
->> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> 
-> Should this be 'flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR' to be future-proof?
+On Wed, Mar 11, 2026 at 03:56:46PM +0530, Krishna Chaitanya Chundru wrote:
+> Add a common helper, pci_host_common_d3cold_possible(), to determine
+> whether a PCI host bridge can safely transition to D3cold.
 > 
 
-Aha, the exynos_dp_bridge_attach() and even 
-&analogix_dp_plat_data.attach() have been removed in [PATCH v10 16/18] 
-for consistency and simplification. Since the only bridge flag supported 
-right now is DRM_BRIDGE_ATTACH_NO_CONNECTOR, let’s leave this as is for 
-now. ;-)
+Host bridge cannot be transitioned to D3Cold, it can only transition the
+devices to D3Cold state. You need to reword it throughout the patch.
 
-Best regards,
-Damon
+> This helper is intended to be used by PCI host controller drivers to
+> decide whether they may safely put the host bridge into D3cold based on
+> the power state and wakeup capabilities of downstream endpoints.
+> 
+> The helper walks all devices on the bridge's primary bus
 
+What do you mean by 'primary bus' here?  The helper is supposed to walk through
+all busses starting from the Root bus, no?
+
+> and only allows
+> the host bridge to enter D3cold if all PCIe endpoints are already in
+> PCI_D3hot. This ensures that we do not power off the host bridge while
+> any active endpoint still requires the link to remain powered.
+> 
+> For devices that may wake the system, the helper additionally requires
+> that the device supports PME wake from D3cold (via WAKE#). Devices that
+> do not have wakeup enabled are not restricted by this check and do not
+> block the host bridge from entering D3cold.
+> 
+> Devices without a bound driver and with PCI not enabled via sysfs are
+> treated as inactive and therefore do not prevent the host bridge from
+> entering D3cold. This allows controllers to power down more aggressively
+> when there are no actively managed endpoints.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/pci-host-common.c | 47 ++++++++++++++++++++++++++++++++
+>  drivers/pci/controller/pci-host-common.h |  2 ++
+>  2 files changed, 49 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index d6258c1cffe5ec480fd2a7e50b3af39ef6ac4c8c..bff23bcdb5d032d2781d963eebe4a3fac0505517 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -106,5 +106,52 @@ void pci_host_common_remove(struct platform_device *pdev)
+>  }
+>  EXPORT_SYMBOL_GPL(pci_host_common_remove);
+>  
+> +static int __pci_host_common_d3cold_possible(struct pci_dev *pdev, void *userdata)
+> +{
+> +	bool *d3cold_possible = userdata;
+> +
+> +	if (pci_pcie_type(pdev) != PCI_EXP_TYPE_ENDPOINT)
+> +		return 0;
+> +
+> +	if (!pdev->dev.driver && !pci_is_enabled(pdev))
+> +		return 0;
+> +
+> +	if (pdev->current_state != PCI_D3hot)
+> +		goto exit;
+> +
+> +	if (device_may_wakeup(&pdev->dev) && !pci_pme_capable(pdev, PCI_D3cold))
+> +		goto exit;
+> +
+> +	return 0;
+> +
+> +exit:
+> +	*d3cold_possible = false;
+> +
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +/**
+> + * pci_host_common_d3cold_possible - Determine whether a host bridge can enter D3cold
+
+"Determine whether the host bridge can transition the devices into D3Cold"
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
