@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC7FF53D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F87F53D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnDuwXGZ1btx0I9ScP/HNHG9vbVZo5zMOWlpux0W4WY=; b=DAh22We8xYPAazj9RK0Y/7jJ+Y
-	ALX7wdLPNng6uFLlzMh6NBePAii5dYvxpJaNawrDN7GNdWwvZo15tSo2xaGl77kOWV2rRqcLxM2Qb
-	bye7ydMm04t7zGdmnK2XguVrhLDFJ6pjpP/BuZ0TlYdBnq6Xmxg9so0r/dmOoZBsB5CH8Eed0mTbp
-	IkDtKB7piFip7RCFyidw57ke6ZJXUqjERpJYddjTv9stuFAqah9a2zEEk4jMCH6aMshbwmF71zFH9
-	1NcnvsSBAZp/XNy54830hLaFcCe0yEXp4NE/3APJk7auCV14VXpuR2zbOFI/mzOeD6BOmk9LEm6uU
-	xQqhIv6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1aJLFkmZ8O2W45gAWMpE9JOglV4+l7rhHsNOlx5lSFc=; b=ZJtXVZEkyyibqaiELMZ3DRqn76
+	ryj1uDO0oQ9xQSsxzTpoqiz2FvNDB8sOI362ywKLFty6P0WN1kZJ+la45W768bCk0KuRY1k7MId41
+	s4j20bhD3xIQuiTggEjHFrBTfU+H9o7qcVTS8oIKmk3QBUsD4fFdErl8D+Hs+QbcAFjdCsfpchI/W
+	T7glH6l2r9QJgnABQMMrMMCFAm1Qa2v4FJZnj55yDu4w0dxzmXDntQLX5I8zzLFBC7Fp+gtyjJq1h
+	QcNXCzmNnWOKTRZDaV0Hm+AZdMqufosH0yJsYD4RZib+umZQb2cpvLwwH99kj1nVSEX0qKFYnW9yb
+	IvynNraQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C2B-00000004bnU-1qiv;
-	Mon, 16 Mar 2026 17:47:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C29-00000004bnE-2mFt;
-	Mon, 16 Mar 2026 17:47:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6CD96012B;
-	Mon, 16 Mar 2026 17:47:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69BFCC19421;
-	Mon, 16 Mar 2026 17:47:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773683236;
-	bh=dnDuwXGZ1btx0I9ScP/HNHG9vbVZo5zMOWlpux0W4WY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sRBXa2ovvjPnWmoWwcUZlUb/RfNIKCBxJYUgGqWYE+olH5e/05xmKOMn3PMn3Bxq8
-	 Sm0RPOKtJgrFA4Nkna/SfM63GmGOjUcqhNOYPE5XT8hDbTrlYcVkWZ5EzY+jprOrRV
-	 l4Viqa7XAxFuU+rATnPUZYB48xFh6rMSI83W27iHNJjWLHREjypaENdzy/QzPBAdK3
-	 qOABTEsGsrgj3ajoNm0Gg6WLlNHu9IvYa+UNT73TeY7utnqPEN+vZG0sDR9BaOi8QA
-	 0XJU1kq/TxMTtEfK9n13gvkI74v1W4TiIWlCMY0nyY+YEx6zNL3h/lJ3umTM3hkX5Y
-	 cEen2C1izEUvA==
-Date: Mon, 16 Mar 2026 17:47:06 +0000
-From: Mark Brown <broonie@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Shree Ramamoorthy <s-ramamoorthy@ti.com>,
-	Jerome Neanne <jerome.neanne@baylibre.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Joseph Chen <chenjh@rock-chips.com>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Alexander Kurz <akurz@blala.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 04/15] dt-bindings: regulator: act8x: Use generic
- power-controller schema
-Message-ID: <fd6b7103-2a72-4cae-8e92-44ee9586a953@sirena.org.uk>
-References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
- <20260316-power-controller-v1-4-92c80e5e1744@nxp.com>
+	id 1w2C4g-00000004c69-3c7i;
+	Mon, 16 Mar 2026 17:49:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2C4e-00000004c5k-3cbe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 17:49:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D07D1476;
+	Mon, 16 Mar 2026 10:49:45 -0700 (PDT)
+Received: from [10.57.20.85] (unknown [10.57.20.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86E6F3F73B;
+	Mon, 16 Mar 2026 10:49:49 -0700 (PDT)
+Message-ID: <4e36cf20-f3c0-4c3d-9bf4-da8228efaa15@arm.com>
+Date: Mon, 16 Mar 2026 17:49:47 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xItI8zXtmIATo4FR"
-Content-Disposition: inline
-In-Reply-To: <20260316-power-controller-v1-4-92c80e5e1744@nxp.com>
-X-Cookie: Excellent day to have a rotten day.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 02/19] coresight: Set per-CPU source pointer
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
+ Keita Morisaki <keyz@google.com>, Yuanfang Zhang
+ <quic_yuanfang@quicinc.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-2-eff765d211a9@arm.com>
+ <4dd1e996-5098-4b03-af0f-98294fdca908@arm.com>
+ <20260316143828.GE8048@e132581.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260316143828.GE8048@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_104952_967639_1022B8CD 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +73,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 16/03/2026 14:38, Leo Yan wrote:
+> On Fri, Mar 13, 2026 at 11:18:20AM +0000, Suzuki K Poulose wrote:
+> 
+> [...]
+> 
+>>>    static struct coresight_device *coresight_get_source(struct coresight_path *path)
+>>>    {
+>>>    	struct coresight_device *csdev;
+>>> @@ -1401,6 +1452,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>>>    	mutex_unlock(&coresight_mutex);
+>>> +	coresight_set_percpu_source(csdev);
+>>> +
+>>>    	if (cti_assoc_ops && cti_assoc_ops->add)
+>>>    		cti_assoc_ops->add(csdev);
+>>> @@ -1427,6 +1480,7 @@ void coresight_unregister(struct coresight_device *csdev)
+>>>    	if (cti_assoc_ops && cti_assoc_ops->remove)
+>>>    		cti_assoc_ops->remove(csdev);
+>>> +	coresight_clear_percpu_source(csdev);
+>>
+>> Should these be done with the mutex lock held ?
+> 
+> If so, we will create a locking chain:
+> 
+>    coresight_mutex -> cpus_read_lock()
+> 
+> Afterwards in patch 18, it uses cpus_read_lock() to protect sysfs knobs,
+> a reversed locking chain will be established:
+> 
+>    cpus_read_lock() -> coresight_mutex
+> 
+> LOCKDEP will complain for possible deadlock.  This is why this patch
+> avoids to acquire mutex when set / clear per CPU sources.
 
---xItI8zXtmIATo4FR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The question is, what prevents two different CPUs trying to modify the 
+"per_cpu_source" data structure when the CPU is not online.
 
-On Mon, Mar 16, 2026 at 10:47:39PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->=20
-> Convert the binding to use the generic power-controller schema instead by
-> referencing power-controller.yaml and removing the local
-> `system-power-controller` property definition.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Suzuki
 
---xItI8zXtmIATo4FR
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+>>>    	mutex_lock(&coresight_mutex);
+>>>    	etm_perf_del_symlink_sink(csdev);
+>>>    	coresight_remove_conns(csdev);
+>>>
+>>
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4QhoACgkQJNaLcl1U
-h9ACOQf+JqpHS2vvWDBGmTprNgfkrZ9Q44lgSNbWZMnktfJE13q21QKHK5kSnDrO
-X40ZRgtewonmiGVIcifBtNjgoqkmY98pJvPnhgJjgP3fmBlFL/WCxYwUjF/JQCkg
-LrlVyB6IdKDWWAmUUVULvowVdo1TyiYZ2dlrvVwjGuMZJDgRFAz85fobiqkW9hIb
-5Z6Wdof4lcERkIE0dsbXctCTU4GJTupsC6duor8XTKC+wIL9sx02un+kINcyGwnP
-FwEkgvpfw9H/r9/jBuxTEQh7QcJPvlx36Ub2mFuBlF3OCJApRlm+j+vz9btoTkX4
-XZN3mowbqzv9xO9cSelYbJCV/FMs2Q==
-=SWwQ
------END PGP SIGNATURE-----
-
---xItI8zXtmIATo4FR--
 
