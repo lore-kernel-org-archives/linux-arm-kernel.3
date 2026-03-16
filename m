@@ -4,90 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99264F53D7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572BEF53D83
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//FHnIwo7aoEhx9bjdFrjsaq8jBBBfenc6FlUNtMzL0=; b=GpJJ6BVHLFX5lbpS2uvRZYuPbk
-	0T5IjzlnhQ1KVsZPf+8JI5cU0KnrsgA7TS2AbFU6KtESHCC9x3O9Cjavub+n0di8aUBBOd3VtWNu5
-	Vt8ouxPNkN0miZE/Tz+QawYrgKK4uVYCMibpBeSzNxezdt0JI4smStAPG88Zd/B3xzBLtuI8ZVthg
-	Ez7IlAkK34cz6mwakHqsRrBajpsA1PJJNFPzqbB1bzpG6YwUkGkFnxjNJVKnc4Wrk3OpY367qLG5y
-	08g3sjGCpFVY+BHnnQrI2/wkcDs3gk4pCKT0KwfOyv+QjG7+aAeZiXoL+AaN1uzqKNwpTByoq7ybN
-	NZd3rdgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y5avfKnjh41/JWQRZgxs/uL4wWWciPPQDolHRgDT7YE=; b=pRa7BwoRwChw8iX75YdMoPLnI/
+	EK5Xpn45p8/upGS5hqwlaLLkMx2ZA0ENPbDmSOvvEXhDBk7EIWO9c8wpWiIeOCXNFf1Rwd2yJ7rDp
+	FsOQsgQofyua7dcV2L6WEZ7JqsLm1VpFuDayLlCK4Dnune9nZCv94qceeaKS//m/kjGoWQf5iwfe0
+	5attPPSm78yNtmJ42fb+YsEfVmlX7/LoWrOtjK19cAPrAW1NxHlrnxG0ctWiEubuZk6sxVkySLgLW
+	+iWdNpW0HGKV6fT+QUuFV9Drvzd9DLrkn3hKvAsQmB3kp6E+f0lpgzbCL33pYTiYPfDOj2NBVqrCo
+	4FfkZeqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2CAH-00000004dMR-0SJm;
-	Mon, 16 Mar 2026 17:55:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2CDn-00000004ePS-1lng;
+	Mon, 16 Mar 2026 17:59:19 +0000
+Received: from mail-qk1-x742.google.com ([2607:f8b0:4864:20::742])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9p-00000004ctP-4Bz8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Mar 2026 17:55:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=//FHnIwo7aoEhx9bjdFrjsaq8jBBBfenc6FlUNtMzL0=; b=aw0i5YRUhaw9MHjYCNPS+dMZ50
-	UxcjaRm5J11iVM6LunmuUfFghonjvLlScZMrj4bPqFgYvWvtme49jSiCq9ZYo4Wpt2mpogLRngh+R
-	deix7ezIvFY3VW3nBCK+Nawj3gOqwuTOesrZhGpVFSXOUQbXuDD64D2LdqAx+7mU6Qf435H4a9Xpe
-	M4Ocui3fFXKmSOVLa793YOlTefQjImS1mLMCqFDh1uid7/8DgM7am75ufm98tpNpS3r2P3u2ZhP2n
-	Yn4+3CjIU1gF7Fgwmw5gl5oG6oQGGUnCZkBh2f8vskVU/l47g4t0TjPSG7G4iXEEW1MToBLs11S9C
-	po5EFc4A==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9k-00000007OVo-3YUK
+	id 1w2CDl-00000004eP7-0KvS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:55:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AB8344568;
-	Mon, 16 Mar 2026 17:55:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EFBBC19421;
-	Mon, 16 Mar 2026 17:55:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773683704;
-	bh=s/z1LspYizz2QyV5nRvyCdxnP9mDQADtxBQ0AiriWLU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rnnfFyeWzzDT/AgSrrECoaB89rauXol/V4+QQQaidE9zasOdpsY3W4JLrdcL/shg4
-	 rGrG9aRdcH2BkF7zQrqMirfWUT06l/6waV4hc0ZwUAfaPC1TJPx1lFxLB4Rsoa2F6o
-	 CQiB16IeMqWvVbEy3rx/p1YkBtpy6dDXFekQPdCyF2Ts2k+WB4Ue51lc6oRGVG1dub
-	 95XKMDfNST7ThT/yz25TBO6MBIKE9FcrwhdwIJIAUhuv8T0A1Po4IzXMc9Hsrqp56B
-	 De8+foWhSZyqf5zDsMP2EeVNfS7Bd1lGtOhysHzmqlq/+1jXhl2yfan0bRrn8W57Gw
-	 BXaa7nb+OYVNQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w2C9e-00000002XDx-1zQJ;
-	Mon, 16 Mar 2026 17:55:02 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: [PATCH 14/17] KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
-Date: Mon, 16 Mar 2026 17:54:47 +0000
-Message-ID: <20260316175451.1866175-15-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260316175451.1866175-1-maz@kernel.org>
-References: <20260316175451.1866175-1-maz@kernel.org>
+	Mon, 16 Mar 2026 17:59:18 +0000
+Received: by mail-qk1-x742.google.com with SMTP id af79cd13be357-8cd8c6e365eso507461085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:59:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773683955; x=1774288755; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=y5avfKnjh41/JWQRZgxs/uL4wWWciPPQDolHRgDT7YE=;
+        b=KhXpN4qZaAjfGPRExMgxTs5WfKR7kQB+oj1CRxxq1jtZJ3amkdcT5BDXKV4eGpcuBR
+         nqVVCfKJS/JHFrTzc04cP85vqL4c0bddArCZ1X7G/dMJjKPdROC5Fy/xP/zkNC5JsSO6
+         k4Yu0pj0v927HzyGdNGCwfImpVPcnF5w74Osbv5CLWZICXFMtQ1/dXkwsvKgmBkGG9VQ
+         KHHfm9ia2fxfp8p28mJEB7KEhJDf1NJBRS9+/iM6/ayAS5lasSXLp8eSLpiu8e6FJXl3
+         sj8V0/0J1xrJDUIbl+n7dmWhNL75XB5vn/IrgkTewZFFnVvZ/l/SnjBPndrTmooixTLL
+         niUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773683955; x=1774288755;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y5avfKnjh41/JWQRZgxs/uL4wWWciPPQDolHRgDT7YE=;
+        b=DRhiwH15bHcBfpSPrHzjfLJ+GUeLryrBhmELMuc919ppHczsStyw8xiJH2p8c6nrmy
+         A+Lwk3xNGAQznD/Tgk+zZ4iLpV1albG3nvBPnsz69W2pd8VKxS/ZNP1Xd9IAcaXFu0CC
+         QreZuBiM9NSbSfvhbVE6TwU4tt9xWDSoVrbstNT7tgdDWn0HB0FsUF2lmALQZA/Jjdoe
+         xHZtvfZBCK+738XWnHL1hLPoejEVzk98Ic+5sOA4UtIvfm156tCY67MswHVsh/fFV/HJ
+         eCQD10uneeDOyySJVWyxsWEFiusIqB7bjS+nxW4MlgnP6yQFzZVCEnx+FYihlpekddmm
+         lcJA==
+X-Forwarded-Encrypted: i=1; AJvYcCX/KI08SvBwyRYhYamBfuWvD7YrYLW7fUJ2vUyidH7cS0IiHDkqLMmB6K1bdRdQ+fIaS5Symqh1PwIEJc5U65gU@lists.infradead.org
+X-Gm-Message-State: AOJu0YytF0z9AzKacqldEVQLvo791lcs6/pcfQhvEc1QfPl/vJwTt+vy
+	SWnmAUcaY3kkcTOLGlB+zS9i1keIyMSdjMizShAbolnCIi0UpGWr5gYjXPgRbhdVgBo=
+X-Gm-Gg: ATEYQzwQ0aTK5HQFiqcB+nQu4wnvheAtoZQ0FEvfnUdVBTG4/2qmevySSxRxOFHfdBQ
+	rLrE9PUiAQvPxHUne32ceGY1bZu0kunbOqd7ElulsIdBiq57kSSMRYEqrI56PEdQAxu4iAthTI8
+	2/bp9vZMajQX5K+oByrWENbjdZXWUQnMCor3E1sS+2b6BnDEWL8iHxt2DFtxggg8IbJDImLT3x+
+	Eh7RMi3YdSmLVPcZnrQmY0m3JpwVRrDXYBOqYf0KASVVMtzBopkuDXXBHBe3aGN9ISilj5znfuD
+	W4Fx/rcjZfKVf9v2hGmZTAiENYgemhahwgjAj9AKrbTWz5IeyZsnK0/NKQaMZtf/C9c2BRRaM+6
+	VOYiHgOmXHjSSLjf6TvU57ISPcnB4AexW8u9V67+PvPijd7UK5PzmOhaUo+8AURTS+7an1b6ZcK
+	0jQwMR/XkgghJ+FOS62t4H/h4f8deP
+X-Received: by 2002:a05:620a:4713:b0:8cd:9aba:f5fb with SMTP id af79cd13be357-8cdb5aa56famr1781220785a.30.1773683954881;
+        Mon, 16 Mar 2026 10:59:14 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cda21484casm1257452685a.40.2026.03.16.10.59.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 10:59:14 -0700 (PDT)
+Message-ID: <56de4e9b3478a576475e0d246904b20da417c69a.camel@ndufresne.ca>
+Subject: Re: [PATCH v4] media: verisilicon: Fix kernel panic due to
+ __initconst misuse
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: ming.qian@oss.nxp.com, linux-media@vger.kernel.org, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, benjamin.gaignard@collabora.com, robh@kernel.org,
+ 	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
+	shawnguo@kernel.org, ulf.hansson@linaro.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, m.felsch@pengutronix.de, 
+	fra.schnyder@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de, 
+	Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com,
+ devicetree@vger.kernel.org, 	imx@lists.linux.dev, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ regressions@lists.linux.dev
+Date: Mon, 16 Mar 2026 13:59:12 -0400
+In-Reply-To: <20260316155727.GA43134@francesco-nb>
+References: <20260306031059.801-1-ming.qian@oss.nxp.com>
+	 <20260312173349.GA137045@francesco-nb>
+	 <e559b822c5f4fc9167d40544172c6c450d88636a.camel@ndufresne.ca>
+	 <20260316155727.GA43134@francesco-nb>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-hJdAk5mQN9OAKDcOs1p8"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_175509_287648_C6ECFEB9 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260316_105917_145107_B43DAB1F 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,175 +123,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Attributes computed for devices are computed very late in the fault
-handling process, meanning they are mutable for that long.
 
-Introduce both 'device' and 'map_non_cacheable' attributes to the
-vma_info structure, allowing that information to be set in stone
-earlier, in kvm_s2_fault_pin_pfn().
+--=-hJdAk5mQN9OAKDcOs1p8
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/mmu.c | 52 ++++++++++++++++++++++++--------------------
- 1 file changed, 29 insertions(+), 23 deletions(-)
+Le lundi 16 mars 2026 =C3=A0 16:57 +0100, Francesco Dolcini a =C3=A9crit=C2=
+=A0:
+> On Mon, Mar 16, 2026 at 11:25:53AM -0400, Nicolas Dufresne wrote:
+> > Le jeudi 12 mars 2026 =C3=A0 18:34 +0100, Francesco Dolcini a =C3=A9cri=
+t=C2=A0:
+> > > Hello,
+> > >=20
+> > > On Fri, Mar 06, 2026 at 11:10:57AM +0800, ming.qian@oss.nxp.com=C2=A0=
+wrote:
+> > > > From: Ming Qian <ming.qian@oss.nxp.com>
+> > > >=20
+> > > > Fix a kernel panic when probing the driver as a module:
+> > > >=20
+> > > > =C2=A0 Unable to handle kernel paging request at virtual address
+> > > > =C2=A0 ffffd9c18eb05000
+> > > > =C2=A0 of_find_matching_node_and_match+0x5c/0x1a0
+> > > > =C2=A0 hantro_probe+0x2f4/0x7d0 [hantro_vpu]
+> > > >=20
+> > > > The imx8mq_vpu_shared_resources array is referenced by variant
+> > > > structures through their shared_devices field. When built as a
+> > > > module, __initconst causes this data to be freed after module
+> > > > init, but it's later accessed during probe, causing a page fault.
+> > > >=20
+> > > > The imx8mq_vpu_shared_resources is referenced from non-init code,
+> > > > so keeping __initconst or __initconst_or_module here is wrong.
+> > > >=20
+> > > > Drop the __initconst annotation and let it live in the normal .roda=
+ta
+> > > > section.
+> > > >=20
+> > > > A bug of __initconst called from regular non-init probe code
+> > > > leading to bugs during probe deferrals or during unbind-bind cycles=
+.
+> > > >=20
+> > > > Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.=
+com>
+> > > > Closes: https://lore.kernel.org/all/68ef934f-baa0-4bf6-93d8-834bbc4=
+41e66@kernel.org/
+> > > > Reported-by: Franz Schnyder <franz.schnyder@toradex.com>
+> > > > Closes: https://lore.kernel.org/all/n3qmcb62tepxltoskpf7ws6yiirc2so=
+62ia23b42rj3wlmpl67@rvkbuirx7kkp/
+> > > > Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while =
+decoding H.264 and HEVC")
+> > > > Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm=
+.com>
+> > > > Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > >=20
+> > > What's the plan to merge this? It fixes a quite severe regression,
+> > > a boot failure.
+> >=20
+> > To be decided this week. The commit message does not say if it was rele=
+ased, or
+> > came in RCs (and I didn't check myself yet). I'd say, if its the first =
+one, it
+> > will go through next and backports, otherwise its is really tight to ge=
+t that
+> > into the RC series, but serious enough. Please fill the gap if you have=
+ time,
+> > and I'll handle it later, probably tomorrow.
+>=20
+> This fixes commit e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error
+> while decoding H.264 and HEVC"), that was merged in 7.0-rc1.
+>=20
+> As of now, because of that, 7.0-rc is not booting on affected platforms
+> (i.MX8MP), to me this needs to get merged before 7.0 is released.
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index ac4bfcc33aeb1..97cb3585eba03 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1656,9 +1656,11 @@ struct kvm_s2_fault_vma_info {
- 	struct page	*page;
- 	kvm_pfn_t	pfn;
- 	gfn_t		gfn;
-+	bool		device;
- 	bool		mte_allowed;
- 	bool		is_vma_cacheable;
- 	bool		map_writable;
-+	bool		map_non_cacheable;
- };
- 
- static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-@@ -1728,7 +1730,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
- }
- 
- struct kvm_s2_fault {
--	bool s2_force_noncacheable;
- 	enum kvm_pgtable_prot prot;
- };
- 
-@@ -1738,7 +1739,6 @@ static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
- }
- 
- static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
--				     struct kvm_s2_fault *fault,
- 				     struct kvm_s2_fault_vma_info *s2vi)
- {
- 	struct vm_area_struct *vma;
-@@ -1794,12 +1794,11 @@ static gfn_t get_canonical_gfn(const struct kvm_s2_fault_desc *s2fd,
- }
- 
- static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
--				struct kvm_s2_fault *fault,
- 				struct kvm_s2_fault_vma_info *s2vi)
- {
- 	int ret;
- 
--	ret = kvm_s2_fault_get_vma_info(s2fd, fault, s2vi);
-+	ret = kvm_s2_fault_get_vma_info(s2fd, s2vi);
- 	if (ret)
- 		return ret;
- 
-@@ -1814,16 +1813,6 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
- 		return -EFAULT;
- 	}
- 
--	return 1;
--}
--
--static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
--				     struct kvm_s2_fault *fault,
--				     const struct kvm_s2_fault_vma_info *s2vi)
--{
--	struct kvm *kvm = s2fd->vcpu->kvm;
--	bool writable = s2vi->map_writable;
--
- 	/*
- 	 * Check if this is non-struct page memory PFN, and cannot support
- 	 * CMOs. It could potentially be unsafe to access as cacheable.
-@@ -1842,8 +1831,10 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 			 * S2FWB and CACHE DIC are mandatory to avoid the need for
- 			 * cache maintenance.
- 			 */
--			if (!kvm_supports_cacheable_pfnmap())
-+			if (!kvm_supports_cacheable_pfnmap()) {
-+				kvm_release_faultin_page(s2fd->vcpu->kvm, s2vi->page, true, false);
- 				return -EFAULT;
-+			}
- 		} else {
- 			/*
- 			 * If the page was identified as device early by looking at
-@@ -1855,9 +1846,24 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 			 * In both cases, we don't let transparent_hugepage_adjust()
- 			 * change things at the last minute.
- 			 */
--			fault->s2_force_noncacheable = true;
-+			s2vi->map_non_cacheable = true;
- 		}
--	} else if (memslot_is_logging(s2fd->memslot) && !kvm_is_write_fault(s2fd->vcpu)) {
-+
-+		s2vi->device = true;
-+	}
-+
-+	return 1;
-+}
-+
-+static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
-+				     struct kvm_s2_fault *fault,
-+				     const struct kvm_s2_fault_vma_info *s2vi)
-+{
-+	struct kvm *kvm = s2fd->vcpu->kvm;
-+	bool writable = s2vi->map_writable;
-+
-+	if (!s2vi->device && memslot_is_logging(s2fd->memslot) &&
-+	    !kvm_is_write_fault(s2fd->vcpu)) {
- 		/*
- 		 * Only actually map the page as writable if this was a write
- 		 * fault.
-@@ -1865,7 +1871,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 		writable = false;
- 	}
- 
--	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu) && fault->s2_force_noncacheable)
-+	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu) && s2vi->map_non_cacheable)
- 		return -ENOEXEC;
- 
- 	/*
-@@ -1888,7 +1894,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu))
- 		fault->prot |= KVM_PGTABLE_PROT_X;
- 
--	if (fault->s2_force_noncacheable)
-+	if (s2vi->map_non_cacheable)
- 		fault->prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
- 			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
- 	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
-@@ -1897,7 +1903,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 	if (s2fd->nested)
- 		adjust_nested_exec_perms(kvm, s2fd->nested, &fault->prot);
- 
--	if (!kvm_s2_fault_is_perm(s2fd) && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
-+	if (!kvm_s2_fault_is_perm(s2fd) && !s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
- 		if (!s2vi->mte_allowed)
- 			return -EFAULT;
-@@ -1937,7 +1943,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
- 	if (mapping_size == PAGE_SIZE &&
--	    !(s2vi->max_map_size == PAGE_SIZE || fault->s2_force_noncacheable)) {
-+	    !(s2vi->max_map_size == PAGE_SIZE || s2vi->map_non_cacheable)) {
- 		if (perm_fault_granule > PAGE_SIZE) {
- 			mapping_size = perm_fault_granule;
- 		} else {
-@@ -1951,7 +1957,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
- 		}
- 	}
- 
--	if (!perm_fault_granule && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
-+	if (!perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
- 		sanitise_mte_tags(kvm, pfn, mapping_size);
- 
- 	/*
-@@ -2016,7 +2022,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	 * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
- 	 * get block mapping for device MMIO region.
- 	 */
--	ret = kvm_s2_fault_pin_pfn(s2fd, &fault, &s2vi);
-+	ret = kvm_s2_fault_pin_pfn(s2fd, &s2vi);
- 	if (ret != 1)
- 		return ret;
- 
--- 
-2.47.3
+Thanks for the info (thanks Thorsten too, pointing out it got picked for
+backport into 6.19). This saves me a bit of time, I was away all week last =
+week.
 
+So this will be picked for RC, I should have it sent to Mauro by tomorrow.
+
+regards,
+Nicolas
+
+--=-hJdAk5mQN9OAKDcOs1p8
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabhE8AAKCRDZQZRRKWBy
+9AjoAQC6Fq8nqFrDJHKmYMEmzqQfCe3plFtnxVAGHFpFY/s7owD/TGsDX0oH8gNo
+OmK1Jt0VdfCP+LlxOL41kFaZW/vHqQU=
+=61za
+-----END PGP SIGNATURE-----
+
+--=-hJdAk5mQN9OAKDcOs1p8--
 
