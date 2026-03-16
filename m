@@ -4,62 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C47BF53D80
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D8EF53D81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6hlPphJxWUigGrZ1LWvkU5ZGSyX49GbZz2uIW3xTMQ=; b=sSPPm5VpoVx3DIbL2PdokyvSfl
-	2jGxZdqc+7gmuBSh+t7gABT4MM7LNws1/I+dNLSysnGgSE/V+xsnbWCPTcaVEfkKNnvXN/DUv4Tjg
-	TjLjw6gty4x/KJPaCMauDp74kxsFytLKaXikHa/WXrca1yai0tm/rSqk9OnW1Xt9/xH8N8e9Mwu83
-	GeCm9x3KXt/WyWFXQhiAomXomEcCqGxeBmT+ylPKqPXPCbyGA2X6FiE44d3YnC+vFl7di76e+rTta
-	9+OVCbUfGk8ZSN88DyHU85n5K5ElKVVcIz10/7+bdWqVjEaP9SZGu1N7RNAGYpdZUDWRTL6Qk3It9
-	CSqbjHxA==;
+	bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=; b=AtRbYqRUE1XKsnHNfYWbWHP1CG
+	dPM0skz67/kh7XOFmoEWzCVGpvdt+na2NLQeBulHltWo6Gf8RQZrKSnyjundHtGKqg0yr6741zPi0
+	CaKUKTn+3ZEtK9hZJMF0fjG+gfIGz7ouw4lG+kueCJcKfGZu91P3npd2K05wDUSZfHV9iW/dxnlc5
+	E2NRefnTzrypPayGdZoF2txwEFcZYYDojVakEd0Jj7kK/cg5QgnC281FNHwRHuXzCSEHk6cdxBQPw
+	fLH4CwGkQIG86b6kYTbHI7TZY/53ztF+8tslG2lBnk7qhZHow3p8GIEMiscD5GeEpre2r5C6Ydjht
+	jd3a+CxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BtC-00000004amj-1JXc;
-	Mon, 16 Mar 2026 17:38:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bt9-00000004alt-3o4g
+	id 1w2Bvf-00000004b3z-0eac;
+	Mon, 16 Mar 2026 17:40:35 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Bvd-00000004b3a-1HEf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:38:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7857314BF;
-	Mon, 16 Mar 2026 10:37:51 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 108903F73B;
-	Mon, 16 Mar 2026 10:37:54 -0700 (PDT)
-Date: Mon, 16 Mar 2026 17:37:52 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 02/30] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <abg_8FUj7CAjNkuO@arm.com>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-2-43f7683a0fb7@kernel.org>
+	Mon, 16 Mar 2026 17:40:34 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-509069a7a7fso62841cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:40:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773682832; cv=none;
+        d=google.com; s=arc-20240605;
+        b=TXemEA2A3ykPfAFUZnpJD5fq/IlnoowbGSIRA6a9pY8l9moerwpp4bsBRqBmUXK0OT
+         ZSYMtXy+U4q6ZIa4Govoik1t4/JHXpoUzv/BAIrHlHqeheXlgIXH/6Z0E+oR3O4zRbjR
+         yed/gobDW7aNi1RV06tNHjQ1Qsc9HC7ALR4gSMXu/O8DI25TqORR6aVZYP3G/Zdvk6Ki
+         hs0JrSgBiawW+dY8+f6ozXWcaI+N6jSeAMuOIdP5NUL0iGVFvN9jw3GhvAsL2irtJOmP
+         72eccEVSdSPBngu0oyN62c3iEY5FsIkwh93I5vLaM61z725kzFEe0khNu5tVC05JJFdh
+         fGWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
+        fh=p2KCluBia5LdvxVRhktEm/M/JKxPRFWmkJCiVPysfVw=;
+        b=K789OntKeq+aLhHvumK6Vq2Iz7q3vgf4fVVhJokdl1we/6px+bTs/gRjr5UgnZwAKm
+         pr+h/ug6wRSp81NtqFy7VndIZJN+PfcnoMcXYx4TdV0icNwpb1z25MVzUDFd+kurOach
+         VqctEeQoWZ2z7L/zY6C8/veUtwzP3SJElB12ehhnRJUv+Xavgm6f1eNvilgse+0jZe/o
+         lPsQhkyz8zVAkvUhnYJLilGDvnH1IwHlQ7rwdNC8yS6L1bmMMLmZhAcyjQXQNcGn4iWH
+         5qviUYn+81qrRGj4v7qu2yX1lxY1rzbigpS+9ZVuDTH9VIsd6hZxEd7Ih4nUASRjITLe
+         wfQA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1773682832; x=1774287632; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
+        b=U94yE8hdx/j9OwvRYOWVmUvJ4URESh/xGr6Zq2jUCjR13WWZmYEAXTiWPRxBwqaqhX
+         qjjtp+8bjqjAeMXTC5Sm8/PGfHB2+Yoa/Jqo9kiYhYwPiaHOljLHo1slxshcS596YSRo
+         5tIEFRFRnCt7fKq2eHogtJJdbuWBGxj2guWsLiUQEzgpKmVlW3URtMvAVU/MDpGH5MNL
+         rKm30+2B/LAdtdnMhIg6qAG2GpUxHKs4u+hO66/eh2x50hjHDOrfrTmmUa9exz6x2q/7
+         Mn3wQPVjDG0KPKcuUQ6Eplck/25qwa+va0PXVz2VrWUfRcANe/0zbJzOo91oTMh0u94x
+         uPXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773682832; x=1774287632;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
+        b=Yw9RQJdFGJ/Av6JYkYXXM5US26KiyDtzIAWEx7M6rwvffx5ea5s9opF7s3zTmLGBOz
+         YNdxiYAnN0L7YSt6XUw3VcN5HAxdmFEDkC49iiLzzo2yXkryarizW7u4iQnPE/HXuxJ2
+         24xYQKB1nq4C/tbVN42EJlAgbkg0kCKUk/+pVIcIyNTRFnLkEhJ4im8/xnr7suId/iv9
+         pDQ8oPCy9dm79zCNuZAg8c/V1xc3OaGC/dvQ0OBsEun0akZ5gczF9tTOe6BYtQWcywWu
+         vJm/t/PsrUTc9UQLBlwCYs8e61dhb28DVAmJ2sjZ771JcSwVy8KdbKSU8GpJHIy42zzL
+         0d6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUGqOpm45lIfmNN40IP9VDzakL/MGokyU9bcxhk0EyVl3Pufrbjm8fQ2ehtno6PbEnaIh5uCtKYttmihrp1ZTG7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYNgqwbcG5JNofeX6jg/Db9Sz0G4KrEQKuM4Cu6IYBtxAMR9Z6
+	L+bt1cQTY7XsWDxCWwNO1MpQNgguEX/Klkwraj/RZtK1an0woMm+5k+Cq9SWjLKK++QoNzbQwDO
+	QKINFiwxBD8Qek8FhmpljxYoPbf4rc+Gqs0e/DZ3O
+X-Gm-Gg: ATEYQzyQEj5ClePAZ3k+zQD7vXTpdKdx9rZkaMU9cQ+YdCUM1fVt7satOt4OxoIUrlT
+	AZMaK7jOLH5wGg5QoQvxxuUFxeMXjyElpMZDQb8xApFKSXH4mkeUF/4sq9C/suvo7hQtbP96V+o
+	jvNk09q8fhSn26uTVgSu0s2E1MwB5LHrwRdoysRHt4VTeXYjuZYnp2DMQr06OcDwFdQLePmjb4O
+	tCWV7rpCCkHW9ySOkhO4lRWBW5lgO9jvuc4TWgVomLcwWNvcjBfrtQR+qN4q3FywzHdn7EBT+sz
+	txSTvxkV
+X-Received: by 2002:a05:622a:19a2:b0:506:9852:75ec with SMTP id
+ d75a77b69052e-50998e55e96mr506131cf.9.1773682831265; Mon, 16 Mar 2026
+ 10:40:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260306-kvm-arm64-sme-v10-2-43f7683a0fb7@kernel.org>
+References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+In-Reply-To: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 16 Mar 2026 17:39:54 +0000
+X-Gm-Features: AaiRm51MmyCvtm_bSDH6RlSuyxS1mhei1yUIraU7TS88YvROq1cCmUBLQf9Svp4
+Message-ID: <CA+EHjTz6yJeEj4NT3N7iti03HruaTncKuAiwxR7nqkp=twgAHw@mail.gmail.com>
+Subject: Re: [PATCH 00/10] KVM: arm64: Adopt scoped resource management
+ (guard) for EL1 and EL2
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <linux-arm-kernel@lists.infradead.org>, 
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_103800_004707_9AA62E0E 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260316_104033_383774_9D22C194 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +119,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:00:54PM +0000, Mark Brown wrote:
-> Currently we enable EL0 and EL1 access to FA64 and ZT0 at boot and leave
-> them enabled throughout the runtime of the system. When we add KVM support
-> we will need to make this configuration dynamic, these features may be
-> disabled for some KVM guests. Since the host kernel saves the floating
-> point state for non-protected guests and we wish to avoid KVM having to
-> reload the floating point state needlessly on guest reentry let's move the
-> configuration of these enables to the floating point state reload.
-> 
-> We provide a helper which does the configuration as part of a
-> read/modify/write operation along with the configuration of the task VL,
-> then update the floating point state load and SME access trap to use it.
-> We also remove the setting of the enable bits from the CPU feature
-> identification and resume paths.  There will be a small overhead from
-> setting the enables one at a time but this should be negligible in the
-> context of the state load or access trap.  In order to avoid compiler
-> warnings due to unused variables in !CONFIG_ARM64_SME cases we avoid
-> storing the vector length in temporary variables.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+Hi again,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On Mon, 16 Mar 2026 at 17:35, Fuad Tabba <tabba@google.com> wrote:
+>
+> Hi everyone,
+
+This was my first time using b4, and I thought it would strip the
+Change-id's, and this was supposed to be a "reflect" run, but
+obviously something went wrong there :)
+
+Other than that, this series is ready for review. Sorry for the Change-id n=
+oise!
+
+Cheers,
+/fuad
+
+>
+> I stumbled upon a lock leak while reviewing Sebastien's recent GIC Harden=
+ing
+> series [1] on an early error path. It reminded me that we've run into thi=
+s exact
+> kind of bug pretty often while working on pKVM. Since we're going to be
+> hopefully upstream even more pKVM code soon, I'd like to try and fix this
+> pattern once and for all.
+>
+> This series refactors a good chunk of KVM/arm64 codebase=E2=80=94covering=
+ both the host
+> at EL1 and the hypervisor at EL2=E2=80=94to use the guard() and scoped_gu=
+ard() macros
+> from <linux/cleanup.h>.
+>
+> By tying our locks to the scope:
+> - We can safely use early returns (like return -EINVAL;) without accident=
+ally
+>   leaking locks.
+> - We can get rid of a lot of tangled goto exit labels.
+> - Reviewing patches gets a lot easier since we don't have to mentally tra=
+ck lock
+>   states across giant functions.
+>
+> A common concern with these RAII-style macros is that they might bloat th=
+e
+> generated assembly. However, looking at the compiled code, it actually do=
+es the
+> opposite. As an example, looking at the EL2 object file
+> arch/arm64/kvm/hyp/nvhe/pkvm.nvhe.o before and after this series:
+> - Instruction count: Dropped by 39 lines of assembly.
+> - .text segment size: Shrank by 166 bytes.
+>
+> This happens because the compiler no longer has to generate dedicated bra=
+nch
+> targets for exit blocks, nor the stack frame unwinding jumps just to call
+> hyp_spin_unlock. It just efficiently inlines the unlock instruction right=
+ where
+> the return happens.
+>
+> The series is split into two parts:
+> - Patches 1-5 (EL2): Adds the DEFINE_LOCK_GUARD_1 wrapper for hyp_spinloc=
+k and
+>   cleans up the nvhe/ directory.
+> - Patches 6-10 (EL1): Cleans up manual mutex_lock and spin_lock calls acr=
+oss the
+>   standard KVM host code (mmu.c, arm.c, psci.c, reset.c, pkvm.c).
+>
+> There are definitely other parts of the KVM codebase that could benefit f=
+rom
+> this (especially the vGIC), but I'm stopping here for now to see what eve=
+ryone
+> thinks of the approach before touching anything else.
+>
+> Based on Linux 7.0-rc3.
+>
+> Cheers,
+> /fuad
+>
+> [1] https://lore.kernel.org/all/CA+EHjTy051kjdReuESmk3HpMsBEW=3Ds3DxhJXa8=
+vQJFHz--wG2Q@mail.gmail.com/
+>
+> To:
+>
+> ---
+> Fuad Tabba (10):
+>       KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
+>       KVM: arm64: Use guard(hyp_spinlock) in page_alloc.c
+>       KVM: arm64: Use guard(hyp_spinlock) in ffa.c
+>       KVM: arm64: Use guard(hyp_spinlock) in mm.c
+>       KVM: arm64: Use guard(hyp_spinlock) in pkvm.c
+>       KVM: arm64: Use guard(mutex) in mmu.c
+>       KVM: arm64: Use scoped resource management in arm.c
+>       KVM: arm64: Use guard(spinlock) in psci.c
+>       KVM: arm64: Use guard(spinlock) in reset.c
+>       KVM: arm64: Use guard(mutex) in pkvm.c
+>
+>  arch/arm64/kvm/arm.c                       |  53 +++++--------
+>  arch/arm64/kvm/hyp/include/nvhe/spinlock.h |   5 ++
+>  arch/arm64/kvm/hyp/nvhe/ffa.c              |  86 +++++++++-----------
+>  arch/arm64/kvm/hyp/nvhe/mm.c               |  37 +++------
+>  arch/arm64/kvm/hyp/nvhe/page_alloc.c       |  13 +--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c             | 122 ++++++++++++-----------=
+------
+>  arch/arm64/kvm/mmu.c                       |  95 +++++++++-------------
+>  arch/arm64/kvm/pkvm.c                      |  19 ++---
+>  arch/arm64/kvm/psci.c                      |  19 ++---
+>  arch/arm64/kvm/reset.c                     |   8 +-
+>  10 files changed, 182 insertions(+), 275 deletions(-)
+> ---
+> base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+> change-id: 20260316-tabba-el2_guard-2f7e3fa06f69
+>
+> Best regards,
+> --
+> Fuad Tabba <tabba@google.com>
+>
 
