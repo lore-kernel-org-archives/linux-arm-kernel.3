@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D025EFCBBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 07:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC87EF013C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 07:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QuQj/RfB0YlVWaGGxf1V+j7rYaeRhpUK4am6V2Xrveg=; b=u+hnV3PggGSDxp7EMsLb26bD4E
-	CgDxiNdVuXyDH6tjjsMRN8xrzQN5d+6luYZbemJUO51p+w3V1R7k/Q8mtdoeLLBs5RAA2gbndiV8Z
-	fgwVQhnZKaHJffMQuPH+CdVSI8L2rItZ2vH3e8feip1RZv0t1xNoLWD2xXIZVxKszzun4pv/zuwUM
-	PkHcvLwQ0qqz9uwr9jU3zQdJeNG5+6eTUwgPlBlqdAIOCjobyZjfdaHQzV2c5Uvb9Ei+K+HLESWsB
-	aMg/RQ6kMrJihQBdz3ZBjQw3wMg5cc/qcdlXIThkSME3p7JoRDkof08mR4oK7LMSgy7ERykfZwDTm
-	qNFXskxQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uQQeZONwKwCdPNSwQyhXsapOBL2pKbGdyOesouYcZjk=; b=2YnWQyTem+6SX0+Uy6QqEBHE4K
+	25pgCuuGkaa+fucNezJQ7aCLzgmLUjiynGFkY7vmfqdO5pJnNwTcwf36bXCih/wk8e8tV3JECAn1z
+	HitwSlGKbhMYtE0ToYpi+jpIf2nTBB6TzeYTRoKenk9sXntudmGJDvobxq/eyYhUHiD8xx1nSkXAD
+	1ralnFAQUXdkQ01jZVqOKQxLE9+HM30lgYkZHauWeFcSI6byeBfJ3I831ZQWX6Ci491NrdXBPgBUk
+	Q3rzuc8WSZkUm6K9IlpLLfd5WRobEaWCmaVs2lgwLZBpajEDEvORy8Y0zMYas6JgDPB/2/o/c2GKx
+	H4SW2rBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w22Ub-00000003USs-19Qs;
-	Mon, 16 Mar 2026 07:36:01 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1w22VA-00000003UWh-2eCu;
+	Mon, 16 Mar 2026 07:36:37 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w22UY-00000003USL-26qP
+	id 1w22V7-00000003UVs-2B77
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 07:36:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=QuQj/RfB0YlVWaGGxf1V+j7rYaeRhpUK4am6V2Xrveg=;
-	b=OzvRoQuOnB4MTfY3NRJ2RPoI83eZASpcaLnIsJfRrK4esWG3eZl6EQ4Nf2x+QoEfxr+wn0uAU
-	eSio3BQWliJtDuly1X0dQxGq5URZVEn6DtEDVPRzQKCFcWjLgrvuPQiCTssvH63nITFcUwcqego
-	dxMkWRuLFO+6c0B3DdejaIc=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fZ6Dy2zs6zcZyT;
-	Mon, 16 Mar 2026 15:30:10 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id AFEB640561;
-	Mon, 16 Mar 2026 15:35:45 +0800 (CST)
-Received: from [10.174.178.9] (10.174.178.9) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 16 Mar
- 2026 15:35:44 +0800
-Message-ID: <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
-Date: Mon, 16 Mar 2026 15:35:43 +0800
+	Mon, 16 Mar 2026 07:36:34 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-82a15b44c3cso1519862b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 00:36:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773646592; x=1774251392; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uQQeZONwKwCdPNSwQyhXsapOBL2pKbGdyOesouYcZjk=;
+        b=R2NpH97i6EeEdmM40mgjfNmQ+TLDKNv5YO8AoLMQkJh6JrFiqkH4pVyrfqBAxBHRzr
+         yfr7YNhZcX5DMf+ilM52ufsWnJ0Fup+jKKRhIP+Jg1WlXH5eA8dEY1zrP6E99bZvalY6
+         jhQ0CgXcQARKfOyeAfYnwE+NrhJqXPoS1dF2cJ2AS24/B8k8ztfMHKjBwEI+op2g+phQ
+         9ENltTPQ7BtLdPAanebcDyWNSbRR1lf1H6NxV6VUG1Gis00UJ8jsFsOkGPNmYsjpuJO3
+         ExznVWVhcZeowQrO/mGx4vs1jCbRPOa5QCZLcargfYfEUq6fRHL0TSgr1aQ7pJPR3Wrl
+         lANg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773646592; x=1774251392;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uQQeZONwKwCdPNSwQyhXsapOBL2pKbGdyOesouYcZjk=;
+        b=D2CjZzOdXmiEI9zPB3J0xVEcekKM2v8FiTWntar1k3Uehjkbxb14ne7lXU3vogBQWX
+         zpVuVEWuYswXkpCR3w10ZrnnV0x4HZVCsJti3mtV92duidJ6eYEMCVWTPs0xE75A81Zw
+         9l9puVl/6AhUDa+9Os8qZbg9gtkpaMtfsgaj+G3ktfUFnpO0kdFmfqY1+lBnRLKwdUiz
+         lDHqcSfWxVy51nWNRVT2jBX4uvnXcuhpAOdcZo/5y/JZmHGvFEhfuZyRke7VATlE1Dbm
+         4wXlAvlRy2/JlG+tcXRryf1W4XGgcy1IC2hEoVPAtC/x+Q3LHL2gzbS0BKWBau5rkQ5r
+         e5Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUMvZsPQbxkDmYFEnqQFNG5c9oKbWi09QNtd8aINR/lYVw4McQB+Ct4gkqAzu0K8gyg5GhhuvzVetZD4g9NLu4d@lists.infradead.org
+X-Gm-Message-State: AOJu0YzABKfkhyU2/rP4HFcaHAXRcdbOfiOgwMPfmOX2Jz5SE7GMzdcI
+	8xJ0osIfQm80KOU6EcrdvcltrWo6/GYSeNBYWZSpcNWlTZNcRXq16CKH
+X-Gm-Gg: ATEYQzyNYI8hu4U+eefXtzYI2a2XenNM2H5q4Jkh6/REjzv6xvsqkLxv8bMC2xAA1jO
+	iJhW5k9p1Vph2MBEfr2BzZ6DX3QNyEepUe9Q+ye3by1coDXrMROYUG9Bx41DfurloVkXulvW/YA
+	qWxwpemz6jOFuMhEpjgtYBp2YnknadByZn8gwSMIuZiuPYUZIozWz7a+IW5ySrsnWES2bqLe0LB
+	oPMJYv5m19Aasz6FQLO2ja94gUG38Tj4Q4WxwF9Ki0sOG+qQvzTfKLiMTW/C6xX4DlYFAxUseL2
+	47V8gTNtMq0AB/XqmDCexP2RmrsdM7yA9NamO4d4kPOwxCe4AUji5qAE7uoqsb8dc0iKoAGvxM8
+	bGquHJKPcd92llGGERJyK8w7X9LL2rtwTA2LUz/XF9eCLVwUBB30JhhkjPmmpkOZY3X1jGVcJTI
+	S7Z2GwqunoezmfDt0KkrpM
+X-Received: by 2002:a05:6a00:301c:b0:821:8ea4:480e with SMTP id d2e1a72fcca58-82a197046d3mr9943668b3a.10.1773646592298;
+        Mon, 16 Mar 2026 00:36:32 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.200])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a07244071sm12933375b3a.6.2026.03.16.00.36.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 00:36:31 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Subject: [PATCH v2] arm64: dts: rockchip: Enable PCIe CLKREQ# for RK3588 on Rock 5b-5bp-5t series
+Date: Mon, 16 Mar 2026 13:03:55 +0530
+Message-ID: <20260316073621.39027-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-To: Yang Shi <yang@os.amperecomputing.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <ryan.roberts@arm.com>, <akpm@linux-foundation.org>,
-	<david@redhat.com>, <lorenzo.stoakes@oracle.com>, <ardb@kernel.org>,
-	<dev.jain@arm.com>, <scott@os.amperecomputing.com>, <cl@gentwo.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
-From: Jinjiang Tu <tujinjiang@huawei.com>
-In-Reply-To: <20250917190323.3828347-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.9]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_003559_169094_D2EAF157 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260316_003633_562482_4B2CAE98 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,283 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add supports-clkreq and the corresponding pinmux configurations for PCIe
+ASPM L1 substates on the Rock 5B, 5B+ and 5T.
+The supports-clkreq flag informs the PCIe controller that the hardware
+routing for the CLKREQ# sideband signal is present. This enables support
+for PCIe ASPM (Active State Power Management) L1 substates, allowing for
+better power efficiency.
 
-在 2025/9/18 3:02, Yang Shi 写道:
-> On systems with BBML2_NOABORT support, it causes the linear map to be mapped
-> with large blocks, even when rodata=full, and leads to some nice performance
-> improvements.
+Cc: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+Rock5b schematics.
+[1]  https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf
+v2: drop the clkreq pinctrl for pcie3x4 as suggeested by Shwan Lin.
+[2] https://lore.kernel.org/all/20260311115502.7353-1-linux.amoon@gmail.com/
+---
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Hi,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index b3e76ad2d8694..bf4a1d2e55ca3 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -468,7 +468,8 @@ map1 {
+ 
+ &pcie2x1l0 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_0_rst>;
++	pinctrl-0 = <&pcie2_0_rst>, <&pcie30x1m1_0_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie2x1l0>;
+ 	status = "okay";
+@@ -476,7 +477,8 @@ &pcie2x1l0 {
+ 
+ &pcie2x1l2 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_2_rst>;
++	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie2x1l2>;
+ 	status = "okay";
 
-I find this feature is incompatible with realm. The calltrace is as follows:
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+-- 
+2.50.1
 
-[    0.000000][    T0] ------------[ cut here ]------------
-[    0.000000][    T0] WARNING: CPU: 0 PID: 0 at arch/arm64/mm/pageattr.c:56 pageattr_pmd_entry+0x60/0x78
-[    0.000000][    T0] Modules linked in:
-[    0.000000][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.6.0 #16
-[    0.000000][    T0] Hardware name: linux,dummy-virt (DT)
-[    0.000000][    T0] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    0.000000][    T0] pc : pageattr_pmd_entry+0x60/0x78
-[    0.000000][    T0] lr : walk_pmd_range.isra.0+0x170/0x1f0
-[    0.000000][    T0] sp : ffffcb90a0f337d0
-[    0.000000][    T0] x29: ffffcb90a0f337d0 x28: 0000000000000000 x27: ffff0000035e0000
-[    0.000000][    T0] x26: ffffcb90a0f338f8 x25: ffff00001fff60d0 x24: ffff0000035d0000
-[    0.000000][    T0] x23: 0400000000000001 x22: 0c00000000000001 x21: ffff0000035dffff
-[    0.000000][    T0] x20: ffffcb909fe3b7f0 x19: ffff0000035e0000 x18: ffffffffffffffff
-[    0.000000][    T0] x17: 7220303030303178 x16: 307e303030306435 x15: ffffcb90a0f334c8
-[    0.000000][    T0] x14: 0000000000000000 x13: 205d305420202020 x12: 5b5d303030303030
-[    0.000000][    T0] x11: 00000000ffff7fff x10: 00000000ffff7fff x9 : ffffcb909f1e27d8
-[    0.000000][    T0] x8 : 00000000000bffe8 x7 : c0000000ffff7fff x6 : 0000000000000001
-[    0.000000][    T0] x5 : 0000000000000001 x4 : 0078000083400705 x3 : ffffcb90a0f338f8
-[    0.000000][    T0] x2 : 0000000000010000 x1 : ffff0000035d0000 x0 : ffff00001fff60d0
-[    0.000000][    T0] Call trace:
-[    0.000000][    T0]  pageattr_pmd_entry+0x60/0x78
-[    0.000000][    T0]  walk_pud_range+0x124/0x190
-[    0.000000][    T0]  walk_pgd_range+0x158/0x1b0
-[    0.000000][    T0]  walk_kernel_page_table_range_lockless+0x58/0x98
-[    0.000000][    T0]  update_range_prot+0xb8/0x108
-[    0.000000][    T0]  __change_memory_common+0x30/0x1a8
-[    0.000000][    T0]  __set_memory_enc_dec.part.0+0x170/0x260
-[    0.000000][    T0]  realm_set_memory_decrypted+0x6c/0xb0
-[    0.000000][    T0]  set_memory_decrypted+0x38/0x58
-[    0.000000][    T0]  its_alloc_pages_node+0xc4/0x140
-[    0.000000][    T0]  its_probe_one+0xbc/0x3c0
-[    0.000000][    T0]  its_of_probe.isra.0+0x130/0x220
-[    0.000000][    T0]  its_init+0x160/0x2f8
-[    0.000000][    T0]  gic_init_bases+0x1fc/0x318
-[    0.000000][    T0]  gic_of_init+0x2a0/0x300
-[    0.000000][    T0]  of_irq_init+0x238/0x4b8
-[    0.000000][    T0]  irqchip_init+0x20/0x50
-[    0.000000][    T0]  init_IRQ+0x1c/0x100
-[    0.000000][    T0]  start_kernel+0x1ec/0x4f0
-[    0.000000][    T0]  __primary_switched+0xbc/0xd0
-[    0.000000][    T0] ---[ end trace 0000000000000000 ]---
-[    0.000000][    T0] ------------[ cut here ]------------
-[    0.000000][    T0] Failed to decrypt memory, 16 pages will be leaked
-
-realm feature relies on rodata=full to dynamically update kernel page table prot.
-
-In init_IRQ(), realm_set_memory_decrypted() is called to update kernel page table prot.
-At this time, secondary cpus aren't booted, BBML2 noabort feature isn't initializated,
-and system_supports_bbml2_noabort() still returns false. As a result,
-split_kernel_leaf_mapping() is skipped, leading to WARN_ON_ONCE((next - addr) != PMD_SIZE)
-in pageattr_pmd_entry().
-
-Before setup_system_features(), we don't know if all cpus support BBML2 noabort, and we
-couldn't split kernel page table, in case another cpu that doesn't support BBML2 noabort
-is running.
-
-How could we fix this issue?
-
-1. force pte mapping if realm feature is enabled? Although force_pte_mapping()
-return true if is_realm_world() return true, arm64_rsi_init() is called after
-map_mem(). So is_realm_world() still return false during map_mem(). Thus
-realm feature relies on rodata=full. If we fix by this solution, we need
-to add a new cmdline to force pte mapping.
-
-2. If we could try to split kernel page table before setup_system_features()?
-
-Thanks.
-
->
-> Ryan tested v7 on an AmpereOne system (a VM with 12G RAM) in all 3 possible
-> modes by hacking the BBML2 feature detection code:
->
->    - mode 1: All CPUs support BBML2 so the linear map uses large mappings
->    - mode 2: Boot CPU does not support BBML2 so linear map uses pte mappings
->    - mode 3: Boot CPU supports BBML2 but secondaries do not so linear map
->      initially uses large mappings but is then repainted to use pte mappings
->
-> In all cases, mm selftests run and no regressions are observed. In all cases,
-> ptdump of linear map is as expected. Because there are just some cleanups
-> between v7 and v8, so I kept using Ryan's test result:
->
-> Mode 1:
-> =======
-> ---[ Linear Mapping start ]---
-> 0xffff000000000000-0xffff000000200000           2M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000000200000-0xffff000000210000          64K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD AF            UXN    MEM/NORMAL
-> 0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD AF        BLK UXN    MEM/NORMAL
-> 0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD AF            UXN    MEM/NORMAL
-> 0xffff000002550000-0xffff000002600000         704K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000002600000-0xffff000004000000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000004000000-0xffff000040000000         960M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000040000000-0xffff000140000000           4G PUD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000140000000-0xffff000142000000          32M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000142000000-0xffff000142120000        1152K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000142120000-0xffff000142128000          32K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142128000-0xffff000142159000         196K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142159000-0xffff000142160000          28K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142160000-0xffff000142240000         896K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000142240000-0xffff00014224e000          56K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff00014224e000-0xffff000142250000           8K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142250000-0xffff000142260000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142260000-0xffff000142280000         128K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000142280000-0xffff000142288000          32K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142288000-0xffff000142290000          32K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142290000-0xffff0001422a0000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff0001422a0000-0xffff000142465000        1812K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142465000-0xffff000142470000          44K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000142470000-0xffff000142600000        1600K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000142600000-0xffff000144000000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000144000000-0xffff000180000000         960M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000180000000-0xffff000181a00000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000181a00000-0xffff000181b90000        1600K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000181b90000-0xffff000181b9d000          52K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181b9d000-0xffff000181c80000         908K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181c80000-0xffff000181c90000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181c90000-0xffff000181ca0000          64K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000181ca0000-0xffff000181dbd000        1140K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181dbd000-0xffff000181dc0000          12K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181dc0000-0xffff000181e00000         256K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
-> 0xffff000181e00000-0xffff000182000000           2M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000182000000-0xffff0001c0000000         992M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff0001c0000000-0xffff000300000000           5G PUD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
-> 0xffff000300000000-0xffff008000000000         500G PUD
-> 0xffff008000000000-0xffff800000000000      130560G PGD
-> ---[ Linear Mapping end ]---
->
-> Mode 3:
-> =======
-> ---[ Linear Mapping start ]---
-> 0xffff000000000000-0xffff000000210000        2112K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD AF            UXN    MEM/NORMAL
-> 0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD AF        BLK UXN    MEM/NORMAL
-> 0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD AF            UXN    MEM/NORMAL
-> 0xffff000002550000-0xffff000143a61000     5264452K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000143a61000-0xffff000143c61000           2M PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000143c61000-0xffff000181b9a000     1015012K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181b9a000-0xffff000181d9a000           2M PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000181d9a000-0xffff000300000000     6261144K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
-> 0xffff000300000000-0xffff008000000000         500G PUD
-> 0xffff008000000000-0xffff800000000000      130560G PGD
-> ---[ Linear Mapping end ]---
->
->
-> Performance Testing
-> ===================
-> * Memory use after boot
-> Before:
-> MemTotal:       258988984 kB
-> MemFree:        254821700 kB
->
-> After:
-> MemTotal:       259505132 kB
-> MemFree:        255410264 kB
->
-> Around 500MB more memory are free to use.  The larger the machine, the
-> more memory saved.
->
-> * Memcached
-> We saw performance degradation when running Memcached benchmark with
-> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
-> With this patchset we saw ops/sec is increased by around 3.5%, P99
-> latency is reduced by around 9.6%.
-> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
-> MPKI is reduced by 28.5%.
->
-> The benchmark data is now on par with rodata=on too.
->
-> * Disk encryption (dm-crypt) benchmark
-> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with
-> disk encryption (by dm-crypt).
-> fio --directory=/data --random_generator=lfsr --norandommap            \
->      --randrepeat 1 --status-interval=999 --rw=write --bs=4k --loops=1  \
->      --ioengine=sync --iodepth=1 --numjobs=1 --fsync_on_close=1         \
->      --group_reporting --thread --name=iops-test-job --eta-newline=1    \
->      --size 100G
->
-> The IOPS is increased by 90% - 150% (the variance is high, but the worst
-> number of good case is around 90% more than the best number of bad
-> case). The bandwidth is increased and the avg clat is reduced
-> proportionally.
->
-> * Sequential file read
-> Read 100G file sequentially on XFS (xfs_io read with page cache
-> populated). The bandwidth is increased by 150%.
->
-> Additionally Ryan also ran this through a random selection of benchmarks on
-> AmpereOne. None show any regressions, and various benchmarks show statistically
-> significant improvement. I'm just showing those improvements here:
->
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | Benchmark            | Result Class                                             | Improvement vs 6.17-rc1 |
-> +======================+==========================================================+=========================+
-> | micromm/vmalloc      | full_fit_alloc_test: p:1, h:0, l:500000 (usec)           |              (I) -9.00% |
-> |                      | kvfree_rcu_1_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |              (I) -6.93% |
-> |                      | kvfree_rcu_2_arg_vmalloc_test: p:1, h:0, l:500000 (usec) |              (I) -6.77% |
-> |                      | pcpu_alloc_test: p:1, h:0, l:500000 (usec)               |              (I) -4.63% |
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | mmtests/hackbench    | process-sockets-30 (seconds)                             |              (I) -2.96% |
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | mmtests/kernbench    | syst-192 (seconds)                                       |             (I) -12.77% |
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | pts/perl-benchmark   | Test: Interpreter (Seconds)                              |              (I) -4.86% |
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | pts/pgbench          | Scale: 1 Clients: 1 Read Write (TPS)                     |               (I) 5.07% |
-> |                      | Scale: 1 Clients: 1 Read Write - Latency (ms)            |              (I) -4.72% |
-> |                      | Scale: 100 Clients: 1000 Read Write (TPS)                |               (I) 2.58% |
-> |                      | Scale: 100 Clients: 1000 Read Write - Latency (ms)       |              (I) -2.52% |
-> +----------------------+----------------------------------------------------------+-------------------------+
-> | pts/sqlite-speedtest | Timed Time - Size 1,000 (Seconds)                        |              (I) -2.68% |
-> +----------------------+----------------------------------------------------------+-------------------------+
->
-> Changes since v7 [1]
-> ====================
-> - Rebased on v6.17-rc6 and Shijie's rodata series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?id=bfbbb0d3215f)
->    which has been picked up by Will.
-> - Patch 1: Fixed pmd_leaf/pud_leaf issue since the code may need to change
->    permission for invalid entries per Jinjiang Tu.
-> - Patch 1: Removed pageattr_pgd_entry and pageattr_p4d_entry per Ryan.
-> - Used (-1ULL) instead of -1 per Catalin.
-> - Added comment about arm64 lazy mmu allow sleeping per Ryan.
-> - Squashed patch #4 in v7 into patch #3.
-> - Squashed patch #6 in v7 into patch #4.
-> - Added patch #5 to fix a arm64 kprobes bug. It guarantees set_memory_rox()
->    is called before vfree(). It can go into separately or with this series
->    together.
-> - Collected all the R-bs and A-bs.
->
-> Changes since v6 [2]
-> ====================
-> - Patch 1: Minor refactor to implement walk_kernel_page_table_range() in terms
->    of walk_kernel_page_table_range_lockless(). Also lead to adding *pmd argument
->    to the lockless variant for consistency (per Catalin).
-> - Misc function/variable renames to improve clarity and consistency.
-> - Share same syncrhonization flag between idmap_kpti_install_ng_mappings and
->    wait_linear_map_split_to_ptes, which allows removal of bbml2_ptes[] to save
->    ~20K from kernel image.
-> - Only take pgtable_split_lock and enter lazy mmu mode once for both splits.
-> - Only walk the pgtable once for the common "split single page" case.
-> - Bypass split to contpmd and contpte when spllitting linear map to ptes.
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20250829115250.2395585-1-ryan.roberts@arm.com/
-> [2] https://lore.kernel.org/linux-arm-kernel/20250805081350.3854670-1-ryan.roberts@arm.com/
->
->
-> Dev Jain (1):
->        arm64: Enable permission change on arm64 kernel block mappings
->
-> Ryan Roberts (1):
->        arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs
->
-> Yang Shi (3):
->        arm64: cpufeature: add AmpereOne to BBML2 allow list
->        arm64: mm: support large block mapping when rodata=full
->        arm64: kprobes: call set_memory_rox() for kprobe page
->
->   arch/arm64/include/asm/cpufeature.h |   2 +
->   arch/arm64/include/asm/mmu.h        |   3 +
->   arch/arm64/include/asm/pgtable.h    |   5 ++
->   arch/arm64/kernel/cpufeature.c      |  12 +++-
->   arch/arm64/kernel/probes/kprobes.c  |  12 ++++
->   arch/arm64/mm/mmu.c                 | 422 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
->   arch/arm64/mm/pageattr.c            | 123 ++++++++++++++++++++++++---------
->   arch/arm64/mm/proc.S                |  27 ++++++--
->   include/linux/pagewalk.h            |   3 +
->   mm/pagewalk.c                       |  36 ++++++----
->   10 files changed, 581 insertions(+), 64 deletions(-)
->
->
 
