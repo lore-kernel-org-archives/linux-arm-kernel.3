@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9656AF53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD00F53D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=; b=azXQdgE73h7kVXUcgk9vKkEuC0
-	8mRG8csDXOjTSddadeOV+9+9k4etBeOhoV7yjfv1erYGzuaIMfZSJgC3osFsQe7o+p9Wf+YveHkFc
-	YLmvUpAUrVDhhNenVhjMkod1H1hoYWpyIioABAXdpCPA/t0Y5Tm5gD/roLq62GYPRdDrvVNHLTeGp
-	fKUG/NC12yt0HM40QmCwaSqGzDGdvWcoBcKMZzlIbg/TgmCLK/WXH2fHtwWOhHSvQXaoWmokAuIKq
-	zQC/LcWq6uhESWoNT86MUDJKc2NvAhXXq953uB38JRGJmfOshBryPYTVh8yVrr25u0O37Vu+buBXo
-	qSmXUU7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FnafgkDBs5LDOaW1uc1X+DzozSiaFK2m2V1CCs7ZFPU=; b=VCvwGdpvNa8tWvau92sisZ5W2k
+	4ljWZFlmvR3Wbw/mT6hgDa6kvokUdH+UmTnJeOkkP2uPilumB2S7fQuyPJFDcQnHjyPvqOL7FCCnU
+	sHS0TZ9TFsJl2PYxbziXDkHIeRMHUe4u/S4tI+xor9jeXtbA1XWKq3tYXrMkZf565P8YqiLPog8vt
+	ZxztMDNr1PWqCibQ8L3xsfQRoPQiW7dxZpLNbvZFdKiAKKT+O+YN1vOw1ivRv9biKZkl4gJk7JlF4
+	S/C6pKUcHyRY4uAYwDL058iSz/moYqZkR6VdeLG9YRSOMSOZClple6gUR+C4xfozbiKclqK0Ycx3b
+	eEZ9fhiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AUd-00000004PtK-2NpY;
-	Mon, 16 Mar 2026 16:08:35 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1w2AaN-00000004QHM-349K;
+	Mon, 16 Mar 2026 16:14:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AUa-00000004Psu-2eET
+	id 1w2AaM-00000004QGh-3RdA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 16:14:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FnafgkDBs5LDOaW1uc1X+DzozSiaFK2m2V1CCs7ZFPU=; b=a5s+shwZWPErT73zMV0V3KPtMB
+	GENzdP+LQhWN9KCI8vhaNQCyHz0xp/Oa/OEsKO+ajPT2kfONFl75LuByrliOkz9cp8AsBuGDvCRYr
+	OeTG01/w2rLFtuwQbwBFXpCji9prwpkdPOm4JczlWzoeQ/ukSsWeWiotF6FHUD8uB9+S0ZwTJbrYd
+	QM1tLA8at2xhZ+qxiYMJnsBTOVvxci56AiwJUJmUl/PwL+TMFBfwXUV3Ilgp8yfEUr2GUJdkURofd
+	Sqox8PE9aynMrjlOqk3sZhFrpuh2CxzX7McSPTYv+PkopgUlPLffLIbqfGR5pRMcVikNpTM1AUuzb
+	0aIpkPdw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2AaI-00000007B07-46J0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 16:08:33 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43a03cb1df9so4691532f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:08:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773677310; x=1774282110; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=;
-        b=WxdjVBd/WUAaRO3v8NU9QHB2IRRxPUT+f9NGUiQMBsK4bpVH0fffndAoM2G+g8kVDz
-         t2hwJVwH8XJ6Rx7yyyhS9qWg5jznmUpi1YHX6Yl+JepJnt9/bgEKaYXpT2EgwGFTIOjc
-         I8xooFytamlKVOr6W0xc/1CLksVzliHrcQFjUq/mrHXDIvMRyLRsOY8jOyNAMtF9ZVu5
-         kOlYmh5Jn3fRGIIZz785NTXlB1nDChjfN6HAnHT4w1iQQZVtdYVZcSFZobKvKDu56+Is
-         MR7Z+3XfZdVXmQyhp1koTW6y/ZYSWLfEta7RyKO+pouNJ2GquXOqA5epAQ5y6zGd/SSm
-         g6uQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773677310; x=1774282110;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=;
-        b=lEvBmDrKlo+UdhW+YLEaOuhFdxquYmjNUE6RA9bRYphBPRAt2V1PKb2qgJzXVKl+Ci
-         AJtpD0HMGb1vBxL9tomj/WW0AklNKoQ6Mro+8ZM+iZvitybtr4fs1V7nXVDOP+w1wWtZ
-         T2EkmZNr2/w6R943RZu1WPzLyX18X4o+B/nslbAwRs2rafEg9uvb4xq8PqzbFUYFiAZA
-         iNr0NdL4+lXbqe46ecJ6n6xCjk5gzcjEZbL0IOC5slaV/i5DdCxLx3uc2V+3Gjtgv08M
-         WW/HeID6qddF1tl97guKZBoczYKW39w/oRperE+LKT5oG+X8KpvA6l4w6nO6zBJwRN3z
-         XtjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU78y/wpN3rWAx/nRgfrGjkmZ8Omw6jxzXy0DgkU8gw8M3QKAmv1xZTRrXQ+6BOsZ9HVslA6zcrcmeAIZRzIcns@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgBCOYg6vHH3un+Gwj8TBgH1K+zLxeXg6QQKWwufvmuEHYDuQC
-	2yKgj6FcDDJ3Suq+BIqgAJ44E6Klv2njeWrDjr5Tk4h2pXCFKNr5yd6VWIrwc+ajAt4=
-X-Gm-Gg: ATEYQzxLX2llASRMAuX0mCajWqcNo88qLCKIAE4vVDRwLo3R4TdfckPL+JKUAARAo+Y
-	hUEJdQpZhyWoJQoPpDevYucuF7Ld1O3SbnPsL2+BADk4D18152YxZj864sp23M5eRlMs90f8xyD
-	Z6ZvOp2ZiDFF6M1RT4nU78jLAaKzmAqXiq0aQRPo3yEaGk9s5HCEjPrrhMCgUyMJUXPJMP1jr0c
-	lecY8mdplVm7J6hvPZtEBQwbRerkOUO0YbM765odJyoCggW+Uf9VmMf4xO9d2XZFGs3GyYLx5Xr
-	p10KxqrHxXkx0YMwepJa4cbBfqlNdR8PsL5CkNOgrW4LA5kB3sy1eHYkwKPwF+5gJzo0aUkwYWv
-	s+JfU7/doCqfiynJ090ptCQnS6bAMjiuQIBOffCSIX7huxgEwM6d6FdES6sSK5hyS0M4wTY1deR
-	RjWSLpSz6Zk3uQ9hVS9GSmJ7Z4sjgC
-X-Received: by 2002:a05:600d:6444:20b0:485:4388:3492 with SMTP id 5b1f17b1804b1-485566d8d8fmr163862785e9.11.1773677310284;
-        Mon, 16 Mar 2026 09:08:30 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4856ea9c387sm2538015e9.8.2026.03.16.09.08.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2026 09:08:29 -0700 (PDT)
-Message-ID: <b373b619-00b1-4f65-9187-e1c7214a6b98@linaro.org>
-Date: Mon, 16 Mar 2026 16:08:28 +0000
+	Mon, 16 Mar 2026 16:14:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CD4B1477;
+	Mon, 16 Mar 2026 09:14:18 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C8DC3F73B;
+	Mon, 16 Mar 2026 09:14:21 -0700 (PDT)
+Date: Mon, 16 Mar 2026 16:14:19 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, philip.radford@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
+ initialization
+Message-ID: <abgsW1yoGtMNE3c7@pluto>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-9-cristian.marussi@arm.com>
+ <CAMuHMdUdqrA9kYeDpjwj-y6-4aALkAi2g2Od81Kxh-EVW2e2Nw@mail.gmail.com>
+ <abG4VfyB2C-gBa5Q@pluto>
+ <20260312-classy-misty-platypus-5baea1@sudeepholla>
+ <abLrm7x8ggzAhYOg@pluto>
+ <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/19] CoreSight: Refactor power management for
- CoreSight path
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Mike Leach <mike.leach@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_090832_709948_C6F18ED3 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20260316_161427_305039_1F392ED7 
+X-CRM114-Status: GOOD (  46.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,112 +92,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 16, 2026 at 04:50:17PM +0100, Geert Uytterhoeven wrote:
+> Hi Cristian,
+> 
+> On Thu, 12 Mar 2026 at 17:36, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Thu, Mar 12, 2026 at 03:33:52PM +0000, Sudeep Holla wrote:
+> > > On Wed, Mar 11, 2026 at 06:45:41PM +0000, Cristian Marussi wrote:
+> > > > On Wed, Mar 11, 2026 at 05:59:43PM +0100, Geert Uytterhoeven wrote:
+> > > > > Hi Cristian,
+> > > > >
+> > > > > On Tue, 10 Mar 2026 at 19:56, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > > > Add proper error handling on failure to enumerate clocks features or
+> > > > > > rates.
+> > > > > >
+> > > > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
+Hi Geert,
 
-On 05/03/2026 10:17 am, Leo Yan wrote:
-> This series focuses on CoreSight path power management.  The changes can
-> be divided into four parts for review:
+> > > >
+> > > > > > --- a/drivers/firmware/arm_scmi/clock.c
+> > > > > > +++ b/drivers/firmware/arm_scmi/clock.c
+> > > > >
+> > > > > > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+> > > > > >         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+> > > > > >                 cinfo->clkds[clkid].id = clkid;
+> > > > > >                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> > > > > > -               if (!ret)
+> > > > > > -                       scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> > > > > > +               if (ret)
+> > > > > > +                       return ret;
+> > > > >
+> > > > > This change breaks R-Car X5H with SCP FW SDKv4.28.0, as some clocks
+> > > > > do not support the SCMI CLOCK_ATTRIBUTES command.
 > 
->    Patches 01~06: Refactor the CPU idle flow with moving common code into
->                   the CoreSight core layer.
->    Patches 07~14: Add link control during CPU idle.
->    Patches 15~16: Support the sink (TRBE) control during CPU idle.
->    Patches 17~19: Move the CPU hotplug flow into the coresight core layer
->                   and simplify the code.
-> 
-> This series is rebased on the coresight-next branch and has been verified
-> on Juno-r2 and FVP RevC.
-> 
-> ---
-> Changes in v6:
-> - Rebase on the latest coresight-next branch.
-> - Always save and restore TRBE context during idle (Will).
-> - Use get_cpu() / put_cpu() when set the per CPU source pointer.
-> - Link to v5: https://lore.kernel.org/r/20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com
-> 
-> Changes in v5:
-> - Set the per-CPU source pointer on target CPU (Suzuki).
-> - Reused existed enable/disable buffer functions in TRBE callbacks
->    (James).
-> - Refactored refcount for source devices in SysFS mode.
-> - Released path in cpu-hotplug off flow to avoid memory leak.
-> - Updated ETMv3 driver when move common code into core layer.
-> - Rebased on the latest coresight-next branch.
-> - Link to v4: https://lore.kernel.org/r/20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com
-> 
-> Changes in v4:
-> - Changed to store path pointer in coresight_device, this is easier for
->    fetching path pointer based on source device (Mike).
-> - Dropped changes in CTI driver.
-> - Only disabled path for CPU hot-plugged off but not enable path for
->    hot-plugged in.
-> - Removed James' test tags for modified patches.
-> - Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Apparently it is not just CLOCK_ATTRIBUTES, but also
+> CLOCK_DESCRIBE_RATES.
 > 
 
-For the unreviewed commits:
+I was indeed suspicious that I could have opened a can of worms by
+more strictly enfrocing these...
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-And did a bit more testing on Juno:
-
-Tested-by: James Clark <james.clark@linaro.org>
-
-> ---
-> Leo Yan (18):
->        coresight: sysfs: Validate CPU online status for per-CPU sources
->        coresight: Set per-CPU source pointer
->        coresight: Register CPU PM notifier in core layer
->        coresight: etm4x: Hook CPU PM callbacks
->        coresight: Add callback to determine if PM is needed
->        coresight: etm4x: Remove redundant condition checks in save and restore
->        coresight: syscfg: Use spinlock to protect active variables
->        coresight: Introduce coresight_enable_source() helper
->        coresight: Save active path for system tracers
->        coresight: etm4x: Set active path on target CPU
->        coresight: etm3x: Set active path on target CPU
->        coresight: sysfs: Use source's path pointer for path control
->        coresight: Add 'in_idle' argument to path
->        coresight: Control path during CPU idle
->        coresight: Add PM callbacks for sink device
->        coresight: sysfs: Increment refcount only for system tracers
->        coresight: Take hotplug lock in enable_source_store() for Sysfs mode
->        coresight: Move CPU hotplug callbacks to core layer
+> > > > > Before, these clocks were still instantiated, but were further unusable.
+> > > > > After, the whole clock driver fails to initialize, and no SCMI clocks
+> > > > > are available at all.
+> > > >
+> > > > ...and this is exactly what I feared while doing this sort of hardening :P
+> > > >
+> > > > So there are a few possible solutions (beside reverting this straight away)
+> > > >
+> > > > The easy fix would be instead change the above in a
+> > > >
+> > > >     if (ret)
+> > > >             continue;
+> > > >
+> > > > ...with a bit of annoying accompanying FW_BUG logs, of course, to cause future
+> > > > FW releases to fix this :D
+> > > >
+> > > > Another option could be leave it as it is, since indeed it is the correct enforced
+> > > > behaviour, being CLOCK_ATTRIBUTES a mandatory command, BUT add on top an ad-hoc SCMI
+> > > > quirk targeting the affected FW releases...
+> > > >
+> > > > This latter option, though, while enforcing the correct behaviour AND
+> > > > fixing your R-Car issue, leaves open the door for a number of possible
+> > > > failures of other unknowingly buggy Vendors similarly deployed firmwares...
+> > > >
+> > > > ...that could be solved with more quirks of course...but...worth it ?
+> > > >
+> > > > Thoughts ?
+> > > >
+> > > > Let's see also what @Sudeep thinks about this...
+> > >
+> > > I prefer to fix it as a quirk to prevent similar issues on newer platforms if
+> > > the firmware baselines are derived from it. In the worst case, we can relax
+> > > the hardening until we figure out a proper quirk-based solution.
+> >
+> > Ok, I can post a V3 with a dummy quirk 'template' RFC to be filled by
+> > Geert with proper versioning....so I can check that there are no
+> > surprises round the (quirked) corner...
 > 
-> Yabin Cui (1):
->        coresight: trbe: Save and restore state across CPU low power state
+> Unfortunately you cannot "continue" from a quirk, without resorting
+> to a goto, so I sent a fix: "[PATCH] firmware: arm_scmi: Support loop
+> control in quirk code snippets"[1].
 > 
->   drivers/hwtracing/coresight/coresight-catu.c       |   1 +
->   drivers/hwtracing/coresight/coresight-core.c       | 273 ++++++++++++++++++++-
->   drivers/hwtracing/coresight/coresight-ctcu-core.c  |   1 +
->   drivers/hwtracing/coresight/coresight-cti-core.c   |   1 +
->   drivers/hwtracing/coresight/coresight-dummy.c      |   1 +
->   drivers/hwtracing/coresight/coresight-etb10.c      |   1 +
->   drivers/hwtracing/coresight/coresight-etm-perf.c   |   2 +-
->   drivers/hwtracing/coresight/coresight-etm3x-core.c |  65 ++---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 153 +++---------
->   drivers/hwtracing/coresight/coresight-funnel.c     |   1 +
->   drivers/hwtracing/coresight/coresight-priv.h       |   3 +
->   drivers/hwtracing/coresight/coresight-replicator.c |   1 +
->   drivers/hwtracing/coresight/coresight-stm.c        |   1 +
->   drivers/hwtracing/coresight/coresight-syscfg.c     |  22 +-
->   drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
->   drivers/hwtracing/coresight/coresight-sysfs.c      | 126 +++-------
->   drivers/hwtracing/coresight/coresight-tmc-core.c   |   1 +
->   drivers/hwtracing/coresight/coresight-tnoc.c       |   2 +
->   drivers/hwtracing/coresight/coresight-tpda.c       |   1 +
->   drivers/hwtracing/coresight/coresight-tpdm.c       |   1 +
->   drivers/hwtracing/coresight/coresight-tpiu.c       |   1 +
->   drivers/hwtracing/coresight/coresight-trbe.c       |  60 ++++-
->   drivers/hwtracing/coresight/ultrasoc-smb.c         |   1 +
->   include/linux/coresight.h                          |  11 +
->   24 files changed, 458 insertions(+), 274 deletions(-)
-> ---
-> base-commit: 9c5ef7a30d9044f8706bd02bfdc4eff7266f3e25
-> change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
-> 
-> Best regards,
 
+Yes ... just realized that this afternoon when trying to draft a
+quirk... (see other thread)
+
+> Then I came up with the following preliminary (have to check more
+> firmware versions) quirk (Gmail whitespace-damaged):
+> 
+> diff --git a/drivers/firmware/arm_scmi/clock.c
+> b/drivers/firmware/arm_scmi/clock.c
+> index f62f9492bd42afbc..6f2af6e9084836c6 100644
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -1230,6 +1230,18 @@ static const struct scmi_protocol_events
+> clk_protocol_events = {
+>         .num_events = ARRAY_SIZE(clk_events),
+>  };
+> 
+> +#define QUIRK_RCAR_X5H_NO_ATTRIBUTES                                   \
+> +       ({                                                              \
+> +               if (ret == -EREMOTEIO || ret == -EOPNOTSUPP)            \
+> +                       continue;                                       \
+> +       })
+> +
+> +#define QUIRK_RCAR_X5H_NO_RATES
+>          \
+> +       ({                                                              \
+> +               if (ret == -EOPNOTSUPP)                                 \
+> +                       ret = 0;                                        \
+> +       })
+> +
+>  static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+>  {
+>         int clkid, ret;
+> @@ -1254,10 +1266,12 @@ static int scmi_clock_protocol_init(const
+> struct scmi_protocol_handle *ph)
+>         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+>                 cinfo->clkds[clkid].id = clkid;
+>                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> +               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+> QUIRK_RCAR_X5H_NO_ATTRIBUTES);
+>                 if (ret)
+>                         return ret;
+> 
+>                 ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> +               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+> QUIRK_RCAR_X5H_NO_RATES);
+>                 if (ret)
+>                         return ret;
+>         }
+> diff --git a/drivers/firmware/arm_scmi/quirks.c
+> b/drivers/firmware/arm_scmi/quirks.c
+> index 3772139a758c8a78..5a69f119e1b6c806 100644
+> --- a/drivers/firmware/arm_scmi/quirks.c
+> +++ b/drivers/firmware/arm_scmi/quirks.c
+> @@ -172,6 +172,8 @@ struct scmi_quirk {
+>  /* Global Quirks Definitions */
+>  DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
+>  DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
+> +DEFINE_SCMI_QUIRK(clock_rcar_x5h_no_attributes, "Renesas", NULL, "0x10a0000",
+> +                 "renesas,r8a78000");
+> 
+>  /*
+>   * Quirks Pointers Array
+> @@ -182,6 +184,7 @@ DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
+> "Qualcomm", NULL, "0x20000-");
+>  static struct scmi_quirk *scmi_quirks_table[] = {
+>         __DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
+>         __DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
+> +       __DECLARE_SCMI_QUIRK_ENTRY(clock_rcar_x5h_no_attributes),
+>         NULL
+>  };
+> 
+> diff --git a/drivers/firmware/arm_scmi/quirks.h
+> b/drivers/firmware/arm_scmi/quirks.h
+> index 74bf6406dd043049..13f28d13bbd74d4c 100644
+> --- a/drivers/firmware/arm_scmi/quirks.h
+> +++ b/drivers/firmware/arm_scmi/quirks.h
+> @@ -48,5 +48,6 @@ static inline void scmi_quirks_enable(struct device
+> *dev, const char *vend,
+>  /* Quirk delarations */
+>  DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+>  DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
+> +DECLARE_SCMI_QUIRK(clock_rcar_x5h_no_attributes);
+> 
+>  #endif /* _SCMI_QUIRKS_H */
+> 
+> Does that look like what you have in mind?
+> Thanks!
+
+Yes in quirk I was only addressing NOT_ATTRIBUTES and mimicing the old
+behaviour with continue, BUT if the set of clocks not supporting attributes
+and the set of clocks not suppporting rates is disjoint, I feel we need your
+double quirks :P
+
+If you are still finding out the exact FW versions that are failing maybe
+it is better if you carry on and test the quirk-framework fix above together
+with your quirks and we can make sure to pick all up together...
+
+...OR maybe better I can also drop for now my offending patch that breaks
+your FW from my V3 series and you can pick it up and post it later with
+your quirks and the Quirk framework fix you propsoed so that we are sure
+that we dont break anything while fixing all of this...
+
+Also because we are already in V4 and I dont want to risk to post the
+breaking fix (that was at the end broke since forever) BUT not the quirks...
+
+Let's see what @Sudeep thinks
+
+Thanks,
+Cristian
 
