@@ -4,101 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185F5F506CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1773F506CB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkTZYHJpVH53Si1xxxr8JQuTVTYhXIYd8LKiQKjxI+4=; b=dq6vy5eUmGj7HrXOZS7xRWTUji
-	90OV2sqL+l1KGxCX/osn9Wb5Ca1qXfz0x9Ejr4k+KGiao/GZJ4iyUTqZ7pwbY75a48eU1p2qlP0VH
-	NCudHDDvTCgHBXkiwjBX6vdHdn4lQbzCB5JP48G7JUZBThHHb5BYKXitAuP5KGMm/qAZ8nGM5H4B+
-	r+JwTNAlm41K2QhdxckfIRoWuNefC12yY95i3Ht4LbTqZAV/2jeSSep6vIGMQQyAsKvkOP+WtDI7r
-	8bR0pL58wMmDHGC7kE9r3zVmu+XmTDK8KvRsV0jXjVbYT7lzHW0dkZMjCb+qBB1O14wFUUQ1SoJVj
-	UY+2ocQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=; b=axGmjaHUYo/Rfy5eGvLHOtA3XU
+	rZk6WIsJqLmegZBQ98nJ0YxblEvHP6RU7VUaBW/rgCf22PpJ4pwbjUuQWcJ4CzId1AsOWCNmHmSw3
+	+pVANEzgnhpFa1kPw7EOQ8QSgom8I+xNdO6qRfYMRqRLi4SJ4Wh9tuGSH+8HYYRLjsEsOQlietVWZ
+	xapgDSutoobf7O+aWkr4A3dqZG2JLnScFQa4dr1xw5/i9UkdhrQBZRQdbKm3x5NjhCPaFJViUG2+Z
+	0qsyG2Yc3ldolzbJXYOXJLEZJwWHsRuh00tj8ok8rrfxcU3w0KySRMM8FJ8Xjac02DY9JezhW5NGY
+	zzjey4oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27g2-0000000403r-03Hr;
-	Mon, 16 Mar 2026 13:08:10 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w27jP-000000043FN-2mpg;
+	Mon, 16 Mar 2026 13:11:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27g0-0000000402x-0bDX;
-	Mon, 16 Mar 2026 13:08:08 +0000
+	id 1w27jO-000000043E0-0FK9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 13:11:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=MkTZYHJpVH53Si1xxxr8JQuTVTYhXIYd8LKiQKjxI+4=; b=jc7IqNrhZbtHSLPZyh4o3l4SzA
-	4YzHEmZfdWAJOzSZLaaModvqnzmc9e/vInWbXjJdBWgkYtwYwB+9ga5NEY9KjuiBOq/Q6w1R5H3Zp
-	k7se7DXh0J/Ed1xjXhrhH7FzBBOWHL/y48p//QO0ad//LHapyMGZPbhWfrvzqu0/m4QnKGgI51Dxe
-	3nMaUNkS01Osb6xtEo/FT68MBJtAYKYaSH6H35oPRhjUGyty+1jipKtTJyFLf3YiJyeFL3DwtC8ut
-	kQ9WMYoXDl6ETDAXr6FJ9k5yo8l43zoY6jNS0yIcbARkpcCGgpTFni1yZCklbXw/5tn0Qb3nfeBrD
-	g+WCMQZg==;
-Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27fw-000000010lT-3j6m;
-	Mon, 16 Mar 2026 13:08:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=superkali.me; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=MkTZYHJpVH53Si1xxxr8JQuTVTYhXIYd8LKiQKjxI+4=; b=f5pWXXIfMyC0VETBVVla0rrFBP
-	F6MlwQAbbVgn7U72banrizmu2fYpAOAPsgw1mn28KvRx+qnMibGLi3D2w9VtlKJT6mkYqjLfnTv84
-	T/BJv21P17iq2WBQioFvyv4ex8GRLuei0uo136o4UqIZ9h6kEKjV2h6p8j4Jm88E0nmx3NGp1igYO
-	djxHSsHVYSon02oGH2lhsMmKUt1UCnIUzXS0RggPXn8f2l0a+4Svh/1Yl+WSzAcRz+5Z6bQtFlJJA
-	rhPjse9KOV3q2krAYDYRQJOyQ+UQCrn7XqTK0YjhKYeyGMWFzSeu+Hk8jpevgn0FQnRBZbA0+cWpO
-	247J6oVw==;
-Received: from [185.94.132.237] (port=54871 helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
-	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.1)
-	(envelope-from <hello@superkali.me>)
-	id 1w27ea-0000000BDZB-1WUJ;
-	Mon, 16 Mar 2026 14:06:39 +0100
-From: Daniele Briguglio <hello@superkali.me>
-Date: Mon, 16 Mar 2026 14:06:33 +0100
-Subject: [PATCH 3/3] clk: rockchip: rk3588: add GATE_GRF clocks for I2S
- MCLK output to IO
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=; b=PNrt8KxfEIawuhnUGRzyZifV5t
+	lg/kNqhqES01G0fupyAJJA+XS4giJ3QwROaZ/Uip11xsbRoqbTyJhPO6O7v2bUgtZNnAqyLi5Ekld
+	v73uWxPbuMjBT5bqHGQGDFKs7c9hoZo1mH5QS+V5OlJDuOB9EwchS9KMcyj5sxO/tPkNo2hy3Ndn9
+	uAwwp8276pfyQAypAOQKODng/jE3SeOXbUdQLMhJFXiVnl8+9KD7eJcwRTrNRbRqWIpSYhSdY3Enx
+	uBAdH8qeQ2bfYaYcD+h2ULX7x9X9i9k/7STbUWmU4HdSO0xFaeLefNlSpNWVT302agC1iK5c4bPsb
+	Ww7nyK0Q==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w27jL-00000006mWH-0Mz0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 13:11:36 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ad21f437eeso36455555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 06:11:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773666693; x=1774271493; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=;
+        b=DaUx1jw8nQtLb0biAzsAEGzDamY7LhsL443UcfDN2nxM0K5C5wJuvT7klWWcupE3Dm
+         TkfLQRhrzECIxXCL/Xxomep5qBKkZ0cdf6a0tCOrkwc6dqYHHUn3pfxp62W7xPqSMoJ2
+         Iz7vgmZKJuOEsFy/GufvBhpHb/rFpgD0Q+JD/f4UpqgqsVIMaCJ/fpSp3XSahfg1jcR2
+         Mud6wqFZGDLRKNpmuW8imJnIP3lWXOLvCJvg9I4p5Dkmvf5dUutsmB9LRhWera9EgUtT
+         C1QbbZfZqIN6GCr92u9A3uWgJ/gtqHDwCwtF99R7fyy+lgBxYYcbkatp/aUzmZFMeIWL
+         3LYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773666693; x=1774271493;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=;
+        b=TSPPed5VLtrKiWdoHDdLkA9GPk/9RB8+IB3rsxFHd57xXP0NJMLyE4Szfo7ViBT9io
+         qYH+oIucE066u+EOg3QSNJ7ZyesKEIzsVwN2FJH4EossuO897lf3Mta9Gagq5WKUuy8P
+         jmZuSYUPAeKH8cPtroaeUOQ4qGo3mLO5mowXLPI3tdPw2uWYqvrpSe5lVNtjePOs+6X2
+         HCHoVRnhepYFHv1L1AT4XK9c3QYh4q3XCT2C5cDnPceJ4ABO6XdsJXmcgHdkJhtgfsCT
+         2L1BRe2xc64oEphMR22cRjsgaHUI4F4uIYtoOJwWzkREsSVGc4XglwLaMK7rmvUe02p8
+         0DKA==
+X-Gm-Message-State: AOJu0Yy5k1ZZeB+6hR/9wnj11tkHz1jDcf9E8UQ3j1TloMH2Sl7NvFT6
+	uHVhzAxupCL6IMbdKCzJyBYCt23SW1y4ZUgtw93/giHYql2XTblCp0p6
+X-Gm-Gg: ATEYQzxIItM5tnie/DWmrPcltrfNEAuNRPldrihKc+LU6+irardsHnl9ARVC8uo05vR
+	RhwXg6T+piIw3EMAYgfE+7nz8TWrIxYbq2FQJq4xL1URtkgN0EGzezMXwl4QpzXPCTYSlaTvRyG
+	GnZKkrrchaI1OlD+fY8pOms9317hOe7JxiaFl3WB0MyWpjMPoyneFdP91hJjiYky7h2GX29VU1w
+	t4WY2TkH+eAGYL1pSKcH64y7r9eyB0O7VS3z8yuPza+CTUD0vXGuBzztl01ldjbgjsh7lcSG2xk
+	VMIrAar4u+5eJNEPD6pVsuRbgG4JCYHGz78PvFxR/cdOiQp9wdUMtxBtnztWbtihyOKMW08z74N
+	/CrlSDQThKRDgjlhqW/8MWcg5sdNv3ch4GGuJ1LhzVyzcUwiWvuyV+KPp7g13HiR2eWfl7zdysc
+	vjtJ9qB6tqdGIz2I2XgjnSjU4BJSzAUsdr/EzI
+X-Received: by 2002:a17:903:1a0b:b0:2b0:4d7d:fb9a with SMTP id d9443c01a7336-2b04d7e03famr53040625ad.26.1773666692409;
+        Mon, 16 Mar 2026 06:11:32 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.240])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece7ee3d6sm110144905ad.57.2026.03.16.06.11.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 06:11:31 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Mon, 16 Mar 2026 21:11:26 +0800
+Subject: [PATCH] phy: google-usb: Fix runtime PM cleanup on probe failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718@superkali.me>
-References: <20260316-rk3588-mclk-gate-grf-v1-0-66fb9a246718@superkali.me>
-In-Reply-To: <20260316-rk3588-mclk-gate-grf-v1-0-66fb9a246718@superkali.me>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Daniele Briguglio <hello@superkali.me>
+Message-Id: <20260316-google-v1-1-30a034e87a2a@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAH0BuGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDY0Mz3fT8/PScVF3jxOS0RKM045RUyxQloOKCotS0zAqwQdGxtbUAer6
+ 7BVgAAAA=
+X-Change-ID: 20260316-google-3acfa2f3de9d
+To: Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Naveen Kumar <mnkumar@google.com>, Joy Chakraborty <joychakr@google.com>, 
+ Roy Luo <royluo@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773666394; l=4743;
- i=hello@superkali.me; s=20260316; h=from:subject:message-id;
- bh=J+EIEg1pqOJjG0KsFt5Kl5CBsqAz+bYW4IMvCtxXl5Q=;
- b=TF+ahMc9stJ1mnSeJQyzvAxKK6zzIez7ySVEH6aJ4mC0mvgOA1AJ7V0x6tJBxqkyzY4/Dcbvq
- Zi44yKpQa87Bt/6xTi1tibC2V70q/WzrGwnF3Zgwb66B9xJVKY71Ef5
-X-Developer-Key: i=hello@superkali.me; a=ed25519;
- pk=5tynRWQdL93CDcapJ73FkcCRY2PeBOJOIAoIhRig53U=
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - superkali.me
-X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
-X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773666688; l=1551;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=grNch3YEfme4XX2YLfL8Yx6byNhRmXe/JTenfdWfyZA=;
+ b=sP8QxL06sH+Slw6m9BD5RTi2uMzfGj1T1foGh8SmtqPEkOB/2wc388Tqw4bIOUUQbOdBNIIz3
+ MNRj8JVFU+DCPWHNmwF36TX1jYZZ07sf5SJyoMTTGKZqzD3RY82YNH+
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_130805_035953_127BF488 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_131135_247607_F79982F6 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,115 +127,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I2S MCLK outputs on RK3588 are gated by bits in the SYS_GRF
-register SOC_CON6 (offset 0x318). These gates control whether the
-internal CRU MCLK signals reach the external IO pins connected to
-audio codecs.
+In google_usb_phy_probe(), if typec_switch_register() fails,
+pm_runtime_disable() is not called, leading to an unbalanced
+runtime PM state on probe failure.
 
-The kernel should explicitly manage these gates so that audio
-functionality does not depend on bootloader register state. This is
-analogous to what was done for RK3576 SAI MCLK outputs [1].
+Switch to devm_pm_runtime_enable() to ensure that runtime PM is
+automatically disabled both on probe failure and during driver
+removal.
 
-Register the SYS_GRF as an auxiliary GRF with grf_type_sys in the
-early clock init, and add GATE_GRF entries for all four I2S MCLK
-output gates:
-
-  - I2S0_8CH_MCLKOUT_TO_IO (bit 0)
-  - I2S1_8CH_MCLKOUT_TO_IO (bit 1)
-  - I2S2_2CH_MCLKOUT_TO_IO (bit 2)
-  - I2S3_2CH_MCLKOUT_TO_IO (bit 7)
-
-Board DTS files that need MCLK on an IO pin can reference these
-clocks, e.g.:
-
-    clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-
-Tested on the Youyeetoo YY3588 (RK3588) with an ES8388 codec on I2S0.
-
-[1] https://lore.kernel.org/r/20250305-rk3576-sai-v1-2-64e6cf863e9a@collabora.com/
-
-Signed-off-by: Daniele Briguglio <hello@superkali.me>
+Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- drivers/clk/rockchip/clk-rk3588.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ drivers/phy/phy-google-usb.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
-index 1694223f4f84..0e550642c655 100644
---- a/drivers/clk/rockchip/clk-rk3588.c
-+++ b/drivers/clk/rockchip/clk-rk3588.c
-@@ -5,6 +5,7 @@
-  */
+diff --git a/drivers/phy/phy-google-usb.c b/drivers/phy/phy-google-usb.c
+index ab20bc20f19e..79480f8b110e 100644
+--- a/drivers/phy/phy-google-usb.c
++++ b/drivers/phy/phy-google-usb.c
+@@ -251,7 +251,9 @@ static int google_usb_phy_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(phy_provider),
+ 				     "failed to register phy provider\n");
  
- #include <linux/clk-provider.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
-@@ -892,6 +893,8 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
- 			RK3588_CLKGATE_CON(8), 0, GFLAGS),
- 	MUX(I2S2_2CH_MCLKOUT, "i2s2_2ch_mclkout", i2s2_2ch_mclkout_p, CLK_SET_RATE_PARENT,
- 			RK3588_CLKSEL_CON(30), 2, 1, MFLAGS),
-+	GATE_GRF(I2S2_2CH_MCLKOUT_TO_IO, "i2s2_2ch_mclkout_to_io", "i2s2_2ch_mclkout",
-+			0, 0x0318, 2, GFLAGS, grf_type_sys),
+-	pm_runtime_enable(dev);
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
  
- 	COMPOSITE(CLK_I2S3_2CH_SRC, "clk_i2s3_2ch_src", gpll_aupll_p, 0,
- 			RK3588_CLKSEL_CON(30), 8, 1, MFLAGS, 3, 5, DFLAGS,
-@@ -907,6 +910,8 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
- 			RK3588_CLKGATE_CON(8), 4, GFLAGS),
- 	MUX(I2S3_2CH_MCLKOUT, "i2s3_2ch_mclkout", i2s3_2ch_mclkout_p, CLK_SET_RATE_PARENT,
- 			RK3588_CLKSEL_CON(32), 2, 1, MFLAGS),
-+	GATE_GRF(I2S3_2CH_MCLKOUT_TO_IO, "i2s3_2ch_mclkout_to_io", "i2s3_2ch_mclkout",
-+			0, 0x0318, 7, GFLAGS, grf_type_sys),
- 	GATE(PCLK_ACDCDIG, "pclk_acdcdig", "pclk_audio_root", 0,
- 			RK3588_CLKGATE_CON(7), 11, GFLAGS),
- 	GATE(HCLK_I2S0_8CH, "hclk_i2s0_8ch", "hclk_audio_root", 0,
-@@ -935,6 +940,8 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
- 			RK3588_CLKGATE_CON(7), 10, GFLAGS),
- 	MUX(I2S0_8CH_MCLKOUT, "i2s0_8ch_mclkout", i2s0_8ch_mclkout_p, CLK_SET_RATE_PARENT,
- 			RK3588_CLKSEL_CON(28), 2, 2, MFLAGS),
-+	GATE_GRF(I2S0_8CH_MCLKOUT_TO_IO, "i2s0_8ch_mclkout_to_io", "i2s0_8ch_mclkout",
-+			0, 0x0318, 0, GFLAGS, grf_type_sys),
+ 	sw_desc.fwnode = dev_fwnode(dev);
+ 	sw_desc.drvdata = gphy;
+@@ -271,7 +273,6 @@ static void google_usb_phy_remove(struct platform_device *pdev)
+ 	struct google_usb_phy *gphy = dev_get_drvdata(&pdev->dev);
  
- 	GATE(HCLK_PDM1, "hclk_pdm1", "hclk_audio_root", 0,
- 			RK3588_CLKGATE_CON(9), 6, GFLAGS),
-@@ -2220,6 +2227,8 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
- 			RK3588_PMU_CLKGATE_CON(2), 13, GFLAGS),
- 	MUX(I2S1_8CH_MCLKOUT, "i2s1_8ch_mclkout", i2s1_8ch_mclkout_p, CLK_SET_RATE_PARENT,
- 			RK3588_PMU_CLKSEL_CON(9), 2, 2, MFLAGS),
-+	GATE_GRF(I2S1_8CH_MCLKOUT_TO_IO, "i2s1_8ch_mclkout_to_io", "i2s1_8ch_mclkout",
-+			0, 0x0318, 1, GFLAGS, grf_type_sys),
- 	GATE(PCLK_PMU1, "pclk_pmu1", "pclk_pmu0_root", CLK_IS_CRITICAL,
- 			RK3588_PMU_CLKGATE_CON(1), 0, GFLAGS),
- 	GATE(CLK_DDR_FAIL_SAFE, "clk_ddr_fail_safe", "clk_pmu0", CLK_IGNORE_UNUSED,
-@@ -2439,6 +2448,8 @@ static struct rockchip_clk_branch rk3588_clk_branches[] = {
- static void __init rk3588_clk_early_init(struct device_node *np)
- {
- 	struct rockchip_clk_provider *ctx;
-+	struct rockchip_aux_grf *sys_grf_e;
-+	struct regmap *sys_grf;
- 	unsigned long clk_nr_clks, max_clk_id1, max_clk_id2;
- 	void __iomem *reg_base;
+ 	typec_switch_unregister(gphy->sw);
+-	pm_runtime_disable(&pdev->dev);
+ }
  
-@@ -2479,6 +2490,17 @@ static void __init rk3588_clk_early_init(struct device_node *np)
- 			&rk3588_cpub1clk_data, rk3588_cpub1clk_rates,
- 			ARRAY_SIZE(rk3588_cpub1clk_rates));
- 
-+	/* Register SYS_GRF for I2S MCLK output to IO gate clocks */
-+	sys_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3588-sys-grf");
-+	if (!IS_ERR(sys_grf)) {
-+		sys_grf_e = kzalloc_obj(*sys_grf_e);
-+		if (sys_grf_e) {
-+			sys_grf_e->grf = sys_grf;
-+			sys_grf_e->type = grf_type_sys;
-+			hash_add(ctx->aux_grf_table, &sys_grf_e->node, grf_type_sys);
-+		}
-+	}
-+
- 	rockchip_clk_register_branches(ctx, rk3588_early_clk_branches,
- 				       ARRAY_SIZE(rk3588_early_clk_branches));
- 
+ static const struct of_device_id google_usb_phy_of_match[] = {
 
+---
+base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+change-id: 20260316-google-3acfa2f3de9d
+
+Best regards,
 -- 
-2.53.0
+Felix Gu <ustc.gu@gmail.com>
 
 
