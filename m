@@ -4,107 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D8EF53D81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E23F53D81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=; b=AtRbYqRUE1XKsnHNfYWbWHP1CG
-	dPM0skz67/kh7XOFmoEWzCVGpvdt+na2NLQeBulHltWo6Gf8RQZrKSnyjundHtGKqg0yr6741zPi0
-	CaKUKTn+3ZEtK9hZJMF0fjG+gfIGz7ouw4lG+kueCJcKfGZu91P3npd2K05wDUSZfHV9iW/dxnlc5
-	E2NRefnTzrypPayGdZoF2txwEFcZYYDojVakEd0Jj7kK/cg5QgnC281FNHwRHuXzCSEHk6cdxBQPw
-	fLH4CwGkQIG86b6kYTbHI7TZY/53ztF+8tslG2lBnk7qhZHow3p8GIEMiscD5GeEpre2r5C6Ydjht
-	jd3a+CxA==;
+	bh=jtNqYoU+2H2cM7UyoKExEBfiqQZsN1aAAmOPkoFbFyg=; b=RybuRgC/li4Lue7mGhtI5E9TWE
+	rIsLCbvUQP1ZnyDJq6qr0Pl0KPfr2pMdCPwhxnZZOztAAQNIMXCJZLXYsOzy3CaiO7w0l+qOTbi2F
+	MA082t4AvXez68xdZ0yC1ICuFfgXTXccYI5AlPYnrIxAX5qGJXYBYS3MSmkb2+ALfDjC2Tmgq6gAT
+	dRfVpfB5YhwNOytDH+5N2n3Rnk6oQNStu/H5j3yI6LYpRxrQsulM5qFoW2k4o5mORK8hfOGT+B6lY
+	8XsG0f/46SHRyhGNE43tjqFntfCyfrYc+aGQ/cYpf4EmtyRAwZ7xTVMY8m1n0FNVtDj9C4CmS6qz8
+	7PQHtRdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bvf-00000004b3z-0eac;
-	Mon, 16 Mar 2026 17:40:35 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1w2BwK-00000004b9R-226J;
+	Mon, 16 Mar 2026 17:41:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bvd-00000004b3a-1HEf
+	id 1w2BwJ-00000004b91-0egt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 17:41:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jtNqYoU+2H2cM7UyoKExEBfiqQZsN1aAAmOPkoFbFyg=; b=l33S42S+jGqU/1lyA8aFtV4chc
+	ESwvAC6B3IvbObwbwFHjg4bhh2XZflkeOMfgN670B6gcCGRHktlwTyB3LFkaPE/UmilYHp3LD6Amh
+	xYyYBpx012RDsUzf7/gqfyPAcudyTXEcNKTwhmVnbXNpa1TURzfdzWtfr50QKKjCtngjgGUdByvDg
+	ky+we1gFZ1g3l0doIIHl2k/OFpb5ftrFKQRUC4gOgYguE7RQanp1rh17z57XRjOUH2IfoxlKqJM+F
+	QeDoZy7kFVgCBdiLYqn7xu4Ww50vXsSbR5R4P42nO1w6IilyTMD9eztwM9BpiLpQ7G+rmxP2ICTyz
+	YmfJDD8A==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2BwG-00000007Mj6-0sHr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:40:34 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-509069a7a7fso62841cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:40:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773682832; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TXemEA2A3ykPfAFUZnpJD5fq/IlnoowbGSIRA6a9pY8l9moerwpp4bsBRqBmUXK0OT
-         ZSYMtXy+U4q6ZIa4Govoik1t4/JHXpoUzv/BAIrHlHqeheXlgIXH/6Z0E+oR3O4zRbjR
-         yed/gobDW7aNi1RV06tNHjQ1Qsc9HC7ALR4gSMXu/O8DI25TqORR6aVZYP3G/Zdvk6Ki
-         hs0JrSgBiawW+dY8+f6ozXWcaI+N6jSeAMuOIdP5NUL0iGVFvN9jw3GhvAsL2irtJOmP
-         72eccEVSdSPBngu0oyN62c3iEY5FsIkwh93I5vLaM61z725kzFEe0khNu5tVC05JJFdh
-         fGWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
-        fh=p2KCluBia5LdvxVRhktEm/M/JKxPRFWmkJCiVPysfVw=;
-        b=K789OntKeq+aLhHvumK6Vq2Iz7q3vgf4fVVhJokdl1we/6px+bTs/gRjr5UgnZwAKm
-         pr+h/ug6wRSp81NtqFy7VndIZJN+PfcnoMcXYx4TdV0icNwpb1z25MVzUDFd+kurOach
-         VqctEeQoWZ2z7L/zY6C8/veUtwzP3SJElB12ehhnRJUv+Xavgm6f1eNvilgse+0jZe/o
-         lPsQhkyz8zVAkvUhnYJLilGDvnH1IwHlQ7rwdNC8yS6L1bmMMLmZhAcyjQXQNcGn4iWH
-         5qviUYn+81qrRGj4v7qu2yX1lxY1rzbigpS+9ZVuDTH9VIsd6hZxEd7Ih4nUASRjITLe
-         wfQA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 16 Mar 2026 17:41:13 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48539d21b76so34578965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:41:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773682832; x=1774287632; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
-        b=U94yE8hdx/j9OwvRYOWVmUvJ4URESh/xGr6Zq2jUCjR13WWZmYEAXTiWPRxBwqaqhX
-         qjjtp+8bjqjAeMXTC5Sm8/PGfHB2+Yoa/Jqo9kiYhYwPiaHOljLHo1slxshcS596YSRo
-         5tIEFRFRnCt7fKq2eHogtJJdbuWBGxj2guWsLiUQEzgpKmVlW3URtMvAVU/MDpGH5MNL
-         rKm30+2B/LAdtdnMhIg6qAG2GpUxHKs4u+hO66/eh2x50hjHDOrfrTmmUa9exz6x2q/7
-         Mn3wQPVjDG0KPKcuUQ6Eplck/25qwa+va0PXVz2VrWUfRcANe/0zbJzOo91oTMh0u94x
-         uPXA==
+        d=gmail.com; s=20230601; t=1773682870; x=1774287670; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jtNqYoU+2H2cM7UyoKExEBfiqQZsN1aAAmOPkoFbFyg=;
+        b=YZT3KySf6fwsG3AlrxiTeRDUOZ1wwSBX/vk9Ls3sG+OK4M9Q/9dxSX8lfP8h1zg1aI
+         GxqGO860mk+g/nXCaUjmoE2+1w8f0W1+2U3QUIXHrR95JWf9+UsbURV6i8gVOFUmCooL
+         hDv9Jyy/+MyJ36D1CKfX9uoRZoq+QY6U9+wwIKZ6tu18rP5dwK6SYYkVvGAJiB1KYv/y
+         0PWFfxhRo5EggtUaev6RcaRupKkRhgGHV/qDPNYdEyhUTZg+EJhpE98qrQkG+wS0jQNw
+         eVz7sCAqSJ7OTwwcbtWUNSX70TgepczwyJ2mJoA7VgWaRhTpAXDiddo2TIjuBK4LXZJl
+         n/iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773682832; x=1774287632;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2B/Hw24N6OrkUr4MKnYANAo96l5CjLsjEOK0CMTu1R8=;
-        b=Yw9RQJdFGJ/Av6JYkYXXM5US26KiyDtzIAWEx7M6rwvffx5ea5s9opF7s3zTmLGBOz
-         YNdxiYAnN0L7YSt6XUw3VcN5HAxdmFEDkC49iiLzzo2yXkryarizW7u4iQnPE/HXuxJ2
-         24xYQKB1nq4C/tbVN42EJlAgbkg0kCKUk/+pVIcIyNTRFnLkEhJ4im8/xnr7suId/iv9
-         pDQ8oPCy9dm79zCNuZAg8c/V1xc3OaGC/dvQ0OBsEun0akZ5gczF9tTOe6BYtQWcywWu
-         vJm/t/PsrUTc9UQLBlwCYs8e61dhb28DVAmJ2sjZ771JcSwVy8KdbKSU8GpJHIy42zzL
-         0d6w==
-X-Forwarded-Encrypted: i=1; AJvYcCUGqOpm45lIfmNN40IP9VDzakL/MGokyU9bcxhk0EyVl3Pufrbjm8fQ2ehtno6PbEnaIh5uCtKYttmihrp1ZTG7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYNgqwbcG5JNofeX6jg/Db9Sz0G4KrEQKuM4Cu6IYBtxAMR9Z6
-	L+bt1cQTY7XsWDxCWwNO1MpQNgguEX/Klkwraj/RZtK1an0woMm+5k+Cq9SWjLKK++QoNzbQwDO
-	QKINFiwxBD8Qek8FhmpljxYoPbf4rc+Gqs0e/DZ3O
-X-Gm-Gg: ATEYQzyQEj5ClePAZ3k+zQD7vXTpdKdx9rZkaMU9cQ+YdCUM1fVt7satOt4OxoIUrlT
-	AZMaK7jOLH5wGg5QoQvxxuUFxeMXjyElpMZDQb8xApFKSXH4mkeUF/4sq9C/suvo7hQtbP96V+o
-	jvNk09q8fhSn26uTVgSu0s2E1MwB5LHrwRdoysRHt4VTeXYjuZYnp2DMQr06OcDwFdQLePmjb4O
-	tCWV7rpCCkHW9ySOkhO4lRWBW5lgO9jvuc4TWgVomLcwWNvcjBfrtQR+qN4q3FywzHdn7EBT+sz
-	txSTvxkV
-X-Received: by 2002:a05:622a:19a2:b0:506:9852:75ec with SMTP id
- d75a77b69052e-50998e55e96mr506131cf.9.1773682831265; Mon, 16 Mar 2026
- 10:40:31 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
-In-Reply-To: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 16 Mar 2026 17:39:54 +0000
-X-Gm-Features: AaiRm51MmyCvtm_bSDH6RlSuyxS1mhei1yUIraU7TS88YvROq1cCmUBLQf9Svp4
-Message-ID: <CA+EHjTz6yJeEj4NT3N7iti03HruaTncKuAiwxR7nqkp=twgAHw@mail.gmail.com>
-Subject: Re: [PATCH 00/10] KVM: arm64: Adopt scoped resource management
- (guard) for EL1 and EL2
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <linux-arm-kernel@lists.infradead.org>, 
-	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+        d=1e100.net; s=20251104; t=1773682870; x=1774287670;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jtNqYoU+2H2cM7UyoKExEBfiqQZsN1aAAmOPkoFbFyg=;
+        b=PMkwaRlJ6CA8zmunhkZhPPlJ/WZDf0/PI1qGEhXBSKVCxWmb48lqGELd6JCLJ8UvhS
+         ybNToNNFr08nmDr05B0X7SJ7Eyw0Mia/dHxYrC/o9uJwPZDqRFiYxXvROOrO/WkrzUUc
+         0LOD+7K2Yo49xVxwQ/Vy3DzuNIdn4nen1rw8zz+lBVcGT1ho281CDmdtXJ1sggRLxLTl
+         gY5p2e+34YJrbmeCAYT27cIt+a4oBE4BEFxoaTq0kjLXDrQph7ZzpWVXSHpsMONgo1Rd
+         5mQB7l4/gRCSnfS735uJTG6wRS3H/CUXFnyChGnngCrE/tpJvXy8ISrZMNkVSCOlgA8P
+         UNlA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8y9MWWt4vRAfhrafxPeV8ZZick8mRuG6EhRcaboAvafJ1X+j+JXu+5xvPRs9TprOJL8cPZEMCfGOnqo1j1arf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGuqAm0WzBSJ6zmCbVtRRVElQGJg8ZGsIRCxPU0FJwBgfxqwcL
+	uAMRPPP1idjxfoTwsycs7/Uflkm+9vNrMwpPrtoY4ziLPObSXmlXIUDc
+X-Gm-Gg: ATEYQzw/EEaXhFA1X6pCMFgbWvohZ3mJFSaWjgOtBGvJmr3fCwGp9U9NJaK9zK2Kc57
+	qup7rFsbOzjow4W6Zmq1HHIVtaS4MjluuVPqLLc2KlsM4oDMZh3iHI3EgBgK8egY24HS2WJdQ7Q
+	yNPPoxPo2RoPQ09TJMtEQvRietVpm9fBgJBm9wYay06Ytk9gk2110qUtpNEYmQfbiBA8+c5wNLR
+	dkOCbgxJk0JOEmj3h94yVqwABKXSqS2oiT83F1CXCmpAmloau+r7ArLGbgcIeJ9uRFjzaQ62bft
+	t8x34uXrRbK2TpRyJvJw0G5LpUPtnhbkcKU+Pe2JCkPk+lmp4Izbn9y8h7pp/nwqcNztiy9sAJm
+	U4ERGaEIojiYn/muPyMCJn6E8HggL24i336vKksHyj3Dkljsnj+sUBQccdRSTkhGktuHkrUJhEo
+	7iwdBnSR1aEjn2VBwlNStMJQw+MWX1Mb0IkEUaYd2eb4/G13q6n0PzfOK26bUKXgU1pjFUsWrA+
+	3A+hkw=
+X-Received: by 2002:a05:600c:c0d1:20b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-485570ce1cfmr171983085e9.4.1773682869870;
+        Mon, 16 Mar 2026 10:41:09 -0700 (PDT)
+Received: from 0.1.2.1.2.0.a.2.dynamic.cust.swisscom.net ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4856e850634sm14960175e9.0.2026.03.16.10.41.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 10:41:09 -0700 (PDT)
+Message-ID: <50002e822278e6474dfd1ea37f22aad1c27003cd.camel@gmail.com>
+Subject: Re: tps65219/am62p kernel oops
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Shree Ramamoorthy <s-ramamoorthy@ti.com>, Francesco Dolcini
+	 <francesco@dolcini.it>
+Cc: Andreas Kemnade <andreas@kemnade.info>, Jerome Neanne
+ <jneanne@baylibre.com>,  Nishanth Menon	 <nm@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, linux-omap@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 16 Mar 2026 18:41:31 +0100
+In-Reply-To: <d6de7066-a802-41fc-bb10-2f5d248743db@ti.com>
+References: <aBDSTxALaOc-PD7X@gaggiata.pivistrello.it>
+	 <20250429185240.6a7644bf@akair> <20250430080109.GA65078@francesco-nb>
+	 <aBH5s7p2RxLGjTQD@gaggiata.pivistrello.it>
+	 <23eeda43-a938-4c15-aee3-b1b9df217ff8@ti.com>
+	 <20251209134343.GA238880@francesco-nb>
+	 <d6de7066-a802-41fc-bb10-2f5d248743db@ti.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_104033_383774_9D22C194 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20260316_174112_303459_777F697F 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,117 +123,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi again,
+Hi Shree,
 
-On Mon, 16 Mar 2026 at 17:35, Fuad Tabba <tabba@google.com> wrote:
->
-> Hi everyone,
+On Tue, 2025-12-09 at 12:16 -0600, Shree Ramamoorthy wrote:
+> > > > > > > while working on adding support in mainline for a new board b=
+ased on TI
+> > > > > > > AM62P SoC I noticed the following Kernel Oops.
+> > > > > > >=20
+> > > > > > > This oops was reproduced running current Linux
+> > > > > > > master, 6.15.0-rc4+, ca91b9500108d4cf083a635c2e11c884d5dd20ea=
+, but I was able
+> > > > > > > to reproduce the same with 6.14.4.
+> > > > > > >=20
+> > > > > > [...]
+> > > > > > > [=C2=A0 +0.000022] Call trace:
+> > > > > > > [=C2=A0 +0.000011]=C2=A0 regulator_notifier_call_chain+0x20/0=
+xa4 (P)
+> > > > > > > [=C2=A0 +0.000018]=C2=A0 tps65219_regulator_irq_handler+0x34/=
+0x80
+> > > > > > wild guessing: maybe because irqdata->rdev is not initalized in
+> > > > > > _probe()? At least I do not see where it would be initialized.
+> > > > > your wild guess seems correct, I'll send a proper patch with your
+> > > > > suggested-by after doing a couple of more tests, thanks.
+> > > > so, the bug is clear, however the fix is not an obvious one liner a=
+s I was
+> > > > wishing.
+> > > >=20
+> > > > we would need to add a link from each of the interrupts to the spec=
+ific
+> > > > regulator. as of now such a connection is not existing in the code.
+> > > I'll try out implementing and testing the solution, but will get to i=
+t early next week. Will email with any updates!
+> > What's the status on this? Were you able to do any progress or work on
+> > it?
+> >=20
+> > Thanks
+> > Francesco
+>=20
+> Thanks for following up on this, the task got lost on my end. My apologie=
+s!
+> The original line deleted `irq_data[i].rdev =3D rdev;` was never replaced=
+.
+> The correct code should be re-implementing a version of the tps65219_get_=
+rdev_by_name() function that was removed in commit 64a6b57
+> & add in irq_data.rdev =3D rdev;` where the other irq_data fields are bei=
+ng assigned within _probe.
+>=20
+> Is there anything missing with this solution?
 
-This was my first time using b4, and I thought it would strip the
-Change-id's, and this was supposed to be a "reflect" run, but
-obviously something went wrong there :)
+Thanks for looking into this issue!
 
-Other than that, this series is ready for review. Sorry for the Change-id n=
-oise!
+I would be happy to test your patch, but cannot find it.
+Have you published it in the meanwhile?
 
-Cheers,
-/fuad
-
->
-> I stumbled upon a lock leak while reviewing Sebastien's recent GIC Harden=
-ing
-> series [1] on an early error path. It reminded me that we've run into thi=
-s exact
-> kind of bug pretty often while working on pKVM. Since we're going to be
-> hopefully upstream even more pKVM code soon, I'd like to try and fix this
-> pattern once and for all.
->
-> This series refactors a good chunk of KVM/arm64 codebase=E2=80=94covering=
- both the host
-> at EL1 and the hypervisor at EL2=E2=80=94to use the guard() and scoped_gu=
-ard() macros
-> from <linux/cleanup.h>.
->
-> By tying our locks to the scope:
-> - We can safely use early returns (like return -EINVAL;) without accident=
-ally
->   leaking locks.
-> - We can get rid of a lot of tangled goto exit labels.
-> - Reviewing patches gets a lot easier since we don't have to mentally tra=
-ck lock
->   states across giant functions.
->
-> A common concern with these RAII-style macros is that they might bloat th=
-e
-> generated assembly. However, looking at the compiled code, it actually do=
-es the
-> opposite. As an example, looking at the EL2 object file
-> arch/arm64/kvm/hyp/nvhe/pkvm.nvhe.o before and after this series:
-> - Instruction count: Dropped by 39 lines of assembly.
-> - .text segment size: Shrank by 166 bytes.
->
-> This happens because the compiler no longer has to generate dedicated bra=
-nch
-> targets for exit blocks, nor the stack frame unwinding jumps just to call
-> hyp_spin_unlock. It just efficiently inlines the unlock instruction right=
- where
-> the return happens.
->
-> The series is split into two parts:
-> - Patches 1-5 (EL2): Adds the DEFINE_LOCK_GUARD_1 wrapper for hyp_spinloc=
-k and
->   cleans up the nvhe/ directory.
-> - Patches 6-10 (EL1): Cleans up manual mutex_lock and spin_lock calls acr=
-oss the
->   standard KVM host code (mmu.c, arm.c, psci.c, reset.c, pkvm.c).
->
-> There are definitely other parts of the KVM codebase that could benefit f=
-rom
-> this (especially the vGIC), but I'm stopping here for now to see what eve=
-ryone
-> thinks of the approach before touching anything else.
->
-> Based on Linux 7.0-rc3.
->
-> Cheers,
-> /fuad
->
-> [1] https://lore.kernel.org/all/CA+EHjTy051kjdReuESmk3HpMsBEW=3Ds3DxhJXa8=
-vQJFHz--wG2Q@mail.gmail.com/
->
-> To:
->
-> ---
-> Fuad Tabba (10):
->       KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
->       KVM: arm64: Use guard(hyp_spinlock) in page_alloc.c
->       KVM: arm64: Use guard(hyp_spinlock) in ffa.c
->       KVM: arm64: Use guard(hyp_spinlock) in mm.c
->       KVM: arm64: Use guard(hyp_spinlock) in pkvm.c
->       KVM: arm64: Use guard(mutex) in mmu.c
->       KVM: arm64: Use scoped resource management in arm.c
->       KVM: arm64: Use guard(spinlock) in psci.c
->       KVM: arm64: Use guard(spinlock) in reset.c
->       KVM: arm64: Use guard(mutex) in pkvm.c
->
->  arch/arm64/kvm/arm.c                       |  53 +++++--------
->  arch/arm64/kvm/hyp/include/nvhe/spinlock.h |   5 ++
->  arch/arm64/kvm/hyp/nvhe/ffa.c              |  86 +++++++++-----------
->  arch/arm64/kvm/hyp/nvhe/mm.c               |  37 +++------
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c       |  13 +--
->  arch/arm64/kvm/hyp/nvhe/pkvm.c             | 122 ++++++++++++-----------=
-------
->  arch/arm64/kvm/mmu.c                       |  95 +++++++++-------------
->  arch/arm64/kvm/pkvm.c                      |  19 ++---
->  arch/arm64/kvm/psci.c                      |  19 ++---
->  arch/arm64/kvm/reset.c                     |   8 +-
->  10 files changed, 182 insertions(+), 275 deletions(-)
-> ---
-> base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
-> change-id: 20260316-tabba-el2_guard-2f7e3fa06f69
->
-> Best regards,
-> --
-> Fuad Tabba <tabba@google.com>
->
+Regards,
+--=20
+Alexander Sverdlin.
 
