@@ -4,131 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA8EF53D76
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13301F53D80
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PSg+Oo9bKmxjcK/RACzBZ6TJ0H0VpiWej7UYa/J7534=; b=FGRuZ6hNNTvrWFklxCPZS7lxl5
-	i6yPfJbyRKFSxebgD3rHZ8LzR+Rx0JCaNZLHyNUoua+nH5Ntp3pHr1QGOqbe0wcxRe4ORW7ifrsza
-	7uu7Y/0/8r3dITIq16YfFcFqCxMC0hN+dP1BEUzYqpr6ywnmps7shbjTtqIxtOghhLbRm3TvdFJ5a
-	kVOwPeLOx8dujoZBIhjBEht1wZMdrSmQ3NSTdZYcKiHW4u1yK8WCIhzAz0ATUttqCYyLsG3EsElAb
-	SvNV6vWS4HN3vfHL4ez5n9OO0PXvdrhzNq5HC5xYb4TsT8VT5qshxnfk5PrwINtqWfSsjr7LrHPVu
-	dMmqYq2w==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=; b=AjmnUJX9/rjSLeUH18JZxAHQWy
+	HH/3deRWKp/gvZ4Ggb9epnDKSyx72HrxSljQUiJ4lFpCYBMEtEht6BZej023FQIZhUukn4H54VMzz
+	MLNfxzEinGVOsEqehLiRRLetwkzySPnyF5fpcgrt+d42ShGQa7zxghj+lyyzaow2LcxfY3r/6Adl7
+	X6sQKZzanRi2F/7l1dokp/iToZwCKKkgUzkNLfn+7ZDgdd8JtIYe7WWOiSArhUnf0t5HFZCWbfRRA
+	ksR6TapU4ZJCL2gy9u2PzNSJq2yi8ROOotMOa/RMSJJv/Oo70dyqF9FhPtd/tN6Oo+O2GNsvNL+SF
+	BLBTQctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BYB-00000004XLA-1aUE;
-	Mon, 16 Mar 2026 17:16:19 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w2Bqm-00000004Zmc-3YfP;
+	Mon, 16 Mar 2026 17:35:32 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BY7-00000004XKQ-1CUb;
-	Mon, 16 Mar 2026 17:16:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VPeQjtS9l+RfeZB6KXK+8dXJ2PosPSe17xClxjhabHk2Q8VUBWhNBP05vrpcx2d+y4Hyt80XEiQZHgVIa7afjK3IUbsjTx/uXBv5Kb0JE1KfhFll96e6Cm6KFC9Q/swJpImfCGj8vLaT0fY0YbzIOuvVFgZGKuj4eHaoCdfxYx88mfO1HdIdvrbpRsK316bYzUuKj0fYAm49YGyHHmj5ZLWp/ZujdX3q3Twy/Vr0zoIM8508XNKQEb+b5F9Lz4JiJkTBLnnuVJOVNXIMQa4KGLWzPMXx95Zce4pM98yEwilkVHrzjWG1ZET+C/do805aNBHDYJ/IVjnQa1YucVvK9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PSg+Oo9bKmxjcK/RACzBZ6TJ0H0VpiWej7UYa/J7534=;
- b=V9th9+gZLay+oPs6HTFohJvsxTYtDCj12Bjs55CD9ND7xZWz5YVY2ANZJ8Rrlfsh5zqYyHkd10AlipR6BFGsyiqzn8jciDYLABQXYpdt2dOfZa7cJUfx4WS+0OHBeIMAmIwySn34N8HB5W2JgSXUS6tIS6tDc2P9HVylHvxtUGnaHjokv+aElBOHSwRfUsVKpmQ77kZIOyCisAevQn4gQ02Z5KOiE3C4a+8ypud+QcTUsC/fzQUnueL6IWJ/XUCyoZczw/q8mxogJM87dpEP+4i10TvUgFXiDeaRq5uZ1mEcuHZKcKEjkf8gGt/l+0iX2b3VHxfPgEmV1SZXTNMJdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PSg+Oo9bKmxjcK/RACzBZ6TJ0H0VpiWej7UYa/J7534=;
- b=tpDhTZjpta9VAXocFnlQ7AFp4qrS9Y9Pw4vD8WwwvApeESE99rI7bugeIQxoj1clBoC1JrBPZ/CPPH0jNDBStKsgm/4Ls/zwX36PMDHaxB9kmpB4FxZ+1K+QCC8vNEygKJM6XNvD4p5Ptd4XvgQA2prUoCycvBPg69zK2wEQPdM=
-Received: from SA0PR11CA0102.namprd11.prod.outlook.com (2603:10b6:806:d1::17)
- by SJ2PR12MB9162.namprd12.prod.outlook.com (2603:10b6:a03:555::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.16; Mon, 16 Mar
- 2026 17:16:08 +0000
-Received: from SA2PEPF00003AEB.namprd02.prod.outlook.com
- (2603:10b6:806:d1:cafe::33) by SA0PR11CA0102.outlook.office365.com
- (2603:10b6:806:d1::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.24 via Frontend Transport; Mon,
- 16 Mar 2026 17:16:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003AEB.mail.protection.outlook.com (10.167.248.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Mon, 16 Mar 2026 17:16:08 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 16 Mar
- 2026 12:16:06 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 16 Mar
- 2026 12:16:06 -0500
-Received: from [172.31.184.125] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 16 Mar 2026 12:15:56 -0500
-Message-ID: <9e84f85b-a86e-4a93-81bf-5c0951b8d81c@amd.com>
-Date: Mon, 16 Mar 2026 22:45:50 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
- __futex_hash() hot path
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Borislav
- Petkov" <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, "Arnd
- Bergmann" <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>, Davidlohr
- Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
-	<andrealmeid@igalia.com>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Alexandre
- Ghiti <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau
-	<kas@kernel.org>, Sean Christopherson <seanjc@google.com>, Charlie Jenkins
-	<charlie@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Huth <thuth@redhat.com>, "Jisheng Zhang" <jszhang@kernel.org>
-References: <20260316052401.18910-1-kprateek.nayak@amd.com>
- <20260316052401.18910-8-kprateek.nayak@amd.com>
- <20260316081429.FJx4fnNl@linutronix.de>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260316081429.FJx4fnNl@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AEB:EE_|SJ2PR12MB9162:EE_
-X-MS-Office365-Filtering-Correlation-Id: 521baaca-6f8c-417a-2289-08de837fb6e1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|36860700016|82310400026|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Bj2UrZRAJjyE1feOpD1Pu5fBIcZBHYnUz3rO6HxdqIexW6Q0nd10LTk0J+bobi6e/IBwe0p45LcEF5dS6WLJovQYRUqlZkzv/27GK7GCEiY1Ba5O5uTFA7Q/9P4yyqzzv1i2Dp5Fwo+G4dIXpklc2i792PlsZGhAQlFXaPSNEzWK58qjfb0aQCkBg6KovNqv7VJRBMxLmuHbo4bqpIvJ0kFPLTd11j2NqvF8vsWDb0mnIFmSXGHGZ1WVnDySRv7WIaxX9bhHpEFubkiQDxctRQx5pZe37ui8gdSYYo1CR99N7pAVKxIxV8I47xpFTLlVd1VGvx++yD1BGxsDgpks2/IgcIhc7v6PI5Q+einEMmZicMEelncx08K7QDcMVJ71qK8qpp0tckEzacIYyEiErzIZdZ+IWjPfWbUEfx7vvxsstrxJV0qUE/itZQKY+7rvevFrEkBKJ3IuRILjRRA+UtFoj+O6RlSWt5yZOktq/So82VXYT12tWAqotmxH5uXaWbD9LT1mW5uenkoaYkuP0jF9nppYrasPQ2kVttXCngmMBkmBIbFOUoOS/rl1MjcyXPsjs4/J5iut1f9HQ04YLzID7X2CvObbex+JLnR55rgiSeJIL+fGkN6u2lEnF/oqyB5zmDyUDrOL1UdBX6NMZ+AXIFmEZ7kF+orK7kR8fNTxHTkQ3Xl+G0C+ZiMtefSiN+Lo3flcqW9xosOS+rhSMZ/pBG+/aWSc84TrUoL949qN9d78vjiXOqeTFptVkNSJD1HjJfHlhqf6bsyP+qFnDA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(36860700016)(82310400026)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SbBX0fdv3hUdFhnyMqYxjYU3KnTxPWvwU/2crPFOICS2fYEJjH5G8HYA9fa350Ak1e+7+PUFYFofovlfFURH4Rcwdn/0yGkXuWnxrzKk+NxtrlOXHKCerLi8lew9/Tt6kpt2m/sJ5xcTbo722zXR2T3bA6qhG4VCknl7CSaPHVxjhLEEPTutM4a2tdB6Z3tbh0tVVSss0Gboe7S7HXbv77pqyTsk/rWOlxOfv7YWccRlFkuNVYL5XTnYtyA94Ulo0pvIdXDRyHlk+3WGelS2syNeywvHUjqlg1bQXN2nI33zqKt7zhxapQ/HXxMpDP1SHgMPAgPWFP4nlO09G4uYfk4F9D5vdh/IAfmsLQ3sUgeZiWtL8AZeK91H3yGiYXvZls/bDR32aAcu6IDpRsEOE2/IOXXFprAr5OjB8OeOYmi8FqcOTSGb+MBSafp5OJ8v
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 17:16:08.4867
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 521baaca-6f8c-417a-2289-08de837fb6e1
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AEB.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9162
+	id 1w2Bqk-00000004Zlj-43sI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 17:35:32 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48532df52c5so68882745e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:35:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1773682528; x=1774287328; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=;
+        b=Bcn7MymWAoOle6JNNjF5iHuysLVsaJUbL+Tx8Lu7eq6capyMeIvDtRQIQ5uxct0dFE
+         DzZ73cUjC1rTQNBPrC+tLjp2syr7KnF9oNHicAyMStX8KuuuB4KnKuO3DgNUm5TfxtB/
+         5AsfJZt+LgnGWZIfRTPoiC05LFf+WRTPFZpMs6VdHFbC6jaBebNK84P48AMD7eoaZILS
+         fK2KpS25VQU/4IriBWR5WJeOL14nJsoZBPGprUmO/TkVMR0lXq64HsUo9z36ezRnzqYp
+         G/Z9IhjeljGDoCVqVeENuexM1L9M9SrzemipDyzjNB0vvr3rDaJHn9LxasrBUgMMC1h8
+         q0zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773682528; x=1774287328;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=;
+        b=kb40LbXT4PpZefhuzQ3EraPACLZxAAC4HbObMscU0Tw/o30QJsuJSTXF18J/AHKQPG
+         LIM2rBeWIQ3zAcfoD/pSc1wDZ9CV9ZhzmmI3EqJEUzAY3AAOSqB3KKgdJ4izdHlMvpn6
+         Xvn796lvo6fr7REOXAuPCikHoq3dLH/4nD/uBv2tGpu2RzOoDR+fwnujkq4HLKWcxYdn
+         rfB9wNpC7ja77HrnONUhXyQtcqWyCy9wG7687OsqLhvVm1+wxrgS52JLomFkUwe09xce
+         lwaAynSLLWlo+7/7xkA8UJZcqwVAo+Wf37mD3s/LpvG1ejWxT1XDmqOkM13m3HIWzfNB
+         viUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJvgP2JmLZFrfOC2FGZeWkOn9D64FVWfa3JXCmz29ZzyWmjnmuSPB5j+BU0TjfIg6AoAGCRcMSl3zK3zsIAWd0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzELKbao0W/jfr8VBZ83nLcIlXGTLKfSw/wBnjrAqDOi6l6n2z8
+	yfigf4YNKG9kU6eTM6xAzLi+1jE6Dw2AASV9vLfrWR0UcV4JQvFFGrwGq8yWw1u3vMVWV2CCSiE
+	Mkw==
+X-Received: from wmsu11-n2.prod.google.com ([2002:a05:600c:c3cb:20b0:485:3925:a795])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1d0f:b0:485:3f38:3de3
+ with SMTP id 5b1f17b1804b1-485566d2fc4mr232752095e9.3.1773682527900; Mon, 16
+ Mar 2026 10:35:27 -0700 (PDT)
+Date: Mon, 16 Mar 2026 17:35:21 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAFk/uGkC/x3MQQqAIBBA0avIrBNMwairRMSYYw1EhVYE4d2Tl
+ m/x/wuJIlOCTrwQ6ebE+1ZQVwKmBbeZJPti0EpbZWorT3QOJa16nC+MXurQkAmobLAtlOqIFPj 5j/2Q8wd4MR/zYQAAAA==
+X-Change-Id: 20260316-tabba-el2_guard-2f7e3fa06f69
+X-Mailer: b4 0.14.3
+Message-ID: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+Subject: [PATCH 00/10] KVM: arm64: Adopt scoped resource management (guard)
+ for EL1 and EL2
+From: Fuad Tabba <tabba@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <linux-arm-kernel@lists.infradead.org>, 
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Cc: Fuad Tabba <tabba@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_101615_332784_3B31EE42 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_103531_044775_EE3DCBA6 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,19 +95,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Sebastian,
+Hi everyone,
 
-On 3/16/2026 1:44 PM, Sebastian Andrzej Siewior wrote:
-> This all looks nice. Let me look later at the resulting code. Thank you
-> so far ;)
+I stumbled upon a lock leak while reviewing Sebastien's recent GIC Hardenin=
+g
+series [1] on an early error path. It reminded me that we've run into this =
+exact
+kind of bug pretty often while working on pKVM. Since we're going to be
+hopefully upstream even more pKVM code soon, I'd like to try and fix this
+pattern once and for all.
 
-Let me know if you find anything nasty and we can see how to best
-address those bits in the next version :-)
+This series refactors a good chunk of KVM/arm64 codebase=E2=80=94covering b=
+oth the host
+at EL1 and the hypervisor at EL2=E2=80=94to use the guard() and scoped_guar=
+d() macros
+from <linux/cleanup.h>.
 
-Thank you for taking a look at the series.
+By tying our locks to the scope:
+- We can safely use early returns (like return -EINVAL;) without accidental=
+ly
+  leaking locks.
+- We can get rid of a lot of tangled goto exit labels.
+- Reviewing patches gets a lot easier since we don't have to mentally track=
+ lock
+  states across giant functions.
 
--- 
-Thanks and Regards,
-Prateek
+A common concern with these RAII-style macros is that they might bloat the
+generated assembly. However, looking at the compiled code, it actually does=
+ the
+opposite. As an example, looking at the EL2 object file
+arch/arm64/kvm/hyp/nvhe/pkvm.nvhe.o before and after this series:
+- Instruction count: Dropped by 39 lines of assembly.
+- .text segment size: Shrank by 166 bytes.
+
+This happens because the compiler no longer has to generate dedicated branc=
+h
+targets for exit blocks, nor the stack frame unwinding jumps just to call
+hyp_spin_unlock. It just efficiently inlines the unlock instruction right w=
+here
+the return happens.
+
+The series is split into two parts:
+- Patches 1-5 (EL2): Adds the DEFINE_LOCK_GUARD_1 wrapper for hyp_spinlock =
+and
+  cleans up the nvhe/ directory.
+- Patches 6-10 (EL1): Cleans up manual mutex_lock and spin_lock calls acros=
+s the
+  standard KVM host code (mmu.c, arm.c, psci.c, reset.c, pkvm.c).
+
+There are definitely other parts of the KVM codebase that could benefit fro=
+m
+this (especially the vGIC), but I'm stopping here for now to see what every=
+one
+thinks of the approach before touching anything else.
+
+Based on Linux 7.0-rc3.
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/CA+EHjTy051kjdReuESmk3HpMsBEW=3Ds3DxhJXa8vQ=
+JFHz--wG2Q@mail.gmail.com/
+
+To:=20
+
+---
+Fuad Tabba (10):
+      KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
+      KVM: arm64: Use guard(hyp_spinlock) in page_alloc.c
+      KVM: arm64: Use guard(hyp_spinlock) in ffa.c
+      KVM: arm64: Use guard(hyp_spinlock) in mm.c
+      KVM: arm64: Use guard(hyp_spinlock) in pkvm.c
+      KVM: arm64: Use guard(mutex) in mmu.c
+      KVM: arm64: Use scoped resource management in arm.c
+      KVM: arm64: Use guard(spinlock) in psci.c
+      KVM: arm64: Use guard(spinlock) in reset.c
+      KVM: arm64: Use guard(mutex) in pkvm.c
+
+ arch/arm64/kvm/arm.c                       |  53 +++++--------
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h |   5 ++
+ arch/arm64/kvm/hyp/nvhe/ffa.c              |  86 +++++++++-----------
+ arch/arm64/kvm/hyp/nvhe/mm.c               |  37 +++------
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c       |  13 +--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c             | 122 ++++++++++++-------------=
+----
+ arch/arm64/kvm/mmu.c                       |  95 +++++++++-------------
+ arch/arm64/kvm/pkvm.c                      |  19 ++---
+ arch/arm64/kvm/psci.c                      |  19 ++---
+ arch/arm64/kvm/reset.c                     |   8 +-
+ 10 files changed, 182 insertions(+), 275 deletions(-)
+---
+base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+change-id: 20260316-tabba-el2_guard-2f7e3fa06f69
+
+Best regards,
+--=20
+Fuad Tabba <tabba@google.com>
 
 
