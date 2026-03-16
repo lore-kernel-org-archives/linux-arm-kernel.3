@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A34F53D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC7FF53D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEHPyMu42lihqvWHgqVVNGPuEB9VrdUuNbdTcZKzmLY=; b=HE96jgXMbouviarmgcFIhYfHkN
-	QwGRTep/zntW+7gim/lbKaiL+YttX30MmV8l6/qelo57twDft83BndsqDzZeop2BLe+O3bNTnBtXA
-	Sdws5FviCnazILl4m8CDMBmydA6WLqWBX9WLSwx1Y2dRC0ee5J3cN8pmYxi2HXnbw/p03c0eV98Q7
-	wH8vXJ0bfxdvy80dRoKe0+ipWAEAPUWJ5U9FEqbH5YD9xxfnCP1EZVcuHOxlzc9t7smulXMXh5I7q
-	gRlB4+cShzbdgZn2arpnqgfka33VFCaWBCFyZICFtNC4xb71WAU9VXJA1gUxpGmWNz73Fj7vUzgka
-	lyQk4iOA==;
+	bh=dnDuwXGZ1btx0I9ScP/HNHG9vbVZo5zMOWlpux0W4WY=; b=DAh22We8xYPAazj9RK0Y/7jJ+Y
+	ALX7wdLPNng6uFLlzMh6NBePAii5dYvxpJaNawrDN7GNdWwvZo15tSo2xaGl77kOWV2rRqcLxM2Qb
+	bye7ydMm04t7zGdmnK2XguVrhLDFJ6pjpP/BuZ0TlYdBnq6Xmxg9so0r/dmOoZBsB5CH8Eed0mTbp
+	IkDtKB7piFip7RCFyidw57ke6ZJXUqjERpJYddjTv9stuFAqah9a2zEEk4jMCH6aMshbwmF71zFH9
+	1NcnvsSBAZp/XNy54830hLaFcCe0yEXp4NE/3APJk7auCV14VXpuR2zbOFI/mzOeD6BOmk9LEm6uU
+	xQqhIv6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C1Y-00000004bh2-0UDf;
-	Mon, 16 Mar 2026 17:46:40 +0000
+	id 1w2C2B-00000004bnU-1qiv;
+	Mon, 16 Mar 2026 17:47:19 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C1V-00000004bgi-2RDK;
-	Mon, 16 Mar 2026 17:46:38 +0000
+	id 1w2C29-00000004bnE-2mFt;
+	Mon, 16 Mar 2026 17:47:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 975596013E;
-	Mon, 16 Mar 2026 17:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B24EC19425;
-	Mon, 16 Mar 2026 17:46:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E6CD96012B;
+	Mon, 16 Mar 2026 17:47:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69BFCC19421;
+	Mon, 16 Mar 2026 17:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773683196;
-	bh=wEHPyMu42lihqvWHgqVVNGPuEB9VrdUuNbdTcZKzmLY=;
+	s=k20201202; t=1773683236;
+	bh=dnDuwXGZ1btx0I9ScP/HNHG9vbVZo5zMOWlpux0W4WY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hSJlQ6BrcpxYUk7JBEtBF9Qqe5d4jddMRs/BIYPXhpPeq2zSkrT1d7BDArBZojKWW
-	 BKLlbp5f1keg+9VNpIOWgkIBIijWzUmue4HADCbTjzJnOVuwSErUxWlrchbV7aek/k
-	 YL4Fz+hGFQ0alKzrJMsisaNWzjtXgr4Qjs4zOx0v4MuWkjCh4+uKgjvpAtIutxB2fm
-	 V/l3yUflC1bUWuKJqOQf43X3PX/imfc5TIias6ybZRLFFbMRWwZztH+NfDeWxMC/EL
-	 lfDdbpOMY/QxVqRDnnN9xRBiwYaM6qcWptv2b3NZoVJPWL8tv+1soDKh3FtqZiSf1Y
-	 tDcGiBYLJGuaQ==
-Date: Mon, 16 Mar 2026 17:46:26 +0000
+	b=sRBXa2ovvjPnWmoWwcUZlUb/RfNIKCBxJYUgGqWYE+olH5e/05xmKOMn3PMn3Bxq8
+	 Sm0RPOKtJgrFA4Nkna/SfM63GmGOjUcqhNOYPE5XT8hDbTrlYcVkWZ5EzY+jprOrRV
+	 l4Viqa7XAxFuU+rATnPUZYB48xFh6rMSI83W27iHNJjWLHREjypaENdzy/QzPBAdK3
+	 qOABTEsGsrgj3ajoNm0Gg6WLlNHu9IvYa+UNT73TeY7utnqPEN+vZG0sDR9BaOi8QA
+	 0XJU1kq/TxMTtEfK9n13gvkI74v1W4TiIWlCMY0nyY+YEx6zNL3h/lJ3umTM3hkX5Y
+	 cEen2C1izEUvA==
+Date: Mon, 16 Mar 2026 17:47:06 +0000
 From: Mark Brown <broonie@kernel.org>
 To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -75,16 +75,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 03/15] dt-bindings: regulator: ti,tps65219: Use generic
+Subject: Re: [PATCH 04/15] dt-bindings: regulator: act8x: Use generic
  power-controller schema
-Message-ID: <f0d6b252-370a-405c-b2b5-e02b8bc59bca@sirena.org.uk>
+Message-ID: <fd6b7103-2a72-4cae-8e92-44ee9586a953@sirena.org.uk>
 References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
- <20260316-power-controller-v1-3-92c80e5e1744@nxp.com>
+ <20260316-power-controller-v1-4-92c80e5e1744@nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8MjI/4wsRBNLAdgX"
+	protocol="application/pgp-signature"; boundary="xItI8zXtmIATo4FR"
 Content-Disposition: inline
-In-Reply-To: <20260316-power-controller-v1-3-92c80e5e1744@nxp.com>
+In-Reply-To: <20260316-power-controller-v1-4-92c80e5e1744@nxp.com>
 X-Cookie: Excellent day to have a rotten day.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,12 +101,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---8MjI/4wsRBNLAdgX
+--xItI8zXtmIATo4FR
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Mar 16, 2026 at 10:47:38PM +0800, Peng Fan (OSS) wrote:
+On Mon, Mar 16, 2026 at 10:47:39PM +0800, Peng Fan (OSS) wrote:
 > From: Peng Fan <peng.fan@nxp.com>
 >=20
 > Convert the binding to use the generic power-controller schema instead by
@@ -115,20 +115,20 @@ On Mon, Mar 16, 2026 at 10:47:38PM +0800, Peng Fan (OSS) wrote:
 
 Acked-by: Mark Brown <broonie@kernel.org>
 
---8MjI/4wsRBNLAdgX
+--xItI8zXtmIATo4FR
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4QfEACgkQJNaLcl1U
-h9BWOwf/RYua3madlI7scNf3qpDMzQZHgi+eqAl3g7Lq6pMKTkmLA/V4P37VJTPi
-bB1VTwPRbNvxdczmeLgDust4Yi7d39Se6tX+OrgSXOhv+FMKnw621zdhZ9NLaI2Y
-tsbOwANB98ZH+jnGwVRJirPiDuopbsmBHRd7JovirNpdNujPs0sss3Z/GfWVyjjZ
-kZwF+6fEn7MKfHz8v0cVjdhDB/zKxJWyX6zlpSXToWVSvhiVnRmMW8tzvxax/kLa
-NukR0cAOLKySPWir5+lkOD3Vr2as+vhfcBmfZOdOB1bNqGF8nWOUt6DJljvdw7Iu
-wXg+QS+O0wGAQNLRmrZboAIyvnZQqA==
-=igxU
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4QhoACgkQJNaLcl1U
+h9ACOQf+JqpHS2vvWDBGmTprNgfkrZ9Q44lgSNbWZMnktfJE13q21QKHK5kSnDrO
+X40ZRgtewonmiGVIcifBtNjgoqkmY98pJvPnhgJjgP3fmBlFL/WCxYwUjF/JQCkg
+LrlVyB6IdKDWWAmUUVULvowVdo1TyiYZ2dlrvVwjGuMZJDgRFAz85fobiqkW9hIb
+5Z6Wdof4lcERkIE0dsbXctCTU4GJTupsC6duor8XTKC+wIL9sx02un+kINcyGwnP
+FwEkgvpfw9H/r9/jBuxTEQh7QcJPvlx36Ub2mFuBlF3OCJApRlm+j+vz9btoTkX4
+XZN3mowbqzv9xO9cSelYbJCV/FMs2Q==
+=SWwQ
 -----END PGP SIGNATURE-----
 
---8MjI/4wsRBNLAdgX--
+--xItI8zXtmIATo4FR--
 
