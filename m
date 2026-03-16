@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E821FF506E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DFDF506E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/fbpvVRIIYo0Hxz9yanMj6qxUU+5nxJuF8pCU2fdjBA=; b=bkzLumxsXZohE06wpwjvaH3WKE
-	ZPkBQZMJg/V7XxuQkjiEbDwlSEDygx9lKkBa8fTy/gWGJGaVlRtgf0G/QzTptUT2bhh0eqTtQ2jPD
-	o+FjeIUTC7mIIZIdJuyrIV6HWnUu3dXg4I3Ly7OhwRFk7BCYkt9ujkMu8/VFscDnAEfPCQE4KnxIl
-	mgm0D6IFjftQhzyDghn3nZ2JUh/IAwD0R/9a7nYPMSSGBMTYOrklBP7GmQYH6okCgxmWzo22tBjiz
-	GldCTYNIv9UGXWxWjelZUAdcN179AO7dLYT89YfQ8V1Bdg0vidkHA2fSFiP56slM4Je/pbdrC0DhK
-	bPYu+uDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c1AAGUAmYjD7Si85D96o1y9oVgwEOEjsWS+VLMRr0aQ=; b=uaGVL8CUatekmX7tKs0FrnhR5E
+	BOEJiO7idmH6tswPze8AmvaIqtRfvSK4nj/YXeTCq06ikL/eMwRhjG8NJo42pkba6Oh/Z7jq/t98v
+	dp8JtIbQhfwFfgkJ3ylWfntqcEKpmBacdLGdClE1ijY1upBHeTKb78rywXPGjp0DzIDL603hSm4IH
+	guSilevNU3a3KeecvnTfVGZGhuUCkhhc+xFaht718j+ZGZKYYdpEpV9AwaAZHODjBIJ/LYNdpKXIL
+	MFMh2u9duApcU24+sgjVfAlGJwy5INK2pH1N3b31z4m1+tyziMMCxeuuDOP1EIVET0RmoPcbe+GhP
+	QGc7fygA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29LY-00000004Fxh-0Gqi;
-	Mon, 16 Mar 2026 14:55:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w29Ly-00000004GAQ-1i5A;
+	Mon, 16 Mar 2026 14:55:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29LW-00000004Fwe-2r40
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Mar 2026 14:55:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=/fbpvVRIIYo0Hxz9yanMj6qxUU+5nxJuF8pCU2fdjBA=; b=hIF7zBalbWuCq2Aj3O1joDXtjm
-	VcysOD8+3qe77yycAqjjesUvRYf+kNK1VlhYo+iL9uSVly+pjG2iYZ3l85w3+gkdrmqq4Kx7myPL6
-	n93noTFlPFv9/ozjwOK924DrnaN9GO5rb6ehi4KdcB+sb8e1v+6KZG52ywcl2R5bonl1p673GLpIh
-	9d20t3JienzpNgcy34lvl2sHT/onfUN/852i0DG4T662ypblbBjPXxmhZE58/lC8BCctPVDdMzV7j
-	Wf82/1m50Ep0eHUd4Rvdmg4SrJK7bq2g0dLPWMqcuKq5AR4/dJr1xmoC9dXEQEd8wP7f5IQ8gTkwz
-	nT8ciwgA==;
-Received: from www537.your-server.de ([188.40.3.216])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28Sl-00000006sob-12kd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 13:58:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=/fbpvVRIIYo0Hxz9yanMj6qxUU+5nxJuF8pCU2fdjBA=; b=jkdhjNHxr5e4o/aTy+3iWCQfq8
-	HucenOyYaiq82UAOUBtc+NGHIaQH+xaxxQ5Ib8t9i0Wd4hTiiiVGOX7PbPeyKZYVsxvgIl3TRz2Xa
-	nm8STPHJHmoeC1UMzYWKK4lCGMGtn4DYECKjzoJG6TxjxgHMgbXP/unC72sveqsak4avTM83Q00pA
-	CAbl2nunBiTRfCm/r3+m/QlL1Zlk7vjqDRFu293MRFON0vQDEHc1f/5ms3UOQhOpyxZkV4QVSKI3U
-	d8+vOyIn9XJf3gPCP33VlI+oTVwQ4hbXpXkMdDiPvR+NLr7YnYkWNn/Q2zrahsvcQr+b3lm4aCtP7
-	GiXFuR/g==;
-Received: from sslproxy05.your-server.de ([78.46.172.2])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w28Se-000Ll9-0I;
-	Mon, 16 Mar 2026 14:58:24 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w28Se-000LMt-0R;
-	Mon, 16 Mar 2026 14:58:23 +0100
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH v2 1/2] arm64: dts: mba8mx: Add DSI->LVDS bridge IRQ
-Date: Mon, 16 Mar 2026 14:58:18 +0100
-Message-ID: <20260316135820.760073-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	id 1w29Lw-00000004G9U-1CBD;
+	Mon, 16 Mar 2026 14:55:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B72760123;
+	Mon, 16 Mar 2026 14:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AFCC19421;
+	Mon, 16 Mar 2026 14:55:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773672931;
+	bh=DXurX+rXkNtKMNetYL42Wscz0IskX62tenc5ozVeitA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qJh/lLK9mQ4+tJsi/be7GN9483oLhqrwmr5gGA9yIxTr0zTqxRzRW53VKiDpS+znu
+	 al1TPbiDEz7JLE3AqeSgHGq+ej/dN8cj1DdY/c7ah90EdaS1H6plBc+IN475XdaAdc
+	 FfhBGf86zLMwlyannK/mE47+UFYTRd3UoHk/blPQ3d9PQct/l4lX12amujsz3xjfHG
+	 6iqb4GGddwKFjL8zG/CdLEYRoTS8ftWzk6C82uxjtslnVFRGMoPijQQ3UenQwxxqg+
+	 Fk4g+LelXVOHJGKC4jq20cV9YoUQOjywQrRyBudWaukf1rZdBBhlbNiCf1V0+qCDcd
+	 ypRksCHLMX91A==
+Date: Mon, 16 Mar 2026 14:55:21 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Shree Ramamoorthy <s-ramamoorthy@ti.com>,
+	Jerome Neanne <jerome.neanne@baylibre.com>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Joseph Chen <chenjh@rock-chips.com>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+	Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Alexander Kurz <akurz@blala.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 00/15] Convert power-controller to dt-schema and update
+ various yaml file to referencing it
+Message-ID: <f329f1b4-787e-4c8c-ba26-e419a047023b@sirena.org.uk>
+References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27942/Mon Mar 16 07:24:14 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_135831_348614_5823BC16 
-X-CRM114-Status: GOOD (  10.00  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q5D3dN9fM9+vUHgs"
+Content-Disposition: inline
+In-Reply-To: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+X-Cookie: Not a flying toy.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the bindings supports IRQ, add the IRQ line. Add a GPIO label
-as well.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* None
+--q5D3dN9fM9+vUHgs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
- arch/arm64/boot/dts/freescale/mba8mx.dtsi | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+On Mon, Mar 16, 2026 at 10:47:35PM +0800, Peng Fan (OSS) wrote:
+> Convert power-controller.txt to dt-schema
+> Update various dt-bindings to use generic power-controller.yaml without
+> defining local property.
 
-diff --git a/arch/arm64/boot/dts/freescale/mba8mx.dtsi b/arch/arm64/boot/dts/freescale/mba8mx.dtsi
-index 10d5c211b1c9b..c24ae953cbc25 100644
---- a/arch/arm64/boot/dts/freescale/mba8mx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/mba8mx.dtsi
-@@ -209,7 +209,7 @@ expander0: gpio@23 {
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
- 		gpio-line-names = "", "", "", "",
--				  "", "", "LVDS_BRIDGE_EN", "",
-+				  "", "", "LVDS_BRIDGE_EN", "LVDS_BRIDGE_IRQ",
- 				  "", "", "", "",
- 				  "", "", "", "";
- 
-@@ -298,6 +298,8 @@ dsi_lvds_bridge: bridge@2d {
- 		reg = <0x2d>;
- 		enable-gpios = <&gpio_delays 0 130000 0>;
- 		vcc-supply = <&reg_sn65dsi83_1v8>;
-+		interrupt-parent = <&expander0>;
-+		interrupts = <7 IRQ_TYPE_EDGE_RISING>;
- 		status = "disabled";
- 
- 		ports {
--- 
-2.43.0
+Are there any dependencies here?  It doesn't look like it.  In general
+please don't send a single series covering multiple subsystems unless
+there are actual dependencies, it just makes it harder to figure out how
+to handle things.  Send a separate series to each subsystem instead.
 
+--q5D3dN9fM9+vUHgs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4GdgACgkQJNaLcl1U
+h9CnKwf/Y45O1xRPr9mTmI28M1CvW30zJp5xoDJXzVFZW6jtEjIuA8mFy+dOgIj+
+PkIOw9oNhVPJcUpY4vl8XJBEZDdEDPMwSOdMexgMsCCCeJBF1/2fEHkxI1xyTRlP
+19Nh8e23AD9Qpm+0/Hjn/iDwpuYXhqRLxqw17yeReb8HyXAvnVcoLQAsonOHewce
+imvplZGb9vkqG8UivYBCq/7Ar+eVs6vZGg2IEm5kn4EkVWj9xZDFMeP8G8RhbqnM
+oNHrFPTft2T52cuebigvOum9pbm4WmO5U8BqTDHLldZRD0qfvdKSn1hGumXDnVfh
+2O2qPvCp7KP1+oQbqttXJjEuIyoNLg==
+=wZgr
+-----END PGP SIGNATURE-----
+
+--q5D3dN9fM9+vUHgs--
 
