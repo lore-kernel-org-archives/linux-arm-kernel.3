@@ -4,54 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1949EF506DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B532F506E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ZgRt+3RZygR8G7XzNrKMiyOKi4idF70gGJEEIrwZOc=; b=sEG5sbKbtImzd595ufcT7gDI7w
-	WhCTskFRz0wZONt+oaWkR6X7gvHQJl5FPj269SdYMZNUKDG+q8o5jsL7PNA47BvkAdcj1gzWLdLhW
-	Z2pWGWMQNfW2V6FZZsWusPEnnJASMLMFKVU7zJWNJV83oaZ7FIFVC5j4brnW5hAsYOl70p2NIHG1j
-	YVBUcGpRnaPRTKn7P1Hey9lSjjjS+kHOduS298ar86XZn9aSiaMv2JulUJF3RJ4UfzeftKgkwrOj9
-	hpcA5KlYrC1ZGPFLbPCRL/SINFlnYK28g1Dl9mV/ay2OSxC79Tii+B8/eG5Jku3voylj4ZSbhvbWz
-	Z/T5OUEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eS/mr2AhnSnjZg0tuXXEbdtbXsCzFrRvvvqkB8Uw2iY=; b=ydWOXP280Dla1DOzqZhhIR4Dve
+	h9j35KzI3+u8/TPO7zVIbrgU/vl4xFhuL8Gw+A6FSiROa96axRklv8dBtJ5q376cBK65Cd7BbBN6i
+	96fpEen8pWhI3G9tFfXvAHxCp7miVYDZwJw70nPy+YKeMsOZUI/gp1WEj7mFI2XtomhPF+9CTkJkw
+	YvGbaNS+h1Hex4UVK8zAdejNhDhqoO+RcjLKEhPlaVaA3xU2bMtC99y4KwFuBeFSDb6yGRqMaEeVU
+	jzrUxlew0lUZgZ1JkcCITZEjovmOy/1sOzy0ZZNBro6bd8Bz7amttKIQVX4yMMrTLm7n7l3TL4atd
+	8mb/9VJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w295Y-00000004CLZ-33Ym;
+	id 1w295c-00000004CNU-2Etk;
+	Mon, 16 Mar 2026 14:38:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w295Z-00000004CLR-0P8O
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 16 Mar 2026 14:38:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eS/mr2AhnSnjZg0tuXXEbdtbXsCzFrRvvvqkB8Uw2iY=; b=AIxjgsuAr6ffuRLEE0LDezD48B
+	BsfxyQ+mxjiMSGQpXuiiFue1rWTVqkm+sN3fVDNTPZOVAcYHcG/13ZdNnIouuw/MpJL85932klyuQ
+	zfR9eAedo6lqCXAlc7irAs8SquxU5kFNvC81j1VU8wrlYFPe1HPvEjfSNKM0KwkW+hGGdZMFwnTDP
+	kZTNmTFTm+0Ax6/6HFvOwTjDik3pBfOZRJ3WKpVtT/yAMC8rpdwH6+BWgKc6Io5NK3PX6VVxquen8
+	aK/p9zLNXcWfgOc0nC98zYKr5Ir+LkwK3zjSGpxEafVAaHXhRxMvdDGNzwWrkRoMlC04e9dHWfoc3
+	QNroSZig==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w295V-00000004CKK-16dT
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w295V-00000006y9u-42jW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 14:38:34 +0000
+	Mon, 16 Mar 2026 14:38:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B33991477;
-	Mon, 16 Mar 2026 07:38:22 -0700 (PDT)
-Received: from [10.57.59.166] (unknown [10.57.59.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E93A3F73B;
-	Mon, 16 Mar 2026 07:38:27 -0700 (PDT)
-Message-ID: <132a27ae-4deb-401f-86ad-f8b496bfd778@arm.com>
-Date: Mon, 16 Mar 2026 15:38:23 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E35214BF;
+	Mon, 16 Mar 2026 07:38:24 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 662BC3F73B;
+	Mon, 16 Mar 2026 07:38:30 -0700 (PDT)
+Date: Mon, 16 Mar 2026 14:38:28 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 02/19] coresight: Set per-CPU source pointer
+Message-ID: <20260316143828.GE8048@e132581.arm.com>
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-2-eff765d211a9@arm.com>
+ <4dd1e996-5098-4b03-af0f-98294fdca908@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: Use generic enum pgtable_level
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "David Hildenbrand (Arm)"
- <david@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-References: <20260316140150.58207-1-kevin.brodsky@arm.com>
- <415ea4a5-e729-4fe5-b95d-29fcca8f7dbd@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <415ea4a5-e729-4fe5-b95d-29fcca8f7dbd@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4dd1e996-5098-4b03-af0f-98294fdca908@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_073833_350625_3F1BFD21 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260316_143834_255194_37236FEA 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,53 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 15:22, Ryan Roberts wrote:
->>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->> -				       enum pgtable_type pgtable_type)
->> +				       enum pgtable_level pgtable_level)
->>  {
->>  	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->>  	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
->> @@ -539,40 +539,42 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>  
->>  	pa = page_to_phys(ptdesc_page(ptdesc));
->>  
->> -	switch (pgtable_type) {
->> -	case TABLE_PTE:
->> +	switch (pgtable_level) {
->> +	case PGTABLE_LEVEL_PTE:
->>  		BUG_ON(!pagetable_pte_ctor(mm, ptdesc));
->>  		break;
->> -	case TABLE_PMD:
->> +	case PGTABLE_LEVEL_PMD:
->>  		BUG_ON(!pagetable_pmd_ctor(mm, ptdesc));
->>  		break;
->> -	case TABLE_PUD:
->> +	case PGTABLE_LEVEL_PUD:
->>  		pagetable_pud_ctor(ptdesc);
->>  		break;
->> -	case TABLE_P4D:
->> +	case PGTABLE_LEVEL_P4D:
->>  		pagetable_p4d_ctor(ptdesc);
->>  		break;
->> +	default:
->> +		break;
-> nit: I think we should either explicitly support pgd or explicitly bug/warn. Now
-> that the enum has PGTABLE_LEVEL_PGD it looks legit to call __pgd_pgtable_alloc()
-> to allocate one. But it will currently silently fail to call pagetable_pgd_ctor().
+On Fri, Mar 13, 2026 at 11:18:20AM +0000, Suzuki K Poulose wrote:
 
-I hesitated there as well, eventually I concluded that we're dealing
-with kernel page tables so we'll never allocate a PGD anyway...
+[...]
 
-> Probably simplest just to call BUG() in the default path?
+> >   static struct coresight_device *coresight_get_source(struct coresight_path *path)
+> >   {
+> >   	struct coresight_device *csdev;
+> > @@ -1401,6 +1452,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+> >   	mutex_unlock(&coresight_mutex);
+> > +	coresight_set_percpu_source(csdev);
+> > +
+> >   	if (cti_assoc_ops && cti_assoc_ops->add)
+> >   		cti_assoc_ops->add(csdev);
+> > @@ -1427,6 +1480,7 @@ void coresight_unregister(struct coresight_device *csdev)
+> >   	if (cti_assoc_ops && cti_assoc_ops->remove)
+> >   		cti_assoc_ops->remove(csdev);
+> > +	coresight_clear_percpu_source(csdev);
+> 
+> Should these be done with the mutex lock held ?
 
-... but that's certainly fine by me :)
+If so, we will create a locking chain:
 
-> With this addressed:
->
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+  coresight_mutex -> cpus_read_lock()
 
-Thanks!
+Afterwards in patch 18, it uses cpus_read_lock() to protect sysfs knobs,
+a reversed locking chain will be established:
 
-- Kevin
+  cpus_read_lock() -> coresight_mutex
+
+LOCKDEP will complain for possible deadlock.  This is why this patch
+avoids to acquire mutex when set / clear per CPU sources.
+
+> >   	mutex_lock(&coresight_mutex);
+> >   	etm_perf_del_symlink_sink(csdev);
+> >   	coresight_remove_conns(csdev);
+> > 
+> 
 
