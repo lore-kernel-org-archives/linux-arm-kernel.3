@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA5AF53D86
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2A3F53D7E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/gltErnyzpbonZeAD4a0mEiIqBsayxQ2i+AvDgyIjg=; b=x+LDREx29GtEPQ59KmrPQAfGt6
-	2ZowhFz70KYPcnNuHxM/eNokG2tXc3BtdNGYpuK+Prch0V5lGx5ZU4OxqU+liE+Uq6uyiVlSgeJUE
-	rq2J9qZ9jp2OtKR42XRRMfUkcATDoEiy0OSbT6a+x5F3LM/ZmpA5n5F/z5/IGFbOSHydwCmKJO+h+
-	bdDJHEctu99ULpEh+uRY3XMUQD2aJc9+ajsRMc3+RDdxnzgk/7Fdjjzp2TlDh/16ilaxvJekGfIsq
-	pwMq3WaOmJ56zvc34WBCi+4oMN2/Zd1TNlChBhWW30KcE5xo/VmX7vpsyD5cMi8LgNFSPM9XVlEqG
-	IEoCXG3Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gXDh9ieZ9Fz7jrfE+D6W88KlicM3e2Oc7VEZ2MhZTcE=; b=t9AhUF0lyyCWI41e7tlswS5dvO
+	1HW4t+3B7fJ8u9CmQyxhb1sWJ/nWIH8nebQPYpUoTRQyN5jtdQJM6lUXDTU24SUkdXz0yHaOadVeI
+	zEHU+hinuovbcITqzqKsh1Le2iSJISal/vsyJyRapZYGcgL3bkogzeiL8zvYb92cmLqN43RpCSzV2
+	rZCuIs6pofIhZbtOfPvSgYZck0E5gOJM+rhKVFY2Zynr9op0fXkmX4cvDTSfswpP1+VDvYH2rW4Qc
+	1ZYxuw6tMNdimYqVkXiI9yqOnvIRezYUP9eCZ8O2swIasArjxyV1SnDccsGi003bU8Yxj20DnAH1f
+	0xZFsUSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9n-00000004cqN-22ST;
-	Mon, 16 Mar 2026 17:55:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2C9o-00000004ctD-3hce;
+	Mon, 16 Mar 2026 17:55:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9h-00000004cl6-1H4c
+	id 1w2C9k-00000004cnw-3tZO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 17:55:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=gXDh9ieZ9Fz7jrfE+D6W88KlicM3e2Oc7VEZ2MhZTcE=; b=bFYS+zLjVZbsWzGrUiTVJUmJel
+	hNUpiNazXblijmGzr6bkvFlH06rBubmm/Mg2Oym4X8IHp4xZsXV7DRD+4KLx4Txh4w6plACuLqUXg
+	leEWtuN36A0yOSqIcqn7XbmmoDK3jelYIElSCjgMobYI4qQjtamRwxUacFtV99GD3YYm+Tz+t3hqv
+	DsuxoSOYQOyaoThfnMhD+Kxe+wVVLY59labz1Tn3t+kvMwq8NVYxK6GFbN9ReY4KjQy0oeH/f96cb
+	IWejDZAo93T5qL44f73XqP1ImjoTGiLkXdpOSpJnIzcfwodRS9905/NQZz+Qny6n78pHSWu6c0wwd
+	qWs25oQw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2C9h-00000007OU1-0mY8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:55:05 +0000
+	Mon, 16 Mar 2026 17:55:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7A566111B;
-	Mon, 16 Mar 2026 17:55:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A978C19425;
-	Mon, 16 Mar 2026 17:55:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A5D824174A;
+	Mon, 16 Mar 2026 17:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79090C19421;
+	Mon, 16 Mar 2026 17:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773683704;
-	bh=Yhcoi82LDcFIJ95YljMG/cgOkIvsAJkNqfTlNH0oGkU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qAR03LhDFV3kpzjK+ixo1mZWgNxg4KNv7qXd3SQQCVq+6hMiyigYNfTJRJiu71S8t
-	 oSQ43y6jAyIh4P0WvOflWSJ2N9P6LZdWrJCSlgsS0HEpnym5ucZIS3kk/1Y7Fn6eqq
-	 4sbc0FC4Tag/iSCFve2hB73DZYV93nHFK+/U30mHEDnEtM7N3zzVl6zNKhIxpEOzFJ
-	 I7qHypPMDSJQ/S3+3MDc7pvKNh6Tf3Z7GXqLk/i2KGJup4RGBTJqbXlvteqYAWeQnz
-	 Ml3+wW10eldd8NjzXb7YmqFPW3Zz/P5GSUJDmoT3/L/dLecJJ2jihUh3rCAC7IbT6y
-	 oBKHFPE7H0aSg==
+	s=k20201202; t=1773683701;
+	bh=kc0QYskUhZvvSika4c/oWQOSCjo1FOrm8FnMBYmgaGk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VM+hZqNqMeIMprcqWH+yzUbjxk3Aah5zCrGlLlifh2U7RBw58lADXoNtjCkOWsnDa
+	 NeU6Yw5vrEdyeRxfiZNzPk3KRVoMBlUzyHHar/K4B6sxBOC+03Obf/Cfqb9iTRO9E4
+	 SFQwBqbDBNGzobJeCGbj3haW9WagTHt+X/xPvRe35jPROatarVR8/YnHiIIABG4VRY
+	 qX06XiQWhS4RrIy64sKYwAXKS8HZ1kVaTp6vFLiJrAnok6vq/I+GWcupPlw6T7tWiw
+	 z2crxDsxG8M9NyZ2j+9VjQrhntAj7Kz9yHGDMGKIbr4NhIN660jmWmfdVpBt32KYs3
+	 ucvo6mM39uNvg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w2C9e-00000002XDx-31wW;
-	Mon, 16 Mar 2026 17:55:02 +0000
+	id 1w2C9b-00000002XDx-077g;
+	Mon, 16 Mar 2026 17:54:59 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -58,18 +73,20 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Quentin Perret <qperret@google.com>
-Subject: [PATCH 15/17] KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
-Date: Mon, 16 Mar 2026 17:54:48 +0000
-Message-ID: <20260316175451.1866175-16-maz@kernel.org>
+Subject: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
+Date: Mon, 16 Mar 2026 17:54:33 +0000
+Message-ID: <20260316175451.1866175-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260316175451.1866175-1-maz@kernel.org>
-References: <20260316175451.1866175-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_175505_604624_4C894D06 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,135 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'prot' field is the only one left in kvm_s2_fault. Expose it
-directly to the functions needing it, and get rid of kvm_s2_fault.
+Piqued by Fuad's initial set of patches[1] splitting user_mem_abort()
+into more "edible" functions, I've added my on take on top of it with
+a few goals in mind:
 
-It has served us well during this refactoring, but it is now no
-longer needed.
+- contextualise the state by splitting kvm_s2_fault into more granular
+  structures
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/mmu.c | 45 +++++++++++++++++++++-----------------------
- 1 file changed, 21 insertions(+), 24 deletions(-)
+- reduce the amount of state that is visible and/or mutable by any
+  single function
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 97cb3585eba03..9b5df70807875 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1729,10 +1729,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
- 	return vma_shift;
- }
- 
--struct kvm_s2_fault {
--	enum kvm_pgtable_prot prot;
--};
--
- static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
- {
- 	return kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
-@@ -1856,8 +1852,8 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
- }
- 
- static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
--				     struct kvm_s2_fault *fault,
--				     const struct kvm_s2_fault_vma_info *s2vi)
-+				     const struct kvm_s2_fault_vma_info *s2vi,
-+				     enum kvm_pgtable_prot *prot)
- {
- 	struct kvm *kvm = s2fd->vcpu->kvm;
- 	bool writable = s2vi->map_writable;
-@@ -1885,23 +1881,25 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 		return 1;
- 	}
- 
-+	*prot = KVM_PGTABLE_PROT_R;
-+
- 	if (s2fd->nested)
--		adjust_nested_fault_perms(s2fd->nested, &fault->prot, &writable);
-+		adjust_nested_fault_perms(s2fd->nested, prot, &writable);
- 
- 	if (writable)
--		fault->prot |= KVM_PGTABLE_PROT_W;
-+		*prot |= KVM_PGTABLE_PROT_W;
- 
- 	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu))
--		fault->prot |= KVM_PGTABLE_PROT_X;
-+		*prot |= KVM_PGTABLE_PROT_X;
- 
- 	if (s2vi->map_non_cacheable)
--		fault->prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
--			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
-+		*prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
-+			KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
- 	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
--		fault->prot |= KVM_PGTABLE_PROT_X;
-+		*prot |= KVM_PGTABLE_PROT_X;
- 
- 	if (s2fd->nested)
--		adjust_nested_exec_perms(kvm, s2fd->nested, &fault->prot);
-+		adjust_nested_exec_perms(kvm, s2fd->nested, prot);
- 
- 	if (!kvm_s2_fault_is_perm(s2fd) && !s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
-@@ -1913,11 +1911,12 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- }
- 
- static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
--			    struct kvm_s2_fault *fault,
--			    const struct kvm_s2_fault_vma_info *s2vi, void *memcache)
-+			    const struct kvm_s2_fault_vma_info *s2vi,
-+			    enum kvm_pgtable_prot prot,
-+			    void *memcache)
- {
- 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
--	bool writable = fault->prot & KVM_PGTABLE_PROT_W;
-+	bool writable = prot & KVM_PGTABLE_PROT_W;
- 	struct kvm *kvm = s2fd->vcpu->kvm;
- 	struct kvm_pgtable *pgt;
- 	long perm_fault_granule;
-@@ -1970,12 +1969,12 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
- 		 * Drop the SW bits in favour of those stored in the
- 		 * PTE, which will be preserved.
- 		 */
--		fault->prot &= ~KVM_NV_GUEST_MAP_SZ;
-+		prot &= ~KVM_NV_GUEST_MAP_SZ;
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
--								 fault->prot, flags);
-+								 prot, flags);
- 	} else {
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
--							 __pfn_to_phys(pfn), fault->prot,
-+							 __pfn_to_phys(pfn), prot,
- 							 memcache, flags);
- 	}
- 
-@@ -1999,9 +1998,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- {
- 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
- 	struct kvm_s2_fault_vma_info s2vi = {};
--	struct kvm_s2_fault fault = {
--		.prot = KVM_PGTABLE_PROT_R,
--	};
-+	enum kvm_pgtable_prot prot;
- 	void *memcache;
- 	int ret;
- 
-@@ -2026,13 +2023,13 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	if (ret != 1)
- 		return ret;
- 
--	ret = kvm_s2_fault_compute_prot(s2fd, &fault, &s2vi);
-+	ret = kvm_s2_fault_compute_prot(s2fd, &s2vi, &prot);
- 	if (ret) {
- 		kvm_release_page_unused(s2vi.page);
- 		return ret;
- 	}
- 
--	return kvm_s2_fault_map(s2fd, &fault, &s2vi, memcache);
-+	return kvm_s2_fault_map(s2fd, &s2vi, prot, memcache);
- }
- 
- /* Resolve the access fault by making the page young again. */
+- reduce the number of variable that simply cache state that is
+  already implicitly available (and often only a helper away)
+
+I find the result reasonably attractive, and throwing it at a couple
+of machines didn't result in anything out of the ordinary.
+
+For those interested, I have stashed a branch at [2], and I'd
+appreciate some feedback on the outcome.
+
+[1] https://lore.kernel.org/all/20260306140232.2193802-1-tabba@google.com/
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=hack/user_mem_abort-rework
+
+Marc Zyngier (17):
+  KVM: arm64: Kill fault->ipa
+  KVM: arm64: Make fault_ipa immutable
+  KVM: arm64: Move fault context to const structure
+  KVM: arm64: Replace fault_is_perm with a helper
+  KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
+  KVM: arm64: Kill write_fault from kvm_s2_fault
+  KVM: arm64: Kill exec_fault from kvm_s2_fault
+  KVM: arm64: Kill topup_memcache from kvm_s2_fault
+  KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
+  KVM: arm64: Kill logging_active from kvm_s2_fault
+  KVM: arm64: Restrict the scope of the 'writable' attribute
+  KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
+  KVM: arm64: Replace force_pte with a max_map_size attribute
+  KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
+  KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
+  KVM: arm64: Simplify integration of adjust_nested_*_perms()
+  KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
+
+ arch/arm64/kvm/mmu.c | 428 ++++++++++++++++++++++---------------------
+ 1 file changed, 223 insertions(+), 205 deletions(-)
+
 -- 
 2.47.3
 
