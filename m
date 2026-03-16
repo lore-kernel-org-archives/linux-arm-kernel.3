@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608BFF53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFBCF53D69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+vCQ4y9G7cOnRH9sJ6UtSE8A6ES9jA0cbiPO6v1pLc=; b=hZ/wFPzhMOLDsytd/uP3Xr0Hmy
-	Qy/ZqnJJ1CZpfsR9ObVN5qrhQ7jS8NUHndDvsTOobVtktyKxerkyjznyAT9DWrnMDFMJoV4P1iW6W
-	to2dLL7Yjuve0KtI2l9p2RG6lxnwzoOuBP6kiwShrWtMUvTfc6Su1Vmj8AkBkvbYnKq57XJ3QCYwq
-	FRsbr6XnNJ6d8xlLzv3yNyqsNjo0bSQvV9uoQxVGmSq9Iu/yfYKXQF/VIN8HZtatp3X7Ippa6u+H0
-	jdHINm5WD9kkg/3gGGMvQM2FFan9bt3DEC5hPoGkeA23DbycaN43gZSKhwIPa0tgkklrUaT0yd29z
-	3PCG5wVA==;
+	bh=4teaquaXu6nhtElyZNOjMCaCKQwPaD4QXipAiN+4iNY=; b=261mhrKnfpOHYDpJfI8/buijOL
+	tM2GlPIzjSfSgCJ2Gq7Pwu+mYcaHNsWqPpyov0nTtnhzWOJ/GSllA+LuD6poLiGlvt3NYUYeZWbuD
+	Ioch2cioc6lAgZVfrZmezNO2AYibCFjnQS+0i0/9iLjVt9WGKazYhORWd7Sd+eHqZibrc7cUPaRMD
+	c30ES7T8LRiW4dlHl67WN/C2nZvglxSw0pOhvuS5Zsxg8dOhWMLZOPzHlJ+xVkDl42PRjRH6WOz3m
+	IdWH/9KtvGLcQudxLKiqf541kbyKgIuzhoICzXwrSbXO2l/75xUNx6n/DYsT7IKAEB3SwbFz4JtQn
+	KHrC00QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AFR-00000004Ncs-24qr;
-	Mon, 16 Mar 2026 15:52:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2AFg-00000004NfL-3hvl;
+	Mon, 16 Mar 2026 15:53:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AFP-00000004Nbm-02Zu
+	id 1w2AFg-00000004Nf3-0moj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:52:52 +0000
+	Mon, 16 Mar 2026 15:53:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E0FC43763;
-	Mon, 16 Mar 2026 15:52:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B669C19421;
-	Mon, 16 Mar 2026 15:52:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3306E600AD;
+	Mon, 16 Mar 2026 15:53:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 777BBC19421;
+	Mon, 16 Mar 2026 15:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773676370;
-	bh=h540B9y5R36xQApSZ+k6e24S141YzbHY01zru+ZNj48=;
+	s=k20201202; t=1773676386;
+	bh=+DUB05VhdXfx4QMFIX0abllmoRqd3R/aE8T81dsGNsk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ikpzjgNS9eBGMoNr6mLghiYpLqOKhd2t1iybP7lKzmevMliyqo39iiNfY0hXTNthQ
-	 3jMDPtoNqb+D7aL0wDsJd7NFUlKKk0yJyawXiNolJlYFX/YhQZJM/ndrdd9s25KLBq
-	 7IKEBIq63pNg5ZbyGsMWUaVoWREKp4lckhWu+nI9x/ndaj6U4R6zxZrZrZEwTs3Rwm
-	 h2Qe+FIqtzNIbSUQ8xBjM2PxqaCRVKZxEo29FstXS4JggNVJZUbdYF3AnMX2iMLbju
-	 oBRXhO5S+EaU76j/DdUEDUX+p/m92DZJk+LnX63+TCVzupzEjajqc3MYPA9W+Syv0Q
-	 7zsDeyu5cexKg==
-Message-ID: <05f294c3-ce68-4b9e-9d1d-b4bde4d5986f@kernel.org>
-Date: Mon, 16 Mar 2026 16:52:44 +0100
+	b=Ee4lljvO/Q6zIkSRTshvtKm8bKRW8fqCXaseeXZR4KlMEh4NiNL9X7Qz1Psr2s5tQ
+	 hib7DNcBpjsHuK4msHTby9f8sE96VA6I+neUuCUrH3EgveP6b8W446J0yp3AsuT+pb
+	 d0RNgg1pr8buAVSqMf2zGw2e2UzU3mvLIkJtRuAtRfxWOT4YTuyi1UCD5H2xTJ4F4P
+	 kEqtx8pt0H70BXPgl3TExFGq2QWSbgJnvihJzA+ZUKV6QpiqvOWOFAOML3nXHt2Ohh
+	 O76m7gljyCmILIK+6YfsdHW0tfFyxWPYbuaYA12A/HpVDo+IJAuz8glcsAeN0VJDIo
+	 cjMut0UlTlHnQ==
+Message-ID: <0e8a5ab4-3922-4a74-a751-146de5fa381b@kernel.org>
+Date: Mon, 16 Mar 2026 16:53:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: add tqma9596la-mba95xxca
+Subject: Re: [PATCH 3/3] arm64: defconfig: enable EMC2305 driver
 To: Alexander Stein <alexander.stein@ew.tq-group.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
@@ -55,12 +55,11 @@ To: Alexander Stein <alexander.stein@ew.tq-group.com>,
  Fabio Estevam <festevam@gmail.com>,
  Geert Uytterhoeven <geert+renesas@glider.be>,
  Magnus Damm <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux@ew.tq-group.com, linux-renesas-soc@vger.kernel.org
 References: <20260316150535.786122-1-alexander.stein@ew.tq-group.com>
- <20260316150535.786122-2-alexander.stein@ew.tq-group.com>
+ <20260316150535.786122-3-alexander.stein@ew.tq-group.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260316150535.786122-2-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20260316150535.786122-3-alexander.stein@ew.tq-group.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_085251_184873_798E24C3 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +123,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/03/2026 16:04, Alexander Stein wrote:
-> +
-> +	reg_3v3a_10g: regulator-3v3a-10g {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "3V3A_10G";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		gpio = <&expander2 15 GPIO_ACTIVE_HIGH>;
-> +		startup-delay-us = <2000>;
-> +		enable-active-high;
-> +		vin-supply = <&reg_5v0>;
-> +	};
-> +
-> +	reg_5v0: regulator-5v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "5V0";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +	};
+> EMC2301 is used on MBa95xxCA mainboard.
 
-This is a pointless regulator, unused. Defining non-controlalble
-supplies for fixed regulators brings no benefits. It has only drawbacks:
-bigger DT, slower boot times. We do not define in DTS every transistor,
-every non-controllable IC on the board.
+Defconfig goes via different branch, thus when applied this:
+	git grep -i MBa95xxCA
+will give 0 results.
+
+Please use fuller board name, e.g. "TQ-Systems i.MX95 MBa95xxCA" (or
+TQMa95xxLA ...)
+
 
 Best regards,
 Krzysztof
