@@ -4,75 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE257F506D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C5DF506D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HksiW8mwUIUUZeVN3IsR12TYHuTJXhGFLqIwf5UAG7k=; b=dcz4lvBFebp41/clxQ3TtSBTlm
-	T8AY4UcpgQG0GWNIM70SmEI327+JQ7+ZnPrGd5FEWcw/hRTXjgncXllGqiEVmvmgfhL8Sk+oztcLU
-	ecySCxRXorT09t/dx9R8wXyvL/5nVq7I7jklIA30tQWQD0ulcs9e0Ly70V0KMxF6uNCgGv+17Zf4E
-	udVAPZlTSSwDx0C1Dhh2SSc7Epcwm9tPnGOb3sBzNKaVzEmqW2YapYHaRzfbJ6cJ1V5RlScn+TnHK
-	s6oqnVNawlOav6npB2LH11r8sbyEVZG/7YfPBi1T/kxadYgPYhCyXxKq8XRKWx5Ar8tkYoUvWRrAI
-	iz/vDxZQ==;
+	bh=EAMeO+8YviSITizvPy9oPa9q5wrx3QRaYDnheMxS6ko=; b=J239rRYnpzfrKGp7VLRVPcFEpn
+	w5sFibJOcQJj/7GKOifFHVnZK+WVbhwNaNrFzCoBmZJESTEmLeHZntRG+9yQPTWVwGqjO1Ky304it
+	nVfmoyBh8rXWByjT4ZHEv3H9jSNLgEnYarcBdIzYXLIZY2zteC/5VxG8c/+c683ecV47ODeknIiH7
+	+m8fEoWG8g0FjDiNB3yjQWnmrI368IBTGfmQDWc04dksspQNmBCo97KdBl8hgmyQGtlBwkkps86GW
+	X2PdXuiZSwOX9wvHha3DmxIIL24DAlX+1ZyT3iaZL9hHX53b0xZ3hPip+cmqJCaTjpk3QHkAGeEQV
+	KzOuJ5Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29EI-00000004EBA-3iG5;
-	Mon, 16 Mar 2026 14:47:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w29EQ-00000004EGw-0dIg;
+	Mon, 16 Mar 2026 14:47:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29EF-00000004E8z-4B51;
-	Mon, 16 Mar 2026 14:47:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 680A56012B;
-	Mon, 16 Mar 2026 14:47:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C73DEC2BC87;
-	Mon, 16 Mar 2026 14:47:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773672455;
-	bh=SWyWovQpZcRYDA2RTZfFVXcBgJf/dKBAYGsO0cjwpR8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fBoPKg5akPio74rsRGXjA5HYsmf0U0scEYxrF9JlUrnKHGrjoBxvJmuqAcLCHgUoS
-	 IFCj8Q6ofjLHnZu+caNKOvyGbzv4zt5yp93PoYG0JqtHPeAHRWXKG7bs4UrW91MZHc
-	 AOTUOG75P0LPx53kTgiD9zdeSjGIjxfzeut773v0jtaoImyzhRkvHh9a/Uzr51SXfi
-	 gokr/3PW4cHZn0v/iCNUutyK7CIsTQk80ZURS3qpuz7koF3Fd9qNvUkuVpQG0yN/9k
-	 uONkj8w6MwBSTEMqIXQ4bc8ZhtmCxRAk5iXQW6PEviYet3WsvklRl6FBuzmcJmE6t0
-	 4z2vm0eSfUFwA==
-Date: Mon, 16 Mar 2026 14:47:24 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
-	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH 01/15] mm: various small mmap_prepare cleanups
-Message-ID: <c7e16d31-ce30-456c-aba7-aaa6dd781b19@lucifer.local>
-References: <cover.1773346620.git.ljs@kernel.org>
- <56372fe273f775b26675a04652c1229e14680741.1773346620.git.ljs@kernel.org>
- <CAJuCfpEsCrFEYNkkTfRLGojGOYAAx1=WOojOhpBb_=WZBr6bnQ@mail.gmail.com>
- <CAJuCfpHcjFU1r7ixiJM4b_a5HTesxBmW6DiCreaWpJ8DLM5haQ@mail.gmail.com>
+	id 1w29EM-00000004EDf-24i9;
+	Mon, 16 Mar 2026 14:47:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=EAMeO+8YviSITizvPy9oPa9q5wrx3QRaYDnheMxS6ko=; b=ZjQUaZEh57CxN7YAAmfs9LuW/i
+	eQPqDsVjQO0bCHxa8wrrqlf4CCGWQKMSUStUl+F9mYbEoJl/UB9e+Gv3AkLCu/DRuuqnbbLX66+A9
+	qsd/g13WRR4ikPgBlmBDea7Gy0w2rRhm8rFETmk/R3MDfvGMYGDJkwEqt+V/Xa7T2gye7Qj9+t09W
+	82vxT5ytjgE6jTRfXdnwYWvH/nWHvwa+Uel84C0fjxWMAmAqTsSngs+5EaVBPm5EDg5iw92Y2Cm5f
+	uop8Pd5E0PDZn68usP/vJv6c1X0k2TWTKRkvI2BCQjPYpxl77q8f7JhRfz9xDDxbsLRbB7+5cY5P6
+	BhhOoJuQ==;
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w29EJ-00000006zNj-0r6e;
+	Mon, 16 Mar 2026 14:47:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CFOggH52LMHx8RxNhBnfzC/PK4L7sXpUE8L/q6GigbiTb+5cbaW8AZQ+U4TA7odTr5AuaYsxqzyEqLX5oxOhD/wFYHbv6qFNzpsKt8NHfesrpvMH+zj4KC1kFib970I8DXZXdtn3pg4WcyH4X4AZnPrnM47CJQDc53Q04siySujbXqzB8CTVDSoKGyi9NXdruyKGweb3gX654HLnDDiSGJbCs8UcU9nWrKxEvGWwIvU2Zlr4m/2DFH4kxtpGjah9nLVIwEwVrJEImLGgUsk6O+NjCwdxsbRgrqteXqy0IfHdfgm/M5YyxjzVXH2Qp0SKaMwxb3zBK69fcKpUuX2aRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EAMeO+8YviSITizvPy9oPa9q5wrx3QRaYDnheMxS6ko=;
+ b=LImaba4B24pwvZcP87w/Ci21XDjEX+jhUEYGqvVtI7VCOEG8boJusAZI4mvwPmKWoxko+cw1P7y57g9JeNbL+d3banevNspJJoJYohB4oLooYKWIY5YzFua6+dq3SQxKdStiuW2ObUO9nq4/SCiIFep4XvNw8sCJQ0Ifi6yHPRJv9UdNlFhGEnRm0nfCnvSnlIOSMyUR6j6wo86HsRZIqYRnJpTZVd5TWBdYSm1+RJGxU9IonpBRalk+ZS7kzwJMmUnNNzK28QyY89lUVduhg7ltjzd9+iZDbL/m6DvWT3hJ+r98GG6CpKBlIjJolL3F9lVnLzUvrLWwVNBtLXOpgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EAMeO+8YviSITizvPy9oPa9q5wrx3QRaYDnheMxS6ko=;
+ b=S2cuGSS8wNv1Upx4GFOIWgp/HjB/Q8jmo3/B3cXpsg8d9Io0nqAiljIhNKzEHNDz7AsEkTjqGHS+8UcegSSaVyBZIyWX0F5zMQApGOTD1tySp/YZyu7P0qOfXJI0WgOUGXJpo4WSaDnBlR6T+npNXK9uEIzRtxbvJe/D5pS4H5GiNp6TMVr4a2Kb6+dNjh6Adjk8X3ndEjoeXAp6gvao2T+5mIruan1lKArJC1L0T72mv7rhAliXs0h3vdfX5hJNRSaNIF/BNloRLTi3cwO1Dshe7XT+E8Z84gGpvJgaMsEPhlUgqdEO0ArN3/yrT+QstWQTezjGvMNZp1LUxP3NMA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV2PR04MB12019.eurprd04.prod.outlook.com (2603:10a6:150:30c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Mon, 16 Mar
+ 2026 14:47:27 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9700.022; Mon, 16 Mar 2026
+ 14:47:34 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Mon, 16 Mar 2026 22:47:43 +0800
+Subject: [PATCH 08/15] dt-bindings: mfd: rockchip,rk8x: Use generic
+ power-controller schema
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260316-power-controller-v1-8-92c80e5e1744@nxp.com>
+References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+In-Reply-To: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Shree Ramamoorthy <s-ramamoorthy@ti.com>, 
+ Jerome Neanne <jerome.neanne@baylibre.com>, 
+ Paul Cercueil <paul@crapouillou.net>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Dmitry Osipenko <digetx@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Joseph Chen <chenjh@rock-chips.com>, Chris Zhong <zyw@rock-chips.com>, 
+ Zhang Qing <zhangqing@rock-chips.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Andreas Kemnade <andreas@kemnade.info>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, Alexander Kurz <akurz@blala.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rtc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI2PR02CA0030.apcprd02.prod.outlook.com
+ (2603:1096:4:195::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJuCfpHcjFU1r7ixiJM4b_a5HTesxBmW6DiCreaWpJ8DLM5haQ@mail.gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV2PR04MB12019:EE_
+X-MS-Office365-Filtering-Correlation-Id: b52f3f13-408f-4ad7-fcd4-08de836af54f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|56012099003|22082099003|18002099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: TFVd5vXx2BC56kaEEbxrrXDzcRdWIrVd8XTdoYh3/lbGROVoek7byPouR7+HVKw2NWyJ/lcnXbS/+OI5//SNNNeeA0FRTmNL8jeqrMcMH8+0LXI5ufA1QZT+3FXsLWetryHcpXK84V7N2fEPtWfYh5SF+up+kRWic3VA+3vHp6Bsc3ihrjpvSgSGWMd2X72/CbuUl7/MnKPJEV5QuOkZ86Ywav39xOJvPEywXgYfnRp5tURRpoDqqf1erBBGUvij9LE2l0aZB/SmrLwEy33BC4P77H0MI3tYP9rYDbcYMBGAoR+LPEGo3euZlHrRDFKBuB0bO4U6FKrs4robjpmzynPeZWN+gaXBx1Pa2IHPR8kaz82aIMfpOXc48fsxMP4mXY3/EkR5LWOZU94xQ3GE2X9Gg0mwWA8mFTeYzsc+8L1pSGuNnkw+MtMOMs+q2n5zv6lRFxpBrUiA7QtA+RRzfe/+g++2qPEulB2nwIX6A+qZLvm6UztHHTTDSoN5pByUQjwqM4KV+l16CFTII2Y+2gpovgDk1mwmsRkMEaTBspw85BcOL3jFh3SzccrbZVyHY1QRf3kt3pk2xrmwOJT1MqqGrU9q8uHBuNfAuV7CbpviZs2Upn39RlWw6Ou82U26snIrp2Z6YAl06sMAJt7FoLfPyc8GkzYIUaRXtHekuNJiwg06rP+1kBjw9L9rytcaCUAqcRj3ElZWtzcSAcFCcoOQyTXqNFuR4It9yvU+ZcbPHA5so0ZknQFH1N3W3AVzKtBZRsdqY+mi4h7LCrlm6b5G81BPVb61VTWLnPRgjGX5sHOHFu4FXTQ16fGGEKZE
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(56012099003)(22082099003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M0F3RmNoY0lHUFBwU0x6ZFVOcDlaNkdTc296WHhlNkNaeDBzb2VRZDJCMTZU?=
+ =?utf-8?B?cWUwWEFXeWprbGh5bHpqNmgwQWczTEl1Wk1ZOHpGNFBaNG82ZW8wdWx3eWFS?=
+ =?utf-8?B?bFN3NkdzQ2xWNDV2ZjVLR0JHc0kvYXVNUHkrbDE1RUpPZCtQMWMrYUE2dEdo?=
+ =?utf-8?B?RGVKRnpXdXZEbjlvb1lCbVFDVkZMd3lGUTlMamJvbURub3ZiZ3ZlM2ZYQUp2?=
+ =?utf-8?B?eDRWeTlqWHNFUGFrK1hVQVlBOVN5ZVBiellGN2RoQWZvV1pmTllNV2FmeDZ6?=
+ =?utf-8?B?ek03Lzhmb2xPbWdxSlJIYUlEa293WUpGNXFDeEVuQWpNMlNJZVZCYTJnNVFB?=
+ =?utf-8?B?ZXRSOUdzbk93RlVmUnlrdzB4SmhnbXNnNzF5ajc3MWE5Q0tMQm9rMHlEeExG?=
+ =?utf-8?B?bXBlRTVsTTFnZE5qMWVyTnd5OXNSUjgxa25nbGVsS0dCckVDRlJDRytWeXhj?=
+ =?utf-8?B?bmdZZEs0cmlaWUhNL3dWa1U0TFZSb3FrRHhhWjB6VGZVLzhhbUoremVGWnF6?=
+ =?utf-8?B?TjVoMXVJZnRud2dLWFI2RWNybldtWlpZWEc5YXpSYkVvU3pHTnNKRmZMM3pB?=
+ =?utf-8?B?V0pYNDNTcXhlYkdCNkptQm5UYW5rOVcvNU9RdjZiVXNSTEZSWXZ3Rm9tQ1kw?=
+ =?utf-8?B?VUhVMkhTRE9vR2JodWRHdnFZOXRhZHRNRDkrbGYyMzRRM2lGVEhkMUIwZFdw?=
+ =?utf-8?B?Y3EydXZUVEJBY2dvNzM4VzB5akh1dWV0RGxLYkUxQUtacWNpcmlYdG91UG16?=
+ =?utf-8?B?U1Q0dUlxV0ZtcXRLY2lwWTgyODJ3SWxnYUhyNHh5RUNoUlRucXdTeEsya2dw?=
+ =?utf-8?B?bDl4RmpHb0ZnSlQ2RTNFU0hSNUUrMEdmb1kySjdrRjVkR0k2WW5pZWZZaU0w?=
+ =?utf-8?B?Q1V4bzBXYXBUNzZWdlB2eTk1dDJEQjhBOEp4VC9RNVk2cUd5TEUyblNrU1B2?=
+ =?utf-8?B?UHhSbE5pckZ3dGVNWlp6U0dzWVBiQVFiS0dKbDRZSVBQZ2R5dklKdE9xSTJ4?=
+ =?utf-8?B?dFFxSE94alh5alh5SlBsS0xlQXRuMnZvRFZyV29yRU9BSCtyRlNtMHdyVmVX?=
+ =?utf-8?B?QUJSYi80c0xqR293dzF5RWYvbW9VTitJakgzT3dmUzE5TDd5NDN4SW5tVzcx?=
+ =?utf-8?B?djQvOXhJYXN0WGlFY2N3TE9TbWxqL1ZHbDBOME1kSDNZMHRRWlZESzJmc2NR?=
+ =?utf-8?B?SmVrZHJDWXV3MHN2aHNad3ZWWXltT1gvemxSN2lFOHpxZWhrMW1mVThIL1dC?=
+ =?utf-8?B?WFNUdE5nMGFURGdaS21yNXpXRmdreDR0aWUxREN1TC9RNEwrb3ZTelNoZEQ3?=
+ =?utf-8?B?SURtcHZ2OW1wNEFwYkwxNzRXTTYzeFBNWXgxNFlQWXBScTZGYVJqUVhaTXB0?=
+ =?utf-8?B?dE9UUDhsQ1dTL0p2dFhweGxZbHcrWFBMeHd4Z2hHWG1ndkRTL1JkcUJkVm5W?=
+ =?utf-8?B?b1ZvN2J6UVREK01GZitIZURiRXkrMjRpVXBPS2ZSTXRGT0xEZldkcUlJUHNl?=
+ =?utf-8?B?QWhEOXZ0S0FDN1N5SGxiYVFxZFJlNzVJR0NtTGRyQnZNbEMzcWVoRzh1cGxs?=
+ =?utf-8?B?TG9iNVIvak52a2NDd0ovTGw2VmNUZnNWNkRCTXVlRUdHV0ZKWFB3ZGw0ZW1I?=
+ =?utf-8?B?OS9kMG1CZG9RLzVZYTV5azVqWk9YS0Q2N1NPd1g1OVUxK1ZZNmZxczcveEtu?=
+ =?utf-8?B?MmVPTE1Jd2kyL0l3MCt0NzViL0huTUJlTXdBNjV2cjYvelZ1WVNxOWdxUFo0?=
+ =?utf-8?B?bldCeCtLM09xU043VWR6QWdzRENFcStsSTFjTm03aUhobTBoZUxtRSt6ZEpI?=
+ =?utf-8?B?ZlFWTkdkOVhseGREZDhleG1wQVc1NFBycHNqQXViaE9CbGtLbnl2VTgvSHUz?=
+ =?utf-8?B?eFNnVDExdU9aYUxrMDdET1k5SXhqM0t4WnRvQ1M4bDRyUmg1MW94Q2g4MVNJ?=
+ =?utf-8?B?aXBxMFhwTHpXM095UDg0cjZZN2xuRUYzZUpCZEFQRndtQXV6NWMwcllyNUlP?=
+ =?utf-8?B?b1BZVk1Pb1NTbXBUWWd1ZWVrSndJeXM0OUp6Y29qNnNJVkZvLzdBK3dHTy9E?=
+ =?utf-8?B?NklnSW1nUCtIYThlclhqTWF5YVprbk9BQTRpaHZWOXVXT1dDTW1BNHhXSlNL?=
+ =?utf-8?B?TDJFNUFJNUFsUkRIMENHUlNKRFVZcEU1V1pKL095QUROUXZML013Q2l1RFBE?=
+ =?utf-8?B?bjUzNE5lcTI2eEdScDVIV2ptVTA3TVBXMjJteitZY3pXRHo0R0RINlBQRXha?=
+ =?utf-8?B?NVVwMitXQ21kcUtFcVVqOEhBd2k4dy9wK2N0NE5mdnp3YlJ5c3UwY2JkWW1n?=
+ =?utf-8?B?YzVKNXhHQXE3T3J5WHpTY0h1enFKRldONTVQYjRJZGdpTFVvZStFUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b52f3f13-408f-4ad7-fcd4-08de836af54f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 14:47:34.0617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LkuTYJak8+BC076ImKAagEtuqyJtzF9HYVsF1Z8MJYsjQvnL7uTmdaqz8bwS7P3x7JJvHjSZOoo2/8OAnbAuFA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12019
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_144739_530421_4D516A02 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,75 +184,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 15, 2026 at 04:06:48PM -0700, Suren Baghdasaryan wrote:
-> > > --- a/include/linux/mm.h
-> > > +++ b/include/linux/mm.h
-> > > @@ -4116,10 +4116,10 @@ static inline void mmap_action_ioremap_full(struct vm_area_desc *desc,
-> > >         mmap_action_ioremap(desc, desc->start, start_pfn, vma_desc_size(desc));
-> > >  }
-> > >
-> > > -void mmap_action_prepare(struct mmap_action *action,
-> > > -                        struct vm_area_desc *desc);
-> > > -int mmap_action_complete(struct mmap_action *action,
-> > > -                        struct vm_area_struct *vma);
-> > > +int mmap_action_prepare(struct vm_area_desc *desc,
-> > > +                       struct mmap_action *action);
-> > > +int mmap_action_complete(struct vm_area_struct *vma,
-> > > +                        struct mmap_action *action);
-> > >
-> > >  /* Look up the first VMA which exactly match the interval vm_start ... vm_end */
-> > >  static inline struct vm_area_struct *find_exact_vma(struct mm_struct *mm,
-> > > diff --git a/mm/internal.h b/mm/internal.h
-> > > index 95b583e7e4f7..7bfa85b5e78b 100644
-> > > --- a/mm/internal.h
-> > > +++ b/mm/internal.h
-> > > @@ -1775,26 +1775,32 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
-> > >  void dup_mm_exe_file(struct mm_struct *mm, struct mm_struct *oldmm);
-> > >  int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm);
-> > >
-> > > -void remap_pfn_range_prepare(struct vm_area_desc *desc, unsigned long pfn);
-> > > -int remap_pfn_range_complete(struct vm_area_struct *vma, unsigned long addr,
-> > > -               unsigned long pfn, unsigned long size, pgprot_t pgprot);
-> > > +int remap_pfn_range_prepare(struct vm_area_desc *desc,
-> > > +                           struct mmap_action *action);
-> > > +int remap_pfn_range_complete(struct vm_area_struct *vma,
-> > > +                            struct mmap_action *action);
-> > >
-> > > -static inline void io_remap_pfn_range_prepare(struct vm_area_desc *desc,
-> > > -               unsigned long orig_pfn, unsigned long size)
-> > > +static inline int io_remap_pfn_range_prepare(struct vm_area_desc *desc,
-> > > +                                            struct mmap_action *action)
-> > >  {
-> > > +       const unsigned long orig_pfn = action->remap.start_pfn;
-> > > +       const unsigned long size = action->remap.size;
-> > >         const unsigned long pfn = io_remap_pfn_range_pfn(orig_pfn, size);
-> > >
-> > > -       return remap_pfn_range_prepare(desc, pfn);
-> > > +       action->remap.start_pfn = pfn;
-> > > +       return remap_pfn_range_prepare(desc, action);
-> > >  }
-> > >
-> > >  static inline int io_remap_pfn_range_complete(struct vm_area_struct *vma,
-> > > -               unsigned long addr, unsigned long orig_pfn, unsigned long size,
-> > > -               pgprot_t orig_prot)
-> > > +                                             struct mmap_action *action)
-> > >  {
-> > > -       const unsigned long pfn = io_remap_pfn_range_pfn(orig_pfn, size);
-> > > -       const pgprot_t prot = pgprot_decrypted(orig_prot);
-> > > +       const unsigned long size = action->remap.size;
-> > > +       const unsigned long orig_pfn = action->remap.start_pfn;
-> > > +       const pgprot_t orig_prot = vma->vm_page_prot;
-> > >
-> > > -       return remap_pfn_range_complete(vma, addr, pfn, size, prot);
-> > > +       action->remap.pgprot = pgprot_decrypted(orig_prot);
->
-> I'm guessing it doesn't really matter but after this change
-> action->remap.pgprot will store the decrypted value while before this
-> change it was kept the way mmap_prepare() originally set it. We pass
-> the action structure later to mmap_actpion_finish() but it does not use
-> action->remap.pgprot, so this probably doesn't matter.
+From: Peng Fan <peng.fan@nxp.com>
 
-Yeah it doesn't really matter either way.
+Convert the binding to use the generic power-controller schema instead by
+referencing power-controller.yaml and removing the local
+`system-power-controller` property.
 
-Cheers, Lorenzo
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml | 10 ++++------
+ Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml |  7 +++----
+ Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml |  3 +--
+ Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml |  9 +++++----
+ Documentation/devicetree/bindings/mfd/rockchip,rk816.yaml | 10 ++++------
+ Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml |  5 ++---
+ Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml |  9 +++++----
+ 7 files changed, 24 insertions(+), 29 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+index 7c71447200ba4c131b67f94c11913f70be625980..5d644f3fbe1bf734efb6a49b4f7284b7397b33d7 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+@@ -13,6 +13,9 @@ description: |
+   Rockchip RK801 series PMIC. This device consists of an i2c controlled MFD
+   that includes multiple switchable regulators.
+ 
++allOf:
++  - $ref: /schemas/power/power-controller.yaml#
++
+ properties:
+   compatible:
+     enum:
+@@ -24,11 +27,6 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
+-  system-power-controller:
+-    type: boolean
+-    description:
+-      Telling whether or not this PMIC is controlling the system power.
+-
+   wakeup-source:
+     type: boolean
+     description:
+@@ -76,7 +74,7 @@ required:
+   - reg
+   - interrupts
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+index da2391530c16c0aa5067128cd6f76e99f1f0f8fe..7a123bcd4320f10a85178ad23609147586fddb20 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+@@ -46,8 +46,6 @@ properties:
+     description:
+       Telling whether or not this PMIC is controlling the system power.
+ 
+-  system-power-controller: true
+-
+   wakeup-source:
+     type: boolean
+     description:
+@@ -87,6 +85,7 @@ properties:
+     unevaluatedProperties: false
+ 
+ allOf:
++  - $ref: /schemas/power/power-controller.yaml#
+   - if:
+       properties:
+         '#clock-cells':
+@@ -108,7 +107,7 @@ required:
+   - interrupts
+   - "#clock-cells"
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -126,7 +125,7 @@ examples:
+             interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
+             pinctrl-names = "default";
+             pinctrl-0 = <&pmic_int_l>;
+-            rockchip,system-power-controller;
++            system-power-controller;
+             wakeup-source;
+             #clock-cells = <0>;
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
+index eb5bca31948ef0d39c46025d0cca65b8b4105a50..e441c648969915137f73e4222dde2446d43765ba 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
+@@ -29,8 +29,6 @@ properties:
+   '#gpio-cells':
+     const: 2
+ 
+-  system-power-controller: true
+-
+   rockchip,reset-mode:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     enum: [0, 1, 2]
+@@ -136,6 +134,7 @@ patternProperties:
+         enum: [gpio_pwrctrl1, gpio_pwrctrl2, gpio_pwrctrl3]
+ 
+ allOf:
++  - $ref: /schemas/power/power-controller.yaml#
+   - $ref: /schemas/spi/spi-peripheral-props.yaml
+ 
+ required:
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
+index 50dfffac8fbf53034df8b0c88eb43c7675749311..9bb1467bf5ffe923275589c6817db9d4710043bd 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
+@@ -14,6 +14,9 @@ description: |
+   Rockchip RK808 series PMIC. This device consists of an i2c controlled MFD
+   that includes regulators, an RTC, and a power button.
+ 
++allOf:
++  - $ref: /schemas/power/power-controller.yaml#
++
+ properties:
+   compatible:
+     enum:
+@@ -41,8 +44,6 @@ properties:
+     description:
+       Telling whether or not this PMIC is controlling the system power.
+ 
+-  system-power-controller: true
+-
+   wakeup-source:
+     type: boolean
+     description:
+@@ -119,7 +120,7 @@ required:
+   - interrupts
+   - "#clock-cells"
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -140,7 +141,7 @@ examples:
+             dvs-gpios = <&gpio7 11 GPIO_ACTIVE_HIGH>,
+                 <&gpio7 15 GPIO_ACTIVE_HIGH>;
+             reg = <0x1b>;
+-            rockchip,system-power-controller;
++            system-power-controller;
+             wakeup-source;
+             #clock-cells = <1>;
+ 
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk816.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk816.yaml
+index 0676890f101e5481a7466b26de5544a829c29101..853ad270a827fd0b40c50e69fb48a2e23d16c51d 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk816.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk816.yaml
+@@ -15,6 +15,9 @@ description:
+   that includes regulators, a RTC, a GPIO controller, a power button, and a
+   battery charger manager with fuel gauge.
+ 
++allOf:
++  - $ref: /schemas/power/power-controller.yaml#
++
+ properties:
+   compatible:
+     enum:
+@@ -39,11 +42,6 @@ properties:
+   '#gpio-cells':
+     const: 2
+ 
+-  system-power-controller:
+-    type: boolean
+-    description:
+-      Telling whether or not this PMIC is controlling the system power.
+-
+   wakeup-source:
+     type: boolean
+ 
+@@ -108,7 +106,7 @@ required:
+   - interrupts
+   - '#clock-cells'
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
+index 2cb6d176a84cfb4c07a17b6390470b0ddb95bea1..4c5d2f43a6f182ff2bb0fe26869a1c56120146cf 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
+@@ -53,8 +53,6 @@ properties:
+   '#sound-dai-cells':
+     const: 0
+ 
+-  system-power-controller: true
+-
+   wakeup-source:
+     type: boolean
+     description:
+@@ -157,6 +155,7 @@ properties:
+     additionalProperties: false
+ 
+ allOf:
++  - $ref: /schemas/power/power-controller.yaml#
+   - $ref: /schemas/sound/dai-common.yaml#
+   - if:
+       properties:
+@@ -195,7 +194,7 @@ required:
+   - interrupts
+   - "#clock-cells"
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
+index 90d944c27ba147aa83ff86fdacb546d08272fe1e..d1ca8b447034f2d0d1d3474932f3dedef6dff0de 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
+@@ -14,6 +14,9 @@ description: |
+   Rockchip RK818 series PMIC. This device consists of an i2c controlled MFD
+   that includes regulators, an RTC, and a power button.
+ 
++allOf:
++  - $ref: /schemas/power/power-controller.yaml#
++
+ properties:
+   compatible:
+     enum:
+@@ -41,8 +44,6 @@ properties:
+     description:
+       Telling whether or not this PMIC is controlling the system power.
+ 
+-  system-power-controller: true
+-
+   wakeup-source:
+     type: boolean
+     description:
+@@ -111,7 +112,7 @@ required:
+   - interrupts
+   - "#clock-cells"
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -130,7 +131,7 @@ examples:
+             interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
+             pinctrl-names = "default";
+             pinctrl-0 = <&pmic_int>;
+-            rockchip,system-power-controller;
++            system-power-controller;
+             wakeup-source;
+             #clock-cells = <1>;
+ 
+
+-- 
+2.37.1
+
 
