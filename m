@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0CDF53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77598F53D69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkZlpM8BM0xnvQ83RqCnpctNKP8VIuCyMKkGR9ezBko=; b=VSHbh8vao7osg47+rXszjYL25L
-	xmVIebMiABVGuWRgQNXJj3vhsEHC8eYD/xUagZtDtrB4JBWuEqDbCkO8HJAFCMT8zy96bCmlAiHQy
-	Xpj+5AEn3JfA8mcif4j9185j2gWx3pAiEYgU1++HwpYAAHS+K/MbP0VaASyPaYhre5XPG/jmVpYzh
-	NQuM7eBqmzJcwTV0xvKD6XKjumvorcHW9zPz7Idi9k4YxNms6AJcp4TKDsji/YV3SAcIj2d6IPmZP
-	okpkNslhioZFUQLIqB4nRlJvqAXAiV9g355Isj7+8mP5515GbbqZ6nVpwlaIufkZE0eWJF+9UjXO0
-	g+VIneRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zEuqXYLwdnr/h2zdw/7lA5Y0YBEZ5aLcF0pDLSnsKRA=; b=hsrOUIfZIOF2cB8os5PUTnhnLp
+	W10I9fDwR+WTcCin5GVgvfdYzo8en6mUbSaSCFBSuDnF8b3z8anwLQGytZnn9Ffsy1ce2oo/pPwGK
+	yNGIjPtE7vfzfru1RqtZXyWaVHgfRBQbVxsqxuw6OS2MnfmgAHwy903c6FldWKQP1+sxhgcDYBjfG
+	e81h4Kbb9o07qcKXGAC/ZT9BGlbiSOAjR37alNfD0NYT7xbsmHgh38nAwAg24+2k6AX7ITFQXMpis
+	QLXNhI3/wHVJ4DzbWz1rBoAvFTp3k9OjPzSN1/fVME7R5+3cEYLeJnVwMBvEzi5jY63WONcFfuD+b
+	thG55sWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AIz-00000004ODD-3Kj8;
-	Mon, 16 Mar 2026 15:56:33 +0000
-Received: from relay.yourmailgateway.de ([188.68.63.162])
+	id 1w2AK7-00000004ONP-0FMl;
+	Mon, 16 Mar 2026 15:57:43 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AIw-00000004OC8-2bZs
+	id 1w2AK3-00000004OM0-3vwL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:56:32 +0000
-Received: from mors-relay-8201.netcup.net (localhost [127.0.0.1])
-	by mors-relay-8201.netcup.net (Postfix) with ESMTPS id 4fZKSv1jJrz42Tr;
-	Mon, 16 Mar 2026 16:56:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1773676575;
-	bh=WlSUsVAGD5bEWuxTDhZsT6Xf5db1wW9sFlbq69Me71s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k8n3jmybFD7gXBaYrpK4yBXfYwwFLyUVnapTaQGgoaMQrxhSSZcXFg5U3XYna28KB
-	 3K6t7I9oVZIPWHFSIbqIwvAKFYIG6Rj8hfk7BNnH2Hh6cWIFdc+Mk0e5Q+rEfdvVws
-	 jHW2DlUHb0NmvXDYoPI2VPAHefdTWgsDYFKdVdefdGsPp6VqD3l/zp5UgLCRRo1rBx
-	 tFs2Nxvadf0yumXDv2t4uPQn1WAMFaChJMSdSm+bfHUzp2+ddQbMDdDKQvudeTKYgb
-	 uWA22wmoBXInOXv6nQQI1PppB2Sqr31JmlFMlfNw/MmvxpbHSmGAk40ba5eS3fN0hD
-	 g/br3glqXVCUg==
-Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-8201.netcup.net (Postfix) with ESMTPS id 4fZKSv0tb6z42HL;
-	Mon, 16 Mar 2026 16:56:15 +0100 (CET)
-X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4fZKSr6Ywwz8t3w;
-	Mon, 16 Mar 2026 16:56:12 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 81D35635AB;
-	Mon, 16 Mar 2026 16:56:11 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <3b30506f-f651-44c4-aca2-29e99ce60cba@leemhuis.info>
-Date: Mon, 16 Mar 2026 16:56:09 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Mon, 16 Mar 2026 15:57:42 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id C1FF71FA6D;
+	Mon, 16 Mar 2026 16:57:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1773676652;
+	bh=zEuqXYLwdnr/h2zdw/7lA5Y0YBEZ5aLcF0pDLSnsKRA=; h=From:To:Subject;
+	b=CG/wOdvhkrI7VJK5Ltm22UKXsL1TWqPJGrEkmQM+OFCb5ErieX2h0GmDaGar7l/ze
+	 dgScDmFbeGnU9gikIGI01vX8r4e+g2W5/9T84gM9+q8M+mrV1FfH+imeEH4nnXXcux
+	 LrV3izZODDCLPPypcPFykWsZAJuI1caBi/1PnVJAhKqElkzp1GKzdxHXEiq7GphQ6D
+	 8t/g9xlSqhRsoikEwRnegUgGcOFSUZJIrR8quurrXVH8VwaOlBShvhp1VVn4zzBk8w
+	 5Uq2Ow60hu8UsLtkPE0RhPbdCfe08wV9+smZ8Vq03LZbtCOZv9qoSVdyJPcSGEjXq5
+	 2TY3p4bNKKzcA==
+Date: Mon, 16 Mar 2026 16:57:27 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: Francesco Dolcini <francesco@dolcini.it>, ming.qian@oss.nxp.com,
+	linux-media@vger.kernel.org, mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl, benjamin.gaignard@collabora.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	p.zabel@pengutronix.de, sebastian.fricke@collabora.com,
+	shawnguo@kernel.org, ulf.hansson@linaro.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, m.felsch@pengutronix.de,
+	fra.schnyder@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de,
+	Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
 Subject: Re: [PATCH v4] media: verisilicon: Fix kernel panic due to
  __initconst misuse
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Francesco Dolcini <francesco@dolcini.it>, ming.qian@oss.nxp.com
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
- hverkuil-cisco@xs4all.nl, benjamin.gaignard@collabora.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
- sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- m.felsch@pengutronix.de, fra.schnyder@gmail.com, linux-imx@nxp.com,
- l.stach@pengutronix.de, Frank.li@nxp.com, peng.fan@nxp.com,
- eagle.zhou@nxp.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
+Message-ID: <20260316155727.GA43134@francesco-nb>
 References: <20260306031059.801-1-ming.qian@oss.nxp.com>
  <20260312173349.GA137045@francesco-nb>
  <e559b822c5f4fc9167d40544172c6c450d88636a.camel@ndufresne.ca>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <e559b822c5f4fc9167d40544172c6c450d88636a.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: <177367657238.2992055.3000395586816625353@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 81D35635AB
-X-NC-CID: r6HJUysEbzhA4YW/OY4xibuaKrLtu3kst56pC0zpvPNb0zaEbPQ=
+In-Reply-To: <e559b822c5f4fc9167d40544172c6c450d88636a.camel@ndufresne.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_085631_030667_12469353 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20260316_085740_874444_B25987EA 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/16/26 16:25, Nicolas Dufresne wrote:
-> Le jeudi 12 mars 2026 Ã  18:34 +0100, Francesco Dolcini a Ã©critÂ :
->> On Fri, Mar 06, 2026 at 11:10:57AM +0800, ming.qian@oss.nxp.comÂ wrote:
->>> From: Ming Qian <ming.qian@oss.nxp.com>
->>>
->>> Fix a kernel panic when probing the driver as a module:
->>>
->>> Â  Unable to handle kernel paging request at virtual address
->>> Â  ffffd9c18eb05000
->>> Â  of_find_matching_node_and_match+0x5c/0x1a0
->>> Â  hantro_probe+0x2f4/0x7d0 [hantro_vpu]
->>>
->>> The imx8mq_vpu_shared_resources array is referenced by variant
->>> structures through their shared_devices field. When built as a
->>> module, __initconst causes this data to be freed after module
->>> init, but it's later accessed during probe, causing a page fault.
->>>
->>> The imx8mq_vpu_shared_resources is referenced from non-init code,
->>> so keeping __initconst or __initconst_or_module here is wrong.
->>>
->>> Drop the __initconst annotation and let it live in the normal .rodata
->>> section.
->>>
->>> A bug of __initconst called from regular non-init probe code
->>> leading to bugs during probe deferrals or during unbind-bind cycles.
->>>
->>> Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>> Closes: https://lore.kernel.org/all/68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org/
->>> Reported-by: Franz Schnyder <franz.schnyder@toradex.com>
->>> Closes: https://lore.kernel.org/all/n3qmcb62tepxltoskpf7ws6yiirc2so62ia23b42rj3wlmpl67@rvkbuirx7kkp/
->>> Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
->>> Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>> Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
->>> Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
->>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->>
->> What's the plan to merge this? It fixes a quite severe regression,
->> a boot failure.
+On Mon, Mar 16, 2026 at 11:25:53AM -0400, Nicolas Dufresne wrote:
+> Le jeudi 12 mars 2026 à 18:34 +0100, Francesco Dolcini a écrit :
+> > Hello,
+> > 
+> > On Fri, Mar 06, 2026 at 11:10:57AM +0800, ming.qian@oss.nxp.com wrote:
+> > > From: Ming Qian <ming.qian@oss.nxp.com>
+> > > 
+> > > Fix a kernel panic when probing the driver as a module:
+> > > 
+> > >   Unable to handle kernel paging request at virtual address
+> > >   ffffd9c18eb05000
+> > >   of_find_matching_node_and_match+0x5c/0x1a0
+> > >   hantro_probe+0x2f4/0x7d0 [hantro_vpu]
+> > > 
+> > > The imx8mq_vpu_shared_resources array is referenced by variant
+> > > structures through their shared_devices field. When built as a
+> > > module, __initconst causes this data to be freed after module
+> > > init, but it's later accessed during probe, causing a page fault.
+> > > 
+> > > The imx8mq_vpu_shared_resources is referenced from non-init code,
+> > > so keeping __initconst or __initconst_or_module here is wrong.
+> > > 
+> > > Drop the __initconst annotation and let it live in the normal .rodata
+> > > section.
+> > > 
+> > > A bug of __initconst called from regular non-init probe code
+> > > leading to bugs during probe deferrals or during unbind-bind cycles.
+> > > 
+> > > Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> > > Closes: https://lore.kernel.org/all/68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org/
+> > > Reported-by: Franz Schnyder <franz.schnyder@toradex.com>
+> > > Closes: https://lore.kernel.org/all/n3qmcb62tepxltoskpf7ws6yiirc2so62ia23b42rj3wlmpl67@rvkbuirx7kkp/
+> > > Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
+> > > Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> > > Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > 
+> > What's the plan to merge this? It fixes a quite severe regression,
+> > a boot failure.
 > 
 > To be decided this week. The commit message does not say if it was released, or
 > came in RCs (and I didn't check myself yet). I'd say, if its the first one, it
@@ -148,22 +129,12 @@ On 3/16/26 16:25, Nicolas Dufresne wrote:
 > into the RC series, but serious enough. Please fill the gap if you have time,
 > and I'll handle it later, probably tomorrow.
 
-Well, FYI: the culprit according to the fixes tag quoted above is
-e0203ddf9af7c8 ("media: verisilicon: Avoid G2 bus error while decoding
-H.264 and HEVC") [v7.0-rc1, v6.19.6 (286d629d10640b)]. Given that this was
-* reported 11 days ago
-* reported at least two times
-* made it into a stable series
-it is something that Linus would like to see fixed by now in mainline
-afaics, as ""the rule of thumb should generally be "within a week",
-preferably before the next rc."":
-https://www.kernel.org/doc/html/next/process/handling-regressions.html#on-how-quickly-regressions-should-be-fixed
+This fixes commit e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error
+while decoding H.264 and HEVC"), that was merged in 7.0-rc1.
 
-If that fix is too dangerous a revert is of course an option, too.
+As of now, because of that, 7.0-rc is not booting on affected platforms
+(i.MX8MP), to me this needs to get merged before 7.0 is released.
 
-BTW, given that the culprit made it to a stable series, it would be a
-wise to add a stable tag to ensure it's backported (it otherweise might
-be silent dropped and/or applying might be deferred).
+Francesco
 
-Ciao, Thorsten
 
