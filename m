@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DFDF506E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E986F53D65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1AAGUAmYjD7Si85D96o1y9oVgwEOEjsWS+VLMRr0aQ=; b=uaGVL8CUatekmX7tKs0FrnhR5E
-	BOEJiO7idmH6tswPze8AmvaIqtRfvSK4nj/YXeTCq06ikL/eMwRhjG8NJo42pkba6Oh/Z7jq/t98v
-	dp8JtIbQhfwFfgkJ3ylWfntqcEKpmBacdLGdClE1ijY1upBHeTKb78rywXPGjp0DzIDL603hSm4IH
-	guSilevNU3a3KeecvnTfVGZGhuUCkhhc+xFaht718j+ZGZKYYdpEpV9AwaAZHODjBIJ/LYNdpKXIL
-	MFMh2u9duApcU24+sgjVfAlGJwy5INK2pH1N3b31z4m1+tyziMMCxeuuDOP1EIVET0RmoPcbe+GhP
-	QGc7fygA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1C0KDzZKnKHSlUkdUXpl5bCbdxQFaILc3VGmf0dTPBc=; b=HJoGtMm0/Zaa3FvhBZYAbfkukq
+	+6iEacXtX9nXB3RPkPXK7mUbUAEDZCYZAexz8o6tiSdv1kUgau83zR4toL4wnTA8GEssKGxJJtVfM
+	bvSOARD5F0MdO13zKzxX2vjsjKJsJj4OUSXni2ABBC3joCyUC1N5Ek6aG+uM8K787lKaEwFIlN72Y
+	+jXbYX/PtLTeiz//oxM1tVPfhGZrgVGBI/LI2hT81BEtyBMi75q63nGPCq38GVDAjN8gfDzn2IaUU
+	w8cWwVRHdB2Y6ynWCyUCyN2vFythmd2CQ2daMdKLbd/nf47jrsVb7DAYYyZ+cJbvKI29RP93aVc6N
+	8GHH1CpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29Ly-00000004GAQ-1i5A;
-	Mon, 16 Mar 2026 14:55:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w29Qj-00000004HBv-1WSI;
+	Mon, 16 Mar 2026 15:00:29 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29Lw-00000004G9U-1CBD;
-	Mon, 16 Mar 2026 14:55:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B72760123;
-	Mon, 16 Mar 2026 14:55:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AFCC19421;
-	Mon, 16 Mar 2026 14:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773672931;
-	bh=DXurX+rXkNtKMNetYL42Wscz0IskX62tenc5ozVeitA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qJh/lLK9mQ4+tJsi/be7GN9483oLhqrwmr5gGA9yIxTr0zTqxRzRW53VKiDpS+znu
-	 al1TPbiDEz7JLE3AqeSgHGq+ej/dN8cj1DdY/c7ah90EdaS1H6plBc+IN475XdaAdc
-	 FfhBGf86zLMwlyannK/mE47+UFYTRd3UoHk/blPQ3d9PQct/l4lX12amujsz3xjfHG
-	 6iqb4GGddwKFjL8zG/CdLEYRoTS8ftWzk6C82uxjtslnVFRGMoPijQQ3UenQwxxqg+
-	 Fk4g+LelXVOHJGKC4jq20cV9YoUQOjywQrRyBudWaukf1rZdBBhlbNiCf1V0+qCDcd
-	 ypRksCHLMX91A==
-Date: Mon, 16 Mar 2026 14:55:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Shree Ramamoorthy <s-ramamoorthy@ti.com>,
-	Jerome Neanne <jerome.neanne@baylibre.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Joseph Chen <chenjh@rock-chips.com>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Alexander Kurz <akurz@blala.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 00/15] Convert power-controller to dt-schema and update
- various yaml file to referencing it
-Message-ID: <f329f1b4-787e-4c8c-ba26-e419a047023b@sirena.org.uk>
-References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+	id 1w29QU-00000004Gnf-0guz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 15:00:18 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=1C0KDzZKnKHSlUkdUXpl5bCbdxQFaILc3VGmf0dTPBc=;
+	b=JHsT585eZKN+MQLHFnoAr95Q107TaXcgix74XdZ3mFwTDbhJFiL00YTeLDV3WbKkMsK6ZW5pL
+	hnzU2RudCHaejI0E5TS70GBqlTN4a2Yp2T55GGLcwozsZzkwOBvJK1vRzNYUoVvVd3ukwWFCZJc
+	08mdsEDeZtsql9CYDXB+GVI=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fZJ3s0Y8Hz1prNJ;
+	Mon, 16 Mar 2026 22:52:57 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id CB51A2022B;
+	Mon, 16 Mar 2026 22:57:57 +0800 (CST)
+Received: from [10.67.120.170] (10.67.120.170) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 16 Mar 2026 22:57:57 +0800
+Message-ID: <b2a56e70-6555-48f6-bc5e-f1ce98c64cb7@huawei.com>
+Date: Mon, 16 Mar 2026 22:57:56 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q5D3dN9fM9+vUHgs"
-Content-Disposition: inline
-In-Reply-To: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
-X-Cookie: Not a flying toy.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 4/5] iommu/arm-smmu-v3: Add stream table directory
+ structure to debugfs
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<wangzhou1@hisilicon.com>, <prime.zeng@hisilicon.com>,
+	<fanghao11@huawei.com>, <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-5-xiaqinxin@huawei.com>
+ <abR3QXHGAWz9E6qV@Asurada-Nvidia>
+From: Qinxin Xia <xiaqinxin@huawei.com>
+In-Reply-To: <abR3QXHGAWz9E6qV@Asurada-Nvidia>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.170]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_080014_922000_AF2A0EA8 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,34 +83,124 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---q5D3dN9fM9+vUHgs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Mon, Mar 16, 2026 at 10:47:35PM +0800, Peng Fan (OSS) wrote:
-> Convert power-controller.txt to dt-schema
-> Update various dt-bindings to use generic power-controller.yaml without
-> defining local property.
+On 2026/3/14 04:44:49, Nicolin Chen <nicolinc@nvidia.com> wrote:
+> On Fri, Mar 13, 2026 at 06:43:50PM +0800, Qinxin Xia wrote:
+>>    * The capabilities file provides detailed information about:
+>>    * - Architecture version and translation stage support (Stage1/Stage2)
+>> @@ -324,5 +327,78 @@ static int smmu_debugfs_ste_show(struct seq_file *seq, void *v)
+>>   	smmu_debug_dump_ste(seq, dev);
+>>   	return 0;
+>>   }
+>> -
+>>   DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_ste);
+> 
+> nit: let's not add that line in the first place
+> 
+>> +
+>> +/**
+>> + * smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
+>> + * @dev: device to create entries for
+>> + * @smmu: SMMU device
+>> + *
+>> + * Return: 0 on success, negative error code on failure
+>> + */
+>> +int smmu_debugfs_create_stream_table(struct device *dev,
+>> +				     struct arm_smmu_device *smmu)
+>> +{
+>> +	struct dentry *stream_dir, *cd_dir, *dev_dir;
+>> +	struct dentry *ste_file, *all_cds_file;
+>> +	struct iommu_fwspec *fwspec;
+>> +	char name[64];
+>> +	int i, ret = 0;
+>> +
+>> +	if (!smmu->debugfs->stream_dir) {
+>> +		stream_dir = debugfs_create_dir("stream_table",
+>> +						smmu->debugfs->smmu_dir);
+>> +		if (!stream_dir)
+>> +			return -ENOMEM;
+>> +		smmu->debugfs->stream_dir = stream_dir;
+>> +	} else {
+>> +		stream_dir = smmu->debugfs->stream_dir;
+>> +	}
+>> +
+>> +	fwspec = dev_iommu_fwspec_get(dev);
+>> +	if (!fwspec)
+>> +		return -ENODEV;
+>> +
+>> +	for (i = 0; i < fwspec->num_ids; i++) {
+>> +		u32 sid = fwspec->ids[i];
+>> +
+>> +		if (dev_is_pci(dev)) {
+>> +			struct pci_dev *pdev = to_pci_dev(dev);
+>> +
+>> +			snprintf(name, sizeof(name), "%04x:%02x:%02x.%d:%u",
+>> +				 pci_domain_nr(pdev->bus), pdev->bus->number,
+>> +				 PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn),
+>> +				 sid);
+> 
+> Doesn't dev_name(dev) print the BDF numbers as well?
+> 
+>> +		} else {
+>> +			snprintf(name, sizeof(name), "%s:%u", dev_name(dev),
+>> +				 sid);
+>> +		}
+>> +
+>> +		dev_dir = debugfs_create_dir(name, stream_dir);
+>> +		if (!dev_dir) {
+>> +			ret = -ENOMEM;
+>> +			goto cleanup;
+>> +		}
+> 
+> A device can have multiple streams. So, dev_dir should be the
+> parent directory?
+> 
+dev_dir is a parent directory and it contains ste info and CD info
+for all streams of this device.
 
-Are there any dependencies here?  It doesn't look like it.  In general
-please don't send a single series covering multiple subsystems unless
-there are actual dependencies, it just makes it harder to figure out how
-to handle things.  Send a separate series to each subsystem instead.
+[root@localhost stream_table]# ls
+0000:34:00.0:13312  0000:34:01.0:13320  0000:35:00.0:13568 
+0000:35:00.1:13569  0000:35:00.2:13570  0000:35:00.3:13571
+[root@localhost stream_table]# cd 0000\:34\:00.0\:13312/
+[root@localhost 0000:34:00.0:13312]# ls
+context_descriptors  ste
+[root@localhost 0000:34:00.0:13312]#
+>> +
+>> +		/* Success for this stream ID, continue to next */
+>> +		continue;
+>> +
+>> +cleanup_dev:
+>> +		debugfs_remove_recursive(dev_dir);
+>> +cleanup:
+>> +		if (ret) {
+>> +			debugfs_remove_recursive(stream_dir);
+> 
+> One is the other's parent directory. So it should be good enough
+> with a single debugfs_remove_recursive()?
+> 
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> index 211a0c87507a..c57897e5f644 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> @@ -3133,6 +3133,9 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
+>>   
+>>   	arm_smmu_attach_commit(&state);
+>>   	mutex_unlock(&arm_smmu_asid_lock);
+>> +#ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
+>> +	smmu_debugfs_create_stream_table(dev, smmu);
+>> +#endif
+> 
+> Calling in attach_dev doesn't seem correct to me. And device/master
+> can be unplugged. So, we would need to unwind those dev/stream_dir.
+> 
+> Maybe probe_device/release_device are the places to go?
+> 
+> Nicolin
+> 
+Thanks for your review,
+I will fix these bugs in the next RFC version.
+-- 
+Thanks,
+Qinxin
 
---q5D3dN9fM9+vUHgs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4GdgACgkQJNaLcl1U
-h9CnKwf/Y45O1xRPr9mTmI28M1CvW30zJp5xoDJXzVFZW6jtEjIuA8mFy+dOgIj+
-PkIOw9oNhVPJcUpY4vl8XJBEZDdEDPMwSOdMexgMsCCCeJBF1/2fEHkxI1xyTRlP
-19Nh8e23AD9Qpm+0/Hjn/iDwpuYXhqRLxqw17yeReb8HyXAvnVcoLQAsonOHewce
-imvplZGb9vkqG8UivYBCq/7Ar+eVs6vZGg2IEm5kn4EkVWj9xZDFMeP8G8RhbqnM
-oNHrFPTft2T52cuebigvOum9pbm4WmO5U8BqTDHLldZRD0qfvdKSn1hGumXDnVfh
-2O2qPvCp7KP1+oQbqttXJjEuIyoNLg==
-=wZgr
------END PGP SIGNATURE-----
-
---q5D3dN9fM9+vUHgs--
 
