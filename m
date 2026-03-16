@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3FC7F013CA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE78EEFCBD4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZ5ZL3YahQ5LgPO6RUkICWxC/OTnvmWLlmCP38xXSZI=; b=oIxVstdZdcOxEqLPMACxh86rEH
-	U7qxiRWmeA4tpGtqWOONvAYn81nj2L5vCCDIkRRG+ZiMoiRMcpF3VLaAgLsTfPTaPacZVQ3L0neme
-	KX6+xXP+p/9UEGJOuyGWbcqQ3tceXTqc5PmqcRqkC4treAilST6hqN77Kr6TEHrSkFHJPXzdZSvyf
-	CpSDUTF6Fiodp6PuZOYZoP+Xb4D+tiK5NfB+tvL0rwyXLz5xqDsJalIfyUkAv+X6edVUaUx/Avx9W
-	KKAXTuQTzeT1VzIeGB2D963uIpWXVGqwfVYkaQUGmng+ED4HingvGHde29QPs0eoRpip07JilAwJE
-	Ey+/jM7w==;
+	bh=unkmRmQWwFzEXUNaiEVhayAW0QgPV7pNwEaY7lhNI5c=; b=KjaBEB1TRHEZzSCV8G5aiBsyML
+	el6k1nhP7ct6mBdIg+t8mgi+xLdSJS8F2VGq4gv6btTaFk1kiSdFiaEtL9kxE/xTj5lut7xSj2wpp
+	WTquHxiacR5EzNq86nQaYAB5uAUaUIN/8PSFOOn+E6O/CiiHuLZsd+U/WioPP/WSmCh/tAuFICUe7
+	vBVzpvvzIk/oYQOqkyFzDET0FQ9x89H/sJSDrVn97COm+Fqy7JlKsD9d5ZgEDAj1fWdmBUu2/j3VQ
+	JNx/O/irTAXJptcFiOUdzJ5WyoeRa5jOwON5eAmF6ITzQmQzBBx4NC0Qt0DC8uEp5au87QhqosiQW
+	w/SuF06w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23AH-00000003Xhk-3t6H;
-	Mon, 16 Mar 2026 08:19:05 +0000
-Received: from mail-ua1-f41.google.com ([209.85.222.41])
+	id 1w23Cn-00000003Y0w-43Qf;
+	Mon, 16 Mar 2026 08:21:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23AF-00000003XgX-1uHp
+	id 1w23Cm-00000003Y0k-18Ks
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 08:19:04 +0000
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-94aca174532so901826241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 01:19:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773649142; x=1774253942;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FZ5ZL3YahQ5LgPO6RUkICWxC/OTnvmWLlmCP38xXSZI=;
-        b=HEMtNfy2Zv/5p5Vw+/Mv7HdxVXgM6xXc9vrI+kfOMRP0oK/q5nxgPOzyWvmtknNgNj
-         o1QAmVBr4Q21yXrNCNTlg2fiQK9aIWEqLx/DbOShL0JfVFhfoH8s8SlvTSJj3gTA5Bzv
-         4V1fy1zoCs6ijGdEokyEExFQl1pgYGRnEs6Y+qBdbFyRmcDilkM+KdEbU6+Tbw0Uos2H
-         gaIslWEYVjKj7/cRHUYR/FjN18mi0oa1X5ZnUj/paH2d58a0F0WfV36TvqBAAbd80jHk
-         enrMrDLrKGz83wAkbrn7JgA7f6MC46BpiCVdbcr1k87aFefKlPu9T6VagzuGhRxO7/ab
-         Txeg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6J/UaHyyCrR5sLQMNFx3UAZM7UWX3cjwnbUQc4unlG37GZNLAd/9xBEbPkIddhWCDCmwsd1l+pM8jkqK50KaY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFoTifuBzzNkY8OzVb7Ilm0JQSYRmP5D+QOiRyESr2Pu2FvdUh
-	49W2YLXuujAVd7WvSuyk87iOakbMYwX28oj1T5yf9oMopypJvr602NKjszYJWCEU
-X-Gm-Gg: ATEYQzxz0yBecBmWFEq5JlITQ49qIicPOTxxYrkOrGftVDaJi55E3GKpTZ6mm1jxMg+
-	p7vmpFDJVdNCU7y58ShgdsVWIY55ITb8K3N5/bRqyG2rr0UVHsjkAq3NGQeSKJXkgF19RRQ5g8R
-	WyftkUWQ3LZQAfedTB6tbpQ9DXKh5piK3jDjsiCHVluJasCKPCGYGBB98Vjk3C8N9FaJgUpetTC
-	rO5eN1J6z6Ck2ukMHT96RrwN3gsZpvIl6kKNkJgFspf0gp3cor14TFxFHvZqBld8qX14GGqslQs
-	O9HGdIJWwFt91yTidQMcvNz4s1YHdUogmeTOPC1qmpr1KpogTL5ayA2mC87wgUo80XvzGHWzvVB
-	VOEa35gjIPIs9TA+U8bueeEkPKOxhUhEpye0v5flIy8uIIK47EepMGY7xsDeflFv5Sqy/Wd96K+
-	3ijgosnSoo/0t1dMZVL7VGUeLzse/M01fQTWEQM+T+jBhT1yIl0vXe+/QtrfTP
-X-Received: by 2002:a05:6102:c8e:b0:5ff:a4e0:1939 with SMTP id ada2fe7eead31-6020e1ad281mr4607936137.7.1773649141768;
-        Mon, 16 Mar 2026 01:19:01 -0700 (PDT)
-Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-601dea9fa96sm6225296137.9.2026.03.16.01.19.01
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2026 01:19:01 -0700 (PDT)
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5ffc6a96665so1047482137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 01:19:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV4aOg0/3DYGhL5DF1xoKPNqPeoUH1DGJb7ka1A1I4lk/eOZiHUGAxGgnd+4x+XsOvlN8HYqCYWcyOCeEfizyqF@lists.infradead.org
-X-Received: by 2002:a05:6102:952:b0:601:f82c:57e7 with SMTP id
- ada2fe7eead31-6020e5f1888mr4295849137.37.1773649141135; Mon, 16 Mar 2026
- 01:19:01 -0700 (PDT)
+	Mon, 16 Mar 2026 08:21:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3767160008;
+	Mon, 16 Mar 2026 08:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9822AC19424;
+	Mon, 16 Mar 2026 08:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773649298;
+	bh=RZArSEGiIi6tf/QaCodiGjnLLyg0p5GqsTdgKr1WE4Y=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=aE+SVbscvLzvPYGR6WULwTrbDzooNL4QaaEnO0yZ3X5OJ89/plQBX6/kS7DNTgWRH
+	 MUNy4q3Q+NnyPXMGhRmWa+6PCVCZ5AC0g3399irWHXyBNhvcCjOIseSiWT5+y7MXsx
+	 FZ5rFr+oQ3qaLF9VtQTrvNgJybxfgtDUd92YT0VVsYOsCWfVo+vVAsfPhEBLC49oaA
+	 TuxefHCIvSqgTzAXauQpP1w/g0kN3A8IqjyBln1Wo6EtEFV27NUgY4mDgxcSFkAV6B
+	 94wxS1l7/uf8z3z5fPZsIRS0KApV99GVB71q6IlAzKyirHiqj6G/+kaz0uVMNEA0V0
+	 Zvwk4aSlThj6Q==
+Date: Mon, 16 Mar 2026 03:21:37 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <cover.1773399669.git.geert+renesas@glider.be> <cover.1773399675.git.geert+renesas@glider.be>
- <44491e75-4c73-4c8b-bc34-888d1e047cff@kernel.org>
-In-Reply-To: <44491e75-4c73-4c8b-bc34-888d1e047cff@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 16 Mar 2026 09:18:50 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWLOCvKfp4bULzm6N_3u1Mh831Z0EW++8473wvs29MRHQ@mail.gmail.com>
-X-Gm-Features: AaiRm52ybkgfdE7QGE94nAnXy7mmjQuKiyvylh7pzD-F9X6Hn2BIVpsA-3r677g
-Message-ID: <CAMuHMdWLOCvKfp4bULzm6N_3u1Mh831Z0EW++8473wvs29MRHQ@mail.gmail.com>
-Subject: Re: [GIT PULL 4/4] Renesas DTS updates for v7.1
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_011903_516682_9C74003A 
-X-CRM114-Status: GOOD (  17.96  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Abraham I <kishon@kernel.org>, 
+ Jayesh Choudhary <j-choudhary@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Andrew Davis <afd@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+To: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+In-Reply-To: <20260316070429.1545707-2-alexander.sverdlin@siemens.com>
+References: <20260316070429.1545707-1-alexander.sverdlin@siemens.com>
+ <20260316070429.1545707-2-alexander.sverdlin@siemens.com>
+Message-Id: <177364929663.1046182.9727069225111322855.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: syscon: add binding for TI K3
+ platforms reset registers
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On Sat, 14 Mar 2026 at 12:23, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> On 13/03/2026 12:13, Geert Uytterhoeven wrote:
-> > The following changes since commit 85c2601e2c2feb60980c7ca23de28c49472f61f1:
-> >
-> >   arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers (2026-03-06 13:15:21 +0100)
->
-> Also nothing explains me what is this, IOW, why this is not RC1. Pull
-> request email has place at the beginning where you explain such things
-> and I can easily locate or understand the base.
+On Mon, 16 Mar 2026 08:04:23 +0100, A. Sverdlin wrote:
+> From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> 
+> Add DT binding for Texas Instruments K3 Multicore SoC platforms reset
+> registers present on AM64x and newer members of the K3 family and consist
+> of the RST_CTRL, RST_STAT, RST_SRC and RST_MAGIC_WORD.
+> 
+> The planned usage is to provide reset reason information.
+> 
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> ---
+> Changelog:
+> v2: amended mfd/syscon.yaml instead of separate reset/ti,am64-rst.yaml
+> 
+>  Documentation/devicetree/bindings/mfd/syscon.yaml     |  1 +
+>  .../bindings/soc/ti/ti,j721e-system-controller.yaml   | 11 +++++++++++
+>  2 files changed, 12 insertions(+)
+> 
 
-Let's readd the part you cut, which is also present in the cover letter:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> > Note that this PR is based on "[GIT PULL] Renesas SoC fixes for v7.0".
+yamllint warnings/errors:
 
-Gr{oetje,eeting}s,
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: ['ti,am64-rst'] does not contain items matching the given schema
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: ['ti,am64-rst'] is too short
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am64-rst'] is too short
+	'ti,am64-rst' is not one of ['microchip,sama7g5-sfrbu', 'microchip,sama7d65-sfrbu']
+	'microchip,pic64gx-control-scb' was expected
+	'microchip,pic64gx-sysreg-scb' was expected
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
 
-                        Geert
+doc reference errors (make refcheckdocs):
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+See https://patchwork.kernel.org/project/devicetree/patch/20260316070429.1545707-2-alexander.sverdlin@siemens.com
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
