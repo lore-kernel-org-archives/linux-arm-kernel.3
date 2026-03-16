@@ -4,112 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FD4FB5E81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 22:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F066FB5E85
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 22:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GO9eSvDa3+h2qEsV4y9v8xIrZRQkG5vgqMO5VOKMlms=; b=Obix5RMj2m99vUukDl6svwXKH4
-	NPBaPN8c0bFa2EK5M5xTBCwzLjZjjs4HfJjHTWvOKtv004by7LT3Ad2uHKz87YIUKzGqB0t5pc1q1
-	wSc+8WXqB+Gi+H28SQc5kJ0sHWZlf1V4RYlYScl+YVIxhiI3G2hl5JMPn9GoBjBCNjEvF578rfXqL
-	Fl6A09zFxc2P56pq49YL0+r1UK9AGOfDWSOasHM9Bw17hFr5k96HXOz2iCf0vCmiP+ypUfy482/Xb
-	bl1l7Q+2P+YuX0V5hw8SexS/rYsRGntA5LhZPYqfjWvSTwa1XK06aoDGqHSDdg9OeZ8JYN4e2NkUU
-	6rPdxbeg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q4cJcFtf4hpm0T0e+VviEvUx2ruLtbnKyeEs5ldKrcs=; b=useL1bNgI19py+mh1vOHyjaClU
+	TaJ3sziGwbZ0LBNhRkshSve29doG3TVuLZtgNTCo4T1MdoLWxiRqVlCdr9+rkJlxTrRgSidd5Svkw
+	9pt9ebaEVOMLtinhmeJFLuuLhXCICNxVeErpN5jmeavW893X1jv7S+PmBTQMa9OJGhgL8LtwExcJl
+	Zba3xUQs3IMBlmmWrj8HayUXFZ9pWcS4USFK1JFYYh4BWniZm8h+EhH4myfsIWNgUlGUbdBR24dBN
+	I3/1cwGPvW0SY9CZt3/AmrDtmCDyzB0tM3RvGQiYgIGTi4TnQxMR7Bg2Cau0AoGFQxahWn5+DUb4T
+	FpSo76Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Gg6-000000051y2-37Fj;
-	Mon, 16 Mar 2026 22:44:50 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1w2GuV-000000052Zy-2P8P;
+	Mon, 16 Mar 2026 22:59:43 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Gg4-000000051xf-0wW7
+	id 1w2GuS-000000052Yo-0BVV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 22:44:49 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-1271257ae53so6929420c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 15:44:47 -0700 (PDT)
+	Mon, 16 Mar 2026 22:59:41 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-5091ed02c54so96181cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 15:59:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773701978; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ZI6eknmKbmWm2V0iwIcXEQR+TkXUMk9glTRCjC8YKFSL6bCY4CSsTqS/6BTEqmXxIS
+         gxGGryB8xS2GgjK9jQvkuFHEdxejc/BLvR8zSlPxjekOZe6yTUFUmQPh82v7Y8wNKrNh
+         gg9med20NrNx99jCXBjaMINC/T/+3NfghQh+MDMn7E3gUbgWFcdlj+U1a/EnX+zCOG3g
+         JVI9yG7UEXaCPXGmGcEjcSQ9DJe79wLs1TJshtNJf3TsVpnkJT6cZNvXT0tk995SJJc7
+         IoJbRKa5FxohKr67P82b9p7WMwy2DvWgPU0wUPs+ubwt4uTG1ReVBvhKlv8bvQPAaJOJ
+         v7gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Q4cJcFtf4hpm0T0e+VviEvUx2ruLtbnKyeEs5ldKrcs=;
+        fh=rBDtrkPag+ioybByg7P3is+0JbuSYSPxzQeEyPUx1oA=;
+        b=SNOSZ9+K5sakdolxUCAYdQVj3j6//UHt3dLAtkGrFYJ57ELPNuYzCI83DvwFFiXp+d
+         g89DYTV7eL1gKKBzuu8z7bJIjq7N09HWZUjJw9u6y58CYReedsm4/OoqQMnplj14TbcK
+         1uniYP6NO3Yv0FRPpFPwa/9eMi/Wk82in8jE3cVQOIFoYNggMd/Qdg4YzIpZC3VIpEna
+         oChTdiH6dHtSuxUeoNu+kLKosuiaxJuQDXbpyFBAgGT2eFoGekG31oHJu8YEhqE7Namv
+         zB9ilCpVo5qloMkMXfGuaVnEmkzFdCYR9CWSUly0nIxsHfgKR4hVMBy/0Gs2E5N74r5J
+         lvBQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773701086; x=1774305886; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GO9eSvDa3+h2qEsV4y9v8xIrZRQkG5vgqMO5VOKMlms=;
-        b=ONWNnecJgdQJiQGgQQiCtj4YgMjPgfA4ttjKSwFWUiFqtvAxj9MutMalfXwucwOt5J
-         J16cUyXRmRXOaswhM0jkIoxD/l4Um0Hj1AREyXmXExlYz/6MpoyBbZiGiVQUStvqvMnB
-         0mtoTEGaL4O2/An/tZslUi6MLp/0ucKoOtUbM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773701086; x=1774305886;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20251104; t=1773701978; x=1774306778; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GO9eSvDa3+h2qEsV4y9v8xIrZRQkG5vgqMO5VOKMlms=;
-        b=kqMDqv44jt1VH8ft3rLbaFjcSU0yAFkiE83rzY0ks+QxU95j1PR6K8kLLWtrjr5bhN
-         nZ2gqXp4NK1yVqq4xUhnL0/oz8tVqMLzsmQs2n23ADfM7d0ww79BhoRR4hbI+UNpb/pU
-         vjgBeWwOyJaPWSuwZAXXutZGLqrK0OS+OM0gmhzTSxBqDqh43nrrK7wCWXiPIOn2XzW5
-         1WdPfLyBr3w8lHYEskljWAuPefhKrK4Yq+B1bMhXnXcDDx5EQqyprgqsoXeKHelExE5w
-         O1RjS+R59CklSwAl/OblL/ZspiQjCeVJev3YLbQbjdIFg2tYNl/8ZeK/OUfOX25uQacj
-         lRlA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgwHfULIZJRSUnfaJXxoZWUuiTKoiCs76sMnOyaCA73Z4sxrjlCgEjwI0SVY9Ju2zaOK9nFchLNWv07Pp/jZeT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyNd20OTcr004MIaF2r2whDE0g8tNGBLwi15dEdzA+bb3FD1Iv
-	vgsNAWIBAAAbmnc63HdU5zVhb9AXuI+aacZRm15s6f1sShXWDQ/xyGp0bFDUZIk9qQ==
-X-Gm-Gg: ATEYQzyD5npiyuX5NkGcGwHCawKxY9OGxCEBgWCLfWC/s/6TkVdMBI9HkNVUozqbyPH
-	Hr3gI0xL1XbzlBZW5KZTsm0kuBJL1/f/1RdEzCABgUwBMjWFanJ77Dc0TimAW9GHsFYlhnk/XJu
-	5Bf8YHgh/2YlDpjAtI8zr8TRSQ+yBEusnamFS1xszVA2eGaOpfWPrNKUTqe7wUjU+MgSmiQCY0X
-	kCKTHJJn9DEOJmP4gLPzfD/hs0T+2CSz/+1LOYE4pfbjTo3BXkuOCaCaNs0QtNMS1P7RIPFFHtY
-	yGT9dSZSL8tCdHsVpDKX2j8y0OMIGTMEq8FFKoIISzqsTEzOy3LBGOMaYdrdZc51kzbvylXN+yH
-	JQa/QN4WMJerv2vwWUQzpLeyqGHbl7EvnlePaIDkZtiN6w3GaUWw5Xdp6cXT9J9EyoxKOIucvwG
-	viTgFll/bJcnaA39Ph1oJOMjywqreUG9ygEd+tM0IIzzGsCihz+Sw1CydQHP/8VH3ZzDvM84s//
-	yQKPhvbGWQ=
-X-Received: by 2002:a05:7022:b97:b0:128:ca90:32e2 with SMTP id a92af1059eb24-128f3d01194mr6948603c88.7.1773701086368;
-        Mon, 16 Mar 2026 15:44:46 -0700 (PDT)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:3965:b4d0:9159:598b])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab3eec8fsm16536873eec.13.2026.03.16.15.44.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 15:44:45 -0700 (PDT)
-From: Douglas Anderson <dianders@chromium.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	devicetree@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH] device property: Make modifications of fwnode "flags" thread safe
-Date: Mon, 16 Mar 2026 15:42:06 -0700
-Message-ID: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
-X-Mailer: git-send-email 2.53.0.851.ga537e3e6e9-goog
+        bh=Q4cJcFtf4hpm0T0e+VviEvUx2ruLtbnKyeEs5ldKrcs=;
+        b=vjAvtFCGkaKr7obLoh7qGoNeI3vO7Yrfe40ep2KuF1yw3wBQh42Mmhc2HmBgXIORaA
+         9UyFmBaLSlsAlZqI0MBCAq9BEFd8Ffdy97LK+YHxr9DSPcnz9SGdmWfRp9tI3hh+L6ln
+         rq1bMH7j/vqNcUFXEz/rUUUjEFnEeImgnHpMhQvnkfzg5JyPGOSvwmsFdl5zMYk/6rTi
+         0xQVSeJih/D2GQepR2o1uangl+9m7neRRPYUvj7rd3wsp6ixWdYcd/NZ7jezT9TAX5XF
+         lO3adSfX+ypGWCnpfIGq5/7opt3gWb2L8hp/9f5txABVMZpkFF5BSDIj+We7WnxqKUyN
+         kcjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773701978; x=1774306778;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Q4cJcFtf4hpm0T0e+VviEvUx2ruLtbnKyeEs5ldKrcs=;
+        b=CERHIeDg1/KzR8mykoNppKBBVwPJLZKU+wVYnsC86MHPw1/OhKpo9W+7cvZpNXWHlg
+         Uwp8hSnd8G1y8PFhXJY7X5C7R44zo7HFGDdgTf+dLT5ZCVWJEUxPxP5NkkEt2+ETwU7R
+         6bw4mBm+fiB5Q8q1FBpAe/Chtb46ZlJGpIib9gWBSB0UYhSR3TnPqnWfFeGMHAZQHH1D
+         w9a3IOmccNBfZI1zQsjcPlWMHsABtuak259/H64M+fbm2E9R4KFWSQuD755d23OWnzDw
+         //iVtaVbtB3mOrIc+YrrI3huX/slfhYHG/hijFgmnksjmr3eSwiT+ms7FYJ3lD0Fba5e
+         tOTw==
+X-Forwarded-Encrypted: i=1; AJvYcCUr1wk/xbsCWTLI+03RdKDiMu1ENtiPdQYVTh9bWS+9sKA28F/lIBDVm2rX/ygXxsnUYXOz2ulHx/KkPYl8Ad7c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOJFGBL1YDbd+/NJ/LFaz7o/JIM4qrTTObfvpy/EM5j49Meak/
+	qCivZPLxR4Q7K6qJTYjO2hOXGtQgCRz1DC0mNXtV7f1goaqSn63iDLFjzckFTC8XqsvGrd9EGGh
+	sJ+qc0YAXPeqFIn/bfDitGnFLRJC2Tdz5QzzIEXio
+X-Gm-Gg: ATEYQzzYPiEW5KAuAtTLWtiZrRs04QAzmGGDcn+qSr70jJ0YFdnyhhNz4VTzT70akoC
+	F9ZckKGFomtwR7LS4WxSEhe/Dz2q4+ljS0JDfeI/3WVyiUf5rAMirWXm9coRgRaYa0hBduq///K
+	lUtmhu0naP+SDDOuPUmZCo4CDY3pFTJwNTNFCdpGC+wDDaRkcWmY3ymidmNC87HrzeZkm6QXC4N
+	T6BblMsXpr5MbcJfjY0amNMmKy71KdoVDMEOZuRL4x79yJfWS7qUAio6t+ORx22LPhwShPBmeu8
+	s6/4Xt0A++zPb0Aq
+X-Received: by 2002:ac8:5e12:0:b0:4f3:54eb:f26e with SMTP id
+ d75a77b69052e-5099ac78738mr2798501cf.1.1773701977490; Mon, 16 Mar 2026
+ 15:59:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1773346620.git.ljs@kernel.org> <c5bb61cf789df1ecb32facc29df9749987c7ddfc.1773346620.git.ljs@kernel.org>
+ <CAJuCfpGd702=Xop3X5Aop9rrScdiAOQEEooTu1gcJqR9pmO5GA@mail.gmail.com> <6a0e73a5-519e-49ca-9f76-2f6cc5a1577c@lucifer.local>
+In-Reply-To: <6a0e73a5-519e-49ca-9f76-2f6cc5a1577c@lucifer.local>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Mon, 16 Mar 2026 15:59:26 -0700
+X-Gm-Features: AaiRm5118TD3MF16DHCGoLHkzYMnffHjhVhwrz0uUgfCnERLy0ui_OLbleubf-w
+Message-ID: <CAJuCfpEjTw1nQik_HWXHg2su2DwzPrn5NPGpeAVPrjJK0tOSkg@mail.gmail.com>
+Subject: Re: [PATCH 02/15] mm: add documentation for the mmap_prepare file
+ operation callback
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
+	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
+	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
+	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	Ryan Roberts <ryan.roberts@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_154448_437893_425DEC3C 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260316_155940_117714_5EBE7291 
+X-CRM114-Status: GOOD (  57.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,319 +137,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In various places in the kernel, we modify the fwnode "flags" member
-by doing either:
-  fwnode->flags |= SOME_FLAG;
-  fwnode->flags &= ~SOME_FLAG;
+On Mon, Mar 16, 2026 at 12:17=E2=80=AFPM Lorenzo Stoakes (Oracle)
+<ljs@kernel.org> wrote:
+>
+> On Sun, Mar 15, 2026 at 04:23:14PM -0700, Suren Baghdasaryan wrote:
+> > On Thu, Mar 12, 2026 at 1:27=E2=80=AFPM Lorenzo Stoakes (Oracle) <ljs@k=
+ernel.org> wrote:
+> > >
+> > > This documentation makes it easier for a driver/file system implement=
+er to
+> > > correctly use this callback.
+> > >
+> > > It covers the fundamentals, whilst intentionally leaving the less lov=
+ely
+> > > possible actions one might take undocumented (for instance - the
+> > > success_hook, error_hook fields in mmap_action).
+> > >
+> > > The document also covers the new VMA flags implementation which is th=
+e only
+> > > one which will work correctly with mmap_prepare.
+> > >
+> > > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+> > > ---
+> > >  Documentation/filesystems/mmap_prepare.rst | 131 +++++++++++++++++++=
+++
+> > >  1 file changed, 131 insertions(+)
+> > >  create mode 100644 Documentation/filesystems/mmap_prepare.rst
+> > >
+> > > diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentati=
+on/filesystems/mmap_prepare.rst
+> > > new file mode 100644
+> > > index 000000000000..76908200f3a1
+> > > --- /dev/null
+> > > +++ b/Documentation/filesystems/mmap_prepare.rst
+> > > @@ -0,0 +1,131 @@
+> > > +.. SPDX-License-Identifier: GPL-2.0
+> > > +
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+> > > +mmap_prepare callback HOWTO
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+> > > +
+> > > +Introduction
+> > > +############
+> > > +
+> > > +The `struct file->f_op->mmap()` callback has been deprecated as it i=
+s both a
+> > > +stability and security risk, and doesn't always permit the merging o=
+f adjacent
+> > > +mappings resulting in unnecessary memory fragmentation.
+> > > +
+> > > +It has been replaced with the `file->f_op->mmap_prepare()` callback =
+which solves
+> > > +these problems.
+> > > +
+> > > +## How To Use
+> > > +
+> > > +In your driver's `struct file_operations` struct, specify an `mmap_p=
+repare`
+> > > +callback rather than an `mmap` one, e.g. for ext4:
+> > > +
+> > > +
+> > > +.. code-block:: C
+> > > +
+> > > +    const struct file_operations ext4_file_operations =3D {
+> > > +        ...
+> > > +        .mmap_prepare    =3D ext4_file_mmap_prepare,
+> > > +    };
+> > > +
+> > > +This has a signature of `int (*mmap_prepare)(struct vm_area_desc *)`=
+.
+> > > +
+> > > +Examining the `struct vm_area_desc` type:
+> > > +
+> > > +.. code-block:: C
+> > > +
+> > > +    struct vm_area_desc {
+> > > +        /* Immutable state. */
+> > > +        const struct mm_struct *const mm;
+> > > +        struct file *const file; /* May vary from vm_file in stacked=
+ callers. */
+> > > +        unsigned long start;
+> > > +        unsigned long end;
+> > > +
+> > > +        /* Mutable fields. Populated with initial state. */
+> > > +        pgoff_t pgoff;
+> > > +        struct file *vm_file;
+> > > +        vma_flags_t vma_flags;
+> > > +        pgprot_t page_prot;
+> > > +
+> > > +        /* Write-only fields. */
+> > > +        const struct vm_operations_struct *vm_ops;
+> > > +        void *private_data;
+> > > +
+> > > +        /* Take further action? */
+> > > +        struct mmap_action action;
+> >
+> > So, action still belongs to /* Write-only fields. */ section? This is
+> > nitpicky, but it might be better to have this as:
+> >
+> >         /* Write-only fields. */
+> >         const struct vm_operations_struct *vm_ops;
+> >         void *private_data;
+> >         struct mmap_action action; /* Take further action? */
+>
+> Absolutely not. This field is not to be written to by the user.
+>
+> We sadly have to allow hugetlb to do some hacks, but these are things we =
+don't
+> want to point out.
 
-This type of modification is not thread-safe. If two threads are both
-mucking with the flags at the same time then one can clobber the
-other.
+Ack.
 
-While flags are often modified while under the "fwnode_link_lock",
-this is not universally true.
+>
+> Users should use mmap_action_xxx() functions.
+>
+> >
+> > > +    };
+> > > +
+> > > +This is straightforward - you have all the fields you need to set up=
+ the
+> > > +mapping, and you can update the mutable and writable fields, for ins=
+tance:
+> > > +
+> > > +.. code-block:: Cw
+> > > +
+> > > +    static int ext4_file_mmap_prepare(struct vm_area_desc *desc)
+> > > +    {
+> > > +        int ret;
+> > > +        struct file *file =3D desc->file;
+> > > +        struct inode *inode =3D file->f_mapping->host;
+> > > +
+> > > +        ...
+> > > +
+> > > +        file_accessed(file);
+> > > +        if (IS_DAX(file_inode(file))) {
+> > > +            desc->vm_ops =3D &ext4_dax_vm_ops;
+> > > +            vma_desc_set_flags(desc, VMA_HUGEPAGE_BIT);
+> > > +        } else {
+> > > +            desc->vm_ops =3D &ext4_file_vm_ops;
+> > > +        }
+> > > +        return 0;
+> > > +    }
+> > > +
+> > > +Importantly, you no longer have to dance around with reference count=
+s or locks
+> > > +when updating these fields - __you can simply go ahead and change th=
+em__.
+> > > +
+> > > +Everything is taken care of by the mapping code.
+> > > +
+> > > +VMA Flags
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > > +
+> > > +Along with `mmap_prepare`, VMA flags have undergone an overhaul. Whe=
+re before
+> > > +you would invoke one of `vm_flags_init()`, `vm_flags_reset()`, `vm_f=
+lags_set()`,
+> > > +`vm_flags_clear()`, and `vm_flags_mod()` to modify flags (and to hav=
+e the
+> > > +locking done correctly for you, this is no longer necessary.
+> > > +
+> > > +Also, the legacy approach of specifying VMA flags via `VM_READ`, `VM=
+_WRITE`,
+> > > +etc. - i.e. using a `VM_xxx` macro has changed too.
+> > > +
+> > > +When implementing `mmap_prepare()`, reference flags by their bit num=
+ber, defined
+> > > +as a `VMA_xxx_BIT` macro, e.g. `VMA_READ_BIT`, `VMA_WRITE_BIT` etc.,=
+ and use one
+> > > +of (where `desc` is a pointer to `struct vma_area_desc`):
+> > > +
+> > > +* `vma_desc_test_flags(desc, ...)` - Specify a comma-separated list =
+of flags you
+> > > +  wish to test for (whether _any_ are set), e.g. - `vma_desc_test_fl=
+ags(desc,
+> > > +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)` - returns `true` if either are s=
+et,
+> > > +  otherwise `false`.
+> > > +* `vma_desc_set_flags(desc, ...)` - Update the VMA descriptor flags =
+to set
+> > > +  additional flags specified by a comma-separated list,
+> > > +  e.g. - `vma_desc_set_flags(desc, VMA_PFNMAP_BIT, VMA_IO_BIT)`.
+> > > +* `vma_desc_clear_flags(desc, ...)` - Update the VMA descriptor flag=
+s to clear
+> > > +  flags specified by a comma-separated list, e.g. - `vma_desc_clear_=
+flags(desc,
+> > > +  VMA_WRITE_BIT, VMA_MAYWRITE_BIT)`.
+> > > +
+> > > +Actions
+> > > +=3D=3D=3D=3D=3D=3D=3D
+> > > +
+> > > +You can now very easily have actions be performed upon a mapping onc=
+e set up by
+> > > +utilising simple helper functions invoked upon the `struct vm_area_d=
+esc`
+> > > +pointer. These are:
+> > > +
+> > > +* `mmap_action_remap()` - Remaps a range consisting only of PFNs for=
+ a specific
+> > > +  range starting a virtual address and PFN number of a set size.
+> > > +
+> > > +* `mmap_action_remap_full()` - Same as `mmap_action_remap()`, only r=
+emaps the
+> > > +  entire mapping from `start_pfn` onward.
+> > > +
+> > > +* `mmap_action_ioremap()` - Same as `mmap_action_remap()`, only perf=
+orms an I/O
+> > > +  remap.
+> > > +
+> > > +* `mmap_action_ioremap_full()` - Same as `mmap_action_ioremap()`, on=
+ly remaps
+> > > +  the entire mapping from `start_pfn` onward.
+> > > +
+> > > +**NOTE:** The 'action' field should never normally be manipulated di=
+rectly,
+> > > +rather you ought to use one of these helpers.
+> >
+> > I'm guessing the start and size parameters passed to
+> > mmap_action_remap() and such are restricted by vm_area_desc.start
+> > vm_area_desc.end. If so, should we document those restrictions and
+> > enforce them in the code?
+>
+> I mean it's the same restrictions as all of the functions already apply i=
+f you
+> were to use them with a VMA descriptor.
+>
+> I think implicitly a remap will fail if you try it out of the VMA range a=
+t the
+> point of applying the change.
+>
+> But it might be worth adding range_in_vma_desc() checks at prepare time, =
+will
+> see if I can do that for the respin.
+>
+> I think it's pretty obvious that you shouldn't be trying to remap totally
+> unrelated memory, so I'm not sure that's at a level of granularity that's=
+ suited
+> to this document though.
 
-Create some accessor functions for setting, clearing, and testing the
-FWNODE flags and move all users to these accessor functions. New
-accessor functions use set_bit() and clear_bit(), which are
-thread-safe.
+I just saw you already have WARN_ON_ONCE() inside mmap_action_remap()
+to check for these limits, so codewise I think we are already good.
 
-Cc: stable@vger.kernel.org
-Fixes: c2c724c868c4 ("driver core: Add fw_devlink_parse_fwtree()")
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-While this patch is not known for sure to fix any specific issues, it
-seems possible that it could fix some rare problems. I'm currently
-trying to track down a hard-to-reproduce heisenbug and one (currently
-unproven) theory I had was that the fwnode flags could be getting
-messed up like this. Even if turns out not to fix my heisenbug,
-though, this seems like a worthwhile change to take.
+For documentation I'll rely on your judgement whether to mention this or no=
+t.
 
- drivers/base/core.c                 | 24 +++++++++----------
- drivers/bus/imx-weim.c              |  2 +-
- drivers/i2c/i2c-core-of.c           |  2 +-
- drivers/net/phy/mdio_bus_provider.c |  4 ++--
- drivers/of/base.c                   |  2 +-
- drivers/of/dynamic.c                |  2 +-
- drivers/of/platform.c               |  2 +-
- drivers/spi/spi.c                   |  2 +-
- include/linux/fwnode.h              | 37 ++++++++++++++++++++++-------
- 9 files changed, 48 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 791f9e444df8..f65492a4afc8 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -182,7 +182,7 @@ void fw_devlink_purge_absent_suppliers(struct fwnode_handle *fwnode)
- 	if (fwnode->dev)
- 		return;
- 
--	fwnode->flags |= FWNODE_FLAG_NOT_DEVICE;
-+	fwnode_set_flag(fwnode, FWNODE_FLAG_NOT_DEVICE);
- 	fwnode_links_purge_consumers(fwnode);
- 
- 	fwnode_for_each_available_child_node(fwnode, child)
-@@ -228,7 +228,7 @@ static void __fw_devlink_pickup_dangling_consumers(struct fwnode_handle *fwnode,
- 	if (fwnode->dev && fwnode->dev->bus)
- 		return;
- 
--	fwnode->flags |= FWNODE_FLAG_NOT_DEVICE;
-+	fwnode_set_flag(fwnode, FWNODE_FLAG_NOT_DEVICE);
- 	__fwnode_links_move_consumers(fwnode, new_sup);
- 
- 	fwnode_for_each_available_child_node(fwnode, child)
-@@ -1012,7 +1012,7 @@ static void device_links_missing_supplier(struct device *dev)
- static bool dev_is_best_effort(struct device *dev)
- {
- 	return (fw_devlink_best_effort && dev->can_match) ||
--		(dev->fwnode && (dev->fwnode->flags & FWNODE_FLAG_BEST_EFFORT));
-+		(dev->fwnode && (fwnode_test_flag(dev->fwnode, FWNODE_FLAG_BEST_EFFORT)));
- }
- 
- static struct fwnode_handle *fwnode_links_check_suppliers(
-@@ -1723,11 +1723,11 @@ bool fw_devlink_is_strict(void)
- 
- static void fw_devlink_parse_fwnode(struct fwnode_handle *fwnode)
- {
--	if (fwnode->flags & FWNODE_FLAG_LINKS_ADDED)
-+	if (fwnode_test_flag(fwnode, FWNODE_FLAG_LINKS_ADDED))
- 		return;
- 
- 	fwnode_call_int_op(fwnode, add_links);
--	fwnode->flags |= FWNODE_FLAG_LINKS_ADDED;
-+	fwnode_set_flag(fwnode, FWNODE_FLAG_LINKS_ADDED);
- }
- 
- static void fw_devlink_parse_fwtree(struct fwnode_handle *fwnode)
-@@ -1885,7 +1885,7 @@ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
- 	struct device *dev;
- 	bool ret;
- 
--	if (!(fwnode->flags & FWNODE_FLAG_INITIALIZED))
-+	if (!(fwnode_test_flag(fwnode, FWNODE_FLAG_INITIALIZED)))
- 		return false;
- 
- 	dev = get_dev_from_fwnode(fwnode);
-@@ -2001,10 +2001,10 @@ static bool __fw_devlink_relax_cycles(struct fwnode_handle *con_handle,
- 	 * We aren't trying to find all cycles. Just a cycle between con and
- 	 * sup_handle.
- 	 */
--	if (sup_handle->flags & FWNODE_FLAG_VISITED)
-+	if (fwnode_test_flag(sup_handle, FWNODE_FLAG_VISITED))
- 		return false;
- 
--	sup_handle->flags |= FWNODE_FLAG_VISITED;
-+	fwnode_set_flag(sup_handle, FWNODE_FLAG_VISITED);
- 
- 	/* Termination condition. */
- 	if (sup_handle == con_handle) {
-@@ -2074,7 +2074,7 @@ static bool __fw_devlink_relax_cycles(struct fwnode_handle *con_handle,
- 	}
- 
- out:
--	sup_handle->flags &= ~FWNODE_FLAG_VISITED;
-+	fwnode_clear_flag(sup_handle, FWNODE_FLAG_VISITED);
- 	put_device(sup_dev);
- 	put_device(con_dev);
- 	put_device(par_dev);
-@@ -2127,7 +2127,7 @@ static int fw_devlink_create_devlink(struct device *con,
- 	 * When such a flag is set, we can't create device links where P is the
- 	 * supplier of C as that would delay the probe of C.
- 	 */
--	if (sup_handle->flags & FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD &&
-+	if (fwnode_test_flag(sup_handle, FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD) &&
- 	    fwnode_is_ancestor_of(sup_handle, con->fwnode))
- 		return -EINVAL;
- 
-@@ -2150,7 +2150,7 @@ static int fw_devlink_create_devlink(struct device *con,
- 	else
- 		flags = FW_DEVLINK_FLAGS_PERMISSIVE;
- 
--	if (sup_handle->flags & FWNODE_FLAG_NOT_DEVICE)
-+	if (fwnode_test_flag(sup_handle, FWNODE_FLAG_NOT_DEVICE))
- 		sup_dev = fwnode_get_next_parent_dev(sup_handle);
- 	else
- 		sup_dev = get_dev_from_fwnode(sup_handle);
-@@ -2162,7 +2162,7 @@ static int fw_devlink_create_devlink(struct device *con,
- 		 * supplier device indefinitely.
- 		 */
- 		if (sup_dev->links.status == DL_DEV_NO_DRIVER &&
--		    sup_handle->flags & FWNODE_FLAG_INITIALIZED) {
-+		    fwnode_test_flag(sup_handle, FWNODE_FLAG_INITIALIZED)) {
- 			dev_dbg(con,
- 				"Not linking %pfwf - dev might never probe\n",
- 				sup_handle);
-diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-index 83d623d97f5f..f735e0462c55 100644
---- a/drivers/bus/imx-weim.c
-+++ b/drivers/bus/imx-weim.c
-@@ -332,7 +332,7 @@ static int of_weim_notify(struct notifier_block *nb, unsigned long action,
- 			 * fw_devlink doesn't skip adding consumers to this
- 			 * device.
- 			 */
--			rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
-+			fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 			if (!of_platform_device_create(rd->dn, NULL, &pdev->dev)) {
- 				dev_err(&pdev->dev,
- 					"Failed to create child device '%pOF'\n",
-diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-index eb7fb202355f..354a88d0599e 100644
---- a/drivers/i2c/i2c-core-of.c
-+++ b/drivers/i2c/i2c-core-of.c
-@@ -180,7 +180,7 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
- 		 * Clear the flag before adding the device so that fw_devlink
- 		 * doesn't skip adding consumers to this device.
- 		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
-+		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		client = of_i2c_register_device(adap, rd->dn);
- 		if (IS_ERR(client)) {
- 			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
-diff --git a/drivers/net/phy/mdio_bus_provider.c b/drivers/net/phy/mdio_bus_provider.c
-index 4b0637405740..fd691c5424ea 100644
---- a/drivers/net/phy/mdio_bus_provider.c
-+++ b/drivers/net/phy/mdio_bus_provider.c
-@@ -294,8 +294,8 @@ int __mdiobus_register(struct mii_bus *bus, struct module *owner)
- 		return -EINVAL;
- 
- 	if (bus->parent && bus->parent->of_node)
--		bus->parent->of_node->fwnode.flags |=
--					FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD;
-+		fwnode_set_flag(&bus->parent->of_node->fwnode,
-+				FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD);
- 
- 	WARN(bus->state != MDIOBUS_ALLOCATED &&
- 	     bus->state != MDIOBUS_UNREGISTERED,
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index 57420806c1a2..8d1972e18161 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -1915,7 +1915,7 @@ void of_alias_scan(void * (*dt_alloc)(u64 size, u64 align))
- 		if (name)
- 			of_stdout = of_find_node_opts_by_path(name, &of_stdout_options);
- 		if (of_stdout)
--			of_stdout->fwnode.flags |= FWNODE_FLAG_BEST_EFFORT;
-+			fwnode_set_flag(&of_stdout->fwnode, FWNODE_FLAG_BEST_EFFORT);
- 	}
- 
- 	if (!of_aliases)
-diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
-index 1a06175def37..ade288372101 100644
---- a/drivers/of/dynamic.c
-+++ b/drivers/of/dynamic.c
-@@ -225,7 +225,7 @@ static void __of_attach_node(struct device_node *np)
- 	np->sibling = np->parent->child;
- 	np->parent->child = np;
- 	of_node_clear_flag(np, OF_DETACHED);
--	np->fwnode.flags |= FWNODE_FLAG_NOT_DEVICE;
-+	fwnode_set_flag(&np->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 
- 	raw_spin_unlock_irqrestore(&devtree_lock, flags);
- 
-diff --git a/drivers/of/platform.c b/drivers/of/platform.c
-index ba591fbceb56..7eeaf8e27b5b 100644
---- a/drivers/of/platform.c
-+++ b/drivers/of/platform.c
-@@ -742,7 +742,7 @@ static int of_platform_notify(struct notifier_block *nb,
- 		 * Clear the flag before adding the device so that fw_devlink
- 		 * doesn't skip adding consumers to this device.
- 		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
-+		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		/* pdev_parent may be NULL when no bus platform device */
- 		pdev_parent = of_find_device_by_node(parent);
- 		pdev = of_platform_device_create(rd->dn, NULL,
-diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-index 61f7bde8c7fb..ba8098f1a88c 100644
---- a/drivers/spi/spi.c
-+++ b/drivers/spi/spi.c
-@@ -4938,7 +4938,7 @@ static int of_spi_notify(struct notifier_block *nb, unsigned long action,
- 		 * Clear the flag before adding the device so that fw_devlink
- 		 * doesn't skip adding consumers to this device.
- 		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
-+		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		spi = of_register_spi_device(ctlr, rd->dn);
- 		put_device(&ctlr->dev);
- 
-diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
-index 097be89487bf..4f7f80155f69 100644
---- a/include/linux/fwnode.h
-+++ b/include/linux/fwnode.h
-@@ -15,6 +15,7 @@
- #define _LINUX_FWNODE_H_
- 
- #include <linux/bits.h>
-+#include <linux/bitops.h>
- #include <linux/err.h>
- #include <linux/list.h>
- #include <linux/types.h>
-@@ -42,12 +43,12 @@ struct device;
-  *		suppliers. Only enforce ordering with suppliers that have
-  *		drivers.
-  */
--#define FWNODE_FLAG_LINKS_ADDED			BIT(0)
--#define FWNODE_FLAG_NOT_DEVICE			BIT(1)
--#define FWNODE_FLAG_INITIALIZED			BIT(2)
--#define FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD	BIT(3)
--#define FWNODE_FLAG_BEST_EFFORT			BIT(4)
--#define FWNODE_FLAG_VISITED			BIT(5)
-+#define FWNODE_FLAG_LINKS_ADDED			0
-+#define FWNODE_FLAG_NOT_DEVICE			1
-+#define FWNODE_FLAG_INITIALIZED			2
-+#define FWNODE_FLAG_NEEDS_CHILD_BOUND_ON_ADD	3
-+#define FWNODE_FLAG_BEST_EFFORT			4
-+#define FWNODE_FLAG_VISITED			5
- 
- struct fwnode_handle {
- 	struct fwnode_handle *secondary;
-@@ -57,7 +58,7 @@ struct fwnode_handle {
- 	struct device *dev;
- 	struct list_head suppliers;
- 	struct list_head consumers;
--	u8 flags;
-+	unsigned long flags;
- };
- 
- /*
-@@ -212,6 +213,24 @@ static inline void fwnode_init(struct fwnode_handle *fwnode,
- 	INIT_LIST_HEAD(&fwnode->suppliers);
- }
- 
-+static inline void fwnode_set_flag(struct fwnode_handle *fwnode,
-+				   unsigned int bit)
-+{
-+	set_bit(bit, &fwnode->flags);
-+}
-+
-+static inline void fwnode_clear_flag(struct fwnode_handle *fwnode,
-+				   unsigned int bit)
-+{
-+	clear_bit(bit, &fwnode->flags);
-+}
-+
-+static inline bool fwnode_test_flag(struct fwnode_handle *fwnode,
-+				    unsigned int bit)
-+{
-+	return test_bit(bit, &fwnode->flags);
-+}
-+
- static inline void fwnode_dev_initialized(struct fwnode_handle *fwnode,
- 					  bool initialized)
- {
-@@ -219,9 +238,9 @@ static inline void fwnode_dev_initialized(struct fwnode_handle *fwnode,
- 		return;
- 
- 	if (initialized)
--		fwnode->flags |= FWNODE_FLAG_INITIALIZED;
-+		fwnode_set_flag(fwnode, FWNODE_FLAG_INITIALIZED);
- 	else
--		fwnode->flags &= ~FWNODE_FLAG_INITIALIZED;
-+		fwnode_clear_flag(fwnode, FWNODE_FLAG_INITIALIZED);
- }
- 
- int fwnode_link_add(struct fwnode_handle *con, struct fwnode_handle *sup,
--- 
-2.53.0.851.ga537e3e6e9-goog
-
+>
+> >
+> > > +    struct vm_area_desc {
+> > > +        /* Immutable state. */
+> > > +        const struct mm_struct *const mm;
+> > > +        struct file *const file; /* May vary from vm_file in stacked=
+ callers. */
+> > > +        unsigned long start;
+> > > +        unsigned long end;
+> >
+> >
+> > > --
+> > > 2.53.0
+> > >
 
