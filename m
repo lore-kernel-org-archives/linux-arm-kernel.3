@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04337F53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D324F53D69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RqPXFY+GLjpOflxuWn8+7dvA1WDaG3r8tacR0ikC7G4=; b=l8xNf4gjY8PgvX58qbMPjeaOQM
-	pAnw2xqm+9NNTLNdsROE0pDdqurdpygnIB4X7eanxUVRsXHm8Oc9WztLXLTzYSF2ehF/lZ5b2+lLb
-	nD1+tFADdCjFNZ09C5Q3IAe6XMOMCiVIhCMLy7VGAEe1QOAPjcMz06wCMz9sXbbJGoW6LKuM6ScZ+
-	kmRcScsHR5rVdQabrISAqrsOa9R6HANDcOY2am7dCESqQJP0IyZGakw4fd2j0Ubaej8dpamA2HzVF
-	Fwo0IeqxnB6dlD1WezkxGj2okM+fggecmuHhUaqS8CYB9fwV08NFqlcOpoZMYMVi6AQZPb+LRk9qS
-	EgYCeefw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QZ1ZJoQ2YhOhJsqAmIeLdvIJJT/PHrvkcAt0k1aELS8=; b=C1y4ufRU4gUKIqicTZ3L1ZMxrd
+	TlCmX/Om2dRxW/u6BkR+ylvmJNukfbdkdPcloI+noHruSamDdPIyuTYYD4BMWpfjWIINTnUUNhHHO
+	yMRLi69iVohHiFOPRvhSTsOHY4g8gOqGVIEyuRKDO84Gja5/Mw/FTzPzKTXVy04MbGmY9aWg+QbW+
+	pZqvRts4OTcKFzzvMMtkErNXWpAwrFcKe+dFKJjhCV6hcAP6g4Fm/ybufUa5Z0uXwRbJ3ZzSh0ymE
+	6RWKCc3QbjDji8em/cLzgyoVpnYDRIJNs5+X1KXrDN384WQ5RvNRk/DFwlr/aw4PcGqGXAcQw4SDN
+	Dwz685UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2A3D-00000004MBs-2KxY;
-	Mon, 16 Mar 2026 15:40:15 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2A39-00000004MBX-3yMg
+	id 1w2A5d-00000004MMn-0aL7;
+	Mon, 16 Mar 2026 15:42:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2A5a-00000004MLf-2gqS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:40:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773675611; x=1805211611;
-  h=date:from:to:cc:subject:message-id;
-  bh=+6HLMkRAVAbuDFA4CkDy2nO4LH+V9Q4EM7Vymr0anaU=;
-  b=NoSDVsu4D6I5rF+rYGWB4JebEQiBzXTIQr4EyAkc9go1g8WL9kvXMAPy
-   Jc/Orv6deb2i/HOMx50onUZozaHifRith8JlOgR7gx1cf+tsqI18VLB8o
-   YXwGKn4TaW5KAZ3bY1SWZvaGeZ0yN7tXdMwkZwurYZsJCIXH+gRrtoD8D
-   F5xLL7WHnr5AJQC9qvAsoHlGJPydAw1J9uIOA6ncldUfQLjn4+6oBIImp
-   eTNpriqZpEyNIpe2P1KXvHaYyaN07myfOCfIezzxjETzYyFh/tacZtdes
-   MYFLXN+XTIGoUY1qtj4FZTNORKp7mHclUddjco6NNvNaVfgTqVOTC8dFV
-   Q==;
-X-CSE-ConnectionGUID: mOWw91wgRQedZjf7NiB2fQ==
-X-CSE-MsgGUID: PTDbf322Sn65pRNuNNRufA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74581677"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="74581677"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 08:40:12 -0700
-X-CSE-ConnectionGUID: 6x5GXCb2Tj2lXEMotk9vxg==
-X-CSE-MsgGUID: coL4B58RQUy1KbEJTC3c2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="219519539"
-Received: from lkp-server01.sh.intel.com (HELO 892944969b78) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 16 Mar 2026 08:40:09 -0700
-Received: from kbuild by 892944969b78 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w2A35-000000000r2-051r;
-	Mon, 16 Mar 2026 15:40:07 +0000
-Date: Mon, 16 Mar 2026 23:39:58 +0800
-From: kernel test robot <lkp@intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers] BUILD SUCCESS
- c9da2648790306176171ab4ac2e4db95d79f3923
-Message-ID: <202603162352.shUHPiSy-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Mon, 16 Mar 2026 15:42:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 475341477;
+	Mon, 16 Mar 2026 08:42:34 -0700 (PDT)
+Received: from [10.57.61.116] (unknown [10.57.61.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFA973F778;
+	Mon, 16 Mar 2026 08:42:38 -0700 (PDT)
+Message-ID: <268c246d-893b-4b50-8fbb-ff82539465aa@arm.com>
+Date: Mon, 16 Mar 2026 15:42:36 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] iommu/arm-smmu-v3: Add Context Descriptor display
+ to debugfs
+To: Qinxin Xia <xiaqinxin@huawei.com>, will@kernel.org, jpb@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ wangzhou1@hisilicon.com, prime.zeng@hisilicon.com, fanghao11@huawei.com,
+ jonathan.cameron@huawei.com, linuxarm@huawei.com
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-6-xiaqinxin@huawei.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260313104351.3502293-6-xiaqinxin@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_084012_038359_5FB9D6AB 
-X-CRM114-Status: UNSURE (   4.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_084242_784501_5240B926 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,180 +67,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-branch HEAD: c9da2648790306176171ab4ac2e4db95d79f3923  Merge tag 'renesas-dt-bindings-for-v7.1-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
+On 2026-03-13 10:43 am, Qinxin Xia wrote:
+> Add Context Descriptor (CD) display functionality to debugfs.
+> This allow inspecting CD contents for all Substream IDs including:
+> - CD validity and translation parameters
+> - TTBR0 and TCR configurations
+> - Raw CD data
+> 
+> /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
+> └── 0000:01:00.0:0/
+>      ├── ste
+>      └── context_descriptors/
+>          └── all
+> 
+> Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+> ---
+>   .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 112 ++++++++++++++++++
+>   1 file changed, 112 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+> index f62df02847ac..66ae1228c6ad 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+> @@ -27,6 +27,13 @@
+>    * - Context Pointers: Stage 1 and Stage 2 translation context addresses
+>    * - Raw Data: Complete 64-bit STE words in hexadecimal
+>    *
+> + * CD Information Displayed:
+> + * - Validity: Active state of the context descriptor
+> + * - T0SZ: Input address space size configuration
+> + * - EPD0/EPD1: Stage 1 translation enable flags
+> + * - TTBR0: Stage 1 translation table base address
+> + * - Raw Data: Complete CD structure in hexadecimal format
+> + *
+>    * Directory Structure:
+>    * /sys/kernel/debug/iommu/arm_smmu_v3/
+>    * └── smmu0/
+> @@ -35,6 +42,8 @@
+>    *     └── stream_table
+>    *	   └── 0000:01:00.0:0/                    # PCI device with Stream ID 0
+>    *             ├── ste                           # Stream Table Entry
+> + *             └── context_descriptors/
+> + *                 └── all                       # All Context Descriptors
+>    *
+>    * The capabilities file provides detailed information about:
+>    * - Architecture version and translation stage support (Stage1/Stage2)
+> @@ -59,6 +68,8 @@
+>   static struct dentry *smmuv3_root_dir;
+>   static DEFINE_MUTEX(arm_smmu_debugfs_lock);
+>   
+> +#define MAX_SSIDS	32	/* Reasonable limit for SSID enumeration */
 
-elapsed time: 1224m
+Arbitrarily limiting to only 32 out of a potential 2^20 SSIDs seems odd, 
+like it's rather more than needed for basic sanity-checking, but far too 
+few for debugging specific usage.
 
-configs tested: 160
-configs skipped: 3
+FWIW I'd imagine it might be more useful to expose the CDs as individual 
+files by index - and if userspace does want an "all" dump then there's 
+always `cat`. Whether that would be all of them unconditionally based on 
+the current STE.S1CDMAX, or just the "active" ones based on PASID 
+allocations and S1DSS, is probably a question of what people think is 
+most useful (and/or how fiddly it is to actually implement the latter).
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> +
+>   /**
+>    * smmu_debugfs_capabilities_show() - Display SMMU capabilities
+>    * @seq: seq_file to write to
+> @@ -329,6 +340,90 @@ static int smmu_debugfs_ste_show(struct seq_file *seq, void *v)
+>   }
+>   DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_ste);
+>   
+> +/**
+> + * smmu_debug_dump_cd() - Dump Context Descriptor details to seq_file
+> + * @seq: seq_file to write to
+> + * @dev: device associated with the CD
+> + * @ssid: Substream ID
+> + */
+> +static void smmu_debug_dump_cd(struct seq_file *seq, struct device *dev, u32 ssid)
+> +{
+> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+> +	struct arm_smmu_cd *cd;
+> +	u64 data;
+> +	int i;
+> +
+> +	if (!master) {
+> +		seq_puts(seq, "No master data\n");
+> +		return;
+> +	}
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    gcc-15.2.0
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    gcc-15.2.0
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260316    gcc-10.5.0
-arc                   randconfig-002-20260316    gcc-9.5.0
-arm                               allnoconfig    clang-23
-arm                              allyesconfig    gcc-15.2.0
-arm                                 defconfig    clang-23
-arm                          pxa168_defconfig    clang-19
-arm                   randconfig-001-20260316    clang-23
-arm                   randconfig-002-20260316    clang-23
-arm                   randconfig-003-20260316    clang-23
-arm                   randconfig-004-20260316    clang-23
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260316    gcc-11.5.0
-arm64                 randconfig-002-20260316    clang-23
-arm64                 randconfig-003-20260316    clang-23
-arm64                 randconfig-004-20260316    clang-19
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260316    gcc-15.2.0
-csky                  randconfig-002-20260316    gcc-14.3.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-23
-hexagon                             defconfig    clang-23
-hexagon               randconfig-001-20260316    clang-23
-hexagon               randconfig-002-20260316    clang-23
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20260316    clang-20
-i386        buildonly-randconfig-002-20260316    gcc-14
-i386        buildonly-randconfig-003-20260316    clang-20
-i386        buildonly-randconfig-004-20260316    clang-20
-i386        buildonly-randconfig-005-20260316    clang-20
-i386        buildonly-randconfig-006-20260316    gcc-14
-i386                                defconfig    clang-20
-i386                  randconfig-001-20260316    gcc-14
-i386                  randconfig-002-20260316    clang-20
-i386                  randconfig-003-20260316    gcc-14
-i386                  randconfig-004-20260316    gcc-14
-i386                  randconfig-005-20260316    clang-20
-i386                  randconfig-006-20260316    gcc-12
-i386                  randconfig-007-20260316    gcc-14
-i386                  randconfig-011-20260316    clang-20
-i386                  randconfig-012-20260316    gcc-14
-i386                  randconfig-013-20260316    clang-20
-i386                  randconfig-014-20260316    gcc-13
-i386                  randconfig-015-20260316    clang-20
-i386                  randconfig-016-20260316    gcc-14
-i386                  randconfig-017-20260316    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-23
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260316    gcc-14.3.0
-loongarch             randconfig-002-20260316    clang-18
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    gcc-15.2.0
-m68k                                defconfig    gcc-15.2.0
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    gcc-15.2.0
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-nios2                            allmodconfig    gcc-11.5.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                 randconfig-001-20260316    gcc-11.5.0
-nios2                 randconfig-002-20260316    gcc-8.5.0
-openrisc                         allmodconfig    gcc-15.2.0
-openrisc                          allnoconfig    gcc-15.2.0
-openrisc                            defconfig    gcc-15.2.0
-parisc                            allnoconfig    gcc-15.2.0
-parisc                           allyesconfig    gcc-15.2.0
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260316    gcc-8.5.0
-parisc                randconfig-002-20260316    gcc-12.5.0
-parisc64                            defconfig    gcc-15.2.0
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    gcc-15.2.0
-powerpc               randconfig-001-20260316    clang-23
-powerpc               randconfig-002-20260316    clang-23
-powerpc64             randconfig-001-20260316    gcc-13.4.0
-powerpc64             randconfig-002-20260316    gcc-8.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    gcc-15.2.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    clang-23
-riscv                 randconfig-001-20260316    gcc-15.2.0
-riscv                 randconfig-002-20260316    gcc-8.5.0
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    clang-23
-s390                  randconfig-001-20260316    clang-18
-s390                  randconfig-002-20260316    gcc-14.3.0
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    gcc-15.2.0
-sh                               allyesconfig    gcc-15.2.0
-sh                                  defconfig    gcc-15.2.0
-sh                    randconfig-001-20260316    gcc-15.2.0
-sh                    randconfig-002-20260316    gcc-12.5.0
-sparc                             allnoconfig    gcc-15.2.0
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260316    gcc-8.5.0
-sparc                 randconfig-002-20260316    gcc-12.5.0
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    clang-20
-sparc64               randconfig-001-20260316    gcc-8.5.0
-sparc64               randconfig-002-20260316    gcc-15.2.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-14
-um                                  defconfig    clang-23
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260316    gcc-14
-um                    randconfig-002-20260316    clang-23
-um                           x86_64_defconfig    clang-23
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260316    gcc-14
-x86_64      buildonly-randconfig-002-20260316    clang-20
-x86_64      buildonly-randconfig-003-20260316    clang-20
-x86_64      buildonly-randconfig-004-20260316    gcc-14
-x86_64      buildonly-randconfig-005-20260316    gcc-14
-x86_64      buildonly-randconfig-006-20260316    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                randconfig-001-20260316    gcc-14
-x86_64                randconfig-002-20260316    clang-20
-x86_64                randconfig-003-20260316    clang-20
-x86_64                randconfig-004-20260316    gcc-14
-x86_64                randconfig-005-20260316    clang-20
-x86_64                randconfig-006-20260316    clang-20
-x86_64                randconfig-011-20260316    gcc-14
-x86_64                randconfig-012-20260316    gcc-14
-x86_64                randconfig-013-20260316    gcc-14
-x86_64                randconfig-014-20260316    gcc-14
-x86_64                randconfig-015-20260316    clang-20
-x86_64                randconfig-016-20260316    gcc-14
-x86_64                randconfig-071-20260316    gcc-12
-x86_64                randconfig-072-20260316    gcc-14
-x86_64                randconfig-073-20260316    gcc-14
-x86_64                randconfig-074-20260316    gcc-14
-x86_64                randconfig-075-20260316    clang-20
-x86_64                randconfig-076-20260316    clang-20
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.2.0
-xtensa                           allyesconfig    gcc-15.2.0
-xtensa                randconfig-001-20260316    gcc-15.2.0
-xtensa                randconfig-002-20260316    gcc-15.2.0
+If userspace can read these files racily with devices being removed then:
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+1) we should probably return an actual read error if the device has 
+already disappeared such the file is no longer valid.
+
+2) how do we know the device isn't going to disappear, and thus "master" 
+become invalid, immediately *after* this check happens to pass?
+
+Thanks,
+Robin.
+
+> +
+> +	cd = arm_smmu_get_cd_ptr(master, ssid);
+> +	if (!cd) {
+> +		seq_printf(seq, "CD not available for SSID %u\n", ssid);
+> +		return;
+> +	}
+> +
+> +	seq_printf(seq, "CD for Substream ID %u:\n", ssid);
+> +
+> +	/* CD 0 */
+> +	data = le64_to_cpu(cd->data[0]);
+> +	seq_printf(seq, "  Valid: %s\n", data & CTXDESC_CD_0_V ? "Yes" : "No");
+> +	seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
+> +	seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? "Yes" : "No");
+> +	seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? "Yes" : "No");
+> +
+> +	/* CD 1 */
+> +	data = le64_to_cpu(cd->data[1]);
+> +	seq_printf(seq, "  TTBR0: 0x%016llx\n", data & CTXDESC_CD_1_TTB0_MASK);
+> +
+> +	/* Display raw CD data */
+> +	seq_puts(seq, "  Raw Data:\n");
+> +	for (i = 0; i < CTXDESC_CD_DWORDS; i++)
+> +		seq_printf(seq, "    CD[%d]: 0x%016llx\n", i,
+> +			   le64_to_cpu(cd->data[i]));
+> +}
+> +
+> +/**
+> + * smmu_debug_dump_all_cds() - Dump all valid Context Descriptors for a device
+> + * @seq: seq_file to write to
+> + * @dev: target device
+> + */
+> +static void smmu_debug_dump_all_cds(struct seq_file *seq, struct device *dev)
+> +{
+> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+> +	u32 max_ssids, ssid;
+> +
+> +	if (!master) {
+> +		seq_puts(seq, "No master data\n");
+> +		return;
+> +	}
+> +
+> +	max_ssids = min_t(u32, 1 << master->ssid_bits, MAX_SSIDS);
+> +
+> +	seq_printf(seq, "Context Descriptors for device (max SSIDs: %u):\n",
+> +		   max_ssids);
+> +
+> +	for (ssid = 0; ssid < max_ssids; ssid++) {
+> +		struct arm_smmu_cd *cd = arm_smmu_get_cd_ptr(master, ssid);
+> +
+> +		if (cd && (le64_to_cpu(cd->data[0]) & CTXDESC_CD_0_V)) {
+> +			seq_printf(seq, "\n--- SSID %u ---\n", ssid);
+> +			smmu_debug_dump_cd(seq, dev, ssid);
+> +		}
+> +	}
+> +}
+> +
+> +/* All CDs debugfs file operations */
+> +static int smmu_debugfs_all_cds_show(struct seq_file *seq, void *v)
+> +{
+> +	struct device *dev = seq->private;
+> +
+> +	smmu_debug_dump_all_cds(seq, dev);
+> +	return 0;
+> +}
+> +DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_all_cds);
+> +
+>   /**
+>    * smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
+>    * @dev: device to create entries for
+> @@ -388,9 +483,26 @@ int smmu_debugfs_create_stream_table(struct device *dev,
+>   			goto cleanup_dev;
+>   		}
+>   
+> +		/* Create CD directory */
+> +		cd_dir = debugfs_create_dir("context_descriptors", dev_dir);
+> +		if (!cd_dir) {
+> +			ret = -ENOMEM;
+> +			goto cleanup_dev;
+> +		}
+> +
+> +		/* Create "all" file to show all valid CDs */
+> +		all_cds_file = debugfs_create_file("all", 0444, cd_dir, dev,
+> +						   &smmu_debugfs_all_cds_fops);
+> +		if (!all_cds_file) {
+> +			ret = -ENOMEM;
+> +			goto cleanup_cd;
+> +		}
+> +
+>   		/* Success for this stream ID, continue to next */
+>   		continue;
+>   
+> +cleanup_cd:
+> +		debugfs_remove(cd_dir);
+>   cleanup_dev:
+>   		debugfs_remove_recursive(dev_dir);
+>   cleanup:
+
 
