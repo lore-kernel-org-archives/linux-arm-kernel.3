@@ -4,116 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6B8F53D8C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 19:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D49F53D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 19:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htOOsfPxQtEw1ymZnt5FkdJyKmisz67UUaUQUuiGxK8=; b=0X9E/p/61Jed9R3uMdirVce364
-	CNJTdUXD8Muo3ovpP/V2yCo2Wcc6tzazYiUuluChPJU3f11bJJStTmUwmAXpEN9qMl4G6w0COCpr4
-	ixIOWAf8kAdoKLMo0qvmmce/VnLKDLJXRXqZdjU/K67UJmkKaXCsvaej/0H22b5iCmUDuojBlMLJt
-	0d5592e2Ipq97Cyq27io5t5+PZxQQXrKma0NbAqGO6hrbh14BmOBdaXL427/LPPKTS9BzcL9Wxfkm
-	JT3ulBF0eOZwmi+RfQIf4qelMZiMC01GuxThEYGzVGMrtGlBn8sUi8w4o/RXezuGcQM/aU974pz4X
-	+SWLqqhQ==;
+	bh=DpGH5SYf0qI0LSbeqZBVARIEZlcHZvU8Tk3yd7dRSis=; b=371Lo4hUGz7h0gOYx4331fijJw
+	zEN8XG768JNlenQlkz/mfiC69uTLf/lCsZfo9JLUMjn8MxDViWVSsUy/MV5WTY1zED4QNvnotwQX3
+	Br02jYuk7/AX3c9VPMngUVfNe0HVO6e7jdwLfQME+tn1g0qhUQ0FOG1D9wvkW/m5qYdpILZ3GpUYe
+	I07ha2KhWqhUItGNQYFXzsSDKDq75ihPcC9dGGJLj+rBqLLO91y2dmomzSE+iiZq7/2DZx/nq/KlI
+	sdZIyyZ3EWuwYy9mwZRFSXJT+nQai4l98RUY1kdSXLY3Vx8IrmKUzVvJ2HgSNRFMuNxR2jntLzw1O
+	dvtpucJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2DUV-00000004knr-0s75;
-	Mon, 16 Mar 2026 19:20:39 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2DUS-00000004kn0-12X4;
-	Mon, 16 Mar 2026 19:20:37 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62GFM1VQ1210659;
-	Mon, 16 Mar 2026 19:20:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=htOOsfPxQtEw1ymZnt5FkdJyKmisz6
-	7UUaUQUuiGxK8=; b=IRSq8PAUx2pKC1ZyemmRwTfHH1EOc9N0VwvglEnONmExQ8
-	6rveNkTA8nSCHtNwmtQYMwshBhYe38C/5MK/XihVK/4tsAOsBo8N+k83a1RWU/PC
-	agXaMMoihkkW7mOX3g7PZPd/jrDl9JPNbC28Xb684sDWOwwgaDglHxP7sb+MQhQj
-	PrZVmkmqwBWB624wUlyzLQuahm6iKOYm3Y+1d6lRdJl4/t/42Jas5GH515Zlj640
-	93EhzpzfHO3qctPzz9/eGuGMR68jeqwb1fNopT1p96mPVJxGcQK+0wU5U5PO2dSg
-	UAcd0qdKIzmSHyyIkBmen+jHlTDzLtA6jFeLXWIA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cvy64hfj1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Mar 2026 19:20:06 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62GFaSxx015601;
-	Mon, 16 Mar 2026 19:20:05 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cwk0n61tc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Mar 2026 19:20:05 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62GJK1c113959640
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 16 Mar 2026 19:20:01 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EE56120043;
-	Mon, 16 Mar 2026 19:20:00 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3307E20040;
-	Mon, 16 Mar 2026 19:20:00 +0000 (GMT)
-Received: from osiris (unknown [9.111.14.147])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 16 Mar 2026 19:20:00 +0000 (GMT)
-Date: Mon, 16 Mar 2026 20:19:58 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Darren Hart <dvhart@infradead.org>,
-        Davidlohr Bueso <dave@stgolabs.net>,
-        =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-        linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [RFC PATCH v2 5/7] s390/runtime-const: Introduce
- runtime_const_mask_32()
-Message-ID: <20260316191958.13160A9f-hca@linux.ibm.com>
-References: <20260316052401.18910-1-kprateek.nayak@amd.com>
- <20260316052401.18910-6-kprateek.nayak@amd.com>
+	id 1w2DeG-00000004lJq-3HP4;
+	Mon, 16 Mar 2026 19:30:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2DeE-00000004lJS-0j7g
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 19:30:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63DE1497;
+	Mon, 16 Mar 2026 12:30:33 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 262333F73B;
+	Mon, 16 Mar 2026 12:30:39 -0700 (PDT)
+Date: Mon, 16 Mar 2026 19:30:37 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 02/19] coresight: Set per-CPU source pointer
+Message-ID: <20260316193037.GH8048@e132581.arm.com>
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-2-eff765d211a9@arm.com>
+ <4dd1e996-5098-4b03-af0f-98294fdca908@arm.com>
+ <20260316143828.GE8048@e132581.arm.com>
+ <4e36cf20-f3c0-4c3d-9bf4-da8228efaa15@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260316052401.18910-6-kprateek.nayak@amd.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: jp63ROdJGEqzzLPAkEfcmot0NjlplZOh
-X-Proofpoint-GUID: jp63ROdJGEqzzLPAkEfcmot0NjlplZOh
-X-Authority-Analysis: v=2.4 cv=KYnfcAYD c=1 sm=1 tr=0 ts=69b857e6 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=zd2uoN0lAAAA:8
- a=VnNF1IyMAAAA:8 a=sh9O2zOncRWe_GGrdyEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE2MDE1MyBTYWx0ZWRfX07XWBQ+ozw5f
- F3KjCxzVjxWd7xGV5akZ4pfsS2LeRiXR+//q9VqeLcZF7PmrTiJfkacvizmdC3aUghFmGPQ9BBg
- hoagh20PTWAIGzVFYakT4pSofpy6ulh118ODja/+iwpGZCMKPepyQJON8Xx2KwW7YPV7JU5B/QD
- hGQP8LPXGhCHn9VP7fLQiIE3MIrvwwMhpubuCe5mBGWDW33JE00QDJz5NwRLtGTG60xGmFVxlPH
- M5BIzVCP4fipuqsEG8nDtRHBivedaVvg5bycKExWZJRwZA6qwTZhRdlZc8Bfjh8L88FKEHtM1YJ
- VHapJsw+4Hs2Jp6nyROK976O7E6vl6epfvtu78z30bDc3e9c+gtQMJY9QNAuoGx8HUqYfXk05tM
- TWdUH8z9P4VZDY46HVM2IY96qyQgcp/ksHCAFh2E/LSS68+4YOdMnN+MiuQr5GvkYNexUarnHZc
- f446VCGObLHEUESwxtA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-16_05,2026-03-16_06,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
- spamscore=0 impostorscore=0 malwarescore=0 adultscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603160153
+In-Reply-To: <4e36cf20-f3c0-4c3d-9bf4-da8228efaa15@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_122036_294134_B8AF2E0A 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260316_123042_345702_A82A257F 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,77 +72,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 05:23:59AM +0000, K Prateek Nayak wrote:
-> Futex hash computation requires a mask operation with read-only after
-> init data that will be converted to a runtime constant in the subsequent
-> commit.
+On Mon, Mar 16, 2026 at 05:49:47PM +0000, Suzuki K Poulose wrote:
+> On 16/03/2026 14:38, Leo Yan wrote:
+> > On Fri, Mar 13, 2026 at 11:18:20AM +0000, Suzuki K Poulose wrote:
+> > 
+> > [...]
+> > 
+> > > >    static struct coresight_device *coresight_get_source(struct coresight_path *path)
+> > > >    {
+> > > >    	struct coresight_device *csdev;
+> > > > @@ -1401,6 +1452,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+> > > >    	mutex_unlock(&coresight_mutex);
+> > > > +	coresight_set_percpu_source(csdev);
+> > > > +
+> > > >    	if (cti_assoc_ops && cti_assoc_ops->add)
+> > > >    		cti_assoc_ops->add(csdev);
+> > > > @@ -1427,6 +1480,7 @@ void coresight_unregister(struct coresight_device *csdev)
+> > > >    	if (cti_assoc_ops && cti_assoc_ops->remove)
+> > > >    		cti_assoc_ops->remove(csdev);
+> > > > +	coresight_clear_percpu_source(csdev);
+> > > 
+> > > Should these be done with the mutex lock held ?
+> > 
+> > If so, we will create a locking chain:
+> > 
+> >    coresight_mutex -> cpus_read_lock()
+> > 
+> > Afterwards in patch 18, it uses cpus_read_lock() to protect sysfs knobs,
+> > a reversed locking chain will be established:
+> > 
+> >    cpus_read_lock() -> coresight_mutex
+> > 
+> > LOCKDEP will complain for possible deadlock.  This is why this patch
+> > avoids to acquire mutex when set / clear per CPU sources.
 > 
-> Introduce runtime_const_mask_32 to further optimize the mask operation
-> in the futex hash computation hot path.
-> 
-> GCC generates a:
-> 
->   nilf %r1,<imm32>
-> 
-> to tackle arbitrary 32-bit masks and the same is implemented here.
-> Immediate patching pattern for __runtime_fixup_mask() has been adopted
-> from __runtime_fixup_ptr().
-> 
-> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
-> ---
->  arch/s390/include/asm/runtime-const.h | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
+> The question is, what prevents two different CPUs trying to modify the
+> "per_cpu_source" data structure when the CPU is not online.
 
-...
+I am struggling to establish a flow for this scenario.
 
-> +#define runtime_const_mask_32(val, sym)				\
-> +({								\
-> +	unsigned int __ret = (val);				\
-> +								\
-> +	asm_inline(						\
-> +		"0:	nilf	%[__ret],12\n"			\
-> +		".pushsection runtime_mask_" #sym ",\"a\"\n"	\
-> +		".long 0b - .\n"				\
-> +		".popsection"					\
-> +		: [__ret] "+d" (__ret));			\
-> +	__ret;							\
-> +})
+Each CPU has a unique per-CPU source, and the pointer is only modified
+during device probe or remove.  Both paths are protected by the device
+lock (I confirmed that __device_attach() and
+__device_release_driver() are protected by device_lock(dev)).
+Therefore concurrent updates to the same source pointer should not
+occur.
 
-The nilf instruction changes the condition code and this must be reflected in
-the clobber list. Besides that I would also appreciate if you would move the
-existing comment above __runtime_fixup_32().
+One possible corner case is the ETMv4 delayed probe (etm4_probe_cpu()).
+Since the probe is deferred and coresight_register() is invoked when
+a CPU is hotplugged, it could race with ETMv4 module unloading, i.e.
+between etm4_probe_cpu() and etm4_remove_dev().
 
-Or in other words, if you merge the patch below into this one feel free to
-add:
+I discussed with James for another option before: we always access
+per-cpu source pointer _locally_.  For example, we could set the pointer
+in etm4_init_arch_data() and clear it in clear_etmdrvdata().  These
+paths are protected by the CPU lock and in SMP call, thus
+coresight_set_percpu_source() does not need acquire any lock.
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+The downside is that we set the per-cpu source pointer in ETM driver but
+cannot use coresight_register/coresight_unregister as common place to
+manage the pointer.
 
-diff --git a/arch/s390/include/asm/runtime-const.h b/arch/s390/include/asm/runtime-const.h
-index c0f0d59066e2..7b71156031ec 100644
---- a/arch/s390/include/asm/runtime-const.h
-+++ b/arch/s390/include/asm/runtime-const.h
-@@ -42,7 +42,8 @@
- 		".pushsection runtime_mask_" #sym ",\"a\"\n"	\
- 		".long 0b - .\n"				\
- 		".popsection"					\
--		: [__ret] "+d" (__ret));			\
-+		: [__ret] "+d" (__ret)				\
-+		: : "cc");					\
- 	__ret;							\
- })
- 
-@@ -56,12 +57,12 @@
- 			    __stop_runtime_##type##_##sym);	\
- } while (0)
- 
--/* 32-bit immediate for iihf and iilf in bits in I2 field */
- static inline void __runtime_fixup_32(u32 *p, unsigned int val)
- {
- 	s390_kernel_write(p, &val, sizeof(val));
- }
- 
-+/* 32-bit immediate for iihf and iilf in bits in I2 field */
- static inline void __runtime_fixup_ptr(void *where, unsigned long val)
- {
- 	__runtime_fixup_32(where + 2, val >> 32);
+Thanks,
+Leo
 
