@@ -4,127 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE870F53D70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B62F53D72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhU+RzYxXR7GC9NBSDKBZa9gBAnl8UuN/JHN3UwLJuE=; b=QHXXQQ9wg7uCftmgdkgJKqpuns
-	3xT+iUQjFtvdfMzVK12F1lj6qwuUXP5yU6QY7XKbUeYIjgYiWmhdlXyWJmNe50xtu6UfyqMz4adjX
-	8C58k6krMjr8f3cGUOb/jZkprbSVIF8hFBGSrCMAk7Gf7W+9CEqJ/yqMshsMr2GziQUAtby04x3/q
-	M0r1n2NEODzrC+gxxGPlkodSSDvpHBG9FWk1x4Qw2CCeR56sFLkuIIkJX3Td2VTeJIru9mzoXSd4I
-	FfZv0iGojJ3NAQORS3SbWVQCOOmvQNG2dQX9XrQve4cKrAXJOGDQoxRPKfZnmBhDiqLXXHnymvgYN
-	kpATV/1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=giM+7jLybROuP1ofZ8EapF7YBLZ89liIPv3wFTUjfbo=; b=vWymPOqqNOwG+xHSfYxGSTAhEQ
+	1jOdXMc4sqvm/IXIgVOVaKB1uwL2EZecbjDp9N8nRuZqh65NzGZolpXAYNE8mK6pOL/5YIOh773n7
+	tOIRweQS/vNjLuELhR1jFRQYR3GHPEpzTNpvABRsJREnZn9KJLQImKmy5cRNLIPnGkA7XDqWOIg0S
+	ZoAEhx5/a3eZgXG7OdECTKbtaimYbV80d/sKtg0WH+sYFYMTrw6T/CpI3UpMuti/oFoVQtZgwgvB1
+	kILrCKvj2PdgPwgV28qBmKI6SrK7NuMzfnEgiM5G5rTnrzkFCiOMWxAdOpad8UV+fdZ+XE2TH+voE
+	yABOdXDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ayi-00000004TeZ-1wKO;
-	Mon, 16 Mar 2026 16:39:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2B0L-00000004TuF-0tCC;
+	Mon, 16 Mar 2026 16:41:22 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ayg-00000004Te3-3bFD;
-	Mon, 16 Mar 2026 16:39:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A67C442EC;
-	Mon, 16 Mar 2026 16:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9588DC19421;
-	Mon, 16 Mar 2026 16:39:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773679178;
-	bh=qEW7nkdy+hqRZA5WBxEYkPY3Eekc6Tj16/7r/ZQmwxg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MyDBcwoABrXg6ReEBykjnSI6xVbDDPkDTfsAulNpJPXs/l08iqkBa2bUxFM3WklOE
-	 nMjdUsQwm3bLJJkogAJWY8cbrtii7biF229jEUEr1r8XcJqr1ajZ5iJLwflS6YJVoP
-	 2Ev2i0UaHRrPYaMRIdbOSc33tuIKSUCmuuET8ZcnHX5Zyiw96Rqt88n1Nr4BFS1diX
-	 XH9WUSySnQx+M7r1duXl4j6t9jGfzXk+b3LVqOVoWpn3TpGAHHuZfHTYeKCo1247Az
-	 IsJ11vKll513OyyVgbms0ddflK47d/ehluyIi9VTyVcYYt8RhMPSaxxvKPetmtXbNj
-	 1bwyfja/vhVhQ==
-Message-ID: <1af76da3-aa6c-4960-addb-a8028ff93a74@kernel.org>
-Date: Mon, 16 Mar 2026 17:39:28 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/15] Convert power-controller to dt-schema and update
- various yaml file to referencing it
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Saenz Julienne <nsaenz@kernel.org>,
- Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Shree Ramamoorthy <s-ramamoorthy@ti.com>,
- Jerome Neanne <jerome.neanne@baylibre.com>,
- Paul Cercueil <paul@crapouillou.net>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Dmitry Osipenko <digetx@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
- Joseph Chen <chenjh@rock-chips.com>, Chris Zhong <zyw@rock-chips.com>,
- Zhang Qing <zhangqing@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andreas Kemnade <andreas@kemnade.info>,
- =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
- Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>,
- Matti Vaittinen <mazziesaccount@gmail.com>, Alexander Kurz <akurz@blala.de>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rtc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1w2B0I-00000004TtT-2wuS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 16:41:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773679278; x=1805215278;
+  h=date:from:to:cc:subject:message-id;
+  bh=dyy9kdZD6ABPlnalok2JdWrwqKChqmiBzgNHmMR+KY4=;
+  b=fX/+JtNh95bZvUoypU8GsDPFzhJ1EpJQZ94tmvCyjKYEjqVTLBhVFnAQ
+   1XriIqZIIb07VbGoj3NyBPiHhlX9zVaZZ8fhnBO/XAOhodzKya0uJLOAi
+   mtt+zYyFtqtouKBjJoxoTfqYHCsPzreSnhG3VxHnRHUgT7vlSdTatz6rH
+   NHoR2uKhUvz3xYlTJcnkdT12/5At2N3HgVfpVNSsQwamUbr40SPzyAn/1
+   K7a59fUniteLjMx1lBwQGttmW7NNB7BC4pm2KIQWeQGRezGs/LLsQmDEG
+   vgrgdhJNIx6hPQL5ilXMpgXXHrhKq5AIt8WYdgVxhKicjs4/bcXovvbVX
+   Q==;
+X-CSE-ConnectionGUID: 5gHEZ7d9RqqZuv2EY2xOQQ==
+X-CSE-MsgGUID: H/Z+RFn9QsevfkHT1ItHkw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74735810"
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="74735810"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 09:41:17 -0700
+X-CSE-ConnectionGUID: PkcRoEO7SQ6UdtW+/bO6kQ==
+X-CSE-MsgGUID: TgxmtjgSSpy+48+MdSwEHA==
+X-ExtLoop1: 1
+Received: from lkp-server01.sh.intel.com (HELO 892944969b78) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 16 Mar 2026 09:41:15 -0700
+Received: from kbuild by 892944969b78 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w2B0D-000000000yc-29Tl;
+	Mon, 16 Mar 2026 16:41:13 +0000
+Date: Tue, 17 Mar 2026 00:40:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/fixes] BUILD SUCCESS
+ 9e22e9c4a5bd208a2d17f0b1a8414c170b4e5939
+Message-ID: <202603170051.lC0OuEFU-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_093938_941266_11583A92 
-X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-CacheID: sfid-20260316_094118_788076_12950781 
+X-CRM114-Status: UNSURE (   4.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,17 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 15:47, Peng Fan (OSS) wrote:
-> Convert power-controller.txt to dt-schema
-> Update various dt-bindings to use generic power-controller.yaml without
-> defining local property.
-> 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
+branch HEAD: 9e22e9c4a5bd208a2d17f0b1a8414c170b4e5939  ARM: multi_v7_defconfig: Drop duplicate CONFIG_TI_PRUSS=m
 
-And here you explain the dependencies - external or within the patchset
-- e.g. how what stops people from merging it. You cc-ed multiple
-subsystems, so please think from the subsystem maintainer point of view
-- what should they do here.
+elapsed time: 1286m
 
-Best regards,
-Krzysztof
+configs tested: 16
+configs skipped: 150
+
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+arc                   allyesconfig    gcc-15.2.0
+arm                    allnoconfig    clang-23
+arm                      defconfig    clang-23
+arm        randconfig-001-20260316    clang-23
+arm        randconfig-002-20260316    clang-23
+arm        randconfig-003-20260316    clang-23
+arm        randconfig-004-20260316    clang-23
+arm64                 allmodconfig    clang-19
+arm64                  allnoconfig    gcc-15.2.0
+arm64                    defconfig    gcc-15.2.0
+arm64      randconfig-001-20260316    gcc-11.5.0
+arm64      randconfig-002-20260316    clang-23
+arm64      randconfig-003-20260316    clang-23
+arm64      randconfig-004-20260316    clang-19
+loongarch             allmodconfig    clang-19
+riscv                 allmodconfig    clang-23
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
