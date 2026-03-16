@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE78EEFCBD4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E37F013CA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unkmRmQWwFzEXUNaiEVhayAW0QgPV7pNwEaY7lhNI5c=; b=KjaBEB1TRHEZzSCV8G5aiBsyML
-	el6k1nhP7ct6mBdIg+t8mgi+xLdSJS8F2VGq4gv6btTaFk1kiSdFiaEtL9kxE/xTj5lut7xSj2wpp
-	WTquHxiacR5EzNq86nQaYAB5uAUaUIN/8PSFOOn+E6O/CiiHuLZsd+U/WioPP/WSmCh/tAuFICUe7
-	vBVzpvvzIk/oYQOqkyFzDET0FQ9x89H/sJSDrVn97COm+Fqy7JlKsD9d5ZgEDAj1fWdmBUu2/j3VQ
-	JNx/O/irTAXJptcFiOUdzJ5WyoeRa5jOwON5eAmF6ITzQmQzBBx4NC0Qt0DC8uEp5au87QhqosiQW
-	w/SuF06w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gpnOcgCCG5ReiR1pUUPIHkQd175lJR4LQPXklyoJIG4=; b=QwkSySp/VjAi2FRFfKTcdDzzgj
+	+AkMELHhmv8lsvd3cF8taT7q/f/WLvZ0Ey/LVx8AZF7dtHI4O80PjxN7GmsWtClMtV6dkTLIDxqHb
+	6j6qp2/sqEdSWmGVQXYm8D8Vzaj720eZuzy2jhgVdjqHrem4O+xIIyM+P6283gY7BCExLEaFuZQWC
+	2uRvoGcw/7JA2zSrWqfO5BILbN2UBck3z9siJ7Vc9ymnmCUwIRFMnzl1VSXzvRCmXKS2Pd2kr44pY
+	d+NjWXBGOKUOPflSLo3LxRl7C4DBVHPGYpTQtL+qV+WhLrFWMbictVVfvrwBb5b38nL9hC3pUJ1Pk
+	hgrGMgpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23Cn-00000003Y0w-43Qf;
-	Mon, 16 Mar 2026 08:21:41 +0000
+	id 1w23Dj-00000003YAp-2pAs;
+	Mon, 16 Mar 2026 08:22:39 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23Cm-00000003Y0k-18Ks
+	id 1w23Dh-00000003YA3-0Vpi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 08:21:40 +0000
+	Mon, 16 Mar 2026 08:22:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3767160008;
-	Mon, 16 Mar 2026 08:21:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9822AC19424;
-	Mon, 16 Mar 2026 08:21:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D24F600AE;
+	Mon, 16 Mar 2026 08:22:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDCE8C19421;
+	Mon, 16 Mar 2026 08:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773649298;
-	bh=RZArSEGiIi6tf/QaCodiGjnLLyg0p5GqsTdgKr1WE4Y=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=aE+SVbscvLzvPYGR6WULwTrbDzooNL4QaaEnO0yZ3X5OJ89/plQBX6/kS7DNTgWRH
-	 MUNy4q3Q+NnyPXMGhRmWa+6PCVCZ5AC0g3399irWHXyBNhvcCjOIseSiWT5+y7MXsx
-	 FZ5rFr+oQ3qaLF9VtQTrvNgJybxfgtDUd92YT0VVsYOsCWfVo+vVAsfPhEBLC49oaA
-	 TuxefHCIvSqgTzAXauQpP1w/g0kN3A8IqjyBln1Wo6EtEFV27NUgY4mDgxcSFkAV6B
-	 94wxS1l7/uf8z3z5fPZsIRS0KApV99GVB71q6IlAzKyirHiqj6G/+kaz0uVMNEA0V0
-	 Zvwk4aSlThj6Q==
-Date: Mon, 16 Mar 2026 03:21:37 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1773649356;
+	bh=4wiqZx2tvZ2OGLLY2MD3ltf5VvuBivBEbZMPN/IPd7s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KOrBrInbp7i4ZAblZwQgZQCE18+Cu3gZvUnnQZhmbGSw/N7eneYujY1SVI/5z9uJ6
+	 Nal+5pjvlAehRsQ607EIxYyEZVnepnZJMIdVHYnpqWLBjf0mcCDhE2outL1XYaM6jE
+	 OV8/w4hyTO48qpL0aA15yn1JOZ72GFFafwNyzwL1vJKTKulNDsoe5D4EPz/b8aY2qG
+	 SSMrX7iMYjvcYo8fWk6LBkQ+Up614V3CjQswhmhFDdjcUKGjd7zmbDTJz/4ChoV6bB
+	 3npMoJ9LcSA0CWobK9ZWkt1RW1HyZC1KDtLtSKfTNBAFVDRKP7t40cHeMcogmf08Q/
+	 Keq1UMhaOeUzQ==
+Message-ID: <b5d2f9a6-8039-48fb-8d7e-ee7823c504e3@kernel.org>
+Date: Mon, 16 Mar 2026 09:22:33 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Abraham I <kishon@kernel.org>, 
- Jayesh Choudhary <j-choudhary@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
- Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Andrew Davis <afd@ti.com>, linux-arm-kernel@lists.infradead.org, 
- Philipp Zabel <p.zabel@pengutronix.de>
-To: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-In-Reply-To: <20260316070429.1545707-2-alexander.sverdlin@siemens.com>
-References: <20260316070429.1545707-1-alexander.sverdlin@siemens.com>
- <20260316070429.1545707-2-alexander.sverdlin@siemens.com>
-Message-Id: <177364929663.1046182.9727069225111322855.robh@kernel.org>
-Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: syscon: add binding for TI K3
- platforms reset registers
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL 4/4] Renesas DTS updates for v7.1
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+References: <cover.1773399669.git.geert+renesas@glider.be>
+ <cover.1773399675.git.geert+renesas@glider.be>
+ <44491e75-4c73-4c8b-bc34-888d1e047cff@kernel.org>
+ <CAMuHMdWLOCvKfp4bULzm6N_3u1Mh831Z0EW++8473wvs29MRHQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAMuHMdWLOCvKfp4bULzm6N_3u1Mh831Z0EW++8473wvs29MRHQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +116,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 16 Mar 2026 08:04:23 +0100, A. Sverdlin wrote:
-> From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+On 16/03/2026 09:18, Geert Uytterhoeven wrote:
+> Hi Krzysztof,
 > 
-> Add DT binding for Texas Instruments K3 Multicore SoC platforms reset
-> registers present on AM64x and newer members of the K3 family and consist
-> of the RST_CTRL, RST_STAT, RST_SRC and RST_MAGIC_WORD.
+> On Sat, 14 Mar 2026 at 12:23, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On 13/03/2026 12:13, Geert Uytterhoeven wrote:
+>>> The following changes since commit 85c2601e2c2feb60980c7ca23de28c49472f61f1:
+>>>
+>>>   arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers (2026-03-06 13:15:21 +0100)
+>>
+>> Also nothing explains me what is this, IOW, why this is not RC1. Pull
+>> request email has place at the beginning where you explain such things
+>> and I can easily locate or understand the base.
 > 
-> The planned usage is to provide reset reason information.
+> Let's readd the part you cut, which is also present in the cover letter:
 > 
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
-> ---
-> Changelog:
-> v2: amended mfd/syscon.yaml instead of separate reset/ti,am64-rst.yaml
-> 
->  Documentation/devicetree/bindings/mfd/syscon.yaml     |  1 +
->  .../bindings/soc/ti/ti,j721e-system-controller.yaml   | 11 +++++++++++
->  2 files changed, 12 insertions(+)
-> 
+>>> Note that this PR is based on "[GIT PULL] Renesas SoC fixes for v7.0".
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Ah... no one reads cover letters :) so I expected that information here,
+before the pull boilerplate. I guess this depends on scripting, so it's
+fine. I will look for cover letters in the future.
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: ['ti,am64-rst'] does not contain items matching the given schema
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: ['ti,am64-rst'] is too short
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.example.dtb: scm-conf@100000 (ti,j721e-system-controller): rst@18170:compatible: 'oneOf' conditional failed, one must be fixed:
-	['ti,am64-rst'] is too short
-	'ti,am64-rst' is not one of ['microchip,sama7g5-sfrbu', 'microchip,sama7d65-sfrbu']
-	'microchip,pic64gx-control-scb' was expected
-	'microchip,pic64gx-sysreg-scb' was expected
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260316070429.1545707-2-alexander.sverdlin@siemens.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Krzysztof
 
