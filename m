@@ -4,131 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED049F30297
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 02:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA6EF30295
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 02:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qbsx1NTchGVXM26uvpF0Uq3Ty8Pfqm9H0pdUpu30wA0=; b=A2ohsG8wn33BXfK9obBros367H
-	8L5MUvvYgwn57InU4t46BgcOyLt/d6+3aqwqIAaH7ln8zFzZR9joAphPSTWK7xUffUQlLHExKxUaQ
-	g48Pxg9opd5wgh3Y8X4PZZUXX69V/bx5ZbA3zXgF+A3B3qf/A4auKyEozJWLjb6+Ind4mBsxRPG/J
-	J2Vapp6460WGlNcSFGi/Pg4gZL2botbR+mcUOJJxTYA/VUYac1I9VohO5tNS2iuPiGWzGwkC13wK7
-	cE2YLxTJdTnwTeQdvkeqXM/9/CHapy5w/T6lEJAf9AG+8/emMsYJFhB7Qijckr0W4Ubo7dxw+C3zR
-	LEt3Od7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uVE8EHBWMVmiuxrDtBRiYzF9KN88X0W28eYNYUUIxFI=; b=DUjsb4Jy3QFgTBz2giLvGp+BZQ
+	0/JWN88QStKXkAlIkxSQNGz2FT7oqSeHKFTjpoiu0DD9upsUXWJ7AqhR+qDLsFWDVIG3DN5i6yqKy
+	Tc9YHIAivclomOh9mtly2vBg2f1iwQ6RGTnVJHRcLbZh0E/0PSyDaRNylQhq02UGKM73GC2Zrdg/C
+	bHTqhBLQJ2qZcQB1XAYRBghV8qeHCynhH0GSZTFhXY26BX1Ef8CD+L7Dsj4oATItprR5a9w5dzHJj
+	OmmAD8eypevuYiXFKzhfHw+rHhccMxII8vggpBWfmvuHBKiJciOQbB57RBNINRFW5l6+cGAiLI4+j
+	wcXg89sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1xPS-00000003Aqi-26uy;
-	Mon, 16 Mar 2026 02:10:22 +0000
-Received: from mail-norwayeastazon11013065.outbound.protection.outlook.com ([40.107.159.65] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w1xPc-00000003B1C-47f0;
+	Mon, 16 Mar 2026 02:10:33 +0000
+Received: from mail-pj1-f45.google.com ([209.85.216.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1xPH-00000003Af0-3TQw
+	id 1w1xPY-00000003Avj-1Ub3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 02:10:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x6VPzT4SKRJX8HluYhOV7K/4uIMl8X3VSeGEiWFyq+q4oYiSa5cd5C8Nkz5sQzjT9PwYQ89P27s7RNtXhtDjSofaVXMLqqlmJHBOUQpJMToxO0e1s7TzuvzoradQdyMAQMeofAZQ2wsDCYaC79v7/rVLO5u4LWexpFTXch9BYo9KU2w+8wQNR0/Zt1gggJTs4f4zz100VHCtV9VcsCLocq7xVg4Z0wGvkZf8wNb187ndj8xNqVo9izUigWBJbg0jHSmkf+gsAmkRUAPgFduPeAQ83J1huX6P83dRPeMgJlY5mqkH3NIH+21ycPK83xaIm3N0z6ElsOW1eZRdqDJexw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qbsx1NTchGVXM26uvpF0Uq3Ty8Pfqm9H0pdUpu30wA0=;
- b=aZGTHATNwkvjDX0hZOVIUFM5LQ0bayKEUSl7o7R1Vm7TVsD9jB9lQU1UzBXwLCNJkp/m/RCqQu0z45h0EKphToONdDQuWFnD0Ie0v/qg/BkipVo+Z57sKwQO5sgfFek5P0gXDUdx9p3O5/SXcuQIXkUjASePaG39NE4YlT/eyhUhupZxT6pNu/rghXGJ721rDwlm0eFyWdB7OM8/qDLhPhvuYNQxKQxumCJzjbh/i2Oo7nYiNmaCQXeJww3gKNz7o7ntTkg4AAC0sm3y6qUJXdnLiQTqJYI1WTPqacQFNpr28pS4NLNCiG32DQns8Keg54KFfTQJrXnNOfPhoAFRNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qbsx1NTchGVXM26uvpF0Uq3Ty8Pfqm9H0pdUpu30wA0=;
- b=NiuGtbVeXmygm31PR6uFxvCkDpk9JNPUfNGxUhf2yJlc/AxwysLPQ2A7ztPRZe9uTqCEwSccmhaZPXqj0Vfi2l9qTptB7SRcepSkANb7MsUpy5tU2G6dfSRojidWe5vYsW/99erQWwSnvB3OWnPvu58ZT8Lozk6JJdl+bU3ybWi4465D/qMl7iYqRokQvvN2llmVETeG52OQgHoxNiapLoKOBEbmO85J5zKPlZuQ/Yr95aDlhoOMmykPudrvDtJ4FBgI6VUxU/kwu8W3nmQChD8FKho/+VV9HhvaUY/jg2WlvEszinels3TiC3VAaxTruJNvHfqy9Bk667HEtK5P/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by PA4PR04MB8047.eurprd04.prod.outlook.com (2603:10a6:102:cf::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Mon, 16 Mar
- 2026 02:09:42 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b%4]) with mapi id 15.20.9700.022; Mon, 16 Mar 2026
- 02:10:09 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 16 Mar 2026 02:10:29 +0000
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-35ba2ae4df3so153720a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 19:10:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773627027; x=1774231827; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uVE8EHBWMVmiuxrDtBRiYzF9KN88X0W28eYNYUUIxFI=;
+        b=HXwIBHacC+Evc7Ksh6ex/Fmg/drijv87G+JmRHeh7+yIEDOk9066UO6DbldBP6iRLt
+         aMREQV2RFZ5W/hT1Be75oGl9duNZzA+0PlkViZbp6g3sciHXBi6rx2Ag8Hwn5dx/X4Uj
+         ZsW5ChfH8KYWJWJLazheKNbVtOCD/GyFOh8LhaMnS1yvzOibc5KWKpxf93A34CHPwSpy
+         ls3X2wKNOEAXBezeL7ekfeDxZOh/ISkx7F7/ujydVyNSVcGeAkXlqjSU+e3XK7K/7FBA
+         F7Kadqxiy7I26fAafSbQKVz/kdMWSIgBT5ubNV+7Fqzyajo0njs93YcLZ3apQpvg8vgt
+         3N5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773627027; x=1774231827;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uVE8EHBWMVmiuxrDtBRiYzF9KN88X0W28eYNYUUIxFI=;
+        b=tCA9DOzLpKA/rtFRtbnEt2PftZdNE3DvqXDNmbgghy8zwcKil4twQ4dyEnEHMhfez7
+         j15p0oki9A63RY6nFJBzSgwgOGarpGe0uuGItuxUFcIncBdsSLMFaUOZl1K++snfUlYo
+         R1Ybhdc+0znufGbPpS45Hl+yRx7XwKfS+nAbV0YFhBZg5R5mnK/nMBYNrUASO1Gjidek
+         a6uqSaGuE68GIDe6Ls4MNBTdudeJOfCVaMsKjFMsjZQjFjjqgintp0dq138dx37dCwGC
+         B/tVy/qfQRAVLiLhezZpLYx5lI/WvW2uitNqOc5a/9jxpZJ45P1pPGKR03a5kxBZtTwG
+         yq5w==
+X-Forwarded-Encrypted: i=1; AJvYcCUJQ0/EguK+T6Fr+ZewWWj8ju0H4FRY19ZzuXieEYYjbb4wZV0raM5K0rtwQQZPyRAEQmyS9+a0DT8FLt8bHQnb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHFOcLd3Fq1EcfHNFs4V3qZOR9x3RxucoiMED5rsxv7qth1Ytt
+	Gji2x0jwbioIn2YCFiTrKwdnIJgW9m4pawLf3KeikAdSQjUjqn29Bo3z
+X-Gm-Gg: ATEYQzyyG4OnVFb9VccFRaBFuFj1R7qUwJ3BdeD1kKJ4AtCg7q+er63ngScvHxalOM3
+	rXwOuv57ASyNAy/rcDnkeCadBpBuPPR72vHRj7sG1ozeQOGDzawQdqjFPKlA/EUdqo2T5Mqxrw0
+	4esVo+UoI684XleMFr1YKZG1wgCAJmmbi23b1SPLL/+MjwWgh3b4mPWIW/P6uLbCyXVDYmYxgim
+	J93dmq2UiPMWPAc0YQMcMPlLH9aNMf+tEjc+2zDoeN6ErA+7UgeecCcQFtN2qSxXCT40o3yzk4e
+	sTIjXqvSHQEg5RWNRS4ebusnBmhwKOJYuuGHKcjeWLgedaYwOqQ0fJUL02zYlKpaaVaiOK3F4lH
+	zgpg1ugOZW1BcQGLEy4RY/9p6fC7/4b71yeKvRVA7ydDmSLgGmdAjWZ89HVbBcbrZt2v/G/0Pr2
+	sJ8dlL5jlilqaC3enC2piLyKd4AL/+i3EjteORfbP0nLFvgYlAuPet25zk/hTlYMvo
+X-Received: by 2002:a17:90b:4e8b:b0:35b:a53a:7d0b with SMTP id 98e67ed59e1d1-35ba53a7e94mr399741a91.20.1773627026902;
+        Sun, 15 Mar 2026 19:10:26 -0700 (PDT)
+Received: from luna.turtle.lan (static-23-234-93-211.cust.tzulo.com. [23.234.93.211])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35a02ffdfb7sm17705805a91.14.2026.03.15.19.10.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Mar 2026 19:10:26 -0700 (PDT)
+From: Sam Edwards <cfsworks@gmail.com>
+X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Russell King <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/4] arm64: dts: imx952-evk: Add PDM microphone sound card support
-Date: Mon, 16 Mar 2026 10:14:39 +0800
-Message-Id: <20260316021439.2971610-5-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260316021439.2971610-1-shengjiu.wang@nxp.com>
-References: <20260316021439.2971610-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0043.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:175::6) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	linux-kernel@vger.kernel.org,
+	Sam Edwards <CFSworks@gmail.com>
+Subject: [PATCH 0/3] stmmac crash/stall fixes when under memory pressure
+Date: Sun, 15 Mar 2026 19:10:06 -0700
+Message-ID: <20260316021009.262358-1-CFSworks@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|PA4PR04MB8047:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a2668a5-001e-4463-afb0-08de830125cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|56012099003|18002099003|22082099003|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: 3O/vuWtp4F/sg0lny7uyTvz6ichHY/g5OMQxWwKc6EyFhqIXe65R7Zm2kg8MFt58pQwa5kZsHQncpIiP64rp4uza/HBrMa36uUXOT7uwCxj87U6dPjeCD/pwMOF8av/nSF2J3iil97JmhJ2pBDJtOalSRDThdyEEAxy41IK76iL9we79DJBSlecUaBP2cOb7pPM1HzQ7eGtfbSrtcWZvQNC+UEgHDVdTb/D1JvG0Iw8w6xETQeSEoyWSZRj/lTjQnOYcO9xKSRTEnndxMqq9P570hBuIQbOJyth9BK29qByPSWnUiQCDwQVetk+kSCy4EQNfHwwQYTiN3F2nK2avOoCCJRhaOVTaUTMrG+AHP68v80s77fujx4MjIXEVQd1Q6hVp7sMg6klO6xZ1I8sZXirQ3ZhE9HaoHOZf30nxd0++sdWN1qDK+BLXy5Cn7Tpl6S4S9dicO3jHqFdjTiJQoHVvSNdb0NwOfQZUccdyxkDm8koDjbW2G9o6eFmwbbrz7M11mJpfRKJt66F6E4XlXDoEHL79+IzaRjfz35j2ysD5fFnXMdNok0K9mQXurvQycyBMHRb/HUrlJx6p9ncyuNCDrahZssBSC4jge5ajsmNsANRNNEMBNqHm6trx5Wr9Y3m8gerNYYUCzMHtfhCNsyyNU9DYTiL663rxg5ATAVeJaaJicK0tNky4z3GypUjMK2xjWH6ryodn/ZPZ0OcvZd//etXonpP3UkR/6lzttLyj1xI3zSPmRUAard4aR7pcIppPJXM18gdB9l/RtdOdj8UdAAJ9iVnl3Yz2IGODSro=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(56012099003)(18002099003)(22082099003)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7ccZYNgy+zL3nmQquJNZuxYPre8e6JKta38nWDbmiGdsXDs5AFKbAmoi0Xgs?=
- =?us-ascii?Q?PUawLEjdagp666MhfleaKGzJ4ObSGWudtzVPBql5iOC2dkbAtyPPzRX2P7gG?=
- =?us-ascii?Q?8wH4ElIBJlPb4cCHFz2s/6QxpHMGzy//IC9IvUlGVjV4/FJupqYxgKDlHKdx?=
- =?us-ascii?Q?eSPjtae1wqUFxvmWk1niiUv3wH1urimDonDvixIbLvwGtfYM7NkmAGplgef4?=
- =?us-ascii?Q?BH0tF2mXZLOuaeLP1pKZYonpg+E0X5pu3ZNIlYOQPuHMLTLxhu1dRHKykH+y?=
- =?us-ascii?Q?L8ICymBgfBY8zP109VlCN7jJCvbHkA5zFrF4rAfyafzeVP89mGf7Du50ezkv?=
- =?us-ascii?Q?Kx7mU6DHLin9NOaDGhLta3hR5ZE3u5vf7GbH4MxKdFG5FmUujvrm7UAdojCA?=
- =?us-ascii?Q?ydDQcbW4jA7iRjF13KFueI6IVvKAu6doPXK/vv+IaLaAaWWrl0jB30Fgz1in?=
- =?us-ascii?Q?1O6f+iwV2VmTNqa0kxrtrYSC3mYiplWp49xOUZFVDd2jRsxtzaqtGZBFsBcU?=
- =?us-ascii?Q?phXEt4+Cl/6sz5Dee03nOFQIzihl66KUhnwbKYZSBs6xvUjdv6IlIAxRGTqQ?=
- =?us-ascii?Q?2VKVOH8+CHY7KZu/vLE2AZg1XYpLAI9uwo0/YYN1Q+VkX9nVSI84vt7TbsPT?=
- =?us-ascii?Q?ut4EZsIJj70mQD/fIKY03Tm4YjCZtCxDZzQ8cbLy3aGOQ4S8dw4wByegj4VE?=
- =?us-ascii?Q?yS/i3CbNCe8IEvbf9O+wfaiv4lNlIoMwla3Ned76RATJriH2WVe+7PtjO/f0?=
- =?us-ascii?Q?GGT7ExNHB/Le74qPNeSCuaSfmlzElkmHe+EZ2TrMUr1+5w3qNV6eXB8yO5G/?=
- =?us-ascii?Q?GNKZ6L5YGDo68NfBjwzhX5QOzZR8oHtWRXJUdPwxuZa4gf+r9qY0So14oyhI?=
- =?us-ascii?Q?5RfEAEMmYtX2zIwPconyzwUca+oIkL7OcYsAGXf3PFkxyVHnuGic64hx1xUa?=
- =?us-ascii?Q?EH5nKoisDmvSY+hQOCaVZ8O5E3rsIFiStbzsSNoojTAO4a+5bvkW0dFjrm5s?=
- =?us-ascii?Q?lMw2ZVr90RhIq0iDVAG3b/3g8+ZUDoVg0K/VuUkdvrmdZ8BUL0+ykey+Fv00?=
- =?us-ascii?Q?eXkHBn2rajU6Y9DRW9wRQjY0htWNoM/njNUVyt5Gc4RQgBaQX0pZURSXEWPQ?=
- =?us-ascii?Q?gn7LQtRPCddtirXm4X9EOx8o/b8i2qSiGgcLRk/AAAsJXSiD1cNACHKKtQXu?=
- =?us-ascii?Q?XeFnEWaDLH5QLiCCl6vFeecot1nh8tkaFRqWzWqVx0YL+4LykG5wOA/w/xJy?=
- =?us-ascii?Q?h/Z2+ulC4bL2S/Z6P4w3dq+LoLCxo75eH4qBR8nBl9RBPe8xmPC5HDIymQPj?=
- =?us-ascii?Q?Uh6sQx3Wtxl+NU/Rqhh+s+0IGLcDR3p/fYloOgssiNrKzAK+Q5875pL2tMqQ?=
- =?us-ascii?Q?2KlLlXK8R7ocT+pNu715miLq+mlkAZ5n10nsblqGTBjf7HXvjZ5E0Mxo+O0C?=
- =?us-ascii?Q?GbLIrkymFVz7kWjLYNl0/4cxgCNmpKg5wKuFdsBRn3FQO2HUVVnO1HMTid2I?=
- =?us-ascii?Q?jgGf6Qx9IXYfHdsEAfBX46mxWs0dC6j2OjAKXU080mvvHz+hNm3XUTtezXLq?=
- =?us-ascii?Q?edXUGizCwqwPL5Dv8446C2Z0/haHMyjH1DIxEDovApUClRMIKFBlW13aSp6f?=
- =?us-ascii?Q?gwuFpAR7SnSTp/ah14pZSwkDOhnv8Y88GCodhRzB9LCfd2pgi/YM/UE8S2nE?=
- =?us-ascii?Q?lnOyUjsHjz5GoTya5d7IhSM1zWjGy1YoIsLCP71zguUTDjfjiSkGbG2Jlv+G?=
- =?us-ascii?Q?7QzaweaDMA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a2668a5-001e-4463-afb0-08de830125cc
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 02:10:09.0091
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z7FQA8JGHUxXXnQguxOH/LhqQukmxVcqw5cPeWhkVtrkbwOM2+sFYclwEAbc6lQ3gsZTOZ3ZiOjrjDhfAogVPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB8047
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_191011_923004_AE554C1E 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260315_191028_416975_8DCDB310 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,104 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PDM micphone sound card support, configure the pinmux.
+Hi netdev maintainers,
 
-This sound card supports recording sound from PDM microphone
-and convert the PDM format data to PCM data.
+This is a pair of bugfixes for the stmmac driver's receive pipeline. These
+issues occur when stmmac_rx_refill() does not (fully) succeed, which happens
+more frequently when free memory is low.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx952-evk.dts | 54 ++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+The first patch closes Bugzilla bug #221010, where stmmac_rx() can circle
+around to a still-dirty descriptor (with a NULL buffer pointer), mistake it for
+a filled descriptor (due to OWN=0), and attempt to dereference the buffer.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx952-evk.dts b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-index 2615fbb63145..62d1c1c7c501 100644
---- a/arch/arm64/boot/dts/freescale/imx952-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-@@ -52,6 +52,12 @@ chosen {
- 		stdout-path = &lpuart1;
- 	};
- 
-+	dmic: dmic {
-+		compatible = "dmic-codec";
-+		#sound-dai-cells = <0>;
-+		num-channels = <2>;
-+	};
-+
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0 0x80000000>;
-@@ -164,6 +170,24 @@ btcpu: simple-audio-card,cpu {
- 		};
- 	};
- 
-+	sound-micfil {
-+		compatible = "fsl,imx-audio-card";
-+		model = "micfil-audio";
-+
-+		pri-dai-link {
-+			format = "i2s";
-+			link-name = "micfil hifi";
-+
-+			codec {
-+				sound-dai = <&dmic>;
-+			};
-+
-+			cpu {
-+				sound-dai = <&micfil>;
-+			};
-+		};
-+	};
-+
- 	sound-wm8962 {
- 		compatible = "fsl,imx-audio-wm8962";
- 		audio-asrc = <&asrc1>;
-@@ -411,6 +435,22 @@ &lpspi7 {
- 	status = "okay";
- };
- 
-+&micfil {
-+	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX952_CLK_PDM>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>,
-+				<&scmi_clk IMX952_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>, <3612672000>,
-+			       <393216000>, <361267200>, <49152000>;
-+	pinctrl-0 = <&pinctrl_pdm>;
-+	pinctrl-1 = <&pinctrl_pdm_sleep>;
-+	pinctrl-names = "default", "sleep";
-+	status = "okay";
-+};
-+
- &sai1 {
- 	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
- 			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-@@ -604,6 +644,20 @@ IMX952_PAD_GPIO_IO36__WAKEUPMIX_TOP_GPIO5_IO_16		0x31e
- 		>;
- 	};
- 
-+	pinctrl_pdm: pdmgrp {
-+		fsl,pins = <
-+			IMX952_PAD_PDM_CLK__AONMIX_TOP_PDM_CLK				0x31e
-+			IMX952_PAD_PDM_BIT_STREAM0__AONMIX_TOP_PDM_BIT_STREAM_0		0x31e
-+		>;
-+	};
-+
-+	pinctrl_pdm_sleep: pdmsleepgrp {
-+		fsl,pins = <
-+			IMX952_PAD_PDM_CLK__AONMIX_TOP_GPIO1_IO_8		0x31e
-+			IMX952_PAD_PDM_BIT_STREAM0__AONMIX_TOP_GPIO1_IO_9	0x31e
-+		>;
-+	};
-+
- 	pinctrl_ptn5110: ptn5110grp {
- 		fsl,pins = <
- 			IMX952_PAD_GPIO_IO34__WAKEUPMIX_TOP_GPIO5_IO_14		     0x31e
+In testing that patch, I discovered a second issue: starvation of available RX
+buffers causes the NIC to stop sending interrupts; if the driver stops polling,
+it will wait indefinitely for an interrupt that will never come. (Note: the
+first patch makes this issue more prominent -- mostly because it lets the
+system survive long enough to exhibit it -- but doesn't *cause* it.) The second
+patch addresses that problem as well.
+
+The first two patches are minimal and intended for stable. The third is a
+general cleanup that removes the `limit` clamp and *solves* the issue of the
+loop mistaking dirty entries for filled ones, rather than *avoiding* it.
+Because this final patch changes the range of stmmac_rx_dirty()'s possible
+return values, it's intended for -next, not stable.
+
+I look forward to your feedback,
+Sam
+
+Sam Edwards (3):
+  net: stmmac: Fix NULL deref when RX encounters a dirty descriptor
+  net: stmmac: Prevent indefinite RX stall on buffer exhaustion
+  net: stmmac: Remove stmmac_rx()'s `limit`, check desc validity instead
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
 -- 
-2.34.1
+2.52.0
 
 
