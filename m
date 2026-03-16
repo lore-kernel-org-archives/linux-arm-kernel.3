@@ -4,70 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E986F53D65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B098FF53D67
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1C0KDzZKnKHSlUkdUXpl5bCbdxQFaILc3VGmf0dTPBc=; b=HJoGtMm0/Zaa3FvhBZYAbfkukq
-	+6iEacXtX9nXB3RPkPXK7mUbUAEDZCYZAexz8o6tiSdv1kUgau83zR4toL4wnTA8GEssKGxJJtVfM
-	bvSOARD5F0MdO13zKzxX2vjsjKJsJj4OUSXni2ABBC3joCyUC1N5Ek6aG+uM8K787lKaEwFIlN72Y
-	+jXbYX/PtLTeiz//oxM1tVPfhGZrgVGBI/LI2hT81BEtyBMi75q63nGPCq38GVDAjN8gfDzn2IaUU
-	w8cWwVRHdB2Y6ynWCyUCyN2vFythmd2CQ2daMdKLbd/nf47jrsVb7DAYYyZ+cJbvKI29RP93aVc6N
-	8GHH1CpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k7fHnNKN+qHwVNnDBbGLv+sd2JZD3z1Xn1tVhXyGS8k=; b=vB7nxM4IMnhAc6jtAMscqCDipE
+	nPN5r9CY/uN1K5CRbNjQ2ycJmJ2xfrLBCknT/CTnFVGsoMBiV6/JhMrvdSHUVlgHxD61CoU2+HEiT
+	Y9KhA/1BiT4lbVPDdgMo2/LmnVgmX+OPUcgdLmsqssLi+X9M6cQ7KXauteOjFrumCcOT1kSQJkIgz
+	kQdIOqJTCvm8OZORVvyuRt2JEPkfu9qD5oHnM13nSIc3AO1STLt46qiDXAiBDrMQ0kIp5iNExfR0w
+	LSr5Bu3Hy37JX0WPQ645WH2C/dOF8Guk06Ndm5lbLd+5+AFteBHCrecj5wNYw15DeuUPhfhPn52d6
+	f+ydBMWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29Qj-00000004HBv-1WSI;
-	Mon, 16 Mar 2026 15:00:29 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1w29Sn-00000004HQZ-2zO5;
+	Mon, 16 Mar 2026 15:02:37 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29QU-00000004Gnf-0guz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:00:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=1C0KDzZKnKHSlUkdUXpl5bCbdxQFaILc3VGmf0dTPBc=;
-	b=JHsT585eZKN+MQLHFnoAr95Q107TaXcgix74XdZ3mFwTDbhJFiL00YTeLDV3WbKkMsK6ZW5pL
-	hnzU2RudCHaejI0E5TS70GBqlTN4a2Yp2T55GGLcwozsZzkwOBvJK1vRzNYUoVvVd3ukwWFCZJc
-	08mdsEDeZtsql9CYDXB+GVI=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fZJ3s0Y8Hz1prNJ;
-	Mon, 16 Mar 2026 22:52:57 +0800 (CST)
-Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id CB51A2022B;
-	Mon, 16 Mar 2026 22:57:57 +0800 (CST)
-Received: from [10.67.120.170] (10.67.120.170) by
- kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 16 Mar 2026 22:57:57 +0800
-Message-ID: <b2a56e70-6555-48f6-bc5e-f1ce98c64cb7@huawei.com>
-Date: Mon, 16 Mar 2026 22:57:56 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/5] iommu/arm-smmu-v3: Add stream table directory
- structure to debugfs
-To: Nicolin Chen <nicolinc@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<wangzhou1@hisilicon.com>, <prime.zeng@hisilicon.com>,
-	<fanghao11@huawei.com>, <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
-References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
- <20260313104351.3502293-5-xiaqinxin@huawei.com>
- <abR3QXHGAWz9E6qV@Asurada-Nvidia>
-From: Qinxin Xia <xiaqinxin@huawei.com>
-In-Reply-To: <abR3QXHGAWz9E6qV@Asurada-Nvidia>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	id 1w29Sk-00000004HPs-1H1P;
+	Mon, 16 Mar 2026 15:02:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w68hxx3SU2c46u+hsvWRmvA7ZOkOhs/HQh2BGpNTAvQ5H59YRVerW6cfsHDpMwRl+KiFAUklQQRJZz+qM+gXv2+vPb6VuF+RtdZybXmTmuzhgsMlrRcZN8GSxbruwSZsHHzmI6WUAXbbe2hEY/3Bu/J7JyqY9fMmgTUJ3PY5S/khZs26ybUpdBzzxgyOhZq1w2uFMSEA62T9n6F6nMYZtu33Oit2ZF7GZREP4iRbntV34l0WhsWAtLXbgVTkY9rmMAoKaA+eHQxnmUzvx9FKCDJTqW4RJgVjcbRLHyP2jaOsBaBWwmImL41KFbzzyX+B2Dlx0r8C9IVXjJ4A9EVGGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k7fHnNKN+qHwVNnDBbGLv+sd2JZD3z1Xn1tVhXyGS8k=;
+ b=BgqMbEXkKmC23ZnLsh5/hpHp0KmKujL3gb8SEQpfSYyFQGf7CbCqGSjrcbKv/k2Fu5swT4/xZ4OhlBP34Xq58sY6qAEVG7afa3phvcit6d5pa0W/quydnjuo9ANnYwB1YETdgTWmQ3DxQC28kFGnSWRZQLLsjjd8ZcjW9imJFdjCKxCu7EKg+kUpLslMlyUvkJhijMicxxWsneeCuXGbEFya1fFH/Zmyj1Tkqkv1/A4Pb0XpaQ8T79vyKJiYfNuRisSVX2P1B1DKXhI6rYU9s2xq8jz5vjI9WV0cv275ffYW/JI2Jq6zMaznzTFqUk7Zjy/dJ7G8SVzxJTbeE1Mz1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k7fHnNKN+qHwVNnDBbGLv+sd2JZD3z1Xn1tVhXyGS8k=;
+ b=wFW9kliw4Umt9shUi8b4J79JGkfh+LrQmbgV5+vDkF5ypL94WVWvICzmkAe9PsGZwBziJuVtDmaiTXVsgN8FHzkET2mvT+Vjinf9j21thRiVcMnHW6fRHKnP+hqWntkzAVWn4IYV4A9yA6zXB0uYp/6695qezAo9wPoGjA/YDjlJ1FRnmleOcIRhjqosA99wPGVjulsLSiJbjdceCI4DYkQP+h7IRFpkCAg7aGT4IDfaROOXJ/gY2NzoYoByGJZVstltpQYqKEjkb8TzAjyGhwrbNeWG+pYkA1RURMk+8CicgyNAlhtCRRYatd74+fGcaP4zoh5XVkKZ/CTugxF+3w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV2PR04MB12019.eurprd04.prod.outlook.com (2603:10a6:150:30c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Mon, 16 Mar
+ 2026 14:47:08 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9700.022; Mon, 16 Mar 2026
+ 14:47:14 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Mon, 16 Mar 2026 22:47:41 +0800
+Subject: [PATCH 06/15] dt-bindings: mfd: ene-kb[3]930: Use generic
+ power-controller schema
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.170]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj200003.china.huawei.com (7.202.194.15)
+Message-Id: <20260316-power-controller-v1-6-92c80e5e1744@nxp.com>
+References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+In-Reply-To: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Shree Ramamoorthy <s-ramamoorthy@ti.com>, 
+ Jerome Neanne <jerome.neanne@baylibre.com>, 
+ Paul Cercueil <paul@crapouillou.net>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Dmitry Osipenko <digetx@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Joseph Chen <chenjh@rock-chips.com>, Chris Zhong <zyw@rock-chips.com>, 
+ Zhang Qing <zhangqing@rock-chips.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Andreas Kemnade <andreas@kemnade.info>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, Alexander Kurz <akurz@blala.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rtc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI2PR02CA0030.apcprd02.prod.outlook.com
+ (2603:1096:4:195::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV2PR04MB12019:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b281143-b1ae-4523-c1e7-08de836ae9b0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|56012099003|22082099003|18002099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: N0P3EvRuLY3DOsznZ416ksNWgCLChoe8fxMKhgpOQNJD+xFxehS9JPLVZqjSVJJxoM8huoqlXbwOTvr8n/gGpbpX5BZI6eNPkUFEMLjYQSlWjH39MvYAR2flFgPAhXv3lZkWfHo5o8MooeZknWPoLHLGIV5Qf5EF+AJRff3NLqYJIVIfz+ZyJGk8PBiUkRXWQn7bSv1bTObLd6Gu7JWSXiPZbpoMIiXLRdI5b/kbVrcfBYfsaYISYbmJNTQVJOisztr/nReTmlDq6Eb/mJTGb7RnGrZEvQZIEvT0suJggc1kWtT81JZ1jmA/057o+vbNtP2nM1mGkexLuHEDWwfEA0J0FvZUbw+4YF7UYECtZLQ/vKJegapJ8OgMZNmTLORR5czOOT9KU8Zw3oYQhWczKNsGa7RS41WMJsbI4FmCtVAf+vNm6olkTyH+5k28xTiUb6fPWkye/L7h9ht2B83XzB0tqF9CxfWHRK0/UzN7LjuxvqF8FZkyb4Qal7GUA1BTP2IzE74DYWa8JiXV98vBEKZ2q7D7+aNknlXvwfK5j1BJpudqcUza/tlQJDFqMfYPewG4Fbj/j57/6wxceZzr4IpNTy1gpC0O847kyUh/wAboO7Sjl1jXAhSdIvKXZiCbeUCAzjQvyH+Hpe3fytLjIAQOTHtssmRJLGL61Vwl2LpIazg1iRkKMiOuqkaiJceShgDOHaNN2A9brKlV7biuRkgBfzCSG3MZrY5Nkfu/PdDtDcoX6PFKtJiv6G397/PUL8YkjkflsJsFknIDbZhT0eWFSI9VwyI3gtJPDmcBrJX0zEOweL3/R45SYBXNs9ER
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(56012099003)(22082099003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHhZTzNPNUxEM3lKdU56aW9XZVJQMVdrSy9GWm11bmhZM1RIcjViVUFWcnVs?=
+ =?utf-8?B?UDlKWGpjTytubUh2ZTB1c2p2VjFoZmJSOHZ1bFJqUWZoZllPanJadFpBb1Vs?=
+ =?utf-8?B?MUdsUmFUSkZvRUZuTFVueHlwUVpZR0c0RjNYT2tDUmNoYnpYSTVaSllCdzZD?=
+ =?utf-8?B?R29TZnYwaHJnc211NUVRU1VhQmJtZVM4bmluRjJYNENtQnc2VTd1d1lmMnFC?=
+ =?utf-8?B?MWM0T1ZHK2ZoeVdnOUlNbVJmN0NrS203UEVUMTFWNm5mRmpzWXQ4a09yOVVi?=
+ =?utf-8?B?QlUyYXZscHdKd0hWZjRQcmdSUml0VFpNcm10VThyRWhYZmJ2MVpyRWwxOURp?=
+ =?utf-8?B?TGViYlhYcldzekgrY2lXY2paNTN6b3pTblZFRjFwZE0ycWg2M2N0ZmVLbXBX?=
+ =?utf-8?B?ZDg3RE9ZTjJYVlVWUzBvTkExQ3pYNjZDaGxuMzJCcDEvZ3VJR2FrZHNKMVJM?=
+ =?utf-8?B?Rlh6eTYvcmhkT0JiL2pkSnRNcXNPRGFtTmdUTEpudXNTeDhmaUk3K0NFSTVV?=
+ =?utf-8?B?L1kzMWt2OXA0djR2NGhEemFaWlFtZHdxTVBobWF0MUxmMUlXS2FzTVQwbUZR?=
+ =?utf-8?B?alNhMUpLU1ZnUDR3cDlhMUtkVmE0TGE1azl4K21MeWtKL1NqR1hEaWNjOGRl?=
+ =?utf-8?B?MGtSMmFwT1lyTjlLV3FvLzRwQnE4bk9jK3JJMWx5cW5PWXJQblRRVWVQUmRI?=
+ =?utf-8?B?TnppREFYL3FzenlNNUxJSHhtRXk4TnlnNW9uV0xNU21rdXFPL29OdWFTTzV6?=
+ =?utf-8?B?ZnZQbzVEMkZEbTJQTzlnV216SXZUcTFzQmdiMFlFT0RwRHNYeS9Tcktsd25k?=
+ =?utf-8?B?Sm1NNkV2bk9yMWpGSEhrcUNXQk1qa0hHVC9vSW5SelRUN2FRalExamtnMlE3?=
+ =?utf-8?B?MFJkcVlBc2NNN0k4ZmJ2SCtjbSs0MWhLSWpSNlU2cFJLOWpMaEJFVXBFVGpr?=
+ =?utf-8?B?MWdObi94MEF6WjRHaXNEWVhoRlJpRzI3MlgwYnlaMUg3Qkd5ZEFSMkpBNWZa?=
+ =?utf-8?B?RDlLTlZaQWNodnlqNkpLS0hiS2VHQzYxSkhIM1dSWmEzci9qTS96cnY5ZkJw?=
+ =?utf-8?B?YUhjdXl5ZmJpU0JEKzhhMExZVC9oNC8vY0cycE1lS0trTGYzMEdrUS94NC85?=
+ =?utf-8?B?Tlo0VUp4eWV6d1Y3WHNOSFZCbS9vQVdZdEZjay91NE9RY0hkZUJPZVlKUy81?=
+ =?utf-8?B?S0JTRDArUWt1ZWR6bzRndWtOQ2QwcGNoOHAxQkdwWDErVGp2cVp0elhhTFRl?=
+ =?utf-8?B?cVR3TjUyNnN2WXRvd0FIT081VXIvcmlTN3Rkb2txR2EyTGNiRWtMRUZ3c2JT?=
+ =?utf-8?B?TTVSSHZuU1Y5NWJaK3BJKzUyRS95b3JXSEM0MklCM290SjFRWGVLWUozTnZF?=
+ =?utf-8?B?dEE1aUtOSWRIYklEa0E4UkJleDd6OGQ5UHl3KzY0NXkzTGdjS3ZxYyt2U0Y4?=
+ =?utf-8?B?NWlveWlUWk1GWi9qczc4bGJUQmYyemV0ZWtxR093cUovOTNyZVg0UzZQOHZa?=
+ =?utf-8?B?Y1p3NmNzRjlsRmJld1ZESVFKSVZPallIVENPRzY1NktSdGlGa1h6MW4xOE5B?=
+ =?utf-8?B?d0wvQTk2VDJRUGloQllpK1BEcGtZSVNOMjZpcFVXWHpMR1RzVFcwS3hpQTRl?=
+ =?utf-8?B?dmszVGs4TUsySW55bzBiemcveVZ1NUJEL09vNWNUWDV1b3ZzazBvZVRsQVlh?=
+ =?utf-8?B?OXpFdmxYdVpvUkxIckUrTXU1K2kzRm1pM0cyY01KSkVkWWRuZHhCQ21tRFlY?=
+ =?utf-8?B?VjJwNVBtTjhqbXppdnBGeFFSSUxHRk04Q2RFcDFuRTdCU2xkbitrSVBiczdX?=
+ =?utf-8?B?cGVjTTdWQnpCZGsvdyt0ZWZhTmFiTDB2ZkRmMXY4eWROU1oybFg3ckhlanR3?=
+ =?utf-8?B?SWRRdmtURWlHZlkrOEl5ZDZscnN0ektpUEhzc1dMMU5ibnc5ZDg3SEI1cS9x?=
+ =?utf-8?B?ZEs5QzE2L3BXSHJlT2sxVFpUWFRocXdSQTlFbEhVQTkyZ2hZQnpWdkJ1bllV?=
+ =?utf-8?B?bDcwSmJabUp4Z0Zld0RKNUlKUjJ1YU1tL1RhMGZKVUh1ZFpyeHNoNG9IRWVP?=
+ =?utf-8?B?MW5QVSthaVBZem96YmZHNUJIMklPQ3lHNjJLU1dWT2JDaWlOdCs0WU9ZUnpT?=
+ =?utf-8?B?WmloOWE1d091WXlieUF4T3VRdEpzRzgrMjFvUXduMk1jaVpOb3pBeDAzd2Z4?=
+ =?utf-8?B?MjY5UXAxeEpoU216VFBRejhtUXZDdG1oT1lUTEZsZlFwRm9IdjJPUmlyUmIv?=
+ =?utf-8?B?bnlRSFVVa0ZDOTE0K0hKU0VEMUdXZXozL1JuK2FKMmZETk9mTEdIU1lXcGRW?=
+ =?utf-8?B?TEg2WHdyUGwzdDBKTmJOcEZnUHQ1SHlzSTFwK1g0Z3ZCSWNObVJuZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b281143-b1ae-4523-c1e7-08de836ae9b0
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 14:47:14.5302
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 873sqr6jnGjD9+ARvSVZ8WagCvtNFLUDOMzELWBnF5OOkipUJY06KgSWffY0DjOrxz50ZDidj4JaXuMIubgCTQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_080014_922000_AF2A0EA8 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20260316_080234_390113_6E0C2830 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,125 +170,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Peng Fan <peng.fan@nxp.com>
 
+Convert the binding to use the generic power-controller schema instead by
+referencing power-controller.yaml and removing the local
+`system-power-controller` property definition.
 
-On 2026/3/14 04:44:49, Nicolin Chen <nicolinc@nvidia.com> wrote:
-> On Fri, Mar 13, 2026 at 06:43:50PM +0800, Qinxin Xia wrote:
->>    * The capabilities file provides detailed information about:
->>    * - Architecture version and translation stage support (Stage1/Stage2)
->> @@ -324,5 +327,78 @@ static int smmu_debugfs_ste_show(struct seq_file *seq, void *v)
->>   	smmu_debug_dump_ste(seq, dev);
->>   	return 0;
->>   }
->> -
->>   DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_ste);
-> 
-> nit: let's not add that line in the first place
-> 
->> +
->> +/**
->> + * smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
->> + * @dev: device to create entries for
->> + * @smmu: SMMU device
->> + *
->> + * Return: 0 on success, negative error code on failure
->> + */
->> +int smmu_debugfs_create_stream_table(struct device *dev,
->> +				     struct arm_smmu_device *smmu)
->> +{
->> +	struct dentry *stream_dir, *cd_dir, *dev_dir;
->> +	struct dentry *ste_file, *all_cds_file;
->> +	struct iommu_fwspec *fwspec;
->> +	char name[64];
->> +	int i, ret = 0;
->> +
->> +	if (!smmu->debugfs->stream_dir) {
->> +		stream_dir = debugfs_create_dir("stream_table",
->> +						smmu->debugfs->smmu_dir);
->> +		if (!stream_dir)
->> +			return -ENOMEM;
->> +		smmu->debugfs->stream_dir = stream_dir;
->> +	} else {
->> +		stream_dir = smmu->debugfs->stream_dir;
->> +	}
->> +
->> +	fwspec = dev_iommu_fwspec_get(dev);
->> +	if (!fwspec)
->> +		return -ENODEV;
->> +
->> +	for (i = 0; i < fwspec->num_ids; i++) {
->> +		u32 sid = fwspec->ids[i];
->> +
->> +		if (dev_is_pci(dev)) {
->> +			struct pci_dev *pdev = to_pci_dev(dev);
->> +
->> +			snprintf(name, sizeof(name), "%04x:%02x:%02x.%d:%u",
->> +				 pci_domain_nr(pdev->bus), pdev->bus->number,
->> +				 PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn),
->> +				 sid);
-> 
-> Doesn't dev_name(dev) print the BDF numbers as well?
-> 
->> +		} else {
->> +			snprintf(name, sizeof(name), "%s:%u", dev_name(dev),
->> +				 sid);
->> +		}
->> +
->> +		dev_dir = debugfs_create_dir(name, stream_dir);
->> +		if (!dev_dir) {
->> +			ret = -ENOMEM;
->> +			goto cleanup;
->> +		}
-> 
-> A device can have multiple streams. So, dev_dir should be the
-> parent directory?
-> 
-dev_dir is a parent directory and it contains ste info and CD info
-for all streams of this device.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ Documentation/devicetree/bindings/mfd/ene-kb3930.yaml | 7 ++++---
+ Documentation/devicetree/bindings/mfd/ene-kb930.yaml  | 6 +++---
+ 2 files changed, 7 insertions(+), 6 deletions(-)
 
-[root@localhost stream_table]# ls
-0000:34:00.0:13312  0000:34:01.0:13320  0000:35:00.0:13568 
-0000:35:00.1:13569  0000:35:00.2:13570  0000:35:00.3:13571
-[root@localhost stream_table]# cd 0000\:34\:00.0\:13312/
-[root@localhost 0000:34:00.0:13312]# ls
-context_descriptors  ste
-[root@localhost 0000:34:00.0:13312]#
->> +
->> +		/* Success for this stream ID, continue to next */
->> +		continue;
->> +
->> +cleanup_dev:
->> +		debugfs_remove_recursive(dev_dir);
->> +cleanup:
->> +		if (ret) {
->> +			debugfs_remove_recursive(stream_dir);
-> 
-> One is the other's parent directory. So it should be good enough
-> with a single debugfs_remove_recursive()?
-> 
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> index 211a0c87507a..c57897e5f644 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> @@ -3133,6 +3133,9 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
->>   
->>   	arm_smmu_attach_commit(&state);
->>   	mutex_unlock(&arm_smmu_asid_lock);
->> +#ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
->> +	smmu_debugfs_create_stream_table(dev, smmu);
->> +#endif
-> 
-> Calling in attach_dev doesn't seem correct to me. And device/master
-> can be unplugged. So, we would need to unwind those dev/stream_dir.
-> 
-> Maybe probe_device/release_device are the places to go?
-> 
-> Nicolin
-> 
-Thanks for your review,
-I will fix these bugs in the next RFC version.
+diff --git a/Documentation/devicetree/bindings/mfd/ene-kb3930.yaml b/Documentation/devicetree/bindings/mfd/ene-kb3930.yaml
+index 9b11b6e2bbf746f46406db268bf49b6775939fb3..1847a6d5b22e8ded8638424cfdc6605005d20846 100644
+--- a/Documentation/devicetree/bindings/mfd/ene-kb3930.yaml
++++ b/Documentation/devicetree/bindings/mfd/ene-kb3930.yaml
+@@ -13,6 +13,9 @@ description: |
+ maintainers:
+   - Lubomir Rintel <lkundrak@v3.sk>
+ 
++allOf:
++  - $ref: /schemas/power/power-controller.yaml#
++
+ properties:
+   compatible:
+     items:
+@@ -26,13 +29,11 @@ properties:
+     description: GPIO used with the shutdown protocol on Ariel
+     maxItems: 2
+ 
+-  system-power-controller: true
+-
+ required:
+   - compatible
+   - reg
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/mfd/ene-kb930.yaml b/Documentation/devicetree/bindings/mfd/ene-kb930.yaml
+index 02c111def5de5fa480c59e70518e1de89b2aff08..e0c8abf95bd92f6aa463e3347c101a1c1589161e 100644
+--- a/Documentation/devicetree/bindings/mfd/ene-kb930.yaml
++++ b/Documentation/devicetree/bindings/mfd/ene-kb930.yaml
+@@ -13,7 +13,9 @@ description: |
+ maintainers:
+   - Dmitry Osipenko <digetx@gmail.com>
+ 
+-$ref: /schemas/power/supply/power-supply.yaml
++allOf:
++  - $ref: /schemas/power/supply/power-supply.yaml
++  - $ref: /schemas/power/power-controller.yaml#
+ 
+ properties:
+   compatible:
+@@ -24,8 +26,6 @@ properties:
+   reg:
+     maxItems: 1
+ 
+-  system-power-controller: true
+-
+ required:
+   - compatible
+   - reg
+
 -- 
-Thanks,
-Qinxin
+2.37.1
 
 
