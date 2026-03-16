@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5E8F53D82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDD5F53D80
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHQqMyuuFlwpT2UE52Jtk7JCykj8I76gbQARj/JlEmo=; b=BMUGHCfT3dwIzChuZZXESJO+NH
-	yb8ClwLhfboD/yuUwWKmbSFhUhrHry3hBLKtydzJAu8RMTdQHWMbjcRm11eyiCr7zFztWWzUsmG+0
-	nnKz4HWjMYVFNP2M97pMcuEP556DDZVVeD4b0EkZwyXX7w339FjNZmG/LN2e3kPR5YUTFVV120lKj
-	ULOgNoVDE3RQkE33kUwI5FWaaC88JPhORD5DodiFlNFNQcSfKA+XBQxxIWZfH9mWYKsy/yEULKB0N
-	6ZEaT0Ttgg+4eaU3pYpYPxBHJbyPF033el0ApnvRhggzW0nlmPG44rNYrTwbi9dlqkfEKB7px4qOV
-	xa+4Wt8g==;
+	bh=FvueIHWrftpZGm9WwSLw4m+mhIgN4K5gi1wLojgWmOA=; b=TEk8Ah65ksVQZW/3hMSm5+MDh2
+	RI2hS1fkTjpN8KH6Upu8u4+PBilnX54c2LJAHdd/wtJjOlo982+5NZMGSeNNfsbJ9xZs8EWuuGl0w
+	EPv50eHRzCNBniIN2g4N+2HMHVbhRB4T0by/cpuj2ZzKd2qcVeqJv8Ftae2hCy2HGc64HKVOZKo8n
+	AAXk4u/+wfiss/ASK2sfn70F1ytw6ArY0VmoRqDNRux8aH8SNCB3eKdPDW3YLAEkDT1Am29u0pixU
+	uMN/oigiGLlMQQF0fsdvEYzNd26/MhPffvLsO0O5Dffo90P3ahyMvhqjUifUZJucc7yvzLjvLa+K5
+	qevDDGPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bqs-00000004ZoX-1rwF;
-	Mon, 16 Mar 2026 17:35:38 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1w2Bqt-00000004ZpO-0OFV;
+	Mon, 16 Mar 2026 17:35:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bqp-00000004Zml-1Lnh
+	id 1w2Bqq-00000004Zna-3hlx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 17:35:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FvueIHWrftpZGm9WwSLw4m+mhIgN4K5gi1wLojgWmOA=; b=IHxLHLbhoy1EkRprjgaiLKYU9Z
+	WresiZ7gJmvKlYMPzYoF8YjzsWKMWnUIAxtn8Az1wNszP/63GalwH4eRtImIeNJFZdFjxkILvdcTE
+	oJDYa2fK/6y95QTRRLbhhnMsMI1MAYU3T5KPVLKtydwpUnxtu1XSqWhpAPgT/LXfY9ev/8HiW0wl8
+	voFbN1eW69cUxsPlQVPMNmGwXB0A6Pu4saiHFW9kHlaLGYD3zTM4TJPE1EyGfoZ2o5Cj20T6mcO93
+	KIZTVfWIPztYheElm4a24pEYtF61707Dku5BbyPuJ8lKupYZXbHUAtRf2t0JUx2vSaA8o4OTQlJC8
+	+qxGYP0g==;
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Bqn-00000007Lrm-0WeV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:35:36 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-660af6dee06so4527731a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:35:34 -0700 (PDT)
+	Mon, 16 Mar 2026 17:35:35 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4853b00f9f5so51398185e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:35:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773682533; x=1774287333; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1773682531; x=1774287331; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tHQqMyuuFlwpT2UE52Jtk7JCykj8I76gbQARj/JlEmo=;
-        b=MzJh+qD+24qb8VGCRs6MWFbSdGz5vsihFm1FIElM+1Y3nvQyblBpRjSb8jN4Gt4WwU
-         gbtkiAqCtnMij1KE2R914WT7xp0JLNhZPRKvcSiJV+oIi2t6lzFceQhd/s8ElJHDF7aV
-         6g6rEezXSK7a411iSJiZxScLaVbHFLos+9xxS4QFRzd8V4HhJ5SpyZS9GeiZaV6/UMZ9
-         VvzgZXJuB8kejVc2qgpasc5i/5iVJzXfDpzPHYRLbicEOnNsUgUdNGdwT/dXgXqGYzZF
-         071C7t3AcQ7lIWjYUdCSSsrBF9Mq80JYhu0B8Pd4/Txgj9wsaP4WEVAsTE/hs3J7Rj9f
-         mwJw==
+        bh=FvueIHWrftpZGm9WwSLw4m+mhIgN4K5gi1wLojgWmOA=;
+        b=NcwPIF0SRaRBwJvdmRphzqkixzvTZRb5XFoqrNzBTU43w3ozFnwTM2XKWuBhf39DXJ
+         ifpZU5UY3A/5Snj73gCT/xavtZ96eTWbnx/74Z2ZHb23XZuxpP/DPR4Qua323bUo52x4
+         L35QsE0qR+PW2pJE2FnV2RSzmmO5JMBcGiHWwBvrd5n3ZCaV+ZAM1xpGF31jrS6tbt5h
+         YNyTwsMlEX3cND7Zdms94dNTAiuzjwJGQqAnHjyrsVHYb7b+iTa4ARZfIYPg6wXILGdi
+         0T3sbJd3OidjLs2vFvU7VrBOYTcBkil+To0K7EkmEj0YsQbXxYXMSHjbqHzhrhRbiMB6
+         SC2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773682533; x=1774287333;
+        d=1e100.net; s=20251104; t=1773682531; x=1774287331;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tHQqMyuuFlwpT2UE52Jtk7JCykj8I76gbQARj/JlEmo=;
-        b=UeFOrolRUk3/0ZwJ6Nl6M65c5vLF91s73HmgMSRuJ4Egqk0+UFRlegklgNyzFcUw+k
-         OzpShoUDVAUIoQe3l3LUC05EIh9S5InT69dlfJNfBodXZGv+CPoFMzgOirspcscYP0MJ
-         cfe7Mdk7r3nixj8LVWV5EM86qHWoXqD9QfwJz+gSNpbhaVz4bGYxEbNlwMLgJTpO1iNW
-         GP6QYbLHuceuBVR9J4rIse+zWqLhjJagf6NKXkKDcuvOBFldg666Fz8Ma7EM8klCmbbT
-         ZS82/+ZQEOqWavQoQE7yZdj/vhAXUJvIgA3nxDJdIz68ex6FqCIJQxW9rH+4DXSivV3l
-         c7Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCWDJzmJDW+IcMdQaY8bNS6XAQAU/GWL2ehxaXqezMBrnhepX6PGp2fvN48HNc+mBiO62y7zojeKT/ZlpvyRCYdP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBI9f/0Ulli3GHRtr4jF2AJyJr4md8SQKKorutbmkaOeNVBvzo
-	TBce09hoZ8FAZ6eA7MB6Yzyc+FdT0ynealw4pYuR35cObr9gHrkr3QTPHKE4hSdeEDNLzmyWB/H
-	3Xg==
-X-Received: from edra16.prod.google.com ([2002:aa7:d910:0:b0:661:d31:27ba])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:13d5:b0:666:d8bb:85ec
- with SMTP id 4fb4d7f45d1cf-666d8bb8808mr1653788a12.0.1773682532416; Mon, 16
- Mar 2026 10:35:32 -0700 (PDT)
-Date: Mon, 16 Mar 2026 17:35:25 +0000
+        bh=FvueIHWrftpZGm9WwSLw4m+mhIgN4K5gi1wLojgWmOA=;
+        b=JraC/sh9n8436esB8BISwqXOoMeJ+XqvLleSazEXLukZuUg0+v/IY6+k9SOxcFZ3ON
+         4zXHvRiLc4B8miROLYvwXCfJ+SxAwhBGY/v8SshZilnuxkHdJMgzTTKNVoWFt4SfKIdm
+         kblGrovznw3E2tmd01C/o/VHXBK01kgo0zL1Vg2SYB3RXY++lP6TN2pFtDQntYVOrlGd
+         OZVXusVVhkfQgp5J/8CnisX4cr6ht27VPE92rGhPU/tOXAVmISsvoFrnlBs/YtibiopN
+         nwmdR2jEYAvjqZ+C2WSapvPhUzzR7EHNgtreRDwr02YtdVqyBz3oym1YDke9tDYtrDrF
+         l6zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWnNH8pP6bRz38D0+4YnCnYXWl1UQ0290Y1pP6M2zO8GToJO0UdODa29uBuXt0d88Pddv52jr2iOR7HEQQKpIdK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUy/au4assOuHH7ayhIUKNrX9RQh8+1ViO1P/1P/PAKyedgjy5
+	uph1f8hnP5qMpD/PymTlrBsPUq6CxyRDNZXUFfBSIYKw2ZqpGQBs1B8L1D+QtnOK42mAub38KNh
+	z8Q==
+X-Received: from wmim11.prod.google.com ([2002:a7b:cb8b:0:b0:483:5126:2240])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a4a:b0:477:76bf:e1fb
+ with SMTP id 5b1f17b1804b1-485566f7bd0mr229045355e9.16.1773682531263; Mon, 16
+ Mar 2026 10:35:31 -0700 (PDT)
+Date: Mon, 16 Mar 2026 17:35:24 +0000
 In-Reply-To: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
 Mime-Version: 1.0
 References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
 X-Mailer: b4 0.14.3
-Message-ID: <20260316-tabba-el2_guard-v1-4-456875a2c6db@google.com>
-Subject: [PATCH 04/10] KVM: arm64: Use guard(hyp_spinlock) in mm.c
+Message-ID: <20260316-tabba-el2_guard-v1-3-456875a2c6db@google.com>
+Subject: [PATCH 03/10] KVM: arm64: Use guard(hyp_spinlock) in ffa.c
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
@@ -75,8 +90,8 @@ To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly 
 Cc: Fuad Tabba <tabba@google.com>
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_103535_384251_9EDB2B07 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260316_173533_323421_F0C49AC2 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +107,357 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Migrate manual hyp_spin_lock() and hyp_spin_unlock() calls managing
-pkvm_pgd_lock to use the guard(hyp_spinlock) macro.
+host_buffers.lock and version_lock to use the guard(hyp_spinlock)
+macro.
 
 This eliminates manual unlock calls on return paths and simplifies
 error handling by replacing goto labels with direct returns.
-Note: hyp_fixblock_lock spans across hyp_fixblock_map/unmap functions,
-so it retains explicit lock/unlock semantics to avoid RAII violations.
 
-Change-Id: I6bb3f4105e95480269e5bf8289d084c8f9981730
+Change-Id: I52e31c0bed3d2772c800a535af8abdabd81a178b
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/mm.c | 37 ++++++++++---------------------------
- 1 file changed, 10 insertions(+), 27 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 86 +++++++++++++++++++------------------------
+ 1 file changed, 38 insertions(+), 48 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index 218976287d3f..7a15c9fc15e5 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -35,13 +35,8 @@ static DEFINE_PER_CPU(struct hyp_fixmap_slot, fixmap_slots);
- static int __pkvm_create_mappings(unsigned long start, unsigned long size,
- 				  unsigned long phys, enum kvm_pgtable_prot prot)
- {
--	int err;
--
--	hyp_spin_lock(&pkvm_pgd_lock);
--	err = kvm_pgtable_hyp_map(&pkvm_pgtable, start, size, phys, prot);
--	hyp_spin_unlock(&pkvm_pgd_lock);
--
--	return err;
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
-+	return kvm_pgtable_hyp_map(&pkvm_pgtable, start, size, phys, prot);
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 94161ea1cd60..0c772501c3ba 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -239,6 +239,8 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	int ret = 0;
+ 	void *rx_virt, *tx_virt;
  
- static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
-@@ -80,10 +75,9 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
- 	unsigned long addr;
- 	int ret;
- 
--	hyp_spin_lock(&pkvm_pgd_lock);
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
- 	addr = __io_map_base;
- 	ret = __pkvm_alloc_private_va_range(addr, size);
--	hyp_spin_unlock(&pkvm_pgd_lock);
- 
- 	*haddr = addr;
- 
-@@ -137,13 +131,8 @@ int pkvm_create_mappings_locked(void *from, void *to, enum kvm_pgtable_prot prot
- 
- int pkvm_create_mappings(void *from, void *to, enum kvm_pgtable_prot prot)
- {
--	int ret;
--
--	hyp_spin_lock(&pkvm_pgd_lock);
--	ret = pkvm_create_mappings_locked(from, to, prot);
--	hyp_spin_unlock(&pkvm_pgd_lock);
--
--	return ret;
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
-+	return pkvm_create_mappings_locked(from, to, prot);
- }
- 
- int hyp_back_vmemmap(phys_addr_t back)
-@@ -340,22 +329,17 @@ static int create_fixblock(void)
- 	if (i >= hyp_memblock_nr)
- 		return -EINVAL;
- 
--	hyp_spin_lock(&pkvm_pgd_lock);
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
- 	addr = ALIGN(__io_map_base, PMD_SIZE);
- 	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
- 	if (ret)
--		goto unlock;
-+		return ret;
- 
- 	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, PMD_SIZE, phys, PAGE_HYP);
- 	if (ret)
--		goto unlock;
-+		return ret;
- 
--	ret = kvm_pgtable_walk(&pkvm_pgtable, addr, PMD_SIZE, &walker);
--
--unlock:
--	hyp_spin_unlock(&pkvm_pgd_lock);
--
--	return ret;
-+	return kvm_pgtable_walk(&pkvm_pgtable, addr, PMD_SIZE, &walker);
- #else
- 	return 0;
- #endif
-@@ -437,7 +421,7 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
- 	size_t size;
- 	int ret;
- 
--	hyp_spin_lock(&pkvm_pgd_lock);
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
- 
- 	prev_base = __io_map_base;
- 	/*
-@@ -463,7 +447,6 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
- 		if (ret)
- 			__io_map_base = prev_base;
++	guard(hyp_spinlock)(&host_buffers.lock);
++
+ 	if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+@@ -249,10 +251,9 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 		goto out;
  	}
--	hyp_spin_unlock(&pkvm_pgd_lock);
  
- 	*haddr = addr + size;
+-	hyp_spin_lock(&host_buffers.lock);
+ 	if (host_buffers.tx) {
+ 		ret = FFA_RET_DENIED;
+-		goto out_unlock;
++		goto out;
+ 	}
  
+ 	/*
+@@ -261,7 +262,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	 */
+ 	ret = ffa_map_hyp_buffers(npages);
+ 	if (ret)
+-		goto out_unlock;
++		goto out;
+ 
+ 	ret = __pkvm_host_share_hyp(hyp_phys_to_pfn(tx));
+ 	if (ret) {
+@@ -292,8 +293,6 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	host_buffers.tx = tx_virt;
+ 	host_buffers.rx = rx_virt;
+ 
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+ out:
+ 	ffa_to_smccc_res(res, ret);
+ 	return;
+@@ -306,7 +305,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	__pkvm_host_unshare_hyp(hyp_phys_to_pfn(tx));
+ err_unmap:
+ 	ffa_unmap_hyp_buffers();
+-	goto out_unlock;
++	goto out;
+ }
+ 
+ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
+@@ -315,15 +314,16 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, id, ctxt, 1);
+ 	int ret = 0;
+ 
++	guard(hyp_spinlock)(&host_buffers.lock);
++
+ 	if (id != HOST_FFA_ID) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+ 	}
+ 
+-	hyp_spin_lock(&host_buffers.lock);
+ 	if (!host_buffers.tx) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	hyp_unpin_shared_mem(host_buffers.tx, host_buffers.tx + 1);
+@@ -336,8 +336,6 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
+ 
+ 	ffa_unmap_hyp_buffers();
+ 
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+ out:
+ 	ffa_to_smccc_res(res, ret);
+ }
+@@ -421,15 +419,16 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
+ 	int ret = FFA_RET_INVALID_PARAMETERS;
+ 	u32 nr_ranges;
+ 
++	guard(hyp_spinlock)(&host_buffers.lock);
++
+ 	if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)
+ 		goto out;
+ 
+ 	if (fraglen % sizeof(*buf))
+ 		goto out;
+ 
+-	hyp_spin_lock(&host_buffers.lock);
+ 	if (!host_buffers.tx)
+-		goto out_unlock;
++		goto out;
+ 
+ 	buf = hyp_buffers.tx;
+ 	memcpy(buf, host_buffers.tx, fraglen);
+@@ -444,15 +443,13 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
+ 		 */
+ 		ffa_mem_reclaim(res, handle_lo, handle_hi, 0);
+ 		WARN_ON(res->a0 != FFA_SUCCESS);
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	ffa_mem_frag_tx(res, handle_lo, handle_hi, fraglen, endpoint_id);
+ 	if (res->a0 != FFA_SUCCESS && res->a0 != FFA_MEM_FRAG_RX)
+ 		WARN_ON(ffa_host_unshare_ranges(buf, nr_ranges));
+ 
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+ out:
+ 	if (ret)
+ 		ffa_to_smccc_res(res, ret);
+@@ -482,6 +479,8 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	u32 offset, nr_ranges, checked_offset;
+ 	int ret = 0;
+ 
++	guard(hyp_spinlock)(&host_buffers.lock);
++
+ 	if (addr_mbz || npages_mbz || fraglen > len ||
+ 	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+@@ -494,15 +493,14 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		goto out;
+ 	}
+ 
+-	hyp_spin_lock(&host_buffers.lock);
+ 	if (!host_buffers.tx) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	if (len > ffa_desc_buf.len) {
+ 		ret = FFA_RET_NO_MEMORY;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	buf = hyp_buffers.tx;
+@@ -513,30 +511,30 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	offset = ep_mem_access->composite_off;
+ 	if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	if (check_add_overflow(offset, sizeof(struct ffa_composite_mem_region), &checked_offset)) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	if (fraglen < checked_offset) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	reg = (void *)buf + offset;
+ 	nr_ranges = ((void *)buf + fraglen) - (void *)reg->constituents;
+ 	if (nr_ranges % sizeof(reg->constituents[0])) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	nr_ranges /= sizeof(reg->constituents[0]);
+ 	ret = ffa_host_share_ranges(reg->constituents, nr_ranges);
+ 	if (ret)
+-		goto out_unlock;
++		goto out;
+ 
+ 	ffa_mem_xfer(res, func_id, len, fraglen);
+ 	if (fraglen != len) {
+@@ -549,8 +547,6 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		goto err_unshare;
+ 	}
+ 
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+ out:
+ 	if (ret)
+ 		ffa_to_smccc_res(res, ret);
+@@ -558,7 +554,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 
+ err_unshare:
+ 	WARN_ON(ffa_host_unshare_ranges(reg->constituents, nr_ranges));
+-	goto out_unlock;
++	goto out;
+ }
+ 
+ #define do_ffa_mem_xfer(fid, res, ctxt)				\
+@@ -583,7 +579,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 
+ 	handle = PACK_HANDLE(handle_lo, handle_hi);
+ 
+-	hyp_spin_lock(&host_buffers.lock);
++	guard(hyp_spinlock)(&host_buffers.lock);
+ 
+ 	buf = hyp_buffers.tx;
+ 	*buf = (struct ffa_mem_region) {
+@@ -594,7 +590,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 	ffa_retrieve_req(res, sizeof(*buf));
+ 	buf = hyp_buffers.rx;
+ 	if (res->a0 != FFA_MEM_RETRIEVE_RESP)
+-		goto out_unlock;
++		goto out;
+ 
+ 	len = res->a1;
+ 	fraglen = res->a2;
+@@ -611,13 +607,13 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
+ 		ret = FFA_RET_ABORTED;
+ 		ffa_rx_release(res);
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	if (len > ffa_desc_buf.len) {
+ 		ret = FFA_RET_NO_MEMORY;
+ 		ffa_rx_release(res);
+-		goto out_unlock;
++		goto out;
+ 	}
+ 
+ 	buf = ffa_desc_buf.buf;
+@@ -628,7 +624,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 		ffa_mem_frag_rx(res, handle_lo, handle_hi, fragoff);
+ 		if (res->a0 != FFA_MEM_FRAG_TX) {
+ 			ret = FFA_RET_INVALID_PARAMETERS;
+-			goto out_unlock;
++			goto out;
+ 		}
+ 
+ 		fraglen = res->a3;
+@@ -638,15 +634,13 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 
+ 	ffa_mem_reclaim(res, handle_lo, handle_hi, flags);
+ 	if (res->a0 != FFA_SUCCESS)
+-		goto out_unlock;
++		goto out;
+ 
+ 	reg = (void *)buf + offset;
+ 	/* If the SPMD was happy, then we should be too. */
+ 	WARN_ON(ffa_host_unshare_ranges(reg->constituents,
+ 					reg->addr_range_cnt));
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+-
++out:
+ 	if (ret)
+ 		ffa_to_smccc_res(res, ret);
+ }
+@@ -774,13 +768,13 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
+ 		return;
+ 	}
+ 
+-	hyp_spin_lock(&version_lock);
++	guard(hyp_spinlock)(&version_lock);
+ 	if (has_version_negotiated) {
+ 		if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
+ 			res->a0 = FFA_RET_NOT_SUPPORTED;
+ 		else
+ 			res->a0 = hyp_ffa_version;
+-		goto unlock;
++		return;
+ 	}
+ 
+ 	/*
+@@ -793,7 +787,7 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
+ 			.a1 = ffa_req_version,
+ 		}, res);
+ 		if ((s32)res->a0 == FFA_RET_NOT_SUPPORTED)
+-			goto unlock;
++			return;
+ 
+ 		hyp_ffa_version = ffa_req_version;
+ 	}
+@@ -804,8 +798,6 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
+ 		smp_store_release(&has_version_negotiated, true);
+ 		res->a0 = hyp_ffa_version;
+ 	}
+-unlock:
+-	hyp_spin_unlock(&version_lock);
+ }
+ 
+ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+@@ -818,10 +810,10 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, flags, ctxt, 5);
+ 	u32 count, partition_sz, copy_sz;
+ 
+-	hyp_spin_lock(&host_buffers.lock);
++	guard(hyp_spinlock)(&host_buffers.lock);
+ 	if (!host_buffers.rx) {
+ 		ffa_to_smccc_res(res, FFA_RET_BUSY);
+-		goto out_unlock;
++		return;
+ 	}
+ 
+ 	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+@@ -834,16 +826,16 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	}, res);
+ 
+ 	if (res->a0 != FFA_SUCCESS)
+-		goto out_unlock;
++		return;
+ 
+ 	count = res->a2;
+ 	if (!count)
+-		goto out_unlock;
++		return;
+ 
+ 	if (hyp_ffa_version > FFA_VERSION_1_0) {
+ 		/* Get the number of partitions deployed in the system */
+ 		if (flags & 0x1)
+-			goto out_unlock;
++			return;
+ 
+ 		partition_sz  = res->a3;
+ 	} else {
+@@ -854,12 +846,10 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	copy_sz = partition_sz * count;
+ 	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+ 		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+-		goto out_unlock;
++		return;
+ 	}
+ 
+ 	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+-out_unlock:
+-	hyp_spin_unlock(&host_buffers.lock);
+ }
+ 
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
 
 -- 
 2.53.0.851.ga537e3e6e9-goog
