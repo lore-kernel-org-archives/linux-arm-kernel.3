@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEDEEFCBB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 06:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9782EEFCBD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 07:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5k8sNwUCtuNl5KQTKE9dvLLTtEJ1hjFmuOQqcpUNe8=; b=1Oc9MVXApfxYUTOb+kUY9VggVA
-	IWIdUrs0n8AiZoLu+p9XAINozegyPljKLCthr3fSc0rAEGlePC4Gmo8PztENGtcYUYuHqFk5OgufB
-	saI2v7abT3ONoWN59w60mb0krCGTvXSKI1s44xdfaamdBzXL8/u1Hf01bhLo589L6e3w14iFunqAb
-	lCYsMV9hevvARjImGSbArTNbfyAdO5ANKpumqrlqqrFD7gG17T/VeZdeyqdPiKc+uyrHQRF2DzNhl
-	lKSshjxIuWhOTimx8pJyb0aSwKtWkOM05N80SUdtNNPTZSKQ+vsoFVe/EVxzyxY67E4k6iKfcPUkv
-	JZoGAOBw==;
+	bh=iMmUMDZrYnEz/CbNgCyWMh1qW53DcWwSxTsAKK1B7Rc=; b=kgw9JOefmOJf7idtM6n6zYAz1V
+	mPpCUBWzbUq3eXexT6Qko+WT6aaEKV3MN0UG4WAn0H+3D9VG54tJy3nKjbrJmOneiU1aDVhv35bFm
+	mYtUSe2kH2UL+eVLHx6bdi/eAQqtavXugRJpyM73zZ0yULmwLcXN5F07Qbmj5jZdVPOe//y+EVB+0
+	oPhN+3T+HfgCYCZubdYoRP2qYvqbNexkpceq2/4KgNb6g1bQCucpdRyt0vBwuFrCSjrVt4T8k9qXP
+	DrxO5F5TifTFqmyHGELkRbBgMeZh9Nx4LpEW1OqgkhkGONiVqTSNDr6AznDEXQkWSvZeiRSSCwWn8
+	IK4NNmkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21aT-00000003QkZ-2Q6S;
-	Mon, 16 Mar 2026 06:38:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w221Q-00000003Rna-0JPY;
+	Mon, 16 Mar 2026 07:05:52 +0000
+Received: from mta-64-228.siemens.flowmailer.net ([185.136.64.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21aQ-00000003Qiq-202g
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Mar 2026 06:37:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=v5k8sNwUCtuNl5KQTKE9dvLLTtEJ1hjFmuOQqcpUNe8=; b=e+dcNtRY8rzhvVvl7j0eOC25IU
-	z2prlKWfVUDxKy8jWe7Gwc9WgB645TlR800BARQgWxfFdSQZp4GGR/5GK/YwqxXPBHX9Up1sFLlHv
-	IiUGxDCosICRn8Oj6QoGFe3/0we9b7VuxrfjSSXxdjn7cLMWa5YHvncrLLpfdQ1HMKov4jHTcKYw8
-	M2rXBsJ2s9swC9Kpug9vCXX9EIavm4+8lMvs4Sf3L6iovFMOWfKk+PWZOOurlRxviUZ6Em7w4NgxF
-	v4n66D1KQd036lqaPsGo28a9GqDBW9XYEmnpZRiVlFUyVwZdOHH47FdLGCvU1y3fDR1FWBvqhqAwq
-	sNpypsZw==;
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21aM-000000068kL-2k20
+	id 1w221L-00000003RmA-25BJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 06:37:57 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c73c990a96dso1540628a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 23:37:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773643071; x=1774247871; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v5k8sNwUCtuNl5KQTKE9dvLLTtEJ1hjFmuOQqcpUNe8=;
-        b=HP7+6skesnk5KfTCz2gwy8FMrvpMuyGN8aMDHNE7RoL9U+PfwwtdGtKEXgBPfaAGiF
-         5fgI/erUy96q1w9iYm48oZF3hxhCO/ha1BWm7hvKUF0pK6y2KB9BlakWCPD8QRBzEhaq
-         JTTGEGmuRRPwIYPWRbMljN7ZF7VzL4UHFNYE/nUQBJ5BxV2XPr1O49aV+Lm90ifL7BC8
-         CkwBjod0pYbnbmvWzS+Y3BwILKYU92kEkFOTuj3B+430NkZYvwjnCbP/HLRmlmGa+E2f
-         nBHu4024Q7Ym6YYRTqOpXFwE30pzIlcFReeTVcc6DFubeVIsbkqWDjSeQ41FCUKQnR8w
-         Y9hA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773643071; x=1774247871;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=v5k8sNwUCtuNl5KQTKE9dvLLTtEJ1hjFmuOQqcpUNe8=;
-        b=C6/T+GurIXpODXmJa7pqpRhL9ZwwNxPbf+NSqqZQMHO7UfTS9oeynhcA/4bR5tycK1
-         NdCWUGmRqpu89TILypPMjRI3bnQdfTSubX7MC3/y0DZyUP7oggdVRxlxCvIyViFaQIYl
-         oxf1nKCM4Mtn+HhXVzUlffaPRqSlI7fABibZXgj1b37OKQY02w7xJRNQaWcb0vDp7oLB
-         grURVuBuq2L/4BO3Clg8XFA9ODUb1xrXjY9wD5S0p7fm3QMVTeXhihevYinGq/WvYHJO
-         Y2kLuJvpIdkq/27JajPlAsccXmZQo66412Oz++QayjqHkCcOHKIEg6f0uNaDehQXmCMm
-         P8/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUDITRaeatSyBOFtiNiRs5VRFFTIdBem52uBv1sAXywVFOYplhtzlHp0G/Ev/jZLdDFlI8P6ypiRtU/8xR1M3kO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZFzMY3aFm8EIibMLEUApEjLjcyIuURhJOS4JjA/rgvOLwP9rU
-	vzACovd2K/C8A2MoSAkkK5YKQTKtrxM33AcTI83YZBMq//RUWJnNcdpo
-X-Gm-Gg: ATEYQzzS7WQ/6DQJ7nqWPvMEz05YvZvLjxL1t46WpjgjUDdeFGuce6t8omHX89Grvxd
-	PAuKKTqUZMSnizeCE3UEFMwyAuLsk7Y85rva0SkjZ8AoYg0/9HAJrHwSfs1dgBUGUgXUxTPFlcp
-	5Wrf01ShNFJI1td+Y/n8/6pL2f9btmiCIje5M39fN/abbG7kYLgO6KmOG3vfFQ6EjfkFRhCML+s
-	687aSMblC+8aOTitDksQfNsKKj/sFaRf0MjhibV7pmy0h9O9QdRSFBvllL9ofnGLYXiFMue2DGd
-	HDWAAETwbeJWDg9ZINxndkqYp8CGSXMHwnsEqlP0YghGoYOoSX3/C/4eDqlQ1jwl2c5FIq2is6G
-	nLROInuHlMGt9MXmx4MF2dQMVdonfAjerOJHTsOH0OFo9eEgexcrDiJEfs/7VFar0ssis3hWvXY
-	s4LFTxAMmuybLgEBrZj8pJ/QS3OyvRAus7yxmzvqOEaPYhrG1ABKpQ7gxLMfEWeIW9KdkbXH+dC
-	gsvLngYSA==
-X-Received: by 2002:a17:903:2b06:b0:2ae:c001:834b with SMTP id d9443c01a7336-2aecac3e7bdmr118041445ad.39.1773643071442;
-        Sun, 15 Mar 2026 23:37:51 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece56cdf4sm122845295ad.8.2026.03.15.23.37.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 23:37:51 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: andi.shyti@kernel.org,
-	ychuang3@nuvoton.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-i2c@vger.kernel.org,
+	Mon, 16 Mar 2026 07:05:49 +0000
+Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 202603160705416323f8e7c200020713
+        for <linux-arm-kernel@lists.infradead.org>;
+        Mon, 16 Mar 2026 08:05:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=alexander.sverdlin@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
+ bh=iMmUMDZrYnEz/CbNgCyWMh1qW53DcWwSxTsAKK1B7Rc=;
+ b=ZZ6lPJqcW02dDWMMEConDNy30m9XX+2yRbXm/FA6paPKFtJuLlcUE2yknRPk50UXSgWbzt
+ PSsEFLpLv4Ke8YS1zlKloV1KhGtlGrr8q9ruOrw9vbeTR5JhiRtNE5I/+MPQTgiO+HBiKlkf
+ 1U6N8ohxdSLCp51tWs5WHoFdtqL2mCsKuFt/0n82kfP4f8vs6pReiMnsnc5w4HYQ95Og2Sj4
+ vqB9gKmq9SYOlEqsiBgu86D/rPO2PvTkYaDmLqzFlkSDHfH6KBxibyBaXhXNsVmWPphxkHrL
+ iw8LilA8j0Y575oyve0V9/7RNOeLTjS/m4KoavWolrwLnE3ZUwPvzbTg==;
+From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Andrew Davis <afd@ti.com>,
+	Jayesh Choudhary <j-choudhary@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Abraham I <kishon@kernel.org>,
+	Roger Quadros <rogerq@kernel.org>,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	zychennvt@gmail.com
-Subject: [PATCH v2 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
-Date: Mon, 16 Mar 2026 06:37:26 +0000
-Message-Id: <20260316063726.41048-4-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260316063726.41048-1-zychennvt@gmail.com>
-References: <20260316063726.41048-1-zychennvt@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] dt-bindings: mfd: syscon: add binding for TI K3 platforms reset registers
+Date: Mon, 16 Mar 2026 08:04:23 +0100
+Message-ID: <20260316070429.1545707-2-alexander.sverdlin@siemens.com>
+In-Reply-To: <20260316070429.1545707-1-alexander.sverdlin@siemens.com>
+References: <20260316070429.1545707-1-alexander.sverdlin@siemens.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-456497:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_063755_624001_5E12F502 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20260316_000548_231852_5A4AF9D3 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,136 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add I2C controller nodes to the MA35D1 SoC dtsi.
-Also enable the I2C interfaces on the MA35D1 SOM board
-to allow communication with onboard peripherals.
+From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+Add DT binding for Texas Instruments K3 Multicore SoC platforms reset
+registers present on AM64x and newer members of the K3 family and consist
+of the RST_CTRL, RST_STAT, RST_SRC and RST_MAGIC_WORD.
+
+The planned usage is to provide reset reason information.
+
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 ---
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 18 +++++-
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 60 +++++++++++++++++++
- 2 files changed, 77 insertions(+), 1 deletion(-)
+Changelog:
+v2: amended mfd/syscon.yaml instead of separate reset/ti,am64-rst.yaml
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index f6f20a17e501..4dfb5340a139 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -13,6 +13,7 @@ / {
- 	compatible = "nuvoton,ma35d1-som", "nuvoton,ma35d1";
+ Documentation/devicetree/bindings/mfd/syscon.yaml     |  1 +
+ .../bindings/soc/ti/ti,j721e-system-controller.yaml   | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index e57add2bacd30..564fcb153a688 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -240,6 +240,7 @@ properties:
+               - ti,am62-usb-phy-ctrl
+               - ti,am625-dss-oldi-io-ctrl
+               - ti,am62p-cpsw-mac-efuse
++              - ti,am64-rst
+               - ti,am654-dss-oldi-io-ctrl
+               - ti,j784s4-acspcie-proxy-ctrl
+               - ti,j784s4-pcie-ctrl
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+index f3bd0be3b279f..b8063548f50ad 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+@@ -86,6 +86,12 @@ patternProperties:
+     description:
+       This is the DSS OLDI CTRL region.
  
- 	aliases {
-+		i2c0 = &i2c2;
- 		serial0 = &uart0;
- 		serial11 = &uart11;
- 		serial12 = &uart12;
-@@ -55,6 +56,12 @@ &clk {
- 			   "integer";
- };
- 
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	status = "okay";
-+};
++  "^rst@[0-9a-f]+$":
++    type: object
++    $ref: /schemas/mfd/syscon.yaml#
++    description:
++      The node corresponding to SoC reset registers block.
 +
- &pinctrl {
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
-@@ -98,6 +105,15 @@ pinctrl_uart16: uart16-pins {
- 			power-source = <1>;
- 		};
- 	};
-+	
-+	i2c-grp {
-+		pinctrl_i2c1: i2c1-pins {
-+			nuvoton,pins = <1 10 12>,
-+				       <1 11 12>;
-+			bias-disable;
-+		};
+ required:
+   - compatible
+   - reg
+@@ -133,5 +139,10 @@ examples:
+             compatible = "ti,j784s4-pcie-ctrl", "syscon";
+             reg = <0x4070 0x4>;
+         };
 +
-+	};
- };
- 
- &uart0 {
-@@ -128,4 +144,4 @@ &uart16 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart16>;
- 	status = "okay";
--};
-+};
-\ No newline at end of file
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index e51b98f5bdce..a88d1c2938e7 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -372,6 +372,66 @@ uart15: serial@407f0000 {
- 			status = "disabled";
- 		};
- 
-+		i2c1: i2c@40810000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40810000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C1_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@40820000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40820000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C2_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@40830000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40830000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C3_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C3>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c4: i2c@40840000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40840000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C4_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C4>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c5: i2c@40850000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40850000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C5_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C5>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		uart16: serial@40880000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40880000 0x0 0x100>;
++        rst@18170 {
++            compatible = "ti,am64-rst";
++            reg = <0x18170 0x10>;
++        };
+     };
+ ...
 -- 
-2.34.1
+2.52.0
 
 
