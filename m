@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DE7F53D6C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 22:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3290AF30275
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 22:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pW+gaXWnu4rY+78vLjdac4WvIiFC+ddEjlcgIq0JPlo=; b=ZP94bY1acAjbNSARNAna3pAdJA
-	YmXqfJo2QDEgz8vWmLRYw305fcw8ebLEVKDG+RuU3f4fa8qsEMaj+UWo75uGbfRrw1jlcNEgBMd00
-	B2HC/RY5FxJvW9lbJgL92rdgh3ixXLtiSdds1zcwsoLCruIRZETJhay3bjtNA88oDao8meDcH15cR
-	rBjqDgkOXfQQPnUwsK3lWna4XNNQ954j1AnVs+UJSQCBxYa1z2FEukC/Ze5XnJRCEuBhpShquTBtW
-	hIu3rIFlCqiBEA5zAMBdAUeXzVy+UTF09sPaW8U799/Tz0gf9j/lzY8INNuLIqUTgR//OEcKhdO+w
-	s9JgX/Qg==;
+	bh=6thiR54CY8QtVoPqPm+NGB5mFkJooDA5caJGg49p0mE=; b=mAEkJPde0TAPHnN0zcAMQFKf1g
+	Z8RZJWwXtv96shIMcSrLOuHB4aM2lRASLfb3WTqPhi1tOSxEqPfr+Ciq+V8e1KnyoqZcti+8reJvr
+	nvr5DFSTaEq+DhVLTm3Z7nwq7GbjlQjo3ouilkIeJpXdLCRS12jT1zdJ/NCH4BDiHJRHvzTRiCnCG
+	hvcg61utPaCKzd8khMz2EO52C4CXIOUmwYGgU7RkWq8uxA4sfdIWpJ5XMiEREl8BfOvmQ2kTlVe9e
+	/1xZ5/2GXx35ZUzC9pMcuPStDivGtFfn9QKAvIkSuqpkkk9C805Gyh3Y4W0rlr20GRbLIRgjBqBLG
+	64duj79w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2GFu-00000004zme-1eTh;
-	Mon, 16 Mar 2026 22:17:46 +0000
+	id 1w2GHs-00000005060-3SQD;
+	Mon, 16 Mar 2026 22:19:48 +0000
 Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2GFr-00000004zjw-2frU
+	id 1w2GHq-0000000505d-3IST
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 22:17:44 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2BDB10D588;
-	Mon, 16 Mar 2026 23:17:30 +0100 (CET)
+	Mon, 16 Mar 2026 22:19:47 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4E7810D3F8;
+	Mon, 16 Mar 2026 23:19:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1773699452; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=pW+gaXWnu4rY+78vLjdac4WvIiFC+ddEjlcgIq0JPlo=;
-	b=L27GwRybH/qL7GbagjOIdGeFJZz4zheAGeJ5G9wKjx/SPDdzmDESFyDQOyqwiWOtXzIcz7
-	iLw2EeY8eRP9AlqLWe5Hd1haenZ3l7hK4I31WdfVaQXzXYj9OF/RFykEY0pYA5/mJuctTl
-	TtQlJclIdtT7QwzZYgvHUQBWs6ZoJPHXavQANHeEE5hvWG2kdODiZRg2TobZoIP6HA+tZb
-	o9dwKDh6xk2spzqTXFpM0yRTn98ZKP3H0BVGUnG9S4eIDXUQ5Qpf5ExZqK7CxznkI00I6g
-	INtonFI8jwRs8LUDolzeH5PWnIIsqm25XoTY357+gLVVXBmLmwWjK0exlWR6ow==
+	s=dkim; t=1773699584; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=6thiR54CY8QtVoPqPm+NGB5mFkJooDA5caJGg49p0mE=;
+	b=aL50Bc4Gt/6D9g+t/299iADka6rEAQLrLZeyg/UrQc1URI5rzXtLHNaqt+3lS9K8ysyMpQ
+	w1myUIjUl1BTBbNaeZPm7i83Ao1sMeagd3UmHyhEa0owg+Mo3ePztDXQ+d5t7kseC0q6o+
+	n6WkhuQMK8URqzdqrpKLIQUiOWYntbQKCnyllBIrBfmbM8xMjPnHqhI+MF+dJlRQhQkyOD
+	W6Ib3Q7kN0GIRAMAMh68Tc67T6orAJJgp/1/tZ2jVNYtGOnj8TwYpPOl0XoQD8K8w/6I6E
+	ILifXcvCeyOc2O8btZ6nv1IWgmWCB5q38r33/kRT2VFbmLQCWDq0LeCbhA9O5g==
 From: Marek Vasut <marex@nabladev.com>
 To: dmaengine@vger.kernel.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -49,16 +49,16 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	Vinod Koul <vkoul@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] dmaengine: xilinx: xilinx_dma: Fix dma_device directions
-Date: Mon, 16 Mar 2026 23:16:54 +0100
-Message-ID: <20260316221728.160139-1-marex@nabladev.com>
+Subject: [PATCH] dmaengine: xilinx: xilinx_dma: Fix residue calculation for cyclic DMA
+Date: Mon, 16 Mar 2026 23:18:57 +0100
+Message-ID: <20260316221943.160375-1-marex@nabladev.com>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_151743_892259_9D271063 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260316_151946_967836_F734F5E3 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,11 +73,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike chan->direction , struct dma_device .directions field is a
-bitfield. Turn chan->direction into a bitfield to make it compatible
-with struct dma_device .directions .
+The cyclic DMA calculation is currently entirely broken and reports
+residue only for the first segment. The problem is twofold.
 
-Fixes: 7e01511443c3 ("dmaengine: xilinx_dma: Set dma_device directions")
+First, when the first descriptor finishes, it is moved from active_list
+to done_list, but it is never returned back into the active_list. The
+xilinx_dma_tx_status() expects the descriptor to be in the active_list
+to report any meaningful residue information, which never happens after
+the first descriptor finishes. Fix this up in xilinx_dma_start_transfer()
+and if the descriptor is cyclic, lift it from done_list and place it back
+into active_list list.
+
+Second, the segment .status fields of the descriptor remain dirty. Once
+the DMA did one pass on the descriptor, the .status fields are populated
+with data by the DMA, but the .status fields are not cleared before reuse
+during the next cyclic DMA round. The xilinx_dma_get_residue() recognizes
+that as if the descriptor was complete and had 0 residue, which is bogus.
+Reinitialize the status field before placing the descriptor back into the
+active_list.
+
+Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct Memory Access Engine")
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
 Cc: Michal Simek <michal.simek@amd.com>
@@ -91,22 +106,44 @@ Cc: dmaengine@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 ---
- drivers/dma/xilinx/xilinx_dma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/dma/xilinx/xilinx_dma.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 7f240fdfe8bb1..6e8e348973a9e 100644
+index 6b0927e3d684b..6e8e348973a9e 100644
 --- a/drivers/dma/xilinx/xilinx_dma.c
 +++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -3045,7 +3045,7 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
- 		return -EINVAL;
- 	}
+@@ -1564,8 +1564,29 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
+ 	if (chan->err)
+ 		return;
  
--	xdev->common.directions |= chan->direction;
-+	xdev->common.directions |= BIT(chan->direction);
+-	if (list_empty(&chan->pending_list))
++	if (list_empty(&chan->pending_list)) {
++		if (chan->cyclic) {
++			struct xilinx_dma_tx_descriptor *desc;
++			struct list_head *entry;
++
++			desc = list_last_entry(&chan->done_list,
++					       struct xilinx_dma_tx_descriptor, node);
++			list_for_each(entry, &desc->segments) {
++				struct xilinx_axidma_tx_segment *axidma_seg;
++				struct xilinx_axidma_desc_hw *axidma_hw;
++				axidma_seg = list_entry(entry,
++							struct xilinx_axidma_tx_segment,
++							node);
++				axidma_hw = &axidma_seg->hw;
++				axidma_hw->status = 0;
++			}
++
++			list_splice_tail_init(&chan->done_list, &chan->active_list);
++			chan->desc_pendingcount = 0;
++			chan->idle = false;
++		}
+ 		return;
++	}
  
- 	/* Request the interrupt */
- 	chan->irq = of_irq_get(node, chan->tdest);
+ 	if (!chan->idle)
+ 		return;
 -- 
 2.51.0
 
