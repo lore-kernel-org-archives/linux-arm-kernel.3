@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33DAF013CA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7871CF013D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkOoSQ6xnhNsEXymDnt/JlPwMCjTrRpZyzgc4ICmXUU=; b=na3w7hY6j8nK1xhpou9c9nBZH7
-	k3xsb2rcYLCxTkD4MCn6Zy1vErort8s3z8JwE+DxCHsHcyP7tW8x/ncEkOS7Eia4OlpfmOHgaJ4Zb
-	+ErVPlt0y/+v3wIp6MYQfkaUm3bgcngVSJd2Kyq9j9tEW0q3OsfjBP6Jzj7P4PjiRKZdoR0htdhdG
-	FMB4oR2M1m2NqYJutTH5/Ic8S3QAkTXTk0W/8RS4hfOTYrnbIBQgjnkrxBpkXQGOcMnvcmoM9rYIB
-	6fdyWnpQ/LynPrgONW9TuBrNFM6bwqcaMVhPcFr+PFl3+71/TFCWGmOM3jNUUGJt1tc+HZXUK79OD
-	uItRtRdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KKbPsDAO7LVmJHxlSzEBfeRUi2Nm7cblhvtLj41WeSc=; b=kTl60bTjUXy5Vx
+	L5buGz7/3yT3Myka82rEX4tHcmDMfrkoDs+TIfjbp2Re0JRemO1B2eKmHhxdqSB5hCddQ9RynGDzi
+	BVH6ipK3Mfja1zAPf12BZ2jFf2ifuv+Vdwc9ZO8NHfnT1DL2LhaXwTrFaPYmDVTt+LZLgLUA/3h9S
+	EfGY/aAowEh4hgwchA5HUbamtDuMP/Ku/sEw4CGw9vJ3CK+F3zRxydnZNIZ4DE9JJXi89T6vBh+xQ
+	RWN/Qqykx1liYOk9YjSmVuRHCgL7g6DEAs950m/PlIdjuwUavV+XLSjTvnjpU0DvSSeNLhZebXSIU
+	2NhxmZj4XtkdY07+2aiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23Ks-00000003Ybf-1cfA;
-	Mon, 16 Mar 2026 08:30:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w23Lo-00000003Yi4-28ie;
+	Mon, 16 Mar 2026 08:31:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23Kq-00000003YbB-1wwK;
-	Mon, 16 Mar 2026 08:30:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96A2960131;
-	Mon, 16 Mar 2026 08:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 870B9C19421;
-	Mon, 16 Mar 2026 08:29:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773649799;
-	bh=ZleLRHDOHBip+HjzKZfgbCdexqRYELee4obevGjagA4=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=kdnn4047r/PTpjAKHd4omIMsOpl4ztjzFI5kQfAUHqX34ZPsmSn81reSSVgRSu89L
-	 23+I9JxdTSXW1Dtu8OD62Jknq6sVuNAgNgFFG5QTKl3P9oWtSnR5TnzkAib8OoB80m
-	 IzP0p4pdzZwAEvZFrBftxiPl0XRkbYaXutmNVoJUxk14TYt9HSiD/Ud4M8rgJcJiWt
-	 Jjrsf0NhBzFKRsgH1b9oxEFZjq0Jv4BOfLXqL4n6qn8PVHGsXaQwxoXgwDZYY2uT7Z
-	 eOGFtrH4AuPzlfaTtRpXuNRMih137kjkvsYvuaEcu1V5czsaiYolnUDslf/GhryY+g
-	 z99YJ8m1u/W0Q==
-Message-ID: <76fd11b2-7789-47c1-a832-12907155ead1@kernel.org>
-Date: Mon, 16 Mar 2026 09:29:52 +0100
+	id 1w23Ll-00000003Yhc-0ZmE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 08:30:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KKbPsDAO7LVmJHxlSzEBfeRUi2Nm7cblhvtLj41WeSc=; b=pfK2sN8Hr3GE9ZcVqY2pGcmjzk
+	I1wMZpcfdjvscKHVtP+QIylkf86NoPUDEioewxinNJ+xgbWg1Znd7SG/ce3il/xwr+UwJDyb/nLhm
+	r2kZx7F5akYZX9NA4d2GmYwzksu8S4lluQiMGsIRVBnFkN8gjgskIbI4af4kujQnQQIr+1PIbFd0O
+	vNp9EaL1IqR+SR6Op0XV0jo+4vvnx8XoovEI0ivoSGVJ0Pd5xgAjhtlsf7g1nWYiAOAA/WQnMDuFT
+	/FjcuHpOzVObQiwBY4v91/Z/vwvlOcJOk8e70P0mLv4uUohftz46QNEzQwqcKBtv1pQuQKUaV56JS
+	Z3kUqzdw==;
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w23Lf-00000006GkC-2BEb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Mar 2026 08:30:55 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=KKbPsDAO7LVmJHxlSzEBfeRUi2Nm7cblhvtLj41WeSc=;
+	b=kdN/AfpZHzSBWHHnCUnfqcNeRn1Y/Ti1cCp31akA99MbW27C46+M+yFh4UoVlwWbikcPlzB3/
+	fttUjkdYCbO7/xktrNNsfIedMKs84ZayJMRR1X8n8u/Y8ESNA4PLnEpzLQoidyveVf9eBSUiI/5
+	McuUwxrVB59tOXLe1Ip8wWg=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fZ7Sl43qDz1K96p;
+	Mon, 16 Mar 2026 16:25:27 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9389940563;
+	Mon, 16 Mar 2026 16:30:23 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 16 Mar 2026 16:30:20 +0800
+Message-ID: <b541bd3a-7407-d743-70de-f9665479dec2@huawei.com>
+Date: Mon, 16 Mar 2026 16:30:19 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH v2 01/13] media: saa7134: rename i2c_dbg() to
- saa7134_i2c_dbg()
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Khalil Blaiech <kblaiech@nvidia.com>,
- Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
- Bartosz Golaszewski <brgl@kernel.org>, linux-media@vger.kernel.org
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
- <20260223-i2c-printk-helpers-v2-1-13b2a97762af@oss.qualcomm.com>
-Content-Language: en-US, nl
-In-Reply-To: <20260223-i2c-printk-helpers-v2-1-13b2a97762af@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v13 11/12] arm64: Use generic TIF bits for common thread
+ flags
+To: Heiko Carstens <hca@linux.ibm.com>
+References: <20260313094738.3985794-1-ruanjinjie@huawei.com>
+ <20260313094738.3985794-12-ruanjinjie@huawei.com>
+ <20260313101022.13729C56-hca@linux.ibm.com>
+Content-Language: en-US
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260313101022.13729C56-hca@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_083052_366682_2CAB4AB8 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,144 +93,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, schuster.simon@siemens-energy.com, andreas@gaisler.com, kees@kernel.org, catalin.marinas@arm.com, dave.hansen@linux.intel.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, hpa@zytor.com, agordeev@linux.ibm.com, shuah@kernel.org, jremus@linux.ibm.com, linux-arch@vger.kernel.org, linux-s390@vger.kernel.org, gor@linux.ibm.com, will@kernel.org, deller@gmx.de, x86@kernel.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, borntraeger@linux.ibm.com, kmal@cock.li, tglx@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, arnd@arndb.de, anshuman.khandual@arm.com, linux-kernel@vger.kernel.org, kevin.brodsky@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, bp@alien8.de, richard.weiyang@gmail.com, dvyukov@google.com, jgross@suse.com, wad@chromium.org, yeoreum.yun@arm.com, oleg@redhat.com, luto@amacapital.net, svens@linux.ibm.com, liqiang01@kylinos.cn, mathieu.desnoyers@efficios.com, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
 
-Apologize, the earlier patches for this fell through the cracks so never
-made it to v7.0.
 
-For this v2:
-
-Acked-by: Hans Verkuil <hverkuil+cisco@kernel.org>
-
-Do you want to merge this through the i2c subsystem? Or do you want me to
-merge this patch through the media subsystem?
-
-Regards,
-
-	Hans
-
-On 23/02/2026 09:59, Bartosz Golaszewski wrote:
-> Ahead of introducing I2C-adapter-specific printk() helpers, preemptively
-> avoid a conflict with the upcoming i2c_dbg() and rename the local macro
-> in the saa7134 driver to saa7134_i2c_dbg().
+On 2026/3/13 18:10, Heiko Carstens wrote:
+> On Fri, Mar 13, 2026 at 05:47:37PM +0800, Jinjie Ruan wrote:
+>> Use the generic TIF bits defined in <asm-generic/thread_info_tif.h> for
+>> standard thread flags (TIF_SIGPENDING, TIF_NEED_RESCHED, TIF_NOTIFY_RESUME,
+>> TIF_RESTORE_SIGMASK, TIF_SINGLESTEP, etc.) instead of defining
+>> them locally.
+>>
+>> Arm64-specific bits (TIF_FOREIGN_FPSTATE, TIF_MTE_ASYNC_FAULT, TIF_SVE,
+>> TIF_SSBD, etc.) are renumbered to start at bit 16 to avoid conflicts.
+>>
+>> This enables RSEQ optimizations which require CONFIG_HAVE_GENERIC_TIF_BITS
+>> combined with the generic entry infrastructure (already used by arm64).
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/Kconfig                    |  1 +
+>>  arch/arm64/include/asm/thread_info.h  | 62 ++++++++++++---------------
+>>  arch/s390/include/asm/thread_info.h   |  7 ++-
 > 
-> Suggested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  drivers/media/pci/saa7134/saa7134-i2c.c | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
+> Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
 > 
-> diff --git a/drivers/media/pci/saa7134/saa7134-i2c.c b/drivers/media/pci/saa7134/saa7134-i2c.c
-> index 04e85765373ecc0f0759eba539c20bcdc9716ca8..1164e91cbb7b7f5250dc02bc086f5cc06ea8f5a5 100644
-> --- a/drivers/media/pci/saa7134/saa7134-i2c.c
-> +++ b/drivers/media/pci/saa7134/saa7134-i2c.c
-> @@ -28,7 +28,7 @@ static unsigned int i2c_scan;
->  module_param(i2c_scan, int, 0444);
->  MODULE_PARM_DESC(i2c_scan,"scan i2c bus at insmod time");
->  
-> -#define i2c_dbg(level, fmt, arg...) do { \
-> +#define saa7134_i2c_dbg(level, fmt, arg...) do { \
->  	if (i2c_debug == level) \
->  		printk(KERN_DEBUG pr_fmt("i2c: " fmt), ## arg); \
->  	} while (0)
-> @@ -84,20 +84,20 @@ static inline enum i2c_status i2c_get_status(struct saa7134_dev *dev)
->  	enum i2c_status status;
->  
->  	status = saa_readb(SAA7134_I2C_ATTR_STATUS) & 0x0f;
-> -	i2c_dbg(2, "i2c stat <= %s\n", str_i2c_status[status]);
-> +	saa7134_i2c_dbg(2, "i2c stat <= %s\n", str_i2c_status[status]);
->  	return status;
->  }
->  
->  static inline void i2c_set_status(struct saa7134_dev *dev,
->  				  enum i2c_status status)
->  {
-> -	i2c_dbg(2, "i2c stat => %s\n", str_i2c_status[status]);
-> +	saa7134_i2c_dbg(2, "i2c stat => %s\n", str_i2c_status[status]);
->  	saa_andorb(SAA7134_I2C_ATTR_STATUS,0x0f,status);
->  }
->  
->  static inline void i2c_set_attr(struct saa7134_dev *dev, enum i2c_attr attr)
->  {
-> -	i2c_dbg(2, "i2c attr => %s\n", str_i2c_attr[attr]);
-> +	saa7134_i2c_dbg(2, "i2c attr => %s\n", str_i2c_attr[attr]);
->  	saa_andorb(SAA7134_I2C_ATTR_STATUS,0xc0,attr << 6);
->  }
->  
-> @@ -160,7 +160,7 @@ static int i2c_reset(struct saa7134_dev *dev)
->  	enum i2c_status status;
->  	int count;
->  
-> -	i2c_dbg(2, "i2c reset\n");
-> +	saa7134_i2c_dbg(2, "i2c reset\n");
->  	status = i2c_get_status(dev);
->  	if (!i2c_is_error(status))
->  		return true;
-> @@ -198,7 +198,7 @@ static inline int i2c_send_byte(struct saa7134_dev *dev,
->  //	dword |= 0x40 << 16;  /* 400 kHz */
->  	dword |= 0xf0 << 24;
->  	saa_writel(SAA7134_I2C_ATTR_STATUS >> 2, dword);
-> -	i2c_dbg(2, "i2c data => 0x%x\n", data);
-> +	saa7134_i2c_dbg(2, "i2c data => 0x%x\n", data);
->  
->  	if (!i2c_is_busy_wait(dev))
->  		return -EIO;
-> @@ -220,7 +220,7 @@ static inline int i2c_recv_byte(struct saa7134_dev *dev)
->  	if (i2c_is_error(status))
->  		return -EIO;
->  	data = saa_readb(SAA7134_I2C_DATA);
-> -	i2c_dbg(2, "i2c data <= 0x%x\n", data);
-> +	saa7134_i2c_dbg(2, "i2c data <= 0x%x\n", data);
->  	return data;
->  }
->  
-> @@ -237,12 +237,12 @@ static int saa7134_i2c_xfer(struct i2c_adapter *i2c_adap,
->  		if (!i2c_reset(dev))
->  			return -EIO;
->  
-> -	i2c_dbg(2, "start xfer\n");
-> -	i2c_dbg(1, "i2c xfer:");
-> +	saa7134_i2c_dbg(2, "start xfer\n");
-> +	saa7134_i2c_dbg(1, "i2c xfer:");
->  	for (i = 0; i < num; i++) {
->  		if (!(msgs[i].flags & I2C_M_NOSTART) || 0 == i) {
->  			/* send address */
-> -			i2c_dbg(2, "send address\n");
-> +			saa7134_i2c_dbg(2, "send address\n");
->  			addr  = msgs[i].addr << 1;
->  			if (msgs[i].flags & I2C_M_RD)
->  				addr |= 1;
-> @@ -265,7 +265,7 @@ static int saa7134_i2c_xfer(struct i2c_adapter *i2c_adap,
->  		}
->  		if (msgs[i].flags & I2C_M_RD) {
->  			/* read bytes */
-> -			i2c_dbg(2, "read bytes\n");
-> +			saa7134_i2c_dbg(2, "read bytes\n");
->  			for (byte = 0; byte < msgs[i].len; byte++) {
->  				i2c_cont(1, " =");
->  				rc = i2c_recv_byte(dev);
-> @@ -286,7 +286,7 @@ static int saa7134_i2c_xfer(struct i2c_adapter *i2c_adap,
->  			}
->  		} else {
->  			/* write bytes */
-> -			i2c_dbg(2, "write bytes\n");
-> +			saa7134_i2c_dbg(2, "write bytes\n");
->  			for (byte = 0; byte < msgs[i].len; byte++) {
->  				data = msgs[i].buf[byte];
->  				i2c_cont(1, " %02x", data);
-> @@ -296,7 +296,7 @@ static int saa7134_i2c_xfer(struct i2c_adapter *i2c_adap,
->  			}
->  		}
->  	}
-> -	i2c_dbg(2, "xfer done\n");
-> +	saa7134_i2c_dbg(2, "xfer done\n");
->  	i2c_cont(1, " >");
->  	i2c_set_attr(dev,STOP);
->  	rc = -EIO;
+>>  arch/x86/include/asm/thread_info.h    |  6 +--
+>>  include/asm-generic/thread_info_tif.h |  5 +++
+>>  5 files changed, 38 insertions(+), 43 deletions(-)
 > 
+> FWIW, I guess you want to do the same for loongarch was well?
 
+Good point. I will include the LoongArch changes in the next version of
+this patchset.
+
+Thanks!
 
