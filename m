@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E87F53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B127F53D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nMV00VBJWKkaqpEtH1LAiLdHckZZ6qshJN4iQQpaP6g=; b=gN15GBHuzRxOtMLS3uLd8iEgEQ
-	3lXYIUbklu9k2eWDQw21XuqvpUssyvfUPkFi4w5S3hEz849sxeQi1rAJC2P3YMA5qCiyliwNMJ9zu
-	6mWcTb3qF9PxAonu6yXcIwkCiMFksyS/h05IU9W1xYaMnwuhoWC/M6xKWkJT3z1r48N2RRA34IDNq
-	S8XJRZjz5gdexjkuoJglj4cvGaGrc/AqjGJ29FqxBCx5zTsZVX4aBCQNl53Hg5iJVnJFaH9KHi6la
-	63njRxYQ2tn0jXDk/XP3LZrYSdS70krzVqFY2PxI+m3KmmjoFKcPImlCI6ExgA61fXkcd5ukjJ6VS
-	PNM+S+dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IN+ncYGFciczNAfju4gvu1jsIUgRwqVwXskvv6bxDAw=; b=RX7EMvCxQ0nKU4HMZ+WRawqhbo
+	ob3t/+5vvY9fkUpg8Klf6f+31MnjzEucneavYl/saTviqtX3UKCtOmszoOmM4p1JIVCiVul9s1EKh
+	8u5XqB5G8mfpgeYxx29I1nsUAsDl1rjbA2MeXlWn4MTez08rfwvy8MklkBPfa9L0eMPeHZNz3lCnF
+	ig4u/CjMemyky5uyIXcMws3hBzUNn+vCHhRYMb7hD006M5uKhgWxqbqCtgrGL8kxqZAKihikVrJBf
+	lTGe7ar54WSCvKqpY02EUG424XRDKSnzaJck5pzqXV1PTDhL7TkFDgstKSLDpNc10RqBsRZuqdQQZ
+	2Y6xzqDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ADE-00000004NKx-1q8e;
-	Mon, 16 Mar 2026 15:50:36 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1w2AEu-00000004NTr-2VwF;
+	Mon, 16 Mar 2026 15:52:20 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ADB-00000004NKU-2X0d
+	id 1w2AEp-00000004NSz-0SeS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:50:35 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-56a9c5cb48bso1908600e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:50:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773676232; x=1774281032;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nMV00VBJWKkaqpEtH1LAiLdHckZZ6qshJN4iQQpaP6g=;
-        b=XqRvNO4H26SBVwcoYJWYdRSXpvZQPZ5CyceFSelAm0dk1LIyqS6EhJrAfg5WHOzEvd
-         ss1KM8Odg3nSSN4kGKVoA+C2GkqFNLDpNQ4ksp9cYNRl9owVuJ+dNT5KZZ/9p4IcKxJv
-         JhoJnM/i9pU9uzHEgkwXXtK+lVZiIrD3wipQtqYWjWJdK7nHvfroghWr8Y4M+LK6w+SU
-         Ph+/Nxwnd69/Tc3SaEROCigYAM2xm8CjNcHLTlYabBxF+UafT/ZnBASe+JD5nJXagf/u
-         O1og0AsoJBIkoDhOTDpdzckZN/N3oQhIY17nfTn+MKa9Qk1aTpwizeekaES0HWWsWcNh
-         twww==
-X-Forwarded-Encrypted: i=1; AJvYcCWZgop2B1lYOjeNR+MhIwmcZtHCB1/YwgzCsfoi0CqH/RIMhxsDyOusgdnFsyBkwr8UqCq3nz9vdFkU8BpArKsd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRuBysHJults0WFwnvIF419dmhB8LdW078P3ALlQ9SYKrI9WDW
-	m1YxvhFkIXNz6b+9uQcWQ2Tywz6AMkwuaqCMksdc75ZLUlNmURi+vngF9XVZ05zb
-X-Gm-Gg: ATEYQzzDWyTVz7BS91z7P4LfLTH0BTLwUlT1bShqd59RVQX7SJUcDENNH7W2ds/w07n
-	F0T8TokwKhFUK4JVBNX/2nM74ohLJvpuYnQKM2nkLHnJ76+DuCis5jeyl7WrJNxNbzO7NFWo+95
-	iJgGBiaGyc+ZAiv5WP9VWwX0PLTS4KuIFsB5h9YCvMQaPQFwnv7vqL2tYjq8TWCdjYEAmhy5gb1
-	3W5GnbSKHGz+GfNAimnikhSZrgbXRC17kgbzAAeda4EyjCS4Dn0/0cYPECIYtlRr0ObTlldATmc
-	7IRD7LCvl0FCPk/tWb52Mo2Iom7Ei8/ZCivXKjpWaasyqKiok1OrddyZCkfMnSKRArq2UOjpaT4
-	epJVMRugv0yQIhlh2IbDSRiu4ziD/9cU822Lhxmbk0ZGaKkztUzab6w7OQFxwvtRvYAqSOvPlM1
-	P98esyIeYlfCvD17S93Ti1XFcXoR8ZiZLiH1rOVx72lKRIznoMDxO5SWKoMgYD
-X-Received: by 2002:a05:6122:d26:b0:56b:8103:79f6 with SMTP id 71dfb90a1353d-56b81038885mr1990217e0c.4.1773676231821;
-        Mon, 16 Mar 2026 08:50:31 -0700 (PDT)
-Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56b464a4235sm8115516e0c.16.2026.03.16.08.50.30
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2026 08:50:30 -0700 (PDT)
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5ffa277c156so653474137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:50:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWc0sLgNJM5+sCDm20iS0QlXhb9cZ3IWElZYGDNG0cGXaf5hCQbOEpenWJbGTE1od85BI7ZvN4S+uS4FtZVhBPE@lists.infradead.org
-X-Received: by 2002:a05:6102:d87:b0:5e8:1d93:921a with SMTP id
- ada2fe7eead31-6020e2823b8mr5534337137.15.1773676230555; Mon, 16 Mar 2026
- 08:50:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <20260310184030.3669330-9-cristian.marussi@arm.com> <CAMuHMdUdqrA9kYeDpjwj-y6-4aALkAi2g2Od81Kxh-EVW2e2Nw@mail.gmail.com>
- <abG4VfyB2C-gBa5Q@pluto> <20260312-classy-misty-platypus-5baea1@sudeepholla> <abLrm7x8ggzAhYOg@pluto>
-In-Reply-To: <abLrm7x8ggzAhYOg@pluto>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 16 Mar 2026 16:50:17 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
-X-Gm-Features: AaiRm50iTDhKDonU-J5qpw3zzDb9304AIvkxbNozshzVrNKZQ64ZXXeHYUSrWsA
-Message-ID: <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol initialization
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
-	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
-	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
-	marek.vasut+renesas@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 16 Mar 2026 15:52:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773676335; x=1805212335;
+  h=date:from:to:cc:subject:message-id;
+  bh=/I8YX934rhT2Dk8FU95XNeChzeuS1OUxkUyUre1498I=;
+  b=Z/CKVgS1SmWFOhupOb33UXo5E/TclyntdwgaVqaYd1boL3CSZWy/MmZj
+   MemfnDUTtimwkLkY4q+/CCsj/7utSa3BzHELKUUUee0brzOOR8CH4GVVO
+   XosYcbgTdGqekml/vYyR62vNIJRvpv+UblfFYSY4Si2nX9v8PnY5N4XRs
+   IykdQ0K+yyakJmcRpDwX3fDVgbyK39BSPterxi7npK9r5SxPE09aV6yy4
+   +6kjbji6mVYSuGXGxAkaOGjAtnMA1Nt8ah7POwFVkmuhDaRVn271Qende
+   mM/hGI52wYbUujkQCCzC/1pqLv6uMhs7Z1ffZh8zYX+Ht5/TzR+xZB4As
+   w==;
+X-CSE-ConnectionGUID: N0wi4gEOR+qXwCXphg5hcA==
+X-CSE-MsgGUID: BZRpWrxyQWWiARZ6FsB86Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74813328"
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="74813328"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 08:52:12 -0700
+X-CSE-ConnectionGUID: Yxbn4DJfQuCzhI89flDELQ==
+X-CSE-MsgGUID: 6UYYjrP/Rzmt6ysx5ZHARA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="244980258"
+Received: from lkp-server01.sh.intel.com (HELO 892944969b78) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 16 Mar 2026 08:52:10 -0700
+Received: from kbuild by 892944969b78 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w2AEh-000000000s6-3LzF;
+	Mon, 16 Mar 2026 15:52:07 +0000
+Date: Mon, 16 Mar 2026 23:51:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ dde54db47a5953e24b598c1ee1794dc0018eb242
+Message-ID: <202603162312.hBboGtO3-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_085033_667409_AC8954E2 
-X-CRM114-Status: GOOD (  49.74  )
+X-CRM114-CacheID: sfid-20260316_085216_320358_96807C75 
+X-CRM114-Status: UNSURE (   4.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,175 +83,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: dde54db47a5953e24b598c1ee1794dc0018eb242  soc: document merges
 
-On Thu, 12 Mar 2026 at 17:36, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> On Thu, Mar 12, 2026 at 03:33:52PM +0000, Sudeep Holla wrote:
-> > On Wed, Mar 11, 2026 at 06:45:41PM +0000, Cristian Marussi wrote:
-> > > On Wed, Mar 11, 2026 at 05:59:43PM +0100, Geert Uytterhoeven wrote:
-> > > > Hi Cristian,
-> > > >
-> > > > On Tue, 10 Mar 2026 at 19:56, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > > > Add proper error handling on failure to enumerate clocks features or
-> > > > > rates.
-> > > > >
-> > > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > >
-> > > > > --- a/drivers/firmware/arm_scmi/clock.c
-> > > > > +++ b/drivers/firmware/arm_scmi/clock.c
-> > > >
-> > > > > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
-> > > > >         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
-> > > > >                 cinfo->clkds[clkid].id = clkid;
-> > > > >                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
-> > > > > -               if (!ret)
-> > > > > -                       scmi_clock_describe_rates_get(ph, clkid, cinfo);
-> > > > > +               if (ret)
-> > > > > +                       return ret;
-> > > >
-> > > > This change breaks R-Car X5H with SCP FW SDKv4.28.0, as some clocks
-> > > > do not support the SCMI CLOCK_ATTRIBUTES command.
+elapsed time: 1236m
 
-Apparently it is not just CLOCK_ATTRIBUTES, but also
-CLOCK_DESCRIBE_RATES.
+configs tested: 158
+configs skipped: 3
 
-> > > > Before, these clocks were still instantiated, but were further unusable.
-> > > > After, the whole clock driver fails to initialize, and no SCMI clocks
-> > > > are available at all.
-> > >
-> > > ...and this is exactly what I feared while doing this sort of hardening :P
-> > >
-> > > So there are a few possible solutions (beside reverting this straight away)
-> > >
-> > > The easy fix would be instead change the above in a
-> > >
-> > >     if (ret)
-> > >             continue;
-> > >
-> > > ...with a bit of annoying accompanying FW_BUG logs, of course, to cause future
-> > > FW releases to fix this :D
-> > >
-> > > Another option could be leave it as it is, since indeed it is the correct enforced
-> > > behaviour, being CLOCK_ATTRIBUTES a mandatory command, BUT add on top an ad-hoc SCMI
-> > > quirk targeting the affected FW releases...
-> > >
-> > > This latter option, though, while enforcing the correct behaviour AND
-> > > fixing your R-Car issue, leaves open the door for a number of possible
-> > > failures of other unknowingly buggy Vendors similarly deployed firmwares...
-> > >
-> > > ...that could be solved with more quirks of course...but...worth it ?
-> > >
-> > > Thoughts ?
-> > >
-> > > Let's see also what @Sudeep thinks about this...
-> >
-> > I prefer to fix it as a quirk to prevent similar issues on newer platforms if
-> > the firmware baselines are derived from it. In the worst case, we can relax
-> > the hardening until we figure out a proper quirk-based solution.
->
-> Ok, I can post a V3 with a dummy quirk 'template' RFC to be filled by
-> Geert with proper versioning....so I can check that there are no
-> surprises round the (quirked) corner...
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Unfortunately you cannot "continue" from a quirk, without resorting
-to a goto, so I sent a fix: "[PATCH] firmware: arm_scmi: Support loop
-control in quirk code snippets"[1].
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+alpha                               defconfig    gcc-15.2.0
+arc                              allmodconfig    gcc-15.2.0
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    gcc-15.2.0
+arc                                 defconfig    gcc-15.2.0
+arc                   randconfig-001-20260316    gcc-10.5.0
+arc                   randconfig-002-20260316    gcc-9.5.0
+arm                               allnoconfig    clang-23
+arm                              allyesconfig    gcc-15.2.0
+arm                                 defconfig    clang-23
+arm                   randconfig-001-20260316    clang-23
+arm                   randconfig-002-20260316    clang-23
+arm                   randconfig-003-20260316    clang-23
+arm                   randconfig-004-20260316    clang-23
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.2.0
+arm64                               defconfig    gcc-15.2.0
+arm64                 randconfig-001-20260316    gcc-11.5.0
+arm64                 randconfig-002-20260316    clang-23
+arm64                 randconfig-003-20260316    clang-23
+arm64                 randconfig-004-20260316    clang-19
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+csky                                defconfig    gcc-15.2.0
+csky                  randconfig-001-20260316    gcc-15.2.0
+csky                  randconfig-002-20260316    gcc-14.3.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-23
+hexagon                             defconfig    clang-23
+hexagon               randconfig-001-20260316    clang-23
+hexagon               randconfig-002-20260316    clang-23
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20260316    clang-20
+i386        buildonly-randconfig-004-20260316    clang-20
+i386        buildonly-randconfig-005-20260316    clang-20
+i386        buildonly-randconfig-006-20260316    gcc-14
+i386                                defconfig    clang-20
+i386                  randconfig-001-20260316    gcc-14
+i386                  randconfig-002-20260316    clang-20
+i386                  randconfig-003-20260316    gcc-14
+i386                  randconfig-004-20260316    gcc-14
+i386                  randconfig-005-20260316    clang-20
+i386                  randconfig-006-20260316    gcc-12
+i386                  randconfig-007-20260316    gcc-14
+i386                  randconfig-011-20260316    clang-20
+i386                  randconfig-012-20260316    gcc-14
+i386                  randconfig-013-20260316    clang-20
+i386                  randconfig-014-20260316    gcc-13
+i386                  randconfig-015-20260316    clang-20
+i386                  randconfig-016-20260316    gcc-14
+i386                  randconfig-017-20260316    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-23
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260316    gcc-14.3.0
+loongarch             randconfig-002-20260316    clang-18
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                             allyesconfig    gcc-15.2.0
+m68k                                defconfig    gcc-15.2.0
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    gcc-15.2.0
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20260316    gcc-11.5.0
+nios2                 randconfig-002-20260316    gcc-8.5.0
+openrisc                         allmodconfig    gcc-15.2.0
+openrisc                          allnoconfig    gcc-15.2.0
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    gcc-15.2.0
+parisc                           allyesconfig    gcc-15.2.0
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260316    gcc-8.5.0
+parisc                randconfig-002-20260316    gcc-12.5.0
+parisc64                            defconfig    gcc-15.2.0
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    gcc-15.2.0
+powerpc                          g5_defconfig    gcc-15.2.0
+powerpc               randconfig-001-20260316    clang-23
+powerpc               randconfig-002-20260316    clang-23
+powerpc64             randconfig-001-20260316    gcc-13.4.0
+powerpc64             randconfig-002-20260316    gcc-8.5.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    gcc-15.2.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    clang-23
+riscv                 randconfig-001-20260316    gcc-15.2.0
+riscv                 randconfig-002-20260316    gcc-8.5.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    clang-23
+s390                  randconfig-001-20260316    clang-18
+s390                  randconfig-002-20260316    gcc-14.3.0
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    gcc-15.2.0
+sh                               allyesconfig    gcc-15.2.0
+sh                                  defconfig    gcc-15.2.0
+sh                    randconfig-001-20260316    gcc-15.2.0
+sh                    randconfig-002-20260316    gcc-12.5.0
+sparc                             allnoconfig    gcc-15.2.0
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260316    gcc-8.5.0
+sparc                 randconfig-002-20260316    gcc-12.5.0
+sparc64                          allmodconfig    clang-23
+sparc64                             defconfig    clang-20
+sparc64               randconfig-001-20260316    gcc-8.5.0
+sparc64               randconfig-002-20260316    gcc-15.2.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-14
+um                                  defconfig    clang-23
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260316    gcc-14
+um                    randconfig-002-20260316    clang-23
+um                           x86_64_defconfig    clang-23
+x86_64                           allmodconfig    clang-20
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20260316    gcc-14
+x86_64      buildonly-randconfig-002-20260316    clang-20
+x86_64      buildonly-randconfig-003-20260316    clang-20
+x86_64      buildonly-randconfig-004-20260316    gcc-14
+x86_64      buildonly-randconfig-005-20260316    gcc-14
+x86_64      buildonly-randconfig-006-20260316    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                randconfig-001-20260316    gcc-14
+x86_64                randconfig-002-20260316    clang-20
+x86_64                randconfig-003-20260316    clang-20
+x86_64                randconfig-004-20260316    gcc-14
+x86_64                randconfig-005-20260316    clang-20
+x86_64                randconfig-006-20260316    clang-20
+x86_64                randconfig-011-20260316    gcc-14
+x86_64                randconfig-012-20260316    gcc-14
+x86_64                randconfig-013-20260316    gcc-14
+x86_64                randconfig-014-20260316    gcc-14
+x86_64                randconfig-015-20260316    clang-20
+x86_64                randconfig-016-20260316    gcc-14
+x86_64                randconfig-071-20260316    gcc-12
+x86_64                randconfig-072-20260316    gcc-14
+x86_64                randconfig-073-20260316    gcc-14
+x86_64                randconfig-074-20260316    gcc-14
+x86_64                randconfig-075-20260316    clang-20
+x86_64                randconfig-076-20260316    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.2.0
+xtensa                randconfig-001-20260316    gcc-15.2.0
+xtensa                randconfig-002-20260316    gcc-15.2.0
 
-Then I came up with the following preliminary (have to check more
-firmware versions) quirk (Gmail whitespace-damaged):
-
-diff --git a/drivers/firmware/arm_scmi/clock.c
-b/drivers/firmware/arm_scmi/clock.c
-index f62f9492bd42afbc..6f2af6e9084836c6 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -1230,6 +1230,18 @@ static const struct scmi_protocol_events
-clk_protocol_events = {
-        .num_events = ARRAY_SIZE(clk_events),
- };
-
-+#define QUIRK_RCAR_X5H_NO_ATTRIBUTES                                   \
-+       ({                                                              \
-+               if (ret == -EREMOTEIO || ret == -EOPNOTSUPP)            \
-+                       continue;                                       \
-+       })
-+
-+#define QUIRK_RCAR_X5H_NO_RATES
-         \
-+       ({                                                              \
-+               if (ret == -EOPNOTSUPP)                                 \
-+                       ret = 0;                                        \
-+       })
-+
- static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
- {
-        int clkid, ret;
-@@ -1254,10 +1266,12 @@ static int scmi_clock_protocol_init(const
-struct scmi_protocol_handle *ph)
-        for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
-                cinfo->clkds[clkid].id = clkid;
-                ret = scmi_clock_attributes_get(ph, clkid, cinfo);
-+               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
-QUIRK_RCAR_X5H_NO_ATTRIBUTES);
-                if (ret)
-                        return ret;
-
-                ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
-+               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
-QUIRK_RCAR_X5H_NO_RATES);
-                if (ret)
-                        return ret;
-        }
-diff --git a/drivers/firmware/arm_scmi/quirks.c
-b/drivers/firmware/arm_scmi/quirks.c
-index 3772139a758c8a78..5a69f119e1b6c806 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -172,6 +172,8 @@ struct scmi_quirk {
- /* Global Quirks Definitions */
- DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
- DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
-+DEFINE_SCMI_QUIRK(clock_rcar_x5h_no_attributes, "Renesas", NULL, "0x10a0000",
-+                 "renesas,r8a78000");
-
- /*
-  * Quirks Pointers Array
-@@ -182,6 +184,7 @@ DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
-"Qualcomm", NULL, "0x20000-");
- static struct scmi_quirk *scmi_quirks_table[] = {
-        __DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
-        __DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
-+       __DECLARE_SCMI_QUIRK_ENTRY(clock_rcar_x5h_no_attributes),
-        NULL
- };
-
-diff --git a/drivers/firmware/arm_scmi/quirks.h
-b/drivers/firmware/arm_scmi/quirks.h
-index 74bf6406dd043049..13f28d13bbd74d4c 100644
---- a/drivers/firmware/arm_scmi/quirks.h
-+++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -48,5 +48,6 @@ static inline void scmi_quirks_enable(struct device
-*dev, const char *vend,
- /* Quirk delarations */
- DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
- DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
-+DECLARE_SCMI_QUIRK(clock_rcar_x5h_no_attributes);
-
- #endif /* _SCMI_QUIRKS_H */
-
-Does that look like what you have in mind?
-Thanks!
-
-[1] https://lore.kernel.org/51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be/
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
