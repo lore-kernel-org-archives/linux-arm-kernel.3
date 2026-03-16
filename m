@@ -4,52 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B197EF53D7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32ECF53D82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxynn+tx6vv5zQDqDtLZx4fIGEJiKAF8uQFz9DI9N3o=; b=MLFqR+Sw9aaWj79i/vFTVI6tMp
-	ALwmvnb+U3sStIGXpioTDu4jk8fieL3v+eiO4TEDcVdStIInDSpWyed+yFUHehZDQmM/BciUyWagI
-	mN8BXQmDtZQAlMkFI4LuUboMgFUlb0+2fsU861VwRJs/6bF0JsgtB1/wixAf4Ga9fHWpn2g4scOgR
-	RlRclU3CCZnMjh+DGzzVCAg65sQUoxvJLHcS9hBeUDvxX84rVqYw1hUjpITpBDVCQBSMFm0kR6TVM
-	SZEc8DLZLhtcvPKPrIxB7zAkWk/0XAX4kOHkn6rI5F5p2U19yYXMaSFYM9Yn4wr0h97RltjoUOZFm
-	BphxufWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vaeGBvnWsP9OjTmc6xtKdb4/gKIzs92KsO1gRfXPNpU=; b=SjmHJvCjkeye+Iq4VkEk/KSNbQ
+	NjQjXAZUPbNnoFACrUDCiePeKS92kJ9TRoMHkNCefeV8H5tOQdkrzLGe1ENjb+lEptCbmGXteCYyE
+	sp51HrwXsrSQlaLQQgO7OEm20MP7zifsq3yZd5fHD2+A/Cx+L+NJHCWyAaBroJX2YPxFvnpwPLv8m
+	FUfAbQrPb3LkN103TIE2r5UjYH8Qe48GFI0KajZ14dP2NNQ+wkocrLe5rHbCeT15OUmn8PK6KjFRt
+	QLSZp/IuaKzzQp+TARzEEJxc+OXscvozWlkc08pt2y4GHX/RU+Lj8Vjo9Lk74fGCqEyOetm6k1Iwy
+	ABbbU+rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C93-00000004cfE-1gDz;
-	Mon, 16 Mar 2026 17:54:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C90-00000004cek-3K32
+	id 1w2C9f-00000004ck3-3KwG;
+	Mon, 16 Mar 2026 17:55:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2C9e-00000004cjF-2Jng
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:54:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14C5C1476;
-	Mon, 16 Mar 2026 10:54:15 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D8FD53F73B;
-	Mon, 16 Mar 2026 10:54:19 -0700 (PDT)
-Date: Mon, 16 Mar 2026 17:54:17 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
-	maz@kernel.org, linux-kernel@vger.kernel.org,
-	aneesh.kumar@kernel.org, steven.price@arm.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: realm: Fix PTE_NS_SHARED for 52bit PA support
-Message-ID: <abhDyc2txBPIJ6X8@arm.com>
-References: <20260316161901.2410354-1-suzuki.poulose@arm.com>
+	Mon, 16 Mar 2026 17:55:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D702860018;
+	Mon, 16 Mar 2026 17:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EE5FC2BC9E;
+	Mon, 16 Mar 2026 17:55:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773683701;
+	bh=Pl0Pwj7+U5z2wAmFgzrIjWC6VG4ReNm4HEw/QYVyO2g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=oy51kqWo3qjZRznYVBJC1E65dGCOUDL3h2hazt8D4kBD3bfMp0VC5CSaVTQLu0bPS
+	 nd6n0TBuaQildmJcuoz8HEKZ0I15E8HWAGN2XVL0vQ1P7njMnSTsa2Y5Ax0rM1t4hz
+	 82anovLvirad3Zd2Yi1Hiijt0m1QTq79IGABx0BGPTaGj0WNmiSK/ljUrSRCEib2E9
+	 He5DU6jFCL32GugGCH7bF7TYiU7AlikRKZKiK4qjVAB/aLnqS2/GGy+CUV2Oc5P97W
+	 B4/zEhaIoj6mpGIG5ylhthO8PGu5VY3fTYfoqDODmf8tje3MwvA77mCi04irVTTn+z
+	 DRREvHDHKvxig==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2C9b-00000002XDx-1GQ7;
+	Mon, 16 Mar 2026 17:54:59 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: [PATCH 01/17] KVM: arm64: Kill fault->ipa
+Date: Mon, 16 Mar 2026 17:54:34 +0000
+Message-ID: <20260316175451.1866175-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260316175451.1866175-1-maz@kernel.org>
+References: <20260316175451.1866175-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260316161901.2410354-1-suzuki.poulose@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_105422_888875_F50EFFE1 
-X-CRM114-Status: GOOD (  11.68  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,30 +84,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 04:19:01PM +0000, Suzuki K Poulose wrote:
-> With LPA/LPA2, the top bits of the PFN (Bits[51:48]) end up in the lower bits
-> of the PTE. So, simply creating a mask of the "top IPA bit" doesn't work well
-> for these configurations to set the "top" bit at the output of Stage1
-> translation.
-> 
-> Fix this by using the __phys_to_pte_val() to do the right thing for all
-> configurations.
-> 
-> Tested using, kvmtool, placing the memory at a higher address (-m <size>@<Addr>).
-> 
->  e.g:
->  # lkvm run --realm -c 4 -m 512M@@128T -k Image --console serial
-> 
->  sh-5.0# dmesg | grep "LPA2\|RSI"
-> [    0.000000] RME: Using RSI version 1.0
-> [    0.000000] CPU features: detected: 52-bit Virtual Addressing (LPA2)
-> [    0.777354] CPU features: detected: 52-bit Virtual Addressing for KVM (LPA2)
-> 
-> Fixes: 399306954996 ("arm64: realm: Query IPA size from the RMM")
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+fault->ipa, in a nested contest, represents the output of the guest's
+S2 translation for the fault->fault_ipa input, and is equal to
+fault->fault_ipa otherwise,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Given that this is readily available from kvm_s2_trans_output(),
+drop fault->ipa and directly compute fault->gfn instead, which
+is really what we want.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/mmu.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 5542a50dc8a65..fe8f8057cf412 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1643,7 +1643,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+ 				     unsigned long hva,
+ 				     struct kvm_memory_slot *memslot,
+ 				     struct kvm_s2_trans *nested,
+-				     bool *force_pte, phys_addr_t *ipa)
++				     bool *force_pte)
+ {
+ 	short vma_shift;
+ 
+@@ -1681,8 +1681,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+ 
+ 		max_map_size = *force_pte ? PAGE_SIZE : PUD_SIZE;
+ 
+-		*ipa = kvm_s2_trans_output(nested);
+-
+ 		/*
+ 		 * If we're about to create a shadow stage 2 entry, then we
+ 		 * can only create a block mapping if the guest stage 2 page
+@@ -1722,7 +1720,6 @@ struct kvm_s2_fault {
+ 	bool is_vma_cacheable;
+ 	bool s2_force_noncacheable;
+ 	unsigned long mmu_seq;
+-	phys_addr_t ipa;
+ 	gfn_t gfn;
+ 	kvm_pfn_t pfn;
+ 	bool logging_active;
+@@ -1738,6 +1735,7 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+ {
+ 	struct vm_area_struct *vma;
+ 	struct kvm *kvm = fault->vcpu->kvm;
++	phys_addr_t ipa;
+ 
+ 	mmap_read_lock(current->mm);
+ 	vma = vma_lookup(current->mm, fault->hva);
+@@ -1748,8 +1746,7 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+ 	}
+ 
+ 	fault->vma_pagesize = 1UL << kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot,
+-							     fault->nested, &fault->force_pte,
+-							     &fault->ipa);
++							     fault->nested, &fault->force_pte);
+ 
+ 	/*
+ 	 * Both the canonical IPA and fault IPA must be aligned to the
+@@ -1757,9 +1754,9 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+ 	 * mapping in the right place.
+ 	 */
+ 	fault->fault_ipa = ALIGN_DOWN(fault->fault_ipa, fault->vma_pagesize);
+-	fault->ipa = ALIGN_DOWN(fault->ipa, fault->vma_pagesize);
++	ipa = fault->nested ? kvm_s2_trans_output(fault->nested) : fault->fault_ipa;
++	fault->gfn = ALIGN_DOWN(ipa, fault->vma_pagesize) >> PAGE_SHIFT;
+ 
+-	fault->gfn = fault->ipa >> PAGE_SHIFT;
+ 	fault->mte_allowed = kvm_vma_mte_allowed(vma);
+ 
+ 	fault->vm_flags = vma->vm_flags;
+@@ -1970,7 +1967,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		.memslot = memslot,
+ 		.hva = hva,
+ 		.fault_is_perm = fault_is_perm,
+-		.ipa = fault_ipa,
+ 		.logging_active = logging_active,
+ 		.force_pte = logging_active,
+ 		.prot = KVM_PGTABLE_PROT_R,
+-- 
+2.47.3
+
 
