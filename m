@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A501F30296
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 01:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE063F30297
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 01:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HXOdXMtQPkX3JhHjejsDb3lWeyiFtHpKaRrKgt4OkHc=; b=EmRzsnyuTaj7h2rOiu8A0QbZxo
-	T8oLctEjXog0T+8tI+gYXGyOn8MGDmCPVQ5vLfcdT+CxIrQu43e9V12iGq+Okr8dsRUhpcn1bjl8n
-	/84FTVXZXYvTdGobfyumihywA4WrcpjnVmlMm+WjRQ515lNBH8f92UtQgH2SCyTpPoH2sE4TlYfil
-	mrezam24DLlk86F2wYnebQ2r+SHfJ3f4qZvpZT+vxzgt1lwsyEGKOCXJccusWXkMPNHxPqI16dmZN
-	e0hfGhBiAruv7ZYE7LeS6VM1vBudjTFoPT+rygsKgIos8UWSq+CDZG1kwYW5N+K9N7TPBGP90MnzF
-	fMjxS86Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QZ086bn9YFydOUvOHNrDX2W+qptWbO588EQPZ2pWlps=; b=BhNKqcHkz2rNxav3FsfV7wUdmq
+	kVpYrdSmbrnH6BcvVOaIHONyYPC5GXZxTREu+gZz/8hyqkFeEk14a4MRcYI2nDKvQ6cxSeOylC99b
+	ZtFIVIYb/s0igI7+rSNhW1bzs2xk9cH1Ew5AjetTvCs7D+EABSpb5p0dEhEyGsY8r6M9VDWOq704R
+	RWbx8kzVaa1tmu63YSikkJTDXx0RmKefIuVRyWaMZ+gKrASav6sNHKaVvD84Icb/gAfFvRTroiREY
+	VHMsfd+EcpSb1+PEySJ+yx02FnGh/+NuLajlVTLOYBfipg8Ai49n3sKqelP0wAxunaqiSscMZTO84
+	pn332k8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wUk-00000003508-1sYY;
-	Mon, 16 Mar 2026 01:11:47 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w1wtp-0000000366P-0kcc;
+	Mon, 16 Mar 2026 01:37:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wUf-000000034zf-3JAJ
+	id 1w1wto-0000000365V-10M8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 01:11:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=HXOdXMtQPkX3JhHjejsDb3lWeyiFtHpKaRrKgt4OkHc=; b=CUhMUAGeYZEJFOoF7gMbHrExvU
-	w+T8qqlDYDUp2Sxo9ZNprsUpT8PRMjHgQrXFSHOYMEADRouvXCsT9ye2bXZmejFsZ2sGxvQLtTddU
-	cmaT5xqO5qMVnKTy37T6NelRwqMp5y134Rr0Epn14n/AqQ+c+uNQv1XEF34wDRVYyp4zGa1r2wnDw
-	jgMGWEEMmRoA1a2PlGki0k847nu75Mt4N5WjOGGguP23ZV9IncgX8lCURAr4wicQ/nAB2hNF5zdok
-	IfkZCnKnDBeGUZ1KOPXuos2VKJnlS+t6ZzWYsWYfuxb7MfKHlv/JMfv38xxmYLi48xoBkY+P8funr
-	M1rYCDNg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56306)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w1wUS-000000003AQ-0pDz;
-	Mon, 16 Mar 2026 01:11:28 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w1wUN-000000004bS-1Asp;
-	Mon, 16 Mar 2026 01:11:23 +0000
-Date: Mon, 16 Mar 2026 01:11:23 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
-Message-ID: <abdYu864OmNWiWIW@shell.armlinux.org.uk>
-References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
- <abdEscs44fU4kRag@oss.qualcomm.com>
+	Mon, 16 Mar 2026 01:37:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B4D060130;
+	Mon, 16 Mar 2026 01:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20231C4CEF7;
+	Mon, 16 Mar 2026 01:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773625057;
+	bh=A9rEb2IEckfnXsbwv5XiP675av+TQ/D0j01/OowheSQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=J5oWAq/eq51bLsJwCaUGB5kxWFoau54Zi7X0awrFGrF4WZsSTXfybBfFMLrHdmdZQ
+	 JeuYYAEfX4/s833ZsJVAhRuN1oUwTShbU7Q3GeK45+U9R9oG87xRQxtnW2+1oVOmnx
+	 ykAQ6ATv2lcVmmAhDvOf7hk5yuMKCxR2P3Zcf7gom9SA+ZHSQARntL8axWg3dvxUGi
+	 SyTWtxuxonXYFdLT5uEM7Te5xGSapdRE1JQhk8x/Ae3ozNWV+bqTvMBs5TBHv9ieZl
+	 V1EG8f75bgk4HF/ER85F/TexxHDyJ5uybByH5X6cTo0WZZpmloUobFKAbcf2glNbdD
+	 0bRY/ZiYzSgvw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Shenghao Ding <shenghao-ding@ti.com>, 
+ Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+ Frank Li <Frank.Li@nxp.com>, James Calligeros <jcalligeros99@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+In-Reply-To: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+Subject: Re: [PATCH v3 0/7] ASoC: basic support for configuring bus keepers
+Message-Id: <177362359868.208027.1594556804102192049.b4-ty@kernel.org>
+Date: Mon, 16 Mar 2026 01:13:18 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abdEscs44fU4kRag@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_181142_339743_D5F6AB91 
-X-CRM114-Status: GOOD (  25.84  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-5154a
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2277; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=A9rEb2IEckfnXsbwv5XiP675av+TQ/D0j01/OowheSQ=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhsztcbebHU5VSx8Kde3Sz1fWymh/t6vr9PqEyxm6DxReN
+ SU53+3oZDRmYWDkYpAVU2RZ+yxjVXq4xNb5j+a/ghnEygQyhYGLUwAmsuUSB0PjQ0OpHTydm7rm
+ m/AuemRdkN322N3r65F9Db61fW4NG5anng9z/7fd5X7YRdZTJWoS0i2+rmmrbmaIT+Nh3xP/UHe
+ 2xjv+iU8+xxp4LDPoX2wV3LjkU5Tent0qe5vv/Wd4fTjkdure1DYR/9kGsuGPeAXfsjSXvGbedc
+ tUxrmk5/i0p2kTHPhvWQgbl8f5Hrf2e9fCYKNx9qfuntRn38L/hYRvZr+e8OhxfnXgRKfkQ81s7
+ B/eXOOKUnl3Y4bJMf981qPauRO9U6albTTY9PJFsYsUT73Tda0XufOLW1Wmnt7Y43fJU+HYr09i
+ iZ3V/UlOkRMyyzgfXN+7LciGfaWKO6/aYY7o8vnO+iEdAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,136 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 05:15:53AM +0530, Mohd Ayaan Anwar wrote:
-> Hi Russell,
+On Sun, 01 Mar 2026 18:05:19 +1000, James Calligeros wrote:
+> ASoC: basic support for configuring bus keepers
 > 
-> 1. On QCS9100 Ride R3, the mdio subnode is only defined for ethernet0
->    (see lemans-ride-ethernet-aqr115c.dtsi). ethernet1 uses ethernet0's
->    MDIO bus, so plat_dat->mdio_bus_data is NULL for ethernet1. Therefore,
->    we get:
-> 	[    9.205979] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
-> 	[    9.221071] pc : qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos]
-> 	[    9.221078] lr : qcom_ethqos_probe+0x7c/0x478 [dwmac_qcom_ethqos]
-> 	[    9.221080] sp : ffff800081aa37f0
-> 	[    9.221081] x29: ffff800081aa3860 x28: ffffcf84de69cfe8 x27: 0000000000000001
-> 	[    9.221084] x26: 0000000000000000 x25: ffff0000b4577c80 x24: ffff0000818fd010
-> 	[    9.221087] x23: ffff000ec7057628 x22: 0000000000000000 x21: ffffcf84ca2ce028
-> 	[    9.221089] x20: ffff0000818fd000
-> 	[    9.236975]  x19: ffff0000b3301740 x18: 00000000ffffffff
-> 	[    9.236977] x17: 0000000000000000 x16: ffffcf84dc4a5448 x15: ffff0000b3301ec5
-> 	[    9.236980] x14: 0000000000000000 x13: 0000000000000030 x12: 0101010101010101
-> 	[    9.236982] x11: 7f7f7f7f7f7f7f7f x10: 00000000001305b0 x9 : 0000000000000000
-> 	[    9.236984] x8 : ffff0000b3301780 x7 : 0000000000000000 x6 : 000000000000003f
-> 	[    9.236986] x5 : 0000000000000040 x4 : 0000000000000000 x3 : ffff0000818fd210
-> 	[    9.236988] x2 : 0000000000000017 x1 : 0000000000000000 x0 : 0000000000000001
-> 	[    9.236991] Call trace:
-> 	[    9.236991]  qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos] (P)
-> 	[    9.236994]  platform_probe+0x5c/0xac
-> 				...
-> 	[    9.343300] Code: 910a7000 f9400b21 f9010320 52800020 (39005420)
-> 	[    9.343302] ---[ end trace 0000000000000000 ]---
+> Hi all,
 > 
->    I added the following workaround:
-> 	--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> 	+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> 	@@ -765,7 +767,10 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
-> 			case PHY_INTERFACE_MODE_SGMII:
-> 					ethqos->configure_func = ethqos_configure_sgmii;
-> 					plat_dat->mac_finish = ethqos_mac_finish_serdes;
-> 	-               plat_dat->mdio_bus_data->default_an_inband = true;
-> 	+               if (plat_dat->mdio_bus_data)
-> 	+                       plat_dat->mdio_bus_data->default_an_inband = true;
-> 	+               else
-> 	+                       dev_err(dev, "plat_dat->mdio_bus_data is NULL");
-> 					break;
-> 			default:
-> 					dev_err(dev, "Unsupported phy mode %s\n",
-
-This means we need to move default_an_inband out of mdio_bus_data.
-
+> This series introduces some infrastructure to allow platform drivers
+> to specify what a DAI should be doing when it is not active on the
+> bus. The primary use case for this is configuring bus keepers which
+> may be integrated into various codecs. The instigating use case for
+> this functionality is an interesting bus topology on Apple Silicon
+> laptops with multiple codecs.
 > 
-> 2. After working around issue 1, I hit the following:
-> 	[   27.822907] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-> 	[   27.831944] Mem abort info:
-> 	[   27.834832]   ESR = 0x0000000086000006
-> 	[   27.838693]   EC = 0x21: IABT (current EL), IL = 32 bits
-> 	[   27.844163]   SET = 0, FnV = 0
-> 	[   27.847320]   EA = 0, S1PTW = 0
-> 	[   27.850563]   FSC = 0x06: level 2 translation fault
-> 	[   27.855587] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000134b1c000
-> 	[   27.862212] [0000000000000000] pgd=080000010185c403, p4d=080000010185c403, pud=0800000134884403, pmd=0000000000000000
-> 	[   27.873107] Internal error: Oops: 0000000086000006 [#1]  SMP
-> 	[   28.001619] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
-> 	[   28.008853] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> 	[   28.016001] pc : 0x0
-> 	[   28.018259] lr : phylink_pcs_an_restart+0x50/0x5c
-> 	[   28.023092] sp : ffff8000869fb900
-> 				...
-> 	[   28.185967] ---[ end trace 0000000000000000 ]---
-> 
->    This occurs due to pl->pcs->ops->pcs_an_restart being NULL. I added
->    the following workaround:
-> 	--- a/drivers/net/phy/phylink.c
-> 	+++ b/drivers/net/phy/phylink.c
-> 	@@ -1026,7 +1026,8 @@ static void phylink_pcs_an_restart(struct phylink *pl)
-> 			if (pl->pcs && linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-> 							 pl->link_config.advertising) &&
-> 			    phy_interface_mode_is_8023z(pl->link_config.interface) &&
-> 	-		    phylink_autoneg_inband(pl->act_link_an_mode))
-> 	+		    phylink_autoneg_inband(pl->act_link_an_mode) &&
-> 	+		    pl->pcs->ops->pcs_an_restart)
-> 					pl->pcs->ops->pcs_an_restart(pl->pcs);
-> 	 }
+> [...]
 
-Gah, should've added a pcs_an_restart() implementation.
+Applied to
 
-> 3. With the recent VLAN filter changes in net-next, ndo_open takes a long
->    time to complete as vlan_restore_hw_rx_fltr() tries to write filters
->    for all 32 indices. This board previously timed out once, but now
->    times out for each index. This is a separate issue unrelated to this
->    series but I added the following workaround to rule out any timing
->    issues.
-> 	--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> 	+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> 	@@ -158,7 +158,8 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
-> 
-> 			/* Extended Rx VLAN Filter Enable */
-> 			for (i = 0; i < hw->num_vlan; i++)
-> 	-               vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
-> 	+               if (hw->vlan_filter[i])
-> 	+                       vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
-> 	 }
-> 
-> 	 static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
 
-This problem needs solving, and I suspect we need more than the
-loopback here. It needs detailed information about your hardware
-design, and comes down to the missing receive clock. stmmac is
-unusual that missing clocks affect the accessibility of the host.
+Thanks!
 
-> With the above workarounds in place, 2.5G works fine, but 1G (and 100M)
-> do not. With the RFC v1 series, only the 2.5G->1G speed change was
-> broken. With this series, the link does not come up at 1G at all.
+[1/7] ASoC: dt-bindings: convert tdm-slot to YAML
+      https://git.kernel.org/broonie/sound/c/5273cb8197d8
+[2/7] ASoC: dt-bindings: update tdm-slot.txt references to tdm-slot.yaml
+      https://git.kernel.org/broonie/sound/c/cc74890fb484
+[3/7] ASoC: dt-bindings: add TDM slot idle mode properties
+      https://git.kernel.org/broonie/sound/c/938c1ed56ab8
+[4/7] ASoC: soc-dai: define possible idle TDM slot modes
+      https://git.kernel.org/broonie/sound/c/7d8632f1ef6c
+[5/7] ASoC: soc-dai: add common operation to set TDM idle mode
+      https://git.kernel.org/broonie/sound/c/b758d3574e88
+[6/7] ASoC: tas2764: expose SDOUT bus keeper via set_tdm_idle operation
+      https://git.kernel.org/broonie/sound/c/45573ee1f2ba
+[7/7] ASoC: tas2770: expose SDOUT bus keeper via set_tdm_idle
+      https://git.kernel.org/broonie/sound/c/af176d0787d2
 
-This will be because we're not attaching any PHYs when phylink is
-being told to operate in 2500BASE-X with inband, since it thinks
-that's the media. That, and, because stmmac has a long history, it
-needed a special phylink_expects_phy() check added in stmmac_init_phy()
-which his what prevents the PHY being attached.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-One workaround for this would be to specify SGMII in DT rather than
-2500base-X. However, that's not a solution for mainline.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-I'm going to have to have another think about this... stmmac is
-beginning to get too painful to solve this problem. As I've said
-elsewhere, in hind sight, I wish I had blocked dwmac-qcom-ethqos from
-being merged because of it's direct fiddling with the integrated PCS.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-I'm beginning to wonder whether stmmac can ever be sorted out, or
-whether the driver has gone too far, and the best thing now is to
-totally decouple it from phylink.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+Mark
+
 
