@@ -4,134 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDDCF53D95
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 20:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EE7F53D97
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 20:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQ7iDNDKrU+cJunerTJUX559DOPJtIntJus4N0TItCU=; b=GFe/GgHBdvWapuSUqVb4D+8cpf
-	axJahVpIQYaLMAIWAU1cxceBVOhLwuCKPe/cbV45dJVZE5di4+TYycTz97uAFrDae7HwTTbL0JGvc
-	3UcUmhiiHut/A7rPzkcAYbGamW43hIKJudKITDrRGmrmVw2bdO/3OMUtbiCEjqZP4T0b9IEXF28ln
-	oPSWBD+sJ6xp4800zdyFZj1t6/yECHbnXFXcvBHlhN0C5HayLVq6GwcX/G5qaNf0R81YBWrg6+kYr
-	aCURz+Lx0i2EgiEtkUQkIokYArfwA8lizsIfhapQ+Y27dpwIYXKkGboig3iKvy1K49T+t/dvexYI+
-	jIHvLdyw==;
+	bh=XCP75YBSVNyiC0SMnuy0JEeD8LPAxxpS81/985sICXA=; b=UeSm2xA7GKhaAuOdEB68mHL/lz
+	qzO7w7d4GjcEObgSoNTgMPjEnP/xp6ivoo9mUDA6alvT3fteshsJzmFK5N9e6xXTCJ+TBZnPtZgm8
+	9/PVCfmQ2+wT1IXfLpO5qhXTP0qv0s6VIdWV+/0rJnywr4io1U/zaY/EQi54Jun40NwrOkKCFSePo
+	G5FZOVGoBJVLHJMmYxix+BW4Sr7asWZXZt+gRUvLbm9cq9YOJgwrX6z5ti/FhnmmJSs+RFEFYo78C
+	YLDI9RT5Fop5rCj7HKOcEVboCKYK5lt/HG+C/IqpfkG26UHRsfzRsAlUiEyuxr3Y4fry74E52D/dK
+	JBMGv5eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2EXY-00000004oNP-2p0G;
-	Mon, 16 Mar 2026 20:27:52 +0000
-Received: from mail-pj1-x1062.google.com ([2607:f8b0:4864:20::1062])
+	id 1w2EdE-00000004ohK-3tEy;
+	Mon, 16 Mar 2026 20:33:44 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2EXV-00000004oMh-2dk5
+	id 1w2EdC-00000004ogy-2c2X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 20:27:51 +0000
-Received: by mail-pj1-x1062.google.com with SMTP id 98e67ed59e1d1-3585ec417f6so36734a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 13:27:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773692869; x=1774297669;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JQ7iDNDKrU+cJunerTJUX559DOPJtIntJus4N0TItCU=;
-        b=EZT9FEjmBK+gxsKMi6JPcEb+AaPAb1v32r4gEBmOfMkB9MvxyxqzJgVmMOLLCNbYYz
-         1XPI8B3gCjGRwAqbpZu4835p1DFxjrD7DJYOkkUkv8vYCvaVe6IHjgc//zBlfSpdXjGe
-         z72NmzKgNdWmro/cHAJLxXLC9i/tgbDrIptLHmqhwyWLxcV6JpduVF8PziIIgG/eZIy5
-         NBft+4mAEVcT4+m1VOTULaBH3hRYoswRq7EqTJMSGJFGbant52qRnrtP6xd0IGqF1Yam
-         o0jMomeb4jJG6uK3hSdpBMVGZlqi4uuvEsh/wbo4XhcOd5t6TeNiRIoF7Nm5t7Y1gnyG
-         HKCQ==
-X-Forwarded-Encrypted: i=2; AJvYcCWb2M6nbaZIeGEjSTnNog31hswslRjQ+okPOHRJE+VG+VBT0YXg/QGbCOVq/raIFjHrc89Vv/Cetzpj1gHnj9dP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhajCEOhlDX16eO1ZUhiQ2KjUcyqJyE8gQcuoPf85IvBVBDzB1
-	U+/EZkZd3KTjblC1wncCQyY6aDWOvj6KRlY8BKVQVDibRq6CrUmhagRuEXphPN27bSBkPT3s4g3
-	SiBTuOKuYHNVYmp1skFRXz+WbDcti56loyb9V5EJgDr397Cs8+TZ2KpvaVdT6CTHqqbsqiC5Y+D
-	FHr4OgabXOVzEKhc73TF/t9evxSnBcImuPyV9++LOHmd0dmUOd+8F5PinG+2rGz0tHo+NDTm+3E
-	mt5XMuukTW2UgUf2dV7tXYY9NKnSLuN8+Ip
-X-Gm-Gg: ATEYQzymuC7jEcvoAegVnD9VL9MNEtpwb5H01RPBPie4ryLZAbi49zONtX9ipENORe3
-	LxnDktdoqr1Vm/U8/tR+euI8Q2Hg08TEQF7u5405IUcaszuAG0b5X/m53BausF44gwHlP3X/MOg
-	9/DITMfqUuOIoPGnww7mEysybrZm29zE1JFgVP3Ou02of6ilyWzny3cdi+VNo1F9rVDxHISbvzi
-	BXyi5O3CPO/fAnuGd7TRth19tDxrT4FJLiEeJJ2wgAMO2fjiJblg06FLTy4kc/XKCM8cuHs3o+r
-	03Bw4oCgCsT+mpBXByyxRDEceQdCs2Ta0K6nrGDsuUxF0yanw6gUJOn4+2NOsXQIOONLKmK1DqU
-	3Pl/5mgI+mnIEdFcovnWrZdxrh4WE0bTMmKYNTr5PDHHx49RImqPCRdXr5WFatY9eeuEYkiTsU1
-	0Cy9YC9+mFQzlas6WrFj5qw2WBtFxzGiAPXwWiOlHRW6Pq4GUzvDecit0hyBIVf+w=
-X-Received: by 2002:a17:90b:2d8a:b0:359:8957:7285 with SMTP id 98e67ed59e1d1-35bada62db6mr648836a91.3.1773692868427;
-        Mon, 16 Mar 2026 13:27:48 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-22.dlp.protect.broadcom.com. [144.49.247.22])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-35b956a8eb2sm183846a91.1.2026.03.16.13.27.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Mar 2026 13:27:48 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-43b3a41c62bso2362348f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 13:27:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773692866; cv=none;
+	Mon, 16 Mar 2026 20:33:44 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-509062d829dso43311cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 13:33:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773693221; cv=none;
         d=google.com; s=arc-20240605;
-        b=SHpG3SowpBKCH3npVtBkNN76mF0ci5suSiivfOVH+IF0WVhSVlyiPTrM+pUNffmjSN
-         2caqKQIw03tItvI5kpcZOqunI0wt6Ed1HZdOSOaWeoQFbdJ47cyAca9Zpt2gcsWmyRlX
-         dWclDqMbQzNRZflPf0/torLZ/a8XduHybjvCPBgUWTXGooOodvuvarRIDgJVKhVEOE9X
-         TzORt5tBk80Gx1E2bujHan1nDY+V63rZ9HtpQHcHExB+8V2KnUmEy3rcIwZBpo9fDQwz
-         1VaY1sSpGZdiskBrZDIoXfm4zQVg4VeqkyT3XVpNTK0tWr6lhyWa34GVeJ1EKa4izU2Q
-         OTwA==
+        b=he/G7ioqC0lqCMhPTe9UnqwRcsvLtc2oSTMuCe5gwx5Y67DUN9wil9/qRtcgepd5JL
+         3erFrMpcH1lALBWVmBbwgESNo3lc+yTwUV31oSJ+qqR2dKVhkCqBzs89OIMkmdaj7T51
+         B0EXT0KIzrFZUK2zz2vBIUfFebFRfzcyJgi5CBJ+uVYN/SUarZml/ChL9FPGkFmV1SXr
+         05KkFNAQ8m4PGUem6/8OzKDATEWGM6GgmMxF6M82G2CMOnaVPfn28k2pqGyYLdS8YSgK
+         9WMKPeMGHW6CD0ZnOZj2/h2/U+u0TxVfbiDEcdGLqgWx5Dmj9QelYAU6cU/ystUombfS
+         cCeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=JQ7iDNDKrU+cJunerTJUX559DOPJtIntJus4N0TItCU=;
-        fh=SGn1d6dlpDCSth86HNeVqNRknh7JbZSwhknD75WXfoA=;
-        b=AS+6vmv079psGL1YN4es9Bq0o3w5xvyGMTTUHKsF48BixBYPw734TX4pGvEYwprLhf
-         CoX/rRkjoLrvrzIZmbzSzQ7O89jtgPRqxlDIN5JTUF5GBqH594LOQUrJ8DPPR+bJPOmt
-         pghG6v8bGGetNuzjwB0wFfLnze6RW8yJmvPE/iLUWFckN62Lm5CbVHeMCSu9CFdUV5Ft
-         lu5bB/zbwHP9Wk3bn8nrNQushQxZkiCiewDmaoT0nJC1TXHafJGcZIi8RxLRAau2z+p5
-         C5bbFNP/AOnIjOeS6QhGfvmDvcvmlP7iWtOcWcSCCwgogcWgd35nTSGoCacSsfvxnqOR
-         X1Uw==;
+        bh=XCP75YBSVNyiC0SMnuy0JEeD8LPAxxpS81/985sICXA=;
+        fh=s7c1+c9XqXaeycKTTApGvvs5/yMAQDMx9fG3T6tGoME=;
+        b=KXNfymx3BzjU2D0D3D6q5EPtiFTAcsl2wHZxHwoEbr4JIzQZ+YFGtTSZfN1Ilk2wNd
+         FKmrkPIKo/Mw3HBLCk4p9wZCqx5ili8hbS+g7XR2HUkRq7zA1s4gwJVyFKKI3CJMbi+s
+         wWQRePYd5F3+bLOau4v1I0kpCMxIw7zHVawHKeJtlSxK0VPTKdlxTIIRjqkX88spFsu6
+         v9YN2R9wx3tET5rW5fBaXv2nxrjZfSwtxYD4yjIuKGay0HES1cmPUvGpDM1gLxlIJk2s
+         3nWtfUSGGZGrISzWpCk+D6uZmldD/l0sacuvQKuVMwsyq8v2dcPHQqP4u8N+xk8YuJbK
+         H55Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1773692866; x=1774297666; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1773693221; x=1774298021; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JQ7iDNDKrU+cJunerTJUX559DOPJtIntJus4N0TItCU=;
-        b=G5FsfsdNEaqYPMIGnjg3hb7tuYRppGNWK4OC5KrWCawpDchUeS4w96W+Cqco3GGKJH
-         LEz50mlHL4RFURM9kjxSJ5py4jKWa0w/RRoouQSDIDaFK3xuCfm5SoBV1SzyreQRa2cl
-         BM+5RB8264cDb3Sz0l9sk8QGbnmTxWjK8Z/EI=
-X-Forwarded-Encrypted: i=1; AJvYcCUE91u47vzNfNsXqHfuwbTGcLpTbU7dMQOcs2YpsQCck0GKg730AdvDdca68GxKEh9vXkYsPVE7znkiY3yvFh9r@lists.infradead.org
-X-Received: by 2002:a05:6000:2403:b0:439:c5cf:fc73 with SMTP id ffacd0b85a97d-43a04d7a050mr25499243f8f.12.1773692865780;
-        Mon, 16 Mar 2026 13:27:45 -0700 (PDT)
-X-Received: by 2002:a05:6000:2403:b0:439:c5cf:fc73 with SMTP id
- ffacd0b85a97d-43a04d7a050mr25499179f8f.12.1773692865235; Mon, 16 Mar 2026
- 13:27:45 -0700 (PDT)
+        bh=XCP75YBSVNyiC0SMnuy0JEeD8LPAxxpS81/985sICXA=;
+        b=YROmAGZUkIVjsa6pup9TPDRB3fXhsM8BjeAjndpjiSnd4/zojV/kGwql9NFPdqt7Av
+         l/uB4PgSPkgtj0NMgx0GZ/LppAqna4f4tYdUeAytp5bIk+LvMrmo7hIm/BSmbz8WCIva
+         CP5wsh/GM3Do4FRT86jklAZQ5yGKjw/IFw/lKXuAK9uriukDbvSeylOqwofA/he4iBvd
+         hfpZg6u/zUckZtL2BMZNaEbCL3r2gaLJ/PJhrVVs+xmTGZseQ4ZMCxbVq6wWSyc+7KSt
+         iz6HLGiFJrDQNXrrUzWVBwWr6dPwAbzTe/7p2Rbb46WYINDojUrChP2t3N6IDSRT49XX
+         ZFqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773693221; x=1774298021;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XCP75YBSVNyiC0SMnuy0JEeD8LPAxxpS81/985sICXA=;
+        b=AEfynlmLeo70f1/qPUupfFs2GRbynWss2IyVWzykGlJ/yBKiYf+4MKFg9yH2qZh/0m
+         MQul0HzY9diX+GpYvCcHB6vXduO8U48ZquLJzImeZdefw4da13cWcRqrP0PYMgNRkQdR
+         bb2Mo90yYHKZCb1QT65PDLegSGyXoOtmQhSZPDxdskzeRuXmgA7mZJUQ0N/Z3zbSLM3y
+         JDKIPIWmA9Z9UeIZKv/CanIoDuYWDbSALOb5pftPTiODgln30PtZF1pk7cIFYgcKGA8v
+         hFYWtxqtUxRm2+iKjahBfuRqI9JsULYD/LJxRxqN2fwhno0KmL/wnKL1E8RhgFBe3WP5
+         W7OA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKby9k0Dr/wTfTa0epGMGLDxB/YoyTyks9/ZHDfsTQrhgpZQQdHVngGYXVsOUgkY95T7lc8JosB/YGbYNVJHOp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaS2F2WuNmBIG4qm1BsKl1ZNIvGFTkEVe/F6R7yYrEqEAFQXfm
+	x2diH+VT0MRn3N/SLjk1wkLkXYpaCITV48rsP1qPX+mzKythLfcJgCZAtLHrShA2KK2L1lECro/
+	rj4u/9b9wrs//ch+hK2TC8Ro0mz5ZgJLj2d1q4Cue
+X-Gm-Gg: ATEYQzztNtxHyZe7tHoqcg4DK7eZPAZnP0qLP+Ot0xxrqWi4oiIdH4iBhUnv9lV79xi
+	Cih20BHv5zz48NOF8F2N71jkijLgidWgkRn1CMqBBqAW68qxlPWMT0E4UidyIaUAgCQOCH3sdtR
+	GqWaJ3dxbftB4MaGVlm7g6Zvj99l5yZIW56xbU1TpWX4MBnb3WHRmFO04P3YSfl22j3moNHX6Q/
+	qaeEnQFyS8f1s/zWpd61mPeE5K7DmvitlQsJJxSAObP4EOnPfIkQTQSAdxUgQhSQBTFwwBTYsIe
+	QFWWVatp
+X-Received: by 2002:a05:622a:144f:b0:501:4eae:dbfc with SMTP id
+ d75a77b69052e-5099ae2a155mr787131cf.5.1773693220799; Mon, 16 Mar 2026
+ 13:33:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260313222206.778760-1-jitendra.vegiraju@broadcom.com>
- <20260313222206.778760-3-jitendra.vegiraju@broadcom.com> <abSaKe3d4fcBMqLm@shell.armlinux.org.uk>
- <CAMdnO-+UEb8sVf8=Aj7G6UgY-DxWe3bFYbSbKJRdU4woEX+dWQ@mail.gmail.com>
-In-Reply-To: <CAMdnO-+UEb8sVf8=Aj7G6UgY-DxWe3bFYbSbKJRdU4woEX+dWQ@mail.gmail.com>
-From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Date: Mon, 16 Mar 2026 13:27:33 -0700
-X-Gm-Features: AaiRm53K7fiQEZkpJI-MOvV-cHRkeznqwMJWGxhDHPBRcNZi_mzV70LOImU7VIY
-Message-ID: <CAMdnO-La1d7AfqLHPxTX0Y3_17Cpn6SeAqFgW-vJUg+2OZp-xA@mail.gmail.com>
-Subject: Re: [PATCH net-next v7 2/5] net: stmmac: Add DW25GMAC support in
- stmmac core driver
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	mcoquelin.stm32@gmail.com, bcm-kernel-feedback-list@broadcom.com, 
-	richardcochran@gmail.com, ast@kernel.org, daniel@iogearbox.net, 
-	hawk@kernel.org, john.fastabend@gmail.com, rohan.g.thomas@altera.com, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
-	andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me, me@ziyao.cc, 
-	siyanteng@cqsoftware.com.cn, prabhakar.mahadev-lad.rj@bp.renesas.com, 
-	weishangjuan@eswincomputing.com, wens@kernel.org, vladimir.oltean@nxp.com, 
-	lizhi2@eswincomputing.com, boon.khai.ng@altera.com, 
-	maxime.chevallier@bootlin.com, chenchuangyu@xiaomi.com, 
-	yangtiezhu@loongson.cn, ovidiu.panait.rb@renesas.com, chenhuacai@kernel.org, 
-	florian.fainelli@broadcom.com, quic_abchauha@quicinc.com
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000003bf705064d2a0dd9"
+References: <20260316175451.1866175-1-maz@kernel.org> <CA+EHjTyBtM5idopKisJf_e10aRifubtKEpbkjkEnmrOqa9-SPw@mail.gmail.com>
+In-Reply-To: <CA+EHjTyBtM5idopKisJf_e10aRifubtKEpbkjkEnmrOqa9-SPw@mail.gmail.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 16 Mar 2026 20:33:03 +0000
+X-Gm-Features: AaiRm52rszfavVOV2FIeKmV442WE5Yr4f6pDh3yfG162HvC0brQIKx6ADDRQdIk
+Message-ID: <CA+EHjTy=MCgeKoi9sA_eDuiODucOdMP5m4CAciUW=rStgJggmQ@mail.gmail.com>
+Subject: Re: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_132749_698276_35CA0A05 
-X-CRM114-Status: GOOD (  27.66  )
+X-CRM114-CacheID: sfid-20260316_133342_677560_47393F88 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,197 +116,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0000000000003bf705064d2a0dd9
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Mon, 16 Mar 2026 at 20:26, Fuad Tabba <tabba@google.com> wrote:
+>
+> Hi Marc,
+>
+> On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > Piqued by Fuad's initial set of patches[1] splitting user_mem_abort()
+> > into more "edible" functions, I've added my on take on top of it with
+> > a few goals in mind:
+> >
+> > - contextualise the state by splitting kvm_s2_fault into more granular
+> >   structures
+> >
+> > - reduce the amount of state that is visible and/or mutable by any
+> >   single function
+> >
+> > - reduce the number of variable that simply cache state that is
+> >   already implicitly available (and often only a helper away)
+> >
+> > I find the result reasonably attractive, and throwing it at a couple
+> > of machines didn't result in anything out of the ordinary.
+> >
+> > For those interested, I have stashed a branch at [2], and I'd
+> > appreciate some feedback on the outcome.
+> >
+> > [1] https://lore.kernel.org/all/20260306140232.2193802-1-tabba@google.com/
+> > [2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=hack/user_mem_abort-rework
+>
+> The series in hack/user_mem_abort-rework is different from this one.
+> Here are the first few patches:
 
-Sorry, missed one answer in the previous response.
-On Mon, Mar 16, 2026 at 1:14=E2=80=AFPM Jitendra Vegiraju
-<jitendra.vegiraju@broadcom.com> wrote:
->
-> Hi Russell,
-> Thank you for reviewing the patches.
->
->
-> On Fri, Mar 13, 2026 at 4:14=E2=80=AFPM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > On Fri, Mar 13, 2026 at 03:22:03PM -0700, \Jitendra Vegiraju wrote:
-> > > @@ -42,13 +42,18 @@
-> > >  #define DWXGMAC_CORE_2_20    0x22
-> > >  #define DWXLGMAC_CORE_2_00   0x20
-> > >
-> > > +#define DW25GMAC_CORE_3_20   0x32
-> > > +#define DW25GMAC_CORE_4_00   0x40
-> > > +
-> >
-> > Do these live in the same versioning numberspace as DWXGMAC and
-> > DWXLGMAC?
-> >
-Yes. We were informed by Synopsys that 0x32 is an early adopter
-release and 0x4x is general availability release for DW25GMAC.
-Device ID value for 25GMAC is 0x55.
+And I just realized it's because they're based on _my_ patches ... doh! :D
 
-> > > +int dw25gmac_setup(struct stmmac_priv *priv)
-> > > +{
-> > > +     struct mac_device_info *mac =3D priv->hw;
-> > > +
-> > > +     dev_info(priv->device, "\tDW25GMAC\n");
-> > > +
-> > > +     priv->dev->priv_flags |=3D IFF_UNICAST_FLT;
-> > > +     mac->pcsr =3D priv->ioaddr;
-> > > +     mac->multicast_filter_bins =3D priv->plat->multicast_filter_bin=
-s;
-> > > +     mac->unicast_filter_entries =3D priv->plat->unicast_filter_entr=
-ies;
-> > > +     mac->mcast_bits_log2 =3D 0;
-> > > +
-> > > +     if (mac->multicast_filter_bins)
-> > > +             mac->mcast_bits_log2 =3D ilog2(mac->multicast_filter_bi=
-ns);
+Sorry for the noise.
+
+Cheers,
+/fuad
+
+> 7243471061be KVM: arm64: Extract VMA size resolution in user_mem_abort()
+> 3a8557ce6025 KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
+> 9f3c0a14bbcb KVM: arm64: Extract PFN resolution in user_mem_abort()
+> 98740dc5cf2b KVM: arm64: Isolate mmap_read_lock inside new
+> kvm_s2_fault_get_vma_info() helper
+> ea364906b626 KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
+>
+> The first patch here doesn't appear until quite later.
+>
+> Cheers,
+> /fuad
+>
 > >
-> > The above seems to be common amongst the other two setup functions.
-> > Maybe there should be a helper for this?
+> > Marc Zyngier (17):
+> >   KVM: arm64: Kill fault->ipa
+> >   KVM: arm64: Make fault_ipa immutable
+> >   KVM: arm64: Move fault context to const structure
+> >   KVM: arm64: Replace fault_is_perm with a helper
+> >   KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
+> >   KVM: arm64: Kill write_fault from kvm_s2_fault
+> >   KVM: arm64: Kill exec_fault from kvm_s2_fault
+> >   KVM: arm64: Kill topup_memcache from kvm_s2_fault
+> >   KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
+> >   KVM: arm64: Kill logging_active from kvm_s2_fault
+> >   KVM: arm64: Restrict the scope of the 'writable' attribute
+> >   KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
+> >   KVM: arm64: Replace force_pte with a max_map_size attribute
+> >   KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
+> >   KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
+> >   KVM: arm64: Simplify integration of adjust_nested_*_perms()
+> >   KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
 > >
-> Ack. Will address this in v8.
-> > > +
-> > > +     mac->link.caps =3D MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> > > +                      MAC_1000FD | MAC_2500FD | MAC_5000FD |
-> > > +                      MAC_10000FD | MAC_25000FD;
-> > > +     mac->link.duplex =3D 0;
-> > > +     mac->link.speed10 =3D XGMAC_CONFIG_SS_10_MII;
-> > > +     mac->link.speed100 =3D XGMAC_CONFIG_SS_100_MII;
-> > > +     mac->link.speed1000 =3D XGMAC_CONFIG_SS_1000_GMII;
-> > > +     mac->link.speed2500 =3D XGMAC_CONFIG_SS_2500_GMII;
-> > > +     mac->link.xgmii.speed2500 =3D XGMAC_CONFIG_SS_2500;
-> > > +     mac->link.xgmii.speed5000 =3D XGMAC_CONFIG_SS_5000;
-> > > +     mac->link.xgmii.speed10000 =3D XGMAC_CONFIG_SS_10000;
-> > > +     mac->link.xgmii.speed25000 =3D XGMAC_CONFIG_SS_25000;
-> > > +     mac->link.speed_mask =3D XGMAC_CONFIG_SS_MASK;
-> >
-> > Is there any point populating link.speed10 and link.speed100 ?
-> > You're telling phylink that 10/100M speeds aren't supported in
-> > link.caps, so these speeds won't ever be used.
-> >
-> Thanks, I missed this. Will remove 10/100M entries.
-> > > +
-> > > +     mac->mii.addr =3D XGMAC_MDIO_ADDR;
-> > > +     mac->mii.data =3D XGMAC_MDIO_DATA;
-> > > +     mac->mii.addr_mask =3D GENMASK(20, 16);
-> > > +     mac->mii.reg_mask =3D GENMASK(15, 0);
-> > > +     mac->mii.clk_csr_mask =3D GENMASK(21, 19);
-> >
-> > This will be the third instance of this particular mii data setup.
-> > Please consider adding a function to do this setup.
-> >
-> I will move this code segment to common helper function.
-> > Thanks.
+> >  arch/arm64/kvm/mmu.c | 428 ++++++++++++++++++++++---------------------
+> >  1 file changed, 223 insertions(+), 205 deletions(-)
 > >
 > > --
-> > RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> > FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
---0000000000003bf705064d2a0dd9
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
-
-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
-tJVewHuOmXgWQxNWV7Oiszu1d9xAcqyj65s1PrEIIaHnxEM3eTK+teecLEy8QymZjjDTrCHg4x36
-2AczdlQAIiq5TSAucGja5VP8g1zTnfL/RAxEZvLS471GABptArolXY2hMVHdVEYcTduZlu8aHARc
-phXveOB5/l3bPqpMVf2aFalv4ab733Aw6cPuQkbtwpMFifp9Y3s/0HGBfADomK4OeDTDJfuvCp8g
-a907E48SjOJBGkh6c6B3ace2XH+CyB7+WBsoK6hsrV5twAXSe7frgP4lN/4Cm2isQl3D7vXM3PBQ
-ddI2aZzmewTfbgZptt4KCUhZh+t7FGB6ZKppQ++Rx0zsGN1s71MtjJnhXvJyPs9UyL1n7KQPTEX/
-07kwIwdMjxC/hpbZmVq0mVccpMy7FYlTuiwFD+TEnhmxGDTVTJ267fcfrySVBHioA7vugeXaX3yL
-SqGQdCWnsz5LyCxWvcfI7zjiXJLwefechLp0LWEBIH5+0fJPB1lfiy1DUutGDJTh9WZHeXfVVFsf
-rSQ3y0VaTqBESMjYsJnFFYQJ9tZJScBluOYacW6gqPGC6EU+bNYC1wpngwVayaQQMIIGbTCCBFWg
-AwIBAgIMGHX6KxYK3WW2YyprMA0GCSqGSIb3DQEBCwUAMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
-ExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBDQSAy
-MDIzMB4XDTI0MDkyNTEzNTAzMVoXDTI2MDkyNjEzNTAzMVowgbMxCzAJBgNVBAYTAlVTMRMwEQYD
-VQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEZMBcGA1UEYRMQTlRSVVMrREUtNjYx
-MDExNzEWMBQGA1UEChMNQlJPQURDT00gSU5DLjEaMBgGA1UEAxMRSml0ZW5kcmEgVmVnaXJhanUx
-LTArBgkqhkiG9w0BCQEWHmppdGVuZHJhLnZlZ2lyYWp1QGJyb2FkY29tLmNvbTCCASIwDQYJKoZI
-hvcNAQEBBQADggEPADCCAQoCggEBAKWV+9PYvG4njqRsbQas79f8Q46VL7b1ZxvWT6ik6VMbdRZx
-tfpfZalVXksqcb02/N1H7UA9V04cV2q97FkSr/KxeFLMetPb3cVJZICg23IRO2NTPdmgPFzwkPTo
-35h9h/OYLgh3/9a1nTsC2xqJa8GtohD5+42rsskGcI57U4n1r1L4R5IL9ypSqDxX/xVEAdGI5FTj
-VgvoZC6iuEbnez+yO8TT3wun9b/PQowOB5P0CwIFv7ERW0S1s6B8yrbsoaTrz0vQaEA786k1pZkg
-ykC1+zXq/iTyZuPP4B4RkzFd43Pw+GAH0Tt2nx5V4rNisJHeAVNU92Gj01cEg0I+FnsCAwEAAaOC
-Ad8wggHbMA4GA1UdDwEB/wQEAwIFoDCBkwYIKwYBBQUHAQEEgYYwgYMwRgYIKwYBBQUHMAKGOmh0
-dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjZzbWltZWNhMjAyMy5jcnQw
-OQYIKwYBBQUHMAGGLWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAy
-MzBlBgNVHSAEXjBcMAkGB2eBDAEFAwEwCwYJKwYBBAGgMgEoMEIGCisGAQQBoDIKAwIwNDAyBggr
-BgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wCQYDVR0TBAIw
-ADBBBgNVHR8EOjA4MDagNKAyhjBodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWlt
-ZWNhMjAyMy5jcmwwKQYDVR0RBCIwIIEeaml0ZW5kcmEudmVnaXJhanVAYnJvYWRjb20uY29tMBMG
-A1UdJQQMMAoGCCsGAQUFBwMEMB8GA1UdIwQYMBaAFAApNp5ceroPry1QLdugI4UYsKCSMB0GA1Ud
-DgQWBBRq5Jlxz3MqC+zEgUxK566xEc2g3DANBgkqhkiG9w0BAQsFAAOCAgEARXrmeeWA31pp9Tr0
-M6mOlMv+Pr2raES4GzPSyftvxf6tBQCBNaqi6LSbyusDYOj3mG9bp6VeVn+68OxNY9iNAk+ujtId
-f3+30BlZOQ1v8z9u2peUOUtWI60y2MxhdH0X0n2H+BCGvUOFqs5z440jqqy1HsscZTXHB7FEZmVP
-fyD+0Z6cxyh7WNC6+BgLiFwf8iqmAbu7Yb1sGTUGyS5gfYEjJbF2PJfwNUcJDd7eS4w5Ju5mK5y7
-spgjH2/JmDgbkpSk9JyuWfjGZIg4ah/q2nb6UMd1XJb6gLQZuzPOI3SgXPvd8MHGjKZrX2BHOBSC
-bJJ8rp4w4a9QMS6dde2MFObusxkZAft4tUnwo+ProchHs7iA85sL7sWEZhAmjmKKCpECpEfZm0+/
-hpvKQV3AZp5vBstb4IVL8QmLj8beDVHYnNhEicsSiG1wW7zSYyBnmGbFRrFQIJnJDWPjTZOlVEyp
-T1ShrXRCtqJpOt6rgg+rFEY3D8j6/bAkJXnmKnE2LZ0YyrrKk7eC6UfNNimx38w3NWchtcGY8zJn
-Y/1/C9Jv/mWm/2lK8nvusOFxhKmbG83Hx8toQdZ5F1kYk6zAWjfB7lwXr/En9mCmLieJ18hen9EK
-qbYyUkmCmuoLi5GXFMJy+iQv6DgMVQ7CACagybU6FUrmL9lVa+A6caBEEh4xggJXMIICUwIBATBi
-MFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9i
-YWxTaWduIEdDQyBSNiBTTUlNRSBDQSAyMDIzAgwYdforFgrdZbZjKmswDQYJYIZIAWUDBAIBBQCg
-gccwLwYJKoZIhvcNAQkEMSIEIEmds8YruXz+kLzusi9PvUSj4X/xjlJST+Hyz+O6WN5QMBgGCSqG
-SIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDMxNjIwMjc0NlowXAYJKoZI
-hvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG
-9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3DQEBAQUABIIBAG1Ud31IjVSh
-QFZsf6AaDp7pdhVd8kOhGr6bXM6EFiH5Qps9qB57B034/QB2FI5yq0Gp2/JGfIWbrw9c9EbZ67Rm
-M4HOoEBQq+cDrQc5+lqMYDVnxmspJqeVC9lMH+MjbcIsONAHoRYoLum3bbQxnjHgHc7JX5PjSW6S
-ufSXY8KBrEyDGVCz7/leqfmAnlNAW4e/Xayjcfcwsgt3UykT/bZUkg3SZjQzzczws9jixWlFOYqj
-lvp0iRRkK/IB/abdrpKo11OZ7IgboALFQz/7NMlVzIIp5sgTmF77kQ43ujw7kxHjCdqdHakkI3o9
-l5FvQ/i6WnfhUmz6yCP+vv5L2Bo=
---0000000000003bf705064d2a0dd9--
+> > 2.47.3
+> >
 
