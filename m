@@ -4,106 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA16F013E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730E1F013E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 08:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQhnU41yptmqlwpo09kIxrDFtOhy3E+Jk08YEYL9Nxc=; b=wVzY5OyaVBshC6D6Xa3bZSdcbq
-	XnDpvyG7YqAwBYgV4ETRGTl+VYk1rvYgeNHF4M7WIEK1ztHr08T48agFlZPhdcR8e9pMfRaya6TXa
-	b46MSq02W5cG5QpSweQ5tjKOJ6bK6BEruScLYZtJYLksGKj2i1rA2u+1ROC//EZ2LpcKq8QyqT+oL
-	AObi8rO56/235/fDmaz6XxIA8839T/ihMbFfAsn4OKOUU0GEoonmXlHTmTO6NMGthJP+KW+0JT574
-	rQAe0FtgVw6kQGD9jCW2BUpOvCZRSfelKOtmcpKamcP7/uimRqboFAt1No1fFvK5DeFRLkR0mtAXJ
-	RoK2ZzOQ==;
+	bh=Ni27tE4Uc17PebqPukQD2Audc02oOzEQcH3vVp9B4BQ=; b=Z8Lta3J2dKb40QKSAJecEnfHfE
+	h+19ZJlYFVewUEyyh/8azEkDd1ogz1VascgX3Y7eT3Y61mSuyN37NJoHARnIAaCxgCz/wViIVBaTS
+	OnIR+10sJx+tYxICJYU+8qiJ4HV7hZSKdAi9n0+xAK/fB8fOlzs1x97xsVhwiyVI1Z8L9hWl6NT+g
+	o5HcXxbojJLzd1HArVrS3AyAA76mBpwhf0pXH33xPXFGJVloB79yB45zwmgfckAcHc5tCsyw4r8ZA
+	KYO8takz1DWjWCV8GHwnKnTz8ZrFLeAgZpt0f0AuZH6rxwaM9mjEHwjdApB47WL8zPnDuX9V4mgOC
+	ggPFHWtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23ej-00000003ZvA-03kE;
-	Mon, 16 Mar 2026 08:50:33 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1w23fX-00000003a6w-3eD7;
+	Mon, 16 Mar 2026 08:51:23 +0000
+Received: from mail-vs1-f48.google.com ([209.85.217.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w23eY-00000003ZsL-3IlC
+	id 1w23fV-00000003a6E-1liO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 08:50:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x/EY/Yk6vPYSm0nkTYmXo5Lu2ihCkj+81TiIzsruV2+NPBscZGA4phG0FJG63pvGHlTpT6BIxd21ypqhjIRxaSkDuzC309YFcdquU2AUee///WSC7bSPnX9kgvVBy4h/ZCsI1epvggl2VoduEhHWNKyLp6yrLJTEZ2CJe/wQSItPDQdfWH3HE5rAebJUlvgv775JN/T4UlN36P0fbnlRFNMDvzUd4vV7P8PA+l3pM5Y8AvMCkHNZFre3t4wlt20PEJ34PMBihcUKrnIDVQ0xUTrfzmNpr/6qMsFuRXmB0yOGJTXm3hJFdWTnyYy9G6pj+ryLXoebXouaoIHNN9NqUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eQhnU41yptmqlwpo09kIxrDFtOhy3E+Jk08YEYL9Nxc=;
- b=iR5NVUvaZ/VSpH3wX1Y6Axds11XjO7jz2vkj5pzZ/EJwUWEdBTlAVJrbo48I0qgyi18EeMXlwBsxOfIS2f8u9ipX8P4Y1yh5Gtca0Hb30AA4HTPM3dI6BdUaMfHYPuS5kQ+bpCjk+Da0kPgYiXqkbCHatGkVjSPzeUm4JUBaxxVEgOv2hD9gppZ8wcaHnXH/ZSAMeSnUtEG2Jjhvl0t2hjIrNcRkBGBlKUhE1azl+GaMaT+AsEz684eYA/Xwxu/hdMPQImlsfJwQ2GHnXPaodPVP9nMvL5PW3dcxqJAl1McNFGO22TIHF//zm3mjTJwyRLSGN1JxJeInQWjiiReaYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from TYCP301CA0043.JPNP301.PROD.OUTLOOK.COM (2603:1096:400:380::19)
- by TYZPR06MB7040.apcprd06.prod.outlook.com (2603:1096:405:3e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Mon, 16 Mar
- 2026 08:50:13 +0000
-Received: from TY2PEPF0000AB84.apcprd03.prod.outlook.com
- (2603:1096:400:380:cafe::a0) by TYCP301CA0043.outlook.office365.com
- (2603:1096:400:380::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.24 via Frontend Transport; Mon,
- 16 Mar 2026 08:50:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB84.mail.protection.outlook.com (10.167.253.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Mon, 16 Mar 2026 08:50:12 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 69D0F4126F80;
-	Mon, 16 Mar 2026 16:50:10 +0800 (CST)
-Date: Mon, 16 Mar 2026 16:50:03 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, mani@kernel.org
-Cc: Gary Yang <gary.yang@cixtech.com>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v4 1/2] dt-bindings: PCI: cix,sky1-pcie-host: Add
- power-domains
-Message-ID: <abfEO6iW3NcnMyNx@nchen-desktop>
-References: <20260313114914.1564115-1-gary.yang@cixtech.com>
- <20260313114914.1564115-2-gary.yang@cixtech.com>
- <20260314-maize-warthog-of-modernism-f74475@quoll>
+	Mon, 16 Mar 2026 08:51:22 +0000
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5fff18d44fbso2771203137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 01:51:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773651080; x=1774255880;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ni27tE4Uc17PebqPukQD2Audc02oOzEQcH3vVp9B4BQ=;
+        b=P3tCGlPG+kEywhcej9/BTgrKTiCRGsfOYSy43nR2Cggvb8IE6VxgPLwYtobk+/OqYh
+         H7bXVk0gpQ1HE919JpshJ97hlZDWL7vUlhYq+Y0xiLQ+qJppocDLrYs/yxUhV9SZdKp/
+         FhXPdwW0osd2uvO8srkbFkZvMEeBhH1A4sseoJ53JlC58A610vYg5EJ5Y08HpInQ1LBF
+         qAvXU+BeIME7O5p8VGSe1wny9ggotTLWOymRmlkIctoPsxG37asmEekLveZNGY0U3bIo
+         34Zm1HJecBlnDDsGUfLWNcIZ25i/RJH8GSJ4caiocASLzodjrRGAUXldAdWAgZ+Vrqk8
+         +YPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVB9WoWzg01eRJYwQOzyQnBOq0uCBrtFU8NHtYa4UoKZ8swsH7cbHsacL3GJMscTSkXiiCeYaXtr17nVD1LVZgP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9LZqx2vjTjSJyiVdHScd1L8s39uo3uXmAgzAOvSIVQCkVdTqW
+	LHKq0VdWrr70nMShsP5tNuCVfB8Y+76Q2q8OBcCqpPmUN/xvC+ik2ib/P1GVEJ43
+X-Gm-Gg: ATEYQzy8BPVzzEHOAnS7ksZP+B0sElSz3O6ykFS7uashAFH/RsZVJWVFO6G1BQSJPlV
+	WA+Qx278t9Rg5HkRy2CU9vEocepgPJNoj2pLST9+oVGSTgHd6xyupyRAszHCH3u/t0VwHv1I7DM
+	iYpaUMwnmegpxof6Ijg2+dl9sB3/ajoP9EKkzs3PZDaciQj8JuDnVvou9kX4ijOPUEJeKQCwi14
+	/UiM6DIBCvsMm8Iufp0PmvdCwKdEFNtcjXiUIlHG3M94sC8KhCmPOe7TJ3+6f7PVjVWs3WNlHVe
+	QP43e9lANbhktq0afkhCD9JdH34PwR8472SR2GsSVys3CNlD7Ygcq6NzECL0yxm15shAsGMjhOc
+	3OsHBkTkqxReKydsltO2PpoGzv0SFdUXDWEhHxbeQF0W3XsvaGo1dN8HkOCDsZ+ckDrm70+h5gW
+	WMqsPjjZTCWk5zpxCMiHBE1MuXlm5SHbYh1ZaOa2wc05o+iqqLtzs5RlS3jP3K
+X-Received: by 2002:a05:6102:32c3:b0:5ff:e58d:4dff with SMTP id ada2fe7eead31-6020e2e3c45mr5186183137.17.1773651079894;
+        Mon, 16 Mar 2026 01:51:19 -0700 (PDT)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94ecff69249sm5550266241.12.2026.03.16.01.51.19
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 01:51:19 -0700 (PDT)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-5fff18d44fbso2771191137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 01:51:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXyNJCjwjtz/WvilgHHcNBq4aOetIaX2++oMz9a+2AqtsOoWBCj0amnXUpWZlRegAg1MR3nsoy+qEuFU+Pb0Oit@lists.infradead.org
+X-Received: by 2002:a05:6102:6cc:b0:5fd:f2ad:c653 with SMTP id
+ ada2fe7eead31-6020e2cde73mr5380780137.16.1773651078892; Mon, 16 Mar 2026
+ 01:51:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260314-maize-warthog-of-modernism-f74475@quoll>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB84:EE_|TYZPR06MB7040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 021b91f3-e8be-4183-f928-08de8339097b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: +lrHDulAuisFnJY2M9j/JEgMgBJ/0tcdzI8j1gHny54le21kwTKxhVGwJ4TMfh+Zd3Bc3+WU47ZiC1y4sM2+vtjPpkJr50g/+UfsJXqLEfl2skHxuRTUCeWEKiYae7tLgJTopnOcsSiKxyo3zZRvqcEan/W4ozobU1JOR+cK4NdY+LDWSbJp2zjC+rDLOpIrJQE/bYtH39niOEHDQOyA4iy+wTS47iKPmzVVtHg2qI/ZAwK9ltrMB5HK/q96xzczThXfNN0T0Gfi0afwQLtZ1jY7NZHA4DncSrfDdorMVrtkp6BJkbUCNuLQDprXZ0hB5V/sVTPFwJvLkmZ5SeBrNJEBCffVMjVFumheadMKR64CoBygsvW8m18bXbOdNGl8EQwZSkyS8LBLv/A4DKfnBhToMnNTRsYvkXQpiVl9Fd/211NQkGuMELj8PYBE/A+KQKiHUehlASEN0XNCt8Zu1jkT1DgIJsUtU0rDOeNzOrWHCNZXgHnyce50jQKkl0GhZa86tAFrPTPPY5cvi4eAGO8URgjFOxsEEUD4pgjZqCMooUmYo0oxcZfcV5g/0vvLPXFqzCo+/zCU5cgdeyvEZDEXUABYVX3xEWOZknLHS2mtNOOBT3hQst/tU+ZdLMWGFNMoXg8WpiGHCn4pPr4qQ/NEgBZNDr+YfPsduPbAH7iY3CbEtAo9unpS7Q2ZIjx1JbdVY4UEu2EDgeeOZbCjhZ/0sdI5mSdV1mwCNfoJa9NW3NN78Cpq2IUNuYYoAD2UrfQ6dFmC/ruSJgXb9VGNdA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9dv4qSxmgIKI5MlNk58mASSy6qEoxM6071FhLyFgqdOq5crbO96yQqPXNdH/6DU6gK4GGr0HwdgcKU28Ayu65AUjBucRlGianCGhYH3isf14PkitlsEJdMhKz9/+n4ztmlbjTOL/yybg5uYa61qUltMqXt9yNuBmbCKDNav5ojGIatVoQICucxFxhMdO2/OyU127AScF6w5z/Gg6Qixa+rEYdMg7MvVAl4AVKSGM252gaP3s3+bgvicEEh2YQehBVxz2mGsUvz+Wefg/5m9nNr1xrkfRorqRrjS/PuPdOPXpmTHSRL7SJhjP/pj93BYIcSWGGo5eCKgJLXOU40clWYuuOJj6knPGS2IeRzjiP0DsKsxm5gITE8W7olhasK4U4TXUpOh79eizBJWjAK/fssMo69SN7SKbnTCfuJk7vqOoAefULCHlzXuHTCZ/xBqb
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 08:50:12.6477
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 021b91f3-e8be-4183-f928-08de8339097b
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB84.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7040
+References: <cover.1773399669.git.geert+renesas@glider.be> <cover.1773399673.git.geert+renesas@glider.be>
+ <20260314-quick-gray-saluki-0f96ff@quoll>
+In-Reply-To: <20260314-quick-gray-saluki-0f96ff@quoll>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 16 Mar 2026 09:51:07 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
+X-Gm-Features: AaiRm51SoosmbfwaefU6BPqSHDNLBprafGmdntJh4QZy8XCfS9j5Er_XSACDcgM
+Message-ID: <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
+Subject: Re: [GIT PULL 3/4] Renesas DT binding updates for v7.1
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_015022_886088_4D0949AE 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260316_015121_470106_CA92762C 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,27 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-03-14 10:26:11, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On Fri, Mar 13, 2026 at 07:49:13PM +0800, Gary Yang wrote:
-> > The Sky1 PCIe controller resides in a dedicated power domain managed
-> > via SCMI. Add the power-domains property to the binding to allow
-> > describing this dependency.
-> >
-> > Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> > ---
-> >  Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml | 3 +++
-> >  1 file changed, 3 insertions(+)
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-Thank Krzysztof for kindly review it.
+Hi Krzysztof,
 
-Mani, I assume this patch will go to PCIe tree, right?
+Thanks for your comments!
+
+On Sat, 14 Mar 2026 at 12:09, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On Fri, Mar 13, 2026 at 12:12:59PM +0100, Geert Uytterhoeven wrote:
+> > Renesas DT binding updates for v7.1
+> >
+> >   - Document RZ/G3L SoC variants, the RZ/G3L SYSC block, and RZ/G3L
+> >     SMARC SoM and Carrier-II EVK boards.
+> >
+> > ----------------------------------------------------------------
+> > Biju Das (2):
+> >       dt-bindings: soc: renesas: Document RZ/G3L SoC variants, SMARC SoM and Carrier-II EVK
+>
+> This is DTS branch patch.
+
+It is a DT bindings patch.
+
+> >       dt-bindings: soc: renesas: renesas,rzg2l-sysc: Document RZ/G3L SoC
+>
+> This is drivers. Splitting it into additional branch is not making it
+> easier. I don't know where is this supposed to be merged. I will take it
+> to drivers, but in the future, please do not put DTS bindings into
+> driver bindings.
+
+This is also a DT bindings patch.
+
+DT bindings are soft dependencies for drivers and DTS.
+DT binding definitions (I don't have any this time) are hard
+dependencies for drivers, DTS, and examples and DT bindings.
+Arnd merges dt-bindings PRs in the soc DTS branch.
+
+> See also submitting patches in DT dir.
+
+So the second commit is subject to II.3:
+
+  3) For a series going through multiple trees, the binding patch should be
+     kept with the driver using the binding.
+
+In this particular case, I could have included it in my drivers branch.
+Where do I put SoC-specific DT binding changes that are not picked
+up by anyone else (I don't have any this time)?
+
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Best regards,
-Peter
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
