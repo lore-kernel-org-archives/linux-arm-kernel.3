@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4D5F53D7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A34F53D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5a7rqfQ7dvl8k0gLTQFhSqgYvJdxv5fbv1PEeEsnwuM=; b=hhYmO9kX/AAcx6POpsXVPWM+TA
-	lAXCwI+Ke1DedkZyo6eHSxczb4ULN20dtRYoWlzAj/urh8euEn+R0ZNyFFuCH/HIzc0613CfOZ7B0
-	X1/QPcW30HltnztbeYtkUJn4cLgouGan8X8kM8aLGCPXmWF3FRc+tqXxckMGT7rJQXvflYZngrBb0
-	og10HvfMreMloHipma2sTIxm2zzc+70U98U0KoVbgBtdWNQoB2MdVj2wW/9ViBjliu1xeWWql60jb
-	UulNnDElWKjDkc9Bd6orSpNNuhfOUN5zW0vVNun7Ump973GqS/MyB6VBUxD0Snk1J0HBJDJ9H5HKy
-	Ur+Tb8Nw==;
+	bh=wEHPyMu42lihqvWHgqVVNGPuEB9VrdUuNbdTcZKzmLY=; b=HE96jgXMbouviarmgcFIhYfHkN
+	QwGRTep/zntW+7gim/lbKaiL+YttX30MmV8l6/qelo57twDft83BndsqDzZeop2BLe+O3bNTnBtXA
+	Sdws5FviCnazILl4m8CDMBmydA6WLqWBX9WLSwx1Y2dRC0ee5J3cN8pmYxi2HXnbw/p03c0eV98Q7
+	wH8vXJ0bfxdvy80dRoKe0+ipWAEAPUWJ5U9FEqbH5YD9xxfnCP1EZVcuHOxlzc9t7smulXMXh5I7q
+	gRlB4+cShzbdgZn2arpnqgfka33VFCaWBCFyZICFtNC4xb71WAU9VXJA1gUxpGmWNz73Fj7vUzgka
+	lyQk4iOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BzQ-00000004bXg-2jak;
-	Mon, 16 Mar 2026 17:44:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2C1Y-00000004bh2-0UDf;
+	Mon, 16 Mar 2026 17:46:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BzP-00000004bXP-1RhZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Mar 2026 17:44:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5a7rqfQ7dvl8k0gLTQFhSqgYvJdxv5fbv1PEeEsnwuM=; b=XJ1km3+X4aoUJtrag4BwIR8FoE
-	Fc2ImQZbuzYQRrJesguHmAcpdvuwIJCoKzw0CeennXFLZjFv20wotarp1QVg4Yw7YiiNLPLmanORM
-	JJ6/Cpkps5yWw3EQG/y/1gbo/GYIwPqwD5YPzI8bwBOQ3aRbH0Zde5MZcSMc5UGmSTMvGLc/aeyIP
-	QgOgGgVeVrgn6OXfjFUjNAsQUYuh5B8F+Q6rDm+ltmk41tUmJN6uxZzq4LkkgQQNkDOazoRStBRWt
-	iFSGTwilLqf2CsxN7ozob2GOZw7LXVRtWoH4KED/hDSGFc8VsFsciQD+iXjHTL7CyzUEtvbK4sbZU
-	fz0G5AtA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BzL-00000007N4J-2Hz6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:44:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFE141476;
-	Mon, 16 Mar 2026 10:44:14 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D86373F73B;
-	Mon, 16 Mar 2026 10:44:17 -0700 (PDT)
-Date: Mon, 16 Mar 2026 17:44:15 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 04/30] arm64/fpsimd: Determine maximum virtualisable
- SME vector length
-Message-ID: <abhBb7HbMg3BC09D@arm.com>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
+	id 1w2C1V-00000004bgi-2RDK;
+	Mon, 16 Mar 2026 17:46:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 975596013E;
+	Mon, 16 Mar 2026 17:46:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B24EC19425;
+	Mon, 16 Mar 2026 17:46:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773683196;
+	bh=wEHPyMu42lihqvWHgqVVNGPuEB9VrdUuNbdTcZKzmLY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hSJlQ6BrcpxYUk7JBEtBF9Qqe5d4jddMRs/BIYPXhpPeq2zSkrT1d7BDArBZojKWW
+	 BKLlbp5f1keg+9VNpIOWgkIBIijWzUmue4HADCbTjzJnOVuwSErUxWlrchbV7aek/k
+	 YL4Fz+hGFQ0alKzrJMsisaNWzjtXgr4Qjs4zOx0v4MuWkjCh4+uKgjvpAtIutxB2fm
+	 V/l3yUflC1bUWuKJqOQf43X3PX/imfc5TIias6ybZRLFFbMRWwZztH+NfDeWxMC/EL
+	 lfDdbpOMY/QxVqRDnnN9xRBiwYaM6qcWptv2b3NZoVJPWL8tv+1soDKh3FtqZiSf1Y
+	 tDcGiBYLJGuaQ==
+Date: Mon, 16 Mar 2026 17:46:26 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>, Lee Jones <lee@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Shree Ramamoorthy <s-ramamoorthy@ti.com>,
+	Jerome Neanne <jerome.neanne@baylibre.com>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Joseph Chen <chenjh@rock-chips.com>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+	Lubomir Rintel <lkundrak@v3.sk>, Julien Panis <jpanis@baylibre.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Alexander Kurz <akurz@blala.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 03/15] dt-bindings: regulator: ti,tps65219: Use generic
+ power-controller schema
+Message-ID: <f0d6b252-370a-405c-b2b5-e02b8bc59bca@sirena.org.uk>
+References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+ <20260316-power-controller-v1-3-92c80e5e1744@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8MjI/4wsRBNLAdgX"
 Content-Disposition: inline
-In-Reply-To: <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_174423_769420_61E03AFB 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260316-power-controller-v1-3-92c80e5e1744@nxp.com>
+X-Cookie: Excellent day to have a rotten day.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,14 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:00:56PM +0000, Mark Brown wrote:
-> As with SVE we can only virtualise SME vector lengths that are supported by
-> all CPUs in the system, implement similar checks to those for SVE. Since
-> unlike SVE there are no specific vector lengths that are architecturally
-> required the handling is subtly different, we report a system where this
-> happens with a maximum vector length of SME_VQ_INVALID.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+--8MjI/4wsRBNLAdgX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Mar 16, 2026 at 10:47:38PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> Convert the binding to use the generic power-controller schema instead by
+> referencing power-controller.yaml and removing the local
+> `system-power-controller` property definition.
+
+Acked-by: Mark Brown <broonie@kernel.org>
+
+--8MjI/4wsRBNLAdgX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm4QfEACgkQJNaLcl1U
+h9BWOwf/RYua3madlI7scNf3qpDMzQZHgi+eqAl3g7Lq6pMKTkmLA/V4P37VJTPi
+bB1VTwPRbNvxdczmeLgDust4Yi7d39Se6tX+OrgSXOhv+FMKnw621zdhZ9NLaI2Y
+tsbOwANB98ZH+jnGwVRJirPiDuopbsmBHRd7JovirNpdNujPs0sss3Z/GfWVyjjZ
+kZwF+6fEn7MKfHz8v0cVjdhDB/zKxJWyX6zlpSXToWVSvhiVnRmMW8tzvxax/kLa
+NukR0cAOLKySPWir5+lkOD3Vr2as+vhfcBmfZOdOB1bNqGF8nWOUt6DJljvdw7Iu
+wXg+QS+O0wGAQNLRmrZboAIyvnZQqA==
+=igxU
+-----END PGP SIGNATURE-----
+
+--8MjI/4wsRBNLAdgX--
 
