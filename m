@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F87F53D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB8AF53D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1aJLFkmZ8O2W45gAWMpE9JOglV4+l7rhHsNOlx5lSFc=; b=ZJtXVZEkyyibqaiELMZ3DRqn76
-	ryj1uDO0oQ9xQSsxzTpoqiz2FvNDB8sOI362ywKLFty6P0WN1kZJ+la45W768bCk0KuRY1k7MId41
-	s4j20bhD3xIQuiTggEjHFrBTfU+H9o7qcVTS8oIKmk3QBUsD4fFdErl8D+Hs+QbcAFjdCsfpchI/W
-	T7glH6l2r9QJgnABQMMrMMCFAm1Qa2v4FJZnj55yDu4w0dxzmXDntQLX5I8zzLFBC7Fp+gtyjJq1h
-	QcNXCzmNnWOKTRZDaV0Hm+AZdMqufosH0yJsYD4RZib+umZQb2cpvLwwH99kj1nVSEX0qKFYnW9yb
-	IvynNraQ==;
+	bh=Paek1Dxf4L/77rV5nlsszIl5/K8oYeT6YlCyqihk8lM=; b=wOnQeNJUp5TtPRy9Akh4nm9npB
+	4xClo5nofe5vLW7UDYRR+j2S9qf/pMozp49uEzTcDFwj3aNS3m/Jjj+Um1I9CL1pUUo9rAHcmXWVy
+	q4NWhJxN27cWAAz2FY4W1pLUs3cHFGDKDLrRYlqWK5s6RKYCkfgik9n9NuBhMgJNRPQjxlkYLlFY8
+	FKn2r7ol6IWDYMuQTpqYZr1B8SP70dDqId8JBqhmgB1NuNJAOW46kXXALoScOSBw63I1RMAPbmrjy
+	FLGeMbBUjVuBLP85jB+I4kO4HCWbvvSZoQMoZCqSG2WxnCoSwm6stSpsrFcoQrB6j3xFAh0qRRD+d
+	8oYWerVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C4g-00000004c69-3c7i;
-	Mon, 16 Mar 2026 17:49:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C4e-00000004c5k-3cbe
+	id 1w2C7L-00000004cJQ-1XlU;
+	Mon, 16 Mar 2026 17:52:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2C7K-00000004cJI-023v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:49:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D07D1476;
-	Mon, 16 Mar 2026 10:49:45 -0700 (PDT)
-Received: from [10.57.20.85] (unknown [10.57.20.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86E6F3F73B;
-	Mon, 16 Mar 2026 10:49:49 -0700 (PDT)
-Message-ID: <4e36cf20-f3c0-4c3d-9bf4-da8228efaa15@arm.com>
-Date: Mon, 16 Mar 2026 17:49:47 +0000
+	Mon, 16 Mar 2026 17:52:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1ACDB60123;
+	Mon, 16 Mar 2026 17:52:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3315C19425;
+	Mon, 16 Mar 2026 17:52:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773683556;
+	bh=1pb1aqms/tuAEyqtaZxNHK+BnZRWUIA63kS7sxzCYdM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=euzR0jWn68jPTGaqoZ1uLi6HDtCmQpCqd1SknY0547474UQR5dAIDOaEQv6In5cM1
+	 8/QT8JrXVyf/IZ8cqE6AuW5eEJB+GGcbhiotXovgoi4nvk7jIGeitlCy9KmyipZltP
+	 TNN6ZczPf8PKKGakm3QTN+fzlCqPeyawMingXLgcML7Vlja9AfqXTC0t+peiWmJJmz
+	 1B6fplGKDB8aiaeUfDzFVl6NUJpmRRmKDp9EVlLk/f30ZcgIxi1tpaV6pqQlhF5CiX
+	 XooQGmqDJ+ZHMYl9R4T1MtL1bhSWq23yxZiY0npEEzmmzZP/RrVePipVUkXdgnPajx
+	 UoSpLEEbxNTOQ==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Shenghao Ding <shenghao-ding@ti.com>, 
+ Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+ Frank Li <Frank.Li@nxp.com>, James Calligeros <jcalligeros99@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+In-Reply-To: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+Subject: Re: [PATCH v3 0/7] ASoC: basic support for configuring bus keepers
+Message-Id: <177368355239.146755.11297173748459835851.b4-ty@kernel.org>
+Date: Mon, 16 Mar 2026 17:52:32 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/19] coresight: Set per-CPU source pointer
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
- Keita Morisaki <keyz@google.com>, Yuanfang Zhang
- <quic_yuanfang@quicinc.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
- <20260305-arm_coresight_path_power_management_improvement-v6-2-eff765d211a9@arm.com>
- <4dd1e996-5098-4b03-af0f-98294fdca908@arm.com>
- <20260316143828.GE8048@e132581.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260316143828.GE8048@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_104952_967639_1022B8CD 
-X-CRM114-Status: GOOD (  11.15  )
+X-Mailer: b4 0.15-dev-c239c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 14:38, Leo Yan wrote:
-> On Fri, Mar 13, 2026 at 11:18:20AM +0000, Suzuki K Poulose wrote:
+On Sun, 01 Mar 2026 18:05:19 +1000, James Calligeros wrote:
+> This series introduces some infrastructure to allow platform drivers
+> to specify what a DAI should be doing when it is not active on the
+> bus. The primary use case for this is configuring bus keepers which
+> may be integrated into various codecs. The instigating use case for
+> this functionality is an interesting bus topology on Apple Silicon
+> laptops with multiple codecs.
 > 
 > [...]
-> 
->>>    static struct coresight_device *coresight_get_source(struct coresight_path *path)
->>>    {
->>>    	struct coresight_device *csdev;
->>> @@ -1401,6 +1452,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
->>>    	mutex_unlock(&coresight_mutex);
->>> +	coresight_set_percpu_source(csdev);
->>> +
->>>    	if (cti_assoc_ops && cti_assoc_ops->add)
->>>    		cti_assoc_ops->add(csdev);
->>> @@ -1427,6 +1480,7 @@ void coresight_unregister(struct coresight_device *csdev)
->>>    	if (cti_assoc_ops && cti_assoc_ops->remove)
->>>    		cti_assoc_ops->remove(csdev);
->>> +	coresight_clear_percpu_source(csdev);
->>
->> Should these be done with the mutex lock held ?
-> 
-> If so, we will create a locking chain:
-> 
->    coresight_mutex -> cpus_read_lock()
-> 
-> Afterwards in patch 18, it uses cpus_read_lock() to protect sysfs knobs,
-> a reversed locking chain will be established:
-> 
->    cpus_read_lock() -> coresight_mutex
-> 
-> LOCKDEP will complain for possible deadlock.  This is why this patch
-> avoids to acquire mutex when set / clear per CPU sources.
 
-The question is, what prevents two different CPUs trying to modify the 
-"per_cpu_source" data structure when the CPU is not online.
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Suzuki
+Thanks!
 
-> 
->>>    	mutex_lock(&coresight_mutex);
->>>    	etm_perf_del_symlink_sink(csdev);
->>>    	coresight_remove_conns(csdev);
->>>
->>
+[1/7] ASoC: dt-bindings: convert tdm-slot to YAML
+      https://git.kernel.org/broonie/misc/c/5273cb8197d8
+[2/7] ASoC: dt-bindings: update tdm-slot.txt references to tdm-slot.yaml
+      https://git.kernel.org/broonie/misc/c/cc74890fb484
+[3/7] ASoC: dt-bindings: add TDM slot idle mode properties
+      https://git.kernel.org/broonie/misc/c/938c1ed56ab8
+[4/7] ASoC: soc-dai: define possible idle TDM slot modes
+      https://git.kernel.org/broonie/misc/c/7d8632f1ef6c
+[5/7] ASoC: soc-dai: add common operation to set TDM idle mode
+      https://git.kernel.org/broonie/misc/c/b758d3574e88
+[6/7] ASoC: tas2764: expose SDOUT bus keeper via set_tdm_idle operation
+      https://git.kernel.org/broonie/misc/c/45573ee1f2ba
+[7/7] ASoC: tas2770: expose SDOUT bus keeper via set_tdm_idle
+      https://git.kernel.org/broonie/misc/c/af176d0787d2
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
