@@ -4,54 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D94EF506D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4DAF506D7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2Qs71/0AsvWvWFWU3b3UI309ogIP3mlNvh7O7ibiEc=; b=qNaMjx2BAM1pyr+ATtLtprEzel
-	aVOuCXqNcXvzwaZk2R6Opzh2zC/Rqsv50QZMx7KIBKBLkcD3gFhSWBa8c5iM3zb1LuuRk4/s752Nv
-	yE03ccZG7oLsbXv4w/x/QrrLLhiFaL9cDpBgTypsEmSGBjf8fsoYIbuRIOyIVf+3XwoUHgevoXVJI
-	SA8J3NZRVPMFG5vNvV4aggsjwP1XVzd9oM6DkWlFPeeporroXeJ4TnYnIpk6H4EHDqKbgvvba7z4R
-	uvWxZqZqj8bZQgprkmhyvOB/ZRzGStkwFcgNsrVP8XkRwj2Fe+81mJTmpcQ3mosyvdBG5r+WpTnzA
-	KXPLCQFw==;
+	bh=Fl8JvjgcLDK4j+UfwfT33Rdw6sd0dXM6mZ1n3xvVCkY=; b=CEoy/O5+ooV30jPAO2WU/n2XM6
+	jNzgCHJv0UUJQwET79TzG31f5m1/U5riiyzyRhbxINlMYCvpNmciDTPo40EyLNCVu8cm323SerUA/
+	5uJS/IpkmJjunyJ4IC/ZrYJ+n32FnIBaEREnMY3G2HP9q5Q5rAvwsf0fVH/wbaSR/5V+u8Xlar5nE
+	E0gkwTOP6QB4xJnho9M0oa0yOdCJcHgdTf7w9P1S9cLda0qZwMWYethLZutBUUlT7e1b9O1a1hrTE
+	9kM398jI8lXHXDPk+XztcFNFDBmLwJclm96hPUobpaVuWoq2nYBPVUVL6gUz8bTa9HZbWg/ro9OiZ
+	gQeAUbfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28bt-000000048gn-2tNT;
-	Mon, 16 Mar 2026 14:07:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w28jE-000000049P1-1xN8;
+	Mon, 16 Mar 2026 14:15:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28br-000000048gh-49pg
+	id 1w28jB-000000049Oq-3mJL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 14:15:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Fl8JvjgcLDK4j+UfwfT33Rdw6sd0dXM6mZ1n3xvVCkY=; b=OuUndXXv8DXn8VGCbaVnc6mQdD
+	h27zKMAE898gYtqcUt2lb4Addp3JXG3xMTx63kRYENAgQACqx1EMOJ2XAe9S1D+vYg1TzOdf20eJy
+	y1U7Pl+DFVEvhcCE9bSnzbZZiI4ND0/1TfXZOPrD2SGi1X01wnBb9Nv83NXUQhqFMX29bP4+x2MLX
+	nbfTOXpL1QZLSX1Hm2KStqX/bIjWv/kHaE7yPNHoVhK/CWQ9bEuWueXX895dC/tyObnHtoggp1w+I
+	/t7czin3puJ+UyPg00J3WspeS8BPXFSoUnzvAQxa8dA6LW5turnLyL0lXjYSD2qsEFMnCjesY8zUV
+	BbbMD8bg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w28j8-00000006vMD-218w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 14:07:56 +0000
+	Mon, 16 Mar 2026 14:15:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 087FF60018;
-	Mon, 16 Mar 2026 14:07:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1336BC2BC87;
-	Mon, 16 Mar 2026 14:07:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DFAAB43C59;
+	Mon, 16 Mar 2026 14:15:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 672A1C19421;
+	Mon, 16 Mar 2026 14:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773670074;
-	bh=5Oir84Ep1nOmB58IMEnVv3Pdi3YsPFU8bQRNy1F7ICw=;
+	s=k20201202; t=1773670524;
+	bh=AMYLIbC0XsyIeE592yVqLMzFEBrfw2qSx6eHBAsjStk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KJ+ep7jx+484K9GzMOCxKffSt53HiGLCRSxbMbBO4ZS+UrvZnhOZWj8XK8FYqil+v
-	 p0irtDphe9AP8ZEUkt/wcMHTqk76MKTyitapw9h1EVdAnmHY796MtID1sdYJEWD7JX
-	 9jE04ilLycNLxoLRR3yMCagFhLz+e2HK/XEkuaABP9quLppLAWNIugJ/av7fupEKmE
-	 2eNqcMU9TKWzzDDXlcQdb/4EDAHZu7CUIVYla/NrppNfMlPTZXJXFLYe/YScJL+8HF
-	 XZsCiEordkfQ2/mwciCN+a9t17eeAw5v6cCsG79Cp87Tead6F+RRbcgzaxloaiej02
-	 7Vnmgww1W64lg==
-Message-ID: <a14fb4b4-1531-4794-9830-68e216667f1d@kernel.org>
-Date: Mon, 16 Mar 2026 15:07:51 +0100
+	b=BowH4afH8xNOvUvPXoGnX3QiYu8G73nqHWtCjBoZU+TFzL04LqlcQ1DpKNBrWW3FZ
+	 +QX4rLlHxR8sluW7mz9nTROilho5xtAEMDGtkUjYE8UicGlscjLRmfWhUjdjoyvy0h
+	 t4w8HKjV0QGMecNN40YAKUHsKE9rLtQGt6JspdvvYpstALRuhCUTjCTljy4MNEDoQT
+	 oVDVC2Ymws8d8S97UvIvVqQ0YJCKNcfOG23HdZNoUk3z+yrYp367/8xA5lpl/H0Hos
+	 g5XFzt2ffsv8ex0HQ3AFCpSv+PwNvKGJ+fVx9kQUco0SG9bhb13I7h9CngzrwMTuv+
+	 QwRj/MDzncpYQ==
+Message-ID: <86f611cb-1292-44e4-b629-6503135d33ca@kernel.org>
+Date: Mon, 16 Mar 2026 15:15:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: Use generic enum pgtable_level
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>
-References: <20260316140150.58207-1-kevin.brodsky@arm.com>
+Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the references
+ for large folios
+To: Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, dev.jain@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
+ <12132694536834262062d1fb304f8f8a064b6750.1770645603.git.baolin.wang@linux.alibaba.com>
+ <CAGsJ_4yEWn3kVZPQZatOJX7NLLv-OK9pAqUDuWz25XxG5hpV=w@mail.gmail.com>
+ <a4d7cf56-eab4-431d-886b-a32456e44736@linux.alibaba.com>
+ <CAGsJ_4woBVQdYcCbN1Btr2vxOL8OAujaHkNZZ41=S-TdNh-wbw@mail.gmail.com>
+ <d6820b1e-52ae-4ef2-8342-11818fdd0cb1@linux.alibaba.com>
+ <43831628-a00f-4292-9797-cb96a029bb00@kernel.org>
+ <e54e0ec1-b968-4e12-84a3-4e3d331b1c36@linux.alibaba.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -98,9 +125,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260316140150.58207-1-kevin.brodsky@arm.com>
+In-Reply-To: <e54e0ec1-b968-4e12-84a3-4e3d331b1c36@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_141526_919668_B59E3222 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,23 +145,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/16/26 15:01, Kevin Brodsky wrote:
-> enum pgtable_type was introduced for arm64 by commit c64f46ee1377
-> ("arm64: mm: use enum to identify pgtable level instead of
-> *_SHIFT"). In the meantime, the generic enum pgtable_level got
-> introduced by commit b22cc9a9c7ff ("mm/rmap: convert "enum
-> rmap_level" to "enum pgtable_level"").
+On 3/16/26 07:25, Baolin Wang wrote:
 > 
-> Let's switch to the generic enum pgtable_level. The only difference
-> is that it also includes PGD level - this isn't relevant in
-> __pgd_pgtable_alloc() so we just add a default statement.
 > 
-> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> On 3/10/26 4:17 PM, David Hildenbrand (Arm) wrote:
+>> On 3/10/26 02:37, Baolin Wang wrote:
+>>>
+>>>
+>>>
+>>> I understand your point. I’m concerned that I can’t test this patch on
+>>> every architecture to validate the benefits. Anyway, let me try this on
+>>> my X86 machine first.
+>>
+>> In any case, please make that a follow-up patch :)
+> 
+> Sure. However, after investigating RISC‑V and x86, I found that
+> ptep_clear_flush_young() does not flush the TLB on these architectures:
+> 
+> int ptep_clear_flush_young(struct vm_area_struct *vma,
+>                unsigned long address, pte_t *ptep)
+> {
+>     /*
+>      * On x86 CPUs, clearing the accessed bit without a TLB flush
+>      * doesn't cause data corruption. [ It could cause incorrect
+>      * page aging and the (mistaken) reclaim of hot pages, but the
+>      * chance of that should be relatively low. ]
+>      *
+>      * So as a performance optimization don't flush the TLB when
+>      * clearing the accessed bit, it will eventually be flushed by
+>      * a context switch or a VM operation anyway. [ In the rare
+>      * event of it not getting flushed for a long time the delay
+>      * shouldn't really matter because there's no real memory
+>      * pressure for swapout to react to. ]
+>      */
+>     return ptep_test_and_clear_young(vma, address, ptep);
+> }
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+You'd probably want an arch helper then, that tells you whether
+a flush_tlb_range() after ptep_test_and_clear_young() is required.
 
-Thanks!
+Or some special flush_tlb_range() helper.
+
+I agree that it requires more work.
 
 -- 
 Cheers,
