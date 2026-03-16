@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470FFF53D6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E87F53D69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjx51MlaY85piIF1UhhdERJ/6N5uLE5NpaojR0WYai8=; b=R8X70JAn8wObjt643ZbpQwp0Cb
-	Si9DO0MH8/qSDTech0RzL7LZP5QyCl7+bBnedY1s9V/OoTCjP1V65fTvPoZlKEqUDlLzfu3sMucB/
-	eWJYPnK8SSlFk2uuyY4RP1NgJHSIUEmYx3sf4CoCRImgBaB79IV3ByZChq4nm3E9UFrnluqEgawkN
-	2+3CE9Wb+lp1TEvgdLUQjl20P7oPVh2foaNGrDBufMbALzGS9TiUVMw9Rr3qZaxHr/WaIeuL1XHoj
-	M5z7N+2ZuE+VU0vGXK+xDtEJwOfIKzCuBf3Wn/n2UHLO+ckOx3K7nNxdpQcgwMIX7djT44wNGlE1V
-	cV8aD2Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nMV00VBJWKkaqpEtH1LAiLdHckZZ6qshJN4iQQpaP6g=; b=gN15GBHuzRxOtMLS3uLd8iEgEQ
+	3lXYIUbklu9k2eWDQw21XuqvpUssyvfUPkFi4w5S3hEz849sxeQi1rAJC2P3YMA5qCiyliwNMJ9zu
+	6mWcTb3qF9PxAonu6yXcIwkCiMFksyS/h05IU9W1xYaMnwuhoWC/M6xKWkJT3z1r48N2RRA34IDNq
+	S8XJRZjz5gdexjkuoJglj4cvGaGrc/AqjGJ29FqxBCx5zTsZVX4aBCQNl53Hg5iJVnJFaH9KHi6la
+	63njRxYQ2tn0jXDk/XP3LZrYSdS70krzVqFY2PxI+m3KmmjoFKcPImlCI6ExgA61fXkcd5ukjJ6VS
+	PNM+S+dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AAT-00000004N2a-3wZS;
-	Mon, 16 Mar 2026 15:47:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AAR-00000004N1e-1fuw
+	id 1w2ADE-00000004NKx-1q8e;
+	Mon, 16 Mar 2026 15:50:36 +0000
+Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2ADB-00000004NKU-2X0d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:47:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E2EB1477;
-	Mon, 16 Mar 2026 08:47:34 -0700 (PDT)
-Received: from [10.57.84.154] (unknown [10.57.84.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4D973F778;
-	Mon, 16 Mar 2026 08:47:38 -0700 (PDT)
-Message-ID: <de0b06cf-15a5-4109-b339-75c10d9b8a18@arm.com>
-Date: Mon, 16 Mar 2026 15:47:37 +0000
+	Mon, 16 Mar 2026 15:50:35 +0000
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-56a9c5cb48bso1908600e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:50:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773676232; x=1774281032;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nMV00VBJWKkaqpEtH1LAiLdHckZZ6qshJN4iQQpaP6g=;
+        b=XqRvNO4H26SBVwcoYJWYdRSXpvZQPZ5CyceFSelAm0dk1LIyqS6EhJrAfg5WHOzEvd
+         ss1KM8Odg3nSSN4kGKVoA+C2GkqFNLDpNQ4ksp9cYNRl9owVuJ+dNT5KZZ/9p4IcKxJv
+         JhoJnM/i9pU9uzHEgkwXXtK+lVZiIrD3wipQtqYWjWJdK7nHvfroghWr8Y4M+LK6w+SU
+         Ph+/Nxwnd69/Tc3SaEROCigYAM2xm8CjNcHLTlYabBxF+UafT/ZnBASe+JD5nJXagf/u
+         O1og0AsoJBIkoDhOTDpdzckZN/N3oQhIY17nfTn+MKa9Qk1aTpwizeekaES0HWWsWcNh
+         twww==
+X-Forwarded-Encrypted: i=1; AJvYcCWZgop2B1lYOjeNR+MhIwmcZtHCB1/YwgzCsfoi0CqH/RIMhxsDyOusgdnFsyBkwr8UqCq3nz9vdFkU8BpArKsd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRuBysHJults0WFwnvIF419dmhB8LdW078P3ALlQ9SYKrI9WDW
+	m1YxvhFkIXNz6b+9uQcWQ2Tywz6AMkwuaqCMksdc75ZLUlNmURi+vngF9XVZ05zb
+X-Gm-Gg: ATEYQzzDWyTVz7BS91z7P4LfLTH0BTLwUlT1bShqd59RVQX7SJUcDENNH7W2ds/w07n
+	F0T8TokwKhFUK4JVBNX/2nM74ohLJvpuYnQKM2nkLHnJ76+DuCis5jeyl7WrJNxNbzO7NFWo+95
+	iJgGBiaGyc+ZAiv5WP9VWwX0PLTS4KuIFsB5h9YCvMQaPQFwnv7vqL2tYjq8TWCdjYEAmhy5gb1
+	3W5GnbSKHGz+GfNAimnikhSZrgbXRC17kgbzAAeda4EyjCS4Dn0/0cYPECIYtlRr0ObTlldATmc
+	7IRD7LCvl0FCPk/tWb52Mo2Iom7Ei8/ZCivXKjpWaasyqKiok1OrddyZCkfMnSKRArq2UOjpaT4
+	epJVMRugv0yQIhlh2IbDSRiu4ziD/9cU822Lhxmbk0ZGaKkztUzab6w7OQFxwvtRvYAqSOvPlM1
+	P98esyIeYlfCvD17S93Ti1XFcXoR8ZiZLiH1rOVx72lKRIznoMDxO5SWKoMgYD
+X-Received: by 2002:a05:6122:d26:b0:56b:8103:79f6 with SMTP id 71dfb90a1353d-56b81038885mr1990217e0c.4.1773676231821;
+        Mon, 16 Mar 2026 08:50:31 -0700 (PDT)
+Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56b464a4235sm8115516e0c.16.2026.03.16.08.50.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 08:50:30 -0700 (PDT)
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5ffa277c156so653474137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:50:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWc0sLgNJM5+sCDm20iS0QlXhb9cZ3IWElZYGDNG0cGXaf5hCQbOEpenWJbGTE1od85BI7ZvN4S+uS4FtZVhBPE@lists.infradead.org
+X-Received: by 2002:a05:6102:d87:b0:5e8:1d93:921a with SMTP id
+ ada2fe7eead31-6020e2823b8mr5534337137.15.1773676230555; Mon, 16 Mar 2026
+ 08:50:30 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Jinjiang Tu <tujinjiang@huawei.com>,
- Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, david@redhat.com,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, dev.jain@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
- <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-9-cristian.marussi@arm.com> <CAMuHMdUdqrA9kYeDpjwj-y6-4aALkAi2g2Od81Kxh-EVW2e2Nw@mail.gmail.com>
+ <abG4VfyB2C-gBa5Q@pluto> <20260312-classy-misty-platypus-5baea1@sudeepholla> <abLrm7x8ggzAhYOg@pluto>
+In-Reply-To: <abLrm7x8ggzAhYOg@pluto>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 16 Mar 2026 16:50:17 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
+X-Gm-Features: AaiRm50iTDhKDonU-J5qpw3zzDb9304AIvkxbNozshzVrNKZQ64ZXXeHYUSrWsA
+Message-ID: <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol initialization
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
+	marek.vasut+renesas@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_084743_536754_177C16E9 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20260316_085033_667409_AC8954E2 
+X-CRM114-Status: GOOD (  49.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,409 +102,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the report!
+Hi Cristian,
 
-+ Kevin, who was looking at some adjacent issues and may have some ideas for how
-to fix.
+On Thu, 12 Mar 2026 at 17:36, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> On Thu, Mar 12, 2026 at 03:33:52PM +0000, Sudeep Holla wrote:
+> > On Wed, Mar 11, 2026 at 06:45:41PM +0000, Cristian Marussi wrote:
+> > > On Wed, Mar 11, 2026 at 05:59:43PM +0100, Geert Uytterhoeven wrote:
+> > > > Hi Cristian,
+> > > >
+> > > > On Tue, 10 Mar 2026 at 19:56, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > > Add proper error handling on failure to enumerate clocks features or
+> > > > > rates.
+> > > > >
+> > > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > >
+> > > > > --- a/drivers/firmware/arm_scmi/clock.c
+> > > > > +++ b/drivers/firmware/arm_scmi/clock.c
+> > > >
+> > > > > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+> > > > >         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+> > > > >                 cinfo->clkds[clkid].id = clkid;
+> > > > >                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> > > > > -               if (!ret)
+> > > > > -                       scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> > > > > +               if (ret)
+> > > > > +                       return ret;
+> > > >
+> > > > This change breaks R-Car X5H with SCP FW SDKv4.28.0, as some clocks
+> > > > do not support the SCMI CLOCK_ATTRIBUTES command.
 
+Apparently it is not just CLOCK_ATTRIBUTES, but also
+CLOCK_DESCRIBE_RATES.
 
-On 16/03/2026 07:35, Jinjiang Tu wrote:
-> 
-> 在 2025/9/18 3:02, Yang Shi 写道:
->> On systems with BBML2_NOABORT support, it causes the linear map to be mapped
->> with large blocks, even when rodata=full, and leads to some nice performance
->> improvements.
-> 
-> Hi,
-> 
-> I find this feature is incompatible with realm. The calltrace is as follows:
-> 
-> [    0.000000][    T0] ------------[ cut here ]------------
-> [    0.000000][    T0] WARNING: CPU: 0 PID: 0 at arch/arm64/mm/pageattr.c:56
-> pageattr_pmd_entry+0x60/0x78
-> [    0.000000][    T0] Modules linked in:
-> [    0.000000][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.6.0 #16
-> [    0.000000][    T0] Hardware name: linux,dummy-virt (DT)
-> [    0.000000][    T0] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS
-> BTYPE=--)
-> [    0.000000][    T0] pc : pageattr_pmd_entry+0x60/0x78
-> [    0.000000][    T0] lr : walk_pmd_range.isra.0+0x170/0x1f0
-> [    0.000000][    T0] sp : ffffcb90a0f337d0
-> [    0.000000][    T0] x29: ffffcb90a0f337d0 x28: 0000000000000000 x27:
-> ffff0000035e0000
-> [    0.000000][    T0] x26: ffffcb90a0f338f8 x25: ffff00001fff60d0 x24:
-> ffff0000035d0000
-> [    0.000000][    T0] x23: 0400000000000001 x22: 0c00000000000001 x21:
-> ffff0000035dffff
-> [    0.000000][    T0] x20: ffffcb909fe3b7f0 x19: ffff0000035e0000 x18:
-> ffffffffffffffff
-> [    0.000000][    T0] x17: 7220303030303178 x16: 307e303030306435 x15:
-> ffffcb90a0f334c8
-> [    0.000000][    T0] x14: 0000000000000000 x13: 205d305420202020 x12:
-> 5b5d303030303030
-> [    0.000000][    T0] x11: 00000000ffff7fff x10: 00000000ffff7fff x9 :
-> ffffcb909f1e27d8
-> [    0.000000][    T0] x8 : 00000000000bffe8 x7 : c0000000ffff7fff x6 :
-> 0000000000000001
-> [    0.000000][    T0] x5 : 0000000000000001 x4 : 0078000083400705 x3 :
-> ffffcb90a0f338f8
-> [    0.000000][    T0] x2 : 0000000000010000 x1 : ffff0000035d0000 x0 :
-> ffff00001fff60d0
-> [    0.000000][    T0] Call trace:
-> [    0.000000][    T0]  pageattr_pmd_entry+0x60/0x78
-> [    0.000000][    T0]  walk_pud_range+0x124/0x190
-> [    0.000000][    T0]  walk_pgd_range+0x158/0x1b0
-> [    0.000000][    T0]  walk_kernel_page_table_range_lockless+0x58/0x98
-> [    0.000000][    T0]  update_range_prot+0xb8/0x108
-> [    0.000000][    T0]  __change_memory_common+0x30/0x1a8
-> [    0.000000][    T0]  __set_memory_enc_dec.part.0+0x170/0x260
-> [    0.000000][    T0]  realm_set_memory_decrypted+0x6c/0xb0
-> [    0.000000][    T0]  set_memory_decrypted+0x38/0x58
-> [    0.000000][    T0]  its_alloc_pages_node+0xc4/0x140
-> [    0.000000][    T0]  its_probe_one+0xbc/0x3c0
-> [    0.000000][    T0]  its_of_probe.isra.0+0x130/0x220
-> [    0.000000][    T0]  its_init+0x160/0x2f8
-> [    0.000000][    T0]  gic_init_bases+0x1fc/0x318
-> [    0.000000][    T0]  gic_of_init+0x2a0/0x300
-> [    0.000000][    T0]  of_irq_init+0x238/0x4b8
-> [    0.000000][    T0]  irqchip_init+0x20/0x50
-> [    0.000000][    T0]  init_IRQ+0x1c/0x100
-> [    0.000000][    T0]  start_kernel+0x1ec/0x4f0
-> [    0.000000][    T0]  __primary_switched+0xbc/0xd0
-> [    0.000000][    T0] ---[ end trace 0000000000000000 ]---
-> [    0.000000][    T0] ------------[ cut here ]------------
-> [    0.000000][    T0] Failed to decrypt memory, 16 pages will be leaked
-> 
-> realm feature relies on rodata=full to dynamically update kernel page table prot.
-> 
-> In init_IRQ(), realm_set_memory_decrypted() is called to update kernel page
-> table prot.
-> At this time, secondary cpus aren't booted, BBML2 noabort feature isn't
-> initializated,
-> and system_supports_bbml2_noabort() still returns false. As a result,
-> split_kernel_leaf_mapping() is skipped, leading to WARN_ON_ONCE((next - addr) !=
-> PMD_SIZE)
-> in pageattr_pmd_entry().
+> > > > Before, these clocks were still instantiated, but were further unusable.
+> > > > After, the whole clock driver fails to initialize, and no SCMI clocks
+> > > > are available at all.
+> > >
+> > > ...and this is exactly what I feared while doing this sort of hardening :P
+> > >
+> > > So there are a few possible solutions (beside reverting this straight away)
+> > >
+> > > The easy fix would be instead change the above in a
+> > >
+> > >     if (ret)
+> > >             continue;
+> > >
+> > > ...with a bit of annoying accompanying FW_BUG logs, of course, to cause future
+> > > FW releases to fix this :D
+> > >
+> > > Another option could be leave it as it is, since indeed it is the correct enforced
+> > > behaviour, being CLOCK_ATTRIBUTES a mandatory command, BUT add on top an ad-hoc SCMI
+> > > quirk targeting the affected FW releases...
+> > >
+> > > This latter option, though, while enforcing the correct behaviour AND
+> > > fixing your R-Car issue, leaves open the door for a number of possible
+> > > failures of other unknowingly buggy Vendors similarly deployed firmwares...
+> > >
+> > > ...that could be solved with more quirks of course...but...worth it ?
+> > >
+> > > Thoughts ?
+> > >
+> > > Let's see also what @Sudeep thinks about this...
+> >
+> > I prefer to fix it as a quirk to prevent similar issues on newer platforms if
+> > the firmware baselines are derived from it. In the worst case, we can relax
+> > the hardening until we figure out a proper quirk-based solution.
+>
+> Ok, I can post a V3 with a dummy quirk 'template' RFC to be filled by
+> Geert with proper versioning....so I can check that there are no
+> surprises round the (quirked) corner...
 
-If no secondary cpus are yet running, then it is technically safe to split
-because we know all online cpus (i.e. just the boot cpu) supports BBML2_NOABORT.
-So we could explicitly only disallow splitting during the window between booting
-secondary cpus and finalizing the system caps. Feels a bit hacky though...
+Unfortunately you cannot "continue" from a quirk, without resorting
+to a goto, so I sent a fix: "[PATCH] firmware: arm_scmi: Support loop
+control in quirk code snippets"[1].
 
-> 
-> Before setup_system_features(), we don't know if all cpus support BBML2 noabort,
-> and we
-> couldn't split kernel page table, in case another cpu that doesn't support BBML2
-> noabort
-> is running.
-> 
-> How could we fix this issue?
-> 
-> 1. force pte mapping if realm feature is enabled? Although force_pte_mapping()
-> return true if is_realm_world() return true, arm64_rsi_init() is called after
-> map_mem(). So is_realm_world() still return false during map_mem(). Thus
-> realm feature relies on rodata=full. If we fix by this solution, we need
-> to add a new cmdline to force pte mapping.
+Then I came up with the following preliminary (have to check more
+firmware versions) quirk (Gmail whitespace-damaged):
 
-I think we just need to make is_realm_world() work earlier in boot? I think this
-has been a known issue for a while. Not sure if there is any plan to fix it
-though.
+diff --git a/drivers/firmware/arm_scmi/clock.c
+b/drivers/firmware/arm_scmi/clock.c
+index f62f9492bd42afbc..6f2af6e9084836c6 100644
+--- a/drivers/firmware/arm_scmi/clock.c
++++ b/drivers/firmware/arm_scmi/clock.c
+@@ -1230,6 +1230,18 @@ static const struct scmi_protocol_events
+clk_protocol_events = {
+        .num_events = ARRAY_SIZE(clk_events),
+ };
 
-> 
-> 2. If we could try to split kernel page table before setup_system_features()?
++#define QUIRK_RCAR_X5H_NO_ATTRIBUTES                                   \
++       ({                                                              \
++               if (ret == -EREMOTEIO || ret == -EOPNOTSUPP)            \
++                       continue;                                       \
++       })
++
++#define QUIRK_RCAR_X5H_NO_RATES
+         \
++       ({                                                              \
++               if (ret == -EOPNOTSUPP)                                 \
++                       ret = 0;                                        \
++       })
++
+ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+ {
+        int clkid, ret;
+@@ -1254,10 +1266,12 @@ static int scmi_clock_protocol_init(const
+struct scmi_protocol_handle *ph)
+        for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+                cinfo->clkds[clkid].id = clkid;
+                ret = scmi_clock_attributes_get(ph, clkid, cinfo);
++               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+QUIRK_RCAR_X5H_NO_ATTRIBUTES);
+                if (ret)
+                        return ret;
 
-Another option would be to initially map by pte then collapse to block mappings
-once we have determined that all cpus support BBML2_NOABORT. We originally opted
-not to do that because it's a tax on symetric systems. But we could throw in the
-towel if it's the least bad solution we can come up with for solving this. I
-think it might help some of Kevin's use cases too?
+                ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
++               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+QUIRK_RCAR_X5H_NO_RATES);
+                if (ret)
+                        return ret;
+        }
+diff --git a/drivers/firmware/arm_scmi/quirks.c
+b/drivers/firmware/arm_scmi/quirks.c
+index 3772139a758c8a78..5a69f119e1b6c806 100644
+--- a/drivers/firmware/arm_scmi/quirks.c
++++ b/drivers/firmware/arm_scmi/quirks.c
+@@ -172,6 +172,8 @@ struct scmi_quirk {
+ /* Global Quirks Definitions */
+ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
+ DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
++DEFINE_SCMI_QUIRK(clock_rcar_x5h_no_attributes, "Renesas", NULL, "0x10a0000",
++                 "renesas,r8a78000");
 
-Thanks,
-Ryan
+ /*
+  * Quirks Pointers Array
+@@ -182,6 +184,7 @@ DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
+"Qualcomm", NULL, "0x20000-");
+ static struct scmi_quirk *scmi_quirks_table[] = {
+        __DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
+        __DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
++       __DECLARE_SCMI_QUIRK_ENTRY(clock_rcar_x5h_no_attributes),
+        NULL
+ };
 
+diff --git a/drivers/firmware/arm_scmi/quirks.h
+b/drivers/firmware/arm_scmi/quirks.h
+index 74bf6406dd043049..13f28d13bbd74d4c 100644
+--- a/drivers/firmware/arm_scmi/quirks.h
++++ b/drivers/firmware/arm_scmi/quirks.h
+@@ -48,5 +48,6 @@ static inline void scmi_quirks_enable(struct device
+*dev, const char *vend,
+ /* Quirk delarations */
+ DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+ DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
++DECLARE_SCMI_QUIRK(clock_rcar_x5h_no_attributes);
 
-> 
-> Thanks.
-> 
->>
->> Ryan tested v7 on an AmpereOne system (a VM with 12G RAM) in all 3 possible
->> modes by hacking the BBML2 feature detection code:
->>
->>    - mode 1: All CPUs support BBML2 so the linear map uses large mappings
->>    - mode 2: Boot CPU does not support BBML2 so linear map uses pte mappings
->>    - mode 3: Boot CPU supports BBML2 but secondaries do not so linear map
->>      initially uses large mappings but is then repainted to use pte mappings
->>
->> In all cases, mm selftests run and no regressions are observed. In all cases,
->> ptdump of linear map is as expected. Because there are just some cleanups
->> between v7 and v8, so I kept using Ryan's test result:
->>
->> Mode 1:
->> =======
->> ---[ Linear Mapping start ]---
->> 0xffff000000000000-0xffff000000200000           2M PMD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000000200000-0xffff000000210000          64K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL
->> 0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD
->> AF        BLK UXN    MEM/NORMAL
->> 0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL
->> 0xffff000002550000-0xffff000002600000         704K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000002600000-0xffff000004000000          26M PMD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000004000000-0xffff000040000000         960M PMD       RW NX SHD AF   
->> CON BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000040000000-0xffff000140000000           4G PUD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000140000000-0xffff000142000000          32M PMD       RW NX SHD AF   
->> CON BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000142000000-0xffff000142120000        1152K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000142120000-0xffff000142128000          32K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142128000-0xffff000142159000         196K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142159000-0xffff000142160000          28K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142160000-0xffff000142240000         896K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000142240000-0xffff00014224e000          56K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff00014224e000-0xffff000142250000           8K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142250000-0xffff000142260000          64K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142260000-0xffff000142280000         128K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000142280000-0xffff000142288000          32K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142288000-0xffff000142290000          32K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142290000-0xffff0001422a0000          64K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff0001422a0000-0xffff000142465000        1812K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142465000-0xffff000142470000          44K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000142470000-0xffff000142600000        1600K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000142600000-0xffff000144000000          26M PMD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000144000000-0xffff000180000000         960M PMD       RW NX SHD AF   
->> CON BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000180000000-0xffff000181a00000          26M PMD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000181a00000-0xffff000181b90000        1600K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000181b90000-0xffff000181b9d000          52K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181b9d000-0xffff000181c80000         908K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181c80000-0xffff000181c90000          64K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181c90000-0xffff000181ca0000          64K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000181ca0000-0xffff000181dbd000        1140K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181dbd000-0xffff000181dc0000          12K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181dc0000-0xffff000181e00000         256K PTE       RW NX SHD AF   
->> CON     UXN    MEM/NORMAL-TAGGED
->> 0xffff000181e00000-0xffff000182000000           2M PMD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000182000000-0xffff0001c0000000         992M PMD       RW NX SHD AF   
->> CON BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff0001c0000000-0xffff000300000000           5G PUD       RW NX SHD
->> AF        BLK UXN    MEM/NORMAL-TAGGED
->> 0xffff000300000000-0xffff008000000000         500G PUD
->> 0xffff008000000000-0xffff800000000000      130560G PGD
->> ---[ Linear Mapping end ]---
->>
->> Mode 3:
->> =======
->> ---[ Linear Mapping start ]---
->> 0xffff000000000000-0xffff000000210000        2112K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL
->> 0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD
->> AF        BLK UXN    MEM/NORMAL
->> 0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL
->> 0xffff000002550000-0xffff000143a61000     5264452K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000143a61000-0xffff000143c61000           2M PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000143c61000-0xffff000181b9a000     1015012K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181b9a000-0xffff000181d9a000           2M PTE       ro NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000181d9a000-0xffff000300000000     6261144K PTE       RW NX SHD
->> AF            UXN    MEM/NORMAL-TAGGED
->> 0xffff000300000000-0xffff008000000000         500G PUD
->> 0xffff008000000000-0xffff800000000000      130560G PGD
->> ---[ Linear Mapping end ]---
->>
->>
->> Performance Testing
->> ===================
->> * Memory use after boot
->> Before:
->> MemTotal:       258988984 kB
->> MemFree:        254821700 kB
->>
->> After:
->> MemTotal:       259505132 kB
->> MemFree:        255410264 kB
->>
->> Around 500MB more memory are free to use.  The larger the machine, the
->> more memory saved.
->>
->> * Memcached
->> We saw performance degradation when running Memcached benchmark with
->> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
->> With this patchset we saw ops/sec is increased by around 3.5%, P99
->> latency is reduced by around 9.6%.
->> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
->> MPKI is reduced by 28.5%.
->>
->> The benchmark data is now on par with rodata=on too.
->>
->> * Disk encryption (dm-crypt) benchmark
->> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with
->> disk encryption (by dm-crypt).
->> fio --directory=/data --random_generator=lfsr --norandommap            \
->>      --randrepeat 1 --status-interval=999 --rw=write --bs=4k --loops=1  \
->>      --ioengine=sync --iodepth=1 --numjobs=1 --fsync_on_close=1         \
->>      --group_reporting --thread --name=iops-test-job --eta-newline=1    \
->>      --size 100G
->>
->> The IOPS is increased by 90% - 150% (the variance is high, but the worst
->> number of good case is around 90% more than the best number of bad
->> case). The bandwidth is increased and the avg clat is reduced
->> proportionally.
->>
->> * Sequential file read
->> Read 100G file sequentially on XFS (xfs_io read with page cache
->> populated). The bandwidth is increased by 150%.
->>
->> Additionally Ryan also ran this through a random selection of benchmarks on
->> AmpereOne. None show any regressions, and various benchmarks show statistically
->> significant improvement. I'm just showing those improvements here:
->>
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | Benchmark            | Result
->> Class                                             | Improvement vs 6.17-rc1 |
->> +======================+==========================================================+=========================+
->> | micromm/vmalloc      | full_fit_alloc_test: p:1, h:0, l:500000
->> (usec)           |              (I) -9.00% |
->> |                      | kvfree_rcu_1_arg_vmalloc_test: p:1, h:0, l:500000
->> (usec) |              (I) -6.93% |
->> |                      | kvfree_rcu_2_arg_vmalloc_test: p:1, h:0, l:500000
->> (usec) |              (I) -6.77% |
->> |                      | pcpu_alloc_test: p:1, h:0, l:500000
->> (usec)               |              (I) -4.63% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | mmtests/hackbench    | process-sockets-30
->> (seconds)                             |              (I) -2.96% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | mmtests/kernbench    | syst-192
->> (seconds)                                       |             (I) -12.77% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | pts/perl-benchmark   | Test: Interpreter
->> (Seconds)                              |              (I) -4.86% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | pts/pgbench          | Scale: 1 Clients: 1 Read Write
->> (TPS)                     |               (I) 5.07% |
->> |                      | Scale: 1 Clients: 1 Read Write - Latency
->> (ms)            |              (I) -4.72% |
->> |                      | Scale: 100 Clients: 1000 Read Write
->> (TPS)                |               (I) 2.58% |
->> |                      | Scale: 100 Clients: 1000 Read Write - Latency
->> (ms)       |              (I) -2.52% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->> | pts/sqlite-speedtest | Timed Time - Size 1,000
->> (Seconds)                        |              (I) -2.68% |
->> +----------------------
->> +----------------------------------------------------------
->> +-------------------------+
->>
->> Changes since v7 [1]
->> ====================
->> - Rebased on v6.17-rc6 and Shijie's rodata series (https://git.kernel.org/pub/
->> scm/linux/kernel/git/arm64/linux.git/commit/?id=bfbbb0d3215f)
->>    which has been picked up by Will.
->> - Patch 1: Fixed pmd_leaf/pud_leaf issue since the code may need to change
->>    permission for invalid entries per Jinjiang Tu.
->> - Patch 1: Removed pageattr_pgd_entry and pageattr_p4d_entry per Ryan.
->> - Used (-1ULL) instead of -1 per Catalin.
->> - Added comment about arm64 lazy mmu allow sleeping per Ryan.
->> - Squashed patch #4 in v7 into patch #3.
->> - Squashed patch #6 in v7 into patch #4.
->> - Added patch #5 to fix a arm64 kprobes bug. It guarantees set_memory_rox()
->>    is called before vfree(). It can go into separately or with this series
->>    together.
->> - Collected all the R-bs and A-bs.
->>
->> Changes since v6 [2]
->> ====================
->> - Patch 1: Minor refactor to implement walk_kernel_page_table_range() in terms
->>    of walk_kernel_page_table_range_lockless(). Also lead to adding *pmd argument
->>    to the lockless variant for consistency (per Catalin).
->> - Misc function/variable renames to improve clarity and consistency.
->> - Share same syncrhonization flag between idmap_kpti_install_ng_mappings and
->>    wait_linear_map_split_to_ptes, which allows removal of bbml2_ptes[] to save
->>    ~20K from kernel image.
->> - Only take pgtable_split_lock and enter lazy mmu mode once for both splits.
->> - Only walk the pgtable once for the common "split single page" case.
->> - Bypass split to contpmd and contpte when spllitting linear map to ptes.
->>
->> [1] https://lore.kernel.org/linux-arm-kernel/20250829115250.2395585-1-
->> ryan.roberts@arm.com/
->> [2] https://lore.kernel.org/linux-arm-kernel/20250805081350.3854670-1-
->> ryan.roberts@arm.com/
->>
->>
->> Dev Jain (1):
->>        arm64: Enable permission change on arm64 kernel block mappings
->>
->> Ryan Roberts (1):
->>        arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs
->>
->> Yang Shi (3):
->>        arm64: cpufeature: add AmpereOne to BBML2 allow list
->>        arm64: mm: support large block mapping when rodata=full
->>        arm64: kprobes: call set_memory_rox() for kprobe page
->>
->>   arch/arm64/include/asm/cpufeature.h |   2 +
->>   arch/arm64/include/asm/mmu.h        |   3 +
->>   arch/arm64/include/asm/pgtable.h    |   5 ++
->>   arch/arm64/kernel/cpufeature.c      |  12 +++-
->>   arch/arm64/kernel/probes/kprobes.c  |  12 ++++
->>   arch/arm64/mm/mmu.c                 | 422 ++++++++++++++++++++++++++++++++++
->> ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
->>   arch/arm64/mm/pageattr.c            | 123 ++++++++++++++++++++++++---------
->>   arch/arm64/mm/proc.S                |  27 ++++++--
->>   include/linux/pagewalk.h            |   3 +
->>   mm/pagewalk.c                       |  36 ++++++----
->>   10 files changed, 581 insertions(+), 64 deletions(-)
->>
->>
+ #endif /* _SCMI_QUIRKS_H */
 
+Does that look like what you have in mind?
+Thanks!
+
+[1] https://lore.kernel.org/51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
