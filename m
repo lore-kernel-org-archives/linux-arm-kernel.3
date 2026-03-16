@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F63CF53D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6225AF53D65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 15:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRG8t2fwa53hb2NLk5hHr7swK0mnrB3Ou8aFpV71p8Q=; b=hWoP1vAXnOHn466OqGF+PqfOGq
-	OAcCP8I4AqzB+w24Av0sWWYZJ3824uyHXuzqAT6IXJg2TKPGB1k8TPrIF1kJkH9fYc71oaCRN2ErA
-	nkruBSjbSabf2JFES9lVhlc26gA0HuqhDDQAOoXdDLR5WAHUOD8c/wPd90hxYlIMcDeEgpHTObLp0
-	TIkak3HhibvG93i7GFAJroorl15UHJalBsAdRyG7IRmGF1FjJ+8sdD/qpNXiTXo30wo7yvBJEmlwt
-	ChT5MYb1a11IJavPT5S6mwoyl4JLGb10j87fKY/zlxDmeHc6gG9nfRpGkuOo7Vgfoit7GNfsCaHW3
-	ApcvN/7w==;
+	bh=RfmS9UsPgTPMXyC6QLAQIz9yZtJBVekf+/MAtbCUFs4=; b=V0HwXT2clizE59iiHTGVIojKfs
+	EamLd55X9tVytYGjei/FsTr7GDt5R8kpbcnzrk45tf3LM0oglE4FRHMQtbgV82rgqTbwDWGot6U+K
+	L4UpXR5WUa5nNV/4RL3kDpVASqEGz2L8g9pydrE7PAHVgFPRZIp3I+UjxcCwFh+YhvBQjnmASTQdy
+	ZUXeeQDHoYhpb7KPLl3SXXcPRA0uwzqoqerHLLWCLtGkBz/iJU9uv5zhacdYZqcH+7aKPL7VRSSik
+	TKcWKzjLMWP48dRTW+DSvja1qBGUHQ/2Zel/NWeHOFCy8DMW0VVka5f0AdL5r+5irqhtIL6jRFcFS
+	XZjtwQ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29g9-00000004J6m-0Tvy;
+	id 1w29g9-00000004J74-1zuZ;
 	Mon, 16 Mar 2026 15:16:25 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29g0-00000004J2t-20wo
+	id 1w29g3-00000004J4Q-2PQV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 15:16:17 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a107b387a5so6105671e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:16:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773674174; cv=none;
+	Mon, 16 Mar 2026 15:16:21 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5a133b686f7so4221407e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 08:16:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773674177; cv=none;
         d=google.com; s=arc-20240605;
-        b=SRpu+/8UDnqAQrjDevR0l0RSFiy0/0JwVfLr508SM+Z5hFDBcDs1ZDWJMNVkv4i1qg
-         t3D+bSQWG4K+zEW0ePC9nIbpFilT5yDjjLNjefZZ+btyRpyX6JzK+Q0pjd1/hfCDGCEy
-         uNAKL+AzQK1ulLTKuWto+EJ27P7MsV3thoufk7hKGr8v8Do8BWjt5mtOeQuR26bNuIPJ
-         NYOHPN4nRD2MtqrCg3bcuKULuwOpCdzuxw9Ovz+JP0me9NnxDv1EDEmxkcVWrogN5Ii6
-         l0W7ippdJpxQyCE8JdGrB4CHyFH5v5mQgtfyvyMVA8kA4FEQq4XjFt9MGTa8MitRXOKV
-         O+kg==
+        b=lZjomYRMK3eJfxE7y0Aha6qhMTanqMwT41ik7vuGUwJc9MbpEjU5oqHkPIumTbgzGs
+         LVaChrQ2GEIlt6wIvJlK2looz9lWGi41G/Vz/50i0G0UVwIxf7dm8eIpqQlE/HCLfB6L
+         +v8hPiaeS7WbgdRF2FksaYXCUAm8fjp9E8GOgvTSO66rwiYZWN2sON3raLPQ59kqwoov
+         442MN7RFvRGaoVsD4ReEnhQCJJsdel3d3N3/UIrYXqkVG7GqCJGTvaONhxvdLlduSP1c
+         jJJr/SZ+g/V3mx/nm0j9Y6x/DoCu1MWHWliDicQ14b6S8/MvMqQND09y3FPVgbATQYKu
+         SBDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=pRG8t2fwa53hb2NLk5hHr7swK0mnrB3Ou8aFpV71p8Q=;
-        fh=T91dPBXDVpPmrRkucZgY17xgpCAfu6AEJYr4rh356b4=;
-        b=GFGNPx8yewBtYLVvcfPFV9mRaU8KkOL3mkr5JWrtt4svggFOXIgK0WNl6Zw+7lr4aE
-         +5Qz78sJ+K4kcZdbyLGIO8xp+GZnS0HlxRzE7rGpZAwa0UmHzzW9sbiQueJi2lC4Gnri
-         ImHiMvTLarRoeg/AXhV3FDUfHbpYveO+LKujwSi3YZPhN3AMbMzoLLufC1l9apLKhdlq
-         bMq8MWOOWbJz3+q4tA4Kca4AQEsIin6TlC3XJTEImyvS8rtp3Tu3apeDV/ZEfzkbtAGM
-         avRqYElTxKhNFEpupzLbH+iH1xoWCBMG7IbzcXnsVoPTLGD0rE357b9f4u1hla+3bWav
-         6Kbg==;
+        bh=RfmS9UsPgTPMXyC6QLAQIz9yZtJBVekf+/MAtbCUFs4=;
+        fh=U+ppz7sOtG5uiB6pyes/48Wnm1K5S08Ne6TDjcEWSGQ=;
+        b=g5iuz8jw8Wurq6zYnV35FqzrD3U9qf1thUcy57Mb3jhj2bUNOjDyTKDMiPfVumG3j5
+         e4JZhVlSpZIigvwGqhuxy8pl2Yv6JamE87B4/D9QaTuAMXxCOr0CuDP4TYZ+3ZUpkDnB
+         bs0Ld3bTQCsceMSvGUgyMp3mAEZ8cCrnBQqpzfHW/meMAaSeOlHEQ7zKfDH+8/2wgidG
+         c8w0de4IY7lbuFk3MUbIYIC7knJpdU8qdlCpJtQSULqGx5z/61sE6LGioXqg0bFOa6ZO
+         nL455N0dpLei7RnrgyWnhMKUT8+BYpqhVmP5I2SmGoTBuM0HA8ZZIZt3IfcuBTnVUKMU
+         /Mmg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773674174; x=1774278974; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1773674177; x=1774278977; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=pRG8t2fwa53hb2NLk5hHr7swK0mnrB3Ou8aFpV71p8Q=;
-        b=YPJL6AvvUhZEBdH3+z2+eIS6WWN3kjH8RC3RBYEK6es9qsQuYaLIvNARRPsCgrLHwZ
-         w3GZvF4Lj6ELQk1xeIwO6k/lVcEUPbZB+TSudqnJKF1Dwm4HYixQzTw8DZx2OkUC2At5
-         pfCbkoHWKkQT3oFdz+PlsvJ5hur1Ma9CONPdxs0rEDcKZJ5F5kufISZM/8dOy51TcIyX
-         fXWRzu/YHvlQfHHf0aaqZ/Dxr0ROeK3M/nh3tSVuzZ7ppTtjUqnw7ih9Cvjn29tKXY7/
-         dF2I0CiMRh/m3xi0p2QQ302L1DAusKtaqEvtSrRvgRPuqnIZSrm18Z9WU69jAVKnGy9s
-         s+WQ==
+        bh=RfmS9UsPgTPMXyC6QLAQIz9yZtJBVekf+/MAtbCUFs4=;
+        b=XrNmiEMsAUaTay94kSh70CTfKR/Ser+MxPhdshp5UAGp0jAlNVWdUZBAisVGeB6k+h
+         Nwz6unxTIIzAx4FzgBlOgqEx7aA2RX87bLfdLuCBi01xpCvirHJZYje3amxOIs74VHfy
+         Edwej3vxcwKLlYPNFI7Gs3l/L+1brGFeBaVEoP3LiM+WJQammCczZA0nscjzWbuzunZ5
+         t6UXv9ngAkERFzdNVovAseo9tCLogELXs2y1wI9qMK4tJ2HpZQsBed6LTel6lIUWN/BV
+         IL3RuDVrbOHoa+ifQkdhT7QjgyRxoJrVf1sIz/1qfHkO6/mDGhEn0AZRoeWE5oozgkek
+         HfQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773674174; x=1774278974;
+        d=1e100.net; s=20251104; t=1773674177; x=1774278977;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pRG8t2fwa53hb2NLk5hHr7swK0mnrB3Ou8aFpV71p8Q=;
-        b=ELrBQXIzyhw//6afbBohyTKbwobnN09wCYer/IbNu5l+sxJBAYPpdR5JdITS8h+I9/
-         pvh2KkyyKMDwYxdA4ujw2G5yuy2cM6vVrtqQpO6nOqFDj3lv/ifImGgNn0AqGMQlQOpE
-         BW9VJ2wXvRwHo+8K1n/UZZQUZRZp52+zqZaQfbcF3KJagNK3IWpCr2L/MgB6pZ0qrakZ
-         OKiDRrW9buq8h+xky7VrRVREG252EF90YFXf8EEE0+oS9rf/PYEskXP/nbLyEvR6qzsY
-         /NZSeMJWKjEB/dnPV83pDKOkfIVHm9+EgYTOB6H2tVDPJHZ1gK79aG3YwwaZMvvFv9ed
-         Q3/g==
-X-Forwarded-Encrypted: i=1; AJvYcCW/UhpQK0NTem0qiHb2WJY8vapztpxmgFnH9Hl1jI3smM++DC7PgNt7956Irj6aRpLCdj67eBDO1r8rvhjl8r7Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9AEbTpvI//uUEIqZ3rJ9RoJcE+WiMo+XVjp7wn3SEnQaT9Oac
-	yf80NGw6gOgV72iSGmhK5+E44iMgr9KsXqyd+gXv5vBh6Y8pBwqX3PgRCxnJEiZLMmjkvKGmSKu
-	BW+pXzKzhm8obR3pTa36IC7DIaW8u4jynyIceAQTFxQ==
-X-Gm-Gg: ATEYQzxlHTadrsjrWtBI079YHgYDwzRO2gz9r63wdoQDl3L97O4Ks0nEjKdV0E/gOdR
-	LGBNRtHzkhwa/D0xkQgPqIHSUt360qEy8QRGYv5hf6xzvVTSqdAC5ckayt7vt0FwXlfUt2BMDDA
-	FKqgGE7vqABjWTfQFHrTPHNr1oMi/Yac2PBPhxc2YnxzmN9Edzl3evIukTds49jV6xRVF+ce1PJ
-	6/rH7uC2Y2E107Bh6op8x+w8KngQNmYeuVcnA2Zusm+0Ln7gGOyAxlB9q4SP06TfU3fRd5AU68n
-	vmfyc6nN
-X-Received: by 2002:a05:6512:3d28:b0:5a1:18ad:b55a with SMTP id
- 2adb3069b0e04-5a162b14fedmr4185167e87.40.1773674174186; Mon, 16 Mar 2026
- 08:16:14 -0700 (PDT)
+        bh=RfmS9UsPgTPMXyC6QLAQIz9yZtJBVekf+/MAtbCUFs4=;
+        b=BmMZAIIiPETyUACYgHLqSOaxI1vlUurWH3DU6/K/Ji0mIlumVJMzBLtVGAwaEEKBVq
+         WkUMWGbf7pMByA4ZkrLwTrR5qiqX5jSwJCLGgBb2omkPQeDfG7Odx9CVXBilcUixzzI8
+         INUGVj63wlqKPDYTSY9MhhW+c1wE2is6fWqjyc5Iwx8v6iAWmxaXMNLOPEkj9EqfTuuU
+         1Xg/J7gqPvmVwnaNkhsbu2GofyDh3WYIMjBiWm8XdCAoRpZu7llHG8GKBQkQSk0wXdMY
+         OGiV9Tt1JBAKWMFhKewjzH5hqZBw1kwOBpxURCFoqHIHcBQOfDFUOaOx+lggRwrr3y2n
+         0DrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXhiU7GcUuZpsNClZm9ebxkCW5ubcg3a/IV12P/Ly8XAHFFWuFWsa/CAFHmSh5YJgClMduYLPehW40ZNbHoTrcQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj/Ys9+xaipTxhIM6nonFqByCCP+ZtiMPzcn+Ll7AxV/VdN0xk
+	4kmGvRZyjBVz4ysXUGujLkE+vixnbZ1r3wGGHk7zkvPIFLuByXq89IX15KUFVvetMFUaSr5kRws
+	Ane+vWoHYF2H9C1UbRytg5UZOsL/JTLeKp915Loa+5g==
+X-Gm-Gg: ATEYQzy6pRecHMjg0j4cInQd5cSoB6PffDx7BIHFpmfgKMpkqlvqttJ+KAvZC0QdN9j
+	pgmHmjpAZ7b0J/oBz3yizKcmW02V6XHcnq5AFLAEV6eCM+0xbfqCz7rXIm13AAddS/sdeaFIGHL
+	2ODmkuOcMVGG912wzSSjBP3ag/q37weUBMtfMm0iuom+vMuHk6Yo+hwxAX5MvgILd6xWEc1/JzK
+	nrv5FYTpxdTAG5ouB38sCQJ16FFf4Zb1PrzOouhNFfq03S60NehO6pbFVnxuIjNbd/Lp6rqbgfF
+	nhLMrZFY
+X-Received: by 2002:a05:6512:124b:b0:5a1:1e44:8682 with SMTP id
+ 2adb3069b0e04-5a162b0d510mr4888825e87.34.1773674177264; Mon, 16 Mar 2026
+ 08:16:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260311095009.1254556-1-ziniu.wang_1@nxp.com> <20260311095009.1254556-4-ziniu.wang_1@nxp.com>
-In-Reply-To: <20260311095009.1254556-4-ziniu.wang_1@nxp.com>
+References: <20260311095009.1254556-1-ziniu.wang_1@nxp.com> <20260311095009.1254556-5-ziniu.wang_1@nxp.com>
+In-Reply-To: <20260311095009.1254556-5-ziniu.wang_1@nxp.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 16 Mar 2026 16:15:37 +0100
-X-Gm-Features: AaiRm52ArtuP-ygMvRxB8MkKlR8r_NeTZwYYmgYJ41n5nYfFvCkoTG5n4kfwkpY
-Message-ID: <CAPDyKFraNEd9UG8QO5PEGkgRxS_43Szt+2vwXtqAP2CBjYSCpw@mail.gmail.com>
-Subject: Re: [PATCH v3 3/4] mmc: sdhci-esdhc-imx: remove duplicate HS400 bus
- width validation
+Date: Mon, 16 Mar 2026 16:15:40 +0100
+X-Gm-Features: AaiRm51cPffNhAKRkrzoz3tQeIb3HHrML_LJWGZPPVi46bwXGd0VkLN3oL3c85A
+Message-ID: <CAPDyKFpFoZZv7b9jGPpWAQxYiCdxVc4e6fYYj5=16UPFi7WzSA@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] mmc: sdhci-pltfm: remove duplicate DTS property parsing
 To: ziniu.wang_1@nxp.com
 Cc: adrian.hunter@intel.com, haibo.chen@nxp.com, Frank.Li@nxp.com, 
 	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
@@ -101,8 +100,8 @@ Cc: adrian.hunter@intel.com, haibo.chen@nxp.com, Frank.Li@nxp.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_081616_552254_DD22EACD 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260316_081620_620999_79BE607C 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,8 +120,11 @@ On Wed, 11 Mar 2026 at 10:48, <ziniu.wang_1@nxp.com> wrote:
 >
 > From: Luke Wang <ziniu.wang_1@nxp.com>
 >
-> mmc_validate_host_caps() already validates that HS400/HS400ES requires
-> 8-bit bus width. Remove the duplicate validation.
+> The "keep-power-in-suspend", "wakeup-source" and "enable-sdio-wakeup"
+> properties are already parsed in mmc_of_parse(). All sdhci drivers that
+> call sdhci_get_property() also call mmc_of_parse(). The only exception
+> is sdhci-of-hlwd, which does not call mmc_of_parse(), but its devicetree
+> does not use these properties anyway.
 >
 > Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
 > Acked-by: Adrian Hunter <adrian.hunter@intel.com>
@@ -134,23 +136,26 @@ Uffe
 
 
 > ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 4 ----
->  1 file changed, 4 deletions(-)
+>  drivers/mmc/host/sdhci-pltfm.c | 7 -------
+>  1 file changed, 7 deletions(-)
 >
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index b607d4ffc562..d49069986efc 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1833,10 +1833,6 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
+> diff --git a/drivers/mmc/host/sdhci-pltfm.c b/drivers/mmc/host/sdhci-pltfm.c
+> index d4fb60c1ef69..933fafe0a0ef 100644
+> --- a/drivers/mmc/host/sdhci-pltfm.c
+> +++ b/drivers/mmc/host/sdhci-pltfm.c
+> @@ -95,13 +95,6 @@ void sdhci_get_property(struct platform_device *pdev)
+>         sdhci_get_compatibility(pdev);
 >
->         sdhci_get_property(pdev);
->
-> -       /* HS400/HS400ES require 8 bit bus */
-> -       if (!(host->mmc->caps & MMC_CAP_8_BIT_DATA))
-> -               host->mmc->caps2 &= ~(MMC_CAP2_HS400 | MMC_CAP2_HS400_ES);
+>         device_property_read_u32(dev, "clock-frequency", &pltfm_host->clock);
 > -
->         if (mmc_gpio_get_cd(host->mmc) >= 0)
->                 host->quirks &= ~SDHCI_QUIRK_BROKEN_CARD_DETECTION;
+> -       if (device_property_present(dev, "keep-power-in-suspend"))
+> -               host->mmc->pm_caps |= MMC_PM_KEEP_POWER;
+> -
+> -       if (device_property_read_bool(dev, "wakeup-source") ||
+> -           device_property_read_bool(dev, "enable-sdio-wakeup")) /* legacy */
+> -               host->mmc->pm_caps |= MMC_PM_WAKE_SDIO_IRQ;
+>  }
+>  EXPORT_SYMBOL_GPL(sdhci_get_property);
 >
 > --
 > 2.34.1
