@@ -4,69 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B62F53D72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CAAF53D73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=giM+7jLybROuP1ofZ8EapF7YBLZ89liIPv3wFTUjfbo=; b=vWymPOqqNOwG+xHSfYxGSTAhEQ
-	1jOdXMc4sqvm/IXIgVOVaKB1uwL2EZecbjDp9N8nRuZqh65NzGZolpXAYNE8mK6pOL/5YIOh773n7
-	tOIRweQS/vNjLuELhR1jFRQYR3GHPEpzTNpvABRsJREnZn9KJLQImKmy5cRNLIPnGkA7XDqWOIg0S
-	ZoAEhx5/a3eZgXG7OdECTKbtaimYbV80d/sKtg0WH+sYFYMTrw6T/CpI3UpMuti/oFoVQtZgwgvB1
-	kILrCKvj2PdgPwgV28qBmKI6SrK7NuMzfnEgiM5G5rTnrzkFCiOMWxAdOpad8UV+fdZ+XE2TH+voE
-	yABOdXDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KWa+RXyopymTRjjpFJkMzMT8GIqPd4802R8XJ+/wxvI=; b=zHN1V9yhRcGjhIOIPVVx6Y64iG
+	uWjDnZV+Po3zHjs/8eamYIlhvZqHXgdzX75YzXQvsZLotscYeDAL1o1rjAmKrrn7lUgRlB1zPr6HU
+	sitRI1er63TyB3dTaRSjPRbZ7TpkRIiDQBdcUmEIc72SVEf76Mn5hBRpV1wv4qedEnnXCoK2urAL4
+	6YDgnbctqoIeECxYTv7YpichJD659ZRRp1s3xWfvkWnlZAxXGVOaBoAamFyJdhOZ93O/HGQaskZs2
+	LKFgFa4exExdTjgls/OmvlYEMb3nHXLBnoXWhRhqnyDX7n5HQUf9KpxUbnZv3/NazDnqM8TGWmerr
+	rsh2Xa5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B0L-00000004TuF-0tCC;
-	Mon, 16 Mar 2026 16:41:22 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1w2B6V-00000004UEp-1deD;
+	Mon, 16 Mar 2026 16:47:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B0I-00000004TtT-2wuS
+	id 1w2B6T-00000004UEc-1FmB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 16:47:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KWa+RXyopymTRjjpFJkMzMT8GIqPd4802R8XJ+/wxvI=; b=SKf6wTs/4eo35xaVEOrABp4CXV
+	+GGJaeQnW22u0sjeDnxcFBs4gFxAU5hX9jzzhZJsVmapsxIRBHmj8NcEXvm/mJJSbbY0CUgswDI8w
+	Jv7Ke1MxIGxP1rR1ff4zmhjJh0nTnevG+D5ylG7X5EtR0X/xqo3geWFhQEh0QJDXgyAhCeznggqHM
+	bGC/GXQUSQ99aPXnD+oISd8ue52Al5zbKzULJQQZFz6Su35u7sLrr/54uwtSpzrYPT7N3NGPM2/yN
+	NFPs1zykUVFsjSWXvy850cOpeLjADT6UDg1OR/dDe1h9Tgb1L/5ym7JG+zJE3CMxwDnTdvGMnY19i
+	Dw66pOvg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2B6P-00000007FHE-47C7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 16:41:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773679278; x=1805215278;
-  h=date:from:to:cc:subject:message-id;
-  bh=dyy9kdZD6ABPlnalok2JdWrwqKChqmiBzgNHmMR+KY4=;
-  b=fX/+JtNh95bZvUoypU8GsDPFzhJ1EpJQZ94tmvCyjKYEjqVTLBhVFnAQ
-   1XriIqZIIb07VbGoj3NyBPiHhlX9zVaZZ8fhnBO/XAOhodzKya0uJLOAi
-   mtt+zYyFtqtouKBjJoxoTfqYHCsPzreSnhG3VxHnRHUgT7vlSdTatz6rH
-   NHoR2uKhUvz3xYlTJcnkdT12/5At2N3HgVfpVNSsQwamUbr40SPzyAn/1
-   K7a59fUniteLjMx1lBwQGttmW7NNB7BC4pm2KIQWeQGRezGs/LLsQmDEG
-   vgrgdhJNIx6hPQL5ilXMpgXXHrhKq5AIt8WYdgVxhKicjs4/bcXovvbVX
-   Q==;
-X-CSE-ConnectionGUID: 5gHEZ7d9RqqZuv2EY2xOQQ==
-X-CSE-MsgGUID: H/Z+RFn9QsevfkHT1ItHkw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74735810"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="74735810"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 09:41:17 -0700
-X-CSE-ConnectionGUID: PkcRoEO7SQ6UdtW+/bO6kQ==
-X-CSE-MsgGUID: TgxmtjgSSpy+48+MdSwEHA==
-X-ExtLoop1: 1
-Received: from lkp-server01.sh.intel.com (HELO 892944969b78) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 16 Mar 2026 09:41:15 -0700
-Received: from kbuild by 892944969b78 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w2B0D-000000000yc-29Tl;
-	Mon, 16 Mar 2026 16:41:13 +0000
-Date: Tue, 17 Mar 2026 00:40:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 9e22e9c4a5bd208a2d17f0b1a8414c170b4e5939
-Message-ID: <202603170051.lC0OuEFU-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Mon, 16 Mar 2026 16:47:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6653A43440
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 16:47:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47074C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 16:47:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773679656;
+	bh=+rAbjFpJLF5ELTGsyzXHo5dgEzatb5tWHpqXy6BTmYc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cGtekfTqFvVrF7VJ1xDN/03QTDPDcdo5LNi8MIeHSIezK4Gd2z+GQ94TdThe3wfdg
+	 6+jwBMmOqzF85kgS9jF7LvwgP5JGWXJpkAzraz3vFcajQZUHBvO0WRYzQJE7J0Ytmi
+	 Gwi/li0g/v/vcXP34ZAq++FsOnJ7YYiJJNUFiQULiaw3n4kJ58eE6KrMSVjMGnsO4u
+	 IMN7zeBsIcQrt2UTsOQo2nDc2fI+SGolMG21oQW9QYbqop+gZh52CvuNSngMbBymF3
+	 pYqZPEns6Yy1LnHWMLVS9x1ZnrWuY6XLupN9bxQWg7FscMFBB3zIghh1qubhnfJmuf
+	 WBpxVo36e6R+A==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-b976e181895so519692466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:47:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVxwelGsnYKF9cyfR8ErxorQKGHtsQiWVZvJQHKkYI3/LsmpH0GONnzXcFq8Fkc46Slymo2YRF6WEXGFTOUPwGd@lists.infradead.org
+X-Gm-Message-State: AOJu0YypkImhJfzOZk91DPKf17VvM/NHAzeP1QtrVgyG19+lR0J23aVu
+	fGy+ZYvMm64X7UKyp85qibp8sUhlQnkAIo5wC3EDPlVsCtlXszWOT6GjWusgnHmhtbaHzb7Hvgo
+	6lHUk9VmbvnV/Z/lGOnw6/rvj6sWotg==
+X-Received: by 2002:a17:907:708:b0:b8a:f2cb:8088 with SMTP id
+ a640c23a62f3a-b9765392113mr794224266b.33.1773679654788; Mon, 16 Mar 2026
+ 09:47:34 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
+ <20260309-upstream_i2c-v26-2-5fedcff8ffe8@aspeedtech.com> <20260313232125.GA3618633-robh@kernel.org>
+ <TY2PPF5CB9A1BE6A19D439C675AF5028C13F242A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
+In-Reply-To: <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 16 Mar 2026 11:47:21 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
+X-Gm-Features: AaiRm51ex9uUeaeovsj_EfQkcC7S4igdlkgu0QdNDXmYleGKXTFGbzYmU6uj8IQ
+Message-ID: <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
+Subject: Re: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+To: Jeremy Kerr <jk@codeconstruct.com.au>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>, 
+	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_094118_788076_12950781 
-X-CRM114-Status: UNSURE (   4.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_164738_389529_CDAB1525 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +110,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 9e22e9c4a5bd208a2d17f0b1a8414c170b4e5939  ARM: multi_v7_defconfig: Drop duplicate CONFIG_TI_PRUSS=m
+On Sun, Mar 15, 2026 at 8:50=E2=80=AFPM Jeremy Kerr <jk@codeconstruct.com.a=
+u> wrote:
+>
+> Hi Ryan & Rob,
+>
+> > > > +  aspeed,transfer-mode:
+> > > > +    description: |
+> > > > +      ASPEED ast2600 platform equipped with 16 I2C controllers eac=
+h i2c controller
+> > > > +      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buff=
+er mode), and
+> > > > +      share a DMA engine.
+> > > > +      Select I2C transfer mode for this controller. Supported valu=
+es are:
+> > > > +        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
+> > > > +        - "buffer": Use buffer (32-byte buffer) for i2c transmit. =
+(default)
+> > > > +                    Better performance then byte mode.
+> > >
+> > > Good, I like worse performance so I can use byte mode.
+> > Thanks your review.
+> > Will remove performance statement.
+>
+> I don't think that really addresses Rob's point there.
+>
+> The selection of mode is somewhat a driver implementation decision (and
+> so would not belong in a DT binding) - *except* that there are
+> considerations around the use of hardware DMA channels, as covered in
+> earlier review.
 
-elapsed time: 1286m
+Am I supposed to go read the prior 25 versions?
 
-configs tested: 16
-configs skipped: 150
+> [My understanding is that the mode needs to be defined here to select
+> which i2c devices have a DMA channel allocated to them. I also
+> think that byte mode may be useful in some scenarios, but that
+> consideration certainly does not belong in the DT binding spec]
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+But this is selecting DMA for the bus, not specific devices. I would
+think the decision would be dynamic based on some xfer size. Certainly
+if the xfer is less than the buffer size (32bytes), then there is no
+advantage of DMA.
 
-tested configs:
-arc                   allyesconfig    gcc-15.2.0
-arm                    allnoconfig    clang-23
-arm                      defconfig    clang-23
-arm        randconfig-001-20260316    clang-23
-arm        randconfig-002-20260316    clang-23
-arm        randconfig-003-20260316    clang-23
-arm        randconfig-004-20260316    clang-23
-arm64                 allmodconfig    clang-19
-arm64                  allnoconfig    gcc-15.2.0
-arm64                    defconfig    gcc-15.2.0
-arm64      randconfig-001-20260316    gcc-11.5.0
-arm64      randconfig-002-20260316    clang-23
-arm64      randconfig-003-20260316    clang-23
-arm64      randconfig-004-20260316    clang-19
-loongarch             allmodconfig    clang-19
-riscv                 allmodconfig    clang-23
+Or do you mean some instances of the I2C controllers have DMA and some
+do not? If so, then ...
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> So, how about we refine this to *just* the hardware-specific component:
+> whether a DMA channel is allocated. A driver implementation can then
+> select the appropriate mode (dma, byte or buffer), depending on
+> implementation-specific details.
+>
+> In that case, we would just have a boolean property, like:
+>
+>     aspeed,i2c-dma-enabled;
+
+... yes, this is fine.
+
+>
+> - to signify that this controller may use a DMA channel. The choice of
+> actual mode is left up to the driver implementation.
+>
+> Rob, would that suit better?
+>
+> This way, we don't have ambiguity on "buffer" default vs. absent
+> property, and we're no longer specifying actual driver behaviour in the
+> DT.
+>
+> Cheers,
+>
+>
+> Jeremy
 
