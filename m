@@ -4,114 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D91CF53D6E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9656AF53D69
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PIn2O1UO9o+NNd6ndwmGUY3VFuQhtoVSGRTxlJ6QDXU=; b=nplb/+FNyPoVmy5JID4L1EEmP1
-	gv4ycNurH4KO6L6bcdMHevCH+9JrFeYOIpSSzAMvBlA03uzvMgqQiUHv5vvoeJd2wCkqB9/Oq+i54
-	wZ13oKeL2TUBwg3FlYoHyviWNb6ZfTpPEAal3v2qEgt0dI7ZJfhTOf5hnSodvrC1A1Vd2pBxcTemv
-	/zKJu1IcSluh7USNiJbDA1G+v7kKrIz62b977MiEeKvfq2ReMG98MmENco7cTwjPxuoK4fHf4FcK+
-	i7Qjhw4H8UVY1+thnn4aQOgBgD9OqFYU+XrMWfljQwmeyyHlwwvVzwPRcWZM/17atdUW+SnjM5rX5
-	MIf3KgQA==;
+	bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=; b=azXQdgE73h7kVXUcgk9vKkEuC0
+	8mRG8csDXOjTSddadeOV+9+9k4etBeOhoV7yjfv1erYGzuaIMfZSJgC3osFsQe7o+p9Wf+YveHkFc
+	YLmvUpAUrVDhhNenVhjMkod1H1hoYWpyIioABAXdpCPA/t0Y5Tm5gD/roLq62GYPRdDrvVNHLTeGp
+	fKUG/NC12yt0HM40QmCwaSqGzDGdvWcoBcKMZzlIbg/TgmCLK/WXH2fHtwWOhHSvQXaoWmokAuIKq
+	zQC/LcWq6uhESWoNT86MUDJKc2NvAhXXq953uB38JRGJmfOshBryPYTVh8yVrr25u0O37Vu+buBXo
+	qSmXUU7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ASj-00000004PkD-1UTQ;
-	Mon, 16 Mar 2026 16:06:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2AUd-00000004PtK-2NpY;
+	Mon, 16 Mar 2026 16:08:35 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ASi-00000004Pk2-0gDq
+	id 1w2AUa-00000004Psu-2eET
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 16:06:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F66E60018;
-	Mon, 16 Mar 2026 16:06:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE505C19421;
-	Mon, 16 Mar 2026 16:06:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773677194;
-	bh=cj/5YGwp5+c5NaW2gvBI49y4YZXx3uALNGH84PsRfnQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DeWlppA5IL2ampk8lC/lAlXdW2xozEGYLFwBl9YZIQKe4hPZ8uN3N+03S+mDPUWX0
-	 NZfR+s/+8ijYrFJBOD93xN6vQFoodaOwoTTJT8NOO/LMuWCum/HGpLZSeQIvbWY8na
-	 tm//MejtWYxEpkak9IZVMJjAImEElE2xU8OkHOepcSDBgGC8mGOY3D3+TS0EKDTVn7
-	 vHQkbomZs7tmq4EQt6Z5n4Hr82QnmcfGcwoBcpfXeNNHKTx3ya8+E8PkhGIL2sJ0kV
-	 X3iTy2r6NkYCRh4UtPUd+1GxoRBm6PCvHG85M7rfxDWXv1ozPyy4hGGQPEWbW5hmhz
-	 EL2ka3FW6YkPQ==
-Message-ID: <be65e710-997c-413c-8455-2d687fc51fc6@kernel.org>
-Date: Mon, 16 Mar 2026 17:06:24 +0100
+	Mon, 16 Mar 2026 16:08:33 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43a03cb1df9so4691532f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:08:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773677310; x=1774282110; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=;
+        b=WxdjVBd/WUAaRO3v8NU9QHB2IRRxPUT+f9NGUiQMBsK4bpVH0fffndAoM2G+g8kVDz
+         t2hwJVwH8XJ6Rx7yyyhS9qWg5jznmUpi1YHX6Yl+JepJnt9/bgEKaYXpT2EgwGFTIOjc
+         I8xooFytamlKVOr6W0xc/1CLksVzliHrcQFjUq/mrHXDIvMRyLRsOY8jOyNAMtF9ZVu5
+         kOlYmh5Jn3fRGIIZz785NTXlB1nDChjfN6HAnHT4w1iQQZVtdYVZcSFZobKvKDu56+Is
+         MR7Z+3XfZdVXmQyhp1koTW6y/ZYSWLfEta7RyKO+pouNJ2GquXOqA5epAQ5y6zGd/SSm
+         g6uQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773677310; x=1774282110;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vv8MhrekPermzw3nj2g6zJIRY3FVYL6M+HPHEHbOI+c=;
+        b=lEvBmDrKlo+UdhW+YLEaOuhFdxquYmjNUE6RA9bRYphBPRAt2V1PKb2qgJzXVKl+Ci
+         AJtpD0HMGb1vBxL9tomj/WW0AklNKoQ6Mro+8ZM+iZvitybtr4fs1V7nXVDOP+w1wWtZ
+         T2EkmZNr2/w6R943RZu1WPzLyX18X4o+B/nslbAwRs2rafEg9uvb4xq8PqzbFUYFiAZA
+         iNr0NdL4+lXbqe46ecJ6n6xCjk5gzcjEZbL0IOC5slaV/i5DdCxLx3uc2V+3Gjtgv08M
+         WW/HeID6qddF1tl97guKZBoczYKW39w/oRperE+LKT5oG+X8KpvA6l4w6nO6zBJwRN3z
+         XtjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU78y/wpN3rWAx/nRgfrGjkmZ8Omw6jxzXy0DgkU8gw8M3QKAmv1xZTRrXQ+6BOsZ9HVslA6zcrcmeAIZRzIcns@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgBCOYg6vHH3un+Gwj8TBgH1K+zLxeXg6QQKWwufvmuEHYDuQC
+	2yKgj6FcDDJ3Suq+BIqgAJ44E6Klv2njeWrDjr5Tk4h2pXCFKNr5yd6VWIrwc+ajAt4=
+X-Gm-Gg: ATEYQzxLX2llASRMAuX0mCajWqcNo88qLCKIAE4vVDRwLo3R4TdfckPL+JKUAARAo+Y
+	hUEJdQpZhyWoJQoPpDevYucuF7Ld1O3SbnPsL2+BADk4D18152YxZj864sp23M5eRlMs90f8xyD
+	Z6ZvOp2ZiDFF6M1RT4nU78jLAaKzmAqXiq0aQRPo3yEaGk9s5HCEjPrrhMCgUyMJUXPJMP1jr0c
+	lecY8mdplVm7J6hvPZtEBQwbRerkOUO0YbM765odJyoCggW+Uf9VmMf4xO9d2XZFGs3GyYLx5Xr
+	p10KxqrHxXkx0YMwepJa4cbBfqlNdR8PsL5CkNOgrW4LA5kB3sy1eHYkwKPwF+5gJzo0aUkwYWv
+	s+JfU7/doCqfiynJ090ptCQnS6bAMjiuQIBOffCSIX7huxgEwM6d6FdES6sSK5hyS0M4wTY1deR
+	RjWSLpSz6Zk3uQ9hVS9GSmJ7Z4sjgC
+X-Received: by 2002:a05:600d:6444:20b0:485:4388:3492 with SMTP id 5b1f17b1804b1-485566d8d8fmr163862785e9.11.1773677310284;
+        Mon, 16 Mar 2026 09:08:30 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4856ea9c387sm2538015e9.8.2026.03.16.09.08.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 09:08:29 -0700 (PDT)
+Message-ID: <b373b619-00b1-4f65-9187-e1c7214a6b98@linaro.org>
+Date: Mon, 16 Mar 2026 16:08:28 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K
- pages
-To: Usama Arif <usama.arif@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com
-Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
- Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
- <608c87ce-10d9-4012-b6e9-298d5a356801@kernel.org>
- <9e9edebb-3953-4bcd-80e2-614dcec5b402@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v6 00/19] CoreSight: Refactor power management for
+ CoreSight path
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Mike Leach <mike.leach@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <9e9edebb-3953-4bcd-80e2-614dcec5b402@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_090832_709948_C6F18ED3 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,133 +107,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/13/26 20:59, Usama Arif wrote:
+
+
+On 05/03/2026 10:17 am, Leo Yan wrote:
+> This series focuses on CoreSight path power management.  The changes can
+> be divided into four parts for review:
 > 
+>    Patches 01~06: Refactor the CPU idle flow with moving common code into
+>                   the CoreSight core layer.
+>    Patches 07~14: Add link control during CPU idle.
+>    Patches 15~16: Support the sink (TRBE) control during CPU idle.
+>    Patches 17~19: Move the CPU hotplug flow into the coresight core layer
+>                   and simplify the code.
 > 
-> On 13/03/2026 16:20, David Hildenbrand (Arm) wrote:
->> On 3/10/26 15:51, Usama Arif wrote:
->>> On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
->>> into a single iTLB entry, reducing iTLB pressure for large executable
->>> mappings.
->>>
->>> exec_folio_order() was introduced [1] to request readahead at an
->>> arch-preferred folio order for executable memory, enabling contpte
->>> mapping on the fault path.
->>>
->>> However, several things prevent this from working optimally on 16K and
->>> 64K page configurations:
->>>
->>> 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
->>>    produces the optimal contpte order for 4K pages. For 16K pages it
->>>    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
->>>    returns order 0 (64K) instead of order 5 (2M). Patch 1 fixes this by
->>>    using ilog2(CONT_PTES) which evaluates to the optimal order for all
->>>    page sizes.
->>>
->>> 2. Even with the optimal order, the mmap_miss heuristic in
->>>    do_sync_mmap_readahead() silently disables exec readahead after 100
->>>    page faults. The mmap_miss counter tracks whether readahead is useful
->>>    for mmap'd file access:
->>>
->>>    - Incremented by 1 in do_sync_mmap_readahead() on every page cache
->>>      miss (page needed IO).
->>>
->>>    - Decremented by N in filemap_map_pages() for N pages successfully
->>>      mapped via fault-around (pages found in cache without faulting,
->>>      evidence that readahead was useful). Only non-workingset pages
->>>      count and recently evicted and re-read pages don't count as hits.
->>>
->>>    - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
->>>      marker page is found (indicates sequential consumption of readahead
->>>      pages).
->>>
->>>    When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
->>>    disabled. On 64K pages, both decrement paths are inactive:
->>>
->>>    - filemap_map_pages() is never called because fault_around_pages
->>>      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
->>>      requires fault_around_pages > 1. With only 1 page in the
->>>      fault-around window, there is nothing "around" to map.
->>>
->>>    - do_async_mmap_readahead() never fires for exec mappings because
->>>      exec readahead sets async_size = 0, so no PG_readahead markers
->>>      are placed.
->>>
->>>    With no decrements, mmap_miss monotonically increases past
->>>    MMAP_LOTSAMISS after 100 faults, disabling exec readahead
->>>    for the remainder of the mapping.
->>>    Patch 2 fixes this by moving the VM_EXEC readahead block
->>>    above the mmap_miss check, since exec readahead is targeted (one
->>>    folio at the fault location, async_size=0) not speculative prefetch.
->>>
->>> 3. Even with correct folio order and readahead, contpte mapping requires
->>>    the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
->>>    The readahead path aligns file offsets and the buddy allocator aligns
->>>    physical memory, but the virtual address depends on the VMA start.
->>>    For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
->>>    granularity, giving only a 1/32 chance of 2M alignment. When
->>>    misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
->>>    any folio in the VMA, resulting in zero iTLB coalescing benefit.
->>>
->>>    Patch 3 fixes this for the main binary by bumping the ELF loader's
->>>    alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
->>>
->>>    Patch 4 fixes this for shared libraries by adding a contpte-size
->>>    alignment fallback in thp_get_unmapped_area_vmflags(). The existing
->>>    PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
->>>    libraries, so this smaller fallback (2M) succeeds where PMD fails.
->>>
->>> I created a benchmark that mmaps a large executable file and calls
->>> RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
->>> fault + readahead cost. "Random" first faults in all pages with a
->>> sequential sweep (not measured), then measures time for calling random
->>> offsets, isolating iTLB miss cost for scattered execution.
->>>
->>> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
->>> 512MB executable file on ext4, averaged over 3 runs:
->>>
->>>   Phase      | Baseline     | Patched      | Improvement
->>>   -----------|--------------|--------------|------------------
->>>   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
->>>   Random     | 76.0 ms      | 58.3 ms      | 23% faster
->>
->> I'm curious: is a single order really what we want?
->>
->> I'd instead assume that we might want to make decisions based on the
->> mapping size.
->>
->> Assume you have a 128M mapping, wouldn't we want to use a different
->> alignment than, say, for a 1M mapping, a 128K mapping or a 8k mapping?
->>
+> This series is rebased on the coresight-next branch and has been verified
+> on Juno-r2 and FVP RevC.
 > 
-> So I see 2 benefits from this. Page fault and iTLB coverage. IMHO page
-> faults are not that big of a deal? If the text section is hot, it wont
-> get flushed after faulting in. So the real benefit comes from improved
-> iTLB coverage.
+> ---
+> Changes in v6:
+> - Rebase on the latest coresight-next branch.
+> - Always save and restore TRBE context during idle (Will).
+> - Use get_cpu() / put_cpu() when set the per CPU source pointer.
+> - Link to v5: https://lore.kernel.org/r/20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com
 > 
-> For a 128M mapping, 2M alignment gives 64 contpte entries. Aligning
-> to something larger (say 128M) wouldn't give any additional TLB
-> coalescing, each 2M-aligned region independently qualifies for contpte.
+> Changes in v5:
+> - Set the per-CPU source pointer on target CPU (Suzuki).
+> - Reused existed enable/disable buffer functions in TRBE callbacks
+>    (James).
+> - Refactored refcount for source devices in SysFS mode.
+> - Released path in cpu-hotplug off flow to avoid memory leak.
+> - Updated ETMv3 driver when move common code into core layer.
+> - Rebased on the latest coresight-next branch.
+> - Link to v4: https://lore.kernel.org/r/20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com
 > 
-> Mappings smaller than 2M can't benefit from contpte regardless of
-> alignment, so falling back to PAGE_SIZE would be the optimal behaviour.
-> Adding intermediate sizes (e.g. 512K, 128K) wouldn't map to any
-> hardware boundary and adds complexity without TLB benefit?
+> Changes in v4:
+> - Changed to store path pointer in coresight_device, this is easier for
+>    fetching path pointer based on source device (Mike).
+> - Dropped changes in CTI driver.
+> - Only disabled path for CPU hot-plugged off but not enable path for
+>    hot-plugged in.
+> - Removed James' test tags for modified patches.
+> - Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> 
 
-I might be wrong, but I think you are mixing two things here:
+For the unreviewed commits:
 
-(1) "Minimum" folio size (exec_folio_order())
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-(2) VMA alignment.
+And did a bit more testing on Juno:
 
+Tested-by: James Clark <james.clark@linaro.org>
 
-(2) should certainly be as large as (1), but assume we can get a 2M
-folio on arm64 4k, why shouldn't we align it to 2M if the region is
-reasonably sized, and use a PMD?
+> ---
+> Leo Yan (18):
+>        coresight: sysfs: Validate CPU online status for per-CPU sources
+>        coresight: Set per-CPU source pointer
+>        coresight: Register CPU PM notifier in core layer
+>        coresight: etm4x: Hook CPU PM callbacks
+>        coresight: Add callback to determine if PM is needed
+>        coresight: etm4x: Remove redundant condition checks in save and restore
+>        coresight: syscfg: Use spinlock to protect active variables
+>        coresight: Introduce coresight_enable_source() helper
+>        coresight: Save active path for system tracers
+>        coresight: etm4x: Set active path on target CPU
+>        coresight: etm3x: Set active path on target CPU
+>        coresight: sysfs: Use source's path pointer for path control
+>        coresight: Add 'in_idle' argument to path
+>        coresight: Control path during CPU idle
+>        coresight: Add PM callbacks for sink device
+>        coresight: sysfs: Increment refcount only for system tracers
+>        coresight: Take hotplug lock in enable_source_store() for Sysfs mode
+>        coresight: Move CPU hotplug callbacks to core layer
+> 
+> Yabin Cui (1):
+>        coresight: trbe: Save and restore state across CPU low power state
+> 
+>   drivers/hwtracing/coresight/coresight-catu.c       |   1 +
+>   drivers/hwtracing/coresight/coresight-core.c       | 273 ++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  |   1 +
+>   drivers/hwtracing/coresight/coresight-cti-core.c   |   1 +
+>   drivers/hwtracing/coresight/coresight-dummy.c      |   1 +
+>   drivers/hwtracing/coresight/coresight-etb10.c      |   1 +
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   |   2 +-
+>   drivers/hwtracing/coresight/coresight-etm3x-core.c |  65 ++---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 153 +++---------
+>   drivers/hwtracing/coresight/coresight-funnel.c     |   1 +
+>   drivers/hwtracing/coresight/coresight-priv.h       |   3 +
+>   drivers/hwtracing/coresight/coresight-replicator.c |   1 +
+>   drivers/hwtracing/coresight/coresight-stm.c        |   1 +
+>   drivers/hwtracing/coresight/coresight-syscfg.c     |  22 +-
+>   drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
+>   drivers/hwtracing/coresight/coresight-sysfs.c      | 126 +++-------
+>   drivers/hwtracing/coresight/coresight-tmc-core.c   |   1 +
+>   drivers/hwtracing/coresight/coresight-tnoc.c       |   2 +
+>   drivers/hwtracing/coresight/coresight-tpda.c       |   1 +
+>   drivers/hwtracing/coresight/coresight-tpdm.c       |   1 +
+>   drivers/hwtracing/coresight/coresight-tpiu.c       |   1 +
+>   drivers/hwtracing/coresight/coresight-trbe.c       |  60 ++++-
+>   drivers/hwtracing/coresight/ultrasoc-smb.c         |   1 +
+>   include/linux/coresight.h                          |  11 +
+>   24 files changed, 458 insertions(+), 274 deletions(-)
+> ---
+> base-commit: 9c5ef7a30d9044f8706bd02bfdc4eff7266f3e25
+> change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
+> 
+> Best regards,
 
-
--- 
-Cheers,
-
-David
 
