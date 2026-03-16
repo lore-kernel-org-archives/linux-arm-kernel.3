@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D712F506D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C700F506D2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 14:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ybCcCawDXPxiVqUP7psGH8DaNW0UmkbnwZ0YM4VDmU=; b=0sOc9T9gmkUSckZTEV+2w3YrbX
-	FD90IpZL4oHNq/0cwUptGWXYIa3UchF9zmZ2bfl5jX7qOQF1Meg4r8NlE8dCiGffP5kUYXwe7YkVG
-	RIdc9AFRNaUjtCub/WBEyDlw1QuHHewl9qJ1XBHRqWSFvAerLnak1GhgMAM0lU38mW9QCIirPS8VK
-	/FMyScsjqdcvgEQ/1glOvIlN5NUTnbj5qYB867MFFIC9ETzqkktr4ZQmb3pRDp2nRQ2k6ad5zQfV4
-	VeEVfc2DNjJSBqN9Y199m4HW2A++CWyLfrbkJu28FvScbq2P0y41wDDpmFW4xNBPF6PjUcFFW8bwo
-	tdj79rWA==;
+	bh=Zq0EM67ZuViUFT4CcJr2fJMVyJtCv8oiWO4xfVbJADc=; b=hhsFLgji8tyM3/Nb2bPz7QVnt4
+	cVMSn4543iEygF8lGgVsZqzYHqplDC7/hGECKXmE3w6TVrWPWvjRTlkOjrVHhZGr3LkT5eIz1GXOT
+	YwK9e03+yAR0nXoXwTkSPm8N7PXEDTJIwzRhx++Rr6uqYg1rhqRcRVa7Ij5gdvxmHvBeLBLNckn+6
+	K07Rr7OFvGXmDYgtYK/0omdoSRSEtJTTtRaGzK5lEewlRuadaowLT3BoZ9YL7cNFLhXfw7hA/oQzP
+	CSt+BUmUSKR1wX1KIeJhmvWCVTkk9cNq5vKchpFISTscY36UkUqjACGC2pUR8c7VIQH/wtiWx3bnm
+	0q5z2VWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28MP-000000046uZ-3HU8;
-	Mon, 16 Mar 2026 13:51:57 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28MM-000000046tp-3H9D
+	id 1w28Ww-000000048SN-3iX5;
+	Mon, 16 Mar 2026 14:02:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w28Wt-000000048Rz-2rIG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 13:51:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=3ybCcCawDXPxiVqUP7psGH8DaNW0UmkbnwZ0YM4VDmU=; b=FRQ7hAVm4iQ4dhJvKK8D6gyiA5
-	e7GDM3Y5SCT5e/lzvHpwV/XGQJrZoaVjp0eKuJogtKWnHxhD/cj4M7w7hiQCpb0/jIeib5mkktQn+
-	Cj9z59qu42+vDbz1SWWxGTQOdE04q9ZnKL3rnjkBZRMo83FzEpHMeBzXvaXiWECwd9mMpo7+KAmav
-	ziQxmkORg7OAfZ1XZ0SlnOrDbjj+KRxPxahKhs8Z1VHeisUt5GcEQhYOBrjWbpX+FNqHuD7AWs2DK
-	m/eG8YfURk7qBmZyXkCbo8VMN7AfnUuHMiGdLTciaGu/3UrkASLThwa+uunMyk4IRHEteu9XAFfQN
-	48+shy8g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38174)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w28MF-000000003r0-47U7;
-	Mon, 16 Mar 2026 13:51:48 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w28MD-00000000581-2FJx;
-	Mon, 16 Mar 2026 13:51:45 +0000
-Date: Mon, 16 Mar 2026 13:51:45 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
-Message-ID: <abgK8ThJCs7A5C4I@shell.armlinux.org.uk>
-References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
- <abdEscs44fU4kRag@oss.qualcomm.com>
+	Mon, 16 Mar 2026 14:02:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D53F71477;
+	Mon, 16 Mar 2026 07:02:38 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DF593F778;
+	Mon, 16 Mar 2026 07:02:44 -0700 (PDT)
+Date: Mon, 16 Mar 2026 14:02:42 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 01/19] coresight: sysfs: Validate CPU online status
+ for per-CPU sources
+Message-ID: <20260316140242.GD8048@e132581.arm.com>
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-1-eff765d211a9@arm.com>
+ <13fbfe69-2d7f-49fa-a191-98aea3fb1f21@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <abdEscs44fU4kRag@oss.qualcomm.com>
+In-Reply-To: <13fbfe69-2d7f-49fa-a191-98aea3fb1f21@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_065154_841605_454C36CB 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_070247_817332_6E47FDAE 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,23 +71,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 05:15:53AM +0530, Mohd Ayaan Anwar wrote:
-> 	[    8.865707] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+On Fri, Mar 13, 2026 at 11:03:02AM +0000, Suzuki K Poulose wrote:
+> On 05/03/2026 10:17, Leo Yan wrote:
+> > The current SysFS flow first enables the links and sink, then rolls back
+> > to disable them if the source fails to enable. This failure can occur if
+> > the associated CPU is offline, which causes the SMP call to fail.
+> > 
+> > Populate CPU ID into the coresight_device structure, for components that
+> > are not CPU bound, set this field to -1.
+> > 
+> > Validate whether the associated CPU is online for a per-CPU tracer. If
+> > the CPU is offline, return -ENODEV and bail out.
+> > 
+> > Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> > Tested-by: James Clark <james.clark@linaro.org>
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> 
+> While this works, how about we make it an explicit buy in from the driver
+> for CPU bound ?
+> 
+> e.g., add a flag in the coresight_desc.flags = CORESIGHT_DESC_CPU_BOUND
+> 
+> and then desc.cpu describes the associated CPU. Otherwise, defaults to -1.
+> That way you could restrict the changes to only those that need the
+> CPU (ETMx and CTIs ?) Also makes any new driver safe.
 
-I also think this needs to be investigated. This message is the result
-of a recent patch of mine which will error if the clk_csr clock rate
-is not something we support.
+Instead of adding a flag, I'd use a helper to check existed flags:
 
-I see all of the in-kernel dts which match qcom,.*ethqos provide a
-stmmaceth clock, so plat->stmmac_clk should be populated.
+  static inline bool coresight_is_cpu_bound(struct coresight_device *csdev)
+  {
+         if (!csdev)
+                 return false;
 
-stmmac_clk_csr_set() should get the clock rate, and look it up in the
-stmmac_std_csr_to_mdc table. We'll get this warning if the clock rate
-is larger than 800MHz or less or equal to 20MHz.
+         if (coresight_is_percpu_source(csdev))
+                 return true;
 
-The divisor selection of 15 is not supported by the hardware.
+         if (csdev->type == CORESIGHT_DEV_TYPE_HELPER &&
+             csdev->subtype.helper_subtype == CORESIGHT_DEV_SUBTYPE_HELPER_ECT_CTI)
+                 return true;
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+         return false;
+  }
+
+Only CPU bound device will assign CPU ID, otherwise will set -1.
+
+Thanks,
+Leo
 
