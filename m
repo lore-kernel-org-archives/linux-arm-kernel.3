@@ -4,75 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E24F4643A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 09:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65948F4643B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 09:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoiyVkHIKrNjrZtPlLtkfhVeaegDVh4Olnri2+lijqk=; b=1J2zoUQBf4rVJB0mrg1yoPcMy+
-	9JyIfaqpeiBhwdpM+MI2A1mDw4SkaoBy4gEeMyJH15OjR3y7A/QVvd+i1NHaOVgQojN2r87waXCgi
-	KOQKyXXVZUGGR1E8n1XtgbW4lcAbI4QUDF6RU+GzOOg0h+12mS62YuQMhcMjOApKaRAA9euVWzn5Z
-	tYC3LnfOxG3FyrdaiNknlOaPdSo7m/thk373ABYKqkS5wlY9s/atT1KyggJYQzE+T36lOQfl5qB/J
-	2ZmvJHPg60AFwLMtPysBbWmKcbrSlZPhVJ2VyaQKpDRT0mKvvWNCbEW8aFkS9j/+aihyffqSeU30n
-	AdEUY64g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U7sxdXWUOuSTbxV4sO4U6MPtKzEPLu9f6ERux6/yywc=; b=0IwCUagAaaBz/BfLLGDFzsmw3o
+	If9FKVopcy/93y+B7FpmU6Cd7MAnXryoytS2jK+0BbHliBg3T+DNn9GHqUVJjEuNFJms9BL4b5ixX
+	CkYnhSEfNLyTGe7FlS/zw+DLj+64EK1zYc1+YWi+Yx7iE7dDT/lPl83c1pHBJPK/ENHdaaK99rDQn
+	OAVAHrktZ2STuX1zLj6RRldwruqE86GsPn7ld4npCYEUQVmEtMCU5hHYS+3CoANFxad8LvUDxfLrq
+	PmhDwvNJ4C+MY9MiJxOUQEMmd3+vhyfk1GCAkVtDwASPhSABrjmQVqEfyfNgB1/gzbxElx3RGpgql
+	+pWVkK0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24Q3-00000003eo6-3ZK4;
-	Mon, 16 Mar 2026 09:39:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w24R7-00000003ezM-1XFP;
+	Mon, 16 Mar 2026 09:40:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24Q1-00000003ena-1jNa
+	id 1w24R5-00000003ez3-0aV9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 09:40:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=U7sxdXWUOuSTbxV4sO4U6MPtKzEPLu9f6ERux6/yywc=; b=VBV38XhKdzqpAi7/u38yit3vV4
+	FCvvACRSHKyGsA9q/cnH32g8jjyuT4w45Z+P67gxZxounGXdxuYHcnFQc1knDHm60n/V3siij5umD
+	63+mkhumYdpXotAAIdoX0oSO41QcVNCx7SlGn74Biddh9lJXkHvuq00U5cwzCxxkf92whfVs8GGVC
+	sAH9Na6wrhFf6noBBUmuDPACNjMV8eU/76DIDDDm47rYcD+BUvggsWPbFZQX1tEtWQce5RT2gC32V
+	aA+EPs2qeKya/AkunvHQ+PkLUv47SxtYFE7ATb+uEmX5d1PyS5GR7/Sg5Mx/ye/JFz+bBJ+IDVyMp
+	Dp+XdiGQ==;
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w24R2-00000006OW0-0MUA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 09:39:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B0FA441DF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE5B6C2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:39:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773653964;
-	bh=RbqZslNxIIkzTluBmL/ed2uqFPa1E/cM4+gpAQj+klU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=M89CEiZOnHW6l0rVxIAVYujeaAXXC4wcFEgK6RvQrRatF+GJGYQPCQzJqxY8+1VIA
-	 E7ZCdMygmp4NiT/9U0vyf51n5I+cO6swsADrHEdCOP1BbB+Kl6PKS3hjlfS8XRAbDI
-	 FqbHS3YpHzueVeZy1lUiGD6oOZPmUBwFBnVZR0YJK7ri5JSsOvqdQ8JXeBV1zvQ9Aj
-	 iZuHlJW52n1Dcc+QGXJDlCK+tgfX07jqK9IIBqCmihvHKJESa7f89hJqPcLevHPKze
-	 xRFRnqqAGAXyPwMBME8EPg2+xjOSKUqRn9bRAGb6Bph92medmVxRyhjXkG7MELJtr7
-	 uH4XTBPdAIpOg==
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-79860421382so37937067b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 02:39:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVbLfEHzkwqXj7oUbTu4dhvUGmiUptKmmwOs/4LEyndxSdn400jOBQ8lLwlhFGOLVVWB0R4/8GF3m7xMkuNhbNi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxO9kaZjTYY6KlGBKhZf/nOcwSRcuqstWXHpIZJ/VK9ZbKsG+0V
-	6a1J0X8vhhTo+Wx+zDap6M5ffZUARUYj7BlWguuNl7dr4M3VMLXgd4QXCTeFeUjyajPVQA8LsN+
-	FStHtaB6bVl8FTbHTu8K80uiD+1FUWuA=
-X-Received: by 2002:a05:690c:6e87:b0:79a:3b28:a710 with SMTP id
- 00721157ae682-79a3b2912f5mr61530517b3.27.1773653964110; Mon, 16 Mar 2026
- 02:39:24 -0700 (PDT)
+	Mon, 16 Mar 2026 09:40:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qhB7dKNnihH4iwBdHrhr6DA7ZA76rdHKSUrljw7D1z3K2i5YOfoNIBbMxIUOMWUx9GDgnbJbPlO00CTmI+wswQKTwPqBq5nch5jmuEX2Qs2/L/fy23mXihSccJp9xF0DU2rTs/BVXNkxoPk89qSjL1x204PHhYvCrO7VUlDlp+YdKCkNLtA3xJ7SR7lAbq3ZKxDjeqGNYMdqnsZf5afO8uWy46zKs8YiTpyoTfmKHBSLxSiHrRpT/eSGtNjK+YNFwjKxH6w4M2BrMNRUxd7NUtMYBJ4cB+qjayGySX265VpjtLzOJBDt6Jlyx6x3Gvn/FSMOV70Zv8uJ6585cifLqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=U7sxdXWUOuSTbxV4sO4U6MPtKzEPLu9f6ERux6/yywc=;
+ b=WXwiSsWSGbaWElOhT75vKzK16ZzHY650Fs8WnjiETdg+0IcW5qD/h6WRLC8AVyhMT0gzoB0wTS+AqDArtfiHdDimGxOfFDEwVOKfEpiOW2jh65HzBZS3U4QqUuUPtmCao+9c3rIa006/iDhLL8d4AskZv26z9wOmX+5Mh+XYcYvK2mV33Ff+uZ07NOM5EISjxwxSHOzmoGyKbfIKUpjKSUaBdlpRrMVHi4q9/S2QQ3zkQzrNFqfBFk0exv/7DsvKxXRFagzceZnRYyHx1X/gqceZUEISH8lcQ+vw3H7Zydlj7qqxn2ap0UBDdyeK1bpzPXMRczQpZEc2RIQ+kgRzWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=U7sxdXWUOuSTbxV4sO4U6MPtKzEPLu9f6ERux6/yywc=;
+ b=GAvVHJ1/YXZqwSUBK4jc1sX5qfvdESmEevLqD6ihBgvSYLZgwuaO3O2pV39CH370gQLf2kv4Kyg4ZlpbfIEN3YDgCf8WeKTQ4odCbx7goWn4IY1nb6xTS1NdxjqG+Il4meGvVsREIVq/e7KgIwETj7Q1HBqfXI1VxuSRbVRxNC6DdDEDjC/bsQeV4cr84QmaJQXT/OAvd98n34zhcCfWp0Zbc7EcyMrMyr2DaXPg1Xsn8ZWefLFDtYaiG95uoUgrovYRxuBOz94Wgr7GtAtzXi39eVp+WkAxvxwyPkkFvyO99FA/zL28PKN96hMQjF/Oq4kl+1EiioJsxnZ9i7/GKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by MRWPR04MB12119.eurprd04.prod.outlook.com (2603:10a6:501:97::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.22; Mon, 16 Mar
+ 2026 09:40:15 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::b476:c19a:24cd:3694]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::b476:c19a:24cd:3694%3]) with mapi id 15.20.9700.022; Mon, 16 Mar 2026
+ 09:40:25 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	f.fainelli@gmail.com,
+	frank.li@nxp.com,
+	chleroy@kernel.org,
+	horms@kernel.org,
+	linux@armlinux.org.uk
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH net-next 00/14] Add preliminary NETC switch support for i.MX94
+Date: Mon, 16 Mar 2026 17:41:38 +0800
+Message-Id: <20260316094152.1558671-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0019.apcprd02.prod.outlook.com
+ (2603:1096:4:195::13) To PAXPR04MB8510.eurprd04.prod.outlook.com
+ (2603:10a6:102:211::7)
 MIME-Version: 1.0
-References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com> <20260311-pinctrl-mux-v3-4-236b1c17bf9b@nxp.com>
-In-Reply-To: <20260311-pinctrl-mux-v3-4-236b1c17bf9b@nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 16 Mar 2026 10:39:12 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=8tqT=jEy+_W-WnPq=Az7GbsW7pdXHZNmu8m+tKoDMDQ@mail.gmail.com>
-X-Gm-Features: AaiRm53Q_0hsf1jplyh4XsHDGxCWDXM_lyumSvDs8oSWpLJERT4ci6Zqc30deP8
-Message-ID: <CAD++jL=8tqT=jEy+_W-WnPq=Az7GbsW7pdXHZNmu8m+tKoDMDQ@mail.gmail.com>
-Subject: Re: [PATCH v3 4/7] pinctrl: add optional .release_mux() callback
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|MRWPR04MB12119:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51f956e6-5cbb-4499-690e-08de83400cc6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|1800799024|366016|38350700014|18002099003|921020|56012099003;
+X-Microsoft-Antispam-Message-Info: 6qCxbAQ4o2sI6LgwOIGqjcEHvIwT1u+7l6dqDogPbz/4vLPkeuls3veHsuXj2AvSUdzvWtRv5fkByz8XMyh8lrkLvifA/4tiu+MKVge3kht1858iwrOkGuoYatihXQ690J15sNUg55kCmnW05pOcdKKKcHcmJSts/Fg9NmOGlLdi08ILaLiK6yUVo7UpzgvrDBLQrbuk+jXLB8qpEpifeLRvkfMRihDDFx6cmYhSrJPBtFy4OaDuFurrFZDrtvru6rqaLAjP9DkD+fUpZo9ucz1KLVjPLpQxwHiOu+sT02warU1wuU+DuBkp1rQc1h8l28HZih+HSFd9364QpbMCuqqaV9BN6uXA3zkm9+kdeZi97eq/gKDo/Me1zhLqX1jRWs6aeX/tvO+BXDzEQmAwScocHpyZy/qDEX9XiZSqXGCnjfZZPPHeZpGG1P7whP76kyQi35KiN2KF+KCbXP/4KhZlykcRP/eXNACJL+aeeCllhrHmP6dgii2ClwLYnYIcliY8UqkH3OtDhIqEIaT5ZDj1o6V7/9iXkBu1dViRpx69QOjwEGmpmCRyVtNSvoGAYax8JdDieJA/wiZKaKVJDoWN0j69veNprsjh8iVWldho7qjwOBO0xwrHYLrCgn0ImrrOyuUpSV4uUxpnYw3ud/4ilVibo7koNVYdfAK3HPOS0q46kKHzUh9mvw1Bubdb0Ax9vtFS50mu7b+ojf+CyyG+MV7fTDnSk+M9LbeSeqAQzqyvNQfMFEudcedNuQ6KRJaPKFiT/+pWNtSS69496ahr0LIXNS8S8t5Hzvn39/uqyWJl3+8HzONZ+NW4v0jS
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014)(18002099003)(921020)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?afnRSdjyP9aRbasr/3cfBTkLvGTvQcnYqqTBSS78RhsSkD1KXEje3Wd45IBo?=
+ =?us-ascii?Q?z9UWqobJRZ78qqrLw6gh92FSU5P5bFp14SZz2G5jQA9gQHascS7/Z7wH4xoj?=
+ =?us-ascii?Q?oUoyz83FTaqenDBh9gFTUGn1p1s9aJ04P2bfP4qSf05i+9Jp7s2Ds5a+qrt+?=
+ =?us-ascii?Q?jGQm1z18R/IAATR0MtKufHdvQGJBk4+TV2zNDjfLgVswIbUiGamKYLDAme8t?=
+ =?us-ascii?Q?J7eCSJtRREOCx9ApGzYx7Xyty4CIv06Y7AfcbsmBI9SCoskzFN1vpyR3uofT?=
+ =?us-ascii?Q?K24fCEU1i2dtQHTWwxL5s1IPRkQXzi724WF7NHT20N9wD1CcoRd+pTJk8QON?=
+ =?us-ascii?Q?8NDTS7Yt+KBxioRCPrCVi3dj+zDaO6y3Nn03WArZ4zIkMj0+HNbG/nvTAhIF?=
+ =?us-ascii?Q?a8tFRP4tyodxqpQfgp+5d8yEkzY+e45BIKtD1iMJ3cnprS4xABLjtS/aUK/o?=
+ =?us-ascii?Q?vOhiU5Hh2vb3Kz37AFX4LFIuh68nWXCwa085QboRjwZ0H8fvYmO1vSyZMVGo?=
+ =?us-ascii?Q?o4NvXeN5LfLkDMHZcwN2ltT2mWkIbE5Ja6+XNCBCXY424jZqOjO8K/xawMJy?=
+ =?us-ascii?Q?7sUwMY0V311x6JZYTr/cB6JDQV/Alzk3bue3w5nkvCa67bM2cjaY2OXT2V4h?=
+ =?us-ascii?Q?Fe/v766dFr8Gz2pghPOBHXzS9o55dUSDNBcdX3mIAqCNHN2TipBvPwlOWGAS?=
+ =?us-ascii?Q?REdEMOilqGZ1v4STaPhapN48X2luKnVXRMZck1/TLyxCBAcCVlPqpiIccSkg?=
+ =?us-ascii?Q?f/Irl1R0Oiojc9F6HpbF78FHuqLmmYUZaNS5KIyvoFe4V3dqhIwdOshZdHQ5?=
+ =?us-ascii?Q?RsYP7801QeIostpvKB5s1wx1dqo4MZv0M3fP+XQRs/mXnCdZ5WA3ObqrZCip?=
+ =?us-ascii?Q?el5XZ9rIbWvAjDklxe9toyrFlSIbP6Rx3gCNvWRpQRwy4JNE33l3z5uzaU3r?=
+ =?us-ascii?Q?EgnkATsHHNMZHUoDE5EMgSFgMIMeRdW7PRcdBNN5RhU/MkXwjUOq8Gl1nzk8?=
+ =?us-ascii?Q?/iwW4jTYdnaNDaASENS1Ja6pVFewhn4HeAG++Q6ZkSt5WtrKvC1XZg4hlLoL?=
+ =?us-ascii?Q?FEGKr23TW6BvSgG8Btqf63YCpnQQ/rxAV89l+VDnxQP+mtXaukCrAAdCz6wu?=
+ =?us-ascii?Q?arAcJ7szUVlkJImAv2OsNi5hzYnfDd/fC74IAMuMVAIZ5J8722mENZM8FcJl?=
+ =?us-ascii?Q?5QG+qwyGiQLSBrefnp2X3T5Dqcx04QiKVznNbBlwsKIuIiOu86cIZNFp8zer?=
+ =?us-ascii?Q?kMp3aMS2PnbPsoBC2kXNLfrd2s7vFjEhdXHfL7qPC4Q99nUre+23ZgZaF5gI?=
+ =?us-ascii?Q?2nMFfq+yCrjeZ/e6b03IKLuSoXHjKUuEQDScZRPleXMSJvXl9PIjuQy22qL/?=
+ =?us-ascii?Q?3JjJKejvgAF5geGqJvZbu/W5WQXJsHj3tE7RO9IpHIXwovrnYVJb0XdYwJIC?=
+ =?us-ascii?Q?V7+vATGOK/rd1ssPAepra1H8qXEFunnet7LwwyK0DYwLenv/0v4WQi0YXdl2?=
+ =?us-ascii?Q?mpOG9LSfDvSLT8FJ/Of16Tdkz4GCC6Cn24oKMO9cXXswxaQBvgiY5ZKdQa1G?=
+ =?us-ascii?Q?Q+xsGUJGKniSf0TdtZGiWu6UpLK9wuehicR8bfR7z89fxFah7KkIDt5wD+zK?=
+ =?us-ascii?Q?OYLkuB4iqdA/WcwZ3IdvoUNLccqob0qZTfd2SxoiITSCUeCWy2yHR50lYaaj?=
+ =?us-ascii?Q?YILLuOoBhbe//zAFsb5zC3bvPC0x2BkNrhTpweOa1E5zqoL6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51f956e6-5cbb-4499-690e-08de83400cc6
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 09:40:25.4699
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RwfhmTLui1Ut65wEeOJDPp3RLfjsX2CK47sscmrQ1eFBZtq/6c1QPCQt6zX3hlpZTFS3sIhz95EmxJyuskhibg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_023925_494881_D7B2B128 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260316_094028_198837_F3A498BF 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +166,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 8:08=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+i.MX94 NETC (v4.3) integrates 802.1Q Ethernet switch functionality, the
+switch provides advanced QoS with 8 traffic classes and a full range of
+TSN standards capabilities. It has 3 user ports and 1 CPU port, and the
+CPU port is connected to an internal ENETC through the pseduo link, so
+instead of a back-to-back MAC, the lightweight "pseudo MAC" is used at
+both ends of the pseudo link to transfer Ethernet frames. The pseudo
+link provides a zero-copy interface (no serialization delay) and lower
+power (less logic and memory).
 
-> Add an optional .release_mux() callback to struct pinmux_ops.
->
-> Some drivers acquire additional resources in .set_mux(), such as software
-> locks. These resources may need to be released when the mux function is n=
-o
-> longer active. Introducing a dedicated .release_mux() callback allows
-> drivers to clean up such resources.
->
-> The callback is optional and does not affect existing drivers.
->
-> Commit 2243a87d90b42 ("pinctrl: avoid duplicated calling
-> enable_pinmux_setting for a pin") removed the .disable() callback
-> to resolve two issues:
->
->   1. desc->mux_usecount increasing monotonically
->   2. Hardware glitches caused by repeated .disable()/.enable() calls
->
-> Adding .release_mux() does not reintroduce those problems. The callback i=
-s
-> intended only for releasing driver-side resources (e.g. locks) and must n=
-ot
-> modify hardware registers.
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Like most Ethernet switches, the NETC switch also supports a proprietary
+switch tag, is used to carry in-band metadata information about frames.
+This in-band metadata information can include the source port from which
+the frame was received, what was the reason why this frame got forwarded
+to the entity, and for the entity to indicate the precise destination
+port of a frame. The NETC switch tag is added to frames after the source
+MAC address. There are three types of switch tags, and each type has 1
+to 4 subtypes, more details are as follows.
 
-OK fair enough, I think I'm convinced about this now, also it has
-a nice pairing with set_mux(). Let's see if someone else has comments,
-I might apply v4 after fixing the generic function issue in patch 2.
+Forward switch tag (Type = 0): Represents forwarded frames.
+  - SubType = 0 - Normal frame processing.
 
-Yours,
-Linus Walleij
+To_Port switch tag (Type = 1): Represents frames that are to be sent to
+a specific switch port.
+  - SubType = 0. No request to perform timestamping.
+  - SubType = 1. Request to perform one-step timestamping.
+  - SubType = 2. Request to perform two-step timestamping.
+  - SubType = 3. Request to perform both one-step timestamping and
+    two-step timestamping.
+
+To_Host switch tag (Type = 2): Represents frames redirected or copied to
+the switch management port.
+  - SubType = 0. Received frames redirected or copied to the switch
+     management port.
+  - SubType = 1. Received frames redirected or copied to the switch
+    management port with captured timestamp at the switch port where
+    the frame was received.
+  - SubType = 2. Transmit timestamp response (two-step timestamping).
+
+Currently, this patch set supports Forward tag, SubType 0 of To_Port tag
+and SubType 0 of To_Host tag. More tags will be supported in the future.
+
+In addition, the switch supports NETC Table Management Protocol (NTMP),
+some switch functionality is controlled using control messages sent to
+the hardware using BD ring interface with 32B descriptors similar to the
+packet Transmit BD ring used on ENETC. This interface is referred to as
+the command BD ring. This is used to configure functionality where the
+underlying resources may be shared between different entities or being
+too large to configure using direct registers.
+
+For this patch set, we have supported the following tables through the
+command BD ring interface.
+
+FDB Table: It contains forwarding and/or filtering information about MAC
+addresses. The FDB table is used for MAC learning lookups and MAC
+forwarding lookups.
+
+VLAN Filter Table: It contains configuration and control information for
+each VLAN configured on the switch.
+
+Buffer Pool Table: It contains buffer pool configuration and operational
+information. Each entry corresponds to a buffer pool. Currently, we use
+this table to implement flow control feature on each port.
+
+Ingress Port Filter Table: It contains a set of filters each capable of
+classifying incoming traffic using a mix of L2, L3, and L4 parsed and
+arbitrary field data. We use this table to implement host flood support
+to the switch port.
+
+The switch also supports other tables, and we will add more advanced
+features through them in the future.
+
+Wei Fang (14):
+  dt-bindings: net: dsa: update the description of 'dsa,member' property
+  dt-bindings: net: dsa: add NETC switch
+  net: enetc: add pre-boot initialization for i.MX94 switch
+  net: enetc: add basic operations to the FDB table
+  net: enetc: add support for the "Add" operation to VLAN filter table
+  net: enetc: add support for the "Update" operation to buffer pool
+    table
+  net: enetc: add support for "Add" and "Delete" operations to IPFT
+  net: enetc: add multiple command BD rings support
+  net: dsa: add NETC switch tag support
+  net: dsa: netc: introduce NXP NETC switch driver for i.MX94
+  net: dsa: netc: add phylink MAC operations
+  net: dsa: netc: add more basic functions support
+  net: dsa: netc: initialize buffer bool table and implement
+    flow-control
+  net: dsa: netc: add support for the standardized counters
+
+ .../devicetree/bindings/net/dsa/dsa.yaml      |    6 +-
+ .../bindings/net/dsa/nxp,netc-switch.yaml     |  127 ++
+ MAINTAINERS                                   |   11 +
+ drivers/net/dsa/Kconfig                       |    3 +
+ drivers/net/dsa/Makefile                      |    1 +
+ drivers/net/dsa/netc/Kconfig                  |   14 +
+ drivers/net/dsa/netc/Makefile                 |    3 +
+ drivers/net/dsa/netc/netc_ethtool.c           |  192 ++
+ drivers/net/dsa/netc/netc_main.c              | 1575 +++++++++++++++++
+ drivers/net/dsa/netc/netc_platform.c          |   89 +
+ drivers/net/dsa/netc/netc_switch.h            |  155 ++
+ drivers/net/dsa/netc/netc_switch_hw.h         |  356 ++++
+ .../ethernet/freescale/enetc/netc_blk_ctrl.c  |  188 +-
+ drivers/net/ethernet/freescale/enetc/ntmp.c   |  391 +++-
+ .../ethernet/freescale/enetc/ntmp_private.h   |  120 ++
+ include/linux/dsa/tag_netc.h                  |   14 +
+ include/linux/fsl/netc_global.h               |    6 +
+ include/linux/fsl/ntmp.h                      |  233 +++
+ include/net/dsa.h                             |    2 +
+ include/uapi/linux/if_ether.h                 |    1 +
+ net/dsa/Kconfig                               |   10 +
+ net/dsa/Makefile                              |    1 +
+ net/dsa/tag_netc.c                            |  180 ++
+ 23 files changed, 3651 insertions(+), 27 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+ create mode 100644 drivers/net/dsa/netc/Kconfig
+ create mode 100644 drivers/net/dsa/netc/Makefile
+ create mode 100644 drivers/net/dsa/netc/netc_ethtool.c
+ create mode 100644 drivers/net/dsa/netc/netc_main.c
+ create mode 100644 drivers/net/dsa/netc/netc_platform.c
+ create mode 100644 drivers/net/dsa/netc/netc_switch.h
+ create mode 100644 drivers/net/dsa/netc/netc_switch_hw.h
+ create mode 100644 include/linux/dsa/tag_netc.h
+ create mode 100644 net/dsa/tag_netc.c
+
+-- 
+2.34.1
+
 
