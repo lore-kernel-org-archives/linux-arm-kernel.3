@@ -4,68 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250CDF506C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 12:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E537BF506C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 12:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eLUMhmd9h4ee//Gr+wOdnrAtwTFTiQzYH/GSpPyA/Go=; b=Gv1T9j7epoT+n0MldXHc4U3/ee
-	pSwKsvks0fyv21M4caabCPc2rPkOZ0As+odWYLbmg7aFo8NoQq3kWC8kNsPTuTIhn3QNzjtETo+XM
-	f2Qv0FikOeMh7X1AgmwYKY4dfM2glRMO/LrXE9bR6boh4xYZzTFjVwwFj6yG7vGMxiXBY/g+6UZbN
-	BWwn/Vm23LWHmxY3HbI34M75Brbcz1py0TwBrh1ov2MgIibBeC8eQArz1B3qIEL0ECheAGyKCFiau
-	uRptjpFQAr0WGhr4ASEKETcfI/bR/xW6RtyBibPsdfxupdz7XRkSST2buqwssekj5pK+a9oTj9sop
-	Qoeb4aUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F7g3D1PdiLM4o+J1sRFRe+P02ZmYpyyLJOcEvpwPxEU=; b=Lu/lsFVJWVYJmIggWEO4xZ/oN3
+	RWMciooWS17oFMWwp2yhmBITIF7kGOIZTljrceN+WUtCwGOZY95H0GAi278h64BMIZY8M/FxigUMA
+	sQSkO6nvf+4vDE/oXW5O8TiYV9L4xWlFKg/D5Di4GSCKGCpz5KfJPZjXba5mL5yT3wTeoIbKusqKO
+	eISunwZQXStGHXgbSnG3yBYVJkS+H4stVADsxUO038z2yDVTtCJW6qWclNlHLlmEmMPF/qL7TL8YN
+	CXvKAr2YkBC1CIKcpu/lKVSj40kU4XGkfq9OYnW58xOh1ZqZwy18j/couYuakC/awxEsOzzd2vkF2
+	8PgKoR2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27IO-00000003yc5-05iP;
-	Mon, 16 Mar 2026 12:43:44 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1w27Wr-00000003zQW-2zff;
+	Mon, 16 Mar 2026 12:58:41 +0000
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27IK-00000003ybW-0vJx
+	id 1w27Wl-00000003zPm-0RRk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 12:43:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=eLUMhmd9h4ee//Gr+wOdnrAtwTFTiQzYH/GSpPyA/Go=;
-	b=tjBYPBRiPkZ9YtHqG6mXSXJSE8JfqAKcZVeb0jnbsojRgclKpLc4kg7J/FPaST3nwr1tm/QYx
-	C6Zq4Yrz3c50DSbcnmoT5Lm5xYGcN3oqMsv1NY0fDQK0QCNi2Vc4XVb4yXIP3KtexLyKNHJOFQi
-	pABBCblQliuZDa1pinZhGl8=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fZF4K5vRSz1T4G3;
-	Mon, 16 Mar 2026 20:38:09 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 761884056B;
-	Mon, 16 Mar 2026 20:43:28 +0800 (CST)
-Received: from kwepemn200010.china.huawei.com (7.202.194.133) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 16 Mar 2026 20:43:28 +0800
-Received: from huawei.com (10.44.142.85) by kwepemn200010.china.huawei.com
- (7.202.194.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 16 Mar
- 2026 20:43:27 +0800
-From: Qi Xi <xiqi2@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <sunnanyong@huawei.com>, <xiqi2@huawei.com>, <wangkefeng.wang@huawei.com>,
-	<benniu@meta.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3] Faster Arm64 __arch_copy_from_user and __arch_copy_to_user
-Date: Mon, 16 Mar 2026 20:31:00 +0800
-Message-ID: <20260316123100.82932-1-xiqi2@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	Mon, 16 Mar 2026 12:58:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gHCIFvfOJGy3SO/JjjkkE9DvqpiaJQZPsYPdUDfowQ+9iLvdGJPjp/T+N3JQqZ6EPhsjZRE4YmLBXpygmAPFK9vaSed5LrOCHejioPL8g+Cxa7Gt09txbkv9BvAZqPvgCUY7TVfb5DE3jUbv8ilAHxYzfIyT/H0QwpMpSfXhNwhjY8mKQXmxZH1WBpYERSHRnLt+lfGM5WnOvKX6ez3RYcDqvICZJQhRl0pHRIro2RIK/jE1bm/Mhm6PMztG7jn3ADJJT16ujVWebLCDWXkmd2BeeBWvhHhAUvSUP0YSQLMHIDQLFniNDT4r415bJOknioDXtcCQr7w9a2DPQokjdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F7g3D1PdiLM4o+J1sRFRe+P02ZmYpyyLJOcEvpwPxEU=;
+ b=s11zWCDZ73wIAhW3FXFVrWi3CmYSWfH/F4YIzAopMzNTZ5p5mhoKObMgPERQEvnLJmCG/8vii6YmZUa/NZs5f6AIZQYxPLNpaOc1AEagNHd6X67lEEyUd8qd099INW0iCJy3/foLMO4tlhl/mKJZlzjTTZ2zPiW2y3HRPMEx3kZwmbC38jF0LJvo77hNwegT8L9UJ4TSQauqBTCB8VH4bN50IwPPRinkfp77CAGlb7ByHXg7fOFWU8mhvrcPht32J1ye4YtlgTssLe9l+WI3ksg4xV+SawwXYokvWgcbQ8Eh5Lykl/r3xICqlQtCeVBBAdq6faCUDpuAFvT9ly+vqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F7g3D1PdiLM4o+J1sRFRe+P02ZmYpyyLJOcEvpwPxEU=;
+ b=LOPGh2UuWb5f7wBMLdBaman7kdOAurDD7WefpiB7+x2jTZ6Jmb4nVjAi00ou0G76w3ByFd55N6hbncneX1FCAMuD+4o95t8EAjsnXASuwIStZcwm5pH3gu3T4OEyOHaUd056WOFzm1seZ6gpC/68lqYPPXAYJ6BQ0dsuoP+e1Wo=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by OS7PR01MB16981.jpnprd01.prod.outlook.com (2603:1096:604:420::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.22; Mon, 16 Mar
+ 2026 12:57:54 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9700.021; Mon, 16 Mar 2026
+ 12:58:05 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: "marek.vasut@mailbox.org" <marek.vasut@mailbox.org>, geert
+	<geert@linux-m68k.org>
+CC: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Prabhakar Mahadev Lad
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, magnus.damm
+	<magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
+Subject: RE: [PATCH 0/4] arm64: dts: renesas: Fix PHY C22 compatible strings
+Thread-Topic: [PATCH 0/4] arm64: dts: renesas: Fix PHY C22 compatible strings
+Thread-Index: AQHcswgXxNnjGhc1/UeWMH+iCL4MUbWsrS6wgAQyogCAAAJMwIAAOwEAgAAEaOA=
+Date: Mon, 16 Mar 2026 12:58:05 +0000
+Message-ID: <TY3PR01MB11346B2FDD4E9CD1DC1A1BED18640A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org>
+ <TY3PR01MB11346A57519DD3EB5BB4456D38645A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <CAMuHMdX5+smUnspgxnEy6ewL2-3htqeP-d0kX7muMVp9AAqO7A@mail.gmail.com>
+ <TY3PR01MB11346A1E1E15BB94F5C692B408640A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <15b47af5-1249-4911-b9de-7ee177740314@mailbox.org>
+In-Reply-To: <15b47af5-1249-4911-b9de-7ee177740314@mailbox.org>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OS7PR01MB16981:EE_
+x-ms-office365-filtering-correlation-id: b6036515-443c-449d-912b-08de835baa52
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|56012099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: pYYBiJw3fj3tIPMfJTaqm1jXCkymP7D+not30pexAhMP6vhnJ8xB+LHyA5G0XWm3uDhvoutd/G3BCEHV3+5sHtwjWUXzwwepYFKKEfzxF+PQIjCBXNwPzGmHNQFoRFOyCfjBwx6G0AoH/36e8ZQZwgIzDRcidt79DyZh6qM0UDbx1UmaeM50ZNRwqF536J80yNKb8+bRpRZjZYINbCacWAde/2NwwaFfP18wLUuizJte5f9hLBAcxn0StPtstPysEdmrTbxMDHDwWs/6/t9VHMOrK7ZEdV8kxHbFcTuUVlRBUyWnhjFGQwfd5JC4HxSbQ2+EloWR/QaI/hlSqgnDfZrnITf+nM/JtAC/i3iZCgwXwAGJcO8wmCO9PNZVcpCQTCVodu4a+AxtiOpXvKPbr8oF93qy3/DM3WriSbPHpr6BX8vtP9U2Ad7pKWqhSVZF/eIWCAQ+RqU6qGxXX2w+phiGBwzjjEfgQOfqoM2vVX3UtmAj0OZvyGYCSRZd0Wu0wzWEp/VAlRupX2YhvqqeTyFnFTUFxyCtJUgEjPUpBqxNRdxs/vv+ayc1HNyZNnLTkygVQFhl9uBH34CO0UhxhZIi+UPrlxiLU5X5NwX45RYjaQf0IYKWzG54LZpsc05vD8yLZ5IlBqyIuYzNF5eE9N0RV96G3OAVCkASUWJ8VL9TecEixKKoxrBt8/hVSPncsuh7zQDQ2FXgrJrqQtqTGv91EQJHXUtM92jTJ0C+Y1yy5QhmbyzzlY6EClMie0Ss
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NytIeXYyMXlzQnkzYUV6YmorSmZjKzNNaHVmZVlUeTFSVTFHb25zRDZDWHBr?=
+ =?utf-8?B?bnZCTjUrNDlJY0FWclVUNnVMY3JoZ1hUUDBrS2tTMi9YVzZtYkQ5UWdaS01j?=
+ =?utf-8?B?cm9BMjVsdTFuNFVPOVZxR1FqQWwyaWpHS05YQmNXdlAydGVKSDJjSDNkektX?=
+ =?utf-8?B?SmRqVU8ySm9GOG44cVpnSFZtMjZXN1Z2akNqdTl1VktZK1lPTWxjdTZ3NmJ4?=
+ =?utf-8?B?VDk0MzhETXVmb2ZSM24wMzQyRWVmZU9FQlNBbHpjcUFWS21SaE9EMmhBRGVt?=
+ =?utf-8?B?dFBEZWlxSVhzTnJ1b1YzOW9iMEJqUVluV1hSWUloMVllcmFFWUZlclpwVWpm?=
+ =?utf-8?B?OHRVb2llTHh0dXEzd1pKb3Rtc3M5cmU0c3B0NS9UdlYzZGx6OG14dVlWTlZI?=
+ =?utf-8?B?TkduQUpwZGxkQnhGU1VSTzlQMlZIb281WFVQQ05Dd1VGalJaMFNVOUJlVjVa?=
+ =?utf-8?B?WlVTYTkzN0NCTEdKeTZZd1pvdVNTWEJ6bzJlNGIxcVlyclVlSE5XN0xEcGJU?=
+ =?utf-8?B?TXFXN0R3S3hnYmE2WnMzT0psaTNFcGhpUk5FNkswT2NiVVRzMGxMM09XSUFW?=
+ =?utf-8?B?S1JNeldodGJFc3hjK1hFZ1RJdElGV3hsOXIreHpWUXF3Y3pwRXVJR3NhY01X?=
+ =?utf-8?B?cWl0ZjJ3S3E5UGxIaDkwZC9LWGE3ZzVGNHAvUUhxZjA4MU5OOGhjTHNhOW04?=
+ =?utf-8?B?TFR0cEpjd2FZNnYyZ3paUkZzay9SQVltL1hTckdvT25LZVlGZHFxQUhsbU5z?=
+ =?utf-8?B?M1ppQWRoWDJvM29nVWlNN3J2bHBoQW1hVURYejF1U2lScEsrTnduRkpVMzgx?=
+ =?utf-8?B?bmRhNHRBaDdaY2lrQ1NIUXhDSWFFNmEwNTY4WEQ3UDVRQ095L3F3ODdLUDI0?=
+ =?utf-8?B?Y1RjYzhsbUhFMnpTVUE5QVZ3SUJTU3VHOWUxM1Jtd0p2ZTBBYkVwWVdVWk1l?=
+ =?utf-8?B?TnowL1BMWER0ellXcFBhTGtNR1dWSk1SeE1IL3FMVkMzV2xZcWkyU3JKeER3?=
+ =?utf-8?B?VnFGNEQ2SnFBeXIxczltZDNLU0NuM09YY01yYkFIbVcxUm95dmVUQkEwWUhv?=
+ =?utf-8?B?Y2Z1aU9DcDN1V0tiNGFSWlZTOGNqa3p5ZTFSSFJ2cmtVSWliWi9rdGhCbW5S?=
+ =?utf-8?B?NndneEc2R0kxZXdxeGpBNTYwUkp5OGQzTkxQSGl4SnZJbG5YRFhMTXVWalBX?=
+ =?utf-8?B?NzY0VXBMZ2N0ZmY0NUhXNTNkUWViL2hZRTVoVVl6WlQ1QnJKUFNPaTlvandJ?=
+ =?utf-8?B?SGRzYUw0bm9nT1VtNnBVTm1wcG5JVnNhcWhMOGpFRlgzaEVOQzF4RlBQRzJU?=
+ =?utf-8?B?WG1ESEhFTHVqa3NFVnh4ZWVXT0hkUTNwZnFUcEtxdVltZ09YOVVKVHFjN3Jl?=
+ =?utf-8?B?NFExbFJHRXJHQThJd1lkYmdkZmZWa29PYnhRVlBwOHFpdTh2VVpmdEJxRmRm?=
+ =?utf-8?B?VFJBL2krb01ZbTBZTWdKWXVRSVJzNmpKQldPYm5wRjRSVjdTNzVOYkwzaURQ?=
+ =?utf-8?B?SEM3SXFGZ3lwY2JyRUZFSVY5Ujdpb3E5dnlFbVNNYUdrRExoMmxVMFlseXkz?=
+ =?utf-8?B?NWk3cG4vOXZna0l1S0k4eUZyQWpYTDVPTThkZEV3TS83VGZpQVFLeUNrR3hI?=
+ =?utf-8?B?YkhaOUltbGI4bkZZWmg5TUtKbzlLZVhHaW1OVmlmbnRXQTZiek9MOWlGRlRK?=
+ =?utf-8?B?RHkvWVJPb21GVUgxZnU2akpyQlgxUmN3eUNXaStDcjQyQXR3NVZKd2RnNitH?=
+ =?utf-8?B?YnRRU0I0ekFqV0RtQmhhYStGQXM3cmZPOUxYZXR6WjRVTW1Jbm9BN2wxTHBs?=
+ =?utf-8?B?dEYyYzlwdTU0UzFJaGpQeEZ4cDBZbmdjNUR1NS9lSG9JcU1DWDRTclZUM0I1?=
+ =?utf-8?B?WmVoK01vRDBpSUtTdEtrVUNrMjhia0E3U0RPMWNVbUhxZXJGRURIUWRUYjVV?=
+ =?utf-8?B?TnRHa0lrME9VMlZOQXB5R1pOa3NKbXcxUmRZUzJ0ZGxGNTA5Mnd3dWV4elpJ?=
+ =?utf-8?B?U0tMUlFoVk4vS09Kei92ZUlWMmc2NjNhL0wwYktlSm5MRzNzY1A2RUJiZERM?=
+ =?utf-8?B?VlZOTnlPKzhyQUNRN045UFJsVDJhTDYycFBGSmp1REZBU243cWd5bXQ5UGdl?=
+ =?utf-8?B?L2FSS3d5N0o0OEphYldmUDdFb2FWY200aURqc2U5b2VqM2V2V0hSU1RmL0V6?=
+ =?utf-8?B?cnNFVWJyMWlJQmFjcjc2dld5Nk10OHBHQWw0b01FRlRicVF3RHRHMytQK1Rt?=
+ =?utf-8?B?S0o5Qk9lQTBMUk9TY2crVFFpa1ViSnpudm5TYnREVXU2c1g1dlhzVXdWWGph?=
+ =?utf-8?B?djJrbnB2em9uWklnOSs3enhZeW9FVlBOanl0NnozM3hxR2c0WC8rdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.44.142.85]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemn200010.china.huawei.com (7.202.194.133)
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6036515-443c-449d-912b-08de835baa52
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Mar 2026 12:58:05.5662
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wX8XCIlGmidAchU+Nno/HRT2BQiYad5TqnC3enVfniQoF+6v2etn+pDeAzp3a2nss6/xNMTqs1Fs8qmWPXlJBUWM9nCJmufL6oXOZ8H7RPk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB16981
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_054340_925373_09F43BD6 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260316_055836_143395_1A039FEB 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,333 +161,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on Ben Niu's "Faster Arm64 __arch_copy_from_user and
-__arch_copy_to_user" patch [1], this implementation further optimizes
-and simplifies user space copies by:
-
-1. Limiting optimization scope to >=128 bytes copies where PAN state matters.
-   For <128 bytes copies, the implementation uses non-privileged
-   instructions uniformly, simplifying the code and reducing maintenance
-   cost.
-2. Adding "arm64.nopan" cmdline support using the standard idreg-override
-   framework, allowing runtime PAN disable without building separate
-   CONFIG_ARM64_PAN=y/n kernels as required by Ben Niu's version.
-   The implementation maintains separate paths for PAN-enabled (using
-   unprivileged ldtr/sttr) and PAN-disabled (using standard ldp/stp), with
-   runtime selection via ALTERNATIVE() at the large copy loop entry.
-3. Retaining the critical path optimization from the original patch:
-   reducing pointer update instructions through manual batch updates,
-   processing 64 bytes per iteration with only one pair of add instructions.
-
-Performance improvements measured on Kunpeng 920 with PAN disabled:
-
-The ku_copy microbenchmark [2] (a kernel module that measures
-copy_to/from_user throughput across various sizes by copying 1GB of
-data in each test):
-copy_to_user throughput change (positive = improvement):
-128B: +0.9%   256B: +10.3%  512B: +23.3%  1024B: +38.1%
-2048B: +56.2% 4096B: +68.5% 8192B: +74.8% 16384B: +79.7%
-32768B: +80.7% 65536B: +81.3% 131072B: +77.3% 262144B: +77.9%
-copy_from_user throughput change:
-128B: +2.0%   256B: +7.5%   512B: +20.3%  1024B: +28.4%
-2048B: +38.1% 4096B: +39.6% 8192B: +41.5% 16384B: +42.3%
-32768B: +42.2% 65536B: +44.8% 131072B: +70.3% 262144B: +71.0%
-
-Real-world workloads:
-- RocksDB read-write mixed workload:
-  Overall throughput improved by 2%.
-  copy_to_user hotspot reduced from 3.3% to 2.7% of total CPU cycles.
-  copy_from_user hotspot reduced from 2.25% to 0.85% of total CPU cycles.
-
-- BRPC rdma_performance (server side, baidu_std protocol over TCP):
-  copy_to_user accounts for ~11.5% of total CPU cycles.
-  After optimization, server CPU utilization reduced from 64% to 62%
-  (2% absolute improvement, equivalent to ~17% reduction in
-  copy_to_user overhead)
-
-[1] https://lore.kernel.org/all/20251018052237.1368504-2-benniu@meta.com/
-[2] https://github.com/mcfi/benchmark/tree/main/ku_copy
-
-Co-developed-by: Ben Niu <benniu@meta.com>
-Signed-off-by: Ben Niu <benniu@meta.com>
-Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
-Signed-off-by: Qi Xi <xiqi2@huawei.com>
----
-Changes in v3:
-- Limiting optimization scope to >=128 bytes copies.
-- Use idreg-override for PAN runtime selection with "arm64.nopan" cmdline.
----
- arch/arm64/include/asm/asm-uaccess.h  |  22 ++----
- arch/arm64/kernel/pi/idreg-override.c |   2 +
- arch/arm64/lib/copy_from_user.S       |  17 +++-
- arch/arm64/lib/copy_template.S        | 108 +++++++++++++++++++-------
- arch/arm64/lib/copy_to_user.S         |  17 +++-
- 5 files changed, 114 insertions(+), 52 deletions(-)
-
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 9148f5a31968..198a05d478fc 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -70,27 +70,21 @@ alternative_else_nop_endif
-  * This is complicated as there is no post-increment or pair versions of the
-  * unprivileged instructions, and USER() only works for single instructions.
-  */
--	.macro user_ldp l, reg1, reg2, addr, post_inc
--8888:		ldtr	\reg1, [\addr];
--8889:		ldtr	\reg2, [\addr, #8];
--		add	\addr, \addr, \post_inc;
-+	.macro user_ldst l, inst, reg, addr, post_inc
-+8888:		\inst		\reg, [\addr];
-+		add		\addr, \addr, \post_inc;
- 
- 		_asm_extable_uaccess	8888b, \l;
--		_asm_extable_uaccess	8889b, \l;
- 	.endm
- 
--	.macro user_stp l, reg1, reg2, addr, post_inc
--8888:		sttr	\reg1, [\addr];
--8889:		sttr	\reg2, [\addr, #8];
--		add	\addr, \addr, \post_inc;
-+	.macro user_ldst_index l, inst, reg, addr, val
-+8888:		\inst		\reg, [\addr, \val];
- 
--		_asm_extable_uaccess	8888b,\l;
--		_asm_extable_uaccess	8889b,\l;
-+		_asm_extable_uaccess	8888b, \l;
- 	.endm
- 
--	.macro user_ldst l, inst, reg, addr, post_inc
--8888:		\inst		\reg, [\addr];
--		add		\addr, \addr, \post_inc;
-+	.macro user_ldst_pair_index l, inst, reg1, reg2, addr, val
-+8888:		\inst		\reg1, \reg2, [\addr, \val];
- 
- 		_asm_extable_uaccess	8888b, \l;
- 	.endm
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index bc57b290e5e7..ac26f1f3aad4 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -64,6 +64,7 @@ static const struct ftr_set_desc mmfr1 __prel64_initconst = {
- 	.override	= &id_aa64mmfr1_override,
- 	.fields		= {
- 		FIELD("vh", ID_AA64MMFR1_EL1_VH_SHIFT, mmfr1_vh_filter),
-+		FIELD("pan", ID_AA64MMFR1_EL1_PAN_SHIFT, NULL),
- 		{}
- 	},
- };
-@@ -249,6 +250,7 @@ static const struct {
- 	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
- 	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
- 	{ "arm64.nompam",		"id_aa64pfr0.mpam=0 id_aa64pfr1.mpam_frac=0" },
-+	{ "arm64.nopan",		"id_aa64mmfr1.pan=0" },
- };
- 
- static int __init parse_hexdigit(const char *p, u64 *v)
-diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
-index 400057d607ec..1f578c4d0ae6 100644
---- a/arch/arm64/lib/copy_from_user.S
-+++ b/arch/arm64/lib/copy_from_user.S
-@@ -44,12 +44,21 @@
- 	str \reg, [\ptr], \val
- 	.endm
- 
--	.macro ldp1 reg1, reg2, ptr, val
--	user_ldp 9997f, \reg1, \reg2, \ptr, \val
-+	.macro ldp_unpriv reg1, reg2, ptr, val
-+	user_ldst_index 9997f, ldtr, \reg1, \ptr, \val
-+	user_ldst_index 9997f, ldtr, \reg2, \ptr, \val + 8
- 	.endm
- 
--	.macro stp1 reg1, reg2, ptr, val
--	stp \reg1, \reg2, [\ptr], \val
-+	.macro stp_unpriv reg1, reg2, ptr, val
-+	stp \reg1, \reg2, [\ptr, \val]
-+	.endm
-+
-+	.macro ldp_priv reg1, reg2, ptr, val
-+	user_ldst_pair_index 9997f, ldp, \reg1, \reg2, \ptr, \val
-+	.endm
-+
-+	.macro stp_priv reg1, reg2, ptr, val
-+	stp \reg1, \reg2, [\ptr, \val]
- 	.endm
- 
- 	.macro cpy1 dst, src, count
-diff --git a/arch/arm64/lib/copy_template.S b/arch/arm64/lib/copy_template.S
-index 7f2f5a0e2fb9..5ef6dc9bf7d8 100644
---- a/arch/arm64/lib/copy_template.S
-+++ b/arch/arm64/lib/copy_template.S
-@@ -97,14 +97,20 @@ alternative_else_nop_endif
- 	cmp	tmp1w, #0x20
- 	b.eq	1f
- 	b.lt	2f
--	ldp1	A_l, A_h, src, #16
--	stp1	A_l, A_h, dst, #16
-+	ldp_unpriv	A_l, A_h, src, #0
-+	stp_unpriv	A_l, A_h, dst, #0
-+	add	src, src, #16
-+	add	dst, dst, #16
- 1:
--	ldp1	A_l, A_h, src, #16
--	stp1	A_l, A_h, dst, #16
-+	ldp_unpriv	A_l, A_h, src, #0
-+	stp_unpriv	A_l, A_h, dst, #0
-+	add	src, src, #16
-+	add	dst, dst, #16
- 2:
--	ldp1	A_l, A_h, src, #16
--	stp1	A_l, A_h, dst, #16
-+	ldp_unpriv	A_l, A_h, src, #0
-+	stp_unpriv	A_l, A_h, dst, #0
-+	add	src, src, #16
-+	add	dst, dst, #16
- .Ltiny15:
- 	/*
- 	* Prefer to break one ldp/stp into several load/store to access
-@@ -142,14 +148,16 @@ alternative_else_nop_endif
- 	* Less than 128 bytes to copy, so handle 64 here and then jump
- 	* to the tail.
- 	*/
--	ldp1	A_l, A_h, src, #16
--	stp1	A_l, A_h, dst, #16
--	ldp1	B_l, B_h, src, #16
--	ldp1	C_l, C_h, src, #16
--	stp1	B_l, B_h, dst, #16
--	stp1	C_l, C_h, dst, #16
--	ldp1	D_l, D_h, src, #16
--	stp1	D_l, D_h, dst, #16
-+	ldp_unpriv	A_l, A_h, src, #0
-+	stp_unpriv	A_l, A_h, dst, #0
-+	ldp_unpriv	B_l, B_h, src, #16
-+	ldp_unpriv	C_l, C_h, src, #32
-+	stp_unpriv	B_l, B_h, dst, #16
-+	stp_unpriv	C_l, C_h, dst, #32
-+	ldp_unpriv	D_l, D_h, src, #48
-+	stp_unpriv	D_l, D_h, dst, #48
-+	add	src, src, #64
-+	add	dst, dst, #64
- 
- 	tst	count, #0x3f
- 	b.ne	.Ltail63
-@@ -161,30 +169,70 @@ alternative_else_nop_endif
- 	*/
- 	.p2align	L1_CACHE_SHIFT
- .Lcpy_body_large:
-+	/* Runtime PAN decision for large copies */
-+	ALTERNATIVE("b .Llarge_pan_disabled", "b .Llarge_pan_enabled", ARM64_HAS_PAN)
-+
-+.Llarge_pan_enabled:
-+	/* PAN enabled version - use unprivileged loads (ldp_unpriv) */
- 	/* pre-get 64 bytes data. */
--	ldp1	A_l, A_h, src, #16
--	ldp1	B_l, B_h, src, #16
--	ldp1	C_l, C_h, src, #16
--	ldp1	D_l, D_h, src, #16
-+	ldp_unpriv	A_l, A_h, src, #0
-+	ldp_unpriv	B_l, B_h, src, #16
-+	ldp_unpriv	C_l, C_h, src, #32
-+	ldp_unpriv	D_l, D_h, src, #48
-+	add	src, src, #64
-+1:
-+	/*
-+	* interlace the load of next 64 bytes data block with store of the last
-+	* loaded 64 bytes data.
-+	*/
-+	stp_unpriv	A_l, A_h, dst, #0
-+	ldp_unpriv	A_l, A_h, src, #0
-+	stp_unpriv	B_l, B_h, dst, #16
-+	ldp_unpriv	B_l, B_h, src, #16
-+	stp_unpriv	C_l, C_h, dst, #32
-+	ldp_unpriv	C_l, C_h, src, #32
-+	stp_unpriv	D_l, D_h, dst, #48
-+	ldp_unpriv	D_l, D_h, src, #48
-+	add	dst, dst, #64
-+	add	src, src, #64
-+	subs	count, count, #64
-+	b.ge	1b
-+	b	.Llarge_done
-+
-+.Llarge_pan_disabled:
-+	/* PAN disabled version - use normal loads without post-increment */
-+	/* pre-get 64 bytes data using normal loads */
-+	ldp_priv	A_l, A_h, src, #0
-+	ldp_priv	B_l, B_h, src, #16
-+	ldp_priv	C_l, C_h, src, #32
-+	ldp_priv	D_l, D_h, src, #48
-+	add	src, src, #64
- 1:
- 	/*
- 	* interlace the load of next 64 bytes data block with store of the last
- 	* loaded 64 bytes data.
- 	*/
--	stp1	A_l, A_h, dst, #16
--	ldp1	A_l, A_h, src, #16
--	stp1	B_l, B_h, dst, #16
--	ldp1	B_l, B_h, src, #16
--	stp1	C_l, C_h, dst, #16
--	ldp1	C_l, C_h, src, #16
--	stp1	D_l, D_h, dst, #16
--	ldp1	D_l, D_h, src, #16
-+	stp_priv	A_l, A_h, dst, #0
-+	ldp_priv	A_l, A_h, src, #0
-+	stp_priv	B_l, B_h, dst, #16
-+	ldp_priv	B_l, B_h, src, #16
-+	stp_priv	C_l, C_h, dst, #32
-+	ldp_priv	C_l, C_h, src, #32
-+	stp_priv	D_l, D_h, dst, #48
-+	ldp_priv	D_l, D_h, src, #48
-+	add	dst, dst, #64
-+	add	src, src, #64
- 	subs	count, count, #64
- 	b.ge	1b
--	stp1	A_l, A_h, dst, #16
--	stp1	B_l, B_h, dst, #16
--	stp1	C_l, C_h, dst, #16
--	stp1	D_l, D_h, dst, #16
-+
-+.Llarge_done:
-+	/* Post-loop: store the last block of data using stp_unpriv */
-+	/* (without post-increment) */
-+	stp_unpriv	A_l, A_h, dst, #0
-+	stp_unpriv	B_l, B_h, dst, #16
-+	stp_unpriv	C_l, C_h, dst, #32
-+	stp_unpriv	D_l, D_h, dst, #48
-+	add	dst, dst, #64
- 
- 	tst	count, #0x3f
- 	b.ne	.Ltail63
-diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
-index 819f2e3fc7a9..9738ae96c823 100644
---- a/arch/arm64/lib/copy_to_user.S
-+++ b/arch/arm64/lib/copy_to_user.S
-@@ -43,12 +43,21 @@
- 	user_ldst 9997f, sttr, \reg, \ptr, \val
- 	.endm
- 
--	.macro ldp1 reg1, reg2, ptr, val
--	ldp \reg1, \reg2, [\ptr], \val
-+	.macro ldp_unpriv reg1, reg2, ptr, val
-+	ldp \reg1, \reg2, [\ptr, \val]
- 	.endm
- 
--	.macro stp1 reg1, reg2, ptr, val
--	user_stp 9997f, \reg1, \reg2, \ptr, \val
-+	.macro stp_unpriv reg1, reg2, ptr, val
-+	user_ldst_index 9997f, sttr, \reg1, \ptr, \val
-+	user_ldst_index 9997f, sttr, \reg2, \ptr, \val + 8
-+	.endm
-+
-+	.macro ldp_priv reg1, reg2, ptr, val
-+	ldp \reg1, \reg2, [\ptr, \val]
-+	.endm
-+
-+	.macro stp_priv reg1, reg2, ptr, val
-+	user_ldst_pair_index 9997f, stp, \reg1, \reg2, \ptr, \val
- 	.endm
- 
- 	.macro cpy1 dst, src, count
--- 
-2.33.0
-
+SGVsbG8gTWFyZWssDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogTWFy
+ZWsgVmFzdXQgPG1hcmVrLnZhc3V0QG1haWxib3gub3JnPg0KPiBTZW50OiAxNiBNYXJjaCAyMDI2
+IDEyOjM3DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggMC80XSBhcm02NDogZHRzOiByZW5lc2FzOiBG
+aXggUEhZIEMyMiBjb21wYXRpYmxlIHN0cmluZ3MNCj4gDQo+IE9uIDMvMTYvMjYgMTA6MTEgQU0s
+IEJpanUgRGFzIHdyb3RlOg0KPiANCj4gSGVsbG8gZXZlcnlvbmUsDQo+IA0KPiA+PiBUaGVyZSBp
+cyBhbHNvIE1hcmVrJ3Mgb2xkZXIgc2VyaWVzIChbMV1bMl0sIGFzIE1hcmVrIGRvZXNuJ3QgZG8g
+Y292ZXIgbGV0dGVycyA7LSkuDQo+IA0KPiBZb3Ugc2VlbSB0byBiZSBjb21tZW50aW5nIG9uIGEg
+MC80IGNvdmVyIGxldHRlciBoZXJlIC4uLg0KPiANCj4gPj4gWzFdICJbUEFUQ0ggMS8yXSBBUk06
+IGR0czogcmVuZXNhczogRHJvcCBldGhlcm5ldC1waHktaWVlZTgwMi4zLWMyMg0KPiA+PiBmcm9t
+IFBIWSBjb21wYXRpYmxlIHN0cmluZyBvbiBhbGwgUlogYm9hcmRzIg0KPiA+PiAgICAgIGh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnLzIwMjQwNjMwMDM0NjQ5LjE3MzIyOS0xLW1hcmV4QGRlbnguZGUv
+DQo+ID4+IFsyXSAiW1BBVENIIDIvMl0gYXJtNjQ6IGR0czogcmVuZXNhczogRHJvcCBldGhlcm5l
+dC1waHktaWVlZTgwMi4zLWMyMg0KPiA+PiBmcm9tIFBIWSBjb21wYXRpYmxlIHN0cmluZyBvbiBh
+bGwgUlogYm9hcmRzIg0KPiA+PiAgICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnLzIwMjQwNjMw
+MDM0NjQ5LjE3MzIyOS0yLW1hcmV4QGRlbnguZGUNCj4gPg0KPiA+IEkgaGF2ZW4ndCBzZWVuIHRo
+ZXNlIHBhdGNoZXMuDQo+IA0KPiBUaGV5IGFyZSBkZXByZWNhdGVkLg0KPiANCj4gPiBJdCBkb2Vz
+IG5vdCBjb3ZlciBhbGwgdGhlIFNvQ3MvYm9hcmRzLiBJZiBNYXJlayB3YW50IHRvIHRha2Ugb3Zl
+ciwgSGUNCj4gPiBjYW4gc2VuZCBuZXh0IHZlcnNpb24gY292ZXJpbmcgYWxsIFJlbmVzYXMgYm9h
+cmRzICsgYmluZGluZyBjaGFuZ2UuDQo+IElzbid0IHRoaXMgc2VyaWVzIGVmZmVjdGl2ZWx5IGV4
+YWN0bHkgdGhhdCA/DQoNCllvdSBoYXZlIGNvdmVyZWQgb25seSA5IFNvQ3MgWzFdIFdoZXJlYXMg
+dGhlIHBhdGNoIHNlcmllcyBJIHBvc3RlZCBjb3ZlcnMNCjQzIFNvQ3NbMl0uIA0KDQpbMV0NCiBh
+cmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDlnMDExLXYybWV2azIuZHRzDQogYXJjaC9h
+cm02NC9ib290L2R0cy9yZW5lc2FzL3I5YTA5ZzAxMS12Mm1ldmsyLmR0cw0KIGFyY2gvYXJtNjQv
+Ym9vdC9kdHMvcmVuZXNhcy9iZWFjb24tcmVuZXNvbS1zb20uZHRzaSAgICB8IDMgKy0tDQogYXJj
+aC9hcm02NC9ib290L2R0cy9yZW5lc2FzL3I5YTA5ZzA1Nm40OC1yenYybi1ldmsuZHRzIHwgNCAr
+Ky0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2FzL3I5YTA5ZzA1N2g0NC1yenYyaC1ldmsu
+ZHRzIHwgNCArKy0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2FzL3J6ZzJsLXNtYXJjLXNv
+bS5kdHNpICAgICAgIHwgNiArKy0tLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcnpn
+MmxjLXNtYXJjLXNvbS5kdHNpICAgICAgfCAzICstLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVu
+ZXNhcy9yemcydWwtc21hcmMtc29tLmR0c2kgICAgICB8IDYgKystLS0tDQogYXJjaC9hcm02NC9i
+b290L2R0cy9yZW5lc2FzL3J6ZzNlLXNtYXJjLXNvbS5kdHNpICAgICAgIHwgNiArKy0tLS0NCg0K
+WzJdDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2FzL2JlYWNvbi1yZW5lc29tLXNvbS5kdHNp
+ICAgIHwgMyArLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvY2F0ODc1LmR0c2kgICAg
+ICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9jb25kb3It
+Y29tbW9uLmR0c2kgICAgICAgICB8IDMgKy0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2Fz
+L2RyYWFrLmR0c2kgICAgICAgICAgICAgICAgIHwgMyArLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRz
+L3JlbmVzYXMvZWJpc3UuZHRzaSAgICAgICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtNjQv
+Ym9vdC9kdHMvcmVuZXNhcy9ncmF5LWhhd2stc2luZ2xlLmR0c2kgICAgICB8IDMgKy0tDQogYXJj
+aC9hcm02NC9ib290L2R0cy9yZW5lc2FzL2hpaG9wZS1yemcyLWV4LmR0c2kgICAgICAgIHwgMyAr
+LS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc5NzAtZWFnbGUuZHRzICAgICAg
+ICAgfCAzICstLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9yOGE3Nzk3MC12M21zay5k
+dHMgICAgICAgICB8IDMgKy0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2FzL3I4YTc3OTgw
+LXYzaHNrLmR0cyAgICAgICAgIHwgMyArLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMv
+cjhhNzc5YTAtZmFsY29uLmR0cyAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMv
+cmVuZXNhcy9yOGE3NzlnMy1zcGFycm93LWhhd2suZHRzICB8IDMgKy0tDQogYXJjaC9hcm02NC9i
+b290L2R0cy9yZW5lc2FzL3I5YTA5ZzAxMS12Mm1ldmsyLmR0cyAgICAgIHwgMyArLS0NCiBhcmNo
+L2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDlnMDU2bjQ4LXJ6djJuLWV2ay5kdHMgfCA0ICsr
+LS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDlnMDU3aDQ0LXJ6djJoLWV2ay5k
+dHMgfCA0ICsrLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvcnpnMmwtc21hcmMtc29t
+LmR0c2kgICAgICAgfCA2ICsrLS0tLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9yemcy
+bGMtc21hcmMtc29tLmR0c2kgICAgICB8IDMgKy0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5l
+c2FzL3J6ZzJ1bC1zbWFyYy1zb20uZHRzaSAgICAgIHwgNiArKy0tLS0NCiBhcmNoL2FybTY0L2Jv
+b3QvZHRzL3JlbmVzYXMvcnpnM2Utc21hcmMtc29tLmR0c2kgICAgICAgfCA2ICsrLS0tLQ0KIGFy
+Y2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9yenQyaC1uMmgtZXZrLWNvbW1vbi5kdHNpICB8IDQg
+KystLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNhcy9zYWx2YXRvci1jb21tb24uZHRzaSAg
+ICAgICB8IDMgKy0tDQogYXJjaC9hcm02NC9ib290L2R0cy9yZW5lc2FzL3VsY2IuZHRzaSAgICAg
+ICAgICAgICAgICAgIHwgMyArLS0NCiBhcmNoL2FybTY0L2Jvb3QvZHRzL3JlbmVzYXMvd2hpdGUt
+aGF3ay1jcHUtY29tbW9uLmR0c2kgfCAzICstLQ0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVuZXNh
+cy93aGl0ZS1oYXdrLXNpbmdsZS5kdHNpICAgICB8IDMgKy0tDQoNCmFyY2gvYXJtL2Jvb3QvZHRz
+L3JlbmVzYXMvaXdnMjBkLXE3LWNvbW1vbi5kdHNpICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJt
+L2Jvb3QvZHRzL3JlbmVzYXMvcjdzNzIxMDAtZ2VubWFpLmR0cyAgICAgICAgICAgfCAzICstLQ0K
+IGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjdzNzIxMDAtZ3ItcGVhY2guZHRzICAgICAgICAg
+fCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjdzNzIxMDAtcnNrcnphMS5kdHMg
+ICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjdzOTIxMC1yemEy
+bWV2Yi5kdHMgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhh
+Nzc0MC1hcm1hZGlsbG84MDBldmEuZHRzICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3Jl
+bmVzYXMvcjhhNzc0Mi1pd2cyMWQtcTctZGJjbS1jYS5kdHMgfCAzICstLQ0KIGFyY2gvYXJtL2Jv
+b3QvZHRzL3JlbmVzYXMvcjhhNzc0Mi1pd2cyMWQtcTcuZHRzICAgICAgICAgfCAzICstLQ0KIGFy
+Y2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc0My1zay1yemcxbS5kdHMgICAgICAgICAgfCAz
+ICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc0NS1pd2cyMmQtc29kaW1tLmR0
+cyAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc0NS1zay1yemcx
+ZS5kdHMgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc0
+NzAtaXdnMjNzLXNiYy5kdHMgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVz
+YXMvcjhhNzc5MC1sYWdlci5kdHMgICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3Qv
+ZHRzL3JlbmVzYXMvcjhhNzc5MC1zdG91dC5kdHMgICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gv
+YXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc5MS1rb2Vsc2NoLmR0cyAgICAgICAgICAgfCAzICst
+LQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc5MS1wb3J0ZXIuZHRzICAgICAgICAg
+ICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc5My1nb3NlLmR0cyAg
+ICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMvcjhhNzc5NC1h
+bHQuZHRzICAgICAgICAgICAgICAgfCAzICstLQ0KIGFyY2gvYXJtL2Jvb3QvZHRzL3JlbmVzYXMv
+cjhhNzc5NC1zaWxrLmR0cyAgICAgICAgICAgICAgfCAzICstLQ0KDQoNCg0K
 
