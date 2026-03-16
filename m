@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5ECF506D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E21F506D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsoCTDVRo+rwPDPpTHK76+764H+MxyBChVTGTOtAaHo=; b=LWuAqd9Oi5loDPWGMuIfoBP3H5
-	StPRgayMiXURRXc22h83rf7p8j2ynBs0da7lEX0Mzqy1Vx7Wj+6MF2PbaMJ9SiI5MDFsJd9bYSk34
-	V9R0wK+ocaX81hmBC5Pai5qmkqHIUkiZWVdUR9Axda4qSebkCE1Ovn0d2P5eGuUW6C+MvbnIdfUXZ
-	Q0O44CM7RAmeG65iwBemhdubmoPqTSa4fGVk1WopiTIJWoK7l7MS/p84l58AB+MTzOdf5AfPdkqsT
-	hnmkossyGueQxsPt0YCxJ4Rm2LPERjfqVOS1t1+bj1Vs93ie2SncgYEZEmPrMv6xBkwdNpYgWpKDf
-	wpAGCwlg==;
+	bh=wYH3+XpB4a2gyPrlHeP5QGbRc5PtadVy9tM/LQIg5+4=; b=XAcA1gKAMSl3wxvBPxb0vQJ5bZ
+	KwXlymoVcYxLUtoubuyMxKY4rTUbrwSyPgtc+zl86jHw8xQJ++WLh/+yjnzzVEtibu+lyR3jp1St7
+	NaAR0dT/6++wFlqYa7DsHFHN5J4osiZ1kgKmi/sxNaoCRRs3MH/lA715o/theJRdtpkCRDK/0D4+g
+	gbie3l4H7zmNpmZP6kuVpvjB0XRTcihHDP7jb0Gie5rXJ6oLGCyqF7KAHbAr7i1CK55L1GJ2UfXyp
+	qT+M7390m36dtLMhNcjNGKiweJnT7ocwZrn0+0UHvKjsb0TZz0a1E2Vpgb5NooF9mX46Iz31srdbI
+	3+SS4tXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28Fv-0000000464W-3gMN;
-	Mon, 16 Mar 2026 13:45:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w28Ig-000000046Kz-2bQB;
+	Mon, 16 Mar 2026 13:48:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28Fq-00000004631-1HR3
+	id 1w28Ib-000000046KJ-32mR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 13:45:12 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1w28FR-0007l4-6I; Mon, 16 Mar 2026 14:44:45 +0100
-Message-ID: <ea59ff34-73f2-491c-88cf-51d1ac3db424@pengutronix.de>
-Date: Mon, 16 Mar 2026 14:44:43 +0100
+	Mon, 16 Mar 2026 13:48:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3183E43DC6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 13:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116AFC2BCB6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 13:48:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773668881;
+	bh=wYH3+XpB4a2gyPrlHeP5QGbRc5PtadVy9tM/LQIg5+4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=WNO2jL8UFzemSHy8wKyOjybG6A894XcF0Mr2GP7xDqXNPhfOewmTjnPx7+dGP4vrs
+	 AAAg+o+rCVE+oYluMYhs8V6q8ink65Zdp06Pgpm3Y4fU/gEjrhAiXx6U89U3c04v4o
+	 ovj7CQf3bgi96NwiXcOJIU8SaYv/It8CnR0P0BVraes+pNig4RILxO9x/zrkSGMjod
+	 G5/Lmgw1hbQFo0DTTf58Ii4olqXzCxbpOPGFlgCJh1JtZ3Z/UYu5YSis8HNlM0i6GD
+	 A/5uQI5V/YN2/7DhivuV2DteoZVmZHw84/JEEAPWUGI4TjIHytGU088MpYQEpRa19N
+	 Dc1Ert/rh0oiw==
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-79a46260385so10566867b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 06:48:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVX8lERcrRcBz5Ch+OR4pTaCyg1p++VrxtMtP2tmKhuWegLqV0+ifFwzXhCgd1aMv/SCHhfyTR7UD1NGDzrEUIK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXCCw+ZAcOuCQlvFNGB/BvJulapyb6ai6KFa02X0p8j+XtNysf
+	z0l144vG9zffLKhK6cjwzIk5FA9kYfIMgBuFo31w3+o0Lb1uw18GtJnRMc3BA7EktMp9GiOKqxc
+	sT737XJ1U/KhUbhQpzmifgasGdjwa30A=
+X-Received: by 2002:a05:690c:20a2:b0:798:6cc2:69c9 with SMTP id
+ 00721157ae682-79a1c0d0184mr99248767b3.24.1773668880274; Mon, 16 Mar 2026
+ 06:48:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/7] arm64: dts: imx8mp-evk: add board-level mux for
- CAN2 and MICFIL
-To: Frank Li <Frank.Li@nxp.com>, Peter Rosin <peda@axentia.se>,
- Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Haibo Chen <haibo.chen@nxp.com>,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
- <20260311-pinctrl-mux-v3-6-236b1c17bf9b@nxp.com>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <20260311-pinctrl-mux-v3-6-236b1c17bf9b@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20260312113040.68189-1-eleanor.lin@realtek.com> <20260312113040.68189-4-eleanor.lin@realtek.com>
+In-Reply-To: <20260312113040.68189-4-eleanor.lin@realtek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 16 Mar 2026 14:47:49 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmyGNR-242npzHpENhXu7mmuwfLf=ZnoFnfKECFdinS2Q@mail.gmail.com>
+X-Gm-Features: AaiRm50SIXiDQuSs2d8ukotnHyL489fbFBxqS63wwvx1B_UNJFo44E1ehctETTQ
+Message-ID: <CAD++jLmyGNR-242npzHpENhXu7mmuwfLf=ZnoFnfKECFdinS2Q@mail.gmail.com>
+Subject: Re: [PATCH v3 3/7] dt-bindings: pinctrl: realtek: Improve
+ 'realtek,duty-cycle' description
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	afaerber@suse.com, bartosz.golaszewski@oss.qualcomm.com, 
+	james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, 
+	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_064510_354727_3C4C6A81 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20260316_064801_791839_C2D361F2 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +87,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/11/26 8:08 PM, Frank Li wrote:
-> The board integrates an on-board mux to route shared signals to either
-> CAN2 or PDM (MICFIL). The mux is controlled by a GPIO.
-> 
-> Add a pinctrl-based multiplexer node to describe this routing and ensure
-> proper probe ordering of the dependent devices.
-> 
-> Previously, MICFIL operation implicitly depended on the default level of
-> PCA6416 GPIO3. After adding the pinctrl-multiplexer, make the dependency
-> explicit.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+On Thu, Mar 12, 2026 at 12:30=E2=80=AFPM Yu-Chun Lin <eleanor.lin@realtek.c=
+om> wrote:
 
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> The previous description was misleading because this hardware block is no=
+t
+> a PWM generator. It does not generate a signal with a specific frequency
+> and duty ratio.
+>
+> Instead, it provides a fixed nanosecond-level adjustment to the rising/
+> falling edges of an existing signal.
+>
+> The property name is kept as 'realtek,duty-cycle' rather than being
+> renamed to strictly preserve Device Tree ABI backward compatibility.
+>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 
-I really like this new abstraction.
+Thanks for working this out,
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-> +	can_mux_pinctrl: pinctrl-gpiomux {
-> +		compatible = "pinctrl-multiplexer";
-> +
-> +		can_fun: can-grp {
-> +			mux-states = <&can_mux 1>;
-> +		};
-> +
-> +		pdm_fun: pdm-grp {
-> +			mux-states = <&can_mux 0>;
-> +		};
-> +	};
-
-Just to make sure: If both &flexcan2 and &micfil were enabled at the
-same time, the existing pinctrl clash detection will also work for this
-new pinctrl-multiplexer and point that out, right?
-
-Thanks,
-Ahmad
-
-> +
->  	memory@40000000 {
->  		device_type = "memory";
->  		reg = <0x0 0x40000000 0 0xc0000000>,
-> @@ -446,7 +465,7 @@ &flexcan1 {
->  
->  &flexcan2 {
->  	pinctrl-names = "default";
-> -	pinctrl-0 = <&pinctrl_flexcan2>;
-> +	pinctrl-0 = <&pinctrl_flexcan2>, <&can_fun>;
->  	phys = <&flexcan_phy 1>;
->  	status = "disabled";/* can2 pin conflict with pdm */
->  };
-> @@ -712,7 +731,7 @@ &lcdif3 {
->  &micfil {
->  	#sound-dai-cells = <0>;
->  	pinctrl-names = "default";
-> -	pinctrl-0 = <&pinctrl_pdm>;
-> +	pinctrl-0 = <&pinctrl_pdm>, <&pdm_fun>;
->  	assigned-clocks = <&clk IMX8MP_CLK_PDM>;
->  	assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
->  	assigned-clock-rates = <196608000>;
-> 
-
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
-
+Yours,
+Linus Walleij
 
