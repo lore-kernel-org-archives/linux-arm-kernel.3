@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B868F53D7E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B14AF53D83
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXl/MjJNGRwsoGFVyJ2Pf41NztlE1yOSwIXZL0U4rzc=; b=IITEF36c5O4ztGLeeNVDjbTzsv
-	6AU04D0eYXO32Zj39ZoQy/X5/X70WkPNKeAe4li6k77R4xw7HAr4erGlgquQV44s5WoACGhRUioY1
-	ixBfGq4LUbvYJTYxftVEuk5uhD0VUzHvf1YvIcDCy4A51TwhuGAxVJa0NWhpNaKx2Eg0VANvYX2Xi
-	rDE6XUGhf1M+KoXh7GAXtm0GLJuKrOJgHnFdcH+uB8urv02ZkYuNTh7PtkyXkvw0f2FjImwPBAHG5
-	xJ1kqOFta85iNfVGYRulNGZwBFmiUERUopNAGhTGGBJpKEuNiNVAzIzHpXpe6r9cIJRrN4jomqtzR
-	RO07GZ0g==;
+	bh=pxRn3wVpnx+ZoGO/Dvvf/smHaTJ/FoUA7V2QYbx/mVk=; b=B4mlLrFxUXiD/85EhuIXt4eS2e
+	olSdHT0IHNmImzkJj+ZvxlkmsfvfE58n98kM+yf7G0K9pvIsSfeQvt/467R7mn6dJfgHmwBIvXmEw
+	GFF6GWrsnzlk2j3yUzBJnLigz/KiPl+L06JsLqhCnUTPxoJznsYMQve2YYULq5IuFrmdchvWwvBWf
+	nywjUJa8P/efAQC+cJNsPx1YlHY012zy+XtQsmX3OlrGFF2trAnC6njnOASNcRE+ekQh26s+dgCVu
+	xmRMAuc735l4uS9AoYK9kuLxrdlIFM7PcboYDzQnxFfPwBpg0pOfwBecMOa313OcW+bIYPcy1sPpg
+	4j1QPqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9n-00000004cpn-0fCx;
+	id 1w2C9n-00000004cqx-3JrL;
 	Mon, 16 Mar 2026 17:55:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2C9f-00000004cjn-3b4M
+	id 1w2C9h-00000004clC-1HBZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:55:04 +0000
+	Mon, 16 Mar 2026 17:55:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 082CE4438B;
+	by sea.source.kernel.org (Postfix) with ESMTP id AF16C44572;
 	Mon, 16 Mar 2026 17:55:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D17ADC4AF09;
-	Mon, 16 Mar 2026 17:55:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 867AAC19421;
+	Mon, 16 Mar 2026 17:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773683702;
-	bh=mi4o7VJwjJ7mCXjGkRr0+qnth9Sye75ortbEYQO/k/I=;
+	s=k20201202; t=1773683703;
+	bh=S9BG/7xPpOu8U0aAfaIVPmi8MtVwmOxDoQeqtQS+iaU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=as0uQIopz2uqNw2ogQDOhJhgE9uDwUL17b8/+VRB6h3Kr7qDL5gjhtEFtRugyBx0l
-	 w043z5d79Uri6ia+iOtZ3XwNYns43ClBGFU9JYxIImEFMKuIrSzcSi3hPq6IGo5kna
-	 0zLXi4zVlitLQtjlXgTYKAKnmzKoYgjAr+BHzAlOvfEfB+ee6GuUE2zVrCD/78bkMX
-	 n2Lx9HJW3XrfOR/ErUMu90FfgV+FPerOEyd0oqWRrO+xwqywKLPGXoqcSdb+4zdeRF
-	 8Lts5w4S31ya1+4jUOrpmFfM4AxyiMLLllmvDslfy777rF/vKHojM7RHro420n8gZ2
-	 kX2d4dPnTlyew==
+	b=HBr8Aaoz6+AqRiwPED51/+M9L1DbPyG3AnjZyAltrJnflYWzluLmYHQqMg9UtNgRO
+	 WY7G5xF4rGiPwoqxCggNGQ9/DQXhHMUUtqfKQZ4YUVjIfaSAXOeWFA0EHW//JRzSaR
+	 VICPrE3Ogb/6EegNXfDG91RIHe/nm4rHDp1NT8cRzFOMiGucaQU0HqkFivNWAicfYo
+	 IfM1aPV7NwaYA8uGbAoIL7cXYFv+AmFPSYdVg+Pg7zH3an7l8FpdQ4Zu1GLyP7Gyae
+	 TT8+wVRgIHZVmNAZ3xeeQfhL/K1Y8stkOkpwhHLegHXmtMwszxSc8UTl5sSISSOWSm
+	 j6r4MAn51C8Ww==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w2C9d-00000002XDx-0OnR;
+	id 1w2C9d-00000002XDx-2PAC;
 	Mon, 16 Mar 2026 17:55:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Quentin Perret <qperret@google.com>
-Subject: [PATCH 08/17] KVM: arm64: Kill topup_memcache from kvm_s2_fault
-Date: Mon, 16 Mar 2026 17:54:41 +0000
-Message-ID: <20260316175451.1866175-9-maz@kernel.org>
+Subject: [PATCH 10/17] KVM: arm64: Kill logging_active from kvm_s2_fault
+Date: Mon, 16 Mar 2026 17:54:43 +0000
+Message-ID: <20260316175451.1866175-11-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260316175451.1866175-1-maz@kernel.org>
 References: <20260316175451.1866175-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_105503_938088_4D280D4D 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260316_105505_389127_205DEE74 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The topup_memcache field can be easily replaced by the equivalent
-conditions, and the resulting code is not much worse.
+There are only two spots where we evaluate whether logging is
+active. Replace the boolean with calls to the relevant helper.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/mmu.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 11820e39ad8e1..abe239752c696 100644
+index a5b0dd41560f6..caa5bedc79e19 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1712,7 +1712,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
- 
- struct kvm_s2_fault {
+@@ -1723,7 +1723,6 @@ struct kvm_s2_fault {
  	bool writable;
--	bool topup_memcache;
- 	bool mte_allowed;
- 	bool is_vma_cacheable;
  	bool s2_force_noncacheable;
-@@ -1983,7 +1982,6 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 		.logging_active = logging_active,
- 		.force_pte = logging_active,
+ 	kvm_pfn_t pfn;
+-	bool logging_active;
+ 	bool force_pte;
+ 	enum kvm_pgtable_prot prot;
+ 	struct page *page;
+@@ -1853,7 +1852,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+ 			 */
+ 			fault->s2_force_noncacheable = true;
+ 		}
+-	} else if (fault->logging_active && !kvm_is_write_fault(s2fd->vcpu)) {
++	} else if (memslot_is_logging(s2fd->memslot) && !kvm_is_write_fault(s2fd->vcpu)) {
+ 		/*
+ 		 * Only actually map the page as writable if this was a write
+ 		 * fault.
+@@ -1985,11 +1984,9 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ {
+ 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+-	bool logging_active = memslot_is_logging(s2fd->memslot);
+ 	struct kvm_s2_fault_vma_info s2vi = {};
+ 	struct kvm_s2_fault fault = {
+-		.logging_active = logging_active,
+-		.force_pte = logging_active,
++		.force_pte = memslot_is_logging(s2fd->memslot),
  		.prot = KVM_PGTABLE_PROT_R,
--		.topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
  	};
  	void *memcache;
- 	int ret;
-@@ -1994,9 +1992,11 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+@@ -2001,7 +1998,8 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
  	 * only exception to this is when dirty logging is enabled at runtime
  	 * and a write fault needs to collapse a block entry into a table.
  	 */
--	ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
--	if (ret)
--		return ret;
-+	if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
-+		ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	/*
- 	 * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
+-	if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
++	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
++			    kvm_is_write_fault(s2fd->vcpu))) {
+ 		ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
+ 		if (ret)
+ 			return ret;
 -- 
 2.47.3
 
