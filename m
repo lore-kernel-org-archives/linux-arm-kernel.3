@@ -4,137 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EF5F30298
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 03:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DC7F30298
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 03:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sesXusHnH+y8IG4TACmcY3vkIHIJl3C5XxrZfc1VzAQ=; b=etaGp1D1ye8IAhQTnbsHl4aem8
-	EsHq558uCinrxY2WdTixmUrBDZvVI35wwujnT7ya8FmVZ19fsazVtp0UujCIA5Nv8mepsBhapUOlY
-	Mj/54QFZIyAj6l+s0nV5ncrxQa4UYvvWpaWMFsBb9ZfFtOskVQ1k+8eOdZanA/iIpxkITU6wV8cGt
-	DE/jpdaAQZYxTw7XgDap4d3DdAntgxv0WhIP/bZyL07IPP6a42Ae8yTjq8MnDzAcOEx8RyQixlXe4
-	7Q7xir1yp+CP6xh8/7HLtELeFREKN1muCS9OO6NohzEErI2AArnweXWroLSiSvQMFX7E2B1k4sXvV
-	Yar3lB6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=euD4SQJWyl0XJtyrMHkwNbP+gc8j+sYgCcDACn9mPo4=; b=O/ZKRVyroVZ37AZUzOjCMYMsfs
+	lUS6HmaSULltmH23U5FmntW884pDVSh3hvWWBT5fysVAPA8gSOvx4Uxy1zyz8zTuiHr1DcZCidBYm
+	uoKd97+XOlFmXwHGj7MPSH7u6hQCm4h9xP1k2zkhBpFfhXORsAzWcz+YbN9i2mTgg+LzBXrHH1b7F
+	XXVzYq01uaTVpln45abh5apXj1wHkE9bEEqGLtJsrJPZMqryQstseGWZ4syWNMWxrhbiAnnVwNIkM
+	RPwxNj4kA+ntZhIPEBrXu9ThKUdfh6aGqjdSHJrqGYkWs0A7tzmlkmT4CGlQR4IjAg88baGc7zWfs
+	L3iHXZ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1yJ0-00000003FVD-2Mt2;
-	Mon, 16 Mar 2026 03:07:46 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1w1ySd-00000003G1j-2fqc;
+	Mon, 16 Mar 2026 03:17:43 +0000
+Received: from mail-m60108.netease.com ([210.79.60.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1yIy-00000003FUs-0FYB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 03:07:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gQjbJ318a0oTHiDoXdiAp+3gMvvpd/xuY5KTSnvjNJEg8ZUPt0N03emDndE6VeN+u9rLtFL5pb6lJd7Wn5XRC6rK2rDyiGoochyKHo1W4u1kiJdp2d/0HQB1GXSglSEDDp6T8sOfwjn7EpJkqzo1ZgMPOTAjF6aniDxBjNnGtLTEAo/KjPpBq8w4oURVChB8QM6i5i4MYMIzrAuu7Re9kWg1PBVWv0lgBRR3J33c9AHrDrfUjWg6NOsptiXEvxwTBRNYYzsU3RQkjBCUCiSauaUhNQCCdVjyuk6mU1IOVGnoMfja+rsw3m7rAJq4yM27FsoBbgDTgdhSVX37MOyzTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sesXusHnH+y8IG4TACmcY3vkIHIJl3C5XxrZfc1VzAQ=;
- b=BpFyb9z4riqapkCeYrXOfsVrcgWlEGtx4+D8h6GjmkbTh/fQFfWWyrR76yStFSe+sLMBUj6IrVssJWIz6vu8gQtpQPhyGoCVgnlu7fT0gTVQMoCZRhGnv8qkDuD4xQIb9j1HppdGq/t43dA6WMGb2HosVD8pkcuVUbvWuhJ4tSxTn/xVNTOuyNsiypLkJLkEajQBDHPphl6g2yLFxCk2v+AcIYDjxjdlfhceF3ywd59xk4KFNsRhVaS2h/PcToi9VBCn36KmtxBw5rVWGPhBeXn2pbmXsNAr63gu3AZWVaWnGarlevAGvSuXrhEHxiP+GX43sWcOwRnQ9bDWhJayvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sesXusHnH+y8IG4TACmcY3vkIHIJl3C5XxrZfc1VzAQ=;
- b=PGKsak0LIuj88O2GWfzV87CYy3c9BLz7M1wDFkB15GnUwuGPj7DbboVfubbzc0k3Dhd8hTg+5uIIuOx8SPC0FK0UOGFHBA4eD17IburXlTMsoZSogSVP/9FoQX4vScPaEoJ+dQfAEWGD0CxCAC0KqA9cIRdqlM3brW2v+7Ea9MgUCiWDtPiaCDnTtSt47dTGVv7AYTbgUJUm/XEQ5DBjWMoENZY/8DXb7YjW88K+a6gP1DEHw6D2c1UfyOJx34mAIFmtP6EkRx8PjjbvNOSYvUCCs6PnzW7ETgPy9qc9mUzG1urbRVvX77vK4xBO21DtzAAUL6j96VPMs2hQ6SJSYA==
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- (2603:1096:820:78::12) by OSNPR06MB8345.apcprd06.prod.outlook.com
- (2603:1096:604:485::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Mon, 16 Mar
- 2026 03:07:34 +0000
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6%5]) with mapi id 15.20.9700.022; Mon, 16 Mar 2026
- 03:07:33 +0000
-From: YH Chung <yh_chung@aspeedtech.com>
-To: Mark Brown <broonie@kernel.org>, Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
- Jeffery <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
-	<maciej.lawniczak@intel.com>
-Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgAACQICAAASLgIADy9LQ
-Date: Mon, 16 Mar 2026 03:07:33 +0000
-Message-ID: <KL1PR0601MB427619F9E0D2259597D68A309040A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
- <20260313-energy-casket-ca8adc1f1fd1@spud>
- <903bcc13-5b50-462c-8fa8-051f07748127@sirena.org.uk>
- <de40d5d7-2d2b-46a6-a725-c691005b63bd@sirena.org.uk>
-In-Reply-To: <de40d5d7-2d2b-46a6-a725-c691005b63bd@sirena.org.uk>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|OSNPR06MB8345:EE_
-x-ms-office365-filtering-correlation-id: 71c26419-9c72-4ff1-a9e8-08de83092b0d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|42112799006|1800799024|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: biZIH8zzsJkpaWG0PxbDjsUpWFA6Cvkg7K7Uv8uaRWoXdSuHsK17A28Yjvq060TxgjJnELQGGkNKvDYRgitOHQS2yV63b5LUkUMUmpe/iv3tvgRYTOLO358HXanA4d5mrTl6zLrUWJiqAGhbpWFgKegW7BEawIfwMrGxEUJ3WoCCxzn2XiWPRS3joDBEqNqJHqdK2LYhROXRfDTJc7344ytkiTnpcEysxRJnVKcwkF0fc0+bAj1UKwU76jzwF0IUxq/0q90i2t/giT4Fn0jhtv6nPFQZz6VI3HV4SmTG7wojTzCVzqQOlPYpWifgCpkwulElyIex5v8Z0EwPgoievQZhHjwXqAINe+s6icFL9zsWdXm1oiQMuUUVnR+d4rVnB6btOeqKSyaVBUpOMv+tgo7gIVqRMLfEWTLhSvjB7SWMhKoqagOYOSgB2XRoVc0dJ7j09sxhiOkPkxzDB78EAwbE9DTCGzOSsdYmoPhY7bUiJyFVlOdr3S9zhBu/Iga9cVjeVMgcV66IzBxdRFTzRjbymAp+krVEo6rYk6U6ZkB3IY25+JUZCDgffGTjwPLsEZIYJT2Yq7EvIiq4dy7VMHP1a4xWsnLADwikuIVzwK/6vk+BJ53ZWMiuhtepE/3ln4mXj4oyeRDcmIwQbvgb8WP8jtqB6+MchnKY/ebBORRoVRBjZZIyeJ/98H3znUI3fMA78K8TiVClH0D4QlyZMu1uAL8SZ2PLqbAhkdNNo7HXHzbHefVq/HyjlEfJevsUdicESPd03Su+DodM+OCChbTC6FiiX3DUUJ95wzBRxq8=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(42112799006)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?7xV1B8pzDY5gofWgiX2wuDiQT2bw3lGz/szd/OMYASfv9qxkLk4DwBuR36vi?=
- =?us-ascii?Q?Sl09vMZbKhRBb+4T94FgAWbsGaWSF9MtEXN/Hgxln0D/drB78XvFtXv32cKW?=
- =?us-ascii?Q?eXWe1PERdEBY95VhstbvAZ2yW/cbx0/3HPGx4CSge+cQa385Rti629NEnq2d?=
- =?us-ascii?Q?a+fWXCT8pAGpA6U/O/gWPm00sXJ8FeDZ8qjAXk3lychl3f1kKVPeK55Ic6Wk?=
- =?us-ascii?Q?eB1VzeXv7sB3axssWxI0MfrPpHQ1w+okx7QjI70VeXslTIz8pwWTkgCUiloW?=
- =?us-ascii?Q?3DVW8CSxmfN8/HZer9s133Yo4IV6gDIMaCDxkUbel8t0VFH+0ty+8UQiBU3h?=
- =?us-ascii?Q?gfEPFsNYu/L2WIFpUprijkFkQ+Q0MkcziMhqUjnGPugPSjEUU2vx36pH2sUX?=
- =?us-ascii?Q?XZu4FyXGDJE41Q90nIpBCwT1A0UNPmQp/at//NtwXd+rrQl/C769PN9DpUZw?=
- =?us-ascii?Q?Ed/a3WCNPrhNOAVf56lGasuXp8j4ddGKm0bC09RNAefa+Ct8W9rWsMhfYwH4?=
- =?us-ascii?Q?t67f0YVyvzQm3MdOfhR6TZ+tUjR+Js7yMIK6LXGi5mzteE4lMjSmRbNlij/S?=
- =?us-ascii?Q?MMaSIACaWSUfejyaxhb/aA5/SU9P8D3OHDlaDvflL3aUvQ+6pCPdPCspMJ9q?=
- =?us-ascii?Q?SqcEqNolkQUPdv26pBjCxKIbBfDmA5H7S+E5kVbM3HfyBZCZ21ssx6ChcPf/?=
- =?us-ascii?Q?h4n8WmELUpR0FHrE1CTe4fe+pmNJ8bPZiuCsJLjBmB7ogB3fHqEafZlut8hQ?=
- =?us-ascii?Q?VZMHd3F/F7RVjEuaoqAJqvnXpa/3go/TJ4fG+xImdaebKAVEbwUVzP4QcPWT?=
- =?us-ascii?Q?Mr68Nl2gvV9+ST4AdsRsNdqN0WLxHbpsjgJWWgiadtBISE6TEzJd+BBDnmq9?=
- =?us-ascii?Q?7dzrCmGbs22bI8dNcrvm/TvaVPb3m6O4PQt3L1R79ZejN+NoxtiyDX5tssdL?=
- =?us-ascii?Q?6dKYdNzXyCQZQwCnjGxoTrRv6j576hcEv8gMZGTngy2nhazYqnyxxVA/popi?=
- =?us-ascii?Q?29l0maiAMsC3S2zMIULcGsflRgyg6EdHDMEvYcAJwAyE1baUeW5ov3JQ1X9B?=
- =?us-ascii?Q?PScy7u8AYzEjrmzYhv0cyyhmRpFJUoMoejEyVrtYc+G4dkkTAnHCglQv9+IK?=
- =?us-ascii?Q?JEUGRgaWrl3TzagM25yZQoFL5nlhMn+QkVaF6uQ0qhkrE+LuXDi/dP8lLA0W?=
- =?us-ascii?Q?43hgpm5XMel9Tq6b7gTKgfoV+Pl9l5SFHEYGNITsVog9xIIYSylgy6/WkJab?=
- =?us-ascii?Q?t1JpEqC2N0g0Zc2WCdwGohpsxTqZ8h6wVrJ2TSfDsrMIl6Ps+OMKI5TR4F5C?=
- =?us-ascii?Q?qbn7wxl5pVvx0gbU9OEnnwwmGwsvo8ZGnq0M1DOh69X9FLN+cGjUdCHwzsTq?=
- =?us-ascii?Q?H9DL03hay1Q6HIn4zmhaVIdG5CGyhR4MAJoVocGA2/bzrykyxM9lwM8IPSSN?=
- =?us-ascii?Q?G64cIWzDPYC4pfkQ4qBS7DV53FvKMwgHa56YxdeH9wg1kqoQadq8PE8CvUHY?=
- =?us-ascii?Q?nSgXRPZ8RZRcz7zL+xR5ilqHLMZSI+W454OXrtVvui4CXjiKtU3ZZNOxrpkf?=
- =?us-ascii?Q?liyrWHSXAihNoswdK8LN7IDAN6X0pEpk6mT+vWHR6PlhlHEKh+UYDH5trKim?=
- =?us-ascii?Q?BgCdjdVf8EoUza9JXndjOJT4idws3h5HXu61qV8m8B8ENdSlH9WtjZEM+4ND?=
- =?us-ascii?Q?RM5UEVPVtAiPfaSUnqY+GlBYrHVLYceroLYwXwTpTh9lHvDxjqJFjOUXV47K?=
- =?us-ascii?Q?xRSSiqopMg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w1ySZ-00000003G0U-3hIl;
+	Mon, 16 Mar 2026 03:17:41 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 370ae76b1;
+	Mon, 16 Mar 2026 11:17:30 +0800 (GMT+08:00)
+Message-ID: <bebadd3b-2fd1-404e-bc64-205c8b44880c@rock-chips.com>
+Date: Mon, 16 Mar 2026 11:17:30 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71c26419-9c72-4ff1-a9e8-08de83092b0d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Mar 2026 03:07:33.3092
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: KtYTUCQCz8xloETKxwdEOS+xVWeWj/9iEP68/mtRNdgtto1qAKL90AY+zhyA0GRz30jXp2jo06Yr0yrmK+3WLg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB8345
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 11/18] drm/bridge: analogix_dp: Apply
+ drm_bridge_connector helper
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
+ heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
+ dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20260310012458.169272-1-damon.ding@rock-chips.com>
+ <20260310012458.169272-12-damon.ding@rock-chips.com>
+ <DH1TKWREZMFK.3BY4NY36BXLXG@bootlin.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <DH1TKWREZMFK.3BY4NY36BXLXG@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9cf4a612fb03a3kunm3b3e64f61969b4
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkpLSFZMThlITR4aQx8eHh9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=BnqeoqLsGb84BqtPqXiW77m3kBjYMloScvhA6p+8X+sHkdC6G2lBx0K6yTjyx2Pd+6UWnlkIoQZFCKdzbWmIIexPdLKAY2fA5Z0jwBTHiGasgpMISS4eqkCCCA+fPdJ/F+0mi5Gxidvpe/xNvUK/wY8tWC6CoTyvjZ0pFwGHc0A=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=euD4SQJWyl0XJtyrMHkwNbP+gc8j+sYgCcDACn9mPo4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_200744_347998_23E19A49 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20260315_201740_520060_B631D6C8 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,53 +84,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark, Conor,
+Hi Luca,
 
->On Fri, Mar 13, 2026 at 04:32:31PM +0000, Mark Brown wrote:
->> On Fri, Mar 13, 2026 at 04:24:22PM +0000, Conor Dooley wrote:
->> > On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
->> > > This series adds initial support for the eSPI controller found on AS=
-PEED
->> > > AST2600 BMC SoCs.
->> > >
->> > > The series introduces a eSPI controller framework for ASPEED SoCs un=
-der
->> > > drivers/soc/aspeed/, adds AST2600-specific controller support for
->> > > peripheral and flash channels, defines the corresponding devicetree
->> > > binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
->> > >
->> > > The driver is intended to support host-BMC communication over the BM=
-C-side
->> > > eSPI slave controller present on AST2600 systems.
->> >
->> > This all seems to be in the wrong places entirely, shouldn't an eSPI
->> > driver and bindings go in the spi subsystem? FSL's appears to be there=
-.
->> > Mark?
+On 3/14/2026 1:10 AM, Luca Ceresoli wrote:
+> Hello Damon,
+> 
+> On Tue Mar 10, 2026 at 2:24 AM CET, Damon Ding wrote:
+>> Initialize bridge_connector for both Rockchip and Exynos encoder sides.
+>> Then, make DRM_BRIDGE_ATTACH_NO_CONNECTOR mandatory for Analogix bridge
+>> side, as the private &drm_connector is no longer created.
 >>
->> As documented in submitting-patches.rst please send patches to the
->> maintainers for the code you would like to change.  The normal kernel
->> workflow is that people apply patches from their inboxes, if they aren't
->> copied they are likely to not see the patch at all and it is much more
->> difficult to apply patches.
+>> The previous &drm_connector_funcs and &drm_connector_helper_funcs APIs
+>> are replaced by the corresponding &drm_bridge_funcs APIs:
 >>
->> Please submit patches using subject lines reflecting the style for the
->> subsystem, this makes it easier for people to identify relevant patches.
->> Look at what existing commits in the area you're changing are doing and
->> make sure your subject lines visually resemble what they're doing.
->> There's no need to resubmit to fix this alone.
->
->If this is a driver for SPI hardware it should be under drivers/spi and
->use the framework there.
+>> analogix_dp_atomic_check() -> analogix_dp_bridge_atomic_check()
+>> analogix_dp_detect()       -> analogix_dp_bridge_detect()
+>> analogix_dp_get_modes()    -> analogix_dp_bridge_get_modes()
+>>                                analogix_dp_bridge_edid_read()
+>>
+>> Additionally, the compatibilities of Analogix DP bridge based on whether
+>> the next bridge is a 'panel'. If it is, OP_MODES and OP_DETECT are
+>> supported; If not (the next bridge is a 'monitor' or a bridge chip),
+>> OP_EDID and OP_DETECT are supported.
+>>
+>> The devm_drm_bridge_add() is placed in analogix_dp_bind() instead of
+>> analogix_dp_probe(), because the type of next bridge (the panel, monitor
+>> or bridge chip) can only be determined after the probe process has fully
+>> completed.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
+> 
+> ...
+> 
+>> @@ -73,15 +72,12 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
+>>   				   struct drm_bridge *bridge)
+>>   {
+>>   	struct exynos_dp_device *dp = to_dp(plat_data);
+>> -	enum drm_bridge_attach_flags flags = 0;
+>>   	int ret;
+>>
+>>   	/* Pre-empt DP connector creation if there's a bridge */
+>>   	if (plat_data->next_bridge) {
+>> -		if (dp->has_of_bridge)
+>> -			flags = DRM_BRIDGE_ATTACH_NO_CONNECTOR;
+>> -
+>> -		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge, flags);
+>> +		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
+>> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> 
+> Should this be 'flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR' to be future-proof?
+> 
 
-Thanks for the kind guidance.
+Aha, the exynos_dp_bridge_attach() and even 
+&analogix_dp_plat_data.attach() have been removed in [PATCH v10 16/18] 
+for consistency and simplification. Since the only bridge flag supported 
+right now is DRM_BRIDGE_ATTACH_NO_CONNECTOR, let’s leave this as is for 
+now. ;-)
 
-This driver is for the Intel eSPI interface used by the AST2600 BMC, for fu=
-nctions such as Super I/O that were previously handled over the LPC interfa=
-ce.
-As there does not appear to be an in-tree eSPI subsystem at present, our in=
-itial thought was to place it under drivers/soc/aspeed/. If that is not the=
- preferred upstream location, we are happy to restructure the series accord=
-ingly.
+Best regards,
+Damon
 
 
