@@ -4,122 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD28F30297
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 01:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A501F30296
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 01:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0V7qXuWIArDPv2NlPoLrnsFNgZn5cgLBVTIwcnjHHY=; b=MSxKOYZlbiy9ambY1djELNaFnD
-	kgdKK/GFlM1brJkfAyWiTI1GloV0Ax/jZv5QDo6AwOu5VpIVIznmrDdMnCrhuRG1bvkbguVa1OL4v
-	z8vNZ1dRqUf3e47VG+LaJfExfatfq6kbMEdA3Hro5JWzXgSkSPTYcORWl8LE5NoloT1IAamyJE8KT
-	1Z59VTzESOxk8awObKFUkLjF3wX5tmwJ1IEWuYakIOoxCDHFBitS5WdA56W3ghMzLtn1FQk/O0BNh
-	ywx2iFUy4zwlXwj2ez6GaRvLuZuJRBX2ltmi9aCwsSxf/7nWkxCPkQLtjiwJAhNNrsLfy9wlyAu40
-	wPjPjGXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HXOdXMtQPkX3JhHjejsDb3lWeyiFtHpKaRrKgt4OkHc=; b=EmRzsnyuTaj7h2rOiu8A0QbZxo
+	T8oLctEjXog0T+8tI+gYXGyOn8MGDmCPVQ5vLfcdT+CxIrQu43e9V12iGq+Okr8dsRUhpcn1bjl8n
+	/84FTVXZXYvTdGobfyumihywA4WrcpjnVmlMm+WjRQ515lNBH8f92UtQgH2SCyTpPoH2sE4TlYfil
+	mrezam24DLlk86F2wYnebQ2r+SHfJ3f4qZvpZT+vxzgt1lwsyEGKOCXJccusWXkMPNHxPqI16dmZN
+	e0hfGhBiAruv7ZYE7LeS6VM1vBudjTFoPT+rygsKgIos8UWSq+CDZG1kwYW5N+K9N7TPBGP90MnzF
+	fMjxS86Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wKj-000000033wP-00ey;
-	Mon, 16 Mar 2026 01:01:25 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1w1wUk-00000003508-1sYY;
+	Mon, 16 Mar 2026 01:11:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wKV-000000033rn-1G9F
+	id 1w1wUf-000000034zf-3JAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 01:01:14 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-35a1d4a095bso1715222a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Mar 2026 18:01:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773622870; x=1774227670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n0V7qXuWIArDPv2NlPoLrnsFNgZn5cgLBVTIwcnjHHY=;
-        b=mr/SQPgA3v/X7FuJnQ+jl+AQ8DZ5yQEmjicy0N7mmXlrjhG2jlz9ydKrDxFyUwVxHS
-         bEKboXAQmDuqHAGF/XoOJCB301J7MjxXs7AoPEeaTJQgTwzp7cUCTYcjaw+A/voa7kZE
-         fk2FUjgp6hTZELsq40R71NS0iSeyyE5ZrDeWD42aEAUapydXlGdHtSpmWyToJ+t8w8Ra
-         7I6zaejo4xXIX3TSTy+gLbuH6wtcJ7CaqtXwhZF3LSJ95A0cInhSb+9XvW4LV+6ofs6q
-         vaRF1f0KDPQM+3x1w+ZWY0jKN42Rl8smcRH7Bmr9iFyh0OxhaODphazIWE5w+f0dZEzS
-         In3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773622870; x=1774227670;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=n0V7qXuWIArDPv2NlPoLrnsFNgZn5cgLBVTIwcnjHHY=;
-        b=UKmpFvfnaLmwPt9tD0clCsn8DI+puFdFjxPpbB1DIspAnvWuvtGX+ST6/5e7bBwcJt
-         FQW4VavMu+BW4NqI794ACGLkESicw/3LRXDjlat7m5N+iwe0JLMH3Ms1rYdnbWPrTjuH
-         1UxiQRoFN9jPRUWkhdDJJMeFYaIVFK17CTk/1y7S+Sn8AQqesFhEIaDBrrf/XO/Gbn7L
-         6ZHaX4m/Rk+Tll21iW5XjczAQh3j+selwtlO+XvujzPwiu5vxO8SRhuQeH+yzFbxrtOu
-         GHJyBNva0CBTrySWQX6divos1HGzcqctMfBmbHae/V5rMj9hNoKaKzA9b6cO5KNKypaO
-         U+vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5//3ne6XqTbL55uDDyRTISgoFkVJRoSNfZNTDeL7czIS0tST23KWnRofvAy9t3xUXezyklmLl0nkCZ5QH302u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA6UyAwpwFrX8gXtkwNAoGcdUO7VTUgEU7dsl80Z6uoQLE0ZKv
-	oBXxQRDmWr5Dv2EObIkIahLMQRoO7vEPZzcNmkIwoDBgvoOuB806fCzg
-X-Gm-Gg: ATEYQzw37LTT4sHXou5D8xO4TeSIO0MEfQgNNUHrlQH97xA15RrDDymmT89OmBMlb7P
-	TnaI21Xm0hrqWzuuvSqDezm48vPaGlkKhuObKAoEht4h2qoPSMyDOoURZ3i4EKQq4kplSt8q34e
-	kxprkJQmNv7eTRAMOhCr8W4cNI7HOLjEMBGAUqjUISGF9tmXlySrVtxJcz87mWo1rToS6o3ZvGZ
-	sWYafY4hv7AAHyGa/hk1PuHqWui5kLRXX7VBAQhgfwVmoXdzs+EtgDHEOUPGEbTW7DWz+KC8z4q
-	Tk93dZdSwNbQW2nPZ4T5l/Yx8yXR8rbTCWzHw6KfChs2EDvLGIO19gw9kR8XadOs0CERhYEKRjP
-	+8YvV4l0Z5hg9sTk0HMY9qAe/A7QzfkqEY65+I8MH+4xSOp00s9fEU3lT3IrpxqC3IVURXRs+WW
-	6FAJb0xlkn8go/5DVJzFcwIfg=
-X-Received: by 2002:a17:90b:3ec6:b0:359:f143:211a with SMTP id 98e67ed59e1d1-35a21c8507dmr8653846a91.0.1773622870160;
-        Sun, 15 Mar 2026 18:01:10 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35b9230f2fasm3655292a91.9.2026.03.15.18.01.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Mar 2026 18:01:09 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Mon, 16 Mar 2026 01:11:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HXOdXMtQPkX3JhHjejsDb3lWeyiFtHpKaRrKgt4OkHc=; b=CUhMUAGeYZEJFOoF7gMbHrExvU
+	w+T8qqlDYDUp2Sxo9ZNprsUpT8PRMjHgQrXFSHOYMEADRouvXCsT9ye2bXZmejFsZ2sGxvQLtTddU
+	cmaT5xqO5qMVnKTy37T6NelRwqMp5y134Rr0Epn14n/AqQ+c+uNQv1XEF34wDRVYyp4zGa1r2wnDw
+	jgMGWEEMmRoA1a2PlGki0k847nu75Mt4N5WjOGGguP23ZV9IncgX8lCURAr4wicQ/nAB2hNF5zdok
+	IfkZCnKnDBeGUZ1KOPXuos2VKJnlS+t6ZzWYsWYfuxb7MfKHlv/JMfv38xxmYLi48xoBkY+P8funr
+	M1rYCDNg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56306)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w1wUS-000000003AQ-0pDz;
+	Mon, 16 Mar 2026 01:11:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w1wUN-000000004bS-1Asp;
+	Mon, 16 Mar 2026 01:11:23 +0000
+Date: Mon, 16 Mar 2026 01:11:23 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <me@ziyao.cc>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Zhi Li <lizhi2@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v10 3/4] net: stmmac: Add glue layer for Spacemit K3 SoC
-Date: Mon, 16 Mar 2026 09:00:39 +0800
-Message-ID: <20260316010041.164360-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260316010041.164360-1-inochiama@gmail.com>
-References: <20260316010041.164360-1-inochiama@gmail.com>
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <abdYu864OmNWiWIW@shell.armlinux.org.uk>
+References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
+ <abdEscs44fU4kRag@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abdEscs44fU4kRag@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_180111_375222_2D74F345 
-X-CRM114-Status: GOOD (  28.98  )
+X-CRM114-CacheID: sfid-20260315_181142_339743_D5F6AB91 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,294 +86,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ethernet controller on Spacemit K3 SoC is Synopsys DesignWare
-MAC (version 5.40a), with the following special points:
-1. The rate of the tx clock line is auto changed when the mac speed
-   rate is changed, and no need for changing the input tx clock.
-2. This controller require a extra syscon device to configure the
-   interface type, enable wake up interrupt and delay configuration
-   if needed.
+On Mon, Mar 16, 2026 at 05:15:53AM +0530, Mohd Ayaan Anwar wrote:
+> Hi Russell,
+> 
+> 1. On QCS9100 Ride R3, the mdio subnode is only defined for ethernet0
+>    (see lemans-ride-ethernet-aqr115c.dtsi). ethernet1 uses ethernet0's
+>    MDIO bus, so plat_dat->mdio_bus_data is NULL for ethernet1. Therefore,
+>    we get:
+> 	[    9.205979] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
+> 	[    9.221071] pc : qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos]
+> 	[    9.221078] lr : qcom_ethqos_probe+0x7c/0x478 [dwmac_qcom_ethqos]
+> 	[    9.221080] sp : ffff800081aa37f0
+> 	[    9.221081] x29: ffff800081aa3860 x28: ffffcf84de69cfe8 x27: 0000000000000001
+> 	[    9.221084] x26: 0000000000000000 x25: ffff0000b4577c80 x24: ffff0000818fd010
+> 	[    9.221087] x23: ffff000ec7057628 x22: 0000000000000000 x21: ffffcf84ca2ce028
+> 	[    9.221089] x20: ffff0000818fd000
+> 	[    9.236975]  x19: ffff0000b3301740 x18: 00000000ffffffff
+> 	[    9.236977] x17: 0000000000000000 x16: ffffcf84dc4a5448 x15: ffff0000b3301ec5
+> 	[    9.236980] x14: 0000000000000000 x13: 0000000000000030 x12: 0101010101010101
+> 	[    9.236982] x11: 7f7f7f7f7f7f7f7f x10: 00000000001305b0 x9 : 0000000000000000
+> 	[    9.236984] x8 : ffff0000b3301780 x7 : 0000000000000000 x6 : 000000000000003f
+> 	[    9.236986] x5 : 0000000000000040 x4 : 0000000000000000 x3 : ffff0000818fd210
+> 	[    9.236988] x2 : 0000000000000017 x1 : 0000000000000000 x0 : 0000000000000001
+> 	[    9.236991] Call trace:
+> 	[    9.236991]  qcom_ethqos_probe+0xc4/0x478 [dwmac_qcom_ethqos] (P)
+> 	[    9.236994]  platform_probe+0x5c/0xac
+> 				...
+> 	[    9.343300] Code: 910a7000 f9400b21 f9010320 52800020 (39005420)
+> 	[    9.343302] ---[ end trace 0000000000000000 ]---
+> 
+>    I added the following workaround:
+> 	--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> 	+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> 	@@ -765,7 +767,10 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+> 			case PHY_INTERFACE_MODE_SGMII:
+> 					ethqos->configure_func = ethqos_configure_sgmii;
+> 					plat_dat->mac_finish = ethqos_mac_finish_serdes;
+> 	-               plat_dat->mdio_bus_data->default_an_inband = true;
+> 	+               if (plat_dat->mdio_bus_data)
+> 	+                       plat_dat->mdio_bus_data->default_an_inband = true;
+> 	+               else
+> 	+                       dev_err(dev, "plat_dat->mdio_bus_data is NULL");
+> 					break;
+> 			default:
+> 					dev_err(dev, "Unsupported phy mode %s\n",
 
-Add Spacemit dwmac driver support on the Spacemit K3 SoC.
+This means we need to move default_an_inband out of mdio_bus_data.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 227 ++++++++++++++++++
- 3 files changed, 240 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+> 
+> 2. After working around issue 1, I hit the following:
+> 	[   27.822907] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+> 	[   27.831944] Mem abort info:
+> 	[   27.834832]   ESR = 0x0000000086000006
+> 	[   27.838693]   EC = 0x21: IABT (current EL), IL = 32 bits
+> 	[   27.844163]   SET = 0, FnV = 0
+> 	[   27.847320]   EA = 0, S1PTW = 0
+> 	[   27.850563]   FSC = 0x06: level 2 translation fault
+> 	[   27.855587] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000134b1c000
+> 	[   27.862212] [0000000000000000] pgd=080000010185c403, p4d=080000010185c403, pud=0800000134884403, pmd=0000000000000000
+> 	[   27.873107] Internal error: Oops: 0000000086000006 [#1]  SMP
+> 	[   28.001619] Hardware name: Qualcomm Technologies, Inc. Lemans Ride Rev3 (DT)
+> 	[   28.008853] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> 	[   28.016001] pc : 0x0
+> 	[   28.018259] lr : phylink_pcs_an_restart+0x50/0x5c
+> 	[   28.023092] sp : ffff8000869fb900
+> 				...
+> 	[   28.185967] ---[ end trace 0000000000000000 ]---
+> 
+>    This occurs due to pl->pcs->ops->pcs_an_restart being NULL. I added
+>    the following workaround:
+> 	--- a/drivers/net/phy/phylink.c
+> 	+++ b/drivers/net/phy/phylink.c
+> 	@@ -1026,7 +1026,8 @@ static void phylink_pcs_an_restart(struct phylink *pl)
+> 			if (pl->pcs && linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
+> 							 pl->link_config.advertising) &&
+> 			    phy_interface_mode_is_8023z(pl->link_config.interface) &&
+> 	-		    phylink_autoneg_inband(pl->act_link_an_mode))
+> 	+		    phylink_autoneg_inband(pl->act_link_an_mode) &&
+> 	+		    pl->pcs->ops->pcs_an_restart)
+> 					pl->pcs->ops->pcs_an_restart(pl->pcs);
+> 	 }
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 07088d03dbab..d3a6ab7383fc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -216,6 +216,18 @@ config DWMAC_SOPHGO
- 	  for the stmmac device driver. This driver is used for the
- 	  ethernet controllers on various Sophgo SoCs.
- 
-+config DWMAC_SPACEMIT
-+	tristate "Spacemit dwmac support"
-+	depends on OF && (ARCH_SPACEMIT || COMPILE_TEST)
-+	select MFD_SYSCON
-+	default m if ARCH_SPACEMIT
-+	help
-+	  Support for ethernet controllers on Spacemit RISC-V SoCs
-+
-+	  This selects the Spacemit platform specific glue layer support
-+	  for the stmmac device driver. This driver is used for the
-+	  Spacemit K3 ethernet controllers.
-+
- config DWMAC_STARFIVE
- 	tristate "StarFive dwmac support"
- 	depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c9263987ef8d..945c5354eced 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -27,6 +27,7 @@ obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
- obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
- obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
- obj-$(CONFIG_DWMAC_SOPHGO)	+= dwmac-sophgo.o
-+obj-$(CONFIG_DWMAC_SPACEMIT)	+= dwmac-spacemit.o
- obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
- obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-new file mode 100644
-index 000000000000..223754cc5c79
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Spacemit DWMAC platform driver
-+ *
-+ * Copyright (C) 2026 Inochi Amaoto <inochiama@gmail.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/math.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/regmap.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* ctrl register bits */
-+#define CTRL_PHY_INTF_RGMII		BIT(3)
-+#define CTRL_PHY_INTF_MII		BIT(4)
-+#define CTRL_WAKE_IRQ_EN		BIT(9)
-+#define CTRL_PHY_IRQ_EN			BIT(12)
-+
-+/* dline register bits */
-+#define RGMII_RX_DLINE_EN		BIT(0)
-+#define RGMII_RX_DLINE_STEP		GENMASK(5, 4)
-+#define RGMII_RX_DLINE_CODE		GENMASK(15, 8)
-+#define RGMII_TX_DLINE_EN		BIT(16)
-+#define RGMII_TX_DLINE_STEP		GENMASK(21, 20)
-+#define RGMII_TX_DLINE_CODE		GENMASK(31, 24)
-+
-+#define MAX_DLINE_DELAY_CODE		0xff
-+#define MAX_WORKED_DELAY		2800
-+/* Note: the delay step value is at 0.1ps */
-+#define K3_DELAY_STEP			367
-+
-+struct spacmit_dwmac {
-+	struct regmap *apmu;
-+	unsigned int ctrl_offset;
-+	unsigned int dline_offset;
-+};
-+
-+static int spacemit_dwmac_set_delay(struct spacmit_dwmac *dwmac,
-+				    unsigned int tx_code, unsigned int rx_code)
-+{
-+	unsigned int mask, val;
-+
-+	mask = RGMII_TX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
-+	       RGMII_RX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
-+
-+	/*
-+	 * Since the delay step provided by config 0 is small enough, and
-+	 * it can cover the range of the valid delay, so there is no needed
-+	 * to use other step config.
-+	 */
-+	val = FIELD_PREP(RGMII_TX_DLINE_STEP, 0) |
-+	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
-+	      FIELD_PREP(RGMII_RX_DLINE_STEP, 0) |
-+	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->dline_offset,
-+				  mask, val);
-+}
-+
-+static int spacemit_dwmac_detected_delay_value(unsigned int delay)
-+{
-+	if (delay == 0)
-+		return 0;
-+
-+	if (delay > MAX_WORKED_DELAY)
-+		return -EINVAL;
-+
-+	/*
-+	 * Note K3 require a specific factor for calculate
-+	 * the delay, in this scenario it is 0.9. So the
-+	 * formula is code * step / 10 * 0.9
-+	 */
-+	return DIV_ROUND_CLOSEST(delay * 10 * 10, K3_DELAY_STEP * 9);
-+}
-+
-+static int spacemit_dwmac_fix_delay(struct spacmit_dwmac *dwmac,
-+				    unsigned int tx_delay,
-+				    unsigned int rx_delay)
-+{
-+	int rx_code;
-+	int tx_code;
-+
-+	rx_code = spacemit_dwmac_detected_delay_value(rx_delay);
-+	if (rx_code < 0)
-+		return rx_code;
-+
-+	tx_code = spacemit_dwmac_detected_delay_value(tx_delay);
-+	if (tx_code < 0)
-+		return tx_code;
-+
-+	return spacemit_dwmac_set_delay(dwmac, tx_code, rx_code);
-+}
-+
-+static int spacemit_dwmac_update_irq_config(struct spacmit_dwmac *dwmac,
-+					    struct stmmac_resources *stmmac_res)
-+{
-+	unsigned int val = stmmac_res->wol_irq >= 0 ? CTRL_WAKE_IRQ_EN : 0;
-+	unsigned int mask = CTRL_WAKE_IRQ_EN;
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->ctrl_offset,
-+				  mask, val);
-+}
-+
-+static void spacemit_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
-+				    unsigned long *interfaces)
-+{
-+	__set_bit(PHY_INTERFACE_MODE_MII, interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
-+	phy_interface_set_rgmii(interfaces);
-+}
-+
-+static int spacemit_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
-+{
-+	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII;
-+	struct spacmit_dwmac *dwmac = bsp_priv;
-+	unsigned int val = 0;
-+
-+	switch (phy_intf_sel) {
-+	case PHY_INTF_SEL_GMII_MII:
-+		val = CTRL_PHY_INTF_MII;
-+		break;
-+
-+	case PHY_INTF_SEL_RMII:
-+		break;
-+
-+	case PHY_INTF_SEL_RGMII:
-+		val = CTRL_PHY_INTF_RGMII;
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->ctrl_offset,
-+				  mask, val);
-+}
-+
-+static int spacemit_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct device *dev = &pdev->dev;
-+	struct spacmit_dwmac *dwmac;
-+	unsigned int offset[2];
-+	struct regmap *apmu;
-+	struct clk *clk_tx;
-+	u32 rx_delay = 0;
-+	u32 tx_delay = 0;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to get platform resources\n");
-+
-+	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-+	if (!dwmac)
-+		return -ENOMEM;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(dev, PTR_ERR(plat_dat),
-+				     "failed to parse DT parameters\n");
-+
-+	clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(clk_tx))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk_tx),
-+				     "failed to get tx clock\n");
-+
-+	apmu = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+						    "spacemit,apmu", 2,
-+						    offset);
-+	if (IS_ERR(apmu))
-+		return dev_err_probe(dev, PTR_ERR(apmu),
-+				     "Failed to get apmu regmap\n");
-+
-+	dwmac->apmu = apmu;
-+	dwmac->ctrl_offset = offset[0];
-+	dwmac->dline_offset = offset[1];
-+
-+	ret = spacemit_dwmac_update_irq_config(dwmac, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to configure irq config\n");
-+
-+	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps",
-+			     &tx_delay);
-+	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps",
-+			     &rx_delay);
-+
-+	plat_dat->get_interfaces = spacemit_get_interfaces;
-+	plat_dat->set_phy_intf_sel = spacemit_set_phy_intf_sel;
-+	plat_dat->bsp_priv = dwmac;
-+
-+	ret = spacemit_dwmac_fix_delay(dwmac, tx_delay, rx_delay);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to configure delay\n");
-+
-+	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
-+}
-+
-+static const struct of_device_id spacemit_dwmac_match[] = {
-+	{ .compatible = "spacemit,k3-dwmac" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, spacemit_dwmac_match);
-+
-+static struct platform_driver spacemit_dwmac_driver = {
-+	.probe  = spacemit_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name = "spacemit-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = spacemit_dwmac_match,
-+	},
-+};
-+module_platform_driver(spacemit_dwmac_driver);
-+
-+MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
-+MODULE_DESCRIPTION("Spacemit DWMAC platform driver");
-+MODULE_LICENSE("GPL");
+Gah, should've added a pcs_an_restart() implementation.
+
+> 3. With the recent VLAN filter changes in net-next, ndo_open takes a long
+>    time to complete as vlan_restore_hw_rx_fltr() tries to write filters
+>    for all 32 indices. This board previously timed out once, but now
+>    times out for each index. This is a separate issue unrelated to this
+>    series but I added the following workaround to rule out any timing
+>    issues.
+> 	--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> 	+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> 	@@ -158,7 +158,8 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
+> 
+> 			/* Extended Rx VLAN Filter Enable */
+> 			for (i = 0; i < hw->num_vlan; i++)
+> 	-               vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
+> 	+               if (hw->vlan_filter[i])
+> 	+                       vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
+> 	 }
+> 
+> 	 static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
+
+This problem needs solving, and I suspect we need more than the
+loopback here. It needs detailed information about your hardware
+design, and comes down to the missing receive clock. stmmac is
+unusual that missing clocks affect the accessibility of the host.
+
+> With the above workarounds in place, 2.5G works fine, but 1G (and 100M)
+> do not. With the RFC v1 series, only the 2.5G->1G speed change was
+> broken. With this series, the link does not come up at 1G at all.
+
+This will be because we're not attaching any PHYs when phylink is
+being told to operate in 2500BASE-X with inband, since it thinks
+that's the media. That, and, because stmmac has a long history, it
+needed a special phylink_expects_phy() check added in stmmac_init_phy()
+which his what prevents the PHY being attached.
+
+One workaround for this would be to specify SGMII in DT rather than
+2500base-X. However, that's not a solution for mainline.
+
+I'm going to have to have another think about this... stmmac is
+beginning to get too painful to solve this problem. As I've said
+elsewhere, in hind sight, I wish I had blocked dwmac-qcom-ethqos from
+being merged because of it's direct fiddling with the integrated PCS.
+
+I'm beginning to wonder whether stmmac can ever be sorted out, or
+whether the driver has gone too far, and the best thing now is to
+totally decouple it from phylink.
+
 -- 
-2.53.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
