@@ -4,115 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1773F506CB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA56F506CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 13:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=; b=axGmjaHUYo/Rfy5eGvLHOtA3XU
-	rZk6WIsJqLmegZBQ98nJ0YxblEvHP6RU7VUaBW/rgCf22PpJ4pwbjUuQWcJ4CzId1AsOWCNmHmSw3
-	+pVANEzgnhpFa1kPw7EOQ8QSgom8I+xNdO6qRfYMRqRLi4SJ4Wh9tuGSH+8HYYRLjsEsOQlietVWZ
-	xapgDSutoobf7O+aWkr4A3dqZG2JLnScFQa4dr1xw5/i9UkdhrQBZRQdbKm3x5NjhCPaFJViUG2+Z
-	0qsyG2Yc3ldolzbJXYOXJLEZJwWHsRuh00tj8ok8rrfxcU3w0KySRMM8FJ8Xjac02DY9JezhW5NGY
-	zzjey4oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrTshH/5XD1DwX0wXvoMVhK/9Oqc9g5Mye/0IL4m/yc=; b=XJSTBE8bPNUAp0+IIXOFD/yR4r
+	cO0rDb5c7c1zgVbf3xNLvuqi4Xx+iaNgxMuZ+2bwAV/0bT4C7kF3a4tqYDTiUWx/VWgpyiOrQjCSa
+	9EtLxQQqo89HRczimqUyFLVjfSqs44s2b52aCDoURBcNtyKcvpBmP6Y5iKckgVAfRxmHN0wHnVGz8
+	ramTREBsH5gNiQLLmuSnHNJyka6Cew9RjNdu6Dv5sWksGqdkycsG/Y19QYaWUnd3k3+2Il2qb5Lh4
+	xPmCgehGlbxJLkPhW8VBvL0vu+JJP64HZ+A2IqalhTmrYhX5cCkV64B6TQppCod5TkfgEk6TtMiu+
+	EORWJqLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27jP-000000043FN-2mpg;
-	Mon, 16 Mar 2026 13:11:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w27mR-000000043WZ-0F4Y;
+	Mon, 16 Mar 2026 13:14:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27jO-000000043E0-0FK9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Mar 2026 13:11:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=; b=PNrt8KxfEIawuhnUGRzyZifV5t
-	lg/kNqhqES01G0fupyAJJA+XS4giJ3QwROaZ/Uip11xsbRoqbTyJhPO6O7v2bUgtZNnAqyLi5Ekld
-	v73uWxPbuMjBT5bqHGQGDFKs7c9hoZo1mH5QS+V5OlJDuOB9EwchS9KMcyj5sxO/tPkNo2hy3Ndn9
-	uAwwp8276pfyQAypAOQKODng/jE3SeOXbUdQLMhJFXiVnl8+9KD7eJcwRTrNRbRqWIpSYhSdY3Enx
-	uBAdH8qeQ2bfYaYcD+h2ULX7x9X9i9k/7STbUWmU4HdSO0xFaeLefNlSpNWVT302agC1iK5c4bPsb
-	Ww7nyK0Q==;
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27jL-00000006mWH-0Mz0
+	id 1w27mN-000000043Vr-1r1U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 13:11:36 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ad21f437eeso36455555ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 06:11:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773666693; x=1774271493; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=;
-        b=DaUx1jw8nQtLb0biAzsAEGzDamY7LhsL443UcfDN2nxM0K5C5wJuvT7klWWcupE3Dm
-         TkfLQRhrzECIxXCL/Xxomep5qBKkZ0cdf6a0tCOrkwc6dqYHHUn3pfxp62W7xPqSMoJ2
-         Iz7vgmZKJuOEsFy/GufvBhpHb/rFpgD0Q+JD/f4UpqgqsVIMaCJ/fpSp3XSahfg1jcR2
-         Mud6wqFZGDLRKNpmuW8imJnIP3lWXOLvCJvg9I4p5Dkmvf5dUutsmB9LRhWera9EgUtT
-         C1QbbZfZqIN6GCr92u9A3uWgJ/gtqHDwCwtF99R7fyy+lgBxYYcbkatp/aUzmZFMeIWL
-         3LYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773666693; x=1774271493;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F1b1jbbseevrfxoqPkF+lAWkN6R2Yw+sAuGiH3k9yEI=;
-        b=TSPPed5VLtrKiWdoHDdLkA9GPk/9RB8+IB3rsxFHd57xXP0NJMLyE4Szfo7ViBT9io
-         qYH+oIucE066u+EOg3QSNJ7ZyesKEIzsVwN2FJH4EossuO897lf3Mta9Gagq5WKUuy8P
-         jmZuSYUPAeKH8cPtroaeUOQ4qGo3mLO5mowXLPI3tdPw2uWYqvrpSe5lVNtjePOs+6X2
-         HCHoVRnhepYFHv1L1AT4XK9c3QYh4q3XCT2C5cDnPceJ4ABO6XdsJXmcgHdkJhtgfsCT
-         2L1BRe2xc64oEphMR22cRjsgaHUI4F4uIYtoOJwWzkREsSVGc4XglwLaMK7rmvUe02p8
-         0DKA==
-X-Gm-Message-State: AOJu0Yy5k1ZZeB+6hR/9wnj11tkHz1jDcf9E8UQ3j1TloMH2Sl7NvFT6
-	uHVhzAxupCL6IMbdKCzJyBYCt23SW1y4ZUgtw93/giHYql2XTblCp0p6
-X-Gm-Gg: ATEYQzxIItM5tnie/DWmrPcltrfNEAuNRPldrihKc+LU6+irardsHnl9ARVC8uo05vR
-	RhwXg6T+piIw3EMAYgfE+7nz8TWrIxYbq2FQJq4xL1URtkgN0EGzezMXwl4QpzXPCTYSlaTvRyG
-	GnZKkrrchaI1OlD+fY8pOms9317hOe7JxiaFl3WB0MyWpjMPoyneFdP91hJjiYky7h2GX29VU1w
-	t4WY2TkH+eAGYL1pSKcH64y7r9eyB0O7VS3z8yuPza+CTUD0vXGuBzztl01ldjbgjsh7lcSG2xk
-	VMIrAar4u+5eJNEPD6pVsuRbgG4JCYHGz78PvFxR/cdOiQp9wdUMtxBtnztWbtihyOKMW08z74N
-	/CrlSDQThKRDgjlhqW/8MWcg5sdNv3ch4GGuJ1LhzVyzcUwiWvuyV+KPp7g13HiR2eWfl7zdysc
-	vjtJ9qB6tqdGIz2I2XgjnSjU4BJSzAUsdr/EzI
-X-Received: by 2002:a17:903:1a0b:b0:2b0:4d7d:fb9a with SMTP id d9443c01a7336-2b04d7e03famr53040625ad.26.1773666692409;
-        Mon, 16 Mar 2026 06:11:32 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.167.147.240])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece7ee3d6sm110144905ad.57.2026.03.16.06.11.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 06:11:31 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Mon, 16 Mar 2026 21:11:26 +0800
-Subject: [PATCH] phy: google-usb: Fix runtime PM cleanup on probe failure
+	Mon, 16 Mar 2026 13:14:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DrTshH/5XD1DwX0wXvoMVhK/9Oqc9g5Mye/0IL4m/yc=; b=LrceKKVuKrubslp3vHydqm6i8p
+	1P/v3Oa8Q70B1SvOBLekVnJBGKwzboYjMm65GO1N8LbHLkTrHDxlIqTxWhYzAZC7USrdTq23QSJmd
+	Anu27vbAtIhVhlhVj/66jIN85OLJxGQOYlQdq3bxAH3G9FgNvqQxMZLL7rOuYF9dg6/x+bIRU4YHf
+	SBrRwvdtGH+99ATjmbpGfp8RWWY24FnGRXQSzbt9KnquOnBd9sAX/wtqTKyoggQyXME6KXdK4aOgq
+	ltezR7567RM5hY3G/yphScuJYe3ra0DOffk7WbdaEdfUpLx1CrfISHdHLDSb2UK/76cU/lRiRp5kY
+	A0T88G9w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44540)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w27mB-000000003pQ-1oCh;
+	Mon, 16 Mar 2026 13:14:31 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w27m8-0000000056Y-1GC9;
+	Mon, 16 Mar 2026 13:14:28 +0000
+Date: Mon, 16 Mar 2026 13:14:28 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Christophe ROULLIER <christophe.roullier@foss.st.com>
+Cc: Linus Walleij <linusw@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	antonio.borneo@foss.st.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: stmmac: fix pinctrl management during
+ suspend/resume
+Message-ID: <abgCNFIiX6In3baa@shell.armlinux.org.uk>
+References: <20260313105718.359614-1-christophe.roullier@foss.st.com>
+ <20260313105718.359614-2-christophe.roullier@foss.st.com>
+ <abPwHh12MLwMwOIs@shell.armlinux.org.uk>
+ <CAD++jLmBP5Puwf1ZuFOzF6U0XowoF1nfqEL3gwLy-svXsXrbJA@mail.gmail.com>
+ <abStv0IPLfkKMD-W@shell.armlinux.org.uk>
+ <abfHUrOpHnjv3GGW@shell.armlinux.org.uk>
+ <4de50fb9-35e6-48e7-8111-c5a94099d4f7@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260316-google-v1-1-30a034e87a2a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAH0BuGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDY0Mz3fT8/PScVF3jxOS0RKM045RUyxQloOKCotS0zAqwQdGxtbUAer6
- 7BVgAAAA=
-X-Change-ID: 20260316-google-3acfa2f3de9d
-To: Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Naveen Kumar <mnkumar@google.com>, Joy Chakraborty <joychakr@google.com>, 
- Roy Luo <royluo@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773666688; l=1551;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=grNch3YEfme4XX2YLfL8Yx6byNhRmXe/JTenfdWfyZA=;
- b=sP8QxL06sH+Slw6m9BD5RTi2uMzfGj1T1foGh8SmtqPEkOB/2wc388Tqw4bIOUUQbOdBNIIz3
- MNRj8JVFU+DCPWHNmwF36TX1jYZZ07sf5SJyoMTTGKZqzD3RY82YNH+
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4de50fb9-35e6-48e7-8111-c5a94099d4f7@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_131135_247607_F79982F6 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260316_061443_631510_32E95EC3 
+X-CRM114-Status: GOOD (  42.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,50 +95,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In google_usb_phy_probe(), if typec_switch_register() fails,
-pm_runtime_disable() is not called, leading to an unbalanced
-runtime PM state on probe failure.
+On Mon, Mar 16, 2026 at 11:01:02AM +0100, Christophe ROULLIER wrote:
+> Hi Russell, Linus, All,
+> 
+> Le 16/03/2026 à 10:03, Russell King (Oracle) a écrit :
+> > On Sat, Mar 14, 2026 at 12:37:19AM +0000, Russell King (Oracle) wrote:
+> > > On Sat, Mar 14, 2026 at 12:44:56AM +0100, Linus Walleij wrote:
+> > > > On Fri, Mar 13, 2026 at 12:08 PM Russell King (Oracle)
+> > > > <linux@armlinux.org.uk> wrote:
+> > > > > On Fri, Mar 13, 2026 at 11:57:16AM +0100, Christophe Roullier wrote:
+> > > > > > In the deepest low-power modes, the pinctrl configuration is lost
+> > > > > > and is never restored if the interface is down.
+> > > > > > This commit ensures that the pinctrl state is set in all cases.
+> > > > > Shouldn't the pin state be restored by the pinctrl layer?
+> > > > What we have in the device core only applies "init" and "default"
+> > > > states, and provides these handles for transitioning to "sleep"
+> > > > and "default" again (like a state machine).
+> > > What I was meaning is that - for a driver using the "default" state,
+> > > if the hardware loses the pinctrl state during sleep, isn't it the
+> > > responsibility of the pinctrl driver to restore the state rather
+> > > than leaving it in whatever states it happens to be when the SoC
+> > > comes back from suspend?
+> > > 
+> > > If that is not the case, then don't we have a major issue where
+> > > drivers using pinctrl but do not issue any pinctrl calls in the
+> > > resume function are buggy?
+> > I would like an answer on this before this patch is merged, because
+> > even with your reviewed-by, I don't think this patch is correct.
+> > 
+> > For example, if pinctrl loses the pinmux state across suspend/resume,
+> > then this patch only solves the case where the NIC is down when
+> > suspending.
+> > 
+> > It does not address the case where the NIC is up but WoL is disabled.
+> > Also, what happens when WoL is enabled at the MAC, when we expect the
+> > NIC to still be functional - which means that the pinmux state must
+> > remain active over suspend.
+> 
+> For me this case (when NIC is up) is already managed by the driver and
+> function suspend/resume:
+> 
+> On stmmac_suspend :
+> 
+> ==>      /* Enable Power down mode by programming the PMT regs */
+>      if (priv->wolopts) {
+>          stmmac_pmt(priv, priv->hw, priv->wolopts);
+>          priv->irq_wake = 1;
+>      } else {
+>          stmmac_mac_set(priv, priv->ioaddr, false);
+> *         pinctrl_pm_select_sleep_state(priv->device);*
+>      }
+> 
+> On stmmac_resume :
+> 
+> ==>     if (priv->wolopts) {
+>          mutex_lock(&priv->lock);
+>          stmmac_pmt(priv, priv->hw, 0);
+>          mutex_unlock(&priv->lock);
+>          priv->irq_wake = 0;
+>      } else {
+> *         pinctrl_pm_select_default_state(priv->device);*
+>          /* reset the phy so that it's ready */
+>          if (priv->mii)
+>              stmmac_mdio_reset(priv->mii);
+>      }
+> 
 
-Switch to devm_pm_runtime_enable() to ensure that runtime PM is
-automatically disabled both on probe failure and during driver
-removal.
+I don't know if there's a difference between your two seperate replies
+that appear to be saying the same thing.
 
-Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/phy/phy-google-usb.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+I also didn't realise that we're already changing the pinctrl state
+on suspend/resume when the interface is up - thanks for pointing that
+out.
 
-diff --git a/drivers/phy/phy-google-usb.c b/drivers/phy/phy-google-usb.c
-index ab20bc20f19e..79480f8b110e 100644
---- a/drivers/phy/phy-google-usb.c
-+++ b/drivers/phy/phy-google-usb.c
-@@ -251,7 +251,9 @@ static int google_usb_phy_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(phy_provider),
- 				     "failed to register phy provider\n");
+I think it may be better to move the pinctrl changes after the
+priv->plat->suspend() call:
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 428b2e5bb4c4..596f9e2349cb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -8174,6 +8174,7 @@ int stmmac_suspend(struct device *dev)
+ 	struct net_device *ndev = dev_get_drvdata(dev);
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
+ 	u8 chan;
++	int ret;
  
--	pm_runtime_enable(dev);
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
+ 	if (!ndev || !netif_running(ndev))
+ 		goto suspend_bsp;
+@@ -8203,7 +8204,6 @@ int stmmac_suspend(struct device *dev)
+ 		priv->irq_wake = 1;
+ 	} else {
+ 		stmmac_mac_set(priv, priv->ioaddr, false);
+-		pinctrl_pm_select_sleep_state(priv->device);
+ 	}
  
- 	sw_desc.fwnode = dev_fwnode(dev);
- 	sw_desc.drvdata = gphy;
-@@ -271,7 +273,6 @@ static void google_usb_phy_remove(struct platform_device *pdev)
- 	struct google_usb_phy *gphy = dev_get_drvdata(&pdev->dev);
+ 	mutex_unlock(&priv->lock);
+@@ -8225,8 +8225,14 @@ int stmmac_suspend(struct device *dev)
+ 		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
  
- 	typec_switch_unregister(gphy->sw);
--	pm_runtime_disable(&pdev->dev);
+ suspend_bsp:
+-	if (priv->plat->suspend)
+-		return priv->plat->suspend(dev, priv->plat->bsp_priv);
++	if (priv->plat->suspend) {
++		ret = priv->plat->suspend(dev, priv->plat->bsp_priv);
++		if (ret)
++			return ret;
++	}
++
++	if (!priv->wolopts)
++		pinctrl_pm_select_sleep_state(priv->device);
+ 
+ 	return 0;
  }
+@@ -8280,6 +8286,9 @@ int stmmac_resume(struct device *dev)
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
+ 	int ret;
  
- static const struct of_device_id google_usb_phy_of_match[] = {
++	if (!priv->wolopts)
++		pinctrl_pm_select_default_state(priv->device);
++
+ 	if (priv->plat->resume) {
+ 		ret = priv->plat->resume(dev, priv->plat->bsp_priv);
+ 		if (ret)
+@@ -8301,7 +8310,6 @@ int stmmac_resume(struct device *dev)
+ 		mutex_unlock(&priv->lock);
+ 		priv->irq_wake = 0;
+ 	} else {
+-		pinctrl_pm_select_default_state(priv->device);
+ 		/* reset the phy so that it's ready */
+ 		if (priv->mii)
+ 			stmmac_mdio_reset(priv->mii);
 
----
-base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
-change-id: 20260316-google-3acfa2f3de9d
+This means that we don't switch the pinctrl state until we've finished
+suspending the device as necessary, which seems way more sane than
+trying to do it part-way through suspending - for example, while
+phylink and phylib is still active.
 
-Best regards,
 -- 
-Felix Gu <ustc.gu@gmail.com>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
