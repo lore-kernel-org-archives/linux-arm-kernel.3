@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C6FF53D71
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D791AF53D6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 16:26:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKiVBNoA5DEu7rqy18+2ZGT3Fg9uiPh7qLdQNWRH0EY=; b=rYZoZKK6T1VGmUphbfEapD+lQF
-	aFgGfbvoOcE1CxZ09+l7KuFtvpmbySG07bR0/8ti7rfIuwrUDGwhgCrsczxhr2akMin9lVNnjKh/T
-	aQy9pzYM98XELSNa1v//zaE15FOm38q8BGONdjc4mAomaS633UhLstR7kIUTLFUgv5mlWx29n1HCe
-	8Dpu5yVKBhvxC/ZSFWvfBk8qQ7jnYmrginbwGTXp7Ep628OVyAfjuVa3fqbW45ofubKhqSi9/h4cI
-	dNE3eOTycBspP/UoEZhReUA4PrBjFw5F84J2zbHy493PX1LWh83JNACemfcjQuH465mcArJloy9aL
-	WUjOVvVw==;
+	bh=qWZA42CaVkKNsw7oqTBRYJIAnfV1wG5EnDK0gpaaVVQ=; b=qerJHZxF9I1OkkoCI9bddIvMrT
+	DuwQc1GmMj+/KeRO2nHwgO1wIyk831vhPDIA170DK9z1HWEuAD9Jir+ule9GwHPjHSWGP0IqBPkKH
+	gbq9P7LFO4poBEad1v4fuNg3MLwDaDVP/JBidY6iE2WdG88TdWQWAPj9+GAwjol0p236uUI2tbhFo
+	AZ55snItIAhZoMNXa5RvXPH/mCkx2rei0bjRLMrTnuREyi1saOE+Km82VWvnCrbzhmafQx8RuhkdV
+	2f5pseDYFtYTP+bsJtnzEnllMgPMxJokREgHjjlWCp6cTRYDcDcoD37fTEq2GZsJKhVS0gW/FKGDu
+	fZlclGZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AiD-00000004RdA-14mZ;
-	Mon, 16 Mar 2026 16:22:37 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1w2Alh-00000004S8N-04GH;
+	Mon, 16 Mar 2026 16:26:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ai9-00000004RZK-4Bd7
+	id 1w2Alf-00000004S8F-2dSE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Mar 2026 16:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qWZA42CaVkKNsw7oqTBRYJIAnfV1wG5EnDK0gpaaVVQ=; b=K6G1bVjy9lLehzJ9AqP1juc7Zz
+	DvQ9tZ1sfKZsjTrNEewaDNUmkUTGiFDxxi7vINjYzJMyY0ia4/4d670QPXqcrtz46h2IAhsGvhh56
+	+IqOdsWNqL1EIi57ASAXxjyXOOdk6UorEns+f4ZDWCz8hVp4ZDG4P7CdbrIzYYW1o5WUDJxko28Nc
+	ilByROiGgay+ZK6hHaepvQSBLLvzHGQe59huI6Mp/mSa9d9y7anPSl17I+OHGi4C2+sVDYjsEjXFt
+	5v+xYuyuiPOycrJ+SWOBgu1yJaGSPe0suiQAIWImF4RkOtyQuslxj9r8ZsQEW7COxTHrpT6RhSuaX
+	E13HAmOQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Alb-00000007Cl2-08sX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 16:22:35 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1773678128;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sKiVBNoA5DEu7rqy18+2ZGT3Fg9uiPh7qLdQNWRH0EY=;
-	b=G1CHmcKbFX5mwfpFjdibARdCz8T1tfgVZCAJgRPK8uxCx5g8EmpSMyA3J1ZTg5s4BoBcin
-	ToynlxXlMxee8q7yw6iQsBhbucNcQyXnlP3hTiyAqYLsv5Cfsj2+a6fdaQvzMTuE6DY3wM
-	CVy4ZRAE7v2uTo8rHvZf/98ai/dhfJ8R18VM9vRchKjEDNT6i7JhZxlP6AggU0+LX5YIKi
-	S2hnC05U37pqE+45ot88biPiXWVku3sujcSj2Mxt+FIoP3FUHt+OfeLQ8s22wJqlPVjXBV
-	kY3cALfz34v+iGuEV5ORqMc5a6wy3v13PZgA53fCpqBH6ZzNEHqNy1Hdabo4OA==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 16 Mar 2026 17:22:05 +0100
-Message-Id: <DH4CF5YNUZ6S.3DOP275H6TBVN@cknow-tech.com>
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Enable OTP controller for
- RK356x
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Heiko Stuebner" <heiko@sntech.de>
-Cc: <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <kever.yang@rock-chips.com>, <finley.xiao@rock-chips.com>, <w@1wt.eu>,
- <jonas@kwiboo.se>
-References: <20260312213019.13965-1-heiko@sntech.de>
- <20260312213019.13965-3-heiko@sntech.de>
- <DH4BCBM75EA1.3S6GHUO64SAMA@cknow-tech.com>
-In-Reply-To: <DH4BCBM75EA1.3S6GHUO64SAMA@cknow-tech.com>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 16 Mar 2026 16:26:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 245681477;
+	Mon, 16 Mar 2026 09:25:59 -0700 (PDT)
+Received: from [10.57.61.116] (unknown [10.57.61.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D61F33F73B;
+	Mon, 16 Mar 2026 09:26:02 -0700 (PDT)
+Message-ID: <e2fb2f38-2a31-473e-9ab2-efae8e7a0303@arm.com>
+Date: Mon, 16 Mar 2026 16:26:00 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/5] iommu/arm-smmu-v3: Add register display to
+ debugfs
+To: Qinxin Xia <xiaqinxin@huawei.com>, will@kernel.org, jpb@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ wangzhou1@hisilicon.com, prime.zeng@hisilicon.com, fanghao11@huawei.com,
+ jonathan.cameron@huawei.com, linuxarm@huawei.com
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-3-xiaqinxin@huawei.com>
+ <68add41b-bafa-4884-be70-c03d6ce851eb@arm.com>
+ <1a42d502-a2c4-4c41-ba7e-4dc115159ed6@huawei.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <1a42d502-a2c4-4c41-ba7e-4dc115159ed6@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_092234_513407_AF3DFA25 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260316_162607_295225_A8428EA9 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,89 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On 2026-03-16 3:35 pm, Qinxin Xia wrote:
+>>> +    /* 32-bit control registers */
+>>> +    seq_printf(seq, "CR0: 0x%08x [%s%s%s]\n",
+>>> +           readl_relaxed(base + ARM_SMMU_CR0),
+>>> +           readl_relaxed(base + ARM_SMMU_CR0) & CR0_SMMUEN ?
+>>> +           "Enabled " : "Disabled ",
+>>> +           readl_relaxed(base + ARM_SMMU_CR0) & CR0_EVTQEN ?
+>>> +           "EventQ " : "",
+>>> +           readl_relaxed(base + ARM_SMMU_CR0) & CR0_CMDQEN ?
+>>> +           "CmdQ " : "");
+>>
+>> There's really no point printing these extra strings, since if any of 
+>> those were *not* enabled then we'd have already failed probe and never 
+>> created the debugfs entry. And if anyone ever were to be trying to 
+>> change the driver behaviour at that level, I'd very much expect them 
+>> to be able to be able to read the bottom 4 bits of a CR0 value in hex 
+>> anyway ;)
+>>
+>> Thanks,
+>> Robin.
+>>
+> 
+> Since Kunpeng supports ECMDQ(have not been submitted upstream), the
+> intention was to check whether the SMMU supports ECMDQ, and the logging
+> for other queues was added incidentally. The prints for the event queue
+> and command queue indeed seem unnecessary. I will remove them in the
+> next version.
+OK, I would make a similar argument that even then, it wouldn't make 
+sense to expose debugfs entries for ECMDQ_PROD registers that don't 
+exist or we aren't using. Thus their enabled state should similarly be 
+inherent in the files being present at all (but again either way, if a 
+developer couldn't tell the significance of 0x80xxxxxx vs. 0x00xxxxxx 
+already then I'd have to question their capability to usefully debug any 
+more subtle ECMDQ behaviour...)
 
-On Thu Mar 12, 2026 at 10:30 PM CET, Heiko Stuebner wrote:
-> Enable the One Time Programmable Controller (OTPC) in RK356x and add
-> an initial nvmem fixed layout.
-
-I build a kernel with the nvmem patches and your patches from this
-series and tried it out on my NanoPi R5S with a RK3568 SoC.
-Navigating to ``/sys/bus/nvmem/devices/rockchip-otp0/cells`` and then
-doing ``hexdump <cell-name>`` showed all kind of values.
-
-Then I did the same with my PineNote with a RK3566 SoC and that gave
-different values, except for npu-leakage, which I guess is fine?
-So feel free to include my
-
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPi R5S, PineNo=
-te
-
-Cheers,
-  Diederik
-
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 46 +++++++++++++++++++
->  1 file changed, 46 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/b=
-oot/dts/rockchip/rk356x-base.dtsi
-> index 68b48606f601..c8321af7de7d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> @@ -1123,6 +1123,52 @@ rng: rng@fe388000 {
->  		status =3D "disabled";
->  	};
-> =20
-> +	otp: efuse@fe38c000 {
-> +		compatible =3D "rockchip,rk3568-otp";
-> +		reg =3D <0x0 0xfe38c000 0x0 0x4000>;
-> +		clocks =3D <&cru CLK_OTPC_NS_USR>, <&cru PCLK_OTPC_NS>,
-> +			 <&cru PCLK_OTPPHY>, <&cru CLK_OTPC_NS_SBPI>;
-> +		clock-names =3D "otp", "apb_pclk", "phy", "sbpi";
-> +		resets =3D <&cru SRST_OTPC_NS_USR>, <&cru SRST_P_OTPC_NS>,
-> +			 <&cru SRST_OTPPHY>, <&cru SRST_OTPC_NS_SBPI>;
-> +		reset-names =3D "otp", "apb", "phy", "sbpi";
-> +
-> +		nvmem-layout {
-> +			compatible =3D "fixed-layout";
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <1>;
-> +
-> +			cpu_code: cpu-code@2 {
-> +				reg =3D <0x02 0x2>;
-> +			};
-> +
-> +			otp_cpu_version: cpu-version@8 {
-> +				reg =3D <0x08 0x1>;
-> +				bits =3D <3 3>;
-> +			};
-> +
-> +			otp_id: id@a {
-> +				reg =3D <0x0a 0x10>;
-> +			};
-> +
-> +			cpu_leakage: cpu-leakage@1a {
-> +				reg =3D <0x1a 0x1>;
-> +			};
-> +
-> +			log_leakage: log-leakage@1b {
-> +				reg =3D <0x1b 0x1>;
-> +			};
-> +
-> +			npu_leakage: npu-leakage@1c {
-> +				reg =3D <0x1c 0x1>;
-> +			};
-> +
-> +			gpu_leakage: gpu-leakage@1d {
-> +				reg =3D <0x1d 0x1>;
-> +			};
-> +		};
-> +	};
-> +
->  	i2s0_8ch: i2s@fe400000 {
->  		compatible =3D "rockchip,rk3568-i2s-tdm";
->  		reg =3D <0x0 0xfe400000 0x0 0x1000>;
-
+Thanks,
+Robin.
 
