@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13301F53D80
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D43F53D80
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 17:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=; b=AjmnUJX9/rjSLeUH18JZxAHQWy
-	HH/3deRWKp/gvZ4Ggb9epnDKSyx72HrxSljQUiJ4lFpCYBMEtEht6BZej023FQIZhUukn4H54VMzz
-	MLNfxzEinGVOsEqehLiRRLetwkzySPnyF5fpcgrt+d42ShGQa7zxghj+lyyzaow2LcxfY3r/6Adl7
-	X6sQKZzanRi2F/7l1dokp/iToZwCKKkgUzkNLfn+7ZDgdd8JtIYe7WWOiSArhUnf0t5HFZCWbfRRA
-	ksR6TapU4ZJCL2gy9u2PzNSJq2yi8ROOotMOa/RMSJJv/Oo70dyqF9FhPtd/tN6Oo+O2GNsvNL+SF
-	BLBTQctg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrkEb2n12YyrcySqlJ1Endt4MHN6ko+q0The82lLn1s=; b=enLEI/NBHfl8H3vuhGs5sHjLKD
+	X58Pxsbm2nZfyMPX4SG8essA3fRgSs8hucP0K/dYTUqHMCs36m5rY/4tuoPRkXmAfQhw5X8lNLJ7C
+	YxIPSUKkq6mjiW7JcnpoUHl0JU0jLGREFHdpRQ00Kh2o18LFQzcm9p68jNBQVpaoJmRhuL5470iMu
+	4V9PLDfLNjSwhjx+fV1ET8Sq26dliJhaw5iwcrJpdsNS0O9O4BKWmojxGZN3pYCXfWSGZTu/FGiXq
+	euEj8TGhg5dwpTPx8xqM+BzjaEwytutXR7LOYOGO1fINM1W6BfQwfLlJc/hwFpsOi1xOqgJc9ADZY
+	s+525akA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bqm-00000004Zmc-3YfP;
-	Mon, 16 Mar 2026 17:35:32 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1w2Bqs-00000004Zo6-0cma;
+	Mon, 16 Mar 2026 17:35:38 +0000
+Received: from mail-wm1-f73.google.com ([209.85.128.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bqk-00000004Zlj-43sI
+	id 1w2Bql-00000004Zlw-4Bqe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 17:35:32 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48532df52c5so68882745e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:35:29 -0700 (PDT)
+	Mon, 16 Mar 2026 17:35:33 +0000
+Received: by mail-wm1-f73.google.com with SMTP id 5b1f17b1804b1-485350666bfso39197675e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 10:35:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773682528; x=1774287328; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=;
-        b=Bcn7MymWAoOle6JNNjF5iHuysLVsaJUbL+Tx8Lu7eq6capyMeIvDtRQIQ5uxct0dFE
-         DzZ73cUjC1rTQNBPrC+tLjp2syr7KnF9oNHicAyMStX8KuuuB4KnKuO3DgNUm5TfxtB/
-         5AsfJZt+LgnGWZIfRTPoiC05LFf+WRTPFZpMs6VdHFbC6jaBebNK84P48AMD7eoaZILS
-         fK2KpS25VQU/4IriBWR5WJeOL14nJsoZBPGprUmO/TkVMR0lXq64HsUo9z36ezRnzqYp
-         G/Z9IhjeljGDoCVqVeENuexM1L9M9SrzemipDyzjNB0vvr3rDaJHn9LxasrBUgMMC1h8
-         q0zg==
+        d=google.com; s=20251104; t=1773682529; x=1774287329; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DrkEb2n12YyrcySqlJ1Endt4MHN6ko+q0The82lLn1s=;
+        b=vaAs1cWM4U6NOeHagcnafPHE6bkj4tV4+7E6uJNEzf4qyMl9IRM4LC6DWHnmO520qj
+         OpSvHiQAYGumdIZgLG3mkOIx2R2ZxqU6uTtvKS2ugBONFAvRo5PC0d7rmKIOB8i2KBsO
+         riyCl6lqe8PlzFE0iVqLKZlDqpdkLz2hmdHH9xzItaNiIKbyzb5hBdfDcD/RmkWtB2Cj
+         sPDP8yvPyh2waWgHz8jduIyqhn1+0amWOUVtmIljL5qPeuUBH6FjF0gibb6/86rvtUXa
+         Ca6uKW5k2UJK8lmxzpuNgh1qetFHBTtwgBepOLZ+raH/Ek7K/jD9yM28Da3mAJmTpOM6
+         qr/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773682528; x=1774287328;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HpCcSOV6njoqt8AXcXZYXSoSkJ49sEAQqpokcgOqjA4=;
-        b=kb40LbXT4PpZefhuzQ3EraPACLZxAAC4HbObMscU0Tw/o30QJsuJSTXF18J/AHKQPG
-         LIM2rBeWIQ3zAcfoD/pSc1wDZ9CV9ZhzmmI3EqJEUzAY3AAOSqB3KKgdJ4izdHlMvpn6
-         Xvn796lvo6fr7REOXAuPCikHoq3dLH/4nD/uBv2tGpu2RzOoDR+fwnujkq4HLKWcxYdn
-         rfB9wNpC7ja77HrnONUhXyQtcqWyCy9wG7687OsqLhvVm1+wxrgS52JLomFkUwe09xce
-         lwaAynSLLWlo+7/7xkA8UJZcqwVAo+Wf37mD3s/LpvG1ejWxT1XDmqOkM13m3HIWzfNB
-         viUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJvgP2JmLZFrfOC2FGZeWkOn9D64FVWfa3JXCmz29ZzyWmjnmuSPB5j+BU0TjfIg6AoAGCRcMSl3zK3zsIAWd0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzELKbao0W/jfr8VBZ83nLcIlXGTLKfSw/wBnjrAqDOi6l6n2z8
-	yfigf4YNKG9kU6eTM6xAzLi+1jE6Dw2AASV9vLfrWR0UcV4JQvFFGrwGq8yWw1u3vMVWV2CCSiE
-	Mkw==
-X-Received: from wmsu11-n2.prod.google.com ([2002:a05:600c:c3cb:20b0:485:3925:a795])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1d0f:b0:485:3f38:3de3
- with SMTP id 5b1f17b1804b1-485566d2fc4mr232752095e9.3.1773682527900; Mon, 16
- Mar 2026 10:35:27 -0700 (PDT)
-Date: Mon, 16 Mar 2026 17:35:21 +0000
+        d=1e100.net; s=20251104; t=1773682529; x=1774287329;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DrkEb2n12YyrcySqlJ1Endt4MHN6ko+q0The82lLn1s=;
+        b=ruUfzQjAumBeKNC/6ndUOqjdSwyV2L/fNZwxYm80IftMpYibyVCODpvww8+WGivuEV
+         G3Gx/xhzM0LYqaFXqq2STOBE+5LibYyz1Th4CD8tuUxV7dyJmeo/0F6z9iRpnmmY0ZS9
+         vX7OkoIU2GIHodOhlLNMAaD8UGggES2ZgBMWmUdTffn4f0/qOMd9ZWMWOTWt74OoEQHk
+         81SNtivdw74sy1fNe1Pmp17jc6CNjLyDmlsu8DEU76IYcfsDr4bqJKpYN6+gxQXmZt5Y
+         6/OfiebIFTImKak0PUnhej18Q4AuHgC2cOSaPNzEAVMIXc4EjQlgQ/ssjjWEuZd/lBBe
+         HIVA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2CheaRKaYGUK+LHrtW0ADAq7LZn4p8CcoPrVjk/wNKkVLmtlopAwZ+v4Vh72jbnvTc8e80r+zk5AZOlKLcXGW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0jnP9xcVlCJ2n4sgoKyX/1tBndgFIVm1xsJScuxO5OeGaqER+
+	ijmO15f7jU09bRRF/BByPQ+CgYWyBBc3/YuQfako1/IZUf0PoPLu6fvjekSyTF2a5hRUt+PXZqV
+	yKA==
+X-Received: from wmno9.prod.google.com ([2002:a05:600c:1649:b0:485:38ca:51c9])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:354b:b0:480:2521:4d92
+ with SMTP id 5b1f17b1804b1-485567071a0mr226576455e9.24.1773682528999; Mon, 16
+ Mar 2026 10:35:28 -0700 (PDT)
+Date: Mon, 16 Mar 2026 17:35:22 +0000
+In-Reply-To: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFk/uGkC/x3MQQqAIBBA0avIrBNMwairRMSYYw1EhVYE4d2Tl
- m/x/wuJIlOCTrwQ6ebE+1ZQVwKmBbeZJPti0EpbZWorT3QOJa16nC+MXurQkAmobLAtlOqIFPj 5j/2Q8wd4MR/zYQAAAA==
-X-Change-Id: 20260316-tabba-el2_guard-2f7e3fa06f69
+References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
 X-Mailer: b4 0.14.3
-Message-ID: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
-Subject: [PATCH 00/10] KVM: arm64: Adopt scoped resource management (guard)
- for EL1 and EL2
+Message-ID: <20260316-tabba-el2_guard-v1-1-456875a2c6db@google.com>
+Subject: [PATCH 01/10] KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
@@ -77,10 +74,9 @@ To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly 
 	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
 Cc: Fuad Tabba <tabba@google.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_103531_044775_EE3DCBA6 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260316_103532_043009_1C42AB2E 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,101 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+The Linux kernel recently introduced scoped resource management macros
+in <linux/cleanup.h>, enabling RAII-like patterns such as guard() and
+scoped_guard(). These macros significantly reduce the risk of resource
+leaks, deadlocks, and messy unwinding paths.
 
-I stumbled upon a lock leak while reviewing Sebastien's recent GIC Hardenin=
-g
-series [1] on an early error path. It reminded me that we've run into this =
-exact
-kind of bug pretty often while working on pKVM. Since we're going to be
-hopefully upstream even more pKVM code soon, I'd like to try and fix this
-pattern once and for all.
+The arm64 KVM EL2 hypervisor heavily relies on its own locking
+primitive, hyp_spinlock_t. Managing these locks carefully across
+complex failure paths is critical, as missing an unlock at EL2
+typically results in a lethal system-wide panic.
 
-This series refactors a good chunk of KVM/arm64 codebase=E2=80=94covering b=
-oth the host
-at EL1 and the hypervisor at EL2=E2=80=94to use the guard() and scoped_guar=
-d() macros
-from <linux/cleanup.h>.
+Add support for the guard(hyp_spinlock) and scoped_guard(hyp_spinlock)
+macros by including <linux/cleanup.h> and using the DEFINE_LOCK_GUARD_1
+infrastructure in the spinlock header. This paves the way for converting
+error-prone manual locking into automatic scoped management.
 
-By tying our locks to the scope:
-- We can safely use early returns (like return -EINVAL;) without accidental=
-ly
-  leaking locks.
-- We can get rid of a lot of tangled goto exit labels.
-- Reviewing patches gets a lot easier since we don't have to mentally track=
- lock
-  states across giant functions.
-
-A common concern with these RAII-style macros is that they might bloat the
-generated assembly. However, looking at the compiled code, it actually does=
- the
-opposite. As an example, looking at the EL2 object file
-arch/arm64/kvm/hyp/nvhe/pkvm.nvhe.o before and after this series:
-- Instruction count: Dropped by 39 lines of assembly.
-- .text segment size: Shrank by 166 bytes.
-
-This happens because the compiler no longer has to generate dedicated branc=
-h
-targets for exit blocks, nor the stack frame unwinding jumps just to call
-hyp_spin_unlock. It just efficiently inlines the unlock instruction right w=
-here
-the return happens.
-
-The series is split into two parts:
-- Patches 1-5 (EL2): Adds the DEFINE_LOCK_GUARD_1 wrapper for hyp_spinlock =
-and
-  cleans up the nvhe/ directory.
-- Patches 6-10 (EL1): Cleans up manual mutex_lock and spin_lock calls acros=
-s the
-  standard KVM host code (mmu.c, arm.c, psci.c, reset.c, pkvm.c).
-
-There are definitely other parts of the KVM codebase that could benefit fro=
-m
-this (especially the vGIC), but I'm stopping here for now to see what every=
-one
-thinks of the approach before touching anything else.
-
-Based on Linux 7.0-rc3.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/CA+EHjTy051kjdReuESmk3HpMsBEW=3Ds3DxhJXa8vQ=
-JFHz--wG2Q@mail.gmail.com/
-
-To:=20
-
+Change-Id: Iba6d43c081b5fdf2496dc599fd6a781294493cb9
+Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
-Fuad Tabba (10):
-      KVM: arm64: Add scoped resource management (guard) for hyp_spinlock
-      KVM: arm64: Use guard(hyp_spinlock) in page_alloc.c
-      KVM: arm64: Use guard(hyp_spinlock) in ffa.c
-      KVM: arm64: Use guard(hyp_spinlock) in mm.c
-      KVM: arm64: Use guard(hyp_spinlock) in pkvm.c
-      KVM: arm64: Use guard(mutex) in mmu.c
-      KVM: arm64: Use scoped resource management in arm.c
-      KVM: arm64: Use guard(spinlock) in psci.c
-      KVM: arm64: Use guard(spinlock) in reset.c
-      KVM: arm64: Use guard(mutex) in pkvm.c
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- arch/arm64/kvm/arm.c                       |  53 +++++--------
- arch/arm64/kvm/hyp/include/nvhe/spinlock.h |   5 ++
- arch/arm64/kvm/hyp/nvhe/ffa.c              |  86 +++++++++-----------
- arch/arm64/kvm/hyp/nvhe/mm.c               |  37 +++------
- arch/arm64/kvm/hyp/nvhe/page_alloc.c       |  13 +--
- arch/arm64/kvm/hyp/nvhe/pkvm.c             | 122 ++++++++++++-------------=
-----
- arch/arm64/kvm/mmu.c                       |  95 +++++++++-------------
- arch/arm64/kvm/pkvm.c                      |  19 ++---
- arch/arm64/kvm/psci.c                      |  19 ++---
- arch/arm64/kvm/reset.c                     |   8 +-
- 10 files changed, 182 insertions(+), 275 deletions(-)
----
-base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
-change-id: 20260316-tabba-el2_guard-2f7e3fa06f69
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..2681f8d2fde5 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -16,6 +16,7 @@
+ #include <asm/alternative.h>
+ #include <asm/lse.h>
+ #include <asm/rwonce.h>
++#include <linux/cleanup.h>
+ 
+ typedef union hyp_spinlock {
+ 	u32	__val;
+@@ -98,6 +99,10 @@ static inline void hyp_spin_unlock(hyp_spinlock_t *lock)
+ 	: "memory");
+ }
+ 
++DEFINE_LOCK_GUARD_1(hyp_spinlock, hyp_spinlock_t,
++		    hyp_spin_lock(_T->lock),
++		    hyp_spin_unlock(_T->lock))
++
+ static inline bool hyp_spin_is_locked(hyp_spinlock_t *lock)
+ {
+ 	hyp_spinlock_t lockval = READ_ONCE(*lock);
 
-Best regards,
---=20
-Fuad Tabba <tabba@google.com>
+-- 
+2.53.0.851.ga537e3e6e9-goog
 
 
