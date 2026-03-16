@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A563BF46436
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 09:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E24F4643A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 09:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MzrE4iCp4oKa3wQ16nwKGJ1A0i+9mBfB7UKYhL7FvKM=; b=0s54ovkT0Am5idCgXx/pLs/VOJ
-	A7nf4kzsRnDJ15zpsjSeNabZiMm248vDDdRVrIS9qePAzJffmD/8OnUHpQgCm38nLCkOGJMTSOTQ2
-	FDjMvejdsShHRUE2ZObQ3PJQO/S/5vVAcM84ZGGGAIRiVTJlANM2qZU4ZuC0UxZI+Wl/R8Aq1N0Pr
-	hX+kBiZE5c23kL0VoRQGP1TH3QZIpMSVia4jaZwx50grqxO5fcfw5oXDRuGF5n3KtlR90jgYoECD7
-	/wWSB5tNzVVUin9xPTFNQLoRXAf4n4H5a59Q8NaF8/0qGKq0JUH+qSqZnHrsTyV18eJufV47fb+yn
-	HBoG0Ezw==;
+	bh=IoiyVkHIKrNjrZtPlLtkfhVeaegDVh4Olnri2+lijqk=; b=1J2zoUQBf4rVJB0mrg1yoPcMy+
+	9JyIfaqpeiBhwdpM+MI2A1mDw4SkaoBy4gEeMyJH15OjR3y7A/QVvd+i1NHaOVgQojN2r87waXCgi
+	KOQKyXXVZUGGR1E8n1XtgbW4lcAbI4QUDF6RU+GzOOg0h+12mS62YuQMhcMjOApKaRAA9euVWzn5Z
+	tYC3LnfOxG3FyrdaiNknlOaPdSo7m/thk373ABYKqkS5wlY9s/atT1KyggJYQzE+T36lOQfl5qB/J
+	2ZmvJHPg60AFwLMtPysBbWmKcbrSlZPhVJ2VyaQKpDRT0mKvvWNCbEW8aFkS9j/+aihyffqSeU30n
+	AdEUY64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24ON-00000003eYJ-3ky6;
-	Mon, 16 Mar 2026 09:37:43 +0000
+	id 1w24Q3-00000003eo6-3ZK4;
+	Mon, 16 Mar 2026 09:39:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24OL-00000003eXn-0jvI
+	id 1w24Q1-00000003ena-1jNa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 09:37:42 +0000
+	Mon, 16 Mar 2026 09:39:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6140F43D1D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:37:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DEDC2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:37:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B0FA441DF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:39:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE5B6C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 09:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773653860;
-	bh=MzrE4iCp4oKa3wQ16nwKGJ1A0i+9mBfB7UKYhL7FvKM=;
+	s=k20201202; t=1773653964;
+	bh=RbqZslNxIIkzTluBmL/ed2uqFPa1E/cM4+gpAQj+klU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=V+Xsb6y7Yis06X23lLVRkqoI3qr7IUbx85V9BKULlwfbZ/+9usIfqBgCzW4Gr32hK
-	 MIKWfDFtGHbzi10xHSaXuDJJqZqIqtMWPbX7n+V1LFDu/kb0Y8FaqjODhnf/8ki5LG
-	 5UCfO5XxKlhhA3YGkvlusKl4IUcfwTzFu6V0gqP3zAfBkTsMTwp50/6/MjwqMCBdJ8
-	 5Sq6OfucN/xzwlPLDkyy+SzxdPOnAedxoBrCN7QgnWK3PHc6GAvTOKMV1jvECtyNkp
-	 zBp3Z04r/JGitEVqD7ys2GmhSa8WwjRABYXbzByj/VGM90dv0eU0BZ4LuBEiEedWah
-	 gaDXmuR1FLa5g==
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-64ad46a44easo4056483d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 02:37:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVSP1NGQr0rvhM2iilPUMezOXVAXMHhqM6j5T74GLrkedAHeCRpbU528HNaTlsL7ALLoko+7VljnoXwIUQ00/fs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBVxNw3GEAkeaOKyqT12nFWqpsHawilZhkfLFunVn2kNCZC98C
-	t7u3pOI/jwxo7EuhwB98Ux3JH4hCniqiNXIlSgqnAuAcdK1mbW9eJAE2vX2par2PkknTagARpUJ
-	aHEjt1Tt6CDjEkLjhf6HL5EWZ9xVKf1o=
-X-Received: by 2002:a53:a087:0:b0:64c:f4f4:20ae with SMTP id
- 956f58d0204a3-64e630cd15fmr10231603d50.78.1773653859622; Mon, 16 Mar 2026
- 02:37:39 -0700 (PDT)
+	b=M89CEiZOnHW6l0rVxIAVYujeaAXXC4wcFEgK6RvQrRatF+GJGYQPCQzJqxY8+1VIA
+	 E7ZCdMygmp4NiT/9U0vyf51n5I+cO6swsADrHEdCOP1BbB+Kl6PKS3hjlfS8XRAbDI
+	 FqbHS3YpHzueVeZy1lUiGD6oOZPmUBwFBnVZR0YJK7ri5JSsOvqdQ8JXeBV1zvQ9Aj
+	 iZuHlJW52n1Dcc+QGXJDlCK+tgfX07jqK9IIBqCmihvHKJESa7f89hJqPcLevHPKze
+	 xRFRnqqAGAXyPwMBME8EPg2+xjOSKUqRn9bRAGb6Bph92medmVxRyhjXkG7MELJtr7
+	 uH4XTBPdAIpOg==
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-79860421382so37937067b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 02:39:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVbLfEHzkwqXj7oUbTu4dhvUGmiUptKmmwOs/4LEyndxSdn400jOBQ8lLwlhFGOLVVWB0R4/8GF3m7xMkuNhbNi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxO9kaZjTYY6KlGBKhZf/nOcwSRcuqstWXHpIZJ/VK9ZbKsG+0V
+	6a1J0X8vhhTo+Wx+zDap6M5ffZUARUYj7BlWguuNl7dr4M3VMLXgd4QXCTeFeUjyajPVQA8LsN+
+	FStHtaB6bVl8FTbHTu8K80uiD+1FUWuA=
+X-Received: by 2002:a05:690c:6e87:b0:79a:3b28:a710 with SMTP id
+ 00721157ae682-79a3b2912f5mr61530517b3.27.1773653964110; Mon, 16 Mar 2026
+ 02:39:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com> <20260311-pinctrl-mux-v3-3-236b1c17bf9b@nxp.com>
-In-Reply-To: <20260311-pinctrl-mux-v3-3-236b1c17bf9b@nxp.com>
+References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com> <20260311-pinctrl-mux-v3-4-236b1c17bf9b@nxp.com>
+In-Reply-To: <20260311-pinctrl-mux-v3-4-236b1c17bf9b@nxp.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 16 Mar 2026 10:37:28 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=U2xNMMHk_LyH8CX+YpC5EGPVRasM11yesXSH4XLhqYw@mail.gmail.com>
-X-Gm-Features: AaiRm502_TKXc5AbWLkrvmd3tP0wuZLSF0MFm9-65pKX5TkH-46UxmauxcJGcog
-Message-ID: <CAD++jL=U2xNMMHk_LyH8CX+YpC5EGPVRasM11yesXSH4XLhqYw@mail.gmail.com>
-Subject: Re: [PATCH v3 3/7] pinctrl: pinctrl-generic: add __pinctrl_generic_pins_function_dt_node_to_map()
+Date: Mon, 16 Mar 2026 10:39:12 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=8tqT=jEy+_W-WnPq=Az7GbsW7pdXHZNmu8m+tKoDMDQ@mail.gmail.com>
+X-Gm-Features: AaiRm53Q_0hsf1jplyh4XsHDGxCWDXM_lyumSvDs8oSWpLJERT4ci6Zqc30deP8
+Message-ID: <CAD++jL=8tqT=jEy+_W-WnPq=Az7GbsW7pdXHZNmu8m+tKoDMDQ@mail.gmail.com>
+Subject: Re: [PATCH v3 4/7] pinctrl: add optional .release_mux() callback
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -71,8 +71,8 @@ Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_023741_258049_2D3C3AB9 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260316_023925_494881_D7B2B128 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +89,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Wed, Mar 11, 2026 at 8:08=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
 
-> Introduce __pinctrl_generic_pins_function_dt_node_to_map() to allow
-> passing private data and skip_npins to pinmux_generic_add_function().
+> Add an optional .release_mux() callback to struct pinmux_ops.
 >
-> The 'skip_npins' to skip parse pins in dts because on boards MUX control
-> chip switch the whole group together, so needn't handle each pins.
+> Some drivers acquire additional resources in .set_mux(), such as software
+> locks. These resources may need to be released when the mux function is n=
+o
+> longer active. Introducing a dedicated .release_mux() callback allows
+> drivers to clean up such resources.
 >
-> Keep pinctrl_generic_pins_function_dt_node_to_map() as a wrapper
-> calling the new helper with a NULL argument to preserve backward
-> compatibility.
+> The callback is optional and does not affect existing drivers.
+>
+> Commit 2243a87d90b42 ("pinctrl: avoid duplicated calling
+> enable_pinmux_setting for a pin") removed the .disable() callback
+> to resolve two issues:
+>
+>   1. desc->mux_usecount increasing monotonically
+>   2. Hardware glitches caused by repeated .disable()/.enable() calls
+>
+> Adding .release_mux() does not reintroduce those problems. The callback i=
+s
+> intended only for releasing driver-side resources (e.g. locks) and must n=
+ot
+> modify hardware registers.
 >
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Ad attested by several reviews, the pinctrl subsystem maintainer
-strongly dislikes any use of __double_underscore_function_names().
-
-The reason I dislike it is because it is ambiguous.
-
-For example there are __compiler_intrinsics such as
-__iomem and all the stuff from <linux/compiler_types.h>.
-
-Then there are __non_atomics such as __set_bit().
-
-This means __inner_function() just adds to this mess and creates
-a big confusion for the mind.
-
-That said: in this case you're just adding a parameter, just add
-the parameter and change all of the in-tree users to pass false
-or whatever you need, these is just one (1) in-tree user anyway.
+OK fair enough, I think I'm convinced about this now, also it has
+a nice pairing with set_mux(). Let's see if someone else has comments,
+I might apply v4 after fixing the generic function issue in patch 2.
 
 Yours,
 Linus Walleij
