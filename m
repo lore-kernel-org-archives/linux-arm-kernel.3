@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83877F53D81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 18:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D61DF53D81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 18:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXHXO4Z54CdZK2jSIhD6tIkR5xyAJF49FOt2wzoNyaE=; b=xyDcfMVfqYaSUIfGyqVcHa/ZjG
-	PMvUl7pxzslzj95mzJ7JQWuoHWvUip07ybiEV+vkdOcenaKOw86c3UlxhCXyNSvUflEw0E3Vf0CIw
-	DXZYhS1u2p5Z1CL8E/j/gl1kIKqcrwT0eEOn9FDrEqJ44yjAvqnRitq8NNMXXvBltxblz0GpeW4O8
-	hwEx1N/ea8/Ri0q5s7mj1OdDgwM/6WcBTpYVUbAa2KLVjNdSZOLb+O0ZZ+4/CnUHJS3NsNec0RBGQ
-	7UJfcntOBT5zLlnJB38AM7duGtL7FmVYzH7kDz9HpWaPUYyUsrGrzVH3NAmQwy8hwq6psh2Dej24G
-	4OBOpGaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fc6sElGMgMukUy5Ml8+MOCMJdY3v3LhpX+J8ktZPnok=; b=XCPmfDn9WkuWrpxjj/lRyNfI/w
+	8d8hGo3mGyn97VSUcJsrs7CSvf2zWJxUyzqdZsCkgjFRYbeVuOmKB1UdYQ+iVgB4Fouarlk3HnsQH
+	pp/BgbxRUgATrwUWw+9ZO+eamfTwN6NusQrJnScsT2S+rJyRohcEmZcBfoA71ghzV9aBsTYe/8Rlh
+	RWmx8Zyl8BSDsb0ADtzrrH2yqBS+5kZhYEcqzi7q8DYJUNX4n0juIdfczaJ0d2OGAUets5klSll9W
+	pFNB2Fou/tC6I/hi1T5p2a1xZlv2/kcE8bXhZLEJd4K1FbEkudix/L7FOTEvf1y6cKg8k4FyJ3V8F
+	ly3YjZvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2CR9-00000004f74-2ugE;
-	Mon, 16 Mar 2026 18:13:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2CTN-00000004fKG-0fTk;
+	Mon, 16 Mar 2026 18:15:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2CR8-00000004f6x-3FrY
+	id 1w2CTK-00000004fJy-1TBZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 18:13:06 +0000
+	Mon, 16 Mar 2026 18:15:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C913960018;
-	Mon, 16 Mar 2026 18:13:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72035C19421;
-	Mon, 16 Mar 2026 18:13:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A5C784047B;
+	Mon, 16 Mar 2026 18:15:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C11B9C19421;
+	Mon, 16 Mar 2026 18:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773684785;
-	bh=mcq5BQW0yR0Ua/3eEaF+HfV4hfi4nOrG+gTQm3NMN1k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XGIkyp+VdeqtWWgNVwqaZUUEfxou4LfIa1IYMOlPQiqHaWzH3c2FzgY5KwJFqrgD9
-	 lZC1KxSyVLvi4yATjBAUdizBnxBarHJPHWDIPnM0UUqsdXBdAwFqMi89AjQZEx9Fcr
-	 wzI2FrxqPxytJO30Ofe4QOaXHIlr8W8S5fxHReNkJxJlrGVwbzYtBs8h1uESGHs3XT
-	 5nCrdIwCihaaL/Cjho8eMU8+W7zmSgPy0tzKhQnUKNk/o3mCyRm8eMxNgBdDpsCsH9
-	 5oTCePz6RU80xD3vuuGfXc3VkwDG2TJuRE/hHagUK+YWBZXFVJSmgzYfE71rr3xTin
-	 2fmOzTE/Zm/eA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w2CR5-00000002Xkc-20pD;
-	Mon, 16 Mar 2026 18:13:03 +0000
-Date: Mon, 16 Mar 2026 18:13:03 +0000
-Message-ID: <86y0jr63tc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	qperret@google.com,
-	vdonnefort@google.com
-Subject: Re: [PATCH v1 00/13] KVM: arm64: Refactor user_mem_abort() into a state-object model
-In-Reply-To: <CA+EHjTzenq_xFwe8K_g1KFbETqndS3FnxPiwBRKrMvrxH4Z1qg@mail.gmail.com>
-References: <20260306140232.2193802-1-tabba@google.com>
-	<86ikb96kg8.wl-maz@kernel.org>
-	<CA+EHjTzenq_xFwe8K_g1KFbETqndS3FnxPiwBRKrMvrxH4Z1qg@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1773684921;
+	bh=f0V1XGDt0iDrlPiBc61XqhTfjDwAfM87xKlHzbkj1xE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=IzKGWr8Y8bdgCgHypXlfL7L9UV40MqCWXpx5ZSbdhR5Q5tWfPFkU9dSlXVdQYIXQb
+	 1wYDtUv+a972HzgsVtl7FAa+e+txxzuYmtlbfCfvVx3YlgXYvcocfs6UIeyEGZ/XiA
+	 nhF2mPRTC8FBQ8xjydvB9cZu6uXzm1uAMS2632VGrAbSErdVy4OibypDG+7fPfkS2o
+	 mN6e9PQANA2VjNx+QI/G1uoEkMFx22+odi0zRIDPVv6KWwfD3veWnT6aoLdlzmhlel
+	 C/o6UHeSN7PJpcmzlBUXFbYK8u3BOh4yWMiu2IL+HhoOgiSYzjwGF335J0h118bLSp
+	 o1z9toqrSkDgg==
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+ Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>
+Cc: patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org
+In-Reply-To: <20260314-asoc-arizona-v1-1-ecc9a165307c@kernel.org>
+References: <20260314-asoc-arizona-v1-1-ecc9a165307c@kernel.org>
+Subject: Re: [PATCH] ASoC: codec: arizona: Convert to use GPIO descriptors
+Message-Id: <177366676762.65215.4887426822529961456.b4-ty@kernel.org>
+Date: Mon, 16 Mar 2026 13:12:47 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c239c
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1125; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=f0V1XGDt0iDrlPiBc61XqhTfjDwAfM87xKlHzbkj1xE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpuEi15VIkFVpfbMENWG7miE5Gedb2iYkZYDVb1
+ KFLtDV0u0+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCabhItQAKCRAk1otyXVSH
+ 0IgrB/92YGzRsgyzung8/Uf95Fkw5+Sp6uPvpKX9cgrxQQRVvUxp2sn8CyRWH4rZAmWcDWzWwm8
+ Gh189w3kcUSHzn5m/UsBkhTxjY6q28jCKIoz4pHCCQHVfjcIl5QePpXPieDQqyAIlDQXJrOHD2/
+ b7z6c5xXHinWj95Bppag4PO849BbIzLNqCbvPWrx9QWtIYN2fkpJ/FmK4vL+KY6ZiSHwjyDrCuq
+ 47tKIGArH6xApc5sAjvYQe4t2EHsyCQ28rIilRiEt8CyhoJkWpYz+jNWAsIet107yCp5s44WrwA
+ ddPZ5/n2jfWSGnnOAbgEvbtQbYigf0+quY/T4uOU5Kw8W8NA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_111522_433578_023EFED0 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Mar 2026 15:44:44 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> I have to admit, breaking this down into pieces and seeing how much
-> tidier and easier to understand it became felt oddly satisfying.
+On Sat, 14 Mar 2026 23:56:49 +0100, Linus Walleij wrote:
+> ASoC: codec: arizona: Convert to use GPIO descriptors
 
-I can only agree.
+Applied to
 
-Having played with this for a few days, I came up with a set of
-additional changes that get rid of this kvm_s2_fault entirely, and
-sandbox the state in funny ways.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
 
-You'll find the result in your inbox...
+Thanks!
+
+[1/1] ASoC: codec: arizona: Convert to use GPIO descriptors
+      https://git.kernel.org/broonie/sound/c/cb15d8e6cbe8
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
+Mark
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
