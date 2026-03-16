@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76388EFCBBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 07:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4377CEFCBD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Mar 2026 07:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZMRxjLXE8D2Cdgp/vdO8bWkwaeP3e4nJ6ZrADBGSOnE=; b=CQH2FoAUhLKHm5sK00zI14DbrO
-	VdO5xLq+IWp0xKDLpsY4hXmXjQRloZtU7SK0bIsSMcNaWBjf9TkMhRczM7xPBvh4scEQ2URm6dbzS
-	eENv6zKm7jZAeBw0OHFI5I9oas+hiLGRr5m8meGpxAygdifnJjMg6KSC6Wv+k3bJQKXe+z1o/Wpit
-	kMqUoAE/K6pC99GI9ertX9rGXA+h4BjvqYvTJ8Idy9+dbsBhNnABE7CbIqGihcCyIll9anprhgbcU
-	cbVOAN/+zrk4IE0N/MFy014/y5MgKDhAAzYWtJqtBxCfHthQkoMrpFRyGc2o3oe74Di11mLVhI+fa
-	7oQiXeLg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8HhMM9N01LALKgwPQRhCmHRvi1O/s+7Gnd9nlhpQSuo=; b=RRG9FXGdVi+QHZsJ83X+p8hVep
+	0IGklEIWkuYn9vSOP9eVVzxfiKYKwSUmwM6N8RPQ47nFaQPheODQZKxzQr7PpZfJ7Z6Xy3TEDPWD1
+	3gB2K3yI4t/UgOS6QNDwyEVUuu9EH4krlYpf7e3D9OpxO26mgODpyJLlA1o5/vCIvR6xuvQavlmoW
+	LoT8XF7CQ7Tcplz42YiAsqZjlyjc/N2IK6WuYTwXTze+vPJZjOEB1DEhSNbuFQU7hUSy1MahgJQJB
+	PuNDZaUScCEBabvpnybA/YnthhDNikvC0juM3NGOds55gIouvKFrebSQ92tpFcuAc8OTRcZLc3kJj
+	u85wt9JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w221P-00000003RnW-3K06;
-	Mon, 16 Mar 2026 07:05:51 +0000
-Received: from mta-64-228.siemens.flowmailer.net ([185.136.64.228])
+	id 1w2238-00000003SAm-2T5e;
+	Mon, 16 Mar 2026 07:07:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w221L-00000003Rm8-2EBP
+	id 1w2237-00000003SAM-2sc1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Mar 2026 07:05:49 +0000
-Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 2026031607054044abe6954600020796
-        for <linux-arm-kernel@lists.infradead.org>;
-        Mon, 16 Mar 2026 08:05:41 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=alexander.sverdlin@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
- bh=ZMRxjLXE8D2Cdgp/vdO8bWkwaeP3e4nJ6ZrADBGSOnE=;
- b=J27DOwr2tTRTS1V6o/PxmyxZQRfmumgdd78Zp60ZvpxnVludKEpsSX0NvzMp7+l/FZr6pE
- eEycWKJxuh4mMJlyqIz9kHKqJQs086ImNsyKPXsUeYfo0nKPRQOn/KaMgV+3iuY3rA7SEwWz
- NBAbZpGK9yjo6Sq2xOynZJQPrz0irTZGncA9Id38li8qZzbE6qDRsu5qWJS0JjpsDo7upaF6
- PGhf2keqrLW2g+T/tUG9eSye1+I0KEEr8qQLaeWXzcbiAzXxesZ6wqRpc+aV3BUM23mqEsAj
- +RsT1X5Xn1FdsW8f6V1CaJIBmTVgJohW5k1d2p0NG6LaR6/GS8nCZUPQ==;
-From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Andrew Davis <afd@ti.com>,
-	Jayesh Choudhary <j-choudhary@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Abraham I <kishon@kernel.org>,
-	Roger Quadros <rogerq@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3]  ARM: soc: ti: k3: Provide reset cause information
-Date: Mon, 16 Mar 2026 08:04:22 +0100
-Message-ID: <20260316070429.1545707-1-alexander.sverdlin@siemens.com>
+	Mon, 16 Mar 2026 07:07:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BD8926013E;
+	Mon, 16 Mar 2026 07:07:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69195C19421;
+	Mon, 16 Mar 2026 07:07:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773644856;
+	bh=Aht8PZinYTeCOwmJtsjULkbPYEcXPgztoZkAzDbJsPA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TGzvEwiRCeGkUJjkyH/BaIpLbiBzS6H1hAe2QVfhxcew7buMn8ZwM52VWTRiFlWSK
+	 MuFTBIrQPlxRYAhXpbT6Vh2b9KTzz62QkHdfP0rnoUGwrh8gF8DfPonp2Xi4Mam739
+	 DC7E8Iird5Aq8O2gg0PaBbM9edgiiqtvM3mOpu05EOuxj5vOVJR3+qoKGGeFaZ0OKh
+	 YR/HPHQuS4dDRWwi7SnmfoEwgOuehN6Clp6cq0mrOUd/0E5X8vHRXIC3rd15a4E0Ip
+	 HvRt7Ma7oyT6wK0yBT+zzRaNySr9GHjhHjbKxalSfjPdxXQvvMuYWwKKgTCKjH8VR4
+	 mbWzl1xKRy0Jw==
+Message-ID: <3f2d964a-4e82-414c-b373-af0d531b0fcd@kernel.org>
+Date: Mon, 16 Mar 2026 08:07:31 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-456497:519-21489:flowmailer
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_000548_236135_BDE7C4B1 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] dt-bindings: soc: aspeed: Add AST2600 eSPI controller
+To: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, maciej.lawniczak@intel.com
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+ <20260313-upstream_espi-v1-1-9504428e1f43@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260313-upstream_espi-v1-1-9504428e1f43@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,48 +119,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+On 13/03/2026 11:07, aspeedyh wrote:
+> Introduce the device-tree bindings for the Enhanced Serial
+> Peripheral Interface (eSPI) controller found on AST2600
+> BMC SoCs.
+> 
+> The controller operates as the BMC-side eSPI slave and provides the
+> peripheral, virtual wire, out-of-band, and flash channels used for
+> host-BMC communication.
+> 
+> Signed-off-by: aspeedyh <yh_chung@aspeedtech.com>
 
-Newer TI SoCs from K3 family (AM64x and newer) provide a detailed reset
-cause information in RST_SRC register in the reset module within memory
-mapped control registers. To make this information available in user space:
+Please use your full name. Semi-anonymous contributions are not accepted.
 
-- provide the DT bindings for the reset registers
-- add the rest registrs to the device trees of the corresponding SoCs
-- conditionally add custom SYSFS attribute group (if particular SoC
-  supports it) with "reset_reason" attribute providing the textual
-  form of the reset cause as documented in AM62x Processors Technical
-  Reference Manual.
-
-The location for the newly provided information was inspired by
-drivers/soc/tegra/pmc.c.
-
-The series has been tested on AM623 (relevant DT is k3-am62-wakeup.dtsi).
-Interestingly, K3 can have multiple bits asserted, for instance in case of
-WDT-triggered reset:
-
-$ cat /sys/bus/soc/devices/soc0/reset_reason
-Reset Caused by MCU ESM Error
-Reset Caused by Main ESM Error
-
-Changelog:
-v2: amended mfd/syscon.yaml instead of separate reset/ti,am64-rst.yaml
-
-Alexander Sverdlin (3):
-  dt-bindings: mfd: syscon: add binding for TI K3 platforms reset
-    registers
-  arm64: dts: ti: k3-*: Add am64x and newer reset registers
-  soc: ti: k3-socinfo: Provide reset reason information
-
- .../devicetree/bindings/mfd/syscon.yaml       |  1 +
- .../soc/ti/ti,j721e-system-controller.yaml    | 11 +++
- arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi    |  5 ++
- arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi   |  5 ++
- arch/arm64/boot/dts/ti/k3-am64-main.dtsi      |  5 ++
- drivers/soc/ti/k3-socinfo.c                   | 88 +++++++++++++++++++
- 6 files changed, 115 insertions(+)
-
--- 
-2.52.0
-
+Best regards,
+Krzysztof
 
