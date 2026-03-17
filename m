@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BFFCF506CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 05:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8592F53D84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 05:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=R1RI46GisJzD2VUiMTiqbEdP7Evcl39FEICsImo+ZLY=; b=e0BJQsPq5p8LZv
-	DOR6WC1PiTfljLVz0XF6JPknS+vjtIT8N3nVnPZvOfrhvAIU9QlqCUpQVC+ou+CWYIj+8QP4Opmkb
-	zLmADLa0dRTZMNcoTol/7bzkoDU3ZqI13Lv7c3OJAxOUezJgoqRetnBa9K9Mpgd0IgRxcYB4A6o9N
-	dm/WWIMzNAgeHSPZN1rVZySx+CNK2HHX6APrdRfmQx7diyZmjCNbi0sQ2vcOe4CtxSbm09nRYJTz5
-	WQOTdzMeizLJhnOk6YIoLizMEEyqwOtkbIJEXbjB9YBlHJ8vkNwvhLLqBfB2ENrDX7fknmgH+y756
-	vR3lcy6V479xz/x4b7XA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BHtZECZh1lccSMdvYoO6Obq74NAnMNmsVszX85g9OrM=; b=F9vMd113Yd/4qQmPUZOZ4OrO0R
+	ZRBppo9RcfEVUH2I6+1jNYQPShOXObEXBPmXwZXi1uNutchG+jSdkUGyUul6+NE4q4Y8n8Ee6kKM+
+	PqLDkVNpt0BzCk6dyT2TJ3Kw63fIQUOHzrRgHbJYIHSozkY9vvgHW5Pz+c2G+u1co8av8P2xciFUm
+	1JxWCnOpbO+xjuSCawyKgBYujLJ0yuJ8hmESq2afJr7NnTBOjnz9gEcwfcxFte2lZTXCENiVJESl5
+	lE7luHCrfkzZ4Z2yYt687/CLnA2y3oWH4FviNNiaP8ZW+jRbWjODI4oRgmpIrloL80mA9u+BjzMKC
+	VwUZu17g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2NQD-00000005SuC-3OI4;
-	Tue, 17 Mar 2026 05:56:53 +0000
+	id 1w2NQH-00000005SvZ-1mUA;
+	Tue, 17 Mar 2026 05:56:57 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2NQA-00000005Stg-1usp
+	id 1w2NQE-00000005Stg-2srU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 05:56:52 +0000
+	Tue, 17 Mar 2026 05:56:55 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 17 Mar
@@ -35,16 +35,15 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Tue, 17 Mar 2026 13:56:42 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: [PATCH v2 0/2] Add AST2700 support for aspeed sdhci
-Date: Tue, 17 Mar 2026 13:56:41 +0800
-Message-ID: <20260317-sdhci-v2-0-39b1f063061b@aspeedtech.com>
+Date: Tue, 17 Mar 2026 13:56:43 +0800
+Subject: [PATCH v2 2/2] mmc: sdhci-of-aspeed: Handle optional controller
+ reset
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABntuGkC/13MQQ7CIBCF4as0sxbDQILiyns0XSBMZRaWBhqia
- bi72KXL/+Xl26FQZipwG3bIVLlwWnqo0wA+uuVJgkNvUFIZqVGLEqJnoYwNGu0cHoGgf9dMM78
- PZ5x6Ry5byp+Drfhb/4WKQgqLnhxaf3XmcndlJQob+Xj26QVTa+0LGSLq2Z8AAAA=
-X-Change-ID: 20260313-sdhci-269d319fdbde
+Message-ID: <20260317-sdhci-v2-2-39b1f063061b@aspeedtech.com>
+References: <20260317-sdhci-v2-0-39b1f063061b@aspeedtech.com>
+In-Reply-To: <20260317-sdhci-v2-0-39b1f063061b@aspeedtech.com>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>, Ulf Hansson
 	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
 	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
@@ -55,17 +54,16 @@ CC: Andrew Jeffery <andrew@aj.id.au>, <linux-aspeed@lists.ozlabs.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773727002; l=966;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773727002; l=1614;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=gW4uZHnAnJisSYc/KOIrw22KZpU+AhjS9RzlefavDzA=;
- b=uTbjtNoFDdzN6vBYxAPYMvALUaSypnwqYJgAOXy6A8x794z0nSIeXfXu6o6UqSOHWggQfzIPj
- ti0B9NzhzSvAZkNgX+guDCa1DZrwSmssLeZJ6ok/0tX822ESfO/HJCQ
+ bh=DSoqlna8u7OCuF3/5m/l2C6jTM9r0dUx3ka7UV6Fe8A=;
+ b=VbYwjGJsR8J3X3Nl8Beo94UfMy+DhfmM5ZwdouDHm49volC5Ts/2ld8y1hSW5+kPrm8Y4R7Ay
+ OQHgXV3c3EuBTmaGZQ5PkgTqZyk2fIwFpDNDZ9zVCB0mO5TQwMMT3q+
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_225650_505587_6C0ACC79 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_225654_745956_C00F1729 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series add aspeed sdhci support for AST2700. The AST2700 sdhci
-requires an reset. This series updates the binding and driver to
-support reset requirements.
+Get the optional reset line for the ASPEED SD controller during probe by
+using devm_reset_control_get_optional_exclusive_deasserted().
+
+This allows platforms such as AST2700, which require the SD controller
+to be taken out of reset before use, to work with the existing driver.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
 Changes in v2:
-- 1/2 use items for ast2700 compatible.
-- 2/2 use devm_reset_control_get_optional_exclusive_deasserted for
-  reset.
-- Link to v1: https://lore.kernel.org/r/20260313-sdhci-v1-0-91cea19c8a67@aspeedtech.com
-
+- use devm_reset_control_get_optional_exclusive_deasserted replace
+  reset_control_get_optional_exclusive.
+- add include reset.h
 ---
-Ryan Chen (2):
-      mmc: dt-bindings: sdhci-of-aspeed: Add AST2700 fallback compatibles
-      mmc: sdhci-of-aspeed: Handle optional controller reset
+ drivers/mmc/host/sdhci-of-aspeed.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/mmc/aspeed,sdhci.yaml      | 39 +++++++++++++++++-----
- drivers/mmc/host/sdhci-of-aspeed.c                 |  6 ++++
- 2 files changed, 37 insertions(+), 8 deletions(-)
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260313-sdhci-269d319fdbde
+diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-of-aspeed.c
+index ca97b01996b1..8f638ffb55ae 100644
+--- a/drivers/mmc/host/sdhci-of-aspeed.c
++++ b/drivers/mmc/host/sdhci-of-aspeed.c
+@@ -13,6 +13,7 @@
+ #include <linux/of.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/reset.h>
+ #include <linux/spinlock.h>
+ 
+ #include "sdhci-pltfm.h"
+@@ -520,6 +521,7 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
+ 
+ {
+ 	struct device_node *parent, *child;
++	struct reset_control *reset;
+ 	struct aspeed_sdc *sdc;
+ 	int ret;
+ 
+@@ -529,6 +531,10 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
+ 
+ 	spin_lock_init(&sdc->lock);
+ 
++	reset = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev, NULL);
++	if (IS_ERR(reset))
++		return dev_err_probe(&pdev->dev, PTR_ERR(reset), "unable to acquire reset\n");
++
+ 	sdc->clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(sdc->clk))
+ 		return PTR_ERR(sdc->clk);
 
-Best regards,
 -- 
-Ryan Chen <ryan_chen@aspeedtech.com>
+2.34.1
 
 
