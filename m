@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CEEF3380F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C9CF3380F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gLdlvecz/LwOdAaAVZZ2AaKTPoggolIkdlDGOJEqGM=; b=LmHKIKujJXyHcYHOuhtDF/mGb7
-	YFf6xnzOVITQLFckPX8J+BYAUy2Zf2td31e6JznDFxDymy6K5h0gqt0gkmga8iN8yDYd1i0PcDXBR
-	gI/IAHPi83LweMuQjeDE/cMbeFbPEJsyeMhSfLi9eqhbVdvWSuRniVQ56/VJvUIj1+KNsKNcB63TL
-	N8YEYAYHACcErg0midwMU3OqepEkP8Rmkkv14BrGDDHiePzIPFqBrWspoToyJTtwA9Ss7hZIqJKxo
-	DmAAnGij55zZZzX+EAGBPdZMmgkwkuco2K6tk0Tswx1l8EsmZaDuaeMX//2Y4eWIwNfTngLCnxhPR
-	D8nF+BiA==;
+	bh=jUJuwBPFUR/Nz9GUBUjDSAihNxJJ1UtBMGnVcsi8xBs=; b=RVuVjuedqZ28N10QK+p9Bc38ws
+	jCZ1RlSPZnqt0LxA7wVyp5bhEVHuXBpH0hSlwJ9FbTJx/4VeodPAf7TOApxX/R5d3M8TCQsc05yqh
+	T+R5c23poWGJ0Lry0NDjSDt0lDC5Xiys9Mzh1KmJ8vYCo2TnDMCHdu/HL9PeBp1HmCOOkjJbQ6xmT
+	kvtf8Zw6YLFK3WyvuArl3TZp8eMY9XX807GLSnh/riv03GTXO6enbpxT81750auvGhidzMXD0ts8h
+	W7D0KJ9TB1AB42nQUGw7cL3xDf2kakGoDi3nzjTkpzukHqV9V86lVfTDKZ6QQscSXVCyGdG40Xvah
+	UJK9REWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PiP-00000005j3t-3zpq;
-	Tue, 17 Mar 2026 08:23:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2Po7-00000005jQQ-1GbT;
+	Tue, 17 Mar 2026 08:29:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PiO-00000005j3m-2o59
+	id 1w2Po3-00000005jQJ-3aUF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Mar 2026 08:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jUJuwBPFUR/Nz9GUBUjDSAihNxJJ1UtBMGnVcsi8xBs=; b=phjaCFaojuxLgBWFYxiGiU7tZl
+	y32ZPQY+JZBZjkiOhYLQ8Bcc0Tz+C/L2sjrv2fShJi1HMdIc1n3//Ao9ETkZ2L2upHxZIlywQzHjQ
+	lIl4gKpprkypTh83g5RvH/7E4Hdr2Araw0D/8W1n5WZAgu3wVQTE97TcO4TVABghbQQTROa/HzOk/
+	y9NTQD5astXmT+xNs7lo2mbgK7VkRK47P9baeBOt6D2sQ8cZMKEY5jR23Qz1nF+rpG8GrSw8E/ZDJ
+	fTAaaFoXVAE5kIKrNdwzx43XpqZ1UgzA1Y5f1ZBGx9VYqCBv6XzdGPe/atg4wD9kCXPI3FijrOWk2
+	DpNvlgNg==;
+Received: from www537.your-server.de ([188.40.3.216])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Po0-00000008PaS-0uEc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:23:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A5E06132E;
-	Tue, 17 Mar 2026 08:23:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9501C2BCB0;
-	Tue, 17 Mar 2026 08:23:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773735827;
-	bh=a29QAEXIGssouyozNOpQMVvz8FzM/vNaQNbQJrxfEYk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kKrBrRlg2nhfZpCWNy1iNa2WlY9Wtv1i55T8nPtDy8VCdv4zNkVTSPPhgp1DfuhqH
-	 6M+u0hHC8fjox1sArJoq4PuEvh3rksh7Kc+0uUDF6wnjJSVeDWDRIIzZOkJoH9APcL
-	 JHjlaTPYECqXJGRiSgFCSrTfJJug2/tfwnfD8DJrfIS14MqejoJOBlSRs+L+bcYk2H
-	 icxg3DzfUIuC2fq4ALW7Mi8ea0Y35UEY8NSRjp2I4G+bEU/a75kl+15tFp/R9ut6fC
-	 GLol39g7ByGK6oQcOcY8X4iosNTV34oIAC4+RUcdhmpz4cTp5K6PPC7XsBlLfgoR+Z
-	 NsHoC3xrTfciQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w2PiL-00000002jJL-3pGs;
-	Tue, 17 Mar 2026 08:23:46 +0000
-Date: Tue, 17 Mar 2026 08:23:45 +0000
-Message-ID: <86tsue6ezy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
-In-Reply-To: <CA+EHjTy=MCgeKoi9sA_eDuiODucOdMP5m4CAciUW=rStgJggmQ@mail.gmail.com>
-References: <20260316175451.1866175-1-maz@kernel.org>
-	<CA+EHjTyBtM5idopKisJf_e10aRifubtKEpbkjkEnmrOqa9-SPw@mail.gmail.com>
-	<CA+EHjTy=MCgeKoi9sA_eDuiODucOdMP5m4CAciUW=rStgJggmQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 17 Mar 2026 08:29:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=jUJuwBPFUR/Nz9GUBUjDSAihNxJJ1UtBMGnVcsi8xBs=; b=WSnw09+aEcy15TNNNA1Hhve6Pk
+	vFi66MVEPlCq1qmkI2uKkzpk0Jm8v8eS6CA8+ayoT5Yk/WwKiWRmLh63h0l66DLHVxto0zyv8I6dj
+	nlWfFRxROoAzPEyEYNW5IS1ijN477fXNu9HbyxJfeP3mXZceXrbo2Ul99t7e99bb8lKJUvPVqYhiw
+	qPeGGCzdhykrT+7LPEG8NVa/w/lRrX4RYcydSZjXGxlNicpu53RU9+1x0S8KrfQ6vBwYL1kri7yCD
+	ClzY7zwOiIhtoSQH5dlwubKpe3CY8rLMOuH1xfDf5vjpsbcN/ioo2moMpPw1Nmn1tHZOb53Iab6wH
+	3neZIBHA==;
+Received: from sslproxy02.your-server.de ([78.47.166.47])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w2Pnu-0003MK-0j;
+	Tue, 17 Mar 2026 09:29:30 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w2Pnt-000MQw-1r;
+	Tue, 17 Mar 2026 09:29:29 +0100
+Message-ID: <bfd19beec4ccbe296cdc1da865b15caf3ad1e5cc.camel@ew.tq-group.com>
+Subject: Re: [PATCH v2] arm64: dts: freescale:
+ fsl-ls1028a-tqmls1028a-mbls1028a: switch mmc aliases
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Alexander Stein
+ <alexander.stein@ew.tq-group.com>,  linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com,  devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 17 Mar 2026 09:29:29 +0100
+In-Reply-To: <20260224152523.570057-1-nora.schiffer@ew.tq-group.com>
+References: <20260224152523.570057-1-nora.schiffer@ew.tq-group.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
+MIME-Version: 1.0
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27943/Tue Mar 17 07:24:09 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_082936_402911_ED422CCD 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +100,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 20:33:03 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> On Mon, 16 Mar 2026 at 20:26, Fuad Tabba <tabba@google.com> wrote:
-> >
-> > Hi Marc,
-> >
-> > On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > Piqued by Fuad's initial set of patches[1] splitting user_mem_abort()
-> > > into more "edible" functions, I've added my on take on top of it with
-> > > a few goals in mind:
-> > >
-> > > - contextualise the state by splitting kvm_s2_fault into more granular
-> > >   structures
-> > >
-> > > - reduce the amount of state that is visible and/or mutable by any
-> > >   single function
-> > >
-> > > - reduce the number of variable that simply cache state that is
-> > >   already implicitly available (and often only a helper away)
-> > >
-> > > I find the result reasonably attractive, and throwing it at a couple
-> > > of machines didn't result in anything out of the ordinary.
-> > >
-> > > For those interested, I have stashed a branch at [2], and I'd
-> > > appreciate some feedback on the outcome.
-> > >
-> > > [1] https://lore.kernel.org/all/20260306140232.2193802-1-tabba@google.com/
-> > > [2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=hack/user_mem_abort-rework
-> >
-> > The series in hack/user_mem_abort-rework is different from this one.
-> > Here are the first few patches:
-> 
-> And I just realized it's because they're based on _my_ patches ... doh! :D
+On Tue, 2026-02-24 at 16:25 +0100, Nora Schiffer wrote:
+> All modern TQ-Systems boards follow the convention that mmc0 is the eMMC
+> and mmc1 is the SD-card when both interfaces exist, reducing differences
+> between boards for both documentation and U-Boot code (which uses the
+> same Device Trees). Adjust the recently added MBLS1028A Device Tree
+> accordingly.
+>=20
+> Fixes: 0538ca1f102d ("arm64: dts: ls1028a: Add mbls1028a and mbls1028a-in=
+d devicetrees")
+> Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>=20
+> v2:
+> - updated author information after name change
+> - collected review tags
+>=20
+> As mentioned in the v1 submission, it would be great to get this in
+> before v7.0, as the TQMLS1028A/MBLS1028A was just added in the current
+> development cycle, and we'd like to avoid changing the aliases after the
+> DTS was part of a mainline kernel release.
+>=20
+> Best,
+> Nora
 
-I thought I was clear when I wrote "I've added my on take on top of
-it", but maybe not. In any case, I didn't feel the need to redo what
-you had already done -- I don't think I'd have come up with something
-better.
 
-In any case, I'd appreciate your feedback!
+Hi Frank,
 
-Thanks,
+can we get this applied, so the change makes it into v7.0?
 
-	M.
+Best,
+Nora
 
--- 
-Without deviation from the norm, progress is not possible.
+
+
+>=20
+>=20
+>  .../boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi  | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls102=
+8a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dt=
+si
+> index cf338b2e80064..426a81e1743f1 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> @@ -17,8 +17,8 @@ aliases {
+>  		gpio0 =3D &gpio1;
+>  		gpio1 =3D &gpio2;
+>  		gpio2 =3D &gpio3;
+> -		mmc0 =3D &esdhc; /* SD-Card */
+> -		mmc1 =3D &esdhc1; /* eMMC */
+> +		mmc0 =3D &esdhc1; /* eMMC */
+> +		mmc1 =3D &esdhc; /* SD-Card */
+>  		serial0 =3D &duart0;
+>  		serial1 =3D &duart1;
+>  	};
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
