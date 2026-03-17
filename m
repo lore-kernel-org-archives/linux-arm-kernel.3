@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25E2FED9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD69FED9E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIQ6xtapd9/L6M5LvJi2i18CX9YCdA7sE0Usfp9KiK8=; b=QqubuTtkXMbr1kBaNBcI7bcLGE
-	pmw2reb32ql3UptcIX6HoiQODXEsY0xkjspOX2pNosCOOp/ouSjBYdNd2QKPKDU+1+0O3DRocd3V9
-	+CNBbdlCpqz/vI4LFIsI1jtCB40/MLZfcg/XUYClyxQodGDSjPT/dkYeIo8UJ0uP0yY436VdE92hW
-	ddjm8KjDDE4HDtoGEWx8LaN5NIjEzyH3zV3ngY7/M2/d46cKrbtSMp7EhnBfTXYMmc4LiSXsLTJ+v
-	m+hLOLcB5BsskbAcEEoyMZ8EhJpp7uQGSXzoX8Jcsz+zYS3MpplC48gnpYTdV+B2oIj5yB3MfRvY3
-	HCR+70ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=; b=cG2Jymh69zA5CqNsEJ7lLaDgoH
+	7cv45di5H3gIFx6LAjMFuhgnOQgRSLilYkblQMr78KK0XRETeUorzMasymtofBl+MkC01UhOStT9w
+	67gAkokqs65xbdo38osJEY+5Uraqxc4F4ndcKeFn+JOSxFBR2a4Kmjd8GYdEJrRUWmgO6JFg3/uop
+	KlivBqhGOFttchOhfZGwAHGjo+O3kafM6dhRsDhqA1SNE1Kl9zL8Z6zb5DBE+QtKA7qB5yCLDlx0k
+	zj0+xGOzOpt1IPHYtK8SRtuqi2MME+tKy13bHAR1qTmXzrQuO45Hcuxrn3OniDwpACoG5emyWgrOF
+	9BZY9n6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WJX-00000006jv4-1zia;
-	Tue, 17 Mar 2026 15:26:35 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1w2WLW-00000006k8t-464G;
+	Tue, 17 Mar 2026 15:28:38 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WJU-00000006juY-2iEH
+	id 1w2WLU-00000006k8M-08km
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 15:26:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773761193; x=1805297193;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=hYXp9a2NLaQVekWjZ+4yth845DCIClXSayYXXsM3Uyc=;
-  b=SDGYmgmOhg/jH55ElbeQ/cDMqAiBtRH4GQABiLrJP2pEZV/MCmuaBVzT
-   Ttuv6r1yDnG6KgEDonGsL9+8Ta2G9O7XDqk8oZ2bqkNL590J7R2PNMnlP
-   1VI6uznO2i6IDBm81rdBpbr0schJhKaherrqsvSgxQrATQEYX/6CsCFfZ
-   l2w1c+9wTpZEOdFLKA/7JeyraVmWXzSLIFAvVBx3XpRX8icFwUnUC/2/w
-   jTmFXVCuDoz/PZte8odbVsTjKpXrzPiYOtzPuk+a7/P6EH809puqTgRYF
-   hQPzjCk8OqJSDXLHz/XZsJiR3kw6eK1n0981qQOzHuXJJryirRyzmeIHq
-   A==;
-X-CSE-ConnectionGUID: BulBhPIQQQisqQ1nfgvb6A==
-X-CSE-MsgGUID: 68x8ZTdwTw+r7lqVNxQE+Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="74681344"
-X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
-   d="scan'208";a="74681344"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 08:26:32 -0700
-X-CSE-ConnectionGUID: ZST71INmRsKeCKApGPuKCQ==
-X-CSE-MsgGUID: m12kp4T8QlWEYWIU2Ok2MA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
-   d="scan'208";a="245322289"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.161])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 08:26:25 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 17 Mar 2026 17:26:22 +0200 (EET)
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-    =?ISO-8859-15?Q?Pali_Roh=E1r?= <pali@kernel.org>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    =?ISO-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, 
-    Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Bjorn Helgaas <bhelgaas@google.com>, 
-    Madhavan Srinivasan <maddy@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-    "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-    Tyrel Datwyler <tyreld@linux.ibm.com>, linux-pci@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
-    linuxppc-dev@lists.ozlabs.org, 
-    Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v2 4/4] PCI: rpaphp: Simplify with scoped for each OF
- child loop
-In-Reply-To: <20260317133322.266102-8-krzysztof.kozlowski@oss.qualcomm.com>
-Message-ID: <b983a05b-2d90-2a88-4b60-49c6c5ee777d@linux.intel.com>
-References: <20260317133322.266102-5-krzysztof.kozlowski@oss.qualcomm.com> <20260317133322.266102-8-krzysztof.kozlowski@oss.qualcomm.com>
+	Tue, 17 Mar 2026 15:28:37 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b06d33e84cso1438275ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 08:28:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773761315; x=1774366115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=;
+        b=KQU6KM6PHu5PW5ihsKN9+MlEQttZ7/6N9gUhX3IqU9ufXxM437zt46HcjLvwcjd8Vo
+         vgW+3PxvzF2nNBj3YbjaS6WT1f9liy2jDUsBm5GnCFIo9t8Ty1YLkdD3osUX4KDcnBcG
+         QWTC7QTDNUguFw+rYHtkKp+xqM4rNS8nawII5FQ7CnxwGqrZxPxKJxv0s0Mc2RwUbf6v
+         3Ugd5Cd+HJ5sDB2aUkeebEgyo97oqZCGpjjDh9996zWQLOgmyv7zVovmJB5lqYyNxM8X
+         L49Ufiif8tvag7IAvmJdHHXt3hEw33TkwO0YoSkNj+SxvXIcSVwvScIyLRrKbia5F2p1
+         AwkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773761315; x=1774366115;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=;
+        b=HTXeF/fpEKHqw4URE/3oRmk3jFcRUVdNKHCg3sl9rstVSwW7Dyoo8S9oN10flQTUu+
+         oZdJ1J2VZOGsx8GyNA2WxmsI4P/6/HbTUHT0DFez6mQbaAopjTTk+n1QoEKMzz15Bexv
+         Cg1qAdl1JCUzyrdi5jBUp/+hEtHxjIRIDaTAITtuKKmtpKyoZ4xlOKteLgUS86NIvBIu
+         5xwgdazr54qEoE+iK30kb0mgccZHaEry/oI0RGSZ/qKIF30aCXy2xwdu5PSVgTGNlX0+
+         +gsEFl2ggACqLa53rvJ6qtseYEALl4ccDnbl7HuaPFNMNBjEjzIn4RrKnYbYqdgqhtdP
+         pHfA==
+X-Gm-Message-State: AOJu0YyEK2pc7omf/xInr6/xiGfyQJ6nwSTV8jZyQPWQUwbHnExfksUE
+	+hCyCHmME1sls0djuHD7B7vACVA/97H9LcGe7WfkbaK1MUwYqF4etGSM
+X-Gm-Gg: ATEYQzyf/vGlr2bOY7H+Nc1H8fuuq5aQac/9p622yFtCEA7sczTYHqtKIi1QCPZPUNv
+	VrsMBDpBw/X6qWdqjUg1lW+xf8FBZLxmg1mI3/b/+ctT5fBxVyRmQFBOfkBO7gZpuY1z+BBctzH
+	olGBoXmaivSX2KCCta5QPLJhVD8hlhtv+ilQb3/XiNEzqp2xC0zpUzEaBirh4JamDAEZkPOSpY1
+	DcOpxDx9k71ZrgGnZfgm/MVmn7jnvF7q+01dn3/zhx+2ET6GIiralBdWtA9CpPXE1GczYxGglro
+	iV8+fxTbPv1JgSYNtz/UU/Sar8SIWH+zKrxHG+sCqi2tCT1bfA96HoKQQcPXFyVQtxN4oaSzAkW
+	yDpWAQjwZJfY7ybRcIbA4UNLcePjW7mb27PJfKCn4oWTA8F4h7gKwc+shyH86yXeQjH+5tJEaeW
+	L/LyKVPsQU+RuU+kzuBxlY/5ZpeE8BovgbBKJ6jojHxy1G6zHL2JQD7Y5aFsyeH8ruSaCjaQ==
+X-Received: by 2002:a17:902:ea0f:b0:2b0:6323:1739 with SMTP id d9443c01a7336-2b063231bc0mr44454175ad.41.1773761314768;
+        Tue, 17 Mar 2026 08:28:34 -0700 (PDT)
+Received: from localhost.localdomain (61-230-23-18.dynamic-ip.hinet.net. [61.230.23.18])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0542909d8sm105242455ad.31.2026.03.17.08.28.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 08:28:34 -0700 (PDT)
+From: Yu-Chun Lin <eleanor15x@gmail.com>
+To: linus.walleij@linaro.org,
+	matt.porter@linaro.org,
+	syin@broadcom.com,
+	laurent.pinchart@ideasonboard.com,
+	csd@broadcom.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	visitorckw@gmail.com,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH] pinctrl: abx500: Fix type of 'argument' variable
+Date: Tue, 17 Mar 2026 23:27:51 +0800
+Message-Id: <20260317152751.21210-1-eleanor15x@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-1763753626-1773761182=:968"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_082632_721549_2D4D9068 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260317_082836_090718_1E298EB2 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,62 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+The argument variable is assigned the return value of
+pinconf_to_config_argument(), which returns a u32. Change its type from
+enum pin_config_param to unsigned int to correctly store the configuration
+argument.
 
---8323328-1763753626-1773761182=:968
-Content-Type: text/plain; charset=ISO-8859-15
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Fixes: 03b054e9696c ("pinctrl: Pass all configs to driver on pin_config_set()")
+Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
+---
+ drivers/pinctrl/nomadik/pinctrl-abx500.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Tue, 17 Mar 2026, Krzysztof Kozlowski wrote:
+diff --git a/drivers/pinctrl/nomadik/pinctrl-abx500.c b/drivers/pinctrl/nomadik/pinctrl-abx500.c
+index 8cd4ba5cf0bd..6650d3912acc 100644
+--- a/drivers/pinctrl/nomadik/pinctrl-abx500.c
++++ b/drivers/pinctrl/nomadik/pinctrl-abx500.c
+@@ -856,7 +856,7 @@ static int abx500_pin_config_set(struct pinctrl_dev *pctldev,
+ 	int ret = -EINVAL;
+ 	int i;
+ 	enum pin_config_param param;
+-	enum pin_config_param argument;
++	u32 argument;
+ 
+ 	for (i = 0; i < num_configs; i++) {
+ 		param = pinconf_to_config_param(configs[i]);
+-- 
+2.34.1
 
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
->=20
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->=20
-> ---
->=20
-> Changes in v2:
-> Tags
-> ---
->  drivers/pci/hotplug/rpaphp_slot.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->=20
-> diff --git a/drivers/pci/hotplug/rpaphp_slot.c b/drivers/pci/hotplug/rpap=
-hp_slot.c
-> index 33ca19200c1b..67362e5b9971 100644
-> --- a/drivers/pci/hotplug/rpaphp_slot.c
-> +++ b/drivers/pci/hotplug/rpaphp_slot.c
-> @@ -82,7 +82,6 @@ EXPORT_SYMBOL_GPL(rpaphp_deregister_slot);
->  int rpaphp_register_slot(struct slot *slot)
->  {
->  =09struct hotplug_slot *php_slot =3D &slot->hotplug_slot;
-> -=09struct device_node *child;
->  =09u32 my_index;
->  =09int retval;
->  =09int slotno =3D -1;
-> @@ -97,11 +96,10 @@ int rpaphp_register_slot(struct slot *slot)
->  =09=09return -EAGAIN;
->  =09}
-> =20
-> -=09for_each_child_of_node(slot->dn, child) {
-> +=09for_each_child_of_node_scoped(slot->dn, child) {
->  =09=09retval =3D of_property_read_u32(child, "ibm,my-drc-index", &my_ind=
-ex);
->  =09=09if (my_index =3D=3D slot->index) {
->  =09=09=09slotno =3D PCI_SLOT(PCI_DN(child)->devfn);
-> -=09=09=09of_node_put(child);
->  =09=09=09break;
->  =09=09}
->  =09}
->=20
-
-Reviewed-by: Ilpo J=E4rvinen <ilpo.jarvinen@linux.intel.com>
-
---=20
- i.
-
---8323328-1763753626-1773761182=:968--
 
