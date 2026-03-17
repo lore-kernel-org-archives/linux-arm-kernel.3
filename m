@@ -4,65 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81C8FF6E87
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 21:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D846FF6E87
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIRmM9ecFZK8P3pt/TYPRPaBVPH6CQ+wpwKO9UI5a3s=; b=j5Biqi5NNyMZKXL8ID5kYhuSNV
-	NZB+gEWm4CAnbzsF0DBgG/J4rWLG7RoUt8+rldPagKXPkJLN2gcv+3hKrtbFuPY7MAV+KNBGUONRy
-	YVeqe28aLtR8Dw9ldz8tHzzUTRGyp4MfN/crg6XAz8h+cBEEkMGffLiUhJTwPnwIGFj+p6ejYlaDD
-	dxyIn/7RMd845CRxF7/O/438Cz3kF17euGVu73ODR7gJQSNjnCekuPd1d++F3AaDUgj1AlMiCSJbD
-	PLHLHYxiXHxChw+1qCDwUcQhKaVHU1Z0hnH8DY0feqwJV32dcSZdC5pjx0nS+0TQm9cbBQtsd56hC
-	mSBWuXYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mK7AnZA5zQToFouP8HV9eUz8Dd41X4GhkYbD3cq/lFk=; b=SEfVsw5qRUygUPJ8OXtN1B4cJW
+	zIZ3wO12ojtMopHq+tqjelVjMBWJYLbYWAHqC+RfJcAe1HjwP38cC4qYoVgcIwxGBZAmMbq+uvQXF
+	r+cX9UIZ3aBBvlhl/mhqBXT012X/2v2FT9c5xBHZsAYt7GLF5kCt+umv9cgPn6eKcNuolOVN0OjLO
+	p8HV9z0gIPm7jkSLDGFdWQyblCiaSds67HfRNRFB46yYOgQTWypWs+DY7fsgplV+CmdxPwr5ojCdJ
+	EehtceCII0RHxeFxrpr2DUFwTMbXw2Y5akcZ915OTuLLUcRNQq7xv3nsikIxqH82s0gm7cSQiCvI+
+	MAXMDFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2c7R-00000007GTr-31fY;
-	Tue, 17 Mar 2026 21:38:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2c7E-00000007GT7-2HGe;
-	Tue, 17 Mar 2026 21:38:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 419131477;
-	Tue, 17 Mar 2026 14:38:07 -0700 (PDT)
-Received: from [172.27.42.179] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E05563F73B;
-	Tue, 17 Mar 2026 14:38:11 -0700 (PDT)
-Message-ID: <e4b0aefa-7108-47b4-ad5d-d62d385b8f33@arm.com>
-Date: Tue, 17 Mar 2026 16:38:11 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/3] ACPI: Refactor get_acpi_id_for_cpu() to
- acpi_get_cpu_uid() on non-x86
-To: Chengwen Feng <fengchengwen@huawei.com>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>
-Cc: punit.agrawal@oss.qualcomm.com, guohanjun@huawei.com,
- suzuki.poulose@arm.com, ryan.roberts@arm.com, chenl311@chinatelecom.cn,
- masahiroy@kernel.org, wangyuquan1236@phytium.com.cn,
- anshuman.khandual@arm.com, heinrich.schuchardt@canonical.com,
- Eric.VanTassell@amd.com, jonathan.cameron@huawei.com,
- wangzhou1@hisilicon.com, wanghuiqiang@huawei.com, liuyonglong@huawei.com,
- linux-pci@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
- linux-perf-users@vger.kernel.org, stable@vger.kernel.org
-References: <20260313022144.40942-1-fengchengwen@huawei.com>
- <20260313022144.40942-2-fengchengwen@huawei.com>
+	id 1w2cVR-00000007HZ1-1fi7;
+	Tue, 17 Mar 2026 22:03:17 +0000
+Received: from mail-westus2azolkn19012049.outbound.protection.outlook.com ([52.103.10.49] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2cVO-00000007HYU-1zvR;
+	Tue, 17 Mar 2026 22:03:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xHHzUrmE4KEvb3zRgYEFIVnqj3pj+rHpVHTjpyc8VjnEcm6LnVbZHlATX1kEHevxqB4S2ZkkTKrhPhLheeWcfMHQjqOc3Mv5mhAEfDNxwwLH2YcGt5GXPnGm56SPzPptXfdwG2kCG2SBs3saHhk4iUv57qJlO0zqh6ToJK4UHVSikO/WVio2eznS89iZKWNtbx5qzGfCL2WmD7L4bo/kWg06e+06/06xiHIlsooYdePjcE1IF91ajXSC25MAB1ltuQeiHpPGlxIhBD0/JBIiR9rvgFaQApAwwPuUepw4TuaWQWGmFGtQHL4SbnpGoc5P7CVBUijrO7iVUYxdsnrSaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mK7AnZA5zQToFouP8HV9eUz8Dd41X4GhkYbD3cq/lFk=;
+ b=umH2XP367x4nerHLFwfONWB15VT4fc64yvJojJHO+guE6xugzxhE4Adc8eUw+cvqGvjs2H4SnKA3pO29QeQBPCi0dd0n9r67zRI4ce87hYb4eKGiZ9bKf2L+HOAdn8+6/Z6XlgfPAB1BGIBDju/e5VyU7bP8ysc9MYyyYJvnE0DAt7C0IZkW3c4BP6CoX3q23FE9NI8it64YFtz5I76hKEhy/70SB7Vo7Ys5SkKcqkto1Uv32cPt7d0niCdtQC9z8hx+UfHlF02u41eD0leZ4yLJxGndkZ37KLKGvbj2OsnQT1SOgU7tRPUj8DB/Si/AVCwoOXGiIJAnQnTiHbS8BA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mK7AnZA5zQToFouP8HV9eUz8Dd41X4GhkYbD3cq/lFk=;
+ b=od7xs7F4rVsCgfDkxCzNVLdHJm1eh0ZnqBtYNjGrAq7vkag+gqeaBI9Nx5ZKGGjcg2GUaZ9NJy0mRZYeEDB9j0FV6aXtl9hz31y4zJA7XJ2BbIYQn1ObrGfrOrWTLkASj4QBcz7r7cxjgyFL4imfPCxgvg3ltitK2jttWLtdjFTLocgIRFfkoH+5ZkU/Cpkc+4/cEyzmbfSqXBTrGoSo+vltnL3/xmHy7sc8gWeZQESjFCD3bGy0VCkeZ/gIRXHbN8KlgyRVYC8CXFZRFihHrQWmlEyWXksTTs7+38U5y6kJNk0WB/N37BI25T9/Q4DjAn8BqbNyIas1ZHy+MXpn4w==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by MWHPR02MB10545.namprd02.prod.outlook.com (2603:10b6:303:286::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Tue, 17 Mar
+ 2026 22:03:07 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 22:03:06 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
+	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
+	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
+ Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
+	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
+	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
+Thread-Topic: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
+Thread-Index: AQHctT5MQUy+plR6RkKYTgy6jJBWJ7WzSSyA
+Date: Tue, 17 Mar 2026 22:03:06 +0000
+Message-ID: <SN6PR02MB4157DFC7B7CE94500C89664BD441A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-1-namjain@linux.microsoft.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20260313022144.40942-2-fengchengwen@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MWHPR02MB10545:EE_
+x-ms-office365-filtering-correlation-id: 57c921ad-0f24-41cf-bd1b-08de8470f837
+x-microsoft-antispam: BCL:0;ARA:14566002|19110799012|8062599012|13091999003|8060799015|461199028|15080799012|31061999003|41001999006|37011999003|1602099012|52005399003|40105399003|41105399003|4302099013|3412199025|10035399007|440099028|102099032|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?psvLWVDbwQQUU21guAumyr7THxVqB15xrr4vDgrMAoUAGCAGos+vkHsNGg+W?=
+ =?us-ascii?Q?6J76/ACvEhO8YSW2dvkFy/OE1ka2v/rudH0wsj0NqaoaFdZ4gs+tbmM8V9Tp?=
+ =?us-ascii?Q?/JbwAD/pXGiQXOQryWe6geB3XFLSodwK4pmKdfPuAn8hJtyeKyFoSvZ4iXrr?=
+ =?us-ascii?Q?+4TxtnZOXT3YRSLZ1UjkIY4Tgqko+CRESa3Yy0YRGYF7YHU0BTvgqxG6EcKb?=
+ =?us-ascii?Q?lQFpm87SiHBVy0dyuuGTEa9NCpcz8wapFsMBeBzAuv47mDhPVmpbkrMCH36s?=
+ =?us-ascii?Q?JlFnRfXULv9xR2oaLvZZHPON/bNFpE4VVzTDNO3x/YQIgRJcz5QZPYyiauMG?=
+ =?us-ascii?Q?RHeQ9b2cnKW7iD2TNSY/r/FFJVWgrMDs4VQ8Q5roSbrrmN2mU6SNb1yFDOXz?=
+ =?us-ascii?Q?qCB4sx1QYKy2yyukWLfQzq5nlhp3UU9JT53NyvVsyn0vbrDk30glqQFjmb0b?=
+ =?us-ascii?Q?zv1oGi60OYhktQF70Wx4p9fkkRbmPz1qp9ChOotjX0LJYiZ1h4kx8JIJxs2H?=
+ =?us-ascii?Q?k99AZjrNQhr95QtSYhJNRPRDcURnYehCmMQsfjy3wqRZN3kMou/E7CTH6Ht+?=
+ =?us-ascii?Q?mbqrud1ZSdCTns0ZrbHAMVwVKEIX/2PwBisWGRdNaZBV7GMi0iHR8rpPqXC8?=
+ =?us-ascii?Q?XEYaQ3EFC/uKUXSn9saoY5DUodtF373nuaBc6I/G1skVI+ABbpjxS6wD2UgY?=
+ =?us-ascii?Q?OzMPoC4syS1zQUu+jXsj+j1C/WXu1O8r0T6F+ZRfii7iu31ThlCN6H1iXbyw?=
+ =?us-ascii?Q?9s3tvMhF3Ka3ffPrr0TiaXV/lWLjhu9smVkhoACA7hqurqgl8+Scy7OIt6Nn?=
+ =?us-ascii?Q?n5qtbAVYsNWKg1wxoxyFgEaBmc25peEhZLnB6tdkpriTimj2xEKbtjn1KDqw?=
+ =?us-ascii?Q?NUbOVJ+kdO2ZTYYNC3x/3qBRUyib6LLJM+Kt1zTcQGfTYvClOHQkMS7pZ/Wn?=
+ =?us-ascii?Q?T79DPSDIzXGrkv9AmiGIudbUo/XH7oLnQ8ed/hRz2lYaEDyInx5okMvg1UE2?=
+ =?us-ascii?Q?FHO+1C07COs4+P1zY8s8xhNOqKFNCLdADoaMeagBc9e8DJD3KdaziwJca54L?=
+ =?us-ascii?Q?M0TqCfDdYcXsXocaPbKJY95CsdS43YTfBueAeon2NWtuaR6fC9iaN3ka1Czh?=
+ =?us-ascii?Q?blZA7UHCSjVN?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ELk/KZTU24blekeW/DU9p3X/GzG9GArFqbaD4vjO5rkZNIOayJj8qHKX289u?=
+ =?us-ascii?Q?2czFk3bTT760fGFK3xOMLq7AFCNuSBexr4tQ7Jzep5wR6642Fs+yuUBNIAAb?=
+ =?us-ascii?Q?vov6lQHD9q9h7wLrgNRGR6a/E/yvcMoMnxD0comtlpsrUe6Pu9FplSAs5s4/?=
+ =?us-ascii?Q?/0aTYHZ7YOfKlu1cYjtAIqBbqDJ994ATPussPHIDnE1ha4P1TeFiQMiTqmsC?=
+ =?us-ascii?Q?J8CLL8BXS5pXRJDUKXeTXhzETwLzJJSFqLR0ebbJdtP/5rvTgJPqIOQiJz0x?=
+ =?us-ascii?Q?Uam/3M90F57PvlgnDAOHaWupIPbHN3BA0KH5yKCT7Xj/fEwUo8YPhSbDCJWK?=
+ =?us-ascii?Q?P/ju/INbWR0mqebu5tIr+zmUEWXULHwRPwr3yt27dVjGfY78UHcvwMZdkf/t?=
+ =?us-ascii?Q?OK0hVhOf58Jofks5CUj/M2vUMsqRLzBiSOXAOtIPlgHt+GwrAjZH2ffgHz7X?=
+ =?us-ascii?Q?0jHf/k3oNzoLlduvh3wxGck/rBLcdWKlZMFG7uQjhu1XSXj++9V4YWA1XFsD?=
+ =?us-ascii?Q?yaZ1+QMwdiR5PuI425ElgZ1+8qrEugWDsnJTABEEzSX99flMlVwayT6sTnvW?=
+ =?us-ascii?Q?pOUJXf7SQYJRwnbg72B7Xigi0hog87iiaq8tfkLjREkBvklVx7JJwUpU4sb8?=
+ =?us-ascii?Q?EgwLXsYR9ZU8u2mXcTbZ2c5TnRsWxMUWlcpNy+dWIsbf8RCC7i6RQ+iJDCFu?=
+ =?us-ascii?Q?AZdt4p8dXOcXj7T5Kbq0LrWhEhJ7DpVkKgvnMySGyT5oRPPiactmMwIRi7Mf?=
+ =?us-ascii?Q?8C03C/qcLmBzpCRXVz3SMmfkJLxoiGa60HFugKmT5w0wjsByQ5VZ2ueXHMgT?=
+ =?us-ascii?Q?ZUkyrBUPAU6mJ7Z/xJoHlz3niS5SierDfVbsLU33JmX/DxryNtXTpFyUgfNQ?=
+ =?us-ascii?Q?u5mo14J5rT3vj2bPGarT3lWP70plrPFRBxjeeWb7v3wtKHN8rXxqku0R0a8o?=
+ =?us-ascii?Q?GWU2D1o4iercrvyif8BJNK0YpNIRU5wNgh4Z83vByGujckSeS4N1zJkxGART?=
+ =?us-ascii?Q?4OxGy/Vm8tSueLMPEtKUQDwkialuaEEa1d0cqYK8ZE7i7aBdp6+OQ+sEdZOd?=
+ =?us-ascii?Q?lWWyLLDj553ZZS4h2z0dLXvWLTZ1wZdC7xHf0KuKKWMhAByP1Pklb0xHk/ox?=
+ =?us-ascii?Q?f8O1q0TJxReAhZJtS+TZbnmalR3hcGLE/7qlaO/iESYaxgaUDFg7AZPqySv1?=
+ =?us-ascii?Q?VmhkQjXa/93wqP9GQiU7hi/RDcACMt8n3DisIh1+bQEy6Rj+v9yUzbyGoRfU?=
+ =?us-ascii?Q?ei4A/vCYjCYUS0F+GJGHOsxLhZ6BCl1SWm+N362twVeKH1S8oddF54LgEgMP?=
+ =?us-ascii?Q?+ECATaItwa2sK2toz/ES/Kl7I/bWVvG00RSg9bb4yKDodR1rECFBz+cqInCa?=
+ =?us-ascii?Q?ldCprwE=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57c921ad-0f24-41cf-bd1b-08de8470f837
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 22:03:06.8517
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR02MB10545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_143816_677197_5018F3DF 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20260317_150314_527465_93D526C2 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,128 +161,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026=
+ 5:13 AM
+>=20
+> The series intends to add support for ARM64 to mshv_vtl driver.
+> For this, common Hyper-V code is refactored, necessary support is added,
+> mshv_vtl_main.c is refactored and then finally support is added in
+> Kconfig.
+>=20
+> Based on commit 1f318b96cc84 ("Linux 7.0-rc3")
 
-Lets try this again, since the last one looks like it got caught in the 
-moderation system and wasn't quite right anyway.
+There's now an online LLM-based tool that is automatically reviewing
+kernel patches. For this patch set, the results are here:
 
-On 3/12/26 9:21 PM, Chengwen Feng wrote:
-> Unify CPU ACPI ID retrieval interface across architectures by
-> refactoring get_acpi_id_for_cpu() to acpi_get_cpu_uid() on
-> arm64/riscv/loongarch:
-> - Add input parameter validation
-> - Adjust interface to int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
->    (old: u32 get_acpi_id_for_cpu(unsigned int cpu), no input check)
-> 
-> This refactoring (not a pure rename) enhances interface robustness while
-> preparing for consistent ACPI Processor UID retrieval across all
-> ACPI-enabled platforms. Valid inputs retain original behavior.
-> 
-> Note: Move the ARM64-specific get_cpu_for_acpi_id() implementation to
->        arch/arm64/kernel/acpi_numa.c to fix compilation errors from
->        circular header dependencies introduced by the rename.
-> 
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->   arch/arm64/include/asm/acpi.h      | 16 +---------
->   arch/arm64/kernel/acpi.c           | 16 ++++++++++
->   arch/arm64/kernel/acpi_numa.c      | 14 +++++++++
->   arch/loongarch/include/asm/acpi.h  |  5 ---
->   arch/loongarch/kernel/acpi.c       |  9 ++++++
->   arch/riscv/include/asm/acpi.h      |  4 ---
->   arch/riscv/kernel/acpi.c           | 16 ++++++++++
->   arch/riscv/kernel/acpi_numa.c      |  9 ++++--
->   drivers/acpi/pptt.c                | 50 ++++++++++++++++++++++--------
->   drivers/acpi/riscv/rhct.c          |  7 ++++-
->   drivers/perf/arm_cspmu/arm_cspmu.c |  6 ++--
->   include/linux/acpi.h               | 13 ++++++++
->   12 files changed, 122 insertions(+), 43 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
-> index c07a58b96329..106a08556cbf 100644
-> --- a/arch/arm64/include/asm/acpi.h
-> +++ b/arch/arm64/include/asm/acpi.h
-> @@ -114,22 +114,8 @@ static inline bool acpi_has_cpu_in_madt(void)
->   }
->   
->   struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
-> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
-> -{
-> -	return	acpi_cpu_get_madt_gicc(cpu)->uid;
-> -}
-> -
-> -static inline int get_cpu_for_acpi_id(u32 uid)
-> -{
-> -	int cpu;
-> -
-> -	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
-> -		if (acpi_cpu_get_madt_gicc(cpu) &&
-> -		    uid == get_acpi_id_for_cpu(cpu))
-> -			return cpu;
->   
-> -	return -EINVAL;
-> -}
-> +int get_cpu_for_acpi_id(u32 uid);
->   
->   static inline void arch_fix_phys_package_id(int num, u32 slot) { }
->   void __init acpi_init_cpus(void);
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index af90128cfed5..f3866606fc46 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -458,3 +458,19 @@ int acpi_unmap_cpu(int cpu)
->   }
->   EXPORT_SYMBOL(acpi_unmap_cpu);
->   #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-> +
-> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
-> +{
-> +	struct acpi_madt_generic_interrupt *gicc;
-> +
-> +	if (cpu >= nr_cpu_ids)
-> +		return -EINVAL;
-If this actually happens, its probably useful to know it with a 
-pr_warn/pr_warn_once.> +
-> +	gicc = acpi_cpu_get_madt_gicc(cpu);
-> +	if (!gicc)
-I think this check is redundant because we can't have logical cpu's that 
-aren't in the cpu_possible() list, which on arm64 doesn't AFAIK have 
-holes. In the past this might have made sense if we weren't maintaining 
-a copy of the gicc structure from the MADT for each core.> +		return 
--ENODEV;
-> +
-> +	*uid = gicc->uid;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
-> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
-> index 2465f291c7e1..41d1e46a4338 100644
-> --- a/arch/arm64/kernel/acpi_numa.c
-> +++ b/arch/arm64/kernel/acpi_numa.c
-> @@ -34,6 +34,20 @@ int __init acpi_numa_get_nid(unsigned int cpu)
->   	return acpi_early_node_map[cpu];
->   }
->   
-> +int get_cpu_for_acpi_id(u32 uid)
-> +{
-> +	u32 cpu_uid;
-> +	int ret;
-> +
-> +	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
-> +		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
-This might have been a simplification, but since we are basically doing 
-a for_each_possible_cpu(cpu) and every possible cpu will have a GICC 
-entry before it becomes 'possible' there will be a UID, so all the error 
-checking AFAIK, is impossible here.> +		if (ret == 0 && uid == cpu_uid)
-> +			return cpu;
-> +	}
-> +
-> +	return -EINVAL;
-> +}
-> +
-I also moved this below acpi_get_cpu_uid() in acpi.c and I don't see the 
-a forward error issue you mentioned. It seems to me that they should be 
-kept close to each other since they are basically inverses of each other.
+https://sashiko.dev/#/patchset/20260316121241.910764-1-namjain%40linux.micr=
+osoft.com
+
+It has flagged several things that are worth checking, but I haven't
+reviewed them to see if they are actually valid.
+
+FWIW, the announcement about sashiko.dev is here:
+
+https://lore.kernel.org/lkml/7ia4o6kmpj5s.fsf@castle.c.googlers.com/
+
+Michael
+
+>=20
+> Naman Jain (11):
+>   arch: arm64: Export arch_smp_send_reschedule for mshv_vtl module
+>   Drivers: hv: Move hv_vp_assist_page to common files
+>   Drivers: hv: Add support to setup percpu vmbus handler
+>   Drivers: hv: Refactor mshv_vtl for ARM64 support to be added
+>   drivers: hv: Export vmbus_interrupt for mshv_vtl module
+>   Drivers: hv: Make sint vector architecture neutral in MSHV_VTL
+>   arch: arm64: Add support for mshv_vtl_return_call
+>   Drivers: hv: mshv_vtl: Move register page config to arch-specific
+>     files
+>   Drivers: hv: mshv_vtl: Let userspace do VSM configuration
+>   Drivers: hv: Add support for arm64 in MSHV_VTL
+>   Drivers: hv: Kconfig: Add ARM64 support for MSHV_VTL
+>=20
+>  arch/arm64/hyperv/Makefile        |   1 +
+>  arch/arm64/hyperv/hv_vtl.c        | 152 ++++++++++++++++++++++
+>  arch/arm64/hyperv/mshyperv.c      |  13 ++
+>  arch/arm64/include/asm/mshyperv.h |  28 ++++
+>  arch/arm64/kernel/smp.c           |   1 +
+>  arch/x86/hyperv/hv_init.c         |  88 +------------
+>  arch/x86/hyperv/hv_vtl.c          | 130 +++++++++++++++++++
+>  arch/x86/include/asm/mshyperv.h   |   8 +-
+>  drivers/hv/Kconfig                |   2 +-
+>  drivers/hv/hv_common.c            |  99 +++++++++++++++
+>  drivers/hv/mshv.h                 |   8 --
+>  drivers/hv/mshv_vtl_main.c        | 205 ++++--------------------------
+>  drivers/hv/vmbus_drv.c            |   8 +-
+>  include/asm-generic/mshyperv.h    |  49 +++++++
+>  include/hyperv/hvgdk_mini.h       |   2 +
+>  15 files changed, 505 insertions(+), 289 deletions(-)
+>  create mode 100644 arch/arm64/hyperv/hv_vtl.c
+>=20
+>=20
+> base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+> prerequisite-patch-id: 24022ec1fb63bc20de8114eedf03c81bb1086e0e
+> prerequisite-patch-id: 801f2588d5c6db4ceb9a6705a09e4649fab411b1
+> prerequisite-patch-id: 581c834aa268f0c54120c6efbc1393fbd9893f49
+> prerequisite-patch-id: b0b153807bab40860502c52e4a59297258ade0db
+> prerequisite-patch-id: 2bff6accea80e7976c58d80d847cd33f260a3cb9
+> prerequisite-patch-id: 296ffbc4f119a5b249bc9c840f84129f5c151139
+> prerequisite-patch-id: 3b54d121145e743ac5184518df33a1812280ec96
+> prerequisite-patch-id: 06fc5b37b23ee3f91a2c8c9b9c126fde290834f2
+> prerequisite-patch-id: 6e8afed988309b03485f5538815ea29c8fa5b0a9
+> prerequisite-patch-id: 4f1fb1b7e9cfa8a3b1c02fafecdbb432b74ee367
+> prerequisite-patch-id: 49944347e0b2d93e72911a153979c567ebb7e66b
+> prerequisite-patch-id: 6dec75498eeae6365d15ac12b5d0a3bd32e9f91c
+> --
+> 2.43.0
+>=20
+
 
