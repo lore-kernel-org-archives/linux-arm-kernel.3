@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AF1FB5EA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 02:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D88FB5EA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 02:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8mrea49hDZtSz8SU3IBfjCwAqm888S2KDreUaH9Nns=; b=f41JinJ5nO7joPdX+DT/5ylqHR
-	RfdoLsLs0ZrTTb2nPgSmhiWKCIKYBUo5jpXlpv4BcR19Z0lvYT3gNISArXOiMAFUhABVHEqgIJg8t
-	DBMzXhp/92bpj1F4JSnV1eju8git4roInhC/S2jU25aaW7aJl7Ek+9umLFufNq7xDQsseDh9g/PWn
-	PkBzX3nHU6y9q+lo3/M9oFJ+D2YR4ltHKkTIvQNyDEPu2996mm9hmIXl8GWsAEbh7CYQcxCsuH3+Q
-	LBqyga5u2X8t98cbay/jkBrtm2TimeRHALoBa41UR/P+rS2Dp9zsx0zTtE9DXIwVYUK4hUTg5GdXG
-	Eg/IKmhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LRL0Yt8d8xETsY3o0SXrc6sREJD9liwpk0hprJ02H7s=; b=ZP9swhCFSeArDOR+5KVWBxDJIq
+	nvi/d3Xv2Sd7bn7gwwXhvEvQ4nhI6SXL9wIcd71IemvcyzZdvLRFIMKwEbFTs+BF13UkwS1CzPTlZ
+	6JtDHqbVt5hXhuDwuO67tvAqMPl8cPkr3rW31G4JbeZkc0wIO8kdSdH696AF7t1HVtCYxizEE3XJm
+	yKyBAVOiaU0Ef22hbdtCtANzYpDCX0sHg6Hx8ziARMk6+AKQUW13Dno0bigLysmDx6NeT1L+stSJs
+	4UPTRKUExaRFDAoFkHoCZgJauwh1aQC5RMMuZdqrCpPzK1vn6nIOp87MwGSENXunafpXoAsUJ/052
+	up3QeqNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Jj9-00000005DiV-1kCq;
-	Tue, 17 Mar 2026 02:00:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2JnL-00000005DxE-3amn;
+	Tue, 17 Mar 2026 02:04:31 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Jj8-00000005DiH-0Pve;
-	Tue, 17 Mar 2026 02:00:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=G8mrea49hDZtSz8SU3IBfjCwAqm888S2KDreUaH9Nns=; b=A+mYhkgjBOXZI+V6X5Pza1cj6G
-	KKg4iPr+rvC7AQ0uy05G77QKHjMQ/01JaZfXC4y6U6RMeVkC80I34JutZTs0FEmDK/9QotQrUVQeP
-	mhhTi7Q8ND/Z4e6ZGmjpMRrF5G2R5WSwa2xqQtSmyOroLVt3wrrqQWwDn4wzonqGqu7Y2OTfitfcr
-	pNAQOCgvxds2zoNiax9uv0rM9rCIfkHnGFYqvpPMl19csxNdrzJBzGK2GoN/Wg1YMjZHWDG+kbf0f
-	VJ8zC87NJZ+HFs46pEyCH/LS2MCh2oC9LVjFaI6UNKoCPGPgH+BMzm55wYRAFSP/Oys+rpWbNx9Wb
-	Mm1LxHnQ==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Jj1-00000007y6D-1ioA;
-	Tue, 17 Mar 2026 02:00:07 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62H1vOcX53035946, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773712644; bh=G8mrea49hDZtSz8SU3IBfjCwAqm888S2KDreUaH9Nns=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=qp+cQGIKQfxcaqPZq4D4oGpt3wXvzDxcgpqI+ROdg8Dg2UlQNtvbltJrgPR+Fpa4L
-	 OhL256NrySEUVF/HPfIgFmCSGs5qPGwjxO55p4+4bSvzeIS3iaDvxWAj6khDL9P8Ye
-	 WNu7CQ+xtZv2Z5JZn6rzvoDphqkyPoB+5iqINbKc/TuHFKgxihELROuRSwnCravgRK
-	 qmlpmCSj4QobBlI3Qy6GpGPm0Iz2wmJe9Vvo8ogeno9dCoItXzCU/gbfDWAdofxBE3
-	 SU0r52OULi2mVqRj3syf0csYI7OHEPKk5/H6aXceabKAkDldYq9ymEesBRwlGvmwke
-	 8fIiv58z4HM9A==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62H1vOcX53035946
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 17 Mar 2026 09:57:24 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+	id 1w2JnI-00000005Dwm-1kVS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 02:04:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=LRL0Yt8d8xETsY3o0SXrc6sREJD9liwpk0hprJ02H7s=;
+	b=MAO4sWhQ51Mk7+aGUJm4fPDxqXsT7LVpkhi4AUyRNdBBIii3Iyh+8MlAuvF0Ze+HStmTCEI7K
+	bm5Nth84J4yx9o8pWLUaAX3lr0g8jWWY8s0sp9YmU9ryEP+Tib6euwRqiN7Lcvwyo6ZWRDr/9lZ
+	0nfmYtdSBQ72OWhhiXcaWSI=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fZZrm2XFHz1cyrR;
+	Tue, 17 Mar 2026 09:59:20 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id DD08F4055B;
+	Tue, 17 Mar 2026 10:04:18 +0800 (CST)
+Received: from [10.67.120.170] (10.67.120.170) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 17 Mar 2026 09:57:24 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 17 Mar 2026 09:57:24 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913%10]) with mapi id
- 15.02.1748.010; Tue, 17 Mar 2026 09:57:24 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "mturquette@baylibre.com" <mturquette@baylibre.com>,
-        "sboyd@kernel.org"
-	<sboyd@kernel.org>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-        =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
-        "afaerber@suse.com" <afaerber@suse.com>,
-        =?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
-        =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-        =?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-Subject: RE: [PATCH v4 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock &
- Reset Controller
-Thread-Topic: [PATCH v4 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock &
- Reset Controller
-Thread-Index: AQHcssDu00Ji1VbGSEi0IIjjl/0gyLWtOvYAgATCPIA=
-Date: Tue, 17 Mar 2026 01:57:24 +0000
-Message-ID: <77e88b72f99c4a709f6fbae57162b090@realtek.com>
-References: <20260313081100.596224-1-eleanor.lin@realtek.com>
- <20260313081100.596224-2-eleanor.lin@realtek.com>
- <20260314-orange-foxhound-of-felicity-997667@quoll>
-In-Reply-To: <20260314-orange-foxhound-of-felicity-997667@quoll>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ 15.2.1544.11; Tue, 17 Mar 2026 10:04:18 +0800
+Message-ID: <73609118-bed1-48b8-b649-a23cd445b319@huawei.com>
+Date: Tue, 17 Mar 2026 10:04:17 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 4/5] iommu/arm-smmu-v3: Add stream table directory
+ structure to debugfs
+To: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <jpb@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<wangzhou1@hisilicon.com>, <prime.zeng@hisilicon.com>,
+	<fanghao11@huawei.com>, <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-5-xiaqinxin@huawei.com>
+ <497de4f9-193e-4630-b6d6-30519feb27ba@arm.com>
+From: Qinxin Xia <xiaqinxin@huawei.com>
+In-Reply-To: <497de4f9-193e-4630-b6d6-30519feb27ba@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.170]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_020005_963067_AB7B9020 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260316_190429_138835_21D2560D 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +81,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBPbiBGcmksIE1hciAxMywgMjAyNiBhdCAwNDoxMDo1MVBNICswODAwLCBZdS1DaHVuIExpbiB3
-cm90ZToNCj4+ICsjZW5kaWYgLyogX19EVF9CSU5ESU5HU19SVEtfQ0xPQ0tfUlREMTYyNV9IICov
-DQo+PiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9kdC1iaW5kaW5ncy9yZXNldC9yZWFsdGVrLHJ0ZDE2
-MjUuaA0KPj4gYi9pbmNsdWRlL2R0LWJpbmRpbmdzL3Jlc2V0L3JlYWx0ZWsscnRkMTYyNS5oDQo+
-PiBuZXcgZmlsZSBtb2RlIDEwMDY0NA0KPj4gaW5kZXggMDAwMDAwMDAwMDAwLi5lNjliNWVlMTRj
-YzYNCj4+IC0tLSAvZGV2L251bGwNCj4+ICsrKyBiL2luY2x1ZGUvZHQtYmluZGluZ3MvcmVzZXQv
-cmVhbHRlayxydGQxNjI1LmgNCj4+IEBAIC0wLDAgKzEsMTk1IEBADQo+PiArLyogU1BEWC1MaWNl
-bnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNlKSAqLw0KPj4gKy8q
-DQo+PiArICogQ29weXJpZ2h0IChDKSAyMDI1IFJlYWx0ZWsgU2VtaWNvbmR1Y3RvciBDb3JwLg0K
-Pj4gKyAqLw0KPj4gKyNpZm5kZWYgX19EVF9CSU5ESU5HU19SVEtfUkVTRVRfUlREMTYyNV9IICNk
-ZWZpbmUNCj4+ICtfX0RUX0JJTkRJTkdTX1JUS19SRVNFVF9SVEQxNjI1X0gNCj4+ICsNCj4+ICsj
-ZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfU09GVF9SRVNFVDEgICAgIDANCj4+ICsjZGVmaW5l
-IFJURDE2MjVfUlNUTl9SRUdfSURfU09GVF9SRVNFVDIgICAgIDENCj4+ICsjZGVmaW5lIFJURDE2
-MjVfUlNUTl9SRUdfSURfU09GVF9SRVNFVDMgICAgIDINCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNU
-Tl9SRUdfSURfU09GVF9SRVNFVDQgICAgIDMNCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdf
-SURfU09GVF9SRVNFVDcgICAgIDQNCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfU09G
-VF9SRVNFVDkgICAgIDUNCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfU09GVF9SRVNF
-VF9CSVNUIDYNCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfRFVNTVkwICAgICAgICAg
-IDcNCj4+ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfRFVNTVkxICAgICAgICAgIDgNCj4+
-ICsjZGVmaW5lIFJURDE2MjVfUlNUTl9SRUdfSURfRFVNTVk0ICAgICAgICAgIDkNCj4+ICsjZGVm
-aW5lIFJURDE2MjVfUlNUTl9SRUdfSURfU09GVF9SRVNFVDExICAgIDEwDQo+PiArI2RlZmluZSBS
-VEQxNjI1X1JTVE5fUkVHX0lEX1NPRlRfUkVTRVQxMiAgICAxMQ0KPj4gKw0KPj4gKyNkZWZpbmUg
-X1JFR19JRChuKSAoKFJURDE2MjVfUlNUTl9SRUdfSURfICMjIG4pIDw8IDUpDQo+PiArDQo+IA0K
-PiBOb3QgYSBiaW5kaW5nLg0KPiANCj4+ICsjZGVmaW5lIFJURDE2MjVfQ1JUX1JTVE5fTUlTQyAg
-ICAgIChfUkVHX0lEKFNPRlRfUkVTRVQxKSB8IDApDQo+PiArI2RlZmluZSBSVEQxNjI1X0NSVF9S
-U1ROX0RJUCAgICAgICAoX1JFR19JRChTT0ZUX1JFU0VUMSkgfCAyKQ0KPj4gKyNkZWZpbmUgUlRE
-MTYyNV9DUlRfUlNUTl9HU1BJICAgICAgKF9SRUdfSUQoU09GVF9SRVNFVDEpIHwgNCkNCj4gDQo+
-IE5vbmUgb2YgdGhlc2UgYXJlIHJlYWxseSBiaW5kaW5ncy4gUmVnaXN0ZXIgb2Zmc2V0cyBpcyBo
-YXJkd2FyZSBkYXRhLCBub3QgYQ0KPiBiaW5kaW5nLg0KPiANCj4gRHJvcCBhbGwgb2YgdGhpcyBh
-Ym92ZSBhbmQgZnVydGhlciAtIGFjdHVhbGx5IG5vdGhpbmcgaW4gdGhpcyBoZWFkZXIgbG9vayBs
-aWtlIGENCj4gYmluZGluZywgc2luY2UgeW91IGNhbGxlZCB0aGVzZSAiUkVHIi4NCj4gDQo+IEJl
-c3QgcmVnYXJkcywNCj4gS3J6eXN6dG9mDQoNClRoZSBkZWZpbmVzIGluIHRoaXMgaGVhZGVyIGFy
-ZSBOT1QgcmVnaXN0ZXIgb2Zmc2V0cy4gVGhleSBlbmNvZGUgIkJhbmsgSUQrIEJpdA0KUG9zaXRp
-b24iIGZvciB1c2UgaW4gRGV2aWNlIFRyZWUuDQoNCkFncmVlZCwgVGhlIG5hbWluZyB3aXRoICJS
-RUdfSUQiIGlzIG1pc2xlYWRpbmcuIEkgd2lsbCBpbXByb3ZlIG5hbWluZyBhbGwgcmVzZXQNCklE
-cyBpbiB2NS4NCg0KQmVzdCByZWdhcmRzLA0KWXUtQ2h1bg0K
+
+
+On 2026/3/17 00:01:50, Robin Murphy <robin.murphy@arm.com> wrote:
+> On 2026-03-13 10:43 am, Qinxin Xia wrote:
+>> Add stream table directory structure creation to debugfs
+>> This organizes debugfs entries by device and stream ID:
+>>
+>> /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
+>> └── 0000:01:00.0:0/
+>>      └─── ste
+> 
+> Similar to my previous comment on CDs (sorry I'm reading out of order), 
+> I wonder if it might not be more useful to expose STEs by index, then 
+> have the name of the associated device as an attribute/link below that. 
+> Or perhaps even have whole cross-linked "by StreamID" and "by device" 
+> hierarchies if you want to get really fancy. From userspace it's not 
+> always easy to know exactly which StreamIDs are owned by which devices, 
+> and I can say from experience that if you do have to debug things at the 
+> STE level, the StreamID is often the thing you're starting from. Plus if 
+> you wanted to, say, check that STEs are correctly disabled after SR-IOV 
+> VF teardown, then there may not even be a device any more.
+> 
+> Thanks,
+> Robin.
+> 
+To quickly obtain the mapping between SIDs and devices, I named the
+directory dev_name+sid. Can we keep this naming mode and add a device
+link to the directory?
+
+According to Nicolin's suggestion, I plan to release the corresponding
+debugfs in release_device in the next version. After VF teardown, users
+cannot view information such as ste and cd anymore.
+
+>> Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+>> ---
+>>   .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 80 ++++++++++++++++++-
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  3 +
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  4 +
+>>   3 files changed, 85 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/ 
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> index d7f3defd94a3..f62df02847ac 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> @@ -31,7 +31,10 @@
+>>    * /sys/kernel/debug/iommu/arm_smmu_v3/
+>>    * └── smmu0/
+>>    *     ├── capabilities    # SMMU feature capabilities and 
+>> configuration
+>> - *     └── registers       # SMMU Key registers
+>> + *     ├── registers       # SMMU Key registers
+>> + *     └── stream_table
+>> + *       └── 0000:01:00.0:0/                    # PCI device with 
+>> Stream ID 0
+>> + *             ├── ste                           # Stream Table Entry
+>>    *
+>>    * The capabilities file provides detailed information about:
+>>    * - Architecture version and translation stage support (Stage1/Stage2)
+>> @@ -324,5 +327,78 @@ static int smmu_debugfs_ste_show(struct seq_file 
+>> *seq, void *v)
+>>       smmu_debug_dump_ste(seq, dev);
+>>       return 0;
+>>   }
+>> -
+>>   DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_ste);
+>> +
+>> +/**
+>> + * smmu_debugfs_create_stream_table() - Create debugfs entries for 
+>> stream table
+>> + * @dev: device to create entries for
+>> + * @smmu: SMMU device
+>> + *
+>> + * Return: 0 on success, negative error code on failure
+>> + */
+>> +int smmu_debugfs_create_stream_table(struct device *dev,
+>> +                     struct arm_smmu_device *smmu)
+>> +{
+>> +    struct dentry *stream_dir, *cd_dir, *dev_dir;
+>> +    struct dentry *ste_file, *all_cds_file;
+>> +    struct iommu_fwspec *fwspec;
+>> +    char name[64];
+>> +    int i, ret = 0;
+>> +
+>> +    if (!smmu->debugfs->stream_dir) {
+>> +        stream_dir = debugfs_create_dir("stream_table",
+>> +                        smmu->debugfs->smmu_dir);
+>> +        if (!stream_dir)
+>> +            return -ENOMEM;
+>> +        smmu->debugfs->stream_dir = stream_dir;
+>> +    } else {
+>> +        stream_dir = smmu->debugfs->stream_dir;
+>> +    }
+>> +
+>> +    fwspec = dev_iommu_fwspec_get(dev);
+>> +    if (!fwspec)
+>> +        return -ENODEV;
+>> +
+>> +    for (i = 0; i < fwspec->num_ids; i++) {
+>> +        u32 sid = fwspec->ids[i];
+>> +
+>> +        if (dev_is_pci(dev)) {
+>> +            struct pci_dev *pdev = to_pci_dev(dev);
+>> +
+>> +            snprintf(name, sizeof(name), "%04x:%02x:%02x.%d:%u",
+>> +                 pci_domain_nr(pdev->bus), pdev->bus->number,
+>> +                 PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn),
+>> +                 sid);
+>> +        } else {
+>> +            snprintf(name, sizeof(name), "%s:%u", dev_name(dev),
+>> +                 sid);
+>> +        }
+>> +
+>> +        dev_dir = debugfs_create_dir(name, stream_dir);
+>> +        if (!dev_dir) {
+>> +            ret = -ENOMEM;
+>> +            goto cleanup;
+>> +        }
+>> +
+>> +        /* Create STE file */
+>> +        ste_file = debugfs_create_file("ste", 0444, dev_dir, dev,
+>> +                           &smmu_debugfs_ste_fops);
+>> +        if (!ste_file) {
+>> +            ret = -ENOMEM;
+>> +            goto cleanup_dev;
+>> +        }
+>> +
+>> +        /* Success for this stream ID, continue to next */
+>> +        continue;
+>> +
+>> +cleanup_dev:
+>> +        debugfs_remove_recursive(dev_dir);
+>> +cleanup:
+>> +        if (ret) {
+>> +            debugfs_remove_recursive(stream_dir);
+>> +            break;
+>> +        }
+>> +    }
+>> +
+>> +    return ret;
+>> +}
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/ 
+>> iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> index 211a0c87507a..c57897e5f644 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> @@ -3133,6 +3133,9 @@ static int arm_smmu_attach_dev(struct 
+>> iommu_domain *domain, struct device *dev,
+>>       arm_smmu_attach_commit(&state);
+>>       mutex_unlock(&arm_smmu_asid_lock);
+>> +#ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
+>> +    smmu_debugfs_create_stream_table(dev, smmu);
+>> +#endif
+>>       return 0;
+>>   }
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/ 
+>> iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> index 247f27426f6b..e9cd24c1ab3c 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> @@ -737,9 +737,13 @@ struct arm_smmu_impl_ops {
+>>   struct arm_smmu_debugfs {
+>>       struct dentry *root_dir;
+>>       struct dentry *smmu_dir;
+>> +    struct dentry *stream_dir;
+>>       struct arm_smmu_device *smmu;
+>>   };
+>> +
+>>   int arm_smmu_debugfs_setup(struct arm_smmu_device *smmu, phys_addr_t 
+>> ioaddr);
+>> +int smmu_debugfs_create_stream_table(struct device *dev,
+>> +                    struct arm_smmu_device *smmu);
+>>   #endif
+>>   /* An SMMUv3 instance */
+> 
+> 
+
+-- 
+Thanks,
+Qinxin
+
 
