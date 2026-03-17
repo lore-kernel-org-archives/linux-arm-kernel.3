@@ -4,108 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7572F3381E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80425F3381E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnRiS6VASmSk0apW0xBeFPpjbfLqRRy4e23qca8fy14=; b=4povxIpIQeDXfPPUfOXGWO5WNW
-	9IP/1qJzxm+PkOO6XROfw+6mu3E5Isaf1lGzw0HfWo7okCz5vp2Z3k4ELqi4JOcPiwHtbjItSou7f
-	8rJGpNDnO7GYee+VvOaUjaFtqKZyEwRo9hUvrw8z/TB8IsXjz3/3cudzgpNwOYHTwXFI8Icq7tuck
-	AL3xtJkwAePC0IFOFrnIAb3bA00WhA/0gafhQsP29EUEXEHYsCwTKbIqQekR0101ihRplmB3U5LIv
-	LXSYW2o+8prlP5Ra68QpONfILSZo0KnfaKtROLoI03W7RNzYbY/9BRVpaOuHalIVtm9VYCQWL4Qs6
-	xjjbJwSg==;
+	bh=hQnvk0G/3bk6mqD0dSqrqzvzGU2PWQ1QJYeCSmc73cY=; b=qlQUWdGMP4GVGHCJgRHGQgWxZv
+	Q621XfQQ290OzyWYBKwlk5G9Y1FcDy6l43HItxWauiE3Unm53vRtuWSyRAUE5cMRgXkZT0ViNs/9/
+	co3FS45gCMp07aPwhVcCSTGBaZeCQZKXD1cLOJtJa+cu4gCGo/EvuVaxQIrb45Z2u4U1x9wjxTgPI
+	jXjtUgxDDF7tZ3dLASBg3buWmWXkq1Rnm3SMsZGl+fkHLIUOdt5SFuH+l6PNGsg3Fy2Sa/TZBMDO0
+	JLeiN91/SB2YVUJcm/GpmMGCRiMxxIur5kpoYcEMqFz3kUTY+dT7A5FGfjX4OvZgx+gxpI+jOcVNl
+	qi4YEMkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QSl-00000005ohX-2ZKR;
-	Tue, 17 Mar 2026 09:11:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QSj-00000005ohB-0Sht
+	id 1w2QUG-00000005oz6-3rRW;
+	Tue, 17 Mar 2026 09:13:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2QUE-00000005oyI-2LNB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 09:11:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B019643D25;
-	Tue, 17 Mar 2026 09:11:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2DCBC4CEF7;
-	Tue, 17 Mar 2026 09:11:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773738700;
-	bh=BzmkYmqk+b2RtlUzCdKWXMzHPnRFieI71IicbZl0NgE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fvfH09OxPAvRaBYMrJKcAXFUYB48JQx8i2ukLbEZCkgje2HfdhFxCuK/C/Ngafy8i
-	 tG6asppJKODyIRXkzx+NgYSs5bVDQV7f+WMGerog6qN8/Uj95V8QLlWstuwJODkP0R
-	 +Pgmb53IiI+WrsKw/HZN90LCqq3HmjV52/r6RojY5/b/PgO3woqQEm2zJfIn5pTVpF
-	 NIf6lUc6tpw7lDttMWrSDt/47CjNZA2LIZaCTAILNyygh9ptM/Oz/9kazsu/He5scB
-	 Zazt6GeX7QFAnztzYmfAHUykXFdep+kJvbkOcCLIXLwi0bKjSQUYnpwARle1dOyPQ3
-	 yuOKGE1VuRWlg==
-Message-ID: <0234dc75-b042-4408-bbad-a777c0bddb3f@kernel.org>
-Date: Tue, 17 Mar 2026 10:11:37 +0100
+	Tue, 17 Mar 2026 09:13:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E430B1476;
+	Tue, 17 Mar 2026 02:13:05 -0700 (PDT)
+Received: from [10.57.82.228] (unknown [10.57.82.228])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF2A13F778;
+	Tue, 17 Mar 2026 02:13:09 -0700 (PDT)
+Message-ID: <9dded616-989b-4846-8596-1c45a6304d36@arm.com>
+Date: Tue, 17 Mar 2026 09:13:08 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Konstantin Ryabitsev <mricon@kernel.org>
-Cc: soc@lists.linux.dev, soc <soc@kernel.org>,
- Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <20260317-spirited-mahogany-swift-b1ac53@quoll>
- <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
+Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>, Jinjiang Tu <tujinjiang@huawei.com>,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ david@redhat.com, lorenzo.stoakes@oracle.com, ardb@kernel.org,
+ dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
+ <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
+ <de0b06cf-15a5-4109-b339-75c10d9b8a18@arm.com>
+ <0a740020-4780-4156-a9c5-f8b4ada9c8c0@os.amperecomputing.com>
+ <4ad2ea40-b23b-4231-a0de-585b205865c5@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <4ad2ea40-b23b-4231-a0de-585b205865c5@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_021141_223946_CEAEAC2D 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20260317_021314_678853_7405600A 
+X-CRM114-Status: GOOD (  38.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +73,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 09:46, Geert Uytterhoeven wrote:
-> Hi Krzysztof,
-> 
-> On Tue, 17 Mar 2026 at 09:33, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On Fri, Mar 13, 2026 at 12:12:56PM +0100, Geert Uytterhoeven wrote:
->>> This is my first pull request for the inclusion of Renesas SoC updates
->>> for v7.1.
->>>
->>> It consists of 4 parts:
+On 17/03/2026 08:47, Kevin Brodsky wrote:
+> On 17/03/2026 01:15, Yang Shi wrote:
 >>
->> I think pw-bot did not reply to any of these pulls, but I applied now
->> all of them.
+>>
+>> On 3/16/26 8:47 AM, Ryan Roberts wrote:
+>>> Thanks for the report!
+>>>
+>>> + Kevin, who was looking at some adjacent issues and may have some
+>>> ideas for how
+>>> to fix.
 > 
-> That is correct: no replies from the pw-bot.
-> renesas-dts-for-v7.1-tag1 does not seem to be in soc/for-next yet,
-> perhaps you forgot to push? No need to confirm if that is true,
+> Indeed, specifically to protect page table pages (PTPs) by mapping them
+> with a privileged pkey. pagetable_alloc() is called on several occasions
+> before all secondaries are up (including from init_IRQ() in fact), but
+> we cannot call set_memory_pkey() at that point for the same reason that
+> Jinjiang pointed out.
+> 
+> The approach I went for is to allocate a whole block on boot and defer
+> the call to set_memory_pkey() until it's safe to do so [1]. It's not a
+> particularly nice solution as this restricts the number of PTPs we can
+> allocate in that window, especially if more of them get allocated when
+> set_memory_decrypted() splits the linear map.
+> 
+> [1]
+> https://lore.kernel.org/linux-hardening/20260227175518.3728055-17-kevin.brodsky@arm.com/
+> 
+>>>
+>>>
+>>> On 16/03/2026 07:35, Jinjiang Tu wrote:
+>>>> 在 2025/9/18 3:02, Yang Shi 写道:
+>>>>> On systems with BBML2_NOABORT support, it causes the linear map to
+>>>>> be mapped
+>>>>> with large blocks, even when rodata=full, and leads to some nice
+>>>>> performance
+>>>>> improvements.
+>>>> Hi,
+>>
+>> Hi Jinjiang,
+>>
+>> Thanks for reporting the problem.
+>>
+>>>>
+>>>> I find this feature is incompatible with realm. The calltrace is as
+>>>> follows:
+>>>>
+>>>> [    0.000000][    T0] ------------[ cut here ]------------
+>>>> [    0.000000][    T0] WARNING: CPU: 0 PID: 0 at
+>>>> arch/arm64/mm/pageattr.c:56
+>>>> pageattr_pmd_entry+0x60/0x78
+>>>> [    0.000000][    T0] Modules linked in:
+>>>> [    0.000000][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted
+>>>> 6.6.0 #16
+>>>> [    0.000000][    T0] Hardware name: linux,dummy-virt (DT)
+>>>> [    0.000000][    T0] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO
+>>>> -DIT -SSBS
+>>>> BTYPE=--)
+>>>> [    0.000000][    T0] pc : pageattr_pmd_entry+0x60/0x78
+>>>> [    0.000000][    T0] lr : walk_pmd_range.isra.0+0x170/0x1f0
+>>>> [    0.000000][    T0] sp : ffffcb90a0f337d0
+>>>> [    0.000000][    T0] x29: ffffcb90a0f337d0 x28: 0000000000000000 x27:
+>>>> ffff0000035e0000
+>>>> [    0.000000][    T0] x26: ffffcb90a0f338f8 x25: ffff00001fff60d0 x24:
+>>>> ffff0000035d0000
+>>>> [    0.000000][    T0] x23: 0400000000000001 x22: 0c00000000000001 x21:
+>>>> ffff0000035dffff
+>>>> [    0.000000][    T0] x20: ffffcb909fe3b7f0 x19: ffff0000035e0000 x18:
+>>>> ffffffffffffffff
+>>>> [    0.000000][    T0] x17: 7220303030303178 x16: 307e303030306435 x15:
+>>>> ffffcb90a0f334c8
+>>>> [    0.000000][    T0] x14: 0000000000000000 x13: 205d305420202020 x12:
+>>>> 5b5d303030303030
+>>>> [    0.000000][    T0] x11: 00000000ffff7fff x10: 00000000ffff7fff x9 :
+>>>> ffffcb909f1e27d8
+>>>> [    0.000000][    T0] x8 : 00000000000bffe8 x7 : c0000000ffff7fff x6 :
+>>>> 0000000000000001
+>>>> [    0.000000][    T0] x5 : 0000000000000001 x4 : 0078000083400705 x3 :
+>>>> ffffcb90a0f338f8
+>>>> [    0.000000][    T0] x2 : 0000000000010000 x1 : ffff0000035d0000 x0 :
+>>>> ffff00001fff60d0
+>>>> [    0.000000][    T0] Call trace:
+>>>> [    0.000000][    T0]  pageattr_pmd_entry+0x60/0x78
+>>>> [    0.000000][    T0]  walk_pud_range+0x124/0x190
+>>>> [    0.000000][    T0]  walk_pgd_range+0x158/0x1b0
+>>>> [    0.000000][    T0]  walk_kernel_page_table_range_lockless+0x58/0x98
+>>>> [    0.000000][    T0]  update_range_prot+0xb8/0x108
+>>>> [    0.000000][    T0]  __change_memory_common+0x30/0x1a8
+>>>> [    0.000000][    T0]  __set_memory_enc_dec.part.0+0x170/0x260
+>>>> [    0.000000][    T0]  realm_set_memory_decrypted+0x6c/0xb0
+>>>> [    0.000000][    T0]  set_memory_decrypted+0x38/0x58
+>>>> [    0.000000][    T0]  its_alloc_pages_node+0xc4/0x140
+>>>> [    0.000000][    T0]  its_probe_one+0xbc/0x3c0
+>>>> [    0.000000][    T0]  its_of_probe.isra.0+0x130/0x220
+>>>> [    0.000000][    T0]  its_init+0x160/0x2f8
+>>>> [    0.000000][    T0]  gic_init_bases+0x1fc/0x318
+>>>> [    0.000000][    T0]  gic_of_init+0x2a0/0x300
+>>>> [    0.000000][    T0]  of_irq_init+0x238/0x4b8
+>>>> [    0.000000][    T0]  irqchip_init+0x20/0x50
+>>>> [    0.000000][    T0]  init_IRQ+0x1c/0x100
+>>>> [    0.000000][    T0]  start_kernel+0x1ec/0x4f0
+>>>> [    0.000000][    T0]  __primary_switched+0xbc/0xd0
+>>>> [    0.000000][    T0] ---[ end trace 0000000000000000 ]---
+>>>> [    0.000000][    T0] ------------[ cut here ]------------
+>>>> [    0.000000][    T0] Failed to decrypt memory, 16 pages will be
+>>>> leaked
+>>>>
+>>>> realm feature relies on rodata=full to dynamically update kernel
+>>>> page table prot.
+>>>>
+>>>> In init_IRQ(), realm_set_memory_decrypted() is called to update
+>>>> kernel page
+>>>> table prot.
+>>>> At this time, secondary cpus aren't booted, BBML2 noabort feature isn't
+>>>> initializated,
+>>>> and system_supports_bbml2_noabort() still returns false. As a result,
+>>>> split_kernel_leaf_mapping() is skipped, leading to
+>>>> WARN_ON_ONCE((next - addr) !=
+>>>> PMD_SIZE)
+>>>> in pageattr_pmd_entry().
+>>> If no secondary cpus are yet running, then it is technically safe to
+>>> split
+>>> because we know all online cpus (i.e. just the boot cpu) supports
+>>> BBML2_NOABORT.
+>>> So we could explicitly only disallow splitting during the window
+>>> between booting
+>>> secondary cpus and finalizing the system caps. Feels a bit hacky
+>>> though...
+>>
+>> I think we can check whether system feature has been finalized or not.
+>> If it has not been finalized yet, we just need to check whether the
+>> current cpu (should be just boot cpu) supports BBML2_NOABORT or not.
+>> It sounds ok to me.
+> 
+> That assumes that no secondary has booted yet, otherwise we cannot
+> safely split live mappings without knowing that all CPUs support
+> BBML2-noabort. It might work for this particular case, but it is
+> fragile. It wouldn't help for the page table protection case, as PTPs
+> get allocated while secondaries are booting up (e.g. stack allocation
+> when forking kthreadd).
+> 
+>>
+>>>
+>>>> Before setup_system_features(), we don't know if all cpus support
+>>>> BBML2 noabort,
+>>>> and we
+>>>> couldn't split kernel page table, in case another cpu that doesn't
+>>>> support BBML2
+>>>> noabort
+>>>> is running.
+>>>>
+>>>> How could we fix this issue?
+>>>>
+>>>> 1. force pte mapping if realm feature is enabled? Although
+>>>> force_pte_mapping()
+>>>> return true if is_realm_world() return true, arm64_rsi_init() is
+>>>> called after
+>>>> map_mem(). So is_realm_world() still return false during map_mem().
+>>>> Thus
+>>>> realm feature relies on rodata=full. If we fix by this solution, we
+>>>> need
+>>>> to add a new cmdline to force pte mapping.
+>>
+>> I don't quite get why is_realm_world() relies on rodata=full. I
+>> understand realm needs PTE mapping if BBML2_NOABORT is not supported.
+>> But it doesn't mean real relies on rodata=full.
+>>
+>>> I think we just need to make is_realm_world() work earlier in boot? I
+>>> think this
+>>> has been a known issue for a while. Not sure if there is any plan to
+>>> fix it
+>>> though.
+>>>
+>>>> 2. If we could try to split kernel page table before
+>>>> setup_system_features()?
+>>> Another option would be to initially map by pte then collapse to
+>>> block mappings
+>>> once we have determined that all cpus support BBML2_NOABORT. We
+>>> originally opted
+>>> not to do that because it's a tax on symetric systems. But we could
+>>> throw in the
+>>> towel if it's the least bad solution we can come up with for solving
+>>> this. I
+>>> think it might help some of Kevin's use cases too?
+>>
+>> May be an option too. When we discussed this there was no usecase for
+>> direct mapping collapse. But if we can have multiple usecases, it may
+>> be worth it. 
 
-I pushed for-next a bit after this email.
+I could imagine that if user space creates and destroys lots of secretmem areas,
+then it will completely split the linear map to ptes and that will never recover
+currently. So I think in the long term, having the ability to collapse would be
+useful. I just don't particularly like forcing symetric systems to map by pte
+initially (which is slow) only to collapse later (which will cost even more
+time). But it does feel inherrently more robust.
 
-The workflow is far from optimal, because it has two stages:
-1. Iterate over each pull email, check, merge and eventually push only
-this branch,
+>> AFAICT, the ROX execmem cache may need this, which Will
+>> or someone else from Google is going to work on.
+> 
+> Not sure about the execmem cache (do we call execmem_alloc() before
+> secondaries are up?), but I think that would indeed solve the issue for
+> the page table protection use-case. Besides in terms of complexity it's
+> probably not much worse than what we currently have, i.e. basically the
+> reverse (splitting the linear map if some CPU doesn't have
+> BBML2-noabort). Penalising symmetric systems is not great, though.
+> 
+> - Kevin
+> 
+>>
+>> Checking current cpu BBML2_NOABORT capability before system feature is
+>> finalized seems like a fast way to stop bleeding IMHO before we find
+>> more elegant long-term solution.
+>>
+>> Thanks,
+>> Yang
+>>
+>>> [...]
 
-2. Merge to for-next and document the merges for internal
-accounting/tracing. I guess I could merge it after each stage (1) above.
-
-The bigger problem is lack of replies from pw-bot.
-
-
-@Konstantin,
-I use modified Rob's script to go over patch/pull queue in Patchwork:
-https://patchwork.kernel.org/project/linux-soc/list/?state=*
-
-I deal with them one-by-one, so when I finish merging, I want to be sure
-that Patchwork status is updated, thus through the script I mark it
-"Accepted".
-Like this one:
-https://patchwork.kernel.org/project/linux-soc/patch/cover.1773399675.git.geert+renesas@glider.be/
-
-Around then - can be just before or after - I push the updated branch to
-git.kernel.org. I fear that because the pull is manually updated in
-Patchwork to "Accepted", pw-bot ignores it and does not send the
-notification.
-
-Is it feasible to change pw-bot so it will notify even if it is marked
-as "Accepted"? Or any ideas how to change the flow to have both:
-A. pw-bot reply,
-B. Be 100% sure that Patchwork status is updated (allow my manual update
-via script)?
-
-
-Best regards,
-Krzysztof
 
