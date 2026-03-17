@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65465F3380C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DC6F33813
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RO5ulInoe1Z4PJWUeqIRmGVQ1wGWuYCkPGJod5QhfG0=; b=cxgykqQxaGf/U9gVhBC5Tl2UpD
-	TcB0W0YA9+/CG1dRxj5rmVPEShOVDDg0ZU+YdvD4xsAlwFKz6D+YIKdHAg08T3jt/c4NnWoPLz6kL
-	ZwLN0X6QoYjJgcK/BhMv0cY3J1+EtAlFpf5BqnQ3YE8L34gpOthpTVhRGOxtv7jNlZnMhXazNj6XJ
-	T8vX693Jtx0WYwgr9JMzMaayXS5ttMSQxQztg98UBdXeEsPTXckZx4Pb/ohunOX7aq3/Me0bYirAd
-	deliret2NGwX84Jn+qDZcz44CRe2gICpU8DmsR3z8eV7tOaEKo1S+lJKYvnkRR6eaTI0MXg02kAo4
-	F9mOLGag==;
+	bh=IakESoBeP8w1AHGToAICJ0P9z+UIVjADbjRxSMkauJ4=; b=ao0m2zbCr/FMv1r/Q/fUWWJgij
+	Cits/cVoYRqCsASJCy825koo/DEuT8w8M1shcVpeUKysTLQbpeh18eHAa9mRmSdABX+Rq2m/VeG2l
+	tPNYqIFQy9LRImIurslh3R8MM/+dkeE7BHMldOV2hH8PFscMv1a4XEhSYKRnuTYb75LZQ5NSsYiDq
+	Dxrn+uS+CVin0tpkaLnwe5ofhBKkzl1cdSNNY4u9rMPV4GcIW3OulW10KXiO2X6l942V2uua44zFN
+	jHEs7afnyYrCXflu9KP/CwaOx7IWB8SqbqeNZnd+XgD4os70nUP1DzPC3gzOMNnSw3/Mf0LHbZuLP
+	2bGvEBrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PrM-00000005jiT-47o4;
-	Tue, 17 Mar 2026 08:33:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2Pvz-00000005jzt-2p38;
+	Tue, 17 Mar 2026 08:37:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PrK-00000005jhz-2uQ3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:33:03 +0000
+	id 1w2Pvy-00000005jzh-2cbv;
+	Tue, 17 Mar 2026 08:37:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFA5C40A17;
-	Tue, 17 Mar 2026 08:33:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AAF4C4CEF7;
-	Tue, 17 Mar 2026 08:33:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A394C60018;
+	Tue, 17 Mar 2026 08:37:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0BF4C4CEF7;
+	Tue, 17 Mar 2026 08:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773736381;
-	bh=/8Mm9f4wVRAQRaL9ESTSosSt03cNCq/bqKwrcekeK7w=;
+	s=k20201202; t=1773736669;
+	bh=3ROM+tLx7TMgQ2ugUywzp/sxA2JiAFepBbbuV9ioIf0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u+5SsNIDLHqHiF4ok0mD4BeGa9VRdXLvQUqHUq5v+0V8GJX2SjWmumNJXhwGtceAw
-	 ng3r8yxFs+8y3X2uJbtLhEqBSvJ4uarpXQk1nD0c6zPcd/CZM1DoogIc1SniF+L/nN
-	 vEs5/3zHIQQWCj5G7FDyboHgXdBpAiqReuOIHe3tQph8jgp0YxOEjy9/zr0vSD8dx3
-	 wGQBKkXnEziG2VWytHqYIoJSkLajMJDEM6cBkRRqcmwqCeaplvAhaQPQOubIssmNur
-	 evryn3ngLbkLE9syOLic6E/ckc8El5JHZvmwWPR8uR6RXPgurTR0WEglUZ1A0Ogi3C
-	 4W0speqf+Hevw==
-Date: Tue, 17 Mar 2026 09:32:59 +0100
+	b=QCcd57nSkG1imRW3wcIKJ54uHE9cRNkCGPtjkmjAasDZcQiuxxEDoUysrVEfofKR3
+	 kqfkuzNAcljChr4EIELEZ+2RPGojZKbuuykN1BBjCAAJi8swMKPA8aUBRsH4nlOktS
+	 rATS7B/pW5HbCkwH3zuY34CGmxzgQZlozYnofd1f1TlqHlMp/u0Yu8QtaaazNL7NqL
+	 LovXvsUQsbz6UnNi7/NP7wfGpc3mjjZuESbkrpiLhQU9MiazhJLQ0Jo50PLJNS76IM
+	 tHaK3xc3NChdBWIiTshcNY6M0Ru4NrjDDKD3Qy89A1udxKWs9+madYqmcJMP8PEPUA
+	 nmILck5nB27Ww==
+Date: Tue, 17 Mar 2026 09:37:47 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: soc@lists.linux.dev, soc <soc@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
-Message-ID: <20260317-spirited-mahogany-swift-b1ac53@quoll>
-References: <cover.1773399669.git.geert+renesas@glider.be>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] Rockchip driver fixes for 7.0 #1
+Message-ID: <20260317-functional-hot-dingo-a286aa@quoll>
+References: <4719110.LvFx2qVVIh@phil>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <cover.1773399669.git.geert+renesas@glider.be>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_013302_749075_22FE7B68 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <4719110.LvFx2qVVIh@phil>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,17 +67,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 12:12:56PM +0100, Geert Uytterhoeven wrote:
-> 	Hi SoC folks,
+On Sat, Mar 14, 2026 at 07:41:19PM +0100, Heiko Stuebner wrote:
+> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
-> This is my first pull request for the inclusion of Renesas SoC updates
-> for v7.1.
+>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 > 
-> It consists of 4 parts:
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.0-rockchip-drvfixes1
+> 
+> for you to fetch changes up to 24ed11ee5bacf9a9aca18fc6b47667c7f38d578b:
+> 
+>   soc: rockchip: grf: Add missing of_node_put() when returning (2026-02-22 23:27:20 +0100)
+> 
+> ----------------------------------------------------------------
+> Fixing a missing of_node_put() call.
 
-I think pw-bot did not reply to any of these pulls, but I applied now
-all of them.
-
+Thanks, applied
 
 Best regards,
 Krzysztof
