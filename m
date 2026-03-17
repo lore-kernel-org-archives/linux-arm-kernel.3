@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967F8FD7076
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65916FD7076
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=584ZsP1PhLRw9ZE8INKWXu5KoUvOf1O9oMLiLK1Co4M=; b=rZ2nFBMeF1D4wX
-	n4fcWRDuIltQGH5HABzZOc8TpibxbKYbQFVwtFlXxUChNnJOZTSE+NJOKgxAaQemyiF6K4YjTy2RV
-	lhF6VPvxzHVutZnYFGzoQnsHkNbdQnwaqAma8IlTsTSGahC0nni5HWU/W6UTuKcw3YzFb0tanPY4V
-	YEBwnmiaAUtwy/aCey1fcwsZ6HvjLXBZeM8Utl2sVFHxl1OekOoy5/chRmdaGHX9YhZuIHPeW4MyT
-	MKmRB9F5Ct5MnMK/Ouv7KWnFdCsyhsanNigH5IjoFEEgBsjZAutIZbGxCzdbCKnc0gL143L1zUSJ0
-	m1Ged0Tl5fSRaxsxRuJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlGrEkibMU7jAxa/nAeVCmJI/B374Ki2x5uFqqjET4Q=; b=Lbd7yIVfxGBtSXCsXXN7QCMmyy
+	m8+atBg9/PBQ0ohtJQuVucAgKSkbQ2lwN+sErLp7yYCGo9IU/f6soUgCTF2zFu5qlHaS7W7A6btkC
+	y983HDjYGe4ZH04fexBnbZxUdTU3RsvgaaZtl2qAQm+S6aEeF48X4lKQAxvJ4DY+wU8f14Qh0z5iN
+	NIy4chrLYoVPWAW8mfpkvBmO4kKZ5TDxMwU3biAeiavgQaxpsG5EmH3Zl7TIXJGFH4ItdhyScnihY
+	DnXoH0Sdq2Qa1U9Vv8jp91T8K/g30zoH3AOQrqfSky/v2Zp1HoMNMirN72t4BTt5bxL34EuNFYJYF
+	LXLndB4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Rkc-000000062FF-1zzF;
-	Tue, 17 Mar 2026 10:34:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2Rl4-000000062YT-3SQc;
+	Tue, 17 Mar 2026 10:34:42 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RkT-0000000629W-1cba
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Mar 2026 10:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=584ZsP1PhLRw9ZE8INKWXu5KoUvOf1O9oMLiLK1Co4M=; b=HEiLjMWGKQOrTYMQSUmv/Dy0fx
-	UHpZCPor9nJ78ef0vn08pZFiLRH7IpManS84aGTb3VaohYrvxVR0MjJOgAI7TAXlXG1otsojwiXHK
-	Wx11TqnNsOIeKJiOSkVPA8qsrVkKCuCuAEInmg2y8IpT1pGKMOh7kXe0+Xw/piAhGSHIojHIZrD6Z
-	1BMwFzd1WNzYJXwRS7F12pRtdYosEqw/rmnMp4VDauA/6ELCJTuaS1GRqz1hB3Wot6k9HtKIO6uA4
-	bf48PTbXoYZCCi00THUmjtNz+dUjlQyd0XToFCyRKzFCggRVTQNXMWD3+QzqWnoHGzdsXMnhCPQVS
-	TBnrSWww==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RkQ-00000008iMG-04J5
+	id 1w2Rky-000000062TS-1gs2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 10:34:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D62BB1476;
-	Tue, 17 Mar 2026 03:33:54 -0700 (PDT)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82C173F7BD;
-	Tue, 17 Mar 2026 03:33:58 -0700 (PDT)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v2 7/8] firmware: smccc: lfa: Register DT interrupt
-Date: Tue, 17 Mar 2026 11:33:33 +0100
-Message-ID: <20260317103336.1273582-8-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260317103336.1273582-1-andre.przywara@arm.com>
-References: <20260317103336.1273582-1-andre.przywara@arm.com>
+	Tue, 17 Mar 2026 10:34:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=FlGr
+	EkibMU7jAxa/nAeVCmJI/B374Ki2x5uFqqjET4Q=; b=eFh0XkAGzMPNjtcmbgff
+	QOZPMTGhym26jBZOfBrQp5jdXXOXo7UUlMfNPmPoWR8Dxu7QTbJLJ6CzfclOrJ7N
+	5pAJufP17U/rg1k57+UhxOkrGs3RKsZLMRDmmhRWfZAznOWUisF92lPnxuozG5Q8
+	YCnIWrCduQMe+FABVERNeM8QN85Sby1Y4DRnhpRJ1T/wzRhpZFth+STBXAJpK7LD
+	RDtZgOlUxY0GXh+SiBHs6/pv7JDSeDyxsUCSD7HC+zgXPumwIsWLe14e5/TIKZcg
+	fkFC8tf3AZXbE2owx+TISJ6/NRNPs36iNKMwuQmFeYGCAWxM9hkc04XQIfij//Ds
+	QA==
+Received: (qmail 235590 invoked from network); 17 Mar 2026 11:34:30 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Mar 2026 11:34:30 +0100
+X-UD-Smtp-Session: l3s3148p1@pjNn4TVNpshSwmvS
+Date: Tue, 17 Mar 2026 11:34:30 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Douglas Anderson <dianders@chromium.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	driver-core@lists.linux.dev, imx@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
+ thread safe
+Message-ID: <abkuNpwmYGa6qJPZ@shikoro>
+References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+ <abkCPU3rxHI49N4_@shikoro>
+ <abkD-VLprcbbEbB1@ashevche-desk.local>
+ <abkF0GO01sMcOhvb@shikoro>
+ <abkLEgrZbdb03VWg@ashevche-desk.local>
+ <abkLY4AAQuFlTRC7@ashevche-desk.local>
+ <abkT_jpjIki6pvX1@shikoro>
+ <abkqEni3phP8dqqw@ashevche-desk.local>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abkqEni3phP8dqqw@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_103402_309412_50D70099 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260317_033439_314116_BFBCBE8C 
+X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +94,13 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm Live Firmware Activation spec describes an asynchronous
-notification mechanism, where the platform can notify the host OS about
-newly pending image updates.
-In the absence of the ACPI notification mechanism also a simple
-devicetree node can describe an interrupt.
 
-Add code to find the respective DT node and register the specified
-interrupt, to trigger the activation if needed.
+> Like Danilo I am also not sure what lock protects fwnode accesses.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/firmware/smccc/lfa_fw.c | 45 +++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
-
-diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index 5dc531e462eb..ecd056901b8d 100644
---- a/drivers/firmware/smccc/lfa_fw.c
-+++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -16,6 +16,8 @@
- #include <linux/list.h>
- #include <linux/module.h>
- #include <linux/nmi.h>
-+#include <linux/of.h>
-+#include <linux/of_irq.h>
- #include <linux/psci.h>
- #include <linux/stop_machine.h>
- #include <linux/string.h>
-@@ -841,6 +843,43 @@ static void lfa_remove_acpi(struct device *dev)
- }
- #endif
- 
-+static irqreturn_t lfa_irq_handler(int irq, void *dev_id)
-+{
-+	return IRQ_WAKE_THREAD;
-+}
-+
-+static irqreturn_t lfa_irq_handler_thread(int irq, void *dev_id)
-+{
-+	int ret;
-+
-+	while (!(ret = activate_pending_image()))
-+		;
-+
-+	if (ret != -ENOENT)
-+		pr_warn("notified image activation failed: %d\n", ret);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int lfa_register_dt(struct device *dev)
-+{
-+	struct device_node *np;
-+	unsigned int irq;
-+
-+	np = of_find_compatible_node(NULL, NULL, "arm,lfa");
-+	if (!np)
-+		return -ENODEV;
-+
-+	irq = irq_of_parse_and_map(np, 0);
-+	of_node_put(np);
-+	if (!irq)
-+		return -ENODEV;
-+
-+	return devm_request_threaded_irq(dev, irq, lfa_irq_handler,
-+					 lfa_irq_handler_thread,
-+					 IRQF_COND_ONESHOT, NULL, NULL);
-+}
-+
- static int lfa_faux_probe(struct faux_device *fdev)
- {
- 	int ret;
-@@ -854,6 +893,12 @@ static int lfa_faux_probe(struct faux_device *fdev)
- 		}
- 	}
- 
-+	ret = lfa_register_dt(&fdev->dev);
-+	if (!ret)
-+		pr_info("registered LFA DT notification interrupt\n");
-+	if (ret != -ENODEV)
-+		return ret;
-+
- 	return 0;
- }
- 
--- 
-2.43.0
+This is basically the question I asked to Doug. If he also don't see
+one, let's take this patch as is.
 
 
