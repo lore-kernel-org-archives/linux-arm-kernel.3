@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC1A2FED9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B289FED9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0nlJ33EWVvjW0WgBTz2VLCDfT/IjyCFer8CXRG8xg8=; b=nDz7DYTV1JUfzYXsMDhrDS1o6/
-	mU7o/d46nWYsW0ElKlMzn8Df0QMiHEZGG+L5RStRQNEl+YytU7zCW5Gc2Dp+h3XICsXaBukK4h3Bb
-	t6zfgbYVwjDh/xTORHevUIhonM/d9zVrJZ3rKSwUZoNzgSUyC0HK5dqA2234L30/WYCvsoGnvWbuD
-	Ad9m/p+80OO72V/9a7YcrhLBUGKGS06LMxeRKFT0ePDfIRTV4sDYd8cIya7uKITwJEEuq970aNvRg
-	WDGeXiJ6tv4KpZ0n68JSJdvfePoqhXm0A/XqWT19fVHTGwl+XFhzzNESjRJthnJ5Gedo4Hb0t0EnF
-	JNp54CsA==;
+	bh=UWVFtOs9bdJBFkz+rj2VtdCTPh/WPVU/CAIFIogbO9k=; b=fcLdOiac9/dDBSSI23AhjKJdLY
+	KRFQ1cXHdFp1aG4Rf3YR6DAu+o0jC8H6vBzZVKCCXFYXIAbCrA6JbSTpKoT2qM4wji100dJkWCSSE
+	zPckeYYzupiQ5XCYTJ4q07ocUMwSbh1ZHfxq4wDtl7dAOn35986CNKkOWbWCmyxVDdKQsa96f1Jz+
+	u7zTxTNtOJkspj7HJnzPKn1ho+r9dvCQcNwUVvomdqoAJslT+hmaayMaPSHYPW2hcv/mplV5elkws
+	Zq3dnEK3IxKLagaCi/RrnALYElIwhdu+6XjWEcNRw6Xxlv3Ea3MtcobBr6iGaWjvFrustuOZVoIFz
+	qlExj8pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YBi-00000006wM7-0800;
-	Tue, 17 Mar 2026 17:26:38 +0000
+	id 1w2YD7-00000006wVL-1j3u;
+	Tue, 17 Mar 2026 17:28:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YBg-00000006wM1-3PQc
+	id 1w2YD5-00000006wVD-2Nbu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:26:36 +0000
+	Tue, 17 Mar 2026 17:28:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECD5060018;
-	Tue, 17 Mar 2026 17:26:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E6CAC19424;
-	Tue, 17 Mar 2026 17:26:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB8A8600AD;
+	Tue, 17 Mar 2026 17:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11337C4CEF7;
+	Tue, 17 Mar 2026 17:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773768395;
-	bh=WM7vqYR2qO1yM/22u3yyS5QrYQQYNEb4Ka8WVAxFcBY=;
+	s=k20201202; t=1773768482;
+	bh=UWVFtOs9bdJBFkz+rj2VtdCTPh/WPVU/CAIFIogbO9k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=txtA7q5qzPaWS1Z3kLTEHIS39zHZat0AopK3tw/J6oiHgQNFzwXkEEBX1cLJ+5Fwz
-	 cszofU9XgsQYhmrv7YZcJaZgCXCJT/GDJ/tpFU3TTCVsZ9qSDj2BVZEYgyZsYLEMo3
-	 mH0F4nT7SSucPPOq/rcey11OEEXTAJVia5f62S+NY7Ngt8gjhjdjZd7YicECxSFMaS
-	 RYmb2NHiWMKrR72RbVGdHkPe08h31J1ZIz3eCzDNBvbIpzMDZy0R5jnHU8Z8lcLKXT
-	 lqCvbi+546/wMMNwxWm7XAeO8fvGklSEO2oLhrvUGTTgbbHPjV8ZxFFZtV+cYtxpko
-	 LVcnivAOkI6Aw==
-Message-ID: <1b28cd99-3a6c-442f-9668-23aca9b1fea8@kernel.org>
-Date: Tue, 17 Mar 2026 18:26:30 +0100
+	b=aIpvl6a9J7sNccZGfZfSnbhwYDQBxQ67ZUG7JnY53lPzAsxkSpA7Youyv8tjA+V1G
+	 JPNNyoTQ916BOd/yupQWUcnq9agIU6Fy8Q4nn8vjO5aTkoMesVnChUtErzXMYv/nd2
+	 zdC3j9h1jrZMwsBYhmhh/aj7Vpd82MNNkcdkHV7g5Uj/+GBcx2475R2q7zhGY9UQuC
+	 wfoA7pUFE2xD+HlNFJ6ky39q+/8SGtg5fo31TQeaxLogLpa48NZw5GcRZJQ3lVxMyw
+	 sQYxbBq86jmlgbG5WGFJa6l+mN9i41M6a0FVFav5aWySkXdTBfDFN1RFEM2mgtj3FV
+	 P4JJTxZbaQ7uw==
+Message-ID: <64fc1d80-b4db-4766-996c-257009fe489e@kernel.org>
+Date: Tue, 17 Mar 2026 18:27:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] arm64: defconfig: Enable clock controllers on
- Qualcomm Eliza SoC
+Subject: Re: [PATCH 1/7] dt-bindings: clock: qcom: Add video clock controller
+ on Eliza SoC
 To: Taniya Das <taniya.das@oss.qualcomm.com>,
  Bjorn Andersson <andersson@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
@@ -62,7 +62,7 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
- <20260317-eliza_mm_clock_controllers_v1-v1-7-4696eeda8cfb@oss.qualcomm.com>
+ <20260317-eliza_mm_clock_controllers_v1-v1-1-4696eeda8cfb@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260317-eliza_mm_clock_controllers_v1-v1-7-4696eeda8cfb@oss.qualcomm.com>
+In-Reply-To: <20260317-eliza_mm_clock_controllers_v1-v1-1-4696eeda8cfb@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -126,37 +126,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 17/03/2026 18:14, Taniya Das wrote:
-> Enable the video, camera and gpu clock controllers for their respective
-> functionalities on the Qualcomm Eliza boards.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
->  arch/arm64/configs/defconfig | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 18881bd239f9c53e74ad5caa492bace394e4fde7..dd45d275d30a32fd567432b5c324896518aa4ad8 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1458,6 +1458,11 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
->  CONFIG_COMMON_CLK_MT8192_VDECSYS=y
->  CONFIG_COMMON_CLK_MT8192_VENCSYS=y
->  CONFIG_COMMON_CLK_QCOM=y
-> +CONFIG_CLK_ELIZA_CAMCC=m
-> +CONFIG_CLK_ELIZA_GCC=y
-> +CONFIG_CLK_ELIZA_GPUCC=m
-> +CONFIG_CLK_ELIZA_TCSRCC=m
-I told you already twice, don't send duplicated patches. Once when you
-sent sm8750 videocc, even though it was all ready and posted. Second
-today when you completely ignored one month of development of Eliza in
-Qualcomm tree (so your tree).
+> Add compatible string for Eliza video clock controller and the bindings
+> for Eliza Qualcomm SoC.
 
-Now this. You keep sending patches interfering with work which was
-already posted.
-
-NAK
-
-https://lore.kernel.org/all/20260316-arm64-defconfig-enable-eliza-basic-providers-v1-1-7ae581670aa8@oss.qualcomm.com/
+Why this is not compatible with SM8750? You have entire commit msg to
+explain that, if you insist on doing parallel work not.
 
 Best regards,
 Krzysztof
