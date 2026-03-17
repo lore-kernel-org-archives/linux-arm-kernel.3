@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE161FED9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84F8FED9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgFlZ8aTptjtRhZcXnFarsRhYrGzHZGbc2ExB55l1Js=; b=KhzO/yk2jTfrxD5D825mgKVhGw
-	6JocO4Z3d04u+d7WaXYnEOcK4nIkTpEbZ1Ci2smWe6QnVwfPUi5zywwfGceO8ulQgL6WuqRlPOcnC
-	TsV26KNtJs6Mx4m3kaBHuRiX0/Ag8cnET4Og1gHG5VVLNgwTp2v2MtGqZW/raYD8JFHtV5CFvehBA
-	JX5xaXhlGiTvxSYUoN6/u6WBNBPfnNNpWI2h22yTLPMy8Z1mn84OllN6LDtIUeqhP9Ej2WeBLm7j7
-	0fzjtc0Bb1fP597UmAokjnWsVOroufYKWbiJMGxzjt2f+WjbfV+9zmASh7w4xsFB1Ij32CBiIIUzW
-	OOHpV7pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W7P1POX+2adeCurMS/Qxfc56EQLgfAumbDmI32q+0e8=; b=O2pdExDr8sginBg9ortwN3I5KQ
+	e8KkitavKy4+vIgmH7D4fcXcc94Sb+oT3FcK8EE0OBCnMfCFT+jB33AVqVlMXuLz0NJ+C9LfPE2jb
+	byFW1HthAnZiPZL8+MgAj2K6CP4WntptyK1Ur+u1dFJR4pj7CK+pVVKXc1qs3tavYAAuViRsVEriJ
+	5XrBGvytNfzEgAFZmwkH/2Kl/9cw+Ww2w2C7J4XbfFlosPRtIuX9sqf+d+Z4BF4Phoh0nMgNZsdyu
+	p0sG5fp+DmigASzGayale3FZ4qafARogrRinPFQlltkyO/LyUCmEhf7rjTKd8CLLHLck0zZERm3VI
+	O0UoTBxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2XuI-00000006tDz-1IxV;
-	Tue, 17 Mar 2026 17:08:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2XuT-00000006tGg-40Tv;
+	Tue, 17 Mar 2026 17:08:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2XuH-00000006tDn-0IzS;
-	Tue, 17 Mar 2026 17:08:37 +0000
+	id 1w2XuR-00000006tFz-3qYu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 17:08:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 753AA60018;
-	Tue, 17 Mar 2026 17:08:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FE03C2BCAF;
-	Tue, 17 Mar 2026 17:08:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4299F4368F;
+	Tue, 17 Mar 2026 17:08:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033E7C4CEF7;
+	Tue, 17 Mar 2026 17:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773767316;
-	bh=OYKACKHn9r18VVAQQYO3XCrcZvWsa6eEUXZQRmgI5C0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=rhvZZBY2U1mkFiKJSa826Kc7/gzYFZ5jEiwCXQnVS1v18/CpcQgiD8yLe10ccgZw6
-	 rJlFDbVK80uWDDmJujHFEyNr8h5sdpMmPsbx4bou7op6cEftrXfe2aI14MyVyefzlt
-	 hFlf0rFejR8e6OWjf1GEuAHpNP9Vkt9oxLGV3CWZ4Ox1fhf6QZpHKjY2lkwXFSDtlG
-	 t4ibFiC8FcvggvF2ld1UFYcQravWyOc2zuLlTAL29stP+rNb1HGzHLtW2Kl3u6YzVX
-	 jAaeF21hSn+OaQVE9dlnA3dfV1u0xT7/sLjg3EVyKaue5fLzuKpTEw9BbZZ4iRLGI8
-	 SEbfKRPG6l8Xw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Alexey Charkov <alchark@gmail.com>, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com
-In-Reply-To: <20260316-rk3576-spdif-v1-0-acb75088b560@collabora.com>
-References: <20260316-rk3576-spdif-v1-0-acb75088b560@collabora.com>
-Subject: Re: (subset) [PATCH 0/2] Add SPDIF support to RK3576
-Message-Id: <177375071091.66172.9619091096870411031.b4-ty@kernel.org>
-Date: Tue, 17 Mar 2026 12:31:50 +0000
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-e1b5b
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1335; i=broonie@kernel.org;
- h=from:subject:message-id; bh=OYKACKHn9r18VVAQQYO3XCrcZvWsa6eEUXZQRmgI5C0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpuYqQC0mSRbvylEYD8XOwmbfCGbStTFm5gcpB+
- WMc5ukRc5qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCabmKkAAKCRAk1otyXVSH
- 0HgGB/0VtBFyeChYr02uBJH0w2HPP0KbeANerijwZkJYYAa7H7iiNfnxSOqKy32XDMYLLMFSmSh
- 9ANd6QWMUNAiM7awG7MWSMr7aUaKM0PFWlO5Guw0Z+m36wqmLuwC+f1/shA71QEKh7FDbSyXzQp
- pQGlcivQjzR0cVYGA5L0HU4fhmgMRj59s1NtA3ja6USpSwAot4tO3GKBHwIQWTz+lq2TJYwsCve
- jtLg+2dVCHiEN5CE5XaqrL5eTjNoWggtsg/z/Nf66rK2mCtFO01gBPtiAMbJpZ6Y/wiJk9j2zYl
- C3Ig1w9XCfUVoeQXyVHXKRtCjgSJvaVaJ/DUZ4PseKCiZuXw
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+	s=k20201202; t=1773767327;
+	bh=C+/NTKDJWGMfITjC5Sw+dO0f6iGXgS3pgMU3OwbjxLY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lvjuO3D6nKYISdzpyaEFHd/fXGVbRCwbqYXjfcfTFAaKMx8NkMpBabOeFfJ+f43iD
+	 gKaf5gHIglKXnSfyZ6gnxfqgAhyWpwktNAFw8VOnxUEGc6V7p2TIMTW4t+s5Q3WOlj
+	 3ylbYFmzxcSLxQlRvVTv9hxC2S2Uqi/TEYafcV+Cnkbi32SQ4247cDGK7fEac1vyxm
+	 1x5sGovZJ2ERGrteNXr6upbgOjJj9qhIXKF0AF3sXuXj65zwUm9kRMrEM2u+cco1sY
+	 +85CH0LSehuA/pmEhZM9Z9xayqv/byIbxUb4l72+Va0I6cXWxSfapitRk0DQ17Gkt2
+	 1mo2Vj2vrrHVw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2XuO-00000002wKF-3nEG;
+	Tue, 17 Mar 2026 17:08:44 +0000
+Date: Tue, 17 Mar 2026 17:08:44 +0000
+Message-ID: <86fr5y5qoz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v6 22/39] KVM: arm64: gic-v5: Check for pending PPIs
+In-Reply-To: <20260317113949.2548118-23-sascha.bischoff@arm.com>
+References: <20260317113949.2548118-1-sascha.bischoff@arm.com>
+	<20260317113949.2548118-23-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_100848_014580_90C4D21E 
+X-CRM114-Status: GOOD (  42.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +99,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 19:22:59 +0100, Sebastian Reichel wrote:
-> Add SPDIF support to RK3576
+On Tue, 17 Mar 2026 11:45:41 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> Add SPDIF support on RK3576 in preparation for Displayport audio
-> support. My expectation is that Mark picks up the DT binding via
-> his audio tree and Heiko picks up the DTS via the Rockchip tree.
+> This change allows KVM to check for pending PPI interrupts. This has
+> two main components:
 > 
+> First of all, the effective priority mask is calculated.  This is a
+> combination of the priority mask in the VPEs ICC_PCR_EL1.PRIORITY and
+> the currently running priority as determined from the VPE's
+> ICH_APR_EL1. If an interrupt's priority is greater than or equal to
+> the effective priority mask, it can be signalled. Otherwise, it
+> cannot.
 > 
-> [...]
+> Secondly, any Enabled and Pending PPIs must be checked against this
+> compound priority mask. The reqires the PPI priorities to by synced
+> back to the KVM shadow state on WFI entry - this is skipped in general
+> operation as it isn't required and is rather expensive. If any Enabled
+> and Pending PPIs are of sufficient priority to be signalled, then
+> there are pending PPIs. Else, there are not. This ensures that a VPE
+> is not woken when it cannot actually process the pending interrupts.
+> 
+> As the PPI priorities are not synced back to the KVM shadow state on
+> every guest exit, they must by synced prior to checking if there are
+> pending interrupts for the guest. The sync itself happens in
+> vgic_v5_put() if, and only if, the vcpu is entering WFI as this is the
+> only case where it is not planned to run the vcpu thread again. If the
+> vcpu enters WFI, the vcpu thread will be descheduled and won't be
+> rescheduled again until it has a pending interrupt, which is checked
+> from kvm_arch_vcpu_runnable().
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 101 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |   3 +
+>  arch/arm64/kvm/vgic/vgic.h    |   1 +
+>  3 files changed, 105 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index e080fce61dc35..14dba634f79b4 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -122,6 +122,29 @@ int vgic_v5_finalize_ppi_state(struct kvm *kvm)
+>  	return 0;
+>  }
+>  
+> +static u32 vgic_v5_get_effective_priority_mask(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	u32 highest_ap, priority_mask;
+> +
+> +	/*
+> +	 * Counting the number of trailing zeros gives the current active
+> +	 * priority. Explicitly use the 32-bit version here as we have 32
+> +	 * priorities. 32 then means that there are no active priorities.
+> +	 */
+> +	highest_ap = cpu_if->vgic_apr ? __builtin_ctz(cpu_if->vgic_apr) : 32;
+> +
+> +	/*
+> +	 * An interrupt is of sufficient priority if it is equal to or
+> +	 * greater than the priority mask. Add 1 to the priority mask
+> +	 * (i.e., lower priority) to match the APR logic before taking
+> +	 * the min. This gives us the lowest priority that is masked.
+> +	 */
+> +	priority_mask = FIELD_GET(FEAT_GCIE_ICH_VMCR_EL2_VPMR, cpu_if->vgic_vmcr);
+> +
+> +	return min(highest_ap, priority_mask + 1);
+> +}
+> +
+>  /*
+>   * For GICv5, the PPIs are mostly directly managed by the hardware. We (the
+>   * hypervisor) handle the pending, active, enable state save/restore, but don't
+> @@ -172,6 +195,80 @@ void vgic_v5_set_ppi_ops(struct vgic_irq *irq)
+>  		irq->ops = &vgic_v5_ppi_irq_ops;
+>  }
+>  
+> +/*
+> + * Sync back the PPI priorities to the vgic_irq shadow state for any interrupts
+> + * exposed to the guest (skipping all others).
+> + */
+> +static void vgic_v5_sync_ppi_priorities(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	u64 priorityr;
+> +	int i;
+> +
+> +	/*
+> +	 * We have up to 16 PPI Priority regs, but only have a few interrupts
+> +	 * that the guest is allowed to use. Limit our sync of PPI priorities to
+> +	 * those actually exposed to the guest by first iterating over the mask
+> +	 * of exposed PPIs.
+> +	 */
+> +	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
+> +		u32 intid = vgic_v5_make_ppi(i);
+> +		struct vgic_irq *irq;
+> +		int pri_idx, pri_reg;
+> +		u8 priority;
+> +
+> +		/*
+> +		 * Determine which priority register and the field within it to
+> +		 * extract.
+> +		 */
+> +		pri_reg = i / 8;
+> +		pri_idx = i % 8;
+> +
+> +		priorityr = cpu_if->vgic_ppi_priorityr[pri_reg];
+> +		priority = (priorityr >> (pri_idx * 8)) & GENMASK(4, 0);
 
-Applied to
+It should be able to write this as:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.0
+		pri_bit = pri_idx * 8;
+		priority = field_get(GENMASK(pri_bit + 4, pri_bit), priorityr);
 
-Thanks!
+which while more verbose, clearly shows that you are extracting a
+field from the register.
 
-[1/2] dt-bindings: ASoC: rockchip: Add compatible for RK3576 SPDIF
-      https://git.kernel.org/broonie/sound/c/4eae391a8e4c
+> +
+> +		irq = vgic_get_vcpu_irq(vcpu, intid);
+> +
+> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
+> +			irq->priority = priority;
+> +
+> +		vgic_put_irq(vcpu->kvm, irq);
+> +	}
+> +}
+> +
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
+> +{
+> +	unsigned int priority_mask;
+> +	int i;
+> +
+> +	priority_mask = vgic_v5_get_effective_priority_mask(vcpu);
+> +
+> +	/* If the combined priority mask is 0, nothing can be signalled! */
+> +	if (!priority_mask)
+> +		return false;
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+The other case when nothing can be signalled is when ICH_VMCR_EL2.En
+== 0, meaning that the guest hasn't enabled interrupts at all.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+This should be taken into account, or a trapping WFI is going to turn
+into a nice CPU hog.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> +
+> +	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
+> +		u32 intid = vgic_v5_make_ppi(i);
+> +		bool has_pending = false;
+> +		struct vgic_irq *irq;
+> +
+> +		irq = vgic_get_vcpu_irq(vcpu, intid);
+> +
+> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock) {
+> +			if (irq->enabled && irq_is_pending(irq) &&
+> +			    irq->priority <= priority_mask)
+> +				has_pending = true;
+> +		}
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+nit:
+		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
+			has_pending = (irq->enabled && irq_is_pending(irq) &&
+				       irq->priority <= priority_mask);
+
+> +
+> +		vgic_put_irq(vcpu->kvm, irq);
+> +
+> +		if (has_pending)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * Detect any PPIs state changes, and propagate the state with KVM's
+>   * shadow structures.
+> @@ -299,6 +396,10 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
+>  	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
+>  
+>  	cpu_if->gicv5_vpe.resident = false;
+> +
+> +	/* The shadow priority is only updated on entering WFI */
+> +	if (vcpu_get_flag(vcpu, IN_WFI))
+> +		vgic_v5_sync_ppi_priorities(vcpu);
+>  }
+>  
+>  void vgic_v5_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcrp)
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 3b148d3d4875e..d448205d80617 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -1230,6 +1230,9 @@ int kvm_vgic_vcpu_pending_irq(struct kvm_vcpu *vcpu)
+>  	unsigned long flags;
+>  	struct vgic_vmcr vmcr;
+>  
+> +	if (vgic_is_v5(vcpu->kvm))
+> +		return vgic_v5_has_pending_ppi(vcpu);
+> +
+>  	if (!vcpu->kvm->arch.vgic.enabled)
+>  		return false;
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index ef4e3fb7159dd..3a9e610eefb00 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -365,6 +365,7 @@ void vgic_debug_destroy(struct kvm *kvm);
+>  
+>  int vgic_v5_probe(const struct gic_kvm_info *info);
+>  void vgic_v5_set_ppi_ops(struct vgic_irq *irq);
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
+>  void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_load(struct kvm_vcpu *vcpu);
 
 Thanks,
-Mark
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
