@@ -4,145 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A28FD8765
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D93FD8763
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UpDKiGl9iRPgVw+xTRCmv6BPHCfBO76AJ/ROtm0O4w=; b=e1kQGRR/XnB8mqy88x+fQ01IND
-	B+QxeeRtT8T/ozZKLrYtJTA0G6r/3b36fS+SlvhM3GRtgGMieW+G/LMLuNzmsOIq3xHEZh+GotdJm
-	qvCSPVZt0QbdkDOhr5SnfwbSEVBXwTxYUKevntyfrf06JavnfCd2klN78b221KlzKXVKBoI9rNdCs
-	XcCWomMubDR2JBhTKKRo+m+feu/5w9Z/wGhrVHRCLij3RC8mzYmP7D04n80D5ZNQ7n4N7eg1wK70N
-	Suc8tQARAh/ZljFhNgDNvvUSmpQUvFby9KnvCondO1agG8LNDTxT9/O09TCVbLAc8ET4X9Jefy1og
-	0fAL0IiA==;
+	bh=1LeDQMyH2RycDF+8KnCGFkEFqzlWBy52GMaL6I3Md0E=; b=mpB9m364xGkXA3g8ueVQ2dWPUN
+	qcdRTDf7uM7Pa+hS0GasOK0nOy+a2gW94t7RDCwUDE+gmIdD2NOICHsJQhptMtd34V+9AllbuCVKg
+	UUuAfkX9zhj7btoYiFdgRykBwT5VEm2B/ZG3DTu/ISjxb0n1tN4xzQCBqOQB2wW5IAJA2zYBEDG7N
+	eFn+axpmhIlQA+X7ipBlD/SaPdvnJsW1UrhaWnxLI71dYHXVifmlLOr+ZkKk7lE9TewIIHA6a5imw
+	y3w3Anc4f8xdlqnjgs6wvdPUwg+vvMv/+SDmw2NKHilzYXFI3qXRP49yRg//ShI2mjpLN7OykvVIS
+	WqbbaCtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2U2L-00000006LXN-3BhE;
-	Tue, 17 Mar 2026 13:00:41 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w2U7N-00000006Mvk-17QB;
+	Tue, 17 Mar 2026 13:05:53 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2U2J-00000006LWh-1Imw
+	id 1w2U7I-00000006Mud-16v8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:00:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ra2d2WZKYNY/yhHKiqTGA0x+0Kz1q24CRc2wpqApZznfwja4PRj8cmgaf/N1ndFKDh8VbeU0+7M1BiCvmDYIkmugSa80CqOTt9e0he/h3Fhr3GzaKr2KOA1F0xy58St9sQBw5wTHqIhKi+ARxTUTApwKijQYMnR/ALqe8iZfKadugxCTwZdJ+vPVwG2Ad7vI/JIvxIHnhTlE1Rvf8TVEfHc4dKchIN7oOm+hbCgq9oIhgITwmouzm38Cf9KfJVHuw3m3NZku2JMIqgQ+a6xw6xOdLQf2FgiyoP6LndS4VXXHTa73+nzTvJn/SJVAfQsdpiq8TI0QFeYZe9/IyTdd5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5UpDKiGl9iRPgVw+xTRCmv6BPHCfBO76AJ/ROtm0O4w=;
- b=uOIFxtYF3QMwYU56pXUqte+9HPwjtYaTE0jLGgoUyoebFnRf/qTN/Agn4jbamWhKEsRsGlOc9cpzvvTAy+/+7YPQrARVa6n6Sp2lf3hQxkJFExmzZD1BPyKxZJN/e9zIm052QGUKQ+pERvkBaGrdko0bDCQ9jm/I5co1KJ7RPOGTeLLXpeVWbvWWvC1r15xELahFxD5z6gsp5vVy8RsWXJ4tWlFCwKPr3hsfhmIsydOBKiApchrK8U6Guo/rmzGauopmUEdoaganid7RSpgWknQpPZ18vlii6P3H1cNJMIn1F4Lf73J/T3PaG+e4IC5UHsyW4Gme16xWV/Rrr9KnnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5UpDKiGl9iRPgVw+xTRCmv6BPHCfBO76AJ/ROtm0O4w=;
- b=Vh5ZkyPSfzFqQaRVgYXIwPNGjjeR/Nb28sDep+4qrU1Uzcq1uSJ7ekPEw/QLHBe2CQhG80M/UGG3W/KQRb+X/5m9IY+dv91aupwKMKvMwejcukQjj+pje9vPLCLHXYyv9h+onR3iQNEAs0sM5sotAHAA+fCvskNW0vdl579Z4gos1q7uqRr1X8zlZUEj6jhJSbA7JU+rV+MsGmthAppdbcwJX/o16zdYMBGZ5DG9dHM1W0SXLGGRIzZHlQRdN1QfghfNmhWmkzZqLeMDMLY46Wx7+WT4YU3jBkikLnIS9S5IYuUwsffu+Z051jEdDfQdE1307pfyqf0ARtoPABHysg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by DB9PR04MB9790.eurprd04.prod.outlook.com (2603:10a6:10:4c5::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
- 2026 13:00:26 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
- 13:00:23 +0000
-Message-ID: <441697c6-13c9-4a0f-80aa-b4ec9992be4e@oss.nxp.com>
-Date: Tue, 17 Mar 2026 15:03:31 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: arm: fsl: add MBa93xxLA-MINI
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
- <20260317111704.1075938-2-alexander.stein@ew.tq-group.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260317111704.1075938-2-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0053.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::18) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Tue, 17 Mar 2026 13:05:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1LeDQMyH2RycDF+8KnCGFkEFqzlWBy52GMaL6I3Md0E=; b=rYLR2K1lFK/0FJ4Mnf0QAtzzMB
+	rRRY7w1bbN6NLsHAc4gSIgEJ09Sh508RhXb71uy1KVBXSXzf2C0f2SQ6NDhi3vJAsCHFgtmMKALT8
+	RSsAzUr7+mMqOy2UoC/wVrNm9Rc2oLbrwn5nlAh/h5ttFMEjNOl06SAvb/u9anwW7VachNIfTOJ/r
+	fVaYss9HQy8BiWIxPDumckhnbY+09PvmlNMm8KfbbHc4KHFx72cg+hqrqJyzNuakr40SU5AlrV5Nd
+	eBCkxmlPnCwRtox8jd+HBElM1qmILB/yflF/tJwx72kWZOQmIU9y1UrDldLXCl7e9Tkj8AT8szqWO
+	qGgGYs0Q==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1w2U7F-00000000foh-0Rg0;
+	Tue, 17 Mar 2026 14:05:45 +0100
+Date: Tue, 17 Mar 2026 14:05:00 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] net: stmmac: skip VLAN restore when VLAN hash ops are
+ missing
+Message-ID: <6wr4v36ijdwlh4q6wiwki42qdjwsjoif7l47mu2df6npi42vrx@scd7zbgb4dml>
+References: <20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl>
+ <TY7P301MB1984C5D71A81DFE5E8EC94D4D341A@TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DB9PR04MB9790:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61099b13-e81a-4aae-483d-08de842526c1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|22082099003|56012099003|18002099003|7053199007;
-X-Microsoft-Antispam-Message-Info: s/a19+2vlqheqJFT0HRONxGhOErDw0i36Xze2Sje5buuvvD84qXu1F7YCr8alRBBxkNtGuuogSGQOAnwXbu8cBrQn+gZTU2BpA4e0ZL8OMI5/1bsGzLTKr7iqJ2vpqUIpeT1h79MeACuaqmV6t459FPAWzJpkfjDGS7n1zhBDYq7WyKm9Z2ENg0PdMayBEAAF6JM1FKqhhCNWPHlSEgMuq/g/397Sp23UEbcLtW8Sti/r2z0kUe85Ze366UoYkbseBrnKDZHQorEQctnXrYxKU99dzKFqilKZ5GLmKopqVZNIBWnp0NJPia3cUEaDqCgtAs7MqBlLMEoskmnQQuz/LWVIC5KsG/0Ef73rmwCqmuCiL0X5TEhhPIJaeinUWt06EfcNwlo5eHvBD7h1g9jbU+DuWy4cXWy1YhF5S6Bajno2C2km5WyBl9xcGklOnxuALwpJsh5TfvZC48nGWpvY+h5H46XVnUzgCWYyGsn+2rpO4oVACwl+fHqJsuBKhklmKTy0FW5ia0sPeDL6wMduNH9wfk00NZFWy62rrCZqYtY6xHrWRbsQsq+JDZ8bzurjTaOlkxJwKUvrbVXj4JO7X2qYUVgKfMF61nWMyGglulP5olQuTgXmowQjyD407o7tesdvLS+9XYyGZxmp/C2lPc8e/rrO2WM3KQy+EV33lw6wsENykO/wIasfNIs3xl4oWH8JHWld04JitUffj77v1e8/P6udwTHHr6OPZ7JOvA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(22082099003)(56012099003)(18002099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MlIwOXZIOXN6Ty9KbDBidktNd2E3VWJKc1o5STNoWGNSWm5mMFcxL1dYbDRE?=
- =?utf-8?B?SjFSeWlMVXBER0R3cVRUdEFWblhKUVpjQjhJMUtjMjZLSXFkZktlM3lPdDAy?=
- =?utf-8?B?L1dza2xqZTd1VVNMSHFMRDJReGVUWWpjWHBlQUJiTnBVdE15VmROaHdyQlFP?=
- =?utf-8?B?TWMvc0ZERkFza3RHejZDQ2c3Nk82bERMK2lJb3BrdHRyckVvd3ZLTDVMVGR0?=
- =?utf-8?B?OHlNTmltNlp5WHRNVzE3U2kwVzBOZ2ljUGx3RDdyT000L3ppd2tmNWRVcUs3?=
- =?utf-8?B?SnZVZkJETlM2angzR0tHSGYzek5SM0hqSWZEdmxxdTdTNDFDOEVzR2k0UlZz?=
- =?utf-8?B?b3YrKzNJRGc4NDBMRFJJNGNvSDBTUFlGRG9SeEJnN0JNdDRiNGJ2Z1pyTkpD?=
- =?utf-8?B?UjR1UktLM0c3M0dHalJBRVlLODZPN2JCMmM5Vmt3S2lmVWQwb2dCWU5YdGRl?=
- =?utf-8?B?NnFMWnJBQ2xNcldEU2J4YnBhYUdtWjFZM3BYSEtocFN3UDkyRjl0Z2s0Vzg2?=
- =?utf-8?B?cFJIV2pOOUNpazdycnVaR2ZYR2JvWVBYTklpbUhKWFdGRmFiT05ZUERMbUtG?=
- =?utf-8?B?QklSc2pmWWhnblA1dUtKTjMwaXpIa0N3anZzd0RMZXEyVWs3djg0bXQ5NDFZ?=
- =?utf-8?B?eGxRYm5zbXhaVG4wQStHWS90NEZGQkNuUkJ3MG1pQUR3a1YvOFJQekd6Tmt6?=
- =?utf-8?B?R29OMDZxWTNBanY5R3RlY2xZUWpocEVIS1owbVdQeVlvQ3BqTUVkWmN1YTRT?=
- =?utf-8?B?Q0VhOWRHdUpQNHRYVGRqdDhYbzlyOU9BL1FKTzRya2g1RjBmcThKdmNTaXBW?=
- =?utf-8?B?bmNuTmM1enJNTXVVdGo3U2JMV2ZwZWxpNmtsWjNySllWSk5tbW13d2lZVVpm?=
- =?utf-8?B?RUdDWnUySTZQRGY5cTFzN2JONjNoWlloRE9JTVc1ZHJ2NlU0dWVYWWZTOFNV?=
- =?utf-8?B?OXdWMStFNFErTHE4T2VpMVZiNlc0K29ETTVwMlhmY1lEQmlTRHUwRWs4SmFY?=
- =?utf-8?B?M05GVWE2eWEwbm9FdEhmZW9ZZnNPcndMUlllM0h0TFUzMEVabzhWc3pzcWpL?=
- =?utf-8?B?UnliVnJtTmlocFU4bG9tY05HMTl4Z3NFelNYb1IwY01EUG01SWw3U2wwWWxa?=
- =?utf-8?B?RHFXSDkrbTZrNnZ6Qm9OZHkyZEYrNmxYQTl3b1BBbWNhRkxpWTIrSFJEamJN?=
- =?utf-8?B?NXZ5ZGVTN2diRU9jcEEzaG9EZC83YVg3VzdWUlZLRG81U3lRZjY4T3ZUMzcx?=
- =?utf-8?B?aFIyMXlSWDMvWmhpMUVVMHoxb2RUZnFkL25NbFlEZmhDTkltZlhkK2JDMHJP?=
- =?utf-8?B?V3JnRDhDUkVEWjJXY3o4V3JCTnZtN0VHK08vNmZ0Ni9FeWx6WFdOK29LOURH?=
- =?utf-8?B?Vy9OTzNwSU1RMzVtK1JYNFM1dnJkNHhCd0oyVkFySU8xbWNzVTQ5akU4SFBG?=
- =?utf-8?B?cld4TDdDMm1jZlpxRGNjOVFhTkpWdkRRREowbExNN29lZis1ZDcvbm5HS3Ay?=
- =?utf-8?B?T3FqUTFRcVJxdWw0MjlOVzVPcUpLNGZxYXdUcllPSDVqRW5TL2JvSzVzSjB2?=
- =?utf-8?B?RjdzYkdMYlRDVzQwVjZXVUY0NHB1NzJTdWxVNTN6SmlGTWROeFRJSW5wZDVV?=
- =?utf-8?B?SFFMV3NNUkNNWHVHTkhwMkpiVmlBa3BKQkYyS3FVQTNLVVo0Zm9BWnhZNlJk?=
- =?utf-8?B?TzdoVW5sRkt1d0laM3NiZ1QwTVlqeUdobDAzMVYwYW56QUdkQzFEb3lrQndU?=
- =?utf-8?B?YURSYk9kRXh3THhTT043YUQ2U0V1TEE3RjRjV21RZm85MWRRaFk5VXFnS1pW?=
- =?utf-8?B?bG1hL253V3JSYjM4emNsZjU3RENDMlpEYjYreEUzM1RjN1pHNCtQMmJEbkpn?=
- =?utf-8?B?K1B1WlRkTmhJL3ZQekpEQUc0WERURVU1ZFF1Rmw0eWF3YWNCcVVodzJUU3J2?=
- =?utf-8?B?UmJNa3hmWkE5THRwV0R0QnVha2ZYN2o5cHpyY2p2T2R0aFBPRmY5ZmV2TlZI?=
- =?utf-8?B?ZVVOdExkZnlqSDVtTGlXYjJyRitLL3FCbXJ0U1pIakdjSHZ2Rll5UkRnSitW?=
- =?utf-8?B?VUhDcVBtdUZrZU8waGdibVBCOXowWEY4ejBtS0tTNHQwQkd1UG9TbFFFRkpT?=
- =?utf-8?B?NnlaSUJ3UzlBTGw1OGQxZi9QN3ZtVmhxeE1WVkNzOEhYM0RJN2lVeXFrblBS?=
- =?utf-8?B?Q0dYeURiTlcxTkpTYVJqQ1Z5ek1EekFHekcyQTVHRVFtZFhQRmdXMVF1NG5n?=
- =?utf-8?B?Y0ZPMTFtN2t2TDZRaW45WWJTWnpEdUJVQWR4WHdCalhsN3B6a1VYMWVlOEEw?=
- =?utf-8?B?dG5hK1NxUXdQQVNxbjh1UFNIRStKclQ1SEQvc3Qzc0IxK3d6NjROdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61099b13-e81a-4aae-483d-08de842526c1
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 13:00:23.3015
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ELRqpQ9qb0/xaCM1CFIBsmwuQwmJ0ERVFHZL+2mOYWO9TdVeQdYxcVYfz8+QwQ8LnQHv9RWLqa2Zzv1R0FVq/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9790
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TY7P301MB1984C5D71A81DFE5E8EC94D4D341A@TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM>
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_060039_356599_F867DEE1 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_060548_803868_F9181C64 
+X-CRM114-Status: GOOD (  26.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,16 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 13:17, Alexander Stein wrote:
-> From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
->
-> Adds support for the MBa93xxLA-MINI SBC.
-> https://www.tq-group.com/en/products/tq-embedded/arm-architecture/mba93xxla-mini/
->
-> Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+On Tue, Mar 17, 2026 at 12:36:42PM +0000, Ovidiu Panait wrote:
+> Hi Michal,
+> 
+> > stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
+> > NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
+> > ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
+> > -EINVAL via stmmac_do_void_callback(), resulting in a spurious
+> > "Failed to restore VLANs" error even when no VLAN filtering is in use.
+> > 
+> > Check presence of VLAN hash ops before stmmac_vlan_update().
+> > 
+> > Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
+> > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> > ---
+> > This patch fixes a noisy "Failed to restore VLANs" message on platforms
+> > where stmmac VLAN hash ops are not implemented.
+> > stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
+> > VLAN hash ops presence which results in -EINVAL.
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index 6827c99bde8c..bc09439ec00b 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -6869,6 +6869,9 @@ static int stmmac_vlan_restore(struct stmmac_priv
+> > *priv)
+> >         if (priv->hw->num_vlan)
+> >                 stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
+> > 
+> > +       if (!priv->hw->vlan || !priv->hw->vlan->update_vlan_hash)
+> > +               return 0;
+> > +
+> 
+> The stmmac_restore_hw_vlan_rx_fltr() call above also goes through the
+> priv->hw->vlan pointer, so maybe for consistency, the check for empty
+> VLAN ops should be made at the top of the function.
+> 
+> Another alternative would be to replace the NETIF_F_VLAN_FEATURES check
+> at the top of stmmac_vlan_update() function to check if VLAN HW filtering
+> is supported instead (NETIF_F_HW_VLAN_CTAG_FILTER and
+> NETIF_F_HW_VLAN_STAG_FILTER).
+> 
+> The restore only deals with the HW filters anyway and the vlan ops are
+> always defined in that case (stmmac_vlan_rx_add_vid() and
+> stmmac_vlan_rx_kill_vid() rely on this being true as well, as they also
+> call stmmac_vlan_update() unconditionally).
+> 
+> Ovidiu
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Thank you for the comment. 
+Your suggested solution to check VLAN HW filtering flags is much better.
+I'll go for it for v2.
 
+Michal
 
+> 
+> >         ret = stmmac_vlan_update(priv, priv->num_double_vlans);
+> >         if (ret)
+> >                 netdev_err(priv->dev, "Failed to restore VLANs\n");
+> > 
+> > ---
+> > base-commit: 1c9982b4961334c1edb0745a04cabd34bc2de675
+> > change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
+> > 
+> > Best regards,
+> > --
+> > Michal Piekos <michal.piekos@mmpsystems.pl>
+> 
 
