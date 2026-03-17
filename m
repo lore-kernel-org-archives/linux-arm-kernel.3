@@ -4,70 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8990CF3380B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94065F3380B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhRuJrxFlUx2IZNL/q6R+eVYlcPmJwhacTJAdR66t30=; b=35j9WxGq6yA8c5jtZdAnwsiaq1
-	wtvv9y1AmHrKYfI0jY5m2Rs19DFZjr8yx45trHVtQ9pdB6E/bHdjQzJC21mbPCs5lH5rFIyE1XcMT
-	cHTiVyzFmGdBpQJIW6CXvp0ZTCAMwGiHJQ7Hk6hwn3AO2YhjXFUEN0RuMD5UIhHRx5b4vZhAA027V
-	KUG+1IrkHMtHmjS3SM9lreup+7IJrqr+VbrObovrNNCptvBBeB1cWDBUe4O6Lufe5eqSlBBiLve5A
-	syfcgaRWohs9PtX9FmZBa/bXwq9OAoP6ItClNyZu1GLut58DhXECeszwomHjYLLIZvqCHfM3PcpTV
-	h/sxqfQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iY7wO/RR+VGV+9+P9o1+G3s1VjtKtRjSZUX+eQWzJFs=; b=CqJr7rdzYtBIGvdjwsGTxqqbGu
+	t+CV3UMIV2TTWEu7g8hN/+Ycov3x3PcDMwpNH4MJ7Z+2e1KOw/I5TwkLU/vdEAywku8kp7hmvD40H
+	KAgS7LJTXzqBBDGOOjJB3docJLWehEVHO5ZglbYlOaQnhxCbiCjOei3F9NZhFyDywaEbOurVEupJ6
+	w3yeHGzF1Cnl5Lxoup+H28J2+aKfb11caazjJz0p7pCKYFwvWsROi/4F4VafedqxwG7BflwgQdW/9
+	nbKL6cLCYCbWlC96tktrYA0yf58xNeSmPEfW1Ri7cYOwkYgk+DjVvO20aypbkaLIzJptdbycq1Mtp
+	/ZVYvsRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P6C-00000005ddv-3k3x;
-	Tue, 17 Mar 2026 07:44:20 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w2P9R-00000005ew4-3hin;
+	Tue, 17 Mar 2026 07:47:41 +0000
+Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P4M-00000005axX-1Imr;
-	Tue, 17 Mar 2026 07:42:43 +0000
-X-UUID: cd8ae63c21d411f1a21c59e7364eecb8-20260317
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:ba1c14cf-3890-41f9-9129-f2279b57a204,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:d042d1f9984bf1d3851bdf0c97f5e639,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: cd8ae63c21d411f1a21c59e7364eecb8-20260317
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 868909025; Tue, 17 Mar 2026 15:42:09 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	broonie@kernel.org
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH v3 12/17] spi: stm32-qspi: Use helper function devm_clk_get_enabled()
-Date: Tue, 17 Mar 2026 15:41:54 +0800
-Message-Id: <b887a25df30f38e1339f94ae464929e4e9f75f03.1773733017.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1773733017.git.xiaopei01@kylinos.cn>
-References: <cover.1773733017.git.xiaopei01@kylinos.cn>
+	id 1w2P9P-00000005evk-44cH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 07:47:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VNaj7KTJ6gMXmrYKIh4qDXFZuGnApR+NIdd/lK7dP0WK69NzJHfwK6Rjfg+Jv8o5vOygvCihJZ/9I4U5wm2VC6xwWchnUpmYL8BfNKFiUjBVH15hA//5DuoC8bOWivxCe2sZkXIlWJ7jSwq6YWei4lbtWgpWudGODBmwEy/IxwkTbwkd9L/zUcrl2nBhvt+b8J9RXt9Hy7zT2dW7EoI7c0HD005/cqE2JnBxPQplBeVHkJaS6GNnbYCnn7maGBSPGAc1aDQaHfZXeHJDB+dCgyHlrMT2IxyjpDw15CEvcHl2JzCmiLmiLnTY3/EhNHV+fdKQLhZ10zLIjWogBkJ+WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iY7wO/RR+VGV+9+P9o1+G3s1VjtKtRjSZUX+eQWzJFs=;
+ b=GOZ7PXzXct3Qpl9YSdT4veYyY5/IqkzoRZOGx6jLRGQLv9iGXEH4MHt4r5dkAtmbrLM8HXKIcaQhRlvj9DEBNFXrje65vzCYAlA9YmMphfa6KZbAMi5KVQQT9rq4MA4V1L23i4GY9w3SzcU8/MEhzJwSwok62kzYab1Z5k96clwbLIEUjXI63dTpNaJVb3i5fsVgAIXeH1rySUwxkTmNyjIExkRGStt6v2FQw9c7bVXeiHBJvodyQNT/ZQPlcjXoA/N6cPcZ9dU+448T7BT8Ri+5NpoDM2u1dlmDOuIP1DNRuq9SBlyJltJN2VBYMjM5lfoT/i5LvsJ1WhIoJ2kJMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iY7wO/RR+VGV+9+P9o1+G3s1VjtKtRjSZUX+eQWzJFs=;
+ b=wXUCBdn/hGNkxkGALFRxgdF24IWLk27fBjsgqiHSX0UGnml+OYGuQb75OABjs8TQoWXjiK+6jX1O/hbXUIOR9esRugCRFpkUVz26Zon2ccvqpIadJMoL9kVZYA6X6QmRNblSvn5EZeaMPlFUKeeVU59bFvA20x6Mvg8l5w3ZwuGOBjoUUtJOVuRnwNCo+tVTX+5IUi6sy12syNfRyYllPeFVaeVttN4yiovGDsrfZzHL2hMu3gPKPHvtoC6S+hBTCaeHOANhKYImWsOvE0aqdfPfxvXSD06kVMON7R5HTq7roAN59Ea9o6s9ySf7dH6fAJHu4+oQhp58tNv7tIc0Ig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by AM0PR04MB6916.eurprd04.prod.outlook.com (2603:10a6:208:185::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
+ 2026 07:31:34 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af%4]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 07:31:28 +0000
+Date: Tue, 17 Mar 2026 15:34:02 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH v2 13/13] firmware: arm_scmi: Introduce all_rates_get
+ clock operation
+Message-ID: <abkD6omb0Ic2JfIZ@shlinux89>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-14-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260310184030.3669330-14-cristian.marussi@arm.com>
+X-ClientProxiedBy: SG2PR01CA0161.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::17) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AM0PR04MB6916:EE_
+X-MS-Office365-Filtering-Correlation-Id: 373f5b25-300a-4548-999e-08de83f733df
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|22082099003|56012099003|18002099003|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: tCi7dLvZU+BepuQ2PPXt4hWL9GkFenF6ctF76T8wahkk1r81qrw2A7omfZHG2w5YV6eX9pSECGeETeqM4RRDuAYY4wAChzXQx19jW9olrOx57uJxE+xiBBzl9akPupZizuHNvH2yN7ZsgGvD2EHI9iUQ/Xqco5kSEUt2xckrgH0yM7cHmThHEsR/nkyFvw7BFjKFtIzE7WRSBItLkcPKIJZVIsjrZLJ6EctUvNJ+CQlf8maXFbckhnhXBk46R8ViYCTupU3N7ywC3GnKImOh+IPS7Q07aUSZC40ZVA1SriFK6FkXidHkPO79vu5B5wvIuJtjXZWj3nU4Pm42BCkmzPFQgNMody0TsSsvH4IDAviE2BY1xMz25XafP24V6B8D9J8oc0PgmESkHTn5u/8ZT9TzR88gBoj4VrxjuhFz3lF6vkXC1anDqlboJM01jQRS36DmU28oIUT6hu77OBxNxabpWc4BQyXYkBAR6vF9yLYADLQdRwKZx+eQkT31CS2i5eN77EI/wMX+jWn/K9qYA0CQ7i7RHULsPNDRw72G4zXoM/ivVW5lnCAnmkiUsC1xE18kzbpK9d+Sz+vkvlOPgsMyn1pQOJGRLAmRYmgFDrl6GqvqsDPRnXl3APVj42gwP8Ap8+CyYZ8pUerh/UiPeIENIxiHR8DKLvrqESPOHAOOi8UDVI6QWYoIu2E+kGSj/CCLZSDmakOlkOUHriwXA1Fyx2xgleb+fthgv56Z9fYw1ZSVsM2D8s3oWiTRGlSRN62cMkJ86aQZPl5S1lG5czfa4qko6hIqfMmgYf/Mcys=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(22082099003)(56012099003)(18002099003)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fywAixRZK5Opal5+ABWHtzJTJBq27lvnRLo3LxPqJW52+spyg5g2+sD4zwbf?=
+ =?us-ascii?Q?2C6dfHC1BGGo15IJE83OCTM1UYSOuQmdnju3ZlC+acaJIQPlGUnCxPHCdGGc?=
+ =?us-ascii?Q?wtc2Sr/BofDP++zoeo2n3zYsx/bFEI7qTmWtg97lqzgVgDqNDhPwg+3l0d5v?=
+ =?us-ascii?Q?uktOCd90MS5Rr3urgLBp3lQnzu2pKqkXl3iVqYVAEmc9VlOAtsz/BmwC/R9k?=
+ =?us-ascii?Q?Pz+rvXUvtgQCBywsAr/fcqaP9LhtCSfqUplZQT3i7Lwr65QUQnrvGG3RTxDT?=
+ =?us-ascii?Q?Kw85zJo66DeZRrYLskYC3OlNZnMS9bG7MhEbEPlP9y/bVA7qSYPQhRkiL7mf?=
+ =?us-ascii?Q?qqDLJsnjrX2D/ZaqGVIcpIpMTwgJw8mRD5u5THfITnMDNa1biHLd2+aV7X5O?=
+ =?us-ascii?Q?b5nbYX2zkrT+e8qEF7Bbpo8fpezyWS1S5Sby/6tnjs4qBsnWhiQ3ZDB6668w?=
+ =?us-ascii?Q?8yNZLSF9QEKpuRLimyvfkSfnG21QQRNnr9INgqO2erGyqkhNawpjicsjOaSv?=
+ =?us-ascii?Q?+vaUaZhnOLK11KfPRIA3HKzTgO7E+syLvueRoLpNTsPdRfYHr+l6eI35ja+S?=
+ =?us-ascii?Q?nQYzk7kU0TsrcIoInjt+BS21/aJSW08Zmuc4k8pbXW+Ed3+xiLQEM000pUWT?=
+ =?us-ascii?Q?EbuTQMfArUyxBr8A0QG/HuoLnenTUoX707OwEvRCfLQnVlmdVoaR8AyUFe7c?=
+ =?us-ascii?Q?c2S6Sv61dzn9gZKK6okbmoJ8RoytrVjw8TLMEriWphZkOzqCSaL8ZF/r1R8x?=
+ =?us-ascii?Q?/ZOPFdavuRfOkj2nKBcXfOpZSb2jC45OHtC2d9lJTtnocpXkAGJOkJFK2Gf9?=
+ =?us-ascii?Q?6lq8I7ouLpT6EmcLytRpUsHiWBOwHrAve2/liCOJGcu0PCJzdZz/+q9BUimd?=
+ =?us-ascii?Q?BCbQI/0Xj5ajOtfKKN+2cVvZaqHgNBQX7K8eYi7LiAaZWRB8/VXx8SBwDP8N?=
+ =?us-ascii?Q?Q0VySH50Y1SydfsRhZMQfHegmefBS8av4R2DDsNV//ccXGJ6R0zSnNq6pcuF?=
+ =?us-ascii?Q?M0kXlbjpNEvlUQ4Zh/97YuFouVitOdMrANQg8Foq1Q4U2G9iPjZ0ThPTBjwG?=
+ =?us-ascii?Q?jY2PYScN8tJMLfsqHCLBN8oOmi48nQrCmNtayFFG1031q14N+TwetOhYGF+a?=
+ =?us-ascii?Q?j4Ora0kloHMkH188Yh3xNcdndzdY060GZRU1w9PX+CDGofRxYttjkvvPjoqd?=
+ =?us-ascii?Q?t3HB5mWDQS6EXtwMmQWH3xRVGDOQ8miyP0new5GOvW+hrZHDbZlbpRlyo2nl?=
+ =?us-ascii?Q?TsdnDFmAADKfMTZikww3XJ3LfObih7GqY45ORwGftn7RJOHjI847BKQWljYI?=
+ =?us-ascii?Q?w1NfAbu7H5qLhyCYJwAs0VErwC/ruuT4zy8al9wWoJw9oNPQjwmUOBr/z4Lv?=
+ =?us-ascii?Q?/tY9JVhyPUEdklChjHbgx36g6rnSlgD1mK4SZ7uh7fnEMME40X0PsDcmcOLH?=
+ =?us-ascii?Q?gGxQfm5ZjTtQThVKLXCTV2qSezLDdt9/CeuRN5L/FLgU8z7QiXMsRtiixOtA?=
+ =?us-ascii?Q?wTQWGf0FsDvKoVhLc+XtijYJQEGvqoOmBZtXkn+bjhtVNBFER5nnn1Tb0SXB?=
+ =?us-ascii?Q?LRFQo2LQ9U4URBKeTlON+1xE0zyVSBj2cv/BYNo95vixvu+3KtVVKyHdmZz3?=
+ =?us-ascii?Q?0DnFUiwqLSfbNgZ2rLqF2vVbvg6/HtQ4Ntu5c/wVSlD/p72UlO80tUn/wdG1?=
+ =?us-ascii?Q?2cuqbLLs+F/kGlaoXvgCNvhYyWoABfbhmfBYNi/B+/jrEJBdgbOzwJIH79d4?=
+ =?us-ascii?Q?fsAPGW/rdQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 373f5b25-300a-4548-999e-08de83f733df
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 07:31:28.5702
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 93ba29t60KMmUr8FYtVJ1y1ISYrfiRO+gfvgso2xnO2BI/UEmGIF+xavtnj/qfEFNzQpe3NCC79ktINTGjYotg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6916
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_004241_946490_D2052109 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20260317_004740_026926_A29E2ED1 
+X-CRM114-Status: UNSURE (   6.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,69 +146,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_clk_get() and clk_prepare_enable() can now be replaced by
-devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
-longer necessary to unprepare and disable the clocks explicitly.
-Simplify code.
+On Tue, Mar 10, 2026 at 06:40:30PM +0000, Cristian Marussi wrote:
+>Add a clock operation to get the whole set of rates available to a specific
+>clock: when needed this request could transparently trigger a full rate
+>discovery enumeration if this specific clock-rates were previously only
+>lazily enumerated.
+>
+>Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- drivers/spi/spi-stm32-qspi.c | 18 +++++-------------
- 1 file changed, 5 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/spi/spi-stm32-qspi.c b/drivers/spi/spi-stm32-qspi.c
-index df1bbacec90a..a8436f70fdfd 100644
---- a/drivers/spi/spi-stm32-qspi.c
-+++ b/drivers/spi/spi-stm32-qspi.c
-@@ -819,25 +819,19 @@ static int stm32_qspi_probe(struct platform_device *pdev)
- 
- 	init_completion(&qspi->match_completion);
- 
--	qspi->clk = devm_clk_get(dev, NULL);
-+	qspi->clk = devm_clk_get_enabled(dev, NULL);
- 	if (IS_ERR(qspi->clk))
--		return PTR_ERR(qspi->clk);
--
-+		return dev_err_probe(dev, PTR_ERR(qspi->clk),
-+				     "can not enable the clock\n");
- 	qspi->clk_rate = clk_get_rate(qspi->clk);
- 	if (!qspi->clk_rate)
- 		return -EINVAL;
- 
--	ret = clk_prepare_enable(qspi->clk);
--	if (ret) {
--		dev_err(dev, "can not enable the clock\n");
--		return ret;
--	}
--
- 	rstc = devm_reset_control_get_exclusive(dev, NULL);
- 	if (IS_ERR(rstc)) {
- 		ret = PTR_ERR(rstc);
- 		if (ret == -EPROBE_DEFER)
--			goto err_clk_disable;
-+			goto err_defer;
- 	} else {
- 		reset_control_assert(rstc);
- 		udelay(2);
-@@ -886,8 +880,7 @@ static int stm32_qspi_probe(struct platform_device *pdev)
- 	pm_runtime_dont_use_autosuspend(qspi->dev);
- err_dma_free:
- 	stm32_qspi_dma_free(qspi);
--err_clk_disable:
--	clk_disable_unprepare(qspi->clk);
-+err_defer:
- 
- 	return ret;
- }
-@@ -906,7 +899,6 @@ static void stm32_qspi_remove(struct platform_device *pdev)
- 	pm_runtime_disable(qspi->dev);
- 	pm_runtime_set_suspended(qspi->dev);
- 	pm_runtime_dont_use_autosuspend(qspi->dev);
--	clk_disable_unprepare(qspi->clk);
- }
- 
- static int stm32_qspi_runtime_suspend(struct device *dev)
--- 
-2.25.1
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
