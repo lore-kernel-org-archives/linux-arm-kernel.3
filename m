@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4209FB5E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 00:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBC1FB5EA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 00:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DY0ZdZOWN3ERO3L5dX403mCw02rI92FKq9Fe2IdNFik=; b=LI3IdfeAQY1AiD4fABAS96PNLH
-	GQL/rcWqv2QSx+wJ1gDBHvFgnth5oUCiQdJOl8rgnRSu3014tnCFs8V4eoQBWwmBfA7hBa8OyQh4v
-	X4u5Atx6/R7zqMfCtqluVFKeBjIr6RfORxLMTyEfc7KnFOA9kp2Lv9mErKFdcESR8Pjvy6cmePc8i
-	3sFO4288NIW3WncrmaBkgkbyUW7cCauG/B/v+qfFGuqM1QJSXVPQ2FO3BBdy7iG+Q2FIevAKlgHpI
-	oV1uQ43deWzKwGky+4224TPt5pN9McHJIy6kbvFCxUTMgvQgz/7UamKoSMT//RMLCQfyIS7/KKwD5
-	tI3ToK3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Wva0cCBDpLbK0JVmBe4Ub0EUtCjNYf1GYoc0uieWEk=; b=pxMFf48jooq1RKBpi9oKjQf8Om
+	h9+H4sVw00szDAVmaejPkCHrDqUFisPbf7K/rr6itetqSCkuwo2jQ0Wk89LqXm1yzpR5QiEoMoiDo
+	jUBuq+4XH5yrAhROl5nLVYIJL1RdcGLxBdXlVlgKOfxJHkHUV5t4roGZpp/hbTeAAnHHZ5EVsw2QV
+	iOxFWqe00awx7q5tIlc2GG5Z1jGxfd98DVbD3xy14ONUoKKmpMZQDu15mIMxCvoM2zzax9U994X21
+	U9rda9k3QKbJMDv94Gt1CQxAAF5idhgBIZYN0jUcMbnDBggJXwIZxLLyZ7NLjpge5SD6CPhGnan9J
+	rKWcndNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Iag-000000059Uh-14x4;
-	Tue, 17 Mar 2026 00:47:22 +0000
-Received: from mail-m8394.xmail.ntesmail.com ([156.224.83.94])
+	id 1w2IfO-000000059hm-3pXL;
+	Tue, 17 Mar 2026 00:52:14 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Iac-000000059UE-2PKs;
-	Tue, 17 Mar 2026 00:47:20 +0000
-Received: from [172.16.12.17] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 372d756a9;
-	Tue, 17 Mar 2026 08:47:12 +0800 (GMT+08:00)
-Cc: shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH RFC v5 8/8] PCI: dw-rockchip: port some suspend code from
- vendor kernel
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-References: <20260316-rockchip-pcie-system-suspend-v5-0-5bb5ad37d643@collabora.com>
- <20260316-rockchip-pcie-system-suspend-v5-8-5bb5ad37d643@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <924c1f61-ec19-0585-f9a4-0cab302b7755@rock-chips.com>
-Date: Tue, 17 Mar 2026 08:47:10 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	id 1w2IfL-000000059hR-4B6W
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 00:52:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1773708723;
+	bh=7Wva0cCBDpLbK0JVmBe4Ub0EUtCjNYf1GYoc0uieWEk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GzkAukyhJbTthnB88ExXDqDQGE2jqt5wnSezRMJF/nKkq1miLa0jjJu7FsM6JU7y8
+	 HXKCxxPAoh+7kuQFvbvs8SRgYpkb3CqApgFvWPP4aVySvcSkGnL/zrGUiw0l6yPDbd
+	 XYU8i6Gd5hjtCTmSG9Qi1BKyrz6plS00DEAK9msDg7NuO/xA1FiH2Dyx6l0W4kC68D
+	 nHehRORN+FihBZog5/cJVewhMxKdu2qKYkWNMGm45o4KB2asEF0iv9YHOO27XbFB07
+	 QYnL8jlJJpDqpxkAEgKxybD6zW9VeQQqzU2V8Mp9vhvk5PJx0QCwY+Tpoq4fqxNiHo
+	 fgr2dIbmEuINQ==
+Received: from [192.168.72.167] (210-10-213-150.per.static-ipl.aapt.com.au [210.10.213.150])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id E07786009B;
+	Tue, 17 Mar 2026 08:52:01 +0800 (AWST)
+Message-ID: <eeac1db0a5692ae45b5528a85ed1510b8b1cf771.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+From: Jeremy Kerr <jk@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ Andi Shyti <andi.shyti@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+ <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Benjamin
+ Herrenschmidt <benh@kernel.crashing.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, "linux-i2c@vger.kernel.org"
+ <linux-i2c@vger.kernel.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+ <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+ <openbmc@lists.ozlabs.org>
+Date: Tue, 17 Mar 2026 08:52:03 +0800
+In-Reply-To: <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
+References: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
+	 <20260309-upstream_i2c-v26-2-5fedcff8ffe8@aspeedtech.com>
+	 <20260313232125.GA3618633-robh@kernel.org>
+	 <TY2PPF5CB9A1BE6A19D439C675AF5028C13F242A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
+	 <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2+deb12u1 
 MIME-Version: 1.0
-In-Reply-To: <20260316-rockchip-pcie-system-suspend-v5-8-5bb5ad37d643@collabora.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cf942d5d009cckunm6be285ec4098d2
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhgfH1ZOSB8fTx8fGkhPHh5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=TwGyGPzme76z7TYhyXkptwUBxigW7rLjR+/rKAcwAQjXOkiLW9ws+3aFaSGHPddviEbcuuRkmsNZSF8BaqzVuycuKLENizCISGOMPlUr2bPwB4EcWR0bn6h22Y/9+w+I/3MJddSWpFw9bVa4neQKaHk7QvbtOeyYd8U9gcUnjcQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=DY0ZdZOWN3ERO3L5dX403mCw02rI92FKq9Fe2IdNFik=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_174719_196183_8FFBC611 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20260316_175212_391971_D9E135A0 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +87,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Hi Rob,
 
-在 2026/03/17 星期二 3:10, Sebastian Reichel 写道:
-> Rockchip's vendor kernel does these calls before starting the actual
-> process of going into L2 state. I'm not sure about the rationale,
-> hopefully Shawn can help out with that.
-> 
-> Cc: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 3be83feccecb..fbdde82c95b6 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -74,6 +74,9 @@
->   #define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
->   #define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
->   
-> +/* General Debug Register */
-> +#define PCIE_CLIENT_GENERAL_DEBUG	0x104
-> +
->   /* RASDES TBA information */
->   #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
->   #define  PCIE_CLIENT_CDM_RASDES_TBA_L1_1	BIT(4)
-> @@ -776,6 +779,11 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->   	return ret;
->   }
->   
-> +static inline void rockchip_pcie_link_status_clear(struct rockchip_pcie *rockchip)
-> +{
-> +	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_GENERAL_DEBUG, 0x0);
-> +}
-> +
+> > I don't think that really addresses Rob's point there.
+> >=20
+> > The selection of mode is somewhat a driver implementation decision (and
+> > so would not belong in a DT binding) - *except* that there are
+> > considerations around the use of hardware DMA channels, as covered in
+> > earlier review.
+>=20
+> Am I supposed to go read the prior 25 versions?
+
+Not at all - the next paragraph was my attempt at a recap of those, but
+Ryan, please correct me if I am wrong on any of those points.
+
+> > [My understanding is that the mode needs to be defined here to select
+> > which i2c devices have a DMA channel allocated to them. I also
+> > think that byte mode may be useful in some scenarios, but that
+> > consideration certainly does not belong in the DT binding spec]
+>=20
+> But this is selecting DMA for the bus, not specific devices. I would
+> think the decision would be dynamic based on some xfer size. Certainly
+> if the xfer is less than the buffer size (32bytes), then there is no
+> advantage of DMA.
+>=20
+> Or do you mean some instances of the I2C controllers have DMA and some
+> do not?
+
+Yes, some of the controllers may be allocated a DMA channel. A driver
+implementation may (or may not) make use of that channel.
+
+Since the hardware has a limited numbers of DMA channels, Ryan's aim
+here is to specify which controllers may consume a channel.
+
+(in relation to the 'bus' terminology though: there is a 1:1 mapping
+between i2c buses and controllers here, plus a small area of global
+registers which apply to all controller peripherals)
+
+>  If so, then ...
+
+[...]
+
+> > In that case, we would just have a boolean property, like:
+> >=20
+> > =C2=A0=C2=A0=C2=A0 aspeed,i2c-dma-enabled;
+>=20
+> ... yes, this is fine.
+
+Brilliant, thanks.
+
+Ryan: I think this gives us a much cleaner approach to the binding.
+
+Cheers,
 
 
-Thanks for the patches.
-
-It is intended to clear the debug buffer before entering the L2 state.
-This ensures that when the link re-establishes after resume, the debug
-registers contain cleaner information, making it easier to diagnose any
-link training issues that may occur during the reconnection process.
-
-That said, this operation is not strictly necessary from a functional
-standpoint. The PCIe controller will work correctly without it. This was
-primarily a request from downstream folks to have cleaner debug
-information during bring-up and troubleshooting phases.
-
->   static int rockchip_pcie_suspend(struct device *dev)
->   {
->   	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> @@ -789,6 +797,11 @@ static int rockchip_pcie_suspend(struct device *dev)
->   
->   	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
->   
-> +	/* All sub-devices are in D3hot by PCIe stack */
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +
-> +	rockchip_pcie_link_status_clear(rockchip);
-> +
->   	ret = dw_pcie_suspend_noirq(pci);
->   	if (ret)
->   		return ret;
-> 
+Jeremy
 
