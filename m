@@ -4,76 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262ABFD8763
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C3EFD8763
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezgFIwAaI15kyXevFuXOWgYHdSeujTu7mnqnl9urGvs=; b=JCkTiFZEEdRPOGSY+QxomKU/hh
-	MBMbUABpruNzD1HHRQuk5PSlbpE+KIJA9inXqL/JBKjy0EJlKokHCwiszk7ECBbF+LmGr+rZD63QW
-	Bh7GUQA9qnom04O2HE6GMd6w/QCBQh7AG7KONdO849Pxp196SHSIw9OvpZyPUnczf8DtlE6mi+UsW
-	pN0/r9VxFg0SelhIlmJbXdHWom1+4+ZCezUPuDXuLnCIb8KOwEuXt/tURkz6+FhyKrgei/+EU/FH0
-	Drk8Vgug7mKTN3KjHIPUmc2OyhX4XKuGJzXaquvdYvu4MjARegQm1cjp1SRXobwGODGAqJcUDHu6m
-	vvoNqgFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=; b=y0XHJTwn9KeEMHBbFnhbZbDTje
+	TxWst9iFuqJzfpc3c8tQ9Uh+TkhQ2N1leOqYcO6xCg8ue2BZA8rEjTG7QtHLUbtPFW21c1YppCfTp
+	njSqVUiz6SsNujt8RufaszLyvJAFA6VUYdjMdSiCr0vXvEE+qACm8NCSyGfTUHBYMRSO1tXiEtlq7
+	IhrqXW52i28dg84PK60S2f022W177ROGwMLMvFYN5qFnv1elBIEriw4BK7QFuae/b3xcKQ5FMDIkm
+	qve7wpADAxn/43T/Hz0BeTxzqdZGKEousNBRtB15PAtjdL6lN1z1VN/JY4YZcGxqNayPmzHROEop9
+	pcDOAbvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UWI-00000006QrD-3LiQ;
-	Tue, 17 Mar 2026 13:31:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2UYF-00000006R1B-2Snj;
+	Tue, 17 Mar 2026 13:33:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UWH-00000006Qr7-1vwv
+	id 1w2UYD-00000006R0Y-1C9z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Mar 2026 13:33:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=; b=QmUusOpUyGSxnBQBMnsFZqLmLA
+	sGkM2MLkO/KW3rilIrQMmGLJxy0feFE4h6vio/jKpNOOvlggrUIT5+3nU/P73VvlofT9iDz+yCGrR
+	qCQB9UBsijU/N4+fioxP8DZa9QzhPN72g4ZO/0z+P5G2sx8BdcIw5A6YGgIeYdxCpaRjfrpuN85l3
+	oCzCfcoy9+R3gCRqtIPOp3hjhmeigQxyzktsHnb5R0QdxTSCShN8/Ut39U+qT1LWZAIm7QoMtsHaW
+	6ahEYiw0ckkweaDparcdCsCctt/5iN+vfO3wGKf3fGgHtoYZxsVT45XiSMdsYyT78LO4x0HaYO4pP
+	cxQV6Mhw==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2UY9-000000095tT-3Eke
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:31:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9256360008;
-	Tue, 17 Mar 2026 13:31:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 452FBC2BC86;
-	Tue, 17 Mar 2026 13:31:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773754296;
-	bh=DSTFlNqodCcOj9M1rB8mRwfLqMQnLFCVkyLnYpbsHPY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Krl/nvhw1qEbpC3x8UIqixcxdStCjxc64yt0yK+9/fdhHGNulj+hvdzwSB+/YKFiq
-	 CfQaYXMbhXWRMTldnI/e5rvFhpBrNJ0SNKcJXpD3S6UCd9jfg1oOVXDLQttmfrXmbI
-	 HZxbgOCbXcjteXvOA+Rd2ibNa2i8yqsX7lIUCqRg3Osb0/yUxbxb3RvLk39vX7ZQbQ
-	 5oJTqjE8YfTqR1Pg4X3dbn+kj6i10APUbBIM3k/8LqnBBgx8UkkwpC/c+9ca/AzGIZ
-	 Ge7ynaCGBb4tPxu+HxO1zdn5ZcmPSnml0wySO4SWUzpuCEITMjD1bWEJFygERKiIJh
-	 cCsH75bLQ8tnQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w2UWE-00000002rFQ-0ULt;
-	Tue, 17 Mar 2026 13:31:34 +0000
-Date: Tue, 17 Mar 2026 13:31:33 +0000
-Message-ID: <86ms0660qy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH 08/17] KVM: arm64: Kill topup_memcache from kvm_s2_fault
-In-Reply-To: <CA+EHjTwHGkTjB1vgY3UdC2OpbAS3i5yCH=cbLNu38uBSmOxarQ@mail.gmail.com>
-References: <20260316175451.1866175-1-maz@kernel.org>
-	<20260316175451.1866175-9-maz@kernel.org>
-	<CA+EHjTwHGkTjB1vgY3UdC2OpbAS3i5yCH=cbLNu38uBSmOxarQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 17 Mar 2026 13:33:35 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62H9SC5A4022265
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 13:33:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdt
+	G0dTVDoQ=; b=UoLU4hwrC5dC6619mdj2VnbVuT7Aekrcbig4KOnX60dCk5TZGoQ
+	ML/pSlTBEj6WjZtUqe3RQQcM8nXBfu60SE5I6aZkNxpMQ+cda0SQBu/hW95PSfaI
+	7EEaAkBUB/5KDpZpg+OshLNtLJblnjg7CAlfckG16eTH5tLxcOFdt2KE2OPE8lCh
+	Ep6DOa8Z2wWqcaOQiiIt9EmYvUWjHxKF8UEm21fzjiBouEMbN+QsuYo4eWpzOyO6
+	UlXQlcjA6l7zQ3DZSvCWVCodKT3a1IyeLXH6IbHSOj5l5bJJROzTJkvpUrVtxVnC
+	raCXSEH3TJOHlhQArtY7SvI7CNdh6kpd80Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cxn3fkw2b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 13:33:31 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5092135f2e9so328172671cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 06:33:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773754411; x=1774359211; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=;
+        b=bhyPENQOhomCYhWx3DTqBD2U/MpVQAalhMV9nbBp4Ol2M+gXUCNtWOH23kg1acqogk
+         I0R92GChxhXAapyur6mI4gh8ZG2Vto14B+cnNdqXHHJBypGxkqYXAFeuVZv6KGqHuwt8
+         SLN16DqyUx7CDXPwEQZ104AvW8XQU1u4JTWX260pqh4ohjEt9yPYA0KgTfsiGEU15C93
+         udu+0DQGL5kV+PTv/trsX+RwxDvlkaAXqgz5vk5tN4lDpcWenS20KayR4VC2eB3TjPzN
+         8Vesveccv+JWnRwSHN/r/KAoA0vTvN/U7DHBOpF9o+mrv55JxkfnOrAtXull8x+DW9P6
+         Sysg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773754411; x=1774359211;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=;
+        b=HN9HsoiwBhFTpSNCZntbjF/zzpxUtYy6VvCaZKxOVEhkB6Wu7wLi/eYR6MRUo3HEHo
+         qXMgWig5CH7q7v4zcgZ72IAdQo8gZAft6FyzAcIDBGLmAYza47/R6Ves1poHCvBLe9Mw
+         TQRgUwnwh5cU3bo+CrRSVjzP2kSuQJDvZzQkiy9bBGs45VsQ6/09Hc6/txsTf5815xg8
+         IXUBTP3XTPpdFWvqbWHhsgYTGxdUkQHMuFnQInXG+54+GiMrCj4mNBTyCf9yJ6436pK/
+         FhIj/nn37hbpt9sboo29D8ao7VtMPtQMHYroRFZ0m30Ji4NGm6clUoEA2nNdYqg9WcJN
+         6ntA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhoAzXRrWA6mo/1a63K0xkCcHf84Ih0aaq5yLeHqsjjU93poacxp7iQ6HGY5dPG6PyEs1zD4JVi6pgE4ByC9Q0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw25TOAWxoRAsOz6jwh5NhybHSR4ZEvpC8HFqOqgFnULsRlMjy0
+	WDf34ts3J/bq5pNHZ/mTKWyq9KzDE3e0+mvgz9hZ1W/YmK6w7dRSS+V+5dBgoiTUGxnNmsIYxct
+	fwunXMhpeFCzaSs9eyIshvmo/ATy3FMLYOkbGjg8XAgecZOe4Fn2Ca8Ckwr4/U4IXlLKPz94EoU
+	/SuA==
+X-Gm-Gg: ATEYQzxiQHnMJdDaYft2MYjuExgMYHGArjBctqDE0Y4GoV2zMmPrg4lkwxB6Dv1bpU/
+	iyOyhczWOOKrm6HyKfQjyOiEC0/6/xP8+8yTX896BWyIgVpS8oquwvE746XSXzJSNc4TZtbu9GJ
+	TlE0QXXO0OOyXOP2jhaH/PPUjvHq9RM0QEPg5JB2OP+kTZsrlnyIWu9zVb84d50XkopgF0e591+
+	b21vyMYXDkYnwad/Lv9i9ELxl6hcLdZBu5XAUId3ATNwmLSZvUAmEp/9qwo0oqKG5mdrytgsmEB
+	hL+BaKXhksM4i2z7LTGkAS+EpzdKlxfzmtJ9Cm1o/Zl+oLftmSb3VfF/UC/sXNNwuGuqrCW6Faa
+	AGU2D8ZUEpTjyQ6blP17qWC2o7k8sWVkg+ksk
+X-Received: by 2002:ac8:7fcd:0:b0:4ee:1c81:b1d5 with SMTP id d75a77b69052e-50957de91c4mr213716791cf.46.1773754410635;
+        Tue, 17 Mar 2026 06:33:30 -0700 (PDT)
+X-Received: by 2002:ac8:7fcd:0:b0:4ee:1c81:b1d5 with SMTP id d75a77b69052e-50957de91c4mr213716261cf.46.1773754410160;
+        Tue, 17 Mar 2026 06:33:30 -0700 (PDT)
+Received: from quoll ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe19aec5sm51358613f8f.4.2026.03.17.06.33.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 06:33:29 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Tyrel Datwyler <tyreld@linux.ibm.com>, linux-pci@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v2 1/4] PCI: mvebu: Simplify with scoped for each OF child loop
+Date: Tue, 17 Mar 2026 14:33:23 +0100
+Message-ID: <20260317133322.266102-5-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1724; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=OrdLwue7fdAbDzltDnJtmbESjqt0Rj2YqfvXS7hTKOU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpuVgiNnmMkn77MrcChhNDnE9rF/K8JQJoK2dTl
+ 77t/s4gkB2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCablYIgAKCRDBN2bmhouD
+ 1ze4D/9krAOOYWKjH9emdjBtbBAWnahk2EslM5mgi96nhIwDz8xp6zxHv92avzFmuxUITKJG2Ue
+ qDQC5EHqKRvpnbsuGY4fBpC5GPhprYTau0XfSKvNFX8xuobGppZ7HolxLls9lynLQ8mY5OIgHpu
+ xLEclQTekGqPrstc54kCypI+K/xi3qJ8UVJMzjKE+UpQtLKX8WG0ZIa3c1rJOnPhKegExoZTjQ0
+ QtHdt7PChdWXO2442uI3j0QqptigKqDF9bajSMKKTl10vALKZ5jSMT9UTAMJmTCGbC7nPSbnzpA
+ xUxWfprrx839uBEtRkNnl4jUaLq6xj6EUqBOE0CCzyz1t3kcy+lVeWVqlZQ7E+KmZZSb2+5yvNd
+ 6niyQTB5GzbOdROK+aI8D9lwWAmdwRFrpd0uJGb7Fc6xPm+6U/e20FCrpCUS1iS7znNo4dsJaVb
+ tx4/E0fV5zc+Cy8ecJbJyGN1Go01OQneL4EUvYPeYbGUWTstF17YeOnsr2VesN125X5KQJIz06J
+ JGjMAMUPlf38PF1Ib/uVplTpzUNXUipw34KU07qZNDuBZsQtmvbYaZm7D0KprE17aPlj+1jvsuG
+ EfI1zmzfrUQ7/YVVpu32BPtfviMLHZIwplLc6AMHVt8S+EguiBN/qVcU7wSOd5adXkLlqLHkp0p ynjQdNzofm2jI+g==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=C5bkCAP+ c=1 sm=1 tr=0 ts=69b9582b cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=r4sBWMy-QYfdzbUQJWcA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: YFUZAc2DcIes_Q_JQlOkO2nxD9InYzgG
+X-Proofpoint-ORIG-GUID: YFUZAc2DcIes_Q_JQlOkO2nxD9InYzgG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDExOSBTYWx0ZWRfX5Hf7m/qbiIdH
+ rF2A8PpiCRCHHa8Xn8yjqzrQvnk+S4cmxDbfbmA0tWbh4ax4jE7G0edXPGE3x3JlyXbcuWlBsgi
+ pSW+Go+8i/daL7EvM9swu2AwS2yFucOEtI+sRBZ/J7c6A9WFRGvW1YSnKFFqZKXHRZNXPHw/hCr
+ nkrRsfN8T8V0sLby5DRR/DBG/wiX7SD8GTz81Dr9slvoF3nBp4jA95TJ8V+jPOf51FUYOujZJi+
+ nSDizHisO+yKAv5G9sHaROqezKRcKKtq8GgoKXS3zO9WMG18xMnSewzHs1qUQUWElCAJhOIUkp6
+ 1+M5ZLtHj+ERp30/3gw2oOIFFTbA1xcfo7ocA8ssMcjWcictWAkAd14HVeRuUO2pDrFTzy5+eOX
+ N8IDL5l+WTE0/okA7MOLFgsnv92hLN5FQSe0V/165bo3vF/YG2C9+tM6JP+wfw7WzF46SAcL9OL
+ 976r8v7PJ6fMYxIixAw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-17_01,2026-03-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 spamscore=0 lowpriorityscore=0
+ clxscore=1015 malwarescore=0 impostorscore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603170119
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_133334_118127_4F6706E2 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,71 +177,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 12:12:57 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > The topup_memcache field can be easily replaced by the equivalent
-> > conditions, and the resulting code is not much worse.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/mmu.c | 10 +++++-----
-> >  1 file changed, 5 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 11820e39ad8e1..abe239752c696 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1712,7 +1712,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-> >
-> >  struct kvm_s2_fault {
-> >         bool writable;
-> > -       bool topup_memcache;
-> >         bool mte_allowed;
-> >         bool is_vma_cacheable;
-> >         bool s2_force_noncacheable;
-> > @@ -1983,7 +1982,6 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
-> >                 .logging_active = logging_active,
-> >                 .force_pte = logging_active,
-> >                 .prot = KVM_PGTABLE_PROT_R,
-> > -               .topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
-> >         };
-> >         void *memcache;
-> >         int ret;
-> > @@ -1994,9 +1992,11 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
-> >          * only exception to this is when dirty logging is enabled at runtime
-> >          * and a write fault needs to collapse a block entry into a table.
-> >          */
-> > -       ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
-> > -       if (ret)
-> > -               return ret;
-> > +       if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
-> > +               ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
-> > +               if (ret)
-> > +                       return ret;
-> > +       }
-> 
-> Further up in user_mem_abort(), when memcache is declared it should be
-> initialized to NULL, since prepare_mmu_memcache() isn't called if this
-> evaluates to false.
+Use scoped for-each loop when iterating over device nodes to make code a
+bit simpler.
 
-I had that at some point, but then realised that there was no case
-where memcache could be used and yet not be initialised via
-prepare_mmu_memcache(). But given that this is still a bit fragile,
-I'll add it back.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> 
-> With that fixed:
-> Reviewed-by: Fuad Tabba <tabba@google.com>
+---
 
-Thanks!
+Changes in v2:
+None
 
-	M.
+v1:
+https://lore.kernel.org/all/20260102124900.64528-4-krzysztof.kozlowski@oss.qualcomm.com/
+---
+ drivers/pci/controller/pci-mvebu.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
+index a72aa57591c0..4d3c97b62fe0 100644
+--- a/drivers/pci/controller/pci-mvebu.c
++++ b/drivers/pci/controller/pci-mvebu.c
+@@ -1452,7 +1452,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 	struct mvebu_pcie *pcie;
+ 	struct pci_host_bridge *bridge;
+ 	struct device_node *np = dev->of_node;
+-	struct device_node *child;
+ 	int num, i, ret;
+ 
+ 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(struct mvebu_pcie));
+@@ -1474,16 +1473,14 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	i = 0;
+-	for_each_available_child_of_node(np, child) {
++	for_each_available_child_of_node_scoped(np, child) {
+ 		struct mvebu_pcie_port *port = &pcie->ports[i];
+ 
+ 		ret = mvebu_pcie_parse_port(pcie, port, child);
+-		if (ret < 0) {
+-			of_node_put(child);
++		if (ret < 0)
+ 			return ret;
+-		} else if (ret == 0) {
++		else if (ret == 0)
+ 			continue;
+-		}
+ 
+ 		port->dn = child;
+ 		i++;
+@@ -1493,6 +1490,7 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 	for (i = 0; i < pcie->nports; i++) {
+ 		struct mvebu_pcie_port *port = &pcie->ports[i];
+ 		int irq = port->intx_irq;
++		struct device_node *child;
+ 
+ 		child = port->dn;
+ 		if (!child)
 -- 
-Without deviation from the norm, progress is not possible.
+2.51.0
+
 
