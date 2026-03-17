@@ -4,128 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244C3FD8777
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12E19FD8779
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=; b=UV2vp52rl8u9fhIHIErCWiFIxW
-	GC/8+J9auUEn1qQp++jjoP2U8DO+JjcfChZocZ/V3YXctokCzSta/GsUOH74bq48Ghh5wgPkDZZWz
-	mDFgbZX5S8fWu103MFErJxTFyfEQlJusNOwQbfNcOTZa2prNxxS64ruxO5cJygDHdD2I9TYM9miAD
-	4rp6uLHGOU7ihcz+TdAnmfeJBPV/DVXPoB04zyc7DDdgeV61iO6Xu5dmb4JCtt0oRztkf1HK7FCi3
-	n0fp5ODog2/rZk6kpv+pXZCUpTklnSGFWtbodeeWlc+lTD5jbvqGq22uuUigQD3YQQGpxUBAFYW6e
-	UK/haA8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OOwdxQEYbJ9Or9A0mYUFJoOOp6SzbaWszXsvmPmeoCo=; b=aAhQzVURP3vW1EeDTLZ7GS69bU
+	N4BWkbT5nCX90o37nFZzLj02BN/U2wFu1sABG41UuRP47Mf9lcZfcilZaEfDed94GfrzQPzkh9u/c
+	HBYFZyeW0fqmQzIdiAHrCsFX3r8tixKzydGjdhmWHzcPgpQ05OhfSRmRboCgZCIJ1QiIGet5PmH+p
+	xPkg1okK8yvRptidurm8CLPrE4KdDRQ0TxPnyjCxeKOo+cjLcSNzS86o3LQGfgSzqNjy+qJeus3Je
+	ZtnW5OyRAGFtoCofzmFGYulMac9KDDVc1P41ksiTAYVxI+o+nKciUdXCEPiXVgJFJ54qysy0SxoMc
+	IwG74HQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Uus-00000006UMW-1RCm;
-	Tue, 17 Mar 2026 13:57:02 +0000
-Received: from mail-swedencentralazon11013009.outbound.protection.outlook.com ([52.101.83.9] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w2V0P-00000006Ui0-25RD;
+	Tue, 17 Mar 2026 14:02:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Uup-00000006ULp-3AM2
+	id 1w2V0M-00000006Ugf-3wz6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:57:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A/gQfVYxQsqtXQWd5vGpmy319znDFhYzzhUh3ADZ0AvfIKHBdSjQnI3nybZracPBAdlWmkBgve0Kq7QH4OkTfHk02aJQBm2lzneCCE89zoWzgWQRKWWw8jGYuzZ4hIPYG/SaywqAsWscLBp9aUQe2plNjVVhcPCEm/TwzRaYL8fDKf9QZJz/DIq4ECd+zbDmdHRQ97Kj3aetM5bqVJNBdw9+4uBeaM6PnYYQUEYMVx1Ur6CjoSBBhlVP29hq2YU3j7vUOXELqaYei3NHIQTc2v9KcFHB4xW0qozZFq01IIzhdWkIy4/VL+h305OBYIADzRhDXA/tF1D6OF5fim966Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=;
- b=n5IcBg/bPXEy9cYp10oEQwSRsn1rwTaAliytwZpHB6hL5H4Uu0YMMMdzoZJ/9JjSTCvUoDceauVTsudpSUNbYZN3JCP4FtJQlHvVAoRhLIOA3IZYWZF5F5YeEwsmwDIuRJwZlHbk2o3KS9UJKhe35rhUYSlCQ+4qMc3VebIWifw4PVgGWJ1z1poFx6F9Bv8G9acwO5Tws751MvhbGl1XYMF5OeyaOsMCmctZrWu8Cc3U7JtvzUd2oMpjvOPw9hR3dPA4jLrYQwPPW45ZrmXDvM83FF7FnzZVfEEcOoMOiL7z5EOC/TBMfK8vGxtL8vJTGedAz9fiReLvoDUGMnWiUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=;
- b=Bbo6WAYYWy9fM+fdMTCJXIz1GGUA03/kDrIAtCOwLFH/0+XhnOxqu2y32PRV+7/wmf5LOKnEuakWW/gQvV+xeRGcyRhdP1Uvqf9HqSREHVEnk92H0yJS8vQ8cLaB/5LHdG1SJq6W4PZq7Peb99D24PYIn36JeTxoZfWpyB/Xy1tM50mqN1XoewZhxxVievvMF5DsMy50aJyntyfYOgcpNdaaBPlYnbvsQRT01DHcp7JRqsStnGQrEUVAYuMhnEXPyG29s4rQinXlZjb6JI4CxC9A6ZXFKQrGocH62DKZ0OCLgMi4AT48VWtm4RhdwWuxx8ro0qlF+IPMt8DILlmaSQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI2PR04MB10191.eurprd04.prod.outlook.com (2603:10a6:800:22c::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Tue, 17 Mar
- 2026 13:56:41 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.021; Tue, 17 Mar 2026
- 13:56:44 +0000
-Date: Tue, 17 Mar 2026 09:56:44 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] dmaengine: Add common dma_slave_config and split it
- into src and dst parts
-Message-ID: <abldnCdb1R511CBt@lizhi-Precision-Tower-5810>
-References: <20260114-dma_common_config-v1-0-64feb836ff04@nxp.com>
- <aa6t8QrrlearBOXI@vaman>
- <aa7Y20I2_Hlp63gk@lizhi-Precision-Tower-5810>
- <abksYB2WQ0oNDSbS@vaman>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abksYB2WQ0oNDSbS@vaman>
-X-ClientProxiedBy: PH7P221CA0070.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 17 Mar 2026 14:02:44 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62HDnHJ03124248
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 14:02:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OOwdxQEYbJ9Or9A0mYUFJoOOp6SzbaWszXsvmPmeoCo=; b=egUMiK6p95gLK7Ec
+	5yzvhek1Xp4HHsGJLveD9OYZn9s+ZM88kQOuR8osYzh+E8bXlTALwGwdq1FRyBLN
+	ib244BKpyu7pqR7j0/dR6+Et3+mE0LrObAgi28O3fkJv7s2CcgQ9gr/YpzBpqGy6
+	d+hog4tSifnJv2iwJ124JwZ7ORfP9/56xQ1dWsKl9/g/Ttwmklh5lXgJvSPLe87d
+	q4hxzdwBouGbBEaXe8rIcTf1B6QW59VKt3mPPoIQLyCxyZqKP8jdonofAeLDiBON
+	+jx1IBxeMPrSbQCwgsXPyVfUMO2k24/FS001m6J98GPzLByiDmwaFetjymtDYtZk
+	vE7nNQ==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cy2fbse6c-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 14:02:41 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-5f934f736d4so1868692137.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:02:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773756161; x=1774360961; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OOwdxQEYbJ9Or9A0mYUFJoOOp6SzbaWszXsvmPmeoCo=;
+        b=TVkyZCyUGb2INZQOsgOsVZRi+S0jDk5xgCQd6WxxHJBlJ5hw2fXcco7Lp9EXRdC5g+
+         1pEcxhkkS+Z25CKF6ovN+OCVFSW1W1oFfJkKwXzvp02E92APl5DrvdnfGuwQUXVOY5yG
+         EGjCNvlsn6efLkqdG/Y5citWZ3pLenIi4BI/IWQXbHVHmHzUnP44qJ8Coo/l2bnjTGdv
+         paCrMnLcL0TTLHAyZ1MkceoOMpB69hdOEMRDcGPe0u2FrguRYkcWJD8W01qYPWBQeqYC
+         7GEG+EopBOCV/Di0nJ0KCgpeyLjFSv2ww4jL1M32PB1UvQsW100j3UEoBjJr+5q+A8+W
+         paRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773756161; x=1774360961;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OOwdxQEYbJ9Or9A0mYUFJoOOp6SzbaWszXsvmPmeoCo=;
+        b=pY8Nmh+PTpDhn8W2Wr+Gu7or8fzBlaiTfsnDAzAOquk1/1ERMVoq+a4E+8jlS/cbge
+         70OaWiWvZydQZZrVOTkFxwa3Z7zukL7AWviNkOYMfzyYMk6HxY+pQWGE/4KMggkCBeNu
+         W3HTNVRPljgIo0SLl6gUH6PmUubt1DHcJvcB0xWIXgTyiQ4IyBB5XOFM3woONJcR02M0
+         fAy58lOtnqBuqtHO/cF1yhthuVCTW+BAPtz0L9dh6JF0lhe3ZZ+8o9tcAATvEM/QpWOG
+         Qq9UgMKVBJXo7UNs7JhAklWi/X13d4THaqWtjFQemvSHJ57pvRCSS7dWj8vpkkzhxYgk
+         yleQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKZ3rNcOURLSu4m53pOlfRAd/woZbPc7xEBdIlIvA0SlD+/hTkHNB8+O7BaGHGdEBq1af8OVhFxbxQv4sj7cpX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTg7scwTGjsYY2boqCW87b/dBaryCJR4powekgakRzMbSvO7+u
+	sj2ggEb+iGOHipoBgii0T5eSEiMdugjgFUo0i0sDfR+KM6inv3qCOwV/zuwzrPIaNMCiLLZBj+m
+	kw1zrBSBnrrwW/x6WFZfEH3v8zs6WwPGUHT2Sqod1GTPoiESVKocAPGy2VNeSyg7V+UFAL+qDhQ
+	Ecbg==
+X-Gm-Gg: ATEYQzx9qU6JM1sDOCGFurObwz4uT5CTyl64YM7/lpO5hBgmnjBO7A6AYiMlHKU/119
+	oRYXlwZEJds6+UPlSw82xNPVFza61puNYLnL+ZNwjKhsynudAamGHUJ2VwVWA/OarGZDhE9lZSn
+	Ci+lLhsTVHSmBoQjw4P6pY3e4JO6NamRajpKdrxI3FwNf8JnhkyeHep3iowXwVp08dGPc/goT//
+	Pjwb5CIXRNrWefOZL+4mmC1Zynb99wwN6R59nSNriFjAudY6O2jk0agbWkAH93vJNBVfAyNQ8VF
+	J5WlsQi1L9RTNNqJnuL43yQY4pwZSV7PJXUGsjiQ6xrRjOBuoNSmfldplf6ufrgQf8i5CUientn
+	ZHxFQ9+UTqMhtpkRdlGvQQFU9NjCi5EVmE4AeMlQFDlnWpZlq317P
+X-Received: by 2002:a67:c994:0:b0:602:6e95:bc82 with SMTP id ada2fe7eead31-6026e95d27dmr566476137.33.1773756161185;
+        Tue, 17 Mar 2026 07:02:41 -0700 (PDT)
+X-Received: by 2002:a67:c994:0:b0:602:6e95:bc82 with SMTP id ada2fe7eead31-6026e95d27dmr566403137.33.1773756160622;
+        Tue, 17 Mar 2026 07:02:40 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:6aa2:dd35:4d6d:8eec])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b4938854csm9359709f8f.34.2026.03.17.07.02.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 07:02:39 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Tue, 17 Mar 2026 15:02:08 +0100
+Subject: [PATCH v13 01/12] dmaengine: constify struct
+ dma_descriptor_metadata_ops
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB10191:EE_
-X-MS-Office365-Filtering-Correlation-Id: cc332435-dd91-48aa-888d-08de842d05cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|366016|18002099003|56012099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: udBajCE3VLggz8G090VQ5lKiaW8HC8t+H1dkV5ObVbvW38gQJlYD/C4oWcarRI/UKzpjhCc4c+0VdBSH03ZdbMLGVQwPvBw49ErJBVxNWybFE17dgOT9ExKBLPVBIsx6+mEJoQQw7e9XWF7FXbXYyEDh4L63dFwaTWIZmKwZiEfd78Zro4VGlhNr1dr9J9kKt9ucmLAuzguz9MsEbYeHhgWhirIfmV0O+Icje6OoyM7qqjsrazgER4mcqtf9mh/lKArTwPHr47GVbSlZuqeQgPX7omg4s+rPq4T4CDzLXP4hb81UtxZZJvZv8W57xGnQ4Udig/Erh3rb8DUBUi46MEG5jbtpkhlUvJEBoNWuDhi1CXbaIiP5b7bIH+J4N3B4hvbsSlrET2W9hcLUpfZ0Xa8cz4nRRnhrh0n3NjjW2VmsII3+P2ATTAdzV3teVs1MwJ3i2FMdpLXRoSPix+XDVbK6y6yfrhbRHZqH5JvXa1PT2EC/k1CWYXY7HTFibu5usyWi0GKd8ClelomDiU2DBicD/4YYv3h+ci/C9yTPL9EaCnOD7BmoIaY+fGo8EaNqqqnN+uIPpfEjJoN1/eNiyRP59R7Z/Czwz3e7t2jq7ZT/2cft/ORqzgqwbjAuK3H4JQ8Ro59CWj1fBHf9DZJ4QPYg6/lqjlefl4aef09OHeEYndW8Dk9yqBRNWTb1ru4UUKK+0PHbpKeGkS9AzBj9k3rxG0RTxsU1LiwDhXYZCrWq/BzIS4y6AZU1gXEWidCdzTMMghEQG7XZ173QEliPU5Dd8fQuwIzobRi8sC4anz8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(366016)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+Z38TtnIRurJ73lP3iOPQaCKqrqbmg/2dLc9/xBo0vx2D/EBvP1KeY6rzvWn?=
- =?us-ascii?Q?KGSku6ShTVXjb8iaKyJmMZipnDeOezIibGDQmgsgr5WLKABMxzS2wyb1wS9c?=
- =?us-ascii?Q?AfaY/ErHgTeMhK0WYYemEugujMt55FMnlV54C6v7PASkXniQmjOkr+beIPkf?=
- =?us-ascii?Q?+k4T3Hm6ja5G4NIhDRYrL52F1zZiHZAZMEt0x7jLPoEUz4/dj/x79mCR19W8?=
- =?us-ascii?Q?qISf7gHzJT5kC5ydf1gNzfeePKpmF9eCI197/I4YZ5boAhsZ4LRvFSTJQxwV?=
- =?us-ascii?Q?3HugnX0PvBGolIXI5xZen96Kd8USdHifH5IXAUgvrjqZ4eg1d9iEMA2ptYmu?=
- =?us-ascii?Q?lE+jCgqcehRj5Wqnwin60kG+ULdmTqmiYJurppG7ThW57zpbPQ24N2CVFgqe?=
- =?us-ascii?Q?9GeWboEfq5EsF5e0ecgQrdMTwHzzoCqSO0M6e8I/5b/Aypd08QpgY4zrhek2?=
- =?us-ascii?Q?YPytNRVbUMKyi4lmYUG+X6WXCEr3ODfHOq9U/p45heehL5SfiLTibV3rMyiX?=
- =?us-ascii?Q?GrTm7hcT8kmloXZlGjX+mh5Lj84MFdUZM8d+LgxKcY65DWELjumBpGujknGS?=
- =?us-ascii?Q?9pyVotPZ0hX8wpd3P9DoYQNLPFw6C7qXzVl+7n3BnbnNszc3JBEzp2UBp8BG?=
- =?us-ascii?Q?qT5Q4kgUNrMGrLZdKqGYqNbKpiKEbDS1tLkhR1hhpc8qAFzToqLuV+ZrY0eN?=
- =?us-ascii?Q?Ea+WP7C33lm62PK07+MRTiPdpCn/psl/2eMYcQeCrUhGin+gC8DBLIeV+0cl?=
- =?us-ascii?Q?wkRIe401PxrcSeWGAvqZNWV8yOOIcwB+1ffFptgSbkPWv+ydZLjtrP1Nx2SX?=
- =?us-ascii?Q?/N3CACP20dlxaxa7JNyqQGEwLz/rGyK+BJ4+4grHzqGMjJqRIL1yVvCcs8ec?=
- =?us-ascii?Q?Po5QRVjoC9bdj5r7e1Tfv9swPxk6wqNmz07XrHzicM8i940j9W5LEQC1Fqtq?=
- =?us-ascii?Q?O+CVuj2JE4yZx8nIUqIkgumUkgEtOLXLyBVN2q1kuSGtNfbtpRWF8oBfPVCk?=
- =?us-ascii?Q?iqCPoMI+8G+zahiKuwwC6F8qmy55TSS/ARyc3N5mhXZbDiPC7J8A9Z8EAZlQ?=
- =?us-ascii?Q?5KtIn0kqRUoN6gtfy29PjMqKuDm3Ubp5Qebt7FRRcLBus74W6Lxll2btgS8B?=
- =?us-ascii?Q?XYVkXM+qbr6vQcADPSl3PcGHK6nGVO70lUu97+gsyfXF/Q8n1rU3IaSs8K58?=
- =?us-ascii?Q?Z9VVyqFt8WLD2DgKZQQTr/VHRaKW8tvE4r7cLL+6hoMnB2r8Y7AcffOIEq+7?=
- =?us-ascii?Q?X5qtLHl/92a0tM5D2vtNEyyIfm7ZHH0VYI4QscLPjrkYoWmQVFUtTeYo7fYd?=
- =?us-ascii?Q?Tsk7SKvfo+FkgnuzpNKIeTqcpFtF+tEenN2ujokSA/u682Mz/3H/TH/2rkJ3?=
- =?us-ascii?Q?ncG3osLBillN/TnS7q1dRm8OU5jfIDHJ0DdDwnLe8N1dEK99Xfrc6M/fTTxt?=
- =?us-ascii?Q?1ry4Gh6t7wE+EpHJZDkaKygA83WC3Z2AI4HGaHlvLyYiCwyrISs+SZY2FnEZ?=
- =?us-ascii?Q?s1Le7pyI+tOTnTTeTdm09FESZ7Fm5kcrBI/2MK4LxeWRCveghlLoxC5+olR/?=
- =?us-ascii?Q?HR+qDm0BXO/cO9ELzH9iJ5MNfIIOxjRm11lYiXLas3vto/Gr/2gN9yUiA4tv?=
- =?us-ascii?Q?WB1wdkUJ22v0ms+x8vK+sc3dxkwQfqi3gWn9KXrOsPRQM9U3kXYklyxlL3lt?=
- =?us-ascii?Q?2yj3osVNTEqo8Lls6oUELWjBxHL6KxVgeKVGpm8ijWiC0Fuk?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc332435-dd91-48aa-888d-08de842d05cc
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 13:56:44.1002
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UUmZlrgH7+oyPaSfsuxu6zt5ZuHEPC6e1RJMS3mm73XXG3pdvEX1oEXipmS7YJtbhKdhJi3FB4E91kpFS+qZ/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10191
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260317-qcom-qce-cmd-descr-v13-1-0968eb4f8c40@oss.qualcomm.com>
+References: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
+In-Reply-To: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
+To: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Udit Tiwari <quic_utiwari@quicinc.com>,
+        Md Sadre Alam <mdalam@qti.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2295;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=V/kExSnp4gLekFUspVMuJp40Wa32cu/zESSu6vck61c=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpuV7wh7HuGH5/DCVeb0SkWUTqB0AF86dPpu7g/
+ 72XbdlMm+yJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCable8AAKCRAFnS7L/zaE
+ w9XrD/9DdkZCvQqumSRBF+lrFXBsxZxYUgEXfN+mreAzhSLJYbs41bwA6vMJqx2u/xa74pIHcRI
+ E6X2kn+0sMgaqUZUFnbGghcb8lvX6u0/D3PPxuDpMbrRK41KGkpWrVqK66I2pMLSGbGAGqrb3Jm
+ riFP3OW34JDf85ETjMlsvsSkhvH1vQlbhjrb5zKwExnzF3ZhyFsp/Z6ykcJfudt7pgsz1e3Qnrs
+ CxaJXHaW8VVAg700d6BOQcZJLJwiz8WZvl19u6ls+uZpp80IbSC0N+b9W3KzYGGpPJ7oC/UQeGj
+ Rm3VYVFcUVta9/EolEJKIDs+GKNzfWUYN6/Xh6bRzLzhIWcU/QvdjfzCY73ViQd3x62jGrfst98
+ SiHa74zHS1wdck0v9ZVzg3z5qbhjH53km5ewIJS9LWxG/h4ttLL1HKFpunJMxnSa2p94VfYrwVc
+ IloeSDr51fePrw3ldchplm+0St42EqZzB05sgomDRO+jcnCc3IqYuffFALsoFTEbOztegE1k8Bd
+ KNWHtxAyws1j8ykk0purkFy/LdSOKOUiBw1G+wcFznNp4NrFZF7GhGcUYYfsjcuIpBsDc+aDk5W
+ 3SAKF385mi9hge5rDMti7WMIqSN3jU/WMTo/z3CDmfJRSFJ8fRaNxrTssIqdHVODlc22dJWP9/N
+ UtxRbRqtQMgBn9Q==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-ORIG-GUID: 7CLU2IRP7Fmbaaz8VQpWQvbyLDifwNvq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDEyNCBTYWx0ZWRfXwHantU7YmXjI
+ TIfbp8TRaTTXyCMzDwX5tbqopqGKBG+mXZtXIXxDIpxD5r/rOuHacLaRMtyAsaFPpHVmPVcm+qW
+ 14TjFmncyndJgS2SIREcFm0JVNmOO9x5kGrvc1RzH+s1MuCpYU0Cw7G4K7Eeea20dODC13NSn+9
+ 5hia4ZdcZ/70g3D2XsyQSWeIULBd29OdViJVUCE5E8ya1MsDNnUzILMkbFzi/0WIUQ0KDgscEUR
+ qI6f27Lqq58EnJgWylTWiylk78ggvWqaDWA68JIAl2CSIY0rjC2c9tRpu9+VBOZ1+BQ819GlVzx
+ QG5daaNPCJrHiIH1cDZgVt1prxjMet0zOBcuYfYfXyJF4eWgjOaheFYXtej7ZyhG4k1GojRaP9f
+ WFMJs5xITFwMZvq/q8TNXJPgfUamLNw1NknOcEWvC1yrQ/7W+Q54Lozvw1MmW7GI+X5HZEYaBMj
+ x303kSxX7S8K3JOyZLw==
+X-Authority-Analysis: v=2.4 cv=fa6gCkQF c=1 sm=1 tr=0 ts=69b95f01 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=XeVHrwws4l7kqE2Ex6IA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-GUID: 7CLU2IRP7Fmbaaz8VQpWQvbyLDifwNvq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-17_01,2026-03-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 spamscore=0 lowpriorityscore=0
+ impostorscore=0 adultscore=0 bulkscore=0 malwarescore=0 suspectscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603170124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_065659_799831_B5B3B818 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20260317_070243_099691_2C8B62B8 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,37 +176,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 03:56:40PM +0530, Vinod Koul wrote:
-> On 09-03-26, 10:27, Frank Li wrote:
-> > On Mon, Mar 09, 2026 at 12:24:33PM +0100, Vinod Koul wrote:
-> > > On 14-01-26, 12:12, Frank Li wrote:
-> > > > Many DMA engine drivers store a dma_slave_config per channel. Propagate
-> > > > this configuration into struct dma_chan to avoid duplicating the same
-> > > > code in each driver.
-> > > >
-> > > > Much of dma_slave_config is identical for source and destination. Split
-> > > > the configuration into src and dst groups and use a union to preserve
-> > > > backward compatibility. This reduces the need for drivers to repeatedly
-> > > > check the DMA transfer direction.
-> > >
-> > > The reason why we had both the src/dstn sides was intended method to
-> > > allow upport ofr device to device dma. Some interest was shown for that
-> > > at that time.
-> > > I dont think we have such a user even now...
-> >
-> > My means is the field name is identical, not value identical although most
-> > case is the identical. but it is possible, especial FIFO space windows,
-> >
-> > sound/soc/fsl/fsl_asrc_dma.c use DEV_TO_DEV, at least src and addr use
-> > differece address.
->
-> Yeah so this would break if we go ahead. Thanks for looking this up
+There's no reason for the instances of this struct to be modifiable.
+Constify the pointer in struct dma_async_tx_descriptor and all drivers
+currently using it.
 
-Sorry, what break? This patch just group these informations.
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ drivers/dma/ti/k3-udma.c        | 2 +-
+ drivers/dma/xilinx/xilinx_dma.c | 2 +-
+ include/linux/dmaengine.h       | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-Frank
+diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+index c964ebfcf3b68d86e4bbc9b62bad2212f0ce3ee9..8a2f235b669aaf084a6f7b3e6b23d06b04768608 100644
+--- a/drivers/dma/ti/k3-udma.c
++++ b/drivers/dma/ti/k3-udma.c
+@@ -3408,7 +3408,7 @@ static int udma_set_metadata_len(struct dma_async_tx_descriptor *desc,
+ 	return 0;
+ }
+ 
+-static struct dma_descriptor_metadata_ops metadata_ops = {
++static const struct dma_descriptor_metadata_ops metadata_ops = {
+ 	.attach = udma_attach_metadata,
+ 	.get_ptr = udma_get_metadata_ptr,
+ 	.set_len = udma_set_metadata_len,
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index b53292e02448fe528f1ae9ba33b4bcf408f89fd6..97b934ca54101ea699e3ab28d419bed1b45dee4a 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -653,7 +653,7 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
+ 	return seg->hw.app;
+ }
+ 
+-static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
++static const struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
+ 	.get_ptr = xilinx_dma_get_metadata_ptr,
+ };
+ 
+diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+index 99efe2b9b4ea9844ca6161208362ef18ef111d96..92566c4c100e98f48750de21249ae3b5de06c763 100644
+--- a/include/linux/dmaengine.h
++++ b/include/linux/dmaengine.h
+@@ -623,7 +623,7 @@ struct dma_async_tx_descriptor {
+ 	void *callback_param;
+ 	struct dmaengine_unmap_data *unmap;
+ 	enum dma_desc_metadata_mode desc_metadata_mode;
+-	struct dma_descriptor_metadata_ops *metadata_ops;
++	const struct dma_descriptor_metadata_ops *metadata_ops;
+ #ifdef CONFIG_ASYNC_TX_ENABLE_CHANNEL_SWITCH
+ 	struct dma_async_tx_descriptor *next;
+ 	struct dma_async_tx_descriptor *parent;
 
->
-> --
-> ~Vinod
+-- 
+2.47.3
+
 
