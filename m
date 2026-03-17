@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA89FD7079
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BF0FD707A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQb04CDNO+72u7Gn7pcAlRbI+3+MeZWlYQBmcMUPAzI=; b=XaiHoed9Mz5cEwi9JuQEfK0viO
-	yg0v5kv4kAOot2JjDY7aTIu4f2TZgzJTJ3p1Qq5tVSuQufdRriz2hH/efJgbiH/gerNZbh8+xRiwB
-	CcSG3YD1fa+tfFkTWOJdNbBSoOLTpqbwazkqAHW7z8szZoptwsB9zKcUWamYIVHMRRB2EuQmSo1Dd
-	AJ1JSvvbxmrQdpJNOGftj5fjOAP+ypdHiK0pcHbqPi+bdwt6chqhRZJJauHgW58NcoXmred2OqLuL
-	4SVDe7CC7fEP57gid44rTpfdPJuZ4L1eQeExBqqNFu+aEJpq00fWI3n945jpUFP0GsivEJfQmAUyF
-	2rKSSMOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6Df0BkW3+WFtbc+05LpOma2mHXyroUqsKpSt0hTLJrY=; b=uYCJOzDxLT6ince1rukPmrOv0G
+	4waGGTdeSLX52m5p1ABi3YtkaNOSqJGAsknM0XwoPIgZv/re0ImQlSCcpHOBzmyoOLRzVWE+Tzi40
+	OcnmDes0ccMdhJ+L1+ex1nSBwgwbIthNyMeOJJk/EyNu4EI+ZZccE6/dSIyaI5HZF7/dyQdVsZcpQ
+	Y5ECL7jpzhG5udlCMp4iLWMtigUq+SuEwD8D6/h70X4q6QhR3qNdWMofVtKCyLaJX0oY1zBMovTNY
+	ZTmTRhRuGPpRfNaKToJUrzirguSFW7s5lj2P1aW6W9RRwnWN63TwOm2LxeDEhQcgGaNBtcx18xy/s
+	oe2fRuTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SAu-0000000652m-2j7R;
-	Tue, 17 Mar 2026 11:01:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SAt-0000000652D-0GvA
+	id 1w2SCe-000000065FH-1GPx;
+	Tue, 17 Mar 2026 11:03:12 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2SCb-000000065EV-32zL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 11:01:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE7D61756;
-	Tue, 17 Mar 2026 04:01:13 -0700 (PDT)
-Received: from [10.57.19.134] (unknown [10.57.19.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D33D3F7BD;
-	Tue, 17 Mar 2026 04:01:18 -0700 (PDT)
-Message-ID: <1c4ab892-6f01-40ff-83e2-9060aa69616f@arm.com>
-Date: Tue, 17 Mar 2026 11:01:16 +0000
+	Tue, 17 Mar 2026 11:03:11 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso49376505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 04:03:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773745386; x=1774350186; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Df0BkW3+WFtbc+05LpOma2mHXyroUqsKpSt0hTLJrY=;
+        b=XqwHmOvn9sYV8FG+TefPM7iZW5wULNj0pGfSDqAcj2sUurIZauzjKn2aSMBTf48mUD
+         2et0weNdDrhNezXmc2k4Xmi3NPUOYXDDRco6GSGg54/3j1HE6aM2T3eF8jgWgo6RoAcH
+         Tc5fCCNCSX1FdRXKHXQddkwMBNg0vTmjZ/+3CjRykYL+Rp6BrPPJpNWXOQ6x4aTU8yoi
+         aCTFxo50qeK0dHAHGOLGEd7ceJiC0cJDRBcOLYf9SYzpzKZGBwPvarPLVzwTDW9gEesw
+         iURmpM1BqUC/6Au5BL/kWzywmz3bYtIt5aZXRj3voBa11PrPtVsXkQKN1mV6FPTZZwXE
+         955Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773745386; x=1774350186;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6Df0BkW3+WFtbc+05LpOma2mHXyroUqsKpSt0hTLJrY=;
+        b=Dfm+5/WNbN3yc6/qgbPye+RxGQctVkqD16mzVqB8W6oUrJoKGk7GUhE5EP9O9NNacf
+         pZzCWb7RAQQpt3qSms7lIRrM8R3BiOddbC1jOg8K0oLw3YgR6LxN43B0f8q3nJR6vYyN
+         A7j681OzcnOaGQ2Ki1A/VSEK+xQtE2cjpBf9sdd3Of0AGfODU61NgMVYv/SezOmRUSNH
+         VeMC9Bz4CMo37/xDw7A+iYrjyZ/WvRiKWsA3iRrKqPcbFVBrw/J4Jgc6PeTD7xYNoF7f
+         LGm8gdqSQ9EQy6G0DKTP2YwXqlcyOQFjWMx5D+6xCOfB4+uQgq6/z/rlQ7Zi5Dy6vN8D
+         G02w==
+X-Forwarded-Encrypted: i=1; AJvYcCVC4ZErjQ2p1J+zgo5Lytvy7f/d8XL3y9s6EaYGvLBm9LVsUS1vGl5SDCJ0ZQWIx86rXg27NYa5EUBEidcaC42l@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPIKDVdoz8+ZkFdxalBO1eI9ssJrmAFfG+oEdC31th3KtJYoZt
+	0VPQzAcDnAsOZqdKlc2naZq6FMVBA1P69zeVmDGDrie5jPsvwCSqthGS
+X-Gm-Gg: ATEYQzw1Ua5qIM5VczuE0hUvw9Jrdqtxge85/PVUt1OsKiRwdF4f8/LHZmcbtvWn/Oq
+	wO8T/dz5W/7TH/d1fzmKjTKBS64wnyya/aH+uG3GIeSYm7sguw/5AdTCHIvIF225qzIxHn1MTLL
+	Xjbg/rH5m4wrOWEy3JR6gNiGhzJC/pSFonPLERPWTCdyI1yEkr9L0ZfrUI0+AqvDd1nW0gKovaE
+	QABtkUovnzU5bRxl4ivDUumSGN+D62F0eS3rxkmeZluAAK1eae3WQWM3CiJ3Q+QShUfcd3iglgo
+	srDXmzudWkuW9C2JQU2RXr5JN4Iz27byCK3xSa7vfpDJLp1vr1Sl85RvGJ9B6jfM1A+Bu8mcK/f
+	nl+t/CCdyCXWl9PT9LdVmlqF1SvTIkf9XL/gSLasPoNcVQnROWM2BijZYpQiEAtK0DnP9wUX+YF
+	dcvZV2KCla4Lg8RIwV3i0=
+X-Received: by 2002:a05:600c:46d2:b0:485:3c66:e230 with SMTP id 5b1f17b1804b1-48556728c71mr279412485e9.29.1773745385947;
+        Tue, 17 Mar 2026 04:03:05 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4856e850634sm106157845e9.0.2026.03.17.04.03.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 04:03:05 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pinctrl: mediatek: common: Fix probe failure for devices without EINT
+Date: Tue, 17 Mar 2026 11:02:06 +0000
+Message-ID: <20260317110249.391552-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 2/7] coresight: tmc: add create/clean functions for
- etr_buf_list
-Content-Language: en-GB
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260313-enable-byte-cntr-for-ctcu-v15-0-1777f14ed319@oss.qualcomm.com>
- <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_040123_198183_EF92110F 
-X-CRM114-Status: GOOD (  30.64  )
+X-CRM114-CacheID: sfid-20260317_040309_772361_CBF3F9A5 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,209 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/03/2026 09:02, Jie Gan wrote:
-> Introduce functions for creating and inserting or removing the
-> etr_buf_node to/from the etr_buf_list.
-> 
-> The byte-cntr functionality requires two etr_buf to receive trace data.
-> The active etr_buf collects the trace data from source device, while the
-> byte-cntr reading function accesses the deactivated etr_buf after is
-> has been filled and synced, transferring data to the userspace.
-> 
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-tmc-core.c |   1 +
->   drivers/hwtracing/coresight/coresight-tmc-etr.c  | 108 +++++++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tmc.h      |  17 ++++
->   3 files changed, 126 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index c89fe996af23..bac3278ef4dd 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -835,6 +835,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->   		idr_init(&drvdata->idr);
->   		mutex_init(&drvdata->idr_mutex);
->   		dev_list = "tmc_etr";
-> +		INIT_LIST_HEAD(&drvdata->etr_buf_list);
->   		break;
->   	case TMC_CONFIG_TYPE_ETF:
->   		desc.groups = coresight_etf_groups;
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index 4dc1defe27a5..fdf23e1c932f 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1918,6 +1918,114 @@ const struct coresight_ops tmc_etr_cs_ops = {
->   	.panic_ops	= &tmc_etr_sync_ops,
->   };
->   
-> +/**
-> + * tmc_clean_etr_buf_list - clean the etr_buf_list.
-> + * @drvdata:	driver data of the TMC device.
-> + *
-> + * Remove unused buffers from @drvdata->etr_buf_list and free them.
-> + */
-> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata)
-> +{
-> +	struct etr_buf_node *nd, *next;
-> +	unsigned long flags;
-> +
-> +	lockdep_assert_held(&drvdata->spinlock);
-> +	list_for_each_entry_safe(nd, next, &drvdata->etr_buf_list, link) {
-> +		if (nd->sysfs_buf == drvdata->sysfs_buf) {
-> +			if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED) {
-> +				/*
-> +				 * Dont free the sysfs_buf, just remove it from list.
-> +				 * drvdata->sysfs_buf will hold the buffer and free it later.
-> +				 */
-> +				nd->sysfs_buf = NULL;
-> +				list_del(&nd->link);
-> +				kfree(nd);
-> +				continue;
-> +			}
-> +		}
-> +		/* Free allocated buffers which are not utilized by ETR */
-> +		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+Some pinctrl devices like mt6397 or mt6392 don't support EINT at all, but
+the mtk_eint_init function is always called and returns -ENODEV, which
+then bubbles up and causes probe failure.
 
-This is dangerous ! Restoring the irqflags to an uninitialised value 
-from a different function thant where it was locked. Please clean this up
+To address this only call mtk_eint_init if EINT pins are present.
 
-Suzuki
+Tested on Xiaomi Mi Smart Clock x04g (mt6392).
 
+Fixes: e46df235b4e6 ("pinctrl: mediatek: refactor EINT related code for all MediaTek pinctrl can fit")
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-> +		tmc_etr_free_sysfs_buf(nd->sysfs_buf);
-> +		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +		drvdata->sysfs_buf = NULL;
-> +		nd->sysfs_buf = NULL;
-> +		list_del(&nd->link);
-> +		kfree(nd);
-> +	}
-> +}
-> +EXPORT_SYMBOL_GPL(tmc_clean_etr_buf_list);
-> +
-> +/**
-> + * tmc_create_etr_buf_list - create a list to manage the etr_buf_node.
-> + * @drvdata:	driver data of the TMC device.
-> + * @num_nodes:	number of nodes want to create with the list.
-> + *
-> + * Return 0 upon success and return the error number if fail.
-> + */
-> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
-> +{
-> +	struct etr_buf_node *new_node;
-> +	struct etr_buf *sysfs_buf;
-> +	unsigned long flags;
-> +	int i = 0, ret = 0;
-> +
-> +	lockdep_assert_held(&drvdata->spinlock);
-> +	/* We dont need a list if there is only one node */
-> +	if (num_nodes < 2)
-> +		return -EINVAL;
-> +
-> +	/* We expect that sysfs_buf in drvdata has already been allocated. */
-> +	if (drvdata->sysfs_buf) {
-> +		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +		/* Directly insert the allocated sysfs_buf into the list first */
-> +		new_node = kzalloc_obj(*new_node, GFP_KERNEL);
-> +		if (IS_ERR(new_node))
-> +			return PTR_ERR(new_node);
-> +
-> +		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +		new_node->sysfs_buf = drvdata->sysfs_buf;
-> +		new_node->is_free = false;
-> +		list_add(&new_node->link, &drvdata->etr_buf_list);
-> +		i++;
-> +	}
-> +
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	while (i < num_nodes) {
-> +		new_node = kzalloc_obj(*new_node, GFP_KERNEL);
-> +		if (IS_ERR(new_node)) {
-> +			ret = PTR_ERR(new_node);
-> +			break;
-> +		}
-> +
-> +		sysfs_buf = tmc_alloc_etr_buf(drvdata, drvdata->size, 0, cpu_to_node(0), NULL);
-> +		if (IS_ERR(sysfs_buf)) {
-> +			kfree(new_node);
-> +			ret = PTR_ERR(sysfs_buf);
-> +			break;
-> +		}
-> +
-> +		/* We dont have a available sysfs_buf in drvdata, setup one */
-> +		if (!drvdata->sysfs_buf) {
-> +			drvdata->sysfs_buf = sysfs_buf;
-> +			new_node->is_free = false;
-> +		} else
-> +			new_node->is_free = true;
-> +
-> +		new_node->sysfs_buf = sysfs_buf;
-> +		list_add(&new_node->link, &drvdata->etr_buf_list);
-> +		i++;
-> +	}
-> +
-> +	/* Clean the list if there is an error */
-> +	if (ret)
-> +		tmc_clean_etr_buf_list(drvdata);
-> +
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(tmc_create_etr_buf_list);
-> +
->   int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
->   {
->   	int ret = 0;
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index 319a354ede9f..81237944b986 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -208,6 +208,19 @@ struct tmc_resrv_buf {
->   	s64		len;
->   };
->   
-> +/**
-> + * @sysfs_buf:	Allocated sysfs_buf.
-> + * @is_free:	Indicates whether the buffer is free to choose.
-> + * @pos:	Position of the buffer.
-> + * @link:	list_head of the node.
-> + */
-> +struct etr_buf_node {
-> +	struct etr_buf		*sysfs_buf;
-> +	bool			is_free;
-> +	loff_t			pos;
-> +	struct list_head	link;
-> +};
-> +
->   /**
->    * struct tmc_drvdata - specifics associated to an TMC component
->    * @atclk:	optional clock for the core parts of the TMC.
-> @@ -245,6 +258,7 @@ struct tmc_resrv_buf {
->    *		(after crash) by default.
->    * @crash_mdata: Reserved memory for storing tmc crash metadata.
->    *		 Used by ETR/ETF.
-> + * @etr_buf_list: List that is used to manage allocated etr_buf.
->    */
->   struct tmc_drvdata {
->   	struct clk		*atclk;
-> @@ -275,6 +289,7 @@ struct tmc_drvdata {
->   	struct etr_buf		*perf_buf;
->   	struct tmc_resrv_buf	resrv_buf;
->   	struct tmc_resrv_buf	crash_mdata;
-> +	struct list_head        etr_buf_list;
->   };
->   
->   struct etr_buf_operations {
-> @@ -447,5 +462,7 @@ struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->   				   enum cs_mode mode,
->   				   struct coresight_path *path);
->   extern const struct attribute_group coresight_etr_group;
-> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
-> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes);
->   
->   #endif
-> 
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+index d6a46fe0cda8..3f518dce6d23 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+@@ -1135,9 +1135,12 @@ int mtk_pctrl_init(struct platform_device *pdev,
+ 		goto chip_error;
+ 	}
+ 
+-	ret = mtk_eint_init(pctl, pdev);
+-	if (ret)
+-		goto chip_error;
++	/* Only initialize EINT if we have EINT pins */
++	if (data->eint_hw.ap_num > 0) {
++		ret = mtk_eint_init(pctl, pdev);
++		if (ret)
++			goto chip_error;
++	}
+ 
+ 	return 0;
+ 
+-- 
+2.43.0
 
 
