@@ -4,88 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53DBFD7061
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E41FD7066
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2spmyqEbYSe5Avm1c8N0AoCJK5z7omUHcYdoteouIG4=; b=Yy2uHeXvgVR4pc3mK6DGRYA8i/
-	US+fQlP4vBJAkIT+q8eKBPzXn6OgV6HdhMN/gXReHMnRlgEAv4IE7OQAyAo7dKjROrDgLFTgxfOpr
-	J50fAtZWlNURRqx+eUGTWjBGXH+wHecF8j1OWOV8+d5XPQ7PVYKwGxJ05ethmVRfHG6YJXcwlQclt
-	Ytibaw1dIGQA1KFo530KFwp+OnE6VYELIJZYpW4jk+2oYA+pYUD4LxGrLS1yjgvLNys8GMFjw8OWi
-	otwHJ9yPgArfvXZZYAzmPT3zoP+pKa89A1OonQg4LoMLQSm8JTPZ6pWP6iXYXQmL7mdJkScPDW7wI
-	5G+bgXVw==;
+	bh=/j5o67IoqIK5gTFW+0h7syVdF1aVub9W1kj1KroGs3M=; b=uFgjJinMtCP2wkg9kAS5fT+MOe
+	96KqZFbPyZMyB+4fR05K6Q7Ve8zAskTd0IZc+WMy3cP7EMgvRkVcAJiIVDO+qc9/xudcPUm6n+fNJ
+	1Oqk52rl2YtoqdHjds3ZMzl2BVYQ7xzTIYBjVaSRFidfRN88MlqOfX6heDT0LSn9y1HLsgGT7rsoE
+	U8ffDtK+gom6tEwU5m//YwJMKrIYUmSEESBD3JRSXoFBQlTJWHTdoIKACFOn3pRqa6MFIY70nLYbQ
+	vpmofg0FEYsuJIyiQiGXdg0YRAXt5aeEYR4VLPuP+3apk7qey9smRKmoDqsnL2REIDqiQElvK2o0C
+	8c41l37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RNz-00000005xNr-3vUJ;
-	Tue, 17 Mar 2026 10:10:51 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1w2RO8-00000005xQ3-36t8;
+	Tue, 17 Mar 2026 10:11:00 +0000
+Received: from mail-northeuropeazon11011052.outbound.protection.outlook.com ([52.101.65.52] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RNx-00000005xNV-3ZDu
+	id 1w2RO7-00000005xPU-1xEl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 10:10:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773742250; x=1805278250;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=pjLtVEXYu6Ezm9WVwTnSwzGyT6cFbKsaKtpF/hqBJGc=;
-  b=aDE7hnPVGPloTKynfjaPxCcfKxync+NScFdw9AUWhktJwAMdsu6PV3IJ
-   /IYwwNnVOcgfxzu6WS1eKNVq6Poe+lPey2Mt1rFLz6h9PnWceUVuj3ksA
-   CK8Nn/ZZQ5JlIz2mMhnzpb51vphiS+LjPyEnJCaa9x1UKD2dIpHG4Pn+Z
-   PhaS4BsAwpZGrvv3eiLVYMsSbxWGX6osoyWeP/+oJRm2sTWmfin0i+gk4
-   iyWIALcbWJMcAeCZqI23TgGLHemmB5y1P8igyuxTjc3zv+jZrcbROeonv
-   JGGW8R4ZW9y1q+pAXjwRb95+RhfBAxU9xdKjXqA+wMkxt8whnkjmp//NZ
-   Q==;
-X-CSE-ConnectionGUID: z8FdMAboT/SpecOpBRyMDg==
-X-CSE-MsgGUID: 7zaFrYuzR9u6OM+9fv8hoA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="73947787"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="73947787"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 03:10:47 -0700
-X-CSE-ConnectionGUID: rZW/vNdCSgKXquYHdxLMXA==
-X-CSE-MsgGUID: P9pMYPriQluzlqeXNUdWPQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="224396867"
-Received: from lkp-server01.sh.intel.com (HELO 63737dd503cb) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 17 Mar 2026 03:10:43 -0700
-Received: from kbuild by 63737dd503cb with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w2RNo-000000000Dd-19DE;
-	Tue, 17 Mar 2026 10:10:40 +0000
-Date: Tue, 17 Mar 2026 18:10:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v15 6/7] coresight: ctcu: enable byte-cntr for TMC ETR
- devices
-Message-ID: <202603171821.OtWlpARW-lkp@intel.com>
-References: <20260313-enable-byte-cntr-for-ctcu-v15-6-1777f14ed319@oss.qualcomm.com>
+	Tue, 17 Mar 2026 10:11:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aZlV6tsCbtGpVuPQH+/UMthbjWtNEEvtBW80UkRvECrA8WfURkWdY9iWrBlBJDKfd8ERx9JmcfTLCiWg6vffP2yULbX68LdiwpUM3tC4cNv+4t5rrV0dzICjalfj3g5KSnqK3Yu1gPmB/kZ0Syk98nlhMX81cQIhsI6OgyJ5XJMKqDpffx23at17ZleH3QK0QrQzUOr9c/eA7gLzmWW4OoKwo7lPPoI0LbQr3qLgvvpb44EyxmgGBQyJqHEw4I4faLad3YrVI1XHer6/34zpVuVWPCCBEr+Bzbo1v8Batu9FRPOcsSPIcXwZ7MVQWtJEhJG+r8AHGxFAfRfwTRAuyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/j5o67IoqIK5gTFW+0h7syVdF1aVub9W1kj1KroGs3M=;
+ b=BWLDpJfKF6AOk251QpIJBvHKrHc1O4K63zdUGedTBL+FAmOr6MrFyfc7qfX7Lc+IUnSZV5E4n8qI83gQxzvnu8Kqz0T3m9Ompa6AwVdUr/l0lFje4XD6Qkl8fR5T1ELj6U92hmx6w6DVQGw/Jwi7p1MUe+qFu22lJqz6BsGtcrTvic+c4P/CMoVjK0UtinFo86xMIlwVaqPeDlsgc0/AlWVi4a8OSWS9KyQ8VxvrffVIpAHeIoYA3nYEw/zQoUc/COifgD/cM3r1e3/SzXM/PtKhCHYEoMbheO5MgorhgHsexvu+rUUsEXcKEEIkH2QK0vHXaj8vOGpcYoFyoeMonA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/j5o67IoqIK5gTFW+0h7syVdF1aVub9W1kj1KroGs3M=;
+ b=DIFqnJ1UhM11xPufR1yLRHkTJ4dBpnB33nhJNmI5w+XSBs35xK87AN6YRj+d/FNEV7uFye3q5/IJkPEXvLV1bZbSLlceR2DzqIkQEs6CUlA6LFN/iQd83ulHu/NC45DN9QHEj6eYzmkxr2hcnmj3Vl1t1K0XAH6yGJx8fs7/zfpui3NJqMRZIo/ozPpixcThlkdIwm02mtR671qDPjGE/r2v40QF/6FIOGmZffXWUMhmUwOXAJ8kbeYca+6hfrdPOW5LFirXUPFZGqUS56DEXMRpmnyPSO7zxztVpTskqTsPGyppM7Qvt6bGd4sq4YhSwlWC4MK+Bn6YnLNUCyQMag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by DBBPR04MB7867.eurprd04.prod.outlook.com (2603:10a6:10:1e5::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
+ 2026 10:10:44 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
+ 10:10:44 +0000
+Message-ID: <a8101001-b4ee-40d1-95cf-2f62b6181fab@oss.nxp.com>
+Date: Tue, 17 Mar 2026 12:13:52 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] clk: imx: pll14xx: Use unsigned format specifier
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260317093353.964097-1-alexander.stein@ew.tq-group.com>
+ <b3d4e63b-1fb5-4db3-a5eb-b0287fda3a02@oss.nxp.com>
+Content-Language: en-US
+In-Reply-To: <b3d4e63b-1fb5-4db3-a5eb-b0287fda3a02@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4PR09CA0020.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5d4::7) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313-enable-byte-cntr-for-ctcu-v15-6-1777f14ed319@oss.qualcomm.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DBBPR04MB7867:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a5ff6bc-8f08-43a1-d489-08de840d73a5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|7053199007|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: gRkpvjqfLWawgNup56xhDGqkdrvOV+d+PRLO8avOmL81JeEKe0a2fazF3VyHTWziRShy5mhdnwvJv3toHCiMoEEbjS2MzajYq43JRnvrUlqUXpA5UBySaJ8ZrmY8vKk53ksvNXD1HYve8Bq1PDhAgZi2Wril3GMpBkvKvNPuWGDBBhQrTe5jzoQK/Bm5IaZAp5DwKCVymGDBzFSe742JXY2DCfNwDxr+Mk5FhgN48GWw1468Kw9VJPoHQpC7lJo1u/8O8F+yj/G45bvf+6lQRLiJvOUJlY2bNrPIwmrzcMSOuemwkx42NwBtc6d8UwpqRkCwrj9uV+UXg606N4DRLbHmEx3cMWIgrXO7r14RyniUL3x4EOj29E6MB0TY7Ds09zehDbxPhLNGHRjvw05GC9B2+ZRgCFgbfCQeRb7Fl0VxypgaVyKcNK2UZ6JJJe6stKHuUqlqLXNvruW5BLbbpx/5g/D95yzCrTlnkNpNA3h9rNxvv2iDAAZwGBZpxnKdgHNwM6MB6SAjhs2YmMA4t7SDLnVncZlr7DMRBAdzLrDJ3F3ezX6NId3B75FWkJt9HWTuOJw6AwEpYapcTJ+YHqmMkR1g/kR4d5i9I7z8yT46zXT9oUYkmR6TA5MUXx5ckSPnp3OV0mrbIe/K6rYg5vAvOUnQuyU51jzfRlZxRstwUNIBmMYJGcjbALnrptAoB1ZORoXQSDGsimEvg89FP0JoY0UB9LZgsI6fEq7T6bM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cEVQSGpuMmhOMWRad09JalltSE9XQ1lNYTZvUmh0Q0xZK3JTQm10VW9xa2t2?=
+ =?utf-8?B?a2pOS1V4MVBFQ2NldU1UYlM3ZXhackc5ekFZQjFheEFiTUt3TjlKNWd1aE9j?=
+ =?utf-8?B?ZjRxcExRdGR2cER1djg5WGlNemY1WTdSTjVlMFZMdTBtK2o1cHVxMkg2L3JF?=
+ =?utf-8?B?clVUM1dBN0Y5dnU4ekl3VUxzQitOdU1laHFxclJKZDI0ZVlEUkhMZFRkbDBV?=
+ =?utf-8?B?TlNJV1FzbEZjWExKellYWjBqTUVGK05FeWlVcUY0OEwycU9yekgzMlV3a29T?=
+ =?utf-8?B?WW1mTjVvN2RlZWVqeTdMWEd5RzdoenhhV2xLS2EwR0tUampTYlczYVFWUDY4?=
+ =?utf-8?B?b09ranF6R2tROFlnMnZZYnV6bHI5TWU1SE5kZVVqd2hodjYyeUs5REF0b2Fa?=
+ =?utf-8?B?dmVEL2JNVENBMHJURzN5aEx4dzBUcmgzTTFMbVNmREs3R0Z5bWo3N0lNYlgz?=
+ =?utf-8?B?V3VORGdsMmdrajY0QnJQUjZ3VlA0dGZzdkhsTzNCaXRlRUU4bFc4b2p0djF3?=
+ =?utf-8?B?Vk9ockxoYUFZR3pIeU1adHRqcFcvTkl6Q3FjTXVoNWYvMjdiMHJSWk8rc3gz?=
+ =?utf-8?B?d1M1aVJlUUJGRWhya3Q0Y3NQMU5sbklzK1FNZlA0TjZleXB6SzhTczNFUkNI?=
+ =?utf-8?B?QVBBd3FTNkJvOTlZa0JmWS9Jc1BwaWl0ZUMySFZvWHUxYTFQd0FKV2dMS3BU?=
+ =?utf-8?B?OCtuWXBPVGNyaUREZ0Z6WDVpNjM4RFprZmwxL25ORzU1T2dJZlVsS3Jlc3VT?=
+ =?utf-8?B?bEVwaWJRZjUyMDZzZ2xmT1UzMGh1L2Q0c3hPZ3FpT1V6cXc2L0RjZTV2c2xu?=
+ =?utf-8?B?dTZ0RW9sVTVxYmw1Rlo5Z0tPdnNsZHVrVFA4T1dHaVNWWjFuRlE2dmltWXpM?=
+ =?utf-8?B?NE8wZi9pd29ISUxCYzBWMzJLemExMjI3YkNIOC9lcGxPZjdLVnZLOUh4M0ZP?=
+ =?utf-8?B?TjJkN1VHRGlISldQQ0M1Y3prWVJOdTVQTTF2eUNOMjNidmVxaHpuN09KbWR0?=
+ =?utf-8?B?S3FmSTV1enc1VWtCdy9nVm1TN3JQTFVNVGQxUjhTVGhkSU92Ui9RSHZYYWtm?=
+ =?utf-8?B?OFVWSW9qMjdmRnVrZ29DWWdYUDdmZVpzekxGTm9kdnltTC9pY0drSXpQTExz?=
+ =?utf-8?B?aDI5aWIrbkZObmwwOW1ObTc4TC9YV0xvQUZ2NHZBMlN4Mll0VERqUHllUTNW?=
+ =?utf-8?B?UU5qUmllQk9TcXRiUDlQcXpYb2ZVY2s5N2VVd3FFSGRpSkgzdnZYbkU4Z2Vq?=
+ =?utf-8?B?K1JNM2UxV0hSMkhTcCtVcHpFYmRQbEJDTnFldEJqN1ZGNllvRG92OXFiejRP?=
+ =?utf-8?B?MHR0eDZhWW5oUUxyYUZFWlJHcXZPT2JkOEQydGxncSt2ZmRpZHF2WjlsRFdV?=
+ =?utf-8?B?a3RBTVBneDk3M05YTEUrRGRjeE5lR0ZaelpRcjlmL0dSN1MzQVF3VHpGcUp1?=
+ =?utf-8?B?NlViYUdiOU4yTUZpdkNGR3VoVE1HL0dZaThEZmlYa2hlMWZOS2VhemY2U1Vy?=
+ =?utf-8?B?REtkTEdxb2tJTHZtVEZpS3NRbi9lYUNla3ZTTUdsRVVvRjhFMEJubFFMYXpo?=
+ =?utf-8?B?c1N1UjVVa2pTSWtodHhUaVVaUVJDaU92aW0vNHJXc2ZzRGg4QVF0amQraitt?=
+ =?utf-8?B?KzRxMUhZSTBSVDZLeURQTWZRMkk0SVlIOFBuSEpOM0p3QVI5Ym1WdURaamtQ?=
+ =?utf-8?B?WUhXUGlDeVU5NklPVkhwY3l3U3Q0djlXVjRVU0N0aU9BbmRRVnZuRlgwU2N5?=
+ =?utf-8?B?UXkvK0h1Wk1IRTRYYlBQakp0dTNKa0Z6ekxlM3RxRG11TnVnS2Zrb0FZTmFD?=
+ =?utf-8?B?NmJJWkJ0UVM1NHBNSzgwWHVQY1YrUlZqL3FGVHp1d0ZEVnREU0htRXJpcEJD?=
+ =?utf-8?B?ZVF1MmVWUWxCRVgrZUJ2Yk81K2ZFZzRDUnNia1FBU3kzbjBuNWdrY0I1RHB1?=
+ =?utf-8?B?RUVKWFp5OVhWY0hNTVhXNEFhMGp0cDJvclI5L1BiOXRmWTJyNlozcEJqeEJ1?=
+ =?utf-8?B?SlBZQXRuZ0U1RjI5UlJrM3dNcE1DWCtHQ1ZEK1lyWmZ0N0cyWHd5WDJUNngz?=
+ =?utf-8?B?MVlTUStVbkJPVm5YQUNNeE5uV0FpU1FOS1ZjMHlUQWYrTWNjdmJUaWF0WEJI?=
+ =?utf-8?B?a3NpN1JrNTN6OU41YUNYSWRFVXd4WW9VemIzOU95NFFFeXNXS25yOUdoUVhY?=
+ =?utf-8?B?ampuSzBCOW95TElsSmlOaTd6aURub0lTYmVDb0pUMzZMU0lCWG1JZUMybEF2?=
+ =?utf-8?B?RkR4MDc5SDc5WXROTEZ5Y0Q3dFJaS0huNE5qMm5HcVNpN1BSUVRiYWsvU2Vu?=
+ =?utf-8?B?akpxL0poN0Y5Mnp2NWt0citMOWRqOTlZUVloY2VhZlNCcnpIWmxqQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a5ff6bc-8f08-43a1-d489-08de840d73a5
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 10:10:44.5596
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mSCqt+Ksskgwd0Ye30L79k0Ze2wpkmtB077/+VT4UC07j6+gTaupaBqzs2iOx8wmdKE0MNcv2AAHSSQlf1pPcg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7867
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_031049_944634_20DB2A2A 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260317_031059_516947_020A0345 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,115 +155,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+On 3/17/26 11:48, Daniel Baluta wrote:
+> On 3/17/26 11:33, Alexander Stein wrote:
+>> The debug outputs use %d for clock rates resulting in negative clock rate
+>> during rate calculation.
+>>
+>> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>> ---
+>>  drivers/clk/imx/clk-pll14xx.c | 6 +++---
+>>  1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+>> index 7552aaafc3395..701a7a02235cc 100644
+>> --- a/drivers/clk/imx/clk-pll14xx.c
+>> +++ b/drivers/clk/imx/clk-pll14xx.c
+>> @@ -151,7 +151,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+>>  	/* First try if we can get the desired rate from one of the static entries */
+>>  	tt = imx_get_pll_settings(pll, rate);
+>>  	if (tt) {
+>> -		pr_debug("%s: in=%ld, want=%ld, Using PLL setting from table\n",
+>> +		pr_debug("%s: in=%lu, want=%lu, Using PLL setting from table\n",
+>>  			 clk_hw_get_name(&pll->hw), prate, rate);
+>>  		t->rate = tt->rate;
+>>  		t->mdiv = tt->mdiv;
+>> @@ -173,7 +173,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+>>  
+>>  	if (rate >= rate_min && rate <= rate_max) {
+>>  		kdiv = pll1443x_calc_kdiv(mdiv, pdiv, sdiv, rate, prate);
+>> -		pr_debug("%s: in=%ld, want=%ld Only adjust kdiv %ld -> %d\n",
+>> +		pr_debug("%s: in=%lu, want=%lu Only adjust kdiv %ld -> %d\n",
+>>  			 clk_hw_get_name(&pll->hw), prate, rate,
+>>  			 FIELD_GET(KDIV_MASK, pll_div_ctl1), kdiv);
+>>  		fout = pll14xx_calc_rate(pll, mdiv, pdiv, sdiv, kdiv, prate);
+>> @@ -211,7 +211,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+>>  		}
+>>  	}
+>>  found:
+>> -	pr_debug("%s: in=%ld, want=%ld got=%d (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
+>> +	pr_debug("%s: in=%ld, want=%lu got=%u (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
+> Since you are here, I think this should be 'got = %lu' instead of %u.
+>
+>
+Correction, I think that 3rd parameter is OK, first one could go form %ld -> %lu.
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on a0ae2a256046c0c5d3778d1a194ff2e171f16e5f]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/coresight-core-refactor-ctcu_get_active_port-and-make-it-generic/20260315-052703
-base:   a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
-patch link:    https://lore.kernel.org/r/20260313-enable-byte-cntr-for-ctcu-v15-6-1777f14ed319%40oss.qualcomm.com
-patch subject: [PATCH v15 6/7] coresight: ctcu: enable byte-cntr for TMC ETR devices
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260317/202603171821.OtWlpARW-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260317/202603171821.OtWlpARW-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603171821.OtWlpARW-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c:177:3: error: cannot jump from this goto statement to its label
-     177 |                 goto out;
-         |                 ^
-   drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c:179:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     179 |         guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
-         |         ^
-   include/linux/cleanup.h:419:2: note: expanded from macro 'guard'
-     419 |         CLASS(_name, __UNIQUE_ID(guard))
-         |         ^
-   include/linux/cleanup.h:300:3: note: expanded from macro 'CLASS'
-     300 |                 class_##_name##_constructor
-         |                 ^
-   <scratch space>:18:1: note: expanded from here
-      18 | class_raw_spinlock_irqsave_constructor
-         | ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:24:1: note: expanded from here
-      24 | __UNIQUE_ID_unlock_802
-         | ^
-   drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c:179:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
-   include/linux/cleanup.h:419:15: note: expanded from macro 'guard'
-     419 |         CLASS(_name, __UNIQUE_ID(guard))
-         |                      ^
-   include/linux/compiler.h:168:2: note: expanded from macro '__UNIQUE_ID'
-     168 |         __PASTE(__UNIQUE_ID_,                                   \
-         |         ^
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:12:1: note: expanded from here
-      12 | __UNIQUE_ID_guard_801
-         | ^
-   1 error generated.
+-       pr_debug("%s: in=%ld, want=%ld got=%d (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
++       pr_debug("%s: in=%lu, want=%lu got=%u (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
+                 clk_hw_get_name(&pll->hw), prate, rate, t->rate, t->pdiv, t->sdiv,
 
 
-vim +177 drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
 
-   156	
-   157	static int tmc_read_prepare_byte_cntr(struct tmc_drvdata *etr_drvdata)
-   158	{
-   159		struct coresight_device *ctcu = tmc_etr_get_ctcu_device(etr_drvdata);
-   160		struct ctcu_byte_cntr *byte_cntr_data;
-   161		int ret = 0;
-   162	
-   163		/* byte-cntr is operating with SYSFS mode being enabled only */
-   164		if (coresight_get_mode(etr_drvdata->csdev) != CS_MODE_SYSFS)
-   165			return -EINVAL;
-   166	
-   167		byte_cntr_data = ctcu_get_byte_cntr(ctcu, etr_drvdata->csdev);
-   168		if (!byte_cntr_data || !byte_cntr_data->irq_enabled)
-   169			return -EINVAL;
-   170	
-   171		if (byte_cntr_data->reading)
-   172			return -EBUSY;
-   173	
-   174		/* Setup an available etr_buf_list for byte-cntr */
-   175		ret = tmc_create_etr_buf_list(etr_drvdata, 2);
-   176		if (ret)
- > 177			goto out;
-   178	
-   179		guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
-   180		atomic_set(&byte_cntr_data->irq_cnt, 0);
-   181		/*
-   182		 * Configure the byte-cntr register to enable IRQ. The configured
-   183		 * size is 5% of the buffer_size.
-   184		 */
-   185		ctcu_cfg_byte_cntr_reg(byte_cntr_data->ctcu_drvdata,
-   186				       etr_drvdata->size / MAX_IRQ_CNT,
-   187				       byte_cntr_data->irq_ctrl_offset);
-   188		enable_irq_wake(byte_cntr_data->irq);
-   189		byte_cntr_data->buf_node = NULL;
-   190		byte_cntr_data->reading = true;
-   191	
-   192	out:
-   193		return ret;
-   194	}
-   195	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
