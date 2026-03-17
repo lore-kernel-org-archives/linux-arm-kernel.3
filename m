@@ -4,57 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3D1FED9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7C8FED9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qqIO5Nq4HZXMqx40ONnhQAaxlGohVZ2byEsaKtpwVE=; b=l+e+o1RDx64FBE+hJVppsTLPFi
-	XaKOuZlPJT/opG5vheFI7wvJBj30vUmaBlG2nvKRuPzjxQVHu++FCUiN+O6R7bbazUrYMgg2yzYW1
-	QO29Nmf+gUx+uHFkAYPg2D57XdfFAnM2WXc2Ik/Pt3gHVAyJayyg/oImPK/cQJ4tpdXgj0RRzazrG
-	H2KRvE5oUOcJIBqctqTlAiznITHyT6+hc45lUUypbnlY5HBhJp+qNeOzNMXwH6OmM2VykJxDpyzmg
-	f4Wen0/izBb/c4FtvxZHy1D1/S6DrinE6H/aHN3ynm757UqnqVP5PZfUwwQZNDf6ftDM5l05ATccr
-	8FCVp4iA==;
+	bh=hxZfwk4j7fdh1lLHSbjgNk4ZAr0h0feEpqn4ubU4naE=; b=uQrhmpPMcoWw4V7y9bzrytXojh
+	lyPYRRh5XntDwoPBS2TPO7w7LIX7HjziOo0lzpbRd1kxPvrsZVvBmdrF25MEXtBGhB/tlKh4Y3Zu5
+	LJs8jL8wDznhBF2Fl2GIPB+LlbS6IRxSWSc5BZffTaMkI13y5WIsSL5eC7mSrU8OFFl6oWGhhHms/
+	XGYsRC8JkCvd0XOxphNV4RauBm1fNeGOdH0iuIpfZ6Molnxi1MFMQngCtDOHSGD52xRV/Bcly6xb2
+	3C2bZyYrZLcbAnfJA+EhwwWkNwvuhgQ7gWNNWIzm8I51aUyWHsXIeTKksj/be4VmYPSh3ZlZz3q8I
+	BRBSSSxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2W8H-00000006hpd-40qY;
-	Tue, 17 Mar 2026 15:14:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2W8F-00000006hon-1aPx;
-	Tue, 17 Mar 2026 15:14:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=4qqIO5Nq4HZXMqx40ONnhQAaxlGohVZ2byEsaKtpwVE=; b=aE6K6iBT+96RgF/AXkjeTIg7fI
-	jlo6J/tjurPYMVRpNDnbGHBIADEYLG82kIiLADARaE4f7JgkQwuswrfvLaqqr7NtHHOCIZvJhIayv
-	aWwdrfzo8wD+Qcs6NqgaPI/WOHwK89r1ko1FRqErJsJY9ZSMddQLK9hPC11feftENz+iQK3yPbQoS
-	gaZfBJLzT8F7D+u5R84T+2tAFtTvO4XssjWwCxJcWkFoUQAChSJXhW0hcQSy2lVqQKzpuRaZVoVv8
-	buG8FU/pxaTAE3L1mMLOx1xGWxBKJuB0jvcMfLSSPsRZB8OljdSHF9stY6s0LPCywIsQ2BZiCtQ6l
-	CvCBrOLw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH] thermal/drivers/rockchip: Shut up eFuse prober defer warning
-Date: Tue, 17 Mar 2026 16:14:45 +0100
-Message-ID: <3330199.5fSG56mABF@phil>
-In-Reply-To: <20260317-rockchip-thermal-trim-warning-v1-1-01bc4bda75e9@collabora.com>
-References: <20260317-rockchip-thermal-trim-warning-v1-1-01bc4bda75e9@collabora.com>
+	id 1w2WG8-00000006jTJ-2XEH;
+	Tue, 17 Mar 2026 15:23:04 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2WG7-00000006jSt-0tEp;
+	Tue, 17 Mar 2026 15:23:03 +0000
+Date: Tue, 17 Mar 2026 08:23:03 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>,
+	Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] lib/crypto: arm64: Drop checks for
+ CONFIG_KERNEL_MODE_NEON
+Message-ID: <ablx17_Fw_CzCqSu@infradead.org>
+References: <20260314175049.26931-1-ebiggers@kernel.org>
+ <38a37b02-602a-42a4-8974-b8a6cd750c3e@app.fastmail.com>
+ <ablpCtKCV5goM_AD@infradead.org>
+ <ef71c58d-3950-474e-bddb-fc95f8d18b07@app.fastmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_081455_475259_103DF7A3 
-X-CRM114-Status: GOOD (  12.68  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ef71c58d-3950-474e-bddb-fc95f8d18b07@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +61,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 17. M=C3=A4rz 2026, 15:31:30 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Sebastian Reichel:
-> Shut up the following message printed at error level on ArmSom Sige5:
->=20
-> rockchip-thermal 2ae70000.tsadc: failed reading trim of sensor 0: -EPROBE=
-_DEFER
->=20
-> Fixes: ae332ec0009d ("thermal/drivers/rockchip: Support reading trim valu=
-es from OTP")
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+On Tue, Mar 17, 2026 at 04:08:24PM +0100, Ard Biesheuvel wrote:
+> 
+> On Tue, 17 Mar 2026, at 15:45, Christoph Hellwig wrote:
+> > On Tue, Mar 17, 2026 at 12:09:34PM +0100, Ard Biesheuvel wrote:
+> >> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> >> 
+> >> Actually, we should just get rid of CONFIG_KERNEL_MODE_NEON entirely on arm64, although there is some code shared with ARM that would still need some checks. But anything that is arm64-only should never look at this at all.
+> >
+> > I'll also drop it from the XOR series.
+> >
+> 
+> Ack - mind cc'ing me on the next revision?
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Sure.
 
-> ---
->  drivers/thermal/rockchip_thermal.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchi=
-p_thermal.c
-> index c49ddf70f86e..2a40339de0d0 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -1638,8 +1638,7 @@ rockchip_thermal_register_sensor(struct platform_de=
-vice *pdev,
->  	if (tsadc->get_trim_code && sensor->of_node) {
->  		error =3D rockchip_get_efuse_value(sensor->of_node, "trim", &trim);
->  		if (error < 0 && error !=3D -ENOENT) {
-> -			dev_err(dev, "failed reading trim of sensor %d: %pe\n",
-> -				id, ERR_PTR(error));
-> +			dev_err_probe(dev, error, "failed reading trim of sensor %d\n", id);
->  			return error;
->  		}
->  		if (trim) {
->=20
-> ---
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> change-id: 20260317-rockchip-thermal-trim-warning-cd0072aa2f46
->=20
-> Best regards,
->=20
+> 
+> > Talking about which (sorry for highjacking this thread), arm32 and arm64
+> > have completely different neon XOR implementations, where arm32 uses
+> > #pragma GCC optimize "tree-vectorize" or clang auto-vectorization of
+> > the generic C implementation, and arm64 uses intrinsics.  Is there any
+> > chance those could share a single implementation?
+> 
+> If we're migrating the XOR arch code to live under lib (if that is what
+> you are proposing),
 
+That's what is happening right now:
 
-
+https://lore.kernel.org/linux-raid/20260311115754.ca2206d1428c49c3bd6e93cf@linux-foundation.org/T/#t
 
 
