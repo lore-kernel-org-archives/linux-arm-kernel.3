@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E94BFF6E9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0999CFF6E9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zP6LS2g532rau8K/3DpgQRgp0gll0gA2EwUjdcrKBQw=; b=16pWwcOA34hgCqsAOk8p1uG0b1
-	/JJxtMgGJIrQUDUQLeefh8N9ndOXw4csAvc+OIyQCI7MkEZOQye4XYpHN01GhgEzEf4TcXTJs0ksk
-	ysy5MY9yflQE7QotcaT4/aN/lgrzGSR74S3cr4Zyj23Omh6oyrNTeoDnC3eR2nzMnHLB3CBgfarnL
-	5JPB5h0vsWW/V/hCLg3L+xlyldLVkeRK/ykbi/XwdCiUa23sWsnbWMS/zM90laNplFo/WzwXxlrJ0
-	dYWoUP91reETTToMolVCkaroV/7cjMrX3F8gGtcfqTW0X1O+6+NsDT4awAdJurUISolztxGZme/lv
-	UhsypjDQ==;
+	bh=9cN3tZ1LhENRTxlVbvieWVdYE7gsIjsqwoVTfTI9zJE=; b=ANS189uyFEncuJxVyXRnmPazw5
+	YBJ7lVOapNJZBZaexlKC/SXmD4Nufvm7W5qASzw4LdMS1yTv5iVSMZTW810lHJuZnvguPVSw1fLPU
+	nxOV1yFTNNlYjeQ8QPsy6cTI+iMWbSDWPOTkSYGErGz6qvXtIU0h00+N95dB+KZQxZrcfK4ID+ZRa
+	7a2ghNV5b0hduTXEzkhzrFHVOT1CP3RZg9lhn59zvo0Xlg1csUCYSEJIhCqXZnVYZshFfwUgstW6u
+	+bQtpKavSY8GyzkpBLATnjfpspHYI9DhFDGtStcofsRJ411S1/Z3O4F6dwiTEEZ7yHZIf4BMyZQlh
+	Q/h5vhHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGR-00000007Kf8-1QQK;
+	id 1w2dGR-00000007Kg0-2yjh;
 	Tue, 17 Mar 2026 22:51:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGE-00000007KYQ-3U9T
+	id 1w2dGF-00000007KYq-1muF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:39 +0000
+	Tue, 17 Mar 2026 22:51:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84C0944582;
+	by sea.source.kernel.org (Postfix) with ESMTP id 24E584454A;
+	Tue, 17 Mar 2026 22:51:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CCEC2BCB0;
 	Tue, 17 Mar 2026 22:51:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B9AC2BCC9;
-	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787898;
-	bh=Z4h9ZFd5elXdJi4wGJjXHxGFSPzvcEc4LERNhrT0EmE=;
+	s=k20201202; t=1773787899;
+	bh=fEMGUpFDlhNRg1sLbKniP9b2BaEndplZSI3APG5mJWo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SEISourMafINQsXcWHU2ATrORkFpttHBZjwLuKpsPpemhVE9HhqmUB/CM6T7M+htA
-	 DYR0J4BPPJCqkO96EfctVeIRhNhiRLAvPU5cmdOsi90QQyMQrniTmVNwycGCcxdZtP
-	 hUAS/YwgmhrOOeAMFmuLxT76aTwikXppqOtUIK3+2H4AgFwL2Ka+5/z9AvxduJ4KSH
-	 muy19v9dvnYxKctPAlxrXxOPWTPgau7SvFtbYeNssU2rgJd8uB0xiw/MssIc9cRMp9
-	 eV/paCwa/QWLJSEsjjT7UXNvOhbYHqXo7B093waN/tT+DwUawc6WLzRPUJASZ2Sb6Z
-	 NlLQqnKt12HXw==
+	b=boUZfUw5R1dpAOy9Qe91EuiTP6xOMtXCPYRckujVQmBIzyszZygpVfFeP9emiRV2+
+	 pBW5W7+MuEaIwfoy8UgiP/K00+g8B6UGqr4Ix+siF42Rii4jt+mVuq8B/ZzrgXeKhL
+	 YakGD1LH+bcj9nGdJKB7JYUpKm8QK3EsqSejpT1LqbENU6DDQnY/CiCgnWCuA6wzDO
+	 91yQX3yzBJ67pd5Q9k+WLtyD+zfs4kwXFbBmsUd3BqtL+msjPtzfEFK5xZoZS1LgsI
+	 2bljO01g1RYvrRgI1iVXuPzywGnKdukXJ7RqT15X7yCT9OXYIn7JHgAaFUQyacFVRg
+	 8JiSgYkLBPRLg==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 10/12] objtool: Reuse consecutive string references
-Date: Tue, 17 Mar 2026 15:51:10 -0700
-Message-ID: <4d211040356fe169b4236b3deea1cdff80e9babc.1773787568.git.jpoimboe@kernel.org>
+Subject: [PATCH v2 11/12] objtool: Introduce objtool for arm64
+Date: Tue, 17 Mar 2026 15:51:11 -0700
+Message-ID: <e180f625f80f2a8825a2a31da5dd0d9bde335634.1773787568.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
 References: <cover.1773787568.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_155138_891761_C9DF27EF 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260317_155139_510331_BB1925A1 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +81,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For duplicate strings, elf_add_string() just blindly adds duplicates.
+Add basic support for arm64 on objtool.  Only --checksum is currently
+supported.
 
-That can be a problem for arm64 which often uses two consecutive
-instructions (and corresponding relocations) to put an address into a
-register, like:
-
-  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
-  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
-
-Referencing two different string addresses in the adrp+add pair can
-result in a corrupt string addresses.  Detect such consecutive reuses
-and force them to use the same string.
-
-Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/elf.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/Kconfig                            |   2 +
+ tools/objtool/Makefile                        |   4 +
+ tools/objtool/arch/arm64/Build                |   2 +
+ tools/objtool/arch/arm64/decode.c             | 116 ++++++++++++++++++
+ .../arch/arm64/include/arch/cfi_regs.h        |  11 ++
+ tools/objtool/arch/arm64/include/arch/elf.h   |  13 ++
+ .../objtool/arch/arm64/include/arch/special.h |  21 ++++
+ tools/objtool/arch/arm64/special.c            |  21 ++++
+ 8 files changed, 190 insertions(+)
+ create mode 100644 tools/objtool/arch/arm64/Build
+ create mode 100644 tools/objtool/arch/arm64/decode.c
+ create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
+ create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
+ create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
+ create mode 100644 tools/objtool/arch/arm64/special.c
 
-diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index b911abe3a15e..5ccae2c937dc 100644
---- a/tools/objtool/elf.c
-+++ b/tools/objtool/elf.c
-@@ -1374,6 +1374,8 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..354aa80c5b4b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -236,9 +236,11 @@ config ARM64
+ 	select HAVE_HW_BREAKPOINT if PERF_EVENTS
+ 	select HAVE_IOREMAP_PROT
+ 	select HAVE_IRQ_TIME_ACCOUNTING
++	select HAVE_KLP_BUILD
+ 	select HAVE_LIVEPATCH
+ 	select HAVE_MOD_ARCH_SPECIFIC
+ 	select HAVE_NMI
++	select HAVE_OBJTOOL
+ 	select HAVE_PERF_EVENTS
+ 	select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
+ 	select HAVE_PERF_REGS
+diff --git a/tools/objtool/Makefile b/tools/objtool/Makefile
+index b71d1886022e..66b04172b79a 100644
+--- a/tools/objtool/Makefile
++++ b/tools/objtool/Makefile
+@@ -11,6 +11,10 @@ ifeq ($(SRCARCH),loongarch)
+ 	BUILD_ORC	   := y
+ endif
  
- unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
- {
-+	static unsigned int last_off;
-+	static const char *last_str;
- 	unsigned int offset;
- 
- 	if (!strtab)
-@@ -1382,17 +1384,22 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
- 		ERROR("can't find .strtab section");
- 		return -1;
- 	}
--
- 	if (!strtab->sh.sh_addralign) {
- 		ERROR("'%s': invalid sh_addralign", strtab->name);
- 		return -1;
- 	}
- 
-+	if (last_str && !strcmp(last_str, str))
-+		return last_off;
++ifeq ($(SRCARCH),arm64)
++	ARCH_HAS_KLP := y
++endif
 +
- 	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
- 
- 	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
- 		return -1;
- 
-+	last_str = str;
-+	last_off = offset;
+ ifeq ($(ARCH_HAS_KLP),y)
+ 	HAVE_XXHASH = $(shell printf "$(pound)include <xxhash.h>\nXXH3_state_t *state;int main() {}" | \
+ 		      $(HOSTCC) $(HOSTCFLAGS) -xc - -o /dev/null -lxxhash 2> /dev/null && echo y || echo n)
+diff --git a/tools/objtool/arch/arm64/Build b/tools/objtool/arch/arm64/Build
+new file mode 100644
+index 000000000000..d24d5636a5b8
+--- /dev/null
++++ b/tools/objtool/arch/arm64/Build
+@@ -0,0 +1,2 @@
++objtool-y += decode.o
++objtool-y += special.o
+diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64/decode.c
+new file mode 100644
+index 000000000000..ee93c096243f
+--- /dev/null
++++ b/tools/objtool/arch/arm64/decode.c
+@@ -0,0 +1,116 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +
- 	return offset;
- }
- 
++#include <stdio.h>
++#include <stdlib.h>
++#include <objtool/check.h>
++#include <objtool/disas.h>
++#include <objtool/elf.h>
++#include <objtool/arch.h>
++#include <objtool/warn.h>
++#include <objtool/builtin.h>
++
++const char *arch_reg_name[CFI_NUM_REGS] = {};
++
++int arch_ftrace_match(const char *name)
++{
++	return 0;
++}
++
++s64 arch_insn_adjusted_addend(struct instruction *insn, struct reloc *reloc)
++{
++	return reloc_addend(reloc);
++}
++
++bool arch_callee_saved_reg(unsigned char reg)
++{
++	return false;
++}
++
++int arch_decode_hint_reg(u8 sp_reg, int *base)
++{
++	exit(-1);
++}
++
++const char *arch_nop_insn(int len)
++{
++	exit(-1);
++}
++
++const char *arch_ret_insn(int len)
++{
++	exit(-1);
++}
++
++int arch_decode_instruction(struct objtool_file *file, const struct section *sec,
++			    unsigned long offset, unsigned int maxlen,
++			    struct instruction *insn)
++{
++	u32 i = *((u32 *)(sec->data->d_buf + offset));
++
++	insn->len = 4;
++
++	/*
++	 * These are the bare minimum needed for static branch detection and
++	 * checksum calculations.
++	 */
++	if (i == 0xd503201f || i == 0x2a1f03f7) {
++		/* For static branches */
++		insn->type = INSN_NOP;
++	} else if ((i & 0xfc000000) == 0x14000000) {
++		/* For static branches and intra-TU sibling calls */
++		insn->type = INSN_JUMP_UNCONDITIONAL;
++		insn->immediate = sign_extend64(i & 0x03ffffff, 25);
++	} else if ((i & 0xfc000000) == 0x94000000) {
++		/* For intra-TU calls */
++		insn->type = INSN_CALL;
++		insn->immediate = sign_extend64(i & 0x03ffffff, 25);
++	} else if ((i & 0xff000000) == 0x54000000) {
++		/* For intra-TU conditional sibling calls */
++		insn->type = INSN_JUMP_CONDITIONAL;
++		insn->immediate = sign_extend64((i & 0xffffe0) >> 5, 18);
++	} else {
++		insn->type = INSN_OTHER;
++	}
++
++	return 0;
++}
++
++u64 arch_adjusted_addend(struct reloc *reloc)
++{
++	return reloc_addend(reloc);
++}
++
++unsigned long arch_jump_destination(struct instruction *insn)
++{
++	return insn->offset + (insn->immediate << 2);
++}
++
++bool arch_pc_relative_reloc(struct reloc *reloc)
++{
++	return false;
++}
++
++void arch_initial_func_cfi_state(struct cfi_init_state *state)
++{
++	state->cfa.base = CFI_UNDEFINED;
++}
++
++unsigned int arch_reloc_size(struct reloc *reloc)
++{
++	switch (reloc_type(reloc)) {
++	case R_AARCH64_ABS64:
++	case R_AARCH64_PREL64:
++		return 8;
++	default:
++		return 4;
++	}
++}
++
++#ifdef DISAS
++int arch_disas_info_init(struct disassemble_info *dinfo)
++{
++	return disas_info_init(dinfo, bfd_arch_aarch64,
++			       bfd_mach_arm_unknown, bfd_mach_aarch64,
++			       NULL);
++}
++#endif /* DISAS */
+diff --git a/tools/objtool/arch/arm64/include/arch/cfi_regs.h b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
+new file mode 100644
+index 000000000000..49c81cbb6646
+--- /dev/null
++++ b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++#ifndef _OBJTOOL_ARCH_CFI_REGS_H
++#define _OBJTOOL_ARCH_CFI_REGS_H
++
++/* These aren't actually used for arm64 */
++#define CFI_BP 0
++#define CFI_SP 0
++#define CFI_RA 0
++#define CFI_NUM_REGS 2
++
++#endif /* _OBJTOOL_ARCH_CFI_REGS_H */
+diff --git a/tools/objtool/arch/arm64/include/arch/elf.h b/tools/objtool/arch/arm64/include/arch/elf.h
+new file mode 100644
+index 000000000000..80a1bc479930
+--- /dev/null
++++ b/tools/objtool/arch/arm64/include/arch/elf.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++#ifndef _OBJTOOL_ARCH_ELF_H
++#define _OBJTOOL_ARCH_ELF_H
++
++#define R_NONE		R_AARCH64_NONE
++#define R_ABS64		R_AARCH64_ABS64
++#define R_ABS32		R_AARCH64_ABS32
++#define R_DATA32	R_AARCH64_PREL32
++#define R_DATA64	R_AARCH64_PREL64
++#define R_TEXT32	R_AARCH64_PREL32
++#define R_TEXT64	R_AARCH64_PREL64
++
++#endif /* _OBJTOOL_ARCH_ELF_H */
+diff --git a/tools/objtool/arch/arm64/include/arch/special.h b/tools/objtool/arch/arm64/include/arch/special.h
+new file mode 100644
+index 000000000000..8ae804a83ea4
+--- /dev/null
++++ b/tools/objtool/arch/arm64/include/arch/special.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++#ifndef _OBJTOOL_ARCH_SPECIAL_H
++#define _OBJTOOL_ARCH_SPECIAL_H
++
++#define EX_ENTRY_SIZE 12
++#define EX_ORIG_OFFSET 0
++#define EX_NEW_OFFSET 4
++
++#define JUMP_ENTRY_SIZE 16
++#define JUMP_ORIG_OFFSET 0
++#define JUMP_NEW_OFFSET 4
++#define JUMP_KEY_OFFSET 8
++
++#define ALT_ENTRY_SIZE 12
++#define ALT_ORIG_OFFSET 0
++#define ALT_NEW_OFFSET 4
++#define ALT_FEATURE_OFFSET 8
++#define ALT_ORIG_LEN_OFFSET 10
++#define ALT_NEW_LEN_OFFSET 11
++
++#endif /* _OBJTOOL_ARCH_SPECIAL_H */
+diff --git a/tools/objtool/arch/arm64/special.c b/tools/objtool/arch/arm64/special.c
+new file mode 100644
+index 000000000000..3c2b83d94939
+--- /dev/null
++++ b/tools/objtool/arch/arm64/special.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++#include <objtool/special.h>
++
++bool arch_support_alt_relocation(struct special_alt *special_alt,
++				 struct instruction *insn,
++				 struct reloc *reloc)
++{
++	return false;
++}
++
++struct reloc *arch_find_switch_table(struct objtool_file *file,
++				     struct instruction *insn,
++				     unsigned long *table_size)
++{
++	return NULL;
++}
++
++const char *arch_cpu_feature_name(int feature_number)
++{
++	return NULL;
++}
 -- 
 2.53.0
 
