@@ -4,54 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A67FED9EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE161FED9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tB+uCcFAXOshYh+MB8f6XacJ/BFUkrFfAbj0tIlciyQ=; b=UA8WnG4MCzqqT+cHqoRrRAhGks
-	2LxMWVFQ/FqReRvJMnQgelbpWM6bQ9Io1YPoGcwLAICSNTt+a0P10gxCEGgDM4cqRB7HBloARBdRt
-	bEhyvuP/ysaH6/ss9Qhti4k5xNc/5qXIGVqLOImURtbvw9hmtIeGGYAU5Eo15ZFy/YtpDceV2UeOM
-	VDW087KpG2xHNp2kODvZpJje6Lc6WeHog75t0vx1GMsD8PHQFZZGewHxejyRvbf0ev9QF+138whu1
-	pZOJMm7ZGEHliEJD6s0Gqz1XUmV8X0Bobz9CpDA9JxsB/pesp2D/+CPU806NrnsLNsIFFucuBjG+8
-	vhYXyAMg==;
+	bh=fgFlZ8aTptjtRhZcXnFarsRhYrGzHZGbc2ExB55l1Js=; b=KhzO/yk2jTfrxD5D825mgKVhGw
+	6JocO4Z3d04u+d7WaXYnEOcK4nIkTpEbZ1Ci2smWe6QnVwfPUi5zywwfGceO8ulQgL6WuqRlPOcnC
+	TsV26KNtJs6Mx4m3kaBHuRiX0/Ag8cnET4Og1gHG5VVLNgwTp2v2MtGqZW/raYD8JFHtV5CFvehBA
+	JX5xaXhlGiTvxSYUoN6/u6WBNBPfnNNpWI2h22yTLPMy8Z1mn84OllN6LDtIUeqhP9Ej2WeBLm7j7
+	0fzjtc0Bb1fP597UmAokjnWsVOroufYKWbiJMGxzjt2f+WjbfV+9zmASh7w4xsFB1Ij32CBiIIUzW
+	OOHpV7pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2XpW-00000006sts-17Sb;
-	Tue, 17 Mar 2026 17:03:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2XpU-00000006stL-2TQf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:03:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C35171477;
-	Tue, 17 Mar 2026 10:03:31 -0700 (PDT)
-Received: from [10.57.20.100] (unknown [10.57.20.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80E293F778;
-	Tue, 17 Mar 2026 10:03:36 -0700 (PDT)
-Message-ID: <65fd6905-f753-41cd-8ce5-c788ef67e748@arm.com>
-Date: Tue, 17 Mar 2026 17:03:34 +0000
+	id 1w2XuI-00000006tDz-1IxV;
+	Tue, 17 Mar 2026 17:08:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2XuH-00000006tDn-0IzS;
+	Tue, 17 Mar 2026 17:08:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 753AA60018;
+	Tue, 17 Mar 2026 17:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FE03C2BCAF;
+	Tue, 17 Mar 2026 17:08:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773767316;
+	bh=OYKACKHn9r18VVAQQYO3XCrcZvWsa6eEUXZQRmgI5C0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=rhvZZBY2U1mkFiKJSa826Kc7/gzYFZ5jEiwCXQnVS1v18/CpcQgiD8yLe10ccgZw6
+	 rJlFDbVK80uWDDmJujHFEyNr8h5sdpMmPsbx4bou7op6cEftrXfe2aI14MyVyefzlt
+	 hFlf0rFejR8e6OWjf1GEuAHpNP9Vkt9oxLGV3CWZ4Ox1fhf6QZpHKjY2lkwXFSDtlG
+	 t4ibFiC8FcvggvF2ld1UFYcQravWyOc2zuLlTAL29stP+rNb1HGzHLtW2Kl3u6YzVX
+	 jAaeF21hSn+OaQVE9dlnA3dfV1u0xT7/sLjg3EVyKaue5fLzuKpTEw9BbZZ4iRLGI8
+	 SEbfKRPG6l8Xw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Alexey Charkov <alchark@gmail.com>, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com
+In-Reply-To: <20260316-rk3576-spdif-v1-0-acb75088b560@collabora.com>
+References: <20260316-rk3576-spdif-v1-0-acb75088b560@collabora.com>
+Subject: Re: (subset) [PATCH 0/2] Add SPDIF support to RK3576
+Message-Id: <177375071091.66172.9619091096870411031.b4-ty@kernel.org>
+Date: Tue, 17 Mar 2026 12:31:50 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
- Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
-References: <20260316175451.1866175-1-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260316175451.1866175-1-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_100340_679017_E29D7447 
-X-CRM114-Status: GOOD (  14.45  )
+X-Mailer: b4 0.15-dev-e1b5b
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1335; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=OYKACKHn9r18VVAQQYO3XCrcZvWsa6eEUXZQRmgI5C0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpuYqQC0mSRbvylEYD8XOwmbfCGbStTFm5gcpB+
+ WMc5ukRc5qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCabmKkAAKCRAk1otyXVSH
+ 0HgGB/0VtBFyeChYr02uBJH0w2HPP0KbeANerijwZkJYYAa7H7iiNfnxSOqKy32XDMYLLMFSmSh
+ 9ANd6QWMUNAiM7awG7MWSMr7aUaKM0PFWlO5Guw0Z+m36wqmLuwC+f1/shA71QEKh7FDbSyXzQp
+ pQGlcivQjzR0cVYGA5L0HU4fhmgMRj59s1NtA3ja6USpSwAot4tO3GKBHwIQWTz+lq2TJYwsCve
+ jtLg+2dVCHiEN5CE5XaqrL5eTjNoWggtsg/z/Nf66rK2mCtFO01gBPtiAMbJpZ6Y/wiJk9j2zYl
+ C3Ig1w9XCfUVoeQXyVHXKRtCjgSJvaVaJ/DUZ4PseKCiZuXw
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,59 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 17:54, Marc Zyngier wrote:
-> Piqued by Fuad's initial set of patches[1] splitting user_mem_abort()
-> into more "edible" functions, I've added my on take on top of it with
-> a few goals in mind:
+On Mon, 16 Mar 2026 19:22:59 +0100, Sebastian Reichel wrote:
+> Add SPDIF support to RK3576
 > 
-> - contextualise the state by splitting kvm_s2_fault into more granular
->    structures
+> Add SPDIF support on RK3576 in preparation for Displayport audio
+> support. My expectation is that Mark picks up the DT binding via
+> his audio tree and Heiko picks up the DTS via the Rockchip tree.
 > 
-> - reduce the amount of state that is visible and/or mutable by any
->    single function
 > 
-> - reduce the number of variable that simply cache state that is
->    already implicitly available (and often only a helper away)
-> 
-> I find the result reasonably attractive, and throwing it at a couple
-> of machines didn't result in anything out of the ordinary.
+> [...]
 
-Indeed a very nice cleanup both of you ! Thanks for making this
-pleasing to the eyes and easier to reason about.
+Applied to
 
-FWIW:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.0
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Thanks!
 
+[1/2] dt-bindings: ASoC: rockchip: Add compatible for RK3576 SPDIF
+      https://git.kernel.org/broonie/sound/c/4eae391a8e4c
 
-> 
-> For those interested, I have stashed a branch at [2], and I'd
-> appreciate some feedback on the outcome.
-> 
-> [1] https://lore.kernel.org/all/20260306140232.2193802-1-tabba@google.com/
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=hack/user_mem_abort-rework
-> 
-> Marc Zyngier (17):
->    KVM: arm64: Kill fault->ipa
->    KVM: arm64: Make fault_ipa immutable
->    KVM: arm64: Move fault context to const structure
->    KVM: arm64: Replace fault_is_perm with a helper
->    KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
->    KVM: arm64: Kill write_fault from kvm_s2_fault
->    KVM: arm64: Kill exec_fault from kvm_s2_fault
->    KVM: arm64: Kill topup_memcache from kvm_s2_fault
->    KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
->    KVM: arm64: Kill logging_active from kvm_s2_fault
->    KVM: arm64: Restrict the scope of the 'writable' attribute
->    KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
->    KVM: arm64: Replace force_pte with a max_map_size attribute
->    KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
->    KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
->    KVM: arm64: Simplify integration of adjust_nested_*_perms()
->    KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
-> 
->   arch/arm64/kvm/mmu.c | 428 ++++++++++++++++++++++---------------------
->   1 file changed, 223 insertions(+), 205 deletions(-)
-> 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
