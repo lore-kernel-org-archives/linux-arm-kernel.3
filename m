@@ -4,83 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47B7FD8763
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 320AEFD875E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wVX+e0F9KN8dfj/SwmnvICc5jP1yDHnEZ0Sn7ozoJNs=; b=mkVOsHsQ4VrtItt6zEtc8hT5hV
-	BF9eLOpwd8IW8WcstlvXUJrjAOXymPll+tYrhvQO1Fb1Iafz05/UGRivzEMviasRh9YYZ01IE4YTG
-	BPiNj6NECmZj75GT7EOkALlUV5SbMmL69AFTH/dwPEOfa50Nap+qGmaT88sb//qeab59Fs8KMyn69
-	C8YsaK5HfWZoHNo17w5y5sivIjeqzwuk4k9QVNvaZ6B2xD4llIJdQA997BsaYhmb91Extb91i/Qk/
-	y0zLP7PZroK3mogCPyE403mIV3G8hss7nklMpRiJXw4SbVa1o1136GlJvF4OBDQAht3TqFWVPa8lh
-	Vd3VzMOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9oQqV+RX8x9mTT15DeOPQvLmrB9KGgQzFv8SO038oUc=; b=mwtvFRa1WDtEUB6o65nRnzGpV3
+	C/4zjDVYaXBMZ69mI1L+2C+uDeNNbB6uDS5TLMIme3fC0rOsCS5+oUoXTTc2JqG3K/VuwZ+TNTh2V
+	fGftcQlszLdLDArH0XoNfQsEogxG1oVefD18Ps1c9dlkej+zQCxI69EQsGICSh/LtGzCQ7tV7QioB
+	CsINiE/CT2amQ7Brva+loIkBlQXoyK6IXOl02uOBIcgicDPlSslif3yLmbBOBGdWDQ26+ggKBjfwJ
+	QnMtJId4CzyoVRBqOuHp2u1YjTfBvGLuctKhbz6pFo0GgENbjhoBHy2WCAj5Um13J6xIZjSR6IwjQ
+	aX4qo7Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UD7-00000006OGF-2Wmg;
-	Tue, 17 Mar 2026 13:11:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w2UHa-00000006Ove-1VRV;
+	Tue, 17 Mar 2026 13:16:26 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UD1-00000006ODr-4BR7
+	id 1w2UHX-00000006Our-3XNB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:11:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=wVX+e0F9KN8dfj/SwmnvICc5jP1yDHnEZ0Sn7ozoJNs=; b=EPue8tD3UjFJLyx+/NIDJIFQFG
-	CCdoKdaIuUH7eJ+4tYTn/wTRk4U9UzHLkBcTwnYjtu/CHI3q1EnJ8OewQDOdHV574I/ua1i2KjrRW
-	nkCrgvXJhhR+/9zsyJiTVlb6FfW43WjKokDq1KCt8MwUtRl/Xhx5k4HHazKF6A89/7AuzUZm8xC2T
-	h9C/Ubvqtb3MjEYh2KUtoCR5RwEzeUDZXmkoBRnbDG+n2B3ALsAKXB2hM/XIu6N40n7ORJVbrI9t3
-	3SASwFucwlFauZh+LFefZI35v/Uq8R7ND0OoYkbdR1cOhEutZM7ZBFcrngrETuzhPl+i1e5P8SoyB
-	ajRZrEMw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59600)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w2UCl-000000005EG-45Ud;
-	Tue, 17 Mar 2026 13:11:28 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w2UCi-00000000649-1jir;
-	Tue, 17 Mar 2026 13:11:24 +0000
-Date: Tue, 17 Mar 2026 13:11:24 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Christophe Roullier <christophe.roullier@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	antonio.borneo@foss.st.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] net: stmmac: fix pinctrl management during
- suspend/resume
-Message-ID: <ablS_C8oEQFeSU1Q@shell.armlinux.org.uk>
-References: <20260313105718.359614-1-christophe.roullier@foss.st.com>
- <20260313105718.359614-2-christophe.roullier@foss.st.com>
- <abPwHh12MLwMwOIs@shell.armlinux.org.uk>
- <CAD++jLmBP5Puwf1ZuFOzF6U0XowoF1nfqEL3gwLy-svXsXrbJA@mail.gmail.com>
- <abStv0IPLfkKMD-W@shell.armlinux.org.uk>
- <CAD++jL=Av5K7Ag95LYou4TMKGR59TmtiQpxcnpcj+4tZFtzRug@mail.gmail.com>
+	Tue, 17 Mar 2026 13:16:25 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773753380;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9oQqV+RX8x9mTT15DeOPQvLmrB9KGgQzFv8SO038oUc=;
+	b=vmq4KMb4KSzFmj/OfzyizXiwqJq2DLV0RQJwJ/B/p2gFvajS76MJbamDhUTWIut9Wso1b/
+	J0W2633uPICOl+Nx+imbwysMvlLot9bQS7bZO37W2koMM3P8+CUvKcywmeKhsEgfK36//5
+	9sGRcnSHtHi7z9NXPasv8MmDdSTM3U4=
+From: Zenghui Yu <zenghui.yu@linux.dev>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	"Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
+Subject: [PATCH] KVM: arm64: selftests: Avoid testing the IMPDEF behavior
+Date: Tue, 17 Mar 2026 21:15:58 +0800
+Message-ID: <20260317131558.52751-1-zenghui.yu@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=Av5K7Ag95LYou4TMKGR59TmtiQpxcnpcj+4tZFtzRug@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_061144_375050_C73DD8BB 
-X-CRM114-Status: GOOD (  30.11  )
+X-CRM114-CacheID: sfid-20260317_061624_091700_8B169C21 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,76 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 01:13:14AM +0100, Linus Walleij wrote:
-> On Sat, Mar 14, 2026 at 1:37 AM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > On Sat, Mar 14, 2026 at 12:44:56AM +0100, Linus Walleij wrote:
-> > > On Fri, Mar 13, 2026 at 12:08 PM Russell King (Oracle)
-> > > <linux@armlinux.org.uk> wrote:
-> > > > On Fri, Mar 13, 2026 at 11:57:16AM +0100, Christophe Roullier wrote:
-> > > > > In the deepest low-power modes, the pinctrl configuration is lost
-> > > > > and is never restored if the interface is down.
-> > > > > This commit ensures that the pinctrl state is set in all cases.
-> > > >
-> > > > Shouldn't the pin state be restored by the pinctrl layer?
-> > >
-> > > What we have in the device core only applies "init" and "default"
-> > > states, and provides these handles for transitioning to "sleep"
-> > > and "default" again (like a state machine).
-> >
-> > What I was meaning is that - for a driver using the "default" state,
-> > if the hardware loses the pinctrl state during sleep, isn't it the
-> > responsibility of the pinctrl driver to restore the state rather
-> > than leaving it in whatever states it happens to be when the SoC
-> > comes back from suspend?
-> 
-> Aha I understand.
+From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
 
-I'm not so sure. My point is that if a driver binds, and pinctrl
-ends up using the default pinctrl settings, then should it not
-be the case that after a suspend/resume cycle, the pinctrl
-settings remain configured in the default state with no driver
-intervention?
+It turned out that we can't really force KVM to use the "slow" path when
+emulating AT instructions [1]. We should therefore avoid testing the IMPDEF
+behavior (i.e., TEST_ACCESS_FLAG - address translation instructions are
+permitted to update AF but not required).
 
-This is my point - a driver that is unaware of pinctrl should not
-have to do anything special in its resume path to ensure that the
-pinctrl state that was configured by generic code at probe time
-is maintained after a resume - that state should not be lost.
+Remove it and improve the comment a bit.
 
-I'm trying to get an answer on this, because the original patch
-description here says:
+[1] https://lore.kernel.org/r/b951dcfb-0ad1-4d7b-b6ce-d54b272dd9be@linux.dev
 
-| In the deepest low-power modes, the pinctrl configuration is
-| lost and is never restored if the interface is down.
+Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+---
+ tools/testing/selftests/kvm/arm64/at.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-stmmac uses the "default" pinctrl state at probe time. This commit
-says that is lost over suspend/resume - which to me sounds like
-a pinctrl driver bug, because on resume, the pinctrl driver is not
-ensuring that the pinctrl state is restored to whatever it was when
-the suspend happened (whether the driver explicitly changed it or
-not.)
-
-To put it another way...
-
-On entry to probe for a non-pinctrl driver, if DT describes a default
-pinctrl state, that state will be selected by core code.
-
-On suspend, the driver is free to select another state if it so wishes,
-or do nothing (e.g. it's unaware of pinctrl.)
-
-On resume, the pinctrl layer, what is expected to happen. Surely, it
-is reasonable for a pinctrl unaware driver, or at least a driver which
-has _not_ changed the pinctrl state to expect that the default pinctrl
-state is still in effect when its resume function is called - and if
-that is not the case, then there's a bug here.
-
-Another way to put it...
-
-We shouldn't be expecting device drivers to have to mess with pinctrl
-e.g. switching to a sleep state and then back to a default state just
-to have pinctrl settings restored to a functional state on resume.
-
+diff --git a/tools/testing/selftests/kvm/arm64/at.c b/tools/testing/selftests/kvm/arm64/at.c
+index c8ee6f520734..ce5d312ef6ba 100644
+--- a/tools/testing/selftests/kvm/arm64/at.c
++++ b/tools/testing/selftests/kvm/arm64/at.c
+@@ -13,7 +13,6 @@
+ 
+ enum {
+ 	CLEAR_ACCESS_FLAG,
+-	TEST_ACCESS_FLAG,
+ };
+ 
+ static u64 *ptep_hva;
+@@ -49,7 +48,6 @@ do {											\
+ 		GUEST_ASSERT_EQ(FIELD_GET(SYS_PAR_EL1_ATTR, par), MAIR_ATTR_NORMAL);	\
+ 		GUEST_ASSERT_EQ(FIELD_GET(SYS_PAR_EL1_SH, par), PTE_SHARED >> 8);	\
+ 		GUEST_ASSERT_EQ(par & SYS_PAR_EL1_PA, TEST_ADDR);			\
+-		GUEST_SYNC(TEST_ACCESS_FLAG);						\
+ 	}										\
+ } while (0)
+ 
+@@ -85,10 +83,6 @@ static void guest_code(void)
+ 	if (!SYS_FIELD_GET(ID_AA64MMFR1_EL1, HAFDBS, read_sysreg(id_aa64mmfr1_el1)))
+ 		GUEST_DONE();
+ 
+-	/*
+-	 * KVM's software PTW makes the implementation choice that the AT
+-	 * instruction sets the access flag.
+-	 */
+ 	sysreg_clear_set(tcr_el1, 0, TCR_HA);
+ 	isb();
+ 	test_at(false);
+@@ -102,8 +96,8 @@ static void handle_sync(struct kvm_vcpu *vcpu, struct ucall *uc)
+ 	case CLEAR_ACCESS_FLAG:
+ 		/*
+ 		 * Delete + reinstall the memslot to invalidate stage-2
+-		 * mappings of the stage-1 page tables, forcing KVM to
+-		 * use the 'slow' AT emulation path.
++		 * mappings of the stage-1 page tables, allowing KVM to
++		 * potentially use the 'slow' AT emulation path.
+ 		 *
+ 		 * This and clearing the access flag from host userspace
+ 		 * ensures that the access flag cannot be set speculatively
+@@ -112,10 +106,6 @@ static void handle_sync(struct kvm_vcpu *vcpu, struct ucall *uc)
+ 		clear_bit(__ffs(PTE_AF), ptep_hva);
+ 		vm_mem_region_reload(vcpu->vm, vcpu->vm->memslots[MEM_REGION_PT]);
+ 		break;
+-	case TEST_ACCESS_FLAG:
+-		TEST_ASSERT(test_bit(__ffs(PTE_AF), ptep_hva),
+-			    "Expected access flag to be set (desc: %lu)", *ptep_hva);
+-		break;
+ 	default:
+ 		TEST_FAIL("Unexpected SYNC arg: %lu", uc->args[1]);
+ 	}
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.53.0
+
 
