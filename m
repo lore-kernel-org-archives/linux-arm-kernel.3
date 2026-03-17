@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B3D6FD8770
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB56FD877B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtjYw7NIr5M9DO4GZFC2fJ8GnFCnCjLLvq9mVI1210Q=; b=bTOY8dvedo87a9WgJmCGw8IUP8
-	D2Zci7N5v43nZhv56401o9pVR+nLzBDOdx9nci7bcccoUoecwokED8Hp3liptilecEVcjlpXl2i+F
-	CcZrxkrAVnzm473VPfxglogJvJi0vNNizRjMcXajXRgd8NhVcI0Cc3YUBA8Vx0dwKokDRVtbcpVv0
-	DbjgOcxixLU/SoR5WKOLNAoAdPa7l0D9PSOOtk+6HSZb1pnR1vHdTRaa7nK+OPfqCu7512IsERnSm
-	555adf5UWquy+lvsMNaUTcvMVAM/w5kHGE+36nbKovreUhBzPgOo2DhszLLMahV4LZcQqxzQh9d1s
-	SpO2dYJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8I4GJ6VYY4sAkpPtIoMg3PlbM8gWrHzgVlQtnkD+cJ8=; b=wk0L8rV0LOm37jTPCRAOlUK7vN
+	lFeN1YaD/woLP5tP+PhYkT3/t2nWxZ+XA8hqH8tpi8DbHJGFaOZvdscHwu6FfbEg8sXSNjPgw+Yox
+	mePhBjDOgK4SKuYJ5JShPPF2gh2MOTjUkSXvzX2quNaiLt5rDHt3vtTOz2c9xp1rQ327PVepwjOQW
+	Q9zVqYcn/Sb+e8N8XKideV5sRIKlmxGi3qNuaq4L075x8YZV9FchPnR9ES1PEv5QOLxr03BAz3bDa
+	6NJKV3IhN7WBIxvjV6Jdw2PODA63Uer7A7O/DRKLbvdYGMt27gKuT1NubDJ6WYOpEPIBMwdAZGeNc
+	dZzhWK5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2V8w-00000006Wrd-3FBw;
-	Tue, 17 Mar 2026 14:11:34 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1w2V9U-00000006X3s-3fQx;
+	Tue, 17 Mar 2026 14:12:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2V8t-00000006Wpr-370a
+	id 1w2V9S-00000006X2X-1DsA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 14:11:32 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-486b9675d36so5143605e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:11:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773756690; x=1774361490; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mtjYw7NIr5M9DO4GZFC2fJ8GnFCnCjLLvq9mVI1210Q=;
-        b=GlnkxbsTKyTl44i5nZWLnqqFM9JekJHwTcm7XEP3U41Bh0bpYk5aBouZC6DewYjCf+
-         CFHJUAPgOInrypoC7Fqm1KDfnjyH9YY6YxEkeZ7tJlQREq6EC1SIL6FaSSURFNke1Pjt
-         UGZm9k7xNEWiyWzl4dwEMxxOPhYEne24BpyqrsGsYD+UJMsxvnuCahE+HqoXu7B6Z0NO
-         Q0crPGmtAiRqVo3MJ1UZv8pWkk/YwQHy0bhtlDSVLn/bERrDqaZdEN5WIR6MfDnGYAVg
-         +X+wNR5cOl+8v3a+SppE95X8LYG1Pjj4yyc6+VFKRViNZLw8y4nRWP87ado8to49kKqj
-         lNSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773756690; x=1774361490;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mtjYw7NIr5M9DO4GZFC2fJ8GnFCnCjLLvq9mVI1210Q=;
-        b=fSh+hmnnSGeKqcdDwutP3hsAEhMVgoSic8MrnrpHGRsIYwHXAbGgUXRXn0BCmYFo4A
-         g7uUWmYKAiDUAZC7SnNIkIeY2VPvYDjo220EO2iI74cSTNMau+SajF+2c6rY5HczOwi6
-         SsPyg1/2YaLxkvlU61XEEb8h2SLCfP8jpqOAWcLFmIbGrdaCRb0YYKEpCuDdH1wCbXks
-         tzfSGG+ZXzRPfKCDRrAcQg4CgkN83Eh2EcXlRja9cuSuTjjByrQ+qrGUZ+h6vh6h6bMC
-         k0G4oG5Fx8Llhpl5IwYWC0/AKL876nVGi0rIbeA8R0fXVGFBynqA8vSyA0ZfPbtxBX6S
-         zMPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJuIEPV4E7eTP3mNbvse12fVfV/1fEbdqMdQrcnvVH7oQLwBYsMJ64K49DPBhWZncRu/Y8UnNMEwiNo6RMbfrQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNj+mz9m6kUUYzflg6Q9f92WrBw9nWeaPcNSbhnrs1Gvflojo1
-	zH8waj9Ku+UTH/WESytdV3yS7Jc1PI7mHKm2cYhREnLMzD1aTsfTasqK91ZqQ0AO6r8=
-X-Gm-Gg: ATEYQzwxf8BoZiWXJOuZWzBEVkYZrnVYncaeBSWEItRqwBr04HHi05cf3e1xonJ0yQP
-	8mxXlHDHIYJzEA4CfQJCRrjKbO6SWX8RjQOkkSK1xrP7L872+4x0hNT5dAcgRd72UTsb7hwhhy2
-	9/31mYSSA8933eTHAduMMYBRjVlAnFDyoDK24acSqMlXrjw55p2E2VW60Snn8tF2sUvqNHE9Lor
-	SXamDtUq+1WelhwndSPuE1jh0c8lTmOS1IWtw0adJzgOmQus2hRodMQ6gov8UngNTtkxKO3Rf41
-	wdXOTyuyVeL0mRQJaUM+MNgpTwonuYzV2z2EkCqzeGDqNS5qh30lG1/XyA4QIvzJTqy/TfIXqSV
-	QBVqz5IPbirmkodiWTykZQzBGXdg2JTynr9sXT/FPHQIecaUdNSor2PcjLHSAMRi+/k3zD7vlwT
-	Pc54swNT4A+yOp7JGnanyC5m4lnwqI35aHXRxOdLiei7MtkK1u4xVT1/OkFVtbbpmt4YA8Zi1hW
-	Nl4AnHIJ7j3Dw453Q==
-X-Received: by 2002:a05:600c:4514:b0:480:4a8f:2d5c with SMTP id 5b1f17b1804b1-48556709e21mr271873225e9.29.1773756689493;
-        Tue, 17 Mar 2026 07:11:29 -0700 (PDT)
-Received: from localhost ([2a02:c7c:5e34:8000:df24:76aa:fdca:2fe])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485563903bbsm194524525e9.0.2026.03.17.07.11.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2026 07:11:28 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Mar 2026 14:11:27 +0000
-Message-Id: <DH549OXPHXQA.265AMHWFSNK5C@linaro.org>
-Cc: "Sam Protsenko" <semen.protsenko@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>, "Tudor
- Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFC 7/8] soc: samsung: exynos-pmu: add Exynos850 CPU
- hotplug support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Peter Griffin" <peter.griffin@linaro.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.21.0
-References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org>
- <20260226-exynos850-cpuhotplug-v1-7-71d7c4063382@linaro.org>
- <CADrjBPoLCDnvWocLYrg-zGRZNcBvPVYnUi4L7DA78m7QmkmQdQ@mail.gmail.com>
-In-Reply-To: <CADrjBPoLCDnvWocLYrg-zGRZNcBvPVYnUi4L7DA78m7QmkmQdQ@mail.gmail.com>
+	Tue, 17 Mar 2026 14:12:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8I4GJ6VYY4sAkpPtIoMg3PlbM8gWrHzgVlQtnkD+cJ8=; b=N+dDSJ2HU0OM2CcLn4jv+usPjd
+	A9wdkncTUcJn9notW4QhMgME5kzWZfjThVZ2iXhKee3kFdfO9g3pq4hnExXaG/dDDz3gIj3W3JgL4
+	wXUtVec4QUwzHQP2wbKIu2ac3PcBp/nHnJnwaIruyb5KuldwzIx57kVDbrjp+jnghfHQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w2V98-00C2BR-78; Tue, 17 Mar 2026 15:11:46 +0100
+Date: Tue, 17 Mar 2026 15:11:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com, Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <104e9861-bfd4-4e0f-8967-a849edf7e6fb@lunn.ch>
+References: <20260313195801.2043306-1-shenwei.wang@nxp.com>
+ <20260313195801.2043306-4-shenwei.wang@nxp.com>
+ <2aa1d063-181f-4145-9f1f-7e3012c4d0af@foss.st.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2aa1d063-181f-4145-9f1f-7e3012c4d0af@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_071131_801084_85BF7C18 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20260317_071206_333697_6CCCAD27 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +82,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+> > +struct rpmsg_gpio_info {
+> > +	struct rpmsg_device *rpdev;
+> > +	struct rpmsg_gpio_packet *reply_msg;
+> > +	struct completion cmd_complete;
+> > +	struct mutex lock;
+> > +	void **port_store;
+> > +};
+> 
+> Except if I missunderstood Mathieu and Bjorn's request:
+> "reuse all the design-work done in the gpio-virtio"
+> We should find similar structures here to those defined
+> in virtio_gpio.h.
+> struct rpmsg_gpio_config {
+> 	__le16 ngpio;
+> 	__u8 padding[2];
+> 	__le32 gpio_names_size;
+> };
+> 
+> /* Virtio GPIO Request / Response */
+> struct virtio_gpio_request {
+> 	__le16 type;
+> 	__le16 gpio;
+> 	__le32 value;
+> };
 
-On Fri Mar 6, 2026 at 2:15 PM GMT, Peter Griffin wrote:
-> On Thu, 26 Feb 2026 at 15:47, Alexey Klimov <alexey.klimov@linaro.org> wr=
-ote:
->>
->> Some Exynos-based SoCs require specific set of writes/updates to PMU
->> and PMU intr gen blocks in order to put a CPU or a group of CPUs into
->> a different sleep states or prepare these entities for a CPU_OFF.
->> The same is valid for a reverse procedures like wake-ups or CPU(s)
->> online. Without these writes/updates the CPU(s) wake-up or online
->> fails.
->> Add support for Exynos850-based SoCs for PMU and PMU intr gen write/upda=
-te
->> sequences.
->> While at this, also add description of Exynos850 PMU registers.
->>
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  drivers/soc/samsung/exynos-pmu.c            | 86 ++++++++++++++++++++++=
-+++++--
->>  include/linux/soc/samsung/exynos-regs-pmu.h |  5 ++
->>  2 files changed, 87 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exyn=
-os-pmu.c
->> index 0967fa56708a..7b9b8e22d91b 100644
->> --- a/drivers/soc/samsung/exynos-pmu.c
->> +++ b/drivers/soc/samsung/exynos-pmu.c
->> @@ -118,6 +118,10 @@ static const struct regmap_config regmap_pmu_intr =
-=3D {
->>         .use_raw_spinlock =3D true,
->>  };
->>
->> +const struct exynos_pmu_data exynos850_pmu_data =3D {
->> +       .pmu_cpuhp =3D true,
->> +};
->> +
->
-> You may want to consider having an e850-pmu.c file to contain the e850
-> specific data and hooks.
->
-> Andre recently moved some of the gs101-specific parts into gs101-pmu.c
-> (although not the actual gs101 online/offline hooks). Now that more
-> SoCs are being added it could be a good time for exynos-pmu to contain
-> only the generic code and the <soc>-pmu.c file having the
-> peculiarities/hooks for the specific SoC.
+The core of the issue is that Shenwei is stone walling any change
+which makes it hard to keep the legacy firmware. It is possible to use
+these structures, but it makes the extra code Shenwei needs to
+translate this protocol to the legacy protocol more difficult. It
+might need to keep state, etc. 
 
-Thanks. Yeah. That's why it was sent as an RFC to get pointers where
-to place things properly. I'll update it.
+Two points...
 
-[..]
+The firmware implements more than GPIO. There is definitely I2C as
+well, the first version of the patch has bits of I2C code. Looking at:
 
->> -       pmu_context->cpu_pmu_online =3D __gs101_cpu_pmu_online;
->> -       pmu_context->cpu_pmu_offline =3D __gs101_cpu_pmu_offline;
->> +       if (of_machine_is_compatible("google,gs101")) {
->> +               pmu_context->cpu_pmu_online =3D __gs101_cpu_pmu_online;
->> +               pmu_context->cpu_pmu_offline =3D __gs101_cpu_pmu_offline=
-;
->> +       }
->> +
->> +       if (of_machine_is_compatible("samsung,exynos850")) {
->> +               pmu_context->cpu_pmu_online =3D __exynos850_cpu_pmu_onli=
-ne;
->> +               pmu_context->cpu_pmu_offline =3D __exynos850_cpu_pmu_off=
-line;
->>
->
-> There should be no compatibles inside probe (that rule applies to all
-> drivers & subsystems). Instead use the driver match data
-> (exynos_pmu_data).
+https://lwn.net/ml/all/20250922200413.309707-3-shenwei.wang@nxp.com/
 
-Thanks. Yep, I'll update it.
+There is also RTC, and a few other things which don't directly map to
+Linux subsystems, but maybe do have Linux drivers?
 
-BR,
-Alexey
+Give how much pushback there has been on the existing protocol for
+GPIO, it would be wise to assume that I2C, and RTC is going to get the
+same amount of pushback. If any of these three, GPIO, I2C, or RTC
+decide that only a new, clean protocol will be accepted, no legacy
+shims, the firmware has to change, breaking compatibility to legacy
+protocols, and the accepted shims become pointless Maintenance burden.
+
+Point two is that the customers who are pushing for these drivers to
+be added to Mainline probably know that nearly nothing gets into
+Mainline without some changes. There is some short term pain to
+swapping to Mainline because of these changes, in this case, firmware
+upgrades. But in the long run, it is worth the pain to be able to use
+Mainline. And those customers who don't want to upgrade the firmware
+can keep with the out of tree drives.
+
+So, what are our choices?
+
+1) We accept the code as it is now, with the shim?
+
+2) We keep pushing for the virtio protocol, with the shim?
+
+3) We keep pushing for the virtio protocol, no shim, firmware changes
+
+4) We pause GPIO where it is today, and restart all the arguments with
+   the I2C driver. We can come back to the GPIO driver in a few months
+   time once we have a better idea how I2C is going. And maybe we also
+   need to see the watchdog driver, and argue about its protocol.
+
+I also understand ST has a generic I2C driver nearly ready, if that
+gets merged first, that probably kills the NXP I2C protocol, and maybe
+the NXP GPIO and RTC protocols.
+
+My vote is for 3. If not 3, then 4.
+
+     Andrew
+
 
