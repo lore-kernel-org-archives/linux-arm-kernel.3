@@ -4,107 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E30AF33821
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1097FF3382C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrrhHY9vkr1DtkvlKZDIAM8/07CcFbUVo4DxuLdzU/Q=; b=KEJxmAZnraR6VNsPOW9cjtWJ4F
-	pI5ZuNZhPN680pgkEp4qI4w5RoxPOzZjxBp41sbg16yBfGIm1XxFVj3keic5Oij/bzxJrSToYCL5g
-	DgjGhAtAfNbScF6VvIVj1Gw03HOwYHQviAyPovCG+Kn5Qavb1Va8SUc6mAw8KNkkZ5X6SVeQN58nO
-	5Gr38CO7MYkAqYskCpnPQwI/xpwJVAvTKA0K20qKqWDDMKk2p+5AKQbKSKM2TkSOfrCtCCM46kLLW
-	bcw1MnLIGzbRmC4pXNtNMd1ZTVo7JKlUkSj9d0w1m/955uaAgmNEAnXNeRoV7yHep6MUa4ASpDwbo
-	yDMrLIDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KtEVLraxNpKVM6JbErvMKUB+qLyDrgGUVuu4AnHU/Ec=; b=FNnWLtJ9Bg8OOnEp+//SLY7lUW
+	txme04X95NmflvgAN5kjXyFVtpViVJpS3w24LWUeA5kFqLGoWq+tEVRCWybmnhP+bHhOrYMuegirI
+	wOKgRH54xCkV6ZB3TCJ1lNzcIOaHmB5YCwQpC7kmzRrtSwu8vDmurOv29Xkeom7nwC1Yf0b1ZIGkd
+	tteaToMWPQmYo4r3F2fpt9t54YqaR8a1KIuzZI925G1W+JrmEh+fo50E1QMc1AU0e3HePnG8niRWM
+	zFd31MzEVeTJw5ByWLXCpV3Qxbq/HQmunrXA3RXyBHD4ggroiRNExHdTFPz8nsmtkkZkcpWVajC42
+	6SyfOGQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QkP-00000005sBM-10ey;
-	Tue, 17 Mar 2026 09:29:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2Qmo-00000005sf4-2rVv;
+	Tue, 17 Mar 2026 09:32:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QkM-00000005sAK-1J2R
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 09:29:55 +0000
+	id 1w2Qmn-00000005sde-16l6;
+	Tue, 17 Mar 2026 09:32:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B080D40633;
-	Tue, 17 Mar 2026 09:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE5BC4CEF7;
-	Tue, 17 Mar 2026 09:29:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A92260008;
+	Tue, 17 Mar 2026 09:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DE66DC4CEF7;
+	Tue, 17 Mar 2026 09:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773739793;
-	bh=in4VyGB0AnZoJApG7MiVWwveHRL9EwDvdLfCcNsaZGU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i39UqYTFvobLTkeCKufdsA1I3JxL/zcQTHqm6KuPXpZHqGFkThQJ9YKm/HgZnImIW
-	 Ua5xiZPdb4qzSJpv+0FxyougBPylpOM64SdwSaQDJA1QDIdvATRsr7esppoLrDfeap
-	 LF4uPV09LG9A31CZZ9CTw3yZdhoWkHVqlBH5HcwGc4s15t0HvtZZm2Z0GBDHYqePzs
-	 P4H6KFnx0R7aHj9XsO9yl0h7Uog2UbK7E9Qc9hIWNIpqnYe/ou3RojZTy+ShDXAnzg
-	 dNVM+UOqQG4pTCE8YqZjYsMd7RmncJTKks4a1oMuCfOKkCocOQ2OskTtc/dQDqPRiJ
-	 jC85qAyB4hKuA==
-Message-ID: <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
-Date: Tue, 17 Mar 2026 10:29:50 +0100
+	s=k20201202; t=1773739943;
+	bh=OScWDJNVIXSkH9JdH7eb/Xp1LXka3za6IEC5iCx5Yj8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=kJjgu9C/3XQjSgBKhqcn5HczX0zhTm17yn5XD78OkbJJ8svjOds9OIt4MsbCkCn0n
+	 7i1/aBggUjlOddzTmk0jb4bFyLWiQQNba+sLWoOuWJAeDbOb7SutPr2YUFC5liiiMf
+	 kk41B4T84ofC3tvHm6oXhWKEbMsESq2o2V9DRwQiSiGqhek9B0T406jpjdtLf8E8L4
+	 nWejI5Z/OjBeHKG68vefR4AhvEom9jJ8yD77zPpJi9A9qQicwweE4ikuCdGQDAOFy4
+	 iZMmodQn4AVVFkOIls5gcBKakrdG9wWBcKhO4S0lW8FkNlnh2rSVp5JibpB+dMGIp3
+	 gjBb2lmv00gfA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF397F33825;
+	Tue, 17 Mar 2026 09:32:23 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Subject: [PATCH v2 0/9] media: rockchip: rkcif: add support for rk3588
+ vicap
+Date: Tue, 17 Mar 2026 10:32:18 +0100
+Message-Id: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 3/4] Renesas DT binding updates for v7.1
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <cover.1773399673.git.geert+renesas@glider.be>
- <20260314-quick-gray-saluki-0f96ff@quoll>
- <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_022954_400564_1EC52ED7 
-X-CRM114-Status: GOOD (  27.02  )
+X-B4-Tracking: v=1; b=H4sIAKIfuWkC/22Py27DIBREfyW661DBNTjgVf+jyoJnjPLAhRQli
+ vzvIbaidtHljDRnZh5QfI6+wLB5QPY1lpguTeB2A3bUl4Mn0TUNSFFQ3lGSj52QktRo9USUYz2
+ 3UqDUO2iRKfsQbwvua7/q7L9/GvW6mr/Q1kGRU8QV2b+RRpkuKIUicD5UCX+HLBlBe9a/Z9gSi
+ ZvGO7HKO9SOW6fCUBm82sdYrinfl2/NetX/f6MyQonpjHNhx5Vi/NOm00mblPWHTWfYz/P8BA0
+ k94QqAQAA
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ =?utf-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2_=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773739942; l=3744;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=OScWDJNVIXSkH9JdH7eb/Xp1LXka3za6IEC5iCx5Yj8=;
+ b=6PadDWPx3oeafAOPBjI+855zmsp4/DBpg0970EhEGcI3wlC9fw5+HzDA3AnGkhnt4ql5h4cfj
+ SdE9UDjYeWLCnksoiXzSUbGSndDfQDbNMeo/k4kinKfvi6+jc20ffeY
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,93 +94,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 09:51, Geert Uytterhoeven wrote:
-> Hi Krzysztof,
-> 
-> Thanks for your comments!
-> 
-> On Sat, 14 Mar 2026 at 12:09, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On Fri, Mar 13, 2026 at 12:12:59PM +0100, Geert Uytterhoeven wrote:
->>> Renesas DT binding updates for v7.1
->>>
->>>   - Document RZ/G3L SoC variants, the RZ/G3L SYSC block, and RZ/G3L
->>>     SMARC SoM and Carrier-II EVK boards.
->>>
->>> ----------------------------------------------------------------
->>> Biju Das (2):
->>>       dt-bindings: soc: renesas: Document RZ/G3L SoC variants, SMARC SoM and Carrier-II EVK
->>
->> This is DTS branch patch.
-> 
-> It is a DT bindings patch.
+Habidere,
 
-I speak about branches. You quoted submitting patches in DT, but that is
-implied. I already know it, I was making changes there and I already use
-that document as arguments in multiple discussion, so please assume I
-know it and my comments reflect that knowledge. I actually assumed that
-you also knew it.
+The RK3588 Video Capture (VICAP) constitutes an essential piece of the
+RK3588 camera interface with one DVP, six MIPI CSI-2 receivers,
+scale/crop units, and a data path multiplexer (to scaler units, to ISP,
+...). This series introduces basic support for the RK3588 VICAP unit
+to the rkcif driver, thus paving the way for video capture in general
+and for camera sensor image processing in particular.
 
-DT binding patch should go with the patch using the binding. So DT
-binding for board is clearly a DTS branch patch.
+The changes have been tested successfully on a Radxa ROCK 5B+ with two
+Radxa 4K cameras attached to it. The raw images from the sensors can
+be streamed after configuring the hardware pipeline with
 
-> 
->>>       dt-bindings: soc: renesas: renesas,rzg2l-sysc: Document RZ/G3L SoC
->>
->> This is drivers. Splitting it into additional branch is not making it
->> easier. I don't know where is this supposed to be merged. I will take it
->> to drivers, but in the future, please do not put DTS bindings into
->> driver bindings.
-> 
-> This is also a DT bindings patch.
+media-ctl -d 0 --set-v4l2 '"dw-mipi-csi2rx fdd30000.csi":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"rkcif-mipi2":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"dw-mipi-csi2rx fdd50000.csi":0 \
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
+media-ctl -d 0 --set-v4l2 '"rkcif-mipi4":0 \ 
+  [fmt:SGBRG10_1X10/3864x2192 field:none colorspace:raw xfer:none]'
 
-But for which code? Driver or DTS?
+and using e.g., GStreamer
 
-> 
-> DT bindings are soft dependencies for drivers and DTS.
-> DT binding definitions (I don't have any this time) are hard
-> dependencies for drivers, DTS, and examples and DT bindings.
-> Arnd merges dt-bindings PRs in the soc DTS branch.
+gst-launch-1.0 v4l2src \
+  device=/dev/v4l/by-path/platform-fdce0000.video-capture-video-index0 \
+  ! video/x-bayer,format=gbrg10le,width=3864,height=2192 ! bayer2rgb \
+  ! ...
+(or -index4 for the other camera sensor).
 
-Then this should not be a separate branch, because:
+Note that this series requires the RK3588 MIPI CSI-2 receiver patches
+[0]. I included them here to provide the possibility to test the changes
+without any nasty merge conflicts.
 
-1. No benefits - you did not solve any soft dependency. Your DTS branch
-is non-bisectable from dtbs_check point of view and you as maintainer of
-that tree should try to make it bisectable, meaning: "bindings go before
-user" like explained in what you quoted further.
+Looking forward to your comments!
 
-And please also read rest of submitting patches, although it is in part
-for "submitters" but explains the concept:
+[0] https://lore.kernel.org/all/20260305-rk3588-csi2rx-v2-0-79d01b615486@collabora.com
 
-" 5) The Documentation/ portion of the patch should come in the series
-before the code implementing the binding."
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+Changes in v2:
+- modified rockchip,rk3568-vicap binding instead of creating a new one
+  (Conor)
+- aligned clock names and reset names with rockchip,rk3568-vicap
+- Link to v1: https://lore.kernel.org/r/20250430-rk3588-vicap-v1-0-b3bddf749914@collabora.com
 
-"6) Any compatible strings used in a chip or board DTS file must be
-previously documented in the corresponding DT binding file"
+---
+Michael Riesch (9):
+      Documentation: admin-guide: media: add rk3588 vicap
+      media: dt-bindings: add rockchip rk3588 vicap
+      media: rockchip: rkcif: add support for rk3588 vicap mipi capture
+      [DONOTMERGE] media: dt-bindings: rockchip,rk3568-mipi-csi2: add rk3588 compatible
+      [DONOTMERGE] arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3588
+      arm64: dts: rockchip: add vicap node to rk3588
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam0
+      arm64: dts: rockchip: add radxa camera 4k on rock 5b+ cam1
+      arm64: defconfig: enable designware mipi csi-2 receiver
 
-Previously means "before", so your DTS branch is failing above.
-
-2. It is additional effort to handle this, because instead of merging
-one branch, I need to merge two.
-
-> 
->> See also submitting patches in DT dir.
-> 
-> So the second commit is subject to II.3:
-> 
->   3) For a series going through multiple trees, the binding patch should be
->      kept with the driver using the binding.
-> 
-> In this particular case, I could have included it in my drivers branch.
-> Where do I put SoC-specific DT binding changes that are not picked
-> up by anyone else (I don't have any this time)?
-
-What is "SoC-specific"? You put the DT binding with the user, that was
-always the rule and that is implied by submitting patches. If you do not
-have any user, why would you pick that up?
+ .../admin-guide/media/rkcif-rk3588-vicap.dot       |  29 ++++
+ Documentation/admin-guide/media/rkcif.rst          |  32 ++++
+ .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |   8 +-
+ .../bindings/media/rockchip,rk3568-vicap.yaml      | 191 ++++++++++++++++++---
+ arch/arm64/boot/dts/rockchip/Makefile              |   7 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 143 +++++++++++++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      |  89 ++++++++++
+ .../rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      |  89 ++++++++++
+ arch/arm64/configs/defconfig                       |   1 +
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 136 +++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   |   2 +-
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  18 ++
+ 13 files changed, 719 insertions(+), 27 deletions(-)
+---
+base-commit: bb2a3912549d3b5cef5ed27200402fe8f6fb0694
+change-id: 20250430-rk3588-vicap-9d164c8528a7
 
 Best regards,
-Krzysztof
+-- 
+Michael Riesch <michael.riesch@collabora.com>
+
+
 
