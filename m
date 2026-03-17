@@ -4,165 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9C7FD875A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E97AFD8756
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=; b=ZiAbb+vG1banlvvdLHEiZu1btG
-	CuvpgmxEPg3ZrRxpuHksxyeGltnuQ7+vtokAxPMt8t4EEzzA1hqRMocy7TgKBc5Ms1iVKYDVQiYzU
-	V2BzaWS2rAO1kFpS0jJnE5Wa6HmfsMcS2yFO/q/iljKLAeeMIOlBkXa410dR5eFiOl27NHVkY+hOb
-	TXiTWTir19HQyo8ffudr0Ir31Uzo7cBmKsFM2Ylbn9dgNWNuBKOhQq4eChC06x0Y9fjU7TIhcrkC0
-	X5jRfRI8W3XvHZ5VnhuinaF4gmKAS1dIeToMn889w2DawSSeQTVfcW++N61tuHX647y/8z/hK6B3w
-	+1gnyu1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JWEUgV2342X6jiRVtCFNtlvF+3T7N34UBOgJmY6l/Rs=; b=QRlYf6MjoKBfGm6zqLt0iOpG2J
+	UR5PpruCYUTvhyGLm3i4rqlq43iTT8xHj2E69TlZ5023Tsvey0wYvzsTg/O4oFn2p7r6dKz14lc2j
+	CtZFPtouGdkUHo1IJG1ftGumCWEkYWoRGjiSrLwuxZ2B7kKBbeDoV+L+C60gpg6MJl23T7Oz3G/fg
+	3UyNtA1wYoPty3yvZUv8cEeX8OVDAfu8KkSoC/BjCwOz/d4/DCA92P+zvmkaE3mmbhzOn51aoX67N
+	wH9f449ZpdBJx/zBwre8xoz2SpB11xCXMNJxXIaXqBK7xtdxLkXXWP33PbuNw8I7JaKQBSQxaFcp7
+	gx4hZprQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TTW-00000006IIt-2f6y;
-	Tue, 17 Mar 2026 12:24:42 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1w2TcJ-00000006Iss-3yNI;
+	Tue, 17 Mar 2026 12:33:47 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TTU-00000006III-26lP
+	id 1w2TcG-00000006Irx-29X4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 12:24:41 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 274755BCC6;
-	Tue, 17 Mar 2026 12:24:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1773750278; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
-	b=CWuV4W9SAGtmEk5nkMr+dEegXhKfjZZgJlF7F/nTWJzcE7iPqH7D//F3pMeBkvQxFdgyJh
-	vCAIlxekyEwqYXXSaTT4lxpLfcGbalezYe+yav3VPM28YQxhCjy9wYZk6Tf5/oTn3D6XJO
-	0uVhUa2bn99CqDJj19eUUN9wqV0uACg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1773750278;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
-	b=HHfVXFS3msNj3E3dgCb2JMHWL7bjEZjtpwhYCfs31D09sz+uPalcD+iRTRAUNAGp6OUyJo
-	kbRCxOVBOKS9xACg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CWuV4W9S;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=HHfVXFS3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1773750278; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
-	b=CWuV4W9SAGtmEk5nkMr+dEegXhKfjZZgJlF7F/nTWJzcE7iPqH7D//F3pMeBkvQxFdgyJh
-	vCAIlxekyEwqYXXSaTT4lxpLfcGbalezYe+yav3VPM28YQxhCjy9wYZk6Tf5/oTn3D6XJO
-	0uVhUa2bn99CqDJj19eUUN9wqV0uACg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1773750278;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
-	b=HHfVXFS3msNj3E3dgCb2JMHWL7bjEZjtpwhYCfs31D09sz+uPalcD+iRTRAUNAGp6OUyJo
-	kbRCxOVBOKS9xACg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CFD924273B;
-	Tue, 17 Mar 2026 12:24:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id rvRaMQVIuWmVfAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 17 Mar 2026 12:24:37 +0000
-Message-ID: <ada8ca6f-a2f2-4f8c-b916-f6dc24db6db5@suse.de>
-Date: Tue, 17 Mar 2026 13:24:37 +0100
+	Tue, 17 Mar 2026 12:33:45 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48540355459so54826735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 05:33:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773750822; x=1774355622; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JWEUgV2342X6jiRVtCFNtlvF+3T7N34UBOgJmY6l/Rs=;
+        b=MryVhcCJkT7Q/Ec6KZuDyNEFewQEqo5+GgGlKWHWrfCAy+TUVyJjlT2mpT663dQNlv
+         01o67Wvud27vZ8T/2ehDE+7Zm6RIbnuxahSY5PciOyYNpektMgfI9IlgQILK5Hp5lSGe
+         +ZljxMLAhl3u0iZjamZsxOzH2wG+nn/I/eYk21obfxzlccEsq6Ibb2E/eJuFcXRQ9IoB
+         0YUGxqqzTGcxY/nCdePXu4cghEgOGf+qqqQtt5rAZ4nCkrJhKrT30bmdxg3MzOrCMdTQ
+         h0ZMCGaA/ILGUgLlYVQLIwTFHtUETY+JOBI8BgaV9MYo772cHw03jBdnGc5Hy0dsF1Nd
+         FAwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773750822; x=1774355622;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JWEUgV2342X6jiRVtCFNtlvF+3T7N34UBOgJmY6l/Rs=;
+        b=X50aO7O8j9a1eBnEh4c+iE916NqlpWGucVEeAfR+2liE6kN3kZIMDSATqygf2/gBU1
+         YyV0mSxbkLet1Lai7MRiNGw3Yhtg+DjzZszaxpRQZkrvtotEbiYNDNnxt07fxGankhT8
+         QNu+LOpJs9roNfX8cfe87Y0kHJ500NOA85PVyBce6eCQNiXNOBHl8pJ6TGyD0wyxxqfb
+         iJubst3AtuWqFdwM91UH53ImKGDOzA4m58W4LTwT2T36QHTnXJUFR/4vwhkCRp0EQsEk
+         xxWg9D6cJJyBKq4Q0FVoZbnsMx6bMa2hQoVK9bVMw0woDjceNGJCugxqjgMB4FkbUNc0
+         8Vlg==
+X-Gm-Message-State: AOJu0Ywv9N4ZyRzoUjxL0/r1UJJukxqEQ+B8eLORo3ueX6o57KSxPCv6
+	4BluDUiqZ8uDuGuNHXHH4tqj5WAFqUVmS2q6xBX/iNfdGwIsQ8zqlszx
+X-Gm-Gg: ATEYQzwAQHnc5OrlYwFLEd15ktRS0v2c9/Dbl/CfoBGr2ymCMRHTDdEB+KLNthjHqMF
+	S92Yk+GhBRe4Fbrb0N//KErhzpAQt8+LmYCkGG42MPIs79wvmIPVon7j4DHX+76ZJ9Qa7uyLVt+
+	ZeG345VccpXD1BXz+2Bm0yaqdrz/zQKexJaBStsiEiYNZvK7YgRlLGxrIeWJM2xn6NYF7gFZBeh
+	r+2XjGeUex6wTBfeoOmvQaA8bul2ykqWLWgCudvf+ketateGs9CAJkDS1krf3s//6pz/VDGOrxS
+	0tr6FrzLhVyfXR+0ha27S+dH5tAQuPGOKfd2fT2uFgZGm+5BWvX443GbZyGb3hvryqpdPUBfMhl
+	6DDmpthn74Sj0qwAVagxXHYuUKfeey9J64GX2lbywrcFJMc7WcWNv5UMH0VPct8HtTa+qSFl47A
+	XB0dENjDQM+w/lsnhsIprRl8x+s0VXD2/iDNRO4HMw/P8VOd5dp0ht
+X-Received: by 2002:a05:600d:8489:20b0:485:3812:36dc with SMTP id 5b1f17b1804b1-485566d9068mr210984635e9.9.1773750821994;
+        Tue, 17 Mar 2026 05:33:41 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4856ea96828sm111917355e9.5.2026.03.17.05.33.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 05:33:41 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Date: Tue, 17 Mar 2026 13:33:32 +0100
+Subject: [PATCH v2] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' from USB host nodes
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] drm: Introduce DRM_MODE_DUMB_KERNEL_MAP flag
-To: wens@kernel.org
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev
-References: <20260317064049.696795-1-wenst@chromium.org>
- <20260317064049.696795-3-wenst@chromium.org>
- <607daaca-79ed-45b2-941e-1680a17618e8@suse.de>
- <CAGb2v66D3=s9c8oJyYEAK90A4SekW6FjLUpWBGRHnJwtfMvUeg@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAGb2v66D3=s9c8oJyYEAK90A4SekW6FjLUpWBGRHnJwtfMvUeg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_CC(0.00)[chromium.org,linux.intel.com,kernel.org,gmail.com,ffwll.ch,ideasonboard.com,lists.freedesktop.org,vger.kernel.org,lists.infradead.org,lists.linux.dev];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MID_RHS_MATCH_FROM(0.00)[];
-	ASN(0.00)[asn:32098, ipnet:2800::/6, country:US];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.com:url,chromium.org:email]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 274755BCC6
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NQQ6CMBCF4auQWTumBSzgynsYFqWMMImlZKoEQ
+ 7i7lRO4/N7ifxtEEqYI12wDoYUjhykhP2XgRjsNhNwnQ65yowpVohVve4tFta7YS5jxHTv0HB0
+ KDUiNKS5lUztLBlJjFnrwevTvbfLI8RXkc9wt+rf+W140aqyVcrqrStNV9jZ4y8+zCx7afd+/f
+ sJPisoAAAA=
+X-Change-ID: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_052440_741002_98FFCDF1 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20260317_053344_576651_EE112229 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,136 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+The 'marvell,usb-misc-reg' property is present both in the EHCI and
+in the XHCI USB host device nodes, however it is not documented. Thus
+'make dtbs_check' produces warnings like these:
 
-Am 17.03.26 um 11:58 schrieb Chen-Yu Tsai:
-> On Tue, Mar 17, 2026 at 4:12 PM Thomas Zimmermann <tzimmermann@suse.de> wrote:
->> Hi
->>
->> Am 17.03.26 um 07:40 schrieb Chen-Yu Tsai:
->>> From: Rob Herring <robh@kernel.org>
->>>
->>> Introduce a new flag, DRM_MODE_DUMB_KERNEL_MAP, for struct
->>> drm_mode_create_dumb. This flag is for internal kernel use to indicate
->>> if dumb buffer allocation needs a kernel mapping. This is needed only for
->>> CMA where creating a kernel mapping or not has to be decided at allocation
->>> time because creating a mapping on demand (with vmap()) is not guaranteed
->>> to work. Several drivers are using CMA, but not the CMA helpers because
->>> they distinguish between kernel and userspace allocations to create a
->>> kernel mapping or not.
->> Any dumb allocation might require vmap. This is not limited to internal
->> buffers.  Because if the dumb buffer is shared with another driver, that
->> driver might require the vmap for displaying the buffer content. There
->> are enough of such drivers.
-> By sharing, do you mean exported via PRIME then imported by another device?
-> Or just passing around GEM objects within the kernel?
+  /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+          from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
+  /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+          from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
 
-I mean PRIME/dma-buf sharing.
+Apart from the fact that the properties are not documented, those are
+not even used by any USB host drivers. Due to this, drop the properties
+in order to get rid of the warnings.
 
->
-> And could you provide an example?
+Note:
 
-Create a dumb GEM buffer on one of those CMA devices and mirror it to a 
-display or udl device.  These devices have no means of scanning out the 
-provided buffer directly, so their drivers vmap the buffer and copy the 
-pixel data into their internal memory (via a peripheral bus). The vmap 
-call happens via the kernel's internal dma-buf interfaces. Hence any 
-driver needs support for vmap if it wants to support this use case.
+With the same name, there is a property used for the Armada 3700 USB
+UTMI PHYs of which dt-bindings documentation has been added in commit
+e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
 
-Best regards
-Thomas
+Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
+driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
 
->
->>> Update the callers of drm_mode_dumb_create() to set
->>> drm_mode_dumb_create.flags to appropriate defaults. Currently, flags can
->>> be set to anything by userspace, but is unused within the kernel. Let's
->>> force flags to zero (no kernel mapping) for userspace callers by default.
->>> For in kernel clients, set DRM_MODE_DUMB_KERNEL_MAP by default. Drivers
->>> can override this as needed.
->>>
->>> Signed-off-by: Rob Herring <robh@kernel.org>
->>> [wenst@chromium.org: Emit warning if args->flags is not zero]
->>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
->>> ---
->>> Changes since v1:
->>> - Emit warning if args->flags is not zero
->>> ---
->>>    drivers/gpu/drm/drm_client.c       | 1 +
->>>    drivers/gpu/drm/drm_dumb_buffers.c | 4 ++++
->>>    include/uapi/drm/drm_mode.h        | 2 ++
->>>    3 files changed, 7 insertions(+)
->>>
->>> diff --git a/drivers/gpu/drm/drm_client.c b/drivers/gpu/drm/drm_client.c
->>> index 46c465bce98c..1a57e7eadc0f 100644
->>> --- a/drivers/gpu/drm/drm_client.c
->>> +++ b/drivers/gpu/drm/drm_client.c
->>> @@ -404,6 +404,7 @@ drm_client_buffer_create_dumb(struct drm_client_dev *client, u32 width, u32 heig
->>>        dumb_args.width = width;
->>>        dumb_args.height = height;
->>>        dumb_args.bpp = drm_format_info_bpp(info, 0);
->>> +     dumb_args.flags = DRM_MODE_DUMB_KERNEL_MAP;
->>>        ret = drm_mode_create_dumb(dev, &dumb_args, client->file);
->>>        if (ret)
->>>                return ERR_PTR(ret);
->>> diff --git a/drivers/gpu/drm/drm_dumb_buffers.c b/drivers/gpu/drm/drm_dumb_buffers.c
->>> index e2b62e5fb891..ccdcc401d4dc 100644
->>> --- a/drivers/gpu/drm/drm_dumb_buffers.c
->>> +++ b/drivers/gpu/drm/drm_dumb_buffers.c
->>> @@ -233,6 +233,10 @@ int drm_mode_create_dumb_ioctl(struct drm_device *dev,
->>>        struct drm_mode_create_dumb *args = data;
->>>        int err;
->>>
->>> +     if (args->flags)
->>> +             drm_warn(dev, "drm_mode_create_dumb.flags is not zero.\n");
->> At most use drm_warn_once() to not let this spam the kernel log.
-> Sure.
->
->>> +     args->flags = 0;
->>> +
->>>        err = drm_mode_create_dumb(dev, args, file_priv);
->>>        if (err) {
->>>                args->handle = 0;
->>> diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
->>> index 3693d82b5279..7d5f50e4af70 100644
->>> --- a/include/uapi/drm/drm_mode.h
->>> +++ b/include/uapi/drm/drm_mode.h
->>> @@ -1272,6 +1272,8 @@ struct drm_mode_create_dumb {
->>>        __u64 size;
->>>    };
->>>
->>> +#define DRM_MODE_DUMB_KERNEL_MAP     (1<<0)  /* For internal kernel use */
->>> +
->> If this is an internal flag, it should not live in the UAPI header.
->> include/drm/drm_dumb_buffers.h would be a good place.
-> Makes sense.
->
->
-> Thanks
-> ChenYu
->
->> Best regards
->> Thomas
->>
->>>    /* set up for mmap of a dumb scanout buffer */
->>>    struct drm_mode_map_dumb {
->>>        /** Handle for the object being mapped. */
->> --
->> --
->> Thomas Zimmermann
->> Graphics Driver Developer
->> SUSE Software Solutions Germany GmbH
->> Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
->> GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
->>
->>
+When the nodes of the UTMI PHYs has been added to the SoC dtsi by
+commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
+UTMI PHYs"), the properties has been added to the USB host controller
+nodes also. According to the commit message this was intentional,
+however in regard to the USB hosts, neither the respective documentation,
+nor driver support has been added into the tree since that.
 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+Changes in v2:
+  - add Reviewed-by tag from Andrew
+  - change subject and reword commit message
+  - Link to v1: https://lore.kernel.org/r/20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com
+---
+ arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+index ea1824f5321fbb32fc4373c08a0d94bca1dc793b..44c47409f8793ae1266303607812ef481edbfbc5 100644
+--- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+@@ -369,7 +369,6 @@ usb3: usb@58000 {
+ 				compatible = "marvell,armada3700-xhci",
+ 				"generic-xhci";
+ 				reg = <0x58000 0x4000>;
+-				marvell,usb-misc-reg = <&usb32_syscon>;
+ 				interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&sb_periph_clk 12>;
+ 				phys = <&comphy0 0>, <&usb2_utmi_otg_phy>;
+@@ -393,7 +392,6 @@ usb32_syscon: system-controller@5d800 {
+ 			usb2: usb@5e000 {
+ 				compatible = "marvell,armada-3700-ehci";
+ 				reg = <0x5e000 0x1000>;
+-				marvell,usb-misc-reg = <&usb2_syscon>;
+ 				interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+ 				phys = <&usb2_utmi_host_phy>;
+ 				phy-names = "usb";
+
+---
+base-commit: 98226a594f313442fcba38cefc1df0b6c1691c7e
+change-id: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
+
+Best regards,
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+Gabor Juhos <j4g8y7@gmail.com>
 
 
