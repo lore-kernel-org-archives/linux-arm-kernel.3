@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44508FD8766
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47B7FD8763
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFGp+yGqG92BkKIyWdkXQp2E8yLuA9rb9ca+RU4aluY=; b=bsbXYpKFKTnCDfstb8ykCaCGae
-	+Mg0aCwW+G4s8iZSwSVzjfN26lqUi86N55FwrZXFFjo1GM7+zYJ8gRoYBMoF+wNsazN873n/41ZRL
-	SEN5VxJtwhGEwHEZoQa4rNFYpbcAaXmYUlmcDXIdEMCXe1gqbXaiJWPGHw1mHlCNSOkUCvLqVELGd
-	kK0Q8QeoJqpXHcAQlnwCFL4ZVCNlE/BE0CYeExkJzRaPhe4slL564Mxr+cl1d6qhDhrxaKcY/cFbP
-	dANZcYg592ufKaRiRcOegjRW5bRKQMsNmXu4PhY/jZ41dER6e6AYCikm/8/JzJcGmqky99Ype4C+g
-	RzqJNcdg==;
+	bh=wVX+e0F9KN8dfj/SwmnvICc5jP1yDHnEZ0Sn7ozoJNs=; b=mkVOsHsQ4VrtItt6zEtc8hT5hV
+	BF9eLOpwd8IW8WcstlvXUJrjAOXymPll+tYrhvQO1Fb1Iafz05/UGRivzEMviasRh9YYZ01IE4YTG
+	BPiNj6NECmZj75GT7EOkALlUV5SbMmL69AFTH/dwPEOfa50Nap+qGmaT88sb//qeab59Fs8KMyn69
+	C8YsaK5HfWZoHNo17w5y5sivIjeqzwuk4k9QVNvaZ6B2xD4llIJdQA997BsaYhmb91Extb91i/Qk/
+	y0zLP7PZroK3mogCPyE403mIV3G8hss7nklMpRiJXw4SbVa1o1136GlJvF4OBDQAht3TqFWVPa8lh
+	Vd3VzMOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UD1-00000006OE4-079W;
-	Tue, 17 Mar 2026 13:11:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2UD7-00000006OGF-2Wmg;
+	Tue, 17 Mar 2026 13:11:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UCz-00000006ODt-2teS;
-	Tue, 17 Mar 2026 13:11:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E238E60008;
-	Tue, 17 Mar 2026 13:11:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2B2C4CEF7;
-	Tue, 17 Mar 2026 13:11:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773753100;
-	bh=XphC/sm5cVJb9L02EfuN4T0tZepA1WWawu3Zl3lpiC4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AvMP0wT7KtZir5xHl20/Ga9rJ4mzmxrlieZIYeTWGRcCPRKOEnktbzUaW7s3G2Jkl
-	 T+ihlFedtv792G796rzrfudULsaMr4u1dKPXqJJ6GMg2RHP3D+cujnoh8JnydWoFDy
-	 PNE3vR3gUYUsUSWy4ClSwcx7ZezKow0HhZ3EsLC5f2n++y/Kq/ppgX+IzstVVevlE/
-	 sFLl+JM3ewu9ZL0Y7aJwykpAoW1w3+ObEuBnbGpFkuCn20sqjoAkpowDspO35yW+3c
-	 IIbJCDnL4e26e9D4RMsbz8IcEKjZsd+gsrsPEeIqdoa1g/g83mkoeaQfZJ1njypTKX
-	 6s+WS6C8IX5vA==
-Date: Tue, 17 Mar 2026 14:11:29 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Brian Norris <briannorris@chromium.org>,
-	Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <ablS8r0LzfJ_jVpD@ryzen>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <abFMa6DCGGLUHddA@fedora>
- <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
- <srdn3bspgwff7f7tnst7wzg4us4buifrv7o3ylo527hmuciyl3@6ioyrl6rfhaz>
- <abk3rU2EDKjkefUD@ryzen>
+	id 1w2UD1-00000006ODr-4BR7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 13:11:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=wVX+e0F9KN8dfj/SwmnvICc5jP1yDHnEZ0Sn7ozoJNs=; b=EPue8tD3UjFJLyx+/NIDJIFQFG
+	CCdoKdaIuUH7eJ+4tYTn/wTRk4U9UzHLkBcTwnYjtu/CHI3q1EnJ8OewQDOdHV574I/ua1i2KjrRW
+	nkCrgvXJhhR+/9zsyJiTVlb6FfW43WjKokDq1KCt8MwUtRl/Xhx5k4HHazKF6A89/7AuzUZm8xC2T
+	h9C/Ubvqtb3MjEYh2KUtoCR5RwEzeUDZXmkoBRnbDG+n2B3ALsAKXB2hM/XIu6N40n7ORJVbrI9t3
+	3SASwFucwlFauZh+LFefZI35v/Uq8R7ND0OoYkbdR1cOhEutZM7ZBFcrngrETuzhPl+i1e5P8SoyB
+	ajRZrEMw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59600)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w2UCl-000000005EG-45Ud;
+	Tue, 17 Mar 2026 13:11:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w2UCi-00000000649-1jir;
+	Tue, 17 Mar 2026 13:11:24 +0000
+Date: Tue, 17 Mar 2026 13:11:24 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Christophe Roullier <christophe.roullier@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	antonio.borneo@foss.st.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: stmmac: fix pinctrl management during
+ suspend/resume
+Message-ID: <ablS_C8oEQFeSU1Q@shell.armlinux.org.uk>
+References: <20260313105718.359614-1-christophe.roullier@foss.st.com>
+ <20260313105718.359614-2-christophe.roullier@foss.st.com>
+ <abPwHh12MLwMwOIs@shell.armlinux.org.uk>
+ <CAD++jLmBP5Puwf1ZuFOzF6U0XowoF1nfqEL3gwLy-svXsXrbJA@mail.gmail.com>
+ <abStv0IPLfkKMD-W@shell.armlinux.org.uk>
+ <CAD++jL=Av5K7Ag95LYou4TMKGR59TmtiQpxcnpcj+4tZFtzRug@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="Iae7tS6iThanSYoD"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <abk3rU2EDKjkefUD@ryzen>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jL=Av5K7Ag95LYou4TMKGR59TmtiQpxcnpcj+4tZFtzRug@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_061144_375050_C73DD8BB 
+X-CRM114-Status: GOOD (  30.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,273 +95,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---Iae7tS6iThanSYoD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Mar 17, 2026 at 12:17:19PM +0100, Niklas Cassel wrote:
+On Tue, Mar 17, 2026 at 01:13:14AM +0100, Linus Walleij wrote:
+> On Sat, Mar 14, 2026 at 1:37 AM Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+> > On Sat, Mar 14, 2026 at 12:44:56AM +0100, Linus Walleij wrote:
+> > > On Fri, Mar 13, 2026 at 12:08 PM Russell King (Oracle)
+> > > <linux@armlinux.org.uk> wrote:
+> > > > On Fri, Mar 13, 2026 at 11:57:16AM +0100, Christophe Roullier wrote:
+> > > > > In the deepest low-power modes, the pinctrl configuration is lost
+> > > > > and is never restored if the interface is down.
+> > > > > This commit ensures that the pinctrl state is set in all cases.
+> > > >
+> > > > Shouldn't the pin state be restored by the pinctrl layer?
+> > >
+> > > What we have in the device core only applies "init" and "default"
+> > > states, and provides these handles for transitioning to "sleep"
+> > > and "default" again (like a state machine).
+> >
+> > What I was meaning is that - for a driver using the "default" state,
+> > if the hardware loses the pinctrl state during sleep, isn't it the
+> > responsibility of the pinctrl driver to restore the state rather
+> > than leaving it in whatever states it happens to be when the SoC
+> > comes back from suspend?
 > 
-> I will be very busy for a few weeks, so I don't have time to debug this.
-> If anyone wants to debug this on rk3588, I'm attaching the patches for
-> this new feature for rk3588 that can be applied on top of this series.
+> Aha I understand.
 
-For what it is worth, attaching an improved patch for rk3588 that does not
-require any revert.
+I'm not so sure. My point is that if a driver binds, and pinctrl
+ends up using the default pinctrl settings, then should it not
+be the case that after a suspend/resume cycle, the pinctrl
+settings remain configured in the default state with no driver
+intervention?
 
+This is my point - a driver that is unaware of pinctrl should not
+have to do anything special in its resume path to ensure that the
+pinctrl state that was configured by generic code at probe time
+is maintained after a resume - that state should not be lost.
 
-Kind regards,
-Niklas
+I'm trying to get an answer on this, because the original patch
+description here says:
 
---Iae7tS6iThanSYoD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment;
-	filename=0001-PCI-dw-rockchip-Add-support-to-reset-Root-Port-upon-.patch
+| In the deepest low-power modes, the pinctrl configuration is
+| lost and is never restored if the interface is down.
 
-From a69679430750d7371e65e1b209059803cea2f5de Mon Sep 17 00:00:00 2001
-From: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Date: Tue, 17 Mar 2026 09:30:57 +0100
-Subject: [PATCH] PCI: dw-rockchip: Add support to reset Root Port upon link
- down event
+stmmac uses the "default" pinctrl state at probe time. This commit
+says that is lost over suspend/resume - which to me sounds like
+a pinctrl driver bug, because on resume, the pinctrl driver is not
+ensuring that the pinctrl state is restored to whatever it was when
+the suspend happened (whether the driver explicitly changed it or
+not.)
 
-The PCIe link may go down in cases like firmware crashes or unstable
-connections. When this occurs, the PCIe Root Port must be reset to restore
-the functionality. However, the current driver lacks link down handling,
-forcing users to reboot the system to recover.
+To put it another way...
 
-This patch implements the `reset_root_port` callback for link down handling
-for Rockchip DWC PCIe host controller. In which, the RC is reset,
-reconfigured and link training initiated to recover from the link down
-event.
+On entry to probe for a non-pinctrl driver, if DT describes a default
+pinctrl state, that state will be selected by core code.
 
-This also by extension fixes issues with sysfs initiated bus resets. In
-that, currently, when a sysfs initiated bus reset is issued, the endpoint
-device is non-functional after (may link up with downgraded link status).
-With the link down handling support, a sysfs initiated bus reset works as
-intended. Testing conducted on a ROCK5B board with an M.2 NVMe drive.
+On suspend, the driver is free to select another state if it so wishes,
+or do nothing (e.g. it's unaware of pinctrl.)
 
-Signed-off-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
----
- drivers/pci/controller/dwc/Kconfig            |   1 +
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 134 +++++++++++++++++-
- 2 files changed, 132 insertions(+), 3 deletions(-)
+On resume, the pinctrl layer, what is expected to happen. Surely, it
+is reasonable for a pinctrl unaware driver, or at least a driver which
+has _not_ changed the pinctrl state to expect that the default pinctrl
+state is still in effect when its resume function is called - and if
+that is not the case, then there's a bug here.
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d0aa031397fa..ecaf79da843b 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -361,6 +361,7 @@ config PCIE_ROCKCHIP_DW_HOST
- 	depends on OF
- 	select PCIE_DW_HOST
- 	select PCIE_ROCKCHIP_DW
-+	select PCI_HOST_COMMON
- 	help
- 	  Enables support for the DesignWare PCIe controller in the
- 	  Rockchip SoC (except RK3399) to work in host mode.
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 8db27199cfa6..988d98effcd7 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -24,6 +24,7 @@
- #include <linux/reset.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- 
- /*
-@@ -105,6 +106,9 @@ struct rockchip_pcie_of_data {
- 	const struct pci_epc_features *epc_features;
- };
- 
-+static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
-+				       struct pci_dev *pdev);
-+
- static int rockchip_pcie_readl_apb(struct rockchip_pcie *rockchip, u32 reg)
- {
- 	return readl_relaxed(rockchip->apb_base + reg);
-@@ -325,6 +329,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
- 
- 	rockchip_pcie_configure_l1ss(pci);
- 	rockchip_pcie_enable_l0s(pci);
-+	pp->bridge->reset_root_port = rockchip_pcie_rc_reset_root_port;
- 
- 	/* Disable Root Ports BAR0 and BAR1 as they report bogus size */
- 	dw_pcie_writel_dbi2(pci, PCI_BASE_ADDRESS_0, 0x0);
-@@ -523,6 +528,32 @@ static const struct dw_pcie_ops dw_pcie_ops = {
- 	.get_ltssm = rockchip_pcie_get_ltssm,
- };
- 
-+static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
-+{
-+	struct rockchip_pcie *rockchip = arg;
-+	struct dw_pcie *pci = &rockchip->pci;
-+	struct dw_pcie_rp *pp = &pci->pp;
-+	struct device *dev = pci->dev;
-+	struct pci_dev *port;
-+	u32 reg;
-+
-+	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
-+	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
-+
-+	dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
-+	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm_reg(rockchip));
-+
-+	if (reg & PCIE_LINK_REQ_RST_NOT_INT) {
-+		dev_dbg(dev, "hot reset or link-down reset\n");
-+		for_each_pci_bridge(port, pp->bridge->bus) {
-+			if (pci_pcie_type(port) == PCI_EXP_TYPE_ROOT_PORT)
-+				pci_host_handle_link_down(port);
-+		}
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
- static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
- {
- 	struct rockchip_pcie *rockchip = arg;
-@@ -555,14 +586,29 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
- 	return IRQ_HANDLED;
- }
- 
--static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
-+static int rockchip_pcie_configure_rc(struct platform_device *pdev,
-+				      struct rockchip_pcie *rockchip)
- {
-+	struct device *dev = &pdev->dev;
- 	struct dw_pcie_rp *pp;
-+	int irq, ret;
- 	u32 val;
- 
- 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_HOST))
- 		return -ENODEV;
- 
-+	irq = platform_get_irq_byname(pdev, "sys");
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_threaded_irq(dev, irq, NULL,
-+					rockchip_pcie_rc_sys_irq_thread,
-+					IRQF_ONESHOT, "pcie-sys-rc", rockchip);
-+	if (ret) {
-+		dev_err(dev, "failed to request PCIe sys IRQ\n");
-+		return ret;
-+	}
-+
- 	/* LTSSM enable control mode */
- 	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
- 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-@@ -574,7 +620,17 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
- 
--	return dw_pcie_host_init(pp);
-+	ret = dw_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "failed to initialize host\n");
-+		return ret;
-+	}
-+
-+	/* unmask hot reset/link-down reset */
-+	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+
-+	return ret;
- }
- 
- static int rockchip_pcie_configure_ep(struct platform_device *pdev,
-@@ -693,7 +749,7 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 
- 	switch (data->mode) {
- 	case DW_PCIE_RC_TYPE:
--		ret = rockchip_pcie_configure_rc(rockchip);
-+		ret = rockchip_pcie_configure_rc(pdev, rockchip);
- 		if (ret)
- 			goto deinit_clk;
- 		break;
-@@ -718,6 +774,78 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 	return ret;
- }
- 
-+static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
-+					    struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
-+	struct device *dev = rockchip->pci.dev;
-+	u32 val;
-+	int ret;
-+
-+	dw_pcie_stop_link(pci);
-+	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-+	rockchip_pcie_phy_deinit(rockchip);
-+
-+	ret = reset_control_assert(rockchip->rst);
-+	if (ret)
-+		return ret;
-+
-+	ret = rockchip_pcie_phy_init(rockchip);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_deassert(rockchip->rst);
-+	if (ret)
-+		goto deinit_phy;
-+
-+	ret = rockchip_pcie_clk_init(rockchip);
-+	if (ret)
-+		goto deinit_phy;
-+
-+	ret = pp->ops->init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed: %d\n", ret);
-+		goto deinit_clk;
-+	}
-+
-+	/* LTSSM enable control mode */
-+	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-+
-+	rockchip_pcie_writel_apb(rockchip,
-+				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
-+				 PCIE_CLIENT_GENERAL_CON);
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret) {
-+		dev_err(dev, "Failed to setup RC: %d\n", ret);
-+		goto deinit_clk;
-+	}
-+
-+	/* unmask hot reset/link-down reset */
-+	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+
-+	ret = dw_pcie_start_link(pci);
-+	if (ret)
-+		goto deinit_clk;
-+
-+	/* Ignore errors, the link may come up later */
-+	dw_pcie_wait_for_link(pci);
-+	dev_dbg(dev, "Root Port reset completed\n");
-+	return ret;
-+
-+deinit_clk:
-+	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-+deinit_phy:
-+	rockchip_pcie_phy_deinit(rockchip);
-+
-+	return ret;
-+}
-+
- static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
- 	.mode = DW_PCIE_RC_TYPE,
- };
+Another way to put it...
+
+We shouldn't be expecting device drivers to have to mess with pinctrl
+e.g. switching to a sleep state and then back to a default state just
+to have pinctrl settings restored to a functional state on resume.
+
 -- 
-2.53.0
-
-
---Iae7tS6iThanSYoD--
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
