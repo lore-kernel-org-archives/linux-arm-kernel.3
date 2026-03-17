@@ -4,108 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E85AF3382F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0175FF33832
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UefEPMQGFUQOm1yLJ24fumiQegajAZcINPXGIRj8cAY=; b=qzoJ8Gew6z0aLTXiiZV+wI71eb
-	kHkk9EgRGAwdphxFpW3cF+bH9NANf9hWrpS0Pn9YKyK51UZ4R09Z5ZjVqG++56/nmSKvimTXuTngi
-	5uEx5RvfkKeFP3Vy91dbI+Vip1zUrzAr7WONwMxK0ttOxCxuToOdhIcUww0tL+fBwaXTO+pGtCp81
-	VIFVCerpp3rMAnXrCzm6rRtXdsHlfUNpGt8NprCmt1Zuim3xm52T1ygt9RXeJ5JM3l9Nirp2XH+pQ
-	5BV2evEA+ZwlNJzB8Ono2OFHAjF7dN+gAT/MIUb5vJ+5gP7Oq3FOnMPwqGbWgNvjcEz3xnw0v5FSd
-	r4o/Sd9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4/hZ11vQ2Opv0IhXfgJR48KdwXlSseZv1LSAvBEEKw=; b=JBETQgdsmcSr4gZpAKFiKfBQ+r
+	l1YTs72jVPtveab5NKvUtkzF0sV0KkK46cNgrLFkZShRy3YZWBDvI3a70KK7T4ZMZicjIxq3K2thq
+	Y5XGAm5BUYTfi+miqJgbVaz3UNLdzQDA4JqqmkM+xtXffifBeiPpGGzO/D0GUg8CZR+Jhns6k/aFa
+	p/BrCHxCg4QPQ+lBiMZcGu8+mthzAvxxfTC1IRTeAEACzV/W9jEzSiVUz0fGSRFh6rrZ9dIjANYri
+	jmMmW2SYaH5qf+sFTeh4pYXzXYtWdeLrR+ulYEz3Op7TQGF7Z06T7T5+fcG8j3+4zeOc0I8r6IRdp
+	wUCirjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2R7I-00000005vwQ-0bZ0;
-	Tue, 17 Mar 2026 09:53:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2RC2-00000005wEA-1GQw;
+	Tue, 17 Mar 2026 09:58:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2R7F-00000005vvu-2R0W
+	id 1w2RC0-00000005wDz-3tao
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 09:53:34 +0000
+	Tue, 17 Mar 2026 09:58:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3434944108;
-	Tue, 17 Mar 2026 09:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A63C19425;
-	Tue, 17 Mar 2026 09:53:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2630460008;
+	Tue, 17 Mar 2026 09:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA2CC4CEF7;
+	Tue, 17 Mar 2026 09:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773741213;
-	bh=lvTj9FI5N2EKRsJMc1HzB6JFMEGudkjHKx3OFuSywvA=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=GGVBg3UUJ4T4YZihBXHwBey/Snpk9DIdBaG0ctWJ42SXHunPinPE+yWAM48FMshAN
-	 dhAc69UBKYIV5RQ5oWpaf2lO6AKMDE28zV0CrrqttSjeR0QzuFpdBXYp3NzgHJu7Zu
-	 oyJ/XS8rrCfCLQcKixO9SA7AKsmUgMz5me9JIisBJxBXOcIqe2LEYRzxF/87DvsyS2
-	 fp3kzhITkPd4pTeb7HW8/oK1DJucv7ntiZuXfb59ZizGaHHV/3WhdWGTQ0kvU2hn/a
-	 yW3JXc+Id5E4wUbcOKW9qyQEFlHSLjFkrNFVwp/ItTwGrTCVmUrbikMnQADTNXwIFP
-	 sZ2WpuOsxfF4Q==
-Message-ID: <69927bd8-d476-4a24-91af-f21cdc0bce80@kernel.org>
-Date: Tue, 17 Mar 2026 10:53:29 +0100
+	s=k20201202; t=1773741507;
+	bh=rchBqbaOIKv5oV3MU7BS8XXeDEb35evaTjYmNTF+LAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JGrHGe6vr+idGi9l2EdsRoQIuTJraMun6x4OV1mBRtJvS7IRHJruIFnlbvYi1W9Eq
+	 ShdbAcxJFz5NHFUVm24V3XhElGwxX7FHWFpZGkzSpnZjApCqpB6sMyFEYziS6LhWX0
+	 zPIcnEOtsUpSteOlR42LG2yUzfpr1vlW64ejsFBWUP62w37NmhJQMlCkOdBWmCaFM7
+	 QFlKgGbfnSN88kzLQvm4zOzTRDktnLzsIw3HKphdHhhkJDOpvECboVDbqT9Pm3fxq/
+	 i9QTgd8ldobadY/7S1GKB7VHqPFG/yRW/N6DA9z2xOBB8pFzPhxXYO/0y4IV8Bu+4w
+	 I+TUEORAaE/wQ==
+Date: Tue, 17 Mar 2026 15:28:18 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, 
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, Frank Li <frank.li@nxp.com>, 
+	"bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH V8 03/13] PCI: dwc: Parse Root Port nodes in
+ dw_pcie_host_init()
+Message-ID: <dcl3bdljrdzgeaybrg3dc5uaxkebkjns7pajix6mxxftao5g4m@vm3ywyyp4ujh>
+References: <20260313020823.1592389-1-sherry.sun@nxp.com>
+ <20260313020823.1592389-4-sherry.sun@nxp.com>
+ <ay67y5hr7sn5zzugb4swkujao3bvz3puaee4bc6qqr67eyk74t@equoecxosaen>
+ <VI0PR04MB12114EC2939CCC6D0696685B49241A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 3/4] Renesas DT binding updates for v7.1
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <cover.1773399673.git.geert+renesas@glider.be>
- <20260314-quick-gray-saluki-0f96ff@quoll>
- <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
- <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_025333_663248_0980D646 
-X-CRM114-Status: GOOD (  15.21  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <VI0PR04MB12114EC2939CCC6D0696685B49241A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,37 +81,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 10:29, Krzysztof Kozlowski wrote:
+On Tue, Mar 17, 2026 at 09:04:51AM +0000, Sherry Sun wrote:
+> > Subject: Re: [PATCH V8 03/13] PCI: dwc: Parse Root Port nodes in
+> > dw_pcie_host_init()
+> > 
+> > On Fri, Mar 13, 2026 at 10:08:13AM +0800, Sherry Sun wrote:
+> > > Add support for parsing Root Port child nodes in dw_pcie_host_init()
+> > > using pci_host_common_parse_ports(). This allows DWC-based drivers to
+> > > specify Root Port properties (like reset GPIOs) in individual Root
+> > > Port nodes rather than in the host bridge node.
+> > >
+> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > > ---
+> > >  drivers/pci/controller/dwc/pcie-designware-host.c | 8 ++++++++
+> > >  1 file changed, 8 insertions(+)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > index a74339982c24..9608f9fcd1b3 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > @@ -20,6 +20,7 @@
+> > >  #include <linux/platform_device.h>
+> > >
+> > >  #include "../../pci.h"
+> > > +#include "../pci-host-common.h"
+> > >  #include "pcie-designware.h"
+> > >
+> > >  static struct pci_ops dw_pcie_ops;
+> > > @@ -581,6 +582,13 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+> > >
+> > >  	pp->bridge = bridge;
+> > >
+> > > +	/* Parse Root Port nodes if present */
+> > > +	ret = pci_host_common_parse_ports(dev, bridge);
+> > > +	if (ret && ret != -ENOENT) {
+> > 
+> > Is there an incentive in the -ENOENT error code? Should the API just return 0
+> > if no ports are found?
+> > 
 > 
->>
->>> See also submitting patches in DT dir.
->>
->> So the second commit is subject to II.3:
->>
->>   3) For a series going through multiple trees, the binding patch should be
->>      kept with the driver using the binding.
->>
->> In this particular case, I could have included it in my drivers branch.
->> Where do I put SoC-specific DT binding changes that are not picked
->> up by anyone else (I don't have any this time)?
+> Hi Mani,
 > 
-> What is "SoC-specific"? You put the DT binding with the user, that was
-> always the rule and that is implied by submitting patches. If you do not
-> have any user, why would you pick that up?
+> Since devm_fwnode_gpiod_get() is called within pci_host_common_parse_ports(),
+> devm_fwnode_gpiod_get() will return -ENOENT if no GPIO found. That means we
+> need to check and handle the -ENOENT error anyway, we can either handle it internally
+> in pci_host_common_parse_ports() or in the upper caller. 
+> 
+> If we hide -ENOENT inside pci_host_common_parse_ports() and always return 0, we
+> lose this distinction, the caller can no longer tell the difference between "not found" and
+> "found and parsed successfully". This might be useful that different callers might want to
+> handle differently.
+> 
+> The current pattern is also consistent with some other optional resource APIs in the
+> kernel (e.g., devm_regulator_get_optional()), where -ENOENT is returned and the caller
+> decides how to handle it.
+> 
 
-Actually I want to correct myself or explain more. If you document ABI
-for existing driver with DTS user of the ABI, but without driver change,
-e.g. new front compatible when using already documented fallback, I
-would keep the change in the driver branch, even  though technically the
-DTS is the user of new compatible. That is what I was always doing at least.
+Sure. But since the current callers are not making use of it, I thought of just
+returning 0. It fine with me to leave it as is.
 
-Why? Because I expect there might be a next patchset with binding+driver
-adding new fallback to the same binding, which would have to go via
-driver branch because of mentioned submitting patches rule. Therefore if
-I put that first binding in DTS branch and in the future I want to put
-next change in the driver branch I would have unnecessary conflicts.
+- Mani
 
-
-Best regards,
-Krzysztof
+-- 
+மணிவண்ணன் சதாசிவம்
 
