@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD69FED9E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB46FED9E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=; b=cG2Jymh69zA5CqNsEJ7lLaDgoH
-	7cv45di5H3gIFx6LAjMFuhgnOQgRSLilYkblQMr78KK0XRETeUorzMasymtofBl+MkC01UhOStT9w
-	67gAkokqs65xbdo38osJEY+5Uraqxc4F4ndcKeFn+JOSxFBR2a4Kmjd8GYdEJrRUWmgO6JFg3/uop
-	KlivBqhGOFttchOhfZGwAHGjo+O3kafM6dhRsDhqA1SNE1Kl9zL8Z6zb5DBE+QtKA7qB5yCLDlx0k
-	zj0+xGOzOpt1IPHYtK8SRtuqi2MME+tKy13bHAR1qTmXzrQuO45Hcuxrn3OniDwpACoG5emyWgrOF
-	9BZY9n6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6Hb7BcaYQNjNPxmuk7crQ1Z5IKhXmZJCGDppOYxgfA=; b=17BtGbfJNH6ByttprhCHMgEr6h
+	6WsELpJqjRwsVDa1PMabusrUyDqJs8gJVCuv+/zEhlA5uCbzshARLeWbYWKkeF0HeZTbn4KJ/9Wlo
+	E4UDs/yCNY0eJ9J2f2sXknwPhVWFxGW7pOx7aKFqKa1phs9Gih98KA6pSVOjImor47MrOQRIT9FF2
+	L5nNy16FvWAfI5txlhUeisOA0x7pzcdh3Zt0qqgnZPwGreDdcWjXDyhuD/IWm+lPQgdcfaj6eTlQz
+	VNKYGduV2426hqrGDPFGWJO3LrdmEjAR9690PnIZDosZ2h4GIFbpFwBmgmbuV4JD2MOt9BoPAkN3C
+	VgLGrx4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WLW-00000006k8t-464G;
-	Tue, 17 Mar 2026 15:28:38 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1w2WVM-00000006kg8-0faA;
+	Tue, 17 Mar 2026 15:38:48 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WLU-00000006k8M-08km
+	id 1w2WVJ-00000006kfS-33f0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 15:28:37 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b06d33e84cso1438275ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 08:28:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773761315; x=1774366115; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=;
-        b=KQU6KM6PHu5PW5ihsKN9+MlEQttZ7/6N9gUhX3IqU9ufXxM437zt46HcjLvwcjd8Vo
-         vgW+3PxvzF2nNBj3YbjaS6WT1f9liy2jDUsBm5GnCFIo9t8Ty1YLkdD3osUX4KDcnBcG
-         QWTC7QTDNUguFw+rYHtkKp+xqM4rNS8nawII5FQ7CnxwGqrZxPxKJxv0s0Mc2RwUbf6v
-         3Ugd5Cd+HJ5sDB2aUkeebEgyo97oqZCGpjjDh9996zWQLOgmyv7zVovmJB5lqYyNxM8X
-         L49Ufiif8tvag7IAvmJdHHXt3hEw33TkwO0YoSkNj+SxvXIcSVwvScIyLRrKbia5F2p1
-         AwkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773761315; x=1774366115;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r0RfajJWwZmTYBapOkDrRSM6JA1jpPzYsQwAyl/wAZs=;
-        b=HTXeF/fpEKHqw4URE/3oRmk3jFcRUVdNKHCg3sl9rstVSwW7Dyoo8S9oN10flQTUu+
-         oZdJ1J2VZOGsx8GyNA2WxmsI4P/6/HbTUHT0DFez6mQbaAopjTTk+n1QoEKMzz15Bexv
-         Cg1qAdl1JCUzyrdi5jBUp/+hEtHxjIRIDaTAITtuKKmtpKyoZ4xlOKteLgUS86NIvBIu
-         5xwgdazr54qEoE+iK30kb0mgccZHaEry/oI0RGSZ/qKIF30aCXy2xwdu5PSVgTGNlX0+
-         +gsEFl2ggACqLa53rvJ6qtseYEALl4ccDnbl7HuaPFNMNBjEjzIn4RrKnYbYqdgqhtdP
-         pHfA==
-X-Gm-Message-State: AOJu0YyEK2pc7omf/xInr6/xiGfyQJ6nwSTV8jZyQPWQUwbHnExfksUE
-	+hCyCHmME1sls0djuHD7B7vACVA/97H9LcGe7WfkbaK1MUwYqF4etGSM
-X-Gm-Gg: ATEYQzyf/vGlr2bOY7H+Nc1H8fuuq5aQac/9p622yFtCEA7sczTYHqtKIi1QCPZPUNv
-	VrsMBDpBw/X6qWdqjUg1lW+xf8FBZLxmg1mI3/b/+ctT5fBxVyRmQFBOfkBO7gZpuY1z+BBctzH
-	olGBoXmaivSX2KCCta5QPLJhVD8hlhtv+ilQb3/XiNEzqp2xC0zpUzEaBirh4JamDAEZkPOSpY1
-	DcOpxDx9k71ZrgGnZfgm/MVmn7jnvF7q+01dn3/zhx+2ET6GIiralBdWtA9CpPXE1GczYxGglro
-	iV8+fxTbPv1JgSYNtz/UU/Sar8SIWH+zKrxHG+sCqi2tCT1bfA96HoKQQcPXFyVQtxN4oaSzAkW
-	yDpWAQjwZJfY7ybRcIbA4UNLcePjW7mb27PJfKCn4oWTA8F4h7gKwc+shyH86yXeQjH+5tJEaeW
-	L/LyKVPsQU+RuU+kzuBxlY/5ZpeE8BovgbBKJ6jojHxy1G6zHL2JQD7Y5aFsyeH8ruSaCjaQ==
-X-Received: by 2002:a17:902:ea0f:b0:2b0:6323:1739 with SMTP id d9443c01a7336-2b063231bc0mr44454175ad.41.1773761314768;
-        Tue, 17 Mar 2026 08:28:34 -0700 (PDT)
-Received: from localhost.localdomain (61-230-23-18.dynamic-ip.hinet.net. [61.230.23.18])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0542909d8sm105242455ad.31.2026.03.17.08.28.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Mar 2026 08:28:34 -0700 (PDT)
-From: Yu-Chun Lin <eleanor15x@gmail.com>
-To: linus.walleij@linaro.org,
-	matt.porter@linaro.org,
-	syin@broadcom.com,
-	laurent.pinchart@ideasonboard.com,
-	csd@broadcom.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	Tue, 17 Mar 2026 15:38:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773761925; x=1805297925;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=x1gSLvzKsw5RxCMGtUcdm7YX+5lOyd2zRpU8JHZgXO4=;
+  b=KznEi7AgxtQ4H60054SYV3FbBXkoyJIxcocYYK4FXeFTEkLkzkeH5qXu
+   wYd9bDs7icfUcB5tlx453Ab8MfMOV+bmJc9cS5O8+6ZcRIy58DGAxI10P
+   TqGFe067JseMExqCso9HctM/+agGUUxyH9SASeNH+BWl2+ZkrSBwzMoEQ
+   sG6e/zXLfPcgEypOAn2oE7tjcBxhBDc+xVF370B3BXYP7CUQMRxmUQmmc
+   BqG7ogDtFCfv1ojVzdmd+NviONP9equi1x90RRmf/hEt+sSyJRtcCHctv
+   58TbyVZwaJMxHIp3LVlzta49PHyxZ8EwmyvERxcfM4L3RPoRsx2QZG8ry
+   g==;
+X-CSE-ConnectionGUID: l9Ala15OTU6hzleLC0+Tig==
+X-CSE-MsgGUID: mC/3+LWWSD67QDfprPMjFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="74830538"
+X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
+   d="scan'208";a="74830538"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 08:38:43 -0700
+X-CSE-ConnectionGUID: +Eu8r4TETdWrWgU4PeUEew==
+X-CSE-MsgGUID: tDIkp/UlRNmQmrlTxCG9kQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
+   d="scan'208";a="226989411"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 08:38:40 -0700
+Date: Tue, 17 Mar 2026 17:38:36 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	AKASHI Takahiro <akashi.tkhro@gmail.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	visitorckw@gmail.com,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH] pinctrl: abx500: Fix type of 'argument' variable
-Date: Tue, 17 Mar 2026 23:27:51 +0800
-Message-Id: <20260317152751.21210-1-eleanor15x@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH v4 2/7] pinctrl: scmi: Add SCMI_PIN_INPUT_VALUE
+Message-ID: <abl1fPQEDE38KZQN@ashevche-desk.local>
+References: <cover.1773757772.git.dan.carpenter@linaro.org>
+ <940ff48bd53e35e19a4cda081170d9198c20675e.1773757772.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <940ff48bd53e35e19a4cda081170d9198c20675e.1773757772.git.dan.carpenter@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_082836_090718_1E298EB2 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260317_083845_815372_F6A978A7 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +94,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The argument variable is assigned the return value of
-pinconf_to_config_argument(), which returns a u32. Change its type from
-enum pin_config_param to unsigned int to correctly store the configuration
-argument.
+On Tue, Mar 17, 2026 at 05:40:27PM +0300, Dan Carpenter wrote:
+> The PIN_CONFIG_LEVEL parameter represents the value of the pin, whether
+> reading or writing to the pin.  In SCMI, the parameter is represented by
+> two different values SCMI_PIN_OUTPUT_VALUE for writing to a pin and
+> SCMI_PIN_INPUT_VALUE for reading.  The current code translates
+> PIN_CONFIG_LEVEL as SCMI_PIN_OUTPUT_VALUE (writing).
+> 
+> Add a function to translate it to either INPUT or OUTPUT depending on
+> whether it is called from a _get or _set() operation.
 
-Fixes: 03b054e9696c ("pinctrl: Pass all configs to driver on pin_config_set()")
-Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
----
- drivers/pinctrl/nomadik/pinctrl-abx500.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+In three consecutive patches against the same file you have three (!) different
+prefixes. Please, align with what is being used most in the driver and/or subsystem
+(the driver seems has no consensus with itself, so subsystem then, something like
+ "pinctrl: scmi: ").
 
-diff --git a/drivers/pinctrl/nomadik/pinctrl-abx500.c b/drivers/pinctrl/nomadik/pinctrl-abx500.c
-index 8cd4ba5cf0bd..6650d3912acc 100644
---- a/drivers/pinctrl/nomadik/pinctrl-abx500.c
-+++ b/drivers/pinctrl/nomadik/pinctrl-abx500.c
-@@ -856,7 +856,7 @@ static int abx500_pin_config_set(struct pinctrl_dev *pctldev,
- 	int ret = -EINVAL;
- 	int i;
- 	enum pin_config_param param;
--	enum pin_config_param argument;
-+	u32 argument;
- 
- 	for (i = 0; i < num_configs; i++) {
- 		param = pinconf_to_config_param(configs[i]);
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
