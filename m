@@ -4,144 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65751F33807
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F21F33804
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=; b=T8tOihbqXIIdicBYK9g76zUzmj
-	s7yNT/4luqfXty1RMuK9L8BPcXfPdALpBxfawR3Qutm79uu1gmfG+6huG+XOF14fywJwOeo3n/kor
-	eTlpUNlqoFab0bCXO4aBj7pSXofYvburGa+Ed5HEJCSnJMILLQTxgMaxaibvelWn5xY3j5kKG7ea2
-	5Y4sFETGbqYmdLFS88lNXvd8Nbquf65cR93h5OARiLn7yB3uCP/FzhC7/J9CzvbCDeQZYD5n22hHs
-	Nq80Gijwxaqi8OO3F9p35mtgv2CVi0TPq0DjMdQO45A3uQ/cOXeIe7p8zNvza26Zcr6D9cA/9onUu
-	jSPA1oEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZLPLNDlo80VXp1ghSVP6zc0i73sBy+jzZBBUxabyX0=; b=B2l6nG3pj0ylAh7IN0RkVx71UO
+	IuUQa7Py150S5WjFgwe4+kA290k4EFt0xv8mXdgvidaQA9eXnMQcsK7pi/RJb+Xy9ShlUTkDjxJWN
+	ex/GGn6H5CUvc/QB3N+Gf0y5GbIybQNMlwyMkQ+SKig0MfBpOwkwSs60g7B28yiToE8OQkGN2Zep3
+	d9TxluT4t4maMfmSHBBTfEsq5dXlCQGzY6x+XqUFvVhCSRRa2jw3wZTCDr0O+d3gYtu2fgOBhJKcT
+	W9rr0GErxJTVrpKUUs25BpZgEhraNtbBuK3Jt6FI/UUaI1ZNYuYtXBJT4PFtW0Z6sgyX/f+9ErLTN
+	mBHXLhxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OkW-00000005YwB-2gfm;
-	Tue, 17 Mar 2026 07:21:56 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w2Om6-00000005Z6n-2NCd;
+	Tue, 17 Mar 2026 07:23:34 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OkT-00000005Yvg-2aNW
+	id 1w2Om4-00000005Z6C-0cdk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 07:21:54 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62H4NltI1428760
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:21:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=; b=gHzRIkXhEUr9fMLr
-	SyB/M5Ot98weHpB+ZuPy0nqVDwKYjAURuTPKx16t9bTyeDrcga3OXOXOPmenXgFk
-	59XKyp2WJLpJlD65WFqVa7SCJK11GqzSqN0S4AQqtgE14rnxmuZtLCOQ3reYw9ar
-	bHxQqQEJRdHSFUD4t6tDYRzWUR//NXxK2i+q1AQdzIbP8wcqpc9b4QIKqhMKAum8
-	eXFIa52+qXQuPtphf6R/iG4NWoSBDMTiFknrpA4vrTOIKUXK79TmkZAlnoljtY++
-	+WuQreqk70cIfr0i2r/7jXuywIeYwt5lPshtaJZG9fPoiYNzXP/VUFq4X6/Sqle5
-	EyLjMg==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cxh99bnd5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:21:51 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35b9259921fso1646690a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 00:21:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773732110; x=1774336910; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=;
-        b=Lkw1h4IceiR2u6z1lETkYcflR90HyO2B7uEacBMhHW5gHchXtFpDTyRc1cPBS23UqE
-         yvK6tWixQkpHGF5r2Tur85FH3+4EG+11UBF6BYwtyEhPMkSRiQ0BAURbf4hIXmt9Q+na
-         ekuXz7NP30N6GXs80qc9WVzI/UABHUIlR3Hr5EIZbFSwqybXZFkrW4BG6pdA1wLOrt5r
-         qgjp6PwGOlNBK9e39nvPSoVgFhNMMCVApLqG9+2eqQPoJ7wRaHX7BSKG2mrll4dvHXeJ
-         xiNWIJ7VTw0uGcowrXdhyfMnM90n0zbEVZ80SIixvS/8zKhx9XXEEpWKrSUyGnUI3e/k
-         Rmkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773732110; x=1774336910;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=;
-        b=ch69/PIfmt41uQSo0Qs6kVLUWx5D0RMYh/vtRiC8b8iwzyhwZAeENHmip7VbzT1A3X
-         OsADYjkGhnzr2BqNDvkZMggB+NRrEN/O4RedsD0iILNnwd0BbldY0LRg+8Sq77zVZXTD
-         A52oP/1RLi8BOq2LSWVkfOABlkZ7nrNsMchogNFiYhKLDVKNMS36YZYmRlalTfft8+vS
-         MANwbpuY+M/iOmGqooYMs8e6hLXqbqy3KMFWn0i3Og/W+IG7Nw5DHNtosqc3u4RJvIJ7
-         vcqJE3e6J7ik3QAC0BxQQDWASvnbd1xnBPOw5d2YK5FwXj94+EiHlUBXmvjMv3eMka8X
-         tueQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoIoq7R8hYDSQBbUsCKmmsD9U08hhAtxjF7UZEZu2iC/bwOuyFHn5NGYmbO6KotVhQ45opTdHI7FHOJhewyw0g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3v6fUcKxuVGB6diyvRjZmqrkyeUNxwyAY8GKKUQIJcAy6byPm
-	95MuO7ntUaSYdArRD80d7i/tOe5ZRYVFiAdChW+XpxrWWlp4RZ57BX0zTTLEM8fcrMGsE3lptAh
-	JyQgJjPfOuAYC7UdYDFtBJQhjMjF4hnbQgmzYOBwRbryIY7KljT5BtM3vzqBmI39PZ8lMF8bwNR
-	CAVw==
-X-Gm-Gg: ATEYQzxVecGQJNbngp+yJsCoZ3PglOg20uzBPe8AYGyAQvMvqvq1FpH3gMYB/9H2Ryz
-	7J9r+4GvX5aqjXVqibbPHWFNr9avH/Pg2PouwyMPGq+LhrPyGCvHyuKrBPOPNZIZkqeecNogsTx
-	tEH2dijEjo3Jm+MjABv5SrJRdhqr5kfeSeN6LMTqft2d3MJya45J1vjJuUA+kCmWPQ2FuL+ZpU5
-	LRUxQ9v1OwU32PRbbmkV8Qqhvwj+9qNkPQkrb+QSFSWZGXdRD/o01rYSjnJTE265PjVZ1Zwl7vA
-	d6rtA64K4Q1v4LNxFt+tVJnVxZDKf64jQaoqH6p0xh853Xh3NwaI4uaGTrrEDGobRSAFokmmy4E
-	MYVbsBuPrIFtMKL5VHLkaD8M12l0um2/Z8X+vzKQd69DUQld/LQ==
-X-Received: by 2002:a17:90b:3d4b:b0:359:c479:fc68 with SMTP id 98e67ed59e1d1-35a220aaff9mr9161921a91.5.1773732110573;
-        Tue, 17 Mar 2026 00:21:50 -0700 (PDT)
-X-Received: by 2002:a17:90b:3d4b:b0:359:c479:fc68 with SMTP id 98e67ed59e1d1-35a220aaff9mr9161903a91.5.1773732110083;
-        Tue, 17 Mar 2026 00:21:50 -0700 (PDT)
-Received: from [10.218.41.33] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35badbcb8b9sm2417780a91.13.2026.03.17.00.21.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2026 00:21:49 -0700 (PDT)
-Message-ID: <95d2de63-5571-4fce-aa32-6e8969bb9149@oss.qualcomm.com>
-Date: Tue, 17 Mar 2026 12:51:40 +0530
+	Tue, 17 Mar 2026 07:23:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZIyIyfPhRMrY9h0jEocUI7x34MUIcjpwdvE03B9lpRkUga35e35VnMPA7MJ58C4RmRfPUhTkBokjiYJG5GUJTxbLEHp4mlZb3GwSct82vwvhETMdFZe3euCbZhIcoMHwMaJupaxvhJDm5G+2lDxIhrn1sGlz6r0Yr6WDk5tJcIYKvQWwQx1wyEPTXgva3vIoRM15/rFp+/CXTl7oDaGxAyNCfvyvw0XsffQc/zgs+1uGafYTlCD64lccVra++f8bob7KBnN/BLPxs5rLs2tmnvld7lBrORU9r8BeYMVoRUIUziJXoh/eWzhVf/BHof/V0CkmA2HFW+hnvr8+MHsB2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BZLPLNDlo80VXp1ghSVP6zc0i73sBy+jzZBBUxabyX0=;
+ b=Tx92j5o1Y3AlDK3CC99DignCxoN+XVEUfaSz/v/n6QNYIn5Zv1BVZW2Az/i6qUhpMECiqD/QF7Hhf2JjliMy9ciyS9BsnFPdkyzESXLDOAElRlqbZmKRhiumTJx8G/h1y1KElMSdBlAItC4nQVcVdh7vCV94A+JiTzS27677BXvTMZefSb0szfTXXnaImH5RgsKocS/trzdf2tAHyjb4GNCPk2rFe35Rz0o9X+mNziiuIuKeEMhPgrcKg5xQN9MJmRMQh3BfEtBxmSAvdtaNSwYCv4lTgCsqfoEPzNFJbjhvZ53eibFY5r97QysH4bZoOaPxQbJbG/uWCb2nvEvVmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BZLPLNDlo80VXp1ghSVP6zc0i73sBy+jzZBBUxabyX0=;
+ b=k0k9y3wDs8hP5o0hn5bzO014eF2gU1kaEQkyXF35MaOa1wnLPlI1MY9Inu3T6MRdAo2jwvP/7AigicCeG9wxy8fdZfNwVssJJoMtKCqfA8bcuwmKn3ZOYftsluRPUs0bqbVT9pTXdoEpZPbytESkfgW9c+bmPK0nWR0OQ1NSwTKM6w6ctTICLkCKu5YBZLcEV4/a02ZbiEG4J4mB1ctgeA+zOG1q1ZaBvVwNVVwVAZQ21e3zREoBnlGFTQEvBbI3OVjg/oXBjCHiGPfLm/oJ0HCxUu2GjKr3dtW0l9aadrnz0P2W8aTtYHrcHEekbg/WenUOTGXZ/TY/VMhEiYeN3Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by PA1PR04MB11262.eurprd04.prod.outlook.com (2603:10a6:102:4eb::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.22; Tue, 17 Mar
+ 2026 07:23:15 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af%4]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 07:22:53 +0000
+Date: Tue, 17 Mar 2026 15:25:30 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Support loop control in quirk code
+ snippets
+Message-ID: <abkB6tnWzxw1AdxH@shlinux89>
+References: <51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be>
+X-ClientProxiedBy: MA0PR01CA0067.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::13) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/16] Support Armv8 RAS Extensions for Kernel-first
- error handling
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
-        will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
-        sudeep.holla@arm.com, rafael@kernel.org, robin.murphy@arm.com,
-        mark.rutland@arm.com, tony.luck@intel.com, bp@alien8.de,
-        tglx@linutronix.de, peterz@infradead.org
-Cc: lenb@kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-        linux-perf-users@vger.kernel.org, linux-edac@vger.kernel.org,
-        mchehab@kernel.org, xueshuai@linux.alibaba.com,
-        zhuo.song@linux.alibaba.com, oliver.yang@linux.alibaba.com
-References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
- <edf7e7eb-8f02-4672-bc31-16e0a8fb9715@oss.qualcomm.com>
- <d4e4e2b1-c182-42f9-9d60-b12f0fd7f977@linux.alibaba.com>
-Content-Language: en-US
-From: Umang Chheda <umang.chheda@oss.qualcomm.com>
-In-Reply-To: <d4e4e2b1-c182-42f9-9d60-b12f0fd7f977@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=RJ++3oi+ c=1 sm=1 tr=0 ts=69b9010f cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=IrbkRpuHRcUsFRyD9lEA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDA2MyBTYWx0ZWRfX+lEvIRgSxbuT
- dc8v0hbafrrdRTrIfNFUEN1seIShILBfhmU3bif8HQ2dzh8vXnW1dNT9dvf1OE3ArmNUztWIDjc
- wGAJdWQZ7c1b8k77BUGSYAQFsOhd7UWieQPcC1fvSY9JM6ofeF7qZIi/Kib0FKAF3oHwuZNXXPq
- zoT+jY+QLUOHklgKqc4CqfqdUInZPrXxXPqKhgaZC5OhCAYyN/PDrl741EbDogzmlu0rPY9OTe7
- Ugx5eAwV6Rlt5xSDbwTWqJGSVnMqniNI2cSrfRKimBxW1LkokSeQfe1sgu5KidKDk1Mb/rrfEqB
- LIfH/PqplLyrjLKyIZjntWJro4qd0/1EEgtKxqBfR5GzfQyVeCTeqmT7EnLSt07zbClVpfDZirA
- tPn5qC1nEqFGX80dbj6FjxMA3faR31LXbroV0EUJbMsyJnXuJNoKNCb4rE8yEV7hJlAjmv9t/yn
- yNiMgisOKD84vzqYQYQ==
-X-Proofpoint-ORIG-GUID: qMeUYaHt_21H8tCqESSgUm_fK-14k9OM
-X-Proofpoint-GUID: qMeUYaHt_21H8tCqESSgUm_fK-14k9OM
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-17_01,2026-03-16_06,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 clxscore=1011 spamscore=0 malwarescore=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0 adultscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603170063
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|PA1PR04MB11262:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9541e37-629d-4dc5-0d15-08de83f60089
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|52116014|38350700014|18002099003|22082099003|56012099003|7053199007;
+X-Microsoft-Antispam-Message-Info: 0RfgQc7reOCFT0z7gbYqCu24MGqU1o1BLrjrSBG2WuVaLbeh2NDoMupryIar/jTS2RkW/vzQOOmqZFCvJRnTlV3dHNk6V7SlViinuGm58w589b0s1cE7bwvI5Jy+Qwbmxhg1CeRJ3yH6TeI1M9BSAs0yL5vjTSRmjsck+Zy6He3Ne0n6oTcY1/L4n1n19CJF05RHxWb0rVB2LANdkCDrR70jGA+XatjXRSyFJfFrRKj/9z+pNt2QA4s44f9Yojq0qWZMqYYsnjMAioi0P0bGBfIlNpaQf52m/p/3/2nyGF9zLhgnATl+ZcnGr07ArLpeq64sQauZ6K42LFS0lBR239tX875yuXXssavuXgdEOSzCt+9/gXNpRCeGDwYiVWPyuaJm47pqOMRN9uMRXlqpthBS3rPS1R2TIA6BI9BRgjaPCHNpUYVSyW4D4NdGvY4K6C8m3gsCFBAVugg3MzTbqDS9u8ALNOlIev6b0I+uyH1e05ZjE6EI+FwNxKBQvddi2N74VvnEpC6S6LjTQeJNZ0P9BKKeVLrK9bYiP7MtAPF74SkSMfDG1gyY/TRvrWMNjtjo+i7CZUoj7KhTmqKvskRPvqBdGMzIb0yX1H7yaHVS4RcanishzjKkKH/2JH7zyqLM3xiXbwHSi3Azf3ponR69ajn/KttY2NspFurlz3x9F7jqVT4jHd15uFGrwHL1PTSb9erCZMxLgOfP8volhBReMI8o5Mq4U1dzeHCDsnlHfUY141PwTmAW0XM2SQWgLqKDdNNVof/7J+Z/nLCzWgpF4vF9i5PwtTQZe6A84pY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(52116014)(38350700014)(18002099003)(22082099003)(56012099003)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N5Meh65larkaDAj4uoC4euM7Yo7jP45fJekc3w7i0NSycPVlhiP7ZoOv4WOI?=
+ =?us-ascii?Q?LY9y5sWyCbOa150RMyB/0vHJ7a+6AwVcR1ehTUYVdHT4kfg6GwSoBTQt4mfX?=
+ =?us-ascii?Q?U+Ikmcuf0ht4sWUXXMxNfTmKI4Qm3WmI+5CcG3xF6hjqBRkgkQeph3e8hDJm?=
+ =?us-ascii?Q?lbjxAxpbKfVbK40Vu2vALwozZQTawUGtoW/a1FZmfDp5JnwvUpeVSqDtbETQ?=
+ =?us-ascii?Q?DdpXDMJke7EJ2msKErrPi4p2pK7qL3SRhdaAQjzFrtG8FKFhRgdWGfYilDuP?=
+ =?us-ascii?Q?hvWz9ZAU+UXf2VDHVueGb3JMHlFgsHrDC7SsrBTdXd5i6SuZg+8zEcfbNGch?=
+ =?us-ascii?Q?2+DohWKrLJDXtgbrzIvilgfTp29cOoMXRdP4kUGYua7BiAvQbir3OofCTql5?=
+ =?us-ascii?Q?KX+0MCK4vuvufUZ4+1lH4mSJ8EQG0CTuLw9/3J6PKJAHLQTHpAdOPaoxsKiU?=
+ =?us-ascii?Q?9ZeltCk1r1+VzAgwEQLKt2DOSPrH3PsZ9oVgDMw3pKFAtxlA0OhVV5HNbWex?=
+ =?us-ascii?Q?AKE2bMmNoiecsZxHVXnl5kEDYynqUnZ18t4rURyZ+U1Z3LCrbWeA1aZdGAD4?=
+ =?us-ascii?Q?PBW+EYSNdDI+IlO1lSbspFFKb33kgTDBN0/qs+yRcRKY/kXOgJUP/JTDKcZO?=
+ =?us-ascii?Q?z8yX7keAZ/xsaVhAErvE9atR1LmLJ1rZNrwGWmNvqb9I5pRnh8Oz9EbNoIVm?=
+ =?us-ascii?Q?d8fUxMhtR0wwHn9AekKSoimZIRZp9Rq3KjAGajWpe9VXR/Blbrf4loPXbv7d?=
+ =?us-ascii?Q?kqlxuJLdgyeSa1IWac1lA06BEOg5ceApb6prD8gm+NRgilRRROkoucQjKNfb?=
+ =?us-ascii?Q?jabzU5YTmxvkOxvud8s6pYbe4UISoSRoyGsmObkaFoXc8+FWTMYBcRd9TJSP?=
+ =?us-ascii?Q?72QL4BU1wnYimWAmGgjpL9DKP3QnE0Fz407xn2Q3Oy7SkyaXMaknnl6QyzAC?=
+ =?us-ascii?Q?jWR7QQNc4I7fkf40sRA3HvbicxXAnf3QuKlHtgbegJF9zkDWNpkM883KDObd?=
+ =?us-ascii?Q?BS5IDEykP/q9txwVKfuyyC6RcxXAy2Xw/qwE1lhaOve72mNL1RI/Qw6jSfup?=
+ =?us-ascii?Q?aAk6ljSP1lxIW3BRTSUywRnZ7Z7eKqVNzVqVgSvBl6dJkd5nqXlnNhcByKn+?=
+ =?us-ascii?Q?4X3eYcvOpKmsZftk7UJMsOFQCmV6xFBcx8dogXDpNLMDKpR/3o/aAnSSOyGs?=
+ =?us-ascii?Q?X050pTeEbzVXZM08Qnz4pAUCsYxol56T+aH/PRZ4+Srah+g+BJXxWnE4jHFa?=
+ =?us-ascii?Q?JLm7SX2hDC+pMrbtZqmJeOQxoE32cK0rMietp/R2XqHajvS0e7RUv34ugARv?=
+ =?us-ascii?Q?3+BETJlBmw/t2+AzvxBZwNmFeACSqahzpFjIQeSEvilvfH8m34HltwzDZpRU?=
+ =?us-ascii?Q?XWW/xdtgVICrfGFnTmtw1P6fSaRl0JCzZzp5V2yYamIFJWUwEwmb9EZ3B5tX?=
+ =?us-ascii?Q?ZI2WVswwMT+Y0zrCD3IAzPfKcidJAGkt4Ey0y1qQOBdCdjo8r7F0IcEUDZdt?=
+ =?us-ascii?Q?5QCx4UW/s7fUZk2iszVmE+MPfPdEhJuDhTU/QxYfz3kVitf3wFOR5Xx1pEa6?=
+ =?us-ascii?Q?WAVbCthFfnSNn4tBzuXBSJTogFmJHjdLlAm2JR43xjoX+F8mZoJe5iICT+hI?=
+ =?us-ascii?Q?2j38Yy4F8VUhutvohw6IUAJ/oM/9gtJJSJQghPlZykhAsFSGzsbo7hhi+5Vs?=
+ =?us-ascii?Q?GZS5Td4tlsuShu/VdPvknn72nW8AKSap6qlQRu72vC77vLZ1mJRvFkVlXgUU?=
+ =?us-ascii?Q?CwkoSIPEig=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9541e37-629d-4dc5-0d15-08de83f60089
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 07:22:53.3284
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xMdwjMEyfYaZu8+M+eYciyZmYjl0QQ82q6zdmKpnhLowg0l5y3LoLkk3mLFkXOZur+XLk7mCIOkUrGnTT8XF1g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11262
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_002153_664981_F5C6E047 
-X-CRM114-Status: GOOD (  28.85  )
+X-CRM114-CacheID: sfid-20260317_002332_194781_7B0DFFEB 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,100 +141,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 3/11/2026 8:55 AM, Ruidong Tian wrote:
+On Mon, Mar 16, 2026 at 04:34:40PM +0100, Geert Uytterhoeven wrote:
+>Each SCMI firmware quirk contains a code snippet, which handles the
+>quirk, and has full access to the surrounding context.  When this
+>context is (part of) a loop body, the code snippet may want to use loop
+>control statements like "break" and "continue".  Unfortunately the
+>SCMI_QUIRK() macro implementation contains a dummy loop, taking
+>precedence over any outer loops.  Hence quirk code cannot use loop
+>control statements, but has to resort to polluting the surrounding
+>context with a label, and use goto.
 >
+>Fix this by replacing the "do { ... } while (0)" construct in the
+>SCMI_QUIRK() implementation by "({ ... })".
 >
-> 在 2026/3/9 21:28, Umang Chheda 写道:
->> Hello Ruidong Tain,
->>
->> On 1/22/2026 3:16 PM, Ruidong Tian wrote:
->>> Motivation: Reliability in Modern Data Centers
->>> =================================================
->>> In modern data centers, proactive maintenance is essential for achieving high
->>> service availability. The practice of using Corrected Errors (CE) to predict
->>> impending Uncorrected Errors (UE) is already widely deployed at scale across
->>> the industry, like Alibaba[2], Tencent[4], Intel[1], AMD[2]. By analyzing CE
->>> telemetry, operators can identify failing hardware and perform migrations
->>> before catastrophic failures occur.
->>>
->>> Problem: Inefficient CE Collection on ARM
->>> ==========================================
->>> Currently, ARM-based systems primarily rely on "Firmware-First" error
->>> handling (e.g., via GHES). This path is inherently heavy-weight. To avoid
->>> significant performance overhead, firmware is often configured with high
->>> thresholds—reporting to the OS only after thousands of CEs have occurred.
->>> If the threshold is set lower, the high frequency of errors leads to
->>> excessive and costly context switching between the OS and firmware.
->>> Consequently, ARM platforms currently lack an efficient mechanism to collect
->>> the granular CE data required for high-fidelity error prediction.
->>>
->>> Solution: Kernel-First Handling via AEST
->>> ===========================================
->>> Other architectures have long utilized "Kernel-First" approaches for
->>> efficient CE collection: Intel provides CMCI (Corrected Machine Check
->>> Interrupt), and AMD has recently introduced similar CE interrupt support[5].
->>>
->>> On the ARM architecture, hardware already provides the necessary RAS
->>> Extensions[6], and the ACPI AEST specification[0] defines a standardized way for
->>> the OS to discover these error source registers. This series implements
->>> AEST support, enabling the kernel to:
->>>
->>>   - Discover error sources directly via ACPI tables.
->>>   - Handle CE notifications via direct interrupts.
->>>   - Bypass firmware overhead to collect every CE or use low-latency thresholds.
->>>
->>> This implementation provides the missing link for efficient RAS telemetry
->>> on ARM, bringing it to parity with other enterprise architectures.
->>
->> Thanks for posting this series enabling kernel-first handling for the Armv8 RAS extensions.
->>
->> We noticed the current implementation targets ACPI-based server platforms. For embedded/SoC systems, Device Tree is often the primary firmware description.
->> Do you have any plans to add DT-based support for the same flow? If not, do you see any blockers to extending this series to support DT
->> (e.g., DT bindings + discovery/registration path analogous to the ACPI plumbing) ?
->> If DT support is in-scope, We would be happy to align on the expected approach and help with review/development/testing for DT-based platforms.
->
-> Hi Umang,
->
-> Thanks for the reply.
->
-> Adding Device Tree support should be easy. We just need a patch similar to "ACPI/AEST: Parse the AEST table" to fill the DT table into struct acpi_aest_node (might need renaming) and struct aest_hnode. The driver part requires minimal changes. 
->
-> However, I'm not very familiar with DT and lack DT engineering support, so I would need some guidance on these DT-related questions:
->
-> - Is there a specification that outlines the reporting     requirements for RAS extension information that is similar to AEST? 
+>Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Currently there is no spec/bindings defined for DT based systems. Based on discussions on earlier posted patch [1]  - expectation from maintainers
-was to have DT bindings aligned to and equivalent to the AEST spec. Based on this expectation - we plan to propose DT bindings - which are  aligned
-to AEST spec.
-
-[1] Re: [PATCH 1/2] dt-bindings: edac: Add DT bindings for Kryo EDAC - James Morse <https://lore.kernel.org/linux-edac/312fc8b8-7019-0c74-6a92-c6740cab5dad@arm.com/>
-
-> - How should the DT be designed?
->
-Same as above - plan to align DT bindings equivalent to AEST spec.
-
-> - How can I develop QEMU and modify DT files for debugging, etc.? 
-
-We can share the steps for this for DT based system in this thread.
-
-
->
-> I would be happy to adjust the patchset to meet the needs of both parties if you are prepared to invest the necessary effort（DT-related）. In reality, I believe that just a little modification is required. 
-
-Thanks, Yes - we are open to contribute in extending this patch series to support DT based systems as well.
-
-[...]
-
-
-Thanks,
-Umang
-
->
->>
->>>
->>
->>
->>
->
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
