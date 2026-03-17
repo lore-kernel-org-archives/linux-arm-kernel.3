@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947D0FB5EAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B30FB5EAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqAW8Lz8UGhU0wvIEqMX1J/fowDMs++jiY4h3lV2FoI=; b=M8gvcozsbd4Lauy4v/UeAlJrsO
-	Wt4JU813eGgKFqJVRgBR4pE0PLPBmfxzKtB04NfPcmNWeuctmPqHpXW+VoGPdWVw4Rd9jAKhLT+Yz
-	Wigk8E4os/qwCKzExfc8gXGbXsjvFKNnF7hMR88zeuZGUw7EyZDkX2WnaCZ7gz5fU6fMiObSsH3ci
-	BfO55omQnAInDAcoEnjFYCd92qvdWGkYiS/QsfrrM2iHD75bASvoTJ38fh76SiwAnTAYqX4gAuLny
-	QF1o1Dv5lt3fdfAgSsIDwmhRXienLWkXgMKRfYnU+vDkybAGOTWtIVYMqd3QoBwSmZImlPBUJ7zL7
-	65cTGSwQ==;
+	bh=1C8bQzpx/uEkLcacI23jZqCv23os2UdSq0AA05SZO0k=; b=iTqTeTZjQwNPYjuyCsRxCgrwgc
+	OIvmiiekm8Ap0Bj+n0Gm15V85Gad/AUiW7c7wtR5Wq7PkANVjt0rnXYcUw0QCaTtlf2MpdS6kuY8j
+	L+rTYkNWv59gNnTrOeRlaPJxIEHzGgVOQg/52CePt4AbBjAkevRXAXS2sB7VxkcTrokbmXUcla885
+	VH3Ee881MBd2GkhE+Ds0WBcruwA8jfkcWHt7sgI8C/6Ws0yVUQWB+K/aGC/DyXrPtyvWc8Y1ZygFF
+	Ex7NcOBii1P9IQ1Xkdz/2eUj3qLgncHH/d1CXhrno4Gvag+0dJHgYEFm1Tz4tp50a42lwC03PQGeI
+	wJjaDueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2VbD-00000006deD-0Rnu;
-	Tue, 17 Mar 2026 14:40:47 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1w2VbO-00000006dkF-1qbL;
+	Tue, 17 Mar 2026 14:40:58 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vb9-00000006dbI-0sTj
+	id 1w2VbL-00000006di8-49KE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 14:40:44 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b97ed4ad579so40485166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:40:42 -0700 (PDT)
+	Tue, 17 Mar 2026 14:40:57 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4853c1ca73aso49434305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:40:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773758441; x=1774363241; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1773758454; x=1774363254; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QqAW8Lz8UGhU0wvIEqMX1J/fowDMs++jiY4h3lV2FoI=;
-        b=kW/xzoJkIwJD9EKgp5XPDucva/pLbqg0m6iezFC0K79KNx0AvwXP45I8ofgSqbHMRA
-         mZtbvesZvPlPP+oCazy8zJkGyW3WlpgWcLFaIikIRZfzJQ22Yc8vGyytXBB/8EJPW48n
-         0zb66ecWsFNLmrkiyjk6TCl4e0gwKLxGeeP1ZpHTFYXjSXVGuuNTk+IctWsapruYqnnj
-         m8dfYB8YIWuL5EK+6y2Yqfa1kWkrt7sZZf4JTceWilhGDjTsBSpqyA2ESGge5PCN9hik
-         Bwjf20sSonLpIJqYeWdai/Ee6AIlSlZraf5i+HYLL1U0Fw/03oQwNAqV+mi5e6uXv9bw
-         XzYA==
+        bh=1C8bQzpx/uEkLcacI23jZqCv23os2UdSq0AA05SZO0k=;
+        b=wsS1Pjn3XdSkxZhNwf3gzQ9SM9yu9o4riAgCfkJPwTM5zqSAT8g9AZm67h6PgZUonc
+         EVE8nFm3TScNG18JHzON7nLbjyxEy3ZEM82e7EpzwP3OTXnd6o59DbK0rsyYJZ+l5BdG
+         56yvd7eoZiEFU+qglHqEKEvRy33Dj8pOHyP/TCu0BVRuetpdSY2yRgQPUP08zPyElHnO
+         treJuWY9fD4OVW1S2DnX54x4CxkISx2DpstHp9uoYiQUG+aV5ODORi8M59akIYWmXZ4T
+         2A/CkJGfm25bOU824dgy9hh3pS8ylUCqWEiKF2bXkUZ4yBqgyl5TfzB0a1GcaG67de+p
+         Reyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773758441; x=1774363241;
+        d=1e100.net; s=20251104; t=1773758454; x=1774363254;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QqAW8Lz8UGhU0wvIEqMX1J/fowDMs++jiY4h3lV2FoI=;
-        b=dKehO/uB8Nr7toi1E5ZoanXEeutjIs4tI+IXX63/2p9aaH27ndr6dfHl07KHVRzr4W
-         eUgUhZoKGN2DNy+pMLSujSCzVzvfgioaNBz4yX1noVU7if9cQxncZ+GKIJWw+8LwHxJR
-         dqwa//M2n4EM+gyqHYyjrFtTkDWWwS2DxtiPGJGSd3kz7q7jBi5Yc0aBvg5mjI2Zt9rl
-         +0nFEcNmM2bUns/OA9VQ/nFqzGw5OwQ0zqzL6T+O5sgE1j32wgIMdpOSdAzFgrL9WGtJ
-         WLGrrwlepqG5E2E9rROBGYLN82dLfCiuFTyp4mPmSEoOzDv/0yyWWbvXcoiW4fTw2j3N
-         AoOA==
-X-Forwarded-Encrypted: i=1; AJvYcCW5uyEcmnVm3/ht8YsfzyMK10rA/9ahCnag06C2gNGiDDL0RC52rof3VROSO4LnvRx4W+XA3oc3vqh//I3+Z8tQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqnPMu0GInf5ivSGwxWy3PKO03azhztTijIBsOOvXMrozaC3KR
-	rQt+WlLbb2QD7vtHA2QnANL9BupeF5Zsv14Fj97/4lzsqX/pAWUyj8o8rNmBo1WjYSM=
-X-Gm-Gg: ATEYQzxNVhPgAzphr6Eub5vfWCLfHAK48vz4z3168FFD0TU2LOK/FxkuhJX6PAxqAq9
-	zDGJtWnxiroBx0sMwROOaxphjypDRq5kV/4kuh+ouyt/qUEbcYmUw0NSnNPPuDD5Z5g+FpEG5aj
-	VjMS4YihP+q9l6QEwheLGBsh2FnNyHGx91ZidmWpqEic1wNtg6Hh9R5AfLZdQVt9XpiorDDp4vE
-	BR11Rc8mpjBAV18cW0qyldyBNAMz5KPCd/CzD85qac/ktgjjpn1Bq9yDeb9vzXW62QRMTqQxEJM
-	nFIVDbt+Vp4f8Apj3YbcGBAk54HW+nxzlrJPBH0Kifw8dGnDEAb7xfk34BNJrGyegFjo8Pg/IK2
-	h7ev4FyWQmCUX6y5/IdT2BPeIVC8MDJptR1D8TEusvH0fCSW8kIesxEBZTbk3apgCMlqPBYuOzz
-	yODmfYw7QTAyuxa+noPNwFDgRMTl5U
-X-Received: by 2002:a17:907:84d:b0:b97:7966:cb1d with SMTP id a640c23a62f3a-b977966d1b9mr848405066b.18.1773758441127;
-        Tue, 17 Mar 2026 07:40:41 -0700 (PDT)
+        bh=1C8bQzpx/uEkLcacI23jZqCv23os2UdSq0AA05SZO0k=;
+        b=FbkewFa1p2asaUdrlGboz8GuQ/fHH4eNce3FYf19AMwZIqvHhmIruVye8JN3IXToN0
+         7pdc8cYATd6f3EJ4CuxHYIrva+8a66pAk1hg7r3OkriyIlZDbRx5YykbyjpM92985Gkw
+         2oj78oNCXag/wd1mi29dAV1zvwdvQZIA50qyIkH7erWAiBm+nbuNBelk+BDLO5b9GTS9
+         Jyn7pVOvEw+Z8ygSDWwJVJ6DFv+9fPkOgEuwTe1AYqmKJU+XgNCVWSUOqLDuPelBL9Xs
+         7bKOFI/76w5koIGquTJXfu5nXGlzjVgGBmUvmqaj5AEgaOXRDn8VTSf/zjUFRr45qNv9
+         kxgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYmUnMOTHrouGlbS7ZdwhQ8zpr6k1rZcB6KbBj84DRF+vr+niDPWT1IXMAZmehWVpsj9+sMVNpEu04tlLUGZ7/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuJKPWB9PtLOdS9fUT9x3MgLNd5FYhy3lcQpbZnebcSSePNejA
+	zkDnfqmxECN5m9Xyg1fkjnx75xd5q/7HYU8imXAVC9+HC+pAflxVhFcX/50ppTtWGyk=
+X-Gm-Gg: ATEYQzyz+Z/89BPbfi/TBbfbMIw1HFyXtUyyZo38pLR7Eg8m5Fihvw2K1U1TCGDHjwD
+	zzVYEPD4GwgG3uPCWkF+yoQPCp/LizNY6oWkPGiggOMyHdoBs3q9N4G/brn2eyTyfp2VQNeO1Hq
+	rGTMGxEXsgvU9+HmAPkQLoeHvfZdpaJSQRNsfYIXHZpIHeq6SvHg8jVS5/ADArwTSdUn95IqQST
+	+829vCCGsHfcylr2BoS+iKH2fqlGGVyvU/aHTD05sC8V+vCkWv9QWuW5i31r7NybJyHftHk5SAR
+	5HSnb/ICNsCR3j5wn1VcLKIdrAh+P5EyM0AaMiM8+6/PMW44a8Kz0/QCa6EA8GJ4Y9IgaQVoFjH
+	WnrC3+EAei6r9QlpdUo1MTM2wTIg45N/pwWSc+3ZDGg6XcOVUx+/LWlb6c2ExWHjVLn7eab/20x
+	Y04jbZ5d202qdNKsnmhS2S3d4hfEZg
+X-Received: by 2002:a05:600c:3b90:b0:485:345b:ccb1 with SMTP id 5b1f17b1804b1-48556720f86mr269439545e9.27.1773758453766;
+        Tue, 17 Mar 2026 07:40:53 -0700 (PDT)
 Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b976cc220basm753466566b.28.2026.03.17.07.40.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4855640d915sm118222495e9.4.2026.03.17.07.40.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Mar 2026 07:40:40 -0700 (PDT)
-Date: Tue, 17 Mar 2026 17:40:38 +0300
+        Tue, 17 Mar 2026 07:40:53 -0700 (PDT)
+Date: Tue, 17 Mar 2026 17:40:50 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	AKASHI Takahiro <akashi.tkhro@gmail.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Linus Walleij <linusw@kernel.org>,
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	linux-gpio@vger.kernel.org,
 	Vincent Guittot <vincent.guittot@linaro.org>,
 	Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v4 4/7] pinctrl-scmi: ignore PIN_CONFIG_PERSIST_STATE
-Message-ID: <10c43dfe5f72eedb259db533004acddd5579e168.1773757772.git.dan.carpenter@linaro.org>
+Subject: [PATCH v4 5/7] arm_scmi: pinctrl: allow PINCTRL_REQUEST to return
+ EOPNOTSUPP
+Message-ID: <aee820fd35412fc8679558e7df4a912f1fe27f5f.1773757772.git.dan.carpenter@linaro.org>
 References: <cover.1773757772.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1773757772.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_074043_283084_F9C3A1A7 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260317_074056_033834_CF87A325 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PIN_CONFIG_PERSIST_STATE setting ensures that the pin state persists
-across a sleep or controller reset.  The SCMI spec does not have an
-equivalent command to this so just ignore it.
+The SCMI protocol specification says that the PINCTRL_REQUEST and
+PINCTRL_RELEASE commands are optional.  So if the SCMI server returns
+-EOPNOTSUPP, then treat that as success and continue.
 
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/pinctrl/pinctrl-scmi.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/firmware/arm_scmi/pinctrl.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index de8c113bc61d..f22be6b7b82a 100644
---- a/drivers/pinctrl/pinctrl-scmi.c
-+++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -361,7 +361,7 @@ static int pinctrl_scmi_pinconf_set(struct pinctrl_dev *pctldev,
- 				    unsigned long *configs,
- 				    unsigned int num_configs)
- {
--	int i, ret;
-+	int i, cnt, ret;
- 	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
- 	enum scmi_pinctrl_conf_type config_type[SCMI_NUM_CONFIGS];
- 	u32 config_value[SCMI_NUM_CONFIGS];
-@@ -377,17 +377,21 @@ static int pinctrl_scmi_pinconf_set(struct pinctrl_dev *pctldev,
- 	if (ret)
- 		return ret;
+diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
+index a020e23d7c49..42cb1aef1fe1 100644
+--- a/drivers/firmware/arm_scmi/pinctrl.c
++++ b/drivers/firmware/arm_scmi/pinctrl.c
+@@ -578,6 +578,8 @@ static int scmi_pinctrl_request_free(const struct scmi_protocol_handle *ph,
+ 	tx->flags = cpu_to_le32(type);
  
-+	cnt = 0;
- 	for (i = 0; i < num_configs; i++) {
- 		param = pinconf_to_config_param(configs[i]);
--		ret = pinctrl_scmi_map_pinconf_type_set(param, &p_config_type[i]);
-+		if (param == PIN_CONFIG_PERSIST_STATE)
-+			continue;
-+		ret = pinctrl_scmi_map_pinconf_type_set(param, &p_config_type[cnt]);
- 		if (ret) {
- 			dev_err(pmx->dev, "Error map pinconf_type %d\n", ret);
- 			goto free_config;
- 		}
--		p_config_value[i] = pinconf_to_config_argument(configs[i]);
-+		p_config_value[cnt] = pinconf_to_config_argument(configs[i]);
-+		cnt++;
- 	}
+ 	ret = ph->xops->do_xfer(ph, t);
++	if (ret == -EOPNOTSUPP)
++		ret = 0;
+ 	ph->xops->xfer_put(ph, t);
  
--	ret = pinctrl_ops->settings_conf(pmx->ph, pin, PIN_TYPE, num_configs,
-+	ret = pinctrl_ops->settings_conf(pmx->ph, pin, PIN_TYPE, cnt,
- 					 p_config_type,  p_config_value);
- 	if (ret)
- 		dev_err(pmx->dev, "Error parsing config %d\n", ret);
+ 	return ret;
 -- 
 2.51.0
 
