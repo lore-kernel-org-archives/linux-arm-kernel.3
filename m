@@ -4,46 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774D9F3383D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F96F3383D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrM1dZaDUTVl4/JXFyuHCBOawOyBf912x/nVczXv2gQ=; b=abfuzr31V27p33pVXQKhPWSjFm
-	h5gZbV36g5OUQ7mD4BtBgYdLPgYyhgZ1DFxyprgYbWxaTWWduRUy8Dn3M+48Ylyp7pc3cAoQbZ7Er
-	W9xBnEFAK+QcF5Tp1i841CWJokTLyxsyEI1S9KV3D9Gd6es3dPmfwm0WGj3EVXrcWLhIeb5XdhNo6
-	IJVvDgcLJE5/r9FvG5T1OnNSloQoH6TuAc5tx1TUIQMaCkAQwStsQktQVfrVLeUXTtXiWGQtVNRUT
-	9st2iEwWvAVJKOK4dNMxcK2ovEZTtKSzNdTSqF7W4Qbt6OykgNfXN6TzyfYZIx+qQ2bCI7nE6ZvBw
-	8Ky9JwHw==;
+	bh=uBLyAAnBvC4Y6dlPU+VQ8J/Go3H/Rpdcc6gQ7q2rdNM=; b=08zRFTMZ92c0cn8kcLoJW2zqVk
+	DFMIQ28ttvfYviGPVtdKcRU3ymuigsiFE4PdFW0/WSXhGyQvVqHlTB1DTaicNOAR5+0I+xNpVEbIP
+	hFXLfs3uJKDUSU+LPepwR5I6bwpTV7S+XhuYyQaEuG66ej1WPLIlU8YYJPexfXTPR0O/6THvFO782
+	RPzgyLMHvRs0VjzwM1ELrPZl06IjJCqA0VFjuIRm3bISdTPxrtMYjtPgni1cIdanOJpxSDa7+aMZA
+	wtoMUvMiM8JltFt3OY5ddqyF8ovGmhsJVKuQXzdU91fRq+QlZLKXfhrF5ZCUR6Pcw4F771Bd+yXBW
+	QqVtAjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vfp-00000006eXg-0vrj;
-	Tue, 17 Mar 2026 14:45:33 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vfm-00000006eWz-48R0;
-	Tue, 17 Mar 2026 14:45:31 +0000
-Date: Tue, 17 Mar 2026 07:45:30 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] lib/crypto: arm64: Drop checks for
- CONFIG_KERNEL_MODE_NEON
-Message-ID: <ablpCtKCV5goM_AD@infradead.org>
-References: <20260314175049.26931-1-ebiggers@kernel.org>
- <38a37b02-602a-42a4-8974-b8a6cd750c3e@app.fastmail.com>
+	id 1w2Vj1-00000006erz-32H4;
+	Tue, 17 Mar 2026 14:48:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Viz-00000006erZ-32Eu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 14:48:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uBLyAAnBvC4Y6dlPU+VQ8J/Go3H/Rpdcc6gQ7q2rdNM=; b=1vSt24yX6OiavMjiOSTcAQRqR1
+	uA/E2DbMceTjg7uSYVVHh1h7VuI7SW2cB08Wg235S2FUZtHr7U2bo9BoKDmtDo8L1VqLGQTDw4Bzk
+	Jkh4Y4/J4K3ze0MRStvQgKEo0bXeI+ErvXEcOt7viJ/rRGdNxsWtnSob1I+uGztbeLmvU+yMoJu52
+	/aLtGZsfQYgflkyudQ87Rg/H/lr5MZQslAae89dvQEPjb+w9pnikmzu5jbrf7WuDXTzX1vl8OnZhq
+	v8c0jCPEGj4cONRgAZiQiuVuhpQr2JFNdDJeaUrnYuuLwvQTbWGpk3DvyDge2poLH5L5af+LKg45p
+	TwfCWwdQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42608)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w2Vis-000000005NL-3Zzy;
+	Tue, 17 Mar 2026 14:48:42 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w2Vip-0000000067Q-3LVa;
+	Tue, 17 Mar 2026 14:48:39 +0000
+Date: Tue, 17 Mar 2026 14:48:39 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <ablpxwGks9m38fhM@shell.armlinux.org.uk>
+References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
+ <abdEscs44fU4kRag@oss.qualcomm.com>
+ <abdYu864OmNWiWIW@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <38a37b02-602a-42a4-8974-b8a6cd750c3e@app.fastmail.com>
+In-Reply-To: <abdYu864OmNWiWIW@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_074849_784716_AD77318C 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,17 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 12:09:34PM +0100, Ard Biesheuvel wrote:
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Actually, we should just get rid of CONFIG_KERNEL_MODE_NEON entirely on arm64, although there is some code shared with ARM that would still need some checks. But anything that is arm64-only should never look at this at all.
+On Mon, Mar 16, 2026 at 01:11:23AM +0000, Russell King (Oracle) wrote:
+> This will be because we're not attaching any PHYs when phylink is
+> being told to operate in 2500BASE-X with inband, since it thinks
+> that's the media. That, and, because stmmac has a long history, it
+> needed a special phylink_expects_phy() check added in stmmac_init_phy()
+> which his what prevents the PHY being attached.
 
-I'll also drop it from the XOR series.
+Okay, another idea that I hope will work. Please drop the "net: stmmac:
+qcom-ethqos: enable inband mode for SGMII" patch so we go back to using
+outband mode for everything.
 
-Talking about which (sorry for highjacking this thread), arm32 and arm64
-have completely different neon XOR implementations, where arm32 uses
-#pragma GCC optimize "tree-vectorize" or clang auto-vectorization of
-the generic C implementation, and arm64 uses intrinsics.  Is there any
-chance those could share a single implementation?
+Then, disable the call to ethqos_pcs_set_inband() so inband mode
+doesn't get enabled for SGMII - as phylink will be telling the PHY to
+disable inband mode.
 
+Does that result in functional 100M, 1G and 2.5G speeds?
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
