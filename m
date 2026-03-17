@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333B9F33817
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6831BF33812
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1dFAsgiIjJwbzkv4iAkhLhnDR/uX1wmLjNNPR+w9HA=; b=DS1odFcuDkCGExPVab1cS6PPcF
-	/3dPsLQHTfnQCOgjtwN9J35rzCN+Xw+TIf0mb7pnAggpyB5ychqgKLN7m3ooTwKdN2ZDNG9C/JJIC
-	Jg6jco9UsrI33rAbj0ScOtMiLabqvYuG8PlZA6Q98nC3+wgK1/6malWMODNuC4M3gfVtdoAAgj3/h
-	XzFMg8U5RLJd+hN/XgqCV7w1WfInHLA+t5h9UXCC1Eqp/4tgTGOslq3MFbEgZ3DuPHEcoGc7woIwk
-	BZnOzqQYtlBRiNSpVOJuhtXxJ44iZ+bdRVMFNX4cVtftYfHKeOf+1UR+aB3i9q4vucyagsD3xMV6R
-	qaZvl0vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cd2F7Hk1OURvkqwK1ohsIIIgc/2WwPbAN3vBqpJw9uU=; b=ranugvKx1DPtZvK1wD4eSPuv9L
+	rFJH4eo4zADwxn/mG94Qaxa6GvUq6+5SuOuvVuf9je3CaCjso9gl4QAFjitjPrqd9ytR7Fphc25LS
+	QdToHntyX/Rum++fHRq+JAsnD6DLNoY78+HL4iqaXOy0CEXTLdAI/Zq7Izv8bv+cJPDI7HAaayaWQ
+	BayHmGwoNhGKDNZn/kpLjt/uf2IH3IN0Dwc8SOutj7EN/3ZhJfXJsE4Dw9kC0czJFjgqv1rPWCvqE
+	5v4W4K6eiD69Q6JX6JBlPIYHl3x86t7RgMggHzeYmRo8OTJIPWWV5fRKEFZRP6wIPfMtjIw5H1kcd
+	8hzs3LOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q4W-00000005kxS-1QrM;
-	Tue, 17 Mar 2026 08:46:40 +0000
-Received: from mail-vk1-f173.google.com ([209.85.221.173])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q4T-00000005kx2-44DC
+	id 1w2Q5B-00000005l2U-2oOC;
+	Tue, 17 Mar 2026 08:47:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Q57-00000005l1q-3e8C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:46:39 +0000
-Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2051172e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:46:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773737196; x=1774341996;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S1dFAsgiIjJwbzkv4iAkhLhnDR/uX1wmLjNNPR+w9HA=;
-        b=MrM7nkPbtO7h+saQ0eaC1qmpubQElfm5czjO6pXA1Vurv0NIiqY32J+tzmN4YxuO2Y
-         575g9ZjLa9p9Hl3pqngUgqZ051ECdDTaqYWHLL9KYI3wBKq7R6PN2VOQw2jQSMN5viiA
-         jDbLvAxdtYad5Tu8RLatYRle2tIsSaFPwCfX+y/LihtNgk8WLTwwRzAUMca7WrwuIVkG
-         aU7Knh1eiumt0+Ev1iAmEZnCcR7HUq6PORACsObfG9nfmB7yaPEclqcV1cTYfbgdfLv6
-         BjoobFzExHAMdWrRY8dbuBGuaGuoNQ9Vi9yBP2mT07O3tw7QUj9cySLzEK78nquJo/O8
-         4hhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0/bgUzw8TZZ9QlbWcxf1bZwQ6WGLmHYm3Vw/R4874d8ifJyOCWv4jPSKwax/VhKgEU8blENXNvlZ0eGmn4H2Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIemaq4wo48bskO1uxxMWvmL8LlCrYTcOMDC5b/9H7fnIAGnyM
-	l3MRTJgxgjuByILmkSGJkPf04DsDPd9Ks48o6m3wa0vRyCwJab1GXatI1U5/FLjF
-X-Gm-Gg: ATEYQzyEk6kyXtuIhpfBX9EMagA3hfQg4yCbuYl5uuHpjitrgxwR7QD7fhBYis1WmG+
-	fIZJoDOkJ0XyAy9vqrO4ydhR6xfzTpFaYP62zxtngUW4sNPHhUU3bQtYa4g9prYUKa79xlb6IrK
-	n3f7QIG3d/cTugoTgL7y6bpURpNkXpfQX6VkfaW/cdzHATGKh8wLfoGJAD+jTeORcugzhIcTsFf
-	yqJYndY+gpt2QJTWHQ4X8ig6Ig4fHlTzz51GiNDoVKW1NIp5nbrOPXUj55vq8Vq3Vr6l7Ur2dJL
-	hxBNFNS78HnYnP/EM8EU047MONvPuAP7Hyx7Y9ButWKzG+oBBmnH3E7E50NSswvDZWXpRfgkbz3
-	XJItXuBsmSLTYlfHwQeyKEjfh1xKfact7fVFHSkyqCdZD6iXcErR9xSbfQBkp4tTc6wJ9qI7Br7
-	tUMhN1IWNTDSEvx7Osd4Z4pCK9xKm18Ut1xL1cKmBCFXqBfcSvehBWATV1N45u2LPr
-X-Received: by 2002:a05:6102:ccd:b0:5ff:d03d:7815 with SMTP id ada2fe7eead31-6020e2137c6mr5928652137.5.1773737196020;
-        Tue, 17 Mar 2026 01:46:36 -0700 (PDT)
-Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-950db2b28aasm2129068241.7.2026.03.17.01.46.35
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2026 01:46:35 -0700 (PDT)
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2051165e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:46:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVt2gDzG33Pusec3EWSnXmCZVYT8xfn30Szu+i0lBPPyV8mAr/9WIU+E+QmefnAaqPLGSI5E56EcxA6jLtBSWDF@lists.infradead.org
-X-Received: by 2002:a05:6102:b0f:b0:5ff:8b8:9f89 with SMTP id
- ada2fe7eead31-6020e682490mr6012940137.35.1773737195424; Tue, 17 Mar 2026
- 01:46:35 -0700 (PDT)
+	Tue, 17 Mar 2026 08:47:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C143C1476;
+	Tue, 17 Mar 2026 01:47:09 -0700 (PDT)
+Received: from [10.57.60.143] (unknown [10.57.60.143])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 477013F7BD;
+	Tue, 17 Mar 2026 01:47:12 -0700 (PDT)
+Message-ID: <4ad2ea40-b23b-4231-a0de-585b205865c5@arm.com>
+Date: Tue, 17 Mar 2026 09:47:08 +0100
 MIME-Version: 1.0
-References: <cover.1773399669.git.geert+renesas@glider.be> <20260317-spirited-mahogany-swift-b1ac53@quoll>
-In-Reply-To: <20260317-spirited-mahogany-swift-b1ac53@quoll>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 17 Mar 2026 09:46:23 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
-X-Gm-Features: AaiRm518-F2BTcrALlb72his_SW49wZkbqH0hdFeWMeWLkKc2Nwvr-LXzIlrumI
-Message-ID: <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
-Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@lists.linux.dev, soc <soc@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Yang Shi <yang@os.amperecomputing.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Jinjiang Tu <tujinjiang@huawei.com>,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ david@redhat.com, lorenzo.stoakes@oracle.com, ardb@kernel.org,
+ dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
+ <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
+ <de0b06cf-15a5-4109-b339-75c10d9b8a18@arm.com>
+ <0a740020-4780-4156-a9c5-f8b4ada9c8c0@os.amperecomputing.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <0a740020-4780-4156-a9c5-f8b4ada9c8c0@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_014638_008194_D06B5DFF 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260317_014717_988723_0DABF558 
+X-CRM114-Status: GOOD (  36.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +72,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Tue, 17 Mar 2026 at 09:33, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> On Fri, Mar 13, 2026 at 12:12:56PM +0100, Geert Uytterhoeven wrote:
-> > This is my first pull request for the inclusion of Renesas SoC updates
-> > for v7.1.
-> >
-> > It consists of 4 parts:
+On 17/03/2026 01:15, Yang Shi wrote:
 >
-> I think pw-bot did not reply to any of these pulls, but I applied now
-> all of them.
+>
+> On 3/16/26 8:47 AM, Ryan Roberts wrote:
+>> Thanks for the report!
+>>
+>> + Kevin, who was looking at some adjacent issues and may have some
+>> ideas for how
+>> to fix.
 
-That is correct: no replies from the pw-bot.
-renesas-dts-for-v7.1-tag1 does not seem to be in soc/for-next yet,
-perhaps you forgot to push? No need to confirm if that is true,
-I'll notice tomorrow ;-)
-Thanks!
+Indeed, specifically to protect page table pages (PTPs) by mapping them
+with a privileged pkey. pagetable_alloc() is called on several occasions
+before all secondaries are up (including from init_IRQ() in fact), but
+we cannot call set_memory_pkey() at that point for the same reason that
+Jinjiang pointed out.
 
-Gr{oetje,eeting}s,
+The approach I went for is to allocate a whole block on boot and defer
+the call to set_memory_pkey() until it's safe to do so [1]. It's not a
+particularly nice solution as this restricts the number of PTPs we can
+allocate in that window, especially if more of them get allocated when
+set_memory_decrypted() splits the linear map.
 
-                        Geert
+[1]
+https://lore.kernel.org/linux-hardening/20260227175518.3728055-17-kevin.brodsky@arm.com/
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>>
+>>
+>> On 16/03/2026 07:35, Jinjiang Tu wrote:
+>>> 在 2025/9/18 3:02, Yang Shi 写道:
+>>>> On systems with BBML2_NOABORT support, it causes the linear map to
+>>>> be mapped
+>>>> with large blocks, even when rodata=full, and leads to some nice
+>>>> performance
+>>>> improvements.
+>>> Hi,
+>
+> Hi Jinjiang,
+>
+> Thanks for reporting the problem.
+>
+>>>
+>>> I find this feature is incompatible with realm. The calltrace is as
+>>> follows:
+>>>
+>>> [    0.000000][    T0] ------------[ cut here ]------------
+>>> [    0.000000][    T0] WARNING: CPU: 0 PID: 0 at
+>>> arch/arm64/mm/pageattr.c:56
+>>> pageattr_pmd_entry+0x60/0x78
+>>> [    0.000000][    T0] Modules linked in:
+>>> [    0.000000][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted
+>>> 6.6.0 #16
+>>> [    0.000000][    T0] Hardware name: linux,dummy-virt (DT)
+>>> [    0.000000][    T0] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO
+>>> -DIT -SSBS
+>>> BTYPE=--)
+>>> [    0.000000][    T0] pc : pageattr_pmd_entry+0x60/0x78
+>>> [    0.000000][    T0] lr : walk_pmd_range.isra.0+0x170/0x1f0
+>>> [    0.000000][    T0] sp : ffffcb90a0f337d0
+>>> [    0.000000][    T0] x29: ffffcb90a0f337d0 x28: 0000000000000000 x27:
+>>> ffff0000035e0000
+>>> [    0.000000][    T0] x26: ffffcb90a0f338f8 x25: ffff00001fff60d0 x24:
+>>> ffff0000035d0000
+>>> [    0.000000][    T0] x23: 0400000000000001 x22: 0c00000000000001 x21:
+>>> ffff0000035dffff
+>>> [    0.000000][    T0] x20: ffffcb909fe3b7f0 x19: ffff0000035e0000 x18:
+>>> ffffffffffffffff
+>>> [    0.000000][    T0] x17: 7220303030303178 x16: 307e303030306435 x15:
+>>> ffffcb90a0f334c8
+>>> [    0.000000][    T0] x14: 0000000000000000 x13: 205d305420202020 x12:
+>>> 5b5d303030303030
+>>> [    0.000000][    T0] x11: 00000000ffff7fff x10: 00000000ffff7fff x9 :
+>>> ffffcb909f1e27d8
+>>> [    0.000000][    T0] x8 : 00000000000bffe8 x7 : c0000000ffff7fff x6 :
+>>> 0000000000000001
+>>> [    0.000000][    T0] x5 : 0000000000000001 x4 : 0078000083400705 x3 :
+>>> ffffcb90a0f338f8
+>>> [    0.000000][    T0] x2 : 0000000000010000 x1 : ffff0000035d0000 x0 :
+>>> ffff00001fff60d0
+>>> [    0.000000][    T0] Call trace:
+>>> [    0.000000][    T0]  pageattr_pmd_entry+0x60/0x78
+>>> [    0.000000][    T0]  walk_pud_range+0x124/0x190
+>>> [    0.000000][    T0]  walk_pgd_range+0x158/0x1b0
+>>> [    0.000000][    T0]  walk_kernel_page_table_range_lockless+0x58/0x98
+>>> [    0.000000][    T0]  update_range_prot+0xb8/0x108
+>>> [    0.000000][    T0]  __change_memory_common+0x30/0x1a8
+>>> [    0.000000][    T0]  __set_memory_enc_dec.part.0+0x170/0x260
+>>> [    0.000000][    T0]  realm_set_memory_decrypted+0x6c/0xb0
+>>> [    0.000000][    T0]  set_memory_decrypted+0x38/0x58
+>>> [    0.000000][    T0]  its_alloc_pages_node+0xc4/0x140
+>>> [    0.000000][    T0]  its_probe_one+0xbc/0x3c0
+>>> [    0.000000][    T0]  its_of_probe.isra.0+0x130/0x220
+>>> [    0.000000][    T0]  its_init+0x160/0x2f8
+>>> [    0.000000][    T0]  gic_init_bases+0x1fc/0x318
+>>> [    0.000000][    T0]  gic_of_init+0x2a0/0x300
+>>> [    0.000000][    T0]  of_irq_init+0x238/0x4b8
+>>> [    0.000000][    T0]  irqchip_init+0x20/0x50
+>>> [    0.000000][    T0]  init_IRQ+0x1c/0x100
+>>> [    0.000000][    T0]  start_kernel+0x1ec/0x4f0
+>>> [    0.000000][    T0]  __primary_switched+0xbc/0xd0
+>>> [    0.000000][    T0] ---[ end trace 0000000000000000 ]---
+>>> [    0.000000][    T0] ------------[ cut here ]------------
+>>> [    0.000000][    T0] Failed to decrypt memory, 16 pages will be
+>>> leaked
+>>>
+>>> realm feature relies on rodata=full to dynamically update kernel
+>>> page table prot.
+>>>
+>>> In init_IRQ(), realm_set_memory_decrypted() is called to update
+>>> kernel page
+>>> table prot.
+>>> At this time, secondary cpus aren't booted, BBML2 noabort feature isn't
+>>> initializated,
+>>> and system_supports_bbml2_noabort() still returns false. As a result,
+>>> split_kernel_leaf_mapping() is skipped, leading to
+>>> WARN_ON_ONCE((next - addr) !=
+>>> PMD_SIZE)
+>>> in pageattr_pmd_entry().
+>> If no secondary cpus are yet running, then it is technically safe to
+>> split
+>> because we know all online cpus (i.e. just the boot cpu) supports
+>> BBML2_NOABORT.
+>> So we could explicitly only disallow splitting during the window
+>> between booting
+>> secondary cpus and finalizing the system caps. Feels a bit hacky
+>> though...
+>
+> I think we can check whether system feature has been finalized or not.
+> If it has not been finalized yet, we just need to check whether the
+> current cpu (should be just boot cpu) supports BBML2_NOABORT or not.
+> It sounds ok to me.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+That assumes that no secondary has booted yet, otherwise we cannot
+safely split live mappings without knowing that all CPUs support
+BBML2-noabort. It might work for this particular case, but it is
+fragile. It wouldn't help for the page table protection case, as PTPs
+get allocated while secondaries are booting up (e.g. stack allocation
+when forking kthreadd).
+
+>
+>>
+>>> Before setup_system_features(), we don't know if all cpus support
+>>> BBML2 noabort,
+>>> and we
+>>> couldn't split kernel page table, in case another cpu that doesn't
+>>> support BBML2
+>>> noabort
+>>> is running.
+>>>
+>>> How could we fix this issue?
+>>>
+>>> 1. force pte mapping if realm feature is enabled? Although
+>>> force_pte_mapping()
+>>> return true if is_realm_world() return true, arm64_rsi_init() is
+>>> called after
+>>> map_mem(). So is_realm_world() still return false during map_mem().
+>>> Thus
+>>> realm feature relies on rodata=full. If we fix by this solution, we
+>>> need
+>>> to add a new cmdline to force pte mapping.
+>
+> I don't quite get why is_realm_world() relies on rodata=full. I
+> understand realm needs PTE mapping if BBML2_NOABORT is not supported.
+> But it doesn't mean real relies on rodata=full.
+>
+>> I think we just need to make is_realm_world() work earlier in boot? I
+>> think this
+>> has been a known issue for a while. Not sure if there is any plan to
+>> fix it
+>> though.
+>>
+>>> 2. If we could try to split kernel page table before
+>>> setup_system_features()?
+>> Another option would be to initially map by pte then collapse to
+>> block mappings
+>> once we have determined that all cpus support BBML2_NOABORT. We
+>> originally opted
+>> not to do that because it's a tax on symetric systems. But we could
+>> throw in the
+>> towel if it's the least bad solution we can come up with for solving
+>> this. I
+>> think it might help some of Kevin's use cases too?
+>
+> May be an option too. When we discussed this there was no usecase for
+> direct mapping collapse. But if we can have multiple usecases, it may
+> be worth it. AFAICT, the ROX execmem cache may need this, which Will
+> or someone else from Google is going to work on.
+
+Not sure about the execmem cache (do we call execmem_alloc() before
+secondaries are up?), but I think that would indeed solve the issue for
+the page table protection use-case. Besides in terms of complexity it's
+probably not much worse than what we currently have, i.e. basically the
+reverse (splitting the linear map if some CPU doesn't have
+BBML2-noabort). Penalising symmetric systems is not great, though.
+
+- Kevin
+
+>
+> Checking current cpu BBML2_NOABORT capability before system feature is
+> finalized seems like a fast way to stop bleeding IMHO before we find
+> more elegant long-term solution.
+>
+> Thanks,
+> Yang
+>
+>> [...]
 
