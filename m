@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E953BFF6E9A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AC2FF6E9E
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PbKJxmXnIk+3vfXsHJslnwh2MHCYTJ/v2bKnefnBKBo=; b=2EZ2b36t4qGXr6ly6MzGnV18kH
-	w/yWz94ne3JWuQUwqE1RLV2T9Z5Iu1rSkfPGFrWR6qC6gRLOx8QakfY0D5hwSNHyH/6bJ5f6ATi9W
-	HgRcnpWYNfAKEgE72nKJ5ULNsBCrX/GP9cxmcd3CO0BgD/bW70ZmwP4dmfoK6qgJVtJPqaC17xGvN
-	N7ax+3bXfFFfBDsVh7gYcn7LmzXmDS58QNAmsPHbl0Zp3KYtUScg41p9fiaW+SKRkwFdLf4UIPxpQ
-	v48eD5tCIddLwOEtgkqpvaYAXhTGvW0kw1rwwtA6SW7ehTjNDgmOKeUn3UkuTjj/Gby7upRstlfbX
-	/7R01wuw==;
+	bh=dFUDYLdaGSQtaGCWJ0mcczUzmmf1OJA9JRC+RObCN/8=; b=LKKSgOeQXWqz2SQpop+dgRJj/D
+	i+GzNm/XhqSs03GaQ62CrhA/uI2bQx8nIwCQa43jSh+WXmLhXRVxdoEcBs5idSw1MM5pE2R97JOXo
+	Znc9352qaXC6JfOE6sERdWk2I4zC0XxnUqEvcACoxZmtjHedSfUbIMq4YxWjr3GgSVrHxv4T+S6A4
+	CP0XXHLsTzypFw7ZDuwr8IjgJcIohJF0G0awMII74Nkmp/YdI/gU6Lsnx42UGzuyTskVV0vrrVlR4
+	cfVNSr60OfaV1nuMMHsdCNMcw+w32YbprEdOqpkSvKsQXardZvEnRA7BPU7U7xS4zcIHXINADZbph
+	FUBg0AHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGS-00000007Kgn-0NXw;
-	Tue, 17 Mar 2026 22:51:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2dGQ-00000007KeV-43eu;
+	Tue, 17 Mar 2026 22:51:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGG-00000007KZE-3zii
+	id 1w2dGE-00000007KXs-22Tw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:41 +0000
+	Tue, 17 Mar 2026 22:51:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1896E60053;
-	Tue, 17 Mar 2026 22:51:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30FA1C4CEF7;
-	Tue, 17 Mar 2026 22:51:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E427160053;
+	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16372C2BC9E;
+	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787899;
-	bh=zRKnFKqm2URNigcW6ZVhyMqoLzUjkp7pt41hjdX3o4Q=;
+	s=k20201202; t=1773787897;
+	bh=R5UiZpTiDDGQeFvx+x5fyQyw1CckBBaOg4b13Rc2GFM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ln2wjhQfxqa28dJgKDCHPfGBxeRw7EOtChpVpakFKvHrihIK+pCHDpeOJJCU3Kwg0
-	 iusyhDjRSNHcR7Ruj3FDLqNg8bW2Bz6THfXuMVdfhzXG/USsY2TYeZ+0wm4caGad3i
-	 KEy2cP9mhX6AtCDN/nDxitjMbMeqXEDP9vcYFiPzoZNEdfuk8Wu/FrJr1NKMTQpaIp
-	 1liSaWzZ0kB1BeZgvx/+j10icge2OrRrJ6W5Qu/VcihAoZ7W1yRHoDFTNdXtcIYPv1
-	 bp1t3fegO5isq2rinS8dwud8ggyGncjLw3D9Br1YVS9kkgqze48aMbZOmcQfAWSSRW
-	 j3dtfKuJcutPw==
+	b=O05cfDTOoUN0o/a5xAMBqeA6JBv53owzUYaz7WqDnkXpa361njl5XUGAkFaMMp3u+
+	 9uteSon8YEXqmi+jXEe1qpNPaCBqv4N/2HWOLQAP1ZR5U9HilJnpk5b9lQ8QQS3qP/
+	 AchOaEvUekQtgTWU2jBME/yHKvRBqBZXm3g53CQc/XrVVXNtflKnNHmV0OgBHYTRu4
+	 M6WvQGBAlW8nS2eVCAG1S3aDOLmpnJvxUofX1XOWQdqs3mxsyhHEZNZJq0Zq/4uvNs
+	 7O2cyuQ2IV5vDquka3y+dNWifbssa+Kb/l7nm05PpS9XT5ALSB0X6RcXdggHJgc9cA
+	 UFb656RNfSzPw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,9 +56,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 12/12] klp-build: Support cross-compilation
-Date: Tue, 17 Mar 2026 15:51:12 -0700
-Message-ID: <51f026e3ee15e2dc343f890c0dc1b926ad3d1c17.1773787568.git.jpoimboe@kernel.org>
+Subject: [PATCH v2 09/12] objtool: Allow empty alternatives
+Date: Tue, 17 Mar 2026 15:51:09 -0700
+Message-ID: <1d74ee9e31727870266ffb69ce0d6a4a40b8e99a.1773787568.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
 References: <cover.1773787568.git.jpoimboe@kernel.org>
@@ -78,50 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for cross-compilation.  The user must export ARCH, and
-either CROSS_COMPILE or LLVM as needed.
+arm64 can have empty alternatives, which are effectively no-ops.  Ignore
+them.
 
+Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- scripts/livepatch/klp-build | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ tools/objtool/check.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/scripts/livepatch/klp-build b/scripts/livepatch/klp-build
-index 809e198a561d..b6c057e2120f 100755
---- a/scripts/livepatch/klp-build
-+++ b/scripts/livepatch/klp-build
-@@ -404,6 +404,14 @@ validate_patches() {
- 	revert_patches
- }
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index 6e33a29bd3ed..7297fb87f876 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1994,10 +1994,8 @@ static int add_special_section_alts(struct objtool_file *file)
+ 		}
  
-+cross_compile_init() {
-+	if [[ -v LLVM ]]; then
-+		OBJCOPY=llvm-objcopy
-+	else
-+		OBJCOPY="${CROSS_COMPILE:-}objcopy"
-+	fi
-+}
-+
- do_init() {
- 	# We're not yet smart enough to handle anything other than in-tree
- 	# builds in pwd.
-@@ -420,6 +428,7 @@ do_init() {
- 	validate_config
- 	set_module_name
- 	set_kernelversion
-+	cross_compile_init
- }
+ 		if (special_alt->group) {
+-			if (!special_alt->orig_len) {
+-				ERROR_INSN(orig_insn, "empty alternative entry");
++			if (!special_alt->orig_len)
+ 				continue;
+-			}
  
- # Refresh the patch hunk headers, specifically the line numbers and counts.
-@@ -783,7 +792,7 @@ build_patch_module() {
- 	cp -f "$kmod_file" "$kmod_file.orig"
- 
- 	# Work around issue where slight .config change makes corrupt BTF
--	objcopy --remove-section=.BTF "$kmod_file"
-+	"$OBJCOPY" --remove-section=.BTF "$kmod_file"
- 
- 	# Fix (and work around) linker wreckage for klp syms / relocs
- 	"$SRC/tools/objtool/objtool" klp post-link "$kmod_file" || die "objtool klp post-link failed"
+ 			if (handle_group_alt(file, special_alt, orig_insn, &new_insn))
+ 				return -1;
 -- 
 2.53.0
 
