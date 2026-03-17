@@ -4,104 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D132FD8764
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0864AFD8765
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqdhsZMms3Hyv+l4q3AGibpbsTitIRWecBmHePuTWJ8=; b=bcutpua3/5KXqAQWQMqf8LwPg1
-	TvYZyymwtz46lxFD/AVfOe4MPyegBnROjThiP5pYclLHpvwL9cxXkmCNWl7ntUY4EHdEiJBOA0JpS
-	nunZB4II7uYXqbK7vU3pnbXDxKXEAOIh/tW/pthvbmwFqaw8cjzhUbA8sjJJLKPftLxn2A2f8QHl/
-	kTpPZEH12l22BR/9HQlaZC/IXfVAnbkyJRkt7IjpgKPAGhM9sKBLgv1hkIAhzA9l9eOJnsnL+73Qj
-	VfBZAkEGB0hnFlEg5JgmLdwTyup8RorsBlb7lk14W6cJUpJViTmL6YZiratvjK+9FR1VAhDjSgeZP
-	n4/hyGzQ==;
+	bh=M2b1jf12SvCsNKbgE7Y7As90SdF1Psrv2L3rnWsyMIg=; b=iNHCsF1EJBtl0saOoFMzoQIQCg
+	Di+pIrA2Y7Oq7fJkBB16bXL7me6SW08W93AaqHbGy92NXFvEJxgOUaoReQLvs5L1Cl5LxdL1WRspe
+	K6S69iATq9EFtRnaJFWmOtewhBsheO+3UwDbEwwv5tOJLkUOsZhRtQQey8ovcr0cEAllgc1BwolP0
+	8gt5OgV5C7fmN7gpLW7lbwmYNKZQ/ySJQ+ddpeIgWedct+xeJ6YUKSfTTGt6ZH9YRBYJQyFXpkTtI
+	EOMo87WO+M6lXHgIhgdvj3ZyjxYiMfG1/tuYUK8PQhUX2lZ6BKLwgSTNF5N5Em2SlqyF9yd3kMvJa
+	GWGtj0tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TuE-00000006Ko3-3GBy;
-	Tue, 17 Mar 2026 12:52:18 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1w2U1P-00000006LPS-3jGU;
+	Tue, 17 Mar 2026 12:59:43 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TuC-00000006Kna-2GKe
+	id 1w2U1N-00000006LOe-0LBn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 12:52:17 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-50906a98ffeso602211cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 05:52:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773751935; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OZ75JlPvsdlmfjbx17K3nOaA5kL7BQvo8dyxjzBWi+mXTM0GY5rRXq/nhCW/r1U3Jk
-         Wle1lf+4FeODJWJ8z0nnrwJc6gtAyaNHwasnHACHFFEqXN2Y47HMZzVfllRO6saKMH28
-         yqi6l0kC+l73GFeBI1S8c1Bo3pLOZPp029wyhFyMS1/XV0pfcMQqAsqoqL9eUu+sDsFh
-         DWraHReFG1toNBZBFnI4MNo7nQMgolSi6Vss7m0Gbr5E77LCR3sTAuzIUWpVbrMIk2Zf
-         j2WAKabyTjwXtoNK64s06hI2s+WgTG1IWkvctPOHZ5KqjupgD7AdoZ6CEtQb0f+Ec/Mc
-         VwIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=yqdhsZMms3Hyv+l4q3AGibpbsTitIRWecBmHePuTWJ8=;
-        fh=YM5jjOdURCpVdAvp6vjcyRUpNJJIYjVHDg7mtOAWu48=;
-        b=lrAcGVa23pZtjNMuzmK2RjrQ4P0BGmbbRMLJB0+/VZxTn7STQQepFL4cLXXm/vEiZD
-         yAiDgPHTKJ4Xzd5iwVe7Bs8n9JMc+tHQCwLqPjyTwBUXqk8yPNTFZl+8Uw09gw+Q9poJ
-         bNZRSZ73N96PtHyBh5mMmovvgjbjfkSv4wllKSpjCbb5j3d4KvCwJnWt4mX9gSlYdby7
-         2D9f1Fl4S27oyPkyr6mzEog7xjIeGrXzyZmlXCgqZCR8N2FhaScGhBabGaSVOEIIL3Ac
-         LVjCgSwpxlG3pjwIEdyagzoXlbkgAlV52NNqFv4bYbm1U7yAJxn21MpbovXJkPuQlRs1
-         GQfA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773751935; x=1774356735; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=yqdhsZMms3Hyv+l4q3AGibpbsTitIRWecBmHePuTWJ8=;
-        b=RNFPwu1yw8/3ASsLd1TBAS9XC8MDJY4CsiMetTX7U2fTfcWx6c4+esZK2Kkxu+2etJ
-         S/oOgeYsPK31jpLraSoBKSRoXYb6kg8dYiDQXlKL5b5v8AM+inPsoAP0iHraXQcfo8Lc
-         Wdm2LuZQWsPc0hwjvYLeAn9uwwaUnwJuCSwvLPCobpx3sCEP2ELreBR4OHRMyGTSTWkv
-         2zdyUVxm08yoP3OJO2SZwfyBKLWB8Uv4N+s9SdJoNq9Ob4uFzmlVEMYYo7wqSPCp9pCz
-         /p98WtJbPVfdrk6zl3M1b0Qs271MsjkDKYsfphg598vvQvVT36nzWjysBseLw1UhJ5cN
-         9jrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773751935; x=1774356735;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yqdhsZMms3Hyv+l4q3AGibpbsTitIRWecBmHePuTWJ8=;
-        b=NWAFA6H/BsidkChsokrZVQOMZCk3GjcmrWoShVlgxT9LCrm46rp2V9oG+lHy6EBHb1
-         7iyurZ5SGCuTRZitqDrY8vPflAykcDO5LPumJsRC0iwL1yXDgIidZhe8HijFFiIIVMHY
-         Cebo7wgqDhxFNktJKXSRL227/m/Je7TUgPjhNZpXcZtn1uU4tOKMQ6LwGsE5jufa+q/1
-         UNnpSxosEooVUR1pVQJtwdgSsxW8QEsEeEjWCYBMoiqHaBvcmBtKEY9fkbKxZILAKxVu
-         OpcLKjWMaONDMDtMBgQoZ15d81qzYXLLPcPgFZBSXUUJw3FwuvT608Oz+Kjza6lqZAVF
-         gt7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUtRpZppFugbx2ua4Kvg82wmZoG66vgN7F1UKFkC/BkdVTxCW0iwC7XL1gKRZhVHGL77DspuFzDIjYk5SKevtcd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwID4LLLdf7HM/4HD6pRyaH4NiUfO21QdlweZtxOdFSnwoXYojA
-	XQD97CsYK3v96L9btrF4i9WdLfVYLuYUZYteUx8Dng82EPCzyEiXniHrFuBkxRD+d1ECs7IXdL9
-	laiX3Ut5Z+fEIveBseqz3t3lGgyzDjl2iSxNn9Ou2
-X-Gm-Gg: ATEYQzwntfqrcMQtregR+UACzhDCQwdx/bcphydullH5QBji+2lPEom0lr+u5UXD2ur
-	yX7dwUfOKpfQq1D/J1K7nwYk6z8zLiZBt4gpv7CzjczgVDLnSXkJU1Vm5oWvtnUd38zuvkDg0Zt
-	GfEzLTQjQ2BstgpaGbTxiLgQ+68cdFfnfcPihnzEeCeleSPvyLaJfMO0NRJyI5RAyqj9ID6mjY8
-	5EO0KvTugVeTiqp7tI0iJwsLdB7BumR2/NuETZYbwGL7f+wMNtOA5IVKJQYTlPNqOQn1USM8voJ
-	JxfJjYk88GxkfeUqnqywUHuYPI1sponckliIP6YJA3pSrK4=
-X-Received: by 2002:a05:622a:34f:b0:509:1cf9:ea11 with SMTP id
- d75a77b69052e-5099ae36e43mr13321661cf.7.1773751934515; Tue, 17 Mar 2026
- 05:52:14 -0700 (PDT)
+	Tue, 17 Mar 2026 12:59:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E3HIokBLfPa2Z6vwGl8bAy3R6duCEMD04T0EBoSstOnZUixe8zmgR2LyGZP48srg7m/icAX3n+S6Y21fuZ9pmxDDaZYuoXdkSdznyC7VOrRsFuamqgP75vlKrowJWQmQFCooPLjD3L5DlFVZhBWeBPkHuXj6JiPNuMcn63qLyRi4RVvPu1DcGaNXwfbKMDEtNfWy/xET1xeQbE/cpKhnJMwqDL4WvmcmzUYBWUwPHMt7XfVuHZz/oq1900i89TTiIZDgHOHA5eZlPRKZIcNIDyKuBpk849/w0yZvJmo7RteRSNvojxBR/MsgdRTy6w7aYWYXm4nNE7GNREC1/5t05g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M2b1jf12SvCsNKbgE7Y7As90SdF1Psrv2L3rnWsyMIg=;
+ b=hBrA9Fx5Omana/qQhMStY3/Rr80wCgjDEwVsrTuo8EBNanZog6qF+UMFrq3MX0e7aSyeEAS3cxgZVlv1wb9bPeg3bMTF71wCab5R0Ex+/0K0L9gpqaBJjHt3WAys6507nM2t+EmlrNiMX3q4apUFicOdJkQhawS61X5jaYMtv6wGP+OIde0lfJTe2BPL6SlvvwJit472iuh3OZajtbphSXBzYxYUBGE+ODUkoGmbW/hAFbJMNiRc2HywoW/vCN53tEXhp6acEBPpP55COUpSVtee+zy562RVA8M25SMBfGwVFyBlacfk+uCejtxAlU3xxfr2tNz3AdyYUOXGpvOWQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=M2b1jf12SvCsNKbgE7Y7As90SdF1Psrv2L3rnWsyMIg=;
+ b=DCBM7R9p0Ur+NnYuAtLwWPf8oq3JtOQu7eZzf/HYHGUb3tnlX8qpSGi2mCYt0QnCFUAyfCZSYAj1oKRzIHmtkemxouxZF4SVEPS/XUGKXjQK2kY6rJHCWhuHPGHYEre5itxJZwIh0wnwaEThkTGyv2G7irhKRFiQBJljyeq/pBl7pg4k5msKoMmIXVt1ZVExwXjO87cIoWupYtWX2L+AaqE+sdFsHBpob86YSW5wus+uAq5NCmS9trK1fI3GGfFu9KGrcVXzW08+6yU2NlRdCWIM9I70GChwCqleROsd7jmTAHhST2NceWX7wkke4gWYnYkHUyQvK+27Rxd/0e9t7A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by AM7PR04MB6776.eurprd04.prod.outlook.com (2603:10a6:20b:103::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Tue, 17 Mar
+ 2026 12:59:23 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
+ 12:59:25 +0000
+Message-ID: <cb6a8102-40aa-4b7c-957f-c7015a79c5c7@oss.nxp.com>
+Date: Tue, 17 Mar 2026 15:02:33 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] clk: imx: pll14xx: Use unsigned format specifier
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260317121953.1100619-1-alexander.stein@ew.tq-group.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260317121953.1100619-1-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0046.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cc::9) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-References: <20260316175451.1866175-1-maz@kernel.org> <20260316175451.1866175-10-maz@kernel.org>
-In-Reply-To: <20260316175451.1866175-10-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 17 Mar 2026 12:51:37 +0000
-X-Gm-Features: AaiRm50Du2xrfQCZBL5z6Chj3KUwzQGCZZeT5SEq7dCMJNMiEDXSdkpbqldTIWo
-Message-ID: <CA+EHjTykfSjBQVpL5KPANzF7tvWCFiCkZUk2oTfQjgT8E7d5AQ@mail.gmail.com>
-Subject: Re: [PATCH 09/17] KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AM7PR04MB6776:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09555d6d-629d-4e2f-5495-08de8425046a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|366016|7053199007|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8W9fUHZ1rlwoDVIMRZJkbH2ny9I7QaFb8AZhbPBaA8A8eFFXY4kQhqy4e0nuIDckpnG+EWDTVbMhdwW0/J/RtDHN5IGf70j9omCLPj2dYVvY6vpd6Us5X1Tgr3Afc5zSR3TQZrJ/qdRTeKPMHdQMy98klVOxmS/JCBcR9ue90v2Zq8ndiqh0Pu2Z3Oph8MT7jwvVaB5UDapaza1diTJV3ylMDv38hQWS5F2839J6DnIOHd2S91QCvBpJ9mB9fKPm90nU41oyMmYHjG80WuUGKw3j16vEUa77KVVZwecQ8T+u26DcqEjhsTUqx216p974D1R+f4Y4FqFWBk8SCWyHDITvN+61G885EqdY3AMDa5dJlx+XTNhbQGb64xQM8dalC7DrU2bnaEepaEsFNPtSudi42IdJQiv0dVF6KB8TSnAqvj6LhfpraXOYNLAIqEyUbxXMDob60E4U9mjshTTa8MCEb6ULCNJT8MUK8Rg1c+jhD6ib0TADo2y6+g9CxzZp6O1b6rKDeMl9eak29Iv9Rt4GmDs78rGaUNNGG2RawNpd6Dk2jTCNr4CZDbDSUfRhNzbCBPrVSo8Hvm5LOyvjvCc+oBs82LQJVMcvzU24seaXAI4JafWZB23O56eZtrmqaTQyyUuatK5nXCq99z5r23k7Zp7Bc6kaN5XA6tADhVDjZ6WD0snDvPSiHiOPK3FFgkAL62uETFQxBzx/XSTx8jFOWnT2dxXcEAeji4k7Pi8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(366016)(7053199007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bDFxMjNWaGRmaGs2L1dYTDEvbWhpdlRGbmZzeWJRV3FCaTRKYWY5aHBDNXlu?=
+ =?utf-8?B?bmtpMEZZWjE2anRFVnU4ZnFUMXAwUkVPeEplZjE3VGFTN2Rtbkd2cjNqT0ZT?=
+ =?utf-8?B?QytjN3o0dk45RTJFNUFiOUNOVUJYUDdLRUJEbGJOUXJ3VklzaXlpWmpqVWxU?=
+ =?utf-8?B?dk45VXl6bjh4WG1pSmk2ekM0WXJXWUpXQUFLKy9LU1ZsYytBdFVTZ3ZySUxK?=
+ =?utf-8?B?OHg3eHZvSGtFQ1JaSXAwM1dLTDZoWjM1b0Jtd0R2K211cjNMUjZPbmhDNHNu?=
+ =?utf-8?B?YU9mMk1XaDZpcjZybGNHaFFaU3J3WjVwTVJyQzVEUXNmamtPc3JnSVNuZDVH?=
+ =?utf-8?B?N2U2dGZ2OVZ0dSthdHN6M1d0cUV6TE84aUM4WXJPVjUweDJSS2tOTHdWR3JS?=
+ =?utf-8?B?dlRFaHVkclZZQVhJdWxiM094K3VqR1JFaDRSOGxIcmhtcUhOaHh1R1dIQzBC?=
+ =?utf-8?B?eFBNMDkxLzRFckdGNVZZRVd2SWVzNnRqNlFpdlU1MkxCUTRwdncyQ2VTR2xU?=
+ =?utf-8?B?eFRHSWhYcWdyVHp0cjZLWXdrMVFRby9HSnBva25oVUd1MHVJOGJ5SGVNcm5R?=
+ =?utf-8?B?eDhpSFFLMlMzS3lsdkh5amIrZVJoRTlydFVCVUJiL2NmREI4OWR4ZXhxakpE?=
+ =?utf-8?B?RmpjS0RWM1JYQUhmcE9Jby9iK2lvRnppTm5DL1plcm1ZS2YvV2wvcnRITUNC?=
+ =?utf-8?B?R050U203bDVWc2picUpLa2cvQnVIMTlMNjBNWVpsT0E1b2xFVGJ1UWF6d2Q1?=
+ =?utf-8?B?ZzlkbENRNWFoelNVWnFTQkFTdXAwbFVaK3g5Y0h3d2tPOUgwekZ3QmkyRmVQ?=
+ =?utf-8?B?Mjl5dVlYa1pLSU5Uc3RXeFlRVlFqUy9vRmRGdTNvaGFpSjdFR0UzRHNaYVNV?=
+ =?utf-8?B?MFFNcWFNb3dhc1hDeUtqN1pYby9TeXh5RDB0NTVWTk5hZkEvMXZzd3ljV3lj?=
+ =?utf-8?B?eGNpNVhWbzBvN0wwUm51YTdoTTUvdlhITlEvNkN0NWErSmxIbkRReFhxazdR?=
+ =?utf-8?B?MGh3aDZ6ZHFIY0RVMTF0cVlPRHdhdTFyQy9LZnJTOUtlbGZKWlk0dTljaDEr?=
+ =?utf-8?B?T0dURHBqeE5hbHpKeU1zbUNoRXg0cEMrWDNaUVc4akh5TytDbTIwcm9SL0JO?=
+ =?utf-8?B?eFNzWVBoVmJQSm9zQjU1VEkzWHNjRTBaOVdvVTQrN1FmYmMwdlNjTmZza055?=
+ =?utf-8?B?Q2lHajMvREIvWEt1YTkvRzlJVHV1STQ2MGZvejcxbHlLZlhJb1l4YUU0cnpR?=
+ =?utf-8?B?bThzeXNYcUtsNm1WY1RSYUR2UWFsZXZ6Z1lPVmMzTEc2L0Vsbi9ZM0hDU2Vs?=
+ =?utf-8?B?dm5BeDBrZFl2cDhUV1NLT0R1YndlNGtaRTFNUkdJdk41QW81aCt1bUExL1lr?=
+ =?utf-8?B?YnVpTnJNZVZoZkx5UEFOTC9rMzZWRWVvVldzZzZsTjdLOXEweUIwaTZERlkv?=
+ =?utf-8?B?alMvVDZENG0wbElyK3ptdFpxZjEzMzFlZTVuU29BWlR3UEIydUtWYUo1bHZX?=
+ =?utf-8?B?MDlEVGRTaXBBM2t1VTA4UXVjQ09UK08wUDdRenJHTGx0S2xMT0lTNDRWblUz?=
+ =?utf-8?B?SVVsbUVIZGdWbE50SnBlNzRRN1o0azM1WXRrcGFvd1YzVWg1ZmFhZUUxSCsv?=
+ =?utf-8?B?L25Xd05CSDVYUVd6QldsMkVzaHgwZld3aytKVnREdlExdDR5b2xuYWhVUkVs?=
+ =?utf-8?B?cjhlb0ZWcm1WSjZ4VVRycEdGNXc4MGZTQ2VuT1RBVDlXU012ZmJBUWJrbGox?=
+ =?utf-8?B?Q3Jnd3lqYjhLM1AwOVJIT0RJRFduTlpDTFJLZko3Qi9aRHhHQ0xsVXF1UDQ1?=
+ =?utf-8?B?VDVoK29mMUNiSXYvK3dkMlJITEZ3RytSWWYvcEV4WVZtNFBWMS9HWDBYZ3NX?=
+ =?utf-8?B?NkNwMldYelhMNm5XcTBublQvODBJNWhOY3RyQ29DSjROTEZSVlVvU2E3KzdT?=
+ =?utf-8?B?YmZhZUxNcndIWU8ra1BYQ0M3cVZQY2d1NXozQ0pCdFRLZzRvUWpWeWFLUXJO?=
+ =?utf-8?B?MkNPMTZlKzJYTlBVMnAzOHVpTVAxbzV2RXA1MzNKTm1jN1E5S1FVZEhVMDdV?=
+ =?utf-8?B?cTduRnRMeStJdmg4eVlPUGxSdENvK0U1SkpSQ2FKTFRpWXZxVThaa2JrQk51?=
+ =?utf-8?B?bFpSdmlYbDVMKzVEbW1hVUlQSjcxQjRaUXA4TzFGRnRXb01mT0tLNlpYemVh?=
+ =?utf-8?B?NGg4N3VYbDdTaHUycFNoVm9YY3VGK1NNVnJiS2JhNEJXVTZGV2l3S0c5dUlE?=
+ =?utf-8?B?bnMweDVhQURENDBvUUJnNXJRd2VqRDlWR2pxWWF3dytqSU9DWGxnNFFNSXQr?=
+ =?utf-8?B?aWxaUE5kQmNrQzJNaEpNdlZmaDVGRFU2R0o5REs5SGx1SjA1Sll3dz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09555d6d-629d-4e2f-5495-08de8425046a
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 12:59:25.8401
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: B0gk0u4pFE6mrle81NnVd/jQTzdJzjiRCOrk2xlilw5FHLgRF+eHxbl4JNszTLEE18m3j6biYWmdFm6+eMB4iQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6776
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_055216_653884_1D91C660 
-X-CRM114-Status: GOOD (  32.78  )
+X-CRM114-CacheID: sfid-20260317_055941_135268_E784FA76 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,321 +155,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
+On 3/17/26 14:19, Alexander Stein wrote:
+> The debug outputs use %d for clock rates resulting in negative clock rate
+> during rate calculation.
 >
-> Mecanically extract a bunch of VMA-related fields from kvm_s2_fault
-> and move them to a new kvm_s2_fault_vma_info structure.
->
-> This is not much, but it already allows us to define which functions
-> can update this structure, and which ones are pure consumers of the
-> data. Those in the latter camp are updated to take a const pointer
-> to that structure.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-I really like how, with this patch, we now distinguish between
-vma_pagesize and mapping_size. Less chance for bugs or confusion.
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
 
-Cheers,
-/fuad
-
-> ---
->  arch/arm64/kvm/mmu.c | 113 +++++++++++++++++++++++--------------------
->  1 file changed, 61 insertions(+), 52 deletions(-)
->
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index abe239752c696..a5b0dd41560f6 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1710,20 +1710,23 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
->         return vma_shift;
->  }
->
-> +struct kvm_s2_fault_vma_info {
-> +       unsigned long   mmu_seq;
-> +       long            vma_pagesize;
-> +       vm_flags_t      vm_flags;
-> +       gfn_t           gfn;
-> +       bool            mte_allowed;
-> +       bool            is_vma_cacheable;
-> +};
-> +
->  struct kvm_s2_fault {
->         bool writable;
-> -       bool mte_allowed;
-> -       bool is_vma_cacheable;
->         bool s2_force_noncacheable;
-> -       unsigned long mmu_seq;
-> -       gfn_t gfn;
->         kvm_pfn_t pfn;
->         bool logging_active;
->         bool force_pte;
-> -       long vma_pagesize;
->         enum kvm_pgtable_prot prot;
->         struct page *page;
-> -       vm_flags_t vm_flags;
->  };
->
->  static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
-> @@ -1732,7 +1735,8 @@ static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
->  }
->
->  static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
-> -                                    struct kvm_s2_fault *fault)
-> +                                    struct kvm_s2_fault *fault,
-> +                                    struct kvm_s2_fault_vma_info *s2vi)
->  {
->         struct vm_area_struct *vma;
->         struct kvm *kvm = s2fd->vcpu->kvm;
-> @@ -1745,20 +1749,20 @@ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
->                 return -EFAULT;
->         }
->
-> -       fault->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, vma, &fault->force_pte));
-> +       s2vi->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, vma, &fault->force_pte));
->
->         /*
->          * Both the canonical IPA and fault IPA must be aligned to the
->          * mapping size to ensure we find the right PFN and lay down the
->          * mapping in the right place.
->          */
-> -       fault->gfn = ALIGN_DOWN(s2fd->fault_ipa, fault->vma_pagesize) >> PAGE_SHIFT;
-> +       s2vi->gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi->vma_pagesize) >> PAGE_SHIFT;
->
-> -       fault->mte_allowed = kvm_vma_mte_allowed(vma);
-> +       s2vi->mte_allowed = kvm_vma_mte_allowed(vma);
->
-> -       fault->vm_flags = vma->vm_flags;
-> +       s2vi->vm_flags = vma->vm_flags;
->
-> -       fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
-> +       s2vi->is_vma_cacheable = kvm_vma_is_cacheable(vma);
->
->         /*
->          * Read mmu_invalidate_seq so that KVM can detect if the results of
-> @@ -1768,39 +1772,40 @@ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
->          * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
->          * with the smp_wmb() in kvm_mmu_invalidate_end().
->          */
-> -       fault->mmu_seq = kvm->mmu_invalidate_seq;
-> +       s2vi->mmu_seq = kvm->mmu_invalidate_seq;
->         mmap_read_unlock(current->mm);
->
->         return 0;
->  }
->
->  static gfn_t get_canonical_gfn(const struct kvm_s2_fault_desc *s2fd,
-> -                              const struct kvm_s2_fault *fault)
-> +                              const struct kvm_s2_fault_vma_info *s2vi)
->  {
->         phys_addr_t ipa;
->
->         if (!s2fd->nested)
-> -               return fault->gfn;
-> +               return s2vi->gfn;
->
->         ipa = kvm_s2_trans_output(s2fd->nested);
-> -       return ALIGN_DOWN(ipa, fault->vma_pagesize) >> PAGE_SHIFT;
-> +       return ALIGN_DOWN(ipa, s2vi->vma_pagesize) >> PAGE_SHIFT;
->  }
->
->  static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
-> -                               struct kvm_s2_fault *fault)
-> +                               struct kvm_s2_fault *fault,
-> +                               struct kvm_s2_fault_vma_info *s2vi)
->  {
->         int ret;
->
-> -       ret = kvm_s2_fault_get_vma_info(s2fd, fault);
-> +       ret = kvm_s2_fault_get_vma_info(s2fd, fault, s2vi);
->         if (ret)
->                 return ret;
->
-> -       fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, fault),
-> +       fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
->                                        kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
->                                        &fault->writable, &fault->page);
->         if (unlikely(is_error_noslot_pfn(fault->pfn))) {
->                 if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
-> -                       kvm_send_hwpoison_signal(s2fd->hva, __ffs(fault->vma_pagesize));
-> +                       kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
->                         return 0;
->                 }
->                 return -EFAULT;
-> @@ -1810,7 +1815,8 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
->  }
->
->  static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
-> -                                    struct kvm_s2_fault *fault)
-> +                                    struct kvm_s2_fault *fault,
-> +                                    const struct kvm_s2_fault_vma_info *s2vi)
->  {
->         struct kvm *kvm = s2fd->vcpu->kvm;
->
-> @@ -1818,8 +1824,8 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->          * Check if this is non-struct page memory PFN, and cannot support
->          * CMOs. It could potentially be unsafe to access as cacheable.
->          */
-> -       if (fault->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
-> -               if (fault->is_vma_cacheable) {
-> +       if (s2vi->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
-> +               if (s2vi->is_vma_cacheable) {
->                         /*
->                          * Whilst the VMA owner expects cacheable mapping to this
->                          * PFN, hardware also has to support the FWB and CACHE DIC
-> @@ -1879,7 +1885,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->                 fault->prot |= KVM_PGTABLE_PROT_X;
->
->         if (fault->s2_force_noncacheable)
-> -               fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
-> +               fault->prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
->                                KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
->         else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
->                 fault->prot |= KVM_PGTABLE_PROT_X;
-> @@ -1889,74 +1895,73 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->
->         if (!kvm_s2_fault_is_perm(s2fd) && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
->                 /* Check the VMM hasn't introduced a new disallowed VMA */
-> -               if (!fault->mte_allowed)
-> +               if (!s2vi->mte_allowed)
->                         return -EFAULT;
->         }
->
->         return 0;
->  }
->
-> -static phys_addr_t get_ipa(const struct kvm_s2_fault *fault)
-> -{
-> -       return gfn_to_gpa(fault->gfn);
-> -}
-> -
->  static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
-> -                           struct kvm_s2_fault *fault, void *memcache)
-> +                           struct kvm_s2_fault *fault,
-> +                           const struct kvm_s2_fault_vma_info *s2vi, void *memcache)
->  {
-> +       enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
->         struct kvm *kvm = s2fd->vcpu->kvm;
->         struct kvm_pgtable *pgt;
->         long perm_fault_granule;
-> +       long mapping_size;
-> +       gfn_t gfn;
->         int ret;
-> -       enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
->
->         kvm_fault_lock(kvm);
->         pgt = s2fd->vcpu->arch.hw_mmu->pgt;
->         ret = -EAGAIN;
-> -       if (mmu_invalidate_retry(kvm, fault->mmu_seq))
-> +       if (mmu_invalidate_retry(kvm, s2vi->mmu_seq))
->                 goto out_unlock;
->
->         perm_fault_granule = (kvm_s2_fault_is_perm(s2fd) ?
->                               kvm_vcpu_trap_get_perm_fault_granule(s2fd->vcpu) : 0);
-> +       mapping_size = s2vi->vma_pagesize;
-> +       gfn = s2vi->gfn;
->
->         /*
->          * If we are not forced to use fault->page mapping, check if we are
->          * backed by a THP and thus use block mapping if possible.
->          */
-> -       if (fault->vma_pagesize == PAGE_SIZE &&
-> +       if (mapping_size == PAGE_SIZE &&
->             !(fault->force_pte || fault->s2_force_noncacheable)) {
->                 if (perm_fault_granule > PAGE_SIZE) {
-> -                       fault->vma_pagesize = perm_fault_granule;
-> +                       mapping_size = perm_fault_granule;
->                 } else {
-> -                       fault->vma_pagesize = transparent_hugepage_adjust(kvm, s2fd->memslot,
-> -                                                                         s2fd->hva, &fault->pfn,
-> -                                                                         &fault->gfn);
-> -
-> -                       if (fault->vma_pagesize < 0) {
-> -                               ret = fault->vma_pagesize;
-> +                       mapping_size = transparent_hugepage_adjust(kvm, s2fd->memslot,
-> +                                                                  s2fd->hva, &fault->pfn,
-> +                                                                  &gfn);
-> +                       if (mapping_size < 0) {
-> +                               ret = mapping_size;
->                                 goto out_unlock;
->                         }
->                 }
->         }
->
->         if (!perm_fault_granule && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
-> -               sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
-> +               sanitise_mte_tags(kvm, fault->pfn, mapping_size);
->
->         /*
->          * Under the premise of getting a FSC_PERM fault, we just need to relax
-> -        * permissions only if vma_pagesize equals perm_fault_granule. Otherwise,
-> +        * permissions only if mapping_size equals perm_fault_granule. Otherwise,
->          * kvm_pgtable_stage2_map() should be called to change block size.
->          */
-> -       if (fault->vma_pagesize == perm_fault_granule) {
-> +       if (mapping_size == perm_fault_granule) {
->                 /*
->                  * Drop the SW bits in favour of those stored in the
->                  * PTE, which will be preserved.
->                  */
->                 fault->prot &= ~KVM_NV_GUEST_MAP_SZ;
-> -               ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, get_ipa(fault),
-> +               ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
->                                                                  fault->prot, flags);
->         } else {
-> -               ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, get_ipa(fault), fault->vma_pagesize,
-> +               ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
->                                                          __pfn_to_phys(fault->pfn), fault->prot,
->                                                          memcache, flags);
->         }
-> @@ -1965,9 +1970,12 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->         kvm_release_faultin_page(kvm, fault->page, !!ret, fault->writable);
->         kvm_fault_unlock(kvm);
->
-> -       /* Mark the fault->page dirty only if the fault is handled successfully */
-> -       if (fault->writable && !ret)
-> -               mark_page_dirty_in_slot(kvm, s2fd->memslot, get_canonical_gfn(s2fd, fault));
-> +       /* Mark the page dirty only if the fault is handled successfully */
-> +       if (fault->writable && !ret) {
-> +               phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
-> +               ipa &= ~(mapping_size - 1);
-> +               mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
-> +       }
->
->         if (ret != -EAGAIN)
->                 return ret;
-> @@ -1978,6 +1986,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->  {
->         bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
->         bool logging_active = memslot_is_logging(s2fd->memslot);
-> +       struct kvm_s2_fault_vma_info s2vi = {};
->         struct kvm_s2_fault fault = {
->                 .logging_active = logging_active,
->                 .force_pte = logging_active,
-> @@ -2002,17 +2011,17 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->          * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
->          * get block mapping for device MMIO region.
->          */
-> -       ret = kvm_s2_fault_pin_pfn(s2fd, &fault);
-> +       ret = kvm_s2_fault_pin_pfn(s2fd, &fault, &s2vi);
->         if (ret != 1)
->                 return ret;
->
-> -       ret = kvm_s2_fault_compute_prot(s2fd, &fault);
-> +       ret = kvm_s2_fault_compute_prot(s2fd, &fault, &s2vi);
->         if (ret) {
->                 kvm_release_page_unused(fault.page);
->                 return ret;
->         }
->
-> -       return kvm_s2_fault_map(s2fd, &fault, memcache);
-> +       return kvm_s2_fault_map(s2fd, &fault, &s2vi, memcache);
->  }
->
->  /* Resolve the access fault by making the page young again. */
-> --
-> 2.47.3
->
 
