@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278C5FD876D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C75EFD8775
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LxH2w51jz9p6LSxJXmwFCJAAno6Vdky+VTfMtvNcsZs=; b=tC8IeE4Zb7rtPHEsK7/o7Fov43
-	MQY45REAmJPQOGqU7KF3IDidAiq0Koz7gajdYbqG8QauWcB4tGeoJNmSZ5uCV156f1HFCfODPJqkC
-	1FGFDdzWg4xDgx0qUc+ZqyxpldgTDvWW9pdQFEW0qTYuURfTd/PmDNwGDfvVT8SRktUyXpHZ4QaqS
-	zL2GLBtUopur+sE1pYMz3jcrfMd8KjUBXlxXvM+huCtAOagPhV/F3E2HEgYKc+6xKuagW6FHxlhOQ
-	9wpOM5boc81r3YZN/Kv2J0hRq1pDumr2QHRr24aHxQWWz9l3cyngeu04fp4j3FaqEAgGORPsNFv/8
-	bIXbhexw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8fK5oiyFZcXdpxmgNgKZiG0tbDimGnvzYaStVKW4n/c=; b=shOFcwqR3ZZKwJrGeo0VLhydkS
+	JVMVb7Oa57ZvkLckFWEego6kUx3rsbG0jxS+6zSjF5iKPGvkhJmnCo2fKwOHMwfqosLkJIkq+5YPn
+	lBCXP5qTKAvIU8ALcR6BG05Y7qnzA1p62KALUK0isaBX4KEf0Rg6Tpvgyn7OcjlR/HwbaoCBO4LHh
+	Y3N/JFMizBWc+GqTWVg4vtKPKtYYZXWOfU8ACedo3O1t6ioXNAcKCmq6Acob1ofnvkjtOdQ37jY4u
+	xGZk4GiR/QRvhbNGxyTQ4Rajm4ZlREbbTzakc4aR3Dvl1/pbzBtXxb/Pnfda8qdkmiMmTlwicO7WQ
+	pjJquTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UhC-00000006T7A-3YW7;
-	Tue, 17 Mar 2026 13:42:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2Uio-00000006TGn-0yKV;
+	Tue, 17 Mar 2026 13:44:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UhA-00000006T6g-3Zmn
+	id 1w2Uim-00000006TGW-3Cuu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:42:53 +0000
+	Tue, 17 Mar 2026 13:44:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9934140935;
-	Tue, 17 Mar 2026 13:42:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDBEC4CEF7;
-	Tue, 17 Mar 2026 13:42:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DA86660018;
+	Tue, 17 Mar 2026 13:44:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86322C4CEF7;
+	Tue, 17 Mar 2026 13:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773754971;
-	bh=cvWFM54q957EernSWzHaK9Acqjw396q6QTQo5GDsp5Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Iy0TnZX5T2xqw3wl38rgvtDR9JClrVeBVTwEjQZgZeUSC1mQWBqW/7QANTOB+ItEh
-	 ShMuJXNtUDliwfJuOm40uaMs7VLacYFs4/xaeXEHuP0wSrirTRQUbkPVUIy5LQqRBg
-	 5FqbbtdDB6HEelqWDfyEDYrGwjyJR0xK/vDSLyQP0VRdzNtsewmCWmBhZdxRCQKhwX
-	 UtjL/WYWVKM3oGNCuTfxvKwt4ApwDU0XE1YwK32qPu1CzE06K8OSKaNNjr+SM99ctm
-	 IwndBkfvV/zVMP64fw2nCwDX4++guZiEpwi6CnKsiGxnn9bHiy/g4fHTg6er0m7Tod
-	 qyBGCOjWy60qA==
-Date: Tue, 17 Mar 2026 13:42:42 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	devicetree@vger.kernel.org, driver-core@lists.linux.dev,
-	imx@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
- thread safe
-Message-ID: <94dcb275-4af0-4ca1-9b4a-5769bcc2c777@sirena.org.uk>
-References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+	s=k20201202; t=1773755071;
+	bh=xDYlTj5oh0PNIz4gI3ATDUGTOj/ofdzKUm3Eoj3jiWM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mNl9nDdHF+cPk2NZzCOwLbeBfSxKTlIZGn4PRwFOpGQVfpyQKL+Yu+q4vrpzwKRgE
+	 kVghIMBF3ho71K4mtfHZCiOtYdODBZxDgfUhvZXdOOTd6wpbfwU6JzBPPqa8zlu+aV
+	 lkJKS+9O3fTrc1FlAYLO15FcfPDaMfyvuEPjDjzXFiHQAhYXUzDW4XwJJ1vtll0yka
+	 HFoSofEz+hLXqsELs0iL7fpBSYgUZUOQriBT9ct9hn1+In4Oxz6Eh0Y32qqY2iXfWC
+	 kcGdObCRNLsqxYk6uP1K8bzPfkHCCkVas1yGeKLR/9PcgFZTRH9AHBzzT+eHvKtN5a
+	 S++9KdjkTEXvw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2Uij-00000002raI-1Bu6;
+	Tue, 17 Mar 2026 13:44:29 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Zenghui Yu <zenghui.yu@linux.dev>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH] KVM: arm64: Fix the descriptor address in __kvm_at_swap_desc()
+Date: Tue, 17 Mar 2026 13:44:25 +0000
+Message-ID: <177375505490.1884461.5958230825865756810.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260317115748.47332-1-zenghui.yu@linux.dev>
+References: <20260317115748.47332-1-zenghui.yu@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CESacuQ0/LxRTmli"
-Content-Disposition: inline
-In-Reply-To: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
-X-Cookie: Must be over 18.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_064252_931926_1A554B74 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, zenghui.yu@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +82,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 17 Mar 2026 19:57:48 +0800, Zenghui Yu wrote:
+> Using "(u64 __user *)hva + offset" to get the virtual addresses of S1/S2
+> descriptors looks really wrong, if offset is not zero. What we want to get
+> for swapping is hva + offset, not hva + offset*8. ;-)
+> 
+> Fix it.
+> 
+> 
+> [...]
 
---CESacuQ0/LxRTmli
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied to fixes, thanks!
 
-On Mon, Mar 16, 2026 at 03:42:06PM -0700, Douglas Anderson wrote:
-> In various places in the kernel, we modify the fwnode "flags" member
-> by doing either:
->   fwnode->flags |= SOME_FLAG;
->   fwnode->flags &= ~SOME_FLAG;
+[1/1] KVM: arm64: Fix the descriptor address in __kvm_at_swap_desc()
+      commit: 0496acc42fb51eee040b5170cec05cec41385540
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Cheers,
 
---CESacuQ0/LxRTmli
-Content-Type: application/pgp-signature; name="signature.asc"
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm5WlEACgkQJNaLcl1U
-h9DSgAf6Ap5hH7yRkuhE3ZUXEU9Sw0nRKEWLWHq9c0Jd+k0j/ZH4K6YAePaTKleT
-VU3Fsx4siP9rbVq9sWIZ4qtL2ChJw3LgqNNMe88HKsb5MLrcpbCzUEXe9mZHg9ke
-tucJZVfd79aIWfTHelxkhI1ZuW+JNDId0+0NrI427Jrhou3kPYT7+gJmYXuMbWik
-Pmc0B/+HNSZ5wx+ETM7Ki9+Yj+BY15QaBoNID1YqUpzKd6xrtRs/Ep414//xibo9
-92kpTPrKdt92+B4iMU/YWQvPyUelIpmWR7aJ9I823NnLKHA5yvoEy1ff5WloKA6Q
-MxtC9dhuaD1HfwqImmlLKtm0H6/ABQ==
-=PgWz
------END PGP SIGNATURE-----
-
---CESacuQ0/LxRTmli--
 
