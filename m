@@ -4,69 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0999CFF6E9B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1E3FF6E9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 23:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9cN3tZ1LhENRTxlVbvieWVdYE7gsIjsqwoVTfTI9zJE=; b=ANS189uyFEncuJxVyXRnmPazw5
-	YBJ7lVOapNJZBZaexlKC/SXmD4Nufvm7W5qASzw4LdMS1yTv5iVSMZTW810lHJuZnvguPVSw1fLPU
-	nxOV1yFTNNlYjeQ8QPsy6cTI+iMWbSDWPOTkSYGErGz6qvXtIU0h00+N95dB+KZQxZrcfK4ID+ZRa
-	7a2ghNV5b0hduTXEzkhzrFHVOT1CP3RZg9lhn59zvo0Xlg1csUCYSEJIhCqXZnVYZshFfwUgstW6u
-	+bQtpKavSY8GyzkpBLATnjfpspHYI9DhFDGtStcofsRJ411S1/Z3O4F6dwiTEEZ7yHZIf4BMyZQlh
-	Q/h5vhHA==;
+	bh=qPWhNEkrCqRZ+00OtaPJbnAsfNJUYl3B1RyQ7BFHr+s=; b=gzZcgfZKD9mhUMkPye0KmIG6u3
+	8/+d9XsGiZM2aDHw7nYOLvOd038YIkC/Fvo0mVDopa/F9AoIQ/DDw7yUid6ubu0ovA+O46iOk35fO
+	UKXOLTZEkvm+DOkuChWZvwuXBApfVhrQd3GpZ0u/kxllqLGsja0TGT7T7YvcH5QVCHv0LI4efqV3D
+	5xLdMfNMIp9VKz2KtmkjR4BFUYTtO5nkJ1ZW0O5z2NnM/oGbKl+FSYpIfnmuAMloxpHYumnkxjYNs
+	LMIS59IxMoZ8G0gUP3R3wJREOGqDTiv6LyJ72JQCZ2WN7MY7X2PBXZGX0uOLdH6VN/WcTSe4Q5r4j
+	JYsGg3vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGR-00000007Kg0-2yjh;
-	Tue, 17 Mar 2026 22:51:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2dTX-00000007M59-1YQM;
+	Tue, 17 Mar 2026 23:05:23 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGF-00000007KYq-1muF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24E584454A;
-	Tue, 17 Mar 2026 22:51:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CCEC2BCB0;
-	Tue, 17 Mar 2026 22:51:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787899;
-	bh=fEMGUpFDlhNRg1sLbKniP9b2BaEndplZSI3APG5mJWo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=boUZfUw5R1dpAOy9Qe91EuiTP6xOMtXCPYRckujVQmBIzyszZygpVfFeP9emiRV2+
-	 pBW5W7+MuEaIwfoy8UgiP/K00+g8B6UGqr4Ix+siF42Rii4jt+mVuq8B/ZzrgXeKhL
-	 YakGD1LH+bcj9nGdJKB7JYUpKm8QK3EsqSejpT1LqbENU6DDQnY/CiCgnWCuA6wzDO
-	 91yQX3yzBJ67pd5Q9k+WLtyD+zfs4kwXFbBmsUd3BqtL+msjPtzfEFK5xZoZS1LgsI
-	 2bljO01g1RYvrRgI1iVXuPzywGnKdukXJ7RqT15X7yCT9OXYIn7JHgAaFUQyacFVRg
-	 8JiSgYkLBPRLg==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	id 1w2dTT-00000007M3v-3nB1;
+	Tue, 17 Mar 2026 23:05:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nYn+k8gV3EQGqCL3mCCIIYAtoyT3A06gzqmU8ftXAT9hinC1e1UWTResI5Mf6s0NrJhLOWCUarV/x/ynuwTz17y3g5HmIu/o5CX+0jVVBzJ0ednCsjzOQePqIb5DXqmCEw/ETAg//aLoqslESSln0FZpI859y7vIth5aPduXLmcP6OQXEUMjYqJKFxLjpfQ6dr42Brs9X6A+Mlmhc2E8xNfq6Y1gvgSUifof0hbWTsf/ATJrHRo3DGjrrv2r7vHxo/X0twjs5mrqiw9YN3oI4Vw0tw0xBTncRMycd3u0rKS+SwJZx97QMq99TlQ9OafG6RamfbY6Er4Pq82qTrs5MA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qPWhNEkrCqRZ+00OtaPJbnAsfNJUYl3B1RyQ7BFHr+s=;
+ b=js2cZv7wf39DceRjeL27RKS7Ce4kOOf0QXe0/Bs58TRnRpHp4kss2VuKwTJIbuTbRhRz2oR7Im/L6jVjGcD0E69sK7f5/jwAE1cuFmLYBH8UkhmcDPexrrmg5itCvE8pWhviwpZtihkc3YiJ+pJvRcpgYiJgwVVRgmcScAI85in17PMLrKAK8Qsq5C8byZI0Q3I8MdBe96UcJxPAnPV58DAkoIfAQzZSHJ6GWsSLQXCyW5rhcP4NzGU3u1EHqB2RVqSPXxjZo3SRHF2VqJ5jTP5WqXyWwpmoF9qJngUgXq0oX6i17fiUNqG/KXnj653JFbgHJzROuOsGyIDJ1PywPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qPWhNEkrCqRZ+00OtaPJbnAsfNJUYl3B1RyQ7BFHr+s=;
+ b=k5N2AqLydeJo1Yuts9MGW3tbhIUcTeHjsQI6b1StuD8Pi96IzwhX61+J630vaWE7wfvqqMEsliOy+kuqYvjNKMjnYVFKURJW2VFDzV94E4UqHLtSN6VRMIpYKdON2ED6O7EOWdYhcdpqxVl1J6njPukXj+E7OPfkJEjFBMnDJRJ4JdreqZCiIyS0tkrjLv0ibA1gQiIggYSutVqOgJqcbLlE6lhaBT7QaAVLs4E0GP35N0YOw94P7XBhq0gLNcWOnUWIGIbbZ7MVwREov3Os4HM95U+PJAVVCvdHAXas5X24hAkQPj+9MsWYHifrwsWkEy9kPLHkOlTWWsbJm2Jg5w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by VI0PR04MB12032.eurprd04.prod.outlook.com (2603:10a6:800:311::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Tue, 17 Mar
+ 2026 23:05:14 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
+ 23:05:12 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: linux-phy@lists.infradead.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 11/12] objtool: Introduce objtool for arm64
-Date: Tue, 17 Mar 2026 15:51:11 -0700
-Message-ID: <e180f625f80f2a8825a2a31da5dd0d9bde335634.1773787568.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
-References: <cover.1773787568.git.jpoimboe@kernel.org>
-MIME-Version: 1.0
+	linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>
+Subject: [PATCH v4 phy-next 01/24] ata: add <linux/pm_runtime.h> where missing
+Date: Wed, 18 Mar 2026 01:04:37 +0200
+Message-ID: <20260317230500.2056077-2-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
+References: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: VIXP296CA0007.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:800:2a9::17) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|VI0PR04MB12032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b37fc59-8dc9-4638-f784-08de8479a444
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|376014|19092799006|7416014|366016|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 8K7h0VYCJTZLGONOGjWSRwObQMh3V61aBhMQXRkiiquKedM6Qffn92wPvHrzBzj+I/SomwfSAhKnQPaIbk5blEd7ui5FlQcGDLN9IAIGv40gf6UWtlQIM0fPjUzdKlli3tOHJKBaEpVfx/dcI7FPscU4KCCu11Wmyx26DbYJyBYR5yKmzRXSXofuLWZj7/3PwBB8pAmQxuRJARjvBA9oRhKV/u8BPPrdBbzMHVMZsCaB/iETypjBycXd38LmfoV/tK1Ww91AaWxG6lPzGBUEuRDXwyfyUnmuhG4+dQ3PhUeiOrqA4t/Mks7P90wuC5fvALzKrOue+Uvjtne/x2Xue0k/MhkLDa2EXlwOvj79GzJMZNDFx+hHOB7ApjFcu4/ITanjaP45GoTsJSvnK2xgHfuqipmdX62fd6ZZ7W/0KCsVK4ByWi5WS/M/iKhLhjwC8QFZWSmdJfu3g8/LCK0Z9/h/Yy/1PBHuCfLdAR74/f3ZD566FvumC8fGk3qM4hyMcYI6Z+whVTy6J/XilO+h5LK8YaWMX2t/jME9lbZWd5p8DrOlQRHzYLHhoeCkgKnyZZPlLeTYre6+awDi1DYce7A3oomRF3IpQLwhbou0UUhpK65i5Dm3VkTGmjMTPD2cGpBO/gfFfXPYVo+C3Xtr4qcRbGxB22JK22TqITPojZzkl+/wHskyS6s5rghW1q9e0Cz02Ls5Xi1h9wEvEiUahwWbR2vEk7PFTG2flq5Cxzo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(376014)(19092799006)(7416014)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Izc5M0BnBMoft74ZVgbAMBoa0bmYi+fRlVWLKkjqRiQyegBVsaUSqTeBdcf7?=
+ =?us-ascii?Q?g0ifvoC8MfnYJRrOIgi/sNwChvumtsFEBVKS000xEYZWfXTLlMKGQLy+FlTo?=
+ =?us-ascii?Q?EEM2/RNvFHmvsz9tLi487bDyPxnvFMY9z3DvtnkxyFE0W8aPXTmje62ynOA2?=
+ =?us-ascii?Q?aqGoeEMCyTo82G0SylwrXkV0s6BdkNJl+1lp13q4wDkPTREEkTQ9QLLOJ1os?=
+ =?us-ascii?Q?TVF6bFmMD0t5Igy1lBHX9B1WSmORnxRkCxMi+/9C6jrwHyzSqCcGqakwH+Ay?=
+ =?us-ascii?Q?FXOiqKL7HbLlpmfURcN76RU+lgg6U88jOkE7UvvvVUiyki4bqsAGXe27T0cS?=
+ =?us-ascii?Q?o1nFYuvDSSxqGnUR5i3pc56APe1bdD/KbpcWicBrORNFBOa1LlaRfVASd/KF?=
+ =?us-ascii?Q?uifpr15rjXrdMvup0R54RhOLHpyM0Z0M0DYEP9r1MBEJG1oXYbfGFsD1ej1E?=
+ =?us-ascii?Q?FgvsYx6cE1Q6qS2UzK90Le4UOZiZt9OfXonC3LnsrHXwLn7/NSEG3LC1JFX3?=
+ =?us-ascii?Q?W3Y86gqWJZ4n/t+cdvDpg/lQEI2yMsDIhH8HZjYmSq3uqgFs6nzu6pPNg2TW?=
+ =?us-ascii?Q?lSr0lHr/jZCjpzD80k8Bt6gcSqG16lfP7gys175O2a0CTe9tJ8Tjlvj/UgJr?=
+ =?us-ascii?Q?Y4OIdZahIfk0DABgLZdXqjokgtGB9f7nObirzY5so385cM9lWQ53aN0KOC1E?=
+ =?us-ascii?Q?+tjiWUot9YgadUL2sM8vXZNGJ4jyN3+zrCpyzkGQEk2P/CMLR/My0zpfrcF3?=
+ =?us-ascii?Q?kRJmv2RvKRb2A9rUSPcXfnnMXQWpE9MwQzoHxvBi0XX3VDtQbEoPmr97szmq?=
+ =?us-ascii?Q?sOiUbxYddNe/P4BJJxbHSTuBs5gPWaKqAV3+J8YmQAy5YSfcyLX0IbNKfU7a?=
+ =?us-ascii?Q?PcqYHbgsldEiJaXy7bQ7rOO6v6zmmcEPV5wNsxG7xUpPFM4N1SIjJmv7lTku?=
+ =?us-ascii?Q?X2uNjnvNBeMmIhZWxVBOvc6DdJ7oyZbIiAmnWwfbJJ6r0Az4Mi4MOQtBu+7+?=
+ =?us-ascii?Q?5x9H6HXKzFrisOgdYyBeuafLG9gZlJj8HB+B0Zau8eRaL2hkq7/J9PFwW2eO?=
+ =?us-ascii?Q?4M1Owc3r03deJwVqS5zJEQ7Y7jSYq+FchFkZtBwbPpyKiYbXc2D5FDHsBcdN?=
+ =?us-ascii?Q?4CqP0lNHUDrumOuzZXdytrexYOLjKIKTEOvTVk7N9pMsd1CCZo/6FTuhkWX3?=
+ =?us-ascii?Q?CpktG9UKGqL5iqo38+4QD1eMM8n0sodxX3nxXgwOq+AA0neG+Y7oTgAGsi9J?=
+ =?us-ascii?Q?b94sbcBRA9+at/xjC6oFsWafM0YRJ4gWf/eXd4q+vbftTe+hiNfJHSLEzJJ5?=
+ =?us-ascii?Q?nkNBwjMVEnDbAIlt/zEtwoRBa5PbVJ8XmkMXOY5X/ebVjvUjTfaWRwEsa6Fl?=
+ =?us-ascii?Q?y/C53WT4Bx3XliZhYqQaDAch3yFl1vecME1GomtaeQPjuxwLYDbAZqFmNpa5?=
+ =?us-ascii?Q?+XjJt6nAIoejSkFLJL3wednWSnmZcODwXFvRcrfBQBR5nA9cks/aTdgv1s/7?=
+ =?us-ascii?Q?cGUWxrhZGPjmaP/bU7gUzF5+JfWoZXhzv0A4EfEJb9wN9dW6RP1ofQZPOTPJ?=
+ =?us-ascii?Q?lP8UdwkZpCyfMnzB90mxZtt/gC8+1ZKSU8fHm2C+gm/drkfBvcRlNDjBTjtT?=
+ =?us-ascii?Q?fycgE68QqbAakELNOXHKLytUD43Cpbgy1rQ8MbQ49ndnsZVcp+ylaf9CcM5S?=
+ =?us-ascii?Q?ylV4VUuMU9W7i55UPSJPYv0Yz0CyXi9awe6PRUdbxOvzgytLa5dpdeF/QjFf?=
+ =?us-ascii?Q?6FtEIk5l0/uJKcbnGLwOGiNrWHYzOYQNQU5AQCNLw48Hv143taiZpw5bj88O?=
+X-MS-Exchange-AntiSpam-MessageData-1: Xbs0XP8Yosa5tnzQLkvw/znr+OnyaHKrVKU=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b37fc59-8dc9-4638-f784-08de8479a444
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 23:05:11.9272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6DZQvE8XIZGGctXeu1lb1Nkhw5kSPnmgv62H48eVCVdNYT770Lcx77cfoyFc+OoeYTqYSxwaZnkasj5K3+qdWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_155139_510331_BB1925A1 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260317_160519_984333_5E650211 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,279 +159,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic support for arm64 on objtool.  Only --checksum is currently
-supported.
+It appears that libahci.c, ahci.c as well as the ahci_brcm, ahci_ceva
+and ahci_qoriq drivers are using runtime PM operations without including
+<linux/pm_runtime.h>. This header is somehow being indirectly provided
+by <linux/phy/phy.h>, which would like to drop it (none of the functions
+it exports need it).
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Acked-by: Damien Le Moal <dlemoal@kernel.org>
 ---
- arch/arm64/Kconfig                            |   2 +
- tools/objtool/Makefile                        |   4 +
- tools/objtool/arch/arm64/Build                |   2 +
- tools/objtool/arch/arm64/decode.c             | 116 ++++++++++++++++++
- .../arch/arm64/include/arch/cfi_regs.h        |  11 ++
- tools/objtool/arch/arm64/include/arch/elf.h   |  13 ++
- .../objtool/arch/arm64/include/arch/special.h |  21 ++++
- tools/objtool/arch/arm64/special.c            |  21 ++++
- 8 files changed, 190 insertions(+)
- create mode 100644 tools/objtool/arch/arm64/Build
- create mode 100644 tools/objtool/arch/arm64/decode.c
- create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
- create mode 100644 tools/objtool/arch/arm64/special.c
+Cc: Damien Le Moal <dlemoal@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..354aa80c5b4b 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -236,9 +236,11 @@ config ARM64
- 	select HAVE_HW_BREAKPOINT if PERF_EVENTS
- 	select HAVE_IOREMAP_PROT
- 	select HAVE_IRQ_TIME_ACCOUNTING
-+	select HAVE_KLP_BUILD
- 	select HAVE_LIVEPATCH
- 	select HAVE_MOD_ARCH_SPECIFIC
- 	select HAVE_NMI
-+	select HAVE_OBJTOOL
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
- 	select HAVE_PERF_REGS
-diff --git a/tools/objtool/Makefile b/tools/objtool/Makefile
-index b71d1886022e..66b04172b79a 100644
---- a/tools/objtool/Makefile
-+++ b/tools/objtool/Makefile
-@@ -11,6 +11,10 @@ ifeq ($(SRCARCH),loongarch)
- 	BUILD_ORC	   := y
- endif
+v2->v4: none
+v1->v2: collect tag
+---
+ drivers/ata/ahci.c       | 1 +
+ drivers/ata/ahci_brcm.c  | 1 +
+ drivers/ata/ahci_ceva.c  | 1 +
+ drivers/ata/ahci_qoriq.c | 1 +
+ drivers/ata/libahci.c    | 1 +
+ 5 files changed, 5 insertions(+)
+
+diff --git a/drivers/ata/ahci.c b/drivers/ata/ahci.c
+index 931d0081169b..aa3c4949c4ab 100644
+--- a/drivers/ata/ahci.c
++++ b/drivers/ata/ahci.c
+@@ -26,6 +26,7 @@
+ #include <linux/device.h>
+ #include <linux/dmi.h>
+ #include <linux/gfp.h>
++#include <linux/pm_runtime.h>
+ #include <scsi/scsi_host.h>
+ #include <scsi/scsi_cmnd.h>
+ #include <linux/libata.h>
+diff --git a/drivers/ata/ahci_brcm.c b/drivers/ata/ahci_brcm.c
+index 29be74fedcf0..48460e515722 100644
+--- a/drivers/ata/ahci_brcm.c
++++ b/drivers/ata/ahci_brcm.c
+@@ -16,6 +16,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/reset.h>
+ #include <linux/string.h>
  
-+ifeq ($(SRCARCH),arm64)
-+	ARCH_HAS_KLP := y
-+endif
-+
- ifeq ($(ARCH_HAS_KLP),y)
- 	HAVE_XXHASH = $(shell printf "$(pound)include <xxhash.h>\nXXH3_state_t *state;int main() {}" | \
- 		      $(HOSTCC) $(HOSTCFLAGS) -xc - -o /dev/null -lxxhash 2> /dev/null && echo y || echo n)
-diff --git a/tools/objtool/arch/arm64/Build b/tools/objtool/arch/arm64/Build
-new file mode 100644
-index 000000000000..d24d5636a5b8
---- /dev/null
-+++ b/tools/objtool/arch/arm64/Build
-@@ -0,0 +1,2 @@
-+objtool-y += decode.o
-+objtool-y += special.o
-diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64/decode.c
-new file mode 100644
-index 000000000000..ee93c096243f
---- /dev/null
-+++ b/tools/objtool/arch/arm64/decode.c
-@@ -0,0 +1,116 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <objtool/check.h>
-+#include <objtool/disas.h>
-+#include <objtool/elf.h>
-+#include <objtool/arch.h>
-+#include <objtool/warn.h>
-+#include <objtool/builtin.h>
-+
-+const char *arch_reg_name[CFI_NUM_REGS] = {};
-+
-+int arch_ftrace_match(const char *name)
-+{
-+	return 0;
-+}
-+
-+s64 arch_insn_adjusted_addend(struct instruction *insn, struct reloc *reloc)
-+{
-+	return reloc_addend(reloc);
-+}
-+
-+bool arch_callee_saved_reg(unsigned char reg)
-+{
-+	return false;
-+}
-+
-+int arch_decode_hint_reg(u8 sp_reg, int *base)
-+{
-+	exit(-1);
-+}
-+
-+const char *arch_nop_insn(int len)
-+{
-+	exit(-1);
-+}
-+
-+const char *arch_ret_insn(int len)
-+{
-+	exit(-1);
-+}
-+
-+int arch_decode_instruction(struct objtool_file *file, const struct section *sec,
-+			    unsigned long offset, unsigned int maxlen,
-+			    struct instruction *insn)
-+{
-+	u32 i = *((u32 *)(sec->data->d_buf + offset));
-+
-+	insn->len = 4;
-+
-+	/*
-+	 * These are the bare minimum needed for static branch detection and
-+	 * checksum calculations.
-+	 */
-+	if (i == 0xd503201f || i == 0x2a1f03f7) {
-+		/* For static branches */
-+		insn->type = INSN_NOP;
-+	} else if ((i & 0xfc000000) == 0x14000000) {
-+		/* For static branches and intra-TU sibling calls */
-+		insn->type = INSN_JUMP_UNCONDITIONAL;
-+		insn->immediate = sign_extend64(i & 0x03ffffff, 25);
-+	} else if ((i & 0xfc000000) == 0x94000000) {
-+		/* For intra-TU calls */
-+		insn->type = INSN_CALL;
-+		insn->immediate = sign_extend64(i & 0x03ffffff, 25);
-+	} else if ((i & 0xff000000) == 0x54000000) {
-+		/* For intra-TU conditional sibling calls */
-+		insn->type = INSN_JUMP_CONDITIONAL;
-+		insn->immediate = sign_extend64((i & 0xffffe0) >> 5, 18);
-+	} else {
-+		insn->type = INSN_OTHER;
-+	}
-+
-+	return 0;
-+}
-+
-+u64 arch_adjusted_addend(struct reloc *reloc)
-+{
-+	return reloc_addend(reloc);
-+}
-+
-+unsigned long arch_jump_destination(struct instruction *insn)
-+{
-+	return insn->offset + (insn->immediate << 2);
-+}
-+
-+bool arch_pc_relative_reloc(struct reloc *reloc)
-+{
-+	return false;
-+}
-+
-+void arch_initial_func_cfi_state(struct cfi_init_state *state)
-+{
-+	state->cfa.base = CFI_UNDEFINED;
-+}
-+
-+unsigned int arch_reloc_size(struct reloc *reloc)
-+{
-+	switch (reloc_type(reloc)) {
-+	case R_AARCH64_ABS64:
-+	case R_AARCH64_PREL64:
-+		return 8;
-+	default:
-+		return 4;
-+	}
-+}
-+
-+#ifdef DISAS
-+int arch_disas_info_init(struct disassemble_info *dinfo)
-+{
-+	return disas_info_init(dinfo, bfd_arch_aarch64,
-+			       bfd_mach_arm_unknown, bfd_mach_aarch64,
-+			       NULL);
-+}
-+#endif /* DISAS */
-diff --git a/tools/objtool/arch/arm64/include/arch/cfi_regs.h b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
-new file mode 100644
-index 000000000000..49c81cbb6646
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_CFI_REGS_H
-+#define _OBJTOOL_ARCH_CFI_REGS_H
-+
-+/* These aren't actually used for arm64 */
-+#define CFI_BP 0
-+#define CFI_SP 0
-+#define CFI_RA 0
-+#define CFI_NUM_REGS 2
-+
-+#endif /* _OBJTOOL_ARCH_CFI_REGS_H */
-diff --git a/tools/objtool/arch/arm64/include/arch/elf.h b/tools/objtool/arch/arm64/include/arch/elf.h
-new file mode 100644
-index 000000000000..80a1bc479930
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/elf.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_ELF_H
-+#define _OBJTOOL_ARCH_ELF_H
-+
-+#define R_NONE		R_AARCH64_NONE
-+#define R_ABS64		R_AARCH64_ABS64
-+#define R_ABS32		R_AARCH64_ABS32
-+#define R_DATA32	R_AARCH64_PREL32
-+#define R_DATA64	R_AARCH64_PREL64
-+#define R_TEXT32	R_AARCH64_PREL32
-+#define R_TEXT64	R_AARCH64_PREL64
-+
-+#endif /* _OBJTOOL_ARCH_ELF_H */
-diff --git a/tools/objtool/arch/arm64/include/arch/special.h b/tools/objtool/arch/arm64/include/arch/special.h
-new file mode 100644
-index 000000000000..8ae804a83ea4
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/special.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_SPECIAL_H
-+#define _OBJTOOL_ARCH_SPECIAL_H
-+
-+#define EX_ENTRY_SIZE 12
-+#define EX_ORIG_OFFSET 0
-+#define EX_NEW_OFFSET 4
-+
-+#define JUMP_ENTRY_SIZE 16
-+#define JUMP_ORIG_OFFSET 0
-+#define JUMP_NEW_OFFSET 4
-+#define JUMP_KEY_OFFSET 8
-+
-+#define ALT_ENTRY_SIZE 12
-+#define ALT_ORIG_OFFSET 0
-+#define ALT_NEW_OFFSET 4
-+#define ALT_FEATURE_OFFSET 8
-+#define ALT_ORIG_LEN_OFFSET 10
-+#define ALT_NEW_LEN_OFFSET 11
-+
-+#endif /* _OBJTOOL_ARCH_SPECIAL_H */
-diff --git a/tools/objtool/arch/arm64/special.c b/tools/objtool/arch/arm64/special.c
-new file mode 100644
-index 000000000000..3c2b83d94939
---- /dev/null
-+++ b/tools/objtool/arch/arm64/special.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <objtool/special.h>
-+
-+bool arch_support_alt_relocation(struct special_alt *special_alt,
-+				 struct instruction *insn,
-+				 struct reloc *reloc)
-+{
-+	return false;
-+}
-+
-+struct reloc *arch_find_switch_table(struct objtool_file *file,
-+				     struct instruction *insn,
-+				     unsigned long *table_size)
-+{
-+	return NULL;
-+}
-+
-+const char *arch_cpu_feature_name(int feature_number)
-+{
-+	return NULL;
-+}
+diff --git a/drivers/ata/ahci_ceva.c b/drivers/ata/ahci_ceva.c
+index 2d6a08c23d6a..3938bf378341 100644
+--- a/drivers/ata/ahci_ceva.c
++++ b/drivers/ata/ahci_ceva.c
+@@ -12,6 +12,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/reset.h>
+ #include "ahci.h"
+ 
+diff --git a/drivers/ata/ahci_qoriq.c b/drivers/ata/ahci_qoriq.c
+index 0dec1a17e5b1..409152bfefb6 100644
+--- a/drivers/ata/ahci_qoriq.c
++++ b/drivers/ata/ahci_qoriq.c
+@@ -14,6 +14,7 @@
+ #include <linux/device.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/libata.h>
+ #include "ahci.h"
+ 
+diff --git a/drivers/ata/libahci.c b/drivers/ata/libahci.c
+index c79abdfcd7a9..e0de4703a4f2 100644
+--- a/drivers/ata/libahci.c
++++ b/drivers/ata/libahci.c
+@@ -30,6 +30,7 @@
+ #include <scsi/scsi_cmnd.h>
+ #include <linux/libata.h>
+ #include <linux/pci.h>
++#include <linux/pm_runtime.h>
+ #include "ahci.h"
+ #include "libata.h"
+ 
 -- 
-2.53.0
+2.43.0
 
 
