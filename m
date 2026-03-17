@@ -4,78 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E6EF33809
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F04F33808
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+E5JExlH1gsTbrfMSDrOrCsvoCvNuc0M7joRkI7q/a0=; b=aowNcyZmrOabOdbHUuMBjV89Oq
-	dPtrFhOm8Y1deOAYf9Gn5IxbkbKGod9CtP0O3Pzo4G++drNF5Fy0fPWj+7K6KizPSt+ocf8dQjAw4
-	CQMsIsMgknOxfXptZXcftMvfnW0IiW5boSlJ8De5I0nu/qohP4dtoaF1LRtaPq/kHyjVce23iCQBb
-	9M4188E8eUAl4Bs5us0fjN/yI2DyhNsbwEiK1rfBgp4aPwWKXuilG0dLMknQNoHBUx1O9m19dfGLx
-	8wgEQEQ1nptxlBesoF826yHNlkg/HXB5ieTEJDN+cRT0KmjuvD+Cs1mMg3BV7TBwHWxzYUURTp2GO
-	AmonQevg==;
+	bh=BbwlIWIrt4YWJ2cQAErCtoj72+fB4aWoOEE2aa6YOo4=; b=e7fKxYD1W9Sr+QhUvnM7YzgY99
+	AG3l27MEKBn8C8V1kw5kH2srCWxsKJLecEWQpm+OLJpEMlL4bQ3+6Yk/5If38A2W9chhM7aThAKz7
+	I/HsZDxqj8RJWP6nsOHf7vYZAKdxaxoXBsdy9HeokP0qRF5IRzdiFEx1CfVr9u6TcPkOlPJGr6vwq
+	xwlGS40jIOG9GnSxVOC2OEpVPngjsb75bFM0yi8p5iCchmARNgkuc5hcLZU/zjK69w4RH7ugFanr9
+	XD3QUO94scOBHSeSIZXjh5Y77UcsXVcmPm/MI6GPZI632+dPqJRKFcmpTzlN6m672DVFKRTP5Z1v5
+	d/uZkmHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OpU-00000005ZPE-22sD;
-	Tue, 17 Mar 2026 07:27:04 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1w2Opn-00000005ZSn-3Krp;
+	Tue, 17 Mar 2026 07:27:23 +0000
+Received: from mail-swedencentralazon11013056.outbound.protection.outlook.com ([52.101.83.56] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OpQ-00000005ZOE-2dXY
+	id 1w2Opl-00000005ZS7-2SKr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 07:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=+E5J
-	ExlH1gsTbrfMSDrOrCsvoCvNuc0M7joRkI7q/a0=; b=G1SOiayi7IoPrStzYmkA
-	vE7X7q92XlvwYuEl9Qq+m43cNpJ1xkkG+3XSjgJJ6u1gQUoFRCQaWvd0ltaIwWz/
-	HONuSZqyrenHqXgFemBvGilKgGqmEuKXcnp8Z15LGRMALDs51AhRCugiRG2ZV4Px
-	7B8PLtMebupyzkbYa1PW8sHAh8ZqVD5/mREnBxYk3r9vU+BvmA5PxdwAF0in6ofA
-	GidGANePhLce/03m5Xss1p3CFf+7JesvhB182Kx4jRpvr5t72lro76lUMfRTZflS
-	96CCkOxwe23kNqh//4oAvR+2RX1AQZM5LMQLBymy9yiVdMAaxP+s1rKPe3u/WBsI
-	nA==
-Received: (qmail 162337 invoked from network); 17 Mar 2026 08:26:53 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Mar 2026 08:26:53 +0100
-X-UD-Smtp-Session: l3s3148p1@khhxQjNNeKhSwmvS
-Date: Tue, 17 Mar 2026 08:26:53 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
-	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	driver-core@lists.linux.dev, imx@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
- thread safe
-Message-ID: <abkCPU3rxHI49N4_@shikoro>
-References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
-MIME-Version: 1.0
+	Tue, 17 Mar 2026 07:27:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BUFqPdNV+pvVqXW7ST+QZ7cmv1LTC1FxV9ch5OXDfinVWvuT7wf1d2qNOkwvef39y8l2m1MwDYTajeGPYV74vnXugzgF0ZuxZB+YrSEuHfhFwoA4oeFeC0SrC8HFRDS24ZvBvBr7gVwJFpPlFKw92DeBhe9uQzLmDp1ypr0AZ2uNndX3ofojxYd4rKUt7XQpXgmmaocqraKkILm2MjeRgJhqfc8aX4HY3ffPDwbfZoTwPDe5p4mKiO3Tbv2mnJeiEhqgQZn63r5Bl+hbZdDSIT37ioiZk0Mzx9f2uhCUBIEvWDcanEdNhBjJ4qtUhr5l39GgLdcSb0C4RV93R3q2Hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BbwlIWIrt4YWJ2cQAErCtoj72+fB4aWoOEE2aa6YOo4=;
+ b=RFqd+9mn3HM2kDEdVCdkGoKLOED0jBIL8tQfPzIm9aQk1rRhTboy88L1IIfgaNB7OLVGSVj0gyWv01s5SsnVvtz69tZu/GfWzokugGrA4gi36IG4WcNWqBgtJdpq6RWL7W56K+ZqgDmjdxYhqezFLXV6zGYgNahvflKNgB5m1Awz6RO7SPN4PpI19h/ScKGeOH1WZwb+EomLxQrDelkboeRrM02A0qwDYcaMvJ/r8G0Fv6A+2AeOgJdTdV2ljbj+ISJp5D4xHsnzE5S0rCS6cuKMYcZfps9H4pmdKZqMX6ShOeVYaHsXHVplVlF9p47+nzQnwvWNVn7lSJ0wJkmA7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BbwlIWIrt4YWJ2cQAErCtoj72+fB4aWoOEE2aa6YOo4=;
+ b=MAHQ+vaNt1Hx8qV3oKTLpOGTfJQdUJinhmdAzZeNnEImLfQfnWTLNi4kCFx8NKyIuCYMCfua30NvPP33k4PSVJ8TUnpwWDkp59XnY/57gMANPnuRRQ34kIHWDvGMzvCiVt/WQCfB2VttyaAM9W7YDnd0B20vP6dOV/n0PcpSFL6WLJEW0fVkqc4CzbRTwS588Xj1gZBpnATYiv8o9T/nlTFPZlKIr4ZAg4UxOptTC3DLIw0RYrwzxPNR0JZhXyWK3fZMwkJR05WI36rHi0S+8FPNUtab0FAZWCSZQ6hLtXJzXh04qqkgnp3rElEONB0JptvmiyhyDZp5zGmGPNqOtQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by AM0PR04MB6916.eurprd04.prod.outlook.com (2603:10a6:208:185::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
+ 2026 07:26:53 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af%4]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 07:26:47 +0000
+Date: Tue, 17 Mar 2026 15:29:22 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH v2 09/13] firmware: arm_scmi: Harden clock parents
+ discovery
+Message-ID: <abkC0kGeKPvr3F3o@shlinux89>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-10-cristian.marussi@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+In-Reply-To: <20260310184030.3669330-10-cristian.marussi@arm.com>
+X-ClientProxiedBy: MA5P287CA0273.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f2::15) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AM0PR04MB6916:EE_
+X-MS-Office365-Filtering-Correlation-Id: be58c39c-d18f-4900-9663-08de83f68c23
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|22082099003|56012099003|18002099003|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: KY5jwiwzW27gCkSzwTMFs8VRriEv3LrbYQKa2XJ1Vb6z73l562UHl2RNI9sQwA2qzcteX7ZkuiUPUYUrJr9dMc7Tj8WZroHKuL7GqryysCrBZ0SUeT2knsxUfZppNsK+qFETh0mByKIBLSHzMV3cyvgV5l5U42s4YIJ2ZMZezOkTsxnVisvCBvyjV6UDQOexPnS6/a0fJTRP1tGcNGg4Vpehf0gE9QOFi9jTaGg4YnJY1JKAG8Lo7QrJiZdvsOnHeih+aVlnQOm+M51ADAZhp0aYFAdzWC4QSaIjrGtDRzVSjcC+60l/PN0P1wrcjqPm2Cpk1Ri4rriHCJ6yRJp89MC9Pakqqw7bBUyu5hQBXA4yGsXrBBM7tswVZzJVVAf1SLMaTKId3ugXLvsOvvneM++KOxqCq1KpEZfscKtcPDBhZbTlSNB+puuxuVycZl8vvjcewJ3Lvo+trcsNrdYHa7KqYut4BvpKRfnVZ4TFxcvEeQPjfJTs7BF804gQMltWSPs3xXcgEj/xGUM/8YgeTbQC9xemnXaoR5xIwRU3lpMV0bsb5icsDo/d5zckGBAanNdvXWp01y4u0traBVgGeRQD1/a9RdT0Gpe5ODIQulmvOKmOIW1K8Hn6mWsCWZriCXvTwjpZUgjL2FBsXp5YXrURgO6t1uPBukUD0ZujK3phSySc/Q3rTizUR0PCqwfw5ryK29i+TEwxW9Rdf4lkDVmh7SPFq2+WfPPlprOQoGqpbP+hVp7GGJ84C/znXTNH5+VAG7PVUbOdhXvih5sEho3hXjLB1sx1tzO7RXlrtrs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(22082099003)(56012099003)(18002099003)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F4+dC40zkHaQCLc7S7kMamUj04ZQY+/W/TveJ+akcjN/bnU1sNHjIOVyOLAT?=
+ =?us-ascii?Q?RA+SqjivtYRUzUnyftDwV5AfPP+E3xNQbmilKwUQ6VKCDq3Kjn+UFFN3ZRvn?=
+ =?us-ascii?Q?O4rddaboNblZu4ja1AXMUrK6j0dnQcNgB8e4txIHmbagNi8ON1rl+Ssyz4WJ?=
+ =?us-ascii?Q?dGzVtTra2qoMxY7joApp5rlbvWp/f0tSKw9Rbyd0xLaF70aMe3n+DVBB8IXf?=
+ =?us-ascii?Q?GUf5n6NqH3GmLawImA6gQ7oxNVfvsbS5sxH82/GrQ+74UR1vOD21c2N6lJAL?=
+ =?us-ascii?Q?i//9lAuISoa25t/RiFPhCpT1dbdauuSBalGdwQAV+gyn2jN/4OeZnU3tLhp2?=
+ =?us-ascii?Q?C+yLNsn5NoEAmTrpYKzlZvAqlqL/Ux+aR86jqZtPN87xRZzz0RPTNOh0Uo/n?=
+ =?us-ascii?Q?0bM99G93ooRyjsFzGsNJsG7UW6PejQZw7RmhGhv8IoaSRIGUSStpetobvEDE?=
+ =?us-ascii?Q?qzlFnkfBm3doFyGSEtgBCfZilLeMn7MomGjUKdRTAqnvJc4f7F6nKGzPWQ1b?=
+ =?us-ascii?Q?c3AqA00aAFQvQymoHbgBKclrK+ppxezi6lXojV4LKQ0lPJrnW8RWHYEcD+Yr?=
+ =?us-ascii?Q?cdkldaUwrcHvi+PfAZtVCfCq8t8bJDDF0nAtPKWyMRbrQ5Jf5ltclNfU1n0y?=
+ =?us-ascii?Q?VqVnlxdb7STXEKAE7ucOFikFdnjQSkQY8xH8NMdc+ueueXGWRySKowr2YzhM?=
+ =?us-ascii?Q?pQOUarB5MWE2mzhN7WnRwwxxsAFI9cMmrTR0IzJWF/gew7AvCe59mnERnQBK?=
+ =?us-ascii?Q?7ePS8ZPi7n1v2uC2SJGA/IMEXGyyrBHhasppGnoFwaq7PPhYAD+wa9w63iBa?=
+ =?us-ascii?Q?YZGRcg47f4PmseSbsYNf1iSOEU1towfh2xiwMw936FgWOW3Q9GS/68/nOKXT?=
+ =?us-ascii?Q?xNP0owIm5RvBRF8OXVvC8szfBMeXFuWJiS3ySuOQ65piE9osHQUe11RiHUYy?=
+ =?us-ascii?Q?tpIRZiwnerm2v7lZH4bo0HcVFqeCHcffe9qB2EfR4vNe8qjG6oN6DEGv53Cz?=
+ =?us-ascii?Q?H1UU7LgT9VIqKLtqO8DLFR8ePe/OOjN7+vUkTvuow9BvuCIVv86wPPShLOSm?=
+ =?us-ascii?Q?OwzAQb52GAJMK+qqx7/+WT8Qqr7uZuPrwbEEXSAedOoIWkYZMvByk3j7DMce?=
+ =?us-ascii?Q?ubnjLX0UNvioim2sNUiHaSARTNmCGXBemtX93hI/9GEPEHKS5LN8Tni6cK+b?=
+ =?us-ascii?Q?8Ixd2Gw62dvLiMXFWMEQ8jc9Nl82Xe4eTPty5pQUGZ8gRGsAqc6O5RUxvPe3?=
+ =?us-ascii?Q?xtbFOOADPvCsiUhhM8r1pjAl6/0s6Lq+qtC1gfszP+oMK/ipffOlyZK6zCf9?=
+ =?us-ascii?Q?Y/BNBTykXT1ksr8jUIHIRf3bnjlJNZiaMbHty1kZofUYhvM/RxBxtbiGIUB+?=
+ =?us-ascii?Q?YTlHgYPXGuPCib9cpTJH4f5es9cC4+ChClrvnSMCIUZSjKGM55AEUZ2nQLDp?=
+ =?us-ascii?Q?gJaiVelWVlGKlHe9QbqeTT7lg6IRSQ8Bcwzj8S9z3dQdIVrXhfX6eAUt2gFi?=
+ =?us-ascii?Q?31+ziKIFMTklj0pgtXfu4eZALei+GAUvhoypqzRz7Kn9DYQGp0wCWFzoU5Qg?=
+ =?us-ascii?Q?UT3wdi9SemL3otf1MhzXBBilJNyq5pffpRZ662CBT1e825DOdkZz32W9Lfkg?=
+ =?us-ascii?Q?qmLlfPfssa16OpYn+H0oFCg7vspajfmnqbzetBc1iYa+n1Ai7fXivl1uO7ng?=
+ =?us-ascii?Q?4O+bJ1bppMYkOfa8RlL2XIoFYp9auIC+mV9jLJnLhh2q0DSHvT79dQoO4cyL?=
+ =?us-ascii?Q?UVPvU8owZQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be58c39c-d18f-4900-9663-08de83f68c23
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 07:26:47.1962
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7zsY4Yg8sUIIL2Q7MwF90vD8CAl7YEK60GZue5Z86YULjKHpsDTZy8ET9CY0zFoKX6uCLIaF2aEAdEWx1W5DXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6916
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_002701_546121_6E7B3CA9 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260317_002721_631408_EFF0F11C 
+X-CRM114-Status: UNSURE (   5.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +146,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+On Tue, Mar 10, 2026 at 06:40:26PM +0000, Cristian Marussi wrote:
+>Fix clock parents enumeration to account only for effectively discovered
+>parents during enumeration, avoiding to trust the total number of parents
+>declared upfront by the platform.
+>
+>Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-thanks for tackling this issue! I agree it should be fixed, just
-wondered about one thing:
-
-> While flags are often modified while under the "fwnode_link_lock",
-> this is not universally true.
-
-Is it a possibility to use the lock in all code paths instead?
-Because...
-
->  	struct list_head consumers;
-> -	u8 flags;
-> +	unsigned long flags;
-
-... this change costs some memory on every system. Maybe it can be
-avoided?
-
-Happy hacking,
-
-   Wolfram
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
