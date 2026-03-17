@@ -4,65 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F012BFB5EBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 05:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D185F506CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 05:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15MJ9GR6Tpb7z90IZkVdAx01wuWjxeEGIqgBfYqZqd0=; b=JRexkpFgvtg/9LGcYveUzwEB1S
-	G23jRRBZU8Q4rCDz7/SOW7P/SibzVFG5CEzsvJe2ZOMnVAB0SNxR4epqZWgckI1kZATYD8b823MEo
-	+Wz2v5ITagjiMrOZ/GuooBxicbRMVEMTrO5CRLebQVqKqpfB+vFkGNZtojc9X689ABNZo6uiAWI5K
-	M8rgo/lr1fYTxmyZZxcU89NaB9jmN9RceXeNz2flokeqHhWTh6zvYCT8oKt0LsFy10Vk8OEKgboGC
-	sOJt7S/N0CcpLIogQ/rPhsZR4E8F4242FVmk8qExPheufMPbFqkDQtFscfBAvdnzjhTWK+kzqzqoQ
-	uXWL/ULw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oNsZ19C7cBP2qXF0GgQcUh0AaMNnFUVg00wTNjpoO9E=; b=vfwDPwCdQ16XIwCHfY3M4Wu/eS
+	YdYJzM+1PALIc1dKOdiWrCKUXsh4nIYzZOd8HC5r/gNqjI/j/F1b7bIYWY9f9V7W5OdYglaacGIWr
+	TuFPNGiWQrkKBaNCOhPEiyOejBp055qgVyUVWCiR8oP4A9dwEl2CreNLn4Lxnrl7ZPDZ9P+4AeXom
+	Kg+fTpZmQeRrs1DgeEAp1g+XO0HzvJBqCQVgdKIWTrIXjEkKj2TJ84rkiwPigApdv+kCMUJOQI0e0
+	/+ytGnqd+2Aj5CR2cXWV/OhQB4/oY5QDF3GgaVIABJY2E+HdfTIJhTW8wmIz5hX6F0hXOf+vyWupB
+	i/8Mmaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2MzZ-00000005RO7-3Aw7;
-	Tue, 17 Mar 2026 05:29:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2N6N-00000005Rpb-1lBk;
+	Tue, 17 Mar 2026 05:36:23 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2MzZ-00000005RO0-0Zha
+	id 1w2N6L-00000005RoW-0x7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 05:29:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8389E60018;
-	Tue, 17 Mar 2026 05:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1D9C4CEF7;
-	Tue, 17 Mar 2026 05:29:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773725360;
-	bh=Nf719nA30D8prEus9dGdhnEqiqbPlb11hG6PJJdTEfQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=mBBRvNcSSEIrX5WbrxOAyAXPcRP6Myb9HARIBq1YwUn/ZBJzCpXxb/JFclPm2DtvD
-	 +frAc7ngcpo6BtUrBehO2jzIOcam88SAvL3OW+8YuBd3Pt75keqCoLZ29dx/sbHJ5P
-	 u8NZ9Vb5hatnC5a/MmeRayQHJ0M/8AHDCrDAnZ2MiDmso1BTZGc99qckvJ+Cm2V3WY
-	 T3T3iiSPxZ4gQrSImHF2Ah71Nv+bg68o5TgofybaUz8y1sVDBV36TZ1emJkm7pAQLF
-	 WzcB/+PEBgoJDFTzXv575s9QqLpbe9+9JmQxt1bwVsJuLDKbRN2bxzZuiyLmwTplt7
-	 anN29qS96ghEA==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, suzuki.poulose@arm.com,
-	steven.price@arm.com
-Subject: Re: [PATCH] arm64: swiotlb: =?utf-8?Q?Don=E2=80=99t?= shrink
- default buffer when bounce
- is forced
-In-Reply-To: <cd026591-c278-4f89-9d21-1a2125a85a44@samsung.com>
-References: <20260120070102.182977-1-aneesh.kumar@kernel.org>
- <aYOVf066Fdr9L-nw@arm.com>
- <CGME20260206061145eucas1p1917446df9763565b2b5ef829c5350a69@eucas1p1.samsung.com>
- <yq5a8qd6iep6.fsf@kernel.org>
- <cd026591-c278-4f89-9d21-1a2125a85a44@samsung.com>
-Date: Tue, 17 Mar 2026 10:59:13 +0530
-Message-ID: <yq5av7ev6n2u.fsf@kernel.org>
-MIME-Version: 1.0
+	Tue, 17 Mar 2026 05:36:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=icRdVKy27MySQJHgwosYpDkvkaNqqwW4AkDockFq3mC8dTygapCkdR12puT9GGPVA1WgLT29kKamRuGADWqp0hIVFB/tJWg4neHmhz09/4jeidRpNX+5en4Dgz8q18+E5QTV+t1Xo61AXU6rBvI81/H826X5j4Ofy46O7TuzdrdsVbWTt3ORXmdwa1H5plZ6opmVJEnIF5fTIdSbBtPkEdm/bPbzjnZo0oW4WBJ0Owe09lCOBAJHirWVruviMftQEkhBgrJGWjWGziK0q+wcp2LPjfYPlwMPPczrFMe7Fy6q1YvKs7GAL8JjJo2ExYj0t79bmXJZRFV190Smq0w9/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oNsZ19C7cBP2qXF0GgQcUh0AaMNnFUVg00wTNjpoO9E=;
+ b=s0L91YBj/hMA041WNECFCbaqhy3cCAYSaHeuvAey355TLPZdua4ga+reRaZbcUwLN2IHR9+jtDz2DznAqglnAfCBF1wfdC0sE2T+wq2QFe1OCKZTiuRDhM7A8eh0XNqWxe/sJl+90t4OsQd8J1B2tdgdlh4myfiU59godNISAE7WcRpaYZXp9s9kat+RfwmF02IuQEee0o2llpBw3FAFMc5fvEmQq6icm65L7OkVAVWpyjH4QUzrwrBoyqUx8Ma6xU1I2tbZthj4oWqXPJ73X8Q134ApRiHvVU+qQjMitRCNqyoRkxVczCP9+X+hIMYhta7aGv+eqWxqbmH11UITAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oNsZ19C7cBP2qXF0GgQcUh0AaMNnFUVg00wTNjpoO9E=;
+ b=C8ZqcLARkEctTRJ4gcio7HNSUlyLWh1Ymd+ZY+uASerXFmE8tGJyhw04zKgViVSlugfsM7w7hmfgZnpr9h5lQ7emgdvp6Gkr77K9Wbt8jOH668DIvlkz5MrUTodQEFydq03/guDLKhRccRskeuV3G3DtbHWYdVlc/Xzzfl1mJt2pqR0XB1DGaEr3D5Ssho3jlXiyczxzjUtvSO0oFFZmYcugiq5hxQUwGo/luWmWaf24uxhPvCGqk7oUDL/COAvbuSAuSj3VrnHugLj5BVDDZEC5w1xGD7GJ64VYYimgs8hh4jlXbjstWegH8xVrv1OET9/RXse9NDIa7KeMjKwP6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by GV2PR04MB12583.eurprd04.prod.outlook.com (2603:10a6:150:36e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.19; Tue, 17 Mar
+ 2026 05:36:13 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b%4]) with mapi id 15.20.9700.025; Tue, 17 Mar 2026
+ 05:36:13 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8dxl-evk: Use audio-graph-card2 for wm8960-2 and wm8960-3
+Date: Tue, 17 Mar 2026 13:37:38 +0800
+Message-Id: <20260317053738.578187-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0048.apcprd02.prod.outlook.com
+ (2603:1096:4:196::23) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|GV2PR04MB12583:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07974fa3-b1eb-43da-dbb2-08de83e719cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|19092799006|1800799024|38350700014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: ZJn7yk1ZuQzV2VyVoR3B8E7TMbwYwt5it/dbOmJjv1eEiwyHFCnxxSCLmTe2xi6ZNhJMU5mfmkrAxPAmZxkuVCKPilCr+ovmKQXymQi2XkUPpnQSdnRK1dRMQUEcaZ/Q6DPi7rJmRYhQWQwVuVb8iY7Xz52mcv+c5V1Nr1AdNkMtK138TUztmAomtUp7iFAZaT0Oo6dAN5XUIzr3Q77ZQmBPnOPF82PLu8RLXciyo2+TOGrUJQ/bsQuEzTplL128sooqY2q1CQZfG+XIIEge9AEiLUF7+okTa1RNIAdikKFzbOngYPKMrB14z+NoKHKZn/kK/jcmy/euFbwmj0oCi42WSlh10RI/S1s6s7tmVp+Ag1LLMSDjP2RhblVEKLZex5b7NK923MDemZCxz1nMVM0uXQ+AwTQlpqeJCw3t94i7JWCd4tsLuCYqPABouGlpIjf9HGyzG1JdMf466v/lv8yhzxSxfy9r9zvisnnqXSyxzD5ePRO760SyREHkDoisjVNBQHe115Hq7cLmX1d3iLz+rfI1EY7ybLLgH5zoTVmyTFEFFApHetgjT27zXHapocUbouPU7Q7ddnd0CrZlhZyKuPFZ5lLgHrdolBLcuHx6aapw9Ilr6ngtqrbpvE+aEl0vjvh/MCKQWnzvVgXpbh0HMByL5il59Uy9rrJm5YLiEFaD+Q1awxWM80cbjSrC+kOx3jWF8RNgMAuTzYsTYU4Ske5h/gpAG66wU5OEoNBJ4WVMX7YhJ0gp6TfgpiZ90RyoBFdHvX4AkKDkJcExyi+yBzYeT40e6+JrlpNebVES3Z3j6S2heDAcOALfet4w
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(19092799006)(1800799024)(38350700014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zHlSFCPI/t6gNUlkDvK1t+4/1XGzNHo1y6PQ2UN50jint246gM3RIIM2OJiY?=
+ =?us-ascii?Q?Cf7KaGsHF6Bk3aB8UVCAlRSBOxiHilSVjvQ7kqQgc3Tc2Hqu7QPl/6b+F3O2?=
+ =?us-ascii?Q?SGM30pOZA78KIAFTcLl1ChDRDDLVwyPsOF9yw7kany48kGcRyLrgd3yZIGH2?=
+ =?us-ascii?Q?ZUBsGtgb+V8a42wdNUJpbGbT0flthcZbCEky1bcZTncFGW4RIl5c2O2r6Tkn?=
+ =?us-ascii?Q?5oDNB8vEaJYW2U8iiZsr/U8K6stCQDUPYVljtIX2FoWcPF94dWaCgzOrK5oH?=
+ =?us-ascii?Q?Jb8MqMG+kARu9Ld3zxr4jVQdPQ6BhDZCMA5f6VeHH3xLwnLuqmOd+q6hmY2d?=
+ =?us-ascii?Q?FfhZlbH6lyXdvkCNQ+kBJaLAwWor8EZZDKZwp1Q3Opsy3N4TdwYFPT+9nkEU?=
+ =?us-ascii?Q?qNgv7dd6i0N8fOB1p6TTRwuciCTfggGg+RRyMGWyYybULV4qXN2f7AGduNjr?=
+ =?us-ascii?Q?Xl4dDQsDcCYchrh5s3c35bFib4eRi67vxGhW3hr4+6JGmBvbmIQe2B2i7Awx?=
+ =?us-ascii?Q?6vPYOA/eEsSfF5mKkZB6ExoDXwolHr1zrh4lZY2FmDEYbMem2V6JXOPE6hCs?=
+ =?us-ascii?Q?sSbCl7YCp4URMCan2NDif2qlyu/j9NI33Zqz1vMKnkW4prtnqyxSuCo41E01?=
+ =?us-ascii?Q?NpcEJehKpSrlzxiQmJnEjM95wn3bXXw2s6rdq5hVZoaAYJBdbWbpTbAwLjQp?=
+ =?us-ascii?Q?niC8J0c4FC7sUbDW2T4KJhimYJhur+JD+/CiKcfFWAQoekrfRWqoZnFJ8VcV?=
+ =?us-ascii?Q?LueLC/72Q5P2fRHcF9yUBcuRWnTqcsg2PUwt3w0KGSVaLEv7P7PP6f/CIUhd?=
+ =?us-ascii?Q?+12bzIT6wRmRYLvExPT1atikno+2k/9NZ8SrtJ5wbGnZgqaWHCz9e3p06w4R?=
+ =?us-ascii?Q?t5gyvC4KO3u3tZhnC2/NKOXyxdk/2Ryv6ERhSoAXyKryrGXLEzfoTDn8wj1B?=
+ =?us-ascii?Q?/tI6ZK+Ex+sH8SlBua2n0T39XsvzydkOxJnLIp0n7LpQAWQ5cujDUrQwHqkT?=
+ =?us-ascii?Q?OsWSVpOrb+MCGyLRDj7cOaXSjgHkE/ZFZWFq+/QfNoMKIU9ktz0vSDJebESk?=
+ =?us-ascii?Q?/8w6Vu46Aa/v57kt05Y9V9SfpGXN5jZNLA08AsmwGAiqQltw/b6fs7tKTOOZ?=
+ =?us-ascii?Q?4KcifOgl6l5OXxcY8qySKkd3Ej1v7cPzOld1rdJMgzD3aiW/73pY72RTchmD?=
+ =?us-ascii?Q?Og7TcvK/ONWBNcfo7iKQsY0iMpypoAG1DGB/xJhO9+x90ZmZkjAh+mw692qO?=
+ =?us-ascii?Q?mtjS3mGhV2aJEfeTxADFE5PvYxWG39bNETALa0MsCm+PxgLOgDrzvapvcfd7?=
+ =?us-ascii?Q?fDskWyTVRcKsFMmTnT/J3ZJ2f2LkV33YDrH6ygI5r6hFjfIFEKbwzEnVGZua?=
+ =?us-ascii?Q?hlHR796nmnrkq4jc7U39JZIn3SoNJyiBTI0uuAWWxunM/1HCpkP03t0KBfrX?=
+ =?us-ascii?Q?vdCYKbNaEM60B0e79E0zNaGsDGZWotlxRA1cL6Jd19pbfzCB05Bew8+UIY6F?=
+ =?us-ascii?Q?P8x2QCGUyvXEkMN9bIvhbjCdKAEJfXeIVUIPauCM5ahqfGgvA6sILrDxZvPx?=
+ =?us-ascii?Q?IATJwF7OCnicgMMcJdM2/8JD6jtDzoWrcMQPycRk8hMD6iLnKfTXoMeTQOk0?=
+ =?us-ascii?Q?Lm+98Oj1+sDN3w1B5E9P6k7o5CMMICqtvs0gSbfsZdrAABsJ9nb1tjYBTArM?=
+ =?us-ascii?Q?nAxpI0UnE92amyYaLPON9/TD7bSCzcXvG9k0Kpsa8UY1TNhRx6PQUeuG+RQH?=
+ =?us-ascii?Q?mIWgMXUMJg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07974fa3-b1eb-43da-dbb2-08de83e719cd
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 05:36:12.9460
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1bAs3wFyv1zZVvQ4k7Yv0J32Tifbu5ZUpvBxu1JZSO8cflzFZxgyVg6g/GBnPO8fI+bxXZDYBMcy0QDYrU7UEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12583
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_223621_307340_0F7DE689 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +141,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marek Szyprowski <m.szyprowski@samsung.com> writes:
+The sound card wm8960-2 and wm8960-3 only support capture mode for the
+reason of connection on the EVK board. But fsl-asoc-card don't support
+capture_only setting, the sound card creation will fail.
 
-> On 06.02.2026 07:11, Aneesh Kumar K.V wrote:
->> Catalin Marinas <catalin.marinas@arm.com> writes:
->>> On Tue, Jan 20, 2026 at 12:31:02PM +0530, Aneesh Kumar K.V (Arm) wrote:
->>>> arm64 reduces the default swiotlb size (for unaligned kmalloc()
->>>> bouncing) when it detects that no swiotlb bouncing is needed.
->>>>
->>>> If swiotlb bouncing is explicitly forced via the command line
->>>> (swiotlb=force), this heuristic must not apply. Add a swiotlb helper to
->>>> query the forced-bounce state and use it to skip the resize when
->>>> bouncing is forced.
->>> I think the logic you proposed in reply to Robin might work better but
->>> have you actually hit a problem that triggered this patch? Do people
->>> passing swiotlb=force expect a specific size for the buffer?
->>>
->> This issue was observed while implementing swiotlb for a trusted device.
->> I was testing the protected swiotlb space using the swiotlb=force
->> option, which causes the device to use swiotlb even in protected mode.
->> As per Robin, an end user using the swiotlb=force option will also
->> specify a custom swiotlb size
->
-> Does the above mean that it works fine when user provides both 
-> swiotlb=force and custom swiotlb size, so no changes in the code are 
-> actually needed?
->
+fsl-sai 59060000.sai: Missing dma channel for stream: 0
+fsl-sai 59060000.sai: ASoC error (-22): at snd_soc_pcm_component_new() on 59060000.sai
+fsl-sai 59070000.sai: Missing dma channel for stream: 0
+fsl-sai 59070000.sai: ASoC error (-22): at snd_soc_pcm_component_new() on 59070000.sai
 
-swiotlb_adjust_size() checks whether the default_nslabs value has
-changed and avoids updating the SWIOTLB size based on different
-subsystem logic.
+so switch to use audio-graph-card2 which supports 'capture_only'
+property for wm8960-2 and wm8960-3 cards.
 
-void __init swiotlb_adjust_size(unsigned long size)
-{
-	/*
-	 * If swiotlb parameter has not been specified, give a chance to
-	 * architectures such as those supporting memory encryption to
-	 * adjust/expand SWIOTLB size for their use.
-	 */
-	if (default_nslabs != IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT)
-		return;
+Fixes: b41c45eb990a ("arm64: dts: imx8dxl-evk: add audio nodes")
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts | 114 ++++++++++++++----
+ 1 file changed, 90 insertions(+), 24 deletions(-)
 
-
-To handle swiotlb_force alone we can do
-
-modified   kernel/dma/swiotlb.c
-@@ -209,6 +209,8 @@ unsigned long swiotlb_size_or_default(void)
+diff --git a/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts b/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
+index 5c68d33e19f2..bc62ae5ca812 100644
+--- a/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8dxl-evk.dts
+@@ -259,33 +259,37 @@ sound-wm8960-1 {
+ 	};
  
- void __init swiotlb_adjust_size(unsigned long size)
- {
-+	unsigned long nslabs;
+ 	sound-wm8960-2 {
+-		compatible = "fsl,imx-audio-wm8960";
+-		model = "wm8960-audio-2";
+-		audio-cpu = <&sai2>;
+-		audio-codec = <&wm8960_2>;
+-		audio-routing = "Headphone Jack", "HP_L",
+-				"Headphone Jack", "HP_R",
+-				"Ext Spk", "SPK_LP",
+-				"Ext Spk", "SPK_LN",
+-				"Ext Spk", "SPK_RP",
+-				"Ext Spk", "SPK_RN",
+-				"LINPUT1", "Mic Jack",
+-				"Mic Jack", "MICB";
++		compatible = "audio-graph-card2";
++		label = "wm8960-audio-2";
++		links = <&sai2_port2>;
++		routing = "Headphones", "HP_L",
++			"Headphones", "HP_R",
++			"Ext Spk", "SPK_LP",
++			"Ext Spk", "SPK_LN",
++			"Ext Spk", "SPK_RP",
++			"Ext Spk", "SPK_RN",
++			"LINPUT1", "Mic Jack",
++			"Mic Jack", "MICB";
++		widgets = "Headphone", "Headphones",
++			"Speaker", "Ext Spk",
++			"Microphone", "Mic Jack";
+ 	};
+ 
+ 	sound-wm8960-3 {
+-		compatible = "fsl,imx-audio-wm8960";
+-		model = "wm8960-audio-3";
+-		audio-cpu = <&sai3>;
+-		audio-codec = <&wm8960_3>;
+-		audio-routing = "Headphone Jack", "HP_L",
+-				"Headphone Jack", "HP_R",
+-				"Ext Spk", "SPK_LP",
+-				"Ext Spk", "SPK_LN",
+-				"Ext Spk", "SPK_RP",
+-				"Ext Spk", "SPK_RN",
+-				"LINPUT1", "Mic Jack",
+-				"Mic Jack", "MICB";
++		compatible = "audio-graph-card2";
++		label = "wm8960-audio-3";
++		links = <&sai3_port2>;
++		routing = "Headphones", "HP_L",
++			"Headphones", "HP_R",
++			"Ext Spk", "SPK_LP",
++			"Ext Spk", "SPK_LN",
++			"Ext Spk", "SPK_RP",
++			"Ext Spk", "SPK_RN",
++			"LINPUT1", "Mic Jack",
++			"Mic Jack", "MICB";
++		widgets = "Headphone", "Headphones",
++			"Speaker", "Ext Spk",
++			"Microphone", "Mic Jack";
+ 	};
+ };
+ 
+@@ -481,6 +485,16 @@ wm8960_2: audio-codec@1a {
+ 				DCVDD-supply = <&reg_audio_1v8>;
+ 				SPKVDD1-supply = <&reg_audio_5v>;
+ 				SPKVDD2-supply = <&reg_audio_5v>;
 +
- 	/*
- 	 * If swiotlb parameter has not been specified, give a chance to
- 	 * architectures such as those supporting memory encryption to
-@@ -218,7 +220,13 @@ void __init swiotlb_adjust_size(unsigned long size)
- 		return;
++				port {
++					capture-only;
++
++					wm8960_2_ep: endpoint {
++						bitclock-master;
++						frame-master;
++						remote-endpoint = <&sai2_endpoint2>;
++					};
++				};
+ 			};
+ 		};
  
- 	size = ALIGN(size, IO_TLB_SIZE);
--	default_nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-+	nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-+	/*
-+	 * Don't allow to reduce size if we are forcing swiotlb bounce.
-+	 */
-+	if (swiotlb_force_bounce && nslabs < default_nslabs)
-+		return;
-+	default_nslabs = nslabs;
- 	if (round_up_default_nslabs())
- 		size = default_nslabs << IO_TLB_SHIFT;
- 	pr_info("SWIOTLB bounce buffer size adjusted to %luMB", size >> 20);
+@@ -510,6 +524,16 @@ wm8960_3: audio-codec@1a {
+ 				DCVDD-supply = <&reg_audio_1v8>;
+ 				SPKVDD1-supply = <&reg_audio_5v>;
+ 				SPKVDD2-supply = <&reg_audio_5v>;
++
++				port {
++					capture-only;
++
++					wm8960_3_ep: endpoint {
++						bitclock-master;
++						frame-master;
++						remote-endpoint = <&sai3_endpoint2>;
++					};
++				};
+ 			};
+ 		};
+ 
+@@ -700,6 +724,27 @@ &sai2 {
+ 	pinctrl-0 = <&pinctrl_sai2>;
+ 	fsl,sai-asynchronous;
+ 	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		sai2_port1: port@1 {
++			reg = <1>;
++			endpoint { /* not used */ };
++		};
++
++		sai2_port2: port@2 {
++			reg = <2>;
++			capture-only;
++
++			sai2_endpoint2: endpoint {
++				dai-format = "i2s";
++				remote-endpoint = <&wm8960_2_ep>;
++				system-clock-direction-out;
++			};
++		};
++	};
+ };
+ 
+ &sai3 {
+@@ -712,6 +757,27 @@ &sai3 {
+ 	pinctrl-0 = <&pinctrl_sai3>;
+ 	fsl,sai-asynchronous;
+ 	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		sai3_port1: port@1 {
++			reg = <1>;
++			endpoint { /* not used */ };
++		};
++
++		sai3_port2: port@2 {
++			reg = <2>;
++			capture-only;
++
++			sai3_endpoint2: endpoint {
++				dai-format = "i2s";
++				remote-endpoint = <&wm8960_3_ep>;
++				system-clock-direction-out;
++			};
++		};
++	};
+ };
+ 
+ &thermal_zones {
+-- 
+2.34.1
 
 
