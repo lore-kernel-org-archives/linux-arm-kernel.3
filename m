@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35503FD877D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83D3F33838
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyGXXt1Kxrs7+JS0CPjoJ6kFefA2UlshIdyS4e4XdHM=; b=HtE1NoH/gwgwUqNR0scr3Rdehb
-	jVS3weUrIANuXl9wN+dS88RSDn1J085Yg1jCAk50lOqBK2bSuYxnWHh8SGQGGcmJq2/pZvlwwowbx
-	uYq+M/kKLsUalpzcA5ablDBCOm+LCixYHIi3nTy77C5Z6b/FUZJ4JTtI5yyoIb+xvQRWbpimeo0+U
-	foVVrnNa3ddYEFgNPjiFkLXvJooGNfUpmbYFW8RnwyabRwf/BlmXstSYJptrJgdpqZkY5xm42Nia9
-	4jL+8rQ9Pfitl9gT2I5Kt4OhAsu/17RqZit8p87kCyOU0ZmkAlgX9ET44gRd+k/835DcEkCWY/O0R
-	nXOmr+Ng==;
+	bh=E9Emq20plq+XttwibzPiXgRgGpuD/bC1Ox5X5v41wYY=; b=qt3V2DMkvehbhDEx9Mrsw+sRn6
+	2h4sUQwXvU0celZisWCi95XDnWNc/eVHZVEzbu6rw1YiyxU89NUg1JxQtlh3nocLwCvC7TZubb651
+	nX+SABIqQyBmlSgEQfp5GTZAr2jHFIKEfQV43WkuU6nLMR47k44MOxQub67AhmiIDFvnQg6TA/y7e
+	eNNtkvESznYCV1/sz7LTT5P6iVqW5kf1SxkfgMGLdc9mLL8xmj5Vbud1DYOZG16QDaq9oNtK+w6KV
+	D+ClURKI0bMw7jT4tJCpTdSt1oXruAwWIdYX3Qowzm+DzjAnRsbowCmpPi6medrTbsQf0j8P9G3IV
+	gGddUhnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2VM1-00000006Zr1-3SlL;
-	Tue, 17 Mar 2026 14:25:05 +0000
+	id 1w2VM2-00000006Zsh-397n;
+	Tue, 17 Mar 2026 14:25:06 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2VLu-00000006Zll-414F;
-	Tue, 17 Mar 2026 14:25:00 +0000
+	id 1w2VLz-00000006Zoo-2NVK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 14:25:04 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6372E4E42655;
-	Tue, 17 Mar 2026 14:24:57 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 25C574E42655;
+	Tue, 17 Mar 2026 14:25:02 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 37DC460050;
-	Tue, 17 Mar 2026 14:24:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E1AB2104505F7;
-	Tue, 17 Mar 2026 15:24:53 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F07B1600E3;
+	Tue, 17 Mar 2026 14:25:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 02A65104505FC;
+	Tue, 17 Mar 2026 15:24:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773757496; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1773757501; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=hyGXXt1Kxrs7+JS0CPjoJ6kFefA2UlshIdyS4e4XdHM=;
-	b=K3/5L3zuZao6Ge5V8jOYelFyN7L/stSmAEZnshFq4TcgvtDznajZPAwD588Uv3+Fj+YuXe
-	e8zMYywjSAPLSkATBHnzo8l7B0dZZJXvEjDZsUAX7LLnCcEAxArLFHfa9VnspdXAoOuFZC
-	7sJpR5tT2EFGXjqDBY5x8JIhAKs+M6XOQn8jj4ZZ79WXAiFAFnYnUfy850yvsW+iDzSzj7
-	9bvFk6xlF6I/AG4EOZp0ErP7Lh0h8u5YamrdehQmSFgExN7BtjaTH1k/J47bl0lC4lWpBi
-	FkbBR6TXp+Ipc4LZgCDZbEEbimWPm/6xl8RsaRrK6uiSNCyfoRiW0ft1psBy2Q==
+	bh=E9Emq20plq+XttwibzPiXgRgGpuD/bC1Ox5X5v41wYY=;
+	b=bUHliGVSH0oSN8FNRlC8Bkn6KrZSPAfyb5lkLV/rZFRO9FMsDH2Wje4zvUKA0zLvK5daNl
+	O/RxZ8GfMyS4lwKihMkdikbjE2o9Wduc4gM4yPOn4NBLEEo3K+ouE5NvEoILBVjtGLie7K
+	G548RosVZC1f6IyWHtmXMbbx+YtNLUJ5y1qgl3YtTYD1hc7KhiFPw9/2msiS/Mk7+lP4cY
+	lNwpaEbLvBIO0X6FXJFuex8msrG5WLJvchfLSEPhhyIAtLACUXc+cQY08aiw6QVNxF3eho
+	gAhTc9srfLBTFtN41rkpadwnKDJVorv4JDkfIRbZqaYkaaqa77272UVJm7Itvw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -59,9 +60,9 @@ Cc: Wentao Liang <vulab@iscas.ac.cn>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v3 3/9] mtd: rawnand: sunxi: do not count BBM bytes twice
-Date: Tue, 17 Mar 2026 15:24:31 +0100
-Message-ID: <20260317142437.580204-4-richard.genoud@bootlin.com>
+Subject: [PATCH v3 5/9] mtd: rawnand: sunxi: make the code more self-explanatory
+Date: Tue, 17 Mar 2026 15:24:33 +0100
+Message-ID: <20260317142437.580204-6-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260317142437.580204-1-richard.genoud@bootlin.com>
 References: <20260317142437.580204-1-richard.genoud@bootlin.com>
@@ -69,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_072459_130096_8A6C556B 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20260317_072503_739132_8771370F 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BBM is already part of USER_DATA section, so we should not remove it twice
+In sunxi_nfc_hw_ecc_{read,write}_chunk(), the ECC step was forced to 0,
+the reason is not trivial to get when reading the code.
 
-This was working ok because we are on the safe size, advertising that
-there was 2 bytes less available than in reality.
+The explanation is that, from the NAND flash controller perspective, we
+are indeed at step 0 for user data length and ECC errors.
 
-But we can't change old platforms, since it may lead to a different ECC
-strength, so, introduce a legacy flag for old platforms, and switch the
-new platforms to the correct count.
+Just add a const value with an explanation to clarify things.
 
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 23 ++++++++++++++++++++---
- 1 file changed, 20 insertions(+), 3 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 8af449e548d4..d126dc18ef27 100644
+index 0b0b5349f446..ca701c75cec5 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -275,6 +275,8 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  * @has_ecc_block_512:	If the ECC can handle 512B or only 1024B chuncks
-  * @has_ecc_clk:	If the controller needs an ECC clock.
-  * @has_mbus_clk:	If the controller needs a mbus clock.
-+ * @legacy_max_strength:If the maximize strength function was off by 2 bytes
-+ *			NB: this should not be used in new controllers
-  * @reg_io_data:	I/O data register
-  * @reg_ecc_err_cnt:	ECC error counter register
-  * @reg_user_data:	User data register
-@@ -304,6 +306,7 @@ struct sunxi_nfc_caps {
- 	bool has_ecc_block_512;
- 	bool has_ecc_clk;
- 	bool has_mbus_clk;
-+	bool legacy_max_strength;
- 	unsigned int reg_io_data;
- 	unsigned int reg_ecc_err_cnt;
- 	unsigned int reg_user_data;
-@@ -1805,10 +1808,22 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 		ecc->size = 1024;
- 		nsectors = mtd->writesize / ecc->size;
+@@ -963,6 +963,8 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 	u32 pattern_found;
+ 	bool erased;
+ 	int ret;
++	/* From the controller point of view, we are at step 0 */
++	const int nfc_step = 0;
  
--		/* Reserve 2 bytes for the BBM */
--		bytes = (mtd->oobsize - 2) / nsectors;
-+		/*
-+		 * The 2 BBM bytes should not be removed from the grand total,
-+		 * because they are part of the USER_DATA_SZ.
-+		 * But we can't modify that for older platform since it may
-+		 * result in a stronger ECC at the end, and break the
-+		 * compatibility.
-+		 */
-+		if (nfc->caps->legacy_max_strength)
-+			bytes = (mtd->oobsize - 2) / nsectors;
-+		else
-+			bytes = mtd->oobsize / nsectors;
+ 	if (*cur_off != data_off)
+ 		nand_change_read_column_op(nand, data_off, NULL, 0, false);
+@@ -977,7 +979,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 		return ret;
  
--		/* 4 non-ECC bytes are added before each ECC bytes section */
-+		/*
-+		 * USER_DATA_SZ non-ECC bytes are added before each ECC bytes
-+		 * section, they contain the 2 BBM bytes
-+		 */
- 		bytes -= USER_DATA_SZ;
+ 	sunxi_nfc_reset_user_data_len(nfc);
+-	sunxi_nfc_set_user_data_len(nfc, USER_DATA_SZ, 0);
++	sunxi_nfc_set_user_data_len(nfc, USER_DATA_SZ, nfc_step);
+ 	sunxi_nfc_randomizer_config(nand, page, false);
+ 	sunxi_nfc_randomizer_enable(nand);
+ 	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD | NFC_ECC_OP,
+@@ -993,10 +995,9 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
+ 	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
  
- 		/* and bytes has to be even. */
-@@ -2373,6 +2388,7 @@ static const u8 sunxi_user_data_len_h6[] = {
+-	ret = sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL, 0,
+-				       readl(nfc->regs + NFC_REG_ECC_ST),
+-				       pattern_found,
+-				       &erased);
++	ret = sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL,
++				       nfc_step, readl(nfc->regs + NFC_REG_ECC_ST),
++				       pattern_found, &erased);
+ 	if (erased)
+ 		return 1;
  
- static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- 	.has_ecc_block_512 = true,
-+	.legacy_max_strength = true,
- 	.reg_io_data = NFC_REG_A10_IO_DATA,
- 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
- 	.reg_user_data = NFC_REG_A10_USER_DATA,
-@@ -2394,6 +2410,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
- 	.has_mdma = true,
- 	.has_ecc_block_512 = true,
-+	.legacy_max_strength = true,
- 	.reg_io_data = NFC_REG_A23_IO_DATA,
- 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
- 	.reg_user_data = NFC_REG_A10_USER_DATA,
+@@ -1029,7 +1030,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 			sunxi_nfc_randomizer_read_buf(nand, oob, ecc->bytes + USER_DATA_SZ,
+ 						      true, page);
+ 
+-			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, 0,
++			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, nfc_step,
+ 							    bbm, page);
+ 		}
+ 	}
+@@ -1207,6 +1208,8 @@ static int sunxi_nfc_hw_ecc_write_chunk(struct nand_chip *nand,
+ 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+ 	int ret;
++	/* From the controller point of view, we are at step 0 */
++	const int nfc_step = 0;
+ 
+ 	if (data_off != *cur_off)
+ 		nand_change_write_column_op(nand, data_off, NULL, 0, false);
+@@ -1223,8 +1226,8 @@ static int sunxi_nfc_hw_ecc_write_chunk(struct nand_chip *nand,
+ 	sunxi_nfc_randomizer_config(nand, page, false);
+ 	sunxi_nfc_randomizer_enable(nand);
+ 	sunxi_nfc_reset_user_data_len(nfc);
+-	sunxi_nfc_set_user_data_len(nfc, USER_DATA_SZ, 0);
+-	sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, 0, bbm, page);
++	sunxi_nfc_set_user_data_len(nfc, USER_DATA_SZ, nfc_step);
++	sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, nfc_step, bbm, page);
+ 
+ 	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD |
+ 	       NFC_ACCESS_DIR | NFC_ECC_OP,
 
