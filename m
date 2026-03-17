@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AC2FF6E9E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E94BFF6E9F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFUDYLdaGSQtaGCWJ0mcczUzmmf1OJA9JRC+RObCN/8=; b=LKKSgOeQXWqz2SQpop+dgRJj/D
-	i+GzNm/XhqSs03GaQ62CrhA/uI2bQx8nIwCQa43jSh+WXmLhXRVxdoEcBs5idSw1MM5pE2R97JOXo
-	Znc9352qaXC6JfOE6sERdWk2I4zC0XxnUqEvcACoxZmtjHedSfUbIMq4YxWjr3GgSVrHxv4T+S6A4
-	CP0XXHLsTzypFw7ZDuwr8IjgJcIohJF0G0awMII74Nkmp/YdI/gU6Lsnx42UGzuyTskVV0vrrVlR4
-	cfVNSr60OfaV1nuMMHsdCNMcw+w32YbprEdOqpkSvKsQXardZvEnRA7BPU7U7xS4zcIHXINADZbph
-	FUBg0AHQ==;
+	bh=zP6LS2g532rau8K/3DpgQRgp0gll0gA2EwUjdcrKBQw=; b=16pWwcOA34hgCqsAOk8p1uG0b1
+	/JJxtMgGJIrQUDUQLeefh8N9ndOXw4csAvc+OIyQCI7MkEZOQye4XYpHN01GhgEzEf4TcXTJs0ksk
+	ysy5MY9yflQE7QotcaT4/aN/lgrzGSR74S3cr4Zyj23Omh6oyrNTeoDnC3eR2nzMnHLB3CBgfarnL
+	5JPB5h0vsWW/V/hCLg3L+xlyldLVkeRK/ykbi/XwdCiUa23sWsnbWMS/zM90laNplFo/WzwXxlrJ0
+	dYWoUP91reETTToMolVCkaroV/7cjMrX3F8gGtcfqTW0X1O+6+NsDT4awAdJurUISolztxGZme/lv
+	UhsypjDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGQ-00000007KeV-43eu;
-	Tue, 17 Mar 2026 22:51:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2dGR-00000007Kf8-1QQK;
+	Tue, 17 Mar 2026 22:51:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGE-00000007KXs-22Tw
+	id 1w2dGE-00000007KYQ-3U9T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:38 +0000
+	Tue, 17 Mar 2026 22:51:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E427160053;
-	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16372C2BC9E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 84C0944582;
+	Tue, 17 Mar 2026 22:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B9AC2BCC9;
 	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787897;
-	bh=R5UiZpTiDDGQeFvx+x5fyQyw1CckBBaOg4b13Rc2GFM=;
+	s=k20201202; t=1773787898;
+	bh=Z4h9ZFd5elXdJi4wGJjXHxGFSPzvcEc4LERNhrT0EmE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O05cfDTOoUN0o/a5xAMBqeA6JBv53owzUYaz7WqDnkXpa361njl5XUGAkFaMMp3u+
-	 9uteSon8YEXqmi+jXEe1qpNPaCBqv4N/2HWOLQAP1ZR5U9HilJnpk5b9lQ8QQS3qP/
-	 AchOaEvUekQtgTWU2jBME/yHKvRBqBZXm3g53CQc/XrVVXNtflKnNHmV0OgBHYTRu4
-	 M6WvQGBAlW8nS2eVCAG1S3aDOLmpnJvxUofX1XOWQdqs3mxsyhHEZNZJq0Zq/4uvNs
-	 7O2cyuQ2IV5vDquka3y+dNWifbssa+Kb/l7nm05PpS9XT5ALSB0X6RcXdggHJgc9cA
-	 UFb656RNfSzPw==
+	b=SEISourMafINQsXcWHU2ATrORkFpttHBZjwLuKpsPpemhVE9HhqmUB/CM6T7M+htA
+	 DYR0J4BPPJCqkO96EfctVeIRhNhiRLAvPU5cmdOsi90QQyMQrniTmVNwycGCcxdZtP
+	 hUAS/YwgmhrOOeAMFmuLxT76aTwikXppqOtUIK3+2H4AgFwL2Ka+5/z9AvxduJ4KSH
+	 muy19v9dvnYxKctPAlxrXxOPWTPgau7SvFtbYeNssU2rgJd8uB0xiw/MssIc9cRMp9
+	 eV/paCwa/QWLJSEsjjT7UXNvOhbYHqXo7B093waN/tT+DwUawc6WLzRPUJASZ2Sb6Z
+	 NlLQqnKt12HXw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,14 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 09/12] objtool: Allow empty alternatives
-Date: Tue, 17 Mar 2026 15:51:09 -0700
-Message-ID: <1d74ee9e31727870266ffb69ce0d6a4a40b8e99a.1773787568.git.jpoimboe@kernel.org>
+Subject: [PATCH v2 10/12] objtool: Reuse consecutive string references
+Date: Tue, 17 Mar 2026 15:51:10 -0700
+Message-ID: <4d211040356fe169b4236b3deea1cdff80e9babc.1773787568.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
 References: <cover.1773787568.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_155138_891761_C9DF27EF 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64 can have empty alternatives, which are effectively no-ops.  Ignore
-them.
+For duplicate strings, elf_add_string() just blindly adds duplicates.
+
+That can be a problem for arm64 which often uses two consecutive
+instructions (and corresponding relocations) to put an address into a
+register, like:
+
+  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
+  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
+
+Referencing two different string addresses in the adrp+add pair can
+result in a corrupt string addresses.  Detect such consecutive reuses
+and force them to use the same string.
 
 Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ tools/objtool/elf.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 6e33a29bd3ed..7297fb87f876 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -1994,10 +1994,8 @@ static int add_special_section_alts(struct objtool_file *file)
- 		}
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index b911abe3a15e..5ccae2c937dc 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1374,6 +1374,8 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
  
- 		if (special_alt->group) {
--			if (!special_alt->orig_len) {
--				ERROR_INSN(orig_insn, "empty alternative entry");
-+			if (!special_alt->orig_len)
- 				continue;
--			}
+ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+ {
++	static unsigned int last_off;
++	static const char *last_str;
+ 	unsigned int offset;
  
- 			if (handle_group_alt(file, special_alt, orig_insn, &new_insn))
- 				return -1;
+ 	if (!strtab)
+@@ -1382,17 +1384,22 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 		ERROR("can't find .strtab section");
+ 		return -1;
+ 	}
+-
+ 	if (!strtab->sh.sh_addralign) {
+ 		ERROR("'%s': invalid sh_addralign", strtab->name);
+ 		return -1;
+ 	}
+ 
++	if (last_str && !strcmp(last_str, str))
++		return last_off;
++
+ 	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
+ 
+ 	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
+ 		return -1;
+ 
++	last_str = str;
++	last_off = offset;
++
+ 	return offset;
+ }
+ 
 -- 
 2.53.0
 
