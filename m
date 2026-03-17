@@ -4,63 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A2EFD874D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80FFFD8754
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hU18/Ja44p52iMr0rseAdAFA+MHEydqlPQWXHv6P/k=; b=rVF9KyvHeJHQcP3pwtpux0PoGB
-	gFya28jDNucMKnI9D5YbovY0OE3FNBiVQCZ44lT1F6kYhLJACiY4OtmLIZePHkkCcK/RGCgtKGMLe
-	pUwxSr1U5VBpd3+nweKtO5wTfZG3GRSydDT2vzS6cIHRLBH1WBVbDV9ss7gjw8da5fWMinAqOvfiL
-	rhPJli1sE7Iy8Iz1zCLv+yhMz8GV87syBCaStocY6/79CP3D/RS6OTJQmEImgYXIzym1buELyb3dc
-	C1ZdgC6Li9o6xsZxVwfMpJt54C+L1RLWEiGuTbx19WHf4+ELOiC7Qule7ZCE+zOaw0x8cb+ROqkej
-	Diz2Payg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XjfUejYMmTIw4KmQIuLSG8BFGOnqBe2Pjrz98+JLMhg=; b=XO/LY5xF78zH/YLcxZ3m/f0sch
+	m/zyVfEc8cF73tj/aY8oFRC/W+dYvprCOsL4FD5nFcL+0JYxfNVMNwvc9+IOC5QXiazZOx4XuJV71
+	BwTtP+4sreLVtF0wkLZU1JCpIdmbB/RtQcdUZyH6KKdrzIMe4xxwWDLjlYvj8z0Y/uh6PUa3Dd52t
+	7fWFSu5DbAKksbX6AsXKXVc+91o/cnuFSaQKuDrKXv9/JZ3bC1gc/go9h96/eEGgXBV2Haikn98CF
+	fBPQpjLWdpOCAYAHzemEa2YokAv+WMSfxTIkmqEMjUAZh/zPLKXtApIfOZEcPw4XoW/ZEISmRov8M
+	hROEIw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TEV-00000006GRO-17T9;
-	Tue, 17 Mar 2026 12:09:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TES-00000006GQr-2I4v
+	id 1w2TFX-00000006GYC-2h0p;
+	Tue, 17 Mar 2026 12:10:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2TFV-00000006GXl-2R2F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 12:09:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E32AE1477;
-	Tue, 17 Mar 2026 05:09:00 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DCC93F7BD;
-	Tue, 17 Mar 2026 05:09:05 -0700 (PDT)
-Date: Tue, 17 Mar 2026 12:09:03 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <ablEXwhfKyJW1i7l@J2N7QTR9R3>
-References: <20260302165801.3014607-1-catalin.marinas@arm.com>
- <20260302165801.3014607-4-catalin.marinas@arm.com>
- <aamT6-Mvr9nI1unq@willie-the-truck>
- <aarB3iv8963UDn5E@arm.com>
- <c4a302df-511b-40b2-97f2-06576748c999@arm.com>
- <abA6N6ctPoscIbBe@arm.com>
- <abLT05Nq-9J-uBEY@willie-the-truck>
+	Tue, 17 Mar 2026 12:10:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B6F7F4372F;
+	Tue, 17 Mar 2026 12:10:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EB3FC19425;
+	Tue, 17 Mar 2026 12:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773749412;
+	bh=HbTCHtEYVcNSksD4HHfb+VrniL0U4h4a8FM9RBtBeQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NZ6mojPhDrWk19uFtvMgI/+YM5Igiyue7CRpPuMAu4YTLAGw0y7iUhJKyloSMzoQB
+	 JzRTBiwuDn7ts7BrpQR+/wd+lxe5kmmqiaFwBQNp4RBRP3gUhEN+6od2kswNxQjcO0
+	 83ODbaLNJhfOkZm8Naa+DVCBYQ/YuncAYFV96mYoBlEbNaUFViAiQnohOZ97iL+fgN
+	 DTpMecnI4rzV45S6KHmcmoEoGBS2v0kN1Um8zEwQFy2OD0l712ArEu+6SDGa3gCzcj
+	 L/kKyxygt0UIprCWm+piG/0BQMxRvlnO96qWB05jRdOhQinlZKqpnkzHR0d5nxQBsM
+	 UJHNIqoNpoqpw==
+Message-ID: <30599533-91de-41fd-9420-3f8693ec92ac@kernel.org>
+Date: Tue, 17 Mar 2026 13:10:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abLT05Nq-9J-uBEY@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: add initial device tree for
+ TQMa93xx/MBa93xxLA-MINI
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com
+References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
+ <20260317111704.1075938-3-alexander.stein@ew.tq-group.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260317111704.1075938-3-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_050908_860984_5DEC524D 
-X-CRM114-Status: GOOD (  39.17  )
+X-CRM114-CacheID: sfid-20260317_051013_665671_A8B3A9C0 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,171 +125,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 02:55:15PM +0000, Will Deacon wrote:
-> On Tue, Mar 10, 2026 at 03:35:19PM +0000, Catalin Marinas wrote:
-> > Thanks Vladimir,
-> > 
-> > On Mon, Mar 09, 2026 at 10:13:20AM +0000, Vladimir Murzin wrote:
-> > > On 3/6/26 12:00, Catalin Marinas wrote:
-> > > >>> @@ -1358,6 +1360,85 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
-> > > >>>  	put_cpu_fpsimd_context();
-> > > >>>  }
-> > > >>>  
-> > > >>> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
-> > > >>> +
-> > > >>> +/*
-> > > >>> + * SME/CME erratum handling
-> > > >>> + */
-> > > >>> +static cpumask_var_t sme_dvmsync_cpus;
-> > > >>> +static cpumask_var_t sme_active_cpus;
-> > > >>> +
-> > > >>> +void sme_set_active(unsigned int cpu)
-> > > >>> +{
-> > > >>> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_SME_DVMSYNC))
-> > > >>> +		return;
-> > > >>> +	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
-> > > >>> +		return;
-> > > >>> +
-> > > >>> +	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
-> > > >>> +		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
-> > > >>> +
-> > > >>> +	cpumask_set_cpu(cpu, sme_active_cpus);
-> > > >>> +
-> > > >>> +	/*
-> > > >>> +	 * Ensure subsequent (SME) memory accesses are observed after the
-> > > >>> +	 * cpumask and the MMCF_SME_DVMSYNC flag setting.
-> > > >>> +	 */
-> > > >>> +	smp_mb();
-> > > >>
-> > > >> I can't convince myself that a DMB is enough here, as the whole issue
-> > > >> is that the SME memory accesses can be observed _after_ the TLB
-> > > >> invalidation. I'd have thought we'd need a DSB to ensure that the flag
-> > > >> updates are visible before the exception return.
-> > > > 
-> > > > This is only to ensure that the sme_active_cpus mask is observed before
-> > > > any SME accesses. The mask is later used to decide whether to send the
-> > > > IPI. We have something like this:
-> > > > 
-> > > > P0
-> > > > 	STSET	[sme_active_cpus]
-> > > > 	DMB
-> > > > 	SME access to [addr]
-> > > > 
-> > > > P1
-> > > > 	TLBI	[addr]
-> > > > 	DSB
-> > > > 	LDR	[sme_active_cpus]
-> > > > 	CBZ	out
-> > > > 	Do IPI
-> > > > out:
-> > > > 
-> > > > If P1 did not observe the STSET to [sme_active_cpus], P0 should have
-> > > > received and acknowledged the DVMSync before the STSET. Is your concern
-> > > > that P1 can observe the subsequent SME access but not the STSET?
-> > > > 
-> > > > No idea whether herd can model this (I only put this in TLA+ for the
-> > > > main logic check but it doesn't do subtle memory ordering).
-> > > 
-> > > JFYI, herd support for SME is still work-in-progress (specifically it misses
-> > > updates in cat), yet it can model VMSA.
-> > > 
-> > > IIUC, expectation here is that either
-> > > - P1 observes sme_active_cpus, so we have to do_IPI or
-> > > - P0 observes TLBI (say shutdown, so it must fault)
-> > > 
-> > > anything else is unexpected/forbidden.
-> > > 
-> > > AArch64 A
-> > > variant=vmsa
-> > > {
-> > >  int x=0;
-> > >  int active=0;
-> > > 
-> > >  0:X1=active;
-> > >  0:X3=x;
-> > > 
-> > >  1:X0=(valid:0);
-> > >  1:X1=PTE(x);
-> > >  1:X2=x;
-> > >  1:X3=active;
-> > >  
-> > > }
-> > >  P0                                 | P1                                            ;
-> > >  MOV W0,#1                          | STR X0,[X1]                                   ;
-> > >  STR W0,[X1] (* sme_active_cpus  *) | DSB ISH                                       ;
-> > >  DMB SY                             | LSR X9,X2,#12                                 ;
-> > >  LDR W2,[X3] (* access to [addr] *) | TLBI VAAE1IS,X9 (* [addr] *)                  ;
-> > >                                     | DSB ISH                                       ;
-> > >                                     | LDR W4,[X3]     (* sme_active_cpus *)         ;
-> > > 
-> > > exists ~(1:X4=1 \/ fault(P0,x))
-> > > 
-> > > Is that correct understanding? Have I missed anything?
-> > 
-> > Yes, I think that's correct. Another tweak specific to this erratum
-> > would be for P1 to do a store to x via another mapping after the
-> > TLBI+DSB and the P0 load should not see it.
-> > 
-> > Even with the CPU erratum, if the P1 DVMSync is received/acknowledged by
-> > P0 before its STR to sme_active_cpus, I don't see how the subsequent SME
-> > load would overtake the STR given the DMB. The erratum messed up the
-> > DVMSync acknowledgement, not the barriers.
+On 17/03/2026 12:17, Alexander Stein wrote:
+> From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
 > 
-> I'm still finding this hard to reason about.
+> This adds support for TQMa93xx module attached to MBa93xxLA-MINI board.
+
+
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+
+> TQMa93xx is a SOM series using i.MX93 SOC.
+> The MBa93xxLA-MINI has a small form factor and is designed with
+> WLAN, Bluetooth and WWAN applications in mind.
 > 
-> Why can't:
+> Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>  .../imx93-tqma9352-mba93xxla-mini.dts         | 637 ++++++++++++++++++
+>  2 files changed, 638 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
 > 
-> 1. P0 translates its SME load and puts the valid translation into its TLB
-> 2. P1 runs to completion, sees sme_active_cpus as 0 and so doesn't IPI
-> 3. P0 writes to sme_active_cpus and then does the SME load using the
->    translation from (1)
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 31bc80586c682..db536522600ac 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -461,6 +461,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini.dtb
+>  
+>  imx93-tqma9352-mba91xxca-lvds-tm070jvhg33-dtbs := imx93-tqma9352-mba91xxca.dtb imx93-tqma9352-mba91xxca-lvds-tm070jvhg33.dtbo
+>  imx93-tqma9352-mba91xxca-rgb-cdtech-dc44-dtbs := imx93-tqma9352-mba91xxca.dtb imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtbo
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
+> new file mode 100644
+> index 0000000000000..97693aa5e904d
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
+> @@ -0,0 +1,637 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Martin Schmiedel
+> + */
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/net/ti-dp83867.h>
+> +#include <dt-bindings/pwm/pwm.h>
+> +#include <dt-bindings/usb/pd.h>
+> +#include "imx93-tqma9352.dtsi"
+> +
+> +/{
+> +	model = "TQ-Systems i.MX93 TQMa93xxLA on MBa93xxLA-MINI SBC";
+> +	compatible = "tq,imx93-tqma9352-mba93xxla-mini",
+> +		     "tq,imx93-tqma9352", "fsl,imx93";
+> +	chassis-type = "embedded";
+> +
+> +	chosen {
+> +		stdout-path = &lpuart1;
+> +	};
+> +
+> +	aliases {
+> +		eeprom0 = &eeprom0;
+> +		ethernet0 = &eqos;
+> +		ethernet1 = &fec;
+> +		gpio0 = &gpio1;
+> +		gpio1 = &gpio2;
+> +		gpio2 = &gpio3;
+> +		gpio3 = &gpio4;
+> +		i2c0 = &lpi2c1;
+> +		i2c1 = &lpi2c2;
+> +		i2c2 = &lpi2c3;
+> +		i2c3 = &lpi2c4;
+> +		i2c4 = &lpi2c5;
+> +		mmc0 = &usdhc1;
+> +		mmc1 = &usdhc2;
+> +		mmc2 = &usdhc3;
+> +		rtc0 = &pcf85063;
+> +		rtc1 = &bbnsm_rtc;
+> +		serial0 = &lpuart1;
+> +		serial1 = &lpuart2;
+> +		serial2 = &lpuart3;
+> +		serial3 = &lpuart4;
+> +		serial4 = &lpuart5;
+> +		serial5 = &lpuart6;
+> +		serial6 = &lpuart7;
+> +		serial7 = &lpuart8;
+> +		spi0 = &lpspi1;
+> +		spi1 = &lpspi2;
+> +		spi2 = &lpspi3;
+> +		spi3 = &lpspi4;
+> +		spi4 = &lpspi5;
+> +		spi5 = &lpspi6;
+> +	};
+> +
+> +	backlight_lvds: backlight {
+> +		compatible = "pwm-backlight";
+> +		pwms = <&tpm5 0 5000000 0>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_backlight>;
+> +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> +		default-brightness-level = <7>;
+> +		power-supply = <&reg_12v0>;
+> +		enable-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
+> +		status = "disabled";
 
-The key thing is that for micro-architectural reasons, C1-Pro provides
-stronger than architectural properties for TLB invalidation (aside from
-*completion* of SME accesses specifically). The DMB is not material to
-this example, but could matter if we wanted ordering in the absence of a
-TLBI.
+Why do you add disabled nodes? If the display is not on the board, then
+the node should not be here.
 
-Specifically, where C1-Pro receives a broadcast TLBI, and that TLBI
-architecturally affects the translation of an explicit memory effect of
-some instruction INSN (which may be an SME instruction), C1-Pro will
-also complete the explicit memory effects of all earlier (non-SME)
-instructions *in program order* before INSN. This happens regardless of
-out-of-order execution, etc.
+There is no user of that in patch 3/3, either.
 
-When C1-Pro executes a sequence:
 
-	STR		<1>, [<flag_addr>]
-	SME_LDR		<dst>, [<sme_addr>]
-	
-... if a broadcast TLBI is received which affects sme_addr, either:
-
-(a) The TLBI is received before any of SME_LDR's accesses to sme_addr
-    are translated. The SME_LDR instruction WILL NOT use the stale
-    translation for sme_addr.
-
-(b) The TLBI is received after any of SME_LDR's accesses to sme_addr are
-    translated. The SME_LDR instruction MIGHT use the stale translation
-    for sme_addr. Completion of the TLBI WILL ensure that the STR to
-    flag_addr has been globally observed. Until completion of the TLBI,
-    the STR to flag_addr and the SME_LDR to sme_addr could become
-    observed in any order.
-
-... and so IF the SME_LDR consumes a stale translation for sme_addr, the
-store to flag_addr WILL be globally observed before completion of the
-TLBI.
-
-When the STR and SME_LDR are either side of an ERET, the ERET itself is
-immaterial, and the scenario decays to the example above:
-
-	STR	<1>, [<flag_addr>]
-	ERET				// immaterial
-	SME_LDR	<dst>, [<sme_addr>]
-
-However, when clearing the flag *after* executing SME loads/stores, we
-still need to complete those SME loads/stores before clearing the flag.
-Either a DSB (or IESB as part of exception entry) are sufficient to
-complete those earlier SME accesses.
-
-Mark.
+Best regards,
+Krzysztof
 
