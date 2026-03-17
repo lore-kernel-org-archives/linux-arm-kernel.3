@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8B6FED9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2F0FED9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0n9iFbOOEh19MQ+b0LGbBhs842m64zj7gWFpe7iRYQ=; b=z9RSQeC27RBDoQPTWlWwkeY7SO
-	QjWw4Ll2xI9CZBJSJoEhqVGFRmDLm80fw06TNhdY5B+f92yXH3zNThz5BBLUvz6I2BB68TEZ7j7uq
-	CrwGhDJZ0vvS/h2rV+XVwwA1oeXj24xhAgfiuiuy2fmSjnYPIpjg9xaOp7uBzUqm1jHW6/7GcI57c
-	pemI/AYd2FOlE2b/mcFD6tBwbL1s2KWG7nBfldSQ1EE+tpBZGpCdXNYQN+T5NRN2PPIh+2Y78hJ1k
-	LCF8zY7grdZzPAMhaEtqXnfR3N3vklUNwKLH+r8Qzpp00stvmbDwzdQWRK9Z66ztps8dcx4fwBrOJ
-	4zZtKTSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=csSww+WIybtBNldf33djiUaktagQrObOaKalU3CZA8k=; b=qpVq1C3eRNQY1371V09ReaLCGj
+	AoHGSZ2df5KFochsEfN0z6vXLkuQyZHhKXjwfhe+hnqmhBpNOvDRdfP7ty7KzpSlVW3mJEvYnohDE
+	mxqMzSRJZRoUzgkfsCS6vvw7d3FyZewwSrm7IV1//mhRveodZXLwB+cpqFYVUe3M/qg7FJ6i/6HTP
+	8kMCDkngw0+l7Sc66n4KiokV0y0Z2Htmitco7SSniVSRsoYP1/qiyJFopN/8KH9rZM1D6DFd2jmJX
+	ZFbf+GpfHk6V3RZwzjX9bwiNltJl3Nq5MuiX/+DG7rmNRBjd9Kgsyd0SwaRKm4iwVdAyS9kXfJ1Do
+	l2523Apg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y7f-00000006vZd-3gN1;
-	Tue, 17 Mar 2026 17:22:27 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1w2Y7r-00000006vcQ-16vO;
+	Tue, 17 Mar 2026 17:22:39 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y7c-00000006vXc-16LN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:22:25 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fZzKG34n7zHnGhy;
-	Wed, 18 Mar 2026 01:21:54 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 556AB40573;
-	Wed, 18 Mar 2026 01:22:14 +0800 (CST)
-Received: from localhost (10.48.149.62) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 17 Mar
- 2026 17:22:12 +0000
-Date: Tue, 17 Mar 2026 17:22:09 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	<zengheng4@huawei.com>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v6 01/40] arm_mpam: Ensure in_reset_state is false after
- applying configuration
-Message-ID: <20260317172209.00001ec9@huawei.com>
-In-Reply-To: <20260313144617.3420416-2-ben.horgan@arm.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
-	<20260313144617.3420416-2-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1w2Y7o-00000006vbH-3SdQ;
+	Tue, 17 Mar 2026 17:22:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773768141; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=HPFcjpjFhaIdcBNwj7gmuEk50vuOsqPaTQ6rCVKuI/RROM22Ng1P2I2Ep8YXaK4AvamqMxOpV+P8btcO2pfbqV6jD00WoSIL1Y+GdIFWY9NvHn2YUoImWNvtafuV3ukDMZBhVLuCwWSonuKAEhVHqEXsqDW/ZjnhSN8UY5Hz0JU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773768141; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=csSww+WIybtBNldf33djiUaktagQrObOaKalU3CZA8k=; 
+	b=BUCLmoZwQ2+LSfBX2hkBAYr887/eWL7DPoc5VEqkvbxA2NldzH9MWgNw2rSeHwn49uY0H0ZqoY/hKCCI1weGferJ6eHhNZa3UCrqXd6HTVNkefeLdEYVCzA6jRP4gK3+ogkmwrIzyT1v6e5lnP+M43WwSNze/mWgVg2PkSQx+Eg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773768141;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=csSww+WIybtBNldf33djiUaktagQrObOaKalU3CZA8k=;
+	b=RcVe2aKdIYXcdGrxc3GQ/hFLkfmPl0xwq29Qj1m+xoVDJ1f0kezE0ZVAV/MxKYar
+	2t9piYXgQOPrHnk7EyOMkGGya0Ct/wDKjUdmlRgTIU3rz0ZhUPy2sqzFFMDoNN//f5W
+	C2yw4vyPhOIC2zrrLvbdO5fHXcxi57Bsb3n+vJeM=
+Received: by mx.zohomail.com with SMTPS id 1773768138648743.3558401817487;
+	Tue, 17 Mar 2026 10:22:18 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id C4470180085; Tue, 17 Mar 2026 18:22:14 +0100 (CET)
+Date: Tue, 17 Mar 2026 18:22:14 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Alexey Charkov <alchark@gmail.com>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH 1/2] dt-bindings: ASoC: rockchip: Add compatible for
+ RK3576 SPDIF
+Message-ID: <abmNLwjx4FJ5N_Px@venus>
+References: <20260316-rk3576-spdif-v1-0-acb75088b560@collabora.com>
+ <20260316-rk3576-spdif-v1-1-acb75088b560@collabora.com>
+ <50e2f262-6fc8-429d-af0d-5f9d1a0d6ab0@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.149.62]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gu3fveioy3pqqyrr"
+Content-Disposition: inline
+In-Reply-To: <50e2f262-6fc8-429d-af0d-5f9d1a0d6ab0@sirena.org.uk>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/273.758.55
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_102224_456731_406A7AFE 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260317_102236_928473_B3E154EC 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Mar 2026 14:45:38 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
 
-> From: Zeng Heng <zengheng4@huawei.com>
-> 
-> The per-RIS flag, in_reset_state, indicates whether or not the MSC
-> registers are in reset state, and allows avoiding resetting when they are
-> already in reset state. However, when mpam_apply_config() updates the
-> configuration it doesn't update the in_reset_state flag and so even after
-> the configuration update in_reset_state can be true and mpam_reset_ris()
-> will skip the actual register restoration on subsequent resets.
-> 
-> Once resctrl has a MPAM backend it will use resctrl_arch_reset_all_ctrls()
-> to reset the MSC configuration on unmount and, if the in_reset_state flag
-> is bogusly true, fail to reset the MSC configuration. The resulting
-> non-reset MSC configuration can lead to persistent performance restrictions
-> even after resctrl is unmounted.
-> 
-> Fix by clearing in_reset_state to false immediately after successful
-> configuration application, ensuring that the next reset operation
-> properly restores MSC register defaults.
-> 
-> Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> Acked-by: Ben Horgan <ben.horgan@arm.com>
-> [Horgan: rewrite commit message to not be specific to resctrl unmount]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+--gu3fveioy3pqqyrr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/2] dt-bindings: ASoC: rockchip: Add compatible for
+ RK3576 SPDIF
+MIME-Version: 1.0
 
+Hello Mark,
+
+On Mon, Mar 16, 2026 at 07:44:45PM +0000, Mark Brown wrote:
+> On Mon, Mar 16, 2026 at 07:23:00PM +0100, Sebastian Reichel wrote:
+> > Add a compatible string for SPDIF on RK3576, which is similar to the
+> > one on RK3568.
+>=20
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
+
+Sorry, my fault. I used the same prefix as the one adding RK3588
+support to the binding and forgot about the different preference for
+sound DT bindings. I would have prepared a v2, but I see you already
+picked it up.
+
+Greetings,
+
+-- Sebastian
+
+--gu3fveioy3pqqyrr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmm5jcYACgkQ2O7X88g7
++ppwyQ/8CCHnmOnwX5ap5MlSA3+bsCIwDhlkCQ4FXecT6EJQRYR9HlcBeaBOM73b
+AgVqwYCRnHJlLgpGFiExZAstwSiUIAUT7adyut/MmouWOBU8uUq1l7csVSC5oT9m
+24nPCEVL1Oj8iGsrp6mmQCVkqBqjOf+RNskYwq2pPfP2+5mYIX0CxzubyK77zECS
+RYaLASXlMWpoGUj2ITo2PQZJYcndtv3rTnOv9SjnGSG+hkB1wBeet/EQmq8ulE7G
+dYvibi1c5YHhxkNM3LcWjIKcUU1b3AAbGf9htlDZpjQq3pOKWglSyeuECHm+7z+P
+4dLCVC94hV8FptcNU9Iq/r0qCRuPBu1nW+6IyIIe11xYPR6Iyk6tbWGwG42FBLvK
+amEXxHw9gGn6tBSfzDVa7nenglg/jBrVqOKo7npN1110X16PzRcTsO0/471ClYFN
+9ZSg0vbU1fbI/OdGkpYsBGRsXVE42vASfz/rEI61syr9sC8o+4muWtHXuonkVrFS
+l1+svdDjUcdnu4dknyWkXhUWSh/vBp1Mtjtiotp6B4ZhjC/ds8CmKdCaf8NqX3j4
+DzEkYmM04XagLXR/TuPcieDxJ9HwsA5pZV5901DD8kT7rmLg5jiNc6xcODILO4lL
+Uqc9W4Fue3D4LMq/aH0qxJYriLxJBKrss3N/+bH+e21GmoiEvtQ=
+=Eg5n
+-----END PGP SIGNATURE-----
+
+--gu3fveioy3pqqyrr--
 
