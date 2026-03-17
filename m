@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DFDFF6E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9136EFF6E9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0obxidBdUVcQz6IKab2e8RT0gz1q6/HtsB2D0L3TJc=; b=KrnO1VYpxI2d/oQEOBK/qg0qHQ
-	saL3QA806o3MKsNCioRP+oVyWqwDqmVM/cCEQPZrhQi104uGtFX83klXa5MWv4CICHZ1MKNaMMqjm
-	CtVpxy8+vXNlX2Z/KsAXM+NsJP5HZNr8OsWYgV53XAyFTSPLPAQ+kFZ9xafK94TeL2HfNCyQ6DnzZ
-	xLRflmtefW6+8stILZmFuEcjTuIsdM8P8tpu0jkuXSl9+cD0DkkxLQKYdq+MJkKLt4KQTnOFOIluR
-	sMZ1Q3ZBl5/ljkIJ2yeAu/6iHJkIDLHExOLnRYSv6JYfzZAoKausjyY8LlNUC1v6lzuzlP7abSWdT
-	pm04cPdg==;
+	bh=q0TGxelnSqXBDOM7mYStNCfP3fD2NuOIazgCtMx7pgQ=; b=xt4XhHt8y1TwuMzL2+NVyQRSXV
+	+8kpnlKFEv0c6vg8GpTdZZXDtaYUsJa7ROQm2o1rsyfOe5XUrGP95wDBBW39Vug6vZRrXepBI4A/U
+	JVY5aZv568c3pyAPbbFg6xfDzYPWQcot3Ov4ADvkXOtL02e7o8LktSZdnfVpcECNuKeyOyigfAZam
+	doVQnVrvq1nv7tUrXVYQtxSrSmdPzgY1ddIDAswBzKGU3x8Be+Jq3bhr9/bRFFfc1cSAYnWEOe5yH
+	diX42n0lNRE/0SC9MzvMWv/gbBNdf9lltHXM6dR4TdXo9ufyw3cong5BOWex2iIVKAKBKVW5DnQei
+	3Ow86xnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGQ-00000007KcX-032v;
+	id 1w2dGQ-00000007KdY-2iza;
 	Tue, 17 Mar 2026 22:51:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGC-00000007KW2-0QnY
+	id 1w2dGD-00000007KVd-0dFa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:37 +0000
+	Tue, 17 Mar 2026 22:51:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C947244555;
-	Tue, 17 Mar 2026 22:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4439BC19425;
-	Tue, 17 Mar 2026 22:51:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C3D444531;
+	Tue, 17 Mar 2026 22:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75822C4CEF7;
+	Tue, 17 Mar 2026 22:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787895;
-	bh=ZNFy3T2ljWwS1cXqTSDWH3OzAYlfT/ejcAHXOO7W/u0=;
+	s=k20201202; t=1773787896;
+	bh=LneP7wGKv2nwzC48EGP/qa4m/tgR04JXHfdr5Hy2OTI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ToH5ZCrMuabFXFe6yVOv0hFFBxF8DARKOazIF/k5JIlh1jstum9XHAAHik2UqpVAQ
-	 vgSTyZgSm4/fIcmhNxeIJ7ebJ4I6yjGyMYHyUscJgklBfyKeAPUHkoXck0cmY7NDSu
-	 6m9QRx5f3u5UivZMKbbNqhhZCRe3SF8mM/GDwqZn75X4ShzFsZez2lkA4c+kSzBy51
-	 i3FntVwRWlXSWoxxjrCCS8UL79HtgwEwtZxUHxZloxZQ6FTgwV/+e998ovaC/9YwWa
-	 z51rIPdBBX+bD2c6K7uiPa89oq6YQgK1+1VKvzW9Ltn+Zi97wlsY6deF3rZ4Fg4Hg6
-	 5OEPeu7M9NWOQ==
+	b=qngo6z11Y9Ew0q/w6MzKc0RDHuzv3zv3tiXXmAii/TUFdqaHGUiE77fX5laBcACdt
+	 jBK8X+ZL41ymUm5gnCm4tvn376vpm2pJcgtRELAmhSl7gdxnxq4PCRwODiMjhPJF1G
+	 v+lsWta3aS0+zy/Vopw3VMh0ddnhzp6yeJ+PzrOSY+qjni4yG/YrEVvuDOtJ+dW8dy
+	 r61VBS8lpeF0XSxQuuHQiqosUWnGyBNdOpzknYHAkClT4p4QeiMuTGKIU9d4FTkpsF
+	 hupC261b4CXaULZAnA5st3TPR4D0WnZ9UJTCcJUVlOth7LoPZ8WTBaUyKZ0pwqTrN5
+	 HyhiNADADG70A==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,18 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 06/12] objtool: Allow setting --mnop without --mcount
-Date: Tue, 17 Mar 2026 15:51:06 -0700
-Message-ID: <84977dbdf9e0b579cd5f8efe55fb38b0cc275198.1773787568.git.jpoimboe@kernel.org>
+Subject: [PATCH v2 08/12] objtool: Ignore jumps to the end of the function for non-CFG arches
+Date: Tue, 17 Mar 2026 15:51:08 -0700
+Message-ID: <f33fa991df5be569476769bcd970a555745028db.1773787568.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
 References: <cover.1773787568.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_155136_161367_B4267441 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_155137_217295_D0CDABBA 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of returning an error for --mnop without --mcount, just silently
-ignore it.  This will help simplify kbuild's handling of objtool args.
+Sometimes Clang arm64 code jumps to the end of the function for UB.
+No need to make that an error, arm64 doesn't reverse engineer the CFG
+anyway.
 
 Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/builtin-check.c | 5 -----
- 1 file changed, 5 deletions(-)
+ tools/objtool/check.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
-index b780df513715..f528a58aca74 100644
---- a/tools/objtool/builtin-check.c
-+++ b/tools/objtool/builtin-check.c
-@@ -145,11 +145,6 @@ int cmd_parse_options(int argc, const char **argv, const char * const usage[])
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index d428d63b29c6..6e33a29bd3ed 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1630,10 +1630,12 @@ static int add_jump_destinations(struct objtool_file *file)
+ 			/*
+ 			 * GCOV/KCOV dead code can jump to the end of
+ 			 * the function/section.
++			 *
++			 * Clang on arm64 also does this sometimes for
++			 * undefined behavior.
+ 			 */
+-			if (file->ignore_unreachables && func &&
+-			    dest_sec == insn->sec &&
+-			    dest_off == func->offset + func->len)
++			if ((file->ignore_unreachables || (!opts.stackval && !opts.orc)) &&
++			    func && dest_sec == insn->sec && dest_off == func->offset + func->len)
+ 				continue;
  
- static bool opts_valid(void)
- {
--	if (opts.mnop && !opts.mcount) {
--		ERROR("--mnop requires --mcount");
--		return false;
--	}
--
- 	if (opts.noinstr && !opts.link) {
- 		ERROR("--noinstr requires --link");
- 		return false;
+ 			ERROR_INSN(insn, "can't find jump dest instruction at %s",
 -- 
 2.53.0
 
