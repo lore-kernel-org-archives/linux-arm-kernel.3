@@ -4,108 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7FAFED9E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DDFFED9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 15:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=thgShI/FaIpWKXVaz26yuc7YcVCCZz4wqgu9tjpQTq4=; b=aNXPvf+KOsHF96JV+5eWcGs7oO
-	6JsbZh+1b2AJ+41HNgyTP6W6Yovb73/ruRhgqhG2ZIYtXGZUnm6OJyzoT+GdACW/AKn0xtOKeMPo7
-	bGcVFy35RdsFFwr7jxMcJSG1tkXDwdgBRpc4JFyYlFOF38WSXFIfM3Hi+luTSj26ACkFMVA7YUKAX
-	s9bRQ5jZeehxLY254/woDdOOaZFzAnHF5Da5JLQWtUAtrTOhEPqWg9+4xmGB3igRV7n7qpnmCwF2S
-	5fnKyGy55wD8X6BeyhvVAA/Req3JFp65gMfcWKEofIqGF4p5WcXrRnat44wswMJkVBDB/KQXOif6p
-	xKsezi8A==;
+	bh=1go/Q9Y2kV8d7AE4AdJH2lTJpN0U41+HUpsGP+cP8us=; b=aOoSc0udFKSwud0gg/oU55JD1D
+	13WbDwwmq+hI3yOoppwMfYaGzlOVcnlpi/bUO5gZkZvUB8FuCH82T5UYHhV++lh9PXu5s3vkgYzHe
+	095mUQTssJn7YOPThhktI1vtNoCi1bQw3lD1xmUPR8od4+4E887GubRncUt4DsHuA+1eOyzXaYdO8
+	SKHPH441cH7wxLMadp9IhqlYJ9Iv+Ql7ND7PX4qbQJXq5ufPLX3jlkrXZ4l9UJfLo5QH20r3Kr0dI
+	SujqRnlRNXoOdSOWIhUrG28XOuUkf5LVHLWv783ZLSlBmbnRdtTrAy7UmLvoIVAZQJXyJLgT89Eb3
+	Msq45Cng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vrc-00000006fal-2qnv;
-	Tue, 17 Mar 2026 14:57:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2Vuy-00000006g7h-2wID;
+	Tue, 17 Mar 2026 15:01:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vra-00000006faA-2Cz6
+	id 1w2Vuw-00000006g7L-3Tgf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 14:57:43 +0000
+	Tue, 17 Mar 2026 15:01:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B97B64382F;
-	Tue, 17 Mar 2026 14:57:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBF5EC4CEF7;
-	Tue, 17 Mar 2026 14:57:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 169A944332
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 15:01:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E79C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 15:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773759461;
-	bh=kDWNIWdXhBCkRznJ1Up2G4DKQ4xbbwlecyd7rTZ4+1Y=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=CBP+lEHekQFOFUNjZauc6GvLutQQE2bLK77iztjOMYB2QtVQTY2j0vuSUiYKeYm5P
-	 zPtsfowdwuFN+NkS9TjCDeCeLnOL1SDamOP7ebGusQE7hIObta65EF1DmnmQyaTPDg
-	 dDy+WAFcNNKRgAvhkaPVe7O/OVEI6YTDnygVQDEpncZhKSz5uDXU7224t/VmCp5WqG
-	 aaWrKJcGLz751PqleKk1BSj0It/sqfxaIEAEeyjvnDYzpXSm7FcBweu2GLGyObELqM
-	 IK+QoNUVaHNt9vgI/1RcUCh9/EBbWbYptxemQn6GeEcONgQ19yZdmMooae44J/XCbv
-	 FjsznGPadVzyQ==
-Message-ID: <0274107a-90a3-4d15-b5ab-f5d420accb9a@kernel.org>
-Date: Tue, 17 Mar 2026 15:57:38 +0100
+	s=k20201202; t=1773759670;
+	bh=ydG4GHfqkHkHDuSuLUdy0Q7ztXjPaMqngHmf5z9Ukx4=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=LJDbHT4UUxji09+X6OoZaKjxoYWlXyItbjBfH/YiX6gZHspOltElxkkyv3i49uQpP
+	 BvdLgFO3YcZjEx5CC+G9dK2C/u41QsqHyvzG0CQEOzMukfIZFTaZ9yNdKVfYZE1QCA
+	 XymvYymcQSiQTjXCo2kRuWg8Isyf0ptJN9CJPfzY+ShZ6t5Z8e1elX8wW9bQIZ5dRq
+	 EpUhTqQ4Uop5zC5qExcr+dkCVtI5NSFnGmELYm/2Q2B3Gn5C9RzyURDWCf/W7Q+RX8
+	 WvBpHvkwlGEHC87nw+9pazfroXZmZSwiCqHMSl3HSFBePgYs8K9Fvf5yEcu4xFGw7d
+	 A+afukhsS51mQ==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id BE81AF4006F;
+	Tue, 17 Mar 2026 11:01:08 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Tue, 17 Mar 2026 11:01:08 -0400
+X-ME-Sender: <xms:tGy5aWZEPFPpoiSxAFBHwhk1xf1o-L1CXMhCoMfK9NtasUNpC2cdCQ>
+    <xme:tGy5aUOXs_MyDp3_pkHjnomZgBj7mRAHs7wIB-BP3eXmHHIHAOvf2lXgbUyFYBC4q
+    AKYPTvRwKEYUTn5ZnbzpKpHBOyQWxir7fZPF5lUu0xJJgqSAtXtxtI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdduheehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeejhfetveehvefhteekgeelffdtgffgvddtkeeguddvvdduuddvieetjeff
+    veefjeenucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
+    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
+    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
+    gedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinh
+    grshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhr
+    tghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgrug
+    gvrggurdhorhhgpdhrtghpthhtohephhgvlhhlohesphgvphhpvghrghhrrgihrdighiii
+X-ME-Proxy: <xmx:tGy5abC6FH2K5elXiGZB7o35tE7JgpF-Db-V6DNJDBRQKTcwVpHXcQ>
+    <xmx:tGy5afWq7XQPlYQwoVB1TqPj8jHKWfju11NcyT58_2-qwZjEg87Crw>
+    <xmx:tGy5aRAe5w0SPEKvWf0YGHpEZemB-PuH2usua67YBxBJlwXhJ3DDDg>
+    <xmx:tGy5aa96wHW2ykixEOxluRvrEAtZEykFW8MVAqIYAvH3M7U4GBPUnw>
+    <xmx:tGy5aQGKbHRQ4smLtnpNXR0R7Hs1ZpndvkPHBZC43235SMD19mNtE5nt>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 96DDF70006A; Tue, 17 Mar 2026 11:01:08 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] i.MX fixes for 7.0
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: soc@kernel.org, arm@kernel.org, Fabio Estevam <festevam@gmail.com>,
- kernel@pengutronix.de, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Shawn Guo <shawnguo@kernel.org>
-References: <20260312153557.3338430-1-Frank.Li@nxp.com>
- <20260317-jumping-corgi-of-defense-038bcd@quoll>
- <ablgRERiHQ1Tm2i6@lizhi-Precision-Tower-5810>
- <67fc1526-c32a-4e74-ac37-8f8c2c0df46a@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <67fc1526-c32a-4e74-ac37-8f8c2c0df46a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: Ao84xJFSPmL7
+Date: Tue, 17 Mar 2026 16:00:48 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Pepper Gray" <hello@peppergray.xyz>, "Will Deacon" <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ "Catalin Marinas" <catalin.marinas@arm.com>
+Message-Id: <af9c99e2-10f6-41d6-af81-8291578f2b43@app.fastmail.com>
+In-Reply-To: <CAHLDejz=-kHt4xXmf3K4A+jj5aj+JD3LJta7SGEOK6G4SxxGdQ@mail.gmail.com>
+References: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
+ <abLGwg1aFyoCosHi@willie-the-truck>
+ <4141e534-0d81-45f7-a341-98ae1a6dcd8b@app.fastmail.com>
+ <CAHLDejw4XKZ3-dbFFRYVGAZyYkmkzW5cdkvJNVJ9p3ARMUUyjQ@mail.gmail.com>
+ <abRB-raKFBZItDQP@willie-the-truck>
+ <CAHLDejz=-kHt4xXmf3K4A+jj5aj+JD3LJta7SGEOK6G4SxxGdQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64/scs: Fix handling of advance_loc4
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_075742_618598_0B9A902E 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260317_080110_933730_BE496826 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,48 +108,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 15:44, Krzysztof Kozlowski wrote:
-> On 17/03/2026 15:08, Frank Li wrote:
->> On Tue, Mar 17, 2026 at 09:03:19AM +0100, Krzysztof Kozlowski wrote:
->>> On Thu, Mar 12, 2026 at 11:35:54AM -0400, Frank Li wrote:
->>>> From: Frank Li <Frank.li@nxp.com>
->>>>
->>>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>>>
->>>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>>>
->>>> are available in the Git repository at:
->>>>
->>>>   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-fixes-7.0
->>>>
->>>> for you to fetch changes up to 04d00f57c168153758d2c6a2395d20aadc785e3e:
->>>>
->>>>   arm64: dts: imx8mq-librem5: Bump BUCK1 suspend voltage up to 0.85V (2026-03-06 11:19:41 -0500)
->>>
->>> Hooks fail.
->>>
->>> Commit 587096ada520 ("Revert "ARM: dts: imx: move nand related property under nand@0"")
->>> 	committer Signed-off-by missing
->>>
->>
->> Sorry, I will update it.
->>
->>> Please implement basic checks from beginnners maintainer guide (LPC
->>> 2023).
->>
->> Suppose this one?
->> https://lpc.events/event/17/contributions/1498/attachments/1155/2452/Maintainer's%20toolbox%20-%20Linux%20Plumbers%202023%20-%20Krzysztof%20Kozlowski.pdf
->>
-> 
-> Yes, although I am moving hooks to soc-tools repo
-> 
-> https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc-tools.git
 
-And second problem is that why you did not fix it after report from Mark
-on next? Patches you sent for current cycle must stay for at least one
-day in the next, prior sending, so you receive at least some feedback.
-Only then you send the pull request.
+On Tue, 17 Mar 2026, at 03:36, Pepper Gray wrote:
+> I have created a script that configures, builds and runs a rootfs to 
+> reproduce the error:
+> https://github.com/peppergrayxyz/arm64-scs
+>
+> I also attached the kernel, amdgpu module and build log as release.
+>
 
-Best regards,
-Krzysztof
+Thanks, that is really helpful. I suppose amdgpu.ko ends up with some huge functions after inlining where the distance between instructions that are relevant in terms of unwind data is large enough to require the 32-bit advance opcode.
+
+I should note, though, that the SCS patching logic is really only useful for distro kernels that might run on a wide range of hardware. In the case of Gentoo, I'd expect the shadow call stack to be either enabled or disabled unconditionally, depending on whether the user wants to rely on pointer authentication (PAC) or SCS (or neither). The dynamic behaviour was added mainly to avoid the overhead of running with PAC and SCS enabled at the same time.
+
+
+
+
 
