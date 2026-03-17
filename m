@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53565F33805
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B271AF33805
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1GwlbKCuRkMEJtcMvq6Y2vEjKV9Tt6Itzx4uW6Jnu0w=; b=szjyx6apYK1dhi7+SUA2qsY4qJ
-	udGhZQlteMJ97PoDuRn+l0fW/q6zITcID5+xGaKLJlRbOX+ZNBdlFWpY0nNVzYuGiWUVVADcTP+cI
-	MbWpZdh2TsQ0lGLde95f4z1UJJGWItwI3t8kdMO6Ko5AbXZJoqAWYYxn20Vihwjz7ohrc8eWMbzFA
-	1Wwi9Xvz/f1IfZT7cDbOuH75FVrtX9LdAVipY4sRMyGyf48rqAY8dYDOhAH5+khy7Yrjr2joL2Lz+
-	35KW0bK4NwyDSW/dvHzvQCTq2RB3xaTlVtwZsvpJca8S9H91lL81uvFBDDp7jO1JilDVJ7Qy4oqzQ
-	Cvz4nubg==;
+	bh=2qTj/MPRuJiylZnoaQuiNLdKeg7j8SVSpRICVfejC5A=; b=x8rPwO2gVFAg3C2OUgV44PJcbR
+	BOKvlVzsWsz2663PVy/QPq+Hd0e+ufukByUSioWhPwrldrAEDffYjYRPHQSUhoOuGFFH0ILJIebQc
+	xdCaoBq/IEyAatThLi+0hIrrsnqqcThnO1AWFwelLShUxOBSuHuKDpbw2DrbABq1MhlAH3WJqmUFA
+	VZZ4Z5a102CEX6rO4tUYazvA4vRfhdTsrHBaiL4yfMWp/SxHrQdfh9QlcGECjuim1HYxyngZMikxs
+	B/9Eyn8g0evALRQaEYBNcSJIoKgyZ7CZ9WBdGkRV2JhhjPPeNh+oBN2rCAEmskicz2e7oO4b4hdDh
+	KuXa5msw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2O7S-00000005VuA-0YPo;
-	Tue, 17 Mar 2026 06:41:35 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1w2O8I-00000005WFj-2beu;
+	Tue, 17 Mar 2026 06:42:26 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2O7Q-00000005VsZ-10xo
+	id 1w2O8F-00000005WEh-2Ml8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 06:41:33 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c06cb8004e8so2158882a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 23:41:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773729691; x=1774334491; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1GwlbKCuRkMEJtcMvq6Y2vEjKV9Tt6Itzx4uW6Jnu0w=;
-        b=HnOMok8NAtC5kQog0o+SawsSrGSK2oHZmCrygIQZfsR9oVLp2bpsF9GgdINBZ0WWxe
-         QUsnQzT2lFZi/pPHuCwNeD3wa5q5DYQiE90EjFmHXlvthCrpUbnW2OMcAMyF3xcIWwwx
-         /BFU1nNXNhR87aWH9DLu+UxL2spBH5kj7bv64=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773729691; x=1774334491;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1GwlbKCuRkMEJtcMvq6Y2vEjKV9Tt6Itzx4uW6Jnu0w=;
-        b=JVs2kedtMXUqYvo+mUp0DTiYA0YlbrLSUUWJW1SHTITY8EOmLCrneBVaGSRoPilGUI
-         mxp3cWW92RpSdH/4v3cit/YJedKDxtnEY7HLHaD3GRbSUsWQbFnsYlaNf2YgWIQSqQfe
-         ABOfqVlvlRLffez3Iz9/b7fTTvRH8x5lj1y0bjieWGqCtFeD1/glYLtp97/sxknneX1s
-         90uoU6BgV4bmDoBzOMdKNHY/Vr9aGgKKzT2JaJTLDPRzzJy1EDlMGqKwhRH5pkL2NPXq
-         1BcUUjsn5s0cuzxOpTWwQmeMdWdFWAEVP2TPbBQUQDMFim8+5HHLb0nd89LR/F02JEf1
-         HTGg==
-X-Forwarded-Encrypted: i=1; AJvYcCUoxC5nHVMfLh8gxPXV4S3ccY3iwGbVCW/vJ/duga+HCgJVbeQDmo40lhvhIxrz5McSvODWLDhrpnGzUi3epEh4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYImFgXs1Z7TNsfGoccac9pE6O2P46ND+8QpcKqsrjU07CrpqX
-	YTB4K++PSqOiOJ4JvV6wo5Q5G5BWBOjgyB+08OwQfJRfbsBpamM4FL3FNs2J4nEkJw==
-X-Gm-Gg: ATEYQzzHLCmTQhRcX+QMCmAtJOiNYQFLBQsuM9xfgyrG6muMMhwX3pQX9WHUR4ikJOR
-	TgJIqpkLvqkP8cuapARj02AaRk7SlOvbglR0mc+BEQF5gTjW2V87UBsz955viBGzAevb9iqcmM/
-	/XVH8x0bg/0XYSUAWrumOP06E8qhrq1vgB/kCldc4C1m4gjwpA5wQRl2bxx8x9T/DZ97yzTiJRu
-	sw2sj6BqKEpbT3gBXyZTyJrWGhRY5Z2UpcFfFyPNdXko0K0JMgOtNpCAHY9iXAoCDH2bFJQq9m5
-	nahfYnp5/UbuEduMoPo6+c7BuZcKYOqjm2RPp00as1Qi4EGbWiXLez8XuNIRxqdkVH8+bLBAt46
-	F0Sb3vP99wPAOWJnaRcckf8gNj3dJf59naR+XqqfOP0Nyz9ApyLpo8jDNcbetpzKHmEeSrCxO91
-	EmX38SyXB1dEAHm/QRBmVWSCJl8xbA68mnda4jZYm/LoewpDuu7GeBsjCZnakjJJLw3jk3KGiYo
-	gz4gZVT
-X-Received: by 2002:a17:902:ecd2:b0:2b0:5a4c:726a with SMTP id d9443c01a7336-2b05a5bbfdfmr53881605ad.43.1773729691244;
-        Mon, 16 Mar 2026 23:41:31 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:a064:c65d:a199:5cb6])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece605231sm124269425ad.27.2026.03.16.23.41.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 23:41:30 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: Rob Herring <robh@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	asahi@lists.linux.dev,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Sasha Finkelstein <fnkl.kernel@gmail.com>,
-	Janne Grunau <j@jannau.net>
-Subject: [PATCH v2 4/4] drm/gem-dma: Support DRM_MODE_DUMB_KERNEL_MAP flag
-Date: Tue, 17 Mar 2026 14:40:46 +0800
-Message-ID: <20260317064049.696795-5-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.851.ga537e3e6e9-goog
-In-Reply-To: <20260317064049.696795-1-wenst@chromium.org>
-References: <20260317064049.696795-1-wenst@chromium.org>
+	Tue, 17 Mar 2026 06:42:24 +0000
+Received: from h205.csg.ci.i.u-tokyo.ac.jp (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 62H6aoNn004343
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Tue, 17 Mar 2026 15:37:01 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=2qTj/MPRuJiylZnoaQuiNLdKeg7j8SVSpRICVfejC5A=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1773729421; v=1;
+        b=IJJliup5F5CFAyULIHCDOBZLOiK/7WMomB0twGnLGpGQwCq93qK4efER5ptNgqGq
+         /UzRtFDyTMRElbxOyUew6EjEtiTBGMJkkXG3wPnZPocamOROcUuhpH/+8cpPFRpf
+         jgWNY3muylH81h/SNRqxmT90LSqORxm2er/99E3AI1kZrdvgsVQaGh/7QSbZmt1R
+         iquVa6hcegWSEB4cqZlbHV7m6cjmxzo9RcFPGO/3qENCr+knGm6wGnMqGhp3XC5C
+         p8Aa0wf5GyPwR9StT//iz18P2GqL3NGMi9g5CCxr3MtnC1u9+t+o+n+ZBT5THgmU
+         v6x7SRfMVqH1MXFQO2zNGQ==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Tue, 17 Mar 2026 15:36:51 +0900
+Subject: [PATCH v4 3/4] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260317-hybrid-v4-3-bd62bcd48644@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260317-hybrid-v4-0-bd62bcd48644@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260317-hybrid-v4-0-bd62bcd48644@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+X-Mailer: b4 0.15-dev-5ab4c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_234132_303098_3A2FF2F4 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260316_234223_949864_8101CBC9 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,224 +84,414 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Herring <robh@kernel.org>
+On a heterogeneous arm64 system, KVM's PMU emulation is based on the
+features of a single host PMU instance. When a vCPU is migrated to a
+pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
+incrementing.
 
-Add support in DMA helpers to handle callers specifying
-DRM_MODE_DUMB_KERNEL_MAP flag. Existing behavior is maintained with this
-change. drm_gem_dma_dumb_create() always creates a kernel mapping as
-before. drm_gem_dma_dumb_create_internal() lets the caller set the flags
-as desired.
+Although this behavior is permitted by the architecture, Windows does
+not handle it gracefully and may crash with a division-by-zero error.
 
-Most drivers that use drm_gem_dma_dumb_create_internal() are already
-using the internal client interface via drm_client_setup*() and
-DRM_FBDEV_DMA_DRIVER_OPS, and do not have other direct kernel
-accesses to the buffer memory internally. Therefore, there is no need
-to add the DRM_MODE_DUMB_KERNEL_MAP flag for them.
+The current workaround requires VMMs to pin vCPUs to a set of pCPUs
+that share a compatible PMU. This is difficult to implement correctly in
+QEMU/libvirt, where pinning occurs after vCPU initialization, and it
+also restricts the guest to a subset of available pCPUs.
 
-The only outlier is the adp driver. The DRM_MODE_DUMB_KERNEL_MAP flag
-is added to its dumb_create() function, adp_drm_gem_dumb_create().
+Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
+create a "fixed-counters-only" PMU. When set, KVM exposes a PMU that is
+compatible with all pCPUs but that does not support programmable
+event counters which may have different feature sets on different PMUs.
 
-Signed-off-by: Rob Herring <robh@kernel.org>
-[wenst@chromium.org: Rebase onto renamed GEM DMA helpers]
-[wenst@chromium.org: show "vaddr=(no mapping)" in drm_gem_dma_print_info()]
-[wenst@chromium.org: Drop DRM_MODE_DUMB_KERNEL_MAP driver changes]
-[wenst@chromium.org: Add DRM_MODE_DUMB_KERNEL_MAP to adp_drm_gem_dumb_create()]
-[wenst@chromium.org: Add flags field to drm_gem_dma_create_with_handle()
-		     kerneldoc]
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+This allows Windows guests to run reliably on heterogeneous systems
+without crashing, even without vCPU pinning, and enables VMMs to
+schedule vCPUs across all available pCPUs, making full use of the host
+hardware.
+
+Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
+attribute provides a getter that facilitates kernel and userspace
+debugging/testing.
+
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 ---
-Changes since v1:
-- Rebased onto renamed GEM DMA helpers
-- Added check in drm_fb_dma_get_scanout_buffer() and drm_gem_dma_vmap().
-- Made drm_gem_dma_print_info() show "vaddr=(no mapping)" for objects
-  allocated without kernel mapping
-- Dropped existing DRM_MODE_DUMB_KERNEL_MAP flag addition in various
-  drivers
-- Added DRM_MODE_DUMB_KERNEL_MAP flag to adp_drm_gem_dumb_create()
-- Added flags field kerneldoc for drm_gem_dma_create_with_handle()
+ Documentation/virt/kvm/devices/vcpu.rst |  29 ++++++
+ arch/arm64/include/asm/kvm_host.h       |   2 +
+ arch/arm64/include/uapi/asm/kvm.h       |   1 +
+ arch/arm64/kvm/arm.c                    |   1 +
+ arch/arm64/kvm/pmu-emul.c               | 158 +++++++++++++++++++++++---------
+ include/kvm/arm_pmu.h                   |   2 +
+ 6 files changed, 150 insertions(+), 43 deletions(-)
 
-Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Janne Grunau <j@jannau.net>
-Cc: asahi@lists.linux.dev
----
- drivers/gpu/drm/adp/adp_drv.c        |  1 +
- drivers/gpu/drm/drm_fb_dma_helper.c  |  4 ++
- drivers/gpu/drm/drm_gem_dma_helper.c | 67 +++++++++++++++++-----------
- 3 files changed, 47 insertions(+), 25 deletions(-)
-
-diff --git a/drivers/gpu/drm/adp/adp_drv.c b/drivers/gpu/drm/adp/adp_drv.c
-index 4554cf75565e..c549b44b3814 100644
---- a/drivers/gpu/drm/adp/adp_drv.c
-+++ b/drivers/gpu/drm/adp/adp_drv.c
-@@ -95,6 +95,7 @@ static int adp_drm_gem_dumb_create(struct drm_file *file_priv,
+diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+index 60bf205cb373..e0aeb1897d77 100644
+--- a/Documentation/virt/kvm/devices/vcpu.rst
++++ b/Documentation/virt/kvm/devices/vcpu.rst
+@@ -161,6 +161,35 @@ explicitly selected, or the number of counters is out of range for the
+ selected PMU. Selecting a new PMU cancels the effect of setting this
+ attribute.
+ 
++1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
++------------------------------------------------------
++
++:Parameters: no additional parameter in kvm_device_attr.addr
++
++:Returns:
++
++	 =======  =====================================================
++	 -EBUSY   Attempted to set after initializing PMUv3 or running
++		  VCPU, or attempted to set for the first time after
++		  setting an event filter
++	 -ENXIO   Attempted to get before setting
++	 -ENODEV  Attempted to set while PMUv3 not supported
++	 =======  =====================================================
++
++If set, PMUv3 will be emulated without programmable event counters. The VCPU
++will use any compatible hardware PMU. This attribute is particularly useful on
++heterogeneous systems where different hardware PMUs cover different physical
++CPUs. The compatibility of hardware PMUs can be checked with
++KVM_ARM_VCPU_PMU_V3_SET_PMU. All VCPUs in a VM share this attribute. It isn't
++possible to set it for the first time if a PMU event filter is already present.
++
++Note that KVM will not make any attempts to run the VCPU on the physical CPUs
++with compatible hardware PMUs. This is entirely left to userspace. However,
++attempting to run the VCPU on an unsupported CPU will fail and KVM_RUN will
++return with exit_reason = KVM_EXIT_FAIL_ENTRY and populate the fail_entry struct
++by setting hardware_entry_failure_reason field to
++KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED and the cpu field to the processor id.
++
+ 2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
+ =================================
+ 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 64302c438355..cdb2916160f5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -350,6 +350,8 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+ 	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
++	/* PMUv3 is emulated without progammable event counters */
++#define KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY	11
+ 	unsigned long flags;
+ 
+ 	/* VM-wide vCPU feature set */
+diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+index ed5f3892674c..7fb7bf07df76 100644
+--- a/arch/arm64/include/uapi/asm/kvm.h
++++ b/arch/arm64/include/uapi/asm/kvm.h
+@@ -436,6 +436,7 @@ enum {
+ #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
+ #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
+ #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
++#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY	5
+ #define KVM_ARM_VCPU_TIMER_CTRL		1
+ #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
+ #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 052bf0d4d0b0..f58d8bd715db 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -628,6 +628,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
+ 	kvm_arch_vcpu_load_fp(vcpu);
++	kvm_vcpu_load_pmu(vcpu);
+ 	kvm_vcpu_pmu_restore_guest(vcpu);
+ 	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+ 		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index ef5140bbfe28..54583a47b4aa 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -326,7 +326,10 @@ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
+ 
+ static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
  {
- 	args->height = ALIGN(args->height, 64);
- 	args->size = args->pitch * args->height;
-+	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
- 
- 	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
- }
-diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/drm_fb_dma_helper.c
-index fd71969d2fb1..12a44accc48c 100644
---- a/drivers/gpu/drm/drm_fb_dma_helper.c
-+++ b/drivers/gpu/drm/drm_fb_dma_helper.c
-@@ -187,6 +187,10 @@ int drm_fb_dma_get_scanout_buffer(struct drm_plane *plane,
- 	if (!dma_obj->vaddr)
- 		return -ENODEV;
- 
-+	/* Buffer was allocated with NO_KERNEL_MAPPING */
-+	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
-+		return -ENODEV;
+-	if (!pmc->perf_event) {
++	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
 +
- 	iosys_map_set_vaddr(&sb->map[0], dma_obj->vaddr);
- 	sb->format = fb->format;
- 	sb->height = fb->height;
-diff --git a/drivers/gpu/drm/drm_gem_dma_helper.c b/drivers/gpu/drm/drm_gem_dma_helper.c
-index 9722c9fc86f3..281fb563f061 100644
---- a/drivers/gpu/drm/drm_gem_dma_helper.c
-+++ b/drivers/gpu/drm/drm_gem_dma_helper.c
-@@ -116,26 +116,8 @@ __drm_gem_dma_create(struct drm_device *drm, size_t size, bool private)
- 	return ERR_PTR(ret);
++	if (!pmc->perf_event ||
++	    !cpumask_test_cpu(vcpu->cpu, &to_arm_pmu(pmc->perf_event->pmu)->supported_cpus)) {
+ 		kvm_pmu_create_perf_event(pmc);
+ 		return;
+ 	}
+@@ -667,10 +670,8 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
+ 	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
  }
  
--/**
-- * drm_gem_dma_create - allocate an object with the given size
-- * @drm: DRM device
-- * @size: size of the object to allocate
-- *
-- * This function creates a DMA GEM object and allocates memory as backing store.
-- * The allocated memory will occupy a contiguous chunk of bus address space.
-- *
-- * For devices that are directly connected to the memory bus then the allocated
-- * memory will be physically contiguous. For devices that access through an
-- * IOMMU, then the allocated memory is not expected to be physically contiguous
-- * because having contiguous IOVAs is sufficient to meet a devices DMA
-- * requirements.
-- *
-- * Returns:
-- * A struct drm_gem_dma_object * on success or an ERR_PTR()-encoded negative
-- * error code on failure.
-- */
--struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
--					      size_t size)
-+static struct drm_gem_dma_object *
-+drm_gem_dma_create_flags(struct drm_device *drm, size_t size, u32 flags)
+-static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
++static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
  {
- 	struct drm_gem_dma_object *dma_obj;
- 	int ret;
-@@ -146,6 +128,9 @@ struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
- 	if (IS_ERR(dma_obj))
- 		return dma_obj;
- 
-+	if (!(flags & DRM_MODE_DUMB_KERNEL_MAP))
-+		dma_obj->dma_attrs |= DMA_ATTR_NO_KERNEL_MAPPING;
-+
- 	if (dma_obj->map_noncoherent) {
- 		dma_obj->vaddr = dma_alloc_noncoherent(drm_dev_dma_dev(drm),
- 						       size,
-@@ -171,6 +156,30 @@ struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
- 	drm_gem_object_put(&dma_obj->base);
- 	return ERR_PTR(ret);
+-	struct arm_pmu *pmu = kvm->arch.arm_pmu;
+-
+ 	/*
+ 	 * The CPU PMU likely isn't PMUv3; let the driver provide a mapping
+ 	 * for the guest's PMUv3 event ID.
+@@ -681,6 +682,23 @@ static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
+ 	return eventsel;
  }
-+
-+/**
-+ * drm_gem_dma_create - allocate an object with the given size
-+ * @drm: DRM device
-+ * @size: size of the object to allocate
-+ *
-+ * This function creates a DMA GEM object and allocates memory as backing store.
-+ * The allocated memory will occupy a contiguous chunk of bus address space.
-+ *
-+ * For devices that are directly connected to the memory bus then the allocated
-+ * memory will be physically contiguous. For devices that access through an
-+ * IOMMU, then the allocated memory is not expected to be physically contiguous
-+ * because having contiguous IOVAs is sufficient to meet a devices DMA
-+ * requirements.
-+ *
-+ * Returns:
-+ * A struct drm_gem_dma_object * on success or an ERR_PTR()-encoded negative
-+ * error code on failure.
-+ */
-+struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
-+					      size_t size)
+ 
++static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
 +{
-+	return drm_gem_dma_create_flags(drm, size, DRM_MODE_DUMB_KERNEL_MAP);
-+}
- EXPORT_SYMBOL_GPL(drm_gem_dma_create);
- 
- /**
-@@ -179,6 +188,7 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_create);
-  * @file_priv: DRM file-private structure to register the handle for
-  * @drm: DRM device
-  * @size: size of the object to allocate
-+ * @flags: DRM_MODE_DUMB_* flags if any
-  * @handle: return location for the GEM handle
-  *
-  * This function creates a DMA GEM object, allocating a chunk of memory as
-@@ -194,14 +204,14 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_create);
-  */
- static struct drm_gem_dma_object *
- drm_gem_dma_create_with_handle(struct drm_file *file_priv,
--			       struct drm_device *drm, size_t size,
-+			       struct drm_device *drm, size_t size, u32 flags,
- 			       uint32_t *handle)
- {
- 	struct drm_gem_dma_object *dma_obj;
- 	struct drm_gem_object *gem_obj;
- 	int ret;
- 
--	dma_obj = drm_gem_dma_create(drm, size);
-+	dma_obj = drm_gem_dma_create_flags(drm, size, DRM_MODE_DUMB_KERNEL_MAP);
- 	if (IS_ERR(dma_obj))
- 		return dma_obj;
- 
-@@ -283,7 +293,7 @@ int drm_gem_dma_dumb_create_internal(struct drm_file *file_priv,
- 		args->size = args->pitch * args->height;
- 
- 	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
--						 &args->handle);
-+						 args->flags, &args->handle);
- 	return PTR_ERR_OR_ZERO(dma_obj);
- }
- EXPORT_SYMBOL_GPL(drm_gem_dma_dumb_create_internal);
-@@ -313,12 +323,13 @@ int drm_gem_dma_dumb_create(struct drm_file *file_priv,
- 	struct drm_gem_dma_object *dma_obj;
- 	int ret;
- 
-+	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
- 	ret = drm_mode_size_dumb(drm, args, 0, 0);
- 	if (ret)
- 		return ret;
- 
- 	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
--						 &args->handle);
-+						 args->flags, &args->handle);
- 	return PTR_ERR_OR_ZERO(dma_obj);
- }
- EXPORT_SYMBOL_GPL(drm_gem_dma_dumb_create);
-@@ -412,7 +423,10 @@ void drm_gem_dma_print_info(const struct drm_gem_dma_object *dma_obj,
- 			    struct drm_printer *p, unsigned int indent)
- {
- 	drm_printf_indent(p, indent, "dma_addr=%pad\n", &dma_obj->dma_addr);
--	drm_printf_indent(p, indent, "vaddr=%p\n", dma_obj->vaddr);
-+	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
-+		drm_printf_indent(p, indent, "vaddr=(no mapping)\n");
-+	else
-+		drm_printf_indent(p, indent, "vaddr=%p\n", dma_obj->vaddr);
- }
- EXPORT_SYMBOL(drm_gem_dma_print_info);
- 
-@@ -511,6 +525,9 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_prime_import_sg_table);
- int drm_gem_dma_vmap(struct drm_gem_dma_object *dma_obj,
- 		     struct iosys_map *map)
- {
-+	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
-+		return -ENOMEM;
++	struct arm_pmu_entry *entry;
++	struct arm_pmu *pmu;
 +
- 	iosys_map_set_vaddr(map, dma_obj->vaddr);
++	guard(rcu)();
++
++	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
++		pmu = entry->arm_pmu;
++
++		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
++			return pmu;
++	}
++
++	return NULL;
++}
++
+ /**
+  * kvm_pmu_create_perf_event - create a perf event for a counter
+  * @pmc: Counter context
+@@ -694,6 +712,14 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	int eventsel;
+ 	u64 evtreg;
  
- 	return 0;
++	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags)) {
++		arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
++		if (!arm_pmu) {
++			vcpu_set_on_unsupported_cpu(vcpu);
++			return;
++		}
++	}
++
+ 	evtreg = kvm_pmc_read_evtreg(pmc);
+ 
+ 	kvm_pmu_stop_counter(pmc);
+@@ -722,7 +748,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	 * Don't create an event if we're running on hardware that requires
+ 	 * PMUv3 event translation and we couldn't find a valid mapping.
+ 	 */
+-	eventsel = kvm_map_pmu_event(vcpu->kvm, eventsel);
++	eventsel = kvm_map_pmu_event(arm_pmu, eventsel);
+ 	if (eventsel < 0)
+ 		return;
+ 
+@@ -810,42 +836,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+ 	list_add_tail_rcu(&entry->entry, &arm_pmus);
+ }
+ 
+-static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+-{
+-	struct arm_pmu_entry *entry;
+-	struct arm_pmu *pmu;
+-	int cpu;
+-
+-	guard(rcu)();
+-
+-	/*
+-	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
+-	 * the same value is used for the entirety of the loop. Given this, and
+-	 * the fact that no percpu data is used for the lookup there is no need
+-	 * to disable preemption.
+-	 *
+-	 * It is still necessary to get a valid cpu, though, to probe for the
+-	 * default PMU instance as userspace is not required to specify a PMU
+-	 * type. In order to uphold the preexisting behavior KVM selects the
+-	 * PMU instance for the core during vcpu init. A dependent use
+-	 * case would be a user with disdain of all things big.LITTLE that
+-	 * affines the VMM to a particular cluster of cores.
+-	 *
+-	 * In any case, userspace should just do the sane thing and use the UAPI
+-	 * to select a PMU type directly. But, be wary of the baggage being
+-	 * carried here.
+-	 */
+-	cpu = raw_smp_processor_id();
+-	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
+-		pmu = entry->arm_pmu;
+-
+-		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
+-			return pmu;
+-	}
+-
+-	return NULL;
+-}
+-
+ static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
+ {
+ 	u32 hi[2], lo[2];
+@@ -888,6 +878,9 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ 	u64 val, mask = 0;
+ 	int base, i, nr_events;
+ 
++	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags))
++		return 0;
++
+ 	if (!pmceid1) {
+ 		val = compute_pmceid0(cpu_pmu);
+ 		base = 0;
+@@ -915,6 +908,26 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ 	return val & mask;
+ }
+ 
++void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu)
++{
++	unsigned long mask = kvm_pmu_enabled_counter_mask(vcpu);
++	struct kvm_pmc *pmc;
++	struct arm_pmu *cpu_pmu;
++	int i;
++
++	for_each_set_bit(i, &mask, 32) {
++		pmc = kvm_vcpu_idx_to_pmc(vcpu, i);
++		if (!pmc->perf_event)
++			continue;
++
++		cpu_pmu = to_arm_pmu(pmc->perf_event->pmu);
++		if (!cpumask_test_cpu(vcpu->cpu, &cpu_pmu->supported_cpus)) {
++			kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
++			break;
++		}
++	}
++}
++
+ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
+ {
+ 	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+@@ -1016,6 +1029,9 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+ {
+ 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+ 
++	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags))
++		return 0;
++
+ 	/*
+ 	 * PMUv3 requires that all event counters are capable of counting any
+ 	 * event, though the same may not be true of non-PMUv3 hardware.
+@@ -1070,7 +1086,24 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
+  */
+ int kvm_arm_set_default_pmu(struct kvm *kvm)
+ {
+-	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu();
++	/*
++	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
++	 * the same value is used for the entirety of the loop. Given this, and
++	 * the fact that no percpu data is used for the lookup there is no need
++	 * to disable preemption.
++	 *
++	 * It is still necessary to get a valid cpu, though, to probe for the
++	 * default PMU instance as userspace is not required to specify a PMU
++	 * type. In order to uphold the preexisting behavior KVM selects the
++	 * PMU instance for the core during vcpu init. A dependent use
++	 * case would be a user with disdain of all things big.LITTLE that
++	 * affines the VMM to a particular cluster of cores.
++	 *
++	 * In any case, userspace should just do the sane thing and use the UAPI
++	 * to select a PMU type directly. But, be wary of the baggage being
++	 * carried here.
++	 */
++	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
+ 
+ 	if (!arm_pmu)
+ 		return -ENODEV;
+@@ -1099,6 +1132,7 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 			}
+ 
+ 			kvm_arm_set_pmu(kvm, arm_pmu);
++			clear_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
+ 			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
+ 			ret = 0;
+ 			break;
+@@ -1108,11 +1142,42 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 	return ret;
+ }
+ 
++static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++	struct arm_pmu_entry *entry;
++	struct arm_pmu *arm_pmu;
++	struct cpumask *supported_cpus = kvm->arch.supported_cpus;
++
++	lockdep_assert_held(&kvm->arch.config_lock);
++
++	if (kvm_vm_has_ran_once(kvm) ||
++	    (kvm->arch.pmu_filter &&
++	     !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags)))
++		return -EBUSY;
++
++	kvm_arm_set_nr_counters(kvm, 0);
++	set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
++	cpumask_clear(supported_cpus);
++
++	guard(rcu)();
++
++	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
++		arm_pmu = entry->arm_pmu;
++		cpumask_or(supported_cpus, supported_cpus, &arm_pmu->supported_cpus);
++	}
++
++	return 0;
++}
++
+ static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+ 
+-	if (!kvm->arch.arm_pmu)
++	lockdep_assert_held(&kvm->arch.config_lock);
++
++	if (!kvm->arch.arm_pmu &&
++	    !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags))
+ 		return -EINVAL;
+ 
+ 	if (n > kvm_arm_pmu_get_max_counters(kvm))
+@@ -1227,6 +1292,8 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 
+ 		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
+ 	}
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
++		return kvm_arm_pmu_v3_set_pmu_fixed_counters_only(vcpu);
+ 	case KVM_ARM_VCPU_PMU_V3_INIT:
+ 		return kvm_arm_pmu_v3_init(vcpu);
+ 	}
+@@ -1253,6 +1320,10 @@ int kvm_arm_pmu_v3_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 		irq = vcpu->arch.pmu.irq_num;
+ 		return put_user(irq, uaddr);
+ 	}
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
++		lockdep_assert_held(&vcpu->kvm->arch.config_lock);
++		if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags))
++			return 0;
+ 	}
+ 
+ 	return -ENXIO;
+@@ -1266,6 +1337,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 	case KVM_ARM_VCPU_PMU_V3_FILTER:
+ 	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
+ 	case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+ 		if (kvm_vcpu_has_pmu(vcpu))
+ 			return 0;
+ 	}
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 96754b51b411..1375cbaf97b2 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -56,6 +56,7 @@ void kvm_pmu_software_increment(struct kvm_vcpu *vcpu, u64 val);
+ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val);
+ void kvm_pmu_set_counter_event_type(struct kvm_vcpu *vcpu, u64 data,
+ 				    u64 select_idx);
++void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu);
+ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu,
+ 			    struct kvm_device_attr *attr);
+@@ -161,6 +162,7 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu) {}
++static inline void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu) {}
+ static inline u8 kvm_arm_pmu_get_pmuver_limit(void)
+ {
+
 -- 
-2.53.0.851.ga537e3e6e9-goog
+2.53.0
 
 
