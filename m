@@ -4,145 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D614FF6E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 23:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25159FF6E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 23:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8Hn/LMKXfQtV3rgy7V0S9c2vIPq86UUMXtQNhoA2vk=; b=J7JAHP40ktlEJ0fJ4zA9qUdHD2
-	zbAPbslL2cFLWQOTD5Sz4lsZ+31e7yDDFDcLNymIn7LA8ZAyWghAJNxdBTw224v6j3BwfkpVHUOWE
-	eadeMrM9IuRSztW4quuj7uKUWh5Qmbp3G//NhyLwFmm9AD7vpS+/VfDpxxsf1GKjMPAe0AvAw4/V3
-	Ctv2G9smgz2/UfU//hJu8qxMPfsNdnvrOC/vIrz9q/Y1JPuiK5QUkDBAq05EFVGWtznp8/FaR+I+H
-	jGlz1UJ3BrCo9o9+yDipL2RJmVSqRycZoIrnkenRReiQtyan0DrYgCAxNCNRkPAOqAJz4dTFJZC4w
-	BnEvrq0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kJoUp3Q7Db7z/LjUQKX/kaAGrPjOPzZp3d+tGcQKJXg=; b=GL1dWL+Rw6eql27ROsaLJ/9pK1
+	z16MKU0PfxDjL9ukBjiN2G9jdlyYpvAY344Tr1+PrpNtSKsw8H/dAKU9wSyAa/1Y+GPBDx6VovY0e
+	QXisQGXu4miGeVN4XMFL/l+ZegTdPahcpkMPFdSF+Fs7UcsXtYan1OrgP2L4uDx8VNf6dhG5l+0Jq
+	5C814mIS/aLHA6+3dEQ7rgUB+LXXJY122f/+ypR08eFFrBxpEwktDalT1aVub2/zbgkXq1joQl7SK
+	+lGHK21LFlGZoZu0vTESpxThuotGFWJ2oX8Cn3dTKnHrQEsHXTLuQ0uk7cwb4ZWi3NZiUA8FId2jJ
+	mcc4Q73Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dWI-00000007PwK-1NC5;
-	Tue, 17 Mar 2026 23:08:14 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w2dyQ-00000007SuF-0KZP;
+	Tue, 17 Mar 2026 23:37:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dUZ-00000007MJw-0sOa;
-	Tue, 17 Mar 2026 23:06:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xHrEMWt4IfRZ239bQyHZ/p+l827kY40aNR7Vw/80h5uyg1hHMb0ODpUKBUbBHMiEskJWvAhHtK9qR9RF5K84dnvhSc+qidZsxHDYz38Zy1v6aeMM04U/IBpHeUmVPZXRtQRqgNrLqzRWKBW8dAzC2bPNsm1sPw+phKdcqVoe6W8cwyUYmAq7EcLfaS3JKTRS+MhCNn0b5LYNnIZuzC9RX5Dh9jJY3kvCZjKR/1jMy6tOge5K5tRhUDnbOwXo4r0EsA5o4GHbl7GUBeIsKseTvcuDvw7WBnuNf+/4AhtpX6c6wHHYRw98wCEQFmBMiRjwgi2M9Rk/6lz9pMXK7EYVZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E8Hn/LMKXfQtV3rgy7V0S9c2vIPq86UUMXtQNhoA2vk=;
- b=JxkTAS2RQeju6I8uPgYsJ7vEK9YJ1XNvRe80/U7sSAxSl9+LJ3vbiQKYHTVjsZ1CMQHxv4mT/U1IcxzzGrl3cS5Suz5SWnQI+qLin6CWzPrT0EP0WM57NBdsMjXuBBVtpMUt1rXX5VW1pmoEIb0Mcom3kXADBM/u4XhXU9sjkJnV+n6NxInLvI1L6OGbNvYR/HdISDBxdRBWWwwHMBUyFjS4Y3D6OcvWuKKucUyUjGTJ1RrhRHh/jO00W4ZLhm83yOgB85Vb1FmFrXCYmk0UCeeYpIgcIFkkzinXN2lwQlnNnxogDVj5/fXLAj/tXhVTCkbBTX7lmcQokvXfs+e9Mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E8Hn/LMKXfQtV3rgy7V0S9c2vIPq86UUMXtQNhoA2vk=;
- b=FxiDZhiN6GicpbqBomAvjrIobbc9qM5iRhGg23oBW6gPE7tl4CMo/ThtY0qiqb3RiRJVSnbMZxqSptCueajXEGIS9Y/g18eClQO45POj3APxYjR8l5HGA+BBXybTkbykkCMPBBXiMKCtWImLwCgjobyiIIkTV+hnk2Ow5Y2zAjeDBFF4k/gO6m7VTWcIYakTbONes8Rj3ULU89kK8gnqZtSaXrPnluWzrMhzRLwLAN0lx/pnrDT8QNFdCqfOq03WtCY9RpVN9YpQLvqlJ703ErZdGG/zQVQ8JSftFRiRGoK6aOesUdjGFjsdm+IsLQjVTT2ory2mXgRajnZO2DUkuQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by DBBPR04MB7643.eurprd04.prod.outlook.com (2603:10a6:10:203::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Tue, 17 Mar
- 2026 23:06:00 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
- 23:06:00 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com,
-	Joe Perches <joe@perches.com>
-Subject: [PATCH v4 phy-next 24/24] MAINTAINERS: add regexes for linux-phy
-Date: Wed, 18 Mar 2026 01:05:00 +0200
-Message-ID: <20260317230500.2056077-25-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
-References: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: VI1PR0102CA0041.eurprd01.prod.exchangelabs.com
- (2603:10a6:803::18) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DBBPR04MB7643:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79462e4b-d455-47bf-f634-08de8479c11f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|10070799003|1800799024|376014|7416014|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YespgONs2DDl7GOcblybxKGg6iHJbD8qjQ7M/RLDZ2LcEJvP+P5re7NN3orYg8lOZ8y6yNmPJYa+sN4P6teiwZ0+niMg3O+Qj7VGSVYj+AVUemPFJntcYvueai6lhGShGOqAAePfHVpW5Hd2b7UIQ5lADcn+Sq4FRqKQSPhEtACC0k0DSl/ObKQAEcCuZezKy07lRktFyHBm1WQGI2sP6HwMiJzfvZM2Qk3om9FMHMC2AvfzphySS2mgkg2WdrSAMFRS50GPNiqRZUqLrjnWWA6EWXikWNKaBoEwgNZKXlAAv7pzZtMpC/JrukGGry8Kd+DL75Re+8jZNOIoDPURQrSoG8ilgmizF1AcGSSA0j139TOqyUEO2OuXk55OEXFp+Fmv4G5y3WbzfzJ4sUXIVo/AMhJ0cUkZwuN6R74yVsB7fAJZgm395ZCNMS2zQ28atWx+QWwjK8UFNgMU5N/fLXq/uKm8okMkgJBt8C/LWjB5Nqjo+gtJ/M2nm18mENHA8HqBuqanP/1KsJSFmThAgevKu8jR33v8ZsUvYVTgIIW1UCvFirxTO6DH+cjAwlrmdwNDb4FecltaqMHEPsKDKXgH+wfLXjwFu7O8Ju7cvl0Fp8+mJNVBR40T1AMLefsPKZumcoSV2g0kbpm7FE7WwWW9GsVGp3ORqrLjsZ60FO64xotYQY5bA1YavooKOaJYMhvFQU9DpWdykdF4swI9MrTv1VIWWauJr824sIcYuBE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(10070799003)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?594FUG5RmhKOO6XFFiU6HjEcrYvACWipdketJ3hfr/2KkPusQUr6eN3tF2pq?=
- =?us-ascii?Q?swwZH+MSB6Qa92LO7jG5/vHdSKkf1DAA2ap5LLQoC27QnvdWFUm55UPOnzO/?=
- =?us-ascii?Q?doMNmw1QgkPmSC7fBWCZZ18R272IRjN0rij9wY6YDl124nIKk0eGx/R9gA+d?=
- =?us-ascii?Q?bkqKrwUpiuPiSLUtU9qPOgc8XPgW2fIk7U6nlgLGrl5+Vd09l7DrNGhN1FcI?=
- =?us-ascii?Q?b2tqGgoC2UmGYALMTL0U5hZd0Dp+FaqalVW1/go3npaJtu3wa1ZwjmyV936K?=
- =?us-ascii?Q?0qnevCH0IFxuIwMfKEPxioJQ15yq3OAhuqjiuu6Zc0PPqUk+k+/nH+dkmCvl?=
- =?us-ascii?Q?fyzfLXMOAsJX21FO7Hbds4vGqoag+9N2nkfhQj8XFGX1EuRLOCdkiplr2hTL?=
- =?us-ascii?Q?A0pzknC4g4xTfoQbF4o2FprMHW6LeaxuzvObQnr+9XrjwFvsvLG2UO4vG52n?=
- =?us-ascii?Q?p1P92TIXB8XjvBG68remkpLDPcZ4+21/0EVm5xIOYOSJsRmJ1jbVYTPkgi1Q?=
- =?us-ascii?Q?3jpb+TzQbYXMfhaG1FCRUK8fto04GLsAHIEXDx3WAL8gcPX9QdH6qVvRGmFp?=
- =?us-ascii?Q?x9xDvihB3yxgwl1HCyFzHayN2wZDX9Y3yYA3Fqnr388l+ngzrUaLoXtspClM?=
- =?us-ascii?Q?XC5vEEB4ukutkyjIROegku3OfKFworWONjZy2SJjSqaOPVoqs42GnLE/h/U0?=
- =?us-ascii?Q?NgG7Q01c3yz6A7VTA+33pP9JdFYc12GgdoIw77N2qQO8Vo/umIW8warl28tx?=
- =?us-ascii?Q?3Uxaq5f6T7zcQMV2uiWPUTGtjwbcfu5KybeooVFpZzB3mQBC0sQdIOwOwZqU?=
- =?us-ascii?Q?scFwmQvnzD+jOAv20TD5FBOW49OWw4Q0wqM3Iab5Jfri4mtpIe1xRPU2eviw?=
- =?us-ascii?Q?0uMERKJNkOlEiSZRijbswHDBUQzLO+iDivkIqiWnq6xeEWP3yjyGqIq+OdS5?=
- =?us-ascii?Q?ItW7++uqeRrIclH+AUj8iOUQzjZBSsb+adEWUB2M0Esgo9bE6vjle5H1WMyu?=
- =?us-ascii?Q?2GVBc0vHdQfjlsG7Ylgx7FaK2KyyagF3dTNEx4XP+5uKMdJt90PbvOyXeWSv?=
- =?us-ascii?Q?Ma5R4IQyx143YMq5qOHOBiF27PwpbOtb7RAyeNXqoEe4AfLLYAwXi8p8eUea?=
- =?us-ascii?Q?YgrEZu/xNgTRQyJf8B31nOiE6jkGawq1M1k05BdKhKTlYQrAyeVAKOvABBeF?=
- =?us-ascii?Q?ARh+TzOu9zYPW8PS3YMY/M2deCn4rGhqD8B0Bg7fXf6fQSU4WqsWjFn9Ugia?=
- =?us-ascii?Q?fTxefy+G3Atza7+o1LG1cKQsOTb7lWNWv1C5e1iXNZHrSMqh5ZB4IKDJOhfX?=
- =?us-ascii?Q?y+6zS1qCoCvcA08JifGindOhIiOmHL/vCOZ03zpRVxHhz0ayKP/848GPLzcQ?=
- =?us-ascii?Q?WJEeDiLBLvHqknbOVjuJbcyYaNX4zkNVZGbGbpnK5uzlyyWhLc6Xo7fmpYZo?=
- =?us-ascii?Q?RApqTA4sUv+3TUU9RoWoGSWOn9WVSJZVoeAyaN0zSf4PrVVnvwitkDYtl6zv?=
- =?us-ascii?Q?M8oEO3BxJRGoGN/RrnTY3+J5f07WV0rETfcG4OT2F7pS7sSbKs3Y8kqE5gzD?=
- =?us-ascii?Q?pYFEg6vjLtd2R4k+EQuYK0HjY9GFffbQETwOhQ9/pqQ2hFC12RxYZYInE18N?=
- =?us-ascii?Q?cU9HqTMxyX8bEoo68ACw87IvIB1u46pg/0o6aRKy9IkRYg1/sR6ABqSEoVp5?=
- =?us-ascii?Q?ztonKsnrWM1YcSaM2d59f+ffq4qEcDLXTLC6IbzLa4WEVYnhlxdFEBhC0BdY?=
- =?us-ascii?Q?auBZ1aLx4dth6tyn/kc6ap544OHglYlJ/ARKrgIXOwp1clntAUQ3mIGTlzQc?=
-X-MS-Exchange-AntiSpam-MessageData-1: 7NTM5pggdFSJZ2cCYG8wK+kUHaPXZd8bZwg=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79462e4b-d455-47bf-f634-08de8479c11f
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 23:06:00.1618
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iYq8izQWzR6T+6vW2KgHfT/LjN0LUr1zqCB5fJRSZCO1H5KcrLyYIv/qB3cmRPsswAjziyoG4axbKjD5PmMfsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7643
+	id 1w2dyN-00000007Stb-3v7R
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Mar 2026 23:37:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=kJoUp3Q7Db7z/LjUQKX/kaAGrPjOPzZp3d+tGcQKJXg=; b=bkof8Iqj/X/uMHdqay+1UULvVV
+	5PfcP2Ubq9BnGq6xuFZt6KZDg5FIQwdObe8oW+iwgNx66JCllB19tervgI+5V/6Dd9fsa63hWblrl
+	PnW0s8ijmbMqXhFrci2hOomNDH+oiSzKhKj1Ak03ljAXcyG/SuiD2CVeWp+xuHnBq/dsE5auXYVGQ
+	jqkHQmgdRwAE+LylzPnNTvCJdCmQKfcmIb+46NR3tEmU7vF+fhahvfsHe9XwVuxQCz02WRv5tAj+Y
+	m9Gq91TngLHfztuCVhD42ChL9kEhL4e1buacuAAKEmGtzYxbwgXcDCPvb3soKWFXU1OcrMW+w5/8X
+	Gj6iC06Q==;
+Received: from mgamail.intel.com ([192.198.163.13])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2dyB-0000000AA1l-32by
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 23:37:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773790624; x=1805326624;
+  h=date:from:to:cc:subject:message-id;
+  bh=asmA0ptVnAxSNXw4Kv98IwfV+94Th6aDiEMYEh/Wdj0=;
+  b=QutDem54Idg9910ROnIQW2s/jZr22yOY4vZNbOBS056bnCT/d9wglR23
+   60Xtw6SiLIHOx+6gXDM/cLGGXWsfSEx0pb3hTQsknAYOFjIxmcjWT0pV6
+   ZqnMj2AJqsSCLryptKfk1j2wOeZRKuBGFBFXtQsfX85xHcMLtgSubmBi5
+   sWa1TYTT+Iy9C55TfpzwBjWpx+zsJ+bKDSFwhPmnf6p/9EkWcRiLqsUOI
+   WeSz8MXVlYVsHjyQ+MHxThdSsjTmTonQ4Qu3UGOA06SpNRN3VemCf+ixS
+   TOdta2EM5B0Jh8e2DTJUugFOJuClT43HR3ngb9iGzCmdhwPxgD7cyE8R4
+   A==;
+X-CSE-ConnectionGUID: UahFJHjjSditIkDeWCOI6w==
+X-CSE-MsgGUID: z6eQx8Y0Rv22Wk1ytzGyOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="77448782"
+X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
+   d="scan'208";a="77448782"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 16:36:57 -0700
+X-CSE-ConnectionGUID: wXXpOvfrSCCPKRmqQyQfiQ==
+X-CSE-MsgGUID: ZSWC+nV4Qt2zxZbi5NSBXQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,126,1770624000"; 
+   d="scan'208";a="252905238"
+Received: from lkp-server01.sh.intel.com (HELO 63737dd503cb) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 17 Mar 2026 16:36:53 -0700
+Received: from kbuild by 63737dd503cb with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w2dxy-000000002An-1iEP;
+	Tue, 17 Mar 2026 23:36:50 +0000
+Date: Wed, 18 Mar 2026 07:36:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ d9ef8c91c4bba8160853a76ba0dc99919acef0ab
+Message-ID: <202603180757.IZT5fuDj-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_160627_438891_FFDE8B71 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260317_233709_922972_1021868B 
+X-CRM114-Status: UNSURE (   4.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,75 +98,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some pragmatic shortcuts are being taken by PHY consumer driver authors,
-which put a burden on the framework. A lot of these can be caught during
-review.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: d9ef8c91c4bba8160853a76ba0dc99919acef0ab  Merge tag 'renesas-dts-for-v7.1-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/dt
 
-Make sure the linux-phy list is copied on as many keywords that regexes
-can reasonably catch.
+elapsed time: 842m
 
-Some considerations that led to this solution and not a simpler one:
-- Consumers may be located anywhere, and their file naming provides no
-  indication whatsoever that they are PHY API consumers.
-- The network PHY API has similarly sounding API: phy_start(),
-  phy_connect(), etc. Similarly, matching on "phy" would hit
-  phys_addr_t, "cryptography", etc.
-- The header files themselves need attention to avoid matching on
-  include/linux/phy.h (network PHY), include/linux/usb/phy.h,
-  drivers/net/vendor/device/phy.h, etc.
-- At least for a transitional period, I suppose developers will still
-  try to add PHY providers outside the subsystem (which is discouraged).
+configs tested: 115
+configs skipped: 149
 
-So I used \b to try to match on actual word boundaries and I went for
-listing all markers of PHY API use as they may appear in patch contexts.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Bit rot is a valid concern. I will add a test to the build automation
-that newly introduced struct and function names in include/linux/phy.h,
-include/linux/phy-props.h and drivers/phy/phy-provider.h are matched by
-the MAINTAINERS entry K: patterns.
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    clang-23
+arc                   randconfig-001-20260318    gcc-8.5.0
+arc                   randconfig-002-20260318    gcc-8.5.0
+arm                               allnoconfig    clang-23
+arm                               allnoconfig    gcc-15.2.0
+arm                              allyesconfig    gcc-15.2.0
+arm                      jornada720_defconfig    clang-23
+arm                   randconfig-001-20260318    gcc-8.5.0
+arm                   randconfig-002-20260318    gcc-8.5.0
+arm                   randconfig-003-20260318    gcc-8.5.0
+arm                   randconfig-004-20260318    gcc-8.5.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-15.2.0
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+hexagon                          allmodconfig    gcc-15.2.0
+hexagon                           allnoconfig    gcc-15.2.0
+hexagon               randconfig-001-20260318    gcc-8.5.0
+hexagon               randconfig-002-20260318    gcc-8.5.0
+i386                              allnoconfig    gcc-15.2.0
+i386        buildonly-randconfig-001-20260318    gcc-14
+i386        buildonly-randconfig-002-20260318    gcc-14
+i386        buildonly-randconfig-003-20260318    gcc-14
+i386        buildonly-randconfig-004-20260318    gcc-14
+i386        buildonly-randconfig-005-20260318    gcc-14
+i386        buildonly-randconfig-006-20260318    gcc-14
+i386                  randconfig-001-20260318    gcc-14
+i386                  randconfig-002-20260318    gcc-14
+i386                  randconfig-003-20260318    gcc-14
+i386                  randconfig-004-20260318    gcc-14
+i386                  randconfig-005-20260318    gcc-14
+i386                  randconfig-006-20260318    gcc-14
+i386                  randconfig-007-20260318    gcc-14
+loongarch                        allmodconfig    clang-23
+loongarch                         allnoconfig    gcc-15.2.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260318    gcc-8.5.0
+loongarch             randconfig-002-20260318    gcc-8.5.0
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                                defconfig    clang-19
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    clang-19
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+nios2                            allmodconfig    clang-23
+nios2                             allnoconfig    clang-23
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260318    gcc-8.5.0
+nios2                 randconfig-002-20260318    gcc-8.5.0
+openrisc                         allmodconfig    clang-23
+openrisc                          allnoconfig    clang-23
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    clang-23
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260318    gcc-11.5.0
+parisc                randconfig-002-20260318    gcc-11.5.0
+parisc64                            defconfig    clang-19
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    clang-23
+powerpc               randconfig-001-20260318    gcc-11.5.0
+powerpc               randconfig-002-20260318    gcc-11.5.0
+powerpc64             randconfig-001-20260318    gcc-11.5.0
+powerpc64             randconfig-002-20260318    gcc-11.5.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    clang-23
+riscv                               defconfig    gcc-15.2.0
+riscv                 randconfig-001-20260318    gcc-15.2.0
+riscv                 randconfig-002-20260318    gcc-15.2.0
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    gcc-15.2.0
+s390                  randconfig-001-20260318    gcc-15.2.0
+s390                  randconfig-002-20260318    gcc-15.2.0
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    clang-23
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20260318    gcc-15.2.0
+sh                    randconfig-002-20260318    gcc-15.2.0
+sparc                             allnoconfig    clang-23
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260318    gcc-13.4.0
+sparc                 randconfig-002-20260318    gcc-13.4.0
+sparc64                          allmodconfig    clang-23
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260318    gcc-13.4.0
+sparc64               randconfig-002-20260318    gcc-13.4.0
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-15.2.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260318    gcc-13.4.0
+um                    randconfig-002-20260318    gcc-13.4.0
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-23
+x86_64      buildonly-randconfig-001-20260318    gcc-14
+x86_64      buildonly-randconfig-002-20260318    gcc-14
+x86_64      buildonly-randconfig-003-20260318    gcc-14
+x86_64      buildonly-randconfig-004-20260318    gcc-14
+x86_64      buildonly-randconfig-005-20260318    gcc-14
+x86_64      buildonly-randconfig-006-20260318    gcc-14
+x86_64                              defconfig    gcc-14
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+xtensa                            allnoconfig    clang-23
+xtensa                           allyesconfig    clang-23
+xtensa                randconfig-001-20260318    gcc-13.4.0
+xtensa                randconfig-002-20260318    gcc-13.4.0
 
-The keyword patterns were written with great help from Joe Perches
-<joe@perches.com>.
-
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
-Cc: Joe Perches <joe@perches.com>
-
-v3->v4: none
-v2->v3:
-- escape forward slash in linux/phy/phy.h in regex pattern:
-  https://lore.kernel.org/linux-phy/9fd14d166e860f26febfbc9061a6dcae6a166961.camel@perches.com/
-v1->v2:
-- split into multiple regex patterns
-- use matching-only (insted of capturing) regex patterns
-- adjust commit message to reflect the Q&A from v1
----
- MAINTAINERS | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 55af015174a5..cd920f14abde 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10713,6 +10713,17 @@ F:	Documentation/devicetree/bindings/phy/
- F:	drivers/phy/
- F:	include/dt-bindings/phy/
- F:	include/linux/phy/
-+K:	(?:linux\/phy\/phy\.h|phy-props\.h|phy-provider\.h)
-+K:	\b(?:__)?(?:devm_)?(?:of_)?phy_(?:create|destroy|provider_(?:un)?register)\b
-+K:	\bphy_(?:create|remove)_lookup\b
-+K:	\bphy_(?:get|set)_drvdata\b
-+K:	\b(?:devm_)?(?:of_)?phy_(?:optional_)?(?:get|put)(?:_by_index)?\b
-+K:	\bphy_pm_runtime_(?:get|put)(?:_sync)?\b
-+K:	\bphy_(?:init|exit|power_(?:on|off))\b
-+K:	\bphy_(?:get|set)_(?:mode(?:_ext)?|media|speed|bus_width|max_link_rate)\b
-+K:	\bphy_(?:reset|configure|validate|calibrate)\b
-+K:	\bphy_notify_(?:connect|disconnect|state)\b
-+K:	\bstruct\s+phy(?:_ops|_attrs|_lookup|_provider)?\b
- 
- GENERIC PINCTRL I2C DEMULTIPLEXER DRIVER
- M:	Wolfram Sang <wsa+renesas@sang-engineering.com>
--- 
-2.43.0
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
