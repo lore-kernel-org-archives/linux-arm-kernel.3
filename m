@@ -4,135 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F42F33801
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293D5F33801
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MaHhvbgo9Z11Kl07CwQF8IrqScu9wSu0DkzGKLFcYfA=; b=PGvh6E8eSdcjMeBYvRPQBG79l7
-	rWPx50nuKOhsgHrwcZPvZwROdI9CS0zn2+54ySdDK8GD9BSzddqO77NCFVc0Ohck4hmeHm9UELZSL
-	PW0zFQdLUSFOI35HsLOJGDcGUxGNj7eBiR99AeXcelhayvrmMmXtFmt5PCS3AU+w1HQmuzeEfY4co
-	Q3+TXoITHkVOQT/O5hZO3jaaz0xPWnVMBUaVimhGOh+IBsHETKDS1GFTypr4J66Kgzqv3rpL9D1vq
-	DzetbnCTOmlEOn5RxIEQnqwLYN4II4o5oTrRJr+03NeThgnGe8g/1FaVJv0FOYLeg3XV2xI+hMsLk
-	82HEfihw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=grG6esplvyUewgvA3Y3jc/bN8nKq9yVtK9UsxaYqAWg=; b=SEIU/sL+io38IRTjm6vuAqku2y
+	ZM6dQYLxm/iDtuFsBcASJZVm+00jZxcmPE0mYGVNlWvXiCuAzkJga49Jd7/3yk45+m2IaCXHHl4Kb
+	IwtMttamjJmFltbbyp2eDyhKURiry411rXqHAj9b+zvCGAtwdKbKyYhQPBA9+W9KGBvq2BXmfvFfU
+	Xux4oSCY7ALj6ORnUwQz9katNrE9qoC0qCyz30NeZyltJWa9vgJi5L067IxOombIEp+jJzzm1sJNc
+	ZDnNxt8Ec319v2QHnNv/JT6VRuOHnLp41HKWX3DiqHeuE2zh2hEp47MGYni3tmHSXfHPXIUDhAGOm
+	vtNX9P/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Nkx-00000005UY4-2RaR;
-	Tue, 17 Mar 2026 06:18:19 +0000
-Received: from mail-westeuropeazon11010031.outbound.protection.outlook.com ([52.101.69.31] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w2NrZ-00000005Uqm-4607;
+	Tue, 17 Mar 2026 06:25:10 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Nkw-00000005UXf-0DPH
+	id 1w2NrX-00000005Uq3-0Dl9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 06:18:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jFmibGahQ09+o43kjPO6hDpX5Bgr9A2bGINmM2VezFwMjrQIte7pRlhP8vx3l0xDRtOzoSJ3nNKo7KSHHMsNCuk8objPxssjgQVoWoTI/rc3NW9wNP16GkJLBKaJlvviAtS/vyrE3kG+owSofKi6P0ANdtEdG9y9GPJ8QPktvggKt24Ou6qgizfx+aKY7bSO1mJRSo4O5fm4BDQdsKwJPZf+gBf4u7LM3pxP+dDpEpQCbdjtg6ISCmtxp8bMnK7E/2k9mHiSwCu+wsf9/lHoSZ/NAV9XTGsdLG2+52u+6yYGJV5bqf1Lokohx4qBGdIFdAuyq7f7tXxtqDeUiXmWBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MaHhvbgo9Z11Kl07CwQF8IrqScu9wSu0DkzGKLFcYfA=;
- b=Q8n3vqIX4eqngmBUHH3UOTQRKJCBv2j0/Z/SQOmDB4k2bNnrblc4oLsigWMNYAPa0J29X8+pGWikqPZ2JNIA5L5Q3Zh4NhKDOKOAq6BxhAN+COeuxVdLJhbcPdmwyygR7vq43v7fZneJZ/qoQeRTh6f+hoCSsHpaRpwqa7z2abjQX3m59zub2ZajqqcXpGQNraN6fhoLxO6CXRT8ajYD1vsbTPDqjzyo//s5PhaT8jCvevx5Hv81EQGcRR9GZFmBKnaQJ5a2RfsHjEgr4hreqn0NciJLqldsaAd+vz947P3Bm9Dkm+xdQ396Jdhk2mi2jQBMqDFan+qmbK22XGti7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MaHhvbgo9Z11Kl07CwQF8IrqScu9wSu0DkzGKLFcYfA=;
- b=Fm5lJhzgv3ETv0XIk84NYPC9P4hQ+nXZc4a+S9GrD63lPxx9V0CPjmuVJN2DcvCygvJ1cFglVA3W1y+11vZRF6g/pO8rnOIESg+zhjEPfdGuzjgBFJa4ik3DBmDKtvyi31O+ebpbyp2pSowxtfFPSJouFFaRX+tib24g8U1s88ysX7rx6m/7Ixn5nIov4Qrtv/gIryA2Y4qEREkloLHaI2NJzHU8cMJg0r2WKCM2xuQ4q8qq5h+3EDH+jcu/O4MWt+/H/N6+uYCDs55teN0vQaXly3ZfpyMnZrOH4S8Z84a54P0q5mgetdRUrCTU7GoUHHT9aTSFw2raSy3NFtMSSw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PA1PR04MB10205.eurprd04.prod.outlook.com (2603:10a6:102:465::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
- 2026 06:17:45 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
- 06:18:06 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v1] PCI: imx6: Add force_suspend flag to override L1SS suspend skip
-Date: Tue, 17 Mar 2026 14:12:56 +0800
-Message-Id: <20260317061256.591362-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0261.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1f1::17) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Tue, 17 Mar 2026 06:25:08 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6611f41eebcso7160737a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 23:25:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773728705; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lWvyW3IdzprGvph8PAopGvB6qx7/gehB1Rs59yZ0b3o0LqTOY3Zh+4+cqmkAULJe7P
+         aV8bJSeze6e4vq4HxeamapsNm9PY0ufFpl1Wbsc9UHVPYZrHa90GoB+4wbGO/9FaesTb
+         biiBlHodvx0CH+8cPd6faEPz5wcu12KNa+7adzSMWhXmH1GbJCCpzHaTgEZ1njao7unM
+         oJQeVPka5S9P+ar04bMiTVCvkpD7+rLmDF5a0KbBErLi3P1tNoFJl2mf6gGqnJSJ/6If
+         IhfjeUKGkVPvRnk/GtSCeEWyFTbZWeddRLkwkZPGtW8kB2eC1tL5NpcKsGU+FuvIndcI
+         9h2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=grG6esplvyUewgvA3Y3jc/bN8nKq9yVtK9UsxaYqAWg=;
+        fh=ioSMG7RVKI7wtoHR0B1mmSbpgP4WGirDfYibsGn7k3E=;
+        b=OKGd8AyeBmrmKS829Jpkrinq1ZtuOu+uPIB+Xvl1tbeZsQO/kdZ7b8xmS/Wp6MjGef
+         LnLGdbWWMaw1hE+rjymXltfPSIVYhAj1w4KfF2gX3oAARfqrmenHc52bj5kMX3Opztg1
+         nwkswTiMdI0SL9RaALjRuc6aXgwOMBQwVTeEL+23JjMi1MK7oyvRRxttevylsWDYPcOX
+         vQBY9+S0Wh+SgvSO4evpuWnS/NNZVgKN8UkraV3s50gXiMXowkYRE6I5BpwxWY4l5KTO
+         fI2w6S75Kd/nzBqchUgvY3YqRzrLMz2fBUdQ/zjpNGL13fbiNha5c5oWnz+OVUP/bTga
+         9wSQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773728705; x=1774333505; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=grG6esplvyUewgvA3Y3jc/bN8nKq9yVtK9UsxaYqAWg=;
+        b=MxEJH+Z2oXov2MOa0qJeOIGXDkfN2Wd3y+libUGQksNLqW35IuJ6wKJU/208v6em9P
+         ZnmxbgLjJjbEQEh7FjwOrELHkV73Iz9/JgLD594R4BVCSWz0eciDsQoQpsjdx+AZVkja
+         FukjhSpEu8WCisGlH3vB/RCIAJN/pxrkhwg4+sXUGNPZV3ZUeblUA/75/fyTQYSMNfzZ
+         p8wEXIkJe4HPWvrKZEuHZoZCHenGOWenKYjzqTZpTD2uiu+wX3kw5i/68cTadxzK7Tnl
+         pUlAeyIbnAXw7kqAuv8AkkX5IOgmf9j1CteVM9jkgzOuU7qGu7cWUXLkFVg5DK1F0kNv
+         1Onw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773728705; x=1774333505;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=grG6esplvyUewgvA3Y3jc/bN8nKq9yVtK9UsxaYqAWg=;
+        b=HUyyV1LHtDi6rCu6sQY/LrcblX406JQUxOtToKEt+fIh+MXXMmy2d6e0A4XLLUsGOw
+         LAHWWR0Y6ACGhqiaSv6ZRyMS4HdCHC4dxW9v1TzzIpnRGzhkywRYHA6ztghl/ZLvogch
+         gjTfDmJmAb/EAfNCgApTIz3Lxk8PvfwdZoFJtMOEiN+9maoEGX4f2CaqT1IVLmMH9WXo
+         4pq+pQmXfZ6sYAt9hO6L7190RjNco4VeocZrS9DD91c5jjEa+in4sYzWSvSDA6uRV+kF
+         +gnsJ2UGVm/VTuv4jk5CSzS3AR12V0KBJpn66e1qobt/hJmfv5Da9Fnsmsz6qhPBbluV
+         jlyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5SYPHgbDRsfwOAl+HT3lNmbqHxgUodIs8/TjbqgKzLjoRYpEpq9pAujXVz6nQ7Mgo0nnLvwHlbDjetH10kN7T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9JQzf4EEizj6+Qm9Sm01uLfpPt9ss6k02+55GEai+XlDEqWLP
+	YbfZHNk871XPoQQsp6AZO0B35kLLtAxNnaxTtOfOrPYuzpvf9LeN88+0jR/77UMjvewawingVUk
+	QnKy6kvuKKx0aP4NIXM02TZJFPl6vvj4=
+X-Gm-Gg: ATEYQzzXayNqIcj9yzvjpIKvcn+ldq9UClvos/rrzaDLb8lQz0O32Q3iVMGhH5WfoQY
+	t9/evH4Yszkw50leXOeLu6Xn6cEQ0aldMeTGOAZO0ZypbHLoUQaFkzi9cf7sj2qhGb1ygXsChN4
+	1765HPjkjylBng5OZV74ZugPnKRmTMQtlRLxMbaM3ayiQWc+rZgzIJaZhWRZpLgJSXqhcqYsHMw
+	3ZT7vKGhXLSadZowVqa7OIMGjP3IhiHATYVAjC4K2M0/yS3d2pvdlFJLON+yKjhOnY/lFBbtZaS
+	Rc91YA==
+X-Received: by 2002:a17:907:a42:b0:b97:17b7:d8eb with SMTP id
+ a640c23a62f3a-b9765392026mr1010186466b.38.1773728704481; Mon, 16 Mar 2026
+ 23:25:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA1PR04MB10205:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9cd993d2-2c4d-4405-b92a-08de83ecf3c1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|19092799006|366016|56012099003|18002099003|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: g6Soj6gvgqbIf1Msqc8XMWF0UrDdfmyQ0kJPs6ekTbmL8RweqbFAgZROBH03afeLk+K0m5p1IySDcg5sJtKAoGN4AN/bpBXDQmFRmcf6P+vKgWGYWIiA7Stv0QJx07tEzQQKMVKNOZAlSp3DKHGHErRTXVuk/j+Q8dwTr7D9q8eldX7+uNuYHa9Izg+HQBFlG9gTkVpZ4B0mpHsGxWh8Luwn1Og9M+Md2dhb6g1CjP9h2DIA7gytD69YTcttwSGASOnQFdtqMOu3bxOKvQecVws35KOh2WPlDnqszoZYH2NEvUthdJ2eeaA6NKGR/jYqsaAU8oURscpL8+DuV1mTuoLvI2LXLtn7XGD3k3Ip9KXPDyeF0WDTXCC6LQtQXJUyjKvMswVKlIu8dKO+ztwYkpr17mj9hgGNrnmqQEQB941jnAYTbjk6fpQTqe3Pq9qHnUJaOUzd48cebjCz3hkUKYHVolxYiPJyVhzcuNzqwqUFYc5n4kSTOycvWcoWlFgUWxlBKCOZxwzYgH3gy48Th/uO3udHyd2N9kd7w4I+/canFo4p8uauzEkesv7ZbEWeR4Pz+9u1LQzsGxNBaB+aUzOuVorE3lwJePfSBIGFfSjPSQS0z3wzpsjJ5WR0WBN9ajEQajq3w88FcNwLKAEt9rr2vrgEZHfiSQ3LJE0TU6Qnw4nyHFtn7uL6v1nXwLamQIHhgMYNFYxq5pdYfDmIkmb7S84jRqz8Xqqk1+F/7aJA1m9gqBqyq1Dy4hcNnbAfa9uDeNANxrhWpcOmkVprVdcqNdF++VR/pIh6jlpmdCzd+AhZb1h/W6bHqYQ3mFUt
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(19092799006)(366016)(56012099003)(18002099003)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t04EYxI98J/hEUily/pZsbuoYx8aKpu5+Edel77NnvkxIMhjHz3VAO/YvJp8?=
- =?us-ascii?Q?MNiMQx0bqF/Pg+G9UQsJ15ntxxs7aPwBOS6cBwWuqc1j7SJL8LVu4aON6zd7?=
- =?us-ascii?Q?NcnapeHgueugh6WYPGBbwqcSYa3qryWA9Q1lyn9tpiInI6Or4XRBbOnX2b7s?=
- =?us-ascii?Q?HnxAWSsiDw9adJwtp4r9186DuItziOFxi5g/PN5ox1DAYb3WDfCtyFMSwIwU?=
- =?us-ascii?Q?csECaUsCB5lipECRd19G7vqJcBw2sAmVJ0t8Z+Nobzw73jTMTmllLxE6IkX5?=
- =?us-ascii?Q?GpoJXmaInBIU8PuDh3QFXsw7l39b4/GKgvtCxsUoSc/ilsTao6bDR2ifv8VG?=
- =?us-ascii?Q?98fiYuFH/Z9TEEobtO8yvm0vEww3TbRj3LCrR57fjOJM2gPOqqqLPEXJBL2S?=
- =?us-ascii?Q?ODaNYOBmJ3bOZNoJitoUha6xDNTj4qz4fSktV0Fg3h/DxtkF3b7pounjLpxc?=
- =?us-ascii?Q?8r6T/pOzVSVLFDLi8qpXi+AeyG0PpnfP24LMOj3A1kx6Bm/8eVeZzlVsJCqD?=
- =?us-ascii?Q?bopH3C/wcq/5VSqi6+NBrXn+QG+eQavyXHL4SI+1MmiBhdosFoxpbWAIip5V?=
- =?us-ascii?Q?Gb1o/a/GalTrRG5i+16vAMjuajphVxEVWgvGOj7GkP2IK3kl/S7dF8kxC2GM?=
- =?us-ascii?Q?gxXs0ny1EBGtTuh2Y7ASrFalabvNoOWnzwVDu+o6WwfsgKU0btLnL7F5o9hM?=
- =?us-ascii?Q?yLSWI+pCBWqWvc1pCLUsA7LBiDFsBAQ22YBS7meJ2sbqL4L+SqIyLmzejw3u?=
- =?us-ascii?Q?jHaL+wfUBxLb68LrF6KEyZmQuN6YUPH5copm6W+LfKpDNJNvGpeE+Im62Xwq?=
- =?us-ascii?Q?2FD5P3BhZazYcwtgExdIU5pPhSHvqrzzU2CvvjOLxkwNZsMnpd52fbD8lC+u?=
- =?us-ascii?Q?p1vXrLDs6b80DtpyGGVBoXdMSlVq8Kt78YkAInbF8bP3OK3UyuU2QrH0wSZi?=
- =?us-ascii?Q?E8KFikm54p+1W0Q3iqR7OvpK5v3TLk4CJv/dmwhXjDRPRomvvpSH2kJ3jBp+?=
- =?us-ascii?Q?FPBBmeb85ilYd7JbEAeAIOoj1NNCg8W479GY8FFrnYIWjJDv0pq9nTDF9Qrm?=
- =?us-ascii?Q?91MmwsZNx00NyKqTxLYFdzhyfwngBkiDQpLJ6Uh5KhIVXFKMqoyJg+8n2LzD?=
- =?us-ascii?Q?oRWgEfNh97bfd1GE3cIMEO0L9HO59Sa8a03UpUkW/cDdH2gAfdzx7Flv9db4?=
- =?us-ascii?Q?NtRGlLUk4runypM4bvGXHVfUJnipHz4Fa6U0IIJeQyGonzSDlfqm9anW9M9l?=
- =?us-ascii?Q?1Z3Dv64UXh44Ba2WZ34vT5gYCVeJMLhgiw3EMywHDItM+UqrpSNMfcOs+pRd?=
- =?us-ascii?Q?BiJLwDG7fHb0QeO/BwS88JMJ6973lm87Bg9eQQFxqB9FZweaezVACHMwCBvf?=
- =?us-ascii?Q?UYoO8dTTYD/dYdBth//jFit4PV5lZ6K/iLQgWdnUNEri+AeW0/U8KUuAgnQf?=
- =?us-ascii?Q?5MsbX4T2iy0ezq7lSjbiNV2c0WL+tJjhlBmyfwnt7fxtcToPbMDQwQ2BYbJR?=
- =?us-ascii?Q?o0fOlrNDIA+MQ4ppNerlHWWVVaYaPwcp8xceDL9eQeCr3Umi/wFUFOnv626O?=
- =?us-ascii?Q?Gvou8tMSkBQKVqvHntx8Sr6ccYdo3oZ6FAFCOTxT6lFm2wd3rnucel0iVT5u?=
- =?us-ascii?Q?ZDeOWZhyhRAL2eF+Shtt34YGAVG9u0kyTdZohqVTL5IWPFRGf1fnZeh5aUew?=
- =?us-ascii?Q?K8EedhHRx+qH15oZaeyOEnkhJ6/GSRjDqL+2B7zW8alGNgVeMYIB1GK4ICWU?=
- =?us-ascii?Q?V9JyrKVUaQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9cd993d2-2c4d-4405-b92a-08de83ecf3c1
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 06:18:06.1350
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7pgmo1UJ4nqHsMErs1XQJFKJkSj13AfQu76ze8ML7wC9gqo4EuU7HFX+LkGNgdR2BM7VSasOHNwhqOxapFHIRA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10205
+References: <20260226101032.1042-1-linux.amoon@gmail.com> <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+ <87bc37ee-234c-4568-b72e-955c130a6838@arm.com> <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
+ <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com> <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
+ <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org> <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
+ <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org> <55c28218-1638-4b90-a9cd-a177fb5abcb6@arm.com>
+ <DH0TM60TVX5D.20W4O1X696ALA@kernel.org> <6cfe4bda-036f-4bb9-8a08-ed75f61cae24@arm.com>
+ <DH1QCLS89ADR.3H0XABP0GEFQT@kernel.org> <4f9fdfc9-f2ad-49b1-a6b9-ae64aaa47cfd@arm.com>
+ <CANAwSgQ6eaM=Z=MBmS0=HrLfBxOh+vqnRSkEge_q6y+oe7AU5w@mail.gmail.com>
+In-Reply-To: <CANAwSgQ6eaM=Z=MBmS0=HrLfBxOh+vqnRSkEge_q6y+oe7AU5w@mail.gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 17 Mar 2026 11:54:47 +0530
+X-Gm-Features: AaiRm52xTModvcS_wCghjufMEmds7Entym6jtUGNfqUcYmHWBvki21yZ4UCg2r0
+Message-ID: <CANAwSgTVw7Tn7ZHFBqdHkZHbuTDSgbt5L_rhrVVtRwQu7ZS+tw@mail.gmail.com>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Danilo Krummrich <dakr@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Grimmauld <grimmauld@grimmauld.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_231818_118192_9F1B60CF 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260316_232507_203612_2C0669E5 
+X-CRM114-Status: GOOD (  62.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,67 +130,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a force_suspend flag to allow platform drivers to force the PCIe
-link into L2 state during suspend, even when L1SS (ASPM L1 Sub-States)
-is enabled.
+Hi Robin,
 
-By default, the DesignWare PCIe host controller skips L2 suspend when
-L1SS is supported to meet low resume latency requirements for devices
-like NVMe. However, some platforms like i.MX PCIe need to enter L2 state
-for proper power management regardless of L1SS support.
+On Sat, 14 Mar 2026 at 10:42, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Hi Robin,
+>
+> On Fri, 13 Mar 2026 at 23:07, Robin Murphy <robin.murphy@arm.com> wrote:
+> >
+> > On 2026-03-13 2:39 pm, Danilo Krummrich wrote:
+> > > On Fri Mar 13, 2026 at 2:15 PM CET, Robin Murphy wrote:
+> > >> On 2026-03-12 12:59 pm, Danilo Krummrich wrote:
+> > >>> On Thu Mar 12, 2026 at 1:48 PM CET, Robin Murphy wrote:
+> > >>>> On 2026-03-11 9:09 pm, Danilo Krummrich wrote:
+> > >>>>>    From a driver-core perspective I think we're rather limited on what we can do;
+> > >>>>> we are already in async context at this point and can't magically go back to
+> > >>>>> initcall context.
+> > >>>>>
+> > >>>>> So, the only thing I can think of is to kick off work on a workqueue, which in
+> > >>>>> the end would be the same as the deferred probe handling.
+> > >>>>
+> > >>>> Hmm, in fact, isn't the deferred probe mechanism itself actually quite
+> > >>>> appropriate?
+> > >>>
+> > >>> Yes, I've also mentioned this in [1], including the fact that it technically
+> > >>> even complies with the guarantees given by PROBE_FORCE_SYNCHRONOUS. I.e. the
+> > >>> documentation says:
+> > >>>
+> > >>>     Use this to annotate drivers that need their probe routines to run
+> > >>>     synchronously with driver and device registration (with the exception of
+> > >>>     -EPROBE_DEFER handling - re-probing always ends up being done
+> > >>>     asynchronously).
+> > >>>
+> > >>> However, I'm still not sure how I feel about this, since I consider this to be
+> > >>> more like a workaround that just moves things to a "more approprite" async
+> > >>> context.
+> > >>
+> > >> I guess the underlying problem there is that there are at least 3
+> > >> different significant aspects to what "synchronous" can mean:
+> > >>
+> > >> - literally in the context or device/driver registration as documented.
+> > >> Off-hand I'm not really sure what useful property may be *specific* to
+> > >> those conditions that a driver might rely on, other than for
+> > >> super-special cases like platform_driver_probe().
+> > >
+> > > I'm not worried about this one, as it is already special by not being compatible
+> > > with deferred probe. I.e. the caller already has to promise that the
+> > > corresponding probe() call will never return -EPROBE_DEFER.
+> > >
+> > > This is a much more error prone requirement than just "don't call this from
+> > > async" already.
+> > >
+> > >> - serialised, i.e. probes of multiple devices won't happen concurrently
+> > >> on multiple threads. This is probably the one hiding the most driver
+> > >> bugs, e.g. internal shared/global state without sufficient
+> > >> synchronisation. I guess this falls out as a side-effect of the first
+> > >> condition, but AFAICS it *can* also still provided by deferred probe
+> > >> (given that it's a single work item iterating a list one-by-one)
+> > >>
+> > >> - in some regular thread context that isn't liable to have issues
+> > >> synchronising against other async_func workers (i.e. the request_module
+> > >> case). Again, deferred can't have a problem here, or it wouldn't have
+> > >> worked properly in general for the last decade.
+> > >>
+> > >> So it's not that we'd be relying on some dubious "deferred is always
+> > >> synchronous" assumption - AFAICS deferred *can* launch async if the
+> > >> driver permits it - more just ratifying that deferred is still able to
+> > >> effectively honour all the useful properties of PROBE_FORCE_SYNCHRONOUS
+> > >> other than "during registration of the thing".
+> > >
+> > > Yes, and as mentioned above, EPROBE_DEFER has always been a valid path for
+> > > PROBE_FORCE_SYNCHRONOUS, which is why I brought it up as a a workaround in the
+> > > first place.
+> > >
+> > > (The reason why I still say "workaround" is because nothing actually needs to be
+> > > deferred.)
+> > >
+> > > Anyways, as I mentioned...
+> > >
+> > >>> On the other hand, eventually we want everything to work with
+> > >>> PROBE_PREFER_ASYNCHRONOUS, so maybe it's also good enough for the time being.
+> > >
+> > > ...plus there are not a lot of PROBE_FORCE_SYNCHRONOUS left anyways.
+> > >
+> > > Do you want to send a patch?
+> >
+> > Sure, I just wanted to check that you didn't see anything obviously
+> > wrong with my reasoning-by-inspection - if you're sufficiently happy
+> > then I'll write this up as a proper commit message and post the patch
+> > (likely on Monday now) so we can all nit-pick the details :)
+> >
+> I believe the issue lies in the r8169 module, which currently has the
+> PHY address hardcoded to zero in mdiobus_get_phy. I have modified the
+> implementation to scan the MDIO bus for all possible addresses to improve
+> hardware compatibility.
+>
+> Can you check this at your end.
+>
+> ----->8-----
+> $ git diff drivers/net/ethernet/realtek/r8169_main.c
+> diff --git a/drivers/net/ethernet/realtek/r8169_main.c
+> b/drivers/net/ethernet/realtek/r8169_main.c
+> index 58788d196c57..fa99e33eccfe 100644
+> --- a/drivers/net/ethernet/realtek/r8169_main.c
+> +++ b/drivers/net/ethernet/realtek/r8169_main.c
+> @@ -5420,7 +5420,8 @@ static int r8169_mdio_register(struct rtl8169_private *tp)
+>  {
+>         struct pci_dev *pdev = tp->pci_dev;
+>         struct mii_bus *new_bus;
+> -       int ret;
+> +       struct phy_device *phydev;
+> +       int ret, addr;
+>
+>         /* On some boards with this chip version the BIOS is buggy and misses
+>          * to reset the PHY page selector. This results in the PHY ID read
+> @@ -5455,18 +5456,30 @@ static int r8169_mdio_register(struct
+> rtl8169_private *tp)
+>         if (ret)
+>                 return ret;
+>
+> -       tp->phydev = mdiobus_get_phy(new_bus, 0);
+> -       if (!tp->phydev) {
+> +       /* find the first (lowest address) PHY on the current MAC's MII bus */
+> +       for (addr = 0; addr < PHY_MAX_ADDR; addr++) {
+> +               struct phy_device *tmp = mdiobus_get_phy(new_bus, addr);
+> +               if (tmp) {
+> +                       phydev = tmp;
+> +                       break;
+> +               }
+> +       }
+> +
+> +       if (!phydev) {
+> +               dev_err(&pdev->dev, "no PHY found on bus\n");
+>                 return -ENODEV;
+> -       } else if (!tp->phydev->drv) {
+> -               /* Most chip versions fail with the genphy driver.
+> -                * Therefore ensure that the dedicated PHY driver is loaded.
+> -                */
+> +       }
+> +
+> +       /* Most chip versions fail with the genphy driver.
+> +        * Therefore ensure that the dedicated PHY driver is loaded.
+> +        */
+> +       if (!phydev->drv || phy_driver_is_genphy(phydev)) {
+>                 dev_err(&pdev->dev, "no dedicated PHY driver found for
+> PHY ID 0x%08x, maybe realtek.ko needs to be added to initramfs?\n",
+>                         tp->phydev->phy_id);
+>                 return -EUNATCH;
+>         }
+>
+> +       tp->phydev = phydev;
+>         tp->phydev->mac_managed_pm = true;
+>         if (rtl_supports_eee(tp))
+>                 phy_support_eee(tp->phydev);
+>
+> > Cheers,
+> > Robin.
+>
+I've submitted a patch to address the issue you reported.
+Could you please verify if this resolves it on your side?
 
-Enable force_suspend for i.MX PCIe to ensure the link enters L2 during
-system suspend.
+[1] https://lore.kernel.org/all/20260317061700.7734-1-linux.amoon@gmail.com/
 
-Cc: stable@vger.kernel.org
-Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c             | 1 +
- drivers/pci/controller/dwc/pcie-designware-host.c | 4 +++-
- drivers/pci/controller/dwc/pcie-designware.h      | 1 +
- 3 files changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 81a7093494c8..7902d39185a5 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1831,6 +1831,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
- 			pci->pp.skip_l23_ready = true;
- 		pci->pp.use_atu_msg = true;
-+		pci->pp.force_l2_suspend = true;
- 		ret = dw_pcie_host_init(&pci->pp);
- 		if (ret < 0)
- 			return ret;
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index a74339982c24..720154fd4ff0 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -1229,7 +1229,9 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
- 	 * If L1SS is supported, then do not put the link into L2 as some
- 	 * devices such as NVMe expect low resume latency.
- 	 */
--	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-+	if (!pci->pp.force_l2_suspend &&
-+	    (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) &
-+	     PCI_EXP_LNKCTL_ASPM_L1))
- 		return 0;
- 
- 	if (pci->pp.ops->pme_turn_off) {
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index ae6389dd9caa..5261036bbe6e 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -447,6 +447,7 @@ struct dw_pcie_rp {
- 	bool			ecam_enabled;
- 	bool			native_ecam;
- 	bool                    skip_l23_ready;
-+	bool                    force_l2_suspend;
- };
- 
- struct dw_pcie_ep_ops {
--- 
-2.37.1
-
+Thanks
+-Anand
 
