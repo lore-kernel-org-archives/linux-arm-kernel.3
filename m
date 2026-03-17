@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0959AF3380B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DFFF3380C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fxbqImj03OXajBmpzO1CQUCWD5bO4dGjX1EHtbcLAY=; b=LgUdkWREaNxfs44Rq8hIK0ifyz
-	vUEqlVmxN3vl+751VCakNSNwrgh0D6sAmv6yuLjJGBWs94nuI9iwO6u5SQwHHuOeNue0cOCyNWWP/
-	u1SBXKrtmDXK54SdsOT0UpBIqZGn7uKNrJV8FbEL/X5aV6pfAcnZaOlS7U8b/tn1I+JvU3hVmPLal
-	WSsrYhB6XWH7gFWZubinzFjoRXDrxhXE741qKs8xKU2stJAOh720QYhFxgD/Q7F1nKa1RZqmeJOkS
-	PIII5Ba9L63c8XrihYfM317GqOJlfAJqWa3FhwKQG+7iZ3HsjSoV6ymxFTsHLYF0x2ZYmcUpmzZP7
-	s+xNppeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5L/oeA/2YcsmAjGJdXUeO+xFx2wstgeZ0oXrcmVk4HM=; b=wxTNncwwxsvlMo+A8sglPzh4Rb
+	kpxdyG1/2xrFxjS0hjcrPBo3M3b1v0orZTmiZ5tcPVb+Ndxm47l1fo+DDbLKqnullbDkvxaOZJ8cZ
+	Q6BI340QjPx461q76BpT5jY1Ky6ykdqeVaCPd54ihF8fzhYRGSEUweypnlMxZw2SGB/qSEMbus6Ur
+	dzu583FLp/AH8fWiccgM98J8fS0CJwcN1TmkXFgZSY7Jr+e25YtPJ5fhN3IYI2nD03HBbQ/00Xn1M
+	8g6+BNxhKLLpC5f5IlrOVypnxiPgU8HJI6nwRuDObaAjzOuiiX/6HV8gbxELqvmT3Vurq2ozKgoA8
+	41lODigA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P4D-00000005asp-0EYg;
-	Tue, 17 Mar 2026 07:42:17 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1w2P4Q-00000005b8d-3uEL;
+	Tue, 17 Mar 2026 07:42:30 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P4A-00000005ar8-3X76
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 07:42:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=1fxb
-	qImj03OXajBmpzO1CQUCWD5bO4dGjX1EHtbcLAY=; b=Aa6jzP26tOFbp867zHZJ
-	/Wez7/ws1xj+fYCjTuWXNVyOt8TBM+Qh+9qqjoe/08lACxSnjZnuze2e/foZ8dk5
-	5gst9VJR9MVZxK1up39HIYurtorLzowfdVFjGTms2Bd8nOqGP5sUHw81+ZPpqBc4
-	kUmK5QGGEDgIYjxUNWGYXrynV4eLqPjfsHo+Be1UGornxMXwK7Ojtawvhpsw54Jx
-	9zkzEXqQSec60WN/Ef1vkS+Kv1IySz9OyALNAU3OcWxPLI0SJrrpG4sxCalVmrfL
-	MhE59O6Bns/GhGXVP0ItcgSyUpPoLjBr095rHZgRWEkvI6o1weebYFFstS9Q7bGU
-	NA==
-Received: (qmail 167291 invoked from network); 17 Mar 2026 08:42:08 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Mar 2026 08:42:08 +0100
-X-UD-Smtp-Session: l3s3148p1@Ze/6eDNNfNVSwmvS
-Date: Tue, 17 Mar 2026 08:42:08 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
-	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	driver-core@lists.linux.dev, imx@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
- thread safe
-Message-ID: <abkF0GO01sMcOhvb@shikoro>
-References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
- <abkCPU3rxHI49N4_@shikoro>
- <abkD-VLprcbbEbB1@ashevche-desk.local>
+	id 1w2P4H-00000005atx-0wBz;
+	Tue, 17 Mar 2026 07:42:23 +0000
+X-UUID: cb0bbaee21d411f1a21c59e7364eecb8-20260317
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:8ed28783-528a-49b8-b422-9e532f0e4568,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:d1496f212eed61f0c89101fc49fc3b6e,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
+	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: cb0bbaee21d411f1a21c59e7364eecb8-20260317
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 209579328; Tue, 17 Mar 2026 15:42:04 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	broonie@kernel.org
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v3 02/17] spi: bcm63xx-hsspi: Use helper function devm_clk_get_enabled()
+Date: Tue, 17 Mar 2026 15:41:44 +0800
+Message-Id: <4edc7f6b63cc8b83b2185c398256234426a3d859.1773733017.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1773733017.git.xiaopei01@kylinos.cn>
+References: <cover.1773733017.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abkD-VLprcbbEbB1@ashevche-desk.local>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_004215_180796_DB84AF80 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260317_004221_575328_ABF01E01 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,17 +82,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+devm_clk_get() and clk_prepare_enable() can now be replaced by
+devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
+longer necessary to unprepare and disable the clocks explicitly.
+Simplify code.
 
-> > ... this change costs some memory on every system. Maybe it can be
-> > avoided?
-> 
-> How much memory does it cost? On most 64-bit architectures is +4 bytes,
-> rarely +0 bytes, on m68k it might be +2bytes. On 32-bit it most likely
-> +0 bytes. I expect that 64-bit machines will cope with this bump.
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/spi/spi-bcm63xx-hsspi.c | 46 +++++++++------------------------
+ 1 file changed, 12 insertions(+), 34 deletions(-)
 
-I am not opposing that the issue should be fixed. If it is not possible
-to take the lock everywhere, this is a proper solution. But if we don't
-have to use more memory, then we could save it. Our new SoC easily has
-'struct device' in the hundreds.
+diff --git a/drivers/spi/spi-bcm63xx-hsspi.c b/drivers/spi/spi-bcm63xx-hsspi.c
+index 612f8802e690..266eabd3715b 100644
+--- a/drivers/spi/spi-bcm63xx-hsspi.c
++++ b/drivers/spi/spi-bcm63xx-hsspi.c
+@@ -758,8 +758,7 @@ static int bcm63xx_hsspi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(regs))
+ 		return PTR_ERR(regs);
+ 
+-	clk = devm_clk_get(dev, "hsspi");
+-
++	clk = devm_clk_get_enabled(dev, "hsspi");
+ 	if (IS_ERR(clk))
+ 		return PTR_ERR(clk);
+ 
+@@ -767,41 +766,26 @@ static int bcm63xx_hsspi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(reset))
+ 		return PTR_ERR(reset);
+ 
+-	ret = clk_prepare_enable(clk);
+-	if (ret)
+-		return ret;
+-
+ 	ret = reset_control_reset(reset);
+-	if (ret) {
+-		dev_err(dev, "unable to reset device: %d\n", ret);
+-		goto out_disable_clk;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "unable to reset device: %d\n", ret);
+ 
+ 	rate = clk_get_rate(clk);
+ 	if (!rate) {
+-		pll_clk = devm_clk_get(dev, "pll");
+-
+-		if (IS_ERR(pll_clk)) {
+-			ret = PTR_ERR(pll_clk);
+-			goto out_disable_clk;
+-		}
+-
+-		ret = clk_prepare_enable(pll_clk);
+-		if (ret)
+-			goto out_disable_clk;
++		pll_clk = devm_clk_get_enabled(dev, "pll");
++		if (IS_ERR(pll_clk))
++			return dev_err_probe(dev, PTR_ERR(pll_clk),
++					     "failed enable pll clk\n");
+ 
+ 		rate = clk_get_rate(pll_clk);
+-		if (!rate) {
+-			ret = -EINVAL;
+-			goto out_disable_pll_clk;
+-		}
++		if (!rate)
++			return dev_err_probe(dev, -EINVAL,
++					     "failed get pll clk rate\n");
+ 	}
+ 
+ 	host = spi_alloc_host(&pdev->dev, sizeof(*bs));
+-	if (!host) {
+-		ret = -ENOMEM;
+-		goto out_disable_pll_clk;
+-	}
++	if (!host)
++		return dev_err_probe(dev, -ENOMEM, "alloc host no mem\n");
+ 
+ 	bs = spi_controller_get_devdata(host);
+ 	bs->pdev = pdev;
+@@ -887,10 +871,6 @@ static int bcm63xx_hsspi_probe(struct platform_device *pdev)
+ 	pm_runtime_disable(&pdev->dev);
+ out_put_host:
+ 	spi_controller_put(host);
+-out_disable_pll_clk:
+-	clk_disable_unprepare(pll_clk);
+-out_disable_clk:
+-	clk_disable_unprepare(clk);
+ 	return ret;
+ }
+ 
+@@ -902,8 +882,6 @@ static void bcm63xx_hsspi_remove(struct platform_device *pdev)
+ 
+ 	/* reset the hardware and block queue progress */
+ 	__raw_writel(0, bs->regs + HSSPI_INT_MASK_REG);
+-	clk_disable_unprepare(bs->pll_clk);
+-	clk_disable_unprepare(bs->clk);
+ 	sysfs_remove_group(&pdev->dev.kobj, &bcm63xx_hsspi_group);
+ }
+ 
+-- 
+2.25.1
 
 
