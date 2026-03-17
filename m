@@ -4,84 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90866FED9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 18:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8B7FED9FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 18:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwp4/UkuiJZhj3Qsuw2Opr4d531GgSwnHfCxk6uCfck=; b=Pxdxex7ftzfvjSHZbUTPACJDDf
-	ADtlDn8nNxZ4pr2EdbIDHOEaWSyXaaTeiis7UccTAwFx4BHPQnpJAWJejamEKuqqg1dQfkkFEDw/F
-	or/mUTRdZOGMmn9ZMQtAohBwq+5wGfw6dS9mDotEub3fKNYuXjIoxEBbPi26LU+e/LVSzCH+cAuIy
-	Df3JsIQFGC6RTVCsntcnmEqJDGyyZM2m1mHNpEuFTzbGtlUc6meMNuzLH12cYWJpcdeDaeUxc8+Ui
-	JRYG6k4YRpy4V/c2FXIMMRdefFMLrRMbzJ3mepcxMjsxfVJeHAMozZREc6q/hlMl/VQ8hmoU3n8KR
-	7C2G1X3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cq5/+drIMzPY49yK2H5pTHptVEIxKFUJhHw+Yhx7O7s=; b=NvkXrET7tyvuSN0t4V2jjzHOEi
+	Yj8/KplkCRIWBdO3CuXRbEUVqSKk2ax/zn8X9HB/92WcAdEdoHpS/C9DvfK234cvKrV1N+0b5P5vm
+	HEHV2BRNfp0Z3WLpNf2vYG2mw8he5G6rcvH1F3vQeiJpXDVC+ccQTBDPXJyVJ+yBhtk+ATtuAUq4A
+	ed6cChuUo6nWVjgTy3V00ir/s8OtPSYpvTU7nmBoOTA/ppH4VtANzpuAEuGshUHFd9LiapfIt7uS1
+	NDDFincFlMsVeHg4hKq0Jps3+7YAr1opukzV6blZ7+dlgzNfBKaFZAvqOEYkMqpSrOsS5AEu8f8vg
+	w7yBSNwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ync-000000070cD-3alY;
-	Tue, 17 Mar 2026 18:05:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2Yp3-000000070mP-1tTK;
+	Tue, 17 Mar 2026 18:07:17 +0000
+Received: from mail-qv1-xf64.google.com ([2607:f8b0:4864:20::f64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YnZ-000000070bw-1rZx
+	id 1w2Yoz-000000070ly-3sAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 18:05:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C7FA600AD;
-	Tue, 17 Mar 2026 18:05:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0921EC4CEF7;
-	Tue, 17 Mar 2026 18:05:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773770744;
-	bh=ESmVPCa9igCBCv1hcJ5QEA7fejdWLwcrCD3qXAO15o8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QJCgPO37xtZtU0y3XW18rX/Cmsmwx4/gto75ctS4CHkACMaj6lGUG6OJHCe6k/542
-	 DLVq1TnOwg6bGZyAVOndcwHrocPF3bdlSNNaaKXivwDVaJTGFIA9My8OjaHnc9D9mo
-	 b6MA/vxH65raRpZccY4KiN3Nd1D4IHF2bjugmW4Kyw9hpHrLmOSOgq8J/BBP6VzqUu
-	 xHN6lAuMRmO6c1yK5s0pNxDXQ8peEeRrU+iL5J0xW8l1TYqB5XhyFEhO1D8qxZaXdg
-	 XE+zX+P1trck0GEpEcpjchOCwfZxp2g8O98ZNhMmnCpGI9kkV6BB7vCmav7pbzxZC+
-	 S8xuoncNvQYLw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w2YnT-00000002xnV-3WJV;
-	Tue, 17 Mar 2026 18:05:39 +0000
-Date: Tue, 17 Mar 2026 18:05:39 +0000
-Message-ID: <86ecli5o24.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v6 29/39] KVM: arm64: gic-v5: Enlighten arch timer for GICv5
-In-Reply-To: <20260317113949.2548118-30-sascha.bischoff@arm.com>
-References: <20260317113949.2548118-1-sascha.bischoff@arm.com>
-	<20260317113949.2548118-30-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 17 Mar 2026 18:07:15 +0000
+Received: by mail-qv1-xf64.google.com with SMTP id 6a1803df08f44-89a0ece9f14so73743786d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 11:07:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773770832; x=1774375632;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Cq5/+drIMzPY49yK2H5pTHptVEIxKFUJhHw+Yhx7O7s=;
+        b=V5c1EodvF16qI4fBmUXDSe9lsktfQmzLt5KRLnlwtf5FDhWS4+uoBrzpV3WrpF10vj
+         0cymivYq9uOBjt+LWL1Elc2TsxaCPvacBHxkkNmtzYJUtW7dJ+dPUaJTlg0zcrjBPaDs
+         f3nV6EmSz/TvH4pnTT3nQPaIcQkwHO1K24L5Ds+trfCgd7ktdWdTxJfzaqqclEwuFHLl
+         SA2Gqyi0Dng1nTDa1i9Qj4vwlNwbND+rCFtmpr2r6RyQb/jQgboteC1hk9AWK1MK2IQy
+         h+PnUtA5+yxuz65SbEWkzBwVVC3xo8W5QmxxoO8A46ilPKIO2mavOWHCowZEFD0n6Va2
+         QFfA==
+X-Gm-Message-State: AOJu0Yyyay11wJ5hp9aVFPEHfOy4zKf2zW0KFdv7LVd2FELJpY3MTlSH
+	0k97/1MAvZCRF5z8nzQz04RqF0V77L9qWtoemSq4Gc552zYedotTT7MgdbP7UiYHF3/ipMRsVt8
+	xb5dlnPWnkJrcMX5pr29Tq6WtUY4JEFsnIxzdx9x7qE4pGH/CRxxLjT5geQZY5CBwOnFT/LmB27
+	o+B6oHjC/GIe3hNxaGSQ3KWbGdJ9NfDNTHninpov9SuNWaYxIf/pakqQhjGzkTMEqe+jeBWxd5p
+	gEZYn9VSGlyjUbXto+HxZ7jG5kgxPRKjJI=
+X-Gm-Gg: ATEYQzx+i8NHhUgzzD8SU9xkoC1M4vDMr0MI4Ten94pcs7Zs2liELoJGp8gZpCAOq5L
+	Jo5VPUyQMhoVY4CzSAgCESn4hR3Y7SoVAYJehaSDV0yKprOCGWg6xIl494K91b/n95qQBYi5gZx
+	jDgHp+MKvNZR4EcBc2JeIqSefEdgD5UYOlzKv2UcJsP797KqRkiAk+2u3ROvEQzQjayL0ps7WLU
+	XTbtxekEpeXLVvoGt/5rIkRYNcBsAJ/0IkMkf02wXLV4R2xMSgweo146sV2DqVme1INI5smDLZm
+	GUGiWQj0TSShKkEXoA6fdYBXBrcl4GExLc3cNvjGb0nDwmYPPwP+uDLCTBIgmUM176An6gU3qZn
+	aX/7DiE/R0IfiDhOpygm+XiBZewJ6L+KLbU8qZmgjHGdtaJvOZxwNfvzHIZNcBpTa3aQWN1SQZA
+	8xB2a2sYtbGtKIczrNmRsMtPmhDRgVc37iLDy6JF9nZIAJLexa2+mXE+U4x+QQPQ==
+X-Received: by 2002:ad4:5aeb:0:b0:899:f0b1:7332 with SMTP id 6a1803df08f44-89c6b558603mr8087866d6.32.1773770832044;
+        Tue, 17 Mar 2026 11:07:12 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-22.dlp.protect.broadcom.com. [144.49.247.22])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-89c6b9979eesm232236d6.17.2026.03.17.11.07.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Mar 2026 11:07:12 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-89c56300e64so86222376d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 11:07:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1773770831; x=1774375631; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Cq5/+drIMzPY49yK2H5pTHptVEIxKFUJhHw+Yhx7O7s=;
+        b=MLD/eloL946hfkaa+rwJ8pS9dp95wrEnL9ZxU3pFU+b7EZo+XkxyxkKDmg37MExQ3c
+         bI05kH/I+3IMVVLylVgJVLeoTIjYhEU+i2MtDInz7bl6YzhVctFos7QFOKWUN1SW29VF
+         Fs0ter6sZKdldSEd8wmYem5kQhKZuVAAuhVnM=
+X-Received: by 2002:a05:6214:5f84:b0:899:fc7b:3884 with SMTP id 6a1803df08f44-89c6b5bd121mr6831506d6.57.1773770830859;
+        Tue, 17 Mar 2026 11:07:10 -0700 (PDT)
+X-Received: by 2002:a05:6214:5f84:b0:899:fc7b:3884 with SMTP id 6a1803df08f44-89c6b5bd121mr6830886d6.57.1773770830256;
+        Tue, 17 Mar 2026 11:07:10 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89c6b9cea7bsm2302266d6.27.2026.03.17.11.07.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2026 11:07:09 -0700 (PDT)
+Message-ID: <d0575794-9733-47c1-a311-efb9329f6fa2@broadcom.com>
+Date: Tue, 17 Mar 2026 11:07:07 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/7] ARM: dts: bcm63148: Add I2C block
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com, Linus Walleij <linusw@kernel.org>,
+ William Zhang <william.zhang@broadcom.com>,
+ Anand Gore <anand.gore@broadcom.com>, Kursad Oney
+ <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <rafal@milecki.pl>
+Cc: linux-arm-kernel@lists.infradead.org
+References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org>
+ <20260218-bcmbca-i2c-dts-v2-7-5373ef82c50c@kernel.org>
+ <20260317175001.862603-1-florian.fainelli@broadcom.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260317175001.862603-1-florian.fainelli@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_110714_064696_161180BF 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,181 +152,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 11:47:29 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On 3/17/26 10:50, Florian Fainelli wrote:
+> From: Florian Fainelli <f.fainelli@gmail.com>
 > 
-> Now that GICv5 has arrived, the arch timer requires some TLC to
-> address some of the key differences introduced with GICv5.
+> On Wed, 18 Feb 2026 10:30:54 +0100, Linus Walleij <linusw@kernel.org> wrote:
+>> The BCM63148 has a brcmper I2C block.
+>>
+>> The peripheral range needs to be extended to accommodate
+>> it. The Boot LUT is at offset + 0x10000 so extend it to
+>> cover at least that too, 128 KB.
+>>
+>> INTERRUPT_ID_I2C is at (ISR_TABLE3_OFFSET + 19) = 96+19 = 115,
+>> convert back to SPI IRQ 115-32 = 83.
+>>
+>> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+>> ---
 > 
-> For PPIs on GICv5, the queue_irq_unlock irq_op is used as AP lists are
-> not required at all for GICv5. The arch timer also introduces an
-> irq_op - get_input_level. Extend the arch-timer-provided irq_ops to
-> include the PPI op for vgic_v5 guests.
-> 
-> When possible, DVI (Direct Virtual Interrupt) is set for PPIs when
-> using a vgic_v5, which directly inject the pending state into the
-> guest. This means that the host never sees the interrupt for the guest
-> for these interrupts. This has three impacts.
-> 
-> * First of all, the kvm_cpu_has_pending_timer check is updated to
->   explicitly check if the timers are expected to fire.
-> 
-> * Secondly, for mapped timers (which use DVI) they must be masked on
->   the host prior to entering a GICv5 guest, and unmasked on the return
->   path. This is handled in set_timer_irq_phys_masked.
-> 
-> * Thirdly, it makes zero sense to attempt to inject state for a DVI'd
->   interrupt. Track which timers are direct, and skip the call to
->   kvm_vgic_inject_irq() for these.
-> 
-> The final, but rather important, change is that the architected PPIs
-> for the timers are made mandatory for a GICv5 guest. Attempts to set
-> them to anything else are actively rejected. Once a vgic_v5 is
-> initialised, the arch timer PPIs are also explicitly reinitialised to
-> ensure the correct GICv5-compatible PPIs are used - this also adds in
-> the GICv5 PPI type to the intid.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/kvm/arch_timer.c     | 110 ++++++++++++++++++++++++++------
->  arch/arm64/kvm/vgic/vgic-init.c |   9 +++
->  arch/arm64/kvm/vgic/vgic-v5.c   |   7 +-
->  include/kvm/arm_arch_timer.h    |  11 +++-
->  include/kvm/arm_vgic.h          |   3 +
->  5 files changed, 115 insertions(+), 25 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 53312b88c342d..4575c36cae537 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -56,6 +56,12 @@ static struct irq_ops arch_timer_irq_ops = {
->  	.get_input_level = kvm_arch_timer_get_input_level,
->  };
->  
-> +static struct irq_ops arch_timer_irq_ops_vgic_v5 = {
-> +	.get_input_level = kvm_arch_timer_get_input_level,
-> +	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
-> +	.set_direct_injection = vgic_v5_set_ppi_dvi,
-> +};
-> +
->  static int nr_timers(struct kvm_vcpu *vcpu)
->  {
->  	if (!vcpu_has_nv(vcpu))
-> @@ -177,6 +183,10 @@ void get_timer_map(struct kvm_vcpu *vcpu, struct timer_map *map)
->  		map->emul_ptimer = vcpu_ptimer(vcpu);
->  	}
->  
-> +	map->direct_vtimer->direct = true;
-> +	if (map->direct_ptimer)
-> +		map->direct_ptimer->direct = true;
-> +
->  	trace_kvm_get_timer_map(vcpu->vcpu_id, map);
->  }
->  
-> @@ -396,7 +406,11 @@ static bool kvm_timer_should_fire(struct arch_timer_context *timer_ctx)
->  
->  int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
->  {
-> -	return vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) == 0;
-> +	struct arch_timer_context *vtimer = vcpu_vtimer(vcpu);
-> +	struct arch_timer_context *ptimer = vcpu_ptimer(vcpu);
-> +
-> +	return kvm_timer_should_fire(vtimer) || kvm_timer_should_fire(ptimer) ||
-> +	       (vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) == 0);
->  }
->  
->  /*
-> @@ -447,6 +461,10 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
->  	if (userspace_irqchip(vcpu->kvm))
->  		return;
->  
-> +	/* Skip injecting on GICv5 for directly injected (DVI'd) timers */
-> +	if (vgic_is_v5(vcpu->kvm) && timer_ctx->direct)
-> +		return;
-> +
->  	kvm_vgic_inject_irq(vcpu->kvm, vcpu,
->  			    timer_irq(timer_ctx),
->  			    timer_ctx->irq.level,
-> @@ -657,6 +675,24 @@ static inline void set_timer_irq_phys_active(struct arch_timer_context *ctx, boo
->  	WARN_ON(r);
->  }
->  
-> +/*
-> + * On GICv5 we use DVI for the arch timer PPIs. This is restored later
-> + * on as part of vgic_load. Therefore, in order to avoid the guest's
-> + * interrupt making it to the host we mask it before entering the
-> + * guest and unmask it again when we return.
-> + */
-> +static inline void set_timer_irq_phys_masked(struct arch_timer_context *ctx, bool masked)
-> +{
-> +	if (masked) {
-> +		disable_percpu_irq(ctx->host_timer_irq);
-> +	} else {
-> +		if (ctx->host_timer_irq == host_vtimer_irq)
-> +			enable_percpu_irq(ctx->host_timer_irq, host_vtimer_irq_flags);
-> +		else
-> +			enable_percpu_irq(ctx->host_timer_irq, host_ptimer_irq_flags);
-> +	}
-> +}
+> Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
 
-I think this is missing a trick, which is to reuse the mask/unmask
-infrastructure we use for the fruity crap. How about this following
-untested hack?
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 600f250753b45..b29bea800e2ab 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -660,7 +660,7 @@ static inline void set_timer_irq_phys_active(struct arch_timer_context *ctx, boo
- static void kvm_timer_vcpu_load_gic(struct arch_timer_context *ctx)
- {
- 	struct kvm_vcpu *vcpu = timer_context_to_vcpu(ctx);
--	bool phys_active = false;
-+	bool phys_active = vgic_is_v5(vcpu->kvm);
- 
- 	/*
- 	 * Update the timer output so that it is likely to match the
-@@ -934,6 +934,12 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
- 
- 	if (kvm_vcpu_is_blocking(vcpu))
- 		kvm_timer_blocking(vcpu);
-+
-+	if (vgic_is_v5(vcpu)) {
-+		set_timer_irq_phys_active(map.direct_vtimer, false);
-+		if (map.direct_ptimer)
-+			set_timer_irq_phys_active(map.direct_ptimer, false);
-+	}
- }
- 
- void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
-@@ -1333,7 +1339,8 @@ static int kvm_irq_init(struct arch_timer_kvm_info *info)
- 	host_vtimer_irq = info->virtual_irq;
- 	kvm_irq_fixup_flags(host_vtimer_irq, &host_vtimer_irq_flags);
- 
--	if (kvm_vgic_global_state.no_hw_deactivation) {
-+	if (kvm_vgic_global_state.no_hw_deactivation ||
-+	    kvm_vgic_global_state.type == VGIC_V5) {
- 		struct fwnode_handle *fwnode;
- 		struct irq_data *data;
- 
-@@ -1351,7 +1358,8 @@ static int kvm_irq_init(struct arch_timer_kvm_info *info)
- 			return -ENOMEM;
- 		}
- 
--		arch_timer_irq_ops.flags |= VGIC_IRQ_SW_RESAMPLE;
-+		if (kvm_vgic_global_state.no_hw_deactivation)
-+			arch_timer_irq_ops.flags |= VGIC_IRQ_SW_RESAMPLE;
- 		WARN_ON(irq_domain_push_irq(domain, host_vtimer_irq,
- 					    (void *)TIMER_VTIMER));
- 	}
-
-which should avoid adding some new masking stuff.
-
-Thanks,
-
-	M.
-
+Offset was adjusted by upon William's feedback, FWIW.
 -- 
-Without deviation from the norm, progress is not possible.
+Florian
+
 
