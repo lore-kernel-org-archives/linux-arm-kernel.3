@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18190FED9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26198FED9EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AzLZaulXv0//FYFikLLGde2bxGA/CFV1Y+y+wpw0H+0=; b=Te0zFLd8sj7WEpgZ/Mk6Fqvr9J
-	GvJQvBooX5RTseuy+wO/RovfD9wMFcirVJqzSRUtZwUMFetpbOz5wK+gx2IfRGbdYWqtw3EAROkVY
-	NeItvmKrS3tbN9NceUvGLQKXedZZH8hEaea7NXwVBKlPCL0hs7XvrcfUnVeBoyQDJD7edFwPHldpg
-	IXzyQEAPkCJ39mQHjqpF/gNYlqQsFw0g60TDhWRoeqVNLWiVXR8qdJJVFbjTqO901MTRY1/21AK20
-	t8jo1j/9LTWCp7c8VuQl5puJyhwITz9tX2P8iwmaJfHe1a2DdrHZnFiODVryX7tjciu7GjEvNsxUr
-	n1x47iSA==;
+	bh=U5i0ZYoicdL43WO2KoRtMaGT7H+4UnbTBh1N59iOnIc=; b=PLUzdKf5/tu+F/1kbS/zbbTGe8
+	LXOWSoimvaM9wgfj0V2iGC+izjPifK+Gh5nRSlJ5gbKkLTGq5xpws3RUGk0G6c3YpbC0uiTYuh3pn
+	KmY3F3TzXeIazIzWW91uLOMtTp015DiJiTap1KyDQwYK2CvXQMWIMgvcqgB2GaCcfJyNBIDE0cqid
+	1iku166J/6uM9uPqsW5DztZ3zudF1J7shMx8556vjLF9hTsBKLxWGe/wZoHO5zt6OgGj3n9ZXyR2X
+	qKCx40n8Vqej5ZY/E+7LfOjlRMjzbfX+sHJoXSkwErZsDeT7jc6hPDURWwLpPvMv1klNopQ0SZAdG
+	p514alcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YWA-00000006xuj-2JLh;
-	Tue, 17 Mar 2026 17:47:46 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1w2YX6-00000006y2z-3m5Y;
+	Tue, 17 Mar 2026 17:48:44 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YW7-00000006xth-04QS
+	id 1w2YX5-00000006y2L-00ET
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:47:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fZzss6hM9zJ4692;
-	Wed, 18 Mar 2026 01:46:41 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5A76340572;
-	Wed, 18 Mar 2026 01:47:38 +0800 (CST)
-Received: from localhost (10.48.149.62) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 17 Mar
- 2026 17:47:37 +0000
-Date: Tue, 17 Mar 2026 17:47:36 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Fuad Tabba <tabba@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Joey
- Gouly" <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, "KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64"
-	<linux-arm-kernel@lists.infradead.org>, KERNEL VIRTUAL MACHINE FOR ARM64
- KVM/arm64 <kvmarm@lists.linux.dev>, "open list"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 05/10] KVM: arm64: Use guard(hyp_spinlock) in pkvm.c
-Message-ID: <20260317174736.00004b1a@huawei.com>
-In-Reply-To: <20260316-tabba-el2_guard-v1-5-456875a2c6db@google.com>
-References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
-	<20260316-tabba-el2_guard-v1-5-456875a2c6db@google.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 17 Mar 2026 17:48:44 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 078C5C0000EC;
+	Tue, 17 Mar 2026 10:48:42 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 078C5C0000EC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1773769722;
+	bh=CGCxOFBSb231Uu15gV/g+PA99Lov3oSXV2BrPS9ckxE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=R0lw+luyCSbekqdzw9yQUfWyjRDEuReTsBX2Q9wx98+ZKxjb+qcxSN2em0LH4gpC6
+	 WgT0T6xRv+NS96KGr4LrxJW+QsaKrvNGAKFCUPJBJiOsGMAsbGtayA2T0ppNWaXY/m
+	 1xp+Nvta158Zcmwa5JP5znoDiinVDKt8sze5f1lI=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D4090A83;
+	Tue, 17 Mar 2026 10:48:41 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linusw@kernel.org>,
+	William Zhang <william.zhang@broadcom.com>,
+	Anand Gore <anand.gore@broadcom.com>,
+	Kursad Oney <kursad.oney@broadcom.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/7] ARM: dts: bcm6846: Add I2C bus block
+Date: Tue, 17 Mar 2026 10:48:41 -0700
+Message-ID: <20260317174841.862136-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260218-bcmbca-i2c-dts-v2-3-5373ef82c50c@kernel.org>
+References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org> <20260218-bcmbca-i2c-dts-v2-3-5373ef82c50c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.149.62]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_104743_363228_A401E60E 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260317_104843_086171_4D6D6475 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,102 +80,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 17:35:26 +0000
-Fuad Tabba <tabba@google.com> wrote:
+From: Florian Fainelli <f.fainelli@gmail.com>
 
-> Migrate manual hyp_spin_lock() and hyp_spin_unlock() calls managing
-> the global vm_table_lock to use the guard(hyp_spinlock) macro.
+On Wed, 18 Feb 2026 10:30:50 +0100, Linus Walleij <linusw@kernel.org> wrote:
+> The BCM6846 has a brcmper I2C block.
 > 
-> This significantly cleans up validation and error paths during VM
-> creation and manipulation by eliminating the need for goto labels
-> and manual unlock procedures on early returns.
-> 
-> Change-Id: I894df69b3cfe053a77dd660dfb70c95640c6d70c
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
 
->  
->  struct pkvm_hyp_vm *get_np_pkvm_hyp_vm(pkvm_handle_t handle)
-> @@ -613,9 +605,8 @@ static int insert_vm_table_entry(pkvm_handle_t handle,
->  {
->  	int ret;
->  
-> -	hyp_spin_lock(&vm_table_lock);
-> +	guard(hyp_spinlock)(&vm_table_lock);
->  	ret = __insert_vm_table_entry(handle, hyp_vm);
-> -	hyp_spin_unlock(&vm_table_lock);
->  
->  	return ret;
-
-	return __insert_vm_table_entry();
-
->  }
-
-> @@ -815,35 +804,35 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
->  	if (!hyp_vcpu)
->  		return -ENOMEM;
->  
-> -	hyp_spin_lock(&vm_table_lock);
-> +	scoped_guard(hyp_spinlock, &vm_table_lock) {
-> +		hyp_vm = get_vm_by_handle(handle);
-> +		if (!hyp_vm) {
-> +			ret = -ENOENT;
-> +			goto err_unmap;
-
-As in earlier patch.  I'd not mix gotos and guard()s.
-
-> +		}
->  
-> -	hyp_vm = get_vm_by_handle(handle);
-> -	if (!hyp_vm) {
-> -		ret = -ENOENT;
-> -		goto unlock;
-> +		ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
-> +		if (ret)
-> +			goto err_unmap;
-> +
-> +		idx = hyp_vcpu->vcpu.vcpu_idx;
-> +		if (idx >= hyp_vm->kvm.created_vcpus) {
-> +			ret = -EINVAL;
-> +			goto err_unmap;
-> +		}
-> +
-> +		if (hyp_vm->vcpus[idx]) {
-> +			ret = -EINVAL;
-> +			goto err_unmap;
-> +		}
-> +
-> +		hyp_vm->vcpus[idx] = hyp_vcpu;
-> +
-> +		return 0;
->  	}
->  
-> -	ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
-> -	if (ret)
-> -		goto unlock;
-> -
-> -	idx = hyp_vcpu->vcpu.vcpu_idx;
-> -	if (idx >= hyp_vm->kvm.created_vcpus) {
-> -		ret = -EINVAL;
-> -		goto unlock;
-> -	}
-> -
-> -	if (hyp_vm->vcpus[idx]) {
-> -		ret = -EINVAL;
-> -		goto unlock;
-> -	}
-> -
-> -	hyp_vm->vcpus[idx] = hyp_vcpu;
-> -unlock:
-> -	hyp_spin_unlock(&vm_table_lock);
-> -
-> -	if (ret)
-> -		unmap_donated_memory(hyp_vcpu, sizeof(*hyp_vcpu));
-> +err_unmap:
-> +	unmap_donated_memory(hyp_vcpu, sizeof(*hyp_vcpu));
->  	return ret;
->  }
->  
->
-
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
+--
+Florian
 
