@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1E7FD876A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF58FD8769
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLS7BULDFHSnBV7NM2Ie39EnACaXAiRdwhxkfIsQqOE=; b=K9T2JoDjjQCL+aTtCG9tgKZOon
-	FHyTXn72bVii7ht2HIe+0MKmwf9Gxi3BkxqY3B2GsZBV2PnHVNufD06u6MDBBCUHooQzxLp+KCGTO
-	7amGSmrpRpUOuHnFg5rpym9MVVqJL8bQykaBIuMq7xcmaeo1muCqWYJRmHr/NJKl1O+q0ZyHAunIL
-	r9lHK8sY9G+DC5G3eb/qNqUj4ZB1MKa+saH7dd34ShGFuOk+tfnWTEoBvrCWd7TZJrZB8muur3sO3
-	b0XPZN2RRb+SCL+AVOmHsmXnTiWBQfH9IfoRcISR+li9MXYalKMsfYGs3GRTiarc7NFzPABquJkJK
-	pHWbW8ug==;
+	bh=b7U6z3Ci8w4R1tNOPS3VmXJMgg839xyrQTuipdiKsKA=; b=j6AAaQ7/fsl7rBRb8xQEOv1QhK
+	2e9flQH7ffkPIf7my1m2cHoOPfNFdIH+cmu7fZ8Ye/Fr2URy3SMhzD8k7Rk/H3JynNMqJkzqtU22j
+	pfd46aFQX/a40zZ5wgSWEOZZ1/M8iAn3qiOJtut2oMuIZf5QfEEFHp9ZsB9GLNcJxh6e+ME32T+3m
+	QXo3bkDTLiktKFmEiu+cCYBgACtwH+vR+D06hm+6KHAqZMGlIWIUwOyttCi8vyoUAfj+EE0xWrFtJ
+	FtYMo3+vOwwIW1E/HGDHNIaMk6LhWIh3c+UdvR11MNucwqIxx4CddZUnGIvmGYLZgodotOpoBlfyy
+	VydF4SMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UQ8-00000006QKX-02cW;
-	Tue, 17 Mar 2026 13:25:16 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1w2UTN-00000006QdK-45dU;
+	Tue, 17 Mar 2026 13:28:37 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UQ4-00000006QJf-2wyz;
-	Tue, 17 Mar 2026 13:25:13 +0000
+	id 1w2UTL-00000006Qcv-0BqJ;
+	Tue, 17 Mar 2026 13:28:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773753913; x=1805289913;
+  t=1773754115; x=1805290115;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=dBuwjzBB1D62lvk1sNa+xg+p0CTXR/Rqr/9U+GnpvYI=;
-  b=Q+1HvZoWghVhjCawDoxmw8wxfqvh0qauVRGeUqN45v5XdbpLDW47dkd4
-   J0glU0ws+sZilk0GEKVwgZAPf2g6r+STGyl7O7389m73KCpEszVY9plhJ
-   +TTgZatqfpm9cjv+0DpafxfMpfeU1KiQ2uqnoPil9WVj4uJM/IG+9oDed
-   B5Q+2iqtyDQuTrlczqrZHJHXe+Zy+JxiUFAZu6A9LJnQIQ8HJNjZmtsTj
-   cWvLlEdjB/u/AP4J8BHLotwox6zsRS9F1GgyIbBlbnWy9EhJCRj1J3E5t
-   943coWaBqFelSJVG5pBsGryxEp8c1EFod6RU9QpDmplcibPbaKaqxzjAj
+  bh=5deYAWnk5PjnJBSj7gYUmK+FXdv106euB1I/XmQwMW4=;
+  b=myIFe9i+Y6rx5bTg8R+UMoUkfeRMohQnGQqW7NKTpnGpPL1/+Q7bTy42
+   RXg2+rseuxQ0jfiVBYtHrJ2t9j7zNvAnkpo1DaJsp/wPLm7MEqiI8sAnR
+   HJHVvHKJXwXhWuN4YE0UO2wfJIdGNDRtseOieEGO1t96HrRHCfP5ddXfR
+   GBLxIsO83jbNLdNhcPsytJI2y5fgmEU9/Xelac8G0BsoF/WsZ2aqrjLIW
+   mhKGIq+L2IsINqVwLcNB+aETdhogbTGfmAGXSmPgLISv81hq6w+8TJWKQ
+   WrVpN46C5OyWf6P/PJy6eEO9q91sfakO49R9baZW5vmKvnTCZaw4Tg6ca
    Q==;
-X-CSE-ConnectionGUID: CtrieJQnRkWhl5HBJk55jQ==
-X-CSE-MsgGUID: ohuNnY5IQ92uaTy8dyRVjw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="77396021"
+X-CSE-ConnectionGUID: a86XJpDRQZe/d5oj+9pdjA==
+X-CSE-MsgGUID: Ltpu3RbqQDC4igi0dJxRdA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="85412107"
 X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="77396021"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:25:12 -0700
-X-CSE-ConnectionGUID: ezJlcV8uR1aquGhY3Y7RQQ==
-X-CSE-MsgGUID: dbuiYPI0Shm6Fo2aVj+CLg==
+   d="scan'208";a="85412107"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:28:34 -0700
+X-CSE-ConnectionGUID: 91XVWifeTBGqTq3vc/kSJQ==
+X-CSE-MsgGUID: 7+2RRmQVRtqZFCzALNf9ug==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="218410447"
+   d="scan'208";a="226736160"
 Received: from dhhellew-desk2.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.171])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:25:07 -0700
-Date: Tue, 17 Mar 2026 14:25:00 +0100
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:28:29 -0700
+Date: Tue, 17 Mar 2026 14:28:22 +0100
 From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: michael.riesch@collabora.com
+To: Michael Riesch <michael.riesch@collabora.com>
 Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
 	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -65,19 +65,20 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Collabora Kernel Team <kernel@collabora.com>, 
 	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/9] Documentation: admin-guide: media: add rk3588
- vicap
-Message-ID: <ablV_XW5c7k2_vAX@mdjait-mobl>
+Subject: Re: [PATCH v2 3/9] media: rockchip: rkcif: add support for rk3588
+ vicap mipi capture
+Message-ID: <ablWdjlrPLGhDJi4@mdjait-mobl>
 References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
- <20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
+ <20250430-rk3588-vicap-v2-3-77de5ee9048e@collabora.com>
+ <ablRBViDR996euua@mdjait-mobl>
+ <e894fe10-3780-465a-984d-01f5e8f4c97e@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
+In-Reply-To: <e894fe10-3780-465a-984d-01f5e8f4c97e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_062512_758855_706DB6E7 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_062835_123113_3C402496 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,19 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Michael,
+Hi Michael,
 
-Thank you for the patch!
-
-On Tue, Mar 17, 2026 at 10:32:19AM +0100, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@collabora.com>
+On Tue, Mar 17, 2026 at 02:21:20PM +0100, Michael Riesch wrote:
+> Hi Mehdi,
 > 
-> Add a section that describes the Rockchip RK3588 VICAP.
+> On 3/17/26 14:08, Mehdi Djait wrote:
+> > Hi Michael,
+> > 
+> > Thank you for this nice patch!
+> > 
+> > On Tue, Mar 17, 2026 at 10:32:21AM +0100, Michael Riesch via B4 Relay wrote:
+> >> From: Michael Riesch <michael.riesch@collabora.com>
+> >>
+> >> The RK3588 Video Capture (VICAP) unit features a Digital Video Port
+> >> (DVP) and six MIPI CSI-2 capture interfaces. Add initial support
+> >> for this variant to the rkcif driver and enable the MIPI CSI-2
+> >> capture interfaces.
+> >>
+> >> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> > 
+> > [...]
+> > 
+> >>  static inline unsigned int rkcif_mipi_get_reg(struct rkcif_interface *interface,
+> >>  					      unsigned int index)
+> >>  {
+> >> @@ -631,6 +765,8 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
+> >>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL1, ctrl1);
+> >>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, ctrl0);
+> >>  
+> >> +	rkcif_mipi_write(interface, RKCIF_MIPI_CTRL, RKCIF_MIPI_CTRL_CAP_EN);
+> >> +
+> > 
+> > while this is the correct solution for rk3588, for the rk3568 vicap this
+> > will write 0x1 to the VICAP_MIPI_CTRL : 0x00A0 which will enable the water line.
+> 
+> nice catch ;-) However, the TRM (at least my version) claims that this
+> bit has a reset value of 0x1, so the bit in question should be already
+> set in the first place. Thus I decided to *not* make variant specific
+> code paths.
+
+Yes, the reset value is indeed 0x1
+
+> 
+> Do you see problems in your setup?
 > 
 
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+No problems, it works as expected, I was just confused to see the
+mipi capture enable added with this rk3588 patch and not before.
 
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+I just find it a bit confusing but if a nicer solution is too much
+hassle we can leave it like this.
 
 --
 Kind Regards
