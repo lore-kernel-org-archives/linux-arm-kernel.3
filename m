@@ -4,104 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F96FD8775
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244C3FD8777
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQnRDSt6fhx6qZCPagnHsoKy2Gq1xtg11v45i8dRbO8=; b=cNWkcwH9TWQ36MeFDWdr1x50zz
-	dLBqIHtN2E8/JUpqHfeK3eM82b8eRK+240HOcIVFkYATM4b0C2uDA3ZzzrcNkv5cWo0HrXGffMx1S
-	houjeq2rrCJtQ3wI/CE/96wG3vvxRMQ3UHnP6VmDmXuVz347eaPAbIAGSOK+KXPbc1E/wUB6S4rBJ
-	4/WpoNYbJ6Ma8VkTHZzLw40JJAtGsr/tSyI4A0hPdXzqo4XTQvAUW+Pfsy4cSR2lMXrglAw71cHlq
-	Sx8EZKUWN3/0axp7joqUe/NEJJjea1lEj+3ZqDMgSyN9tuk4r1uhnQF9zXS08ZqB/MHJRnfTYuIl6
-	sQH0smWA==;
+	bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=; b=UV2vp52rl8u9fhIHIErCWiFIxW
+	GC/8+J9auUEn1qQp++jjoP2U8DO+JjcfChZocZ/V3YXctokCzSta/GsUOH74bq48Ghh5wgPkDZZWz
+	mDFgbZX5S8fWu103MFErJxTFyfEQlJusNOwQbfNcOTZa2prNxxS64ruxO5cJygDHdD2I9TYM9miAD
+	4rp6uLHGOU7ihcz+TdAnmfeJBPV/DVXPoB04zyc7DDdgeV61iO6Xu5dmb4JCtt0oRztkf1HK7FCi3
+	n0fp5ODog2/rZk6kpv+pXZCUpTklnSGFWtbodeeWlc+lTD5jbvqGq22uuUigQD3YQQGpxUBAFYW6e
+	UK/haA8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Utj-00000006UCX-1erj;
-	Tue, 17 Mar 2026 13:55:51 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1w2Uus-00000006UMW-1RCm;
+	Tue, 17 Mar 2026 13:57:02 +0000
+Received: from mail-swedencentralazon11013009.outbound.protection.outlook.com ([52.101.83.9] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Utg-00000006UBR-1skM
+	id 1w2Uup-00000006ULp-3AM2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:55:49 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-509062d829dso514441cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 06:55:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773755747; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NbeCwcCdxP3oZN4V4m5KCjNomlbdK7YT3EhjQ54i3ZZyUJMb7d+2znX2lm+aOZxDCN
-         1chJjeF6m5lepr1w+xPsQu5Y5UCj3b5mAxHsCCKfChkalXQl/IwvVW62bOYdcyRcYtmc
-         yjS5wvp/XcjXqDsvQNhIiZrQZH1d0y8KjVT2JCOv/8pXIi2H5DtxLKUlJ0ONcpobgsQu
-         LLkfyro+baOLuyVwwgrUNzW9qahvoYVQ9rtq8sLuAK/vbFVTScge4/tCOO534JQxvtUf
-         Fbwm9JWyhLxAO+3zMqmat/CKBOpY3K0ZOlzs8ubxcIWOrA/w9vB1Pp39m16qNhN+mDE2
-         jnqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=QQnRDSt6fhx6qZCPagnHsoKy2Gq1xtg11v45i8dRbO8=;
-        fh=+E8JPvbjaWmc3aFTZYJjrNo7l1K/QxQQLPWcfk+s7vg=;
-        b=U16IrYf0vXQRCRr3U5Nza58HRk8HI5tojOojGIzqAJBhq/ji+fVyQT+goa3Os+e1AN
-         RV7YjU+QkgKBaclkhs8Jvtmgq+Ye1uTOr58ThU9J4fjkrnJrtik4+Uv85xCiu83LyQn7
-         zyZlP0MI+rDsVa0eq5calJ+3TD62pBVoYGHFot0evRGjW+ofrW5wvvb2mBficmJZ0zkP
-         rd5OqI1YdsLwd2Gqfn/tbfnIxryDa+bYxAZMPcs5USBJSJ3JkGl2Hg3XZKewzjpPa8oZ
-         NGNLCo1aiIa0fKt/hUtOWHlgV1eZU6yCBumFB0EvJYS76evm/dkiW/MQHO5DOdYQz0Nd
-         Ykcg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773755747; x=1774360547; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=QQnRDSt6fhx6qZCPagnHsoKy2Gq1xtg11v45i8dRbO8=;
-        b=LzRPy5wMJ9TCRMnj3cLILumvnKW8AOu+KWDQE5yFtP+i12/cQvf7uo2mEOsNqA/d40
-         KdJvbOMdSCIVq1aiwmWmUY8Bx9XqrBp/B+RVqmQlwVBQqz/7bVDlQCC9dQrTWvlc5FYc
-         a4klOfQo0Xqj+wk8+2/yl0VXx6caEJOzBK2S70huejMeGSB4N8VLDU/waWSDGft5HlKJ
-         gsISWXgENFdQFaSfO51R3ovw6RLoDIf5sFceIMXZsLcx2g7tYhbgFBZfcguYZ4x/6Hps
-         LKN4O1d7+HTkSK48K5ZrPMzEkm0AgUZLrJqXg/+MrYYEY5Ldz2EzIX1cAa76DlTEGI6v
-         hMlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773755747; x=1774360547;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QQnRDSt6fhx6qZCPagnHsoKy2Gq1xtg11v45i8dRbO8=;
-        b=pbKyrmauWxr65FfobEJNcWLYWWe8K9DJr9sfy23F/binHO2K31rChqVgRdDLWVKDGL
-         8e4I791n9n7TzvBJdse/tSZdJ+4kOH8byFRgLlySeCj+W93fKE+njfPxcXz/I12AptCB
-         be8XwRmsku13IjlTJR6uIg/MfKnqhOpd6TGDDPx/G18SVdoDj+E0AI38kTWcxn7J7m2y
-         6nL56ymjnG0HkxYBo3Y+LZlabPNCiwQqcZGPdIdjVlQyOdaLUISqJYGQP/DV0elcIFSV
-         eg6KpPR9ag3yli5XUaSksqNs5u7Px2ODd+pOV7fRQb+7pzyAvq566rrXsfVA9Zup3shH
-         y9yg==
-X-Forwarded-Encrypted: i=1; AJvYcCWkSsdNJO484BsTSVMKk8fuoOA1uVao9nV+69uCa5dhMDnmswUgH5yoyrk3YrJT1V/9wBSY4BTQ1kFRZQkbZCM/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmtyfZL1ED/G4BJioVMATcX23a+12CfFqdBDayd7gqh8D1pZLq
-	YQGAFcCdmXk9wwYkXc4jN8iErLb+DKm4YM3np8VKXfIxtgXurkxpWyS+UsJOS31jKZ0D36uo3jc
-	5gLaXX3uVoJBTXocHC/4vTbCTjTc/gXPZuTfTWIRx
-X-Gm-Gg: ATEYQzySNzLPiTpq75Kr2Opk5EcUd2DFsx5D87+xpqiiKGXIUO6Omdu0xuZoBk7+6XS
-	Cz3/XXTWWUbyplMxRQsuHZSHGq/7UKQ72ckG8E6jLb5qG1fvy9rNlXnRSOC7c3gEa7vJfqaGsc0
-	y6C0sMCt8aJivOmjiLNrrfNxKz5LXfWJfoNr9e5+EzKs+hHxauSmkbLvbpyljOkLotlwI2LZUNr
-	N/A1D3lgcjhPO1brPcWLNUSUCsi26ctOFaUh4UsAaKKnbTcycmdQPD1E7sZIeGWI3HfN6RSsZMg
-	iKcXUtmjipGwFR33db+5YfPRnqeGePb5zzqXTYiDFF05RVU=
-X-Received: by 2002:a05:622a:3cb:b0:509:2cd4:b705 with SMTP id
- d75a77b69052e-50998c18cb5mr16297621cf.4.1773755746442; Tue, 17 Mar 2026
- 06:55:46 -0700 (PDT)
+	Tue, 17 Mar 2026 13:57:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A/gQfVYxQsqtXQWd5vGpmy319znDFhYzzhUh3ADZ0AvfIKHBdSjQnI3nybZracPBAdlWmkBgve0Kq7QH4OkTfHk02aJQBm2lzneCCE89zoWzgWQRKWWw8jGYuzZ4hIPYG/SaywqAsWscLBp9aUQe2plNjVVhcPCEm/TwzRaYL8fDKf9QZJz/DIq4ECd+zbDmdHRQ97Kj3aetM5bqVJNBdw9+4uBeaM6PnYYQUEYMVx1Ur6CjoSBBhlVP29hq2YU3j7vUOXELqaYei3NHIQTc2v9KcFHB4xW0qozZFq01IIzhdWkIy4/VL+h305OBYIADzRhDXA/tF1D6OF5fim966Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=;
+ b=n5IcBg/bPXEy9cYp10oEQwSRsn1rwTaAliytwZpHB6hL5H4Uu0YMMMdzoZJ/9JjSTCvUoDceauVTsudpSUNbYZN3JCP4FtJQlHvVAoRhLIOA3IZYWZF5F5YeEwsmwDIuRJwZlHbk2o3KS9UJKhe35rhUYSlCQ+4qMc3VebIWifw4PVgGWJ1z1poFx6F9Bv8G9acwO5Tws751MvhbGl1XYMF5OeyaOsMCmctZrWu8Cc3U7JtvzUd2oMpjvOPw9hR3dPA4jLrYQwPPW45ZrmXDvM83FF7FnzZVfEEcOoMOiL7z5EOC/TBMfK8vGxtL8vJTGedAz9fiReLvoDUGMnWiUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oM6fRg6Osy0eYwdI//cDgQaURo3V0Skoaev3psL4UZI=;
+ b=Bbo6WAYYWy9fM+fdMTCJXIz1GGUA03/kDrIAtCOwLFH/0+XhnOxqu2y32PRV+7/wmf5LOKnEuakWW/gQvV+xeRGcyRhdP1Uvqf9HqSREHVEnk92H0yJS8vQ8cLaB/5LHdG1SJq6W4PZq7Peb99D24PYIn36JeTxoZfWpyB/Xy1tM50mqN1XoewZhxxVievvMF5DsMy50aJyntyfYOgcpNdaaBPlYnbvsQRT01DHcp7JRqsStnGQrEUVAYuMhnEXPyG29s4rQinXlZjb6JI4CxC9A6ZXFKQrGocH62DKZ0OCLgMi4AT48VWtm4RhdwWuxx8ro0qlF+IPMt8DILlmaSQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI2PR04MB10191.eurprd04.prod.outlook.com (2603:10a6:800:22c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Tue, 17 Mar
+ 2026 13:56:41 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.021; Tue, 17 Mar 2026
+ 13:56:44 +0000
+Date: Tue, 17 Mar 2026 09:56:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/6] dmaengine: Add common dma_slave_config and split it
+ into src and dst parts
+Message-ID: <abldnCdb1R511CBt@lizhi-Precision-Tower-5810>
+References: <20260114-dma_common_config-v1-0-64feb836ff04@nxp.com>
+ <aa6t8QrrlearBOXI@vaman>
+ <aa7Y20I2_Hlp63gk@lizhi-Precision-Tower-5810>
+ <abksYB2WQ0oNDSbS@vaman>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abksYB2WQ0oNDSbS@vaman>
+X-ClientProxiedBy: PH7P221CA0070.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260316175451.1866175-1-maz@kernel.org> <20260316175451.1866175-12-maz@kernel.org>
-In-Reply-To: <20260316175451.1866175-12-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 17 Mar 2026 13:55:09 +0000
-X-Gm-Features: AaiRm52vhO-0_fyw-KU_tGB1ZZCMQknIbuzbybziiN4mR8MVeeBdjDQp9RpfHh8
-Message-ID: <CA+EHjTzH9RHEDS6XcGQ4A0zt2HcCaFzvBg6xww82hpDSF_rAmg@mail.gmail.com>
-Subject: Re: [PATCH 11/17] KVM: arm64: Restrict the scope of the 'writable' attribute
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB10191:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc332435-dd91-48aa-888d-08de842d05cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|366016|18002099003|56012099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: udBajCE3VLggz8G090VQ5lKiaW8HC8t+H1dkV5ObVbvW38gQJlYD/C4oWcarRI/UKzpjhCc4c+0VdBSH03ZdbMLGVQwPvBw49ErJBVxNWybFE17dgOT9ExKBLPVBIsx6+mEJoQQw7e9XWF7FXbXYyEDh4L63dFwaTWIZmKwZiEfd78Zro4VGlhNr1dr9J9kKt9ucmLAuzguz9MsEbYeHhgWhirIfmV0O+Icje6OoyM7qqjsrazgER4mcqtf9mh/lKArTwPHr47GVbSlZuqeQgPX7omg4s+rPq4T4CDzLXP4hb81UtxZZJvZv8W57xGnQ4Udig/Erh3rb8DUBUi46MEG5jbtpkhlUvJEBoNWuDhi1CXbaIiP5b7bIH+J4N3B4hvbsSlrET2W9hcLUpfZ0Xa8cz4nRRnhrh0n3NjjW2VmsII3+P2ATTAdzV3teVs1MwJ3i2FMdpLXRoSPix+XDVbK6y6yfrhbRHZqH5JvXa1PT2EC/k1CWYXY7HTFibu5usyWi0GKd8ClelomDiU2DBicD/4YYv3h+ci/C9yTPL9EaCnOD7BmoIaY+fGo8EaNqqqnN+uIPpfEjJoN1/eNiyRP59R7Z/Czwz3e7t2jq7ZT/2cft/ORqzgqwbjAuK3H4JQ8Ro59CWj1fBHf9DZJ4QPYg6/lqjlefl4aef09OHeEYndW8Dk9yqBRNWTb1ru4UUKK+0PHbpKeGkS9AzBj9k3rxG0RTxsU1LiwDhXYZCrWq/BzIS4y6AZU1gXEWidCdzTMMghEQG7XZ173QEliPU5Dd8fQuwIzobRi8sC4anz8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(366016)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+Z38TtnIRurJ73lP3iOPQaCKqrqbmg/2dLc9/xBo0vx2D/EBvP1KeY6rzvWn?=
+ =?us-ascii?Q?KGSku6ShTVXjb8iaKyJmMZipnDeOezIibGDQmgsgr5WLKABMxzS2wyb1wS9c?=
+ =?us-ascii?Q?AfaY/ErHgTeMhK0WYYemEugujMt55FMnlV54C6v7PASkXniQmjOkr+beIPkf?=
+ =?us-ascii?Q?+k4T3Hm6ja5G4NIhDRYrL52F1zZiHZAZMEt0x7jLPoEUz4/dj/x79mCR19W8?=
+ =?us-ascii?Q?qISf7gHzJT5kC5ydf1gNzfeePKpmF9eCI197/I4YZ5boAhsZ4LRvFSTJQxwV?=
+ =?us-ascii?Q?3HugnX0PvBGolIXI5xZen96Kd8USdHifH5IXAUgvrjqZ4eg1d9iEMA2ptYmu?=
+ =?us-ascii?Q?lE+jCgqcehRj5Wqnwin60kG+ULdmTqmiYJurppG7ThW57zpbPQ24N2CVFgqe?=
+ =?us-ascii?Q?9GeWboEfq5EsF5e0ecgQrdMTwHzzoCqSO0M6e8I/5b/Aypd08QpgY4zrhek2?=
+ =?us-ascii?Q?YPytNRVbUMKyi4lmYUG+X6WXCEr3ODfHOq9U/p45heehL5SfiLTibV3rMyiX?=
+ =?us-ascii?Q?GrTm7hcT8kmloXZlGjX+mh5Lj84MFdUZM8d+LgxKcY65DWELjumBpGujknGS?=
+ =?us-ascii?Q?9pyVotPZ0hX8wpd3P9DoYQNLPFw6C7qXzVl+7n3BnbnNszc3JBEzp2UBp8BG?=
+ =?us-ascii?Q?qT5Q4kgUNrMGrLZdKqGYqNbKpiKEbDS1tLkhR1hhpc8qAFzToqLuV+ZrY0eN?=
+ =?us-ascii?Q?Ea+WP7C33lm62PK07+MRTiPdpCn/psl/2eMYcQeCrUhGin+gC8DBLIeV+0cl?=
+ =?us-ascii?Q?wkRIe401PxrcSeWGAvqZNWV8yOOIcwB+1ffFptgSbkPWv+ydZLjtrP1Nx2SX?=
+ =?us-ascii?Q?/N3CACP20dlxaxa7JNyqQGEwLz/rGyK+BJ4+4grHzqGMjJqRIL1yVvCcs8ec?=
+ =?us-ascii?Q?Po5QRVjoC9bdj5r7e1Tfv9swPxk6wqNmz07XrHzicM8i940j9W5LEQC1Fqtq?=
+ =?us-ascii?Q?O+CVuj2JE4yZx8nIUqIkgumUkgEtOLXLyBVN2q1kuSGtNfbtpRWF8oBfPVCk?=
+ =?us-ascii?Q?iqCPoMI+8G+zahiKuwwC6F8qmy55TSS/ARyc3N5mhXZbDiPC7J8A9Z8EAZlQ?=
+ =?us-ascii?Q?5KtIn0kqRUoN6gtfy29PjMqKuDm3Ubp5Qebt7FRRcLBus74W6Lxll2btgS8B?=
+ =?us-ascii?Q?XYVkXM+qbr6vQcADPSl3PcGHK6nGVO70lUu97+gsyfXF/Q8n1rU3IaSs8K58?=
+ =?us-ascii?Q?Z9VVyqFt8WLD2DgKZQQTr/VHRaKW8tvE4r7cLL+6hoMnB2r8Y7AcffOIEq+7?=
+ =?us-ascii?Q?X5qtLHl/92a0tM5D2vtNEyyIfm7ZHH0VYI4QscLPjrkYoWmQVFUtTeYo7fYd?=
+ =?us-ascii?Q?Tsk7SKvfo+FkgnuzpNKIeTqcpFtF+tEenN2ujokSA/u682Mz/3H/TH/2rkJ3?=
+ =?us-ascii?Q?ncG3osLBillN/TnS7q1dRm8OU5jfIDHJ0DdDwnLe8N1dEK99Xfrc6M/fTTxt?=
+ =?us-ascii?Q?1ry4Gh6t7wE+EpHJZDkaKygA83WC3Z2AI4HGaHlvLyYiCwyrISs+SZY2FnEZ?=
+ =?us-ascii?Q?s1Le7pyI+tOTnTTeTdm09FESZ7Fm5kcrBI/2MK4LxeWRCveghlLoxC5+olR/?=
+ =?us-ascii?Q?HR+qDm0BXO/cO9ELzH9iJ5MNfIIOxjRm11lYiXLas3vto/Gr/2gN9yUiA4tv?=
+ =?us-ascii?Q?WB1wdkUJ22v0ms+x8vK+sc3dxkwQfqi3gWn9KXrOsPRQM9U3kXYklyxlL3lt?=
+ =?us-ascii?Q?2yj3osVNTEqo8Lls6oUELWjBxHL6KxVgeKVGpm8ijWiC0Fuk?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc332435-dd91-48aa-888d-08de842d05cc
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 13:56:44.1002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UUmZlrgH7+oyPaSfsuxu6zt5ZuHEPC6e1RJMS3mm73XXG3pdvEX1oEXipmS7YJtbhKdhJi3FB4E91kpFS+qZ/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_065548_531077_8F21AF57 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20260317_065659_799831_B5B3B818 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,108 +140,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
+On Tue, Mar 17, 2026 at 03:56:40PM +0530, Vinod Koul wrote:
+> On 09-03-26, 10:27, Frank Li wrote:
+> > On Mon, Mar 09, 2026 at 12:24:33PM +0100, Vinod Koul wrote:
+> > > On 14-01-26, 12:12, Frank Li wrote:
+> > > > Many DMA engine drivers store a dma_slave_config per channel. Propagate
+> > > > this configuration into struct dma_chan to avoid duplicating the same
+> > > > code in each driver.
+> > > >
+> > > > Much of dma_slave_config is identical for source and destination. Split
+> > > > the configuration into src and dst groups and use a union to preserve
+> > > > backward compatibility. This reduces the need for drivers to repeatedly
+> > > > check the DMA transfer direction.
+> > >
+> > > The reason why we had both the src/dstn sides was intended method to
+> > > allow upport ofr device to device dma. Some interest was shown for that
+> > > at that time.
+> > > I dont think we have such a user even now...
+> >
+> > My means is the field name is identical, not value identical although most
+> > case is the identical. but it is possible, especial FIFO space windows,
+> >
+> > sound/soc/fsl/fsl_asrc_dma.c use DEV_TO_DEV, at least src and addr use
+> > differece address.
 >
-> The 'writable' field is ambiguous, and indicates multiple things:
->
-> - whether the underlying memslot is writable
->
-> - whether we are resolving the fault with writable attributes
->
-> Add a new field to kvm_s2_fault_vma_info (map_writable) to indicate
-> the former condition, and have local writable variables to track
-> the latter.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Yeah so this would break if we go ahead. Thanks for looking this up
 
-user_mem_abort() was overloading a lot of variables!
+Sorry, what break? This patch just group these informations.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+Frank
 
-Cheers,
-/fuad
-
-> ---
->  arch/arm64/kvm/mmu.c | 16 +++++++++-------
->  1 file changed, 9 insertions(+), 7 deletions(-)
 >
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index caa5bedc79e19..3cfb8f2a6d186 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1717,10 +1717,10 @@ struct kvm_s2_fault_vma_info {
->         gfn_t           gfn;
->         bool            mte_allowed;
->         bool            is_vma_cacheable;
-> +       bool            map_writable;
->  };
->
->  struct kvm_s2_fault {
-> -       bool writable;
->         bool s2_force_noncacheable;
->         kvm_pfn_t pfn;
->         bool force_pte;
-> @@ -1801,7 +1801,7 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
->
->         fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
->                                        kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
-> -                                      &fault->writable, &fault->page);
-> +                                      &s2vi->map_writable, &fault->page);
->         if (unlikely(is_error_noslot_pfn(fault->pfn))) {
->                 if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
->                         kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
-> @@ -1818,6 +1818,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->                                      const struct kvm_s2_fault_vma_info *s2vi)
->  {
->         struct kvm *kvm = s2fd->vcpu->kvm;
-> +       bool writable = s2vi->map_writable;
->
->         /*
->          * Check if this is non-struct page memory PFN, and cannot support
-> @@ -1857,7 +1858,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->                  * Only actually map the page as writable if this was a write
->                  * fault.
->                  */
-> -               fault->writable = false;
-> +               writable = false;
->         }
->
->         if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu) && fault->s2_force_noncacheable)
-> @@ -1875,9 +1876,9 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->         }
->
->         if (s2fd->nested)
-> -               adjust_nested_fault_perms(s2fd->nested, &fault->prot, &fault->writable);
-> +               adjust_nested_fault_perms(s2fd->nested, &fault->prot, &writable);
->
-> -       if (fault->writable)
-> +       if (writable)
->                 fault->prot |= KVM_PGTABLE_PROT_W;
->
->         if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu))
-> @@ -1906,6 +1907,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->                             const struct kvm_s2_fault_vma_info *s2vi, void *memcache)
->  {
->         enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
-> +       bool writable = fault->prot & KVM_PGTABLE_PROT_W;
->         struct kvm *kvm = s2fd->vcpu->kvm;
->         struct kvm_pgtable *pgt;
->         long perm_fault_granule;
-> @@ -1966,11 +1968,11 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->         }
->
->  out_unlock:
-> -       kvm_release_faultin_page(kvm, fault->page, !!ret, fault->writable);
-> +       kvm_release_faultin_page(kvm, fault->page, !!ret, writable);
->         kvm_fault_unlock(kvm);
->
->         /* Mark the page dirty only if the fault is handled successfully */
-> -       if (fault->writable && !ret) {
-> +       if (writable && !ret) {
->                 phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
->                 ipa &= ~(mapping_size - 1);
->                 mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
 > --
-> 2.47.3
->
+> ~Vinod
 
