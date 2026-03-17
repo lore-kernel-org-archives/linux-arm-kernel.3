@@ -4,61 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80425F3381E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C45F3381B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQnvk0G/3bk6mqD0dSqrqzvzGU2PWQ1QJYeCSmc73cY=; b=qlQUWdGMP4GVGHCJgRHGQgWxZv
-	Q621XfQQ290OzyWYBKwlk5G9Y1FcDy6l43HItxWauiE3Unm53vRtuWSyRAUE5cMRgXkZT0ViNs/9/
-	co3FS45gCMp07aPwhVcCSTGBaZeCQZKXD1cLOJtJa+cu4gCGo/EvuVaxQIrb45Z2u4U1x9wjxTgPI
-	jXjtUgxDDF7tZ3dLASBg3buWmWXkq1Rnm3SMsZGl+fkHLIUOdt5SFuH+l6PNGsg3Fy2Sa/TZBMDO0
-	JLeiN91/SB2YVUJcm/GpmMGCRiMxxIur5kpoYcEMqFz3kUTY+dT7A5FGfjX4OvZgx+gxpI+jOcVNl
-	qi4YEMkQ==;
+	bh=vOuiJ6MeDMkaWLveMBBkfhjpipSzpptBgVxbpSymF94=; b=RwG8rpIg3PFqfn9d20I5ZG0+MA
+	04GyDqYfzMFzTim5hOsXmbnf+HCW2VHf4kLYFxDtZOyqXP0ey/S8i8fBeuJi/H0exLDXKurL9jIPS
+	1nIq5dcEAEWpxVk7G3POwekSxzwynsdrKqcSMYQXxXTLZDcSnNkFUOB2Imy7ppPzfmzg2PjgMVlFY
+	X6QMEUIxipFuWXSphAb6yvxpfxCLFx65dIigDIT7HwsKWr4n2TDYAjfmBoYg0VXF+2e+WCgFMIbWb
+	uVunHu/zFBDYNVWms32ecuVGqmONNauGrdd4cy4zDiDtdwXUQHBn7B/ak7tfz8OkKGoHu5PoU1XSa
+	XtI+aBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QUG-00000005oz6-3rRW;
-	Tue, 17 Mar 2026 09:13:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QUE-00000005oyI-2LNB
+	id 1w2QWi-00000005pJs-3WhU;
+	Tue, 17 Mar 2026 09:15:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2QWg-00000005pJI-2gG6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 09:13:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E430B1476;
-	Tue, 17 Mar 2026 02:13:05 -0700 (PDT)
-Received: from [10.57.82.228] (unknown [10.57.82.228])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF2A13F778;
-	Tue, 17 Mar 2026 02:13:09 -0700 (PDT)
-Message-ID: <9dded616-989b-4846-8596-1c45a6304d36@arm.com>
-Date: Tue, 17 Mar 2026 09:13:08 +0000
+	Tue, 17 Mar 2026 09:15:47 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62H5NjIZ1428764
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 09:15:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vOuiJ6MeDMkaWLveMBBkfhjpipSzpptBgVxbpSymF94=; b=LpA55TNuDvPNJoZJ
+	o2ILbP6uuKoSILs/FaBIqRvUNZ3rXskSgY0pe81mRBUvlXjly7VqErYdDVHkSMyl
+	5Phvwp6ukaLmdxsEpnSGz9YvXu97wZj+sSBdPaiFBpVT8z+FKETtM23WP5UWEbSp
+	PDJZpysve5jZKLKrzg5V6ympYdkRal7q7DrD+dPYwwijhpG6Bc2XRoXIGjPO6HFU
+	5mPc5T+DC5BY/WjjNVTl6jgxo4Ubpxa04CQFzd/rYgUa7UKELDjoxeGLITkf7Bqn
+	TWCXdulkZg+Yks3teRIS/oIzbGqFSlLlfNQLz7bsLGZeOCWdMtJVPf8/IpJjzXHP
+	tUwg4Q==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cxh99c3dd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 09:15:46 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb456d53a5so367529785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 02:15:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773738945; x=1774343745; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vOuiJ6MeDMkaWLveMBBkfhjpipSzpptBgVxbpSymF94=;
+        b=iLezdsZYRJgPoUDmwUTAofs7Lxp2O+LzKyVtGySUpLTvrUTzIpCjLjKGD6bfH0IefL
+         rOi/Vt5bs1Wp9pV5ILwQZoxkS6W/7CWAHPImxG8wQhCJL+YjUnww5E24egPU7/FF5QTm
+         JUexc2p4JNzwq5DNrZOrtcoJ6d4yh1FnbXCR2Syr2ogSNFxOpzfkgwcR+ceRAfAQdk6c
+         cOxDnEbzWwQlkeOp5HqU12yzqhmKTXb65+UN4Iqa3++24Ka/h3n2LlQ/aQghpX0WQt94
+         Mc95S2QoZl6ggheeRDV4oYbvPytMw8oC7RI92+Kac048OiJl2nfeCNynNTbiBPMSFpc0
+         BnMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773738945; x=1774343745;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vOuiJ6MeDMkaWLveMBBkfhjpipSzpptBgVxbpSymF94=;
+        b=BAX1xFGPvJH1XHc3pL53ErgUqe7T1CUn97dFnDR1hl518fWHmNZotqIT3SoiUYRpTh
+         jjztRKzEUEuSd71ciSI/NE62nvLFpFU6nXQGFJm4bVCXZWO6fHYW4oxP3ldgOisXf35V
+         moCCsMwLzyiXHTzFpLnCSAwLhjZXVH+larEy1D/V4U8ifurqeJ9+JWEM8mNIE/k4fCDj
+         dxeZeqeP/ex9yL9NDWWJHtvWrWAFjKIVZsVJO2vWC7Lb2DhMNaJdfaRBFBSNhWq6SQ2D
+         nA8+s6TjXzcKGQ1exzvKoxhoJRJnBd4vbB5nTpZJRyB5RDRU85pNuZfGXdx/VfR6Rjcm
+         R7fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfVyZv9NvntiL7/lUV0r2OEU58PUZg2V70rJF4XZ1Yi/AtTpJf1GZq163CKJhG2F5anPDAacevIddCe/9PmfVI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpchdI/5kX9TUktK/ESOlVLiTN9cgzqt8SN8CJuxOao8YI6jkb
+	ehrkBsaiYRfwPTLB6yGL+gOdgDqqwfBwDnSCz7tN4HWgpEaRLVJp/gXJzbWiij3fwj2b066+y3w
+	ZOwiaGSbY5N04p5Nau0zYTzncmVE/sBSuEwRkKXoY95e72TynmSoWAYkpR4Nlbxk/wB445tvOWG
+	Hjew==
+X-Gm-Gg: ATEYQzyU5dZqSgTWS3rvqQx1BY4OHZlcRiNAocGiTQA4OhBfA1adzThE6ehU86iD66n
+	EQkNFeRP5qagXjosi8CR1idlz6492uksmh9M9Z2BelwFgxz+hidpjNjNyywFK3LICfyRsvupYEu
+	Tp1y4pBk1IfTvIYtzWBfdOfaPSV/ThguGG2DnVXm5psaf8xv32u9M6vx+moQNFgxESpB/+XI6DF
+	Zai9y6C/GPeYXPDTjkj6n+2lyYacY5zVv9VxJPZxwDm80eqarDBC7Ysso+3QIwcn03uVaGzzBn8
+	Q+QyvBz7mASVzQn/O00cW466qG10hzQ7MS/+ntBIGdyUq0XbyEgHVCinkXZ/kH360UJNUfBjIYJ
+	tpv2ulZOMy8D5z7XnKmPucUiBM5BLWOdOhpCAqnNIpWUd/4IufbcSHbKIaU/MQsrZAjpIi8USnQ
+	4Csfo=
+X-Received: by 2002:a05:620a:1a0d:b0:8cd:78b6:e261 with SMTP id af79cd13be357-8cdb5a2d5cfmr1661636085a.2.1773738944988;
+        Tue, 17 Mar 2026 02:15:44 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a0d:b0:8cd:78b6:e261 with SMTP id af79cd13be357-8cdb5a2d5cfmr1661633985a.2.1773738944550;
+        Tue, 17 Mar 2026 02:15:44 -0700 (PDT)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-66350d73f14sm6262122a12.30.2026.03.17.02.15.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2026 02:15:43 -0700 (PDT)
+Message-ID: <f3344006-5511-4f1b-aea3-7dc81a091cd8@oss.qualcomm.com>
+Date: Tue, 17 Mar 2026 10:15:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Jinjiang Tu <tujinjiang@huawei.com>,
- catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- david@redhat.com, lorenzo.stoakes@oracle.com, ardb@kernel.org,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
- <0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com>
- <de0b06cf-15a5-4109-b339-75c10d9b8a18@arm.com>
- <0a740020-4780-4156-a9c5-f8b4ada9c8c0@os.amperecomputing.com>
- <4ad2ea40-b23b-4231-a0de-585b205865c5@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <4ad2ea40-b23b-4231-a0de-585b205865c5@arm.com>
+Subject: Re: [PATCH v3 5/5] PCI: qcom: Add D3cold support
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+        Jingoo Han <jingoohan1@gmail.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com
+References: <20260311-d3cold-v3-0-4d85dc7c2695@oss.qualcomm.com>
+ <20260311-d3cold-v3-5-4d85dc7c2695@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260311-d3cold-v3-5-4d85dc7c2695@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=RJ++3oi+ c=1 sm=1 tr=0 ts=69b91bc2 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=U-o9HKKhJ6a-R5p13S8A:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDA4MSBTYWx0ZWRfX8adgoOiVct6I
+ G9w73LNjJWBbyKJac0uYMuH07ucF/jY5KrL1zvsCrE1Msw5Audwgj0iOoJ0Ll7kYWgLmj+la963
+ jBo2Po2HNJ+zHG61dVtMo2cO7aKJdkacSoRhNrh4+o/Sx9+BnnnrHNp4j2pZdFrXllz2RMprX3j
+ CiSdhXQvxM7AF740/kvaPLnQAj68RC7IpHUVb+aFrJ0NAwSZOP3ZTeuM03XH2/lDIFns55T8m1/
+ pJZfNg4uBQojc5DRI420jL8x5cjGKp1nQufWala+jrZxL88fB7HCPlc+Mkif2gRLs+ts9YE+rVz
+ Gmb6CwCJvj2K6ZEu7OyAKDR5iLpVoOf+4zuC9H+IBreIHU0/vMYT8BGbisfsjH12/DUncbv0U72
+ 2jdiXFr4khsJZMOcT1OguRacKLDnQqBlbQ/9MQs6jMjymEAvRx2a5O7dTx7si8t02QxjINY5Itb
+ pXaEvvG5g2QH2d/hzYw==
+X-Proofpoint-ORIG-GUID: 3jpzeiCKCs1gToBekeWS8_HeyL2zGR_Y
+X-Proofpoint-GUID: 3jpzeiCKCs1gToBekeWS8_HeyL2zGR_Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-17_01,2026-03-16_06,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 spamscore=0 malwarescore=0
+ lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603170081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_021314_678853_7405600A 
-X-CRM114-Status: GOOD (  38.04  )
+X-CRM114-CacheID: sfid-20260317_021546_689494_B52E711D 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,220 +155,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 08:47, Kevin Brodsky wrote:
-> On 17/03/2026 01:15, Yang Shi wrote:
->>
->>
->> On 3/16/26 8:47 AM, Ryan Roberts wrote:
->>> Thanks for the report!
->>>
->>> + Kevin, who was looking at some adjacent issues and may have some
->>> ideas for how
->>> to fix.
+On 3/11/26 11:26 AM, Krishna Chaitanya Chundru wrote:
+> Add support for transitioning PCIe endpoints & bridges into D3cold by
+> integrating with the DWC core suspend/resume helpers.
 > 
-> Indeed, specifically to protect page table pages (PTPs) by mapping them
-> with a privileged pkey. pagetable_alloc() is called on several occasions
-> before all secondaries are up (including from init_IRQ() in fact), but
-> we cannot call set_memory_pkey() at that point for the same reason that
-> Jinjiang pointed out.
+> Implement PME_TurnOff message generation via ELBI_SYS_CTRL and hook it
+> into the DWC host operations so the controller follows the standard
+> PME_TurnOff-based power-down sequence before entering D3cold.
 > 
-> The approach I went for is to allocate a whole block on boot and defer
-> the call to set_memory_pkey() until it's safe to do so [1]. It's not a
-> particularly nice solution as this restricts the number of PTPs we can
-> allocate in that window, especially if more of them get allocated when
-> set_memory_decrypted() splits the linear map.
+> When the device is suspended into D3cold, fully tear down interconnect
+> bandwidth, OPP votes. If D3cold is not entered, retain existing behavior
+> by keeping the required interconnect and OPP votes.
 > 
-> [1]
-> https://lore.kernel.org/linux-hardening/20260227175518.3728055-17-kevin.brodsky@arm.com/
+> Drop the qcom_pcie::suspended flag and rely on the existing
+> dw_pcie::suspended state, which now drives both the power-management
+> flow and the interconnect/OPP handling.
 > 
->>>
->>>
->>> On 16/03/2026 07:35, Jinjiang Tu wrote:
->>>> 在 2025/9/18 3:02, Yang Shi 写道:
->>>>> On systems with BBML2_NOABORT support, it causes the linear map to
->>>>> be mapped
->>>>> with large blocks, even when rodata=full, and leads to some nice
->>>>> performance
->>>>> improvements.
->>>> Hi,
->>
->> Hi Jinjiang,
->>
->> Thanks for reporting the problem.
->>
->>>>
->>>> I find this feature is incompatible with realm. The calltrace is as
->>>> follows:
->>>>
->>>> [    0.000000][    T0] ------------[ cut here ]------------
->>>> [    0.000000][    T0] WARNING: CPU: 0 PID: 0 at
->>>> arch/arm64/mm/pageattr.c:56
->>>> pageattr_pmd_entry+0x60/0x78
->>>> [    0.000000][    T0] Modules linked in:
->>>> [    0.000000][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted
->>>> 6.6.0 #16
->>>> [    0.000000][    T0] Hardware name: linux,dummy-virt (DT)
->>>> [    0.000000][    T0] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO
->>>> -DIT -SSBS
->>>> BTYPE=--)
->>>> [    0.000000][    T0] pc : pageattr_pmd_entry+0x60/0x78
->>>> [    0.000000][    T0] lr : walk_pmd_range.isra.0+0x170/0x1f0
->>>> [    0.000000][    T0] sp : ffffcb90a0f337d0
->>>> [    0.000000][    T0] x29: ffffcb90a0f337d0 x28: 0000000000000000 x27:
->>>> ffff0000035e0000
->>>> [    0.000000][    T0] x26: ffffcb90a0f338f8 x25: ffff00001fff60d0 x24:
->>>> ffff0000035d0000
->>>> [    0.000000][    T0] x23: 0400000000000001 x22: 0c00000000000001 x21:
->>>> ffff0000035dffff
->>>> [    0.000000][    T0] x20: ffffcb909fe3b7f0 x19: ffff0000035e0000 x18:
->>>> ffffffffffffffff
->>>> [    0.000000][    T0] x17: 7220303030303178 x16: 307e303030306435 x15:
->>>> ffffcb90a0f334c8
->>>> [    0.000000][    T0] x14: 0000000000000000 x13: 205d305420202020 x12:
->>>> 5b5d303030303030
->>>> [    0.000000][    T0] x11: 00000000ffff7fff x10: 00000000ffff7fff x9 :
->>>> ffffcb909f1e27d8
->>>> [    0.000000][    T0] x8 : 00000000000bffe8 x7 : c0000000ffff7fff x6 :
->>>> 0000000000000001
->>>> [    0.000000][    T0] x5 : 0000000000000001 x4 : 0078000083400705 x3 :
->>>> ffffcb90a0f338f8
->>>> [    0.000000][    T0] x2 : 0000000000010000 x1 : ffff0000035d0000 x0 :
->>>> ffff00001fff60d0
->>>> [    0.000000][    T0] Call trace:
->>>> [    0.000000][    T0]  pageattr_pmd_entry+0x60/0x78
->>>> [    0.000000][    T0]  walk_pud_range+0x124/0x190
->>>> [    0.000000][    T0]  walk_pgd_range+0x158/0x1b0
->>>> [    0.000000][    T0]  walk_kernel_page_table_range_lockless+0x58/0x98
->>>> [    0.000000][    T0]  update_range_prot+0xb8/0x108
->>>> [    0.000000][    T0]  __change_memory_common+0x30/0x1a8
->>>> [    0.000000][    T0]  __set_memory_enc_dec.part.0+0x170/0x260
->>>> [    0.000000][    T0]  realm_set_memory_decrypted+0x6c/0xb0
->>>> [    0.000000][    T0]  set_memory_decrypted+0x38/0x58
->>>> [    0.000000][    T0]  its_alloc_pages_node+0xc4/0x140
->>>> [    0.000000][    T0]  its_probe_one+0xbc/0x3c0
->>>> [    0.000000][    T0]  its_of_probe.isra.0+0x130/0x220
->>>> [    0.000000][    T0]  its_init+0x160/0x2f8
->>>> [    0.000000][    T0]  gic_init_bases+0x1fc/0x318
->>>> [    0.000000][    T0]  gic_of_init+0x2a0/0x300
->>>> [    0.000000][    T0]  of_irq_init+0x238/0x4b8
->>>> [    0.000000][    T0]  irqchip_init+0x20/0x50
->>>> [    0.000000][    T0]  init_IRQ+0x1c/0x100
->>>> [    0.000000][    T0]  start_kernel+0x1ec/0x4f0
->>>> [    0.000000][    T0]  __primary_switched+0xbc/0xd0
->>>> [    0.000000][    T0] ---[ end trace 0000000000000000 ]---
->>>> [    0.000000][    T0] ------------[ cut here ]------------
->>>> [    0.000000][    T0] Failed to decrypt memory, 16 pages will be
->>>> leaked
->>>>
->>>> realm feature relies on rodata=full to dynamically update kernel
->>>> page table prot.
->>>>
->>>> In init_IRQ(), realm_set_memory_decrypted() is called to update
->>>> kernel page
->>>> table prot.
->>>> At this time, secondary cpus aren't booted, BBML2 noabort feature isn't
->>>> initializated,
->>>> and system_supports_bbml2_noabort() still returns false. As a result,
->>>> split_kernel_leaf_mapping() is skipped, leading to
->>>> WARN_ON_ONCE((next - addr) !=
->>>> PMD_SIZE)
->>>> in pageattr_pmd_entry().
->>> If no secondary cpus are yet running, then it is technically safe to
->>> split
->>> because we know all online cpus (i.e. just the boot cpu) supports
->>> BBML2_NOABORT.
->>> So we could explicitly only disallow splitting during the window
->>> between booting
->>> secondary cpus and finalizing the system caps. Feels a bit hacky
->>> though...
->>
->> I think we can check whether system feature has been finalized or not.
->> If it has not been finalized yet, we just need to check whether the
->> current cpu (should be just boot cpu) supports BBML2_NOABORT or not.
->> It sounds ok to me.
-> 
-> That assumes that no secondary has booted yet, otherwise we cannot
-> safely split live mappings without knowing that all CPUs support
-> BBML2-noabort. It might work for this particular case, but it is
-> fragile. It wouldn't help for the page table protection case, as PTPs
-> get allocated while secondaries are booting up (e.g. stack allocation
-> when forking kthreadd).
-> 
->>
->>>
->>>> Before setup_system_features(), we don't know if all cpus support
->>>> BBML2 noabort,
->>>> and we
->>>> couldn't split kernel page table, in case another cpu that doesn't
->>>> support BBML2
->>>> noabort
->>>> is running.
->>>>
->>>> How could we fix this issue?
->>>>
->>>> 1. force pte mapping if realm feature is enabled? Although
->>>> force_pte_mapping()
->>>> return true if is_realm_world() return true, arm64_rsi_init() is
->>>> called after
->>>> map_mem(). So is_realm_world() still return false during map_mem().
->>>> Thus
->>>> realm feature relies on rodata=full. If we fix by this solution, we
->>>> need
->>>> to add a new cmdline to force pte mapping.
->>
->> I don't quite get why is_realm_world() relies on rodata=full. I
->> understand realm needs PTE mapping if BBML2_NOABORT is not supported.
->> But it doesn't mean real relies on rodata=full.
->>
->>> I think we just need to make is_realm_world() work earlier in boot? I
->>> think this
->>> has been a known issue for a while. Not sure if there is any plan to
->>> fix it
->>> though.
->>>
->>>> 2. If we could try to split kernel page table before
->>>> setup_system_features()?
->>> Another option would be to initially map by pte then collapse to
->>> block mappings
->>> once we have determined that all cpus support BBML2_NOABORT. We
->>> originally opted
->>> not to do that because it's a tax on symetric systems. But we could
->>> throw in the
->>> towel if it's the least bad solution we can come up with for solving
->>> this. I
->>> think it might help some of Kevin's use cases too?
->>
->> May be an option too. When we discussed this there was no usecase for
->> direct mapping collapse. But if we can have multiple usecases, it may
->> be worth it. 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
 
-I could imagine that if user space creates and destroys lots of secretmem areas,
-then it will completely split the linear map to ptes and that will never recover
-currently. So I think in the long term, having the ability to collapse would be
-useful. I just don't particularly like forcing symetric systems to map by pte
-initially (which is slow) only to collapse later (which will cost even more
-time). But it does feel inherrently more robust.
+[...]
 
->> AFAICT, the ROX execmem cache may need this, which Will
->> or someone else from Google is going to work on.
-> 
-> Not sure about the execmem cache (do we call execmem_alloc() before
-> secondaries are up?), but I think that would indeed solve the issue for
-> the page table protection use-case. Besides in terms of complexity it's
-> probably not much worse than what we currently have, i.e. basically the
-> reverse (splitting the linear map if some CPU doesn't have
-> BBML2-noabort). Penalising symmetric systems is not great, though.
-> 
-> - Kevin
-> 
->>
->> Checking current cpu BBML2_NOABORT capability before system feature is
->> finalized seems like a fast way to stop bleeding IMHO before we find
->> more elegant long-term solution.
->>
->> Thanks,
->> Yang
->>
->>> [...]
+>  		ret = icc_disable(pcie->icc_cpu);
+>  		if (ret)
+>  			dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n", ret);
+>  
+>  		if (pcie->use_pm_opp)
+>  			dev_pm_opp_set_opp(pcie->pci->dev, NULL);
 
+Does calling .suspend not drop the vote by itself?
+
+[...]
+
+> @@ -2132,25 +2138,46 @@ static int qcom_pcie_resume_noirq(struct device *dev)
+
+Similarly, I'd expect that .resume restores it (and you didn't do it manually)
+
+Konrad
 
