@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B390BFED9EB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A209FED9E8
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 16:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/p1L1gJN+BNJua1ptqA6EPWPlxSIxcqHf/wWm0ueSg=; b=JINe7kmkBfhzKhhJSfIRPoc+UJ
-	OV1uuseSzUfZhbLPlKCfBqtg77RITU9kG3JAtiuD37GbynPluG2zGfSQqpgvCIT/iEdIZPtBt5pv3
-	g68Li4Xhcv99dqDuZnFMpu5IhAEppuvmiVoMu2rO/DeJRisZZP8vdkX/vGvmedLWXoF238P62hOp1
-	+5gcLB9BiGBJpc+j5x8ZcCtXpjaKjRK25g7pA0FVIAJX4DomsVtNcGDZwbdPiCLR6bSLaoOJRiExK
-	f7Qsr0PIu3uOWckDPdMiT6TsGqLrB7VWYIqQj5maxRBK7LMheKiRDHbd45ZUSbBUSEgDeHQi2PqjV
-	g2gGWfTg==;
+	bh=HqbGcSXbXfZe4M56vvxcBdy9AylNQx4Z8LAK0E+PkjM=; b=OfkPSa2Ps8Q9JKA2rld7EcS/IK
+	yzIkToaVZMn+BrVpVgeKBRJXWszzuqNsuBJE/ECYCwdVzvlBUg+NiXrI5xVOOIH5wWxKwUkhEnkwS
+	AWd6u20QUnWIhrP7UzWQEaWiM4pvk2QjfdJ3oilRO6TtQVfh4BZFgsbbiO/f17Aq9FBBYVHAvQkyD
+	P+z8STKWXEwKLKBynsUhPfUpqdZgxxVvebE4u3kt47eMohLVXfQRIyRe5SP/eaE/eyWPbo7ZUaFgR
+	oaRuQRKQYk+cft1kSlN1nexhLyxAw9ywZO8MaCRCBIkXIgxjmLEY0tO4NzSUyuMSnakqnKsMjK4Nm
+	BOkq/WEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Xkg-00000006sAy-2vat;
+	id 1w2Xkg-00000006sAa-1kMh;
 	Tue, 17 Mar 2026 16:58:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2XkZ-00000006s8N-1ZnH
+	id 1w2XkW-00000006s7F-2CZp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 16:58:36 +0000
+	Tue, 17 Mar 2026 16:58:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 995CB1477;
-	Tue, 17 Mar 2026 09:58:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B79D219F6;
+	Tue, 17 Mar 2026 09:58:25 -0700 (PDT)
 Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25C653F7BD;
-	Tue, 17 Mar 2026 09:58:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D3403F7BD;
+	Tue, 17 Mar 2026 09:58:29 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -48,17 +48,17 @@ Cc: sudeep.holla@kernel.org,
 	dan.carpenter@linaro.org,
 	gatien.chevallier@foss.st.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [RFC PATCH 3/4] firmware: arm_scmi: virtio: Rework transport probe sequence
-Date: Tue, 17 Mar 2026 16:58:10 +0000
-Message-ID: <20260317165811.3352752-4-cristian.marussi@arm.com>
+Subject: [RFC PATCH 2/4] firmware: arm_scmi: Propagate transport instance handle
+Date: Tue, 17 Mar 2026 16:58:09 +0000
+Message-ID: <20260317165811.3352752-3-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260317165811.3352752-1-cristian.marussi@arm.com>
 References: <20260317165811.3352752-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_095835_492157_B35641CB 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20260317_095832_649553_40B64202 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,229 +73,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new per-instance transport handles list to synchronize and
-optionally defer the core SCMI probe up until the transport driver has
-completely been initialized and is fully operational.
+Propagate down from the SCMI core to the transport channel operations
+the per-instance handle received by the transport drivers upon the end of
+their probe.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/transports/virtio.c | 93 ++++++++++++-------
- 1 file changed, 57 insertions(+), 36 deletions(-)
+ drivers/firmware/arm_scmi/common.h             | 4 ++--
+ drivers/firmware/arm_scmi/driver.c             | 4 ++--
+ drivers/firmware/arm_scmi/transports/mailbox.c | 5 +++--
+ drivers/firmware/arm_scmi/transports/optee.c   | 6 ++++--
+ drivers/firmware/arm_scmi/transports/smc.c     | 4 ++--
+ drivers/firmware/arm_scmi/transports/virtio.c  | 6 +++---
+ 6 files changed, 16 insertions(+), 13 deletions(-)
 
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 0a971cf28a44..2e0116ff8522 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -205,9 +205,9 @@ struct scmi_chan_info {
+  * @poll_done: Callback to poll transfer status
+  */
+ struct scmi_transport_ops {
+-	bool (*chan_available)(struct device_node *of_node, int idx);
++	bool (*chan_available)(struct device_node *of_node, int idx, void *hndl);
+ 	int (*chan_setup)(struct scmi_chan_info *cinfo, struct device *dev,
+-			  bool tx);
++			  bool tx, void *hndl);
+ 	int (*chan_free)(int id, void *p, void *data);
+ 	unsigned int (*get_max_msg)(struct scmi_chan_info *base_cinfo);
+ 	int (*send_message)(struct scmi_chan_info *cinfo,
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 69361385be61..b6d46fc08795 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2723,7 +2723,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 	idx = tx ? 0 : 1;
+ 	idr = tx ? &info->tx_idr : &info->rx_idr;
+ 
+-	if (!info->desc->ops->chan_available(of_node, idx)) {
++	if (!info->desc->ops->chan_available(of_node, idx, info->thndl)) {
+ 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
+ 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
+ 			return -EINVAL;
+@@ -2753,7 +2753,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 
+ 	cinfo->id = prot_id;
+ 	cinfo->dev = &tdev->dev;
+-	ret = info->desc->ops->chan_setup(cinfo, info->dev, tx);
++	ret = info->desc->ops->chan_setup(cinfo, info->dev, tx, info->thndl);
+ 	if (ret) {
+ 		of_node_put(of_node);
+ 		scmi_device_destroy(info->dev, prot_id, name);
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index ae0f67e6cc45..cf996724971d 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -77,7 +77,8 @@ static void rx_callback(struct mbox_client *cl, void *m)
+ 		      core->shmem->read_header(smbox->shmem), NULL);
+ }
+ 
+-static bool mailbox_chan_available(struct device_node *of_node, int idx)
++static bool
++mailbox_chan_available(struct device_node *of_node, int idx, void *hndl)
+ {
+ 	int num_mb;
+ 
+@@ -180,7 +181,7 @@ static int mailbox_chan_validate(struct device *cdev, int *a2p_rx_chan,
+ }
+ 
+ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+-			      bool tx)
++			      bool tx, void *hndl)
+ {
+ 	const char *desc = tx ? "Tx" : "Rx";
+ 	struct device *cdev = cinfo->dev;
+diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
+index 07ae18d5279d..ab578152e046 100644
+--- a/drivers/firmware/arm_scmi/transports/optee.c
++++ b/drivers/firmware/arm_scmi/transports/optee.c
+@@ -312,7 +312,8 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
+ 	return 0;
+ }
+ 
+-static bool scmi_optee_chan_available(struct device_node *of_node, int idx)
++static bool
++scmi_optee_chan_available(struct device_node *of_node, int idx, void *hndl)
+ {
+ 	u32 channel_id;
+ 
+@@ -367,7 +368,8 @@ static int setup_shmem(struct device *dev, struct scmi_chan_info *cinfo,
+ 		return setup_dynamic_shmem(dev, channel);
+ }
+ 
+-static int scmi_optee_chan_setup(struct scmi_chan_info *cinfo, struct device *dev, bool tx)
++static int scmi_optee_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
++				 bool tx, void *hndl)
+ {
+ 	struct scmi_optee_channel *channel;
+ 	uint32_t channel_id;
+diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
+index 21abb571e4f2..cb0d9a8f93ca 100644
+--- a/drivers/firmware/arm_scmi/transports/smc.c
++++ b/drivers/firmware/arm_scmi/transports/smc.c
+@@ -84,7 +84,7 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static bool smc_chan_available(struct device_node *of_node, int idx)
++static bool smc_chan_available(struct device_node *of_node, int idx, void *hndl)
+ {
+ 	struct device_node *np __free(device_node) =
+ 					of_parse_phandle(of_node, "shmem", 0);
+@@ -130,7 +130,7 @@ static inline void smc_channel_lock_release(struct scmi_smc *scmi_info)
+ }
+ 
+ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+-			  bool tx)
++			  bool tx, void *hndl)
+ {
+ 	struct device *cdev = cinfo->dev;
+ 	unsigned long cap_id = ULONG_MAX;
 diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
-index 6e1ce01507a6..ee7247081be1 100644
+index 326c4a93e44b..6e1ce01507a6 100644
 --- a/drivers/firmware/arm_scmi/transports/virtio.c
 +++ b/drivers/firmware/arm_scmi/transports/virtio.c
-@@ -4,7 +4,7 @@
-  * (SCMI).
-  *
-  * Copyright (C) 2020-2022 OpenSynergy.
-- * Copyright (C) 2021-2024 ARM Ltd.
-+ * Copyright (C) 2021-2026 ARM Ltd.
-  */
+@@ -373,7 +373,7 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
+ 	return vioch->max_msg;
+ }
  
- /**
-@@ -113,8 +113,12 @@ struct scmi_vio_msg {
- 
- static struct scmi_transport_core_operations *core;
- 
--/* Only one SCMI VirtIO device can possibly exist */
--static struct virtio_device *scmi_vdev;
-+struct scmi_virtio_device {
-+	struct virtio_device *vdev;
-+	struct list_head node;
-+};
-+
-+static DEFINE_SCMI_TRANSPORT_INSTANCE_QUEUE(scmi_available_vdevs);
- 
- static void scmi_vio_channel_ready(struct scmi_vio_channel *vioch,
- 				   struct scmi_chan_info *cinfo)
-@@ -376,24 +380,28 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
- static bool virtio_chan_available(struct device_node *of_node, int idx, void *hndl)
+-static bool virtio_chan_available(struct device_node *of_node, int idx)
++static bool virtio_chan_available(struct device_node *of_node, int idx, void *hndl)
  {
  	struct scmi_vio_channel *channels, *vioch = NULL;
-+	struct scmi_virtio_device *sdev;
  
--	if (WARN_ON_ONCE(!scmi_vdev))
--		return false;
-+	sdev = list_entry(hndl, struct scmi_virtio_device, node);
- 
--	channels = (struct scmi_vio_channel *)scmi_vdev->priv;
-+	channels = (struct scmi_vio_channel *)sdev->vdev->priv;
- 
- 	switch (idx) {
- 	case VIRTIO_SCMI_VQ_TX:
- 		vioch = &channels[VIRTIO_SCMI_VQ_TX];
- 		break;
- 	case VIRTIO_SCMI_VQ_RX:
--		if (scmi_vio_have_vq_rx(scmi_vdev))
-+		if (scmi_vio_have_vq_rx(sdev->vdev))
- 			vioch = &channels[VIRTIO_SCMI_VQ_RX];
- 		break;
- 	default:
- 		return false;
- 	}
- 
-+	dev_dbg(&sdev->vdev->dev, "%s Channel %sAVAILABLE on SCMI Virtio device.\n",
-+		idx == VIRTIO_SCMI_VQ_TX ? "TX" : "RX",
-+		(vioch && !vioch->cinfo) ? "" : "NOT ");
-+
- 	return vioch && !vioch->cinfo;
+@@ -402,8 +402,8 @@ static void scmi_destroy_tx_workqueue(void *deferred_tx_wq)
+ 	destroy_workqueue(deferred_tx_wq);
  }
  
-@@ -405,21 +413,20 @@ static void scmi_destroy_tx_workqueue(void *deferred_tx_wq)
- static int
- virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev, bool tx, void *hndl)
+-static int virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+-			     bool tx)
++static int
++virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev, bool tx, void *hndl)
  {
-+	struct scmi_virtio_device *sdev;
  	struct scmi_vio_channel *vioch;
  	int index = tx ? VIRTIO_SCMI_VQ_TX : VIRTIO_SCMI_VQ_RX;
- 	int i;
- 
--	if (!scmi_vdev)
--		return -EPROBE_DEFER;
--
--	vioch = &((struct scmi_vio_channel *)scmi_vdev->priv)[index];
-+	sdev = list_entry(hndl, struct scmi_virtio_device, node);
-+	vioch = &((struct scmi_vio_channel *)sdev->vdev->priv)[index];
- 
- 	/* Setup a deferred worker for polling. */
- 	if (tx && !vioch->deferred_tx_wq) {
- 		int ret;
- 
- 		vioch->deferred_tx_wq =
--			alloc_workqueue(dev_name(&scmi_vdev->dev),
-+			alloc_workqueue(dev_name(&sdev->vdev->dev),
- 					WQ_UNBOUND | WQ_FREEZABLE | WQ_SYSFS,
- 					0);
- 		if (!vioch->deferred_tx_wq)
-@@ -460,6 +467,9 @@ virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev, bool tx, voi
- 
- 	scmi_vio_channel_ready(vioch, cinfo);
- 
-+	dev_dbg(&sdev->vdev->dev, "%s Channel SETUP on SCMI Virtio device.\n",
-+		tx ? "TX" : "RX");
-+
- 	return 0;
- }
- 
-@@ -801,7 +811,7 @@ static struct scmi_desc scmi_virtio_desc = {
- };
- 
- static const struct of_device_id scmi_of_match[] = {
--	{ .compatible = "arm,scmi-virtio" },
-+	{ .compatible = "arm,scmi-virtio", .data = &scmi_available_vdevs},
- 	{ /* Sentinel */ },
- };
- 
-@@ -812,22 +822,20 @@ static int scmi_vio_probe(struct virtio_device *vdev)
- {
- 	struct device *dev = &vdev->dev;
- 	struct scmi_vio_channel *channels;
-+	struct scmi_virtio_device *sdev;
- 	bool have_vq_rx;
- 	int vq_cnt;
- 	int i;
- 	int ret;
- 	struct virtqueue *vqs[VIRTIO_SCMI_VQ_MAX_CNT];
- 
--	/* Only one SCMI VirtiO device allowed */
--	if (scmi_vdev) {
--		dev_err(dev,
--			"One SCMI Virtio device was already initialized: only one allowed.\n");
--		return -EBUSY;
--	}
--
- 	have_vq_rx = scmi_vio_have_vq_rx(vdev);
- 	vq_cnt = have_vq_rx ? VIRTIO_SCMI_VQ_MAX_CNT : 1;
- 
-+	sdev = devm_kzalloc(dev, sizeof(*sdev), GFP_KERNEL);
-+	if (!sdev)
-+		return -ENOMEM;
-+
- 	channels = devm_kcalloc(dev, vq_cnt, sizeof(*channels), GFP_KERNEL);
- 	if (!channels)
- 		return -ENOMEM;
-@@ -864,33 +872,25 @@ static int scmi_vio_probe(struct virtio_device *vdev)
- 			sz = MSG_TOKEN_MAX;
- 		}
- 		channels[i].max_msg = sz;
-+		dev_info(dev, "VQ%d initialized with max_msg: %d\n", i, sz);
- 	}
- 
- 	vdev->priv = channels;
- 
--	/* Ensure initialized scmi_vdev is visible */
--	smp_store_mb(scmi_vdev, vdev);
-+	/* Ensure initialized vdev is visible */
-+	smp_store_mb(sdev->vdev, vdev);
-+	SCMI_TRANSPORT_INSTANCE_REGISTER(sdev->node, scmi_available_vdevs);
- 
- 	/* Set device ready */
- 	virtio_device_ready(vdev);
- 
--	ret = platform_driver_register(&scmi_virtio_driver);
--	if (ret) {
--		vdev->priv = NULL;
--		vdev->config->del_vqs(vdev);
--		/* Ensure NULLified scmi_vdev is visible */
--		smp_store_mb(scmi_vdev, NULL);
--
--		return ret;
--	}
-+	dev_info(dev, "Probed and initialized SCMI Virtio device.\n");
- 
- 	return 0;
- }
- 
- static void scmi_vio_remove(struct virtio_device *vdev)
- {
--	platform_driver_unregister(&scmi_virtio_driver);
--
- 	/*
- 	 * Once we get here, virtio_chan_free() will have already been called by
- 	 * the SCMI core for any existing channel and, as a consequence, all the
-@@ -900,8 +900,6 @@ static void scmi_vio_remove(struct virtio_device *vdev)
- 	 */
- 	virtio_reset_device(vdev);
- 	vdev->config->del_vqs(vdev);
--	/* Ensure scmi_vdev is visible as NULL */
--	smp_store_mb(scmi_vdev, NULL);
- }
- 
- static int scmi_vio_validate(struct virtio_device *vdev)
-@@ -936,7 +934,30 @@ static struct virtio_driver virtio_scmi_driver = {
- 	.validate = scmi_vio_validate,
- };
- 
--module_virtio_driver(virtio_scmi_driver);
-+static int __init scmi_transport_virtio_init(void)
-+{
-+	int ret;
-+
-+	ret = register_virtio_driver(&virtio_scmi_driver);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_driver_register(&scmi_virtio_driver);
-+	if (ret) {
-+		unregister_virtio_driver(&virtio_scmi_driver);
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+module_init(scmi_transport_virtio_init);
-+
-+static void __exit scmi_transport_virtio_exit(void)
-+{
-+	platform_driver_unregister(&scmi_virtio_driver);
-+	unregister_virtio_driver(&virtio_scmi_driver);
-+}
-+module_exit(scmi_transport_virtio_exit);
- 
- MODULE_AUTHOR("Igor Skalkin <igor.skalkin@opensynergy.com>");
- MODULE_AUTHOR("Peter Hilber <peter.hilber@opensynergy.com>");
 -- 
 2.53.0
 
