@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC0CFF6E91
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DFDFF6E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 22:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2DMa4x6J9yJysJuCnGyawGhR3FQ7N8zEDsCuT13ZzE=; b=GlrVUlV+6sVE7tWOzjqhyAM/q6
-	LugSqGxs42Rx2PVNz0ZW7HNVDAXyptknyN+5hK7lhjNilPsQFThwZ+BIsG+z/uwGeZumX3/2RJkcs
-	ct2vTisTpwn8yMwtism9lWOwtRHImsB/IYLO7JpkrJpwOwUis4wFCV90Sd9uDnQbYiryE7wrk1i53
-	2eyvv5VA3oHy97HbKAV23vStipSCPqHGpwVOOSgYYrERBEYQVA8dSKVTP6yAAko3+2N/mo2C1AjT4
-	4irUkIvZPR1IHIRDcYcd82NfLAj55aKfoF0kgcGGzKAcqX/73s8oEux+rIoyPhGiNxCKTGTENw2uE
-	23On75Aw==;
+	bh=s0obxidBdUVcQz6IKab2e8RT0gz1q6/HtsB2D0L3TJc=; b=KrnO1VYpxI2d/oQEOBK/qg0qHQ
+	saL3QA806o3MKsNCioRP+oVyWqwDqmVM/cCEQPZrhQi104uGtFX83klXa5MWv4CICHZ1MKNaMMqjm
+	CtVpxy8+vXNlX2Z/KsAXM+NsJP5HZNr8OsWYgV53XAyFTSPLPAQ+kFZ9xafK94TeL2HfNCyQ6DnzZ
+	xLRflmtefW6+8stILZmFuEcjTuIsdM8P8tpu0jkuXSl9+cD0DkkxLQKYdq+MJkKLt4KQTnOFOIluR
+	sMZ1Q3ZBl5/ljkIJ2yeAu/6iHJkIDLHExOLnRYSv6JYfzZAoKausjyY8LlNUC1v6lzuzlP7abSWdT
+	pm04cPdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGP-00000007Kbf-1Z3e;
-	Tue, 17 Mar 2026 22:51:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2dGQ-00000007KcX-032v;
+	Tue, 17 Mar 2026 22:51:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2dGB-00000007KVX-1pFH
+	id 1w2dGC-00000007KW2-0QnY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 22:51:35 +0000
+	Tue, 17 Mar 2026 22:51:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC3286057A;
-	Tue, 17 Mar 2026 22:51:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11D8BC2BCB0;
-	Tue, 17 Mar 2026 22:51:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C947244555;
+	Tue, 17 Mar 2026 22:51:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4439BC19425;
+	Tue, 17 Mar 2026 22:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773787894;
-	bh=VHYVcG46HDcvFMvnPYNK+XTdXj0sPBym+XtZyAEFC2M=;
+	s=k20201202; t=1773787895;
+	bh=ZNFy3T2ljWwS1cXqTSDWH3OzAYlfT/ejcAHXOO7W/u0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F9dGKUuCdmTIFVIN8p79f8n/HoYP/FrAAPJsea2JO7/IgAUlFJuHz+bDQ++e1OaJN
-	 uucFILufRXwG4QS26FVQPIgUGDwpvGjdDb06ia8qXAVXmC1XAsVtBCsX8i2PXoa5xW
-	 9YzHtwrdnVrku7HBboc/o4g2Pa1NW9oC1SV8K7T4KYBAByYBEoODFo3scSP31Ndeho
-	 GSWloLMay0XDavuTrYWPAzlNQBSr14Vrev+vEcxsDIk0+PRr5fbP1IVDlYClrnZVmc
-	 MibKcYQlxy54qGPNOMU7waOMBpzXSAdTRwCDI/rDEiYIPjchNfCWadhHdVtMLKX25Z
-	 MjBoKcliSAbFA==
+	b=ToH5ZCrMuabFXFe6yVOv0hFFBxF8DARKOazIF/k5JIlh1jstum9XHAAHik2UqpVAQ
+	 vgSTyZgSm4/fIcmhNxeIJ7ebJ4I6yjGyMYHyUscJgklBfyKeAPUHkoXck0cmY7NDSu
+	 6m9QRx5f3u5UivZMKbbNqhhZCRe3SF8mM/GDwqZn75X4ShzFsZez2lkA4c+kSzBy51
+	 i3FntVwRWlXSWoxxjrCCS8UL79HtgwEwtZxUHxZloxZQ6FTgwV/+e998ovaC/9YwWa
+	 z51rIPdBBX+bD2c6K7uiPa89oq6YQgK1+1VKvzW9Ltn+Zi97wlsY6deF3rZ4Fg4Hg6
+	 5OEPeu7M9NWOQ==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,14 +56,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH v2 04/12] crypto: arm64: Move data to .rodata
-Date: Tue, 17 Mar 2026 15:51:04 -0700
-Message-ID: <d853a364bfb7a61d72a95d117572b0563e8f6e9e.1773787568.git.jpoimboe@kernel.org>
+Subject: [PATCH v2 06/12] objtool: Allow setting --mnop without --mcount
+Date: Tue, 17 Mar 2026 15:51:06 -0700
+Message-ID: <84977dbdf9e0b579cd5f8efe55fb38b0cc275198.1773787568.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773787568.git.jpoimboe@kernel.org>
 References: <cover.1773787568.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_155136_161367_B4267441 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Data embedded in .text pollutes i-cache and confuses objtool and other
-tools that try to disassemble it.  Move it to .rodata.
+Instead of returning an error for --mnop without --mcount, just silently
+ignore it.  This will help simplify kbuild's handling of objtool args.
 
+Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- lib/crypto/arm64/sha2-armv8.pl | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ tools/objtool/builtin-check.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/lib/crypto/arm64/sha2-armv8.pl b/lib/crypto/arm64/sha2-armv8.pl
-index 35ec9ae99fe1..8cd86768bf5c 100644
---- a/lib/crypto/arm64/sha2-armv8.pl
-+++ b/lib/crypto/arm64/sha2-armv8.pl
-@@ -237,7 +237,8 @@ $code.=<<___;
- 	ldp	$E,$F,[$ctx,#4*$SZ]
- 	add	$num,$inp,$num,lsl#`log(16*$SZ)/log(2)`	// end of input
- 	ldp	$G,$H,[$ctx,#6*$SZ]
--	adr	$Ktbl,.LK$BITS
-+	adrp	$Ktbl,.LK$BITS
-+	add	$Ktbl,$Ktbl,:lo12:.LK$BITS
- 	stp	$ctx,$num,[x29,#96]
+diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
+index b780df513715..f528a58aca74 100644
+--- a/tools/objtool/builtin-check.c
++++ b/tools/objtool/builtin-check.c
+@@ -145,11 +145,6 @@ int cmd_parse_options(int argc, const char **argv, const char * const usage[])
  
- .Loop:
-@@ -286,6 +287,7 @@ $code.=<<___;
- 	ret
- .size	$func,.-$func
- 
-+.pushsection .rodata
- .align	6
- .type	.LK$BITS,%object
- .LK$BITS:
-@@ -365,6 +367,7 @@ $code.=<<___;
- #endif
- .asciz	"SHA$BITS block transform for ARMv8, CRYPTOGAMS by <appro\@openssl.org>"
- .align	2
-+.popsection
- ___
- 
- if ($SZ==4) {
-@@ -385,7 +388,8 @@ sha256_block_armv8:
- 	add		x29,sp,#0
- 
- 	ld1.32		{$ABCD,$EFGH},[$ctx]
--	adr		$Ktbl,.LK256
-+	adrp		$Ktbl,.LK256
-+	add		$Ktbl,$Ktbl,:lo12:.LK256
- 
- .Loop_hw:
- 	ld1		{@MSG[0]-@MSG[3]},[$inp],#64
-@@ -648,7 +652,8 @@ sha256_block_neon:
- 	mov	x29, sp
- 	sub	sp,sp,#16*4
- 
--	adr	$Ktbl,.LK256
-+	adrp	$Ktbl,.LK256
-+	add	$Ktbl,$Ktbl,:lo12:.LK256
- 	add	$num,$inp,$num,lsl#6	// len to point at the end of inp
- 
- 	ld1.8	{@X[0]},[$inp], #16
+ static bool opts_valid(void)
+ {
+-	if (opts.mnop && !opts.mcount) {
+-		ERROR("--mnop requires --mcount");
+-		return false;
+-	}
+-
+ 	if (opts.noinstr && !opts.link) {
+ 		ERROR("--noinstr requires --link");
+ 		return false;
 -- 
 2.53.0
 
