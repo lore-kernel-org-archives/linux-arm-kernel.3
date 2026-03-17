@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4E0FED9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D5BFED9F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ER1Wx1cLo48PWOXiIHDwWNLWadUbn+AOiGeXP4sXszM=; b=4h2CWQ2MwN9uRadt2s4M7zQCuE
-	YGhP9evW/3gZWMzyEfbtdtWttgnz7AcDIkQZlgRnXS7QsWf2qsyJnb//vPzjQW0sLWuZ9Dk2zgp+G
-	cM+y1q+IBrSAHV2A1r0eJTSP4BmWkaFX94V8+HQxYK7LiQAR3L6T1F07v4ONWlwUFR5FuBR8aDiQB
-	1K+aNVNPCzEB0NxbGn7d13X4mDg6lKduxDac3Y16QUlECl907Bo1ufCm+gnjwoYBUc7EC6JAUFpWT
-	5KjUtdBTh4rOvKsaQRcsr6GyC7PvwgvlwEw3TTSe0fx0Z7Bq5j/VWWHsCM/o7sgpkD1axfqX6FY38
-	TBS+NLMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TfcInGoHyz3tOzv/Xwz6FfnrxaU7XbhhSIw2sGC/Vxs=; b=UFMc6zB6tHD8m2s9NwAbybkxUk
+	irjRFmyisYKpcZu18ziUbGgj+VsnLPk9V7AHAcLIv4v+sQxaED0zcD8qp8oySKBw4q3c1pPAxvYOq
+	1qqDte3HdmUmaCF12/rgvjn8UnV/GpsiUTPWppSLOcu5n2m3KECbES4ILLpyvQatwg8lM7BogeM/s
+	bl7uk8Dso3MyFYOcxXAVb1vT9aX32lbq/Rua+tP41nELBuHSx6PLJ53ehIqyQmyIkIXOc/FvKrT/4
+	jorCHwKMJ/GXJpgVWfhHgKttq5FfrYmTJzN73NqhTMObrTu0dsdgIC1pKBUDAeF4fu+fNo7jLF3jD
+	2aWjX9tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y66-00000006vFT-0tN2;
-	Tue, 17 Mar 2026 17:20:50 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1w2Y6h-00000006vNE-22an;
+	Tue, 17 Mar 2026 17:21:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y5z-00000006vDt-0sSg
+	id 1w2Y6g-00000006vMq-2Cqj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:20:44 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 32A7B10D90E;
-	Tue, 17 Mar 2026 18:20:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1773768040;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ER1Wx1cLo48PWOXiIHDwWNLWadUbn+AOiGeXP4sXszM=;
-	b=aTN8Yiz9hBMF4UUOfecSjMgGKpOQg0aHaiq5TV18OviysEmB/UfIMUyjcmqtUDXz5D6A/E
-	nGDdBoX8T+CpT3lja3J+SQCvPNghVsCzjymc2+n4kJjSH8d4OZJAWZcM45yE0FeySYYEbf
-	TbWHPhT+bVQshlQdewle2AMdqY/maZU4e3OSbv/jdnuOPpNsBmAnLRLgUmIkzKSaGlyD8G
-	d2no3yitMLOA+eDWgStEKyQoFrxW0LHv1SVcw/LshGyBJMRzdol97OMob+I+Cq1ml2tPub
-	55TUfBDxBp0jCklBSNwK1L+tjtlv04hloidZ21C3FYJoa9z6u+xlRz3Vb0Fb0w==
-Message-ID: <6ad18fb7-75e8-4ef6-909c-0f2c356fa8ac@nabladev.com>
-Date: Tue, 17 Mar 2026 18:20:36 +0100
+	Tue, 17 Mar 2026 17:21:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9386A60018;
+	Tue, 17 Mar 2026 17:21:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59F05C2BCB1;
+	Tue, 17 Mar 2026 17:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773768085;
+	bh=IVGSJM4LoIWwlPtv0GpUpx6vGDQ9JIgeGDNFN88Xd50=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cvbw3MJivK1a7TY6KXu52jnmTTZwyvvg/0OorfvWUOHY9IRHuSlsqXJS29zGSdIX6
+	 38MCIGzqHytjPGYJAMDzFZWCv3ShrWgSqTcAj+S3vlOKJoQkEBPTC1hqUzlEIC+bsc
+	 nb4W9QuYuDrggQX6ZUvpoXlQFQLVg4BgDKY/NJprf2FTbyDo6Mezy9Yjn7ZsKmMW7C
+	 T8D1ZGABtrNm2JRopipcU+Uu92hGYI2Db88NDF1q1+g6BTHoObrr6Pi0jKWk77+h9u
+	 ZZsRftAMuryD7MB2GmpdDuTAouAZrVktWgWFywtIF375FN/jQTkbMWkSIhtFghXdlD
+	 U1xQoB44fKTRw==
+Date: Tue, 17 Mar 2026 10:21:22 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Miroslav Benes <mbenes@suse.cz>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>
+Subject: Re: [PATCH 07/14] objtool: Extricate checksum calculation from
+ validate_branch()
+Message-ID: <77f2cxfdnnddygnzrwmq5krnpvhfln4hnvyscnhays25vojt3y@noahb2i2sakg>
+References: <cover.1772681234.git.jpoimboe@kernel.org>
+ <7a1e22454a3fd1d968775c24aa0529a4ec7c5886.1772681234.git.jpoimboe@kernel.org>
+ <alpine.LSU.2.21.2603101144410.14672@pobox.suse.cz>
+ <ssvxqrraejznlambdt3yunuteguhu22yef236ngtqnpyhxruc6@bx2dhcbpzrbq>
+ <alpine.LSU.2.21.2603110916110.19933@pobox.suse.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction
- reporting via device_caps
-To: Rahul Navale <rahulnavale04@gmail.com>,
- Folker Schwesinger <dev@folker-schwesinger.de>
-Cc: Rahul Navale <rahul.navale@ifm.com>, dmaengine@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
- suraj.gupta2@amd.com, thomas.gessler@brueckmann-gmbh.de,
- radhey.shyam.pandey@amd.com, tomi.valkeinen@ideasonboard.com, marex@denx.de
-References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
- <20260317104933.4846-1-rahulnavale04@gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <20260317104933.4846-1-rahulnavale04@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_102043_471534_DC8B8147 
-X-CRM114-Status: GOOD (  13.20  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <alpine.LSU.2.21.2603110916110.19933@pobox.suse.cz>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +78,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 11:49 AM, Rahul Navale wrote:
-> From: Rahul Navale <rahul.navale@ifm.com>
+On Wed, Mar 11, 2026 at 09:24:22AM +0100, Miroslav Benes wrote:
+> On Tue, 10 Mar 2026, Josh Poimboeuf wrote:
 > 
-> Hi Folker,
+> > On Tue, Mar 10, 2026 at 11:47:41AM +0100, Miroslav Benes wrote:
+> > > Hi,
+> > > 
+> > > > @@ -3691,9 +3691,30 @@ static void checksum_update_insn(struct objtool_file *file, struct symbol *func,
+> > > >  				 struct instruction *insn)
+> > > >  {
+> > > >  	struct reloc *reloc = insn_reloc(file, insn);
+> > > > +	struct alternative *alt;
+> > > >  	unsigned long offset;
+> > > >  	struct symbol *sym;
+> > > >  
+> > > > +	for (alt = insn->alts; alt; alt = alt->next) {
+> > > > +		struct alt_group *alt_group = alt->insn->alt_group;
+> > > > +
+> > > > +		checksum_update(func, insn, &alt->type, sizeof(alt->type));
+> > > > +
+> > > > +		if (alt_group && alt_group->orig_group) {
+> > > > +			struct instruction *alt_insn;
+> > > > +
+> > > > +			checksum_update(func, insn, &alt_group->feature, sizeof(alt_group->feature));
+> > > > +
+> > > > +			for (alt_insn = alt->insn; alt_insn; alt_insn = next_insn_same_sec(file, alt_insn)) {
+> > > > +				checksum_update_insn(file, func, alt_insn);
+> > > > +				if (alt_insn == alt_group->last_insn)
+> > > > +					break;
+> > > > +			}
+> > > > +		} else {
+> > > > +			checksum_update(func, insn, &alt->insn->offset, sizeof(alt->insn->offset));
+> > > > +		}
+> > > > +	}
+> > > > +
+> > > 
+> > > does this hunk belong to the patch? Unless I am missing something, it 
+> > > might be worth a separate one.
+> > 
+> > It belongs, but I should have clarified that in the patch description.
+> > 
+> > This hunk wasn't needed before because validate_branch() already
+> > iterates all the alternatives, so it was calling checksum_update_insn()
+> > for every instruction in the function, including the alternatives.
+> > 
+> > Now that it's no longer called by validate_branch(),
+> > checksum_update_insn() has to manually iterate the alternatives.
 > 
->> Just to double check, and to make sure the regression you're seeing is
->> not a combination of any additional, yet unknown side-effects, could you
->> perform one more test?
->> In dmaengine_pcm_pointer() (the function we just patched), could you
->> replace the call to snd_dmaengine_pcm_pointer() with
->> snd_dmaengine_pcm_pointer_no_residue() while keeping 7e01511443c3 active
->> and test if this fixes your issue or not?
-> 
-> I have performed the test (replace the call in dmaengine_pcm_pointer()
-> function of provided patch) while keeping 7e01511443c3 active.
-> I see issue is fixed audio is working with this.
-> 
-> Hi Marek,
-> 
->> I came to the same conclusion, that the residue handling is broken in
->> the xilinx DMA driver for cyclic transfers, and the fix is below, with
->> two extra fixes in top:
-> 
-> I have tested the provided patches the audio is not fixed with this.
-Do you have any other patches applied on the xilinx DMA driver by any 
-chance ? If yes, make sure you only test these three.
+> After writing the email I had a suspicion it must have been something like 
+> above but failed to find it. Now I see that next_insn_to_validate() called 
+> in do_validate_branch() handles exactly that. Thanks for the pointer. The 
+> patch looks good to me then (and the rest as well as far as I can judge).
+
+Actually, next_insn_to_validate() helps with an edge case for directing
+code flow from the end of an alternative back to the original code.
+
+The code which traverses the alternatives is in validate_insn():
+
+	if (insn->alts) {
+		for (alt = insn->alts; alt; alt = alt->next) {
+			TRACE_ALT_BEGIN(insn, alt, alt_name);
+			ret = validate_branch(file, func, alt->insn, *statep);
+			TRACE_ALT_END(insn, alt, alt_name);
+			if (ret) {
+				BT_INSN(insn, "(alt)");
+				return ret;
+			}
+		}
+		TRACE_ALT_INFO_NOADDR(insn, "/ ", "DEFAULT");
+	}
+
+> I must admit that objtool has gotten so complex that I have a hard time to 
+> track everything in the code :).
+
+The code hasn't changed *too* much, it's just that validate_branch() got
+split up more when the tracing code went in, so things are organized a
+bit differently.  Most of that code is now in validate_insn().
+
+-- 
+Josh
 
