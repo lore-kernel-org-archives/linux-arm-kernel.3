@@ -4,104 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3607F3383D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463ECF3383D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 14:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJbFPaikOaZ4uwXCuRkP8Nmg1PF7VXCs3QcNvJR8wAA=; b=I26sLoxdIulR3BRAy86lSuZfsZ
-	mitmha0pB9OUKcBb0W6J/PNXf4aja1QBMeLLi9dUlSY6HEOHxzoeq+DL3JrCnc0SDMfn/u3nRdxp7
-	fCOP9TaTDEUaBPXth/lzu8l4NhpmMg+/i3AFH9Lrkcveptim5MCg0Ng7Kd7NkyaC8BDXWlqMo0lUV
-	DutIBcazExBg3bbhz4gz1moyWzFGcVrR46xg6c4nc5SzmjDaQB04V17P98Y56pwBh1imK+tSgKzDC
-	rYTNquS0pAsJtG4Azh4w6OIyihcc6LsARQMlDwGOzleidDQbQVeLDy7ZAVEZTnqSVHRZ3I/Wxm7LS
-	YUMZOkXA==;
+	bh=9nzDO8JHBjMy9LqMyHLjdL/DanHBIGqFXpaJScTCJtQ=; b=QBqJv/Y9y3459rB36hFsv6qf0H
+	AN/iAUqv/iQYgx4bkZpeBTJu6zlksCgJ+Upc1hAZnQrv9DLLosysBL4UXkHMAGgevsp7dgN/mnt7q
+	WUhwwEclZa7DSTy7e/DzSRIlWedVd2zUFF8LXbbw3GBMjA/1Nbkq2z36MANcWja1z4KijDzQS8qf/
+	gCb5X1PlvfSxEaBsjeujstV9I9+qKJA8Ooyr10jpnFXk6SR8AswCuu1G3wt0e3AM6Z5NGYE1j8aMs
+	pvsAmhEL67oBG1OXFY6tKudkqGHsAjXmr2BMZsQYtqUZq3gQ+Cu70HKRd2Lu0918jFxfYWAotnPt1
+	NKSckokg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Veg-00000006eEJ-2CjE;
-	Tue, 17 Mar 2026 14:44:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2VfK-00000006eNU-0tnv;
+	Tue, 17 Mar 2026 14:45:02 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Vef-00000006eDt-1vNK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 14:44:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A79D4600AD;
-	Tue, 17 Mar 2026 14:44:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85B2CC4CEF7;
-	Tue, 17 Mar 2026 14:44:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773758660;
-	bh=YKYuoQhAaz21UC8LDNrC/aEvZgxB1oW+KNokbCxHZdo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AWBcY9A2j4P/s8vXgMVv2z4MDwxY9xZiPL5gx51m/iGpTOtBn0L2/RkZ379b5Encv
-	 scvms/YqkTK+YI08drNAqytNgcbUtCsAJv4bFnGq3B/p5aO1eZX6wZam8DG7nsghV3
-	 xKisBEyESObihxJ7RUl59GWWtrOLjNfb6yyvIPfM68F+6BPbOdL8MoDl6MazUXehSA
-	 PQCVdcHWCOhwMaW/DCH22YP6uP+zN9Y+jM7SS8w6E+6G1LgMW1MCBdfO3FjKTUxdrc
-	 xKqSSc5odRj8NsUa5JqxP61EQ2BiAUxOKLvTagNzQV3c9WUjlmVN5j8pfvK3yAt7pR
-	 JMYFZL4UzylLw==
-Message-ID: <67fc1526-c32a-4e74-ac37-8f8c2c0df46a@kernel.org>
-Date: Tue, 17 Mar 2026 15:44:16 +0100
+	id 1w2VfD-00000006eKg-3wh8;
+	Tue, 17 Mar 2026 14:44:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=9nzDO8JHBjMy9LqMyHLjdL/DanHBIGqFXpaJScTCJtQ=; b=kPkW309+RbGupOYzxYbz0CwI8B
+	jEeGsg5RfC93jrywAcCL34e1cun4dqZs3klL8EDztT2qCwquFn+lHGmIREkefKmcP8GUQZgL2mXG4
+	djbLGdEgQAheNnsKH+o5Q67B+F3bb0E4ocgxAPTs9/E0K+QaauyLMxrdd82Jj2Lyq0HdghUhSIcXa
+	5/aGP8YOr1JW/ivrCAbCMC59PwxSkF/i4FaVUFNmMTIjee1alVMKzxM+j5VbJevf8UpK8WUFbDm1y
+	qMpwaOfwiRfpasKIvS4VYtxK58ZuDzYCM1iHkDEMhWQnCRM3bL4Jv6UpARZkODTX9vQasW7n8DnUe
+	MH37YmVA==;
+Received: from gwsc.sc.usp.br ([143.107.225.16] helo=[172.24.4.78])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1w2Vet-002Joh-2k; Tue, 17 Mar 2026 15:44:35 +0100
+Message-ID: <14ad62c7-7046-4df6-8267-c868a9fde982@igalia.com>
+Date: Tue, 17 Mar 2026 11:44:25 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] i.MX fixes for 7.0
-To: Frank Li <Frank.li@nxp.com>
-Cc: soc@kernel.org, arm@kernel.org, Fabio Estevam <festevam@gmail.com>,
- kernel@pengutronix.de, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Shawn Guo <shawnguo@kernel.org>
-References: <20260312153557.3338430-1-Frank.Li@nxp.com>
- <20260317-jumping-corgi-of-defense-038bcd@quoll>
- <ablgRERiHQ1Tm2i6@lizhi-Precision-Tower-5810>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v7 2/5] pmdomain: bcm: bcm2835-power: Increase ASB control
+ timeout
+To: Stefan Wahren <wahrenst@gmx.net>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>,
+ Chema Casanova <jmcasanova@igalia.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com,
+ stable@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ linux-pm@vger.kernel.org
+References: <20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com>
+ <20260312-v3d-power-management-v7-2-9f006a1d4c55@igalia.com>
+ <bdae424d-f4b5-4181-9421-4393fe3ac8fb@gmx.net>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <ablgRERiHQ1Tm2i6@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <bdae424d-f4b5-4181-9421-4393fe3ac8fb@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_074455_981258_3A0EBE98 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +113,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 15:08, Frank Li wrote:
-> On Tue, Mar 17, 2026 at 09:03:19AM +0100, Krzysztof Kozlowski wrote:
->> On Thu, Mar 12, 2026 at 11:35:54AM -0400, Frank Li wrote:
->>> From: Frank Li <Frank.li@nxp.com>
->>>
->>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>>
->>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>>
->>> are available in the Git repository at:
->>>
->>>   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-fixes-7.0
->>>
->>> for you to fetch changes up to 04d00f57c168153758d2c6a2395d20aadc785e3e:
->>>
->>>   arm64: dts: imx8mq-librem5: Bump BUCK1 suspend voltage up to 0.85V (2026-03-06 11:19:41 -0500)
->>
->> Hooks fail.
->>
->> Commit 587096ada520 ("Revert "ARM: dts: imx: move nand related property under nand@0"")
->> 	committer Signed-off-by missing
->>
-> 
-> Sorry, I will update it.
-> 
->> Please implement basic checks from beginnners maintainer guide (LPC
->> 2023).
-> 
-> Suppose this one?
-> https://lpc.events/event/17/contributions/1498/attachments/1155/2452/Maintainer's%20toolbox%20-%20Linux%20Plumbers%202023%20-%20Krzysztof%20Kozlowski.pdf
-> 
+Hi Stefan,
 
-Yes, although I am moving hooks to soc-tools repo
+On 15/03/26 20:07, Stefan Wahren wrote:
+> Hi Maíra,
+> 
+> Am 12.03.26 um 22:34 schrieb Maíra Canal:
+>> The bcm2835_asb_control() function uses a tight polling loop to wait
+>> for the ASB bridge to acknowledge a request. During intensive workloads,
+>> this handshake intermittently fails for V3D's master ASB on BCM2711,
+>> resulting in "Failed to disable ASB master for v3d" errors during
+>> runtime PM suspend. As a consequence, the failed power-off leaves V3D in
+>> a broken state, leading to bus faults or system hangs on later accesses.
+>>
+>> As the timeout is insufficient in some scenarios, increase the polling
+>> timeout from 1us to 5us, which is still negligible in the context of a
+>> power domain transition. Also, move the start timestamp to after the
+>> MMIO write, as the write latency is counted against the timeout,
+>> reducing the effective wait time for the hardware to respond.
+>>
+>> Cc: stable@vger.kernel.org
+> I think, a Fixes tag would be helpful here. Also this fix should be the 
+> first patch of the series or separate.
 
-https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc-tools.git
+I'll send it separately with the Fixes tag. Thanks!
+
+>> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>>
+>> ---
+>> To: Ulf Hansson <ulf.hansson@linaro.org>
+>> To: Ray Jui <rjui@broadcom.com>
+>> To: Scott Branden <sbranden@broadcom.com>
+>> Cc: linux-pm@vger.kernel.org
+> This looks unusual. Is this intended?
+
+As b4 doesn't support it natively, I used this strategy to send only
+this patch to the linux-pm mailing list and not the whole series.
 
 Best regards,
-Krzysztof
+- Maíra
+
+> 
+> Best regards
+>> ---
+>>   drivers/pmdomain/bcm/bcm2835-power.c | 5 ++---
+>>   1 file changed, 2 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
+>> bcm/bcm2835-power.c
+>> index 
+>> 0450202bbee2513c9116a36abaa839b460550935..1815eb4ee69b9b672b5e314402f1cc9897c57dcb 100644
+>> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+>> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+>> @@ -166,8 +166,6 @@ static int bcm2835_asb_control(struct 
+>> bcm2835_power *power, u32 reg, bool enable
+>>           break;
+>>       }
+>> -    start = ktime_get_ns();
+>> -
+>>       /* Enable the module's async AXI bridges. */
+>>       if (enable) {
+>>           val = readl(base + reg) & ~ASB_REQ_STOP;
+>> @@ -176,9 +174,10 @@ static int bcm2835_asb_control(struct 
+>> bcm2835_power *power, u32 reg, bool enable
+>>       }
+>>       writel(PM_PASSWORD | val, base + reg);
+>> +    start = ktime_get_ns();
+>>       while (!!(readl(base + reg) & ASB_ACK) == enable) {
+>>           cpu_relax();
+>> -        if (ktime_get_ns() - start >= 1000)
+>> +        if (ktime_get_ns() - start >= 5000)
+>>               return -ETIMEDOUT;
+>>       }
+>>
+> 
+
 
