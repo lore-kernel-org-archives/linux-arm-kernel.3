@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 320AEFD875E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9D3FD876A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9oQqV+RX8x9mTT15DeOPQvLmrB9KGgQzFv8SO038oUc=; b=mwtvFRa1WDtEUB6o65nRnzGpV3
-	C/4zjDVYaXBMZ69mI1L+2C+uDeNNbB6uDS5TLMIme3fC0rOsCS5+oUoXTTc2JqG3K/VuwZ+TNTh2V
-	fGftcQlszLdLDArH0XoNfQsEogxG1oVefD18Ps1c9dlkej+zQCxI69EQsGICSh/LtGzCQ7tV7QioB
-	CsINiE/CT2amQ7Brva+loIkBlQXoyK6IXOl02uOBIcgicDPlSslif3yLmbBOBGdWDQ26+ggKBjfwJ
-	QnMtJId4CzyoVRBqOuHp2u1YjTfBvGLuctKhbz6pFo0GgENbjhoBHy2WCAj5Um13J6xIZjSR6IwjQ
-	aX4qo7Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=17QQxtRUtaf7KEtmNuQbCZyqj8LsLetQhwKYrcsm9Tg=; b=w1M9V7Zcj1OwPHqC2Nh61iu4vJ
+	Puzm5NV82Pl9VHm3tNLTUWjEEsCu3pvXxeYSz+yOeMC+n94clxeMmgaHt6dBwkM1qRiM1gJMbOMQj
+	LYygHgarmU/3jN97iJGfQpIPQfLNrtfrH34gMmLJ/E66ADo/rRavTy+wq9M/sbX8Mxp4TCgArA7DV
+	EDkUoEgI1XK9pG4+L24uQU51GSgYc0u3Smt6OwTu5wBwPQeXBBJhd4YhrGZBhX7WaUdij7Kwg9K7S
+	nzgUQh7XWUmIB83wQRYs4dsEimpFW9oePDOM7itJO1zriz+5S1DfZ5tMYvxHTA0PwGlcKv2fTK1CB
+	CvFvgwZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UHa-00000006Ove-1VRV;
-	Tue, 17 Mar 2026 13:16:26 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	id 1w2UKz-00000006PN4-1FlW;
+	Tue, 17 Mar 2026 13:19:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UHX-00000006Our-3XNB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:16:25 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773753380;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=9oQqV+RX8x9mTT15DeOPQvLmrB9KGgQzFv8SO038oUc=;
-	b=vmq4KMb4KSzFmj/OfzyizXiwqJq2DLV0RQJwJ/B/p2gFvajS76MJbamDhUTWIut9Wso1b/
-	J0W2633uPICOl+Nx+imbwysMvlLot9bQS7bZO37W2koMM3P8+CUvKcywmeKhsEgfK36//5
-	9sGRcnSHtHi7z9NXPasv8MmDdSTM3U4=
-From: Zenghui Yu <zenghui.yu@linux.dev>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	"Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
-Subject: [PATCH] KVM: arm64: selftests: Avoid testing the IMPDEF behavior
-Date: Tue, 17 Mar 2026 21:15:58 +0800
-Message-ID: <20260317131558.52751-1-zenghui.yu@linux.dev>
+	id 1w2UKx-00000006PMj-2nVj;
+	Tue, 17 Mar 2026 13:19:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E7BE660018;
+	Tue, 17 Mar 2026 13:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A61E9C4CEF7;
+	Tue, 17 Mar 2026 13:19:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773753593;
+	bh=17QQxtRUtaf7KEtmNuQbCZyqj8LsLetQhwKYrcsm9Tg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ryqgogP1Js25YVHvobHnOKBl5MYdxOSD2aOiI1tf6rJQER5WihsK9Uq3jfo6Qlf2b
+	 BtONs2A6D54IA4DNEv1Sy0CY6z9gO4p20SThPPkHcwNdCWn5jr22BFpMDOYrAoLSbq
+	 sgZTC8u9xZQu4B/IWVM/GrLwf4dd+exti7RlPqEl4f4czsv51D3od0djhhjvtRmmTC
+	 WYdwB8SCN+QNUbefFUPZOXTmnR7msjPL2f9KXr88ikHvO9/N48Zi3PI1IevuuXxGuW
+	 Jg7rPyI7R0lNjmB0khjEhzaAAgXytb9Tc7RPeU0j3kdsOWVHghNIyu8gn0Kf3R8YE6
+	 65mGvnUDWFheQ==
+Date: Tue, 17 Mar 2026 13:19:48 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Pei Xiao <xiaopei01@kylinos.cn>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v3 01/17] spi: axiado: Use helper function
+ devm_clk_get_enabled()
+Message-ID: <00540689-fbc5-49cf-b185-5af372f7ef0d@sirena.org.uk>
+References: <cover.1773733017.git.xiaopei01@kylinos.cn>
+ <a78f25f1b15b90121e9723ecb5bd606bbb1868d4.1773733017.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_061624_091700_8B169C21 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8+YRHFs8YF4SBCDe"
+Content-Disposition: inline
+In-Reply-To: <a78f25f1b15b90121e9723ecb5bd606bbb1868d4.1773733017.git.xiaopei01@kylinos.cn>
+X-Cookie: Must be over 18.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,76 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
 
-It turned out that we can't really force KVM to use the "slow" path when
-emulating AT instructions [1]. We should therefore avoid testing the IMPDEF
-behavior (i.e., TEST_ACCESS_FLAG - address translation instructions are
-permitted to update AF but not required).
+--8+YRHFs8YF4SBCDe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Remove it and improve the comment a bit.
+On Tue, Mar 17, 2026 at 03:41:43PM +0800, Pei Xiao wrote:
+> devm_clk_get() and clk_prepare_enable() can now be replaced by
+> devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
+> longer necessary to unprepare and disable the clocks explicitly.
+> Simplify code.
 
-[1] https://lore.kernel.org/r/b951dcfb-0ad1-4d7b-b6ce-d54b272dd9be@linux.dev
+This doens't apply against current code, please check and resend.
 
-Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
----
- tools/testing/selftests/kvm/arm64/at.c | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+--8+YRHFs8YF4SBCDe
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/tools/testing/selftests/kvm/arm64/at.c b/tools/testing/selftests/kvm/arm64/at.c
-index c8ee6f520734..ce5d312ef6ba 100644
---- a/tools/testing/selftests/kvm/arm64/at.c
-+++ b/tools/testing/selftests/kvm/arm64/at.c
-@@ -13,7 +13,6 @@
- 
- enum {
- 	CLEAR_ACCESS_FLAG,
--	TEST_ACCESS_FLAG,
- };
- 
- static u64 *ptep_hva;
-@@ -49,7 +48,6 @@ do {											\
- 		GUEST_ASSERT_EQ(FIELD_GET(SYS_PAR_EL1_ATTR, par), MAIR_ATTR_NORMAL);	\
- 		GUEST_ASSERT_EQ(FIELD_GET(SYS_PAR_EL1_SH, par), PTE_SHARED >> 8);	\
- 		GUEST_ASSERT_EQ(par & SYS_PAR_EL1_PA, TEST_ADDR);			\
--		GUEST_SYNC(TEST_ACCESS_FLAG);						\
- 	}										\
- } while (0)
- 
-@@ -85,10 +83,6 @@ static void guest_code(void)
- 	if (!SYS_FIELD_GET(ID_AA64MMFR1_EL1, HAFDBS, read_sysreg(id_aa64mmfr1_el1)))
- 		GUEST_DONE();
- 
--	/*
--	 * KVM's software PTW makes the implementation choice that the AT
--	 * instruction sets the access flag.
--	 */
- 	sysreg_clear_set(tcr_el1, 0, TCR_HA);
- 	isb();
- 	test_at(false);
-@@ -102,8 +96,8 @@ static void handle_sync(struct kvm_vcpu *vcpu, struct ucall *uc)
- 	case CLEAR_ACCESS_FLAG:
- 		/*
- 		 * Delete + reinstall the memslot to invalidate stage-2
--		 * mappings of the stage-1 page tables, forcing KVM to
--		 * use the 'slow' AT emulation path.
-+		 * mappings of the stage-1 page tables, allowing KVM to
-+		 * potentially use the 'slow' AT emulation path.
- 		 *
- 		 * This and clearing the access flag from host userspace
- 		 * ensures that the access flag cannot be set speculatively
-@@ -112,10 +106,6 @@ static void handle_sync(struct kvm_vcpu *vcpu, struct ucall *uc)
- 		clear_bit(__ffs(PTE_AF), ptep_hva);
- 		vm_mem_region_reload(vcpu->vm, vcpu->vm->memslots[MEM_REGION_PT]);
- 		break;
--	case TEST_ACCESS_FLAG:
--		TEST_ASSERT(test_bit(__ffs(PTE_AF), ptep_hva),
--			    "Expected access flag to be set (desc: %lu)", *ptep_hva);
--		break;
- 	default:
- 		TEST_FAIL("Unexpected SYNC arg: %lu", uc->args[1]);
- 	}
--- 
-2.53.0
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm5VPQACgkQJNaLcl1U
+h9BDXgf9F2bMcNxWFiGlImGG2lAZ6+rhIz0gb1xd8L/zXFcj49GbT66gTFF+vs6Z
+nJhYnwuUnf46hnhc583pZ39MeS/psE2kjIaTNiGva4NLDwWkiYkn79oJk9zepDF0
+9HRb3mjyaDDPQtfCgnrkTb2VZObD/41CWBtZ8x5JxjFwHkIG776RlhYJUU2y2myN
+oAvCWPJddLcAOZapamPyu/LZvMwFfhWgP4mAr81G/th9dO45ELAiKqMj33zN4VzV
+yJ4r0AY9ZSXuW+NmdztaukKEKWwKGDeT5I3vRWqSJ2EvkvODgAw209d76768VQ+G
+JJtidlXADpZe7vD4DCReLGZERU0QQw==
+=AabK
+-----END PGP SIGNATURE-----
+
+--8+YRHFs8YF4SBCDe--
 
