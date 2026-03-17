@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0998FD7079
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA89FD7079
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kQc4bd0ilkjbSNjGMCgmkOKO2JmA/jg+HurPoc3KgU8=; b=lq7HtcaHoQEniEkjjhRqFqhvqK
-	3Va4xhCha1mPYCBZnXjUO6xFuoVGALYAGzXq6QL2CLau0zTs/hlEEZlXdVD1yhmgOEn0M18kBAKoR
-	zct9zYBacVHbKS7wOPtTugdRG8b1rn3uj1m01QWtnUFtoO//zZG5hZh4+GwTrXMRFg0CrUvshJrCL
-	AZSfnRU8KN7YoCWTQLKfTp1NRsDQiDB2UxuKwjCx/Nvb/As+p3NqfewT+MpWbykLj5OpJ4L3Bd6wx
-	Le9qxPDd+R4ohIg18ZVKTTPQwxhKvaQ82TJnXGrgKf3Mu3qoBuR1X8YsZyGpY2mjzSUqJ497Hb3Vz
-	Ti8ddOyQ==;
+	bh=FQb04CDNO+72u7Gn7pcAlRbI+3+MeZWlYQBmcMUPAzI=; b=XaiHoed9Mz5cEwi9JuQEfK0viO
+	yg0v5kv4kAOot2JjDY7aTIu4f2TZgzJTJ3p1Qq5tVSuQufdRriz2hH/efJgbiH/gerNZbh8+xRiwB
+	CcSG3YD1fa+tfFkTWOJdNbBSoOLTpqbwazkqAHW7z8szZoptwsB9zKcUWamYIVHMRRB2EuQmSo1Dd
+	AJ1JSvvbxmrQdpJNOGftj5fjOAP+ypdHiK0pcHbqPi+bdwt6chqhRZJJauHgW58NcoXmred2OqLuL
+	4SVDe7CC7fEP57gid44rTpfdPJuZ4L1eQeExBqqNFu+aEJpq00fWI3n945jpUFP0GsivEJfQmAUyF
+	2rKSSMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SAK-000000064wW-2snI;
-	Tue, 17 Mar 2026 11:00:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SAJ-000000064wA-0tEZ
+	id 1w2SAu-0000000652m-2j7R;
+	Tue, 17 Mar 2026 11:01:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2SAt-0000000652D-0GvA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 11:00:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F4DD440A1;
-	Tue, 17 Mar 2026 11:00:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD3EC19425;
-	Tue, 17 Mar 2026 11:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773745246;
-	bh=D9+ljMcoiZyCaCMfqoN3FwEpjRE42TDCVmchQSoVReg=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=PE/N5nknJnR/aKxp7MZkTPkYp+fdjpWoPj162EXomZ8lgySWRmbeofS89UqXkUq51
-	 ss4Qn+yoS0AqbOUNfJ85BIhtAil1et4/JzRIPjDNKo8ZY7Pc/SG85UUmE7W45uuJ/w
-	 Nilw/RX36NHMSuCNimGuLAkyJWb1k9ZCn02mYb23TAFQYp6Wex4SXHid6LJqLLMkbr
-	 U8XU//Gbtd8RYDvFDlvfA760iJuVtb702Ezz+ubFlTVc9hq5dRFX27z57e1/8VZTQE
-	 qLdTr/zaeL/p2usQSII6r32oh1Nraf80MSSfY9KO39HyYskuB2zto4U+N7tPT4UYUN
-	 QvPF27QRvYwOA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id C0237F4007C;
-	Tue, 17 Mar 2026 07:00:44 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Tue, 17 Mar 2026 07:00:44 -0400
-X-ME-Sender: <xms:XDS5aYayN2Dzy7Icc_KoLcQ33RUJOKWwir3OEI-ByFlNE6wy2wQxOg>
-    <xme:XDS5aeM6MqWsYJMhhteDkv3_5lrjVe3L574Yq7UdM5Edy9OGfOhUfz5V5k_exy2Z3
-    T3lAlQwvQwD-jqGsxS4IOIqxlqHAawJrz1Tm276cHj_9ZsNlUi1JEU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftddutdejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeeffeevtdeifedttddtuddukeefkeffjeehjedvtdeihfdutdevhfeljefh
-    leeiudenucffohhmrghinheplhgushdrshgsnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgvrhhsohhn
-    rghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppehkvghrnh
-    gvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohepudehpdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehkvghrnhgvlhdqthgvrghmsegrnhgurh
-    hoihgurdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdr
-    tghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtph
-    htthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhrtghpthhtoheptghmlhhl
-    rghmrghssehgohhoghhlvgdrtghomhdprhgtphhtthhopehqphgvrhhrvghtsehgohhogh
-    hlvgdrtghomhdprhgtphhtthhopehsrghmihhtohhlvhgrnhgvnhesghhoohhglhgvrdgt
-    ohhmpdhrtghpthhtohepshgvrghnjhgtsehgohhoghhlvgdrtghomhdprhgtphhtthhope
-    ifihhllhhmtghvihgtkhgvrhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:XDS5aZc8PFDgM0G-NXPoSEKQWtq_UQOghzk--B-UsgPYLXaTn_5Fag>
-    <xmx:XDS5aXrp80j_aXMboVxHREJRLuOT-MVtLLRoNDcigcJNzbnSUiteSA>
-    <xmx:XDS5aSR1-ZxTKvbsewfeW9O3l2_F1XWzipss8X1X1eLfxyCNAydepg>
-    <xmx:XDS5afUHN4F-bWZXR-RZ65Red8_zjfnKcoL5AimgOpybcNSizSj56w>
-    <xmx:XDS5afeLG1wOein348MqLu2XUK5KkJR1uuTmrb27HCNrnifFDuUokr4x>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 93C00700065; Tue, 17 Mar 2026 07:00:44 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 17 Mar 2026 11:01:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE7D61756;
+	Tue, 17 Mar 2026 04:01:13 -0700 (PDT)
+Received: from [10.57.19.134] (unknown [10.57.19.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D33D3F7BD;
+	Tue, 17 Mar 2026 04:01:18 -0700 (PDT)
+Message-ID: <1c4ab892-6f01-40ff-83e2-9060aa69616f@arm.com>
+Date: Tue, 17 Mar 2026 11:01:16 +0000
 MIME-Version: 1.0
-X-ThreadId: A4nMOTjRT8v3
-Date: Tue, 17 Mar 2026 11:59:49 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Carlos Llamas" <cmllamas@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: "Sami Tolvanen" <samitolvanen@google.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, "Kees Cook" <kees@kernel.org>,
- "Quentin Perret" <qperret@google.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Will McVicker" <willmcvicker@google.com>,
- "Sean Christopherson" <seanjc@google.com>, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Message-Id: <6053b599-c00e-47d0-8f9c-4554fec6d288@app.fastmail.com>
-In-Reply-To: <20260313061852.4025964-1-cmllamas@google.com>
-References: <20260313061852.4025964-1-cmllamas@google.com>
-Subject: Re: [PATCH v7] arm64: implement support for static call trampolines
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 2/7] coresight: tmc: add create/clean functions for
+ etr_buf_list
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260313-enable-byte-cntr-for-ctcu-v15-0-1777f14ed319@oss.qualcomm.com>
+ <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_040047_322652_A08D34B4 
-X-CRM114-Status: GOOD (  33.68  )
+X-CRM114-CacheID: sfid-20260317_040123_198183_EF92110F 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,176 +74,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
-
-On Fri, 13 Mar 2026, at 07:18, Carlos Llamas wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Implement arm64 support for the 'unoptimized' static call variety, which
-> routes all calls through a single trampoline that is patched to perform a
-> tail call to the selected function.
->
-> Since static call targets may be located in modules loaded out of direct
-> branching range, we need to use a ADRP/ADD pair to load the branch target
-> into R16 and use a branch-to-register (BR) instruction to perform an
-> indirect call. Unlike on x86, there is no pressing need on arm64 to avoid
-> indirect calls at all cost, but hiding it from the compiler as is done
-> here does have some benefits:
-> - the literal is located in .rodata, which gives us the same robustness
->   advantage that code patching does;
-> - no performance hit on CFI enabled Clang builds that decorate compiler
->   emitted indirect calls with branch target validity checks.
->
-
-It was pointed out to me that this claim is unsubstantiated: IIRC this patch was written before kcfi was introduced, but even if it wasn't, it might be better to call out the actual difference here.
-
-kCFI conditionally performs an indirect call to address 'x', after loading the u32 located at x-4 and comparing it with a compile time constant that encodes the function prototype expected by the call site.
-
-The static call trampoline involves two branches: one direct branch to the trampoline, and an indirect one to the target function. (We can drop the conditional branch and the ret here, see below).
-
-If there is any measurable difference, it will likely be highly dependent on micro-architectural details and the nature of the workload, and neither one is obviously more efficient.
-
-TL;DR maybe just drop the bullet point? But at least drop the claim that it speeds up static call dispatch with CFI enabled.
-
-
-> Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Carlos Llamas <cmllamas@google.com>
-> ---
-> v7:
->   - Took Ard's v3 patch (as it leaves the code patching logic out) and
->     rebased it on top  of mainline 7.0-rc3.
->   - Dropped the changes to arch/arm64/lib/insn.c and instead switched to
->     the (now) existing aarch64_insn_write_literal_u64().
->   - Added the RET0 trampoline define which points to the generic stub
->     __static_call_return0.
->   - Made the HAVE_STATIC_CALL conditional on CFI as suggested by Ard.
->   - Added .type and .size sections to the trampoline definition to
->     support ABI tools.
->
->  arch/arm64/Kconfig                   |  1 +
->  arch/arm64/include/asm/static_call.h | 33 ++++++++++++++++++++++++++++
->  arch/arm64/kernel/Makefile           |  1 +
->  arch/arm64/kernel/static_call.c      | 20 +++++++++++++++++
->  arch/arm64/kernel/vmlinux.lds.S      |  1 +
->  5 files changed, 56 insertions(+)
->  create mode 100644 arch/arm64/include/asm/static_call.h
->  create mode 100644 arch/arm64/kernel/static_call.c
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..9ea19b74b6c3 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -252,6 +252,7 @@ config ARM64
->  	select HAVE_RSEQ
->  	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
->  	select HAVE_STACKPROTECTOR
-> +	select HAVE_STATIC_CALL if CFI
->  	select HAVE_SYSCALL_TRACEPOINTS
->  	select HAVE_KPROBES
->  	select HAVE_KRETPROBES
-> diff --git a/arch/arm64/include/asm/static_call.h 
-> b/arch/arm64/include/asm/static_call.h
-> new file mode 100644
-> index 000000000000..331580542fd4
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/static_call.h
-> @@ -0,0 +1,33 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_STATIC_CALL_H
-> +#define _ASM_STATIC_CALL_H
-> +
-> +#define __ARCH_DEFINE_STATIC_CALL_TRAMP(name, target)			    \
-> +	asm("	.pushsection .static_call.text, \"ax\"			\n" \
-> +	    "	.align	3						\n" \
-> +	    "	.globl	" STATIC_CALL_TRAMP_STR(name) "			\n" \
-> +	    STATIC_CALL_TRAMP_STR(name) ":				\n" \
-> +	    "	hint	34	/* BTI C */				\n" \
-> +	    "	adrp	x16, 1f						\n" \
-> +	    "	ldr	x16, [x16, :lo12:1f]				\n" \
-> +	    "	cbz	x16, 0f						\n" \
-> +	    "	br	x16						\n" \
-> +	    "0:	ret							\n" \
-> +	    "	.type	" STATIC_CALL_TRAMP_STR(name) ", %function	\n" \
-> +	    "	.size	" STATIC_CALL_TRAMP_STR(name) ", . - " 
-> STATIC_CALL_TRAMP_STR(name) " \n" \
-> +	    "	.popsection						\n" \
-> +	    "	.pushsection .rodata, \"a\"				\n" \
-> +	    "	.align	3						\n" \
-> +	    "1:	.quad	" target "					\n" \
-> +	    "	.popsection						\n")
-> +
-> +#define ARCH_DEFINE_STATIC_CALL_TRAMP(name, func)			\
-> +	__ARCH_DEFINE_STATIC_CALL_TRAMP(name, #func)
-> +
-> +#define ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)			\
-> +	__ARCH_DEFINE_STATIC_CALL_TRAMP(name, "0x0")
-> +
-
-We could use either __static_call_return0 or __static_call_nop here, rather than 0x0, and do the same in the implementation of arch_static_call_transform(). That way, we can drop the cbz and ret instructions from the trampoline.
-
-(__static_call_return0 is perfectly acceptable as a NOP, given that R0 is clobbered in any case after a function returning void returns, so just do whatever is easiest)
-
-> +#define ARCH_DEFINE_STATIC_CALL_RET0_TRAMP(name)			\
-> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, __static_call_return0)
-> +
-> +#endif /* _ASM_STATIC_CALL_H */
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 76f32e424065..fe627100d199 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -46,6 +46,7 @@ obj-$(CONFIG_MODULES)			+= module.o module-plts.o
->  obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
->  obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
->  obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
-> +obj-$(CONFIG_HAVE_STATIC_CALL)		+= static_call.o
->  obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
->  obj-$(CONFIG_KGDB)			+= kgdb.o
->  obj-$(CONFIG_EFI)			+= efi.o efi-rt-wrapper.o
-> diff --git a/arch/arm64/kernel/static_call.c 
-> b/arch/arm64/kernel/static_call.c
-> new file mode 100644
-> index 000000000000..944ecabb821f
-> --- /dev/null
-> +++ b/arch/arm64/kernel/static_call.c
-> @@ -0,0 +1,20 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/static_call.h>
-> +#include <linux/memory.h>
-> +#include <asm/text-patching.h>
-> +
-> +void arch_static_call_transform(void *site, void *tramp, void *func, 
-> bool tail)
-> +{
-> +	u64 literal;
-> +	int ret;
-> +
-
-Here, set func to &__static_call_return0 if it is NULL.
-
-> +	/* decode the instructions to discover the literal address */
-> +	literal = ALIGN_DOWN((u64)tramp + 4, SZ_4K) +
-> +		  aarch64_insn_adrp_get_offset(le32_to_cpup(tramp + 4)) +
-> +		  8 * aarch64_insn_decode_immediate(AARCH64_INSN_IMM_12,
-> +						    le32_to_cpup(tramp + 8));
-> +
-> +	ret = aarch64_insn_write_literal_u64((void *)literal, (u64)func);
-> +	WARN_ON_ONCE(ret);
-> +}
-> +EXPORT_SYMBOL_GPL(arch_static_call_transform);
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S 
-> b/arch/arm64/kernel/vmlinux.lds.S
-> index 2964aad0362e..2d1e75263f03 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -191,6 +191,7 @@ SECTIONS
->  			LOCK_TEXT
->  			KPROBES_TEXT
->  			HYPERVISOR_TEXT
-> +			STATIC_CALL_TEXT
->  			*(.gnu.warning)
->  	}
+On 13/03/2026 09:02, Jie Gan wrote:
+> Introduce functions for creating and inserting or removing the
+> etr_buf_node to/from the etr_buf_list.
 > 
-> -- 
-> 2.53.0.880.g73c4285caa-goog
+> The byte-cntr functionality requires two etr_buf to receive trace data.
+> The active etr_buf collects the trace data from source device, while the
+> byte-cntr reading function accesses the deactivated etr_buf after is
+> has been filled and synced, transferring data to the userspace.
+> 
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-tmc-core.c |   1 +
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c  | 108 +++++++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tmc.h      |  17 ++++
+>   3 files changed, 126 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index c89fe996af23..bac3278ef4dd 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -835,6 +835,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>   		idr_init(&drvdata->idr);
+>   		mutex_init(&drvdata->idr_mutex);
+>   		dev_list = "tmc_etr";
+> +		INIT_LIST_HEAD(&drvdata->etr_buf_list);
+>   		break;
+>   	case TMC_CONFIG_TYPE_ETF:
+>   		desc.groups = coresight_etf_groups;
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index 4dc1defe27a5..fdf23e1c932f 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1918,6 +1918,114 @@ const struct coresight_ops tmc_etr_cs_ops = {
+>   	.panic_ops	= &tmc_etr_sync_ops,
+>   };
+>   
+> +/**
+> + * tmc_clean_etr_buf_list - clean the etr_buf_list.
+> + * @drvdata:	driver data of the TMC device.
+> + *
+> + * Remove unused buffers from @drvdata->etr_buf_list and free them.
+> + */
+> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata)
+> +{
+> +	struct etr_buf_node *nd, *next;
+> +	unsigned long flags;
+> +
+> +	lockdep_assert_held(&drvdata->spinlock);
+> +	list_for_each_entry_safe(nd, next, &drvdata->etr_buf_list, link) {
+> +		if (nd->sysfs_buf == drvdata->sysfs_buf) {
+> +			if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED) {
+> +				/*
+> +				 * Dont free the sysfs_buf, just remove it from list.
+> +				 * drvdata->sysfs_buf will hold the buffer and free it later.
+> +				 */
+> +				nd->sysfs_buf = NULL;
+> +				list_del(&nd->link);
+> +				kfree(nd);
+> +				continue;
+> +			}
+> +		}
+> +		/* Free allocated buffers which are not utilized by ETR */
+> +		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+
+This is dangerous ! Restoring the irqflags to an uninitialised value 
+from a different function thant where it was locked. Please clean this up
+
+Suzuki
+
+
+> +		tmc_etr_free_sysfs_buf(nd->sysfs_buf);
+> +		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +		drvdata->sysfs_buf = NULL;
+> +		nd->sysfs_buf = NULL;
+> +		list_del(&nd->link);
+> +		kfree(nd);
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(tmc_clean_etr_buf_list);
+> +
+> +/**
+> + * tmc_create_etr_buf_list - create a list to manage the etr_buf_node.
+> + * @drvdata:	driver data of the TMC device.
+> + * @num_nodes:	number of nodes want to create with the list.
+> + *
+> + * Return 0 upon success and return the error number if fail.
+> + */
+> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
+> +{
+> +	struct etr_buf_node *new_node;
+> +	struct etr_buf *sysfs_buf;
+> +	unsigned long flags;
+> +	int i = 0, ret = 0;
+> +
+> +	lockdep_assert_held(&drvdata->spinlock);
+> +	/* We dont need a list if there is only one node */
+> +	if (num_nodes < 2)
+> +		return -EINVAL;
+> +
+> +	/* We expect that sysfs_buf in drvdata has already been allocated. */
+> +	if (drvdata->sysfs_buf) {
+> +		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> +		/* Directly insert the allocated sysfs_buf into the list first */
+> +		new_node = kzalloc_obj(*new_node, GFP_KERNEL);
+> +		if (IS_ERR(new_node))
+> +			return PTR_ERR(new_node);
+> +
+> +		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +		new_node->sysfs_buf = drvdata->sysfs_buf;
+> +		new_node->is_free = false;
+> +		list_add(&new_node->link, &drvdata->etr_buf_list);
+> +		i++;
+> +	}
+> +
+> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> +	while (i < num_nodes) {
+> +		new_node = kzalloc_obj(*new_node, GFP_KERNEL);
+> +		if (IS_ERR(new_node)) {
+> +			ret = PTR_ERR(new_node);
+> +			break;
+> +		}
+> +
+> +		sysfs_buf = tmc_alloc_etr_buf(drvdata, drvdata->size, 0, cpu_to_node(0), NULL);
+> +		if (IS_ERR(sysfs_buf)) {
+> +			kfree(new_node);
+> +			ret = PTR_ERR(sysfs_buf);
+> +			break;
+> +		}
+> +
+> +		/* We dont have a available sysfs_buf in drvdata, setup one */
+> +		if (!drvdata->sysfs_buf) {
+> +			drvdata->sysfs_buf = sysfs_buf;
+> +			new_node->is_free = false;
+> +		} else
+> +			new_node->is_free = true;
+> +
+> +		new_node->sysfs_buf = sysfs_buf;
+> +		list_add(&new_node->link, &drvdata->etr_buf_list);
+> +		i++;
+> +	}
+> +
+> +	/* Clean the list if there is an error */
+> +	if (ret)
+> +		tmc_clean_etr_buf_list(drvdata);
+> +
+> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(tmc_create_etr_buf_list);
+> +
+>   int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
+>   {
+>   	int ret = 0;
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 319a354ede9f..81237944b986 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -208,6 +208,19 @@ struct tmc_resrv_buf {
+>   	s64		len;
+>   };
+>   
+> +/**
+> + * @sysfs_buf:	Allocated sysfs_buf.
+> + * @is_free:	Indicates whether the buffer is free to choose.
+> + * @pos:	Position of the buffer.
+> + * @link:	list_head of the node.
+> + */
+> +struct etr_buf_node {
+> +	struct etr_buf		*sysfs_buf;
+> +	bool			is_free;
+> +	loff_t			pos;
+> +	struct list_head	link;
+> +};
+> +
+>   /**
+>    * struct tmc_drvdata - specifics associated to an TMC component
+>    * @atclk:	optional clock for the core parts of the TMC.
+> @@ -245,6 +258,7 @@ struct tmc_resrv_buf {
+>    *		(after crash) by default.
+>    * @crash_mdata: Reserved memory for storing tmc crash metadata.
+>    *		 Used by ETR/ETF.
+> + * @etr_buf_list: List that is used to manage allocated etr_buf.
+>    */
+>   struct tmc_drvdata {
+>   	struct clk		*atclk;
+> @@ -275,6 +289,7 @@ struct tmc_drvdata {
+>   	struct etr_buf		*perf_buf;
+>   	struct tmc_resrv_buf	resrv_buf;
+>   	struct tmc_resrv_buf	crash_mdata;
+> +	struct list_head        etr_buf_list;
+>   };
+>   
+>   struct etr_buf_operations {
+> @@ -447,5 +462,7 @@ struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
+>   				   enum cs_mode mode,
+>   				   struct coresight_path *path);
+>   extern const struct attribute_group coresight_etr_group;
+> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
+> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes);
+>   
+>   #endif
+> 
+
 
