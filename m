@@ -4,140 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477FEF33818
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2C0F33819
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xs3/Yx8NcuaGMuhGpdm4akL6StNLgCGa2F/v03oEkY8=; b=v4P7sajrPNTOswJOmPaimLJLQG
-	6ovu3QOT0+ghYSmhn9x1Wy1N0eA4Ig9lz0mdElR6+508cO/nVEIK5ExgEZCq0HBWWRMGHmzSeJJ9R
-	5Zn1ibCaYAsKnHwN4qFvwRFvvyZdYVujGP9h3JSzMKRdDErSFgFrf5sfBO4/7NyUfeP4xAdo/ZpAC
-	89amB0NSA1atWw5Bc/yBnzTlLdpL/TTU/hKKfSHc8F9ZOtBdPNDG1EFimPuOy2Em7/FIl5dotlMhP
-	e9jnkhYdO0FynJLH5bBuOBHEw48/U0vfqVWQWiJNeMdLYpg6cDVKBKLWWeM/3Ab36ZVZFHXqXN84e
-	XeVnVirw==;
+	bh=Wy903wlfjtiJhF4fSetGa3zEAMUsJvIeBXoF3fyvig4=; b=E0wUWS+CLHkFFpHO+jouwvm6Jh
+	BCdeHjCdXy2K1vkht3nW0JPt4l/1LtvYXkgVWBK+MN/t8HEIanvcwrtJf1KEda9U2ScgBS5+3/jEc
+	e3chmzN4/ekxUfmu/SjLKakBskhlQJVNJGdaSjY5HYCYwC7QowVBuVhYPqqnis1D/IOpKgkTsSGJB
+	gzgsNSer4KGoZ2fdpdh2BkB7v8n+E01lH3Mw/UxrwvJYWcXqGxTTu6wWgT5heUzqMtKf+kW5MPB1D
+	YCNvHepxDirpfjTaGcWXsI/zHjKtZp/3+lzd1Fm7JmreDM6YeedX3O9T3CVcVVFx7u5jbiBSf1wYr
+	Rwbd350w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q1i-00000005kaH-23kP;
-	Tue, 17 Mar 2026 08:43:46 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1w2Q2X-00000005kh8-3W1B;
+	Tue, 17 Mar 2026 08:44:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q1g-00000005kZi-1RlW
+	id 1w2Q2W-00000005kgp-0QjN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Mar 2026 08:44:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Wy903wlfjtiJhF4fSetGa3zEAMUsJvIeBXoF3fyvig4=; b=SU57S9weKaL+c2pwyDlwsgu5qz
+	WaEabcxjifymqoQlVipWcPe2LYAMsdfE/68mshK7QjEFLmBh/qsmPOgfiPe69GvlRx8w4ht7nGFj3
+	7l8gyYVRbrNOUciWosTPkzAK+dLdi7Q2+l3yr0JQU+bYf2RsgSTxBnaNEP/8Cai3qhhE/weGDQPg7
+	xbopUlpmlZZrsQzzmsT4mLYBnPEtcBGzshOYY9IsZsWuEv8qEqZ9C/ZGJVRkZX+UjNtdCH3bMBlxj
+	86GXxshDtHJw4bPFl7pZLSDIAdE4JAHsZ74Ho7WgrTplcxCA4a8xrgtMh2TK+J1NkmoTVh4Gm7x56
+	zA3C/7GQ==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Q2N-00000008REh-0Hle
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:43:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UOcqd9t+xfqfZy2d/U17UPlTAoDlBjXKDFn/TITcL6RnzrMn5jgeZ2/OEG6TWD32Ws8gzoFSMLjiDdKHBofNhq28tcNbPhtHv0ybPfwByPEQBjMCCpx3lVRSlNZnbV2DKMrTqXQWbPuEIBJfVAjlpBjHgaaCqOjL5y8GwNbG1ycKgPaxDfBZn0Dss7PPLyVKTCT1+YgJ8CU5J6G2jWd0uxQ2YLKjtjG3uaqjt6y0PZp5MQiS85bduMzrs4KfLxhQ+y6L3fic6tUvxZ/fptSyA2gLiqzGiZGBu82z2IjoDpDE5SUjjYTpMPxo6rKt2JWSo/9WAtl+uE8VUytWMqlbwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xs3/Yx8NcuaGMuhGpdm4akL6StNLgCGa2F/v03oEkY8=;
- b=iCiLcYAnkXZHQj7X7BCsZsFx6w0oVHqmczbp+biVjSgkSV/VQMtz5RHSsjLJMOtvxmPN9q+pgj27OjiE5+kvT3cpH7I5XhJHFG8CYmOmPoraBh6AYwFG4EZp6vb8Di/QsW0iulQfv6dhJn7x9xoUNzvArJQprRwey0G2skGtuWoY4m9xE1vww5yT7GwUaUXBdeoZwLTI9BoMX+BAlCVRPQCOwbZGm7Xt+6pROH7KChtKNd7gvbMhGtNX7Z6laqPV5sp0Fjb/WH4LQnPTATxUMU3N1A0w3naB5B8kWL631oyi3/lGxqlA/Ocr2XD5IuGHpPt151EeI5Vcg/FjUsd4rA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xs3/Yx8NcuaGMuhGpdm4akL6StNLgCGa2F/v03oEkY8=;
- b=XXSGkJCGTDo6+XXv+svh6FCFuwwDPSnBBVkaBXBWq67svLVQ5Ia0c84h7OWzIrln8KiqnMoRcBcSSlBpJcuT4Sblp8e25yral7ChFJeXIgLLFuGGhmcyJJnyCof4VK7jEM5WbQKdKoG1br/3DuE9VCAwqy3/yOk6b381VVRMAZcmUTk65RDhb/1cWWNgdD2QoBm1ZXXfBU8RN8T7Hwvm5nTKD7y0nfKGdK7VhPEuKPkkUnaF/Si1mSarXTXYH/aujcdEkONcKFCpsq3bM3bEZkzdXtN8ewAZBUAEQ08+j/SdwW+hf892D3wjI7lCrolPBx7SbHk8FuCVu3jaE62rKQ==
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- (2603:1096:820:78::12) by PUZPR06MB5819.apcprd06.prod.outlook.com
- (2603:1096:301:f0::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.25; Tue, 17 Mar
- 2026 08:43:33 +0000
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6%5]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
- 08:43:33 +0000
-From: YH Chung <yh_chung@aspeedtech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
-	<maciej.lawniczak@intel.com>
-Subject: RE: [PATCH 1/7] dt-bindings: soc: aspeed: Add AST2600 eSPI controller
-Thread-Topic: [PATCH 1/7] dt-bindings: soc: aspeed: Add AST2600 eSPI
- controller
-Thread-Index: AQHcstFOhnecqp+8vEODwE67uQSGWLWwwXmAgAAQs4CAADF7gIABaq+w
-Date: Tue, 17 Mar 2026 08:43:33 +0000
-Message-ID: <KL1PR0601MB42761246E4C7AA6797ECEC519041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
- <20260313-upstream_espi-v1-1-9504428e1f43@aspeedtech.com>
- <3f2d964a-4e82-414c-b373-af0d531b0fcd@kernel.org>
- <KL1PR0601MB4276A4B81C2E2DB02BE8F2059040A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <20260316-moustache-sleep-0a355de2fc8e@spud>
-In-Reply-To: <20260316-moustache-sleep-0a355de2fc8e@spud>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|PUZPR06MB5819:EE_
-x-ms-office365-filtering-correlation-id: 4103a403-b1d3-404f-9abe-08de840145ec
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|42112799006|376014|7416014|1800799024|18002099003|22082099003|56012099003|38070700021;
-x-microsoft-antispam-message-info: MJqgP4yue1no8oP3RZyD78/gJoZlqU5NVhDpLlB+FMD2e1UgUWu7GFKO4tTjtOsg7mXyIMQSHQTlmGUcrDPFHnG0BWCBBcMpyZGQEXM4sGY0BJWGdAcgrZYIPyalORcRjLS81j3G9clu4loMPy9UbRyaJXhrWo6rz2k9P82EogWUu+e3OpCFUkHuGfS5K63zMJQ7tbbdNuZYv5EubDNspptqviUOjEyFvEcXjMeq6lx9fQaKf9f/K6W3eUxOjRHqi3JI3LL/h+moZKWXgqpk6/qeAsajjATM8rGZ7ui0z/sLqEFkcuLqB4K569kg8JVgNwCIsZKq4csbhvoCm8GYlBQfVSjqYr1ixpVmCGeYRIn1JBFtrtDNiiQeS1mEt9PZ7vOgWQzGuAIiy5PAKv+emwD9VgF1K2zShOgwX17cN+S1k2XYYP1ASIwgGRiiLqDn566TcluEKkEMKxPFwROAVydmXBJED2VMulfBCna/to4GTosIV5BEgahBWjU1xJD3sI/S0Yd/3Bxasl1yU6X2i0ByjK45R0kvoeYEfxoq83S7QMJx6Yo+OJDGfnhoF7x+hp8vOkm8LdMI/PkhG+vdjDEyjZJzdpKnEQscXixMW8jaDKdn8IamPfDGFO1eEv0WUUxrIaTrAU//fSCfeDjZaHb0UzBhzPoXgQ4DlhvcZznd+eMGymnfZSjbclDmT8wiHuCHdMVGckMFY1lLDOTePvCob9iwKqemySkMXKBNC0SjObEfxaxS14bzztGEFnSLlLlMkcHS380nP5/imPhvK3PL1UU+84pchyeqjJJKik0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(42112799006)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?dxOi+YqqVKK8pGb/ZpbgDmpxDnNu8igbqt5YWoYXnpWh8E9VCR9mus6Iu9pY?=
- =?us-ascii?Q?MnhqqNI5qWcFFL9cbQwQxQ2/phIMLOQMBZIqA4+b/x9YeS4HJTZKIA9scBO/?=
- =?us-ascii?Q?WLGrtFRXoeAxuxkxPxPT9eP+yVqDL0JU9hD4cXM4/gLcZcLQB6d2C7Jb8OC5?=
- =?us-ascii?Q?xw91PK7u8g/IpnKYmTlW977ZHZcHa+CZUff+WUqI7GQ7yCgurhQEyGEz+EeA?=
- =?us-ascii?Q?XQV/XWWsvNOBAnDwDI8Kdv2Lvbrx5zUxs/mTb1S2A51b+672jF44wtKR5Pq0?=
- =?us-ascii?Q?fe/TAm/D4PVclcQYVECuYEAZNPgdmBtDkHkBBHYG/KgipYCLXpjOsEghouUI?=
- =?us-ascii?Q?1d/hU/UUHSdgghxSdzo5MHthA1IJxMtgERPbUrdMm+ZyARedYPhX9VBemCJ5?=
- =?us-ascii?Q?0NdervSO0bcU6fylqKXSDchKzYPzJeIc58YuVTvLNzACCY92YMI6lInrQu1s?=
- =?us-ascii?Q?8j166W4WZ9Bvc7TOBcKBnSOcJ5EYYFi+hkv/XZQC1AugpWjv+NM1tSEecq3X?=
- =?us-ascii?Q?InwlnW+sVUCzXJkm+k01E6yQDfux4EKGrEHEMcL7TRV/Jg5nEJf4Kvp8ufZ0?=
- =?us-ascii?Q?/DD2tJBxY6q0tDi2fd3IadywaT1yycWmrdvx+Fxr2wBHrgYq8PFNcHV8xaxv?=
- =?us-ascii?Q?VnzbD9kc9lw0CiW7XR0ks5ditAX0DkmUpDYRoRhBB9vDHA8WduanfECB49lN?=
- =?us-ascii?Q?zIj3ajRSuL99LKOsDFOXfvjHVIBcgotAK5Od+9bNUUDAbTht4HJMIimK0kXK?=
- =?us-ascii?Q?W+91ETUiZ2awn0Eq6HH/GSkVi8iXtm8XXCd3DDh2QMA8COHH0yHVngIoCGK8?=
- =?us-ascii?Q?zpK0w/MxUTDQi3/Mf7V4kEGompdG03cEyAMpT+8xau6reF8I5ZlxZIp1pPwv?=
- =?us-ascii?Q?gn4Kmi+36TcTfnWwF0AAXhuP0xw/PP57VBG8r5g27CHxXxB97jvalmGHw7PN?=
- =?us-ascii?Q?gRB7T2sGlekU9kQOBRNpeHIh/7gQ190JDc50auecQNmZi0KrsFYzDg8l4CEY?=
- =?us-ascii?Q?gP467pL+P260vEMj2SnH+zo6risD2N0yBF9t/m0KHtoTHyA8vsFfkscczOYr?=
- =?us-ascii?Q?idnSTlrCE2bKfRFC5ETa+8CKRvcqEDYWd+GBeVHBL4dcKa2YVa+dzyrKiwHZ?=
- =?us-ascii?Q?+vr9h9gcWBxcqWNFDFjZE4WfFNkZ+hg2lCu1AcEO5OxETsettB6h4SMyKBu8?=
- =?us-ascii?Q?kcZpIqr+kXKxUgWV9jaWRAs3uRT/tFg8+wNToi+rNXqpAF/xxoonwZ4/uIFw?=
- =?us-ascii?Q?fTZI0IZmWANYiVrjs+Ch3BlPcXYk357AlXbI0ZsKMquDskN/Dta00qy4V8I1?=
- =?us-ascii?Q?pQY2egnwK/FHmOoOBqNtgmg2uH//HfKwpCAbE5QHqZfscpui/urck9affPuB?=
- =?us-ascii?Q?Yb7uSyTS4HrdWX+xfv9l5EMn7H3yVyAsqjOq/PBJiHAHFZUnEBs2XK1jzAOI?=
- =?us-ascii?Q?T7Tvm/GQQyj+cLlYQESwdl26Fp89N8RNe7jW7riq0S/P5Kw9XUGC6t2NcKVy?=
- =?us-ascii?Q?jPT3MoMw96fcsa07hJlL48ZENHYbtpGpnJDt55PgjPmWwVxDQHpHZIZ695dF?=
- =?us-ascii?Q?JkZdK6cJhw5Spdmw4CrvafaIDlPoM3ORCY1tKJnlfXK8mDlEK1LPm49Xnm9c?=
- =?us-ascii?Q?N2+Uolnir0ozNW91oU8c4hr26DIyQdU+fb3eU+NONVr22n7e0X6QbbTU2Epl?=
- =?us-ascii?Q?qs4eEU2XSYCVc1F05RenzCPqXcZOeRUONreSxBZvPjl9NRub3rSw5vSy97CS?=
- =?us-ascii?Q?6XG6SBWjHg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 17 Mar 2026 08:44:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773737067; x=1805273067;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=reN1ExzdLEqD8HVCpoyL9v3MG4Jeymcn9UW3+OEgzww=;
+  b=Ce9AaGlzX1vBdDzARMUirVMfLHLeIYVyY2xmFZoADJvoScmogjJRtkE7
+   Nxv2iEAyYBrKCIm6+ZnIv8tS+cmnA+ZuaEqtJ5xLMa8wxUy5MF95qRKIv
+   HUPZwUxKxe1CrDS+mJxh9Vbk3M574XcyU1sRILDnDmeeUlAT6BCWOKnUA
+   666oad+PsfQ8RrlGlPScF7djBOjxJFIp66QNCo3qYupLtKRwTCFnQ/X+G
+   desMwLnP3BIqF41Vp7YXX8N73iVyiBF3BmWkfQecEJX87GgC7hsOJjVGb
+   EW1gWmPzH5eiIv/TciKmL4A+3SJKLe0FbLPIyt2u5F5MlbufdqBuzFe+m
+   Q==;
+X-CSE-ConnectionGUID: LFKaf7TZT36MAYQTAVy1AA==
+X-CSE-MsgGUID: EOStQr0VTB2ggi9VCHlDnQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74946578"
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="74946578"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 01:44:21 -0700
+X-CSE-ConnectionGUID: i4TMYhh1SJmDtT9VPYv95A==
+X-CSE-MsgGUID: MwtWjn/sSB+XIPDkipta6g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
+   d="scan'208";a="221432349"
+Received: from lkp-server01.sh.intel.com (HELO 63737dd503cb) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 17 Mar 2026 01:44:17 -0700
+Received: from kbuild by 63737dd503cb with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w2Q29-0000000004j-3H6m;
+	Tue, 17 Mar 2026 08:44:13 +0000
+Date: Tue, 17 Mar 2026 16:43:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: Re: [PATCH v15 2/7] coresight: tmc: add create/clean functions for
+ etr_buf_list
+Message-ID: <202603171518.XQOgdjNN-lkp@intel.com>
+References: <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4103a403-b1d3-404f-9abe-08de840145ec
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 08:43:33.5565
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: W2mSyJzh0iomS+XnfWT4RwRmz+s/zrxuVewuv3/zoJnt7x39/cjqklsWee5ZJT6iKpuQRhsHtNIKjVMJApGmYw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5819
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_014344_381727_37FEAD1B 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20260317_084427_518107_903B74D9 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,38 +115,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi Jie,
 
->=20
-> On Mon, Mar 16, 2026 at 08:17:48AM +0000, YH Chung wrote:
-> > Hi Krzysztof,
-> >
-> > > On 13/03/2026 11:07, aspeedyh wrote:
-> > > > Introduce the device-tree bindings for the Enhanced Serial
-> > > > Peripheral Interface (eSPI) controller found on AST2600
-> > > > BMC SoCs.
-> > > >
-> > > > The controller operates as the BMC-side eSPI slave and provides the
-> > > > peripheral, virtual wire, out-of-band, and flash channels used for
-> > > > host-BMC communication.
-> > > >
-> > > > Signed-off-by: aspeedyh <yh_chung@aspeedtech.com>
-> > >
-> > > Please use your full name. Semi-anonymous contributions are not accep=
-ted.
-> > >
-> > > Best regards,
-> > > Krzysztof
-> >
-> > Thanks for the reminder.
-> > Would you prefer that I resend this series with the corrected sign-off,=
- or would it
-> be fine to update it in the next version?
->=20
-> Next version, when the discussion on the cover letter concludes, please.
+kernel test robot noticed the following build warnings:
 
-Got it, thanks for the guidance.
+[auto build test WARNING on a0ae2a256046c0c5d3778d1a194ff2e171f16e5f]
 
-Thanks,
-Yun Hsuan
+url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/coresight-core-refactor-ctcu_get_active_port-and-make-it-generic/20260315-052703
+base:   a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
+patch link:    https://lore.kernel.org/r/20260313-enable-byte-cntr-for-ctcu-v15-2-1777f14ed319%40oss.qualcomm.com
+patch subject: [PATCH v15 2/7] coresight: tmc: add create/clean functions for etr_buf_list
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260317/202603171518.XQOgdjNN-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260317/202603171518.XQOgdjNN-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603171518.XQOgdjNN-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/hwtracing/coresight/coresight-tmc-etr.c:1979:50: warning: variable 'flags' is uninitialized when used here [-Wuninitialized]
+    1979 |                 raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+         |                                                                ^~~~~
+   include/linux/spinlock.h:283:37: note: expanded from macro 'raw_spin_unlock_irqrestore'
+     283 |                 _raw_spin_unlock_irqrestore(lock, flags);       \
+         |                                                   ^~~~~
+   drivers/hwtracing/coresight/coresight-tmc-etr.c:1969:21: note: initialize the variable 'flags' to silence this warning
+    1969 |         unsigned long flags;
+         |                            ^
+         |                             = 0
+   1 warning generated.
+
+
+vim +/flags +1979 drivers/hwtracing/coresight/coresight-tmc-etr.c
+
+  1957	
+  1958	/**
+  1959	 * tmc_create_etr_buf_list - create a list to manage the etr_buf_node.
+  1960	 * @drvdata:	driver data of the TMC device.
+  1961	 * @num_nodes:	number of nodes want to create with the list.
+  1962	 *
+  1963	 * Return 0 upon success and return the error number if fail.
+  1964	 */
+  1965	int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
+  1966	{
+  1967		struct etr_buf_node *new_node;
+  1968		struct etr_buf *sysfs_buf;
+  1969		unsigned long flags;
+  1970		int i = 0, ret = 0;
+  1971	
+  1972		lockdep_assert_held(&drvdata->spinlock);
+  1973		/* We dont need a list if there is only one node */
+  1974		if (num_nodes < 2)
+  1975			return -EINVAL;
+  1976	
+  1977		/* We expect that sysfs_buf in drvdata has already been allocated. */
+  1978		if (drvdata->sysfs_buf) {
+> 1979			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+  1980			/* Directly insert the allocated sysfs_buf into the list first */
+  1981			new_node = kzalloc_obj(*new_node, GFP_KERNEL);
+  1982			if (IS_ERR(new_node))
+  1983				return PTR_ERR(new_node);
+  1984	
+  1985			raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+  1986			new_node->sysfs_buf = drvdata->sysfs_buf;
+  1987			new_node->is_free = false;
+  1988			list_add(&new_node->link, &drvdata->etr_buf_list);
+  1989			i++;
+  1990		}
+  1991	
+  1992		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+  1993		while (i < num_nodes) {
+  1994			new_node = kzalloc_obj(*new_node, GFP_KERNEL);
+  1995			if (IS_ERR(new_node)) {
+  1996				ret = PTR_ERR(new_node);
+  1997				break;
+  1998			}
+  1999	
+  2000			sysfs_buf = tmc_alloc_etr_buf(drvdata, drvdata->size, 0, cpu_to_node(0), NULL);
+  2001			if (IS_ERR(sysfs_buf)) {
+  2002				kfree(new_node);
+  2003				ret = PTR_ERR(sysfs_buf);
+  2004				break;
+  2005			}
+  2006	
+  2007			/* We dont have a available sysfs_buf in drvdata, setup one */
+  2008			if (!drvdata->sysfs_buf) {
+  2009				drvdata->sysfs_buf = sysfs_buf;
+  2010				new_node->is_free = false;
+  2011			} else
+  2012				new_node->is_free = true;
+  2013	
+  2014			new_node->sysfs_buf = sysfs_buf;
+  2015			list_add(&new_node->link, &drvdata->etr_buf_list);
+  2016			i++;
+  2017		}
+  2018	
+  2019		/* Clean the list if there is an error */
+  2020		if (ret)
+  2021			tmc_clean_etr_buf_list(drvdata);
+  2022	
+  2023		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+  2024	
+  2025		return ret;
+  2026	}
+  2027	EXPORT_SYMBOL_GPL(tmc_create_etr_buf_list);
+  2028	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
