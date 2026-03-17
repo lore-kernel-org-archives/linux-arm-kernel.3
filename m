@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21470FED9EF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE09FED9EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzARhdGAAdzXnLLDQx+bGQ+D4Xbon7Lj6B8t5XjpU94=; b=vfen+MxVOrH0n4s7BtE2R8pibi
-	UmO/bJjlFJ6YNq6KBZr/oMkjj/nC2HR3kzwkssO3xdZVsKiMML3YYcMFiA1rGC/O9UiEG9JD084PE
-	c6d1gNuMuPfNNpkkQpemtupasQMhi8hgMNb21dkWMNadTTUyHjUO7Hfe5stLTpcl+i9iiFQ4cj7Ha
-	JsRfp6bF90DY8MfBQlcJPd5vwvKo66CGtHQ+G77frHCZ8tEeRkKPe2uuqlhN32TenfGKtMRE+lLsb
-	wFfQ0NEL0KYmswmHztUcHij4rDefIo50RK8bzvoL2XIBLYcJBwFX7TClR62uHG5RB9wicXt7DS8r1
-	EVblnoxw==;
+	bh=6cOeHyx0nOYJTL0IxwB+5sdVf5CQ8cq4pS7rVALpQCs=; b=1aH3LOw1gMVpVgSMSrSgGo98Zu
+	rnZ8eIsC4nm2nDB7D9vKm8SGw/9Bcd2w55NJSzObRAXqOJGdOEilkmREvLavAfasi5Z70r6CiIT8C
+	aR+sdMEXnb3lUM1f9960k5G+HzOa/+W++DzA2m2QW4P8t/RGrjn+SesRaFb0DanxTlV9g/9eiMeey
+	bWCoPi+Kzmrfl38xZl0EU88y5JF5XeoJJaDpeDkvasOD+OmL9XHtfRcswSoP7O561sMM4I1yZuUT+
+	UxQdODUU17/0BaoyTyErzZCnwDWf8BhUU8WCZ/vf/sTYeVQeawVRVyVMwlWWEblMbpke+H/qzRGe5
+	loEy6pCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ybl-00000006z0y-2fdD;
-	Tue, 17 Mar 2026 17:53:33 +0000
+	id 1w2Ycd-00000006zC1-28PV;
+	Tue, 17 Mar 2026 17:54:27 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ybj-00000006yzs-0Ybh
+	id 1w2Ycb-00000006zBc-34BB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:53:32 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fb00b4Bj3zJ46DJ;
-	Wed, 18 Mar 2026 01:52:31 +0800 (CST)
+	Tue, 17 Mar 2026 17:54:26 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fb02H1BPZzHnGfG;
+	Wed, 18 Mar 2026 01:53:59 +0800 (CST)
 Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0833040584;
-	Wed, 18 Mar 2026 01:53:28 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2155240572;
+	Wed, 18 Mar 2026 01:54:19 +0800 (CST)
 Received: from localhost (10.48.149.62) by dubpeml500005.china.huawei.com
  (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 17 Mar
- 2026 17:53:27 +0000
-Date: Tue, 17 Mar 2026 17:53:26 +0000
+ 2026 17:54:18 +0000
+Date: Tue, 17 Mar 2026 17:54:17 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Fuad Tabba <tabba@google.com>
 CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Joey
@@ -47,12 +47,11 @@ CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Joey
 	<linux-arm-kernel@lists.infradead.org>, KERNEL VIRTUAL MACHINE FOR ARM64
  KVM/arm64 <kvmarm@lists.linux.dev>, "open list"
 	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 07/10] KVM: arm64: Use scoped resource management in
- arm.c
-Message-ID: <20260317175326.000074be@huawei.com>
-In-Reply-To: <20260316-tabba-el2_guard-v1-7-456875a2c6db@google.com>
+Subject: Re: [PATCH 08/10] KVM: arm64: Use guard(spinlock) in psci.c
+Message-ID: <20260317175417.0000201b@huawei.com>
+In-Reply-To: <20260316-tabba-el2_guard-v1-8-456875a2c6db@google.com>
 References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
-	<20260316-tabba-el2_guard-v1-7-456875a2c6db@google.com>
+	<20260316-tabba-el2_guard-v1-8-456875a2c6db@google.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -61,8 +60,9 @@ X-Originating-IP: [10.48.149.62]
 X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
  dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_105331_345465_A673B213 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260317_105425_922164_F8777245 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 17:35:28 +0000
+On Mon, 16 Mar 2026 17:35:29 +0000
 Fuad Tabba <tabba@google.com> wrote:
 
-> Migrate manual spin_lock() calls managing mp_state_lock and manual
-> mutex_lock() calls managing kvm->arch.config_lock to use the
-> guard(spinlock) and guard(mutex) macros.
+> Migrate manual spin_lock() and spin_unlock() calls managing
+> the vcpu->arch.mp_state_lock to use the guard(spinlock) macro.
 > 
-> This eliminates manual unlock calls on early return paths and
-> simplifies the vCPU suspend/resume control flow.
+> This eliminates manual unlock calls on return paths and simplifies
+> error handling during PSCI calls by replacing unlock goto labels
+> with direct returns.
 > 
-> Change-Id: Ifcd8455d08afa5d00fc200daaa3fb13f6736e6ed
+> Change-Id: Iaf72da18b18aaec8edff91bc30379bed9dd04b2b
 > Signed-off-by: Fuad Tabba <tabba@google.com>
-Trivial stuff.
-> ---
->  arch/arm64/kvm/arm.c | 53 ++++++++++++++++++++--------------------------------
->  1 file changed, 20 insertions(+), 33 deletions(-)
+
+
+> @@ -176,9 +172,8 @@ static void kvm_prepare_system_event(struct kvm_vcpu *vcpu, u32 type, u64 flags)
+>  	 * re-initialized.
+>  	 */
+>  	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
+> -		spin_lock(&tmp->arch.mp_state_lock);
+> -		WRITE_ONCE(tmp->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
+> -		spin_unlock(&tmp->arch.mp_state_lock);
+> +		scoped_guard(spinlock, &tmp->arch.mp_state_lock)
+No benefit over guard() and causes more churn.
+
+> +			WRITE_ONCE(tmp->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
+>  	}
+>  	kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
+>  
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 410ffd41fd73..017f5bfabe19 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-
->  
->  /**
-> @@ -738,9 +736,8 @@ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
->  
->  void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
->  {
-> -	spin_lock(&vcpu->arch.mp_state_lock);
-> +	guard(spinlock)(&vcpu->arch.mp_state_lock);
->  	__kvm_arm_vcpu_power_off(vcpu);
-> -	spin_unlock(&vcpu->arch.mp_state_lock);
->  }
->  
->  bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu)
-> @@ -773,7 +770,7 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
->  {
->  	int ret = 0;
->  
-> -	spin_lock(&vcpu->arch.mp_state_lock);
-> +	guard(spinlock)(&vcpu->arch.mp_state_lock);
->  
->  	switch (mp_state->mp_state) {
->  	case KVM_MP_STATE_RUNNABLE:
-> @@ -789,8 +786,6 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
->  		ret = -EINVAL;
-		return -EINVAL;
-	}
-
-	return 0;
-
-Or even return in the switch legs instead of breaking out.
-
->  	}
->  
-> -	spin_unlock(&vcpu->arch.mp_state_lock);
-> -
->  	return ret;
->  }
-
->  /*
-> @@ -944,9 +937,8 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->  			return ret;
->  	}
->  
-> -	mutex_lock(&kvm->arch.config_lock);
-> +	guard(mutex)(&kvm->arch.config_lock);
->  	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
-> -	mutex_unlock(&kvm->arch.config_lock);
->  
->  	return ret;
-
-Personally I'd make this return 0 whilst you are here so it's obvious this
-path only ever returns success.
-
->  }
-
 
 
