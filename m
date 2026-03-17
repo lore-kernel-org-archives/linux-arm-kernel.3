@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54CFF3382D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E85AF3382F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 09:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLr5wH4Bp+U1qN0G7TU+L7ew0f5WHuIcmyXdBy2vCgg=; b=spTF1gNf6Y0m6Tbc97ax7Z+P3R
-	VOitt24mtxlpoe0A2KaMpFcSx6hEOM4V/v1leiCyu+dSCAMNjfplRnH06Yd7DV6XBlEM8tAioMTd6
-	hOrRXJAcD8g2pbmDlBR1801G83g3w1xDUjArGB0HBSgODB/pA+8RR//nbyD78p4xRhd64xDJKEXjt
-	YvBifF9z+RnHomB574SEDCHqlknrQZ/77xghIGYXy+D4sjHZ1aojfLYGDzcCtXaFsbOaPa7eRih2s
-	ltoPmz6MqsyjgI+CxIHZVY/G+lbyDARcbApyaJbaPOS2zg9Kt5PQ25ISNs2ocnIC6iDl9HzACa1Ge
-	Lz5aMtBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UefEPMQGFUQOm1yLJ24fumiQegajAZcINPXGIRj8cAY=; b=qzoJ8Gew6z0aLTXiiZV+wI71eb
+	kHkk9EgRGAwdphxFpW3cF+bH9NANf9hWrpS0Pn9YKyK51UZ4R09Z5ZjVqG++56/nmSKvimTXuTngi
+	5uEx5RvfkKeFP3Vy91dbI+Vip1zUrzAr7WONwMxK0ttOxCxuToOdhIcUww0tL+fBwaXTO+pGtCp81
+	VIFVCerpp3rMAnXrCzm6rRtXdsHlfUNpGt8NprCmt1Zuim3xm52T1ygt9RXeJ5JM3l9Nirp2XH+pQ
+	5BV2evEA+ZwlNJzB8Ono2OFHAjF7dN+gAT/MIUb5vJ+5gP7Oq3FOnMPwqGbWgNvjcEz3xnw0v5FSd
+	r4o/Sd9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2R5k-00000005vbl-0wXn;
-	Tue, 17 Mar 2026 09:52:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2R7I-00000005vwQ-0bZ0;
+	Tue, 17 Mar 2026 09:53:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2R5h-00000005vaR-1FrI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Mar 2026 09:51:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yLr5wH4Bp+U1qN0G7TU+L7ew0f5WHuIcmyXdBy2vCgg=; b=knFrRcxAc8kYBokEZ/pzJuH+/X
-	N+CRDHIzkqjDsUPCrhuzmkChJrRLnRAmO3FkbrGJ5s8R9BhEKND74fKmg78sY4gtqgi6oEiCCBOeN
-	0s76Njo7w37aI0ATtW2vLauPy9OqFeDyZFt8G9bRnjaR9ItXFALqgmelx/ecCPY9y9X1GfDAkUvV/
-	2EKPE290/27VCV8CmmdtCQ5MR59uz6wl3HfMxBFlfXmPT/gKVOalrQCoo2KKcciQpMyFJeav7iQ09
-	wKVZIIDamRasS/W/sAkNE+92RtJoCp5pVWebpZtUn+I747Ak+WE3AmtIhFJpjP5OgIwfHmX1C2UcB
-	pm7gZptA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2R5d-00000008bnH-0OYN
+	id 1w2R7F-00000005vvu-2R0W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 09:51:55 +0000
+	Tue, 17 Mar 2026 09:53:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3887F40314;
-	Tue, 17 Mar 2026 09:51:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D22CC2BC9E;
-	Tue, 17 Mar 2026 09:51:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3434944108;
+	Tue, 17 Mar 2026 09:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A63C19425;
+	Tue, 17 Mar 2026 09:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773741109;
-	bh=W4rqPAGiPdWhHdqkaOUtyPkT2EFCuB+axFUZQ7OJ0ZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ha8QE+UdWSw8GUOLiNyX2cQ8Be5CWzNFqrVUYgj/Vs42nM5OOjjUYOne7ALhut8WH
-	 hBbGciXNbDOsDYpPj4R20XKAqk8+Q38GXr5npNwCI8Cto+Aga64OYwXJD5Smww1v9i
-	 cAZ//3XOFJdX7CV70sJAqs8W8DLlIy+3ejMZJfu3hNSuYGwrC3e79rqVBesxRyodCk
-	 oTgxXLrx+ZV/WWJJ2vAPCbe7lyMJelaRM0I39m3jwtMPx1VTDSE9tG3E3r+2n6RgIt
-	 Db77QMsVrbUvUZhvzhgqqGql9EPV5sMaONErtE5iB6vfb9i0KNo/OcMJnLLstW6KmI
-	 gRRZ/UmNYd6eg==
-Date: Tue, 17 Mar 2026 15:21:39 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, Frank Li <frank.li@nxp.com>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V8 02/13] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Message-ID: <vixlrnt3a2mohavjbchth52sweq3syxlkps6dr45yj2uhkbgb5@kznmvy5kjygo>
-References: <20260313020823.1592389-1-sherry.sun@nxp.com>
- <20260313020823.1592389-3-sherry.sun@nxp.com>
- <phrbp7ypfsilv75dh723l5hekjfm7hn7wetihibjqgix7czyyf@rq3sgaqsvu2s>
- <VI0PR04MB121147739ABAB0F3D5F402ED89241A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+	s=k20201202; t=1773741213;
+	bh=lvTj9FI5N2EKRsJMc1HzB6JFMEGudkjHKx3OFuSywvA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=GGVBg3UUJ4T4YZihBXHwBey/Snpk9DIdBaG0ctWJ42SXHunPinPE+yWAM48FMshAN
+	 dhAc69UBKYIV5RQ5oWpaf2lO6AKMDE28zV0CrrqttSjeR0QzuFpdBXYp3NzgHJu7Zu
+	 oyJ/XS8rrCfCLQcKixO9SA7AKsmUgMz5me9JIisBJxBXOcIqe2LEYRzxF/87DvsyS2
+	 fp3kzhITkPd4pTeb7HW8/oK1DJucv7ntiZuXfb59ZizGaHHV/3WhdWGTQ0kvU2hn/a
+	 yW3JXc+Id5E4wUbcOKW9qyQEFlHSLjFkrNFVwp/ItTwGrTCVmUrbikMnQADTNXwIFP
+	 sZ2WpuOsxfF4Q==
+Message-ID: <69927bd8-d476-4a24-91af-f21cdc0bce80@kernel.org>
+Date: Tue, 17 Mar 2026 10:53:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <VI0PR04MB121147739ABAB0F3D5F402ED89241A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL 3/4] Renesas DT binding updates for v7.1
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: soc@lists.linux.dev, Magnus Damm <magnus.damm@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+References: <cover.1773399669.git.geert+renesas@glider.be>
+ <cover.1773399673.git.geert+renesas@glider.be>
+ <20260314-quick-gray-saluki-0f96ff@quoll>
+ <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
+ <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_095153_540115_226DA685 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20260317_025333_663248_0980D646 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,147 +120,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 08:01:28AM +0000, Sherry Sun wrote:
+On 17/03/2026 10:29, Krzysztof Kozlowski wrote:
 > 
-> > On Fri, Mar 13, 2026 at 10:08:12AM +0800, Sherry Sun wrote:
-> > > Introduce generic helper functions to parse Root Port device tree
-> > > nodes and extract common properties like reset GPIOs. This allows
-> > > multiple PCI host controller drivers to share the same parsing logic.
-> > >
-> > > Define struct pci_host_port to hold common Root Port properties
-> > > (currently only reset GPIO descriptor) and add
-> > > pci_host_common_parse_ports() to parse Root Port nodes from device
-> > tree.
-> > >
-> > > Also add the 'ports' list to struct pci_host_bridge for better
-> > > maintain parsed Root Port information.
-> > >
-> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/pci-host-common.c | 78
-> > > ++++++++++++++++++++++++  drivers/pci/controller/pci-host-common.h |
-> > 15 +++++
-> > >  drivers/pci/probe.c                      |  1 +
-> > >  include/linux/pci.h                      |  1 +
-> > >  4 files changed, 95 insertions(+)
-> > >
-> > > diff --git a/drivers/pci/controller/pci-host-common.c
-> > > b/drivers/pci/controller/pci-host-common.c
-> > > index d6258c1cffe5..2f012cf80463 100644
-> > > --- a/drivers/pci/controller/pci-host-common.c
-> > > +++ b/drivers/pci/controller/pci-host-common.c
-> > > @@ -9,6 +9,7 @@
-> > >
-> > >  #include <linux/kernel.h>
-> > >  #include <linux/module.h>
-> > > +#include <linux/gpio/consumer.h>
-> > >  #include <linux/of.h>
-> > >  #include <linux/of_address.h>
-> > >  #include <linux/of_pci.h>
-> > > @@ -17,6 +18,83 @@
-> > >
-> > >  #include "pci-host-common.h"
-> > >
-> > > +/**
-> > > + * pci_host_common_delete_ports - Cleanup function for port list
-> > > + * @data: Pointer to the port list head  */ static void
-> > > +pci_host_common_delete_ports(void *data) {
-> > > +	struct list_head *ports = data;
-> > > +	struct pci_host_port *port, *tmp;
-> > > +
-> > > +	list_for_each_entry_safe(port, tmp, ports, list)
-> > > +		list_del(&port->list);
-> > > +}
-> > > +
-> > > +/**
-> > > + * pci_host_common_parse_port - Parse a single Root Port node
-> > > + * @dev: Device pointer
-> > > + * @bridge: PCI host bridge
-> > > + * @node: Device tree node of the Root Port
-> > > + *
-> > > + * Returns: 0 on success, negative error code on failure  */ static
-> > > +int pci_host_common_parse_port(struct device *dev,
-> > > +				      struct pci_host_bridge *bridge,
-> > > +				      struct device_node *node)
-> > > +{
-> > > +	struct pci_host_port *port;
-> > > +	struct gpio_desc *reset;
-> > > +
-> > > +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
-> > > +				      "reset", GPIOD_ASIS, "PERST#");
-> > > +	if (IS_ERR(reset))
-> > > +		return PTR_ERR(reset);
-> > > +
-> > > +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > > +	if (!port)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	port->reset = reset;
-> > > +	INIT_LIST_HEAD(&port->list);
-> > > +	list_add_tail(&port->list, &bridge->ports);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +/**
-> > > + * pci_host_common_parse_ports - Parse Root Port nodes from device
-> > > +tree
-> > > + * @dev: Device pointer
-> > > + * @bridge: PCI host bridge
-> > > + *
-> > > + * This function iterates through child nodes of the host bridge and
-> > > +parses
-> > > + * Root Port properties (currently only reset GPIO).
-> > > + *
-> > > + * Returns: 0 on success, -ENOENT if no ports found, other negative
-> > > +error codes
-> > > + * on failure
-> > > + */
-> > > +int pci_host_common_parse_ports(struct device *dev, struct
-> > > +pci_host_bridge *bridge) {
-> > > +	int ret = -ENOENT;
-> > > +	int err;
-> > > +
-> > > +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> > > +		if (!of_node_is_type(of_port, "pci"))
-> > > +			continue;
-> > > +		ret = pci_host_common_parse_port(dev, bridge, of_port);
-> > > +		if (ret)
-> > > +			return ret;
-> > > +	}
-> > > +
-> > 
-> > I think you should just do:
-> > 
-> > 	if (ret)
-> > 		return ret;
-> > 
-> > and get rid of 'err'.
+>>
+>>> See also submitting patches in DT dir.
+>>
+>> So the second commit is subject to II.3:
+>>
+>>   3) For a series going through multiple trees, the binding patch should be
+>>      kept with the driver using the binding.
+>>
+>> In this particular case, I could have included it in my drivers branch.
+>> Where do I put SoC-specific DT binding changes that are not picked
+>> up by anyone else (I don't have any this time)?
 > 
-> Hi Mani, do you mean the following method?
-> 
-> int pci_host_common_parse_ports(struct device *dev, struct pci_host_bridge *bridge)
-> {
->     int ret = -ENOENT;
-> 
->     for_each_available_child_of_node_scoped(dev->of_node, of_port) {
->         if (!of_node_is_type(of_port, "pci"))
->             continue;
->         ret = pci_host_common_parse_port(dev, bridge, of_port);
->         if (ret)
->             return ret;
->     }
-> 
->     if (ret)
->         return ret;
-> 
->     ret = devm_add_action_or_reset(dev, pci_host_common_delete_ports,
->                        &bridge->ports);
+> What is "SoC-specific"? You put the DT binding with the user, that was
+> always the rule and that is implied by submitting patches. If you do not
+> have any user, why would you pick that up?
 
-Here, you can do 'return devm_add_action_or_reset()'
+Actually I want to correct myself or explain more. If you document ABI
+for existing driver with DTS user of the ABI, but without driver change,
+e.g. new front compatible when using already documented fallback, I
+would keep the change in the driver branch, even  though technically the
+DTS is the user of new compatible. That is what I was always doing at least.
 
-- Mani
+Why? Because I expect there might be a next patchset with binding+driver
+adding new fallback to the same binding, which would have to go via
+driver branch because of mentioned submitting patches rule. Therefore if
+I put that first binding in DTS branch and in the future I want to put
+next change in the driver branch I would have unnecessary conflicts.
 
--- 
-மணிவண்ணன் சதாசிவம்
+
+Best regards,
+Krzysztof
 
