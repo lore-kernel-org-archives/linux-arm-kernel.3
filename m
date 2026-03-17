@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AEDFD8741
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4324DFD8740
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDPbBiiKG/tLyGRbLHzyLOlP/tGn21la/powtD7s63I=; b=ioR6oOq3EB+ac6WYuoJNunaNKS
-	emPK47MaCu6EU7P+akCs6n700E9SCjJT9EMvp/9a5RH+MKkgSF/sKdJ3YMKmWtQp3kGHb9xPRJYZY
-	Bf1uZ955k2hus8/ddyg2K7xypjgeJVA9/lfYNz19shaYqGTRsT+2oKSYwFON3L4qDrOU/ya3w1J+y
-	2Q+s2qivuiqFZK+1HL0R3zdwMlez/Yxx94W5KYVAqLCoxX03lBZgekaiY0sJW/RGf5XS7YutGwMyi
-	RUkj5w1I0zxuv8E7FgsFQcLxC7N7+CJmcCzgeq/tU8tvQXrcvQwVjRAxIePC86iwq7mxtKDyBS/GJ
-	mLIO0KEA==;
+	bh=+l0QiChe0VDIUFImWeuAXSEYRjVG4lKvollPQDiqRTY=; b=lBWAj4KauEs3sqUiFt60nvL4Yy
+	3O3yn1ADow8q4usjzvTigA86JUWUHDP/Lbm9mL7FTdSycOmhOvYtvuZ4T0p9zwgZb5v4/1Hn8dZLu
+	8qwI0uDY6Ate0z3QMxPwu8wcUAfjnIE/QrSs2CKDIiJIXc/aR3qWxO/8bPy5g1tF5s+SDKYcBRthu
+	CoWsHT51bMhXoOKj/Ik+IdjG+mjvsfLzza/KhGXT5gD0rYzf9WxkjieKNxW5KNb0ol/YkUuWYZoru
+	EQ8SNzBAyudFwMrM52Kh51PlkXxLyCdipPrbVmNpMJ/O9Xj0GAWuROo3AvikL5wD4CktIipSAPSII
+	2+J/PIaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SaT-000000068Ac-3ArP;
-	Tue, 17 Mar 2026 11:27:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2SaX-000000068Ba-0I6A;
+	Tue, 17 Mar 2026 11:27:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SaS-000000068AV-2rdT
+	id 1w2SaV-000000068At-2TG5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 11:27:48 +0000
+	Tue, 17 Mar 2026 11:27:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0460760008;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1395B401EF;
+	Tue, 17 Mar 2026 11:27:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464C4C4CEF7;
 	Tue, 17 Mar 2026 11:27:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05352C4CEF7;
-	Tue, 17 Mar 2026 11:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773746867;
-	bh=k60n7rIsHTQCJ1JUsN0o0C8TVxX9c3H5zo5Xx7is9QE=;
+	s=k20201202; t=1773746870;
+	bh=/lJzgKXZtpaNxm1OXKdJSaQHb6rqsXre/eLfhtNuPiA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=A/Tk4A6vamLp3o6wEm8v0NoGM6RZcUb6LJuMJ82n6YJx3Onntn+ciBEwiNKI2PfbF
-	 jzqNbRTNI9RPYGpm/sAIvFddG6dyL7+L2mOf3GXgut9KqFl/qVHGvVH+kBCApFALwN
-	 joFR6J56V9+KMyefcWoYI3Wc+lFMzMXsEVfF5HFBVhrpscTpij6nmGUZfWg1/5fXu1
-	 hovLIKzcqls5UqwG6uxsMxwzRDWt47XNhTBENvVoMp16W3YCKezwCza5aqlhUAVlK7
-	 Qi/7VdO29sPiOpKdIG/APECfSC/ggkNbapdiS6P5Lf+qhjDIuXza/M6OMVzVHwitzN
-	 iXkbqS9Fo133A==
+	b=JuepidAi89V8qdQRJBp2BIDWiFoG7kj/Ku2MkdVTHyyUqr2Rc8ZJsn2LnikH8Fsn0
+	 sJd4b0km1i5kEp5RjsiI24PRRK2UghKmIQ0gbT+duSQK0Bo8lOawzeMtNknxseImbv
+	 W+bxtXfNrPdrrSPPz5KqyzOlFuEDzOyDSL79hUYNT9knsfxAbOacaXPBwgBa4DFuAD
+	 qY9c/ZX0VYIS2h4Rb1YKzrsa6j7bxhWzuWw/K+OtyejkijWM+uUQsPzMQVQeAQJXhl
+	 xWWNEs5gKy5tw/gS7PN5lKUNEli4XCdfyIDqQvabmdy+7Xf/RUZvBfQnQSFlBOvcga
+	 eorLBi7rv+fpg==
 From: Vinod Koul <vkoul@kernel.org>
 To: dmaengine@vger.kernel.org, Marek Vasut <marex@nabladev.com>
 Cc: Michal Simek <michal.simek@amd.com>, 
@@ -50,16 +50,20 @@ Cc: Michal Simek <michal.simek@amd.com>,
  Suraj Gupta <suraj.gupta2@amd.com>, 
  Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260316221728.160139-1-marex@nabladev.com>
-References: <20260316221728.160139-1-marex@nabladev.com>
-Subject: Re: [PATCH] dmaengine: xilinx: xilinx_dma: Fix dma_device
- directions
-Message-Id: <177374686462.337094.8706717983323051098.b4-ty@kernel.org>
-Date: Tue, 17 Mar 2026 16:57:44 +0530
+In-Reply-To: <20260316221943.160375-1-marex@nabladev.com>
+References: <20260316221943.160375-1-marex@nabladev.com>
+Subject: Re: [PATCH] dmaengine: xilinx: xilinx_dma: Fix residue calculation
+ for cyclic DMA
+Message-Id: <177374686790.337094.9907584689024913744.b4-ty@kernel.org>
+Date: Tue, 17 Mar 2026 16:57:47 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_042751_657332_D39F3918 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +79,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 16 Mar 2026 23:16:54 +0100, Marek Vasut wrote:
-> Unlike chan->direction , struct dma_device .directions field is a
-> bitfield. Turn chan->direction into a bitfield to make it compatible
-> with struct dma_device .directions .
+On Mon, 16 Mar 2026 23:18:57 +0100, Marek Vasut wrote:
+> The cyclic DMA calculation is currently entirely broken and reports
+> residue only for the first segment. The problem is twofold.
 > 
+> First, when the first descriptor finishes, it is moved from active_list
+> to done_list, but it is never returned back into the active_list. The
+> xilinx_dma_tx_status() expects the descriptor to be in the active_list
+> to report any meaningful residue information, which never happens after
+> the first descriptor finishes. Fix this up in xilinx_dma_start_transfer()
+> and if the descriptor is cyclic, lift it from done_list and place it back
+> into active_list list.
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] dmaengine: xilinx: xilinx_dma: Fix dma_device directions
-      commit: e9cc95397bb7da13fe8a5b53a2f23cfaf9018ade
+[1/1] dmaengine: xilinx: xilinx_dma: Fix residue calculation for cyclic DMA
+      commit: f61d145999d61948a23cd436ebbfa4c3b9ab8987
 
 Best regards,
 -- 
