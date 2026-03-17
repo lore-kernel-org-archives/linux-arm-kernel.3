@@ -4,123 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6126EFB5EBB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 04:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E1EFB5EAF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 05:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NEZIoIL+p9WYNIWM8eip/yr8eeRSa2d7nrT0z5B5yM=; b=js8iDtm5HECwmRiZfTRr0fFDBV
-	wpO6x8t2hK8drxGTS8zzUTxK/Jkqt8PH4QSJb/MjIeEihowmB8tq34G2IqwsiLSE4oyx+2LjQDlVk
-	mrLsv5DSb+exeCTZICF90t2FddsWdVEJ6namKqWghY1EP6jNdmFgdnfJtmTsPA6OmJ7o4K4lQ4yv/
-	ZcBSk4aqD6LMSkAtKQaYrqnKwWfjjpXEeAVZZq5Vd97Ix1QtzJeG1hQntBWHZCDVVbrAZpVWcqp0w
-	M8xSw6j580h8395y7RnBHqvcSV+z3WMwvXzk2MX/lqIJAJ+PAeiYpPAAPh/dBVcgWWNJM+Hy44enJ
-	i/uO6kDw==;
+	bh=F43DsBW1DIz/ciaUzZxCRjd4DKLMY3Vf+jP/6z85oEE=; b=cDXh1sfrdKPHZsZqmESE+R1PM+
+	GYzx5DkpTt63fTcfki+ZW2q4f6vwGNyZrQ1DNankR3TqlXmyqXH15BN9IfrP1kNnoSa3/uEtezrTm
+	hUQNRSkc7McnWSkRKM6uTe5EAj+/JAxQglr1zNnpaOGHqnC17RZXmIOIia4MxFZgGTleVt2oSlZlf
+	Mg1Qb6QNoOIxPFWldUgZtG4rOyr9cDTL0kZyg8RjEu4ZBB5KYvhZA1qPlNTIk6JJ/znObYM1eTETo
+	LhtU4X7ZRQoWVdIjzS0SHlIkV7BdJ0qeLncDoCzt7PU7eBnvWMkQ3eoepOYWRRTZR0J+q4qlj7NhC
+	KvdqEoBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2M7Z-00000005Oro-474a;
-	Tue, 17 Mar 2026 04:33:33 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1w2MiG-00000005QPT-3tCV;
+	Tue, 17 Mar 2026 05:11:28 +0000
+Received: from mail-westus3azon11010040.outbound.protection.outlook.com ([52.101.201.40] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2M7X-00000005Oqd-44Sv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 04:33:33 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-509069a7a7fso342991cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 21:33:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773722011; cv=none;
-        d=google.com; s=arc-20240605;
-        b=V4E7V+MtTdznrp6KCmQVzczxYAZFy5SSnwPSZ81sCooDEb2bluU+uivbIdOhkosICi
-         pYNobBQNU5KcadbUXwtMiNBcByrgYzElBf4u2sWtf/4AzE9QA147iFAZAVTl5tKHkFti
-         ecBGDQH7kc6pssqE0JgvDsjrvOhLabCcrw9j5jeudsu5Z8CBgGn98M7hGuKoNua9pktb
-         IjNTm4zMkOISFMydjR13Bw/N9ZVNL/i55MaWNEQ/GAyOeGzpQPhOfW1xiKf5Ru/NVqqk
-         HcltFdwXDDKUZtjRVT8rLcR3D5r8AAyv9pe8WmsnhAc4060oJSlqeK6yTMT9tySuSIZC
-         WPzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/NEZIoIL+p9WYNIWM8eip/yr8eeRSa2d7nrT0z5B5yM=;
-        fh=BiH3LyLvuxcXOqX6iyVxV3scedYVIGnEbUAocTLd84Y=;
-        b=IkS5LBK5xCBWHfcouVEW/zyRSa7yloxQF3uXrIkU+V9x/xY1ie+nBM8AahwJ3E8eUI
-         9wXNHheMk3K+B/7S5foy0Ve9a86elXFAIqpDIdWYUUNevONfbgAMjBpV3lyDoR9rVSJe
-         l/hUnh+lSbZJHL/mZm/EXHMzIqrXSi42UG/71SumLuXSJZRLWhw49Njmx9jr2jwXAQgo
-         nl95ThmMvXKGXp7574QZGKxPEgpbQ/uF1dTjiwnbBwfHk74oHRZYZweiNj8i60Z4U6Hs
-         Iwdxnb1qE8me0Z4UrF9jUb6nq3n3WlRHgKBytJjFj2wggV7H5Wp53Y0vxHADtV2HqFmH
-         osAg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773722011; x=1774326811; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/NEZIoIL+p9WYNIWM8eip/yr8eeRSa2d7nrT0z5B5yM=;
-        b=IVP0q4RnyZEGTC9qt1wxtsP6tVGTbjcG10IQWUYeuJQQU7uJklLQ87VLgCxJSGyiBm
-         Wzs8ml9cBOG8lu3n3nNFCP4jb6/W0HOoJ/GKWd6Hj3MLqsKupDVY4mIFXYDiKdTowEvr
-         UkJXieyKW962YMmnGPd8lPnAyVL9OpuJhHvA+VmKAv4riJJwrrSsLoDSvPWopIcO53oD
-         qgbIVvfc8pA5S+o1Rxxd9/14UUWTaanKJb93TFNSFXKsj+qwZTc3Vdaol2r5Egy+NO2I
-         nSGrYQYd/uouNXSIuLq/WZZVK0Ls/sNBTiJ4urWcgn0ws626Qb3Jrvc6ADMbRWvaxE2i
-         J9cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773722011; x=1774326811;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/NEZIoIL+p9WYNIWM8eip/yr8eeRSa2d7nrT0z5B5yM=;
-        b=G+8mXyUke8ng1eh+lTJOXAlBGyoMb4vrpuQTb+MrhWQaxb1/JnX3ubw/bKq8Hoj+zs
-         yndScqinQY56IQcR0W1w1+yL70QA70BFFNRwPjijVvplCmOGLbRd5YeURfZsuja6XjdU
-         i1mIbcstAPwdrsD8PGN/XBifesXreuPgOQ6p3FbFdLcQMXYK179SKanOE3JyoRlv6UES
-         JLSPrLKTbVM6lsOhj5zDGZW075CyOm7GCuTR7yjf5B3jJBayMbHn/vNXgqY6LFzr7nBG
-         4cqDkyfBG6HB7MOLDStddYMe26S6ZBMgHanYg+gXWwmR43kwRt06h4PaWT0iuUhk8BkJ
-         UzLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXy2gxY9eC6I/6yzEEfwCkgqtMQnb70MUqiJKRAu1AiwGsmNgVbsx18nD1xNVH6eR4EdBldC196ruHPCh4ODmZf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8oSzTF2AF4XtQ8AUSkv/Np7ZPdt774EFo0r2fOAhXXVVIWpyw
-	RfsvNY0LhCwmdp+ZnveNWibypcXjPdw3gXJJbsGk3vPF4u5YjfA1+PGh1Do0f7peI7k1FWhow4t
-	4mcr2ikdn104W1IZd9iaEUJy4jb0NvHpi1yzRojWf
-X-Gm-Gg: ATEYQzwAFuoYmGMoQNJuJLEIz5lskCWhpV2SDIbaJo1xV2a+75OhkMMuxEv1obSraNt
-	d2bWwaZ4q91mH0wfHshMWi/uXwxofpNHcXuVSMmhhiRTgrK4ZV4GC4v4FFMpQUA9poXNI4v3OgF
-	XU0c7ECxaH0xSD4TTC7qavuujAM06Z55abWMhuPkpvjMZYgpYnxFaH3rMC8Nc4MuHN4S6eSijEZ
-	Vpay2VUy4YJm5wky2gx+fhaZuKNsyWvvqzNZvJWFWlQwPePSaFIg7JazZCqVPsAav1eBu41i3aH
-	u5pRAQ==
-X-Received: by 2002:ac8:5844:0:b0:509:cd7:aa18 with SMTP id
- d75a77b69052e-50998d3b42cmr9273521cf.10.1773722010151; Mon, 16 Mar 2026
- 21:33:30 -0700 (PDT)
+	id 1w2MiD-00000005QOq-2B9E;
+	Tue, 17 Mar 2026 05:11:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A3tKj6OYJFvdFvZlFokm3uBq54fHJ89gdvCAQ1mibTJ0D4rL7xZyQHbMc/+AF92GKtyi7CoUAQyVLgiJHEjrv1Yw9Ct0EyBX+0D/000l4zSX+/J9PkN2xga55R4AZI/m+iY/LgYguGxdUsGavEeqcCIptHUs+LvBHuESvQf7JdUGl9XHEmmHZnZwrZqMsORIKvJ/L9oImr8cPzKgzEu/dxLYUaJE7WXiJJR3IAEIUv4k8eahx2CLgoJWKrWyKW2kD6uUhK1UbeV/gBBpPVD4U0WDjFWeo2Juxu2J92/QnFc4FP4yKOQ2VX1/4oPQUVm1uiMj2IpakGII5uh1QFfjRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F43DsBW1DIz/ciaUzZxCRjd4DKLMY3Vf+jP/6z85oEE=;
+ b=wxyMUNf8rStHUv3lLs1cNXhy6hkyRonNoQ5/zrkn6zCApTjrEJY8beo+G1vtcFYd8JWdE+ddjJC5BoRVEzRmcEcPlFluIwHPuwK4Cq9+pi3GvhpVqq1h8XFL/x88upUQuAg0WHq2XX1x6F9NFMf80cWVG4q9SJnbIvh01VXXLfCt3Jp8ELPaeosXcpLDtoyxlPdQiyNuAyIbuBCkkRTsCbqw7NrqRQS7rBTkmqk7JspBQeQx4GFMHQqRgr6eeByf4oBkmItAkgZEIgIXFjxVicKZZzD2PMKPAWRo+L+/gogp8vgzPK3ALZqsUbFufcvdFFgSLeWfuEkPAbd/aUO++A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=sifive.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F43DsBW1DIz/ciaUzZxCRjd4DKLMY3Vf+jP/6z85oEE=;
+ b=IZ+iCho5Hsvd0qmKqSallyDgfYatTM+jf2Qze22okwn+i2Qqj4gnUMb7KcLK3HdE+f+HUZsZmv6F+Qi7Zb3C5dkZMPTPtv8v+cFLuUO7whD4nKjdwcRlUruNKyZ06TvVdrRH+SrmKa5r0Dd/5PLyHvl5/wlgwkMItfva0lHpMIg=
+Received: from MN2PR06CA0014.namprd06.prod.outlook.com (2603:10b6:208:23d::19)
+ by MN2PR12MB4439.namprd12.prod.outlook.com (2603:10b6:208:262::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.17; Tue, 17 Mar
+ 2026 05:11:17 +0000
+Received: from BN3PEPF0000B075.namprd04.prod.outlook.com
+ (2603:10b6:208:23d:cafe::9a) by MN2PR06CA0014.outlook.office365.com
+ (2603:10b6:208:23d::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Tue,
+ 17 Mar 2026 05:11:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN3PEPF0000B075.mail.protection.outlook.com (10.167.243.120) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Tue, 17 Mar 2026 05:11:16 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 17 Mar
+ 2026 00:11:16 -0500
+Received: from [10.136.37.230] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 17 Mar 2026 00:11:08 -0500
+Message-ID: <9fa8ef20-1da2-48e3-a9d8-340a5106cea8@amd.com>
+Date: Tue, 17 Mar 2026 10:41:07 +0530
 MIME-Version: 1.0
-References: <cover.1773695307.git.ljs@kernel.org> <a8debbca3fc7b765937e6b5b76bd9002c66b225b.1773695307.git.ljs@kernel.org>
-In-Reply-To: <a8debbca3fc7b765937e6b5b76bd9002c66b225b.1773695307.git.ljs@kernel.org>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Mon, 16 Mar 2026 21:33:19 -0700
-X-Gm-Features: AaiRm50Qx7Mej7rYBXyqChXz1IjfagNMkbSFlVwOhEN7Z-gN2V6TQSUIzNbqMWk
-Message-ID: <CAJuCfpHBfD0zO60tPCEeNXSRJSoDi5Azs0LzutpYFEBW2z6JJw@mail.gmail.com>
-Subject: Re: [PATCH v2 08/16] hpet: replace deprecated mmap hook with mmap_prepare
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
-	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
-	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	Ryan Roberts <ryan.roberts@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
+ __futex_hash() hot path
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, "H. Peter
+ Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, Sean Christopherson
+	<seanjc@google.com>, Charlie Jenkins <charlie@rivosinc.com>, Charles Mirabile
+	<cmirabil@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Huth <thuth@redhat.com>, Jisheng
+ Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej
+ Siewior <bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+	<will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Arnd
+ Bergmann <arnd@arndb.de>
+References: <20260316052401.18910-1-kprateek.nayak@amd.com>
+ <20260316052401.18910-8-kprateek.nayak@amd.com>
+ <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B075:EE_|MN2PR12MB4439:EE_
+X-MS-Office365-Filtering-Correlation-Id: de3a01ff-9094-4428-b186-08de83e39e4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: qJ+qfHkyDhpuyR+nI64b1GyuVhK0vG8KRwSbX554heKAtoHgAY02m50fp6/lgVgDm1XFrifv/OIyRigELP8YJukqJ/qwUWwZWz1jCeT+EgWtjbcWxXA5A9Em/1JJclv3nKzU+uLjiWp2ZdnH6Kwrw0fzk5Ags7ch1TqZDa08wlZbv1UwKaXuzM7UHJnosk28VVwfd3afidYtnZiOpW3giZ7PnVGZtWhmsx5NrQ37fpzRyOlFHLSWUqv8xjnrvrINTziXw8sCiiKRqc6QLIwAQm0PYlAYWLQ17+8yWYIboptjCmTTBiqXH6U5FmlK5lR4pC2IZ3G1g/VdB0+e5QRUefCeUX+gsFAjWXNT4/HfRw3nAFAr9vK2LhHvU2JYanzRip6DVr95HCnWRs6iEGhiYlI+21NuyQI4H/4jsuoTiEFD7fPSn3zCGxzrwLzxPez4mAG/vkqfpMyBQ9XD44KCe1m9uxVhX7VqUr3WduRVEDceAwCjjUVviXjyJfK2rA8zoUxsew89gwXBZIrLXhIlGwUR/Y0g7ExCgyNxtf2fdBB3bnLD0BUqezwkIUqrsG8+54kTuzU1tG+ueAtjbl8DtVv8WuSzdzmP8ufrZMYFSfCnHV7xuzaEgfjOH6FuU2P54MNLH2YVWHBz55p43Uf+t3aaLIIvgYePt0f7XcSChpSMQufoA+TxINCM12hJG/XtjLER7NbsFEN1/sukMLZGFi2VN429sz985PfToBY8nMSZtgowo/feYm4bZdi4kOANcDokOHPTp53mVHNs3dF0fQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LgMejL8HVi51SFtSNVzhPWyVNfVnUQ/Ufp6pUMOJ7lcTSAOt/UGXndRmRIKero3m8FyRmUBRkyogQ65C5FfK6tvJNL+8Y163Lr53Z8ae54tYOvcDqB5Pslkw8vxB4x75BI5/zk4ndW3JFg5V6ru6GYrzWGSadnZiB8tH6ZZPXG5LsC5cPzRJsYp0mS9rdIBwqSHFEWBYGjZv3YAPwE/vagABUCcU+oP0DvqtTSij1ylS+RzKBO6GVsPyQi3sDotFTHrsSfVaXFAZToUVDEw2PCWP8m5RP+Zd8G2ZDjgWGJBb4hDpHYBKQx8XNereiVhBDSMFT1ujliXrUMQhYNJWPgMXy4SSygdh/lx4cTMhYT0CDn2CHr1rBuq+zfwLYLBzbfzDzxeKMuqEqXdDRiu4DL5fGV2CaexHHgWtooZINsFp1sjS/iGRNeCyCMxqqbRB
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 05:11:16.9497
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: de3a01ff-9094-4428-b186-08de83e39e4d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B075.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_213332_017716_8FF71B3F 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260316_221125_626818_CA8F8DDC 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,65 +139,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 2:14=E2=80=AFPM Lorenzo Stoakes (Oracle) <ljs@kerne=
-l.org> wrote:
->
-> The f_op->mmap interface is deprecated, so update driver to use its
-> successor, mmap_prepare.
->
-> The driver previously used vm_iomap_memory(), so this change replaces it
-> with its mmap_prepare equivalent, mmap_action_simple_ioremap().
->
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+Hello Samuel,
 
-Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+On 3/17/2026 8:36 AM, Samuel Holland wrote:
+>> @@ -1913,7 +1909,7 @@ int futex_hash_allocate_default(void)
+>>        *   16 <= threads * 4 <= global hash size
+>>        */
+>>       buckets = roundup_pow_of_two(4 * threads);
+>> -     buckets = clamp(buckets, 16, futex_hashmask + 1);
+>> +     buckets = clamp(buckets, 16, __futex_mask + 1);
+>>
+>>       if (current_buckets >= buckets)
+>>               return 0;
+>> @@ -1983,10 +1979,19 @@ static int __init futex_init(void)
+>>       hashsize = max(4, hashsize);
+>>       hashsize = roundup_pow_of_two(hashsize);
+>>  #endif
+>> -     futex_hashshift = ilog2(hashsize);
+>> +     __futex_mask = hashsize - 1;
+>> +     __futex_shift = ilog2(hashsize);
+> 
+> __futex_mask is always a power of two minus 1, in other words all low bits set.
+> Would it be worth using an n-bit zero extension operation instead of an
+> arbitrary 32-bit mask? This would use fewer instructions on some architectures:
+> for example a single ubfx on arm64 and slli+srli on riscv.
 
-> ---
->  drivers/char/hpet.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/char/hpet.c b/drivers/char/hpet.c
-> index 60dd09a56f50..8f128cc40147 100644
-> --- a/drivers/char/hpet.c
-> +++ b/drivers/char/hpet.c
-> @@ -354,8 +354,9 @@ static __init int hpet_mmap_enable(char *str)
->  }
->  __setup("hpet_mmap=3D", hpet_mmap_enable);
->
-> -static int hpet_mmap(struct file *file, struct vm_area_struct *vma)
-> +static int hpet_mmap_prepare(struct vm_area_desc *desc)
->  {
-> +       struct file *file =3D desc->file;
->         struct hpet_dev *devp;
->         unsigned long addr;
->
-> @@ -368,11 +369,12 @@ static int hpet_mmap(struct file *file, struct vm_a=
-rea_struct *vma)
->         if (addr & (PAGE_SIZE - 1))
->                 return -ENOSYS;
->
-> -       vma->vm_page_prot =3D pgprot_noncached(vma->vm_page_prot);
-> -       return vm_iomap_memory(vma, addr, PAGE_SIZE);
-> +       desc->page_prot =3D pgprot_noncached(desc->page_prot);
-> +       mmap_action_simple_ioremap(desc, addr, PAGE_SIZE);
-> +       return 0;
->  }
->  #else
-> -static int hpet_mmap(struct file *file, struct vm_area_struct *vma)
-> +static int hpet_mmap_prepare(struct vm_area_desc *desc)
->  {
->         return -ENOSYS;
->  }
-> @@ -710,7 +712,7 @@ static const struct file_operations hpet_fops =3D {
->         .open =3D hpet_open,
->         .release =3D hpet_release,
->         .fasync =3D hpet_fasync,
-> -       .mmap =3D hpet_mmap,
-> +       .mmap_prepare =3D hpet_mmap_prepare,
->  };
->
->  static int hpet_is_known(struct hpet_data *hdp)
-> --
-> 2.53.0
->
+Sure that works for __futex_mask but runtime_const_mask_32() should be
+generic enough to handle any mask, no?
+
+Currently, the __futex_hash() with futex_hashmask ends up being:
+
+
+  # ./include/linux/jhash.h:139:          __jhash_final(a, b, c);
+          xor     a4,a4,a3        # tmp350, tmp353, tmp334
+  ...
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          lla     a3,.LANCHOR0    # tmp361,
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          ld      a5,0(a3)                # __futex_data.hashmask, __futex_data.hashmask
+  ...
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          and     a5,a5,a4        # tmp358, tmp367, __futex_data.hashmask
+
+
+which isn't too far from what runtime_const_mask_32() implements
+where "lla + ld" sequence gets replaced by the "lui + addi"
+sequence to load the immediate.
+
+Sure it can be better here since we know the bitmask is of the form
+GENMASK(N,0) but IMO runtime_const_mask_32() should generally work
+for all masks.
+
+Now, runtime_const_mask_lower_32(val, nbits) may be a better suited
+API name for that purpose.
+
+If there is enough interest, I'll go back to the drawing board and
+go that route for v2 for arm64 and riscv.
+
+-- 
+Thanks and Regards,
+Prateek
+
 
