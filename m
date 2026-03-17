@@ -4,53 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AA1F33834
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649C7F33831
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 10:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVSAKNPWFaVjAvCtb6poHFlHo32MFz9vQGa3WsfvRMM=; b=WEyDu+oMFq5YfIoR5WYS/AHx6C
-	G9q3PXjAPKM0h5gLdYJpn+MdDTqsk6kBJPu/3rCpxIGx5f4mW009pDXsSq5moFeKU1Pog0rW+4LuK
-	i00ohUpkMlTuje3GFM3w9lVVsN8R75sn5gsW+U2cdEtsgZyuEfz9Iw9MBTJuu+amSU/+JQqYeY5F6
-	VSCutM/LKb//U1osrVsLeE2Ja16bqW52FOYaDIoXGObaoRAWakd0P5yTsGrWFzOdHrB2k62xAIzQZ
-	lbNUzMvKfXNK5TtbQNMiLiU1DKtNsKmh9hJpYrnK8QVqzfY7xYEvPMIjxUG+n88K9+zi3KEsEN7kd
-	G0yrhUXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zOhE3MyoOIAA0bgcSSk1uYsIQSRxBFkKa/QEeH/yO6Y=; b=T+Ldq1lNQYyun/rgJmYtfFlE27
+	P/riaB/RF0MKzAQ8RJCV3ftbChrVviZXZ0YQKegi1htPNGWuNqVzo67PRmm5Q0ZchRI7RE9Q9YeMO
+	12LmWUeSLg068L78+sewPXkiEI0T+YD9A/xokLxI6yqg6Bf+Xr/2HENNQpfoxe6U7EwDD7Tcxb7Dr
+	fm/l6C3aysWIhZxypsbUmXabOP54TIoJ7t+aIkDorIKVrMNGI/1sOGnYAAAtfPvzpuecNknsKcRfo
+	3dUNzaWOZNQxrlwFJbp+bv40iz3TUukYKOLnHMDDGzGheOioZ+glyUsxGQuuKwYdSpJ2D2hCyMRek
+	ey5dOVlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RGJ-00000005whr-0PL1;
-	Tue, 17 Mar 2026 10:02:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w2RGc-00000005wlG-1pxp;
+	Tue, 17 Mar 2026 10:03:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2RGC-00000005wgj-3bAm;
-	Tue, 17 Mar 2026 10:02:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=kVSAKNPWFaVjAvCtb6poHFlHo32MFz9vQGa3WsfvRMM=; b=LgP3QfHfOOYMNSRMLjnLoFRFAa
-	ZCDb16yFn4AYA3tDWxE0CFUeDIiFC4NxMxix+jDDlDzm7goSZaEg7muiykq02mgzgm/4pctchpZ75
-	MQ6AOfUMGYpw1H6U8uc1tfbMBWxRehX6wF88fh7EWDORMFBrzFlzQI/L6uGneN8v5nELhdGDPTm2I
-	H5XtgeA+5+V5EukXV+sRWIOsH+Ey0+MiC0QYhtL3wrlq2PBNKsECLGszqHmyW/hSDtteNeYMI1QAW
-	/M+Lp7uqYobYf6/Rq1/wWqxfcpZ7yU5BPA2djnbJh/+KMCY09AXRR3g+p4ENQIdyaBNT68CbUlWeu
-	+/gjaZmw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Rockchip dts fixes for 7.0 #1
-Date: Tue, 17 Mar 2026 11:02:46 +0100
-Message-ID: <3682281.iIbC2pHGDl@phil>
-In-Reply-To: <aa9d42ad-c480-4fc8-b8be-1a0c505b4293@kernel.org>
-References: <5055064.GXAFRqVoOG@phil> <10817796.nUPlyArG6x@phil>
- <aa9d42ad-c480-4fc8-b8be-1a0c505b4293@kernel.org>
-MIME-Version: 1.0
+	id 1w2RGb-00000005wkr-13bp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 10:03:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E9A060103;
+	Tue, 17 Mar 2026 10:02:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0BCC4CEF7;
+	Tue, 17 Mar 2026 10:02:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773741761;
+	bh=zOhE3MyoOIAA0bgcSSk1uYsIQSRxBFkKa/QEeH/yO6Y=;
+	h=Date:Cc:To:From:Subject:References:In-Reply-To:From;
+	b=iLK1kV0bEUnBKSlVECk17rCfbiRFOK8e9m2VQ9Eam8FJnejzsncMSvQLAFJIvb1Pr
+	 Vrqp1T/Wu3PeHwdqqCKwH5HHxvI/GlAmEOIi3tfcPHkHrB8vT93is7PF8gwaUAqxb5
+	 JzSXmNuoes9ApijJJRYovbhvzhwBUi9fykKAQygrEKxHzTjISn8Gl4qVh9MTfnmzrh
+	 TNuhmnwPHHmX99KzVtklCPpGYF2T12iw9QXIf1B/lIEfIYXfpjXuCSQXEHjD38avMb
+	 Glyz74CIMcdU9eEVsElTX638WBp72ugjDLW4ZSO4Lo+vmLbkcaTgsemgoqv6sedF7Q
+	 8HzUvbG0bQqeA==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_030248_922229_11DD5EAA 
-X-CRM114-Status: GOOD (  24.83  )
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 17 Mar 2026 11:02:34 +0100
+Message-Id: <DH4YZ4XEWDVH.25QOLQ4QJ4PXD@kernel.org>
+Cc: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>, "Douglas
+ Anderson" <dianders@chromium.org>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ <stable@vger.kernel.org>, "Andrew Lunn" <andrew@lunn.ch>, "Daniel Scally"
+ <djrscally@gmail.com>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, "Fabio Estevam" <festevam@gmail.com>,
+ "Frank Li" <Frank.Li@nxp.com>, "Heikki Krogerus"
+ <heikki.krogerus@linux.intel.com>, "Heiner Kallweit"
+ <hkallweit1@gmail.com>, "Jakub Kicinski" <kuba@kernel.org>, "Len Brown"
+ <lenb@kernel.org>, "Mark Brown" <broonie@kernel.org>, "Paolo Abeni"
+ <pabeni@redhat.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Rob Herring" <robh@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Sakari Ailus" <sakari.ailus@linux.intel.com>, "Saravana Kannan"
+ <saravanak@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ <devicetree@vger.kernel.org>, <driver-core@lists.linux.dev>,
+ <imx@lists.linux.dev>, <linux-acpi@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+ <netdev@vger.kernel.org>
+To: "Wolfram Sang" <wsa+renesas@sang-engineering.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
+ thread safe
+References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid> <abkCPU3rxHI49N4_@shikoro> <abkD-VLprcbbEbB1@ashevche-desk.local> <abkF0GO01sMcOhvb@shikoro> <abkLEgrZbdb03VWg@ashevche-desk.local> <abkLY4AAQuFlTRC7@ashevche-desk.local> <abkT_jpjIki6pvX1@shikoro>
+In-Reply-To: <abkT_jpjIki6pvX1@shikoro>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,119 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 17. M=C3=A4rz 2026, 10:19:29 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Krzysztof Kozlowski:
-> On 17/03/2026 10:05, Heiko Stuebner wrote:
-> > Am Dienstag, 17. M=C3=A4rz 2026, 09:45:30 Mitteleurop=C3=A4ische Normal=
-zeit schrieb Krzysztof Kozlowski:
-> >> On Sat, Mar 14, 2026 at 07:42:38PM +0100, Heiko Stuebner wrote:
-> >>> Hi SoC maintainers,
-> >>>
-> >>> please find a below some Rockchip fixes for the current 7.0 release-c=
-ycle.
-> >>> And in the next PR, even one driver-fix this time.
-> >>>
-> >>> Please pull
-> >>>
-> >>> Thanks
-> >>> Heiko
-> >>>
-> >>>
-> >>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5=
-b5f27f:
-> >>>
-> >>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> >>>
-> >>> are available in the Git repository at:
-> >>>
-> >>>   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchi=
-p.git tags/v7.0-rockchip-dtsfixes1
-> >>>
-> >>> for you to fetch changes up to 2ed11ad1c2b4c191cb2ed6741be127eb99f863=
-4f:
-> >>>
-> >>>   arm64: dts: rockchip: Correct Joystick Axes on Gameforce Ace (2026-=
-03-12 20:52:53 +0100)
-> >>>
-> >>> ----------------------------------------------------------------
-> >>> A big number of changes fixing dt-schema issues on the ARM32 side,
-> >>> fixes for the Gameforce-Ace to make the hardware work properly
-> >>> (including thermals) as well as fixing issues both on Beelink A1 (spd=
-if)
-> >>> and Pinebook Pro (Wifi) by reverting the commits that created the iss=
-ues
-> >>>
-> >>> ----------------------------------------------------------------
-> >>> Chris Morgan (2):
-> >>>       arm64: dts: rockchip: Correct Fan Supply for Gameforce Ace
-> >>>       arm64: dts: rockchip: Correct Joystick Axes on Gameforce Ace
-> >>>
-> >>> Fabio Estevam (11):
-> >>>       ARM: dts: rockchip: Remove rockchip,grf from rk3288 tsadc
-> >>>       ARM: dts: rockchip: Move PHY reset to ethernet-phy node on rk30=
-36 boards
-> >>>       ARM: dts: rockchip: Fix RTC compatible on rk3288-phycore-rdk
-> >>>       ARM: dts: rockchip: Use mount-matrix on rk3188-bqedison2qc
-> >>>       ARM: dts: rockchip: Remove invalid regulator-property from rk32=
-88-veyron
-> >>
-> >> Not a fix.
-> >>
-> >>>       ARM: dts: rockchip: Fix the Bluetooth node name on rk3288-veyron
-> >>
-> >> Not a fix. This is a pure style change. Fixes for current cycle means
-> >> either important issues being fixed or errors introduced in current
-> >> cycle.
-> >>
-> >> Changing style from one to another is not a fix.
-> >>
-> >>>       ARM: dts: rockchip: Fix the trackpad supply on rk3288-veyron-je=
-rry
-> >>>       ARM: dts: rockchip: Add missing the touchscreen interrupt on rk=
-3288-phycore-rdk
-> >>>       ARM: dts: rockchip: Fix RTC description on rk3288-firefly-reload
-> >>
-> >> Not a fix. Style of node name is not a bug, otherwise describe user
-> >> visible (not "internal tools" visible) impact.
-> >>
-> >>>       ARM: dts: rockchip: Fix GMAC description n RK3288 boards
-> >>>       ARM: dts: rockchip: Fix LED node names on rk3288-phycore-rdk
-> >>
-> >> Several other are questionable as well, since they were in DTS for long
-> >> time. Please also read Linus' explanation here from some time ago - if
-> >> the issue is for long time and no one cared, then changing it is a nor=
-mal
-> >> development.
-> >>
-> >> Several changed pieces here look like 3 or more years old, so does not
-> >> fit criteria of current cycle fix at all.
-> >>
-> >> Please split the pull.
-> >=20
-> > I do remember in the past, changes that reduced the number of
-> > dt-checker errors were considered fixes, but it seems that has
-> > changed, so I'll split that accordingly.
->=20
-> It is subjective and of course dtbs_check fix for issue introduced in
-> current cycle is a RC-fix. I am pretty sure that many maintainers would
-> pull all above to RC, but I follow a bit stricter interpretation just
-> like Linus explained it:
->=20
-> https://lore.kernel.org/lkml/CA+55aFyvW38WU93CqegHiKt-ReO8yNfAOUGZRFGY3-A=
-q0UsETw@mail.gmail.com/
->=20
-> https://lore.kernel.org/all/CAHk-%3DwgFuoHpMk_Z_R3qMXVDgq0N1592%2BbABkyGj=
-wwSL4zBtHA@mail.gmail.com/
->=20
-> So the issues were there probably for many years and fixes do not have
-> user-visible impact, thus they look like regular improvement of poor
-> code. Just like I evaluated dtbs_check findings in 2024 - 50% of
-> warnings are style.
+On Tue Mar 17, 2026 at 9:42 AM CET, Wolfram Sang wrote:
+>
+>> > What's the alignment for the u8 member in your SoC? 4 bytes or 8 bytes=
+?
+>> > (I assume it's 64-bit SoC.)
+>>=20
+>> FWIW, with the given change it will be still inside 64-byte data structu=
+re
+>> which most likely occupies a single cache line (before this patch and af=
+ter
+>> as well).
+>
+> I consider this directon of the discussion irrelevant. If the number is
+> (maybe? That's to be discussed!) needlessly bigger than 0, then it
+> doesn't matter how big the number is.
+>
+> Why don't you like the idea of taking the lock?
 
-
-Thanks for the explanation. As I said, I'll adapt the PR accordingly :-) .
-
-Heiko
-
-
+Which lock are we talking about, the device lock? If so, please not use it =
+to
+protect arbitrary other structures.
 
