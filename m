@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1692CF3380C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852BCF3380C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovos5ZgwjwedhdOR93lPLFH4Q9AxTbpu756HtPKvsUo=; b=aUOWhMPHKrpxJWVj2wD2rwVo2j
-	facO2DYbHcmLNv1bRhtgc/U42mP54+QnP0a0w3SHuaXFqLQKNvsKLfO/0lqbwmXNJuE+WrmlolCCh
-	AVkolXtDhiaUG63N1qIcKx+olT933s7o1iFkHkCqUoeTbUJZKsht9tGfp1PlSPVZ3N90ZdotEVjUw
-	Q//bP00iqKrGirC3bPp50UsMoXPlvn22KWfc+uhOF3VChfqFAYSyqKmma58UIzgCYDNtBwaL9uLWq
-	NcVTrg2A0ftZ67O/yaXHbPbnbG6vPyT4HyiYIcYUlFNwDa95/xEdTLN6qgE9cxwjL76SjS2/TpRFw
-	k4NMk6MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fEVYbSVdu+Jfl09GsX/kKoF7bHVJIjqf2BuR4Hu/TWA=; b=swdM8pF5e0xEdlv0GLqc2doqot
+	TQ6LiqHRwzBGSAOIkChUST6Gb1LADTz3W9DEQAo3iZofTXUnBB8XLVLk+pbXvqdhb72BFuPg92s0B
+	BC6oZX6Phh98VvQ39dwOAaFSUIUwwQROCcKsezpeXWYYRyKNNEySYsKdLS2pc+udIO7j35MuUh/YK
+	WJbTzrDfORC13B90GPj28pNN2OS0cDs9smv2lWxLvhKrHCFBk3ECgf2O0PwkmJEpOCPQO4TNIOqMq
+	uARHMu9KnrF9Rgj4ykhMVwKqiN/M/CbMWHcNQZoGSA6R5j2kO9zH5Xt1BMUM2iFaoMiB7yt8jve2a
+	SZS8RCeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Owj-00000005a8F-1yZQ;
-	Tue, 17 Mar 2026 07:34:33 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1w2OyP-00000005aJ6-42Bo;
+	Tue, 17 Mar 2026 07:36:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Owg-00000005a7R-2sbF
+	id 1w2OyO-00000005aJ0-2qkX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 07:34:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773732869; x=1805268869;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1OJtUNEamh5vO3iFIrEXYFak4q7SIt7T2aherzADZ/g=;
-  b=Nkdm9SyOViFWsr8bc/7hJpvoF7SB48Z2qkSaYCaeJ1Elc8yfWVlQMxhF
-   NsNf9W7ooGCJbeCFjrqJAkgVHFKDEW1J2sf0mnGThIWR5kuM791lL7f9y
-   8xroVo2+5QlsgGnahCbhydi7pvH/HZfO3ywfXMToL68NPo4cwUcFB5Vdx
-   dY9qDFg6lc+xPITVhn0hbrANOtQQt+R4rrQJfyn9bxgSfR1gaJ55d+mEd
-   W3dnjljelu6sVSNF0fYVyKnXlky/WJSPAzdXYG57SfSq06PxsQKChHKjt
-   WlhXa7XT788roGX84Ra+sTJ18SI/nijW443Ayvc/AjYUcaNu64p6jx8WS
-   w==;
-X-CSE-ConnectionGUID: bGlpCNEZSxGCHDHoDJEESA==
-X-CSE-MsgGUID: P5hKE3FGS1WeXqUWu3xH9A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="74835522"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="74835522"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 00:34:27 -0700
-X-CSE-ConnectionGUID: l6i/QyKCQ2+Qh0zbsAMaDQ==
-X-CSE-MsgGUID: E2hgBnOgTvOTItdc81+GLQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="226306582"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 00:34:20 -0700
-Date: Tue, 17 Mar 2026 09:34:17 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
-	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	driver-core@lists.linux.dev, imx@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
- thread safe
-Message-ID: <abkD-VLprcbbEbB1@ashevche-desk.local>
-References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
- <abkCPU3rxHI49N4_@shikoro>
+	Tue, 17 Mar 2026 07:36:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B9DCF60018;
+	Tue, 17 Mar 2026 07:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A0BC4CEF7;
+	Tue, 17 Mar 2026 07:36:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773732975;
+	bh=Qq89Pmdj56EFCjOfiinOGyRZnsS+PTrnq6MvF7LJ5go=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JOjMu3GV1ibKvqfY0AMwZNo7cMJ2M5bCFG16ZmtkPg5K1Azg7TRd7LsKVQfj5aK0Q
+	 +5thSkqx52o6KgOXPL1sDcqaVAT8Am3r0kofWuV79uWafHi15w5KYDm1mc3YUjBgar
+	 SLjmTJlMA2Fdl7JMt1KD6ozGfazT1rqi5UeaWD83fy/g9qCSfyeW8kOZvNDLoc6OAC
+	 tN7NmgCMstCTB0UBboHn9AFzn7X0G0Fbk48G+OILZ2NMpqw153o868cU0wC6J9ynZJ
+	 h7Jmgnbw4THlyWd2b/Di4xqml0P1jyrir628dU3um4YQLYE4ZTxGDTyO1K2T93+MA6
+	 q8r9hFbCLoQLA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	liviu.dudau@arm.com,
+	lpieralisi@kernel.org,
+	linusw@kernel.org,
+	Debbie Horsfall <debbie.horsfall@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	andre.przywara@arm.com
+Subject: Re: [PATCH] arm64: dts: zena: Refactor Devicetree nodes
+Date: Tue, 17 Mar 2026 07:35:12 +0000
+Message-ID: <177373285049.3793081.14756631972932068572.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260311173948.3478931-1-debbie.horsfall@arm.com>
+References: <20260311173948.3478931-1-debbie.horsfall@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abkCPU3rxHI49N4_@shikoro>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_003430_742097_5A567E0A 
-X-CRM114-Status: GOOD (  16.55  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 08:26:53AM +0100, Wolfram Sang wrote:
-
-...
-
-> Thanks for tackling this issue! I agree it should be fixed, just
-> wondered about one thing:
+On Wed, 11 Mar 2026 17:39:48 +0000, Debbie Horsfall wrote:
+> Move the SRAM node into the SoC node. Move the memory node out of
+> the include to make it customizable for each platform variant.
 > 
-> > While flags are often modified while under the "fwnode_link_lock",
-> > this is not universally true.
-> 
-> Is it a possibility to use the lock in all code paths instead?
-> Because...
-> 
-> >  	struct list_head consumers;
-> > -	u8 flags;
-> > +	unsigned long flags;
-> 
-> ... this change costs some memory on every system. Maybe it can be
-> avoided?
 
-How much memory does it cost? On most 64-bit architectures is +4 bytes,
-rarely +0 bytes, on m68k it might be +2bytes. On 32-bit it most likely
-+0 bytes. I expect that 64-bit machines will cope with this bump.
+Applied to sudeep.holla/linux (for-next/juno/updates), thanks!
 
--- 
-With Best Regards,
-Andy Shevchenko
-
+[1/1] arm64: dts: zena: Refactor Devicetree nodes
+      https://git.kernel.org/sudeep.holla/c/021915c7885f
+--
+Regards,
+Sudeep
 
 
