@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDACFD8741
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7A8FD874A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nFbpNASZWi2cJEExfA+TcYi9nN3Uvlocl95mLBKk+hA=; b=OLHK4XgF3l4Vrhp51hQ6ciHJlT
-	/mZ42ZwVYZRMbxf9eRM7CxWwfhqLo9tqQ2faN1px7XXpndVKxAu6CRZxNFG74MGBx5cXi8y94Xr4Q
-	T7UosT6tM8V1w5T9juVjfjF2TV1BIUVFKBJjnl0t2apGCqeEbWIxp+81LQpvjveEYBsafxLngErOF
-	iQKE3nobbsfep97WQW/PPoEB157hi8Ui+Hh0pheA/lIqEQYkwICuTHOIgbIAnMJYn7EeDV5yU/LM/
-	VkdaT8c24OaKEd7bHFToS2YQU0PU3gE2cr6pDhWsqfkfVEs0RzhUUgAbbkrYssHPkpMQUSanYuEwx
-	75wCp1yQ==;
+	bh=XzDSib8jEoc1vfE4lmbk5v2Wrp3FeCGOBPB/DyAjANY=; b=xsfcGi4cmirhrb5CSSm3Mre2MA
+	DtXq6eerKZM8vvbAdBW5Rk2LJ8V3cIWS/AMa8tZLjMc85zPJDfe/rMTWieCoYFdGbc+f0TTxNSwXE
+	kRxoy+kS/5Gea1cuPP41U1N3FWPmi9ap8Z4nTt7yvKvAnbJlvahVkM/3EeyRII+v7wt1CIpcvIyeQ
+	IOztdNTugKB3BF8Cq1n/W0Q1OZjcGkRS3ZPZGKSzKIDuPCTmT7Gac0OXWdnjdZPuvpOggueZrgi8O
+	sxiK5v40Wa/w2fnsZ0yXp2tHErjBF3d7UzXFfkX6XupUlbm9/kaI+OV7Z3BUBI58v2P7erOTb2FhY
+	8Cjiv+8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2a-00000006F86-0dT1;
+	id 1w2T2a-00000006F8H-1qHh;
 	Tue, 17 Mar 2026 11:56:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2Z-00000006F7M-24o7;
+	id 1w2T2Z-00000006F7N-2ED4;
 	Tue, 17 Mar 2026 11:56:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nFbpNASZWi2cJEExfA+TcYi9nN3Uvlocl95mLBKk+hA=; b=CS78iPaG7EwzkCVPJhDCn/y+2Y
-	ROap1a6Z3pdE0pM+DwRJcCfxlav8g0g7SvJVOgQLAZjGQP+/f0Ca3ujrPbqtljnSwdvkeV9zTVHfs
-	IXG4vbDDQ2TX1HTxyCL9UZOCDGiKCivSOX7NB3YDGm2tNAkh2SSRjHn6Uwk1IrRkr/GF7jCP0kIUd
-	OJdFkkcjpGJdRG/ySjG3lKYGqJjDS+XTB1ADlomnvxyXEit4om1ut/uVvQFWRnYv69izAMkI5UdrD
-	3Qw9tAvxma/x73ll+gONrqb+0FLXqu50UwYWXvtjjVFSdyQTjNpbddzn9DdQbCiMj+KOc4EaUim17
-	JYjoPDbQ==;
+	bh=XzDSib8jEoc1vfE4lmbk5v2Wrp3FeCGOBPB/DyAjANY=; b=Wgj1c5in7/mdlEbUXh0QY/MXIK
+	LWJJIwJHlYbmxW8BfKnxROjZFxE/hFCMv81Zj4y7P7nn2K5UzFYyvBrleqvVV2uoNrSibH3EaKBEr
+	2OfGTDdS7NjCbil4Bmmrji7Vs2HPyUs/ouQGkPy0m0kWDJpkib9sARACmAZOVwwMyAESRkKMYRTBq
+	Eb/ocqggha3yJkGqtmA2bosPz3JNVkOI1kdXMiM+DME8FwDfXxnwZ/4E92PVLDJsqZyTe+ieOS0Xh
+	iEwp78FaOnRtzYOowH8PiG6Yl7EPCma4fHT3TeqVD4AZg1p2Kqu/eURx3KN4pBTwtUG15mJTIt7SB
+	VVDn0cdg==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2V-00000008ta6-2qbP;
+	id 1w2T2V-00000008taS-2qh9;
 	Tue, 17 Mar 2026 11:56:50 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62HBsCV913851634, This message is accepted by code: ctloc85258
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62HBsBJ813851624, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773748452; bh=nFbpNASZWi2cJEExfA+TcYi9nN3Uvlocl95mLBKk+hA=;
+	t=1773748451; bh=XzDSib8jEoc1vfE4lmbk5v2Wrp3FeCGOBPB/DyAjANY=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=HrMDzYsJYjirLrGZ1DayAJCma4gPjzxQVANDArkza2PzicpxwdrEC0AaIIrsn9M88
-	 EUvceY+w3XnH4eRAnlYUiMyymPro+jT9Tx+mFfH206hqE9ePUE3v0U67zDd1IIg9ks
-	 j+Jz/r4PuHUD/3AXqA0g43AqBVWmF5GBghjym9k1kJl6F/P5DP7rPdH3vfW06CzYib
-	 83kmB4OKChnb/rCgLYWCS5xjWE+gsJUFu2SVQSNNbBDXK1IaA9qngVuj0h7kzQJFEn
-	 hLw+JXLNf+bgoiAOR2gLZ6H+VBZV+8iVCY64eaAzVGchKRYVRCsyATYuBeN/56CBT+
-	 8kshSjnHj8ysg==
+	b=MrwL+E5BUBM0leX5F83sh/VYfnQPesuJzh9ZSLW2/lpZH2o2+xFvYqv1tY74PtyuS
+	 VthqCm7YhWU7bMreMzEuhgMhqXFSLd3557NvbmcqDE0bTpog8yem9X8fmuci7oop20
+	 QQxFFbzibx2xW6eBlTRAe8R9JRPRd6lc8LY6LV8/ElS7GT98cnGFc9ZtBjA/+EN3I3
+	 chTlA8vwsZf3un0Dwi0ea/+3BylqkSUypwUPo/WuWhEC9hvc9zqh6eO6Q2NukYN4+B
+	 c1Fl+ND2KCmKKfxuyb3AdGTQDX3FPNB2mUSsLFC0Hp/7niRQFYma4RPd5xBd9OoDrk
+	 B/5iUTZjhzgKw==
 Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62HBsCV913851634
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62HBsBJ813851624
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 17 Mar 2026 19:54:12 +0800
+	Tue, 17 Mar 2026 19:54:11 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
  RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 17 Mar 2026 19:54:13 +0800
+ 15.2.1748.10; Tue, 17 Mar 2026 19:54:11 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
  (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 17 Mar 2026 19:54:13 +0800
+ Transport; Tue, 17 Mar 2026 19:54:11 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <afaerber@suse.com>
@@ -71,9 +71,9 @@ CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
         <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH v4 8/8] arm64: dts: realtek: Add pinctrl support for RTD1625
-Date: Tue, 17 Mar 2026 19:54:10 +0800
-Message-ID: <20260317115411.2154365-9-eleanor.lin@realtek.com>
+Subject: [PATCH v4 2/8] dt-bindings: pincfg-node: Add input-threshold-voltage-microvolt property
+Date: Tue, 17 Mar 2026 19:54:04 +0800
+Message-ID: <20260317115411.2154365-3-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260317115411.2154365-1-eleanor.lin@realtek.com>
 References: <20260317115411.2154365-1-eleanor.lin@realtek.com>
@@ -81,8 +81,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_115648_045843_80DFA122 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20260317_115648_252803_C43857CC 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,47 +98,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the pinctrl nodes for the Realtek RTD1625 SoC.
+From: Tzuyi Chang <tychang@realtek.com>
 
+Add a generic pin configuration property
+"input-threshold-voltage-microvolt" to support hardware designs where the
+input logic threshold is decoupled from the power supply voltage.
+
+This property allows the pinctrl driver to configure the correct internal
+reference voltage for pins that need to accept input signals at a different
+voltage level than their power supply. For example, a pin powered by 3.3V
+may need to accept 1.8V logic signals.
+
+This defines the reference for VIH (Input High Voltage) and VIL (Input Low
+Voltage) thresholds, enabling proper signal detection across different
+voltage domains.
+
+Signed-off-by: Tzuyi Chang <tychang@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v4:
-- None.
+- Rename the property to input-threshold-voltage-microvolt.
+- Add the restriction.
 ---
- arch/arm64/boot/dts/realtek/kent.dtsi | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
-index ae006ce24420..8d4293cd4c03 100644
---- a/arch/arm64/boot/dts/realtek/kent.dtsi
-+++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-@@ -150,6 +150,26 @@ uart0: serial@7800 {
- 				reg-shift = <2>;
- 				status = "disabled";
- 			};
-+
-+			iso_pinctrl: pinctrl@4e000 {
-+				compatible = "realtek,rtd1625-iso-pinctrl";
-+				reg = <0x4e000 0x1a4>;
-+			};
-+
-+			main2_pinctrl: pinctrl@4f200 {
-+				compatible = "realtek,rtd1625-main2-pinctrl";
-+				reg = <0x4f200 0x50>;
-+			};
-+
-+			isom_pinctrl: pinctrl@146200 {
-+				compatible = "realtek,rtd1625-isom-pinctrl";
-+				reg = <0x146200 0x34>;
-+			};
-+
-+			ve4_pinctrl: pinctrl@14e000 {
-+				compatible = "realtek,rtd1625-ve4-pinctrl";
-+				reg = <0x14e000 0x84>;
-+			};
- 		};
+diff --git a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+index fe936ab09104..ecddb415c06f 100644
+--- a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+@@ -162,6 +162,11 @@ properties:
+       this affects the expected delay in ps before latching a value to
+       an output pin.
  
- 		gic: interrupt-controller@ff100000 {
++  input-threshold-voltage-microvolt:
++    description: Specifies the input voltage level of the pin in microvolts.
++      This defines the reference for  VIH (Input High Voltage) and VIL
++      (Input Low Voltage) thresholds for proper signal detection.
++
+ allOf:
+   - if:
+       required:
+@@ -177,6 +182,7 @@ allOf:
+     then:
+       properties:
+         input-enable: false
++        input-threshold-voltage-microvolt: false
+ 
+   - if:
+       required:
 -- 
 2.34.1
 
