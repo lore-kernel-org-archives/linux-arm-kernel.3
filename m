@@ -4,97 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CA7F3380B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7617F3380E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cg592/7ax/ai3vj9+LKz1OiWhoFxMvDSIh8YWquZMBA=; b=gt/iia26w+ZXb5oR9pZNLT+AWE
-	/0+jmNCFj/YMT2UsrCW42Xv3wPASB+vninjrLbCyCziqiyEFtsKcpJIA/ynoRbrnNjqMDoijp6UpP
-	MvV5QWKveDYW8JeQ+ucMs5oLtYnOL2bk8jqcXSucncOMeXz36NtE+3uSupSZUFnn1nvyzd2pRXT5y
-	qGTjB596m6AfVUZpK38tJLSmYqETA6OMWA5CyWebW/VdtQwUvIaQD8l0Y2ihVG6U9Pe9zprhlSAFW
-	+Nrqpqbpoinyq1aXiCEKSTu67bgspBHgvqYw7EsxaPMGL5f2BTmGCmr5155P3M3ADkVbBpdz7mFY4
-	FL65QLNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NyKQ78QCLczWMWY5jbCRULWa3VMryW1ZgsnwvuIcioE=; b=iEIYiUQyuAzAm8EHDbYV4Xaq5U
+	vXWSHl2x5Lb1tmy7jgR/0zzGxSPvPrnm2IT4ZQ8Ck85jVlT+xH4KtuYFm4+sLNztz4aca16eZ81Ga
+	zQDNr8EbPMSA9knRrrY3iDHNcBPRFjfioMfp3emmCLUrWnbh9FOFW3Cc2hSk92JqbLpm7ornSAy2x
+	c9h9vGL7tTikKy0NVrPxU1jUlYUX2slV84NvmZixdwFvp8X5dDFLPd2hYrWSy60WY29bLQ02sF7k0
+	R5UyuXBFZMVhZ9ml+Hc9FEk/dqdBiex5rxD1Mph0IADwXixliltVw+1oO0Kpw4ddptI9Zu+hQXzU0
+	I79vJf0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PRI-00000005hA2-0zm1;
-	Tue, 17 Mar 2026 08:06:08 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1w2PXc-00000005hVx-22sQ;
+	Tue, 17 Mar 2026 08:12:40 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PRF-00000005h9e-3Mxf
+	id 1w2PXZ-00000005hVV-3Fm7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:06:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773734766; x=1805270766;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iMURNNM9AIH1rsZHJq+NkuOt1cRxxMqU8WKIAQJWBhY=;
-  b=eN/Vw3xFo6L0Ez9LtUIqf1D5kZzucJMPpNuE9c49quSkRiwp3hvUMTkM
-   OQ3Wd+uWy61SaY1m0Z/oHWqI9w2yHilgmMWtssQNnOIUDFq0hpdvmc4a1
-   U3uiI0wNM8hA2vvvyjaB4DPKHiM4c+ctbAhvax0uL4/0I1ioXL9q4i9Rg
-   vqRz0tPoOKSGsaE8zcZmDt7eWJktHfC5sAHThlm0TQnpOh6ehZEDZQDcz
-   LrGV2cFt495+Ryl4BF109D2BIIAyyzhHkztBK90b4xMBuGJ8dAY3SCuhE
-   E2bbv/nJ3KpFDskz/KdRL/ImefS5EbusHDRdDZkwpAy6PGOT6THx5y2zY
-   g==;
-X-CSE-ConnectionGUID: hHtTKaudRNKnZ2mpnmuC3w==
-X-CSE-MsgGUID: FXuiLtvKTw2koDZJNkibbw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11731"; a="73777645"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="73777645"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 01:06:05 -0700
-X-CSE-ConnectionGUID: B6sce5gfS3eYat7KD1IA9A==
-X-CSE-MsgGUID: 7EgpgieoQr+l3rFUEy13xA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="221425403"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 01:05:58 -0700
-Date: Tue, 17 Mar 2026 10:05:55 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
-	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	driver-core@lists.linux.dev, imx@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
- thread safe
-Message-ID: <abkLY4AAQuFlTRC7@ashevche-desk.local>
-References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
- <abkCPU3rxHI49N4_@shikoro>
- <abkD-VLprcbbEbB1@ashevche-desk.local>
- <abkF0GO01sMcOhvb@shikoro>
- <abkLEgrZbdb03VWg@ashevche-desk.local>
+	Tue, 17 Mar 2026 08:12:39 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 119DA5BCFD;
+	Tue, 17 Mar 2026 08:12:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1773735154; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NyKQ78QCLczWMWY5jbCRULWa3VMryW1ZgsnwvuIcioE=;
+	b=CyZrhPi0ZMa7pe8TiBjjsDIDi37V6dHZXk5FyYBvR91bw1EgNhj8lQlMUCtU8dYvCqK+qs
+	1/2C2hU+AYRKJ/WISiIsNwIUE+D4MHDqxw1jDXCJ4QYjPKPDslIzJCffyql4lHQcFnNxwR
+	tqZUabCoVNFEVqiWkws0scbmIBnpFvY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1773735154;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NyKQ78QCLczWMWY5jbCRULWa3VMryW1ZgsnwvuIcioE=;
+	b=v+IPKQBkAXhOxl94M2tuXiqHgMn5iPVicr8ncrtX7M0cRg46jjZRjiyByRESHfPUEUpr0K
+	gAbHH3uv0mbIq9CQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CyZrhPi0;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=v+IPKQBk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1773735154; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NyKQ78QCLczWMWY5jbCRULWa3VMryW1ZgsnwvuIcioE=;
+	b=CyZrhPi0ZMa7pe8TiBjjsDIDi37V6dHZXk5FyYBvR91bw1EgNhj8lQlMUCtU8dYvCqK+qs
+	1/2C2hU+AYRKJ/WISiIsNwIUE+D4MHDqxw1jDXCJ4QYjPKPDslIzJCffyql4lHQcFnNxwR
+	tqZUabCoVNFEVqiWkws0scbmIBnpFvY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1773735154;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NyKQ78QCLczWMWY5jbCRULWa3VMryW1ZgsnwvuIcioE=;
+	b=v+IPKQBkAXhOxl94M2tuXiqHgMn5iPVicr8ncrtX7M0cRg46jjZRjiyByRESHfPUEUpr0K
+	gAbHH3uv0mbIq9CQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AE5BD4273B;
+	Tue, 17 Mar 2026 08:12:33 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id e0YjKfEMuWlBVwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 17 Mar 2026 08:12:33 +0000
+Message-ID: <607daaca-79ed-45b2-941e-1680a17618e8@suse.de>
+Date: Tue, 17 Mar 2026 09:12:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abkLEgrZbdb03VWg@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] drm: Introduce DRM_MODE_DUMB_KERNEL_MAP flag
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: Rob Herring <robh@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev
+References: <20260317064049.696795-1-wenst@chromium.org>
+ <20260317064049.696795-3-wenst@chromium.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260317064049.696795-3-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[chromium.org,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	ASN(0.00)[asn:32098, ipnet:2800::/6, country:US];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.com:url,suse.de:dkim,suse.de:mid]
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 119DA5BCFD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_010605_852361_1874F8D7 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20260317_011238_118747_B83D6DDB 
+X-CRM114-Status: GOOD (  29.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +174,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 10:04:43AM +0200, Andy Shevchenko wrote:
-> On Tue, Mar 17, 2026 at 08:42:08AM +0100, Wolfram Sang wrote:
-> 
-> > > > ... this change costs some memory on every system. Maybe it can be
-> > > > avoided?
-> > > 
-> > > How much memory does it cost? On most 64-bit architectures is +4 bytes,
-> > > rarely +0 bytes, on m68k it might be +2bytes. On 32-bit it most likely
-> > > +0 bytes. I expect that 64-bit machines will cope with this bump.
-> > 
-> > I am not opposing that the issue should be fixed. If it is not possible
-> > to take the lock everywhere, this is a proper solution. But if we don't
-> > have to use more memory, then we could save it. Our new SoC easily has
-> > 'struct device' in the hundreds.
-> 
-> What's the alignment for the u8 member in your SoC? 4 bytes or 8 bytes?
-> (I assume it's 64-bit SoC.)
+Hi
 
-FWIW, with the given change it will be still inside 64-byte data structure
-which most likely occupies a single cache line (before this patch and after
-as well).
+Am 17.03.26 um 07:40 schrieb Chen-Yu Tsai:
+> From: Rob Herring <robh@kernel.org>
+>
+> Introduce a new flag, DRM_MODE_DUMB_KERNEL_MAP, for struct
+> drm_mode_create_dumb. This flag is for internal kernel use to indicate
+> if dumb buffer allocation needs a kernel mapping. This is needed only for
+> CMA where creating a kernel mapping or not has to be decided at allocation
+> time because creating a mapping on demand (with vmap()) is not guaranteed
+> to work. Several drivers are using CMA, but not the CMA helpers because
+> they distinguish between kernel and userspace allocations to create a
+> kernel mapping or not.
+
+Any dumb allocation might require vmap. This is not limited to internal 
+buffers.  Because if the dumb buffer is shared with another driver, that 
+driver might require the vmap for displaying the buffer content. There 
+are enough of such drivers.
+
+>
+> Update the callers of drm_mode_dumb_create() to set
+> drm_mode_dumb_create.flags to appropriate defaults. Currently, flags can
+> be set to anything by userspace, but is unused within the kernel. Let's
+> force flags to zero (no kernel mapping) for userspace callers by default.
+> For in kernel clients, set DRM_MODE_DUMB_KERNEL_MAP by default. Drivers
+> can override this as needed.
+>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> [wenst@chromium.org: Emit warning if args->flags is not zero]
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v1:
+> - Emit warning if args->flags is not zero
+> ---
+>   drivers/gpu/drm/drm_client.c       | 1 +
+>   drivers/gpu/drm/drm_dumb_buffers.c | 4 ++++
+>   include/uapi/drm/drm_mode.h        | 2 ++
+>   3 files changed, 7 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/drm_client.c b/drivers/gpu/drm/drm_client.c
+> index 46c465bce98c..1a57e7eadc0f 100644
+> --- a/drivers/gpu/drm/drm_client.c
+> +++ b/drivers/gpu/drm/drm_client.c
+> @@ -404,6 +404,7 @@ drm_client_buffer_create_dumb(struct drm_client_dev *client, u32 width, u32 heig
+>   	dumb_args.width = width;
+>   	dumb_args.height = height;
+>   	dumb_args.bpp = drm_format_info_bpp(info, 0);
+> +	dumb_args.flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	ret = drm_mode_create_dumb(dev, &dumb_args, client->file);
+>   	if (ret)
+>   		return ERR_PTR(ret);
+> diff --git a/drivers/gpu/drm/drm_dumb_buffers.c b/drivers/gpu/drm/drm_dumb_buffers.c
+> index e2b62e5fb891..ccdcc401d4dc 100644
+> --- a/drivers/gpu/drm/drm_dumb_buffers.c
+> +++ b/drivers/gpu/drm/drm_dumb_buffers.c
+> @@ -233,6 +233,10 @@ int drm_mode_create_dumb_ioctl(struct drm_device *dev,
+>   	struct drm_mode_create_dumb *args = data;
+>   	int err;
+>   
+> +	if (args->flags)
+> +		drm_warn(dev, "drm_mode_create_dumb.flags is not zero.\n");
+
+At most use drm_warn_once() to not let this spam the kernel log.
+
+> +	args->flags = 0;
+> +
+>   	err = drm_mode_create_dumb(dev, args, file_priv);
+>   	if (err) {
+>   		args->handle = 0;
+> diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
+> index 3693d82b5279..7d5f50e4af70 100644
+> --- a/include/uapi/drm/drm_mode.h
+> +++ b/include/uapi/drm/drm_mode.h
+> @@ -1272,6 +1272,8 @@ struct drm_mode_create_dumb {
+>   	__u64 size;
+>   };
+>   
+> +#define DRM_MODE_DUMB_KERNEL_MAP	(1<<0)	/* For internal kernel use */
+> +
+
+If this is an internal flag, it should not live in the UAPI header. 
+include/drm/drm_dumb_buffers.h would be a good place.
+
+Best regards
+Thomas
+
+>   /* set up for mmap of a dumb scanout buffer */
+>   struct drm_mode_map_dumb {
+>   	/** Handle for the object being mapped. */
 
 -- 
-With Best Regards,
-Andy Shevchenko
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
 
 
