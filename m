@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A39F33809
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA99AF3380B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uagcoElh/pAktswPAitjpHtsqc+e+xmOo+NoufrIIls=; b=gfE93sDHjZZqQbjrXrRDh1lDcX
-	1kRPXIDkLh1wtK3vozI6HOcFwsacVcmvG0N0Ptyqod8noH8p6/bLolTvAo6Oz6z3lMnNrx0AWmgm4
-	uxQoMiqI4r6Wt1G1TMzWGJ69LpltW7qNFV1MfiTfA7TzEyBtPHTOXNWBAI/XNLrbNQj20SUTQ78x7
-	4+W8SXNVzluB+pxKcWlUD4vh47F3ClFsaWe7LTFFYIRJpt7UVxB+Aeqh+gqNsZSVyQBjim9XCH5mq
-	RjUxotoK/y6ujjuiL6eilxDw1iRIlZGnoRjvNqIViyGiXXke5vLOMevrP+izyMJ3jcYVfsdnL65R8
-	DPPkMTTg==;
+	bh=vFVUc9fVad54yKO/RWogvKbRsBiqevhICFPeY5LMYko=; b=X/j00F7uZx2LeycIh27QzSVbfy
+	ykZjCDjko3IEl2k+UMO4g4elb6yfA7sgkWCcvNTpk2cR5BhbJw+bvh7JG889AH/L9FXmGeK5YsbBn
+	uZjnGkOu+lGmTc2GaH76cwFdIdeXJOJe4CVKvIDNchxjpvLuhKNbRkOclMFpgh1rc380E2i7aDtdT
+	+WKZCBhdQYamOhCl8Zg6zCl4Llg7qyhJzl4Zzq24p04xEVdPN1ULNWoR5R1Ik++JIaZ5etELn15/P
+	qht8vM/qBBjPb4auYpGLGX4wcBe5N1blh9TH1+FkxAaMjEW/WXumu1qvZmvOR1JyTGqlp3eW9vPqB
+	6cxe031Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PIx-00000005fYN-0C1q;
-	Tue, 17 Mar 2026 07:57:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2PJk-00000005fgY-2eJE;
+	Tue, 17 Mar 2026 07:58:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PIv-00000005fYA-3aVf;
-	Tue, 17 Mar 2026 07:57:29 +0000
+	id 1w2PJi-00000005ffy-1nn1;
+	Tue, 17 Mar 2026 07:58:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3A7560127;
-	Tue, 17 Mar 2026 07:57:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4CEEC4CEF7;
-	Tue, 17 Mar 2026 07:57:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 439BB43E9A;
+	Tue, 17 Mar 2026 07:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAF39C4CEF7;
+	Tue, 17 Mar 2026 07:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773734248;
-	bh=IyXN2TCK4hpZjTBei8I7EpYihgR5hkgTrEpVtpaNzqQ=;
+	s=k20201202; t=1773734297;
+	bh=3sLvtGTLJoxK6OLcS/9XxpE1hjPcHKS+oPikARyO1ic=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yrj3g6m/v3NubZpGS+qxy1IXDOIVsayNxmGnLxQVu6t/SHYHyimr1ame2rsxplSfB
-	 SojmfXnbb9JLLVb9YqoDScDVt1OHxUp5AcCM0rwNRptaAA0ptR0t86fV17pBUoAszZ
-	 cJdItJz6Vha543FlAN1EaBvssduDWXrVejc8SsUdlOUj5UeEMVpF+DOVzcI4GcupFL
-	 8h17nPN/2sQQeZK4Xok8hg5X2lLRI0yrYBLVPA1yNpcY3Tc8ISWbqA3Va4hFBvpHN0
-	 f6ZFn3gkhfT33PcrAWFreq8VW5LK3rH+COJq5SfPjjGiOk+UHa/hP/hjqCxeRDeRla
-	 SCfcR1VbNFEYQ==
-Date: Tue, 17 Mar 2026 08:57:25 +0100
+	b=akEovTsSC7Il9hrWdtVCsY6bhZPw4DT1j93GYxId5GIhGR5pjxPyjsAbCIs/4wr8r
+	 G0PFfOHW5KbyVXQ4Kjp7GixYvGQ8WTql7qSphH0/mibVqaWRUTV05nq/RO7xk737x3
+	 LOh1Zm7pE/QBqTwqro+lcXxDnybOf5KFetPl20N8IEfokwSMFH5sXl3EYsC4Mk/cNy
+	 PHqm4ud+HD1SFCCYqirw399iN74vFcH/w6bdoWjUfwtScXU2bsp5iKR7WZnIzj+1Se
+	 7PtCIdBURTHAJ2/wtMLQWAsW1Fs8tKsfOrPTs2JHYpYFO/njBs+CYNubJ46BGh57pB
+	 0lTFto6vrNJaA==
+Date: Tue, 17 Mar 2026 08:58:14 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Gray Huang <gray.huang@wesion.com>
 Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
@@ -50,14 +50,18 @@ Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
 	chaoyi.chen@rock-chips.com, i@chainsx.cn, michael.opdenacker@rootcommit.com, 
 	inindev@gmail.com, quentin.schulz@cherry.de, andrew@lunn.ch, alchark@gmail.com, 
 	pbrobinson@gmail.com, nick@khadas.com
-Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add Khadas Edge 2L board
-Message-ID: <20260317-hypersonic-axiomatic-fossa-d5dd2b@quoll>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Khadas Edge 2L board
+Message-ID: <20260317-discreet-swan-of-bloom-cecb3a@quoll>
 References: <20260317040248.267154-1-gray.huang@wesion.com>
- <20260317040248.267154-2-gray.huang@wesion.com>
+ <20260317040248.267154-3-gray.huang@wesion.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260317040248.267154-2-gray.huang@wesion.com>
+In-Reply-To: <20260317040248.267154-3-gray.huang@wesion.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_005818_490373_BE4A0C15 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 12:02:47PM +0800, Gray Huang wrote:
+On Tue, Mar 17, 2026 at 12:02:48PM +0800, Gray Huang wrote:
 > Edge 2L is an ultraslim, credit-card sized ARM PC designed by Khadas.
-> It has quite a few rich peripherals.
-
-Drop marketing, please. Every board manufacturer claims they have rich
-peripherals.
-
 > 
-> Specification:
-> - Rockchip RK3576
-> - 8/16GB LPDDR5
-> - 64/128GB eMMC 5.1
-> - AP6275P WiFi6 LAN
-> - HDMI2.1 Type-A
-> - MIPI-CSI x2
-> - MIPI-DSI x2
-> - USB3.1; USB2.0
-> - RTC clock
-> - PWM fan
-> - SPI Flash
-> - Pads expansion board (UART, USB)
-> 
-> Signed-off-by: Gray Huang <gray.huang@wesion.com>
+> In this patch, we will add basic device tree support for this board,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+
+> Only eMMC, UART are enabled, so it's capable of booting into
+> a basic Linux system from eMMC via serial console.
 
 Best regards,
 Krzysztof
