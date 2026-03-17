@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E506FED9F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39140FED9EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c72szpMqukm1t/rX9tsvQYHruDyYulr3x/fLqwG0cE8=; b=FxrRXzqCV+RU380wrO/Yt5OjS4
-	YGgQFzzo5aca/qu9ZPUuqf0+71WDo9Y8YJvdOVnOb0Jx2XJuzST6bGC4M58ls7yQ6GauWIai1KdpI
-	1PMmBGCWqWd5JH4xstpGFWeprvMIplL4ylzMDA2g6/jvsJmgtGRDCm6s5y7/WmGXmTDYjG/ycYAuL
-	lbKKNYAAoQIaPwO7I6gKHGy4Wh3qIN4MNnQGBLlAa90eTZe/pp2g9+MRYKYFIIT0c0VF/N4Qt80Ju
-	pDBYaqOqs8bzdAduLTQlE5EeW2m8IO9UbRPfFmxCGBm35k4N8p4R/R0srIRUL63voEQpnp/3vsJ1v
-	jS0fbMaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sswj2hGPn7hACbzJu1C3kS5DGnqFPqoGYHrtWz1tGw0=; b=jk6XA5GhwvowXqnyy3CmBjeBrC
+	Jfhi2qJNClNqRHpM7enzGoIAlbjeMf48U8gB6G3/P6pI/LOi6F89sQoMmQuThYd602gDu1+gd5VXr
+	8l/jP7KIcTdYCbxNW9nEQ2XIqgnTCzvFGHb1oSh7UFenj4IzR7px4q5UK+KJYSPWk+iLe9vW1P8YN
+	nX5V1LVYLbWwqugLi/AiNdC8OeAJQ9gbJ9NhJP6TcLpcLPK+6+zoIkAeXLVdPiue6H5GJ4+G1VDmw
+	ClgRFhUpPcJgnbz5+JekOcUG5FMm1tEg9eyP/L2A9hgX+tPWbw4LAMxMZEP749cxe6jvrZgbuCfkT
+	70AyguIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YYO-00000006yON-3WEa;
-	Tue, 17 Mar 2026 17:50:04 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+	id 1w2YZ9-00000006yZ1-0r3P;
+	Tue, 17 Mar 2026 17:50:51 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YYM-00000006yNb-1gXX
+	id 1w2YZ7-00000006yYJ-2VfV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:50:03 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 0DD0AC00077D;
-	Tue, 17 Mar 2026 10:50:02 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 0DD0AC00077D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1773769802;
-	bh=vAD9sXZbLh7A6jzF5HfiEFutEBTHjRV9BHmwmHck28E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oRPb9mJJ8wNo9+VS6s2kWnkW8kI6bsAtWyouhK6CC698iefB3/DInUL3Nao6MEgkL
-	 9RGE1RP86DgvLyPDHs32gd1Ouen/g2IknoT94yK/W1UFyD7tUAnmhNCyQaLPfHG29j
-	 Ad49BJKIiPECDg3TA/UeAF/EvxJHnRl2bD1/BDQM=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id DE044A83;
-	Tue, 17 Mar 2026 10:50:01 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linusw@kernel.org>,
-	William Zhang <william.zhang@broadcom.com>,
-	Anand Gore <anand.gore@broadcom.com>,
-	Kursad Oney <kursad.oney@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 7/7] ARM: dts: bcm63148: Add I2C block
-Date: Tue, 17 Mar 2026 10:50:01 -0700
-Message-ID: <20260317175001.862603-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260218-bcmbca-i2c-dts-v2-7-5373ef82c50c@kernel.org>
-References: <20260218-bcmbca-i2c-dts-v2-0-5373ef82c50c@kernel.org> <20260218-bcmbca-i2c-dts-v2-7-5373ef82c50c@kernel.org>
+	Tue, 17 Mar 2026 17:50:50 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-509069a7a7fso57051cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 10:50:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773769848; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PwdI+EeWFlFM3XDasW08qq2AqgR7qnOdNWMzmU///tNqkiUx6ZX/vqXKqOHWXZr6B+
+         GLLzDCh875T3bmhXL8x8EHF2ctcpdbtKIkL7aRGoft6xlzfP2woX043AH5k1BQrssA9o
+         fltadZcq1r53na7Ry9KdgXZkzwTRQTeCt9v80NPCMJL/g97HHE4r32smU7R1FEhvXwQk
+         4fTlfHH9YemE8/35czTZDCjEpbgBNxmBm+2f9RjG9NHYS398Lt7tcUdNUBftwEsb5hoH
+         C4KPZ+WnglEBX7clVlR4D5/8VpsT4GfLqDYGLSOb0L9Tl3af2nCnUqw3F7rciozAoj0S
+         RNSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=sswj2hGPn7hACbzJu1C3kS5DGnqFPqoGYHrtWz1tGw0=;
+        fh=FOjW3DJTjihPKv0lwgpIF/GdCtvAuWGDVUHDF5AcGcc=;
+        b=KpKYGATqHmwim+RzyURXXOJgXMETW6zuCdG6sHv10Xb/ZaqMID1SBnYEoEUoj8TANU
+         oZXlIdRGyDeFp7KoVA10+iCHti6YSsi1uxSm4RErT+zoPV/hH9rQbwZYoAJzyFAiQPu3
+         IBiR4DIzoVpWT56dLYye+L79iFiojPAf1i5sZSXmZ8Dt3+PjOgoRPjxp+uqlozseu9FA
+         jrjS/JsgMYOiiXjmOQzBlYt67UN+0MyTlpNeR4Z2NzXRNGz1KQcn5BdpBLIfG6qeLG2g
+         y14CwFWBa3Xf24bbWTilviauJ7shlAleV5VQ34fccCrSqphsIZPH1vErz5QgLIwruibR
+         9WHA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1773769848; x=1774374648; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sswj2hGPn7hACbzJu1C3kS5DGnqFPqoGYHrtWz1tGw0=;
+        b=HHPFhkCIJOKkQ65j5w9b1hQuTl7ko1Fdn8Re4K/wiJlYDQGer1qMhFb6BORlEKDLTv
+         coWJwl1MR5rfOrntUTzYPm6FHD2OFchNekhJVwCJxPUpuj3ecIhPduePvWCPDdtc+7kD
+         KEZU6J/DvAp8eLzzrMftAKsttyw8CV+GFdT02h5MthH1PkHfuGQlLhTPxGA04LI1D7Qg
+         4TpTQtZIV32FcAfkzLnwQrW2AoshkjkHvi3R5x2QpwzjF/OdU9FWoHyBgGTP0wsqlZ4r
+         cy9pBy571wrKQcUfGiVvxVvYLEi1cSDLcTsPk0W369r1CyxvF7vhJcQME/XlkTD7PkaO
+         AL4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773769848; x=1774374648;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sswj2hGPn7hACbzJu1C3kS5DGnqFPqoGYHrtWz1tGw0=;
+        b=AzQLeBwfHJ/meY5iNm3BlJeaq6mfV2fsn0euMan42LvtruT+ETosiin53bQEW5ZtE2
+         dWinOvS19KiMgv1+NxCbsaq3lH+TKeYWEaL1ZYW4SNGA9HR69Af6YYmlN98hq+FVBC60
+         TuTnQiZRy1YKanvFxiRYzQl4t7KwtiT5caz512ibuyg5PQC+67mVVMsEt3DcJAR8Gf6q
+         khJmv3sdtd92NG7PMxeGadeLMzi2qYUKMALb8zYv902N7eojs6jZn0JEC5GCSHphU1d1
+         h1WLrfs7ruyUJg/axewmQZjT2+1QxoU6LWW6j67GFnJt8zvYGaF+xglW8vEzPxbcBd+Z
+         /u+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWBppc9yYLyfrYdr5gDQDkbg8RRWq7aWNvjd6y/Megwhl/1evSGA88pdOUsr7K4BaY38KjvOZGGo2Eoz/SU3yes@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxn20aO3u+XjpTPZcOXqHywjP9xbxz6FUraHhmltHl+oZxYMuqy
+	/HBqBPvOgpbBwOKra6QrRZ5HPUCc6DnewdK98IOy+SZmNrI7mtN1vdaYybdjl9wVjt4KntJPTT+
+	2IWHTeWVbbbvCsmdGjayR68IDjT7kF/5VlfZ+SuKc
+X-Gm-Gg: ATEYQzwLuMJqUPgv5tkEUXIoDSRdwI9jFI2dsCGqzVYG9hsrE2HYPVdzX8UPlNQthcv
+	bybJREs8eks9f1TCIeqrw7dBNOS1YdZIuCCqeuMxLw0p2tXrxC0UvE0gPV0P7h9po3+1trfiwNT
+	d5s+8cDPvIEakuJ20nY35ta/0ZX4P2+m4WTAvuOsO01GJJy5mPpHbtjAQhmEBy1Kfa8iWyvELiU
+	eMR6huy7sfLPkT87094LGAHfrz8Qr1Jw1RcB3ZH4BHer21PgUMxXS0VXmi24IMd4NK6518OwFap
+	3+NcC3vL
+X-Received: by 2002:a05:622a:150:b0:509:1c2c:866 with SMTP id
+ d75a77b69052e-50b149575bcmr639391cf.11.1773769847627; Tue, 17 Mar 2026
+ 10:50:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260316175451.1866175-1-maz@kernel.org> <CA+EHjTyBtM5idopKisJf_e10aRifubtKEpbkjkEnmrOqa9-SPw@mail.gmail.com>
+ <CA+EHjTy=MCgeKoi9sA_eDuiODucOdMP5m4CAciUW=rStgJggmQ@mail.gmail.com> <86tsue6ezy.wl-maz@kernel.org>
+In-Reply-To: <86tsue6ezy.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 17 Mar 2026 17:50:10 +0000
+X-Gm-Features: AaiRm52IK_m_asWK40sjcdDbExP97mzvrGS5v04I-bgwMBnhcMwSUWouKHa66FU
+Message-ID: <CA+EHjTxF9fLtjdTtJontFuziRsgGMeE0bvEjHYqr64hDK3wLVg@mail.gmail.com>
+Subject: Re: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_105002_457557_091A960C 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260317_105049_676430_4D711669 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +117,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+<snip>
 
-On Wed, 18 Feb 2026 10:30:54 +0100, Linus Walleij <linusw@kernel.org> wrote:
-> The BCM63148 has a brcmper I2C block.
-> 
-> The peripheral range needs to be extended to accommodate
-> it. The Boot LUT is at offset + 0x10000 so extend it to
-> cover at least that too, 128 KB.
-> 
-> INTERRUPT_ID_I2C is at (ISR_TABLE3_OFFSET + 19) = 96+19 = 115,
-> convert back to SPI IRQ 115-32 = 83.
-> 
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
+> > > The series in hack/user_mem_abort-rework is different from this one.
+> > > Here are the first few patches:
+> >
+> > And I just realized it's because they're based on _my_ patches ... doh! :D
+>
+> I thought I was clear when I wrote "I've added my on take on top of
+> it", but maybe not. In any case, I didn't feel the need to redo what
+> you had already done -- I don't think I'd have come up with something
+> better.
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
---
-Florian
+You were clear. It's the reader's fault, not the author's.
+
+I'll send you one more patch that might be worth adding, but this
+looks great! Much easier to reason about. Thanks.
+
+For the series:
+Tested-by: Fuad Tabba <tabba@google.com>
+
+(might as well repeat it here)
+Reviwed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+
+>
+> In any case, I'd appreciate your feedback!
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
