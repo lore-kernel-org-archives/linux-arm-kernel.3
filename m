@@ -4,138 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EAFF33809
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FD3F3380E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=; b=49QLqVDNdLPss9CYRY1zMUL/AF
-	fBZzY3/C1/IzeR7yyneNMajJTHyeoOLOfvujSZk9XrrGC2mIbDWdjncIcq4YA2BgKKtU4wOwdIc1J
-	4CXyUk1etSLX2iNtRMPYVKjVSezOpvvY0UtvES7H3yavGCeE679MeU07ORmrZaQcBtLRYiQOshZ0G
-	aJYJgm5nzDg1+n7NarFmScp5nscQ72JatZbpqeKY/uWEfhnjeD/P3vL62n8Y1E5930TwZSXFAgiZF
-	LdKKQJtZQTyOESFgY+PIJYn9NRtJO7tdpmpY7GRuw3hRlxVoILsbod5sCLb8/816Rqc7zjFERXzyG
-	pkKYpvUg==;
+	bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=; b=YgD+1bBP1aHV6DO2qBlaeuvDSM
+	kVm4YFHCMt0AIjKzgN4GD7jXwC62OIx6QTJjhliftTTgMnHycKHDnv2fAJJlwf9Pieoiau6sKSJ7L
+	Fg9NWtVpvoscPntruUS4CteMYwklUwEdW35O6/SV5ThjK/82B0AeiYZUxW8M4iGIB2z7/mhr1Qh8x
+	xClHo7HQe2/AKammuk/juFr197Ve8Z9Gwi9mNe3KWd/uEUTsVpZX5+iDPJ1SM1m3rjIGwiq34SEAy
+	NjtVbEp0mn2kcH0ESOawPWbTS0J75i8WV41dYqBKmxJdA76dhos8K7AnEVyKNtRRSiiY18uXaKWW1
+	WXAvTXrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PZw-00000005hlB-0zAI;
-	Tue, 17 Mar 2026 08:15:04 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1w2PfC-00000005ic1-1RI9;
+	Tue, 17 Mar 2026 08:20:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PZt-00000005hk4-1Xok
+	id 1w2PfA-00000005iaL-17Yf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Mar 2026 08:20:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=; b=fWPlN3J6JJooiYgOFrNTaM5tQ3
+	qo6uvNN/PbOovsIsMwurUorQIINsdZeu5P8hq3HRgDXA3pb3GXN6RrdqxzhdxvQmSi8KnTuse0Tbn
+	y5jF2Jh3vKfWDLdNgk2klAbKzkkuEAXh85kRYg/hzyzi0kd+TlPL6tzCHwmCWEMnJk5j+VDfReWuO
+	zo0L0iY+9viR4bKldiolLucaqtCNWa3xm6Qhknfpes4z4njPZ11mk4kKa19UzDscP8avhx0VXyYTC
+	L1z/VJIWxdaTS6HC08Qgqjj2UL2DNRmOjlyKQgCUlcUTWFxHMprZNE2GgA9T15Mlj2/DPISfyagqH
+	PItU9fMA==;
+Received: from mail-vs1-f43.google.com ([209.85.217.43])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2Pf6-00000008O0Z-0nAn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:15:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VIzXDuC8pSHkOqDVinddDhuhmFsz41PiJTXhlpHPy7zOJkhYJ/EsjMN9PYgucSj0VF6Et4c4sW8LOsZcia49x7AP5bKexeGl4JmCFmGFftrvUDCpL5UKlVcD2AdTy/JoPbV+28/vm3QUOj9kq+9AsHNys0hK2mCvv5NolGwaJYp+GuBvQ6UKK3rqSnsKpMDnQNVb3GCsUya68lfZwWD2QTHb2RQA6WL1zE1SBmxBIqZyNvjPArEm6y38X7ZWkaW3muriJjsIjMUy8jlvFz+A9hn7tyFIcsISfOMSctiSOYL6mNqKTJk5rGMzqJMon0PkfrI/sxqtSMkPiL/EY4qCOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=;
- b=YC1TT2+U4DdpKF6IE0KaVgIGpCb0Vu2hQHeSMni+rKeDovelAEnw2yI7zVecVafwLjltAXpXir/21fKFp4oEx1PiSm7sy4XX1k8dT5p7DrbeQWZ94CwB/06FfYr8zCFQKjrH3jHxEb50q+yppAjH/iNXbvB8eREkUPUMGgrEAMkZrKyiyGzXJMiSEHu8oC3fT1bf/gs43hvkLw20T+5KC0anNS68jZaVJOEsom/tkFs2mTBefpwfw6xwUHyCYyvhN9MygZjC7lkxNtQG9OvhpXSsfykX8WswSWQ6bKY8nEheJYJxk0NbNF78TLUaLpuBkOURmg6BcafmgbCf/hm2BQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=;
- b=Qb7mDoYSYYo17tIXKxuwZ2xLowZG/ARGbeoIhRJd4rVz+h6Gwsj7YM6iZaC8mqLUCj4GEvV2aeO1neSdiNZJRpjosP1xQvc0Ka/JIV62moNjvgfyGYlEylD5dWFSMcsBg+x/iL+FfLC82tQLUdrgtMYeBlL+bS/Jg5mtkN/4/yNHJdF6A7H5DaEhiryt40yn0U/joyLFP4TNDPDnvOk2OlEh/AdkylPKRh4VSNJjLJHyH1/CAxnVrB813Oxr2i6tvesB8QV2vQWwq8vkom194y79PyIiGBs+IlV6uv7xWy9kgMHMxhwR7p5Y5J8KwpBUDnc24Nq+emz5J4A721tlxg==
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- (2603:1096:820:78::12) by SG2PR06MB5285.apcprd06.prod.outlook.com
- (2603:1096:4:1dd::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.21; Tue, 17 Mar
- 2026 08:14:53 +0000
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6%5]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
- 08:14:52 +0000
-From: YH Chung <yh_chung@aspeedtech.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>, Arnd Bergmann
-	<arnd@arndb.de>, Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
-	<ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
-	<maciej.lawniczak@intel.com>, Mark Brown <broonie@kernel.org>
-Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgABXFACAA7sEAIAAT9LA
-Date: Tue, 17 Mar 2026 08:14:52 +0000
-Message-ID: <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
-	 <20260313-energy-casket-ca8adc1f1fd1@spud>
-	 <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
- <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
-In-Reply-To: <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|SG2PR06MB5285:EE_
-x-ms-office365-filtering-correlation-id: 298ef0fc-e869-41e7-b1b0-08de83fd4432
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|42112799006|366016|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: uMkR+lRdUOFcJ1vevssQ+h0C8l3eG4RdRsnldNAmZlFHNLzfUfVXNxUniv62Q52qQMuP7T+8pWoiNYCx+YoryOhPaUtSY3NllZKBf7MANM1D17F6rldakEd+JQvABcq5LyFgR7WjS5H9QP/N2rL2gk5xfcqhRBgtwmGVslODCwJ0DsOSAhAun3pxxvHxui3zlKwpCzQbxb/Dpbv2aQOJS6XR3d1ocNMXxTij97So94vb/whrh60htCd2D+oIt2O1W5CVbbkCuB+ejqg1jS/16SCii9gUBAm7vwFdw8MTrwKn6B4nNLL4mWCROx2qsNUIyU9vTvUBUgbN7co1uFpR8iD6AGUoG8d1rsDP8HoWsdMsP8+WN+aNY/7KMNX/RBpDtyF2jwJNJ5TuDJNKNmHpBO64Q5JV6DwLD6pzvOJq2R/xxuF4+3EHPuycQEKo7D7s4fbPEPlbCQ2rDsx5eXS1de3qMTPJO4imbsBtNLv6NfS9jmnjQdtRgR/e4e1b0yxtkrCme9djPR9xCtJn+jiCc/rDjhahXSKD3f6updN7YNNEPaxsXgTiWl7wx43eVqA4DX1KqOsjnGedGNCEtJFAG0dZN+RkJcVmY6Lc3mbhfkfFpe7oToCQw1SczV+R1AfWr6XQCLSKHdKWYJbD78PbSvxL7W06n3M4frqf/K9lhM4xKUWSwBTzJOPP+yKGIFw73hJGWHIIbXOQznN1/GU7T7sTD7zTP0iLiihnO024Zup1l0xUc0TldIstljzO4Xse0hFfef5Vce4I9V0v4La5i0ZCzvQyr51zB/tdGXx21tJGP0S9zMIpLqzP6bFiQQD+
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(42112799006)(366016)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gjlh9fjSmwV804EXfLl5yMXjr8WM1mjABbFay4whW6kUtwRryhAvxjZ0NHHR?=
- =?us-ascii?Q?GkpNUYkOBzFFrrDXkV7Pu7mE691iZeytEGoNZ3Bget01j8IxyLCy/IZ1S53f?=
- =?us-ascii?Q?HwQirCZ8i03p1dchyyJt97747/aDSBdXyTGzkgIPq4vVuYf0l30AYZv1kISN?=
- =?us-ascii?Q?HhFL497YxZwJr3ZV9XUB30WPZ9JieT+TH8yCMZ7+u/X91YqvhFGyFIGeUcn0?=
- =?us-ascii?Q?tF2rV9M2tzGSomcKlNE49vL3wrtUtO/HGqbrJbA1yhdWNEAcTprS6RB1gjuU?=
- =?us-ascii?Q?uXiuZ4tHHgHh67oFQ58kTFmNXWDqKUAJT0f/gL48e+MYO7hktlQL8eZOvQ4m?=
- =?us-ascii?Q?TA5/1Lp9yx59zJ8hCuhRYOqEFgKvaXXGdoy71Y8OfZkm2p44fLTbSwAky1j8?=
- =?us-ascii?Q?Xre1v+W0aa47GJxh+58mijnBdwU2ZZnkgO/3WhO98BnmjO0WSNV2wyVB9LKH?=
- =?us-ascii?Q?2DrhtMoPhYGBiZBS95AS+/CkgUngOL1PDGPmMsY186CzihFRFQCToLXlqAy/?=
- =?us-ascii?Q?01gXB1zS8QCfbaiFxeJxTipPNNCQkH4Wqomkn5hMXSDJpGzEQTh/UZvOWzja?=
- =?us-ascii?Q?2MNPgKJppmqc9IvQRCKNBivQ4QBf7GkNwz9bElhbkLpo3/5vrz57fniG1Pn7?=
- =?us-ascii?Q?C4N8oTwDTvOC6k7D2SZLlj3tCxMy+ar9h3eD/ZekCOfOM6ayDzPru5Jg36BA?=
- =?us-ascii?Q?q4wh8nilsSju3n8uh/WjM0VIpeDnJU1gNq0FNZ52z3pGNdFsbz1O99ehPVCs?=
- =?us-ascii?Q?vb8c5STDvxhhl6vldh+xFTLuc0ambZFSgajQqRFa5G4wignuOM8wYPczNAxj?=
- =?us-ascii?Q?8TI0fCJJzRYC2rh8Z7zZ3sBCw8IcL2pDH+lopBkbRcOUhVMMfCRG15B1GtBU?=
- =?us-ascii?Q?q6VhXW8rubbDMFwp815Bv+3QPMC1Vq6XrA8uOklTkCUv/dJhwwmk7k3xpBmy?=
- =?us-ascii?Q?o6hrGi6hFRjwRHF0ado5j1XdkTmIiz9KiHrqv1hHILn/6ZKsJJrYFllL9ElX?=
- =?us-ascii?Q?e59YuJdQG/uKeG0Lsc6ZkO8Uynr1yawo9d8YA1qu3nYx6GWkOVpAkFK1hTR3?=
- =?us-ascii?Q?lViH6k2dHNXJhA6Ni2aCumNmlsM6KOQpukMmIceIu+2fofFZtnS4vQvB2iwb?=
- =?us-ascii?Q?9PIhbqwDcaf5+N1TgwtWXow6YbAfJFjgZRJyQIrG5vrxBbxlUjbUKj7M0BwU?=
- =?us-ascii?Q?+Xy3Hogg8ogmBHAxHklhVutZrSAHZVRwgJ0zpE8x8SK7MqGuSOWGeuXioSD0?=
- =?us-ascii?Q?+JYZoi6WH1Mzj/ecokbvkLUmtxVkd7Zd6tCawWLnlhvmyELUEoBt0ymYL2eZ?=
- =?us-ascii?Q?LHmKzBP8S1bnQQoNY5bOmd3Inwy5oXdCBA7HrLmnDyPuFHeVaTgCigHCzvP9?=
- =?us-ascii?Q?f6ltZYpl4EX7IYEMzWYaWSQ1OEF+0bjZ+SVVyzx0kFvxMc5SSAIXxmvGMkU+?=
- =?us-ascii?Q?Z8T1Yidu0VYgNKcAYOXqXeI7zqUtbo5fOLshTKOeEO4kl8CUdl/sijudjtGw?=
- =?us-ascii?Q?2jJQiWp5K5JEiaINtCyfUU20nBd0PKrD+d4v+XZ00dyILqI3xX0YSW+3IBta?=
- =?us-ascii?Q?uxDOR/sslyJow8XmJ2SeZo1041BAjELkjhYQABgGcIMuQ7vatCwjtfNGy1Xc?=
- =?us-ascii?Q?7Er52L7E4mLa/jUNr07gIu8KrJXY7cdSkqPY2lTtiKrzbNS/DYKT3E9xzuw9?=
- =?us-ascii?Q?UiQYq2TZZ9XFAfpnfLQWRJBWODr0g3XIDLRY3WU7Es1pdpJfQnVcl690O3xX?=
- =?us-ascii?Q?8vL7LuMq0Q=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 17 Mar 2026 08:20:26 +0000
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-5ffc8987050so3499244137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:20:23 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773735622; x=1774340422;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=;
+        b=PZZgLsYC4rT6XBHIL9mQyrV/U1xDxLMQ6pYrxWhQCqs6oaSrqfu1prfz4BYxDnaQ4q
+         vs5qAWOZoH/dxZrwC4/kDsMxfbZf8K47kgSMNi8yGswMIabHTPRfFrurm/1P20eWdC+W
+         +uSfBQ7nSpiFw7oOoU2O7RfdngmyGefdj6AKqRXNRmC0qmZRNTOw0WentbMUjlbHqbg6
+         zad7WwP/3CGEfrEvGJyQyOrLbjQGRfJP0mFv4enx9NANML1USeH+4GWGcMYALx5xz8VG
+         YN+BTbqu1nzXbJHcJMe55oPtVrE+FUhQhQikfwOCXJM9UZesiBQbnSlihyOdjo7rzpaJ
+         DAyw==
+X-Forwarded-Encrypted: i=1; AJvYcCUg5bgl/ZGLgKpHFc3f9vtZSQGCKecLYsjSCRJxSsZiDssNZzwx7B1aU2/OORK5Bt8yuxmi/ZXIAyn6B6WwPHln@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbMJpFxp0nQa1jOELE3aV6IGkWL4gin0DDwkwQZiMPE1aT4nZJ
+	lWjMzxDuAurBHyDZlFAO5vVzJr4dut4PEMTgpc/6zqhzBMM4Lw+b+t20V34uAXUl
+X-Gm-Gg: ATEYQzzuJhp9BVW4ar3S6hZQzsJgtJHbOhdlRquqr/42Ptjd/zmjTO7KE168Mxyl2q4
+	t3BWTrLnX3auo0vY9xiqVaGtBxLOqmcPpkTmLIXhIFZ+FiRQnPP8QIip2mMFHSG5wmM9/U91fTK
+	Clx/kqueChV86HXWEKZmwaHXHjiAxUx4/ZylA5ibDlZz2xJ1MVAjcsUABMpFVcAtcjHgj1iGShc
+	2ZrOULtqXlWsj63kilfEAlvAyEc2BYzKbS8Yd3NuMpJ60R+R2BmXcfp9WzjrVGmbIdPcjVNN3Mj
+	Gt72cKVu18YFi4VeE9UNXrtq6gx9tUquOOcgVqZLRysN+EV3SnOWhAh1jBBQ15IYZUtWLVqX+Uq
+	+ULD1K2V9LHwMzPf8BKsy+yd/u9IS67qE2QfLCixCTybmVGQLwVhPfCZpPuIRDiP/yfxGqPwniE
+	YQmVC2oAhvQQcX/PBmWxq8017i3K+8XFVeWu0xV3OFFRcsSCZO35yzR+Sw386p
+X-Received: by 2002:a05:6102:6ce:b0:5fd:a537:a777 with SMTP id ada2fe7eead31-6020e1e37b7mr7366114137.10.1773735621902;
+        Tue, 17 Mar 2026 01:20:21 -0700 (PDT)
+Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94ecfedb663sm7060855241.9.2026.03.17.01.20.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2026 01:20:20 -0700 (PDT)
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-5ffabb1dfbaso2934517137.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:20:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUuezW6RUx4eeNyJdIc/+gY1c0cSjSu0uxqyCNbjwmcMvzc4dnkIXeVKk8GNMKSw8aCdtEC4cbEI0vOxpHov3X3@lists.infradead.org
+X-Received: by 2002:a05:6102:442b:b0:5ff:cc82:744b with SMTP id
+ ada2fe7eead31-6020e4b8061mr7168193137.19.1773735619991; Tue, 17 Mar 2026
+ 01:20:19 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 298ef0fc-e869-41e7-b1b0-08de83fd4432
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 08:14:52.7005
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j8N8rVhH3Ij3l/7Qd4goJ3oQXjIhv4PrS6EURzZyGfANupJIiBDQgUic1/uwthkgLmkMnJDVrDpsPmu6KJoUVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5285
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+In-Reply-To: <20260310184030.3669330-1-cristian.marussi@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 17 Mar 2026 09:20:08 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXMdn4Uu+bLunb0g68rmV=AT523C1=sMdNFK47ZADU09g@mail.gmail.com>
+X-Gm-Features: AaiRm51yyOA7w0a8XkB8aVbP3N6VXftKc6GGkOKP6ReYYiu4pm3s3wiL1ZOxXBM
+Message-ID: <CAMuHMdXMdn4Uu+bLunb0g68rmV=AT523C1=sMdNFK47ZADU09g@mail.gmail.com>
+Subject: Re: [PATCH v2 00/13] SCMI Clock rates discovery rework
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
+	marek.vasut+renesas@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_011501_423971_BB42BCAB 
-X-CRM114-Status: GOOD (  38.69  )
+X-CRM114-CacheID: sfid-20260317_082024_432274_1C106A68 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,104 +115,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, 2026-03-13 at 22:36 +0100, Arnd Bergmann wrote:
-> > On Fri, Mar 13, 2026, at 17:24, Conor Dooley wrote:
-> > > On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
-> > > > This series adds initial support for the eSPI controller found on A=
-SPEED
-> > > > AST2600 BMC SoCs.
-> > > >
-> > > > The series introduces a eSPI controller framework for ASPEED SoCs u=
-nder
-> > > > drivers/soc/aspeed/, adds AST2600-specific controller support for
-> > > > peripheral and flash channels, defines the corresponding devicetree
-> > > > binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
-> > > >
-> > > > The driver is intended to support host-BMC communication over the
-> BMC-side
-> > > > eSPI slave controller present on AST2600 systems.
-> > >
-> > > This all seems to be in the wrong places entirely, shouldn't an eSPI
-> > > driver and bindings go in the spi subsystem?
-> >
-> > From an initial reading, my impression is that patches 1, 2, 3 and 7
-> > should be modified to use the normal SPI interfaces to implement
-> > an spi target driver, possibly a combined host/target driver.
-> > Reworking this should be fairly straightforward because the interfaces
-> > to the SPI core are well documented.
-> >
-> > It is possible that the hardware can only be used to provide espi
-> > device emulation. From what I could see in the code, there is
-> > not much special in there, but I'm not that familiar with SPI
-> >
-> > Patches 4, 5 and 6 in consequently would need to be reworked so
-> > these can implement the TAFS spec independent of the SPI controller,
-> > and can be shared e.g. with other OpenBMC targets using the same
-> > module and the same user interface. None of this should be aspeed
-> > specific.
-> >
-> > There is a good chance that both the user interface and the placing
-> > of the code will need a more debate, but I would suggest first trying
-> > to move everything over to use the SPI subsystem but leave other
-> > parts untouched for the moment.
->=20
-> To extend Arnd's points here, some previous attempts were made to
-> support Intel's eSPI protocol on Aspeed's SoCs which aren't discussed
-> in this cover letter. I think it would be helpful to cover the history
-> and why we now have a third approach:
->=20
-> -
-> https://lore.kernel.org/linux-aspeed/20240319093405.39833-1-manojkiran.ed=
-a@g
-> mail.com/
-> -
-> https://lore.kernel.org/openbmc/20220516005412.4844-1-chiawei_wang@aspeed=
-t
-> ech.com/
->=20
-> Previously, Jeremy had some suggestions covering the various channels:
->=20
-> https://lore.kernel.org/linux-aspeed/20c13b9bb023091758cac3a07fb4037b7d79=
-65
-> 78.camel@codeconstruct.com.au/
->=20
-> Andrew
+Hi Cristian,
 
-Hi Andrew, Ivan, Arnd,
+On Tue, 10 Mar 2026 at 19:40, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> it was a known limitation, in the SCMI Clock protocol support, the lack of
+> dynamic allocation around per-clock rates discovery: fixed size statically
+> per-clock rates arrays did not scale and was increasingly a waste of memory
+> (see [1]).
+>
+> This series aim at solving this in successive steps:
+>
+>  - simplify and reduce to the minimum possible the rates data info exposed
+>    to the SCMI driver by scmi_clock_info
+>  - move away from static fixed allocation of per-clock rates arrays in
+>    favour of a completely dynamic runtime allocation: just allocate what
+>    is needed based on the effectively discovered
+>
+> This is done in patches 2-6.
+>
+> A further bigger optimization suggested in a past series [2] by Etienne
+> would be, whenever allowed by the spec, to limit upfront the number of
+> queries in order to simply retrieve min and max rate, that are indeed the
+> only rates needed by the CLK SCMI driver.
+>
+> The approach proposed in [1] was open coding and duplicating some of the
+> functionalities already provided by SCMI iterators, though.
+>
+> Patch 7-12 implement such optimization instead by:
+>
+>  - reworking core SCMI iterators to support bound enumerations
+>  - use such new bound iterators to perform the minimum number of queries
+>    in order to only retrieve min an max rate
+>
+> As a final result now the rates enumeration triggered by the CLK SCMI
+> driver, while still allocating for all the existent rates, miminize the
+> number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
+>
+> Finally, patch 13 introduces a new clock protocol operation to be able to
+> trigger anytime on demand a full enumeration and obtain the full list of
+> rates when needed, not only min/max: this latter method is really only used
+> currently by some dowstream SCMI Test driver of mine.
+>
+> Based on v7.0-rc3.
+> Tested on JUNO and an emulated environment.
+>
+> Beside addressing a few review comments, in V2:
+>
+>  - patch [1/13] introduces a fix for the pre-existing rounding algorithm,
+>    before relocating the algorithm logic as alreday done in V1.
+>  - patch [8/13] hardens clock protocol initialization by adding some
+>    missing retval checks
 
-Thanks for the additional context and the review links. It was my mistake n=
-ot to reference the previous
-discussions in the cover letter.
+Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
+R-Car X5H, while decreasing memory usage.
 
-This series is intended to support the Intel eSPI interface on AST2600, spe=
-cifically the parts corresponding
-to LPC-style accesses and Target Flash Access Sharing (TAFS), which are def=
-ined in the peripheral and flash
-channels of the eSPI specification.
+As upstream does not support SCMI on R-Car X5H yet, I am ignoring
+the hardening for now (it may be fixed by a quirk), so
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Because the earlier OpenBMC work from Chia-Wei dates back to 2021, and beca=
-use the code structure and
-overall approach in this series differs substantially from that earlier wor=
-k, I chose to post this as a new series
-rather than as a revision of the earlier one.
+Gr{oetje,eeting}s,
 
-I agree that the cover letter should explain this history more clearly, inc=
-luding the definition of eSPI, how this=20
-series differs from the previous attempts and how it relates to the earlier=
- feedback on the channel split.
-I will revise the cover letter accordingly in the next version.
+                        Geert
 
-In the meantime, my understanding is that this driver is for the Intel eSPI=
- interface used by the AST2600 BMC,
-rather than fitting a conventional SPI controller/device model. That was th=
-e reason for initially placing it under
-drivers/soc/aspeed/, since there does not appear to be an in-tree eSPI subs=
-ystem at present.
-However, if that is not the preferred upstream direction, we are happy to r=
-estructure the series accordingly.=20
-It would be very helpful if you could advise on the preferred placement.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Thanks,
-Yun Hsuan
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
