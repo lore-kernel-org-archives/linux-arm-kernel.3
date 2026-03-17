@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74180F33806
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 440FAF33807
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 06:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KlUueF1GSw5ohqS7H/vwWeUHzvF9pIfX9HHJ4AwXcpg=; b=V6jTDCQUV56FYduvZgWe7Myr1J
-	wNWO/Ek/VGsgBPs3mfEyL1bqHPzDe6KebJHorWM85jRdw3kABscJ9l9BzEAyxXkpGUhAUsQzVGImH
-	rWlF9X0MCwJvs335QvwYfMX5pGqoWXz+5OfwPEEULn4qzEGnFpwuG0V8q0UoTTlRT5N8DulDwmchn
-	68Z9T9950BgEQFqR/xD2soxc1B6leCR62DLm41a5QVebmVgUcg5RcGjN/cTNFPkqQlLpM3xdXGpLO
-	pSyeVxOwq+H0RUT+LPIdXqvGqW5R5xKdzT8mxey4w7sxIYXmhjOOMr8zJPCCIgBHzEzKAh0x9Nqg4
-	yv0c6SeA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1Qal9owEWmx10nMbdaip52xdARaCO/YU8MURG1lRk8=; b=MYRB1GxKcPXwiYE8oo0oEQQ8Id
+	BviBcwY39qpLBFOssVxzeyZzx8QBzueXhV01xubis2ZZOaME5dFEjjphPScp+Aa/lq91M3nEo1wzJ
+	yXwcM1g/bPPujF2fTVpHXDo2Z9Z9LWnzTC71EV4bHrE8mqBOk404Y1XYbXq5ZGduTKaxruakuG5YQ
+	DL/dOdt+32EFqsQSJl4VjFQmHEvyQiktn29P70BzOHu3Jw+ve+hVXPH1jCYU617nY9SSjeUReuY1r
+	Rpv9NtjEtZDVsGLZ2nT0Mf0xIUJBxcZ4Rvcjr7okuEKlbPXtjG/YDvGMmoo8+kFUx2HH9q4gSLvMB
+	jMm/5KlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2O7H-00000005Vp1-1cXV;
-	Tue, 17 Mar 2026 06:41:23 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1w2O7K-00000005Vq4-2syJ;
+	Tue, 17 Mar 2026 06:41:26 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2O7E-00000005VoQ-1euf
+	id 1w2O7G-00000005Vok-47c3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 06:41:21 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a871daa98fso40534275ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 23:41:19 -0700 (PDT)
+	Tue, 17 Mar 2026 06:41:24 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ab46931cf1so3554715ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 23:41:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773729679; x=1774334479; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KlUueF1GSw5ohqS7H/vwWeUHzvF9pIfX9HHJ4AwXcpg=;
-        b=higUOuCX84LTEEOBK1Z9mLHaYSqUCJnLhmm17TxMML2CAYkhNHEnkDsiTp+GCkXOIW
-         syKvYqoJ7grOHC/YZRZw5Pn1plbR7+fzebm7+c2YlYXmbkXsB3S6qj4XlO/xcdZ27+Pu
-         mcGiEWxvkJKqacHy6quIkF09iyBeP7eB9U2HA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773729679; x=1774334479;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1773729682; x=1774334482; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KlUueF1GSw5ohqS7H/vwWeUHzvF9pIfX9HHJ4AwXcpg=;
-        b=sCZuKO8ovrYPb1D4wLog7CuZyWE7M10hteSFGMe1YORZ6rtmc3/g20Vsm+DqDGlzNx
-         Fd51w1/z694SkLDrFL1HWQvPXaMFmaDbeSGNjGHy4wM3OmdwZ6NfdPT4C3EDYBgrldY9
-         6U9BkJYfzzZz+vMCfDOegv/f7GfKl3faRq/zCcrBRcU7FFhRAcdTWxKH99C4Tm/Ewm0Z
-         DukiYc7Hj6B6A1YckYMUfW5Jjno3vRKJk9HpbjUcYzGkSJQN08YskBN4mw1w6Kfj5HZy
-         03Y4vvnq4xOMhF78cAbdSsYCkyOfbLae3+Z3yobBF6/Ku5QKMlpHvPVOFe2yHnmw1qBv
-         +XFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVPbwAKxZGvnr66C2hur3g7FJ3BT1KCodFoVosThOe1ct0lUnjiMmUIgIH1pj48uwcW7qLVDO7t1DcjbmLZSj9I@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFpIVqd8RC8zhKYRYOiYzmwg4WhIE55asDOPO4EO8dQ6zEyLZk
-	aCLPAMjCrp33Bd8y17JDw1iw0J2KoAjDVqob6pu97vreCmy+vaOFA1v4TVdRQRONyQ==
-X-Gm-Gg: ATEYQzxBk1GJaCSINnJxmD3TEIEmCejJBLu9sz4ThAavjmROR2h1oAKJsu87ZH7GJfQ
-	jF78DCx+6pWhw7mIFibjbYT38cmuNPAOPzu86lNWNWiONulamSs0K11u/AdwwHC9f2j4CWuuyH3
-	YG0XRxzcwGukQFCjZVZsY61jmr2Zqd0rIAQkVpy3ed1QeICUTd/xiprxSq/MV4Gtujm4AGW4zkE
-	Yco6kQobcmgAz/4ZA3eCqT4VgYHBGIuyZcqSwjuYEZtfM3vweMl2ngHdcfUMpaRni0KjHnmFWTz
-	EPkOfZ7XUQsnhb/GSdEpWnCvd/LAbKwvk5JGqolgqnWcTD28VLMc5xLFHHdnewSgLmdVW06QmcW
-	PjNu0m+6pBJ2iHDMjHkDhxp2hQ1s2k1u0splxZoUJtkoqLrUXjtsgs0nNs+nU3kzvOW3OrrW0jb
-	efY/zKNcsYbIJHsaek8oL/cPe+jZGNvAtAajlyZ3sU0c8R3d8+TK/t5VsJMwhyC6o5hJY4jf9X3
-	hcBm4pB
-X-Received: by 2002:a17:902:cccb:b0:2b0:5903:140a with SMTP id d9443c01a7336-2b0590316d9mr69517575ad.10.1773729679022;
-        Mon, 16 Mar 2026 23:41:19 -0700 (PDT)
+        bh=m1Qal9owEWmx10nMbdaip52xdARaCO/YU8MURG1lRk8=;
+        b=kO9l7PWirWaMWEjKByNguFJGK+IHzlpIZxOyUdMW+oeRzvL+LiiyBXxP47R3jJgBI3
+         W+8ZVVsVTl6K+WrA1eMqNXGVYyhBC8vqgPSzm4hITip3eCEFepeQIsZOKLG6GCTMmPHS
+         0j7I8fX3wIicdmVZxijOl+AkWqjBLCPPgUTRM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773729682; x=1774334482;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=m1Qal9owEWmx10nMbdaip52xdARaCO/YU8MURG1lRk8=;
+        b=R1V6izkrEfpc3wnCJAL7Z7lGOZ1fIR95BOTPNoZLZb401S3QPZ04EvxQYnpYDimx5f
+         u8jhs2bSZKy6JqLnnMcY+IkycjfhCEFavwc/KyJyZp2DZ1yXAraueRMJX10++agzM2kX
+         uaYVss14aYoTW4pAadDvl+V2zIeHbFSOsKEWhGi60UavumTWZIfmPa8zHaO+qtHD/zeP
+         Yc29XYk2aPWbaXG26m9X0hykzwiTFJvS1CjPhJzn03ryL1AXPPCtV60vmG2udB1RtQMI
+         nyhoMrDuGRgU4ZdCvRskDjB78T200akV/ba4r8n1F3aplQUCLUOFafXDn7cIr505hwwK
+         cAWA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0jp1KTdcA1hl+RikyRBKBidYYFhjciqtSxQwVmYOz7l6wS+i9IGzSzhU5OpaNI3Kz49ORXx64GIseP4niF5hN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVzfhpp8JrOBuQl6kVYEdETlf0zP6xH9oQ/zVEnf8Lp7ldBKgx
+	xoojEoJw98SQnmDh7v3fSWnX+1EfFwPzeO47MnCuQiJvWNTu6LAT/7jQdUdkgQxm6g==
+X-Gm-Gg: ATEYQzxByPhw6WJIdOcbcJBbadbDZ6cjtoEFqnrOueNPhgY4j/byWET6chIGk2lMTft
+	uYhqxo8tzcyAq+1ZNKNwAsD2q84BiSyrgQUW85jMoL1NfqbzxDyp+MUbvL4bUFumO1KrnRbkxhp
+	Qr+ZmHby7iiJRFyTXDz2/Opo/kwoORPDFypdpVRl8mttElquqmcI6oC/8qDkfhA6A0c3h3cN4GN
+	6jqG/hgYjdWpJIv7EUEJmibXEO6i495r5v8by2YgsNcknISdAOw8C9Mmf7K0xkprCIc8U2ix+H/
+	CyqmN2sV2kmKn2cWE6z9Ijjhig0uXGDDAe2t+/fBRvZd8yJbKWDllxDdJU3vL0tr/b9w1rocfBM
+	64A5O1K9VJDRVIrNWJMcObKMRtohabuAYTH5ee5g9QOAdAys2o0fAyPEBhFr4P937J5qzmLb49R
+	dt7MIZPbzZrpIKglnocEwLAhX3PIa972Q5RKOLKPWp1QYCjWOwJrTu6GDKqzDo+8KcRzMPJCerB
+	MDuS0Vs
+X-Received: by 2002:a17:903:2411:b0:2ae:cd2c:8f30 with SMTP id d9443c01a7336-2b06357ec34mr19215525ad.1.1773729682153;
+        Mon, 16 Mar 2026 23:41:22 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:a064:c65d:a199:5cb6])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece605231sm124269425ad.27.2026.03.16.23.41.16
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece605231sm124269425ad.27.2026.03.16.23.41.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 23:41:18 -0700 (PDT)
+        Mon, 16 Mar 2026 23:41:21 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -79,15 +80,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	asahi@lists.linux.dev
-Subject: [PATCH v2 0/4] drm: Support DMA per allocation kernel mappings
-Date: Tue, 17 Mar 2026 14:40:42 +0800
-Message-ID: <20260317064049.696795-1-wenst@chromium.org>
+Subject: [PATCH v2 1/4] drm/rcar-du: Use drm_gem_dma_get_sg_table() helper to get scatter gather table
+Date: Tue, 17 Mar 2026 14:40:43 +0800
+Message-ID: <20260317064049.696795-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.851.ga537e3e6e9-goog
+In-Reply-To: <20260317064049.696795-1-wenst@chromium.org>
+References: <20260317064049.696795-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_234120_536345_3DBECCF5 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260316_234123_041841_A41F04C7 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,124 +105,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+The rcar-du driver is directly calling dma_get_sgtable() on a
+drm_gem_dma_object. Not passing the dma_attrs field in may cause
+problems when DMA_ATTR_NO_KERNEL_MAPPING is added to the GEM DMA
+helpers gain support later.
 
-This is an attempt to revive Rob Herring's "DMA per allocation kernel
-mappings" [1] series from 2019. This series stacks on top of my recent
-"drm/gem-dma: Support dedicated DMA device for allocation" series [2].
-Many of the allocation paths are touched by both.
+Instead, use the drm_gem_dma_get_sg_table() helper to get the scatter
+gather table.
 
-The 3 driver conversions from the original series are not included, as
-the changes have landed in some other form.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+Changes since v1:
+- new patch
 
-Patch 1 makes the rcar-du driver use one of the GEM DMA helpers to get
-a scatter gather table, instead of calling dma_get_sgtable() directly.
-This reduces one location where the DMA APIs are directly used with
-drm_gem_dma_object outside the helpers.
+Not sure if we should add a helper like drm_fb_dma_get_gem_addr(). This
+seems to be the only driver that is using a scatter gather table to pass
+DMA addresses.
+---
+ drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-Patch 2 adds the kernel internal DRM_MODE_DUMB_KERNEL_MAP flag.
-
-Patch 3 adds the dma_attr field to drm_gem_dma_object, and converts
-the GEM DMA helpers to use the dma_*_attrs() variant of the DMA API.
-
-Patch 4 adds support for DRM_MODE_DUMB_KERNEL_MAP to the GEM DMA
-helpers by setting the DMA_ATTR_NO_KERNEL_MAPING attribute for requests
-without the DRM_MODE_DUMB_KERNEL_MAP flag.
-
-
-Existing callers of drm_gem_dma_dumb_create_internal(), with the
-exception of adp, all use the DRM client API, and otherwise do not have
-any direct use of the kernel mapping. Thus only the adp driver gains
-setting DRM_MODE_DUMB_KERNEL_MAP before calling
-drm_gem_dma_dumb_create_internal().
-
-
-I have also started to convert the exynos driver to use the GEM DMA
-helpers. I also plan on looking into the rockchip driver, but that one
-has a separate IOMMU path that needs to be handled. I might copy the
-approach used in the exynos driver to deal with it.
-
-
-Changes compared to the original version from Rob (v1):
-- Link to original v1:
-  https://lore.kernel.org/dri-devel/20191021214550.1461-1-robh@kernel.org/
-- Rebased onto renamed GEM DMA helpers
-- New patch for rcar-du
-- Patch 2
-  - Make drm_mode_create_dumb_ioctl() emit warning if args->flags is not zero
-- Patch 3
-  - Made vc4_bo_purge() use dma_free_attrs(); this is the other location
-    of DMA API used with drm_gem_dma_object outside the helpers
-  - Expanded commit message
-- Patch 4
-  - Added kernal mapping check in drm_fb_dma_get_scanout_buffer() and
-    drm_gem_dma_vmap().
-  - Made drm_gem_dma_print_info() show "vaddr=(no mapping)" for objects
-    allocated without kernel mapping
-  - Dropped existing DRM_MODE_DUMB_KERNEL_MAP flag addition in various
-    drivers
-  - Added DRM_MODE_DUMB_KERNEL_MAP flag to adp_drm_gem_dumb_create()
-  - Added flags field kerneldoc for drm_gem_dma_create_with_handle()
-
-I dropped all the original Reviewed-by tags, as it's been 5 years since
-the changes were first posted, and also because the code has changed a
-lot.
-
-Please have a look.
-
-
-Thanks
-ChenYu
-
-Original cover letter from Rob:
-
-This series adds support for CMA/DMA users to skip kernel mappings for
-GEM allocations. The DMA API only guarantees a kernel mapping at
-allocation time. Creating mappings with vmap() after allocation may or
-may not work as not all allocations have a struct page. As virtual
-memory space is limited on 32-bit systems some drivers will skip kernel
-mappings when possible. This prevents those drivers from using CMA
-helpers and the generic fbdev emulation which results in a lot of
-duplicated code.
-
-In order to distinguish between kernel and userspace allocations,
-a new flag, DRM_MODE_DUMB_KERNEL_MAP, for drm_mode_create_dumb() is
-introduced. This allows drivers to override the default behavior for
-CMA helpers of always creating a kernel mapping.
-
-Mediatek is converted to CMA helpers and Rockchip is converted to generic
-fbdev support. I also have patches to convert Rockchip to CMA and shmem
-helpers, but they need a bit more work. Exynos can also probably be
-converted to use CMA helpers.
-
-Compile tested only. I did test fbdev on Rockchip, but the h/w I have
-has an IOMMU, so the CMA code path doesn't get tested.
-
-- end quote -
-
-[1] https://lore.kernel.org/dri-devel/20191021214550.1461-1-robh@kernel.org/
-[2] https://lore.kernel.org/all/20260311094929.3393338-1-wenst@chromium.org/
-
-Chen-Yu Tsai (1):
-  drm/rcar-du: Use drm_gem_dma_get_sg_table() helper to get scatter
-    gather table
-
-Rob Herring (3):
-  drm: Introduce DRM_MODE_DUMB_KERNEL_MAP flag
-  drm/gem-dma: Use the dma_*_attr API variant
-  drm/gem-dma: Support DRM_MODE_DUMB_KERNEL_MAP flag
-
- drivers/gpu/drm/adp/adp_drv.c                 |  1 +
- drivers/gpu/drm/drm_client.c                  |  1 +
- drivers/gpu/drm/drm_dumb_buffers.c            |  4 +
- drivers/gpu/drm/drm_fb_dma_helper.c           |  4 +
- drivers/gpu/drm/drm_gem_dma_helper.c          | 93 ++++++++++++-------
- drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c | 12 ++-
- drivers/gpu/drm/vc4/vc4_bo.c                  |  2 +-
- include/drm/drm_gem_dma_helper.h              |  3 +
- include/uapi/drm/drm_mode.h                   |  2 +
- 9 files changed, 82 insertions(+), 40 deletions(-)
-
+diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+index 94c22d2db197..6a62608ee3a9 100644
+--- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
++++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+@@ -291,10 +291,16 @@ int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
+ 				dst = sg_next(dst);
+ 			}
+ 		} else {
+-			ret = dma_get_sgtable(rcdu->dev, sgt, gem->vaddr,
+-					      gem->dma_addr, gem->base.size);
+-			if (ret)
++			struct sg_table *ret_sgt;
++
++			ret_sgt = drm_gem_dma_get_sg_table(gem);
++			if (IS_ERR(ret_sgt)) {
++				ret = PTR_ERR(ret_sgt);
+ 				goto fail;
++			}
++
++			memcpy(sgt, ret_sgt, sizeof(*sgt));
++			kfree(ret_sgt);
+ 		}
+ 
+ 		ret = vsp1_du_map_sg(vsp->vsp, sgt);
 -- 
 2.53.0.851.ga537e3e6e9-goog
 
