@@ -4,93 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9403CFD8773
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07B8FD876A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MK795KpPXyjO/YxzSnwJyz0MTRv/X9Db9MYpfOCj3BE=; b=QBUkA335myYtD9K2gRo3pbMx0z
-	YYAPNQdsp6Rs8FYNkM41fmuZdW4HreWQ+YvYD92MjytuIM3u2U/AqUZ1mPvDgAeTmXIeCXCpiHr0U
-	t98H6u4PrsgYZ0+yUZhsOUG9wsO8iueYZF850PnRUe4MEBnEqJn2T3YOil3KvtileCEPdrufCZ/id
-	QJpouyQxTXyROTfWiYActxNrzAsYPqPJr9s0QWeVWJkx2SCQbnTu3vs23WYmUmhgIhz0Mfc9sZCmy
-	vOz2lqJ+FkK+iLSf5RkKTfB3SamWSdEpxSXOLi+EjOAbfJvJu+9aWVv+JYaora+0ZA8Z2uNYeQZX5
-	gJAARmyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h8vW9QFHEsbdwF3sZuZYLNzmqqdLN09PcEnZ1dPYIV0=; b=w7rHhGwLv9PVLxqFJTGqVIrzAA
+	VSpo1ZFlkQSwoQBMUC0kd6dk0ZSuIuYEEXVQJTe16rqpJBriavoZt34E4ZJXUvZAqporqQlHyxGce
+	Nkr8XYcMpQi8mj2MDyxmKmFLMyEJCPspUw0zHL5FDWOQZEFe53So/+p8Rs3pTrs6j9joJkKmg7zSY
+	Q/p44ZslRHlhgp8gfSKDdTWIEL1xVFtJ3O1HsCzjbPljr56N1+sS8bnwreAlmlTrVVRzezB+cISa/
+	i4a1qOuBU61T520i1UJoVlIVhgmYgz/y84nfjFmUvasglfA9uQhdJjsGeFXAS5vwm/Q3KY04wMXW7
+	AKSmDCCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UlN-00000006TVF-0uJa;
-	Tue, 17 Mar 2026 13:47:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1w2UsR-00000006Typ-06Iy;
+	Tue, 17 Mar 2026 13:54:31 +0000
+Received: from mail-northeuropeazon11011011.outbound.protection.outlook.com ([52.101.65.11] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UlL-00000006TUo-0U9w
+	id 1w2UsO-00000006Txf-0vx3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:47:12 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-824c9da9928so3676679b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 06:47:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773755229; x=1774360029; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MK795KpPXyjO/YxzSnwJyz0MTRv/X9Db9MYpfOCj3BE=;
-        b=JMl0jBIIO/UK7AekP4AD7SYnRsma38V8Szyk/WFNYPXPK9GyhcPzfTDrStBw5f0oPn
-         7s/L+piT8U2F0aKG0yLywaL1mGqrCTxUiewmgsl3LJxsCb4sNB9ixWpRR3o2xoR6aGFt
-         806mVvN9RDCk1s3nDONa1HJs+RDJ12Vo/JqvzNE7GosqGDjE3UJrbRNJEfhxVnagjFdv
-         uzcwR3Nf8/DiDtKdhs5s4BzK2gCQ3CK9bf+Jy/L4ZAfqpaSXYRRU2wigqOPgnfggYtWT
-         1y4rZMziZs0etmOTUrycpEhX8eDOufhk72dMT565M0XgggxhwSkud3Juzrpr82TF7VVO
-         tQIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773755229; x=1774360029;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MK795KpPXyjO/YxzSnwJyz0MTRv/X9Db9MYpfOCj3BE=;
-        b=a6nmwMD5DhFZNpAXa6limsBhlqMQOK3soyZejVfx/l+VObvTN4OtAlcZwb2MStf5TF
-         hS7YV/9ooA9RDZmjRBlOKhj/hFsPGpghbtS3bKhRGEbd/1RCNrK77AzFwtVReGLR34P3
-         Oyb9fyFSi98O5ntg5JCpqnHE/3bbKOaoP53tFkPeWv9mLIh2oE4F6kAcgH5JlaORzJ7s
-         ZjRC0cBhM8L7HNuYUUZgL9TlfCaNb7Jjq460nup42NixiiiFrJgkSaT3EkTeW1QyWv9N
-         xuKCmSPMwzY5RI9Vw1T1TCDVPQ6hDpRM4Ckr0RwoSBOgQVEBsEUlZw5GV6dDbqwqMBhu
-         jWSA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+njCaNUpgPFBiohNN4yvlA0iuwpy9UpzvE9A2LfPUz+gbV/zzVB2h/zeWVO+8uyXjfp4ooDYLeTAroQYZ44Us@lists.infradead.org
-X-Gm-Message-State: AOJu0YybmEKHnGt+hC0jCdPXSTGh9oiKRZ0Sl6J+LYY+GqoIxbDJbHty
-	7ucde2W8bmQ4/sD9LfyiH2FuuH1s3eaKHgirO1oeJJ1uBemEe7Tr2Kea
-X-Gm-Gg: ATEYQzwHUerHxj+INqBFSRN6JgoPD0helv331A0lFEzHSVjsItF0oMvJlFwuJphc7An
-	TYcdLh/QpfYNj6G02u+2dXLqo2m4QvtlJOoLZoKV7aao36+5QMAjeiD/GRQmIXH/MPzKvYHjUUc
-	kMtDFBeOLJawtVKgsIBM7YVSe85YsLYY7n6RHBxuDLQfz0PsDeA320NTN11Bj7n+FajixDdY5uz
-	oIqocFFfv169uEgE+mRui4Q5IFwVJBMqwFN/FoXrQgEoL/vcGBrmjpiLyzcY8KigjPJUxm7fHS0
-	nZ11y5Ta/bIWApWcwRhTE952Q/qAzfY++CJV5tZBrycczyUHJ3mdaXBagHgvPW3+P4kcIbs+nEH
-	x2FzApLCodNYAiE15QnpHgtUR91UT+d+CEBufGLQ5DDZ9kZnMnyE+21psI9+xfeRASIK2cQ4uat
-	1ejFGN125k2jYEw2TTGcbod7i9m+HhHp+x4PjoXw==
-X-Received: by 2002:a05:6a21:50a:b0:398:9f1d:8a03 with SMTP id adf61e73a8af0-398ecd9d561mr16769427637.61.1773755229144;
-        Tue, 17 Mar 2026 06:47:09 -0700 (PDT)
-Received: from padmashree.. ([2401:4900:91ee:4baa:27e8:65bd:dbc5:b65f])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c73eba9e183sm11898643a12.14.2026.03.17.06.47.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Mar 2026 06:47:08 -0700 (PDT)
-From: Padmashree S S <padmashreess2006@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	Frank.Li@nxp.com,
-	mchehab@kernel.org,
-	s.hauer@pengutronix.de
-Cc: padmashreess2006@gmail.com,
-	festevam@gmail.com,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] staging: media: imx: fixed a brace coding style issue
-Date: Tue, 17 Mar 2026 19:14:47 +0530
-Message-ID: <20260317134448.389123-1-padmashreess2006@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 17 Mar 2026 13:54:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AqThbOnFQ8/SlDMtiUWjR9WZ3ATg2FYepBTcEpg+fSNBu1zBXcvGbLsz1GwmRWSvJlIhm5WJRvHeP/u+8K9GGCwZwIkrIrSZeAnQMQyfkZ5YBLzr4/pXrB11GYL7Z/GPC12p9+oR/jsw7GSePq3++4UdqyRTAxKUXiaPXoAAhT5IP90qgJJQtiqj/PDyViRSXqVKQDbVztdUh52pFNDrfOVmMKIgx9CsKtnCcRny2Q/Lpz7HbfyoEI5I/37PadnGbwSR94PTDkXL6JZtp3Qp9hPCsv+sRyNAHKJo7nafTdtozXhd9/6uqUG02I1OKThk30smYqktio2ojIFWJrKBow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h8vW9QFHEsbdwF3sZuZYLNzmqqdLN09PcEnZ1dPYIV0=;
+ b=k7OwV4RggN4Ch/OhZVZDDjgEcWNpApl/udsYwI9n9HoItWgfgyfo9oMP4hcHginn5YYHJqPP3sKu/V1nwLdyPPbcuzYkisKR2zlFTpHT6h0Q0I6h3RUrTKiRfKnauWAFNgKxBNE9rtiSJZCz/BwDiCrLvpXxKKTXh7GmVUGZIn+Tt5WBDtjuDS2Y+7xmOzolDevs96IMPt1s88mj+wfEgjk30wH/Xfv6ai0fDwFLpyt1Eg5+HBw/G7p9SZpSC0l647+UPlOqV9cqFfXvjuAUB79s5mQ2Vn9BubKezOZwnLmYlYCU9L/MXMhciRZXkMZ9HWu0OUi0ZfoP8+j+Q1ZpeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=sang-engineering.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=h8vW9QFHEsbdwF3sZuZYLNzmqqdLN09PcEnZ1dPYIV0=;
+ b=kfDjiaA6i0BZjlyHKa0nFI0yNOfc0zEKrJvBXWCpHiiwfUiOmvcI8qmBFegUQNt654SF5USEB/M9GfLMmbj/HwI5fuIfbx5gR853hLCDyJ9f1+cc30r5egEfPG8uX/8YfsZxPzznhZvnaPOmvRj0ijO1KD3HRSZlt4Nlq0OSNoEThXqPkIfYnJIQdIL/je9RopaznemXZ8hQUUERtyIDCahvyBJ4K3ssvtXqEZMAOUX41HC4lUhVjoLjZU3DNf0QK4TTMTeZcKK6X2SAp5V1RqAUaZKVsjo2Wl8BOxO1FawBKrWfchhEMQkmnMlL3pVs47eEGiPdBEKU5UVil6ZGQw==
+Received: from DB9PR06CA0009.eurprd06.prod.outlook.com (2603:10a6:10:1db::14)
+ by FRZPR10MB9918.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:d10:1c9::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
+ 2026 13:54:21 +0000
+Received: from DU6PEPF00009524.eurprd02.prod.outlook.com
+ (2603:10a6:10:1db:cafe::28) by DB9PR06CA0009.outlook.office365.com
+ (2603:10a6:10:1db::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.24 via Frontend Transport; Tue,
+ 17 Mar 2026 13:54:12 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF00009524.mail.protection.outlook.com (10.167.8.5) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Tue, 17 Mar 2026 13:54:20 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 17 Mar
+ 2026 14:56:53 +0100
+Received: from [192.168.8.15] (10.48.87.74) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 17 Mar
+ 2026 14:54:18 +0100
+Message-ID: <dd21653b7343e261ec9c88c622c5facbba69df95.camel@foss.st.com>
+Subject: Re: [PATCH v4 04/15] hwspinlock: add callback to fill private data
+ of a hwspinlock
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	<linux-renesas-soc@vger.kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Orson Zhai
+	<orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, <linux-remoteproc@vger.kernel.org>,
+	<linux-omap@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>
+Date: Tue, 17 Mar 2026 14:54:16 +0100
+In-Reply-To: <20260310075539.11701-5-wsa+renesas@sang-engineering.com>
+References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
+	 <20260310075539.11701-5-wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.74]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF00009524:EE_|FRZPR10MB9918:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea234ec9-7203-461c-b3ee-08de842cb02c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|7053199007|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: AI6RG4Fx1UK97ITArYgTPro+HuBgaUhXw5pHiT1nDKsN1sThYItfefGOC35S28gXv2KuA2AOJn7lDPIfZAN1D3yD9c7U4i1KlKQlY53StGPCVd7YXzCPVzVwlxk7zdrWjAIKt6piU/I+aV3Ja2YE9hGLKAsQLnTqbGMa42oNxtVi2RTEH1vDufJf+6qvpdP3EnbYQpRl9hVd7Oj9xhY9ZZDILfrkqz+N9IYoS/+i53uwdUO6MGxuZZSKAfJwlaeAf/DfXJl79UFShAikn6M9VP9Fhm/J7ncNMQmwGEqQSQIm+yWcZzx5pSHRMf25zSH2aJOkhEZFyBt1zMDEacGbzDabOT8mMUFKQwrQU+qFpoiCFhwWrFbGf5s0kp+B0acPprHupJWW7iihE3Thi/SjXqa+n7o1VdbBGcW4nxuBzC21/u8eFRObQGmnlW90SQX2dqMgT+zfw7TDP3OUCsfJQEKvTMOvAk9QoogJoA1PWtX2TstTPwBNy6E+itbLMfMZgXh6bmdmz3ZtBk2Ja5b/4xvwE/0YLneNquW9l62MO6r+WA23tK2XOHnXQeK6h9iUJmS0LTJGtkb3fCT3ughg5fBEnpF31JR46Tvs9PYUknA6R3AERH+1F2ttxX+4vX2kCWIjA4uoml9ehB2+Bx1/knJCKsfH64AQkuqyCLpNfElbFlQzhyb45MSWWevoXXwFRwA2hPYK/yRBoXPoaijkLa6YbHSYBZWeVm0QLBgAZ2PrDk71pbj9b1PNvPs9dHju4xO3aL0HjECf3E7vFVfJzg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(7053199007)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RmGw/7gVYBpsqbXd3U8AA7L9iVS99zZwjEk3NUyTsgI249tGBZGzN0ZFy4R3bdmMt1RsAqU5dT9Wl5DNQwn+UKl7KkdaN9vpTIvGziowzg3h+rLbJxGwDpvu8kocMRTaCt9nWgDRcNw3kWeZoWY+2D+m3Yl/y0Trmm6QAo00YiL8knSehHPhZh1+EWreR0sI3T8y/pte3YJWGa6aes3M+GWr+TtVcI0/lV0rxVwlipmowIDcKozAZT16A0u/Xe1KRuxO5cXF+eaM5LQj4p/VoX8qTgOfReYQ3/Q30YtNfJ34WpRQNU3e4jce6TWVjgnm34jdtKm+Jqn0G3ktRNfh0jaiiTF46z1tbmi/eX+1AW/EGVa6dfMrdlMTE8sZA2rzVu92e/4EgPA4/GttqFPihR04fdwInWoP2RyAv+tfn5GZatXooV8uyz5bnwAlsD7k
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 13:54:20.1205
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea234ec9-7203-461c-b3ee-08de842cb02c
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009524.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR10MB9918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_064711_177395_FAB99CC0 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_065428_575962_84B45A7B 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +136,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixed a coding style issue.
+On Tue, 2026-03-10 at 08:55 +0100, Wolfram Sang wrote:
+> To hide internal core structures from providers, a callback is added to
+> the ops which allows to set the 'priv' field of a hwspinlock. It is
+> called when a hwspinlock device is registered and, thus, iterated over
+> all locks. The register-functions are also extended to pass a data
+> pointer to this callback, so it can do necessary calculations for the
+> priv field of each hwspinlock. Providers are added only an empty
+> placeholder and are converted separately because these changes need
+> dedicated reviews.
+>=20
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> ---
+> =C2=A0drivers/hwspinlock/hwspinlock_core.c=C2=A0=C2=A0=C2=A0=C2=A0 | 19 +=
+++++++++++++++----
+> =C2=A0drivers/hwspinlock/hwspinlock_internal.h | 19 +++++++++++--------
+> =C2=A0drivers/hwspinlock/omap_hwspinlock.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 2 +-
+> =C2=A0drivers/hwspinlock/qcom_hwspinlock.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 2 +-
+> =C2=A0drivers/hwspinlock/sprd_hwspinlock.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 2 +-
+> =C2=A0drivers/hwspinlock/stm32_hwspinlock.c=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +=
+-
+> =C2=A0drivers/hwspinlock/sun6i_hwspinlock.c=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +=
+-
+> =C2=A0include/linux/hwspinlock.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ++--
+> =C2=A08 files changed, 33 insertions(+), 19 deletions(-)
+>=20
+> diff --git a/drivers/hwspinlock/hwspinlock_core.c b/drivers/hwspinlock/hw=
+spinlock_core.c
+> index 2c9eceba7fe8..afe1e7ce2829 100644
+> --- a/drivers/hwspinlock/hwspinlock_core.c
+> +++ b/drivers/hwspinlock/hwspinlock_core.c
+> @@ -507,6 +507,7 @@ static struct hwspinlock *hwspin_lock_unregister_sing=
+le(unsigned int id)
+> =C2=A0 * @ops: hwspinlock handlers for this device
+> =C2=A0 * @base_id: id of the first hardware spinlock in this bank
+> =C2=A0 * @num_locks: number of hwspinlocks provided by this device
+> + * @init_data: additional data passed on to the init_priv callback
+> =C2=A0 *
+> =C2=A0 * This function should be called from the underlying platform-spec=
+ific
+> =C2=A0 * implementation, to register a new hwspinlock device instance.
+> @@ -516,10 +517,11 @@ static struct hwspinlock *hwspin_lock_unregister_si=
+ngle(unsigned int id)
+> =C2=A0 * Returns: %0 on success, or an appropriate error code on failure
+> =C2=A0 */
+> =C2=A0int hwspin_lock_register(struct hwspinlock_device *bank, struct dev=
+ice *dev,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0const struct hwspinlock_ops *ops, int base_id, int num_lo=
+cks)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0const struct hwspinlock_ops *ops, int base_id, int num_lo=
+cks,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0void *init_data)
 
-Signed-off-by: Padmashree S S <padmashreess2006@gmail.com>
----
- drivers/staging/media/imx/imx-media-of.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Hi Wolfram,
 
-diff --git a/drivers/staging/media/imx/imx-media-of.c b/drivers/staging/media/imx/imx-media-of.c
-index bb28daa4d713..7413551052ae 100644
---- a/drivers/staging/media/imx/imx-media-of.c
-+++ b/drivers/staging/media/imx/imx-media-of.c
-@@ -57,9 +57,8 @@ int imx_media_add_of_subdevs(struct imx_media_dev *imxmd,
- 		of_node_put(csi_np);
- 		if (ret) {
- 			/* unavailable or already added is not an error */
--			if (ret == -ENODEV || ret == -EEXIST) {
-+			if (ret == -ENODEV || ret == -EEXIST)
- 				continue;
--			}
- 
- 			/* other error, can't continue */
- 			return ret;
--- 
-2.43.0
+this API is described in Documentation/locking/hwspinlock.rst
+in chapter 'API for implementors'.
 
+Changing the API parameters should require updating the documentation too.
+
+Since this API is changed again in 10/15, it's probably fine to update the
+documentation only once in the last 15/15.
+
+Best Regards,
+Antonio
 
