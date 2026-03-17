@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434DAFD874A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AF0FD8741
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vRAWdjCwxCbz+YpNUmuGWkb9Vz8VLQ2U7nUml1WoZqU=; b=EupB3cZIjJjanbH/Evu30R9pwd
-	0q95e/NCJYKN471l0iNFZ/KhnqWwUknc9/ieVw+8EE7OM+llR0m5cDS7TRCh1p2o+aKDUlV/cde+y
-	HJC0kVLSNneiFaI5xH9poWr2PphUunMBJDYPc/yQlYj18MJ453tMJ5YPVYczyIPgu/HuaUcEdLfSK
-	TNdHgOdkcTtYezUab7YZS38xd3KxuBx2Z0/5F4HibtdDjN9fv0dLgxwvTNffpv6Zug88iiuZLixyL
-	gcBYl4LkdVjVRrwSRpISXugBowmPDUBpW/lbLSal4G2hlOUa5a9sV8acsQP5YKfczxp1bhzWfbrqX
-	+u1eBBmg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FTzoew/ZMvCMhjpr6otK/JMZgS+ZUn1dml7NawnXAH8=; b=DYnBzEN9NAskigwOnBwu463hYl
+	Rb7VkqkHomXpajLTL3jXOsDkSwc/hEsbIEsOP7ijInhlmk1cn8E5apZNBD9p1cJY0oV2JkXFBHkDv
+	xKirMnpOkJ6XvVXWTw84Y6zt/jHRDxZNn+0lt55xbxsl3xhShx4owd29y7xsZc2VP7D153EHzd5Zn
+	kTstZ0Om0AP1Pjwip2lKYRQ6hsBdk1T0J4aJnXNcfxz52BZR0y/UZWQPSWcpdgMbth+uGhT4ETrQo
+	UWEh3CH69FmJUrixSqad4u9CBaNz1fHsTjqqLtUbKVy5BzzMlBxfr0XAIdXcJEHlwJRxujsH8kHip
+	QnRn54pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2l-00000006FDX-0Uxs;
+	id 1w2T2l-00000006FDs-1mm9;
 	Tue, 17 Mar 2026 11:57:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2Z-00000006F7O-2GsL;
-	Tue, 17 Mar 2026 11:56:51 +0000
+	id 1w2T2Z-00000006F7P-3YQJ;
+	Tue, 17 Mar 2026 11:56:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vRAWdjCwxCbz+YpNUmuGWkb9Vz8VLQ2U7nUml1WoZqU=; b=k8fV9PXhDb+2KIJYKi6eue8GMv
-	OZ0mng4ZsWX2azKIDK3rVC3vU8V9vOQibDbMSaS8+pb4F8piDcaHKW4OoESHCiTlzGXjEKKHwkDU1
-	BiwHmJ94yK2ldZfVII1f398w5J2trIBcBpdy6i6Rj5bwUN2zxVfzl/war392fbR0UM0aCtSoo8tbR
-	2LASKwoOu+Qupnesp0nh5c6+lMCs6BKhNa7E6HyN7eiM4aFF+QpKSg0XZMQIAXMIQyyjdq1fav89u
-	Ez1q8UoWtf0YgQvIaSQmzaONZZ3Z0foYiynPWSylLxZ49/o7V0uiCxbeKSoiHfYVqXhMapLBpiYb+
-	DSD4ChIw==;
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=FTzoew/ZMvCMhjpr6otK/JMZgS+ZUn1dml7NawnXAH8=; b=eSiyxmtKn8Djm+lYBg/bpsqpvy
+	dL9ptt3UP0CPbNVOG6HooN+Y50sCjjCL6/l/28ARJRT6V0HvYXjXJt4u2LcXQCfHOf/aowxYK8CdJ
+	nh4P/u9c9jIsxgpzk7hE8bQe9JZIzlEc1I4719UpxMQHKCGCoziIoz+VsQWTbKhF948Jz6s0QTygV
+	J4CzkWVC8CYZMX4bFHH+XKXVKDZmAtGI5446uYrs2O7NYMtl12LFhaM95HJ+VieO7SsiaQO9G1hTs
+	4SZt3kZeemR1uXs9jtDyGRUbbu7YaZS8yFmwAKtgbhfmb4s4faBZGN6jq7QK4S8SbCQhY7QoKJPjc
+	KrwiU9VA==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2T2V-00000008taO-2r42;
+	id 1w2T2V-00000008taT-2qdZ;
 	Tue, 17 Mar 2026 11:56:50 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62HBsBmQ53851628, This message is accepted by code: ctloc85258
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62HBsBcvD3851620, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773748451; bh=vRAWdjCwxCbz+YpNUmuGWkb9Vz8VLQ2U7nUml1WoZqU=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=hpSVY/R3/71HeOWYGgwnuUOli9Cwh25gI7Vd4vCU/y1ccrHU8e9bDn20luUrSkBQO
-	 8AB1CGhcH234cbPZR9GSX5JeFw+rEHsUH6BTyEhpykT6ZpL67o2PLdZQ4ph89SKHdi
-	 RIHPiP78NcqXQoH1r5aNFoFSoqgTWg6ZzsetXzHgEzsLkonxLHInEf//VfltBdYDii
-	 DrGlwT9skO9W6rLAfpuBHLdjLBd3OiaPy6KfMSH7hEUV+gYwMgr3Wtu2rFuwwuXXQN
-	 zFzQ9JK8mSsPFJeT57SW/rsCUy3ux7rPAsV/jH7rY30bUws/9vj5N7SdfPZ9yBnsMu
-	 zjZZSH69e2v0A==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62HBsBmQ53851628
+	t=1773748451; bh=FTzoew/ZMvCMhjpr6otK/JMZgS+ZUn1dml7NawnXAH8=;
+	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	b=jaTIJ6mvYDvh6kBQuEgsfjpE3MXweheH8fPz7ML2iqBKfOTf4xBWeBqfQuz5RtXka
+	 eMXVHLMCXFPzD3UhZh9f1B4M2bGZUQlM0ROA0HUcRjjsqLkJUZ+kvQY9W0hFb7OR3i
+	 iX/GCweaIViD6zdINUoBs7DTUZu3MC3UC/MngbdaPy1vI8QNPIM9GRW8uGlOZtXdtt
+	 3yNsnbEnfExQtSqhrm4eEd9fD2Oqjtewoi7kcXhASVa8RegKuMTGMckm70odjJZkPH
+	 xh1QQRYlG51JefNgf75/gDOVgzLNvpTYmnbwDssKfCAsBMC3N76up1/4c2Jn3VPNBA
+	 6G7msU3vzBE9g==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62HBsBcvD3851620
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Tue, 17 Mar 2026 19:54:11 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 17 Mar 2026 19:54:12 +0800
+ 15.2.1748.10; Tue, 17 Mar 2026 19:54:11 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 17 Mar 2026 19:54:11 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
  (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 17 Mar 2026 19:54:12 +0800
+ Transport; Tue, 17 Mar 2026 19:54:11 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <afaerber@suse.com>
@@ -70,22 +74,17 @@ CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
         <eleanor.lin@realtek.com>, <tychang@realtek.com>,
         <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>,
-        Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [PATCH v4 4/8] dt-bindings: pinctrl: realtek: Improve 'realtek,duty-cycle' description
-Date: Tue, 17 Mar 2026 19:54:06 +0800
-Message-ID: <20260317115411.2154365-5-eleanor.lin@realtek.com>
+        <linux-realtek-soc@lists.infradead.org>
+Subject: [PATCH v4 0/8] pinctrl: realtek: Core improvements and RTD1625 support
+Date: Tue, 17 Mar 2026 19:54:02 +0800
+Message-ID: <20260317115411.2154365-1-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260317115411.2154365-1-eleanor.lin@realtek.com>
-References: <20260317115411.2154365-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_115648_255275_A7C1C092 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_115648_260321_51C3EA11 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,82 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous description was misleading because this hardware block is not
-a PWM generator. It does not generate a signal with a specific frequency
-and duty ratio.
+This series introduces pinctrl support for the Realtek RTD1625 SoC.
 
-Instead, it provides a fixed nanosecond-level adjustment to the rising/
-falling edges of an existing signal.
+Besides the new SoC support, this series improves the common Realtek pinctrl
+driver and the generic pinctrl library by:
 
-The property name is kept as 'realtek,duty-cycle' rather than being
-renamed to strictly preserve Device Tree ABI backward compatibility.
+1. Introducing the generic 'input-threshold-voltage-microvolt' property to pincfg
+and pinconf-generic.
+2. Improve other Realtek pinctrl bindings's descrption.
+3. Adding support for slew rate, input voltage parameters.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+I welcome feedback and suggestions.
+
+Best regards,
+Yu-Chun Lin
 ---
 Changes in v4:
-- Add Reviewed-by from Linus and Acked-by tag from Conor.
+- Add a new patch to fix the argument type in rtd_pconf_parse_conf().
+- Rename property from "input-voltage-microvolt" to
+"input-threshold-voltage-microvolt".
+- Update pinconf-generic to reflect the property renaming.
+- Add tag from Linus and Conor which received in v3.
+---
+Tzuyi Chang (5):
+  dt-bindings: pincfg-node: Add input-threshold-voltage-microvolt
+    property
+  pinctrl: pinconf-generic: Add properties
+    'input-threshold-voltage-microvolt'
+  dt-bindings: pinctrl: realtek: Add RTD1625 pinctrl binding
+  pinctrl: realtek: add support for slew rate, input voltage and high
+    VIL
+  pinctrl: realtek: add rtd1625 pinctrl driver
 
- .../bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml         | 7 +++++--
- .../bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml         | 7 +++++--
- .../bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml         | 7 +++++--
- 3 files changed, 15 insertions(+), 6 deletions(-)
+Yu-Chun Lin (3):
+  pinctrl: realtek: Fix function signature for config argument
+  dt-bindings: pinctrl: realtek: Improve 'realtek,duty-cycle'
+    description
+  arm64: dts: realtek: Add pinctrl support for RTD1625
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-index 90bd49d87d2e..2a640e495cc7 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
-@@ -135,8 +135,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
-+          An integer describing the level to adjust the output pulse width, it
-+          provides a fixed nanosecond-level adjustment to the rising/falling
-+          edges of an existing signal. It is used for Signal Integrity tuning
-+          (adding/subtracting delay to fine-tune the high/low duration), rather
-+          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-index b6211c8544ca..2136546adec8 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
-@@ -134,8 +134,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
-+          An integer describing the level to adjust the output pulse width, it
-+          provides a fixed nanosecond-level adjustment to the rising/falling
-+          edges of an existing signal. It is used for Signal Integrity tuning
-+          (adding/subtracting delay to fine-tune the high/low duration), rather
-+          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
-diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-index e88bc649cc73..e8ea1362b16d 100644
---- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
-@@ -133,8 +133,11 @@ patternProperties:
- 
-       realtek,duty-cycle:
-         description: |
--          An integer describing the level to adjust output duty cycle, controlling
--          the proportion of positive and negative waveforms in nanoseconds.
-+          An integer describing the level to adjust the output pulse width, it
-+          provides a fixed nanosecond-level adjustment to the rising/falling
-+          edges of an existing signal. It is used for Signal Integrity tuning
-+          (adding/subtracting delay to fine-tune the high/low duration), rather
-+          than generating a specific PWM frequency.
-           Valid arguments are described as below:
-           0: 0ns
-           2: + 0.25ns
+ .../bindings/pinctrl/pincfg-node.yaml         |    6 +
+ .../pinctrl/realtek,rtd1315e-pinctrl.yaml     |    7 +-
+ .../pinctrl/realtek,rtd1319d-pinctrl.yaml     |    7 +-
+ .../pinctrl/realtek,rtd1619b-pinctrl.yaml     |    7 +-
+ .../pinctrl/realtek,rtd1625-pinctrl.yaml      |  260 ++
+ arch/arm64/boot/dts/realtek/kent.dtsi         |   20 +
+ drivers/pinctrl/pinconf-generic.c             |    2 +
+ drivers/pinctrl/realtek/Kconfig               |   14 +
+ drivers/pinctrl/realtek/Makefile              |    1 +
+ drivers/pinctrl/realtek/pinctrl-rtd.c         |   68 +-
+ drivers/pinctrl/realtek/pinctrl-rtd.h         |   37 +
+ drivers/pinctrl/realtek/pinctrl-rtd1625.c     | 3138 +++++++++++++++++
+ include/linux/pinctrl/pinconf-generic.h       |    3 +
+ 13 files changed, 3562 insertions(+), 8 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/realtek/pinctrl-rtd1625.c
+
 -- 
 2.34.1
 
