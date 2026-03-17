@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C5CFD8769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278C5FD876D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ydSHSOljwvdlSgZcl8nhQSrW5UKGZG12hy/kVBqDDQI=; b=LMsf8o+Z9lNsy5s1eWcjQ0+2sO
-	rJJyFp5sM4gcMoTFdjjhsCMOWo9FOAB7pzUixzGPSg4BH/VJhCTLAm6m3zRWb3yhD7COHCBrjFUpM
-	XxgCVKMUhhEOEGM3rwHK2RgGC8msd44V91TZY+LKaSMSc4OzgMHCoSduXh7cRZOrswy+jHUIl6dSr
-	lmFRTsiCzZt+98/Z9hn3cE4ZGp8Zfu7HVEROqkTCAD/ZwcsPwnmAwPw5cyU1UuBS4rQjjreGPUet2
-	OcWc5o+DBD/fGcOFsYwAMfzEOs9u4XW7GAmVgRWmXnhB0BAdQc8yg1gcyBWnEoF/TuxFI95PQIcXi
-	Wf1vIZtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxH2w51jz9p6LSxJXmwFCJAAno6Vdky+VTfMtvNcsZs=; b=tC8IeE4Zb7rtPHEsK7/o7Fov43
+	MQY45REAmJPQOGqU7KF3IDidAiq0Koz7gajdYbqG8QauWcB4tGeoJNmSZ5uCV156f1HFCfODPJqkC
+	1FGFDdzWg4xDgx0qUc+ZqyxpldgTDvWW9pdQFEW0qTYuURfTd/PmDNwGDfvVT8SRktUyXpHZ4QaqS
+	zL2GLBtUopur+sE1pYMz3jcrfMd8KjUBXlxXvM+huCtAOagPhV/F3E2HEgYKc+6xKuagW6FHxlhOQ
+	9wpOM5boc81r3YZN/Kv2J0hRq1pDumr2QHRr24aHxQWWz9l3cyngeu04fp4j3FaqEAgGORPsNFv/8
+	bIXbhexw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ucm-00000006SjQ-0Q2q;
-	Tue, 17 Mar 2026 13:38:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Uci-00000006SiV-39iX
+	id 1w2UhC-00000006T7A-3YW7;
+	Tue, 17 Mar 2026 13:42:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2UhA-00000006T6g-3Zmn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:38:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 390A91477;
-	Tue, 17 Mar 2026 06:38:07 -0700 (PDT)
-Received: from [10.57.60.199] (unknown [10.57.60.199])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ADA03F778;
-	Tue, 17 Mar 2026 06:38:12 -0700 (PDT)
-Message-ID: <6ea250dd-ab9f-4abd-8fa8-77560e5dc6ab@arm.com>
-Date: Tue, 17 Mar 2026 13:38:09 +0000
+	Tue, 17 Mar 2026 13:42:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9934140935;
+	Tue, 17 Mar 2026 13:42:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDBEC4CEF7;
+	Tue, 17 Mar 2026 13:42:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773754971;
+	bh=cvWFM54q957EernSWzHaK9Acqjw396q6QTQo5GDsp5Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Iy0TnZX5T2xqw3wl38rgvtDR9JClrVeBVTwEjQZgZeUSC1mQWBqW/7QANTOB+ItEh
+	 ShMuJXNtUDliwfJuOm40uaMs7VLacYFs4/xaeXEHuP0wSrirTRQUbkPVUIy5LQqRBg
+	 5FqbbtdDB6HEelqWDfyEDYrGwjyJR0xK/vDSLyQP0VRdzNtsewmCWmBhZdxRCQKhwX
+	 UtjL/WYWVKM3oGNCuTfxvKwt4ApwDU0XE1YwK32qPu1CzE06K8OSKaNNjr+SM99ctm
+	 IwndBkfvV/zVMP64fw2nCwDX4++guZiEpwi6CnKsiGxnn9bHiy/g4fHTg6er0m7Tod
+	 qyBGCOjWy60qA==
+Date: Tue, 17 Mar 2026 13:42:42 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	devicetree@vger.kernel.org, driver-core@lists.linux.dev,
+	imx@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
+ thread safe
+Message-ID: <94dcb275-4af0-4ca1-9b4a-5769bcc2c777@sirena.org.uk>
+References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allocate cmdq_batch on the heap
-To: Pranjal Shrivastava <praan@google.com>,
- Cheng-Yang Chou <yphbchou0911@gmail.com>
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, jserv@ccns.ncku.edu.tw
-References: <20260311094444.3714302-1-yphbchou0911@gmail.com>
- <abF6un_jrQ8zGZZ4@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <abF6un_jrQ8zGZZ4@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="CESacuQ0/LxRTmli"
+Content-Disposition: inline
+In-Reply-To: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+X-Cookie: Must be over 18.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_063816_889889_D77492E6 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20260317_064252_931926_1A554B74 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,230 +97,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-11 2:22 pm, Pranjal Shrivastava wrote:
-> On Wed, Mar 11, 2026 at 05:44:44PM +0800, Cheng-Yang Chou wrote:
->> The arm_smmu_cmdq_batch structure is large and was being allocated on
->> the stack in four call sites, causing stack frame sizes to exceed the
->> 1024-byte limit:
->>
->> - arm_smmu_atc_inv_domain: 1120 bytes
->> - arm_smmu_atc_inv_master: 1088 bytes
->> - arm_smmu_sync_cd: 1088 bytes
->> - __arm_smmu_tlb_inv_range: 1072 bytes
->>
->> Move these allocations to the heap using kmalloc_obj() and kfree() to
->> eliminate the -Wframe-larger-than=1024 warnings and prevent potential
->> stack overflows.
 
-Pro tip: you can also eliminate the warning by setting CONFIG_FRAME_WARN 
-to a larger number, or to 0. The default is 2048, so you're already only 
-getting a warning because you've gone out of your way to ask for a 
-warning. The smaller the number you choose, the more warnings you'll 
-get, but does that alone justify "fixing" them?
+--CESacuQ0/LxRTmli
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-It's certainly plausible that we could get to issuing invalidation 
-commands at the bottom of a relatively long callchain through 
-subsystem/client driver/DMA API code, but have you observed a stack 
-overflow in practice? It's not like these functions are re-entrant, or 
-calling out to unknown external code, so while ~1KB is admittedly 
-reasonably big, we can at least reason that there's never going to be 
-much more *beyond* that (basically just whatever 
-arm_smmu_cmdq_issue_cmdlist() uses).
+On Mon, Mar 16, 2026 at 03:42:06PM -0700, Douglas Anderson wrote:
+> In various places in the kernel, we modify the fwnode "flags" member
+> by doing either:
+>   fwnode->flags |= SOME_FLAG;
+>   fwnode->flags &= ~SOME_FLAG;
 
-> Thanks for the patch. I agree that we should address these warnings, but
-> moving these allocations to the heap via kmalloc_obj() in the fast path
-> is problematic. Introducing heap allocation adds unnecessary latency and
-> potential for allocation failure in hot paths.
-> 
-> So, yes, we are using a lot of stack but we're using it to do good
-> things..
-> 
-> IMO, if we really want to address these, instead of kmalloc, we could
-> potentially consider some pre-allocated per-CPU buffers (that's a lot of
-> additional book-keeping though) to keep the data off the stack or
-> something similar following a simple rule: The fast path must be
-> deterministic- no SLAB allocations and no introducing new failure points
-> 
-> The last thing we'd want is a graphic driver's shrinker calling
-> dma-unmaps when the system is already under heavy memory pressure and
-> calling kmalloc leading to a circular dependency or allocation failure
-> exactly when the system needs to perform the unmap the most.
+Acked-by: Mark Brown <broonie@kernel.org>
 
-ISTR it's worse than that, and in fact we must not even attempt to 
-allocate in a reclaim path at all, or it risks deadlock. So since the 
-SMMU driver cannot realistically know the context of *why* it's being 
-asked to unmap/invalidate something, I'm not sure it can ever be assumed 
-to be safe.
+--CESacuQ0/LxRTmli
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-Robin.
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> Thanks,
-> Praan
-> 
->> Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
->> ---
->>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 +++++++++++++++------
->>   1 file changed, 48 insertions(+), 18 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> index 4d00d796f078..734546dc6a78 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> @@ -1281,7 +1281,7 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
->>   			     int ssid, bool leaf)
->>   {
->>   	size_t i;
->> -	struct arm_smmu_cmdq_batch cmds;
->> +	struct arm_smmu_cmdq_batch *cmds;
->>   	struct arm_smmu_device *smmu = master->smmu;
->>   	struct arm_smmu_cmdq_ent cmd = {
->>   		.opcode	= CMDQ_OP_CFGI_CD,
->> @@ -1291,13 +1291,23 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
->>   		},
->>   	};
->>   
->> -	arm_smmu_cmdq_batch_init(smmu, &cmds, &cmd);
->> +	cmds = kmalloc_obj(*cmds);
->> +	if (!cmds) {
->> +		struct arm_smmu_cmdq_ent cmd_all = { .opcode = CMDQ_OP_CFGI_ALL };
->> +
->> +		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full CD invalidation\n");
->> +		arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd_all);
->> +		return;
->> +	}
->> +
->> +	arm_smmu_cmdq_batch_init(smmu, cmds, &cmd);
->>   	for (i = 0; i < master->num_streams; i++) {
->>   		cmd.cfgi.sid = master->streams[i].id;
->> -		arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
->> +		arm_smmu_cmdq_batch_add(smmu, cmds, &cmd);
->>   	}
->>   
->> -	arm_smmu_cmdq_batch_submit(smmu, &cmds);
->> +	arm_smmu_cmdq_batch_submit(smmu, cmds);
->> +	kfree(cmds);
->>   }
->>   
->>   static void arm_smmu_write_cd_l1_desc(struct arm_smmu_cdtab_l1 *dst,
->> @@ -2225,31 +2235,37 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
->>   static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
->>   				   ioasid_t ssid)
->>   {
->> -	int i;
->> +	int i, ret;
->>   	struct arm_smmu_cmdq_ent cmd;
->> -	struct arm_smmu_cmdq_batch cmds;
->> +	struct arm_smmu_cmdq_batch *cmds;
->>   
->>   	arm_smmu_atc_inv_to_cmd(ssid, 0, 0, &cmd);
->>   
->> -	arm_smmu_cmdq_batch_init(master->smmu, &cmds, &cmd);
->> +	cmds = kmalloc_obj(*cmds);
->> +	if (!cmds)
->> +		return -ENOMEM;
->> +
->> +	arm_smmu_cmdq_batch_init(master->smmu, cmds, &cmd);
->>   	for (i = 0; i < master->num_streams; i++) {
->>   		cmd.atc.sid = master->streams[i].id;
->> -		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
->> +		arm_smmu_cmdq_batch_add(master->smmu, cmds, &cmd);
->>   	}
->>   
->> -	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
->> +	ret = arm_smmu_cmdq_batch_submit(master->smmu, cmds);
->> +	kfree(cmds);
->> +	return ret;
->>   }
->>   
->>   int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->>   			    unsigned long iova, size_t size)
->>   {
->>   	struct arm_smmu_master_domain *master_domain;
->> -	int i;
->> +	int i, ret;
->>   	unsigned long flags;
->>   	struct arm_smmu_cmdq_ent cmd = {
->>   		.opcode = CMDQ_OP_ATC_INV,
->>   	};
->> -	struct arm_smmu_cmdq_batch cmds;
->> +	struct arm_smmu_cmdq_batch *cmds;
->>   
->>   	if (!(smmu_domain->smmu->features & ARM_SMMU_FEAT_ATS))
->>   		return 0;
->> @@ -2271,7 +2287,11 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->>   	if (!atomic_read(&smmu_domain->nr_ats_masters))
->>   		return 0;
->>   
->> -	arm_smmu_cmdq_batch_init(smmu_domain->smmu, &cmds, &cmd);
->> +	cmds = kmalloc_obj(*cmds);
->> +	if (!cmds)
->> +		return -ENOMEM;
->> +
->> +	arm_smmu_cmdq_batch_init(smmu_domain->smmu, cmds, &cmd);
->>   
->>   	spin_lock_irqsave(&smmu_domain->devices_lock, flags);
->>   	list_for_each_entry(master_domain, &smmu_domain->devices,
->> @@ -2294,12 +2314,14 @@ int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->>   
->>   		for (i = 0; i < master->num_streams; i++) {
->>   			cmd.atc.sid = master->streams[i].id;
->> -			arm_smmu_cmdq_batch_add(smmu_domain->smmu, &cmds, &cmd);
->> +			arm_smmu_cmdq_batch_add(smmu_domain->smmu, cmds, &cmd);
->>   		}
->>   	}
->>   	spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
->>   
->> -	return arm_smmu_cmdq_batch_submit(smmu_domain->smmu, &cmds);
->> +	ret = arm_smmu_cmdq_batch_submit(smmu_domain->smmu, cmds);
->> +	kfree(cmds);
->> +	return ret;
->>   }
->>   
->>   /* IO_PGTABLE API */
->> @@ -2334,7 +2356,7 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->>   	struct arm_smmu_device *smmu = smmu_domain->smmu;
->>   	unsigned long end = iova + size, num_pages = 0, tg = 0;
->>   	size_t inv_range = granule;
->> -	struct arm_smmu_cmdq_batch cmds;
->> +	struct arm_smmu_cmdq_batch *cmds;
->>   
->>   	if (!size)
->>   		return;
->> @@ -2362,7 +2384,14 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->>   			num_pages++;
->>   	}
->>   
->> -	arm_smmu_cmdq_batch_init(smmu, &cmds, cmd);
->> +	cmds = kmalloc_obj(*cmds);
->> +	if (!cmds) {
->> +		WARN_ONCE(1, "arm-smmu-v3: failed to allocate cmdq_batch, falling back to full TLB invalidation\n");
->> +		arm_smmu_tlb_inv_context(smmu_domain);
->> +		return;
->> +	}
->> +
->> +	arm_smmu_cmdq_batch_init(smmu, cmds, cmd);
->>   
->>   	while (iova < end) {
->>   		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
->> @@ -2391,10 +2420,11 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
->>   		}
->>   
->>   		cmd->tlbi.addr = iova;
->> -		arm_smmu_cmdq_batch_add(smmu, &cmds, cmd);
->> +		arm_smmu_cmdq_batch_add(smmu, cmds, cmd);
->>   		iova += inv_range;
->>   	}
->> -	arm_smmu_cmdq_batch_submit(smmu, &cmds);
->> +	arm_smmu_cmdq_batch_submit(smmu, cmds);
->> +	kfree(cmds);
->>   }
->>   
->>   static void arm_smmu_tlb_inv_range_domain(unsigned long iova, size_t size,
->> -- 
->> 2.48.1
->>
->>
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm5WlEACgkQJNaLcl1U
+h9DSgAf6Ap5hH7yRkuhE3ZUXEU9Sw0nRKEWLWHq9c0Jd+k0j/ZH4K6YAePaTKleT
+VU3Fsx4siP9rbVq9sWIZ4qtL2ChJw3LgqNNMe88HKsb5MLrcpbCzUEXe9mZHg9ke
+tucJZVfd79aIWfTHelxkhI1ZuW+JNDId0+0NrI427Jrhou3kPYT7+gJmYXuMbWik
+Pmc0B/+HNSZ5wx+ETM7Ki9+Yj+BY15QaBoNID1YqUpzKd6xrtRs/Ep414//xibo9
+92kpTPrKdt92+B4iMU/YWQvPyUelIpmWR7aJ9I823NnLKHA5yvoEy1ff5WloKA6Q
+MxtC9dhuaD1HfwqImmlLKtm0H6/ABQ==
+=PgWz
+-----END PGP SIGNATURE-----
 
+--CESacuQ0/LxRTmli--
 
