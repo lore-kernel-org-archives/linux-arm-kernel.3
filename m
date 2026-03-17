@@ -4,106 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0ECFED9FD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 18:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41697FED9FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 18:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3njzSf0GHZnU+vfRoNiucsFc5a4L5o10JyQzwrcZWQ0=; b=LHy1s96HjBhPrHxW2vGrkFhVpC
-	K9YeULxzZXZlaqIwMwawSzQzJQa24xWXEPU1ABDudSD/iHzb70EUXYDzz7OlOjEKdx3LMY/dZZSAU
-	ocJkAeXWcP4JrEO3UvrfHgtaTS654iaHCQYJJD5uFxnv4BfVXQqNtdZwhb5DJkIBCtcUVQY8FeVbY
-	gM6pwKK6zD4DXRHdLxJIrO5aO9DQakgsjH46j2CsMf5vC9vewenFqM2QtTFTVu3XMysNPJeKsJQEh
-	VbW0aGYQjmBkapiYhAmHCG5ngPUMfAkTsXy25r2Ojo10G6pNdnsOTf/Uw8Fe9oUMmaTRhduypZcTa
-	5XuTJ3Og==;
+	bh=1V79m/qtPd2CPkeGy9ve7l8GZ9xh9SScmUR42+dIKPU=; b=Ctu9EW9YJnNxYm4udl+o4XnJSR
+	BVkS6i/JAE+6kb8EO8zJX81nWDvaP+dR6Vwx0U7DY/J7aAsBXRZKnKJC4zVgheLI7rWMZZc1nun65
+	lfde7plBDJhHkKyuwBDQmXRXyiaJoUP1vjUHZPjddW94mrJX1XVdMLACBrCC4BbQPSn7V8TZmiQrA
+	Rc/ruTEUOA0nRv1ZBMdqSpdoS5Xr1TNEXJGTQBni8+isVyc+cih6c8QEHXd5aiEt3XZwuX/Xr82i0
+	KxCgpi7zU+KHeLNMwI5TLT2Zt3P8zOgH5UjhVepi7iW4+NRul41Y+NmS/SoO9aTpDNw6hOMx8o3zU
+	SuMYEsWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Yju-00000006zeI-1zPb;
-	Tue, 17 Mar 2026 18:01:58 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1w2Ykz-00000006znj-1Oum;
+	Tue, 17 Mar 2026 18:03:05 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Yjr-00000006zdw-3sJa
+	id 1w2Ykx-00000006znH-01cQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 18:01:57 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-5091ed02c54so72081cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 11:01:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773770514; cv=none;
+	Tue, 17 Mar 2026 18:03:04 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-5091ed02c54so72681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 11:03:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773770582; cv=none;
         d=google.com; s=arc-20240605;
-        b=gCYQA8IaWYcENDlKG+emxAsqM2WjsZKN8XwxSYNerkFpT3zGw+u6c93mhSZRW2Ah0G
-         68pMbodi91Uh6C3TYSTbpdnuoUW2vJc9XGcY19mTF0V31gXb/YAluvYKLBNqh6v4MN0X
-         8JkTRlSfKBmjVJzEVP69Zcvu0nLoxHPvPaa1OQnTdQzRThU3mwFCdEk3SbJQD0NZlOdR
-         frQyVtzy6t3qy/xGfWc/V+UK0GToNrIr+GmNFapa7Z+DoF7Dk06rEB2Yw9NkgnUoZBWO
-         d983xYSya6+yAvl4kn3cZgMc5WknzqEoq7J7y0rxzGdQI/74eKFoYrNOLdGo6iLj7eCi
-         5uVw==
+        b=Mgj71Xc/Aki6kby91SRppiq49RceUKVeHX9XJUB8bg5KyoXgeoHme8ihSQmMPY+3FB
+         IiqXL1zki+hY6tRFB3tf/M1+yuGhIkA55ugWcuvmn3KokSS2lD3NP91RWJST+c1OHMTH
+         jtwlK6okINNLPnLGxb27bCrVNWBzdJWmU8rgYzgE7bzTtdsksQnJ5ge+SLAa1uywuMTC
+         9YUYGA5pT4stt7W8wojnC/0ENp3assLDKEG+Q7dlUyYIGJUsbZEGLrWCk+wy1RCEecGl
+         xCu8wWXN8rgLwLtA1c55lBKZ+MuawOODs5MGp6CCDk023Pkgbd6r5EZrTQZkbwskJUZZ
+         PidQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=3njzSf0GHZnU+vfRoNiucsFc5a4L5o10JyQzwrcZWQ0=;
-        fh=1/Ex5uX6JTdUs6T8BrRxfBSmC/M/u4G4RUrb7h2czmQ=;
-        b=KtZkrKpTZozOajGDdCco64KV+2rWyPNJo3d09iuzzqrEMkWAPAdPhk1g7s8H0BJncR
-         M1JiAicTtlieU8gknhEObFr+kHtYAHZnyI6TiV7Ai8sD/GLX9T2HYJBRoC1fwBQdT0sz
-         t4ZExddSvAe8HB+rGudSHEWWwckmr7yZV6hSdjYEekKEDEkDUaqCw0itkKoifDHNMNrK
-         K1tmiNlaY9NCs7vIq96aNrmeThJw+8pRp75gXmlLIL9nidxYwc957iv9cL45sNan6I+n
-         +VzYmDu0f+SBFbtjzF0KzljSdQyygna/iH9Gi/bXiA3+xo8nPtnmUo829k8GEKfkKoby
-         p6FA==;
+        bh=1V79m/qtPd2CPkeGy9ve7l8GZ9xh9SScmUR42+dIKPU=;
+        fh=BybxUIkGkbzV6ZcNH572xizG3PrwiuFykWMx8aSJDc8=;
+        b=Hvw7+gVxV7YjiMWivGq/Qufkuk1ZWhP5JLpCMd6nNL3Zp5Ek2KFGAuDtYccHs0M8UF
+         WavsXxRoLQUR8NlTrKs2O21MXqtnApneMACOoRFy2/C+1PtE7tgbi3gV1e/Jsh7uyksX
+         8hGA45hNTfOSC884L7Hnjhx1nOZVVS8rOwAW2dXGAJdf/Cs9BqxyCLqapPFIehdkWaWK
+         kfGFTVJdfWyTl8Ut8EIAkXvELodw+kvSjYK0txw6jdR9IdHN5JPRJgRepNRffmx0dM6v
+         c5cTshv5Dp0S7pWTPMMfUoP3sW2pmsrZRRk3ItabdRzYyyknXHZp3LuLnyIKzko1WJaq
+         OiaA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773770514; x=1774375314; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1773770582; x=1774375382; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3njzSf0GHZnU+vfRoNiucsFc5a4L5o10JyQzwrcZWQ0=;
-        b=tsJz1DQePsGP1lAdVCxtAeryiz1toJigp8jJJeSkRFaqiylzbn0+667MupgsfXJk9B
-         wPtCM4R3yI75uQy1JQnvuo19uwjYI2gls5hseDVQt7+IyndVMfG/0MJcQOtBN0vp1RPI
-         avNB6N4OBQEbcT6/H44AuHtCqJOjv//knNXo79JOLAf9dg63Aoz2f3A61Q1NH7UqOUwX
-         xhfOeEwdz97n8FsYfmfEOq3LRN5DN97HadehwtBwJT9iLIK3k8p9D/Hw0h5O8IlnMFcn
-         JIIcuAqXP0C6rS1PaabSliioLLSUvJ1gSTMsSXYGCdymv+SuRJwp2F0SqYNytw7b/tIy
-         w6Rg==
+        bh=1V79m/qtPd2CPkeGy9ve7l8GZ9xh9SScmUR42+dIKPU=;
+        b=Ued9vZaA06hj6hn/ULphysQldnDOgWgAwGFA9oo+nzujX5rXIuzHKsMw8HLNhxE/RT
+         3z1VKEtjeqXgUBGSEg8UjuK1D5kIVdws8s4hfUboA70HaPJf3jwhOC8+h15AyX6S6xr8
+         oSQcCkmJZeJGdhI4hNERted2+vL7H4VrK+HXA7uiEfF72Qz37pEbvgPPc4bj/OeXWl1l
+         tJj45eMK7IHb53jx/UuwAybxd0JH1NXtEaNZzqAHkFhnaNmAfLHqKsXPE4GeywD39M2i
+         aDM8uBlrCZ7egY8nREIUA0RB/y8MfzXwnANF8PAZWRAldZpyL6wChwJxdRb53NxPRHM2
+         KGew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773770514; x=1774375314;
+        d=1e100.net; s=20251104; t=1773770582; x=1774375382;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3njzSf0GHZnU+vfRoNiucsFc5a4L5o10JyQzwrcZWQ0=;
-        b=PefgExbASqoi1OPX8LpFga4QNqn3UDZGb5UqW1Tv+WtL0MNRPrQMD/7TgJOrzLh0J7
-         RapORiLZSztE2S/ALQzcoA173kA4GE3t3F4jnJmtNzTfwR38VebjAYTzqqZSSeHORy06
-         iUoiCPVrgLJ+MKqj3JKVoluhj9uONgfgCHZiBWyZB672hjEvbk/f4hJ7blgi2cqr2ga8
-         SWc4+SSz5AoUYE6KxIDVH2EzzrKyAghp9pdFJB0Oh/AE3G2WJojSCt/dgAwlwRKX85Ms
-         6i+T3TXqvuG7S+q/ScKHcgB5e6jJsI2HY18mxffPnTrEzPGprHDZzxaEHuQ0Aj5Pfj6o
-         5gmg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjGm7vRYdCsfprquXDi0XhUA0pDan2g+kuJFn2DguA+t94G6LBpxZYejXG/DAoiucY6ZWDRdL33dkLo0qA4PNJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx++ynkMN3B9x3k7SoxNjo0RRRNBOAtDhHMwCFHw6upfpGDmS0p
-	N2Twu8QVjH51DMsud/JsZbNSV1tB0VVjcwrRCgnwe1yUDd7qfpvq/5qK3uYF5jRYLKTfbpv6ke5
-	MWF9Q40RBH1ALDAJ96eGifr6x3ZagvVbhLPhTUoSo
-X-Gm-Gg: ATEYQzzsbMEEfDgmQPgft889BdnA6Y3QJ5/3uBsmCdjegplK0YKiLLjUrNXfbQ5d8es
-	TftvsUXJh4+7L4Wawqfd+Ke8T2BbQybMPARMw4heY7bPiHC6fR93ug5B+sc91UlGwGsQR1qXhg3
-	P2N4nsFC8O5QxkC3jE8eZJEZg/7V6LXQ7FH+nwB9ZJdeQ2L8PpdDGlUvwWvVi2EV+OLxeuHwHRn
-	3fYxc+YwjzNDYj5sBkdSfXDuzC9CcltP/VgjEEgkav8eDDF9wFBf7aL3BpvZr6rv8hn7cUPMWxZ
-	egDJProS
-X-Received: by 2002:ac8:5750:0:b0:509:21ff:cd49 with SMTP id
- d75a77b69052e-50b1470d02fmr1266501cf.4.1773770513528; Tue, 17 Mar 2026
- 11:01:53 -0700 (PDT)
+        bh=1V79m/qtPd2CPkeGy9ve7l8GZ9xh9SScmUR42+dIKPU=;
+        b=ewnBL5jWbwAQx9QiMqUUADmDq5ow+aBK4D8CV3CDZCANq133gcLjCBYCoxOKCOWH4W
+         STNO2fgWVsHE/6nppd1E6Ad9oj6tgjBOyJs0wvCRLLiFr5zIlxnAerjo5H8KFLk0DOav
+         CMY4XleSMYolzWkwWDw6ldcCygPxpA8j1Uf/DuaTYvDSNSQ0BIVpSlpp65lrqIUT3qkQ
+         lVUMyCd+oLRyTVysppbNZ+tnqDjM0DgYU/x1lKTcPgcshrq8OwZmRRgiMcpXVUgon8T4
+         vtkKfArj54dpdYeaZ1hcEUG88QnWcf8mwyctnUvOt3stPuu5nO5AnFQFszoycRNr9ZkT
+         oZfA==
+X-Forwarded-Encrypted: i=1; AJvYcCXXoCPw5/VUc3fSt+tmEH7oNZMzqmeFdWP7G7KmS6D6fvT1aklTXAg3Dmd4Kh4WJ/AOW/dZPodJSkzLeZ98ve9X@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJbtovgAIsLN3wHJAigyE3dKvuk6+7cCEN5dOJG2jycoaoKYaH
+	6RBglUzWazxbq2Z1GkmOygcZ0Z5GSTxAQuWI9mRNqREZIsXLQ/Qdif95jo5BRoY5Cqi6SknML0z
+	qMRSO8EjhKhrjr3NCyj9q6vRDJ5ddCL42VersHojf
+X-Gm-Gg: ATEYQzwVkTmZ7/GxhNTy/JXB8LXgcXpjA9ttO1M35bvFK87wJF2EzKSr8Dol3pW4pSX
+	cT1G9G/wOJEYTRGX2u0SainVDKExwtgtcTQiBCYzeXdy2wgsDh1u5gH6WolFM+YfhTtLspgDxqq
+	9ixyjjyKT56axBgzoDsShTSo57ay0quRu+WMCuZf9zqC8wxRnpKzo+v5DW8evPsTKVuWX6MZRsU
+	YGu672odJns3Cv7HvduR8mIr8vQuGcpfpxFEaXaG9rtaWwWTej35qiuQ4O1SSkWsafENRI7hhb+
+	HWSP9iyS
+X-Received: by 2002:a05:622a:178f:b0:509:14f0:bff2 with SMTP id
+ d75a77b69052e-50b148054aamr1140381cf.12.1773770581019; Tue, 17 Mar 2026
+ 11:03:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
- <20260316-tabba-el2_guard-v1-3-456875a2c6db@google.com> <20260317174013.00007622@huawei.com>
-In-Reply-To: <20260317174013.00007622@huawei.com>
+References: <20260316175451.1866175-1-maz@kernel.org> <CA+EHjTyBtM5idopKisJf_e10aRifubtKEpbkjkEnmrOqa9-SPw@mail.gmail.com>
+ <CA+EHjTy=MCgeKoi9sA_eDuiODucOdMP5m4CAciUW=rStgJggmQ@mail.gmail.com>
+ <86tsue6ezy.wl-maz@kernel.org> <CA+EHjTxF9fLtjdTtJontFuziRsgGMeE0bvEjHYqr64hDK3wLVg@mail.gmail.com>
+In-Reply-To: <CA+EHjTxF9fLtjdTtJontFuziRsgGMeE0bvEjHYqr64hDK3wLVg@mail.gmail.com>
 From: Fuad Tabba <tabba@google.com>
-Date: Tue, 17 Mar 2026 18:01:15 +0000
-X-Gm-Features: AaiRm52Ar1iyiv4x-nvNKaVG0bbkheBEtDjmXY2f_mDcbzvUm2a4Jch_nfn93sc
-Message-ID: <CA+EHjTwShV8cEtKdva5Ony0=oOhoaj6uQ3SP7tAia08P4pYkhA@mail.gmail.com>
-Subject: Re: [PATCH 03/10] KVM: arm64: Use guard(hyp_spinlock) in ffa.c
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <linux-arm-kernel@lists.infradead.org>, 
-	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Date: Tue, 17 Mar 2026 18:02:23 +0000
+X-Gm-Features: AaiRm53dTl6Qirg4e0url9XntUW8jOUcL89COPt1hC5dsOyIpA9_l2n6qMF9Tr8
+Message-ID: <CA+EHjTxUmBOK6fMmYcw3QR8V5rb-KM9vCN-deCeeB2QvDAOO2w@mail.gmail.com>
+Subject: Re: [PATCH 00/17] KVM: arm64: More user_mem_abort() rework
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_110155_979139_42D0853D 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20260317_110303_053442_B41D24A8 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,117 +118,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
-
-On Tue, 17 Mar 2026 at 17:40, Jonathan Cameron
-<jonathan.cameron@huawei.com> wrote:
+On Tue, 17 Mar 2026 at 17:50, Fuad Tabba <tabba@google.com> wrote:
 >
-> On Mon, 16 Mar 2026 17:35:24 +0000
-> Fuad Tabba <tabba@google.com> wrote:
+> <snip>
 >
-> > Migrate manual hyp_spin_lock() and hyp_spin_unlock() calls managing
-> > host_buffers.lock and version_lock to use the guard(hyp_spinlock)
-> > macro.
+> > > > The series in hack/user_mem_abort-rework is different from this one.
+> > > > Here are the first few patches:
+> > >
+> > > And I just realized it's because they're based on _my_ patches ... doh! :D
 > >
-> > This eliminates manual unlock calls on return paths and simplifies
-> > error handling by replacing goto labels with direct returns.
-> >
-> > Change-Id: I52e31c0bed3d2772c800a535af8abdabd81a178b
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > I thought I was clear when I wrote "I've added my on take on top of
+> > it", but maybe not. In any case, I didn't feel the need to redo what
+> > you had already done -- I don't think I'd have come up with something
+> > better.
 >
-> See below and read the cleanup.h guidance notes on usage at the top.
-> Specifically:
+> You were clear. It's the reader's fault, not the author's.
 >
->  * Lastly, given that the benefit of cleanup helpers is removal of
->  * "goto", and that the "goto" statement can jump between scopes, the
->  * expectation is that usage of "goto" and cleanup helpers is never
->  * mixed in the same function. I.e. for a given routine, convert all
->  * resources that need a "goto" cleanup to scope-based cleanup, or
->  * convert none of them.
->
-> Doing otherwise might mean an encounter with a grumpy Linus :)
+> I'll send you one more patch that might be worth adding, but this
+> looks great! Much easier to reason about. Thanks.
 
-I should have read the cleanup.h guidance more closely, thanks for
-pointing this out.
+On a second thought, let's stop here. I was thinking of going ahead
+with guest_memfd abort, but let's see how this one goes and take it
+from there.
 
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 86 +++++++++++++++++++------------------------
-> >  1 file changed, 38 insertions(+), 48 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > index 94161ea1cd60..0c772501c3ba 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > @@ -239,6 +239,8 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
-> >       int ret = 0;
-> >       void *rx_virt, *tx_virt;
-> >
-> > +     guard(hyp_spinlock)(&host_buffers.lock);
-> > +
-> >       if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
-> >               ret = FFA_RET_INVALID_PARAMETERS;
-> >               goto out;
-> > @@ -249,10 +251,9 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
-> >               goto out;
-> >       }
-> >
-> > -     hyp_spin_lock(&host_buffers.lock);
-> >       if (host_buffers.tx) {
-> >               ret = FFA_RET_DENIED;
-> > -             goto out_unlock;
-> > +             goto out;
-> Whilst it isn't a bug as such because you increased the scope to avoid it,
-> there is some pretty strong guidance in cleanup.h about not using guard() or
-> any of the other magic if a function that also contains gotos.  That came from
-> some views Linus expressed pretty clearly about the dangers that brings (the
-> problem is a goto that crosses a guard() being defined and the risk of
-> refactors that happen to end up with that + general view that cleanup.h
-> stuff is about removing gotos, so if you still have them, why bother!
->
-> You can usually end up with the best of all worlds via some refactors
-> to pull out helper functions, but that's a lot of churn.
-
-If I respin this series (depending on whether the maintainers think
-it's worth the hassle), I'll remove all changes that just add churn.
-
-Thanks for having a look at this and the other ones.
-
-Cheers,
+Thanks again for this!
 /fuad
 
-
+> For the series:
+> Tested-by: Fuad Tabba <tabba@google.com>
 >
-> Jonathan
+> (might as well repeat it here)
+> Reviwed-by: Fuad Tabba <tabba@google.com>
+>
+> Cheers,
+> /fuad
 >
 >
-> >       }
 > >
-> >       /*
-> > @@ -261,7 +262,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
-> >        */
-> >       ret = ffa_map_hyp_buffers(npages);
-> >       if (ret)
-> > -             goto out_unlock;
-> > +             goto out;
+> > In any case, I'd appreciate your feedback!
 > >
-> >       ret = __pkvm_host_share_hyp(hyp_phys_to_pfn(tx));
-> >       if (ret) {
-> > @@ -292,8 +293,6 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
-> >       host_buffers.tx = tx_virt;
-> >       host_buffers.rx = rx_virt;
+> > Thanks,
 > >
-> > -out_unlock:
-> > -     hyp_spin_unlock(&host_buffers.lock);
-> >  out:
-> >       ffa_to_smccc_res(res, ret);
-> >       return;
-> > @@ -306,7 +305,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
-> >       __pkvm_host_unshare_hyp(hyp_phys_to_pfn(tx));
-> >  err_unmap:
-> >       ffa_unmap_hyp_buffers();
-> > -     goto out_unlock;
-> > +     goto out;
-> >  }
+> >         M.
 > >
->
+> > --
+> > Without deviation from the norm, progress is not possible.
 
