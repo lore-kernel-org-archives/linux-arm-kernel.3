@@ -4,129 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45108FB5EA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 03:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41528FB5EA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 03:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C8MwDfUojx/c26V4vpzGe2oCFICxNzOdSEmEmZ0qfoA=; b=RHpVnG8M0CQr667FxmBHxsyZFQ
-	X0TbkAp/qnyaIUpBLIh1DScVPhGxDc5dmnNwq+BZ220ybyKBM6l3lm4rYPvkqBwZu4Gf5iavmm4f5
-	SRwJrxNn2k9mKuyg8yy7FXua6CXai2vHT7A23P2t8EiN2rw4FkcjPGRUltqeXbzBbA/WqS7Rb8qdA
-	exfCz0JuoZVzYJ9Wzj7fLgxPkkatF7/e6/uuO8KNUQRrwkwvcucpDfHMghS+ZM0merQXBqhggNXk4
-	naj/XC3i9KBUu3xZW0QAvDBtEvUFywaYOTGOiJK1Yy3jTA0hTj/xjkkVL2vd4PAaG/h3yWbFmF3Mj
-	tggYuSyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pIA5bzRUo/kqjvuSbXtkhZ0/jdS0vsz2MPNHxmrgJFE=; b=Z8JwnXNN7ApG9ahKf/056EuiQK
+	YaXPiaHw2HQyl5iqmlYCpXZ7r5MlGXqbP7ldV827nGil0wuci4+sJRhvEi0pvk58GwW8GKGBqNbm1
+	Ddg6Oj6ZTG0/B5DZ0Tnmfp5YmsOQYdJDT3DNlGvX+cd41QSBMtUrdAGmhunT3ehUhj4A02QglqHjN
+	MUltWS3+IVvY1XqlVGfVXGSuiSqHNORVVe4XW/SKfgHXomlDrU2jPU/KoZPnZARNqqq5fifngcbOp
+	sCHdumUPRIlC1jrw/bPcaHJ09//U5UFPtEplCK3YFQppiMJzQOmSP3vKkNHBVf5OWu5KneGPRdqc1
+	xZoTAjSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Kit-00000005HDU-1zrE;
-	Tue, 17 Mar 2026 03:03:59 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w2Klb-00000005HQQ-1XKc;
+	Tue, 17 Mar 2026 03:06:47 +0000
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Kir-00000005HCE-0xWy
+	id 1w2KlZ-00000005HPX-2Qnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 03:03:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PYH12VYTpjcgZfVJFMKMIaeGlfy/jZFoSOStIIyubRRpr840K4CrdbZ9O34C60FPI+5XzKRqxqUACLrUctoRsLWE0rXR1R6aVKDKWIZd5uXtaEmUQsk7Xo89S07CMf9Ogv7c4aMq0MTZbLTX1fRsNnvXjtIH8bw28KlWiTQYZ3XIaq2PsPANvg6I6koWZydspbJEgr13nvdyXLZe7lauNY+E3y4/EhpqzLIu5cq11MMxTDByzmHWsldlNtSrfG0SQuxfOuHLzBRWZTHaUSxzAUChglvwqWoSOJoDDswO/nSzdtESJqy3x1N0xunWtvtX+0d3PpwCW11Un1NmhANqsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C8MwDfUojx/c26V4vpzGe2oCFICxNzOdSEmEmZ0qfoA=;
- b=ZHPNFYuEpn6lBGbWLIrWDIPrDAB/jgC34oZqVavqiKLTZfPQM0/GXy+XjcOfMD/aSgLrJ2TXqj5GFAwx8VNsmt2L2l+0CYnlbo8fMT8HqS4AG6lSrJFin/y8mE9d82CRT1lrgNqLnYBqpBmX4Qv9jpw9q+dOg2/oMNOP7tJ4WkNtYjCzkIZ1s8Ed2ugKe4HPbxRSXZEP6x5oLLXzAPTQOmJ687dAUUKZA5rCnBU5nlaRSvB2owqGF8oZOo1pChJ6L7P6yFuJ6e2dbX0rKh1enonmJKFthEUyZaX7gt+PZDe+ZoB5VRtZ9RZTgMBozPZlbTo3Ojq9z8y/MBdWTUDPPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C8MwDfUojx/c26V4vpzGe2oCFICxNzOdSEmEmZ0qfoA=;
- b=VasspV8p/xvghZbz2cbKLj4MplPph0z4Gp7jDMzC6rTlPSPyArV3PflqM3V7ohj66nm3dxf1Sfpbu0CqDtKlZzaNZW6/GT14gWpZlfD9K6ba1ywsIEZKeCeSyyrA+oj41+z6hTDp21YWG+RZRE6LSU2T5R+h9+F4NL0sxc5h1htRVBzLWiTeX/7Uhxk4oTKaJklcuFnuyMZsKOFav0RaNhIhJvv2LaEoC02zfw/mbBibYR4+PKpuHs3QsF6ytYXb+pGjVdVLkOTyOmZDwOdkEtcCMTBfK8IHDQeVaBRwNfDFskoCj+Y8//Ub00Pf5H4GQ0H3sf6TdVaV6nHc8KM6jw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by VI0PR04MB10878.eurprd04.prod.outlook.com (2603:10a6:800:259::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
- 2026 03:03:24 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9700.022; Tue, 17 Mar 2026
- 03:03:29 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-usb@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: [PATCH] usb: dwc3: imx: avoid calling imx suspend/resume callbacks twice
-Date: Tue, 17 Mar 2026 11:05:46 +0800
-Message-Id: <20260317030546.1665206-1-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0013.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:179::11) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Tue, 17 Mar 2026 03:06:46 +0000
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-41729dc7d7aso1940915fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Mar 2026 20:06:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773716803; x=1774321603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pIA5bzRUo/kqjvuSbXtkhZ0/jdS0vsz2MPNHxmrgJFE=;
+        b=O+ONBUeC2Ydk2uIeTn7HSjsKWlkyQuIfbHTTeOYaTKtbfuwpOe5l0i+5rV1trR0no7
+         2WtF7D4fVFhB/ehzkd4vpEe4+KrGEDooqDzVhtwNvjlDNDBX37TS3/pK2k6JlG6Lk/NP
+         oIG1Owfu/CadNA6869Cw2fE52RoFVZXv4E3dvfoZ550uJTtSvsijamzt4Ql15Q0fRy/F
+         BS5qSI7Ecw13iF165u0AxOQyX3x6bUlxVrV0pGOgWdIfp3oXSzqZ+SnJ2Xe5pZC8ZHMV
+         O5z72x1yyp1tpzl5dGyqKAou7nU9YXL2KBR/zncTzBRRC955GUOQEB312GSn9FviRCFO
+         l5Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773716803; x=1774321603;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pIA5bzRUo/kqjvuSbXtkhZ0/jdS0vsz2MPNHxmrgJFE=;
+        b=rwdk+Jq4MdiRLle2iiGS/FHLsj/i36N2EsSf25ojPRIU1ZrttidduHWAE3j6zwLHTi
+         affL4mLyV+at12gnFQB3aMvKwFK1PUIiSOYugXTiCEFH73wHX+ZurotLIe45q338+rUb
+         nrMeqMn1kDNkX1SRbza7RwOd3oIpmhiH2SgbXmvzZwLWRB8hGoOM8h18cKoXayA2BmId
+         JyvLpUAohP8PhM2Z9CVc9+tKwCiHmvpQiQw86hx48VI4jP9jL41Ocmayp0z3HvNL1UDA
+         wcoT+BMCqHx1GSUzZ28YxgSnreDVLf0uQPBgez+Ljb28QKi6AX+xVheMefWD9pE7E4yc
+         BYgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVtmqeMUETQz9CF6LauKrQ5farabldbMkeK9vGoQl8O1s3vTRUZZL+riiZKP8STJaBKXMo2jvZrPR+EEp2n/OO5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUwaQzZ20O8nFKDnuYLbCeY362dCGr/cXRwsWPCFcmns5VBXe4
+	JhggEZwdbUl/AZGPOn1DXZOtSirwSbEJWyw/pChosni0zPcoP9Keiirdbi6QGjn0OZ4=
+X-Gm-Gg: ATEYQzwuJdu/hPHyoYFblosc/CnUCG0osNfS/0/l8LLZY0Kw1DlNnmZBXglYapQ74gO
+	C6e+FoNCMNReAkMU/IBm4rypRuiL/dE+EWHZGyjSFNJbv/tV6JPBZY3H6mwcLRg0h3FNE9MGAMF
+	MiI/59FTCKA/V5XW3CmepsG2hGGqIVBuSIRcZUX+Nm4iQR5+Nst82DrUaz+x5MLNN00iI44eT3e
+	bM8R/Nj9gMIWzQlwFGpNQ1e2uXZ3JLtewFQP+46V65pVHQ6owaUM0rKN5Sl8GXaJ2oMq7ERD315
+	SYNGS4n/iw5N3gVcIx1rJHnRMrEUAdHlOLXRKth7pbid2RqOhE5JCf371cUofHq8Mi02JcXzaeL
+	X40OiEStWN3nWJhEyxtYcrzFRbp2EBqHT9pP5lxkt9uGbZzaiwG0SMGUpwvNX1EssR//lOdCRt3
+	4RAprdoFuIXsu52orTKOiDUEfA0//yTxjAbXzobVxj
+X-Received: by 2002:a05:6870:c154:b0:40e:a338:c8a1 with SMTP id 586e51a60fabf-417b9072c62mr8995239fac.11.1773716802857;
+        Mon, 16 Mar 2026 20:06:42 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.33])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4177e1f9f86sm18099947fac.2.2026.03.16.20.06.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 20:06:42 -0700 (PDT)
+Message-ID: <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
+Date: Mon, 16 Mar 2026 22:06:40 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VI0PR04MB10878:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f3da5e9-9f1f-4fcc-ec2e-08de83d1c3a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|19092799006|366016|18002099003|56012099003|38350700014;
-X-Microsoft-Antispam-Message-Info: OISdrtTtUH9Z2FY8z61ZbQrcIEZI55yO7QkAP9rtAv8ZjKRcdwVSBjMQ0tZVcQFbGXDVGwSXu75r9wS63mW8egwW4IIx6m+w7m0Uy4WyOW+qy8rZR9KkRfp43tbfPWryEPn+xEdpZAslX6s0/2hTEnQJynk/sChQyfvOC1cZiKDCvO3vBcSRKWxcVmMoBuiEQ/VmTXPK22qYux8vjQbDkdqgiWprV5WK64FbdG/nve2oVJ0fxjBYaKKfAMVOKq1c+isBCUXb3QMqxQ3V9rd3Boddn93SFO1KcsHBDO3toeKoteXoXuJjijT1CYktROIzyV64TCFtB5yratLecX9mzMpkqKXXiiA8bm7idwMibaWQu8qlpL5Eg+x6CFYcg9mnUzMUnmEFdekRwAxZpX/PgsuazSbwuEqlPh8ZIXNV4O3sgHt2R9HwpeMpLf3Hyhr8GdDHZJbABz7ugD5a3om6ZyCBDCwzmBo/hXfKJIbVhqkPMYHM8exhpbonUb5diem61t/gEVUwL+t0d+JqQZ8K10IdVewY/MK6M3bcgdhQnYo/hbaEnfQ33HShuxm1D4uqrnd+XfBUcNKmEiMGI6WF/41LMw3LnoGEg3N8FkLpwo8qes6nPkA8b1ZeCbDXu2eMY2+lE0S8ttpqYelE8bQSWpAiZpNVyOuWakvAoiEdxl+/t4J8xaUtkVmE7I2VUX6ziMVAXz1buxSjVqz3n/xpvNzNL1dbE8HXQwWgmK54FnSsrwbieEczIx9olD3lGbu3kdMPCSlceC4lO3RA5BpZFpDnfGv5hiocRFnwErburws=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(19092799006)(366016)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yyjPyMrYzieNJ1spMuMZaUNE4fxeu4I/WkaBjkMYpDdrzStE12YaanO9QkXf?=
- =?us-ascii?Q?agjbPrH6qEqppjc0AUY2o60QwRquxb3lZ/4RKKYGmV2gMfYsKS7RYqdXa/DA?=
- =?us-ascii?Q?bn8bpVJhF/2yY1jiBHijpe1sHIe+VLlvDyu6j5AtBgPdRuJs71T40DloMz9G?=
- =?us-ascii?Q?Rtb4bcH0TeSNgcCCioXV/GY4U7oKRl56rHc5B6RoALicXs+My46N0iw157s0?=
- =?us-ascii?Q?NpAO3La/TbVUIwSLI0j1A26XUNs+V+K3s/ngfgfurHJJDnNAeqHZDtkvMSbx?=
- =?us-ascii?Q?ApdnQbRmwdaN8ysBHZ3Zo4H7WBCQD5rBAWGfY+wklM754VPfoNMBVFByOybt?=
- =?us-ascii?Q?X1YNvB7BRN6rmP4rN9L3XFx2GH0NVkwdcH7oEGaSrFR/RXvhX4cQaNfTPaCi?=
- =?us-ascii?Q?v3L/RD4p7HrrJIsvNWP04tDELgh7Y/akn2mkYzzf/UqUouyWbsxXCOb3yLzX?=
- =?us-ascii?Q?T3ShS68l/jEUuRp8+E+ZY700Pw3cE8YXN7UElnLpEP7gD8+mJxjpdbFBc2Oa?=
- =?us-ascii?Q?fTY1PepPo/JL0Ifu4zLqvMRo1vswS2u0ThRdpVbgy5vSnfQQR8KLfq2GgxwZ?=
- =?us-ascii?Q?3n6yB+VFHYWqQvHJNy/PSleK7InVbnE5A9OqIfpr1zZbkBgZNlSPM6p3t8ty?=
- =?us-ascii?Q?7ajy5vMUjZHAirj4ANeo4jiZGjjjBxeN2BpEkD1NpPrmH3rjQoefC8FsNSEL?=
- =?us-ascii?Q?1rUah3YMTBMY4Vj38NPs9MAM3ZPKfyhZRI2rR64VjnsGRvKmvVDBiVR+WtnV?=
- =?us-ascii?Q?HwvleTlQ5/0h2Z2IoMOexhq3EkwTd5FrsZgK3xAxJ65UQtihriW7KFfZxk2d?=
- =?us-ascii?Q?tQoDkvQ8I89YstwuydtDvcztunIjmlzIW+/iuPSHSFNRkx7zTqCpgAn5chVy?=
- =?us-ascii?Q?khuwOdxAxqXRg2RXmKIB65t7MS+F+38Ckz+0a1ijTqs7CnxSpiEqZBOSmHdI?=
- =?us-ascii?Q?owj1dR35RF2+3pTbRwBUvjGspD8KO3Td/SQlli1L9zQu7Awbeq49xO8SD3Z/?=
- =?us-ascii?Q?BxttufLOcP67gmUEx1nRqtU3fOYM2ZDaSi+ZsRzYfvG0mHYnGM9I09qA545O?=
- =?us-ascii?Q?+8pQMax0mF6+imhbdxfTVA9EY4A30M6/BOTJd4E2pAiaHGeECm8Tdm4/0pEc?=
- =?us-ascii?Q?63FE4Fa8L+fZCbMXwgo/+mjqQV4LD4AwXzoG6M5ckhVbiPlPcvS34N9Um7Wr?=
- =?us-ascii?Q?+epWj4iDL9JIWhyw85B4jcea3Kj4D/YReI4+am3FwlMX1ky2hmplKnSwj3bm?=
- =?us-ascii?Q?ZJOJKPoAEMLqBhdA/LQpfgxbTTgewqkLEck4WCKU2ugBDX4NXEE2qALvlPgr?=
- =?us-ascii?Q?/sQF89g6ilq6XeKj/PVCmJZLd0tzAw5nnTijbR6S/I2GeJGiTcPDbdpKeZqE?=
- =?us-ascii?Q?nVQpbIuejzp1qzCRZPY+RSvT6zL3k0HFyYB5B1XwK4E1dBBvq7vhWnCvy3X6?=
- =?us-ascii?Q?3QMyvxV2yXQNfsrdsBA+l9Me+jwje3P1B7S9md3HcnSx+V+F5EDE/iQ8rVvN?=
- =?us-ascii?Q?fejq9vqtAbdDDxIuy4F4/4uwszF/TzWBh7GvexJ0FIkZap9Xo529RoYwmTIu?=
- =?us-ascii?Q?dNajQfuGex5/84CvuEWyf34HP9iQy2nqEX93+IMD2Isa168vs4gYmnIwxpgp?=
- =?us-ascii?Q?bujOYiBJ1lUpXjIh6k7fiPHPK3GnkkF8Jadf5LpuIMgmP/7CZcMVxlo+jCUb?=
- =?us-ascii?Q?GEWuwAfXDgYaiP64QGYnw/uWaPbyBjg8r4B0Bu/Mo4xXjJyPmNeurLbkuv/4?=
- =?us-ascii?Q?AbpLiACQQQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f3da5e9-9f1f-4fcc-ec2e-08de83d1c3a9
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 03:03:29.2317
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1N5FIs9t4MLXkA67MmIwhPgHiRHH9Y5WGlTlRJc3JWtqFP+iMXlPBlFfV08UJnuA1HqLVxkg+Nwh3Xinq4QYNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10878
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
+ __futex_hash() hot path
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Sean Christopherson <seanjc@google.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Charles Mirabile <cmirabil@redhat.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Huth <thuth@redhat.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>
+References: <20260316052401.18910-1-kprateek.nayak@amd.com>
+ <20260316052401.18910-8-kprateek.nayak@amd.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260316052401.18910-8-kprateek.nayak@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_200357_273134_009BCC1B 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260316_200645_676242_AADFA104 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,44 +121,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a runtime suspend is executed followed by a system suspend, the driver
-may invoke dwc3_imx_suspend() twice, which causes enable_irq() to be
-called twice as well. This leads to an unbalanced IRQ state and may
-trigger warnings or malfunction. Prevent this by checking the pm_suspended
-flag before running the imx suspend/resume path.
+Hi Prateek,
 
-Fixes: 76fc9452a6bf ("usb: dwc3: introduce flatten model driver of i.MX Soc")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
----
- drivers/usb/dwc3/dwc3-imx.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+On 2026-03-16 12:24 AM, K Prateek Nayak wrote:
+> From: Peter Zijlstra <peterz@infradead.org>
+> 
+> Runtime constify the read-only after init data  __futex_shift(shift_32),
+> __futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
+> hot path to avoid referencing global variable.
+> 
+> This also allows __futex_queues to be allocated dynamically to
+> "nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
+> (1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+> 
+> No functional chages intended.
+> 
+>   [ prateek: Dynamically allocate __futex_queues, mark the global data
+>     __ro_after_init since they are constified after futex_init(). ]
+> 
+> Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
+> Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
+> Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+> ---
+>  include/asm-generic/vmlinux.lds.h |  5 +++-
+>  kernel/futex/core.c               | 42 +++++++++++++++++--------------
+>  2 files changed, 27 insertions(+), 20 deletions(-)
+> 
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index 1e1580febe4b..86f99fa6ae24 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -975,7 +975,10 @@
+>  		RUNTIME_CONST(shift, d_hash_shift)			\
+>  		RUNTIME_CONST(ptr, dentry_hashtable)			\
+>  		RUNTIME_CONST(ptr, __dentry_cache)			\
+> -		RUNTIME_CONST(ptr, __names_cache)
+> +		RUNTIME_CONST(ptr, __names_cache)			\
+> +		RUNTIME_CONST(shift, __futex_shift)			\
+> +		RUNTIME_CONST(mask,  __futex_mask)			\
+> +		RUNTIME_CONST(ptr,   __futex_queues)
+>  
+>  /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
+>  #define KUNIT_TABLE()							\
+> diff --git a/kernel/futex/core.c b/kernel/futex/core.c
+> index cf7e610eac42..6b5c5a1596a5 100644
+> --- a/kernel/futex/core.c
+> +++ b/kernel/futex/core.c
+> @@ -45,23 +45,19 @@
+>  #include <linux/mempolicy.h>
+>  #include <linux/mmap_lock.h>
+>  
+> +#include <asm/runtime-const.h>
+> +
+>  #include "futex.h"
+>  #include "../locking/rtmutex_common.h"
+>  
+> -/*
+> - * The base of the bucket array and its size are always used together
+> - * (after initialization only in futex_hash()), so ensure that they
+> - * reside in the same cacheline.
+> - */
+> -static struct {
+> -	unsigned long            hashmask;
+> -	unsigned int		 hashshift;
+> -	struct futex_hash_bucket *queues[MAX_NUMNODES];
+> -} __futex_data __read_mostly __aligned(2*sizeof(long));
+> +static u32 __futex_mask __ro_after_init;
+> +static u32 __futex_shift __ro_after_init;
+> +static struct futex_hash_bucket **__futex_queues __ro_after_init;
+>  
+> -#define futex_hashmask	(__futex_data.hashmask)
+> -#define futex_hashshift	(__futex_data.hashshift)
+> -#define futex_queues	(__futex_data.queues)
+> +static __always_inline struct futex_hash_bucket **futex_queues(void)
+> +{
+> +	return runtime_const_ptr(__futex_queues);
+> +}
+>  
+>  struct futex_private_hash {
+>  	int		state;
+> @@ -439,14 +435,14 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph)
+>  		 * NOTE: this isn't perfectly uniform, but it is fast and
+>  		 * handles sparse node masks.
+>  		 */
+> -		node = (hash >> futex_hashshift) % nr_node_ids;
+> +		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
+>  		if (!node_possible(node)) {
+>  			node = find_next_bit_wrap(node_possible_map.bits,
+>  						  nr_node_ids, node);
+>  		}
+>  	}
+>  
+> -	return &futex_queues[node][hash & futex_hashmask];
+> +	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
+>  }
+>  
+>  /**
+> @@ -1913,7 +1909,7 @@ int futex_hash_allocate_default(void)
+>  	 *   16 <= threads * 4 <= global hash size
+>  	 */
+>  	buckets = roundup_pow_of_two(4 * threads);
+> -	buckets = clamp(buckets, 16, futex_hashmask + 1);
+> +	buckets = clamp(buckets, 16, __futex_mask + 1);
+>  
+>  	if (current_buckets >= buckets)
+>  		return 0;
+> @@ -1983,10 +1979,19 @@ static int __init futex_init(void)
+>  	hashsize = max(4, hashsize);
+>  	hashsize = roundup_pow_of_two(hashsize);
+>  #endif
+> -	futex_hashshift = ilog2(hashsize);
+> +	__futex_mask = hashsize - 1;
+> +	__futex_shift = ilog2(hashsize);
 
-diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
-index 303708f7d79a..973a486b544d 100644
---- a/drivers/usb/dwc3/dwc3-imx.c
-+++ b/drivers/usb/dwc3/dwc3-imx.c
-@@ -288,6 +288,9 @@ static void dwc3_imx_remove(struct platform_device *pdev)
- 
- static void dwc3_imx_suspend(struct dwc3_imx *dwc_imx, pm_message_t msg)
- {
-+	if (dwc_imx->pm_suspended)
-+		return;
-+
- 	if (PMSG_IS_AUTO(msg) || device_may_wakeup(dwc_imx->dev))
- 		dwc3_imx_wakeup_enable(dwc_imx, msg);
- 
-@@ -299,6 +302,9 @@ static void dwc3_imx_resume(struct dwc3_imx *dwc_imx, pm_message_t msg)
- {
- 	struct dwc3	*dwc = &dwc_imx->dwc;
- 
-+	if (!dwc_imx->pm_suspended)
-+		return;
-+
- 	dwc_imx->pm_suspended = false;
- 	if (!dwc_imx->wakeup_pending)
- 		disable_irq_nosync(dwc_imx->irq);
--- 
-2.34.1
+__futex_mask is always a power of two minus 1, in other words all low bits set.
+Would it be worth using an n-bit zero extension operation instead of an
+arbitrary 32-bit mask? This would use fewer instructions on some architectures:
+for example a single ubfx on arm64 and slli+srli on riscv.
+
+Regards,
+Samuel
 
 
