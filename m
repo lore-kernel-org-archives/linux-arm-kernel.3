@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32BDFD8763
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4CEFD876B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJolCzmJ9w3E+51MsIBIekdnoK8ty7dBHT3uu7ZgVUU=; b=fy4iDqcgDXpLNaiPByq+vU6WMU
-	DcHv32Lmg3F6OSX3xzXkArQ5TT55CnQ44nePhz8RJld/SQX07DugkvgV9y5iLZ2g6VGL6LJTp2hNK
-	Kfszy/2y12yuEK9xCIftMWAMFUZrsg7VrXD5rhDzzA7zfrT/f2quCOmxicFU9rqcg0M1nA24M8N7s
-	h3Bb4D2crEtvUYFwRi2O2KkleMoXjYZBMk0KglXXB6tnjWmZ6cudQVHLBV7tV1fnlfNnoRWzztvpm
-	QBMeTUXM22MSdyjJZcC6u6sPjM8b5eCwxWB5/XupRQU9Lp+Az4uTp0agiVhZz8fPKgGR1oKsZgJfX
-	u2p3io8w==;
+	bh=mYXoHgOnqzH4HBKsdPzNNq/jGXF4Z35IdiG56QCuC1k=; b=EUGSsDc9H2H5TSf+jD8aozz1NX
+	KSrFV0INbPcy7+6ApzifRGb7cwijMXWI+XmwwDyCWLG+I/13/b59F7upkYnv+C9QCLU2vuuivtbEV
+	t9e1P+lkeHY6Ri417gXTUtieY2nHvSsAshLxzp7TpObJHseMxXaR1nc9sk2xRQ6uSbxf3X3tikCah
+	pmtfeyqT16Bla3JUG7KQi8puhKlEERS47KIZ7HaLrNg2gM2HVpZPIpczufebR9y/uFkpxkN+KRtB3
+	tTVlN52qprjT6j0J1YY3daMtHUwZyaRe9sYBSa92vEM2ReQ3uTjaETyJyYqUr52ieIsD8QSmYOxm9
+	m3jzfCvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Ubb-00000006SZz-1k5f;
-	Tue, 17 Mar 2026 13:37:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2UcU-00000006Sft-3Ki8;
+	Tue, 17 Mar 2026 13:38:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UbZ-00000006SZZ-1qy1
+	id 1w2UcT-00000006Sfi-1f8z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 13:37:06 +0000
+	Tue, 17 Mar 2026 13:38:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7D5243A5B;
-	Tue, 17 Mar 2026 13:37:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924A4C19425;
-	Tue, 17 Mar 2026 13:37:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 83B0060008;
+	Tue, 17 Mar 2026 13:38:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21517C4CEF7;
+	Tue, 17 Mar 2026 13:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773754624;
-	bh=zb+0/FpWFSBGeehYQnYgKbMASYQhs0tC6XBZQs83Cu4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=azsZU0HtzNfnw7wxjErPMaACGtdOh4r0Qf0Q4shvlX8XswFL44FCQ9c+ZVPhU2C0O
-	 +cu9oDgM3eRmBhi8LWaOUekJajlm+hxAvsWTmbkNzDL07Xx7wSol35e77uViJSSgwE
-	 jK5mdFlZQIzcubzEA6MI3yX7saHlItX74fVVMcS9C/lmSMHpFjlNCcQjwYIIIevBnf
-	 o/Q1HZmWxRuE4wMeoMjAVs4nZR6A/0lCMoHBkG5+SJJnwq0vP5UkUYcBWLGaX6qNkT
-	 AR2Szk/aSG8FreCT98qeFkct8OOSUlhVOf5ivIm62BbpUZsIcaNdbYBdZCSW5IeqtS
-	 kruBu8qiV8/pw==
-Date: Tue, 17 Mar 2026 13:37:00 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Artem Shimko <a.shimko.dev@gmail.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: extract domain ID validation helpers
-Message-ID: <20260317-innocent-prawn-of-acumen-68c2ca@sudeepholla>
-References: <20260122161728.1225583-1-a.shimko.dev@gmail.com>
- <CAOPX745OsSOuZirpvW5nXDEbjpZXbmXtgQ6zB=dMX2tP+jhgaw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOPX745OsSOuZirpvW5nXDEbjpZXbmXtgQ6zB=dMX2tP+jhgaw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_063705_499730_F890B702 
-X-CRM114-Status: GOOD (  15.67  )
+	s=k20201202; t=1773754680;
+	bh=XiXn41pL2mt6VJb+KOB6yO3Ib6UpJH/uxeyyDCOxJyA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fuE6DjED9CTPH8f9EXRTnRTf+rL+QXqdh0zK/bCJDqNAYrUxe4dNcEF2shjsFq5iV
+	 vTM0nQdqhRnTTFP9Ja4W4treexcNeA/7O9w1OhLmS+4oeeMehhvP3qxPrJJ+hiDrMC
+	 /MQbI/XOs50gqNUzauoTyiGTGViQRMUaLdprVMnyJ+6Qx3hprQ8qg+JthEE+AOq9Ke
+	 kI3HFyN48wY0HqBwVkS4sIe1t+XsmmrZiwMuD3lwRXxD32Dsb3nyZrZCvgXHBSbmYe
+	 QiicapWWTa8oXvF0jX+DBKCH9HqUYp9JRNSdpZFRODJN7HYyezisCb0px9zcEWOOgn
+	 7HckbnmP4F6jA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2UcQ-00000002rPw-0DDo;
+	Tue, 17 Mar 2026 13:37:58 +0000
+Date: Tue, 17 Mar 2026 13:37:57 +0000
+Message-ID: <86ldfq60ga.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <zenghui.yu@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH] KVM: arm64: Fix the descriptor address in __kvm_at_swap_desc()
+In-Reply-To: <20260317115748.47332-1-zenghui.yu@linux.dev>
+References: <20260317115748.47332-1-zenghui.yu@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: zenghui.yu@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 03:05:59PM +0300, Artem Shimko wrote:
-> On Thu, Jan 22, 2026 at 7:17 PM Artem Shimko <a.shimko.dev@gmail.com> wrote:
-> >
-> > Refactor the voltage protocol implementation by moving repeated domain
-> > ID boundary checks into dedicated inline functions. This reduces code
-> > duplication and improves maintainability.
-> >
-> > The new helpers are scmi_voltage_domain_validate_id() which validates
-> > a domain ID and returns an error code, and scmi_voltage_domain_lookup()
-> > which returns a pointer to the domain structure or an error pointer.
-> > These are used consistently across the voltage operations.
-> > No functional changes are introduced - the validation logic remains
-> > identical to the original inline checks.
-> >
+On Tue, 17 Mar 2026 11:57:48 +0000,
+Zenghui Yu <zenghui.yu@linux.dev> wrote:
 > 
-> Hello maintainers,
+> From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
 > 
-> Just a gentle ping.
+> Using "(u64 __user *)hva + offset" to get the virtual addresses of S1/S2
+> descriptors looks really wrong, if offset is not zero. What we want to get
+> for swapping is hva + offset, not hva + offset*8. ;-)
 > 
-> Do you have any thoughts or feedback on this approach, or are these
-> changes even irrelevant?
+> Fix it.
 > 
+> Fixes: f6927b41d573 ("KVM: arm64: Add helper for swapping guest descriptor")
+> Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+> ---
+>  arch/arm64/kvm/at.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index c5c5644b1878..a024d9a770dc 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -1753,7 +1753,7 @@ int __kvm_at_swap_desc(struct kvm *kvm, gpa_t ipa, u64 old, u64 new)
+>  	if (!writable)
+>  		return -EPERM;
+>  
+> -	ptep = (u64 __user *)hva + offset;
+> +	ptep = (void __user *)hva + offset;
+>  	if (cpus_have_final_cap(ARM64_HAS_LSE_ATOMICS))
+>  		r = __lse_swap_desc(ptep, old, new);
+>  	else
 
-I applied and then realised it is not necessary to churn so much to just
-unify the domain ID validation. So I dropped it.
+Holy crap! How did we miss that???
+
+Thanks a lot for spotting it, I'll queue that now.
+
+	M.
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
