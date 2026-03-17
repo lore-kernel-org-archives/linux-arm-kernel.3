@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E469FFB5EA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 02:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F879FB5EA6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 02:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sNM9Jb14J0evq05XH4j8QBYQXMrFLpykRBjI7g6ADVk=; b=Zax0lfwA8ED0wi25F78nIiDTC0
-	bmZTq915KIJ6cRwRwCcOvGZmtD3+NH3WBr34RXm31ansC/hQ/MMeK9JsfOX65PU1e9WifGkhhPKoh
-	pUEg5Dp4zswsgp6MPm3XiJ5ELJpnwvKX5RLGOc1Y6Iy7bzSxY58/6TifEmwgKUJVFJCIrGTZu7N78
-	UHh/VEG+g8uO63t+FsfqNIV2hjFhiszOnihC5jtpnWjS+hkK+k1z8VSIQTd2V0Zral5S2SPGjis/k
-	h3NIbXb+E9xxdiu+zx+ZBEBcUgYr6HTVwbAiRsqydEfV6e9t4EgXd2+WvXGthfQLIBUiWIf4DvsFC
-	wuWuzeVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QhsVjveTx0d6rHIu6iUQS+9D3tNDGwM+1vUJeV1ara8=; b=nLOLTfgXdsiLqJXqGpxtYXbpDN
+	UcI5w+jRBxKsN97H7Rh6kmB+8n3Kjgopz7Zi1pMZmF3XOHIsSlE0Fa2b/2ZVb1p/4Ogy7fHsoKzGZ
+	9cVxAkHCqQZd7Lu73Wy2SEVRLLhrmRWI6yL/4hy6hzV2VIJPSR9JuPm4WSR2YL2XvcIo8eInpFJfJ
+	569Iao6w/4ZaR+teyf5Ber4VxCzEkyceWr3LUsljzE3uA1iefhRa75HxmfiN35vqfbBO2Zjcd2eMQ
+	cEaHEG9fJjPRtxVOoGM7oZ3w/gQsoFGtNvYDCIzA3Ms3Ncn+t3B5Qnk7lypyKUMdlIluB1v+NoRw3
+	GsRzFZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2JvZ-00000005EXi-3Zlv;
-	Tue, 17 Mar 2026 02:13:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2Jxf-00000005EpN-0U48;
+	Tue, 17 Mar 2026 02:15:11 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2JvX-00000005EXT-2nxN;
-	Tue, 17 Mar 2026 02:13:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=sNM9Jb14J0evq05XH4j8QBYQXMrFLpykRBjI7g6ADVk=; b=Fmaz+1GdyxpfxgqVdrwsNnDiEo
-	hHE/KpK7b3+y/pQ18HIbYLs1SYgpwkF8lf6SEJD6RLfxwwxGwFaPhVqj4mdZxU4QQrU8cT0B0VSU9
-	FKwkQcxOuPD6D+M1AllCqvS0QTRYamoZCZLrdCJ3XO7fyb3d2sWrPp9sqkvgMT941/ouU8gYiW67a
-	S9AC8b4zFtSiVkeawdxRPITCuKtz0jMwf33WK/vE3qCu99LcpcI8Odr2j9C/lm0H17ul+birGPyGi
-	DhBashXAi6C6txwydlv0lp+gwYdlDAmm4AKTESIr3NWy90G0+OWFenAkYCHpYRQ2Ao5ifXxcGsvfi
-	dfm4MScw==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2JvR-00000007ygO-2vHU;
-	Tue, 17 Mar 2026 02:12:57 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62H2CfpzE3055258, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1773713561; bh=sNM9Jb14J0evq05XH4j8QBYQXMrFLpykRBjI7g6ADVk=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=akcU5cmHjbxrgodtLbWMaIhrjCiMnSLpDvxt5Yorv5xtWy+n0Bbfc5l2Wa5F/FwjV
-	 V+i918H2w54XUyolsVkvB7XmOnL3cYN/PGj6fUn5KPHuuqWVjyYhAf9izPsGtWhmLd
-	 Lc0338Z50uQdXDs25YPLgYQeZIqjzvCRLqOfrlgjBMS4fV+sZKroSFB2LB863rwv+p
-	 tMVeD8nkjxNzH6E8y07RcjA5vnHpUiI92TG2Uok5acy9R+tN4eVe8bp9He5G0lbaM4
-	 6rGrw8BQUBbL9l3YV3E66UI4ga1sA0mVikO8UeP765Jpfm0fDYoyWgriJcbKYLTy9m
-	 NJrDJ6iZnKqEA==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62H2CfpzE3055258
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 17 Mar 2026 10:12:41 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+	id 1w2Jxb-00000005EoK-3gIW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 02:15:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=QhsVjveTx0d6rHIu6iUQS+9D3tNDGwM+1vUJeV1ara8=;
+	b=L0KtCga+smhiT+Ld83DwulViArXuQMZQ7JI4slbf2KHqdoFvbblJDa3JIz5vEsjUgjZgxDaNC
+	et/hk21ZmTClB16k3r5lFe7N7CRZAc2YMbHqGBzNSjDGIwdMvrCNpzFCuvuy55vVZ6gsPvKAv2y
+	EJekRfcyqk+lHc0yGQGW6FE=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fZb544bRGz1cyPH;
+	Tue, 17 Mar 2026 10:10:00 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id 323914056E;
+	Tue, 17 Mar 2026 10:14:59 +0800 (CST)
+Received: from [10.67.120.170] (10.67.120.170) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 17 Mar 2026 10:12:40 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913%10]) with mapi id
- 15.02.1748.010; Tue, 17 Mar 2026 10:12:40 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "mturquette@baylibre.com" <mturquette@baylibre.com>,
-        "sboyd@kernel.org"
-	<sboyd@kernel.org>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-        =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
-        "afaerber@suse.com" <afaerber@suse.com>,
-        =?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
-        =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-        =?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-Subject: RE: [PATCH v4 03/10] clk: realtek: Add basic reset support
-Thread-Topic: [PATCH v4 03/10] clk: realtek: Add basic reset support
-Thread-Index: AQHcssDuibSAuLJXXUaZv+it/w6wirWtO6QAgATF4ZA=
-Date: Tue, 17 Mar 2026 02:12:40 +0000
-Message-ID: <907b6a0128904309991f0a4a9000d8f1@realtek.com>
-References: <20260313081100.596224-1-eleanor.lin@realtek.com>
- <20260313081100.596224-4-eleanor.lin@realtek.com>
- <20260314-silky-goshawk-of-penetration-f00964@quoll>
-In-Reply-To: <20260314-silky-goshawk-of-penetration-f00964@quoll>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ 15.2.1544.11; Tue, 17 Mar 2026 10:14:58 +0800
+Message-ID: <4ef0460e-8d20-48e1-bcd4-24a3886b39da@huawei.com>
+Date: Tue, 17 Mar 2026 10:14:57 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] iommu/arm-smmu-v3: Add Context Descriptor display
+ to debugfs
+To: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <jpb@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<wangzhou1@hisilicon.com>, <prime.zeng@hisilicon.com>,
+	<fanghao11@huawei.com>, <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+References: <20260313104351.3502293-1-xiaqinxin@huawei.com>
+ <20260313104351.3502293-6-xiaqinxin@huawei.com>
+ <268c246d-893b-4b50-8fbb-ff82539465aa@arm.com>
+From: Qinxin Xia <xiaqinxin@huawei.com>
+In-Reply-To: <268c246d-893b-4b50-8fbb-ff82539465aa@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.170]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_021255_537781_576A176F 
-X-CRM114-Status: GOOD (  30.22  )
+X-CRM114-CacheID: sfid-20260316_191508_568262_AFD3ADB2 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,112 +81,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBPbiBGcmksIE1hciAxMywgMjAyNiBhdCAwNDoxMDo1M1BNICswODAwLCBZdS1DaHVuIExpbiB3
-cm90ZToNCj4gPiBGcm9tOiBDaGVuZy1ZdSBMZWUgPGN5bGVlMTJAcmVhbHRlay5jb20+DQo+ID4N
-Cj4gPiBEZWZpbmUgdGhlIHJlc2V0IG9wZXJhdGlvbnMgYmFja2VkIGJ5IGEgcmVnbWFwLWJhc2Vk
-IHJlZ2lzdGVyDQo+ID4gaW50ZXJmYWNlIGFuZCBwcmVwYXJlIHRoZSByZXNldCBjb250cm9sbGVy
-IHRvIGJlIHJlZ2lzdGVyZWQgdGhyb3VnaA0KPiA+IHRoZSByZXNldCBmcmFtZXdvcmsuDQo+ID4N
-Cj4gPiBTaWduZWQtb2ZmLWJ5OiBDaGVuZy1ZdSBMZWUgPGN5bGVlMTJAcmVhbHRlay5jb20+DQo+
-ID4gQ28tZGV2ZWxvcGVkLWJ5OiBZdS1DaHVuIExpbiA8ZWxlYW5vci5saW5AcmVhbHRlay5jb20+
-DQo+ID4gU2lnbmVkLW9mZi1ieTogWXUtQ2h1biBMaW4gPGVsZWFub3IubGluQHJlYWx0ZWsuY29t
-Pg0KPiA+IC0tLQ0KPiA+IENoYW5nZXMgaW4gdjQ6DQo+ID4gLSBBZGQgZm9yd2FyZCBkZWNsYXJh
-dGlvbiBmb3Igc3RydWN0IHJlZ21hcCBpbiByZXNldC5oLg0KPiA+IC0gTW92ZSBzdHJ1Y3QgcnRr
-X3Jlc2V0X2RhdGEgZGVmaW5pdGlvbiBpbnRvIHJlc2V0LmMgYXMgaXQncyBvbmx5IHVzZWQgdGhl
-cmUuDQo+ID4gLSBSZW1vdmUgcnRrX3Jlc2V0X3Jlc2V0KCkgZHVlIHRvIHVubmVjZXNzYXJ5IGlt
-cGxlbWVudGF0aW9uLg0KPiA+IC0gUmVtb3ZlIHVubmVjZXNzYXJ5IHBhcmFtZXRlciBmcm9tIHJ0
-a19yZXNldF9nZXRfaWQoKS4NCj4gPiAtLS0NCj4gPiAgTUFJTlRBSU5FUlMgICAgICAgICAgICAg
-ICAgICB8ICAgMSArDQo+ID4gIGRyaXZlcnMvY2xrL0tjb25maWcgICAgICAgICAgfCAgIDEgKw0K
-PiA+ICBkcml2ZXJzL2Nsay9NYWtlZmlsZSAgICAgICAgIHwgICAxICsNCj4gPiAgZHJpdmVycy9j
-bGsvcmVhbHRlay9LY29uZmlnICB8ICAyNyArKysrKysrKysrDQo+ID4gIGRyaXZlcnMvY2xrL3Jl
-YWx0ZWsvTWFrZWZpbGUgfCAgIDQgKysNCj4gPiAgZHJpdmVycy9jbGsvcmVhbHRlay9yZXNldC5j
-ICB8IDEwNA0KPiA+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrDQo+ID4gIGRy
-aXZlcnMvY2xrL3JlYWx0ZWsvcmVzZXQuaCAgfCAgMjggKysrKysrKysrKw0KPiA+ICA3IGZpbGVz
-IGNoYW5nZWQsIDE2NyBpbnNlcnRpb25zKCspDQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2
-ZXJzL2Nsay9yZWFsdGVrL0tjb25maWcgIGNyZWF0ZSBtb2RlIDEwMDY0NA0KPiA+IGRyaXZlcnMv
-Y2xrL3JlYWx0ZWsvTWFrZWZpbGUgIGNyZWF0ZSBtb2RlIDEwMDY0NA0KPiA+IGRyaXZlcnMvY2xr
-L3JlYWx0ZWsvcmVzZXQuYyAgY3JlYXRlIG1vZGUgMTAwNjQ0DQo+ID4gZHJpdmVycy9jbGsvcmVh
-bHRlay9yZXNldC5oDQo+ID4NCj4gPiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJ
-TkVSUyBpbmRleA0KPiA+IDliN2Q2NGNjOGQ5MC4uNTNhMmYzNTc1YzM3IDEwMDY0NA0KPiA+IC0t
-LSBhL01BSU5UQUlORVJTDQo+ID4gKysrIGIvTUFJTlRBSU5FUlMNCj4gPiBAQCAtMjIyNDcsNiAr
-MjIyNDcsNyBAQCBMOiAgICBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZw0KPiA+ICBMOiAgIGxp
-bnV4LWNsa0B2Z2VyLmtlcm5lbC5vcmcNCj4gPiAgUzogICBTdXBwb3J0ZWQNCj4gPiAgRjogICBE
-b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svcmVhbHRlayoNCj4gPiArRjog
-ICBkcml2ZXJzL2Nsay9yZWFsdGVrLyoNCj4gPiAgRjogICBpbmNsdWRlL2R0LWJpbmRpbmdzL2Ns
-b2NrL3JlYWx0ZWsqDQo+ID4NCj4gPiAgUkVBTFRFSyBTUEktTkFORA0KPiA+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL2Nsay9LY29uZmlnIGIvZHJpdmVycy9jbGsvS2NvbmZpZyBpbmRleA0KPiA+IDNk
-ODAzYjRjZjVjMS4uZDYwZjY0MTViMGEzIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvY2xrL0tj
-b25maWcNCj4gPiArKysgYi9kcml2ZXJzL2Nsay9LY29uZmlnDQo+ID4gQEAgLTUxOSw2ICs1MTks
-NyBAQCBzb3VyY2UgImRyaXZlcnMvY2xrL251dm90b24vS2NvbmZpZyINCj4gPiAgc291cmNlICJk
-cml2ZXJzL2Nsay9waXN0YWNoaW8vS2NvbmZpZyINCj4gPiAgc291cmNlICJkcml2ZXJzL2Nsay9x
-Y29tL0tjb25maWciDQo+ID4gIHNvdXJjZSAiZHJpdmVycy9jbGsvcmFsaW5rL0tjb25maWciDQo+
-ID4gK3NvdXJjZSAiZHJpdmVycy9jbGsvcmVhbHRlay9LY29uZmlnIg0KPiA+ICBzb3VyY2UgImRy
-aXZlcnMvY2xrL3JlbmVzYXMvS2NvbmZpZyINCj4gPiAgc291cmNlICJkcml2ZXJzL2Nsay9yb2Nr
-Y2hpcC9LY29uZmlnIg0KPiA+ICBzb3VyY2UgImRyaXZlcnMvY2xrL3NhbXN1bmcvS2NvbmZpZyIN
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvTWFrZWZpbGUgYi9kcml2ZXJzL2Nsay9NYWtl
-ZmlsZSBpbmRleA0KPiA+IGY3YmNlMzk1MWEzMC4uNjliODRkMWU3YmNjIDEwMDY0NA0KPiA+IC0t
-LSBhL2RyaXZlcnMvY2xrL01ha2VmaWxlDQo+ID4gKysrIGIvZHJpdmVycy9jbGsvTWFrZWZpbGUN
-Cj4gPiBAQCAtMTQwLDYgKzE0MCw3IEBAIG9iai0kKENPTkZJR19DT01NT05fQ0xLX1BJU1RBQ0hJ
-TykNCj4gKz0gcGlzdGFjaGlvLw0KPiA+ICBvYmotJChDT05GSUdfQ09NTU9OX0NMS19QWEEpICAg
-ICAgICAgKz0gcHhhLw0KPiA+ICBvYmotJChDT05GSUdfQ09NTU9OX0NMS19RQ09NKSAgICAgICAg
-ICAgICAgICArPSBxY29tLw0KPiA+ICBvYmoteSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICArPSByYWxpbmsvDQo+ID4gK29iai0kKENPTkZJR19DT01NT05fQ0xLX1JFQUxU
-RUspICAgICArPSByZWFsdGVrLw0KPiA+ICBvYmoteSAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICArPSByZW5lc2FzLw0KPiA+ICBvYmotJChDT05GSUdfQVJDSF9ST0NLQ0hJ
-UCkgICAgICAgICAgKz0gcm9ja2NoaXAvDQo+ID4gIG9iai0kKENPTkZJR19DT01NT05fQ0xLX1NB
-TVNVTkcpICAgICArPSBzYW1zdW5nLw0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsay9yZWFs
-dGVrL0tjb25maWcgYi9kcml2ZXJzL2Nsay9yZWFsdGVrL0tjb25maWcNCj4gPiBuZXcgZmlsZSBt
-b2RlIDEwMDY0NCBpbmRleCAwMDAwMDAwMDAwMDAuLjEyMTE1OGYxMWRkMQ0KPiA+IC0tLSAvZGV2
-L251bGwNCj4gPiArKysgYi9kcml2ZXJzL2Nsay9yZWFsdGVrL0tjb25maWcNCj4gPiBAQCAtMCww
-ICsxLDI3IEBADQo+ID4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seSBj
-b25maWcgQ09NTU9OX0NMS19SRUFMVEVLDQo+ID4gKyAgICAgYm9vbCAiQ2xvY2sgZHJpdmVyIGZv
-ciBSZWFsdGVrIFNvQ3MiDQo+ID4gKyAgICAgZGVwZW5kcyBvbiBBUkNIX1JFQUxURUsgfHwgQ09N
-UElMRV9URVNUDQo+ID4gKyAgICAgZGVmYXVsdCB5DQo+ID4gKyAgICAgaGVscA0KPiA+ICsgICAg
-ICAgRW5hYmxlIHRoZSBjb21tb24gY2xvY2sgZnJhbWV3b3JrIGluZnJhc3RydWN0dXJlIGZvciBS
-ZWFsdGVrDQo+ID4gKyAgICAgICBzeXN0ZW0tb24tY2hpcCBwbGF0Zm9ybXMuDQo+ID4gKw0KPiA+
-ICsgICAgICAgVGhpcyBwcm92aWRlcyB0aGUgYmFzZSBzdXBwb3J0IHJlcXVpcmVkIGJ5IGluZGl2
-aWR1YWwgUmVhbHRlaw0KPiA+ICsgICAgICAgY2xvY2sgY29udHJvbGxlciBkcml2ZXJzIHRvIGV4
-cG9zZSBjbG9ja3MgdG8gcGVyaXBoZXJhbCBkZXZpY2VzLg0KPiA+ICsNCj4gPiArICAgICAgIElm
-IHlvdSBoYXZlIGEgUmVhbHRlay1iYXNlZCBwbGF0Zm9ybSwgc2F5IFkuDQo+ID4gKw0KPiA+ICtp
-ZiBDT01NT05fQ0xLX1JFQUxURUsNCj4gPiArDQo+ID4gK2NvbmZpZyBSVEtfQ0xLX0NPTU1PTg0K
-PiA+ICsgICAgIHRyaXN0YXRlICJSZWFsdGVrIENsb2NrIENvbW1vbiINCj4gDQo+IFJlc2V0IGRy
-aXZlcnMgZ28gdG8gcmVzZXQgZGlyZWN0b3J5Lg0KPg0KDQpTZXZlcmFsIHZlbmRvcnMgKGUuZy4g
-cWNvbSwgbWVkaWF0ZWssIHZpc2NvbnRpKSBhbHNvIHBsYWNlIHJlc2V0IGNvZGUgaW4NCmRyaXZl
-cnMvY2xrLyB3aGVuIHRoZSByZXNldCBjb250cm9sbGVyIGlzIGludGVncmF0ZWQgd2l0aCB0aGUg
-Y2xvY2sgY29udHJvbGxlci4NCg0KPiA+ICsgICAgIHNlbGVjdCBSRVNFVF9DT05UUk9MTEVSDQo+
-ID4gKyAgICAgaGVscA0KPiA+ICsgICAgICAgQ29tbW9uIGhlbHBlciBjb2RlIHNoYXJlZCBieSBS
-ZWFsdGVrIGNsb2NrIGNvbnRyb2xsZXIgZHJpdmVycy4NCj4gPiArDQo+ID4gKyAgICAgICBUaGlz
-IHByb3ZpZGVzIHV0aWxpdHkgZnVuY3Rpb25zIGFuZCBkYXRhIHN0cnVjdHVyZXMgdXNlZCBieQ0K
-PiA+ICsgICAgICAgbXVsdGlwbGUgUmVhbHRlayBjbG9jayBpbXBsZW1lbnRhdGlvbnMsIGFuZCBp
-bmNsdWRlIGludGVncmF0aW9uDQo+ID4gKyAgICAgICB3aXRoIHJlc2V0IGNvbnRyb2xsZXJzIHdo
-ZXJlIHJlcXVpcmVkLg0KPiA+ICsNCj4gPiArZW5kaWYNCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9jbGsvcmVhbHRlay9NYWtlZmlsZQ0KPiA+IGIvZHJpdmVycy9jbGsvcmVhbHRlay9NYWtlZmls
-ZSBuZXcgZmlsZSBtb2RlIDEwMDY0NCBpbmRleA0KPiA+IDAwMDAwMDAwMDAwMC4uNTIyNjdkZTJl
-ZWY0DQo+ID4gLS0tIC9kZXYvbnVsbA0KPiA+ICsrKyBiL2RyaXZlcnMvY2xrL3JlYWx0ZWsvTWFr
-ZWZpbGUNCj4gPiBAQCAtMCwwICsxLDQgQEANCj4gPiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmll
-cjogR1BMLTIuMC1vbmx5DQo+ID4gK29iai0kKENPTkZJR19SVEtfQ0xLX0NPTU1PTikgKz0gY2xr
-LXJ0ay5vDQo+ID4gKw0KPiA+ICtjbGstcnRrLXkgKz0gcmVzZXQubw0KPiA+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL2Nsay9yZWFsdGVrL3Jlc2V0LmMgYi9kcml2ZXJzL2Nsay9yZWFsdGVrL3Jlc2V0
-LmMNCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NCBpbmRleCAwMDAwMDAwMDAwMDAuLjQ1NzEzNzg1
-ZDc2ZA0KPiA+IC0tLSAvZGV2L251bGwNCj4gPiArKysgYi9kcml2ZXJzL2Nsay9yZWFsdGVrL3Jl
-c2V0LmMNCj4gPiBAQCAtMCwwICsxLDEwNCBAQA0KPiA+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRp
-ZmllcjogR1BMLTIuMC1vbmx5DQo+ID4gKy8qDQo+ID4gKyAqIENvcHlyaWdodCAoQykgMjAxOSBS
-ZWFsdGVrIFNlbWljb25kdWN0b3IgQ29ycG9yYXRpb24gICovDQo+ID4gKw0KPiA+ICsjaW5jbHVk
-ZSA8bGludXgvZGV2aWNlLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9vZi5oPg0KPiA+ICsjaW5j
-bHVkZSA8bGludXgvcmVnbWFwLmg+DQo+ID4gKyNpbmNsdWRlICJyZXNldC5oIg0KPg0KPiBBbmQg
-aGVyZSBpcyB0aGUgcHJvb2YgdGhhdCBub25lIG9mIHlvdXIgcmVzZXQgaGVhZGVyIGNvbnN0YW50
-cyBhcmUgYmluZGluZ3MgLQ0KPiBkbyB5b3Ugc2VlIHRoZSBoZWFkZXIgaGVyZSBhYm92ZT8gTm8u
-DQo+DQoNClRoZSBiYW5rIG1hcHBpbmcgaXMgaW1wbGljaXRseSBoYXJkY29kZWQgaW4gZHJpdmVy
-czoNCg0KRXhhbXBsZTogY2xrLXJ0ZDE2MjUtY3J0LmMNCg0Kc3RhdGljIHN0cnVjdCBydGtfcmVz
-ZXRfYmFuayBydGQxNjI1X2NydF9yZXNldF9iYW5rc1tdID0gew0KICAgIHsub2ZzID0gMHgwLCAu
-d3JpdGVfZW4gPSAxLH0sICAgLyogQmFuayAwICovDQogICAgey5vZnMgPSAweDQsIC53cml0ZV9l
-biA9IDEsfSwgICAvKiBCYW5rIDEgKi8NCiAgICB7Lm9mcyA9IDB4OCwgLndyaXRlX2VuID0gMSx9
-LCAgIC8qIEJhbmsgMiAqLw0KICAgIC8qIC4uLiAqLw0KfTsNCg0KVGhlIGFycmF5IGluZGV4IGlt
-cGxpY2l0bHkgY29ycmVzcG9uZHMgdG8gdGhlIGJhbmsgSUQgaW4gdGhlIGhlYWRlci4NCkluIHY1
-LCBJIHdpbGwgZXhwbGljaXRseSB1c2UgdGhlIGhlYWRlciBkZWZpbmVzIHRvIG1ha2UgdGhpcyBt
-YXBwaW5nDQpjbGVhcjoNCg0Kc3RhdGljIHN0cnVjdCBydGtfcmVzZXRfZGVzYyBydGQxNjI1X2Nj
-X3Jlc2V0X2Rlc2NzW10gPSB7DQoJLyogQmFuayAwOiBvZmZzZXQgMHgwMDAgKi8NCglbUlREMTYy
-NV9DUlRfUlNUTl9NSVNDXSA9IHsub2ZzID0gMHgwMDAsIC5iaXQgPSAwLCAgLndyaXRlX2VuID0g
-MX0sDQogIFtSVEQxNjI1X0NSVF9SU1ROX0RJUF0gID0gey5vZnMgPSAweDAwMCwgLmJpdCA9IDIs
-ICAud3JpdGVfZW4gPSAxfSwNCiAgLyogLi4uICovDQp9Ow0KDQpCZXN0IHJlZ2FyZHMsDQpZdS1D
-aHVuDQoNCj4gQmVzdCByZWdhcmRzLA0KPiBLcnp5c3p0b2YNCg==
+
+
+On 2026/3/16 23:42:36, Robin Murphy <robin.murphy@arm.com> wrote:
+> On 2026-03-13 10:43 am, Qinxin Xia wrote:
+>> Add Context Descriptor (CD) display functionality to debugfs.
+>> This allow inspecting CD contents for all Substream IDs including:
+>> - CD validity and translation parameters
+>> - TTBR0 and TCR configurations
+>> - Raw CD data
+>>
+>> /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
+>> └── 0000:01:00.0:0/
+>>      ├── ste
+>>      └── context_descriptors/
+>>          └── all
+>>
+>> Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+>> ---
+>>   .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 112 ++++++++++++++++++
+>>   1 file changed, 112 insertions(+)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/ 
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> index f62df02847ac..66ae1228c6ad 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+>> @@ -27,6 +27,13 @@
+>>    * - Context Pointers: Stage 1 and Stage 2 translation context 
+>> addresses
+>>    * - Raw Data: Complete 64-bit STE words in hexadecimal
+>>    *
+>> + * CD Information Displayed:
+>> + * - Validity: Active state of the context descriptor
+>> + * - T0SZ: Input address space size configuration
+>> + * - EPD0/EPD1: Stage 1 translation enable flags
+>> + * - TTBR0: Stage 1 translation table base address
+>> + * - Raw Data: Complete CD structure in hexadecimal format
+>> + *
+>>    * Directory Structure:
+>>    * /sys/kernel/debug/iommu/arm_smmu_v3/
+>>    * └── smmu0/
+>> @@ -35,6 +42,8 @@
+>>    *     └── stream_table
+>>    *       └── 0000:01:00.0:0/                    # PCI device with 
+>> Stream ID 0
+>>    *             ├── ste                           # Stream Table Entry
+>> + *             └── context_descriptors/
+>> + *                 └── all                       # All Context 
+>> Descriptors
+>>    *
+>>    * The capabilities file provides detailed information about:
+>>    * - Architecture version and translation stage support (Stage1/Stage2)
+>> @@ -59,6 +68,8 @@
+>>   static struct dentry *smmuv3_root_dir;
+>>   static DEFINE_MUTEX(arm_smmu_debugfs_lock);
+>> +#define MAX_SSIDS    32    /* Reasonable limit for SSID enumeration */
+> 
+> Arbitrarily limiting to only 32 out of a potential 2^20 SSIDs seems odd, 
+> like it's rather more than needed for basic sanity-checking, but far too 
+> few for debugging specific usage.
+> 
+> FWIW I'd imagine it might be more useful to expose the CDs as individual 
+> files by index - and if userspace does want an "all" dump then there's 
+> always `cat`. Whether that would be all of them unconditionally based on 
+> the current STE.S1CDMAX, or just the "active" ones based on PASID 
+> allocations and S1DSS, is probably a question of what people think is 
+> most useful (and/or how fiddly it is to actually implement the latter).
+> 
+
+I think 'active' may cover most debug scenarios.In the next version,
+I'll remove the limit here.
+
+>> +
+>>   /**
+>>    * smmu_debugfs_capabilities_show() - Display SMMU capabilities
+>>    * @seq: seq_file to write to
+>> @@ -329,6 +340,90 @@ static int smmu_debugfs_ste_show(struct seq_file 
+>> *seq, void *v)
+>>   }
+>>   DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_ste);
+>> +/**
+>> + * smmu_debug_dump_cd() - Dump Context Descriptor details to seq_file
+>> + * @seq: seq_file to write to
+>> + * @dev: device associated with the CD
+>> + * @ssid: Substream ID
+>> + */
+>> +static void smmu_debug_dump_cd(struct seq_file *seq, struct device 
+>> *dev, u32 ssid)
+>> +{
+>> +    struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+>> +    struct arm_smmu_cd *cd;
+>> +    u64 data;
+>> +    int i;
+>> +
+>> +    if (!master) {
+>> +        seq_puts(seq, "No master data\n");
+>> +        return;
+>> +    }
+> 
+> If userspace can read these files racily with devices being removed then:
+> 
+> 1) we should probably return an actual read error if the device has 
+> already disappeared such the file is no longer valid.
+> 
+> 2) how do we know the device isn't going to disappear, and thus "master" 
+> become invalid, immediately *after* this check happens to pass?
+> 
+> Thanks,
+> Robin.
+> 
+Thank you for your review.
+In the next version, I'll use lock protection and check the master again
+in the lock.
+
+>> +
+>> +    cd = arm_smmu_get_cd_ptr(master, ssid);
+>> +    if (!cd) {
+>> +        seq_printf(seq, "CD not available for SSID %u\n", ssid);
+>> +        return;
+>> +    }
+>> +
+>> +    seq_printf(seq, "CD for Substream ID %u:\n", ssid);
+>> +
+>> +    /* CD 0 */
+>> +    data = le64_to_cpu(cd->data[0]);
+>> +    seq_printf(seq, "  Valid: %s\n", data & CTXDESC_CD_0_V ? "Yes" : 
+>> "No");
+>> +    seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
+>> +    seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? 
+>> "Yes" : "No");
+>> +    seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? 
+>> "Yes" : "No");
+>> +
+>> +    /* CD 1 */
+>> +    data = le64_to_cpu(cd->data[1]);
+>> +    seq_printf(seq, "  TTBR0: 0x%016llx\n", data & 
+>> CTXDESC_CD_1_TTB0_MASK);
+>> +
+>> +    /* Display raw CD data */
+>> +    seq_puts(seq, "  Raw Data:\n");
+>> +    for (i = 0; i < CTXDESC_CD_DWORDS; i++)
+>> +        seq_printf(seq, "    CD[%d]: 0x%016llx\n", i,
+>> +               le64_to_cpu(cd->data[i]));
+>> +}
+>> +
+>> +/**
+>> + * smmu_debug_dump_all_cds() - Dump all valid Context Descriptors for 
+>> a device
+>> + * @seq: seq_file to write to
+>> + * @dev: target device
+>> + */
+>> +static void smmu_debug_dump_all_cds(struct seq_file *seq, struct 
+>> device *dev)
+>> +{
+>> +    struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+>> +    u32 max_ssids, ssid;
+>> +
+>> +    if (!master) {
+>> +        seq_puts(seq, "No master data\n");
+>> +        return;
+>> +    }
+>> +
+>> +    max_ssids = min_t(u32, 1 << master->ssid_bits, MAX_SSIDS);
+>> +
+>> +    seq_printf(seq, "Context Descriptors for device (max SSIDs: %u):\n",
+>> +           max_ssids);
+>> +
+>> +    for (ssid = 0; ssid < max_ssids; ssid++) {
+>> +        struct arm_smmu_cd *cd = arm_smmu_get_cd_ptr(master, ssid);
+>> +
+>> +        if (cd && (le64_to_cpu(cd->data[0]) & CTXDESC_CD_0_V)) {
+>> +            seq_printf(seq, "\n--- SSID %u ---\n", ssid);
+>> +            smmu_debug_dump_cd(seq, dev, ssid);
+>> +        }
+>> +    }
+>> +}
+>> +
+>> +/* All CDs debugfs file operations */
+>> +static int smmu_debugfs_all_cds_show(struct seq_file *seq, void *v)
+>> +{
+>> +    struct device *dev = seq->private;
+>> +
+>> +    smmu_debug_dump_all_cds(seq, dev);
+>> +    return 0;
+>> +}
+>> +DEFINE_SHOW_ATTRIBUTE(smmu_debugfs_all_cds);
+>> +
+>>   /**
+>>    * smmu_debugfs_create_stream_table() - Create debugfs entries for 
+>> stream table
+>>    * @dev: device to create entries for
+>> @@ -388,9 +483,26 @@ int smmu_debugfs_create_stream_table(struct 
+>> device *dev,
+>>               goto cleanup_dev;
+>>           }
+>> +        /* Create CD directory */
+>> +        cd_dir = debugfs_create_dir("context_descriptors", dev_dir);
+>> +        if (!cd_dir) {
+>> +            ret = -ENOMEM;
+>> +            goto cleanup_dev;
+>> +        }
+>> +
+>> +        /* Create "all" file to show all valid CDs */
+>> +        all_cds_file = debugfs_create_file("all", 0444, cd_dir, dev,
+>> +                           &smmu_debugfs_all_cds_fops);
+>> +        if (!all_cds_file) {
+>> +            ret = -ENOMEM;
+>> +            goto cleanup_cd;
+>> +        }
+>> +
+>>           /* Success for this stream ID, continue to next */
+>>           continue;
+>> +cleanup_cd:
+>> +        debugfs_remove(cd_dir);
+>>   cleanup_dev:
+>>           debugfs_remove_recursive(dev_dir);
+>>   cleanup:
+> 
+> 
+
+-- 
+Thanks,
+Qinxin
+
 
