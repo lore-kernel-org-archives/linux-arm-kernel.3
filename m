@@ -4,123 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB50F33807
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65751F33807
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 07:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bJs7fLvE8b4ZJEN/9MByd+bUlUBZVx2Tvdh7p4MmH0=; b=x9TzYC77olokmY1PyBWq5QjL5u
-	Mp3dXf3XM4PvSPd4WhFBuuqYJghnendlC8yaNTDkMGxqf5nh6mgnGUsANKaAL9JNCwuO8UnD4e8Ld
-	cAabsmpjhUl/7pGNsuHrsF8JeuxRtN26Ay1j+zFiO5TKbb5ZyzJmhucZsYFRwA+e6BKRwp+uIsS/U
-	DK+SDYe+U7K3w1vmV68TnAdGpEOmQXYnZ6TNvnYzFYKD3lOzuBj3guVs4TBfkorPFALxn/OGUdwRs
-	hOzMprono7tEpEhh6R8uUhWE+NROreLg0gkraBqsvcOEZCbc+HYX6AD0yxZu3Qi531eget69U4Pnf
-	JdzM0Fuw==;
+	bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=; b=T8tOihbqXIIdicBYK9g76zUzmj
+	s7yNT/4luqfXty1RMuK9L8BPcXfPdALpBxfawR3Qutm79uu1gmfG+6huG+XOF14fywJwOeo3n/kor
+	eTlpUNlqoFab0bCXO4aBj7pSXofYvburGa+Ed5HEJCSnJMILLQTxgMaxaibvelWn5xY3j5kKG7ea2
+	5Y4sFETGbqYmdLFS88lNXvd8Nbquf65cR93h5OARiLn7yB3uCP/FzhC7/J9CzvbCDeQZYD5n22hHs
+	Nq80Gijwxaqi8OO3F9p35mtgv2CVi0TPq0DjMdQO45A3uQ/cOXeIe7p8zNvza26Zcr6D9cA/9onUu
+	jSPA1oEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Odn-00000005YHw-0Bk0;
-	Tue, 17 Mar 2026 07:14:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2OkW-00000005YwB-2gfm;
+	Tue, 17 Mar 2026 07:21:56 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Odk-00000005YHR-28ai;
-	Tue, 17 Mar 2026 07:14:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69EF643D3A;
-	Tue, 17 Mar 2026 07:14:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E7D4C4CEF7;
-	Tue, 17 Mar 2026 07:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773731695;
-	bh=Gz/vu6/Zr7OyxE3gZ2O1wvlGEzIfpj4ETQhNFGb5Xw4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lQPqu5omeuRkl5qIgCrQqXDSSGnmapiw9zpP94gyFgxNeilNGCWt8gFHhG+Bb8zgI
-	 PyMXLED4QhICIlSUAjGZqhI7YZmRepJnMqfR7ie3KMffqpv7xrRx14vyQWQ+NSDoo/
-	 nAaAw0TijNjfpU5EQUKImbndkO9owkKXz8Ef3yIlajdl5VbITzlG7eC9oJDgIVbeLr
-	 hVei9hRSGCUG91rVSSiPCUjyRCF6efzM1GlChhxO58YzFu1HBe2fkQcIWVaVCD7lWD
-	 1Z6WSekuBwOPzrDSbDcCnoUF1LJPLtUqWgMzLiGLEL/OTR6CRgCbD9io+05DNC/VO8
-	 GpfyewMSZ88lw==
-Message-ID: <9817e7b3-c8f0-4904-8652-16008079c388@kernel.org>
-Date: Tue, 17 Mar 2026 08:14:49 +0100
+	id 1w2OkT-00000005Yvg-2aNW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 07:21:54 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62H4NltI1428760
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:21:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=; b=gHzRIkXhEUr9fMLr
+	SyB/M5Ot98weHpB+ZuPy0nqVDwKYjAURuTPKx16t9bTyeDrcga3OXOXOPmenXgFk
+	59XKyp2WJLpJlD65WFqVa7SCJK11GqzSqN0S4AQqtgE14rnxmuZtLCOQ3reYw9ar
+	bHxQqQEJRdHSFUD4t6tDYRzWUR//NXxK2i+q1AQdzIbP8wcqpc9b4QIKqhMKAum8
+	eXFIa52+qXQuPtphf6R/iG4NWoSBDMTiFknrpA4vrTOIKUXK79TmkZAlnoljtY++
+	+WuQreqk70cIfr0i2r/7jXuywIeYwt5lPshtaJZG9fPoiYNzXP/VUFq4X6/Sqle5
+	EyLjMg==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cxh99bnd5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 07:21:51 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35b9259921fso1646690a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 00:21:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773732110; x=1774336910; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=;
+        b=Lkw1h4IceiR2u6z1lETkYcflR90HyO2B7uEacBMhHW5gHchXtFpDTyRc1cPBS23UqE
+         yvK6tWixQkpHGF5r2Tur85FH3+4EG+11UBF6BYwtyEhPMkSRiQ0BAURbf4hIXmt9Q+na
+         ekuXz7NP30N6GXs80qc9WVzI/UABHUIlR3Hr5EIZbFSwqybXZFkrW4BG6pdA1wLOrt5r
+         qgjp6PwGOlNBK9e39nvPSoVgFhNMMCVApLqG9+2eqQPoJ7wRaHX7BSKG2mrll4dvHXeJ
+         xiNWIJ7VTw0uGcowrXdhyfMnM90n0zbEVZ80SIixvS/8zKhx9XXEEpWKrSUyGnUI3e/k
+         Rmkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773732110; x=1774336910;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IxtOz2CsJytYBKr87iuTorThohE/w7ZLhrUsPVVvNZ0=;
+        b=ch69/PIfmt41uQSo0Qs6kVLUWx5D0RMYh/vtRiC8b8iwzyhwZAeENHmip7VbzT1A3X
+         OsADYjkGhnzr2BqNDvkZMggB+NRrEN/O4RedsD0iILNnwd0BbldY0LRg+8Sq77zVZXTD
+         A52oP/1RLi8BOq2LSWVkfOABlkZ7nrNsMchogNFiYhKLDVKNMS36YZYmRlalTfft8+vS
+         MANwbpuY+M/iOmGqooYMs8e6hLXqbqy3KMFWn0i3Og/W+IG7Nw5DHNtosqc3u4RJvIJ7
+         vcqJE3e6J7ik3QAC0BxQQDWASvnbd1xnBPOw5d2YK5FwXj94+EiHlUBXmvjMv3eMka8X
+         tueQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoIoq7R8hYDSQBbUsCKmmsD9U08hhAtxjF7UZEZu2iC/bwOuyFHn5NGYmbO6KotVhQ45opTdHI7FHOJhewyw0g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3v6fUcKxuVGB6diyvRjZmqrkyeUNxwyAY8GKKUQIJcAy6byPm
+	95MuO7ntUaSYdArRD80d7i/tOe5ZRYVFiAdChW+XpxrWWlp4RZ57BX0zTTLEM8fcrMGsE3lptAh
+	JyQgJjPfOuAYC7UdYDFtBJQhjMjF4hnbQgmzYOBwRbryIY7KljT5BtM3vzqBmI39PZ8lMF8bwNR
+	CAVw==
+X-Gm-Gg: ATEYQzxVecGQJNbngp+yJsCoZ3PglOg20uzBPe8AYGyAQvMvqvq1FpH3gMYB/9H2Ryz
+	7J9r+4GvX5aqjXVqibbPHWFNr9avH/Pg2PouwyMPGq+LhrPyGCvHyuKrBPOPNZIZkqeecNogsTx
+	tEH2dijEjo3Jm+MjABv5SrJRdhqr5kfeSeN6LMTqft2d3MJya45J1vjJuUA+kCmWPQ2FuL+ZpU5
+	LRUxQ9v1OwU32PRbbmkV8Qqhvwj+9qNkPQkrb+QSFSWZGXdRD/o01rYSjnJTE265PjVZ1Zwl7vA
+	d6rtA64K4Q1v4LNxFt+tVJnVxZDKf64jQaoqH6p0xh853Xh3NwaI4uaGTrrEDGobRSAFokmmy4E
+	MYVbsBuPrIFtMKL5VHLkaD8M12l0um2/Z8X+vzKQd69DUQld/LQ==
+X-Received: by 2002:a17:90b:3d4b:b0:359:c479:fc68 with SMTP id 98e67ed59e1d1-35a220aaff9mr9161921a91.5.1773732110573;
+        Tue, 17 Mar 2026 00:21:50 -0700 (PDT)
+X-Received: by 2002:a17:90b:3d4b:b0:359:c479:fc68 with SMTP id 98e67ed59e1d1-35a220aaff9mr9161903a91.5.1773732110083;
+        Tue, 17 Mar 2026 00:21:50 -0700 (PDT)
+Received: from [10.218.41.33] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35badbcb8b9sm2417780a91.13.2026.03.17.00.21.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2026 00:21:49 -0700 (PDT)
+Message-ID: <95d2de63-5571-4fce-aa32-6e8969bb9149@oss.qualcomm.com>
+Date: Tue, 17 Mar 2026 12:51:40 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/10] clk: realtek: Add basic reset support
-To: =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- =?UTF-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
- "afaerber@suse.com" <afaerber@suse.com>,
- =?UTF-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>,
- =?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
- =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
- =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-References: <20260313081100.596224-1-eleanor.lin@realtek.com>
- <20260313081100.596224-4-eleanor.lin@realtek.com>
- <20260314-silky-goshawk-of-penetration-f00964@quoll>
- <907b6a0128904309991f0a4a9000d8f1@realtek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 00/16] Support Armv8 RAS Extensions for Kernel-first
+ error handling
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+        will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
+        sudeep.holla@arm.com, rafael@kernel.org, robin.murphy@arm.com,
+        mark.rutland@arm.com, tony.luck@intel.com, bp@alien8.de,
+        tglx@linutronix.de, peterz@infradead.org
+Cc: lenb@kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+        linux-perf-users@vger.kernel.org, linux-edac@vger.kernel.org,
+        mchehab@kernel.org, xueshuai@linux.alibaba.com,
+        zhuo.song@linux.alibaba.com, oliver.yang@linux.alibaba.com
+References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
+ <edf7e7eb-8f02-4672-bc31-16e0a8fb9715@oss.qualcomm.com>
+ <d4e4e2b1-c182-42f9-9d60-b12f0fd7f977@linux.alibaba.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <907b6a0128904309991f0a4a9000d8f1@realtek.com>
+From: Umang Chheda <umang.chheda@oss.qualcomm.com>
+In-Reply-To: <d4e4e2b1-c182-42f9-9d60-b12f0fd7f977@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=RJ++3oi+ c=1 sm=1 tr=0 ts=69b9010f cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=IrbkRpuHRcUsFRyD9lEA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDA2MyBTYWx0ZWRfX+lEvIRgSxbuT
+ dc8v0hbafrrdRTrIfNFUEN1seIShILBfhmU3bif8HQ2dzh8vXnW1dNT9dvf1OE3ArmNUztWIDjc
+ wGAJdWQZ7c1b8k77BUGSYAQFsOhd7UWieQPcC1fvSY9JM6ofeF7qZIi/Kib0FKAF3oHwuZNXXPq
+ zoT+jY+QLUOHklgKqc4CqfqdUInZPrXxXPqKhgaZC5OhCAYyN/PDrl741EbDogzmlu0rPY9OTe7
+ Ugx5eAwV6Rlt5xSDbwTWqJGSVnMqniNI2cSrfRKimBxW1LkokSeQfe1sgu5KidKDk1Mb/rrfEqB
+ LIfH/PqplLyrjLKyIZjntWJro4qd0/1EEgtKxqBfR5GzfQyVeCTeqmT7EnLSt07zbClVpfDZirA
+ tPn5qC1nEqFGX80dbj6FjxMA3faR31LXbroV0EUJbMsyJnXuJNoKNCb4rE8yEV7hJlAjmv9t/yn
+ yNiMgisOKD84vzqYQYQ==
+X-Proofpoint-ORIG-GUID: qMeUYaHt_21H8tCqESSgUm_fK-14k9OM
+X-Proofpoint-GUID: qMeUYaHt_21H8tCqESSgUm_fK-14k9OM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-17_01,2026-03-16_06,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1011 spamscore=0 malwarescore=0
+ lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603170063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_001456_584897_547191AE 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_002153_664981_F5C6E047 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,29 +156,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 03:12, Yu-Chun Lin [林祐君] wrote:
->>> diff --git a/drivers/clk/realtek/reset.c b/drivers/clk/realtek/reset.c
->>> new file mode 100644 index 000000000000..45713785d76d
->>> --- /dev/null
->>> +++ b/drivers/clk/realtek/reset.c
->>> @@ -0,0 +1,104 @@
->>> +// SPDX-License-Identifier: GPL-2.0-only
->>> +/*
->>> + * Copyright (C) 2019 Realtek Semiconductor Corporation  */
->>> +
->>> +#include <linux/device.h>
->>> +#include <linux/of.h>
->>> +#include <linux/regmap.h>
->>> +#include "reset.h"
->>
->> And here is the proof that none of your reset header constants are bindings -
->> do you see the header here above? No.
->>
-> 
-> The bank mapping is implicitly hardcoded in drivers:
 
-Does not matter. Here is the proof this is not a binding.
+On 3/11/2026 8:55 AM, Ruidong Tian wrote:
+>
+>
+> 在 2026/3/9 21:28, Umang Chheda 写道:
+>> Hello Ruidong Tain,
+>>
+>> On 1/22/2026 3:16 PM, Ruidong Tian wrote:
+>>> Motivation: Reliability in Modern Data Centers
+>>> =================================================
+>>> In modern data centers, proactive maintenance is essential for achieving high
+>>> service availability. The practice of using Corrected Errors (CE) to predict
+>>> impending Uncorrected Errors (UE) is already widely deployed at scale across
+>>> the industry, like Alibaba[2], Tencent[4], Intel[1], AMD[2]. By analyzing CE
+>>> telemetry, operators can identify failing hardware and perform migrations
+>>> before catastrophic failures occur.
+>>>
+>>> Problem: Inefficient CE Collection on ARM
+>>> ==========================================
+>>> Currently, ARM-based systems primarily rely on "Firmware-First" error
+>>> handling (e.g., via GHES). This path is inherently heavy-weight. To avoid
+>>> significant performance overhead, firmware is often configured with high
+>>> thresholds—reporting to the OS only after thousands of CEs have occurred.
+>>> If the threshold is set lower, the high frequency of errors leads to
+>>> excessive and costly context switching between the OS and firmware.
+>>> Consequently, ARM platforms currently lack an efficient mechanism to collect
+>>> the granular CE data required for high-fidelity error prediction.
+>>>
+>>> Solution: Kernel-First Handling via AEST
+>>> ===========================================
+>>> Other architectures have long utilized "Kernel-First" approaches for
+>>> efficient CE collection: Intel provides CMCI (Corrected Machine Check
+>>> Interrupt), and AMD has recently introduced similar CE interrupt support[5].
+>>>
+>>> On the ARM architecture, hardware already provides the necessary RAS
+>>> Extensions[6], and the ACPI AEST specification[0] defines a standardized way for
+>>> the OS to discover these error source registers. This series implements
+>>> AEST support, enabling the kernel to:
+>>>
+>>>   - Discover error sources directly via ACPI tables.
+>>>   - Handle CE notifications via direct interrupts.
+>>>   - Bypass firmware overhead to collect every CE or use low-latency thresholds.
+>>>
+>>> This implementation provides the missing link for efficient RAS telemetry
+>>> on ARM, bringing it to parity with other enterprise architectures.
+>>
+>> Thanks for posting this series enabling kernel-first handling for the Armv8 RAS extensions.
+>>
+>> We noticed the current implementation targets ACPI-based server platforms. For embedded/SoC systems, Device Tree is often the primary firmware description.
+>> Do you have any plans to add DT-based support for the same flow? If not, do you see any blockers to extending this series to support DT
+>> (e.g., DT bindings + discovery/registration path analogous to the ACPI plumbing) ?
+>> If DT support is in-scope, We would be happy to align on the expected approach and help with review/development/testing for DT-based platforms.
+>
+> Hi Umang,
+>
+> Thanks for the reply.
+>
+> Adding Device Tree support should be easy. We just need a patch similar to "ACPI/AEST: Parse the AEST table" to fill the DT table into struct acpi_aest_node (might need renaming) and struct aest_hnode. The driver part requires minimal changes. 
+>
+> However, I'm not very familiar with DT and lack DT engineering support, so I would need some guidance on these DT-related questions:
+>
+> - Is there a specification that outlines the reporting     requirements for RAS extension information that is similar to AEST? 
 
-Best regards,
-Krzysztof
+Currently there is no spec/bindings defined for DT based systems. Based on discussions on earlier posted patch [1]  - expectation from maintainers
+was to have DT bindings aligned to and equivalent to the AEST spec. Based on this expectation - we plan to propose DT bindings - which are  aligned
+to AEST spec.
+
+[1] Re: [PATCH 1/2] dt-bindings: edac: Add DT bindings for Kryo EDAC - James Morse <https://lore.kernel.org/linux-edac/312fc8b8-7019-0c74-6a92-c6740cab5dad@arm.com/>
+
+> - How should the DT be designed?
+>
+Same as above - plan to align DT bindings equivalent to AEST spec.
+
+> - How can I develop QEMU and modify DT files for debugging, etc.? 
+
+We can share the steps for this for DT based system in this thread.
+
+
+>
+> I would be happy to adjust the patchset to meet the needs of both parties if you are prepared to invest the necessary effort（DT-related）. In reality, I believe that just a little modification is required. 
+
+Thanks, Yes - we are open to contribute in extending this patch series to support DT based systems as well.
+
+[...]
+
+
+Thanks,
+Umang
+
+>
+>>
+>>>
+>>
+>>
+>>
+>
 
