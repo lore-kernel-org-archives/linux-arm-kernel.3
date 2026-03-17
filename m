@@ -4,103 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FD3F3380E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E60EF3380E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=; b=YgD+1bBP1aHV6DO2qBlaeuvDSM
-	kVm4YFHCMt0AIjKzgN4GD7jXwC62OIx6QTJjhliftTTgMnHycKHDnv2fAJJlwf9Pieoiau6sKSJ7L
-	Fg9NWtVpvoscPntruUS4CteMYwklUwEdW35O6/SV5ThjK/82B0AeiYZUxW8M4iGIB2z7/mhr1Qh8x
-	xClHo7HQe2/AKammuk/juFr197Ve8Z9Gwi9mNe3KWd/uEUTsVpZX5+iDPJ1SM1m3rjIGwiq34SEAy
-	NjtVbEp0mn2kcH0ESOawPWbTS0J75i8WV41dYqBKmxJdA76dhos8K7AnEVyKNtRRSiiY18uXaKWW1
-	WXAvTXrQ==;
+	bh=AXuM9p4n5thvCAqywXqxRDyN8lwIU8bUlx5hHokH3k0=; b=vVOv5ARhqxPMXCX44aacwbROyr
+	3l5sVICiRRwT4vDLYLaSwJL/PiKO7fzqHYbG+Mird1S6CE16yeiBJZOFVKcxzC3TaGHhJHQBbI269
+	ufZUOOrX25hRn3RQyjftRns3mWOvb4XeMlhsZfSX9TJbjpafoENPeu+keEf2oELHE0pwTZTtRGASN
+	UQen11ia+fk5hve/ak7wyjsAwJ34gh/SZlOKs8SKFo6I949P/GdghC9s0ZIuRQLjyQRbA4ZsFLLDy
+	YyJJI94u0/M0ZaT1o9X4+awT1/VVmEqSLuKTcHA8yKFzq5xIVykNc0QqNywTIx25Km6LPVMwNmfvO
+	meiQfgSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PfC-00000005ic1-1RI9;
-	Tue, 17 Mar 2026 08:20:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2PfM-00000005ifO-18hd;
+	Tue, 17 Mar 2026 08:20:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PfA-00000005iaL-17Yf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Mar 2026 08:20:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=; b=fWPlN3J6JJooiYgOFrNTaM5tQ3
-	qo6uvNN/PbOovsIsMwurUorQIINsdZeu5P8hq3HRgDXA3pb3GXN6RrdqxzhdxvQmSi8KnTuse0Tbn
-	y5jF2Jh3vKfWDLdNgk2klAbKzkkuEAXh85kRYg/hzyzi0kd+TlPL6tzCHwmCWEMnJk5j+VDfReWuO
-	zo0L0iY+9viR4bKldiolLucaqtCNWa3xm6Qhknfpes4z4njPZ11mk4kKa19UzDscP8avhx0VXyYTC
-	L1z/VJIWxdaTS6HC08Qgqjj2UL2DNRmOjlyKQgCUlcUTWFxHMprZNE2GgA9T15Mlj2/DPISfyagqH
-	PItU9fMA==;
-Received: from mail-vs1-f43.google.com ([209.85.217.43])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Pf6-00000008O0Z-0nAn
+	id 1w2PfK-00000005ieY-3Dvn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:20:26 +0000
-Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-5ffc8987050so3499244137.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:20:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773735622; x=1774340422;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3MZrBOzWKX3a3J3HCcGoedqBZCxLLoAjByNA5cYsB/Y=;
-        b=PZZgLsYC4rT6XBHIL9mQyrV/U1xDxLMQ6pYrxWhQCqs6oaSrqfu1prfz4BYxDnaQ4q
-         vs5qAWOZoH/dxZrwC4/kDsMxfbZf8K47kgSMNi8yGswMIabHTPRfFrurm/1P20eWdC+W
-         +uSfBQ7nSpiFw7oOoU2O7RfdngmyGefdj6AKqRXNRmC0qmZRNTOw0WentbMUjlbHqbg6
-         zad7WwP/3CGEfrEvGJyQyOrLbjQGRfJP0mFv4enx9NANML1USeH+4GWGcMYALx5xz8VG
-         YN+BTbqu1nzXbJHcJMe55oPtVrE+FUhQhQikfwOCXJM9UZesiBQbnSlihyOdjo7rzpaJ
-         DAyw==
-X-Forwarded-Encrypted: i=1; AJvYcCUg5bgl/ZGLgKpHFc3f9vtZSQGCKecLYsjSCRJxSsZiDssNZzwx7B1aU2/OORK5Bt8yuxmi/ZXIAyn6B6WwPHln@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbMJpFxp0nQa1jOELE3aV6IGkWL4gin0DDwkwQZiMPE1aT4nZJ
-	lWjMzxDuAurBHyDZlFAO5vVzJr4dut4PEMTgpc/6zqhzBMM4Lw+b+t20V34uAXUl
-X-Gm-Gg: ATEYQzzuJhp9BVW4ar3S6hZQzsJgtJHbOhdlRquqr/42Ptjd/zmjTO7KE168Mxyl2q4
-	t3BWTrLnX3auo0vY9xiqVaGtBxLOqmcPpkTmLIXhIFZ+FiRQnPP8QIip2mMFHSG5wmM9/U91fTK
-	Clx/kqueChV86HXWEKZmwaHXHjiAxUx4/ZylA5ibDlZz2xJ1MVAjcsUABMpFVcAtcjHgj1iGShc
-	2ZrOULtqXlWsj63kilfEAlvAyEc2BYzKbS8Yd3NuMpJ60R+R2BmXcfp9WzjrVGmbIdPcjVNN3Mj
-	Gt72cKVu18YFi4VeE9UNXrtq6gx9tUquOOcgVqZLRysN+EV3SnOWhAh1jBBQ15IYZUtWLVqX+Uq
-	+ULD1K2V9LHwMzPf8BKsy+yd/u9IS67qE2QfLCixCTybmVGQLwVhPfCZpPuIRDiP/yfxGqPwniE
-	YQmVC2oAhvQQcX/PBmWxq8017i3K+8XFVeWu0xV3OFFRcsSCZO35yzR+Sw386p
-X-Received: by 2002:a05:6102:6ce:b0:5fd:a537:a777 with SMTP id ada2fe7eead31-6020e1e37b7mr7366114137.10.1773735621902;
-        Tue, 17 Mar 2026 01:20:21 -0700 (PDT)
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94ecfedb663sm7060855241.9.2026.03.17.01.20.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2026 01:20:20 -0700 (PDT)
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-5ffabb1dfbaso2934517137.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:20:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUuezW6RUx4eeNyJdIc/+gY1c0cSjSu0uxqyCNbjwmcMvzc4dnkIXeVKk8GNMKSw8aCdtEC4cbEI0vOxpHov3X3@lists.infradead.org
-X-Received: by 2002:a05:6102:442b:b0:5ff:cc82:744b with SMTP id
- ada2fe7eead31-6020e4b8061mr7168193137.19.1773735619991; Tue, 17 Mar 2026
- 01:20:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
-In-Reply-To: <20260310184030.3669330-1-cristian.marussi@arm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 17 Mar 2026 09:20:08 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXMdn4Uu+bLunb0g68rmV=AT523C1=sMdNFK47ZADU09g@mail.gmail.com>
-X-Gm-Features: AaiRm51yyOA7w0a8XkB8aVbP3N6VXftKc6GGkOKP6ReYYiu4pm3s3wiL1ZOxXBM
-Message-ID: <CAMuHMdXMdn4Uu+bLunb0g68rmV=AT523C1=sMdNFK47ZADU09g@mail.gmail.com>
-Subject: Re: [PATCH v2 00/13] SCMI Clock rates discovery rework
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
-	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
-	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
-	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
-	marek.vasut+renesas@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_082024_432274_1C106A68 
-X-CRM114-Status: GOOD (  30.88  )
+	Tue, 17 Mar 2026 08:20:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D682E6132E;
+	Tue, 17 Mar 2026 08:20:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 852C1C2BC9E;
+	Tue, 17 Mar 2026 08:20:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773735637;
+	bh=VQNGXk1va0JojLCa5FTgduK6/uhqV70yDcBBQE/5J40=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L2kTCLKJqOS5HvcFUgK480t6dsocDP43k7dp9YZ4h3bO+TaOUQ6TxqzWDPQSy9sAg
+	 cgc6Vxu2E2kx/JdVdZNzd7o8fJ5MU/DyPHfI7J8H188DI4B8Fi568eGIrIPWsEAcn1
+	 ir9C2S5TKU6Bo8nUHWwEnSkI52KvNSLf/ws0gqR81LBB4+tIjiRKCIzNvpTrYf6N1w
+	 ZbCFYayAtr1aW5t6CQBLNeMTLQFNk14XqoLUelLRdytMfYZeWGCtB02ZalIGu/fnJe
+	 43EW4CDNsVsoYFwUdcUs9TDhGBT1D9uT3l3O8v0tnLXHgH1GXXK0Ur2uLaCvacoo7k
+	 U4HFMjgCFGFxA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2PfG-00000002jEv-3Wqu;
+	Tue, 17 Mar 2026 08:20:34 +0000
+Date: Tue, 17 Mar 2026 08:20:34 +0000
+Message-ID: <86v7eu6f59.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <linux-arm-kernel@lists.infradead.org>,
+	"KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64" <kvmarm@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 00/10] KVM: arm64: Adopt scoped resource management (guard) for EL1 and EL2
+In-Reply-To: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,72 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+On Mon, 16 Mar 2026 17:35:21 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi everyone,
+> 
+> I stumbled upon a lock leak while reviewing Sebastien's recent GIC Hardening
+> series [1] on an early error path. It reminded me that we've run into this exact
+> kind of bug pretty often while working on pKVM. Since we're going to be
+> hopefully upstream even more pKVM code soon, I'd like to try and fix this
+> pattern once and for all.
 
-On Tue, 10 Mar 2026 at 19:40, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> it was a known limitation, in the SCMI Clock protocol support, the lack of
-> dynamic allocation around per-clock rates discovery: fixed size statically
-> per-clock rates arrays did not scale and was increasingly a waste of memory
-> (see [1]).
->
-> This series aim at solving this in successive steps:
->
->  - simplify and reduce to the minimum possible the rates data info exposed
->    to the SCMI driver by scmi_clock_info
->  - move away from static fixed allocation of per-clock rates arrays in
->    favour of a completely dynamic runtime allocation: just allocate what
->    is needed based on the effectively discovered
->
-> This is done in patches 2-6.
->
-> A further bigger optimization suggested in a past series [2] by Etienne
-> would be, whenever allowed by the spec, to limit upfront the number of
-> queries in order to simply retrieve min and max rate, that are indeed the
-> only rates needed by the CLK SCMI driver.
->
-> The approach proposed in [1] was open coding and duplicating some of the
-> functionalities already provided by SCMI iterators, though.
->
-> Patch 7-12 implement such optimization instead by:
->
->  - reworking core SCMI iterators to support bound enumerations
->  - use such new bound iterators to perform the minimum number of queries
->    in order to only retrieve min an max rate
->
-> As a final result now the rates enumeration triggered by the CLK SCMI
-> driver, while still allocating for all the existent rates, miminize the
-> number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
->
-> Finally, patch 13 introduces a new clock protocol operation to be able to
-> trigger anytime on demand a full enumeration and obtain the full list of
-> rates when needed, not only min/max: this latter method is really only used
-> currently by some dowstream SCMI Test driver of mine.
->
-> Based on v7.0-rc3.
-> Tested on JUNO and an emulated environment.
->
-> Beside addressing a few review comments, in V2:
->
->  - patch [1/13] introduces a fix for the pre-existing rounding algorithm,
->    before relocating the algorithm logic as alreday done in V1.
->  - patch [8/13] hardens clock protocol initialization by adding some
->    missing retval checks
+I'm of the opposite opinion. I'd rather convert things as code gets
+modified, because this otherwise makes backporting patches a real pain
+(we have been through that exercise with the irq stack, and it wasn't
+an enjoyable experience).
 
-Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
-R-Car X5H, while decreasing memory usage.
+So while I'm not opposed to this in general, I'd rather see it as a
+prefix for new features, instead of a standalone series.
 
-As upstream does not support SCMI on R-Car X5H yet, I am ignoring
-the hardening for now (it may be fixed by a quirk), so
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+[...]
 
-Gr{oetje,eeting}s,
+> There are definitely other parts of the KVM codebase that could benefit from
+> this (especially the vGIC), but I'm stopping here for now to see what everyone
+> thinks of the approach before touching anything else.
 
-                        Geert
+The vgic is specially difficult to convert because of some of the
+constructs that take a lock in a function and release it in another,
+defeating the scope-based locking.
+
+I'll have a look at the series anyway.
+
+Thanks,
+
+	M.
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Without deviation from the norm, progress is not possible.
 
