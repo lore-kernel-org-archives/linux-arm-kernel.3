@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B386EFD8752
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBA5FD875A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5FIWaWE0co3LowI/eMGOtAkN3ZAvhxjd0+PkwHLDyk=; b=US2vQHilDsEmOxH+/++5OpuQG6
-	AUMKoKw9pdvFdXTQNTEaOUszwAz5ty6Xa6MJhnx4Tuuy5VLYWN41A34bxU6UtCQ82BXKUg3t2b+0g
-	o3ZepsEwtR2u487pBC5vdZNsl+epeM9s3UMS/JAZmLAI0sWRD7ak7CYvka2GzAfRcdnjWQcLerpFV
-	Nu62RgTvJzufspvkOHhIfdBTAdsXAy6B10wgQJg/TaKYNte47Quw5fp6QVVl8dsXBeru9oPM96qvZ
-	pi9aTp1p2bZsqnV47CUjAMKWcaOoXvubkpGF88Hih9wZA8Tgjb2RjsMlqBdzJzn/0EzZM2ivL6rYt
-	v6xnbpKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=G3ejGn7YuyHVUrFyr7Tsajx3tH
+	cvr+Bmx/Fykv1NyqQuzj+nMT/8nia8z8ujWL5BJrsJQHRho1rMFHJk/cJ7OumrqCIlWsPNl/5nafd
+	OS7leDoriujvZqB58qZ6sDFvJ/Vr2tFU3J7hpgTUdbfZfLSMbN3CuqGmbvzLeSAAtq3hb9OLOTieF
+	npZv7SoJ6Z9ViTQsTbnx9zAxenNIXHKOh64v4dkXpbBeabaeSUi3wKN1Hx7CazNP/WEmXOQ9UaKl7
+	BAXqtBu+0VHO6yJr1xOuTGmXD+n+PfpvFa51jTceTbstxWiZJmCgalq3XTLRoK59g8PgUhZG0Rd2b
+	7DrrDARQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TJH-00000006H52-38bk;
-	Tue, 17 Mar 2026 12:14:07 +0000
+	id 1w2TP1-00000006HxT-3Pe3;
+	Tue, 17 Mar 2026 12:20:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TJG-00000006H4N-3bnq
+	id 1w2TP0-00000006Hx4-0CYg
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Mar 2026 12:14:07 +0000
+	Tue, 17 Mar 2026 12:20:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=b5FIWaWE0co3LowI/eMGOtAkN3ZAvhxjd0+PkwHLDyk=; b=hPj3oIq00cu6mt3y1K9NcGqJYA
-	vHYRpI41jc2NHVd61EZMo9a0uarqhBxhT1ctzeQ38gQOGIjdZwyU+x6ineWhoSNXzMoMMRd1tWByl
-	3+LccsFARExm2DSFRsBC3rH1Wg/ZJ3FZNxMi4MoRtVbp4eWbXdpzKV0HTW2xeeSanOSjOgQcHPWl+
-	/aNQ5CrchDNcH2+Hjf5MYOlRJ/SdN+yxyJOu0Q1YGsngB57krV/lQNAgSExzkwgIgl9aVbSwNN7zW
-	xmbkfgaa97RhJQyALKDAkumf480xj3TXGvE4/a/fOCdoSWP2WXen+fTouZfcMJDkD7OCuYSqECdUV
-	PtNCS9AA==;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=kgAdP7Lm3ysm5n/kr/Fm1wezCV
+	VrgZZnrqDksnAv/aWjg18tHHxL5xxB+TqzZCNJE8507pTRv34tjConOvwsS4FxqiHBCovU5M331gq
+	XqBtDxSTQigfNm1uIMHesr5r7D2w7fpplwLkZWbYJP92h/hflnYLxvw+L7zPQPy0j4JGzS4jPv93I
+	kIkJDQVNsOK0ZgMizksYBtO9TMO8pHa396QLllYZF5Q2r6azpyYkuxY+H1/9Umik4MO/CgpEOFcdU
+	uFCwtYwKB8y09I7ZoTdbhC2yp1E8h6c1f8or2/fb13Wm1XNOdwHqNeybtoqkMFs0QGWmYBO2h2vpK
+	Zhor9JYA==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TJD-00000008vks-2ge5
+	id 1w2TOw-00000008wab-0lse
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 12:14:05 +0000
+	Tue, 17 Mar 2026 12:19:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=b5FIWaWE0co3LowI/eMGOtAkN3ZAvhxjd0+PkwHLDyk=; b=AcMYPuNvp23pX/uMLsfp6PvAf/
-	lVpicQjIZ0JsL8mywrl8D9VA9wXzqSJSoxYrlJAaAU2PlTW4Ko5r03uHUqkUo06uxSMxrYK+FKGle
-	8SRviTMyFyT+BumJcrHRj+CYiKKbPYdtmutRknNNRH/dA6zqhTdoHmn0dJNaqkmFyRHmIZZOULunP
-	umgJONixYRVPw9vP0AeZlxCP2pj3edqe4HG6Rh3mSV6jPWYrEgVMBaIJoxgPJQVS/hMcc4Nu8Y7IH
-	IGGmPvgkvRdPp320mQdT+YWwrNoXgaBAJw2LHf9KEk+wT4Dzz4hsMBs69FhYfA7kFuMu9O8ZhWq3G
-	F/0YTFCg==;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=gPw2b1rSiBSdAmQO+g4Nd0EhJY
+	yox/CA6IKOxuL8wzbLjVm/9949O9O5ij0HULXMVxerLWPPWQ8kdaxgLRIfr7Ax1P3d3J3xsJRBAd8
+	60sxMkkWTfC1s69iW6tRtbA4EZBHU4kT2QNfumC9VYhd4fxvUVPGimTjsX30zObJJ9fD8jSE9Rsec
+	Mi0JIRsBrdfp6dk3f425kkhVSpe/KfOzmP1OnHZQzE2zBjyhUqHKNgvjtVAnjXz9EZgwUBCNi/4Z0
+	Wi286HLlmfsLXnYK344jJmcccG06vHX0OiSRfVKez4ywlB1M+2h87alPR/vmiohKbsp3T+58Jqtg2
+	VqbrNaDw==;
 Received: from sslproxy08.your-server.de ([78.47.166.52])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w2TJC-000K6r-22;
-	Tue, 17 Mar 2026 13:14:02 +0100
+	id 1w2TOu-000M22-0o;
+	Tue, 17 Mar 2026 13:19:56 +0100
 Received: from localhost ([127.0.0.1])
 	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w2TJB-000JvM-0u;
-	Tue, 17 Mar 2026 13:14:02 +0100
+	id 1w2TOs-000Gx7-2x;
+	Tue, 17 Mar 2026 13:19:55 +0100
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: add initial device tree for
- TQMa93xx/MBa93xxLA-MINI
-Date: Tue, 17 Mar 2026 13:14:01 +0100
-Message-ID: <12858524.O9o76ZdvQC@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <30599533-91de-41fd-9420-3f8693ec92ac@kernel.org>
-References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
- <20260317111704.1075938-3-alexander.stein@ew.tq-group.com>
- <30599533-91de-41fd-9420-3f8693ec92ac@kernel.org>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Daniel Baluta <daniel.baluta@oss.nxp.com>
+Subject: [PATCH v2 1/1] clk: imx: pll14xx: Use unsigned format specifier
+Date: Tue, 17 Mar 2026 13:19:52 +0100
+Message-ID: <20260317121953.1100619-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27943/Tue Mar 17 07:24:09 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_121403_872267_0C01EF42 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260317_121958_306763_9FACA828 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,147 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The debug outputs use %d for clock rates resulting in negative clock rate
+during rate calculation.
 
-Am Dienstag, 17. M=E4rz 2026, 13:10:06 CET schrieb Krzysztof Kozlowski:
-> On 17/03/2026 12:17, Alexander Stein wrote:
-> > From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
-> >=20
-> > This adds support for TQMa93xx module attached to MBa93xxLA-MINI board.
->=20
->=20
-> Please do not use "This commit/patch/change", but imperative mood. See
-> longer explanation here:
-> https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submi=
-tting-patches.rst#L94
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* Adjusted another format specifier
 
-Sure, will do in v2. Thanks.
+ drivers/clk/imx/clk-pll14xx.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> > TQMa93xx is a SOM series using i.MX93 SOC.
-> > The MBa93xxLA-MINI has a small form factor and is designed with
-> > WLAN, Bluetooth and WWAN applications in mind.
-> >=20
-> > Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile        |   1 +
-> >  .../imx93-tqma9352-mba93xxla-mini.dts         | 637 ++++++++++++++++++
-> >  2 files changed, 638 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93x=
-xla-mini.dts
-> >=20
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/d=
-ts/freescale/Makefile
-> > index 31bc80586c682..db536522600ac 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -461,6 +461,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phycore-rpmsg.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-tqma9352-mba91xxca.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-tqma9352-mba93xxca.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-tqma9352-mba93xxla.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx93-tqma9352-mba93xxla-mini.dtb
-> > =20
-> >  imx93-tqma9352-mba91xxca-lvds-tm070jvhg33-dtbs :=3D imx93-tqma9352-mba=
-91xxca.dtb imx93-tqma9352-mba91xxca-lvds-tm070jvhg33.dtbo
-> >  imx93-tqma9352-mba91xxca-rgb-cdtech-dc44-dtbs :=3D imx93-tqma9352-mba9=
-1xxca.dtb imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtbo
-> > diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-min=
-i.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-> > new file mode 100644
-> > index 0000000000000..97693aa5e904d
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-> > @@ -0,0 +1,637 @@
-> > +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> > +/*
-> > + * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> > + * D-82229 Seefeld, Germany.
-> > + * Author: Martin Schmiedel
-> > + */
-> > +/dts-v1/;
-> > +
-> > +#include <dt-bindings/input/input.h>
-> > +#include <dt-bindings/leds/common.h>
-> > +#include <dt-bindings/net/ti-dp83867.h>
-> > +#include <dt-bindings/pwm/pwm.h>
-> > +#include <dt-bindings/usb/pd.h>
-> > +#include "imx93-tqma9352.dtsi"
-> > +
-> > +/{
-> > +	model =3D "TQ-Systems i.MX93 TQMa93xxLA on MBa93xxLA-MINI SBC";
-> > +	compatible =3D "tq,imx93-tqma9352-mba93xxla-mini",
-> > +		     "tq,imx93-tqma9352", "fsl,imx93";
-> > +	chassis-type =3D "embedded";
-> > +
-> > +	chosen {
-> > +		stdout-path =3D &lpuart1;
-> > +	};
-> > +
-> > +	aliases {
-> > +		eeprom0 =3D &eeprom0;
-> > +		ethernet0 =3D &eqos;
-> > +		ethernet1 =3D &fec;
-> > +		gpio0 =3D &gpio1;
-> > +		gpio1 =3D &gpio2;
-> > +		gpio2 =3D &gpio3;
-> > +		gpio3 =3D &gpio4;
-> > +		i2c0 =3D &lpi2c1;
-> > +		i2c1 =3D &lpi2c2;
-> > +		i2c2 =3D &lpi2c3;
-> > +		i2c3 =3D &lpi2c4;
-> > +		i2c4 =3D &lpi2c5;
-> > +		mmc0 =3D &usdhc1;
-> > +		mmc1 =3D &usdhc2;
-> > +		mmc2 =3D &usdhc3;
-> > +		rtc0 =3D &pcf85063;
-> > +		rtc1 =3D &bbnsm_rtc;
-> > +		serial0 =3D &lpuart1;
-> > +		serial1 =3D &lpuart2;
-> > +		serial2 =3D &lpuart3;
-> > +		serial3 =3D &lpuart4;
-> > +		serial4 =3D &lpuart5;
-> > +		serial5 =3D &lpuart6;
-> > +		serial6 =3D &lpuart7;
-> > +		serial7 =3D &lpuart8;
-> > +		spi0 =3D &lpspi1;
-> > +		spi1 =3D &lpspi2;
-> > +		spi2 =3D &lpspi3;
-> > +		spi3 =3D &lpspi4;
-> > +		spi4 =3D &lpspi5;
-> > +		spi5 =3D &lpspi6;
-> > +	};
-> > +
-> > +	backlight_lvds: backlight {
-> > +		compatible =3D "pwm-backlight";
-> > +		pwms =3D <&tpm5 0 5000000 0>;
-> > +		pinctrl-names =3D "default";
-> > +		pinctrl-0 =3D <&pinctrl_backlight>;
-> > +		brightness-levels =3D <0 4 8 16 32 64 128 255>;
-> > +		default-brightness-level =3D <7>;
-> > +		power-supply =3D <&reg_12v0>;
-> > +		enable-gpios =3D <&gpio2 5 GPIO_ACTIVE_HIGH>;
-> > +		status =3D "disabled";
->=20
-> Why do you add disabled nodes? If the display is not on the board, then
-> the node should not be here.
->=20
-> There is no user of that in patch 3/3, either.
-
-Well, LVDS (via LDB) on i.MX93 is not yet in mainline, patches are pending.
-So there is no user yet. But the wiring for the backlight and panel is fixed
-already on the mainboard, e.g. LVDS channels, PWM channels, GPIOs etc.
-
-So this node will be enabled on a later display overlay. Right now
-everything is setup already.
-
-
-Thanks and best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+index 7552aaafc3395..39600ee22be30 100644
+--- a/drivers/clk/imx/clk-pll14xx.c
++++ b/drivers/clk/imx/clk-pll14xx.c
+@@ -151,7 +151,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+ 	/* First try if we can get the desired rate from one of the static entries */
+ 	tt = imx_get_pll_settings(pll, rate);
+ 	if (tt) {
+-		pr_debug("%s: in=%ld, want=%ld, Using PLL setting from table\n",
++		pr_debug("%s: in=%lu, want=%lu, Using PLL setting from table\n",
+ 			 clk_hw_get_name(&pll->hw), prate, rate);
+ 		t->rate = tt->rate;
+ 		t->mdiv = tt->mdiv;
+@@ -173,7 +173,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+ 
+ 	if (rate >= rate_min && rate <= rate_max) {
+ 		kdiv = pll1443x_calc_kdiv(mdiv, pdiv, sdiv, rate, prate);
+-		pr_debug("%s: in=%ld, want=%ld Only adjust kdiv %ld -> %d\n",
++		pr_debug("%s: in=%lu, want=%lu Only adjust kdiv %ld -> %d\n",
+ 			 clk_hw_get_name(&pll->hw), prate, rate,
+ 			 FIELD_GET(KDIV_MASK, pll_div_ctl1), kdiv);
+ 		fout = pll14xx_calc_rate(pll, mdiv, pdiv, sdiv, kdiv, prate);
+@@ -211,7 +211,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
+ 		}
+ 	}
+ found:
+-	pr_debug("%s: in=%ld, want=%ld got=%d (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
++	pr_debug("%s: in=%lu, want=%lu got=%u (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
+ 		 clk_hw_get_name(&pll->hw), prate, rate, t->rate, t->pdiv, t->sdiv,
+ 		 t->mdiv, t->kdiv);
+ }
+-- 
+2.43.0
 
 
