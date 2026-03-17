@@ -4,104 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F91FD8741
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EC2FD8740
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 11:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIinQPgAdcS1WMa58LwQX+0utCWCpOx/mVW8onE7nR4=; b=oOuxIqFuKIHLhGBUviq4OVvKNh
-	5m72AE/RNi0fYn2hui9C4XJFOGcVKurUef2MlZvPrb/bnXCq6yADYkiIBdm7WnCosI8tnESwi+NR1
-	2sET7sOskMVjnr6vneifBt1a8TkiJeCQBbcpdslZpFnJS+WjF8UETonUE4dXt8cBs+0lbwn3Bf7ri
-	pxOqob/mn3Pgo8eIHb4RSJ75eS6c4ZQOGfH1N8ilN26nttojU0F5+7NlUJUWC16RlaJqPGgibHg3h
-	WHXYuwCCI4hywELWDkOad91zj/Kt2Kx/LzplmTKQgprZHB3musb7EwkdWdkGoxz6kfwmxzRDqm/3G
-	2EwjWIHA==;
+	bh=FOpz0zTT1woy4ceuVGt6fUOrMCeHnARknEAOOc/0gIM=; b=1m6u0ktC+WSerptQeF39uFcJAe
+	ror/NJTmwMW/5oJR+px51foYRHtsht9Sp2vxeyFnO+h3YC/aCxiQQvIXmf2oOb4t0bxH9nbLrIcDf
+	bzvn1c3ihwJ/LYCC1G7SbSeDJ67g6W2F39S5BZOx0WN1U2xyKGggfGeGjkLbFQM1CC9XrijPfH7tQ
+	gde8CJUw6tSCdb8C+t1OX+EVyHUtTo4VxfHt6EbXuNSKkeQyH6ySlJRaghX2tElMEZ93U32rynLB9
+	gA12jaAdd3APyZk3dYwGmbZjx8IMCDOm1CychmR3lNQncFppUVHHU14MdlqeifKPUbK8X1v5Y51Hj
+	FINnRxng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SUT-000000067Ko-43HU;
-	Tue, 17 Mar 2026 11:21:37 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2SUR-000000067K9-0ARd
+	id 1w2SV1-000000067PT-1H86;
+	Tue, 17 Mar 2026 11:22:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2SUx-000000067OX-3mfC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 11:21:36 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-509062d829dso433581cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 04:21:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773746494; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WTwq92ZEKrQT8QZvu1qfp4BIihjDmZQr0xv+anztGeOmo6LrVfxy8Tl1kQ61E13Qsv
-         PGxTCRhbqA3ofIb80h6kxKVwybSnHQFEeHfsjJmEmKgRESrpRapDB70GDX/myoWhZH2x
-         huJs5Pi6sRlVet7Kqi4QvAqttGyCfrnjY4a3t+P+XkL7Y9Zni4mmzsgEWQB6sh7beecW
-         S04mID6ldqyq5LzVMymHIpx8Cu3cg+1lEYI5okieh0I7GrDVyT9/mFVD3DyURjCqC56g
-         ueEWRWDKNt1aT9sSeSzv/uElk8AeWi8Mbm5cZg4e3w3m8ZIELz595r0kX63lrC0+PybM
-         jLew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=IIinQPgAdcS1WMa58LwQX+0utCWCpOx/mVW8onE7nR4=;
-        fh=QGjZJ+5bab6yvEW8NpNcaVHIKoUmf+eeLmpBgYueM5w=;
-        b=Xp/5D6pM3f5gjldBPRK/g/dX1oi0WlIgWqriKV0DGHYiUM0jV+zyYUsx5ZqrfsnhVD
-         YbfG5e9+LKJe+t1/4IcgadNKYxJtYRaDmlBmh1c0SEVG/knE9MNhq8DhMNk5/fgCicXk
-         wJWmXDmUM+uux23izO0kGCVa2NYeI6SHwa3yY2GMRylZBZbOk+x/ib6L0gS7EkIVjfKJ
-         qZp3xM5e1W7rYOa2WIuAhXiTe/u/HOma7FDahsn0rBEbtdxuLUs5D1YQCXBfae4UHNF/
-         Fyd7hTKXfRm4502yr9ANpScyCR1/GzU3JqZ8PqVrs4vBkZwLyF4I2iRkEk1Xc3/r7X1U
-         Rp+g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773746494; x=1774351294; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=IIinQPgAdcS1WMa58LwQX+0utCWCpOx/mVW8onE7nR4=;
-        b=qlZpLryRLkjqeCrvYm1mjJPQeF8zQYejM+0ir5au/b5Cgk5JPvC0trEUjEiGH4uuvb
-         MMumxTharULAIFHmzB34F/ui1CPc67GhDVDn7YP/p0NZX/Js3g2d6uVQMwz+k94m4c11
-         nbRaT95e+PvGE98DQcf5VZEYwdVH8vbq3MeJ6WDV894y2zGZqzZzWsPz6hs3soEytU/C
-         qsUZjDKti16zOAKb3OlgtoSv9ue9QTxMqsIg3LDcDq35RzMiTgtHPNyBVGD1RE4rhwkO
-         8g9EEDppL/Bhz0VTaDNNgHNdrMQwpMuTJcdILqYUt/M8/P1oNlagERaWqNxIRMGj4qGs
-         SVXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773746494; x=1774351294;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IIinQPgAdcS1WMa58LwQX+0utCWCpOx/mVW8onE7nR4=;
-        b=oEQ6kbKLQcGTJLoOxAxraO757tZluUb13Yc8pDEnFkcPZKnzPQX75sEsNzTfiz/9Fa
-         8whXUiZOZCjmSTlKvT1ztcOf0jihy7vt074HZkb11k4NZeKFD91j9XmkpoKy8ddz+p11
-         bQSZBkxHRKbCmSjBBboMI/PquM2Rxg8cN0Of9AfVqVSy6chywMJvDCwfwvZgsJbSP75t
-         wR/M3XESq/h/OkBWsoB+ftayuJz+6ERs7Yx4K4inhx9LvshAhglxEyvOgbSLSIZYCljJ
-         80Xk/Bp0Y37V0A6y+lmf6SFSA1wd+d8meLS8v58A2ejjO1OXUJ/dgDEWfkwbSfFL6vE3
-         9W8w==
-X-Forwarded-Encrypted: i=1; AJvYcCVNVFkl5/F4kj0hOWszqkY05JkVvXwEw9kgyb/pbBK3xqrDGSUHogxnVdY3IhUB/gP9OUBsFXy/Hz73BDUMwMU+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJiZtjobzfPbdQBuK1bOqK5adDpK7+FtN69NS6A/9JxYU8vx1K
-	9g2r0mHcrU/7sqPjj1MmGGPUMGAa4lS9Qh4TZCAKAoR/ij8JQdGJB/gsz/bp7glL4NafS2PUVnp
-	l8oM0sRju3kG0NWxtWq2bfOnGJ+pSpulSC3Lj6XGI
-X-Gm-Gg: ATEYQzzKcfQUM+DMxglI+oBFFSoRYkJmzjxoh1rFHEG7e8ZgDtw2iXtfCdzOLSrL6BH
-	APFwZBMNGXrT+H/CV9Chve/yyQ0oNPgcE9bXYw/VpkYCu4CJnFC7EVuI+sx+GzxK9mwFsZHUM2n
-	uDPG9lKjyXtN/hyLNCAj4g1yq0IsQciZRei9EYHpYcWPZvgWSYK+Pulb/xFMcUxqae1REvcMQ32
-	H10BbOZbpBkumkN089no5em16ZQgGaAEy98qNCH1+TKFTfuq4O+inJLQ7gbK9uAPSQLD90F+5+1
-	oytkxa7IZwWovFallGWheocyi2uCZaQ0ffM2TGBUKqPf9N0=
-X-Received: by 2002:a05:622a:3cb:b0:509:2cd4:b705 with SMTP id
- d75a77b69052e-50998c18cb5mr14530571cf.4.1773746493105; Tue, 17 Mar 2026
- 04:21:33 -0700 (PDT)
+	Tue, 17 Mar 2026 11:22:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF6061477;
+	Tue, 17 Mar 2026 04:21:57 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 92C413F778;
+	Tue, 17 Mar 2026 04:22:03 -0700 (PDT)
+Date: Tue, 17 Mar 2026 11:22:01 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 05/19] coresight: Add callback to determine if PM is
+ needed
+Message-ID: <20260317112201.GK8048@e132581.arm.com>
+References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
+ <20260305-arm_coresight_path_power_management_improvement-v6-5-eff765d211a9@arm.com>
+ <050d326f-ca74-4a8e-9ccd-78a653344c81@arm.com>
 MIME-Version: 1.0
-References: <20260316175451.1866175-1-maz@kernel.org> <20260316175451.1866175-7-maz@kernel.org>
-In-Reply-To: <20260316175451.1866175-7-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 17 Mar 2026 11:20:56 +0000
-X-Gm-Features: AaiRm53-qbf4XI9ulNB_-iuJQm1ePeG7PGYgglAHC_yoHQxA9dWx5fdfSL94zik
-Message-ID: <CA+EHjTzeqdkn9wawGRo7pT6px8nmjByxYVcvawCFhC=LWm8nOQ@mail.gmail.com>
-Subject: Re: [PATCH 06/17] KVM: arm64: Kill write_fault from kvm_s2_fault
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <050d326f-ca74-4a8e-9ccd-78a653344c81@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_042135_152692_D73F498A 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20260317_042207_975093_14A066AE 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,79 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
->
-> We already have kvm_is_write_fault() as a predicate indicating
-> a S2 fault on a write, and we're better off just using that instead
-> of duplicating the state.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/mmu.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 12c2f0aeaae4c..86950acbd7e6b 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1711,7 +1711,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
->  }
->
->  struct kvm_s2_fault {
-> -       bool write_fault;
->         bool exec_fault;
->         bool writable;
->         bool topup_memcache;
-> @@ -1799,7 +1798,7 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
->                 return ret;
->
->         fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, fault),
-> -                                      fault->write_fault ? FOLL_WRITE : 0,
-> +                                      kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
->                                        &fault->writable, &fault->page);
->         if (unlikely(is_error_noslot_pfn(fault->pfn))) {
->                 if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
-> @@ -1850,7 +1849,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->                          */
->                         fault->s2_force_noncacheable = true;
->                 }
-> -       } else if (fault->logging_active && !fault->write_fault) {
-> +       } else if (fault->logging_active && !kvm_is_write_fault(s2fd->vcpu)) {
->                 /*
->                  * Only actually map the page as writable if this was a write
->                  * fault.
-> @@ -1980,21 +1979,17 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->  static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->  {
->         bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
-> -       bool write_fault = kvm_is_write_fault(s2fd->vcpu);
->         bool logging_active = memslot_is_logging(s2fd->memslot);
->         struct kvm_s2_fault fault = {
->                 .logging_active = logging_active,
->                 .force_pte = logging_active,
->                 .prot = KVM_PGTABLE_PROT_R,
-> -               .write_fault = write_fault,
->                 .exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu),
-> -               .topup_memcache = !perm_fault || (logging_active && write_fault),
-> +               .topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
->         };
->         void *memcache;
->         int ret;
->
-> -       VM_WARN_ON_ONCE(fault.write_fault && fault.exec_fault);
-> -
+On Fri, Mar 13, 2026 at 11:26:59AM +0000, Suzuki K Poulose wrote:
+> On 05/03/2026 10:17, Leo Yan wrote:
+> > Add a callback in the source device that returns a boolean indicating
+> > whether power management operations are required. The save and restore
+> > flow is skipped if the callback returns false.
+> > 
+> > The ETMv4 driver implements its own version's callback.
+> > 
+> > Reviewed-by: James Clark <james.clark@linaro.org>
+> > Tested-by: James Clark <james.clark@linaro.org>
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-core.c       |  9 ++++++++-
+> >   drivers/hwtracing/coresight/coresight-etm4x-core.c | 16 ++++++++++++++++
+> >   include/linux/coresight.h                          |  1 +
+> >   3 files changed, 25 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> > index 5f7930ef537e2877649c404858d9fe6f593af037..6956429ca507d850c8b8c62c65de4b6fe1a1740c 100644
+> > --- a/drivers/hwtracing/coresight/coresight-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-core.c
+> > @@ -1681,7 +1681,14 @@ static bool coresight_pm_is_needed(struct coresight_device *csdev)
+> >   	    !coresight_ops(csdev)->pm_restore_enable)
+> >   		return false;
+> > -	return true;
+> > +	/*
+> > +	 * PM callbacks are provided but pm_is_neended() is absent, it means
+> > +	 * no extra check is needed.
+> > +	 */
+> > +	if (!coresight_ops(csdev)->pm_is_needed)
+> > +		return true;
+> 
+> Do we really need this call back ? The ETM can skip registering the PM ops
+> when it is not needed (make them NULL) ? And the oresight_get_mode() is any
+> way available for all devices and use that simply in the core function ?
 
-We can't hit this warning anyway.
-
-Reviewed-by: Fuad Tabba <tabba@google.com>
-
-Cheers,
-/fuad
-
->         /*
->          * Permission faults just need to update the existing leaf entry,
->          * and so normally don't require allocations from the memcache. The
-> --
-> 2.47.3
->
+Good point!  I will drop pm_is_needed() callback in new version.
 
