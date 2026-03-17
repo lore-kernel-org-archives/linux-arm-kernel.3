@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D73FED9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF01FED9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8S4mpdRP+UIBy2btekCCHun6RJEa095ustxMw6UrWgg=; b=gIHVcVThdehEbjh0cZ/8a/me/m
-	iqpWkrlwQFRGjRSvTZ4Gz107JCOwgWtDh3jnF0Yd9IwtZGcntC0F+4T2p6Yju5yaN2FFZXwFRondR
-	o42zwWmwHScPuQimDfNLbIjOXneGjTd/htR5eqQioMnp0Zq4ai87UCjM0JBN0wyNVc7+B28IJ+IM6
-	Qsfg9d707dO9ACppmhJr/Yhf6M1Kx51NfW79MNM2sP92RxaTj2uv/nVjIeMoJ9bENpvfNLI1/Q08Q
-	ef92SBzdnNVxs6r6LOfu319UeWc0ly4J8pnmJMQJ4kaFafcBKnCbTpjpyWQY1QvPEKLGM8kNQKvUN
-	YBM48SIg==;
+	bh=1uvGS9511yiB2kVc9R2IJBZo0bPQ1u/lDyqAAcddxEw=; b=rk8ElqdR5QruZsbPm8di3j67E6
+	SUj2uQ5+dSYYqT9Tg8kWIOiY/L5skjWxKUvPIp6zhOKj9siZ74OB+xZtu2rFnZmvtst/ULFyVJYj9
+	37D30T63bqvGT2tJ6hiNJo8ea86c2x94suNKH5VPDmFZ6AJ5TjEuMAsoryhXCE55v+OzUlkAOA7/7
+	h2P4RLwtxKdiCYLd1hXnFiT7n/iT1GnbcylIhw+K5ufu/JHTP29bEOisoqSXlRpqv7kgRfF89llSM
+	H7UTK9hU5NhxNd9erqumIvpMgwSEUuObt97d6SJkvSybx5f3+qHzO234IQKjWFR0V3eGE1KfqNyb4
+	LoVjJgvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y0d-00000006u7T-42t0;
-	Tue, 17 Mar 2026 17:15:11 +0000
+	id 1w2Y0j-00000006uD0-3by7;
+	Tue, 17 Mar 2026 17:15:17 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Y0a-00000006u5A-2uCu
+	id 1w2Y0h-00000006u9G-0G6S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:15:09 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62HFOIlS536868
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:15:07 GMT
+	Tue, 17 Mar 2026 17:15:16 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62HG5YpX2977451
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:15:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8S4mpdRP+UIBy2btekCCHun6RJEa095ustxMw6UrWgg=; b=Re7AWdnRagrsr9H/
-	lENcLxa9fZ1N6pBKQrzQaW/n1qMn8aCIsvf6JySUif4t+8O3MQYXGaiAa53TeE/4
-	w/6fjX0RaJUHSyw0ABZagSAmXLyAa6ivFU0yeu7bGMCnba/jU6Vv4YmVOKwIOiBV
-	VF/2h4CKg9GMvNUt1UavvJf5blqXmlY7hdWMCCk5wKPjdQIzJ0KCmu8x+PKHC6xJ
-	5M4IFkVu/4gR0+/wQR48ehOAoobUL1mWnRqxLZKutZ4OvlQts26d7VMOvFltPIFd
-	StWpBrynkf+uHtQ0iQQVd82C+0BZqNYJmVQo8iHggYp+Q2irHUKUshYaW2p3cfv6
-	HmP9MA==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cy9jr0er7-1
+	1uvGS9511yiB2kVc9R2IJBZo0bPQ1u/lDyqAAcddxEw=; b=REl8bDd7PujZEec1
+	QnAbFTGN0dt93EtlJiKsQzrW0BFupgAlLTCuvPNfZuw3+yQcnJBoCpl37ccWtbUk
+	Yx5VcmIrKJOTdsLPPp8jgq3sVzR4WnW74wRXFEA9QrkkvPC/4eCeBzzMHYyIgRt/
+	XtrC8/BDV2K19Uh4LCKZNutO7Qez1cLSH4vikczlxkdcTRKdv4tEqf6m/SQr+ccv
+	YgeTZ8e93d5Sn7ovltn1wvukEz0eEVhN5nO307ZL/BY01Hs4lSIkAkeegzDWyU79
+	LK0MrVBwGKfZoLDlwGro6Eya1klSzvxdgDI1gooriBvvtEPqjEez7wVu7ROQXqJg
+	2+MoLw==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cya62r98n-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:15:07 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35845fcf0f5so155777a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 10:15:07 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:15:13 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-35b8f351debso3208463a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 10:15:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773767707; x=1774372507; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1773767713; x=1774372513; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8S4mpdRP+UIBy2btekCCHun6RJEa095ustxMw6UrWgg=;
-        b=h4ukLauVJW2CxotmQto9NothzlIc7Vubw+3a+uyqMq3VlS8vPgtnraYEffHSJamCiK
-         VTM7u5zKTv5qoYTwd+Tzfcnp88W0IuXfgB0UMMLs0mzfGWbwo6+8e2GFcj0xCEPPiW8L
-         NlkOAIGSy/UtNHK/xI15moLkGvtkcnEAB8cydslqNv2r3/KcUfPlWEZsgORRbSVDgMLC
-         vVQycsgACEkxhr4fMFLxhg0oxQZ2dJRBLGVu37LDV/gM25EDB3apgu6CHJ+6gouxliYt
-         CqcsmoywzgCgG+q/taYVCQmdLwvwQV8eF1CwzYf03idzaE3oFtclQeVc6e6K638nFe1O
-         fCvw==
+        bh=1uvGS9511yiB2kVc9R2IJBZo0bPQ1u/lDyqAAcddxEw=;
+        b=Eq6gziVJd+nrkZZ/TMxs6rO8zjPrdSlELL1P+pEnSLm6PAaVh4pzLYP8cRlrKlfCOJ
+         P79/OY+4DCzcU5oN7SVzUWeuwZ+ovM8bDNG6eewnFbHGfxCAIt8bpxuKVTcI0lRwAkU1
+         z2f+M7DEfPzqPy+3EqQJ+YqwiMUomsQNzwzqmOsylqpxh8AZY1jlR3X8YmIHxxQn+zlQ
+         ZHSE7fzaS/0B0FfHHfhmc927C2LkYItQHQlEN7aXz4wGSRqcLcQPOdUC9WJHRhLRxGbK
+         xNnZbP8aJXKJNK0Mphx+pIcstrCa61E+BryZPCuUngrc/Wa0gtTJsIQx9mTGG0UBJKr2
+         yT4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773767707; x=1774372507;
+        d=1e100.net; s=20251104; t=1773767713; x=1774372513;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=8S4mpdRP+UIBy2btekCCHun6RJEa095ustxMw6UrWgg=;
-        b=eQuLR6+rSNlmZ1jrXhKv38pePb1bRczrBBpmqZfxzYiLEDp22DFwLp0deCqO8cJlBx
-         f5aTtKg2YBKBjHazLJ6qpftdcEWq0VjRIPJtgpYl4IJuLwmTE50ZbItFDsszcbJk2UsF
-         CkPnGZAgFKUUaIP2AmF580xEIOrxDDlpK3UiWad50pmleDMl6EO+arbCxxKD1ZejRU8Y
-         TOcQLlwSGs6TZIkoUEZ+XjH6pFrbiLjvSoZcc0uosSSSD87CN1m/volk8ESdARZXAWEa
-         ckomSw8qABhRlWN5v287RUIOPnc33CrPbZxGHP5o1Ecwpk423NHz2cTus5BKFJbCmrkK
-         cNOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYPXgwLYzXjCMNhQPEoVPZCGMKgdOKR7SyrrUCFs62pOR4S5VHkCukJb2Xd62+38+rSQljAZkFNZZr3GlZ8aXo@lists.infradead.org
-X-Gm-Message-State: AOJu0YypPW5vyML0NJHAG3aFKetm7CM/QpXVkEYhk4U6+ycU33fvcNUn
-	gowcKs3iD6Ndh07QFdN7tjRYhkSp8KnSdBRFs6lSpUIgQz7gO7vXw1NBnuZmnh7SXO7aqjjPPKU
-	2H9FGZSZcL5DNsBbPeCEunWVZmT6gsqlWqT/QIQ1DQ8gb63mJOqgQg4zvppmDCIRLW+d0yGMm5e
-	ddVw==
-X-Gm-Gg: ATEYQzwrRFppTwmZSere/CENGfyOtCvK1jhCOdVibPYBwqaysAJXTxjRxLV+g4I/V2q
-	cOYFcpUUmQOvsnLtkuYD8tPyp7XCstaEjoVHHy5QI8n163trsiWRR49xksdSuOpQQqynI9XvNhT
-	o1qyJDzufnRh4E1jtkh4NnZRwkLPLhlWlG8QjsZ86FXO0O2A3Sw55rXSNuBwvxlc2C1tLHy/Nuu
-	/DsmVTEmdwNICpJYIOyDDVSUswfly1I5MQ841Xq4owT6W3R7KqhQF5Gt2rra30kHzG/dSmtMK+C
-	nblsaKtty6GCGVb9Gev6MusY0+N92e0npeGJAe7RsgPSI8WVsKW/ol/23UTgIFJD/ZvHtpTA782
-	nM0QI2aZneZCNo9O9zOeSB414txFdm5FhO6eQ7kFQ9DJB6g==
-X-Received: by 2002:a17:90b:3503:b0:35a:117:9521 with SMTP id 98e67ed59e1d1-35bb9a0ad89mr300081a91.10.1773767706378;
-        Tue, 17 Mar 2026 10:15:06 -0700 (PDT)
-X-Received: by 2002:a17:90b:3503:b0:35a:117:9521 with SMTP id 98e67ed59e1d1-35bb9a0ad89mr300045a91.10.1773767705764;
-        Tue, 17 Mar 2026 10:15:05 -0700 (PDT)
+        bh=1uvGS9511yiB2kVc9R2IJBZo0bPQ1u/lDyqAAcddxEw=;
+        b=B2mQj51LsSQk+h9eRm8vNASHJTBDuqJjAiHhuCvqBgPnbM7hCP17rJyms7Orug3arF
+         goqzGxQhD6qFzMgJEOYSFbEpnuPNi0cepdVK61J6XrhCdeUtYNalYW4MF3sHK5yZ4zCo
+         KcNZb0Eall4b7ddqkxnV72Fnu2ceAAeZ4pFqG3ASZlJUkRdu+82q7hhtqlzie8/wrbCU
+         /uWmqQCfTJsfWyeGDMymub/qxgtGDzES2DqlAHbZCAuylbYjtbR+IvsE12alCf70nVY6
+         7/98ej0jhxaT59TKw3+zySkb3YmRmh0N7OjZObu7W9qq42NbqKJ+AcNCCjHGtObRQtbP
+         ziiA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVYl0u2uK0e31MgqMOvO0dzNuXr9Nva93AX3c/ZTQ2o2MLcPO51oLhbOQr7sCaYevDhqyW2J3JNO8a2XpYYevq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpGgr5zK5jH8Lv3tvvBWcxl7LMmPh36PLBE6AZtE49N6rVxNUj
+	e82otPRrQbcJ5Y96NrH31m2s81B3dkJ710VJLFJ+s1dHM9eNQsUqrt6lUTvRxxIdNhMrFgmUDld
+	yRx16L/zz/2EO/reDeHeRqpcCk9+KnOTbH4L3kyPwApMDSqdlQDASpJ7XoFkggtFyJEEKUuB6E6
+	AX7A==
+X-Gm-Gg: ATEYQzygwQCJy2tHreJKXtq3tdL1WBhMYf0ZZ812Zm7h8K6JzaRhrpIa47HMl4qkuHB
+	fbg2In0LYPhFGxcmcurGvb4NpYlHV8dLnIahKaivve+WCbBWjrFgq4lPAHb5hFMuu4q4Cm7zzYY
+	cQxIjQkr3j5hieUg1BmFgmF35pFFuLAVvRRf27t4u0DGP0GNs2r+zKjY5hms+y26+gWnXp2/66U
+	o/YzPPB0J4/SaAEXSf6DMymkxtJOk/08jn43ZNuMgRr3obLzpGkJJKyHssEIwK1yHVkVr7ilcJf
+	H0aold8NrpFPr5TUy1UBhENgmafgrlLtnoTJkhKRUwlN+YVDE2QVXhvexWqf/1gwRmT4uGWr3TT
+	LXbGjfp267X/YaYCfD1Jceyo8A1roGxmeig5FXMyoixhRTw==
+X-Received: by 2002:a17:90a:d44b:b0:359:8d70:c4e6 with SMTP id 98e67ed59e1d1-35bb9e8f6ebmr200738a91.1.1773767712138;
+        Tue, 17 Mar 2026 10:15:12 -0700 (PDT)
+X-Received: by 2002:a17:90a:d44b:b0:359:8d70:c4e6 with SMTP id 98e67ed59e1d1-35bb9e8f6ebmr200680a91.1.1773767711387;
+        Tue, 17 Mar 2026 10:15:11 -0700 (PDT)
 Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bb9f1cb48sm28919a91.0.2026.03.17.10.15.00
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bb9f1cb48sm28919a91.0.2026.03.17.10.15.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Mar 2026 10:15:05 -0700 (PDT)
+        Tue, 17 Mar 2026 10:15:10 -0700 (PDT)
 From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Tue, 17 Mar 2026 22:44:25 +0530
-Subject: [PATCH 4/7] clk: qcom: videocc: Add video clock controller driver
- for Eliza
+Date: Tue, 17 Mar 2026 22:44:26 +0530
+Subject: [PATCH 5/7] clk: qcom: gpucc: Add GPU Clock Controller driver for
+ Eliza
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260317-eliza_mm_clock_controllers_v1-v1-4-4696eeda8cfb@oss.qualcomm.com>
+Message-Id: <20260317-eliza_mm_clock_controllers_v1-v1-5-4696eeda8cfb@oss.qualcomm.com>
 References: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
 In-Reply-To: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -114,33 +114,33 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
         linux-arm-kernel@lists.infradead.org,
         Taniya Das <taniya.das@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-GUID: OX8mN08GEMYs7GbFCnMxkJxNP-jYpfJV
-X-Proofpoint-ORIG-GUID: OX8mN08GEMYs7GbFCnMxkJxNP-jYpfJV
-X-Authority-Analysis: v=2.4 cv=NdjrFmD4 c=1 sm=1 tr=0 ts=69b98c1b cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Authority-Analysis: v=2.4 cv=Ns3cssdJ c=1 sm=1 tr=0 ts=69b98c22 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=fDr36jkL0Xr7p1dDRlIA:9 a=QEXdDO2ut3YA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDE1MiBTYWx0ZWRfX9vMVO5ydGfjw
- vqEOg1ODuPhTB4sYHPcVCFXOfgHSz9hZk7FVWoIzLWpUgV2Xdvv9rALN6Lm1C0m1CST6Dj7XyuQ
- ud+fHaz1qV58U2Fe7R5nEELIbjnW+F/yDjvqvREm6xy4sIMblqx81XE5DLdPrRuTjdHBoU+irEB
- q/GefQUbq/n2BbjKrLfDQ6dnvlE+6UUXYhiR5Qt1CKI/FKQRbahckd2wt2E70fEgSnEzn/VDOIY
- OmtjnuJgLAf5kimeQ51Jq2bg6kqm1vw+NGCXvgy4UZJyxST0LCA4DG3mFPukl9je4laFcxGB+Th
- 8mokxTO2LrskxNMsElr+Lop3Cm4YFi90JJ+60Ptb149SM0ZKW5O8IH/RSHB+gdW0Q0ZoEBEgvNb
- a6138onAjFqk84QvY/TfH37o/qldGWozEQ56j67cIrOAqEhAsTv2Dj8S9Ypxz+KgtKpwN/T91r2
- B8pTdbEGHahGKUHUQgg==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=-vWcHKkLGHRqTAwGlSsA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-ORIG-GUID: xDuhli3oh9BY-Z01qrBGc1nj5YY81m5L
+X-Proofpoint-GUID: xDuhli3oh9BY-Z01qrBGc1nj5YY81m5L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDE1MiBTYWx0ZWRfX4aQCH5IAj2iZ
+ X7IYpoVIXhXCXDhu3cDpmt6hnRZF1m/IB8RvmDFNG+f6eKDSn46ou7O6xBgdSW6ncgiDmMFyu0W
+ eDzPELERWbEKEPJ7oM10eHoizX+G6kqtJpCCPq1XNWG9gm5zpn+/XPY5r8s45PDubMnPyMFY2IJ
+ wkDEIGrHSD2VV7PwT27x305Nh3GZO87JSftuICcZSiV1h5uQFTsS56yKpx4b4ADgnnb9qNLOCyC
+ /tA3K3OfROnzBp5hFCfEnehtflGwK5+9RM/uZ3RVPNFgNM2r24XV940oWTiEG9G/XmuoC47JmbL
+ 8Xfu5qXDdMlebNpomUyXn6kEvT5cgQb0xNnD1BtTF6f260ZQkI3H9bg4DgTg+fZ2TMjFsJlc7hK
+ zi9BTRi+qEREHGpbkXxouUbna/ygoB72O78mq4tmvekRd8HLb9a+tI/anXB6Y5qVLLS7iweCIQ9
+ hiuX3pzIHmAISL+HcHw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-17_03,2026-03-17_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0
- spamscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0 phishscore=0
+ bulkscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 adultscore=0 spamscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603170152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_101508_868343_C1E7194E 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260317_101515_239362_4940FC86 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,54 +155,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the video clock controller for video clients to be able
-to request for videocc clocks on Eliza platform.
+Add Graphics Clock Controller (GPUCC) support for Eliza platform.
 
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
- drivers/clk/qcom/Kconfig         |   9 +
- drivers/clk/qcom/Makefile        |   1 +
- drivers/clk/qcom/videocc-eliza.c | 404 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 414 insertions(+)
+ drivers/clk/qcom/Kconfig       |   9 +
+ drivers/clk/qcom/Makefile      |   1 +
+ drivers/clk/qcom/gpucc-eliza.c | 630 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 640 insertions(+)
 
 diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
-index 87728f13f948a68307163c48a7327ae0c84d82d0..8673e05ca46e79c866ba09b52bdcac5bdd9e4387 100644
+index 8673e05ca46e79c866ba09b52bdcac5bdd9e4387..2a33562d315477ce38b4287a85a67b9f20c6757e 100644
 --- a/drivers/clk/qcom/Kconfig
 +++ b/drivers/clk/qcom/Kconfig
-@@ -36,6 +36,15 @@ config CLK_ELIZA_TCSRCC
- 	  Support for the TCSR clock controller on Eliza devices.
- 	  Say Y if you want to use peripheral devices such as USB/PCIe/UFS.
+@@ -28,6 +28,15 @@ config CLK_ELIZA_GCC
+ 	  Say Y if you want to use peripheral devices such as UART, SPI,
+ 	  I2C, USB, UFS, SDCC, etc.
  
-+config CLK_ELIZA_VIDEOCC
-+	tristate "Eliza Video Clock Controller"
++config CLK_ELIZA_GPUCC
++	tristate "Eliza Graphics Clock Controller"
 +	depends on ARM64 || COMPILE_TEST
-+	select CLK_GLYMUR_GCC
++	select CLK_ELIZA_GCC
 +	help
-+	  Support for the video clock controller on Eliza devices.
-+	  Say Y if you want to support video devices and functionality such as
-+	  video encode and decode.
++	  Support for the graphics clock controller on Eliza devices.
++	  Say Y if you want to support graphics controller devices and
++	  functionality such as 3D graphics.
 +
- config CLK_GLYMUR_DISPCC
- 	tristate "Glymur Display Clock Controller"
+ config CLK_ELIZA_TCSRCC
+ 	tristate "Eliza TCSR Clock Controller"
  	depends on ARM64 || COMPILE_TEST
 diff --git a/drivers/clk/qcom/Makefile b/drivers/clk/qcom/Makefile
-index 82c5c2ec968ed0dfe5d1cc7ef5f17c67162186ea..77dc614cd43bba6734a0524c29741457f6fce39b 100644
+index 77dc614cd43bba6734a0524c29741457f6fce39b..0b2ba5773dd9c7eb91e42a9614babfa5796134e8 100644
 --- a/drivers/clk/qcom/Makefile
 +++ b/drivers/clk/qcom/Makefile
-@@ -22,6 +22,7 @@ obj-$(CONFIG_APQ_GCC_8084) += gcc-apq8084.o
+@@ -21,6 +21,7 @@ clk-qcom-$(CONFIG_QCOM_GDSC) += gdsc.o
+ obj-$(CONFIG_APQ_GCC_8084) += gcc-apq8084.o
  obj-$(CONFIG_APQ_MMCC_8084) += mmcc-apq8084.o
  obj-$(CONFIG_CLK_ELIZA_GCC) += gcc-eliza.o
++obj-$(CONFIG_CLK_ELIZA_GPUCC) += gpucc-eliza.o
  obj-$(CONFIG_CLK_ELIZA_TCSRCC) += tcsrcc-eliza.o
-+obj-$(CONFIG_CLK_ELIZA_VIDEOCC) += videocc-eliza.o
+ obj-$(CONFIG_CLK_ELIZA_VIDEOCC) += videocc-eliza.o
  obj-$(CONFIG_CLK_GFM_LPASS_SM8250) += lpass-gfm-sm8250.o
- obj-$(CONFIG_CLK_GLYMUR_DISPCC) += dispcc-glymur.o
- obj-$(CONFIG_CLK_GLYMUR_GCC) += gcc-glymur.o
-diff --git a/drivers/clk/qcom/videocc-eliza.c b/drivers/clk/qcom/videocc-eliza.c
+diff --git a/drivers/clk/qcom/gpucc-eliza.c b/drivers/clk/qcom/gpucc-eliza.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c65e624be
+index 0000000000000000000000000000000000000000..4341aa886518e51b3ec6a61a7bfef66d760db94c
 --- /dev/null
-+++ b/drivers/clk/qcom/videocc-eliza.c
-@@ -0,0 +1,404 @@
++++ b/drivers/clk/qcom/gpucc-eliza.c
+@@ -0,0 +1,630 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
@@ -215,7 +214,7 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +#include <linux/platform_device.h>
 +#include <linux/regmap.h>
 +
-+#include <dt-bindings/clock/qcom,eliza-videocc.h>
++#include <dt-bindings/clock/qcom,eliza-gpucc.h>
 +
 +#include "clk-alpha-pll.h"
 +#include "clk-branch.h"
@@ -230,24 +229,27 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +
 +enum {
 +	DT_BI_TCXO,
-+	DT_SLEEP_CLK,
-+	DT_AHB_CLK,
++	DT_GPLL0_OUT_MAIN,
++	DT_GPLL0_OUT_MAIN_DIV,
 +};
 +
 +enum {
 +	P_BI_TCXO,
-+	P_SLEEP_CLK,
-+	P_VIDEO_CC_PLL0_OUT_MAIN,
++	P_BI_TCXO_AO,
++	P_GPLL0_OUT_MAIN,
++	P_GPLL0_OUT_MAIN_DIV,
++	P_GPU_CC_PLL0_OUT_MAIN,
++	P_GPU_CC_PLL1_OUT_MAIN,
 +};
 +
 +static const struct pll_vco lucid_ole_vco[] = {
 +	{ 249600000, 2300000000, 0 },
 +};
 +
-+/* 576.0 MHz Configuration */
-+static const struct alpha_pll_config video_cc_pll0_config = {
-+	.l = 0x1e,
-+	.alpha = 0x0,
++/* 518.0 MHz Configuration */
++static const struct alpha_pll_config gpu_cc_pll0_config = {
++	.l = 0x1a,
++	.alpha = 0xfaaa,
 +	.config_ctl_val = 0x20485699,
 +	.config_ctl_hi_val = 0x00182261,
 +	.config_ctl_hi1_val = 0x82aa299c,
@@ -259,15 +261,15 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	.user_ctl_hi_val = 0x00000005,
 +};
 +
-+static struct clk_alpha_pll video_cc_pll0 = {
++static struct clk_alpha_pll gpu_cc_pll0 = {
 +	.offset = 0x0,
-+	.config = &video_cc_pll0_config,
++	.config = &gpu_cc_pll0_config,
 +	.vco_table = lucid_ole_vco,
 +	.num_vco = ARRAY_SIZE(lucid_ole_vco),
 +	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
 +	.clkr = {
 +		.hw.init = &(const struct clk_init_data) {
-+			.name = "video_cc_pll0",
++			.name = "gpu_cc_pll0",
 +			.parent_data = &(const struct clk_parent_data) {
 +				.index = DT_BI_TCXO,
 +			},
@@ -277,158 +279,192 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	},
 +};
 +
-+static const struct parent_map video_cc_parent_map_0[] = {
++/* 440.0 MHz Configuration */
++static const struct alpha_pll_config gpu_cc_pll1_config = {
++	.l = 0x16,
++	.alpha = 0xeaaa,
++	.config_ctl_val = 0x20485699,
++	.config_ctl_hi_val = 0x00182261,
++	.config_ctl_hi1_val = 0x82aa299c,
++	.test_ctl_val = 0x00000000,
++	.test_ctl_hi_val = 0x00000003,
++	.test_ctl_hi1_val = 0x00009000,
++	.test_ctl_hi2_val = 0x00000034,
++	.user_ctl_val = 0x00000000,
++	.user_ctl_hi_val = 0x00000005,
++};
++
++static struct clk_alpha_pll gpu_cc_pll1 = {
++	.offset = 0x1000,
++	.config = &gpu_cc_pll1_config,
++	.vco_table = lucid_ole_vco,
++	.num_vco = ARRAY_SIZE(lucid_ole_vco),
++	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
++	.clkr = {
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_pll1",
++			.parent_data = &(const struct clk_parent_data) {
++				.index = DT_BI_TCXO,
++			},
++			.num_parents = 1,
++			.ops = &clk_alpha_pll_lucid_evo_ops,
++		},
++	},
++};
++
++static const struct parent_map gpu_cc_parent_map_0[] = {
++	{ P_BI_TCXO, 0 },
++	{ P_GPLL0_OUT_MAIN, 5 },
++	{ P_GPLL0_OUT_MAIN_DIV, 6 },
++};
++
++static const struct clk_parent_data gpu_cc_parent_data_0[] = {
++	{ .index = DT_BI_TCXO },
++	{ .index = DT_GPLL0_OUT_MAIN },
++	{ .index = DT_GPLL0_OUT_MAIN_DIV },
++};
++
++static const struct parent_map gpu_cc_parent_map_1[] = {
++	{ P_BI_TCXO, 0 },
++	{ P_GPU_CC_PLL0_OUT_MAIN, 1 },
++	{ P_GPU_CC_PLL1_OUT_MAIN, 3 },
++	{ P_GPLL0_OUT_MAIN, 5 },
++	{ P_GPLL0_OUT_MAIN_DIV, 6 },
++};
++
++static const struct clk_parent_data gpu_cc_parent_data_1[] = {
++	{ .index = DT_BI_TCXO },
++	{ .hw = &gpu_cc_pll0.clkr.hw },
++	{ .hw = &gpu_cc_pll1.clkr.hw },
++	{ .index = DT_GPLL0_OUT_MAIN },
++	{ .index = DT_GPLL0_OUT_MAIN_DIV },
++};
++
++static const struct parent_map gpu_cc_parent_map_2[] = {
++	{ P_BI_TCXO, 0 },
++	{ P_GPU_CC_PLL1_OUT_MAIN, 3 },
++	{ P_GPLL0_OUT_MAIN, 5 },
++	{ P_GPLL0_OUT_MAIN_DIV, 6 },
++};
++
++static const struct clk_parent_data gpu_cc_parent_data_2[] = {
++	{ .index = DT_BI_TCXO },
++	{ .hw = &gpu_cc_pll1.clkr.hw },
++	{ .index = DT_GPLL0_OUT_MAIN },
++	{ .index = DT_GPLL0_OUT_MAIN_DIV },
++};
++
++static const struct parent_map gpu_cc_parent_map_3[] = {
 +	{ P_BI_TCXO, 0 },
 +};
 +
-+static const struct clk_parent_data video_cc_parent_data_0[] = {
++static const struct clk_parent_data gpu_cc_parent_data_3[] = {
 +	{ .index = DT_BI_TCXO },
 +};
 +
-+static const struct parent_map video_cc_parent_map_1[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_VIDEO_CC_PLL0_OUT_MAIN, 1 },
++static const struct freq_tbl ftbl_gpu_cc_ff_clk_src[] = {
++	F(200000000, P_GPLL0_OUT_MAIN, 3, 0, 0),
++	{ }
 +};
 +
-+static const struct clk_parent_data video_cc_parent_data_1[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &video_cc_pll0.clkr.hw },
++static struct clk_rcg2 gpu_cc_ff_clk_src = {
++	.cmd_rcgr = 0x94b8,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = gpu_cc_parent_map_0,
++	.freq_tbl = ftbl_gpu_cc_ff_clk_src,
++	.hw_clk_ctrl = true,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "gpu_cc_ff_clk_src",
++		.parent_data = gpu_cc_parent_data_0,
++		.num_parents = ARRAY_SIZE(gpu_cc_parent_data_0),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
 +};
 +
-+static const struct parent_map video_cc_parent_map_2[] = {
-+	{ P_SLEEP_CLK, 0 },
++static const struct freq_tbl ftbl_gpu_cc_gmu_clk_src[] = {
++	F(220000000, P_GPU_CC_PLL1_OUT_MAIN, 2, 0, 0),
++	F(550000000, P_GPU_CC_PLL1_OUT_MAIN, 2, 0, 0),
++	{ }
 +};
 +
-+static const struct clk_parent_data video_cc_parent_data_2[] = {
-+	{ .index = DT_SLEEP_CLK },
++static struct clk_rcg2 gpu_cc_gmu_clk_src = {
++	.cmd_rcgr = 0x935c,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = gpu_cc_parent_map_1,
++	.freq_tbl = ftbl_gpu_cc_gmu_clk_src,
++	.hw_clk_ctrl = true,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "gpu_cc_gmu_clk_src",
++		.parent_data = gpu_cc_parent_data_1,
++		.num_parents = ARRAY_SIZE(gpu_cc_parent_data_1),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
 +};
 +
-+static const struct freq_tbl ftbl_video_cc_ahb_clk_src[] = {
++static struct clk_rcg2 gpu_cc_hub_clk_src = {
++	.cmd_rcgr = 0x9430,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = gpu_cc_parent_map_2,
++	.freq_tbl = ftbl_gpu_cc_ff_clk_src,
++	.hw_clk_ctrl = true,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "gpu_cc_hub_clk_src",
++		.parent_data = gpu_cc_parent_data_2,
++		.num_parents = ARRAY_SIZE(gpu_cc_parent_data_2),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
++};
++
++static const struct freq_tbl ftbl_gpu_cc_xo_clk_src[] = {
 +	F(19200000, P_BI_TCXO, 1, 0, 0),
 +	{ }
 +};
 +
-+static struct clk_rcg2 video_cc_ahb_clk_src = {
-+	.cmd_rcgr = 0x8018,
++static struct clk_rcg2 gpu_cc_xo_clk_src = {
++	.cmd_rcgr = 0x9010,
 +	.mnd_width = 0,
 +	.hid_width = 5,
-+	.parent_map = video_cc_parent_map_0,
-+	.freq_tbl = ftbl_video_cc_ahb_clk_src,
++	.parent_map = gpu_cc_parent_map_3,
++	.freq_tbl = ftbl_gpu_cc_xo_clk_src,
 +	.hw_clk_ctrl = true,
 +	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_ahb_clk_src",
-+		.parent_data = video_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(video_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
++		.name = "gpu_cc_xo_clk_src",
++		.parent_data = gpu_cc_parent_data_3,
++		.num_parents = ARRAY_SIZE(gpu_cc_parent_data_3),
 +		.ops = &clk_rcg2_shared_ops,
 +	},
 +};
 +
-+static const struct freq_tbl ftbl_video_cc_mvs0_clk_src[] = {
-+	F(576000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(633000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(720000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(1014000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(1098000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(1113000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(1332000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	F(1600000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 video_cc_mvs0_clk_src = {
-+	.cmd_rcgr = 0x8000,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = video_cc_parent_map_1,
-+	.freq_tbl = ftbl_video_cc_mvs0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_mvs0_clk_src",
-+		.parent_data = video_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(video_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_video_cc_sleep_clk_src[] = {
-+	F(32000, P_SLEEP_CLK, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 video_cc_sleep_clk_src = {
-+	.cmd_rcgr = 0x8110,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = video_cc_parent_map_2,
-+	.freq_tbl = ftbl_video_cc_sleep_clk_src,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_sleep_clk_src",
-+		.parent_data = video_cc_parent_data_2,
-+		.num_parents = ARRAY_SIZE(video_cc_parent_data_2),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 video_cc_xo_clk_src = {
-+	.cmd_rcgr = 0x80f4,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = video_cc_parent_map_0,
-+	.freq_tbl = ftbl_video_cc_ahb_clk_src,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_xo_clk_src",
-+		.parent_data = video_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(video_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_regmap_div video_cc_mvs0_div_clk_src = {
-+	.reg = 0x80ac,
++static struct clk_regmap_div gpu_cc_xo_div_clk_src = {
++	.reg = 0x9050,
 +	.shift = 0,
 +	.width = 4,
 +	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_mvs0_div_clk_src",
++		.name = "gpu_cc_xo_div_clk_src",
 +		.parent_hws = (const struct clk_hw*[]) {
-+			&video_cc_mvs0_clk_src.clkr.hw,
++			&gpu_cc_xo_clk_src.clkr.hw,
 +		},
 +		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
 +		.ops = &clk_regmap_div_ro_ops,
 +	},
 +};
 +
-+static struct clk_regmap_div video_cc_mvs0c_div2_div_clk_src = {
-+	.reg = 0x8058,
-+	.shift = 0,
-+	.width = 4,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "video_cc_mvs0c_div2_div_clk_src",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&video_cc_mvs0_clk_src.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_regmap_div_ro_ops,
-+	},
-+};
-+
-+static struct clk_branch video_cc_mvs0_clk = {
-+	.halt_reg = 0x80a0,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x80a0,
-+	.hwcg_bit = 1,
++static struct clk_branch gpu_cc_ahb_clk = {
++	.halt_reg = 0x914c,
++	.halt_check = BRANCH_HALT_DELAY,
 +	.clkr = {
-+		.enable_reg = 0x80a0,
++		.enable_reg = 0x914c,
 +		.enable_mask = BIT(0),
 +		.hw.init = &(const struct clk_init_data) {
-+			.name = "video_cc_mvs0_clk",
++			.name = "gpu_cc_ahb_clk",
 +			.parent_hws = (const struct clk_hw*[]) {
-+				&video_cc_mvs0_div_clk_src.clkr.hw,
++				&gpu_cc_hub_clk_src.clkr.hw,
 +			},
 +			.num_parents = 1,
 +			.flags = CLK_SET_RATE_PARENT,
@@ -437,18 +473,16 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	},
 +};
 +
-+static struct clk_branch video_cc_mvs0_shift_clk = {
-+	.halt_reg = 0x8144,
++static struct clk_branch gpu_cc_crc_ahb_clk = {
++	.halt_reg = 0x9150,
 +	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x8144,
-+	.hwcg_bit = 1,
 +	.clkr = {
-+		.enable_reg = 0x8144,
++		.enable_reg = 0x9150,
 +		.enable_mask = BIT(0),
 +		.hw.init = &(const struct clk_init_data) {
-+			.name = "video_cc_mvs0_shift_clk",
++			.name = "gpu_cc_crc_ahb_clk",
 +			.parent_hws = (const struct clk_hw*[]) {
-+				&video_cc_xo_clk_src.clkr.hw,
++				&gpu_cc_hub_clk_src.clkr.hw,
 +			},
 +			.num_parents = 1,
 +			.flags = CLK_SET_RATE_PARENT,
@@ -457,16 +491,34 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	},
 +};
 +
-+static struct clk_branch video_cc_mvs0c_clk = {
-+	.halt_reg = 0x804c,
++static struct clk_branch gpu_cc_cx_accu_shift_clk = {
++	.halt_reg = 0x9480,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x9480,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_cx_accu_shift_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&gpu_cc_xo_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_cx_ff_clk = {
++	.halt_reg = 0x9184,
 +	.halt_check = BRANCH_HALT,
 +	.clkr = {
-+		.enable_reg = 0x804c,
++		.enable_reg = 0x9184,
 +		.enable_mask = BIT(0),
 +		.hw.init = &(const struct clk_init_data) {
-+			.name = "video_cc_mvs0c_clk",
++			.name = "gpu_cc_cx_ff_clk",
 +			.parent_hws = (const struct clk_hw*[]) {
-+				&video_cc_mvs0c_div2_div_clk_src.clkr.hw,
++				&gpu_cc_ff_clk_src.clkr.hw,
 +			},
 +			.num_parents = 1,
 +			.flags = CLK_SET_RATE_PARENT,
@@ -475,18 +527,34 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	},
 +};
 +
-+static struct clk_branch video_cc_mvs0c_shift_clk = {
-+	.halt_reg = 0x8148,
++static struct clk_branch gpu_cc_cx_gmu_clk = {
++	.halt_reg = 0x916c,
 +	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x8148,
-+	.hwcg_bit = 1,
 +	.clkr = {
-+		.enable_reg = 0x8148,
++		.enable_reg = 0x916c,
 +		.enable_mask = BIT(0),
 +		.hw.init = &(const struct clk_init_data) {
-+			.name = "video_cc_mvs0c_shift_clk",
++			.name = "gpu_cc_cx_gmu_clk",
 +			.parent_hws = (const struct clk_hw*[]) {
-+				&video_cc_xo_clk_src.clkr.hw,
++				&gpu_cc_gmu_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_aon_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_cxo_clk = {
++	.halt_reg = 0x917c,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x917c,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_cxo_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&gpu_cc_xo_clk_src.clkr.hw,
 +			},
 +			.num_parents = 1,
 +			.flags = CLK_SET_RATE_PARENT,
@@ -495,117 +563,274 @@ index 0000000000000000000000000000000000000000..912cf47171299545259aefb9ea766b1c
 +	},
 +};
 +
-+static struct gdsc video_cc_mvs0c_gdsc = {
-+	.gdscr = 0x8034,
++static struct clk_branch gpu_cc_freq_measure_clk = {
++	.halt_reg = 0x9008,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x9008,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_freq_measure_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&gpu_cc_xo_div_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_gpu_smmu_vote_clk = {
++	.halt_reg = 0x7000,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x7000,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_gpu_smmu_vote_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_hlos1_vote_gpu_smmu_clk = {
++	.halt_reg = 0x7000,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x7000,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_hlos1_vote_gpu_smmu_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_hub_aon_clk = {
++	.halt_reg = 0x942c,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x942c,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_hub_aon_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&gpu_cc_hub_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_aon_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_hub_cx_int_clk = {
++	.halt_reg = 0x9180,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x9180,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_hub_cx_int_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&gpu_cc_hub_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_aon_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_memnoc_gfx_clk = {
++	.halt_reg = 0x9188,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x9188,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_memnoc_gfx_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_mnd1x_0_gfx3d_clk = {
++	.halt_reg = 0x92cc,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x92cc,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_mnd1x_0_gfx3d_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_mnd1x_1_gfx3d_clk = {
++	.halt_reg = 0x92d0,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x92d0,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_mnd1x_1_gfx3d_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch gpu_cc_sleep_clk = {
++	.halt_reg = 0x9164,
++	.halt_check = BRANCH_HALT_VOTED,
++	.clkr = {
++		.enable_reg = 0x9164,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "gpu_cc_sleep_clk",
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct gdsc gpu_cc_cx_gdsc = {
++	.gdscr = 0x9110,
++	.gds_hw_ctrl = 0x9124,
 +	.en_rest_wait_val = 0x2,
 +	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0x6,
++	.clk_dis_wait_val = 0x8,
 +	.pd = {
-+		.name = "video_cc_mvs0c_gdsc",
++		.name = "gpu_cc_cx_gdsc",
++	},
++	.pwrsts = PWRSTS_OFF_ON,
++	.flags = VOTABLE | RETAIN_FF_ENABLE,
++};
++
++static struct gdsc gpu_cc_gx_gdsc = {
++	.gdscr = 0x905c,
++	.en_rest_wait_val = 0x2,
++	.en_few_wait_val = 0x2,
++	.clk_dis_wait_val = 0xf,
++	.pd = {
++		.name = "gpu_cc_gx_gdsc",
++		.power_on = gdsc_gx_do_nothing_enable,
 +	},
 +	.pwrsts = PWRSTS_OFF_ON,
 +	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
 +};
 +
-+static struct gdsc video_cc_mvs0_gdsc = {
-+	.gdscr = 0x808c,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0x6,
-+	.pd = {
-+		.name = "video_cc_mvs0_gdsc",
-+	},
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.parent = &video_cc_mvs0c_gdsc.pd,
-+	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE | HW_CTRL_TRIGGER,
++static struct clk_regmap *gpu_cc_eliza_clocks[] = {
++	[GPU_CC_AHB_CLK] = &gpu_cc_ahb_clk.clkr,
++	[GPU_CC_CRC_AHB_CLK] = &gpu_cc_crc_ahb_clk.clkr,
++	[GPU_CC_CX_ACCU_SHIFT_CLK] = &gpu_cc_cx_accu_shift_clk.clkr,
++	[GPU_CC_CX_FF_CLK] = &gpu_cc_cx_ff_clk.clkr,
++	[GPU_CC_CX_GMU_CLK] = &gpu_cc_cx_gmu_clk.clkr,
++	[GPU_CC_CXO_CLK] = &gpu_cc_cxo_clk.clkr,
++	[GPU_CC_FF_CLK_SRC] = &gpu_cc_ff_clk_src.clkr,
++	[GPU_CC_FREQ_MEASURE_CLK] = &gpu_cc_freq_measure_clk.clkr,
++	[GPU_CC_GMU_CLK_SRC] = &gpu_cc_gmu_clk_src.clkr,
++	[GPU_CC_GPU_SMMU_VOTE_CLK] = &gpu_cc_gpu_smmu_vote_clk.clkr,
++	[GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK] = &gpu_cc_hlos1_vote_gpu_smmu_clk.clkr,
++	[GPU_CC_HUB_AON_CLK] = &gpu_cc_hub_aon_clk.clkr,
++	[GPU_CC_HUB_CLK_SRC] = &gpu_cc_hub_clk_src.clkr,
++	[GPU_CC_HUB_CX_INT_CLK] = &gpu_cc_hub_cx_int_clk.clkr,
++	[GPU_CC_MEMNOC_GFX_CLK] = &gpu_cc_memnoc_gfx_clk.clkr,
++	[GPU_CC_MND1X_0_GFX3D_CLK] = &gpu_cc_mnd1x_0_gfx3d_clk.clkr,
++	[GPU_CC_MND1X_1_GFX3D_CLK] = &gpu_cc_mnd1x_1_gfx3d_clk.clkr,
++	[GPU_CC_PLL0] = &gpu_cc_pll0.clkr,
++	[GPU_CC_PLL1] = &gpu_cc_pll1.clkr,
++	[GPU_CC_SLEEP_CLK] = &gpu_cc_sleep_clk.clkr,
++	[GPU_CC_XO_CLK_SRC] = &gpu_cc_xo_clk_src.clkr,
++	[GPU_CC_XO_DIV_CLK_SRC] = &gpu_cc_xo_div_clk_src.clkr,
 +};
 +
-+static struct clk_regmap *video_cc_eliza_clocks[] = {
-+	[VIDEO_CC_AHB_CLK_SRC] = &video_cc_ahb_clk_src.clkr,
-+	[VIDEO_CC_MVS0_CLK] = &video_cc_mvs0_clk.clkr,
-+	[VIDEO_CC_MVS0_CLK_SRC] = &video_cc_mvs0_clk_src.clkr,
-+	[VIDEO_CC_MVS0_DIV_CLK_SRC] = &video_cc_mvs0_div_clk_src.clkr,
-+	[VIDEO_CC_MVS0_SHIFT_CLK] = &video_cc_mvs0_shift_clk.clkr,
-+	[VIDEO_CC_MVS0C_CLK] = &video_cc_mvs0c_clk.clkr,
-+	[VIDEO_CC_MVS0C_DIV2_DIV_CLK_SRC] = &video_cc_mvs0c_div2_div_clk_src.clkr,
-+	[VIDEO_CC_MVS0C_SHIFT_CLK] = &video_cc_mvs0c_shift_clk.clkr,
-+	[VIDEO_CC_PLL0] = &video_cc_pll0.clkr,
-+	[VIDEO_CC_SLEEP_CLK_SRC] = &video_cc_sleep_clk_src.clkr,
-+	[VIDEO_CC_XO_CLK_SRC] = &video_cc_xo_clk_src.clkr,
++static struct gdsc *gpu_cc_eliza_gdscs[] = {
++	[GPU_CC_CX_GDSC] = &gpu_cc_cx_gdsc,
++	[GPU_CC_GX_GDSC] = &gpu_cc_gx_gdsc,
 +};
 +
-+static struct gdsc *video_cc_eliza_gdscs[] = {
-+	[VIDEO_CC_MVS0_GDSC] = &video_cc_mvs0_gdsc,
-+	[VIDEO_CC_MVS0C_GDSC] = &video_cc_mvs0c_gdsc,
++static const struct qcom_reset_map gpu_cc_eliza_resets[] = {
++	[GPU_CC_ACD_BCR] = { 0x939c },
++	[GPU_CC_CB_BCR] = { 0x93e4 },
++	[GPU_CC_CX_BCR] = { 0x910c },
++	[GPU_CC_FAST_HUB_BCR] = { 0x9428 },
++	[GPU_CC_FF_BCR] = { 0x94b4 },
++	[GPU_CC_GFX3D_AON_BCR] = { 0x91dc },
++	[GPU_CC_GMU_BCR] = { 0x9358 },
++	[GPU_CC_GX_BCR] = { 0x9058 },
++	[GPU_CC_RBCPR_BCR] = { 0x9224 },
++	[GPU_CC_XO_BCR] = { 0x9000 },
++//	[GPU_CC_FREQUENCY_LIMITER_IRQ_CLEAR] = { 0x9538 },
 +};
 +
-+static const struct qcom_reset_map video_cc_eliza_resets[] = {
-+	[VIDEO_CC_INTERFACE_BCR] = { 0x80d8 },
-+	[VIDEO_CC_MVS0_CLK_ARES] = { 0x80a0, 2 },
-+	[VIDEO_CC_MVS0_BCR] = { 0x8088 },
-+	[VIDEO_CC_MVS0C_CLK_ARES] = { 0x804c, 2 },
-+	[VIDEO_CC_MVS0C_BCR] = { 0x8030 },
-+	[VIDEO_CC_XO_CLK_ARES] = { 0x810c, 2 },
++static struct clk_alpha_pll *gpu_cc_eliza_plls[] = {
++	&gpu_cc_pll0,
++	&gpu_cc_pll1,
 +};
 +
-+static struct clk_alpha_pll *video_cc_eliza_plls[] = {
-+	&video_cc_pll0,
++static u32 gpu_cc_eliza_critical_cbcrs[] = {
++	0x9004, /* GPU_CC_CXO_AON_CLK */
++	0x900c, /* GPU_CC_DEMET_CLK */
 +};
 +
-+static u32 video_cc_eliza_critical_cbcrs[] = {
-+	0x80dc, /* VIDEO_CC_AHB_CLK */
-+	0x8128, /* VIDEO_CC_SLEEP_CLK */
-+	0x810c, /* VIDEO_CC_XO_CLK */
-+};
-+
-+static const struct regmap_config video_cc_eliza_regmap_config = {
++static const struct regmap_config gpu_cc_eliza_regmap_config = {
 +	.reg_bits = 32,
 +	.reg_stride = 4,
 +	.val_bits = 32,
-+	.max_register = 0x9f50,
++	.max_register = 0x9988,
 +	.fast_io = true,
 +};
 +
-+static struct qcom_cc_driver_data video_cc_eliza_driver_data = {
-+	.alpha_plls = video_cc_eliza_plls,
-+	.num_alpha_plls = ARRAY_SIZE(video_cc_eliza_plls),
-+	.clk_cbcrs = video_cc_eliza_critical_cbcrs,
-+	.num_clk_cbcrs = ARRAY_SIZE(video_cc_eliza_critical_cbcrs),
-+};
-+
-+static const struct qcom_cc_desc video_cc_eliza_desc = {
-+	.config = &video_cc_eliza_regmap_config,
-+	.clks = video_cc_eliza_clocks,
-+	.num_clks = ARRAY_SIZE(video_cc_eliza_clocks),
-+	.resets = video_cc_eliza_resets,
-+	.num_resets = ARRAY_SIZE(video_cc_eliza_resets),
-+	.gdscs = video_cc_eliza_gdscs,
-+	.num_gdscs = ARRAY_SIZE(video_cc_eliza_gdscs),
-+	.driver_data = &video_cc_eliza_driver_data,
-+};
-+
-+static const struct of_device_id video_cc_eliza_match_table[] = {
-+	{ .compatible = "qcom,eliza-videocc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, video_cc_eliza_match_table);
-+
-+static int video_cc_eliza_probe(struct platform_device *pdev)
++static void clk_eliza_regs_configure(struct device *dev, struct regmap *regmap)
 +{
-+	return qcom_cc_probe(pdev, &video_cc_eliza_desc);
++	/* Enable frequency limiter irq */
++	regmap_clear_bits(regmap, 0x9534, BIT(0));
 +}
 +
-+static struct platform_driver video_cc_eliza_driver = {
-+	.probe = video_cc_eliza_probe,
++static struct qcom_cc_driver_data gpu_cc_eliza_driver_data = {
++	.alpha_plls = gpu_cc_eliza_plls,
++	.num_alpha_plls = ARRAY_SIZE(gpu_cc_eliza_plls),
++	.clk_cbcrs = gpu_cc_eliza_critical_cbcrs,
++	.num_clk_cbcrs = ARRAY_SIZE(gpu_cc_eliza_critical_cbcrs),
++	.clk_regs_configure = clk_eliza_regs_configure,
++};
++
++static const struct qcom_cc_desc gpu_cc_eliza_desc = {
++	.config = &gpu_cc_eliza_regmap_config,
++	.clks = gpu_cc_eliza_clocks,
++	.num_clks = ARRAY_SIZE(gpu_cc_eliza_clocks),
++	.resets = gpu_cc_eliza_resets,
++	.num_resets = ARRAY_SIZE(gpu_cc_eliza_resets),
++	.gdscs = gpu_cc_eliza_gdscs,
++	.num_gdscs = ARRAY_SIZE(gpu_cc_eliza_gdscs),
++	.use_rpm = true,
++	.driver_data = &gpu_cc_eliza_driver_data,
++};
++
++static const struct of_device_id gpu_cc_eliza_match_table[] = {
++	{ .compatible = "qcom,eliza-gpucc" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, gpu_cc_eliza_match_table);
++
++static int gpu_cc_eliza_probe(struct platform_device *pdev)
++{
++	return qcom_cc_probe(pdev, &gpu_cc_eliza_desc);
++}
++
++static struct platform_driver gpu_cc_eliza_driver = {
++	.probe = gpu_cc_eliza_probe,
 +	.driver = {
-+		.name = "videocc-eliza",
-+		.of_match_table = video_cc_eliza_match_table,
++		.name = "gpucc-eliza",
++		.of_match_table = gpu_cc_eliza_match_table,
 +	},
 +};
 +
-+module_platform_driver(video_cc_eliza_driver);
++module_platform_driver(gpu_cc_eliza_driver);
 +
-+MODULE_DESCRIPTION("QTI VIDEOCC Eliza Driver");
++MODULE_DESCRIPTION("QTI GPUCC Eliza Driver");
 +MODULE_LICENSE("GPL");
 
 -- 
