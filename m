@@ -4,93 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBA5FD875A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9C7FD875A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 12:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=G3ejGn7YuyHVUrFyr7Tsajx3tH
-	cvr+Bmx/Fykv1NyqQuzj+nMT/8nia8z8ujWL5BJrsJQHRho1rMFHJk/cJ7OumrqCIlWsPNl/5nafd
-	OS7leDoriujvZqB58qZ6sDFvJ/Vr2tFU3J7hpgTUdbfZfLSMbN3CuqGmbvzLeSAAtq3hb9OLOTieF
-	npZv7SoJ6Z9ViTQsTbnx9zAxenNIXHKOh64v4dkXpbBeabaeSUi3wKN1Hx7CazNP/WEmXOQ9UaKl7
-	BAXqtBu+0VHO6yJr1xOuTGmXD+n+PfpvFa51jTceTbstxWiZJmCgalq3XTLRoK59g8PgUhZG0Rd2b
-	7DrrDARQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=; b=ZiAbb+vG1banlvvdLHEiZu1btG
+	CuvpgmxEPg3ZrRxpuHksxyeGltnuQ7+vtokAxPMt8t4EEzzA1hqRMocy7TgKBc5Ms1iVKYDVQiYzU
+	V2BzaWS2rAO1kFpS0jJnE5Wa6HmfsMcS2yFO/q/iljKLAeeMIOlBkXa410dR5eFiOl27NHVkY+hOb
+	TXiTWTir19HQyo8ffudr0Ir31Uzo7cBmKsFM2Ylbn9dgNWNuBKOhQq4eChC06x0Y9fjU7TIhcrkC0
+	X5jRfRI8W3XvHZ5VnhuinaF4gmKAS1dIeToMn889w2DawSSeQTVfcW++N61tuHX647y/8z/hK6B3w
+	+1gnyu1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TP1-00000006HxT-3Pe3;
-	Tue, 17 Mar 2026 12:20:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2TTW-00000006IIt-2f6y;
+	Tue, 17 Mar 2026 12:24:42 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TP0-00000006Hx4-0CYg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Mar 2026 12:20:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=kgAdP7Lm3ysm5n/kr/Fm1wezCV
-	VrgZZnrqDksnAv/aWjg18tHHxL5xxB+TqzZCNJE8507pTRv34tjConOvwsS4FxqiHBCovU5M331gq
-	XqBtDxSTQigfNm1uIMHesr5r7D2w7fpplwLkZWbYJP92h/hflnYLxvw+L7zPQPy0j4JGzS4jPv93I
-	kIkJDQVNsOK0ZgMizksYBtO9TMO8pHa396QLllYZF5Q2r6azpyYkuxY+H1/9Umik4MO/CgpEOFcdU
-	uFCwtYwKB8y09I7ZoTdbhC2yp1E8h6c1f8or2/fb13Wm1XNOdwHqNeybtoqkMFs0QGWmYBO2h2vpK
-	Zhor9JYA==;
-Received: from www537.your-server.de ([188.40.3.216])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2TOw-00000008wab-0lse
+	id 1w2TTU-00000006III-26lP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 12:19:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=wlZZWFuDFZY5bBtJez1qRMxaOgMw8oBWK1n/kXNB9cM=; b=gPw2b1rSiBSdAmQO+g4Nd0EhJY
-	yox/CA6IKOxuL8wzbLjVm/9949O9O5ij0HULXMVxerLWPPWQ8kdaxgLRIfr7Ax1P3d3J3xsJRBAd8
-	60sxMkkWTfC1s69iW6tRtbA4EZBHU4kT2QNfumC9VYhd4fxvUVPGimTjsX30zObJJ9fD8jSE9Rsec
-	Mi0JIRsBrdfp6dk3f425kkhVSpe/KfOzmP1OnHZQzE2zBjyhUqHKNgvjtVAnjXz9EZgwUBCNi/4Z0
-	Wi286HLlmfsLXnYK344jJmcccG06vHX0OiSRfVKez4ywlB1M+2h87alPR/vmiohKbsp3T+58Jqtg2
-	VqbrNaDw==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w2TOu-000M22-0o;
-	Tue, 17 Mar 2026 13:19:56 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w2TOs-000Gx7-2x;
-	Tue, 17 Mar 2026 13:19:55 +0100
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>
-Subject: [PATCH v2 1/1] clk: imx: pll14xx: Use unsigned format specifier
-Date: Tue, 17 Mar 2026 13:19:52 +0100
-Message-ID: <20260317121953.1100619-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 17 Mar 2026 12:24:41 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 274755BCC6;
+	Tue, 17 Mar 2026 12:24:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1773750278; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
+	b=CWuV4W9SAGtmEk5nkMr+dEegXhKfjZZgJlF7F/nTWJzcE7iPqH7D//F3pMeBkvQxFdgyJh
+	vCAIlxekyEwqYXXSaTT4lxpLfcGbalezYe+yav3VPM28YQxhCjy9wYZk6Tf5/oTn3D6XJO
+	0uVhUa2bn99CqDJj19eUUN9wqV0uACg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1773750278;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
+	b=HHfVXFS3msNj3E3dgCb2JMHWL7bjEZjtpwhYCfs31D09sz+uPalcD+iRTRAUNAGp6OUyJo
+	kbRCxOVBOKS9xACg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CWuV4W9S;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=HHfVXFS3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1773750278; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
+	b=CWuV4W9SAGtmEk5nkMr+dEegXhKfjZZgJlF7F/nTWJzcE7iPqH7D//F3pMeBkvQxFdgyJh
+	vCAIlxekyEwqYXXSaTT4lxpLfcGbalezYe+yav3VPM28YQxhCjy9wYZk6Tf5/oTn3D6XJO
+	0uVhUa2bn99CqDJj19eUUN9wqV0uACg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1773750278;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=piWa4QJetmgkzTmrwsJCLmXyV+O7+jApdEUH4ceN9Kk=;
+	b=HHfVXFS3msNj3E3dgCb2JMHWL7bjEZjtpwhYCfs31D09sz+uPalcD+iRTRAUNAGp6OUyJo
+	kbRCxOVBOKS9xACg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CFD924273B;
+	Tue, 17 Mar 2026 12:24:37 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id rvRaMQVIuWmVfAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 17 Mar 2026 12:24:37 +0000
+Message-ID: <ada8ca6f-a2f2-4f8c-b916-f6dc24db6db5@suse.de>
+Date: Tue, 17 Mar 2026 13:24:37 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] drm: Introduce DRM_MODE_DUMB_KERNEL_MAP flag
+To: wens@kernel.org
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev
+References: <20260317064049.696795-1-wenst@chromium.org>
+ <20260317064049.696795-3-wenst@chromium.org>
+ <607daaca-79ed-45b2-941e-1680a17618e8@suse.de>
+ <CAGb2v66D3=s9c8oJyYEAK90A4SekW6FjLUpWBGRHnJwtfMvUeg@mail.gmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <CAGb2v66D3=s9c8oJyYEAK90A4SekW6FjLUpWBGRHnJwtfMvUeg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27943/Tue Mar 17 07:24:09 2026)
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_CC(0.00)[chromium.org,linux.intel.com,kernel.org,gmail.com,ffwll.ch,ideasonboard.com,lists.freedesktop.org,vger.kernel.org,lists.infradead.org,lists.linux.dev];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	ASN(0.00)[asn:32098, ipnet:2800::/6, country:US];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.com:url,chromium.org:email]
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 274755BCC6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_121958_306763_9FACA828 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_052440_741002_98FFCDF1 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +177,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The debug outputs use %d for clock rates resulting in negative clock rate
-during rate calculation.
+Hi
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Adjusted another format specifier
+Am 17.03.26 um 11:58 schrieb Chen-Yu Tsai:
+> On Tue, Mar 17, 2026 at 4:12 PM Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>> Hi
+>>
+>> Am 17.03.26 um 07:40 schrieb Chen-Yu Tsai:
+>>> From: Rob Herring <robh@kernel.org>
+>>>
+>>> Introduce a new flag, DRM_MODE_DUMB_KERNEL_MAP, for struct
+>>> drm_mode_create_dumb. This flag is for internal kernel use to indicate
+>>> if dumb buffer allocation needs a kernel mapping. This is needed only for
+>>> CMA where creating a kernel mapping or not has to be decided at allocation
+>>> time because creating a mapping on demand (with vmap()) is not guaranteed
+>>> to work. Several drivers are using CMA, but not the CMA helpers because
+>>> they distinguish between kernel and userspace allocations to create a
+>>> kernel mapping or not.
+>> Any dumb allocation might require vmap. This is not limited to internal
+>> buffers.  Because if the dumb buffer is shared with another driver, that
+>> driver might require the vmap for displaying the buffer content. There
+>> are enough of such drivers.
+> By sharing, do you mean exported via PRIME then imported by another device?
+> Or just passing around GEM objects within the kernel?
 
- drivers/clk/imx/clk-pll14xx.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+I mean PRIME/dma-buf sharing.
 
-diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-index 7552aaafc3395..39600ee22be30 100644
---- a/drivers/clk/imx/clk-pll14xx.c
-+++ b/drivers/clk/imx/clk-pll14xx.c
-@@ -151,7 +151,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
- 	/* First try if we can get the desired rate from one of the static entries */
- 	tt = imx_get_pll_settings(pll, rate);
- 	if (tt) {
--		pr_debug("%s: in=%ld, want=%ld, Using PLL setting from table\n",
-+		pr_debug("%s: in=%lu, want=%lu, Using PLL setting from table\n",
- 			 clk_hw_get_name(&pll->hw), prate, rate);
- 		t->rate = tt->rate;
- 		t->mdiv = tt->mdiv;
-@@ -173,7 +173,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
- 
- 	if (rate >= rate_min && rate <= rate_max) {
- 		kdiv = pll1443x_calc_kdiv(mdiv, pdiv, sdiv, rate, prate);
--		pr_debug("%s: in=%ld, want=%ld Only adjust kdiv %ld -> %d\n",
-+		pr_debug("%s: in=%lu, want=%lu Only adjust kdiv %ld -> %d\n",
- 			 clk_hw_get_name(&pll->hw), prate, rate,
- 			 FIELD_GET(KDIV_MASK, pll_div_ctl1), kdiv);
- 		fout = pll14xx_calc_rate(pll, mdiv, pdiv, sdiv, kdiv, prate);
-@@ -211,7 +211,7 @@ static void imx_pll14xx_calc_settings(struct clk_pll14xx *pll, unsigned long rat
- 		}
- 	}
- found:
--	pr_debug("%s: in=%ld, want=%ld got=%d (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
-+	pr_debug("%s: in=%lu, want=%lu got=%u (pdiv=%d sdiv=%d mdiv=%d kdiv=%d)\n",
- 		 clk_hw_get_name(&pll->hw), prate, rate, t->rate, t->pdiv, t->sdiv,
- 		 t->mdiv, t->kdiv);
- }
+>
+> And could you provide an example?
+
+Create a dumb GEM buffer on one of those CMA devices and mirror it to a 
+display or udl device.  These devices have no means of scanning out the 
+provided buffer directly, so their drivers vmap the buffer and copy the 
+pixel data into their internal memory (via a peripheral bus). The vmap 
+call happens via the kernel's internal dma-buf interfaces. Hence any 
+driver needs support for vmap if it wants to support this use case.
+
+Best regards
+Thomas
+
+>
+>>> Update the callers of drm_mode_dumb_create() to set
+>>> drm_mode_dumb_create.flags to appropriate defaults. Currently, flags can
+>>> be set to anything by userspace, but is unused within the kernel. Let's
+>>> force flags to zero (no kernel mapping) for userspace callers by default.
+>>> For in kernel clients, set DRM_MODE_DUMB_KERNEL_MAP by default. Drivers
+>>> can override this as needed.
+>>>
+>>> Signed-off-by: Rob Herring <robh@kernel.org>
+>>> [wenst@chromium.org: Emit warning if args->flags is not zero]
+>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>> ---
+>>> Changes since v1:
+>>> - Emit warning if args->flags is not zero
+>>> ---
+>>>    drivers/gpu/drm/drm_client.c       | 1 +
+>>>    drivers/gpu/drm/drm_dumb_buffers.c | 4 ++++
+>>>    include/uapi/drm/drm_mode.h        | 2 ++
+>>>    3 files changed, 7 insertions(+)
+>>>
+>>> diff --git a/drivers/gpu/drm/drm_client.c b/drivers/gpu/drm/drm_client.c
+>>> index 46c465bce98c..1a57e7eadc0f 100644
+>>> --- a/drivers/gpu/drm/drm_client.c
+>>> +++ b/drivers/gpu/drm/drm_client.c
+>>> @@ -404,6 +404,7 @@ drm_client_buffer_create_dumb(struct drm_client_dev *client, u32 width, u32 heig
+>>>        dumb_args.width = width;
+>>>        dumb_args.height = height;
+>>>        dumb_args.bpp = drm_format_info_bpp(info, 0);
+>>> +     dumb_args.flags = DRM_MODE_DUMB_KERNEL_MAP;
+>>>        ret = drm_mode_create_dumb(dev, &dumb_args, client->file);
+>>>        if (ret)
+>>>                return ERR_PTR(ret);
+>>> diff --git a/drivers/gpu/drm/drm_dumb_buffers.c b/drivers/gpu/drm/drm_dumb_buffers.c
+>>> index e2b62e5fb891..ccdcc401d4dc 100644
+>>> --- a/drivers/gpu/drm/drm_dumb_buffers.c
+>>> +++ b/drivers/gpu/drm/drm_dumb_buffers.c
+>>> @@ -233,6 +233,10 @@ int drm_mode_create_dumb_ioctl(struct drm_device *dev,
+>>>        struct drm_mode_create_dumb *args = data;
+>>>        int err;
+>>>
+>>> +     if (args->flags)
+>>> +             drm_warn(dev, "drm_mode_create_dumb.flags is not zero.\n");
+>> At most use drm_warn_once() to not let this spam the kernel log.
+> Sure.
+>
+>>> +     args->flags = 0;
+>>> +
+>>>        err = drm_mode_create_dumb(dev, args, file_priv);
+>>>        if (err) {
+>>>                args->handle = 0;
+>>> diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
+>>> index 3693d82b5279..7d5f50e4af70 100644
+>>> --- a/include/uapi/drm/drm_mode.h
+>>> +++ b/include/uapi/drm/drm_mode.h
+>>> @@ -1272,6 +1272,8 @@ struct drm_mode_create_dumb {
+>>>        __u64 size;
+>>>    };
+>>>
+>>> +#define DRM_MODE_DUMB_KERNEL_MAP     (1<<0)  /* For internal kernel use */
+>>> +
+>> If this is an internal flag, it should not live in the UAPI header.
+>> include/drm/drm_dumb_buffers.h would be a good place.
+> Makes sense.
+>
+>
+> Thanks
+> ChenYu
+>
+>> Best regards
+>> Thomas
+>>
+>>>    /* set up for mmap of a dumb scanout buffer */
+>>>    struct drm_mode_map_dumb {
+>>>        /** Handle for the object being mapped. */
+>> --
+>> --
+>> Thomas Zimmermann
+>> Graphics Driver Developer
+>> SUSE Software Solutions Germany GmbH
+>> Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+>> GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+>>
+>>
+
 -- 
-2.43.0
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
