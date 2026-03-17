@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34147F33817
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333B9F33817
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPG9b6sTgW+oJ3eIimAqMr0YAdkk+1g/3lYm5QU7ZR4=; b=zZreDuXyLW7UWsuIE34xdrLhwZ
-	yBBVIVvLwkTXXKe+kD7JJslCn71ycZ7MhZmKEFmzXGbEdPSqoZ5SYAEngKpYBvu+VtmHg+ViItif5
-	uMH/QxD4WWU0p5P3T7WoA1UlaIF3l9vthCOxNnlU/Tq0cnOI8/iP49Ok3xadwXaT9clE0PZIypTZ7
-	YfW0DYnCjnNppqAQ1y3MDiooQpOsnhyyK6bP82J6kwuHn2c3h4ThdO6NnH/Xws2uxeFh1d+AN1JT0
-	sh4ZM5SEIv3Y9rJfMvkY7XITMUO5ATkGvh3oHLvGx8JUkSFdGiEJDxL4u53kKpGjaxP5lZaqELtnX
-	aiBSdsqg==;
+	bh=S1dFAsgiIjJwbzkv4iAkhLhnDR/uX1wmLjNNPR+w9HA=; b=DS1odFcuDkCGExPVab1cS6PPcF
+	/3dPsLQHTfnQCOgjtwN9J35rzCN+Xw+TIf0mb7pnAggpyB5ychqgKLN7m3ooTwKdN2ZDNG9C/JJIC
+	Jg6jco9UsrI33rAbj0ScOtMiLabqvYuG8PlZA6Q98nC3+wgK1/6malWMODNuC4M3gfVtdoAAgj3/h
+	XzFMg8U5RLJd+hN/XgqCV7w1WfInHLA+t5h9UXCC1Eqp/4tgTGOslq3MFbEgZ3DuPHEcoGc7woIwk
+	BZnOzqQYtlBRiNSpVOJuhtXxJ44iZ+bdRVMFNX4cVtftYfHKeOf+1UR+aB3i9q4vucyagsD3xMV6R
+	qaZvl0vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q3Z-00000005knj-0wB2;
-	Tue, 17 Mar 2026 08:45:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2Q4W-00000005kxS-1QrM;
+	Tue, 17 Mar 2026 08:46:40 +0000
+Received: from mail-vk1-f173.google.com ([209.85.221.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q3Y-00000005knV-0ain;
-	Tue, 17 Mar 2026 08:45:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=aPG9b6sTgW+oJ3eIimAqMr0YAdkk+1g/3lYm5QU7ZR4=; b=TAs33nmaXLWerVIz9HedZec9rm
-	ndsvcVTvViK924HXmNk/Yx9kZ0hrbgyNDgEyWJBsF2WH44lWpwdK3Ti9fuv1ogm7WuaGipbf8rNhT
-	g66ZP3MgziC8sNuPLPlChOyef4oeBxnkvmggUoRxSu977gcA0X6q5NeLCtUKuLEZ/DvHlxhFh+YHH
-	9WslFGQke6fm4G3te4AWv0ajW+YfIsnsv/SWN5r23b6S9Fs9ProSPFfNPR2yNu2rVsXe11R2/j9IQ
-	lSRt7Q92VgoN+2Zyrnk28qmlEHyY9U+93+KKwLglyJd9adFwdE8keJ3mIrCeVN1hu/84cucNQ3Oyj
-	P4joeVgg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q3T-00000008RPn-3nf7;
-	Tue, 17 Mar 2026 08:45:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A1FB44366;
-	Tue, 17 Mar 2026 08:45:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01724C4CEF7;
-	Tue, 17 Mar 2026 08:45:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773737132;
-	bh=4hTToIr/78vfvHkQPMhwZI2Lj0uD6bto/uR5S2TlSDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B/2Ge6/rbt4hz59fzOGAAiuf6hOLhMx5Cs7IDW1WGBgKnGFS48CdZuHdAHFI/Po68
-	 PWZFpCsGTOwmsQQ9SPvjP3oohpLTH0RqjPVOFO13zJGD9AwwjyQWriz1CCOpbiwCtZ
-	 5qX1DqL0+0NeZJjxaqRGrcdwVQt3YLqSqrOcR5USaK7dSbO5lTNP8rBt01x+nE+A2G
-	 Kfgk2ONDpjbpWqRx6YcJX56bhe9JmOhUXq936nFyEJaxIRVj8F6czkoxoLl3ftHPYa
-	 10ROh8A+K65bwc7TIw8LfzyLT89mFIWaUWf08NHkREBqKf4nhNTQgAils4AQqjHj8b
-	 Ss/IAVBLGqJPQ==
-Date: Tue, 17 Mar 2026 09:45:30 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Rockchip dts fixes for 7.0 #1
-Message-ID: <20260317-clever-flat-wolverine-313a4c@quoll>
-References: <5055064.GXAFRqVoOG@phil>
+	id 1w2Q4T-00000005kx2-44DC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 08:46:39 +0000
+Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2051172e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:46:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773737196; x=1774341996;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S1dFAsgiIjJwbzkv4iAkhLhnDR/uX1wmLjNNPR+w9HA=;
+        b=MrM7nkPbtO7h+saQ0eaC1qmpubQElfm5czjO6pXA1Vurv0NIiqY32J+tzmN4YxuO2Y
+         575g9ZjLa9p9Hl3pqngUgqZ051ECdDTaqYWHLL9KYI3wBKq7R6PN2VOQw2jQSMN5viiA
+         jDbLvAxdtYad5Tu8RLatYRle2tIsSaFPwCfX+y/LihtNgk8WLTwwRzAUMca7WrwuIVkG
+         aU7Knh1eiumt0+Ev1iAmEZnCcR7HUq6PORACsObfG9nfmB7yaPEclqcV1cTYfbgdfLv6
+         BjoobFzExHAMdWrRY8dbuBGuaGuoNQ9Vi9yBP2mT07O3tw7QUj9cySLzEK78nquJo/O8
+         4hhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0/bgUzw8TZZ9QlbWcxf1bZwQ6WGLmHYm3Vw/R4874d8ifJyOCWv4jPSKwax/VhKgEU8blENXNvlZ0eGmn4H2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIemaq4wo48bskO1uxxMWvmL8LlCrYTcOMDC5b/9H7fnIAGnyM
+	l3MRTJgxgjuByILmkSGJkPf04DsDPd9Ks48o6m3wa0vRyCwJab1GXatI1U5/FLjF
+X-Gm-Gg: ATEYQzyEk6kyXtuIhpfBX9EMagA3hfQg4yCbuYl5uuHpjitrgxwR7QD7fhBYis1WmG+
+	fIZJoDOkJ0XyAy9vqrO4ydhR6xfzTpFaYP62zxtngUW4sNPHhUU3bQtYa4g9prYUKa79xlb6IrK
+	n3f7QIG3d/cTugoTgL7y6bpURpNkXpfQX6VkfaW/cdzHATGKh8wLfoGJAD+jTeORcugzhIcTsFf
+	yqJYndY+gpt2QJTWHQ4X8ig6Ig4fHlTzz51GiNDoVKW1NIp5nbrOPXUj55vq8Vq3Vr6l7Ur2dJL
+	hxBNFNS78HnYnP/EM8EU047MONvPuAP7Hyx7Y9ButWKzG+oBBmnH3E7E50NSswvDZWXpRfgkbz3
+	XJItXuBsmSLTYlfHwQeyKEjfh1xKfact7fVFHSkyqCdZD6iXcErR9xSbfQBkp4tTc6wJ9qI7Br7
+	tUMhN1IWNTDSEvx7Osd4Z4pCK9xKm18Ut1xL1cKmBCFXqBfcSvehBWATV1N45u2LPr
+X-Received: by 2002:a05:6102:ccd:b0:5ff:d03d:7815 with SMTP id ada2fe7eead31-6020e2137c6mr5928652137.5.1773737196020;
+        Tue, 17 Mar 2026 01:46:36 -0700 (PDT)
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-950db2b28aasm2129068241.7.2026.03.17.01.46.35
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2026 01:46:35 -0700 (PDT)
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2051165e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 01:46:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVt2gDzG33Pusec3EWSnXmCZVYT8xfn30Szu+i0lBPPyV8mAr/9WIU+E+QmefnAaqPLGSI5E56EcxA6jLtBSWDF@lists.infradead.org
+X-Received: by 2002:a05:6102:b0f:b0:5ff:8b8:9f89 with SMTP id
+ ada2fe7eead31-6020e682490mr6012940137.35.1773737195424; Tue, 17 Mar 2026
+ 01:46:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <5055064.GXAFRqVoOG@phil>
+References: <cover.1773399669.git.geert+renesas@glider.be> <20260317-spirited-mahogany-swift-b1ac53@quoll>
+In-Reply-To: <20260317-spirited-mahogany-swift-b1ac53@quoll>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 17 Mar 2026 09:46:23 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
+X-Gm-Features: AaiRm518-F2BTcrALlb72his_SW49wZkbqH0hdFeWMeWLkKc2Nwvr-LXzIlrumI
+Message-ID: <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
+Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: soc@lists.linux.dev, soc <soc@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_084536_395348_EE031FDD 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260317_014638_008194_D06B5DFF 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +95,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 07:42:38PM +0100, Heiko Stuebner wrote:
-> Hi SoC maintainers,
-> 
-> please find a below some Rockchip fixes for the current 7.0 release-cycle.
-> And in the next PR, even one driver-fix this time.
-> 
-> Please pull
-> 
-> Thanks
-> Heiko
-> 
-> 
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-> 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.0-rockchip-dtsfixes1
-> 
-> for you to fetch changes up to 2ed11ad1c2b4c191cb2ed6741be127eb99f8634f:
-> 
->   arm64: dts: rockchip: Correct Joystick Axes on Gameforce Ace (2026-03-12 20:52:53 +0100)
-> 
-> ----------------------------------------------------------------
-> A big number of changes fixing dt-schema issues on the ARM32 side,
-> fixes for the Gameforce-Ace to make the hardware work properly
-> (including thermals) as well as fixing issues both on Beelink A1 (spdif)
-> and Pinebook Pro (Wifi) by reverting the commits that created the issues
-> 
-> ----------------------------------------------------------------
-> Chris Morgan (2):
->       arm64: dts: rockchip: Correct Fan Supply for Gameforce Ace
->       arm64: dts: rockchip: Correct Joystick Axes on Gameforce Ace
-> 
-> Fabio Estevam (11):
->       ARM: dts: rockchip: Remove rockchip,grf from rk3288 tsadc
->       ARM: dts: rockchip: Move PHY reset to ethernet-phy node on rk3036 boards
->       ARM: dts: rockchip: Fix RTC compatible on rk3288-phycore-rdk
->       ARM: dts: rockchip: Use mount-matrix on rk3188-bqedison2qc
->       ARM: dts: rockchip: Remove invalid regulator-property from rk3288-veyron
+Hi Krzysztof,
 
-Not a fix.
+On Tue, 17 Mar 2026 at 09:33, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On Fri, Mar 13, 2026 at 12:12:56PM +0100, Geert Uytterhoeven wrote:
+> > This is my first pull request for the inclusion of Renesas SoC updates
+> > for v7.1.
+> >
+> > It consists of 4 parts:
+>
+> I think pw-bot did not reply to any of these pulls, but I applied now
+> all of them.
 
->       ARM: dts: rockchip: Fix the Bluetooth node name on rk3288-veyron
+That is correct: no replies from the pw-bot.
+renesas-dts-for-v7.1-tag1 does not seem to be in soc/for-next yet,
+perhaps you forgot to push? No need to confirm if that is true,
+I'll notice tomorrow ;-)
+Thanks!
 
-Not a fix. This is a pure style change. Fixes for current cycle means
-either important issues being fixed or errors introduced in current
-cycle.
+Gr{oetje,eeting}s,
 
-Changing style from one to another is not a fix.
+                        Geert
 
->       ARM: dts: rockchip: Fix the trackpad supply on rk3288-veyron-jerry
->       ARM: dts: rockchip: Add missing the touchscreen interrupt on rk3288-phycore-rdk
->       ARM: dts: rockchip: Fix RTC description on rk3288-firefly-reload
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Not a fix. Style of node name is not a bug, otherwise describe user
-visible (not "internal tools" visible) impact.
-
->       ARM: dts: rockchip: Fix GMAC description n RK3288 boards
->       ARM: dts: rockchip: Fix LED node names on rk3288-phycore-rdk
-
-Several other are questionable as well, since they were in DTS for long
-time. Please also read Linus' explanation here from some time ago - if
-the issue is for long time and no one cared, then changing it is a normal
-development.
-
-Several changed pieces here look like 3 or more years old, so does not
-fit criteria of current cycle fix at all.
-
-Please split the pull.
-
-Best regards,
-Krzysztof
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
