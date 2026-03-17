@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF58FD8769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262ABFD8763
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 13:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7U6z3Ci8w4R1tNOPS3VmXJMgg839xyrQTuipdiKsKA=; b=j6AAaQ7/fsl7rBRb8xQEOv1QhK
-	2e9flQH7ffkPIf7my1m2cHoOPfNFdIH+cmu7fZ8Ye/Fr2URy3SMhzD8k7Rk/H3JynNMqJkzqtU22j
-	pfd46aFQX/a40zZ5wgSWEOZZ1/M8iAn3qiOJtut2oMuIZf5QfEEFHp9ZsB9GLNcJxh6e+ME32T+3m
-	QXo3bkDTLiktKFmEiu+cCYBgACtwH+vR+D06hm+6KHAqZMGlIWIUwOyttCi8vyoUAfj+EE0xWrFtJ
-	FtYMo3+vOwwIW1E/HGDHNIaMk6LhWIh3c+UdvR11MNucwqIxx4CddZUnGIvmGYLZgodotOpoBlfyy
-	VydF4SMw==;
+	bh=ezgFIwAaI15kyXevFuXOWgYHdSeujTu7mnqnl9urGvs=; b=JCkTiFZEEdRPOGSY+QxomKU/hh
+	MBMbUABpruNzD1HHRQuk5PSlbpE+KIJA9inXqL/JBKjy0EJlKokHCwiszk7ECBbF+LmGr+rZD63QW
+	Bh7GUQA9qnom04O2HE6GMd6w/QCBQh7AG7KONdO849Pxp196SHSIw9OvpZyPUnczf8DtlE6mi+UsW
+	pN0/r9VxFg0SelhIlmJbXdHWom1+4+ZCezUPuDXuLnCIb8KOwEuXt/tURkz6+FhyKrgei/+EU/FH0
+	Drk8Vgug7mKTN3KjHIPUmc2OyhX4XKuGJzXaquvdYvu4MjARegQm1cjp1SRXobwGODGAqJcUDHu6m
+	vvoNqgFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UTN-00000006QdK-45dU;
-	Tue, 17 Mar 2026 13:28:37 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1w2UWI-00000006QrD-3LiQ;
+	Tue, 17 Mar 2026 13:31:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2UTL-00000006Qcv-0BqJ;
-	Tue, 17 Mar 2026 13:28:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773754115; x=1805290115;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5deYAWnk5PjnJBSj7gYUmK+FXdv106euB1I/XmQwMW4=;
-  b=myIFe9i+Y6rx5bTg8R+UMoUkfeRMohQnGQqW7NKTpnGpPL1/+Q7bTy42
-   RXg2+rseuxQ0jfiVBYtHrJ2t9j7zNvAnkpo1DaJsp/wPLm7MEqiI8sAnR
-   HJHVvHKJXwXhWuN4YE0UO2wfJIdGNDRtseOieEGO1t96HrRHCfP5ddXfR
-   GBLxIsO83jbNLdNhcPsytJI2y5fgmEU9/Xelac8G0BsoF/WsZ2aqrjLIW
-   mhKGIq+L2IsINqVwLcNB+aETdhogbTGfmAGXSmPgLISv81hq6w+8TJWKQ
-   WrVpN46C5OyWf6P/PJy6eEO9q91sfakO49R9baZW5vmKvnTCZaw4Tg6ca
-   Q==;
-X-CSE-ConnectionGUID: a86XJpDRQZe/d5oj+9pdjA==
-X-CSE-MsgGUID: Ltpu3RbqQDC4igi0dJxRdA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="85412107"
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="85412107"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:28:34 -0700
-X-CSE-ConnectionGUID: 91XVWifeTBGqTq3vc/kSJQ==
-X-CSE-MsgGUID: 7+2RRmQVRtqZFCzALNf9ug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,124,1770624000"; 
-   d="scan'208";a="226736160"
-Received: from dhhellew-desk2.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.171])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 06:28:29 -0700
-Date: Tue, 17 Mar 2026 14:28:22 +0100
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, 
-	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Collabora Kernel Team <kernel@collabora.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/9] media: rockchip: rkcif: add support for rk3588
- vicap mipi capture
-Message-ID: <ablWdjlrPLGhDJi4@mdjait-mobl>
-References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
- <20250430-rk3588-vicap-v2-3-77de5ee9048e@collabora.com>
- <ablRBViDR996euua@mdjait-mobl>
- <e894fe10-3780-465a-984d-01f5e8f4c97e@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e894fe10-3780-465a-984d-01f5e8f4c97e@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_062835_123113_3C402496 
-X-CRM114-Status: GOOD (  21.59  )
+	id 1w2UWH-00000006Qr7-1vwv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Mar 2026 13:31:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9256360008;
+	Tue, 17 Mar 2026 13:31:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 452FBC2BC86;
+	Tue, 17 Mar 2026 13:31:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773754296;
+	bh=DSTFlNqodCcOj9M1rB8mRwfLqMQnLFCVkyLnYpbsHPY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Krl/nvhw1qEbpC3x8UIqixcxdStCjxc64yt0yK+9/fdhHGNulj+hvdzwSB+/YKFiq
+	 CfQaYXMbhXWRMTldnI/e5rvFhpBrNJ0SNKcJXpD3S6UCd9jfg1oOVXDLQttmfrXmbI
+	 HZxbgOCbXcjteXvOA+Rd2ibNa2i8yqsX7lIUCqRg3Osb0/yUxbxb3RvLk39vX7ZQbQ
+	 5oJTqjE8YfTqR1Pg4X3dbn+kj6i10APUbBIM3k/8LqnBBgx8UkkwpC/c+9ca/AzGIZ
+	 Ge7ynaCGBb4tPxu+HxO1zdn5ZcmPSnml0wySO4SWUzpuCEITMjD1bWEJFygERKiIJh
+	 cCsH75bLQ8tnQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w2UWE-00000002rFQ-0ULt;
+	Tue, 17 Mar 2026 13:31:34 +0000
+Date: Tue, 17 Mar 2026 13:31:33 +0000
+Message-ID: <86ms0660qy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH 08/17] KVM: arm64: Kill topup_memcache from kvm_s2_fault
+In-Reply-To: <CA+EHjTwHGkTjB1vgY3UdC2OpbAS3i5yCH=cbLNu38uBSmOxarQ@mail.gmail.com>
+References: <20260316175451.1866175-1-maz@kernel.org>
+	<20260316175451.1866175-9-maz@kernel.org>
+	<CA+EHjTwHGkTjB1vgY3UdC2OpbAS3i5yCH=cbLNu38uBSmOxarQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +88,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-On Tue, Mar 17, 2026 at 02:21:20PM +0100, Michael Riesch wrote:
-> Hi Mehdi,
+On Tue, 17 Mar 2026 12:12:57 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> On 3/17/26 14:08, Mehdi Djait wrote:
-> > Hi Michael,
-> > 
-> > Thank you for this nice patch!
-> > 
-> > On Tue, Mar 17, 2026 at 10:32:21AM +0100, Michael Riesch via B4 Relay wrote:
-> >> From: Michael Riesch <michael.riesch@collabora.com>
-> >>
-> >> The RK3588 Video Capture (VICAP) unit features a Digital Video Port
-> >> (DVP) and six MIPI CSI-2 capture interfaces. Add initial support
-> >> for this variant to the rkcif driver and enable the MIPI CSI-2
-> >> capture interfaces.
-> >>
-> >> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> > 
-> > [...]
-> > 
-> >>  static inline unsigned int rkcif_mipi_get_reg(struct rkcif_interface *interface,
-> >>  					      unsigned int index)
-> >>  {
-> >> @@ -631,6 +765,8 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
-> >>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL1, ctrl1);
-> >>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, ctrl0);
-> >>  
-> >> +	rkcif_mipi_write(interface, RKCIF_MIPI_CTRL, RKCIF_MIPI_CTRL_CAP_EN);
-> >> +
-> > 
-> > while this is the correct solution for rk3588, for the rk3568 vicap this
-> > will write 0x1 to the VICAP_MIPI_CTRL : 0x00A0 which will enable the water line.
+> Hi Marc,
 > 
-> nice catch ;-) However, the TRM (at least my version) claims that this
-> bit has a reset value of 0x1, so the bit in question should be already
-> set in the first place. Thus I decided to *not* make variant specific
-> code paths.
+> On Mon, 16 Mar 2026 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > The topup_memcache field can be easily replaced by the equivalent
+> > conditions, and the resulting code is not much worse.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/mmu.c | 10 +++++-----
+> >  1 file changed, 5 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 11820e39ad8e1..abe239752c696 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1712,7 +1712,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+> >
+> >  struct kvm_s2_fault {
+> >         bool writable;
+> > -       bool topup_memcache;
+> >         bool mte_allowed;
+> >         bool is_vma_cacheable;
+> >         bool s2_force_noncacheable;
+> > @@ -1983,7 +1982,6 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >                 .logging_active = logging_active,
+> >                 .force_pte = logging_active,
+> >                 .prot = KVM_PGTABLE_PROT_R,
+> > -               .topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
+> >         };
+> >         void *memcache;
+> >         int ret;
+> > @@ -1994,9 +1992,11 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >          * only exception to this is when dirty logging is enabled at runtime
+> >          * and a write fault needs to collapse a block entry into a table.
+> >          */
+> > -       ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
+> > -       if (ret)
+> > -               return ret;
+> > +       if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
+> > +               ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
+> > +               if (ret)
+> > +                       return ret;
+> > +       }
+> 
+> Further up in user_mem_abort(), when memcache is declared it should be
+> initialized to NULL, since prepare_mmu_memcache() isn't called if this
+> evaluates to false.
 
-Yes, the reset value is indeed 0x1
+I had that at some point, but then realised that there was no case
+where memcache could be used and yet not be initialised via
+prepare_mmu_memcache(). But given that this is still a bit fragile,
+I'll add it back.
 
 > 
-> Do you see problems in your setup?
-> 
+> With that fixed:
+> Reviewed-by: Fuad Tabba <tabba@google.com>
 
-No problems, it works as expected, I was just confused to see the
-mipi capture enable added with this rk3588 patch and not before.
+Thanks!
 
-I just find it a bit confusing but if a nicer solution is too much
-hassle we can leave it like this.
+	M.
 
---
-Kind Regards
-Mehdi Djait
+-- 
+Without deviation from the norm, progress is not possible.
 
