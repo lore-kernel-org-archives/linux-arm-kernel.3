@@ -4,162 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F78FED9F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723A5FED9F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 17:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zytiUP8Xce3T94fCwbA24WE4ff9eD1E8/ytUb5yxkwI=; b=X6gIGxtkiHzv8BmxEuDqII4CVr
-	wcO3NftMoWWnnmtwsVbN0S+Ce3ioqYhaD1zfDMVnH3F+VIhpKobncCjuiXXeeSw0dq0wxm1yX4cwB
-	bc9Xooqy+d7QpzTkhxWwknzaWwiJy2zHbkpMzL0rFAdpF4B/AVAcoQNXp/jI/GSvxT+JWZov0xXNV
-	MW0NXbqML1d6EU/7PLxTz894Ym6+inWSh5cWi/RyPHWr/KVT6aGc5oHeJCzD47tbbOgZ/ylQxSAQl
-	GQY+hqb3JfnSum1L58PlF14K6G7MmI4bwv+4y8KzYhpQKvTadc3vhakA5RotuPUFOA5qO1lMIATvs
-	DvmjRqxA==;
+	bh=qcvQdpss74FO7Nhzqshq1m2lEELywPfK4fgcnJgJWdQ=; b=kC0OJGnWTEXr2gsnlWjmjpgEtg
+	zuzOckjRnHV+Pjd826GjvKNIZzrmjuMB05d2MW7/OFOf09Ljk0slQWLS2IcBog54GuwiPsGJ1mJLT
+	VfAhCDO5aPEdcYAMxQ+hPBrmVA6h0G1uY22ZLKVUh6772Od2PsQVuhld01ffDAMa3ixdKbCXoPbVw
+	6QU0I66/G8947HhNQn2S+V4lPOu6ewHTQnFBKORbCCT7sxeLQqQiYR0PDNW4qs0mCoWrEED8Kjy9J
+	PzBHDebBCDcYUss665AUnL0eGtL/SuOIVX9dttTpAMHfx6EDYsbIkFZGcOt67sA7jeFQDKqU4q4r3
+	zb22BCaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YLR-00000006x2C-0knl;
-	Tue, 17 Mar 2026 17:36:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w2YP4-00000006xMJ-2u5t;
+	Tue, 17 Mar 2026 17:40:26 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2YLO-00000006x1V-27lP
+	id 1w2YP2-00000006xLv-0ovZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 17:36:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62HG5X9F2977442
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:36:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zytiUP8Xce3T94fCwbA24WE4ff9eD1E8/ytUb5yxkwI=; b=DDNrKG6TBGPThpBu
-	Qyx6FFRxPlo9Lsw9cg7D1U2tm8zxL8j42xvmYJAy8i0iWCAzgnYY0vH7Ul9raj6Z
-	HwxUqbkaynZU+WVWdLr+MRDq4tz5iJzOfAFFTHtkdpJPhbSqh1/UMsdv4OMIufdB
-	CvX5TsvYNSq4goCEBNHBJRVHgWt74xDg8XJsMHx9HGYEGWXYd4gS/ozpnjbkVYGC
-	QnHJ/bTannKFVM7Z/DLt8BomcdqaqKYgFGrYJkse2i7sHtxmK6ZTs/FbkI1hFi3T
-	brQEIdXMSyoL7duC5cni/eKj+yoGMQCFnf5reegtKcrLp16GOY3KvF58shbTVtD+
-	sTIEqA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cya62rcug-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 17:36:35 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b064f043adso14753765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Mar 2026 10:36:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773768995; x=1774373795; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zytiUP8Xce3T94fCwbA24WE4ff9eD1E8/ytUb5yxkwI=;
-        b=ETMnWfwD3I767hC5GocSza7CIDXV5zn9keo7HbZPC+mJYP18xhMjGGSQhk8ESfXBAV
-         m0t3tjaYcJZV0yYHSsPPuFlnvo6eIkm1ry2tEzNY+agH+ZOIsJsQ//g/r3fyDb7fzhdd
-         FeldlDp9UuIMT4wY1IhtpVeKkXUSHuCc2a8yY8w3/Hi10iBXZIB83Muw4cI0j5oDFLC0
-         juYCvwNOVq9Mtk//+0sc2Q+qHBz/lk/RrP31bjvD5R4kQu0ENZJ6BE69TPv/d7UlhX60
-         nC1xpcNwUU6MPP14XFf3cn14hvgRR24yHpOFFLYpKRUVVJslXspFl1xjlMEJg7SS0xKQ
-         jdoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773768995; x=1774373795;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zytiUP8Xce3T94fCwbA24WE4ff9eD1E8/ytUb5yxkwI=;
-        b=XKz4tNgDHty2pAIqcVH1HOZmkjC8p3K2NpNldXAvAOn2rigGzXkY1dW/+ORNTa3IiZ
-         r92z/9DvFfRhYLXxVWVbX6ICFe/2qQc/ilbH+gbjeXsGI9jMXmc6ubY64w7b9J1iY2F2
-         LDO73HXuQ4Nh/AxJJ7L921s++icX/1KpRtERK90XwAuocWTN5TvYeq1cep3TipyZJDdW
-         MIyTZEfGxYnbLolw4YQQ9uVWq8YgZIcjjt+EMEP5n1+2JvBnpmGtGYD9rCvjncNXabAk
-         b+dGSfEAR7dR1fwQzV1Lf4CWOM9pA4JjM+5huMTrKKHF/xVUM5v9qkn3fKrifJn1YqSz
-         RvEg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWhPngL/RDkBHXxRdtm5Gc3+DrPAU5yUGqt6H8iERFp1TKmdgd8j8j3T5qQQli90bDuY37GnSPpDpF/ILC3M5Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvhYm/H4G9k9u7ctePzzLN7k/n6TMLxhwLY29ffRhH/syaxexm
-	c/82DUREsOBQ+hBmCvZuTRm5J66QOuQE/Zgf2a2FfgXr0+lPVIdH65Qnd6wzLQD4swt2Gy6lsn5
-	QhRVRj0CLHbczi0XNKNI7hXe3kWZIBClCuGCyCXHr7lnVjoqyo5qZuFeX6PdGyGni/ECNebvsVT
-	pK2g==
-X-Gm-Gg: ATEYQzw+M0VagLHXY0PXPtiiQOftSWMG26q+92dC7pYRuj+7lfG8kFIUgIXUYzPXeuQ
-	h7T6pwgpY5CJk31bprNz4ybfAHtdHavyRBY6Gfvc7wUg5efC6dWB6R0/gZy0JgQNrEUdCwadMLC
-	RbFFt22OyAZZt9vjoYsf+frqtPGoDsnv3uFFWUxBLffTcTenedf0kGs2CAv109gUAPfHqpraSmY
-	EzAO3GeTiyG5E84Db7Xrtboegq0cOvzBDL6syjGopYYm8QgTJ8Rl88rJKdgvUAY38SGCe9MGqH8
-	8YruV2eM6dXSbSNR49lEy4ZJya7AhEymEf2Mdz7R9Sxoho1pOOZ9cRIXCnbjNCMJ5yJXyWKcREW
-	Vaph6QyxE4FvBFhX3F8Op+e5IOWNuAK+vu0s0LKcWioc9Xd+pEqCCBF3F
-X-Received: by 2002:a17:903:1a67:b0:2b0:5a4c:726a with SMTP id d9443c01a7336-2b06e41afc9mr2520745ad.43.1773768994514;
-        Tue, 17 Mar 2026 10:36:34 -0700 (PDT)
-X-Received: by 2002:a17:903:1a67:b0:2b0:5a4c:726a with SMTP id d9443c01a7336-2b06e41afc9mr2520265ad.43.1773768993782;
-        Tue, 17 Mar 2026 10:36:33 -0700 (PDT)
-Received: from [192.168.0.172] ([49.205.248.224])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b06e603937sm1236095ad.57.2026.03.17.10.36.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2026 10:36:33 -0700 (PDT)
-Message-ID: <e2f5a1ab-2b1f-484c-b476-6c453abf0087@oss.qualcomm.com>
-Date: Tue, 17 Mar 2026 23:06:21 +0530
+	Tue, 17 Mar 2026 17:40:26 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fZzk534l5zHnGck;
+	Wed, 18 Mar 2026 01:39:57 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5F19B40572;
+	Wed, 18 Mar 2026 01:40:17 +0800 (CST)
+Received: from localhost (10.48.149.62) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 17 Mar
+ 2026 17:40:16 +0000
+Date: Tue, 17 Mar 2026 17:40:13 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Fuad Tabba <tabba@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Joey
+ Gouly" <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, "KERNEL VIRTUAL MACHINE FOR ARM64 KVM/arm64"
+	<linux-arm-kernel@lists.infradead.org>, KERNEL VIRTUAL MACHINE FOR ARM64
+ KVM/arm64 <kvmarm@lists.linux.dev>, "open list"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 03/10] KVM: arm64: Use guard(hyp_spinlock) in ffa.c
+Message-ID: <20260317174013.00007622@huawei.com>
+In-Reply-To: <20260316-tabba-el2_guard-v1-3-456875a2c6db@google.com>
+References: <20260316-tabba-el2_guard-v1-0-456875a2c6db@google.com>
+	<20260316-tabba-el2_guard-v1-3-456875a2c6db@google.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] of/iommu: support multiple iommu-map entries per input
- ID
-To: Robin Murphy <robin.murphy@arm.com>,
-        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
-        Richard Zhu <hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas
- <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Marc Zyngier <maz@kernel.org>,
-        Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini
- <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
- <krzk+dt@kernel.org>,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260315-iommu_multi_map-v2-1-51b98cb79331@oss.qualcomm.com>
- <be41a533-46a8-411b-bf6c-d56b550691a7@arm.com>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <be41a533-46a8-411b-bf6c-d56b550691a7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Ns3cssdJ c=1 sm=1 tr=0 ts=69b99123 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=L0D9IIo8dDxUtxRzEGqq2w==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=dbrUTAiK8tO8QfTRFOUA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: BpUeaZS9AryyVIC7qm8IUDug6tZCQOi-
-X-Proofpoint-GUID: BpUeaZS9AryyVIC7qm8IUDug6tZCQOi-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE3MDE1NCBTYWx0ZWRfX0oysFP7LwPy0
- I/kRBfu/J+E2K4X8kSjqou0lx/A1AcJZFnXsA7CLOLYiqaSRAfIhLmL6Capt2YFxVXxThb3LWv5
- UWnaddFpRh0eG4/zjPWYaScZ2ue3zcyV0xEbPB1IeX7WeaEe+79bDuTwlfi+9FkKISDAD7Nd7TX
- 31jWEt1erdM4HNzur0k+SjseL9a7d0mqEs5oCeQEj5/wfUZgUrqvGPo2X3xQyr4tzGitAOYa6Gi
- RU7iPhH2r+1QdQhi9PG24jcs0O830SqeMzGxJQxBLasp8q7nPBmVGTTWr+lX1gg9zOm4fEiKeXH
- PsEyCYySEqKynkYJSpSKU+EdlUXPzce9IHQqz7sG7Eu6gDp7fhBXabtTMUGT4e30asdrX+UmSCa
- Rebf19gqvNcpBEHmdiyfP6XeQZpH44niBL/EAGhOI6gpwX9JsSzJgLH+/HDO9hV76yxVBU6Gxt9
- WTKIylxYTByfInFTZ5g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-17_03,2026-03-17_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 lowpriorityscore=0 clxscore=1011 impostorscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603170154
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.149.62]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_103638_680124_EE9DA7AB 
-X-CRM114-Status: GOOD (  38.26  )
+X-CRM114-CacheID: sfid-20260317_104024_567519_FBDD1899 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,340 +76,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Robin,
+On Mon, 16 Mar 2026 17:35:24 +0000
+Fuad Tabba <tabba@google.com> wrote:
 
-On 3/16/2026 5:18 PM, Robin Murphy wrote:
-> On 2026-03-15 5:07 pm, Vijayanand Jitta wrote:
->> When multiple mappings are present for an input ID, linux matches
->> just the first one. There is a usecase [1] where all the mappings
->> are to be maintained in parallel for an iommu-map entry of a same
->> input id.
->>
->> Add a next_offset iterator parameter to of_map_iommu_id() and
->> refactor of_map_id() internals into a static helper to carry it.
->> Update of_iommu_configure_dev_id() to loop over all matching
->> entries to support this case. All other callers pass NULL and
->> are unaffected.
->>
->> [1] https://lore.kernel.org/all/20250627-video_cb- 
->> v3-0-51e18c0ffbce@quicinc.com/
+> Migrate manual hyp_spin_lock() and hyp_spin_unlock() calls managing
+> host_buffers.lock and version_lock to use the guard(hyp_spinlock)
+> macro.
 > 
-> That series doesn't even reference "iommu-map" though?
+> This eliminates manual unlock calls on return paths and simplifies
+> error handling by replacing goto labels with direct returns.
 > 
-> Once again, NAK to this - the purpose of "iommu-map"/"msi-map" is to 
-> describe a translation from one hardware ID space to another, where a 
-> one-to-many mapping of IDs to a single target would never make sense. 
-> While it is in principle possible for a single device to map to multiple 
-> different *targets*, that is ambiguous as to what it means - is it 
-> giving the OS a choice to use whichever one it prefers, or implying they 
-> must all be configured identically at all times? - so depending on how 
-> you prefer to look at it, we either do not support that, or we have 
-> chosen the first option.
-> 
+> Change-Id: I52e31c0bed3d2772c800a535af8abdabd81a178b
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 
-Ideally that should be the way to have unique hardware ID should be 
-mapped to unique single target. In case of VPU hardware, there are few 
-sub hardwares blocks, 2 of them would be bitstream engine (BE) and 
-tensilica (XS). They generates unique ID as 0x1940 and 0x1a20 
-respectively. There is a *single register interface* to program a mapped 
-device address which both these hardware would access and processes on 
-the data. To accomplish this, these unique stream-ids are being mapped 
-to single target so as to generate single device address.
-We can call this out as VPU hardware limitation, but thats how it is 
-currently designed.
+See below and read the cleanup.h guidance notes on usage at the top.
+Specifically:
 
-If you could please suggest any alternate way to acheive this, it would 
-help us conclude.
+ * Lastly, given that the benefit of cleanup helpers is removal of
+ * "goto", and that the "goto" statement can jump between scopes, the
+ * expectation is that usage of "goto" and cleanup helpers is never
+ * mixed in the same function. I.e. for a given routine, convert all
+ * resources that need a "goto" cleanup to scope-based cleanup, or
+ * convert none of them.
 
-Regards,
-Vikash
+Doing otherwise might mean an encounter with a grumpy Linus :)
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 86 +++++++++++++++++++------------------------
+>  1 file changed, 38 insertions(+), 48 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 94161ea1cd60..0c772501c3ba 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -239,6 +239,8 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+>  	int ret = 0;
+>  	void *rx_virt, *tx_virt;
+>  
+> +	guard(hyp_spinlock)(&host_buffers.lock);
+> +
+>  	if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
+>  		ret = FFA_RET_INVALID_PARAMETERS;
+>  		goto out;
+> @@ -249,10 +251,9 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+>  		goto out;
+>  	}
+>  
+> -	hyp_spin_lock(&host_buffers.lock);
+>  	if (host_buffers.tx) {
+>  		ret = FFA_RET_DENIED;
+> -		goto out_unlock;
+> +		goto out;
+Whilst it isn't a bug as such because you increased the scope to avoid it,
+there is some pretty strong guidance in cleanup.h about not using guard() or
+any of the other magic if a function that also contains gotos.  That came from
+some views Linus expressed pretty clearly about the dangers that brings (the
+problem is a goto that crosses a guard() being defined and the risk of
+refactors that happen to end up with that + general view that cleanup.h
+stuff is about removing gotos, so if you still have them, why bother!
 
->> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
->> ---
->> On Qualcomm kaanapali, the VPU hardware has multiple internal blocks
->> that generate different stream IDs for the same input ID. The device
->> tree encodes them as separate iommu-map entries sharing the same input
->> ID:
-> 
-> And all that means is that your invented notion of "input IDs" is 
-> clearly wrong. Please stop this abuse of common bindings and just come 
-> up with a proper way to describe your hardware appropriately for what it 
-> actually is and does.
-> 
-> Thanks,
-> Robin.
-> 
->>    iommu-map = <0x100 &apps_smmu 0x1940 0x1>,
->>                <0x100 &apps_smmu 0x1a20 0x1>, ...
->>
->> This requires multiple iommu-map entries per device.
->> of_iommu_configure_dev_id() currently stops at the first match,
->> so only one stream ID gets registered with the IOMMU.
->>
->> The v1 series [1] addressed this with a callback threaded through
->> of_map_id().
->>
->> This patch uses a next_offset iterator on of_map_iommu_id() instead,
->> keeping of_map_id() unchanged, and updates of_iommu_configure_dev_id()
->> to loop over all matching entries.
->>
->> This patch also depends on iommu-cells series [4].
->>
->> Changes since v1:
->>        - Split patches 2/7 [2] and 3/7 [3] out into this standalone 
->> series.
->>        - Dropped the callback (of_map_id_cb / of_map_id_arg) entirely.
->>        - Replaced with a next_offset iterator on of_map_iommu_id()
->>          only; of_map_id() public API is unchanged.
->>        - of_iommu_configure_dev_id() now loops explicitly; no
->>          bus-type heuristic (dev_is_platform()) needed.
->>
->> [1] https://lore.kernel.org/all/20260126-kaanapali-iris-v1-0- 
->> e2646246bfc1@oss.qualcomm.com/
->> [2] https://lore.kernel.org/all/20260126-kaanapali-iris-v1-2- 
->> e2646246bfc1@oss.qualcomm.com/
->> [3] https://lore.kernel.org/all/20260126-kaanapali-iris-v1-3- 
->> e2646246bfc1@oss.qualcomm.com/
->> [4] https://lore.kernel.org/all/ce25b963-0e8e-4411- 
->> a406-7b466eadb1f9@oss.qualcomm.com/
->>
->> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
->> ---
->>   drivers/iommu/of_iommu.c              | 20 +++++++----
->>   drivers/of/base.c                     | 65 +++++++++++++++++++++++++ 
->> +++++-----
->>   drivers/pci/controller/dwc/pci-imx6.c |  2 +-
->>   drivers/pci/controller/pcie-apple.c   |  2 +-
->>   drivers/xen/grant-dma-ops.c           |  2 +-
->>   include/linux/of.h                    |  4 +--
->>   6 files changed, 75 insertions(+), 20 deletions(-)
->>
->> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
->> index a18bb60f6f3d..947eedd9a88b 100644
->> --- a/drivers/iommu/of_iommu.c
->> +++ b/drivers/iommu/of_iommu.c
->> @@ -46,14 +46,22 @@ static int of_iommu_configure_dev_id(struct 
->> device_node *master_np,
->>                        const u32 *id)
->>   {
->>       struct of_phandle_args iommu_spec = {};
->> -    int err;
->> +    int offset = 0, err;
->> +    bool found = false;
->> -    err = of_map_iommu_id(master_np, *id, &iommu_spec);
->> -    if (err)
->> -        return err;
->> +    while (!(err = of_map_iommu_id(master_np, *id, &iommu_spec, 
->> &offset))) {
->> +        err = of_iommu_xlate(dev, &iommu_spec);
->> +        of_node_put(iommu_spec.np);
->> +        iommu_spec.np = NULL;
->> +        if (err)
->> +            return err;
->> +        found = true;
->> +    }
->> +
->> +    /* -ENODEV means all entries exhausted; success if at least one 
->> was processed */
->> +    if (err == -ENODEV && found)
->> +        return 0;
->> -    err = of_iommu_xlate(dev, &iommu_spec);
->> -    of_node_put(iommu_spec.np);
->>       return err;
->>   }
->> diff --git a/drivers/of/base.c b/drivers/of/base.c
->> index 9c44eb6d445d..71175e670757 100644
->> --- a/drivers/of/base.c
->> +++ b/drivers/of/base.c
->> @@ -2146,13 +2146,13 @@ static bool of_check_bad_map(const __be32 
->> *map, int len)
->>    *
->>    * Return: 0 on success or a standard error code on failure.
->>    */
->> -int of_map_id(const struct device_node *np, u32 id,
->> -           const char *map_name, const char *cells_name,
->> -           const char *map_mask_name,
->> -           struct of_phandle_args *arg)
->> +static int of_map_id_next(const struct device_node *np, u32 id,
->> +              const char *map_name, const char *cells_name,
->> +              const char *map_mask_name,
->> +              struct of_phandle_args *arg, int *next_offset)
->>   {
->>       u32 map_mask, masked_id;
->> -    int map_bytes, map_len, offset = 0;
->> +    int map_bytes, map_len, offset = next_offset ? *next_offset : 0;
->>       bool bad_map = false;
->>       const __be32 *map = NULL;
->> @@ -2161,7 +2161,7 @@ int of_map_id(const struct device_node *np, u32 id,
->>       map = of_get_property(np, map_name, &map_bytes);
->>       if (!map) {
->> -        if (arg->np)
->> +        if (arg->np || next_offset)
->>               return -ENODEV;
->>           /* Otherwise, no map implies no translation */
->>           arg->args[0] = id;
->> @@ -2262,9 +2262,16 @@ int of_map_id(const struct device_node *np, u32 
->> id,
->>           pr_debug("%pOF: %s, using mask %08x, id-base: %08x, out- 
->> base: %08x, length: %08x, id: %08x -> %08x\n",
->>               np, map_name, map_mask, id_base, be32_to_cpup(out_base),
->>               id_len, id, id_off + be32_to_cpup(out_base));
->> +
->> +        if (next_offset)
->> +            *next_offset = offset;    /* caller resumes from here */
->>           return 0;
->>       }
->> +    /* no (more) matches found in the map */
->> +    if (next_offset)
->> +        return -ENODEV;
->> +
->>       pr_info("%pOF: no %s translation for id 0x%x on %pOF\n", np, 
->> map_name,
->>           id, arg->np);
->> @@ -2276,6 +2283,38 @@ int of_map_id(const struct device_node *np, u32 
->> id,
->>       pr_err("%pOF: Error: Bad %s length: %d\n", np, map_name, 
->> map_bytes);
->>       return -EINVAL;
->>   }
->> +
->> +/**
->> + * of_map_id - Translate an ID through a downstream mapping.
->> + * @np: root complex device node.
->> + * @id: device ID to map.
->> + * @map_name: property name of the map to use.
->> + * @cells_name: property name of target specifier cells.
->> + * @map_mask_name: optional property name of the mask to use.
->> + * @arg: pointer to a &struct of_phandle_args. On input, @arg->np may be
->> + *    set to a target device node to match, or NULL to match any. On
->> + *    success, @arg->np will be set to the matched target node (with a
->> + *    reference held), @arg->args_count will be set to the number of
->> + *    output specifier cells as defined by @cells_name in the target 
->> node,
->> + *    and @arg->args[0..args_count-1] will contain the translated output
->> + *    specifier values.
->> + *
->> + * Given a device ID, look up the appropriate implementation-defined
->> + * platform ID and/or the target device which receives transactions 
->> on that
->> + * ID, as per the "iommu-map" and "msi-map" bindings. If @arg->np 
->> points to
->> + * a non-NULL device node, only entries targeting that node will be 
->> matched;
->> + * if it is NULL, it will receive the device node of the first matching
->> + * target phandle, with a reference held.
->> + *
->> + * Return: 0 on success or a standard error code on failure.
->> + */
->> +int of_map_id(const struct device_node *np, u32 id,
->> +          const char *map_name, const char *cells_name,
->> +          const char *map_mask_name,
->> +          struct of_phandle_args *arg)
->> +{
->> +    return of_map_id_next(np, id, map_name, cells_name, 
->> map_mask_name, arg, NULL);
->> +}
->>   EXPORT_SYMBOL_GPL(of_map_id);
->>   /**
->> @@ -2285,15 +2324,23 @@ EXPORT_SYMBOL_GPL(of_map_id);
->>    * @arg: pointer to a &struct of_phandle_args for the result. On 
->> success,
->>    *    @arg->np holds a reference to the target node that the caller 
->> must
->>    *    release with of_node_put().
->> + * @next_offset: if non-NULL, on success it is set to the map offset 
->> just
->> + *    past the matched entry. Pass this value back on the next call to
->> + *    resume scanning from where the previous call left off, allowing 
->> all
->> + *    matching entries for the same @id to be iterated. Pass NULL (or a
->> + *    pointer to 0) to find only the first match.
->>    *
->> - * Convenience wrapper around of_map_id() using "iommu-map" and 
->> "iommu-map-mask".
->> + * Wrapper around the internal iommu-map scanner using "iommu-map" and
->> + * "iommu-map-mask". When @next_offset is non-NULL, returns -ENODEV once
->> + * all matching entries have been exhausted.
->>    *
->>    * Return: 0 on success or a standard error code on failure.
->>    */
->>   int of_map_iommu_id(const struct device_node *np, u32 id,
->> -            struct of_phandle_args *arg)
->> +            struct of_phandle_args *arg, int *next_offset)
->>   {
->> -    return of_map_id(np, id, "iommu-map", "#iommu-cells", "iommu-map- 
->> mask", arg);
->> +    return of_map_id_next(np, id, "iommu-map", "#iommu-cells",
->> +                  "iommu-map-mask", arg, next_offset);
->>   }
->>   EXPORT_SYMBOL_GPL(of_map_iommu_id);
->> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/ 
->> controller/dwc/pci-imx6.c
->> index 5f8a11774eb5..0d7f5e6d037a 100644
->> --- a/drivers/pci/controller/dwc/pci-imx6.c
->> +++ b/drivers/pci/controller/dwc/pci-imx6.c
->> @@ -1146,7 +1146,7 @@ static int imx_pcie_add_lut_by_rid(struct 
->> imx_pcie *imx_pcie, u32 rid)
->>       u32 sid = 0;
->>       target = NULL;
->> -    err_i = of_map_iommu_id(dev->of_node, rid, &iommu_spec);
->> +    err_i = of_map_iommu_id(dev->of_node, rid, &iommu_spec, NULL);
->>       if (!err_i) {
->>           target = iommu_spec.np;
->>           sid_i = iommu_spec.args[0];
->> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/ 
->> controller/pcie-apple.c
->> index 2e86f8fd300b..c780e3f9d14d 100644
->> --- a/drivers/pci/controller/pcie-apple.c
->> +++ b/drivers/pci/controller/pcie-apple.c
->> @@ -765,7 +765,7 @@ static int apple_pcie_enable_device(struct 
->> pci_host_bridge *bridge, struct pci_d
->>       dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
->>           pci_name(pdev->bus->self), port->idx);
->> -    err = of_map_iommu_id(port->pcie->dev->of_node, rid, &iommu_spec);
->> +    err = of_map_iommu_id(port->pcie->dev->of_node, rid, &iommu_spec, 
->> NULL);
->>       if (err)
->>           return err;
->> diff --git a/drivers/xen/grant-dma-ops.c b/drivers/xen/grant-dma-ops.c
->> index 36547d7cf1d6..062beb5825f5 100644
->> --- a/drivers/xen/grant-dma-ops.c
->> +++ b/drivers/xen/grant-dma-ops.c
->> @@ -325,7 +325,7 @@ static int xen_dt_grant_init_backend_domid(struct 
->> device *dev,
->>           struct pci_dev *pdev = to_pci_dev(dev);
->>           u32 rid = PCI_DEVID(pdev->bus->number, pdev->devfn);
->> -        if (of_map_iommu_id(np, rid, &iommu_spec)) {
->> +        if (of_map_iommu_id(np, rid, &iommu_spec, NULL)) {
->>               dev_dbg(dev, "Cannot translate ID\n");
->>               return -ESRCH;
->>           }
->> diff --git a/include/linux/of.h b/include/linux/of.h
->> index 953f2dbe0e86..990849f00e74 100644
->> --- a/include/linux/of.h
->> +++ b/include/linux/of.h
->> @@ -467,7 +467,7 @@ int of_map_id(const struct device_node *np, u32 id,
->>              struct of_phandle_args *arg);
->>   int of_map_iommu_id(const struct device_node *np, u32 id,
->> -            struct of_phandle_args *arg);
->> +            struct of_phandle_args *arg, int *next_offset);
->>   int of_map_msi_id(const struct device_node *np, u32 id,
->>             struct of_phandle_args *arg);
->> @@ -943,7 +943,7 @@ static inline int of_map_id(const struct 
->> device_node *np, u32 id,
->>   }
->>   static inline int of_map_iommu_id(const struct device_node *np, u32 id,
->> -                  struct of_phandle_args *arg)
->> +                  struct of_phandle_args *arg, int *next_offset)
->>   {
->>       return -EINVAL;
->>   }
->>
->> ---
->> base-commit: 9e94742cffb7541f55fa904a40c1ca9d836d303d
->> change-id: 20260315-iommu_multi_map-8c9b78490ace
->>
->> Best regards,
-> 
+You can usually end up with the best of all worlds via some refactors
+to pull out helper functions, but that's a lot of churn.
+
+Jonathan
+
+
+>  	}
+>  
+>  	/*
+> @@ -261,7 +262,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+>  	 */
+>  	ret = ffa_map_hyp_buffers(npages);
+>  	if (ret)
+> -		goto out_unlock;
+> +		goto out;
+>  
+>  	ret = __pkvm_host_share_hyp(hyp_phys_to_pfn(tx));
+>  	if (ret) {
+> @@ -292,8 +293,6 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+>  	host_buffers.tx = tx_virt;
+>  	host_buffers.rx = rx_virt;
+>  
+> -out_unlock:
+> -	hyp_spin_unlock(&host_buffers.lock);
+>  out:
+>  	ffa_to_smccc_res(res, ret);
+>  	return;
+> @@ -306,7 +305,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+>  	__pkvm_host_unshare_hyp(hyp_phys_to_pfn(tx));
+>  err_unmap:
+>  	ffa_unmap_hyp_buffers();
+> -	goto out_unlock;
+> +	goto out;
+>  }
+>  
 
 
