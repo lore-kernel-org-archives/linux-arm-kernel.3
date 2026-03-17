@@ -4,150 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE706F3380E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EAFF33809
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Mar 2026 08:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sabGN04ih5daGU1tyDHO3Ldz/iOd4HV3B8EwCm8Qb7M=; b=Z5szK5/2oh8MHHKG7/6rS0wXcf
-	D/fFxu3VuA/iPcaGtqKbEDKVQyyv63LHXhHY2ff1PRyVfAhq4mik2hImWy0i5X4263pA5pR3W4n6G
-	h6IIL7b3vTcfvW5ouKPipdSfZ/GqNYaNKAj3xheezI35kT84aYFhZhTq8ciZDyHVxxvf1cx1vt6jW
-	qrIJwv9/a+G6SskCQuj87a4FdVGti85iKEejm6C9bb+jjdrpxjkMsrSy1WSwbyUyEq6EdH3r91RI8
-	sdQKc3fj2vRpDNCAjIfMdIQ8PWSul/UZXoNJe7hdDnsoe5z3PSfptl/8XIiu7BoruivvVdCloMfTk
-	yVJMg13w==;
+	bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=; b=49QLqVDNdLPss9CYRY1zMUL/AF
+	fBZzY3/C1/IzeR7yyneNMajJTHyeoOLOfvujSZk9XrrGC2mIbDWdjncIcq4YA2BgKKtU4wOwdIc1J
+	4CXyUk1etSLX2iNtRMPYVKjVSezOpvvY0UtvES7H3yavGCeE679MeU07ORmrZaQcBtLRYiQOshZ0G
+	aJYJgm5nzDg1+n7NarFmScp5nscQ72JatZbpqeKY/uWEfhnjeD/P3vL62n8Y1E5930TwZSXFAgiZF
+	LdKKQJtZQTyOESFgY+PIJYn9NRtJO7tdpmpY7GRuw3hRlxVoILsbod5sCLb8/816Rqc7zjFERXzyG
+	pkKYpvUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PZV-00000005hfk-3rkm;
-	Tue, 17 Mar 2026 08:14:37 +0000
-Received: from mail-northeuropeazon11011040.outbound.protection.outlook.com ([52.101.65.40] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w2PZw-00000005hlB-0zAI;
+	Tue, 17 Mar 2026 08:15:04 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2PZT-00000005hf2-0aAl
+	id 1w2PZt-00000005hk4-1Xok
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Mar 2026 08:14:36 +0000
+	Tue, 17 Mar 2026 08:15:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nZyMXCRnw/y6vNaMtV05E3Y4QIGgBvXFn9anWOJ72xOt5osy3vnk0gZfhc830/rAe5F93MSgebbTPuhM8DscUGH1MJD2BLwE78ChcyMuGBmsWQxKxkophlB+xYHG+t66dyj3wjEeOnwpaEHKQTPDBD1kEY5Rvpw32aQWF8Mu+aABbdXr7mgJkZJkyPqGCUGcb+3NYhFfWQbwRaHwcnL3ijGkaUBtBfPZyEt41EH6zX3YEi+znHXld1Tv4BEM11Rq1Y8dKW2F7uUQtj0SPg0SoFy8yoJnpKWElsMnbwcjIID+6dhvN+ZVSNjf57A6TNBWVvFvJBiLIca0FoT+ph+MLQ==
+ b=VIzXDuC8pSHkOqDVinddDhuhmFsz41PiJTXhlpHPy7zOJkhYJ/EsjMN9PYgucSj0VF6Et4c4sW8LOsZcia49x7AP5bKexeGl4JmCFmGFftrvUDCpL5UKlVcD2AdTy/JoPbV+28/vm3QUOj9kq+9AsHNys0hK2mCvv5NolGwaJYp+GuBvQ6UKK3rqSnsKpMDnQNVb3GCsUya68lfZwWD2QTHb2RQA6WL1zE1SBmxBIqZyNvjPArEm6y38X7ZWkaW3muriJjsIjMUy8jlvFz+A9hn7tyFIcsISfOMSctiSOYL6mNqKTJk5rGMzqJMon0PkfrI/sxqtSMkPiL/EY4qCOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sabGN04ih5daGU1tyDHO3Ldz/iOd4HV3B8EwCm8Qb7M=;
- b=WuBc/fda1HeisEEDSFboLBpPTOZxFwOmY14lmCWP/+aJkRzFfVwVJQNXhCK/QbTWQFL+q8EHsLxIrrbPCTzZcT4VkCT1GZSSwL2jnWnb0bWey0Ib6Yigtlxk9hzWDD845n9A6jPRr8TW1cdAH3Rz+pPAnJlPH7ptf79z1IWz3H/nfPwL2bK1IDzbtSy385q1yhXE5T5y6rlKoWeCEsObUd6whPfhQ+gz+7/0r4Z5tNQ0UXlsSzu3hWfGvnInU2PFQxSRNAsoA+Drkl4KQVZRfQF87EcDwyx+h8CpHJ0DD1OHNmBNAyzl3GgP4XF8tz/rXd2ULhAh4KkrnNPAMdwGNw==
+ bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=;
+ b=YC1TT2+U4DdpKF6IE0KaVgIGpCb0Vu2hQHeSMni+rKeDovelAEnw2yI7zVecVafwLjltAXpXir/21fKFp4oEx1PiSm7sy4XX1k8dT5p7DrbeQWZ94CwB/06FfYr8zCFQKjrH3jHxEb50q+yppAjH/iNXbvB8eREkUPUMGgrEAMkZrKyiyGzXJMiSEHu8oC3fT1bf/gs43hvkLw20T+5KC0anNS68jZaVJOEsom/tkFs2mTBefpwfw6xwUHyCYyvhN9MygZjC7lkxNtQG9OvhpXSsfykX8WswSWQ6bKY8nEheJYJxk0NbNF78TLUaLpuBkOURmg6BcafmgbCf/hm2BQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sabGN04ih5daGU1tyDHO3Ldz/iOd4HV3B8EwCm8Qb7M=;
- b=Uwy533+yVq0uKTRtSjX6C8kCmaTT2zekDB66K/6OBD7P0jjE07nQCXLyb8onoWA20lA3pjU+TJ01KByhQ/qXQhUQvgK51cjIKbyDiM9CWLaG27M1eytL3iA7B1jk8CW1xII6KZl+inXm6yUyn1lOYRGKrUBkZbZWw9w1tXFlcM4l1vh8v+TYupVN0uv5lafD8XgbePbuRoamn04YeVtw4nvdKHaITV4OIiZCeVwWE4lUm1FSscKz9La+1CaqhX2mSQO7gHzWJTvcIzT3VsW2ilue0AaY6MzVxTzLBB6Gt84cA27q0iCA0uK2M3KK55QrHm4Y60G/zsU+zFntyExDKA==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by DB8PR04MB7100.eurprd04.prod.outlook.com
- (2603:10a6:10:127::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Tue, 17 Mar
- 2026 08:14:24 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9700.021; Tue, 17 Mar 2026
- 08:14:29 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Manivannan Sadhasivam <mani@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
-CC: Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>, Frank Li <frank.li@nxp.com>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH V8 06/13] arm: dts: imx6qdl: Add Root Port node and PERST
- property
-Thread-Topic: [PATCH V8 06/13] arm: dts: imx6qdl: Add Root Port node and PERST
- property
-Thread-Index: AQHcso5EihHzW0WZ+UyejN5MCJfCDLWr+maAgASsZYCAAb7EkA==
-Date: Tue, 17 Mar 2026 08:14:29 +0000
-Message-ID: <VI0PR04MB12114BFCA2249076D33ED16989241A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260313020823.1592389-1-sherry.sun@nxp.com>
- <20260313020823.1592389-7-sherry.sun@nxp.com>
- <CAGb2v65dvWRqugwBAORB_dD+3Part+OieCe9hnSR781g-6NgZA@mail.gmail.com>
- <wnbxqzsxq5v33rr4cweoz2inkxsq536bqxvtpdleboll76gx7k@rdhh4ntyydk4>
-In-Reply-To: <wnbxqzsxq5v33rr4cweoz2inkxsq536bqxvtpdleboll76gx7k@rdhh4ntyydk4>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
+ bh=j6Fwam6lPZpeKI5vsUOf8YCeLUId0TBUPHRPl98dAF8=;
+ b=Qb7mDoYSYYo17tIXKxuwZ2xLowZG/ARGbeoIhRJd4rVz+h6Gwsj7YM6iZaC8mqLUCj4GEvV2aeO1neSdiNZJRpjosP1xQvc0Ka/JIV62moNjvgfyGYlEylD5dWFSMcsBg+x/iL+FfLC82tQLUdrgtMYeBlL+bS/Jg5mtkN/4/yNHJdF6A7H5DaEhiryt40yn0U/joyLFP4TNDPDnvOk2OlEh/AdkylPKRh4VSNJjLJHyH1/CAxnVrB813Oxr2i6tvesB8QV2vQWwq8vkom194y79PyIiGBs+IlV6uv7xWy9kgMHMxhwR7p5Y5J8KwpBUDnc24Nq+emz5J4A721tlxg==
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ (2603:1096:820:78::12) by SG2PR06MB5285.apcprd06.prod.outlook.com
+ (2603:1096:4:1dd::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.21; Tue, 17 Mar
+ 2026 08:14:53 +0000
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6%5]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 08:14:52 +0000
+From: YH Chung <yh_chung@aspeedtech.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Arnd Bergmann
+	<arnd@arndb.de>, Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
+	<maciej.lawniczak@intel.com>, Mark Brown <broonie@kernel.org>
+Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgABXFACAA7sEAIAAT9LA
+Date: Tue, 17 Mar 2026 08:14:52 +0000
+Message-ID: <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+	 <20260313-energy-casket-ca8adc1f1fd1@spud>
+	 <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
+ <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
+In-Reply-To: <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DB8PR04MB7100:EE_
-x-ms-office365-filtering-correlation-id: 1c242453-306a-47ef-6d42-08de83fd3634
+x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|SG2PR06MB5285:EE_
+x-ms-office365-filtering-correlation-id: 298ef0fc-e869-41e7-b1b0-08de83fd4432
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|38070700021|22082099003|56012099003|18002099003;
-x-microsoft-antispam-message-info: 1oEGS0VAGMSmmYlFFxNj3GfGodNsF87lviEmkZWC/gk6/lvJ/509lX4Gfnj+t22Brw0wQk4vBgFcNGZCUl7ooe3SiNOiy52gacySisGQRStvJ16S5Q/Vrjm3qOvVaadEqYGkwkPjf6KnS3u3k94+k6i3J8VYe9s8FvG6P7C30hp/SyMDGBRVTbz/5Wosj7K2qH5S84vsN2Njqa/VKiYKnNU3qL3urVf5azRzjaIyG73BiNauOosd9GiXR68qf1daILdYyng7zuj/scwoQsUzg6EjKfbF1FEfsQQHlsnTjuJ65yB7xcsj5dPJiZ7g13b4qz48hoR+ghvKHHannbjGFrNQT6c7IQzGMak7yzr5qyMLfy+/FIlRQdUJ+PwXuMONJNPfL+Hz1MAHaq5wpqXbHCUjpjgDHWlf+mX0qfagaI9gsFC9tGs1k5OWTU4uyoNYj4CGhTnjy3HTUoyWlhgJfu4GgwiSDHz1yJCccYGuaFLxFELJiqqUxe8AcXnHq2v1cBkjRwU433k626sVU4wmCdZaKGKiuOLnUpfO9QxYAzhsHYIRXbq/n41Z2K4qCw0KmOAVuXX2BCZyARC/5d5b3F6qdzIHRFkBCQY76vxGvGIwIhGrjedNckCH8RJkt0Tewj2YUBUg/hybJLztVjShgW76BGb5hsaHcZta7B2UkYogukC3qCskscuy5it6fFcdtxQrKWM2WeWD42sqqldX2eCUM85V/yIfhJKiy1LwIBXeIB2n7+rr1RvngV9kMqgAPk8G3+7UXmxgycD9FENNHZujdj/lRcBCGlmSxLMyxpo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(38070700021)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|42112799006|366016|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: uMkR+lRdUOFcJ1vevssQ+h0C8l3eG4RdRsnldNAmZlFHNLzfUfVXNxUniv62Q52qQMuP7T+8pWoiNYCx+YoryOhPaUtSY3NllZKBf7MANM1D17F6rldakEd+JQvABcq5LyFgR7WjS5H9QP/N2rL2gk5xfcqhRBgtwmGVslODCwJ0DsOSAhAun3pxxvHxui3zlKwpCzQbxb/Dpbv2aQOJS6XR3d1ocNMXxTij97So94vb/whrh60htCd2D+oIt2O1W5CVbbkCuB+ejqg1jS/16SCii9gUBAm7vwFdw8MTrwKn6B4nNLL4mWCROx2qsNUIyU9vTvUBUgbN7co1uFpR8iD6AGUoG8d1rsDP8HoWsdMsP8+WN+aNY/7KMNX/RBpDtyF2jwJNJ5TuDJNKNmHpBO64Q5JV6DwLD6pzvOJq2R/xxuF4+3EHPuycQEKo7D7s4fbPEPlbCQ2rDsx5eXS1de3qMTPJO4imbsBtNLv6NfS9jmnjQdtRgR/e4e1b0yxtkrCme9djPR9xCtJn+jiCc/rDjhahXSKD3f6updN7YNNEPaxsXgTiWl7wx43eVqA4DX1KqOsjnGedGNCEtJFAG0dZN+RkJcVmY6Lc3mbhfkfFpe7oToCQw1SczV+R1AfWr6XQCLSKHdKWYJbD78PbSvxL7W06n3M4frqf/K9lhM4xKUWSwBTzJOPP+yKGIFw73hJGWHIIbXOQznN1/GU7T7sTD7zTP0iLiihnO024Zup1l0xUc0TldIstljzO4Xse0hFfef5Vce4I9V0v4La5i0ZCzvQyr51zB/tdGXx21tJGP0S9zMIpLqzP6bFiQQD+
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(42112799006)(366016)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V2dxdWVkb29VQ2tkcERIMzMyTmw2dGVJM0FTQlFiYXhoeWV4cXUyTDMzdDBB?=
- =?utf-8?B?ZzRCYUNiV2lVKytoaTAzcGhlOStvQXd4bmIrczMyRFFscThaK3dSRWZ1c0xj?=
- =?utf-8?B?emFDaVQyQjJlbGRPT3ptaDA2NFlVZldNVkFnZEZHNHBKS290WTZZMWRkU1J2?=
- =?utf-8?B?TmZZOFFneHhtY3V0YVRzTVpUUXhtRVlnTlcxbjdoaFFlNmNQUkhjdVBrc0pv?=
- =?utf-8?B?RVpkYXRzUHY5SFA4Nkh3ajRMTkhzeUs5MHlycTlUWTY1dWVFcCsvUTI4VXJT?=
- =?utf-8?B?TFdKTlMvNG9kbjFUUkxOcG5mNDNwRjJpUDN0YW1ITElFb05LRWFFUmwxbkZF?=
- =?utf-8?B?Qk0wMit3ZnErZS9saEFuUTVkczYvY0d4RlQrcVk1QWlVYk9xU0FOd0ViZ0JX?=
- =?utf-8?B?S0RqK29YWDN3L3cxZ0Vxdnh5Uko5Y0RPYjRaQ1J0S1IzYWNCS2x6UHZLY2c5?=
- =?utf-8?B?MytGMHpCc2ZXV0NzdDlFd0pNTE1aY21DVTZNRzVhNkcyak5YTFQvUUExelYw?=
- =?utf-8?B?RnRFT285cEhxcFAyTWZwYXVGVS91VGxDM2thWkdlNk9kZEhxQUh6UFJsZDQ0?=
- =?utf-8?B?ZmpDMGZkWW0vMG51UEc1VUJoOEQ0RlJqSzRVT0FLWDJMK0tEWmhTb3NWaWc4?=
- =?utf-8?B?QjZqMHhJS2U2T3I0eVdZMXRGTHRMOW5sc1QzM20vdkxPZ3d4aW5na0kyc3ln?=
- =?utf-8?B?S3c4enZkUVhkTE5qcDJkL1ZRcGc1dVRNL2FqUjVSTUNmbnRlSURMS2gwcDJ1?=
- =?utf-8?B?SVF2VE4vcitnU2liRGRtOGdOelVGeUgrNk1CZVlJb2FsWXdCYzBSWDRnZUtt?=
- =?utf-8?B?UFBINVIwRlB1SnRhL3NIbHRIYWV6bUx5WmNMOEVnZGYxQTJyRGdqZ3c5OWV5?=
- =?utf-8?B?MmwzTU1OVDdMVXp1UzRwUjFsN3FBSy8yUmpqcC9TaklJRkgwTU1TcWQyR2Yx?=
- =?utf-8?B?SGQ0aDNSMUFoZUlvZ0NINW9naWt2MjNpRldXV0QwUjJXeVlCdkNZeGhSYUZl?=
- =?utf-8?B?amE5STZtbE00czZ6WkFNbEhFaThJZ2J5R2g5OXNjSC9zQkJPZHh5NWtQcUVj?=
- =?utf-8?B?ZkhyN0M1anM2ZURyWHJQT2RjM25xS1BSTnNpQ25FSDQ1THZuTmMxSWhXejhj?=
- =?utf-8?B?ZmpmN3dFMXI4OExFTFhuTXdlTnhkU1R5Y0Y5Zjd3Z2MwOS81V3Y5b29jTERi?=
- =?utf-8?B?aDhhOGNpeXlZWlJHWDdVdUdJUGZ1Q2tFeEVDM3cwbTd3RGF3N1V6aE85RDZt?=
- =?utf-8?B?MkNUczRuZW5jdmJmREdxajdLM2xxWGU1Vk5WVDg3U3VvMXFJSTdqSjlEUVBN?=
- =?utf-8?B?R2hWcHVnVTMyenF4TGxSeC9Nd3lGOERXZGFFZ21id2JUTTFIS2FoOTFPZkFw?=
- =?utf-8?B?eVFtYkttZWdSbFRmUk1nOFZqNzNLL0tDR1VVTUN0cmNnUlVkbWVnR3lPSXBx?=
- =?utf-8?B?bVJnTENWRnRJakdHV3NDK0EzdmFzYnN6SUFldk1YQzhacGQ2RU5ibEZGUUV6?=
- =?utf-8?B?TnFyQm5SZWJlYW44bjNQdWF4dW5jYXhubHNsRVlxR1R4QWN1eGs0Ny9STEZV?=
- =?utf-8?B?L0NWcTMzdHF0aGp6dm5TZ25XZ3hjbjVNZ1dSckU1cjNwcFRTZ1lJWk1hQlpU?=
- =?utf-8?B?SlQyeUJacEpZVGl4c0JvR3JiMFVoYU82ZldpUXl4cXBrVGw2dmpLNy9KajN6?=
- =?utf-8?B?bjFmODJVV21LOVZuU2pBR016WVJ5M0lFMGVCUzJIOTBnbGR5bFZaeEVPVzRj?=
- =?utf-8?B?UXJsa3lwTm1RUy93Mnk3akhLcDFDK3o5WFZMODNnakZlL2xWaUZtdjZWTXU5?=
- =?utf-8?B?UWhEK2ZiR243dE8wZVZSQzgwcUJDcS9EYVZsVzhqT25TMGNrcnA1Z2xZakk5?=
- =?utf-8?B?WU1MQ2hsdDVSbXJhM1NuU3o3ZWh0NFJ4TVVDK1FvN2pTZmU0c0l4K1liRE8x?=
- =?utf-8?B?SnovNVNTT1puVlEwb0kwUGtSR21CZEdidWFsOWp2RU44ZUlqaHRrYkR0WExT?=
- =?utf-8?B?WUh2NUdkUExvcllqdnNTY1dhYzNXMmtiVGN4VnMxN3B2K2xZSlpjQTRCWVRP?=
- =?utf-8?B?UDJDOUVzeW9Fc3lHZ1FGbGNNTGRnaWloc2RYUGRwUmVJRVFpQ1gzVU1sczNr?=
- =?utf-8?B?YXZqcDlJd1l3b0tZNklLQkhvUHZOZFZqVmVCWlJLYUJzUmZEK3lvVCtkT3Yr?=
- =?utf-8?B?WktqOGxDYVpQNnZ3dWRGUGxQWjRLbzA2SEo3QXZtd2pWT1FPR1RlUFNxNnpB?=
- =?utf-8?B?eVQyRFdGbkdhNVBROEhqNkJIcDNXQzFFOE5UUzNPNTB3TGlvYWIreDZuTVdk?=
- =?utf-8?Q?BVDFafVHJDtNZBNPfP?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gjlh9fjSmwV804EXfLl5yMXjr8WM1mjABbFay4whW6kUtwRryhAvxjZ0NHHR?=
+ =?us-ascii?Q?GkpNUYkOBzFFrrDXkV7Pu7mE691iZeytEGoNZ3Bget01j8IxyLCy/IZ1S53f?=
+ =?us-ascii?Q?HwQirCZ8i03p1dchyyJt97747/aDSBdXyTGzkgIPq4vVuYf0l30AYZv1kISN?=
+ =?us-ascii?Q?HhFL497YxZwJr3ZV9XUB30WPZ9JieT+TH8yCMZ7+u/X91YqvhFGyFIGeUcn0?=
+ =?us-ascii?Q?tF2rV9M2tzGSomcKlNE49vL3wrtUtO/HGqbrJbA1yhdWNEAcTprS6RB1gjuU?=
+ =?us-ascii?Q?uXiuZ4tHHgHh67oFQ58kTFmNXWDqKUAJT0f/gL48e+MYO7hktlQL8eZOvQ4m?=
+ =?us-ascii?Q?TA5/1Lp9yx59zJ8hCuhRYOqEFgKvaXXGdoy71Y8OfZkm2p44fLTbSwAky1j8?=
+ =?us-ascii?Q?Xre1v+W0aa47GJxh+58mijnBdwU2ZZnkgO/3WhO98BnmjO0WSNV2wyVB9LKH?=
+ =?us-ascii?Q?2DrhtMoPhYGBiZBS95AS+/CkgUngOL1PDGPmMsY186CzihFRFQCToLXlqAy/?=
+ =?us-ascii?Q?01gXB1zS8QCfbaiFxeJxTipPNNCQkH4Wqomkn5hMXSDJpGzEQTh/UZvOWzja?=
+ =?us-ascii?Q?2MNPgKJppmqc9IvQRCKNBivQ4QBf7GkNwz9bElhbkLpo3/5vrz57fniG1Pn7?=
+ =?us-ascii?Q?C4N8oTwDTvOC6k7D2SZLlj3tCxMy+ar9h3eD/ZekCOfOM6ayDzPru5Jg36BA?=
+ =?us-ascii?Q?q4wh8nilsSju3n8uh/WjM0VIpeDnJU1gNq0FNZ52z3pGNdFsbz1O99ehPVCs?=
+ =?us-ascii?Q?vb8c5STDvxhhl6vldh+xFTLuc0ambZFSgajQqRFa5G4wignuOM8wYPczNAxj?=
+ =?us-ascii?Q?8TI0fCJJzRYC2rh8Z7zZ3sBCw8IcL2pDH+lopBkbRcOUhVMMfCRG15B1GtBU?=
+ =?us-ascii?Q?q6VhXW8rubbDMFwp815Bv+3QPMC1Vq6XrA8uOklTkCUv/dJhwwmk7k3xpBmy?=
+ =?us-ascii?Q?o6hrGi6hFRjwRHF0ado5j1XdkTmIiz9KiHrqv1hHILn/6ZKsJJrYFllL9ElX?=
+ =?us-ascii?Q?e59YuJdQG/uKeG0Lsc6ZkO8Uynr1yawo9d8YA1qu3nYx6GWkOVpAkFK1hTR3?=
+ =?us-ascii?Q?lViH6k2dHNXJhA6Ni2aCumNmlsM6KOQpukMmIceIu+2fofFZtnS4vQvB2iwb?=
+ =?us-ascii?Q?9PIhbqwDcaf5+N1TgwtWXow6YbAfJFjgZRJyQIrG5vrxBbxlUjbUKj7M0BwU?=
+ =?us-ascii?Q?+Xy3Hogg8ogmBHAxHklhVutZrSAHZVRwgJ0zpE8x8SK7MqGuSOWGeuXioSD0?=
+ =?us-ascii?Q?+JYZoi6WH1Mzj/ecokbvkLUmtxVkd7Zd6tCawWLnlhvmyELUEoBt0ymYL2eZ?=
+ =?us-ascii?Q?LHmKzBP8S1bnQQoNY5bOmd3Inwy5oXdCBA7HrLmnDyPuFHeVaTgCigHCzvP9?=
+ =?us-ascii?Q?f6ltZYpl4EX7IYEMzWYaWSQ1OEF+0bjZ+SVVyzx0kFvxMc5SSAIXxmvGMkU+?=
+ =?us-ascii?Q?Z8T1Yidu0VYgNKcAYOXqXeI7zqUtbo5fOLshTKOeEO4kl8CUdl/sijudjtGw?=
+ =?us-ascii?Q?2jJQiWp5K5JEiaINtCyfUU20nBd0PKrD+d4v+XZ00dyILqI3xX0YSW+3IBta?=
+ =?us-ascii?Q?uxDOR/sslyJow8XmJ2SeZo1041BAjELkjhYQABgGcIMuQ7vatCwjtfNGy1Xc?=
+ =?us-ascii?Q?7Er52L7E4mLa/jUNr07gIu8KrJXY7cdSkqPY2lTtiKrzbNS/DYKT3E9xzuw9?=
+ =?us-ascii?Q?UiQYq2TZZ9XFAfpnfLQWRJBWODr0g3XIDLRY3WU7Es1pdpJfQnVcl690O3xX?=
+ =?us-ascii?Q?8vL7LuMq0Q=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-OriginatorOrg: aspeedtech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c242453-306a-47ef-6d42-08de83fd3634
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 08:14:29.2017
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 298ef0fc-e869-41e7-b1b0-08de83fd4432
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 08:14:52.7005
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FRnLyiA7oj1x4Of4/oxGys5OimjLvreI5mEQqpSg5TQeBj7XHV5Hov9SVxzgeuN5o7MY1aI5n4N2nGqGwjcZiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7100
+X-MS-Exchange-CrossTenant-userprincipalname: j8N8rVhH3Ij3l/7Qd4goJ3oQXjIhv4PrS6EURzZyGfANupJIiBDQgUic1/uwthkgLmkMnJDVrDpsPmu6KJoUVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_011435_211381_A4D60DE6 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20260317_011501_423971_BB42BCAB 
+X-CRM114-Status: GOOD (  38.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,44 +150,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIFY4IDA2LzEzXSBhcm06IGR0czogaW14NnFkbDogQWRkIFJv
-b3QgUG9ydCBub2RlIGFuZA0KPiBQRVJTVCBwcm9wZXJ0eQ0KPiANCj4gT24gRnJpLCBNYXIgMTMs
-IDIwMjYgYXQgMDI6MDg6MDVQTSArMDgwMCwgQ2hlbi1ZdSBUc2FpIHdyb3RlOg0KPiA+IE9uIEZy
-aSwgTWFyIDEzLCAyMDI2IGF0IDEwOjA44oCvQU0gU2hlcnJ5IFN1biA8c2hlcnJ5LnN1bkBueHAu
-Y29tPiB3cm90ZToNCj4gPiA+DQo+ID4gPiBTaW5jZSBkZXNjcmliaW5nIHRoZSBQQ0llIFBFUlNU
-IyBwcm9wZXJ0eSB1bmRlciBIb3N0IEJyaWRnZSBub2RlIGlzDQo+ID4gPiBub3cgZGVwcmVjYXRl
-ZCwgaXQgaXMgcmVjb21tZW5kZWQgdG8gYWRkIGl0IHRvIHRoZSBSb290IFBvcnQgbm9kZSwNCj4g
-PiA+IHNvIGNyZWF0aW5nIHRoZSBSb290IFBvcnQgbm9kZSBhbmQgYWRkIHRoZSByZXNldC1ncGlv
-cyBwcm9wZXJ0eSBpbg0KPiA+ID4gUm9vdCBQb3J0Lg0KPiA+ID4NCj4gPiA+IFNpZ25lZC1vZmYt
-Ynk6IFNoZXJyeSBTdW4gPHNoZXJyeS5zdW5AbnhwLmNvbT4NCj4gPiA+IC0tLQ0KPiA+ID4gIGFy
-Y2gvYXJtL2Jvb3QvZHRzL254cC9pbXgvaW14NnFkbC1zYWJyZXNkLmR0c2kgfCAgNSArKysrKw0K
-PiA+ID4gIGFyY2gvYXJtL2Jvb3QvZHRzL254cC9pbXgvaW14NnFkbC5kdHNpICAgICAgICAgfCAx
-MSArKysrKysrKysrKw0KPiA+ID4gIGFyY2gvYXJtL2Jvb3QvZHRzL254cC9pbXgvaW14NnFwLXNh
-YnJlYXV0by5kdHMgfCAgNSArKysrKw0KPiA+ID4gIDMgZmlsZXMgY2hhbmdlZCwgMjEgaW5zZXJ0
-aW9ucygrKQ0KPiA+ID4NCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL2FybS9ib290L2R0cy9ueHAv
-aW14L2lteDZxZGwtc2FicmVzZC5kdHNpDQo+ID4gPiBiL2FyY2gvYXJtL2Jvb3QvZHRzL254cC9p
-bXgvaW14NnFkbC1zYWJyZXNkLmR0c2kNCj4gPiA+IGluZGV4IGJhMjk3MjBlM2Y3Mi4uZmU5MDQ2
-YzAzZGRkIDEwMDY0NA0KPiA+ID4gLS0tIGEvYXJjaC9hcm0vYm9vdC9kdHMvbnhwL2lteC9pbXg2
-cWRsLXNhYnJlc2QuZHRzaQ0KPiA+ID4gKysrIGIvYXJjaC9hcm0vYm9vdC9kdHMvbnhwL2lteC9p
-bXg2cWRsLXNhYnJlc2QuZHRzaQ0KPiA+ID4gQEAgLTc1NCwxMSArNzU0LDE2IEBAIGx2ZHMwX291
-dDogZW5kcG9pbnQgeyAgJnBjaWUgew0KPiA+ID4gICAgICAgICBwaW5jdHJsLW5hbWVzID0gImRl
-ZmF1bHQiOw0KPiA+ID4gICAgICAgICBwaW5jdHJsLTAgPSA8JnBpbmN0cmxfcGNpZT47DQo+ID4g
-PiArICAgICAgIC8qIFRoaXMgcHJvcGVydHkgaXMgZGVwcmVjYXRlZCwgdXNlIHJlc2V0LWdwaW9z
-IGZyb20gdGhlDQo+ID4gPiArIFJvb3QgUG9ydCBub2RlLiAqLw0KPiA+ID4gICAgICAgICByZXNl
-dC1ncGlvID0gPCZncGlvNyAxMiBHUElPX0FDVElWRV9MT1c+Ow0KPiA+DQo+ID4gSSdkIHNheSBq
-dXN0IHJlbW92ZSB0aGUgb2xkIGRlc2NyaXB0aW9uLg0KPiA+DQo+ID4gWW91J3JlIGFza2luZyBm
-b3IgdHJvdWJsZSBieSBkZXNjcmliaW5nIHRoZSBzYW1lIHRoaW5nIGluIHR3byBkaWZmZXJlbnQN
-Cj4gcGxhY2VzLg0KPiA+DQo+ID4gPiAgICAgICAgIHZwY2llLXN1cHBseSA9IDwmcmVnX3BjaWU+
-Ow0KPiA+DQo+ID4gSSB3b3VsZCBwcm9iYWJseSBhbHNvIHRha2UgdGhpcyBjaGFuY2UgdG8ganVz
-dCBjb252ZXJ0IHRvIHRoZSBwcm9wZXINCj4gPiBQQ0kgc2xvdCBzdXBwbHksIGFuZCBqdXN0IGFk
-ZCBwd3JjdHJsIHN1cHBvcnQgaW50byB5b3VyIFBDSWUgZHJpdmVyLg0KPiA+DQo+IA0KPiArMQ0K
-DQpIaSBNYW5pLA0KDQpUaGFua3MgZm9yIHRoZSBjb21tZW50cywgYXMgSSBleHBsYWluZWQgdG8g
-Q2hlbi1ZdSBoZXJlLCB0aGlzIHBhdGNoIHNldCBhZGRzDQp0aGUgYmFzaWMgaW1wbGVtZW50YXRp
-b24gdG8gcGFyc2UgUm9vdCBQb3J0IGRldmljZSB0cmVlIG5vZGVzIGZpcnN0LiBPbmNlIHRoZQ0K
-cGF0Y2hlcyBhcmUgZmluYWxpemVkICh0aGUgUm9vdCBQb3J0IHN1cHBvcnQgbW9kZWwpLCBJIHdp
-bGwgc3RhcnQgd29yayBvbiB0aGUNCnB3cmN0cmwgc3VwcG9ydC4gVGhhbmtzIQ0KaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGludXgtZGV2aWNldHJlZS9WSTBQUjA0TUIxMjExNEE5OUE0MzhDOEU4
-NzQ5MDIxQUFEOTI0NUFAVkkwUFIwNE1CMTIxMTQuZXVycHJkMDQucHJvZC5vdXRsb29rLmNvbS8N
-Cg0KQmVzdCBSZWdhcmRzDQpTaGVycnkNCj4gDQo+IC0gTWFuaQ0KPiANCj4gLS0NCj4g4K6u4K6j
-4K6/4K614K6j4K+N4K6j4K6p4K+NIOCumuCupOCuvuCumuCuv+CuteCuruCvjQ0KDQo=
+> On Fri, 2026-03-13 at 22:36 +0100, Arnd Bergmann wrote:
+> > On Fri, Mar 13, 2026, at 17:24, Conor Dooley wrote:
+> > > On Fri, Mar 13, 2026 at 06:07:35PM +0800, aspeedyh wrote:
+> > > > This series adds initial support for the eSPI controller found on A=
+SPEED
+> > > > AST2600 BMC SoCs.
+> > > >
+> > > > The series introduces a eSPI controller framework for ASPEED SoCs u=
+nder
+> > > > drivers/soc/aspeed/, adds AST2600-specific controller support for
+> > > > peripheral and flash channels, defines the corresponding devicetree
+> > > > binding, and adds the AST2600 eSPI controller node to the SoC dtsi.
+> > > >
+> > > > The driver is intended to support host-BMC communication over the
+> BMC-side
+> > > > eSPI slave controller present on AST2600 systems.
+> > >
+> > > This all seems to be in the wrong places entirely, shouldn't an eSPI
+> > > driver and bindings go in the spi subsystem?
+> >
+> > From an initial reading, my impression is that patches 1, 2, 3 and 7
+> > should be modified to use the normal SPI interfaces to implement
+> > an spi target driver, possibly a combined host/target driver.
+> > Reworking this should be fairly straightforward because the interfaces
+> > to the SPI core are well documented.
+> >
+> > It is possible that the hardware can only be used to provide espi
+> > device emulation. From what I could see in the code, there is
+> > not much special in there, but I'm not that familiar with SPI
+> >
+> > Patches 4, 5 and 6 in consequently would need to be reworked so
+> > these can implement the TAFS spec independent of the SPI controller,
+> > and can be shared e.g. with other OpenBMC targets using the same
+> > module and the same user interface. None of this should be aspeed
+> > specific.
+> >
+> > There is a good chance that both the user interface and the placing
+> > of the code will need a more debate, but I would suggest first trying
+> > to move everything over to use the SPI subsystem but leave other
+> > parts untouched for the moment.
+>=20
+> To extend Arnd's points here, some previous attempts were made to
+> support Intel's eSPI protocol on Aspeed's SoCs which aren't discussed
+> in this cover letter. I think it would be helpful to cover the history
+> and why we now have a third approach:
+>=20
+> -
+> https://lore.kernel.org/linux-aspeed/20240319093405.39833-1-manojkiran.ed=
+a@g
+> mail.com/
+> -
+> https://lore.kernel.org/openbmc/20220516005412.4844-1-chiawei_wang@aspeed=
+t
+> ech.com/
+>=20
+> Previously, Jeremy had some suggestions covering the various channels:
+>=20
+> https://lore.kernel.org/linux-aspeed/20c13b9bb023091758cac3a07fb4037b7d79=
+65
+> 78.camel@codeconstruct.com.au/
+>=20
+> Andrew
+
+Hi Andrew, Ivan, Arnd,
+
+Thanks for the additional context and the review links. It was my mistake n=
+ot to reference the previous
+discussions in the cover letter.
+
+This series is intended to support the Intel eSPI interface on AST2600, spe=
+cifically the parts corresponding
+to LPC-style accesses and Target Flash Access Sharing (TAFS), which are def=
+ined in the peripheral and flash
+channels of the eSPI specification.
+
+Because the earlier OpenBMC work from Chia-Wei dates back to 2021, and beca=
+use the code structure and
+overall approach in this series differs substantially from that earlier wor=
+k, I chose to post this as a new series
+rather than as a revision of the earlier one.
+
+I agree that the cover letter should explain this history more clearly, inc=
+luding the definition of eSPI, how this=20
+series differs from the previous attempts and how it relates to the earlier=
+ feedback on the channel split.
+I will revise the cover letter accordingly in the next version.
+
+In the meantime, my understanding is that this driver is for the Intel eSPI=
+ interface used by the AST2600 BMC,
+rather than fitting a conventional SPI controller/device model. That was th=
+e reason for initially placing it under
+drivers/soc/aspeed/, since there does not appear to be an in-tree eSPI subs=
+ystem at present.
+However, if that is not the preferred upstream direction, we are happy to r=
+estructure the series accordingly.=20
+It would be very helpful if you could advise on the preferred placement.
+
+Thanks,
+Yun Hsuan
+
 
