@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FA9103E190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50F4103E18F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1psZaN/gCJy0ECRd6dRbFqIWOzVDjGuIXtVAgkSorfQ=; b=xfTGUjRT3L9o4Ug1a6/5bHv9a+
-	NegnH/6Ou54zDT5TsG4MtYQu6TFAzEQGubI7A0JpRpfadb/UJNy8N0KesD3GtovL64RHIQx/e7yRG
-	ksLKqfJu6cUyMbta7zI0dGUHO03BA0lQsh+mXuHL11CdmzkJ9Mkf1hfeOVxyV19d/E/Bf/h8RmvBs
-	cDkBxfJVFbk95yAUfVOALyICiOyF1H5erLatJlI5xa07T3tidMfJHhXi3Ibyw8QgHsBeh7qYdf44A
-	2xJ28lCNtLRUy/cgyIfKmXAhWtkd8/qy6+i94AFTUrmTbjjOpqTfbfPa8XA0muudEUyBkDS/iPJzn
-	WLIizbzA==;
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vSzDjyJNks6QPStNfUc+wlwDqAdgG1JJRQ/ke1UWmTQ=; b=dvOomrciFKGAgOBmrnt3l1zFTB
+	7yi1vUoQcTZP9VlxYLxmWTtv6smwq/KUYDW3D8KUm1G6BkhZvmYOKyj5LPhhjidmOLOc4izL2AmBN
+	X5s6IR4QSa1z0ytfo1YtBNQYVVr9ZjZC/olHYvr00Omw6VUUgozS8eGM2/KX8lCRlPCYxIDPUHcrw
+	IXi3kMiLMu3GcsrIDIKybRDgAwYCwH4TCBoJf8xi2V4NUxs3NJvqHqks1iC55I8xJh+kC6FvX48f2
+	BNcazurYQSiJcDX/r+in/oaMsvGrHrgRGlRZSGODc2p8CDNqps1eiKCfG0oDAWcbTpecMxfzV0dgG
+	HT4KfXFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2s43-00000008boV-31sl;
-	Wed, 18 Mar 2026 14:40:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2s69-00000008c8M-2cMX;
+	Wed, 18 Mar 2026 14:42:13 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2s42-00000008boP-3Cei
+	id 1w2s66-00000008c7s-2L1e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 14:40:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADF4960053;
-	Wed, 18 Mar 2026 14:40:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A28C19421;
-	Wed, 18 Mar 2026 14:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773844801;
-	bh=lTmvcD4MKOhdnWf0ncRKcsBRvwfwpCt6pbrFgMkwmEk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ppPerBNKpDEGlFSD0eIGgFdqKHMmTNWGY3zGsy5tvajnPyn+rmcrcCvj5XUAyuQJt
-	 MnV4m8ZgUmFgFeW3iEPmNoFfDdc1T2Gd3zgUWQ7ZXpwS36lRQmvuinvtNyRhUvKnck
-	 ced/ZBisvBKL+YUxDrJDIur0GATS0eIAX/5JyWb2H2D6n2X3qOlWMrfem8eDJOeXqK
-	 B/scLD2UWCuoNVrkyDGUPRJnqqGxmHu6puDaqtoJ8dcuo1qZWefKiBe0HIiyXQ3JY9
-	 kr/foja6rZeHkdOqh8IPifayS5S+hZAHWlEqLLDOrd5degRj9o0qU5Fq2Wl9PBDPwa
-	 ysnACeo7yK53w==
-From: Simon Horman <horms@kernel.org>
-To: wei.fang@nxp.com
-Cc: Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	conor+dt@kernel.org,
-	andrew+netdev@lunn.ch,
-	edumazet@google.com,
-	linux-kernel@vger.kernel.org,
-	frank.li@nxp.com,
-	vladimir.oltean@nxp.com,
-	kuba@kernel.org,
-	f.fainelli@gmail.com,
-	krzk+dt@kernel.org,
-	claudiu.manoil@nxp.com,
-	robh@kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	xiaoning.wang@nxp.com,
-	davem@davemloft.net,
-	linux@armlinux.org.uk,
-	chleroy@kernel.org,
-	devicetree@vger.kernel.org,
-	pabeni@redhat.com,
-	imx@lists.linux.dev
-Subject: Re: [net-next,10/14] net: dsa: netc: introduce NXP NETC switch driver for i.MX94
-Date: Wed, 18 Mar 2026 14:39:30 +0000
-Message-ID: <20260318143930.1890017-1-horms@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260316094152.1558671-11-wei.fang@nxp.com>
-References: <20260316094152.1558671-11-wei.fang@nxp.com>
+	Wed, 18 Mar 2026 14:42:11 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id AEB711400207;
+	Wed, 18 Mar 2026 10:42:08 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 18 Mar 2026 10:42:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1773844928; x=1773931328; bh=vS
+	zDjyJNks6QPStNfUc+wlwDqAdgG1JJRQ/ke1UWmTQ=; b=Tk7ykoOek8zc4nZwOQ
+	NHdO+mFM8rWC0UxThOP/g530WZyLgsHxT+icx6/WfX8tEPAHdCxxgdR1vwvidSQ6
+	gEwk4xj5yKUI8D/rLezI2edLr+iyuaUiwXX5sE9S/kQc4RXPYc+p8s+rClC2AN4P
+	2PR+rky1vMOyTzktPBRSiJOpm57Og+V0N5hZPTTyYMxjqXF+wwEi1nZ0PoSo6HNM
+	x61m+1VhUQZwL9247eosu2ebkN5K9iwYAmM39WCorGz/DzZhPhEkpALuIqTb2DRK
+	2qzpg9rZW09yQPU3gsMVVeJqwgcNa30oLAkH4OLQtCKOovpyo3n2ewltQflXPABg
+	zamQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1773844928; x=1773931328; bh=vSzDjyJNks6QPStNfUc+wlwDqAdg
+	G1JJRQ/ke1UWmTQ=; b=h+H+o9/LlWpgC2nrfBLBA60PlzBqC2BkLvV5r0Tb5/A9
+	5m/8rEZ80KlrUrGz2SxsdZSRO8b8xSA0ataN2SJn30ImNAyrteIQ7NJwhj9LAGvU
+	L63fDRPiAY7gtJKLa10G0n7HfKzKQBYtVK+3DmH2SDM7mtNhyIi62Xlp9GYoytR3
+	FiHQn6/Qn6gE5xoDsKUhiayqvcCBo/B0JK4N49yA03rJHCa47L3rBQY3wxVDv4Tl
+	YUs4dt/Rikby94g7L23ou9Bkxygua8Kro+OQ3XmK91WmlI1WCbiQtRGTgMHnYz61
+	pC3JqV7eGCRTowK2UpVyWLwz6nHBre9zgilfxIdtvQ==
+X-ME-Sender: <xms:wLm6aW1gyEkBRKQhEVuA0JG4Uo42BxtQizr9HG_Hz_OsWRoxGzmNFg>
+    <xme:wLm6aT7Q_bZf9K7u6uCLqjDk5fVJZWesrk9M4I8JsReaPiYx3nQXFcdbXNapVv8sQ
+    N7EKAR9aVlrnern_95ewFAXBHjKOHG4eatoalTJROjlUDFr7q9_bEk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdeggedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    epgefggefgieehieduffekieefheevteffueehgfehueetgfevteejkeehfedvtdehnecu
+    ffhomhgrihhnpehkvghrnhgvlhdrohhrghdpphgvnhhguhhtrhhonhhigidruggvnecuve
+    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
+    rhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtg
+    hpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdp
+    rhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrg
+    guvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghv
+    pdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorh
+    hg
+X-ME-Proxy: <xmx:wLm6aYg1shuOE8UwAU7xoj5QEhpMlNeywFtecgXAuFRnEZ8xOFtkwg>
+    <xmx:wLm6aX7hhUu09ZeJQo2JrtiQ7Y4bHJBZUw5AyxO40eWoflgeZnPSfQ>
+    <xmx:wLm6aYbJ0jcmjIR34SvjeM2H5SPnH3S-ZXOvq663pyNsE6gn_He73Q>
+    <xmx:wLm6aU5c96ZYESKAw2aZPkdIoev9dfihakxitKt7hFEfdi-QEEhPnw>
+    <xmx:wLm6aWLly9eINSZY59JQKboM8pX3Lz7v10lQKeRjz741bBagkzo0848S>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 621C5700065; Wed, 18 Mar 2026 10:42:08 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Wed, 18 Mar 2026 15:41:48 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <33f46e61-6f3c-4aa4-9821-a0dca6babb89@app.fastmail.com>
+Subject: [GIT PULL] soc: fixes for 7.0
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_074210_668891_127B182C 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,198 +108,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+The following changes since commit 11439c4635edd669ae435eec308f4ab8a0804808:
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: dsa: netc: introduce NXP NETC switch driver for i.MX94
+  Linux 7.0-rc2 (2026-03-01 15:39:31 -0800)
 
-This commit introduces the initial NETC switch driver for the i.MX94
-series. The driver provides basic probe and remove functionality for
-the NXP NETC Ethernet switch which has 3 user ports and 1 CPU port.
+are available in the Git repository at:
 
-> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-> --- /dev/null
-> +++ b/drivers/net/dsa/netc/netc_main.c
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.0
 
-[ ... ]
+for you to fetch changes up to df3ef89d7ef8185fa719812e2d175b83112aa315:
 
-> @@ -0,0 +1,698 @@
-> +static int netc_port_create_emdio_bus(struct netc_port *np,
-> +				      struct device_node *node)
-> +{
-> +	struct netc_switch *priv = np->switch_priv;
-> +	struct enetc_mdio_priv *mdio_priv;
-> +	struct device *dev = priv->dev;
-> +	struct enetc_hw *hw;
-> +	struct mii_bus *bus;
-> +	int err;
-> +
-> +	hw = enetc_hw_alloc(dev, np->iobase);
-> +	if (IS_ERR(hw))
-> +		return dev_err_probe(dev, PTR_ERR(hw),
-> +				     "Failed to allocate enetc_hw\n");
-> +
-> +	bus = devm_mdiobus_alloc_size(dev, sizeof(*mdio_priv));
-> +	if (!bus)
-> +		return -ENOMEM;
-> +
-> +	bus->name = "NXP NETC switch external MDIO Bus";
-> +	bus->read = enetc_mdio_read_c22;
-> +	bus->write = enetc_mdio_write_c22;
-> +	bus->read_c45 = enetc_mdio_read_c45;
-> +	bus->write_c45 = enetc_mdio_write_c45;
-> +	bus->parent = dev;
-> +	mdio_priv = bus->priv;
-> +	mdio_priv->hw = hw;
-> +	mdio_priv->mdio_base = NETC_EMDIO_BASE;
-> +	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-p%d-emdio",
-> +		 dev_name(dev), np->dp->index);
-> +
-> +	err = devm_of_mdiobus_register(dev, bus, node);
-> +	if (err)
-> +		return dev_err_probe(dev, err,
-> +				     "Cannot register EMDIO bus\n");
-> +
-> +	np->emdio = bus;
-> +
-> +	return 0;
-> +}
-> +
-> +static int netc_port_create_mdio_bus(struct netc_port *np,
-> +				     struct device_node *node)
-> +{
-> +	struct device_node *mdio_node;
-> +	int err;
-> +
-> +	mdio_node = of_get_child_by_name(node, "mdio");
-> +	if (mdio_node) {
-> +		err = netc_port_create_emdio_bus(np, mdio_node);
-> +		of_node_put(mdio_node);
-> +		if (err)
-> +			return err;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void netc_port_free_mdio_bus(struct netc_port *np)
-> +{
-> +	if (np->emdio)
-> +		mdiobus_unregister(np->emdio);
-                         ^^^^
+  Merge tag 'scmi-fixes-7.0' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes (2026-03-18 14:06:34 +0100)
 
-Does this cause a double unregister? The MDIO bus is registered with
-devm_of_mdiobus_register() in netc_port_create_emdio_bus(), which
-installs a devres action that automatically calls mdiobus_unregister()
-during device removal.
+----------------------------------------------------------------
+soc: fixes for 7.0
 
-However, netc_port_free_mdio_bus() also explicitly calls
-mdiobus_unregister(np->emdio).
+The firmware drivers for ARM SCMI, FF-A and the Tee subsystem, as well
+as the reset controller and cache controller subsystem all see small
+bugfixes for reference ounting errors, ABI correctness, and NULL pointer
+dereferences.
 
-During device removal:
+Similarly, there are multiple reference counting fixes in drivers/soc/
+for vendor specific drivers (rockchips, microchip), while the freescale
+drivers get a fix for a race condition and error handling.
 
-  netc_switch_remove()
-    -> dsa_unregister_switch()
-      -> dsa_switch_teardown()
-        -> netc_teardown()
-          -> netc_free_mdio_bus()
-            -> netc_port_free_mdio_bus()
-              -> mdiobus_unregister()  // first call
+The devicetree fixes for Rockchips and NXP got held up, so for the moment
+there is only Renesas fixing problesm with SD card initialization, a
+boot hang on one board and incorrect descriptions for interrupts and
+clock registers on some SoCs. The Microchip polarfire gets a dts fix
+for a boot time warning.
 
-Then devres cleanup fires:
+A defconfig fix avoids a warning about a conflicting assignment.
 
-  devm_mdiobus_unregister()
-    -> mdiobus_unregister()  // second call
-      -> WARN_ON_ONCE(bus->state != MDIOBUS_REGISTERED)
+----------------------------------------------------------------
+Arnd Bergmann (6):
+      Merge tag 'riscv-soc-fixes-for-v7.0-rc1' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into arm/fixes
+      Merge tag 'soc_fsl-7.0-2' of https://git.kernel.org/pub/scm/linux/kernel/git/chleroy/linux into arm/fixes
+      Merge tag 'reset-fixes-for-v7.0' of https://git.pengutronix.de/git/pza/linux into arm/fixes
+      Merge tag 'tee-fix-for-v7.0' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
+      Merge tag 'ffa-fix-7.0' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'scmi-fixes-7.0' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
 
-The second call triggers a warning at drivers/net/phy/mdio_bus_provider.c:675
-because the bus state is already MDIOBUS_UNREGISTERED. With
-panic_on_warn=1, this causes a kernel panic.
+Chen Ni (1):
+      soc: fsl: cpm1: qmc: Fix error check for devm_ioremap_resource() in qmc_qe_init_resources()
 
-The same double-unregister occurs on the error path of
-netc_init_all_ports(), where netc_free_mdio_bus() is called, but devres
-will also fire during device teardown.
+Claudiu Beznea (2):
+      reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it
+      arm64: dts: renesas: rzg3s-smarc-som: Set bypass for Versa3 PLL2
 
-> +}
+Conor Dooley (1):
+      riscv: dts: microchip: add can resets to mpfs
 
-[ ... ]
+Cristian Marussi (1):
+      firmware: arm_scmi: Fix NULL dereference on notify error path
 
-> +static int netc_switch_pci_init(struct pci_dev *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct netc_switch_regs *regs;
-> +	struct netc_switch *priv;
-> +	int err;
-> +
-> +	pcie_flr(pdev);
-> +	err = pci_enable_device_mem(pdev);
-> +	if (err)
-> +		return dev_err_probe(dev, err, "Failed to enable device\n");
-> +
-> +	/* The command BD rings and NTMP tables need DMA */
-> +	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
-                                       ^^^^
+Fabrizio Castro (1):
+      arm64: dts: renesas: r9a09g057: Remove wdt{0,2,3} nodes
 
-Is the return value being checked? The comment states "command BD rings
-and NTMP tables need DMA", confirming DMA is essential for this driver.
+Felix Gu (3):
+      cache: starfive: fix device node leak in starlink_cache_init()
+      cache: ax45mp: Fix device node reference leak in ax45mp_cache_init()
+      firmware: arm_scpi: Fix device_node reference leak in probe path
 
-The function can fail with -EIO when dma_supported() returns false for
-the 64-bit mask (from dma_set_mask() in kernel/dma/mapping.c:902).
+Geert Uytterhoeven (2):
+      arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers
+      firmware: arm_scmi: Spelling s/mulit/multi/, s/currenly/currently/
 
-The sibling enetc driver from the same NXP NETC subsystem checks this
-return value in enetc.c:
+Krzysztof Kozlowski (2):
+      Merge tag 'renesas-fixes-for-v7.0-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
+      Merge tag 'v7.0-rockchip-drvfixes1' of ssh://gitolite.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
 
-  err = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
-  if (err) {
-      ...
-      goto err_dma;
-  }
+Lad Prabhakar (4):
+      arm64: dts: renesas: rzt2h-n2h-evk: Add ramp delay for SD0 card regulator
+      arm64: dts: renesas: rzv2-evk-cn15-sd: Add ramp delay for SD0 regulator
+      arm64: dts: renesas: r9a09g077: Fix CPG register region sizes
+      arm64: dts: renesas: r9a09g087: Fix CPG register region sizes
 
-If the 64-bit DMA mask setup fails, the DMA mask remains at the default,
-and subsequent DMA operations for NTMP table management (added in later
-commits) may silently fail or produce incorrect results on systems with
-memory above 4GB.
+Matthew Wilcox (1):
+      tee: shm: Remove refcounting of kernel pages
 
-> +	err = pci_request_mem_regions(pdev, KBUILD_MODNAME);
-> +	if (err) {
-> +		dev_err(dev, "Failed to request memory regions, err: %pe\n",
-> +			ERR_PTR(err));
-> +		goto disable_pci_device;
-> +	}
-> +
-> +	pci_set_master(pdev);
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv) {
-> +		err = -ENOMEM;
-> +		goto release_mem_regions;
-> +	}
-> +
-> +	priv->pdev = pdev;
-> +	priv->dev = dev;
-> +
-> +	regs = &priv->regs;
-> +	regs->base = pci_ioremap_bar(pdev, NETC_REGS_BAR);
-> +	if (!regs->base) {
-> +		err = -ENXIO;
-> +		dev_err(dev, "pci_ioremap_bar() failed\n");
-> +		goto release_mem_regions;
-> +	}
-> +
-> +	regs->port = regs->base + NETC_REGS_PORT_BASE;
-> +	regs->global = regs->base + NETC_REGS_GLOBAL_BASE;
-> +	pci_set_drvdata(pdev, priv);
-> +
-> +	return 0;
-> +
-> +release_mem_regions:
-> +	pci_release_mem_regions(pdev);
-> +disable_pci_device:
-> +	pci_disable_device(pdev);
-> +
-> +	return err;
-> +}
+Nathan Chancellor (1):
+      ARM: multi_v7_defconfig: Drop duplicate CONFIG_TI_PRUSS=m
 
-[ ... ]
+Richard Genoud (1):
+      soc: fsl: qbman: fix race condition in qman_destroy_fq
+
+Shawn Lin (1):
+      soc: rockchip: grf: Add missing of_node_put() when returning
+
+Yeoreum Yun (1):
+      firmware: arm_ffa: Remove vm_id argument in ffa_rxtx_unmap()
+
+Zilin Guan (1):
+      soc: microchip: mpfs: Fix memory leak in mpfs_sys_controller_probe()
+
+ arch/arm/configs/multi_v7_defconfig                |  1 -
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi          | 16 ++++++------
+ arch/arm64/boot/dts/renesas/r9a09g057.dtsi         | 30 ----------------------
+ arch/arm64/boot/dts/renesas/r9a09g077.dtsi         |  4 +--
+ arch/arm64/boot/dts/renesas/r9a09g087.dtsi         |  4 +--
+ arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi   |  2 +-
+ .../boot/dts/renesas/rzt2h-n2h-evk-common.dtsi     |  1 +
+ arch/arm64/boot/dts/renesas/rzv2-evk-cn15-sd.dtso  |  1 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi            |  2 ++
+ drivers/cache/ax45mp_cache.c                       |  4 +--
+ drivers/cache/starfive_starlink_cache.c            |  4 +--
+ drivers/firmware/arm_ffa/driver.c                  |  8 +++---
+ drivers/firmware/arm_scmi/notify.c                 |  4 +--
+ drivers/firmware/arm_scmi/protocols.h              |  4 +--
+ drivers/firmware/arm_scpi.c                        |  5 ++--
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c            |  3 +++
+ drivers/soc/fsl/qbman/qman.c                       | 24 +++++++++++++++--
+ drivers/soc/fsl/qe/qmc.c                           |  4 +--
+ drivers/soc/microchip/mpfs-sys-controller.c        | 13 +++++++---
+ drivers/soc/rockchip/grf.c                         |  1 +
+ drivers/tee/tee_shm.c                              | 27 -------------------
+ 21 files changed, 69 insertions(+), 93 deletions(-)
 
