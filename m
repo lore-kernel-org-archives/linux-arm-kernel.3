@@ -4,79 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39ACFCD0BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 06:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D89FCD0BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 06:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6xfAo223iai4XrJOG2g3U3nRO3cD+u3aZ+eWAjFRp4=; b=I3t+LXrPTUP0h5yo1ctYzSIfGq
-	dED9BEm90gXWzjAKmqawQeRWndm0C3duadDbHG2xxiFKT04tzSAHP/WHfPb/ZhXE7juTG9P6QXZ0Q
-	/gJ25yxYwYlwKcpXu/n8D/9emkiNyk0VBHY1Dz8zwcDdC1efJWFFqGLMUO89VzKSImr2lY2Xu1cEu
-	S++QhV6N0EiPNdgsIrw6fHRfkgs9KQC7koLKRXn8xB4iue1v1BLzjDYKzuRYZNfEHd5XOYKv9yet3
-	ZI7tlSKQEsJYd594qK3pyleiMxrOHxcDk9Iho0GeN4x5DcHl7/rBaXLCTx/c4OG3fQmujJFJr6uZ5
-	5vf0fWCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rasBWiqLY0JM5g+l1VdXLb9cNbAwC32ZclyCN46Jv4o=; b=U4F2A/zi8CuI4L7kv+3ScuEHV/
+	BhRwzLAprt3jxUifVZ4/0ITz9zN7UTk70NYOj4DBgv9xDnK3rnUFAFB/lZlNhfiW9bVZl4hBNEPua
+	dw+NDHbgJKHT4v17u1T+u+s7e4ud9ZPyl1+E3HeuDqhiM8ZB6D18QOEhUaSfsCK31iwktVAdhSlev
+	fzpPlCnMvPH2bPxNxw7oZASw/+XTOUd9aWp/J7ZrrcJLNuvhdGJY017nMu6OpLX7xGrspQ2FroLxO
+	kNQVk5O81Yk0xPmQX2zMwmSA5pb8XpiMtFl2SoezAVT/ufzGiZ6oJfAuXT5KSFd0a5vknT6LXCDzW
+	E2dPsKIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2kAc-00000007pwr-05qa;
-	Wed, 18 Mar 2026 06:14:18 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1w2kBW-00000007q35-1dKs;
+	Wed, 18 Mar 2026 06:15:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2kAZ-00000007pwW-3tka
+	id 1w2kBU-00000007q2f-3b7b
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Mar 2026 06:15:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=rasBWiqLY0JM5g+l1VdXLb9cNbAwC32ZclyCN46Jv4o=; b=Q4BQQfXlERfe6h/qpqnqYGQr58
+	OnCiMJJkLGEWei2GTk5A7JeDeRzjcVMTwJhEknIheiSX3WA/GTysWHyJRuefEjnZy0tAjN3GDjGmS
+	PB1TKUqoOw+Usxy6NWfc6AxeOP7lCvHfE/8o8WAarkCLbpF/LiDU3PMV3CUgJLGpXBWF9VPvVlgVn
+	UF8Coqf+9iXz3VisI1ewqaZ55OqZJhkz5uM9vgebd+moM+xPvj9jBba1F+tgussS+W+r3jIlrqE27
+	OHwqNvytvqhaYPYlRO0TPf/Deq5vVyNKUgVbKH8Lx+8ZUfqfCdIhMC/NXnlaapsVaWw2uDjPBj4iW
+	USHS7Ttw==;
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2kBR-0000000ARrs-2Cy3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 06:14:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773814456; x=1805350456;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=DkHUnEo/Buc1iI8h0hzSm7QzwytPckEV+C7X+Kypm6E=;
-  b=ThU7rf/f2bbXa3igaTn3wXXepU7XKFXrsrhXxtl9Uz3btRe1TMF9S/zM
-   o+jKxEbKKf1VhIGkBtlBM5vpVuOoLiYRF0uaGG4WpI1FW1dgayx92/KQx
-   bPyzHwtMsjaDvLWYelrcwK53CLAsavpcM4RXTgHp24o+//VwcakPsqv0X
-   YHDJviOQ/Nv+ZvMco81+6iO0S2VLViXNTaLm1kk/gKB2Y/iKE39BIJP8M
-   H1r9+mn+VO4HsH4frKefcI3tOikzTVCIdYbYx1bv+SHRBsuCKKweEXrrS
-   l+5s0pJjTCf/6cgM94TgwO7CSnWUzm6LHfGnJ1Z/+3Y9wbDto751UVbvp
-   w==;
-X-CSE-ConnectionGUID: 07eUr4VrSSCbT1ezmoeQtA==
-X-CSE-MsgGUID: vgjrmafmSTeKUHOfuFRlnw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="85494659"
-X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
-   d="scan'208";a="85494659"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 23:14:15 -0700
-X-CSE-ConnectionGUID: Z1FGCetaTSGF++XIxaxXEg==
-X-CSE-MsgGUID: iCZ0jeD2TnyuQZO6sIHcrg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
-   d="scan'208";a="222567515"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 23:14:11 -0700
-Message-ID: <791a46c7-3129-4438-86bd-b7677e01332a@linux.intel.com>
-Date: Wed, 18 Mar 2026 14:13:09 +0800
+	Wed, 18 Mar 2026 06:15:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MBzubnv1R8k9L2g1hIdW8yXiiyhaY9OVRJjy24dUA6T4L/ilbf/+xVIIf3FQAHqYSN1IQgp5HhjCKSY8PIDv1DswNV6+o0BSidRuXhgNSbmCjzDZ1f1TLQTDRinb4VJ/mTjUlnXEor98c9vXC6gbaZL4fRVsHRC/iVBv3Y3qI0KUeAct31LA+0vXWQlNRhAg83+iS7ckEea+RlJiALPdzch5iANErV/QfjBxmPkWDsrWUKoA0bmPHXJszu16lU4EYNmgdErunajSjdHXN4NYaryR1l+yK6xpREfiz9yqjc27VWPoMEkH+qYIQ1XCnjIL42Nb6WmIHez0zrmezYTKJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rasBWiqLY0JM5g+l1VdXLb9cNbAwC32ZclyCN46Jv4o=;
+ b=uDRbk570onWFyvZWsBkMYQoIbBEDI+xUiyfZO+AY0VA4gad3Ci+OTpM+VKNWiKPOYzF+m+W+K5XAkfto9xa19QHuIynbwsiPfTpoG8zFQgC4rjtg+6ffsWapdVAdEGLbEyiLOerxnCmQcYuPwD5vPKAp7BSjSCjdsVbeNxPjRT9iw9lU0Tt1qzIwIb6MlCaWKB/7z0H1dJt19w5ICPpVNsrjRVyZqQvJm+7EWNujUnUht3K9Put2hC8DGdZLL6w9e9yGAYlFbd6qvz70xJytPhkUU2qxEMkIMikIPtb7z5oliovpRrLu4KLtxdCoOUHa9dGzSgPpawZstJm/mIHgrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rasBWiqLY0JM5g+l1VdXLb9cNbAwC32ZclyCN46Jv4o=;
+ b=czWm5j9x3GX131RqEH1+Ih/U5ZrRk4Fn/PXgB8UpwVbhcNqNsd7GEJVKrQXIY2ZmKyanjw0c0dgTJ2jIUkI/aBlTMNlSEiGwUvbbV0y9PgMtSNXQVmqnBz6eK4jvex33/r/wn1jDEM6j+w3HKIzM1g9J4cvnmLbNWr3SkObXBRZiFTh/Y5/BX4zsCeRzDTXkjDLbyHLEeG2UmCyxrCpuY2NlpfN7/eXsSyjwK9kg0ZeC+be3jcLT70d2THweogXS7oXYKZtpyjMJUoA1151T7d8R7BmuoE43FIH5Us9+webSJSZ4iZSEwOS0MSV5DMacLWME+hfzxgetzGbyoJVNUw==
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
+ by SI3PR06MB8706.apcprd06.prod.outlook.com (2603:1096:4:2a3::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 06:14:58 +0000
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::8c70:cb01:78fb:d9c0]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::8c70:cb01:78fb:d9c0%6]) with mapi id 15.20.9700.013; Wed, 18 Mar 2026
+ 06:14:57 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Jeremy Kerr <jk@codeconstruct.com.au>, Rob Herring <robh@kernel.org>
+CC: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>
+Subject: RE: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+Thread-Topic: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+Thread-Index: AQHcr5GE+hDVSyX/WkC7T78e6kO8trWtIRWAgAAQdrCAAz2mgIAA+smAgACHbICAAAQtoIABn/CAgAAK66CAABaQgIAAAQIAgAAlPQA=
+Date: Wed, 18 Mar 2026 06:14:57 +0000
+Message-ID: <TY2PPF5CB9A1BE6057839BCA0003DE7FC4EF24EA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
+	 <20260309-upstream_i2c-v26-2-5fedcff8ffe8@aspeedtech.com>
+	 <20260313232125.GA3618633-robh@kernel.org>
+	 <TY2PPF5CB9A1BE6A19D439C675AF5028C13F242A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
+	 <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
+	 <eeac1db0a5692ae45b5528a85ed1510b8b1cf771.camel@codeconstruct.com.au>
+	 <TY2PPF5CB9A1BE6EAA73D3AD6F75F1ABD53F241A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <071adc5f76b71b3e8d2691945e7b178602b285f9.camel@codeconstruct.com.au>
+	 <TY2PPF5CB9A1BE67264C727ACBEBE4642C7F24EA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <d5ae7e63dd5a39ffa26002a3a5988eb0d74cb189.camel@codeconstruct.com.au>
+ <20ed3dc6f6841435a2c9f8b3cc51a3ca12a9ce63.camel@codeconstruct.com.au>
+In-Reply-To: <20ed3dc6f6841435a2c9f8b3cc51a3ca12a9ce63.camel@codeconstruct.com.au>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SI3PR06MB8706:EE_
+x-ms-office365-filtering-correlation-id: 99edfacd-6487-4ef5-140a-08de84b5ae06
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: OlWRJzlhsGeHMWyayu3u/klYhF1+2Tal95aPyG4vGfIKtg4EstHXgwCkwM9KT0iRDpDf3WgngSHujOBrV/MMFEJ0dAEDf6u8nACRgB1vOGeQ4pOLvc2PYBm/JUWrGsxkytSczxNsUXqaRzRDkgm7/NcHNrFQM/bAI7kiNxPI6lk/RmVPSz6u4qRUCDBLeGNigKf6btynA+xEOEkqcYyex5r+1J2z3xAnY7lfWKfBZMM2bqDUJMext/bn75OlgfSm+KLHuSWroblv6G1EnRdWezAYhPX3KbAyilklr4/rLxyeYIlgTW2+NBfn2/dZKJGVNtNmCwG/GQ/jTSX29smSLZGPAUS2qqB9e++4LTFtYNmhWiFLbClF0igRzn7TRAYCxzeTFEMAdTArXx9y/2G3u3unhSfLE6PoEUW4IPSt9DoZZuYv1VBU2hBSHV9Pl/Q4EHjXr8sHEZskHPrlnWnkWOeTXiZsuLQr5dTbEUid3oQPKFhnQsulytKKJzidAdM86zWCMFWxGMmg4oiC/yTnQFoWhsja+apQiq5/3onoTAxs5wW3xPFW5LApwLWq42uH3vm8QSkt1MqKy825bvvCz3X5cGsaqMImJcDMoDCB9SWAfO5ogK7p0NkPoHiYMSns+FLRLeAWUYLfdaIuoepNeuS7G4Y5+ELK3FtWxVYr7045JtN74bfr6tJ+NPzSkpLiL7VEQ3FETNLg/I/aEAcgU7u2FAHns4aWG1mLA0fn2+cFT3kuQfDJ2gOrvg6Qz/rntLc+36/Pt6C8/gv2zjG5wr8EKmC92nCH30a19BcB6GE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RFFQcWlJTjZRZE9xL0pnZUFaVVlVSnJ2ZktkR082Z1pTeEJ6dHFJZzY1bTZE?=
+ =?utf-8?B?bGs4SXFBODNjSWM2czVKWkpvWHg3RGJ0a1ZFcG8yVDRpS1BxK1owakxucGE5?=
+ =?utf-8?B?YVNmYlZKN2tRVzNlZkJMZWdqMEs4bjQydFNmSHdHcDJCd3J5Y1U3NTljWU5D?=
+ =?utf-8?B?bjdyM1VCcXlhRFdwY3VReXdqdUpWU2YxK05DMFNzb0F6dzhNRXdwMUlkeFNm?=
+ =?utf-8?B?eUlJZ3ZxSDBnd2MxVXkzQXovMHo0MnhTZDZyWElTNXJIRU1ic1k2NHhFNnkw?=
+ =?utf-8?B?MHlhTCtQa0xhTXZrNC9VY25ZbDdiM0ZNQ2FSaUZMY3hvSDBJcENzRmcrWVVn?=
+ =?utf-8?B?emRwWi9WNTMvV0syTlRDVS9Sd29tSC9WWlBuMUQ1K1JjREE2NGtYancyUzk0?=
+ =?utf-8?B?QmxYRTEwUlZYc0Irdmh3YVRLRlgzOWRhaHhNRThzSkErK3B1UVZZK2JYOFN2?=
+ =?utf-8?B?RjBDbTBOQzQyWk1XVzJrUHZQT3g5a2VkTjZDQThiaHR2K2FmbnRFNnBCVm9P?=
+ =?utf-8?B?NE1ncnNVd2pqU0w5R1gzUEtzV2pUd1VyM1luUHhPR2VXd2JJbFJSalZvNEU5?=
+ =?utf-8?B?R2RjV2dSSzEyY21Bb1JBclZKQnM2VkxLWkpmWGFQeGxyMlhZWmt0eEgvYmFm?=
+ =?utf-8?B?WGF2MzNNeHJYRnptRXlSdnUrZldKQXhnRTlZcWxrTmVaVnZDVFliTkl5S2M0?=
+ =?utf-8?B?bWpHL2NaT3plakNOMmtJbFU4elVJNVZLYjNQR1RpcmI4SVFwWnlBL1V0ekZT?=
+ =?utf-8?B?ejNkbTZyMDdWNkJBdWZKR0hZTWdiemYvb3U0UXB3R3dpZkJCc0ZGY0hJOHVQ?=
+ =?utf-8?B?NllpS01CcmNFdktUbjdPTjlzakVFaDdUM3l4U21MamFSa3NXRXZONTkwbUYy?=
+ =?utf-8?B?czdxaFRaRXpOM3lvbnpONE4rbURMckc4aHhGZVdFL1o3ZUJKNllkZVZmdW5L?=
+ =?utf-8?B?anBmMTlyQW5FWVJpeG1ZQkpwUVhQQ3hGRk5TTGdNQ0lIUTdKSmlrTVlRQjRz?=
+ =?utf-8?B?SjV2TVljdVFCUVkvNmhlVFlPaUJZN2gwM1U2UWRHeEMvNWU5TmhZOGRMbUhK?=
+ =?utf-8?B?czhOcWQxVitneUxpK2IyYnkyRnVOaFg2djV1R1ZUWlpmSTZLUzNKT2E1TUJl?=
+ =?utf-8?B?QTFOWmgvcVNYclBSWFJ2SXoxYXZEZDNwNUdwUEdxMHhjSHpyNHI4SFNJOURJ?=
+ =?utf-8?B?Sml5U2tFR0IrQTAweHFIdnRsVS92ays3MTZnbWFySk1PSllwL2ZTVXIrNXVW?=
+ =?utf-8?B?T0hyRlZlVGg0U0tSU0VreEZFcm9DQ21tWGFTdE1hWEF5S05iaU1IT2JJOTZ0?=
+ =?utf-8?B?M2U1NmFHSWFlNlVYMXJ3REtkOVJEZ0UvRWJaYjVMS041dVU1ZXVXSittOXBZ?=
+ =?utf-8?B?dGs3d25NaU91UGNNdkFlc1kzdGkwWjhkaHhxbjA0eDc2TjdOUkpkQmllYUZM?=
+ =?utf-8?B?Y0ZrUzZCbWF3UUxiSlZDRVFHV0NyVjJweXRSSWZJTWlKSDIxemxneDlmcTdn?=
+ =?utf-8?B?aUJnbnNYbTJLOVlxbm1kS1h6VVpETzhkbjM1M0hpZXR1bHdHTENBVDZUM0dQ?=
+ =?utf-8?B?ZmMyT3cyN2MrMTlWcmVFTStTWjNKWTZFNFRRcFhZS3poRlVQY3VtTTEycUE0?=
+ =?utf-8?B?YStxbmliUFJjaEx0b3ZxMlpuN3dabnVpOUxPQVJJcS9ZRG53dlpwR0Z5YXY5?=
+ =?utf-8?B?SUFmdW4vejR4UXVkb3hqZGJicjJRZkN4bVk5UFI5SWJFU1FmWUhnaXY4ZDZs?=
+ =?utf-8?B?ME1ybE1Qc3E4VGpHeGtRRTNsTmxxUk01WVZuME84OC9hYld1L2xKNWY5Q0Vs?=
+ =?utf-8?B?TytTMTZmeHVOQXUrM05oRC9lbUdkQ2FucUVkcU9BbmhkYlNYSEMrdmVBZUlq?=
+ =?utf-8?B?SUp3ZHdpZUpwTjNRY1lGbWRKQytKZ1RxQzA3UTNyMVk1b0Jkd0c0aHVDOTJ1?=
+ =?utf-8?B?S1grRm51a1ZTRlhyc3FCYVpEd1pWWGZQejhtYTE0eVhKNnNBeVpueEdjZnJF?=
+ =?utf-8?B?WEppcXBXSkNvU3Fhai9yekdoRlgvSi9HaFNEM3JvMnkvTHpqU2JwTEtkUFZM?=
+ =?utf-8?B?S3RBOVZrN0xodEhIMVYzNXljZ0gzQUtFa0pnMFVJZzF2b0N4TGFibjBPR2Jv?=
+ =?utf-8?B?dXo5QjJpMFkzMUZEM25RbHJRZFFGNFhNYVJyZ21ERFl0TWluT09Jb2xoYW5W?=
+ =?utf-8?B?Q1QyeUJxRkJYVncyZlEvOVpyYmU3SkhRTUlndHRqeWh1NDQxRHRlMmJUakJr?=
+ =?utf-8?B?VmlldHhLNFU4WmkwdE03SzhVZTF6TUUzOUhKSjRuSUdmZmszL05IQmo3RHFK?=
+ =?utf-8?B?b2dMK2RKQnFHTlRDeDhIcUdkNXFrWlhTMHRmaXZMZDNjMXFva3ZYUT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] iommu: Add iommu_report_device_broken() to
- quarantine a broken device
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
-Cc: rafael@kernel.org, lenb@kernel.org, praan@google.com,
- xueshuai@linux.alibaba.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <c5390aeaeccfa86a1c79f26d2c0ff5df380940a4.1773774441.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <c5390aeaeccfa86a1c79f26d2c0ff5df380940a4.1773774441.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99edfacd-6487-4ef5-140a-08de84b5ae06
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 06:14:57.6498
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: nuCeCC4caEchBmeKMJr2H4xuud7lrRrZZAQoNaQyl2EWyxW/2dr8TDKJkvoePNBv5gNEIHUMcIKF+GLeQ4HJh7L9UpSBslNgRexb3ycdmic=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR06MB8706
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_231416_009949_EE8806BD 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20260318_061509_678997_C79C3652 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,147 +185,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 03:15, Nicolin Chen wrote:
-> When an IOMMU hardware detects an error due to a faulty device (e.g. an ATS
-> invalidation timeout), IOMMU drivers may quarantine the device by disabling
-> specific hardware features or dropping translation capabilities.
-> 
-> However, the core-level states of the faulty device are out of sync, as the
-> device can be still attached to a translation domain or even potentially be
-> moved to a new domain that might overwrite the driver-level quarantine.
-> 
-> Given that such an error can be likely an ISR, introduce a broken_work per
-> iommu_group, and add a helper function to allow driver to report the broken
-> device, so as to completely quarantine it in the core.
-> 
-> Use the existing pci_dev_reset_iommu_prepare() function to shift the device
-> to its resetting_domain/blocking_domain. A later pci_dev_reset_iommu_done()
-> call will clear it and move it out of the quarantine.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->   include/linux/iommu.h |  2 ++
->   drivers/iommu/iommu.c | 59 +++++++++++++++++++++++++++++++++++++++++++
->   2 files changed, 61 insertions(+)
-> 
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index 9ba12b2164724..9b5f94e566ff9 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -891,6 +891,8 @@ static inline struct iommu_device *__iommu_get_iommu_dev(struct device *dev)
->   #define iommu_get_iommu_dev(dev, type, member) \
->   	container_of(__iommu_get_iommu_dev(dev), type, member)
->   
-> +void iommu_report_device_broken(struct device *dev);
-> +
->   static inline void iommu_iotlb_gather_init(struct iommu_iotlb_gather *gather)
->   {
->   	*gather = (struct iommu_iotlb_gather) {
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index fcd2902d9e8db..2f297f689a3a3 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -55,6 +55,8 @@ struct iommu_group {
->   	struct list_head devices;
->   	struct xarray pasid_array;
->   	struct mutex mutex;
-> +	struct work_struct broken_work;
-> +	bool requires_reset;
->   	void *iommu_data;
->   	void (*iommu_data_release)(void *iommu_data);
->   	char *name;
-> @@ -146,6 +148,7 @@ static struct group_device *iommu_group_alloc_device(struct iommu_group *group,
->   						     struct device *dev);
->   static void __iommu_group_free_device(struct iommu_group *group,
->   				      struct group_device *grp_dev);
-> +static void iommu_group_broken_worker(struct work_struct *work);
->   static void iommu_domain_init(struct iommu_domain *domain, unsigned int type,
->   			      const struct iommu_ops *ops);
->   
-> @@ -1057,6 +1060,7 @@ struct iommu_group *iommu_group_alloc(void)
->   	if (!group)
->   		return ERR_PTR(-ENOMEM);
->   
-> +	INIT_WORK(&group->broken_work, iommu_group_broken_worker);
->   	group->kobj.kset = iommu_group_kset;
->   	mutex_init(&group->mutex);
->   	INIT_LIST_HEAD(&group->devices);
-> @@ -4031,6 +4035,7 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
->   	if (WARN_ON(!group->blocking_domain))
->   		return;
->   
-> +	WRITE_ONCE(group->requires_reset, false);
->   	/*
->   	 * A PCI device might have been in an error state, so the IOMMU driver
->   	 * had to quarantine the device by disabling specific hardware feature
-> @@ -4062,6 +4067,60 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
->   }
->   EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_done);
->   
-> +static void iommu_group_broken_worker(struct work_struct *work)
-> +{
-> +	struct iommu_group *group =
-> +		container_of(work, struct iommu_group, broken_work);
-> +	struct pci_dev *pdev = NULL;
-> +	struct device *dev;
-> +
-> +	scoped_guard(mutex, &group->mutex) {
-> +		/* Do not block the device again if it has been recovered */
-> +		if (!READ_ONCE(group->requires_reset))
-> +			goto out_put;
-> +		if (list_is_singular(&group->devices)) {
-> +			/* Note: only support group with a single device */
-> +			dev = iommu_group_first_dev(group);
-> +			if (dev_is_pci(dev)) {
-> +				pdev = to_pci_dev(dev);
-> +				pci_dev_get(pdev);
-> +			}
-> +		}
-
-The current mechanism is designed only for the PCIe devices within
-singleton iommu groups. How about moving the above check to
-iommu_report_device_broken() and emitting a message if it is called for
-unsupported devices?
-
-> +	}
-> +
-> +	if (pdev) {
-> +		/*
-> +		 * Quarantine the device completely. This will be cleared upon
-> +		 * a pci_dev_reset_iommu_done() call indicating the recovery.
-> +		 */
-> +		pci_dev_lock(pdev);
-> +		pci_dev_reset_iommu_prepare(pdev);
-> +		pci_dev_unlock(pdev);
-> +		pci_dev_put(pdev);
-> +	}
-> +out_put:
-> +	iommu_group_put(group);
-> +}
-> +
-> +void iommu_report_device_broken(struct device *dev)
-> +{
-> +	struct iommu_group *group = iommu_group_get(dev);
-> +
-> +	if (!group)
-> +		return;
-> +
-> +	if (READ_ONCE(group->requires_reset)) {
-> +		iommu_group_put(group);
-> +		return;
-> +	}
-> +	WRITE_ONCE(group->requires_reset, true);
-> +
-> +	/* Put the group now or later in iommu_group_broken_worker() */
-> +	if (!schedule_work(&group->broken_work))
-> +		iommu_group_put(group);
-> +}
-> +EXPORT_SYMBOL_GPL(iommu_report_device_broken);
-> +
->   #if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
->   /**
->    * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
-
-Thanks,
-baolu
+PiBTdWJqZWN0OiBSZTogW1BBVENIIHYyNiAyLzRdIGR0LWJpbmRpbmdzOiBpMmM6IGFzdDI2MDAt
+aTJjLnlhbWw6IEFkZCBnbG9iYWwtcmVncw0KPiBhbmQgdHJhbnNmZXItbW9kZSBwcm9wZXJ0aWVz
+DQo+IA0KPiBIaSBSeWFuLA0KPiANCj4gPiA+IERvIHlvdSBtZWFuIHN5c2ZzIHNlbGVjdCBzdXBw
+b3J0IG1vZGUgc2VsZWN0aW9uKGJ5dGUsIGJ1ZmZlciwgZG1hKQ0KPiA+ID4gT3IganVzdCBmb3Jj
+ZSBieXRlIG1vZGU/DQo+ID4NCj4gPiBJIHdvdWxkIHRoaW5rIHRoYXQgdGhlIGJlc3QgYXBwcm9h
+Y2ggd291bGQgYmUgYSBtZWNoYW5pc20gdG8gc3BlY2lmeQ0KPiA+IHRoZSBtb2RlIC0gZWl0aGVy
+IGJ5dGUsIGJ1ZmZlciwgb3IgRE1BIC0gaWYgRE1BIGlzIGluZGljYXRlZCBhcw0KPiA+IGF2YWls
+YWJsZSB0byB0aGUgY29udHJvbGxlci4NCj4gDQo+IC4uLiB3aXRoIGEgc2Vuc2libGUgZGVmYXVs
+dCBtb2RlIChETUEgaWYgaXQgaXMgYXZhaWxhYmxlLCBidWZmZXIgaWYgbm90KS4NCj4gDQo+IEJ1
+dCBub25lIG9mIHRoYXQgbG9naWMgcmVsYXRlcyB0byB0aGUgYmluZGluZywgaXQncyBhbGwgZHJp
+dmVyIGltcGxlbWVudGF0aW9uDQo+IGRldGFpbC4NCg0KSSB3aWxsIGFkZCBuZXcgZG1hX2F2YWls
+YWJsZSBpbiBzdHJ1Y3QgYXN0MjYwMF9pMmNfYnVzLCBhbGlnbiB3aXRoIGRtYSBwcm9wZXJ0eS4N
+CmkyY19idXMtPmRtYV9hdmFpbGFibGUgPSBkZXZpY2VfcHJvcGVydHlfcmVhZF9ib29sKGRldiwg
+ImFzcGVlZCxlbmFibGUtZG1hIik7DQpBbmQgYWRkIHN5c2ZzIGZvciB4ZmVyX21vZGUgDQpzdGF0
+aWMgc3NpemVfdCB4ZmVyX21vZGVfc2hvdyhzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVjdCBkZXZp
+Y2VfYXR0cmlidXRlICphdHRyLCBjaGFyICpidWYpDQpzdGF0aWMgc3NpemVfdCB4ZmVyX21vZGVf
+c3RvcmUoc3RydWN0IGRldmljZSAqZGV2LA0KCQkJICAgICAgIHN0cnVjdCBkZXZpY2VfYXR0cmli
+dXRlICphdHRyLA0KCQkJICAgICAgIGNvbnN0IGNoYXIgKmJ1Ziwgc2l6ZV90IGNvdW50KQ0K
 
