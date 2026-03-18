@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91355103E161
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 10:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BA2103E160
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 10:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaQF8Rk+pj0ruLxQsZHfi0rM4RAp8TegoCfMnyVAwdg=; b=y3kvj1tvZde2d1JdTSTM98DUU9
-	K031vOcqk7AbgtKasChrHdjmh43FtnVnCt+9gibomS6T0CywknLQCsgMdfckw/xTHLZOwlpAngCIh
-	jyw9auBWZV515uldLrp4VARP8XxLDF0Ds4fL+KQVM+1UaoaDJLNf/UZjCr5XMKNrmtPSFfJjvDnZ6
-	Z4oLLaQqExJQoXNnZcwMxZIzI7D+idv2+3hvabcUEsFXEvSW80ljIkX461/vhpxhU72Zf/PSGfKdo
-	M9bQmL+vM+/eAzsbNPySAaDYWcyY6NQw+b0SSPd+QjEhLFVCFKJPEOkvDNvVmlSqNMQT+dG415ydJ
-	Uur/GlYg==;
+	bh=iRe3+W2n2fG8F2HBagQfFXDlHaZMpeWqaE/ZfB5jUeg=; b=euff9fXRF/LDHr0WfvPHC6TWx7
+	GHyn65732TM2pz9yDZSHikkeNSsjgsD5FByle/iOCdxWb5CnADFNNGfemyRAjJLYWtK4qvtJGAcIE
+	0aQ7gL/pp5vrKHxEu50QvDXtJaNW/Zb978U0abpJemk+JqeAZXdMtuATvpfhFDDMGdwnWiTiVW/1Y
+	v8S3G7BXL/eRUaeYOc27XCLH3z1Skz33lCBtdQdjh414YtzJOgVBs+OoYUOjFJX/F/VZFgY2HPUhI
+	3msLIfebYLt61VGkBzgrBIMCU09LTdfFYRoSNHA1p2n9Ksnx+e3NbjMxfg9gvtcr9SkVJfQSKSaTg
+	+s1qHGfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2oVK-00000008Exr-497E;
-	Wed, 18 Mar 2026 10:51:58 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1w2oVe-00000008F0N-1Hd0;
+	Wed, 18 Mar 2026 10:52:18 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2oVE-00000008ExD-2ivX
+	id 1w2oVb-00000008Eza-3ETt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 10:51:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 065BAC55069;
-	Wed, 18 Mar 2026 10:51:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 80A896004F;
-	Wed, 18 Mar 2026 10:51:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A64D10450782;
-	Wed, 18 Mar 2026 11:51:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773831093; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=uaQF8Rk+pj0ruLxQsZHfi0rM4RAp8TegoCfMnyVAwdg=;
-	b=YJgF5KS8ujsrm5AiN97YgWQpsPd++BRHIKDOVBY1kjPdT05MK1ww23hofLU2szthf4AFAd
-	O585qgmOCVLk0cZNcXFvsIVxezE/jYdilRMSPa3/occ2oMa2oAjiaJH+OtvvabHW3SdcuT
-	5/3fMGYWGsld1jfLU7lvpdAA6YaGDyioTSNq70j1tnMRWNW2ukpRwKJsZ6ZYquyGOJDdVD
-	oqrkStBLh3OHR6DVh2+CuvJljImul3WgVMSPGiGZyc0BCXSPNh+jFGcVQVGWUNcnLx8JJn
-	cYFnpm5gf25x0YwUCQFgfHZTQ6Hv0QACSCk681+wJpxa8pgUOUytQ5dhO5/VzQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Gabor Juhos <j4g8y7@gmail.com>,  Andrew Lunn <andrew@lunn.ch>,
-  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,  Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
- Dooley <conor+dt@kernel.org>,  linux-arm-kernel@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' from USB host nodes
-In-Reply-To: <875x6t5ska.fsf@BLaptop.bootlin.com> (Gregory CLEMENT's message
-	of "Wed, 18 Mar 2026 11:40:37 +0100")
-References: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
-	<875x6t5ska.fsf@BLaptop.bootlin.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Wed, 18 Mar 2026 11:51:31 +0100
-Message-ID: <87o6klcswc.fsf@bootlin.com>
+	Wed, 18 Mar 2026 10:52:17 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773831132;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iRe3+W2n2fG8F2HBagQfFXDlHaZMpeWqaE/ZfB5jUeg=;
+	b=HTzulNC7TmnoRRs81XeJFxHqGip8FTuymoI1DL0IeQSI2urpVw4z8Yds5eUbtWbitD7AfQ
+	4EtgZC0aqRllbSOqqRhQLeFV/zJTTD0u4hAtvwR4X9cBj41pHsg3RpEVHY+APSS0Gg2CO5
+	5ZLnpP2D2M1KH0x8QDQGurlvmjDExu4=
+From: Usama Arif <usama.arif@linux.dev>
+To: ryan.roberts@arm.com,
+	r@hev.cc
+Cc: Usama Arif <usama.arif@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	david@kernel.org,
+	ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	apopple@nvidia.com,
+	baohua@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	brauner@kernel.org,
+	catalin.marinas@arm.com,
+	dev.jain@arm.com,
+	jack@suse.cz,
+	kees@kernel.org,
+	kevin.brodsky@arm.com,
+	lance.yang@linux.dev,
+	Liam.Howlett@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	lorenzo.stoakes@oracle.com,
+	npache@redhat.com,
+	rmclure@linux.ibm.com,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	will@kernel.org,
+	willy@infradead.org,
+	ziy@nvidia.com,
+	hannes@cmpxchg.org,
+	kas@kernel.org,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com
+Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K pages
+Date: Wed, 18 Mar 2026 03:52:00 -0700
+Message-ID: <20260318105203.3288727-1-usama.arif@linux.dev>
+In-Reply-To: <20260313205541.3830595-1-usama.arif@linux.dev>
+References: 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_035153_856362_1ED24CA3 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20260318_035216_059849_4F99DDC0 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 at 11:40:37 +01, Gregory CLEMENT <gregory.clement@bootlin.com=
-> wrote:
+On Fri, 13 Mar 2026 13:55:38 -0700 Usama Arif <usama.arif@linux.dev> wrote:
 
-> +Miqu=C3=A8l
->
-> Hello Gabor,
->
-> Thanks it is better,
->
->> The 'marvell,usb-misc-reg' property is present both in the EHCI and
->> in the XHCI USB host device nodes, however it is not documented. Thus
->> 'make dtbs_check' produces warnings like these:
->>
->>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,ar=
-mada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-r=
-eg' was unexpected)
->>           from schema $id: http://devicetree.org/schemas/usb/generic-xhc=
-i.yaml
->>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,ar=
-mada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-=
-reg' was unexpected)
->>           from schema $id: http://devicetree.org/schemas/usb/generic-ehc=
-i.yaml
->>
->> Apart from the fact that the properties are not documented, those are
->> not even used by any USB host drivers. Due to this, drop the properties
->> in order to get rid of the warnings.
->>
->> Note:
->>
->> With the same name, there is a property used for the Armada 3700 USB
->> UTMI PHYs of which dt-bindings documentation has been added in commit
->> e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
->>
->> Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
->> driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
->>
->> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
->> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
->> UTMI PHYs"), the properties has been added to the USB host controller
->> nodes also. According to the commit message this was intentional,
->
-> Miquel will confirm that, after speaking with him, it appears to be a
-> mistake rather than an intentional act.
+> On Fri, 13 Mar 2026 16:33:42 +0000 Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+> > On 10/03/2026 14:51, Usama Arif wrote:
+> > > On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
+> > > into a single iTLB entry, reducing iTLB pressure for large executable
+> > > mappings.
+> > > 
+> > > exec_folio_order() was introduced [1] to request readahead at an
+> > > arch-preferred folio order for executable memory, enabling contpte
+> > > mapping on the fault path.
+> > > 
+> > > However, several things prevent this from working optimally on 16K and
+> > > 64K page configurations:
+> > > 
+> > > 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
+> > >    produces the optimal contpte order for 4K pages. For 16K pages it
+> > >    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
+> > >    returns order 0 (64K) instead of order 5 (2M). 
+> > 
+> > This was deliberate, although perhaps a bit conservative. I was concerned about
+> > the possibility of read amplification; pointlessly reading in a load of memory
+> > that never actually gets used. And that is independent of page size.
+> > 
+> > 2M seems quite big as a default IMHO, I could imagine Android might complain
+> > about memory pressure in their 16K config, for example.
+> > 
+> 
+> The force_thp_readahead path in do_sync_mmap_readahead() reads at
+> HPAGE_PMD_ORDER (2M on x86) and even doubles it to 4M for
+> non VM_RAND_READ mappings (ra->size *= 2), with async readahead
+> enabled. exec_folio_order() is more conservative. a single 2M folio
+> with async_size=0, no speculative prefetch. So I think the memory
+> pressure would not be worse than what x86 has?
+> 
+> For memory pressure on Android 16K: the readahead is clamped to VMA
+> boundaries, so a small shared library won't read 2M.
+> page_cache_ra_order() reduces folio order near EOF and on allocation
+> failure, so the 2M order is a preference, not a guarantee with the
+> current code?
+> 
 
-Indeed, I believe it is a leftover, the property should have been added
-only to the PHY nodes, not the host nodes.
+I am not a big fan of introducing Kconfig options, but would
+CONFIG_EXEC_FOLIO_ORDER with the default value being 64K be a better
+solution? Or maybe a default of 64K for 4K and 16K base page size,
+but 2M for 64K page size as 64K base page size is mostly for servers.
 
-The sentence above should be: s/intentional/unintentional/, the commit
-messages clearly states that PHY nodes were targeted, not the
-host. Plus, a follow-up commit adds the missing phy properties to the
-hosts, so clearly reaching this syscon through the host node directly
-does not make sense and was not intended.
-
-Once this single word fixed, you can add my
-
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-
-Thanks for the fix!
-Miqu=C3=A8l
+Using a default value of 64K would mean no change in behaviour.
 
