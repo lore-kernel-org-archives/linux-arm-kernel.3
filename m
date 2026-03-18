@@ -4,143 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC208107760C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85FE107760D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lg5GbH3n2Vmnnt6PhKArTvR2qXfFTlX8WywQsdyUHJ0=; b=FBKcDnmXt4Q4mu5/AeZM02manY
-	6B5O06JW/oDe2XxOHd6Pk2GRcLllkLopFMYNEwhWwsBa4uTS4bI2tbdlAW5uIOy+/OaVBOfB3zQvm
-	OwoxFbBVhWQ/LjopVdgHnlSHX7kxu++nae46+gQAkfaLQdq+FKH4ggN9ZErncywdJQjzPBTEHKd1J
-	wp6totxBy9kgnoH3wr0/+e3S3dPE1ogOXpjEqyMd8mCvPuzf/rmLmJs9slje9/UTuufysjHhoPEoE
-	mCHxRmZzM89bac56kwg5H0LGaBn/mAOj9RdrHZm9ch9zUVE6c23Xh8q5soFy89HCm/+XWqrnt4e6g
-	dKxCQi9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mB9bdLwygxPA+sNt4ZI5ecZb7rlN6KaXVXGu4nq7RHY=; b=Na6r+vZQn0HOf4c7k1ADPP3esR
+	4UVPWZvmyA0T5/2Hf2BYCki/HZuvD8IFNCE8lV4w0k9IJYirM1F6qtdjrXg/5pxhJcfuEbD0gId2g
+	LsqS3XI73JM/MuyymOBp9cN8iVqNqbNuWUrAfNdmbm1w/KGbGMpVMKYlnZTX6t7xURe3yfT+puDRU
+	gbTf9ZdoMX/UqO9xwR/xTM84sgyoV9mguo3jUN/e6dx+fWzhrGQjfVPSCL6YoVrQvHpCdqueFPdz6
+	VPYPKnx9ajQEDBCxNg0B/w5O5M2M8J9PDCgi63W2z0zqcIOXlS5e+SRTADaS02AQWa3rYNlGx1Ubc
+	dpBXrDrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2wXq-00000009EU1-44Si;
-	Wed, 18 Mar 2026 19:27:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2wXo-00000009ETW-3dMu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 19:27:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Lg5GbH3n2Vmnnt6PhKArTvR2qXfFTlX8WywQsdyUHJ0=; b=JgV+jNsRnlDkOcb1qJRuFyhLfu
-	pQSFAIkdB+2Jgj4BwWkYYhhpEuywLKWmVWuBZLhf9R9pcXVvPUre+EIiVwqZYFa+Ez7ZHlTq6ppy/
-	qlR5jnY6Ue5EvW78zOlfYQzDXnXHp0UsqgCF6j4K0EMsQJd+tjGz6qZhwyuOfyyeisN3R2EU6kxQQ
-	u7k/W9P44c9OOgPNXLZoLtPQygDB2pxvBJqHkleEGw1bfV7WsOIX7w9lQcyfSGcPv5RJxAsk6X6n/
-	vbS3UhnF3wPNFg93eEEQq0rqUblAuKMbd88HKifbmJi/1Vui15fO9tT6x0T7qzHix0WW6ZytZ5rhU
-	fAdjzxow==;
-Received: from mail-westcentralusazon11010050.outbound.protection.outlook.com ([40.93.198.50] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2wXl-0000000C8Pd-2pdv
+	id 1w2wYm-00000009Eax-2N4a;
+	Wed, 18 Mar 2026 19:28:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2wYj-00000009EaG-3Cbh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 19:27:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kTjKAs1V22LBeWtWBgk7/9ExWDHe8CuWxhuCKKjJOM7VXN27vzwuHUm8KZPHtsxVKSYgvgCMru9Z2FHTIFQFiuwz1zKQ5CT8p//7hierGOPA5jCUfgkzsi/CNqi6h85G3duvoVoJ1JYkS4MwnppB/HnfA+q7hHBLoapUfJvaQDsKBxwme58CMcA3D5VDN0LmuZmGPZmhWvFMrFoBvoXO9S6r4nUbQ9iTAa5ISJiiq6P8JU6Fxmuvow9EPD5zRxV/dB3YDOw7fJPGOA6ySKXqvnIM8ZFTZXDqXEU2TEdpQ0CUg687epN3SbuuHAKqV1SH2YMp5dKWU1F82yrbFbKoLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lg5GbH3n2Vmnnt6PhKArTvR2qXfFTlX8WywQsdyUHJ0=;
- b=sR3lNSO+h6+2ZWkkC1hB0MX3upPwWNmHMo/m1Rcc8IB2rqGrBDH5Pw/FFIzU+w10stw+/Ced0LaJ0KK1houjNIj+Ht6ofhRgfVjjdq92WES5qskc3Gfgz3hdD23Bbj7LqXo7/dUFbsudrvwdoQw0YQVkr1eg1RVhi62+gS5OtneMDQkkfr6IzTLKcTSyfu/krwwjWERgsfd12G2wzcR3emn6VbaVE5aXoL+epSr/YH13xKNaUJPExNg5uafNJQ3G3AGxKUYENI4Lct2VoH0EpmOMkyh+vvqx42fqxQCDCsoBf/WoE6eS5BjptUG2Eb5QlByoyzrhgq4MZx/rvTHGhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lg5GbH3n2Vmnnt6PhKArTvR2qXfFTlX8WywQsdyUHJ0=;
- b=lv806NN8SQtoJEYIAsrvUn9cyaAnj7Kl15n5uXlUjeVP6syJGzvZrjtROVB5YfcKGiW06IH5buqF+yTrQXaoHJ74kGvX++cF6ObCNeDfjW511nEgaO8oRfIhpE0/lyvy6gqBhZLd2YYZ48/NUuItCajnvnOsJhpLyBFMe5GT9MUuEAIU1f1dltKbegWaNUQivv8nbqZg6bGoCoc2oK8xp5+79ZvNkMh6ZyriM6aHKB+YMAoGnS9D2YoN44RfRG7mItXHKOV41SIjmdYt014hJzmgmira2udOBVSIZWahns9JJbWEC8CHF3rv/fHL+DJ4CMPQpcylkJyS0XjRu1NflQ==
-Received: from BYAPR07CA0068.namprd07.prod.outlook.com (2603:10b6:a03:60::45)
- by SN7PR12MB7348.namprd12.prod.outlook.com (2603:10b6:806:29b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 19:26:50 +0000
-Received: from SJ5PEPF000001F0.namprd05.prod.outlook.com
- (2603:10b6:a03:60:cafe::4d) by BYAPR07CA0068.outlook.office365.com
- (2603:10b6:a03:60::45) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Wed,
- 18 Mar 2026 19:26:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ5PEPF000001F0.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 19:26:49 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
- 2026 12:26:36 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 18 Mar 2026 12:26:35 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 18 Mar 2026 12:26:34 -0700
-Date: Wed, 18 Mar 2026 12:26:33 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "jgg@nvidia.com"
-	<jgg@nvidia.com>, "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
-	<lenb@kernel.org>, "praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>
-Subject: Re: [PATCH v2 4/7] iommu/arm-smmu-v3: Mark ATC invalidate timeouts
- via lockless bitmap
-Message-ID: <abr8aS/MDU9aeKu9@Asurada-Nvidia>
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <0c5525367cc67ccc84a675544d1d9f8462704065.1773774441.git.nicolinc@nvidia.com>
- <BN9PR11MB52763AB181F5213FAAB4F4F08C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Wed, 18 Mar 2026 19:28:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D41A1BF7;
+	Wed, 18 Mar 2026 12:27:54 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E85D13F73B;
+	Wed, 18 Mar 2026 12:27:58 -0700 (PDT)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: [RFC PATCH] arm64: errata: Use mm_cpumask() for the CME DVMSync workaround
+Date: Wed, 18 Mar 2026 19:22:34 +0000
+Message-ID: <20260318192757.2654235-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260318191918.2653160-1-catalin.marinas@arm.com>
+References: <20260318191918.2653160-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52763AB181F5213FAAB4F4F08C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F0:EE_|SN7PR12MB7348:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e883f9f-3ee2-4691-b448-08de85244d8f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: kxpN4jvbP1F1FdEsTM+pvhF4zB8AY6CJHwbIQ+cEX2MBykdV4L8MPeHH9iBD7amj0T+l75ru1YsnO9HlndQgJFgEsg7rHb1xUj6XlLAVk+oHodrjjPIwz6cN2HvJaOJf6I8q8+vu81CCAe9oO+uFtlhJ5+u0RLxRL1YmCOzwOzUkHQqHmGd2cTqdh1HLBYBcftl8/g/A1SoaLFhxcm3VtCM/C3Y6ZLP4UvQaVJn0VRZ/W8gHfEhNyNDC16cxaAa6QvUVvjP0BTtfV84NESOa9w9O/8RE9ntkrXsChBAT3UmvKHePdcmkdtu8HIbcO533W6AimTyuGZZjv7VMAwWYPCbppKatlJtOt9Igb1tWHDLAhqedy8cph/VSDKIWtWXg3ukK8ZBmh5sqWMTmUkgSo0mM72ovwqNFzpf76h1st83tBC/oRV0B56QmM2St+MqBEeYXBlr6cohAbX0yBoKlnJgy4UMLEuF34PSVW/T8hjWrWsdZoIetoINbllDlZFzAIOD88lNWKiq9FOBTXaWuaO7pQMfcrq5Ujrz/SziQPZHFCsMMcQKoZkaKq5kkmP7cZX+rvNafzEBJd7ek2o/xQ0cGCNOv1KW4ADQHWxDGQ6WWdMh7LuHW4c42iY8ZjK7DwxQNie4W6S0HqBiw34f6qYZIKBa9R2fANmN9rQiKj2ty0zFpFd/v3L0i24DPKWCp0a6DzmNKccechR4IOw5S6+7l9ZwWkI32tT++Dx64skjauzbUG3SeOoMgEEsH4GmOoAMgiSGVq7PRJhZMt9tSsw==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: YYlLSu6Ay2AZCfHdpZjmCPd1LRUdoerWDCwvm7yMnHXz8YM7yECpr0ABychwB1LO9HZBoHPmp/7557T6jNVT9di+LHO2/Fr8xqaHXv528CAmg0AV3HeaCz/AtPpfMBarSrRs0+8jsMazmfUu4l5jufe4fub1GqlUFprmehdNzaRNJkaOnv7ef8D9C/HYQzZ1xUCCk1XLKdUfPB8YruRtgHDp2FAd39jc785e5Mqq4ZvI8AHG3jGFFm6M858tlifsouCl9B4ikzNcEMnEucLNo/ToM1wzuydBfhuNmDokQPC555twsAgVjP1V/ny2HVsZrmLtMlGG4FnxVp2u7cg3ZmrnDj2eH4Pba91ZoYShfx9kA3073o8GYbV/4MBeg7IMYV9lFSBCJhTjEum9wsrNXQHpS+4W2jjscAqfNffIsB05oV0LuwxFd2Tc+/hY8HyO
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 19:26:49.9538
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e883f9f-3ee2-4691-b448-08de85244d8f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F0.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7348
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_192701_768879_A72FCC26 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260318_122801_881425_CB138E89 
+X-CRM114-Status: GOOD (  26.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,32 +69,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 07:36:20AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Wednesday, March 18, 2026 3:16 AM
-> > 
-> > An ATC invalidation timeout is a fatal error. While the SMMUv3 hardware is
-> > aware of the timeout via a GERROR interrupt, the driver thread issuing the
-> > commands lacks a direct mechanism to verify whether its specific batch was
-> > the cause or not, as polling the CMD_SYNC status doesn't natively return a
-> > failure code, making it very difficult to coordinate per-device recovery.
-> > 
-> > Introduce an atc_sync_timeouts bitmap in the cmdq structure to bridge this
-> > gap. When the ISR detects an ATC timeout, set the bit corresponding to the
-> > physical CMDQ index of the faulting CMD_SYNC command.
-> > 
-> 
-> It's nice to see the ability of allowing sw to identify the faulting sync command
-> upon an ATC timeout! On VT-d it's not feasible when multiple wait descriptors
-> (similar to CMD_SYNC) are in-fly... :/
+The original workaround is using a global sme_active_cpus mask on the
+assumption that SME is rarely used by more than one application at the
+same time. If this assumption changes, an alternative way to track
+which CPUs need an IPI is using a per-mm mask (mm_cpumask() is unused on
+arm64). TLB batching still issues a single IPI per affected CPU at the
+batch flush time but arch_tlbbatch_add_pending() now requires a DSB and
+tracking which mm_cpumask() need interrupting. The actual TLBI batching
+no longer happens even on CPUs on the same SoC that are not affected.
 
-Actually SMMU doesn't know which device is faulting when CMD_SYNC
-follows ATC_INV commands for multiple devices. The commit message
-in PATCH-7 describes this in the end. So Jason suggested to retry
-those ATC_INV commands by bisecting them per-device, which allows
-us to pinpoint which device.
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+---
 
-Could VT-d do the same?
+As I mentioned in the cover letter, I'm not keen on this patch or some
+form of it being upstreamed (or rather folded into patch 3). We could
+hack it further to track an mm in arch_tlbflush_unmap_batch instead a
+cpumask, hoping that TTU only happens for a single mm but then we also
+need a global sme_active_cpus mask to avoid IPI'ing all CPUs.
 
-Nicolin
+My assumption is that we won't have many apps using SME simultaneously
+(it wouldn't be efficient either with the CPUs sharing a CME unit), so
+fine-grained tracking is just additional cost. We can revive this
+discussion based on how people will use it in the field but I'd also
+expect that fixed CPUs will start to turn up in products.
+
+ arch/arm64/include/asm/tlbbatch.h | 10 +++++--
+ arch/arm64/include/asm/tlbflush.h | 47 ++++++++++++++++++++++++++-----
+ arch/arm64/kernel/fpsimd.c        | 19 ++++++-------
+ arch/arm64/kernel/process.c       | 37 ++++++++++++++++++++++++
+ 4 files changed, 93 insertions(+), 20 deletions(-)
+
+diff --git a/arch/arm64/include/asm/tlbbatch.h b/arch/arm64/include/asm/tlbbatch.h
+index fedb0b87b8db..cc317d0f2362 100644
+--- a/arch/arm64/include/asm/tlbbatch.h
++++ b/arch/arm64/include/asm/tlbbatch.h
+@@ -2,11 +2,17 @@
+ #ifndef _ARCH_ARM64_TLBBATCH_H
+ #define _ARCH_ARM64_TLBBATCH_H
+ 
++#include <linux/cpumask.h>
++
+ struct arch_tlbflush_unmap_batch {
++#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
+ 	/*
+-	 * For arm64, HW can do tlb shootdown, so we don't
+-	 * need to record cpumask for sending IPI
++	 * Track CPUs that need SME DVMSync on completion of this batch.
++	 * Otherwise, the arm64 HW can do tlb shootdown, so we don't need to
++	 * record cpumask for sending IPI
+ 	 */
++	cpumask_var_t cpumask;
++#endif
+ };
+ 
+ #endif /* _ARCH_ARM64_TLBBATCH_H */
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 59a9f501a6cb..2d57a8f80c3c 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -80,7 +80,9 @@ static inline unsigned long get_trans_granule(void)
+ 	}
+ }
+ 
+-void sme_do_dvmsync(void);
++#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
++
++void sme_do_dvmsync(const struct cpumask *mask);
+ 
+ static inline void sme_dvmsync(struct mm_struct *mm)
+ {
+@@ -89,17 +91,47 @@ static inline void sme_dvmsync(struct mm_struct *mm)
+ 	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &mm->context.flags))
+ 		return;
+ 
+-	sme_do_dvmsync();
++	sme_do_dvmsync(mm_cpumask(mm));
+ }
+ 
+-static inline void sme_dvmsync_batch(void)
++static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
++					   struct mm_struct *mm)
+ {
+ 	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC))
+ 		return;
+ 
+-	sme_do_dvmsync();
++	/*
++	 * Send the DVMSync message before checking the MMCF_SME_DVMSYNC flag.
++	 */
++	dsb(ish);
++	if (test_bit(ilog2(MMCF_SME_DVMSYNC), &mm->context.flags))
++		cpumask_or(batch->cpumask, batch->cpumask, mm_cpumask(mm));
+ }
+ 
++static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
++{
++	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC))
++		return;
++
++	sme_do_dvmsync(batch->cpumask);
++	cpumask_clear(batch->cpumask);
++}
++
++#else
++
++static inline void sme_dvmsync(struct mm_struct *mm)
++{
++}
++static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
++					   struct mm_struct *mm)
++{
++}
++static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
++{
++}
++
++#endif /* CONFIG_ARM64_ERRATUM_SME_DVMSYNC */
++
+ /*
+  * Level-based TLBI operations.
+  *
+@@ -212,11 +244,11 @@ static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
+ 	sme_dvmsync(mm);
+ }
+ 
+-static inline void __tlbi_sync_s1ish_batch(void)
++static inline void __tlbi_sync_s1ish_batch(struct arch_tlbflush_unmap_batch *batch)
+ {
+ 	dsb(ish);
+ 	__repeat_tlbi_sync(vale1is, 0);
+-	sme_dvmsync_batch();
++	sme_dvmsync_batch(batch);
+ }
+ 
+ static inline void __tlbi_sync_s1ish_kernel(void)
+@@ -419,7 +451,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+  */
+ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ {
+-	__tlbi_sync_s1ish_batch();
++	__tlbi_sync_s1ish_batch(batch);
+ }
+ 
+ /*
+@@ -624,6 +656,7 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+ 		struct mm_struct *mm, unsigned long start, unsigned long end)
+ {
+ 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
++	sme_dvmsync_add_pending(batch, mm);
+ }
+ 
+ static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 4cfa362d37f8..ef81e80667a5 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1366,7 +1366,6 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+  * SME/CME erratum handling
+  */
+ static cpumask_var_t sme_dvmsync_cpus;
+-static cpumask_var_t sme_active_cpus;
+ 
+ void sme_set_active(unsigned int cpu)
+ {
+@@ -1376,7 +1375,7 @@ void sme_set_active(unsigned int cpu)
+ 	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
+ 		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
+ 
+-	cpumask_set_cpu(cpu, sme_active_cpus);
++	cpumask_set_cpu(cpu, mm_cpumask(current->mm));
+ 
+ 	/*
+ 	 * A subsequent (post ERET) SME access may use a stale address
+@@ -1398,7 +1397,7 @@ void sme_clear_active(unsigned int cpu)
+ 	 * With SCTLR_EL1.IESB enabled, the SME memory transactions are
+ 	 * completed on entering EL1.
+ 	 */
+-	cpumask_clear_cpu(cpu, sme_active_cpus);
++	cpumask_clear_cpu(cpu, mm_cpumask(current->mm));
+ }
+ 
+ static void sme_dvmsync_ipi(void *unused)
+@@ -1410,28 +1409,26 @@ static void sme_dvmsync_ipi(void *unused)
+ 	 */
+ }
+ 
+-void sme_do_dvmsync(void)
++void sme_do_dvmsync(const struct cpumask *mask)
+ {
+ 	/*
+ 	 * This is called from the TLB maintenance functions after the DSB ISH
+-	 * to send hardware DVMSync message. If this CPU sees the mask as
++	 * to send the hardware DVMSync message. If this CPU sees the mask as
+ 	 * empty, the remote CPU executing sme_set_active() would have seen
+ 	 * the DVMSync and no IPI required.
+ 	 */
+-	if (cpumask_empty(sme_active_cpus))
++	if (cpumask_empty(mask))
+ 		return;
+ 
+ 	preempt_disable();
+-	smp_call_function_many(sme_active_cpus, sme_dvmsync_ipi, NULL, true);
++	smp_call_function_many(mask, sme_dvmsync_ipi, NULL, true);
+ 	preempt_enable();
+ }
+ 
+ void sme_enable_dvmsync(void)
+ {
+-	if ((!cpumask_available(sme_dvmsync_cpus) &&
+-	     !zalloc_cpumask_var(&sme_dvmsync_cpus, GFP_ATOMIC)) ||
+-	    (!cpumask_available(sme_active_cpus) &&
+-	     !zalloc_cpumask_var(&sme_active_cpus, GFP_ATOMIC)))
++	if (!cpumask_available(sme_dvmsync_cpus) &&
++	    !zalloc_cpumask_var(&sme_dvmsync_cpus, GFP_ATOMIC))
+ 		panic("Unable to allocate the cpumasks for SME DVMSync erratum");
+ 
+ 	cpumask_set_cpu(smp_processor_id(), sme_dvmsync_cpus);
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index b322467f9397..5700d35fd05e 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -26,6 +26,7 @@
+ #include <linux/reboot.h>
+ #include <linux/interrupt.h>
+ #include <linux/init.h>
++#include <linux/cpumask.h>
+ #include <linux/cpu.h>
+ #include <linux/elfcore.h>
+ #include <linux/pm.h>
+@@ -339,8 +340,41 @@ void flush_thread(void)
+ 	flush_gcs();
+ }
+ 
++#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
++
++static int arch_dup_tlbbatch_mask(struct task_struct *dst)
++{
++	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC))
++		return 0;
++
++	if (!zalloc_cpumask_var(&dst->tlb_ubc.arch.cpumask, GFP_KERNEL))
++		return -ENOMEM;
++
++	return 0;
++}
++
++static void arch_release_tlbbatch_mask(struct task_struct *tsk)
++{
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC))
++		free_cpumask_var(tsk->tlb_ubc.arch.cpumask);
++}
++
++#else
++
++static int arch_dup_tlbbatch_mask(struct task_struct *dst)
++{
++	return 0;
++}
++
++static void arch_release_tlbbatch_mask(struct task_struct *tsk)
++{
++}
++
++#endif /* ARM64_ERRATUM_SME_DVMSYNC */
++
+ void arch_release_task_struct(struct task_struct *tsk)
+ {
++	arch_release_tlbbatch_mask(tsk);
+ 	fpsimd_release_task(tsk);
+ }
+ 
+@@ -356,6 +390,9 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+ 
+ 	*dst = *src;
+ 
++	if (arch_dup_tlbbatch_mask(dst))
++		return -ENOMEM;
++
+ 	/*
+ 	 * Drop stale reference to src's sve_state and convert dst to
+ 	 * non-streaming FPSIMD mode.
 
