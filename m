@@ -4,107 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B673E103E174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A3CFCD0C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgETNFSkBCuNe00TK+uyXLmxYSvaHFnqr/AOivVYrGg=; b=tQmv3qpWuhfwKfuEj6gwK3Tebj
-	UJbYVaGBDyiw0oylXBjURLc6qNxCSu+FbkaKl7hO6XDcrVds6zNy4K0PqtFTNs+Ktr4GMyfgl2121
-	QmDKAKIHkqGJw40NdKzunlTG1HUwG2VU2hflGgQJBnuzQhF0YljJfHVZelqFwgboxaDcdnBx+Cik7
-	hoMwgV2pPnfD0UdjW/IZyTtPXQH997GRiah47vfe75GTnxG/iDIHnxMxsXH8nZ55IMYX2RV5gOKf7
-	LALjqAWqJe/vLfTa3mMGUCl/NywMFLjGdGzqb7z+sov5jyhpBmz6WVkwLK8wyEWdA0DX+x/RvfoOs
-	4eEjKo8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7xma/9rQ1msGFgEQJLeKaRHmH7449VMAcT6RGGuMM+k=; b=3qg2ZOAubfdV4JXEBWV8FMHiIM
+	rw9Bo6TScb3q8j7lvaU6XPFQzuPRFqXsFZzhcxF+L+h5ggMzJ/Wz3rZ33FwK3Y8bgQZigB/HB6FfZ
+	0/5qI929G9wGuwhWnHtGFjEgMSB68+tQ9cGF/NyiMSZu2YqZ7kVncY8ONXpGQE/CQ1y88ZVRDe2l+
+	0pERbXJZJDxsHLyfagpix8lVHy9vN9g8tt7lZUwfxtm5MKLIdelFKTG61vQpwMaw8wXeHv9hWWP4i
+	Eb9ofy/4fKUPkDJ5UppoGQd6KSC1QgyQXo+PumYUlKEd3g6hmKid+GkUV+2h/MMU8Eq4dd4ZslKkM
+	DgAOKd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qU7-00000008REd-2g2o;
-	Wed, 18 Mar 2026 12:58:51 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1w2qY7-00000008RTO-1Hdw;
+	Wed, 18 Mar 2026 13:02:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qU5-00000008REG-3VuP
+	id 1w2qY0-00000008RSa-23Nv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 12:58:50 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 1FD991400243;
-	Wed, 18 Mar 2026 08:58:49 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 18 Mar 2026 08:58:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1773838729;
-	 x=1773925129; bh=NgETNFSkBCuNe00TK+uyXLmxYSvaHFnqr/AOivVYrGg=; b=
-	LJwZ8qoCOvpuw2sP0qvk6qXRdGJm52uroDrWcWj7BIimYw2bPdiuK5N+0jxStovX
-	aOE4g+Iy9XRLS0uMe8kabVvquTlfpuk7LZ5fVZwpNyDStOoSUw5xxecS9WXhYBHq
-	he+HcMKx4o/dgAl3L0BAfuKtbqG68IPSfecPvAM80Ie7lYbcT2sdHl/6MLdQj2b4
-	2Mk20B0gk4uF8BCKaO/7aZ885/JjL1fHHIS9wEIAgHHFVi/RSbvi48Z1MXKKArbg
-	HhX0vFK6VRywaa55DlT/bwDqn8GnUvnIsnodwVU3TfHo0IGGqZo4jgq7FvL+HA3R
-	7REeqKkpQzJNddlcL7wesw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773838729; x=
-	1773925129; bh=NgETNFSkBCuNe00TK+uyXLmxYSvaHFnqr/AOivVYrGg=; b=Y
-	f/NjsNafW+O29jaEeA7kJMfCR6QX8OeS39U5TjT6gw0EyzxxPvzBTcP3dc2aQ4YL
-	JD1uHbTury0m6rQ3VProognDyz4X7+4f0LOaADcL2wAb8gSjEcOFSr4cA2eXs2MD
-	aLj4NzFBxIaS+TUNOmNCuIbw1jdBpetXbVcm30JrDV6y3JO6ijiTxkJ8FL4zmOh0
-	6BT8sMNSufEqGmY1a+ifG6wOmkIO0TwZtApU6QY9IE0HLjQTn6a/VCqRM5io1d5+
-	eF2gEsMk7cEYZ+cdThF8yvwQ1oWlm1X26wC3+WvbpYPUNS8HW+J99XMqYbJdYxqf
-	J/F1hy2yM+H6TlErV0Zfw==
-X-ME-Sender: <xms:iKG6aUjhmOnkFH-LDG8v1kiI00jOI_ij5vVQ-raWDo1SmcrS-b1wXg>
-    <xme:iKG6aX1vbcphyWehzNIjiosphUwnVOyTZVb2m_xYASbHXOP3LVtxHEHtLw0vkQiw0
-    oJfQ5jjMqSb3N4Xfz9b3Jh1oBYipj-egx1xILakCpyKNS1iKkFHoA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdegudelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtghomhdprhgtphhtth
-    hopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghgvvghrtheslhhinhhu
-    gidqmheikehkrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlse
-    hlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishht
-    shdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhrvghnvghsrghsqdhsoh
-    gtsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:iKG6aVFzr-gzim0unLZhggbbLZ7j_LFSiChxpokLPIhRFqYM_IhJDw>
-    <xmx:iKG6acnjyD9Xf6cwZQTglI_hMQG2r2O4mdBXc1KNd8BaUeyh2AMpiA>
-    <xmx:iKG6aZZuv9uvwDbMO1aSqp6bmOGNc7G9ofqcH6CQsUMAeyznza41lw>
-    <xmx:iKG6aRFI1CK_-5PmWP7qH8MXdRvEVATIHvePtg-nycWg4vMMFiNTFA>
-    <xmx:iaG6afwghU4sT5JPuaIz8nBOw0zIum17yk_y0Nj2UjiB0ygSpQy0N4Vv>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D40AA700069; Wed, 18 Mar 2026 08:58:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 18 Mar 2026 13:02:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qXm-0004sx-Gk; Wed, 18 Mar 2026 14:02:38 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qXm-000ufB-0L;
+	Wed, 18 Mar 2026 14:02:38 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qXm-000000009pv-03B9;
+	Wed, 18 Mar 2026 14:02:38 +0100
+Message-ID: <105290d6ece59ef9570c07db5bda50854c6b78a1.camel@pengutronix.de>
+Subject: Re: [PATCH v4 03/10] clk: realtek: Add basic reset support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yu-Chun Lin =?UTF-8?Q?=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?=
+	 <eleanor.lin@realtek.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"	
+ <sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org"	 <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+ <conor+dt@kernel.org>, Edgar Lee
+ =?UTF-8?Q?=5B=E6=9D=8E=E6=89=BF=E8=AB=AD=5D?=	 <cylee12@realtek.com>,
+ "afaerber@suse.com" <afaerber@suse.com>, Jyan Chou
+ =?UTF-8?Q?=5B=E5=91=A8=E8=8A=B7=E5=AE=89=5D?=	 <jyanchou@realtek.com>,
+ "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
+ "linux-clk@vger.kernel.org"	 <linux-clk@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, 
+ "linux-realtek-soc@lists.infradead.org"	
+ <linux-realtek-soc@lists.infradead.org>, James Tai
+ =?UTF-8?Q?=5B=E6=88=B4=E5=BF=97=E5=B3=B0=5D?=	 <james.tai@realtek.com>, 
+ =?UTF-8?Q?CY=5FHuang=5B=E9=BB=83=E9=89=A6=E6=99=8F=5D?=	
+ <cy.huang@realtek.com>, Stanley
+ =?UTF-8?Q?Chang=5B=E6=98=8C=E8=82=B2=E5=BE=B7=5D?=	
+ <stanley_chang@realtek.com>
+Date: Wed, 18 Mar 2026 14:02:37 +0100
+In-Reply-To: <907b6a0128904309991f0a4a9000d8f1@realtek.com>
+References: <20260313081100.596224-1-eleanor.lin@realtek.com>
+	 <20260313081100.596224-4-eleanor.lin@realtek.com>
+	 <20260314-silky-goshawk-of-penetration-f00964@quoll>
+	 <907b6a0128904309991f0a4a9000d8f1@realtek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-ThreadId: AXMg69VYQg4R
-Date: Wed, 18 Mar 2026 13:58:28 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>
-Cc: soc@lists.linux.dev, "Magnus Damm" <magnus.damm@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Message-Id: <a4174f08-cb01-4338-9909-e2d4cfd60934@app.fastmail.com>
-In-Reply-To: <69927bd8-d476-4a24-91af-f21cdc0bce80@kernel.org>
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <cover.1773399673.git.geert+renesas@glider.be>
- <20260314-quick-gray-saluki-0f96ff@quoll>
- <CAMuHMdXJx14SDXq7oQ-m-576GRQztRybs1HSinzf03ttvF3c_g@mail.gmail.com>
- <bdefa3d7-353c-4aa1-a013-685b46773fe7@kernel.org>
- <69927bd8-d476-4a24-91af-f21cdc0bce80@kernel.org>
-Subject: Re: [GIT PULL 3/4] Renesas DT binding updates for v7.1
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_055849_944146_BCFCFD87 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260318_060252_532003_3C2558B6 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,39 +97,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026, at 10:53, Krzysztof Kozlowski wrote:
-> On 17/03/2026 10:29, Krzysztof Kozlowski wrote:
->>>> See also submitting patches in DT dir.
->>>
->>> So the second commit is subject to II.3:
->>>
->>>   3) For a series going through multiple trees, the binding patch should be
->>>      kept with the driver using the binding.
->>>
->>> In this particular case, I could have included it in my drivers branch.
->>> Where do I put SoC-specific DT binding changes that are not picked
->>> up by anyone else (I don't have any this time)?
->> 
->> What is "SoC-specific"? You put the DT binding with the user, that was
->> always the rule and that is implied by submitting patches. If you do not
->> have any user, why would you pick that up?
->
-> Actually I want to correct myself or explain more. If you document ABI
-> for existing driver with DTS user of the ABI, but without driver change,
-> e.g. new front compatible when using already documented fallback, I
-> would keep the change in the driver branch, even  though technically the
-> DTS is the user of new compatible. That is what I was always doing at least.
->
-> Why? Because I expect there might be a next patchset with binding+driver
-> adding new fallback to the same binding, which would have to go via
-> driver branch because of mentioned submitting patches rule. Therefore if
-> I put that first binding in DTS branch and in the future I want to put
-> next change in the driver branch I would have unnecessary conflicts.
+On Di, 2026-03-17 at 02:12 +0000, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=9B]=
+ wrote:
+> > On Fri, Mar 13, 2026 at 04:10:53PM +0800, Yu-Chun Lin wrote:
+> > > From: Cheng-Yu Lee <cylee12@realtek.com>
+> > >=20
+> > > Define the reset operations backed by a regmap-based register
+> > > interface and prepare the reset controller to be registered through
+> > > the reset framework.
+> > >=20
+> > > Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> > > Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> > > Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> > > ---
+> > > Changes in v4:
+> > > - Add forward declaration for struct regmap in reset.h.
+> > > - Move struct rtk_reset_data definition into reset.c as it's only use=
+d there.
+> > > - Remove rtk_reset_reset() due to unnecessary implementation.
+> > > - Remove unnecessary parameter from rtk_reset_get_id().
+> > > ---
+> > > =C2=A0MAINTAINERS                  |   1 +
+> > > =C2=A0drivers/clk/Kconfig          |   1 +
+> > > =C2=A0drivers/clk/Makefile         |   1 +
+> > > =C2=A0drivers/clk/realtek/Kconfig  |  27 ++++++++++
+> > > =C2=A0drivers/clk/realtek/Makefile |   4 ++
+> > > =C2=A0drivers/clk/realtek/reset.c  | 104
+> > > +++++++++++++++++++++++++++++++++++
+> > > =C2=A0drivers/clk/realtek/reset.h  |  28 ++++++++++
+> > > =C2=A07 files changed, 167 insertions(+)
+> > > =C2=A0create mode 100644 drivers/clk/realtek/Kconfig  create mode 100=
+644
+> > > drivers/clk/realtek/Makefile  create mode 100644
+> > > drivers/clk/realtek/reset.c  create mode 100644
+> > > drivers/clk/realtek/reset.h
+> > >=20
+> > > diff --git a/MAINTAINERS b/MAINTAINERS index
+> > > 9b7d64cc8d90..53a2f3575c37 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -22247,6 +22247,7 @@ L:    devicetree@vger.kernel.org
+> > > =C2=A0L:   linux-clk@vger.kernel.org
+> > > =C2=A0S:   Supported
+> > > =C2=A0F:   Documentation/devicetree/bindings/clock/realtek*
+> > > +F:   drivers/clk/realtek/*
+> > > =C2=A0F:   include/dt-bindings/clock/realtek*
+> > >=20
+> > > =C2=A0REALTEK SPI-NAND
+> > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig index
+> > > 3d803b4cf5c1..d60f6415b0a3 100644
+> > > --- a/drivers/clk/Kconfig
+> > > +++ b/drivers/clk/Kconfig
+> > > @@ -519,6 +519,7 @@ source "drivers/clk/nuvoton/Kconfig"
+> > > =C2=A0source "drivers/clk/pistachio/Kconfig"
+> > > =C2=A0source "drivers/clk/qcom/Kconfig"
+> > > =C2=A0source "drivers/clk/ralink/Kconfig"
+> > > +source "drivers/clk/realtek/Kconfig"
+> > > =C2=A0source "drivers/clk/renesas/Kconfig"
+> > > =C2=A0source "drivers/clk/rockchip/Kconfig"
+> > > =C2=A0source "drivers/clk/samsung/Kconfig"
+> > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile index
+> > > f7bce3951a30..69b84d1e7bcc 100644
+> > > --- a/drivers/clk/Makefile
+> > > +++ b/drivers/clk/Makefile
+> > > @@ -140,6 +140,7 @@ obj-$(CONFIG_COMMON_CLK_PISTACHIO)
+> > +=3D pistachio/
+> > > =C2=A0obj-$(CONFIG_COMMON_CLK_PXA)         +=3D pxa/
+> > > =C2=A0obj-$(CONFIG_COMMON_CLK_QCOM)                +=3D qcom/
+> > > =C2=A0obj-y                                        +=3D ralink/
+> > > +obj-$(CONFIG_COMMON_CLK_REALTEK)     +=3D realtek/
+> > > =C2=A0obj-y                                        +=3D renesas/
+> > > =C2=A0obj-$(CONFIG_ARCH_ROCKCHIP)          +=3D rockchip/
+> > > =C2=A0obj-$(CONFIG_COMMON_CLK_SAMSUNG)     +=3D samsung/
+> > > diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfi=
+g
+> > > new file mode 100644 index 000000000000..121158f11dd1
+> > > --- /dev/null
+> > > +++ b/drivers/clk/realtek/Kconfig
+> > > @@ -0,0 +1,27 @@
+> > > +# SPDX-License-Identifier: GPL-2.0-only config COMMON_CLK_REALTEK
+> > > +     bool "Clock driver for Realtek SoCs"
+> > > +     depends on ARCH_REALTEK || COMPILE_TEST
+> > > +     default y
+> > > +     help
+> > > +       Enable the common clock framework infrastructure for Realtek
+> > > +       system-on-chip platforms.
+> > > +
+> > > +       This provides the base support required by individual Realtek
+> > > +       clock controller drivers to expose clocks to peripheral devic=
+es.
+> > > +
+> > > +       If you have a Realtek-based platform, say Y.
+> > > +
+> > > +if COMMON_CLK_REALTEK
+> > > +
+> > > +config RTK_CLK_COMMON
+> > > +     tristate "Realtek Clock Common"
+> >=20
+> > Reset drivers go to reset directory.
+>=20
+> Several vendors (e.g. qcom, mediatek, visconti) also place reset code in
+> drivers/clk/ when the reset controller is integrated with the clock contr=
+oller.
 
-Right, this makes sense, though I've been rather relaxed about binding
-updates in the past, merging them either through the soc/drivers
-branches if they came with the driver changes, or through the soc/dt
-branch otherwise.
+Mostly for historical reasons (qcom and mediatek drivers were
+implemented long before the auxiliary bus existed).
 
-       Arnd
+Can you turn this into an auxiliary device driver under drivers/reset?
+
+regards
+Philipp
 
