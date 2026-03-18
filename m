@@ -4,86 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EC2103E197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D5E103E199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bO95PvehcyFdjpZTEE8FyuHUrbh+/31EszxQOZOLOrE=; b=wCeTLi4iNITuW3MOB507bRYxFB
-	mBLqC+ZvkQKvM2Rp1TGP+LtNu6owMmopy53TfcqQ1qjV2YwPoAWx/Df7tzgJ5M4n70F6Z+Yp/ni+I
-	CkTYjYX8CnWYgqcKtusA+kuk+JemWn+0KuDBmS1a6f+/Thg8UYzAqkY9vdxSda4K6hihEx+EBK7e6
-	0nXk1Tdn5pqjf5BkVT17woZruEu+yzYzx/VHhNGMsDkCLto0q+F4bd1KXXqEvVy8Fs0EwJXrXlDwU
-	Hxo1DBqnmy7W7+4I0rosEf0QciBXnOOpuEK5S+0j63oBG2Goyp92LfInbHih8Rn9DxbjjAp3rH7wr
-	LFJOauVA==;
+	bh=8q0J7KCNx+A8Y+J2RSy7VQj65zrNoynNXfOuxxJlza4=; b=uv0FUJdL5WuCqn1dSHg8teECvm
+	b64D4gKFzxf+kQM7AJkxJZWCxxle2Ehbw0iQH/F6i+oQlghsLn+qMVECvFKPkKmWwtM07b4a6BPI+
+	wT44drMAX86PaOiGX7NHG9duR5lurqRRxjTJYaK3zNhg/NIX+f2zOIcjkDGKKviHZ6unfiWF49/LJ
+	57sG4Nw6RInBrG2KPKvO3g7f1ZmI8ExUoDuZGBIVWNZI0YAeJw8qPdxUeB1Ajn3ZDR7bri3ovAGkc
+	onXdyHKd3csTUoIli1ZXtS20cwmfLTdCeI+rW1ZIclfooNSSx8LJpFereJCGnvfsl5jYjBZ09G7wK
+	TgeVQbOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tHW-00000008rP1-1ECA;
-	Wed, 18 Mar 2026 15:58:02 +0000
+	id 1w2tJz-00000008s9S-2ap6;
+	Wed, 18 Mar 2026 16:00:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGw-00000008qhu-3VvC
+	id 1w2tJx-00000008s7v-3oPM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:57:27 +0000
+	Wed, 18 Mar 2026 16:00:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=bO95PvehcyFdjpZTEE8FyuHUrbh+/31EszxQOZOLOrE=; b=Kum8xosrxrVLYWsa1BbjfUUy9j
-	5BHtXX5pXY/CwxtMQI8TdYKeFke31ZzCz3PbL6WbwwYXXocTgYOY7wDespByhlEc0OEE2AhvjeAsw
-	77nO5Tnc0YLUuPRehRPBHSYbawMHLsD5VD2Fr43MS7/HrhU9iFCSb2zc37KBeMJpiW9QY7n40TTXR
-	dSsff/81RijtgvicS4tcNVFUD+53PdNoeVCGcImJATizdD2tUxeoqqloJF1/RcITH51mpfOyCmZuy
-	t9HstlDrgMTsdrzQdxjS5DkNrCs+ohONJDgKO+QpV97EFtP6NsBWRjzqpzboixHKOo7bmHHgZ6oZ8
-	T/Ne3kMQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGp-0000000Be6r-0NzL
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=8q0J7KCNx+A8Y+J2RSy7VQj65zrNoynNXfOuxxJlza4=; b=jwtnkYOZYD9suAG3WylU5Gi0Xe
+	CZPqDEh0zpJbchbzKGzf1o8H6Co7XJ5Kuzpnp7WGYHGqHnyy4Co2T7n5QLuZyr5UVCDD7xwit36In
+	UMZzSbe61nz1qkbsVOKuKWGMnO/OXmrUypUZH9QFvaEDU5T4jDhbpg7nswWWLASPiTwGrCLvFAiDi
+	ZYCgQGPCOWAsUeVUEvaetUbCgqjCQDVq4+N1ew5SFt6eTEBvFHyuEOxf57VJ7Ebq05sRZH8Z44Cfw
+	xNp+65A5cn4U15eD48LittTer03vDZ06KSEYesP7vFXgKXdAo2Nfzb1EVBhugv7gFx9icNr/nhNLV
+	AbWHtBwQ==;
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tJt-0000000Bele-3sa6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:57:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A38922BE;
-	Wed, 18 Mar 2026 08:57:12 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E6043F73B;
-	Wed, 18 Mar 2026 08:57:15 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v13 48/48] [WIP] arm64: RMI: Add support for SRO
-Date: Wed, 18 Mar 2026 15:54:12 +0000
-Message-ID: <20260318155413.793430-49-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
+	Wed, 18 Mar 2026 16:00:31 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-5091ed02c54so687971cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 09:00:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773849627; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EQepXFUifV+t6ijds+ftexQR2Jf5hhJvF6kRgGhWovvi8r7cVYwI+/242hwfT2N2mD
+         MNmnCWbWD4MeXE20QJENG1gytHoiASMjiuCsZNuSWELVDz3NqQbTnY1pmrKL6ZO62JAV
+         GfQFlCczevcGjBzjkQxQYP6EXt4Fy3mf+8CIQvCFistMiUPtspfS6QkkdtaChjMb7JkT
+         iCYiw2zbwJm1HQYbIVaoEdbwNcJoBslYUk9v6+DJTCzvlpMbOxPulifsfDt+BloPQcyN
+         tKzqJvccM5K8J+aR8cDasgKn77vv6xiNooA8C2lmQC4Nf0/H/tgMqlrNuj1nLLeeFCwL
+         ty4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=8q0J7KCNx+A8Y+J2RSy7VQj65zrNoynNXfOuxxJlza4=;
+        fh=0gdrmC6j5PKl6nXoHl0ZB3hDjOg3J+kkCahsx0+Q/bk=;
+        b=i+4PBoCmx9uXCC3QjIahjRDC7BpGEHfqy5wYW//xJWLYs/rm0K2bf/SxYTLoHPVr7B
+         M6OhvSnamQo+Rlpq/a5F1ljJL3nuwEPIE8/Bmb0gIx1FbnbWfh63vZK0iBuLoqE1ujNI
+         K90/Sli+SI61H3lnfQYbTlKghWlJ5loXeJuZ6Py3QhSLGfXO3bz5L8FQfX47kx26MKQ4
+         wPlXhvhAR0OjTafxoAy+xn0r7oKKgR3iUMQ3OU+sqf+D/mfzW7/WCRLFN4JASFzGIkxa
+         3pnEbR5l3LDC85ITmOyGeLbveEK1GxaJ4iv+hwEqvSWLM4Vme3XHNYWLvv6rMlGuLhWM
+         nxhg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1773849627; x=1774454427; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8q0J7KCNx+A8Y+J2RSy7VQj65zrNoynNXfOuxxJlza4=;
+        b=GDDHnjjUQnaEoxKTmnUPtnyRdx1AW1Gob+3IoYaph6waFM54Pmkkpsj9W8aIsUnCey
+         4XFXdLBUSbBl9dASIApjuhZg0kk/kO+odFD4Hb6ksGO2m8l8yanNW2HoJkrI8Qrkaj1i
+         N7vNyz6F+NLakgw+m/XH7wTXEQTXXWndVN/SF5MBkR1z0DpFn3s18KFs5p/kGnA/2+pk
+         qWDirousmMoRbsL2hElLeIqO3RNsYyvctvMiFgSljCiLHRVogv/a5ZukZqmveDtzABrd
+         I0JTWbVJFZqYdFUN8SUdK6rzG52WAMeY7EPFwdsMAYMre3+jmGC6hdF44L1830lM+d03
+         9eRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773849627; x=1774454427;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8q0J7KCNx+A8Y+J2RSy7VQj65zrNoynNXfOuxxJlza4=;
+        b=A0Cn0es7NfmYMEKxSBVCAuhyFo05JUx3kbXnmHKFiniBXuNCEz+hPtqUQC8LJRphOI
+         azgwG956e7wujQ7KO8jhE0fo/p2gpHySLN6fTlUeYcvbiEqU+5ymKlQqt3j//YEny/KM
+         KcHahLtMxppQB+Tm+MhCUNXNwpTfOXqbnBfcDGhUOoN7wFUF8blhqXhcR0bGPgvtzp2X
+         KRWPFiaT6nbJ0nsct9Nmg6UkCeBA7a9t1FAbRynSRPukCN4ErgcLvEn8go+kS+TLuvqv
+         bK62ZI/o2PP5veyLvLgmszxsDMBpG6+njhHAmRlp2EWirlpfKrPuH9nNlNU0gwzyJJWC
+         w1qQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWeNj52B6yhePiXPfAWa+m1AKTSMQ47VrikJapmxVKuc/dfDA5YasK7PTs/dBxIjY02yzb1fq9jSqsY1Z4c7Txi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4MISaTVkF8k9lRrueSGTFCIYTWydBGbD/jP3vzflF8Ep0fird
+	5wuJfDmL2qfaFCluCV7nawFYJYg5fnV94rdNFIYiNyJCQ0dZVAlomDVurHmV+pHSI08YjHq1cVA
+	UrYF8HUDoCsGCNWveYwqAJzvOXElNAKFQ6aW2Fm0y
+X-Gm-Gg: ATEYQzxSNqWf7JFn5bljPu5WStdvnfPOUxM1Co0AwkH1M9iVwFuJAQ0lijCk3Z5849i
+	+YBpW5wHTqOVbqQCFFR9xdB4zOi+bvCn+DkmF9wBzr1zU5kzRRW2qjAoxEsSCrEv1/Sh/Tljf/F
+	MTJYkWo8+C6HIIjJxMt9LaeMJEeX8Yf7fID8GfGSDxH2iBc+BXsn1STsOfsThdP/tnyjWo2pOXO
+	3uKj4z3NJh86wDEmd8gENdoBk8n47ZWoo/W+5phXp1ySZRFIN/ibkv+wZeRKw+VrWuveXtX18jJ
+	3Q0r2qgggvMLbrcimTGDWgP3EdlxF4k37140vA==
+X-Received: by 2002:ac8:7f4d:0:b0:509:174d:3224 with SMTP id
+ d75a77b69052e-50b15c109d1mr14316251cf.11.1773849625679; Wed, 18 Mar 2026
+ 09:00:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1773695307.git.ljs@kernel.org> <8e28e4b63bae67bfa1a59ccbac9dc6db1442d75d.1773695307.git.ljs@kernel.org>
+In-Reply-To: <8e28e4b63bae67bfa1a59ccbac9dc6db1442d75d.1773695307.git.ljs@kernel.org>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Wed, 18 Mar 2026 09:00:13 -0700
+X-Gm-Features: AaiRm51xXcSMS3sQHOtwlzL9JQsE-2S39fLY5xwjkClhFBo1kCA372O2Zp37zjU
+Message-ID: <CAJuCfpF6eS18HLgNvQtkLGd=7N0_L1JPmF0GzM-Z0QimRWT7AQ@mail.gmail.com>
+Subject: Re: [PATCH v2 15/16] mm: add mmap_action_map_kernel_pages[_full]()
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
+	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
+	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
+	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	Ryan Roberts <ryan.roberts@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155719_427027_BECA606A 
-X-CRM114-Status: GOOD (  29.06  )
+X-CRM114-CacheID: sfid-20260318_160030_115847_C5A15DA8 
+X-CRM114-Status: GOOD (  40.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,688 +150,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO).
-This means that an SMC can return with an operation still in progress.
-The host is expected to continue the operation until it reaches a
-conclusion (either success or failure). During this process the RMM can
-request addition memory ('donate') or hand memory back to the host
-('reclaim'). The host can request an operation is cancelled, but must
-still continue the operation until it has completed (otherwise the
-incomplete operation may cause future RMM operations to fail).
+On Mon, Mar 16, 2026 at 2:14=E2=80=AFPM Lorenzo Stoakes (Oracle) <ljs@kerne=
+l.org> wrote:
+>
+> A user can invoke mmap_action_map_kernel_pages() to specify that the
+> mapping should map kernel pages starting from desc->start of a specified
+> number of pages specified in an array.
+>
+> In order to implement this, adjust mmap_action_prepare() to be able to
+> return an error code, as it makes sense to assert that the specified
+> parameters are valid as quickly as possible as well as updating the VMA
+> flags to include VMA_MIXEDMAP_BIT as necessary.
+>
+> This provides an mmap_prepare equivalent of vm_insert_pages().
+>
+> We additionally update the existing vm_insert_pages() code to use
+> range_in_vma() and add a new range_in_vma_desc() helper function for the
+> mmap_prepare case, sharing the code between the two in range_is_subset().
+>
+> We add both mmap_action_map_kernel_pages() and
+> mmap_action_map_kernel_pages_full() to allow for both partial and full VM=
+A
+> mappings.
+>
+> We also add mmap_action_map_kernel_pages_discontig() to allow for
+> discontiguous mapping of kernel pages should the need arise.
+>
+> We update the documentation to reflect the new features.
+>
+> Finally, we update the VMA tests accordingly to reflect the changes.
+>
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-SROs may request memory and these operations sometimes have to be
-performed in places where memory allocation may not be possible. To deal
-with this a SRO may be started, but then cancelled when the memory
-allocation cannot be completed. The reclaimed memory will then be stored
-in a struct rmi_sro_state object with the intention that once Linux has
-returned to a state where memory allocation is possible, the failed
-allocation can be reattempted (with GFP flags enabling sleeping and/or
-direct reclaim) and the SRO operation reattempted (after acquiring the
-necessary locks). In the worst case this may require several attempts
-(if the RMM makes several memory requests) but should always make
-forward progress.
+With one nit,
+Reviewed-by: Suren Baghdasaryan <surenb@google.com>
 
-This patch is currently a work-in-progress showing the general structure
-of how this should work and implementing SROs for two operations
-(RMI_REC_CREATE and RMI_REC_DESTROY). I'm aware there is missing
-error-checking and there are some details in the specification that need
-clarifying. These operations are also 'easy' in that we don't have
-restrictions on memory allocation in these contexts.
+> ---
+>  Documentation/filesystems/mmap_prepare.rst |  8 ++
+>  include/linux/mm.h                         | 95 +++++++++++++++++++++-
+>  include/linux/mm_types.h                   |  7 ++
+>  mm/memory.c                                | 42 +++++++++-
+>  mm/util.c                                  |  6 ++
+>  tools/testing/vma/include/dup.h            |  7 ++
+>  6 files changed, 159 insertions(+), 6 deletions(-)
+>
+> diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentation/f=
+ilesystems/mmap_prepare.rst
+> index be76ae475b9c..e810aa4134eb 100644
+> --- a/Documentation/filesystems/mmap_prepare.rst
+> +++ b/Documentation/filesystems/mmap_prepare.rst
+> @@ -156,5 +156,13 @@ pointer. These are:
+>  * mmap_action_simple_ioremap() - Sets up an I/O remap from a specified
+>    physical address and over a specified length.
+>
+> +* mmap_action_map_kernel_pages() - Maps a specified array of `struct pag=
+e`
+> +  pointers in the VMA from a specific offset.
+> +
+> +* mmap_action_map_kernel_pages_full() - Maps a specified array of `struc=
+t
+> +  page` pointers over the entire VMA. The caller must ensure there are
+> +  sufficient entries in the page array to cover the entire range of the
+> +  described VMA.
+> +
+>  **NOTE:** The ``action`` field should never normally be manipulated dire=
+ctly,
+>  rather you ought to use one of these helpers.
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index df8fa6e6402b..6f0a3edb24e1 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -2912,7 +2912,7 @@ static inline bool folio_maybe_mapped_shared(struct=
+ folio *folio)
+>   * The caller must add any reference (e.g., from folio_try_get()) it mig=
+ht be
+>   * holding itself to the result.
+>   *
+> - * Returns the expected folio refcount.
+> + * Returns: the expected folio refcount.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
----
- arch/arm64/include/asm/kvm_rmi.h  |   8 -
- arch/arm64/include/asm/rmi_cmds.h |  71 +++---
- arch/arm64/include/asm/rmi_smc.h  |  27 +--
- arch/arm64/kvm/rmi.c              | 385 +++++++++++++++++++++++-------
- 4 files changed, 347 insertions(+), 144 deletions(-)
+nit: I see both "Returns:" and "Return:" being used in the codebase
+but this header file uses "Return:", so for consistency you should
+probably do the same. This also applies to later instances in this
+patch.
 
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index b914b9a84bd8..e1f5523c2dfa 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -51,7 +51,6 @@ enum realm_state {
-  * @state: The lifetime state machine for the realm
-  * @rd: Kernel mapping of the Realm Descriptor (RD)
-  * @params: Parameters for the RMI_REALM_CREATE command
-- * @num_aux: The number of auxiliary pages required by the RMM
-  * @ia_bits: Number of valid Input Address bits in the IPA
-  */
- struct realm {
-@@ -60,7 +59,6 @@ struct realm {
- 	void *rd;
- 	struct realm_params *params;
- 
--	unsigned long num_aux;
- 	unsigned int ia_bits;
- };
- 
-@@ -75,12 +73,6 @@ struct realm {
- struct realm_rec {
- 	unsigned long mpidr;
- 	void *rec_page;
--	/*
--	 * REC_PARAMS_AUX_GRANULES is the maximum number of 4K granules that
--	 * the RMM can require. The array is sized to be large enough for the
--	 * maximum number of host sized pages that could be required.
--	 */
--	struct page *aux_pages[(REC_PARAMS_AUX_GRANULES * SZ_4K) >> PAGE_SHIFT];
- 	struct rec_run *run;
- };
- 
-diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-index 9c4f83644a61..b761d74e1273 100644
---- a/arch/arm64/include/asm/rmi_cmds.h
-+++ b/arch/arm64/include/asm/rmi_cmds.h
-@@ -17,6 +17,27 @@ struct rtt_entry {
- 	int ripas;
- };
- 
-+#define RMI_MAX_ADDR_LIST 256
-+
-+struct rmi_sro_state {
-+	struct arm_smccc_1_2_regs regs;
-+
-+	unsigned long addr_count;
-+	unsigned long addr_list[RMI_MAX_ADDR_LIST];
-+};
-+
-+#define rmi_init_sro(...) ({						\
-+	struct rmi_sro_state *sro = kmalloc_obj(*sro);			\
-+	if (sro)							\
-+		*sro = (struct rmi_sro_state){.regs = {__VA_ARGS__}};	\
-+	sro;								\
-+})
-+
-+#define rmi_smccc(...) do { \
-+	arm_smccc_1_1_invoke(__VA_ARGS__); \
-+} while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY || \
-+	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
-+
- /**
-  * rmi_rmm_config_get() - Get the system configuration
-  * @cfg_ptr: PA of a struct rmm_config
-@@ -410,29 +431,7 @@ static inline int rmi_realm_destroy(unsigned long rd)
- }
- 
- /**
-- * rmi_rec_aux_count() - Get number of auxiliary granules required
-- * @rd: PA of the RD
-- * @aux_count: Number of granules written to this pointer
-- *
-- * A REC may require extra auxiliary granules to be delegated for the RMM to
-- * store metadata (not visible to the normal world) in. This function provides
-- * the number of granules that are required.
-- *
-- * Return: RMI return code
-- */
--static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
--{
--	struct arm_smccc_res res;
--
--	arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
--
--	if (aux_count)
--		*aux_count = res.a1;
--	return res.a0;
--}
--
--/**
-- * rmi_rec_create() - Create a REC
-+ * rmi_rec_create_sro_init() - Init an SRO to create a REC
-  * @rd: PA of the RD
-  * @rec: PA of the target REC
-  * @params: PA of REC parameters
-@@ -440,33 +439,27 @@ static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
-  * Create a REC using the parameters specified in the struct rec_params pointed
-  * to by @params.
-  *
-- * Return: RMI return code
-+ * Returns: Allocated SRO object
-  */
--static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
--				 unsigned long params)
-+static inline struct rmi_sro_state *
-+rmi_rec_create_sro_init(unsigned long rd,
-+			unsigned long rec,
-+			unsigned long params)
- {
--	struct arm_smccc_res res;
--
--	arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params, &res);
--
--	return res.a0;
-+	return rmi_init_sro(SMC_RMI_REC_CREATE, rd, rec, params);
- }
- 
- /**
-- * rmi_rec_destroy() - Destroy a REC
-+ * rmi_rec_destroy_sro_init() - Init an SRO to destroy a REC
-  * @rec: PA of the target REC
-  *
-  * Destroys a REC. The REC must not be running.
-  *
-- * Return: RMI return code
-+ * Return: Allocated SRO object
-  */
--static inline int rmi_rec_destroy(unsigned long rec)
-+static inline struct rmi_sro_state *rmi_rec_destroy_sro_init(unsigned long rec)
- {
--	struct arm_smccc_res res;
--
--	arm_smccc_1_1_invoke(SMC_RMI_REC_DESTROY, rec, &res);
--
--	return res.a0;
-+	return rmi_init_sro(SMC_RMI_REC_DESTROY, rec);
- }
- 
- /**
-diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-index 049d71470486..fa23818e1b4c 100644
---- a/arch/arm64/include/asm/rmi_smc.h
-+++ b/arch/arm64/include/asm/rmi_smc.h
-@@ -38,7 +38,6 @@
- #define SMC_RMI_PSCI_COMPLETE			SMC_RMI_CALL(0x0164)
- #define SMC_RMI_FEATURES			SMC_RMI_CALL(0x0165)
- #define SMC_RMI_RTT_FOLD			SMC_RMI_CALL(0x0166)
--#define SMC_RMI_REC_AUX_COUNT			SMC_RMI_CALL(0x0167) //
- #define SMC_RMI_RTT_INIT_RIPAS			SMC_RMI_CALL(0x0168)
- #define SMC_RMI_RTT_SET_RIPAS			SMC_RMI_CALL(0x0169)
- #define SMC_RMI_VSMMU_CREATE			SMC_RMI_CALL(0x016a)
-@@ -180,11 +179,18 @@
- #define RMI_ADDR_TYPE_SINGLE		1
- #define RMI_ADDR_TYPE_LIST		2
- 
--#define RMI_ADDR_RANGE_SIZE(ar)		(FIELD_GET(GENMASK(1, 0), (ar)))
--#define RMI_ADDR_RANGE_COUNT(ar)	(FIELD_GET(GENMASK(PAGE_SHIFT - 1, 2), \
-+#define RMI_ADDR_RANGE_SIZE_MASK	GENMASK(1, 0)
-+#define RMI_ADDR_RANGE_COUNT_MASK	GENMASK(PAGE_SHIFT - 1, 2)
-+#define RMI_ADDR_RANGE_ADDR_MASK	(PAGE_MASK & GENMASK(51, 0))
-+#define RMI_ADDR_RANGE_STATE_MASK	BIT(63)
-+
-+#define RMI_ADDR_RANGE_SIZE(ar)		(FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, \
-+						   (ar)))
-+#define RMI_ADDR_RANGE_COUNT(ar)	(FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, \
-+						   (ar)))
-+#define RMI_ADDR_RANGE_ADDR(ar)		((ar) & RMI_ADDR_RANGE_ADDR_MASK)
-+#define RMI_ADDR_RANGE_STATE(ar)	(FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, \
- 						   (ar)))
--#define RMI_ADDR_RANGE_ADDR(ar)		((ar) & PAGE_MASK & GENMASK(51, 0))
--#define RMI_ADDR_RANGE_STATE(ar)	(FIELD_GET(BIT(63), (ar)))
- 
- enum rmi_ripas {
- 	RMI_EMPTY = 0,
-@@ -295,8 +301,6 @@ struct realm_params {
- 
- #define REC_PARAMS_FLAG_RUNNABLE	BIT_ULL(0)
- 
--#define REC_PARAMS_AUX_GRANULES		16
--
- struct rec_params {
- 	union { /* 0x0 */
- 		u64 flags;
-@@ -312,14 +316,7 @@ struct rec_params {
- 	};
- 	union { /* 0x300 */
- 		u64 gprs[REC_CREATE_NR_GPRS];
--		u8 padding3[0x500];
--	};
--	union { /* 0x800 */
--		struct {
--			u64 num_rec_aux;
--			u64 aux[REC_PARAMS_AUX_GRANULES];
--		};
--		u8 padding4[0x800];
-+		u8 padding3[0xd00];
- 	};
- };
- 
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index e76e58762f55..10ff1c3bddaf 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -20,6 +20,295 @@ static unsigned long rmm_feat_reg1;
- 
- #define RMM_L2_BLOCK_SIZE	PMD_SIZE
- 
-+static int delegate_range(phys_addr_t phys, unsigned long size);
-+static int undelegate_range(phys_addr_t phys, unsigned long size);
-+
-+static unsigned long donate_req_to_size(unsigned long donatereq)
-+{
-+	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
-+
-+	switch (unit_size) {
-+	case 0:
-+		return PAGE_SIZE;
-+	case 1:
-+		return PMD_SIZE;
-+	case 2:
-+		return PUD_SIZE;
-+	case 3:
-+		return P4D_SIZE;
-+	}
-+	unreachable();
-+}
-+
-+static void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs_in,
-+			     struct arm_smccc_1_2_regs *regs_out)
-+{
-+	struct arm_smccc_1_2_regs regs = *regs_in;
-+	unsigned long status;
-+
-+	do {
-+		arm_smccc_1_2_invoke(&regs, regs_out);
-+		status = RMI_RETURN_STATUS(regs_out->a0);
-+	} while (status == RMI_BUSY || status == RMI_BLOCKED);
-+}
-+
-+static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
-+				 unsigned long sro_handle,
-+				 unsigned long donatereq,
-+				 struct arm_smccc_1_2_regs *out_regs,
-+				 gfp_t gfp)
-+{
-+	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
-+	unsigned long count = RMI_DONATE_COUNT(donatereq);
-+	unsigned long state = RMI_DONATE_STATE(donatereq);
-+	unsigned long size;
-+	unsigned long addr_range;
-+	struct page *pages;
-+	phys_addr_t phys;
-+	struct arm_smccc_1_2_regs regs = {
-+		SMC_RMI_OP_MEM_DONATE,
-+		sro_handle
-+	};
-+
-+	for (int i = 0; i < sro->addr_count; i++) {
-+		unsigned long entry = sro->addr_list[i];
-+
-+		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
-+		    RMI_ADDR_RANGE_COUNT(entry) == count &&
-+		    RMI_ADDR_RANGE_STATE(entry) == state) {
-+			sro->addr_count--;
-+			swap(sro->addr_list[sro->addr_count],
-+			     sro->addr_list[i]);
-+
-+			goto out;
-+		}
-+	}
-+
-+	size = donate_req_to_size(donatereq) * count;
-+
-+	pages = alloc_pages(gfp, get_order(size));
-+	if (!pages)
-+		return -ENOMEM;
-+	phys = page_to_phys(pages);
-+
-+	if (state == RMI_OP_MEM_DELEGATED) {
-+		if (delegate_range(phys, size)) {
-+			__free_pages(pages, get_order(size));
-+			return -ENXIO;
-+		}
-+	}
-+
-+	addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
-+	FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
-+	FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
-+	FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
-+
-+	sro->addr_list[sro->addr_count] = addr_range;
-+
-+out:
-+	regs.a2 = virt_to_phys(&sro->addr_list[sro->addr_count]);
-+	regs.a3 = 1;
-+	rmi_smccc_invoke(&regs, out_regs);
-+
-+	unsigned long donated_granules = out_regs->a1;
-+
-+	WARN_ON(donated_granules > 1);
-+	if (WARN_ON(donated_granules == 0)) {
-+		sro->addr_count++;
-+		return 0;
-+	}
-+
-+	return 0;
-+}
-+
-+static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
-+				    unsigned long sro_handle,
-+				    unsigned long donatereq,
-+				    struct arm_smccc_1_2_regs *out_regs,
-+				    gfp_t gfp)
-+{
-+	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
-+	unsigned long count = RMI_DONATE_COUNT(donatereq);
-+	unsigned long state = RMI_DONATE_STATE(donatereq);
-+	unsigned long found = 0;
-+	unsigned long addr_list_start = sro->addr_count;
-+	struct arm_smccc_1_2_regs regs = {
-+		SMC_RMI_OP_MEM_DONATE,
-+		sro_handle
-+	};
-+
-+	for (int i = 0; i < addr_list_start && found < count; i++) {
-+		unsigned long entry = sro->addr_list[i];
-+
-+		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
-+		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
-+		    RMI_ADDR_RANGE_STATE(entry) == state) {
-+			addr_list_start--;
-+			swap(sro->addr_list[addr_list_start],
-+			     sro->addr_list[i]);
-+			found++;
-+			i--;
-+		}
-+	}
-+
-+	while (found < count) {
-+		unsigned long addr_range;
-+		unsigned long size = donate_req_to_size(donatereq);
-+
-+		struct page *pages = alloc_pages(gfp, get_order(size));
-+		phys_addr_t phys;
-+
-+		if (!pages)
-+			return -ENOMEM;
-+
-+		phys = page_to_phys(pages);
-+
-+		if (state == RMI_OP_MEM_DELEGATED) {
-+			if (delegate_range(phys, size)) {
-+				__free_pages(pages, get_order(size));
-+				return -ENXIO;
-+			}
-+		}
-+
-+		addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
-+		FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
-+		FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, 1);
-+		FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
-+
-+		sro->addr_list[sro->addr_count++] = addr_range;
-+		found++;
-+	}
-+
-+	regs.a2 = virt_to_phys(&sro->addr_list[addr_list_start]);
-+	regs.a3 = found;
-+	rmi_smccc_invoke(&regs, out_regs);
-+
-+	unsigned long donated_granules = out_regs->a1;
-+
-+	while (donated_granules < found) {
-+		swap(sro->addr_list[addr_list_start++],
-+		     sro->addr_list[--sro->addr_count]);
-+		found--;
-+	}
-+	sro->addr_count -= donated_granules;
-+
-+	return 0;
-+}
-+
-+static int rmi_sro_donate(struct rmi_sro_state *sro,
-+			  unsigned long sro_handle,
-+			  unsigned long donatereq,
-+			  struct arm_smccc_1_2_regs *regs,
-+			  gfp_t gfp)
-+{
-+	unsigned long count = RMI_DONATE_COUNT(donatereq);
-+
-+	if (WARN_ON(!count))
-+		return 0;
-+
-+	if (RMI_DONATE_CONTIG(donatereq)) {
-+		return rmi_sro_donate_contig(sro, sro_handle, donatereq,
-+					     regs, gfp);
-+	} else {
-+		return rmi_sro_donate_noncontig(sro, sro_handle, donatereq,
-+						regs, gfp);
-+	}
-+}
-+
-+static int rmi_sro_reclaim(struct rmi_sro_state *sro,
-+			   unsigned long sro_handle,
-+			   struct arm_smccc_1_2_regs *out_regs)
-+{
-+	struct arm_smccc_1_2_regs regs = {
-+		SMC_RMI_OP_MEM_RECLAIM,
-+		sro_handle,
-+		virt_to_phys(&sro->addr_list[sro->addr_count]),
-+		RMI_MAX_ADDR_LIST - sro->addr_count
-+	};
-+	rmi_smccc_invoke(&regs, out_regs);
-+	sro->addr_count += out_regs->a1;
-+
-+	return 0;
-+}
-+
-+static void rmi_sro_free(struct rmi_sro_state *sro)
-+{
-+	for (int i = 0; i < sro->addr_count; i++) {
-+		unsigned long entry = sro->addr_list[i];
-+		unsigned long addr = RMI_ADDR_RANGE_ADDR(entry);
-+		unsigned long unit_size = RMI_ADDR_RANGE_SIZE(entry);
-+		unsigned long count = RMI_ADDR_RANGE_COUNT(entry);
-+		unsigned long state = RMI_ADDR_RANGE_STATE(entry);
-+		unsigned long size = donate_req_to_size(unit_size) * count;
-+
-+		if (state == RMI_OP_MEM_DELEGATED) {
-+			if (WARN_ON(undelegate_range(addr, size))) {
-+				/* Leak the pages */
-+				continue;
-+			}
-+		}
-+		__free_pages(phys_to_page(addr), get_order(size));
-+	}
-+
-+	sro->addr_count = 0;
-+}
-+
-+DEFINE_FREE(sro, struct rmi_sro_state *, if (_T) rmi_sro_free(_T))
-+
-+static unsigned long rmi_sro_execute(struct rmi_sro_state *sro)
-+{
-+	unsigned long sro_handle;
-+	struct arm_smccc_1_2_regs regs;
-+	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
-+
-+	rmi_smccc_invoke(regs_in, &regs);
-+
-+	sro_handle = regs.a1;
-+
-+	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
-+		bool can_cancel = RMI_RETURN_CANCANCEL(regs.a0);
-+		int ret;
-+
-+		switch (RMI_RETURN_MEMREQ(regs.a0)) {
-+		case RMI_OP_MEM_REQ_NONE:
-+			regs = (struct arm_smccc_1_2_regs){
-+				SMC_RMI_OP_CONTINUE, sro_handle, 0
-+			};
-+			rmi_smccc_invoke(&regs, &regs);
-+			break;
-+		case RMI_OP_MEM_REQ_DONATE:
-+			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
-+					     GFP_KERNEL);
-+			break;
-+		case RMI_OP_MEM_REQ_RECLAIM:
-+			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
-+			break;
-+		default:
-+			ret = WARN_ON(1);
-+			break;
-+		}
-+
-+		if (ret) {
-+			if (can_cancel) {
-+				/*
-+				 * FIXME: Handle cancelling properly!
-+				 *
-+				 * If the operation has failed due to memory
-+				 * allocation failure then the information on
-+				 * the memory allocation should be saved, so
-+				 * that the allocation can be repeated outside
-+				 * of any context which prevented the
-+				 * allocation.
-+				 */
-+			}
-+			if (WARN_ON(ret))
-+				return ret;
-+		}
-+	}
-+
-+	return regs.a0;
-+}
-+
- static inline unsigned long rmi_rtt_level_mapsize(int level)
- {
- 	if (WARN_ON(level > RMM_RTT_MAX_LEVEL))
-@@ -795,12 +1084,6 @@ static int realm_create_rd(struct kvm *kvm)
- 		goto out_undelegate_tables;
- 	}
- 
--	if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
--		WARN_ON(rmi_realm_destroy(rd_phys));
--		r = -ENXIO;
--		goto out_undelegate_tables;
--	}
--
- 	realm->rd = rd;
- 	WRITE_ONCE(realm->state, REALM_STATE_NEW);
- 	/* The realm is up, free the parameters.  */
-@@ -1432,65 +1715,9 @@ int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
- 	return ret;
- }
- 
--static void free_rec_aux(struct page **aux_pages,
--			 unsigned int num_aux)
--{
--	unsigned int i;
--	unsigned int page_count = 0;
--
--	for (i = 0; i < num_aux; i++) {
--		struct page *aux_page = aux_pages[page_count++];
--		phys_addr_t aux_page_phys = page_to_phys(aux_page);
--
--		if (!WARN_ON(undelegate_page(aux_page_phys)))
--			__free_page(aux_page);
--		aux_page_phys += PAGE_SIZE;
--	}
--}
--
--static int alloc_rec_aux(struct page **aux_pages,
--			 u64 *aux_phys_pages,
--			 unsigned int num_aux)
--{
--	struct page *aux_page;
--	unsigned int i;
--	int ret;
--
--	for (i = 0; i < num_aux; i++) {
--		phys_addr_t aux_page_phys;
--
--		aux_page = alloc_page(GFP_KERNEL);
--		if (!aux_page) {
--			ret = -ENOMEM;
--			goto out_err;
--		}
--
--		aux_page_phys = page_to_phys(aux_page);
--		if (delegate_page(aux_page_phys)) {
--			ret = -ENXIO;
--			goto err_undelegate;
--		}
--		aux_phys_pages[i] = aux_page_phys;
--		aux_pages[i] = aux_page;
--	}
--
--	return 0;
--err_undelegate:
--	while (i > 0) {
--		i--;
--		if (WARN_ON(undelegate_page(aux_phys_pages[i]))) {
--			/* Leak the page if the undelegate fails */
--			goto out_err;
--		}
--	}
--	__free_page(aux_page);
--out_err:
--	free_rec_aux(aux_pages, i);
--	return ret;
--}
--
- static int kvm_create_rec(struct kvm_vcpu *vcpu)
- {
-+	struct rmi_sro_state *sro __free(sro) = NULL;
- 	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
- 	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
- 	struct realm *realm = &vcpu->kvm->arch.realm;
-@@ -1538,18 +1765,17 @@ static int kvm_create_rec(struct kvm_vcpu *vcpu)
- 		goto out_free_pages;
- 	}
- 
--	r = alloc_rec_aux(rec->aux_pages, params->aux, realm->num_aux);
--	if (r)
--		goto out_undelegate_rmm_rec;
--
--	params->num_rec_aux = realm->num_aux;
- 	params->mpidr = mpidr;
- 
--	if (rmi_rec_create(virt_to_phys(realm->rd),
--			   rec_page_phys,
--			   virt_to_phys(params))) {
-+	sro = rmi_rec_create_sro_init(virt_to_phys(realm->rd),
-+				      rec_page_phys, virt_to_phys(params));
-+	if (!sro) {
-+		r = -ENOMEM;
-+		goto out_undelegate_rmm_rec;
-+	}
-+	if (rmi_sro_execute(sro)) {
- 		r = -ENXIO;
--		goto out_free_rec_aux;
-+		goto out_undelegate_rmm_rec;
- 	}
- 
- 	rec->mpidr = mpidr;
-@@ -1557,8 +1783,6 @@ static int kvm_create_rec(struct kvm_vcpu *vcpu)
- 	free_page((unsigned long)params);
- 	return 0;
- 
--out_free_rec_aux:
--	free_rec_aux(rec->aux_pages, realm->num_aux);
- out_undelegate_rmm_rec:
- 	if (WARN_ON(undelegate_page(rec_page_phys)))
- 		rec->rec_page = NULL;
-@@ -1572,7 +1796,7 @@ static int kvm_create_rec(struct kvm_vcpu *vcpu)
- 
- void kvm_destroy_rec(struct kvm_vcpu *vcpu)
- {
--	struct realm *realm = &vcpu->kvm->arch.realm;
-+	struct rmi_sro_state *sro __free(sro) = NULL;
- 	struct realm_rec *rec = &vcpu->arch.rec;
- 	unsigned long rec_page_phys;
- 
-@@ -1588,15 +1812,12 @@ void kvm_destroy_rec(struct kvm_vcpu *vcpu)
- 
- 	rec_page_phys = virt_to_phys(rec->rec_page);
- 
--	/*
--	 * The REC and any AUX pages cannot be reclaimed until the REC is
--	 * destroyed. So if the REC destroy fails then the REC page and any AUX
--	 * pages will be leaked.
--	 */
--	if (WARN_ON(rmi_rec_destroy(rec_page_phys)))
-+	sro = rmi_rec_destroy_sro_init(rec_page_phys);
-+	if (WARN_ON(!sro))
- 		return;
- 
--	free_rec_aux(rec->aux_pages, realm->num_aux);
-+	if (WARN_ON(rmi_sro_execute(sro)))
-+		return;
- 
- 	free_delegated_page(rec_page_phys);
- }
--- 
-2.43.0
-
+>   */
+>  static inline int folio_expected_ref_count(const struct folio *folio)
+>  {
+> @@ -4364,6 +4364,45 @@ static inline void mmap_action_simple_ioremap(stru=
+ct vm_area_desc *desc,
+>         action->type =3D MMAP_SIMPLE_IO_REMAP;
+>  }
+>
+> +/**
+> + * mmap_action_map_kernel_pages - helper for mmap_prepare hook to specif=
+y that
+> + * @num kernel pages contained in the @pages array should be mapped to u=
+serland
+> + * starting at virtual address @start.
+> + * @desc: The VMA descriptor for the VMA requiring kernel pags to be map=
+ped.
+> + * @start: The virtual address from which to map them.
+> + * @pages: An array of struct page pointers describing the memory to map=
+.
+> + * @nr_pages: The number of entries in the @pages aray.
+> + */
+> +static inline void mmap_action_map_kernel_pages(struct vm_area_desc *des=
+c,
+> +               unsigned long start, struct page **pages,
+> +               unsigned long nr_pages)
+> +{
+> +       struct mmap_action *action =3D &desc->action;
+> +
+> +       action->type =3D MMAP_MAP_KERNEL_PAGES;
+> +       action->map_kernel.start =3D start;
+> +       action->map_kernel.pages =3D pages;
+> +       action->map_kernel.nr_pages =3D nr_pages;
+> +       action->map_kernel.pgoff =3D desc->pgoff;
+> +}
+> +
+> +/**
+> + * mmap_action_map_kernel_pages_full - helper for mmap_prepare hook to s=
+pecify that
+> + * kernel pages contained in the @pages array should be mapped to userla=
+nd
+> + * from @desc->start to @desc->end.
+> + * @desc: The VMA descriptor for the VMA requiring kernel pags to be map=
+ped.
+> + * @pages: An array of struct page pointers describing the memory to map=
+.
+> + *
+> + * The caller must ensure that @pages contains sufficient entries to cov=
+er the
+> + * entire range described by @desc.
+> + */
+> +static inline void mmap_action_map_kernel_pages_full(struct vm_area_desc=
+ *desc,
+> +               struct page **pages)
+> +{
+> +       mmap_action_map_kernel_pages(desc, desc->start, pages,
+> +                                    vma_desc_pages(desc));
+> +}
+> +
+>  int mmap_action_prepare(struct vm_area_desc *desc);
+>  int mmap_action_complete(struct vm_area_struct *vma,
+>                          struct mmap_action *action);
+> @@ -4380,10 +4419,59 @@ static inline struct vm_area_struct *find_exact_v=
+ma(struct mm_struct *mm,
+>         return vma;
+>  }
+>
+> +/**
+> + * range_is_subset - Is the specified inner range a subset of the outer =
+range?
+> + * @outer_start: The start of the outer range.
+> + * @outer_end: The exclusive end of the outer range.
+> + * @inner_start: The start of the inner range.
+> + * @inner_end: The exclusive end of the inner range.
+> + *
+> + * Returns: %true if [inner_start, inner_end) is a subset of [outer_star=
+t,
+> + * outer_end), otherwise %false.
+> + */
+> +static inline bool range_is_subset(unsigned long outer_start,
+> +                                  unsigned long outer_end,
+> +                                  unsigned long inner_start,
+> +                                  unsigned long inner_end)
+> +{
+> +       return outer_start <=3D inner_start && inner_end <=3D outer_end;
+> +}
+> +
+> +/**
+> + * range_in_vma - is the specified [@start, @end) range a subset of the =
+VMA?
+> + * @vma: The VMA against which we want to check [@start, @end).
+> + * @start: The start of the range we wish to check.
+> + * @end: The exclusive end of the range we wish to check.
+> + *
+> + * Returns: %true if [@start, @end) is a subset of [@vma->vm_start,
+> + * @vma->vm_end), %false otherwise.
+> + */
+>  static inline bool range_in_vma(const struct vm_area_struct *vma,
+>                                 unsigned long start, unsigned long end)
+>  {
+> -       return (vma && vma->vm_start <=3D start && end <=3D vma->vm_end);
+> +       if (!vma)
+> +               return false;
+> +
+> +       return range_is_subset(vma->vm_start, vma->vm_end, start, end);
+> +}
+> +
+> +/**
+> + * range_in_vma_desc - is the specified [@start, @end) range a subset of=
+ the VMA
+> + * described by @desc, a VMA descriptor?
+> + * @desc: The VMA descriptor against which we want to check [@start, @en=
+d).
+> + * @start: The start of the range we wish to check.
+> + * @end: The exclusive end of the range we wish to check.
+> + *
+> + * Returns: %true if [@start, @end) is a subset of [@desc->start, @desc-=
+>end),
+> + * %false otherwise.
+> + */
+> +static inline bool range_in_vma_desc(const struct vm_area_desc *desc,
+> +                                    unsigned long start, unsigned long e=
+nd)
+> +{
+> +       if (!desc)
+> +               return false;
+> +
+> +       return range_is_subset(desc->start, desc->end, start, end);
+>  }
+>
+>  #ifdef CONFIG_MMU
+> @@ -4427,6 +4515,9 @@ int remap_pfn_range(struct vm_area_struct *vma, uns=
+igned long addr,
+>  int vm_insert_page(struct vm_area_struct *, unsigned long addr, struct p=
+age *);
+>  int vm_insert_pages(struct vm_area_struct *vma, unsigned long addr,
+>                         struct page **pages, unsigned long *num);
+> +int map_kernel_pages_prepare(struct vm_area_desc *desc);
+> +int map_kernel_pages_complete(struct vm_area_struct *vma,
+> +                             struct mmap_action *action);
+>  int vm_map_pages(struct vm_area_struct *vma, struct page **pages,
+>                                 unsigned long num);
+>  int vm_map_pages_zero(struct vm_area_struct *vma, struct page **pages,
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 7538d64f8848..c46224020a46 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -815,6 +815,7 @@ enum mmap_action_type {
+>         MMAP_REMAP_PFN,         /* Remap PFN range. */
+>         MMAP_IO_REMAP_PFN,      /* I/O remap PFN range. */
+>         MMAP_SIMPLE_IO_REMAP,   /* I/O remap with guardrails. */
+> +       MMAP_MAP_KERNEL_PAGES,  /* Map kernel page range from array. */
+>  };
+>
+>  /*
+> @@ -833,6 +834,12 @@ struct mmap_action {
+>                         phys_addr_t start_phys_addr;
+>                         unsigned long size;
+>                 } simple_ioremap;
+> +               struct {
+> +                       unsigned long start;
+> +                       struct page **pages;
+> +                       unsigned long nr_pages;
+> +                       pgoff_t pgoff;
+> +               } map_kernel;
+>         };
+>         enum mmap_action_type type;
+>
+> diff --git a/mm/memory.c b/mm/memory.c
+> index f3f4046aee97..849d5d9eeb83 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -2484,13 +2484,14 @@ static int insert_pages(struct vm_area_struct *vm=
+a, unsigned long addr,
+>  int vm_insert_pages(struct vm_area_struct *vma, unsigned long addr,
+>                         struct page **pages, unsigned long *num)
+>  {
+> -       const unsigned long end_addr =3D addr + (*num * PAGE_SIZE) - 1;
+> +       const unsigned long nr_pages =3D *num;
+> +       const unsigned long end =3D addr + PAGE_SIZE * nr_pages;
+>
+> -       if (addr < vma->vm_start || end_addr >=3D vma->vm_end)
+> +       if (!range_in_vma(vma, addr, end))
+>                 return -EFAULT;
+>         if (!(vma->vm_flags & VM_MIXEDMAP)) {
+> -               BUG_ON(mmap_read_trylock(vma->vm_mm));
+> -               BUG_ON(vma->vm_flags & VM_PFNMAP);
+> +               VM_WARN_ON_ONCE(mmap_read_trylock(vma->vm_mm));
+> +               VM_WARN_ON_ONCE(vma->vm_flags & VM_PFNMAP);
+>                 vm_flags_set(vma, VM_MIXEDMAP);
+>         }
+>         /* Defer page refcount checking till we're about to map that page=
+. */
+> @@ -2498,6 +2499,39 @@ int vm_insert_pages(struct vm_area_struct *vma, un=
+signed long addr,
+>  }
+>  EXPORT_SYMBOL(vm_insert_pages);
+>
+> +int map_kernel_pages_prepare(struct vm_area_desc *desc)
+> +{
+> +       const struct mmap_action *action =3D &desc->action;
+> +       const unsigned long addr =3D action->map_kernel.start;
+> +       unsigned long nr_pages, end;
+> +
+> +       if (!vma_desc_test(desc, VMA_MIXEDMAP_BIT)) {
+> +               VM_WARN_ON_ONCE(mmap_read_trylock(desc->mm));
+> +               VM_WARN_ON_ONCE(vma_desc_test(desc, VMA_PFNMAP_BIT));
+> +               vma_desc_set_flags(desc, VMA_MIXEDMAP_BIT);
+> +       }
+> +
+> +       nr_pages =3D action->map_kernel.nr_pages;
+> +       end =3D addr + PAGE_SIZE * nr_pages;
+> +       if (!range_in_vma_desc(desc, addr, end))
+> +               return -EFAULT;
+> +
+> +       return 0;
+> +}
+> +EXPORT_SYMBOL(map_kernel_pages_prepare);
+> +
+> +int map_kernel_pages_complete(struct vm_area_struct *vma,
+> +                             struct mmap_action *action)
+> +{
+> +       unsigned long nr_pages;
+> +
+> +       nr_pages =3D action->map_kernel.nr_pages;
+> +       return insert_pages(vma, action->map_kernel.start,
+> +                           action->map_kernel.pages,
+> +                           &nr_pages, vma->vm_page_prot);
+> +}
+> +EXPORT_SYMBOL(map_kernel_pages_complete);
+> +
+>  /**
+>   * vm_insert_page - insert single page into user vma
+>   * @vma: user vma to map to
+> diff --git a/mm/util.c b/mm/util.c
+> index a166c48fe894..dea590e7a26c 100644
+> --- a/mm/util.c
+> +++ b/mm/util.c
+> @@ -1441,6 +1441,8 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+>                 return io_remap_pfn_range_prepare(desc);
+>         case MMAP_SIMPLE_IO_REMAP:
+>                 return simple_ioremap_prepare(desc);
+> +       case MMAP_MAP_KERNEL_PAGES:
+> +               return map_kernel_pages_prepare(desc);
+>         }
+>
+>         WARN_ON_ONCE(1);
+> @@ -1472,6 +1474,9 @@ int mmap_action_complete(struct vm_area_struct *vma=
+,
+>         case MMAP_IO_REMAP_PFN:
+>                 err =3D io_remap_pfn_range_complete(vma, action);
+>                 break;
+> +       case MMAP_MAP_KERNEL_PAGES:
+> +               err =3D map_kernel_pages_complete(vma, action);
+> +               break;
+>         case MMAP_SIMPLE_IO_REMAP:
+>                 /*
+>                  * The simple I/O remap should have been delegated to an =
+I/O
+> @@ -1494,6 +1499,7 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+>         case MMAP_REMAP_PFN:
+>         case MMAP_IO_REMAP_PFN:
+>         case MMAP_SIMPLE_IO_REMAP:
+> +       case MMAP_MAP_KERNEL_PAGES:
+>                 WARN_ON_ONCE(1); /* nommu cannot handle these. */
+>                 break;
+>         }
+> diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/=
+dup.h
+> index 6658df26698a..4407caf207ad 100644
+> --- a/tools/testing/vma/include/dup.h
+> +++ b/tools/testing/vma/include/dup.h
+> @@ -454,6 +454,7 @@ enum mmap_action_type {
+>         MMAP_REMAP_PFN,         /* Remap PFN range. */
+>         MMAP_IO_REMAP_PFN,      /* I/O remap PFN range. */
+>         MMAP_SIMPLE_IO_REMAP,   /* I/O remap with guardrails. */
+> +       MMAP_MAP_KERNEL_PAGES,  /* Map kernel page range from an array. *=
+/
+>  };
+>
+>  /*
+> @@ -472,6 +473,12 @@ struct mmap_action {
+>                         phys_addr_t start;
+>                         unsigned long len;
+>                 } simple_ioremap;
+> +               struct {
+> +                       unsigned long start;
+> +                       struct page **pages;
+> +                       unsigned long num;
+> +                       pgoff_t pgoff;
+> +               } map_kernel;
+>         };
+>         enum mmap_action_type type;
+>
+> --
+> 2.53.0
+>
 
