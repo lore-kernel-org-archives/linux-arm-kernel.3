@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C99103E198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961D1103E197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUSGuVXrtN6dhJD+eX5BA52jXuTqiW6CSfo46kH31QM=; b=FWP00h8uv1SHzCS8RuQIuQyeS0
-	qzthotxRhFGME6XBRcS79EAZqG9JxIhvFTz5sWD59pfCVWF6fQcOZZ0NuIgVamSuzAWif7hvOEWkG
-	CfByLfo8J3+3p+EyBmYojzlcnbXjTKLTrM7glyHm23vmzw0p6pDUbYY1iWnbzsg8gFhDMxigebihU
-	tg3QL+87VOP3cEKB5xhKxXTjAoQ1k4xQhhguM9zGXJSOvrV65PFZ0cJsQdChkRSrQFY+pn64ghlVm
-	BDShqDJVuLi4fhvHX+X2DQL3AhrN76xOQuwyzNm0T71+kjOPmp8IF9OYtH+UJ8rxZycto+ApZE5ln
-	78GOUqKQ==;
+	bh=MQTPVEgHGALJsv6FWudcJd9WslYwf14ufNGdoEhDs44=; b=MFfKPdP1ElILLVluLTl3KcvvO0
+	pTU6YH1VIqaYpLEgcRldPATd7IptBeCqkZF1UNIjOJ7O/t5RGrVKXBVr/wUrS7UfbzsqrPnHRGqMr
+	5XjtoBRyHxh3qURHCEg0PAccBZPqKzwx8BAr/nFIo0vmI3G9nHxeVwRR34mefrM6OD8BS8Cc1tBGq
+	gaFGHuD/dojGdpsne3YiquQzs+gBenfDlBpAQv+xBp6Gy1TTDS74jnaY0APHJjdOWf7bonP7S/2Iu
+	4wL31KDya/np3HJVu1ZaiyeFnk9g0AubEAXhpRAapE+3+ULwZciUNc1aitWc3ddE3BXrCVSBw1rI2
+	w8bAfvPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tEw-00000008odx-46QA;
-	Wed, 18 Mar 2026 15:55:22 +0000
+	id 1w2tF7-00000008onT-2qZH;
+	Wed, 18 Mar 2026 15:55:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tEv-00000008ocC-2ChP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Mar 2026 15:55:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MQTPVEgHGALJsv6FWudcJd9WslYwf14ufNGdoEhDs44=; b=I4DlEVQQbKtM4Lw7aBlRPWe+XC
+	hi3bj5afw3Nzp3q2xErCY6zF+1HBEiSK/xEIhaaFFlhh+YRmPom/B83t4M2OXRv9e7jfDdRnscxmo
+	n8+XhLkJLMaBAIGwDUt3mq+GZIDziRod/sYulTtFDxbjl4NJRESpB/8yyjZWmCuJcUqjjHEZ6vBvX
+	3pUfYG35VyuMJ0zqziRGgB2su6gCbLSiWK76G6coC797lrQp3VwTtaOawGhZ+1HAQvmUutLCI7pWj
+	ikuxOCUijtD9+RCvqFBqVvBR4i8POH9Dq3Hw6+jgNnK7bQZ5EOxfXx2kr5BLhRj1jENAR1ruDrFbB
+	kLlQtmEQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tEl-00000008oVt-1rsb
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tEs-0000000BdUr-0qop
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:55:12 +0000
+	Wed, 18 Mar 2026 15:55:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4976204C;
-	Wed, 18 Mar 2026 08:55:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 587511C2B;
+	Wed, 18 Mar 2026 08:55:11 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BB9F3F73B;
-	Wed, 18 Mar 2026 08:55:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E62323F73B;
+	Wed, 18 Mar 2026 08:55:13 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -58,17 +73,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v13 12/48] arm64: RMI: Basic infrastructure for creating a realm.
-Date: Wed, 18 Mar 2026 15:53:36 +0000
-Message-ID: <20260318155413.793430-13-steven.price@arm.com>
+Subject: [PATCH v13 14/48] KVM: arm64: Allow passing machine type in KVM creation
+Date: Wed, 18 Mar 2026 15:53:38 +0000
+Message-ID: <20260318155413.793430-15-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_085511_610250_D3723F3D 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20260318_155518_647975_33BD9A27 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,302 +98,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the skeleton functions for creating and destroying a realm.
-The IPA size requested is checked against what the RMM supports.
+Previously machine type was used purely for specifying the physical
+address size of the guest. Reserve the higher bits to specify an ARM
+specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+used to create a realm guest.
 
-The actual work of constructing the realm will be added in future
-patches.
-
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v12:
- * Drop the RMM_PAGE_{SHIFT,SIZE} defines - the RMM is now configured to
-   be the same as the host's page size.
- * Rework delegate/undelegate functions to use the new RMI range based
-   operations.
-Changes since v11:
- * Major rework to drop the realm configuration and make the
-   construction of realms implicit rather than driven by the VMM
-   directly.
- * The code to create RDs, handle VMIDs etc is moved to later patches.
-Changes since v10:
- * Rename from RME to RMI.
- * Move the stage2 cleanup to a later patch.
 Changes since v9:
- * Avoid walking the stage 2 page tables when destroying the realm -
-   the real ones are not accessible to the non-secure world, and the RMM
-   may leave junk in the physical pages when returning them.
- * Fix an error path in realm_create_rd() to actually return an error value.
-Changes since v8:
- * Fix free_delegated_granule() to not call kvm_account_pgtable_pages();
-   a separate wrapper will be introduced in a later patch to deal with
-   RTTs.
- * Minor code cleanups following review.
+ * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
+   zeroing of the structure.
 Changes since v7:
- * Minor code cleanup following Gavin's review.
+ * Add some documentation explaining the new machine type.
 Changes since v6:
- * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
-   host page size to be larger than 4k while still communicating with an
-   RMM which uses 4k granules.
-Changes since v5:
- * Introduce free_delegated_granule() to replace many
-   undelegate/free_page() instances and centralise the comment on
-   leaking when the undelegate fails.
- * Several other minor improvements suggested by reviews - thanks for
-   the feedback!
-Changes since v2:
- * Improved commit description.
- * Improved return failures for rmi_check_version().
- * Clear contents of PGD after it has been undelegated in case the RMM
-   left stale data.
- * Minor changes to reflect changes in previous patches.
+ * Make the check for kvm_rme_is_available more visible and report an
+   error code of -EPERM (instead of -EINVAL) to make it explicit that
+   the kernel supports RME, but the platform doesn't.
 ---
- arch/arm64/include/asm/kvm_emulate.h |  5 ++
- arch/arm64/include/asm/kvm_rmi.h     | 16 +++++
- arch/arm64/kvm/arm.c                 | 12 ++++
- arch/arm64/kvm/mmu.c                 | 11 +++-
- arch/arm64/kvm/rmi.c                 | 88 ++++++++++++++++++++++++++++
- 5 files changed, 129 insertions(+), 3 deletions(-)
+ Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
+ arch/arm64/kvm/arm.c           | 16 ++++++++++++++++
+ arch/arm64/kvm/mmu.c           |  3 ---
+ include/uapi/linux/kvm.h       | 19 +++++++++++++++----
+ 4 files changed, 45 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index f38b50151ce8..39310d9b4e16 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -701,6 +701,11 @@ static inline enum realm_state kvm_realm_state(struct kvm *kvm)
- 	return READ_ONCE(kvm->arch.realm.state);
- }
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 72a2ce96d1ba..bc180c853faf 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -181,8 +181,20 @@ flag KVM_VM_MIPS_VZ.
+ ARM64:
+ ^^^^^^
  
-+static inline bool kvm_realm_is_created(struct kvm *kvm)
-+{
-+	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
-+}
+-On arm64, the physical address size for a VM (IPA Size limit) is limited
+-to 40bits by default. The limit can be configured if the host supports the
++On arm64, the machine type identifier is used to encode a type and the
++physical address size for the VM. The lower byte (bits[7-0]) encode the
++address size and the upper bits[11-8] encode a machine type. The machine
++types that might be available are:
 +
- static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
- {
- 	return false;
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 3506f50b05cd..0ada525af18f 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -6,6 +6,8 @@
- #ifndef __ASM_KVM_RMI_H
- #define __ASM_KVM_RMI_H
- 
-+#include <asm/rmi_smc.h>
++ ======================   ============================================
++ KVM_VM_TYPE_ARM_NORMAL   A standard VM
++ KVM_VM_TYPE_ARM_REALM    A "Realm" VM using the Arm Confidential
++                          Compute extensions, the VM's memory is
++                          protected from the host.
++ ======================   ============================================
 +
- /**
-  * enum realm_state - State of a Realm
-  */
-@@ -46,11 +48,25 @@ enum realm_state {
-  * struct realm - Additional per VM data for a Realm
-  *
-  * @state: The lifetime state machine for the realm
-+ * @rd: Kernel mapping of the Realm Descriptor (RD)
-+ * @params: Parameters for the RMI_REALM_CREATE command
-+ * @num_aux: The number of auxiliary pages required by the RMM
-+ * @ia_bits: Number of valid Input Address bits in the IPA
-  */
- struct realm {
- 	enum realm_state state;
-+
-+	void *rd;
-+	struct realm_params *params;
-+
-+	unsigned long num_aux;
-+	unsigned int ia_bits;
- };
- 
- void kvm_init_rmi(void);
-+u32 kvm_realm_ipa_limit(void);
-+
-+int kvm_init_realm_vm(struct kvm *kvm);
-+void kvm_destroy_realm(struct kvm *kvm);
- 
- #endif /* __ASM_KVM_RMI_H */
++The physical address size for a VM (IPA Size limit) is limited to 40bits
++by default. The limit can be configured if the host supports the
+ extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
+ KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
+ identifier, where IPA_Bits is the maximum width of any physical
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 274d7866efdc..9b17bdfaf0c2 100644
+index ddbf080e4f55..b79b58802b33 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -253,6 +253,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+@@ -216,6 +216,22 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 	mutex_unlock(&kvm->lock);
+ #endif
  
- 	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
- 
-+	/* Initialise the realm bits after the generic bits are enabled */
-+	if (kvm_is_realm(kvm)) {
-+		ret = kvm_init_realm_vm(kvm);
-+		if (ret)
-+			goto err_free_cpumask;
++	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
++		return -EINVAL;
++
++	switch (type & KVM_VM_TYPE_ARM_MASK) {
++	case KVM_VM_TYPE_ARM_NORMAL:
++		break;
++	case KVM_VM_TYPE_ARM_REALM:
++		if (!static_branch_unlikely(&kvm_rmi_is_available))
++			return -EINVAL;
++		WRITE_ONCE(kvm->arch.realm.state, REALM_STATE_NONE);
++		kvm->arch.is_realm = true;
++		break;
++	default:
++		return -EINVAL;
 +	}
 +
- 	return 0;
+ 	kvm_init_nested(kvm);
  
- err_free_cpumask:
-@@ -312,6 +319,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 	kvm_unshare_hyp(kvm, kvm + 1);
- 
- 	kvm_arm_teardown_hypercalls(kvm);
-+	if (kvm_is_realm(kvm))
-+		kvm_destroy_realm(kvm);
- }
- 
- static bool kvm_has_full_ptr_auth(void)
-@@ -473,6 +482,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		else
- 			r = kvm_supports_cacheable_pfnmap();
- 		break;
-+	case KVM_CAP_ARM_RMI:
-+		r = static_key_enabled(&kvm_rmi_is_available);
-+		break;
- 
- 	default:
- 		r = 0;
+ 	ret = kvm_share_hyp(kvm, kvm + 1);
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 070a01e53fcb..d6094b60c4ce 100644
+index d6094b60c4ce..9dc242c3b9c8 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -872,12 +872,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
- 	.icache_inval_pou	= invalidate_icache_guest_page,
- };
+@@ -882,9 +882,6 @@ static int kvm_init_ipa_range(struct kvm *kvm,
+ 	if (kvm_is_realm(kvm))
+ 		kvm_ipa_limit = kvm_realm_ipa_limit();
  
--static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
-+static int kvm_init_ipa_range(struct kvm *kvm,
-+			      struct kvm_s2_mmu *mmu, unsigned long type)
- {
- 	u32 kvm_ipa_limit = get_kvm_ipa_limit();
- 	u64 mmfr0, mmfr1;
- 	u32 phys_shift;
+-	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+-		return -EINVAL;
+-
+ 	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+ 	if (is_protected_kvm_enabled()) {
+ 		phys_shift = kvm_ipa_limit;
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 6ec140ab0ed1..efd054cfbd07 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -691,14 +691,25 @@ struct kvm_enable_cap {
+ #define KVM_S390_SIE_PAGE_OFFSET 1
  
-+	if (kvm_is_realm(kvm))
-+		kvm_ipa_limit = kvm_realm_ipa_limit();
+ /*
+- * On arm64, machine type can be used to request the physical
+- * address size for the VM. Bits[7-0] are reserved for the guest
+- * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
+- * value 0 implies the default IPA size, 40bits.
++ * On arm64, machine type can be used to request both the machine type and
++ * the physical address size for the VM.
++ *
++ * Bits[11-8] are reserved for the ARM specific machine type.
++ *
++ * Bits[7-0] are reserved for the guest PA size shift (i.e, log2(PA_Size)).
++ * For backward compatibility, value 0 implies the default IPA size, 40bits.
+  */
++#define KVM_VM_TYPE_ARM_SHIFT		8
++#define KVM_VM_TYPE_ARM_MASK		(0xfULL << KVM_VM_TYPE_ARM_SHIFT)
++#define KVM_VM_TYPE_ARM(_type)		\
++	(((_type) << KVM_VM_TYPE_ARM_SHIFT) & KVM_VM_TYPE_ARM_MASK)
++#define KVM_VM_TYPE_ARM_NORMAL		KVM_VM_TYPE_ARM(0)
++#define KVM_VM_TYPE_ARM_REALM		KVM_VM_TYPE_ARM(1)
 +
- 	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
- 		return -EINVAL;
- 
-@@ -974,7 +978,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
- 		return -EINVAL;
- 	}
- 
--	err = kvm_init_ipa_range(mmu, type);
-+	err = kvm_init_ipa_range(kvm, mmu, type);
- 	if (err)
- 		return err;
- 
-@@ -1113,7 +1117,8 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (pgt) {
--		kvm_stage2_destroy(pgt);
-+		if (!kvm_is_realm(kvm))
-+			kvm_stage2_destroy(pgt);
- 		kfree(pgt);
- 	}
- }
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 80aedc85e94a..700b8c935d29 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -6,6 +6,8 @@
- #include <linux/kvm_host.h>
- #include <linux/memblock.h>
- 
-+#include <asm/kvm_emulate.h>
-+#include <asm/kvm_mmu.h>
- #include <asm/kvm_pgtable.h>
- #include <asm/rmi_cmds.h>
- #include <asm/virt.h>
-@@ -182,6 +184,92 @@ static int rmi_init_metadata(void)
- 	return 0;
- }
- 
-+u32 kvm_realm_ipa_limit(void)
-+{
-+	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
-+}
+ #define KVM_VM_TYPE_ARM_IPA_SIZE_MASK	0xffULL
+ #define KVM_VM_TYPE_ARM_IPA_SIZE(x)		\
+ 	((x) & KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
 +
-+static int undelegate_range(phys_addr_t phys, unsigned long size)
-+{
-+	unsigned long ret;
-+	unsigned long top = phys + size;
-+	unsigned long out_top;
-+
-+	while (phys < top) {
-+		ret = rmi_granule_range_undelegate(phys, top, &out_top);
-+		if (ret == RMI_SUCCESS)
-+			phys = out_top;
-+		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
-+			return ret;
-+	}
-+
-+	return ret;
-+}
-+
-+static int undelegate_page(phys_addr_t phys)
-+{
-+	return undelegate_range(phys, PAGE_SIZE);
-+}
-+
-+static int free_delegated_page(phys_addr_t phys)
-+{
-+	if (WARN_ON(undelegate_page(phys))) {
-+		/* Undelegate failed: leak the page */
-+		return -EBUSY;
-+	}
-+
-+	free_page((unsigned long)phys_to_virt(phys));
-+
-+	return 0;
-+}
-+
-+void kvm_destroy_realm(struct kvm *kvm)
-+{
-+	struct realm *realm = &kvm->arch.realm;
-+	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-+
-+	write_lock(&kvm->mmu_lock);
-+	kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
-+			       BIT(realm->ia_bits - 1), true);
-+	write_unlock(&kvm->mmu_lock);
-+
-+	if (realm->params) {
-+		free_page((unsigned long)realm->params);
-+		realm->params = NULL;
-+	}
-+
-+	if (!kvm_realm_is_created(kvm))
-+		return;
-+
-+	WRITE_ONCE(realm->state, REALM_STATE_DYING);
-+
-+	if (realm->rd) {
-+		phys_addr_t rd_phys = virt_to_phys(realm->rd);
-+
-+		if (WARN_ON(rmi_realm_destroy(rd_phys)))
-+			return;
-+		free_delegated_page(rd_phys);
-+		realm->rd = NULL;
-+	}
-+
-+	if (WARN_ON(undelegate_range(kvm->arch.mmu.pgd_phys, pgd_size)))
-+		return;
-+
-+	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
-+
-+	/* Now that the Realm is destroyed, free the entry level RTTs */
-+	kvm_free_stage2_pgd(&kvm->arch.mmu);
-+}
-+
-+int kvm_init_realm_vm(struct kvm *kvm)
-+{
-+	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
-+
-+	if (!kvm->arch.realm.params)
-+		return -ENOMEM;
-+	return 0;
-+}
-+
- static int rmm_check_features(void)
- {
- 	if (kvm_lpa2_is_enabled() && !rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
+ /*
+  * ioctls for /dev/kvm fds:
+  */
 -- 
 2.43.0
 
