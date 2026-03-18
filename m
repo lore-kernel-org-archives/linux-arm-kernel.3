@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE2410775E1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E500810775E7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUuKxSErbsVuIxJB9EBHvpZHYxZGnraH5VCRfNINYl4=; b=vgc89LFPBTPIEadwoAJdn5DiKA
-	GUVhT0/708WAJc0+Ukl06Gu9SEgGetyLsvABPLKTaNnsLGgjakjgJs6QUvviY8PWMx0GlVsZ8gPZG
-	KqsbZHz6zXfu/NVHaqHh7aPnSW5IunvFPfHAsIPnU7m+ZdPWf2eOW9Qq5k7bRIiin02ndI0fkYrJm
-	Or3YUTEOu8FkRx/HwWcvkoG/H92mZ2HvFwqXCgP/Mk0BQ8qA8VFft0CxCWR9r30SQjeKs84Gy56gG
-	kyTauzVtRLT3tTGWRWMm1qgYIFPVP2VrOvXxgmJ1BbzZftAiTYDOk5Ir3UH5qrrpE5UCrepqTQ65n
-	OVEUAMMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WDwcxRshpAYJqtF5HZcaMWeuFfTHSID1g6dg+ByAXnM=; b=tZP/vLW5a7GGb7+gKeC9cBPcgt
+	46XuGn6ZEfjmlkkM91dMRFNfpq1EUsP38QJ+D/jBuU1yJqQS0TKOhGcUizM+0hMyXciJo5kzuLRIi
+	zkD2rFmM5o69Xl77OLw6DS1nS/IEDXdV/JQRjj+eNfw2vFx5pZG6sfCAHdeC9SsY2BH3BIRDV5oLh
+	Z1r1kQVyVTo8ncVezfKdfIExyheQZRbkRUD3mEupujrAAObfQFw1xO1Vl1wGkIQASccXQSuY0pbJk
+	6j4K2QKOBX1Wtn6gYX0QUJ8q+wyFLC5E2woO++eCYw54eyfhnmxi00STRVmPmWC+mSlKzMjGPxi1r
+	eARguu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2u9M-000000090ZJ-2uLb;
-	Wed, 18 Mar 2026 16:53:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2u9K-000000090Yp-2mUa
+	id 1w2uFk-000000090zi-2FgL;
+	Wed, 18 Mar 2026 17:00:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2uFh-000000090zK-1r24
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 16:53:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F4351BF7;
-	Wed, 18 Mar 2026 09:53:31 -0700 (PDT)
-Received: from [10.57.61.122] (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4D173F778;
-	Wed, 18 Mar 2026 09:53:29 -0700 (PDT)
-Message-ID: <6e7cd05a-2859-4225-a50f-07d62f84568a@arm.com>
-Date: Wed, 18 Mar 2026 16:53:25 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/48] arm64: Support for Arm CCA in KVM
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 18 Mar 2026 17:00:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26A5F44083;
+	Wed, 18 Mar 2026 17:00:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0546EC19421;
+	Wed, 18 Mar 2026 17:00:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773853212;
+	bh=i760mwqkf7XS8UNOJTlA5EsOif4zkSFiCYeRZB3e4dw=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=YcgZOoRh0A8V7CbduwA7VxDYz6or0Mjo4F17+OGeD/Lq/Tp6nV9g4kO8rZrbn2MRn
+	 MCneI3Fg0Le1MFiI+OOQR9jg2TUC/LZOQf6GUO2ex0TOyi/VhytD4EE6n9x+GygvnS
+	 iQJoUz4MR8Hj5h7OXxnNxjcpKs8H6oT9EZpiBzY1sMDPRv3661sB6lariujwjKeHu1
+	 saRZhAjtP4aDKs8SpjdINcHmv30YJ8y93n8ZVzOWd5xtaOwDR3gCLTwOSKGQXcKFCQ
+	 qDO2bGZAVozZzMtRfWQ+RcUp9U5jQ/ZmSK08riIuVs9+QoS9qRGNfxI1PY8wuVqPTq
+	 NHNRmRZhR3jxw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BCCCA3808200;
+	Wed, 18 Mar 2026 17:00:04 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 7.0
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <33f46e61-6f3c-4aa4-9821-a0dca6babb89@app.fastmail.com>
+References: <33f46e61-6f3c-4aa4-9821-a0dca6babb89@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <33f46e61-6f3c-4aa4-9821-a0dca6babb89@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.0
+X-PR-Tracked-Commit-Id: df3ef89d7ef8185fa719812e2d175b83112aa315
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 04a9f1766954687f0a1b7a0f7184dc4f86edcb30
+Message-Id: <177385320353.796867.6088168841099407408.pr-tracker-bot@kernel.org>
+Date: Wed, 18 Mar 2026 17:00:03 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_095338_741723_239DDAC0 
-X-CRM114-Status: UNSURE (   4.78  )
+X-CRM114-CacheID: sfid-20260318_100013_517364_03F7DC51 
+X-CRM114-Status: UNSURE (   4.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,37 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-And for those who like to use shrinkwrap the following YAML config
-should work on top of the 2025.12.0 tag to pull the various repos. Save
-the below as e.g. cca-v13.yaml and follow the usual instructions in
-cca-3world.yaml but refer to cca-v13.yaml instead.
+The pull request you sent on Wed, 18 Mar 2026 15:41:48 +0100:
 
----8<---
-%YAML 1.2
----
-concrete: true
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.0
 
-layers:
-  - cca-3world.yaml
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/04a9f1766954687f0a1b7a0f7184dc4f86edcb30
 
-build:
-  linux:
-    repo:
-      revision: cca-host/v13
+Thank you!
 
-  kvmtool:
-    repo:
-      kvmtool:
-        revision: cca/v11
-
-  tfa:
-    params:
-      RMM_V1_COMPAT: 0
-    repo:
-      revision: master
-
-  rmm:
-    repo:
-      revision: topics/rmm-v2.0-poc
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
