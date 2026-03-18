@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA74103E197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D65103E19D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmFbhZ5kLrXx/Bqjiuc/lZQIeti/qu8CaVHJChtoKv0=; b=sIr13nf5HlhWgMnjxIyF/ZpZEx
-	FnsE4GW/a8l0OxIBWQPszI9Vljj9sIwiqUqrpPAq0GIxS4ja2sNBezA2el/BXgqh1HzyZB4lVZnEV
-	Ea2UO/mfUzubgh7HVE6uoJuC9szSqWN8RwRdSJzVyRLkp3C4/XPNgTWpuNUV4qoYtCgmLu/jQfYga
-	XEQeSWQQOPU05IRAIGyG0IgGG3t96E2hmWDZebVOMlakWk6haK0hzmLKEP6bnmPkqGEibBHbW6WKc
-	VJG9/bjlzBI86zl3FUagJQailiyueCPEJn1ls5d3a0T0n4DVs6whLpoAG3vLWeTxmN2Y8TlygnT4s
-	aWNSmxIA==;
+	bh=NYKjvjsvrf2mdd7IGLp02qWXaNvBa0KZd5Qdq++SFY0=; b=C2q2tCgPr/w1PazXFyemeSQ7Nb
+	+zpJCL7G8jCgKrJM30L9FlyMLP3SYgVjWH+j8qTHOD4EdBwEVSxChMnnLlUzHMzVMapMmEmpnVXog
+	9EQZCVUfWOYq5I6e0YB+LbM5cgxSA8InIopDw/PUgIH/XyrJs6NgcraHFCWarRbznRFDIow5bOlOI
+	nLatm47n0/kfnA8z7Yi50UsFgJEPt8CveA8OxsMZ3uLO81QaNRlQEOR62oBKES9HW+/svtDCV+F6R
+	PQS23GlEd0Pxtnx0s7QUdthaM0M2UKH4nMnQJA1xR+ueu5IL3mRDye8/YWSMfJ7z5vXgN48/fp8ls
+	S1wkwijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGr-00000008qgf-1yUS;
-	Wed, 18 Mar 2026 15:57:25 +0000
+	id 1w2tGw-00000008qkt-2R5i;
+	Wed, 18 Mar 2026 15:57:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGY-00000008qJm-2jmt
+	id 1w2tGf-00000008qQ9-2aeI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:57:04 +0000
+	Wed, 18 Mar 2026 15:57:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=jmFbhZ5kLrXx/Bqjiuc/lZQIeti/qu8CaVHJChtoKv0=; b=mSOeuG31tpIIzBlynqt49ekSpv
-	F7cnvaH8XjxcVENfgt2KXPy8iaTAPxKALHLcgo6KrUs750P0UrMqmOHnAmjRhOs3hwJNqV92+dZBe
-	7D5XY8mrCGCs77Ivle4fjOJJpoWhtQS2r16JPA0wKW9B2gSzJDdBapeYvVVUnuhukzNPlSewCkG69
-	gPeOv6hWpuDSUVgkfC5C5CCBfQl9HWAj2cvd1BF02oGxeIRZDL625Q9i1vQc7BPwL8I9i5Hk2roWT
-	pxN3aqp84S86vt4RfPWXLEj+SVvaH4aKA5KVMTiffV4L6UHZNDn3U5MyZnNCEQN4kYvNn8QOwh5U6
-	PG7nyfKg==;
+	bh=NYKjvjsvrf2mdd7IGLp02qWXaNvBa0KZd5Qdq++SFY0=; b=iuFnA9UySuKMElSMSZMci17qML
+	cXu5yX0YGhvGcosji0v6grwlZfxmIgcALdeGEl3JmxvkYR94Ibwdvn5TP+Bzvfw5jvOnK/E917fse
+	0uwICpgN8Em61IJJ1bMDdaQGx7hgr3h8WFa7RvfAVdj1BVEvh76eaXV0hxFAsckpAJEGLYQejwLuC
+	s0+88wzwzqyx4/3qmpn3QpImXKOIQacIX7uPG6BNnXIbD4Y+TGKX7g7lvRuCUhbY+oxYu7ukzKCtx
+	sjNXafstXf8wuX1Y+xGnUycDcRhQOECyW8EXRym7eCe9iI9LwWOu5Hrs06rVXm1Kb7aZn8rdltaJl
+	0rC0q7KQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGU-0000000Bdz6-3dEw
+	id 1w2tGc-0000000Be0i-0R3u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:57:00 +0000
+	Wed, 18 Mar 2026 15:57:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B254C2008;
-	Wed, 18 Mar 2026 08:56:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EAD820E3;
+	Wed, 18 Mar 2026 08:56:58 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 766B23F73B;
-	Wed, 18 Mar 2026 08:56:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EDC03F73B;
+	Wed, 18 Mar 2026 08:57:01 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -74,17 +74,17 @@ Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v13 42/48] arm64: RMI: Propagate max SVE vector length from RMM
-Date: Wed, 18 Mar 2026 15:54:06 +0000
-Message-ID: <20260318155413.793430-43-steven.price@arm.com>
+Subject: [PATCH v13 44/48] arm64: RMI: Provide register list for unfinalized RMI RECs
+Date: Wed, 18 Mar 2026 15:54:08 +0000
+Message-ID: <20260318155413.793430-45-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155659_311718_AF003D08 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260318_155706_654460_E80093E3 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,111 +101,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-RMM provides the maximum vector length it supports for a guest in its
-feature register. Make it visible to the rest of KVM and to userspace
-via KVM_REG_ARM64_SVE_VLS.
+KVM_GET_REG_LIST should not be called before SVE is finalized. The ioctl
+handler currently returns -EPERM in this case. But because it uses
+kvm_arm_vcpu_is_finalized(), it now also rejects the call for
+unfinalized REC even though finalizing the REC can only be done late,
+after Realm descriptor creation.
+
+Move the check to copy_sve_reg_indices(). One adverse side effect of
+this change is that a KVM_GET_REG_LIST call that only probes for the
+array size will now succeed even if SVE is not finalized, but that seems
+harmless since the following KVM_GET_REG_LIST with the full array will
+fail.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/include/asm/kvm_rmi.h  |  1 +
- arch/arm64/kvm/guest.c            |  2 +-
- arch/arm64/kvm/reset.c            | 12 ++++++++++--
- arch/arm64/kvm/rmi.c              |  6 ++++++
- 5 files changed, 19 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/arm.c   |  4 ----
+ arch/arm64/kvm/guest.c | 10 +++++-----
+ 2 files changed, 5 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 1efea996f474..1d5fb001408c 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -78,9 +78,9 @@ enum kvm_mode kvm_get_mode(void);
- static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
- #endif
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index cd2cb5e54f21..11a816fe981c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1923,10 +1923,6 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		if (unlikely(!kvm_vcpu_initialized(vcpu)))
+ 			break;
  
--extern unsigned int __ro_after_init kvm_sve_max_vl;
- extern unsigned int __ro_after_init kvm_host_sve_max_vl;
- int __init kvm_arm_init_sve(void);
-+unsigned int kvm_sve_get_max_vl(struct kvm *kvm);
- 
- u32 __attribute_const__ kvm_target_cpu(void);
- void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 8f871daf6540..b914b9a84bd8 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -87,6 +87,7 @@ struct realm_rec {
- void kvm_init_rmi(void);
- u32 kvm_realm_ipa_limit(void);
- u8 kvm_realm_max_pmu_counters(void);
-+unsigned int kvm_realm_sve_max_vl(void);
- 
- u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
- 
+-		r = -EPERM;
+-		if (!kvm_arm_vcpu_is_finalized(vcpu))
+-			break;
+-
+ 		r = -EFAULT;
+ 		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
+ 			break;
 diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 7cf919db1adc..705c2ccc335d 100644
+index 999edf0b5219..2c4db2d1a6ca 100644
 --- a/arch/arm64/kvm/guest.c
 +++ b/arch/arm64/kvm/guest.c
-@@ -375,7 +375,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 		if (vq_present(vqs, vq))
- 			max_vq = vq;
+@@ -617,8 +617,8 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+ 	if (!vcpu_has_sve(vcpu))
+ 		return 0;
  
--	if (max_vq > sve_vq_from_vl(kvm_sve_max_vl))
-+	if (max_vq > sve_vq_from_vl(kvm_sve_get_max_vl(vcpu->kvm)))
- 		return -EINVAL;
+-	/* Policed by KVM_GET_REG_LIST: */
+-	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
++	if (!kvm_arm_vcpu_sve_finalized(vcpu))
++		return 1; /* KVM_REG_ARM64_SVE_VLS */
  
+ 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
+ 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
+@@ -635,9 +635,6 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 	if (!vcpu_has_sve(vcpu))
+ 		return 0;
+ 
+-	/* Policed by KVM_GET_REG_LIST: */
+-	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
+-
  	/*
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 4bbf58892928..08883c9e848f 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -46,7 +46,7 @@ unsigned int __ro_after_init kvm_host_sve_max_vl;
- #define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
- 				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+ 	 * Enumerate this first, so that userspace can save/restore in
+ 	 * the order reported by KVM_GET_REG_LIST:
+@@ -647,6 +644,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 		return -EFAULT;
+ 	++num_regs;
  
--unsigned int __ro_after_init kvm_sve_max_vl;
-+static unsigned int __ro_after_init kvm_sve_max_vl;
- 
- int __init kvm_arm_init_sve(void)
- {
-@@ -76,9 +76,17 @@ int __init kvm_arm_init_sve(void)
- 	return 0;
- }
- 
-+unsigned int kvm_sve_get_max_vl(struct kvm *kvm)
-+{
-+	if (kvm_is_realm(kvm))
-+		return kvm_realm_sve_max_vl();
-+	else
-+		return kvm_sve_max_vl;
-+}
++	if (!kvm_arm_vcpu_sve_finalized(vcpu))
++		return num_regs;
 +
- static void kvm_vcpu_enable_sve(struct kvm_vcpu *vcpu)
- {
--	vcpu->arch.sve_max_vl = kvm_sve_max_vl;
-+	vcpu->arch.sve_max_vl = kvm_sve_get_max_vl(vcpu->kvm);
- 
- 	/*
- 	 * Userspace can still customize the vector lengths by writing
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index f29c04d2318a..f2aeda7f5e6e 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -217,6 +217,12 @@ u8 kvm_realm_max_pmu_counters(void)
- 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS);
- }
- 
-+unsigned int kvm_realm_sve_max_vl(void)
-+{
-+	return sve_vl_from_vq(u64_get_bits(rmm_feat_reg0,
-+					   RMI_FEATURE_REGISTER_0_SVE_VL) + 1);
-+}
-+
- u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- {
- 	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
+ 	for (i = 0; i < slices; i++) {
+ 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
+ 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
 -- 
 2.43.0
 
