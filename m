@@ -4,53 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2897410854D1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4107910854CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kLI1oGyPeNgE8d0aFHOE+Ov9caa7NWvuHOYqj2tUfuU=; b=wiCaJEiTn1uvbHRx8vuXx7ho3P
-	gFsGlUaK1S16KV3USF18xruGntVs2zpZXL4/mi95gOkWYofBLHOAq9iazP7xmS4TeamFJGZMUKTJt
-	RJZM5Vg3rXMfMvXNBSjilfWdGPub6UB5XFUeCSWuIziu+CRyYOJmfkPjteVtrUFzohjfkeYxTka2e
-	vMq1Lx8jqIPXaOQvINIjTLzWq7Mad9pYSRzPDRsAqHEDmni2Hoi/ueC0W0M4+sHzwM8VrpMKK9C8A
-	+Xw7PvxwPZbPNtUjfd0GAe1z1bmUas/+GNWWSlOqx7O+pkWDBFXY4v0TklcwF/rWMM3+GHiWp7yCx
-	/G6ODvOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gbYUF70wtYDERO0Yk6ZnrhLNJoYDIuSo4OwI3Flq4B8=; b=mEhwzbzU4kduig0uJJKpblY2FC
+	Tp7tRUEDBwPJ7pHcUejF+skQ71RikWjm4wOGfWIXug62A6fH2v3bm272V25s1Cb1HdQJXDy5RQ37t
+	1jbo2iU/ZX5rwWWw7fYJhcvIgooADEmoRhZB5JsO1YIbQIb2rGoPFqvAbrZsuXCkAFX93pAw3iY8k
+	9RPb6iLHYEG4GnJ40ZYyunQu9mmcqRcF/Wm6KbomKZoccyYZ3TmNsGxYGmYpmCmw7myPM+lFp/cva
+	zERDvqtEvqtiykAt4YA+vEbr69iXzrdox6Lm6ALz8wjkX5s5LKi6gh7B6BsXfc5VgrzgMHoV2qKJB
+	eQvFSeNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gy0-00000007gTV-0KyA;
-	Wed, 18 Mar 2026 02:49:04 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1w2h4c-00000007gmV-1zp0;
+	Wed, 18 Mar 2026 02:55:54 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gxx-00000007gT4-0eDn;
-	Wed, 18 Mar 2026 02:49:02 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1w2gxg-000000004CM-2SK6;
-	Wed, 18 Mar 2026 02:48:44 +0000
-Date: Wed, 18 Mar 2026 02:48:41 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Sam Shih <sam.shih@mediatek.com>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] clk: mediatek: mt7988: use MUX_CLR_SET_UPD for gate-less
- muxes
-Message-ID: <869a8a99bbde357fb4f2175f99e605c3e1597640.1773801987.git.daniel@makrotopia.org>
+	id 1w2h4Z-00000007gm6-2Rkx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 02:55:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QGfW3P4UqUqtam70SXc0AsaY9WavgZ+/BpWViBvkFoawKrD3KDXqqeRXSaouXm2ozrbU5nuw+n9dVpuNKq+t3Sh9mLJoCfBYAxfSTFil1JYpKuKjzTsUQjjGpPn4hcLH+CtRt/Mqzd3in1XZ7aNgsBIz822f1FCOSn/CY830HNOQCvQZxQ+ee7UvCJd/eIFriM5LlX60yAQKsnOG7xkLx2cyC9HdryVLtS6qD7DtXzVcvGu5YeI2te+JQzx5LTK72ImUB1kpdako7hyOE0xCcgro3KBt3OpVQP0pHV8bGGJ/bOrzw+F5cUFkB/ZTTTBOygP9eHQPKWDr9T4wT6fuvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gbYUF70wtYDERO0Yk6ZnrhLNJoYDIuSo4OwI3Flq4B8=;
+ b=JYlJYrofyMQEzE8+VERhBoMpmUMJntqKgP6FTJDzwmklH2J4ZJEB67OUdrbUo+S9ilXew/t0LhFZdP82ThNIWV8/6FTmVRhpjCibaYVAFT2263rGoMYJIHcGkCi4B7lYNvvjFCxJEpA59S7pypoMtPKDcSa/KYt+L/dDXrGCWP/HGHemTVEO5U6qIa5rUlKuDJRh3OcXySDRFvomdZLQm8D1d0pw+GdsTeFvw+rP7mdo78X1zPlQNQFHkVRuGVLk3btpxzEIJqQtw61ruwW+TlhrWJ3j7boMXVkXQLZXvotOTXUbdva9Wp/k1X97lN8oFhWv25ZwUIZMQp6Ar5C/2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gbYUF70wtYDERO0Yk6ZnrhLNJoYDIuSo4OwI3Flq4B8=;
+ b=YnAK3TjoTR6WpP+FhGmzY4uAAWjybImhy0jmAb8nN83+zU/50fgz8YYj2ukTU8BTeTTeXnjLqzva2JM121T+rtwT79SpazrWXLybgYg+mDRKTKVW6YYfY3EfS/j0iflJ5IS15FDzYMIaWVQErGvby17kv95YDv3VFWzZ+pK1bSgK65G3OtPiu/Uwqg1P3/odhcfY/RZ1t/uA0z62NIX07SxfMwzHyspCerfJuvI5Ibu9KJfdIWBLnP5QZTiOfecvNSu+WgvfQ0MYW8vZWAPK67Cc/Ove6jff9k1qEocplRYVuoHWsSC/22BEfD35EQ4GWHQ7V+/MqmfoXaVPRPZ3zg==
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by GV2PR04MB11980.eurprd04.prod.outlook.com (2603:10a6:150:2f3::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Wed, 18 Mar
+ 2026 02:55:38 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
+ 02:55:45 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: Frank Li <frank.li@nxp.com>, "jingoohan1@gmail.com"
+	<jingoohan1@gmail.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v1] PCI: imx6: Add force_suspend flag to override L1SS
+ suspend skip
+Thread-Topic: [PATCH v1] PCI: imx6: Add force_suspend flag to override L1SS
+ suspend skip
+Thread-Index: AQHctdXR4rMaQwHMbk+Nxv/9or4V47Wy+e2AgACXyCA=
+Date: Wed, 18 Mar 2026 02:55:45 +0000
+Message-ID: <AS8PR04MB8833061F34B9BEFC9D19764A8C4EA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+References: <20260317061256.591362-1-hongxing.zhu@nxp.com>
+ <20260317172341.GA93733@bhelgaas>
+In-Reply-To: <20260317172341.GA93733@bhelgaas>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|GV2PR04MB11980:EE_
+x-ms-office365-filtering-correlation-id: 9d9555ad-f727-4e51-64c3-08de8499da3e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|376014|1800799024|7416014|22082099003|18002099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: bV5m5eXsek7zkIol+3n3T6BNDXR2aorVeE7HnW+BTk+/sSOSzVjP9Jnf7CGZ4d34DDRjpX6dilufybJ04ta09uH23sWfuSoscvUQ6xePBbzxlprT0iRzBpXgU+JbpL4mjlIntbBc5+4CZKmnEiMLmEB78LhuFgkDiHUf4qEW4dCWgHlttRjaN2p7GSfo1QFbdxIrfq37M4sxAzQBnePl7NUG4cl79xyC/Hjfuzohf/ZTk/I4a+v4GoNbAqobeWzxKZ5e8HgrXAfvsZxWaOvdZ4P9m6GGA1todWESJUU5YQ3HDvkRNpKMfn9xuTEJdo/dW82YPVSo/K58nB1kogWKB6Cv3gw986gWoQMSr0+kPzV+p9C/+GJbucFBY7mYeuiMXjFyP+ym6GgR8zcDslci8Weef+zHKZjEEh9pAdwMMrKNZJyZPlUB/GhIh5nRC0DDa8Fe93S5RVxsDPfkRSime7wIKma2K6ajtnJ15D9Wj4UB+y5e8RBGCgjPs/2FfP0Ay/8L8AtO/J0RNULBF/DErQHcxIBdsvLFY25ZZ2u/bh12BurqePpoCIZ3qpIC0PwHjhb/FgyY+9juemR5Jc/uugO9S0qvDuqCDYncswF0Jtb4BfvfkcFPqawwsthqOL7UftTfjP3vflBOW4ADWKct5y9mukM3KQC40JT4REFyUEgPqapddQL+8E/pk4MGmP3s4vj3vc/GIQTkMvup1npuKswObRzMu1anWqTLRNI0JwFi7B8K56n4LoxfhVt6bD8jPtJBZBmi5v4KsDpQLq0lhENpedTGgxTgb0MG0BneCNg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(1800799024)(7416014)(22082099003)(18002099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?UGFPSWMzdkRoMnFpNE94aENSWERIM0liRVBHYURiak0xL2tJcjk4MnNCbnEx?=
+ =?gb2312?B?TlllVmNmYzhlMFk4T0dzQlp1Qk1pTVhzMjZlUFpFM21COUlxQ2c2Q2FqaDdt?=
+ =?gb2312?B?QTlmdlhGVkQwTzIrc1FPamZHQ091Qmx1UW11emhpcDh2b3RmTmhua2QvSWxX?=
+ =?gb2312?B?OHZEU3dXclFFWnZkSFVxeWl1YlU2OHJGSGIzbGZBOUc2Q0ZpcGJwcDRZVWxC?=
+ =?gb2312?B?QUJFa1lwMEc4ZGRoWmZNaXVjUFlpRjRwQ0lMUzJENjUvOWV6TEhOQVEyakpT?=
+ =?gb2312?B?QjJpc29kZ3UrZGllQUlDbXBmaVJmaStJVjB0ME5jUWpJTmgzMkVmVU5rK0kz?=
+ =?gb2312?B?bUVoY2Z5RklVd1pzNzFjUHdpKzgyTHI2ZWs0MlR3M0Zma095NENlZmxJTVZB?=
+ =?gb2312?B?Y2JFNlF0VzBFN1cwVXlZemNRM2NlSEFSZ3dEblJsQ1FoU2p2a1p1OC82Zld5?=
+ =?gb2312?B?dG42QUZvaEZTYVFMU2FuU0F4cGw2OG9UK21sWW5jaVdyZkZGQ3VyWGdadElD?=
+ =?gb2312?B?TWx0a0gyNEJRb0hWMmJRdTZxL2JBWjFvUUpydlIzNzVpVlZ6NFFwVHB6b3R2?=
+ =?gb2312?B?NFdwcE1xVXhPTXl3MkU2SGpNWHZjK0IxU3RUT0JQQi9pZWp2SUgyRUY1aFFR?=
+ =?gb2312?B?UVlyaEJub2dUVU4yeGNIemJocUpJM2JpYUFmbXBhV2ZPdWpJYlhhbXhqVE1z?=
+ =?gb2312?B?S0FLMWJKcEt4N2ZxN2VCVzgweTFMTU10emhSblVTTnB3WmFMSHA3WkpjTDBt?=
+ =?gb2312?B?VGNNaVVBTUp5ZlhQOWQ4ZFVnNUFKaWJsTW91R1IwVmpIekdmdlhaNUsvT3VF?=
+ =?gb2312?B?bVpQd2MweDk2YThyTG1VZHdMaHFzMGh5L3UvQWI5bUJ5dlhrYnpxdVZrcXQy?=
+ =?gb2312?B?NzFwVXBxS1JUTXhUNFFZeEZkd2JrRTduaXQ2OXpiTFFGSVlaekpjWk5VQ1Zm?=
+ =?gb2312?B?NnQwZm4wSnpWVnFRTHcrL2R1WnZOUWJmSElVTmQ4Q0xBc084T09TNGVHTXVQ?=
+ =?gb2312?B?UlNpaHZMYzE2Z0FnRCtEZEtXV2VYRUgzcFJiYTQ1TFg3NFVqSzVPcVJYd3lz?=
+ =?gb2312?B?bytBS0IxOE1oOUFqTWd5eDduSlordThPOVFZL0kvMGZ4L1k3RE9vZjVPL0pD?=
+ =?gb2312?B?YzRKdVlCWWlHWWhVQTc0c29kL2dzaW1mZ2RqK1JOYkR0dDNZbEp1dVVWcWRD?=
+ =?gb2312?B?dlNIQWQ2Ri9DT1JDVkk5RVpGc3ZuZ0tPK3BNcnp5anAwbnJDQk9IKzFvL05V?=
+ =?gb2312?B?bldsbStOSDRUMTd6cnp3N09nMnR0MHE0c1BBazZRT1FuTGpmMU01YlBtdU9Z?=
+ =?gb2312?B?VnZab01DU29NRWh3Tmk3WExyM0NBSXdWQ2d4T0JzakJiajBpWFBIbjZuc2Zw?=
+ =?gb2312?B?MWpuQVhsQXlYVHRTQWlPYTBGeXlsNXlaUjd0ZE9vVHp6cnhOa0R2NGF1OVlw?=
+ =?gb2312?B?cys5bE9pM0hsQW5qM2tLbUxQRVRueldXSElLZXMxcFgrNjlNaXMvVXc2MzFj?=
+ =?gb2312?B?K2tpUlBUeDhGOXJWZzhMSFpXSEQ4SDdrZWgvVGZ5clFnMHN6MjFxaExrWXlk?=
+ =?gb2312?B?VzRYNnhCZWQ1SllreGNURWFmcmJpZnl2aEt0MkVzWEpUb01YdlA5aUxaNm56?=
+ =?gb2312?B?UDZaMXg4OVhGa3RPMGlsL01wVk9CUXkvckIxckJGL0lrZUI0M1YzRDJHQWVr?=
+ =?gb2312?B?VW5jZkxRSmlkWDBWWWJDT3g1SXA4encxcW9ORk5zN041ajFDWkNRcVpmbDRE?=
+ =?gb2312?B?dUx3cTA1cVkvaGVvQjNhSlVTSjJiMVc1QThyNHE2RWpGV2diaHJkMHNMenFH?=
+ =?gb2312?B?dEJneTY0aWlwN2w5VzFTZkduYkV5SFJ3bzRCcWFGMktXc0hVdk15S3liaUFE?=
+ =?gb2312?B?OWxieXZ6RzhtaExNVHVKVGdJUGhmNDNhQUFtQ0djeWZOemFwakFpSEUybGMr?=
+ =?gb2312?B?RlNDcmFmYS95LzJmYjFMekIrWGlvZldCcTZELzdjM1E4OXJRR0ZZSHlkRkhr?=
+ =?gb2312?B?UGtYdGVwMHJwVGNmRWszNVUwK2ZyTlp3MEtzNnRhOGxKd3FleE44VU5hbk1i?=
+ =?gb2312?B?blBtR2ZwZzJ4Y1FBb2JUNG93Kzc4VE1RQVAvcEZjRVErUVpOT1JiR2d2eEwx?=
+ =?gb2312?B?OUtMbEMxSTgySDVyODVtemd4clE0RnZNUTAyc2hkS2JTMUtZOFkwZDlsVjR4?=
+ =?gb2312?B?V2c1YWtnT3pGc1RBQjh1VGhTTGtNK0RXcmNFb3NFTFo1QldUSU1xQU5MOHdx?=
+ =?gb2312?B?Zm80cy82aTZnYkFTV0dyR2k3VGFNUnBnVmh3d2wxQnRadjZRdWxjOURkczdG?=
+ =?gb2312?Q?ivnrO6ZF6t11FS/t9n?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d9555ad-f727-4e51-64c3-08de8499da3e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 02:55:45.9483
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uWifYhyKVKExGavmIp1gJAoYtGhPkjZ8fYzDYVD/ibbvAodmm1uiI1qVtGlqIjfPIlW1qXmGLt7en3Adb1ctzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11980
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_194901_397423_C328CEED 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260317_195551_780204_7803DC93 
+X-CRM114-Status: GOOD (  32.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,131 +160,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All 18 muxes in the infra_muxes[] array are pure mux selectors without
-a clock gate, yet they were defined using MUX_GATE_CLR_SET_UPD with
-gate_shift = -1.
-
-This macro assigns mtk_mux_gate_clr_set_upd_ops, whose
-enable/disable/is_enabled callbacks perform BIT(gate_shift). Since
-gate_shift is stored as u8, the -1 truncates to 255, causing a
-shift-out-of-bounds at runtime:
-
-UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:76:8
-shift exponent 255 is too large for 64-bit type 'long unsigned int'
-
-UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:102:4
-shift exponent 255 is too large for 64-bit type 'long unsigned int'
-
-UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:122:16
-shift exponent 255 is too large for 64-bit type 'long unsigned int'
-
-Switch these definitions to MUX_CLR_SET_UPD, which uses
-mtk_mux_clr_set_upd_ops (no gate callbacks). The actual clock gating
-for these peripherals is handled by the separate GATE_INFRA* definitions
-further down.
-
-Fixes: 4b4719437d85f ("clk: mediatek: add drivers for MT7988 SoC")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/clk/mediatek/clk-mt7988-infracfg.c | 84 +++++++++++-----------
- 1 file changed, 42 insertions(+), 42 deletions(-)
-
-diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-index c40e18c27f12e..57203d08ac265 100644
---- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-@@ -56,49 +56,49 @@ static const char *const infra_pcie_gfmux_tl_ck_o_p3_parents[] __initconst = {
- 
- static const struct mtk_mux infra_muxes[] = {
- 	/* MODULE_CLK_SEL_0 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
--			     infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
--			     infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
--			     infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel", infra_mux_spi0_parents,
--			     0x0018, 0x0010, 0x0014, 4, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel", infra_mux_spi1_parents,
--			     0x0018, 0x0010, 0x0014, 5, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel", infra_mux_spi0_parents,
--			     0x0018, 0x0010, 0x0014, 6, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_SEL, "infra_pwm_sel", infra_pwm_bck_parents, 0x0018,
--			     0x0010, 0x0014, 14, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 16, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 18, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 20, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 22, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 24, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 26, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 28, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 30, 2, -1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
-+			infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
-+			infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
-+			infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel",
-+			infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel",
-+			infra_mux_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel",
-+			infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_SEL, "infra_pwm_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 14, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 16, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 18, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 20, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 22, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 24, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 26, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 28, 2, -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel",
-+			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 30, 2, -1, -1),
- 	/* MODULE_CLK_SEL_1 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL, "infra_pcie_gfmux_tl_o_p0_sel",
--			     infra_pcie_gfmux_tl_ck_o_p0_parents, 0x0028, 0x0020, 0x0024, 0, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL, "infra_pcie_gfmux_tl_o_p1_sel",
--			     infra_pcie_gfmux_tl_ck_o_p1_parents, 0x0028, 0x0020, 0x0024, 2, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL, "infra_pcie_gfmux_tl_o_p2_sel",
--			     infra_pcie_gfmux_tl_ck_o_p2_parents, 0x0028, 0x0020, 0x0024, 4, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL, "infra_pcie_gfmux_tl_o_p3_sel",
--			     infra_pcie_gfmux_tl_ck_o_p3_parents, 0x0028, 0x0020, 0x0024, 6, 2, -1,
--			     -1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL, "infra_pcie_gfmux_tl_o_p0_sel",
-+			infra_pcie_gfmux_tl_ck_o_p0_parents, 0x0028, 0x0020, 0x0024, 0, 2,
-+			-1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL, "infra_pcie_gfmux_tl_o_p1_sel",
-+			infra_pcie_gfmux_tl_ck_o_p1_parents, 0x0028, 0x0020, 0x0024, 2, 2,
-+			-1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL, "infra_pcie_gfmux_tl_o_p2_sel",
-+			infra_pcie_gfmux_tl_ck_o_p2_parents, 0x0028, 0x0020, 0x0024, 4, 2,
-+			-1, -1),
-+	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL, "infra_pcie_gfmux_tl_o_p3_sel",
-+			infra_pcie_gfmux_tl_ck_o_p3_parents, 0x0028, 0x0020, 0x0024, 6, 2,
-+			-1, -1),
- };
- 
- static const struct mtk_gate_regs infra0_cg_regs = {
--- 
-2.53.0
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBCam9ybiBIZWxnYWFzIDxoZWxn
+YWFzQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IDIwMjbE6jPUwjE4yNUgMToyNA0KPiBUbzogSG9uZ3hp
+bmcgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBu
+eHAuY29tPjsgamluZ29vaGFuMUBnbWFpbC5jb207DQo+IGwuc3RhY2hAcGVuZ3V0cm9uaXguZGU7
+IGxwaWVyYWxpc2lAa2VybmVsLm9yZzsga3dpbGN6eW5za2lAa2VybmVsLm9yZzsNCj4gbWFuaUBr
+ZXJuZWwub3JnOyByb2JoQGtlcm5lbC5vcmc7IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+IHMuaGF1
+ZXJAcGVuZ3V0cm9uaXguZGU7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsgZmVzdGV2YW1AZ21haWwu
+Y29tOw0KPiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3Rz
+LmluZnJhZGVhZC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWtlcm5lbEB2Z2Vy
+Lmtlcm5lbC5vcmc7IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRD
+SCB2MV0gUENJOiBpbXg2OiBBZGQgZm9yY2Vfc3VzcGVuZCBmbGFnIHRvIG92ZXJyaWRlIEwxU1MN
+Cj4gc3VzcGVuZCBza2lwDQo+IA0KPiBPbiBUdWUsIE1hciAxNywgMjAyNiBhdCAwMjoxMjo1NlBN
+ICswODAwLCBSaWNoYXJkIFpodSB3cm90ZToNCj4gPiBBZGQgYSBmb3JjZV9zdXNwZW5kIGZsYWcg
+dG8gYWxsb3cgcGxhdGZvcm0gZHJpdmVycyB0byBmb3JjZSB0aGUgUENJZQ0KPiA+IGxpbmsgaW50
+byBMMiBzdGF0ZSBkdXJpbmcgc3VzcGVuZCwgZXZlbiB3aGVuIEwxU1MgKEFTUE0gTDEgU3ViLVN0
+YXRlcykNCj4gPiBpcyBlbmFibGVkLg0KPiA+DQo+ID4gQnkgZGVmYXVsdCwgdGhlIERlc2lnbldh
+cmUgUENJZSBob3N0IGNvbnRyb2xsZXIgc2tpcHMgTDIgc3VzcGVuZCB3aGVuDQo+ID4gTDFTUyBp
+cyBzdXBwb3J0ZWQgdG8gbWVldCBsb3cgcmVzdW1lIGxhdGVuY3kgcmVxdWlyZW1lbnRzIGZvciBk
+ZXZpY2VzDQo+ID4gbGlrZSBOVk1lLiBIb3dldmVyLCBzb21lIHBsYXRmb3JtcyBsaWtlIGkuTVgg
+UENJZSBuZWVkIHRvIGVudGVyIEwyDQo+ID4gc3RhdGUgZm9yIHByb3BlciBwb3dlciBtYW5hZ2Vt
+ZW50IHJlZ2FyZGxlc3Mgb2YgTDFTUyBzdXBwb3J0Lg0KPiA+DQo+ID4gRW5hYmxlIGZvcmNlX3N1
+c3BlbmQgZm9yIGkuTVggUENJZSB0byBlbnN1cmUgdGhlIGxpbmsgZW50ZXJzIEwyIGR1cmluZw0K
+PiA+IHN5c3RlbSBzdXNwZW5kLg0KPiANCj4gSSdtIGEgbGl0dGxlIGJpdCBza2VwdGljYWwgYWJv
+dXQgdGhpcy4NCj4gDQo+IFdoYXQgZXhhY3RseSBkb2VzIGEgImxvdyByZXN1bWUgbGF0ZW5jeSBy
+ZXF1aXJlbWVudCIgbWVhbj8gIElzIHRoaXMgYW4NCj4gYWN0dWFsIGZ1bmN0aW9uYWwgcmVxdWly
+ZW1lbnQgdGhhdCdzIHNwZWNpYWwgdG8gTlZNZSwgb3IgaXMgaXQganVzdCB0aGUgZGVzaXJlIGZv
+cg0KPiBsb3cgcmVzdW1lIGxhdGVuY3kgdGhhdCBldmVyeWJvZHkgaGFzIGZvciBhbGwgZGV2aWNl
+cz8NCkhpIEJqb3JuOg0KRnJvbSBteSB1bmRlcnN0YW5kaW5nLCBMMVNTIG1vZGUgaXMgY2hhcmFj
+dGVyaXplZCBieSBsb3dlciBsYXRlbmN5IHdoZW4NCmNvbXBhcmVkIHRvIEwyIG9yIEwzIG1vZGVz
+Lg0KSXQgY2FuIGJlIHVzZWQgb24gYWxsIGRldmljZXMsIGF2b2lkaW5nIGZyZXF1ZW50IHBvd2Vy
+IG9uL29mZiBjeWNsZXMuIE5WTWUgY2FuDQphbHNvIGV4dGVuZCB0aGUgc2VydmljZSBsaWZlIG9m
+IHRoZSBlcXVpcG1lbnQuDQo+IA0KPiBJcyB0aGVyZSBzb21ldGhpbmcgc3BlY2lhbCBhYm91dCBp
+Lk1YIGhlcmU/ICBXaHkgZG8gd2Ugd2FudCBpLk1YIHRvIGJlDQo+IGRpZmZlcmVudCBmcm9tIG90
+aGVyIGhvc3QgY29udHJvbGxlcnM/DQppLk1YIFBDSWUgbG9zZXMgcG93ZXIgc3VwcGx5IGR1cmlu
+ZyBEZWVwIFNsZWVwIE1vZGUgKERTTSksIHJlcXVpcmluZyBmdWxsDQpyZWluaXRpYWxpemF0aW9u
+IGFmdGVyIHN5c3RlbSB3YWtlLXVwLg0KDQpSZW1vdmluZyB0aGUgTDFTUyBjaGVjayBhbGxvd3Mg
+dGhlIHN1c3BlbmQgcHJvY2VzcyB0byBjb21wbGV0ZSBzdWNjZXNzZnVsbHkNCmFuZCBlbnN1cmVz
+IHRoZSBwY2ktPnN1c3BlbmRlZCBmbGFnIGlzIHNldCB0byB0cnVlLCB3aGljaCB0cmlnZ2VycyB0
+aGUNCnByb3BlciByZXN1bWUgc2VxdWVuY2UgZHVyaW5nIHN5c3RlbSB3YWtlLXVwIGZvciBpLk1Y
+IFBDSWVzLg0KDQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQo+IA0KPiA+IENjOiBzdGFibGVA
+dmdlci5rZXJuZWwub3JnDQo+ID4gRml4ZXM6IDQ3NzRmYWY4NTRmNSAoIlBDSTogZHdjOiBJbXBs
+ZW1lbnQgZ2VuZXJpYyBzdXNwZW5kL3Jlc3VtZQ0KPiA+IGZ1bmN0aW9uYWxpdHkiKQ0KPiA+IFNp
+Z25lZC1vZmYtYnk6IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gPiAtLS0N
+Cj4gPiAgZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYyAgICAgICAgICAgICB8
+IDEgKw0KPiA+ICBkcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2lnbndhcmUtaG9z
+dC5jIHwgNCArKystDQo+ID4gIGRyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdu
+d2FyZS5oICAgICAgfCAxICsNCj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyks
+IDEgZGVsZXRpb24oLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9jb250cm9s
+bGVyL2R3Yy9wY2ktaW14Ni5jDQo+ID4gYi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2kt
+aW14Ni5jDQo+ID4gaW5kZXggODFhNzA5MzQ5NGM4Li43OTAyZDM5MTg1YTUgMTAwNjQ0DQo+ID4g
+LS0tIGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYw0KPiA+ICsrKyBiL2Ry
+aXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiBAQCAtMTgzMSw2ICsxODMx
+LDcgQEAgc3RhdGljIGludCBpbXhfcGNpZV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlDQo+
+ICpwZGV2KQ0KPiA+ICAJCWlmIChpbXhfY2hlY2tfZmxhZyhpbXhfcGNpZSwgSU1YX1BDSUVfRkxB
+R19TS0lQX0wyM19SRUFEWSkpDQo+ID4gIAkJCXBjaS0+cHAuc2tpcF9sMjNfcmVhZHkgPSB0cnVl
+Ow0KPiA+ICAJCXBjaS0+cHAudXNlX2F0dV9tc2cgPSB0cnVlOw0KPiA+ICsJCXBjaS0+cHAuZm9y
+Y2VfbDJfc3VzcGVuZCA9IHRydWU7DQo+ID4gIAkJcmV0ID0gZHdfcGNpZV9ob3N0X2luaXQoJnBj
+aS0+cHApOw0KPiA+ICAJCWlmIChyZXQgPCAwKQ0KPiA+ICAJCQlyZXR1cm4gcmV0Ow0KPiA+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2lnbndhcmUtaG9z
+dC5jDQo+ID4gYi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2lnbndhcmUtaG9z
+dC5jDQo+ID4gaW5kZXggYTc0MzM5OTgyYzI0Li43MjAxNTRmZDRmZjAgMTAwNjQ0DQo+ID4gLS0t
+IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253YXJlLWhvc3QuYw0KPiA+
+ICsrKyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdud2FyZS1ob3N0LmMN
+Cj4gPiBAQCAtMTIyOSw3ICsxMjI5LDkgQEAgaW50IGR3X3BjaWVfc3VzcGVuZF9ub2lycShzdHJ1
+Y3QgZHdfcGNpZSAqcGNpKQ0KPiA+ICAJICogSWYgTDFTUyBpcyBzdXBwb3J0ZWQsIHRoZW4gZG8g
+bm90IHB1dCB0aGUgbGluayBpbnRvIEwyIGFzIHNvbWUNCj4gPiAgCSAqIGRldmljZXMgc3VjaCBh
+cyBOVk1lIGV4cGVjdCBsb3cgcmVzdW1lIGxhdGVuY3kuDQo+ID4gIAkgKi8NCj4gPiAtCWlmIChk
+d19wY2llX3JlYWR3X2RiaShwY2ksIG9mZnNldCArIFBDSV9FWFBfTE5LQ1RMKSAmDQo+IFBDSV9F
+WFBfTE5LQ1RMX0FTUE1fTDEpDQo+ID4gKwlpZiAoIXBjaS0+cHAuZm9yY2VfbDJfc3VzcGVuZCAm
+Jg0KPiA+ICsJICAgIChkd19wY2llX3JlYWR3X2RiaShwY2ksIG9mZnNldCArIFBDSV9FWFBfTE5L
+Q1RMKSAmDQo+ID4gKwkgICAgIFBDSV9FWFBfTE5LQ1RMX0FTUE1fTDEpKQ0KPiA+ICAJCXJldHVy
+biAwOw0KPiA+DQo+ID4gIAlpZiAocGNpLT5wcC5vcHMtPnBtZV90dXJuX29mZikgew0KPiA+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2lnbndhcmUuaA0K
+PiA+IGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253YXJlLmgNCj4gPiBp
+bmRleCBhZTYzODlkZDljYWEuLjUyNjEwMzZiYmU2ZSAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJz
+L3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2lnbndhcmUuaA0KPiA+ICsrKyBiL2RyaXZlcnMv
+cGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdud2FyZS5oDQo+ID4gQEAgLTQ0Nyw2ICs0NDcs
+NyBAQCBzdHJ1Y3QgZHdfcGNpZV9ycCB7DQo+ID4gIAlib29sCQkJZWNhbV9lbmFibGVkOw0KPiA+
+ICAJYm9vbAkJCW5hdGl2ZV9lY2FtOw0KPiA+ICAJYm9vbCAgICAgICAgICAgICAgICAgICAgc2tp
+cF9sMjNfcmVhZHk7DQo+ID4gKwlib29sICAgICAgICAgICAgICAgICAgICBmb3JjZV9sMl9zdXNw
+ZW5kOw0KPiA+ICB9Ow0KPiA+DQo+ID4gIHN0cnVjdCBkd19wY2llX2VwX29wcyB7DQo+ID4gLS0N
+Cj4gPiAyLjM3LjENCj4gPg0K
 
