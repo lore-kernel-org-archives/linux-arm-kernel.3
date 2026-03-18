@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AA010775E6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D943310775E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tcbAf2TLbDZGGhH9W5GstwCswBLuBT1QhN/uA801F4=; b=RzVuR4vBpjFBLYMs71sRAoMEO9
-	IfLWLymc6yxGau41S25uluLkOkE9VteOoOu6ojppfBX65p3+9FsV1nGyP4f2DvLI0wXDgDLPC6Jwj
-	U63BkmEEgLrJZUOTUp3L1Tj1TzD1tBtn/xvSaSpGjTh+sSfcTLekGdWEgNg+IQQhHWnNswYq7FChy
-	ufx+2XxFyDQjCRZCVJ0zIxYeUgdbEH+5OCcAjxg7lWMR9XVsmWH3kjscelimxsmZ1twUggb3dMiha
-	YcaBxyZgcV1ByFzTlW9R1utAZeZNyaVEQ9ayfP8mGvxfPn4wGKKvQlLYFvrKdxBfxStryI7+LbabC
-	tp/AJXSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kTy9Ek/cdGZ1MasZugacGDt/OjNWerL8zY/8K1ebyW0=; b=yjBkm19uj9+Fo9M2x2gFjtyA4d
+	8Q+nZkcMYQ8QImfNeAYWl1fImquy0w4MpvbKZ5Poe5kdtdrDJTj4Gn16ZKfUKRgz79Ts5p1ZY1ytL
+	6h41djRjrDwl0bL0ueYRLp/YNLrXRS4b8sMsVYAW3GgmlJyUSsoqoabO79yNzSs9RuF0i0xov4aLC
+	/VLxdSmptrEItT0cVZIbnZye72kOEmj0fWOL7RwYP/emInMSzXA7G50EkTw1hJnLANTjcaWOaLfo9
+	xhLUwVYNZKpcwXLCsC4joHG0ddT8qsFgqLGzCqGth3irqqinMG+2/tZWAHjmBzbxoPRhtnWUUauRj
+	UXI3qY6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tjr-00000008vDm-3kyY;
-	Wed, 18 Mar 2026 16:27:19 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w2tkt-00000008vYh-1OgD;
+	Wed, 18 Mar 2026 16:28:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tjo-00000008vCx-3n3J
+	id 1w2tkn-00000008vND-0ePh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Mar 2026 16:28:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kTy9Ek/cdGZ1MasZugacGDt/OjNWerL8zY/8K1ebyW0=; b=rDln3ymzkYiQiqU8DPD0kOZhB5
+	cxJltbka/HzMqHjj7gijQwQyFAGGFRlJ2cSayDXWHyVtv5euq2gQFkxHtIuZH+/kMAWYBhj4PKCM1
+	X6mrJssRAJa03oMaFmm28BV2OGMuc/HPGr1fvF76QqYyrQ0qseN6yHrD4ERP3/2BHQmYXhFtswt6g
+	fDFe9wUOxKVf/unYLi1fzKpKnZiqIF7bMXqhGrg4inCOB+/FZNX6/feYxKkLYxZOfVHh5CA4u/eM/
+	NKs9LZU1fRPxooDcyONAKEs9nu3qon5Jz+soCqMUKQao4IY2C5A2Y0LzsUmb+RFuNwRNqlH9EaaZH
+	FGgk2Evw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tkh-0000000BiTu-3Rau
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 16:27:18 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 374D7379;
-	Wed, 18 Mar 2026 17:26:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773851161;
-	bh=R+gbzyfqox47IzBo74fcCTrVzw96R34F9lvaLulTWxM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iC2kqm0maHG/uZeyfWQCouc2GX7NMxkhUGzJVZEPv0Rxr68XIePmLtmFU1LllN4JM
-	 FOj00WG4giK96te25mBRqHR7k20JvnAu+QlQqzwWIoEB+mER7GFee85HwPsiQFzacw
-	 qaLZUGVB6D/sd5BBKT0uoDdvdytr/CLuQw1eu1hQ=
-Date: Wed, 18 Mar 2026 18:27:12 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	asahi@lists.linux.dev
-Subject: Re: [PATCH v2 1/4] drm/rcar-du: Use drm_gem_dma_get_sg_table()
- helper to get scatter gather table
-Message-ID: <20260318162712.GF633439@killaraus.ideasonboard.com>
-References: <20260317064049.696795-1-wenst@chromium.org>
- <20260317064049.696795-2-wenst@chromium.org>
- <20260318160239.GB633439@killaraus.ideasonboard.com>
- <CAGb2v66+OHbNOQLk1JojFapPDhSK6eqCySRWzQVYGkvAivqD4Q@mail.gmail.com>
+	Wed, 18 Mar 2026 16:28:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B700E40643;
+	Wed, 18 Mar 2026 16:28:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67090C19421;
+	Wed, 18 Mar 2026 16:28:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773851284;
+	bh=JRpRMOihLhniYpAAT2t+NPGuGJBBL5PuCSnuu2HqvrY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Alwo8cBJC9XI+zxiSJ9bNsPB4D1V9ohSDm+WArR/gLZqW7lOYrVRPNqiHb+PDKUWP
+	 AHpBZnGY0TdK0KGRPhfm4yDAO0kxFJc7ZfN+mGIFMwose6GkhVv1duRMyWvq7iw/4H
+	 JMsJEEYUBzMgXSjALVi9mLW2+BJgUYCKnt65osCJ2e8okdDDxXNg+8NLJP4NEOQ0pQ
+	 /0o8l0Dl7J6pluh38yrd1rPoNIAwLnBH2yI12Btptxm/u3V7Aj26SIKnr27dHWTXwd
+	 INx18uEbjNjJvX3WQkPefTwdd63EYvrslNdwX0dNDtV67Vunft5fa2IkoGtJfLFKR3
+	 AwLD9rEBnIxIA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Support loop control in quirk code snippets
+Date: Wed, 18 Mar 2026 16:27:58 +0000
+Message-ID: <177385122249.117565.12887395986436607561.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be>
+References: <51de914cddef8fa86c2e7dd5397e5df759c45464.1773675224.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v66+OHbNOQLk1JojFapPDhSK6eqCySRWzQVYGkvAivqD4Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_092717_126311_2FB9AC80 
-X-CRM114-Status: GOOD (  41.39  )
+X-CRM114-CacheID: sfid-20260318_162812_082862_1CE233D1 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,99 +91,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 12:21:49AM +0800, Chen-Yu Tsai wrote:
-> On Thu, Mar 19, 2026 at 12:02 AM Laurent Pinchart wrote:
-> > On Tue, Mar 17, 2026 at 02:40:43PM +0800, Chen-Yu Tsai wrote:
-> > > The rcar-du driver is directly calling dma_get_sgtable() on a
-> > > drm_gem_dma_object. Not passing the dma_attrs field in may cause
-> > > problems when DMA_ATTR_NO_KERNEL_MAPPING is added to the GEM DMA
-> > > helpers gain support later.
-> > >
-> > > Instead, use the drm_gem_dma_get_sg_table() helper to get the scatter
-> > > gather table.
-> > >
-> > > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > > ---
-> > > Changes since v1:
-> > > - new patch
-> > >
-> > > Not sure if we should add a helper like drm_fb_dma_get_gem_addr(). This
-> > > seems to be the only driver that is using a scatter gather table to pass
-> > > DMA addresses.
-> >
-> > The DU can't access memory directly (at least on Gen3 and newer), and
-> > goes through a separate device called VSP that acts as an external DMA
-> > engine (*) and compositor. This is why buffers need to be mapped
-> > manually to the VSP, the GEM helpers would otherwise use the DU struct
-> > device, which isn't correct. I can't use drm_device.dma_dev as the DMA
-> > initiator can be different per CRTC.
-> >
-> > I don't think a separate helper with a single user would be very useful
-> > here, especially given that part of the logic in
-> > drm_fb_dma_get_gem_addr() is in the separate vsp1 driver. Refactoring
-> > may get messy, for little benefit.
-> >
-> > * And in some cases the VSP further delegates memory access to the FCP,
-> > which is yet another DMA initiator from an IOMMU point of view.
+On Mon, 16 Mar 2026 16:34:40 +0100, Geert Uytterhoeven wrote:
+> Each SCMI firmware quirk contains a code snippet, which handles the
+> quirk, and has full access to the surrounding context.  When this
+> context is (part of) a loop body, the code snippet may want to use loop
+> control statements like "break" and "continue".  Unfortunately the
+> SCMI_QUIRK() macro implementation contains a dummy loop, taking
+> precedence over any outer loops.  Hence quirk code cannot use loop
+> control statements, but has to resort to polluting the surrounding
+> context with a label, and use goto.
 > 
-> I see. That's probably the most complicated hardware I've seen so far.
+> [...]
 
-I felt similar when I found out Gen3 dropped the DMA engines and
-compositor previously part of the DU :-)
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-> > > ---
-> > >  drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c | 12 +++++++++---
-> > >  1 file changed, 9 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
-> > > index 94c22d2db197..6a62608ee3a9 100644
-> > > --- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
-> > > +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
-> > > @@ -291,10 +291,16 @@ int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
-> > >                               dst = sg_next(dst);
-> > >                       }
-> > >               } else {
-> > > -                     ret = dma_get_sgtable(rcdu->dev, sgt, gem->vaddr,
-> > > -                                           gem->dma_addr, gem->base.size);
-> >
-> > Did you compile the patch ? The rcdu variable is now unused. Apart from
-> > that, it compiles fine and seems to operate as expected.
-> 
-> I probably missed it in the logs. Thanks for catching it.
-> 
-> > > -                     if (ret)
-> > > +                     struct sg_table *ret_sgt;
-> > > +
-> > > +                     ret_sgt = drm_gem_dma_get_sg_table(gem);
-> > > +                     if (IS_ERR(ret_sgt)) {
-> > > +                             ret = PTR_ERR(ret_sgt);
-> > >                               goto fail;
-> > > +                     }
-> > > +
-> > > +                     memcpy(sgt, ret_sgt, sizeof(*sgt));
-> > > +                     kfree(ret_sgt);
-> >
-> > It's a bit of a shame to kmalloc() a new sg_table and free it right
-> > after :-/ Would it be that bad to switch to dma_get_sgtable_attrs()
-> > here, and pass gem->dma_attrs to the function ?
-> 
-> That's another option. I was trying to isolate the DMA API calls to
-> just the GEM DMA helpers, but as you said, it's a bit wasteful.
-
-I like the goal of avoiding direct DMA mapping API calls, but I'm
-worried it will cause more harm than good in this case :-/
-
-> I'll just switch to dma_get_sgtable_attrs() and squash the change into
-> the other dma_*_attrs() conversion patch.
-
-OK.
-
-> > >               }
-> > >
-> > >               ret = vsp1_du_map_sg(vsp->vsp, sgt);
-
--- 
+[1/1] firmware: arm_scmi: Support loop control in quirk code snippets
+      https://git.kernel.org/sudeep.holla/c/0a7ec808abec
+--
 Regards,
+Sudeep
 
-Laurent Pinchart
 
