@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59862FCD0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3031FCD0CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yftJcqgrdcE4BI1LW2F6q4cXK+3E/gv6S/e+mSUwzKE=; b=4595zuKSp2qoz/HzLaF+KRGYw4
-	FiDi6pnNe1/TJaxLOS6ltun87ysllwClnmIsbV86rIcew7Hs5PJ9a204H7Jnnquh/UtrnQsR8RG5T
-	M/CTusKPUS9SRVPheITWgPLDNTVezygI9bTSPEoiN5UxKirMiGbNQKYaFbaMRIXDUlmOzjDGOipyI
-	Yxjv817QJ9fQzKQRDN6Ud+B5nbYVkB4xmJmUPdW1pkS1FDZGun0pP/pSYc8goMJ4g7fwAk1cUMiL6
-	ISqIS4JjVmJcyzXaco+DJ7nz6AFXQ3FduP3HSXwDIrhdYXGfR2IQ3pK05pD66NlmRvqIRB8BinAqz
-	1I//27Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1thjCaWy2Y4MaPdfgdXswMbuA6XTuPK31ODNC+iJJ2g=; b=A5rbmKKhNouvpDnIvw5f+lXJSU
+	ufz/MHXnxwpF1/rCszpHdLj/BNU2COrRi9nCAutOGiQ0IDjBqNMZcbxLoDrBWJFL5j6I14M4zsx+R
+	FA8XFjAnKr0qOFN1W8AZfCGPbqQzSrEPIUXNCNjSrU8v/M/uM4TZmgWnhhGwOKvsVcSidk7XLuPF2
+	IhICymM7G7zDTxp8VTkjqP/vqx6LR9fK9/yka65iM4AiyPoH7HTRFLDN6cyNGQr5xpf4/cbdgOgqE
+	1bD0e+qdWW1dQhgZU8DBaLepG+ZZ6iakTuaMKy5jDxFrKckIySnDJJtoQDORr3dK2gjddH5vQthtL
+	P2BFGLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lqv-00000007yZ2-0j7c;
-	Wed, 18 Mar 2026 08:02:05 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1w2ls0-00000007yn1-2Q0t;
+	Wed, 18 Mar 2026 08:03:12 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lqq-00000007yVP-2MJG
+	id 1w2lry-00000007ymZ-1ZdW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 08:02:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773820913; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=yftJcqgrdcE4BI1LW2F6q4cXK+3E/gv6S/e+mSUwzKE=;
-	b=ypD2OeDfznoEJ/u2kJPkJQ8/v34fmOGZdXr/UKQsL+o4Nk3sYUzgs3dP5QDch2hYlpM/tFm5NSZ5BEGhrp2obv36gDcz090bHDj6HEBPnrhSd67UbfZDXM7lpFc3yKSeBTf388cF/6V3kroNVrw2qYq3akkuyW+MTfFr06EDIFQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.DnRbH_1773820911;
-Received: from 30.246.163.250(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X.DnRbH_1773820911 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 18 Mar 2026 16:01:52 +0800
-Message-ID: <8c799be2-1525-4c84-b0ae-389cd0751e4a@linux.alibaba.com>
-Date: Wed, 18 Mar 2026 16:02:01 +0800
+	Wed, 18 Mar 2026 08:03:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1thjCaWy2Y4MaPdfgdXswMbuA6XTuPK31ODNC+iJJ2g=; b=c7U/aYIdQW2fmS2TxDL/u+YaRy
+	dDip749V8eak2+tgxjbbSeUnn6uC3FnJmx9M1pggAXgNNdSuA1k6Hu5D29Cv+MB+IY07UvsF7R1as
+	y1uwwqAI0bTgtWs9DwfJUrFs6Jk48JP7cHFfB8sJdNSN0rLtZwQ1AGVIQvgnpykh4MdWgyDFeTj+n
+	D5i9P5HZbhEEIuKzEt9r6bnKvYCviJLqgRDBZZAoSdvDGbco5M7Jt9TtGSTBVIeKka/xYUTuJY7KW
+	LbF5DN58l6FRjQ/+LIu51YK35hl0ZcQ3Egh3OB/VevpWA+VuKi+0eCZMETZ/V13N9ZBpyiTNS4t3D
+	Ke/h/IBg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54972)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w2lrt-00000000314-1wxZ;
+	Wed, 18 Mar 2026 08:03:05 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w2lrp-000000006vl-1Sam;
+	Wed, 18 Mar 2026 08:03:01 +0000
+Date: Wed, 18 Mar 2026 08:03:01 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Li Jun <lijun01@kylinos.cn>
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm: mvebu: fix null pointer when access
+Message-ID: <abpcNTI0NFZqe5eE@shell.armlinux.org.uk>
+References: <20260318075324.2477118-1-lijun01@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] iommu: Do not call pci_dev_reset_iommu_done()
- unless reset succeeds
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
-Cc: rafael@kernel.org, lenb@kernel.org, praan@google.com,
- baolu.lu@linux.intel.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <21fa71d59c8ab787c0f3d8cf3e9fc725330fd0d5.1773774441.git.nicolinc@nvidia.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <21fa71d59c8ab787c0f3d8cf3e9fc725330fd0d5.1773774441.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260318075324.2477118-1-lijun01@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_010201_320077_707797A3 
-X-CRM114-Status: GOOD (  31.23  )
+X-CRM114-CacheID: sfid-20260318_010310_411196_F20CFA24 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,253 +80,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 18, 2026 at 03:53:24PM +0800, Li Jun wrote:
+> the kzalloc may return null pointer, will cause kernel panic.
 
+So might kstrdup(), but you haven't fixed this one either.
 
-On 3/18/26 3:15 AM, Nicolin Chen wrote:
-> IOMMU drivers handle ATC cache maintenance. They may encounter ATC-related
-> errors (e.g., ATC invalidation request timeout), indicating that ATC cache
-> might have stale entries that can corrupt the memory. In this case, IOMMU
-> driver has no choice but to block the device's ATS function and wait for a
-> device recovery.
-> 
-> The pci_dev_reset_iommu_done() called at the end of a reset function could
-> serve as a reliable signal to the IOMMU subsystem that the physical device
-> cache is completely clean. However, the function is called unconditionally
-> even if the reset operation had actually failed, which would re-attach the
-> faulty device back to a normal translation domain. And this will leave the
-> system highly exposed, creating vulnerabilities for data corruption:
->      IOMMU blocks RID/ATS
->      pci_reset_function():
->          pci_dev_reset_iommu_prepare(); // Block RID/ATS
->          __reset(); // Failed (ATC is still stale)
->          pci_dev_reset_iommu_done(); // Unblock RID/ATS (ah-ha)
-> 
-> The simplest fix is to use pci_dev_reset_iommu_done() only on a successful
-> reset:
->      IOMMU blocks RID/ATS
->      pci_reset_function():
->          pci_dev_reset_iommu_prepare(); // Block RID/ATS
->          if (!__reset())
->              pci_dev_reset_iommu_done(); // Unblock RID/ATS
->          else
->              // Keep the device blocked by IOMMU
-> 
-> However, this breaks the symmetric requirement of these reset APIs so that
-> we have to allow a re-entry to pass a second reset attempt:
->      IOMMU blocks RID/ATS
->      pci_reset_function():
->          pci_dev_reset_iommu_prepare(); // Block RID/ATS
->          __reset(); // Failed (ATC is still stale)
->          // Keep the device blocked by IOMMU
->      Second reset:
->          pci_reset_function():
->              pci_dev_reset_iommu_prepare(); // Re-entry (!)
-> 
-> Update the function kdocs and all the existing callers to only unblock ATS
-> when the reset succeeds. Drop the WARN_ON in pci_dev_reset_iommu_prepare()
-> to allow re-entries.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->   drivers/iommu/iommu.c  | 16 +++++++++-----
->   drivers/pci/pci-acpi.c | 11 +++++++++-
->   drivers/pci/pci.c      | 50 +++++++++++++++++++++++++++++++++++++-----
->   drivers/pci/quirks.c   | 11 +++++++++-
->   4 files changed, 75 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 35db517809540..40a15c9360bd1 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -3938,8 +3938,10 @@ EXPORT_SYMBOL_NS_GPL(iommu_replace_group_handle, "IOMMUFD_INTERNAL");
->    * IOMMU activity while leaving the group->domain pointer intact. Later when the
->    * reset is finished, pci_dev_reset_iommu_done() can restore everything.
->    *
-> - * Caller must use pci_dev_reset_iommu_prepare() with pci_dev_reset_iommu_done()
-> - * before/after the core-level reset routine, to unset the resetting_domain.
-> + * Caller must use pci_dev_reset_iommu_done() after a successful PCI-level reset
-> + * to unset the resetting_domain. If the reset fails, caller can choose to keep
-> + * the device in the resetting_domain to protect system memory using IOMMU from
-> + * any bad ATS.
-
-I think you mean ...to protect system memory from DMA via stale ATC entries.
-
->    *
->    * Return: 0 on success or negative error code if the preparation failed.
->    *
-> @@ -3961,9 +3963,9 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
->   
->   	guard(mutex)(&group->mutex);
->   
-> -	/* Re-entry is not allowed */
-> -	if (WARN_ON(group->resetting_domain))
-> -		return -EBUSY;
-> +	/* Already prepared */
-> +	if (group->resetting_domain)
-> +		return 0;
-
-Could you elaborate more on why Re-entry is allowed now? For example:
-
-/*
-  * Allow re-entry: if a previous reset failed, the device remains in
-  * resetting_domain. A subsequent reset attempt must be able to call
-  * prepare() again without failing.
-  */
-
->   
->   	ret = __iommu_group_alloc_blocking_domain(group);
->   	if (ret)
-> @@ -4001,7 +4003,9 @@ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_prepare);
->    * re-attaching all RID/PASID of the device's back to the domains retained in
->    * the core-level structure.
->    *
-> - * Caller must pair it with a successful pci_dev_reset_iommu_prepare().
-> + * This is a pairing function for pci_dev_reset_iommu_prepare(). Caller should
-> + * use it on a successful PCI-level reset. Otherwise, it's suggested for caller
-> + * to keep the device in the resetting_domain to protect system memory.
->    *
->    * Note that, although unlikely, there is a risk that re-attaching domains might
->    * fail due to some unexpected happening like OOM.
-> diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
-> index 4d0f2cb6c695b..f1a918938242c 100644
-> --- a/drivers/pci/pci-acpi.c
-> +++ b/drivers/pci/pci-acpi.c
-> @@ -16,6 +16,7 @@
->   #include <linux/pci_hotplug.h>
->   #include <linux/module.h>
->   #include <linux/pci-acpi.h>
-> +#include <linux/pci-ats.h>
->   #include <linux/pci-ecam.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/pm_qos.h>
-> @@ -977,7 +978,15 @@ int pci_dev_acpi_reset(struct pci_dev *dev, bool probe)
->   		ret = -ENOTTY;
->   	}
->   
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!ret || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-
-pci_dev_reset_iommu_prepare() already does an early return for non-ATS
-devices, and pci_dev_reset_iommu_done() also early-returns
-when !pci_ats_supported(). So for non-ATS devices, done()
-is always a no-op regardless of whether it's called or not.
-
-Do we really need check pci_ats_supported(dev) here?
-
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return ret;
->   }
->   
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 8479c2e1f74f1..80c5cf6eeebdc 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -4358,7 +4358,15 @@ int pcie_flr(struct pci_dev *dev)
->   
->   	ret = pci_dev_wait(dev, "FLR", PCIE_RESET_READY_POLL_MS);
->   done:
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!ret || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return ret;
->   }
->   EXPORT_SYMBOL_GPL(pcie_flr);
-> @@ -4436,7 +4444,15 @@ static int pci_af_flr(struct pci_dev *dev, bool probe)
->   
->   	ret = pci_dev_wait(dev, "AF_FLR", PCIE_RESET_READY_POLL_MS);
->   done:
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!ret || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return ret;
->   }
->   
-> @@ -4490,7 +4506,15 @@ static int pci_pm_reset(struct pci_dev *dev, bool probe)
->   	pci_dev_d3_sleep(dev);
->   
->   	ret = pci_dev_wait(dev, "PM D3hot->D0", PCIE_RESET_READY_POLL_MS);
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!ret || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return ret;
->   }
->   
-> @@ -4933,7 +4957,15 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
->   
->   	rc = pci_parent_bus_reset(dev, probe);
->   done:
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!rc || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return rc;
->   }
->   
-> @@ -4978,7 +5010,15 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
->   		pci_write_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL,
->   				      reg);
->   
-> -	pci_dev_reset_iommu_done(dev);
-> +	/*
-> +	 * The reset might be invoked to recover a serious error. E.g. when the
-> +	 * ATC failed to invalidate its stale entries, which can result in data
-> +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> +	 */
-> +	if (!rc || !pci_ats_supported(dev))
-> +		pci_dev_reset_iommu_done(dev);
-> +	else
-> +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
->   	return rc;
->   }
-
-cxl_reset_bus_function() calls pci_reset_bus_function() which already
-contains the conditional pci_dev_reset_iommu_done() logic. Then the
-outer function calls done() again. The second call is a no-op because
-resetting_domain has already been cleared, but this is confusing.
-
-Additionally, cxl_reset_bus_function() does its own
-pci_dev_reset_iommu_prepare(), while pci_reset_bus_function() also
-calls prepare() internally. With the re-entry change in this patch,
-the nested prepare() silently succeeds.
-
-Is it a expected behavior?
-
-
-Thanks.
-Shuai
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
