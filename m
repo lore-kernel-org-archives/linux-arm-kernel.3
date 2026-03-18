@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB3B1077610
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E721077617
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YT+J13FCk/3I1Ua64kD0NKYfOvNjPxnVFsofNIvnam0=; b=FpX0sXWJ7OZV7TVkKzUp+pgoC/
-	gMVzllY8QhsTFg5tZyeF+aOxoHTPoNCWJvLu/Pie0FnmJ54buTq37eoFD2YH3+3e4csW32IIUi1It
-	op+mH5Q0PuHDIH7w78MXrJ/buX8fR9mtejjj+DfeTV05+8azaTa9QU6P06feAqSpgy/qNz0S4nAxu
-	PaA7m++tNjyCzYSTMjC/rJsgiPs71STSTK69+U0v9TVzh8G9mh/LgInslE6X24KNoJ3LZL38djbXl
-	XZZO++ymd0VH5Wx/oHfC1IGxwG0AQ1Y2wNL0O804soG5YF9ApA9Q3Ef/sSB4u3jb5P/cZhHqzW30T
-	NrQnnHEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=; b=KLR9JbdO5t75MYZu3lf8/cgHQa
+	BezyGn9zpbzaDvxxW8dKqHJiMY/WW0QYCnwygVqkWz07kXLmIleISc21X1lazuS7GZ8gw2v1nBELm
+	96IijcWZwwU3NdHB/DSjoa482BgAEAspXQCFjn9ff/xymI7VTJn4EuM9NTh4xMaOqAL9yMoqplBfu
+	aqyME3Nhhl5tVvjb/G5Hhodt55n/wj6y7l2cmCP/+zmfKNUROa/09wiYaL9+kkSTk7l7EVhi8qth8
+	r5HbTEkjT767DfzPaAGag3VMSuuwl2IfIDkdNubTKrhIIUlJj5TE2EF5vgL/JMuH7t6StlvNnp/+1
+	y705Z/sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xKZ-00000009Hw5-2jMm;
-	Wed, 18 Mar 2026 20:17:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2xRy-00000009IPu-1bTx;
+	Wed, 18 Mar 2026 20:25:06 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xKY-00000009Hvn-1fNK
+	id 1w2xRw-00000009IPN-1T57
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:17:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8752760103;
-	Wed, 18 Mar 2026 20:17:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 869F7C19421;
-	Wed, 18 Mar 2026 20:17:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773865045;
-	bh=iBneS3Si9ZBpeEAnqASzENR8sBCAt3mDVfd+Prm0xkw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=m/7+kPh0AIntEMvogN//D320DK32mO34Egm8HtxG8tLQRqFhHeTTFUzy5aAeNDApQ
-	 ii2gAVr5gqGemExEk2Gh4xKvy2P1m12cSQvlJjv7rW+vjZBddMuHwcOUQa3q1gU4VX
-	 8BHzHp39lqWlO45962Lee+ifawJY8yynJAOAQUxPjG04WwVD+8mMy0gi/jXUWw1rVd
-	 wSapj5kzTsfT0e7KCVDtLcGfw6rBYj9EVqpxg7Db4+rRBaUrxMZhOkBKFAsevhBjUu
-	 EEwj2evvh4tp/hNIxqjJA+tW29OQaxOWAKTZ4NIGLNvuLW8fPoGFPejTSTeiZDz9l4
-	 Qoqt+0jjXDL3g==
-Message-ID: <228943f2-8f1a-4da7-8663-7f17f5e2f21c@kernel.org>
-Date: Wed, 18 Mar 2026 21:17:19 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Wed, 18 Mar 2026 20:25:05 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c73f107789cso74835a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:25:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773865503; x=1774470303; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=;
+        b=lc7uEOU1mp7KLe+WdMepdKzx+qRQUtnjOANY3qoU4ZYpFkdNI1EGSImgIYo0gOtM9c
+         HiKnmCAf13FuSZXXc5YeHUS/27c3nrzy9PWieLSg422NI/3V6cwVjma/UJYOREucRnU8
+         weEmv4qusJCSLYlCXeYxqOmYLbnbfGFbvwnnhu1YLvhxLVNP2IMrMocuclfGZ8uw25QW
+         3PFVIxmfhDUInjeWGdsikzo/4XyPjSffBjcgtc4WYNx3HiKZRted6m63C968hvCID/7S
+         SmaROJifxO4HpAEv2XOX757zBFaw8OgyX46Csc5VanWQkKv3aflCJ721QyFisBm3my0g
+         JU0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773865503; x=1774470303;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=;
+        b=rGKqS0DhsZIHdyyQURXC1fzxiOCioJWthwyjlvKj8QWBS2GufgYn9dTwM6ONOWqnC8
+         FPS7WJ279UhLyVFor9YouKI/zCtYhQbb9cC8R2m8eEakhqWMgZQtv88YGyCtyBzeQ3Jg
+         Nt5N8GcNgC1GjB4NpUA9rpmqnI2vKXIjGXCMxzpHwfTJR7gzLWx5BevKHnmy2ASgyCI1
+         F2ZOuW9fWG2Aejg0Bmtbj2qIAVwtW8TE92vGIz0cpTZ+O/allobPrja80opcn4gP3qZC
+         FWSupS1fzreQ536JSoyJWfHfwvkCSV0ytf7xA/w63zeDs6ggYExj3eoXSbcUZx9Wg+Cd
+         A0QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSRrR643Fa6KP6YLdqY4C7bA7/iHWeRXQQlhHFtVZIEBngZKH9ZLFTphbFlJIflP3EL+QRdo9wTSw2eikRM+hP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr07YfcTXDa2mEYqaX6XLe9xm3avdbRiNbWQxCKQEv+mNRsDEX
+	+Vl8JT93xaOlCohvoazHHhWPWVa01nu1vjWCbE1a9u0b+G/eswaoXlVu
+X-Gm-Gg: ATEYQzwY0Kc3yeBCddFFhdJZBKq/nnkTC7B7Fcd81+UmvFTmdtT1RmucHvaG+3Iaa+d
+	BlKEQ5EZ2IndvODeCunWvS+IzglgirJ0dEaVWOxij2UYrpNctrG1Xf0fn4e19OvhLgcgX8ugO6/
+	jBTs++ftLn8azLJwpARA+fXbY3LYqnEkM5vVYAT/7B5HjPPgisRKYpL170Z1MjCbNm8t4yE/IDS
+	RwXjcFcyq58sfUVNKQrwyLaWv6UgkMzkaPr+RCsvNiHUtjQVoagkkZgVL8Favnr5RGq75gqNp1S
+	voA7vIZ1n/ZY54akmvPhPUhvizkKw38htO9ll97YAccK7esTqQUqZ2Aeg113wQffMChBfR4nCof
+	lqPuCzZE4A5DYFGKhAgahXTli8Q1FeqvLn4yXXqlrEzt4TuLwy61QUm+/4xDLU3PdnJrwWfzj3d
+	OWqVmcvSvOPkue9seFBc4z+1CE7zTq9+bvtqN4OT4zREvP
+X-Received: by 2002:a05:6a20:7f90:b0:38e:9220:ebbe with SMTP id adf61e73a8af0-39b99d6f450mr4339851637.23.1773865503486;
+        Wed, 18 Mar 2026 13:25:03 -0700 (PDT)
+Received: from google.com ([118.150.148.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c741e5691b8sm3286559a12.25.2026.03.18.13.24.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Mar 2026 13:25:03 -0700 (PDT)
+Date: Thu, 19 Mar 2026 04:24:56 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: andrew@codeconstruct.com.au, avifishman70@gmail.com,
+	tmaimon77@gmail.com, tali.perry1@gmail.com, srini@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	venture@google.com, yuenn@google.com, benjaminfair@google.com,
+	jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com,
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 1/3] dt-bindings: nvmem: add nuvoton,npcm750-otp
-To: Kuan-Wei Chiu <visitorckw@gmail.com>, andrew@codeconstruct.com.au,
- avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com,
- srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: venture@google.com, yuenn@google.com, benjaminfair@google.com,
- jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com,
- linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-ID: <absKGJbrWX5xtPX3@google.com>
 References: <20260318193538.246853-1-visitorckw@gmail.com>
  <20260318193538.246853-2-visitorckw@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260318193538.246853-2-visitorckw@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ <228943f2-8f1a-4da7-8663-7f17f5e2f21c@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <228943f2-8f1a-4da7-8663-7f17f5e2f21c@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_132504_424320_AD6EE56C 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,23 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 20:35, Kuan-Wei Chiu wrote:
-> +maintainers:
-> +  - Kuan-Wei Chiu <visitorckw@gmail.com>
-> +
-> +allOf:
-> +  - $ref: nvmem.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - nuvoton,npcm750-key-storage
-> +      - nuvoton,npcm750-fuse-array
+Hi Krzysztof,
 
-Your driver says these are exactly the same devices, so you got only one
-compatible. Otherwise explain in commit msg why these are different
-(current message speaks about purpose, but is not what is needed here).
+On Wed, Mar 18, 2026 at 09:17:19PM +0100, Krzysztof Kozlowski wrote:
+> On 18/03/2026 20:35, Kuan-Wei Chiu wrote:
+> > +maintainers:
+> > +  - Kuan-Wei Chiu <visitorckw@gmail.com>
+> > +
+> > +allOf:
+> > +  - $ref: nvmem.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - nuvoton,npcm750-key-storage
+> > +      - nuvoton,npcm750-fuse-array
+> 
+> Your driver says these are exactly the same devices, so you got only one
+> compatible. Otherwise explain in commit msg why these are different
+> (current message speaks about purpose, but is not what is needed here).
+> 
+Thanks for the prompt review.
 
-Best regards,
-Krzysztof
+I will drop the content-specific compatible strings and unify them into
+a single "nuvoton,npcm750-otp" in the upcoming v2 series.
+
+Regards,
+Kuan-Wei
 
