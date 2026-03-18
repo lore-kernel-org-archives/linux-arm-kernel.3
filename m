@@ -4,141 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5940B10775E1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BFA10775E8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=; b=Dwtem5WtgiDYMSgwRbxsEvw+fs
-	hZn7zxHJ22v3MYFdh36akd0fyThCsHGBOZc7RjPMGg9eBLU9euyw2n64rca7IyQpQXEpFojRDMXq3
-	vPXolQal/pxUthH2T9PZbjxAn9QVskiJyYu17HfE/AiRkYQt7a+GG8YuAVdMj34bKilw8QvZlEJ7P
-	+ResZpXvUD2tUEHScBW3yoZQQuY5k5OUg52pzMiZ2UkNi2WBfaZSwQiieyCVwR4HVlZD97g8kOeWS
-	NW0aZfQs70HoLIRn+yGp86djkErnk8Xgxh9UugJ3NV/lxkT+5WqoK/5WV6HhFd5PCVQuDib/ObRTK
-	s8kZn79w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8s0iyx5Up+axNLd5N4vYWUUxP+7s5+5idq+mXMf/gI=; b=jTzJls4z4dk14h9U8/PNnDjsaz
+	JY+I608BABbfFITQF4jWbLdULCOlSWdyDhtoZJn8Qbb9EJPqP8PGJPz2IXH+G3RSFzb8JPlY7rNbX
+	TgD4/7dGnInxbbbZvfbGBtQ48ZYp4w2NMlK6DWv5w5jy4TeFlbKL0+gUZ4C+WNyJfc87PyNRA23w2
+	Q/GkTa8NHGwyOUdS/5spMCMItjZh8nMO9Q5Cm1dsNYodqusOGoajOQHU7iIgBEy1uoNXCBggwq0AX
+	qlniBkCogcMjzYEC4ZIo+zDTONXpJxWtJ6oP7dwjAenbbtiyrjxX0tOreSdhwYFMZv0iYLwuVK7lZ
+	0119TArg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2u02-00000008zZJ-3sAR;
-	Wed, 18 Mar 2026 16:44:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2u8F-000000090Of-2PjR;
+	Wed, 18 Mar 2026 16:52:31 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2u00-00000008zZD-18AI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 16:44:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=; b=UBDKjey64yOr0PbFyCIimZvT/t
-	kA7+9IIvq51i1p1MGf/8oygEwOqeSrAOm6yispJtE9Yy/sL5UTBM6ci6+uXJ9HvulT47z4aQOTEzA
-	BLxx/JPiuKu2LO84S/Foz3fxViPJUf30BQq7kxYfsk/deTN/ps4hBw8iHZ1vhKrW/TsfUWZJ7pGKZ
-	xQ4v6vb7FFksVPtdapTj7eO1OnPddRnBAmF/CgUYosBZxT2urvvYNI51n2CQjdeBWMoCxFDS4TcNM
-	Rye6aep2IVaWwC3p3GChtXt1WI8dvdxsK9t6V/GgGcuYUa6VthJf2GEjZSXVBiBy5/2kB7uPH7j+V
-	1bc6FGnQ==;
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tzw-0000000Bl08-2dKC
+	id 1w2u8D-000000090Nv-0PmX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 16:43:58 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 8CCB74D3FC;
-	Wed, 18 Mar 2026 16:43:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1773852234; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=;
-	b=HcU2XUrp7tTN82bwTT/V/dn7JQb+ud5yJWO2ezKFWJkAtNSnW6FHEvEGlepmICnpF7CcB0
-	HmePo7NRMHYrZLW3wSH6E4F5omNGswsGcaluq+GAIPbiazfF7IMK2xsWueV8yhg7F7Uee8
-	YZrZ4I7gK5wH/Ez5DjgAO0S8lZ40vNQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1773852234;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=;
-	b=eYScP0RwXSrnZsvcBe6RBmZBZx+683ScFXXtoLujDNfldcTonWTY5mdmHzSi8SwyivOsDt
-	Yu7rpZwSzZijqeCA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1773852233; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=;
-	b=v3WgJK3BkQ3U9xZCGYD3hG5fiC5rsWkrSJ08bx3GRM83sdYyZFuzM1nEjzwVIn0NY6sOXB
-	q2nAzHkE6xycu0KyV08n5KKZnVxx3ILn2rw57nW6oWJkLXGLBv9X+NCSdisXBTpYKSJgKm
-	xTKaQ3zrmJxpoOQFrwAVNP0erfzjHgU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1773852233;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yq6umHZrQ3rXklmbUtuDZyytvfdqt87VQPHzx41pFPU=;
-	b=6QnaeyRyNOyl3U1h9EDt8rDAYrgUmw7AhgCTBE/dzz4BX5VdXOGANHHg68eMsZ/QCzindq
-	3+jKuRnYJdZD0iAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7E5EF4273C;
-	Wed, 18 Mar 2026 16:43:53 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Um7THknWummKcgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Wed, 18 Mar 2026 16:43:53 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 32AD6A0AFF; Wed, 18 Mar 2026 17:43:53 +0100 (CET)
-Date: Wed, 18 Mar 2026 17:43:53 +0100
-From: Jan Kara <jack@suse.cz>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com, 
-	david@kernel.org, ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com, 
-	baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org, 
-	catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org, 
-	kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, lorenzo.stoakes@oracle.com, npache@redhat.com, 
-	rmclure@linux.ibm.com, Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, 
-	willy@infradead.org, ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, 
-	shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH 2/4] mm: bypass mmap_miss heuristic for VM_EXEC readahead
-Message-ID: <wwaqkpuvvrnp4obj6nyebbgqvugjsmelbdkunoiadqtebh4zr7@ckyn5taaz4jy>
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
- <20260310145406.3073394-3-usama.arif@linux.dev>
+	Wed, 18 Mar 2026 16:52:30 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b79f8f7ea43so2342866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 09:52:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773852747; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ibzvYgZCbVDZcLRnjKs9NMJ7qAT2vBgScR3wKGyzeYXE6AUOWpCNw23nl8guC1Yy1U
+         vKYuPKld6RPpMM4Z5znbpnjPOBS6OJqXAexaR5x1vhIBYSPAeIDRpQDx2S/ieWH0VQic
+         UHda7G1xpWlBo4Ld9DJ97Igs5GHeXMgOJMyJ8d7MpA3tMSOy6B64QEnFT7/dULdqX0YL
+         LPXiha1xeibwbQHFi3m1An7pj382li0zzxkqXjTFmTb6qd9yeSU8wcXYmHDKVfcCkeSN
+         DkmUrz0//C8KMSoyIvsnae0jqJLVIROPe46jvY0lnEDZsRjevRBEVqa/3kx0etcmSpPx
+         gvFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=n8s0iyx5Up+axNLd5N4vYWUUxP+7s5+5idq+mXMf/gI=;
+        fh=xEHANycovNlBnctnnJ3wcTRjxa6GabOV+4WLUz5VRuA=;
+        b=OpLjBes9vKjsut9TQ/592LtmAE/2/GD4SvQT950jkm64Sf+6t4rsSJlobX+3xaF0ix
+         8judGQZ7I+De6Po6QxxzMIk9poA2KuHGaKcC81kLtCFI/B1amgLE2/qRgIbNWcYTU66I
+         /uHVxZVewK3VH8C2IIa3gPE7CzHJqLaHfA0bzdM5Jd0M+0zi3byBLw+BtK8EA3k0kGR4
+         0yF08Qvob8EMgAoT0JunreHWNEO1gAazz6ciNtE3TreacfyeXjYqpy7XVM/LhzrWBRrn
+         96yRQct+rqSo5b93riDCqKlY7QEqYuOJL5nM8xH9pNxjFQyrF4Rd4nqCiW2fD8jKeIK9
+         UHUw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1773852747; x=1774457547; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n8s0iyx5Up+axNLd5N4vYWUUxP+7s5+5idq+mXMf/gI=;
+        b=Y8AZ+b+i2FJdC2n5Xf5Jiv9843adCoyYCuxNKWUnxMynGs9/KGy6DDuXrVX7BQG6Ap
+         Xi+bZZd96I/YqHJtFHqMl2teVnD0AP+PhncaZ47bJej2um8PnF5OUMg+z8Sxvw8Z/6Uo
+         ITdFWkqryNsaJfn1YbAwUKna6X7NLiPInMonMai16obnf6McW60BNIvyUu+rtl3GYSM9
+         2kHDg/HxcWIM5Uk7Xpz6CFeT4G039WIbP6IlB6VW6ZvhKDtseKb+WZVkIuAfuNDnYm6w
+         Ph3bxxPcuCaYsJHn097iKlx7uK62KYxhrpipZUDgIcCr8isOpkZW4G/k6+1NoH+Vtlad
+         uQ0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773852747; x=1774457547;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=n8s0iyx5Up+axNLd5N4vYWUUxP+7s5+5idq+mXMf/gI=;
+        b=pzgR7wMxjxO7KtXJuqVgR/YB26fdjQijNWj62nEHbzvZq/EY9+Lb5qK5h6LFHS+RPm
+         0mPp4+40f7bgGeuBvguJC1Lxvuzig5dB7CBwc7d4M33tk2HZUr0wPaaVejA1hG0PqExD
+         DnT/WDL0NmIFvzFHIUO+QgmXG0KKpHtKme+M1quV7YLcCH1v/eMAJpV7Bz2Xa25xYCXX
+         PplSdu+THAiHldZPezGj9dNlDK3Ls3ylyvd4qhU12d+1QxuTdPj55oPuINFE9rak+wmf
+         2I8jcBXS4/x/3xlOgpuqyHKORWd+1h1SKGz8vnZxtV6+qCFMDhsNj2t2teyL3n6CjzZB
+         Gz/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXjxVolf4VPekk/L8RONf8I7IWMm7ix21gPih89SaU7WJnaLFcJFkuCyItjGnAkik668K+iLYC1DnMYAiBKAcYu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaD0mRPLUPgJoClLHJEU3mXQ66c8xS5+d1O3eN4I/n8WaV1q1T
+	624wCJPjvb987xf0X2fKyTPoCE1XJVne5SNb0nm9SFRg5Kn+p7i4ZAh+FctWU0uE/eN/CZBgUI6
+	RCVrQJYGVppIYennuqH43qdRX4auLN52BikB5nN4cQg==
+X-Gm-Gg: ATEYQzzJovJ2+l9LG+Y9UW+WVdEdGPkRin1x4YjtDyYr5ei+LpejZpM1sbzObLzBTv1
+	5gDq1frMcIIktJ6fAzoHZ4qQ7HiiJAf3ApT1ok0PVrVeychxoc7NKjh+VRpo+xL8x+2UrXrc+Gb
+	b/rzftfnHpnfo+Bu8deEZ+9OTHmVvmcyWsNhcKypJBEjBn5WCAf34HvYE4EqxqdTmJfmtOp2au3
+	4A7PAQB0mdvRCCcnwp8b4FXuC1cx0dqLnhhyqCyD8YE0YI5pW5N4086sSusG0CJsYptW7BvaFuK
+	w0y51/I=
+X-Received: by 2002:a17:907:268c:b0:b87:7485:b4a8 with SMTP id
+ a640c23a62f3a-b97f437c5e0mr269129266b.0.1773852747057; Wed, 18 Mar 2026
+ 09:52:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260310145406.3073394-3-usama.arif@linux.dev>
-X-Spamd-Result: default: False [-3.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[32];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	R_RATELIMIT(0.00)[to_ip_from(RL7mtgmzbc679884y4uzi7oxw9)];
-	FROM_EQ_ENVFROM(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,linux.dev:email,imap1.dmz-prg2.suse.org:helo]
+References: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net> <339ebaa9-9642-4716-bca7-6a32a135124a@sirena.org.uk>
+In-Reply-To: <339ebaa9-9642-4716-bca7-6a32a135124a@sirena.org.uk>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 18 Mar 2026 20:52:16 +0400
+X-Gm-Features: AaiRm53s1de568Rl6WcWFL_NmD36Tc9G63SkTCGabmNWoWncrHCvYMTyZ7Db36c
+Message-ID: <CAKTNdwF9JRW7PjqnZwmvp_X5UjjJ023tBzFY7yCSnCJH5W6q-w@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Set slot width for non-TDM mode
+To: Mark Brown <broonie@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sugar Zhang <sugar.zhang@rock-chips.com>, linux-rockchip@lists.infradead.org, 
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_164357_039261_A23A3895 
-X-CRM114-Status: GOOD (  36.55  )
+X-CRM114-CacheID: sfid-20260318_095229_162045_07BE7461 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,160 +119,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 10-03-26 07:51:15, Usama Arif wrote:
-> The mmap_miss counter in do_sync_mmap_readahead() tracks whether
-> readahead is useful for mmap'd file access. It is incremented by 1 on
-> every page cache miss in do_sync_mmap_readahead(), and decremented in
-> two places:
-> 
->   - filemap_map_pages(): decremented by N for each of N pages
->     successfully mapped via fault-around (pages found already in cache,
->     evidence readahead was useful). Only pages not in the workingset
->     count as hits.
-> 
->   - do_async_mmap_readahead(): decremented by 1 when a page with
->     PG_readahead is found in cache.
-> 
-> When the counter exceeds MMAP_LOTSAMISS (100), all readahead is
-> disabled, including the targeted VM_EXEC readahead [1] that requests
-> arch-preferred folio orders for contpte mapping.
-> 
-> On arm64 with 64K base pages, both decrement paths are inactive:
-> 
->   1. filemap_map_pages() is never called because fault_around_pages
->      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
->      requires fault_around_pages > 1. With only 1 page in the
->      fault-around window, there is nothing "around" to map.
-> 
->   2. do_async_mmap_readahead() never fires for exec mappings because
->      exec readahead sets async_size = 0, so no PG_readahead markers
->      are placed.
-> 
-> With no decrements, mmap_miss monotonically increases past
-> MMAP_LOTSAMISS after 100 page faults, disabling all subsequent
-> exec readahead.
-> 
-> Fix this by moving the VM_EXEC readahead block above the mmap_miss
-> check. The exec readahead path is targeted. It reads a single folio at
-> the fault location with async_size=0, not speculative prefetch, so the
-> mmap_miss heuristic designed to throttle wasteful speculative readahead
-> should not gate it. The page would need to be faulted in regardless,
-> the only question is at what order.
-> 
-> [1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
-> 
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+On Wed, Mar 18, 2026 at 8:17=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> On Wed, Mar 18, 2026 at 06:50:25PM +0400, Alexey Charkov wrote:
+>
+> >       regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_C=
+SR_MASK, val);
+> >
+> > +     if (!sai->is_tdm)
+> > +             regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
+> > +                                SAI_XCR_SBW(params_physical_width(para=
+ms)));
+> > +
+>
+> What happens if playback and capture have different widths?  I wonder if
+> forcing a TDM configuration with the affected CODECs would be easier.
 
-I can see the problem but I'm not sure what you propose is the right fix.
-If you move the VM_EXEC logic earlier, you'll effectively disable
-VM_HUGEPAGE handling for VM_EXEC vmas which I don't think we want. So
-shouldn't we rather disable mmap_miss logic for VM_EXEC vmas like:
+Playback and capture go to different "reg" each, and each has a slot
+width field. The correct "reg" for the stream is selected 50 lines up
+in the same function. So they shouldn't really get in each other's
+way, from what I can tell.
 
-	if (!(vm_flags & (VM_SEQ_READ | VM_EXEC))) {
-		...
-	}
-
-								Honza
-
-> ---
->  mm/filemap.c | 72 ++++++++++++++++++++++++++++------------------------
->  1 file changed, 39 insertions(+), 33 deletions(-)
-> 
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index 6cd7974d4adab..c064f31ecec5a 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -3331,6 +3331,37 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->  		}
->  	}
->  
-> +	if (vm_flags & VM_EXEC) {
-> +		/*
-> +		 * Allow arch to request a preferred minimum folio order for
-> +		 * executable memory. This can often be beneficial to
-> +		 * performance if (e.g.) arm64 can contpte-map the folio.
-> +		 * Executable memory rarely benefits from readahead, due to its
-> +		 * random access nature, so set async_size to 0.
-> +		 *
-> +		 * Limit to the boundaries of the VMA to avoid reading in any
-> +		 * pad that might exist between sections, which would be a waste
-> +		 * of memory.
-> +		 *
-> +		 * This is targeted readahead (one folio at the fault location),
-> +		 * not speculative prefetch, so bypass the mmap_miss heuristic
-> +		 * which would otherwise disable it after MMAP_LOTSAMISS faults.
-> +		 */
-> +		struct vm_area_struct *vma = vmf->vma;
-> +		unsigned long start = vma->vm_pgoff;
-> +		unsigned long end = start + vma_pages(vma);
-> +		unsigned long ra_end;
-> +
-> +		ra->order = exec_folio_order();
-> +		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
-> +		ra->start = max(ra->start, start);
-> +		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
-> +		ra_end = min(ra_end, end);
-> +		ra->size = ra_end - ra->start;
-> +		ra->async_size = 0;
-> +		goto do_readahead;
-> +	}
-> +
->  	if (!(vm_flags & VM_SEQ_READ)) {
->  		/* Avoid banging the cache line if not needed */
->  		mmap_miss = READ_ONCE(ra->mmap_miss);
-> @@ -3361,40 +3392,15 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->  		return fpin;
->  	}
->  
-> -	if (vm_flags & VM_EXEC) {
-> -		/*
-> -		 * Allow arch to request a preferred minimum folio order for
-> -		 * executable memory. This can often be beneficial to
-> -		 * performance if (e.g.) arm64 can contpte-map the folio.
-> -		 * Executable memory rarely benefits from readahead, due to its
-> -		 * random access nature, so set async_size to 0.
-> -		 *
-> -		 * Limit to the boundaries of the VMA to avoid reading in any
-> -		 * pad that might exist between sections, which would be a waste
-> -		 * of memory.
-> -		 */
-> -		struct vm_area_struct *vma = vmf->vma;
-> -		unsigned long start = vma->vm_pgoff;
-> -		unsigned long end = start + vma_pages(vma);
-> -		unsigned long ra_end;
-> -
-> -		ra->order = exec_folio_order();
-> -		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
-> -		ra->start = max(ra->start, start);
-> -		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
-> -		ra_end = min(ra_end, end);
-> -		ra->size = ra_end - ra->start;
-> -		ra->async_size = 0;
-> -	} else {
-> -		/*
-> -		 * mmap read-around
-> -		 */
-> -		ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
-> -		ra->size = ra->ra_pages;
-> -		ra->async_size = ra->ra_pages / 4;
-> -		ra->order = 0;
-> -	}
-> +	/*
-> +	 * mmap read-around
-> +	 */
-> +	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
-> +	ra->size = ra->ra_pages;
-> +	ra->async_size = ra->ra_pages / 4;
-> +	ra->order = 0;
->  
-> +do_readahead:
->  	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
->  	ractl._index = ra->start;
->  	page_cache_ra_order(&ractl, ra);
-> -- 
-> 2.47.3
-> 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Best regards,
+Alexey
 
