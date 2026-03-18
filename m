@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54AD103E19B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5FB103E198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZnoia0dP39bfnNvAU7EVfSpEAUul1c4RnLCozece3g=; b=1kE/7ZFUQHB4eZW3pu4oS5dCmm
-	FdnbltGnaipZlT3v2EX5YxY62V7IBuim851DQvAcJY/L49JcXiG9SWbNQjqf9qfDBYp6234nkAqrR
-	L0xoiyQ91PVgwC22aH7AXjz6YaeMFe9ky0HBT+qMHACEKb/FnfGlc/SHgcyOFxErCEybtHo4+sJw9
-	nVa1vEEoShgH9nftDFD7MogUh2/VmYAwHTjiVKuZ4Y+VtrYfrhA89HO4ysBDCA9GIrxxM/6vA6n8N
-	4RPtNDlwX/8bmiGmssdzO2ajuyWucWuJ3eYYn3alMOS1t0eANpfIYgtbN84fMJUSUlD7BIKLDrMsh
-	YaS520zg==;
+	bh=/IcexCp2WX1214aI9maZXvqOtvYGE7UvoedMphnOcXc=; b=A1faCo2fq6W5nZA1szUkHYMTYF
+	qYk5Rv1DuButxDlUksRMTzhfTuZlwaRwkDejOT1ASF+Z1dWuDdTsDEb8Dg+sd3mi8GKtq3WcPbSrV
+	n8eIFH66reNTWdtsQqRRINYNVo9BSu1ThRKUJPwrkUlu/fHT6vjUBhcCjGOWMr6UHMAmjciw9gvq/
+	TJWG1vFNn4SQUHA9Gj3Gt4nQ3qXsWwo97qNDc0yTHwCtXrMbzQMbrRQBiNQOvrKJzDVunabwBsXlR
+	Rxp53cJYhNqWEzG8pzA74qA+JNaoG0XJZQ/LWs1qYuHnchBR5deCjWuNJoK8cduXu2UPRAhxDWYlY
+	Y5cW8XCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGl-00000008qXr-3VFO;
-	Wed, 18 Mar 2026 15:57:15 +0000
+	id 1w2tGq-00000008qfL-3X4W;
+	Wed, 18 Mar 2026 15:57:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tG9-00000008pr3-1n3F
+	id 1w2tGU-00000008qEw-3Q4O
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:56:39 +0000
+	Wed, 18 Mar 2026 15:56:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=GZnoia0dP39bfnNvAU7EVfSpEAUul1c4RnLCozece3g=; b=j0LkOOfCUKQp+9LKtP1TKZzN9u
-	POKgurBI+H4hKguaqaxjRwOhDgglmIe69CnJZZcR1F3mDKeyzd9okyBsRzAVpAI8u1xmPrTELC+32
-	l7SIi16O/xFwIkS7ZhR8iQ9LYC5/2kgoEZkVwqEYIyW/+AlGK3uIqmjjt5iQQfbj570x+d867bZJp
-	eP/a6h/2CemS5Tg3xZe8KmL+fGRUr7V1aEyQpUMbeuNxnHOLYWh7Zf504NZ/OSLRkStZM3qAzmeg1
-	n9OX99PisIwi0/1K+nw1cLKSbKIOtmb6gPV0CPlEoEW601iivLPManooferu+C7jbkZxnqcYpmHDG
-	IHCdd6FQ==;
+	bh=/IcexCp2WX1214aI9maZXvqOtvYGE7UvoedMphnOcXc=; b=IMKcWeXv3oHbRmVrNKzoTBKPcE
+	+5OSUX/pv7Tu+zMD8XVvkhQWdO7o1dZhVKRTYd/TJum3hV+ihci8kNEifm9fhBjMxTcuTos8wxOPp
+	PecRNbuKX09T24aq9UgIr6u7FfllOsR5hc1fiavAYesXaWvhlZsaIzeLnO/YZV0FeUKyyPJ1JRbiY
+	L3stJyue1JKn1FGZ4KSS5zFa+pyWRKYGJhgXx5+DCS1zepLYStZQPPIO4ArDkeiP7VBHJLpzFlBoJ
+	BmZjaEJDtofEXOiEAKa7PPmX9JQwJ2i32nQUTWOCLxGpNhTwuk434GUnx2+OuAwTixl01ATVzUlX3
+	8CALPaLQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tG5-0000000Bdrd-3giq
+	id 1w2tGR-0000000BdyH-1cu0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:56:35 +0000
+	Wed, 18 Mar 2026 15:56:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7ACC1201B;
-	Wed, 18 Mar 2026 08:56:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19FA52050;
+	Wed, 18 Mar 2026 08:56:48 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 333BE3F73B;
-	Wed, 18 Mar 2026 08:56:29 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1DB83F73B;
+	Wed, 18 Mar 2026 08:56:50 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -73,18 +74,17 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v13 35/48] arm64: RMI: Allow checking SVE on VM instance
-Date: Wed, 18 Mar 2026 15:53:59 +0000
-Message-ID: <20260318155413.793430-36-steven.price@arm.com>
+Subject: [PATCH v13 41/48] arm64: RMI: Initialize PMCR.N with number counter supported by RMM
+Date: Wed, 18 Mar 2026 15:54:05 +0000
+Message-ID: <20260318155413.793430-42-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155634_324369_504FAD46 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260318_155655_614881_284105C9 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +99,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Given we have different types of VMs supported, check the
-support for SVE for the given instance of the VM to accurately
-report the status.
+Provide an accurate number of available PMU counters to userspace when
+setting up a Realm.
 
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 ---
-Changes since v10:
- * RME->RMI renaming.
- * Adapt to move CAP check to kvm_realm_ext_allowed().
----
- arch/arm64/include/asm/kvm_rmi.h | 2 ++
- arch/arm64/kvm/arm.c             | 2 ++
+ arch/arm64/include/asm/kvm_rmi.h | 1 +
+ arch/arm64/kvm/pmu-emul.c        | 3 +++
  arch/arm64/kvm/rmi.c             | 5 +++++
  3 files changed, 9 insertions(+)
 
 diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 1ee5ed0f5ab2..d6cf87de099b 100644
+index 8fb526764c30..8f871daf6540 100644
 --- a/arch/arm64/include/asm/kvm_rmi.h
 +++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -87,6 +87,8 @@ struct realm_rec {
+@@ -86,6 +86,7 @@ struct realm_rec {
+ 
  void kvm_init_rmi(void);
  u32 kvm_realm_ipa_limit(void);
++u8 kvm_realm_max_pmu_counters(void);
  
-+bool kvm_rmi_supports_sve(void);
+ u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+ 
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 450b0eac20f8..9d8bc26c5c69 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1014,6 +1014,9 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+ {
+ 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+ 
++	if (kvm_is_realm(kvm))
++		return kvm_realm_max_pmu_counters();
 +
- int kvm_init_realm_vm(struct kvm *kvm);
- int kvm_activate_realm(struct kvm *kvm);
- void kvm_destroy_realm(struct kvm *kvm);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 7d92ddb06460..3e6f1e810921 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -388,6 +388,8 @@ static bool kvm_realm_ext_allowed(long ext)
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
- 	case KVM_CAP_ARM_RMI:
- 		return true;
-+	case KVM_CAP_ARM_SVE:
-+		return kvm_rmi_supports_sve();
- 	}
- 	return false;
- }
+ 	/*
+ 	 * PMUv3 requires that all event counters are capable of counting any
+ 	 * event, though the same may not be true of non-PMUv3 hardware.
 diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index e56c8af2ad61..7cc6dc14d325 100644
+index 76ff00488883..f29c04d2318a 100644
 --- a/arch/arm64/kvm/rmi.c
 +++ b/arch/arm64/kvm/rmi.c
-@@ -33,6 +33,11 @@ static bool rmi_has_feature(unsigned long feature)
- 	return !!u64_get_bits(rmm_feat_reg0, feature);
+@@ -212,6 +212,11 @@ u32 kvm_realm_ipa_limit(void)
+ 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
  }
  
-+bool kvm_rmi_supports_sve(void)
++u8 kvm_realm_max_pmu_counters(void)
 +{
-+	return rmi_has_feature(RMI_FEATURE_REGISTER_0_SVE);
++	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS);
 +}
 +
- static int rmi_check_version(void)
+ u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
  {
- 	struct arm_smccc_res res;
+ 	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
 -- 
 2.43.0
 
