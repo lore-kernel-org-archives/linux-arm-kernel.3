@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D17107BCF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 10:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B5E10706E8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 10:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MTpDYX+upBLp9SRW+OziKTrzB+mfPMcb5cpom+85poA=; b=Uyd3ovWjfZWBrkQAcThj1S62So
-	MMpE+Zy08cL0W/G7oL88cBCKq5PIq9xzfFcxrBfvZWz+ck1Ig8HON1Nd892hfoFax+iZiwaDJ9GTp
-	rnxBMO5m/js46oCaT6yKpuOYA2hs6gwvHAm+Y1qGrNMekkvL7qpJLK5AG3EryKsiLIPmnSNm9lw7A
-	Rr6Me2UQcgThW0KgIRB7ZpTJHykB8t024cFGP0LLbiLLrw/0ebI96n1HBEWAM+pCQ6KG6rusW8GZx
-	VWhdvG7r2IEa3pw8sYTWEv4/Yqbl58zR4RzS6x6jdiFA+kk2Eb/oM5HkcCcxX4G6/rVRrYqZe88ya
-	kinYDODA==;
+	bh=EgT48koR2AFBfU9d+XRES0muWQ8eJqKljwuWM5+7rPc=; b=ZMgLcA1d7cBYKpLHB62A0lLdNT
+	AY1N9Wus8neYwDmiKJRz/J6/rQYllQ+3aY0b7cAImthlIXf7HLaC4LxrqA1mD2KkkyeH81FyXGAhe
+	i7lurIutUF9ogHTaAfK+xT7Bcq8hd9MONNPCmRH0ygaTyq1Nl47CbYqF/tSK7Bh85P738J/s/SJ9w
+	ENFzskEvow34mOxp71byGnrO+yYQtK9GP4KG2LAmV9NguvA6r41AELtxQPHvJ/pRxwe0Gs2UejReb
+	WCyW2GUjfU0O/PotpO+YyGzY05f1Ol//L7yzwl+1wh2ZlaD8ktp6bovrTm1/pszWp0ZE0xYfJBkGY
+	+FXPeCFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2oKW-00000008Drh-3xjJ;
-	Wed, 18 Mar 2026 10:40:48 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1w2oLt-00000008DzQ-1del;
+	Wed, 18 Mar 2026 10:42:13 +0000
+Received: from out-173.mta1.migadu.com ([95.215.58.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2oKT-00000008DrK-3LU7
+	id 1w2oLq-00000008DyQ-2M5r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 10:40:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0CCB34E426DE;
-	Wed, 18 Mar 2026 10:40:42 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B8AD86004F;
-	Wed, 18 Mar 2026 10:40:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 76FE710450640;
-	Wed, 18 Mar 2026 11:40:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773830441; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=MTpDYX+upBLp9SRW+OziKTrzB+mfPMcb5cpom+85poA=;
-	b=Xl8kAqorr9x26xPNdldYAncL7sNq+jQvTPr/yiNg5ZUPkUOs2+PKu2dX/uagdKQfulmjN/
-	2+MhpkqlwGI9vR86BRpHp10uLJJlWNQ+ylat5Djjw10mG2zP4PjBi95CS2oX+T5gGn57jG
-	DttZzB3s6kjF99hmQ+LWweczKSJs02TzIMSGpvWModpi7mcbvFaAYxtJ/1+NMvIlqQOo2C
-	cxW3iCiA6vwYeWCkzePysalM7tCv5Y2X61Gedku3xnN1glWj1lZ6xZqCATgYkwu5G+zkPs
-	aVtGbiP/Tib1oluIGzRklUcYePBpnX3YC1cq69W4L+1EOnDdr6Sjj9tMed523A==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Gabor Juhos <j4g8y7@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?utf-8?Q?Miqu=C3=A8l?= Raynal
- <miquel.raynal@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' from USB host nodes
-In-Reply-To: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
-References: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
-Date: Wed, 18 Mar 2026 11:40:37 +0100
-Message-ID: <875x6t5ska.fsf@BLaptop.bootlin.com>
+	Wed, 18 Mar 2026 10:42:12 +0000
+Message-ID: <562fb349-c2d2-4fbe-83f9-75c26cc4b7ae@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773830516;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EgT48koR2AFBfU9d+XRES0muWQ8eJqKljwuWM5+7rPc=;
+	b=fj8auFFdVi5ti/XLJTBpcsBC0Gd/J4LPBvkAKdEy6ilHFgLsYQJbQpBt2vecZloUmBB1Hf
+	AszJSJP7VAGpLAbWtHz5Nnz/RKvxbtLm3xGTgoBvc2USbtjb9KJ/Ifu/x8TVzCKgs8RAhC
+	CqGlKjvmllPI+s4y7ToX198UHOa06Fc=
+Date: Wed, 18 Mar 2026 13:41:33 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K
+ pages
+Content-Language: en-GB
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com
+Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
+ baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
+ catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
+ kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
+ Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ kernel-team@meta.com, WANG Rui <r@hev.cc>
+References: <20260310145406.3073394-1-usama.arif@linux.dev>
+ <608c87ce-10d9-4012-b6e9-298d5a356801@kernel.org>
+ <9e9edebb-3953-4bcd-80e2-614dcec5b402@linux.dev>
+ <be65e710-997c-413c-8455-2d687fc51fc6@kernel.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <be65e710-997c-413c-8455-2d687fc51fc6@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_034046_336057_B9C542AE 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20260318_034210_785359_98B3708C 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +82,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Miqu=C3=A8l
 
-Hello Gabor,
 
-Thanks it is better,
+On 16/03/2026 19:06, David Hildenbrand (Arm) wrote:
+> On 3/13/26 20:59, Usama Arif wrote:
+>>
+>>
+>> On 13/03/2026 16:20, David Hildenbrand (Arm) wrote:
+>>> On 3/10/26 15:51, Usama Arif wrote:
+>>>> On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
+>>>> into a single iTLB entry, reducing iTLB pressure for large executable
+>>>> mappings.
+>>>>
+>>>> exec_folio_order() was introduced [1] to request readahead at an
+>>>> arch-preferred folio order for executable memory, enabling contpte
+>>>> mapping on the fault path.
+>>>>
+>>>> However, several things prevent this from working optimally on 16K and
+>>>> 64K page configurations:
+>>>>
+>>>> 1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
+>>>>    produces the optimal contpte order for 4K pages. For 16K pages it
+>>>>    returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
+>>>>    returns order 0 (64K) instead of order 5 (2M). Patch 1 fixes this by
+>>>>    using ilog2(CONT_PTES) which evaluates to the optimal order for all
+>>>>    page sizes.
+>>>>
+>>>> 2. Even with the optimal order, the mmap_miss heuristic in
+>>>>    do_sync_mmap_readahead() silently disables exec readahead after 100
+>>>>    page faults. The mmap_miss counter tracks whether readahead is useful
+>>>>    for mmap'd file access:
+>>>>
+>>>>    - Incremented by 1 in do_sync_mmap_readahead() on every page cache
+>>>>      miss (page needed IO).
+>>>>
+>>>>    - Decremented by N in filemap_map_pages() for N pages successfully
+>>>>      mapped via fault-around (pages found in cache without faulting,
+>>>>      evidence that readahead was useful). Only non-workingset pages
+>>>>      count and recently evicted and re-read pages don't count as hits.
+>>>>
+>>>>    - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
+>>>>      marker page is found (indicates sequential consumption of readahead
+>>>>      pages).
+>>>>
+>>>>    When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
+>>>>    disabled. On 64K pages, both decrement paths are inactive:
+>>>>
+>>>>    - filemap_map_pages() is never called because fault_around_pages
+>>>>      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
+>>>>      requires fault_around_pages > 1. With only 1 page in the
+>>>>      fault-around window, there is nothing "around" to map.
+>>>>
+>>>>    - do_async_mmap_readahead() never fires for exec mappings because
+>>>>      exec readahead sets async_size = 0, so no PG_readahead markers
+>>>>      are placed.
+>>>>
+>>>>    With no decrements, mmap_miss monotonically increases past
+>>>>    MMAP_LOTSAMISS after 100 faults, disabling exec readahead
+>>>>    for the remainder of the mapping.
+>>>>    Patch 2 fixes this by moving the VM_EXEC readahead block
+>>>>    above the mmap_miss check, since exec readahead is targeted (one
+>>>>    folio at the fault location, async_size=0) not speculative prefetch.
+>>>>
+>>>> 3. Even with correct folio order and readahead, contpte mapping requires
+>>>>    the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
+>>>>    The readahead path aligns file offsets and the buddy allocator aligns
+>>>>    physical memory, but the virtual address depends on the VMA start.
+>>>>    For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
+>>>>    granularity, giving only a 1/32 chance of 2M alignment. When
+>>>>    misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
+>>>>    any folio in the VMA, resulting in zero iTLB coalescing benefit.
+>>>>
+>>>>    Patch 3 fixes this for the main binary by bumping the ELF loader's
+>>>>    alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
+>>>>
+>>>>    Patch 4 fixes this for shared libraries by adding a contpte-size
+>>>>    alignment fallback in thp_get_unmapped_area_vmflags(). The existing
+>>>>    PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
+>>>>    libraries, so this smaller fallback (2M) succeeds where PMD fails.
+>>>>
+>>>> I created a benchmark that mmaps a large executable file and calls
+>>>> RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
+>>>> fault + readahead cost. "Random" first faults in all pages with a
+>>>> sequential sweep (not measured), then measures time for calling random
+>>>> offsets, isolating iTLB miss cost for scattered execution.
+>>>>
+>>>> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
+>>>> 512MB executable file on ext4, averaged over 3 runs:
+>>>>
+>>>>   Phase      | Baseline     | Patched      | Improvement
+>>>>   -----------|--------------|--------------|------------------
+>>>>   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
+>>>>   Random     | 76.0 ms      | 58.3 ms      | 23% faster
+>>>
+>>> I'm curious: is a single order really what we want?
+>>>
+>>> I'd instead assume that we might want to make decisions based on the
+>>> mapping size.
+>>>
+>>> Assume you have a 128M mapping, wouldn't we want to use a different
+>>> alignment than, say, for a 1M mapping, a 128K mapping or a 8k mapping?
+>>>
+>>
+>> So I see 2 benefits from this. Page fault and iTLB coverage. IMHO page
+>> faults are not that big of a deal? If the text section is hot, it wont
+>> get flushed after faulting in. So the real benefit comes from improved
+>> iTLB coverage.
+>>
+>> For a 128M mapping, 2M alignment gives 64 contpte entries. Aligning
+>> to something larger (say 128M) wouldn't give any additional TLB
+>> coalescing, each 2M-aligned region independently qualifies for contpte.
+>>
+>> Mappings smaller than 2M can't benefit from contpte regardless of
+>> alignment, so falling back to PAGE_SIZE would be the optimal behaviour.
+>> Adding intermediate sizes (e.g. 512K, 128K) wouldn't map to any
+>> hardware boundary and adds complexity without TLB benefit?
+> 
+> I might be wrong, but I think you are mixing two things here:
+> 
+> (1) "Minimum" folio size (exec_folio_order())
+> 
+> (2) VMA alignment.
+> 
+> 
+> (2) should certainly be as large as (1), but assume we can get a 2M
+> folio on arm64 4k, why shouldn't we align it to 2M if the region is
+> reasonably sized, and use a PMD?
+> 
+> 
 
-> The 'marvell,usb-misc-reg' property is present both in the EHCI and
-> in the XHCI USB host device nodes, however it is not documented. Thus
-> 'make dtbs_check' produces warnings like these:
->
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,arm=
-ada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-re=
-g' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-xhci=
-.yaml
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,arm=
-ada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-r=
-eg' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-ehci=
-.yaml
->
-> Apart from the fact that the properties are not documented, those are
-> not even used by any USB host drivers. Due to this, drop the properties
-> in order to get rid of the warnings.
->
-> Note:
->
-> With the same name, there is a property used for the Armada 3700 USB
-> UTMI PHYs of which dt-bindings documentation has been added in commit
-> e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
->
-> Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
-> driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
->
-> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
-> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
-> UTMI PHYs"), the properties has been added to the USB host controller
-> nodes also. According to the commit message this was intentional,
+So this series is tackling both (1) and (2). When I started making changes
+to the code, what I wanted was 2M folios at fault with 64K base page size
+to reduce iTLB misses. This is what patch 1 (and 2) will achieve.
 
-Miquel will confirm that, after speaking with him, it appears to be a
-mistake rather than an intentional act.
+Yes, completely agree, (2) should be as large as (1). I didn't think about
+PMD size on 4K which you pointed out. do_sync_mmap_readahead can give
+that with force_thp_readahead, so this should be supported.
 
-Gr=C3=A9gory
+But we shouldn't align to PMD size for all base page sizes. As Rui pointed
+out, increasing alignment size reduces ASLR entropy [1]. Should we max alignement
+to 2M?
 
-> however in regard to the USB hosts, neither the respective documentation,
-> nor driver support has been added into the tree since that.
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
-> ---
-> Changes in v2:
->   - add Reviewed-by tag from Andrew
->   - change subject and reword commit message
->   - Link to v1: https://lore.kernel.org/r/20260304-armada-37xx-drop-usb-m=
-isc-reg-v1-1-800c1b746b7a@gmail.com
-> ---
->  arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 --
->  1 file changed, 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/bo=
-ot/dts/marvell/armada-37xx.dtsi
-> index ea1824f5321fbb32fc4373c08a0d94bca1dc793b..44c47409f8793ae1266303607=
-812ef481edbfbc5 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> @@ -369,7 +369,6 @@ usb3: usb@58000 {
->  				compatible =3D "marvell,armada3700-xhci",
->  				"generic-xhci";
->  				reg =3D <0x58000 0x4000>;
-> -				marvell,usb-misc-reg =3D <&usb32_syscon>;
->  				interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
->  				clocks =3D <&sb_periph_clk 12>;
->  				phys =3D <&comphy0 0>, <&usb2_utmi_otg_phy>;
-> @@ -393,7 +392,6 @@ usb32_syscon: system-controller@5d800 {
->  			usb2: usb@5e000 {
->  				compatible =3D "marvell,armada-3700-ehci";
->  				reg =3D <0x5e000 0x1000>;
-> -				marvell,usb-misc-reg =3D <&usb2_syscon>;
->  				interrupts =3D <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
->  				phys =3D <&usb2_utmi_host_phy>;
->  				phy-names =3D "usb";
->
-> ---
-> base-commit: 98226a594f313442fcba38cefc1df0b6c1691c7e
-> change-id: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
->
-> Best regards,
-> --=20
-> Gabor Juhos <j4g8y7@gmail.com>
->
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+[1] https://lore.kernel.org/all/20260313144213.95686-1-r@hev.cc/
 
