@@ -4,107 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11023103E160
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AA4103E166
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbX1Ecw0/7aMSUdARzOOjKAqBidDJIdplrNfJmtRfKM=; b=PoIkq81HaIltkOuWF5AEc2GmGW
-	Aq9tv/0nN4KkYGsM8CXTuR1X2Xh/whs0GyNszJ8K9XkYx+bqNQbTSoFQRAAimU2PMgN5mJYKODQlz
-	EVWjMB+LkRuD5zykxdjReiXzUgkdcpRANqZDdoEZEOR9v29WLTon0Jom/elIeMK2cHO/MVR2J/G7l
-	daDpZk94m+aoMPq/TXlH4NRa9CbpbZUHLbUlZ3tMkhHyEeCL/okDXTTnWMHSCrD8ByLA1K8K9zhE7
-	f17v5CHuNGL6nuCBpnLwoNR6H2yH2W0f+qDGJJwK9IuJBKSiYIKdjTDulVh+fbYe38n1TRy3XOn0N
-	dkyDmTWA==;
+	bh=kLqnHb2ogCoxqHkELJxhX6U8ujBBduz9IxDDxqOJz0g=; b=4xRhNVV/IKgg8EiF+9DpZQeRj6
+	bTyra74juYkKs9Xck7zLq4AykcKyNuWC6FVfEVKM5519HBx01OlvLP/+ux+YRiLsNhQlBhvrEzO3E
+	MqL9baD3ViFzjBINXHfbyb8pKevEdgPXJpXUc2k5DAsA+oSGIa9g/jUsdwywsMdxzc3ksqN3eHHEM
+	wS8iJPqN0pN8Q/mxRvO5b3rXZnUQEn+sPZl9VZ3sFJactZpOWEOX0p33nKHd8csNwxnbJ3JRlTGDt
+	LRNw3vMJHGnzVRI4C0IfJ9vG1lySAgaTRCimYw+ZPZIfGizStw15GK68o3ANsM1VrT+Mg2ZXKyAvi
+	ZTZqVNUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pMX-00000008Kre-1mR1;
-	Wed, 18 Mar 2026 11:46:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2pMv-00000008Kxv-3sCY;
+	Wed, 18 Mar 2026 11:47:21 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pMV-00000008KrC-0SHU;
-	Wed, 18 Mar 2026 11:46:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C95BD443DB;
-	Wed, 18 Mar 2026 11:46:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36004C19421;
-	Wed, 18 Mar 2026 11:46:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773834408;
-	bh=YdqcVOMvGiZxV7Rx6pqMknMd3DCOgubBl3cdsMfOnB0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OMCBl0Nmc/pNTT/sHPO/DxewCzak/UCTi2SsrpWsY4qJt5hrYN2KGCV+ICpUo2rkG
-	 EX+S6TfEW8Lc/TnI38W1210j1GPrUNRji47niJ+OHkHfHLpDDLg0FH2WjGYSvD3M01
-	 skTrJ35UB/ZdPxO061u+COaXuywXde1wGVPAbE7H7/uZWLtHNwWidJ5ZLvrhZH6gm7
-	 De4eZrVFBu6Ng7coZQLWrMeWYmqaVfvqUrwuNE7cjhU72EvZV8sg7Ebxhzt9tcfUfr
-	 2sMenR7vE47yuZnoWFeQ034b2NziMnxnXbh1xObXsJYnjXyEtjvhqzU5cZGXMN86aH
-	 9FPVsZ3BtW5SQ==
-Message-ID: <405a9783-0f77-4ce0-8288-43eaada09cff@kernel.org>
-Date: Wed, 18 Mar 2026 12:46:44 +0100
+	id 1w2pMt-00000008Kwx-0oFI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 11:47:20 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-829928e512aso3514442b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 04:47:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hev-cc.20230601.gappssmtp.com; s=20230601; t=1773834438; x=1774439238; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kLqnHb2ogCoxqHkELJxhX6U8ujBBduz9IxDDxqOJz0g=;
+        b=iOEqT/Rx3gNxrI6Yr+OAw4RtQXxLPWJcliBc/1JgMWw5hBi+iu3z/I3KgjJiG0ogpB
+         W6aRx7xtIiTIwRfTLAnb1frWz9DIuRHo2RtyjIVe9GIVfgdxiChh2QZAR6EH4Za/e1QB
+         CttmeKdVhw1STBt9nQmiB/OAvsWEAnIs+TKGdLb7+0yGKNtpaR/HOFYO73fAP0Y/DyMI
+         Ids3r+dM6hirPK5BJ62zl3BC3EA6ajYZjAjy/x66R4lQ7sKhVd3XY6AzUenx3PDi4KyR
+         AfiXwgg/EHQdrHt2UtICbLL5I9yvVR7Z2HcwpQL6BFgrSQB2MoxnL2uNLRmftDt5n6JF
+         Kfvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773834438; x=1774439238;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kLqnHb2ogCoxqHkELJxhX6U8ujBBduz9IxDDxqOJz0g=;
+        b=szkoUF6V0VZCEJfKXw4Lx38yAI6EfLlFn38PymWRRHXnccWlh7m2gCseoJynKX5dKC
+         DrSOqbi7lqh3Hdp0GJozhrZbiyB9qB7LpBHxpLTz1vYOVdmIyw0+gbGr5fNptCtOO0j3
+         VnI65ojBNRRFAOcY/89xif9U5opHUgf0sIBhGNOJSZF8vAIUWWpp/OGn/2nr/NmgLigp
+         cJBoDLr07dSvTUgIUKE2PDfC7vffix5TT2l2RomgVaGt6qeS6Spv3Iud81n0okGLg3ex
+         yFozm6xosX8Kj2ueEjHl3o1zbsJHmIkrq+BPDzMiqozDR2s/olvr31iT/E6MEPniqnqX
+         4U8w==
+X-Forwarded-Encrypted: i=1; AJvYcCXqtfWk7ei58x7hOaaNVlcC13GR10iDEZjx86rGgZAke8p7AUvwM4D6D14yG6DGYSE4jOOV/VwBw3uvt5SzFW7N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+X13E29IRKh8rfdJ/szZml6zW6kbBgIQ6v5UL9j48GiIw9Sa3
+	x2WvsP48F9OOZK6BZhhiqwNmL5rqCuvSYBvtGSBBz09IQkzoGfyScIQRHqiTpGZS3Kc=
+X-Gm-Gg: ATEYQzzCx27h7UNjdKZh4huM/Gg0DsyKXQIAnEWryyc48KsgBRDTvz7ZOIOXi7+H2Ha
+	SxXKKhCNpyByGVZu8WYdcxkOqs+x6EQ2tjE7OXDQlRs/AHLY5VIJ/aopOuR4Ea/jvNODelwdUeJ
+	mXZXKTtEAx1rqVZSIhSnyfzm4gar8TXynVjuZghn3ImsY3MO8LfiYOnmNC1abhBKjfzEeIo9GQH
+	Rh/m09IoHtzYVOikGKThrLyK6wLVQliPNo8LkU+cVigpIjNGkG7PHgx2GxkjgWw88B7nAUSVtgD
+	Qg7ysqPf1wR8lQlCfnTVhaEJAnlLD87Vs4EkM/3YlSB9IwR5g0YuElnC5F0BGDLemkZIht4jU8l
+	zguBoW/BBNxCcQl8DFxy/HWGxrKBgT9G9yAJDrUjqomS4KHIs2mxTZAM0njWv2cx3GHL3XhZdhf
+	Cj
+X-Received: by 2002:a05:6a00:1ca3:b0:81f:4ce8:d64b with SMTP id d2e1a72fcca58-82a6ae4f234mr2558433b3a.44.1773834437848;
+        Wed, 18 Mar 2026 04:47:17 -0700 (PDT)
+Received: from gpc ([2400:8902:e002:ded5:78c1:8178:95c1:6ca3])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a6bf0cf5fsm3176671b3a.61.2026.03.18.04.47.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Mar 2026 04:47:17 -0700 (PDT)
+From: WANG Rui <r@hev.cc>
+To: usama.arif@linux.dev
+Cc: Liam.Howlett@oracle.com,
+	ajd@linux.ibm.com,
+	akpm@linux-foundation.org,
+	anshuman.khandual@arm.com,
+	apopple@nvidia.com,
+	baohua@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	brauner@kernel.org,
+	catalin.marinas@arm.com,
+	david@kernel.org,
+	dev.jain@arm.com,
+	hannes@cmpxchg.org,
+	jack@suse.cz,
+	kas@kernel.org,
+	kees@kernel.org,
+	kernel-team@meta.com,
+	kevin.brodsky@arm.com,
+	lance.yang@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	lorenzo.stoakes@oracle.com,
+	npache@redhat.com,
+	r@hev.cc,
+	rmclure@linux.ibm.com,
+	ryan.roberts@arm.com,
+	shakeel.butt@linux.dev,
+	viro@zeniv.linux.org.uk,
+	will@kernel.org,
+	willy@infradead.org,
+	ziy@nvidia.com
+Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K pages
+Date: Wed, 18 Mar 2026 19:46:53 +0800
+Message-ID: <20260318114653.123656-1-r@hev.cc>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <d0c0ac64-be15-4683-89ec-e32bf4867109@linux.dev>
+References: <d0c0ac64-be15-4683-89ec-e32bf4867109@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: realtek: Fix memory node unit-address
- mismatch
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, linux-kernel@vger.kernel.org,
- linux-realtek-soc@lists.infradead.org, afaerber@suse.com, arnd@arndb.de,
- alexandre.belloni@bootlin.com, linusw@kernel.org
-Cc: fustini@kernel.org, cy.huang@realtek.com, stanley_chang@realtek.com,
- james.tai@realtek.com, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-References: <20260318114047.2804171-1-eleanor.lin@realtek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260318114047.2804171-1-eleanor.lin@realtek.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_044655_239013_7EBEE9E3 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260318_044719_366893_7F8573EF 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +128,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 12:40, Yu-Chun Lin wrote:
-> The memory node unit-address should match the first address in the reg
-> property. Correct the unit-address from @40000 to @50000 to align with the
-> actual base address (0x50000) defined in the reg property.
-> 
-> Fixes: b095c27fc874 ("arm64: dts: realtek: Add Kent SoC and EVB device trees")
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> This patch series is sent to both Realtek and ARM SoC maintainers.
-> While Andreas Färber is listed as the Realtek maintainer, there has been
-> limited activity recently.
+> Thanks for running these! Just wanted to check what is the base page size
+> of this experiment?
 
-Unfortunately nothing new, likely two years ago I was also complaining
-on lack of maintenance on Realtek, but the solution is not to send
-patches to soc@.
+base page size: 4K
 
-Solution to that would be to remove the platform, for example. Or work
-on maintainership.
+> Yeah I think introducing Kconfig might be an option.
 
-Did anyone from Realtek offered reviews to my patches posted 3 and 2
-years ago? I don't see that.
+I wonder if it would make sense for exec_folio_order() to vary the
+order based on the code size, instead of always returning a fixed
+value for a given architecture and base page size.
 
-Kent SoC was accepted under condition this will improve.
+For example, on AArch64 with 4K base pages, in the load_elf_binary()
+case: if exec_folio_order() only ever returns cont-PTE (64K), we may
+miss the opportunity to use PMD mappings. On the other hand, if it
+always returns PMD (2M), then for binaries smaller than 2M we end up
+reducing ASLR entropy.
 
-I drop this from soc patchwork and please do not send code for review
-there, but either fix the lack of involvement from Realtek or let's drop
-the platform if Realtek does not care.
+Maybe something along these lines would work better:
 
-Best regards,
-Krzysztof
+unsigned int exec_folio_order(size_t code_size)
+{
+#if PAGE_SIZE == 4096
+    if (code_size >= PMD_SIZE)
+        return ilog2(SZ_2M >> PAGE_SHIFT);
+    else if (code_size >= SZ_64K)
+        return ilog2(SZ_64K >> PAGE_SHIFT);
+    else
+        return 0;
+#elif PAGE_SIZE == 16384
+    ...
+#elif PAGE_SIZE == ...
+    /* let the arch cap the max order here, rather
+       than hard-coding it at the use sites */
+#endif
+}
+
+Thanks,
+Rui
 
