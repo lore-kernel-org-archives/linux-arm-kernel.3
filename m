@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28C8103E198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F0A103E197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lrh2wrl7WfT6cli4lMFBTU+EKp/gl0XsVHde/Ui2vTQ=; b=LbLk9C3cCFbXpkdvaJMCPHiOVr
-	XjQ2DdN9y+pU0Ed5eTlrqNWJPJsO3voTR0DDh3Odoy/EvG8d1szVPYSbhHIPUZbvSPR8pA6VwNLaK
-	gpKA7bOPSl4X0ytwieh9Lo94mssPUuiD9slEr3Hsr2maw2HOkfdP+oNUjxarpPPDBacNmTVQeRzkb
-	09Kwonzvd5+TeE9L8qwvGk5rf0EPtzLQA3JOiq3kMckQ78o0V7GGdveAHjxDessw4SZCQScjkf+Hp
-	EQ7wjzozje6KZRYFc45vz4cEnbjd2KUZGkkzTmScndKS9ygDFLim2giAPITreRskeRI8U2hD8PZv4
-	HsVqauFg==;
+	bh=wLLxodPgUna6xOFFd7raB4j0oW+JF4izMioltCMu+UA=; b=3EtLqXC1TMIjyyk8cmKnvfheTP
+	kn3TTiWygGIDugle2Mt+WZ4ajgXTMw/RvVi1ZAy6nMyG0Px7aXXmVE9+FEPJhOhzYtm7uyhbj19i7
+	z+GGX5wn4nHD95vtuT2hjUp2DprCIucbnsjAr2QEndhupvg++tLq6XKl7b4wWkmzWzd/xu4bpHyII
+	QsXdHC5NVO5JKfYZ9XkyQp7Bg4mrjwXPYa1l+nwAK87D6ATgPnFGXEsBZWQ1s39M0VRW1HVfE7X/3
+	7Aj4R2/WhCqmLgxQhM76WvvGFVRajn3vysC7eAfxxMJbDaGkMoRe6dEUFzorR//mt1R3zfcRCGV0W
+	A6fEKayw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tEw-00000008odd-2jci;
-	Wed, 18 Mar 2026 15:55:22 +0000
+	id 1w2tEx-00000008oeR-1X54;
+	Wed, 18 Mar 2026 15:55:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tEk-00000008oTs-1Et2
+	id 1w2tEr-00000008oZg-3Ylf
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:55:10 +0000
+	Wed, 18 Mar 2026 15:55:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Lrh2wrl7WfT6cli4lMFBTU+EKp/gl0XsVHde/Ui2vTQ=; b=Iu4fYA3gRfJu/qpCTsRztKJ2Ql
-	7kwtxdU8O3T6njqiu7j1ZgUAm6tk3N/78DhiWEYFhCiNbngfc3XJbpf/Lswz0sXWV221lzFZXxNiF
-	a8lHBtrY/+Mn6GHNii1cqnRE9wu/2V6/8ot0LJAlF3IobawNtRYngd/k9G/9r6OWW6JusZmx0jZCr
-	EptPUiVlAvgibiFiQwuaW7FJl+BgyeCFjoOaNm+bTMwvCWeSDeL3iSiaoTS47+W3veBrh24MSkxpc
-	AZObKJDgk9RWb6NMQT2lpuUAKzVX0yjK0ZBeCmKVhdyQRyEmYlkm36H5OLESZOcreg9lhYDr758tR
-	Om4cppjg==;
+	bh=wLLxodPgUna6xOFFd7raB4j0oW+JF4izMioltCMu+UA=; b=jxRGrQglsJU6YU5NCGzO+rNMAE
+	n6T8jAwhNA9KCAuv25hyNVbH6sxngmce8v749t1tF3keQDbXQJc0hxFM1fK+OAR8fSVUkVhhr4YOd
+	1v7yCUrvtvYuDf52PNPVxjaJtQzIjgUjhXThKL0n11cHHlykOeYA3HzAidqz+rA5wizYKZu17THA8
+	Bbn8Let4d71Ng6+ZLLJbfvaiGtxo1Nu7Xl18F8u0vBil/1g8XB2SM7sKY+PZEyIrRF0grR99D4KQW
+	yRAIkJG7cDxNwe+yIwYZO5VnmdPpNoERTSYc+SUHmoJwRaY6LtelHOIR/84/FmiF61J646/FVZr9U
+	ASaxaxdg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tEg-0000000BdRE-3t1b
+	id 1w2tEo-0000000BdTX-2cWJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:55:08 +0000
+	Wed, 18 Mar 2026 15:55:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8FA82008;
-	Wed, 18 Mar 2026 08:54:59 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CB692008;
+	Wed, 18 Mar 2026 08:55:07 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40CA83F73B;
-	Wed, 18 Mar 2026 08:55:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 26D703F73B;
+	Wed, 18 Mar 2026 08:55:10 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -72,18 +71,19 @@ Cc: Steven Price <steven.price@arm.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v13 11/48] arm64: RMI: Define the user ABI
-Date: Wed, 18 Mar 2026 15:53:35 +0000
-Message-ID: <20260318155413.793430-12-steven.price@arm.com>
+	Vishal Annapurve <vannapurve@google.com>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v13 13/48] kvm: arm64: Don't expose unsupported capabilities for realm guests
+Date: Wed, 18 Mar 2026 15:53:37 +0000
+Message-ID: <20260318155413.793430-14-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155507_294506_7A404EB0 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20260318_155514_832518_FBB36F56 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,168 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is one CAP which identified the presence of CCA, and two ioctls.
-One ioctl is used to populate memory and the other is used when user
-space is providing the PSCI implementation to identify the target of the
-operation.
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
+RMM v1.0 provides no mechanism for the host to perform debug operations
+on the guest. So limit the extensions that are visible to an allowlist
+so that only those capabilities we can support are advertised.
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v12:
- * Change KVM_ARM_RMI_POPULATE to update the structure with the amount
-   that has been progressed rather than return the number of bytes
-   populated.
- * Describe the flag KVM_ARM_RMI_POPULATE_FLAGS_MEASURE.
- * CAP number is bumped.
- * NOTE: The PSCI ioctl may be removed in a future spec release.
-Changes since v11:
- * Completely reworked to be more implicit. Rather than having explicit
-   CAP operations to progress the realm construction these operations
-   are done when needed (on populating and on first vCPU run).
- * Populate and PSCI complete are promoted to proper ioctls.
 Changes since v10:
- * Rename symbols from RME to RMI.
-Changes since v9:
- * Improvements to documentation.
- * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
-Changes since v8:
- * Minor improvements to documentation following review.
- * Bump the magic numbers to avoid conflicts.
+ * Add a kvm_realm_ext_allowed() function which limits which extensions
+   are exposed to an allowlist. This removes the need for special casing
+   various extensions.
 Changes since v7:
- * Add documentation of new ioctls
- * Bump the magic numbers to avoid conflicts
-Changes since v6:
- * Rename some of the symbols to make their usage clearer and avoid
-   repetition.
-Changes from v5:
- * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
-   KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+ * Remove the helper functions and inline the kvm_is_realm() check with
+   a ternary operator.
+ * Rewrite the commit message to explain this patch.
 ---
- Documentation/virt/kvm/api.rst | 65 ++++++++++++++++++++++++++++++++++
- include/uapi/linux/kvm.h       | 22 ++++++++++++
- 2 files changed, 87 insertions(+)
+ arch/arm64/kvm/arm.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index fc5736839edd..72a2ce96d1ba 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6553,6 +6553,62 @@ KVM_S390_KEYOP_SSKE
-   Sets the storage key for the guest address ``guest_addr`` to the key
-   specified in ``key``, returning the previous value in ``key``.
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9b17bdfaf0c2..ddbf080e4f55 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -357,6 +357,25 @@ static bool kvm_has_full_ptr_auth(void)
+ 		(apa + api + apa3) == 1);
+ }
  
-+4.145 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
-+------------------------------------
++static bool kvm_realm_ext_allowed(long ext)
++{
++	switch (ext) {
++	case KVM_CAP_IRQCHIP:
++	case KVM_CAP_ARM_PSCI:
++	case KVM_CAP_ARM_PSCI_0_2:
++	case KVM_CAP_NR_VCPUS:
++	case KVM_CAP_MAX_VCPUS:
++	case KVM_CAP_MAX_VCPU_ID:
++	case KVM_CAP_MSI_DEVID:
++	case KVM_CAP_ARM_VM_IPA_SIZE:
++	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
++	case KVM_CAP_ARM_PTRAUTH_GENERIC:
++	case KVM_CAP_ARM_RMI:
++		return true;
++	}
++	return false;
++}
 +
-+:Capability: KVM_CAP_ARM_RMI
-+:Architectures: arm64
-+:Type: vcpu ioctl
-+:Parameters: struct kvm_arm_rmi_psci_complete (in)
-+:Returns: 0 if successful, < 0 on error
-+
-+::
-+
-+  struct kvm_arm_rmi_psci_complete {
-+	__u64 target_mpidr;
-+	__u32 psci_status;
-+	__u32 padding[3];
-+  };
-+
-+Where PSCI functions are handled by user space, the RMM needs to be informed of
-+the target of the operation using `target_mpidr`, along with the status
-+(`psci_status`). The RMM v1.0 specification defines two functions that require
-+this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
-+
-+If the kernel is handling PSCI then this is done automatically and the VMM
-+doesn't need to call this ioctl.
-+
-+4.146 KVM_ARM_RMI_POPULATE
-+--------------------------
-+
-+:Capability: KVM_CAP_ARM_RMI
-+:Architectures: arm64
-+:Type: vm ioctl
-+:Parameters: struct kvm_arm_rmi_populate (in)
-+:Returns: 0 on success, < 0 on error
-+
-+::
-+
-+  struct kvm_arm_rmi_populate {
-+	__u64 base;
-+	__u64 size;
-+	__u64 source_uaddr;
-+	__u32 flags;
-+	__u32 reserved;
-+  };
-+
-+Populate a region of protected address space by copying the data from the
-+(non-protected) user space pointer provided into a protected region (backed by
-+guestmem_fd). It implicitly sets the destination region to RIPAS RAM. This is
-+only valid before any VCPUs have been run. The ioctl might not populate the
-+entire region and updates the fields `base`, `size` and `source_uaddr`. User
-+space may have to repeatedly call it until `size` is 0 to populate the entire
-+region.
-+
-+`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
-+populated data is hashed and added to the guest's Realm Initial Measurement
-+(RIM).
-+
- .. _kvm_run:
+ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ {
+ 	int r;
+@@ -364,6 +383,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, ext))
+ 		return 0;
  
- 5. The kvm_run structure
-@@ -8896,6 +8952,15 @@ helpful if user space wants to emulate instructions which are not
- This capability can be enabled dynamically even if VCPUs were already
- created and are running.
- 
-+7.47 KVM_CAP_ARM_RMI
-+--------------------
++	if (kvm && kvm_is_realm(kvm) && !kvm_realm_ext_allowed(ext))
++		return 0;
 +
-+:Architectures: arm64
-+:Target: VM
-+:Parameters: None
-+
-+This capability indicates that support for CCA realms is available.
-+
- 8. Other capabilities.
- ======================
- 
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 65500f5db379..6ec140ab0ed1 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -985,6 +985,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_ARM_SEA_TO_USER 245
- #define KVM_CAP_S390_USER_OPEREXEC 246
- #define KVM_CAP_S390_KEYOP 247
-+#define KVM_CAP_ARM_RMI 248
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
-@@ -1650,4 +1651,25 @@ struct kvm_pre_fault_memory {
- 	__u64 padding[5];
- };
- 
-+/* Available with KVM_CAP_ARM_RMI, only for VMs with KVM_VM_TYPE_ARM_REALM  */
-+#define KVM_ARM_VCPU_RMI_PSCI_COMPLETE	_IOW(KVMIO, 0xd6, struct kvm_arm_rmi_psci_complete)
-+
-+struct kvm_arm_rmi_psci_complete {
-+	__u64 target_mpidr;
-+	__u32 psci_status;
-+	__u32 padding[3];
-+};
-+
-+/* Available with KVM_CAP_ARM_RMI, only for VMs with KVM_VM_TYPE_ARM_REALM */
-+#define KVM_ARM_RMI_POPULATE	_IOWR(KVMIO, 0xd7, struct kvm_arm_rmi_populate)
-+#define KVM_ARM_RMI_POPULATE_FLAGS_MEASURE	(1 << 0)
-+
-+struct kvm_arm_rmi_populate {
-+	__u64 base;
-+	__u64 size;
-+	__u64 source_uaddr;
-+	__u32 flags;
-+	__u32 reserved;
-+};
-+
- #endif /* __LINUX_KVM_H */
+ 	switch (ext) {
+ 	case KVM_CAP_IRQCHIP:
+ 		r = vgic_present;
 -- 
 2.43.0
 
