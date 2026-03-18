@@ -4,90 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4798010775FE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 18:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CC01077603
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 18:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSf6sBibNCfW2wX6QWbIjreC3HVB+7GZOy9GjareUtw=; b=LNw7gzHNZX0ZfDJpEJzpDEF6IX
-	2O2R5Vah5D6Ag3nXRInWjUcrjD2K2fVC6fo4TL4z2/3Q+MREZqWewEZP1Yjvc+AJIjJSCK98/IOLY
-	S5IKLysBS4OvKDjc8SR1MA8e8mCnHTuJZWYyI8BOWgayLPDy7Z7KfJgtpb5wUdPgI1OxEa5TBSKAU
-	Ms3kjq1cYdV0XHbkrEYGm7UlhpxQjGfnOMqYH6DCkzDTy5aMnkxLdHoZ9k5eqO4kri3a8fwsorFiT
-	jwMy9d7I6vDyissAZMuZiCc9oIaJTfN0dXrLARG5R6JU8UEg6lSYknsdtR10oj1RUXoZKOGozniog
-	SCGn0MtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4uSjza+Pg6L4somw7c5rB62XxatgKpxn7WgFljf9SzU=; b=QSZTlzHTlIv98GNb+LaP2BKAXE
+	9DUcKlveD84XPS0M2IrRPSJzQ9DcPxGc5baNRuzmAne/mRJlb36zV9+Ffk97jXsEpkp3eEgQgesxj
+	wCfY+m+R7V/BHKAaKFu9EIPzqKMMc6xlrJzYqYaqW26DQbW4nQ5PigzfQOG3ZE6aairBrM6a+XjeA
+	za1ndGo8QA5gd8owhpH0IixBgeOF9i3On97EQ6VmnEU78LWp+75A4b68XgBvEHiBTVgiUfyaE6sl0
+	cJ71pVxrgiN1ePF2Z8vXRyYhWU5vzUsol3YF+DWr75udZ8qEZu+Sf3TX5QYmUgYU2WJ96UIO1Q16Z
+	f0zMIjzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2vbq-00000009AOm-1vr8;
-	Wed, 18 Mar 2026 18:27:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2vrL-00000009BJK-10PP;
+	Wed, 18 Mar 2026 18:43:11 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2vbm-00000009AM5-1J1X
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 18:27:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=TSf6sBibNCfW2wX6QWbIjreC3HVB+7GZOy9GjareUtw=; b=BgbWBgf76alEzLDsZKrUMp0Eck
-	IxCyy/XGNugc6OFu0DBO8wa35cDJywWXChl9IdXm/Jm8Jkw/hjzEtKX95BB/fhjcf5i740uIm86x4
-	PIACF/CN3KXDsnG0AaaOuQvTDAYPiinfKZfL/kyQBxbWPGO6Z7yc43IPWrWu9ope92FjEauy9WpTX
-	kv29gaDQceBEXX3NHFwqEutZMWybC4Bqp0RbNsF3OzGiltbB5B90rpfeQUvduHGXJuJBM7rT/Uua/
-	vlI+95kjrCQUan3BNPzR7+DKK+sMnWGrgRVineCdjbASTOqGlJlRCbo0YrIWEPeY+9r59Y/uQ3pod
-	8j1qVi5Q==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2vbg-0000000C1aG-2MDU
+	id 1w2vrI-00000009BIb-12zk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 18:27:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=TSf6sBibNCfW2wX6QWbIjreC3HVB+7GZOy9GjareUtw=; b=w2j4AnQBL1DF3EdFDItBR8Abs0
-	Oty98wmj833mYVo6YVhrXgIrTWwTFobC2+yCEUM4iTaDlrBeyiyYMRNnoWytpk6XluHZ9yDlbaKeW
-	STiJPMP1qBOpvVGPgK1C+ebDnsKOZMDahFW9nUm8C02flef79i2Az2Ikfh7dA2ry+A2CC8Yq60TNf
-	GvfrB5GU7+Uic13Bz0iIi//xjoySgtwK/ArprOeW6pRDwuBGIvHIpNGd09S1zvZ0JZVRagaBT4Xjh
-	5HbX23HiZi9TW8WKwij2vdifP1DlLPchiFCNuRFgD4/YL1itB/nQMpYo7IOJleCCRYJGaofugUgPj
-	240nxgDA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39144 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w2vbb-000000003q5-1pgz;
-	Wed, 18 Mar 2026 18:26:55 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w2vba-0000000DbWo-1oL5;
-	Wed, 18 Mar 2026 18:26:54 +0000
-In-Reply-To: <abruRQpjLyMkoUEP@shell.armlinux.org.uk>
-References: <abruRQpjLyMkoUEP@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 5/5] net: stmmac: rename STMMAC_GET_ENTRY() ->
- STMMAC_NEXT_ENTRY()
+	Wed, 18 Mar 2026 18:43:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jS1JaOTj8eplvC4/TgNm/4mzUXu8ADQaT3e1vsxUgnlDeA3yzuVkpsiBq0TxD9pNuwzU/U7nqsXsWc/MTxczIr1xSK7rtxUjFanORmz00UccL0RhAUsccqAipnfxVPRbyy5bYulnELtaSFsIiqaObmzYs6C36Q1JfDsOFqioS4HfD+ggZ+O2tGuhAI60ROqzSFJptcY6YT6tjTsteaCA+kVEn5C3Beq8ShkII8qS75JBQNUqZiJvxsoZU/BJo1RDmTG531UBoFAyqlgne2udANC/eI2BQxpTsY/8nbWY6hQZwsZVewG2mxZ4lLuzc9H9iM35KaELgVjls3Qi1DTo9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4uSjza+Pg6L4somw7c5rB62XxatgKpxn7WgFljf9SzU=;
+ b=wUob/JTv2EtbBlNNSGmJ8lHfGK684TSV8fS8lSN7NoSnx7rlpeeESXBqtZI8sOGi4DUyqxEwYu/2I1Jf54QGUz8eJrbKGG4ma3/hWKYax1nNBI2JQtyfWlgqsmM16yI6ElzgLc0WMn6qvZhjijH0qOUHamjXo1EeDvIBIcZgNsL2M/JKJdAJmfp+238KCgRz4PlDgKFq4klNIw8ls3L8eUhXe3f+/+0BxTx+JzqBdvuEP+tpHOErNlIFIG5HCNOIMTLBz5qyCssIE6b+gqr+8k4NnqU3LB+W/Bqbr7ZBqnirPX2CyUIPgUf2lEhY1h++TfDsCyfNKpm/PbuHsEV8MA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4uSjza+Pg6L4somw7c5rB62XxatgKpxn7WgFljf9SzU=;
+ b=Q+Jonq16UdoMfsXd5XZICAHay++Zs2LS/NPoCrntMrtY9i0R5kn6TdqI33oBQSs+a791txLdTVzwwDq/lx8InlaiVRxMphB3ffB45AGAxdYQWLB6jP1SSgfNzxyfiIGcgHAAdPEi3hxrLB1DJ6o7jvkzZVcJeCvRvqI+XZnJ6QgE9+JGu1JOSli8gGFF+ak/nKBnpd/kscnDMZ/G2u+PnqOb/Y7c/gCatUHCWZqf66H8b8YWLNYnDX5RRI2dcLLl2WOrIMrMiWnQodRJy4hqdFqhFcjE4VMys3xFKqr6r53vkvFCowvw7dQqcWKc0ceoGbbi8lrO/JnmG3JxyfO9dw==
+Received: from BYAPR08CA0002.namprd08.prod.outlook.com (2603:10b6:a03:100::15)
+ by DS4PR12MB9794.namprd12.prod.outlook.com (2603:10b6:8:2a7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 18:43:00 +0000
+Received: from SJ5PEPF000001CE.namprd05.prod.outlook.com
+ (2603:10b6:a03:100:cafe::99) by BYAPR08CA0002.outlook.office365.com
+ (2603:10b6:a03:100::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Wed,
+ 18 Mar 2026 18:42:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001CE.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 18:42:58 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
+ 2026 11:42:36 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
+ 2026 11:42:36 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 18 Mar 2026 11:42:35 -0700
+Date: Wed, 18 Mar 2026 11:42:33 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <jgg@nvidia.com>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <praan@google.com>, <xueshuai@linux.alibaba.com>,
+	<kevin.tian@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<vsethi@nvidia.com>
+Subject: Re: [PATCH v2 2/7] iommu: Add reset_device_done callback for
+ hardware fault recovery
+Message-ID: <abryGd9F/IuInm/s@Asurada-Nvidia>
+References: <cover.1773774441.git.nicolinc@nvidia.com>
+ <3750a106b4ab4235df842fa2b9defbc8226ebbef.1773774441.git.nicolinc@nvidia.com>
+ <566549c9-fab1-43b5-a35b-e3c76f1c285d@linux.intel.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w2vba-0000000DbWo-1oL5@rmk-PC.armlinux.org.uk>
-Date: Wed, 18 Mar 2026 18:26:54 +0000
+In-Reply-To: <566549c9-fab1-43b5-a35b-e3c76f1c285d@linux.intel.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CE:EE_|DS4PR12MB9794:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c388ad5-acab-4302-6275-08de851e2d57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|7416014|82310400026|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: CXdbGn+wkUZS63ov3DvQ9QPpsF3m+jFfMi4SLqIsVWbat79cZJlAB9Y5iDs8QVzWDyPClv8MaFus0pDxd1b5756HVdjJhk/sB4kK5dkpB4lwPFHXPFyzbO/HGunD+PvUPBeU0msMufkq8Jcg5woNlb6DZgqaGp7d0WBDDONBncAOKeGt8YSmIDJVDe9A5svo1BnC39gLwfx9MVhOWSBK16ShEYeG/mfr92FGcx6BBeLIGQVwKbx9zT/3UTP9cDm9pslFBJtVnCnFkN0GknFkt/nvyfS3VCDTSadWWV7pWMKaZTIB84mxHawyhfES4bm3HRTVzFbg45DNTiRuk8afhj4jxqutudYpcgQq2SayrASkl4QPHTc4YCU8QK0orv3ojZ0VYGmrLc97o1kF7UY1XTMUD3vimLLR6p0fNshmyzUcrLcR76p2MmOO0EjdVUJVRNOmb6Me5Pv2koU6mllYTyMpRgDxwM+RmNEX8oQOicyzTk2RhK7gotaBuehP5OWNJWtiAVqF+Wghtf+JIiAUGM6+vYZTYDqX4c7rJbAwJqUa9eNnD1Pb2S4jTPfKJpd02ETL+Wvunop/nOSUQZb/ONXH85CQo08YqMevKyUL3+AO/tCPxWGxUu5z+zQhMeJOl1OljmWEsXhrgKV79DjB81R2oYurMblDstKN+jpdoN1qFGeRMmdry2FwKpzQkcSH/fYTYMNLtp81WzH713Pb7v6bJlY9b2dy/gu0PWhypJ68kAe+ZQL9gGwW04/KJX3o9519vhpKK7vyo6tbGfpq0A==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(7416014)(82310400026)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: b2C3/rpisHN6UZLUp9S+Qe1seYOqtLNO2vFe+iaWyAHFLe9Vh3lpNhhL58Erp+eJdUmtheYSGE/QxnwM+UrvCI1+OEHWsVrJN7nnnDxg/IiZp3PadJ75LVtKc/z5yiIHjNDa6ZYpFJNSF0z+7cx+J6Df/tJWvTbjb6wbBgGpShg6FaEIWE49OqgAEd7fNirnrIkPtK1tpZpbz6sBkU1KneY7nxWYpt22UNv5Y5Pw5oowJaYxSWSCM+OjOGL2B5N2NHvgxvKFpx8APuIYjf36E6fh527uI2ncFfqyHvcLhg/ulQyNkIIY6BTOeCyPXL4m8dKKe4IBXbjhpSsYNS1R+14AR1kziigt2UUKHmxpBoSVHAuRoVd+ApTQldfvS+XWBYFGbRWqRwu3oFNo/e4ND/VJE97mplpxdT7TKhAzvkDKD711ZxVmxzmfw3n6ISub
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 18:42:58.8013
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c388ad5-acab-4302-6275-08de851e2d57
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9794
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_182700_721985_455A7513 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260318_114308_312717_C422FD64 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,179 +135,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STMMAC_GET_ENTRY() doesn't describe what this macro is doing - it is
-incrementing the provided index for the circular array of descriptors.
-Replace "GET" with "NEXT" as this better describes the action here.
+On Wed, Mar 18, 2026 at 01:59:58PM +0800, Baolu Lu wrote:
+> On 3/18/26 03:15, Nicolin Chen wrote:
+> > +	if (ops && ops->reset_device_done)
+> > +		ops->reset_device_done(&pdev->dev);
+> 
+> Nit: dev_iommu_ops() ensures a valid iommu "ops". There is no need to
+> check "ops != NULL" here. Just
+> 
+> 	if (ops->reset_device_done)
+> 		ops->reset_device_done(&pdev->dev);
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/chain_mode.c  |  2 +-
- drivers/net/ethernet/stmicro/stmmac/common.h  |  2 +-
- .../net/ethernet/stmicro/stmmac/ring_mode.c   |  2 +-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 26 +++++++++----------
- 4 files changed, 16 insertions(+), 16 deletions(-)
+Yes, right.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-index 120a009c9992..dc7df4208c53 100644
---- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-@@ -46,7 +46,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 
- 	while (len != 0) {
- 		tx_q->tx_skbuff[entry] = NULL;
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 		desc = tx_q->dma_tx + entry;
- 
- 		if (len > bmax) {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index f1628de8ed18..8166389c853f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -63,7 +63,7 @@ static inline bool dwmac_is_xmac(enum dwmac_core_type core_type)
- #define DMA_MIN_RX_SIZE		64
- #define DMA_MAX_RX_SIZE		1024
- #define DMA_DEFAULT_RX_SIZE	512
--#define STMMAC_GET_ENTRY(x, size)	((x + 1) & (size - 1))
-+#define STMMAC_NEXT_ENTRY(x, size)	((x + 1) & (size - 1))
- 
- #undef FRAME_FILTER_DEBUG
- /* #define FRAME_FILTER_DEBUG */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-index 382d94a3b972..78fc6aa5bbe9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-@@ -51,7 +51,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 		stmmac_prepare_tx_desc(priv, desc, 1, bmax, csum,
- 				STMMAC_RING_MODE, 0, false, skb->len);
- 		tx_q->tx_skbuff[entry] = NULL;
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 
- 		if (priv->extend_desc)
- 			desc = (struct dma_desc *)(tx_q->dma_etx + entry);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3c0206278081..5062537f79e9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2780,7 +2780,7 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		xsk_tx_metadata_to_compl(meta,
- 					 &tx_q->tx_skbuff_dma[entry].xsk_meta);
- 
--		tx_q->cur_tx = STMMAC_GET_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
-+		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
- 		entry = tx_q->cur_tx;
- 	}
- 	u64_stats_update_begin(&txq_stats->napi_syncp);
-@@ -2948,7 +2948,7 @@ static int stmmac_tx_clean(struct stmmac_priv *priv, int budget, u32 queue,
- 
- 		stmmac_release_tx_desc(priv, p, priv->descriptor_mode);
- 
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 	}
- 	tx_q->dirty_tx = entry;
- 
-@@ -4303,7 +4303,7 @@ static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
- 		return false;
- 
- 	stmmac_set_tx_owner(priv, p);
--	tx_q->cur_tx = STMMAC_GET_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
-+	tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
- 	return true;
- }
- 
-@@ -4331,7 +4331,7 @@ static void stmmac_tso_allocator(struct stmmac_priv *priv, dma_addr_t des,
- 	while (tmp_len > 0) {
- 		dma_addr_t curr_addr;
- 
--		tx_q->cur_tx = STMMAC_GET_ENTRY(tx_q->cur_tx,
-+		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
- 						priv->dma_conf.dma_tx_size);
- 		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
- 
-@@ -4473,7 +4473,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 
- 		stmmac_set_mss(priv, mss_desc, mss);
- 		tx_q->mss = mss;
--		tx_q->cur_tx = STMMAC_GET_ENTRY(tx_q->cur_tx,
-+		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
- 						priv->dma_conf.dma_tx_size);
- 		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
- 	}
-@@ -4573,7 +4573,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	 * ndo_start_xmit will fill this descriptor the next time it's
- 	 * called and stmmac_tx_clean may clean up to this descriptor.
- 	 */
--	tx_q->cur_tx = STMMAC_GET_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
-+	tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
- 
- 	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
- 		netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
-@@ -4777,7 +4777,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		unsigned int frag_size = skb_frag_size(frag);
- 		bool last_segment = (i == (nfrags - 1));
- 
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 		WARN_ON(tx_q->tx_skbuff[entry]);
- 
- 		desc = stmmac_get_tx_desc(priv, tx_q, entry);
-@@ -4833,7 +4833,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	 * ndo_start_xmit will fill this descriptor the next time it's
- 	 * called and stmmac_tx_clean may clean up to this descriptor.
- 	 */
--	entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+	entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 	tx_q->cur_tx = entry;
- 
- 	if (netif_msg_pktdata(priv)) {
-@@ -4998,7 +4998,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
- 		dma_wmb();
- 		stmmac_set_rx_owner(priv, p, use_rx_wd);
- 
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_rx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_rx_size);
- 	}
- 	rx_q->dirty_rx = entry;
- 	stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
-@@ -5139,7 +5139,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
- 
- 	stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
- 
--	entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-+	entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
- 	tx_q->cur_tx = entry;
- 
- 	return STMMAC_XDP_TX;
-@@ -5370,7 +5370,7 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		dma_wmb();
- 		stmmac_set_rx_owner(priv, rx_desc, use_rx_wd);
- 
--		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_rx_size);
-+		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_rx_size);
- 	}
- 
- 	if (rx_desc) {
-@@ -5454,7 +5454,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 			break;
- 
- 		/* Prefetch the next RX descriptor */
--		rx_q->cur_rx = STMMAC_GET_ENTRY(rx_q->cur_rx,
-+		rx_q->cur_rx = STMMAC_NEXT_ENTRY(rx_q->cur_rx,
- 						priv->dma_conf.dma_rx_size);
- 		next_entry = rx_q->cur_rx;
- 
-@@ -5638,7 +5638,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 		if (unlikely(status & dma_own))
- 			break;
- 
--		rx_q->cur_rx = STMMAC_GET_ENTRY(rx_q->cur_rx,
-+		rx_q->cur_rx = STMMAC_NEXT_ENTRY(rx_q->cur_rx,
- 						priv->dma_conf.dma_rx_size);
- 		next_entry = rx_q->cur_rx;
- 
--- 
-2.47.3
-
+Thanks!
+Nicolin
 
