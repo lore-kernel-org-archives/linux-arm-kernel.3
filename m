@@ -4,78 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A317AFCD0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A040FCD0CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNAxvMlpKbnk3xa//SsNLWzTbu90yHBu0yVq6XBO01c=; b=w8XSbVjDH9KKbNzQ/DLXb6s3/2
-	LE0MT7U0R9QyAopqzXAaackYn52wKIGbukFYVry/oH7nEOGzRWV/DPDbNue2wrIg9AguxYkC8PT9i
-	ahc0uBy87AF0tb9xbgMycqk7ZRqdj1/WTaSl/VK/pl9ex/ry9sGer6B8ACDyZqiXdgexpWjwGgOQH
-	D6iA7xIXj0RbRpolNXdAwaIchZafq3i4zPxCpgoWHTP9llwu96DZT0degQi4IcgoStlV+xPWj45A+
-	AvB+cCHKShxFbPK2Rfsivrkb6TR0se2vW+VtcCfp96OsjrvG9Ibu0ADp9iQatAqaBRW5yrdwJSmP4
-	28Yr+SlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:From:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xNR0IFxrmO5JLjdAL9oWrBwcQNLTGyQXiJ/dq8QixMY=; b=RZTjgZ4nQ8AC2x
+	z17xhEtXunE5YNJowxXACJUgdws+Uydu2yumhpBKUIGGCRjOAEwpVtSUEuLyXBdGSv9BCQ1LXzlUb
+	WM3Jib/+k3J0KwYY0Vox1L2hrJuOSaL5tDGt5MPRmjZ1Glk5xrsHyew49OFfup6nIuPwiv9Mm1BPk
+	hg/QeqmKYjgTGl/J/CjXafkhF5LnlkirpO/blf05P6KGNFtKZkXafKEoAg6voSB6FG2mQGm6H2rot
+	eddBCnVtV902CF0O/FpslWXQY5HrV84l4B9RZoJs4yzSj7/EL0L3SoSD5PfxgTSjRK6ZYc84iYYj+
+	UW9l8IsaXQVcP1/Dg0qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2m09-000000080wl-3Yuv;
-	Wed, 18 Mar 2026 08:11:37 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w2m17-0000000817i-24DV;
+	Wed, 18 Mar 2026 08:12:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2m07-000000080vg-3ZNF
+	id 1w2m16-0000000817U-1FD3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 08:11:36 +0000
-X-UUID: 12adc06822a211f1a6de359d7043e138-20260318
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=jNAxvMlpKbnk3xa//SsNLWzTbu90yHBu0yVq6XBO01c=;
-	b=XZl7k9n1mKsqSw/bMfl5uThekhr/yZA5hP/NpHlomg4BPJSfxkHJhKZGXftrR974MOKKGddhmb4/JD4KUX1YvrBQbAmo1NY+NtjXeiYXXITWAreLvPXJGwhM19EZE59kz/J0z/CoFMzruOUUNSKZBJEjc7lolYAWCryqzLJOmZk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:3c54f153-1b2d-4c3d-91e6-d347e8a01e30,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:7179a24c-9183-487b-8624-e74f2dd98990,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 12adc06822a211f1a6de359d7043e138-20260318
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <adlavinitha.reddy@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1063062452; Wed, 18 Mar 2026 01:11:31 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 18 Mar 2026 16:11:29 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 18 Mar 2026 16:11:29 +0800
-From: adlavinitha reddy <adlavinitha.reddy@mediatek.com>
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infraded.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, adlavinitha reddy
-	<adlavinitha.reddy@mediatek.com>
-Subject: [v1,PATCH 1/1] i2c: mediatek: add bus regulator control for power saving
-Date: Wed, 18 Mar 2026 16:11:19 +0800
-Message-ID: <20260318081126.4098146-2-adlavinitha.reddy@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260318081126.4098146-1-adlavinitha.reddy@mediatek.com>
-References: <20260318081126.4098146-1-adlavinitha.reddy@mediatek.com>
+	Wed, 18 Mar 2026 08:12:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 827AB60130;
+	Wed, 18 Mar 2026 08:12:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C6FC19421;
+	Wed, 18 Mar 2026 08:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773821555;
+	bh=W1CjCpjO5V3l04HiQPLXc4y4ilM4koh72sJL6FzLrLQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=EGelKz/EVImNowrO0fKLmlYhkQrRTVQDQI0vuw8fWMxAxTr9xlcCyzDg5kArn9UeJ
+	 Zp3LwctDoyk+k49PLN+nLj8bDpCASZCCKXBW3a+UZgSdsZk5UlsAf9BWDB9m0FkZU8
+	 obTcTAqCYkxvCYITAuW6faFTCqajiiV42FhCOcnpRf2L3ewKH595qhPzl/6eOlIK/L
+	 yyUCNxPl7h7Q7xdrR+bKW8tQ+zlffnc9YpPWTJBkX5j6rDKqLGAmEtunCoCsvbxWY3
+	 qgFCbNkOtDlGdJgJvcfHV8SPUEHAXpZqDlpqiRJLF13I2amJ+xxWTfLwUBpVjTpeqy
+	 HuSA6kr7X3U5Q==
+Message-ID: <bad30062-3f61-41cb-af78-21f13b77ed4d@kernel.org>
+Date: Wed, 18 Mar 2026 09:12:30 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_011135_901377_E6761393 
-X-CRM114-Status: GOOD (  15.18  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/8] firmware: smccc: Add support for Live Firmware
+ Activation (LFA)
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+References: <20260317103336.1273582-1-andre.przywara@arm.com>
+ <20260317103336.1273582-3-andre.przywara@arm.com>
+ <20260318-wealthy-quartz-iguana-9a836e@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260318-wealthy-quartz-iguana-9a836e@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +111,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add conditional bus regulator enable/disable in mtk_i2c_transfer()
-to support I2C bus power gating for platforms that require it.
+On 18/03/2026 09:09, Krzysztof Kozlowski wrote:
+> On Tue, Mar 17, 2026 at 11:33:28AM +0100, Andre Przywara wrote:
+>> +
+>> +/* A list of known GUIDs, to be shown in the "name" sysfs file. */
+>> +static const struct fw_image_uuid {
+>> +	const char *name;
+>> +	const char *uuid;
+>> +} fw_images_uuids[] = {
+>> +	{
+>> +		.name = "TF-A BL31 runtime",
+>> +		.uuid = "47d4086d-4cfe-9846-9b95-2950cbbd5a00",
+>> +	},
+>> +	{
+>> +		.name = "BL33 non-secure payload",
+>> +		.uuid = "d6d0eea7-fcea-d54b-9782-9934f234b6e4",
+>> +	},
+>> +	{
+>> +		.name = "TF-RMM",
+>> +		.uuid = "6c0762a6-12f2-4b56-92cb-ba8f633606d9",
+>> +	},
+>> +};
+>> +
+>> +static struct kset *lfa_kset;
+>> +static struct workqueue_struct *fw_images_update_wq;
+>> +static struct work_struct fw_images_update_work;
+>> +static struct attribute *image_default_attrs[LFA_ATTR_NR_IMAGES + 1];
+> 
+> Bunch of singletons here because (see later)...
+> 
+>> +
+>> +static const struct attribute_group image_attr_group = {
+>> +	.attrs = image_default_attrs,
+>> +};
+>> +
+>> +static const struct attribute_group *image_default_groups[] = {
+>> +	&image_attr_group,
+>> +	NULL
+>> +};
+>> +
+>> +static int __init lfa_init(void)
+>> +{
+>> +	struct arm_smccc_1_2_regs reg = { 0 };
+>> +	int err;
+>> +
+>> +	reg.a0 = LFA_1_0_FN_GET_VERSION;
+>> +	arm_smccc_1_2_invoke(&reg, &reg);
+>> +	if (reg.a0 == -LFA_NOT_SUPPORTED) {
+>> +		pr_info("Live Firmware activation: no firmware agent found\n");
+>> +		return -ENODEV;
+>> +	}
+>> +
+>> +	pr_info("Live Firmware Activation: detected v%ld.%ld\n",
+>> +		reg.a0 >> 16, reg.a0 & 0xffff);
+>> +
+>> +	fw_images_update_wq = alloc_workqueue("fw_images_update_wq",
+>> +					      WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
+>> +	if (!fw_images_update_wq) {
+>> +		pr_err("Live Firmware Activation: Failed to allocate workqueue.\n");
+>> +
+>> +		return -ENOMEM;
+>> +	}
+>> +	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
+>> +
+>> +	init_image_default_attrs();
+>> +	lfa_kset = kset_create_and_add("lfa", NULL, firmware_kobj);
+>> +	if (!lfa_kset)
+>> +		return -ENOMEM;
+>> +
+>> +	err = update_fw_images_tree();
+>> +	if (err != 0) {
+>> +		kset_unregister(lfa_kset);
+>> +		destroy_workqueue(fw_images_update_wq);
+>> +	}
+>> +
+>> +	return err;
+>> +}
+>> +module_init(lfa_init);
+> 
+> You do not use driver model, but 199x style of modprobing and performing
+> actions.
+> 
+> I do not understand why module load is already doign anything. This
+> looks like misinterpretation/misuse of Linux driver model - in a way,
+> you don't use it all and this is like back to 199x where modprobe was
+> already meaning you bind drivers...
 
-This implementation:
-- Enables bus_regulator before clk_bulk_enable() if vbus-supply is defined
-- Disables bus_regulator after clk_bulk_disable()
-- Only activates when vbus-supply is provided in device tree
-- Has no impact on platforms without vbus-supply defined
+Although now going through further patches I found you implementing some
+parts of driver model, so probably this split is just needing fix.
 
-This approach provides power savinggs for platforms with an extra I2C bus
-regulator, while avoiding runtime PM complexity.
+Modprobe must not do "arm_smccc_1_2_invoke" or any other device related
+things. You only initialize your bus, just like every other bus driver
+would do, but honestly this should not be a bus-like code.
 
-TEST= Build and boot on MT8188
-
-Signed-off-by: adlavinitha reddy <adlavinitha.reddy@mediatek.com>
----
- drivers/i2c/busses/i2c-mt65xx.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index cb4d3aa709d0..126040ca05f1 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -21,6 +21,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/scatterlist.h>
- #include <linux/sched.h>
- #include <linux/slab.h>
-@@ -1244,9 +1245,15 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	bool write_then_read_en = false;
- 	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
-
-+	if (i2c->adap.bus_regulator) {
-+		ret = regulator_enable(i2c->adap.bus_regulator);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 	if (ret)
--		return ret;
-+		goto err_regulator;
-
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
-
-@@ -1301,6 +1308,10 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
-
- err_exit:
- 	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+err_regulator:
-+	if (i2c->adap.bus_regulator)
-+		regulator_disable(i2c->adap.bus_regulator);
-+
- 	return ret;
- }
-
---
-2.45.2
+Best regards,
+Krzysztof
 
