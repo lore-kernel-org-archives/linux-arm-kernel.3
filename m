@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BF8FCD0D2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DA3FCD0CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tvu7SzlLp7tX2tjydABiLqyEQwlaZp2mMLV/+QdApm8=; b=jZu9qzygNCcFzCQDsgFDhc/Dk4
-	GqbCz1Dkb/8+emtqBFrK2l3/g8PArBTF3hSbETsbXMRr1qFk9AMP14nSpqKBTojg0I1tN9P8sLx7H
-	F6je/02UYNRjAYC/tTrk8vnk2c1IyPZWXEmD1E+UwCbesLJ7zEvnYTxCdtH3IbBB+iY9PQuSsDYxZ
-	zjseBb2/t8gDt1g8HG0TelHwqBGU0eoDPnla1RHx2MzxzyqYJE+FGyopCCRRBpjTQ2IyNPBSE1USE
-	n/nnmMxbO2dO/81i7EjwBWUAcBvuAQiqcb2RJl1OJZTYuXmM5KjDCpxPoIeQXWZYS/WKb6h1PQBVt
-	g055kFyQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mrhLqIr375zkIF1P8tW7+p8P3V9w1E/lvaNsvQiZRKQ=; b=x4G/Mc6gCWO59sRSba3ypeCEAK
+	uGuEus4eiEyIgbOGopLdjyBDOn65nZbIJqI/0g0a9pACzI4pwIOYmmoxdv5BTCz3bhMuqKgmt8aUh
+	47h75GAMZ6Hb8iLa1Qo4vLiLirMZqeLpeuvN1pZg7P31G9eAeEWeG9MBujj/0WpZjK5kay9ueQpaM
+	Q32pqXB1i5luMw/C9eMHjDS0hvXQpjjm5IeqlglJuoL8zysWWdqcwwGGxDpVdZqC+kFBUwteVFRjf
+	jaKPnBLGBq6YoJOsAmjvvOgrrNhh4EJOWOAM32x6+M4bjqkiuRPnXBA3k9hfmbtuffDqVEZUSFpmH
+	FyL/mujw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mAI-000000082Zn-0HmP;
-	Wed, 18 Mar 2026 08:22:06 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w2mCJ-000000082nT-095X;
+	Wed, 18 Mar 2026 08:24:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mAF-000000082Z2-2zyu
+	id 1w2mCG-000000082mz-1uLw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 08:22:05 +0000
-X-UUID: 87e9b0a222a311f1a21c59e7364eecb8-20260318
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:517c93f7-a0b9-47f8-93e6-f1014873366f,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:20
-X-CID-META: VersionHash:89c9d04,CLOUDID:4088885d7b2ceb3a44a7619703b93cfa,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 87e9b0a222a311f1a21c59e7364eecb8-20260318
-X-User: lijun01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <lijun01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1654943835; Wed, 18 Mar 2026 16:21:58 +0800
-From: Li Jun <lijun01@kylinos.cn>
-To: andrew@lunn.ch,
-	gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com,
-	linux@armlinux.org.uk,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 18 Mar 2026 08:24:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E3CA5417BA;
+	Wed, 18 Mar 2026 08:24:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53225C19421;
+	Wed, 18 Mar 2026 08:24:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773822247;
+	bh=zbrEzDQ0AblNhXke6/7cPNOTm3Avyhavj22x1LcfmRs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FdWYyowzn9WA2aJGuHLNRqX/QEe2NLHcUNCkhDUY64ztt4svOZmzxFrWlzmUHI6xU
+	 /uZ6hPer+e0gNtoBPTWwrX/4/7Y7NvBA8sBZlt870hhJjKBW7mlNFErn5jRqmcWzUI
+	 ZvuE9nLCPHP31SJgQXUPwHPO6asgJzE8clgaERBQLzu6N9cYSGvueZs5NEtbkDxERW
+	 0uJbhCBwzFOmdXng/YhTB1b3/JQeJfKObJH/IhHBdmBsZiqjuYj2FAYfYX/gYxNizC
+	 3PxPrHxwNqCsWYeU/7l/EP6+bQvr/f/z2ZIb4fdI4QjIBTDeTbHHgHvFBmLlYCncbE
+	 OJTQxjRlH3XgQ==
+From: Simon Horman <horms@kernel.org>
+To: a0987203069@gmail.com
+Cc: Simon Horman <horms@kernel.org>,
+	richardcochran@gmail.com,
+	devicetree@vger.kernel.org,
+	edumazet@google.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	joabreu@synopsys.com,
 	linux-kernel@vger.kernel.org,
-	lijun01@kylinos.cn
-Subject: [PATCH v2] arm: mvebu: fix null pointer when access
-Date: Wed, 18 Mar 2026 16:21:43 +0800
-Message-Id: <20260318082143.2560586-1-lijun01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	krzk+dt@kernel.org,
+	pabeni@redhat.com,
+	kuba@kernel.org,
+	andrew+netdev@lunn.ch,
+	netdev@vger.kernel.org,
+	conor+dt@kernel.org,
+	schung@nuvoton.com,
+	linux-arm-kernel@lists.infradead.org,
+	davem@davemloft.net,
+	robh@kernel.org,
+	yclu4@nuvoton.com,
+	andrew@lunn.ch,
+	mcoquelin.stm32@gmail.com,
+	ychuang3@nuvoton.com,
+	openbmc@lists.ozlabs.org,
+	peppe.cavallaro@st.com,
+	alexandre.torgue@foss.st.com
+Subject: Re: [net-next,v14,3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+Date: Wed, 18 Mar 2026 08:23:46 +0000
+Message-ID: <20260318082346.1825390-1-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260316055427.1310569-4-a0987203069@gmail.com>
+References: <20260316055427.1310569-4-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_012204_066550_74AA4136 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260318_012408_554943_34B75B79 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +93,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-the kzalloc&kstrdup may return null pointer, will cause kernel panic.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
--Fix null pointer.
-
-Signed-off-by: Li Jun <lijun01@kylinos.cn>
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
- arch/arm/mach-mvebu/coherency.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
 
-diff --git a/arch/arm/mach-mvebu/coherency.c b/arch/arm/mach-mvebu/coherency.c
-index a6b621ff0b87..f9411e16ddbb 100644
---- a/arch/arm/mach-mvebu/coherency.c
-+++ b/arch/arm/mach-mvebu/coherency.c
-@@ -191,7 +191,13 @@ static void __init armada_375_380_coherency_init(struct device_node *np)
- 		struct property *p;
- 
- 		p = kzalloc(sizeof(*p), GFP_KERNEL);
-+		if (!p)
-+			return;
- 		p->name = kstrdup("arm,io-coherent", GFP_KERNEL);
-+		if (!p->name) {
-+			kfree(p);
-+			return;
-+		}
- 		of_add_property(cache_dn, p);
- 	}
- }
--- 
-2.25.1
+Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac
+driver.
 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+> @@ -0,0 +1,136 @@
+
+[ ... ]
+
+> +static int nvt_gmac_probe(struct platform_device *pdev)
+> +{
+> +	struct plat_stmmacenet_data *plat_dat;
+> +	struct stmmac_resources stmmac_res;
+> +	struct device *dev = &pdev->dev;
+> +	struct nvt_priv_data *priv;
+> +	int ret;
+> +
+> +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get platform resources\n");
+> +
+> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> +	if (IS_ERR(plat_dat))
+> +		return dev_err_probe(dev, PTR_ERR(plat_dat), "Failed to get platform data\n");
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return dev_err_probe(dev, -ENOMEM, "Failed to allocate private data\n");
+> +
+> +	priv->regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys",
+> +							    1, &priv->macid);
+> +	if (IS_ERR(priv->regmap))
+> +		ret = dev_err_probe(dev, PTR_ERR(priv->regmap), "Failed to get sys register\n");
+> +
+> +	if (priv->macid > 1)
+> +		ret = dev_err_probe(dev, -EINVAL, "Invalid sys arguments\n");
+>                                                                                   ^^^^
+
+Does this code return the error on failure? The dev_err_probe() result is
+assigned to ret but the function continues execution without returning.
+
+Russell King's v12 review suggested using set_phy_intf_sel callback,
+which led to significant refactoring in v12. This refactoring appears to
+have inadvertently broken the error handling here and below.
+
+The code should be:
+	if (IS_ERR(priv->regmap))
+		return dev_err_probe(dev, PTR_ERR(priv->regmap), "Failed to get sys register\n");
+
+	if (priv->macid > 1)
+		return dev_err_probe(dev, -EINVAL, "Invalid sys arguments\n");
+
+See Russell's v12 review:
+https://lore.kernel.org/netdev/aYsurPBMnzWDZCco@shell.armlinux.org.uk/
+
+> +
+> +	plat_dat->bsp_priv = priv;
+> +	plat_dat->set_phy_intf_sel = nvt_set_phy_intf_sel;
+> +
+> +	return stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+> +}
+
+[ ... ]
 
