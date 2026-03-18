@@ -4,56 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45831103E18F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D84103E183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+aEDVNqb9xxPM5wo/zpqSuDIPCsG6efM35ChSAziaog=; b=HdAcORy8kS9oj1eutgftBMf8J5
-	wgTFjlwgV19JfMFNg1yDmC/NJcLMZ/mKKg+XGSX0PMSVCXEC9wZh8lfCcvUfwhUfCSDezS6nJxoGi
-	4mA48CTQGO21YkGJ/Gwa2VOS7agY3QbgAe1dmSL6akkoSdO2HnsW1s0z+E5JS5cQrM8Pd7YbIEE9r
-	Cp48f44R1C05NkX/rETLIQymTDC+pZS3ZTFytcs8Rb53VMuGB6mtHOYsxAWHl+5ra/8lq2hjuJwc5
-	IRZYC74tpN9o2qegBpjXG5FS2jO7Xt9uwC4op1nA+eRt/2FJCneDuVgMog12SkJrvEMfZZIVGniBS
-	4HF5yhKA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAUsju3w6+seco0DBwBvgWL+6NjPkS7WGoDZc8oY+gw=; b=ELXwvJ45+CHAg61mU/l9tJ3VrP
+	AA+vXc+QbSWwCZ9WXZMafJ3W035gTliMcu2+0GomZifd2eADwkALeYxqk2Umb++hrGyNspjA7C8gN
+	StHkaWeZRhMWXxldliFbNBKOGws1h90kA2jpmqVl8NYApoAX+OcTGvPngLXRFE+AFP60U+12pDiq2
+	oFsqjU65TUT1f5HBRpeNJMJhAfb3glY9HmKCocgDj333NYBLntOYX64mXPTbORoyB0azsPOPLQT0C
+	Mki1CcgvAXN3mGpi1WSjNmRAyAk6hbOqLSd9+STG/5iRbnMEtEp6kQ4MEJ/vIqEQdBacHzbN+uzL7
+	n0qEHWBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2s7P-00000008cNv-2F4I;
-	Wed, 18 Mar 2026 14:43:31 +0000
-Received: from out-179.mta1.migadu.com ([95.215.58.179])
+	id 1w2sB2-00000008clt-1mQZ;
+	Wed, 18 Mar 2026 14:47:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2s7M-00000008cMo-42Al
+	id 1w2sAz-00000008clV-1s7q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 14:43:30 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773845002;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+aEDVNqb9xxPM5wo/zpqSuDIPCsG6efM35ChSAziaog=;
-	b=bZkg58T9gxZLUS9ENazMqngeY9Fv3/bvzoFx7bf51D2TXlL8USBJT94QDac+cv9WEKXe0j
-	bOo+MoYM5hK823uh8VZcpz+IZaJgJPXE2ujUT9e0bS6fLqiGuiFDmM9lMLHzI8zmuOMHen
-	2bx57rLRl8h1V28/ePuldSwDyNyXeT0=
-From: Zenghui Yu <zenghui.yu@linux.dev>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	"Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
-Subject: [PATCH] KVM: arm64: Remove @arch from __load_stage2()
-Date: Wed, 18 Mar 2026 22:43:05 +0800
-Message-ID: <20260318144305.56831-1-zenghui.yu@linux.dev>
+	Wed, 18 Mar 2026 14:47:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F82B42D8D;
+	Wed, 18 Mar 2026 14:47:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2CE2C19421;
+	Wed, 18 Mar 2026 14:47:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773845231;
+	bh=sOGhleK/nOFjGylRZPX91uK0mo+r2D9Kaglk5zGCV1M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lNEXEXFHtHqqr5+jSR8/WPIZ+t95wCNVVoFyFK6S3X5ngF1Z0hz/dGpE0/8EVWyzB
+	 7mFxzM+0bUnUaAhTlEuc+9AknVBfSI9p5RHBxJWrrAvHGw/j+0E6tA3hZYfaqyW8OI
+	 3qeaNgswbe4lvpsnrdMYYgKytxx1PEPv7MSrbOGaa3g8CmFStN9NXTdAjn8hQtLhjO
+	 8VQ1bPGUgw/WxjL8g9punuvgQVYnky6+kVtBTz+q+WuZUomr0+eYyGnze5a5zLO7rs
+	 Xul8ho2Ds77F5cnV2Odc+IaNBY2ZPyljYTpCY3FqWe/wRWhVHahuEr8FNWykrSONbu
+	 lV9haUJJi9Hxg==
+From: Simon Horman <horms@kernel.org>
+To: wei.fang@nxp.com
+Cc: Simon Horman <horms@kernel.org>,
+	f.fainelli@gmail.com,
+	krzk+dt@kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	claudiu.manoil@nxp.com,
+	xiaoning.wang@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux@armlinux.org.uk,
+	pabeni@redhat.com,
+	conor+dt@kernel.org,
+	chleroy@kernel.org,
+	edumazet@google.com,
+	frank.li@nxp.com,
+	kuba@kernel.org,
+	vladimir.oltean@nxp.com,
+	linuxppc-dev@lists.ozlabs.org,
+	robh@kernel.org,
+	davem@davemloft.net,
+	andrew+netdev@lunn.ch
+Subject: Re: [net-next,11/14] net: dsa: netc: add phylink MAC operations
+Date: Wed, 18 Mar 2026 14:46:51 +0000
+Message-ID: <20260318144651.1891670-1-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260316094152.1558671-12-wei.fang@nxp.com>
+References: <20260316094152.1558671-12-wei.fang@nxp.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_074329_375661_ECA9398D 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260318_074713_548015_288D5AFB 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,148 +91,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-Since commit fe49fd940e22 ("KVM: arm64: Move VTCR_EL2 into struct s2_mmu"),
-@arch is no longer required to obtain the per-kvm_s2_mmu vtcr and can be
-removed from __load_stage2().
-
-Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
- arch/arm64/include/asm/kvm_mmu.h              | 3 +--
- arch/arm64/kvm/at.c                           | 2 +-
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 2 +-
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 2 +-
- arch/arm64/kvm/hyp/nvhe/switch.c              | 2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c                 | 4 ++--
- arch/arm64/kvm/hyp/vhe/switch.c               | 2 +-
- arch/arm64/kvm/hyp/vhe/tlb.c                  | 4 ++--
- 8 files changed, 10 insertions(+), 11 deletions(-)
+net: dsa: netc: add phylink MAC operations
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index d968aca0461a..c1e535e3d931 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -318,8 +318,7 @@ static __always_inline u64 kvm_get_vttbr(struct kvm_s2_mmu *mmu)
-  * Must be called from hyp code running at EL2 with an updated VTTBR
-  * and interrupts disabled.
-  */
--static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu,
--					  struct kvm_arch *arch)
-+static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu)
- {
- 	write_sysreg(mmu->vtcr, vtcr_el2);
- 	write_sysreg(kvm_get_vttbr(mmu), vttbr_el2);
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index a024d9a770dc..3b61da0a24d8 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -1379,7 +1379,7 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 		}
- 	}
- 	write_sysreg_el1(vcpu_read_sys_reg(vcpu, SCTLR_EL1),	SYS_SCTLR);
--	__load_stage2(mmu, mmu->arch);
-+	__load_stage2(mmu);
- 
- skip_mmu_switch:
- 	/* Temporarily switch back to guest context */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 5f9d56754e39..803961cdd39e 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -63,7 +63,7 @@ int refill_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
- static __always_inline void __load_host_stage2(void)
- {
- 	if (static_branch_likely(&kvm_protected_mode_initialized))
--		__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
-+		__load_stage2(&host_mmu.arch.mmu);
- 	else
- 		write_sysreg(0, vttbr_el2);
- }
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index d815265bd374..87a169838481 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -336,7 +336,7 @@ int __pkvm_prot_finalize(void)
- 	kvm_flush_dcache_to_poc(params, sizeof(*params));
- 
- 	write_sysreg_hcr(params->hcr_el2);
--	__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
-+	__load_stage2(&host_mmu.arch.mmu);
- 
- 	/*
- 	 * Make sure to have an ISB before the TLB maintenance below but only
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 779089e42681..3938997e7963 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -299,7 +299,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	__sysreg_restore_state_nvhe(guest_ctxt);
- 
- 	mmu = kern_hyp_va(vcpu->arch.hw_mmu);
--	__load_stage2(mmu, kern_hyp_va(mmu->arch));
-+	__load_stage2(mmu);
- 	__activate_traps(vcpu);
- 
- 	__hyp_vgic_restore_state(vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
-index 3dc1ce0d27fe..01226a5168d2 100644
---- a/arch/arm64/kvm/hyp/nvhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
-@@ -110,7 +110,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
- 	if (vcpu)
- 		__load_host_stage2();
- 	else
--		__load_stage2(mmu, kern_hyp_va(mmu->arch));
-+		__load_stage2(mmu);
- 
- 	asm(ALTERNATIVE("isb", "nop", ARM64_WORKAROUND_SPECULATIVE_AT));
- }
-@@ -128,7 +128,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
- 		return;
- 
- 	if (vcpu)
--		__load_stage2(mmu, kern_hyp_va(mmu->arch));
-+		__load_stage2(mmu);
- 	else
- 		__load_host_stage2();
- 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 9db3f11a4754..bc8090d915bf 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -219,7 +219,7 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
- 
- 	__vcpu_load_switch_sysregs(vcpu);
- 	__vcpu_load_activate_traps(vcpu);
--	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
-+	__load_stage2(vcpu->arch.hw_mmu);
- }
- 
- void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
-index 35855dadfb1b..539e44d09f17 100644
---- a/arch/arm64/kvm/hyp/vhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/vhe/tlb.c
-@@ -60,7 +60,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
- 	 * place before clearing TGE. __load_stage2() already
- 	 * has an ISB in order to deal with this.
- 	 */
--	__load_stage2(mmu, mmu->arch);
-+	__load_stage2(mmu);
- 	val = read_sysreg(hcr_el2);
- 	val &= ~HCR_TGE;
- 	write_sysreg_hcr(val);
-@@ -78,7 +78,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
- 
- 	/* ... and the stage-2 MMU context that we switched away from */
- 	if (cxt->mmu)
--		__load_stage2(cxt->mmu, cxt->mmu->arch);
-+		__load_stage2(cxt->mmu);
- 
- 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
- 		/* Restore the registers to what they were */
--- 
-2.53.0
+This commit adds phylink MAC operations to the NETC DSA switch driver,
+including support for different PHY interface modes (RGMII, RMII, MII,
+REVMII, SGMII, 2500BASE-X).
 
+> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
+> index bc7d48b99610..884ee899fc89 100644
+> --- a/drivers/net/dsa/netc/netc_main.c
+> +++ b/drivers/net/dsa/netc/netc_main.c
+
+[ ... ]
+
+> @@ -595,10 +595,221 @@ static void netc_switch_get_ip_revision(struct netc_switch *priv)
+>  	priv->revision = val & IPBRR0_IP_REV;
+>  }
+>
+> +static void netc_phylink_get_caps(struct dsa_switch *ds, int port,
+> +				  struct phylink_config *config)
+> +{
+> +	struct netc_switch *priv = ds->priv;
+> +
+> +	priv->info->phylink_get_caps(port, config);
+> +}
+> +
+> +static void netc_port_set_mac_mode(struct netc_port *np,
+> +				   unsigned int mode,
+> +				   phy_interface_t phy_mode)
+> +{
+> +	u32 mask = PM_IF_MODE_IFMODE | PM_IF_MODE_ENA;
+> +	u32 val = 0;
+> +
+> +	switch (phy_mode) {
+> +	case PHY_INTERFACE_MODE_RGMII:
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		val |= IFMODE_RGMII;
+> +		/* Enable auto-negotiation for the MAC if its
+> +		 * RGMII interface supports In-Band status.
+> +		 */
+> +		if (phylink_autoneg_inband(mode))
+> +			val |= PM_IF_MODE_ENA;
+> +		break;
+> +	case PHY_INTERFACE_MODE_RMII:
+> +		val |= IFMODE_RMII;
+> +		break;
+> +	case PHY_INTERFACE_MODE_REVMII:
+> +		val |= PM_IF_MODE_REVMII;
+> +		fallthrough;
+> +	case PHY_INTERFACE_MODE_MII:
+> +		val |= IFMODE_MII;
+> +		break;
+
+Does the mask need to include PM_IF_MODE_REVMII? Looking at
+netc_port_set_mac_mode(), the mask is set to:
+
+    u32 mask = PM_IF_MODE_IFMODE | PM_IF_MODE_ENA;
+
+which expands to GENMASK(2,0) | BIT(15) = 0x8007. When the REVMII
+case sets val |= PM_IF_MODE_REVMII (BIT(3)), this makes val = 0x9.
+
+In netc_mac_port_rmw(), there's a check:
+
+    WARN_ON((mask | val) != mask)
+
+This check would fire on every REVMII configuration since 0x800F != 0x8007.
+
+Additionally, REVMII is reachable because imx94_switch_phylink_get_caps()
+advertises PHY_INTERFACE_MODE_REVMII as supported for port 2. When
+transitioning FROM REVMII to another mode, PM_IF_MODE_REVMII (BIT(3))
+won't be cleared since it's not in the mask, leaving stale configuration.
+
+Should the mask be:
+
+    u32 mask = PM_IF_MODE_IFMODE | PM_IF_MODE_REVMII | PM_IF_MODE_ENA;
+
+> +	case PHY_INTERFACE_MODE_SGMII:
+> +	case PHY_INTERFACE_MODE_2500BASEX:
+> +		val |= IFMODE_SGMII;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
+> +}
+
+[ ... ]
+
+> +static void netc_port_force_set_rgmii_mac(struct netc_port *np,
+> +					  int speed, int duplex)
+> +{
+> +	u32 mask, val;
+> +
+> +	mask = PM_IF_MODE_ENA | PM_IF_MODE_SSP | PM_IF_MODE_HD |
+> +	       PM_IF_MODE_M10 | PM_IF_MODE_REVMII;
+> +
+> +	switch (speed) {
+> +	default:
+> +	case SPEED_1000:
+> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_1G);
+> +		break;
+> +	case SPEED_100:
+> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_100M);
+> +		break;
+> +	case SPEED_10:
+> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_10M);
+> +		break;
+> +	}
+> +
+> +	if (duplex != DUPLEX_FULL)
+> +		val |= PM_IF_MODE_HD;
+> +
+> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
+> +}
+> +
+> +static void net_port_set_rmii_mii_mac(struct netc_port *np,
+
+This isn't a bug, but should this function be named
+netc_port_set_rmii_mii_mac() instead of net_port_set_rmii_mii_mac()?
+All other functions in this driver use the netc_ prefix
+(netc_port_set_speed, netc_port_force_set_rgmii_mac,
+netc_port_set_mac_mode, etc.).
+
+> +				      int speed, int duplex)
+> +{
+> +	u32 mask, val = 0;
+> +
+> +	mask = PM_IF_MODE_ENA | PM_IF_MODE_SSP | PM_IF_MODE_HD |
+> +	       PM_IF_MODE_M10;
+> +
+> +	if (speed == SPEED_10)
+> +		val |= PM_IF_MODE_M10;
+> +
+> +	if (duplex != DUPLEX_FULL)
+> +		val |= PM_IF_MODE_HD;
+> +
+> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
+> +}
+
+[ ... ]
+
+> +static void netc_mac_link_up(struct phylink_config *config,
+> +			     struct phy_device *phy, unsigned int mode,
+> +			     phy_interface_t interface, int speed,
+> +			     int duplex, bool tx_pause, bool rx_pause)
+> +{
+> +	struct dsa_port *dp = dsa_phylink_to_port(config);
+> +	struct netc_port *np;
+> +
+> +	np = NETC_PORT(dp->ds, dp->index);
+> +	netc_port_set_speed(np, speed);
+> +
+> +	if (phy_interface_mode_is_rgmii(interface) &&
+> +	    !phylink_autoneg_inband(mode)) {
+> +		netc_port_force_set_rgmii_mac(np, speed, duplex);
+> +	}
+> +
+> +	if (interface == PHY_INTERFACE_MODE_RMII ||
+> +	    interface == PHY_INTERFACE_MODE_REVMII ||
+> +	    interface == PHY_INTERFACE_MODE_MII) {
+> +		net_port_set_rmii_mii_mac(np, speed, duplex);
+> +	}
+> +
+> +	netc_port_set_hd_flow_control(np, duplex == DUPLEX_HALF);
+> +	netc_port_mac_rx_enable(np);
+> +}
+> +
+> +static void netc_mac_link_down(struct phylink_config *config,
+> +			       unsigned int mode,
+> +			       phy_interface_t interface)
+> +{
+> +	struct dsa_port *dp = dsa_phylink_to_port(config);
+> +
+> +	netc_port_mac_rx_graceful_stop(NETC_PORT(dp->ds, dp->index));
+> +}
+> +
+> +static const struct phylink_mac_ops netc_phylink_mac_ops = {
+> +	.mac_config		= netc_mac_config,
+> +	.mac_link_up		= netc_mac_link_up,
+> +	.mac_link_down		= netc_mac_link_down,
+> +};
+> +
+>  static const struct dsa_switch_ops netc_switch_ops = {
+>  	.get_tag_protocol		= netc_get_tag_protocol,
+>  	.setup				= netc_setup,
+>  	.teardown			= netc_teardown,
+> +	.phylink_get_caps		= netc_phylink_get_caps,
+>  };
+>
+>  static int netc_switch_probe(struct pci_dev *pdev,
+> @@ -639,6 +850,7 @@ static int netc_switch_probe(struct pci_dev *pdev,
+>  	ds->num_ports = priv->info->num_ports;
+>  	ds->num_tx_queues = NETC_TC_NUM;
+>  	ds->ops = &netc_switch_ops;
+> +	ds->phylink_mac_ops = &netc_phylink_mac_ops;
+>  	ds->priv = priv;
+>
+>  	priv->ds = ds;
+
+[ ... ]
 
