@@ -4,92 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E721077617
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB52C107760E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=; b=KLR9JbdO5t75MYZu3lf8/cgHQa
-	BezyGn9zpbzaDvxxW8dKqHJiMY/WW0QYCnwygVqkWz07kXLmIleISc21X1lazuS7GZ8gw2v1nBELm
-	96IijcWZwwU3NdHB/DSjoa482BgAEAspXQCFjn9ff/xymI7VTJn4EuM9NTh4xMaOqAL9yMoqplBfu
-	aqyME3Nhhl5tVvjb/G5Hhodt55n/wj6y7l2cmCP/+zmfKNUROa/09wiYaL9+kkSTk7l7EVhi8qth8
-	r5HbTEkjT767DfzPaAGag3VMSuuwl2IfIDkdNubTKrhIIUlJj5TE2EF5vgL/JMuH7t6StlvNnp/+1
-	y705Z/sg==;
+	bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=; b=otUSX/oQt7NEdhAa8Ctuas+Wpv
+	buxBzVO5NP/COQ3JB2lSvoSuZQS5bBiEDGEpxDM+efQFT08B2sPyIjQyqb3cRomusOVCOBYyBvUwJ
+	K2Zyp4tEV0Ih7mxjQS1dMHul+LWeprBpzsJtOcpuEwHplL8im0WRUKhbE43EVVXpP8313mxQ+P8cq
+	gX2RMff44oFLI9PgBqov1A7kiMk65Izkxm7YnMy4PFn1w5E8DV4lm1O77hCs3qIZLLZD+DhNo2PTZ
+	LCSy/0mSqBk4YDIISsGcDQQr4d4u61LDEXyCqefTpLNav2PmnwG5cECua7YbEEHsCDhDlAq+p6Bvz
+	+au/6cXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xRy-00000009IPu-1bTx;
-	Wed, 18 Mar 2026 20:25:06 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1w2xUr-00000009If3-3orW;
+	Wed, 18 Mar 2026 20:28:05 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xRw-00000009IPN-1T57
+	id 1w2xUp-00000009Ieh-1qxX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:25:05 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c73f107789cso74835a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:25:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773865503; x=1774470303; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=;
-        b=lc7uEOU1mp7KLe+WdMepdKzx+qRQUtnjOANY3qoU4ZYpFkdNI1EGSImgIYo0gOtM9c
-         HiKnmCAf13FuSZXXc5YeHUS/27c3nrzy9PWieLSg422NI/3V6cwVjma/UJYOREucRnU8
-         weEmv4qusJCSLYlCXeYxqOmYLbnbfGFbvwnnhu1YLvhxLVNP2IMrMocuclfGZ8uw25QW
-         3PFVIxmfhDUInjeWGdsikzo/4XyPjSffBjcgtc4WYNx3HiKZRted6m63C968hvCID/7S
-         SmaROJifxO4HpAEv2XOX757zBFaw8OgyX46Csc5VanWQkKv3aflCJ721QyFisBm3my0g
-         JU0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773865503; x=1774470303;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/c7Z1vNAla1UqiQqigVemwFAmDse4jQT/gO6OkNgIBY=;
-        b=rGKqS0DhsZIHdyyQURXC1fzxiOCioJWthwyjlvKj8QWBS2GufgYn9dTwM6ONOWqnC8
-         FPS7WJ279UhLyVFor9YouKI/zCtYhQbb9cC8R2m8eEakhqWMgZQtv88YGyCtyBzeQ3Jg
-         Nt5N8GcNgC1GjB4NpUA9rpmqnI2vKXIjGXCMxzpHwfTJR7gzLWx5BevKHnmy2ASgyCI1
-         F2ZOuW9fWG2Aejg0Bmtbj2qIAVwtW8TE92vGIz0cpTZ+O/allobPrja80opcn4gP3qZC
-         FWSupS1fzreQ536JSoyJWfHfwvkCSV0ytf7xA/w63zeDs6ggYExj3eoXSbcUZx9Wg+Cd
-         A0QQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVSRrR643Fa6KP6YLdqY4C7bA7/iHWeRXQQlhHFtVZIEBngZKH9ZLFTphbFlJIflP3EL+QRdo9wTSw2eikRM+hP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr07YfcTXDa2mEYqaX6XLe9xm3avdbRiNbWQxCKQEv+mNRsDEX
-	+Vl8JT93xaOlCohvoazHHhWPWVa01nu1vjWCbE1a9u0b+G/eswaoXlVu
-X-Gm-Gg: ATEYQzwY0Kc3yeBCddFFhdJZBKq/nnkTC7B7Fcd81+UmvFTmdtT1RmucHvaG+3Iaa+d
-	BlKEQ5EZ2IndvODeCunWvS+IzglgirJ0dEaVWOxij2UYrpNctrG1Xf0fn4e19OvhLgcgX8ugO6/
-	jBTs++ftLn8azLJwpARA+fXbY3LYqnEkM5vVYAT/7B5HjPPgisRKYpL170Z1MjCbNm8t4yE/IDS
-	RwXjcFcyq58sfUVNKQrwyLaWv6UgkMzkaPr+RCsvNiHUtjQVoagkkZgVL8Favnr5RGq75gqNp1S
-	voA7vIZ1n/ZY54akmvPhPUhvizkKw38htO9ll97YAccK7esTqQUqZ2Aeg113wQffMChBfR4nCof
-	lqPuCzZE4A5DYFGKhAgahXTli8Q1FeqvLn4yXXqlrEzt4TuLwy61QUm+/4xDLU3PdnJrwWfzj3d
-	OWqVmcvSvOPkue9seFBc4z+1CE7zTq9+bvtqN4OT4zREvP
-X-Received: by 2002:a05:6a20:7f90:b0:38e:9220:ebbe with SMTP id adf61e73a8af0-39b99d6f450mr4339851637.23.1773865503486;
-        Wed, 18 Mar 2026 13:25:03 -0700 (PDT)
-Received: from google.com ([118.150.148.19])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c741e5691b8sm3286559a12.25.2026.03.18.13.24.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 13:25:03 -0700 (PDT)
-Date: Thu, 19 Mar 2026 04:24:56 +0800
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: andrew@codeconstruct.com.au, avifishman70@gmail.com,
-	tmaimon77@gmail.com, tali.perry1@gmail.com, srini@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	venture@google.com, yuenn@google.com, benjaminfair@google.com,
-	jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com,
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: nvmem: add nuvoton,npcm750-otp
-Message-ID: <absKGJbrWX5xtPX3@google.com>
-References: <20260318193538.246853-1-visitorckw@gmail.com>
- <20260318193538.246853-2-visitorckw@gmail.com>
- <228943f2-8f1a-4da7-8663-7f17f5e2f21c@kernel.org>
+	Wed, 18 Mar 2026 20:28:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NAhtdIReQzM10WEavwBsya8cg8jK3MUCdLFIIII9i2OV8dYCGVilAbM0TJnNiK5DI3tDTZJ2Iq1o8lA60Hb8C+ctgXT/twLD3TqU9OxFB1z+hh162FSu1+PBdzqjJoqyrnfnWVWFmOgFTINKyUQ6p2hctRrWDcx3oz6lB34i85PPr6iMQJlePKFnUSatp2d0StsNhOslM50ApNcVCw69kQQ+q+WIrD5M1iikIiu6FJYNqlSMNGkqfVdo3hR3TJ9itX8RTv95w4UqxxOeN+mqTRLGOo+rZICkBl+qxDtR+w87lgi+uxmDXRjgE4XQWKMBlQB8sZwr4X2faf8cPXT65w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=;
+ b=BL/lHxCeg+yIxXVrvgga/HR2KSEzZCgTDXCd0dcTlTtseTwfHR1NdUkgYV5o+14EvZwQkjq85pBLVJiKGCRKLHRqzhIpzW+MpT2CS6a7410eGqpX4aZdm+burhvG1ulQ6wnlWVDAUOCwktueAU85fBeq8oWlhnfPRRfIX9I1UDtvUMQIXhkKefp4G4nctdlQBY0mnSTbVnjYxZQRSLQk4fFg4lNDyth19OnScwF/Srvl+jziKWVFv1LY+EBVpiLP4ksQAF5pMp4Cprhz9DPx9vOtKrdeh9VCYDL9U/lYuYGg2UzQX0v2WyzYl/7+bATsE6imClzkrPLd8A5hf/6w9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=linux.alibaba.com
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=;
+ b=Ul2Xvb4TW5MXNLypITvvz1A12xiyFfwPMNbIn+xUdF9DrBmpLnQuw+V2LLx/mKDeYlYRO4ORORDUTHgHMQEwrnImaie5rhk2TOUBmxvLYxSXo9RXmGGZ0FV6AC6+Cy7eKI0yfD7doDZf862BxxtYLvEotVlCG9YYCKaNaySkgJtuzXPu2i0a9Sc9mICQt/WpH+QsfcTn9Zc73LyH0RYWf/Z3voeUcbMWanrj6a8VGxphsFh+g1B6+kdJdtcUaFtu2VEpSuXpYzjsHOTNBM1vy+CeAfmsV7hFjKvB/n32+HoSmjczuVo4ty/CSEpZoBVC8D6CRJGenXez8MKMyAC0LQ==
+Received: from SJ0PR05CA0035.namprd05.prod.outlook.com (2603:10b6:a03:33f::10)
+ by BL3PR12MB6378.namprd12.prod.outlook.com (2603:10b6:208:3b1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 20:27:55 +0000
+Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
+ (2603:10b6:a03:33f:cafe::9a) by SJ0PR05CA0035.outlook.office365.com
+ (2603:10b6:a03:33f::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Wed,
+ 18 Mar 2026 20:27:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 20:27:54 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
+ 2026 13:27:32 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 18 Mar 2026 13:27:32 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 18 Mar 2026 13:27:31 -0700
+Date: Wed, 18 Mar 2026 13:27:30 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <jgg@nvidia.com>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<vsethi@nvidia.com>
+Subject: Re: [PATCH v2 1/7] iommu: Do not call pci_dev_reset_iommu_done()
+ unless reset succeeds
+Message-ID: <absKsk7qQOwzhpzv@Asurada-Nvidia>
+References: <cover.1773774441.git.nicolinc@nvidia.com>
+ <21fa71d59c8ab787c0f3d8cf3e9fc725330fd0d5.1773774441.git.nicolinc@nvidia.com>
+ <8c799be2-1525-4c84-b0ae-389cd0751e4a@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <228943f2-8f1a-4da7-8663-7f17f5e2f21c@kernel.org>
+In-Reply-To: <8c799be2-1525-4c84-b0ae-389cd0751e4a@linux.alibaba.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6195:EE_|BL3PR12MB6378:EE_
+X-MS-Office365-Filtering-Correlation-Id: a69b87cf-7b8a-466f-1df2-08de852cd5c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|82310400026|376014|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: oIDGyXyJ1vnRM2dx6SNn062pMXqHmHX23BXrM41UADGWdbaa9InU/b3RnQC6nV8COvUZnLgccHnoHNUv4yxrQCH1olI1kMji9dXAUzkHK3233NbwtcoTaP9c1mEQBeZv+BMsqBlmEqEL6pU8X4vWni4tRspk0Wd4BFiIxXtR9/ZihLQD/aMPzHpp84uMBXxeZF+DICjYkqUGOrC3HT3WjAppqsg2kmUsFIzcM1x4y5OSWlkXd3csU8RBw7/fHHO1TSFI5Z0TxLPbFK4ezweO5LMV7Vrl1z5UQQPLHS7LABi08WtkNwp8Bd5zXx/47POCbFLu/mUz390ElFkdGdmaxaDGr2K3PAuiE9we7Fd58TroQ+IjMmdX8fxt0nB1EODT0A0Wp0xinDw2oDkqQyQkMwW2dXyBA120JNsaeGsmkbWvdG+oxXqMn0GVFoKfCXegsUgXWYuMM3O3oSb927+4TuNo+g+S4gCVblK0TjqsOSEFOTHriWVkerCGTcw9gZ27H3DGaqVz7oFQ457e20vwQntZqFf2797Zsc5vxgW+1UnH7AHSfZuXaEwV4WUqY+39jrImKyARUgDqEciVjb9s3Ilo2qO2JYjM8euL3/tVeoskVpna7lkQKrpuSHitQ8R/CSaPNSUUSt2FVP/oFemhTiYpNYdJwjC7KJ0OcHG3aCmP4scN0W54m9YmvL94UksRkLwFkoCuxQ4d5usUGVLbtG8qPHq8M84WVaKt4q6l6dTToGg1P7N3GfDgdcEMw3aFyKNOqE6R0evd/C2wjMZhtA==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(82310400026)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +/w1K2pBpulr2Ec285bHYFvzeh0AX9CKR7Lk/nvgHaptDkLOqTeeUO3KqcyWNu270uSgZ21Z9wTR3wZE6Nod4MwXj+jIsIycjF6yqvckaWmXvDhTQ4hNBlUWNZWcrLF59Gl7mZROA2MtSrkn9rnhhBId9pu/kkNesl8jRPxxcYkd/nYVmDeYT6O68DQjQJTtQEzDXyHLdiERbOzbA7zsrjfbnj/a31Rw8FQFH5FszBzTs11xfJUNSibYHMfhBQSMmINXsJfGMLN6MEdbJzo7PnyY1N3sgaWV99uKvUhx/2g16NguLW/MS+MxwWvZIJlLE7/jtznS9/lijHvLLzepwQKIFJwX34KNe7SkqnbgNjDkcVkoWBK7Ek3r3PHACGQ5KoeF0J/V0e3qiZE2I8Zbkzp6lWd0u5VBUrdNHKftuJ/69E5aICe1apFse9ZiUIMv
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 20:27:54.3580
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a69b87cf-7b8a-466f-1df2-08de852cd5c1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6378
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_132504_424320_AD6EE56C 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260318_132803_507623_8725736C 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +134,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, Mar 18, 2026 at 09:17:19PM +0100, Krzysztof Kozlowski wrote:
-> On 18/03/2026 20:35, Kuan-Wei Chiu wrote:
-> > +maintainers:
-> > +  - Kuan-Wei Chiu <visitorckw@gmail.com>
-> > +
-> > +allOf:
-> > +  - $ref: nvmem.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - nuvoton,npcm750-key-storage
-> > +      - nuvoton,npcm750-fuse-array
+On Wed, Mar 18, 2026 at 04:02:01PM +0800, Shuai Xue wrote:
+> On 3/18/26 3:15 AM, Nicolin Chen wrote:
+> > - * Caller must use pci_dev_reset_iommu_prepare() with pci_dev_reset_iommu_done()
+> > - * before/after the core-level reset routine, to unset the resetting_domain.
+> > + * Caller must use pci_dev_reset_iommu_done() after a successful PCI-level reset
+> > + * to unset the resetting_domain. If the reset fails, caller can choose to keep
+> > + * the device in the resetting_domain to protect system memory using IOMMU from
+> > + * any bad ATS.
 > 
-> Your driver says these are exactly the same devices, so you got only one
-> compatible. Otherwise explain in commit msg why these are different
-> (current message speaks about purpose, but is not what is needed here).
+> I think you mean ...to protect system memory from DMA via stale ATC entries.
+
+"the DMA via stale ATC entries" sounds too specific to this issue.
+
+I intended to generalize the message in the kdocs. Maybe should've
+drop "from any bad ATS" as well?
+
+> >    *
+> >    * Return: 0 on success or negative error code if the preparation failed.
+> >    *
+> > @@ -3961,9 +3963,9 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
+> >   	guard(mutex)(&group->mutex);
+> > -	/* Re-entry is not allowed */
+> > -	if (WARN_ON(group->resetting_domain))
+> > -		return -EBUSY;
+> > +	/* Already prepared */
+> > +	if (group->resetting_domain)
+> > +		return 0;
 > 
-Thanks for the prompt review.
+> Could you elaborate more on why Re-entry is allowed now? For example:
+> 
+> /*
+>  * Allow re-entry: if a previous reset failed, the device remains in
+>  * resetting_domain. A subsequent reset attempt must be able to call
+>  * prepare() again without failing.
+>  */
 
-I will drop the content-specific compatible strings and unify them into
-a single "nuvoton,npcm750-otp" in the upcoming v2 series.
+Sure. I will add this.
 
-Regards,
-Kuan-Wei
+> > @@ -977,7 +978,15 @@ int pci_dev_acpi_reset(struct pci_dev *dev, bool probe)
+> >   		ret = -ENOTTY;
+> >   	}
+> > -	pci_dev_reset_iommu_done(dev);
+> > +	/*
+> > +	 * The reset might be invoked to recover a serious error. E.g. when the
+> > +	 * ATC failed to invalidate its stale entries, which can result in data
+> > +	 * corruption. Thus, do not unblock ATS until a successful reset.
+> > +	 */
+> > +	if (!ret || !pci_ats_supported(dev))
+> > +		pci_dev_reset_iommu_done(dev);
+> 
+> pci_dev_reset_iommu_prepare() already does an early return for non-ATS
+> devices, and pci_dev_reset_iommu_done() also early-returns
+> when !pci_ats_supported(). So for non-ATS devices, done()
+> is always a no-op regardless of whether it's called or not.
+> 
+> Do we really need check pci_ats_supported(dev) here?
+
+You are right. It was for a precaution as pci_dev_reset_iommu_done()
+isn't maintained in the pci.c file.
+
+Kevin suggested to move this part into pci_dev_reset_iommu_done() so
+these conditions can be merged. And pci callers will be simply:
+	pci_dev_reset_iommu_done(dev, !ret);
+
+> > @@ -4978,7 +5010,15 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
+> >   		pci_write_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL,
+> >   				      reg);
+> > -	pci_dev_reset_iommu_done(dev);
+> > +	/*
+> > +	 * The reset might be invoked to recover a serious error. E.g. when the
+> > +	 * ATC failed to invalidate its stale entries, which can result in data
+> > +	 * corruption. Thus, do not unblock ATS until a successful reset.
+> > +	 */
+> > +	if (!rc || !pci_ats_supported(dev))
+> > +		pci_dev_reset_iommu_done(dev);
+> > +	else
+> > +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
+> >   	return rc;
+> >   }
+> 
+> cxl_reset_bus_function() calls pci_reset_bus_function() which already
+> contains the conditional pci_dev_reset_iommu_done() logic. Then the
+> outer function calls done() again. The second call is a no-op because
+> resetting_domain has already been cleared, but this is confusing.
+> 
+> Additionally, cxl_reset_bus_function() does its own
+> pci_dev_reset_iommu_prepare(), while pci_reset_bus_function() also
+> calls prepare() internally. With the re-entry change in this patch,
+> the nested prepare() silently succeeds.
+> 
+> Is it a expected behavior?
+
+No.. This is a bug prior to this patch. The nested prepare/done()
+is wrong. I will submit a patch fixing this.
+
+Thanks!
+Nicolin
 
