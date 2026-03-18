@@ -4,109 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344A7103E176
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16B6103E178
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlgYJgsDCBdT6+klGD6mIBOkkF0hpYpPSTTnp614c+0=; b=VSr5DPQwuKAEOf0J16IaZyBGUs
-	Cg5M+NVNhhoWQ2txWp15IUWN2OevkPzghAlnvf+oHvw/VmyO7sPZHJm4ozAgGSgCIYMTLTaeqZfFF
-	85qkBh4+Cjokpaef9LrW02yn+Z5k4+rlRv0eLoFKpL1Wq1zqGelaRMPpRuhQVTwcR1sj5ZMEhh3qr
-	NRbgAL+Ng9T28Hz8lKrsR/hZuyizaxQmdq93X3vQsQDnKqy/S6h3XnHXm6fU0i7wtjeV87lrWfFvt
-	IqQMQ2Mbz2nDjj60r6TChgUvOUpcdU0seX8sy3wHi941TTjw6crQu8co57Xc/IHSPH6HBJmEHCMLG
-	nlmp1TQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F+UN9HIXOUxuFgcjf3rxpjrFOJaR3ROfCMIjHMDcM48=; b=XeUI2yNIT9nCufoWygiHsAW3fL
+	ArrhNEou3/lwxqqYKzyPZzynWmhXHbNDzzJkCX0+RPeUxZL/tTVYQ/N3aAgede23AT9KFDsrGXQDO
+	TGbn0f+gKFJyA8Pjj6jZjQFJNDsJ0lKBY7tTcjQjDMHcYbGwZSM9prN3E/IyMROnfOcEAoB0tMVA4
+	hLkFQJK8gc8TUnRZ0RarEfMtYNbnmKctJBRuorJLVfGfx63+ckhmYMKTMhOcwVihFvZaGA56tkYQs
+	1Gu42G2/marNEzPqeYI5wvc8AylwATf6u60LrIQ+tUq2ANrj65h6Kn2n7RpN/NSqFV9s+XhxwFtSD
+	LAtgCLrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qi7-00000008SNU-3a2x;
-	Wed, 18 Mar 2026 13:13:19 +0000
-Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
+	id 1w2qnU-00000008T3D-2yBc;
+	Wed, 18 Mar 2026 13:18:52 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qi4-00000008SMz-3kOy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 13:13:19 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 22852140003C;
-	Wed, 18 Mar 2026 09:13:15 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 18 Mar 2026 09:13:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1773839595;
-	 x=1773925995; bh=VlgYJgsDCBdT6+klGD6mIBOkkF0hpYpPSTTnp614c+0=; b=
-	kClG5K0voMFVJe0RdNsGoElR6tTjdN/4t57vRI3Wtb1SlFpF/hIhH8yS7ZzEMXnD
-	MI+mU0h/Ee5SHKY3oaGxImASkOql/1Tnt+RzVEIJ9mWTVEYS2jylWyR9D49uY0PD
-	7bl3uuHGKdo1IDX3KGp94T3Icw6buy2YJPnk8z5Ngr6AA7LnSDDaaZUUCvkViJkp
-	A1WzyQ1OXDrc/vp+D0LqxylrdpiKCm0SQWBEFQ4Uy4k/mgrbjeh6a18dirz8zzyL
-	jkOyxjF4WZumQZW4ic91+5vMyH2GOYo2ZMwBh9XDFglMOTS52OxxuQ4q9cOi4g2z
-	HgaBZW6d5nWm0aBJSP/usg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773839595; x=
-	1773925995; bh=VlgYJgsDCBdT6+klGD6mIBOkkF0hpYpPSTTnp614c+0=; b=o
-	jjzm/PGl3extuXmk3Ru6u9xenEiU1GUWpuhOjCo1Lc22KCc2phDp9vgElzQAE2sJ
-	oC4DZaC0cK4Blf3ex/7qxER9oB3c/PVnrBB03e+Itj70lJYxfUHwo3WNpKsh6dlw
-	ambVa59LOZau1IIJ0ZJGKc5PcXCgYGD0X/yhOjz4DWJokcf/RwotR7hxiSguA0MI
-	bcyuFstn50Jaq8qAIrrgFw5pmk+TT4XYQdVnGEHoXa4eo9IZt7qOWZmsFIbvJo+8
-	d4KlIVBBarm4JIpTeaDXhLcrJBALq0I+JSyJQwq6g62SkeFHB6Kjon5af7fse6KF
-	6GyOBEmUJYZv3cUGfPypg==
-X-ME-Sender: <xms:6qS6aRqC8tA0UQnXmsSOIx5He35Iiax4kg8YacnNc0uwtcfXJVq1DA>
-    <xme:6qS6aeeUqy9TA5xlvVp1MxLDU7LOOGeQ3qqZ1kBuvwRIRkS9GldZDIo9EmiM8_4C_
-    wyguBtZY47yILg5JthWCa8gwBJw0csllrPIOjlJFnYr2NxoetosFQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdegvddvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrghgnhhushdrug
-    grmhhmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehmrhhitghonheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsh
-    hotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghgvvghrtheslhhinhhugidqmhei
-    kehkrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
-    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhi
-    nhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhrvghnvghsrghsqdhsohgtsehvgh
-    gvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:6qS6aYaDyvZetvab10yx898IsxA_bWHRqm1CTquLmC0OWS7Ltmr3lQ>
-    <xmx:6qS6aV9EoKxCH56LXprt-icmkrdYqEXlxKi4nkhRIm7tCQ7StOxMtQ>
-    <xmx:6qS6aWlLXG4mQC5mXxW8inX558QE4fqGoj_31wK9OCM6lraLP_9NXQ>
-    <xmx:6qS6aSwnZYmhkb15Yr5k5oxtfuH0yun27qAg4ObX_dJChhj9faFP_A>
-    <xmx:66S6adQSB0rgHb7crFvRUEGrUS2Gm5T2u2Bz7sUZvVd2ALXppk-lCZPB>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D2CD4700069; Wed, 18 Mar 2026 09:13:14 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w2qnR-00000008T2b-1Gtc;
+	Wed, 18 Mar 2026 13:18:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773839912; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YhujDzt/e0NjTtUyUXuzSY/Le6GvVrWdWeqnIEUxUBJVDHHqOaXNw/LA0j4X+MGOYYy1XcJU+TP0kHv5ptgGHGk2d5PJE+mgFzbWbVe0jPsqKfANd706ZoFimCYvPcRe8fl9dVKRoYd4xyhg1CrohfmvsTXdSjmVDpDONAB7Zv8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773839912; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=F+UN9HIXOUxuFgcjf3rxpjrFOJaR3ROfCMIjHMDcM48=; 
+	b=Xa/Osxjanr0Rbjzg0qLHSn0A5Kb3hT9Ks8/RM0xcqlD2QIbcG4+rAxu0K/Xy6hjBicA2WOyDwh0jBg7x06sNIguz2hrsi6s9k2MDhuEWBlcBGlQkdkcZYWwTItStCnoAXKs5/E8ukEjnuul8/FKbxhQhwkHNB5SgAd2CHego3wQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773839912;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=F+UN9HIXOUxuFgcjf3rxpjrFOJaR3ROfCMIjHMDcM48=;
+	b=Bcv4TD5vTib4Vxi8AEOmlIrchwN8fxpCPAoBQ1/RGsAy8nFU3t1zZD98A+p69tPp
+	bUPND2gv/kXWT/VMfIMlEUxSpWeUmXon7kTsuI8JYtIGs08U6EQ6hMNZBQ+8JFPMxzZ
+	ZdNFMmPC6JGK/Df8lZYjKX1FuS7oQf8h3opycaPA=
+Received: by mx.zohomail.com with SMTPS id 1773839909989805.2310598881032;
+	Wed, 18 Mar 2026 06:18:29 -0700 (PDT)
+Message-ID: <698d1d3f41d7931e6447545394757f71b9ebc597.camel@collabora.com>
+Subject: Re: [PATCH 10/11] drm/mediatek: ovl: Enable support for R2R Color
+ Space Conversion
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: CK Hu =?UTF-8?Q?=28=E8=83=A1=E4=BF=8A=E5=85=89=29?=
+ <ck.hu@mediatek.com>,  "tzimmermann@suse.de"	 <tzimmermann@suse.de>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,  "simona@ffwll.ch"	
+ <simona@ffwll.ch>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, "airlied@gmail.com"	
+ <airlied@gmail.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
+ "maarten.lankhorst@linux.intel.com"	 <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,  "matthias.bgg@gmail.com"	
+ <matthias.bgg@gmail.com>
+Cc: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+ "linux-mediatek@lists.infradead.org"	 <linux-mediatek@lists.infradead.org>,
+ Daniel Stone <daniels@collabora.com>, 
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"	
+ <linux-kernel@vger.kernel.org>, Ariel D'Alessandro	
+ <ariel.dalessandro@collabora.com>, "kernel@collabora.com"
+ <kernel@collabora.com>
+Date: Wed, 18 Mar 2026 09:18:28 -0400
+In-Reply-To: <2ce1ed408fd87366d3abc1e79bc3d1dc055af91b.camel@mediatek.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+		 <20251223-mtk-ovl-pre-blend-colorops-v1-10-0cb99bd0ab33@collabora.com>
+	 <2ce1ed408fd87366d3abc1e79bc3d1dc055af91b.camel@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.56.2-8 
 MIME-Version: 1.0
-X-ThreadId: AYTw_54MFalk
-Date: Wed, 18 Mar 2026 14:12:44 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Konstantin Ryabitsev" <mricon@kernel.org>
-Cc: soc@lists.linux.dev, soc <soc@kernel.org>,
- "Magnus Damm" <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Message-Id: <d8365648-2ee2-40fe-b6fa-c52ed5e42f44@app.fastmail.com>
-In-Reply-To: <a4cad30f-0f29-4bf6-b69d-a38ebe05828c@app.fastmail.com>
-References: <cover.1773399669.git.geert+renesas@glider.be>
- <20260317-spirited-mahogany-swift-b1ac53@quoll>
- <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
- <0234dc75-b042-4408-bbad-a777c0bddb3f@kernel.org>
- <a4cad30f-0f29-4bf6-b69d-a38ebe05828c@app.fastmail.com>
-Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_061317_005643_511ED149 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20260318_061849_406314_BD6E16C4 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +94,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026, at 13:56, Arnd Bergmann wrote:
-> On Tue, Mar 17, 2026, at 10:11, Krzysztof Kozlowski wrote:
->> On 17/03/2026 09:46, Geert Uytterhoeven wrote:
->>
->> @Konstantin,
->> I use modified Rob's script to go over patch/pull queue in Patchwork:
->> https://patchwork.kernel.org/project/linux-soc/list/?state=*
->>
->> I deal with them one-by-one, so when I finish merging, I want to be sure
->> that Patchwork status is updated, thus through the script I mark it
->> "Accepted".
->> Like this one:
->> https://patchwork.kernel.org/project/linux-soc/patch/cover.1773399675.git.geert+renesas@glider.be/
->>
->> Around then - can be just before or after - I push the updated branch to
->> git.kernel.org. I fear that because the pull is manually updated in
->> Patchwork to "Accepted", pw-bot ignores it and does not send the
->> notification.
->>
->> Is it feasible to change pw-bot so it will notify even if it is marked
->> as "Accepted"? Or any ideas how to change the flow to have both:
->> A. pw-bot reply,
->> B. Be 100% sure that Patchwork status is updated (allow my manual update
->> via script)?
->
-> In my experience, the pw-bot reply always happens at the same time as
-> the update in the patchwork state, we either get both or nothing.
->
-> The way I've used it in the past was to let pw-bot handle the replies.
-> If anything was missing htere, I would know that I had to send a
-> manual reply and update the status.
->
-> I suspect that setting the status to Accepted first would stop this
-> from working, but right now the pwbot interaction appears to be
-> broken regardless of the status update, i.e. it only handles
-> patches but not pull requests at all.
->
-> Konstantin, this seems to have broken around the time you modified
-> pwbot to handle git:// URL rewrites earlier this year. Previously
-> it only ever caught commit messages that had the exact same URL
-> as the pull request message, IIRC you said that it should now handle
-> the case where a git:// URL gets turned into a https:// one, but
-> the actual result appears to be that no pull requests get matched
-> at all.
+T24gVHVlLCAyMDI2LTAzLTAzIGF0IDA3OjE2ICswMDAwLCBDSyBIdSAo6IOh5L+K5YWJKSB3cm90
+ZToKPiBPbiBUdWUsIDIwMjUtMTItMjMgYXQgMTY6NDQgLTAzMDAsIE7DrWNvbGFzIEYuIFIuIEEu
+IFByYWRvIHdyb3RlOgo+ID4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxp
+bmtzIG9yIG9wZW4gYXR0YWNobWVudHMKPiA+IHVudGlsIHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBz
+ZW5kZXIgb3IgdGhlIGNvbnRlbnQuCj4gPiAKPiA+IAo+ID4gVGhlIE9WTCBoYXJkd2FyZSBhbGxv
+d3MgYXBwbHlpbmcgYSAzeDMgbWF0cml4IHRyYW5zZm9ybWF0aW9uIGZvcgo+ID4gZWFjaAo+ID4g
+bGF5ZXIgdGhyb3VnaCB0aGUgJ1JHQiB0byBSR0IgQ29sb3IgU3BhY2UgQ29udmVyc2lvbicgKFIy
+UiBDU0MpCj4gPiBzZXR0aW5nLgo+ID4gSW1wbGVtZW50IHN1cHBvcnQgZm9yIGl0IGFuZCBleHBv
+c2UgaXQgYXMgYSBjb2xvcm9wIHRocm91Z2ggdGhlIERSTQo+ID4gcGxhbmUgY29sb3IgcGlwZWxp
+bmUgdUFQSS4KPiA+IAo+ID4gU2lnbmVkLW9mZi1ieTogTsOtY29sYXMgRi4gUi4gQS4gUHJhZG8g
+PG5mcmFwcmFkb0Bjb2xsYWJvcmEuY29tPgo+ID4gLS0tCj4gPiDCoGRyaXZlcnMvZ3B1L2RybS9t
+ZWRpYXRlay9tdGtfZGlzcF9vdmwuYyB8IDU1Cj4gPiArKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKy0KPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDU0IGluc2VydGlvbnMoKyksIDEgZGVsZXRp
+b24oLSkKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtf
+ZGlzcF9vdmwuYwo+ID4gYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2Rpc3Bfb3ZsLmMK
+PiA+IGluZGV4IGE3MDA5MmM3OTJhOS4uYzhhMmIxYjEzMDM1IDEwMDY0NAo+ID4gLS0tIGEvZHJp
+dmVycy9ncHUvZHJtL21lZGlhdGVrL210a19kaXNwX292bC5jCj4gPiArKysgYi9kcml2ZXJzL2dw
+dS9kcm0vbWVkaWF0ZWsvbXRrX2Rpc3Bfb3ZsLmMKPiA+IEBAIC00LDYgKzQsNyBAQAo+ID4gwqAg
+Ki8KPiA+IAo+ID4gwqAjaW5jbHVkZSA8ZHJtL2RybV9ibGVuZC5oPgo+ID4gKyNpbmNsdWRlIDxk
+cm0vZHJtX2NvbG9yX21nbXQuaD4KPiA+IMKgI2luY2x1ZGUgPGRybS9kcm1fY29sb3JvcC5oPgo+
+ID4gwqAjaW5jbHVkZSA8ZHJtL2RybV9mb3VyY2MuaD4KPiA+IMKgI2luY2x1ZGUgPGRybS9kcm1f
+ZnJhbWVidWZmZXIuaD4KPiA+IEBAIC01Miw2ICs1Myw3IEBACj4gPiDCoCNkZWZpbmUgT1ZMX0NP
+Tl9DTFJGTVRfMTBfQklUwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgKDEpCj4gPiDCoCNkZWZpbmUgRElTUF9SRUdfT1ZMX1dDR19DRkcxwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDJkOAo+ID4gwqAjZGVmaW5lIElHQU1NQV9FTihs
+YXllcinCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgQklUKDAgKyA0ICoKPiA+IChsYXllcikpCj4gPiArI2RlZmluZSBDU0NfRU4obGF5
+ZXIpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIEJJVCgxICsgNCAqCj4gPiAobGF5ZXIpKQo+ID4gwqAjZGVmaW5lIEdBTU1B
+X0VOKGxheWVyKcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoAo+ID4gQklUKDIgKyA0ICogKGxheWVyKSkK
+PiA+IMKgI2RlZmluZSBESVNQX1JFR19PVkxfV0NHX0NGRzLCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDB4MmRjCj4gPiDCoCNkZWZpbmUgSUdBTU1BX01BU0sobGF5ZXIpwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IEdF
+Tk1BU0soKGxheWVyKSAqIDQgKyAxLCAobGF5ZXIpICogNCkKPiA+IEBAIC02Miw2ICs2NCw3IEBA
+Cj4gPiDCoCNkZWZpbmUgR0FNTUFfQlQ3MDnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDEKPiA+IMKgI2RlZmluZSBH
+QU1NQV9CVDIwMjDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAyCj4gPiDCoCNkZWZpbmUgR0FNTUFfSExHwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgMwo+ID4gKyNkZWZpbmUgRElTUF9SRUdfT1ZMX1IyUl9QQVJBKGxheWVyKcKgwqDC
+oMKgwqDCoMKgwqDCoMKgICgweDUwMCArIChsYXllcikgKgo+ID4gMHg0MCkKPiA+IMKgI2RlZmlu
+ZSBESVNQX1JFR19PVkxfQUREUl9NVDgxNzPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4
+MGY0MAo+ID4gwqAjZGVmaW5lIERJU1BfUkVHX09WTF9BRERSKG92bCwgbinCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAoKG92bCktPmRhdGEtPmFkZHIKPiA+ICsgMHgyMCAqIChuKSkKPiA+IMKg
+I2RlZmluZSBESVNQX1JFR19PVkxfSERSX0FERFIob3ZsLCBuKcKgwqDCoMKgwqDCoMKgwqDCoCAo
+KG92bCktPmRhdGEtPmFkZHIKPiA+ICsgMHgyMCAqIChuKSArIDB4MDQpCj4gPiBAQCAtNTc5LDEx
+ICs1ODIsNDQgQEAgc3RhdGljIHZvaWQgbXRrX292bF9hcHBseV9pZ2FtbWEoc3RydWN0Cj4gPiBt
+dGtfZGlzcF9vdmwgKm92bCwgdW5zaWduZWQgaW50IGlkeCwKPiA+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgSUdBTU1BX0VOKGlkeCkpOwo+ID4g
+wqB9Cj4gPiAKPiA+ICtzdGF0aWMgdm9pZCBtdGtfb3ZsX3dyaXRlX3Iycl9wYXJhKHN0cnVjdCBt
+dGtfZGlzcF9vdmwgKm92bCwKPiA+IHVuc2lnbmVkIGludCBpZHgsCj4gPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0
+cnVjdCBkcm1fY29sb3JfY3RtICpjdG0sCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjbWRxX3BrdCAq
+Y21kcV9wa3QpCj4gPiArewo+ID4gK8KgwqDCoMKgwqDCoCB1bnNpZ25lZCBpbnQgaTsKPiA+ICvC
+oMKgwqDCoMKgwqAgdTY0IHZhbDsKPiA+ICsKPiA+ICvCoMKgwqDCoMKgwqAgZm9yIChpID0gMDsg
+aSA8IEFSUkFZX1NJWkUoY3RtLT5tYXRyaXgpOyBpKyspIHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIHZhbCA9IGRybV9jb2xvcl9jdG1fczMxXzMyX3RvX3FtX24oY3RtLT5tYXRy
+aXhbaV0sCj4gPiA1LCAxOCk7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtdGtf
+ZGRwX3dyaXRlKGNtZHFfcGt0LCB2YWwsICZvdmwtPmNtZHFfcmVnLCBvdmwtCj4gPiA+cmVncywK
+PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBESVNQX1JFR19PVkxfUjJSX1BBUkEoaWR4KSArIGkgKiA0KTsKPiA+ICvCoMKgwqDCoMKg
+wqAgfQo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgdm9pZCBtdGtfb3ZsX2FwcGx5X3Iycl9jc2Mo
+c3RydWN0IG10a19kaXNwX292bCAqb3ZsLAo+ID4gdW5zaWduZWQgaW50IGlkeCwKPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHN0cnVjdCBkcm1fY29sb3JvcCAqY29sb3JvcCwKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjbWRx
+X3BrdCAqY21kcV9wa3QpCj4gPiArewo+ID4gK8KgwqDCoMKgwqDCoCBzdHJ1Y3QgZHJtX2NvbG9y
+X2N0bSAqY3RtOwo+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoCBpZiAoY29sb3JvcC0+c3RhdGUtPmRh
+dGEgJiYgY29sb3JvcC0+c3RhdGUtPmRhdGEtPmRhdGEpIHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIGN0bSA9IChzdHJ1Y3QgZHJtX2NvbG9yX2N0bSAqKWNvbG9yb3AtPnN0YXRl
+LT5kYXRhLQo+ID4gPmRhdGE7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtdGtf
+b3ZsX3dyaXRlX3Iycl9wYXJhKG92bCwgaWR4LCBjdG0sIGNtZHFfcGt0KTsKPiA+ICvCoMKgwqDC
+oMKgwqAgfQo+ID4gKwo+IAo+IElmIGJ5cGFzcyBpbXBseSBjb2xvcm9wLT5zdGF0ZS0+ZGF0YS0+
+ZGF0YSBpcyBOVUxMLCBub3RoaW5nIG5lZWQgdG8KPiBjaGFuZ2UuCj4gSWYgYnlwYXNzIGRvZXMg
+bm90IGltcGx5IGNvbG9yb3AtPnN0YXRlLT5kYXRhLT5kYXRhIGlzIE5VTEwsIEkgd291bGQKPiBs
+aWtlIHRvIGRpc2FibGUgQ1NDIGZpcnN0IHRoZW4gY2xlYXIgcjJyIHBhcmFtZXRlci4KCmJ5cGFz
+cyBkb2VzIG5vdCBpbXBseSBOVUxMIGRhdGEuIEJ1dCBldmVuIHdoZW4gc2V0dGluZyB0aGUgQ1ND
+IGJsb2NrIHRvCmJlIGJ5cGFzc2VkLCB3ZSBkb24ndCB3YW50IHRvIGNsZWFyIGl0cyBwYXJhbWV0
+ZXJzLCB3ZSB3YW50IHRvIHNldCB0aGUKcGFyYW1ldGVycyBwYXNzZWQgYnkgdXNlcnNwYWNlIGlu
+IHRoaXMgYXRvbWljIGNvbW1pdCwgaWYgYW55LCBhbmQgaWYKbm90IHdlIHdhbnQgdG8ga2VlcCB0
+aGUgY3VycmVudCBwYXJhbWV0ZXJzLCBpbiBjYXNlIHRoZXkgaGF2ZSBiZWVuIHNldAppbiBhIHBy
+ZXZpb3VzIGF0b21pYyBjb21taXQsIHNvIHRoYXQgYSBmdXR1cmUgY29tbWl0IHNldHRpbmcgYnlw
+YXNzPTAKd2lsbCBoYXZlIHRoZSBwYXJhbWV0ZXJzIHByZXZpb3VzbHkgc2V0LCB3aXRob3V0IGhh
+dmluZyB0byBwYXNzIHRoZW0KYWdhaW4uCgpUaGFua3MsCk7DrWNvbGFzCg==
 
-Update: this one did get marked as 'Accepted' by pwbot, and
-it sent the reply, so either it's back to working correctly,
-or there is something else that makes it only work sometimes:
-
-https://patchwork.kernel.org/project/linux-soc/patch/20260316074150.GA2474723@rayden/
-
-     Arnd
 
