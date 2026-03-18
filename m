@@ -4,116 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3344C103E168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBBB103E171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUAfpbi8ucwJ7nv+02Y87VuJJX3elyEORN3U4dh2TVA=; b=1mp8flgHOuu4gtKn+ldPi1LOfz
-	vHWxLRx1FRr6QX99OUzSGhlT6hT16BowZVbr5bxBUD46EOqKyCbCuEVc5JU1bhdeawGjY4/KOBfgY
-	LeWQ0E1KuW/bwuG7Qiuaj7vjAtGEY4QQ/lPIbQnSJ46bjte76C02XZwGFzuH4x5uYQFZsWIsczwUs
-	pB6ZVSgMWDhxUwGCL3oe7y/wGFdVvsPyByln1pSZdimTXw894wVjOR/FiXqNKDrU+PlOds0mTVl/z
-	hrbdngnQkxRHCObkMKMDpllPw00OE9E2fveGhoq26Gg8fbvH476v4zAwjjamuo4JOI/x8Qzp8XiPt
-	1WkTTZ9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EIzK+XJwL26FKWEfLAVTsG+0YLZHEvqVIhcFK4tOcqY=; b=LxXel3PfsyDhupaNmFHlIkEyzb
+	3stG+7NoIAUYyQgh3tnO39o2U96w1W24P17OOwLbac8ITyHQ9dK7FQWOIxnD34Qf/8P6kD9WeW/mU
+	fq8RAR0VLwk0aEDlP1+DNoFGoiZ2QDmFoUB9RrcRPva6Kawb4N9H0BpY3+t0dRX44aGLfWli9CtCN
+	tpTzmMyKesU7TS2kjRIPqrtZBs+kcDOeh26FXdkSSUNEdAWkKfYFyPvvmM61i5yBK/U4QOxD+BGx8
+	tWn+ta4YXIk4WAMDiz8QtFH51SOeIhhG0XpGeAPDK0eq1u8YX5aOJhr8Jy83wPrM7Ge+cZkhkQe+n
+	4fV9nzBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qDC-00000008Q0B-2kyt;
-	Wed, 18 Mar 2026 12:41:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2qFt-00000008QEz-1g5b;
+	Wed, 18 Mar 2026 12:44:09 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qDB-00000008Pzz-2b2Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 12:41:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B366060132;
-	Wed, 18 Mar 2026 12:41:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16E1CC19421;
-	Wed, 18 Mar 2026 12:41:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773837680;
-	bh=3cVeNY+pQvT7y9XfiCK6KuJy6FGGhon85ayumpItLTU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OYbuI4Mi7c5qsUy/G/ZYGrvOHFCTW/szfFBZDvDH5aP8kIIRGZbUSLe3/qhHSrc/Y
-	 41rmRqo4gXjwtcd2pIfDtDknzJR/xDeA+GOJXyeDS1IBuazpueGcf+FqLyyKCVAiGH
-	 FA6ikYq18iYHNxP26mEdGY87syEk0AhR9k3CgUR/3F7Njsz+gc+bdyfihYE2u5XssX
-	 vgV7L7EjIhROfN0YidaQoPfiknxjUtXy9WkAZUlfT9zyCwW254gDon8u0nSJV4vCLz
-	 b2Um5Mc5dec1zf/Povf0u+Gh4REpE7RGbho1tXzu40Rz4eU5kxTb8mNQnrx8/CruWb
-	 24sGJW49WJBXQ==
-Message-ID: <b0f969c8-b227-40e9-946f-89748145a220@kernel.org>
-Date: Wed, 18 Mar 2026 13:41:11 +0100
+	id 1w2qFq-00000008QEE-04Mb;
+	Wed, 18 Mar 2026 12:44:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773837818; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Hcjl9+vzue7SzWhzftZD+XWtH9Yf8T288QTE9F2ExKhdct03dWuK/PHw2vPlDPIzC/C/Ou3YwsioE8jHWQLRZxIEMMwFWEMHnca3/Zez0hbi6UedZ7BQ7/JOvEIxjiq4v51bIv68KpkXYoxv4ffC42hDeR0UdzDc/Gu6MjoTieo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773837818; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=EIzK+XJwL26FKWEfLAVTsG+0YLZHEvqVIhcFK4tOcqY=; 
+	b=Y9p0I/mJr3WJ00wwmSz6u4dZaMRMhyxvuT1zoP0VWjF5ri6vaDUJP7SZD/T/qNpfs9vV0PNRlmUoo+dRC41HWivIVEo3l4LCqy0hrhGsoPUSe5N7YSK/JKsecxtMziOFayEYrobpY8FW8wKI8IzQAfy4aEUiDheXxIezNoStiuM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773837818;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=EIzK+XJwL26FKWEfLAVTsG+0YLZHEvqVIhcFK4tOcqY=;
+	b=cI5cy8WCw9aIJg3VyKe8Jth+80B0ZoaE+cQzwOqWzZNKd+A2yR5yYY0snnWPmsIZ
+	k1QMef+al2XTz2pAqdTOFyjuVqw9dU1+VQpYRVLjuioDCxki44ZYSg8gSCwLIrwXAUC
+	eAfV2FQmKwkhp24z5H6MKxBA4eCGArTQIZsOY/8g=
+Received: by mx.zohomail.com with SMTPS id 1773837815709511.22830844796204;
+	Wed, 18 Mar 2026 05:43:35 -0700 (PDT)
+Message-ID: <c1315144a464f8fee2d712d67f983ac0b3a94be8.camel@collabora.com>
+Subject: Re: [PATCH 00/11] Plane Color Pipeline support for MediaTek
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu =?UTF-8?Q?=28=E8=83=A1=E4=BF=8A=E5=85=89=29?=
+	 <ck.hu@mediatek.com>, "pekka.paalanen@collabora.com"
+	 <pekka.paalanen@collabora.com>, "harry.wentland@amd.com"
+	 <harry.wentland@amd.com>
+Cc: "wiagn233@outlook.com" <wiagn233@outlook.com>, "tzimmermann@suse.de"	
+ <tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>, 
+ "mripard@kernel.org"	 <mripard@kernel.org>, Daniel Stone
+ <daniels@collabora.com>,  "linux-mediatek@lists.infradead.org"	
+ <linux-mediatek@lists.infradead.org>, "maarten.lankhorst@linux.intel.com"	
+ <maarten.lankhorst@linux.intel.com>, "dri-devel@lists.freedesktop.org"	
+ <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"	
+ <linux-kernel@vger.kernel.org>, "chunkuang.hu@kernel.org"	
+ <chunkuang.hu@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>, 
+ Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,  "xaver.hugl@gmail.com"	
+ <xaver.hugl@gmail.com>, "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "airlied@gmail.com"
+ <airlied@gmail.com>,  "matthias.bgg@gmail.com"	 <matthias.bgg@gmail.com>
+Date: Wed, 18 Mar 2026 08:43:32 -0400
+In-Reply-To: <67acc82d-e145-4f98-88b2-d30cc73f73a0@collabora.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+	 <TY4PR01MB144323B0DDC18B05EE1472B5298BFA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+	 <TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+	 <cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
+	 <20260206110901.660cf712@eldfell>
+	 <5963bca37996fa054ad75d4e5017d9c7e5158e9f.camel@collabora.com>
+	 <3efaa7ec40c68f0d463da00c3a57474a40d4fdae.camel@mediatek.com>
+	 <2e241629-2526-41c5-92fd-a0a0ec3ffc4e@collabora.com>
+	 <67acc82d-e145-4f98-88b2-d30cc73f73a0@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K
- pages
-To: Usama Arif <usama.arif@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com
-Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
- Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com, WANG Rui <r@hev.cc>
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
- <608c87ce-10d9-4012-b6e9-298d5a356801@kernel.org>
- <9e9edebb-3953-4bcd-80e2-614dcec5b402@linux.dev>
- <be65e710-997c-413c-8455-2d687fc51fc6@kernel.org>
- <562fb349-c2d2-4fbe-83f9-75c26cc4b7ae@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <562fb349-c2d2-4fbe-83f9-75c26cc4b7ae@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_054406_110854_84F7D831 
+X-CRM114-Status: GOOD (  48.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,68 +101,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 11:41, Usama Arif wrote:
-> 
-> 
-> On 16/03/2026 19:06, David Hildenbrand (Arm) wrote:
->> On 3/13/26 20:59, Usama Arif wrote:
->>>
->>>
->>>
->>> So I see 2 benefits from this. Page fault and iTLB coverage. IMHO page
->>> faults are not that big of a deal? If the text section is hot, it wont
->>> get flushed after faulting in. So the real benefit comes from improved
->>> iTLB coverage.
->>>
->>> For a 128M mapping, 2M alignment gives 64 contpte entries. Aligning
->>> to something larger (say 128M) wouldn't give any additional TLB
->>> coalescing, each 2M-aligned region independently qualifies for contpte.
->>>
->>> Mappings smaller than 2M can't benefit from contpte regardless of
->>> alignment, so falling back to PAGE_SIZE would be the optimal behaviour.
->>> Adding intermediate sizes (e.g. 512K, 128K) wouldn't map to any
->>> hardware boundary and adds complexity without TLB benefit?
->>
->> I might be wrong, but I think you are mixing two things here:
->>
->> (1) "Minimum" folio size (exec_folio_order())
->>
->> (2) VMA alignment.
->>
->>
->> (2) should certainly be as large as (1), but assume we can get a 2M
->> folio on arm64 4k, why shouldn't we align it to 2M if the region is
->> reasonably sized, and use a PMD?
->>
->>
-> 
-> So this series is tackling both (1) and (2). When I started making changes
-> to the code, what I wanted was 2M folios at fault with 64K base page size
-> to reduce iTLB misses. This is what patch 1 (and 2) will achieve.
-> 
-> Yes, completely agree, (2) should be as large as (1). I didn't think about
-> PMD size on 4K which you pointed out. do_sync_mmap_readahead can give
-> that with force_thp_readahead, so this should be supported.
+On Thu, 2026-02-26 at 11:51 +0100, AngeloGioacchino Del Regno wrote:
+> Il 26/02/26 11:26, AngeloGioacchino Del Regno ha scritto:
+> > Il 26/02/26 07:24, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) ha scritto:
+> > > On Fri, 2026-02-06 at 08:28 -0500, N=C3=ADcolas F. R. A. Prado wrote:
+> > > > On Fri, 2026-02-06 at 11:09 +0200, Pekka Paalanen wrote:
+> > > > > On Fri, 2 Jan 2026 13:40:21 -0500
+> > > > > Harry Wentland <harry.wentland@amd.com> wrote:
+> > > > >=20
+> > > > > > On 2026-01-01 07:37, Shengyu Qu wrote:
+> > > > > > >=20
+> > > > > > >=20
+> > > > > > > =E5=9C=A8 2025/12/30 02:53, Shengyu Qu =E5=86=99=E9=81=93:
+> > > > > > > >=20
+> > > > > > > >=20
+> > > > > > > > =E5=9C=A8 2025/12/24 3:44, N=C3=83 colas F. R. A. Prado =E5=
+=86=99=E9=81=93:
+> > > > >=20
+> > > > > > > > > Given the lack of support for writeback connectors on
+> > > > > > > > > the
+> > > > > > > > > MediaTek KMS driver, combined with limited hardware
+> > > > > > > > > documentation, I haven't been able to verify the
+> > > > > > > > > correctness
+> > > > > > > > > of
+> > > > > > > > > each curve, only that they were visually sane (gamma
+> > > > > > > > > curves
+> > > > > > > > > made
+> > > > > > > > > the image on the display brighter, while inverse
+> > > > > > > > > gamma made
+> > > > > > > > > it
+> > > > > > > > > darker).
+> > > > > > > >=20
+> > > > > > > > Hmmm I don't think this is acceptable. sRGB/scRGB has
+> > > > > > > > two
+> > > > > > > > transfer
+> > > > > > > > functions mentioned in original specification[1]. To
+> > > > > > > > keep color
+> > > > > > > > accuracy, we need someone from mediatek confirm whether
+> > > > > > > > this is
+> > > > > > > > piece- wise or pure power 2.2 transfer function, this
+> > > > > > > > is
+> > > > > > > > already
+> > > > > > > > done in original amdgpu color pipeline series, sRGB
+> > > > > > > > means
+> > > > > > > > piece-wise while also dedicated power 2.2 function
+> > > > > > > > exists.
+> > > > > >=20
+> > > > > > Not sure what you mean with this not being acceptable. This
+> > > > > > is
+> > > > > > about
+> > > > > > enabling HW support for this functionality. Not every HW
+> > > > > > has
+> > > > > > writeback for testing. At some point you'll have to trust
+> > > > > > the
+> > > > > > driver
+> > > > > > devs if you're going to use functionality of the driver.
+> > > > > > We're not
+> > > > > > always going to get everything perfect, but if that's
+> > > > > > really such a
+> > > > > > worry you can always use shaders to do precisely what you
+> > > > > > want.
+> > > > > >=20
+> > > > >=20
+> > > > > Hi Harry,
+> > > > >=20
+> > > > > yes, but I understood that in this case, the hardware
+> > > > > documentation
+> > > > > available is so vague that it's impossible to say what it
+> > > > > will
+> > > > > actually
+> > > > > do. There are no formulas given or referenced in the
+> > > > > documentation,
+> > > > > are
+> > > > > there, N=C3=ADcolas?
+> > > >=20
+> > > > No formulas at all, the only documentation I had available for
+> > > > the
+> > > > curves was the register definition, which simply lists the
+> > > > possible
+> > > > values: SCRGB, BT709, BT2020, HLG.
+> > >=20
+> > > Hi, Nicolas:
+> > >=20
+> > > In [1], it shows OVL could output data to WDMA which could write
+> > > data into DRAM.
+> > > Its control is similar to RDMA. RDMA read data from DRAM and WDMA
+> > > write data into=20
+> > > DRAM.
+> > > Do you have interest to implement WDMA?
+> >=20
+> > I wrote a WDMA driver a long ago, but I couldn't get it to work
+> > (though, I admit I
+> > didn't try hard to actually get it working).... if you want to take
+> > a look to check
+> > if anything obvious is missing, the driver is here:
+> >=20
+> > https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-dev/dr=
+ivers/gpu/
+> > =C2=A0
+> > drm/mediatek/mtk_disp_wdma.c?ref_type=3Dheads
+> >=20
+> > The driver I wrote was supposed to work on MT8781 Helio G99 (for a
+> > personal project
+>=20
+> Eh, sorry for the double email, I was meaning MT6789 Helio G99 - just
+> to be
+> extremely clear, though that wasn't much important (given that the
+> WDMA IP is
+> anyway practically the same between the two..).
+>=20
+> > as in upstreaming of the Xiaomi Poco M5 smartphone) and on MT8195
+> > as a PoC.
+> > I did test both platforms and this driver didn't work on both...
+> > not sure if that
+> > was because I misconfigured the MMSYS routing (on both) or if
+> > there's any actual
+> > issue with the driver I wrote.
+> >=20
+> > Again, didn't invest much time on this, anyway, so some obvious
+> > issue might be
+> > present.
 
-In particular, imagine if hw starts optimizing transparently on other
-granularity, then the "smallest granularity" (exec_folio_order())
-decision will soon be wrong.
+Hi,
 
-> 
-> But we shouldn't align to PMD size for all base page sizes. As Rui pointed
-> out, increasing alignment size reduces ASLR entropy [1]. Should we max alignement
-> to 2M?
+Sorry for the delay.
 
-That's why I said that likely, as an input, we'd want to use the mapping
-size or other heuristics.
+Yes, I'm aware that the hardware supports writeback through the WDMA
+component, but as Angelo's implementation still seems to need some work
+(I quickly gave it a try but couldn't get it working), and I have very
+limited time to work on this, I'm first trying to reach out to MediaTek
+to see if more information can be obtained on this.
 
-We wouldn't want to align a 4k mapping to either 64k or 2M.
+(We also considered other options like routing the output of OVL to
+HDMI and capturing it from there, but again my time is the biggest
+limiter right now)
+>=20
 
-Long story short: the change in thp_get_unmapped_area_vmflags() needs
-some thought IMHO.
+--=20
+Thanks,
 
--- 
-Cheers,
-
-David
+N=C3=ADcolas
 
