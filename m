@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B47FCD0CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BF8FCD0D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97eoOi05XfqfUDZA6loiU0vnpMAfSn6Hbq1joU+epks=; b=TRXYx6194bPBG6bz8KZI5jA1MW
-	kQdDpjVab97Jn2iwVhQndKBwJK8dYOufxq0N/rw3+Bq88pzhwaW05UnC0KR0MSMO+VPzuy/cK9y9P
-	LJ2aZ2LsLkeNe0GsCN181+wmBWVEC7kF0KEEqz6eRg+hRo5tVgvzvYVLzRIfftmqFkbPr0/xG0nZQ
-	gc68krefDCBIg6RHgXcOFg49HAikh/cwJac0ocVIHIf05/P7noc8AGgJJZ/P5BfPzMo7fd46eY0vl
-	YXttcBTzzDjPoh+oZy25TB0Jzdb4gUWaZkHYxwpalH5umFPcgynrZZnyjZ4HkMkfFN6HONty6YboD
-	Rf2qduMg==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tvu7SzlLp7tX2tjydABiLqyEQwlaZp2mMLV/+QdApm8=; b=jZu9qzygNCcFzCQDsgFDhc/Dk4
+	GqbCz1Dkb/8+emtqBFrK2l3/g8PArBTF3hSbETsbXMRr1qFk9AMP14nSpqKBTojg0I1tN9P8sLx7H
+	F6je/02UYNRjAYC/tTrk8vnk2c1IyPZWXEmD1E+UwCbesLJ7zEvnYTxCdtH3IbBB+iY9PQuSsDYxZ
+	zjseBb2/t8gDt1g8HG0TelHwqBGU0eoDPnla1RHx2MzxzyqYJE+FGyopCCRRBpjTQ2IyNPBSE1USE
+	n/nnmMxbO2dO/81i7EjwBWUAcBvuAQiqcb2RJl1OJZTYuXmM5KjDCpxPoIeQXWZYS/WKb6h1PQBVt
+	g055kFyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mA4-000000082Xu-3GMM;
-	Wed, 18 Mar 2026 08:21:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2mAI-000000082Zn-0HmP;
+	Wed, 18 Mar 2026 08:22:06 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mA3-000000082Xn-25Op
+	id 1w2mAF-000000082Z2-2zyu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 08:21:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 975956091C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 08:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 471D4C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 08:21:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773822110;
-	bh=97eoOi05XfqfUDZA6loiU0vnpMAfSn6Hbq1joU+epks=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RnPCsHzcYkcJSGxnba9XuP5YLObs3kFXGSanIUeDsX+qnH8JEaSH6cvjQyAc8aDrU
-	 Ae0q2rGQH28nZy1/2Sxln6n4cSYezg864Jb4kTPUFq/raqO5ygGxTfi3wPc/iCO+dh
-	 UF9ZrSJxYWJ2UTj9cKkSPDDFCOa/4NH0jrkeN9e9mYryXzz4AOnEq7O183Bm3sIoa2
-	 qpSftObxpe2faBWEKYGcPnXrebicLFk045zl9H2sV4aVYkgycNsS3o8m9UFnhjrCy9
-	 EILcYY5v+prynuhfVPP6g0cm2dHwnaOwSulFJNeYgHEXMlcdSj16lTdm84s0nFzCYi
-	 UObBZofK14uyw==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a27c021b58so146684e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 01:21:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXMK4Ru3tkvbyAwBufZzs+KR8B/WUxyOYLWj94uh2fcxerDXPHmApT0IOZKLmla+a850nA3p5lt364MC4CtKFUp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYsEjqhYAsyjay79dxI0Cl0FxogHSLn7d2EqqF4vNYqpguXCnE
-	s3YRMN94pqqxfGV3xpepECrPDsAINjhrpwiBbm+8w+tXdRvWhW8uAFC+EphY0Gvm7n1HipiNgrQ
-	krEPG/Uor9Zq3RSyX41RjLKShajJDKWQiuTrTOm3rPg==
-X-Received: by 2002:ac2:428d:0:b0:5a2:78fa:2700 with SMTP id
- 2adb3069b0e04-5a2796a2d14mr689838e87.23.1773822108866; Wed, 18 Mar 2026
- 01:21:48 -0700 (PDT)
+	Wed, 18 Mar 2026 08:22:05 +0000
+X-UUID: 87e9b0a222a311f1a21c59e7364eecb8-20260318
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:517c93f7-a0b9-47f8-93e6-f1014873366f,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:89c9d04,CLOUDID:4088885d7b2ceb3a44a7619703b93cfa,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 87e9b0a222a311f1a21c59e7364eecb8-20260318
+X-User: lijun01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lijun01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1654943835; Wed, 18 Mar 2026 16:21:58 +0800
+From: Li Jun <lijun01@kylinos.cn>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lijun01@kylinos.cn
+Subject: [PATCH v2] arm: mvebu: fix null pointer when access
+Date: Wed, 18 Mar 2026 16:21:43 +0800
+Message-Id: <20260318082143.2560586-1-lijun01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
- <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org> <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
- <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com> <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
- <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org> <244fdbad-0d9f-42bc-a005-5f5ef34d067d@app.fastmail.com>
- <20260227-wolverine-slogan-7af0661f6e44@spud> <c9df99ef-9bd6-43a0-9f22-721bd6bfc90c@kernel.org>
- <20260227111748.ddqdf4avpvfzu4cm@DEN-DL-M70577> <CAMRc=MdrrzoL3r-Br2pvR=TXxXVdS_ouf1ikNysd=GuhR1V84g@mail.gmail.com>
- <d9f9884e-b4f4-4f38-9732-66ff90408b4d@kernel.org>
-In-Reply-To: <d9f9884e-b4f4-4f38-9732-66ff90408b4d@kernel.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Wed, 18 Mar 2026 09:21:36 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MdsnPLJdZfkiHGh6F1X5AS5eL9TrmjzcrhO-d-=f=sX2Q@mail.gmail.com>
-X-Gm-Features: AaiRm516b7kOIHDyg8tVWG6sY6m_JWDG30xasrUUjkqX-QEfUYN_aTeRhsWOiNY
-Message-ID: <CAMRc=MdsnPLJdZfkiHGh6F1X5AS5eL9TrmjzcrhO-d-=f=sX2Q@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip platforms
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Daniel Machon <daniel.machon@microchip.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	robert.marko@sartura.hr, Steen.Hegelund@microchip.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_012204_066550_74AA4136 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 9:58=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 11/03/2026 09:32, Bartosz Golaszewski wrote:
-> >>>>
-> >>>> Here's the previous discussion when this was added not too long ago:
-> >>>> https://lore.kernel.org/all/20250811122053.4bfyoefln7wpz2a4@DEN-DL-M=
-70577/
-> >>>>
-> >>>> Daniel is probably the one that "needs" to answer this, I think the
-> >>>> lan969x is added recently enough for this to not be particularly
-> >>>> disruptive.
-> >>>
-> >>> I don't get arguments there. The policy is one ARCH per vendor, so wh=
-y
-> >>> exactly upstream would like to "having more granular control with
-> >>> separate"? That's downstream or vendor wishlist, not upstream.
-> >>>
-> >>>
-> >>> Best regards,
-> >>> Krzysztof
-> >>
-> >> The out-of-tree defconfig impact is minimal for us. As Conor mentioned=
-, lan969x
-> >> was added fairly recently, so the number of affected users should be s=
-mall.
-> >>
-> >> /Daniel
-> >
-> > So can this be picked up directly into ARM-SoC please?
->
-> This should go rather via Microchip ARM64 tree.
->
+the kzalloc&kstrdup may return null pointer, will cause kernel panic.
 
-Hey Microchip maintainers, can you please pick it up for v7.1?
+-Fix null pointer.
 
-Bartosz
+Signed-off-by: Li Jun <lijun01@kylinos.cn>
+---
+ arch/arm/mach-mvebu/coherency.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm/mach-mvebu/coherency.c b/arch/arm/mach-mvebu/coherency.c
+index a6b621ff0b87..f9411e16ddbb 100644
+--- a/arch/arm/mach-mvebu/coherency.c
++++ b/arch/arm/mach-mvebu/coherency.c
+@@ -191,7 +191,13 @@ static void __init armada_375_380_coherency_init(struct device_node *np)
+ 		struct property *p;
+ 
+ 		p = kzalloc(sizeof(*p), GFP_KERNEL);
++		if (!p)
++			return;
+ 		p->name = kstrdup("arm,io-coherent", GFP_KERNEL);
++		if (!p->name) {
++			kfree(p);
++			return;
++		}
+ 		of_add_property(cache_dn, p);
+ 	}
+ }
+-- 
+2.25.1
+
 
