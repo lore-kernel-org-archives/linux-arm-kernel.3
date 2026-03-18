@@ -4,78 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CC710854D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E59610854BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNAxvMlpKbnk3xa//SsNLWzTbu90yHBu0yVq6XBO01c=; b=aH6hLZsZm/uJFi3u7AwYErW+SZ
-	PtS/jQWnyINhoLMBAbEQo/Kn9MzNMV7eI1DKIKqpiZo4RMfu5OwMNT1GiQ293nv8HY0eiG5qjA7oV
-	ub1Y2RRKtu3oRUhNO9IbP099IGDqMQysrCDqmr8rHaNN+jKFC1R4Hxyn/QW9y9xUhrB0XGmoPfQ0J
-	7LeDO0ZKc7jPOKtjX9gKYxgf5GHjDXZjHmaZwoIWlY5L76FQOnTnv/MMwzgbsWHQlGxB6y04jdO1o
-	vtWlyi82Mn+Ifd4EqMGxf7ClewhKOzlSk2aIZtmN6hh3E3Ec21Ni/IQ2e+GZ7vaRkfFaqRf5pqegz
-	6Th1qgoA==;
+	bh=RDjDTgsbTVCpDbLwoLz8cO6AUyPWy5MGAMM1zVUO48w=; b=dYW14el8t8ZAVZaFe1+zknwSO+
+	OT7Eu/lU+61qmxIqFfCFO/wOzb1dow/kPRVt/ZcbDxY0xqKH7A0etZHLaIxgRUp7TcceC5sak+jmA
+	DeELhTXSWzmyYrM0eAm2E5zPS3kAlCDjY0Hch59p3HJt1d4BcHFODiHpoQuL4VNRXMSCk+wbwrjaM
+	OFHYxfqMFxqeCptDbB/NlW5T5yjUkqzGVN4YKYjCRI7Ih0P4kZvVd8M/pcuP2fYZgattYvnP9ymRB
+	AGv/RBOX9gF1XP1qIDIQK5vZY4eEF72HzkVSUvF4qOMlcCa/k38S28i73wW/CIlqIxICn2oX0kHi1
+	Ac/2RpKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mY2-000000084ZH-2m3g;
-	Wed, 18 Mar 2026 08:46:38 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w2max-000000084qT-2nRe;
+	Wed, 18 Mar 2026 08:49:39 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mXv-000000084Wn-3YJf;
-	Wed, 18 Mar 2026 08:46:32 +0000
-X-UUID: f3a0c80a22a611f1a6de359d7043e138-20260318
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=jNAxvMlpKbnk3xa//SsNLWzTbu90yHBu0yVq6XBO01c=;
-	b=toI8xKgU2WD1t7OZU/WLbYxyU9Urz1RDYoaA9HO1DNvwkhLlP771UG/nPjdG5zJAZZZIwpHh4g0/KcxD4utzAW4rplZlgLY3+e5AqYD9lULknxZYNfsemt9KWKtoJwaXksWJ5MTWsTXp28461lEcoapikLOToe9D19f4ByWl8fE=;
-X-CID-CACHE: Type:Local,Time:202603180111-07,HitQuantity:5
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:beaefeb9-a3e9-45d3-90b4-ca5b60ec99f8,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:7179a24c-9183-487b-8624-e74f2dd98990,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f3a0c80a22a611f1a6de359d7043e138-20260318
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <adlavinitha.reddy@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2041248436; Wed, 18 Mar 2026 01:46:27 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 18 Mar 2026 16:46:24 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 18 Mar 2026 16:46:24 +0800
-From: adlavinitha reddy <adlavinitha.reddy@mediatek.com>
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, adlavinitha reddy
-	<adlavinitha.reddy@mediatek.com>
-Subject: [v1,PATCH 1/1] i2c: mediatek: add bus regulator control for power saving
-Date: Wed, 18 Mar 2026 16:46:16 +0800
-Message-ID: <20260318084621.4127757-2-adlavinitha.reddy@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260318084621.4127757-1-adlavinitha.reddy@mediatek.com>
-References: <20260318084621.4127757-1-adlavinitha.reddy@mediatek.com>
-MIME-Version: 1.0
+	id 1w2mav-000000084q4-36sF;
+	Wed, 18 Mar 2026 08:49:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M0EVn4XVjf5QQVjDuJ7GUO/AcG7VnuJybQluIuQ80fXyjNA/N7w9RWMB4di8YN3bkH/6JmJWwtN/vlZn/GpEZ8xgOcLu29UAHR8edF+/L0AuqPxacaN/ViOB8Tu/Zfpe/SuzINuofVFTzw0iDFNEVPmaAuuoGSvmFTQiKmv0tzDnun/BcgWk4MFWxhamGE+ud2t6+ITy5QMZ5DQEfplmY5Ftkow8P0cbCVQcGv6dV4bnvn81AZuTxTKCSRR4FVeeu+qmYqCedP9NCayVeWdntKc8wwlD4TFGMlKON06grAB6GN3fKQ84/bgBOocCzgeJhtFGXrVLvnniL6jyqoJ2tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RDjDTgsbTVCpDbLwoLz8cO6AUyPWy5MGAMM1zVUO48w=;
+ b=PS90ahHWEaWwiinyiFIS7dGBq1QTVnLWMG+ePRJT2UA9JRacL7gQlJUhmixDVlMAxXPzHN+rVK5J9BG1hvFtI1ct2GwqdbYziRAogLBZOkZkxVEu9TTx15s+6h5NP09ztS+F/luSeNSzXmjrfwq06P6Ylvw51FTzuLJksqafSVLBT3pYRYEWDeIyyHIvBF0xtnSfG/AVHn2E8lswj+UpaJM93/GvhK7hHS7qnPmS/MYdQCyRE+x+LncX/1wXPCypBCGqyiUORwupzRuyBP4/mECYAnV3hdkU2xMGbc77c3VwIquGCVxIXkd3CGMbnrEg2fc6FmUwGd57MVqfoSXgKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wesion.com; dmarc=pass action=none header.from=wesion.com;
+ dkim=pass header.d=wesion.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wesion.com;
+Received: from JH0PR03MB8617.apcprd03.prod.outlook.com (2603:1096:990:91::14)
+ by JH0PR03MB8309.apcprd03.prod.outlook.com (2603:1096:990:42::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 08:49:25 +0000
+Received: from JH0PR03MB8617.apcprd03.prod.outlook.com
+ ([fe80::28d:6503:f51c:11b7]) by JH0PR03MB8617.apcprd03.prod.outlook.com
+ ([fe80::28d:6503:f51c:11b7%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
+ 08:49:25 +0000
+Message-ID: <2313af34-be85-4b1b-abf8-c8a935d1defe@wesion.com>
+Date: Wed, 18 Mar 2026 16:49:17 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Khadas Edge 2L
+ board
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, naoki@radxa.com, jonas@kwiboo.se,
+ chaoyi.chen@rock-chips.com, i@chainsx.cn, michael.opdenacker@rootcommit.com,
+ inindev@gmail.com, quentin.schulz@cherry.de, andrew@lunn.ch,
+ alchark@gmail.com, pbrobinson@gmail.com, nick@khadas.com
+References: <20260317090731.600787-1-gray.huang@wesion.com>
+ <20260317090731.600787-2-gray.huang@wesion.com>
+ <20260318-spicy-wasp-of-prosperity-9ad730@quoll>
+Content-Language: en-US
+From: Gray Huang <gray.huang@wesion.com>
+In-Reply-To: <20260318-spicy-wasp-of-prosperity-9ad730@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-ClientProxiedBy: TY4PR01CA0019.jpnprd01.prod.outlook.com
+ (2603:1096:405:2bf::9) To JH0PR03MB8617.apcprd03.prod.outlook.com
+ (2603:1096:990:91::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: JH0PR03MB8617:EE_|JH0PR03MB8309:EE_
+X-MS-Office365-Filtering-Correlation-Id: b390664b-b52f-497f-2dd6-08de84cb421f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: vXJKkFQQeUVuJYIDO56+FaKXfP1l0lfCCy+R+OcwUCAQNcjhQMZnz/0Hq4etBv5ycsNsIGAj6NzREkpcew/gXwpv+NUdpp2Butt1v5iVbAf0hzFAicFLc6STA/WvpaJqvo+vf3vo/gYnUi2qIXFonZlsmjnbPB9Jkqf2+D32lZkyrzlxEQrtTcLSmfj+lO05ECD66TXUSbDbb2GdS1kNaGBsQChxUzm2mwzAaJ/DFEplgzwVN2EJDZwEiNcvZHA5M5/FOVbser/qfp7dHof3RcPzXUBoUd1L5x9NhB0uUH9jCIdw1XlgdBtwzqnyqKKSagFyVJtcqj/688c0In4K5XgYAxeVRmXOedOF3FVqF8IB2XKAO6ws8oTZwBhOqUGdZ1IfqhgL1iX+Dr1DWz0We0s7VWjeBX0kPfrXoVCUPVAHz2D7AcWERMX+/TCVHSwlHnLUgTCK9p9teGK4Zpy17eZCK7W8ZsWdIJqLng+R6EGUB36LLeVfxQhCPvrZQlkYmkXA8C9gZhOmXI/0GghkNWkVIP963a3C3EsyfqBAuE7NmtR3xbWSihaX1kYQt8xYXw0Aw5WK6KODJtIXHv6r10wP1roUc67VPFfEuR8mS0Cd+V+EuJ6sdP9hrdC4v/Bect4pHjDHgfJEu6gjRhjul3JWYEwyfM3uOc1nCxfMIhyVFE66GPIonMD/zFqFdVFk
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB8617.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHp2d1ZGS1J2bFg4TzVJQjcwS2I1dGlHYlp2cmNPcVJ2OCs5TGhtVlgxb3VL?=
+ =?utf-8?B?TkNuelpiTzBaTlhXNzE4ZUt1YnljenlEREd0YW5ZWEo1bm5GZVBGclRJUGpB?=
+ =?utf-8?B?NFgralpJNURzaWdYMnNNdFJEaFBSTUZwa0RjNDZBWEk4cnFYZHpZY3VSUWd2?=
+ =?utf-8?B?TmxZUkd5WEVkTVVOb3AyNnNxS2p5bW9zNE9IdzlqWUhiZ0w2UWlYUHdaTUdv?=
+ =?utf-8?B?QTIwcWF5bU1IQytoY1N4cksyNWIrUnVjcXBUbndsRzFPY0orQkw5RHlEWnJX?=
+ =?utf-8?B?WTZJb3JsWERnZGJqNFJERnVGVy9DTGRMYm9kTUlGQ21xSWVFRFNJb3Z4cnN3?=
+ =?utf-8?B?NWNmcmdEdmpScDRxWTl3QU1VM2huNURJSFBnTWxNQlVYcWpBOVJ6dFpyTVBD?=
+ =?utf-8?B?ZnJRckZxWmxySVh2Q1J1bFZBdmhMYmlvSUY2OFhWQXdhQkFQSW9tSG0rdjdz?=
+ =?utf-8?B?TTJMaGNXNnVWUStZZ3ZneTZJNEo5Nmd6bzdEZFRnOVpmbHgvU0JZV0ZLZVJP?=
+ =?utf-8?B?ay9pQ1JVNmdZOFpRVVBHNXBPRktuUXlST3BoUW9aNUZtUFNGbkR0OElTeTR1?=
+ =?utf-8?B?OTYwNkROcU51cm9MNUJvU3BZRXlaa3g3V3RVeVVIQW16bU0yeEpDSDlvNFZB?=
+ =?utf-8?B?TjhBVEwxN0pOOHQ0YVNRMjVObGdTSWJDMnBXRWp1V0w0UVZyMk9lYyt2MzVH?=
+ =?utf-8?B?Tkl1TWViOGVLelUwa1BINjVSdUxjcHR5M2trbGFZK2Z5S3B0K0lRQ0xvRHNn?=
+ =?utf-8?B?TlZkVnBtVS9pblh0c0IrM3VjRTZ2Q0FkMUhpdjBtVkJKN09TM2Q4cFp4QjdH?=
+ =?utf-8?B?MmV1OGczVnQ0N0RsMjFEWEFwSGVVTG9TY0dQNFhXL3VOenVSUkw5LzJCOThR?=
+ =?utf-8?B?THZEeWx4MlFkK01PU3d5azBrOFJvVUVjekNCc1BoRUFmTWhTWjJTQnpJVWR1?=
+ =?utf-8?B?Q2pUUjlZaDFoZjBHT1JSWEN5VFI5WDRIY2hMQmNjOVRPRzdLSkFyOUI1bEZD?=
+ =?utf-8?B?M0FHWWh0QUl2bVpkYmlqVUdYK2dQaWpGaFg0bGZDMHE0R1gxLzhXNmYvRW5m?=
+ =?utf-8?B?RjBKMUNqR0U4bXpodHloUzhPYWV1MWRydWJHbnpOU3J6eDk0TE5JUjJPaTkz?=
+ =?utf-8?B?K2pLNE93NldXSlJJeGszaUdSVWhnQVlRU2x3WkpIUDlVQSsxUWpRK3M5ZlM0?=
+ =?utf-8?B?L2hqaFdJS1ptMUVtTzdyZ1BJZ3lLU1B0OTdDNnZ3WnNJSTlKenpUaU4rTC9p?=
+ =?utf-8?B?dG5HTGgrSnpFM3JKVXllVGJESTVWdmhpdGpVakhtYUpZbWI0NFptZVZ5VzhU?=
+ =?utf-8?B?Z3RaVVM3dm93WjNvT0Mwc0JJZEVybEs3dTE1OXN3a20rTXdmU3gxVmtpbXEy?=
+ =?utf-8?B?SXRLSzZVK2orRTZZTGlWRmJRTVlqTWpjeXorT1JwbkpsaU5TR3VwSE1Kd3Nt?=
+ =?utf-8?B?aC9xeU9iaVEvMHVxR2pHYjMrL2dDZE4rdHlXeXpaNWVFRXZmOS9ydGtITUlh?=
+ =?utf-8?B?YkFEUkpFOExreG1wYmxWQWFtd2VzOGdqSndablA3bkpPZ1ZvWWVNeWhNSkFh?=
+ =?utf-8?B?dC9yVE5JSitLbmM1QmtjQkl4VHRJNDV6WjNPcEFyZllQME1DUWVYdjM1VUFE?=
+ =?utf-8?B?MXdDcGEzMG80RUQ3WU44bGErOCtuTWNwa3hDWWZiWS83bFVBV2dGS1c2Q3Js?=
+ =?utf-8?B?b3RienR4VkxBQkUwcTh5MkJxWmxremcrenpBMGtROUhhUzdlZkpLMnRZYkQv?=
+ =?utf-8?B?V2pUdm1jR3dwcjF3K29GOHM5d0ZNRnhkaW1mR3l1cjFuQU14NW9CR3h3U2Ni?=
+ =?utf-8?B?K0hCdXhBVXNpNTl3SnEzUnA1VEtxSzgyeUNEUy9xWm5PWnVodEY0aFB4cGNG?=
+ =?utf-8?B?Yld0VkdPd1E2M3lLTGFmbHBKVXNlVDFna1V6WEROd295dTlsTnRnRlJLSVlD?=
+ =?utf-8?B?aHVENDJtRlVpSG9pSW1WZzV2cXlXUm5Hb2JMWm45cDk1UXNsOUY5a3dVSjFV?=
+ =?utf-8?B?dUNMNERBYkUzT1Axd29yRE1lS0RtMHA2WnMwWGV5bkYrYy9KRFhYaHdTZ1Rx?=
+ =?utf-8?B?L2ZYQmxxS29lbWNLYXkvbWVnWFFybjlDdzNvQnI0c0NQYWNUdEV4Y2NMNlkw?=
+ =?utf-8?B?VEFDZTQ2eE9Ha2tFak1kQldraVJnaWpwVm1XSHZtU1Q3REUzRDZ1OVdsdVFl?=
+ =?utf-8?B?bUlSL3NGbm5uTC95ODdpL2RONkEzRlQ5WEpFcEw0dW5vMVdZd3RnMFNYNEpQ?=
+ =?utf-8?B?UStpMVoyeEl4TVlmMnR6OXZpeVRUUlA1S0N1cENOaHB4VEpqeUxsVGtLY1Qv?=
+ =?utf-8?B?YXNMQXU4cTQ5VG9rSkdhZTdYTzVhZUdQb01SZmJVZ3ZlRS9icjZhUT09?=
+X-OriginatorOrg: wesion.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b390664b-b52f-497f-2dd6-08de84cb421f
+X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB8617.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 08:49:25.6515
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DaysMk+Jkvm3yOgdESqy9TTjJX7BgjcztRSCoWMTRcjpw+ByHh7KERMr1jFHuQUEredUQL9ka/mfPJ2xb1u2tQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8309
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_014631_882649_C8EA5B13 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260318_014937_783649_D0CBF4E3 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +148,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add conditional bus regulator enable/disable in mtk_i2c_transfer()
-to support I2C bus power gating for platforms that require it.
 
-This implementation:
-- Enables bus_regulator before clk_bulk_enable() if vbus-supply is defined
-- Disables bus_regulator after clk_bulk_disable()
-- Only activates when vbus-supply is provided in device tree
-- Has no impact on platforms without vbus-supply defined
+On 3/18/26 15:56, Krzysztof Kozlowski wrote:
+> On Tue, Mar 17, 2026 at 05:07:30PM +0800, Gray Huang wrote:
+>> The Khadas Edge 2L is a single board computer based on the
+>> Rockchip RK3576 SoC.
+> <form letter>
+> This is a friendly reminder during the review process.
+>
+> It looks like you received a tag and forgot to add it.
+>
+> If you do not know the process, here is a short explanation:
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> versions of patchset, under or above your Signed-off-by tag, unless
+> patch changed significantly (e.g. new properties added to the DT
+> bindings). Tag is "received", when provided in a message replied to you
+> on the mailing list. Tools like b4 can help here. However, there's no
+> need to repost patches *only* to add the tags. The upstream maintainer
+> will do that for tags received on the version they apply.
 
-This approach provides power savinggs for platforms with an extra I2C bus
-regulator, while avoiding runtime PM complexity.
+My apologies for missing the Acked-by tag in this v2 submission. I will 
+keep this in mind for future patches.
 
-TEST= Build and boot on MT8188
+  As you suggested, I will not send a v3 just to add this tag.
 
-Signed-off-by: adlavinitha reddy <adlavinitha.reddy@mediatek.com>
----
- drivers/i2c/busses/i2c-mt65xx.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index cb4d3aa709d0..126040ca05f1 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -21,6 +21,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/scatterlist.h>
- #include <linux/sched.h>
- #include <linux/slab.h>
-@@ -1244,9 +1245,15 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	bool write_then_read_en = false;
- 	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
-
-+	if (i2c->adap.bus_regulator) {
-+		ret = regulator_enable(i2c->adap.bus_regulator);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 	if (ret)
--		return ret;
-+		goto err_regulator;
-
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
-
-@@ -1301,6 +1308,10 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
-
- err_exit:
- 	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+err_regulator:
-+	if (i2c->adap.bus_regulator)
-+		regulator_disable(i2c->adap.bus_regulator);
-+
- 	return ret;
- }
-
---
-2.45.2
+>
+> Please read:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+>
+> If a tag was not added on purpose, please state why and what changed.
+> </form letter>
+>
+> Best regards,
+> Krzysztof
+>
 
