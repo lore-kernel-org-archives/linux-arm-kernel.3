@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B4F107760E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C520107760E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7i7Sts2L5UVBiYhCcyvetXpuxZHpVPukk3YrxttDSSY=; b=J1Vfi8W2pb/j+OEf2Z1FfXM/Wq
-	GnRbfVsktYSacVOD+ROycbL26PUgdE5D0ERKjOVIgf4tUNEfF9gXD9skc1155WQcYVMwR22UdIBsx
-	5Iw3caf295EnIUKfOHzaLwiXqJhSsn0h9XwAXPUBer5PToMdNB6azvq1EUr6rLmhwbeGP4vnqAsNT
-	sd6rqXdZlYpa9PgcH2GaIuTJKmATMiXp2DDODKlFHGWptbLXy+cvsT2RY674mWEzoxoNpOY7PboTB
-	28sb2eTJ9kVauaS9w42JRMcQMeKNNZQOyZglDdmD37/8HdsPF65UdlKg7s9ATFGeQZCF3QufA0FOf
-	b81lbOwg==;
+	bh=0kxTwCDk3Bv9xaYP7SQwO+fLH97BxoRrV/efBbpFe/0=; b=nKfo5g327ojynYlaa37KdtPiyV
+	i8r4XyQWtr3o1+NuYcV8vqgzoXb0L/kDbER50CiBJnQfOGjXlHPn1mSHlOndCbmdBInKcd/GrOAlw
+	QsvB0iIFq+sCViyuwbTOnVof+kKhhI0p7EdX9Mvk7O9P5U5RaXrrnu9HWrgYFFhFTtcGjw4vuP+ES
+	Z4j0Ap4INJ6mtBgIFN4ty+1dBqwgKcUT+WWk8DWQJYQR4qpdnVqbmEVQ98GVbBXzppbwZO2qbkFVY
+	CtAmUBD2mhuTdBU1C6Ce+Kd/TfHbNUdyI525Ts/V1DRhc9eh4Z+SpK27TjwaEJVVuRB8eQW3kYwDl
+	IHOLOUGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2x0E-00000009G62-3iz1;
-	Wed, 18 Mar 2026 19:56:26 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1w2x12-00000009GC3-2YuS;
+	Wed, 18 Mar 2026 19:57:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2x0B-00000009G5V-2nZR;
-	Wed, 18 Mar 2026 19:56:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773863773; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EGzOvcVKwT5yKkqoBnwcXBINCb6R55d1qXgQH6Wov3tqMDz4x67Jf4Yx9KFj+GVYgu1oPqVp/Ern2JFVyz2tntOFiZZVymYOYhsGH5cEztroDDcWD/TTkvSeLBQn+DaDUhZtwUFsLANp5bXsyFS8ZgSQVDZgBBP3rt4rSvFt4v8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773863773; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7i7Sts2L5UVBiYhCcyvetXpuxZHpVPukk3YrxttDSSY=; 
-	b=gvgF5IFU8AhXld3iBJj31FH6WR6shbbLgrjSqGlk+b+pohKAD9bqZYNLhQogHpooETETA7THOUF7343nwWuzKxCmUqQIZs01XppIb/9ER5gM5Xo5fjf4UYeLe4gjUzmpYWO++SnUgwdKVZysuNb2GtYyjtPzePcKWMufSJ2prK4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773863773;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=7i7Sts2L5UVBiYhCcyvetXpuxZHpVPukk3YrxttDSSY=;
-	b=k/X77GIBP4H0Y7nZk0GKcjVRZoVFAPWXzmpNgG9u8alGd67WBrbo51a1BtHCxtq7
-	dtEGdozh8h4+jvA4bJFg8I8s++GndCGhfgVdBJpWVrH18+YKOGjE2Urr/EJr3t/zcBS
-	egNSG5lT1UwWUr2uYb1pfPbDBq24QXn5SOMZLnio=
-Received: by mx.zohomail.com with SMTPS id 1773863771726221.9025611389253;
-	Wed, 18 Mar 2026 12:56:11 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Heiko Stuebner <heiko@sntech.de>, Sugar Zhang <sugar.zhang@rock-chips.com>,
- Alexey Charkov <alchark@flipper.net>
-Cc: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexey Charkov <alchark@flipper.net>
-Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Set slot width for non-TDM mode
-Date: Wed, 18 Mar 2026 20:56:06 +0100
-Message-ID: <14828456.uLZWGnKmhe@workhorse>
-In-Reply-To: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
-References: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
+	id 1w2x11-00000009GBs-2LWD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 19:57:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84ED160103;
+	Wed, 18 Mar 2026 19:57:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF89C19421;
+	Wed, 18 Mar 2026 19:57:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773863834;
+	bh=+kzhDbxT+jFXab+XbKrbVAzjztS5lNka6dGbKHY8tfo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FxDn+8mdrB44DQlF18pS/g3/WTyQr8wmoCHkwNd/VfVbi8PevUxhkV6I2gC3MBWvQ
+	 nBvqsE9JF6/hMF3V+UZFslspo/G5Qm1suAh4zJdWhuBv6rYQSE5XrpeMHdV4HPzkXb
+	 YQpEcuDCNixIXBu+wJtHJB5s5cctTtqWZAEhOMQJ+V6ect5egb/RYHh0P7sHdgkaRB
+	 48qGJxRK2tkRSkSWOQDFfxW8S+8Aywj7w4DH1s9xqV/+tGLrdAhRnbvvwsd3KwxVZe
+	 RhOG3fUh2Rv3x0kYmxQ/8nIcY+V95etapPwtPKevfInoDheM1Qr4NZxaqga+ZwC0bf
+	 GJa+n1+QLQz4A==
+Date: Wed, 18 Mar 2026 20:54:31 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Subject: Re: [PATCH v2 07/12] kbuild: Only run objtool if there is at least
+ one command
+Message-ID: <absC93h6fNgyniD4@derry.ads.avm.de>
+References: <cover.1773787568.git.jpoimboe@kernel.org>
+ <42418c5fa73a8876e91b3dfb38fa3f263e39f1c1.1773787568.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_125623_781793_5496F9D4 
-X-CRM114-Status: GOOD (  24.62  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <42418c5fa73a8876e91b3dfb38fa3f263e39f1c1.1773787568.git.jpoimboe@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 18 March 2026 15:50:25 Central European Standard Time Alexey Charkov wrote:
-> Currently the slot width in non-TDM mode is always kept at the POR value
-> of 32 bits, regardless of the sample width, which doesn't work well for
-> some codecs such as NAU8822.
+On Tue, Mar 17, 2026 at 03:51:07PM -0700, Josh Poimboeuf wrote:
+> Split the objtool args into commands and options, such that if no
+> commands have been enabled, objtool doesn't run.
 > 
-> Set the slot width according to the sample width in non-TDM mode, which
-> is what other CPU DAI drivers do.
+> This is in preparation in enabling objtool and klp-build for arm64.
 > 
-> Tested on the following RK3576 configurations:
-> - SAI2 + NAU8822 (codec as the clock master), custom board
-> - SAI1 + ES8388 (codec as the clock master), RK3576 EVB1
-> - SAI2 + RT5616 (SAI as the clock master), FriendlyElec NanoPi M5
-> 
-> NAU8822 didn't work prior to this patch but works after the patch. Other
-> two configurations work both before and after the patch.
-> 
-> Fixes: cc78d1eaabad ("ASoC: rockchip: add Serial Audio Interface (SAI) driver")
-> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> Tested-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 > ---
->  sound/soc/rockchip/rockchip_sai.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/x86/boot/startup/Makefile |  2 +-
+>  scripts/Makefile.build         |  4 +--
+>  scripts/Makefile.lib           | 46 ++++++++++++++++++----------------
+>  scripts/Makefile.vmlinux_o     | 15 ++++-------
+>  4 files changed, 33 insertions(+), 34 deletions(-)
 > 
-> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
-> index 1bf614dbdf4d..ed393e5034a4 100644
-> --- a/sound/soc/rockchip/rockchip_sai.c
-> +++ b/sound/soc/rockchip/rockchip_sai.c
-> @@ -628,6 +628,10 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+[...]
+> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+> index 3652b85be545..8a1bdfdb2fdb 100644
+> --- a/scripts/Makefile.build
+> +++ b/scripts/Makefile.build
+> @@ -277,7 +277,7 @@ endif # CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
+>  is-standard-object = $(if $(filter-out y%, $(OBJECT_FILES_NON_STANDARD_$(target-stem).o)$(OBJECT_FILES_NON_STANDARD)n),$(is-kernel-object))
 >  
->  	regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
+>  ifdef CONFIG_OBJTOOL
+> -$(obj)/%.o: private objtool-enabled = $(if $(is-standard-object),$(if $(delay-objtool),$(is-single-obj-m),y))
+> +$(obj)/%.o: private objtool-enabled = $(if $(is-standard-object),$(if $(objtool-cmds-y),$(if $(delay-objtool),$(is-single-obj-m),y)))
+
+Please use $(and a,b,c) instead of multiple nested $(if $(a),$(if
+$(b),$(c)); as the last variable (is-single-obj-m) is 'y' or empty, the final 'y' can be
+left-out:
+
+$(obj)/%.o: private objtool-enabled = $(and $(is-standard-object),$(objtool-cmds-y),$(delay-objtool),$(is-single-obj-m))
+
+>  endif
 >  
-> +	if (!sai->is_tdm)
-> +		regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
-> +				   SAI_XCR_SBW(params_physical_width(params)));
-> +
->  	regmap_read(sai->regmap, reg, &val);
+>  ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
+> @@ -501,7 +501,7 @@ define rule_ld_multi_m
+>  	$(call cmd,gen_objtooldep)
+>  endef
 >  
->  	slot_width = SAI_XCR_SBW_V(val);
-> 
-> ---
-> base-commit: 8e5a478b6d6a5bb0a3d52147862b15e4d826af19
-> change-id: 20260318-sai-slot-width-378eed5c22cd
-> 
-> Best regards,
-> 
+> -$(multi-obj-m): private objtool-enabled := $(delay-objtool)
+> +$(multi-obj-m): private objtool-enabled := $(if $(objtool-cmds-y),$(delay-objtool))
 
-Thanks for the patch! Looking at where else this reg mask is used, I
-got curious about `rockchip_sai_set_tdm_slot`. It seems to reset
-SAI_XCR_SBW back to 32 when something calls it with 0 slots. Do we
-have to adjust this as well there?
-
-I think what we're running into here is the difference between I2S
-normal mode, and I2S justified mode. In justified modes, it'd be
-normal to have a slot bit width of 32 but a valid data width of, say,
-16. In that case, VDJ would specify whether something is left or right
-justified as far as I can tell.
-
-So basically I'm wondering if we've accidentally been sending
-I2S left-justified data all along when using SND_SOC_DAIFMT_I2S,
-and whether we should only be setting this in SND_SOC_DAIFMT_I2S.
-
-Either way, I can give this a
-
-Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
-for ES8388 on my ROCK 4D (with my enablement patches for it there
-on top that I need to get back around to).
-
-Kind regards,
-Nicolas Frattaroli
+Could be changed to $(and), too; but personally I think the $(if) is
+easier to parse at once.
 
 
+Reviewed-by: Nicolas Schier <nsc@kernel.org>
+
+-- 
+Nicolas
 
