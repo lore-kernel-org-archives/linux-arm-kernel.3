@@ -4,127 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72935107761B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 21:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9F7107761C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 21:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjkVCGc9UuS/iYmQSMn+hsLjVouvW5XYtaAItifULpw=; b=utCmT+M+2g6EfIJBXD4rqq+6Yf
-	DJof2AtQ2H7ClKXkgdRYDRikysYOWGFdzHBzNtdEu9copuHLQakq3Ik8vjHKQv2jW90hj5YpAxS4R
-	03elHIEWRMl0F5tr4LEx1uWPtNGeVPqGKnj1EpE+ZbjfD1Ih8CxU124/16gn0VdqVTrHDTugM9alU
-	/Qm7OLCn6s8BcubA5Td1euQF97lsOhpNhl5cEdX2szCgvTy/tkId10Gk2GZD78x5FKv+DRUXOv3lZ
-	azpxDYX20ar3kiJVUKX4hfbmn7bhDXzEK70We7I4ubHDVmGTfzxJCisX5K1ssnzzzefzy1kua66aP
-	gO2NinGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K6f1m8W1umobQ+ktMqqvSwqw9J/2mgt2skFeEG9RxsI=; b=rol4ur269kprsX6ppn/YsXiI2h
+	K79wINQGykmL7/9iFOHq3kPYl0R8niE+Ws+j0Qwa6nxpptD+ft3m/dvwxGaz3C5qyjCJbx0TMjrQ9
+	xFH3lwh3qXuua3Z6u3gaLoChS155ZRViHG96PaNcop3Rbt7q+r/S6bEbiXvpCxWl0ZqaZw0AuDTOh
+	H76fmPOAScJ8rei3gMpDVH6B7QXvuOfCzmTtXIaOm+OHOhZvnMKvoF5OLiFLF+AtIkF34NwcPHWeg
+	W9zxfO9cSsgZdyRaV1QgR/Q52njzwXV3PRXdfUKXV5gH8/fyW25TorGhq+/+cDUsvLTQ0G0dVUEzc
+	qy3Sc48A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2y8O-00000009MCY-0Heu;
-	Wed, 18 Mar 2026 21:08:56 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1w2yOe-00000009NVX-1IPJ;
+	Wed, 18 Mar 2026 21:25:44 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2y8L-00000009MBa-46bF
+	id 1w2yOb-00000009NUr-242Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 21:08:55 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7d750eeaec3so153941a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 14:08:51 -0700 (PDT)
+	Wed, 18 Mar 2026 21:25:42 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b79f8f7ea43so39469266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 14:25:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773869139; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ejjF7jLiGQhej4u7WASUMG9Z//6uSf8vlEWv/M45RXOLbBMDbhyXbMIqD7cSG5aPF+
+         k0ENXTUHD5+TImfMAEDmRLY7kt9JyZ/Kt4yLlzzcSOIOZDugAglj6W90wiImAhiPMTBu
+         HJuCSiR/1xMkcfNWCAmjreMaxoxRKJfbQ45oQIT2zIsYzDUkVxurrGyImM5eK82vnved
+         xp8sTqL7K6ckhnnZTy8XmiSJuMWGXy3ApGJhCodBDqSDDEkVARWFywZ8/6AYzn89Wdue
+         Jbr5OfbZJ1JqQlFfr2Oc8jvspgFkLIj7y9pGT4RMyI1ufHGPfb5+9m4lOYUI4slrhwEs
+         VbBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=K6f1m8W1umobQ+ktMqqvSwqw9J/2mgt2skFeEG9RxsI=;
+        fh=N/TQSH+aCVbM8UmCvFLzJ7Rtk9JcyxhqHGWv9BTJ6U8=;
+        b=Vp6CjYAHgAiy/mC8Db2kDypezolteQr5c6lBfmQ4tIcBSJ7V/Yv1y9xFGp1+0dmewP
+         wmRhuySQpPoqB2DcB53d3ZxBG4PneJxWF9dIf+IjarmQgrmqXOc7rnTbFObREPA4/5U3
+         eHkKNI+4NdWAlTZjKJlZP9ZunvPTHnowdzHn3b+Bqrma1ST5TBwQCNLQbZQRfDwp2D53
+         QyljMs/Ma0zzmD6KwRz5bWQa3kNRnzYi40ztTKgu1/9F3D4zZZghu50c+Xf4lNMMoikD
+         Hj13GFpDYEZfZ433i9yeH4NHBuSOrFg4dVDB6MPmHBqviTVnJ51hQgocQq37yRQvxt53
+         oz5w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773868130; x=1774472930; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hjkVCGc9UuS/iYmQSMn+hsLjVouvW5XYtaAItifULpw=;
-        b=Hi6oZbcMfHUe0A6msdrrRFMC+xXNwM2VC7P6LSDcnRQB1zaTiqn0q1skVMSdVbarCF
-         Jfn0rO2hu5hnKmuxXY3tGiXSlvhEcTa630ZxOkAKy3Mqf/TYise8HKHmO2Dzn+T7lew2
-         pqbpYxuyTgiX4htmrgEuq7q+Aqqb8eugmSfJ7GxqORNDTWXoqil/JByQ/f3q7ndtKB5f
-         HMTJVIEsL3R55rpMSc06hQc8vTRQUQFJXeDE96l/97kl1ue+lpB+3DvN9z337icneqGb
-         S5/HokciqXy5r1XjioPPFNkyq2t18waHvU5TZnWsufagKAEnuO8L4pHnlSXrNb8UEHcX
-         kR5A==
+        d=gmail.com; s=20230601; t=1773869139; x=1774473939; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=K6f1m8W1umobQ+ktMqqvSwqw9J/2mgt2skFeEG9RxsI=;
+        b=DIGbegu3A9HzWPmO97IN7D9SrXS+bIFAnI9WntNUvChub4wASUMgGpCVE/dyFZuOEU
+         XLD9fl8kAo+Su9p12k2LBoNO0aHcD47wl77hdpqMZS6uwb2NLcE1/Um2t+/ywuwh8nTK
+         FCAs0jPVmf0RbF6wR9gm1b/wI0UEh18lflR6Jbl0Aak0mkgRnFvB+Wcg7Dg0SXjdc7ON
+         awBkVpKWrS6W02wo40F4Vntyt+PLqxI5EdShyJou0yUEzM677Dzp70CmH17M7WMr3dgm
+         JYoxc6zq5UWQUlV59d3eX9K96MGrVzggGw35efAVIWvT4UeySbHb23cIGi0ohhvvYAnJ
+         mA5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773868130; x=1774472930;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hjkVCGc9UuS/iYmQSMn+hsLjVouvW5XYtaAItifULpw=;
-        b=bl+7Qj3V6MA9LnK3ln8DlvZWIXuedSapeb8H/3RgRwxJl83jzuzMMXVJuxrjoNbsFJ
-         24mNvnWDDG4Yd1QDvrdfgIYKZ2tRJ2sPGYxt3CobGbufTLWDMPWeaA2GBpJxNTY9aKIo
-         g2yd6+iJdvugMCRGYPM4rARV/Ivs15TCgA8PeToimgxUBRBAuWFA+fRTvGA0hBWgqD/r
-         MkX+wCcDj1999EafaOf5HynDyEZgMFUUvyqsFKwj8spQ58h9XLvhij4RHymtJLt5LYgL
-         R2UIFGWfjAxcJK2oxJ3CXaP6M+lIcKMQ3TNNLvUjD3wHwVYgkAwQfny2KJPS5jbNwfH9
-         4A2w==
-X-Forwarded-Encrypted: i=1; AJvYcCWhrLVkYl1zSKuBX+b0ujMdO2Bru9CXIwWKE8Qu8c08WyiSCKAL9c5+14IVWjBfBQn7ArRvx5Z4Gt9C7Nz66uBJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw69fKSCBOuGc6MYeTJcaqfFEX4LyOQINW1R9LjZqsiI8sUbSMK
-	dhDrSVqyYYHcO66aUwSpZQivylrX8cds2V1BH2h/PJ+A1t9pDuApvNz8
-X-Gm-Gg: ATEYQzzFAl3LtRGQi7yx512q4vq9q+ovOdYv+upbbwJ2W1X/GK+5ay3Ltk0JUILWBAI
-	MZNABZmE8tViv8r3psJnOs9rm0+LPGVQdRMraibFg6GKPynGFqPXsXuEzxQtq/DkO1qUCJegyrJ
-	1EP2sVj2plhirtI9m0SLNcZUoT2H8F3QLiWy9Kpy5/herbXjUDhvp8m/f0Ymr2+PmTa1Ympgjoo
-	PJux9FptA+RDPQ8luErDmc3gkVCxJbz3ESXmi2X20zdQ8WdzVvuqsBvhft6jRyEZ/l+NWbDPfcZ
-	CjZ/fSxtIw2GvBi033cDJehM8v+lqJGIN59FuuiBDxoiTiyPEsW7CrsqB+j2zkyFOb0DMxYtuXk
-	ehfb6vAtfxRGRRNi42CSNeaYcvyAES2rToQ7ttU+atDPtgb7PAOlb524upittD4FxnBocMM+oS/
-	h7n+xSvpW3MMJcjCqWo1JyheJaCipHk2BY
-X-Received: by 2002:a05:6820:4513:b0:67b:f775:e5fe with SMTP id 006d021491bc7-67c0db33831mr2728249eaf.65.1773868129977;
-        Wed, 18 Mar 2026 14:08:49 -0700 (PDT)
-Received: from localhost ([2a03:2880:10ff:56::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41bd2c3111dsm3532488fac.12.2026.03.18.14.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 14:08:48 -0700 (PDT)
-From: Joshua Hahn <joshua.hahnjy@gmail.com>
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Clemens Ladisch <clemens@ladisch.de>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Bodo Stroesser <bostroesser@gmail.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mtd@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH v2 12/16] mm: allow handling of stacked mmap_prepare hooks in more drivers
-Date: Wed, 18 Mar 2026 14:08:45 -0700
-Message-ID: <20260318210845.2591228-1-joshua.hahnjy@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <72750af6906fd96fb6f18e83ac3e694cf357a2c1.1773695307.git.ljs@kernel.org>
-References: 
+        d=1e100.net; s=20251104; t=1773869139; x=1774473939;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K6f1m8W1umobQ+ktMqqvSwqw9J/2mgt2skFeEG9RxsI=;
+        b=oeKpdw2j9fvvJE4JLmfNpX2fA3zZMx4l/w+3WvZIO20GEtLoI4UBGgMpdV8KyrBJBw
+         F+dzl5aDmckYFc//RFZoM8m4QpIcBl2Jkc+NthwuPgGEQy5yd4RJRAxifsZJU2Lw8YGm
+         Q2ct+HFMTyzL7FBnLizYvitt1NlHs7BA24ijKFnFGwWEevo8ENcHulMlhl0zS7IQzrUj
+         cug89i5vJyGnr/w9ZX2e4enJK/THFHmY180kRj9yT1xhOr+jQSaIEcM4AL7uLGbV1wPv
+         bvSF2YXognLZmYlatpECflibebgrdtR3gQfyC1AzgUD1PVmmnkl3qx0BTNi25dpoB/WX
+         q9LA==
+X-Forwarded-Encrypted: i=1; AJvYcCVibCaLgYPL7Kbwvg7TX49ldTLdf6RxJfoeTNv3ogOfRGkYZlFZArE67Fo0TdrZyy8FDiuR+ajiDjavyYH797Tw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFxEXczaifqfb7ZviZhjzCggCQtXBXCfan1MU9dMe5HBhn68qD
+	sSYz8an/S5sQMFf5sf+ei5ebC1uUMYq/YqUuZBeg9Zz/OohwAKtG2IVZt6M1E6pb7chkVaSX5X2
+	uOZ4AwEp0/TAYIqHCeOMirGyKzG+tYNg=
+X-Gm-Gg: ATEYQzzzx13AgUbjoklB/Q2CMFE9IDhxLHhqL+vgbJn7pF4o9TysAA1F2QwBV6W/dm8
+	DTyTeyhh5ddR5KSfB08R5eps3KOdTf812uJI+4WPZqdGE5J9xq8vwAl7gkipIY0Kd1O+dEfSgUG
+	6PIMG1PH5WvrgRh+ggh07z5UKyElLcrEyDIJse0h8TI2EdCwVkyfhTSX3HvAPSuoquAj2uzFiIS
+	iHwF7Y/tjocoJIviTgp0Uw/ZHbNC6apYIliV8Id1s6MJD+V2YMND8HR/u+ueAuL/fLfBid46SSV
+	w4VKiw==
+X-Received: by 2002:a17:906:99c5:b0:b93:9407:ea5c with SMTP id
+ a640c23a62f3a-b97f4b70e51mr342818966b.57.1773869138582; Wed, 18 Mar 2026
+ 14:25:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260317184507.523060-1-l.scorcia@gmail.com> <20260317184507.523060-4-l.scorcia@gmail.com>
+ <20260318-nickel-serval-of-tolerance-621bad@quoll>
+In-Reply-To: <20260318-nickel-serval-of-tolerance-621bad@quoll>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Wed, 18 Mar 2026 22:25:26 +0100
+X-Gm-Features: AaiRm51yI9RGCvrRh7GVNMdJwfVjHSZ_bJ1ljw9KDUXHaZfxU7GvIWfUsRzyb80
+Message-ID: <CAORyz2Laoo4EiLcHZ-ygLiFGW_h8qV7QxqNsMbueM=nov5zH0A@mail.gmail.com>
+Subject: Re: [PATCH v3 3/9] dt-bindings: regulator: Document MediaTek MT6392
+ PMIC Regulators
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Julien Massot <julien.massot@collabora.com>, Gary Bisson <bisson.gary@gmail.com>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Val Packett <val@packett.cool>, 
+	Fabien Parent <parent.f@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_140854_053732_3156D31B 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260318_142541_591821_C196FE27 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,128 +127,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 21:12:08 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
+Il giorno mer 18 mar 2026 alle ore 08:43 Krzysztof Kozlowski
+<krzk@kernel.org> ha scritto:
 
-> While the conversion of mmap hooks to mmap_prepare is underway, we wil
-> encounter situations where mmap hooks need to invoke nested mmap_prepare
-> hooks.
-> 
-> The nesting of mmap hooks is termed 'stacking'.  In order to flexibly
-> facilitate the conversion of custom mmap hooks in drivers which stack, we
-> must split up the existing compat_vma_mapped() function into two separate
-> functions:
-> 
-> * compat_set_desc_from_vma() - This allows the setting of a vm_area_desc
->   object's fields to the relevant fields of a VMA.
+> Please use subject prefixes matching the subsystem. You can get them for
+> example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
+> your patch is touching. For bindings, the preferred subjects are
+> explained here:
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+>
+> You already received this feedback from Mark.
 
-Hello Lorenzo, I hope you are doing well!
+I am sorry I missed these. I will revise all of them in the next version.
 
-Thank you for this patch. I was developing on top of mm-new today and had
-an error that I think was caused by this patch. I want to preface this by
-saying that I am not at all familiar with this area of the code, so please
-do forgive me if I've misinterpreted the crash and mistakenly pointed
-at this commit : -)
+> > +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+[...]
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: mediatek,mt6392-regulator
+>
+> Drop compatible. Regulator nodes do not have compatibles.
 
-Here is the crash:
+Thanks for this comment. It took me a while to understand what you
+meant as most of the MediaTek PMIC regulator drivers still require the
+compatible node to probe, including MT6397 that was the template for
+this patch. I compared the driver to MT6359 that does not use it and I
+am now working on the driver to not rely on it.
 
-[    1.083795] kernel tried to execute NX-protected page - exploit attempt? (uid: 0)
-[    1.083883] BUG: unable to handle page fault for address: ffa00000048efbb8
-[    1.083957] #PF: supervisor instruction fetch in kernel mode
-[    1.084030] #PF: error_code(0x0011) - permissions violation
-[    1.084086] PGD 100000067 P4D 10035f067 PUD 100364067 PMD 441ed9067 PTE 80000004466a3163
-[    1.084162] Oops: Oops: 0011 [#1] SMP
-[    1.084218] CPU: 0 UID: 0 PID: 305 Comm: mkdir Tainted: G        W   E       7.0.0-rc4-virtme-00442-ge53de5a0302f-dirty #85 PREEMPTLAZY
+> With this, you can also drop example as it won't be used.
 
-As you can see, it's on a QEMU instance. I don't think this makes a difference
-in the crash, though.
+Just to be sure - do you mean remove the compatible attribute from the
+example, or the whole example section?
 
-[    1.084321] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE
-[    1.084369] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-5.el9 11/05/2023
-[    1.084450] RIP: 0010:0xffa00000048efbb8
-[    1.084489] Code: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 <40> 12 0e 00 01 00 11 ff d0 fa 8e 04 00 00 a0 ff 80 33 51 02 01 00
-[    1.084642] RSP: 0018:ffa00000048ef998 EFLAGS: 00010286
-[    1.084692] RAX: ffa00000048efbb8 RBX: ff11000102512cc0 RCX: 000000000000000d
-[    1.084766] RDX: ffffffffa06247d0 RSI: ffa00000048efa18 RDI: ff11000102512cc0
-[    1.084826] RBP: ffa00000048ef9c8 R08: 0000000000000000 R09: 0000000000000007
-[    1.084889] R10: ff110001047d1f08 R11: 00007effdc3d0fff R12: ff110001047d3b00
-[    1.084954] R13: ff11000446cae600 R14: ff110001024efe00 R15: ff11000102510a80
-[    1.085021] FS:  0000000000000000(0000) GS:ff110004aae72000(0000) knlGS:0000000000000000
-[    1.085083] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[    1.085136] CR2: ffa00000048efbb8 CR3: 0000000102667001 CR4: 0000000000771ef0
-[    1.085201] PKRU: 55555554
-[    1.085228] Call Trace:
-[    1.085248]  <TASK>
-[    1.085274]  ? __compat_vma_mmap+0x8e/0x130
-[    1.085318]  ? compat_vma_mmap+0x76/0x80
-[    1.085354]  ? mas_alloc_nodes+0xb2/0x110
-[    1.085390]  ? backing_file_mmap+0xc3/0xf0
-[    1.085426]  ? ovl_mmap+0x41/0x50
-[    1.085463]  ? ovl_mmap+0x50/0x50
-[    1.085499]  ? __mmap_region+0x7e8/0x1100
-[    1.085539]  ? do_mmap+0x49f/0x5e0
-[    1.085573]  ? vm_mmap_pgoff+0xef/0x1e0
-[    1.085609]  ? ksys_mmap_pgoff+0x15c/0x1f0
-[    1.085647]  ? do_syscall_64+0xab/0x980
-[    1.085684]  ? entry_SYSCALL_64_after_hwframe+0x4b/0x53
-[    1.085730]  </TASK>
-[    1.085770] Modules linked in: virtio_mmio(E) 9pnet_virtio(E) 9p(E) 9pnet(E) netfs(E)
-[    1.085838] CR2: ffa00000048efbb8
-[    1.085874] ---[ end trace 0000000000000000 ]---
-[    1.085875] kernel tried to execute NX-protected page - exploit attempt? (uid: 0)
-[    1.085918] RIP: 0010:0xffa00000048efbb8
-[    1.085921] Code: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 <40> 12 0e 00 01 00 11 ff d0 fa 8e 04 00 00 a0 ff 80 33 51 02 01 00
-[    1.085988] BUG: unable to handle page fault for address: ffa00000048f7bb8
-[    1.086026] RSP: 0018:ffa00000048ef998 EFLAGS: 00010286
-[    1.086166] #PF: supervisor instruction fetch in kernel mode
-[    1.086221]
-[    1.086267] #PF: error_code(0x0011) - permissions violation
-[    1.086321] RAX: ffa00000048efbb8 RBX: ff11000102512cc0 RCX: 000000000000000d
-[    1.086348] PGD 100000067
-[    1.086394] RDX: ffffffffa06247d0 RSI: ffa00000048efa18 RDI: ff11000102512cc0
-[    1.086459] P4D 10035f067
-[    1.086486] RBP: ffa00000048ef9c8 R08: 0000000000000000 R09: 0000000000000007
-[    1.086550] PUD 100364067
-[    1.086577] R10: ff110001047d1f08 R11: 00007effdc3d0fff R12: ff110001047d3b00
-[    1.086641] PMD 441ed9067
-[    1.086668] R13: ff11000446cae600 R14: ff110001024efe00 R15: ff11000102510a80
-[    1.086731] PTE 80000004433d3163
-[    1.086764] FS:  0000000000000000(0000) GS:ff110004aae72000(0000) knlGS:0000000000000000
-[    1.086829]
-[    1.086868] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[    1.086931] Oops: Oops: 0011 [#2] SMP
-[    1.086958] CR2: ffa00000048efbb8 CR3: 0000000102667001 CR4: 0000000000771ef0
-[    1.087015] CPU: 29 UID: 0 PID: 306 Comm: mount Tainted: G      D W   E       7.0.0-rc4-virtme-00442-ge53de5a0302f-dirty #85 PREEMPTLAZY
-[    1.087050] PKRU: 55555554
-[    1.087115] Tainted: [D]=DIE, [W]=WARN, [E]=UNSIGNED_MODULE
-[    1.087207] Kernel panic - not syncing: Fatal exception
-[    2.158392] Shutting down cpus with NMI
-[    2.158629] Kernel Offset: disabled
-[    2.158668] ---[ end Kernel panic - not syncing: Fatal exception ]---
+> > +
+> > +patternProperties:
+> > +  "^(buck_)?v(core|proc|sys)$":
+>
+> Nope, underscores are not allowed. Use only hyphens.
 
-It crashes at compat_vma_mmap, and here is what I think could be the 
-potential crash path:
+Got it. I will actually completely remove the (buck_|ldo_) prefix
+altogether as suggested in another comment.
 
-- compat_vma_mmap() creates struct vm_area_desc desc;
-  - compat_set_desc_from_vma Doesn't initialize the struct, but instead
-    modifies independent fields. I think this is where the behavior
-    diverges, since before we would use the C initializer and uninitialized
-    variables would be set to 0 (including ommitted ones, like
-    action.success_hook or action.error_hook). But action.type = MMAP_NOTHING
-  - desc.action.success_hook remains uninitialized in vfs_mmap_prepare
-  - mmap_action_complete()
-    - Here, We've set action.type to be MMAP_NOTHING, so we have err = 0
-    - mmap_action_finish(action, vma, 0)
-      - And here, since err == 0, we check action->success_hook (which has
-        garbage, therefore it's nonzero) and call action->success_hook(vma)
+> > +  "^(ldo_)?v(adc18|camio|cn18|io18)$":
+> > +    description: LDOs with fixed 1.8V output
+>
+> If fixed, then encode it in the schema - min/max microvolt.
 
-And I think action->success_hook(vma) where success_hook is uninitialized
-stack garbage gets me to where I am.
+If possible I'd like some clarification here. According to Chen-Yu
+Tsai comment [1], dtsi shouldn't contain voltage constraints. The way
+I understood this is that electrical constraints are a matter of the
+actual board layout, so if adjustments are needed they have to be in
+the board dts. But you also specify "If fixed", so maybe there's an
+exception to this rule when the constraint is "absolute" and boards
+can't actually set a different value?
 
-Again, I'm not too familiar with this area of the kernel, this is just
-based on the quick digging that I did. And aplogies again if I'm missing
-something ; -) I do think that the uninitialized members could be a problem
-though.
+[1] https://lore.kernel.org/linux-mediatek/28102417-4a2a-4e29-afbd-d0f2aa76074b@collabora.com/T/#mb1473bb5515f3e5a1bb3ff20c717b387c42373ef
 
-Thank you, I hope you have a great day Lorenzo!
-Joshua
+Thank you for your help!
+-- 
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
