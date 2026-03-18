@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BFFFCD0C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 07:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4F6FCD0C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 07:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/wnit4uOPVq9r5YYUpYnHPITSDBvtEYXdALfE4LR18=; b=Zz58hVYoVwcQ2iR4577HEfBNng
-	ab+nygfxgDBtU33Z6up8v8dWKZtuBVAwsDBCL8miUrSEpDNij1RbJhKBQOn6rzEP/LhG9TKVvrNUt
-	Q9pm25If0yulfn8iatnVJ2VKWQEY2SCynP0Rk804aLwPPeXAF92qKggPLEzpouLl9KaVq5JY2n33l
-	U/kUJ9Br7EIYDl/5mLAo+Gi18Bn+HwYJVGzBYoZsJwsHf+SRKbCn7Uaxya4Kr6/mYJ1J+1X74qgpU
-	VDNr+XVpSLX0fQ0G0mqtZBo096aBn080jtoJ0r7gwPYM1iDlemg/lpImLDSki1p0jPSQcd49lI8zY
-	6HxejD6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RrTjxBzkA8E/8TnT5udli/s694DpyD1FsJpsEGO43Ls=; b=TI6NaQBeKX+3VkZpiPhu4c1eyw
+	ounvF1zozhpPIozzyo+4cBe1nOvoRsov3z0kAcGK3WNiuOlq3DbYPd7qRIHlbth57dFm/eLc5w3/9
+	aqTp02yNROfmdTd/jM4i8zj6SBYW+g9Cru/HB3uHmHZ/tPaj3JkLb2zpTCBlnBeD+IVyPCA4R5Yz3
+	mtLUErKrAs+9zxIe1K17jtS7RG+Jtahs0syZ8m1td3vnQZ0iRClOSYELxaBc4JlCltQo+z1Oj2sP1
+	4LYAw4a89B8JK2VeN6kQ2IP0f2vVpq0r+OoshjNKFY07wAOvAHY8WhM0a54eo2ig9Usit5nln2QsG
+	0P6Ro73A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2l8J-00000007uYX-2Vi8;
-	Wed, 18 Mar 2026 07:15:59 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1w2lBR-00000007uuw-1zzb;
+	Wed, 18 Mar 2026 07:19:13 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2l8F-00000007uWX-1HqG;
-	Wed, 18 Mar 2026 07:15:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 211FA1A2E95;
-	Wed, 18 Mar 2026 07:15:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E9D3E6004F;
-	Wed, 18 Mar 2026 07:15:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CBCEF104506E6;
-	Wed, 18 Mar 2026 08:15:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773818134; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=f/wnit4uOPVq9r5YYUpYnHPITSDBvtEYXdALfE4LR18=;
-	b=MVz6+6FroWlHDW6mHXGBgHiCJxCjhwZKsOAGUkwiONmck9b4YySN1cTUmfcih1U2tnoXMu
-	OfOKaONHfmMdsmNqeYxN9hXpuZ4ZWGFdSNTzBZfORX8abPOwIoNCN8P3Klxz93J8LDBtpY
-	aZ8WeKwHGUL/pzZh2UVvDjsJ1pAfbPgSXTnAQHMsQ3faY/PKQdBJrJWHiQ5X/OQU5oI9Ek
-	omix2N/SK9A5WrXMoaK/cZXLXrwoqFxTLLHH8mRQ+K0l5lCfolJCTtbqQnSSHeTh3TM6GT
-	hZI0PbR/WSGzlfmH8mXtT5SwuiAuZuxRYhWhV6HOLWiXYTKSnINke3xRo475MQ==
-Message-ID: <9c9d7aea-0227-491b-92d4-5cc4d142e1de@bootlin.com>
-Date: Wed, 18 Mar 2026 08:15:26 +0100
+	id 1w2lBN-00000007uuY-3Ngd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 07:19:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-482f454be5bso5239175e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 00:19:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773818348; x=1774423148; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RrTjxBzkA8E/8TnT5udli/s694DpyD1FsJpsEGO43Ls=;
+        b=lvQ4kzuyYq6HJQmQJUTbfgsraDcWI2xZ71QI3YBvzQgz14MvHVKChgTSXA6hzRWZFS
+         hfqH5FdTxCYILNH9/M6aaN320qQjjZDEiSumd1+S9lvvkd9k0isQ1sQB2xq3DTHZ5ZHy
+         XETOEkCksUxtzcMUcm9r4sc8w7NH0qfQ7pLNprErEsl5dQPxmbJzOwOVYtGQqKrDsLww
+         j2gHha8TQ1TESpbOsNJjJ9CeqSp/XnHzSlefTQu8Y820+MScXLt5WhrIZwKxFWt4YWIZ
+         jHaAfc5Ge+P3piWhbb4yqcFQSb6aW2W7IjjibGm+SrDCOxg8jOxSVAMBA2oyrHlUT14b
+         ogTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773818348; x=1774423148;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RrTjxBzkA8E/8TnT5udli/s694DpyD1FsJpsEGO43Ls=;
+        b=La9aCX8dCVVCxcjlssXJfck1XPYQ81pPmCcjId2trZz/ysmNqllq8z/jvdfQNMvEBR
+         eqQtFAKHiWuAJU40AVR1tggmN49gmuQHMNE2Of0Oujnrg7ezjgkTYcdyOkqhTyxy/+JW
+         Xx+v3fIAu7Gxhk2l5TIWSugT9U2393qC9mRIZPwkQxxtI5CxosNshMSu53eszbq/vyQo
+         eBOAmF1ESsHFdEFRvYtRNNs6faAfAWw1apkx2yut9wHXmeOIjcn5osLVWcwQ2gXhNPOD
+         xBzxWUwVFbN+bjwQ35p2cAZ37MVAeIy3hUGaxVbbSzrtGQ5Tn6rrwAUFOgswDubaS7jd
+         qGbw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMCIgv8K1ftSzqfwoYMkG2pM5TuRUcq8HdpOoM1Z2AirI6h/f6R3UwvFVUfzaNXL315uCkmnNJ7Yg3w82obZRs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyamHvBxqdRMs3VBqhPpcVTeta9oMIeUZCPAXVI9N6PLWqEAY1l
+	GG6wxl55ljY/myjDurN0PvnSiBGuG+Z9rFXn9pHgc5ixdB0UYiYiObCkf+G7asxu2m8=
+X-Gm-Gg: ATEYQzzY/s9JFZXxom1NDI2L4K+KqiIax6ADrT6crWLrjni/NQ2RytBWuXBP3ovnaG/
+	XinFDT16UOn4arbzBlXHTPIEMzRY6lgYShpxRGq1komIcfPbRZJ9rYBz5c5JhFQqDSburBM9Jdh
+	fyrdtk6H7+kTAXzHO4ZhbrIJF7HzhDEa/S86SngT9aW73Vx5k1vsnqrPDzSRhsjARsOuzCMQkw6
+	8kZ9JMbgha5UbKL9t25FEPp3MtNe9Ly0LX7/6YVvD0cRB1zuqpXmlBk/uafwcGWR+/7H8EmuqKu
+	xufqhtOeNOu5b1ci8PMrsXGt7nxFCmUulRqKAfOSPRkm5tLP9/LFmoGQtwXIlqxkukhrxgC+BEe
+	DXbEfw+Ov1oIRU/Wp3aryEPdfXw64Dw1AjJO7RLBEGu9YhjDn2XLjaXmdh+Olbi5wOZpd+9fjqY
+	k8ynvVUKxeYeZClCAUueYSeA944EWl
+X-Received: by 2002:a05:600c:c4a4:b0:485:3c11:de84 with SMTP id 5b1f17b1804b1-486f40c9015mr31500395e9.14.1773818347740;
+        Wed, 18 Mar 2026 00:19:07 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f4bbcd78sm12200225e9.26.2026.03.18.00.19.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Mar 2026 00:19:07 -0700 (PDT)
+Date: Wed, 18 Mar 2026 10:19:04 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	AKASHI Takahiro <akashi.tkhro@gmail.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH v4 2/7] pinctrl: scmi: Add SCMI_PIN_INPUT_VALUE
+Message-ID: <abpR6N6_4JgQTB4M@stanley.mountain>
+References: <cover.1773757772.git.dan.carpenter@linaro.org>
+ <940ff48bd53e35e19a4cda081170d9198c20675e.1773757772.git.dan.carpenter@linaro.org>
+ <abl1fPQEDE38KZQN@ashevche-desk.local>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/9] mtd: rawnand: sunxi: sunxi_nand_ooblayout_free
- code clarification
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: Wentao Liang <vulab@iscas.ac.cn>, Maxime Ripard <mripard@kernel.org>,
- Boris Brezillon <bbrezillon@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260317142437.580204-1-richard.genoud@bootlin.com>
- <20260317142437.580204-2-richard.genoud@bootlin.com>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <20260317142437.580204-2-richard.genoud@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abl1fPQEDE38KZQN@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_001555_830977_78270D5D 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260318_001909_891555_F5697F7D 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +107,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 17/03/2026 à 15:24, Richard Genoud a écrit :
-> The available length is really USER_DATA_LEN - 2 instead of just 2 (the
-> user data length minus the BBM length)
-> USER_DATA_LEN being 4, that doesn't change anything now, but if
-> USER_DATA_LEN changes, it will.
+On Tue, Mar 17, 2026 at 05:38:36PM +0200, Andy Shevchenko wrote:
+> On Tue, Mar 17, 2026 at 05:40:27PM +0300, Dan Carpenter wrote:
+> > The PIN_CONFIG_LEVEL parameter represents the value of the pin, whether
+> > reading or writing to the pin.  In SCMI, the parameter is represented by
+> > two different values SCMI_PIN_OUTPUT_VALUE for writing to a pin and
+> > SCMI_PIN_INPUT_VALUE for reading.  The current code translates
+> > PIN_CONFIG_LEVEL as SCMI_PIN_OUTPUT_VALUE (writing).
+> > 
+> > Add a function to translate it to either INPUT or OUTPUT depending on
+> > whether it is called from a _get or _set() operation.
 > 
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> In three consecutive patches against the same file you have three (!) different
+> prefixes. Please, align with what is being used most in the driver and/or subsystem
+> (the driver seems has no consensus with itself, so subsystem then, something like
+>  "pinctrl: scmi: ").
 
-Sorry, I forgot to pick-up the review from Chen-Yu in v2:
+Oops.  Crud.  You're right.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+regards,
+dan carpenter
 
-> ---
->   drivers/mtd/nand/raw/sunxi_nand.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-> index e66adfcca7cd..915f1240546f 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -1755,12 +1755,12 @@ static int sunxi_nand_ooblayout_free(struct mtd_info *mtd, int section,
->   
->   	/*
->   	 * The first 2 bytes are used for BB markers, hence we
-> -	 * only have 2 bytes available in the first user data
-> +	 * only have USER_DATA_SZ - 2 bytes available in the first user data
->   	 * section.
->   	 */
->   	if (!section && ecc->engine_type == NAND_ECC_ENGINE_TYPE_ON_HOST) {
->   		oobregion->offset = 2;
-> -		oobregion->length = 2;
-> +		oobregion->length = USER_DATA_SZ - 2;
->   
->   		return 0;
->   	}
-> 
 
