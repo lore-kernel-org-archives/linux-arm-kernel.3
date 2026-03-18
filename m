@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D700D103E173
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E68103E177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q16INdj5Bbx7Rja1/wsZxQcnDm7VEmJ4xMzfrpXcfTA=; b=L7ugcBLBoi85ENiY9/pfbehDGT
-	E+amHozt4+TYSEz6itaDE6A+A3BZd9uZExXhLVJ1iqCuHApUnbdmZNkcqdus/wFfrLTYwZjm5FpMJ
-	X4E/XOGL0jurgcWVb4u6CBix7QnkodI6pXPiekyNt75LT3K6VHjkKXsdj7GM8PBFynlRpfpigmtBC
-	Oz3fKRRb7NsAOztGbZ5W+SOuaqsQg000dbrSJcAGOK9I8MD3uapOZFWh/MWT/JuymvXESZhUWWcBt
-	2FgnD8nET/fuoAjbLgAeFI5KPRabezEBIF/rkUFDW8UP7bC7XK4dNnbJCkMi9GU/nASVSoA0MukGs
-	bH1k5k7w==;
+	bh=8ngvjbg2owvlLjhgMPsyht6B+xZOWJHIwazKhoab6Ps=; b=Hh7QZAief/bxbbmYrZu8ftoR1F
+	M53b8vFFEO08UGmUHvtK1Z4amO/ir6AAodiVYnqnpFEwNQuc8Wme8NB49ZHYMWCK+4GeRr+Mgke90
+	w1JUKYJVUa8fcWLa9eitg1+re3gizOo7n28pjLpiKjp72WTE7scGW0JSjKZ9oLfXb18nZE45BNJop
+	Bu3WboKrr+eu2GjJK8BPo9hmANjfsQWOFRfO93HGBhM1s624koPPeflcBO7ueKgxyHI/EaNUfelOO
+	/4HDxUqQlOjd62iOdPVyIbctL8X/aNg9A6U+csJuPJEEyS7EE+Bz4iMlnO8dvH0IKwJjNCj0W1GF0
+	NdQsyK5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qyW-00000008U0R-1uM3;
-	Wed, 18 Mar 2026 13:30:16 +0000
+	id 1w2qzg-00000008UD6-2buy;
+	Wed, 18 Mar 2026 13:31:28 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qyU-00000008Tzf-36Dk
+	id 1w2qzd-00000008UCe-1MA2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 13:30:15 +0000
+	Wed, 18 Mar 2026 13:31:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=q16INdj5Bbx7Rja1/wsZxQcnDm7VEmJ4xMzfrpXcfTA=; b=Zj5gM0TjUHWgkWrn0VgshTJyG6
-	VsSLwYUNIQvtrEPzfdfJSdnfInL7t6WY+dgsGdIY26w2L3Y8iuq0ANSedXTEtPeAC+ouQnvXKZ+AN
-	T2FYKGsqzriKN6YwAFOsc83XhgWmRpQvIvAH0/cBt2LNLejps5AuB4GlSwqL5V8ct0eA=;
+	bh=8ngvjbg2owvlLjhgMPsyht6B+xZOWJHIwazKhoab6Ps=; b=aEPsufEoQWBRy+nsDAHoW6gfFi
+	S6BUHyWkgAs6a61dnE/UZr8N02srtqBW0PwHXklA2nhXH+hCnZwsBPM6jrHub8POkORmKyEUO/Zav
+	AxHWj8FJSIm3Pvc2+hS2Askd6vsKiTqpqzLBoKS4VjZmHA2E0VxcoJWbBRDUwUI/ettY=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1w2qyD-00CCig-G7; Wed, 18 Mar 2026 14:29:57 +0100
-Date: Wed, 18 Mar 2026 14:29:57 +0100
+	id 1w2qzZ-00CCjg-DZ; Wed, 18 Mar 2026 14:31:21 +0100
+Date: Wed, 18 Mar 2026 14:31:21 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Li Jun <lijun01@kylinos.cn>
 Cc: gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
 	linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: mvebu: fix null pointer when access
-Message-ID: <e1c5744b-a6a4-4b56-bec0-b31c4d514bc5@lunn.ch>
-References: <20260318075324.2477118-1-lijun01@kylinos.cn>
+Subject: Re: [PATCH v2] arm: mvebu: fix null pointer when access
+Message-ID: <017b3e32-aa6b-4f59-a200-acdcf29a6978@lunn.ch>
+References: <20260318082143.2560586-1-lijun01@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260318075324.2477118-1-lijun01@kylinos.cn>
+In-Reply-To: <20260318082143.2560586-1-lijun01@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_063014_778095_AF4104D2 
-X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-CacheID: sfid-20260318_063125_359403_D620D35B 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,15 +69,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 03:53:24PM +0800, Li Jun wrote:
-> the kzalloc may return null pointer, will cause kernel panic.
+On Wed, Mar 18, 2026 at 04:21:43PM +0800, Li Jun wrote:
+> the kzalloc&kstrdup may return null pointer, will cause kernel panic.
+> 
+> -Fix null pointer.
 
-The kernel is a dead man walking if the memory allocation fails, so
-that coherency cannot be configured correctly. A panic at least gives
-a stack trace, rather than a nearly undebuggable deadlock later on.
+Please don't post new versions of a patch within 24 hours. You need to
+give reviewers time to actually review.
 
-Not all kernel panics are bad. You need to look at the context, the
-comments in the code.
+Please look at my comments to v1.
 
-	 Andrew
+       Andrew
 
