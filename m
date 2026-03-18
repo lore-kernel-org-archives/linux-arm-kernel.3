@@ -4,92 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E32107760C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79675107760E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 19:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wv6jP1e3M1+PHnQU5Hq+FG1C5SwOP02k/za1P8Uz0WI=; b=MNsumqKLRgm58poT8RMol2A5RF
-	UVb+ZGiNiV9PbIA8yCn8sZw9bQb94Y1RwtUgMQl6yUjYGt1HnVaAD3c+vvvgxetQNojHDZs4gPkkG
-	tKGtjteFC8WYogvoFRPBjZEfmwaU34+1LTR0poAax0eZcd82qgz8pJ2huDZK2KJ1N6hmmq9IuZfTN
-	Us3fn/so4rT4jgMUNv/JchaYXUSNYHNXHmw/ffaAXdX/sK6a0yb8/eD/KoFFFhJoCPWxLUwPbeM7N
-	nG5rfmdxr3WCoiLxcVgbiT7b5LsRozWKv74IVz4FZbCyfwTZE/FHpEwm7A7i5JoyAynnwJi3y86Oi
-	VsBCFdJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=89zezr+cQG9hF/sqreyXoLTpHCyu41LIeqhsQyRbrO0=; b=tdhT61cCbU4vzNfAaOB9HKqOWq
+	/9QoGQvq6O2qkSTyExCq+96lJQ3etWoH7TVI/pbYwDsjKf6a8t5FFmiL8yZARNDiRAboun2M5rqBm
+	7wH5PpZorYpfH/MmUOrofTCjyraB4lvmxJFaiBL51u9Hy9yLVzact6x263H0hmXq1tTCDY4V28bcZ
+	0mqOtZDmqO/gZ5OgBltJxw/+fbttbzEvXUnWAEIQI8Tc3/LzMCGpR8ZE+rIKoOKf8CPpREG8D36Hz
+	mx8n7vruVymM1V5gZ54jN2EGTxYxPmku4wnCOX55fnk/80nm5iOgjc5WieKGqUwUq6A4KTxGyS0/K
+	vlT5+b5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2wZC-00000009EhT-1Vq4;
-	Wed, 18 Mar 2026 19:28:30 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1w2wh7-00000009F71-3a4X;
+	Wed, 18 Mar 2026 19:36:41 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2wZA-00000009EgR-2fVk
+	id 1w2wh5-00000009F6e-3erV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 19:28:29 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-439b611274bso81649f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 12:28:27 -0700 (PDT)
+	Wed, 18 Mar 2026 19:36:41 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-358ed696623so181762a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 12:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773862106; x=1774466906; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wv6jP1e3M1+PHnQU5Hq+FG1C5SwOP02k/za1P8Uz0WI=;
-        b=b7qESpHSq9JgfvXi12CAqbaOkIdWjr872HqS4racgUZXuS8KpVwh9GyPz80ofKer10
-         TFDS0Cb4Bdh+AMWoMEHbdvwIML1HuM5vphXNZZfD58x1ZQbFtxJjvCC/ma6n2N5B6oJC
-         4mnGkRRrfY7HGKMiT5MPsBBtmW2/UmMRdnYkozhG/FHymyI8szPzR9TCgQGnrwpBZVlE
-         uJc/3de1mEmU4B8vqSoU9pdIG1/Z+QAUtldSwyfmYkbvZb9pmB5LN+0pGpWoCn4oaxA6
-         UDQpqwbV0fk4eXmS8zAkFJIjpTITA1hvbS+xhNiASFVdUjY30oXxHOG+4frqkRmle/d3
-         8nXQ==
+        d=gmail.com; s=20230601; t=1773862599; x=1774467399; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=89zezr+cQG9hF/sqreyXoLTpHCyu41LIeqhsQyRbrO0=;
+        b=XiBf8wC9wh/g8aG3ijfLWUI9B8JP9tdMPVFjTT1D2fGcVoQXBRz3A4snChVMlS2Og+
+         6VKMWyZ+LQDqJEfpOtYE/EWN78rJZzFiZb8d9D01r3i+rldLmZjhSmODHjyfzOVL5VAT
+         izisaSNSomxF5/0OoPVM6ZcLgFNytC5YBMEROaJcnKc9BvqjK/A9nQsFTZ5U9mtI+0cZ
+         xC0u7KFyXq8Zdvg8VU63pW8xbVaxzJR7o5LUlC5ww7OuwarnYsg28ReqhGgL+3PHj4Ga
+         xCy/RNDnn3V8pkOtxovfNr/vOO6CyUoqDUuMEK5RnwvkheilOWBU5ELd4EI2GtjES+br
+         66CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773862106; x=1774466906;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Wv6jP1e3M1+PHnQU5Hq+FG1C5SwOP02k/za1P8Uz0WI=;
-        b=iX9h7FqHO3LqhojqDJTtOrPMGDYWK8WXido8cuBvDCg3M4In9GgREzIj26RIDHWIqF
-         ExoUT1PwmsqWmVfnR4rbZyA0Lpkc7rq9JtCsmJ8nGzIaCG8wpnexJ3SOv6l1k1Q5MgVu
-         v5J+OeSTOx2SQL99iPJffOROTvQWM/H36heTtG80hIH0o9Q5GobUMq7M3dtu777xUaAP
-         gexyf7/Ve/WeVy0s7EvHrEPDl+/gXVlFeM06rt9VLi0L5WkDbO/YXg+eMD1zl9dJAfPJ
-         h+9wmkfn15EPrlgyuQNW/j8XtLMABtqc1PQBCPvZ6Os0nlyqxZmxwXJNbeAgcJVX0QB4
-         a49Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWbVLYZ2mkXWcxos4fD0eAd2JV6kC9vIm6m/Y0R+Bt1P93QopUxAzweX8hellzsC8HtXl/I4B4WtaveJrpJg2y9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1pW2rzlnEYtFtWlt7YHtdFa1m37HKmE2fVKcVHn4mxtsR7Bbc
-	XtzDhzhktIJRYjNHvY3SOTU8Rsm1WC7ZaA3ITtLxecSrEn6hcqPX/M0/
-X-Gm-Gg: ATEYQzzrUvGqvryngX5TRx3kerDJlzikQ3mK+bfhJ/j0QjRrsg4KNw9Fcu9xG+H88Oq
-	7/EgHjNBEKAJT+aFPMEv2CatrPsuax4n0rpbT0XtODqHqTOvgJaquIrOWFQA/jAhEQD5u8/EhI1
-	28bgYYxeVs/mSdOfAUIFWihOPchv3SX7+rx11oADc6fiWjmF+zVhK6BD9hSVWYlt+ApQ21noKtP
-	WT9+vaehq0QCUkycpYWBZEhgmT261Q93P78O9i7PxyBlE+n4qOfbz3qW7auH5pBuqVhq4yNYXHU
-	VwR4fP3pTjNp5Pr0D5+f/uBuzEFzlLJQ+amH2+6jPDfGDg5Ct4diEwBJ+e1V6m9rd7L30/7xgAr
-	UUsBHB8TGIjJv16lKlhxhrFeCoM9dOIV1MZfzQ2R+F+j6n6jaOoDE+QaoAiSGojhKmHFaO4UIi2
-	4u0ccLkzBgCeyPzsgSMUgFbGExQ+R4aYG2Ww3b+XwozNj7BxMXCcr+ywPXXhND1mXhnf19nmuTH
-	0xDQwzW
-X-Received: by 2002:a05:6000:400a:b0:439:bcdb:95a8 with SMTP id ffacd0b85a97d-43b52648c7cmr7805238f8f.0.1773862105581;
-        Wed, 18 Mar 2026 12:28:25 -0700 (PDT)
-Received: from jernej-laptop.localnet (82-149-12-248.dynamic.telemach.net. [82.149.12.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b51899617sm10663715f8f.31.2026.03.18.12.28.24
+        d=1e100.net; s=20251104; t=1773862599; x=1774467399;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=89zezr+cQG9hF/sqreyXoLTpHCyu41LIeqhsQyRbrO0=;
+        b=IFzhC1uzoHBsvj48hCA/5sHBwqjWCe9BLcULFaYv5Z37JfkZB5PtbU46sacLxbITmi
+         K1RN8dC0mQoMDT9DDVO+rt3JpX0ttoZoJYZAQbGfHvR5lrT3/uPtrMUFzDkYyV3U6AbS
+         zAZz/npek5vpUN44/MeX3FSS0tMTEB1HCZ8Cjyy+PJxfxN24x7T8FqQ9/3S4zuXXw4xI
+         zMfHoE7Tt5Z0cKmMWzZoQ7C/THSzNS878epozBE6+Bb4SjVpAAFi503cHu6lDeRbnZMQ
+         0g2SjsKk3Io+8z8V4H2luzE6k4yik9rUCLBneEMkCxXbaLq3yARsH4ATVCP93ZtLlvOt
+         WtxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUWNYgV+Em1ygyYKC7PQW+M3VG3mMx4xjpTHfuvcngyYYMwr8W7H6ymSCEa1lZB2odsPVtAxy7TcGkxIbBpBdfK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZs4tqPo6O7Oz4WkkrNVEiE5pAyqzUzatvRO+cBOOoRgMfY6o6
+	Kskpdx2ZaHObCAt+ZGzmsyq/jw67zzPQ/ANt+lfMn4wjRpkjNFmqrJUi
+X-Gm-Gg: ATEYQzz1GVGmY7kaVD3PCpQBF5KpQ4F7fxHI8VD0D+6SLShdoIXfxtEcFO8Q6GSNUoY
+	fNf68AwRgHrtU15IzaX7fU5mgFvayenzh3sYWxN+2CWC044oL7vJpEzMVhkTpDaaUEotnnInI0K
+	sR6c++Naf5Pg278PGDll9TAE9skPBffCKDSSnyi1oqzSCggGNIpB0kvH4Zp4Pmrn0iEBIUD9Ron
+	ziL9VrOschHX6AWmpMg727UaUTX4SXakHVnDJa2t/zB7VEp3D8QCRYUhdkUxGogydACLBAwGEx1
+	gEXZcdMpPrpTofhO05c5w6G42qbCCWIm4XLaAJJUHjZJr93UB8A6ZxGD/CUQJVeZ8uWjVxbaJMh
+	CTh31eQ4jZHuy43oFQxLwYBfJQnsGuqbTe2cMEE1OwhudSmh+fJ91oTZsIT0inTJdKcu3KuSs7d
+	xk49BKmK2nn2Mo6eB1ZkQH7a6EQveBSxcm/JiFHqRRTeA4xYRNE0VFvFG+F74M91Ab+OVPVT3R1
+	U96nHmjO2ubS2VvLWoB2++tTNcMULozDiW75d8=
+X-Received: by 2002:a17:90b:3f10:b0:35b:a418:698e with SMTP id 98e67ed59e1d1-35bb9d6cb2cmr3852750a91.0.1773862598753;
+        Wed, 18 Mar 2026 12:36:38 -0700 (PDT)
+Received: from visitorckw-work01.c.googlers.com.com (100.130.194.35.bc.googleusercontent.com. [35.194.130.100])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bb9ff59a4sm1521664a91.2.2026.03.18.12.36.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 12:28:25 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, wens@kernel.org
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- linux-sunxi@lists.linux.dev, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to get display
- memory
-Date: Wed, 18 Mar 2026 20:28:23 +0100
-Message-ID: <6247601.lOV4Wx5bFT@jernej-laptop>
-In-Reply-To: <CAGb2v67sA48gfecLKiGozULmTo45hXF25n+2+nAHVFY_QEL24w@mail.gmail.com>
-References: <20260309165635.1138413-1-wens@kernel.org>
- <CAGb2v67sA48gfecLKiGozULmTo45hXF25n+2+nAHVFY_QEL24w@mail.gmail.com>
+        Wed, 18 Mar 2026 12:36:38 -0700 (PDT)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: andrew@codeconstruct.com.au,
+	avifishman70@gmail.com,
+	tmaimon77@gmail.com,
+	tali.perry1@gmail.com,
+	srini@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: venture@google.com,
+	yuenn@google.com,
+	benjaminfair@google.com,
+	jserv@ccns.ncku.edu.tw,
+	eleanor15x@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	openbmc@lists.ozlabs.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH 0/3] nvmem: Add Nuvoton NPCM OTP driver
+Date: Wed, 18 Mar 2026 19:35:35 +0000
+Message-ID: <20260318193538.246853-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.53.0.851.ga537e3e6e9-goog
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_122828_687759_2ABF96CF 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260318_123639_934594_DA4DEF4C 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 18. marec 2026 ob 10:35:35 Srednjeevropski standardni =C4=8Das j=
-e Chen-Yu Tsai napisal(a):
-> Hi,
->=20
-> On Tue, Mar 10, 2026 at 12:56=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> w=
-rote:
-> >
-> > Commit 4636ce93d5b2 ("drm/fb-cma-helper: Add drm_fb_cma_get_gem_addr()")
-> > adds a new helper, which covers fetching a drm_framebuffer's GEM object
-> > and calculating the buffer address for a given plane.
-> >
-> > This patch uses this helper to replace our own open coded version of the
-> > same function.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> > ---
-> >  drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 16 ++-------------
-> >  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 27 ++------------------------
-> >  2 files changed, 4 insertions(+), 39 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/s=
-un4i/sun8i_ui_layer.c
-> > index f08f6da55dd0..72c92203ae63 100644
-> > --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> > +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> > @@ -124,25 +124,13 @@ static void sun8i_ui_layer_update_buffer(struct s=
-un8i_layer *layer,
-> >  {
-> >         struct drm_plane_state *state =3D plane->state;
-> >         struct drm_framebuffer *fb =3D state->fb;
-> > -       struct drm_gem_dma_object *gem;
-> >         dma_addr_t dma_addr;
-> >         u32 ch_base;
-> > -       int bpp;
-> >
-> >         ch_base =3D sun8i_channel_base(layer);
-> >
-> > -       /* Get the physical address of the buffer in memory */
-> > -       gem =3D drm_fb_dma_get_gem_obj(fb, 0);
-> > -
-> > -       DRM_DEBUG_DRIVER("Using GEM @ %pad\n", &gem->dma_addr);
-> > -
-> > -       /* Compute the start of the displayed memory */
-> > -       bpp =3D fb->format->cpp[0];
-> > -       dma_addr =3D gem->dma_addr + fb->offsets[0];
-> > -
-> > -       /* Fixup framebuffer address for src coordinates */
-> > -       dma_addr +=3D (state->src.x1 >> 16) * bpp;
-> > -       dma_addr +=3D (state->src.y1 >> 16) * fb->pitches[0];
-> > +       /* Get the start of the displayed memory */
-> > +       dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, 0);
->=20
-> I just realized while reading more code that there's a subtle difference
-> here.
->=20
-> The original code used state->src.x1, which is the "clipped" coordinates,
-> while drm_fb_dma_get_gem_addr() uses state->src_x, which is the original
-> coordinates.
->=20
-> Jernej, do you know which one the driver is supposed to use? Or maybe
-> it doesn't matter?
+Add support for the OTP memory controllers found on Nuvoton NPCM7 SoCs.
 
-I would say that it doesn't matter for point of origin. Original coordinates
-use uint32_t values which means origin cannot be out of screen (negative
-numbers). What I found interesting is that clipped coordinates are int, e.g.
-they can be negative.
+This OTP is read-only and manages two independent arrays: Key Storage
+and Fuse Array, which contain cryptographic keys, hardware strapping,
+and calibration data. Each array provides 1024 bytes of storage.
 
-Best regards,
-Jernej
+You can use qemu-system-arm -M npcm750-evb to play around with it.
 
+Kuan-Wei Chiu (3):
+  dt-bindings: nvmem: add nuvoton,npcm750-otp
+  nvmem: npcm-otp: Add Nuvoton NPCM OTP driver
+  ARM: dts: nuvoton: Add OTP nodes for NPCM7xx
 
+ .../bindings/nvmem/nuvoton,npcm750-otp.yaml   |  35 +++++
+ MAINTAINERS                                   |   7 +
+ .../dts/nuvoton/nuvoton-common-npcm7xx.dtsi   |  10 ++
+ drivers/nvmem/Kconfig                         |  10 ++
+ drivers/nvmem/Makefile                        |   2 +
+ drivers/nvmem/npcm-otp.c                      | 129 ++++++++++++++++++
+ 6 files changed, 193 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/nuvoton,npcm750-otp.yaml
+ create mode 100644 drivers/nvmem/npcm-otp.c
 
+-- 
+2.53.0.851.ga537e3e6e9-goog
 
 
