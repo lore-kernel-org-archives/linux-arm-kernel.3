@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA72103E167
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBCF103E167
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wx45oWXVsXCijFw6JpV9byK4G1DkHSDlU0Kw2TwgmiY=; b=ca93LkEtaNs9S4Kum06YH85J4a
-	nWLh0uAR1SfipEMjWZEfz3vGiRkMfwXpdxGrbqTDmyoWL9nJCDszsZMHZKWAULyyBODg2AIpAnoV+
-	VXtAJzBxeHEO/B5KM+qOZGefBWX1dz3/S5J/lqbcm4g2IGifCyMvdMr3BRYdzHA0NwozSe5zifIU6
-	jYOHcfMIsx/+CCpmkuT5gHqmNSALIM1qWYM2FaU4zGxzSpDtLiZYO2X9HO8gv6NyFH7qOfjxhUise
-	1pRaqag5a0pQOXSEJNGtTMob+D0wJx6z2+TAYxlFS0rmSX9Bcc1czg21czHLGAW7IKZ170NpIRP42
-	XE0vhBRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I0XE4egujiloS4JwN3oMEE3RFFNH/YbmfcDSzX4Ew+E=; b=HF46NCQtVrv/RzcqEJrDUWrJea
+	5Dr9VZHkNGanhv1B5zRsclVzHdetzbVqWpvxivSMgjvhfK545XPiCbsZS60m8VjhwbErKUu6ocJ0A
+	qQIg/zv7DQPBcdsTSH5z6WigNTi20eOQRljw09ljiMb5GdfZ9pROIukhHJPgvvloxyWqn2Rgzy71J
+	yB8J7XBTDTCA3wwgD8H+ei7L3QPYD7AvdccNlUwxedZGG4d6dLBR8IwAQw699zybMwjln0kxYkps+
+	QEl5QasO1xGMRZGjvsc577BV5Mv5hv2gL+mGJXVZGCNbPRac8FI8bj8JYQjTGFffU1jyIz4btaru8
+	VDLIgJBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pHv-00000008KMu-3nkv;
-	Wed, 18 Mar 2026 11:42:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pHt-00000008KMa-3Bih
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 11:42:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AD721E2F;
-	Wed, 18 Mar 2026 04:42:01 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA6013F73B;
-	Wed, 18 Mar 2026 04:42:05 -0700 (PDT)
-Date: Wed, 18 Mar 2026 11:42:00 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 0/2] KVM: arm64: nv: Expose shadow page tables in
- debugfs
-Message-ID: <20260318114200.GA3905508@e124191.cambridge.arm.com>
-References: <20260317182638.1592507-1-weilin.chang@arm.com>
+	id 1w2pJU-00000008KX1-2epg;
+	Wed, 18 Mar 2026 11:43:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2pJT-00000008KWm-0JbT;
+	Wed, 18 Mar 2026 11:43:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=I0XE4egujiloS4JwN3oMEE3RFFNH/YbmfcDSzX4Ew+E=; b=kXEVAc/+bTPS3uMg7QF3zZtIaH
+	v6w7smOfhQ/bd+QW6N2g2CQdq4E0zB77dUQtSKnbDd9qYGmvT4nb1lHbyVcc9mWbjKIidqbM9eKsX
+	90XcGpWb9hEj+rXwhOaVkd/jdc3lLizwPSbhbqJ8HBhcW9dcvrCDZqYFNjd1tk1qmbk+ZYKIASuyz
+	VhlrRDBbQGzuR7kz2rIWnfEsTsvl+U04JYrh9UDVGwvVNFhIVf7wbLnuWZoXxZIW24q7NWNPaYrJC
+	VIAjzzdBW2LPVmblnGQMIyfbN4v0C57pPXt0sC2kmavuX+28C3cMjagAuaIWToILkCLWo+qgOaW+2
+	970WA2XA==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2pJP-0000000B6Mz-0e0i;
+	Wed, 18 Mar 2026 11:43:45 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62IBem7dB1609497, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1773834048; bh=I0XE4egujiloS4JwN3oMEE3RFFNH/YbmfcDSzX4Ew+E=;
+	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=jpHCgHVtbyJC681rg2oCVBGXh2EZYNkTQueHQaU6SJtASr01Pq+CxPat4SgaiW8Pf
+	 EvnJOURTQ4lt3Re1v6LFNwYNLR1/0mii8a2qQjZJwe0pcIQWHJnmbBvKGW+v3XK6O5
+	 gtXOV9TxLooRwH4hESgb5dk50qOL4ywuJrewna9W/XffqyZpdIQtVRQ0js4JhW4SZF
+	 dVYurjMRWrf0HrvZRr5gTzx3HvYqedeZZgMhyIN8Dfdw7qkLPqx62EkDix7L9KA9nJ
+	 nkKbH1uice7P92tnNig8fYuNg4hQvQbjVC+kQuKlQ4IKyIM2yzL461un8olKNiUolr
+	 1swmLzCYR16BQ==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62IBem7dB1609497
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Mar 2026 19:40:48 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 18 Mar 2026 19:40:48 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 18 Mar 2026 19:40:47 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 18 Mar 2026 19:40:47 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <linux-kernel@vger.kernel.org>, <linux-realtek-soc@lists.infradead.org>,
+        <afaerber@suse.com>, <arnd@arndb.de>, <alexandre.belloni@bootlin.com>,
+        <linusw@kernel.org>
+CC: <fustini@kernel.org>, <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>, <james.tai@realtek.com>, <krzk@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <soc@lists.linux.dev>
+Subject: [PATCH] arm64: dts: realtek: Fix memory node unit-address mismatch
+Date: Wed, 18 Mar 2026 19:40:41 +0800
+Message-ID: <20260318114047.2804171-1-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260317182638.1592507-1-weilin.chang@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_044209_863564_8ABC64E3 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260318_114343_799856_D6FE9158 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,33 +97,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 06:26:36PM +0000, Wei-Lin Chang wrote:
-> Hi,
-> 
-> This is v2 of exposing shadow page tables in debugfs, there are a few
-> small improvements, please see below.
-> 
-> Changes in v2:
->  - move debugfs_nv_dentry also behind CONFIG_PTDUMP_STAGE2_DEBUGFS
->  - use a macro to define the file names of shadow ptdumps, also
->    explicitly spell out the string to get its maximum size
->  - add Reviewed-by tag from Sebastian (thanks!)
->  - Link to v1: https://lore.kernel.org/kvmarm/20260308231829.864983-1-weilin.chang@arm.com/
-> 
-> Wei-Lin Chang (2):
->   KVM: arm64: ptdump: Make KVM ptdump code s2 mmu aware
->   KVM: arm64: nv: Expose shadow page tables in debugfs
+The memory node unit-address should match the first address in the reg
+property. Correct the unit-address from @40000 to @50000 to align with the
+actual base address (0x50000) defined in the reg property.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Fixes: b095c27fc874 ("arm64: dts: realtek: Add Kent SoC and EVB device trees")
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+This patch series is sent to both Realtek and ARM SoC maintainers.
+While Andreas Färber is listed as the Realtek maintainer, there has been
+limited activity recently.
+---
+ arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts    | 2 +-
+ arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts    | 2 +-
+ arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-> 
->  arch/arm64/include/asm/kvm_host.h |  9 +++++
->  arch/arm64/include/asm/kvm_mmu.h  |  4 +++
->  arch/arm64/kvm/nested.c           |  6 +++-
->  arch/arm64/kvm/ptdump.c           | 60 ++++++++++++++++++++++---------
->  4 files changed, 62 insertions(+), 17 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+diff --git a/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts b/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
+index 09e544acfd34..e487622424f1 100644
+--- a/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
++++ b/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
+@@ -13,7 +13,7 @@ / {
+ 	compatible = "realtek,phantom", "realtek,rtd1501s";
+ 	model = "Realtek Phantom EVB Chromium (8GB)";
+ 
+-	memory@40000 {
++	memory@50000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x50000 0x0 0x7ffb0000>,
+ 		      <0x0 0x8a100000 0x0 0xdef0000>,
+diff --git a/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts b/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
+index 9c23d901c49c..f0f810ab8aa8 100644
+--- a/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
++++ b/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
+@@ -13,7 +13,7 @@ / {
+ 	compatible = "realtek,krypton", "realtek,rtd1861b";
+ 	model = "Realtek Krypton EVB (8GB)";
+ 
+-	memory@40000 {
++	memory@50000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x50000 0x0 0x7ffb0000>,
+ 		      <0x0 0x8a100000 0x0 0xdef0000>,
+diff --git a/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts b/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
+index 9fd6976e0d9b..375c18322c3b 100644
+--- a/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
++++ b/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
+@@ -13,7 +13,7 @@ / {
+ 	compatible = "realtek,smallville", "realtek,rtd1920s";
+ 	model = "Realtek Smallville EVB (4GB)";
+ 
+-	memory@40000 {
++	memory@50000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x50000 0x0 0x7ffb0000>,
+ 		      <0x0 0x8a100000 0x0 0xdef0000>,
+-- 
+2.34.1
+
 
