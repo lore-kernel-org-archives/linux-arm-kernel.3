@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A978103E198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA74103E197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=At2/CLDxhNPpwjikry66+7jlBHjAq3Xrc9H+qzAA/Ok=; b=cMhfFBxx3qked4aAV16EFqzhX0
-	/usIRG2K/p5ZuEJfJRLBj2TYVs+CKjzl6XhVmh4H1KT/1zmZp/2otKmoumRWFIIke9hCiimsjYoMo
-	X6OvX65R48c4fcn7HgNFs0DpHcempOcoS8pBqE48mEwRvgaxpSXUQg9OqvpdUJRJIR/QbcGMg4tSc
-	LWgrIOD7nF99Wg2u81Jq6SyKSCxpp+WIz1DWV/kQA9ejC7Nbsro4EmrAnx/a8vsXKN9Cdch9srCh/
-	3uSB+0ViTDd+cebq3GyT5ddp0vsS6m0UhsSdJutGfMpjad+P0O15VoeONVDnwp2qHcyQgwlp79/5p
-	1kijXVLQ==;
+	bh=jmFbhZ5kLrXx/Bqjiuc/lZQIeti/qu8CaVHJChtoKv0=; b=sIr13nf5HlhWgMnjxIyF/ZpZEx
+	FnsE4GW/a8l0OxIBWQPszI9Vljj9sIwiqUqrpPAq0GIxS4ja2sNBezA2el/BXgqh1HzyZB4lVZnEV
+	Ea2UO/mfUzubgh7HVE6uoJuC9szSqWN8RwRdSJzVyRLkp3C4/XPNgTWpuNUV4qoYtCgmLu/jQfYga
+	XEQeSWQQOPU05IRAIGyG0IgGG3t96E2hmWDZebVOMlakWk6haK0hzmLKEP6bnmPkqGEibBHbW6WKc
+	VJG9/bjlzBI86zl3FUagJQailiyueCPEJn1ls5d3a0T0n4DVs6whLpoAG3vLWeTxmN2Y8TlygnT4s
+	aWNSmxIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGv-00000008qkY-3IG1;
+	id 1w2tGr-00000008qgf-1yUS;
 	Wed, 18 Mar 2026 15:57:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGb-00000008qMu-43Yl
+	id 1w2tGY-00000008qJm-2jmt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:57:05 +0000
+	Wed, 18 Mar 2026 15:57:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=At2/CLDxhNPpwjikry66+7jlBHjAq3Xrc9H+qzAA/Ok=; b=IXIQItZIAqNUJ71Nc/ioPTHdD9
-	LBgOfDz8LauDqnww0gzIXEHZcMPEHouoKuctRjrbkY22i/74HoLQE3EOQ74wMxHQ9NdBQnJlQ1PoZ
-	hu+job83tuEPjdffg9NzQq+wZ5Pvjc0p4JdiY9VKslr7Hr4mUHeWvV5Fug92LrOB5VgYkFHS+J5rR
-	Ci3BQZMH2q9RNULjfgff0Jpz3qJ4Hf+A1q5XgcE6/Y26H4iCxaeK9Xk8YBtkpedIZYZR5E49ntCbT
-	8+2Kh6o2Z+9opzVtHxYe2KErkpw48EIogEK+3/K2Iw+gQPd79cwUkX9aTlCAN4hF+n8/Un3n2YFyO
-	F/7wgIkQ==;
+	bh=jmFbhZ5kLrXx/Bqjiuc/lZQIeti/qu8CaVHJChtoKv0=; b=mSOeuG31tpIIzBlynqt49ekSpv
+	F7cnvaH8XjxcVENfgt2KXPy8iaTAPxKALHLcgo6KrUs750P0UrMqmOHnAmjRhOs3hwJNqV92+dZBe
+	7D5XY8mrCGCs77Ivle4fjOJJpoWhtQS2r16JPA0wKW9B2gSzJDdBapeYvVVUnuhukzNPlSewCkG69
+	gPeOv6hWpuDSUVgkfC5C5CCBfQl9HWAj2cvd1BF02oGxeIRZDL625Q9i1vQc7BPwL8I9i5Hk2roWT
+	pxN3aqp84S86vt4RfPWXLEj+SVvaH4aKA5KVMTiffV4L6UHZNDn3U5MyZnNCEQN4kYvNn8QOwh5U6
+	PG7nyfKg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGY-0000000Bdzm-2aWG
+	id 1w2tGU-0000000Bdz6-3dEw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:57:04 +0000
+	Wed, 18 Mar 2026 15:57:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1528A2050;
-	Wed, 18 Mar 2026 08:56:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B254C2008;
+	Wed, 18 Mar 2026 08:56:51 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14B423F73B;
-	Wed, 18 Mar 2026 08:56:57 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 766B23F73B;
+	Wed, 18 Mar 2026 08:56:54 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -74,17 +74,17 @@ Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v13 43/48] arm64: RMI: Configure max SVE vector length for a Realm
-Date: Wed, 18 Mar 2026 15:54:07 +0000
-Message-ID: <20260318155413.793430-44-steven.price@arm.com>
+Subject: [PATCH v13 42/48] arm64: RMI: Propagate max SVE vector length from RMM
+Date: Wed, 18 Mar 2026 15:54:06 +0000
+Message-ID: <20260318155413.793430-43-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155703_055980_2E065A3B 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260318_155659_311718_AF003D08 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,99 +101,111 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Obtain the max vector length configured by userspace on the vCPUs, and
-write it into the Realm parameters. By default the vCPU is configured
-with the max vector length reported by RMM, and userspace can reduce it
-with a write to KVM_REG_ARM64_SVE_VLS.
+RMM provides the maximum vector length it supports for a guest in its
+feature register. Make it visible to the rest of KVM and to userspace
+via KVM_REG_ARM64_SVE_VLS.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-Changes since v6:
- * Rename max_vl/realm_max_vl to vl/last_vl - there is nothing "maximum"
-   about them, we're just checking that all realms have the same vector
-   length
----
- arch/arm64/kvm/guest.c |  3 ++-
- arch/arm64/kvm/rmi.c   | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 39 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/include/asm/kvm_rmi.h  |  1 +
+ arch/arm64/kvm/guest.c            |  2 +-
+ arch/arm64/kvm/reset.c            | 12 ++++++++++--
+ arch/arm64/kvm/rmi.c              |  6 ++++++
+ 5 files changed, 19 insertions(+), 4 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 1efea996f474..1d5fb001408c 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -78,9 +78,9 @@ enum kvm_mode kvm_get_mode(void);
+ static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
+ #endif
+ 
+-extern unsigned int __ro_after_init kvm_sve_max_vl;
+ extern unsigned int __ro_after_init kvm_host_sve_max_vl;
+ int __init kvm_arm_init_sve(void);
++unsigned int kvm_sve_get_max_vl(struct kvm *kvm);
+ 
+ u32 __attribute_const__ kvm_target_cpu(void);
+ void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+index 8f871daf6540..b914b9a84bd8 100644
+--- a/arch/arm64/include/asm/kvm_rmi.h
++++ b/arch/arm64/include/asm/kvm_rmi.h
+@@ -87,6 +87,7 @@ struct realm_rec {
+ void kvm_init_rmi(void);
+ u32 kvm_realm_ipa_limit(void);
+ u8 kvm_realm_max_pmu_counters(void);
++unsigned int kvm_realm_sve_max_vl(void);
+ 
+ u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+ 
 diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 705c2ccc335d..999edf0b5219 100644
+index 7cf919db1adc..705c2ccc335d 100644
 --- a/arch/arm64/kvm/guest.c
 +++ b/arch/arm64/kvm/guest.c
-@@ -361,7 +361,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	if (!vcpu_has_sve(vcpu))
- 		return -ENOENT;
+@@ -375,7 +375,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 		if (vq_present(vqs, vq))
+ 			max_vq = vq;
  
--	if (kvm_arm_vcpu_sve_finalized(vcpu))
-+	if (kvm_arm_vcpu_sve_finalized(vcpu) || kvm_realm_is_created(vcpu->kvm))
- 		return -EPERM; /* too late! */
+-	if (max_vq > sve_vq_from_vl(kvm_sve_max_vl))
++	if (max_vq > sve_vq_from_vl(kvm_sve_get_max_vl(vcpu->kvm)))
+ 		return -EINVAL;
  
- 	if (WARN_ON(vcpu->arch.sve_state))
-@@ -756,6 +756,7 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
- 		switch (reg->id) {
- 		case KVM_REG_ARM_PMCR_EL0:
- 		case KVM_REG_ARM_ID_AA64DFR0_EL1:
-+		case KVM_REG_ARM64_SVE_VLS:
- 			return true;
- 		}
- 	}
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index f2aeda7f5e6e..f69151d4235a 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -706,6 +706,39 @@ static void realm_unmap_shared_range(struct kvm *kvm,
- 			     start, end);
+ 	/*
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 4bbf58892928..08883c9e848f 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -46,7 +46,7 @@ unsigned int __ro_after_init kvm_host_sve_max_vl;
+ #define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+ 				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+ 
+-unsigned int __ro_after_init kvm_sve_max_vl;
++static unsigned int __ro_after_init kvm_sve_max_vl;
+ 
+ int __init kvm_arm_init_sve(void)
+ {
+@@ -76,9 +76,17 @@ int __init kvm_arm_init_sve(void)
+ 	return 0;
  }
  
-+static int realm_init_sve_param(struct kvm *kvm, struct realm_params *params)
++unsigned int kvm_sve_get_max_vl(struct kvm *kvm)
 +{
-+	unsigned long i;
-+	struct kvm_vcpu *vcpu;
-+	int vl, last_vl = -1;
-+
-+	if (!kvm_has_sve(kvm))
-+		return 0;
-+
-+	/*
-+	 * Get the preferred SVE configuration, set by userspace with the
-+	 * KVM_ARM_VCPU_SVE feature and KVM_REG_ARM64_SVE_VLS pseudo-register.
-+	 */
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
-+		if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+			return -EINVAL;
-+
-+		vl = vcpu->arch.sve_max_vl;
-+
-+		/* We need all vCPUs to have the same SVE config */
-+		if (last_vl >= 0 && last_vl != vl)
-+			return -EINVAL;
-+
-+		last_vl = vl;
-+	}
-+
-+	if (last_vl > 0) {
-+		params->sve_vl = sve_vq_from_vl(last_vl) - 1;
-+		params->flags |= RMI_REALM_PARAM_FLAG_SVE;
-+	}
-+	return 0;
++	if (kvm_is_realm(kvm))
++		return kvm_realm_sve_max_vl();
++	else
++		return kvm_sve_max_vl;
 +}
 +
- static int realm_create_rd(struct kvm *kvm)
+ static void kvm_vcpu_enable_sve(struct kvm_vcpu *vcpu)
  {
- 	struct realm *realm = &kvm->arch.realm;
-@@ -751,6 +784,10 @@ static int realm_create_rd(struct kvm *kvm)
- 	if (kvm_lpa2_is_enabled())
- 		params->flags |= RMI_REALM_PARAM_FLAG_LPA2;
+-	vcpu->arch.sve_max_vl = kvm_sve_max_vl;
++	vcpu->arch.sve_max_vl = kvm_sve_get_max_vl(vcpu->kvm);
  
-+	r = realm_init_sve_param(kvm, params);
-+	if (r)
-+		goto out_undelegate_tables;
+ 	/*
+ 	 * Userspace can still customize the vector lengths by writing
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index f29c04d2318a..f2aeda7f5e6e 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -217,6 +217,12 @@ u8 kvm_realm_max_pmu_counters(void)
+ 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS);
+ }
+ 
++unsigned int kvm_realm_sve_max_vl(void)
++{
++	return sve_vl_from_vq(u64_get_bits(rmm_feat_reg0,
++					   RMI_FEATURE_REGISTER_0_SVE_VL) + 1);
++}
 +
- 	params_phys = virt_to_phys(params);
- 
- 	if (rmi_realm_create(rd_phys, params_phys)) {
+ u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+ {
+ 	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
 -- 
 2.43.0
 
