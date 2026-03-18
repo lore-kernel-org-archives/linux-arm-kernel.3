@@ -4,145 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2CE1077612
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F271077617
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLhJYlxCJgDWRjAQUzzveso2sf/La7jmNEom+59cfCQ=; b=ZiTRafds+6VfVKQ7Zgn/5atnvJ
-	cE3yeUqvTbODF3gRjyvi2D/2EngcmB3ygBVLTuNKYWWUQbwAhgnFmukuD0H6gMe032zRp0lU3+woN
-	0JNo4K8Vgv7C+Yiw4m2WrMYrvazybl/BgUXwM0pOmo91GgJEhNwwiJ7RKQzK83+1jn/vbqe8ddvZC
-	pKjoeqfSa1eh1emOolp6D3VANHjUlWp7xYQIQKQx6ltq8KC8OcYruW1D3VcRom1cG0yGJW7sliPzq
-	78pkV62SCyTyzR808GdHp67+rILKCcuBH4aDiLxn71pTNHDCLjm+zQOafJhHLxqTF1d6DKdBuNYID
-	uRc4OwGw==;
+	bh=O9qAmvL+E7GhoNNXcS2jc5i15Agnn1pOv0DyJg+YtQw=; b=pD5uq6Znoe0PHosajDDrz59VXI
+	W6vEnm0TL4IN05iAJpSPJRZef+er08P2lmt/6vjtiq2uKPQsGvNJdJ3E9qhvbE+ochBoB3JFk58Be
+	+6g3eSvarHI2VuItU2aSmuZt3niNddFy1ZFdwiGzI8axd5YU3wEmR/hWqbLiVEzhPZHaoEjLJbbYR
+	VVFNTmum3jt6E/MourdZT92NWDEUDPASS8ZhdHuXUU8Ba25NweTHbWrgKWpBB9WNFTI7HTOYOaiRe
+	/ANj+ZQNsI3nTGkT8uzKCtvljPyiKENu2DC63trzMueRB9jDzX1DLrAKTzRnDzGttIK84Yn2miHmn
+	YGg5eaiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xYR-00000009J3M-2H1Z;
-	Wed, 18 Mar 2026 20:31:47 +0000
-Received: from mail-westeuropeazon11013060.outbound.protection.outlook.com ([52.101.72.60] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w2xg6-00000009JQe-1BpG;
+	Wed, 18 Mar 2026 20:39:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xYP-00000009J2k-3RB3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:31:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bqTS/RcNmXzx8/RwSq2oSn8LiQqzdZinW9hx+mPDT9PRBHJWK469Xk8eFQNzx7msZFeCmxPlyu7oJn2oVwUabxkdD3ZVx8kR5kiuOXo9idu7Hk4HxF4r6FGWe13SewQklyp50Wj0hCRgGBCBtoen/EYDzT7a9hS1lyKOAE2MQU/YIyXtsNBfOOh8D/m/DpNMw1u/gZWPFsc4uptmFQBl++fmCrDk+m4/85G5FYiwZL5dghWak2AEyA2RJbRVVe9QaiS0kNgnfoUvDPkWdQHH+70l3qAtDHJ5TPG6YWdFymihUWlEKC3HKoY7il5q0+gX8U56x2uBfVQ3vSspXPuWlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pLhJYlxCJgDWRjAQUzzveso2sf/La7jmNEom+59cfCQ=;
- b=eJ7dvoy2EvBeBEjOxRAedUrEXLz1xClxtjEh64VWAj8KV12cLz6o5shLUt0iJNxL2wdcr/rr84Ag1e3l6leo3LDKhf4AZvM/6y55rSo45lEIBgCXnKUafrFI2g9JtRyO6V/3QNuPf1AAPJvYrlhHMO9x6ktb5A0kIBpNzdFtrw03K6plom4ie+tZ6lDmBVhDpZVaCtXvnzT6gmIuJDDr+qdRX4ROguzSuDYjfe52xSISSG5u2yb7SUskqMsrmEwySyLvExJ3PlK7TGGvqdby3j6UPFUQzbsFsai6pwq++coLTp4AFDpUej+s49cbF3bUBn7NAYTG8SvQwS4ZiNvCag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pLhJYlxCJgDWRjAQUzzveso2sf/La7jmNEom+59cfCQ=;
- b=YafgB2lH+bF1NG6oQwnZV0DDhCxglh26s0MoQMZm+c/7omHuin1sSsN5cJ6sgM2BGp+Z+vLiJDiJWIAWuDlgLvZBS0w0jkWhGDLE8AfFHrlDDK2tsTtN5XLyqWJ+2WHs9ku25g6Y1WpQkL8ww/NN72WTFYnTlPPSUk30x1F72jFMk2hq2H6ln3iRvqHiDaZAVBeWgnPmdnV98GkZO6tPRUVpefhbdbOD967il98nOHZT+QeH/Bo+VU51CxGZBWi51nGUvll989CXIBITfJNmQjLzbhlnsds+QvX5DptDsWO9b1RhqK2H1rudCQphVhxJu7yaEZGfU3EEuD5/lg7Ecw==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by AM8PR04MB7267.eurprd04.prod.outlook.com (2603:10a6:20b:1df::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Wed, 18 Mar
- 2026 20:31:21 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 20:31:33 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Mathieu Poirier <mathieu.poirier@linaro.org>, Arnaud POULIQUEN
-	<arnaud.pouliquen@foss.st.com>, Linus Walleij <linusw@kernel.org>, Bartosz
- Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
-	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Topic: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Index: AQHctxY1ed+Ftf2mHkid8IKFzlYzOA==
-Date: Wed, 18 Mar 2026 20:31:33 +0000
-Message-ID: <PAXPR04MB9185B4663623FED129A90A4F894EA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260313195801.2043306-1-shenwei.wang@nxp.com>
- <20260313195801.2043306-4-shenwei.wang@nxp.com>
- <2aa1d063-181f-4145-9f1f-7e3012c4d0af@foss.st.com>
- <104e9861-bfd4-4e0f-8967-a849edf7e6fb@lunn.ch>
- <CANLsYkx6KhspTjzpk51ywfgWcf-FR7-3XrH=MmBi_W6yZmMukA@mail.gmail.com>
- <PAXPR04MB9185E1D7543DB60DE089423B894EA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <ba563541-f6c8-451b-8967-2c5c9199b231@lunn.ch>
-In-Reply-To: <ba563541-f6c8-451b-8967-2c5c9199b231@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AM8PR04MB7267:EE_
-x-ms-office365-filtering-correlation-id: 90bd49b4-1fd4-43ad-26fa-08de852d5879
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|1800799024|56012099003|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: SNL1vIsgBjBeWdt83gbqOsDNfzhLf46OTZTkt/yW7cSyBut5iVQj2cH80OukNr7o7subIJh59aWFsjAajAtfbweOHYtISoQQtWpg47n1kSmnM++T3FcWKsNQvWOqSZzYQoOSq/RGk8Yr36/dIG4zV1AfM3wFSk6MQaMtRntn2nLHrVywKIYXGSTEfhasbjQ59VCspLP+LjXmD9bVhvsshKiLij6wvEUUTfoQsbsEPOphCVSdfTjLO1/3A8wNJ+8jVA7LpyX8xb1QagvWdwQrYSteT/04qBf7ZmvCQ5LotFYhCN7XyNHiMCCHsf6IxfzB9JBZT8ad2wcxQbYubJh51zVbM5qL+gi6qpjXIQzdAYBbh4phFUHZiqlAD5ZriOnukfP908ymM+iTp8fptlGhQ9pwfmR6DhvOsoguw7SWyVMDS5u4WZTA1td2eINcKrDBMnRWaAD4UUzboKG+L34nm/zvLqQ6jV5hFcIcuYjttQK1unsvyBLzERr7LHSLvAgk9J01VAQjlZTcYw60VjpMFwnx8Tmb1lNA0whCl3VrBVRa3bKH8ve+hVdek2uRdxHsTw6VRFguNZy9ai8kdEVQMgkkzuKtuMOiz1GCBqYbcckCblihAFN5pVSLZblan3DeNsFQCA98LZutIN1W7EMc8qn+6Kr8V0ceTutBMzW88sa8OQNTQlydRSar1sa3DY2mXNmm5d5/DPgGyR35bx3cQ33+0iz53sYJsETOtIaBkGpA1otmLWYgPs+Z1dhGtjg51fsaPzqN620WaAUWbK5UDcLUeZIF0K/OfBi3TChnsjA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Jbg7EnObsTJhuTvWL1XFQCwBUBIJ/WMw0Ja+TormiojI7tvvwayvUgvb1Tie?=
- =?us-ascii?Q?DqRG12TQD2CiM/K2lKo01bqhKFYH2rVV/l1HkhlGm4b6tlPcA1H1JVQcb2Z4?=
- =?us-ascii?Q?Y/DQA2bdl8SvwXrGC1IGSW1UeE9ZmbB+z69JYQ2j5+SbXFanT5+QokW5+g1B?=
- =?us-ascii?Q?Hzo7C9+8AoEx1An8FcV/RBhlFKWowDju1WlMetBThtZL0RKZdCSWMRBevrXk?=
- =?us-ascii?Q?tKUTxksZjkPrH3g6vA8XU2t3nSCNN4xBQxIxqO0UbO7l3LNfJVd0ORrEkZRo?=
- =?us-ascii?Q?gCyyTjzlIDb7p98oTWGNrdCcCt1YUUJkrX5oD73lXfZwb//XUF98WOWKUxB/?=
- =?us-ascii?Q?YfrFBqyuUGdIFjv4Vtm0c0CM+Z8FJ47zJhZSdr5GOoamYD0YCwFQtmdHYQVS?=
- =?us-ascii?Q?OsWI48pbY5y5CWWHsGUfx2po6CrTnsGFz4c5iUscJcm11lAgmeKhvZHAK6mo?=
- =?us-ascii?Q?aCyIy/ByqjF8/ZvwUTnju7iakYdlPdtiQzloQb0H46JELZMrBYnlSDmsQp0K?=
- =?us-ascii?Q?UpF0OhzsC6YsBq9v73P7W/qi41/vefck3lBvVUphb2pKTCpnYOKSgErWYJll?=
- =?us-ascii?Q?wa8FgsDi+JEVFX35ptnozCgwWm7ZYMRCpjsOPXv0tA0FDxvb193xny5WKQvI?=
- =?us-ascii?Q?94Nm+hccDqsltEL5yGjPV7GneJ8BPe1pngmHmAj45NzSyiryf282EqwnLIZ0?=
- =?us-ascii?Q?oE9jkbxs2dgCcGnvBVUJXSyQae/D8pa56vr02js3bO2Mdipa2PRac4HVkLoo?=
- =?us-ascii?Q?iYZtJESipEujlOvIRpBUrod0mwsa79IHVXwpvJSm72gLYR1Vmkv0kej9QMwD?=
- =?us-ascii?Q?vh54whWKfLEOib6ozm5jv4/YRdWtBg85asUR7/3tiZBueD7QpDvNhngGBElt?=
- =?us-ascii?Q?dzm/Esxbf4KT6oB9hbHiUB8bz0WvdXC81tvjvmYSQoA/gShgfTLRbxWBsdXm?=
- =?us-ascii?Q?+n1RqrbqWJwcdAQL7jMEjpFNAr1kdA8wZBc7HaeSsfex1uffPoPA6kgq8uB7?=
- =?us-ascii?Q?lf3neK96yqx9tC2B6Ny5xaak0B9BXwOBvWY3A7fi7RZA3hDc9HVTdyinFj/w?=
- =?us-ascii?Q?mVVeZte0ZJvUqQUfhuW/XMsQx50nM8Gm6psT9Kg0vyr3tJc3CEGKNmskaiKg?=
- =?us-ascii?Q?bxDc8FPmL/M/FJwJhP88FwMQqKrxUKF1mS88asETk5zaohLUO0MWYSB2wc/j?=
- =?us-ascii?Q?brGQoy9hECVKo8pLx5NH/zGGhQU+46nBiAOWbvyTjtmhKXWSPV+yxncaIeRE?=
- =?us-ascii?Q?GlvnPDj6FET6yNkZ5KgLQk0cF5IJRgCt3Fb0Hrj048rIxrq8jZk5nV1kbWXJ?=
- =?us-ascii?Q?7M4x/Lb0oLy6wMIjdNUkfNYFLisaG+g7neHvxf0tglzBanb5/ZzZ89jcFdth?=
- =?us-ascii?Q?su8G1kmJmPoFowzaG/V7Qj/t6yFsOPlno5NXvH1v4UtSKazenAqM3Yw5fKFv?=
- =?us-ascii?Q?APVZa5W8bT4V0Wi3wF1VMsLKJBU5SmvSGC2xuI5CY9DfHrGrn4SxIIUF+Iza?=
- =?us-ascii?Q?qy8CiTEHm2eg2CH7xJ/6pOdJkczZ6sRfAv7wNOxg05NAHWENrLH2xXeQq3OK?=
- =?us-ascii?Q?6Lzb5CBKX2X3oJadiIkTVdyfS92mYs1q9RPQzUrB06mCY0XHl0YLcyPHZPv5?=
- =?us-ascii?Q?2fUD4330QqPj65pWIR+/CSvafaBKjqK9Vxg5eAcnD5Ideu2G6geDV3B5TK2Q?=
- =?us-ascii?Q?sp8udOOEWevNSxCLm/ZCO8X5JUd7kXTRuRyD+IBhmilhRRTS?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w2xg1-00000009JQ6-43ux;
+	Wed, 18 Mar 2026 20:39:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 03845416A3;
+	Wed, 18 Mar 2026 20:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7479EC19424;
+	Wed, 18 Mar 2026 20:39:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773866376;
+	bh=ko4orCFKsaEPvSaBxnt5g878sJgcfWQEheBNrNLKEMQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E47VA4eyxbQXzd9/UHnJc4CUyaJrHozBi4afZf6c2jVcv2hd+Z0m+zIqpNy1M8pcj
+	 w9oXKVlXsLe1VI72kOIoJ7l6ut2RfKSHB1X8nGTrbocnlF7Eed4LpFpwhujoluz0ah
+	 A2YQHuP+2I42ZaCouQNufu5wxVSBwJIHljGN7Mpuwkfmno/V0udnRXB25cKn2Fu76k
+	 Bj63OdwEfHZJK2feU7hXM5AaBG8wRBm9rVwUfTJFLT5MH/nlGD/sZWJpPDFTJMmEYQ
+	 nIrm5s3/krtA3DDEiPdP/tIOsTj2jTMHTs15YMbXC5SKfl8L20fd17zraYnMf17hnN
+	 qalFYxNmTkB4w==
+Date: Wed, 18 Mar 2026 20:39:25 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>, 
+	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
+	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v2 06/16] mm: add mmap_action_simple_ioremap()
+Message-ID: <330f3614-7dc1-4e80-96c4-8472b25108bb@lucifer.local>
+References: <cover.1773695307.git.ljs@kernel.org>
+ <1e58aaf3cdb61cc317d890c12c9a558dfc206913.1773695307.git.ljs@kernel.org>
+ <CAJuCfpGocCSRT0yDxPOLg2NZ+W_ZSTjHGPZRKBd3U90=sQtHCw@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90bd49b4-1fd4-43ad-26fa-08de852d5879
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 20:31:33.7062
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 6AVogjeFqIl3wkTQaiiTy5Hqv8r9Qhh/jKwmPvl7x1h/KysneYXkpuxmuJYwayYFONFMKVVOmaehNeJLmN4jKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7267
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJuCfpGocCSRT0yDxPOLg2NZ+W_ZSTjHGPZRKBd3U90=sQtHCw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_133145_865392_1ED9C169 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20260318_133938_082471_3EFE2300 
+X-CRM114-Status: GOOD (  42.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,68 +90,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 16, 2026 at 09:14:28PM -0700, Suren Baghdasaryan wrote:
+> On Mon, Mar 16, 2026 at 2:13 PM Lorenzo Stoakes (Oracle) <ljs@kernel.org> wrote:
+> >
+> > Currently drivers use vm_iomap_memory() as a simple helper function for
+> > I/O remapping memory over a range starting at a specified physical address
+> > over a specified length.
+> >
+> > In order to utilise this from mmap_prepare, separate out the core logic
+> > into __simple_ioremap_prep(), update vm_iomap_memory() to use it, and add
+> > simple_ioremap_prepare() to do the same with a VMA descriptor object.
+> >
+> > We also add MMAP_SIMPLE_IO_REMAP and relevant fields to the struct
+> > mmap_action type to permit this operation also.
+> >
+> > We use mmap_action_ioremap() to set up the actual I/O remap operation once
+> > we have checked and figured out the parameters, which makes
+> > simple_ioremap_prepare() easy to implement.
+> >
+> > We then add mmap_action_simple_ioremap() to allow drivers to make use of
+> > this mode.
+> >
+> > We update the mmap_prepare documentation to describe this mode.
+> >
+> > Finally, we update the VMA tests to reflect this change.
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+>
+> A couple of nits, but otherwise LGTM.
+>
+> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
 
+Thanks!
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: Wednesday, March 18, 2026 3:11 PM
-> To: Shenwei Wang <shenwei.wang@nxp.com>
-> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>; Arnaud POULIQUEN
-> <arnaud.pouliquen@foss.st.com>; Linus Walleij <linusw@kernel.org>; Bartos=
-z
-> Golaszewski <brgl@kernel.org>; Jonathan Corbet <corbet@lwn.net>; Rob Herr=
-ing
-> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> <conor+dt@kernel.org>; Bjorn Andersson <andersson@kernel.org>; Frank Li
-> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Tea=
-m
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
-> Golaszewski <brgl@bgdev.pl>
-> Subject: [EXT] Re: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO dr=
-iver
->=20
-> > @Linus Walleij,
-> > From a technical standpoint, this GPIO driver is no different from
-> > gpio-mxc, gpio-omap, or gpio-rda.
->=20
-> Yes it is different. The example you list are all silicon GPIO blocks.
-> This driver is not for silicon, is a protocol spoken over rpmsg.  The con=
-cept of two
+>
+> > ---
+> >  Documentation/filesystems/mmap_prepare.rst |  3 +
+> >  include/linux/mm.h                         | 24 +++++-
+> >  include/linux/mm_types.h                   |  6 +-
+> >  mm/internal.h                              |  2 +
+> >  mm/memory.c                                | 87 +++++++++++++++-------
+> >  mm/util.c                                  | 12 +++
+> >  tools/testing/vma/include/dup.h            |  6 +-
+> >  7 files changed, 112 insertions(+), 28 deletions(-)
+> >
+> > diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentation/filesystems/mmap_prepare.rst
+> > index 20db474915da..be76ae475b9c 100644
+> > --- a/Documentation/filesystems/mmap_prepare.rst
+> > +++ b/Documentation/filesystems/mmap_prepare.rst
+> > @@ -153,5 +153,8 @@ pointer. These are:
+> >  * mmap_action_ioremap_full() - Same as mmap_action_ioremap(), only remaps
+> >    the entire mapping from ``start_pfn`` onward.
+> >
+> > +* mmap_action_simple_ioremap() - Sets up an I/O remap from a specified
+> > +  physical address and over a specified length.
+> > +
+> >  **NOTE:** The ``action`` field should never normally be manipulated directly,
+> >  rather you ought to use one of these helpers.
+> > diff --git a/include/linux/mm.h b/include/linux/mm.h
+> > index ad1b8c3c0cfd..df8fa6e6402b 100644
+> > --- a/include/linux/mm.h
+> > +++ b/include/linux/mm.h
+> > @@ -4337,11 +4337,33 @@ static inline void mmap_action_ioremap(struct vm_area_desc *desc,
+> >   * @start_pfn: The first PFN in the range to remap.
+> >   */
+> >  static inline void mmap_action_ioremap_full(struct vm_area_desc *desc,
+> > -                                         unsigned long start_pfn)
+> > +                                           unsigned long start_pfn)
+> >  {
+> >         mmap_action_ioremap(desc, desc->start, start_pfn, vma_desc_size(desc));
+> >  }
+> >
+> > +/**
+> > + * mmap_action_simple_ioremap - helper for mmap_prepare hook to specify that the
+> > + * physical range in [start_phys_addr, start_phys_addr + size) should be I/O
+> > + * remapped.
+> > + * @desc: The VMA descriptor for the VMA requiring remap.
+> > + * @start_phys_addr: Start of the physical memory to be mapped.
+> > + * @size: Size of the area to map.
+> > + *
+> > + * NOTE: Some drivers might want to tweak desc->page_prot for purposes of
+> > + * write-combine or similar.
+> > + */
+> > +static inline void mmap_action_simple_ioremap(struct vm_area_desc *desc,
+> > +                                             phys_addr_t start_phys_addr,
+> > +                                             unsigned long size)
+> > +{
+> > +       struct mmap_action *action = &desc->action;
+> > +
+> > +       action->simple_ioremap.start_phys_addr = start_phys_addr;
+> > +       action->simple_ioremap.size = size;
+> > +       action->type = MMAP_SIMPLE_IO_REMAP;
+> > +}
+> > +
+> >  int mmap_action_prepare(struct vm_area_desc *desc);
+> >  int mmap_action_complete(struct vm_area_struct *vma,
+> >                          struct mmap_action *action);
+> > diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> > index 4a229cc0a06b..50685cf29792 100644
+> > --- a/include/linux/mm_types.h
+> > +++ b/include/linux/mm_types.h
+> > @@ -814,6 +814,7 @@ enum mmap_action_type {
+> >         MMAP_NOTHING,           /* Mapping is complete, no further action. */
+> >         MMAP_REMAP_PFN,         /* Remap PFN range. */
+> >         MMAP_IO_REMAP_PFN,      /* I/O remap PFN range. */
+> > +       MMAP_SIMPLE_IO_REMAP,   /* I/O remap with guardrails. */
+> >  };
+> >
+> >  /*
+> > @@ -822,13 +823,16 @@ enum mmap_action_type {
+> >   */
+> >  struct mmap_action {
+> >         union {
+> > -               /* Remap range. */
+> >                 struct {
+> >                         unsigned long start;
+> >                         unsigned long start_pfn;
+> >                         unsigned long size;
+> >                         pgprot_t pgprot;
+> >                 } remap;
+> > +               struct {
+> > +                       phys_addr_t start_phys_addr;
+> > +                       unsigned long size;
+> > +               } simple_ioremap;
+> >         };
+> >         enum mmap_action_type type;
+> >
+> > diff --git a/mm/internal.h b/mm/internal.h
+> > index f5774892071e..0eaca2f0eb6a 100644
+> > --- a/mm/internal.h
+> > +++ b/mm/internal.h
+> > @@ -1804,6 +1804,8 @@ int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm);
+> >  int remap_pfn_range_prepare(struct vm_area_desc *desc);
+> >  int remap_pfn_range_complete(struct vm_area_struct *vma,
+> >                              struct mmap_action *action);
+> > +int simple_ioremap_prepare(struct vm_area_desc *desc);
+> > +/* No simple_ioremap_complete, is ultimately handled by remap complete. */
+> >
+> >  static inline int io_remap_pfn_range_prepare(struct vm_area_desc *desc)
+> >  {
+> > diff --git a/mm/memory.c b/mm/memory.c
+> > index 9dec67a18116..f3f4046aee97 100644
+> > --- a/mm/memory.c
+> > +++ b/mm/memory.c
+> > @@ -3170,6 +3170,59 @@ int remap_pfn_range_complete(struct vm_area_struct *vma,
+> >         return do_remap_pfn_range(vma, start, pfn, size, prot);
+> >  }
+> >
+> > +static int __simple_ioremap_prep(unsigned long vm_start, unsigned long vm_end,
+>
+> nit: vm_start and vm_end are used only to calculate vm_len. You could
+> reduce the number of arguments by just passing vm_len.
 
-A GPIO driver only needs to follow its defined interface, whether that inte=
-rface is exposed=20
-via registers or via rpmsg. It doesn't need to know whether the backend imp=
-lementation is=20
-hardware or firmware, and stable firmware can behave just like hardened log=
-ic from the=20
-driver's perspective.
+Ack will fixup!
 
-> CPUs connected by rpmsg in a SoC is used by a number of vendors. Look in
-> Documentation/devicetree/bindings/remoteproc you see:
->=20
-> amlogic, fsl, ingenic, mtk, qcom, reneses, st, ti, wkup and xlnx.
->=20
-> We want one generic protocol/implementation of GPIO over rpmsg which all
+>
+> > +                                pgoff_t vm_pgoff, phys_addr_t start_phys,
+> > +                                unsigned long size, unsigned long *pfnp)
+> > +{
+> > +       const unsigned long vm_len = vm_end - vm_start;
+> > +       unsigned long pfn, pages;
+> > +
+> > +       /* Check that the physical memory area passed in looks valid */
+> > +       if (start_phys + size < start_phys)
+> > +               return -EINVAL;
+> > +       /*
+> > +        * You *really* shouldn't map things that aren't page-aligned,
+> > +        * but we've historically allowed it because IO memory might
+> > +        * just have smaller alignment.
+> > +        */
+> > +       size += start_phys & ~PAGE_MASK;
+> > +       pfn = start_phys >> PAGE_SHIFT;
+> > +       pages = (size + ~PAGE_MASK) >> PAGE_SHIFT;
+> > +       if (pfn + pages < pfn)
+> > +               return -EINVAL;
+> > +
+> > +       /* We start the mapping 'vm_pgoff' pages into the area */
+> > +       if (vm_pgoff > pages)
+> > +               return -EINVAL;
+> > +       pfn += vm_pgoff;
+> > +       pages -= vm_pgoff;
+> > +
+> > +       /* Can we fit all of the mapping? */
+> > +       if ((vm_len >> PAGE_SHIFT) > pages)
+> > +               return -EINVAL;
+> > +
+> > +       *pfnp = pfn;
+> > +       return 0;
+> > +}
+> > +
+> > +int simple_ioremap_prepare(struct vm_area_desc *desc)
+> > +{
+> > +       struct mmap_action *action = &desc->action;
+> > +       const phys_addr_t start = action->simple_ioremap.start_phys_addr;
+> > +       const unsigned long size = action->simple_ioremap.size;
+> > +       unsigned long pfn;
+> > +       int err;
+> > +
+> > +       err = __simple_ioremap_prep(desc->start, desc->end, desc->pgoff,
+> > +                                   start, size, &pfn);
+> > +       if (err)
+> > +               return err;
+> > +
+> > +       /* The I/O remap logic does the heavy lifting. */
+> > +       mmap_action_ioremap(desc, desc->start, pfn, vma_desc_size(desc));
+>
+> nit: Looks like a perfect opportunity to use mmap_action_ioremap_full() here.
 
-If you believe the current GPIO driver isn't generic, could you point to a =
-real example=20
-that shows where it doesn't fit?
+Yeah can do!
 
-Thanks,
-Shenwei=20
+>
+> > +       return mmap_action_prepare(desc);
+>
+> Ok, so IIUC this uses recursion:
+> mmap_action_prepare(MMAP_SIMPLE_IO_REMAP) -> simple_ioremap_prepare()
+> -> mmap_action_prepare(MMAP_IO_REMAP_PFN).
 
-> these vendors will use. That means we have one GPIO driver, not 10 driver=
-s to
-> maintain for the next 10-20 years. It also means those 10 vendors have 1/=
-10 of a
-> driver they need to maintain for the next 10-20 years. And likely less bu=
-gs to deal
-> with, since the driver is more heavily tested by 10 vendors, etc.
->=20
->      Andrew
+Yep, it's one level, I think that should be ok? :)
+
+>
+> > +}
+> > +
+> >  /**
+> >   * vm_iomap_memory - remap memory to userspace
+> >   * @vma: user vma to map to
+> > @@ -3187,32 +3240,16 @@ int remap_pfn_range_complete(struct vm_area_struct *vma,
+> >   */
+> >  int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long len)
+> >  {
+> > -       unsigned long vm_len, pfn, pages;
+> > -
+> > -       /* Check that the physical memory area passed in looks valid */
+> > -       if (start + len < start)
+> > -               return -EINVAL;
+> > -       /*
+> > -        * You *really* shouldn't map things that aren't page-aligned,
+> > -        * but we've historically allowed it because IO memory might
+> > -        * just have smaller alignment.
+> > -        */
+> > -       len += start & ~PAGE_MASK;
+> > -       pfn = start >> PAGE_SHIFT;
+> > -       pages = (len + ~PAGE_MASK) >> PAGE_SHIFT;
+> > -       if (pfn + pages < pfn)
+> > -               return -EINVAL;
+> > -
+> > -       /* We start the mapping 'vm_pgoff' pages into the area */
+> > -       if (vma->vm_pgoff > pages)
+> > -               return -EINVAL;
+> > -       pfn += vma->vm_pgoff;
+> > -       pages -= vma->vm_pgoff;
+> > +       const unsigned long vm_start = vma->vm_start;
+> > +       const unsigned long vm_end = vma->vm_end;
+> > +       const unsigned long vm_len = vm_end - vm_start;
+> > +       unsigned long pfn;
+> > +       int err;
+> >
+> > -       /* Can we fit all of the mapping? */
+> > -       vm_len = vma->vm_end - vma->vm_start;
+> > -       if (vm_len >> PAGE_SHIFT > pages)
+> > -               return -EINVAL;
+> > +       err = __simple_ioremap_prep(vm_start, vm_end, vma->vm_pgoff, start,
+> > +                                   len, &pfn);
+> > +       if (err)
+> > +               return err;
+> >
+> >         /* Ok, let it rip */
+> >         return io_remap_pfn_range(vma, vma->vm_start, pfn, vm_len, vma->vm_page_prot);
+> > diff --git a/mm/util.c b/mm/util.c
+> > index cdfba09e50d7..aa92e471afe1 100644
+> > --- a/mm/util.c
+> > +++ b/mm/util.c
+> > @@ -1390,6 +1390,8 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+> >                 return remap_pfn_range_prepare(desc);
+> >         case MMAP_IO_REMAP_PFN:
+> >                 return io_remap_pfn_range_prepare(desc);
+> > +       case MMAP_SIMPLE_IO_REMAP:
+> > +               return simple_ioremap_prepare(desc);
+> >         }
+> >
+> >         WARN_ON_ONCE(1);
+> > @@ -1421,6 +1423,14 @@ int mmap_action_complete(struct vm_area_struct *vma,
+> >         case MMAP_IO_REMAP_PFN:
+> >                 err = io_remap_pfn_range_complete(vma, action);
+> >                 break;
+> > +       case MMAP_SIMPLE_IO_REMAP:
+> > +               /*
+> > +                * The simple I/O remap should have been delegated to an I/O
+> > +                * remap.
+> > +                */
+> > +               WARN_ON_ONCE(1);
+> > +               err = -EINVAL;
+> > +               break;
+> >         }
+> >
+> >         return mmap_action_finish(vma, action, err);
+> > @@ -1434,6 +1444,7 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+> >                 break;
+> >         case MMAP_REMAP_PFN:
+> >         case MMAP_IO_REMAP_PFN:
+> > +       case MMAP_SIMPLE_IO_REMAP:
+> >                 WARN_ON_ONCE(1); /* nommu cannot handle these. */
+> >                 break;
+> >         }
+> > @@ -1452,6 +1463,7 @@ int mmap_action_complete(struct vm_area_struct *vma,
+> >                 break;
+> >         case MMAP_REMAP_PFN:
+> >         case MMAP_IO_REMAP_PFN:
+> > +       case MMAP_SIMPLE_IO_REMAP:
+> >                 WARN_ON_ONCE(1); /* nommu cannot handle this. */
+> >
+> >                 err = -EINVAL;
+> > diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+> > index 4570ec77f153..114daaef4f73 100644
+> > --- a/tools/testing/vma/include/dup.h
+> > +++ b/tools/testing/vma/include/dup.h
+> > @@ -453,6 +453,7 @@ enum mmap_action_type {
+> >         MMAP_NOTHING,           /* Mapping is complete, no further action. */
+> >         MMAP_REMAP_PFN,         /* Remap PFN range. */
+> >         MMAP_IO_REMAP_PFN,      /* I/O remap PFN range. */
+> > +       MMAP_SIMPLE_IO_REMAP,   /* I/O remap with guardrails. */
+> >  };
+> >> >  /*
+> > @@ -461,13 +462,16 @@ enum mmap_action_type {
+> >   */
+> >  struct mmap_action {
+> >         union {
+> > -               /* Remap range. */
+> >                 struct {
+> >                         unsigned long start;
+> >                         unsigned long start_pfn;
+> >                         unsigned long size;
+> >                         pgprot_t pgprot;
+> >                 } remap;
+> > +               struct {
+> > +                       phys_addr_t start;
+> > +                       unsigned long len;
+> > +               } simple_ioremap;
+> >         };
+> >         enum mmap_action_type type;
+> >
+> > --
+> > 2.53.0
+> >
+
+Cheers, Lorenzo
 
