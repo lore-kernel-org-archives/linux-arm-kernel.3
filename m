@@ -4,139 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F6B103E179
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A06F103E17A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PfoCRTNpUnFauSN80wf65y7qTKNwSR4drCUs6Tp6j2s=; b=Ep78hq+/e894xUdVFhKf7qJK6D
-	F6gdMkyBKcJQvFnwKQF3PIGV25LH1Tq/tlRT7EJUaWIehVnh5lj+CtRdiQstL5PmUpSrQfbuKpCbX
-	LP8ViWE4bi3AGyvryPiYdFcR8g77l9XC+66i4EYJ7uR+KkZetkodnDGJQfJZl0p8RHPgNQTZ4loI9
-	uvEIClHAI7e1jdO5PHlKGTe6v/2ssCQyoL8Y/W0GG421AXFN8aQDnwg+06kM5TsIah9T0QIoMmFeL
-	+mlwgRJINaneWZioJy5aacRMnDFGsRDpTP3058YuhexJfxtpx1yaMud015G2uiWu4gyTfzzVyrlR5
-	S8Ox1a2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4cRTPXIDXeRbA8xSubn1Fj9elMcqaagr0vjKi+iWRA8=; b=FtYZGMaQZeWaUPx0fyI7fD57AM
+	TsgQ9R5TbeQz60OZTeBaPO6YdPs5uvGBU19hJQ7x2f5JDc3l2yUsbQiGOEMXWs5X1h0FEtVe8Qumy
+	vagBGTLeJZLBA4pHotsnSbYeT7XQTzA5NgBIGI5c1qMhjNKJOvriIxGAYRp0IlWDAZtAiD6GHJDF1
+	BOd+8B39QVU9QxJnOs76kKXUOAWkp/+V4i37gdqu3ORJUVxGKrIWzoiOWpF9Ux6GOGFr1/AZY/NPD
+	ubdHhpvlvC7BBuaPYYAJrSQZm1RQidhLD0ATLcAmUt2KqkOzVy7LB36ysAmZSyEJ9/NZTYg/cwYwm
+	c8Dz1KEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2r9r-00000008V4N-1q9B;
-	Wed, 18 Mar 2026 13:41:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w2rAs-00000008VCx-1ojP;
+	Wed, 18 Mar 2026 13:43:02 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2r9o-00000008V40-3Ehy
+	id 1w2rAq-00000008VC7-29ii
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 13:41:58 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62ICUHJJ2878103
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:41:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PfoCRTNpUnFauSN80wf65y7qTKNwSR4drCUs6Tp6j2s=; b=KYeCxVwPeDw+fLv/
-	W6weo2e9OG0kmxU39uouDwcZ3FA7ocDlGfOwbbi4xuYJqzI1A1YqgpmEHmN4aXTy
-	o/ay/uJPud3DeIAE4Ogbd5B/DanEBMaeCcTIniM3tgXqQmNjiSv43kAjBct2mKpi
-	n7rfU10FLN+6E1dJyqbvhzLg2GDsEt8NwBrZdYOaGY5KGvliM7CoIh99xbptEQyD
-	+8+iy8JGa5DvC3l/Bz6anZ6M+y2RflcZ3GQyx5HAFuhNGeqMT56vPv51LOJMRvnD
-	N9KnRytffUfinxGCLcQiAbEnrKWNX7K1WDBBHjWARCM00w+qbBJ98YH4jrF8rqxh
-	43fbVQ==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cypwr1psy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:41:56 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c73c065dd15so3738483a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 06:41:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773841316; x=1774446116; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PfoCRTNpUnFauSN80wf65y7qTKNwSR4drCUs6Tp6j2s=;
-        b=P+Ed3/9OcM5/+qMc8o8pMPxE8/QQZQdhk2mrr8oQnFjEX58GxJbN2zG+1e5XA8VEIO
-         PeTmZG+FTP2HJH3C89JRj7mP5Rl3/QWxqpDG8ZAHFsOcb258oOVNmfvoqUYqZlkI82eM
-         fsGqUITr3QONropAIZJLqxJdcOQ9Z8x/+ISBxRDmSnobG1LyW/FX87rOPtEHk3FPwesq
-         sk7Xqm+ThBPBexeDMz2nE277ziV160DQ3wEe14m+O2TOPYV7PHbNPQUziMF/gyXPq1E6
-         IJ0TfUry7R2jDSs59iuwTFXsi0WAU6ocZo4p6etmcLIAUsAH52f4IOmafOqT5zJr78Sc
-         rJyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773841316; x=1774446116;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PfoCRTNpUnFauSN80wf65y7qTKNwSR4drCUs6Tp6j2s=;
-        b=VXON/FS2B+lW9IZIHTfZph10FVwarL0Qq7bXIz04Yd+9ziVE8GbS2hNg+vcaPySZCZ
-         5kYuPrmag1n2fzm2S/OYdRsiS5sctlHBiBFHeyNdcIuNtDIZlcpD1/O8NlJyL8Q9ruJ6
-         HVjH0AL1Uo4n4rID2pseZufTPhXy2eADh93D6ZTsiWCTDi1tW+IZ5TdOwE98j3rvpk19
-         Xe3Kh6UpGeI8Qqn1EcjnVwXa4sI67vAN+az359xdkwfmVjP8HiUHuaE8kZ2alQHFwEcJ
-         QwL342PVAawfo8uof4y+/SoXy3QnK+L+q5Axpp9kU21t+edPmrfIPsrOD3V10kfoOkvB
-         iNeA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/jaZqIYvmWgpIr4R3tIru6j7XkSwYo9m+mcEeZ9qhpRngO11vu7qfWK6EU/iZofgCCxqx2TEsni91I5ticDK7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkSdm46IVgRRihfwuiYHTW0boSappDIGkaeXXzF92uuxD0zEqc
-	688x8n+lgvLc9I3OQZJO9caa/EcFsOajuUYhqpzTCzJlooIOTteW66nohLyaG+XZIJbPp/SxGlB
-	1AKC9cyCzntXdzj6pe9aaYgxs3YSHTjiDP+sLfc0Gi2JWPm1Enc1MbHb40J9R76aqOOVm270egE
-	mFdA==
-X-Gm-Gg: ATEYQzw1XtSHGjA+3jFTt8ibcD5Rg6ld1GV6fERgpvI0ERI24314uOmdO1ZZ3xXpZmf
-	DKAHyDDM658IEAHE6GT4iFI0jtTtnEVEVoC6+X4+pJJcUra2h9joLIbc6Knf43q4lCJi9wCXD2h
-	EzuufQuc72xA8LKtd1VcDfH5pujNx9zhY+9/ynR/ggAP6UR6SwhLgX0szqAJiaf6Y8hW1jWOcq0
-	R7tZakU5VHEmw4RPkltKtaUf0WLOIXRcSW9y84bG1ayGVXvpgNVKU6ifs9qBfmVX6vIBqfGxJ6l
-	ZP+fjUoATwhGIcX5864/FkeN7hxibkbfa2HnR1tzt56bWyNsYZVg+rKgjlHs/t7A1ALp5jegnyM
-	Ahg1Tec082i55xXhM5csv7s2Hbxrq/5cXxdIXdDPT1IC2GdlcZWrNtcvRoCahZM8sPJZL50aWvw
-	Ehil1ERVME/WY=
-X-Received: by 2002:a05:6a00:6d48:10b0:82a:6de8:fa51 with SMTP id d2e1a72fcca58-82a6de8fd24mr2003742b3a.17.1773841315468;
-        Wed, 18 Mar 2026 06:41:55 -0700 (PDT)
-X-Received: by 2002:a05:6a00:6d48:10b0:82a:6de8:fa51 with SMTP id d2e1a72fcca58-82a6de8fd24mr2003712b3a.17.1773841314828;
-        Wed, 18 Mar 2026 06:41:54 -0700 (PDT)
-Received: from [10.133.33.163] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a6b56791csm2818720b3a.15.2026.03.18.06.41.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2026 06:41:54 -0700 (PDT)
-Message-ID: <f21915f6-f5b9-46c3-817e-dc47d7d0cd7d@oss.qualcomm.com>
-Date: Wed, 18 Mar 2026 21:41:49 +0800
+	Wed, 18 Mar 2026 13:43:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeC+BPVj4BgpUfUQH+TxAd6a3654gz/2IH9wpwZksUH6hVJHVsNX24S40iJpvUHdrRYHiy21LEbQebpBkjnW/YYiBkYHMSyf3T+Iw3WfFghiDVRjs/7ho4EnKpVl5lokgvfVXgt74gPtp/wEKWp03cFvBF5g3EkRep4rQCkkgJnwrM7gtdUxOT6Cnd71Yq0GgHxrUdAwLggHIud+0Naeef/8UvJNSoucckMKQBxcABJWO6MhxDeVqFOA+XNBiIuZdWsX7swPVUuLqS/KNqSPzjM09Js9h+uEL3BPSQsk4hHav8Z7OKzLBu6shn7WRAQFFKYzXuXieCV+Fw/1fdoHRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4cRTPXIDXeRbA8xSubn1Fj9elMcqaagr0vjKi+iWRA8=;
+ b=vpSqAoK0WSt/sp4S49iCwn7k2TRa0urryuYn2yv/kPkAnxT1xIHwDnGmrfvu1BYiRPy/yAEHi64eHQ6L2S+DxzKJQcGYjxVGlWR2y1iVOuNZR9rZtgCqCd8lwHRxB05cq5UdIqX1RDD9UNn3fle3KxQr4KwVwTWzTwjvmXt0geYaE49WOwRTVZYj6v2fPNJcIkqKlbXvkG7tWejg0B1ABT5KQzbhkXPyyPQTfUIX9e/BqyPcPBmgibBHwwkLSYeSP190tuCqlLdkF4dMqx3B9aNigbK0/SKLwHhQP6XK6L9AKahuk0OXRdqIivyYOmrBDzgcMOKHkGH2L0WNSjYJnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4cRTPXIDXeRbA8xSubn1Fj9elMcqaagr0vjKi+iWRA8=;
+ b=F9+0YevGg2pc1E3FFyCazBsoaibQf2DQvRYHfEPoIyAqHaE1izWv7abOfiIy0InL9SsQNHQzNhTzedBi2veVQqDMlYPZJq202bl2ejxVwPErq9UfejP0VQakPHu4RDUJWxdDcW4F0o0/evCGSnpAxW/Ufd0tbDMGkYbt4IiL1NHdiWTnqmsZY8tpsZqqftnXJ7rVNqAViiNScCDE0b93PT4VN7ABssY3E6VNVdPNxmQfrCE6r2svGMFQhcgIf3LDbk2GqEfS28ecdAP2VR63hvO+5sZbrTEBCXlALRbESCIgicUSBtrt68RmZC+45pm32GVPjXp2T239+cmOma6KYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10631.eurprd04.prod.outlook.com (2603:10a6:150:202::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 13:42:50 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.021; Wed, 18 Mar 2026
+ 13:42:53 +0000
+Date: Wed, 18 Mar 2026 09:42:45 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Joseph Guo <qijian.guo@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, xinyu.chen@nxp.com,
+	qijian.guo@oss.nxp.com, justin.jiang@nxp.com
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add i.MX95 19x19 FRDM PRO
+ board dts
+Message-ID: <abqr1UyYmPGQlL2J@lizhi-Precision-Tower-5810>
+References: <20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com>
+ <20260318-imx95_frdm_pro-v1-2-8c00e59f0b1b@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260318-imx95_frdm_pro-v1-2-8c00e59f0b1b@nxp.com>
+X-ClientProxiedBy: SN7PR04CA0164.namprd04.prod.outlook.com
+ (2603:10b6:806:125::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/7] qcom-tgu: Add signal priority support
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260317032639.2393221-1-songwei.chai@oss.qualcomm.com>
- <20260317032639.2393221-4-songwei.chai@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260317032639.2393221-4-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=bIcb4f+Z c=1 sm=1 tr=0 ts=69baaba4 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=LT1vS62KlavBGuHhILsA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-ORIG-GUID: gSkZ6z5R0lw7Yoz2JZtghUEdYpPM9sKq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE4MDExNiBTYWx0ZWRfXwfGEPU7hEpqQ
- jqLwBR8BbLDxpU/1Z9zlHTeQ0AXfuLZaRcbYjGYfaLi3+X2hE6jIRsJEKWnnTVy4OjcuhU+d+FQ
- l+qdT8xTisQSbCNvOhJaLzEPMgfJcZ97Q3C+RqmTS1RO8VFt5JRZ9mdevKo2+C1TWqPRD1S3Emu
- hfBmY3jdOapuni4zK0Q8aVajb2sjxmf7JitVJOYkCDSmnlBHsl/QRale6rzOWvdfRfnsg34m4Mj
- 8VVnhSCy8h2nfA6hu7iCr6Urqz2Iop+Jm7EyV/hdTCRH0sqpDDphM3yK4uowKOpU+8pHG+0GVMt
- UXRdbgYbaAF3F9izi84vtDpj/trJ1k8g/Z6q+JpRskz1R1aM5qlzzILO4bGKev38H7PnFnzWNmL
- N6TgYdKZ3EFz/LQuZLNYY4heyjLwD25UV4BbszBS8yPbNom0I3MBWDoqdjt1AUOOVZcROrn5MKN
- KYk5G7yzJEHlZRWUgnw==
-X-Proofpoint-GUID: gSkZ6z5R0lw7Yoz2JZtghUEdYpPM9sKq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-18_01,2026-03-17_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
- clxscore=1015 priorityscore=1501 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603180116
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10631:EE_
+X-MS-Office365-Filtering-Correlation-Id: c602821c-336e-4bb0-bf43-08de84f440d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|56012099003|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: 7/BVp49rWgUflNqGeky7mB4tYiYz463vd4LCof8C4swaMnt7ycllvLCKERvacxbrpE/oIRHJgiN2ifUceegVT56U6hchcLOtxWvBsLjt978byiT1WMY6DU8VF50pH+Lq0FBHTixLCN1kA+Dx0JoLd8iuz2fofr2nZay7/iNnKfFzb9iECT9GXm5L4ywPNKmIh/kLzRveV7JrV1+fb0nh/BAMEx2B3zOLFFHCIahEanolYx0POkBHlOrMKWdiv7feRxepcWKUyCDGOm3daaIi8YLAG8kxFIW/8f97yau9t3f5tynPXahKj0VWl8UbqST8OZF3GtIpvbQLP/yihfe4EKmQs+UxwUmnaO2WKH2VMjYZUvUpZXbUu/dWn1luliLvmfEV5vFR2kixcKmsl5N3MWazs4n/DEsQ6SgILkXB5KIaCMlrs2eaK395OoV0/1jKutBD6fMumKL4AxYzu91LpInZauVoDv3TSIrZVz1KFw02FlvoYUh2F5G47mTHVozVyElz+6UKKcGmj0P+UGP3qmdq4uEn02BDzlIGfiiHmgMXCD15TGLDBk6RpyGx+n3hUtqCIM/er83T74aMn9QjE0ZfMkR1jkb5D4Tz4KrRUfCaIH8C8GM7GmKykyy0zxyFAD7N2g0Jws61JafHADuIze600fw1hRV8X+G8Dk2sMvlpbHa9Sb1pdWN0uEFTeM0wKro51MJbqpatVDDAsVxje/LcHxrjOgI7yWPTnZhVh+hYQpm3QWlR9Z1nyeBjlAAx/7RFwkS7DivIfJI9dUW2oIMNhhbYESlouToEY/N0zt4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rmuW85hQj/0lSoGmydK0Ukh1dnEUSurubGfUYaEWnIZ8m3CSUk9/dCfMo0i0?=
+ =?us-ascii?Q?85UfXDz3ohUYAjz2H16RpOAdYrcE9vLdO4NPhl1GBZB2dsVh1dT7mgRyqYXO?=
+ =?us-ascii?Q?FOK7OnuWClcveonf+AXHl/S29o8+q3NByiu8LKpYlg1kClZWps0AjGOESDPp?=
+ =?us-ascii?Q?3kiPF5VQJVA/72Pfcj+YoBjlgJ5585cFkbycLlNeoQe7cqF7mM1QI0VYwgBz?=
+ =?us-ascii?Q?WP9nQ9MQ3qrFJY7oN1SRLVLagluNkIGhsj+tAj41wTm8WLkKFSimqBl/JGHj?=
+ =?us-ascii?Q?QGvfT8Uix0MKrK3t+7XZDiMhXI2vFcYnMQeuX8d3AJ9tg1uFwaUOBZtFMINH?=
+ =?us-ascii?Q?xJ8DUCax8ELfrm3/kAI8eGT/tc6xtFawDuLSswQULXp5ZWwFBW2OaZYqZwML?=
+ =?us-ascii?Q?4/it0fUUeQQIFEAp9/+Ab3MKJf6k5WKjSsTG/zX8gEnjeMkehULtLW5rmlaS?=
+ =?us-ascii?Q?f9uXjEcwk6pBPHViBSuuic6Ms0eynfpIUUVm4ZAzB2CE7/DVFcwyO0Ici6aT?=
+ =?us-ascii?Q?kjautAeECV6ce314xA/OTpzNQUrBg28Za6rh9E1V/1Qn99Rf6IA6TKiqhBcK?=
+ =?us-ascii?Q?INPZg1CiXnMCcZwqCo5PvR8QUrYlGjCmQVQ920xxhPMN1SmDSuWUt7R94tvp?=
+ =?us-ascii?Q?7C206fh0hKM4RR6XIr4mmTXvVjdnEKEIK0Kbj9JRrTz4Oxu14o45RHnCfFcZ?=
+ =?us-ascii?Q?23W0oMNAxDGWmBEktcW55pqAJ/aV+k3lbs29DsV+mHq2+vQJZ0XFVA748Sw5?=
+ =?us-ascii?Q?2kxZ/wNu2B8pZOAA9OzdWGRyw/lj1MuWS/Xk3BIRXW23LXfQcfu+EGWngcni?=
+ =?us-ascii?Q?DiBitSw1uEmsmoUzuVAZmyCz3AoO1j7HYYMhdWr7wb8FGIAvlavaCVQD3dgB?=
+ =?us-ascii?Q?DxTXP3RuacVqpHx2uLqN4prFFwKGnLWPVyyU0osaeedLQUuy4TPxiRKr23Fk?=
+ =?us-ascii?Q?MPEoV/yZvhbklDDigir0XLfrUEjASx/PGFDiUr2Q6X3j3Upi4hRiwkswL11I?=
+ =?us-ascii?Q?yptyoyKgIyfuWG9bML+rhB+G0vsB4G0Yk3VK9P2NJ+TXTUnF63I6CuJvYFW8?=
+ =?us-ascii?Q?oO/oJ2r3aXrNGWTAM+STRwGjVOW/IQD4Fl5+TBkIefiO6WsYJHrVksBE3c4X?=
+ =?us-ascii?Q?4O757OABlu6vfRL3LEvIwDE59f5XSG/frXqk1oaM/WE3YODApvK1Mz992cXK?=
+ =?us-ascii?Q?KmvPzmohaDo39pn1HIK/ry6io3/+R2hHOjBfVLKJ4MoDA9baWqe7E5t2lTL1?=
+ =?us-ascii?Q?Rjbdw4JJEa+E+KpGk91wFBfUJXwzIM84RUa2Tx1pRcZ4xtMfzGZtwK2nZ44L?=
+ =?us-ascii?Q?ZOMCFCuprRI9Jyj9Kr8B0OT4SCNxwBqRm2+3PpkeEzMtMscPnVvUuYv2TPPL?=
+ =?us-ascii?Q?BeG3rDrMTFel8+s2uYVkzDzd5K/2xVIFprLtIpd7rxFcSIc9i1i9BmrpT7VC?=
+ =?us-ascii?Q?OR5rwrcMG23reBX0ZDcCCiiy5WBeR0eDzEMty6HaJd22LViIlUVTU/atg0sg?=
+ =?us-ascii?Q?bywYVG4rJGanV+XLFNnSbKDNwLbDHQenm5a0yJvho1HYh/tEkhZZJE7XnPda?=
+ =?us-ascii?Q?VLYgw58uPiaXHq3pJHhvNBocQ0gn7MJljCF5HmW/zVI09FrxI87a+CrgMyo1?=
+ =?us-ascii?Q?LA+LrYo7MvUcWwQGEmmj+aRQ/iH1VY6MaYQ99ZEvmujGwy4mdFIk5fIShu40?=
+ =?us-ascii?Q?mHk53QARsnp2ypnlpEL9Ebggq3fOrMxtgFbqauU+ZOKMc92wsp4aylrOE2mf?=
+ =?us-ascii?Q?ApTyBmehVQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c602821c-336e-4bb0-bf43-08de84f440d0
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 13:42:53.0373
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 02Zdq2eL9muWywQXEvXtU6FfmChibnIuy1LfJPnW2P3elgvGzf/x23DLKU8FYmD0fxfVho7XX3VefyxImF+nuw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10631
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_064156_824454_07CCF7E7 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20260318_064300_569222_9A7B7957 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,387 +142,873 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/17/2026 11:26 AM, Songwei Chai wrote:
-> Like circuit of a Logic analyzer, in TGU, the requirement could be
-> configured in each step and the trigger will be created once the
-> requirements are met. Add priority functionality here to sort the
-> signals into different priorities. The signal which is wanted could
-> be configured in each step's priority node, the larger number means
-> the higher priority and the signal with higher priority will be sensed
-> more preferentially.
-> 
-
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+On Wed, Mar 18, 2026 at 05:04:03PM +0900, Joseph Guo wrote:
+> NXP i.MX95 19x19 FRDM PRO is cost-effective with extensive
+> expansion capabilities based on the i.MX95 19x19 SoC.
+>
+> Add device tree for this board. Including:
+> - LPUART1 and LPUART5
+> - NETC
+> - USB
+> - 2 M-Key M.2 PCIe
+> - uSDHC1, uSDHC2 and uSDHC3
+> - FlexCAN1 and FlexCAN3
+> - LPI2C3, LPI2C4 and their child nodes
+> - Watchdog3
+> - SAI, MQS, MICFIL
+>
+> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
 > ---
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   7 +
->   drivers/hwtracing/qcom/tgu.c                  | 161 ++++++++++++++++++
->   drivers/hwtracing/qcom/tgu.h                  | 114 +++++++++++++
->   3 files changed, 282 insertions(+)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> index ead237bb7d89..a1dfcd366d92 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> @@ -7,3 +7,10 @@ Description:
->   		Accepts only one of the 2 values -  0 or 1.
->   		0 : disable TGU.
->   		1 : enable TGU.
+>  .../boot/dts/freescale/imx95-19x19-frdm-pro.dts    | 1012 ++++++++++++++++++++
+>  1 file changed, 1012 insertions(+)
+>
 > +
-> +What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_priority[0:3]/reg[0:17]
-> +Date:		March 2026
-> +KernelVersion	7.1
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-> +Description:
-> +		(RW) Set/Get the sensed signal with specific step and priority for TGU.
-> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-> index 58c19f12f3d7..14d6ad410d89 100644
-> --- a/drivers/hwtracing/qcom/tgu.c
-> +++ b/drivers/hwtracing/qcom/tgu.c
-> @@ -14,14 +14,123 @@
->   
->   #include "tgu.h"
->   
-> +static int calculate_array_location(struct tgu_drvdata *drvdata,
-> +				    int step_index, int operation_index,
-> +				    int reg_index)
-> +{
-> +	return operation_index * (drvdata->num_step) * (drvdata->num_reg) +
-> +		step_index * (drvdata->num_reg) + reg_index;
-> +}
+> +	reg_usb_vbus: regulator-vbus {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "USB_VBUS";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		gpio = <&i2c4_gpio_expander_22 0 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
 > +
-> +static ssize_t tgu_dataset_show(struct device *dev,
-> +				struct device_attribute *attr, char *buf)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	struct tgu_attribute *tgu_attr =
-> +			container_of(attr, struct tgu_attribute, attr);
-> +	int index;
-> +
-> +	index = calculate_array_location(drvdata, tgu_attr->step_index,
-> +					 tgu_attr->operation_index,
-> +					 tgu_attr->reg_num);
-> +
-> +	return sysfs_emit(buf, "0x%x\n",
-> +			  drvdata->value_table->priority[index]);
-> +}
-> +
-> +static ssize_t tgu_dataset_store(struct device *dev,
-> +				 struct device_attribute *attr,
-> +				 const char *buf, size_t size)
-> +{
-> +	struct tgu_drvdata *tgu_drvdata = dev_get_drvdata(dev);
-> +	struct tgu_attribute *tgu_attr =
-> +		container_of(attr, struct tgu_attribute, attr);
-> +	unsigned long val;
-> +	int index;
-> +	int ret;
-> +
-> +	ret = kstrtoul(buf, 0, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	guard(spinlock)(&tgu_drvdata->lock);
-> +	index = calculate_array_location(tgu_drvdata, tgu_attr->step_index,
-> +					 tgu_attr->operation_index,
-> +					 tgu_attr->reg_num);
-> +
-> +	tgu_drvdata->value_table->priority[index] = val;
-> +
-> +	return size;
-> +}
-> +
-> +static umode_t tgu_node_visible(struct kobject *kobject,
-> +				struct attribute *attr,
-> +				int n)
-> +{
-> +	struct device *dev = kobj_to_dev(kobject);
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	struct device_attribute *dev_attr =
-> +		container_of(attr, struct device_attribute, attr);
-> +	struct tgu_attribute *tgu_attr =
-> +		container_of(dev_attr, struct tgu_attribute, attr);
-> +
-> +	if (tgu_attr->step_index >= drvdata->num_step)
-> +		return SYSFS_GROUP_INVISIBLE;
-> +
-> +	if (tgu_attr->reg_num >= drvdata->num_reg)
-> +		return 0;
-> +
-> +	return attr->mode;
-> +}
-> +
->   static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
->   {
-> +	int i, j, k, index;
-> +
->   	TGU_UNLOCK(drvdata->base);
-> +	for (i = 0; i < drvdata->num_step; i++) {
-> +		for (j = 0; j < MAX_PRIORITY; j++) {
-> +			for (k = 0; k < drvdata->num_reg; k++) {
-> +				index = calculate_array_location(
-> +							drvdata, i, j, k);
-> +
-> +				writel(drvdata->value_table->priority[index],
-> +					drvdata->base +
-> +					PRIORITY_REG_STEP(i, j, k));
-> +			}
-> +		}
-> +	}
->   	/* Enable TGU to program the triggers */
->   	writel(1, drvdata->base + TGU_CONTROL);
->   	TGU_LOCK(drvdata->base);
->   }
->   
-> +static void tgu_set_reg_number(struct tgu_drvdata *drvdata)
-> +{
-> +	int num_sense_input;
-> +	int num_reg;
-> +	u32 devid;
-> +
-> +	devid = readl(drvdata->base + TGU_DEVID);
-> +
-> +	num_sense_input = TGU_DEVID_SENSE_INPUT(devid);
-> +	num_reg = (num_sense_input * TGU_BITS_PER_SIGNAL) / LENGTH_REGISTER;
-> +
-> +	if ((num_sense_input * TGU_BITS_PER_SIGNAL) % LENGTH_REGISTER)
-> +		num_reg++;
-> +
-> +	drvdata->num_reg = num_reg;
-> +}
-> +
-> +static void tgu_set_steps(struct tgu_drvdata *drvdata)
-> +{
-> +	u32 devid;
-> +
-> +	devid = readl(drvdata->base + TGU_DEVID);
-> +
-> +	drvdata->num_step = TGU_DEVID_STEPS(devid);
-> +}
-> +
->   static int tgu_enable(struct device *dev)
->   {
->   	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> @@ -111,6 +220,38 @@ static const struct attribute_group tgu_common_grp = {
->   
->   static const struct attribute_group *tgu_attr_groups[] = {
->   	&tgu_common_grp,
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 3),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 0),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 1),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 2),
-> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 3),
->   	NULL,
->   };
->   
-> @@ -118,6 +259,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
->   {
->   	struct device *dev = &adev->dev;
->   	struct tgu_drvdata *drvdata;
-> +	unsigned int *priority;
-> +	size_t priority_size;
->   	int ret;
->   
->   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> @@ -133,12 +276,30 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
->   
->   	spin_lock_init(&drvdata->lock);
->   
-> +	tgu_set_reg_number(drvdata);
-> +	tgu_set_steps(drvdata);
-> +
->   	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
->   	if (ret) {
->   		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
->   		return ret;
->   	}
->   
-> +	drvdata->value_table =
-> +		devm_kzalloc(dev, sizeof(*drvdata->value_table), GFP_KERNEL);
-> +	if (!drvdata->value_table)
-> +		return -ENOMEM;
-> +
-> +	priority_size = MAX_PRIORITY * drvdata->num_reg * drvdata->num_step;
-> +
-> +	priority = devm_kcalloc(dev, priority_size,
-> +				sizeof(*drvdata->value_table->priority),
-> +				GFP_KERNEL);
-> +	if (!priority)
-> +		return -ENOMEM;
-> +
-> +	drvdata->value_table->priority = priority;
-> +
->   	drvdata->enabled = false;
->   
->   	pm_runtime_put(&adev->dev);
-> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-> index dd7533b9d735..df570c89ffd7 100644
-> --- a/drivers/hwtracing/qcom/tgu.h
-> +++ b/drivers/hwtracing/qcom/tgu.h
-> @@ -10,6 +10,114 @@
->   #define TGU_CONTROL		0x0000
->   #define TGU_LAR		0xfb0
->   #define TGU_UNLOCK_OFFSET	0xc5acce55
-> +#define TGU_DEVID		0xfc8
-> +
-> +#define TGU_DEVID_SENSE_INPUT(devid_val) \
-> +	((int)FIELD_GET(GENMASK(17, 10), devid_val))
-> +#define TGU_DEVID_STEPS(devid_val) \
-> +	((int)FIELD_GET(GENMASK(6, 3), devid_val))
-> +#define TGU_BITS_PER_SIGNAL 4
-> +#define LENGTH_REGISTER 32
-> +
-> +/*
-> + *  TGU configuration space                              Step configuration
-> + *  offset table                                         space layout
-> + * x-------------------------x$                          x-------------x$
-> + * |                         |$                          |             |$
-> + * |                         |                           |   reserve   |$
-> + * |                         |                           |             |$
-> + * |coresight management     |                           |-------------|base+n*0x1D8+0x1F4$
-> + * |     registe             |                     |---> |prioroty[3]  |$
-> + * |                         |                     |     |-------------|base+n*0x1D8+0x194$
-> + * |                         |                     |     |prioroty[2]  |$
-> + * |-------------------------|                     |     |-------------|base+n*0x1D8+0x134$
-> + * |                         |                     |     |prioroty[1]  |$
-> + * |         step[7]         |                     |     |-------------|base+n*0x1D8+0xD4$
-> + * |-------------------------|->base+0x40+7*0x1D8  |     |prioroty[0]  |$
-> + * |                         |                     |     |-------------|base+n*0x1D8+0x74$
-> + * |         ...             |                     |     |  condition  |$
-> + * |                         |                     |     |   select    |$
-> + * |-------------------------|->base+0x40+1*0x1D8  |     |-------------|base+n*0x1D8+0x60$
-> + * |                         |                     |     |  condition  |$
-> + * |         step[0]         |-------------------->      |   decode    |$
-> + * |-------------------------|-> base+0x40               |-------------|base+n*0x1D8+0x50$
-> + * |                         |                           |             |$
-> + * | Control and status space|                           |Timer/Counter|$
-> + * |        space            |                           |             |$
-> + * x-------------------------x->base                     x-------------x base+n*0x1D8+0x40$
-> + *
-> + */
-> +#define STEP_OFFSET 0x1D8
-> +#define PRIORITY_START_OFFSET 0x0074
-> +#define PRIORITY_OFFSET 0x60
-> +#define REG_OFFSET 0x4
-> +
-> +/* Calculate compare step addresses */
-> +#define PRIORITY_REG_STEP(step, priority, reg)\
-> +	(PRIORITY_START_OFFSET + PRIORITY_OFFSET * priority +\
-> +	 REG_OFFSET * reg + STEP_OFFSET * step)
-> +
-> +#define tgu_dataset_rw(name, step_index, type, reg_num)                  \
-> +	(&((struct tgu_attribute[]){ {                                   \
-> +		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
-> +		step_index,                                              \
-> +		type,                                                    \
-> +		reg_num,                                                 \
-> +	} })[0].attr.attr)
-> +
-> +#define STEP_PRIORITY(step_index, reg_num, priority)                     \
-> +	tgu_dataset_rw(reg##reg_num, step_index, TGU_PRIORITY##priority, \
-> +			reg_num)
-> +
-> +#define STEP_PRIORITY_LIST(step_index, priority) \
-> +	{STEP_PRIORITY(step_index, 0, priority), \
-> +	 STEP_PRIORITY(step_index, 1, priority),  \
-> +	 STEP_PRIORITY(step_index, 2, priority),	 \
-> +	 STEP_PRIORITY(step_index, 3, priority),  \
-> +	 STEP_PRIORITY(step_index, 4, priority),  \
-> +	 STEP_PRIORITY(step_index, 5, priority),  \
-> +	 STEP_PRIORITY(step_index, 6, priority),  \
-> +	 STEP_PRIORITY(step_index, 7, priority),  \
-> +	 STEP_PRIORITY(step_index, 8, priority),  \
-> +	 STEP_PRIORITY(step_index, 9, priority),  \
-> +	 STEP_PRIORITY(step_index, 10, priority), \
-> +	 STEP_PRIORITY(step_index, 11, priority), \
-> +	 STEP_PRIORITY(step_index, 12, priority), \
-> +	 STEP_PRIORITY(step_index, 13, priority), \
-> +	 STEP_PRIORITY(step_index, 14, priority), \
-> +	 STEP_PRIORITY(step_index, 15, priority), \
-> +	 STEP_PRIORITY(step_index, 16, priority), \
-> +	 STEP_PRIORITY(step_index, 17, priority), \
-> +	 NULL                   \
-> +	}
-> +
-> +#define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
-> +	(&(const struct attribute_group){\
-> +		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-> +		.is_visible = tgu_node_visible,\
-> +		.name = "step" #step "_priority" #priority \
-> +	})
-> +
-> +enum operation_index {
-> +	TGU_PRIORITY0,
-> +	TGU_PRIORITY1,
-> +	TGU_PRIORITY2,
-> +	TGU_PRIORITY3,
-> +};
-> +
-> +/* Maximum priority that TGU supports */
-> +#define MAX_PRIORITY 4
-> +
-> +struct tgu_attribute {
-> +	struct device_attribute attr;
-> +	u32 step_index;
-> +	enum operation_index operation_index;
-> +	u32 reg_num;
-> +};
-> +
-> +struct value_table {
-> +	unsigned int *priority;
-> +};
->   
->   static inline void TGU_LOCK(void __iomem *addr)
->   {
-> @@ -35,6 +143,9 @@ static inline void TGU_UNLOCK(void __iomem *addr)
->    * @dev: Pointer to the associated device structure
->    * @lock: Spinlock for handling concurrent access to private data
->    * @enabled: Flag indicating whether the TGU device is enabled
-> + * @value_table: Store given value based on relevant parameters
-> + * @num_reg: Maximum number of registers
-> + * @num_step: Maximum step size
->    *
->    * This structure defines the data associated with a TGU device,
->    * including its base address, device pointers, clock, spinlock for
-> @@ -46,6 +157,9 @@ struct tgu_drvdata {
->   	struct device *dev;
->   	spinlock_t lock;
->   	bool enabled;
-> +	struct value_table *value_table;
-> +	int num_reg;
-> +	int num_step;
->   };
->   
->   #endif
+> +	usdhc3_pwrseq: usdhc3_pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&i2c4_gpio_expander_22 9 GPIO_ACTIVE_LOW>;
+> +	};
 
+Please run https://github.com/lznuaa/dt-format for new dts file to keep
+node nice order.
+
+Frank
+> +
+> +	reg_usdhc3_vmmc: regulator-usdhc3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "WLAN_EN";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&reg_m2_ekey_pwr>;
+> +		gpio = <&i2c4_gpio_expander_22 8 GPIO_ACTIVE_HIGH>;
+> +		/*
+> +		 * IW612 wifi chip needs more delay than other wifi chips to complete
+> +		 * the host interface initialization after power up, otherwise the
+> +		 * internal state of IW612 may be unstable, resulting in the failure of
+> +		 * the SDIO3.0 switch voltage.
+> +		 */
+> +		startup-delay-us = <20000>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_m2_ekey_pwr: regulator-m2-pwr {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "M.2-power-ekey";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&i2c4_gpio_expander_22 7 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_m2_mkey_1_pwr: regulator-m2-mkey-1-pwr {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "M.2-power-mkey-1";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&i2c3_gpio_expander_20 4 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_m2_mkey_2_pwr: regulator-m2-mkey-2-pwr {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "M.2-power-mkey-2";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&i2c3_gpio_expander_20 6 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +		regulator-always-on;
+> +	};
+> +
+> +	sound-bt-sco {
+> +		compatible = "simple-audio-card";
+> +		simple-audio-card,name = "bt-sco-audio";
+> +		simple-audio-card,format = "dsp_a";
+> +		simple-audio-card,bitclock-inversion;
+> +		simple-audio-card,frame-master = <&btcpu>;
+> +		simple-audio-card,bitclock-master = <&btcpu>;
+> +
+> +		btcpu: simple-audio-card,cpu {
+> +			sound-dai = <&sai5>;
+> +			dai-tdm-slot-num = <2>;
+> +			dai-tdm-slot-width = <16>;
+> +		};
+> +
+> +		simple-audio-card,codec {
+> +			sound-dai = <&bt_sco_codec 1>;
+> +		};
+> +	};
+> +
+> +	sound-micfil {
+> +		compatible = "fsl,imx-audio-card";
+> +		model = "micfil-audio";
+> +		pri-dai-link {
+> +			link-name = "micfil hifi";
+> +			format = "i2s";
+> +			cpu {
+> +				sound-dai = <&micfil>;
+> +			};
+> +		};
+> +	};
+> +
+> +	sound-mqs {
+> +		compatible = "fsl,imx-audio-mqs";
+> +		model = "mqs-audio";
+> +		audio-cpu = <&sai1>;
+> +		audio-codec = <&mqs1>;
+> +	};
+> +};
+> +
+> +&adc1 {
+> +	vref-supply = <&reg_vref_1v8>;
+> +	status = "okay";
+> +};
+> +
+> +&enetc_port0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enetc0>;
+> +	phy-handle = <&ethphy0>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+> +&enetc_port1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enetc1>;
+> +	phy-handle = <&ethphy1>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+> +&flexcan1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan1>;
+> +	phys = <&flexcan1_phy>;
+> +	status = "disabled";
+> +};
+> +
+> +&flexcan3 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan3>;
+> +	phys = <&flexcan3_phy>;
+> +	status = "okay";
+> +};
+> +
+> +&lpi2c3 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lpi2c3>;
+> +	status = "okay";
+> +
+> +	i2c3_gpio_expander_20: i2c3-gpio-expander@20 {
+> +		compatible = "nxp,pcal6416";
+> +		#gpio-cells = <2>;
+> +		gpio-controller;
+> +		reg = <0x20>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <14 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_pcal6416>;
+> +	};
+> +
+> +	ptn5110: tcpc@50 {
+> +		compatible = "nxp,ptn5110", "tcpci";
+> +		reg = <0x50>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_ptn5110>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		typec_con: connector {
+> +			compatible = "usb-c-connector";
+> +			label = "USB-C";
+> +			power-role = "dual";
+> +			data-role = "dual";
+> +			try-power-role = "sink";
+> +			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+> +			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
+> +			op-sink-microwatt = <0>;
+> +			self-powered;
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					typec_con_hs: endpoint {
+> +						remote-endpoint = <&usb3_data_hs>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					typec_con_ss: endpoint {
+> +						remote-endpoint = <&usb3_data_ss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&lpi2c4 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lpi2c4>;
+> +	status = "okay";
+> +
+> +	i2c4_gpio_expander_22: i2c4-gpio-expander@22 {
+> +		compatible = "nxp,pcal6524";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_pcal6524>;
+> +		reg = <0x22>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		gpio-line-names = "USB2 Power Enable",
+> +				  "DCDC5V Enable",
+> +				  "",
+> +				  "SE Enable",
+> +				  "",
+> +				  "EXP 5V Enable",
+> +				  "EXP 3V3 Enable",
+> +				  "WIFI Power Enable",
+> +				  "M2 DIS1 B",
+> +				  "WIFI SD3 Reset",
+> +				  "EXP 1V8 Enable",
+> +				  "CAN1 Standby",
+> +				  "M2 DIS2",
+> +				  "CAN2 Standby",
+> +				  "ETH 10G IO4",
+> +				  "ETH 10G IO3",
+> +				  "SPI3/GPIO select",
+> +				  "EXP 12V Enable",
+> +				  "DCDC 3V3 Enable",
+> +				  "PCIE1 Reset",
+> +				  "",
+> +				  "ETH 10G CLK Enable",
+> +				  "LVDS to HDMI converter IT6263 reset",
+> +				  "";
+> +
+> +		/* When low, select lpspi; When high, select gpio. */
+> +		lpspi-gpio-sel-hog {
+> +			gpio-hog;
+> +			gpios = <16 GPIO_ACTIVE_HIGH>;
+> +			output-low;
+> +		};
+> +	};
+> +};
+> +
+> +&lpuart1 {
+> +	/* console */
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	status = "okay";
+> +};
+> +
+> +&lpuart5 {
+> +	/* BT */
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart5>;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "nxp,88w8987-bt";
+> +	};
+> +};
+> +
+> +&micfil {
+> +	#sound-dai-cells = <0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_pdm>;
+> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
+> +			  <&scmi_clk IMX95_CLK_PDM>;
+> +	assigned-clock-parents = <0>, <0>, <0>, <0>,
+> +				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
+> +	assigned-clock-rates = <3932160000>,
+> +			       <3612672000>, <393216000>,
+> +			       <361267200>, <49152000>;
+> +	status = "okay";
+> +};
+> +
+> +&mqs1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_mqs1>;
+> +	clocks = <&scmi_clk IMX95_CLK_SAI1>;
+> +	clock-names = "mclk";
+> +	status = "okay";
+> +};
+> +
+> +&netcmix_blk_ctrl {
+> +	status = "okay";
+> +};
+> +
+> +&netc_emdio {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_emdio>;
+> +	status = "okay";
+> +
+> +	ethphy0: ethernet-phy@1 {
+> +		reg = <1>;
+> +		reset-gpios = <&i2c3_gpio_expander_20 1 GPIO_ACTIVE_LOW>;
+> +		reset-assert-us = <10000>;
+> +		reset-deassert-us = <80000>;
+> +	};
+> +
+> +	ethphy1: ethernet-phy@2 {
+> +		reg = <2>;
+> +		reset-gpios = <&i2c3_gpio_expander_20 2 GPIO_ACTIVE_LOW>;
+> +		reset-assert-us = <10000>;
+> +		reset-deassert-us = <80000>;
+> +	};
+> +};
+> +
+> +&netc_timer {
+> +	status = "okay";
+> +};
+> +
+> +&pcie0 {
+> +	pinctrl-0 = <&pinctrl_pcie0>;
+> +	pinctrl-names = "default";
+> +	reset-gpio = <&i2c4_gpio_expander_22 19 GPIO_ACTIVE_LOW>;
+> +	vpcie-supply = <&reg_m2_mkey_1_pwr>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie1 {
+> +	pinctrl-0 = <&pinctrl_pcie1>;
+> +	pinctrl-names = "default";
+> +	reset-gpio = <&i2c3_gpio_expander_20 9 GPIO_ACTIVE_LOW>;
+> +	vpcie-supply = <&reg_m2_mkey_2_pwr>;
+> +	status = "okay";
+> +};
+> +
+> +&sai1 {
+> +	#sound-dai-cells = <0>;
+> +	clocks = <&scmi_clk IMX95_CLK_BUSAON>, <&dummy>,
+> +		 <&scmi_clk IMX95_CLK_SAI1>, <&dummy>,
+> +		 <&dummy>, <&scmi_clk IMX95_CLK_AUDIOPLL1>,
+> +		 <&scmi_clk IMX95_CLK_AUDIOPLL2>;
+> +	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k", "pll11k";
+> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
+> +			  <&scmi_clk IMX95_CLK_SAI1>;
+> +	assigned-clock-parents = <0>, <0>, <0>, <0>,
+> +				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
+> +	assigned-clock-rates = <3932160000>,
+> +			       <3612672000>, <393216000>,
+> +			       <361267200>, <24576000>;
+> +	fsl,sai-mclk-direction-output;
+> +	status = "okay";
+> +};
+> +
+> +&sai5 {
+> +	#sound-dai-cells = <0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_sai5>;
+> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
+> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
+> +			  <&scmi_clk IMX95_CLK_SAI5>;
+> +	assigned-clock-parents = <0>, <0>, <0>, <0>,
+> +				 <&scmi_clk IMX95_CLK_AUDIOPLL1>;
+> +	assigned-clock-rates = <3932160000>,
+> +			       <3612672000>, <393216000>,
+> +			       <361267200>, <12288000>;
+> +	fsl,sai-mclk-direction-output;
+> +	status = "okay";
+> +};
+> +
+> +&scmi_misc {
+> +	nxp,ctrl-ids = <BRD_SM_CTRL_SD3_WAKE		1
+> +			BRD_SM_CTRL_PCIE1_WAKE		1
+> +			BRD_SM_CTRL_BT_WAKE		1
+> +			BRD_SM_CTRL_PCIE2_WAKE		1
+> +			BRD_SM_CTRL_BUTTON		1>;
+> +};
+> +
+> +&scmi_iomuxc {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_hog>;
+> +
+> +	pinctrl_enetc0: enetc0grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x50e
+> +			IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x50e
+> +			IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x50e
+> +			IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x50e
+> +			IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL	0x57e
+> +			IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK	0x58e
+> +			IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL	0x57e
+> +			IMX95_PAD_ENET1_RXC__NETCMIX_TOP_ETH0_RGMII_RX_CLK	0x58e
+> +			IMX95_PAD_ENET1_RD0__NETCMIX_TOP_ETH0_RGMII_RD0		0x57e
+> +			IMX95_PAD_ENET1_RD1__NETCMIX_TOP_ETH0_RGMII_RD1		0x57e
+> +			IMX95_PAD_ENET1_RD2__NETCMIX_TOP_ETH0_RGMII_RD2		0x57e
+> +			IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3		0x57e
+> +		>;
+> +	};
+> +
+> +	pinctrl_enetc1: enetc1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_ENET2_TD3__NETCMIX_TOP_ETH1_RGMII_TD3		0x50e
+> +			IMX95_PAD_ENET2_TD2__NETCMIX_TOP_ETH1_RGMII_TD2		0x50e
+> +			IMX95_PAD_ENET2_TD1__NETCMIX_TOP_ETH1_RGMII_TD1		0x50e
+> +			IMX95_PAD_ENET2_TD0__NETCMIX_TOP_ETH1_RGMII_TD0		0x50e
+> +			IMX95_PAD_ENET2_TX_CTL__NETCMIX_TOP_ETH1_RGMII_TX_CTL	0x57e
+> +			IMX95_PAD_ENET2_TXC__NETCMIX_TOP_ETH1_RGMII_TX_CLK	0x58e
+> +			IMX95_PAD_ENET2_RX_CTL__NETCMIX_TOP_ETH1_RGMII_RX_CTL	0x57e
+> +			IMX95_PAD_ENET2_RXC__NETCMIX_TOP_ETH1_RGMII_RX_CLK	0x58e
+> +			IMX95_PAD_ENET2_RD0__NETCMIX_TOP_ETH1_RGMII_RD0		0x57e
+> +			IMX95_PAD_ENET2_RD1__NETCMIX_TOP_ETH1_RGMII_RD1		0x57e
+> +			IMX95_PAD_ENET2_RD2__NETCMIX_TOP_ETH1_RGMII_RD2		0x57e
+> +			IMX95_PAD_ENET2_RD3__NETCMIX_TOP_ETH1_RGMII_RD3		0x57e
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan1: flexcan1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SAI1_TXD0__AONMIX_TOP_CAN1_TX		0x39e
+> +			IMX95_PAD_SAI1_TXC__AONMIX_TOP_CAN1_RX		0x39e
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan3: flexcan3grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_CCM_CLKO3__CAN3_TX			0x39e
+> +			IMX95_PAD_CCM_CLKO4__CAN3_RX			0x39e
+> +		>;
+> +	};
+> +
+> +	pinctrl_emdio: emdiogrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC		0x50e
+> +			IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO		0x90e
+> +		>;
+> +	};
+> +
+> +	pinctrl_hog: hoggrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_XSPI1_SS1_B__GPIO5_IO_BIT11		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c1: lpi2c1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_I2C1_SCL__AONMIX_TOP_LPI2C1_SCL	0x40000b9e
+> +			IMX95_PAD_I2C1_SDA__AONMIX_TOP_LPI2C1_SDA	0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c2: lpi2c2grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_I2C2_SCL__AONMIX_TOP_LPI2C2_SCL	0x40000b9e
+> +			IMX95_PAD_I2C2_SDA__AONMIX_TOP_LPI2C2_SDA	0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c3: lpi2c3grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO28__LPI2C3_SDA			0x40000b9e
+> +			IMX95_PAD_GPIO_IO29__LPI2C3_SCL			0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c4: lpi2c4grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO30__LPI2C4_SDA			0x40000b9e
+> +			IMX95_PAD_GPIO_IO31__LPI2C4_SCL			0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_mipi_dsi_csi: mipidsigrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_XSPI1_DATA6__GPIO5_IO_BIT6			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_mqs1: mqs1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SAI1_TXFS__AONMIX_TOP_MQS1_LEFT		0x31e
+> +			IMX95_PAD_SAI1_RXD0__AONMIX_TOP_MQS1_RIGHT		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pcal6416: pcal6416grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14			0x31
+> +		>;
+> +	};
+> +
+> +	pinctrl_pcal6524: pcal6524grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pcie0: pcie0grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO32__HSIOMIX_TOP_PCIE1_CLKREQ_B		0x4000031e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pcie1: pcie1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_GPIO_IO35__HSIOMIX_TOP_PCIE2_CLKREQ_B     0x4000031e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pdm: pdmgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_PDM_CLK__AONMIX_TOP_PDM_CLK				0x31e
+> +			IMX95_PAD_PDM_BIT_STREAM0__AONMIX_TOP_PDM_BIT_STREAM_BIT0	0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_ptn5110: ptn5110grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_XSPI1_DQS__GPIO5_IO_BIT8			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX      0x31e
+> +			IMX95_PAD_UART1_TXD__AONMIX_TOP_LPUART1_TX      0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart5: uart5grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_DAP_TDO_TRACESWO__LPUART5_TX			0x31e
+> +			IMX95_PAD_DAP_TDI__LPUART5_RX				0x31e
+> +			IMX95_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B			0x31e
+> +			IMX95_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1: usdhc1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x158e
+> +			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x138e
+> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
+> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
+> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
+> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
+> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
+> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
+> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
+> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
+> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x158e
+> +			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x138e
+> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
+> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
+> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
+> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
+> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
+> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
+> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
+> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
+> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x15fe
+> +			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x13fe
+> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x13fe
+> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x13fe
+> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x13fe
+> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x13fe
+> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x13fe
+> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x13fe
+> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x13fe
+> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x13fe
+> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x15fe
+> +		>;
+> +	};
+> +
+> +	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_sai5: sai5grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_XSPI1_DATA7__SAI5_RX_DATA_BIT0		0x31e
+> +			IMX95_PAD_XSPI1_DATA6__SAI5_TX_BCLK			0x31e
+> +			IMX95_PAD_XSPI1_DATA5__SAI5_TX_SYNC			0x31e
+> +			IMX95_PAD_XSPI1_DATA4__SAI5_TX_DATA_BIT0		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD2_CD_B__GPIO3_IO_BIT0			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2: usdhc2grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
+> +			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
+> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
+> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
+> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
+> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
+> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
+> +			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
+> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
+> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
+> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
+> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
+> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
+> +			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
+> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
+> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
+> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
+> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
+> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3: usdhc3grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD3_CLK__USDHC3_CLK				0x158e
+> +			IMX95_PAD_SD3_CMD__USDHC3_CMD				0x138e
+> +			IMX95_PAD_SD3_DATA0__USDHC3_DATA0			0x138e
+> +			IMX95_PAD_SD3_DATA1__USDHC3_DATA1			0x138e
+> +			IMX95_PAD_SD3_DATA2__USDHC3_DATA2			0x138e
+> +			IMX95_PAD_SD3_DATA3__USDHC3_DATA3			0x138e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD3_CLK__USDHC3_CLK				0x158e
+> +			IMX95_PAD_SD3_CMD__USDHC3_CMD				0x138e
+> +			IMX95_PAD_SD3_DATA0__USDHC3_DATA0			0x138e
+> +			IMX95_PAD_SD3_DATA1__USDHC3_DATA1			0x138e
+> +			IMX95_PAD_SD3_DATA2__USDHC3_DATA2			0x138e
+> +			IMX95_PAD_SD3_DATA3__USDHC3_DATA3			0x138e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SD3_CLK__USDHC3_CLK				0x15fe
+> +			IMX95_PAD_SD3_CMD__USDHC3_CMD				0x13fe
+> +			IMX95_PAD_SD3_DATA0__USDHC3_DATA0			0x13fe
+> +			IMX95_PAD_SD3_DATA1__USDHC3_DATA1			0x13fe
+> +			IMX95_PAD_SD3_DATA2__USDHC3_DATA2			0x13fe
+> +			IMX95_PAD_SD3_DATA3__USDHC3_DATA3			0x13fe
+> +		>;
+> +	};
+> +};
+> +
+> +&thermal_zones {
+> +	pf09-thermal {
+> +		polling-delay = <2000>;
+> +		polling-delay-passive = <250>;
+> +		thermal-sensors = <&scmi_sensor 2>;
+> +
+> +		trips {
+> +			pf09_alert: trip0 {
+> +				hysteresis = <2000>;
+> +				temperature = <140000>;
+> +				type = "passive";
+> +			};
+> +
+> +			pf09_crit: trip1 {
+> +				hysteresis = <2000>;
+> +				temperature = <155000>;
+> +				type = "critical";
+> +			};
+> +		};
+> +	};
+> +
+> +	pf53arm-thermal {
+> +		polling-delay = <2000>;
+> +		polling-delay-passive = <250>;
+> +		thermal-sensors = <&scmi_sensor 4>;
+> +
+> +		cooling-maps {
+> +			map0 {
+> +				trip = <&pf5301_alert>;
+> +				cooling-device =
+> +					<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> +					<&A55_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> +					<&A55_2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> +					<&A55_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> +					<&A55_4 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> +					<&A55_5 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> +			};
+> +		};
+> +
+> +		trips {
+> +			pf5301_alert: trip0 {
+> +				hysteresis = <2000>;
+> +				temperature = <140000>;
+> +				type = "passive";
+> +			};
+> +
+> +			pf5301_crit: trip1 {
+> +				hysteresis = <2000>;
+> +				temperature = <155000>;
+> +				type = "critical";
+> +			};
+> +		};
+> +	};
+> +
+> +	pf53soc-thermal {
+> +		polling-delay = <2000>;
+> +		polling-delay-passive = <250>;
+> +		thermal-sensors = <&scmi_sensor 3>;
+> +
+> +		trips {
+> +			pf5302_alert: trip0 {
+> +				hysteresis = <2000>;
+> +				temperature = <140000>;
+> +				type = "passive";
+> +			};
+> +
+> +			pf5302_crit: trip1 {
+> +				hysteresis = <2000>;
+> +				temperature = <155000>;
+> +				type = "critical";
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&usb2 {
+> +	dr_mode = "host";
+> +	vbus-supply = <&reg_usb_vbus>;
+> +	disable-over-current;
+> +	status = "okay";
+> +};
+> +
+> +&usb3 {
+> +	status = "okay";
+> +};
+> +
+> +&usb3_dwc3 {
+> +	dr_mode = "otg";
+> +	hnp-disable;
+> +	srp-disable;
+> +	adp-disable;
+> +	usb-role-switch;
+> +	role-switch-default-mode = "peripheral";
+> +	snps,dis-u1-entry-quirk;
+> +	snps,dis-u2-entry-quirk;
+> +	status = "okay";
+> +
+> +	port {
+> +		usb3_data_hs: endpoint {
+> +			remote-endpoint = <&typec_con_hs>;
+> +		};
+> +	};
+> +};
+> +
+> +&usb3_phy {
+> +	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
+> +	fsl,phy-pcs-tx-swing-full-percent = <100>;
+> +	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
+> +	fsl,phy-tx-vboost-level-microvolt = <1156>;
+> +	fsl,phy-tx-vref-tune-percent = <100>;
+> +	orientation-switch;
+> +	status = "okay";
+> +
+> +	port {
+> +		usb3_data_ss: endpoint {
+> +			remote-endpoint = <&typec_con_ss>;
+> +		};
+> +	};
+> +};
+> +
+> +&usdhc1 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	pinctrl-0 = <&pinctrl_usdhc1>;
+> +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+> +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+> +	pinctrl-3 = <&pinctrl_usdhc1>;
+> +	bus-width = <8>;
+> +	non-removable;
+> +	no-sdio;
+> +	no-sd;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc2 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	cd-gpios = <&gpio3 00 GPIO_ACTIVE_LOW>;
+> +	vmmc-supply = <&reg_usdhc2_vmmc>;
+> +	bus-width = <4>;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc3 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	pinctrl-0 = <&pinctrl_usdhc3>;
+> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
+> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
+> +	pinctrl-3 = <&pinctrl_usdhc3>;
+> +	mmc-pwrseq = <&usdhc3_pwrseq>;
+> +	vmmc-supply = <&reg_usdhc3_vmmc>;
+> +	bus-width = <4>;
+> +	keep-power-in-suspend;
+> +	non-removable;
+> +	wakeup-source;
+> +	status = "okay";
+> +};
+> +
+> +&wdog3 {
+> +	status = "okay";
+> +};
+>
+> --
+> 2.34.1
+>
 
