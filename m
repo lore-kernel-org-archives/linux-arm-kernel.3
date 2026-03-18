@@ -4,113 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08F010775F4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B0110775F9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jagtLdQJsGMP0CDRK1vPex3dVzuRTMvC17L8mq7uFuw=; b=D/LqZYttgp+3oNoTWPJfQ97R+S
-	wKd0yCWfJ3dzJ4/1cT4fkuqG3uZPgwwnMEkHDP/enBXvGQ1vR73Eyi6hoX2Kx45tK0rytNYR3ItTV
-	OP8bdXnKa6zqlAtoi/zevlSl5UOHt2xhDkPrzwWrO1jmVFC4QLZdLHI+PSeq6KCWBiRljbCmDYtCv
-	zAKPkocs04b5Ho0qw/pR3DI54pv7h05h0CMREDGSszsvFt32ZvSHTZYUruMshySgrePj4u3FUVirJ
-	DUNN8ilQoCJGst1sfkBNnhO5t5NfhWwkZ+inv+bumLrKtKATxJrOYoB8D1DuAGuwPQp9qbI40sO2K
-	YgAQNIeQ==;
+	bh=vNkp3LcoZSLW6JIqm+kjSOBJD5smseduRbxCyXtLUwU=; b=4JiDVZEpQbXQ7nQkaeDycef/XT
+	Js2ec0t+R8DcxlX/AANuWA9+gawO2pDEPKhVyx9M619DogJ9zS77L+Ci+ZZMdCQHvFOs5JPLG1yj4
+	U93304pLW2UC13jiIQW6LkbaFew9a+dWgXHm4GcMEVQ33m0cxFI+Wflh/eIgcNHqx0Fq/HB2AW9Zk
+	PGwKObTopjDypKIxT00hWMxlKhp/0VjkSubs/3xXF76+6FeIRWYKpZ1UdQcuxSbVlwmNArrGJLH7/
+	n/wXhfX54U11W8IBQllf54zMMAfB2JJ+TKtU82FxVwcuwmHcPxA48C7lQ1WkjbepjKnrNfOjP9a++
+	HTlT58TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uaD-000000093Xt-1rCM;
-	Wed, 18 Mar 2026 17:21:25 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1w2ube-000000093qg-2xLS;
+	Wed, 18 Mar 2026 17:22:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uaB-000000093Wh-0aI8;
-	Wed, 18 Mar 2026 17:21:24 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4212D14001C6;
-	Wed, 18 Mar 2026 13:21:21 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 18 Mar 2026 13:21:21 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1773854481;
-	 x=1773940881; bh=jagtLdQJsGMP0CDRK1vPex3dVzuRTMvC17L8mq7uFuw=; b=
-	DvlwfmIHU8BAYASjuJxNmADSNiUiHUyphkCmYoVaro2VQTbPhnvIKSQL1FDtsUQr
-	Hiv3L6/2Dv2C7z1i4CV6lrzt23wK4t9OLfAh1C4kLlUSALzDMy9BDrgrcbknZ9lW
-	d7jzVCMEH3jjE9GymvYkpVzzgxiIZ31XpzJK1qrTfKRzpUw+9ggVTJrTTCyjDWBW
-	zls7N5Fz1q0Gf4kc+2WnbM8/61I5YuuHx+I1xXwHENu2sI85wO24oRKXQanZMNdZ
-	3dJkbx92fsr2EGV/S2aACHW7KhJWFvIeDRWe+BHsnUv4fUZRvV9qv1EBZECZgwWb
-	6xZ1wM2X58Gdw3F9Knf2tw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773854481; x=
-	1773940881; bh=jagtLdQJsGMP0CDRK1vPex3dVzuRTMvC17L8mq7uFuw=; b=X
-	XvQQRzeGfDyEY6AvHla+xu9C0ywBxK5uRBc/Eiutx9qPw/Udn5wnSAt/28T0jCmf
-	84DX3mMGgqDSMT48Enj0UgiLt0xFuMNYmRjFufO05yt6PZC5ip8RbvPDPP2DUFY8
-	XFe+az1AKqlKIuxfoQi+xDh/ZAtR9gukqtC0rYniwTfALiyf4Mp/prR3sJfxvAm0
-	2SZi6RCoOgwqFUnDQwUVm9LaUo663R+6S6s+YGYTq4F84sCHOXWMS72+PRdG51PL
-	WN2N4LyUvKa7L73WARo4QMScxLj2nX5sYgrOO4VaDYcpv9JA3n3FRQuTlHOVuS+J
-	QQ5+J9ULFycpSMzs0o2yg==
-X-ME-Sender: <xms:EN-6aTI9urYfe9ltkF3bDQh1b02bv7xcqGuIfvEZrQDGWow0gG7yHw>
-    <xme:EN-6aR_O7cEYDNRnW5232w8KuI8BlEBQUgvUciWmj5V8_ZdN9Ej41Y2-4uXlxlfZH
-    uzATaB9ofnXcOgEXKYySs1_F36GFCLZpzcshx62p3iB-Kerfu4doYg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdegjedvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrd
-    gtohhmpdhrtghpthhtohepfhhushhtihhniheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhhsfieskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhs
-    thhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrhgvrghlth
-    gvkhdqshhotgeslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehs
-    ohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheptgihrdhhuhgrnhhgse
-    hrvggrlhhtvghkrdgtohhmpdhrtghpthhtohepvghlvggrnhhorhdrlhhinhesrhgvrghl
-    thgvkhdrtghomh
-X-ME-Proxy: <xmx:EN-6aWGci87qidtV5ePK4Mj0DKd41rEqP33OOMSPpzv-BIdUFSeiEA>
-    <xmx:Ed-6acgC3dfIvOMaQ2KS947W14bm0zEsnUxLEtWpHn1BwoepFDI2vw>
-    <xmx:Ed-6aThnZJkekd7IFekSNTqQIoqUWFhFUjbfWFlz316F2nmmlSVaEQ>
-    <xmx:Ed-6afmBOtouBPwzXzJDlLB8oBHmDB3yVMukb1N4PyckPHKP6v1BGw>
-    <xmx:Ed-6actyG8IEUnS-S4CiKiZoddQyKVQM6lMhIgSkIIYv_FvG8ajKNFjM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D3CC5700065; Wed, 18 Mar 2026 13:21:20 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w2ubd-000000093qI-2pbd;
+	Wed, 18 Mar 2026 17:22:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=vNkp3LcoZSLW6JIqm+kjSOBJD5smseduRbxCyXtLUwU=; b=Lr8LFjm452CCorOZWYI9TrD/Yt
+	/UCWM7qEbD0H4xxq4STOMX/vCwwltRuQkDJ9PEUEwzoNR/GdCCi/mh3J0XwIVD3ZgleeVPTJt34OV
+	RQl0bmrDOVC88kR+Y7OI/N+ZcHJE/SdjVNqZIOFY4n02bxUvpC/BdpElxLicxqXyQEHN/oe5CTTUM
+	1sv9zrjQamwel+4EQbrOFcuFrL4mHNGM9/OawqfxjIaLMgZDTJQMe4XBvv1XsfRaPUNwoJBXCdcLA
+	os1hqfS1I1O1JxvzvMEmu2/xzC6eUyUAjobFQjdAyQVvdaOQTdHJM2MEzuHErmzJR/24tDqIqP0Sq
+	AFFHL5kQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2uba-0000000BrdJ-1Qad;
+	Wed, 18 Mar 2026 17:22:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773854564;
+	bh=ynyBnNeJwC1iJq0V3/CMoDF/qT11osJ8LY2W6q765hQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LyHi1XOm1XcajxqvX8esnSlpNh+SuznV4YyDPzPfC9JVObF6JgfRs4SwkgSAOF0lv
+	 UGSt5RYxqSzjSPjKlKHDHW00v1tO3jTscIB081PEEy1mov+ontvkNhwayX9+2bqNRU
+	 uKehGX45Du8tFja1zwTWI9Ycc7eQz25D1TX6hNBaPjOS61OaZF0/Ar3V2gJYT4uoJK
+	 N7eZWmXpDW8/0GcgkyOZNoJUy7P7UdOIccATW18cRm0nV8bxRlqX9tdBRXeMTJjpIm
+	 14Jx6vgXSlS3XqONXD83EYEd1Q9Er0WNnjiU2wzQkfOA/d/divMEK14Gswr9AI2ohL
+	 Jn6NbHB4FYxPw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68F7617E0E42;
+	Wed, 18 Mar 2026 18:22:43 +0100 (CET)
+Message-ID: <28102417-4a2a-4e29-afbd-d0f2aa76074b@collabora.com>
+Date: Wed, 18 Mar 2026 18:22:42 +0100
 MIME-Version: 1.0
-X-ThreadId: Aj4MA5-83_jg
-Date: Wed, 18 Mar 2026 18:20:42 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.com>,
- =?UTF-8?Q?Yu-Chun_Lin_=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>,
- linux-realtek-soc@lists.infradead.org
-Cc: "Drew Fustini" <fustini@kernel.org>,
- =?UTF-8?Q?CY=5FHuang=5B=E9=BB=83=E9=89=A6=E6=99=8F=5D?= <cy.huang@realtek.com>,
- "Stanley Chang" <stanley_chang@realtek.com>,
- =?UTF-8?Q?James_Tai_=5B=E6=88=B4=E5=BF=97=E5=B3=B0=5D?= <james.tai@realtek.com>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- "Krzysztof Kozlowski" <krzk@kernel.org>, linux-kernel@vger.kernel.org,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>
-Message-Id: <3316207d-c7f7-453c-a0ec-e9dffc26a469@app.fastmail.com>
-In-Reply-To: <bbabf0f1-99fa-4822-85c8-df76ce89da01@suse.com>
-References: <20260318114047.2804171-1-eleanor.lin@realtek.com>
- <405a9783-0f77-4ce0-8288-43eaada09cff@kernel.org>
- <e4c0187e-566b-42fb-920c-3cf73ed6cd6a@app.fastmail.com>
- <bbabf0f1-99fa-4822-85c8-df76ce89da01@suse.com>
-Subject: Re: [PATCH] arm64: dts: realtek: Fix memory node unit-address mismatch
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 9/9] arm64: dts: mt6392: add mt6392 PMIC dtsi
+To: wens@kernel.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org, Val Packett <val@packett.cool>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+ Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Linus Walleij <linusw@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Gary Bisson <bisson.gary@gmail.com>,
+ Julien Massot <julien.massot@collabora.com>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Fabien Parent <parent.f@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+References: <20260317184507.523060-1-l.scorcia@gmail.com>
+ <20260317184507.523060-10-l.scorcia@gmail.com>
+ <c1a425ba-a4ca-49ea-9660-5de74bede124@collabora.com>
+ <CAGb2v64+oofwTiJTXDYCuzUEpk=zioi16i8a7iMimc_eZ1RPUQ@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGb2v64+oofwTiJTXDYCuzUEpk=zioi16i8a7iMimc_eZ1RPUQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_102123_505390_FC1866BB 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20260318_172250_553402_389038C4 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,64 +104,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026, at 16:27, Andreas F=C3=A4rber wrote:
-> On 18.03.26 15:28, Arnd Bergmann wrote:
+Il 18/03/26 14:54, Chen-Yu Tsai ha scritto:
+> On Wed, Mar 18, 2026 at 8:39 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 17/03/26 19:43, Luca Leonardo Scorcia ha scritto:
+>>> From: Val Packett <val@packett.cool>
 >>>
->>> I drop this from soc patchwork and please do not send code for review
->>> there, but either fix the lack of involvement from Realtek or let's =
-drop
->>> the platform if Realtek does not care.
->>=20
->> As Andreas has not replied to the MAINTAINERS updated, I would
->> prefer to merge both that and this patch in the bugfix branch
->> for 7.0.
->
-> Sorry for that, still lacking time, but at least receiving now...
->
-> I'm happy in general for someone with more time taking over.
->
-> Last week I spoke with Realtek (at EW) about testing the newer SoCs.
-> As a reminder, the mainline removal of TEXT_OFFSET broke my ability to=20
-> test the older SoCs that I had access to. I hear that Kent and other=20
-> recent SoCs do not have the same bootloader limitations anymore.
->
-> We would need to consider moving me from M to R and possibly changing =
-my=20
-> email from .de to .com due to recurring quota overflows.
+>>> Add the dts to be included by all boards using the MT6392 PMIC.
+>>>
+>>> Signed-off-by: Val Packett <val@packett.cool>
+>>> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+>>> ---
+>>>    arch/arm64/boot/dts/mediatek/mt6392.dtsi | 141 +++++++++++++++++++++++
+>>>    1 file changed, 141 insertions(+)
+>>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
+>>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt6392.dtsi b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
+>>> new file mode 100644
+>>> index 000000000000..fbf6f671524c
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
+>>> @@ -0,0 +1,141 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * Copyright (c) 2019 MediaTek Inc.
+>>> + * Copyright (c) 2024 Val Packett <val@packett.cool>
+>>> + */
+>>> +
+>>> +#include <dt-bindings/input/input.h>
+>>> +
+>>> +&pwrap {
+>>> +     pmic: pmic {
+>>> +             compatible = "mediatek,mt6392", "mediatek,mt6323";
+>>> +             interrupt-controller;
+>>> +             #interrupt-cells = <2>;
+>>> +
+>>> +             keys {
+>>> +                     compatible = "mediatek,mt6392-keys";
+>>> +
+>>> +                     key-power {
+>>> +                             linux,keycodes = <KEY_POWER>;
+>>> +                             wakeup-source;
+>>> +                     };
+>>> +
+>>> +                     key-home {
+>>> +                             linux,keycodes = <KEY_HOME>;
+>>> +                             wakeup-source;
+>>> +                     };
+>>> +             };
+>>> +
+>>> +             pio6392: pinctrl {
+>>> +                     compatible = "mediatek,mt6392-pinctrl";
+>>> +
+>>> +                     gpio-controller;
+>>> +                     #gpio-cells = <2>;
+>>> +             };
+>>> +
+>>> +             rtc {
+>>> +                     compatible = "mediatek,mt6392-rtc",
+>>> +                             "mediatek,mt6323-rtc";
+>>> +             };
+>>> +
+>>> +             regulators {
+>>> +                     compatible = "mediatek,mt6392-regulator";
+>>> +
+>>> +                     mt6392_vproc_reg: buck_vproc {
+>>
+>> s/buck//g
+>>
+>> Also, no min/max voltages?!
+> 
+> We really shouldn't set min/max voltages in the PMIC dtsi file.
+> 
+> The min/max voltages are supposed to be the intersection of the
+> consumers acceptable operating ranges. The min/max of the regulator
+> itself is already implied by the model / compatible.
+> 
 
-Ok, sounds good. Yu-Chun, can you send an updated patch for the maintain=
-ers file doing this?
+Your point is fair, but it's also true that some of the regulators are not
+really meant to ever output anything different than what they are supposed
+to, though, with slight variations being possible... I guess the best option
+here is to leave declaring voltages to board DTs instead, which is sensible
+in the end.
 
-> I.e., new maintainers would need to queue patches and send pull reques=
-ts=20
-> to soc then. Are they set up with GPG keys / kernel.org tree to actual=
-ly=20
-> take over on their own?
+Okay, agreed. Let's go with no voltages.
 
-As I understand, the MAINTAINERS entry is one of the prerequisites
-for getting a kernel.org account, so I would start with that.
-I don't know whether they have signatures from anyone on the keyring
-yet, but I'm sure that can be arranged.
+Reminder for myself: there's a bunch of PMIC devicetrees to cleanup in here...
 
-> As for review, there was one other review discussion about ISO/Misc=20
-> areas that I found concerning: Those areas have been clearly documente=
-d=20
-> and (on the older SoCs I know) contained registers wildly lumped=20
-> together (from kernel PoV), so that having them in DT and accessing vi=
-a=20
-> regmap seemed the best way to me, compared to trying to map individual=20
-> words to specific drivers. My old branches may contain some example=20
-> usage in queued but non-merged drivers. (Amlogic may also have similar=20
-> concepts of always-on vs. PD-controlled peripherals grouped in DT?)
+Cheers,
+Angelo
 
-Right, that makes sense, and this is consistent with how we use syscon o=
-n many platforms.
-
-> Another open thing would be help with mailing list moderation, if we=20
-> want to continue using it. Any review responses by non-subscribers add=20
-> to its moderation queue (plus any spam).
-
-Maybe just drop Moderation altogether then?
-
-   Arnd
 
