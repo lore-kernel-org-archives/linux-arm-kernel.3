@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D85F103E18D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2DB103E183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+J9NjUAUi3Q32TWNqZhgxNnfvrgpj3srU74InCa1cc=; b=4cLxSXj1V9jaRUu1bXjvpyGXAd
-	hJ0ePc8iOxfrQHc4Djel04/btMvUPSlWd7DzqKdwuNwLnUUKZGHvCN91MHYUJPpo57GdYgWA06xMg
-	Od7HofYv/gcXtAXz9P1z3iiPkPuAqFWFq411AQBlku9wlztMvLyCnPoH+ttrO6xPId4glJmZ7tvsk
-	OhZK7oQWfmxuwrEq54kD+e9NMVPG/6bM4VNCgzNC4I0FagDhPi6YiZBRr26ynsmLIuHfDsqFbUqLw
-	BislMF6NFBd54Uz0B6UcxZe8i5yCij0suCO7PYzA6ahZHO9fcHPrCzIGpXsDDP2tF37V+KovGg3ao
-	2xhqDaBQ==;
+	bh=HdNmnMjf3Mr3c+jlVScv6c4O348CY+iiPP9v+//pro8=; b=n7AO1hM82kkCm1dzDTVs10xBIW
+	V5nOFlXe0uikqGjRlNlkk0zHS3WXw5IwUPybmo1NdOUb6uTXIh6I3paoKOE+Xg1zH715H4tju4MaI
+	LKdPo+v7mHZhwVQWHm5OQEICyJXPQCnOCXOpXskGRxY5VuF7m/9hTcsl2KG55MAWada1jK5WkStHF
+	7hvoS1hvi3/6hADV7iEn85kId213wMd2PBT8FEQqts7d1h4JAUAY4WGiF9jMBvLO+0dto922UqXqB
+	JrJRoXHjnuq+SSAXqKSVaGZfigra2V646Sa5v6yWtA2wqlSkgYBhV/aCqYmNWZDcYg6CYQMdL4xfJ
+	kgVCskkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rmr-00000008aNB-1uc6;
-	Wed, 18 Mar 2026 14:22:17 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rml-00000008aKb-3EOi
+	id 1w2rmy-00000008aOx-3HGD;
+	Wed, 18 Mar 2026 14:22:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2rmt-00000008aNi-38jC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 14:22:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773843732; x=1805379732;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tWCUa9WlKPfTUUpFlkiDicbAtrIdM4cty8tHD9a537s=;
-  b=Jyaz9UIEqEDYfnOZoBjEK0M52rgENXDH+kl30Aaco4afgLohC117QNdH
-   0wMavqV7ztLW6k7rTSOq8HNeM8VXeY+unZpzkm9/lPbWqLMiI/49LHRLx
-   0y9AFIUHGDEipG9RqvaWlgMnKr2jjYY/PFUjBpUPADwKoB1N/FsBpt28g
-   UNPEIH9dZGSvNaby8vVAZMwU+f2h4OJGNHFtLUNucXbfbj2DDuZUaA/6F
-   cAD7ADC09L1iLmP8QZnuzm2uLV/gqnbGsm9o+8nutSNsHpMp2BWxo51MX
-   gYPRA5oyAXBHDucNTWchW8Tmb58/Kvd7tGCaXBV+rORS+L3R1hTzhZ6wd
-   w==;
-X-CSE-ConnectionGUID: +VAs24IlRUaTSpkY0/+Cjw==
-X-CSE-MsgGUID: GV0Q2LP0T52NI9SpLBw0yg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11733"; a="74786180"
-X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
-   d="scan'208";a="74786180"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 07:22:07 -0700
-X-CSE-ConnectionGUID: yufXEIZgRL20iyeNJJdb3w==
-X-CSE-MsgGUID: ibZa+GXeShSztrVAQAZfMw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
-   d="scan'208";a="245666299"
-Received: from lkp-server01.sh.intel.com (HELO 63737dd503cb) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 18 Mar 2026 07:22:03 -0700
-Received: from kbuild by 63737dd503cb with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w2rmZ-000000002zj-3zuC;
-	Wed, 18 Mar 2026 14:21:59 +0000
-Date: Wed, 18 Mar 2026 22:21:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andre Przywara <andre.przywara@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v2 7/8] firmware: smccc: lfa: Register DT interrupt
-Message-ID: <202603182202.gpyCz2RF-lkp@intel.com>
-References: <20260317103336.1273582-8-andre.przywara@arm.com>
+	Wed, 18 Mar 2026 14:22:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 809D11BF7;
+	Wed, 18 Mar 2026 07:22:12 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71AB83F778;
+	Wed, 18 Mar 2026 07:22:17 -0700 (PDT)
+Date: Wed, 18 Mar 2026 14:22:15 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH 09/17] KVM: arm64: Move VMA-related information to
+ kvm_s2_fault_vma_info
+Message-ID: <20260318142215.GB3915656@e124191.cambridge.arm.com>
+References: <20260316175451.1866175-1-maz@kernel.org>
+ <20260316175451.1866175-10-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260317103336.1273582-8-andre.przywara@arm.com>
+In-Reply-To: <20260316175451.1866175-10-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_072211_861528_3E2F9655 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20260318_072219_886449_8C408654 
+X-CRM114-Status: GOOD (  37.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +64,324 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, oe-kbuild-all@lists.linux.dev, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+On Mon, Mar 16, 2026 at 05:54:42PM +0000, Marc Zyngier wrote:
+> Mecanically extract a bunch of VMA-related fields from kvm_s2_fault
+Mechanically
+> and move them to a new kvm_s2_fault_vma_info structure.
+> 
+> This is not much, but it already allows us to define which functions
+> can update this structure, and which ones are pure consumers of the
+> data. Those in the latter camp are updated to take a const pointer
+> to that structure.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/mmu.c | 113 +++++++++++++++++++++++--------------------
+>  1 file changed, 61 insertions(+), 52 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index abe239752c696..a5b0dd41560f6 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1710,20 +1710,23 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+>  	return vma_shift;
+>  }
+>  
+> +struct kvm_s2_fault_vma_info {
+> +	unsigned long	mmu_seq;
+> +	long		vma_pagesize;
+> +	vm_flags_t	vm_flags;
+> +	gfn_t		gfn;
+> +	bool		mte_allowed;
+> +	bool		is_vma_cacheable;
+> +};
+> +
+>  struct kvm_s2_fault {
+>  	bool writable;
+> -	bool mte_allowed;
+> -	bool is_vma_cacheable;
+>  	bool s2_force_noncacheable;
+> -	unsigned long mmu_seq;
+> -	gfn_t gfn;
+>  	kvm_pfn_t pfn;
+>  	bool logging_active;
+>  	bool force_pte;
+> -	long vma_pagesize;
+>  	enum kvm_pgtable_prot prot;
+>  	struct page *page;
+> -	vm_flags_t vm_flags;
+>  };
+>  
+>  static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+> @@ -1732,7 +1735,8 @@ static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+>  }
+>  
+>  static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
+> -				     struct kvm_s2_fault *fault)
+> +				     struct kvm_s2_fault *fault,
+> +				     struct kvm_s2_fault_vma_info *s2vi)
+>  {
+>  	struct vm_area_struct *vma;
+>  	struct kvm *kvm = s2fd->vcpu->kvm;
+> @@ -1745,20 +1749,20 @@ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
+>  		return -EFAULT;
+>  	}
+>  
+> -	fault->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, vma, &fault->force_pte));
+> +	s2vi->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, vma, &fault->force_pte));
+>  
+>  	/*
+>  	 * Both the canonical IPA and fault IPA must be aligned to the
+>  	 * mapping size to ensure we find the right PFN and lay down the
+>  	 * mapping in the right place.
+>  	 */
+> -	fault->gfn = ALIGN_DOWN(s2fd->fault_ipa, fault->vma_pagesize) >> PAGE_SHIFT;
+> +	s2vi->gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi->vma_pagesize) >> PAGE_SHIFT;
+>  
+> -	fault->mte_allowed = kvm_vma_mte_allowed(vma);
+> +	s2vi->mte_allowed = kvm_vma_mte_allowed(vma);
+>  
+> -	fault->vm_flags = vma->vm_flags;
+> +	s2vi->vm_flags = vma->vm_flags;
+>  
+> -	fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
+> +	s2vi->is_vma_cacheable = kvm_vma_is_cacheable(vma);
+>  
+>  	/*
+>  	 * Read mmu_invalidate_seq so that KVM can detect if the results of
+> @@ -1768,39 +1772,40 @@ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
+>  	 * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
+>  	 * with the smp_wmb() in kvm_mmu_invalidate_end().
+>  	 */
+> -	fault->mmu_seq = kvm->mmu_invalidate_seq;
+> +	s2vi->mmu_seq = kvm->mmu_invalidate_seq;
+>  	mmap_read_unlock(current->mm);
+>  
+>  	return 0;
+>  }
+>  
+>  static gfn_t get_canonical_gfn(const struct kvm_s2_fault_desc *s2fd,
+> -			       const struct kvm_s2_fault *fault)
+> +			       const struct kvm_s2_fault_vma_info *s2vi)
+>  {
+>  	phys_addr_t ipa;
+>  
+>  	if (!s2fd->nested)
+> -		return fault->gfn;
+> +		return s2vi->gfn;
+>  
+>  	ipa = kvm_s2_trans_output(s2fd->nested);
+> -	return ALIGN_DOWN(ipa, fault->vma_pagesize) >> PAGE_SHIFT;
+> +	return ALIGN_DOWN(ipa, s2vi->vma_pagesize) >> PAGE_SHIFT;
+>  }
+>  
+>  static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+> -				struct kvm_s2_fault *fault)
+> +				struct kvm_s2_fault *fault,
+> +				struct kvm_s2_fault_vma_info *s2vi)
+>  {
+>  	int ret;
+>  
+> -	ret = kvm_s2_fault_get_vma_info(s2fd, fault);
+> +	ret = kvm_s2_fault_get_vma_info(s2fd, fault, s2vi);
+>  	if (ret)
+>  		return ret;
+>  
+> -	fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, fault),
+> +	fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
+>  				       kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
+>  				       &fault->writable, &fault->page);
+>  	if (unlikely(is_error_noslot_pfn(fault->pfn))) {
+>  		if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
+> -			kvm_send_hwpoison_signal(s2fd->hva, __ffs(fault->vma_pagesize));
+> +			kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
+>  			return 0;
+>  		}
+>  		return -EFAULT;
+> @@ -1810,7 +1815,8 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+>  }
+>  
+>  static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+> -				     struct kvm_s2_fault *fault)
+> +				     struct kvm_s2_fault *fault,
+> +				     const struct kvm_s2_fault_vma_info *s2vi)
+>  {
+>  	struct kvm *kvm = s2fd->vcpu->kvm;
+>  
+> @@ -1818,8 +1824,8 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  	 * Check if this is non-struct page memory PFN, and cannot support
+>  	 * CMOs. It could potentially be unsafe to access as cacheable.
+>  	 */
+> -	if (fault->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
+> -		if (fault->is_vma_cacheable) {
+> +	if (s2vi->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
+> +		if (s2vi->is_vma_cacheable) {
+>  			/*
+>  			 * Whilst the VMA owner expects cacheable mapping to this
+>  			 * PFN, hardware also has to support the FWB and CACHE DIC
+> @@ -1879,7 +1885,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  		fault->prot |= KVM_PGTABLE_PROT_X;
+>  
+>  	if (fault->s2_force_noncacheable)
+> -		fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
+> +		fault->prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
+>  			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
+>  	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+>  		fault->prot |= KVM_PGTABLE_PROT_X;
+> @@ -1889,74 +1895,73 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  
+>  	if (!kvm_s2_fault_is_perm(s2fd) && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
+>  		/* Check the VMM hasn't introduced a new disallowed VMA */
+> -		if (!fault->mte_allowed)
+> +		if (!s2vi->mte_allowed)
+>  			return -EFAULT;
+>  	}
+>  
+>  	return 0;
+>  }
+>  
+> -static phys_addr_t get_ipa(const struct kvm_s2_fault *fault)
+> -{
+> -	return gfn_to_gpa(fault->gfn);
+> -}
+> -
+>  static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+> -			    struct kvm_s2_fault *fault, void *memcache)
+> +			    struct kvm_s2_fault *fault,
+> +			    const struct kvm_s2_fault_vma_info *s2vi, void *memcache)
+>  {
+> +	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+>  	struct kvm *kvm = s2fd->vcpu->kvm;
+>  	struct kvm_pgtable *pgt;
+>  	long perm_fault_granule;
+> +	long mapping_size;
+> +	gfn_t gfn;
+>  	int ret;
+> -	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+>  
+>  	kvm_fault_lock(kvm);
+>  	pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+>  	ret = -EAGAIN;
+> -	if (mmu_invalidate_retry(kvm, fault->mmu_seq))
+> +	if (mmu_invalidate_retry(kvm, s2vi->mmu_seq))
+>  		goto out_unlock;
+>  
+>  	perm_fault_granule = (kvm_s2_fault_is_perm(s2fd) ?
+>  			      kvm_vcpu_trap_get_perm_fault_granule(s2fd->vcpu) : 0);
+> +	mapping_size = s2vi->vma_pagesize;
+> +	gfn = s2vi->gfn;
+>  
+>  	/*
+>  	 * If we are not forced to use fault->page mapping, check if we are
 
-kernel test robot noticed the following build errors:
+This find/replace mistake is from Fuad's patches, but maybe it can be fixed
+here or in one of the earlier commits touching kvm_s2_fault_map().
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on arm/for-next arm/fixes arm64/for-next/core clk/clk-next kvmarm/next rockchip/for-next shawnguo/for-next soc/for-next linus/master nferre-at91/at91-next v7.0-rc4 next-20260317]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+  * If we are not forced to use page mapping, check if we are
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Przywara/dt-bindings-arm-Add-Live-Firmware-Activation-binding/20260318-082717
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20260317103336.1273582-8-andre.przywara%40arm.com
-patch subject: [PATCH v2 7/8] firmware: smccc: lfa: Register DT interrupt
-config: arm64-randconfig-004-20260318 (https://download.01.org/0day-ci/archive/20260318/202603182202.gpyCz2RF-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260318/202603182202.gpyCz2RF-lkp@intel.com/reproduce)
+>  	 * backed by a THP and thus use block mapping if possible.
+>  	 */
+> -	if (fault->vma_pagesize == PAGE_SIZE &&
+> +	if (mapping_size == PAGE_SIZE &&
+>  	    !(fault->force_pte || fault->s2_force_noncacheable)) {
+>  		if (perm_fault_granule > PAGE_SIZE) {
+> -			fault->vma_pagesize = perm_fault_granule;
+> +			mapping_size = perm_fault_granule;
+>  		} else {
+> -			fault->vma_pagesize = transparent_hugepage_adjust(kvm, s2fd->memslot,
+> -									  s2fd->hva, &fault->pfn,
+> -									  &fault->gfn);
+> -
+> -			if (fault->vma_pagesize < 0) {
+> -				ret = fault->vma_pagesize;
+> +			mapping_size = transparent_hugepage_adjust(kvm, s2fd->memslot,
+> +								   s2fd->hva, &fault->pfn,
+> +								   &gfn);
+> +			if (mapping_size < 0) {
+> +				ret = mapping_size;
+>  				goto out_unlock;
+>  			}
+>  		}
+>  	}
+>  
+>  	if (!perm_fault_granule && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
+> -		sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
+> +		sanitise_mte_tags(kvm, fault->pfn, mapping_size);
+>  
+>  	/*
+>  	 * Under the premise of getting a FSC_PERM fault, we just need to relax
+> -	 * permissions only if vma_pagesize equals perm_fault_granule. Otherwise,
+> +	 * permissions only if mapping_size equals perm_fault_granule. Otherwise,
+>  	 * kvm_pgtable_stage2_map() should be called to change block size.
+>  	 */
+> -	if (fault->vma_pagesize == perm_fault_granule) {
+> +	if (mapping_size == perm_fault_granule) {
+>  		/*
+>  		 * Drop the SW bits in favour of those stored in the
+>  		 * PTE, which will be preserved.
+>  		 */
+>  		fault->prot &= ~KVM_NV_GUEST_MAP_SZ;
+> -		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, get_ipa(fault),
+> +		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
+>  								 fault->prot, flags);
+>  	} else {
+> -		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, get_ipa(fault), fault->vma_pagesize,
+> +		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
+>  							 __pfn_to_phys(fault->pfn), fault->prot,
+>  							 memcache, flags);
+>  	}
+> @@ -1965,9 +1970,12 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  	kvm_release_faultin_page(kvm, fault->page, !!ret, fault->writable);
+>  	kvm_fault_unlock(kvm);
+>  
+> -	/* Mark the fault->page dirty only if the fault is handled successfully */
+> -	if (fault->writable && !ret)
+> -		mark_page_dirty_in_slot(kvm, s2fd->memslot, get_canonical_gfn(s2fd, fault));
+> +	/* Mark the page dirty only if the fault is handled successfully */
+> +	if (fault->writable && !ret) {
+> +		phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+> +		ipa &= ~(mapping_size - 1);
+> +		mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603182202.gpyCz2RF-lkp@intel.com/
+I don't understand this change, why do we need to mask stuff now?
 
-All errors (new ones prefixed by >>):
+> +	}
+>  
+>  	if (ret != -EAGAIN)
+>  		return ret;
+> @@ -1978,6 +1986,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  {
+>  	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+>  	bool logging_active = memslot_is_logging(s2fd->memslot);
+> +	struct kvm_s2_fault_vma_info s2vi = {};
+>  	struct kvm_s2_fault fault = {
+>  		.logging_active = logging_active,
+>  		.force_pte = logging_active,
+> @@ -2002,17 +2011,17 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  	 * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
+>  	 * get block mapping for device MMIO region.
+>  	 */
+> -	ret = kvm_s2_fault_pin_pfn(s2fd, &fault);
+> +	ret = kvm_s2_fault_pin_pfn(s2fd, &fault, &s2vi);
+>  	if (ret != 1)
+>  		return ret;
+>  
+> -	ret = kvm_s2_fault_compute_prot(s2fd, &fault);
+> +	ret = kvm_s2_fault_compute_prot(s2fd, &fault, &s2vi);
+>  	if (ret) {
+>  		kvm_release_page_unused(fault.page);
+>  		return ret;
+>  	}
+>  
+> -	return kvm_s2_fault_map(s2fd, &fault, memcache);
+> +	return kvm_s2_fault_map(s2fd, &fault, &s2vi, memcache);
+>  }
+>  
+>  /* Resolve the access fault by making the page young again. */
 
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
->> drivers/firmware/smccc/lfa_fw.c:878:16: error: implicit declaration of function 'devm_request_threaded_irq'; did you mean 'devm_request_region'? [-Werror=implicit-function-declaration]
-     878 |         return devm_request_threaded_irq(dev, irq, lfa_irq_handler,
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~
-         |                devm_request_region
->> drivers/firmware/smccc/lfa_fw.c:880:42: error: 'IRQF_COND_ONESHOT' undeclared (first use in this function)
-     880 |                                          IRQF_COND_ONESHOT, NULL, NULL);
-         |                                          ^~~~~~~~~~~~~~~~~
-   drivers/firmware/smccc/lfa_fw.c:880:42: note: each undeclared identifier is reported only once for each function it appears in
-   drivers/firmware/smccc/lfa_fw.c:881:1: warning: control reaches end of non-void function [-Wreturn-type]
-     881 | }
-         | ^
-   cc1: some warnings being treated as errors
-
-
-vim +878 drivers/firmware/smccc/lfa_fw.c
-
-   863	
-   864	static int lfa_register_dt(struct device *dev)
-   865	{
-   866		struct device_node *np;
-   867		unsigned int irq;
-   868	
-   869		np = of_find_compatible_node(NULL, NULL, "arm,lfa");
-   870		if (!np)
-   871			return -ENODEV;
-   872	
-   873		irq = irq_of_parse_and_map(np, 0);
-   874		of_node_put(np);
-   875		if (!irq)
-   876			return -ENODEV;
-   877	
- > 878		return devm_request_threaded_irq(dev, irq, lfa_irq_handler,
-   879						 lfa_irq_handler_thread,
- > 880						 IRQF_COND_ONESHOT, NULL, NULL);
-   881	}
-   882	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Joey
 
