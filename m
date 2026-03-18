@@ -4,126 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB33103E179
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151A8103E178
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 13:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T748oTPOn6Vf4zDtFIFiJdqmDQM9Pwav2OXKOn/KdOM=; b=OiA3a6T87ZnJRDABzfQ8wbei7x
-	Jdn7o2IMhtDSNVVN5mcdNgorpvGl5m64f550dyKo6ACkpIOSVU6CyS2w8kML6kOC3y2olQX9uKlby
-	/8TEvw4nm6u/phZdOegCbTkcD/KFzhSWRHptCDutXvO+O+/APW/1ha4Np0hAE0Li6ecNKymYvc9Th
-	YN0WBojEME67k/x6rhFQ+jvDC04+JwwkG217QU3Mnk2u0YGkOMWrx+Ri5statS56fTKABfXxpmOce
-	4D8DJBz0fTNviXM1IJGd6460XKypcG2DLFvJQxeQv+Qk8bP7Lrq74Zs80juCBU+AzhdlT2p1vTi0p
-	8ytbhhtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UoJsSdER8bxSYV9EQSeWYeWln+R5FMyjf1qC85N9a3s=; b=p4QDPqR79koLxpHALwmsDLVZW7
+	zejKJij6Ip90i3pwBYIbZoajvT4j/ttwkLEXHzcaFRkyVppEkSKZy8dMnib/nF8ZD02C+Y46c1Wfk
+	CqHoKxdaJY5Zm5yMGRJS1oMN+dIOmv410mg57lcN/kwWId2NClJnndYV5CIgRvtLiKbzTHie6sDm9
+	AQX0rCn0AgaA32zkLIbBPBZTqzbjiKFszkQjD4X/L5mEyJ7RB1zERzELlCxlH68p9N9NZ8N4upLnw
+	CVOnUQBrBPTvWNqPNll/SWn/ZzH8fxCWvO1TGGIwBFnLwb99WGdzbdu/iraKANqwTQMOsaVFlJ6tO
+	vsQ+cHmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rD9-00000008Vaj-26H6;
-	Wed, 18 Mar 2026 13:45:23 +0000
-Received: from mail-northeuropeazon11012029.outbound.protection.outlook.com ([52.101.66.29] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w2rDY-00000008Vmj-22Kx;
+	Wed, 18 Mar 2026 13:45:50 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rD7-00000008VZN-2CxP;
-	Wed, 18 Mar 2026 13:45:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EC+jJsJQiBpIkwHjRtAvQenMwlrhXNZCSFqFOikGT99gl45OIKNZZ9b5fNpoM3bYt43g+nAvRVgDqX8z0wwRWxrjXLIk1+bjjLhAappA/ucikursuI4TKmPf7Jf4du2sFu4qx2ruZG9HIlUvX7V/F4sMWPUpdKVoPIE2Doh2Ozkp0sIlRAXWKNqp1gZVkAy0rhn+23hMlMjSAYp3jbtJ2NzosWPYp+MjL0BoRTbf1UIENee++OdVPS/9TKc0V97OW9RIxSakC8TveDg+2GW+IKEcfDOrUucdlbSDP45pWRJvI1griiQuQ+kTy0udmfq7JBiRH6hLNtuwMKuOASdnFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T748oTPOn6Vf4zDtFIFiJdqmDQM9Pwav2OXKOn/KdOM=;
- b=yzWB9ePDGwJJhgiQR+Q7zYIXFQV8mIyR6ez6OTLuobQnsKsNdamQUTNav8/uSB2tJ1yo07bsdI4M1rf72Z6gRv6PB0NZ06nOZrYDCbSXC7wAcju3BgcYWDz+S5f88lMgZPfV+njQvhgfb2H9lBpLX8ViT5lLyen36BI1Yk/4L2pv3Am70spDBoIGrvvbkbVagNWh+HBiQGYD9ofteTTMXVq9iD85vk5lPSJg3jLSgk+xTOWqgr5oDIRdvdRTYrtT9wSN8iF75gvuh3+hbGbE8sDyUEChw/QKVm8j4+gZURqPDhprDXOvk1nUo6nv+kB0f6UzSIdZkugelACBMW8ikQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T748oTPOn6Vf4zDtFIFiJdqmDQM9Pwav2OXKOn/KdOM=;
- b=Ur/FhEywlSqabddArLhiyasjKN75x2WnWr6045hHcx0b9ifgeTWUXcHjuEjXVTsr5Mqsqy3YUtLt8MuHutWVidG+9E8m/gmWggK1YfW35VrrqXo8KV7CmL3CBg7iQ8nCx1FdLhrZmjKEBw03s0qxw62RnXdhUmGEDGf9mkywUukbEWlCNCBWeHvH2VL2s7r3+aoNAhn6SNGZU5JsDY5nsca7gmlp7Ymoupf2U3nceifRBA/iyYDimShgnK1/FwpdaJGKCfuGOo+n1xrtuiV/NOdPwJq54/Jwr6XRhQWu/Mc1Br5cKAVUEQX0KOJJucM5FFRi3EGtVvJyQZaWWo6/5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM0PR04MB11915.eurprd04.prod.outlook.com (2603:10a6:20b:701::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 13:45:14 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.021; Wed, 18 Mar 2026
- 13:45:15 +0000
-Date: Wed, 18 Mar 2026 09:45:07 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v4 05/17] spi: imx: Simplify clock handling with
- devm_clk_get_enabled()
-Message-ID: <abqsYybojsX8ni1o@lizhi-Precision-Tower-5810>
-References: <cover.1773801401.git.xiaopei01@kylinos.cn>
- <554b3a088ac453f50df9b040e3506c807efb5dd6.1773801401.git.xiaopei01@kylinos.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <554b3a088ac453f50df9b040e3506c807efb5dd6.1773801401.git.xiaopei01@kylinos.cn>
-X-ClientProxiedBy: PH7PR10CA0002.namprd10.prod.outlook.com
- (2603:10b6:510:23d::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1w2rDV-00000008Vl5-1Bs0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 13:45:46 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62IAhwHD008302
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:45:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UoJsSdER8bxSYV9EQSeWYeWln+R5FMyjf1qC85N9a3s=; b=Grnww/H1VtULtmxg
+	iVerOEpO9Nd7mgpJBoM8enQ0tYbZj35J/cusj5heEXUHi0TZOEwWajUk7Up4fx2p
+	NdXKFs2aJRd10gk8hiOv0zSO7FVSXZDaRCKmcHMTRojU5juLpgO6ZtKkyqQwMsb/
+	DN5YvaEv3/qt9wG7ixd7r2CRQrRpmNOh/SioxrMmgLDSCLvRdBh+zdM3pQj2J8N8
+	ED6ldAuLFMGiWb7TccOtUPK6JEjLAoydOOAaOHGC8A1M37Skr737ELTJ/vvhbVCy
+	9msBV0Cjh/xo2VFN6tx/H1P+IaoQOpXnj2mm9j+dLk2hGSX1sgSDCs8s36P+fTon
+	DgQ7Vg==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cytj50mek-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 13:45:44 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-35a0998a441so42543721a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 06:45:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773841543; x=1774446343; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UoJsSdER8bxSYV9EQSeWYeWln+R5FMyjf1qC85N9a3s=;
+        b=YSziiRkeRhYXrQRG3eI7vR6JEAk1PCDRGWM7g1iav5C8fTqV+Bw0xBXwjF0wPuXNw/
+         6rQZyKGg0AG8LCVlvmhClJhnX47crauV3RaP7sBDQp+o9J3kJYnzvORS66Ph+ZnRxfSM
+         KTg4KFPI8v3EwnkUjWHwHYEH1mE7EnbajzuE9J9czubyD04oxtWFKyS8D6aA+9ev5lXR
+         FhYyUICymxqz6dSVZLfppAcTSeHnvmfxD27cEd8bFMZknu+vR7gqzt3+u7aQn9FOm9KO
+         4UK2UJDcETZ4CIHchrTKV+ic7HaOw4xN8zx463hpZw7QffHTNKrWVVhlfgIbIXbvgRbZ
+         gs7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773841543; x=1774446343;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UoJsSdER8bxSYV9EQSeWYeWln+R5FMyjf1qC85N9a3s=;
+        b=emx1NWjjpDO+mFNu7+ceV1sYlgoQHzJPSJGbYvZAzltOXkfkPzkJbK5vheEDj7k3By
+         umYlxWdm1MctkCkYdaSonjSlT5ESwJfE/0D/V7MTzbubMvF+4p6foBQU2qAW5SHQT/5u
+         jOTaM2xee/nI/HEcmdr3v1rJXGau54q3IH88lSFN7j+agntr5cRufSS2xsYwOW7drzGr
+         QEUcjXYA+ya2wBO65FSyeZeNyE9h/Rn1/J2MACVWVqhiA06bdz4iEcG6BYeh2AcvgvoL
+         o+HLFTztNFCBiwAVpHedDbk1jYhP5TFeBgYdx/ZOvfPHxdkqLl+u0RnEzDrECnAA8R46
+         xXyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUK3JUe9ctU08zzxQnvJuBmJD++e5g2+LzRevJxFwx5NjGO8fbV9h8nkxUTdkYzovd1S84UmvLg9yiEKu9cUhrp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoGUpHL7zeItx8b0Y2bkUbC8HM3RVfQ/30nanvcbyCy3Z0BApI
+	ng+GJXr4Dz/OvR6yCWcv6AKsR5tNCsckcmxVeAIi/eWpcmdMPA2f/ij3pAD2oERkAkNg/ME9H5U
+	Ncd3V9QuyYaXTUYlm7G03qrS/JgvRpgaarFn0P1zca7D1GfximN9wlrzmJRqaMHxpy/tViOaVup
+	j3Pg==
+X-Gm-Gg: ATEYQzxBpLBSo9lIYKOgbaksVsN0KJgPgmu1h248wCqkU9s3AgIzUW3wqM0mbjj7zf3
+	3fD6nJyupBvDKx1ejMjDHXMfHz6kuEictWGOrq3NRwY/KafpEMEzd8iTh/QpgF+MPF6zhpog8Z9
+	4dFtb8rWje6zla2P7HHevCI4FhxanNzZzrGSEMbED8KmWgy0yfHiOCg0V0KbwxjZXvne7jqBk4v
+	GK/0A9yM6VPq4wRFlQzR+ccZ0iMWatd20Y8mHQqkShvDWQUshyAsCTD/Y+Vgg5FDB8xsciO477u
+	uD2ZbhZUNAPg3oerhr3irP2zk35KLEbJTdVY73ZVtNMWgHujiNY0Xq7DuNQtIFwAWPWzBulAFYw
+	bm5HthQ21dWuBYTA2Jf+Xyr0w/UAXL2yDIGwaheBLY4ugNyhIEsGtbW+pC6cJLTBPt/NjzbZYf2
+	9LXVY2OgkP1QQ=
+X-Received: by 2002:a17:90b:2791:b0:359:8c9a:fde9 with SMTP id 98e67ed59e1d1-35bb9e7d3eamr3682382a91.11.1773841543066;
+        Wed, 18 Mar 2026 06:45:43 -0700 (PDT)
+X-Received: by 2002:a17:90b:2791:b0:359:8c9a:fde9 with SMTP id 98e67ed59e1d1-35bb9e7d3eamr3682329a91.11.1773841542094;
+        Wed, 18 Mar 2026 06:45:42 -0700 (PDT)
+Received: from [10.133.33.163] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35badbcb8b9sm8649822a91.13.2026.03.18.06.45.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Mar 2026 06:45:41 -0700 (PDT)
+Message-ID: <929d0ce6-e414-4d6c-b5e5-7a38e480acbd@oss.qualcomm.com>
+Date: Wed, 18 Mar 2026 21:45:36 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM0PR04MB11915:EE_
-X-MS-Office365-Filtering-Correlation-Id: d16056fa-addd-454d-568d-08de84f495ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|19092799006|1800799024|38350700014|18002099003|56012099003|22082099003|7053199007;
-X-Microsoft-Antispam-Message-Info: hEjPRWQiSFbpcUGW/EdpKneGRRj5ToObxhaGx9APeGltzVFnjybHEWpnEfCFFFvLEGWOpNUfO5e4gzaWrSLw8TAMXjB+DEpO+R0d++83OuOwVFj774/aev7d6NFj8m5ummXaOWpKZ2JpRvdu/hTeTxP0wqzzXzIWceQvuGdPJKqjXx0xjOFuT3AnhQPaHjaBAhns6+lOGd5+kpuFFMrsEaoLv5oQl17GECA4n8jHbCRI5Y0Pk4s621TcTgegto9DWrDImtyZmd2FFJMeDRMCaxM0fvnLl/pojm9uZh6FJKJJKuWjLOHi9xawaqPQX/4Vs5w/xN8772ev/EoyKih9YisGkzQlvKxSCn029hSv0jAt/qYSDOE4HqPT37eFaz6gGE6BXbaZaRkzPJd+xl44Y/yd0G9H+Q+g9iUkfZf9mhs1VqHUNRG56S6UOqj5Opb8bL3kcbDQgSfxeKlsxjNk9JuDkl8Vg00stL59XRho9F1yA+aa9SI6I2NGrlnb0f23pT9w2jnQtQwX+vvZhtkAYKOr9gk3dm3DIs5iaF/uDzVsd+G626O8P5v67LANoY9APfOHGoYfzyytdpMCRr+0gwjPQBgsM1Ch/5P9rSeDe2NdvBvawiMok7AVaM4gaUwnXABHrlut2U1HceoTDZeePKjAMnHCeMHOy6yUSQVviUOFgu79MJslDSO6FEmd4h2+PtU7YAUEyEk6Uyb5t3693sqe5cWaYeWnr1Ll1rWTcS3OujRWMq2hpSwWyqvDAV/pHcnfzFqz9KmWwFMXPKCh2CqoAccwYBUTJdJnFGEYCJE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(19092799006)(1800799024)(38350700014)(18002099003)(56012099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XBSFuRH6RfSO6L3+JW3R4PrnKSsmemRW0mT8pdz8KkOnTdKDOPSJ8aHJtDa+?=
- =?us-ascii?Q?LHM0375qFLjszCfXMFOqUwK/FGB3zlmdXSowzelog4qUyOMWrXPa7A2yc7bd?=
- =?us-ascii?Q?cW+mE03MF20qQh82WG0u16UcTUXo2qK8iA3ggu9pp8Fktno8IpkjfR7amt4o?=
- =?us-ascii?Q?gyGXWHGqN3k00h6NDvWHc7+/4NFK2QvRKJSfaY7NEp+nr1QkK+TlC0Fh8OPA?=
- =?us-ascii?Q?w8qEP+YEiFQpCgSqIPDJc4iDkEDoKUaTPTqvA+WZTAJ+d2PFPDQ6zT0UAzC9?=
- =?us-ascii?Q?F/AMffjS7+UA4+pdyd0TCYr4KDquyCGatayTo6UclEaVP9lC+VVAPRjQ72xc?=
- =?us-ascii?Q?U8IeiipgGm4SJlVX9CYghkFexVZgC4q0YMg++BYzcxFv4ttxd/viJq/fQ8X2?=
- =?us-ascii?Q?cToA/zPU3tEMoBaI0cmKFP19PHL3iStKcu4ZbI8C3OvBTaQAXJmxLWpgj9Ev?=
- =?us-ascii?Q?RRaixGaPz28X1+cxUDUdzOPVh+TA5KCHSNovHH5y2nqM7MwkEkR+NQbmoAVu?=
- =?us-ascii?Q?dR3335NM9nNNmp0Rn7WgJSeVcD98IpN4ug/V8cyxzUmhFAnEAn+SPXnpXg+1?=
- =?us-ascii?Q?btn9MXEC+aucLlZwX89nft3h+80fOGfFjIb9Q8l2vrzbLfFjkLDD4oxtSvpW?=
- =?us-ascii?Q?9nUvFlB5dH9JlroojBxPKCJxdKPer4GWB83bDOm2zZDznnXGux3HuI5A07J8?=
- =?us-ascii?Q?yFAvyNFFvTITymr7u0WeTYXadGCgGaUiq2lKV+JkivzZlJ4Vce41sVPz6i69?=
- =?us-ascii?Q?eyyN+i2pBmaMbN9oyhkJ1pNW7KI/19lDOZrfax+YhLAdzNE6Esb3a14qmy8i?=
- =?us-ascii?Q?l5Xp+K0ZLvnQu//4tmMA3qfLxomN5aDY3EJRea8kXWkk8li1lJUO2nJX1x8h?=
- =?us-ascii?Q?R/2cM9Zv6GZiRAQHyquvSq5Z96huMTreLvp6kkHMMjyfo2Q+Hd8ao11AKHzM?=
- =?us-ascii?Q?dfzy2vU26lny+qoUQpBOJHBXc2bSYD06NDkIzz1TgN5CFLfIf/lFDPRf5wyj?=
- =?us-ascii?Q?VbHKM0tI97TkEnnsYVstqqKE9Y5t5hb+DOwwaFb7Ut5DuUNRW2XJW1Zf1frJ?=
- =?us-ascii?Q?QsZBTWE5ExO1sG+zGmqwpGpXSaAkRLx5g+hcptQORyKEs6+EWfsYFiXZJuou?=
- =?us-ascii?Q?6wJ9KBOUOWgrenvr8St7fkQnQVfYHVmvP/T9ByJfvy8TgRIiYMgpLvI3uWyB?=
- =?us-ascii?Q?4/e7OLXKRFNjEY28QlgeCumvjGPH9/fdEROMiyCzIcRZ2KY7d62g1MPXO8TQ?=
- =?us-ascii?Q?sMMJ14tFk5x2v7MBM4WEsL/7nczjopLoPM9ufvbojJXylk0DniBUhnfZHVzA?=
- =?us-ascii?Q?I01RkZUSd6+BoI77H8yMvTFC/1cq89mbZQFezS+dsUbAreyYGJ0R5HiSghh8?=
- =?us-ascii?Q?AWXkrsSDPUnddWVAajEjE90I6W+9FUt4r7QcObqmh2c0KGVFWjOOgqKyFj26?=
- =?us-ascii?Q?sy38w1cqoG+IuvWnLy8L/na/5PimNQUYxh/z5jDDp+n2BxYlRe3LcCP2C1F1?=
- =?us-ascii?Q?BO0bGddBdk0qsmfdqrN5PU4zVmeEJ9bI+/og/CxULed1rYFN59GnUMHp1CvR?=
- =?us-ascii?Q?XM6WFVbJ+QDpIdMJoX/KeEdaB5vNoop3/q3hWSfCee40sjtLktHFGzGnQXwF?=
- =?us-ascii?Q?lKsPb78KlYQSDork+jrztiru830ZStTsgGWPKPYjhRY6+tzBwKepAzxEU3VE?=
- =?us-ascii?Q?dd5XC3FBaujYf+wzW3Uh7LljwWJkf591AcZse4sBKVXAywwe47GIRcl0nRcc?=
- =?us-ascii?Q?dPqx2oPcww=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d16056fa-addd-454d-568d-08de84f495ae
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 13:45:15.3304
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dQ9ClbHtxkZpnRTcX/gYYnLi5/VGPH4N0DrI+nCQ+qqxczD1dKcPrT4bdonp/pPrdBZHxp5mgvge8pdTkPX2eQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11915
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 4/7] qcom-tgu: Add TGU decode support
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260317032639.2393221-1-songwei.chai@oss.qualcomm.com>
+ <20260317032639.2393221-5-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260317032639.2393221-5-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE4MDExNiBTYWx0ZWRfXwqweSf7vR/dB
+ hSCkbvy7NGTGXcR016igxbW3BEms0nZyh5O/EXDskke7uy8S35evLG17yJCrZSDJkEwUKKlOhWs
+ sv9q5fnsiOuuDzdPJhNF4xZZsKpzw4fQonj3mQF7GcgnBm1MNTvzokF8ojiGVNWE7zyaziBF80T
+ 6FP/ivpjaRt0v10/36+Ep0ZTd8pi+wLHRH94aeiNTA2h4PvC2dagZu4VdgBGcchVyoCFHJKcpsk
+ 8cp1zEBnvg2U3XTagrjxA23ICIr7ZHLOKN8V9/12eef/fuj9uS/CE6RErHjFc3Q8HhFTIBqiZsa
+ 4x+MjaheNFMld9M8tmAU45tJii36A18vb40euGn8gqEp82BIdyyq7fhwDyFKH+S9PSrEelR6T7t
+ h9D5IIgSxwh5VYyCOxe/Vc1dI/iji+Di+oiHpRpC3iknouEFeYCYewFvRXlsGzIWkLu25vw65K8
+ H5WK5pKM5yO7fHTyX2w==
+X-Proofpoint-ORIG-GUID: tlc9x6Jn2tKyc_rQIhoDIULhnuWcUrK-
+X-Proofpoint-GUID: tlc9x6Jn2tKyc_rQIhoDIULhnuWcUrK-
+X-Authority-Analysis: v=2.4 cv=dM+rWeZb c=1 sm=1 tr=0 ts=69baac88 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=wg8t7fkb2t0BE43u6skA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-18_01,2026-03-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501
+ phishscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603180116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_064521_572160_371114F7 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20260318_064545_458621_8436231D 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,67 +151,398 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 10:39:55AM +0800, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for both "ipg" and "per" clocks. This reduces
-> boilerplate code and error handling, as the managed API automatically
-> disables the clocks when the device is removed or if probe fails.
->
-> Remove the now-unnecessary clk_disable_unprepare() calls from the
-> probe error paths.
->
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+
+
+On 3/17/2026 11:26 AM, Songwei Chai wrote:
+> Decoding is when all the potential pieces for creating a trigger
+> are brought together for a given step. Example - there may be a
+> counter keeping track of some occurrences and a priority-group that
+> is being used to detect a pattern on the sense inputs. These 2
+> inputs to condition_decode must be programmed, for a given step,
+> to establish the condition for the trigger, or movement to another
+> steps.
+> 
+
+Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
 > ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->  drivers/spi/spi-imx.c | 15 ++-------------
->  1 file changed, 2 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-> index 64c6c09e1e7b..a01c466818de 100644
-> --- a/drivers/spi/spi-imx.c
-> +++ b/drivers/spi/spi-imx.c
-> @@ -2323,26 +2323,18 @@ static int spi_imx_probe(struct platform_device *pdev)
->  		goto out_controller_put;
->  	}
->
-> -	spi_imx->clk_ipg = devm_clk_get(&pdev->dev, "ipg");
-> +	spi_imx->clk_ipg = devm_clk_get_enabled(&pdev->dev, "ipg");
->  	if (IS_ERR(spi_imx->clk_ipg)) {
->  		ret = PTR_ERR(spi_imx->clk_ipg);
->  		goto out_controller_put;
->  	}
->
-> -	spi_imx->clk_per = devm_clk_get(&pdev->dev, "per");
-> +	spi_imx->clk_per = devm_clk_get_enabled(&pdev->dev, "per");
->  	if (IS_ERR(spi_imx->clk_per)) {
->  		ret = PTR_ERR(spi_imx->clk_per);
->  		goto out_controller_put;
->  	}
->
-> -	ret = clk_prepare_enable(spi_imx->clk_per);
-> -	if (ret)
-> -		goto out_controller_put;
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   7 +
+>   drivers/hwtracing/qcom/tgu.c                  | 157 +++++++++++++++---
+>   drivers/hwtracing/qcom/tgu.h                  |  27 +++
+>   3 files changed, 170 insertions(+), 21 deletions(-)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> index a1dfcd366d92..18930743c99f 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -14,3 +14,10 @@ KernelVersion	7.1
+>   Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+>   Description:
+>   		(RW) Set/Get the sensed signal with specific step and priority for TGU.
+> +
+> +What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_condition_decode/reg[0:3]
+> +Date:		March 2026
+> +KernelVersion	7.1
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set/Get the decode mode with specific step for TGU.
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> index 14d6ad410d89..85fe1140eab5 100644
+> --- a/drivers/hwtracing/qcom/tgu.c
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -18,8 +18,33 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
+>   				    int step_index, int operation_index,
+>   				    int reg_index)
+>   {
+> -	return operation_index * (drvdata->num_step) * (drvdata->num_reg) +
+> -		step_index * (drvdata->num_reg) + reg_index;
+> +	switch (operation_index) {
+> +	case TGU_PRIORITY0:
+> +	case TGU_PRIORITY1:
+> +	case TGU_PRIORITY2:
+> +	case TGU_PRIORITY3:
+> +		return operation_index * (drvdata->num_step) *
+> +			(drvdata->num_reg) +
+> +			step_index * (drvdata->num_reg) + reg_index;
+> +	case TGU_CONDITION_DECODE:
+> +		return step_index * (drvdata->num_condition_decode) +
+> +			reg_index;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static int check_array_location(struct tgu_drvdata *drvdata, int step,
+> +				int ops, int reg)
+> +{
+> +	int result = calculate_array_location(drvdata, step, ops, reg);
+> +
+> +	if (result == -EINVAL)
+> +		dev_err(drvdata->dev, "check arrary location - Fail\n");
+> +
+> +	return result;
+>   }
+>   
+>   static ssize_t tgu_dataset_show(struct device *dev,
+> @@ -30,12 +55,26 @@ static ssize_t tgu_dataset_show(struct device *dev,
+>   			container_of(attr, struct tgu_attribute, attr);
+>   	int index;
+>   
+> -	index = calculate_array_location(drvdata, tgu_attr->step_index,
+> -					 tgu_attr->operation_index,
+> -					 tgu_attr->reg_num);
 > -
-> -	ret = clk_prepare_enable(spi_imx->clk_ipg);
-> -	if (ret)
-> -		goto out_put_per;
-> -
->  	pm_runtime_set_autosuspend_delay(spi_imx->dev, MXC_RPM_TIMEOUT);
->  	pm_runtime_use_autosuspend(spi_imx->dev);
->  	pm_runtime_get_noresume(spi_imx->dev);
-> @@ -2386,9 +2378,6 @@ static int spi_imx_probe(struct platform_device *pdev)
->  	pm_runtime_disable(spi_imx->dev);
->  	pm_runtime_set_suspended(&pdev->dev);
->
-> -	clk_disable_unprepare(spi_imx->clk_ipg);
-> -out_put_per:
-> -	clk_disable_unprepare(spi_imx->clk_per);
->  out_controller_put:
->  	spi_controller_put(controller);
->
-> --
-> 2.25.1
->
+> -	return sysfs_emit(buf, "0x%x\n",
+> -			  drvdata->value_table->priority[index]);
+> +	index = check_array_location(drvdata, tgu_attr->step_index,
+> +			tgu_attr->operation_index, tgu_attr->reg_num);
+> +
+> +	if (index == -EINVAL)
+> +		return index;
+> +
+> +	switch (tgu_attr->operation_index) {
+> +	case TGU_PRIORITY0:
+> +	case TGU_PRIORITY1:
+> +	case TGU_PRIORITY2:
+> +	case TGU_PRIORITY3:
+> +		return sysfs_emit(buf, "0x%x\n",
+> +				drvdata->value_table->priority[index]);
+> +	case TGU_CONDITION_DECODE:
+> +		return sysfs_emit(buf, "0x%x\n",
+> +				drvdata->value_table->condition_decode[index]);
+> +	default:
+> +		break;
+> +	}
+> +	return -EINVAL;
+>   }
+>   
+>   static ssize_t tgu_dataset_store(struct device *dev,
+> @@ -54,13 +93,31 @@ static ssize_t tgu_dataset_store(struct device *dev,
+>   		return ret;
+>   
+>   	guard(spinlock)(&tgu_drvdata->lock);
+> -	index = calculate_array_location(tgu_drvdata, tgu_attr->step_index,
+> +	index = check_array_location(tgu_drvdata, tgu_attr->step_index,
+>   					 tgu_attr->operation_index,
+>   					 tgu_attr->reg_num);
+>   
+> -	tgu_drvdata->value_table->priority[index] = val;
+> +	if (index == -EINVAL)
+> +		return index;
+> +
+> +	switch (tgu_attr->operation_index) {
+> +	case TGU_PRIORITY0:
+> +	case TGU_PRIORITY1:
+> +	case TGU_PRIORITY2:
+> +	case TGU_PRIORITY3:
+> +		tgu_drvdata->value_table->priority[index] = val;
+> +		ret = size;
+> +		break;
+> +	case TGU_CONDITION_DECODE:
+> +		tgu_drvdata->value_table->condition_decode[index] = val;
+> +		ret = size;
+> +		break;
+> +	default:
+> +		ret = -EINVAL;
+> +		break;
+> +	}
+>   
+> -	return size;
+> +	return ret;
+>   }
+>   
+>   static umode_t tgu_node_visible(struct kobject *kobject,
+> @@ -77,13 +134,26 @@ static umode_t tgu_node_visible(struct kobject *kobject,
+>   	if (tgu_attr->step_index >= drvdata->num_step)
+>   		return SYSFS_GROUP_INVISIBLE;
+>   
+> -	if (tgu_attr->reg_num >= drvdata->num_reg)
+> -		return 0;
+> +	switch (tgu_attr->operation_index) {
+> +	case TGU_PRIORITY0:
+> +	case TGU_PRIORITY1:
+> +	case TGU_PRIORITY2:
+> +	case TGU_PRIORITY3:
+> +		if (tgu_attr->reg_num < drvdata->num_reg)
+> +			return attr->mode;
+> +		break;
+> +	case TGU_CONDITION_DECODE:
+> +		if (tgu_attr->reg_num < drvdata->num_condition_decode)
+> +			return attr->mode;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+>   
+> -	return attr->mode;
+> +	return 0;
+>   }
+>   
+> -static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+> +static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>   {
+>   	int i, j, k, index;
+>   
+> @@ -91,8 +161,10 @@ static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>   	for (i = 0; i < drvdata->num_step; i++) {
+>   		for (j = 0; j < MAX_PRIORITY; j++) {
+>   			for (k = 0; k < drvdata->num_reg; k++) {
+> -				index = calculate_array_location(
+> +				index = check_array_location(
+>   							drvdata, i, j, k);
+> +				if (index == -EINVAL)
+> +					goto exit;
+>   
+>   				writel(drvdata->value_table->priority[index],
+>   					drvdata->base +
+> @@ -100,9 +172,23 @@ static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>   			}
+>   		}
+>   	}
+> +
+> +	for (i = 0; i < drvdata->num_step; i++) {
+> +		for (j = 0; j < drvdata->num_condition_decode; j++) {
+> +			index = check_array_location(drvdata, i,
+> +						TGU_CONDITION_DECODE, j);
+> +			if (index == -EINVAL)
+> +				goto exit;
+> +
+> +			writel(drvdata->value_table->condition_decode[index],
+> +				drvdata->base + CONDITION_DECODE_STEP(i, j));
+> +		}
+> +	}
+>   	/* Enable TGU to program the triggers */
+>   	writel(1, drvdata->base + TGU_CONTROL);
+> +exit:
+>   	TGU_LOCK(drvdata->base);
+> +	return index >= 0 ? 0 : -EINVAL;
+>   }
+>   
+>   static void tgu_set_reg_number(struct tgu_drvdata *drvdata)
+> @@ -131,18 +217,28 @@ static void tgu_set_steps(struct tgu_drvdata *drvdata)
+>   	drvdata->num_step = TGU_DEVID_STEPS(devid);
+>   }
+>   
+> +static void tgu_set_conditions(struct tgu_drvdata *drvdata)
+> +{
+> +	u32 devid;
+> +
+> +	devid = readl(drvdata->base + TGU_DEVID);
+> +	drvdata->num_condition_decode = TGU_DEVID_CONDITIONS(devid);
+> +}
+> +
+>   static int tgu_enable(struct device *dev)
+>   {
+>   	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>   
+>   	guard(spinlock)(&drvdata->lock);
+>   	if (drvdata->enabled)
+>   		return -EBUSY;
+>   
+> -	tgu_write_all_hw_regs(drvdata);
+> -	drvdata->enabled = true;
+> +	ret = tgu_write_all_hw_regs(drvdata);
+> +	if (!ret)
+> +		drvdata->enabled = true;
+>   
+> -	return 0;
+> +	return ret;
+>   }
+>   
+>   static void tgu_do_disable(struct tgu_drvdata *drvdata)
+> @@ -252,6 +348,14 @@ static const struct attribute_group *tgu_attr_groups[] = {
+>   	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 1),
+>   	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 2),
+>   	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 3),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(0),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(1),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(2),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(3),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(4),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(5),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(6),
+> +	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(7),
+>   	NULL,
+>   };
+>   
+> @@ -259,8 +363,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>   {
+>   	struct device *dev = &adev->dev;
+>   	struct tgu_drvdata *drvdata;
+> -	unsigned int *priority;
+> -	size_t priority_size;
+> +	unsigned int *priority, *condition;
+> +	size_t priority_size, condition_size;
+>   	int ret;
+>   
+>   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> @@ -278,6 +382,7 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	tgu_set_reg_number(drvdata);
+>   	tgu_set_steps(drvdata);
+> +	tgu_set_conditions(drvdata);
+>   
+>   	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+>   	if (ret) {
+> @@ -300,6 +405,16 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	drvdata->value_table->priority = priority;
+>   
+> +	condition_size = drvdata->num_condition_decode * drvdata->num_step;
+> +
+> +	condition = devm_kcalloc(dev, condition_size,
+> +				sizeof(*(drvdata->value_table->condition_decode)),
+> +				GFP_KERNEL);
+> +	if (!condition)
+> +		return -ENOMEM;
+> +
+> +	drvdata->value_table->condition_decode = condition;
+> +
+>   	drvdata->enabled = false;
+>   
+>   	pm_runtime_put(&adev->dev);
+> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+> index df570c89ffd7..987ea07bd618 100644
+> --- a/drivers/hwtracing/qcom/tgu.h
+> +++ b/drivers/hwtracing/qcom/tgu.h
+> @@ -16,6 +16,8 @@
+>   	((int)FIELD_GET(GENMASK(17, 10), devid_val))
+>   #define TGU_DEVID_STEPS(devid_val) \
+>   	((int)FIELD_GET(GENMASK(6, 3), devid_val))
+> +#define TGU_DEVID_CONDITIONS(devid_val) \
+> +	((int)FIELD_GET(GENMASK(2, 0), devid_val))
+>   #define TGU_BITS_PER_SIGNAL 4
+>   #define LENGTH_REGISTER 32
+>   
+> @@ -49,6 +51,7 @@
+>    */
+>   #define STEP_OFFSET 0x1D8
+>   #define PRIORITY_START_OFFSET 0x0074
+> +#define CONDITION_DECODE_OFFSET 0x0050
+>   #define PRIORITY_OFFSET 0x60
+>   #define REG_OFFSET 0x4
+>   
+> @@ -57,6 +60,9 @@
+>   	(PRIORITY_START_OFFSET + PRIORITY_OFFSET * priority +\
+>   	 REG_OFFSET * reg + STEP_OFFSET * step)
+>   
+> +#define CONDITION_DECODE_STEP(step, decode) \
+> +	(CONDITION_DECODE_OFFSET + REG_OFFSET * decode + STEP_OFFSET * step)
+> +
+>   #define tgu_dataset_rw(name, step_index, type, reg_num)                  \
+>   	(&((struct tgu_attribute[]){ {                                   \
+>   		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
+> @@ -68,6 +74,8 @@
+>   #define STEP_PRIORITY(step_index, reg_num, priority)                     \
+>   	tgu_dataset_rw(reg##reg_num, step_index, TGU_PRIORITY##priority, \
+>   			reg_num)
+> +#define STEP_DECODE(step_index, reg_num) \
+> +	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_DECODE, reg_num)
+>   
+>   #define STEP_PRIORITY_LIST(step_index, priority) \
+>   	{STEP_PRIORITY(step_index, 0, priority), \
+> @@ -91,6 +99,14 @@
+>   	 NULL                   \
+>   	}
+>   
+> +#define STEP_DECODE_LIST(n) \
+> +	{STEP_DECODE(n, 0), \
+> +	 STEP_DECODE(n, 1), \
+> +	 STEP_DECODE(n, 2), \
+> +	 STEP_DECODE(n, 3), \
+> +	 NULL               \
+> +	}
+> +
+>   #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
+>   	(&(const struct attribute_group){\
+>   		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
+> @@ -98,11 +114,19 @@
+>   		.name = "step" #step "_priority" #priority \
+>   	})
+>   
+> +#define CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(step)\
+> +	(&(const struct attribute_group){\
+> +		.attrs = (struct attribute*[])STEP_DECODE_LIST(step),\
+> +		.is_visible = tgu_node_visible,\
+> +		.name = "step" #step "_condition_decode" \
+> +	})
+> +
+>   enum operation_index {
+>   	TGU_PRIORITY0,
+>   	TGU_PRIORITY1,
+>   	TGU_PRIORITY2,
+>   	TGU_PRIORITY3,
+> +	TGU_CONDITION_DECODE,
+>   };
+>   
+>   /* Maximum priority that TGU supports */
+> @@ -117,6 +141,7 @@ struct tgu_attribute {
+>   
+>   struct value_table {
+>   	unsigned int *priority;
+> +	unsigned int *condition_decode;
+>   };
+>   
+>   static inline void TGU_LOCK(void __iomem *addr)
+> @@ -146,6 +171,7 @@ static inline void TGU_UNLOCK(void __iomem *addr)
+>    * @value_table: Store given value based on relevant parameters
+>    * @num_reg: Maximum number of registers
+>    * @num_step: Maximum step size
+> + * @num_condition_decode: Maximum number of condition_decode
+>    *
+>    * This structure defines the data associated with a TGU device,
+>    * including its base address, device pointers, clock, spinlock for
+> @@ -160,6 +186,7 @@ struct tgu_drvdata {
+>   	struct value_table *value_table;
+>   	int num_reg;
+>   	int num_step;
+> +	int num_condition_decode;
+>   };
+>   
+>   #endif
+
 
