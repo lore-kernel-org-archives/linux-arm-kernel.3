@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB52C107760E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D2C1077612
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=; b=otUSX/oQt7NEdhAa8Ctuas+Wpv
-	buxBzVO5NP/COQ3JB2lSvoSuZQS5bBiEDGEpxDM+efQFT08B2sPyIjQyqb3cRomusOVCOBYyBvUwJ
-	K2Zyp4tEV0Ih7mxjQS1dMHul+LWeprBpzsJtOcpuEwHplL8im0WRUKhbE43EVVXpP8313mxQ+P8cq
-	gX2RMff44oFLI9PgBqov1A7kiMk65Izkxm7YnMy4PFn1w5E8DV4lm1O77hCs3qIZLLZD+DhNo2PTZ
-	LCSy/0mSqBk4YDIISsGcDQQr4d4u61LDEXyCqefTpLNav2PmnwG5cECua7YbEEHsCDhDlAq+p6Bvz
-	+au/6cXw==;
+	bh=f3fDHkI2qPB1DUqkyaQvkR3G/pgMN8f5h5Oy7NmCvmo=; b=BtHZZxNS6mf5E7xHo/3R/1QYPA
+	VIdAIGF99ykyaOBTCuzk5SIt2zJlDu3Q/Q2oM7Oc4qA226DaHQReL0wNNUP/lsVMaTCa62bItkVIu
+	Ez3ZKYe3Rf6vW8WDrYtopi9uQ8Unj46HlywIRXXfDuikhMGta+MW/a8QO67LkBCfcRKilHWSfHEJG
+	ptxlPU1vGA2wpA6UHaccTsYUfeukfzQYmxMc1ETuNqMUDjYmCDX69UagPRWYxg3JQM4CTbXzKWDGn
+	cDvtF0w2so3z7hMf4Fxy3NwBEXu5hMA1cz+6lFnjeIznXpOWpCm0JjrTNa6se7PRKyyZE/fjsEhPZ
+	AC5g7AFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xUr-00000009If3-3orW;
-	Wed, 18 Mar 2026 20:28:05 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1w2xX7-00000009Ist-2w1C;
+	Wed, 18 Mar 2026 20:30:25 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xUp-00000009Ieh-1qxX
+	id 1w2xX4-00000009IsM-39x4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:28:04 +0000
+	Wed, 18 Mar 2026 20:30:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NAhtdIReQzM10WEavwBsya8cg8jK3MUCdLFIIII9i2OV8dYCGVilAbM0TJnNiK5DI3tDTZJ2Iq1o8lA60Hb8C+ctgXT/twLD3TqU9OxFB1z+hh162FSu1+PBdzqjJoqyrnfnWVWFmOgFTINKyUQ6p2hctRrWDcx3oz6lB34i85PPr6iMQJlePKFnUSatp2d0StsNhOslM50ApNcVCw69kQQ+q+WIrD5M1iikIiu6FJYNqlSMNGkqfVdo3hR3TJ9itX8RTv95w4UqxxOeN+mqTRLGOo+rZICkBl+qxDtR+w87lgi+uxmDXRjgE4XQWKMBlQB8sZwr4X2faf8cPXT65w==
+ b=uqrVwwI8gc48TcCHKt+iROJu0AtHHKLj7XrfeSZCi/II7tJ/eUikJjcSu26T53UUNTWFTwHG8izVDxvHdJnKP8+aCm2Z/Nkf6keoT1AixU4jNJLZKi5LHZeRmcBzVYLDCgyKY7nATRONVQocE+pMkpfLSI1ukAeveWHHWnrZSthKuhxw5eMsQqUbq+HSagnh17tUlkGRPzAvx7n7OwAupJuLem4tX9OaWTEkc+fupRheAJqelyxFFOnKURtEshjTrCqxx21iNJOeFvJ0+0FIqlMpVLeK6MYCkTf5wJupp3Q85a62tOaq+KLBQA9Bc6yoauOCUuod+VD6gnDGWlyeZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=;
- b=BL/lHxCeg+yIxXVrvgga/HR2KSEzZCgTDXCd0dcTlTtseTwfHR1NdUkgYV5o+14EvZwQkjq85pBLVJiKGCRKLHRqzhIpzW+MpT2CS6a7410eGqpX4aZdm+burhvG1ulQ6wnlWVDAUOCwktueAU85fBeq8oWlhnfPRRfIX9I1UDtvUMQIXhkKefp4G4nctdlQBY0mnSTbVnjYxZQRSLQk4fFg4lNDyth19OnScwF/Srvl+jziKWVFv1LY+EBVpiLP4ksQAF5pMp4Cprhz9DPx9vOtKrdeh9VCYDL9U/lYuYGg2UzQX0v2WyzYl/7+bATsE6imClzkrPLd8A5hf/6w9A==
+ bh=f3fDHkI2qPB1DUqkyaQvkR3G/pgMN8f5h5Oy7NmCvmo=;
+ b=XJSJqtLKvtNwnd95rizYXO6zz+mRbuDgpr6b6Q68BofQif5f74506bdLN/HBrjopaQwpPRE4vdZkP72s72TW5DWNEOaSdJ8vm1TlOguR6HQb+oFO3P9Q1qaJi5aoGmgwh7akiMppYouN3t13YJ21oCg1nHyCQ5FVMyf6w8qmbpdBFncFnTheOi7xSSNCPHKJX4WmJCQakknv8GAbVuE+JzdxzS/MGTT+vSAXj+gszcK/e/eJW6TLo09wMNhCfosJ8QTmw0FrAhO8Xin1NIBfFP+Ot7NXgUif6qqzWbyiMhhMgPPQTiunzODUyT79lvmoXApr6+r1MGabuA98gJTjHQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.233) smtp.rcpttodomain=linux.alibaba.com
  smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ow67b7y5mAv0wGYhQo/ymevkVDjcCzlQ7smpV5U0UOE=;
- b=Ul2Xvb4TW5MXNLypITvvz1A12xiyFfwPMNbIn+xUdF9DrBmpLnQuw+V2LLx/mKDeYlYRO4ORORDUTHgHMQEwrnImaie5rhk2TOUBmxvLYxSXo9RXmGGZ0FV6AC6+Cy7eKI0yfD7doDZf862BxxtYLvEotVlCG9YYCKaNaySkgJtuzXPu2i0a9Sc9mICQt/WpH+QsfcTn9Zc73LyH0RYWf/Z3voeUcbMWanrj6a8VGxphsFh+g1B6+kdJdtcUaFtu2VEpSuXpYzjsHOTNBM1vy+CeAfmsV7hFjKvB/n32+HoSmjczuVo4ty/CSEpZoBVC8D6CRJGenXez8MKMyAC0LQ==
-Received: from SJ0PR05CA0035.namprd05.prod.outlook.com (2603:10b6:a03:33f::10)
- by BL3PR12MB6378.namprd12.prod.outlook.com (2603:10b6:208:3b1::6) with
+ bh=f3fDHkI2qPB1DUqkyaQvkR3G/pgMN8f5h5Oy7NmCvmo=;
+ b=tQXdY19anuyZvQAUmKp8uLMEgAtYg5ucbRweYU6VIwSf7gzmSxbqDMRrD/CBViABktTPyke0437NPNrOya9yc9U0lQhq4GDC9oRGSn2D9iAO5MVB65LBoPkFwKeY5U+RFhif6sJbtyCDA6lcg1nr6a4c9vqpxRNk4iBMKpKeDTPiVaWKRC7diYbVCWIkHuNv3a0UrRHTk9FeJtJVjmXVTVf8C5Lzzi83biEAK0pyq9NtvHAvS9tLMZB2J5UCmR2mGxEpAlxz6wU4IX7btkU+AJ0Aolieqjb3vHfddxpJQXYnawPt7zlZ68hqZ4tfMjwb14B01l7cPOwsfJK2uKwCtQ==
+Received: from SJ0PR03CA0367.namprd03.prod.outlook.com (2603:10b6:a03:3a1::12)
+ by IA0PPF12042BF6F.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bc8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 20:27:55 +0000
-Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
- (2603:10b6:a03:33f:cafe::9a) by SJ0PR05CA0035.outlook.office365.com
- (2603:10b6:a03:33f::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Wed,
- 18 Mar 2026 20:27:54 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.8; Wed, 18 Mar
+ 2026 20:30:01 +0000
+Received: from MWH0EPF000C6194.namprd02.prod.outlook.com
+ (2603:10b6:a03:3a1:cafe::90) by SJ0PR03CA0367.outlook.office365.com
+ (2603:10b6:a03:3a1::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Wed,
+ 18 Mar 2026 20:29:34 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,22 +60,22 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.233 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.233) by
- MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
+ MWH0EPF000C6194.mail.protection.outlook.com (10.167.249.104) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 20:27:54 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 20:30:00 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
  (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
- 2026 13:27:32 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ 2026 13:29:40 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 18 Mar 2026 13:27:32 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
+ 15.2.2562.20; Wed, 18 Mar 2026 13:29:40 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.182)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 18 Mar 2026 13:27:31 -0700
-Date: Wed, 18 Mar 2026 13:27:30 -0700
+ Transport; Wed, 18 Mar 2026 13:29:39 -0700
+Date: Wed, 18 Mar 2026 13:29:38 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Shuai Xue <xueshuai@linux.alibaba.com>
 CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
@@ -85,41 +85,41 @@ CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
 	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<vsethi@nvidia.com>
-Subject: Re: [PATCH v2 1/7] iommu: Do not call pci_dev_reset_iommu_done()
- unless reset succeeds
-Message-ID: <absKsk7qQOwzhpzv@Asurada-Nvidia>
+Subject: Re: [PATCH v2 3/7] iommu: Add iommu_report_device_broken() to
+ quarantine a broken device
+Message-ID: <absLMm//pcete6+D@Asurada-Nvidia>
 References: <cover.1773774441.git.nicolinc@nvidia.com>
- <21fa71d59c8ab787c0f3d8cf3e9fc725330fd0d5.1773774441.git.nicolinc@nvidia.com>
- <8c799be2-1525-4c84-b0ae-389cd0751e4a@linux.alibaba.com>
+ <c5390aeaeccfa86a1c79f26d2c0ff5df380940a4.1773774441.git.nicolinc@nvidia.com>
+ <b4085354-93e4-4484-8744-d8c7e7718c57@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <8c799be2-1525-4c84-b0ae-389cd0751e4a@linux.alibaba.com>
+In-Reply-To: <b4085354-93e4-4484-8744-d8c7e7718c57@linux.alibaba.com>
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6195:EE_|BL3PR12MB6378:EE_
-X-MS-Office365-Filtering-Correlation-Id: a69b87cf-7b8a-466f-1df2-08de852cd5c1
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6194:EE_|IA0PPF12042BF6F:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7cd655d-99d7-4cab-0851-08de852d2105
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|82310400026|376014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: oIDGyXyJ1vnRM2dx6SNn062pMXqHmHX23BXrM41UADGWdbaa9InU/b3RnQC6nV8COvUZnLgccHnoHNUv4yxrQCH1olI1kMji9dXAUzkHK3233NbwtcoTaP9c1mEQBeZv+BMsqBlmEqEL6pU8X4vWni4tRspk0Wd4BFiIxXtR9/ZihLQD/aMPzHpp84uMBXxeZF+DICjYkqUGOrC3HT3WjAppqsg2kmUsFIzcM1x4y5OSWlkXd3csU8RBw7/fHHO1TSFI5Z0TxLPbFK4ezweO5LMV7Vrl1z5UQQPLHS7LABi08WtkNwp8Bd5zXx/47POCbFLu/mUz390ElFkdGdmaxaDGr2K3PAuiE9we7Fd58TroQ+IjMmdX8fxt0nB1EODT0A0Wp0xinDw2oDkqQyQkMwW2dXyBA120JNsaeGsmkbWvdG+oxXqMn0GVFoKfCXegsUgXWYuMM3O3oSb927+4TuNo+g+S4gCVblK0TjqsOSEFOTHriWVkerCGTcw9gZ27H3DGaqVz7oFQ457e20vwQntZqFf2797Zsc5vxgW+1UnH7AHSfZuXaEwV4WUqY+39jrImKyARUgDqEciVjb9s3Ilo2qO2JYjM8euL3/tVeoskVpna7lkQKrpuSHitQ8R/CSaPNSUUSt2FVP/oFemhTiYpNYdJwjC7KJ0OcHG3aCmP4scN0W54m9YmvL94UksRkLwFkoCuxQ4d5usUGVLbtG8qPHq8M84WVaKt4q6l6dTToGg1P7N3GfDgdcEMw3aFyKNOqE6R0evd/C2wjMZhtA==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(82310400026)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: PFVBmLSnmCrxagtIRbMsOTkHF6Z+caTN/3idJfVuM0g5bKHAFnDRa4w8xKqC/7Oa5HnV9mEE1e/7/HT3ww1KkHaevm1d5KzdT7pp5iH8YHGHCWENbpHP5nhBJtOj4I1Y5e/b+EzWqyqwR6uyuMWNFpiSR8UsqLxQOBRYhr1PZHqp1NpmBoPE8jnEwMIdoXK/WWBRJHn9HedkGKg/lEL6s8ZGF9sFheXe+1ad6pqwUF1T5QutOOliXCOysKoq/uKwO9Ogg3Q2YU5xCqYnny4teXa4LbOBLyXw59B2yh2N0jJLThS2uMeFrDFRCkwMwoA3cIfWXigJrgo6okjkIEA/1o0vHRvl7ctMxmBUraMkZhNVfoKalDvLnTYrFSaYLWw+GPXJ1XE/usPGBNsAQfEVo6AOU43EXALx1rkHm14A9uixlHgyk5zBCQ5t2nQfOS2AV+C0k6sprFJimuCBhzg/riqT1yFijaOK5gsb0Kwql65c3hZLPaIzsnAT08yM/MIaFORGNtlD2RLgmP4vKfSg8ZNzW/oswXgyx1Lfe6ilIgrx85zoai/z80KJL8V/c/8nA32C2IPr6Wkes3BR4Q6CCBvsO0XsxlITUuK3Gh7gzRcxeUl2swPK+TW1eQ+IAPw/QYfaSXRS2XeWqd4dR7V4ux/Y+4udjIFEto2H6R0oXZqV194YdogBUSqgE2ERSooeYPmzETqZU7XZAUnVnOc6g4+0suWgo5GpKA+KqZcl5jh1AQQQVnFiaH50ZLgMG4K8hEbmFfhDtxVPVXr/1fEfxg==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +/w1K2pBpulr2Ec285bHYFvzeh0AX9CKR7Lk/nvgHaptDkLOqTeeUO3KqcyWNu270uSgZ21Z9wTR3wZE6Nod4MwXj+jIsIycjF6yqvckaWmXvDhTQ4hNBlUWNZWcrLF59Gl7mZROA2MtSrkn9rnhhBId9pu/kkNesl8jRPxxcYkd/nYVmDeYT6O68DQjQJTtQEzDXyHLdiERbOzbA7zsrjfbnj/a31Rw8FQFH5FszBzTs11xfJUNSibYHMfhBQSMmINXsJfGMLN6MEdbJzo7PnyY1N3sgaWV99uKvUhx/2g16NguLW/MS+MxwWvZIJlLE7/jtznS9/lijHvLLzepwQKIFJwX34KNe7SkqnbgNjDkcVkoWBK7Ek3r3PHACGQ5KoeF0J/V0e3qiZE2I8Zbkzp6lWd0u5VBUrdNHKftuJ/69E5aICe1apFse9ZiUIMv
+X-MS-Exchange-AntiSpam-MessageData-0: PSn6biYdu2wxWtm3knfzc/cJs3VGHCrnI+2JcNv5cqkAD4zWqpt/XSVJ8d5L+TkYeP4mHgraEGFy9YyJ958fL6/5K5RmlOeHXWEJtFGdcPV07h55HGilzAtLmEpwlnL60bsEYLm1xLm5gI5oxqKRqY/utVyVlntXlwhizkb9fGxoSao1Mia1W8OjBBI5WxAv2gBrE8hnra0Rq3jgnbfE8c5mG2hNdJHDkUBbtTEH3O6C/zB2/i1xEuLOMNnrUpCj0qD4eLCnBmnrFD21D1q6WlDazW12xksdhGqWzXPnqWPSuaBQvM2Do3FAUPWEx3ELT8QMbO7NDrKs2EQDP9+pBU6fwd4S8NCnQ4oGd0pnLxX7cHt5tkRTSFMOYeaNLlU6mJ+rY8JCd1xXutOTw0BPtnoiX2n5MRnm3904MjGraVPEpritfjm36UzPn2DKjaLU
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 20:27:54.3580
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 20:30:00.6038
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a69b87cf-7b8a-466f-1df2-08de852cd5c1
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7cd655d-99d7-4cab-0851-08de852d2105
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6194.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6378
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF12042BF6F
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_132803_507623_8725736C 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20260318_133022_792460_B82E633F 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,101 +134,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 04:02:01PM +0800, Shuai Xue wrote:
+On Wed, Mar 18, 2026 at 07:45:19PM +0800, Shuai Xue wrote:
 > On 3/18/26 3:15 AM, Nicolin Chen wrote:
-> > - * Caller must use pci_dev_reset_iommu_prepare() with pci_dev_reset_iommu_done()
-> > - * before/after the core-level reset routine, to unset the resetting_domain.
-> > + * Caller must use pci_dev_reset_iommu_done() after a successful PCI-level reset
-> > + * to unset the resetting_domain. If the reset fails, caller can choose to keep
-> > + * the device in the resetting_domain to protect system memory using IOMMU from
-> > + * any bad ATS.
+> > diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> > index 9ba12b2164724..9b5f94e566ff9 100644
+> > --- a/include/linux/iommu.h
+> > +++ b/include/linux/iommu.h
+> > @@ -891,6 +891,8 @@ static inline struct iommu_device *__iommu_get_iommu_dev(struct device *dev)
+> >   #define iommu_get_iommu_dev(dev, type, member) \
+> >   	container_of(__iommu_get_iommu_dev(dev), type, member)
+> > +void iommu_report_device_broken(struct device *dev);
+> > +
 > 
-> I think you mean ...to protect system memory from DMA via stale ATC entries.
+> This declaration is inside the #ifdef CONFIG_IOMMU_API section, but
+> there's no corresponding stub in the #else block. While current
+> callers (arm-smmu-v3) always have CONFIG_IOMMU_API, for API
+> completeness, please add a stub.
 
-"the DMA via stale ATC entries" sounds too specific to this issue.
+Yes. That's a miss.
 
-I intended to generalize the message in the kdocs. Maybe should've
-drop "from any bad ATS" as well?
-
-> >    *
-> >    * Return: 0 on success or negative error code if the preparation failed.
-> >    *
-> > @@ -3961,9 +3963,9 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
-> >   	guard(mutex)(&group->mutex);
-> > -	/* Re-entry is not allowed */
-> > -	if (WARN_ON(group->resetting_domain))
-> > -		return -EBUSY;
-> > +	/* Already prepared */
-> > +	if (group->resetting_domain)
-> > +		return 0;
-> 
-> Could you elaborate more on why Re-entry is allowed now? For example:
-> 
-> /*
->  * Allow re-entry: if a previous reset failed, the device remains in
->  * resetting_domain. A subsequent reset attempt must be able to call
->  * prepare() again without failing.
->  */
-
-Sure. I will add this.
-
-> > @@ -977,7 +978,15 @@ int pci_dev_acpi_reset(struct pci_dev *dev, bool probe)
-> >   		ret = -ENOTTY;
-> >   	}
-> > -	pci_dev_reset_iommu_done(dev);
-> > +	/*
-> > +	 * The reset might be invoked to recover a serious error. E.g. when the
-> > +	 * ATC failed to invalidate its stale entries, which can result in data
-> > +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> > +	 */
-> > +	if (!ret || !pci_ats_supported(dev))
-> > +		pci_dev_reset_iommu_done(dev);
-> 
-> pci_dev_reset_iommu_prepare() already does an early return for non-ATS
-> devices, and pci_dev_reset_iommu_done() also early-returns
-> when !pci_ats_supported(). So for non-ATS devices, done()
-> is always a no-op regardless of whether it's called or not.
-> 
-> Do we really need check pci_ats_supported(dev) here?
-
-You are right. It was for a precaution as pci_dev_reset_iommu_done()
-isn't maintained in the pci.c file.
-
-Kevin suggested to move this part into pci_dev_reset_iommu_done() so
-these conditions can be merged. And pci callers will be simply:
-	pci_dev_reset_iommu_done(dev, !ret);
-
-> > @@ -4978,7 +5010,15 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
-> >   		pci_write_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL,
-> >   				      reg);
-> > -	pci_dev_reset_iommu_done(dev);
-> > +	/*
-> > +	 * The reset might be invoked to recover a serious error. E.g. when the
-> > +	 * ATC failed to invalidate its stale entries, which can result in data
-> > +	 * corruption. Thus, do not unblock ATS until a successful reset.
-> > +	 */
-> > +	if (!rc || !pci_ats_supported(dev))
-> > +		pci_dev_reset_iommu_done(dev);
-> > +	else
-> > +		pci_warn(dev, "Reset failed. Blocking ATS to protect memory\n");
-> >   	return rc;
-> >   }
-> 
-> cxl_reset_bus_function() calls pci_reset_bus_function() which already
-> contains the conditional pci_dev_reset_iommu_done() logic. Then the
-> outer function calls done() again. The second call is a no-op because
-> resetting_domain has already been cleared, but this is confusing.
-> 
-> Additionally, cxl_reset_bus_function() does its own
-> pci_dev_reset_iommu_prepare(), while pci_reset_bus_function() also
-> calls prepare() internally. With the re-entry change in this patch,
-> the nested prepare() silently succeeds.
-> 
-> Is it a expected behavior?
-
-No.. This is a bug prior to this patch. The nested prepare/done()
-is wrong. I will submit a patch fixing this.
-
-Thanks!
+Thanks
 Nicolin
 
