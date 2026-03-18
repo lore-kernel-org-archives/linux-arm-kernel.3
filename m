@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B74103E190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A97F103E193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v4jx9be2ixpeez8G3+677w21LKJvNvIiDEiSr10SzEQ=; b=NMDQLeol1ODFvbk44oUjE6xGhv
-	o2UOcYO0zuXf2orvC0/EN1Nf8nnI2wCRyKHNLsg7rinVNuiaYdDFhLkFVFNcnLc2uFHjGbiuPVOtZ
-	XPS8IZoZQNr6uAxeIl63S4uhP3+sOxtYRo5ZmZQ/LIK1EddrRlXAE/bhsDhAByLm8YU5taKKkjyK4
-	O50AZbjq3TsZdNhlW4UbDIMVkBcy0hD2RomY70IY/Qe2GywRQTibocKJA6FQYjCyHVRmMRy2M9A6z
-	uZjZ6zakeyfJk8tqJmLM+PrIrcuR1ryT0rNtsSxbTk9EeWTinZAa9hKsUB+WFNFEituitlgqdrRZe
-	6TYsTSnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o11Iy2EUiKEQzzjcnzv2FzaG64egcxcdSF/X7Q0VS8Y=; b=obqs1jCKgf91e0HCPKJtbwauYE
+	pFGY7dhjXobnLQetw1oJ6z+/yfK9SIKnzbNQtpvHR4UdlXhsEwFw6wV7Z8gM8O1UevR6VKBBQb7PP
+	N0h/NsLj5w58GN0yiwvsmLEM4lV24V9ilDSu4nOXdXc4TyUcJCwyadBJ+/a7n3MyP0bC7+qbr7aFT
+	uEeez4UFqyNhrWRL3qT1S4QjO2xkRnEaR755FSZN8po0gSFAKMzV6rQWEM2+SM/wxNdA1UcS3uEaR
+	l1CNH0lyUaPG3qmi8hd94+2KNlQwp8AgHTRiejnb+WQu1wQ0CEc3RkyCs9HCQ9CG6iMctlrAavRDy
+	RfpCX56Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2sEM-00000008d75-0XkG;
-	Wed, 18 Mar 2026 14:50:42 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w2sGu-00000008dO1-3Xi9;
+	Wed, 18 Mar 2026 14:53:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2sEJ-00000008d6F-1Xs8
+	id 1w2sGu-00000008dNu-0bLU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 14:50:41 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4852afd42ceso59267015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 07:50:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1773845437; x=1774450237; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=v4jx9be2ixpeez8G3+677w21LKJvNvIiDEiSr10SzEQ=;
-        b=ofJlLKAwWFSbQ8WCvldaXbodhbqdUDzBNzhWvj/iQ5DdAF5jIvlie45CWA9pXj4qMg
-         SBWgpSFB4Zv7K9BhBigxLNf3Mu1lcU1K8fFR68CzjDRnRuZXMyRonCljGCncAXojULdl
-         GRA8f7EWWbYbN0jf2//hQkV1eM685PGMysE354oxAVqr2ApM2gVDPOkb70olevj8P5F3
-         2TdCGgeXTSCpOz9nF8RUjJUDSa/ArJLl0u3+2vyW00pZn9Kg2hr9jjZ8e+8GLg08RadV
-         /xp6jqqqn5yz8J4B9KDsks5gZsxr1LyGx5p2/2WbxeUrNLQLHGb8SLfCRl+hCXb52mS6
-         Jw1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773845437; x=1774450237;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v4jx9be2ixpeez8G3+677w21LKJvNvIiDEiSr10SzEQ=;
-        b=HjHr7ZHITj0Z9SIEpE7o8dxbwFtXzl2kJwpjc5veJAPkF7KIt1EoSkbPtchKv/dQld
-         wgICO3/OFe5nYoCWt+ZVmN0z8aOIyhOIXlCGgvygcWUoNoRRmSQiW/mHtA6RFtLrtmbl
-         GW8n7YuYcCrERDiHKTQo5AscTH6DXyJl+5YNIe1+R80Tcq1u2isUarNX5ul0MnD6T4c7
-         QIRylV4Hp/5ZhLshPZW9qJqqyjq5tuz4Nv4otX198fntUb9iJEn4JJ/4TBlxWApQgUVF
-         NXDc3sTlkYSrVBoN8j//3tt3O2fvlac16I/PMQGoTj36PZiFe8cfVg4vLSqKN1FZYI+u
-         cIyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8mSXB9wvZCDyvm/rvDm20ZYdFCgpYHAKqyStKk8wDn2QA63o6lCNpGIB0XUwXcPU/nn8JfOZ7MgH7loj1qZK+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlyBfGB82GTCYHRoOQxL09ogYSHAzgXWUNb2TwYhnFI7TuIcUC
-	QVdxl8GFojTeXqpy56VcQycP10i9xvRA7DK6lMO/2v/cJ2CyEXDTYyUUr3W11ekLv8c=
-X-Gm-Gg: ATEYQzxWIz4peOiNblYKeeqAT+elZEA6hMHSpyeyM+6/CTg/VHn8qNutL7ecddwhi1w
-	LbAHKbjp4xOpVj3e9SKIk8jpIqv7PX+6qtjw1LE+Td4ClHbHH7GI4wX3toKlWIX53SdL6ocNyQ/
-	Eg08cqJJF9EqMtDKqxrrZ3a58Bf9H9QKEbRcVyd0wx/gscSm5rILddAWwrwpYJXeKEBq8VpWQzn
-	yplAQwDL/QZFKAG3HzD6vxEl7unBB4PlnqjgPYUGdLu7j7lphhDfy1H80t/m5TDSd3fj+usT6eN
-	Gk4rABIG1LPIFGxQlD/PSUGMGqy0EPGGytJElZJ4sqPc48v5I0kLXK3IR0kBx+bQ1lxEi6GJdy6
-	DMowb7J6QPS1dojYMzi0GbwtfyxOIQ74DGbIjMZaaM10lok/Az7mP4awtl3EBweMj2uvgJKRKVm
-	0X9bBmzPVFvLs0y41G8gWbOCb384bLhWxs4rEZ1NZhwL7WZLixJ1Wpib6O7U3BVoD1/UTr/V8AC
-	4Az7Q==
-X-Received: by 2002:a05:600c:1f13:b0:485:3c05:24dc with SMTP id 5b1f17b1804b1-486f4465ec5mr61165625e9.33.1773845437260;
-        Wed, 18 Mar 2026 07:50:37 -0700 (PDT)
-Received: from alchark-surface.localdomain (bba-86-98-192-109.alshamil.net.ae. [86.98.192.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f421a6f2sm64455665e9.8.2026.03.18.07.50.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 07:50:36 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 18 Mar 2026 18:50:25 +0400
-Subject: [PATCH] ASoC: rockchip: rockchip_sai: Set slot width for non-TDM
- mode
+	Wed, 18 Mar 2026 14:53:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 488A060133;
+	Wed, 18 Mar 2026 14:53:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC5C1C19421;
+	Wed, 18 Mar 2026 14:53:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773845599;
+	bh=felRz9HjKIpiMojzCYck9P/yFifvYQCbmR4et9IJMCE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fAtjlSkyrrMyzIBZ7N2NlRzPZBtw8remOkjH7r+8O59bkBW9qIQf+rzgbHGyeJBZK
+	 0+T4qwG8pBLnqm5DlGljHViPzqML4ExtKFxOgILq0kFmbQ4uvSAukqpPijCffZKz5k
+	 Y7SBwklP6pAK+QeUH6IaeFjQHqZO+bN3SRjdRExWC97ff3txc5AZ03kJMwY0a8UlDW
+	 Od9QgSz11fcD99EJ8ap1pH+Sv8ZBKcHDb5mms12ptgEjzCziEJPXor9Pn/4l4lV15A
+	 92QuVOu/VnAHsV+FpmWB25zl5ivwjGt0EdgLwJPp1oONsKUcmW0Oon4456rAUBshvk
+	 SdVMgMdIqIi2w==
+From: Simon Horman <horms@kernel.org>
+To: wei.fang@nxp.com
+Cc: Simon Horman <horms@kernel.org>,
+	robh@kernel.org,
+	pabeni@redhat.com,
+	claudiu.manoil@nxp.com,
+	devicetree@vger.kernel.org,
+	f.fainelli@gmail.com,
+	frank.li@nxp.com,
+	imx@lists.linux.dev,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	edumazet@google.com,
+	xiaoning.wang@nxp.com,
+	davem@davemloft.net,
+	linux@armlinux.org.uk,
+	kuba@kernel.org,
+	chleroy@kernel.org,
+	conor+dt@kernel.org,
+	andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	vladimir.oltean@nxp.com,
+	netdev@vger.kernel.org
+Subject: Re: [net-next,12/14] net: dsa: netc: add more basic functions support
+Date: Wed, 18 Mar 2026 14:49:56 +0000
+Message-ID: <20260318144954.1893193-3-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260316094152.1558671-13-wei.fang@nxp.com>
+References: <20260316094152.1558671-13-wei.fang@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
-X-B4-Tracking: v=1; b=H4sIALC7umkC/x3MQQqAIBBA0avErBswo5KuEi1EpxwICycqkO6et
- HyL/zMIJSaBscqQ6GLhPRY0dQUu2LgSsi8GrXSv2sagWEbZ9hNv9mfAdjBEvnNaOw8lOhIt/Pz
- DaX7fD/krs4pgAAAA
-X-Change-ID: 20260318-sai-slot-width-378eed5c22cd
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Heiko Stuebner <heiko@sntech.de>, Sugar Zhang <sugar.zhang@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1654; i=alchark@flipper.net;
- h=from:subject:message-id; bh=NLuWlcb8pDVc/jx4hn9f+1Y4XpERqSPMPejDpC3HkM8=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTu2r2LQXabQmNxUOTmuWuVZk1xYDH7F7xj3tm5YhsuT
- d5751SZX8dEFgYxLgZLMUWWud+W2E414pu1y8PjK8wcViaQIdIiDQxAwMLAl5uYV2qkY6Rnqm2o
- Z2ioY6xjxMDFKQBTff4ZI8P3KSv/KzEcnL3vu/K+l+pbFh3xStZe+UPM8PKzyZlhs3YwMzLskdU
- R9W1wm3mARX752pKM9Qv8kr5alHXePbncc8pXtio2AA==
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_075039_432860_9B2D6C9A 
-X-CRM114-Status: GOOD (  12.84  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,49 +88,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the slot width in non-TDM mode is always kept at the POR value
-of 32 bits, regardless of the sample width, which doesn't work well for
-some codecs such as NAU8822.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-Set the slot width according to the sample width in non-TDM mode, which
-is what other CPU DAI drivers do.
-
-Tested on the following RK3576 configurations:
-- SAI2 + NAU8822 (codec as the clock master), custom board
-- SAI1 + ES8388 (codec as the clock master), RK3576 EVB1
-- SAI2 + RT5616 (SAI as the clock master), FriendlyElec NanoPi M5
-
-NAU8822 didn't work prior to this patch but works after the patch. Other
-two configurations work both before and after the patch.
-
-Fixes: cc78d1eaabad ("ASoC: rockchip: add Serial Audio Interface (SAI) driver")
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
- sound/soc/rockchip/rockchip_sai.c | 4 ++++
- 1 file changed, 4 insertions(+)
+net: dsa: netc: add more basic functions support
 
-diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
-index 1bf614dbdf4d..ed393e5034a4 100644
---- a/sound/soc/rockchip/rockchip_sai.c
-+++ b/sound/soc/rockchip/rockchip_sai.c
-@@ -628,6 +628,10 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
- 
- 	regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
- 
-+	if (!sai->is_tdm)
-+		regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
-+				   SAI_XCR_SBW(params_physical_width(params)));
-+
- 	regmap_read(sai->regmap, reg, &val);
- 
- 	slot_width = SAI_XCR_SBW_V(val);
+This patch expands the NETC switch driver with several foundational
+features, including FDB and MDB management, STP state handling, MTU
+configuration, port setup/teardown, and host flooding support.
+At this stage, the driver operates only in standalone port mode.
 
----
-base-commit: 8e5a478b6d6a5bb0a3d52147862b15e4d826af19
-change-id: 20260318-sai-slot-width-378eed5c22cd
+> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
+> index 884ee899fc89..fd952b507cbd 100644
+> --- a/drivers/net/dsa/netc/netc_main.c
+> +++ b/drivers/net/dsa/netc/netc_main.c
 
-Best regards,
--- 
-Alexey Charkov <alchark@flipper.net>
+[ ... ]
 
+> @@ -427,24 +658,57 @@ static int netc_setup(struct dsa_switch *ds)
+>  	if (err)
+>  		goto free_mdio_bus;
+>
+> +	INIT_HLIST_HEAD(&priv->fdb_list);
+> +	mutex_init(&priv->fdbt_lock);
+> +
+>  	netc_switch_fixed_config(priv);
+>
+>  	/* default setting for ports */
+>  	dsa_switch_for_each_available_port(dp, ds)
+>  		netc_port_default_config(priv->ports[dp->index]);
+>
+> +	err = netc_add_standalone_vlan_entry(priv);
+> +	if (err)
+> +		goto free_ntmp_user;
+> +
+> +	err = netc_add_standalone_fdb_bcast_entry(priv);
+> +	if (err)
+> +		goto free_ntmp_user;
+> +
+>  	return 0;
+>
+> +free_ntmp_user:
+> +	netc_free_ntmp_user(priv);
+>  free_mdio_bus:
+>  	netc_free_mdio_bus(priv);
+>
+>  	return err;
+>  }
+
+Does the error path handle the mutex properly?
+
+In netc_setup(), the mutex is initialized with mutex_init(&priv->fdbt_lock).
+If netc_add_standalone_vlan_entry() or netc_add_standalone_fdb_bcast_entry()
+fails, the error path jumps to free_ntmp_user:
+
+drivers/net/dsa/netc/netc_main.c:netc_setup() {
+	...
+	INIT_HLIST_HEAD(&priv->fdb_list);
+	mutex_init(&priv->fdbt_lock);
+	...
+	err = netc_add_standalone_vlan_entry(priv);
+	if (err)
+		goto free_ntmp_user;
+
+	err = netc_add_standalone_fdb_bcast_entry(priv);
+	if (err)
+		goto free_ntmp_user;
+
+	return 0;
+
+free_ntmp_user:
+	netc_free_ntmp_user(priv);
+free_mdio_bus:
+	netc_free_mdio_bus(priv);
+
+	return err;
+}
+
+But netc_free_ntmp_user() and netc_free_mdio_bus() don't call
+mutex_destroy(&priv->fdbt_lock) to clean up the mutex.
+
+Looking at the normal teardown path in netc_teardown(), it calls
+netc_destroy_all_lists() which properly handles both the FDB list and
+mutex cleanup:
+
+drivers/net/dsa/netc/netc_main.c:netc_destroy_all_lists() {
+	netc_destroy_fdb_list(priv);
+	mutex_destroy(&priv->fdbt_lock);
+}
+
+drivers/net/dsa/netc/netc_main.c:netc_teardown() {
+	struct netc_switch *priv = ds->priv;
+
+	netc_destroy_all_lists(priv);
+	netc_free_host_flood_rules(priv);
+	netc_free_ntmp_user(priv);
+	netc_free_mdio_bus(priv);
+}
+
+Should the error path in netc_setup() call netc_destroy_all_lists() before
+calling netc_free_ntmp_user()?
+
+> @@ -595,6 +859,261 @@ static void netc_switch_get_ip_revision(struct netc_switch *priv)
+>  	priv->revision = val & IPBRR0_IP_REV;
+>  }
+>
+> +static void netc_destroy_all_lists(struct netc_switch *priv)
+> +{
+> +	netc_destroy_fdb_list(priv);
+> +	mutex_destroy(&priv->fdbt_lock);
+> +}
+> +
+> +static void netc_free_host_flood_rules(struct netc_switch *priv)
+> +{
+> +	struct dsa_port *dp;
+> +
+> +	dsa_switch_for_each_user_port(dp, priv->ds) {
+> +		struct netc_port *np = priv->ports[dp->index];
+> +
+> +		kfree(np->host_flood);
+> +		np->host_flood = NULL;
+> +	}
+> +}
+
+[Simon says: I think this is a false positive and the clean-up
+ suggestion is not needed in tear down]
+
+Does this properly clean up the hardware state?
+
+netc_free_host_flood_rules() just frees the host_flood memory and sets
+the pointer to NULL:
+
+drivers/net/dsa/netc/netc_main.c:netc_free_host_flood_rules() {
+	struct dsa_port *dp;
+
+	dsa_switch_for_each_user_port(dp, priv->ds) {
+		struct netc_port *np = priv->ports[dp->index];
+
+		kfree(np->host_flood);
+		np->host_flood = NULL;
+	}
+}
+
+But it doesn't delete the hardware IPFT entry or disable the PIPFCR register.
+
+Compare with netc_port_remove_host_flood() which performs complete cleanup:
+
+drivers/net/dsa/netc/netc_main.c:netc_port_remove_host_flood() {
+	struct netc_switch *priv = np->switch_priv;
+
+	if (!np->host_flood)
+		return;
+
+	ntmp_ipft_delete_entry(&priv->ntmp, np->host_flood->entry_id);
+	kfree(np->host_flood);
+	np->host_flood = NULL;
+	np->uc = false;
+	np->mc = false;
+	/* Disable ingress port filter table lookup */
+	netc_port_wr(np, NETC_PIPFCR, 0);
+}
+
+In netc_teardown(), netc_free_host_flood_rules() is called before
+netc_free_ntmp_user(), so the NTMP command infrastructure is still
+operational at that point.
+
+Should netc_free_host_flood_rules() call netc_port_remove_host_flood(np)
+for each user port instead of directly calling kfree()?
 
