@@ -4,81 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7988E103E162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DEF103E167
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A91dVhJaQ/2kLGs4hbSOo7+E1RH1/oM9kkFdb3UqDOs=; b=sJCR5mjGheGH8Y3C1CGp4X9zsQ
-	ECtoIIvJTNTE9Y5LLghR8G5NeYTyJ0DNEKaN7KY39OT6s6zY3EajHtxXPuKPSyNIMZ3s1rdjsR806
-	+Nq8t8snnQtb9xey8psHYHCJVSVIOuUGL5gy57rpKDJ9RtnaDELFBaDsXGHUsG6lI31+XJ/vzgCdq
-	4KozppLydV21ixorMJUHIqyzDCFk1WEjIynTjwPs9AbA4gdtsO+8rapmdVUWBsegICEBLhbF7Fxw/
-	K6G2R3B8MfOOfxpTQ4scocRPD4NEQ1SBlpbAyPkSdAN97evbuLYP+IXB6iNKxaCXDqP+zHQX/8Jqt
-	T5SZUGlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ScJI/nVKpS4Kqj0+3r08hYtD1hVCY7mgynZxFHpCLLA=; b=qprRVflL88Z9O17NlnbL5aIeVc
+	9H78vCzdCsBTLaDmzwpPPVKnMq7F2v83C4GB3xvnBw3B71PKxI3umfwrfp/WqrG6cB1kBdz2bPzMI
+	WZV5fv6TMhIkvtc64CvR6tQOtUPeG9OvWrHcncpb99ggZ425k0UZiV0vr4WzXczFV1wjTzLzsrHuc
+	92dJTpJ0KjVhbAHZqk3tuSsO5OGp3ad5M0gv8HLUYBarPSo4tLcqzeTfZATJrkQzkE5NWaYqODMSA
+	PFEGwOs51pkY94KH5xVuTyAcP6fGSFikMDwhqps+WN5B1EcTb6hcbpX1Uyv1l/B6ee0GhSCOMxsWN
+	4x+z1Qbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2otE-00000008Ibk-0Xnk;
-	Wed, 18 Mar 2026 11:16:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2otA-00000008IaU-2guY
+	id 1w2ove-00000008IsT-2S09;
+	Wed, 18 Mar 2026 11:19:10 +0000
+Received: from mail-westeuropeazon11013002.outbound.protection.outlook.com ([52.101.72.2] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2ovb-00000008Is5-2NHn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 11:16:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 872DA1E2F;
-	Wed, 18 Mar 2026 04:16:29 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17CF93F73B;
-	Wed, 18 Mar 2026 04:16:30 -0700 (PDT)
-Message-ID: <8dc8eb43-9bc5-46d3-8ce8-06d25fd5eeb7@arm.com>
-Date: Wed, 18 Mar 2026 11:16:29 +0000
-MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
-To: Howard Zhang <Howard.Zhang@arm.com>, James Morse <James.Morse@arm.com>
-Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- Catalin Marinas <Catalin.Marinas@arm.com>, "corbet@lwn.net"
- <corbet@lwn.net>, Dave Martin <Dave.Martin@arm.com>,
- "david@kernel.org" <david@kernel.org>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "gshan@redhat.com" <gshan@redhat.com>, Joey Gouly <Joey.Gouly@arm.com>,
- "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
- "kobak@nvidia.com" <kobak@nvidia.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
- "peternewman@google.com" <peternewman@google.com>,
- "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
- "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- Rohit Mathew <Rohit.Mathew@arm.com>,
- "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
- "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
- Suzuki Poulose <Suzuki.Poulose@arm.com>,
- "tan.shaopeng@fujitsu.com" <tan.shaopeng@fujitsu.com>,
- "will@kernel.org" <will@kernel.org>,
- "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
- "zengheng4@huawei.com" <zengheng4@huawei.com>
-References: <A76F5D3E-4AB1-4418-B250-2ED9DD1BBE56@arm.com>
+	Wed, 18 Mar 2026 11:19:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DraPwYG+/PiCw8XFlqa24zRL5ZS7JeIvpm/micmSCwXN0hRs3UE7YrfQgb/4mXjSNwoUIkloi2AfNJekjDHMxQZUSta267SOvWlMMqS28oooGCYmM7bqmuBPbu2N76/DisbsRGneSuw5479y+4D5XsvgV6CaqGi3qKu644yX9lgSLsu5uf8LFUder0moLMWpBTyBtrInzOeqUrGP9ijsTWgnuLzNvNqQg01iriuOlPtgKdo74DJhSPP4Vo3twU1UNatYO0kFcwIlEM0WplDVp9TWz9fpf9Oo5+CzRAnFRfsokTGgi4xXBYKxhe9Nt6B5YrUBtLb2RFTW7F7a1VSQRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ScJI/nVKpS4Kqj0+3r08hYtD1hVCY7mgynZxFHpCLLA=;
+ b=RovqoX/gm3Z+e54F2U6j5POhxlRnKab7v5Q2iXcxpMrEwZswLHhWlbayr/rvuaWj0h/BU8NyMBhAcJk2l2QWeODBASFVlSM60C2YSGBlZ/DVHtHEoM0jFpo9pvLSdA3L+c5lGfJWNQYA4t2lP48LfX1zBs2pgIU5Bjwe1+nzmIpO5bqwZmONiTiIPpdKKpxQ/arUf3NbuxmLx7uNmNOwxII79nTofgRgGV2WzYpi24ZkLJgb44L/HQYN3s5ZqQqtMcc69XfLc7VRFDm5qXj5ut2oTlZ4A8Lj4RQSCEQbch7ndH4d5D9vBkPhWiv4Bs5VXpGxXVlqyetsUq//cgEb0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ScJI/nVKpS4Kqj0+3r08hYtD1hVCY7mgynZxFHpCLLA=;
+ b=Rkw3UAFBpL3FYG1XR343KxQm+q5j93Ln0h8f6uW0SiX+rrFiDtL9V51PZyHbkA5Y3Nsq16mB2jkdwMEn+AbQgal/znJFbE8uEx6q727jPBZxpsdIzyG05N+qsuVIvzqrBsAYUpx6YYtM7jZkvU0BTTTRPcnZgyQNfXGgVMGbB4imCDQOF6AgaeYAeJE3UFp5/HeJEbaAs4WrLv3Fq0hpvbW5L442RO/0mQRoEEEB4rCSiqXvZFdT+fBRxzbTE/aAo8zo4p9G7+AZGJNl3CBjBakg0Xg6ep8z5y6/j78H+jXn8Bxj6tvPMyyeYz2ZdjhJV9SvHaLCW6cO7KSPzuq6Qg==
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by PAXPR04MB9253.eurprd04.prod.outlook.com (2603:10a6:102:2bd::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 11:18:59 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af%4]) with mapi id 15.20.9700.024; Wed, 18 Mar 2026
+ 11:18:59 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha
+ Hauer <s.hauer@pengutronix.de>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising Edge
+Thread-Topic: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising Edge
+Thread-Index: AQHctkd9VzQPaIhsCEuLLM3IVi/TvrW0IVqg
+Date: Wed, 18 Mar 2026 11:18:59 +0000
+Message-ID: <DB9PR04MB8461D0BE47F09CFF41492A60884EA@DB9PR04MB8461.eurprd04.prod.outlook.com>
+References: <20260317195116.2301985-1-shenwei.wang@nxp.com>
+In-Reply-To: <20260317195116.2301985-1-shenwei.wang@nxp.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <A76F5D3E-4AB1-4418-B250-2ED9DD1BBE56@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB9PR04MB8461:EE_|PAXPR04MB9253:EE_
+x-ms-office365-filtering-correlation-id: 7d7d898c-7749-4698-b985-08de84e026c4
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|38070700021|22082099003|56012099003|18002099003;
+x-microsoft-antispam-message-info: 1+Bfnj0nhv7WpEN/utoA6pJmOPLw54VC+AmBqFQS4Dr5rXQqNU1ud60J/LYHJaPamnAsYNaWp0JonHOFCYGJjsA69XAoADfh3tyoS08evrzxXU8I+yEzTN3hRZE5VM3TNZcTe2s7uLwngn6I+7nQth5w0mIZQeQePDvqAUlhnpcL5A7JFk8H4jDmsmH3TUuvfsIOggQEbwLMPTs4xhNzOp9L0yll4SE60uGXp1LovoOosANot484KfNmYf/JKwt+AK5vxpF5TaeuRFbEMM18eX2s4fr+MUGI8eI/RY1GY1lMb9PrFzGiTIxyDqfnzaJAi+OpngQb2Psy9rtWZuwLMkswbAVYTTNuqW3pZNZvKzROwzBAqaplcGzdtIPBN1Bj1e5Ra/GiX+460ghem5bIqfxxNC5OEhn4e+f+Nz6kGn612F2cVdYuA9GhUliJW9MB7detlRH1XNyNnKcJOISbJ28V4gbStUInhgI5gLkYAMYl4hOcy3GuV55c2MKDU0XWOIwhcsFWvWssoBsZ3XlIGIsQ+/maSe+sg/O5DyrL1skbhI1MKQmzduKog+zibCA4IKVN7e9wkiFy6D4vjUzhNEH1QOYF+qmOSouzhVsaiP5ZkyzuPR3I6eBPus4xaru4Fh/I6uz1V38Y9f9BYM8FP++vvvgUPa9qL0ROXPm9oUSFJHQdkCHKueM2P6Eof6caZF5KePkhHIHB881VNMvzPFmJSrD1sYYRFjEZgj4S3SE8FGe1bND+oN5WcjvDWdYAFXml/3loSVbUTFdoa7eHeCkS1TJiw1azJC/lKtL/C+w=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(38070700021)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Qej1oawRXleZFQw1urcV+w24Z8pmlg2VAiVgU2+fzmcZ8ba8OJRudTIjJ+so?=
+ =?us-ascii?Q?MhVuHA2mKRND9aos078Rj6JGNyzKLAYRbZ3dMSJH5VmT1GsFoF3u54VN5mzY?=
+ =?us-ascii?Q?mCVjLtpocZO0Tk1hESqnYTSqeWZIqKEsDd9R76bV4JBtdZW+2rhol2dPAUcD?=
+ =?us-ascii?Q?gJDGteD3zR+InmMPeCPO6qbahnqxuGTQM1HWvpjAyWUzZAU7gi5iKwvSgrKz?=
+ =?us-ascii?Q?GSGdNkZjo6RLjlhyHRLmZT9lVrRw2jJ50Rxn3rpT2ra/BESJvsSgaiw6fMxY?=
+ =?us-ascii?Q?CdlYjwaP1IeEqihQ5oQvZfiIxfrrqm2XJp52tF0b4LEhfZe+xdmGkJOXq7bQ?=
+ =?us-ascii?Q?KyRhKxM0XcGhlHJ96b5QgElaOLyPqREFC6plUGpFjmbNOf8P6d6FYu9oibi9?=
+ =?us-ascii?Q?P/lDeNMhms9aOvaPDs8C9MrWjSyFuEBSUSV/ZRF1ixI4cSBL7MT0HNaWQfIU?=
+ =?us-ascii?Q?F4xDUqNEragnWAxDQRGH0HQrxF2rzGlnjXW/kLme9WxeYXRUNs5yIZOvLLT7?=
+ =?us-ascii?Q?U1I5ilKDaLCeAobItDq8yeYcCBTx806nW2selK6SaWDGmOqEzpygZ7OPNw0x?=
+ =?us-ascii?Q?PStEPhpCXflKmneJ8mZIigTWknN+gAoSXQ+uC3kJ0pkeqYSQnOqhjMN0oJv/?=
+ =?us-ascii?Q?5dQ/R5WJLaY6ai60F2J7XGVyQqc5KAv1sIOmk/tubatuCrmyry1j5lNh5NMs?=
+ =?us-ascii?Q?r5pT79oHDyORsw0uBVN7xcX/+aoum6gGqV5Gt9i1yDopJx8SKCN4PTbE4JzR?=
+ =?us-ascii?Q?1OSmPYVc9A/CPo12fW3BKQJb4crGOaSiAJ5/JSl2fOMKLdrTKSvrIliy5xFo?=
+ =?us-ascii?Q?hVQhbhrq1K4nd+qQOET28tJJPQTiKaFAFgeBIHxpQfqPwmeaTg09FjkVCMA2?=
+ =?us-ascii?Q?1Fg5PcmXfvu4cTwH5BOXC/W4B7aUPv9Cpb3h40gFx6Iq5aw5v5McsWCBqS+U?=
+ =?us-ascii?Q?FmhkKETFvZ7yi/7eF7SbaeNku1690jBCg0LG8UuBPiViguITZrV+TmrgakmR?=
+ =?us-ascii?Q?zGvNxyMFY3E2vj0O8UM660ovtciflMputoL2MAOdZ2HEAUmMsKffhRmGI1u1?=
+ =?us-ascii?Q?Q8Av6VAIMlgoqkW2sE4B6rtIOdoNSU9JNWB2ugMrApdckWeT0V4gLKyFRAmS?=
+ =?us-ascii?Q?EkOHuyLQFTT7f0o1khyamlDengVsdiQodpEyobbruFi+6JH0+T9ufs7g7iWC?=
+ =?us-ascii?Q?FWQdlDI2VE2Woakb4D+YfrATdngBigmDgHuKwcH7ZqPimwh7RVVyLUTFpVB4?=
+ =?us-ascii?Q?IP1pXx+SDjaRHlSHfSj93+Eky5HDR1x9G8rAONKLollUMw4ojEB4wnvn8hAx?=
+ =?us-ascii?Q?4tECpYFmt0kh82nv1+EvazyrT8FCL3e3IXNj8qzjMPgboDULQwVx6Qba/M09?=
+ =?us-ascii?Q?pW4/ut+1G72gtRi9NykX2rz2idEQlGtq1AO/VUYMQIFpSH2V+U6RDR2OSVSr?=
+ =?us-ascii?Q?cUhLriJkwt4g3Wl8e3wjaKT0do2t5FV4+Zkx5qsC8ynbJlD0fFUulRCIiGoj?=
+ =?us-ascii?Q?zMzs28vdsP1iBKxTRJXCySIRuYX7NQx2ksSwXthBunwdMQ4rwukMK3kY0mH4?=
+ =?us-ascii?Q?teRdDNpEugZprwulnEKFcO8AxE6td5OazYd+l5LGUBfNh/sA1iqqraU5bICL?=
+ =?us-ascii?Q?ccLnl9xuBNG2Dbqkeheb9lHVLVAQxYaxqy0a8Y4fC1M8f2GnSJ/0THdjfb6C?=
+ =?us-ascii?Q?Dv9r2VbekMbsgPiX8Vs6fbdbWuQfsn/9x8Mjl26a1gQbmuDR?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d7d898c-7749-4698-b985-08de84e026c4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 11:18:59.1054
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oQT4HRuLRW46qxucZ02HafblsVHLtnDfceUCk7NeaP7xrtiCXM295bHcGwoJofn1qZcWAJL7mG4pL+5gXJx8SA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_041637_720555_BEC2E6A9 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260318_041907_607408_B6D21213 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +146,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Howard,
+Hi Shenwei,
 
-On 3/18/26 09:52, Howard Zhang wrote:
-> Hi Ben, James,
-> 
-> I have a few questions regarding MPAM support in the kernel:
-> 
-> Are there any plans to upstream L3 partitioning with capacity-based allocation (in addition to the existing way-based partitioning)?
+> Subject: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising
+> Edge
+>=20
+> Suspend may fail on i.MX8QM when Falling Edge is used as a pad
+> wakeup trigger due to a hardware bug in the detection logic.=20
 
-Yes, there is some preliminary work required to establish how new schema will be added to
-resctrl but I expect cache capacity, CMIN/CMAX, to be some of the first features to use it.
-[1] has some discussion on now to introduce new schema.
+This hardware bug exists on i.MX8QM/QXP/DXL, or just 8QM?
 
-[1] https://lore.kernel.org/lkml/aPtfMFfLV1l%2FRB0L@e133380.arm.com/
+More information better to add why suspend may fail.
+Do you mean not able to resume back because of failing
+to detect falling edge?
 
-> 
-> Thanks for your time.
-> 
-> Best regards,
-> Howard
+Since the
+> hardware does not support Both Edge wakeup, remap requests for
+> Both Edge to Rising Edge by default to avoid hitting this issue.
+>=20
+> Fixes: f60c9eac54af ("gpio: mxc: enable pad wakeup on i.MX8x
+> platforms")
+> cc: stable@vger.kernel.org
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
+>  drivers/gpio/gpio-mxc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c index
+> d7666fe9dbf8..f8300690ac05 100644
+> --- a/drivers/gpio/gpio-mxc.c
+> +++ b/drivers/gpio/gpio-mxc.c
+> @@ -589,7 +589,7 @@ static bool mxc_gpio_set_pad_wakeup(struct
+> mxc_gpio_port *port, bool enable)
+>  		IMX_SCU_WAKEUP_OFF,		/* 0 */
+>  		IMX_SCU_WAKEUP_RISE_EDGE,	/*
+> IRQ_TYPE_EDGE_RISING */
+>  		IMX_SCU_WAKEUP_FALL_EDGE,	/*
+> IRQ_TYPE_EDGE_FALLING */
+> -		IMX_SCU_WAKEUP_FALL_EDGE,	/*
+> IRQ_TYPE_EDGE_BOTH */
+> +		IMX_SCU_WAKEUP_RISE_EDGE,	/*
+> IRQ_TYPE_EDGE_BOTH */
 
-Thanks,
+For IRQ_TYPE_EDGE_BOTH, use IMX_SCU_WAKEUP_RISE_EDGE.
+Do we need to also add a check for IRQ_TYPE_EDGE_FALLING?
+Saying not support IRQ_TYPE_EDGE_FALLING because of xxx.
 
-Ben
+Regards
+Peng.
+
+>  		IMX_SCU_WAKEUP_HIGH_LVL,	/*
+> IRQ_TYPE_LEVEL_HIGH */
+>  		IMX_SCU_WAKEUP_OFF,		/* 5 */
+>  		IMX_SCU_WAKEUP_OFF,		/* 6 */
+> --
+> 2.43.0
+
 
