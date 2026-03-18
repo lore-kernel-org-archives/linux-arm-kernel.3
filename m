@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F493103E198
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F25103E197
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2Bo4Wrx8X+w9pa8/LvM10LXfhgTXyAZZYvN+RoLxJM=; b=sfTfO+bo75FT7Lzd4v+KNqFTBQ
-	kzjUZBrkzuicOR+B+7UWNBHmGFpMeMKNqiIVhSnRJUb6Bz/MLIujXP7O53Nlm9UyKjr3511bnL2ou
-	Kxn8TYBNlKSY970jo22orFTap/Q7jPXplObfgqLs/T8sLHYnLHoLD1+J5aBgyW7mr6Lm3l8OVKCPO
-	1z5blNGq572XGwELwVSvpjyk+1GLTGqyH5d5gPfa++jOlOwvWm3zKsQV13GvIpGhXPRJ+DOYmOkYn
-	du1D2SVx5pqR3bI0J0bLM/MrzRdaSJ14VcZaLzyIoPmJ2ftiGoRkUGBMj53+5ywOV4M75/llpOwOh
-	+db6oIBg==;
+	bh=85Q9Kv+g70HiSqGM7AYsWGdQzLe0kaAtd7p5n9NHbqs=; b=jancAjDHuSzJEPocEs8DbYjp7z
+	b6YJ/fonrJCyYUzTpR1hvMAempWluLRMmzaGW88d/EZPVqlelTHNvF+FaTZwtEb1/VZwei0hn5XnO
+	l704/m43EYfdYc8fi7U+zL/sH7zb5iDfCMeO2S3F+x/ooGgW8H117wmgW7ER8831bFs3H0eo8501g
+	cSxcmkLPJCe4jyk9AejSspCFSiUBBEwUiFJ31grxdMcfA8WUeIyDeMQ0k/SsvPGtdX7pVWayRdBNS
+	WVsQipL9RzZj9OdU60hRfzqZFiqbqE0BMwivQ4ILMdR1o3SCV+hFbR/VlxkrMLQ9hxuloTIZ8OKoe
+	GR8o+cAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGO-00000008q6m-07nw;
-	Wed, 18 Mar 2026 15:56:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tG3-00000008pkl-22lp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:56:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Q2Bo4Wrx8X+w9pa8/LvM10LXfhgTXyAZZYvN+RoLxJM=; b=Cm9653/KUdaC06SIml8vs6Pujx
-	h5QVdBG6P/F+171Kqosk5Lxn/d4OZm9vNXd2JMZEv7PU08tCxrRkTzaw7yCIQAkPxmX6Nm8hKRhk+
-	CTPGR9bfjHFoFLpcRqkPSbswU1PXYQCbBxcDhGsO2XZafTiDPmUKmXUsaOYx153fTy3EZUI7YmYRU
-	Net99X2/z6cqRCnOLdgRuB9J3M8+kHJsbNTlELy4weukeRDg1S4utzMFFWvjE3d+1eNN7lrM1WceG
-	FnjO5fZPmQO0P05r8mD5Xqxm8I1PCHF6CHBz/Bdd987v3MSz+lTRLZLt2hGTK3KYsWhQmfPGNw0Wq
-	101zpMTQ==;
+	id 1w2tGP-00000008q8h-2Edi;
+	Wed, 18 Mar 2026 15:56:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tFy-0000000Bdox-2bDC
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tG2-00000008pkk-0L1f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:56:29 +0000
+	Wed, 18 Mar 2026 15:56:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E50E2008;
-	Wed, 18 Mar 2026 08:56:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF7592050;
+	Wed, 18 Mar 2026 08:56:22 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E68A93F73B;
-	Wed, 18 Mar 2026 08:56:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A8053F73B;
+	Wed, 18 Mar 2026 08:56:25 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -73,17 +58,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v13 33/48] arm64: RMI: allow userspace to inject aborts
-Date: Wed, 18 Mar 2026 15:53:57 +0000
-Message-ID: <20260318155413.793430-34-steven.price@arm.com>
+Subject: [PATCH v13 34/48] arm64: RMI: support RSI_HOST_CALL
+Date: Wed, 18 Mar 2026 15:53:58 +0000
+Message-ID: <20260318155413.793430-35-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155626_842280_54D7EECF 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20260318_085631_860165_1367FF60 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +85,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joey Gouly <joey.gouly@arm.com>
 
-Extend KVM_SET_VCPU_EVENTS to support realms, where KVM cannot set the
-system registers, and the RMM must perform it on next REC entry.
+Forward RSI_HOST_CALLS to KVM's HVC handler.
 
 Signed-off-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
- Documentation/virt/kvm/api.rst |  2 ++
- arch/arm64/kvm/guest.c         | 24 ++++++++++++++++++++++++
- 2 files changed, 26 insertions(+)
+Changes since v7:
+ * Avoid turning a negative return from kvm_smccc_call_handler() into a
+   error response to the guest. Instead propogate the error back to user
+   space.
+Changes since v4:
+ * Setting GPRS is now done by kvm_rec_enter() rather than
+   rec_exit_host_call() (see previous patch - arm64: RME: Handle realm
+   enter/exit). This fixes a bug where the registers set by user space
+   were being ignored.
+---
+ arch/arm64/kvm/rmi-exit.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 70911fe6d435..eabe20d3ae76 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1310,6 +1310,8 @@ User space may need to inject several types of events to the guest.
- Set the pending SError exception state for this VCPU. It is not possible to
- 'cancel' an Serror that has been made pending.
+diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
+index b4843f094615..7eff6967530c 100644
+--- a/arch/arm64/kvm/rmi-exit.c
++++ b/arch/arm64/kvm/rmi-exit.c
+@@ -116,6 +116,19 @@ static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+ 	return -EFAULT;
+ }
  
-+User space cannot inject SErrors into Realms.
++static int rec_exit_host_call(struct kvm_vcpu *vcpu)
++{
++	int i;
++	struct realm_rec *rec = &vcpu->arch.rec;
 +
- If the guest performed an access to I/O memory which could not be handled by
- userspace, for example because of missing instruction syndrome decode
- information or because there is no device mapped at the accessed IPA, then
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index e62a4feddff3..d9f392cb2759 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -827,6 +827,30 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 	u64 esr = events->exception.serror_esr;
- 	int ret = 0;
++	vcpu->stat.hvc_exit_stat++;
++
++	for (i = 0; i < REC_RUN_GPRS; i++)
++		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
++
++	return kvm_smccc_call_handler(vcpu);
++}
++
+ static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
+ {
+ 	struct realm_rec *rec = &vcpu->arch.rec;
+@@ -183,6 +196,8 @@ int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+ 		return rec_exit_psci(vcpu);
+ 	case RMI_EXIT_RIPAS_CHANGE:
+ 		return rec_exit_ripas_change(vcpu);
++	case RMI_EXIT_HOST_CALL:
++		return rec_exit_host_call(vcpu);
+ 	}
  
-+	if (vcpu_is_rec(vcpu)) {
-+		/* Cannot inject SError into a Realm. */
-+		if (serror_pending)
-+			return -EINVAL;
-+
-+		/*
-+		 * If a data abort is pending, set the flag and let the RMM
-+		 * inject an SEA when the REC is scheduled to be run.
-+		 */
-+		if (ext_dabt_pending) {
-+			/*
-+			 * Can only inject SEA into a Realm if the previous exit
-+			 * was due to a data abort of an Unprotected IPA.
-+			 */
-+			if (!(vcpu->arch.rec.run->enter.flags & REC_ENTER_FLAG_EMULATED_MMIO))
-+				return -EINVAL;
-+
-+			vcpu->arch.rec.run->enter.flags &= ~REC_ENTER_FLAG_EMULATED_MMIO;
-+			vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
-+		}
-+
-+		return 0;
-+	}
-+
- 	/*
- 	 * Immediately commit the pending SEA to the vCPU's architectural
- 	 * state which is necessary since we do not return a pending SEA
+ 	kvm_pr_unimpl("Unsupported exit reason: %u\n",
 -- 
 2.43.0
 
