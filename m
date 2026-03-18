@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B5CFCD0DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 09:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECBD210854D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 09:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ET8szmYGRuPMnrSefH3mBHcCE+mfXmFnmhWK1shnUM=; b=YKcsQPliDG35cofy8+YOuy2fEn
-	+4PjDu1Y2i8y5g/c3cxCgy2XLBIFcu3jUEKkNTlt0Mv7/pyiO2XH/IJeuNQWPmAxEEexfG57WxcCT
-	pPDJoXd+0gP+ymN3N3B61g1JPC5ANazhQBscgjazHWOepg/zsKnww23fxihaxcoJJHf6ruCms6z6I
-	E5AriVpuwyHBYMpbW2/Mb1IGjnJwi6OgsfTkYsWqTUucm7mHfud6odYwFwSfFwwaI/Q25JZYKzE9t
-	kUZHHrp7Z1/erLjVvHEG4LhLlhB6fDEf4ZPo3jQ4W8tEJ312j5+3ovXpKCy4o7otfATh/epOBZ3rR
-	4oNBkAWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2bMKwVBgw3zW9VnpBkG8ZNfyvFgZ8r//ilWROTast5c=; b=BeErzI3qK6dA/NH0QZrcKpaea6
+	RbRovZJGtGc89Uuc+mEYtsiVZWixsgnxhu7/+orNMLcgo6MhEeJzUUiKF8GKn5mnJfR/TtyT17IVN
+	jdnxQB5XIGP39eIlqvY7wHY429Y+WJHhBes2y9KWdZ5CyfD1NZXnjkqgPNXe7Dm44hTYqcDA7LlIs
+	H66GJ81OtjB/FIXo2iJLNbxOHmG69O0VkB/FtMbvNMSkU5R/Y09r99WqYJC0vGCxguATtkTiVlNoy
+	vVyMZZYUXlDW8E95ZrMeWy+FNLGXnRGwnZHxjKIHLTcp/BIjoPp/xX/yev85CUwy+1UhXHiYkk5Nw
+	Gaz856sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ml1-000000085rH-1DAF;
-	Wed, 18 Mar 2026 09:00:03 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w2mrg-000000086Os-2vBH;
+	Wed, 18 Mar 2026 09:06:56 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mky-000000085qL-1fMe
+	id 1w2mre-000000086OM-3EqA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 09:00:02 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4853c1ca73aso56503585e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 01:59:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1773824398; x=1774429198; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5ET8szmYGRuPMnrSefH3mBHcCE+mfXmFnmhWK1shnUM=;
-        b=ollbz2iY8WFuIlDWGdHtjzBg1bwXkgpgh5D9KnuWTUZ7JYSO7KqX03ehlbYWXDGYTY
-         19sen0aVw5xFni4dfp2LRIGZD3oYliLkJx7JwKBVUsPo+b4lIwWxA5F28B9Zy2w1cSho
-         fgrZheUhoRjcO99PxZ3fqumXrruKRjgWGgbPem+YaPeAPzfZUatC7EjlC2zyojpylmA0
-         SwtJ6qed/ERg+phQBPLEC/9YnGc0uiTtkEHhdh+li/jcpLpFE+6LN8vFh+goHZQtebb8
-         hRrFUNxR04I7sOX9Vrvox/8+HkdHbOWwLBkTen6wEcxykTRltTQSxBeW6xUYyk4mn3XT
-         susw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773824398; x=1774429198;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5ET8szmYGRuPMnrSefH3mBHcCE+mfXmFnmhWK1shnUM=;
-        b=roZGcdNCykEjlI92+M95HUZZP7q2PV3Ufhe+ukvK0zwfYj33EBiR7zoG6lkrGHeCNB
-         KlaYKb8RopSMwaSDKpzpiYv3llcaq3QBN4gRzh6BkZO7rH3gXQ5T+TPnxbSK3Jtmsr0+
-         FFs0xxmLoOYR4o8X7N99kydKvoT72kqgBYEilMDGywtn9/94+q99sfYXNtQUK6/EGvfF
-         O2x9NnOTBry9sN/8XwRYTwKegP8Zhet/Y5LaWkUgt+OvgdtQt2yIbJP2BhSAEknr03+f
-         9uP6JVWS1j/ZWTdprN1XXSDd7fwNUyjBz70h4f7QbYKQJ9TZohuAPSiLskV8Hp6Hr8yI
-         GxeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXM216rrNNuodXdX2YVJTnq+OPzXL03FSAiQK8ugO4m9BSEGDY30B7IYK1QvL9fL7gx9mjUoTcRMFgNB25trpDO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxv+W82OI/7WLE33rFA6nVTXekiJd1QfI2TRO6xuCHsSK2GiYS6
-	e/eTaRkAp9Xo5OElTcO+sDuYbEX0qPnpFFtBdxZUjA4JzsAB6s4lp5ij4BJ6uVYYp70=
-X-Gm-Gg: ATEYQzwt8HLYrJB6Ss6T8yMPKNl7ZVm/FTSPoYvl1lB7YYRDNq8/1hy7D8Dv/xXDsSe
-	54H9H/2a3yQctFymnm9AfDBcXpED3yKNCMdeVW0sH/UNf/ig5kHpRTbW39uPhayzoX1GmUGh74c
-	EpplykN6rtGG7H7j8JsINPWd6c2rreclV5pWoWN4EnsGHJoQ4XMNym56dZ9ot8Oni/ghXmv+NpS
-	/ZZS0bavkn+7pKhXWLW2Sry79fTwGd1xaWvrAyBkadGJqsetKT3NNatR1CKE2dzBqaAkBl61xdX
-	La4/AtKMqzwn23O6GLUxLX7xnVpuvFNkvpkbb072u4Nct0H8r3bsT//HZxMnNOP5WO9wgacW5jt
-	j1Syl7olrW6t3/XUdjfHqo0ZDxoNbP4+tS4XSVcQUHaES3RHvbPtjgNfK0a0o1hmmnofY5H+yxa
-	qZ9BGDm2oTkQqE7XV+Q6qMEzsCZr52wVt/jYdd6hA2ell/05NoLmJje57KiXLU9nu+wzDnFhQ=
-X-Received: by 2002:a05:600c:8b45:b0:480:3ad0:93c0 with SMTP id 5b1f17b1804b1-486f457970bmr35422975e9.23.1773824397791;
-        Wed, 18 Mar 2026 01:59:57 -0700 (PDT)
-Received: from ?IPV6:2a02:2f04:6208:0:9a83:6416:9bf0:46c8? ([2a02:2f04:6208:0:9a83:6416:9bf0:46c8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f4b9892esm13741065e9.19.2026.03.18.01.59.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2026 01:59:57 -0700 (PDT)
-Message-ID: <af957661-a108-4c6d-b6ee-f11971c7b938@tuxon.dev>
-Date: Wed, 18 Mar 2026 10:59:55 +0200
+	Wed, 18 Mar 2026 09:06:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773824815; x=1805360815;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OOpz2QLVOMmh9KY2GRGxQ6h+0tnAzCc8jxynqR/fL8c=;
+  b=nFPhbNvfz+AaY+CWIaIvbb0Po/h6UkosFdZm5JrQrY4AVd7SLVp3iXOA
+   4SNwYrq45tCOs19cnqNCrCoaFDwLcxfGcP5sl77Isl/wBpWebJWdysz9V
+   OjPrRxImqAgrgYBemHc3SCmAEJs47kc25gHfiy9co6wmMahT9eIUsiSbF
+   iH6v8eNxIR2lYuDaznm1hFKq1FK54KI3z+lG0oIoroeF149RFMPyOnMDZ
+   BCh+ZpgmnoC0UCSiDWRwIDctCn2Ed2LIqp3SrwmQ1TMMeygZlI+9fJ5Ip
+   e6WPkxaaJNmhZc9FpvCJevNdMB46XYwmKwnABqYjkwFIEqqwCA0qauisP
+   Q==;
+X-CSE-ConnectionGUID: jq/zFzKJRKGdbs1vrTDmLw==
+X-CSE-MsgGUID: maEl76a5Qc+qaLjQOo0qfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11732"; a="74573988"
+X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
+   d="scan'208";a="74573988"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 02:06:53 -0700
+X-CSE-ConnectionGUID: bGaVs8xpTUCoR2u709K5aQ==
+X-CSE-MsgGUID: hk9DpRDxSG2N5wW8ulwWpw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
+   d="scan'208";a="253045856"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.240])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 02:06:44 -0700
+Date: Wed, 18 Mar 2026 11:06:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	driver-core@lists.linux.dev, imx@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
+ thread safe
+Message-ID: <abprIZ4_LUScJrSd@ashevche-desk.local>
+References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+ <abkCPU3rxHI49N4_@shikoro>
+ <abkD-VLprcbbEbB1@ashevche-desk.local>
+ <CAMuHMdVX4tfko8iv-EdwO-bBcwCd+cPkb9aP8qJbcM1F4zdz4g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Kconfig: provide a top-level switch for Microchip
- platforms
-To: Bartosz Golaszewski <brgl@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>,
- Daniel Machon <daniel.machon@microchip.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- robert.marko@sartura.hr, Steen.Hegelund@microchip.com
-References: <20260226143615.65788-1-bartosz.golaszewski@oss.qualcomm.com>
- <84da053d-97d5-4d07-8e76-b162a5b23d2a@kernel.org>
- <CAMRc=MehMLoBL573cWjQNN2eCiTCyqCv1xwVKqfkZ5isBhBUaA@mail.gmail.com>
- <10bb25d3-2f46-4b62-affb-31257d51e24f@app.fastmail.com>
- <CAMRc=MfupCCr8J+qnJACVeri4nZZCnULWaRgSvi4LWs4J3-5vw@mail.gmail.com>
- <9132501f-76e9-46c0-839d-bde7246c3883@kernel.org>
- <244fdbad-0d9f-42bc-a005-5f5ef34d067d@app.fastmail.com>
- <20260227-wolverine-slogan-7af0661f6e44@spud>
- <c9df99ef-9bd6-43a0-9f22-721bd6bfc90c@kernel.org>
- <20260227111748.ddqdf4avpvfzu4cm@DEN-DL-M70577>
- <CAMRc=MdrrzoL3r-Br2pvR=TXxXVdS_ouf1ikNysd=GuhR1V84g@mail.gmail.com>
- <d9f9884e-b4f4-4f38-9732-66ff90408b4d@kernel.org>
- <CAMRc=MdsnPLJdZfkiHGh6F1X5AS5eL9TrmjzcrhO-d-=f=sX2Q@mail.gmail.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <CAMRc=MdsnPLJdZfkiHGh6F1X5AS5eL9TrmjzcrhO-d-=f=sX2Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVX4tfko8iv-EdwO-bBcwCd+cPkb9aP8qJbcM1F4zdz4g@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_020000_522966_07959987 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260318_020654_904768_75EB6E99 
+X-CRM114-Status: GOOD (  25.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +109,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 18, 2026 at 09:41:44AM +0100, Geert Uytterhoeven wrote:
+> On Tue, 17 Mar 2026 at 08:34, Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Tue, Mar 17, 2026 at 08:26:53AM +0100, Wolfram Sang wrote:
 
+...
 
-On 3/18/26 10:21, Bartosz Golaszewski wrote:
-> On Wed, Mar 11, 2026 at 9:58 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 11/03/2026 09:32, Bartosz Golaszewski wrote:
->>>>>>
->>>>>> Here's the previous discussion when this was added not too long ago:
->>>>>> https://lore.kernel.org/all/20250811122053.4bfyoefln7wpz2a4@DEN-DL-M70577/
->>>>>>
->>>>>> Daniel is probably the one that "needs" to answer this, I think the
->>>>>> lan969x is added recently enough for this to not be particularly
->>>>>> disruptive.
->>>>>
->>>>> I don't get arguments there. The policy is one ARCH per vendor, so why
->>>>> exactly upstream would like to "having more granular control with
->>>>> separate"? That's downstream or vendor wishlist, not upstream.
->>>>>
->>>>>
->>>>> Best regards,
->>>>> Krzysztof
->>>>
->>>> The out-of-tree defconfig impact is minimal for us. As Conor mentioned, lan969x
->>>> was added fairly recently, so the number of affected users should be small.
->>>>
->>>> /Daniel
->>>
->>> So can this be picked up directly into ARM-SoC please?
->>
->> This should go rather via Microchip ARM64 tree.
->>
+> > > Thanks for tackling this issue! I agree it should be fixed, just
+> > > wondered about one thing:
+> > >
+> > > > While flags are often modified while under the "fwnode_link_lock",
+> > > > this is not universally true.
+> > >
+> > > Is it a possibility to use the lock in all code paths instead?
+> > > Because...
+> > >
+> > > >     struct list_head consumers;
+> > > > -   u8 flags;
+> > > > +   unsigned long flags;
+> > >
+> > > ... this change costs some memory on every system. Maybe it can be
+> > > avoided?
+> >
+> > How much memory does it cost? On most 64-bit architectures is +4 bytes,
+> > rarely +0 bytes, on m68k it might be +2bytes. On 32-bit it most likely
+> > +0 bytes. I expect that 64-bit machines will cope with this bump.
 > 
-> Hey Microchip maintainers, can you please pick it up for v7.1?
+> On all architectures with natural alignment of pointers and longs,
+> it won't cost a thing: struct list_head contains pointers, so the
+> struct must be padded to a multiple of 4 or 8 bytes anyway.
+> On m68k[*],  it will cost 2 bytes, as the existing padding is just a
+> single byte.
+> 
+> [*] Iff m68k ever switches to 32-bit alignment, there won't be an
+>     additional cost due to the change of flags here, but of course
+>     there would be a cost all over the place.
 
-Applied to microchip-soc, thanks!
+Thanks!
 
-Will push it later today (infrastructure issue ATM).
+Yes, the worst case is 64-bit architecture with 4-byte alignment. This
+will cost +4 bytes.
 
-Thank you,
-Claudiu
+But I think we are really wasting time on this part of the discussion
+(and any similar) as long as nobody targets struct device or any other
+BIG FAT data type, that will bring much more benefit than saving 4 bytes
+in some struct fwnode_handle.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
