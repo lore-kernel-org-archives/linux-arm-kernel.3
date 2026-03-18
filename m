@@ -4,127 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425CD1077610
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6241077612
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNWGA8WGDuGqq1irBzTs+QvDEUk4f/zJ2rjUy10qfDM=; b=ie1X4iou4d7/QzjUzTCroswR7P
-	GkMJ95PLMcf1xEU5ax8YugYSH0hAnyPnYcEJha9WiAtjSvQCN2axPimZGs8+WTLAjPLIZlfNeGAZm
-	kUOhknP/zvyQiMbxHbubLIIlnAV3LfURdINzdXhMmRgv93bIAYfW3Cs4agSFkXAApKNdXMw6Ep0ph
-	Vm5y1ATJ0eKbDKNbEThrm1YbWH5NGxJTtGMmCrpgiM6Sv6yxwV7PB88vG4OJDcjk4WTSG2gswQX0m
-	7VdM3Wp/1aFzZBWFHAxa+14G2DBVULTBYOPIP7SjN+gQxTUFoOo14RkTr5d/RJwOHYSmf6830znFc
-	mMQXBglw==;
+	bh=DgBApf3Qzsyu+MAYekJD8rS07VZTysH8D8y9E4yORdo=; b=DDuAhzn3nP6u5eTn/IEZjSaCjI
+	RqYnRCDGiJGdiRcO8KGtWNJ/RJPXJ8NLznHXGXZ8a2ynt0ZH65f3J7rir8S+YpbfOZrf+485uX3QN
+	9KP5LKSQG6R/yi9dKRSIF6L1T9QmN5ZPPh9UXOovu3Xj4t2Nqm8BV5CGKGHTeHOyiJneBSTqjRwty
+	L41AXLgsLZjnG1rr9HJlfLIw1EO6Qw3sCoFgcPXijYE7Iw7WlLN+I1a0RWcN4TcrZJrfCvWCvUHzo
+	TB2LU+XXDbpVoRcENLy0HwIr7+kJY3coi+mvcreYmgfCcCfURGLGq/3LTjt9/78zeO8YkIRfJwU/e
+	km0xhtBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2x8v-00000009Gjj-1Fov;
-	Wed, 18 Mar 2026 20:05:25 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1w2xEu-00000009HEr-27o5;
+	Wed, 18 Mar 2026 20:11:37 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2x8q-00000009Gim-1DE1
+	id 1w2xEs-00000009HEX-2BXd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:05:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FZU2ifw35jgkHqwRxMS7GfBok+8lkDjrQa01FEsYrDEKRdXaiNg3g029w5EZOnDeV4TYprRoD7O0GRnsp5xLCiqLVuljOyGPydtEVgZlUqOOtXpQrj519MJj6vzJ5dKqLiGh4leOkcGhDQ0PLCpsCRU2wjQRMJqQQ1k5uevL9F8YUlKwi8SRBCn/OgG69Y8kKd1LcfXKLGLWiZYRN/MPK4E/GlsCX6uxKoTG82t6l1x0jQsidcPXan673ryJz3xAZTHDVFmrI/01hKla/k+qDWEoEr1MVFVFOgpX6pidqCs0cep4PkQjnd8EvENTm4aAWtf26RTEoe3MleVzMOfurA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nNWGA8WGDuGqq1irBzTs+QvDEUk4f/zJ2rjUy10qfDM=;
- b=NfDClRk6lZNlWStpGdpdoofjAJFKDk+RQJDmnVfclBmDK1zIB2iwSnm+ikC5bYXf3osfDw1k2IRc1MYsDL+JRv7njMSjAPs5GZnsZjeU4CvVquitmbTKD6PLOi4p0nBk/uUEuGLyeA/n/L6Epsf3j5cV0GyrsgcgVeLHxjkaB2/7K6kpgCtVWgwf7uzDinlhHuwzdK082IJLfK4b2JbeFF2zhBdWv3gFPNqjraJV7w6j5ilOVvHJ+ll5euW7NkquhSvm71AsUtdEmiHvPVr3j/Mn3mCd5N3jQMeVIMbbknwe754/Qceg2GDRYz8aynbg0VbxsHJV8V2FWOxqw5FAYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nNWGA8WGDuGqq1irBzTs+QvDEUk4f/zJ2rjUy10qfDM=;
- b=iHMEVlR51YM13jvBm+NWCcNj2eOUC8y9d1EEUT3dJ0u5I2AsKl7N82HPxF6TUlqaQltaC/EawjnAf0RKMlqGRLkEuYH4W37NluHd2HiQpTd3Sb3lRHTUgGvUMy7mxoPc5iefSZ12UdKmvezSuGE0oU9WLSq/7HBZT84wIaP4jd68OorjgFTJ6+DjD6J1XY6MkIQnCI/QdN0TwEdjvEJufhOqLIYMaapjvQIl3oAxZc0Dm53CYLgr08c1vufvRZ+gFOCGo3SoM+fnAX1SNNi+w8J6gAzm5ob9TZ2cJ8OQJqHeigPmw6lhog2C509V63a2653mpCEWmM1HDgfnCmH4fw==
-Received: from CH3P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:1e8::30)
- by BY5PR12MB4275.namprd12.prod.outlook.com (2603:10b6:a03:20a::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 20:05:09 +0000
-Received: from DM2PEPF00003FC8.namprd04.prod.outlook.com
- (2603:10b6:610:1e8:cafe::73) by CH3P220CA0024.outlook.office365.com
- (2603:10b6:610:1e8::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Wed,
- 18 Mar 2026 20:05:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DM2PEPF00003FC8.mail.protection.outlook.com (10.167.23.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Wed, 18 Mar 2026 20:05:09 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
- 2026 13:04:49 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 18 Mar
- 2026 13:04:49 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 18 Mar 2026 13:04:48 -0700
-Date: Wed, 18 Mar 2026 13:04:46 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "jgg@nvidia.com"
-	<jgg@nvidia.com>, "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
-	<lenb@kernel.org>, "praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>
-Subject: Re: [PATCH v2 0/7] iommu/arm-smmu-v3: Quarantine device upon ATC
- invalidation timeout
-Message-ID: <absFXmFcpG8O7uNB@Asurada-Nvidia>
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <BN9PR11MB52762F94146776026CA203248C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Wed, 18 Mar 2026 20:11:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DgBApf3Qzsyu+MAYekJD8rS07VZTysH8D8y9E4yORdo=; b=HVDCm123zlkXqMYH/LVlvv7e9Z
+	g6WqH+umRVLoPYjG/LiIvDimSVT+jDYsYxpk6t1PvV4a/rbiPpXf+o7+2fUpYWnDJ8KgACMyNDYsa
+	LRSCLphdyeF6gS7LocwwzCVDcXRu58Y2eXYRvPWvjZXtchXPVN0hlh8JS5ZoJpar1CNI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w2xEf-00CHRK-Br; Wed, 18 Mar 2026 21:11:21 +0100
+Date: Wed, 18 Mar 2026 21:11:21 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <ba563541-f6c8-451b-8967-2c5c9199b231@lunn.ch>
+References: <20260313195801.2043306-1-shenwei.wang@nxp.com>
+ <20260313195801.2043306-4-shenwei.wang@nxp.com>
+ <2aa1d063-181f-4145-9f1f-7e3012c4d0af@foss.st.com>
+ <104e9861-bfd4-4e0f-8967-a849edf7e6fb@lunn.ch>
+ <CANLsYkx6KhspTjzpk51ywfgWcf-FR7-3XrH=MmBi_W6yZmMukA@mail.gmail.com>
+ <PAXPR04MB9185E1D7543DB60DE089423B894EA@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52762F94146776026CA203248C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC8:EE_|BY5PR12MB4275:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4051207-c669-4da0-f276-08de8529a828
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 23ysBzoucviuRE4dmOYS03w97DApvm+1oTPtkKyjbgVGozn6DiOySxius6JS3vfsjrO3mzXX79CR+0Pz8eb/GTvhg3E45OY1IKZ2X11iavSt0cTQ71wUmKbJljmhcEMDvwEQa+/2AnC0RczC67Qcqhv3bN/re6ExOoBT3MGjVrXcJaFcvB3j3O+muQUXXIOpkK0/FB3iLUvwuRtqOLUrwlOXSNVlcfPquRbh1LEFs+qwtQDG3bGmx6H6b4v6Yx/Hpj31D1dHj0QVrCR3sOUKmr4BklpKOrP71Xw+oU/wLAwqWbZIDsszscLhfiGMl31Aby8u7UnkfZgbAO9huhOCtHQ8EB2cYrNe6tHoWQI0noXnI3WZj3o/51yIQhlKkwbwC5qI9X2o15LqgSE8fwaCg4UamUjpVJTBX/3d7ZpNOEpq7XWCqu36On9k2X9qhgV843bEGQC69qfJ8OfDE3Zw8miavxEYmOaH+D4sdgL8++X1ps7N++u+XZtqgLAilpsCDgH1lBD6sWJfB0GlJwFIOdpaMMl3veDt5d2O2/dKW+E1sbo1XFhdEuSBgl3YNTjopIdD1s0AoGIH8EDR35xRoRXTxiiqKa6AOIsHEWZKwMr35g0f/Ww2Zqpp3+xX3nywgXfhH39cx2KhFt9Zh2vAjcKp20/iwpMdiPRqqUZspCbuq6B/g3kv6nd1qGunOF/yN152kLTFx7A5tco75Pa/pp1/ubBdXP11CLays4g0ifMeHr19XPz0TFCsJmfItPWetzramBGnHbHuwZzCr3Fz9w==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JClN7nPNlrPdvECuRnCietkcwBzm3Xq1zKt6flnoxvBS2GR6i9kVIJl+S49lvoSNgs4tAGorPD+0Zn7uHhzccYVpORYc53q5KsR+YYTlNf6/SUglrIzVGjz7bCV9uV6ZjXDOhfTXH/pqzXGH1bqte/0LkOu58lVFGGefnr8IxBS3fWB78OsIaxNNxkIkc/9MXBpVNijKzlKOwGI6B/MO8Rc74JVD5FoESK7L2HIRdELMwUKXREr/dLBdOE+oXGo9ozcCB7FGDJoYV0uarkrigTjy0P0CLbyqnDWs7Xmm4VZ/7J/OBGniDeByWor7ya5+J5jaRC1/9oHZlDmTrPJG2bWa8NFfcO257dOCkzslgqfx95FrHBbq5Pada3Q+QRDGripcGz8gdxzEy5Ocv6Nrj3dY3mqzw/qP5qNWCp+zGsaQXMFxMa58i/uHaKtjtEFA
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 20:05:09.3118
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4051207-c669-4da0-f276-08de8529a828
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4275
+In-Reply-To: <PAXPR04MB9185E1D7543DB60DE089423B894EA@PAXPR04MB9185.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_130520_352714_431BFE15 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260318_131134_581454_B7C5D752 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,27 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 07:47:18AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Wednesday, March 18, 2026 3:16 AM
-> > 
-> > Hi all,
-> > 
-> > This series addresses a critical vulnerability and stability issue where an
-> > unresponsive PCIe device failing to process ATC (Address Translation Cache)
-> > invalidation requests leads to silent data corruption and continuous SMMU
-> > CMDQ error spam.
-> > 
-> 
-> None of the patches in this series contains a Fixed tag and cc stable.
+> @Linus Walleij,
+> From a technical standpoint, this GPIO driver is no different from
+> gpio-mxc, gpio-omap, or gpio-rda.
 
-Hmm, I guess AI overly polished the cover letter so it sounds too
-strong?
+Yes it is different. The example you list are all silicon GPIO blocks.
+This driver is not for silicon, is a protocol spoken over rpmsg.  The
+concept of two CPUs connected by rpmsg in a SoC is used by a number of
+vendors. Look in Documentation/devicetree/bindings/remoteproc you see:
 
-This is essentially a vulnerability (potential memory corruption).
-And none of these patches actually fixes any regression. The PATCH
-7 even requires the arm_smmu_invs series which has not been merged
-yet :-/
+amlogic, fsl, ingenic, mtk, qcom, reneses, st, ti, wkup and xlnx.
 
-Nicolin
+We want one generic protocol/implementation of GPIO over rpmsg which
+all these vendors will use. That means we have one GPIO driver, not 10
+drivers to maintain for the next 10-20 years. It also means those 10
+vendors have 1/10 of a driver they need to maintain for the next 10-20
+years. And likely less bugs to deal with, since the driver is more
+heavily tested by 10 vendors, etc.
+
+     Andrew
 
