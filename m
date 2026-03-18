@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1607FCD0A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491C010775FD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdvmO0cOUOqBBEEmENufgIzZoifolXGZTk0cz5OyQMw=; b=y4odQLdMj3XA/lxDN1OlOHxxSB
-	wFWRmGvTtiGvfWdqW2vJzHoxEgEh/gmowRQEtHHuq6+ZodJBzuDX2ho8YVjQumKTMhqN+cLKVkzio
-	LpNXrC5w/9dF5D36xxRg+eNOE4dQ8pflIMxk63w1MroH2QPCwb1qgflYV0ET77VZrpTTIG+q8sA1I
-	rQXYXht6sZ0cxMrh2TCMcSYZ4g9kIETwJGHKBaNo87ztxcsfw6+FUprCt4LkVg5jVakChaQYPQ+B/
-	/VxsDiJbgYsRZwnMYH5GYXwgAotdIyrvCCVdnlGPqoizisPIUVESL3vZVcOVLj8FlwNUuAJLZvgCX
-	n9mgiGqQ==;
+	bh=2lEDcaAHvbU+nel+16gcGTDp2QK4epOso8XKjMzmLW8=; b=rrK2GnV/7eGLWPdDWhc6r0cmAR
+	kOHkRrtrVtne08y+fYathC34LAV48r9meATcFh/NK1tFkN2K/kSGh0daDFSTglOonmrw+lDg/n1kI
+	fLgoUXUWOZ82GWgIC6b7jgSCo+JE23x+GFDWYUX504bZ5I8YpowuJo+H6+LnMe36ADX8IoxQwnwkF
+	Io7wk9WPiTEZYw1/iNvnGHtb2UpzJo/Onp/XF6629zpcUAfy0h9ki+ZNORaxxR1cZ9muQMOcDs2bS
+	5SlMKE5IkTcP+YtwWpgon8VSAb1qGZyeMiTu0Pi6u2PoTBGPN7dEc6PyA5oACRfagTj0f6xjHI3sy
+	Nfve4M+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uy4-000000096tE-3NmW;
-	Wed, 18 Mar 2026 17:46:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2v0i-000000097Bz-0pKg;
+	Wed, 18 Mar 2026 17:48:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uy3-000000096t7-2Rlg
+	id 1w2v0g-000000097BY-1RMI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 17:46:03 +0000
+	Wed, 18 Mar 2026 17:48:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D325560132;
-	Wed, 18 Mar 2026 17:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251F2C2BCB0;
-	Wed, 18 Mar 2026 17:45:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BC8C844090;
+	Wed, 18 Mar 2026 17:48:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EAB6C19421;
+	Wed, 18 Mar 2026 17:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773855962;
-	bh=MOvYZ+RP0OfudcUMaKcfufnIX4ujNiNNOumMn0yDLZU=;
+	s=k20201202; t=1773856125;
+	bh=n0MnqJl2TOeHEpAg4OVfr0lxtUkQnytUwf9VSMN6vPY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Nw6fvwjChuu9h9boR8PWVh8oMq3fNZcpVkGAlB6dnRfDYzkTvYVG6QvmqH528lQQB
-	 RFwUl9kDYy8+tzI9GZECHOISPPFPxRdd5DvWxwZPoLGh2HlEcarnpbWrzYcGiRuOKs
-	 LTquVZZ6vUqYSlHPzb70eN4o2AOh4rv5hTUI/d2hDQ1YiitHyF+G72jmO+hmfvQW4h
-	 WEy1nrxrFQla4YrXfoYzS+DnnHtq8u7i+GHUtRzIzAdJVnN/OjUF+2oO146+nQ/l/T
-	 qR+Igk1X2rJhqEcKzitkvzrP9n6xCtK5W03QpDFHd1OUxpx5lxqdzD1KOqRCNgV+FG
-	 b4DlKGmx+TPIQ==
-Date: Wed, 18 Mar 2026 17:46:14 +0000
+	b=LOgv1+2mwpavGPO2QlnbCxclonKXFB+AxWUsJ01xE2+V1JtCkdsmGshS45GkRQh9u
+	 2onntOOl8y4ZGEgr8OWwunDZjjHOQCYviLUb8rxV+ku/0xxTlsZKwIlxeyJ7px12Mu
+	 86Xx/KDpcj4jMK0Ad+eAad6UyNB+GGaJyzn2FDDJxMd6jVUgIlYZTtM270S7PSSGYi
+	 kWXd4e5jqIWXmza/mPZOj5lKKU7KimXD2JFJVD/NXdWvgbpko28vf/s+QdyuTnkIiR
+	 G+gN0Zi9dVfhR/megVQkY4HRAtwPvz4Zw3IGRBL1tEeiAb0yOC/YQZj021qQ4eYBbF
+	 N4HApQJcXAZ2g==
+Date: Wed, 18 Mar 2026 17:48:57 +0000
 From: Jean-Philippe Brucker <jpb@kernel.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
@@ -58,14 +58,17 @@ Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
 	Peter Maydell <peter.maydell@linaro.org>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 10/30] KVM: arm64: Rename sve_state_reg_region
-Message-ID: <20260318174614.GH2390801@myrica>
+Subject: Re: [PATCH v10 11/30] KVM: arm64: Store vector lengths in an array
+Message-ID: <20260318174857.GI2390801@myrica>
 References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-10-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-11-43f7683a0fb7@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306-kvm-arm64-sme-v10-10-43f7683a0fb7@kernel.org>
+In-Reply-To: <20260306-kvm-arm64-sme-v10-11-43f7683a0fb7@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_104846_401267_6C89B7E2 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:01:02PM +0000, Mark Brown wrote:
-> As for SVE we will need to pull parts of dynamically sized registers out of
-> a block of memory for SME so we will use a similar code pattern for this.
-> Rename the current struct sve_state_reg_region in preparation for this.
+On Fri, Mar 06, 2026 at 05:01:03PM +0000, Mark Brown wrote:
+> SME adds a second vector length configured in a very similar way to the
+> SVE vector length, in order to facilitate future code sharing for SME
+> refactor our storage of vector lengths to use an array like the host does.
+> We do not yet take much advantage of this so the intermediate code is not
+> as clean as might be.
 > 
 > No functional change.
 > 
 > Reviewed-by: Fuad Tabba <tabba@google.com>
 > Signed-off-by: Mark Brown <broonie@kernel.org>
-
-Reviewed-by: Jean-Philippe Brucker <jpb@kernel.org>
-
 > ---
->  arch/arm64/kvm/guest.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
+>  arch/arm64/include/asm/kvm_host.h       | 17 +++++++++++------
+>  arch/arm64/include/asm/kvm_hyp.h        |  2 +-
+>  arch/arm64/include/asm/kvm_pkvm.h       |  2 +-
+>  arch/arm64/kvm/fpsimd.c                 |  2 +-
+>  arch/arm64/kvm/guest.c                  |  6 +++---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  6 +++---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  6 +++---
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c          |  7 ++++---
+>  arch/arm64/kvm/reset.c                  | 22 +++++++++++-----------
+>  9 files changed, 38 insertions(+), 32 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index d15aa2da1891..8c3405b5d7b1 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -404,9 +404,9 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->   */
->  #define vcpu_sve_slices(vcpu) 1
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 906dbefc5b33..3c30c1a70429 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -77,8 +77,10 @@ enum kvm_mode kvm_get_mode(void);
+>  static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
+>  #endif
 >  
-> -/* Bounds of a single SVE register slice within vcpu->arch.sve_state */
-> -struct sve_state_reg_region {
-> -	unsigned int koffset;	/* offset into sve_state in kernel memory */
-> +/* Bounds of a single register slice within vcpu->arch.s[mv]e_state */
-> +struct vec_state_reg_region {
-> +	unsigned int koffset;	/* offset into s[mv]e_state in kernel memory */
->  	unsigned int klen;	/* length in kernel memory */
->  	unsigned int upad;	/* extra trailing padding in user memory */
->  };
-> @@ -415,7 +415,7 @@ struct sve_state_reg_region {
->   * Validate SVE register ID and get sanitised bounds for user/kernel SVE
->   * register copy
->   */
-> -static int sve_reg_to_region(struct sve_state_reg_region *region,
-> +static int sve_reg_to_region(struct vec_state_reg_region *region,
->  			     struct kvm_vcpu *vcpu,
->  			     const struct kvm_one_reg *reg)
->  {
-> @@ -485,7 +485,7 @@ static int sve_reg_to_region(struct sve_state_reg_region *region,
->  static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
->  	int ret;
-> -	struct sve_state_reg_region region;
-> +	struct vec_state_reg_region region;
->  	char __user *uptr = (char __user *)reg->addr;
->  
->  	/* Handle the KVM_REG_ARM64_SVE_VLS pseudo-reg as a special case: */
-> @@ -511,7 +511,7 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
->  	int ret;
-> -	struct sve_state_reg_region region;
-> +	struct vec_state_reg_region region;
->  	const char __user *uptr = (const char __user *)reg->addr;
->  
->  	/* Handle the KVM_REG_ARM64_SVE_VLS pseudo-reg as a special case: */
-> 
-> -- 
-> 2.47.3
-> 
-> 
+> -extern unsigned int __ro_after_init kvm_sve_max_vl;
+> -extern unsigned int __ro_after_init kvm_host_sve_max_vl;
+> +extern unsigned int __ro_after_init kvm_max_vl[ARM64_VEC_MAX];
+> +extern unsigned int __ro_after_init kvm_host_max_vl[ARM64_VEC_MAX];
+> +DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
+
+A rebase issue here, rest looks good
+
+Thanks,
+Jean
+
 
