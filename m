@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8971088E45
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 22:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59221088E45
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 22:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWL0RuLJN0YCYwd7OUvYKgvM4/v9ZFsPnPl8Rwt0VYI=; b=uVWnhaAdTA6QBr3GgkWE153mcU
-	gJcbTE7xkJeTGo9ps80+tLaQ7RXk6BJP6vRN/mfRjXhofceqTxVajuNOGO2jWCLOws7F3kUhTAAkN
-	9g6Y+svxyNF4PA21o1RQwnnWg9YIHT7LJrhk8PoqM6hwyMu0EYnR/czwKuZsV9E7p7EKaXq9lXDdd
-	xNdxtWddFoWAzbW5lMIgGQmNWsi9+zhCG8q189weFMfjKsfGvR/1Mx1TsKsS2kBHlrFLYc3wQYZMT
-	fYYFWRew3mJPZWkArzs4NN8EV/m6jWU1DaPsCUQ3YTwsyoTsyok7WnDVsPJtLLeSEk6h165XD4fBX
-	LHYV9bvw==;
+	bh=Mm5cgq431AMp+29aAA5yYiOJktECVQ9HyfYhNIrC+D4=; b=3GUMg6kmwbANUEmVLgPhFdZboV
+	MDp9HZDremk/sBKSlLBWs0jAIlX9SZ/wqGKxPegojN8pU0n0+a+x4sophg/bhNhdMJsCL94GpziS2
+	LIDx22pheWWVGiaC1LcaNmDdWJEMGSmV/sJFsugm/QpfzcgTxO5A+mAjIvnGwftKk2ALRSuN6ymDy
+	2eWnz/jRMf6+kxkWs0w127uYIrQDw5UOVcqLicV5kx5Jy/D3X9XzHJWnHF34aPw82aEgAUAEQ9kyx
+	8WdPF6WbO4chRRqO+PO6cS4UK5Emz8MpQwShM7yWsR35kZ71nZVY+oi6RhwIHoTolHarzR66Ce5O4
+	eKaVtRUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2yyQ-00000009P9f-09hp;
-	Wed, 18 Mar 2026 22:02:42 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1w2z2Y-00000009PVy-0xeu;
+	Wed, 18 Mar 2026 22:06:58 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2yyN-00000009P9L-3Dmh
+	id 1w2z2S-00000009PUd-3bBj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 22:02:40 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b052562254so29635ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:02:38 -0700 (PDT)
+	Wed, 18 Mar 2026 22:06:56 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2aeab6ff148so13995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:06:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773871358; x=1774476158; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1773871612; x=1774476412; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KWL0RuLJN0YCYwd7OUvYKgvM4/v9ZFsPnPl8Rwt0VYI=;
-        b=gekisyMb1hsJ2EpZD1bkeTZUugyiEa6KXBfANvJ+ZBYZ9Z7S0qzwn+K+laY1nztNxT
-         TDWj8/BChSqPyZxNP+SUqZEYQci3NTRd9pYaRGrn03HnK/lnMbsgBjARSOa7ucccbC08
-         fDTrfX3IL4g4tGaDtWMDy2tKn2DLABrefr8Bghhk5tD45/uEyhRZ7qj7+Oz2DlnBm7Zk
-         KL8fIyL+v7Pxz37SSRhuPg7G8qmqF17QJjCAQstJ6p+vfyAxDdBAmWe9xi7JjS+cIAzl
-         27j7orKjgyp5OsU0/TX46d+e4FV005JprZ0t/D8Cu6BjczEEEB7chPJ5VIN6Cwvfg+L+
-         jDxA==
+        bh=Mm5cgq431AMp+29aAA5yYiOJktECVQ9HyfYhNIrC+D4=;
+        b=memU3VnZKpWM+5ZBgkHZKgMwae/CzEV0iYrtMx5xR6fEqUKkCpAxtRib6Qhtof4i8/
+         6QPVYNAxvpJOPlheLB3ySPRCkU1cZY1bQVDE8z7fMacb8vCtO4IeXTehcie/ItdOO1fH
+         PmMonJXs599d3Ns1tYH1uZqoi9POybmt3NusrIEaPmftMGFPpHp6Vuki4CNzvYEH26gO
+         9sJ4pRif3m4eOK0LIad6HqF0n0IEkoWi1dRxgz86pdgmrihMmHhAC2jK+mzDungdgwb1
+         m+v4OonS80un28dNnldbunw6CttEji8ie74wWzP9ffCM6YaK6MHqGCvcK22yaqo5Zep0
+         KiIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773871358; x=1774476158;
+        d=1e100.net; s=20251104; t=1773871612; x=1774476412;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KWL0RuLJN0YCYwd7OUvYKgvM4/v9ZFsPnPl8Rwt0VYI=;
-        b=dMqRHjiPUB4Rnlg6TM82T9Yi64ujIjpWEbpOfduR8QG0m2xshcTmXeqb+wBMeRfbi2
-         fCsOQwtLFityJT3FmzyaEYOl6IXria/rPbsCNYVw2Ds3YMQiH47gIj03HqzEgMODKFP8
-         P/eghFDug5AtQvb0xVzC3pO1TgvgxJMJvJTlK4vCkAlZ6i+Fa70flOHFeuk/YCIWyAKB
-         1Q4G2I3qJgK1H3mBEHN6HopP9VrNzmHq+inFHmxDlvlezKtrAbmF5qZ0w6lGQ81/vLFS
-         siQDecgaShKxKYyzT6sJEbvLTnRRSQWqMNTUAkjLqm1gtd0GdnhECnPtPBPVMGLytdhP
-         75pA==
-X-Forwarded-Encrypted: i=1; AJvYcCUF4WfgIwXrp6UvEhgd5HAhWoz1QMC1TlzpFZ/b//pU38AO+JoYYVJdMojuQPWsU+/lE15ojljEc2F31xjV3xmz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC1dH965OrrbhyL2AtANs0vE8ZKCyIW3XvUPGKIZwV0uVDYvlE
-	8nUsUGx/jsnt7eayRteBdMYCYdkDoFgL9AsoEDt/9+iecbJ70AQS4t6iR1FazLynlg==
-X-Gm-Gg: ATEYQzz2OhogXKXpflj2uMJtFpIQB9m1bFLQ6ogXRGiDDn2FnqHTsbaR5KJ8VZ2LMul
-	X8aE4x82JM0ojpX7SczzW2hbodE9GecwqnOvBVEl47HajLzn5XRxoFnghfHfLdEqksLjvSltIr9
-	KL7vEcDSbowqvo6G4lIeODNq+frJEL+OyETfVKOKVzWw7Vx6QVdhGY0mW5a+FsnQXA7/1Woo7lP
-	/9XhWnBX2GQCUI5Aaij29ZDErqKDlmTEVsT2Lq9fm6/IVxZ5p5wM0Iov/4ov9N1+/0+Cq0IiqYt
-	1f3OCtSf8AHOg3eLTtOCBZpRsKgdGs10AG47fhP1fhew56X9AUCemlRs+klLjiAnB49Tlg8z+bZ
-	WwpYsRXMeqedRT3C35rS8AXWcjtfBILp1ko+sziDmOZxmJHbk5KHnhtwdowdcdNNtLc7H3DPp5m
-	0XqZ6UKQxZUku0GpIWjtJk+DHuV1hk7HpKIURlBYPMXFW7WmDId3CwiOz2OZVAOw==
-X-Received: by 2002:a17:902:ebc5:b0:2a7:4151:2c74 with SMTP id d9443c01a7336-2b077df2de7mr1074425ad.16.1773871357349;
-        Wed, 18 Mar 2026 15:02:37 -0700 (PDT)
+        bh=Mm5cgq431AMp+29aAA5yYiOJktECVQ9HyfYhNIrC+D4=;
+        b=o9nXLVOA9W3QvAUXGrW07SN5/gq3VISSRHZDYwsvi3lrFUTqLZ7HZvl39J6Nb+CVSI
+         +gMLdVqiS5qwj8ChQjjSLVp/d2CpLgwwqxd74jPPhk4zlbTsi6LOQilr3TXm+pTrqqHk
+         pGGNL9YbbyncH8CLBfvPidOCGwZMoS7KmInZV6bbRlwD1JCavtXHAOMxH5sMEhVJHR6W
+         W2zpBwRemRIC7uSmANlpYgHHa9/SEVOlCnFsWPtVhdk3ucGzr8DLdF423ItLYxc7QFlQ
+         M+cBprAajoix6J9cN5UnTAxTLM3hcVUdC6TMu2pgSreM5XBZu6xdzvYGYP+2PjDigPLD
+         EV0g==
+X-Forwarded-Encrypted: i=1; AJvYcCUjPjgakwXEWfCAQStAwUmY+EQcCeurvIGrwcRr+T56CDqdCql5P/7gyG82zy9oK9UWVv3eTEmgj6kUfvb1m0rW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlHPqpTAowJI7OYMM4iy/7GtjRv5DvPFWZ0OUPq7xaowdPxJ6X
+	KdhymNiLy5vhT5JZ11iP4tPKEZ/eA7r54EMiXSUOSt5yfAHcd97tjJfd9GgkkCloxw==
+X-Gm-Gg: ATEYQzxzYd2sVtIBksngm8jNyBC3WPbQhlJHfRPb67fO1HO3/uVkelrpFw4Owgwisgq
+	Dsi+nlHxk0WJ+LXV/uUJOBF4S4oxEIfELmcyru7Gr6l1r0CekwAz4ySJN3hSVujeDJByq6zxYL7
+	VnGQ85f3bjDIXmrwkg63DYxmpZoMkhJ9GRaZ9jdBPBWRSiFhlVSCkI3wyjqNkr5aIgeM0rXcozy
+	XDPR/nTZa5NhiFmrYIFk5JuQ2yYdy1rMriJVUdznw1ICpkjnUi4OPO/pqYyFbWEOCyU7Hsk6dzM
+	SXKT29dHOG9s66dxsWK6AzrwpbkGU+zJFO/RfYPuCl9CelDjS2lyT9QagaFS9l/nXdFDB5lDn4d
+	1ni6dxzTSgptAz2/gZTFdx6B7GEnPAmlqNIqtIZN2Uae7BYCDRaFWAK0DMUUTpJB//pd4wh6tzr
+	22Iyb0LxOxZbHDwJAgII5Ypgt6Lh+Ifo65Wr+nSpWa8WJIrYOxT56OsH2nOl9DBQ==
+X-Received: by 2002:a17:902:f54b:b0:2ae:4808:bd99 with SMTP id d9443c01a7336-2b077ca07c1mr1353525ad.2.1773871611494;
+        Wed, 18 Mar 2026 15:06:51 -0700 (PDT)
 Received: from google.com (168.136.83.34.bc.googleusercontent.com. [34.83.136.168])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc62e4b53sm576347a91.7.2026.03.18.15.02.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b06e44a42esm37397735ad.33.2026.03.18.15.06.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 15:02:36 -0700 (PDT)
-Date: Wed, 18 Mar 2026 22:02:32 +0000
+        Wed, 18 Mar 2026 15:06:50 -0700 (PDT)
+Date: Wed, 18 Mar 2026 22:06:48 +0000
 From: Samiullah Khawaja <skhawaja@google.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	bhelgaas@google.com, jgg@nvidia.com, rafael@kernel.org, lenb@kernel.org, 
-	praan@google.com, baolu.lu@linux.intel.com, xueshuai@linux.alibaba.com, 
-	kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, 
-	vsethi@nvidia.com
+Cc: "Tian, Kevin" <kevin.tian@intel.com>, 
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>, 
+	"joro@8bytes.org" <joro@8bytes.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"jgg@nvidia.com" <jgg@nvidia.com>, "rafael@kernel.org" <rafael@kernel.org>, 
+	"lenb@kernel.org" <lenb@kernel.org>, "praan@google.com" <praan@google.com>, 
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>
 Subject: Re: [PATCH v2 4/7] iommu/arm-smmu-v3: Mark ATC invalidate timeouts
  via lockless bitmap
-Message-ID: <absfAT4jgL2f3UfR@google.com>
+Message-ID: <absaKimeI_TXXxuu@google.com>
 References: <cover.1773774441.git.nicolinc@nvidia.com>
  <0c5525367cc67ccc84a675544d1d9f8462704065.1773774441.git.nicolinc@nvidia.com>
+ <BN9PR11MB52763AB181F5213FAAB4F4F08C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <abr8aS/MDU9aeKu9@Asurada-Nvidia>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <0c5525367cc67ccc84a675544d1d9f8462704065.1773774441.git.nicolinc@nvidia.com>
+In-Reply-To: <abr8aS/MDU9aeKu9@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_150239_831626_054625F1 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20260318_150652_905921_7850B788 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,99 +110,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Nicolin,
 
-On Tue, Mar 17, 2026 at 12:15:37PM -0700, Nicolin Chen wrote:
->An ATC invalidation timeout is a fatal error. While the SMMUv3 hardware is
->aware of the timeout via a GERROR interrupt, the driver thread issuing the
->commands lacks a direct mechanism to verify whether its specific batch was
->the cause or not, as polling the CMD_SYNC status doesn't natively return a
->failure code, making it very difficult to coordinate per-device recovery.
+On Wed, Mar 18, 2026 at 12:26:33PM -0700, Nicolin Chen wrote:
+>On Wed, Mar 18, 2026 at 07:36:20AM +0000, Tian, Kevin wrote:
+>> > From: Nicolin Chen <nicolinc@nvidia.com>
+>> > Sent: Wednesday, March 18, 2026 3:16 AM
+>> >
+>> > An ATC invalidation timeout is a fatal error. While the SMMUv3 hardware is
+>> > aware of the timeout via a GERROR interrupt, the driver thread issuing the
+>> > commands lacks a direct mechanism to verify whether its specific batch was
+>> > the cause or not, as polling the CMD_SYNC status doesn't natively return a
+>> > failure code, making it very difficult to coordinate per-device recovery.
+>> >
+>> > Introduce an atc_sync_timeouts bitmap in the cmdq structure to bridge this
+>> > gap. When the ISR detects an ATC timeout, set the bit corresponding to the
+>> > physical CMDQ index of the faulting CMD_SYNC command.
+>> >
+>>
+>> It's nice to see the ability of allowing sw to identify the faulting sync command
+>> upon an ATC timeout! On VT-d it's not feasible when multiple wait descriptors
+>> (similar to CMD_SYNC) are in-fly... :/
 >
->Introduce an atc_sync_timeouts bitmap in the cmdq structure to bridge this
->gap. When the ISR detects an ATC timeout, set the bit corresponding to the
->physical CMDQ index of the faulting CMD_SYNC command.
->
->On the issuer side, after polling completes (or times out), test and clear
->its dedicated bit. If set, override any generic timeout, return -ETIMEDOUT
->to trigger device quarantine.
->
->Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
->---
-> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
-> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 20 +++++++++++++++++++-
-> 2 files changed, 20 insertions(+), 1 deletion(-)
->
->diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->index 36de2b0b2ebe6..3eb12a34b086a 100644
->--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->@@ -633,6 +633,7 @@ struct arm_smmu_cmdq {
-> 	atomic_long_t			*valid_map;
-> 	atomic_t			owner_prod;
-> 	atomic_t			lock;
->+	unsigned long			*atc_sync_timeouts;
-> 	bool				(*supports_cmd)(struct arm_smmu_cmdq_ent *ent);
-> };
->
->diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->index 01030ffd2fe23..9c8972ebc94f9 100644
->--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->@@ -445,7 +445,10 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
-> 		 * at the CMD_SYNC. Attempt to complete other pending commands
-> 		 * by repeating the CMD_SYNC, though we might well end up back
-> 		 * here since the ATC invalidation may still be pending.
->+		 *
->+		 * Mark the faulty batch in the bitmap for the issuer to match.
-> 		 */
->+		set_bit(Q_IDX(&q->llq, cons), cmdq->atc_sync_timeouts);
-> 		return;
-> 	case CMDQ_ERR_CERROR_ILL_IDX:
-> 	default:
->@@ -895,9 +898,19 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
->
-> 	/* 5. If we are inserting a CMD_SYNC, we must wait for it to complete */
-> 	if (sync) {
->+		u32 sync_prod;
->+
-> 		llq.prod = queue_inc_prod_n(&llq, n);
->+		sync_prod = llq.prod;
->+
-> 		ret = arm_smmu_cmdq_poll_until_sync(smmu, cmdq, &llq);
->-		if (ret) {
->+		if (test_and_clear_bit(Q_IDX(&llq, sync_prod),
->+				       cmdq->atc_sync_timeouts)) {
+>Actually SMMU doesn't know which device is faulting when CMD_SYNC
 
-This will not be set if a software timeout (1 second) occurs. Do you
-know if the ATC timeout of Arm sMMUv3 is less than the software timeout
-in the driver?
+VT-d is able to find out the SID of the device for which the device TLB
+invalidation timed-out occured by using the SID reported in the
+"Invalidation Queue Error Record Register" (VT-d Specs 11.4.9.9).
+>follows ATC_INV commands for multiple devices. The commit message
+>in PATCH-7 describes this in the end. So Jason suggested to retry
+>those ATC_INV commands by bisecting them per-device, which allows
+>us to pinpoint which device.
 
-If not maybe we can handle the software timeout here also as the cmdlist
-is already known?
+But for a software timeout, something like this would be needed.
+>
+>Could VT-d do the same?
+>
+>Nicolin
+>
 
 Thanks,
 Sami
->+			dev_err_ratelimited(smmu->dev,
->+					    "CMD_SYNC for ATC_INV timeout at prod=0x%08x\n",
->+					    sync_prod);
->+			ret = -ETIMEDOUT;
->+		} else if (ret) {
-> 			dev_err_ratelimited(smmu->dev,
-> 					    "CMD_SYNC timeout at 0x%08x [hwprod 0x%08x, hwcons 0x%08x]\n",
-> 					    llq.prod,
->@@ -4458,6 +4471,11 @@ int arm_smmu_cmdq_init(struct arm_smmu_device *smmu,
-> 	if (!cmdq->valid_map)
-> 		return -ENOMEM;
->
->+	cmdq->atc_sync_timeouts =
->+		devm_bitmap_zalloc(smmu->dev, nents, GFP_KERNEL);
->+	if (!cmdq->atc_sync_timeouts)
->+		return -ENOMEM;
->+
-> 	return 0;
-> }
->
->-- 
->2.43.0
->
->
 
