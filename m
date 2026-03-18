@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78218FF6E9F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 00:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E14DFF6E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 00:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hBVMrD8D0Ay3dyT1XBtkYq6SLKsqO6eZLjI6HyNwn1o=; b=zInkUYUGlCBgSa8/TQfIVK5Xn0
-	Vn+I4SXuMlcj57iMfMfdL0Sqv+abLiBky4Twpu/zRzcz0nxeNe5hEXCXVblAJTmchqmef9dxFiVIp
-	JDWObgqTPSSS0AJe0/waE8kZDpN9gKT2niTlzSwrDxRkp84MhWQSnEXgnRbgs2m3kLhEaBBj+9aBD
-	T5oZVSHAgNOBfxeD/SMnGXykgW4BFb68CAT6sZN6eOfZnAJV96ieS7JR3DS9UWEbnKYeL2JyFgUIW
-	TiCXuICeR3cU4igqs2qBXu5WQQh6pEHo/eqWMIGQEBRZuAvirGKTJB93gBxU0W2FGdkC6eWrrzl47
-	aAqgugXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LKaGTOrqZcxKvrHo8N4IUQRt0r4j/J4rRNSb5TciUI0=; b=1NqpdSORalKQPfX3K0sng3ZV0h
+	SMTfV6lscNwkJV+qydZb1qblt5WX0IhETcYVIuspXezIgeukGyZsgwa2ZP1jc5Cg8nPnA1FrwEHxF
+	2PaiRYAKOKDObePQhV3pwUolIUVF84p8ttnFMgZXlDU491s1IuVu+2EshNKw6kJyLGxmP0MF4dbYf
+	gxTZhHuzEzZv8kyRczj8B02vlI22amhcWD6/Of+bZH7q1lccF8Ujif9YrrbnywYZ0krFRuBLXLYnq
+	to0VJOWzRSZ3n0DUtLGffrL0iIUs4deRAhIrbGBlfC+pAGJpEQl6ph4FHMZ2DbuL8Cd1GkVbBby8y
+	5TDBhC1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2eSr-00000007Tyf-01FI;
-	Wed, 18 Mar 2026 00:08:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2ejs-00000007VRm-2hvK;
+	Wed, 18 Mar 2026 00:26:20 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2eSo-00000007Txv-0lWN;
-	Wed, 18 Mar 2026 00:08:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3815403E7;
-	Wed, 18 Mar 2026 00:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F9F3C19425;
-	Wed, 18 Mar 2026 00:08:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773792521;
-	bh=D1D/7ldl9hLSp78iQ6WgbBNELMb7wmGvz53rwt7WaEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N4TtEpuj2ofpYYk614ICJN/q/4cwIC81dgWQ31X3yLNCti+3QoqhZM0r8zR5rIf9M
-	 t7lZCqMWE5kEnZNPdemPxbCW8s7TWlN++s2eLVs4j19SHDykH3XmCoQK8dICIhrs12
-	 4Hno4caRMYbSYYGI34r65e3k7DCErH/eUDaQxo1OZ/cLhM0LWBt/R6Ds9ZdQPZZKZt
-	 H/9YX1l79o6IxDlL4SG4B3WHft/1wgmCeCyqZUCv+u110APJZ76fDP+YvD8DuYm7xC
-	 4h9FFiEAcgzGl3j6zj76uHKrfPMWUIZudEi0e5bWkdd4FTwZ9Td5lIEgbwv8KJkEfn
-	 WJK12HSUQwc4g==
-Date: Wed, 18 Mar 2026 08:08:39 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
-	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH v4 phy-next 06/24] phy: spacemit: include missing
- <linux/phy/phy.h>
-Message-ID: <20260318000839-GKB453922@kernel.org>
-References: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
- <20260317230500.2056077-7-vladimir.oltean@nxp.com>
+	id 1w2ejq-00000007VR1-0owi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 00:26:19 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773793573;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=LKaGTOrqZcxKvrHo8N4IUQRt0r4j/J4rRNSb5TciUI0=;
+	b=V6kUOF9izPgwxqn688/GhS2jWVlpmci1OwHZsQVdm1WMgIUlyJoWAhY5tKS/qcPMxpGlrt
+	PrjQMlI+dS2XEIkpcuPWx6pAKPNiZH3/C7dfhjnLYo6aRsaTpuCN3wKt7MSsTiwdrZTWZ+
+	MWnGLyv4UxUm+J9tTHRY55OmgspoZTQ=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND] stm class: Remove unnecessary local variable in stm_write
+Date: Wed, 18 Mar 2026 01:25:39 +0100
+Message-ID: <20260318002537.3692-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260317230500.2056077-7-vladimir.oltean@nxp.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1036; i=thorsten.blum@linux.dev; h=from:subject; bh=1wDZ/HMl0g5Jdcn/1cbS5yrAyqqs/m9L5E9FQkQO0W4=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJk7PzKt3y20ovH4r9txImzyJ3osDVPCTitNV72yhl+kc dffWcWyHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRj28ZGc68fpNjUNzYd9lx 6irNuuuBsSWf9p6YHePCE9vJ6nF+ewnDfz8Bqy1Pm4u0VDcEiXRvWn3CIdeKQ6vl8Mc8yxo3o79 RzAA=
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_170842_244632_1AB81AEA 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260317_172618_383911_6176B691 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir, 
+The local variable 'err' and the corresponding if check in stm_write()
+are unnecessary. Remove them.
 
-On 01:04 Wed 18 Mar     , Vladimir Oltean wrote:
-> This driver relies on a transitive inclusion of the PHY API header
-> through the USB headers.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/hwtracing/stm/core.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-> ---
-> Cc: Yixun Lan <dlan@kernel.org>
-> 
-> v1->v4: none
-> ---
->  drivers/phy/spacemit/phy-k1-usb2.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-> index 342061380012..14a02f554810 100644
-> --- a/drivers/phy/spacemit/phy-k1-usb2.c
-> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
-> @@ -9,6 +9,7 @@
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/iopoll.h>
-> +#include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
->  #include <linux/usb/of.h>
-> -- 
-> 2.43.0
-> 
-
--- 
-Yixun Lan (dlan)
+diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
+index 37584e786bb5..4e0ee8e2e2c3 100644
+--- a/drivers/hwtracing/stm/core.c
++++ b/drivers/hwtracing/stm/core.c
+@@ -602,17 +602,11 @@ static ssize_t notrace
+ stm_write(struct stm_device *stm, struct stm_output *output,
+ 	  unsigned int chan, const char *buf, size_t count, struct stm_source_data *source)
+ {
+-	int err;
+-
+ 	/* stm->pdrv is serialized against policy_mutex */
+ 	if (!stm->pdrv)
+ 		return -ENODEV;
+ 
+-	err = stm->pdrv->write(stm->data, output, chan, buf, count, source);
+-	if (err < 0)
+-		return err;
+-
+-	return err;
++	return stm->pdrv->write(stm->data, output, chan, buf, count, source);
+ }
+ 
+ static ssize_t stm_char_write(struct file *file, const char __user *buf,
 
