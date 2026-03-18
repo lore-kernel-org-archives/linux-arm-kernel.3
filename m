@@ -4,166 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0EDFCD0CF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A4EFCD0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ySD6w9flWBgpOdOMOyfkn5RxD46rES6jGEwA5pljmac=; b=j2udwBTtbK60hMkvsbxCB8508H
-	8xnyI98vetJ1GsODPHt8eukVB9NY7H1SJFwUG7/wPpWJoE92vlcdvgaAnsu3JCtCQdWOvOryT9BQ5
-	ZTOrqmRemfvy8gJ++CYbkwbP7dgiNpvqEYOSKNKawP3Su57Kyv+v9Y7tjhd+UChbmNoKphbpJ+Ygm
-	1IvzBbukyaFYtbgB4nZ3UM2QZfPhAedu0b/e8USrOmK+Nrk0hn29+T+vWYmrtl5dRu4OfiTptqJWj
-	ii+9MqGUY+2VkDtm8st953HjSzN5dr2kwFKXG/0FeawODfmRNxC8ULIx+Vxq/GjZqtNE9+vCo+tdC
-	fRXMnGjw==;
+	bh=dEUbFufzEriHYnPRlQ4Dq7Gc+eAvGr9KO555tXZx27I=; b=qkgnfieKR9Y/e8M3FwRFUfnJG1
+	tGGJQr71yCEi+ohR8rzQ2AKctUTNqD9Vk/hE6FEaAxLTUnhZ0fFXQ+eWqhYy5sWHgGubG8bYTEEoe
+	IcPmH0EWTlnA+QhovcaVmw0GKJ72CGW/0oOFWJlJJL1I3kkTfODnnc6WmcXpcjrmQJGhdk0azJpH/
+	zyGDuGbl1NoPIR5kQS0Z1ofS1tS36Xp2zQj/DFLV2w2lETIRQYLJ9yjMQIbpIMjkRc884HYiISmSX
+	euBfQIZ0477INrSnp8Po3SUa4Dfc2xQ+qLo0B/sgHu2uC9fOWK0dDvk/hu19A5pPUA9zyf2wiFbUh
+	JeiczzlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ly6-000000080Nf-1M85;
-	Wed, 18 Mar 2026 08:09:30 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1w2lyM-000000080Pv-2eRn;
+	Wed, 18 Mar 2026 08:09:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ly2-000000080NL-448S
+	id 1w2lyM-000000080Pi-0FWb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 08:09:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rTO1ZiZ2M+lK9FjneGBOCyHPnQiPDWwQulgXlCeCxdeazt5wpvDyKiRXcj1L3yT7AuNkCT+4W3946FUC7rNqKQ4pYdebniPoZHXyZOT5+73WXDst1LEaVP0UEOS3j6+vNLdLIuiG+xh0uH5eOTSwDOP7dccZK0WzHRp3cOyGllSwkEkpEtp8j0hTihlNYLH7zTNc/Ampfqq3B2C8IVcnoW+B/ppl8T/eeRHyqZF1qxNW5KL7Kw8GElc7E03bm4e76xMkcLQwGqP+f0LYc92TnEPR1Abx41086qcY4bUk45j+Ri7BR6gJHBl9pXbpjoLbMpm6l2aTQ2Xdo9zYsdIOTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ySD6w9flWBgpOdOMOyfkn5RxD46rES6jGEwA5pljmac=;
- b=s3bERxSC31p3hxTCnFrPCXS95zCY+NGagxPueD8bdxAhCx5EDhsWpX2Gk66/Els9BD4c3z7pcfcpgfUhaO6mBQWBI8UbyQHLGoo4nKbnFVL8GGX2hSnPrYTracfFoXZ9CRBiJAtGHWFq6DPzqtqat2NJjn+Enw1vm91af7nAg5toT6sNoc6HLwhW21ZdO0ijYD9fcC52E2suz9gQaFm+EHhrpZ9+1DZAvTHoEo/dtjlPXA93a+1SyGMQ7HG2WCS37PMovQj1ipmkagMiw1V5GN/ObadMrX+bYhqMnbJC1y8wAQ7RvLW/v184miOuUUkYy+vMzXedU6vvGIbMTbWQPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ySD6w9flWBgpOdOMOyfkn5RxD46rES6jGEwA5pljmac=;
- b=CexRY9z03fhnjB6xGdEIyhkxCQPIlDoN83jz1bAs1wz7Uk/gy00kKOwCkhlqONjuZVbLQEg8WHbelyS646lsNZKObRs8gAMD6dg/mM0Ab+ZJZcsVxkUQ512D+pSoTTN6E52JU78hh1aYnxrUR8FD/Zxs6fULI5aAMJev/OzDgce9JxSe+Th6gaTdNKFhcsKkG6vt2QeBmyo39NspVzZxnP+/O4pr4OHUcfIvIrKvMFbqUZvVsghYf+f081/Hmz7WjuyDhZoenYk3xa2V7z45ebgEEFrdm8WHX3R6aw9PxgZvhvAdYdAZuSZaUpa4QaQqChT15xa85+kXKH1CfqxxfQ==
-Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
- (2603:1096:405:338::19) by OS3PR01MB8367.jpnprd01.prod.outlook.com
- (2603:1096:604:192::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 08:09:19 +0000
-Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
- ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
- ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 08:09:19 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"dave.martin@arm.com" <dave.martin@arm.com>, "david@kernel.org"
-	<david@kernel.org>, "dfustini@baylibre.com" <dfustini@baylibre.com>,
-	"fenghuay@nvidia.com" <fenghuay@nvidia.com>, "gshan@redhat.com"
-	<gshan@redhat.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
-	<lcherian@marvell.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "peternewman@google.com"
-	<peternewman@google.com>, "punit.agrawal@oss.qualcomm.com"
-	<punit.agrawal@oss.qualcomm.com>, "quic_jiles@quicinc.com"
-	<quic_jiles@quicinc.com>, "reinette.chatre@intel.com"
-	<reinette.chatre@intel.com>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
-	"scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
-	"sdonthineni@nvidia.com" <sdonthineni@nvidia.com>, "xhao@linux.alibaba.com"
-	<xhao@linux.alibaba.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com"
-	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "zengheng4@huawei.com"
-	<zengheng4@huawei.com>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v6 00/40] arm_mpam: Add KVM/arm64 and resctrl glue code
-Thread-Topic: [PATCH v6 00/40] arm_mpam: Add KVM/arm64 and resctrl glue code
-Thread-Index: AQHcsvgyBK18AGI8hEGSs1O3IzqQF7Wz9jdj
-Date: Wed, 18 Mar 2026 08:09:19 +0000
-Message-ID: <TY4PR01MB1693015592F173098A0C5A2A48B4EA@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
-In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-03-18T08:09:19.334Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|OS3PR01MB8367:EE_
-x-ms-office365-filtering-correlation-id: c2dedd93-0f03-4a4b-e2a1-08de84c5a825
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021|18002099003|56012099003|22082099003|1580799027;
-x-microsoft-antispam-message-info: c6Qk0KjaLggL/J4hZEw+S9ot/j58cf2ysUKhyLjoElELo+j+1ypegQ7RVgcnJkSZHV0tdP/V7rF5crFIT3aYs3qxBykVVaWW3j283VRV+nN10HMXc5H2j1EDtZ5GvmxjkI9ewf1PGi1WA/y6v90z4O0Ln6OK8zNJs56ZrS7aHSGg/+wZon4FKr+TIz0rNFNMN+ClJkI6bxIqakpJu9Wh6hR1M11NmBQmuwHKkROxoq6IWUZH64Oc0bwdiPasouz+p7eSe+Gk9OmofEuU9YStoEy48I7L3zd3mYYMOJx990dYrKn+8QF3PQpGKmWiVceVmIe7ln51Ok6SSWm58OiErcbqo5TacDIzecmGeuTtfgK/fkl/riiP/MEPA9LmjU4+UEwhTm8zZnT55/RnlEag6CJa7SkSNU+flC2DPLKhtxp0SrlcC8xtgfkdiF32Sfs86irzNb4oqtrRi5VRow4cylfKts7TghkJjfVgHpDOogadAfPO/0OO1I8IpDRZ7ni/ce98ZYAt9w3mZrI4dT2s03ZZ6RYc09dO2Np/cSXF2Bpv/2x5nzjWRFS70xaJKyooZrV9F1aueRxdQSIRlOaub3p8SgczRtXK07Jn4F36pf6KEsyVOU9MK/64fIM14tZspdmPKfKb7P+Rqr6qGqPOdu2dOtjNi9EdhD4GMrNh1Edj/rrwnawgXTBofBAa5ZxjrJpSkkReF4oq/tGfWsr2dcfEFuPgwL/PfXsFa8gij8upFtNNwzrP6ecNBMzp+DQiDOUt6BEwlinheI6TiRZnOi6GnO4qhYHxdFDDRPvZ58DY4SBX4Z3mKyfI91FGQbc1
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021)(18002099003)(56012099003)(22082099003)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?VnFEdmVlRXpQbnBvZkhxTDVQMFU4K012cTh4ZGN1dVFUZ05mY2h5OTBR?=
- =?iso-2022-jp?B?cFBuaWVTenJwL2dBd3AySnFaV2NUZXpXNkNJdWtNNnJqT3ZKdzc0b2x0?=
- =?iso-2022-jp?B?aVV5Yjh3cTRkQXh2eUsvOTFTYkVZUTFYUVRLdSsvQ2xpaHJMS2d2Q29J?=
- =?iso-2022-jp?B?ejkvZnZZczVzNTVuSEtTOXB2dnJDWTFXb0xmZXN0UHBQR2w0L3ZRRjhT?=
- =?iso-2022-jp?B?RUpPNFBNcy8rTGNYZGQ5Y2RiV1A1M2tWSVIyTDRFZlREbXFjWkhxbXRT?=
- =?iso-2022-jp?B?QnF3Y0NJTGdvOE9lcGxBSWZFaWpLTnRwM3NISklvSGNyQVJCZnoySmlZ?=
- =?iso-2022-jp?B?MDFWRXB0RDQrVVBwWjNqRFBBYytqWlRlMGRuUHJkdkEvL3JmeFRTQjBO?=
- =?iso-2022-jp?B?MnpzeGJQZGozem1DdjBaRGpQc0lhTnNHYVd1N0xDY0JZMzZsbVhEamRq?=
- =?iso-2022-jp?B?K21sV0JpRDU1bXUwU2N1cUFhWHZQcXJ0WlU3ckViUXpySE81ck1HamFx?=
- =?iso-2022-jp?B?WlBYRFBQMDN0QnNSSDg0ZFBtOVZLU3F1V3l1cUk4N2xMZy9ZVkpHd1Qv?=
- =?iso-2022-jp?B?ZkxSL3RVa0JPcDRSZWxZcmFrbzdFc1QxUFIzUU94SWZjYWZZbW03NnNW?=
- =?iso-2022-jp?B?MjZnMEl2Q2V2dUFDVU4vbFF5Q3Juc0dYMDFkdHE2bUZVUnhOWm9pdEZ1?=
- =?iso-2022-jp?B?Nnh4RjQ1MENzMlJXdDVhTVNMa1FkditoTk41Nnhza2pqbzVCRStoQ1A2?=
- =?iso-2022-jp?B?SlZHVDk1aENxNld4SGZZQUpLTTJ6b2FrbDZpM1oyT3NrdkhGdXFGVWJw?=
- =?iso-2022-jp?B?bFJhclBIdTZDOTZSaVpzL1R6bFpXTjhhSXhmb2RvK1RmWTNxQTFlbndv?=
- =?iso-2022-jp?B?S2NjUDlFT1dScmZZOEtTQUpPbTZRR1B1dWpTQ0dzTVhPTDdyS3U3T0Q4?=
- =?iso-2022-jp?B?d2VzcDJZUlF5VUgyWllkOVpScjYwWFUzSHRTYTJkZXNGQzZvcG9tc0JM?=
- =?iso-2022-jp?B?Sk54K0dncXJLVVhIVUVkSVFiWTM5cUZZd3FBMXhqQVVQbkR6ZnRQdmdJ?=
- =?iso-2022-jp?B?K2x3eHdzT1poamU1dnlYNW5aUHAxamh2S3FYOStSdUhVUkg0WS9zcDdz?=
- =?iso-2022-jp?B?N3d0cUV1WlEwNEQ5SFQvYlhTTEFBS21sRmVpVUVaY211ZVYySkUyZ0ZU?=
- =?iso-2022-jp?B?cklqWkJ6L3Zud3ZHM1dGc1BEc2ZsdFFUaU1GRUNneHNaMU5xcEtQU0Nt?=
- =?iso-2022-jp?B?SDdWeTI0UVZuVVQ5OTJNVnFzUU9sQ0RPVEVQSFlLK1FSQlRrSUlFSmVj?=
- =?iso-2022-jp?B?VHM3MkJnVktKTjdkaDFGck5Uczh3VGdqeEJ0MW1hWERhQWthSTFmVzlT?=
- =?iso-2022-jp?B?Sm02eVFQNVZReGlPMkl6OTVzVThieE1YZCtmTWo2LzZuSGtjQUZZby96?=
- =?iso-2022-jp?B?RjhYbTRMM2oxQW8xcHhBQm8rTkdQL0toZGh1THRJTVVsUzdOYjZCOGti?=
- =?iso-2022-jp?B?d2UzTGw4S1BheTg4c2pBZlNKRDlVajV6OUF6MUlvZk90VFlwSE52OUhJ?=
- =?iso-2022-jp?B?OGNCY2I2SDZoTGo0NWM2bG1FWkZrVkVxY1EzcEFFY1lTeUxoR1J2MTZJ?=
- =?iso-2022-jp?B?ZTFzUDVUMG9KaFh6enVFQytqbng0S0dZSXR6Q21McDhSOThrVlFTRURm?=
- =?iso-2022-jp?B?Zkcxd1NPTjZ5VWJLTjhmVk1HTUVVVjVzUWEvN2wwQiszdVB4YWY5R3cr?=
- =?iso-2022-jp?B?bXRRZ2JhSG1MZXplZGp1Tm94ZXdIMzM2aGtPK0Rwd2s4dk1QSXoxbTJN?=
- =?iso-2022-jp?B?SWJ4NjB6VU15MitTR0Ywd3VtRnhrNEZyblVoKzk2MjJmKy9xUFFxdVBF?=
- =?iso-2022-jp?B?T0tmK3dLSGdUV25rSFpBWjVOUTNrbHZlOGdHMTdGdUhiTkZBOFFkMnlz?=
- =?iso-2022-jp?B?c0l5UklsWi9mbWUzWFZ6amZtaWQ4SDNqVW42UzZteHZqNHRaWXg5bG4x?=
- =?iso-2022-jp?B?RnFySG1NekY4aXBQY2JhQ0d4VFlWb2prR2R0MWRrY3lWZFl5Si9JR01a?=
- =?iso-2022-jp?B?WUtFVkdZKzNBQk9vVnhDbTZXY1hSWVd2R1dqbHIrYi93bDBETEtZbWJZ?=
- =?iso-2022-jp?B?ZkZ5Vi94UlpvWjhsOEpNeFl6dFNkVUxTY2NGL29VeFNna0V6aXNqUGEz?=
- =?iso-2022-jp?B?clJUZjdSRnFwRHV0TENQeVhlWHFzMmt6S2Mrb1JHN2QxTEw2RHVtZ1hV?=
- =?iso-2022-jp?B?YysySWpURW9ycnpqV2p1NXI4eVFnblltb0dnVVQrbTV3TWQrazRaczB1?=
- =?iso-2022-jp?B?Z0M4bHhpNURHVVdSSlBqWkRGRWdlUGdIYWhGMitYQUxVNnRoSFFlbjFB?=
- =?iso-2022-jp?B?U21SaGRGTEs0R1pPQXYwUHlwUFpxQTROMlhMZzRSUVlUYUtqeElZZ2ZQ?=
- =?iso-2022-jp?B?alZhRUtJU0tsRmNPdHNaM292QVk3L3Z0NW9qTWpSdWFUUjVTY09WeTJo?=
- =?iso-2022-jp?B?TXRScjlqa2srMDFnRVEyN2JPZ1RSbGluTW1tUT09?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 18 Mar 2026 08:09:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D59D60130;
+	Wed, 18 Mar 2026 08:09:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81531C19421;
+	Wed, 18 Mar 2026 08:09:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773821385;
+	bh=XWehK1fje4KHRkbpBzac/NKhp4/4V42IuNj7LY2qx24=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=omnKShF9hCzymC55r20yNGPck3METgi4mZnqxNcZgVET/joAY7cVO389IW+ReF9ZW
+	 xqGp0RqNk7B/aSMK8BJg0/HqlHgu6/011ybq7YO3bvIFZQghyaLZhxppTUHgsUHzgX
+	 wnUqeiIh6q6niFux0ear4l3Zrezhq3kmawtSO+2VPy5HUMs5Kvx8o+KYyElTJLZ4jw
+	 daAwW3kj2GxqULmY5OZUwrRuQmkwpVJSgcRNGdcChUiHmSESHpwzLonbgOdFwK3gLr
+	 ctzAqYTK8yx2m8x9Vrifkc41GeB6y0cnjquE3q7kS9Ac/f487ucAGHbvZXzowpk2C3
+	 g6VXNYLNTtsng==
+Date: Wed, 18 Mar 2026 09:09:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v2 2/8] firmware: smccc: Add support for Live Firmware
+ Activation (LFA)
+Message-ID: <20260318-wealthy-quartz-iguana-9a836e@quoll>
+References: <20260317103336.1273582-1-andre.przywara@arm.com>
+ <20260317103336.1273582-3-andre.przywara@arm.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: grKWs2WVweaSJh2tZUO/SzZism6eiQZBLzPlZZnthzMG2uCtN4Ivrbtg0yZfKgr5RzR5SRU8WFyLQHibRcMoQmyb2u5H6vMmozCjAyTpjZmRkE5fC4PvUJsmV5iz9PZxADx4ZEhrf/fx7N/t2TpEGtKDy8/ZCMpONtzmFb87ihVm0EJc+BUYynredtgKXjRmSIEKO1nSwrfb+yxMlTGsa5Uilp539XY9dC5VeX+Wx3hANM9qmlJyZgw0eKYN64N9ix1XJPqUPF+Uihx9TQ84q4gDa4lDfVXawkzCgpzELJPM5mU7ZhJdeCCHQ8YOJbxdJtwJspBa5BmlODgWq3kuSQ==
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2dedd93-0f03-4a4b-e2a1-08de84c5a825
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 08:09:19.7190
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: eikBeSwZoG1p/eS7lndyXiqXn/DL0seZ+a/HAI57EYHhD3wgA1Syo5PoLViRMqUJj73LWqXBpXOGDMA18kDo9s68D6x+kuX6Y1j8C5FS4fw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB8367
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_010927_250055_1CBC8F40 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260317103336.1273582-3-andre.przywara@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,14 +65,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Ben,=0A=
-=0A=
-I retested this patch series and there is no problem.=0A=
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>=0A=
-=0A=
-Best regards,=0A=
-Shaopeng TAN=
+On Tue, Mar 17, 2026 at 11:33:28AM +0100, Andre Przywara wrote:
+> +
+> +/* A list of known GUIDs, to be shown in the "name" sysfs file. */
+> +static const struct fw_image_uuid {
+> +	const char *name;
+> +	const char *uuid;
+> +} fw_images_uuids[] = {
+> +	{
+> +		.name = "TF-A BL31 runtime",
+> +		.uuid = "47d4086d-4cfe-9846-9b95-2950cbbd5a00",
+> +	},
+> +	{
+> +		.name = "BL33 non-secure payload",
+> +		.uuid = "d6d0eea7-fcea-d54b-9782-9934f234b6e4",
+> +	},
+> +	{
+> +		.name = "TF-RMM",
+> +		.uuid = "6c0762a6-12f2-4b56-92cb-ba8f633606d9",
+> +	},
+> +};
+> +
+> +static struct kset *lfa_kset;
+> +static struct workqueue_struct *fw_images_update_wq;
+> +static struct work_struct fw_images_update_work;
+> +static struct attribute *image_default_attrs[LFA_ATTR_NR_IMAGES + 1];
+
+Bunch of singletons here because (see later)...
+
+> +
+> +static const struct attribute_group image_attr_group = {
+> +	.attrs = image_default_attrs,
+> +};
+> +
+> +static const struct attribute_group *image_default_groups[] = {
+> +	&image_attr_group,
+> +	NULL
+> +};
+> +
+> +static int __init lfa_init(void)
+> +{
+> +	struct arm_smccc_1_2_regs reg = { 0 };
+> +	int err;
+> +
+> +	reg.a0 = LFA_1_0_FN_GET_VERSION;
+> +	arm_smccc_1_2_invoke(&reg, &reg);
+> +	if (reg.a0 == -LFA_NOT_SUPPORTED) {
+> +		pr_info("Live Firmware activation: no firmware agent found\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	pr_info("Live Firmware Activation: detected v%ld.%ld\n",
+> +		reg.a0 >> 16, reg.a0 & 0xffff);
+> +
+> +	fw_images_update_wq = alloc_workqueue("fw_images_update_wq",
+> +					      WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
+> +	if (!fw_images_update_wq) {
+> +		pr_err("Live Firmware Activation: Failed to allocate workqueue.\n");
+> +
+> +		return -ENOMEM;
+> +	}
+> +	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
+> +
+> +	init_image_default_attrs();
+> +	lfa_kset = kset_create_and_add("lfa", NULL, firmware_kobj);
+> +	if (!lfa_kset)
+> +		return -ENOMEM;
+> +
+> +	err = update_fw_images_tree();
+> +	if (err != 0) {
+> +		kset_unregister(lfa_kset);
+> +		destroy_workqueue(fw_images_update_wq);
+> +	}
+> +
+> +	return err;
+> +}
+> +module_init(lfa_init);
+
+You do not use driver model, but 199x style of modprobing and performing
+actions.
+
+I do not understand why module load is already doign anything. This
+looks like misinterpretation/misuse of Linux driver model - in a way,
+you don't use it all and this is like back to 199x where modprobe was
+already meaning you bind drivers...
+
+Best regards,
+Krzysztof
+
 
