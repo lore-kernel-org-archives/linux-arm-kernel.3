@@ -4,124 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036D210706ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDAC10706ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 16:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBf0X4ZI8hrueKElVjOm/fdCiPNUuzJRpv2jzIUCVLI=; b=nUtEId31GBlXPNKrlIhFnzgDF7
-	YwvbVCZNZj2a2c99b7z1DQTQuPg8XQKGfYYt3hzAqQqKgMa8J9xT0YXx3yFwNXQwm0JMS9RIiy6ka
-	8nfrjiGW1DT+N4epNGsy1VhPzIYm2ERBBRz22yWgYZzzsmsNZ9r3inzQv5ie11y3w6vgMVsjD8roJ
-	tweKO3OUdHtD1/fxBcDz489/CgN3BPPvveUFZiyx3WzyiPK4f33EptHrIQcQMpWSR8BU9JMJ3ar/E
-	54c0ICojytLXPHI10tIEEuDCS0MmItbb8pslHwHW+i2T6tClQx9mz6/dexmsVrNW80vP+RyKyVjMg
-	5sIcY3Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B9PuRNE1Xc+V1EaosmyPpiwYEzGxmqvXERCvSkawegA=; b=QwrNN2f3bFg/chbjRVKUE2I8YZ
+	0FfgS/Jz+gTo5jKwLPtA0yfIV61M4xJf4GX8g2bpOG5UsoV8nqTNC/MVPTThTXykHzaOFhQYHJ7Vz
+	6K9NWaU/GSgMqWJDzMXvI21i1YF6ZdX+/Wuxe/nISRQty2eKwSMd8+V1VAmyAjTQijFgHLMROlAZ9
+	NOCiyeco8uugcSn2mL8IqZ9VvU6qxnKMA6fUOQWBylYFmUsVgG5YDF5gGqfgdIQn9B+cEAJ3LFFSF
+	Q+rxbFyM3XaI7fMCLAO3uYq+xyCA5D+G8+5hh+kWU8QjuyW5LQBK+ecVIMG4pH0jQSG6GuNwaoLbz
+	IoZ8boTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tLi-00000008sTm-1YZF;
-	Wed, 18 Mar 2026 16:02:24 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1w2tM8-00000008sa5-3SdL;
+	Wed, 18 Mar 2026 16:02:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tLf-00000008sSu-2a6E
+	id 1w2tM8-00000008sZj-08VD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Mar 2026 16:02:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=B9PuRNE1Xc+V1EaosmyPpiwYEzGxmqvXERCvSkawegA=; b=n2rq9PCDik/H6FkgECXoJGkjr/
+	b1BqJslR+ohqPpv3CIroQPQbIteaJjft1SY7CFdQWSwbO131cNsEiwa91A94UMGdY9sc84cDNS4nm
+	iQp969o9vec/SqxiP8g6iDy3vd6b1ClTLE5l5a9qVIRSjhuiQXS9QV0zlrcWiiKvPSDVG/90jmdTy
+	CvfpIgbLOPB+EFVzK8KA/VEgGzvyvwI6DGPJTkqWAXhHx3nT7y26Na7w2HiZ4OWjQgX5oa43Q0cFY
+	9z50fJPyv2r3pE6l3RpE/2ym8qAdiopALJoKcxE8kRtATFGpUyZ3yEqvmjysHBAw4YyAqRAdOTOCG
+	FgFdQgNw==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2tM4-0000000Bf6d-0VLS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 16:02:20 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-509069a7a7fso645131cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 09:02:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773849738; cv=none;
-        d=google.com; s=arc-20240605;
-        b=aTLODGXvbW5v0FbFv01a+B2OQPjynIZdkyTeLf6JjKhwNCWMQS1j2RYnq6nQ3LJ0n/
-         dqMN3XrCNq1RHEk565wYvqHATaEa5cj04/s2t1EhHU5ru6qmgJoBX/bp5uDLEEV7ZZDz
-         TbMlrKn6F7OI7ZsQ42eP2kU839CaZkRGB76DbPWFDiaWszimPgcVvrlvlojA4U5L5s2L
-         BQvflz3j+Wcd8aKx+FI6aQSJ6vrIWRqQ5zrroz4LXp4uFsgJK3wxwuWhTNbtIjmPs+dQ
-         BbYJ/alBXjfIFT2OKT0M5hKiEnLfafmr+FLnPbxoMMi2iqzA0O3NHsIVGpJyKSpcJawy
-         JXCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bBf0X4ZI8hrueKElVjOm/fdCiPNUuzJRpv2jzIUCVLI=;
-        fh=pluU3m9v88OVfSHE1geGpvLYdgiWgT/4P/HNii13a+c=;
-        b=Gh39xd6m9A+8CXl+11iBIbfGaBgdfmz8j/LTR9MqOQE1TubF5oBtrd1CUjw7v/QNZu
-         Mlq4pMVsDMoY0dzj3nP8twXcVggJDnExh6RiLTDXMuFOkpMB3q2V6JbHRX2rb5Pz9K0m
-         gFU+nL3Q4FtF7pv9HEJZ/ylTUH0rfAj/NHvihB12zPoxBQexh19ycCUZoTZHDYAi9adZ
-         q6ryhilk2lPl/rqEdSPhxcvX064Xl+I4THv4wTIdcty7FJrWYHHen4zTfSzFTSB75ybY
-         kS39qfIE1SVS9t7pjatKPTclPkPswjoz3kZw5RaluoBqaLY4GjZUNwfVI3Fhef31odft
-         7Q7w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1773849738; x=1774454538; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bBf0X4ZI8hrueKElVjOm/fdCiPNUuzJRpv2jzIUCVLI=;
-        b=PHaZwHbz52RjFajr4pmKQ1kqoN/1pDQMuq/RFtT9dsotyb6gsWDdb7hBaebvomfWNo
-         6Mp3tLQ7XgX5s+7C22Xlu2OTC4fXetbuRyApIatiOvSFWymBKpeXYsOO2+u9yyKhHgmv
-         k+fX2pV/lvE1ljt/pwZI96nVQ4nrosdI7U1vUjFCXjFrPw48IuyW59UCJloIsRCZfTC+
-         FcD/f1h9M0GjPpLm8Hd/YYFq4GLw9O+hgPFc4k7AuFvqTfFLAmTL5St0bsCoSWvfpgeF
-         nNlbxLcXRzh/P2mQI+YhykmDkhNi0sIh+kn84pGi8EzN+dcWsL2jGrqjfWD2fT1Ba2Qm
-         KGcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773849738; x=1774454538;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=bBf0X4ZI8hrueKElVjOm/fdCiPNUuzJRpv2jzIUCVLI=;
-        b=meEvyu/sYbejD/nqyIlcBs2akUWncTTcO6SUeqqLNH4zL2RGnV46pw0SA/2udf2lIT
-         qkLsL+8aBb5kl8C5neT21oYnflFBBaMnUAL3ZKrJ3NU08RNrWbowDViefm+OjJG4recN
-         yanfs0eX62CHMZi0Y4qUdQeVO0UIAnhvO1lAw/MmTBNekoURWyY1adC9g/+1iFWOR1hB
-         cuLduNi9wwWMwX2cTljn30jJuNR34devaIX8PbZwZXUNjB814S1g+h0jeJTH8FKQIoSh
-         2onzsGCotkbCg77WWZ/6K/7KOHY2UEXwHeOud69OaRJ8zN2wUIiOIJIdre2yF6rkqp3L
-         Ya+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUbmdHCUm+99nRnFfZWLjMPIcWONxhXGIkiCmu3Wo3a1JVqsD4g8cD+DBycWfL3oXtzSsoFihIHHP/dqnCNmTpR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4VBiAKn3g5SAzxw/q+LmZyq9oSqi6CU4sDJo74Rt1jZ3tNYmN
-	MD47DzXmIsVF8kPRfWXD6z6Q+r9GTEHFukBGwP9occZBU+nl/XvId4H2hA9AFelDu3ox0Zr1Sye
-	D7TPtOTpZYOtIDVCHXQGTl3PH482r2Ioh91g0ooVR
-X-Gm-Gg: ATEYQzyfkjygBBj1S04nSkBflFESTiasyo6ctq8QXsZs1DMbSKSZhtuXaR3JF85o2XH
-	WCJcV8QnqT/VZnLtAF/E+T+vtwc6EnUStkxAqZzLKd9yXmCPqmPilfD1Ifbqd8JldhwYPTx6FWk
-	eUKf+hkLbqb599phKg18UxxebnVBMdj6GDoYLYMvqZ3ySNiNure4O9IWlfxOwjFf/wo3UkqMfeV
-	AoIhrtWVGSc2J1FTowf76Eyt7Oj9nvtultYLZ6PcLDMcwxV0qHJ7MHVTWzfBPuKFsj2cbsadMIg
-	iGve+rgQn8vn97ra6ooalPjYf1s2ICZgbWoxTnvADApcraBx
-X-Received: by 2002:ac8:5d4e:0:b0:4ff:c0e7:be9c with SMTP id
- d75a77b69052e-50b1462cacfmr16816931cf.0.1773849737454; Wed, 18 Mar 2026
- 09:02:17 -0700 (PDT)
+	Wed, 18 Mar 2026 16:02:45 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 45B43308;
+	Wed, 18 Mar 2026 17:01:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1773849688;
+	bh=F6T7WgQFzL9ZsxQ2e0wKCFuwA3qMfjikGbQKgaO6svc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PkXCphOIbFqGyMnwvp8YfTYTjZ072oxSDQnICaXV6Wv0m6bY7bqMYina6aSOaQLDe
+	 UxGi6W4PPPoEAawz518le518dPSuTHketU43ICcLzppG0dTKftMKrsI7R31kyJv3DN
+	 DjVH10XqTJLgxsE0jCZdv/oS3eyaQAQ1vP/Mktqc=
+Date: Wed, 18 Mar 2026 18:02:39 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	asahi@lists.linux.dev
+Subject: Re: [PATCH v2 1/4] drm/rcar-du: Use drm_gem_dma_get_sg_table()
+ helper to get scatter gather table
+Message-ID: <20260318160239.GB633439@killaraus.ideasonboard.com>
+References: <20260317064049.696795-1-wenst@chromium.org>
+ <20260317064049.696795-2-wenst@chromium.org>
 MIME-Version: 1.0
-References: <cover.1773695307.git.ljs@kernel.org> <4e152e7b8e1a93baf0777628eef9409d031cf8f6.1773695307.git.ljs@kernel.org>
-In-Reply-To: <4e152e7b8e1a93baf0777628eef9409d031cf8f6.1773695307.git.ljs@kernel.org>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Wed, 18 Mar 2026 09:02:04 -0700
-X-Gm-Features: AaiRm52kf0p9Fxu6EolM9nhc_2BIDOLEzyHhrKwtGPKlzkXo42y6XvhNDeOCJ6g
-Message-ID: <CAJuCfpFd-d-E24d5-G6=dSYDpyHkwS=aXzGd6+SzyMkgssyPAw@mail.gmail.com>
-Subject: Re: [PATCH v2 16/16] mm: on remap assert that input range within the
- proposed VMA
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser <bostroesser@gmail.com>, 
-	"Martin K . Petersen" <martin.petersen@oracle.com>, David Howells <dhowells@redhat.com>, 
-	Marc Dionne <marc.dionne@auristor.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@kernel.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	Ryan Roberts <ryan.roberts@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260317064049.696795-2-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_090219_664424_25267834 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260318_160244_274714_A6D8B581 
+X-CRM114-Status: GOOD (  27.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,47 +88,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 2:14=E2=80=AFPM Lorenzo Stoakes (Oracle) <ljs@kerne=
-l.org> wrote:
->
-> Now we have range_in_vma_desc(), update remap_pfn_range_prepare() to chec=
-k
-> whether the input range in contained within the specified VMA, so we can
+Hi Chen-Yu,
 
-s/in contained/is contained
+Thank you for the patch.
 
-> fail at prepare time if an invalid range is specified.
->
-> This covers the I/O remap mmap actions also which ultimately call into th=
-is
-> function, and other mmap action types either already span the full VMA or
-> check this already.
->
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+On Tue, Mar 17, 2026 at 02:40:43PM +0800, Chen-Yu Tsai wrote:
+> The rcar-du driver is directly calling dma_get_sgtable() on a
+> drm_gem_dma_object. Not passing the dma_attrs field in may cause
+> problems when DMA_ATTR_NO_KERNEL_MAPPING is added to the GEM DMA
+> helpers gain support later.
+> 
+> Instead, use the drm_gem_dma_get_sg_table() helper to get the scatter
+> gather table.
+> 
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v1:
+> - new patch
+> 
+> Not sure if we should add a helper like drm_fb_dma_get_gem_addr(). This
+> seems to be the only driver that is using a scatter gather table to pass
+> DMA addresses.
 
-Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+The DU can't access memory directly (at least on Gen3 and newer), and
+goes through a separate device called VSP that acts as an external DMA
+engine (*) and compositor. This is why buffers need to be mapped
+manually to the VSP, the GEM helpers would otherwise use the DU struct
+device, which isn't correct. I can't use drm_device.dma_dev as the DMA
+initiator can be different per CRTC.
+
+I don't think a separate helper with a single user would be very useful
+here, especially given that part of the logic in
+drm_fb_dma_get_gem_addr() is in the separate vsp1 driver. Refactoring
+may get messy, for little benefit.
+
+* And in some cases the VSP further delegates memory access to the FCP,
+which is yet another DMA initiator from an IOMMU point of view.
 
 > ---
->  mm/memory.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 849d5d9eeb83..de0dd17759e2 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -3142,6 +3142,9 @@ int remap_pfn_range_prepare(struct vm_area_desc *de=
-sc)
->         const bool is_cow =3D vma_desc_is_cow_mapping(desc);
->         int err;
->
-> +       if (!range_in_vma_desc(desc, start, end))
-> +               return -EFAULT;
+>  drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+> index 94c22d2db197..6a62608ee3a9 100644
+> --- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+> +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+> @@ -291,10 +291,16 @@ int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
+>  				dst = sg_next(dst);
+>  			}
+>  		} else {
+> -			ret = dma_get_sgtable(rcdu->dev, sgt, gem->vaddr,
+> -					      gem->dma_addr, gem->base.size);
+
+Did you compile the patch ? The rcdu variable is now unused. Apart from
+that, it compiles fine and seems to operate as expected.
+
+> -			if (ret)
+> +			struct sg_table *ret_sgt;
 > +
->         err =3D get_remap_pgoff(is_cow, start, end, desc->start, desc->en=
-d, pfn,
->                               &desc->pgoff);
->         if (err)
-> --
-> 2.53.0
->
+> +			ret_sgt = drm_gem_dma_get_sg_table(gem);
+> +			if (IS_ERR(ret_sgt)) {
+> +				ret = PTR_ERR(ret_sgt);
+>  				goto fail;
+> +			}
+> +
+> +			memcpy(sgt, ret_sgt, sizeof(*sgt));
+> +			kfree(ret_sgt);
+
+It's a bit of a shame to kmalloc() a new sg_table and free it right
+after :-/ Would it be that bad to switch to dma_get_sgtable_attrs()
+here, and pass gem->dma_attrs to the function ?
+
+>  		}
+>  
+>  		ret = vsp1_du_map_sg(vsp->vsp, sgt);
+
+-- 
+Regards,
+
+Laurent Pinchart
 
