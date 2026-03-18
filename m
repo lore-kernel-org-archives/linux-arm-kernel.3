@@ -4,154 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E9610854DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 09:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608AD10854BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 09:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=; b=BZ7Q9FtSObXBpVV2THLEpnfWm0
-	DW1LkYlLGwEmNw+q8XTHCpU5kjuMCGDxQZRemPR7te4RZEE9lyJUHJyRbi00MjmBJ1s/zu8+Z03Dd
-	xijESShrFoImxnTMVU4lfLLudhveQQG4bHE3gI7zXjtZBNo2kRfz0fIcuTDnfdoLai6+NGAJ08QYg
-	9LcyqCtqctPx2bCc1WyNv1SlIwnutLJd2JqXC84loPsT1j33YneEVf6vC4vHrQ6XrtAUkUWfbR5+Y
-	Dj6N/5lT+bWebL4nHUNa1QM4lDHxLOmbogwNdSgNmUJpz8gPxgSI0lbJ/yS20mD2UHJ6X+7H1zVtl
-	FQ7iTXrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=86soRAa+NsNN/W/H3vjU92xS2dzTbMAMuxnxXTTu/lU=; b=O0BONDInw7gifUW/H8oC1W4Ief
+	8xmGQd9sddJ+LsDY8unu4fg7TNgDn80uYNdXC/Dh7Z0eXxpeEldY8EIZHqPQmvlfLB+ctY0ND6UAl
+	BrBxetXtx2OSB/hnop3Ahq2etGRvQvQPq16lqZ3fOpFDubJA9fBR+SKGzdT5zlz3DY3M6E5LbmFeL
+	gjcVLjROdNW7aAjBeh9cRNqNPu+a7bzsAxTF7WEXILuTRwdtariIUmkG4mdgehFvMjAU5US70OOmE
+	yejLwiiPnHgDfh7mERD4e4umieTP2+/K+exyycQ8xSFKTzfG+qoRSFNHJgJgDtPj4e2ye4K5F8RuK
+	Qnz3QHig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2n6z-000000088HM-2avo;
-	Wed, 18 Mar 2026 09:22:45 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2n6o-0000000880R-3ae2
+	id 1w2nAQ-000000088uF-1TBL;
+	Wed, 18 Mar 2026 09:26:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2nAN-000000088ti-33du
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 09:22:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d4dH3xZMNbmeeUGMfdBTCoUYsyGzBJ59DGIsd/z3Ntrouyxrj0/yZic88gftb9/MCYYjCUfxBb8le2GvRUyB8bQ+7oirsUJd8tIG0MjQoqd/+S/TEAal0Bt9nn4vkKcheV67wnp6mlL0QbSWZK9PbGq3TP1KKLWPbuwXI0aqnJyzRuzAdhSqlakdZYyEC2UDXRs52z6MbRZgLbmWdnKG0QFVUma7yb2vLGZVDesI1IxocwhbNrfHmz+h/tGO9ysMHMs962f2BNvtVOuvXEX7TzlwCfc7mdiyuRTf/5E2JhyJdvx8Ip0a6jzTv8ibxfD1aWElEAXo6XfVlMR/rDHx3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=;
- b=e2KIDeISFDTITY9AjwV0Vnh6+0y3dFNzDypskZqPfHqy69t6cusAwTlHIDK2tg+Ywrx9tt86RiUhXZBQSt6i0pyXpbC4SowVsAyXQRYTMZWQ03PrFO5zs19tG4ERKvyWjsEm7LvvUkfQd1XOy+xIHKbypr3ZccNZJD57cv3lIhbTUPDDA2q+f/eC4QoMCLKjzmJOnHHDShDRPUeaXidKea/RWFfBGZM/Gq2WWuDFCN0QZbPE1alw+2JRh4vRXcaQqUiS8kq6aummd4ipEBqfUEaRtgX+pa7ad4vQb9Zz1VpD1d7T715byRsHg2FsQs3gZOLQa9avDluukjFo8P6lrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=;
- b=dbwTF+1gkMC2KcRmRXEGJk6VBaCR9a2c3yaxNnrGZCmfl5hDVqJ/+lX17uFLgdPQtVRzAR5EoCsBaAxaTlLnpszl575mRDUGKJkzeKUbuxQkfWrX10YEX0+prag3VX49q6l0d+0Bl5qQiXJ+67Qm1gewemPqCLpzgZ1yI/KU6/l9AJ41pEwub4D8oMsrTSA+f/OHSULSQb1LczK4CBL1bnCfEXXoHeWWEbcJ8Xk59kg9i9zwHaD0veAg8uthXun7sDDyYFVuDD3wZ+hAYXrS+pK/6ZX6/7oVwZsyolq/zJzpxuAfVgzaB4I94VSuRnAayRoXG5i2uewFTTe+LgNrVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by PAXPR04MB9708.eurprd04.prod.outlook.com (2603:10a6:102:24e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.27; Wed, 18 Mar
- 2026 09:22:25 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 09:22:25 +0000
-From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-can@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Subject: [PATCH 5/5] arm64: dts: s32n79: enable FlexCAN devices
-Date: Wed, 18 Mar 2026 10:22:15 +0100
-Message-ID: <20260318092215.23505-6-ciprianmarian.costea@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260318092215.23505-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260318092215.23505-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM8P191CA0021.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:21a::26) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Wed, 18 Mar 2026 09:26:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89E961E7D;
+	Wed, 18 Mar 2026 02:26:06 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF0883F73B;
+	Wed, 18 Mar 2026 02:26:11 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2] arm64: mm: Use generic enum pgtable_level
+Date: Wed, 18 Mar 2026 09:25:43 +0000
+Message-ID: <20260318092543.73331-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|PAXPR04MB9708:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4773bb2c-90bb-47f9-2c30-08de84cfde0d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|7416014|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: odpRbZIP8qnTJHL8jLs+/BAoSyZzGge+1uYQPtLugT1dL10ZF7CUNld/cgizArhSI4ipBdwesmwOjsuO07MWa4XzazX/OsI8GQORH65NPxi2mu9AiAohVTSLrxm7xX7l0WvXYkzW+os/tsLgczLdJ/4zZqJnr/rYVFxBEm3PkgGgM15o/dsUHqPJB/6fzREIBpDrcztuvgv8ccHzxi7/xndywd8FYJbLWeiHl1hJEL1uBYqwPocdBuXqm0n+RC1XNJN5M1u+ae2AKBnU45JizsZwzFSMD18Dl4lji/F2NKtjTj8HoEeP4fJiOveBIWNrWNxYYZZk9vM/fpOkIXvL4d8JYQgZWWoSkCfgAMIGa08/ODQtLsvzPMOVb77nZbisr/mw9VTtQhuTfyxPy9W78C/or+dzXmvYE052ETg5MOPrm0j3XEHfOq5RlpiwPhMtFUjB3g7lrZ8AGxKHqfRTMOcvrUnRSzDPy6Mp8XDGWZ3DlsilG5KaRN8ZBIOFEWpx3gaig3/KYy2bGLoPxXrt38rBX4ubGqw+KsH72qTEwvamQFCAl1juQwXDEdBg3EthoRWipyavU4Nl3z/uASMXWZVKhND4Ek4tAVSBbkO+ThcASFGo7uRf5M9rT5V5gFY26Sczv8yEQYnyGTRyZJJNhZXcelOuTBSrM5xLH3wOaBS5LN0qwd+j5zXYU/pqqIBLGzL4ahqonHUF6nNdfHox5R6xhlpMxvQUekZa9/aA8Wc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUdNZ0VjVlZlYnVwbW56TS93MGFCbjFRZEc1OHc4elAwVWFydVh3ZUdZek1v?=
- =?utf-8?B?NTdUUmd3OExWRkhyRHlpSW9zazBSM1VUOHRkS2RWYWdYOU5nOE9XcThMZ0lv?=
- =?utf-8?B?bS9jWGQzclo4c3ozcE5EdXZnOWI5MmxqblgxNWp0TTdlQ2QwRGtoSXFLcTVH?=
- =?utf-8?B?ZmlqN2ptUDYzcTVQZFprdmxwR2dnbDlMZFBrRmdYbTJkV3NPWm5tS21WSEFT?=
- =?utf-8?B?OWFoWUxIMFU3MG5YMjhFVmdTK0lHMzVvbVBUVlp0MkRqSEhmeDNsTHh4Nkcx?=
- =?utf-8?B?UStVOUY1NCtESThoUUlhdVlDaFI2QzZKR0ptemJoVjdkTVF2SjRDWVRMd1RP?=
- =?utf-8?B?dzJ3eWVXUkdxNzU0UTdtZkNKckplTTlmS0xtS3RqU3h6ZzNwbzRkamVXNlhR?=
- =?utf-8?B?ME1ZSHZhZlpUZDg0MVljOWI4dStqQU4yaUVQamw1WXV3RUU1ck0zQzlLQkJt?=
- =?utf-8?B?REJicVhnRkgyc2Z3OWVzTFdoc2s0MnRsK05ZSHN4eUhGL0ZPblBCQVkwRVV2?=
- =?utf-8?B?N2k0d016N0FWdXorbkJDTElFZ0dGVUw4ZkZuMlh2dld3WXRNdE9uTFZtUzU0?=
- =?utf-8?B?d3hiYllKUzRUcDRESGZtV3MvZ0hwUzlMSDZCVTFHYXBqQ3dQbFdhSkxEYUxS?=
- =?utf-8?B?QmFvUjJjRmJ5dFdVc054d2xFR1dwVEQrc0NZQVdvdGVLQTcwM0hkd2tKbVBO?=
- =?utf-8?B?Q1lmelpQaE5RSTcyNGhqY0E1UTRMYkRhdmg2UFRqalFaQUZBWjJ2ZFNIWXlx?=
- =?utf-8?B?SUV4UkRZdHQrN3QxbkhXSTJreHpkTDR1dnQyZkh0SDJEbzNNZUxYZ3hDMVRj?=
- =?utf-8?B?RGFaU1R6TUZDcWprdFlBazNGamlzU3FDVFZDZW9vem9tL0NzeDI2eUNHWlpX?=
- =?utf-8?B?TXB2aHB1emJZZ2dMSHRYVnZTWVRQUEc3Yko4RVBmcjhRT0Q4UVlCWUpsOHhr?=
- =?utf-8?B?ZklmWnFsNHNKYUtqc3Rwd2paZzNGZmRuVHpYVGV3NWtrdnZHNWJEdkcrcG56?=
- =?utf-8?B?R3JDREdWZW81NTc3ZGdLaVEydHVod1V6bHZIMDBNRWt5REpjMzM4N1pKNkJn?=
- =?utf-8?B?RUEyNmlQZ0tuMGM2aVF2RVJrOTREWGtJZFBMdmNsQXZCbUJRSHhMbFNKVDE4?=
- =?utf-8?B?V0VWY0VzTE5yRUROVU14MFVPb0UxamVnaUxBcEU3a0ovUEhsSHVQRnFiSEdP?=
- =?utf-8?B?UEdSS3dWbGxVOGNEWEFkT1h0U2c3aXIxdUhOcFZFeEJwYmlXT29HYmtxSXVj?=
- =?utf-8?B?NVE4aGxYRU9jeXlOajRUTCtPbVNJMkRRWG4rZVRGRlJQSkNwUUx1aU9sdkov?=
- =?utf-8?B?OXRJSGNsUWpGWEhxQVJvMmpmWFFneW5ZZ1g4ejYxNkVKQ3ZYLytkTUNtTW1E?=
- =?utf-8?B?THp5REQ4Qnl2Ky9RV0kzTnRwcUFWaWdRaTg3Vm9SMEJDRk85dHU4N0I4VGxR?=
- =?utf-8?B?alFPSU10QlNQc0g3czd5UDg5WUJJMU5zRktTblhlYmkyaG42aEY5eSt4emIv?=
- =?utf-8?B?N29jTms3eXRhM2pmdk05SXU2ZVROUlhPOHFPbVhNY1lDeHZxOEhYTHVVUXB6?=
- =?utf-8?B?N2RPTkJDSWZoTHRHT1R6ZG80aDdsTzFscmExZWtnN3BHS2l6T2x5QXBDM0F2?=
- =?utf-8?B?WGVybVRIeHZVM2tTNzd0aWxSdnZMZm84cEtxVVFWVjVWKy8rSGZKa2c5NVh3?=
- =?utf-8?B?dXkwVnlMVG5JdlRxVFZIUVppOC90OUpQMWZJVzR6TUI2SDgreGhiMTdMUG5t?=
- =?utf-8?B?RXJsbWtYYStaNFZ4SkUvTHpkaXFUSFdpS0o3T29lZVZXZWpqZVVBYk9NUGYx?=
- =?utf-8?B?aVdOdkdFMUI0TGw5Mld5Y1E0ZlZBQ3o4NEFDUG94RG5kUStLWjJ3TDNvRFU4?=
- =?utf-8?B?L0ZUZTZkblp2S2kzdGFkdG5EK1NnRGIyMWVGZ2FWOENkcmJhMzRJYnFnWUZB?=
- =?utf-8?B?bGlkVW1OOUFjTGdYNDFZMmFudFlpNGYzMXFRRnlxZ2xnakRGY095aFBEOFE4?=
- =?utf-8?B?SGVlMXBKTndRd0dRNHRyenU2djJYWWZTckNmazgxc2lLamRCeUdmSUFtQ0hD?=
- =?utf-8?B?QnNiZTFqMnlWN0NsWVh2Qms4WE16djlwaEJQWE8rSThVcXlDUjM0cEg2Wnh6?=
- =?utf-8?B?OTdsM0JET0YvaHFaTGRwUVhGNGxMWEkxWFhqS080M2lqdi9nZkFXdlRkeTlz?=
- =?utf-8?B?eWs2MU5HVWZjYzFjRm5wMWUrS0FCS1pNcFN0NjJ2ZTdsekxxTHQycGVVZnI1?=
- =?utf-8?B?L2FvTmFBM3FIZEk4NUM4Y1ZKbjJnMEgra01zOXRDQThINmNFSmJBOXJMZ1BB?=
- =?utf-8?B?OEhQTWV5SjNmM2RNUmgvNVhMb3hjSWdSZVN3SFhadVVTSW1wRjgzSjBhcFlp?=
- =?utf-8?Q?Y858kGoyHe6JvvJw=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4773bb2c-90bb-47f9-2c30-08de84cfde0d
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 09:22:25.3457
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: blDUtY+Iny6icSqaZStfSnVSkVEOosjSz4ZfZbrsrvWXps6+VhTy+LO28nlFv7iIuiFqDTsY93y9poTDVzTxbGmljz6O2mJCZtOAkBoVfn4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9708
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_022234_899578_26C2D37B 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260318_022615_845825_9131E7BE 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,44 +64,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+enum pgtable_type was introduced for arm64 by commit c64f46ee1377
+("arm64: mm: use enum to identify pgtable level instead of
+*_SHIFT"). In the meantime, the generic enum pgtable_level got
+introduced by commit b22cc9a9c7ff ("mm/rmap: convert "enum
+rmap_level" to "enum pgtable_level"").
 
-Enable FlexCAN controller instances (can0 and can1) and the required RCU
-irqsteer interrupt controller on S32N79-RDB board.
+Let's switch to the generic enum pgtable_level. The only difference
+is that it also includes PGD level; __pgd_pgtable_alloc() isn't
+expected to create PGD tables so we add a VM_WARN_ON() for that
+case.
 
-Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/boot/dts/freescale/s32n79-rdb.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+v1..v2:
+- Add a VM_WARN_ON() for PGD in __pgd_pgtable_alloc() [Ryan, David]
 
-diff --git a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-index 1feccd61258e..65a595d7535f 100644
---- a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-+++ b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-@@ -43,10 +43,22 @@ memory@80000000 {
- 	};
- };
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/mmu.h |  7 -----
+ arch/arm64/mm/mmu.c          | 59 +++++++++++++++++++-----------------
+ 2 files changed, 31 insertions(+), 35 deletions(-)
+
+diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+index 137a173df1ff..f28e6e215da4 100644
+--- a/arch/arm64/include/asm/mmu.h
++++ b/arch/arm64/include/asm/mmu.h
+@@ -17,13 +17,6 @@
+ #include <linux/refcount.h>
+ #include <asm/cpufeature.h>
  
-+&can0 {
-+	status = "okay";
-+};
-+
-+&can1 {
-+	status = "okay";
-+};
-+
- &irqsteer_coss {
- 	status = "okay";
- };
+-enum pgtable_type {
+-	TABLE_PTE,
+-	TABLE_PMD,
+-	TABLE_PUD,
+-	TABLE_P4D,
+-};
+-
+ typedef struct {
+ 	atomic64_t	id;
+ #ifdef CONFIG_COMPAT
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index a6a00accf4f9..c45a6a47dad0 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -112,7 +112,7 @@ pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
+ }
+ EXPORT_SYMBOL(phys_mem_access_prot);
  
-+&irqsteer_rcu {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
+-static phys_addr_t __init early_pgtable_alloc(enum pgtable_type pgtable_type)
++static phys_addr_t __init early_pgtable_alloc(enum pgtable_level pgtable_level)
+ {
+ 	phys_addr_t phys;
+ 
+@@ -197,7 +197,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 			       int flags)
+ {
+ 	unsigned long next;
+@@ -212,7 +212,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		if (flags & NO_EXEC_MAPPINGS)
+ 			pmdval |= PMD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+-		pte_phys = pgtable_alloc(TABLE_PTE);
++		pte_phys = pgtable_alloc(PGTABLE_LEVEL_PTE);
+ 		if (pte_phys == INVALID_PHYS_ADDR)
+ 			return -ENOMEM;
+ 		ptep = pte_set_fixmap(pte_phys);
+@@ -252,7 +252,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 
+ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		    phys_addr_t phys, pgprot_t prot,
+-		    phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
++		    phys_addr_t (*pgtable_alloc)(enum pgtable_level), int flags)
+ {
+ 	unsigned long next;
+ 
+@@ -292,7 +292,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 			       int flags)
+ {
+ 	int ret;
+@@ -311,7 +311,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 		if (flags & NO_EXEC_MAPPINGS)
+ 			pudval |= PUD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+-		pmd_phys = pgtable_alloc(TABLE_PMD);
++		pmd_phys = pgtable_alloc(PGTABLE_LEVEL_PMD);
+ 		if (pmd_phys == INVALID_PHYS_ADDR)
+ 			return -ENOMEM;
+ 		pmdp = pmd_set_fixmap(pmd_phys);
+@@ -349,7 +349,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 
+ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 			  int flags)
+ {
+ 	int ret = 0;
+@@ -364,7 +364,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 		if (flags & NO_EXEC_MAPPINGS)
+ 			p4dval |= P4D_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+-		pud_phys = pgtable_alloc(TABLE_PUD);
++		pud_phys = pgtable_alloc(PGTABLE_LEVEL_PUD);
+ 		if (pud_phys == INVALID_PHYS_ADDR)
+ 			return -ENOMEM;
+ 		pudp = pud_set_fixmap(pud_phys);
+@@ -415,7 +415,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 
+ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 			  int flags)
+ {
+ 	int ret;
+@@ -430,7 +430,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 		if (flags & NO_EXEC_MAPPINGS)
+ 			pgdval |= PGD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+-		p4d_phys = pgtable_alloc(TABLE_P4D);
++		p4d_phys = pgtable_alloc(PGTABLE_LEVEL_P4D);
+ 		if (p4d_phys == INVALID_PHYS_ADDR)
+ 			return -ENOMEM;
+ 		p4dp = p4d_set_fixmap(p4d_phys);
+@@ -467,7 +467,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 				       unsigned long virt, phys_addr_t size,
+ 				       pgprot_t prot,
+-				       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 				       int flags)
+ {
+ 	int ret;
+@@ -500,7 +500,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				unsigned long virt, phys_addr_t size,
+ 				pgprot_t prot,
+-				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 				int flags)
+ {
+ 	int ret;
+@@ -516,7 +516,7 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				     unsigned long virt, phys_addr_t size,
+ 				     pgprot_t prot,
+-				     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				     phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+ 				     int flags)
+ {
+ 	int ret;
+@@ -528,7 +528,7 @@ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ }
+ 
+ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
+-				       enum pgtable_type pgtable_type)
++				       enum pgtable_level pgtable_level)
+ {
+ 	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
+ 	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
+@@ -539,40 +539,43 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
+ 
+ 	pa = page_to_phys(ptdesc_page(ptdesc));
+ 
+-	switch (pgtable_type) {
+-	case TABLE_PTE:
++	switch (pgtable_level) {
++	case PGTABLE_LEVEL_PTE:
+ 		BUG_ON(!pagetable_pte_ctor(mm, ptdesc));
+ 		break;
+-	case TABLE_PMD:
++	case PGTABLE_LEVEL_PMD:
+ 		BUG_ON(!pagetable_pmd_ctor(mm, ptdesc));
+ 		break;
+-	case TABLE_PUD:
++	case PGTABLE_LEVEL_PUD:
+ 		pagetable_pud_ctor(ptdesc);
+ 		break;
+-	case TABLE_P4D:
++	case PGTABLE_LEVEL_P4D:
+ 		pagetable_p4d_ctor(ptdesc);
+ 		break;
++	case PGTABLE_LEVEL_PGD:
++		VM_WARN_ON(1);
++		break;
+ 	}
+ 
+ 	return pa;
+ }
+ 
+ static phys_addr_t
+-pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
++pgd_pgtable_alloc_init_mm_gfp(enum pgtable_level pgtable_level, gfp_t gfp)
+ {
+-	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
++	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_level);
+ }
+ 
+ static phys_addr_t __maybe_unused
+-pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
++pgd_pgtable_alloc_init_mm(enum pgtable_level pgtable_level)
+ {
+-	return pgd_pgtable_alloc_init_mm_gfp(pgtable_type, GFP_PGTABLE_KERNEL);
++	return pgd_pgtable_alloc_init_mm_gfp(pgtable_level, GFP_PGTABLE_KERNEL);
+ }
+ 
+ static phys_addr_t
+-pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
++pgd_pgtable_alloc_special_mm(enum pgtable_level pgtable_level)
+ {
+-	return  __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
++	return  __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_level);
+ }
+ 
+ static void split_contpte(pte_t *ptep)
+@@ -593,7 +596,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+ 	pte_t *ptep;
+ 	int i;
+ 
+-	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
++	pte_phys = pgd_pgtable_alloc_init_mm_gfp(PGTABLE_LEVEL_PTE, gfp);
+ 	if (pte_phys == INVALID_PHYS_ADDR)
+ 		return -ENOMEM;
+ 	ptep = (pte_t *)phys_to_virt(pte_phys);
+@@ -638,7 +641,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+ 	pmd_t *pmdp;
+ 	int i;
+ 
+-	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
++	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(PGTABLE_LEVEL_PMD, gfp);
+ 	if (pmd_phys == INVALID_PHYS_ADDR)
+ 		return -ENOMEM;
+ 	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+@@ -1226,7 +1229,7 @@ static void __init declare_vma(struct vm_struct *vma,
+ 
+ static phys_addr_t kpti_ng_temp_alloc __initdata;
+ 
+-static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
++static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_level pgtable_level)
+ {
+ 	kpti_ng_temp_alloc -= PAGE_SIZE;
+ 	return kpti_ng_temp_alloc;
 -- 
-2.43.0
+2.51.2
 
 
