@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B0110775F9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6DB10775F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNkp3LcoZSLW6JIqm+kjSOBJD5smseduRbxCyXtLUwU=; b=4JiDVZEpQbXQ7nQkaeDycef/XT
-	Js2ec0t+R8DcxlX/AANuWA9+gawO2pDEPKhVyx9M619DogJ9zS77L+Ci+ZZMdCQHvFOs5JPLG1yj4
-	U93304pLW2UC13jiIQW6LkbaFew9a+dWgXHm4GcMEVQ33m0cxFI+Wflh/eIgcNHqx0Fq/HB2AW9Zk
-	PGwKObTopjDypKIxT00hWMxlKhp/0VjkSubs/3xXF76+6FeIRWYKpZ1UdQcuxSbVlwmNArrGJLH7/
-	n/wXhfX54U11W8IBQllf54zMMAfB2JJ+TKtU82FxVwcuwmHcPxA48C7lQ1WkjbepjKnrNfOjP9a++
-	HTlT58TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0qv+VyBE1K3FlDIC420JGSZ7lF1e0uHRwral33evP7M=; b=bJcSX+Hf3TvF6Iu0/mnNkhG/64
+	D5ckaNxAjOphOakUvJvdU02t1QsL8UDoWpxCO+zUtBrPpkgnRG/YWf8NpEyBOkdPh9ppNvJyjSLtU
+	K7dK3hMzgegR/rusKJg2O76VOLz3gjBjWC2D0G46u0Gpewth3AVZcOIWvfR9g6khi1zZEKDZQknsD
+	8Q18C+gKvCmzjctQWBYO/HftpdWsO2Fdao+2sQntaGTnO5HjF7MRSY2gn3Lysq6PA8f1+rGhRr0TI
+	rDl7nzRgH+Ro3/vLW7K4fhkWMr/G667E5/vMNBs7WGz9lSG57LkMljl2Xf/KPzlEk36iq0ZdbEKLz
+	WsjqYfig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ube-000000093qg-2xLS;
-	Wed, 18 Mar 2026 17:22:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2ugE-000000094GB-41Zf;
+	Wed, 18 Mar 2026 17:27:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2ubd-000000093qI-2pbd;
-	Wed, 18 Mar 2026 17:22:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vNkp3LcoZSLW6JIqm+kjSOBJD5smseduRbxCyXtLUwU=; b=Lr8LFjm452CCorOZWYI9TrD/Yt
-	/UCWM7qEbD0H4xxq4STOMX/vCwwltRuQkDJ9PEUEwzoNR/GdCCi/mh3J0XwIVD3ZgleeVPTJt34OV
-	RQl0bmrDOVC88kR+Y7OI/N+ZcHJE/SdjVNqZIOFY4n02bxUvpC/BdpElxLicxqXyQEHN/oe5CTTUM
-	1sv9zrjQamwel+4EQbrOFcuFrL4mHNGM9/OawqfxjIaLMgZDTJQMe4XBvv1XsfRaPUNwoJBXCdcLA
-	os1hqfS1I1O1JxvzvMEmu2/xzC6eUyUAjobFQjdAyQVvdaOQTdHJM2MEzuHErmzJR/24tDqIqP0Sq
-	AFFHL5kQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uba-0000000BrdJ-1Qad;
-	Wed, 18 Mar 2026 17:22:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773854564;
-	bh=ynyBnNeJwC1iJq0V3/CMoDF/qT11osJ8LY2W6q765hQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LyHi1XOm1XcajxqvX8esnSlpNh+SuznV4YyDPzPfC9JVObF6JgfRs4SwkgSAOF0lv
-	 UGSt5RYxqSzjSPjKlKHDHW00v1tO3jTscIB081PEEy1mov+ontvkNhwayX9+2bqNRU
-	 uKehGX45Du8tFja1zwTWI9Ycc7eQz25D1TX6hNBaPjOS61OaZF0/Ar3V2gJYT4uoJK
-	 N7eZWmXpDW8/0GcgkyOZNoJUy7P7UdOIccATW18cRm0nV8bxRlqX9tdBRXeMTJjpIm
-	 14Jx6vgXSlS3XqONXD83EYEd1Q9Er0WNnjiU2wzQkfOA/d/divMEK14Gswr9AI2ohL
-	 Jn6NbHB4FYxPw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68F7617E0E42;
-	Wed, 18 Mar 2026 18:22:43 +0100 (CET)
-Message-ID: <28102417-4a2a-4e29-afbd-d0f2aa76074b@collabora.com>
-Date: Wed, 18 Mar 2026 18:22:42 +0100
+	id 1w2ugD-000000094Fz-1Gxh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 17:27:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FD7A60142;
+	Wed, 18 Mar 2026 17:27:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76149C19421;
+	Wed, 18 Mar 2026 17:27:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773854856;
+	bh=T9bC6g62zkjZlkxi+B63SQAYsJpcohcn3oqwWLqc/zk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c0PWTNv2SzUQd+Ef31U2tJLHT/aTwdz2C0Jm+dvGlGhHJSH3SGAlB1CVuSGZ1eR+u
+	 CO6A3NqVzKMU1gUn+Jo9FuYmA4vvQc7/qgCw1wGJ87XPYIDjjtpx1p3Bi9FUgm3Q0z
+	 mRYmy3IiFE3ZZMPR5Q+CgPV2uyh3bUB1HDZTxeaXM/HjSYAH1Kg144iOpQUbJJY/+r
+	 eEHgj4j5ecEStg029m6OqbSEwEehSF3g4Xyk9aGdl8KBlpudw57Kkmb2U7F9QN2Gco
+	 PCm00fat2kiYqjQ4dxJkKoWNGjrptOcPO4tBtxe28vNZX8RUqi9o5muZNBT+zCQ2sQ
+	 B2obfRn24xa3w==
+Date: Wed, 18 Mar 2026 17:27:48 +0000
+From: Jean-Philippe Brucker <jpb@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 17/30] KVM: arm64: Support SME identification
+ registers for guests
+Message-ID: <20260318172748.GA2390801@myrica>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-17-43f7683a0fb7@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] arm64: dts: mt6392: add mt6392 PMIC dtsi
-To: wens@kernel.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org, Val Packett <val@packett.cool>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Linus Walleij <linusw@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Gary Bisson <bisson.gary@gmail.com>,
- Julien Massot <julien.massot@collabora.com>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Fabien Parent <parent.f@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>,
- linux-input@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-References: <20260317184507.523060-1-l.scorcia@gmail.com>
- <20260317184507.523060-10-l.scorcia@gmail.com>
- <c1a425ba-a4ca-49ea-9660-5de74bede124@collabora.com>
- <CAGb2v64+oofwTiJTXDYCuzUEpk=zioi16i8a7iMimc_eZ1RPUQ@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAGb2v64+oofwTiJTXDYCuzUEpk=zioi16i8a7iMimc_eZ1RPUQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_172250_553402_389038C4 
-X-CRM114-Status: GOOD (  17.15  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260306-kvm-arm64-sme-v10-17-43f7683a0fb7@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,95 +81,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/03/26 14:54, Chen-Yu Tsai ha scritto:
-> On Wed, Mar 18, 2026 at 8:39 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> Il 17/03/26 19:43, Luca Leonardo Scorcia ha scritto:
->>> From: Val Packett <val@packett.cool>
->>>
->>> Add the dts to be included by all boards using the MT6392 PMIC.
->>>
->>> Signed-off-by: Val Packett <val@packett.cool>
->>> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
->>> ---
->>>    arch/arm64/boot/dts/mediatek/mt6392.dtsi | 141 +++++++++++++++++++++++
->>>    1 file changed, 141 insertions(+)
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
->>>
->>> diff --git a/arch/arm64/boot/dts/mediatek/mt6392.dtsi b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
->>> new file mode 100644
->>> index 000000000000..fbf6f671524c
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
->>> @@ -0,0 +1,141 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +/*
->>> + * Copyright (c) 2019 MediaTek Inc.
->>> + * Copyright (c) 2024 Val Packett <val@packett.cool>
->>> + */
->>> +
->>> +#include <dt-bindings/input/input.h>
->>> +
->>> +&pwrap {
->>> +     pmic: pmic {
->>> +             compatible = "mediatek,mt6392", "mediatek,mt6323";
->>> +             interrupt-controller;
->>> +             #interrupt-cells = <2>;
->>> +
->>> +             keys {
->>> +                     compatible = "mediatek,mt6392-keys";
->>> +
->>> +                     key-power {
->>> +                             linux,keycodes = <KEY_POWER>;
->>> +                             wakeup-source;
->>> +                     };
->>> +
->>> +                     key-home {
->>> +                             linux,keycodes = <KEY_HOME>;
->>> +                             wakeup-source;
->>> +                     };
->>> +             };
->>> +
->>> +             pio6392: pinctrl {
->>> +                     compatible = "mediatek,mt6392-pinctrl";
->>> +
->>> +                     gpio-controller;
->>> +                     #gpio-cells = <2>;
->>> +             };
->>> +
->>> +             rtc {
->>> +                     compatible = "mediatek,mt6392-rtc",
->>> +                             "mediatek,mt6323-rtc";
->>> +             };
->>> +
->>> +             regulators {
->>> +                     compatible = "mediatek,mt6392-regulator";
->>> +
->>> +                     mt6392_vproc_reg: buck_vproc {
->>
->> s/buck//g
->>
->> Also, no min/max voltages?!
+On Fri, Mar 06, 2026 at 05:01:09PM +0000, Mark Brown wrote:
+> The primary register for identifying SME is ID_AA64PFR1_EL1.SME.  This
+> is hidden from guests unless SME is enabled by the VMM.
+> When it is visible it is writable and can be used to control the
+> availability of SME2.
 > 
-> We really shouldn't set min/max voltages in the PMIC dtsi file.
+> There is also a new register ID_AA64SMFR0_EL1 which we make writable,
+> forcing it to all bits 0 if SME is disabled.  This includes the field
+> SMEver giving the SME version, userspace is responsible for ensuring
+> the value is consistent with ID_AA64PFR1_EL1.SME.  It also includes
+> FA64, a separately enableable extension which provides the full FPSIMD
+> and SVE instruction set including FFR in streaming mode.  Userspace can
+> control the availability of FA64 by writing to this field.  The other
+> features enumerated there only add new instructions, there are no
+> architectural controls for these.
 > 
-> The min/max voltages are supposed to be the intersection of the
-> consumers acceptable operating ranges. The min/max of the regulator
-> itself is already implied by the model / compatible.
+> There is a further identification register SMIDR_EL1 which provides a
+> basic description of the SME microarchitecture, in a manner similar to
+> MIDR_EL1 for the PE.  It also describes support for priority management
+> and a basic affinity description for shared SME units, plus some RES0
+> space.  We do not support priority management for guests so this is
+> hidden from guests, along with any new fields.
 > 
+> As for MIDR_EL1 and REVIDR_EL1 we expose the implementer and revision
+> information to guests with the raw value from the CPU we are running on,
+> this may present issues for asymmetric systems or for migration as it
+> does for the existing registers.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+...
+> +#define IMPLEMENTATION_ID_FILTERED(reg, mask, reg_visibility) {	\
+> +	SYS_DESC(SYS_##reg),				\
+> +	.access = access_imp_id_reg,			\
+> +	.get_user = get_id_reg,				\
+> +	.set_user = set_imp_id_reg,			\
+> +	.reset = reset_imp_id_reg,			\
+> +	.visibility = reg_visibility,				\
 
-Your point is fair, but it's also true that some of the regulators are not
-really meant to ever output anything different than what they are supposed
-to, though, with slight variations being possible... I guess the best option
-here is to leave declaring voltages to board DTs instead, which is sensible
-in the end.
+nit: rogue backslash
 
-Okay, agreed. Let's go with no voltages.
+> +	.val = mask,					\
+> +	}
+> +
+>  static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  {
+>  	__vcpu_assign_sys_reg(vcpu, r->reg, vcpu->kvm->arch.nr_pmu_counters);
+> @@ -3238,7 +3280,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  				       ID_AA64PFR1_EL1_MTE_frac |
+>  				       ID_AA64PFR1_EL1_NMI |
+>  				       ID_AA64PFR1_EL1_RNDR_trap |
+> -				       ID_AA64PFR1_EL1_SME |
+>  				       ID_AA64PFR1_EL1_RES0 |
+>  				       ID_AA64PFR1_EL1_MPAM_frac |
+>  				       ID_AA64PFR1_EL1_MTE)),
+> @@ -3248,7 +3289,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  		    ID_AA64PFR2_EL1_MTESTOREONLY),
+>  	ID_UNALLOCATED(4,3),
+>  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+> -	ID_HIDDEN(ID_AA64SMFR0_EL1),
+> +	ID_WRITABLE(ID_AA64SMFR0_EL1, ~ID_AA64SMFR0_EL1_RES0),
+>  	ID_UNALLOCATED(4,6),
+>  	ID_WRITABLE(ID_AA64FPFR0_EL1, ~ID_AA64FPFR0_EL1_RES0),
+>  
+> @@ -3454,6 +3495,13 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  	{ SYS_DESC(SYS_CCSIDR_EL1), access_ccsidr },
+>  	{ SYS_DESC(SYS_CLIDR_EL1), access_clidr, reset_clidr, CLIDR_EL1,
+>  	  .set_user = set_clidr, .val = ~CLIDR_EL1_RES0 },
+> +	IMPLEMENTATION_ID_FILTERED(SMIDR_EL1,
+> +				   (SMIDR_EL1_NSMC | SMIDR_EL1_HIP |
+> +				    SMIDR_EL1_AFFINITY2 |
+> +				    SMIDR_EL1_IMPLEMENTER |
+> +				    SMIDR_EL1_REVISION | SMIDR_EL1_SH |
+> +				    SMIDR_EL1_AFFINITY),
+> +				   sme_visibility),
 
-Reminder for myself: there's a bunch of PMIC devicetrees to cleanup in here...
+Shouldn't we sanitize the SMIDR value obtained in reset_imp_id_reg() and
+add SMPS to this mask, if we're hiding everything from the guest?
 
-Cheers,
-Angelo
+Thanks,
+Jean
 
+>  	IMPLEMENTATION_ID(AIDR_EL1, GENMASK_ULL(63, 0)),
+>  	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
+>  	ID_FILTERED(CTR_EL0, ctr_el0,
+> 
+> -- 
+> 2.47.3
+> 
+> 
 
