@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A90510854C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 01:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57214FD876E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JThk0kPSAg9d5X5Swzc6oumoGxMPTx0zxcz2YCRC5w=; b=Ocu+aWoVPoMMWnYCYEsz6lEcbO
-	D4sQ4hgMW/McnYRR+RwPJOPRHRAXG6Nyx9+IizLpDOsKgFc74n/tc1Qq7agh19Xm2P9rSqlwokypU
-	duqCvBz1Brr52NIMG2AoHc2wguohTod6vr6DBile5wxrcVjHbNV4E8+0leP8nY0VBgR2xcyBc6fBg
-	APdRrCidkEtaFDTZ/kBhjKjDOvzPUKVjJH6hnGFqhr/9itX5YoCuexLe4Nhwvlq8Aq/7Ndaswl21I
-	deLTGbS1Ag1hWFtizJSxRkvpb6Jg44co0vVyaaEaKsRs6urb4MArrKWCDH8mZfmO17f9eYFZRXocU
-	rofsPkjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tZ0YkW6QzHvviEShl9PgGlFvkR04UgvTgl/eoJfCubk=; b=1nfqvgBdYEQ6NqrkTEjMv5Zbwt
+	qUsLIJIDctmQya0m++/YCCwyrXn2xPDkiyRd3F37ST72NbgX+U1dOBf31dfLprSmxd1p1vzgauDMM
+	DNukJGPLmP+8ehGcRZrzVpMu5KYP5N3q6Y5FBWZNmCZhsgYqG2sg89TztVWrYYpiXvEsSn14fTzYk
+	ObXL79wnPuR/wUii/u8P+ZPMbX0Z02NWt/Pk9QZDdtDq7OnjUeLssLv4ooIIPZvzXBXI4broOie6x
+	N7B/oM04h9l8fR/QsgWMx/e2pYyu5fIQMUM4AG6jBGQTCXOZMTnY5prpm3NGCbpDavw+kOukRU5nU
+	VLB7ebWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2g8Z-00000007aCT-1wtr;
-	Wed, 18 Mar 2026 01:55:55 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1w2gFW-00000007aV8-1WkU;
+	Wed, 18 Mar 2026 02:03:06 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2g8W-00000007aBd-2qNK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 01:55:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1773798943;
-	bh=3JThk0kPSAg9d5X5Swzc6oumoGxMPTx0zxcz2YCRC5w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eltBYvKcITP0xHs321ACs74jrhtX41HLi324xDPVprg8uoy3LRLpDbASpZSS9W8KJ
-	 wwVB8Xd3P17NelBT1MyKWm2gg/tGN+RisolDk4blV1nidbZrwvZ649K5Sid8QYCGoK
-	 yQd3SqvvIIQbpo5XgT/4l01J+f+ZIb/IBVytDapnBVLinY6V+udzANQfDX3gN6QRU2
-	 M4ocEkXCJ6y+Cy/LTMx2mwcaG8IAfI4ghduDGKL2YgGGKh2vy8LEykNdugwnZjUj8q
-	 gWPW5jY8nPq5LSRHhpgGxDEYyE+mG5sCMGbZaM1Qfs74um+Xw0ZUl63H5a05+7fPG3
-	 LJCPvPpPtIIvg==
-Received: from pecola.lan (unknown [159.196.93.152])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8DA5660BA5;
-	Wed, 18 Mar 2026 09:55:41 +0800 (AWST)
-Message-ID: <071adc5f76b71b3e8d2691945e7b178602b285f9.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>
-Cc: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
-  Andi Shyti <andi.shyti@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
- <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Benjamin
- Herrenschmidt <benh@kernel.crashing.org>,  Philipp Zabel
- <p.zabel@pengutronix.de>, "linux-i2c@vger.kernel.org"
- <linux-i2c@vger.kernel.org>,  "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
- <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
- <openbmc@lists.ozlabs.org>
-Date: Wed, 18 Mar 2026 09:55:41 +0800
-In-Reply-To: <TY2PPF5CB9A1BE6EAA73D3AD6F75F1ABD53F241A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
-	 <20260309-upstream_i2c-v26-2-5fedcff8ffe8@aspeedtech.com>
-	 <20260313232125.GA3618633-robh@kernel.org>
-	 <TY2PPF5CB9A1BE6A19D439C675AF5028C13F242A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-	 <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
-	 <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
-	 <eeac1db0a5692ae45b5528a85ed1510b8b1cf771.camel@codeconstruct.com.au>
-	 <TY2PPF5CB9A1BE6EAA73D3AD6F75F1ABD53F241A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2+deb12u1 
+	id 1w2gFT-00000007aUZ-0xpw;
+	Wed, 18 Mar 2026 02:03:05 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=tZ0YkW6QzHvviEShl9PgGlFvkR04UgvTgl/eoJfCubk=;
+	b=aCEWYkJ57RU+jYD6xeuAmQT6QWYhWukuC1lqL25B1ZrxDqI0Vs3NTfKvJ5AlwQLdM8pehEYQe
+	55n1qFUEZVHwC/PnTOrkKqsbc9EydqwCPUchnbkZH2IVuBilQdsFrdI/yQDCCC98dkWUvhAxjOH
+	sHTmJrb+EsIdeC3eKd+Ehz4=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fbBmC73pYz1T4Gh;
+	Wed, 18 Mar 2026 09:57:31 +0800 (CST)
+Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
+	by mail.maildlp.com (Postfix) with ESMTPS id C20BD40538;
+	Wed, 18 Mar 2026 10:02:52 +0800 (CST)
+Received: from [10.67.121.161] (10.67.121.161) by
+ kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 18 Mar 2026 10:02:51 +0800
+Message-ID: <c9eb7f53-db46-4229-b9ef-8faa1138aca7@huawei.com>
+Date: Wed, 18 Mar 2026 10:02:51 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/3] ACPI: Refactor get_acpi_id_for_cpu() to
+ acpi_get_cpu_uid() on non-x86
+To: Jeremy Linton <jeremy.linton@arm.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+	<will@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>
+CC: <punit.agrawal@oss.qualcomm.com>, <guohanjun@huawei.com>,
+	<suzuki.poulose@arm.com>, <ryan.roberts@arm.com>, <chenl311@chinatelecom.cn>,
+	<masahiroy@kernel.org>, <wangyuquan1236@phytium.com.cn>,
+	<anshuman.khandual@arm.com>, <heinrich.schuchardt@canonical.com>,
+	<Eric.VanTassell@amd.com>, <jonathan.cameron@huawei.com>,
+	<wangzhou1@hisilicon.com>, <wanghuiqiang@huawei.com>,
+	<liuyonglong@huawei.com>, <linux-pci@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <xen-devel@lists.xenproject.org>,
+	<linux-acpi@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20260313022144.40942-1-fengchengwen@huawei.com>
+ <20260313022144.40942-2-fengchengwen@huawei.com>
+ <e4b0aefa-7108-47b4-ad5d-d62d385b8f33@arm.com>
+Content-Language: en-US
+From: fengchengwen <fengchengwen@huawei.com>
+In-Reply-To: <e4b0aefa-7108-47b4-ad5d-d62d385b8f33@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.161]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_185552_921572_AE3B0CBD 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260317_190303_927798_9042FD5D 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +92,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+Hi,
 
-> > Not at all - the next paragraph was my attempt at a recap of those, but=
- Ryan,
-> > please correct me if I am wrong on any of those points.
->=20
-> Your understanding is correct; the byte and buffer mode is mostly the sam=
-e.
-> And also mode should be decided before xfer, due to the controller/target
-> both use the same xfer mode, not decide by transfer time.
-> The original my submit is only buffer mode and dma mode, and use only one
-> Boolean property, aspeed,i2c-dma-enabled, but someone suggest add byte
-> mode select, so I start to add at v17. I can drop the byte mode, if this =
-is confused.
->=20
-> byte mode request:
-> https://lore.kernel.org/all/010e55e9-d58b-444c-ab57-ddf8c75f2390@gmail.co=
-m/
+On 3/18/2026 5:38 AM, Jeremy Linton wrote:
+> Hi,
+> 
+> Lets try this again, since the last one looks like it got caught in the moderation system and wasn't quite right anyway.
+> 
+> On 3/12/26 9:21 PM, Chengwen Feng wrote:
+>> Unify CPU ACPI ID retrieval interface across architectures by
+>> refactoring get_acpi_id_for_cpu() to acpi_get_cpu_uid() on
+>> arm64/riscv/loongarch:
+>> - Add input parameter validation
+>> - Adjust interface to int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+>>    (old: u32 get_acpi_id_for_cpu(unsigned int cpu), no input check)
+>>
+>> This refactoring (not a pure rename) enhances interface robustness while
+>> preparing for consistent ACPI Processor UID retrieval across all
+>> ACPI-enabled platforms. Valid inputs retain original behavior.
+>>
+>> Note: Move the ARM64-specific get_cpu_for_acpi_id() implementation to
+>>        arch/arm64/kernel/acpi_numa.c to fix compilation errors from
+>>        circular header dependencies introduced by the rename.
+>>
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> ---
+>>   arch/arm64/include/asm/acpi.h      | 16 +---------
+>>   arch/arm64/kernel/acpi.c           | 16 ++++++++++
+>>   arch/arm64/kernel/acpi_numa.c      | 14 +++++++++
+>>   arch/loongarch/include/asm/acpi.h  |  5 ---
+>>   arch/loongarch/kernel/acpi.c       |  9 ++++++
+>>   arch/riscv/include/asm/acpi.h      |  4 ---
+>>   arch/riscv/kernel/acpi.c           | 16 ++++++++++
+>>   arch/riscv/kernel/acpi_numa.c      |  9 ++++--
+>>   drivers/acpi/pptt.c                | 50 ++++++++++++++++++++++--------
+>>   drivers/acpi/riscv/rhct.c          |  7 ++++-
+>>   drivers/perf/arm_cspmu/arm_cspmu.c |  6 ++--
+>>   include/linux/acpi.h               | 13 ++++++++
+>>   12 files changed, 122 insertions(+), 43 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+>> index c07a58b96329..106a08556cbf 100644
+>> --- a/arch/arm64/include/asm/acpi.h
+>> +++ b/arch/arm64/include/asm/acpi.h
+>> @@ -114,22 +114,8 @@ static inline bool acpi_has_cpu_in_madt(void)
+>>   }
+>>     struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
+>> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+>> -{
+>> -    return    acpi_cpu_get_madt_gicc(cpu)->uid;
+>> -}
+>> -
+>> -static inline int get_cpu_for_acpi_id(u32 uid)
+>> -{
+>> -    int cpu;
+>> -
+>> -    for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+>> -        if (acpi_cpu_get_madt_gicc(cpu) &&
+>> -            uid == get_acpi_id_for_cpu(cpu))
+>> -            return cpu;
+>>   -    return -EINVAL;
+>> -}
+>> +int get_cpu_for_acpi_id(u32 uid);
+>>     static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+>>   void __init acpi_init_cpus(void);
+>> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+>> index af90128cfed5..f3866606fc46 100644
+>> --- a/arch/arm64/kernel/acpi.c
+>> +++ b/arch/arm64/kernel/acpi.c
+>> @@ -458,3 +458,19 @@ int acpi_unmap_cpu(int cpu)
+>>   }
+>>   EXPORT_SYMBOL(acpi_unmap_cpu);
+>>   #endif /* CONFIG_ACPI_HOTPLUG_CPU */
+>> +
+>> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+>> +{
+>> +    struct acpi_madt_generic_interrupt *gicc;
+>> +
+>> +    if (cpu >= nr_cpu_ids)
+>> +        return -EINVAL;
+> If this actually happens, its probably useful to know it with a pr_warn/pr_warn_once.> +
 
-I understand that there may be valid uses for byte mode, but that does
-not mean the configuration belongs in the device tree.
+The function maybe called from userspace which on later roadmap, so I prefer not add
+warning or error here.
+BTW: the function will return -EINVAL, so caller could know the case.
 
-We do not seem to have much data on what those valid uses are, but I am
-assuming it is not an attribute of the controller peripheral hardware.
+>> +    gicc = acpi_cpu_get_madt_gicc(cpu);
+>> +    if (!gicc)
+> I think this check is redundant because we can't have logical cpu's that aren't in the cpu_possible() list, which on arm64 doesn't AFAIK have holes. In the past this might have made sense if we weren't maintaining a copy of the gicc structure from the MADT for each core.> +        return -ENODEV;
 
-[As an example: I suspect MCTP cannot be fully spec-compliant without
-byte mode, in order to support the NAK window on target-mode RX. In that
-case we can enforce byte mode when the controller is selected for MCTP
-use, without requiring a mode selection property in the DT]
+This commit will backport to stable branch at least 6.6. So I think it's OK to keep it.
 
-> > Ryan: I think this gives us a much cleaner approach to the binding.
-> Thanks the feedback, do you mean, just one boolean property for mode sele=
-ction,
-> Am I right?
+>> +
+>> +    *uid = gicc->uid;
+>> +    return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+>> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+>> index 2465f291c7e1..41d1e46a4338 100644
+>> --- a/arch/arm64/kernel/acpi_numa.c
+>> +++ b/arch/arm64/kernel/acpi_numa.c
+>> @@ -34,6 +34,20 @@ int __init acpi_numa_get_nid(unsigned int cpu)
+>>       return acpi_early_node_map[cpu];
+>>   }
+>>   +int get_cpu_for_acpi_id(u32 uid)
+>> +{
+>> +    u32 cpu_uid;
+>> +    int ret;
+>> +
+>> +    for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
+>> +        ret = acpi_get_cpu_uid(cpu, &cpu_uid);
+> This might have been a simplification, but since we are basically doing a for_each_possible_cpu(cpu) and every possible cpu will have a GICC entry before it becomes 'possible' there will be a UID, so all the error checking AFAIK, is impossible here.> +        if (ret == 0 && uid == cpu_uid)
 
-The property would not select a mode, it just indicates whether DMA is
-available.
+I prefer to keep the current impl, as it may catch future error.
 
-A driver implementation can use that indication, along with any other
-configuration data, in order to select a mode. The Linux driver
-implementation may use other runtime facilities to control that
-selection, if you need, like sysfs or configfs.
+>> +            return cpu;
+>> +    }
+>> +
+>> +    return -EINVAL;
+>> +}
+>> +
+> I also moved this below acpi_get_cpu_uid() in acpi.c and I don't see the a forward error issue you mentioned. It seems to me that they should be kept close to each other since they are basically inverses of each other.
 
-Cheers,
+As long as you ensure that it is not placed in asm/acpi.h, that's fine.
+So it's OK to move this function to acpi.c
 
+But I just checked the callers of this function again and found that there are
+all in acpi_numa.c, so I will now add the static keyword to this function and
+make it an internal function.
 
-Jeremy
+Thanks
+
+> 
+
 
