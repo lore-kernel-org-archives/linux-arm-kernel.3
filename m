@@ -4,142 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC961088E49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 22:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27301088E50
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 23:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYyflVuz+2J7uOWBP/9aazAzaECW1sELMfxFY3GsYbE=; b=NTpZ3QrHWmVcoQSwZRh9XJfiRH
-	YxO9ug5Xlmw6N8q06wOiH9koXrV6Scmbo50CSPodYJD14xuF5q2YMzngEIXWpUcjDI8l3TxbjLv3t
-	pBzS49hF9e6jff9sDrev6awAx8Mb9OAkOzMIK9TMw/d0kSpAsiJSKvHr7uR26e39VFCLZra4w1Yat
-	h7NbFSiP7Q3HTyST/PtaMcO6pZtWOxQy1ycHwtaNS8yGVYA3aNzmpBTS9UN1eubx7+SlwHQKMknhV
-	nArOIKk+eiwy/aF+QPhlUdZE4dC9tuSLBDC2Ln/qT6s1ZuMF5JCnFUriGBEAgUiAzOS65Y3+SLLPS
-	alyjKQ4w==;
+	bh=gXk/XAl/MQx/OXuZk0UOeHJIU6eSq8cRls/Q/FJTwAA=; b=3AzpZ3zyxYBCi1qNMBF9122pOu
+	jl261ptZbOB9sVOnW2WlX4HRl2GnC8aPxTUwtJPAeQ2QPhy7xGiXu/5SZBiLy7vCgpzNsGP8dr7G3
+	Vh+jgjh+52RdgVBJHVrPsP3IBZvoDsS7qqAjQhPjI4om01O853HMalhqTKyX/lNNwoV1s7+QAyB5I
+	qrcpxN2JnamoxIpUZ2itXZomBy5OxL/K5M8C9xrlmy7OR7OIOH9JWy/Loqokt2xYR/FMJ4faeDQlE
+	qta5GCwK8ohNhwibPBGL5Oe8lW6qXBSdPZtjf3sHWpis1zJw3Ucj5BBxocMmgGmmczOva/mIeiEOV
+	mPzFg8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2zaY-00000009Rfd-41gI;
-	Wed, 18 Mar 2026 22:42:06 +0000
-Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w2zsg-00000009SRg-35Ns;
+	Wed, 18 Mar 2026 23:00:50 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2zaX-00000009RfC-0C3y
+	id 1w2zsd-00000009SQt-1fJ7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 22:42:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WhqwYmS9XW7BP1nJtoaAXwz3gMqZPA45y4dzwaaa0rCD0jZTAJNfEXqCe0/Ic1ej6zGpBfWYhiRx7CdkPxzANq1ODpecZNqpx8K2hgrwatepdYpAnApncEMl1jYQ7m5k9vseMPsjpnhZ/2BaRj0qwQxxCZ5rUlyazFoHQnOGUxogYbzSe+B2B37GRzhv1YhJHAC3MeLsmGExYGPUL6S+oettTmVfzYM//qUlzsq9g/CH4MMWVtcvaWC2rMInKUOWWmgXn+DtOW3znof9wirub2fu0UnruwFYaILZgGn2umnfKbWcguJZdZKh9bnWFOKVH6IRjmkS8XHikFtLVLaiuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RYyflVuz+2J7uOWBP/9aazAzaECW1sELMfxFY3GsYbE=;
- b=GjANhvd/m9KB/6sa16O2VC9a5Wfmn/AyL7VWWvmdDeKm8Wkmu2D/wANsDyqdpbsPb+NxeQS7IjvSrxmUwaNZ7ETkj9s/KKk19lQzcspZ0hhQjl+FWXlTB7R80TnMd3rF2/8YB1BFyzEvVWIcj4QFcVJJSz3Zj0+v3UKfHfTrNpRri0PI7FBlw9O+GoGcjHdKPWPVsMk8wg1dWW2KxTZ3Stq9FulrxA5jEQh8DEK84g7N3DHjvvdRLza3lrirJj6B/hX7dMTVAAmjjP5g3jbAZMa34SplUFu6FMuy9IevX7TT8i4CCxOqvCfMw/Thpjqafj0wCyMj8FdTW9eiXCfKdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RYyflVuz+2J7uOWBP/9aazAzaECW1sELMfxFY3GsYbE=;
- b=a0V5VApPIgA+wZDQrbaKEaZ1mDDKbLvsxUo6meJtplFrPbooTssqyO2RfBhOCFIyUGQ5MAv9pXpnoYYhIxiCMdhcMEaS7uaOu4euq0Ps/6+cDJG1iR/VgSuAk3lFhX4Mjh2tGysLpgw2gLHkHqEUCefMaY/X/GcgdN39ZFZetDs10+MfJYuanR9UOV4jWjkqFA3KQk7fvhHLit/iuddbTsBACQQABvOzul7Q03WgyHKifbAtnfLu7jYyvUUSAs+3AiZDrc6afF1A908QNKsIPMQ4tDioojQLVPd7k4ghfWY1DyBLNvnWDyaKVzLSVeNDtM1eFCylKdJ4rYhVt1coxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA2PR04MB10471.eurprd04.prod.outlook.com (2603:10a6:102:41f::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 22:41:57 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 22:42:00 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	f.fainelli@gmail.com,
-	frank.li@nxp.com,
-	chleroy@kernel.org,
-	horms@kernel.org,
-	linux@armlinux.org.uk
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH net-next 08/14] net: enetc: add multiple command BD rings support
-Date: Wed, 18 Mar 2026 18:41:40 -0400
-Message-ID: <20260318224143.911762-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260316094152.1558671-9-wei.fang@nxp.com>
-References: <20260316094152.1558671-9-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SA9PR13CA0165.namprd13.prod.outlook.com
- (2603:10b6:806:28::20) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 18 Mar 2026 23:00:49 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7d750eeaec3so186535a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 16:00:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773874845; x=1774479645; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gXk/XAl/MQx/OXuZk0UOeHJIU6eSq8cRls/Q/FJTwAA=;
+        b=ptGkKrZyvdJNruHJjX31Pxysv1OTS+DH2yCt5tqrX7JxN+0AilcJCQzUig8T4PCfCx
+         u3+h9V0iEnJy+cgkBZ0mGU/k2tadC0VjqCMdiqt97QIdb972PwxVMl6AsySULniwJdzK
+         khErgcf1Vhf4f90mEsye16Rg2DtJdp6YVyRwCHhy+R4s/BuzrMwe4rujpmC4pfJIbxVc
+         A+gGETXJPASrCafa6c8VLbRJpgZzawUJ25MR0w6d8rMVJ4zuXozrx6WauSCVfFB4K7R8
+         uVAPNxUEe7mt4ldn113zT8dgfOBPd5fxQVhFtyHJqCjOvIMfLuSzvl+GS/4NpdtOFoTr
+         iypA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773874845; x=1774479645;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gXk/XAl/MQx/OXuZk0UOeHJIU6eSq8cRls/Q/FJTwAA=;
+        b=YUsf7IOjVE8lcsrPYonoGbg2/2LZ7eL/0WM/ernzjeDNd4oCljY8iFrbl2eCpDQ8sh
+         Z2oCumraOuu2DM4Ie2ELfYdrdfBqI5xUBG/fRNv87b1Kht4eMlM3EImlcdjtNw5zWCzW
+         C+JlP4sSNnbQUmuF2BdMpyrVgJJm91OkNNr84pbuuGF6CYkkqybFKtzexxt9V/WzunjL
+         zGsSul2LdK+/j1fhrNbnl1yKags45pmsV8ytLgHqidyWzBYdTtfNy9ILvlfEx2+DDZZh
+         NWI1K0laFsQkXjL1WMDUMoxdspL4WSsSI6IGCr1UB6ykD8aKJ+2/GRfbzNsDVH8K5R23
+         Z0gg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdU4yacHZp3wfxe45MKPOn38tjtNzKVSN5kP2hWyl+otEpyf/uEYEc3nHQMFh/1V8VUa/WaOvrTZ8Pz+USf9Sr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDUSCTmaBBi4F/nsjBeLHKGYn/5n4TqeYGPtkeMiwSQLeSZ5xQ
+	leq36g2eDB6Ns3MapXkRmK2oICO/oMI8h9HQL4xATrokOfln7sc1yF1vCmkGVaEjIDg=
+X-Gm-Gg: ATEYQzyIdaHmsAZld/442OJOYyVnZHW1Fqv/3mWDYhUQp5i9+Sx8nXDd7htzchFozrQ
+	S6KGkldHieVnENuqj7GalV/ky4OnlX6wfgn13cr84jpBMgVl0BEB2b5AJCBdpup6JWvctyFHkJV
+	4KaEooZCfnVRel/pn05pwKdNrHrxDNa9keAo2x+9qFY+gzIIjAQ4p9fn+6V7dH0v52C7KbEPjm2
+	umyhtKk1l1wq3wnCZrLoiKBBW+K1qZqqimQQZ0gUrH4zkjrDhEcNT8PUnhSXdjE42qydod6e715
+	WcvlvVejZ+atoIvFWwjPv9dAPKfoDUtNOfqpx7WTlP+slE7M93V7mpGcZUfRhD8sdOXdynXO4sp
+	57zTUnriekHAbg2qNLCz50J2Uo+tZnpBDiVIHUn8vj9Ad/vEzVOEVsihEfU/viv7wiNgNh7GATU
+	rX0opI1cph7sbK3uwwNPKq84lR5n43UCFAxk6nLkw+hZs0PSwNGQfIsmCaEKnKhN0komxdTic7L
+	g==
+X-Received: by 2002:a05:6830:730e:b0:7d7:4921:897d with SMTP id 46e09a7af769-7d7ca2bda63mr2987245a34.0.1773874845232;
+        Wed, 18 Mar 2026 16:00:45 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:244c:fc8c:8216:1344? ([2600:8803:e7e4:500:244c:fc8c:8216:1344])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7d7c9950d99sm3182160a34.6.2026.03.18.16.00.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Mar 2026 16:00:43 -0700 (PDT)
+Message-ID: <4cb07b9a-249a-4c13-b09a-6dac9f72265d@baylibre.com>
+Date: Wed, 18 Mar 2026 18:00:42 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA2PR04MB10471:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53bf4bc6-dca3-455b-70bd-08de853f911d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|52116014|7416014|1800799024|18002099003|56012099003|22082099003|20052099010|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: fa9rL8msH5qo7uddGU67chGhM9RksmgT4pXCzTFLQRmlYUzLjQPpVcLSTJK3lmZ6dIndmmCE6M4fZsyByaXgFkndMkXqXZHCXmrcoe8S9Nl48AubIB1o+f6UO6MrhbMCqZKNvBmQsl02s7lgRF7gHF0wsbKcJ5DHS2FiAzokbbFNsgH8A14w3P1GpBrf7t8isxvD4TDKrOMaVJe4BYG1rbLKjGFofGdEdKcX5OYURyXJzcRwmuXp/4MTdG3oUdcy2Mh1NhRmeAadAtsD0iNcnwe+4KgGY9/2uTbsfXFZwPOGtoYxBC6vA1ftQ3q7I9pI1qcUII4+5xFe3mph5v3mdMeRx1YsyxOw5O92MCTKco0D13OUtbNADX7zv/EU5dikdDl26xaDBQZgAl+pEIcY2ypjmm+4AyNjufgDbwZbPkdpkBAVJ6lFtE/rIp313k9OxHE0cOiNdIzR+N+pWj6Rx8F0o9Y9OOTbbtj7204WMzj582ojATpzw8BgmoCX0dFzuCSjlAzCypKLgxXIdY5oYgus327xO3eRA3LPTxHoOCRsW4XgN4eKrnBv4IWx/P2t4KI93hcsrFTUgcSqWNmyFHpsqvnGKvTMZHrnCFYnCr7c32WCNyD4Lw/QNicdgaBeiYQSsONyGQRH+ottOSgOmQybfpc/x/EHd+KSLtmv1ocoJ2SkGooRC7J8PpPmWxDQFxdNXap307qNL1tpGTQIFcSZzoploMk7v3+Q3Ux1Znx2GldfF50SYIsv5AzG5jrJXyMYZ/69WF4r7GT+/1pKDn5rS4SsUHxIhtb72hRlRqnbgIq7Kec//KGWQUfz38dt
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(52116014)(7416014)(1800799024)(18002099003)(56012099003)(22082099003)(20052099010)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q+8h8ZvFkirk2Qfm+vAx47pcw/gJzkXUeSqsSB+KlTYs4MOqLX/MjcTHe21R?=
- =?us-ascii?Q?LYPOCZN7eujRS7eW4CZeBLarKNd62ct2Q2GUxEpIVRbQUKu4u72Jg1c5ERi7?=
- =?us-ascii?Q?3xg3mJW5i3OjPfexfV/E0wCdvBzqQkwcOGzXGa9e1TCr6S2ncUTvhdc08xIm?=
- =?us-ascii?Q?VrIYN5k0f5mlp8LVUpJA168064kJiWXGHMFMFOwrs+7NW5+JRN5dPuYx0wqq?=
- =?us-ascii?Q?1NCMkuIEN9gB684ikVmdCf6Tz8427JcmxwPidieQFeogth/WuK7fP82WTXZv?=
- =?us-ascii?Q?AscQyLericw2X2xQ3M21Qh9KELsEEnbHhJ4uRpkDJlPP1kdQwduUmIJo/Xgr?=
- =?us-ascii?Q?00usnypoTWU+SgP6vp5gvO4pm7idR3djiw+EgM6I0pmyY+xuURry6DhWhSVi?=
- =?us-ascii?Q?4wdkmv5wMW8LRQPoaH7jYEsKDIhErFa/8XY3zDIlBJ1WuBphSXVQlwlT9Pt/?=
- =?us-ascii?Q?G7mkBjVNLH/MIzPBcxq7yRxDPSAIrVjPPVG6yI8m1VYMZnwxQ/3zlFtKdyUK?=
- =?us-ascii?Q?kgp34wZzjsctLEvsKiQvwP8ek0LY59OKgsqLNK9OJ4Psx14CI1lZm5QNRraN?=
- =?us-ascii?Q?5pFZ+6DqKvJAKWjJU7mip1TDXzE2enM55ulZDklixYlLpxipT0JG643avbA+?=
- =?us-ascii?Q?wrZtLD8XnvRWacNUYnKLodGuk2u3Yq2VX0RXTIYNScjaQCfHXUMN4fiz5f89?=
- =?us-ascii?Q?ZgSJIH8z+O491IfIkpkBAkyUA3XZ/Tt7ngFlX8teaG5UFILtSVLV9Pkl3oVB?=
- =?us-ascii?Q?4tu4S/juiYxSejQh6TgCAVPDFS29P2oiKY/gB6TJAYHTjAtGfJJBKA0+EYjg?=
- =?us-ascii?Q?dagtLiXDdtMiP2/I9G54dNOsuLvsgR5fZ8vQTdHGqHCgx5X52FIu3c17xYPB?=
- =?us-ascii?Q?KBbLJ8Z+wwon1qO0wSjOOiOmdW+VI7WzICagqaqloM/uDE1deSBKUSJPk8p9?=
- =?us-ascii?Q?yNdpXKJkvaW31bDa7c3bWYvvp3IF5FtJNW6+XMj37sykNJss+p0Tyqjane2Q?=
- =?us-ascii?Q?SrL8pfx6+yKxF1cJRlO53PSqgpo5SbZQl6eBjBzNhu7C6PghfefcJidN3xcl?=
- =?us-ascii?Q?ytpedrXAkIB0xxNssAtnG92t2uKYxEkEw5eAxd5Speu/kwZtivbZbMyAqqOF?=
- =?us-ascii?Q?YMj3AgaPgsq0HfnOaZJwI+SzTznrZ91l6EpUnfpqG0eH4Rnhz583Cinkh0vH?=
- =?us-ascii?Q?7USCIHuzOwgSPNAH/bw/bbhFyES8vnL+Yo6fiMCDYaD+ZhsNW8EF1U8O/5QL?=
- =?us-ascii?Q?9NK2Y1YdIlGL2QB9cvGcOUCnJwpPmuDrvJy34pKhN7L5ZTvzl9nxZAszsI/X?=
- =?us-ascii?Q?IijJiqfntbxs9dG5UBlxL6r540/clUh/D2AxYCXR7eC+4A3g/QGz15LkORjQ?=
- =?us-ascii?Q?I4R4ldrNwJ+6JHeL4HclhVX8639UvOX/dmFR9ZSDetXfLqMeaKi7DPKGeBfh?=
- =?us-ascii?Q?VgyYiH3v4igyEBlzubpECcUBmzu1VgaQxsOzPq9cmQyBQlVj4Em3+4OTb2T2?=
- =?us-ascii?Q?H+9zs11PDDBOSdOX+ixw6aDoPK9/wRSdvUCTVBC6nMxxwDQ0aK9h9640fOBc?=
- =?us-ascii?Q?I8Ws1eLMxnSMquLcPH+MWDMu30qJiHvIpMEyCgFlxmKNzAS5BBwmJkwcECqc?=
- =?us-ascii?Q?SQix3Z+ZPwTNrCr3aRk5HeYF2l7QA8aqPgzMiVcOW9coYWcx3INbwyZj3fKg?=
- =?us-ascii?Q?wLK9XRSyfZs3JcAi7w1up9ZLGHDIGy8JNHaLT8congIhlS6LLUCTJXqQQ8vx?=
- =?us-ascii?Q?GqppeedkpA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53bf4bc6-dca3-455b-70bd-08de853f911d
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 22:42:00.0646
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nf8CHkWgKHmAOIkK9KqvC3SvrV04gyCAF4Gof4/bTduMDGEK0ZF/b1eeyLSW3C8s4cV4Tr96dJt7hEFtssRCLA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10471
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: mmc: mtk-sd: Add support for MT8189 SoC
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: kernel@collabora.com, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251203-mt8189-add-mmc-support-v1-0-f5ce43212fe9@collabora.com>
+ <20251203-mt8189-add-mmc-support-v1-1-f5ce43212fe9@collabora.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20251203-mt8189-add-mmc-support-v1-1-f5ce43212fe9@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_154205_084533_73ED5230 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260318_160047_624844_01BF89AB 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,40 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li (AI-BOT) <frank.li@nxp.com>
+On 12/3/25 5:45 AM, Louis-Alexis Eyraud wrote:
+> Add a new compatible for MMC IP in MT8189 SoC.
+> Even though this is partially compatible with the one found in MT8196
+> SoC, the MT8189 SoC register layout has some slight differences and
+> additional features.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> index 6dd26ad314916a3e40cf55ff69a7d93ed63dbdd4..eb3755bdfdf7e001602c3eb870898275085df3e6 100644
+> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> @@ -25,6 +25,7 @@ properties:
+>            - mediatek,mt8135-mmc
+>            - mediatek,mt8173-mmc
+>            - mediatek,mt8183-mmc
+> +          - mediatek,mt8189-mmc
 
-> +static struct netc_cbdr *netc_select_cbdr(struct ntmp_user *user)
-> +{
-> +	int cpu, i;
-> +
-> +	for (i = 0; i < user->cbdr_num; i++) {
-> +		if (spin_is_locked(&user->ring[i].ring_lock))
-> +			continue;
-> +
-> +		return &user->ring[i];
-> +	}
-> +
-> +	/* If all the command BDRs are busy now, we select
-> +	 * one of them, but need to wait for a while to use.
-> +	 */
-> +	cpu = smp_processor_id();
-> +
-> +	return &user->ring[cpu % user->cbdr_num];
-> +}
+I think this can be in the group with fallback to mediatek,mt8183-mmc.
 
-AI: spin_is_locked() is not reliable for lockless checks on all architectures.
-Consider using spin_trylock() instead, or document why this racy check isi
-acceptable here.
+I was able to make it work on U-Boot just using the existing match
+for "mediatek,mt8183-mmc" there.
 
-> +	if (user->cbdr_num == 1)
-> +		cbdr = &user->ring[0];
-> +	else
-> +		cbdr = netc_select_cbdr(user);
+>            - mediatek,mt8196-mmc
+>            - mediatek,mt8516-mmc
+>        - items:
+> @@ -192,6 +193,7 @@ allOf:
+>              - mediatek,mt8183-mmc
+>              - mediatek,mt8186-mmc
+>              - mediatek,mt8188-mmc
+> +            - mediatek,mt8189-mmc
+>              - mediatek,mt8195-mmc
+>              - mediatek,mt8196-mmc
+>              - mediatek,mt8516-mmc
+> @@ -240,6 +242,7 @@ allOf:
+>                - mediatek,mt7986-mmc
+>                - mediatek,mt7988-mmc
+>                - mediatek,mt8183-mmc
+> +              - mediatek,mt8189-mmc
+>                - mediatek,mt8196-mmc
+>      then:
+>        properties:
+> 
 
-AI: The special case for cbdr_num == 1 is redundant; netc_select_cbdr() handles
-it correctly. Simplify to: cbdr = netc_select_cbdr(user);
-
-Need owner do futher judgement
-
-Frank
 
