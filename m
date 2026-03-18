@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D82A10775ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFD810775EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 17:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/SCPIBP0E8zSGO0hizsZWcYBKZOPpavEOO6sCqHbHc=; b=QzMc2eZjvlYeXbGU39tYcEj8cP
-	kDCj/CFZQZCtF6SopD4EOHVawi0Rmu0Ky6ZMWSIPKQAUEYqXlhBSXvZu+mJHGtxYyMdnZNlGdQr4L
-	H4CELXbreOnq/HuzUMTw4wJTWvkiQf781Lge8cES32SpLFcDk7beYrto2v0pswFjuyRivZwFd7LGe
-	vWFbCrlxqFuZuwXcQbH0yw93BDpMfaQwvWIVdbNz5O4haTXJj7jlUNzQolOgernAUpbOSQKO1NKbN
-	kCU4pbLsg1K1ULQzH5e782jL+i9QWVjSKvPORITIZYp98DkcGsO6AfrIPmzqZ/5Hs1+H7GTn68sSk
-	11NIwqXA==;
+	bh=Litr1tuIgO2leVd0D5vKkw+0+UrKZQ5oAdcUVB6VymM=; b=VkXT7tCb/vjHKL9/MMA5s+Ck0b
+	kyfPp/8V71MFzVPaBpG5qtjijDGXF1RiRMph4kRgAnBd1tLaem6Hx50vlnXIxxKWWDqxLb9K59tR8
+	Zn+bErcL78S+Qq6gwyWOdKVtYv05pafAPLIbrWr4QTEQZidjBwQaOKDC7oFeVinBELctbWq8mIMbh
+	hsQLFSzY/Rc+QtlpBT+7jMAE2iyojYhcuxavOVxg9KaHYLMeDt9/smAJtq2Bh+CSgeJReohhJ44fP
+	6ggFlCDD8k0dnK6ij6psCPCu2kunIDe7etf1oBqSkBmperSH3R/6hdVX2iYj9AL42PbNl84b/01cA
+	BGSy+5DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uWR-000000092dy-03ER;
-	Wed, 18 Mar 2026 17:17:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2uWa-000000092gk-1Gxh;
+	Wed, 18 Mar 2026 17:17:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uWP-000000092dR-2fNA
+	id 1w2uWZ-000000092gQ-2K7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 17:17:29 +0000
+	Wed, 18 Mar 2026 17:17:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD92B60123;
-	Wed, 18 Mar 2026 17:17:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3469EC2BCAF;
-	Wed, 18 Mar 2026 17:17:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA58D60123;
+	Wed, 18 Mar 2026 17:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29D39C19421;
+	Wed, 18 Mar 2026 17:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773854248;
-	bh=UAeqv1crTMesgqI0eCm4lZuBxl3uq8Ao0hE7O5sw9WE=;
+	s=k20201202; t=1773854258;
+	bh=0aAh1WOnGYN7hHkdEv67pI2CDBIGK75Lbvt15+b6X14=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vHbOPoqohS+J2yBQ2tc3UMWkMCmiLoL19m7AH8VT9z7odibeTRewAB538KJOXk5kC
-	 YqN8SX9RGd4buaIuI6O1N4Sgf/1/D7B6RHdtcCferpumSpGWaQTPoX9G4dhyNiHTTS
-	 8fsjNY27/ZzMuvtbD9O/0NFb83IjCk6hvUvyGKaoaUgmwYAAMve8gzo9dSeWKqHnLK
-	 6JkZKi8+ch4NDRwDlbpPBMuIj8urVbvboxFq75XlE1Gc2VpZVSBrXX2tBwLgvUzMon
-	 qHGqy909oQK3KUuoMFqD67XZrgGGxTPgpxIqz07vhNtLTnZtIrM7iggv8r9E4vhsIV
-	 9I458M1FGTLCg==
+	b=uHnSbxHulO7WUJtsx42KZ2vLKYqlBwWoAxGc5cCgq/dxwIZ1kfZxvtDplfIuU4K7w
+	 cnLB4nmjpNpJIScxrPYkNEC7bes5oitxhVcUuHlIwRc1maGMXe88C9gdwh15RQhs35
+	 RIZqsmN/ixtbbgEEabJ3hh9K2ug6zPullUd8JrY8ffub2tJo36ipj0sJ+DF24lfVD8
+	 no4efguGt1LqZPbN+3RXHb73oTTz5LldAkaV5Bj32cpLURi9HZUys2etq0w0Ngyf94
+	 L7iy9bDAQ8Xk/dLUuOIeIRvcugZgt3NdQYWMQkZM1W8tssRb8vjXIXcv16lDI7RDE3
+	 6bGrmnGYaGvog==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: bpf@vger.kernel.org
 Cc: Puranjay Mohan <puranjay@kernel.org>,
@@ -61,9 +61,9 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	kernel-team@meta.com
-Subject: [PATCH v2 1/4] perf/arm_pmuv3: Fix NULL pointer dereference in armv8pmu_sched_task()
-Date: Wed, 18 Mar 2026 10:16:55 -0700
-Message-ID: <20260318171706.2840512-2-puranjay@kernel.org>
+Subject: [PATCH v2 3/4] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+Date: Wed, 18 Mar 2026 10:16:57 -0700
+Message-ID: <20260318171706.2840512-4-puranjay@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260318171706.2840512-1-puranjay@kernel.org>
 References: <20260318171706.2840512-1-puranjay@kernel.org>
@@ -83,63 +83,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is easily triggered with:
+Enable the bpf_get_branch_snapshot() BPF helper on ARM64 by implementing
+the perf_snapshot_branch_stack static call for ARM's Branch Record Buffer
+Extension (BRBE).
 
-  perf record -b -e cycles -a -- ls
+The BPF helper bpf_get_branch_snapshot() allows BPF programs to capture
+hardware branch records on-demand. This was previously only available on
+x86 (Intel LBR) but not on ARM64 despite BRBE being available since
+ARMv9.
 
-which crashes on the first context switch with:
+BRBE is paused before disabling interrupts because local_irq_save() can
+trigger trace_hardirqs_off() which performs stack walking and pollutes
+the branch buffer. The sysreg read/write and ISB used to pause BRBE are
+branchless, so pausing first avoids this pollution.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 00[.]
-  PC is at armv8pmu_sched_task+0x14/0x50
-  LR is at perf_pmu_sched_task+0xac/0x108
-  Call trace:
-    armv8pmu_sched_task+0x14/0x50 (P)
-    perf_pmu_sched_task+0xac/0x108
-    __perf_event_task_sched_out+0x6c/0xe0
-    prepare_task_switch+0x120/0x268
-    __schedule+0x1e8/0x828
-    ...
+All exceptions are masked after pausing BRBE using local_daif_save() to
+prevent pseudo-NMI from PMU counter overflow from interfering with the
+snapshot read. A PMU overflow arriving between the pause and
+local_daif_save() can re-enable BRBE via the interrupt handler; the
+snapshot detects this by re-checking BRBFCR_EL1.PAUSED and bailing out.
 
-perf_pmu_sched_task() invokes the PMU sched callback with cpc->task_epc,
-which is NULL when no per-task events exist for this PMU. With CPU-wide
-branch-stack events, armv8pmu_sched_task() is still registered and
-dereferences pmu_ctx->pmu unconditionally, causing the crash.
+Branch records are read using the existing perf_entry_from_brbe_regset()
+helper with a NULL event pointer, which bypasses event-specific filtering
+and captures all recorded branches. The BPF program is responsible for
+filtering entries based on its own criteria. The BRBE buffer is
+invalidated after reading to maintain contiguity for other consumers.
 
-The bug was introduced by commit fa9d27773873 ("perf: arm_pmu: Kill last
-use of per-CPU cpu_armpmu pointer") which changed the function from
-using the per-CPU cpu_armpmu pointer (always valid) to dereferencing
-pmu_ctx->pmu without adding a NULL check.
+On heterogeneous big.LITTLE systems, only some CPUs may implement
+FEAT_BRBE. The perf_snapshot_branch_stack static call is system-wide, so
+a per-CPU brbe_active flag is used to prevent BRBE sysreg access on CPUs
+that do not implement FEAT_BRBE, where such access would be UNDEFINED.
 
-Add a NULL check for pmu_ctx to avoid the crash.
-
-Fixes: fa9d27773873 ("perf: arm_pmu: Kill last use of per-CPU cpu_armpmu pointer")
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- drivers/perf/arm_pmuv3.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/perf/arm_brbe.c  | 79 +++++++++++++++++++++++++++++++++++++++-
+ drivers/perf/arm_brbe.h  |  9 +++++
+ drivers/perf/arm_pmuv3.c |  5 ++-
+ 3 files changed, 90 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+index ba554e0c846c..527c2d5ebba6 100644
+--- a/drivers/perf/arm_brbe.c
++++ b/drivers/perf/arm_brbe.c
+@@ -8,9 +8,13 @@
+  */
+ #include <linux/types.h>
+ #include <linux/bitmap.h>
++#include <linux/percpu.h>
+ #include <linux/perf/arm_pmu.h>
++#include <asm/daifflags.h>
+ #include "arm_brbe.h"
+ 
++static DEFINE_PER_CPU(bool, brbe_active);
++
+ #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
+ 				   BRBFCR_EL1_INDIRECT | \
+ 				   BRBFCR_EL1_RTN      | \
+@@ -533,6 +537,8 @@ void brbe_enable(const struct arm_pmu *arm_pmu)
+ 	/* Finally write SYS_BRBFCR_EL to unpause BRBE */
+ 	write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+ 	/* Synchronization in PMCR write ensures ordering WRT PMU enabling */
++
++	this_cpu_write(brbe_active, true);
+ }
+ 
+ void brbe_disable(void)
+@@ -544,6 +550,7 @@ void brbe_disable(void)
+ 	 */
+ 	write_sysreg_s(BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+ 	write_sysreg_s(0, SYS_BRBCR_EL1);
++	this_cpu_write(brbe_active, false);
+ }
+ 
+ static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG_EXIT + 1][2] = {
+@@ -618,10 +625,10 @@ static bool perf_entry_from_brbe_regset(int index, struct perf_branch_entry *ent
+ 
+ 	brbe_set_perf_entry_type(entry, brbinf);
+ 
+-	if (!branch_sample_no_cycles(event))
++	if (!event || !branch_sample_no_cycles(event))
+ 		entry->cycles = brbinf_get_cycles(brbinf);
+ 
+-	if (!branch_sample_no_flags(event)) {
++	if (!event || !branch_sample_no_flags(event)) {
+ 		/* Mispredict info is available for source only and complete branch records. */
+ 		if (!brbe_record_is_target_only(brbinf)) {
+ 			entry->mispred = brbinf_get_mispredict(brbinf);
+@@ -803,3 +810,71 @@ void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
+ done:
+ 	branch_stack->nr = nr_filtered;
+ }
++
++/*
++ * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
++ * self-recording and return 0 if the snapshot state appears disturbed.
++ */
++int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, unsigned int cnt)
++{
++	unsigned long flags;
++	int nr_hw, nr_banks, nr_copied = 0;
++	u64 brbidr, brbfcr, brbcr;
++
++	if (!cnt || !__this_cpu_read(brbe_active))
++		return 0;
++
++	/* Pause BRBE first to avoid recording our own branches. */
++	brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
++	brbcr = read_sysreg_s(SYS_BRBCR_EL1);
++	write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
++	isb();
++
++	/* Block local exception delivery while reading the buffer. */
++	flags = local_daif_save();
++
++	/*
++	 * A PMU overflow before local_daif_save() could have re-enabled
++	 * BRBE, clearing the PAUSED bit. The overflow handler already
++	 * restored BRBE to its correct state, so just bail out.
++	 */
++	if (!(read_sysreg_s(SYS_BRBFCR_EL1) & BRBFCR_EL1_PAUSED)) {
++		local_daif_restore(flags);
++		return 0;
++	}
++
++	brbidr = read_sysreg_s(SYS_BRBIDR0_EL1);
++	if (!valid_brbidr(brbidr))
++		goto out;
++
++	nr_hw = FIELD_GET(BRBIDR0_EL1_NUMREC_MASK, brbidr);
++	nr_banks = DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
++
++	for (int bank = 0; bank < nr_banks; bank++) {
++		int nr_remaining = nr_hw - (bank * BRBE_BANK_MAX_ENTRIES);
++		int nr_this_bank = min(nr_remaining, BRBE_BANK_MAX_ENTRIES);
++
++		select_brbe_bank(bank);
++
++		for (int i = 0; i < nr_this_bank; i++) {
++			if (nr_copied >= cnt)
++				goto done;
++
++			if (!perf_entry_from_brbe_regset(i, &entries[nr_copied], NULL))
++				goto done;
++
++			nr_copied++;
++		}
++	}
++
++done:
++	brbe_invalidate();
++out:
++	/* Restore BRBCR before unpausing via BRBFCR, matching brbe_enable(). */
++	write_sysreg_s(brbcr, SYS_BRBCR_EL1);
++	isb();
++	write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
++	local_daif_restore(flags);
++
++	return nr_copied;
++}
+diff --git a/drivers/perf/arm_brbe.h b/drivers/perf/arm_brbe.h
+index b7c7d8796c86..c2a1824437fb 100644
+--- a/drivers/perf/arm_brbe.h
++++ b/drivers/perf/arm_brbe.h
+@@ -10,6 +10,7 @@
+ struct arm_pmu;
+ struct perf_branch_stack;
+ struct perf_event;
++struct perf_branch_entry;
+ 
+ #ifdef CONFIG_ARM64_BRBE
+ void brbe_probe(struct arm_pmu *arm_pmu);
+@@ -22,6 +23,8 @@ void brbe_disable(void);
+ bool brbe_branch_attr_valid(struct perf_event *event);
+ void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
+ 				const struct perf_event *event);
++int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries,
++				   unsigned int cnt);
+ #else
+ static inline void brbe_probe(struct arm_pmu *arm_pmu) { }
+ static inline unsigned int brbe_num_branch_records(const struct arm_pmu *armpmu)
+@@ -44,4 +47,10 @@ static void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
+ 				       const struct perf_event *event)
+ {
+ }
++
++static inline int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries,
++						 unsigned int cnt)
++{
++	return 0;
++}
+ #endif
 diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 8014ff766cff..2d097fad9c10 100644
+index 2d097fad9c10..e00c7c47a98d 100644
 --- a/drivers/perf/arm_pmuv3.c
 +++ b/drivers/perf/arm_pmuv3.c
-@@ -1074,8 +1074,15 @@ static int armv8pmu_user_event_idx(struct perf_event *event)
- static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx,
- 				struct task_struct *task, bool sched_in)
- {
--	struct arm_pmu *armpmu = to_arm_pmu(pmu_ctx->pmu);
--	struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
-+	struct arm_pmu *armpmu;
-+	struct pmu_hw_events *hw_events;
-+
-+	/* cpc->task_epc is NULL when no per-task events exist for this PMU */
-+	if (!pmu_ctx)
-+		return;
-+
-+	armpmu = to_arm_pmu(pmu_ctx->pmu);
-+	hw_events = this_cpu_ptr(armpmu->hw_events);
+@@ -1456,8 +1456,11 @@ static int armv8_pmu_init(struct arm_pmu *cpu_pmu, char *name,
+ 	cpu_pmu->set_event_filter	= armv8pmu_set_event_filter;
  
- 	if (!hw_events->branch_users)
- 		return;
+ 	cpu_pmu->pmu.event_idx		= armv8pmu_user_event_idx;
+-	if (brbe_num_branch_records(cpu_pmu))
++	if (brbe_num_branch_records(cpu_pmu)) {
+ 		cpu_pmu->pmu.sched_task		= armv8pmu_sched_task;
++		static_call_update(perf_snapshot_branch_stack,
++				   arm_brbe_snapshot_branch_stack);
++	}
+ 
+ 	cpu_pmu->name			= name;
+ 	cpu_pmu->map_event		= map_event;
 -- 
 2.52.0
 
