@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8983B103E197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB248103E198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYyasek+aeeqixvNna+V5K7REnTzaQsVJD/QtFDuBQs=; b=X7UwWKq975gl9nIgrE6iLq2Itd
-	HDekSy/RPnFapGEbgu1CCusW/80o6uibP4SbOmCivcygZ9/zeAkMpHTtrvtQr6FsQoVxWO/C3S+WD
-	muBejOJnTL530v4foO2tzkZIbFW685KJdPdreGPLHMLJpuROK3fFFk8H9F+aPtGIBky48Lfo34/Ia
-	ldL5eUt0Y/8XKHs+aFQvn4u2ruErUxXGMpC3TtTFpxZpd+FWZnSbTR07wXdDrHq9OgoGzv7oSsIBY
-	U3eQs6YGoKZXOvo1Sojxh61k8CcoUEtdcUE2nx84koBbNrA88SOSQ0ccvuE1FOA77yzgZIBfawm3H
-	n5YhC4aA==;
+	bh=8hJfNAyJkNUa+APSlrbAjV1w1m8rHhpRUB6zp9xiKrQ=; b=k36fX1tZXIlSCYZ6Ng31/CZVF2
+	0ZTxOdwqcOki/Es3z71W5+YbwRgBPZ2pzGs4+YroFj87iRG8PnYHpkDspUbjV2Pg1vIlfLbjdhbti
+	bjQsVmD+QU/Ou4TXitFjlKODUcWdhLvTHKBNe9lwmU7QkhLnhbG9GEwVqPjXfj57fjUNzUYMIRyAf
+	OQK9WMlRULG6whsmj6oQQWhFW3ppbHINrJuyhk9PzQnlZ4PWI1X8/krCPgoMA19N9Q2taVGZDwMhE
+	OuxJCqaDyttNSBpRHVzOWX+tLqemWUnXSzg/bLSMYcKr3GAm6FLmFZOVUr0kZuBds5hkPYN1iqEIV
+	9j/508uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tFl-00000008pVj-1ILN;
-	Wed, 18 Mar 2026 15:56:13 +0000
+	id 1w2tFr-00000008pdN-2Azv;
+	Wed, 18 Mar 2026 15:56:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tFS-00000008pAX-1KhP
+	id 1w2tFZ-00000008pJb-2v4N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:55:55 +0000
+	Wed, 18 Mar 2026 15:56:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E574201B;
-	Wed, 18 Mar 2026 08:55:47 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C41C2008;
+	Wed, 18 Mar 2026 08:55:54 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 182023F73B;
-	Wed, 18 Mar 2026 08:55:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 282033F73B;
+	Wed, 18 Mar 2026 08:55:57 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -58,17 +58,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v13 24/48] arm64: RMI: Allow populating initial contents
-Date: Wed, 18 Mar 2026 15:53:48 +0000
-Message-ID: <20260318155413.793430-25-steven.price@arm.com>
+Subject: [PATCH v13 26/48] arm64: RMI: Create the realm descriptor
+Date: Wed, 18 Mar 2026 15:53:50 +0000
+Message-ID: <20260318155413.793430-27-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_085554_540977_1D79DA09 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20260318_085602_982989_014A622B 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,224 +83,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VMM needs to populate the realm with some data before starting (e.g.
-a kernel and initrd). This is measured by the RMM and used as part of
-the attestation later on.
+Creating a realm involves first creating a realm descriptor (RD). This
+involves passing the configuration information to the RMM. Do this as
+part of realm_ensure_created() so that the realm is created when it is
+first needed.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
 Changes since v12:
- * The ioctl now updates the structure with the amount populated rather
-   than returning this through the ioctl return code.
- * Use the new RMM v2.0 range based RMI calls.
- * Adapt to upstream changes in kvm_gmem_populate().
-Changes since v11:
- * The multiplex CAP is gone and there's a new ioctl which makes use of
-   the generic kvm_gmem_populate() functionality.
-Changes since v7:
- * Improve the error codes.
- * Other minor changes from review.
-Changes since v6:
- * Handle host potentially having a larger page size than the RMM
-   granule.
- * Drop historic "par" (protected address range) from
-   populate_par_region() - it doesn't exist within the current
-   architecture.
- * Add a cond_resched() call in kvm_populate_realm().
-Changes since v5:
- * Refactor to use PFNs rather than tracking struct page in
-   realm_create_protected_data_page().
- * Pull changes from a later patch (in the v5 series) for accessing
-   pages from a guest memfd.
- * Do the populate in chunks to avoid holding locks for too long and
-   triggering RCU stall warnings.
+ * Since RMM page size is now equal to the host's page size various
+   calculations are simplified.
+ * Switch to using range based APIs to delegate/undelegate.
+ * VMID handling is now handled entirely by the RMM.
 ---
- arch/arm64/include/asm/kvm_rmi.h |   4 ++
- arch/arm64/kvm/Kconfig           |   1 +
- arch/arm64/kvm/arm.c             |  13 ++++
- arch/arm64/kvm/rmi.c             | 111 +++++++++++++++++++++++++++++++
- 4 files changed, 129 insertions(+)
+ arch/arm64/kvm/rmi.c | 94 +++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 92 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 46b0cbe6c202..bf663bb240c4 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -96,6 +96,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
- int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
- int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
- 
-+struct kvm_arm_rmi_populate;
-+
-+int kvm_arm_rmi_populate(struct kvm *kvm,
-+			 struct kvm_arm_rmi_populate *arg);
- void kvm_realm_unmap_range(struct kvm *kvm,
- 			   unsigned long ipa,
- 			   unsigned long size,
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 1cac6dfc0972..b495dfd3a8b4 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -39,6 +39,7 @@ menuconfig KVM
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	select KVM_GUEST_MEMFD
- 	select KVM_GENERIC_MEMORY_ATTRIBUTES
-+	select HAVE_KVM_ARCH_GMEM_POPULATE
- 	help
- 	  Support hosting virtualized guest machines.
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index badb94b398bc..43d05da7e694 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2089,6 +2089,19 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 			return -EFAULT;
- 		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
- 	}
-+	case KVM_ARM_RMI_POPULATE: {
-+		struct kvm_arm_rmi_populate req;
-+		int ret;
-+
-+		if (!kvm_is_realm(kvm))
-+			return -ENXIO;
-+		if (copy_from_user(&req, argp, sizeof(req)))
-+			return -EFAULT;
-+		ret = kvm_arm_rmi_populate(kvm, &req);
-+		if (copy_to_user(argp, &req, sizeof(req)))
-+			return -EFAULT;
-+		return ret;
-+	}
- 	default:
- 		return -EINVAL;
- 	}
 diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 13eed6f0b9eb..b48f4e12e4e0 100644
+index 38349c7b34f4..d5fee203824b 100644
 --- a/arch/arm64/kvm/rmi.c
 +++ b/arch/arm64/kvm/rmi.c
-@@ -718,6 +718,80 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
- 		realm_unmap_private_range(kvm, start, end, may_block);
+@@ -649,6 +649,83 @@ static void realm_unmap_shared_range(struct kvm *kvm,
+ 			     start, end);
  }
  
-+static int realm_create_protected_data_page(struct kvm *kvm,
-+					    unsigned long ipa,
-+					    kvm_pfn_t dst_pfn,
-+					    kvm_pfn_t src_pfn,
-+					    unsigned long flags)
++static int realm_create_rd(struct kvm *kvm)
 +{
 +	struct realm *realm = &kvm->arch.realm;
-+	phys_addr_t rd = virt_to_phys(realm->rd);
-+	phys_addr_t dst_phys, src_phys;
-+	int ret;
++	struct realm_params *params = realm->params;
++	void *rd = NULL;
++	phys_addr_t rd_phys, params_phys;
++	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
++	int i, r;
 +
-+	dst_phys = __pfn_to_phys(dst_pfn);
-+	src_phys = __pfn_to_phys(src_pfn);
++	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
 +
-+	if (delegate_page(dst_phys))
-+		return -ENXIO;
++	if (WARN_ON(realm->rd || !realm->params))
++		return -EEXIST;
 +
-+	ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
-+	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-+		/* Create missing RTTs and retry */
-+		int level = RMI_RETURN_INDEX(ret);
++	rd = (void *)__get_free_page(GFP_KERNEL);
++	if (!rd)
++		return -ENOMEM;
 +
-+		KVM_BUG_ON(level == RMM_RTT_MAX_LEVEL, kvm);
-+
-+		ret = realm_create_rtt_levels(realm, ipa, level,
-+					      RMM_RTT_MAX_LEVEL, NULL);
-+		if (!ret) {
-+			ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys,
-+						    flags);
-+		}
++	rd_phys = virt_to_phys(rd);
++	if (delegate_page(rd_phys)) {
++		r = -ENXIO;
++		goto free_rd;
 +	}
 +
-+	if (ret) {
-+		if (WARN_ON(undelegate_page(dst_phys))) {
-+			/* Undelegate failed, so we leak the page */
-+			get_page(pfn_to_page(dst_pfn));
-+		}
++	if (delegate_range(kvm->arch.mmu.pgd_phys, pgd_size)) {
++		r = -ENXIO;
++		goto out_undelegate_tables;
 +	}
 +
-+	return ret;
-+}
++	params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
++	params->rtt_level_start = get_start_level(realm);
++	params->rtt_num_start = pgd_size / PAGE_SIZE;
++	params->rtt_base = kvm->arch.mmu.pgd_phys;
 +
-+static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
-+			      struct page *src_page, void *opaque)
-+{
-+	unsigned long data_flags = *(unsigned long *)opaque;
-+	phys_addr_t ipa = gfn_to_gpa(gfn);
++	if (kvm->arch.arm_pmu) {
++		params->pmu_num_ctrs = kvm->arch.nr_pmu_counters;
++		params->flags |= RMI_REALM_PARAM_FLAG_PMU;
++	}
 +
-+	if (!src_page)
-+		return -EOPNOTSUPP;
++	if (kvm_lpa2_is_enabled())
++		params->flags |= RMI_REALM_PARAM_FLAG_LPA2;
 +
-+	return realm_create_protected_data_page(kvm, ipa, pfn,
-+						page_to_pfn(src_page),
-+						data_flags);
-+}
++	params_phys = virt_to_phys(params);
 +
-+static long populate_region(struct kvm *kvm,
-+			    gfn_t base_gfn,
-+			    unsigned long pages,
-+			    u64 uaddr,
-+			    unsigned long data_flags)
-+{
-+	long ret = 0;
++	if (rmi_realm_create(rd_phys, params_phys)) {
++		r = -ENXIO;
++		goto out_undelegate_tables;
++	}
 +
-+	mutex_lock(&kvm->slots_lock);
-+	mmap_read_lock(current->mm);
-+	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
-+				populate_region_cb, &data_flags);
-+	mmap_read_unlock(current->mm);
-+	mutex_unlock(&kvm->slots_lock);
++	if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
++		WARN_ON(rmi_realm_destroy(rd_phys));
++		r = -ENXIO;
++		goto out_undelegate_tables;
++	}
 +
-+	return ret;
-+}
-+
- enum ripas_action {
- 	RIPAS_INIT,
- 	RIPAS_SET,
-@@ -815,6 +889,43 @@ static int realm_ensure_created(struct kvm *kvm)
- 	return -ENXIO;
- }
- 
-+int kvm_arm_rmi_populate(struct kvm *kvm,
-+			 struct kvm_arm_rmi_populate *args)
-+{
-+	unsigned long data_flags = 0;
-+	unsigned long ipa_start = args->base;
-+	unsigned long ipa_end = ipa_start + args->size;
-+	long pages_populated;
-+	int ret;
-+
-+	if (args->reserved ||
-+	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
-+	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
-+	    !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
-+	    !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
-+		return -EINVAL;
-+
-+	ret = realm_ensure_created(kvm);
-+	if (ret)
-+		return ret;
-+
-+	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
-+		data_flags |= RMI_MEASURE_CONTENT;
-+
-+	pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
-+					  args->size >> PAGE_SHIFT,
-+					  args->source_uaddr, data_flags);
-+
-+	if (pages_populated < 0)
-+		return pages_populated;
-+
-+	args->size -= pages_populated << PAGE_SHIFT;
-+	args->source_uaddr += pages_populated << PAGE_SHIFT;
-+	args->base += pages_populated << PAGE_SHIFT;
++	realm->rd = rd;
++	WRITE_ONCE(realm->state, REALM_STATE_NEW);
++	/* The realm is up, free the parameters.  */
++	free_page((unsigned long)realm->params);
++	realm->params = NULL;
 +
 +	return 0;
++
++out_undelegate_tables:
++	if (WARN_ON(undelegate_range(kvm->arch.mmu.pgd_phys, i))) {
++		/* Leak the pages if they cannot be returned */
++		kvm->arch.mmu.pgt = NULL;
++	}
++	if (WARN_ON(undelegate_page(rd_phys))) {
++		/* Leak the page if it isn't returned */
++		return r;
++	}
++free_rd:
++	free_page((unsigned long)rd);
++	return r;
 +}
 +
- static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+ static void realm_unmap_private_range(struct kvm *kvm,
+ 				      unsigned long start,
+ 				      unsigned long end,
+@@ -893,8 +970,21 @@ static int realm_init_ipa_state(struct kvm *kvm,
+ 
+ static int realm_ensure_created(struct kvm *kvm)
  {
- 	struct kvm *kvm = vcpu->kvm;
+-	/* Provided in later patch */
+-	return -ENXIO;
++	int ret;
++
++	switch (kvm_realm_state(kvm)) {
++	case REALM_STATE_NONE:
++		break;
++	case REALM_STATE_NEW:
++		return 0;
++	case REALM_STATE_DEAD:
++		return -ENXIO;
++	default:
++		return -EBUSY;
++	}
++
++	ret = realm_create_rd(kvm);
++	return ret;
+ }
+ 
+ static int set_ripas_of_protected_regions(struct kvm *kvm)
 -- 
 2.43.0
 
