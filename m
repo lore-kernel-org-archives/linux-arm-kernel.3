@@ -4,104 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58538103E199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9308F103E197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=godpTaFXAY2ep8bhfkFW/rBnOk7asG87yrTm6n99gBY=; b=bPtz9FVC1g82ygq/F4TQBIYR3y
-	g0CMf2uct8Xsi9PNSGHazlCF60WTjF6vRGMvgD20afLJra/9dHUtnxpJ8Po+xG/4wMf4ROkw1BUMy
-	F4hV00JFUCyfenMAPVqkrxn1UJzFyFPsKBNB0p4OESnCkL1TiapKllEAwQ6s4GSfVGS9VNTtsA7Ic
-	HsIuW09EUuMFGje1cAZulTkFAFHLe3Hs16Z+yQlwFNWjhnqarjsucYYvw8m6rDyfHPxcABQjROW+x
-	XBRYyvM1TsT2QqBU+2UNRQ/PpALwjdexF8nq+WuEg8ui0taRwkkapmdj0/ulp+B1aNHNTiRnn/VH8
-	WNy7cxjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KLr1Cfto2dIv6AANsFGhhEytklokghLOfP3HeCmxBJ4=; b=erXCZNJ9UwcrwpOy5VdVfbJk9Y
+	7rKfmYl8vzrFy+Lr5T+TaMSWudvLT4wGUGJ9GWbdDl7ca3+3Ti2CU7s5hKC98CTgAwgXkQ2jwc55W
+	dIt2vxKbRRskH6OZu9k29w/J9QyAj4e195udnF6dUDe+3MuiRGLjfnIpIOjPvL45ABKy4mDJzhB6W
+	a06LtbHRwZ1eP+yIDnJ70d80OoRWYtMThLhB8g8nHxDa8xoOp752bLpUY8kagYqOqaMu5E1vzyY5N
+	hIrampU9OxBWHsEAG1FFK2vu0/6ytMzyKEg/R3KmCfHV2cq7UWvnfzau1SOhHTp3eogf65S1bKGwC
+	e3VOvCcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2sbM-00000008fOh-0yVq;
-	Wed, 18 Mar 2026 15:14:28 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w2se5-00000008gFs-112L;
+	Wed, 18 Mar 2026 15:17:17 +0000
+Received: from mail-westeuropeazon11013052.outbound.protection.outlook.com ([52.101.72.52] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2sbD-00000008fIf-08Q6
+	id 1w2se2-00000008gFN-3Gnc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:14:20 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48540d21f7dso78461565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 08:14:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773846857; x=1774451657; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=godpTaFXAY2ep8bhfkFW/rBnOk7asG87yrTm6n99gBY=;
-        b=J4DG7Dn6tMvQPtEEQgqLCxi2lACj9WcCexmNcmSK4oxfJjutiGmbseJw+V01YGDvaD
-         xkikgK20/xS1dDCTSLVZpzRElVmii7Z8i6nxmvdACgbyBmO2MEN4fRWifw+YyCm8HtLp
-         56vWq0J92Pk03toD78A0objw0jZYvCzzqbl+BpOfwwOUVJ8I5YTKp9REwqJhd0rDuugI
-         Jl+AjpJ0vJfELhYkR7C3yIgNLZsFiUIbVhZrdjtRc5xFp4yQTP1SpR2kymndpJo6YP0g
-         i4l9P3L6SoX5Kvh0ocawaVRz9GGShIm/xXsmJvP/nAyRJaozx+d6UGNeIjxtoTp2mOCh
-         yADA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773846857; x=1774451657;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=godpTaFXAY2ep8bhfkFW/rBnOk7asG87yrTm6n99gBY=;
-        b=VXVN4h9S2eSg2MDe5D5dIaUX4jvFOZmiUhvU35wvGaEibW2UlSWnIM0M7xQmvRmD7+
-         l/0G+ywzmSQPf8iEme9NvOhKmZ6C2VtAAT1kRH/cdY/bKevNkCB292+Hv9BtCW6OHEQf
-         +rWLdb206XHZdmGFF8kz4fI8qPw+40mwzImhkMMuiqxgHwh3dYg7EhG8AZGxVpwLwdhl
-         F1N0IB8QoC2hl2g4u4GshP87iz/fpO0UcP+yFFAatKocUx935pGR59Cufcpq52scaJss
-         ct+y/7gxHcxqaXzH4pOYs0gmPG7bT3A6dabmX1oOAvkIfUbJVaYOScczxy+j0WJZB4h1
-         6Ptg==
-X-Forwarded-Encrypted: i=1; AJvYcCUW2cO7Bt6U8O3wpDU+x2ZnTb/UTWQg5BBNtD/BewdMtBOwoQopcwpcKyNx0NWy+KxBZ1NQ2c1mnZSwNukWIkgc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPaSjPDis8MemQiYXnsWetd3w7tvaEgykDjRG9/4KIfN9BPuk5
-	ASkdoEf5Hq/JgBC9YlQshrhyvbWh5pFOAB7LO1GlaWjuxqJ6fODFNufprtoEicmLLaQ=
-X-Gm-Gg: ATEYQzxPXW/Pdg50cHJYUH+0JEJtmjwcTpnHbbA5U3yjEmaHkZmX/UNXsJDc9nq4LJ5
-	0BEi03tttYYP4NaAyU8tIMswv11o9wGk3APFYiaG7/tyWe5YbYjzrBdPKOaSYoYpZFZhWjgUeBU
-	b1JpqMJCNMI8S/TNDhMqU5BNwAX8EfFqstlEj3Xs9IHCeloRN1eHKc4MywF7LYioWOkPeHFYVpI
-	IRbNWHI7rYclE1IphAVOpYMfffrpXKL4C/xO/9MAHQdwIU6dahlU//mjGAwAJR+jpcE6TKpAsjS
-	qOz/2EztREAz94xcbnpB1wUlOgVqMjEl+q2ciLghsrTIn7fqP3addKEOgW6V9gWQdCA9uUsQFvd
-	xtr2TYnIT/QYotVTR340X6qXDtmhKpNzVfWsuqiK6P+BLK8mZ6R1yXmHa1JkUt31RLkfNoAIUAe
-	3SzpsK8IQYtJkn/ngRYhbH
-X-Received: by 2002:a05:600c:4685:b0:485:40c6:f507 with SMTP id 5b1f17b1804b1-486f456feb6mr64803965e9.30.1773846857053;
-        Wed, 18 Mar 2026 08:14:17 -0700 (PDT)
-Received: from localhost ([2001:4090:a244:8139:5278:cf5a:3494:5e80])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f75f774fsm11253655e9.32.2026.03.18.08.14.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 08:14:16 -0700 (PDT)
-From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Wed, 18 Mar 2026 16:13:09 +0100
-Subject: [PATCH v3 3/7] arm64: dts: ti: k3: Use memory-region-names for r5f
+	Wed, 18 Mar 2026 15:17:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NP8iNla2P4Mgu1nmvQMbuHfCm9HqdqgOtg71r5U9P6Y6+NUnCDs7W/OUE5+R6Ufm6jD/qi3lCmJWvO7sXdGWG6QU9i8M44Ft7Gl6JSgzvjRLt5MgAFhOsI1w722iDT3uXf0yBubKXm/pBAqZC9vYSaAIAgN8VvIAHOGjW9cJZWuz+xPw0U7SvJ1S4DnqDxFocYN8k0bSacaEM1Arrf2ofnWUsGO3xehXGaOE6SyZ74gjRiKH8V/lc5PRIsxOgK7GD7cqhbYVCzqNHFGqoU7KDQXKegJOO74vaqSxQEyvISQqKQaQtTzicyS/p4d1SA6heTYGfFfLWeWRHZ+O22F0AA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KLr1Cfto2dIv6AANsFGhhEytklokghLOfP3HeCmxBJ4=;
+ b=zQ0qrLzksUTP8l31s96zuADTmsj0rx7GhbMnjdX7rTqA1PDy3ZqGgCvVy/f4MqDcpl6ID/hykkAS8xej4U2RVkJ+zKJfDhyYj+Fe3CEOh0H3nWXwWKuZqPTq5V6PYTmWkY8V/rscth9hy6McD3ofLBO+A1EteBj9TqpZpBZ8EiC/l9qkRXD83rZ6hys1QZ/yo47gf5VYrSNE6ApG5AWJPRMVbfZFWDCs4WmiahHyBG+cFsiQEt8rauZjV9G4ty2g+bZevTnOX+IDpOBBBi/2cFiAPe0KZTxBVkfWBg4qgyIgGq65SKa8K/wR8Klb0hW2EZiLgaEIuplhH1cO2kVr1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KLr1Cfto2dIv6AANsFGhhEytklokghLOfP3HeCmxBJ4=;
+ b=Sut2LwCwa169E80UhIQePrn9xrpPEBHDLOVX5UhxKgcObJbIk0nJ/Hxb8TSdAzbwa8eGzu2T7RZas3jzQx2KvzUz8ke71C2h/rIZ+V3nNJzeAIdPRJ7fMIG9YiGOukVfqtw895llzQdWIMhmKiFDIr9oSs59ncQPx2HU2mGGa9AYxGSpC+8sW/ZOGohFpxABgS6HdFaw0aJbz63/PQIycNRUvbfcFmOGst45os3R6IJ0fcIFswkN3F4sCFcL/DcIqyTdaSXdw8oZeLgkfI7/z3NdcOkJ+R0NVSGJPfKgCGoa8LXyyWqFumCi3DkJQT8WomP0yOMhMbyU/xxHbcvFRg==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by DU0PR04MB9323.eurprd04.prod.outlook.com (2603:10a6:10:356::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
+ 2026 15:17:07 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
+ 15:17:05 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Linus Walleij
+	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Frank Li
+	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising Edge
+Thread-Topic: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising Edge
+Thread-Index: AQHctkd84NlNZgrn1Uqpj8qmiIZ63bW0JXmAgABAIlA=
+Date: Wed, 18 Mar 2026 15:17:05 +0000
+Message-ID: <PAXPR04MB918564F8768B5502B53879CE894EA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260317195116.2301985-1-shenwei.wang@nxp.com>
+ <DB9PR04MB8461D0BE47F09CFF41492A60884EA@DB9PR04MB8461.eurprd04.prod.outlook.com>
+In-Reply-To: <DB9PR04MB8461D0BE47F09CFF41492A60884EA@DB9PR04MB8461.eurprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|DU0PR04MB9323:EE_
+x-ms-office365-filtering-correlation-id: 7a72df59-b49e-47c3-eab2-08de85016a27
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|366016|7416014|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: aSIewueXFHFuvzWzc3mE72BTp7klf+XRQgcQbc1vmUf+7EGEkFAypqOSTlLcwveOln+mxP2/sipUOZ8kJGeik9U3f9MjRe3b3giIyW81yaIDEondgjRrqsVGdE+r+U6P4lng54grS+XKZSbEEgwLpZ6tREmF5u8EkCIVRQIrWKtZNnMUTHdnBM3sk8LPka4S+MsUx1+nPOxr/yDLggDVFu5wk6l1ckDmBJjJgj3khk+f6TITdlv86fuanl77RWwB6pWtt2/4GYB4OhKPi40e+lMk+jJhySkW8D52E6fLJW+GFpgnGk/yJDEPxTmVuMIyXulWYiW4CKmnoMsOUVPlOjNmRjUsMg7PKelEHfVtx57gP8bfJbFAT8pTsgJ7Y80uqh89P0dY/koKxBZDMgdH9pivYuaPavRd47/8/UzEL4bMEAndlzjxfRZAUi9odlTOlaZXALOpF0d6fvI1hKw4VDxX2tC27d2+liorlesw5Yr4v8X5SSRQqHdVcUfrxebenJbQX5+gnxAXU7Leos0Qr5oN1WGHy1MDVEoPPEpbMSI6sJ3NXCVYIZLet3GeDJK4YU9KtOniXJWmk411Rdyh/1O3LHTWxWUaRuibDkXhf1bg9boZ7UmxsMVULsrRc+gyrEdwFI38bKYDeDJPs5FmixaBXP4YqqOEBEuFrLp2ELTq4+nZY4m3wp9OWBDXfid+lIiPW7YR5mgh5fZKAQGGUZHucXBjhZWZDjhX4gFJr990IppSDpoD9jZkzJP1+HlWccT6jAeCBZ1LkdMJkVVY5ZHDhjjXApooo0s9JNhlEB8=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(366016)(7416014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?f1sc4Uv2rfEYWqhBlmjDsODdrcgl/UmC9qL7ziMfSTZy474gB4hRhtjP9UZn?=
+ =?us-ascii?Q?9N3uG70ziiuaOjCMPwLLhTGstfZ+7YAkJjA0IDQdVcaSXhpsNJ6vsrFxgFXK?=
+ =?us-ascii?Q?EANPhiVQh+0bd1SZ3Gnrz3xLDT/pHr8rePIP8stcysSIFHTg4GqiKMiHBIMW?=
+ =?us-ascii?Q?Ocw934LBzzJRxGolEh79aQ0OzkEkrkEL3Xx3Un2PgPNRBZ1vbycHLVlWGg76?=
+ =?us-ascii?Q?UMAMjdvtXIBUPyJ9OTqhyk6ibV+lpcxsu0Xnwa7dQBSY5zC8rUT89NmowWcO?=
+ =?us-ascii?Q?KVyuHxFkkxIhpp4cz5s79riymMN9OOpjtanWx62IbYrS24a8CHQyUKgsS5DC?=
+ =?us-ascii?Q?jEF1zMajJo3IYXL7BTHwlqQsDl45Pkf9BWubuLaSLon8Qp1uLMsSYQHoTMpX?=
+ =?us-ascii?Q?T8G0mX+SC1yNLiEPQ7NnS69mMTKg1CY8UTSYbkbAnL2py+9/keRUJ1YWNeqP?=
+ =?us-ascii?Q?y2aj0/xWMkgF2MS8LiB1pjEbIrlYmkfwGDT8Vxu++mynF9u5zV5n4DrmaBPQ?=
+ =?us-ascii?Q?5VcZp+zOQq/IbcZYUgacBbYv3g5Vhi6dG6fzMYIGTm4YfHjq4iAI5O2G260u?=
+ =?us-ascii?Q?bWpa7/odPNiK5HXBjSBf72AVYeynigrXvYQHpIYZmVEfPRVt1qYo5We4pwDb?=
+ =?us-ascii?Q?IiKCs8kHfI1NF4Ur3n7+Fw9PNnlTkJ3aNaBXW/9zDaVvrD0YLeheeWgI13r9?=
+ =?us-ascii?Q?YwB6jg1jP+2vNpzLKFn6MDC48tGrfxiJMLqBmiIqFoZHXm+EL2MivZdncLIi?=
+ =?us-ascii?Q?pwVyMc8PAIXeAe2LohxWFXbcOR2S1/ZGZqlyDe4KJPFZ61dcXNyE1JIhyMJq?=
+ =?us-ascii?Q?pPCV6e2vToGyWQ1e6gDrQC44mY5KJMuMLhldqhHgMXjKLHZ8tZrLal9lNTyr?=
+ =?us-ascii?Q?rzqw+XpWE1RBbIYfPs4jhZemXSycHIJhbd/qJEOAhWXEhgof/TDJnEzxQdtc?=
+ =?us-ascii?Q?9ZxRJX5FHfTDcn4hajIoKkQAZCeKOoeNq+Yl/ZmmpvRWFXpGPlazn8nBW99r?=
+ =?us-ascii?Q?tSmIET93u+QZgxDmQovWj12KEtfipSvATOJJEuWdsbFA52DihDkT0gNdQHQ0?=
+ =?us-ascii?Q?8062cDk+E4Cn8M+Exp9HZzvNO4YcJZD7k5BZe+4ocjdbVALWdtSfUDhEM/C2?=
+ =?us-ascii?Q?wSSA/VZ94te7tQ266zRCFGn8WlMYL+bs3wysUBTH6R1Jh6Y8g4HmUM1s+/Ir?=
+ =?us-ascii?Q?ySbjkMBXv/MTjJlMKI7SAAVy7LTAvVRQVoJfpXZUFRebKpRNge70toQuOONz?=
+ =?us-ascii?Q?Gr3w+/ocb9OnM5HAst3n0seBpvxB9bkRa+AhGHY2TH504Hrx1abYiP8qw5Iz?=
+ =?us-ascii?Q?0wSWafQjHmTHgPdTmut5BXP7DB4ASJrnzv7aep2WK5TnD1TPecZiBW8TCplt?=
+ =?us-ascii?Q?xInZ/PQ+HkcSat3GJcogY771fhqos4NflQLaAFezDOipDoQDcLMhlRtKs+QN?=
+ =?us-ascii?Q?mh8CjAZxp3QOhL76gO4dpdpT/nBWXKMhO7bJx5GWo6bmlCFxrlEDZXe5Rmu5?=
+ =?us-ascii?Q?A2FKfCl/h/j4P/my03CmLmRwUllWMoX3GKaNXsSiK64i6cbz1upFPBwiz0ZU?=
+ =?us-ascii?Q?86EnRBxuckB5x/NaEuBydXXc2QBnzMWsjJtMiFu4ILNbHSPV4HANB5rfciLU?=
+ =?us-ascii?Q?BMx0cL0G7zXDs3o+TA2pzN5qqQddm2/8Dr8pjl6w2tICiYREpcQ3QdQo1sY2?=
+ =?us-ascii?Q?phktImGzhYHh9hLD1+V6SHPCyOfLn6bt6CKojHwEwCpPuFmr?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260318-topic-am62a-ioddr-dt-v6-19-v3-3-c41473cb23c3@baylibre.com>
-References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-In-Reply-To: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Suman Anna <s-anna@ti.com>, 
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
- Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14721; i=msp@baylibre.com;
- h=from:subject:message-id; bh=eg8ypgw5ZqfczO8GaLg+1+WWvtaYju8g3PHYUIABZr4=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhsxdB+XcPJp1Hif+2KPQlu1mnV8+9dq27GirRSaz7+84Y
- sipWz+9o5SFQYyLQVZMkaUzMTTtv/zOY8mLlm2GmcPKBDKEgYtTACYSLc3wP7/xyUxenVcch9ef
- 6L7S+Pf3mi9a071DY/2cuya/U+B54MHI8O/DGpnqJ1y5czq2rJZjtyz60RLr2lq86XHqnf/1mX1
- nGQE=
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a72df59-b49e-47c3-eab2-08de85016a27
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 15:17:05.5200
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /oUsOTSuS/XHaTnDFr7aK7CGeSw85NsCvKtLkqZIlV1rkEkEGIDknhJPpZJG1g1RWsl4pm9un+m2xJOdUPIymA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9323
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_081419_224050_B7F85725 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260318_081714_818728_0FF55507 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,367 +144,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the newly introduced memory-region-names to all occurences of
-ti,*-r5f. This helps adding a name to each memory-region so it is
-easier to see what memory regions are for.
 
-Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
----
- arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi               | 1 +
- arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi              | 2 ++
- arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi              | 2 ++
- arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi               | 4 ++++
- arch/arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi               | 2 ++
- arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi              | 4 ++++
- arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi              | 6 ++++++
- arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi             | 6 ++++++
- arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi              | 3 +++
- .../boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi      | 8 ++++++++
- 10 files changed, 38 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-index ea69fab9b52b0458a830c03adbccbf3c2842a9c9..ad247f53fe82da57504e5ffc0351c8cc3c4a0e67 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-@@ -48,5 +48,6 @@ &wkup_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
- 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
- 			<&wkup_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
-index 950f4f37d477a32b5eb5f66c97daed4c8fd09aca..06d4e815b1670beafb8852b76a3f6a79295ce8ca 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi
-@@ -66,6 +66,7 @@ &wkup_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
- 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
- 			<&wkup_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -77,6 +78,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-index d29a5dbe13ef7e66e7df8e8c3542ab5c4dc64262..5d7f701420e2d8308b637f3064c560e485ed85f2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-@@ -45,6 +45,7 @@ &wkup_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
- 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
- 			<&wkup_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -56,5 +57,6 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
-index 6b10646ae64a62e19067b80bead7c99643d1702b..51fd9b68f58d1f8ae3a7a77a48f74a77c2c795f3 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
-@@ -126,6 +126,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -133,6 +134,7 @@ &main_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
- 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
- 			<&main_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -144,6 +146,7 @@ &main_r5fss1_core0 {
- 	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
- 	memory-region = <&main_r5fss1_core0_dma_memory_region>,
- 			<&main_r5fss1_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -151,6 +154,7 @@ &main_r5fss1_core1 {
- 	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
- 	memory-region = <&main_r5fss1_core1_dma_memory_region>,
- 			<&main_r5fss1_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi
-index 61ab0357fc0de01df641b887b47e88ee26b4f2fb..e5f37cfd18bc55c86e9970cbfd25d354371ac079 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-ti-ipc-firmware.dtsi
-@@ -52,6 +52,7 @@ &mcu_r5fss0 {
- &mcu_r5fss0_core0 {
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
- 	status = "okay";
- };
-@@ -59,6 +60,7 @@ &mcu_r5fss0_core0 {
- &mcu_r5fss0_core1 {
- 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
- 			<&mcu_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5fss0_core1>;
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-index 9477f1efbbc61d0befc56368436ccbc5007a1411..d65f68c7d43210b5af8eff52c5cec6ddb54e5c68 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-@@ -100,6 +100,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -107,6 +108,7 @@ &mcu_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core1>;
- 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
- 			<&mcu_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -119,6 +121,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -126,5 +129,6 @@ &main_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core1>;
- 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
- 			<&main_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-index 40c6cc99c4056009e9ff66adb831400b8842de9e..5d4fc26b413b22a9c2168e5d37f04475511a75a4 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-@@ -219,6 +219,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &mcu_r5fss0_core1 {
-@@ -226,6 +227,7 @@ &mcu_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core1>;
- 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
- 			<&mcu_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss0 {
-@@ -238,6 +240,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss0_core1 {
-@@ -245,6 +248,7 @@ &main_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core1>;
- 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
- 			<&main_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss1 {
-@@ -257,6 +261,7 @@ &main_r5fss1_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core0>;
- 	memory-region = <&main_r5fss1_core0_dma_memory_region>,
- 			<&main_r5fss1_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss1_core1 {
-@@ -264,6 +269,7 @@ &main_r5fss1_core1 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core1>;
- 	memory-region = <&main_r5fss1_core1_dma_memory_region>,
- 			<&main_r5fss1_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &c66_0 {
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-index ebab0cc580bbb2fb2b101450ea7def0bf717be0e..5253d028da0946e6dd619c0adebdfcf88400cb14 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-@@ -190,6 +190,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -197,6 +198,7 @@ &mcu_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core1>;
- 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
- 			<&mcu_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -209,6 +211,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -216,6 +219,7 @@ &main_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core1>;
- 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
- 			<&main_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -228,6 +232,7 @@ &main_r5fss1_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core0>;
- 	memory-region = <&main_r5fss1_core0_dma_memory_region>,
- 			<&main_r5fss1_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -235,6 +240,7 @@ &main_r5fss1_core1 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core1>;
- 	memory-region = <&main_r5fss1_core1_dma_memory_region>,
- 			<&main_r5fss1_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
-index cb7cd385a1655375931bac1d65fc766ae174234a..a59c3648d8056c8a759fcc536e51bc9adb04a62b 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
-@@ -123,6 +123,7 @@ &wkup_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_wkup_r5_0>;
- 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
- 			<&wkup_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -134,6 +135,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-@@ -145,6 +147,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster3 &mbox_main_r5_0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-index 455397227d4a1081a1579061208b7e92db32ebd1..d08fd3ff8a8902b7dc1f0f55c251e5546f1bdd2c 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-@@ -262,6 +262,7 @@ &mcu_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
- 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
- 			<&mcu_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &mcu_r5fss0_core1 {
-@@ -269,6 +270,7 @@ &mcu_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core1>;
- 	memory-region = <&mcu_r5fss0_core1_dma_memory_region>,
- 			<&mcu_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss0 {
-@@ -281,6 +283,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss0_core1 {
-@@ -288,6 +291,7 @@ &main_r5fss0_core1 {
- 	mboxes = <&mailbox0_cluster1 &mbox_main_r5fss0_core1>;
- 	memory-region = <&main_r5fss0_core1_dma_memory_region>,
- 			<&main_r5fss0_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss1 {
-@@ -300,6 +304,7 @@ &main_r5fss1_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core0>;
- 	memory-region = <&main_r5fss1_core0_dma_memory_region>,
- 			<&main_r5fss1_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss1_core1 {
-@@ -307,6 +312,7 @@ &main_r5fss1_core1 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss1_core1>;
- 	memory-region = <&main_r5fss1_core1_dma_memory_region>,
- 			<&main_r5fss1_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss2 {
-@@ -319,6 +325,7 @@ &main_r5fss2_core0 {
- 	mboxes = <&mailbox0_cluster3 &mbox_main_r5fss2_core0>;
- 	memory-region = <&main_r5fss2_core0_dma_memory_region>,
- 			<&main_r5fss2_core0_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &main_r5fss2_core1 {
-@@ -326,6 +333,7 @@ &main_r5fss2_core1 {
- 	mboxes = <&mailbox0_cluster3 &mbox_main_r5fss2_core1>;
- 	memory-region = <&main_r5fss2_core1_dma_memory_region>,
- 			<&main_r5fss2_core1_memory_region>;
-+	memory-region-names = "dma", "firmware";
- };
- 
- &c71_0 {
+> -----Original Message-----
+> From: Peng Fan (OSS) <peng.fan@oss.nxp.com>
+> Sent: Wednesday, March 18, 2026 6:19 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
+> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Frank Li
+> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; linux-gpio@vger.kernel.org; imx@lists.linux.dev; li=
+nux-
+> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; dl-linux-im=
+x
+> <linux-imx@nxp.com>; stable@vger.kernel.org
+> Subject: RE: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising Ed=
+ge
+>=20
+> Hi Shenwei,
+>=20
+> > Subject: [PATCH 1/1] gpio: mxc: map Both Edge pad wakeup to Rising
+> > Edge
+> >
+> > Suspend may fail on i.MX8QM when Falling Edge is used as a pad wakeup
+> > trigger due to a hardware bug in the detection logic.
+>=20
+> This hardware bug exists on i.MX8QM/QXP/DXL, or just 8QM?
+>=20
 
--- 
-2.53.0
+Only on i.MX8QM, as described. The system fails to enter suspend when
+Falling Edge wakeup is selected.
+
+Thanks,
+Shenwei
+
+> More information better to add why suspend may fail.
+> Do you mean not able to resume back because of failing to detect falling =
+edge?
+>=20
+> Since the
+> > hardware does not support Both Edge wakeup, remap requests for Both
+> > Edge to Rising Edge by default to avoid hitting this issue.
+> >
+> > Fixes: f60c9eac54af ("gpio: mxc: enable pad wakeup on i.MX8x
+> > platforms")
+> > cc: stable@vger.kernel.org
+> > Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> > ---
+> >  drivers/gpio/gpio-mxc.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c index
+> > d7666fe9dbf8..f8300690ac05 100644
+> > --- a/drivers/gpio/gpio-mxc.c
+> > +++ b/drivers/gpio/gpio-mxc.c
+> > @@ -589,7 +589,7 @@ static bool mxc_gpio_set_pad_wakeup(struct
+> > mxc_gpio_port *port, bool enable)
+> >  		IMX_SCU_WAKEUP_OFF,		/* 0 */
+> >  		IMX_SCU_WAKEUP_RISE_EDGE,	/*
+> > IRQ_TYPE_EDGE_RISING */
+> >  		IMX_SCU_WAKEUP_FALL_EDGE,	/*
+> > IRQ_TYPE_EDGE_FALLING */
+> > -		IMX_SCU_WAKEUP_FALL_EDGE,	/*
+> > IRQ_TYPE_EDGE_BOTH */
+> > +		IMX_SCU_WAKEUP_RISE_EDGE,	/*
+> > IRQ_TYPE_EDGE_BOTH */
+>=20
+> For IRQ_TYPE_EDGE_BOTH, use IMX_SCU_WAKEUP_RISE_EDGE.
+> Do we need to also add a check for IRQ_TYPE_EDGE_FALLING?
+> Saying not support IRQ_TYPE_EDGE_FALLING because of xxx.
+>=20
+> Regards
+> Peng.
+>=20
+> >  		IMX_SCU_WAKEUP_HIGH_LVL,	/*
+> > IRQ_TYPE_LEVEL_HIGH */
+> >  		IMX_SCU_WAKEUP_OFF,		/* 5 */
+> >  		IMX_SCU_WAKEUP_OFF,		/* 6 */
+> > --
+> > 2.43.0
 
 
