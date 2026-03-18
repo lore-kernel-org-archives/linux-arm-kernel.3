@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A242C107760E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B7F1077612
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 20:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9vLJ7M4gZlujjahiAjIgjbH4+EWEAQmxbWGoZLLs4ts=; b=UlFWxEDXW6vLNfcnf/IIxRPrzB
-	UAPvesTT82hSz42541953N58rD7Loa0SuuU5vReXWJR84C+8sH77itnWkEa+bQ79jhlRD0Gd3ozex
-	ApUxATcRKBVW+bVKF2+2MBrBJGjae7bquLSK2alLOb3jopcVQqzxsPW2KuYd8Dr7N7oaVxqu/vCc2
-	Kcwegf003Vm+MZGuFRIkwk8M4sjp7tDP4bSzD+R/fnu8Qt+EBo/t231d1coJTFTcSIHBD3KgQddcY
-	bK2qs3+WS/h/LpWvxK0pS2clfeYrkU9QXhcppedNGCWlxM/44fu+rOY2YWdJT9fL7OVJFoEnlgn4W
-	Y/gRPk7w==;
+	bh=gq8UslYK5xtWqV3A1+ae8aY+sThW9IqAg0/n/q9jLlA=; b=zjN53aiv4IcaOM9/8qktNWi2w4
+	FyKeF4Sl9AK2AK8r9bzI9IbhdyN3lc9fO8h8kyGfgYG/r8Ygy0A0lkti95qBW+nuCQpIOMmkqyEGQ
+	G/7MxEGUXXFyHS5u4ipJOKaxTv5RUJx+KCMvYznWjCy+zf8TBTEqjqrHTYGm/sMQlPuVG0vz8MKrS
+	5Qi3thG5vJz9tWhFJh8JzdmqIL3gfUWnuEQJo2HBFJKxPVfpPoFLnV609f33N9UcMIo97M7oLnN/d
+	KvMYloWnxLfGvGk9LW9eC4cPjLUXa6WMwbh4hkdq5q/eGBs7+csjnlqgGEyqtUMS/5+/jl/TtRi5/
+	SCF0Ot4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xpR-00000009KSl-2Hj0;
-	Wed, 18 Mar 2026 20:49:21 +0000
+	id 1w2xpa-00000009KYN-3Neu;
+	Wed, 18 Mar 2026 20:49:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xpM-00000009KRB-1ZxN
+	id 1w2xpS-00000009KTD-2suT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 20:49:20 +0000
+	Wed, 18 Mar 2026 20:49:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9FE21C00;
-	Wed, 18 Mar 2026 13:49:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 600AA1BF7;
+	Wed, 18 Mar 2026 13:49:15 -0700 (PDT)
 Received: from e134710.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E363E3F7BD;
-	Wed, 18 Mar 2026 13:49:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 849313F7BD;
+	Wed, 18 Mar 2026 13:49:19 -0700 (PDT)
 From: Ahmed Tiba <ahmed.tiba@arm.com>
-Date: Wed, 18 Mar 2026 20:47:58 +0000
-Subject: [PATCH v3 01/10] ACPI: APEI: GHES: share macros via a private
- header
+Date: Wed, 18 Mar 2026 20:48:02 +0000
+Subject: [PATCH v3 05/10] ACPI: APEI: GHES: move vendor record helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-1-48e6a1c249ef@arm.com>
+Message-Id: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-5-48e6a1c249ef@arm.com>
 References: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-0-48e6a1c249ef@arm.com>
 In-Reply-To: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-0-48e6a1c249ef@arm.com>
 To: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -51,16 +50,16 @@ Cc: Ahmed Tiba <ahmed.tiba@arm.com>, Michael.Zhao2@arm.com, robh@kernel.org,
  catalin.marinas@arm.com, krzk+dt@kernel.org, linux-doc@vger.kernel.org, 
  mchehab+huawei@kernel.org, tony.luck@intel.com
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773866948; l=10958;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773866948; l=5704;
  i=ahmed.tiba@arm.com; s=20260219; h=from:subject:message-id;
- bh=AvvGZoPLgLyPZXejC3LPLI3Akhe3+YJBBIYt3h0/TZk=;
- b=d1UUi1xWUZC9+f6G9kYCugJ8Bil36IYnwJZBTLsaHIbf4YTp/43SB4VfPg/W7ZiqsYXyjefvG
- +t47C8mt5fSBPkSSMaqTBIw/4+92bFGBO7hpPeGF3SgkM2ZtGNlAwWR
+ bh=n1fM29r4nuASTUHjHGhOCx77QdCEEOEgi8pNrgOqOLY=;
+ b=MbC9LDgfo3k+E88lGzvGVrrqmdTJmvhilKaaxuunBzgcUB79Xdb4VDFcQ08KJnZ99GSPWFKy5
+ /onGrfHdHMZATORliLlIYjw6lZQgh1cIqXWG/lA9+Zl4o48k3YbA2tT
 X-Developer-Key: i=ahmed.tiba@arm.com; a=ed25519;
  pk=xVOtd+Qklh/4tuM3tB+BEZD4jj5a6W59C3KCNX6v7OE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_134916_506330_796E3A5D 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20260318_134922_820016_6B633ED3 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,307 +74,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Carve the CPER helper macros out of ghes.c and place them in a private
-header so they can be shared with upcoming helper files. This is a
-mechanical include change with no functional differences.
+Shift the vendor record workqueue helpers into ghes_cper.c so both GHES
+and future DT-based providers can use the same implementation. The change
+is mechanical and keeps the notifier behavior identical.
 
 Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
 ---
- drivers/acpi/apei/ghes.c |  94 +++++++++---------------------------------
- include/acpi/ghes_cper.h | 103 +++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 121 insertions(+), 76 deletions(-)
+ drivers/acpi/apei/ghes.c      | 50 ---------------------------------------
+ drivers/acpi/apei/ghes_cper.c | 55 +++++++++++++++++++++++++++++++++++++++++++
+ include/acpi/ghes_cper.h      |  2 ++
+ 3 files changed, 57 insertions(+), 50 deletions(-)
 
 diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-index 8acd2742bb27..a0b5ee79a09c 100644
+index 8a9b4dda3748..9703c602a8c2 100644
 --- a/drivers/acpi/apei/ghes.c
 +++ b/drivers/acpi/apei/ghes.c
-@@ -49,6 +49,7 @@
+@@ -383,56 +383,6 @@ static void ghes_handle_aer(struct acpi_hest_generic_data *gdata)
+ #endif
+ }
  
- #include <acpi/actbl1.h>
- #include <acpi/ghes.h>
-+#include <acpi/ghes_cper.h>
- #include <acpi/apei.h>
- #include <asm/fixmap.h>
- #include <asm/tlbflush.h>
-@@ -57,40 +58,6 @@
- 
- #include "apei-internal.h"
- 
--#define GHES_PFX	"GHES: "
+-static BLOCKING_NOTIFIER_HEAD(vendor_record_notify_list);
 -
--#define GHES_ESTATUS_MAX_SIZE		65536
--#define GHES_ESOURCE_PREALLOC_MAX_SIZE	65536
--
--#define GHES_ESTATUS_POOL_MIN_ALLOC_ORDER 3
--
--/* This is just an estimation for memory pool allocation */
--#define GHES_ESTATUS_CACHE_AVG_SIZE	512
--
--#define GHES_ESTATUS_CACHES_SIZE	4
--
--#define GHES_ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
--/* Prevent too many caches are allocated because of RCU */
--#define GHES_ESTATUS_CACHE_ALLOCED_MAX	(GHES_ESTATUS_CACHES_SIZE * 3 / 2)
--
--#define GHES_ESTATUS_CACHE_LEN(estatus_len)			\
--	(sizeof(struct ghes_estatus_cache) + (estatus_len))
--#define GHES_ESTATUS_FROM_CACHE(estatus_cache)			\
--	((struct acpi_hest_generic_status *)				\
--	 ((struct ghes_estatus_cache *)(estatus_cache) + 1))
--
--#define GHES_ESTATUS_NODE_LEN(estatus_len)			\
--	(sizeof(struct ghes_estatus_node) + (estatus_len))
--#define GHES_ESTATUS_FROM_NODE(estatus_node)			\
--	((struct acpi_hest_generic_status *)				\
--	 ((struct ghes_estatus_node *)(estatus_node) + 1))
--
--#define GHES_VENDOR_ENTRY_LEN(gdata_len)                               \
--	(sizeof(struct ghes_vendor_record_entry) + (gdata_len))
--#define GHES_GDATA_FROM_VENDOR_ENTRY(vendor_entry)                     \
--	((struct acpi_hest_generic_data *)                              \
--	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
--
- /*
-  *  NMI-like notifications vary by architecture, before the compiler can prune
-  *  unused static functions it needs a value for these enums.
-@@ -102,25 +69,6 @@
- 
- static ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
- 
--static inline bool is_hest_type_generic_v2(struct ghes *ghes)
+-int ghes_register_vendor_record_notifier(struct notifier_block *nb)
 -{
--	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
+-	return blocking_notifier_chain_register(&vendor_record_notify_list, nb);
+-}
+-EXPORT_SYMBOL_GPL(ghes_register_vendor_record_notifier);
+-
+-void ghes_unregister_vendor_record_notifier(struct notifier_block *nb)
+-{
+-	blocking_notifier_chain_unregister(&vendor_record_notify_list, nb);
+-}
+-EXPORT_SYMBOL_GPL(ghes_unregister_vendor_record_notifier);
+-
+-static void ghes_vendor_record_work_func(struct work_struct *work)
+-{
+-	struct ghes_vendor_record_entry *entry;
+-	struct acpi_hest_generic_data *gdata;
+-	u32 len;
+-
+-	entry = container_of(work, struct ghes_vendor_record_entry, work);
+-	gdata = GHES_GDATA_FROM_VENDOR_ENTRY(entry);
+-
+-	blocking_notifier_call_chain(&vendor_record_notify_list,
+-				     entry->error_severity, gdata);
+-
+-	len = GHES_VENDOR_ENTRY_LEN(acpi_hest_get_record_size(gdata));
+-	gen_pool_free(ghes_estatus_pool, (unsigned long)entry, len);
 -}
 -
--/*
-- * A platform may describe one error source for the handling of synchronous
-- * errors (e.g. MCE or SEA), or for handling asynchronous errors (e.g. SCI
-- * or External Interrupt). On x86, the HEST notifications are always
-- * asynchronous, so only SEA on ARM is delivered as a synchronous
-- * notification.
-- */
--static inline bool is_hest_sync_notify(struct ghes *ghes)
+-static void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
+-					  int sev)
 -{
--	u8 notify_type = ghes->generic->notify.type;
+-	struct acpi_hest_generic_data *copied_gdata;
+-	struct ghes_vendor_record_entry *entry;
+-	u32 len;
 -
--	return notify_type == ACPI_HEST_NOTIFY_SEA;
+-	len = GHES_VENDOR_ENTRY_LEN(acpi_hest_get_record_size(gdata));
+-	entry = (void *)gen_pool_alloc(ghes_estatus_pool, len);
+-	if (!entry)
+-		return;
+-
+-	copied_gdata = GHES_GDATA_FROM_VENDOR_ENTRY(entry);
+-	memcpy(copied_gdata, gdata, acpi_hest_get_record_size(gdata));
+-	entry->error_severity = sev;
+-
+-	INIT_WORK(&entry->work, ghes_vendor_record_work_func);
+-	schedule_work(&entry->work);
 -}
 -
+ /* Room for 8 entries */
+ #define CXL_CPER_PROT_ERR_FIFO_DEPTH 8
+ static DEFINE_KFIFO(cxl_cper_prot_err_fifo, struct cxl_cper_prot_err_work_data,
+diff --git a/drivers/acpi/apei/ghes_cper.c b/drivers/acpi/apei/ghes_cper.c
+index 0a117f478afb..131980d36064 100644
+--- a/drivers/acpi/apei/ghes_cper.c
++++ b/drivers/acpi/apei/ghes_cper.c
+@@ -14,12 +14,17 @@
+ 
+ #include <linux/err.h>
+ #include <linux/genalloc.h>
++#include <linux/irq_work.h>
+ #include <linux/io.h>
+ #include <linux/kernel.h>
++#include <linux/list.h>
+ #include <linux/math64.h>
+ #include <linux/mm.h>
++#include <linux/notifier.h>
++#include <linux/llist.h>
+ #include <linux/ratelimit.h>
+ #include <linux/rcupdate.h>
++#include <linux/rculist.h>
+ #include <linux/sched/clock.h>
+ #include <linux/slab.h>
+ 
+@@ -266,6 +271,56 @@ void ghes_clear_estatus(struct ghes *ghes,
+ 		ghes_ack_error(ghes->generic_v2);
+ }
+ 
++static BLOCKING_NOTIFIER_HEAD(vendor_record_notify_list);
++
++int ghes_register_vendor_record_notifier(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_register(&vendor_record_notify_list, nb);
++}
++EXPORT_SYMBOL_GPL(ghes_register_vendor_record_notifier);
++
++void ghes_unregister_vendor_record_notifier(struct notifier_block *nb)
++{
++	blocking_notifier_chain_unregister(&vendor_record_notify_list, nb);
++}
++EXPORT_SYMBOL_GPL(ghes_unregister_vendor_record_notifier);
++
++static void ghes_vendor_record_work_func(struct work_struct *work)
++{
++	struct ghes_vendor_record_entry *entry;
++	struct acpi_hest_generic_data *gdata;
++	u32 len;
++
++	entry = container_of(work, struct ghes_vendor_record_entry, work);
++	gdata = GHES_GDATA_FROM_VENDOR_ENTRY(entry);
++
++	blocking_notifier_call_chain(&vendor_record_notify_list,
++				     entry->error_severity, gdata);
++
++	len = GHES_VENDOR_ENTRY_LEN(acpi_hest_get_record_size(gdata));
++	gen_pool_free(ghes_estatus_pool, (unsigned long)entry, len);
++}
++
++void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
++				   int sev)
++{
++	struct acpi_hest_generic_data *copied_gdata;
++	struct ghes_vendor_record_entry *entry;
++	u32 len;
++
++	len = GHES_VENDOR_ENTRY_LEN(acpi_hest_get_record_size(gdata));
++	entry = (void *)gen_pool_alloc(ghes_estatus_pool, len);
++	if (!entry)
++		return;
++
++	copied_gdata = GHES_GDATA_FROM_VENDOR_ENTRY(entry);
++	memcpy(copied_gdata, gdata, acpi_hest_get_record_size(gdata));
++	entry->error_severity = sev;
++
++	INIT_WORK(&entry->work, ghes_vendor_record_work_func);
++	schedule_work(&entry->work);
++}
++
  /*
-  * This driver isn't really modular, however for the time being,
-  * continuing to use module_param is the easiest way to remain
-@@ -165,12 +113,6 @@ static DEFINE_MUTEX(ghes_devs_mutex);
-  */
- static DEFINE_SPINLOCK(ghes_notify_lock_irq);
- 
--struct ghes_vendor_record_entry {
--	struct work_struct work;
--	int error_severity;
--	char vendor_record[];
--};
--
- static struct gen_pool *ghes_estatus_pool;
- 
- static struct ghes_estatus_cache __rcu *ghes_estatus_caches[GHES_ESTATUS_CACHES_SIZE];
-@@ -266,7 +208,7 @@ static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
- 	apei_write(val, &gv2->read_ack_register);
- }
- 
--static struct ghes *ghes_new(struct acpi_hest_generic *generic)
-+struct ghes *ghes_new(struct acpi_hest_generic *generic)
- {
- 	struct ghes *ghes;
- 	unsigned int error_block_length;
-@@ -313,7 +255,7 @@ static struct ghes *ghes_new(struct acpi_hest_generic *generic)
- 	return ERR_PTR(rc);
- }
- 
--static void ghes_fini(struct ghes *ghes)
-+void ghes_fini(struct ghes *ghes)
- {
- 	kfree(ghes->estatus);
- 	apei_unmap_generic_address(&ghes->generic->error_status_address);
-@@ -363,8 +305,8 @@ static void ghes_copy_tofrom_phys(void *buffer, u64 paddr, u32 len,
- }
- 
- /* Check the top-level record header has an appropriate size. */
--static int __ghes_check_estatus(struct ghes *ghes,
--				struct acpi_hest_generic_status *estatus)
-+int __ghes_check_estatus(struct ghes *ghes,
-+			 struct acpi_hest_generic_status *estatus)
- {
- 	u32 len = cper_estatus_len(estatus);
- 	u32 max_len = min(ghes->generic->error_block_length,
-@@ -389,9 +331,9 @@ static int __ghes_check_estatus(struct ghes *ghes,
- }
- 
- /* Read the CPER block, returning its address, and header in estatus. */
--static int __ghes_peek_estatus(struct ghes *ghes,
--			       struct acpi_hest_generic_status *estatus,
--			       u64 *buf_paddr, enum fixed_addresses fixmap_idx)
-+int __ghes_peek_estatus(struct ghes *ghes,
-+			struct acpi_hest_generic_status *estatus,
-+			u64 *buf_paddr, enum fixed_addresses fixmap_idx)
- {
- 	struct acpi_hest_generic *g = ghes->generic;
- 	int rc;
-@@ -400,7 +342,7 @@ static int __ghes_peek_estatus(struct ghes *ghes,
- 	if (rc) {
- 		*buf_paddr = 0;
- 		pr_warn_ratelimited(FW_WARN GHES_PFX
--"Failed to read error status block address for hardware error source: %d.\n",
-+				    "Failed to read error status block address for hardware error source: %d.\n",
- 				   g->header.source_id);
- 		return -EIO;
- 	}
-@@ -417,9 +359,9 @@ static int __ghes_peek_estatus(struct ghes *ghes,
- 	return 0;
- }
- 
--static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
--			       u64 buf_paddr, enum fixed_addresses fixmap_idx,
--			       size_t buf_len)
-+int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
-+			u64 buf_paddr, enum fixed_addresses fixmap_idx,
-+			size_t buf_len)
- {
- 	ghes_copy_tofrom_phys(estatus, buf_paddr, buf_len, 1, fixmap_idx);
- 	if (cper_estatus_check(estatus)) {
-@@ -431,9 +373,9 @@ static int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
- 	return 0;
- }
- 
--static int ghes_read_estatus(struct ghes *ghes,
--			     struct acpi_hest_generic_status *estatus,
--			     u64 *buf_paddr, enum fixed_addresses fixmap_idx)
-+int ghes_read_estatus(struct ghes *ghes,
-+		      struct acpi_hest_generic_status *estatus,
-+		      u64 *buf_paddr, enum fixed_addresses fixmap_idx)
- {
- 	int rc;
- 
-@@ -449,9 +391,9 @@ static int ghes_read_estatus(struct ghes *ghes,
- 				   cper_estatus_len(estatus));
- }
- 
--static void ghes_clear_estatus(struct ghes *ghes,
--			       struct acpi_hest_generic_status *estatus,
--			       u64 buf_paddr, enum fixed_addresses fixmap_idx)
-+void ghes_clear_estatus(struct ghes *ghes,
-+			struct acpi_hest_generic_status *estatus,
-+			u64 buf_paddr, enum fixed_addresses fixmap_idx)
- {
- 	estatus->block_status = 0;
- 
+  * GHES error status reporting throttle, to report more kinds of
+  * errors, instead of just most frequently occurred errors.
 diff --git a/include/acpi/ghes_cper.h b/include/acpi/ghes_cper.h
-new file mode 100644
-index 000000000000..a38e3440b927
---- /dev/null
+index 627fb1a5a121..6a37c03397fc 100644
+--- a/include/acpi/ghes_cper.h
 +++ b/include/acpi/ghes_cper.h
-@@ -0,0 +1,103 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Shared GHES declarations for firmware-first CPER error handling.
-+ *
-+ * This header groups the GHES declarations that are needed by the shared
-+ * CPER handling path.
-+ *
-+ * The split lets GHES and other firmware-first error sources use the same
-+ * code for reading status blocks, caching records, handling vendor data,
-+ * and reporting errors, so the non-ACPI path follows the same behavior as
-+ * GHES instead of carrying a separate copy.
-+ *
-+ * Derived from the ACPI APEI GHES driver.
-+ *
-+ * Copyright 2010,2011 Intel Corp.
-+ *   Author: Huang Ying <ying.huang@intel.com>
-+ */
-+
-+#ifndef ACPI_APEI_GHES_CPER_H
-+#define ACPI_APEI_GHES_CPER_H
-+
-+#include <linux/workqueue.h>
-+
-+#include <acpi/ghes.h>
-+
-+#define GHES_PFX	"GHES: "
-+
-+#define GHES_ESTATUS_MAX_SIZE		65536
-+#define GHES_ESOURCE_PREALLOC_MAX_SIZE	65536
-+
-+#define GHES_ESTATUS_POOL_MIN_ALLOC_ORDER 3
-+
-+/* This is just an estimation for memory pool allocation */
-+#define GHES_ESTATUS_CACHE_AVG_SIZE	512
-+
-+#define GHES_ESTATUS_CACHES_SIZE	4
-+
-+#define GHES_ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
-+/* Prevent too many caches are allocated because of RCU */
-+#define GHES_ESTATUS_CACHE_ALLOCED_MAX	(GHES_ESTATUS_CACHES_SIZE * 3 / 2)
-+
-+#define GHES_ESTATUS_CACHE_LEN(estatus_len)			\
-+	(sizeof(struct ghes_estatus_cache) + (estatus_len))
-+#define GHES_ESTATUS_FROM_CACHE(estatus_cache)			\
-+	((struct acpi_hest_generic_status *)				\
-+	 ((struct ghes_estatus_cache *)(estatus_cache) + 1))
-+
-+#define GHES_ESTATUS_NODE_LEN(estatus_len)			\
-+	(sizeof(struct ghes_estatus_node) + (estatus_len))
-+#define GHES_ESTATUS_FROM_NODE(estatus_node)			\
-+	((struct acpi_hest_generic_status *)				\
-+	 ((struct ghes_estatus_node *)(estatus_node) + 1))
-+
-+#define GHES_VENDOR_ENTRY_LEN(gdata_len)                               \
-+	(sizeof(struct ghes_vendor_record_entry) + (gdata_len))
-+#define GHES_GDATA_FROM_VENDOR_ENTRY(vendor_entry)                     \
-+	((struct acpi_hest_generic_data *)                              \
-+	((struct ghes_vendor_record_entry *)(vendor_entry) + 1))
-+
-+static inline bool is_hest_type_generic_v2(struct ghes *ghes)
-+{
-+	return ghes->generic->header.type == ACPI_HEST_TYPE_GENERIC_ERROR_V2;
-+}
-+
-+/*
-+ * A platform may describe one error source for the handling of synchronous
-+ * errors (e.g. MCE or SEA), or for handling asynchronous errors (e.g. SCI
-+ * or External Interrupt). On x86, the HEST notifications are always
-+ * asynchronous, so only SEA on ARM is delivered as a synchronous
-+ * notification.
-+ */
-+static inline bool is_hest_sync_notify(struct ghes *ghes)
-+{
-+	u8 notify_type = ghes->generic->notify.type;
-+
-+	return notify_type == ACPI_HEST_NOTIFY_SEA;
-+}
-+
-+struct ghes_vendor_record_entry {
-+	struct work_struct work;
-+	int error_severity;
-+	char vendor_record[];
-+};
-+
-+struct ghes *ghes_new(struct acpi_hest_generic *generic);
-+void ghes_fini(struct ghes *ghes);
-+
-+int ghes_read_estatus(struct ghes *ghes,
-+		      struct acpi_hest_generic_status *estatus,
-+		      u64 *buf_paddr, enum fixed_addresses fixmap_idx);
-+void ghes_clear_estatus(struct ghes *ghes,
-+			struct acpi_hest_generic_status *estatus,
-+			u64 buf_paddr, enum fixed_addresses fixmap_idx);
-+int __ghes_peek_estatus(struct ghes *ghes,
-+			struct acpi_hest_generic_status *estatus,
-+			u64 *buf_paddr, enum fixed_addresses fixmap_idx);
-+int __ghes_check_estatus(struct ghes *ghes,
-+			 struct acpi_hest_generic_status *estatus);
-+int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
-+			u64 buf_paddr, enum fixed_addresses fixmap_idx,
-+			size_t buf_len);
-+
-+#endif /* ACPI_APEI_GHES_CPER_H */
+@@ -105,5 +105,7 @@ int __ghes_read_estatus(struct acpi_hest_generic_status *estatus,
+ int ghes_estatus_cached(struct acpi_hest_generic_status *estatus);
+ void ghes_estatus_cache_add(struct acpi_hest_generic *generic,
+ 			    struct acpi_hest_generic_status *estatus);
++void ghes_defer_non_standard_event(struct acpi_hest_generic_data *gdata,
++				   int sev);
+ 
+ #endif /* ACPI_APEI_GHES_CPER_H */
 
 -- 
 2.43.0
