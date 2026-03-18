@@ -4,136 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E59610854BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486D110854BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDjDTgsbTVCpDbLwoLz8cO6AUyPWy5MGAMM1zVUO48w=; b=dYW14el8t8ZAVZaFe1+zknwSO+
-	OT7Eu/lU+61qmxIqFfCFO/wOzb1dow/kPRVt/ZcbDxY0xqKH7A0etZHLaIxgRUp7TcceC5sak+jmA
-	DeELhTXSWzmyYrM0eAm2E5zPS3kAlCDjY0Hch59p3HJt1d4BcHFODiHpoQuL4VNRXMSCk+wbwrjaM
-	OFHYxfqMFxqeCptDbB/NlW5T5yjUkqzGVN4YKYjCRI7Ih0P4kZvVd8M/pcuP2fYZgattYvnP9ymRB
-	AGv/RBOX9gF1XP1qIDIQK5vZY4eEF72HzkVSUvF4qOMlcCa/k38S28i73wW/CIlqIxICn2oX0kHi1
-	Ac/2RpKQ==;
+	bh=tqPUDw6RZ7tI/8SbuWaBeZ31o+A7cvn/glmx6dclWwI=; b=k5uEPIoHQSZ++s+eoriynvNSrr
+	KM/eFK0rKhfPA3Ho9Y/a/0TYJwTuhUUIo/brEI2GJvAje3Qp9axuKHn1mrBrDhj03WlWORX5TtrxN
+	+GED9NVMvj0+ukfGkL3m3xp2VHO0EHemn9FyE/1b+lln9Ao7aPutvZYnJunf0CJT9xOFiIaNPTc8F
+	4MW/oDzJNTa6HQGH5vzmu+da8Tba5RRcM/mEcexx3l8gVcpsxcSLPUgpV3r+sIoXQ7u+RHgFkunZf
+	Y4LaAIcc9+NI0g2VQKUXZNF3tdiGcz1lvUaLzAxQLsysrl3ShQoXy8Ei+JYOCPhEsKa7lHVPxuwMe
+	3T7ERZjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2max-000000084qT-2nRe;
-	Wed, 18 Mar 2026 08:49:39 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1w2mbH-000000084vd-31Ch;
+	Wed, 18 Mar 2026 08:49:59 +0000
+Received: from mail-qt1-f171.google.com ([209.85.160.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mav-000000084q4-36sF;
-	Wed, 18 Mar 2026 08:49:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M0EVn4XVjf5QQVjDuJ7GUO/AcG7VnuJybQluIuQ80fXyjNA/N7w9RWMB4di8YN3bkH/6JmJWwtN/vlZn/GpEZ8xgOcLu29UAHR8edF+/L0AuqPxacaN/ViOB8Tu/Zfpe/SuzINuofVFTzw0iDFNEVPmaAuuoGSvmFTQiKmv0tzDnun/BcgWk4MFWxhamGE+ud2t6+ITy5QMZ5DQEfplmY5Ftkow8P0cbCVQcGv6dV4bnvn81AZuTxTKCSRR4FVeeu+qmYqCedP9NCayVeWdntKc8wwlD4TFGMlKON06grAB6GN3fKQ84/bgBOocCzgeJhtFGXrVLvnniL6jyqoJ2tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RDjDTgsbTVCpDbLwoLz8cO6AUyPWy5MGAMM1zVUO48w=;
- b=PS90ahHWEaWwiinyiFIS7dGBq1QTVnLWMG+ePRJT2UA9JRacL7gQlJUhmixDVlMAxXPzHN+rVK5J9BG1hvFtI1ct2GwqdbYziRAogLBZOkZkxVEu9TTx15s+6h5NP09ztS+F/luSeNSzXmjrfwq06P6Ylvw51FTzuLJksqafSVLBT3pYRYEWDeIyyHIvBF0xtnSfG/AVHn2E8lswj+UpaJM93/GvhK7hHS7qnPmS/MYdQCyRE+x+LncX/1wXPCypBCGqyiUORwupzRuyBP4/mECYAnV3hdkU2xMGbc77c3VwIquGCVxIXkd3CGMbnrEg2fc6FmUwGd57MVqfoSXgKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wesion.com; dmarc=pass action=none header.from=wesion.com;
- dkim=pass header.d=wesion.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wesion.com;
-Received: from JH0PR03MB8617.apcprd03.prod.outlook.com (2603:1096:990:91::14)
- by JH0PR03MB8309.apcprd03.prod.outlook.com (2603:1096:990:42::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 08:49:25 +0000
-Received: from JH0PR03MB8617.apcprd03.prod.outlook.com
- ([fe80::28d:6503:f51c:11b7]) by JH0PR03MB8617.apcprd03.prod.outlook.com
- ([fe80::28d:6503:f51c:11b7%4]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 08:49:25 +0000
-Message-ID: <2313af34-be85-4b1b-abf8-c8a935d1defe@wesion.com>
-Date: Wed, 18 Mar 2026 16:49:17 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Khadas Edge 2L
- board
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, naoki@radxa.com, jonas@kwiboo.se,
- chaoyi.chen@rock-chips.com, i@chainsx.cn, michael.opdenacker@rootcommit.com,
- inindev@gmail.com, quentin.schulz@cherry.de, andrew@lunn.ch,
- alchark@gmail.com, pbrobinson@gmail.com, nick@khadas.com
-References: <20260317090731.600787-1-gray.huang@wesion.com>
- <20260317090731.600787-2-gray.huang@wesion.com>
- <20260318-spicy-wasp-of-prosperity-9ad730@quoll>
-Content-Language: en-US
-From: Gray Huang <gray.huang@wesion.com>
-In-Reply-To: <20260318-spicy-wasp-of-prosperity-9ad730@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TY4PR01CA0019.jpnprd01.prod.outlook.com
- (2603:1096:405:2bf::9) To JH0PR03MB8617.apcprd03.prod.outlook.com
- (2603:1096:990:91::14)
+	id 1w2mbE-000000084uP-3dv5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 08:49:58 +0000
+Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-50919fc3a14so76103901cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 01:49:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773823795; x=1774428595;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tqPUDw6RZ7tI/8SbuWaBeZ31o+A7cvn/glmx6dclWwI=;
+        b=IiEW5Lb2RkBfnJravCbpgsJMMy+sv4E/F8ncoM8KWGQsD4CS7JPUa4RX9Q7RCOxH43
+         d/DWL9L9uWIoWk418rU4EGdYvOgPuXNTVBMgocO05bX4G67Ttq+rd4DJRD+Nelo3uXZa
+         RwQr8L1tpPpY8HH75a888Nkl9bMFB8PTOW9EmU/WotN0lb/Ik1k2tNeASvxA2F1nbnsR
+         i9QGWM9BTAziS2OyeEaBRHGM8k5UybRFNwTGvTEMAV4tVUagAOZXyCUZfSUbw+zk3BO1
+         igjVBprVl+agXlJwTtOLMZyXG75JPfNt5ebg/SK+HgmisETDC8ENe9uzklkDxrElA9gR
+         9ceQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUHB3YXFTDCle3yyuXX5dbhx0OxrMyaBz6Sg9vrlXSXpfzA+6DNzAzaxOC5wjNxK7ZcGQ/fKaMT/5K/oToQ2sd7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz444G1vRF1XIY4cohvddmvq1lB2Qai6psPsrfYkqO4VVYQV59/
+	m5goze5SOOuYhgc2OnJNQiwU/9PopN2fUh/w2vdWjWDkKb2+1+oIWTuvlEczZFEx5wk=
+X-Gm-Gg: ATEYQzzSpGY11PcWtG3Y1G3QGj//40BruJetuq8vFmsLuU8yTExiNABNiiPtWC6wu3+
+	5fQ1Xi15Egr3KZdg4pi0xra5uMmKz1G++ALEt4bFq3Bno43OTBiCrid0ilZz8ruF7g3aPHd5FdK
+	P5VioIIIW2bh75QuVoRLE72hrhyMc+17SDtRb5LoLz8+obvlX8M/g7G6nUFsBw6eS76OU/6uDDj
+	W8lW4tswTSgYL2+lm3cgzL/KIL00Lg9+ED8y73CuVF2e/mungRMGKyyXDilYgd2NtAFIkEGX+KQ
+	FxjsAnXggUYHj6oQOgs4Wu/4JNyOM2r72zDBZkU9lkSvxfjQi26UJyAGFd1BZei/Mmy8Ghaqc8A
+	rtBVGrPXrYRAP0RXEypy1c2kDd8EDJUNQ3T2IXiO9qvwbOqfVdBHKvEK9+xxWzW3AzS4aF8qbPd
+	urYqppWWd2NBFU3wAtB6rSYKs5/3QDA4fQBClb+a7ry2ktGmzIvzeK1rnYGQi3a1zg
+X-Received: by 2002:ac8:7d14:0:b0:509:3a9b:2b18 with SMTP id d75a77b69052e-50b14745275mr27835511cf.4.1773823795112;
+        Wed, 18 Mar 2026 01:49:55 -0700 (PDT)
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com. [209.85.160.182])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50b134ac5e6sm16483591cf.11.2026.03.18.01.49.54
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Mar 2026 01:49:54 -0700 (PDT)
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-509046c5c7fso82101481cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 01:49:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVOEIwuN46+pHKQKtwBr7IkonHDMe0fukLKRfulMHRKlOkKpD+JvzTOzxenVFReV3sLhWlHYz8ZDl/yjCZKmf4P@lists.infradead.org
+X-Received: by 2002:a05:6102:5087:b0:5ff:e39d:9f9b with SMTP id
+ ada2fe7eead31-6027d159e7fmr1126209137.16.1773823315107; Wed, 18 Mar 2026
+ 01:41:55 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: JH0PR03MB8617:EE_|JH0PR03MB8309:EE_
-X-MS-Office365-Filtering-Correlation-Id: b390664b-b52f-497f-2dd6-08de84cb421f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: vXJKkFQQeUVuJYIDO56+FaKXfP1l0lfCCy+R+OcwUCAQNcjhQMZnz/0Hq4etBv5ycsNsIGAj6NzREkpcew/gXwpv+NUdpp2Butt1v5iVbAf0hzFAicFLc6STA/WvpaJqvo+vf3vo/gYnUi2qIXFonZlsmjnbPB9Jkqf2+D32lZkyrzlxEQrtTcLSmfj+lO05ECD66TXUSbDbb2GdS1kNaGBsQChxUzm2mwzAaJ/DFEplgzwVN2EJDZwEiNcvZHA5M5/FOVbser/qfp7dHof3RcPzXUBoUd1L5x9NhB0uUH9jCIdw1XlgdBtwzqnyqKKSagFyVJtcqj/688c0In4K5XgYAxeVRmXOedOF3FVqF8IB2XKAO6ws8oTZwBhOqUGdZ1IfqhgL1iX+Dr1DWz0We0s7VWjeBX0kPfrXoVCUPVAHz2D7AcWERMX+/TCVHSwlHnLUgTCK9p9teGK4Zpy17eZCK7W8ZsWdIJqLng+R6EGUB36LLeVfxQhCPvrZQlkYmkXA8C9gZhOmXI/0GghkNWkVIP963a3C3EsyfqBAuE7NmtR3xbWSihaX1kYQt8xYXw0Aw5WK6KODJtIXHv6r10wP1roUc67VPFfEuR8mS0Cd+V+EuJ6sdP9hrdC4v/Bect4pHjDHgfJEu6gjRhjul3JWYEwyfM3uOc1nCxfMIhyVFE66GPIonMD/zFqFdVFk
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB8617.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHp2d1ZGS1J2bFg4TzVJQjcwS2I1dGlHYlp2cmNPcVJ2OCs5TGhtVlgxb3VL?=
- =?utf-8?B?TkNuelpiTzBaTlhXNzE4ZUt1YnljenlEREd0YW5ZWEo1bm5GZVBGclRJUGpB?=
- =?utf-8?B?NFgralpJNURzaWdYMnNNdFJEaFBSTUZwa0RjNDZBWEk4cnFYZHpZY3VSUWd2?=
- =?utf-8?B?TmxZUkd5WEVkTVVOb3AyNnNxS2p5bW9zNE9IdzlqWUhiZ0w2UWlYUHdaTUdv?=
- =?utf-8?B?QTIwcWF5bU1IQytoY1N4cksyNWIrUnVjcXBUbndsRzFPY0orQkw5RHlEWnJX?=
- =?utf-8?B?WTZJb3JsWERnZGJqNFJERnVGVy9DTGRMYm9kTUlGQ21xSWVFRFNJb3Z4cnN3?=
- =?utf-8?B?NWNmcmdEdmpScDRxWTl3QU1VM2huNURJSFBnTWxNQlVYcWpBOVJ6dFpyTVBD?=
- =?utf-8?B?ZnJRckZxWmxySVh2Q1J1bFZBdmhMYmlvSUY2OFhWQXdhQkFQSW9tSG0rdjdz?=
- =?utf-8?B?TTJMaGNXNnVWUStZZ3ZneTZJNEo5Nmd6bzdEZFRnOVpmbHgvU0JZV0ZLZVJP?=
- =?utf-8?B?ay9pQ1JVNmdZOFpRVVBHNXBPRktuUXlST3BoUW9aNUZtUFNGbkR0OElTeTR1?=
- =?utf-8?B?OTYwNkROcU51cm9MNUJvU3BZRXlaa3g3V3RVeVVIQW16bU0yeEpDSDlvNFZB?=
- =?utf-8?B?TjhBVEwxN0pOOHQ0YVNRMjVObGdTSWJDMnBXRWp1V0w0UVZyMk9lYyt2MzVH?=
- =?utf-8?B?Tkl1TWViOGVLelUwa1BINjVSdUxjcHR5M2trbGFZK2Z5S3B0K0lRQ0xvRHNn?=
- =?utf-8?B?TlZkVnBtVS9pblh0c0IrM3VjRTZ2Q0FkMUhpdjBtVkJKN09TM2Q4cFp4QjdH?=
- =?utf-8?B?MmV1OGczVnQ0N0RsMjFEWEFwSGVVTG9TY0dQNFhXL3VOenVSUkw5LzJCOThR?=
- =?utf-8?B?THZEeWx4MlFkK01PU3d5azBrOFJvVUVjekNCc1BoRUFmTWhTWjJTQnpJVWR1?=
- =?utf-8?B?Q2pUUjlZaDFoZjBHT1JSWEN5VFI5WDRIY2hMQmNjOVRPRzdLSkFyOUI1bEZD?=
- =?utf-8?B?M0FHWWh0QUl2bVpkYmlqVUdYK2dQaWpGaFg0bGZDMHE0R1gxLzhXNmYvRW5m?=
- =?utf-8?B?RjBKMUNqR0U4bXpodHloUzhPYWV1MWRydWJHbnpOU3J6eDk0TE5JUjJPaTkz?=
- =?utf-8?B?K2pLNE93NldXSlJJeGszaUdSVWhnQVlRU2x3WkpIUDlVQSsxUWpRK3M5ZlM0?=
- =?utf-8?B?L2hqaFdJS1ptMUVtTzdyZ1BJZ3lLU1B0OTdDNnZ3WnNJSTlKenpUaU4rTC9p?=
- =?utf-8?B?dG5HTGgrSnpFM3JKVXllVGJESTVWdmhpdGpVakhtYUpZbWI0NFptZVZ5VzhU?=
- =?utf-8?B?Z3RaVVM3dm93WjNvT0Mwc0JJZEVybEs3dTE1OXN3a20rTXdmU3gxVmtpbXEy?=
- =?utf-8?B?SXRLSzZVK2orRTZZTGlWRmJRTVlqTWpjeXorT1JwbkpsaU5TR3VwSE1Kd3Nt?=
- =?utf-8?B?aC9xeU9iaVEvMHVxR2pHYjMrL2dDZE4rdHlXeXpaNWVFRXZmOS9ydGtITUlh?=
- =?utf-8?B?YkFEUkpFOExreG1wYmxWQWFtd2VzOGdqSndablA3bkpPZ1ZvWWVNeWhNSkFh?=
- =?utf-8?B?dC9yVE5JSitLbmM1QmtjQkl4VHRJNDV6WjNPcEFyZllQME1DUWVYdjM1VUFE?=
- =?utf-8?B?MXdDcGEzMG80RUQ3WU44bGErOCtuTWNwa3hDWWZiWS83bFVBV2dGS1c2Q3Js?=
- =?utf-8?B?b3RienR4VkxBQkUwcTh5MkJxWmxremcrenpBMGtROUhhUzdlZkpLMnRZYkQv?=
- =?utf-8?B?V2pUdm1jR3dwcjF3K29GOHM5d0ZNRnhkaW1mR3l1cjFuQU14NW9CR3h3U2Ni?=
- =?utf-8?B?K0hCdXhBVXNpNTl3SnEzUnA1VEtxSzgyeUNEUy9xWm5PWnVodEY0aFB4cGNG?=
- =?utf-8?B?Yld0VkdPd1E2M3lLTGFmbHBKVXNlVDFna1V6WEROd295dTlsTnRnRlJLSVlD?=
- =?utf-8?B?aHVENDJtRlVpSG9pSW1WZzV2cXlXUm5Hb2JMWm45cDk1UXNsOUY5a3dVSjFV?=
- =?utf-8?B?dUNMNERBYkUzT1Axd29yRE1lS0RtMHA2WnMwWGV5bkYrYy9KRFhYaHdTZ1Rx?=
- =?utf-8?B?L2ZYQmxxS29lbWNLYXkvbWVnWFFybjlDdzNvQnI0c0NQYWNUdEV4Y2NMNlkw?=
- =?utf-8?B?VEFDZTQ2eE9Ha2tFak1kQldraVJnaWpwVm1XSHZtU1Q3REUzRDZ1OVdsdVFl?=
- =?utf-8?B?bUlSL3NGbm5uTC95ODdpL2RONkEzRlQ5WEpFcEw0dW5vMVdZd3RnMFNYNEpQ?=
- =?utf-8?B?UStpMVoyeEl4TVlmMnR6OXZpeVRUUlA1S0N1cENOaHB4VEpqeUxsVGtLY1Qv?=
- =?utf-8?B?YXNMQXU4cTQ5VG9rSkdhZTdYTzVhZUdQb01SZmJVZ3ZlRS9icjZhUT09?=
-X-OriginatorOrg: wesion.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b390664b-b52f-497f-2dd6-08de84cb421f
-X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB8617.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 08:49:25.6515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DaysMk+Jkvm3yOgdESqy9TTjJX7BgjcztRSCoWMTRcjpw+ByHh7KERMr1jFHuQUEredUQL9ka/mfPJ2xb1u2tQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8309
+References: <20260316154159.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+ <abkCPU3rxHI49N4_@shikoro> <abkD-VLprcbbEbB1@ashevche-desk.local>
+In-Reply-To: <abkD-VLprcbbEbB1@ashevche-desk.local>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 18 Mar 2026 09:41:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVX4tfko8iv-EdwO-bBcwCd+cPkb9aP8qJbcM1F4zdz4g@mail.gmail.com>
+X-Gm-Features: AaiRm52_MgNfiAr79FL-62Ac0xXnTx-AfzVYThIE_IN0tF6AadQcPRzCkdJNUOc
+Message-ID: <CAMuHMdVX4tfko8iv-EdwO-bBcwCd+cPkb9aP8qJbcM1F4zdz4g@mail.gmail.com>
+Subject: Re: [PATCH] device property: Make modifications of fwnode "flags"
+ thread safe
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Douglas Anderson <dianders@chromium.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, stable@vger.kernel.org, 
+	Andrew Lunn <andrew@lunn.ch>, Daniel Scally <djrscally@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Len Brown <lenb@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Saravana Kannan <saravanak@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	devicetree@vger.kernel.org, driver-core@lists.linux.dev, imx@lists.linux.dev, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-spi@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_014937_783649_D0CBF4E3 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260318_014956_915617_8AE3E818 
+X-CRM114-Status: GOOD (  29.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,38 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andy,
 
-On 3/18/26 15:56, Krzysztof Kozlowski wrote:
-> On Tue, Mar 17, 2026 at 05:07:30PM +0800, Gray Huang wrote:
->> The Khadas Edge 2L is a single board computer based on the
->> Rockchip RK3576 SoC.
-> <form letter>
-> This is a friendly reminder during the review process.
+On Tue, 17 Mar 2026 at 08:34, Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+> On Tue, Mar 17, 2026 at 08:26:53AM +0100, Wolfram Sang wrote:
 >
-> It looks like you received a tag and forgot to add it.
+> ...
 >
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions of patchset, under or above your Signed-off-by tag, unless
-> patch changed significantly (e.g. new properties added to the DT
-> bindings). Tag is "received", when provided in a message replied to you
-> on the mailing list. Tools like b4 can help here. However, there's no
-> need to repost patches *only* to add the tags. The upstream maintainer
-> will do that for tags received on the version they apply.
+> > Thanks for tackling this issue! I agree it should be fixed, just
+> > wondered about one thing:
+> >
+> > > While flags are often modified while under the "fwnode_link_lock",
+> > > this is not universally true.
+> >
+> > Is it a possibility to use the lock in all code paths instead?
+> > Because...
+> >
+> > >     struct list_head consumers;
+> > > -   u8 flags;
+> > > +   unsigned long flags;
+> >
+> > ... this change costs some memory on every system. Maybe it can be
+> > avoided?
+>
+> How much memory does it cost? On most 64-bit architectures is +4 bytes,
+> rarely +0 bytes, on m68k it might be +2bytes. On 32-bit it most likely
+> +0 bytes. I expect that 64-bit machines will cope with this bump.
 
-My apologies for missing the Acked-by tag in this v2 submission. I will 
-keep this in mind for future patches.
+On all architectures with natural alignment of pointers and longs,
+it won't cost a thing: struct list_head contains pointers, so the
+struct must be padded to a multiple of 4 or 8 bytes anyway.
+On m68k[*],  it will cost 2 bytes, as the existing padding is just a
+single byte.
 
-  As you suggested, I will not send a v3 just to add this tag.
+[*] Iff m68k ever switches to 32-bit alignment, there won't be an
+    additional cost due to the change of flags here, but of course
+    there would be a cost all over the place.
 
->
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
->
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
->
-> Best regards,
-> Krzysztof
->
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
