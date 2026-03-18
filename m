@@ -4,155 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB88D10854CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157C410854D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xs7DP/RKnl0T+VsWS91gTicWLp+3tV95HydZ0TPLAY=; b=Q9Wx+qIqtfSjXOSnXXb0sPXPmh
-	boP/WyUJ4Ixm2CM3NQCT07JxavBMXPoz6KifaRc2atzGdJJq5/YiTxklpW6+1Dp39EtRM9Q7yqvr/
-	aKYfzkZFLQJfLlpaSonN/elTWxD3ha0cnTE62+v4ESSUmVTFAHnBSltyUmYtntJONuHnm/JOg0s/W
-	j9LRt85AjxN53cs/2SI8rMeJAQx6oi+IRCtFTo4R5+BbSSKiTA6q8SJcp7IqZAxrz0knBdMN60037
-	oQD80xIdjkUlnMSbGrVLveS+oudj0UEDcYZPAverzUfKLq0SlBtPmjvveUrTYFLyVCCPnvPznKN6Q
-	ay3Ftvsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7+rVGXyaQyBmNIAWbftBL/gvNjWheiHYCdhw75eBY68=; b=SfGGpC0GkZukrVgGaHYWTxm7Hx
+	OYJkpBjdtupsqK0CY5c5F5v9Zpo6oMZ53ipUb0Hhy8YrOpMuIBEqwoNsWQKSw1lUq2y9B9/zczUla
+	y7JT/EjU8oE1t4slT9fbz+cHDvxAULU/hB6O0e3db0iX+yLp2SrxuaE+i2wVGn2f6rOTvCHpVneRO
+	sOB0brblbUuDs/WSpd2CG5WamU09U+TUHIJq6Oy5l+IwfTsfExCE2IayhvKC2QjM8G64SBbH4iYS4
+	fJ1OHP1k0n51tLFwyGlHkWghTyrc3Nd9xh0iBIz4v9JC4NZ7pEDecAxR6ZaLUxM+cfjbMv6shq2rU
+	lFwafukw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gnU-00000007cI2-0PEw;
-	Wed, 18 Mar 2026 02:38:12 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1w2gpg-00000007cYi-1gpC;
+	Wed, 18 Mar 2026 02:40:28 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gnS-00000007cHQ-14mQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 02:38:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kRHmipe1ltwA9DPxhxPXtgnesaGYw4o9j9KWQGGBSIdNDsUHqJOJj+9sptQbGQlyB4S797TyssliCGnDsBjUb/tPJvxtvopO7xyBL/nWHTx5yPsx6PAfDD6EIwd13pyqBSkUxbAgQIDw7r4zMbh4BVe8vMJt4nKIpvxjBd6V2STSkoAnM64wMinXJycx8Xf0qYg0Y17XqfBd5+BK9SymfOH3S2ePxLLm7nAnJWzonRjdgx8C5rQRbbq+2nqrHJm4zcWSHohEgcu9ifNZGBtoXj+E++r3HB3MhsP4s/LEcKKdX1vdrepDHHx8BwMcBKgAecF8CPPgPcG3MFzpmLHmjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2xs7DP/RKnl0T+VsWS91gTicWLp+3tV95HydZ0TPLAY=;
- b=lcIBHHIRHGNYvZt8JgHlzpa0TTSqfaBGqPDUCdbEwMOEAy38iug876sawNPsJQiUzKvAicr8TqmAuOW0fCJM41NI+gGwt/TBAXlA/KUxe6UWi95wDFbU7/i01ORHezViHWK0yRoxFUEmGTcngIs9HTFvoZK7HdqnMo73chj/xE/ZrOtaQtL3+7KOJmsmf5NlCk1TRS9TbAUJjQuaH37Cfctnyd0z1j9Zju7dYiIyNShj2IdgrNVqzbj6QM5VICIl2ZynST4Bcc7FMgb/f+N0s9xGMtSI6MyJmZ82gVZsodub0czc6y975F85FsvWSfTtDqSIg+DsvtTcozmOy2BOJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2xs7DP/RKnl0T+VsWS91gTicWLp+3tV95HydZ0TPLAY=;
- b=UI1SD8sg5TcYykUEycToG0qrmZCGTymqNdAGUDb2zM/uaWfUmokUgh1kmS9s57UlNPv8SASVLcP2ptefJF90HyovX9G0a4ps0px6tqTzXHHdC/fn4epnfl9X5kjxQ52MUiI/C7iGv8yRRiH9LLO1IIZScbz3PWMxVG3nzaKxW4eH7jCcL0W6Gs27Df/7d9Ex0wHg0QQPeRreqJZ8YiPwVO0VweaV2aOg729Qwo0q2IiW2FtpLXtIBvLwvuQkXJHrYVblZGAlZOTtmzIkuMJKkBqRwPQLmwN9WvC4M034vsg9TKfzqms/fqZThfymJxutsISlEcbnv/a2a4gykd3ZrQ==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by TYZPR06MB6858.apcprd06.prod.outlook.com (2603:1096:405:23::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 02:38:01 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0%6]) with mapi id 15.20.9700.013; Wed, 18 Mar 2026
- 02:38:01 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Jeremy Kerr <jk@codeconstruct.com.au>, Rob Herring <robh@kernel.org>
-CC: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
- Jeffery <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
-	<benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>
-Subject: RE: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-Thread-Topic: [PATCH v26 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-Thread-Index: AQHcr5GE+hDVSyX/WkC7T78e6kO8trWtIRWAgAAQdrCAAz2mgIAA+smAgACHbICAAAQtoIABn/CAgAAK66A=
-Date: Wed, 18 Mar 2026 02:38:01 +0000
-Message-ID: <TY2PPF5CB9A1BE67264C727ACBEBE4642C7F24EA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
-	 <20260309-upstream_i2c-v26-2-5fedcff8ffe8@aspeedtech.com>
-	 <20260313232125.GA3618633-robh@kernel.org>
-	 <TY2PPF5CB9A1BE6A19D439C675AF5028C13F242A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-	 <7ae8222bf6abd83a3c2ac976f54a2edbe4e9727a.camel@codeconstruct.com.au>
-	 <CAL_JsqKQp=HyA90rQ2Hzu148k63k5-qrGLH6sEHXNcjAu3QSwg@mail.gmail.com>
-	 <eeac1db0a5692ae45b5528a85ed1510b8b1cf771.camel@codeconstruct.com.au>
-	 <TY2PPF5CB9A1BE6EAA73D3AD6F75F1ABD53F241A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <071adc5f76b71b3e8d2691945e7b178602b285f9.camel@codeconstruct.com.au>
-In-Reply-To: <071adc5f76b71b3e8d2691945e7b178602b285f9.camel@codeconstruct.com.au>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|TYZPR06MB6858:EE_
-x-ms-office365-filtering-correlation-id: c82201e9-7505-4097-1858-08de84975fab
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: AXOcYbgbEmT/sVBk52GVOijusd65oEo9XkjcrYz5gAdJCytDIgxkDJymkBQww2A3nyQDtDol72olDBDqu4zPLCBNyh9lVGGkwC2u/zNxCRoazfuoOhzeA+SsfrnlGBEuiJ6dbbhtMY9Zd8h6zYyxCHFvkQCRurueO2pzIn+EOEXSb800HjesZq7T0gwoZuQcNIdKDQRW8TfHkaPLc4P6Q5CINTpCahTBJAeX/2uqC1q+QMEkIMgUTqRQ2AVWerYozJRLMZlWHTmQ4zc2RP32cWbshyr0ui8qiVIFGZbsb3ED7+yc/N30M1XGVIxTk3vNPGTPNhdzuScoNdim7rxIbzBEUQDM0nFJL3e4+UkXWueIg8VaizieMN/rFEQVVFOy+fnRWFRe5jAsfvnXtNESK2/9k4gFgDe9K2PFSHTgRH6y+Cupbl/Kbdb2Hg4AX2BGN42pjknvmeF98QfScO6qplKc57vM6B27HpgqjYdjoMgmSve1PVrCUD2L8tIDHvJrotCWVZHGD2VSz6Y3Y2irELHeTrZ567Qk5BgSre6K5S7LfzNyYGzUe9msTFTEb53s5qZoUtvWZrs+4dMJpLKgsUQhYw/Y0a0R/WDIl6/Y2K97SyEqpfNXEuKzTROmYwNSbWIIKjWO8bw5UrSWi0E4+3MyfhCswKyBsqR4CPaDwq2g3NcDxFHfgaKr4fLcs/PJN3hbnVQrXPbJkbRmfWsyrLMRinRogjHiQhSYUdFR3GaniQsyvEbGLGsMZG2MKfrUXl7wXv3qmzt+uAlzlgCWKe5vzb+AKHdiQ1pHSCwBKgo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WXNUQ3NwaGwrOGJsUzlmZ2lWajlCWWh2bmgrcnkvdnBsQ1RiT3ZjdmEvMTIw?=
- =?utf-8?B?R2dvNU1yUWkyNmpzOHorcHExVktFdHBNNUgzMjhObThnbUk2b0VuNWhDS1VG?=
- =?utf-8?B?Z3Z0SGwrcmVIVEpaUzFrWm13QmYrak1RRSsyb3dBY0RPUHI4b2FHYVFncExY?=
- =?utf-8?B?c0FkTHk3WkhwcXplK1JFeGk1Ny9sV1ArYmhTZGNadU9pZmlkdkZLcUhTYjg1?=
- =?utf-8?B?bkhZUHZnTCtacWtrUmJhVTdlR0ZmSG9hSmI3WS9WQVdrK3R4aHExemYvQ3da?=
- =?utf-8?B?VTNVY3duQVV4Ym54WmozMWhJZzg5UEFSMlJ6QmVhNGlqMW9YZXNZUjdVWUxn?=
- =?utf-8?B?WUVSVnBUa1IvcHlrWjNmMHRpSk1nWEtpUjcrUzloejBkRXhFOWIrVWh1dVBt?=
- =?utf-8?B?Mm5KZDd6VERSUWdtQk0xT3M1ZHRqczQ0QjVnOUF3d0kxLzVaQ1RqWm1VVkQw?=
- =?utf-8?B?MEgxRVZGUmVVY083RnVuRFZGcXpaN1kyOFR4UFhLa24xYkFER3dYZ1RPMVhh?=
- =?utf-8?B?T3lWWHJlanhpNmhodU16dklucnk2QmNYdlVaOWpPRS9CZU5mUmFSQkhHcUJn?=
- =?utf-8?B?MndLRjJpNXUyZ25ZSWlWTEdjQmQxbGdBQUVCd2E5dm9vcTJNNDVWZS9XdHRY?=
- =?utf-8?B?ajBSYlplbHVhbXdTSUFaM2dwQy9jZ0xRaFZNeFRsdkVyelZxTnFtY3c0bXZr?=
- =?utf-8?B?aWtXM2RhZ3V5OVlaQUdNNGpVL0VQOHdydDA2OVErTkcxR3BmeXNyVE5ZOE5a?=
- =?utf-8?B?d1VndDZRYnErSi92TFVOSU1NVTdnZE5BeTMyQWVSYlRRZTl0YTdJOFlJdEVV?=
- =?utf-8?B?Q1RrRFI5ZEJyMHhvR0Y4cFNRbFh2bFBzdFRNSGs0TXlTOFhrbGtuUTI5K2lU?=
- =?utf-8?B?RU5NK05MMFVFdTZTTGl4K05GTmtOb29JSDNrMG14RlZmaGtXNGVzMTBmZXIz?=
- =?utf-8?B?a1hVa0o5WUl3bkJqeFg4TEdVUGN6STdBQi84RlhvQkliaEhHSVZuckVKQ0lX?=
- =?utf-8?B?aklTbG9CaURVeU5BSVlHRDRzNDhibHpoQkJWU29ZNnA5ck9ibWt1VTg0Rk5X?=
- =?utf-8?B?RXZFbzhlV1ZhVzlwSzd1S2NURjNZSE1DSVlFaDl1UGVPQktsYTZ6aTA3MUYz?=
- =?utf-8?B?YXk1ejBMZ3hrSDI5Qmx1a3l4aEJ5RmJNTWI3K2FFK0c0R01ZUVpiMkxFeUFI?=
- =?utf-8?B?V2JhV05kSHVhbGFRaXgxZXpHMWV0VjZZZ2l3eFNEaFJqRnhpMDdTZGhObit2?=
- =?utf-8?B?QkpBZHBJNldubzc1a01HMlNJUVAyTmE3QWs0MndXekF1eGRFd21SM09ueHln?=
- =?utf-8?B?bFFFbWZYeUJMazBaMTFhSUczdWFtVWtyazArdmdYVTFZc1cwWnRGQnVXYXk5?=
- =?utf-8?B?UXprdWp4OWNPSUx4d0xycnJYNDMxR21LNE9SNG1yV1hUWHNEcjZ0M1hQTjgr?=
- =?utf-8?B?Mmt1OVBQcjY3d3F4dWVBSUFFT2s4YjkrNklDUE9GUmlQWVpITTJUZDVVajMz?=
- =?utf-8?B?eUJRczQ4WWd1WUZnNGdwaFRYMmhTZVcvaXZjVjBRbzdTSDlENFlJVk5PUkwv?=
- =?utf-8?B?T0xSQ0VWeURXY2ZYYzJteGt3NFVrakZSSVQrRVB1RnQ2Q2x6MmN0enBHYmFG?=
- =?utf-8?B?NyttemxzelZtelpnb0FUZDBuSCtkdkkyQW1uTCtFTUpKSGtVRi9PUllYOUtZ?=
- =?utf-8?B?VHZYbUxLU0xKSjRSSjJycXIwODVlbnJOS1BqRkRnQ3p6U1BHUE5lc3QxZUN6?=
- =?utf-8?B?aEpHUStQblZjcExoNzhlZGVnRlNJcWl5SVJlVTFScUZHb3BDeEFGdVRNcDc2?=
- =?utf-8?B?VEZza1BSbnozOHJYT01Ld2ttc1U4K2lxcnFLR0dPVVl4bEM4YjVQMWhHVU44?=
- =?utf-8?B?WmthSC96SVVFTkxNSUZrSGU1aTR3YWFCMjVlSzNmbVlBc3hVMnJBWkV2aHdU?=
- =?utf-8?B?aWdaVHVjWFJ1TzBZQktzY1o4MFlkZ0NtQnN2SEdiUTd1OXBvbE1iNExKb2Js?=
- =?utf-8?B?UzNsUjVQR0kyQ240M2lnTEpkQ0pMbXJWWW1BMlprcGNxODZPOHdwZHo5Mzds?=
- =?utf-8?B?am9FMW1FcFd1cE42NFdrRFRMNzBmU3BJcmt6RXlOcnovVGlzSE1tbDVCRGZV?=
- =?utf-8?B?SVdlVE1nL0JpbkZCUVlxUUJUNW9DUFA1cHk2NVUva0xLV1ZaZWtpcWhEdVZG?=
- =?utf-8?B?cnlpS0hsaFVYeVNiVHptZ1dvMkxQcTNBUXhoOEpsZXphVGp3UytuQ3IyRU1a?=
- =?utf-8?B?cHcxUjNmZGtaaWY4KzBCcElDbW5xYzVhdGFFYnNYWU9KYjBTU0hyQ0lDR1N5?=
- =?utf-8?B?TnkwWnNXeWxpb0MxL2JOSkxzRW9jeFY2VjM3b2RyL3EwMncvanNOUT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1w2gpY-00000007cS5-4502;
+	Wed, 18 Mar 2026 02:40:24 +0000
+X-UUID: ca5e5ad0227311f1a21c59e7364eecb8-20260318
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:146e6b40-c650-458a-942c-932304fc4730,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:d437afc8f93a6362c9d74f3b2e6c92da,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
+	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ca5e5ad0227311f1a21c59e7364eecb8-20260318
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 14098887; Wed, 18 Mar 2026 10:40:13 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v4 06/17] spi: npcm-pspi: Simplify clock handling with devm_clk_get_enabled()
+Date: Wed, 18 Mar 2026 10:39:56 +0800
+Message-Id: <5fa7160ee54fb520d1bae4a610db3dcea7559a93.1773801401.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1773801401.git.xiaopei01@kylinos.cn>
+References: <cover.1773801401.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c82201e9-7505-4097-1858-08de84975fab
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 02:38:01.2174
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JAAfSYIEfWbfgsIK5EHvXLmoDTZzk0IvhFHfi4CwCi+oH4njQ7GAa4YMYFv6hzU1CiHIcbhrGu34nekYA2b5mXetQzM8sOCJ6TrhTe0/xjA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6858
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_193810_306458_0B9A5845 
-X-CRM114-Status: GOOD (  28.37  )
+X-CRM114-CacheID: sfid-20260317_194022_913296_4AC995BC 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,43 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYyNiAyLzRdIGR0LWJpbmRpbmdzOiBpMmM6IGFzdDI2MDAt
-aTJjLnlhbWw6IEFkZCBnbG9iYWwtcmVncw0KPiBhbmQgdHJhbnNmZXItbW9kZSBwcm9wZXJ0aWVz
-DQo+IA0KPiBIaSBSeWFuLA0KPiANCj4gPiA+IE5vdCBhdCBhbGwgLSB0aGUgbmV4dCBwYXJhZ3Jh
-cGggd2FzIG15IGF0dGVtcHQgYXQgYSByZWNhcCBvZiB0aG9zZSwNCj4gPiA+IGJ1dCBSeWFuLCBw
-bGVhc2UgY29ycmVjdCBtZSBpZiBJIGFtIHdyb25nIG9uIGFueSBvZiB0aG9zZSBwb2ludHMuDQo+
-ID4NCj4gPiBZb3VyIHVuZGVyc3RhbmRpbmcgaXMgY29ycmVjdDsgdGhlIGJ5dGUgYW5kIGJ1ZmZl
-ciBtb2RlIGlzIG1vc3RseSB0aGUgc2FtZS4NCj4gPiBBbmQgYWxzbyBtb2RlIHNob3VsZCBiZSBk
-ZWNpZGVkIGJlZm9yZSB4ZmVyLCBkdWUgdG8gdGhlDQo+ID4gY29udHJvbGxlci90YXJnZXQgYm90
-aCB1c2UgdGhlIHNhbWUgeGZlciBtb2RlLCBub3QgZGVjaWRlIGJ5IHRyYW5zZmVyIHRpbWUuDQo+
-ID4gVGhlIG9yaWdpbmFsIG15IHN1Ym1pdCBpcyBvbmx5IGJ1ZmZlciBtb2RlIGFuZCBkbWEgbW9k
-ZSwgYW5kIHVzZSBvbmx5DQo+ID4gb25lIEJvb2xlYW4gcHJvcGVydHksIGFzcGVlZCxpMmMtZG1h
-LWVuYWJsZWQsIGJ1dCBzb21lb25lIHN1Z2dlc3QgYWRkDQo+ID4gYnl0ZSBtb2RlIHNlbGVjdCwg
-c28gSSBzdGFydCB0byBhZGQgYXQgdjE3LiBJIGNhbiBkcm9wIHRoZSBieXRlIG1vZGUsIGlmIHRo
-aXMgaXMNCj4gY29uZnVzZWQuDQo+ID4NCj4gPiBieXRlIG1vZGUgcmVxdWVzdDoNCj4gPiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9hbGwvMDEwZTU1ZTktZDU4Yi00NDRjLWFiNTctZGRmOGM3NWYy
-MzkwQGdtYWlsDQo+ID4gLmNvbS8NCj4gDQo+IEkgdW5kZXJzdGFuZCB0aGF0IHRoZXJlIG1heSBi
-ZSB2YWxpZCB1c2VzIGZvciBieXRlIG1vZGUsIGJ1dCB0aGF0IGRvZXMgbm90DQo+IG1lYW4gdGhl
-IGNvbmZpZ3VyYXRpb24gYmVsb25ncyBpbiB0aGUgZGV2aWNlIHRyZWUuDQo+IA0KPiBXZSBkbyBu
-b3Qgc2VlbSB0byBoYXZlIG11Y2ggZGF0YSBvbiB3aGF0IHRob3NlIHZhbGlkIHVzZXMgYXJlLCBi
-dXQgSSBhbQ0KPiBhc3N1bWluZyBpdCBpcyBub3QgYW4gYXR0cmlidXRlIG9mIHRoZSBjb250cm9s
-bGVyIHBlcmlwaGVyYWwgaGFyZHdhcmUuDQoNCk9LIHdpbGwgcmVtb3ZlIGl0IGluIHlhbWwgZmls
-ZSwgaW5zdGVhZCBCb29sZWFuIHByb3BlcnR5LCBhc3BlZWQsaTJjLWRtYS1lbmFibGVkDQo+IA0K
-PiBbQXMgYW4gZXhhbXBsZTogSSBzdXNwZWN0IE1DVFAgY2Fubm90IGJlIGZ1bGx5IHNwZWMtY29t
-cGxpYW50IHdpdGhvdXQgYnl0ZQ0KPiBtb2RlLCBpbiBvcmRlciB0byBzdXBwb3J0IHRoZSBOQUsg
-d2luZG93IG9uIHRhcmdldC1tb2RlIFJYLiBJbiB0aGF0IGNhc2Ugd2UNCj4gY2FuIGVuZm9yY2Ug
-Ynl0ZSBtb2RlIHdoZW4gdGhlIGNvbnRyb2xsZXIgaXMgc2VsZWN0ZWQgZm9yIE1DVFAgdXNlLCB3
-aXRob3V0DQo+IHJlcXVpcmluZyBhIG1vZGUgc2VsZWN0aW9uIHByb3BlcnR5IGluIHRoZSBEVF0N
-Cj4gDQo+ID4gPiBSeWFuOiBJIHRoaW5rIHRoaXMgZ2l2ZXMgdXMgYSBtdWNoIGNsZWFuZXIgYXBw
-cm9hY2ggdG8gdGhlIGJpbmRpbmcuDQo+ID4gVGhhbmtzIHRoZSBmZWVkYmFjaywgZG8geW91IG1l
-YW4sIGp1c3Qgb25lIGJvb2xlYW4gcHJvcGVydHkgZm9yIG1vZGUNCj4gPiBzZWxlY3Rpb24sIEFt
-IEkgcmlnaHQ/DQo+IA0KPiBUaGUgcHJvcGVydHkgd291bGQgbm90IHNlbGVjdCBhIG1vZGUsIGl0
-IGp1c3QgaW5kaWNhdGVzIHdoZXRoZXIgRE1BIGlzDQo+IGF2YWlsYWJsZS4NCj4gDQo+IEEgZHJp
-dmVyIGltcGxlbWVudGF0aW9uIGNhbiB1c2UgdGhhdCBpbmRpY2F0aW9uLCBhbG9uZyB3aXRoIGFu
-eSBvdGhlcg0KPiBjb25maWd1cmF0aW9uIGRhdGEsIGluIG9yZGVyIHRvIHNlbGVjdCBhIG1vZGUu
-IFRoZSBMaW51eCBkcml2ZXIgaW1wbGVtZW50YXRpb24NCj4gbWF5IHVzZSBvdGhlciBydW50aW1l
-IGZhY2lsaXRpZXMgdG8gY29udHJvbCB0aGF0IHNlbGVjdGlvbiwgaWYgeW91IG5lZWQsIGxpa2Ug
-c3lzZnMNCj4gb3IgY29uZmlnZnMuDQoNCkRvIHlvdSBtZWFuIHN5c2ZzIHNlbGVjdCBzdXBwb3J0
-IG1vZGUgc2VsZWN0aW9uKGJ5dGUsIGJ1ZmZlciwgZG1hKQ0KT3IganVzdCBmb3JjZSBieXRlIG1v
-ZGU/IA0KDQo+IA0KPiBDaGVlcnMsDQo+IA0KPiANCj4gSmVyZW15DQo=
+Replace devm_clk_get() followed by clk_prepare_enable() with
+devm_clk_get_enabled() for the clock. This reduces boilerplate code
+and error handling, as the managed API automatically disables the clock
+when the device is removed or if probe fails.
+
+Remove the now-unnecessary clk_disable_unprepare() calls from the
+probe error path and the remove callback. Adjust error handling labels
+accordingly.
+
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/spi/spi-npcm-pspi.c | 20 ++++++--------------
+ 1 file changed, 6 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/spi/spi-npcm-pspi.c b/drivers/spi/spi-npcm-pspi.c
+index e60b3cc398ec..ae7f9a70fbcf 100644
+--- a/drivers/spi/spi-npcm-pspi.c
++++ b/drivers/spi/spi-npcm-pspi.c
+@@ -361,27 +361,23 @@ static int npcm_pspi_probe(struct platform_device *pdev)
+ 		goto out_host_put;
+ 	}
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "failed to get clock\n");
++		dev_err(&pdev->dev, "failed to enable clock\n");
+ 		ret = PTR_ERR(priv->clk);
+ 		goto out_host_put;
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret)
+-		goto out_host_put;
+-
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0) {
+ 		ret = irq;
+-		goto out_disable_clk;
++		goto out_host_put;
+ 	}
+ 
+ 	priv->reset = devm_reset_control_get(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->reset)) {
+ 		ret = PTR_ERR(priv->reset);
+-		goto out_disable_clk;
++		goto out_host_put;
+ 	}
+ 
+ 	/* reset SPI-HW block */
+@@ -391,7 +387,7 @@ static int npcm_pspi_probe(struct platform_device *pdev)
+ 			       "npcm-pspi", priv);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "failed to request IRQ\n");
+-		goto out_disable_clk;
++		goto out_host_put;
+ 	}
+ 
+ 	init_completion(&priv->xfer_done);
+@@ -415,15 +411,12 @@ static int npcm_pspi_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_spi_register_controller(&pdev->dev, host);
+ 	if (ret)
+-		goto out_disable_clk;
++		goto out_host_put;
+ 
+ 	pr_info("NPCM Peripheral SPI %d probed\n", host->bus_num);
+ 
+ 	return 0;
+ 
+-out_disable_clk:
+-	clk_disable_unprepare(priv->clk);
+-
+ out_host_put:
+ 	spi_controller_put(host);
+ 	return ret;
+@@ -435,7 +428,6 @@ static void npcm_pspi_remove(struct platform_device *pdev)
+ 	struct npcm_pspi *priv = spi_controller_get_devdata(host);
+ 
+ 	npcm_pspi_reset_hw(priv);
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static const struct of_device_id npcm_pspi_match[] = {
+-- 
+2.25.1
+
 
