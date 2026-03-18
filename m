@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A2A10775F9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 18:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E624B10775F9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 18:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sh96NpHK/Gnjs5OHX/qQC171dH+qdnnnJqOoacHs10U=; b=Mn37E1/4Ztvk/Rc02FNCfIjLYc
-	DCB0Vzb8SKu3jmI4Ucal0qfrCuDTo3TGGrbmH+a7YpUQHL+Yt2apds/mKNapJryekhHZ/UVEhtBZe
-	sJSxD0NYo84baKFXhm9mCNwqlAwatL8oGDZqs4wVrr2joscNsQeURMAnPqEHr1ny27nFnHF+FMh0h
-	BtSu3NWpfyZnTK0dmiQrCJ2AWwVF/NXyZoZVD9A3sX9MR4MuwA3jOdQlXezPzhPGsOvSSqttDBpV6
-	5lX6vGBjpRdSZFhyWHPyj0GmctAjks9MQKFzDrGlBRMhLR+EdIfomrHDqB6ImT8XkVYPeVdWa47VO
-	+Y+Mcl0g==;
+	bh=NRxDxT2gnBNASiQ3ruLdElFAagcbSYIjGNtCyJjVGWg=; b=kintO9VJTnnzetgNpRe2JuKh6C
+	63gy8uH8hJ5TvQNIO91AVIXIe0FhAfZsbwa8YEh39598VgTJMTHYYgmAZezU5jCs2LnUFa/2yCEJi
+	Cf0GAxbuwaFqCBjZ9j93dbH0euea3OxCrgrrh+i6By9q0/8fWqkU0JUUpZUl/WsNfxJ28O1G7IiKd
+	bFpOGNohKmhl3JvLgTnZ9iH+x4r4VSUI4SMuc0BP55+o2YQHkK3YmFfj509DYOLUyg5fQHz7d8Xiy
+	IWhmtIqbu9/jN5OxuGnSnvDMgkATgIgto0EsjPyeQEOjFPMOoPX3ywbLAU4LVy/XP2/KtJJzqeNvv
+	t8WZM4Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2vUi-000000099ca-0bzl;
-	Wed, 18 Mar 2026 18:19:48 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1w2vUn-000000099fI-3eIo;
+	Wed, 18 Mar 2026 18:19:53 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2vUf-000000099b5-1y1g
+	id 1w2vUj-000000099cb-2E9V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 18:19:47 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-38aef9cc451so1797861fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 11:19:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773857983; cv=none;
+	Wed, 18 Mar 2026 18:19:51 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a13e1cfa45so141034e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 11:19:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773857987; cv=none;
         d=google.com; s=arc-20240605;
-        b=EZizhYkZ4i5UXuII/P+p7ETD0BmXWTxSv+DelE/H54dqYxih56bg9Hc0asXIrETuHe
-         YowpcoaNQHbAsrhN4g8zB/OwsZF7Eh410W+HzLNWEYCSQ3tDjttZ0vlgdphAhyv5j2KQ
-         pV7yLLphnzKkLTd000hmWIbvRMwF6rFpcHzojevUPq54hzODsqr+r6OY485yNz4tTzAE
-         LXsvqKud1n8TP5H7QhdMFBqnYo9Od5su1Y3HV5uZSuj9xj/xVVcpb91iLqGQm4zgXi8G
-         kFdXeT8IlnCgmeHsKcoRkSyKte4BQcRjoswY/IUBc7EVt5DkbYqO9yRism10WNArAiFv
-         1EXQ==
+        b=cy1b7XXnFOkFmF6qwqbl3kBznCad7BDbUNx1PhzevV8xzkelv+Nbh+zvrrBeI8fytB
+         LtSt8ffQvk/EOhfqewTZjlFRkAyo1ba4T7kT7Iy3SxfwRRG/kRH6etJQshiYEdUP85AL
+         hVp6iue+67jpBLE5VSoVgZKT12askK27PMc6iJzRU4QvdLgYIGDloA3RZoWmqfOnw9IW
+         YpVF9dill3QhQVZ2fy8k4l7KDP0nlslmE4v2twnbNg0xJLjrbKAN6L/xBEnbvO6QNlKL
+         Gsjd2nsUrM6RtjiwBhoL47IC+H7G8JFZRQWUtktU6BAHXeHlzA/s1qegOSFC9KcequG5
+         LmTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=Sh96NpHK/Gnjs5OHX/qQC171dH+qdnnnJqOoacHs10U=;
-        fh=k99boDh8zFiE3c4QGEjDkpYvNOD9Zuy/naLnSaZRh6g=;
-        b=ifsCE4/LuNJJwtA2DtaysV4p8O3Rkl3ed9lW9qn0EhQjDx37i9TLQY3wakjw/T2DKq
-         nY1b697xnT+kuuZ8g7V1/Fr/ul7i1/JDsjgYNYoO/QvtLKc6iWMxzggzt9lby5IygiRc
-         +0hSN1WxDpldrbU1PNs5D7p2IatTvWIioILkL0Ez4oIQvkqJQH0mhlpNDpyGGT8Tf1vU
-         g6A7KV00rraIQYZicNqrCcAhoQNen0CnUZz7i4BAQTbY66SdpqYARCwGCHlUKEIgtlay
-         4RMG0h8v23RxFwunP97SFQrJal4kX8VmWUbnC1SEvboCl9IANL37DUVtZurI4dASwwlg
-         mcuw==;
+        bh=NRxDxT2gnBNASiQ3ruLdElFAagcbSYIjGNtCyJjVGWg=;
+        fh=PiFLHijtSNYA2zHzZYf6Rp+32b89Az+FvoYvNaowxVc=;
+        b=l1ZHUpQjuN7qqlkKuMbjP87Xu+gdWpLJ1jgIxtBD0Dwkruqg49AMrg7/D1nC+/T7KQ
+         ylpcbF025BpoAT9fnHjnCCjSc6OkTqYMTmogw7j7zWq26zwq8O4mTNXon+0Mxzbx6t5d
+         4QmcBiF/tsMFWyzDUx5Lj026wvRhJ5jAP1zFTlw+XxVuTfN1PbpFBF0JeqtdSYLEC8aG
+         43pblWqdJilWQR1+mxPXeNe47IwINCo8azZ/JvF4w3jvzhpttfMcSv+7VsZUDqJ8lI97
+         /WWb5nBtD0K8THFhsvnLXFAPMFBrKaM4nRDzecS49r7UvIt04fJTNu00VW3fiTdDQawI
+         Si5g==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773857983; x=1774462783; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1773857987; x=1774462787; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Sh96NpHK/Gnjs5OHX/qQC171dH+qdnnnJqOoacHs10U=;
-        b=TuKkjdXhYjA5JLkOizwVGTR/vQNRDGzMlBqSUfnSHmB5DWh7YAawmP3n29tG5K3o7t
-         IW4smXsMGrQn2imKvk7oa/1wF/jKwscReeP1cvHIigvkO1rvpPuxvTl6X1m14OgwzVg2
-         6zFcEXB9YOXmZeJUrVlEUXNXi2b3YEy9Pi1OW+YKn/zgj5M90T1MFfawHMYAuNGLtp7p
-         qH8ClzVl+0ww8SWusZbWOXYHn6ZHAJJVWTFUQ81nePjHXcmGM57z55xbM4Qe6XuXhul2
-         OtygvSNC2xtUWWxLb8VyPZV78M/33wBVOu3ZLgdIaFyzpOKL77xgRhkYfyC2OIb+AJYQ
-         b4fA==
+        bh=NRxDxT2gnBNASiQ3ruLdElFAagcbSYIjGNtCyJjVGWg=;
+        b=AzRApSDyZZ2siapSKjrEpxXXyTblvu7iwGgecTyyB0re6ysVWQ5Gzjex8cGcsDhpNO
+         DQOmsdLzf5dmT05A1u5vHgOeZgzNIBEDvmU0vDklmVN7iDLqbttx9HPHLNNpfg3qXUDm
+         3AaCHvRR97/rJINf6Gt6FSene2dB/M3Zs/zC22uhAkGcj7b6K2dDtVe1mUCJIQuQOjlv
+         bc1XhYWdBBLvq/tcKCbL/2BBwu418MuI5YvgkuHXqM2cfs6VfRHANBD9AVH9zRjjwkjX
+         /367fc2Lw90cQ4+4cqRGXQEiigjmMym+pZA7oNYGmhP74eWs64dfxSb9lWLVqUuKgpvk
+         fcXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773857983; x=1774462783;
+        d=1e100.net; s=20251104; t=1773857987; x=1774462787;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Sh96NpHK/Gnjs5OHX/qQC171dH+qdnnnJqOoacHs10U=;
-        b=pxMXNpj+6fw/8+drS4Rn0rMLI3qsQeR2GymF3DS+XNrgbGXvEqQFUGDWYH79/JpBGS
-         kDHbZQT2stai2F4U2ydYyT30ZhkTY8E3rSCkYTX8oCBePKmB28I/JqM28UIPCFWhLUdS
-         b5191VRODn5sdTYpxc2kS/fBbWVcRr2WcDL0GTiz3EWSHU6yDij4Fvns6U3kV0CJQCaK
-         I4n+M0kWdVSYX/qmHE6Zf1TAercZB2AfTLn4Y/Ctbgn3bvadPA9Cwso/TZfLSNGMuXrq
-         a0qqsikoDGEUfjttVCEsHTi5xyEBlnx0larSJICpH18f4kDnQTwTb4M7gW/CwdM1OsSF
-         pzvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVh41KNAPsjpQXBWvpQU49trsELh7JbtvLilh+2aYHkWfFw0YGgxDAuoOA/lg50funx3v94JRovYUYPNB72tFtK@lists.infradead.org
-X-Gm-Message-State: AOJu0YynYPVmHK8BDFb9mHdFpxPj58vDv1lHqXpptnGA8kR9rH4Q9MsT
-	Zr6Ibgsi+NLhFXwqqY1M2fx8w6jw+aNNR7+ZAZdqm5HGn02ox9QIq2uYEhd2nYyvMAAo7P6279I
-	yLkAZBdn3K6KQLk2fhCgEqMj1//MM4Z2yeVA9L+/fbw==
-X-Gm-Gg: ATEYQzw/irIY7/r7ZRlRe9rNDbi7EsKlrqsroqH5sKlzebgrOINCGjhGRXK4QPf8MOM
-	Oy9DjVQPOacoWIDScmaaFlc01sJP0Ez3kxkXEa2mEOnMEwW7t5ya02/oFTQjr0XL3KvJUZI+sNn
-	Qi3gwkHJBtY6CaE8T2Kq/Fzg21jxG+7SqQ5Td3nBEI2yxP1MDlNjuETPoqUBF7V1GYx78RMR3SE
-	N8IIAdWMZjH3Ycg3jWNW0JZUbPIYOuwwExo0MqBuHjk+Qk4RLhrkdIv0efSONVcLAanN9WDeXGu
-	ieF4L05f
-X-Received: by 2002:a05:651c:b23:b0:383:31cb:e3ae with SMTP id
- 38308e7fff4ca-38bd57b7f5cmr17915201fa.9.1773857982777; Wed, 18 Mar 2026
- 11:19:42 -0700 (PDT)
+        bh=NRxDxT2gnBNASiQ3ruLdElFAagcbSYIjGNtCyJjVGWg=;
+        b=Vp6/SX1gmkiSu7W5THeRRhvk5VBr0P1twXweEUSpFlJMo+AiI48tdik221qco8OyqM
+         pyptyfu27wYLWYDGaxXcvqzJNq8SIfjC1nNwQmgtcOV5f2vAZkfaGm1MHqjBEDdQj+mG
+         XUlKlYpijx3zl/eav1MVz5TDH9YphJddio0KGu2Xk6LqY/JrfYYIbZDf2R9glzVUum/L
+         ZvGvu1i0r6l589henmgcI0o4wfH8Mzxxio2iu253vN89BHcOe/3RMVde2dIwX7+SUDLv
+         jcrWlnuwwXUBbDl9VfovYb7Dyhx7vkIqfbqkZRhXADF8AmddIgCV+aA+pHESuY3me529
+         izZw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7mulIR+jrOuYRLko2AJZjxKtsJBPgMjJ04tYBacIkgO6f3whwyR49WY9A9Yw66mBwr21DLl5gL+Wxu8HunXXv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDnEGhRlbCcWbPmFrqyhNQLBoj3lNduSASjkJRqJJ/jdiiup9O
+	VHFMJP+rpYS5HBsfBxOCESGsfk++Tfc7SKZRrvryeIpHLNBLXfN+qTQ5tddohp5xbnBsnPFOD1I
+	mluh7k1caiFghxA0ehohUgdSwz+vVtrOdTXjkVheT3g==
+X-Gm-Gg: ATEYQzycMhlGR1brsF+9NeBbJnuqVBwQTM88jB/2D/jf7TOyEUwiuv3qubiILUkcChI
+	jeUnS9wFrt53v9ktCdF8DdUI6spfSBJVk3FZPVkoO7MvfC43fmusCY4yToZPrNSLoUBO4MR8uFy
+	mIoEZY12unzSQnVA70qYvhfJ1/v1iAO08UbweduGgbCtQHsSaHBMm3/0d8fDRMtUi2DLTS/UGeC
+	a5wr0+5z/NxcG3iR6Va/+wOrVIRCslBO3TvlheIj7gLYoA9ILOZcRNqRTwMq2LzjmVkqXfXm0H1
+	ClydduJo
+X-Received: by 2002:a05:6512:2554:b0:59e:171d:a68d with SMTP id
+ 2adb3069b0e04-5a2796a8fc7mr1439815e87.27.1773857987280; Wed, 18 Mar 2026
+ 11:19:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260317-bcm2835-power-timeout-v1-0-19db323c51f9@igalia.com> <20260317-bcm2835-power-timeout-v1-1-19db323c51f9@igalia.com>
-In-Reply-To: <20260317-bcm2835-power-timeout-v1-1-19db323c51f9@igalia.com>
+References: <20260317-bcm2835-power-timeout-v1-0-19db323c51f9@igalia.com> <20260317-bcm2835-power-timeout-v1-2-19db323c51f9@igalia.com>
+In-Reply-To: <20260317-bcm2835-power-timeout-v1-2-19db323c51f9@igalia.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 18 Mar 2026 19:19:06 +0100
-X-Gm-Features: AaiRm510MvoJuvyX_yjMZMwW_dgWQm9TQabqsR1tmMTEGls5Ev4rqc21mGQKDYQ
-Message-ID: <CAPDyKFrBazYFcWxMOrmMThuatqrAq0kFG8nnYi8xQ2OJg3LeXw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] pmdomain: bcm: bcm2835-power: Increase ASB control timeout
+Date: Wed, 18 Mar 2026 19:19:10 +0100
+X-Gm-Features: AaiRm52B3afGivAWtwZPnIEqWUc7ueqawx3ytlYolTm7X3odgd-DJ0WgKKEck8U
+Message-ID: <CAPDyKFoFp-YSqSm2YXJywNk6=nhhdOtijS9ONdaw7PCe+Oj_iA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pmdomain: bcm: bcm2835-power: Replace open-coded
+ polling with readl_poll_timeout_atomic()
 To: =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
 	Scott Branden <sbranden@broadcom.com>, 
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
 	Rob Herring <robh@kernel.org>, kernel-dev@igalia.com, linux-pm@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	stable@vger.kernel.org
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_111945_614009_9C774C0D 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20260318_111949_603938_BE3FD97B 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,86 +122,87 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Tue, 17 Mar 2026 at 23:42, Ma=C3=ADra Canal <mcanal@igalia.com> wrote:
 >
-> The bcm2835_asb_control() function uses a tight polling loop to wait
-> for the ASB bridge to acknowledge a request. During intensive workloads,
-> this handshake intermittently fails for V3D's master ASB on BCM2711,
-> resulting in "Failed to disable ASB master for v3d" errors during
-> runtime PM suspend. As a consequence, the failed power-off leaves V3D in
-> a broken state, leading to bus faults or system hangs on later accesses.
+> Replace hand-rolled ktime_get_ns()/cpu_relax() polling loops with
+> readl_poll_timeout_atomic() for the power-on (POWOK), and memory
+> repair (MRDONE) waits.
 >
-> As the timeout is insufficient in some scenarios, increase the polling
-> timeout from 1us to 5us, which is still negligible in the context of a
-> power domain transition. Also, replace the open-coded ktime_get_ns()/
-> cpu_relax() polling loop with readl_poll_timeout_atomic().
+> No functional change intended.
 >
-> Cc: stable@vger.kernel.org
-> Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains=
- under a new binding.")
 > Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
 
-Applied for fixes and by re-adding Stefans's reviewed-by tag, thanks!
+Applied for next, thanks!
 
 Kind regards
 Uffe
 
 
 > ---
->  drivers/pmdomain/bcm/bcm2835-power.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
+>  drivers/pmdomain/bcm/bcm2835-power.c | 25 +++++++++----------------
+>  1 file changed, 9 insertions(+), 16 deletions(-)
 >
 > diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/=
 bcm2835-power.c
-> index 0450202bbee2513c9116a36abaa839b460550935..eee87a3005325848547ce1f5f=
-d729b168a641460 100644
+> index eee87a3005325848547ce1f5fd729b168a641460..b76d74e3849be0aff226cfbe3=
+11970c9557eccfa 100644
 > --- a/drivers/pmdomain/bcm/bcm2835-power.c
 > +++ b/drivers/pmdomain/bcm/bcm2835-power.c
-> @@ -9,6 +9,7 @@
->  #include <linux/clk.h>
->  #include <linux/delay.h>
->  #include <linux/io.h>
-> +#include <linux/iopoll.h>
->  #include <linux/mfd/bcm2835-pm.h>
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
-> @@ -153,7 +154,6 @@ struct bcm2835_power {
->  static int bcm2835_asb_control(struct bcm2835_power *power, u32 reg, boo=
-l enable)
+> @@ -215,10 +215,10 @@ static int bcm2835_power_power_on(struct bcm2835_po=
+wer_domain *pd, u32 pm_reg)
 >  {
->         void __iomem *base =3D power->asb;
+>         struct bcm2835_power *power =3D pd->power;
+>         struct device *dev =3D power->dev;
 > -       u64 start;
->         u32 val;
+>         int ret;
+>         int inrush;
+>         bool powok;
+> +       u32 val;
 >
->         switch (reg) {
-> @@ -166,8 +166,6 @@ static int bcm2835_asb_control(struct bcm2835_power *=
-power, u32 reg, bool enable
->                 break;
+>         /* We don't run this on BCM2711 */
+>         if (power->rpivid_asb)
+> @@ -239,12 +239,8 @@ static int bcm2835_power_power_on(struct bcm2835_pow=
+er_domain *pd, u32 pm_reg)
+>                          (inrush << PM_INRUSH_SHIFT) |
+>                          PM_POWUP);
+>
+> -               start =3D ktime_get_ns();
+> -               while (!(powok =3D !!(PM_READ(pm_reg) & PM_POWOK))) {
+> -                       cpu_relax();
+> -                       if (ktime_get_ns() - start >=3D 3000)
+> -                               break;
+> -               }
+> +               powok =3D !readl_poll_timeout_atomic(power->base + pm_reg=
+,
+> +                                                  val, val & PM_POWOK, 0=
+, 3);
 >         }
+>         if (!powok) {
+>                 dev_err(dev, "Timeout waiting for %s power OK\n",
+> @@ -258,15 +254,12 @@ static int bcm2835_power_power_on(struct bcm2835_po=
+wer_domain *pd, u32 pm_reg)
 >
+>         /* Repair memory */
+>         PM_WRITE(pm_reg, PM_READ(pm_reg) | PM_MEMREP);
 > -       start =3D ktime_get_ns();
-> -
->         /* Enable the module's async AXI bridges. */
->         if (enable) {
->                 val =3D readl(base + reg) & ~ASB_REQ_STOP;
-> @@ -176,11 +174,9 @@ static int bcm2835_asb_control(struct bcm2835_power =
-*power, u32 reg, bool enable
->         }
->         writel(PM_PASSWORD | val, base + reg);
->
-> -       while (!!(readl(base + reg) & ASB_ACK) =3D=3D enable) {
+> -       while (!(PM_READ(pm_reg) & PM_MRDONE)) {
 > -               cpu_relax();
-> -               if (ktime_get_ns() - start >=3D 1000)
-> -                       return -ETIMEDOUT;
-> -       }
-> +       if (readl_poll_timeout_atomic(base + reg, val,
-> +                                     !!(val & ASB_ACK) !=3D enable, 0, 5=
-))
-> +               return -ETIMEDOUT;
+> -               if (ktime_get_ns() - start >=3D 1000) {
+> -                       dev_err(dev, "Timeout waiting for %s memory repai=
+r\n",
+> -                               pd->base.name);
+> -                       ret =3D -ETIMEDOUT;
+> -                       goto err_disable_ispow;
+> -               }
+> +       if (readl_poll_timeout_atomic(power->base + pm_reg, val,
+> +                                     val & PM_MRDONE, 0, 1)) {
+> +               dev_err(dev, "Timeout waiting for %s memory repair\n",
+> +                       pd->base.name);
+> +               ret =3D -ETIMEDOUT;
+> +               goto err_disable_ispow;
+>         }
 >
->         return 0;
->  }
+>         /* Disable functional isolation */
 >
 > --
 > 2.53.0
->
 >
 
