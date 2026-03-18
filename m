@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE85103E18D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0C8103E183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjoyOHkKeAphkVr3xy66lZASob2HNzkrFl8r/4hjxWg=; b=GoFoLmgBwwefBk/IiK5eiRykUl
-	eu1kTeeh114t9nmJE/TfT+PPRjaLAQ5SAy7SnKlgdxphnf2eTwDn3w9Ez0pXgGFVdEkxrDBHAf4Wq
-	P6c1CBVM9haCtp5LBtJk9TBjLtfuDv9qGnHG88vs0xJh2nPmiaehXxXoZ2K//o7hZJ7ltAlsSwBn7
-	+OE31jJD6f9eQAdsSqfe7GXZMkcgi/wpjxdj5Nu9yeKjoXl26pzdFiY2n68SAoAjMzkboN+CdIbMZ
-	WX3OyAOR1yoPCe0IhJr6i3/PlO+nt1WYm7mD6YAEE8AmrrNQ72lvlbtOMV4ibq+C/tHpndib9SXkg
-	VU6xEMJA==;
+	bh=kND7rm2kOjHbA93hyXscTWfaJawxJXeFsUHR40Wozxk=; b=E9rbZQ/4iCUh5N+JYaROQi0ql6
+	Y1XJeokkvJsPdLVjG7MUQ/vmxRTsqapDXVfJI6zizjQi+eje0JmGTtvcBW5PzF8EQTm/cZffAIfKb
+	fCxltVSgHirTXVxqZ/6SXXZMcyVqjj8PvpsgzVTNDuJUrzFpD5HSz4sh89xlG8VvOTYIEJ3YUwkL8
+	eNsNkcyX3LyTlkqjglyGkLazk9rkQzT0ii2gjlncvMIXHHNFcles6HoDn4lxwQ/SnTFB2xO+LVo9E
+	7GDNWQSMuCg2gjoR94lPnDkIrfaxWqgjF4cxBzX8LLpZBtVhr0ixb9wwjdzjHx75P6jM7hGo93qQ6
+	J99d2tmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rk3-00000008a6P-2trC;
-	Wed, 18 Mar 2026 14:19:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2rmn-00000008aMN-0gbv;
+	Wed, 18 Mar 2026 14:22:13 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rk2-00000008a6D-2QaA;
-	Wed, 18 Mar 2026 14:19:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48C4160053;
-	Wed, 18 Mar 2026 14:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D06A3C19421;
-	Wed, 18 Mar 2026 14:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773843561;
-	bh=pL+9AgAL3F3wRdPCa1QHTuK609k/1f2ZWXG3gFuWVY4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZhaMIifPFwUHxTAEClEjhWsFQcrgE2R4GXTqotwrcKE6CEPnVIq49gX8JLo3S9uSd
-	 J5/G1kwmw74trSok0ANAT/+34bMR/39Lcrnrq2f7xWnz93cezeKVnAMI2MYC4tqmaR
-	 nJg2BffI1I/l4lRG3IF639GaCiUERhKaKl3E72JY=
-Date: Wed, 18 Mar 2026 15:19:16 +0100
-From: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
-To: Zhiyong Tao =?utf-8?B?KOmZtuW/l+WLhyk=?= <Zhiyong.Tao@mediatek.com>
-Cc: Project_Global_Digits_Upstream_Group <Project_Global_Digits_Upstream_Group@mediatek.com>,
-	"fred2599@gmail.com" <fred2599@gmail.com>,
-	Yenchia Chen =?utf-8?B?KOmZs+W9peWYiSk=?= <Yenchia.Chen@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Vasanth Reddy <Vasanth.Reddy@mediatek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Liguo Zhang =?utf-8?B?KOW8oOeri+WbvSk=?= <Liguo.Zhang@mediatek.com>,
-	"jirislaby@kernel.org" <jirislaby@kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] MEDIATEK: serial: 8250_mtk: Add ACPI support
-Message-ID: <2026031837-slimness-playset-a62b@gregkh>
-References: <20260105024103.2027085-1-zhiyong.tao@mediatek.com>
- <20260105024103.2027085-2-zhiyong.tao@mediatek.com>
- <2026010643-ladybug-tiring-7f3c@gregkh>
- <434e34f05bb5f87b59402811012e3a2f56f2182e.camel@mediatek.com>
- <6478a71ffca65e58fa19a5edbc25eb5f51a8cc12.camel@mediatek.com>
+	id 1w2rmh-00000008aKb-35si
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 14:22:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773843728; x=1805379728;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=K0v5psOGTO05qgv6SffVuoO62hIETIQc7KL7+qgPRNY=;
+  b=J8Q5kjaqpX9hK4hVLCZ9gGFnGcfjz8qO8IlGrYBINPBDe+oiCFReorRB
+   MbXib9v6uPeRhyHmIiq6MUHmc2l+uGd9RBoKYk5184OeP3wSwl5GFtB4y
+   fLMsVjPONqIi66MEwt7zUSuShqZbAW1Sb3BezRG8i9YcJOUy99fSV2SRZ
+   NWfjef024xCMrt2AowCGsn5sH/H8UZP3qoTZY/+uFiLmq6JUdth/FSEaM
+   o62Mrinrupka7hSEiAonTZGy4C40ezpgvRkPvITWRHTbimhHzaDm5WSiw
+   zfqcJfR04bGTLPzACbBTcP9r0fUxv3pQA+dbO+Sn+gn1S9vzCIu2kENYo
+   g==;
+X-CSE-ConnectionGUID: z13HV8SUTHqbOS258YcWkA==
+X-CSE-MsgGUID: ot78Y0ZvThy9k6182f5mgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11733"; a="74786176"
+X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
+   d="scan'208";a="74786176"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 07:22:07 -0700
+X-CSE-ConnectionGUID: 5M2NYB78TyuWX1svxXTnfg==
+X-CSE-MsgGUID: SeyISUm4SRyZV1WnIohN6A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,127,1770624000"; 
+   d="scan'208";a="245666296"
+Received: from lkp-server01.sh.intel.com (HELO 63737dd503cb) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 18 Mar 2026 07:22:03 -0700
+Received: from kbuild by 63737dd503cb with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w2rmZ-000000002zh-3swR;
+	Wed, 18 Mar 2026 14:21:59 +0000
+Date: Wed, 18 Mar 2026 22:21:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andre Przywara <andre.przywara@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v2 7/8] firmware: smccc: lfa: Register DT interrupt
+Message-ID: <202603182205.TOBMcP5F-lkp@intel.com>
+References: <20260317103336.1273582-8-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6478a71ffca65e58fa19a5edbc25eb5f51a8cc12.camel@mediatek.com>
+In-Reply-To: <20260317103336.1273582-8-andre.przywara@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_072207_850892_CC0040CE 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +85,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, oe-kbuild-all@lists.linux.dev, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 12:12:36PM +0000, Zhiyong Tao (陶志勇) wrote:
-> On Wed, 2026-01-21 at 14:23 +0800, Zhiyong Tao wrote:
-> > On Tue, 2026-01-06 at 11:02 +0100, Greg KH wrote:
-> > > On Mon, Jan 05, 2026 at 10:39:55AM +0800, Zhiyong Tao wrote:
-> > > > From: "Zhiyong.Tao" <zhiyong.tao@mediatek.com>
-> > > > 
-> > > > Add ACPI support to 8250_mtk driver. This makes it possible to
-> > > > use UART on ARM-based desktops with EDK2 UEFI firmware.
-> > > > 
-> > > > Signed-off-by: Yenchia Chen <yenchia.chen@mediatek.com>
-> > > > Signed-off-by: Zhiyong.Tao <zhiyong.tao@mediatek.com>
-> > > > ---
-> > > >  drivers/tty/serial/8250/8250_mtk.c | 23 +++++++++++++++++++----
-> > > >  1 file changed, 19 insertions(+), 4 deletions(-)
-> > > 
-> > > This is a resend of the previous version, right?  Or did something
-> > > change?
-> > > 
-> > > confused,
-> > > 
-> > > greg k-h
-> > 
-> > ==> Hi Greg,
-> > Yes, previously Yenchia Chen helped to send out a version. Currently,
-> > this solution is specifically for the GB10 project and was made to
-> > support Windows ACPI settings. 
-> > 
-> > In actual application scenarios, the apdma clk will not be turned off
-> > in normal mode. It is only turned off in the SSPM microprocessor
-> > after
-> > entering standby, and when resuming, the apdma clk is re-enabled by
-> > SSPM.
-> > 
-> > As for other Linux projects, apdma still uses the DTS node.
-> > 
-> > Thanks
-> > 
-> 
-> Hi Greg,
-> Do you have other suggestion for this?
+Hi Andre,
 
-You can't just resend something and not say why you are resending it.
-Also, the authorship information seems to be backwards.
+kernel test robot noticed the following build errors:
 
-thanks,
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on arm/for-next arm/fixes arm64/for-next/core clk/clk-next kvmarm/next rockchip/for-next shawnguo/for-next soc/for-next linus/master nferre-at91/at91-next v7.0-rc4 next-20260317]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-greg k-h
+url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Przywara/dt-bindings-arm-Add-Live-Firmware-Activation-binding/20260318-082717
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20260317103336.1273582-8-andre.przywara%40arm.com
+patch subject: [PATCH v2 7/8] firmware: smccc: lfa: Register DT interrupt
+config: arm64-randconfig-003-20260318 (https://download.01.org/0day-ci/archive/20260318/202603182205.TOBMcP5F-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 4abb927bacf37f18f6359a41639a6d1b3bffffb5)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260318/202603182205.TOBMcP5F-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603182205.TOBMcP5F-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/firmware/smccc/lfa_fw.c:878:9: error: call to undeclared function 'devm_request_threaded_irq'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     878 |         return devm_request_threaded_irq(dev, irq, lfa_irq_handler,
+         |                ^
+>> drivers/firmware/smccc/lfa_fw.c:880:7: error: use of undeclared identifier 'IRQF_COND_ONESHOT'
+     880 |                                          IRQF_COND_ONESHOT, NULL, NULL);
+         |                                          ^~~~~~~~~~~~~~~~~
+   2 errors generated.
+
+
+vim +/devm_request_threaded_irq +878 drivers/firmware/smccc/lfa_fw.c
+
+   863	
+   864	static int lfa_register_dt(struct device *dev)
+   865	{
+   866		struct device_node *np;
+   867		unsigned int irq;
+   868	
+   869		np = of_find_compatible_node(NULL, NULL, "arm,lfa");
+   870		if (!np)
+   871			return -ENODEV;
+   872	
+   873		irq = irq_of_parse_and_map(np, 0);
+   874		of_node_put(np);
+   875		if (!irq)
+   876			return -ENODEV;
+   877	
+ > 878		return devm_request_threaded_irq(dev, irq, lfa_irq_handler,
+   879						 lfa_irq_handler_thread,
+ > 880						 IRQF_COND_ONESHOT, NULL, NULL);
+   881	}
+   882	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
