@@ -4,179 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B662103E16A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADE2103E170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+Hco7vnU/3rdBHWtg0lkBJAvijt64o9KCJuN4YZ4dw=; b=eB2AIqXW4YTdaeB8kjCgboDm8F
-	CymDngiEFvSJEd5cJ2lIQYJt24YT0J/R0OFmFTrZHEyb+uMFUVLa+CSetXCB5d1E0uHxje9vBMnoo
-	YXyMlRQdd1vPExoYeiUaQBH+Ln+rOl/9yBsRUQ8C7REyVKl54B7/WZl4qzIjW5g4a9oT2NsKrx6Vs
-	gzVYJwkRZ9wiz8ImuBCuErFMBZ/EnGQVq2OQimjtWcdWyFgh0tnIM7uHE/8E4fpMrhRTvUKxsuO8q
-	pmbtVU56ackt3cjFtiXRNufJ87X3bsktwhMP5kwh8RLqswm+nh3t9UGzXbW49asEBePNtufsvJcV+
-	sYocSNrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hP/rw8hSlAdGUj7ffcNAXTQEMrNqGOy1zArJH20VdTI=; b=PPvnNiLYKZbALkx7HE8hDhzIyX
+	bc/JF8XUURO0bpqVA72t2LWC+z2y6ABLThmHHMSab80hJylcRbGM0d/h2nwHcYtHx26vy/WDCq2If
+	iWGrdvBBRbUNHArdAaTgiAwO1LkpAdnmOHvdMGKM0XjVQJNzSlw/dFvEj0sslPtSLmNP/zDMAAdHn
+	UbcXu2UXaXldUAdaVBLH3gGPqsWiTJ7uCfovkz01REZXr0x6ia0+08YMFfslhVWSe7d+SMz4rl55c
+	4a8kKluoT2GZVsoD2wSh+wUIR1HCtv+m11j4ePHP01FLapiAoK2tjKzFKg9JmmoefEgouZxTjQEaK
+	h+ujujbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pld-00000008MzF-3vmn;
-	Wed, 18 Mar 2026 12:12:53 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w2q2S-00000008OBT-2U2I;
+	Wed, 18 Mar 2026 12:30:19 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2plb-00000008Myd-3TmH;
-	Wed, 18 Mar 2026 12:12:52 +0000
-X-UUID: c40856b822c311f1a6de359d7043e138-20260318
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=I+Hco7vnU/3rdBHWtg0lkBJAvijt64o9KCJuN4YZ4dw=;
-	b=kZc+EhAlshim9vT9Jbw8kgjOgbmSUW8CeekkclUhApD3jfyuJcDYfPu7csTnMFNTwSk4P8QF4Xc7spqVAPrbeMvqtmhUpHr1gc0DTRSeucq3a9baZZgjNbeN1RuKbo770dmlAFynXGwMbKPAAqI4CGyD0uxJCjVHlmIVWLvZEkg=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:50260ef5-31b2-4ec2-84bd-518c6d51be48,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:ae22d916-aa6b-4b2e-be76-373ef1a42b04,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c40856b822c311f1a6de359d7043e138-20260318
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <zhiyong.tao@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1254612716; Wed, 18 Mar 2026 05:12:42 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 18 Mar 2026 20:12:40 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 18 Mar 2026 20:12:40 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J45hE77jbqNeuRdopF7VQhpmlyEqi7ZAnRqMTPSX1g0TGSkMGruRp5KmAyQp9QY9rPk5s77v+/CgZZQqOVvJy/c/vu9co69fpTlZtQ2l4nt+C1WCCm94sv3l0mO/xc212CNcnhjUFaH90/maVOIQOV9YAPwUk7vljPbYvCVeIcVkIeTxkpqZQAU3OROf/Ltz7T8G+/neN8G/BOUBqKjHjw2L84oFCoGNb0xNspHypLSAXQp3ps9uWgA7X736Ild+WGzT4wkWilGXldjCkdeBBGAeOY8uW+3dO+wYXmzxqCvUwOLtfUazINbtlHHediDWiMfauKSgksMgzQzsO2Psuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I+Hco7vnU/3rdBHWtg0lkBJAvijt64o9KCJuN4YZ4dw=;
- b=MpejeJyc7PrAWa/fdW1ZYd8feAZgG7DocxsR7VTGSNphb1Gfw4rQnfmL14s9uK5DAfZ72JIqPBgaIbKMyq3sawuqCwbL0qXyNUAeFFaNffMJCMWjYhmqLN3UTferArGDL5nUD5FZfp73R1QmnVnCph5MOgn0CcE/G6X+5nISfwZzQVxWPe/kIS6z54O8cvTRPXQrVAdZoqnvdxqXDktrpMDbRZWU+++KwQRTzMoQ1SqAbAJiJKF5XPq3GPiBkAUCWzRC88KqyW+mSwFfhTsTvS4ri0MXFLS8PYncJf4jipwyCncM8E++4lJ/YUxtX7D0ArdH1WI6q3vX6bSbA2jyxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I+Hco7vnU/3rdBHWtg0lkBJAvijt64o9KCJuN4YZ4dw=;
- b=dBevi0VLSFkUZBa/3io+tiKRmV31OExa8i7m9UDGH8+fjpov8RhEsoys6S9ezXbZA3gxY+qWC+nvS0B5ZPf9vbIhsLf1v3yp6LjklJzJbCThohMp0axXfqHr6sRrJpCvGpLUD11HME5CFrupg9gmNzj9K3fM5nCGEonlYOqukA4=
-Received: from SI2PR03MB5690.apcprd03.prod.outlook.com (2603:1096:4:15d::13)
- by TYSPR03MB8110.apcprd03.prod.outlook.com (2603:1096:400:479::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 12:12:36 +0000
-Received: from SI2PR03MB5690.apcprd03.prod.outlook.com
- ([fe80::7361:3cf0:b441:7d0e]) by SI2PR03MB5690.apcprd03.prod.outlook.com
- ([fe80::7361:3cf0:b441:7d0e%6]) with mapi id 15.20.9723.018; Wed, 18 Mar 2026
- 12:12:36 +0000
-From: =?utf-8?B?WmhpeW9uZyBUYW8gKOmZtuW/l+WLhyk=?= <Zhiyong.Tao@mediatek.com>
-To: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
-CC: Project_Global_Digits_Upstream_Group
-	<Project_Global_Digits_Upstream_Group@mediatek.com>, "fred2599@gmail.com"
-	<fred2599@gmail.com>, =?utf-8?B?WWVuY2hpYSBDaGVuICjpmbPlvaXlmIkp?=
-	<Yenchia.Chen@mediatek.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Vasanth Reddy
-	<Vasanth.Reddy@mediatek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?utf-8?B?TGlndW8gWmhhbmcgKOW8oOeri+WbvSk=?=
-	<Liguo.Zhang@mediatek.com>, "jirislaby@kernel.org" <jirislaby@kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] MEDIATEK: serial: 8250_mtk: Add ACPI support
-Thread-Topic: [PATCH] MEDIATEK: serial: 8250_mtk: Add ACPI support
-Thread-Index: AQHcfey/SO6Kleh1dki/LWqHFZdmJbVE6yeAgBdV9YCAWGQMgA==
-Date: Wed, 18 Mar 2026 12:12:36 +0000
-Message-ID: <6478a71ffca65e58fa19a5edbc25eb5f51a8cc12.camel@mediatek.com>
-References: <20260105024103.2027085-1-zhiyong.tao@mediatek.com>
-	 <20260105024103.2027085-2-zhiyong.tao@mediatek.com>
-	 <2026010643-ladybug-tiring-7f3c@gregkh>
-	 <434e34f05bb5f87b59402811012e3a2f56f2182e.camel@mediatek.com>
-In-Reply-To: <434e34f05bb5f87b59402811012e3a2f56f2182e.camel@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SI2PR03MB5690:EE_|TYSPR03MB8110:EE_
-x-ms-office365-filtering-correlation-id: c20c5ac3-1f74-4cb9-5c33-08de84e7a445
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: B3PyhR1taQR4SVDgrLDsi5Y6MQkeHDC0jVO2wHgthMGw1hv8Ffi5Ht/yb/3Xu+os0Zs8HIYcZJNsrlB2l7K9Qdf80IHeGQiMspEXrCl7ZJ38FipIidE0fohX/nXx3viirBNwmbrNObP0InENPXeTm9GwbejneZynr9yziVldNnVcs5G3bNRx6NPyqrqIgcd8vwrgl8HU7/SWnynLylfgXJk5X+9SSqCU3vgJgkt00xYy2uXbaNUerGHB9a8CS6Ah/UX9LJwEMqq31pciXBIfUQDm/t6bR0fSPD2d4dVB0rltHnb0NWAAsaFG4hHO0rBTQVOoyiZIojWnog1GHccnftMxjOvT7z8PdwuVQVBLq2VfmV8HQ+6j0kscaCYtV6p1fNJZUkiJT1rK9l9rhPknm6dJ0/FKnWDHvy8GoUYxgXWvasY8txb8WBjo/V4ZaiN3GEEYB6lOMyWbCs4dbtQ2TuYVv98y1naSg5Zoxjyj52UR8HCkT/AkUOHocnG9H98y9wgWnjX+8y6ck3EucIKHNlcYeyAEL4CEqthxK6AUL7OZufeEjMLXPCPEC0bz/YG2ILrr6uxVjHAmTBqVqy8/VWwWOiAJJlpm4RtwSi6lfP5dH7dQYuXTB4xLhw6NLchB6MffNG/AwXb/4lIPzAhPxwct1c2Hxdjw7Yo6h+pqrp0StxPP3JW9hQa4bWG7yRfu1Z+UDK1DbGBF4qgjWjaga27ElaoPuLXMrU/dXFy7Oy9cDoKKFJzb2jgb0re3xO0g6P4G3b0OvhhIX9WBA08Y1EQ1uss/oDdNngOqcWKfuEU=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR03MB5690.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?c1JkU2I1YU1ocVdveUN6WjBEVWZWSlJ1VlZ0TmlweGNobmh6K2hxMU0xTG9X?=
- =?utf-8?B?cGtxUURpVUxQMzBKSlRWanNIdGNCelgyWDNmMGRRSUloQ3IyRXhFVlNyU3Zw?=
- =?utf-8?B?emVodnFCRFFCaFNLYWdFanlHYU5yUEsxNDE0VUdONnlOVnZLcUx5Yll2WDhw?=
- =?utf-8?B?Tmp2enAxWk5pWDhqeWpIa1FaV2hoa29vRk02SElJOEtOWHlTSlFIMVNKaEVm?=
- =?utf-8?B?ZzZRem02KzErNW5VZlVTamNwZEFzNGEyOHM1MEk2Sjk2UFJiYlBDLzREbG01?=
- =?utf-8?B?R1R2enMrNzJreHJKblk3amdoMTlhd05WZmM0eC9vWE9jelphLzRZQXNjVlZU?=
- =?utf-8?B?Zy9nV2xDOHVybTJOOHZSQnVtNUtmOU9BTGl4M2RFVm4rSlB3ZVB1eWlNSjZ5?=
- =?utf-8?B?TTNiTE5JbjNIODlxQjA4eTlKdzhrOEtmQkR0SFZOaW5zVDhQS3J6UTk0bTlL?=
- =?utf-8?B?TVlIMTlnRUo3Y3JoV25odGFmR2FJbFZaSFVWYStlUE91QVE3aGY0RUkzUkI4?=
- =?utf-8?B?M3R1c09PVXRlMDlMSXpMcTh3QTZ6TVRUNGgrWXpQaU9qK25aN1VHTGxxbkRu?=
- =?utf-8?B?VzVaWDJwV1AyUG5oSmZSTDUxWmVaeGc2akZhRnJjOVlTQmlYb0RKTjlndmk4?=
- =?utf-8?B?Q0plNGVDYTRyRUtTVHR3WEZSSE1ZOTY0RUc5U3hkOUdrTU8xNVpOWDdDa1dv?=
- =?utf-8?B?Szk1dlNOWE5xandQM2xERDJMdi9YM1gyL1RoMWQxNXZZWS9yaUo3L3JiUERU?=
- =?utf-8?B?NjdFQXc4UlkvazN5aEJDY0g3UW8yYkpjaEhiaUdZck81NzNsYjd3MERSck9L?=
- =?utf-8?B?RHloamYxaGszRitSdlpQbkVQZ0FpM2ZCY0I0bm9rUjNQWkI0bUNmNVFtOFRK?=
- =?utf-8?B?UEhqSU5KaHJXZ2ZLNjFkNS82ZDNBQ3hSSWpBZnlxckZGVFdaSHhoSlVSY3Q0?=
- =?utf-8?B?UkhiR2lna0pvalZ2UmZwNXVpV3plUzU0c3NHWFJxUDZ0SlhjNlJkTC84dUNC?=
- =?utf-8?B?ZTlEbFRSQ2p1bktXN0RMelcrVlZKRWJJNFd3QmdKSDArWTVFSU11dG9FMnkr?=
- =?utf-8?B?NWhTYWpZN0JTUngzbjJ2VUo0a2Z3b1VaM0hQdzhBTi9lR2I0Sm5mcXB3djFu?=
- =?utf-8?B?UjN2ZEZtWGxYc05TTmFJcjVOUzJhK1hJVkl5d29NSCtVOFRESU5YMkpYd011?=
- =?utf-8?B?Nm5WM1hNaXJuQUUvK1A1ZlVXM09HUG9tQklyZEh2NTNDZGIvYU1Zb1hVNGRI?=
- =?utf-8?B?ZVdDME0wOWV2czRURXlkemhpMzNuNTREeWFqdG9KK0xycHdZM2dZR3lCbHNW?=
- =?utf-8?B?NEVUakVUcXMxa2RsalRVRE84U0dOY3pCUW4vYkp1bzB2T2hsTDJtb3U1eTdT?=
- =?utf-8?B?U3FhM2d5K0ZHcXIvS2daamt4elc0WUluWlE5Yy9iQkEzYWtIYmVxODdpTzJq?=
- =?utf-8?B?bnZsQzB3OWI5U3hOcXB0d2RFR3N0RGxDcEhKa1BncWprRm5GZVNONHIvWWl5?=
- =?utf-8?B?cm1RZEVwZ0I5MHo1dVN6N3FSTTd2TDFYb3JDRlU1dSt4VTNWOXdweTM5TGZT?=
- =?utf-8?B?V3VORjl6K044KzZUTE51bUVHNDFva2M2TmFWRGlZV0tCSnNDUlRHbmRnZXB3?=
- =?utf-8?B?TktrRGRDTXVVL2pJWmVtaUxyK2tkbFpPcy9KQnRyS0dHUHdydjgwKzNHS1c0?=
- =?utf-8?B?dWk0KzY4WnRIV2RKTWZDdkxsalRQMVh6cHgvQU0yUjVrZytVZlU2NGhkVmtP?=
- =?utf-8?B?QmZyWXdrNXVSZmN4ZDNkVy9kNitjSDFRanpnZ3p1eTlQc1oyWkRqdHRBbFRI?=
- =?utf-8?B?aGI1S1J1aC80YVErNGpOekJQMWVVdC9MYXRwdWdkZlZPNmQweFRTYkZ3U2R6?=
- =?utf-8?B?RGtROXo0b1dMVi95Z3NSNk1Ic3JUd0R1aEwzT0RINitZc1doL0t6RlFYdERT?=
- =?utf-8?B?L2hGY2VxNW56MktGT3Rxb3VlWkZjeGhxeXoxRmJTTnNGU2YzR1RhM3BtTXUx?=
- =?utf-8?B?b2kzNVM2a2htVE4rL2RvZnd5YzhMMVN4MGNOVXVKWXRRQVI3TG5jQVZwVnM2?=
- =?utf-8?B?UVFtbGhmUEtDOFhaOU9vTzFmNElUVEFBYzhTaGFvQzlkQ1hqZmhoUzFoUHRx?=
- =?utf-8?B?Tjg0Z1NJRnRFUGRkeHcwWTJPekZUOGdiQUc2dGRkTmdudGJnWUZreFdzR2ZC?=
- =?utf-8?B?empLVGFJbVhaamRESSt4cFE5M1N4NWJ2NGpiZXZ0VXRhd3hsWlBJakkxVUNr?=
- =?utf-8?B?aFdPbU50eHRIaFNLYXgyUEk5VjdtM201OTVHSzBFMU14ZXU4SW05SncxTEps?=
- =?utf-8?B?OTBvY0Jyd0dCWXJJbXZDTEZlMjhRblo3Vm93OVBmZnZ6TklGMlZra0FSZkJm?=
- =?utf-8?Q?IT79ixboxsMXT73Q=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <5DAB0CF4227C9F42AEF846303DE5F1D6@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1w2q2P-00000008OAn-0RhL;
+	Wed, 18 Mar 2026 12:30:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773837010;
+	bh=iOulkhDoqNITbcvR7gTtzu3AHBi+cKQ21g+bnwKGJ64=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=A4uxB/0qxWOhi+l49UbCUHvGY/AqdbIZKCIC8nprEl8vrFJ4LT56pSrGF9BWPtvAw
+	 k+fzd/9pNHbsCZmK4ZEPqXz2OaNrBXW6N4xk0Y3ZCc4k7Aei5BVasz31Zs5mtwLyLy
+	 79xxD3rwLIHwxx7P2bTsy8/x8Mg42MFfpmE9ndoQUypSRIC0hAhriKMuc25Sc6XKD3
+	 cbhre8NlJrTnRPq7ulwRoDvfRHWTfG85iT9haXKYOSPTiqMtFMSBJCrTF5vFOLeD5p
+	 2PmPQ5AgY7vSHOsq53/O7IvjECh9kZwX0/9UN6nRtb8dtpTuen2929/oeoB0T0Y6Bf
+	 dSdnKvHQUJC0A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 17EF117E0497;
+	Wed, 18 Mar 2026 13:30:10 +0100 (CET)
+Message-ID: <d466ee35-789a-4e2c-a040-f182083dd82e@collabora.com>
+Date: Wed, 18 Mar 2026 13:30:09 +0100
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: g3MXuQ3akGvEv8GIUnPju5PBzwTYsikGd7RDS32gvW5gpij1EGHLZcvKXWHYsqSHRhsw2467jR71hNstaQWYJhAonu1Wby/yJf4d11AKMuL6tgqXx43nhubsxUder732IoWCh8WjpV7si9LooybiIOF/EdzClcqkDKXRR/T8CiSGUfDQ69L6UHs8cT4rpXLLmcFt7gM7GmUB7qXID9bGun4sXFd42Rhta7JxGJGynlIFtxl4OuY0BaeQjOUgmUC5jOObeOxcAKCwnVSIhzZE5D7cMbqR0m28RSLrxvPB7myGXAzSUNPJXQ4l2r4ZU0RtNJkBofAeSnbrBQPF3jrVlg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR03MB5690.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c20c5ac3-1f74-4cb9-5c33-08de84e7a445
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2026 12:12:36.1385
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pTt0T2sHyW8wFoN0/QJWHRQZ5rd4vfISmmZTgxqHaE1DKpmVSfaixGEyDLU5SSuTEDz4olvPcs9CZLGuIGfw518CnUFjO9SA0cRx4DTUkJU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB8110
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: mediatek: mt7988: use MUX_CLR_SET_UPD for gate-less
+ muxes
+To: Daniel Golle <daniel@makrotopia.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Sam Shih <sam.shih@mediatek.com>, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <869a8a99bbde357fb4f2175f99e605c3e1597640.1773801987.git.daniel@makrotopia.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <869a8a99bbde357fb4f2175f99e605c3e1597640.1773801987.git.daniel@makrotopia.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_051251_885582_8480337B 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20260318_053013_305439_BE8EC7B1 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,28 +78,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTAxLTIxIGF0IDE0OjIzICswODAwLCBaaGl5b25nIFRhbyB3cm90ZToNCj4g
-T24gVHVlLCAyMDI2LTAxLTA2IGF0IDExOjAyICswMTAwLCBHcmVnIEtIIHdyb3RlOg0KPiA+IE9u
-IE1vbiwgSmFuIDA1LCAyMDI2IGF0IDEwOjM5OjU1QU0gKzA4MDAsIFpoaXlvbmcgVGFvIHdyb3Rl
-Og0KPiA+ID4gRnJvbTogIlpoaXlvbmcuVGFvIiA8emhpeW9uZy50YW9AbWVkaWF0ZWsuY29tPg0K
-PiA+ID4gDQo+ID4gPiBBZGQgQUNQSSBzdXBwb3J0IHRvIDgyNTBfbXRrIGRyaXZlci4gVGhpcyBt
-YWtlcyBpdCBwb3NzaWJsZSB0bw0KPiA+ID4gdXNlIFVBUlQgb24gQVJNLWJhc2VkIGRlc2t0b3Bz
-IHdpdGggRURLMiBVRUZJIGZpcm13YXJlLg0KPiA+ID4gDQo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBZ
-ZW5jaGlhIENoZW4gPHllbmNoaWEuY2hlbkBtZWRpYXRlay5jb20+DQo+ID4gPiBTaWduZWQtb2Zm
-LWJ5OiBaaGl5b25nLlRhbyA8emhpeW9uZy50YW9AbWVkaWF0ZWsuY29tPg0KPiA+ID4gLS0tDQo+
-ID4gPiDCoGRyaXZlcnMvdHR5L3NlcmlhbC84MjUwLzgyNTBfbXRrLmMgfCAyMyArKysrKysrKysr
-KysrKysrKysrLS0tLQ0KPiA+ID4gwqAxIGZpbGUgY2hhbmdlZCwgMTkgaW5zZXJ0aW9ucygrKSwg
-NCBkZWxldGlvbnMoLSkNCj4gPiANCj4gPiBUaGlzIGlzIGEgcmVzZW5kIG9mIHRoZSBwcmV2aW91
-cyB2ZXJzaW9uLCByaWdodD/CoCBPciBkaWQgc29tZXRoaW5nDQo+ID4gY2hhbmdlPw0KPiA+IA0K
-PiA+IGNvbmZ1c2VkLA0KPiA+IA0KPiA+IGdyZWcgay1oDQo+IA0KPiA9PT4gSGkgR3JlZywNCj4g
-WWVzLCBwcmV2aW91c2x5IFllbmNoaWEgQ2hlbiBoZWxwZWQgdG8gc2VuZCBvdXQgYSB2ZXJzaW9u
-LiBDdXJyZW50bHksDQo+IHRoaXMgc29sdXRpb24gaXMgc3BlY2lmaWNhbGx5IGZvciB0aGUgR0Ix
-MCBwcm9qZWN0IGFuZCB3YXMgbWFkZSB0bw0KPiBzdXBwb3J0IFdpbmRvd3MgQUNQSSBzZXR0aW5n
-cy4gDQo+IA0KPiBJbiBhY3R1YWwgYXBwbGljYXRpb24gc2NlbmFyaW9zLCB0aGUgYXBkbWEgY2xr
-IHdpbGwgbm90IGJlIHR1cm5lZCBvZmYNCj4gaW4gbm9ybWFsIG1vZGUuIEl0IGlzIG9ubHkgdHVy
-bmVkIG9mZiBpbiB0aGUgU1NQTSBtaWNyb3Byb2Nlc3Nvcg0KPiBhZnRlcg0KPiBlbnRlcmluZyBz
-dGFuZGJ5LCBhbmQgd2hlbiByZXN1bWluZywgdGhlIGFwZG1hIGNsayBpcyByZS1lbmFibGVkIGJ5
-DQo+IFNTUE0uDQo+IA0KPiBBcyBmb3Igb3RoZXIgTGludXggcHJvamVjdHMsIGFwZG1hIHN0aWxs
-IHVzZXMgdGhlIERUUyBub2RlLg0KPiANCj4gVGhhbmtzDQo+IA0KDQpIaSBHcmVnLA0KRG8geW91
-IGhhdmUgb3RoZXIgc3VnZ2VzdGlvbiBmb3IgdGhpcz8NCg0KVGhhbmtzDQoNCg0K
+Il 18/03/26 03:48, Daniel Golle ha scritto:
+> All 18 muxes in the infra_muxes[] array are pure mux selectors without
+> a clock gate, yet they were defined using MUX_GATE_CLR_SET_UPD with
+> gate_shift = -1.
+> 
+> This macro assigns mtk_mux_gate_clr_set_upd_ops, whose
+> enable/disable/is_enabled callbacks perform BIT(gate_shift). Since
+> gate_shift is stored as u8, the -1 truncates to 255, causing a
+> shift-out-of-bounds at runtime:
+> 
+> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:76:8
+> shift exponent 255 is too large for 64-bit type 'long unsigned int'
+> 
+> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:102:4
+> shift exponent 255 is too large for 64-bit type 'long unsigned int'
+> 
+> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:122:16
+> shift exponent 255 is too large for 64-bit type 'long unsigned int'
+> 
+> Switch these definitions to MUX_CLR_SET_UPD, which uses
+> mtk_mux_clr_set_upd_ops (no gate callbacks). The actual clock gating
+> for these peripherals is handled by the separate GATE_INFRA* definitions
+> further down.
+> 
+> Fixes: 4b4719437d85f ("clk: mediatek: add drivers for MT7988 SoC")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+
+While this makes things to actually work, there's another problem, and that is
+that .upd_ofs is a u32 and is being set to -1.
+
+Since, as far as I remember, MT7988 is *not* the only one that is affected by the
+issue that you're fixing here...
+
+I would rather consider, instead, to add a new macro that is a bit more foolproof
+in clk-mux.h
+
+#define MUX_CLR_SET(_id, _name, _parents, _mux_ofs,			\
+		    _mux_set_ofs, _mux_clr_ofs, _shift)
+	MUX_CLR_SET_UPD(_id, _name, _parents, _mux_ofs, _mux_set_ofs,	\
+			_mux_clr_ofs, _shift, 0, 0, -1)
+
+...and use it in this driver (and others, if you can..) instead.
+
+Cheers,
+Angelo
+
+> ---
+>   drivers/clk/mediatek/clk-mt7988-infracfg.c | 84 +++++++++++-----------
+>   1 file changed, 42 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+> index c40e18c27f12e..57203d08ac265 100644
+> --- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
+> +++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+> @@ -56,49 +56,49 @@ static const char *const infra_pcie_gfmux_tl_ck_o_p3_parents[] __initconst = {
+>   
+>   static const struct mtk_mux infra_muxes[] = {
+>   	/* MODULE_CLK_SEL_0 */
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
+> -			     infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
+> -			     infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
+> -			     infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel", infra_mux_spi0_parents,
+> -			     0x0018, 0x0010, 0x0014, 4, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel", infra_mux_spi1_parents,
+> -			     0x0018, 0x0010, 0x0014, 5, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel", infra_mux_spi0_parents,
+> -			     0x0018, 0x0010, 0x0014, 6, 1, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_SEL, "infra_pwm_sel", infra_pwm_bck_parents, 0x0018,
+> -			     0x0010, 0x0014, 14, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 16, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 18, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 20, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 22, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 24, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 26, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 28, 2, -1, -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel", infra_pwm_bck_parents,
+> -			     0x0018, 0x0010, 0x0014, 30, 2, -1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
+> +			infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
+> +			infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
+> +			infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel",
+> +			infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel",
+> +			infra_mux_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel",
+> +			infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_SEL, "infra_pwm_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 14, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 16, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 18, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 20, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 22, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 24, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 26, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 28, 2, -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel",
+> +			infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 30, 2, -1, -1),
+>   	/* MODULE_CLK_SEL_1 */
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL, "infra_pcie_gfmux_tl_o_p0_sel",
+> -			     infra_pcie_gfmux_tl_ck_o_p0_parents, 0x0028, 0x0020, 0x0024, 0, 2, -1,
+> -			     -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL, "infra_pcie_gfmux_tl_o_p1_sel",
+> -			     infra_pcie_gfmux_tl_ck_o_p1_parents, 0x0028, 0x0020, 0x0024, 2, 2, -1,
+> -			     -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL, "infra_pcie_gfmux_tl_o_p2_sel",
+> -			     infra_pcie_gfmux_tl_ck_o_p2_parents, 0x0028, 0x0020, 0x0024, 4, 2, -1,
+> -			     -1, -1),
+> -	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL, "infra_pcie_gfmux_tl_o_p3_sel",
+> -			     infra_pcie_gfmux_tl_ck_o_p3_parents, 0x0028, 0x0020, 0x0024, 6, 2, -1,
+> -			     -1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL, "infra_pcie_gfmux_tl_o_p0_sel",
+> +			infra_pcie_gfmux_tl_ck_o_p0_parents, 0x0028, 0x0020, 0x0024, 0, 2,
+> +			-1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL, "infra_pcie_gfmux_tl_o_p1_sel",
+> +			infra_pcie_gfmux_tl_ck_o_p1_parents, 0x0028, 0x0020, 0x0024, 2, 2,
+> +			-1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL, "infra_pcie_gfmux_tl_o_p2_sel",
+> +			infra_pcie_gfmux_tl_ck_o_p2_parents, 0x0028, 0x0020, 0x0024, 4, 2,
+> +			-1, -1),
+> +	MUX_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL, "infra_pcie_gfmux_tl_o_p3_sel",
+> +			infra_pcie_gfmux_tl_ck_o_p3_parents, 0x0028, 0x0020, 0x0024, 6, 2,
+> +			-1, -1),
+>   };
+>   
+>   static const struct mtk_gate_regs infra0_cg_regs = {
+
+
 
