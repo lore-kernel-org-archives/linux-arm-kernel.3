@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5CA103E190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE85103E18D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 14:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FZ5QXHUzU1ata4VbBabv3m2vQppMp/lSd5sxHdN7Sc=; b=Ku5bBYGgIr+MXxUPE6DoyxXgCp
-	GDKFFE8mRh+e06WkgCY/uwWWAbYlBkTTfsON7NhS04mwYOQ88R56r2Xso4uirHWShTm7xkLVOkmJq
-	WU0ckjeCByq1KAeKVU/PDDBTjmy+5ydPv/9iQOkh1e8a/vRHqR9I7xDN/w1Sw6QbyfmCMCwC/mVgf
-	PQodl6eea5Et4BRmtYD7GAxpE9yxZwZWkakxi/996naGprXg7M6jv5sTq5BoCxsuSNuux0qTDlacH
-	mCrZO0wTTUJoouqa5aIjSEWnVxgRooKMFrA9Z3lcLifLm8pd2G/YkH6bioZX7D0WotSviYzg9aa9t
-	VUcRN1vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EjoyOHkKeAphkVr3xy66lZASob2HNzkrFl8r/4hjxWg=; b=GoFoLmgBwwefBk/IiK5eiRykUl
+	eu1kTeeh114t9nmJE/TfT+PPRjaLAQ5SAy7SnKlgdxphnf2eTwDn3w9Ez0pXgGFVdEkxrDBHAf4Wq
+	P6c1CBVM9haCtp5LBtJk9TBjLtfuDv9qGnHG88vs0xJh2nPmiaehXxXoZ2K//o7hZJ7ltAlsSwBn7
+	+OE31jJD6f9eQAdsSqfe7GXZMkcgi/wpjxdj5Nu9yeKjoXl26pzdFiY2n68SAoAjMzkboN+CdIbMZ
+	WX3OyAOR1yoPCe0IhJr6i3/PlO+nt1WYm7mD6YAEE8AmrrNQ72lvlbtOMV4ibq+C/tHpndib9SXkg
+	VU6xEMJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rhs-00000008Zj0-2jNx;
-	Wed, 18 Mar 2026 14:17:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2rk3-00000008a6P-2trC;
+	Wed, 18 Mar 2026 14:19:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2rhq-00000008ZgR-0uTO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 14:17:07 +0000
+	id 1w2rk2-00000008a6D-2QaA;
+	Wed, 18 Mar 2026 14:19:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BCAC7415F6;
-	Wed, 18 Mar 2026 14:17:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B834CC19421;
-	Wed, 18 Mar 2026 14:16:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773843423;
-	bh=Nka2tAu2xfrAzh/LVz+kPzjJGV26abtbTSAN+jQ1zCs=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=l2n98eIWgaO3CjkFjgd0Sou85/DdxxIF5f5x0NNXjCnRCCUzjcWJiinkayJ878aww
-	 BMJ0pXZVJUefOLLhpj2fMemzle19sO2O1t5wBOu4oWg54p9ZGJdEhdeS/Czy9hnQXA
-	 eulz6Qr5rpmd86XRFktfVxpPiPuG0bWwvXiusqCzjYmb/h8nhtFZfXIiV7SJql6pbr
-	 L4xv+2VnZl426NR2cd+2lb906X8FppURSFBE0mng0zk5Fvon36cCbedPT6Sf5MOPBk
-	 nKWZjGbed3op7zsa/QhDxrRfMTA0/5KlsKm4GWT7flFR84ReuRSkL4lH9ODOoxK1Dd
-	 vepd5z1nkYYfQ==
-Message-ID: <11428d25-7bea-4be6-a6ee-bfeac1d50807@kernel.org>
-Date: Wed, 18 Mar 2026 15:16:52 +0100
+	by tor.source.kernel.org (Postfix) with ESMTP id 48C4160053;
+	Wed, 18 Mar 2026 14:19:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D06A3C19421;
+	Wed, 18 Mar 2026 14:19:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1773843561;
+	bh=pL+9AgAL3F3wRdPCa1QHTuK609k/1f2ZWXG3gFuWVY4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZhaMIifPFwUHxTAEClEjhWsFQcrgE2R4GXTqotwrcKE6CEPnVIq49gX8JLo3S9uSd
+	 J5/G1kwmw74trSok0ANAT/+34bMR/39Lcrnrq2f7xWnz93cezeKVnAMI2MYC4tqmaR
+	 nJg2BffI1I/l4lRG3IF639GaCiUERhKaKl3E72JY=
+Date: Wed, 18 Mar 2026 15:19:16 +0100
+From: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
+To: Zhiyong Tao =?utf-8?B?KOmZtuW/l+WLhyk=?= <Zhiyong.Tao@mediatek.com>
+Cc: Project_Global_Digits_Upstream_Group <Project_Global_Digits_Upstream_Group@mediatek.com>,
+	"fred2599@gmail.com" <fred2599@gmail.com>,
+	Yenchia Chen =?utf-8?B?KOmZs+W9peWYiSk=?= <Yenchia.Chen@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Vasanth Reddy <Vasanth.Reddy@mediatek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Liguo Zhang =?utf-8?B?KOW8oOeri+WbvSk=?= <Liguo.Zhang@mediatek.com>,
+	"jirislaby@kernel.org" <jirislaby@kernel.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] MEDIATEK: serial: 8250_mtk: Add ACPI support
+Message-ID: <2026031837-slimness-playset-a62b@gregkh>
+References: <20260105024103.2027085-1-zhiyong.tao@mediatek.com>
+ <20260105024103.2027085-2-zhiyong.tao@mediatek.com>
+ <2026010643-ladybug-tiring-7f3c@gregkh>
+ <434e34f05bb5f87b59402811012e3a2f56f2182e.camel@mediatek.com>
+ <6478a71ffca65e58fa19a5edbc25eb5f51a8cc12.camel@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH 3/8] mm: move free_reserved_area() to mm/memblock.c
-Content-Language: en-US
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Alexander Potapenko <glider@google.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andreas Larsson <andreas@gaisler.com>, Ard Biesheuvel <ardb@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Brauner <brauner@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
- Johannes Weiner <hannes@cmpxchg.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Michael Ellerman
- <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Nicholas Piggin <npiggin@gmail.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Rob Herring <robh@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Saravana Kannan <saravanak@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>,
- Will Deacon <will@kernel.org>, Zi Yan <ziy@nvidia.com>,
- devicetree@vger.kernel.org, iommu@lists.linux.dev,
- kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, x86@kernel.org
-References: <20260318105827.1358927-1-rppt@kernel.org>
- <20260318105827.1358927-4-rppt@kernel.org>
-In-Reply-To: <20260318105827.1358927-4-rppt@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_071706_303069_25002616 
-X-CRM114-Status: GOOD (  23.12  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6478a71ffca65e58fa19a5edbc25eb5f51a8cc12.camel@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,128 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 11:58, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Wed, Mar 18, 2026 at 12:12:36PM +0000, Zhiyong Tao (陶志勇) wrote:
+> On Wed, 2026-01-21 at 14:23 +0800, Zhiyong Tao wrote:
+> > On Tue, 2026-01-06 at 11:02 +0100, Greg KH wrote:
+> > > On Mon, Jan 05, 2026 at 10:39:55AM +0800, Zhiyong Tao wrote:
+> > > > From: "Zhiyong.Tao" <zhiyong.tao@mediatek.com>
+> > > > 
+> > > > Add ACPI support to 8250_mtk driver. This makes it possible to
+> > > > use UART on ARM-based desktops with EDK2 UEFI firmware.
+> > > > 
+> > > > Signed-off-by: Yenchia Chen <yenchia.chen@mediatek.com>
+> > > > Signed-off-by: Zhiyong.Tao <zhiyong.tao@mediatek.com>
+> > > > ---
+> > > >  drivers/tty/serial/8250/8250_mtk.c | 23 +++++++++++++++++++----
+> > > >  1 file changed, 19 insertions(+), 4 deletions(-)
+> > > 
+> > > This is a resend of the previous version, right?  Or did something
+> > > change?
+> > > 
+> > > confused,
+> > > 
+> > > greg k-h
+> > 
+> > ==> Hi Greg,
+> > Yes, previously Yenchia Chen helped to send out a version. Currently,
+> > this solution is specifically for the GB10 project and was made to
+> > support Windows ACPI settings. 
+> > 
+> > In actual application scenarios, the apdma clk will not be turned off
+> > in normal mode. It is only turned off in the SSPM microprocessor
+> > after
+> > entering standby, and when resuming, the apdma clk is re-enabled by
+> > SSPM.
+> > 
+> > As for other Linux projects, apdma still uses the DTS node.
+> > 
+> > Thanks
+> > 
 > 
-> free_reserved_area() is related to memblock as it frees reserved memory
-> back to the buddy allocator, similar to what memblock_free_late() does.
-> 
-> Move free_reserved_area() to mm/memblock.c to prepare for further
-> consolidation of the functions that free reserved memory.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Hi Greg,
+> Do you have other suggestion for this?
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+You can't just resend something and not say why you are resending it.
+Also, the authorship information seems to be backwards.
 
+thanks,
 
-> ---
->  mm/memblock.c   | 37 ++++++++++++++++++++++++++++++++++++-
->  mm/page_alloc.c | 36 ------------------------------------
->  2 files changed, 36 insertions(+), 37 deletions(-)
-> 
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index b3ddfdec7a80..8f3010dddc58 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -893,6 +893,42 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
->  	return memblock_remove_range(&memblock.memory, base, size);
->  }
->  
-> +unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
-> +{
-> +	void *pos;
-> +	unsigned long pages = 0;
-> +
-> +	start = (void *)PAGE_ALIGN((unsigned long)start);
-> +	end = (void *)((unsigned long)end & PAGE_MASK);
-> +	for (pos = start; pos < end; pos += PAGE_SIZE, pages++) {
-> +		struct page *page = virt_to_page(pos);
-> +		void *direct_map_addr;
-> +
-> +		/*
-> +		 * 'direct_map_addr' might be different from 'pos'
-> +		 * because some architectures' virt_to_page()
-> +		 * work with aliases.  Getting the direct map
-> +		 * address ensures that we get a _writeable_
-> +		 * alias for the memset().
-> +		 */
-> +		direct_map_addr = page_address(page);
-> +		/*
-> +		 * Perform a kasan-unchecked memset() since this memory
-> +		 * has not been initialized.
-> +		 */
-> +		direct_map_addr = kasan_reset_tag(direct_map_addr);
-> +		if ((unsigned int)poison <= 0xFF)
-> +			memset(direct_map_addr, poison, PAGE_SIZE);
-> +
-> +		free_reserved_page(page);
-> +	}
-> +
-> +	if (pages && s)
-> +		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
-> +
-> +	return pages;
-> +}
-> +
->  /**
->   * memblock_free - free boot memory allocation
->   * @ptr: starting address of the  boot memory allocation
-> @@ -1776,7 +1812,6 @@ void __init memblock_free_late(phys_addr_t base, phys_addr_t size)
->  		totalram_pages_inc();
->  	}
->  }
-> -
->  /*
->   * Remaining API functions
->   */
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index 2d4b6f1a554e..df3d61253001 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -6234,42 +6234,6 @@ void adjust_managed_page_count(struct page *page, long count)
->  }
->  EXPORT_SYMBOL(adjust_managed_page_count);
->  
-> -unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
-> -{
-> -	void *pos;
-> -	unsigned long pages = 0;
-> -
-> -	start = (void *)PAGE_ALIGN((unsigned long)start);
-> -	end = (void *)((unsigned long)end & PAGE_MASK);
-> -	for (pos = start; pos < end; pos += PAGE_SIZE, pages++) {
-> -		struct page *page = virt_to_page(pos);
-> -		void *direct_map_addr;
-> -
-> -		/*
-> -		 * 'direct_map_addr' might be different from 'pos'
-> -		 * because some architectures' virt_to_page()
-> -		 * work with aliases.  Getting the direct map
-> -		 * address ensures that we get a _writeable_
-> -		 * alias for the memset().
-> -		 */
-> -		direct_map_addr = page_address(page);
-> -		/*
-> -		 * Perform a kasan-unchecked memset() since this memory
-> -		 * has not been initialized.
-> -		 */
-> -		direct_map_addr = kasan_reset_tag(direct_map_addr);
-> -		if ((unsigned int)poison <= 0xFF)
-> -			memset(direct_map_addr, poison, PAGE_SIZE);
-> -
-> -		free_reserved_page(page);
-> -	}
-> -
-> -	if (pages && s)
-> -		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
-> -
-> -	return pages;
-> -}
-> -
->  void free_reserved_page(struct page *page)
->  {
->  	clear_page_tag_ref(page);
-
+greg k-h
 
