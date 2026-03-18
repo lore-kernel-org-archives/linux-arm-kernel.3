@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14DC103E168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37AF103E168
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 12:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0UncP7zDtwncIt7fApim79QuJzCfQ1K9RvzpT0PFRQ=; b=rvdxDkeesLn6DXmyV9whIkw2HT
-	cpc/Yv8omBNk0jMesRdezxWo/jWqaMfzKGZ7ecNwnODuc5e/rypTXb6TpvLttEUJnaYgAtQupTg0k
-	qL8SmzXE9kiXDId3AMhN5qQN74RJ8R37td2nK8AsA/qamLqyckdP8CRgiXllSu5xBFEZREEkKd1h3
-	tY30ZRZRVj6WlJCoCjCNwopXnKEPropj/pv+dxFW49kPmzFqN3225edl3vZPmpRDzOJW2Ur4w+gSu
-	RNEU1EcEpz2rbpx0hlDGnY142WPBBfrTDHnmYT+8lCBEYxz8dgXfsVKlaZtR6aljdQqMrtPJAx+S/
-	Vgmyry1w==;
+	bh=N/yl142uki4yhzbHevTmfD49HrneXqML6XD8ozlyd+4=; b=FIN26WKITuZeMO18uMfpFjV7Br
+	t0k2VKjfHHVIuTryVXRkUwVPZzqOH6ZCPQrWFa42FyQesmlmi3IoCTfX4/IZaqbKSIQLLtJkqYa52
+	jcp05nSrbafFzZ7tX2l22hKhNn9fTguXvSkyEDBYZr03EXCsKum7hQnVpjeTSDZtnLoPnU0LV0MOc
+	HZKHwjcIuNkhDlnrfC+KWSIiEV1Hgl0TtxQI6HwVsXKx/VSQAiKmT2HEMv6DOckwxMcw0pXMIRUJ4
+	1dgFNP5NEHWFs0N2ls9Sm8Zem6DRT06TEoihyKiuqSV6nPHsugTCpyLN9vTU1f790Xe2XdjK7Ns9M
+	1Xn0EaEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qQC-00000008Qkl-1Tc6;
-	Wed, 18 Mar 2026 12:54:48 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1w2qRp-00000008QwJ-42HP;
+	Wed, 18 Mar 2026 12:56:32 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2qQ7-00000008Qju-2Zd5;
-	Wed, 18 Mar 2026 12:54:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=b0UncP7zDtwncIt7fApim79QuJzCfQ1K9RvzpT0PFRQ=; b=rFf0O58G4zIA3fBhy1qKzg/N4u
-	YsAT2ZskeXA4t5yZfLrlWs/Hqx7Q332pr+wZmPncmzXKI4dy0Bod57+njaW2tBi749yW8c5kcbYY/
-	sne53m+Id4/xhii7xc/HX+TuyIVzWxW+AWxpqMZajCfrkmPQIl2yhfacKWYwPpnr5xYVxKrv68Ewk
-	qDLVBJdnTK1hsheA9Aw9sIH5Ld8h2hdAkAwYKwO1BUvCnmjKLMo/H9hW5dKHJm3DORF6WQ0C7v7Lu
-	yyhhQ88k0h/HpNPqTRS2bVtvcfRtT65apUbPItSWkcqJ2bmprV+GtQG6vzchu/oiJXrsHznhqN15m
-	vDNRCP0w==;
-Received: from [189.7.87.203] (helo=[192.168.0.2])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1w2qPr-002n5W-82; Wed, 18 Mar 2026 13:54:27 +0100
-Message-ID: <5fe9332f-fbce-469e-8f19-dd3d7ef54c5f@igalia.com>
-Date: Wed, 18 Mar 2026 09:54:20 -0300
+	id 1w2qRm-00000008QvZ-25b7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 12:56:27 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 727F3140025B;
+	Wed, 18 Mar 2026 08:56:23 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 18 Mar 2026 08:56:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1773838583;
+	 x=1773924983; bh=N/yl142uki4yhzbHevTmfD49HrneXqML6XD8ozlyd+4=; b=
+	fj1yedZZ3bklSeX2boCjOTKnl+3E++OiUD7mCbjJObAGqP6bioFhaJFdolap+Ogy
+	Dyfdajuw1ExQKctJZfT0aHTab33oRqjnhCpWpHOk7sfu+KephGKnDnvSDfGXxd6U
+	xQZzR88Y56VQEFZPfk5HoP6JFUoWvSPp2wFkQQEzSr88w1Tuni4zhq362R8ILLSQ
+	ljIGcMAStxDM40IEOG0SfWUTBgJRKwih+VdV3wH29RGJzTMuD95tmFBb0d37FA41
+	8EJdgUueudiEyPANh9/oib57LtokQGascD/dt+Ujygqgv//j7MQ/Xj4Nh4qLLGJ8
+	a85/LEqwFbdIo8DG/5B+Cw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1773838583; x=
+	1773924983; bh=N/yl142uki4yhzbHevTmfD49HrneXqML6XD8ozlyd+4=; b=G
+	o0Tmic2L9YVdTtd9JXwlo5jGFlrIYDuRmdT6IfSrlVFXKzGrvZOFy5PuSUUdQVLk
+	t4AUCDfwdWn/J6qZ5mBSGcWUHN2dxiixyhyry4m4uGGLN5s7VEkyXCCz5agcrPX1
+	1aGIVTFdtSM64fU4wvsG9DoqoUCZ+Tc90cvfhbi6bdv9y9S0WfnCHIxUfXFSbbrz
+	5aj43cGb/Go/XhlrOB1NspONSNMMDhoN6DjKuhUEVq+Jxd2UlpptEGKtt5eqYZz8
+	wavhUZmEGGLO5XeB9E6eCmIK9WlMToPxdPXNeKNhmnJjNjVdelIahSfYWH7iBdvP
+	Mwiaxcf7JC/KASYPfSUFA==
+X-ME-Sender: <xms:96C6aT1zsWSfpHxmEt118hSnPRiBuiYkoakqHN4jmCzOYRQ1tc4glA>
+    <xme:96C6ac6y4Uoh9QFqoQo0KLvKj68Rj31gyg3_CjitMzCldrJz9dUadOOVcOHTGIVoq
+    rI49Hqq4ItO5ZXUFP8nUuzNVDpVHwY1qSBXFazqKXWB7hwLGh9YgQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeftdegudelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
+    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
+    phhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrghgnhhushdrug
+    grmhhmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopehmrhhitghonheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsh
+    hotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghgvvghrtheslhhinhhugidqmhei
+    kehkrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
+    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhi
+    nhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhrvghnvghsrghsqdhsohgtsehvgh
+    gvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:96C6aUnaLSipjssmpRnXYYslYJi1jXQPcNXqo-Y_D6K-IW9s_VPdPQ>
+    <xmx:96C6aWZnownml55EqYPNmPWYS1R_CRFCHwEe4mBZ4kItZFYMdYLnCw>
+    <xmx:96C6aWR_nja4qvQf4_HFwKbC9P7W0rFrR3YVWC1lI-qJsMWcFHPbkg>
+    <xmx:96C6aQvLrN2euPHwKAxbs5mHhXy6a7YVlwBYMO_SOYnMM5_SE2f38g>
+    <xmx:96C6affpgjzeJlSCDUynxvWF7vdqudtG5g3CmZyC6nDCUzIo9VjcdgG4>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 2F31F70006B; Wed, 18 Mar 2026 08:56:23 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] pmdomain: bcm: bcm2835-power: Increase ASB control
- timeout
-To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulf.hansson@linaro.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>
-Cc: kernel-dev@igalia.com, linux-pm@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org
-References: <20260317-bcm2835-power-timeout-v1-0-19db323c51f9@igalia.com>
- <20260317-bcm2835-power-timeout-v1-1-19db323c51f9@igalia.com>
- <c803299f-709b-4b57-b7fc-46ef3bb4c9ee@gmx.net>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <c803299f-709b-4b57-b7fc-46ef3bb4c9ee@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AYTw_54MFalk
+Date: Wed, 18 Mar 2026 13:56:02 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Konstantin Ryabitsev" <mricon@kernel.org>
+Cc: soc@lists.linux.dev, soc <soc@kernel.org>,
+ "Magnus Damm" <magnus.damm@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Message-Id: <a4cad30f-0f29-4bf6-b69d-a38ebe05828c@app.fastmail.com>
+In-Reply-To: <0234dc75-b042-4408-bbad-a777c0bddb3f@kernel.org>
+References: <cover.1773399669.git.geert+renesas@glider.be>
+ <20260317-spirited-mahogany-swift-b1ac53@quoll>
+ <CAMuHMdX4wKWPvRR=BBAr+1wAK2ZmW3kKxEN4W_vwNyGuzB=-gw@mail.gmail.com>
+ <0234dc75-b042-4408-bbad-a777c0bddb3f@kernel.org>
+Subject: Re: [GIT PULL 0/4] Renesas SoC updates for v7.1
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_055444_777378_8F0DC9D0 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260318_055626_603014_AA376EB0 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,94 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+On Tue, Mar 17, 2026, at 10:11, Krzysztof Kozlowski wrote:
+> On 17/03/2026 09:46, Geert Uytterhoeven wrote:
+>
+> @Konstantin,
+> I use modified Rob's script to go over patch/pull queue in Patchwork:
+> https://patchwork.kernel.org/project/linux-soc/list/?state=*
+>
+> I deal with them one-by-one, so when I finish merging, I want to be sure
+> that Patchwork status is updated, thus through the script I mark it
+> "Accepted".
+> Like this one:
+> https://patchwork.kernel.org/project/linux-soc/patch/cover.1773399675.git.geert+renesas@glider.be/
+>
+> Around then - can be just before or after - I push the updated branch to
+> git.kernel.org. I fear that because the pull is manually updated in
+> Patchwork to "Accepted", pw-bot ignores it and does not send the
+> notification.
+>
+> Is it feasible to change pw-bot so it will notify even if it is marked
+> as "Accepted"? Or any ideas how to change the flow to have both:
+> A. pw-bot reply,
+> B. Be 100% sure that Patchwork status is updated (allow my manual update
+> via script)?
 
-On 18/03/26 08:51, Stefan Wahren wrote:
-> Hi Maíra,
-> 
-> Am 17.03.26 um 23:41 schrieb Maíra Canal:
->> The bcm2835_asb_control() function uses a tight polling loop to wait
->> for the ASB bridge to acknowledge a request. During intensive workloads,
->> this handshake intermittently fails for V3D's master ASB on BCM2711,
->> resulting in "Failed to disable ASB master for v3d" errors during
->> runtime PM suspend. As a consequence, the failed power-off leaves V3D in
->> a broken state, leading to bus faults or system hangs on later accesses.
->>
->> As the timeout is insufficient in some scenarios, increase the polling
->> timeout from 1us to 5us, which is still negligible in the context of a
->> power domain transition. Also, replace the open-coded ktime_get_ns()/
->> cpu_relax() polling loop with readl_poll_timeout_atomic().
-> personally I would have moved all readl_poll_timeout_atomic changes in 
-> the second patch, to avoid possible conflicts in stable. But no strong 
-> opinion about this.
-> 
+In my experience, the pw-bot reply always happens at the same time as
+the update in the patchwork state, we either get both or nothing.
 
-TBH personally, I also agree. But, as I don't have a strong opinion
-about it, I prioritized addressing Ulf's feedback in the last version
-[1].
+The way I've used it in the past was to let pw-bot handle the replies.
+If anything was missing htere, I would know that I had to send a
+manual reply and update the status.
 
-[1] 
-https://lore.kernel.org/dri-devel/20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com/T/#mf96146960ec7ffeea32e732c95ccf9548af21748
+I suspect that setting the status to Accepted first would stop this
+from working, but right now the pwbot interaction appears to be
+broken regardless of the status update, i.e. it only handles
+patches but not pull requests at all.
 
-Best regards,
-- Maíra
+Konstantin, this seems to have broken around the time you modified
+pwbot to handle git:// URL rewrites earlier this year. Previously
+it only ever caught commit messages that had the exact same URL
+as the pull request message, IIRC you said that it should now handle
+the case where a git:// URL gets turned into a https:// one, but
+the actual result appears to be that no pull requests get matched
+at all.
 
-> Best regards
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power 
->> domains under a new binding.")
->> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->> ---
->>   drivers/pmdomain/bcm/bcm2835-power.c | 12 ++++--------
->>   1 file changed, 4 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
->> bcm/bcm2835-power.c
->> index 
->> 0450202bbee2513c9116a36abaa839b460550935..eee87a3005325848547ce1f5fd729b168a641460 100644
->> --- a/drivers/pmdomain/bcm/bcm2835-power.c
->> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
->> @@ -9,6 +9,7 @@
->>   #include <linux/clk.h>
->>   #include <linux/delay.h>
->>   #include <linux/io.h>
->> +#include <linux/iopoll.h>
->>   #include <linux/mfd/bcm2835-pm.h>
->>   #include <linux/module.h>
->>   #include <linux/platform_device.h>
->> @@ -153,7 +154,6 @@ struct bcm2835_power {
->>   static int bcm2835_asb_control(struct bcm2835_power *power, u32 reg, 
->> bool enable)
->>   {
->>       void __iomem *base = power->asb;
->> -    u64 start;
->>       u32 val;
->>       switch (reg) {
->> @@ -166,8 +166,6 @@ static int bcm2835_asb_control(struct 
->> bcm2835_power *power, u32 reg, bool enable
->>           break;
->>       }
->> -    start = ktime_get_ns();
->> -
->>       /* Enable the module's async AXI bridges. */
->>       if (enable) {
->>           val = readl(base + reg) & ~ASB_REQ_STOP;
->> @@ -176,11 +174,9 @@ static int bcm2835_asb_control(struct 
->> bcm2835_power *power, u32 reg, bool enable
->>       }
->>       writel(PM_PASSWORD | val, base + reg);
->> -    while (!!(readl(base + reg) & ASB_ACK) == enable) {
->> -        cpu_relax();
->> -        if (ktime_get_ns() - start >= 1000)
->> -            return -ETIMEDOUT;
->> -    }
->> +    if (readl_poll_timeout_atomic(base + reg, val,
->> +                      !!(val & ASB_ACK) != enable, 0, 5))
->> +        return -ETIMEDOUT;
->>       return 0;
->>   }
->>
-> 
-
+    Arnd
 
