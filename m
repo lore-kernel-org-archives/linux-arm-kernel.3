@@ -4,114 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D299CFCD0DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9737FF6E8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 08:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+OTcEjgfoGLoreuhXR2zQZIUJ8p443oO8uymtra5XY=; b=y8VIOUI5kwlSiVAIjhFu2MDtbv
-	A8K0Dps1zT/ZkvLDG9rmZ6dldAvRxMujnCPj00RTBYbU6icqlsVLm5509zBERK5mcfQ1Q7nqKsYeV
-	Oz8r3s25KSeB8sCdNdkCr1dBeQfdk9X8usWfNEi0VuZk0zwvWGszhorlmBrlbkFbDFF12s0GT+H6e
-	B0YYFfpx4qxDQk3wKkhlwdvR1fCTFFoExi+izR6ud8O/5I1yBadPrfkXVGruQurnhQIh2siSyGun1
-	5oXHePBPJmHrxAEAPyW3JD2ROXSrEGohoXnsItoiP6Q2WfGJxRkPwSqN8EB9GLNHseKM8izYAWfN0
-	D3YIiiQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZSzv/o3IHhli9mGR2+OsPwYiHpuhmCGiETm1UfYWuuI=; b=p1qNFMrCUJuFPoMHAcwd0b+4BM
+	MuB3vQ0H2W4cY6syp9ymYq1dta2Y5kxFvNChmRR3Cv5jaFTHZcvLCm0FGER5DOoO0nfcKcODzrHEV
+	1ZW+Z6NqsLA7PsY9kh8BOY0U2HNjtOO76md0YEnGVeNhw+UPExehoBHZJDPvxwZ654DvSalVdRM51
+	L0/nh6XFCO64mBHcBPyPjcK82LMy5AgTQn2PpJDJnfMbHleIzfXutfHYjIXjIaKzYaeBumocEozh8
+	kMqhfA59bEZYwcwfBuDgC4wP6y6IKB3BEF13orRJyVhQm5PS5cax1NQZYNxjd64jfiC6hNvYOzfi6
+	h1U/wLaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mQp-000000083oc-3Lz4;
-	Wed, 18 Mar 2026 08:39:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2mU1-00000008485-2xUX;
+	Wed, 18 Mar 2026 08:42:30 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mQn-000000083oT-43l7;
-	Wed, 18 Mar 2026 08:39:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1157860054;
-	Wed, 18 Mar 2026 08:39:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70DA5C19421;
-	Wed, 18 Mar 2026 08:39:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773823148;
-	bh=uGu9YbU+16zs5mB3ZXB2rvRR4G1yd2IDXMtm7HSCqAI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DimhpEzevqwFWdfUytn9NDtjhQ2JNMsksYl0rWGbbBPeln20eQtJdhUtiHi0Is1Bk
-	 7vS6tXWflFhuFKF4UVwFk5OHdmVI6qwc0sqXx0M3Hspjla6+X9bdNF2+hLDdUuqT95
-	 aAhOnuqo7RRjX8+ordbQ22rZ25VKE+8j89RfrUYSq5QpD4Ecvqf+xEvadz+Wb/w+2Q
-	 YZXqVJKFTYVBxKniTOdpYrsqBSPOyYe/DxK87dsjdeyI29zbAxucnAjC6WC0QYfQCs
-	 qakx9J8bHoadQW0IrVdk8OCS9ppbzqwwVnUhNJZlUtyHfzAft1du3lGf6Lg4ldmTpf
-	 CvZUSx/erqY1Q==
-Message-ID: <c816a7b4-5237-4732-85af-26b70dce57f5@kernel.org>
-Date: Wed, 18 Mar 2026 09:39:03 +0100
+	id 1w2mTz-00000008477-0fwg;
+	Wed, 18 Mar 2026 08:42:28 +0000
+X-UUID: 60d2a4c622a611f1a6de359d7043e138-20260318
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=ZSzv/o3IHhli9mGR2+OsPwYiHpuhmCGiETm1UfYWuuI=;
+	b=tBywKN3u1G/ya7u7NhO0JzqS+GRymu1zzTEShI2kVKvj7v82Qr2tKRc9zaP6KFSSlPmNR9koSS/A0QSQOxvR14i4RpZ5nByq0xoqUPDmvU8ian5rBZasxI4LHUC3t9y08P4pJFjbS6h+D8FMWNNfCkh1g0vMbnEHQCmGZGTIlDo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:cf02f02d-a32c-437f-a839-47e65944ff80,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:c4d7a24c-9183-487b-8624-e74f2dd98990,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 60d2a4c622a611f1a6de359d7043e138-20260318
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <adlavinitha.reddy@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 327203729; Wed, 18 Mar 2026 01:42:20 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 18 Mar 2026 16:42:18 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 18 Mar 2026 16:42:18 +0800
+From: adlavinitha reddy <adlavinitha.reddy@mediatek.com>
+To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, adlavinitha reddy
+	<adlavinitha.reddy@mediatek.com>
+Subject: [v1,PATCH 0/1] i2c: mediatek: add bus regulator control for power saving
+Date: Wed, 18 Mar 2026 16:42:05 +0800
+Message-ID: <20260318084216.4124272-1-adlavinitha.reddy@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] arm64: dts: rockchip: Add HUSB311 Type-C
- controller on RK3576 EVB1
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Gene Chen <gene_chen@richtek.com>, Heiko Stuebner <heiko@sntech.de>,
- Yuanshen Cao <alex.caoys@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260317-husb311-v2-0-03c17c986abe@flipper.net>
- <20260317-husb311-v2-5-03c17c986abe@flipper.net>
- <20260318-able-goose-of-downpour-db3bbd@quoll>
- <d925c15d-add5-4f2a-8eac-fa7dd1b56bf2@kernel.org>
- <CAKTNdwH7RswOSBZyVKvsHfhZ3-xwyDs7ywOHuafMFb1-xNf0PA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAKTNdwH7RswOSBZyVKvsHfhZ3-xwyDs7ywOHuafMFb1-xNf0PA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_014227_211029_6ABC61C6 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,44 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 09:30, Alexey Charkov wrote:
-> On Wed, Mar 18, 2026 at 12:19 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 18/03/2026 09:17, Krzysztof Kozlowski wrote:
->>> On Tue, Mar 17, 2026 at 10:08:02PM +0400, Alexey Charkov wrote:
->>>> Rockchip RK3576 EVB1 board has a Hynetek HUSB311 USB Type-C controller on
->>>> its Type-C OTG port, which also supports DisplayPort Alternate Mode.
->>>>
->>>> Add the required DT nodes to enable basic HUSB311 operation.
->>>>
->>>> Note that for full support of mode and orientation switching, the USBDP
->>>> PHY schema may need to be expanded, such as in [1]. This is left out for
->>>> now until the respective schema is finalized and merged.
->>>>
->>>> [1] https://lore.kernel.org/linux-rockchip/20260313-rockchip-usbdp-cleanup-v3-1-3e8fe89a35b5@collabora.com/
->>>>
->>>> Signed-off-by: Alexey Charkov <alchark@flipper.net>
->>>> ---
->>>>  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 20 ++++++++++++++++++++
->>>>  1 file changed, 20 insertions(+)
->>>
->>> DTS patch must not be in this patchset. Don't mix it.
->>
->> In case I am too vague: by don't mix it, I mean - separate DTS changes
->> to independent patchset. They cannot be combined into USB posting.
-> 
-> Thanks Krzysztof. I will split them out in the next submission. I
-> think it's important to first agree on the use of fallback compatibles
-> and the best way to handle the (already queued up in next) ET7304
-> patches this cycle before their bindings hit mainline. Then, I can
-> rebase and squash/split everything as required.
+This patch adds conditional bus regulator enable/disable support in
+mtk_i2c_transfer() to allow I2C bus power gating on platforms that
+provide a vbus-supply in the device tree.
 
-These are independent problems. But if you want to connect them, then
-here you have:
-If I review the patch, Greg will take everything, defeating the purpose
-of my comment. So as you can see, I should rather not review them to
-achieve one of my goals.
+The implementation:
+- Enables bus_regulator before clk_bulk_enable() if vbus-supply is defined
+- Disables bus_regulator after clk_bulk_disable()
+- Only activates when vbus-supply is provided in device tree
+- Has no impact on platforms without vbus-supply defined
 
-Best regards,
-Krzysztof
+This approach provides power savings for platforms with an extra I2C bus
+regulator, while avoiding runtime PM complexity.
+
+Based on linux-next, tag: next-20260305
+
+adlavinitha reddy (1):
+  i2c: mediatek: add bus regulator control for power saving
+
+ drivers/i2c/busses/i2c-mt65xx.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+--
+2.45.2
 
