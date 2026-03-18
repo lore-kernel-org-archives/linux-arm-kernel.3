@@ -4,147 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54D3103E167
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42296103E166
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 11:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yARzjADAS2M4A2ZKZyEkUU0T+Y3FH7WW6uxv5iT1+KE=; b=Gerwzxx4l3EiEHs8n6f8GJy+/k
-	q9vv4yFQXtrUWn3RrhNx6joXRCm7JF16fPAXszqT6FWP2UT9C8vYeZ4+L3FROZYwF1sg6V5843Cpy
-	3SxPzRQyv4lbya5G4Zy0W6aVjrwgNDMUEFm2p/q2m4amxbEEFNvt/J2jH3uWpRCNsGXMv7/irfONQ
-	pT7Hb/9RQK6dJRaw7XD2psk34e0JENo46V90JLtH1z99SpYUAYv7Mw5+r6bJK5jDgCt8DeolpgJge
-	6oBBr6i7J0dnKiXeRBTzsNOSGj83yfyCWcJ16sG2Kt4zhoT7hLZIAWLUXul3Cg7yDvFRKKgR9Jkao
-	HV7uwXlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TkP7SaM/TXleGI75OgSTizEjIwsffPsOCVfJ7qof9gI=; b=YDoK7JzkYknbVUp6pIfmdzI/x7
+	jEnUrMT5BcfJDYhKKGWfTU3/tpiyzRcQTcI6ZyfZJw7v+29rdKKS0ITQxJv5uHJFM7QEDiA+A3wRW
+	wnAovyM+0wU6xqyfZmZsMLCgvFKJ+a23k6HnVPRtwI/zFRnkNOyQ8mMd1HyL1Gk0FkUgGQ+8LwB0F
+	NKU0vvoHpyxH4VQSmGucQ4/2/sFATX4F8bn3bKLNomo6RY/qRKL7hov7YfCQTJqMKrJCS5HJgy6HI
+	El7odN/gmZCvJZy7RB2BJ7ULqgcjPCM1PCK+978FAQ7wBasUpiTza5bEV85eP1Qk1ElSlvdIGWYhW
+	7BG+52/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pCB-00000008Jmk-25Z5;
-	Wed, 18 Mar 2026 11:36:15 +0000
-Received: from mail-westeuropeazon11011019.outbound.protection.outlook.com ([52.101.70.19] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2pC9-00000008Jm3-1XsF
+	id 1w2pCx-00000008JvY-3ZE1;
+	Wed, 18 Mar 2026 11:37:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2pCu-00000008Ju3-3WpA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 11:36:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T92qZYpGmmFPF/D5WDooXZY2A8stn9JF7eyiAFr9hhSCFgAl1PIQJ8YGIsY3nvlRHY4WWLfeafAB/7w6b7w6pdWxK2xWJ8pBJRhz+nDGuL/p7/lNspcptlIxYFjw4DzFvxqHfHKLHWMEIsdNVJ7KbvUpaVFDBt8zhIjoKCDfA5kfMHNSvmqWkXC3IpisGYV7DgOptMHt9uq4Hx6Warq5JcPI6hX92C+jkDknxhW4BhdKbs5B3FEsoRNf8fXH855tYMa/R733wywx/e2tyca5xTpAVhnNWgTIg30G7i86szhucz7tUBR0Ha3uEyyFoCV2zZvVn/un2DieQW1KsEODdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yARzjADAS2M4A2ZKZyEkUU0T+Y3FH7WW6uxv5iT1+KE=;
- b=HM9Nv45F9hQBLLgcVZb+noTEjTrhSlxE+90Jz9H0HzTeZdZwWv5brkauy6/49vuUHyyg4zQEvxBK65eLjx4GfiVonzID/lmeFOtVj59DZkPv/6H11CXinB2IeHT6kq8jckAKfQ9AGeVLL9ktot1kxFQ06DQJ4pC9ept9UCmpivXeTG4YBbTi/06JoWasUcjpwBjTSrJxQPFEWfgH/zjxpBuxFWGelEuUAYuNLCD3lnpBW4OhKOoIGNdmplXaUBXZ40hqOYpxHDtryka6Oy88k/ioIcn0cFTGzH0hwCGGuHlim5uvmcRGEcUWcVz40UISR+MXF62dLWblSv1myqIGXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yARzjADAS2M4A2ZKZyEkUU0T+Y3FH7WW6uxv5iT1+KE=;
- b=Z5oxFrWQQ5LCcNuUZ48bw6d+F2ylMVq0fYDIVpLeXoHJ3ji05wokORgCjekmVS6e/+5syM97CA9pMf7HZKZBsi0N5hSk0ZmZyagYjThKsJ7Ji+vyS2VhCAgF1Nw2X71wsOLGs2LO5qRO/fRQ3eAwsPEqoD14IXUKTNFYsac9IEPBSLZwvIrCDL1KRDwLRduw0AgtE+9vMXSRuLEWcZmblHOkkoCqu8HcQu8kggM+fhXkpNPZd6cSAemaYWEutmP5p/yJmfPBTG/RChSYB7HVWzPlr0UQv1d2nHt1uYsCpFl260f9m1dibRruTzTC21wqAQD5QREx3UViGV97HxeSng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AS8PR04MB8343.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 11:36:06 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9700.022; Wed, 18 Mar 2026
- 11:36:06 +0000
-Message-ID: <04275f85-c993-4e38-8964-ac79e10bb0b2@oss.nxp.com>
-Date: Wed, 18 Mar 2026 13:39:03 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: freescale: imx93-tqma9352-mba93xxla-mini:
- Add WLAN/BT overlay
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
- <20260317111704.1075938-4-alexander.stein@ew.tq-group.com>
- <79135f84-68cd-4b82-b7d7-4dec364933fc@oss.nxp.com>
- <5087680.31r3eYUQgx@steina-w>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <5087680.31r3eYUQgx@steina-w>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0433.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:d1::15) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Wed, 18 Mar 2026 11:37:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE7101E2F;
+	Wed, 18 Mar 2026 04:36:50 -0700 (PDT)
+Received: from [10.57.61.122] (unknown [10.57.61.122])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39AF83F73B;
+	Wed, 18 Mar 2026 04:36:53 -0700 (PDT)
+Message-ID: <ea827ef4-3a40-4242-adcd-790a11659493@arm.com>
+Date: Wed, 18 Mar 2026 11:36:50 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8343:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f860186-4585-4fd6-1d4a-08de84e28acf
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|7416014|1800799024|7053199007|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: CuW5Rp0kxafFd83wcQRksTVd7Tx60e+aWG5dRMe7sFTpgTxgG9TX1hciA319yOJeewZHV9u7HxUpI/8mD36KEycW5wbpCiMEoOkxcpPEkdRx00s06zrQWsIWYA6FBR71GVqNC5AfZkO6kTPWItXjDpUKYtDXP9pce/aiQfWjZDGnMifHyRiZ5LQjbm//6/yeqVNOKiytQ5N0XRiJegd0KOhKyjdVSDXzpH4w5VRDNxf0xiGkP6FMwQNhTSSq+drAUOHV8sVRHL1sKZN20QVW5kySPXsMRHQvy04uKgZns6yW1K8rv5b+a7Edsm/Pyioi0Mo90wd17/f/BQQDgaKKCn+80xjK80Clml3xdz4zNfQJveyAZvPwmnbYx0O3+fmA46lFiMny7Kt8VBel2TavFqUjBKTa89xRVaSkh2oS9lBjfrpXMZ7Kb6Z1O+jQU1CBUMPFaSvcqT+UqxJhZmXKyp3OY1qj2JshZl0Y4tXEf2094439jLGRvdHq3GuRb8QIw9cb1KCnRUvMN1V4ejE/b1m2+ofqq+rAdahCZuvTkuf39liYiLkFrdsYsmyYQQOdYAnIRK1JtGpT18VzPRfZiWwAiGms7k8Kezp8t3upfNK+NsyTaCECzsU50F5xDpdskbUoLzmkLgDPg5dZnSBnFKbMjDGX3HI4kZS55MhG+T/iChbWW6uE+B4+GuiiSeVIdu6mgbadyLyvWqVibP3xwUt/kBNCbwOZkU6EpoyXDUQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(7416014)(1800799024)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2pWbUxGN3BsaHFJdmxvU2pjVTI5UVYvbmRJb2EwSjdSdzlhUTlkcUNQcjdu?=
- =?utf-8?B?eWxoQUw0RzlIOGo2QUM5UWtnZlUydWhqeXpXajc4V1ZxcmlRbW5udkR6eFAw?=
- =?utf-8?B?MU1NbEV4OGxxUExja3lpVFVBVmwyQnRidGZVY1lHc2VFcG9MWld1aURpOWhO?=
- =?utf-8?B?RElQVE5LL1dwd09raFBCOHR4UlJMeWJtN1BIOUR3YmdtVDZibm5wMXptWldz?=
- =?utf-8?B?d3lVdU45VzRobDlMUmN1ZTFIekljcVRSdjFpd3NHdHdBM0tVb3VkZ2dURGh4?=
- =?utf-8?B?SVZOc2ZCNldtQ3NlRHdLWFl2R2ZqQVM4TGRwUk9Mc0JzSE5JbisrejNmbWov?=
- =?utf-8?B?MkxzYVZ3TGRyWU5EOUNQTlRDeFA5bFRpenpUQ0YwTEJwaUlHcHBQMnp1L3l1?=
- =?utf-8?B?NURtemFZOUpQVnVVaktFajM4Y0VhYkd0dmQ4aVdEbHZXUWh0WERYdjBiTVZw?=
- =?utf-8?B?b2VnTXFVeVpuRys5SnRRMkNGU3h1cTR4U1hhb0VvS3I2UlNKQVZwTGd5RjRq?=
- =?utf-8?B?QldFeDl5MUpCVHhmck54YXVJcDJuODlEN1pxZXhXSUhJV25CTmpVL1pXb3cy?=
- =?utf-8?B?N2JSdi81djV6Zm84RmUyaG9jUkVxVE85T0xWbDNtMGNld0NUTDYzcU9NdWdw?=
- =?utf-8?B?V2w5TWRkMU9EZ1JSaDl3b0dkdWlyU3IzekZ1YXVFQ2JFSXJzNGdvUDdZVjJs?=
- =?utf-8?B?ZkNtZm1zYmZxYmRiZy9vTVh2VDdMbnNYVUhqWFhTS3JEYUt2cnh5dVRLelE4?=
- =?utf-8?B?Vzg0TEJ5clBoWCs5ckx5cFVIUjdLZG9ieHdSR01oOEFEazg3TU5WNFp4RUYr?=
- =?utf-8?B?T2pRTzl3V1VrUkhLSEt2V29iRy81a01La0xLUmw3M3BMMGllYzJITzZKYjhl?=
- =?utf-8?B?NmhUTDdOZkVnWHJ6VVhaNlFaZkRtZXdvTy85c2JMWVI5dTR1WGE2SjZSbkVu?=
- =?utf-8?B?LzlpWG8yaC9XNkp0R3BaMHdOQTZidVQ4SmtvSytobTBDcFppaDF3RE0rVUdF?=
- =?utf-8?B?UVlIa1YzaHZUeHlic2QvNExiNzIxODNwU2hSdXk1TktoT29LLzhPNm0xdDY4?=
- =?utf-8?B?dlZEMlVqT2JtTHkvdWFQUWVMUTQzYnduWENDUENRblQwV3FxR2ZQUTZVclJx?=
- =?utf-8?B?V1poZkJ5RUJDL0tRU29XZ1VDczFOa1BmaFBPWk9yTWxqQjVjWVpkT0orK1d5?=
- =?utf-8?B?YlM5VWg0OGFPUGdUSG1IejF3QXV6R1hRMnYwTVUrSzlQNFU3L0syTGJENzh4?=
- =?utf-8?B?MlJGeWUyZUU3TVEra0Z0OW1zdjRJdFpEVGpvbWpHQ2hTRnNJcVo5ZkFqVHFK?=
- =?utf-8?B?NWNGdDlySVFhNkRUZjR3SHVVQk14Smo0MmsybVJiWHZOcW1iQ09sTDdkaVdt?=
- =?utf-8?B?cFN3TlMrOWxoVlFSK0l5MjFpcG5jZklmbkFtUjVpaDhRVXhZSWxZcW9aMGg0?=
- =?utf-8?B?SXJaRi9NYk5vK3YwN2pWOUJCYlcvOU10c2hWOGhRTlM3em9rYzNvRm4xWk1E?=
- =?utf-8?B?OUZTLzVIaGcyaFVLdzZmK1VoTktBMW8yU0VBNFNhTkhMS09nUWJ2c0paRnhs?=
- =?utf-8?B?T1c3WlcrdXlnb2g5clF4TmFOT28rVDB1MElHRVRTdDNRUDVIZ2liS1JyOWJN?=
- =?utf-8?B?QXFKcDR0eDZ6WTJxWFRJZ1dpTllpK1pjdklQSlJITFdpT0U3alNnWjlxQXF6?=
- =?utf-8?B?WksxbE50eXRHZUdsUzY1UGlndVBWVUJ4aElhbHNwVVdoT3FMS2daZ2daVTNW?=
- =?utf-8?B?R28wVHd0a3lKNWx5VW8vWUxZcnJab3FoN1JhS2lzSGdxa0pRUDhPbDZ1WHJ6?=
- =?utf-8?B?Slp1RExRdHM1T1pxamU1ZW5lcDVCb0R6Q1M5elVReXZTREdLRkc5aEwvckZ1?=
- =?utf-8?B?TDJBVW1sUVU3c0p5M29GaC9SV3Y5NldLcHRLbnpzZ3BqY2JTMm10S1pHa3JX?=
- =?utf-8?B?M0RjQlE1TnFmQmlNTzFhc21XejlCUkdDcGpNV3B6aXpWUGVtQWFMbTFXbWgz?=
- =?utf-8?B?dDlNWXFqNkhrejdBUUp4dWtscGlkWW1vRllWZnUrVWxJNy9vZ3BWeWpjQXpD?=
- =?utf-8?B?SEpiR2xOQTEyU3FscGRmWU90cmVFNEJMSkJ5Y1ZvZVNQblJUYXl3aWdRNGs1?=
- =?utf-8?B?emorRjJUajJvaHdnZG1LSEVZVE5ZeTArWTJjeCtwcnZJMyt0TDFtQ01qSWE3?=
- =?utf-8?B?ZnNIb2RmQ3FTOUpLU0JwY25aSmN3Y0RENzI1anlVMUsrUk1zalhxSlFxL2lY?=
- =?utf-8?B?ejRQMHJvRzdXa0xBc0xpVGNJTVQwMnZBTmgyL2dXL282OFJLMHdzdG0zZDU2?=
- =?utf-8?B?UjM4dFZlZS9LWkpxRHpkS1hXbmtrNUVtazMvY0p5NmlxTDc2WkdjZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f860186-4585-4fd6-1d4a-08de84e28acf
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 11:36:06.1446
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vdmzL8r+WfYpkbDfYj2CSMDK9BrOOKqyEFPCkwW6EKQjjou/zbabj5fB9XwU8zxCxvZ5fe0DlT9uP0jbfNZY/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8343
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: realm: Fix PTE_NS_SHARED for 52bit PA support
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, linux-kernel@vger.kernel.org,
+ aneesh.kumar@kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+References: <20260316161901.2410354-1-suzuki.poulose@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260316161901.2410354-1-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_043613_412305_689C62D3 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260318_043700_929714_AC73D1A3 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,30 +66,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 17:50, Alexander Stein wrote:
-> Am Dienstag, 17. März 2026, 14:09:42 CET schrieb Daniel Baluta:
->> On 3/17/26 13:17, Alexander Stein wrote:
->>> From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
->>>
->>> This overlay enables the LWB5+ M.2 wlan module from ezurio.
->>>
->>> Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
->>> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->> I was expecting this patch to be in line with this comment:
->>
->> /*
->>  * Display is not fixed, so compatible has to be added from
->>  * DT overlay
->>  */
-> Well, the DT overlay from this patch is only about the WiFi and
-> Bluetooth module. Display overlay is a different one, yet to be
-> included as this depends on [1]. I need to respin this after
-> imx91/imx93 pdfc patch is included.
->
-> But if it is preferred to not include backlight/display until the
-> display overlay is available, I'm fine with that as well.
+On 16/03/2026 16:19, Suzuki K Poulose wrote:
+> With LPA/LPA2, the top bits of the PFN (Bits[51:48]) end up in the lower bits
+> of the PTE. So, simply creating a mask of the "top IPA bit" doesn't work well
+> for these configurations to set the "top" bit at the output of Stage1
+> translation.
+> 
+> Fix this by using the __phys_to_pte_val() to do the right thing for all
+> configurations.
+> 
+> Tested using, kvmtool, placing the memory at a higher address (-m <size>@<Addr>).
+> 
+>  e.g:
+>  # lkvm run --realm -c 4 -m 512M@@128T -k Image --console serial
+> 
+>  sh-5.0# dmesg | grep "LPA2\|RSI"
+> [    0.000000] RME: Using RSI version 1.0
+> [    0.000000] CPU features: detected: 52-bit Virtual Addressing (LPA2)
+> [    0.777354] CPU features: detected: 52-bit Virtual Addressing for KVM (LPA2)
+> 
+> Fixes: 399306954996 ("arm64: realm: Query IPA size from the RMM")
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-To avoid confusion until there is a user for this you should keep it out.
+Reviewed-by: Steven Price <steven.price@arm.com>
 
+> ---
+>  arch/arm64/kernel/rsi.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index c64a06f58c0b..9e846ce4ef9c 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -12,6 +12,7 @@
+>  
+>  #include <asm/io.h>
+>  #include <asm/mem_encrypt.h>
+> +#include <asm/pgtable.h>
+>  #include <asm/rsi.h>
+>  
+>  static struct realm_config config;
+> @@ -146,7 +147,7 @@ void __init arm64_rsi_init(void)
+>  		return;
+>  	if (WARN_ON(rsi_get_realm_config(&config)))
+>  		return;
+> -	prot_ns_shared = BIT(config.ipa_bits - 1);
+> +	prot_ns_shared = __phys_to_pte_val(BIT(config.ipa_bits - 1));
+>  
+>  	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
+>  		return;
 
 
