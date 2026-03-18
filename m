@@ -4,139 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC7A103E19B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D56103E199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIqoWgKmQyuYPfu/JHLpVodU4oDvKEbNfgj2XsNto0Q=; b=nQYwnnSVV4gOusJ+aFZrAVhsAn
-	Rmx7L6fqJ+PMrw/EGvX+7XXidbkXozDl6XyudiyQ5x6CnkvhxM40/u8duta8CQ3i/HEsVMFXB6nx0
-	SlZL+5tycIXRdduiVYKNwQjC4im5f15LS148TZpWD2wfkqZPNXEMItJiZowImBlLJCE6ZPnZv9epW
-	EvadQUjIUC24zxz1wgcqHxXnB0MBYpwU1aGqbyH3+kiVtlm4mMUhV4Yh9ILHbgjyOA59tAhPUhwOZ
-	Pmo+mi1OqXJUBENExtCXxnMJZPubPqMfqZHpcxOxSpYr0WFyc1i3ILdZlBK9Qu+IjovCHt5ZYfDsY
-	dknozmcw==;
+	bh=e7PSEs4PQLk/CUQtS2pu7HepYiSKsXDEHL/qILTq9dE=; b=nwUVLdCVVg50gpP3e0oHh0NiR1
+	9m4S+gK85fRImXL4lHEawSfV4Q1xJow4YCjbR4pyJrSeqPMBDOepYmSKyDkJRlgLHlwX30tsxx92O
+	8KNDPfqSYrD5td0hK38EKGMHSpE9JUKUahsDBdYB340I3w9QtitXgIRFE1gfiIh1VW44AscKGDwiI
+	2ZeNU3gCHEB7VjJOm3BAVC3Yq9hZE2qGZbYSK3CV2EZ8QHVCrCPsqIsUnsFOEBrl5Dh7JwAn4lWsP
+	GU3UZpvrRTala0PZ6+0UM1PCzC1EYhf738Xiz/EaOlhdCf2RPp4jD0TMElzDLpQRmiyeJqz5roSu1
+	/NrHEUjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2t09-00000008jhB-0KQK;
-	Wed, 18 Mar 2026 15:40:05 +0000
+	id 1w2t08-00000008jgq-3FfO;
+	Wed, 18 Mar 2026 15:40:04 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2t04-00000008jfZ-3kOP
+	id 1w2t02-00000008jeZ-3od3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:40:01 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62IFXC2l1768938
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:40:00 GMT
+	Wed, 18 Mar 2026 15:39:59 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62IFXhvG3963591
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:39:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BIqoWgKmQyuYPfu/JHLpVodU4oDvKEbNfgj2XsNto0Q=; b=cTy/Y/PIlh+7bFqp
-	FIrmo1qZ5qEsUdB2VmJnBdLzD2kLOJezYsUbkX/37bz2+iVUflOtSOBLHSiF48Sk
-	sfB3BPxYNHezc90psZCgTpQzxFCwLdntTZ781JRv7KeZkPxzg9VV3bZSDB4P1Qy0
-	k9291c1Q3Ziu6nBnH/Z7faQQYRJA+1GtXidiB2a2Deyf9PDJPw9T+dgAtgj8WbQ3
-	2wg8CgOjOPbODF6G76wlv3yWiz8CjOOTrGHEhWu4p5UAK+dw4O4LVDyFKihVpC9V
-	pJEwKdemRfCRqzqitNQ7C1PzZ+k+y0hGfugCKmnYs0XwcbcmzOtPA3srenURuuym
-	ek4cLQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cykqetx4p-1
+	e7PSEs4PQLk/CUQtS2pu7HepYiSKsXDEHL/qILTq9dE=; b=g7Qc9Gzqv7FTuSVV
+	sx5RAE1TLnpBzhaV8WNbGJTH+G426L1AjdZhaiBTjFyHjYTVj3iof5a8Rbn+UsPr
+	1cLq69tAJB8S5os7xGHoAR26JGe6g7Fzg3fcoW2cF/ACthdf7BGy6O7QIoNp9dOh
+	rwuzw58pQX2PI4Fs0j2za/no/mXbJPf04h9BPRgpIf560jhzeV8ontGzssoqEKP6
+	ou6PRFqyJaqmyqNXVMP85bOrSxEvABpgSGlEBOstj4elQBd5yE3GO+M0aU4Em0df
+	aOZUwoxIIs/bYcz4PvxyOxI5EzhhzsVBh8NnD5rRAcmslFWWcxpDoZ2eOhVO1Wdn
+	wQ8vAw==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cyak3vwd5-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:40:00 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50925fed647so23955991cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 08:40:00 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 15:39:58 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-509007aea22so325110451cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 08:39:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773848399; x=1774453199; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1773848397; x=1774453197; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BIqoWgKmQyuYPfu/JHLpVodU4oDvKEbNfgj2XsNto0Q=;
-        b=FORPQtnsNfSFRQKjNY4gLupW1D8eSI3IN8wzGov8SEXTkwbISKpkMIO6rh7mOTk8eh
-         SfqRfFj42a4BzGVSRWA3bl4fIMgNwwBbT9Y4oGxEYU2QhnVpt+gkJbp1NDIcM6jVKH5f
-         iHqi1fOX291P4R0TQYtjRiqwYowXhSVV65TAoNfXWXOZhT8B4PRE37RGzEiAlrdX4PqV
-         SiNQtw4HTxMDvgpBpr2QTweO3XFLDYXC8JnZiwRJtes3ZdgbqAsOQtR5eJmXcNIf1PcE
-         yNQbaqtH1BK9ru7ooGZk/h0iuh/RLD2wPM6si/D0gwknlrX0/IMQ+VMxbuDmQBn3xu0n
-         qr/w==
+        bh=e7PSEs4PQLk/CUQtS2pu7HepYiSKsXDEHL/qILTq9dE=;
+        b=CGvmh+bLPBh+HGk5RWeDocP43NQjxkLp+6gTxT+jFXyVp8RBneDeSVmFUIDKw/nOSB
+         a4kxojT19Lp+4z7EGn1EnjUSMYOrHJ7Tw+bF8Qm8hxt1u7JSWm+vfR5UWeevLOsyu5k1
+         OKpZVdKTs2njNW4lOC99I5vOcimqMtsSb+XhSEPdc4As4kGpDCVauWrg1nyWAqQX1Cnk
+         WU0xhQfuDX1jC0Z78XwwgMgFqLDwwq6cZ9Wjlu6Lrds48kpF9IUDv1KKJraDqZ/+jeQ3
+         g3cDr3XwL34XCytbrL8iyVy5nwo2VtD0EPPNSdztW8Nxyuuf6mVOqB6uOjkIHjxOMD3d
+         W/lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773848399; x=1774453199;
+        d=1e100.net; s=20251104; t=1773848397; x=1774453197;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BIqoWgKmQyuYPfu/JHLpVodU4oDvKEbNfgj2XsNto0Q=;
-        b=KeQZmgUPHXSpBbJjlI0HjecEW1UsPYBDoO9A4uG4luBTDJjY8jdZCzCe7LXk1ref3M
-         IO1TjpBcS0qqMGvBwj66d1tLopy3hYJG0h81HQ++Lza/3lsHhZTqH24lgEZqDpiaHtB6
-         yKwNCxnFMKWA6UINyuy0ToloHV3Imq5/v6yaVY9W2/ePubDDGCjsnFa+ixD0wBb+1sYR
-         HE3wDL9tAdhXaoo0iWmzn4QhV0c7QMjhGdqnThwRAzJbfmA0wzfnnz5uAX10e1kwKtMJ
-         qU4pJxvoJzumO74WKA+iOVpY9RZgptXB7XInaldbogCo1Y3TkpBkEKFSp/r49tHnc8z+
-         dBVA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJZ5wzHL5JQtdtQj459J4MPL4c9iJTzUvYwX3wg7y8Frn9/TnAd8IJmEgggJapahuAqJ1zT4rR6ciaZfInvStp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/uXLZPoKhe2ySbETOAV8uWbLKuGmQy/fti6umgEMxXoQsQ7zt
-	ExQB74OUbhplE2eUu2DO/2oKxVRuOY67JxbdFmmtiZgrKQXZu0o1J6Vp4onox8DQr0L1g+9gUbq
-	tx0yCI1qz+uTH8xiD9ZJ8LbRaMKJrU5SeLB3Uzxo3gMSngST6MFK/9pv7qmG1Xqev5B2/Myc9ym
-	DAQw==
-X-Gm-Gg: ATEYQzytofHE+LNTvfWK6PPepR4gJi+NKuI50gP5OF1w1i4BEl1MzkSaPyx3g+NI5x7
-	H6dqJFUycAAeL1i5H3Fkt96chaXcYwbMDUWaYrLkY4QaSbQVgHaSx7SKFve+EOZ+GbXOYMYq8Kr
-	1AKUdR1Ii5VxR+/8vR/I6gaoE63HlFbACtdzpTHYDkMwChSyo1a2He699JDGW9P+jFD5uxNMhGU
-	WDBPeBDlbgQ8GNnT0LPWMNVFYvJY/TUQx6P18XErwhxPm1LMFaJDmhI5XFnbtFhf3RW9yFM1+/K
-	xGeOS8yfwwXocCx2atXpq+bOCpa8HqzF51PXj0jrzkkr5DzYBzt5sOCOZTUfLIe2/aYGT08KMRA
-	n07Uf2XezrdFol9s5h6nv5asblaI=
-X-Received: by 2002:ac8:5f8b:0:b0:509:3367:c992 with SMTP id d75a77b69052e-50b1477d2b1mr49860021cf.5.1773848399253;
-        Wed, 18 Mar 2026 08:39:59 -0700 (PDT)
-X-Received: by 2002:ac8:5f8b:0:b0:509:3367:c992 with SMTP id d75a77b69052e-50b1477d2b1mr49859731cf.5.1773848398744;
-        Wed, 18 Mar 2026 08:39:58 -0700 (PDT)
+        bh=e7PSEs4PQLk/CUQtS2pu7HepYiSKsXDEHL/qILTq9dE=;
+        b=PK9Rj93goMjyTyuc/WTZwKHFkALQGCwAaMSrSoW5P+77sWSqPJ63UDeqRi2jzUo2cX
+         JEaDc2iY9REQQ/sSViEnAjZ3a0XwmeQFt/g6nCmGzwmWNLm9pbd3072oDn3BMCgBX5ev
+         Q26fJvBJukfJtqjjslDuerMyfhGWAapDWDuYLoBxzXa9okdgHuxCJsP0CEbRXBt4IYVj
+         ilEAqpjn3F1iVPAyNQUaAbZfP10F8tj3lsCuhuoSRez3OhyD5dTUA7TSLt0fc1uSFZWb
+         dmSXZUZwTGau0HzJz4WpaGxutQFxfIC1BZUtAsS4w8qGF4LXK0nsXbaHGQf6cns0qoPH
+         BYYw==
+X-Forwarded-Encrypted: i=1; AJvYcCX33y3i9Ow9kQL6Z1o3Ofmp39Qp61L0eMGApTucURsiZjKuO7VfsDbsQHecF9cipsnO/vcRXxm8ouEl2XE6nLtL@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd5jZhiOsFmZBVJFn/01aWlypSOY4w5mBiF+K+XSHMwFqCW7yx
+	EMDxllk93Hi6y95VUucrbVIrBmXCEdQp1IwBIct+RaVTjP+VCfUVl8Phk1RcqO8aPuhSLdB53FT
+	FV96gvJD5kctUcZ4EQftH3z9dYrm33VMALhF5YS5yCp0xbvfzMRtNzgzk8kO196sOSQ80mnkv7P
+	NYWw==
+X-Gm-Gg: ATEYQzy1jmJMNfOiuMel6ZzRW+FjdEB753xw9xYPPenE8dwagnZ+0NfaRbSL/3QPBNF
+	un2weynOLYLFtSrR8olZqC1SGpm1SQQp8xOnynTfRoHa+1V74C5XQRr+t0veui8w4bNAi9allw6
+	TjKOeTC9i2iJcBoxU20Z9LhA/Is8tVwbzJHWuGk6e7PQoYdMWm9zuBRG1TIOmsX4QbUdGe6ECHP
+	ldv1UaC0g6VAS+Ua+GTL0VphJUHDijeAzpvCLObUYr6JLA+TQbjCNgcRJNxA0TYf4XfbZtmU0qe
+	nvQ51VwbA12Dt9cJSatt1yaDXKTod3pff06ET2HdnoRrCw/reVwZze+773CG9LblNW2IaIWyDb5
+	sQtIoPaXfin04jOpE7V2oiucibtk=
+X-Received: by 2002:ac8:7dc2:0:b0:509:473e:2a12 with SMTP id d75a77b69052e-50b148a2691mr46167631cf.48.1773848396974;
+        Wed, 18 Mar 2026 08:39:56 -0700 (PDT)
+X-Received: by 2002:ac8:7dc2:0:b0:509:473e:2a12 with SMTP id d75a77b69052e-50b148a2691mr46167001cf.48.1773848396367;
+        Wed, 18 Mar 2026 08:39:56 -0700 (PDT)
 Received: from hackbox.lan ([82.79.95.133])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b51892161sm9227560f8f.21.2026.03.18.08.39.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b51892161sm9227560f8f.21.2026.03.18.08.39.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 08:39:57 -0700 (PDT)
+        Wed, 18 Mar 2026 08:39:55 -0700 (PDT)
 From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Lukasz Majewski <lukma@nabladev.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 0/4] clk: vf610: Add clocks to support MTIP L2 switch
-Date: Wed, 18 Mar 2026 17:39:33 +0200
-Message-ID: <177384710706.3709943.4851926053225673193.b4-ty@oss.qualcomm.com>
+To: abelvesa@kernel.org, peng.fan@nxp.com, daniel.baluta@oss.nxp.com,
+        mturquette@baylibre.com, sboyd@kernel.org, Frank.Li@nxp.com,
+        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+        gregkh@linuxfoundation.org, rafael@kernel.org, hanguidong02@gmail.com,
+        Danilo Krummrich <dakr@kernel.org>
+Cc: driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH v2] clk: scu/imx8qxp: do not register driver in probe()
+Date: Wed, 18 Mar 2026 17:39:32 +0200
+Message-ID: <177384710701.3709943.608237959975537642.b4-ty@oss.qualcomm.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260129095442.1646748-1-lukma@nabladev.com>
-References: <20260129095442.1646748-1-lukma@nabladev.com>
+In-Reply-To: <20260212235842.85934-1-dakr@kernel.org>
+References: <20260212235842.85934-1-dakr@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE4MDEzMiBTYWx0ZWRfXz4EhqJM0uQYo
- JbnsFdXo2RB8s8FqQfxWEAjTKAZ+OlP3nAnBsmzPQ8bPU21axzIK76tWp/dGtPSKl0IB2a4qYoL
- 2OCHOJ7tTuhXdfxbdMrMEeJPd4h7o+I5NM/RLxixVfqk37qil6aeHNJ0K85tFNiocRfrfSUr5ND
- bKdE4yaMprfLlamISnhHpfToggWjCOqdC+Rck4UOPfnFQAqld125f4Qy2aAqqO4NiDcoXX86kEx
- ynVvP2Ti7Ghq3CAP4CQokumP7P24umeANVYoOlYhsHBTl2pS1irVTXeysjZM8i+7dStmM/XvV2i
- MpVGfhTtp2MNVsNRekb0OnPR2UboqUuvpqER0mRdhT6N4m4DAqP4s8hLvsVcu6mNFX8FTPWbB7C
- u8gN23r58HRBLEvMS+PF62AWjeiRzIOOE1xJQ3vhU5eVN5BeXeM/6AvfJLTCZyrrSKKXIiPMGor
- O7GZta3ikR0kPxW0GwQ==
-X-Authority-Analysis: v=2.4 cv=Cd4FJbrl c=1 sm=1 tr=0 ts=69bac750 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=iKs3dpp2RB4k51ZqCjcyjQ==:17
+X-Authority-Analysis: v=2.4 cv=A7Zh/qWG c=1 sm=1 tr=0 ts=69bac74e cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=iKs3dpp2RB4k51ZqCjcyjQ==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=15QbF078PdIEimGHe8kA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: d99QQhiQ7M2wzdN5wh_FYmUCd0QRu4AT
-X-Proofpoint-GUID: d99QQhiQ7M2wzdN5wh_FYmUCd0QRu4AT
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=bTwR5g6i7njH7xachKcA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: W-Gu63isuKKkOl_vTpXFOJS3oTV_c18F
+X-Proofpoint-ORIG-GUID: W-Gu63isuKKkOl_vTpXFOJS3oTV_c18F
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE4MDEzMiBTYWx0ZWRfX4ocjlWs7iegN
+ CfuQnMj39Z5l9yslsqzt3UBGgHbo3uxeHfGIuQz3AhQKdgbK1YXAeUu5dIL5JPDRdvFaeBOkXar
+ sSnQ/Q0Qc93vC+ME9AI7lxQRWhKGCPGXipHqAqedULp/t+x2XgwpIzNxi16etpbd38Xynf/dJ6F
+ g0Gl1dmxeNe1fE9F/AvJDE3SQpNmtNf/7XrjR6+3nH8CCQianabmjXcGiVM071QOvo2rsTivk0K
+ 0RjvB7djtnChAJjIeG6kTRZ5Cqct2cIWCmK53etzPxiCZsR9vkGqUzCAtT3uFu5r1bpIYIb4/Bm
+ sqgCZRBPO3sK3h65jIWBX4YbtzJpWun1WjTThEluE2TsJ6cWLPfG+LuYqmlCcdmEm4i49R5Man8
+ av/cHrWXCSeZ8mCuy7799CMD78SVZpyuIo0Xhko4J0EWGD+FX9NAjvBX94bD9byYS20KvloQ2xW
+ LjDQxmiyjXuaMkf4Zcg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-18_01,2026-03-17_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 spamscore=0 adultscore=0 bulkscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ impostorscore=0 adultscore=0 malwarescore=0 phishscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 clxscore=1015
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
  definitions=main-2603180132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_084000_940634_6C504F85 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260318_083958_973594_09F6CD3E 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,30 +151,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 29 Jan 2026 10:54:38 +0100, Lukasz Majewski wrote:
-> This patch series:
-> - cleans up clocks' setup on vf610 by moving VF610_CLK_END define
->   to driver code
-> - introduces support for several clocks required by MTIP switch IP block
+On Fri, 13 Feb 2026 00:58:11 +0100, Danilo Krummrich wrote:
+> imx_clk_scu_init() registers the imx_clk_scu_driver while commonly being
+> called from IMX driver's probe() callbacks.
 > 
-> Lukasz Majewski (4):
->   clk: vf610: Move VF610_CLK_END define to clk-vf610 driver
->   dt-bindings: clock: vf610: Drop VF610_CLK_END define
->   dt-bindings: clock: vf610: Add definitions for MTIP L2 switch
->   clk: vf610: Add support for the Ethernet switch clocks
+> However, it neither makes sense to register drivers from probe()
+> callbacks of other drivers, nor does the driver core allow registering
+> drivers with a device lock already being held.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/4] clk: vf610: Move VF610_CLK_END define to clk-vf610 driver
-      commit: 2c53aa5878f9abe6975ca45591b8e3357794c0e4
-[2/4] dt-bindings: clock: vf610: Drop VF610_CLK_END define
-      commit: 216ad764f8d8c53b85cc74f6090f8d132772fec4
-[3/4] dt-bindings: clock: vf610: Add definitions for MTIP L2 switch
-      commit: 819bfc68251484bb9ba4b6cf91279a80c0fd7047
-[4/4] clk: vf610: Add support for the Ethernet switch clocks
-      commit: 5567730bd36614d8099d73520760c298e80e0fc5
+[1/1] clk: scu/imx8qxp: do not register driver in probe()
+      commit: 93a6d39e78bfa78b2160621aafbb490e063f12d9
 
 Best regards,
 -- 
