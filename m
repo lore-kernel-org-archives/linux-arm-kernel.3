@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E38A10854CE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28FB10854CD
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 02:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,26 +12,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoDqQfOMC64VX6+UlsaFYUEuWH5vh+MneN+PUY34Xyk=; b=0BRwVs9CsOgSaGgwk0+WYI+LMu
-	7/O5JmiJx5cHaY/y++tKriCWyUuzahDTUNIJEUCSwtUfNLW7zjvsn7IkJaPqsWFhMabDSUClUyiXx
-	S2loblDv5gX37amXSDYcTAl0CEgQjULeqGNB6RQMY59u36DzDXmAwnZKsiG2XMskBGiP+ngOayN23
-	ioO02IA+y1N85UJgVx0xstdZywQ8sVqVDo+e2FeN+tXlz5CmIgNEhGDseq+2MM6fBtztoSFBLWrEm
-	jP57gc+u70R6KOztSGiEvEYmUJt+ESZH7YSz1Lf1YT/RGnOuOxjW29Qjn1TfautPR6+vGG7g3/Gbb
-	B0H8hJ7w==;
+	bh=3BcAtCpvpRrLMMFGFvFOgOamzHlSWGfCd7Wg441ffE8=; b=mWPqt5ILlpkVyqj8no6Gaw8prF
+	gCfeniydduDHpI4iWKSmeFJN4gcsy9Khy+EBrxz7f7HDKdMkMi4G6CCS65O2/M6eLpTxBQa3b274Q
+	tCC/jxL07unRitJjPTlriCyM/5Klm3/FHRaGw4nTzQbeZ/5YLqXb9k+yA+95KNtoq1ijtteap2RHs
+	kU8iz8woSvr877JPeiYaz66c3E0Ghgclufyvo/WUjPcWQT47TavBPcp/mc03uNxScv81ZdALhfgc5
+	FgrdOYHm27FgN5hZ5FFq7UmQOBGdTjWmdnSMgR4zHandrEpbaH5dY6fsfEPtzzNtwb+b2bXf8VRDe
+	BGs6G/4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gpr-00000007cny-0406;
-	Wed, 18 Mar 2026 02:40:39 +0000
+	id 1w2gps-00000007cpx-0197;
+	Wed, 18 Mar 2026 02:40:40 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gpZ-00000007cS9-2ypA;
+	id 1w2gpb-00000007cSC-3GTm;
 	Wed, 18 Mar 2026 02:40:25 +0000
-X-UUID: c9eb4c20227311f1a21c59e7364eecb8-20260318
+X-UUID: c9b27f8a227311f1a21c59e7364eecb8-20260318
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:b7d41302-ab01-4193-84df-230ba0b64e3c,IP:0,U
+X-CID-O-INFO: VERSION:1.3.11,REQID:6fea9da3-f253-4715-8e00-ccf1d7c08028,IP:0,U
 	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
 	ON:release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:75c250732db7212cdd6b3f17c9b3ba15,BulkI
+X-CID-META: VersionHash:89c9d04,CLOUDID:73cfdaeb839ee2b14c9dbe5cb3da3ac4,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
 	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
 	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -39,12 +39,12 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c9eb4c20227311f1a21c59e7364eecb8-20260318
+X-UUID: c9b27f8a227311f1a21c59e7364eecb8-20260318
 X-User: xiaopei01@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <xiaopei01@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 786414051; Wed, 18 Mar 2026 10:40:12 +0800
+	with ESMTP id 2047793257; Wed, 18 Mar 2026 10:40:12 +0800
 From: Pei Xiao <xiaopei01@kylinos.cn>
 To: linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,17 @@ To: linux-spi@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH v4 04/17] spi: img-spfi: Simplify clock handling with devm_clk_get_enabled()
-Date: Wed, 18 Mar 2026 10:39:54 +0800
-Message-Id: <b928f4ab5500b3fac89bf97da5aee94b1460eaaa.1773801401.git.xiaopei01@kylinos.cn>
+Subject: [PATCH v4 03/17] spi: bcmbca-hsspi: Simplify clock handling with devm_clk_get_enabled()
+Date: Wed, 18 Mar 2026 10:39:53 +0800
+Message-Id: <70d3c5f0e8a0b7b684ed8558fa775edf9736c6d8.1773801401.git.xiaopei01@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1773801401.git.xiaopei01@kylinos.cn>
 References: <cover.1773801401.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_194022_930985_F28FF878 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260317_194024_129984_519EB6BA 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +82,119 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Replace devm_clk_get() followed by clk_prepare_enable() with
-devm_clk_get_enabled() for both "sys" and "spfi" clocks. This reduces
-boilerplate code and error handling, as the managed API automatically
-disables the clocks when the device is removed or if probe fails.
+devm_clk_get_enabled() for both the "hsspi" and "pll" clocks. This
+reduces boilerplate code and error handling, as the managed API
+automatically disables the clocks when the device is removed or if
+probe fails.
 
 Remove the now-unnecessary clk_disable_unprepare() calls from the
-probe error paths and the remove callback.
+probe error paths and the remove callback. Simplify the error handling
+by converting to direct returns with dev_err_probe() where appropriate.
 
 Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
 ---
- drivers/spi/spi-img-spfi.c | 18 ++----------------
- 1 file changed, 2 insertions(+), 16 deletions(-)
+ drivers/spi/spi-bcmbca-hsspi.c | 49 +++++++++++-----------------------
+ 1 file changed, 16 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/spi/spi-img-spfi.c b/drivers/spi/spi-img-spfi.c
-index 902fb64815c9..b45c6ceaffe2 100644
---- a/drivers/spi/spi-img-spfi.c
-+++ b/drivers/spi/spi-img-spfi.c
-@@ -557,24 +557,17 @@ static int img_spfi_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto put_spi;
+diff --git a/drivers/spi/spi-bcmbca-hsspi.c b/drivers/spi/spi-bcmbca-hsspi.c
+index ece22260f570..2e22345115fd 100644
+--- a/drivers/spi/spi-bcmbca-hsspi.c
++++ b/drivers/spi/spi-bcmbca-hsspi.c
+@@ -452,39 +452,30 @@ static int bcmbca_hsspi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(spim_ctrl))
+ 		return PTR_ERR(spim_ctrl);
  
--	spfi->sys_clk = devm_clk_get(spfi->dev, "sys");
-+	spfi->sys_clk = devm_clk_get_enabled(spfi->dev, "sys");
- 	if (IS_ERR(spfi->sys_clk)) {
- 		ret = PTR_ERR(spfi->sys_clk);
- 		goto put_spi;
- 	}
--	spfi->spfi_clk = devm_clk_get(spfi->dev, "spfi");
-+	spfi->spfi_clk = devm_clk_get_enabled(spfi->dev, "spfi");
- 	if (IS_ERR(spfi->spfi_clk)) {
- 		ret = PTR_ERR(spfi->spfi_clk);
- 		goto put_spi;
- 	}
- 
--	ret = clk_prepare_enable(spfi->sys_clk);
--	if (ret)
--		goto put_spi;
--	ret = clk_prepare_enable(spfi->spfi_clk);
--	if (ret)
--		goto disable_pclk;
+-	clk = devm_clk_get(dev, "hsspi");
++	clk = devm_clk_get_enabled(dev, "hsspi");
+ 	if (IS_ERR(clk))
+-		return PTR_ERR(clk);
 -
- 	spfi_reset(spfi);
- 	/*
- 	 * Only enable the error (IACCESS) interrupt.  In PIO mode we'll
-@@ -655,9 +648,6 @@ static int img_spfi_probe(struct platform_device *pdev)
- 		dma_release_channel(spfi->rx_ch);
- 	if (spfi->tx_ch)
- 		dma_release_channel(spfi->tx_ch);
--	clk_disable_unprepare(spfi->spfi_clk);
--disable_pclk:
--	clk_disable_unprepare(spfi->sys_clk);
- put_spi:
- 	spi_controller_put(host);
+-	ret = clk_prepare_enable(clk);
+-	if (ret)
+-		return ret;
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "Failed to get hsspi clock\n");
  
-@@ -675,10 +665,6 @@ static void img_spfi_remove(struct platform_device *pdev)
- 		dma_release_channel(spfi->rx_ch);
+ 	rate = clk_get_rate(clk);
+ 	if (!rate) {
+-		pll_clk = devm_clk_get(dev, "pll");
++		pll_clk = devm_clk_get_enabled(dev, "pll");
  
- 	pm_runtime_disable(spfi->dev);
--	if (!pm_runtime_status_suspended(spfi->dev)) {
--		clk_disable_unprepare(spfi->spfi_clk);
--		clk_disable_unprepare(spfi->sys_clk);
+ 		if (IS_ERR(pll_clk)) {
+-			ret = PTR_ERR(pll_clk);
+-			goto out_disable_clk;
++			return dev_err_probe(dev, PTR_ERR(pll_clk),
++					     "Failed to get pll clock\n");
+ 		}
+ 
+-		ret = clk_prepare_enable(pll_clk);
+-		if (ret)
+-			goto out_disable_clk;
+-
+ 		rate = clk_get_rate(pll_clk);
+-		if (!rate) {
+-			ret = -EINVAL;
+-			goto out_disable_pll_clk;
+-		}
++		if (!rate)
++			return dev_err_probe(dev, -EINVAL,
++					     "Failed to get pll clock rate\n");
+ 	}
+ 
+ 	host = devm_spi_alloc_host(&pdev->dev, sizeof(*bs));
+-	if (!host) {
+-		ret = -ENOMEM;
+-		goto out_disable_pll_clk;
 -	}
++	if (!host)
++		return dev_err_probe(dev, -ENOMEM,
++				     "Failed alloc spi host\n");
+ 
+ 	bs = spi_controller_get_devdata(host);
+ 	bs->pdev = pdev;
+@@ -535,18 +526,16 @@ static int bcmbca_hsspi_probe(struct platform_device *pdev)
+ 		ret = devm_request_irq(dev, irq, bcmbca_hsspi_interrupt, IRQF_SHARED,
+ 			       pdev->name, bs);
+ 		if (ret)
+-			goto out_disable_pll_clk;
++			return dev_err_probe(dev, ret, "Failed request irq\n");
+ 	}
+ 
+ 	ret = devm_pm_runtime_enable(&pdev->dev);
+ 	if (ret)
+-		goto out_disable_pll_clk;
++		return dev_err_probe(dev, ret, "Failed pm runtime enable\n");
+ 
+ 	ret = sysfs_create_group(&pdev->dev.kobj, &bcmbca_hsspi_group);
+-	if (ret) {
+-		dev_err(&pdev->dev, "couldn't register sysfs group\n");
+-		goto out_disable_pll_clk;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "couldn't register sysfs group\n");
+ 
+ 	/* register and we are done */
+ 	ret = devm_spi_register_controller(dev, host);
+@@ -559,10 +548,6 @@ static int bcmbca_hsspi_probe(struct platform_device *pdev)
+ 
+ out_sysgroup_disable:
+ 	sysfs_remove_group(&pdev->dev.kobj, &bcmbca_hsspi_group);
+-out_disable_pll_clk:
+-	clk_disable_unprepare(pll_clk);
+-out_disable_clk:
+-	clk_disable_unprepare(clk);
+ 	return ret;
  }
  
- #ifdef CONFIG_PM
+@@ -573,8 +558,6 @@ static void bcmbca_hsspi_remove(struct platform_device *pdev)
+ 
+ 	/* reset the hardware and block queue progress */
+ 	__raw_writel(0, bs->regs + HSSPI_INT_MASK_REG);
+-	clk_disable_unprepare(bs->pll_clk);
+-	clk_disable_unprepare(bs->clk);
+ 	sysfs_remove_group(&pdev->dev.kobj, &bcmbca_hsspi_group);
+ }
+ 
 -- 
 2.25.1
 
