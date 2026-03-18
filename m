@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2260103E197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F493103E198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 15:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+tpJsFb1Ttr9lnWH7wpgPR2cAf3WD2JC0Vi5vcACBA=; b=IKpdVn/Ic418trUR0lCQpcsa2w
-	qiNpgcZWA8ccozFNPtnCz2dBpzLFn3IsrJ1EHN662ogmga5tpUdSt//YMnc5u7ODfO8btBUUPGQ66
-	CRoKaxnBy4nMzoGa6r9QGLQU5aw6frDqDmcwXgSJB7WrZdhFaBkjUfNs8Al9qoQN8t4WzgBktupco
-	K6Uv0whGeAdmckNvj4bDCN6ZTlupXsMDc+aqcx4dIVJdI5rZ8ACzaI+m/lWgojoc8qhx1Bpc/17VX
-	rjuIZxuW5VQ2jyS9X2+8w553+r/kt075booOo/3aGAhvDQ5GYfJgMLvkq2cDq2LpM4VSBqiH53IH6
-	Yi/tv6FQ==;
+	bh=Q2Bo4Wrx8X+w9pa8/LvM10LXfhgTXyAZZYvN+RoLxJM=; b=sfTfO+bo75FT7Lzd4v+KNqFTBQ
+	kzjUZBrkzuicOR+B+7UWNBHmGFpMeMKNqiIVhSnRJUb6Bz/MLIujXP7O53Nlm9UyKjr3511bnL2ou
+	Kxn8TYBNlKSY970jo22orFTap/Q7jPXplObfgqLs/T8sLHYnLHoLD1+J5aBgyW7mr6Lm3l8OVKCPO
+	1z5blNGq572XGwELwVSvpjyk+1GLTGqyH5d5gPfa++jOlOwvWm3zKsQV13GvIpGhXPRJ+DOYmOkYn
+	du1D2SVx5pqR3bI0J0bLM/MrzRdaSJ14VcZaLzyIoPmJ2ftiGoRkUGBMj53+5ywOV4M75/llpOwOh
+	+db6oIBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tGI-00000008q2A-44uK;
-	Wed, 18 Mar 2026 15:56:47 +0000
+	id 1w2tGO-00000008q6m-07nw;
+	Wed, 18 Mar 2026 15:56:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tG0-00000008pjR-3lqx
+	id 1w2tG3-00000008pkl-22lp
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Mar 2026 15:56:28 +0000
+	Wed, 18 Mar 2026 15:56:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Z+tpJsFb1Ttr9lnWH7wpgPR2cAf3WD2JC0Vi5vcACBA=; b=fkAkzyLxWq6V4SAZp/7e6y34zR
-	iGRF+aC0Y8bcukMxOfZtwphzYInjP4Ca+FcVR6DwGhyEHGyl8lHpaGhUWcisZAcEYkXhRYwytS6qz
-	mCZiNU6xzEjj7WzWDNZxqFT2kORxDR21XR/UIVcZP8PJ5YeuicF6zuUXqKwRAajE6TSoVl4PRNydg
-	v5+Il6OG502wRIR/UtApE7ypcYrn4/6jV1PUc32lEz17l/y1saaTzV+GdDcaLHx//H1B2qwGVkZU/
-	UkwOh5mBA4opDKTcDN2C97ROpsWH/eDGcf9DGlWozXvIdSg3WonzN7Be5kmnkEF1GwUAmeqFuOWml
-	vmDUW04A==;
+	bh=Q2Bo4Wrx8X+w9pa8/LvM10LXfhgTXyAZZYvN+RoLxJM=; b=Cm9653/KUdaC06SIml8vs6Pujx
+	h5QVdBG6P/F+171Kqosk5Lxn/d4OZm9vNXd2JMZEv7PU08tCxrRkTzaw7yCIQAkPxmX6Nm8hKRhk+
+	CTPGR9bfjHFoFLpcRqkPSbswU1PXYQCbBxcDhGsO2XZafTiDPmUKmXUsaOYx153fTy3EZUI7YmYRU
+	Net99X2/z6cqRCnOLdgRuB9J3M8+kHJsbNTlELy4weukeRDg1S4utzMFFWvjE3d+1eNN7lrM1WceG
+	FnjO5fZPmQO0P05r8mD5Xqxm8I1PCHF6CHBz/Bdd987v3MSz+lTRLZLt2hGTK3KYsWhQmfPGNw0Wq
+	101zpMTQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tFw-0000000Bdn8-0Qdf
+	id 1w2tFy-0000000Bdox-2bDC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Mar 2026 15:56:27 +0000
+	Wed, 18 Mar 2026 15:56:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87C17201B;
-	Wed, 18 Mar 2026 08:56:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E50E2008;
+	Wed, 18 Mar 2026 08:56:19 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.61.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 809DF3F73B;
-	Wed, 18 Mar 2026 08:56:18 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E68A93F73B;
+	Wed, 18 Mar 2026 08:56:21 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
+Cc: Joey Gouly <joey.gouly@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
@@ -61,7 +61,6 @@ Cc: Steven Price <steven.price@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
@@ -72,18 +71,19 @@ Cc: Steven Price <steven.price@arm.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v13 32/48] arm64: Don't expose stolen time for realm guests
-Date: Wed, 18 Mar 2026 15:53:56 +0000
-Message-ID: <20260318155413.793430-33-steven.price@arm.com>
+	Vishal Annapurve <vannapurve@google.com>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v13 33/48] arm64: RMI: allow userspace to inject aborts
+Date: Wed, 18 Mar 2026 15:53:57 +0000
+Message-ID: <20260318155413.793430-34-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260318155413.793430-1-steven.price@arm.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155624_374353_6429ACCD 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260318_155626_842280_54D7EECF 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,53 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It doesn't make much sense as a realm guest wouldn't want to trust the
-host. It will also need some extra work to ensure that KVM will only
-attempt to write into a shared memory region. So for now just disable
-it.
+From: Joey Gouly <joey.gouly@arm.com>
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Extend KVM_SET_VCPU_EVENTS to support realms, where KVM cannot set the
+system registers, and the RMM must perform it on next REC entry.
+
+Signed-off-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
-Changes since v7:
- * Update the documentation to add a note about stolen time being
-   unavailable in a realm.
----
- Documentation/virt/kvm/api.rst | 3 +++
- arch/arm64/kvm/arm.c           | 5 ++++-
- 2 files changed, 7 insertions(+), 1 deletion(-)
+ Documentation/virt/kvm/api.rst |  2 ++
+ arch/arm64/kvm/guest.c         | 24 ++++++++++++++++++++++++
+ 2 files changed, 26 insertions(+)
 
 diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index bc180c853faf..70911fe6d435 100644
+index 70911fe6d435..eabe20d3ae76 100644
 --- a/Documentation/virt/kvm/api.rst
 +++ b/Documentation/virt/kvm/api.rst
-@@ -9240,6 +9240,9 @@ is supported, than the other should as well and vice versa.  For arm64
- see Documentation/virt/kvm/devices/vcpu.rst "KVM_ARM_VCPU_PVTIME_CTRL".
- For x86 see Documentation/virt/kvm/x86/msr.rst "MSR_KVM_STEAL_TIME".
+@@ -1310,6 +1310,8 @@ User space may need to inject several types of events to the guest.
+ Set the pending SError exception state for this VCPU. It is not possible to
+ 'cancel' an Serror that has been made pending.
  
-+Note that steal time accounting is not available when a guest is running
-+within a Arm CCA realm (machine type KVM_VM_TYPE_ARM_REALM).
++User space cannot inject SErrors into Realms.
 +
- 8.25 KVM_CAP_S390_DIAG318
- -------------------------
+ If the guest performed an access to I/O memory which could not be handled by
+ userspace, for example because of missing instruction syndrome decode
+ information or because there is no device mapped at the accessed IPA, then
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index e62a4feddff3..d9f392cb2759 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -827,6 +827,30 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+ 	u64 esr = events->exception.serror_esr;
+ 	int ret = 0;
  
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 61182eb0cf70..7d92ddb06460 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -469,7 +469,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		r = system_supports_mte();
- 		break;
- 	case KVM_CAP_STEAL_TIME:
--		r = kvm_arm_pvtime_supported();
-+		if (kvm_is_realm(kvm))
-+			r = 0;
-+		else
-+			r = kvm_arm_pvtime_supported();
- 		break;
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
++	if (vcpu_is_rec(vcpu)) {
++		/* Cannot inject SError into a Realm. */
++		if (serror_pending)
++			return -EINVAL;
++
++		/*
++		 * If a data abort is pending, set the flag and let the RMM
++		 * inject an SEA when the REC is scheduled to be run.
++		 */
++		if (ext_dabt_pending) {
++			/*
++			 * Can only inject SEA into a Realm if the previous exit
++			 * was due to a data abort of an Unprotected IPA.
++			 */
++			if (!(vcpu->arch.rec.run->enter.flags & REC_ENTER_FLAG_EMULATED_MMIO))
++				return -EINVAL;
++
++			vcpu->arch.rec.run->enter.flags &= ~REC_ENTER_FLAG_EMULATED_MMIO;
++			vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
++		}
++
++		return 0;
++	}
++
+ 	/*
+ 	 * Immediately commit the pending SEA to the vCPU's architectural
+ 	 * state which is necessary since we do not return a pending SEA
 -- 
 2.43.0
 
