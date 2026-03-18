@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7574AFCD0CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 07:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB02EFCD0C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Mar 2026 07:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7okRwHbmOLYwcX9nZRHtRjeIdOYWsIJrwtONmfXo3Q=; b=Rvuu7hsvfEuh9WO3iWOMuFww2x
-	T0B/TgQM3mxSvpX33cQiiWw4j8XkLQn6M6OCna63OiBAfUVH16z1hhqQQEa1MI+E2TMb+fiXV2frg
-	9UlQTm2Hm+9rlgLmA8dQmTpzQXN+dFhLKVaXtW+5V7IeLug9gfCL0iPYydqKOZNlSgLjjTlWDdNII
-	ytEPN4u+M8+FSi96b1arZj+LSct5o9/9rtCfwV1/wLoHu2N9iZwVxgZxz1e0NsgRY/kx/JOeqBpNH
-	F6L0+50xD5h/Y6+8U4xBH5tmWARFuA+K6cr529rlF/aR9cYP9OrTXZEMDy/0GmRQVNCBzdgBkpGnz
-	dQvJm6XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0J4NfQvHpzYkKzyi0vXHu9BLrXDvO7r/nJ0o8bqWeZE=; b=MXQcWR/RXb9zOKRg66c+3shAVR
+	UThJjXZyMBZdrYqFAvQGYeEeAs+WVm18PTBpP+CxxIL/uut6L1NuAV8fNwLdyP2NDxGV8GP5WmtSB
+	8xnBBzC+3FcV2mN1IA137eKmIUJDodFmyx1mA6jhwrvr+IAix8fNyO7lABLb13WjYfbNCuoRJ0qN5
+	3JGawP3VRp778FhprlWajC4y5dclXpfIoUryhApJjSZL+eNbdtl9A0Iar0toQ78+d9D2JG+DfADXH
+	drz4M+GJxYWJFNklNJ8CxVhv+aXL+23t/lMHcLjGtnubIl9C28MR+sus9VIhNziyRzNPMfT1gKSdV
+	8xUg4kZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lcr-00000007x4D-3fgy;
-	Wed, 18 Mar 2026 07:47:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2liv-00000007xZv-49tU;
+	Wed, 18 Mar 2026 07:53:49 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lcp-00000007x3f-3OOT;
-	Wed, 18 Mar 2026 07:47:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B017F4345A;
-	Wed, 18 Mar 2026 07:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06ECBC2BCAF;
-	Wed, 18 Mar 2026 07:47:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773820050;
-	bh=VDiIhLFFonrPUteX43LY9+5XNgD2tV9IN6RK86KlBeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TDz15YjXx23S4PukSS4zG1ixMHYOaF0o2HiXgBgyWaSJ1KiBKSJ0uUoLB4tF37Qvp
-	 IbynjUFxrG+U/quK/7jTBv2AfWXcVN5b3kZ5PmSIsgoPJttKoCrDVPM6yffQgVtCog
-	 n84PUu9HcvMBBcalXHeNSIk4eAZwXcNBHguMgFCX8z+w3218Dr9cZCKF7wFNuM9wrZ
-	 +s1Hk1mZSqigFCbgTu2QWBS39p8oErfj6L7Hz3IIURBLqyb1/bCLjBPEJaeR7bIbaD
-	 POLoSQrWMke1OYFSYAgDwK/NXr/h59ccz7Pw/PPRvCxjPfwFOCwRWFVZ3ySeOeEvuU
-	 ZuUMe4SXyU7fg==
-Date: Wed, 18 Mar 2026 08:47:28 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, Fabien Parent <parent.f@gmail.com>, 
-	Val Packett <val@packett.cool>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Gary Bisson <bisson.gary@gmail.com>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Julien Massot <julien.massot@collabora.com>, Chen Zhong <chen.zhong@mediatek.com>, 
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 1/9] dt-bindings: mfd: mt6397: Add bindings for MT6392
- PMIC
-Message-ID: <20260318-natural-hummingbird-from-sirius-ada960@quoll>
-References: <20260317184507.523060-1-l.scorcia@gmail.com>
- <20260317184507.523060-2-l.scorcia@gmail.com>
+	id 1w2lir-00000007xYH-1PFU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Mar 2026 07:53:47 +0000
+X-UUID: 8f4a428e229f11f1a21c59e7364eecb8-20260318
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:aef8549d-e582-4cad-8ce5-95983ea814d1,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:89c9d04,CLOUDID:315cd026318ef31811496fbe943e4f31,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8f4a428e229f11f1a21c59e7364eecb8-20260318
+X-User: lijun01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lijun01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 281637562; Wed, 18 Mar 2026 15:53:32 +0800
+From: Li Jun <lijun01@kylinos.cn>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lijun01@kylinos.cn
+Subject: [PATCH] arm: mvebu: fix null pointer when access
+Date: Wed, 18 Mar 2026 15:53:24 +0800
+Message-Id: <20260318075324.2477118-1-lijun01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260317184507.523060-2-l.scorcia@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_004731_873405_D060BFDB 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20260318_005345_686880_F04C3F3C 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,23 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 06:43:04PM +0000, Luca Leonardo Scorcia wrote:
-> @@ -92,6 +100,7 @@ properties:
->                - mediatek,mt6328-regulator
->                - mediatek,mt6358-regulator
->                - mediatek,mt6359-regulator
-> +              - mediatek,mt6392-regulator
+the kzalloc may return null pointer, will cause kernel panic.
 
-So this also should be dropped. I understand that we added compatibles
-to MFD device children 10-15 years ago, but what is the point of doing
-this still? What is the benefit? See also rules in overall-design in
-writing-bindings.
+Signed-off-by: Li Jun <lijun01@kylinos.cn>
+---
+ arch/arm/mach-mvebu/coherency.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
->                - mediatek,mt6397-regulator
->            - items:
->                - enum:
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm/mach-mvebu/coherency.c b/arch/arm/mach-mvebu/coherency.c
+index a6b621ff0b87..beba8ed9fa15 100644
+--- a/arch/arm/mach-mvebu/coherency.c
++++ b/arch/arm/mach-mvebu/coherency.c
+@@ -191,6 +191,8 @@ static void __init armada_375_380_coherency_init(struct device_node *np)
+ 		struct property *p;
+ 
+ 		p = kzalloc(sizeof(*p), GFP_KERNEL);
++		if (!p)
++			return;
+ 		p->name = kstrdup("arm,io-coherent", GFP_KERNEL);
+ 		of_add_property(cache_dn, p);
+ 	}
+-- 
+2.25.1
 
 
