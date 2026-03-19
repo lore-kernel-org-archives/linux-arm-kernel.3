@@ -4,122 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFC01090240
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863F21090240
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAHdFeNRl4yy2sR/1LOHb2d72hyJTySGsjAok8mzB+g=; b=XdBWm6h+HsDHP/oOFtHPwhPK2z
-	eFSF/JNtPGmBla19TJ/ahRK4sU0G6F2ojZiAfLLQHPkmYTin+GPaqIrIodNfhm/HzzdZlUeUGJ1pO
-	QaBCrTNNXgfMvNYeOvxnm/XaCjQM9WEl/VA1bLT9eYawIXXhlx6ns2NBQ2OL+D5klOtWeybSCH3Nw
-	bZTXWNWoa4nQyKiGyaQBE3fspB/DKaoWNu5JST+G9mOWVgXvkFJNk/QmWvXFwJCzF/DrximCHMafF
-	208fIT4zPxs6HaYm0WYam/L05+4j5bEcav4u5jA/Orh/2No5Bx+M5PL4X3JKeoxLO50uW6Ts1av3c
-	m4QBkajA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VpLuifWX/yxCeVHaHzXUl07uExvV6YoM7PDyXUzVtE0=; b=ngquFi/AWoyfSgjVHXDH9Ni2JE
+	Aws0B7FykpaPfSGHLFIpxqtw9wDwKilIK6kn7Ia5rwaJE62fnULNgg2NushBbUqOWjMi6aynUwFTP
+	JSd1nmSLO4FDFWhyhEvjePkFBOhogCgVKfVjBvdYWNi3W2LTLKUA6SRX2ba7biiMQ+fODA0LjkzcR
+	VzJrJHsdO/XV+ihJ6RM3RfFMPJxm/i38CGbnY0ewtthti5JHpXLupO7MWftear21lHMPVv0nV6gao
+	hNHFbbr2oUV/AF/wKNAIyraD0pkvHDkiKVFqbPRbkZvzhegNiZZda92cJjGdb1Hu8bM+UvkMpNSkC
+	oxfHST8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FEh-0000000AuQW-0DJo;
-	Thu, 19 Mar 2026 15:24:35 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FEe-0000000AuPl-2ULP
+	id 1w3FEp-0000000AuTj-3UVz;
+	Thu, 19 Mar 2026 15:24:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3FEo-0000000AuSh-1OSN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:24:33 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-899ed41208fso17356066d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 08:24:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1773933871; x=1774538671; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CAHdFeNRl4yy2sR/1LOHb2d72hyJTySGsjAok8mzB+g=;
-        b=fE9/lPwutGfat2UvN5ldmuBlJUEC0vb+d6YlEDp+KY/MMNYoOWt6j+fyLX08NrSNQ7
-         42kMC9cHasZu214J/gJfYK8RNx6k7Fi5WSLvH5y17gdZxZOKsg7b10A30QFzIn5WSz0p
-         CHcNcYsqrYDPyOnRyui0SLy9f8hLyD1e/zh8o9KiveU1aBsn6aUUSfSIv6EZ9F9cv+KC
-         w/07i1pO8L3sPrXAT8JuuKb5JO0xaMUMKs2jDfewJ8MeAdA/9udsWvoabmunbfaw008I
-         GQ7H9cWitbqZjHLXASIcXvJ+LwTOoZhRW3dXLwOxIBq/PM3iogmLrsI6+4CYdE2sMTfS
-         IOtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773933871; x=1774538671;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CAHdFeNRl4yy2sR/1LOHb2d72hyJTySGsjAok8mzB+g=;
-        b=qQpwNiwNZKlxhOUHiB2aKzxXA+yA/3hTqi02cT8ilRviR+PCFm7T1R7k18LPaUi/HS
-         OLUTa+7FFRQyk+a3eNtr+2BtVR3ufm2zpJRPNi0aw/Jl0Z5BSaXfvhl4+SEJ2EIeGKlN
-         kOxegOOsAy7el9VHx0TX8F4ObS+eZt+PQ/oE1dcVy9ETNAmCW0+dPQ+waOamYK76JEWL
-         /640ZFm3vrZGMwNS4dcnd5XTOqbjec8GIE0rgT4Ms5eLyjctlXoBkE6lwjY08wltYJX7
-         r5C/YtNsP4Gv3k44hfx5wW28GFSu/gxLyLzFrCTAxfGlcxyGiRp89ncbws8e8bmgpHPF
-         TP7g==
-X-Forwarded-Encrypted: i=1; AJvYcCWlaTjw7OqDvt1eV9eH1PUhq3mrcQUFpHbRzynicyv2aCtIrRlVQGtl/DtNDDQIgK7i0AjmE+XFL5QxF73FI4Y3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXi/lkx4/sclaGK7GPOlvdlJO1Am+Mo/AO0ej19z/j3JdF0uDA
-	qqDXxUOUO7gowb13AOeKpviCAjCfe9UZ8a3Dv6S8okQkruREymj5kedmdsG5ovtdvP8=
-X-Gm-Gg: ATEYQzwpsgYEsmiEOj9Odlz6dfIrnolskq/UT3AORZUU2wkPYPnQQQJu3fZGfJWlR+E
-	IfGz4VB4Jl/20fweiNhfkWL1atAfng5bHAGcHKSxg9vVhRLfWwZZJT+PtgNTXkzAXfOO2qbYSTt
-	wEWNhgr3h9oBTr8t8oStSO/G7ztu2YYCNYHbQNi5P6nl7pH/DyQSCDUDOG3qeOCVJ6wQ93GSs0G
-	QXQ8GRSETDjIXwCGDOWvGTvL+fs/EmNN6cRMPehNS61LHNos9IJdfytropiGwJ5NVBd0lZeahbe
-	sSeHkKSuB6c86tlBVlL2KIGt7YmW9/nVA8OvNMpYp0h2HWCEyoZVmhxJsf+1vVTnHWJ/yEMkY/q
-	w5pHlwW8XAnh/Ld2LkwRsqEq2oAkj0rjlrZrUVOHznOTZzr+lyAKxFiuA8F4qxlwSJKryDBdFn1
-	P7yxtlYXH0igaJS2Lb0ni4BDjnFK4HONIx4XzZ8NYZolxC2MNsScxVN6Jw+G/xFxIzb06YSj0s4
-	+Pra1zTGw==
-X-Received: by 2002:a05:6214:3314:b0:899:e702:b852 with SMTP id 6a1803df08f44-89c6b5fbac4mr107205736d6.57.1773933870639;
-        Thu, 19 Mar 2026 08:24:30 -0700 (PDT)
-Received: from gourry-fedora-PF4VCD3F (pool-96-255-20-138.washdc.ftas.verizon.net. [96.255.20.138])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89c6b8dfdf6sm49250646d6.5.2026.03.19.08.24.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 08:24:30 -0700 (PDT)
-Date: Thu, 19 Mar 2026 11:24:27 -0400
-From: Gregory Price <gourry@gourry.net>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
-	Byungchul Park <byungchul@sk.com>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-mm@kvack.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-Message-ID: <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
+	Thu, 19 Mar 2026 15:24:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 510961A25;
+	Thu, 19 Mar 2026 08:24:35 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 82BC83F778;
+	Thu, 19 Mar 2026 08:24:40 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	joro@8bytes.org
+Cc: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	daizhiyuan@phytium.com.cn
+Subject: [PATCH v2] iommu/arm-smmu-v3: Update Arm errata
+Date: Thu, 19 Mar 2026 15:24:34 +0000
+Message-Id: <4c4664b2427cef212a06efdd78a9faa8d9ded302.1773933699.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260319-config_migration-v1-1-42270124966f@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_082432_628052_09DE8152 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260319_082442_513701_F3DBD3D9 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,23 +63,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
-> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
-> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
-> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
-> 
-> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
-> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
-> CONFIG_CMA and CONFIG_COMPACTION already do).
-> 
-> We'll clean up CONFIG_MIGRATION next.
-> 
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+MMU-700 r1p1 has subsequently fixed some of the errata for which we've
+been applying the workarounds unconditionally, so we can now make those
+conditional. However, there have also been some more new cases
+identified where we must rely on range invalidation commands, and thus
+still nominally avoid DVM being inadvertently enabled.
 
-HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
-this up.
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+v2: Decouple from unrelated silicon-errata cleanup
 
-Reviewed-by: Gregory Price <gourry@gourry.net>
+ Documentation/arch/arm64/silicon-errata.rst |  8 +++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 18 ++++++++++++++----
+ 2 files changed, 21 insertions(+), 5 deletions(-)
 
-~Gregory
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 4c300caad901..c81d7fc2c68c 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -207,8 +207,14 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | MMU-600         | #1076982,1209401| N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+-| ARM            | MMU-700         | #2268618,2812531| N/A                         |
++| ARM            | MMU-700         | #2133013,       | N/A                         |
++|                |                 | #2268618,       |                             |
++|                |                 | #2812531,       |                             |
++|                |                 | #3777127        |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | MMU L1          | #3878312        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
++| ARM            | MMU S3          | #3995052        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 4d00d796f078..3d816c67508d 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4308,6 +4308,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ #define IIDR_IMPLEMENTER_ARM		0x43b
+ #define IIDR_PRODUCTID_ARM_MMU_600	0x483
+ #define IIDR_PRODUCTID_ARM_MMU_700	0x487
++#define IIDR_PRODUCTID_ARM_MMU_L1	0x48a
++#define IIDR_PRODUCTID_ARM_MMU_S3	0x498
+ 
+ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
+ {
+@@ -4332,11 +4334,19 @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
+ 				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
+ 			break;
+ 		case IIDR_PRODUCTID_ARM_MMU_700:
+-			/* Arm erratum 2812531 */
++			/* Many errata... */
++			smmu->features &= ~ARM_SMMU_FEAT_BTM;
++			if (variant < 1 || revision < 1) {
++				/* Arm erratum 2812531 */
++				smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
++				/* Arm errata 2268618, 2812531 */
++				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
++			}
++			break;
++		case IIDR_PRODUCTID_ARM_MMU_L1:
++		case IIDR_PRODUCTID_ARM_MMU_S3:
++			/* Arm errata 3878312/3995052 */
+ 			smmu->features &= ~ARM_SMMU_FEAT_BTM;
+-			smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
+-			/* Arm errata 2268618, 2812531 */
+-			smmu->features &= ~ARM_SMMU_FEAT_NESTING;
+ 			break;
+ 		}
+ 		break;
+-- 
+2.39.2.101.g768bb238c484.dirty
+
 
