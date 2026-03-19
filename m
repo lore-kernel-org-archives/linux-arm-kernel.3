@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF4A1088E72
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DCD1088E73
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 03:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vj6rcJFTO7DaWtVeHI3TKWH2ayBVnwxQ2FZw6tvwuk8=; b=MgnmI3lE7/ogTEb5n1dck0xXkZ
-	+uevwfH3B0glAJPJXCWVtAKdEvT8RlUEhASQIbDmBFormJ8pFISbAqWFymVM88h3FAaUvhi1XPuBT
-	0+PxjpJrkFQgdG+jXFsJrTmHZ9mkoEbPV4M2fsTH6BLwe1xOB0ueP898LcjVSM3/oarf4GA4pko7f
-	JOMEikyrRhU/O0PhOMO7J7U0Tm6ChRaCxbO3deNOX1zedcPRZmH+sCxiV9RdRIjBkoPFD7nCkoVMt
-	/+Xbqi32KmwyVFdgZhjJFZKuULI6kW5T8PIWf/y7vXcaBvvFTNFzytksixqavtktQZWKkD4enFuKr
-	UK5oEnbQ==;
+	bh=8e+wpvoY6yD1RG4Kj+AWSxyaFX8YNngg+IFhXCxexik=; b=TqsP3AJ+HdzvFabHRC7DqlBnGT
+	QQGpKioqqLilnECpUD0BA/rsyfPXOS4UI5P+mY56yXtOE38zdpOWKHxZWo7hES2ylnljVkpecQGJk
+	ByUlUqKik8kmK8HjIV7wxX7ofE3E0jQbk9x3LF9vT1/scBbFq5oScK7d0kmY2bVPo4m1nVGSusAbf
+	dw3oCaZFg7U28Fy5/v91zhC0pyeO7uDrjZLbjnJRTBNpUa/ZXjGdoWpvOJWau/+7oDjUZ+gVK8232
+	m4vBvfu+vgBtNLcfqJ897+j+6qmVVYwzkPYDYUuouy4p7VdnfxX9z9bP7VfK4P8UyKpz8Hl5wSRRJ
+	jLIxbGeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w34SE-00000009rIZ-3BvX;
-	Thu, 19 Mar 2026 03:53:50 +0000
-Received: from mail-pj1-f54.google.com ([209.85.216.54])
+	id 1w34SF-00000009rIq-0Kem;
+	Thu, 19 Mar 2026 03:53:51 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w34SA-00000009rGt-1iub
+	id 1w34SB-00000009rHE-20aW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 03:53:47 +0000
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-35b9fb3f57eso243694a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 20:53:45 -0700 (PDT)
+	Thu, 19 Mar 2026 03:53:48 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3591cc98871so111990a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 20:53:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773892425; x=1774497225; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773892426; x=1774497226; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Vj6rcJFTO7DaWtVeHI3TKWH2ayBVnwxQ2FZw6tvwuk8=;
-        b=nWe+V/+8BVYiZUcencyxxt/j3W+jNyeom2vVQ21fb/JOEyrUsPT4H79G0ghlRg0Pw3
-         e8EfJvpZ4Y6WlO278LUvXIhBIl2HGsVZqVJnzB7ohUbeIVlsMlSGPEGaFC4DNX7lsOlv
-         B7nI9kCYm1p6P/e0x8FAebsmJITsArGM6mMKPtapxIuHVQ8o5MbXFMSAjhhZ0gX7Qg7R
-         +NRhqtGViBDljZoBRpjLLxXEgf1lTyhWVEZ1nhZKpEljIp1YizQCQneOZLfiu1PL7hV4
-         jzzWDt9uBWSbPSIYPvbxjQ6suDwB8JbfRrvEGCIAmbFzXKjtTw3gDEKgN/HHPrVD+DN0
-         awxw==
+        bh=8e+wpvoY6yD1RG4Kj+AWSxyaFX8YNngg+IFhXCxexik=;
+        b=Q2nSoBeZfkPy3eenymdFE5cYIZMENYCC9rKWOPRnJrNXS7m+c5a/bxZVufLDIlUo5j
+         OYNRl9PsP+UF+LF1Bi8YanxmVQLQWzF+xWWZ2i1f/bkOssjtR1Yn0i43vLa/l3OScVUB
+         YlhomMdWJ52V6ronQrhzBWxujjx/ZU5MkrktnpHP3a6/pCtytkpvwk7gyjRzSYotsvFl
+         4gM8PeKRO+ed0BBk9qcMC/UYGYQqX63vZGuMjj5OZruiHEI+VZjOi2CvMRRM5fgzpZOD
+         L20xMTG0vThMezF80Dtl3qYS0MDhYAcIgiHN8Ij0YKHfKAOBojM35YfWSKlubG9nOna7
+         d2zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773892425; x=1774497225;
+        d=1e100.net; s=20251104; t=1773892426; x=1774497226;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Vj6rcJFTO7DaWtVeHI3TKWH2ayBVnwxQ2FZw6tvwuk8=;
-        b=qBYjGnIvRhr07po67AzTMRpsvL0DaKWDWyP210jrExjKAJU9nTjP2YR+4kveiiS0pA
-         ZtHBBslb6QBax5lO0lSNoQFJUgWoUCg2nAaN9txfix+L5wF1dZ/ajNJNmXi+aOPJiL8a
-         95Pexg8+rkI3i3InvIDyNVb0xakOKAqzK9Y4lc5vAD11VgUwUImuh7FzWzXJR0o1SFF5
-         Jf/T70F2d1qiZ9bXBIoiev4uvffr2hiCnzC7GCrbdQcw5D4/kyzeQAz9L/x6TPP6ajn8
-         xM/N8E8Jg7aZnESATozotU0nyObvffJzFanZ+lOofkTUfanLC4s1IAmUg82nFg/zwY44
-         4B6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW7UT5fVgRUPd0H7oWCXQn7QxONsmpjkrGjU+hxormtvFU8LCqQaEqurI5zm7cxy3xpZreDC4j/H4X83t678XdY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMXxChoa79Dlvqjhmzz8vAY9siDQCJNtHkd5CQOpE0IxuWQJgT
-	wKLXTXTxmliN/TvQGrTZdwp6W8zYNh1Sow6nXqZvHz535SmdCdGImoz5
-X-Gm-Gg: ATEYQzxyQnxYQVvKHrnaMjoXt1KmjCU4JWM88LovxyKBt5ZVLxcVWIFQCKZDbw1RGhq
-	TLUP3oBmlR5vOTkf7Ly6DQ9XX+ayxtob4YwJ8ARPdF/4cI7+wh85dsElObgTyt3uSgmYf4no08O
-	v88baMg8mzBf1eoLx566xmK0knULt2gUvoJwwf1SNBWuaqUiRUmNrs7bM2uV7AXMjA0mI6Y8xUe
-	dzMXE5WijW7TU7nERg6VHllEIriF39QiF97FzgNckAArBs6BoVw6FcQhHXo0QT3NLvGPGd1Bpvr
-	/chyjTcOoncPPMBrvlIrxHo3trRvHnlvLd1veToQSy/NGv3ls2pCrjGu/AM1ShsFXbNPe6ltVsN
-	6yhS2U9zVnVPJoRa3qvCVtxt4xeD1DPqfo46nf41m4xQT0vXsOVk+uMTMBP3Ej95wg1QFwU4OUB
-	iEpwEKKYhUrxm/dVaCdGjnOVnCwc4MrZESarK34pqlFfIdOV7kflL+/60=
-X-Received: by 2002:a17:90a:e70d:b0:35a:275c:4c27 with SMTP id 98e67ed59e1d1-35bb9e3b95amr4766407a91.2.1773892425145;
-        Wed, 18 Mar 2026 20:53:45 -0700 (PDT)
+        bh=8e+wpvoY6yD1RG4Kj+AWSxyaFX8YNngg+IFhXCxexik=;
+        b=J2jxFEp1hjK6hD9diAkTdjjRifZGTSbfU8pDi4r6qGPXpvySeKUXSYtujz/OW2Qi+l
+         s9lhn3pilEmKpde1WCngJAYfyc9y3/f/8Dbw0PHaCKsHRSJwegqMCsO3mKQf7lW+zRAh
+         Fr+rkpUNOgwTUh6kZX/srJS5H+gn5dnv8WVWCGYKKL9alkhkBGDE1ziSzwHXFPn8HlwN
+         NqxeFqjcgWGvdg5TCR90/7kl0MKAcOc+a/kbzyEO5hrJ1edGNAyTCE21eG29gwdH65so
+         jiloPTWO9auzlLxgSCHWpLtVlvswX/Kf3vKAr1SRMplV7Iz4xa/xqiWHys3shG6o+dU8
+         ydrw==
+X-Forwarded-Encrypted: i=1; AJvYcCUieG+8ll6VA/NefSSWzvog/1AnZWsj9T285QIPy9kVEGBwNNTNaZ3bdUXrKp5TfJpeiDUyEWcb5ounmMH2FHOP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz76iMwlJn9FgJfp6MTvYRkzgidAJgz5H8VwKizboapE7WW66IR
+	fFlZi8NP6RQe76OJ8BOFtZJVzYCD148raaaa1I2360lhtHiKjrdTEAtI
+X-Gm-Gg: ATEYQzw7TDLYB7O9DZ9TbwDKjJyA0I7YdpMhgZfueffsmh6lj7dKlaX9RYaV3zWEDVM
+	S1Fk/Ui2lMp/zDR2ByhLvM7gVIwWeM3xA6AMLwKYl5QO9vtaefKLyoOiwaTVNMFnDUNCD2XF+Lw
+	jtvOUI5tFj/YpBRe5IJFzJzJ/y9GMybTFE1ki1OIA0zaV7Zs6Vr4eXJAgnk63sK5rVMr4hDlC5N
+	og8rLcJylI8n8y8yA8KBOkHlmaCJBUreRORIkFw7JiiEU71AqQDNgEUEIJACUa+q1d+sfNBBUTw
+	Ggd9M7925B3r/nzvi5gfTwNuMjW43zSyVM1zK9gBGRpi48urYKKL/N7vYNzfmN1B14kbtpmdsbF
+	dfumVRSiuosv63ZmM1XYhFirSftBpv462RrLzqJ6FYZuzdRqOcSAQ0nEAbSJ0Bomhj5mqJWZfoE
+	Z2GOsQp0zt0UN/PlCK4Elkj7oY8vhiFCl4y+kq7wFGLfGP/662g7GJpg8=
+X-Received: by 2002:a17:90a:d003:b0:35b:9894:f6f9 with SMTP id 98e67ed59e1d1-35bb9ef531cmr4730069a91.18.1773892426512;
+        Wed, 18 Mar 2026 20:53:46 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc60ecb30sm1159145a91.12.2026.03.18.20.53.43
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc60ecb30sm1159145a91.12.2026.03.18.20.53.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 20:53:44 -0700 (PDT)
+        Wed, 18 Mar 2026 20:53:45 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -80,17 +80,17 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 2/6] ARM: dts: BCM5301X: EA9200: add USB GPIOs
-Date: Wed, 18 Mar 2026 20:53:20 -0700
-Message-ID: <20260319035324.269905-3-rosenp@gmail.com>
+Subject: [PATCH 3/6] ARM: dts: BCM5301X: EA9200: add LEDs
+Date: Wed, 18 Mar 2026 20:53:21 -0700
+Message-ID: <20260319035324.269905-4-rosenp@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319035324.269905-1-rosenp@gmail.com>
 References: <20260319035324.269905-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_205346_447205_575EB90F 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260318_205347_536310_FDC2F59E 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +105,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allows at least halt to turn the USB ports off.
+Allows control and configuration of device LEDs.
 
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../dts/broadcom/bcm4709-linksys-ea9200.dts   | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
 diff --git a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
-index dfbe16d9f354..a579c372d404 100644
+index a579c372d404..617fb55bc52f 100644
 --- a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
 +++ b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
-@@ -58,6 +58,14 @@ &usb3_phy {
- 	status = "okay";
+@@ -5,6 +5,8 @@
+ 
+ /dts-v1/;
+ 
++#include <dt-bindings/leds/common.h>
++
+ #include "bcm4709.dtsi"
+ #include "bcm5301x-nand-cs0-bch8.dtsi"
+ 
+@@ -52,6 +54,43 @@ button-restart {
+ 			gpios = <&chipcommon 17 GPIO_ACTIVE_LOW>;
+ 		};
+ 	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_AMBER>;
++			function = LED_FUNCTION_WLAN;
++			gpios = <&chipcommon 0 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "rfkill-none";
++		};
++
++		led-1 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_USB;
++			function-enumerator = <2>;
++			gpios = <&chipcommon 6 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "usbport";
++			trigger-sources = <&ohci_port2>, <&ehci_port2>;
++		};
++
++		led-2 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_USB;
++			function-enumerator = <3>;
++			gpios = <&chipcommon 7 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "usbport";
++			trigger-sources = <&ohci_port1>, <&ehci_port1>,
++					  <&xhci_port1>;
++		};
++
++		led-3 {
++			color = <LED_COLOR_ID_WHITE>;
++			function = LED_FUNCTION_POWER;
++			gpios = <&chipcommon 8 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "default-on";
++		};
++	};
  };
  
-+&usb2 {
-+	vcc-gpios = <&chipcommon 13 GPIO_ACTIVE_HIGH>;
-+};
-+
-+&usb3 {
-+	vcc-gpios = <&chipcommon 14 GPIO_ACTIVE_HIGH>;
-+};
-+
- &srab {
- 	status = "okay";
- 
+ &usb3_phy {
 -- 
 2.53.0
 
