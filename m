@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C47F1088E67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B14F1088E67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 03:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSY4j6v6Vry0f0VpWhFzrjV5u9/NqNAQFRbrmOpCuHY=; b=Dlw6fQ2kh1C/jtPNboEL+Eo6jO
-	ZLJM+sDYMUul2T6BQRBCfD93yCiXWYOj0U1ya599QCUvOxH1TK/kZAjMzkTT+nq4alPdfhweXk3io
-	vqKVBppVnIhv4yvz0Z1/gNvtszV05ntPafTfYu39ruTIJ//yqrS6vH5cNnRc7nERF6uaUL6B8wtJP
-	kyU202eBHF1KhEABeeARU+kof6fGLAiTaGBL3KdCak2z/fMc7uwZ8lOnrxnrPYs679ETBihXJqzhe
-	5V8emlQgQcaj/mJV+9WSu+NIxRnfw9gfqYawT8VZHvwDvpOTXyN/VfcSJ79p4rX6D9KGNorRkowmY
-	AHaylWmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2bJ7kA9ej++G09B/+8ohAipN9ABF8VWdt8S3XAnBics=; b=hxhHe4qRDjS3/1TYUSe5KHrHyj
+	y4XCr7AG9cJuv7AuL901wMmQoDJsZ12yi1RUyH2c0CjV02hkSL+B1xLM7JvjoCfd+NTjBSn4fbUb4
+	nGt95BHccuX1gvq7UxUxpkdh/qyKA14wS+BAwHdrDAghEveyAkR4fnsBtejGHS6QaPdPosXt0ZW4O
+	+LBGaU34FkZelG4VSVWhaP6f4cmmpV874sqA7K8T9VSdofk7UUk2x76CD933vPgjL7bhf0dhA+3xq
+	4vt8ONVYg1HM0vvpZsntdRlIngN5whxHV+RrVxuZMnGcYJW1g7kOCpHHxA6TUHN2Ozlce23LemKWI
+	tycS3JTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w33Z1-00000009miG-0gAR;
-	Thu, 19 Mar 2026 02:56:47 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1w33c5-00000009mwd-2qY1;
+	Thu, 19 Mar 2026 02:59:57 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w33Yw-00000009mhK-0P9o
+	id 1w33c3-00000009mwF-3luR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 02:56:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773888996; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=OSY4j6v6Vry0f0VpWhFzrjV5u9/NqNAQFRbrmOpCuHY=;
-	b=k5p8a+AIJg2jLKxMnUu5xyftUmg9Ph5JxKKJxM7MjqA/sIp15Djp/w7grPjP7nSuY4mqmGzDibX8wOZT2mJSzKyE0Y2sba3iPuc9egu7M8EmNdnPbLIYbDxsVo4X3EiOzhDGG4p6/pn8VbAP7yf8yZFJmXZxvE60GtW9JCM0Y/o=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R301e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.Gp621_1773888993;
-Received: from 30.246.163.250(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X.Gp621_1773888993 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Mar 2026 10:56:34 +0800
-Message-ID: <eeee122f-54e2-4fe9-82a6-724c3f80a499@linux.alibaba.com>
-Date: Thu, 19 Mar 2026 10:56:43 +0800
+	Thu, 19 Mar 2026 02:59:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F7BWDGyhDsYe5BO2xZo9nxHfzhDExibIOZGdbE6aDSe0vVKCSsLTv4heXk5bZYZG4yj+xLl4fufHLNFI5jUkwV2RFLqwAas39RtdfMRy4/8mP7yTfYowS4PviGLjJP0pHAc8f3qqleeGbZqAjaP1TYR4QY/Ag+nCNAO07unoHrUB3B3OMBNNG8CLSHubuQtK1u3ACudaUPqWziJAETRp8n3vwa0K48NPrqpO851DtNEN2DfDCJAx52MZ8lwcO0OeaTGYoKUq/pfMfaEAZ9gtrjvS4h+0PaqT7H1Z6oIpx49Vm7R1OegTEAlk1Ni0UuRLErPa30ZP1+HmeeVkuUjHWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2bJ7kA9ej++G09B/+8ohAipN9ABF8VWdt8S3XAnBics=;
+ b=SiBfVUYvK7nis66K/Qs/N8D21NJKAnM2ZhzkAuiIb8lQLYR/UbHvTQutng2KkPrCSIrrsGNaU1cvODSm5ggzXx40/hSPISIvVR78cpZ55VDHR0p4SdBq8NM5CLEqjWcyy3OkaKNBjNu0osfHADlWyHfpG5TypQPqsyc7yBpDC0UtpZ0bTjdwOOzp00x9cVnkgVpYWkvkfSm4RFTvfr+jTH2PltfQ8LIiNz7zWvvzDH41a4PgGwCWtdn2VMdqZmlK11H6OPzxZtsuYmUPuVHnm/VZH8qMCRbg47jxAW0GfBb4zTMaRmgv0AJ3RCjJ7nxbHNM+3dmz6UrPN363Ng+BOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2bJ7kA9ej++G09B/+8ohAipN9ABF8VWdt8S3XAnBics=;
+ b=M1RL/rqQQOFRqNNcPwb3IFP1YSEJNQMKL7KOa1rdGVTzW0IpOV+fNDU995UAgTYyLsQOzYpuoGoadPSygo5jUPy8fV3XiwnUvUBtwZ+aM3czNFPDa0v6/clrT6IbfSVw9HpgrVGo4VL4WQBbE8mMqF6pbvwOYVQjcnbi/oq5nonBQluzOUvrSa03Cfx+798BZ88EyaZpEkYfiRdBX7Xg5i6QVTXNsCgyegiH3L4g+uPy8IE+ruZHqDQJOrnx95IyH7U9WNo5rfHslxu2vbCwrvyVynywNvIJSG16NohsengTIfKk76JY8RqPOoJl567d3e9hRDOAPqtqvinMXqdAiA==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by PAXPR04MB8318.eurprd04.prod.outlook.com (2603:10a6:102:1c0::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 02:59:49 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::b476:c19a:24cd:3694]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::b476:c19a:24cd:3694%3]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 02:59:45 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Simon Horman <horms@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "pabeni@redhat.com"
+	<pabeni@redhat.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
+	Clark Wang <xiaoning.wang@nxp.com>, "davem@davemloft.net"
+	<davem@davemloft.net>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"kuba@kernel.org" <kuba@kernel.org>, "chleroy@kernel.org"
+	<chleroy@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: RE: [net-next,12/14] net: dsa: netc: add more basic functions support
+Thread-Topic: [net-next,12/14] net: dsa: netc: add more basic functions
+ support
+Thread-Index: AQHctub30hADsLC0r06uQJxn29cQ0LW1KBOQ
+Date: Thu, 19 Mar 2026 02:59:45 +0000
+Message-ID: <PAXPR04MB85109C928E024E0D2506CAA0884FA@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20260316094152.1558671-13-wei.fang@nxp.com>
+ <20260318144954.1893193-3-horms@kernel.org>
+In-Reply-To: <20260318144954.1893193-3-horms@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PAXPR04MB8318:EE_
+x-ms-office365-filtering-correlation-id: 919dd5eb-5e02-4c94-4bd9-08de8563938e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|19092799006|22082099003|18002099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: W6ECTeLKtHbomk9dNutnCQB0JuKmiJhAfHIhAqlhZc7jlM+LCHs1lAcE2ydYp24oQnWM6euCoo3hd3mSpqs7rpSSFg8szefF1WZgVg/3W492CPjo/VUPHC2kA53F+VDZkYvZOss3XrgM7gb/diJ+LzgXCLPrgyU4RGyUDhUgMibpj3UqfnDrRaFcB6Yq6GyRaU7kPRxeNumNWDT/rWMGiFnOiCx/DeyPk94AKb+K/0f4m44KaQI5oool/2lLO1ARYpLeLFhDFDNSqQ0PSVmXJCzlAFw0cfEpOMCagFpYH1o7CZVO0ialTKoks0ag2TsGAvRPpdcQwsstByiezRapWSN9c/VXn+xtVDOM8HWWmPtPnl05J+w/iqKv1OaO1VVHrSMJ1p0cqi2BsrD+4Di5D2ydW71PXb/odYv/sMan6FzJxmOfNobURcUG2NTZl6Lgyv9nq5obMk5lxARr2f0ADAL337G13pk89wTtiJq/mKfNGaEO7a/V+LAhzKlFgOWUenWtMSGTVU0MEZ6dopIaXcYOR0AP/zEbESiZOiU7v4QqQjqV/utsxYfdxeqSXpTTHrx2OfDj4bhU6Ri01LO7j/SvSsT++MgxS2/JUVfTmzwonSCvlhTsbbgGqiJ6G1OyhL9QfVpNmIgM2QtM0AABQOOb/xlLyUAZ1Zn7VGkqQxkJ1de11oEVH/3ka07or3YthcLO/uf0ehuhBbWQ41wYbccTCPuQ8LSZYDBdpwQ7WSlvkKsmNt3DWv16XENzMPnJki+BWLaQX1y2G4fjKwIttNhLWQoYDbJUF93Yk4g3qKQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(19092799006)(22082099003)(18002099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?HAm9xvCjliz0WXI2IFx0AFkPXigjRI2f0srK/9LaV0SD+Zcg8nBVae+P49X3?=
+ =?us-ascii?Q?8f68JgszzcYqiXFJ/oi+ifuKWVQ5NGgKyzuwxC/7+fZlBKXmWSWuQwwTKZ8j?=
+ =?us-ascii?Q?1PHEGJhRF7e5x2Qpit7NI9kWVuXktrK7w6H0EqYVCs/tLRMzsc3e0QIOhk4f?=
+ =?us-ascii?Q?LFH7hDphNeIjZgt9kKFObL5JmuZZeqId3oaOWetRISwdhz1XW3g19gNj21wd?=
+ =?us-ascii?Q?oswrf7Supc+SYYB3xn80vGyfZ/bvurp1DZSW239Y+y8IL1HKY6OlyoaSUkYM?=
+ =?us-ascii?Q?AOIdUx2FYiUGBGbrQGdD/5clDX2kYyeFptQGMICcuM4QTAuow7Ksl0RCIsXV?=
+ =?us-ascii?Q?4zqNBfNM7asuVpMUTOst5KBPJxRZxsmetJbhmv95iJERdfRO7JZoWe/Z7eYd?=
+ =?us-ascii?Q?5rhu+Qk+TbjXNyhx4T+DwPH9ujx5Ig4jJXyhf9PJSDQb+QI/MsGajdNqku/m?=
+ =?us-ascii?Q?4ni2f3aNFivxx+GBNW1AvFI5gMyuksGmvHZiD++UK1JU/kFH/0OoIVRruUmU?=
+ =?us-ascii?Q?KFaIA4/gWE8id4radVhisVp3pU4ExNL1T/7MzbpHcDFuL4G61w/Pn2Odj/Zf?=
+ =?us-ascii?Q?p+iyQXJk83PwokacKaXDcVU6laSeQkqIwUuQE1HwKb6FLLrNVzW3A+dlHFg3?=
+ =?us-ascii?Q?qTKEjDme0DF8+qsbhXEJiZhx5unhAgovDE3PDKoVjCK8FKADD0HSWQpX1aZX?=
+ =?us-ascii?Q?lVs0VpCymhr862iPwUIsxpyIumoxw1T7vAnmuwNxO1NJX5xva2x7FF5SpMgP?=
+ =?us-ascii?Q?sS6cKLYAaUB1uA6zZYm8Wj1QLR1JSFx0EQUBD1M0Ch6CDr2h5M0xTbu/lLsc?=
+ =?us-ascii?Q?tZuOTmJzUxW226qOwfDaneY0UiH4AtI2GxofVEZdGFkXSvNoNBvkla6NZ1dy?=
+ =?us-ascii?Q?RtfSCstAgbsV7YyMFrU9FLts/4HG9M2u2vsueUfy3r+LVhJNMUq/58/Gtqop?=
+ =?us-ascii?Q?u3OU08es8U9lHMj98Fzaeq+fj16h7+/iUQP0ebRDNRCOKtp39XzgCKlyXBmF?=
+ =?us-ascii?Q?DTey/DOYuS4B+S8LpwBlRrqmZyvEB3NINnfluSbBGHlAU1GAUIDz07SWzpKZ?=
+ =?us-ascii?Q?fLCEyK21LQ/L+NIKU0zNn+9RYRWTIdDtK7Ev8baMhF7PiP6vWZDY5QYOwl4d?=
+ =?us-ascii?Q?NnznLRziRkLyPyA+Uly0l4e3CEhWqhAjPUyl8bwO3729GsB4eQkdEN+kzM6h?=
+ =?us-ascii?Q?5eC75vFxHdQky2k5BFIhsXdxNMo06md7xIMQhM8AkvbolsFn2levmln01+iG?=
+ =?us-ascii?Q?E9SIFLg5Eoaq3/GFsO65IwO5Ki60PDVUz09psq0snwA3J0L9FDyouG8pR8AJ?=
+ =?us-ascii?Q?KqYK6MG0x7B9X1t9rCDc8sVye9Ru2Xyn7dosdXLf+eYp4Wv3UULgKzqf1H52?=
+ =?us-ascii?Q?eeUG2t1aCGmLZJDtXOxjINtgVt6sbhdodTIPTHHvUJYYvqUO7AmbqwLTbmLW?=
+ =?us-ascii?Q?Tx8DBFLGAyL/i+I0+xAZnQ0l/4yVRgfhaE94+vUz1UJGCkLTERSQ4KaQ1JMd?=
+ =?us-ascii?Q?lJWgoX3MS9ozOQhNdnhz5qmqXHp2l/xtLIRJ6pjyBSH/DATHUzxvrn17d5dJ?=
+ =?us-ascii?Q?KHZQjbNzzt+Rvgbnu5X/kbSgU5FO0J//E+KxlQKR0dwxBlQp/XbRVmgDAxAJ?=
+ =?us-ascii?Q?SVqXL3rsVPkWzrOSe/oLnn79ewheKQw5ZKMpd0InIJxPnagLg4Z3snRlcd+X?=
+ =?us-ascii?Q?voonxLspY4WKBFpANK5N5rhP7gv0qCTYWU9sTZR6UOo9XIko?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/7] iommu/arm-smmu-v3: Block ATS upon an ATC
- invalidation timeout
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
-Cc: rafael@kernel.org, lenb@kernel.org, praan@google.com,
- baolu.lu@linux.intel.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <7e21e14faddeb0e3af692356f4fefbae2dfbebda.1773774441.git.nicolinc@nvidia.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <7e21e14faddeb0e3af692356f4fefbae2dfbebda.1773774441.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 919dd5eb-5e02-4c94-4bd9-08de8563938e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2026 02:59:45.5976
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fWzbmKexZSu5NDNEs5ML2ufoS+Z2W/3YkgoULaT5U7uAOlv67JSmmn78L8zzDrQ/c0PhGe4/Dyx4acFQaNsKwQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8318
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_195642_848369_A88B60C2 
-X-CRM114-Status: GOOD (  32.21  )
+X-CRM114-CacheID: sfid-20260318_195955_950214_F904BC98 
+X-CRM114-Status: GOOD (  26.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,228 +152,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > @@ -427,24 +658,57 @@ static int netc_setup(struct dsa_switch *ds)
+> >  	if (err)
+> >  		goto free_mdio_bus;
+> >
+> > +	INIT_HLIST_HEAD(&priv->fdb_list);
+> > +	mutex_init(&priv->fdbt_lock);
+> > +
+> >  	netc_switch_fixed_config(priv);
+> >
+> >  	/* default setting for ports */
+> >  	dsa_switch_for_each_available_port(dp, ds)
+> >  		netc_port_default_config(priv->ports[dp->index]);
+> >
+> > +	err =3D netc_add_standalone_vlan_entry(priv);
+> > +	if (err)
+> > +		goto free_ntmp_user;
+> > +
+> > +	err =3D netc_add_standalone_fdb_bcast_entry(priv);
+> > +	if (err)
+> > +		goto free_ntmp_user;
+> > +
+> >  	return 0;
+> >
+> > +free_ntmp_user:
+> > +	netc_free_ntmp_user(priv);
+> >  free_mdio_bus:
+> >  	netc_free_mdio_bus(priv);
+> >
+> >  	return err;
+> >  }
+>=20
+> Does the error path handle the mutex properly?
+>=20
+> In netc_setup(), the mutex is initialized with mutex_init(&priv->fdbt_loc=
+k).
+> If netc_add_standalone_vlan_entry() or
+> netc_add_standalone_fdb_bcast_entry()
+> fails, the error path jumps to free_ntmp_user:
+>=20
+> drivers/net/dsa/netc/netc_main.c:netc_setup() {
+> 	...
+> 	INIT_HLIST_HEAD(&priv->fdb_list);
+> 	mutex_init(&priv->fdbt_lock);
+> 	...
+> 	err =3D netc_add_standalone_vlan_entry(priv);
+> 	if (err)
+> 		goto free_ntmp_user;
+>=20
+> 	err =3D netc_add_standalone_fdb_bcast_entry(priv);
+> 	if (err)
+> 		goto free_ntmp_user;
+>=20
+> 	return 0;
+>=20
+> free_ntmp_user:
+> 	netc_free_ntmp_user(priv);
+> free_mdio_bus:
+> 	netc_free_mdio_bus(priv);
+>=20
+> 	return err;
+> }
+>=20
+> But netc_free_ntmp_user() and netc_free_mdio_bus() don't call
+> mutex_destroy(&priv->fdbt_lock) to clean up the mutex.
+>=20
+> Looking at the normal teardown path in netc_teardown(), it calls
+> netc_destroy_all_lists() which properly handles both the FDB list and
+> mutex cleanup:
+>=20
+> drivers/net/dsa/netc/netc_main.c:netc_destroy_all_lists() {
+> 	netc_destroy_fdb_list(priv);
+> 	mutex_destroy(&priv->fdbt_lock);
+> }
+>=20
+> drivers/net/dsa/netc/netc_main.c:netc_teardown() {
+> 	struct netc_switch *priv =3D ds->priv;
+>=20
+> 	netc_destroy_all_lists(priv);
+> 	netc_free_host_flood_rules(priv);
+> 	netc_free_ntmp_user(priv);
+> 	netc_free_mdio_bus(priv);
+> }
+>=20
+> Should the error path in netc_setup() call netc_destroy_all_lists() befor=
+e
+> calling netc_free_ntmp_user()?
 
+Yes, I will fix it.
 
-On 3/18/26 3:15 AM, Nicolin Chen wrote:
-> Currently, when GERROR_CMDQ_ERR occurs, the arm_smmu_cmdq_skip_err() won't
-> do anything for the CMDQ_ERR_CERROR_ATC_INV_IDX.
-> 
-> When a device wasn't responsive to an ATC invalidation request, this often
-> results in constant CMDQ errors:
->    unexpected global error reported (0x00000001), this could be serious
->    CMDQ error (cons 0x0302bb84): ATC invalidate timeout
->    unexpected global error reported (0x00000001), this could be serious
->    CMDQ error (cons 0x0302bb88): ATC invalidate timeout
->    unexpected global error reported (0x00000001), this could be serious
->    CMDQ error (cons 0x0302bb8c): ATC invalidate timeout
->    ...
-> 
-> An ATC invalidation timeout indicates that the device failed to respond to
-> a protocol-critical coherency request, which means that device's internal
-> ATS state is desynchronized from the SMMU.
-> 
-> Furthermore, ignoring the timeout leaves the system in an unsafe state, as
-> the device cache may retain stale ATC entries for memory pages that the OS
-> has already reclaimed and reassigned. This might lead to data corruption.
-> 
-> Isolate the device that is confirmed to be unresponsive by a surgical STE
-> update to unset its EATS bit so as to reject any further ATS transaction,
-> which could corrupt the memory.
-> 
-> Also, set the master->ats_broken flag that is revertible after the device
-> completes a reset. This flag avoids further ATS requests and invalidations
-> from happening.
-> 
-> Finally, report this broken device to the IOMMU core to isolate the device
-> in the core level too.
-> 
-> For batched ATC_INV commands, SMMU hardware only reports a timeout at the
-> CMD_SYNC, which could follow the batch issued for multiple devices. So, it
-> isn't straightforward to identify which command in a batch resulted in the
-> timeout. Fortunately, the invs array has a sorted list of ATC entries. So,
-> the issued batch must be sorted as well. This makes it possible to bisect
-> the batch to retry the command per Stream ID and identify the master.
+>=20
+> > @@ -595,6 +859,261 @@ static void netc_switch_get_ip_revision(struct
+> netc_switch *priv)
+> >  	priv->revision =3D val & IPBRR0_IP_REV;
+> >  }
+> >
+> > +static void netc_destroy_all_lists(struct netc_switch *priv)
+> > +{
+> > +	netc_destroy_fdb_list(priv);
+> > +	mutex_destroy(&priv->fdbt_lock);
+> > +}
+> > +
+> > +static void netc_free_host_flood_rules(struct netc_switch *priv)
+> > +{
+> > +	struct dsa_port *dp;
+> > +
+> > +	dsa_switch_for_each_user_port(dp, priv->ds) {
+> > +		struct netc_port *np =3D priv->ports[dp->index];
+> > +
+> > +		kfree(np->host_flood);
+> > +		np->host_flood =3D NULL;
+> > +	}
+> > +}
+>=20
+> [Simon says: I think this is a false positive and the clean-up
+>  suggestion is not needed in tear down]
+>=20
+> Does this properly clean up the hardware state?
 
-Nit: The implementation is a linear per-SID retry, not a binary
-search / bisection. Suggest rewording to:
+No need to clear the hardware IPFT entry in tear down. Because PCIe FLR wil=
+l
+be performed when the switch is registered, it will reset hardware state. T=
+he
+driver only needs to free the memory to avoid memory leak.
 
-   "retry the ATC_INV command for each unique Stream ID in the batch
-    to identify the unresponsive master"
-
-
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 92 ++++++++++++++++++++-
->   1 file changed, 89 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 366d812668011..418ee2f40d96d 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -107,6 +107,8 @@ static const char * const event_class_str[] = {
->   	[3] = "Reserved",
->   };
->   
-> +static struct arm_smmu_ste *
-> +arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid);
->   static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
->   
->   static void parse_driver_options(struct arm_smmu_device *smmu)
-> @@ -2495,10 +2497,43 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
->   	cmd->atc.size	= log2_span;
->   }
->   
-> +static void arm_smmu_disable_eats_for_sid(struct arm_smmu_device *smmu,
-> +					  struct arm_smmu_cmdq *cmdq, u32 sid)
-> +{
-> +	struct arm_smmu_cmdq_ent ent = {
-> +		.opcode = CMDQ_OP_CFGI_STE,
-> +		.cfgi	= {
-> +			.sid = sid,
-> +			.leaf = true,
-> +		},
-> +	};
-> +	struct arm_smmu_ste *step;
-> +	u64 cmd[CMDQ_ENT_DWORDS];
-> +
-> +	step = arm_smmu_get_step_for_sid(smmu, sid);
-> +	WRITE_ONCE(step->data[1],
-> +		   READ_ONCE(step->data[1]) & cpu_to_le64(~STRTAB_STE_1_EATS));
-
-
-This non-atomic read-modify-write on step->data[1] can race with the
-normal STE installation path (arm_smmu_write_entry → entry_set →
-WRITE_ONCE).
-
-The error path runs from:
-
-   __arm_smmu_domain_inv_range()  (data path, no group->mutex)
-     → arm_smmu_cmdq_batch_retry()
-       → arm_smmu_master_disable_ats()
-         → arm_smmu_disable_eats_for_sid()   ← NO locks on STE
-
-The normal STE path runs from:
-
-   iommu_attach_device()
-     → mutex_lock(&group->mutex)
-       → arm_smmu_attach_dev()
-         → mutex_lock(&arm_smmu_asid_lock)
-           → arm_smmu_install_ste_for_dev()
-             → arm_smmu_write_entry()        ← holds both mutexes
-
-Since the error path holds neither group->mutex nor arm_smmu_asid_lock,
-the following race is possible:
-
-   CPU A (error path):             CPU B (attach path):
-   READ data[1] = X
-                                   WRITE data[1] = Y (new STE config)
-   WRITE data[1] = X & ~EATS
-                                   // Y is lost
-
-This could clobber a concurrent STE update from the attach path.
-
-
-> +
-> +	arm_smmu_cmdq_build_cmd(cmd, &ent);
-> +	arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmd, 1, true);
-> +}
-> +
-> +static void arm_smmu_master_disable_ats(struct arm_smmu_master *master,
-> +					struct arm_smmu_cmdq *cmdq)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < master->num_streams; i++)
-> +		arm_smmu_disable_eats_for_sid(master->smmu, cmdq,
-> +					      master->streams[i].id);
-> +	WRITE_ONCE(master->ats_broken, true);
-> +	iommu_report_device_broken(master->dev);
-> +}
-> +
->   static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
->   				   ioasid_t ssid)
->   {
-> -	int i;
-> +	int i, ret;
->   	struct arm_smmu_cmdq_ent cmd;
->   	struct arm_smmu_cmdq_batch cmds;
->   
-> @@ -2514,7 +2549,10 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
->   		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
->   	}
->   
-> -	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
-> +	ret = arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
-> +	if (ret)
-> +		arm_smmu_master_disable_ats(master, cmds.cmdq);
-> +	return ret;
->   }
->   
->   /* IO_PGTABLE API */
-> @@ -2661,6 +2699,53 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
->   	return false;
->   }
->   
-> +static void arm_smmu_invs_disable_ats(struct arm_smmu_invs *invs,
-> +				      struct arm_smmu_cmdq *cmdq,
-> +				      struct arm_smmu_device *smmu, u32 sid)
-> +{
-> +	struct arm_smmu_inv *cur;
-> +	size_t i;
-> +
-> +	arm_smmu_invs_for_each_entry(invs, i, cur) {
-> +		if (cur->master->smmu == smmu && arm_smmu_inv_is_ats(cur) &&
-> +		    cur->id == sid) {
-> +			arm_smmu_master_disable_ats(cur->master, cmdq);
-> +			break;
-> +		}
-> +	}
-> +}
-> +
-> +static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
-> +				      struct arm_smmu_invs *invs,
-> +				      struct arm_smmu_cmdq_batch *cmds)
-> +{
-> +	u64 atc[CMDQ_ENT_DWORDS] = {0};
-> +	int i;
-> +
-> +	/* Only a timed out ATC_INV command needs a retry */
-> +	if (!invs->has_ats)
-> +		return;
-> +
-> +	for (i = 0; i < cmds->num * CMDQ_ENT_DWORDS; i += CMDQ_ENT_DWORDS) {
-> +		struct arm_smmu_cmdq *cmdq = cmds->cmdq;
-> +		u32 sid;
-> +
-> +		/* Only need to retry ATC invalidations */
-> +		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i]) != CMDQ_OP_ATC_INV)
-> +			continue;
-> +
-> +		/* Only need to retry with one ATC_INV per Stream ID (device) */
-> +		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i]);
-> +		if (atc[0] && sid == FIELD_GET(CMDQ_ATC_0_SID, atc[0]))
-> +			continue;
-> +
-> +		atc[0] = cmds->cmds[i];
-> +		atc[1] = cmds->cmds[i + 1];
-> +		if (arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, atc, 1, true))
-> +			arm_smmu_invs_disable_ats(invs, cmdq, smmu, sid);
-> +	}
-> +}
-> +
->   static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
->   					unsigned long iova, size_t size,
->   					unsigned int granule, bool leaf)
-> @@ -2739,7 +2824,8 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
->   
->   		if (cmds.num &&
->   		    (next == end || arm_smmu_invs_end_batch(cur, next))) {
-> -			arm_smmu_cmdq_batch_submit(smmu, &cmds);
-> +			if (arm_smmu_cmdq_batch_submit(smmu, &cmds))
-> +				arm_smmu_cmdq_batch_retry(smmu, invs, &cmds);
->   			cmds.num = 0;
->   		}
->   		cur = next;
-
+>=20
+> netc_free_host_flood_rules() just frees the host_flood memory and sets
+> the pointer to NULL:
+>=20
+> drivers/net/dsa/netc/netc_main.c:netc_free_host_flood_rules() {
+> 	struct dsa_port *dp;
+>=20
+> 	dsa_switch_for_each_user_port(dp, priv->ds) {
+> 		struct netc_port *np =3D priv->ports[dp->index];
+>=20
+> 		kfree(np->host_flood);
+> 		np->host_flood =3D NULL;
+> 	}
+> }
+>=20
+> But it doesn't delete the hardware IPFT entry or disable the PIPFCR regis=
+ter.
+>=20
+> Compare with netc_port_remove_host_flood() which performs complete
+> cleanup:
+>=20
+> drivers/net/dsa/netc/netc_main.c:netc_port_remove_host_flood() {
+> 	struct netc_switch *priv =3D np->switch_priv;
+>=20
+> 	if (!np->host_flood)
+> 		return;
+>=20
+> 	ntmp_ipft_delete_entry(&priv->ntmp, np->host_flood->entry_id);
+> 	kfree(np->host_flood);
+> 	np->host_flood =3D NULL;
+> 	np->uc =3D false;
+> 	np->mc =3D false;
+> 	/* Disable ingress port filter table lookup */
+> 	netc_port_wr(np, NETC_PIPFCR, 0);
+> }
+>=20
+> In netc_teardown(), netc_free_host_flood_rules() is called before
+> netc_free_ntmp_user(), so the NTMP command infrastructure is still
+> operational at that point.
+>=20
+> Should netc_free_host_flood_rules() call netc_port_remove_host_flood(np)
+> for each user port instead of directly calling kfree()?
 
