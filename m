@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A92AC1088E74
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B561088E73
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 03:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rUnbmXHqSDL7dPZI/Qu8hE1Nu6Gyv0faqBQ59rr7QWo=; b=rg7T4i+C6ape7EXbA+50jS+WOj
-	uxI7fWZ+S0Ses1GlDd/GawEtsQIc11IAkGOGHz7E0czPfP/96n9NTOlPpSlTCqwlLoGhcD5dFjW5w
-	AFDaHj0k3ddK3+Hx0YO5tqYtYvmMfD5Aow3H7xQx3vKMJoy6irD1K7bAgKSlgMA9Lzh3BPBlUPOpn
-	lyjogsFxsUVJDvZBrluuWtdXX3Ct4UPJKZ3pH5kv99EwmR6EXreAp9onezaPyh+5lxTYnqJlRotAK
-	h6tw2rb5Z8CnuwZCI97RYVITHuK7q/FVFV4+2Q5UOnscX8fOCj/ua1nABrBTcvyu3BgrhQ30YLc36
-	uQRFD1Ww==;
+	bh=H3As/sXmvTb3Nrb+A3muL5/yG1ULkPfgGgdjrXA9Jlw=; b=ufGRIKbvUq51IhLFHAe9a9byCZ
+	DoepWp0cf6UEbJ68WMYOxTsreAac3qjMgJkoWKIDjuX2AA5jpElFIWUemgWYi/6DDOBVtGP5SnYk8
+	MN58sCejWm7T3Jptufttomf9oLYIUdHtD36nMSKv3GuCPfu1K2w3AOIXyNgZAmG+FGTb60EQwk+P7
+	8eQGwKHHo2Pgbi+3XUb9EXU4BN1hQaaMxBpcMQE/kW5FhpZyTPJBIr3rcE34Cfrz1cD0ArGQe6qaI
+	REbmCOkZcT3IHgop0NKInpnnvK6sL1TSn9SyeWA8eyF03qyNi2Tiqhg0hIL9FKhJ2UagwYLdKGk+K
+	EeNmhClw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w34SM-00000009rLk-1ZKg;
+	id 1w34SM-00000009rM9-2sBc;
 	Thu, 19 Mar 2026 03:53:58 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w34SF-00000009rIb-1cpx
+	id 1w34SH-00000009rJb-0cKk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 03:53:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=H3As/sXmvTb3Nrb+A3muL5/yG1ULkPfgGgdjrXA9Jlw=; b=P78dFqJF31p+/XWhSFGNY963Rx
+	LyM7Q5vyOaH68VkC1vGKMHPfBVhNSUoNbhWiCLjyX2Nvyt+dpIbGwV+QA7OnEn0Ci+k1jwxNzOwhs
+	5P2N3oY0heaLqb3Khd1tdRCY0FWCeiQ3YFtXUa8eoRDyKC/rlwolR2ogcxqzaXwW/geyxAaGAxKtd
+	veYFGxvLset3giK1n3C1YXtZfZ55C+i9w9P9Gbfz++KNELfG1gP+suE1OkdizjAdK2NLo25cdn1bN
+	rYuP3SG1ehxHSVri/Ha/a46EegzMjFzZiwKYF4yAH7gRfGIl4GTjXb2zbyPQBjNnZVHClIDkEH5Su
+	WH1QYqvA==;
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w34SD-0000000CgGa-3RTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 03:53:52 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35a1230c60eso338734a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 20:53:51 -0700 (PDT)
+	Thu, 19 Mar 2026 03:53:51 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-356337f058aso145351a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 20:53:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773892430; x=1774497230; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773892428; x=1774497228; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rUnbmXHqSDL7dPZI/Qu8hE1Nu6Gyv0faqBQ59rr7QWo=;
-        b=hm1cvUXzHWMrxu/2SdTbgX0nK1HKaTK+ajRuaJsY7WnP0c7Fa7F6arg5sVQmA4BOH2
-         J5wXRev2KLVxtwPw/lTlvbmtSzHgWgig0tcaFFAFLKMNqM6wkgLd8c1A1IVTXY5ByFIP
-         RrcvlJw+6WG8jBeG/one+abXfwj5/MSYhS5DumwMvepqQ+E5Bw59+F2n3DYzObQ4IwLW
-         Gu0muS8KNxbeBWF4bVUECfCdPui6YbGZfxaAYqHTdhiEzT+SXlt57mInFzw+qSXGhc7B
-         Z/7pvbD9QzxO9yAoMF/NKBklB0SyVwR3Lty7uxeKcniw1R+Bejgb2fWR7/MoANS/zvYD
-         QolA==
+        bh=H3As/sXmvTb3Nrb+A3muL5/yG1ULkPfgGgdjrXA9Jlw=;
+        b=B52hfZ+SgZO/ovuuEMbDun4ZIOyE1Ka88UK7IGBQ0VaIVF48blZYYOVz7qmgW9lyQI
+         jHM7j8WGRd6jkDoIZGInVNQKjXRgUYJAaiULTuVjIXdhB4A65lfjMQ/owcMCCO9wYDlg
+         vivClQX1LQlgiwJtcPToxstTLQoStgvxXHc9mW9SnzZESXh0e2HKtuktJvGUx4K0RZmS
+         L0QBJ02wPOmvjuAQ2IvqGYCGNyU7QuwwBFcvYwLyIc1Qh1MQiqVIW40tH3pv+nELml06
+         m1p7IlIwsMDWYUJN8ETgvm0szqx6rDwK/PKuILGWjY0jEPf2RBNjl766b/P58e0q5g+A
+         ZvtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773892430; x=1774497230;
+        d=1e100.net; s=20251104; t=1773892428; x=1774497228;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=rUnbmXHqSDL7dPZI/Qu8hE1Nu6Gyv0faqBQ59rr7QWo=;
-        b=SrRB9+E65LLvVC4dbJoxbaqUPdLdRXiv8OPGMFbFCIg04SQaPIO3aQe/tSKygaHHdH
-         wq7zxtJ4G6o50gjV01AbMk8SJMmuBMVE2ZY8ux/eTLP66XxR087ZpHl21UvTaHAALgEh
-         FMaOQNPjCr2Q0SvRa2pSt6UNAuU5Du+KNpDcO45gD8737eyUBG2VVrjF5joICRWC+d1m
-         eJK8olyqcowApMba2QZhrC78Dam6L2cEWe5RoVvgZvhBpI6Uo+EaN3DR4OOqO+rPdKDB
-         t5fLTtMk5+rSxO/aM/hMnBG+BjryqHeVyoYc3ZdMRJahkBdiP0IBFo9pkdNbhnFPOjMJ
-         x/2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX6eElQHs/13xy+lrIfrCnuWzcDAHv9V9xGaIJk+RwdheM9DkjLVUcI1+hUBv1vwq9mj0NGvzREM1OoYGpODB9y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd2UZlaKDSmtrcTxLiIcnoNimXEK/3XZGldCb1SjKJI/44s5OO
-	oaHsatrGn1c32VQ8oeAzxF57dRU4jGKUlkD3VZ0+orbO4ozWFJ/bbPQj34MJEwKb
-X-Gm-Gg: ATEYQzzI/8zcw8WvAslpqWLVLMbXSOAdVO07HFqjaXMBZhP1INrboNugqOFmSBhuZk+
-	coaAzTv6iJYwdB2u913WO6P7pW84Un2XylMQ17V5eKTMNuPLg0Lmvv3tMbMRrepOUr9h2hkAWXm
-	tctNkW/Ipl8rFjXDCaYWJFhNulHo7vXgVks4BQKfiBYMhWY1auwQOkdwkyPVl+e2xkaG/nE2Hyt
-	EJ7SjgbJxAHMyH9RTiwwuyfxOaJpPURDKeBQPeleYkVIOWeGxvX4SdIDTTC3+XWKV3zZTe+7aac
-	DJO3icw43PXdU1U0GEOpvro+nomW0lzzMEHKitWkd2z9qk5l8aCqniASQbNraYvmqNv0sOnuO+E
-	XZZYcwG1G2V0D6sSatmxvbh6Hc18He1dXjOBd9FSim3fQGccPJ2HGqjfs4WogurBUqLB7FiZKsk
-	FrK5j8VEoBLd+smSOwO7u/+o+gD/8kRrl/mWSqr2tuFzK+Ih43rFJBvpw=
-X-Received: by 2002:a17:90b:5346:b0:352:f2a6:334 with SMTP id 98e67ed59e1d1-35bb9ef6093mr4927666a91.16.1773892430381;
-        Wed, 18 Mar 2026 20:53:50 -0700 (PDT)
+        bh=H3As/sXmvTb3Nrb+A3muL5/yG1ULkPfgGgdjrXA9Jlw=;
+        b=pKcp5FtpkbBOUbz0Xf3UeQmSQbkPv4iZ+scKU8rajsokHf9WRhzXE9NjSczaC+heym
+         3dUlcX2dRB0VobO6K9kAVzR3yJYLY3gsONLYg+4n/w/EYmt7QyAL7+GO6WMEN/njbUY9
+         hU0PwCdgYWY867DixqJOpmaeo4ARHzx0nILtLnrwPeYKMIZw7Omnk2KQTv17LPLSTxC9
+         cOHS/25kQM0BsfNAneHzwORXdCk4TQ2GrKlNNQuRYs5iNthRv+8iLYT7DF/Pm3E897n8
+         GvG69q4+a16hVs70ztLBrWSDVE82tjoy0HLB0dzJ6d+hA52yJfeDRiHbg2Cf5HeChQKg
+         O68w==
+X-Forwarded-Encrypted: i=1; AJvYcCWsjcO28LEdNEMmgTu6gF29s4MOkIkw81b7JaiL1xQSb7GZHHTcK6IsnR0gndMjgNGh179SPvDTB0XEwNObkmrK@lists.infradead.org
+X-Gm-Message-State: AOJu0YykKMZ8+8hvAyOK1b0dSbEBFCUBO+aMVg99vTj5Lk9cEr+agiMc
+	4DihFwWDiBjxp85Ni1ER4hOf1dTFJUUjaOwQIPH5BdSfhyzeN20ApJCP
+X-Gm-Gg: ATEYQzwWpNRHeqGmGWnncqqcClMr5+VGFm/SArUVJ59NrhGDqjHlzQA6VHV9VyR1GZv
+	VS11KtccHyDh8ZvWtEfIFa+pEXKM1o61P4ERnaQoXdkLfZxbIjMgebR83d9E2WDhYeM4HJE9S44
+	DAdBbbZ+ZQPVe3IiXM2ZP8hQw8UZfGQNUBlxUy8ylTUnCzzyE2iTGOptQMcpX+SOX0FPg0bzvqJ
+	rpdyOpbjmTh4HJl21VwnjBN2grsSWbwPBv0EGsmsO3wqCZfEE29vyQrJkBm68KUDxt8WETHCrej
+	2DXBEZcMU2PxlH9oyI2e62BpDR6wN6uuvPwoJyd30UlRx0jh+dF2EAFYpTV9GrYgJFz/tMnvsDy
+	agb934rtB0b8YYYM8wSGNj9aiz822RNbNYw8I+2E//BdtazaJzStGWlcgtfzAL7CRgSbLU6PZe0
+	2pouw6oqlj4Jv0x8moD1wTk5biGG4btiH0WvF5O7am+E4tq+nHvoZV46M=
+X-Received: by 2002:a17:90b:2d10:b0:359:ff8a:ee3c with SMTP id 98e67ed59e1d1-35bb9f11dcbmr4706091a91.23.1773892427775;
+        Wed, 18 Mar 2026 20:53:47 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc60ecb30sm1159145a91.12.2026.03.18.20.53.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc60ecb30sm1159145a91.12.2026.03.18.20.53.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2026 20:53:49 -0700 (PDT)
+        Wed, 18 Mar 2026 20:53:47 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -80,17 +95,17 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 6/6] ARM: dts: BCM5301X: EA9200: set MAC from nvram
-Date: Wed, 18 Mar 2026 20:53:24 -0700
-Message-ID: <20260319035324.269905-7-rosenp@gmail.com>
+Subject: [PATCH 4/6] ARM: dts: BCM5301X: EA9200: add wifi definitions
+Date: Wed, 18 Mar 2026 20:53:22 -0700
+Message-ID: <20260319035324.269905-5-rosenp@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319035324.269905-1-rosenp@gmail.com>
 References: <20260319035324.269905-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_205351_503902_D8F8B7E7 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260319_035350_269493_2FAB8652 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +120,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Especially needed for the WAN port, which is part of the switch and
-inherits the MAC from GMAC2. Added extra definitions for the wifi
-interfaces to make everything clear.
+brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
+some of them for proper operation.
 
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ .../dts/broadcom/bcm4709-linksys-ea9200.dts   | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
 diff --git a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
-index d8aab570dbe8..8037eac1c3b7 100644
+index 617fb55bc52f..7b1363aa1144 100644
 --- a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
 +++ b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
-@@ -115,6 +115,8 @@ wifi@0,0 {
- 				reg = <0x0000 0 0 0 0>;
- 				ieee80211-freq-limit = <5170000 5250000>;
- 				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
-+				nvmem-cells = <&et2macaddr 2>;
-+				nvmem-cell-names = "mac-address";
- 			};
- 		};
- 
-@@ -129,6 +131,8 @@ wifi@0,0 {
- 				compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
- 				reg = <0x0000 0 0 0 0>;
- 				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
-+				nvmem-cells = <&et2macaddr 3>;
-+				nvmem-cell-names = "mac-address";
- 			};
- 		};
- 	};
-@@ -140,6 +144,8 @@ wifi@0,0 {
- 		reg = <0x0000 0 0 0 0>;
- 		ieee80211-freq-limit = <5735000 5835000>;
- 		brcm,ccode-map = "JP-JP-78", "US-Q2-86";
-+		nvmem-cells = <&et2macaddr 4>;
-+		nvmem-cell-names = "mac-address";
+@@ -93,6 +93,56 @@ led-3 {
  	};
  };
  
-@@ -155,6 +161,11 @@ &usb3 {
- 	vcc-gpios = <&chipcommon 14 GPIO_ACTIVE_HIGH>;
- };
- 
-+&gmac2 {
-+	nvmem-cells = <&et2macaddr 0>;
-+	nvmem-cell-names = "mac-address";
++&pcie_bridge0 {
++	pcie@0,0 {
++		device_type = "pci';
++		reg = <0x0000 0 0 0 0>;
++		bus-range = <0x01 0xff>;
++
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++
++		pcie@1,0 {
++			device_type = "pci';
++			reg = <0x800 0 0 0 0>;
++
++			#address-cells = <3>;
++			#size-cells = <2>;
++
++			wifi@0,0 {
++				compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++				reg = <0x0000 0 0 0 0>;
++				ieee80211-freq-limit = <5170000 5250000>;
++				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++			};
++		};
++
++		pcie@2,0 {
++			device_type = "pci';
++			reg = <0x1000 0 0 0 0>;
++
++			#address-cells = <3>;
++			#size-cells = <2>;
++
++			wifi@0,0 {
++				compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++				reg = <0x0000 0 0 0 0>;
++				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++			};
++		};
++	};
 +};
 +
- &srab {
++&pcie_bridge1 {
++	wifi@0,0 {
++		compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++		reg = <0x0000 0 0 0 0>;
++		ieee80211-freq-limit = <5735000 5835000>;
++		brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++	};
++};
++
+ &usb3_phy {
  	status = "okay";
- 
+ };
 -- 
 2.53.0
 
