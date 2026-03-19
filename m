@@ -4,145 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85936107527A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A405107527A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKIVDNBkLQynVhtX6pV1nI6I9uhnsMXw7H22WWod5rw=; b=EzWiYGosOpkEfv7ypYwd3fC3VB
-	LSTLK3KiiJfLd+LAEZjzmLDgZGhgp8ki8KXu2HKUxxLqAw8Mg37Mwl/IRsMG/84ugdGoJIxDMdWqC
-	oxPp5IuqoHVmIRQYXdIEnqBQzzBHtIBNy2UlUhCFv664bMVYng9Zl2hoGkZuCL3yx8R1QXDnCo3LZ
-	eiXAClrratVZV47GpYbabOT5xAc7F0iGgUEF2DaMsRt/Nv9hxtMOwYPB7yLfqe6jWZ5Ctby1oGEk+
-	C1wtDMvzem7wHNoADIgw7gNNGr47I/eq2Pkb12nFvMKQINEWAUvTcVx30j1TQ0K8hHsBW082grCy3
-	dhOdio1A==;
+	bh=Cy4910z4yKJ6chHebZmM0+S0xkDCsGUvQzxCGdWrqlo=; b=LtZSFjRx/yk3tD4nVx+eTCayYa
+	0rYzqDGxOXkRp3RCHm+3kyiD6LjKjOAdgvRFnrZo3bF9tSIOc+g7OrHd1YLoZiBKRhEhsNrqGlwwq
+	KgCP1EPtb5IFlRLoCt7EqqLzoD4ZzW+Tgb8nktcbOH15vKjBh3Q7qCDedIP/68T3j1F8eAJTqy5FB
+	SyiVbKH81uFxEP52jKRYIX/h6Tyh3rT4M5aHdEE3N24neZ6svoaMlo4p4nrPMV1GYrWM6v23twRSL
+	VI9A1waHnut33JqhT1YIZrN14Xd4HimslFr0ioS7GczJzOsVDGC9zlXsRkvqmzc93YdHqzmYqsp9x
+	2goaIwQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w397F-0000000AGmA-34lK;
-	Thu, 19 Mar 2026 08:52:29 +0000
-Received: from mail-northeuropeazon11012047.outbound.protection.outlook.com ([52.101.66.47] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w397t-0000000AGqY-0Jwp;
+	Thu, 19 Mar 2026 08:53:09 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w397B-0000000AGlb-1Qwt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 08:52:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UHBTRf4REh6K3aYGAHvE76sGdgxtkZYXOQUVQgzx/kpaD6gyekZUPAV01WH2AG9kvMoLpEqRQo1uwKDbM1TqXURznqwEik3AHthSTT7+qzCQtPnYhhYhXxpfLWKD/uviHW/t42mDPsrxeU/5emAJSY4UXDEuWL45SeFTlCDtvElT7+Jj5rwKxjU9CU/gHT/iRxAkWTZO55n6KdWgekQmXXIq9cAPnT55K3JyEogBC2pz5PxCEbmdii/0ggOrqQ2CIICIERksQLGjHVWydUIdPVjnwqmWqEJOybQKkJne8i8PL0mrFzMYoXFsYbo5l/buNKDGqOj8/aiuHNvq6WI+CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iKIVDNBkLQynVhtX6pV1nI6I9uhnsMXw7H22WWod5rw=;
- b=cBkbe5nmPRjiL7YsKMdC4ZAs3xlXLOQgDU8NBawS8SFSr3Z08fbpPYcZeH8R3+4OLCgOBDP0jUW4+tlWEnwkxVtkn9Bs5Xscw6LPLRAcPSGY04dko/couqW/CJ5qDfuEfv1UIBfo6QmZCOKOJkg+61BP5jIV+oDgKfIXGQwZ8R9m33XjGH9KHg8EuWjRspxqqid1cLWNXDKS1gZdkqSP/zZdm/dJBiD3Tl0boreKiF9uySjo20GouqHKz22hQZcy6qh6u183Exu7VW2wRf0R8yNMkaEIrWvLd7RjIugp/S+epuEVqnCtfnyJRvf9wKvbpKzNeUD+b+X2T/lwCwnPdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iKIVDNBkLQynVhtX6pV1nI6I9uhnsMXw7H22WWod5rw=;
- b=hMV93FStthp2pgyiMOgrMTKlKaWIW49+rBBvetRBmzhHiXtNzNn7KyDl1pZBz4t/Ptv4RSzcHkG76ELaIEQjkwKKi41RrGsVN8MzKfwr5bBza7OnyiK7X/9mFmTOanvyP7OARbdasG2BZWebVVR2Nd8gd6RLjIDktNfNrxQAXm9MPH3O4X+ntlDo1pm7xx1DBujGMCOfj7ZhD/bnJSo5Y15BgPH0XzTuazEJS0+VQdgFE7ZQcL4fJQSvAKKf4GLmErPizQNby8JPZDgZzDRsGzq4Er1YIaiQvwFVXac/B968c5B9Ibol+umNAB4Ffj1LMGHRBrSHDTPWWqNNh1dm6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by PAWPR04MB11550.eurprd04.prod.outlook.com (2603:10a6:102:50b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 08:52:17 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 08:52:17 +0000
-Message-ID: <f7ee5c1b-d384-4753-9998-d22cb95864e4@oss.nxp.com>
-Date: Thu, 19 Mar 2026 10:55:15 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: freescale: add i.MX91 9x9 QSB basic
- support
-To: Joy Zou <joy.zou@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20260319-b4-imx91-qsb-dts-v1-0-2eedc01d8af0@nxp.com>
- <20260319-b4-imx91-qsb-dts-v1-2-2eedc01d8af0@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260319-b4-imx91-qsb-dts-v1-2-2eedc01d8af0@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0022.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:14::9) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	id 1w397q-0000000AGpw-1RLy;
+	Thu, 19 Mar 2026 08:53:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Cy4910z4yKJ6chHebZmM0+S0xkDCsGUvQzxCGdWrqlo=; b=W3qBLApMiwlOSyK7y9elQXdTFi
+	Ic0InLtfkfyj1C62uw3fTiOnT+O35+LH4qoEWpSFVLiOJKHcuyrOPj4cl7gOUKW2yyZ3LXWl6Pbyn
+	mMBFpnsXxRWDN7EWDUM50FKvaIWP4C01mMX7o9WTRt8SPK18qccGeHVvbxm96fvqq0T/NHc0Xf4Va
+	toG7EHiV0OA9zZTf6fIByGYVeqh2CJGFC+ybWqLlGa7pqlNAx8t+x7wKFe1i3oyQRmMd3DGzG96N0
+	ZYJdmolg1BIT0yEwkQGihJQYjVxe5nAuGmedBO4Fv4wW1hcWpByAFscuGxTyukKWCbOf6lmBdmSuB
+	ZuBfNjzg==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w397i-000Gux-1c;
+	Thu, 19 Mar 2026 09:52:58 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w397h-000NT9-1X;
+	Thu, 19 Mar 2026 09:52:57 +0100
+Message-ID: <4cd1dc92490b7e441378c85da3a0e14010ba74d0.camel@ew.tq-group.com>
+Subject: Re: [PATCH 6/7] net: ethernet: ti: am65-cpsw: add support for J722S
+ SoC family
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,  Nishanth Menon
+ <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
+ <kristo@kernel.org>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>,  netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux@ew.tq-group.com
+Date: Thu, 19 Mar 2026 09:52:56 +0100
+In-Reply-To: <4cc3dd9fab460d35215c8f97496b9ae16c5bcb22.1773751309.git.nora.schiffer@ew.tq-group.com>
+References: <cover.1773751309.git.nora.schiffer@ew.tq-group.com>
+	 <4cc3dd9fab460d35215c8f97496b9ae16c5bcb22.1773751309.git.nora.schiffer@ew.tq-group.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|PAWPR04MB11550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5830a35d-ea5d-4220-2981-08de8594d306
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|921020|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: e8TkuWydx9DaCwXXS3URpe92LJicnmlKRpHHc6VvjfffEef2fEy4rmU/9L7037BrGVbvkBt8IHrTAKNyFX7a6R5CzSt9Q7w4Jt2KMjvVd8/fDQf61LWW9cbUTSafaS3YF2p8fD72gwnamTDPRCRkPYntK1E8kKVh1U/KKPOe3tUuQXZhOXVx0wYpyPjf4tabgKaYnEi+AeLMa0xza6y5XGGH7W+HXyCMNBS0S2b07GWFYr/UC0tqwvfrWXYRD9zTrFAbnzEI0nlKn2YeZWl+iT6eJFCo4r4pZTDUIWcJ6dfT6anISGVKZHUwxBub6QuCeB8SzNoxTW3/HvUOVFh/XncPc1Azv3XJ1R7AQsQGhE/wBC4PpX9R+32e/4oCLPBtO15D8M+d1gd5S+3xxNVUDR3e1xHnJ7444CqGnDpLay34SYhgpFw5+UE8VBY9fDg83VZ16IeOBMy3LIQDkOAW4mA8QkWEBUBr3bmkuEjaOjB2lE9x+vgLh5rzSHBhv61v00cD4yi/1fM3KL+oWVlvRl3H9XeEBnBjCoWIAUxQujm9nicakWDoAtNNQjDiEK8cWuSUQ9qEnlr0/Ya2u9QLJCfodOK2nhDhK6KWfGUCXGaqSWFxHEmkLuP13BHAj7MCFyFoycG3+gfhEmrWBB8K0/EL3BX75l/gdZjyYNLrpt7naZcbdscSrKNcFajUGukizj7PlO8otVObcWBJ+GH1AB3l6sNVpfMBLblZvcSMlC/Cv5juErKbkpNZBPjSKEl/g0tOKxV9BvIpx8D6HDYyQtxKodPGDJTdJRcIAp+GOm8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnJwb3JiTVZHUGUzUDZuL0twbUVVNHJlcUxKNkh1SHkzY2xrVjFrVWRiWWc3?=
- =?utf-8?B?a0QxZ1RZd0I4aTZ1czdhRVZMYTdTOG04RUFoM1dJUW04SThQMmtwYmlud0Va?=
- =?utf-8?B?ZHpmUnF1QmhnYVVyRlQzeWVJejU2Tys0a1BkMEVrVFpBUXk2Rlh3VHRrOTZC?=
- =?utf-8?B?RGF5eldJR2tDc3RBemtPbVlPUkpFeUw2TXR0MG56UGdHUDN6NHkzNDdLQk5D?=
- =?utf-8?B?SjJSK0lNazM3UWFpV3lPRkd6MmtyTVd6M3hvUC9SQlAwRjVZMXI2SUJXYmk1?=
- =?utf-8?B?WE5lVjQ3T3FCWHhFUTFYRURUTFdMbktKSHk0QWZRTzdyTEpNa0pRam9qdDRJ?=
- =?utf-8?B?bG81a1hZTW1OYWZyclQyWWJTbE1NaVR6QTE1R2VrRE1EMS9UZWExMG5Ram8v?=
- =?utf-8?B?aHUrSG1pZnRVNHQvY1V2aHB2aGhobnZaYVRsbXFoVlo2K1dOMDZrNk1qZzMr?=
- =?utf-8?B?YTdQZVJsMEVNeVcxL3BPL0ZYYWthZmdmdG1pK2p3Tk9RcXZBNU51VHBWak9R?=
- =?utf-8?B?UFRBZmx2UTY5RnhOMnlTQTVGd1cvZDlGWUQ1UHc0TndQdlFhSlhFTEphRytS?=
- =?utf-8?B?eFdoVCtzdk83ZDYzYkFIeGJEM3BsaEcvZEJ5RmtOWFFDeVB2K1pqemJZUTZG?=
- =?utf-8?B?YmFKMnIwdkJKSTN6c2Y4cHE3Wk03YmFaY1J1Rm5YSHdvdlNZRzdCZzJaNVE3?=
- =?utf-8?B?V0V1a0pKeTBxUFpNMzNaUzJpQVM0d05sc0ZKeVh5eWpPSFhYeEFRbnpSSU9H?=
- =?utf-8?B?MHNSN3VPY2o0eG5YT0N0MnZkMmJKclV5WStsN3Q0REZNOS9kZ0YwRFNkTTRo?=
- =?utf-8?B?L1BETmpEdk9vaWZvWnFsN24vVlRNOTRFVXBGdzV6ekRPWklsb1d3aDc3Ri9P?=
- =?utf-8?B?L2ZEeTNWODZNSmJmekJCbG5JQ0VWUWF6dU40UUJSUWQxZUtzbmNza1V3RzNp?=
- =?utf-8?B?UENiaURsbkZKQk03Y2FNQTVSNVhWbHg1VFBLWGdhSHZMQXlZTkVRYkZNVEMv?=
- =?utf-8?B?Qmgxa2lKcFpzV3BCdnlaYnJtMzNQdG1KWDZoVjhvMGtybUhRcXJrcWx5OUU2?=
- =?utf-8?B?MDRjME9QWGY4V0FOLzNBRVhHcUQrZkliWUdFNjRvWkNSR3pTVStMSXVkU1Bp?=
- =?utf-8?B?ZysxWjZKNnZiZDZXN0NSV2t5cXB1MHlyQ2dVTGt4TDhRYnpmNk0vUHVzbW1r?=
- =?utf-8?B?UWFOd3VzTFp1ZkUvTzd5aDA5bnJ5VVVQMFU4Zit4TFB5bGJpV0hTcmVTRm1D?=
- =?utf-8?B?WExIdU9nbndBMEF2cGRRQlpuK1RnK1JNVmpZbjNzaGFuZzU2NkxrK25nenNI?=
- =?utf-8?B?d2NpOGdsYXoyYnpXTzJBQ0tVbEkreE84dVd2NUY5dVdxVU91d3R4Q0pHQlVu?=
- =?utf-8?B?b2w0elA4T0Fxejd6R25ONkRtb3NyMDJUQStMcHdKV1p3UEs4UmVEUk5VVUND?=
- =?utf-8?B?NDYwMENHWUxzM2xEeDN0Z2JvUkNGdGFpMHltKzJRamEzU21WNmNKUkZnRzVu?=
- =?utf-8?B?eE8ybzhBd01LYTR5eVdMNVYrTVVGYXQ2cEZmbmhCUXo5VTZ1NWFsWC9MVThQ?=
- =?utf-8?B?RGtRa0d1MEdXUnlDNzlHM2RndGZ6U0xPcG41OFdETXFTeDdOenBBTTVMcTZo?=
- =?utf-8?B?RVd6Q3IydzVTZWFhREQ3ekxVaUFFQkNlcmtRQkp4dEJRSVBObnBySmtWNUxn?=
- =?utf-8?B?TjhsYlFpUmhCYzZ6MmlSQ3RMaE1CUUdscjBHY0VyUk1MMDFQOFBuQ2p6UjJt?=
- =?utf-8?B?ZWJJYzNrMjQ5TXR2dEh1K0NPM29neGdwT3pKK0l2TmxLR1dWalNBaG9kZDV2?=
- =?utf-8?B?bzVZbUFGeTFWVkpsUTBCam1sYjdEemFJT243MVNFZFppZ1JqSzJWY1FNM2VL?=
- =?utf-8?B?VmE2MEhkM3pYWVhaTlM2R0hmMEF5M2NnOW1HbGxFcGZwQTlsNHo4THdrZGh6?=
- =?utf-8?B?UU1mYVVtZS94cmJYb2E1ekVLYi9KVEZNU2FhZkEvZmp0Mm0xZlFtaDZxS0xZ?=
- =?utf-8?B?VEpJcHJ4NkRWZDJycTg1dHVFYmlCQW1OVzEvK0xlQ24wTXJGWXNyQ1o3ZzM0?=
- =?utf-8?B?SUhwbncrSFV0dm51QnpMSmtaNjYxK1kwOFFwN0FBQ0FCUVM1SVM5WERmRm1C?=
- =?utf-8?B?WnRRYlY0VnUxYkRsQ3BQRWdMd21nY2pjRmxDQWlZMzFoVWR6cEpNdlJTN3JC?=
- =?utf-8?B?RjFBdGV3Y1FHU2Jkdm9uWGovN2sxME9iZk9Lb1BmTHVMVlBxYStQbW9IMHha?=
- =?utf-8?B?bXlnaDNEQkRoY1BCTS81R1IyN1lqcmRSMjNjYzNHSmQ3U012VzVoeVVhQm1O?=
- =?utf-8?B?UmNidm1xTTFWRnFUVlJIQkRzb051RGo2czhXSjVQM1ZQVU1Wemhjdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5830a35d-ea5d-4220-2981-08de8594d306
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 08:52:17.7503
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lrZrC29qKFJPJC8bVJmG+uHbZfro6IbK2bsZOCcs5G4yMQ8bgIN/6MGnqEase7ruLDdDgFvc8JZgJjHMcEClxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11550
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27945/Thu Mar 19 07:24:38 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_015226_933757_6872B582 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_015306_505038_8844F567 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,22 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 10:18, Joy Zou wrote:
-> Add i.MX91 9x9 Quick Start Board support.
-> - Enable ADC1.
-> - Enable lpuart1.
-> - Enable network eqos.
-> - Enable I2C bus and children nodes under I2C bus.
-> - Enable USB and related nodes.
-> - Enable uSDHC1 and uSDHC2.
-> - Enable Watchdog3.
->
-> The board description can refer to the following link:
-> https://www.nxp.com/design/design-center/development-boards-and-designs/IMX91QSB
->
-> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+On Wed, 2026-03-18 at 15:05 +0100, Nora Schiffer wrote:
+> The J722S CPSW3G is mostly identical to the AM64's, but additionally
+> supports SGMII.
+>=20
+> Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> ---
+>  drivers/net/ethernet/ti/am65-cpsw-nuss.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ether=
+net/ti/am65-cpsw-nuss.c
+> index d9400599e80a4..fc57d5e6edf4c 100644
+> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> @@ -3468,6 +3468,13 @@ static const struct am65_cpsw_pdata am64x_cpswxg_p=
+data =3D {
+>  	.fdqring_mode =3D K3_RINGACC_RING_MODE_RING,
+>  };
+> =20
+> +static const struct am65_cpsw_pdata j722s_cpswxg_pdata =3D {
+> +	.quirks =3D AM64_CPSW_QUIRK_DMA_RX_TDOWN_IRQ | AM64_CPSW_QUIRK_CUT_THRU=
+,
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Ah, I just realized that I sent the wrong version of this patch,
+AM64_CPSW_QUIRK_CUT_THRU only exists in the TI vendor kernel... sorry about
+this, will fix in v2.
+
+Can someone from TI answer if AM64_CPSW_QUIRK_DMA_RX_TDOWN_IRQ is needed fo=
+r the
+J722S?
+
+Best,
+Nora
 
 
+
+> +	.ale_dev_id =3D "am64-cpswxg",
+> +	.fdqring_mode =3D K3_RINGACC_RING_MODE_RING,
+> +	.extra_modes =3D BIT(PHY_INTERFACE_MODE_SGMII),
+> +};
+> +
+>  static const struct am65_cpsw_pdata j7200_cpswxg_pdata =3D {
+>  	.quirks =3D 0,
+>  	.ale_dev_id =3D "am64-cpswxg",
+> @@ -3495,6 +3502,7 @@ static const struct of_device_id am65_cpsw_nuss_of_=
+mtable[] =3D {
+>  	{ .compatible =3D "ti,am654-cpsw-nuss", .data =3D &am65x_sr1_0},
+>  	{ .compatible =3D "ti,j721e-cpsw-nuss", .data =3D &j721e_pdata},
+>  	{ .compatible =3D "ti,am642-cpsw-nuss", .data =3D &am64x_cpswxg_pdata},
+> +	{ .compatible =3D "ti,j722s-cpsw-nuss", .data =3D &j722s_cpswxg_pdata},
+>  	{ .compatible =3D "ti,j7200-cpswxg-nuss", .data =3D &j7200_cpswxg_pdata=
+},
+>  	{ .compatible =3D "ti,j721e-cpswxg-nuss", .data =3D &j721e_cpswxg_pdata=
+},
+>  	{ .compatible =3D "ti,j784s4-cpswxg-nuss", .data =3D &j784s4_cpswxg_pda=
+ta},
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
