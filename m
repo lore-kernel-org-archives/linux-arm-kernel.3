@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A12108E1DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58064108E1DD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=foaoda/fy8EAWFYlFaBL37MQIpGUcNcrbVYNPPRRRDQ=; b=bgedfHcDajj+Oc+Q08E84wFfTV
-	CuxF1MM4vPgwydsl9CXVHwBNlE4q91sy2H7/FDORuFHfgFhAJQDzEFZanKwjwj/EGjWs2tHRgGESJ
-	XuVCk/jjabjNRZdD/i8XII7nvq98XpqYXdenaKsof9Suvu20MUTV9kVm79IJ0yNM5GNRUxkJZaTFq
-	r1Lme1IwigvaQlmL6psmDjKtUPZwKH2t0AV+tuKFcfsB0R/FQVGOq50GPi3zqIPkRVlg/hNCFN8wY
-	vYe/gZqXejV7WaCePYqP8h8uNkCEL6GKlA1WbdIsUbCge/V1QXUPMYbxlLO3BfaLFnpzxtO9CXIlB
-	G5UEYX/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uKAPmcA2X9Bm9pJ7T+wzs/NFBFfUIopHAZt+of0O0TE=; b=C4q+p7C/CtBXZ9XYkP1Hn/o39M
+	3a7FlZ4vlLqxj7/mxNkF/5FD5rNDmjyfkiLbR1Ayx1vRvSNUJW+ht8QgoFr1+MXNiZwj5tVEkubJN
+	7JN5WNg5MR+Bf0mrIYHa7hSjmvNBbrllnb0fTRl61e34ooyTkvZ9jI/rDNo38aLt1K0dK0YgPn/rj
+	SwgEKmE5V53ZJbNkVT4628hteD7S5FZl94DOCKNezcD4vkcHZAoYKvP5VPJox5UBdRESDi6Cx0A5t
+	56ojLkWyYm+yGjdane9FY/P08iqYlgoeJaxdISlwjU+EMKl36zkV/Il4oY4Rt8kOx1CWHC4frNK/f
+	I86j9P9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3AbP-0000000APgJ-1VK4;
-	Thu, 19 Mar 2026 10:27:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3AbN-0000000APfz-1ltP
+	id 1w3Ada-0000000APsH-1dgv;
+	Thu, 19 Mar 2026 10:29:58 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3AdW-0000000APrT-27v0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 10:27:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79DA21A25;
-	Thu, 19 Mar 2026 03:27:34 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46C7D3F7BD;
-	Thu, 19 Mar 2026 03:27:37 -0700 (PDT)
-Date: Thu, 19 Mar 2026 10:27:34 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v13 37/48] arm64: RMI: Prevent Device mappings for Realms
-Message-ID: <20260319102734.GC3942350@e124191.cambridge.arm.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-38-steven.price@arm.com>
+	Thu, 19 Mar 2026 10:29:57 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260319102948euoutp026482e196f4aba78a23f9b8848052e404~eN2AR7puy1781617816euoutp02-
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 10:29:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260319102948euoutp026482e196f4aba78a23f9b8848052e404~eN2AR7puy1781617816euoutp02-
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1773916189;
+	bh=uKAPmcA2X9Bm9pJ7T+wzs/NFBFfUIopHAZt+of0O0TE=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=C7xqy6XartaJebAc/mio76XJgysOea9Dhzs17asXEowNuhnl4+zZPcqEs2aitk7Dw
+	 rx9J3fgwC7hVscoeFHjVoqHtn7LNCEL6lP6m2NHLhc/iouWTgywbvvbRGo6O6wySyS
+	 ADC4nFYUa7UILv6G6+6jFPm9zHvZNkSXdkjjWl+8=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260319102948eucas1p19b0586ca5935a60f9d5bcea3bbbccdac~eN1-1Tym32451224512eucas1p1g;
+	Thu, 19 Mar 2026 10:29:48 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260319102947eusmtip1f9e65f8316f14e8d08a56aea54338db7~eN1_23p1d2191621916eusmtip1f;
+	Thu, 19 Mar 2026 10:29:47 +0000 (GMT)
+Message-ID: <c5ba58fb-50f1-4067-a099-97169ea81f68@samsung.com>
+Date: Thu, 19 Mar 2026 11:29:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260318155413.793430-38-steven.price@arm.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v8 05/10] pmdomain: samsung: convert to using regmap
+To: Ulf Hansson <ulf.hansson@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+	<andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam
+	Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Peter
+	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, Will McVicker
+	<willmcvicker@google.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <CAPDyKFrprMSLOBMB_BHbi=j6UXV4dXBn-H8M1BsqDWNSCJwvuA@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260319102948eucas1p19b0586ca5935a60f9d5bcea3bbbccdac
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba
+X-EPHeader: CA
+X-CMS-RootMailID: 20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba
+References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org>
+	<20260318-gs101-pd-v8-5-241523460b10@linaro.org>
+	<CGME20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba@eucas1p2.samsung.com>
+	<CAPDyKFrprMSLOBMB_BHbi=j6UXV4dXBn-H8M1BsqDWNSCJwvuA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_032741_522891_17B39A2F 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260319_032955_118978_E14C292B 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +94,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 03:54:01PM +0000, Steven Price wrote:
-> Physical device assignment is not supported by RMM v1.0, so it
+On 19.03.2026 11:13, Ulf Hansson wrote:
+> On Wed, 18 Mar 2026 at 16:28, André Draszik <andre.draszik@linaro.org> wrote:
+>> On platforms such as Google gs101, direct mmio register access to the
+>> PMU registers doesn't necessarily work and access must happen via a
+>> regmap created by the PMU driver instead.
+>>
+>> In preparation for supporting such SoCs convert the existing mmio
+>> accesses to using a regmap wrapper.
+>>
+>> With this change in place, a follow-up patch can update the driver to
+>> optionally acquire the PMU-created regmap without having to change the
+>> rest of the code.
+>>
+>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> [...]
+>
+>> @@ -36,31 +35,42 @@ struct exynos_pm_domain {
+>>   static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+>>   {
+>>          struct exynos_pm_domain *pd;
+>> -       void __iomem *base;
+>>          u32 timeout, pwr;
+>> -       char *op;
+>> +       int err;
+>>
+>>          pd = container_of(domain, struct exynos_pm_domain, pd);
+>> -       base = pd->base;
+>>
+>>          pwr = power_on ? pd->local_pwr_cfg : 0;
+>> -       writel_relaxed(pwr, base);
+>> +       err = regmap_write(pd->regmap, 0, pwr);
+>> +       if (err) {
+>> +               pr_err("Regmap write for power domain %s %sable failed: %d\n",
+>> +                      domain->name, power_on ? "en" : "dis", err);
+>> +               return err;
+>> +       }
+>>
+>>          /* Wait max 1ms */
+>>          timeout = 10;
+>> -
+>> -       while ((readl_relaxed(base + 0x4) & pd->local_pwr_cfg) != pwr) {
+>> -               if (!timeout) {
+>> -                       op = (power_on) ? "enable" : "disable";
+>> -                       pr_err("Power domain %s %s failed\n", domain->name, op);
+>> -                       return -ETIMEDOUT;
+>> +       while (timeout-- > 0) {
+>> +               unsigned int val;
+>> +
+>> +               err = regmap_read(pd->regmap, 0x4, &val);
+>> +               if (err || ((val & pd->local_pwr_cfg) != pwr)) {
+>> +                       cpu_relax();
+>> +                       usleep_range(80, 100);
+>> +                       continue;
+>>                  }
+>> -               timeout--;
+>> -               cpu_relax();
+>> -               usleep_range(80, 100);
+>> +
+>> +               break;
+>>          }
+>>
+> [...]
+>
+> As a follow-up patch on top, please consider converting the open-coded
+> polling loop above into a readx_poll_timeout_atomic().
 
-But we're targetting 2.0 now!
+This has been tried and it doesn't work in all cases required for power 
+domain driver:
 
-I guess just change it to something about device support being a later feature.
+https://lore.kernel.org/all/5c19e4ef-c4fd-4bf5-88b3-46c86751b14e@samsung.com/
 
-Thanks,
-Joey
+Probably a comment about that could be added directly to this code to 
+avoid such conversion and breakage in the future.
 
-> doesn't make much sense to allow device mappings within the realm.
-> Prevent them when the guest is a realm.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes from v6:
->  * Fix the check in user_mem_abort() to prevent all pages that are not
->    guest_memfd() from being mapped into the protected half of the IPA.
-> Changes from v5:
->  * Also prevent accesses in user_mem_abort()
-> ---
->  arch/arm64/kvm/mmu.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index ad1300f366df..7d7caab8f573 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1222,6 +1222,10 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
->  	if (is_protected_kvm_enabled())
->  		return -EPERM;
->  
-> +	/* We don't support mapping special pages into a Realm */
-> +	if (kvm_is_realm(kvm))
-> +		return -EPERM;
-> +
->  	size += offset_in_page(guest_ipa);
->  	guest_ipa &= PAGE_MASK;
->  
-> @@ -1965,6 +1969,15 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  		return 1;
->  	}
->  
-> +	/*
-> +	 * For now we shouldn't be hitting protected addresses because they are
-> +	 * handled in private_memslot_fault(). In the future this check may be
-> +	 * relaxed to support e.g. protected devices.
-> +	 */
-> +	if (vcpu_is_rec(vcpu) &&
-> +	    kvm_gpa_from_fault(kvm, fault_ipa) == fault_ipa)
-> +		return -EINVAL;
-> +
->  	if (nested)
->  		adjust_nested_fault_perms(nested, &prot, &writable);
->  
-> -- 
-> 2.43.0
-> 
-> 
+> That said, the series looks ready to me, but I am awaiting an ack from
+> a DT maintainer on patch4 before applying.
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
