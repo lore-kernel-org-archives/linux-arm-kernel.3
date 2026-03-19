@@ -4,155 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0558107528C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2A1075286
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+e7zk/pHIvchStb9CBRNT4H8JeLImn+/teUgyx/pqyk=; b=bIN/J0hSe4x1xJKZI4ECU09rvM
-	Ht5SjwEwGI+cIdDBDDRP3qhuylBP5Sra3cg/ZR4r1q7AwsfOGmejHbNiXzQfpEKDmVlSLS/DsEm/r
-	tQFXuXTUN1jIZH4TTcALOtC3fkURnu4GZHVqkdcVFwtglmN/AqjFrRC4nUo2ydPpTSMdc2TjxisTk
-	DKVXSqxcfxdKval5kZm2NEGOXb+heDFdzkgLIKkfocFqE1Sr4dcPg5qFjJJbCjrfpXHbwNc3g4wom
-	VXizDMs4yIfJ3ktndBggcKTjGs0Av38cAHilK74nuyckafhBvkXgr5FYxSUwdPE+2cUlgL9aln18y
-	6Q79i6KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wZ6bL3r3qm44FVnTpR0DPP21t1REZeZKy0LnlzbnMK4=; b=LFOCUdKy2T9rrTQ1zOKttVH6q7
+	6ssURj84uJFDOVTzNoWWTULVU2uH6gOitTFbokzoHf6Im/aNuePyYsJe4dvTs2q3HbBUs+PDi8huI
+	l0ITQB2tl1bRUjeDWEKec7L/BE0AdHe8RgtEUdeqyoCWb4BmJtKhmfs8Cagm1rSAarxJAJBP4U774
+	W8RXqAH/hhL1jEGNxSAfQPjC2ArISEYipDFdsruXM6cdPXD8J3kkFwPJbgL0Pk7uOGNuNfwArFAkj
+	4M62azuoOoyjsHcjb3Rp+AAK8wTxDTOAjoikXZiR9HC6/t6vfmSYl8pJpdu1VOWECNlRlV/KOge5v
+	oOr0+Agw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39s9-0000000ALGz-47So;
-	Thu, 19 Mar 2026 09:40:58 +0000
-Received: from mail-westeuropeazon11011062.outbound.protection.outlook.com ([52.101.70.62] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1w39uo-0000000ALmk-2enW;
+	Thu, 19 Mar 2026 09:43:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39rz-0000000ALA5-2sqc
+	id 1w39ul-0000000ALmK-3WZk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 09:40:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=baAkK89BRYf/O1nMregClSg+H++WWDkiDQiNyoJPiCs1JqRNyrXg1yqOBAti7Ao6IdG6J0QP4uhyJY/gWL2u1ZcrShMorKpXT0mBWCPvGOWPmR0SddZ+G6cby/WANgeagYVBauKrvBnURwgJmt0Tk+ciWFvFIAXa2tX0CGmkmmedfKZvJNISiFG9WBPb2UcmcFZwxf88nuok8vNisnHwtQYgzPqcAGPLZidOVr+fL5yYKFNVvDSZG0+tsqpltQz3jxYNp2Bg5umQP8FH/7Qd6+i1L75pZcRTVUrL/gZWDxzrgow1mjSC+NC3W6EzLNi5C31XcLmsshZy6/Q9RHsfhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+e7zk/pHIvchStb9CBRNT4H8JeLImn+/teUgyx/pqyk=;
- b=Htd5kx50F6euerrYc7lu1ni28x7QPGz/09PTIAAjbTz2JBmVG3/oc54+ytA/0/00f0z1IdXlVRiSw58SqvvzG8u+C7XXMglTFxC+ocOdsdZTM47ntTQDjQaAzNHyXB+enIhaEraA+iXRyrKZ34qfVC4TMbQKqBQeAvtplGUk0eS5HBYSpiX1HGz0gHD0y0qi3RjACk7er9GIOBnKImAi30tz0HQD/jcpn5p3t1Ra+mVnpLdSvSu3vOTdpxRYSy7dAnMjvnaSOEa7S1N8+EKQBk6Hl+nQledOjWv/Q7X/79L/G2radS8nc4CEFGadoaYCbX3XgF/0xTnayP4TH1bHZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+e7zk/pHIvchStb9CBRNT4H8JeLImn+/teUgyx/pqyk=;
- b=s6aoMQ01Xx0vHRhbfgRWnEskI7TZDZZj7+xDARNWp4G3M0irSCpdCigV9b/hUE9XyEEa5UJc0btvS+sLShfy4ZATX4LCWwG4mlYizNcWkVrxfI1VXVAzSHn0zJldGXEdtw9gStN3qU8LRgb49jQyWxuXDFkeY+gACe806Pj0/v7yywHj9JmI2oxXyL/LGDs8uKtUjS40B4ljcMGRKeNPCn+CZl/Xnmdrj1rDdF/1wSoHPz9Ml03X7qI4WfCATvdprPoMKgtB9XzaMoOZ5dfTXasbrud3V46vzEjyEf+WdS+YMBdsNpY4aR2eGt9z0qcLoyM1mx5ERj9vhzWKPqM3uw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by DBBPR04MB8012.eurprd04.prod.outlook.com (2603:10a6:10:1e6::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 09:40:36 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 09:40:38 +0000
-From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-can@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	Andra-Teodora Ilie <andra.ilie@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>
-Subject: [PATCH v2 3/5] can: flexcan: add NXP S32N79 SoC support
-Date: Thu, 19 Mar 2026 10:40:30 +0100
-Message-ID: <20260319094032.427697-4-ciprianmarian.costea@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0161.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ba::13) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Thu, 19 Mar 2026 09:43:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B979A44273
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 09:43:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AE0C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 09:43:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773913417;
+	bh=bMgGHUQEJT68rcKmPKkkz+YA7h0UjcbeuxER+65CECs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CJpkT6AMgLyEDWog2VuhaeuWut4qbpNvN8wETDsXnnb1T8tX3tRRI5W0KMzj5+V+A
+	 NfVS7DTuGsd1bEYQjb/u3/mUuMnGn+Xvf6xdH12GPejjt7ef1SS3IsTShlP3DhJzM3
+	 L5Y8uzD98RWY7dMMKwqTKusE2HOKkzroYrjw2Ro5jyjbx14bOYBgE1vMFsXsDZ8WHS
+	 dh8yG2jXnVlBWJhEzSkKw2rPB76FZQH4H6+olyhWF3lcbGLi0snE2YeKOyPM6uSUOo
+	 kBOe/2LOS+MO6y4F0LokKadUMI1tYNh/Lq3y4CzDQu5EV/BmKxamj22l+U7/gjNwhc
+	 xxESAUopnwpsw==
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-79a3e2e64f4so5767577b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 02:43:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUFL4G3S8Il+XcJniReKa69U7XUhWfxzS34uT4zMfk9wCmPvaWYrz5gg5i7aMCWZR+Z4l+laIWpWtfJ4HvYv0+a@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqiwmU4i5rhTo12Y8eQQwk7iCSpwTD09WY9xmLxp4exka27Vxh
+	+BZ31nViay6piEu328b9SDJDdX09uGzDHhzlSkK3g6xkGGUITFHKG0+r6aTIi7uPzVcDgT823EG
+	xSzMfq15o6jjwNdr40F965sIuLmDKmEY=
+X-Received: by 2002:a05:690c:5c0f:b0:799:266:83e0 with SMTP id
+ 00721157ae682-79a71ad3746mr55108737b3.34.1773913416961; Thu, 19 Mar 2026
+ 02:43:36 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DBBPR04MB8012:EE_
-X-MS-Office365-Filtering-Correlation-Id: 31d647d0-fb04-4587-871f-08de859b943d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|376014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 6YmKF5PT0BuyWdmow2uirV5EkFBN3qbJsxfMkwgmSecEMgB7gfg+6dgnr+xV/D6sFtoAtHi6Ccr4O1/O5rP3F2ns7wqFAhsyY2EHAZfSrdWKQWEaGLbdFC4nnniCEIoS/pnXYaIB02kzqP0GKmkRPT0rsOy19eLWo5V/UdeV7QMw/ISq03EX1hcBvb0cHJeHav6N9bxWkHrv67ffArfdKfWIaDU79vE8wXUS55QMjOz8Fklxg4ZKHcsxa5ok1ulH7B3rxFD2912Y9Cr4iHq7xUfyLicV3b6/NXas/oVanL7q+YhReHsGNcsF/GFoaiLRm933EFZGymQSEPWHGFfv7VKom8QI3NXh7bqaubY0gbZ7jyJySkFYLhBN5ltefF2dtHt2Zz5ZnqF7EXLvLsvkgJj8RjqNHgBS2JHoLjSDzGpD0H4xsvTipa67nYp65diGiGhD/g56GLVYXZNjTM/Mw6KMzi0paGWr0oU2R9WnygYbCCIxqvLZ0l0UToH/XguxfbNnAzla1zQKq884sKta/2N20dbfN3M0WUaM7B46m9XLCF2lzhTFpPHKt6Ow3ipuOOlETcGj0/LuDih1ZWexbCaTbx9lzdY6PPu84ptVky1aFsUlmpwQstIPhlW73aeM7v5z6iNMg1EmGT5bwDtaIIayIlMQXe+T6U50tvoQ4W6nk4j9e29Hh4sRKArgHOgMlM4yhNdFRsswM1X/CScWBQFJkW05A6qi8utn+uE4bbc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0IyR2MwVDgrTDBHZ3ZQdmFtR1B0ZWFrUXdzSk1acUY2c1VGbXdVaGVCa3l4?=
- =?utf-8?B?WWRwSUpOSXB2S1paMzZBZitWb3hianp3bU5pVFdJTHNMRTU2WEJyZGxZaXYr?=
- =?utf-8?B?Q0VuVkdjcTJqU3JSa2VjS0Jjelo1SkxFNmVjbjlIRVNVdCtBczNJazMvd0FJ?=
- =?utf-8?B?ajN3WGRvV2hUS2tzcXd0WU1tcWRGWlRBUGt4Rk1nNlFHclJZTU1CaUtUcDNB?=
- =?utf-8?B?M2RqcnRPU3BDemNWLzZIRGlCT0FwTEVuTEpRZG4wQ0pLK2lVQTRML0p5OTYy?=
- =?utf-8?B?eXFZMUZtdFB5KzhoVGVzQ2t2enpTenZjNzhab3Eza0Z5QmpaRGNUSEF4NWt0?=
- =?utf-8?B?bEtkQzZCTTZabEJmY1RrOWZ0RG43MmI2dlBUOXVDSFVQQTBML0ZVaythQU5S?=
- =?utf-8?B?NTJGb2RadDQ2UGtROFQwazBqTHMzUGpncDZYbjB0YUtlbG9UbjRUNnUzRU1y?=
- =?utf-8?B?QTBQOUxaRFAxZWpGZk9HOFlidElOVFMweXJ4L21TSlhEbXE3bmMrMmtDUlNJ?=
- =?utf-8?B?VGJwRHQyY244VFFUMkdGTlFpUDZzc21PK2lMZ2MzT0p6eEUxa2laUmJGbzlI?=
- =?utf-8?B?bjREdy8rSUtuUG9QRWVrbUQxeWd5RVR4UnZiTFJJcW9tRnJSZ1M0WWZBZVZW?=
- =?utf-8?B?cmp3ZEc0TCtIdlAwY0drVW9zT0ExOExGZUlETkVNekF5K1NuR2NGS1RHdGpH?=
- =?utf-8?B?T2NOOWVydTdMWHMrZHVVdUlndlhIdmR6SE04aDM5bHJVa2U2VHlPVzZ2Ykd3?=
- =?utf-8?B?anJWM3dPZ24waUsyNmRJRGtnSTd3blUvZGYya3R5dkRmTzJBclY3dGJhR0tj?=
- =?utf-8?B?dVl5ZHEzckFEeVdSaFdRZndCTUxUckY3UFBCamgrdSsvZTBCSDc1NDFtUkFl?=
- =?utf-8?B?Yk5VajlzOFMycTJsZG9aOVNwV2poVzNPcG9TcFhYcTU3UDRqMkh3dWczZEFw?=
- =?utf-8?B?TldJNXAzbDh0cENQSzNvTzlRcTRqUWRKK205Zmp5aFZSNkRhY1FFUUhvZTBP?=
- =?utf-8?B?SjdPaVBYREg4SXZrSWl1WkZ4Zm00YnV4Vml1VTNldThpN3I2T242VWRzb3NP?=
- =?utf-8?B?U1g2ejR4TnZrZWs2ZEFBVDRTRXBrUW04elFxTWxCRXNuaWRMd0ZvVW5yUXJ6?=
- =?utf-8?B?ejZjVlhkbGVVaCtiRmIrekJXNngrdmVpbzBtM0xCNDBjL2RJT1NhWUlzRGsr?=
- =?utf-8?B?dzBiTzFqcFNyWDJCSUF2UkpQdG4zMTB4aU1Sc2h0Rk1mSEcxblY1cGh4bTA2?=
- =?utf-8?B?T1dLTzBWNTBUODhMMXRaZy9zdVlrbEdlQXFqY0JFZDFveFY3bElnZkJQUHhI?=
- =?utf-8?B?UHg3Q0FqUGFodWxEUlJtMXYyMTBFeFpuSENzZmx1c2Vyd2VhOUlqTkhmVHd5?=
- =?utf-8?B?RG1NeXR1Mm9FRW9PcUV1c1FIbU9yaWw1SDlzVGtKeklUSjJXN1RxN0NTZzZu?=
- =?utf-8?B?M0todHhxWjlXSHRDV0grV1BqV0wrbDhzSUQ1OFE2UkpMQzluYmxUS3ZQZFdM?=
- =?utf-8?B?MGFtSTF6bG5EZm5kVElmUk9JUWFmbkh1YjFtWUM5K29mZ0tIRTU2VVZYZTFE?=
- =?utf-8?B?bTE2T2pqQnBTdUpMbWlxc3Z4ZjMwdzdKMVA3MWhQWFRwbzRsbWlqL3VDVndR?=
- =?utf-8?B?T2F2SDgzRzZhd2NzbVZLdVRReTFyTFZWMnh5Z2xLREpBZGpBRnV0cTdrOStZ?=
- =?utf-8?B?aXdVWXJ2TVRoNmlZWUN1aTZkSmZaUFYwSDdRNFdRemF5bytIanRGVElmVDRZ?=
- =?utf-8?B?cWRoN1lnZkdPZ0QvZG51Qlh2VVJHc1RSSDVNd0hxdlZDa1VEbEczWHdNUzZq?=
- =?utf-8?B?NHJVSHpDZzRQcFlQaWxnZm5hbW5ycVNHWit3Y3VYQ3Flb2NWYjJpSjVZcDZ3?=
- =?utf-8?B?RThXVGEybDdIckF3bEpyZVVnUmpnRTJ4WDV5dzNpOXFUbFJVK1E1OWRlMlVO?=
- =?utf-8?B?eFBJanl5N29XUGJML1NJdytEQU1BRlhBcWxMNUViNUl4MnBQbWRCRFBNSTli?=
- =?utf-8?B?Y1FvVHUyWjBKU3ZRUzMzRktYbzh0NE9VOGFaYk5WK1FSRjgzSGRGd0s1R1ov?=
- =?utf-8?B?Y2pzVTd6eUJnWk1jWCtqUitNN094cUlidStzVFdZWW44QUo4YVBSWHh3aTV4?=
- =?utf-8?B?dkp6aVhFcktva1JocnNLaEhiMlFpWDNlUG1LTXFscFRoa29laW5BTUdjRVNK?=
- =?utf-8?B?T3dPajVDbGFXbzhUM0dnOGhiT1RuR3RVNk9nNUp0ODdHdTJTTE5PMXU3V1BY?=
- =?utf-8?B?cHd6d0g5OXdYNDB0V1UyREo4bGlnMytxeVlNWlpla3M3QmJDV00yNFJabzIw?=
- =?utf-8?B?aXB1U3Z5VVJTYVFJOHlFcWlwcnphUFBGSGZJRGRYL3crdzM5bGVRdFFwaGZX?=
- =?utf-8?Q?xA2e5sXFp+1siO00=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31d647d0-fb04-4587-871f-08de859b943d
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 09:40:38.8220
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oN8D33cLays2wzgUver6RoHdoRdLshKzR/yIh5W2lYTDLQNst1RtohjfUWunDwHFpatWCaokeQSRxXE9jZuYqWP2T8VHZP5GuJ2O4pq8ChU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8012
+References: <20260313105718.359614-1-christophe.roullier@foss.st.com>
+ <20260313105718.359614-2-christophe.roullier@foss.st.com> <abPwHh12MLwMwOIs@shell.armlinux.org.uk>
+ <CAD++jLmBP5Puwf1ZuFOzF6U0XowoF1nfqEL3gwLy-svXsXrbJA@mail.gmail.com>
+ <abStv0IPLfkKMD-W@shell.armlinux.org.uk> <CAD++jL=Av5K7Ag95LYou4TMKGR59TmtiQpxcnpcj+4tZFtzRug@mail.gmail.com>
+ <ablS_C8oEQFeSU1Q@shell.armlinux.org.uk>
+In-Reply-To: <ablS_C8oEQFeSU1Q@shell.armlinux.org.uk>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 19 Mar 2026 10:43:25 +0100
+X-Gmail-Original-Message-ID: <CAD++jLm5_mfx1572Cg+NPhuLoPu6DKDfOwK5XxRc4R_8M7kbYw@mail.gmail.com>
+X-Gm-Features: AaiRm51a7-23Ps_LNUqYLhXePq1YU-pfVicusBYk32Lem3Dq79jrtE3Jr1i48f8
+Message-ID: <CAD++jLm5_mfx1572Cg+NPhuLoPu6DKDfOwK5XxRc4R_8M7kbYw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] net: stmmac: fix pinctrl management during suspend/resume
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Christophe Roullier <christophe.roullier@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	antonio.borneo@foss.st.com, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_024047_728465_8AB72B38 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260319_024339_917079_C3ED1913 
+X-CRM114-Status: GOOD (  29.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,52 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On Tue, Mar 17, 2026 at 2:11=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> On Tue, Mar 17, 2026 at 01:13:14AM +0100, Linus Walleij wrote:
 
-Add device data and compatible string for NXP S32N79 SoC.
+> > Aha I understand.
+>
+> I'm not so sure.
 
-FlexCAN IP integration on S32N79 SoC uses two interrupts:
-- one for mailboxes 0-127
-- one for signaling bus errors and device state changes
+OK let's hash it out.
 
-Co-developed-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
-Signed-off-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
-Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
----
- drivers/net/can/flexcan/flexcan-core.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> I'm trying to get an answer on this, because the original patch
+> description here says:
+>
+> | In the deepest low-power modes, the pinctrl configuration is
+> | lost and is never restored if the interface is down.
+>
+> stmmac uses the "default" pinctrl state at probe time. This commit
+> says that is lost over suspend/resume - which to me sounds like
+> a pinctrl driver bug, because on resume, the pinctrl driver is not
+> ensuring that the pinctrl state is restored to whatever it was when
+> the suspend happened (whether the driver explicitly changed it or
+> not.)
+>
+> To put it another way...
+>
+> On entry to probe for a non-pinctrl driver, if DT describes a default
+> pinctrl state, that state will be selected by core code.
+>
+> On suspend, the driver is free to select another state if it so wishes,
+> or do nothing (e.g. it's unaware of pinctrl.)
+>
+> On resume, the pinctrl layer, what is expected to happen. Surely, it
+> is reasonable for a pinctrl unaware driver, or at least a driver which
+> has _not_ changed the pinctrl state to expect that the default pinctrl
+> state is still in effect when its resume function is called - and if
+> that is not the case, then there's a bug here.
+>
+> Another way to put it...
+>
+> We shouldn't be expecting device drivers to have to mess with pinctrl
+> e.g. switching to a sleep state and then back to a default state just
+> to have pinctrl settings restored to a functional state on resume.
 
-diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-index 1d5879510adc..0f8ad666df09 100644
---- a/drivers/net/can/flexcan/flexcan-core.c
-+++ b/drivers/net/can/flexcan/flexcan-core.c
-@@ -397,6 +397,15 @@ static const struct flexcan_devtype_data nxp_s32g2_devtype_data = {
- 		FLEXCAN_QUIRK_SECONDARY_MB_IRQ,
- };
- 
-+static const struct flexcan_devtype_data nxp_s32n_devtype_data = {
-+	.quirks = FLEXCAN_QUIRK_DISABLE_RXFG | FLEXCAN_QUIRK_ENABLE_EACEN_RRS |
-+		FLEXCAN_QUIRK_DISABLE_MECR | FLEXCAN_QUIRK_BROKEN_PERR_STATE |
-+		FLEXCAN_QUIRK_USE_RX_MAILBOX | FLEXCAN_QUIRK_SUPPORT_FD |
-+		FLEXCAN_QUIRK_SUPPORT_ECC | FLEXCAN_QUIRK_IRQ_BERR |
-+		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX |
-+		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX_RTR,
-+};
-+
- static const struct can_bittiming_const flexcan_bittiming_const = {
- 	.name = DRV_NAME,
- 	.tseg1_min = 4,
-@@ -2076,6 +2085,7 @@ static const struct of_device_id flexcan_of_match[] = {
- 	{ .compatible = "fsl,ls1021ar2-flexcan", .data = &fsl_ls1021a_r2_devtype_data, },
- 	{ .compatible = "fsl,lx2160ar1-flexcan", .data = &fsl_lx2160a_r1_devtype_data, },
- 	{ .compatible = "nxp,s32g2-flexcan", .data = &nxp_s32g2_devtype_data, },
-+	{ .compatible = "nxp,s32n79-flexcan", .data = &nxp_s32n_devtype_data, },
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, flexcan_of_match);
--- 
-2.43.0
+OK I see your point, the pinctrl hardware state should not change
+behind the back of the driver, and if it does, and that is worked
+around by these calls to restore the state using the pinctrl PM
+helpers become a messy quirk.
 
+- Selecting those states to reconfigure pins into special modes
+  during sleep is OK.
+
+- Selecting those states to restore the hardware state inside the
+  pin controller itself is NOT OK.
+
+If this is done for the latter reason, you're right of course, there is
+a bug in the pin controller. Certainly it is expected to maintain its
+own state over a suspend/resume cycle.
+
+Yours,
+Linus Walleij
 
