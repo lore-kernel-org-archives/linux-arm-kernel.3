@@ -4,106 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342791075274
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C521B1075274
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnUbkYWixsTPZ6OjFUTyvzBgV7zcaKf+C7k1Qx4coP0=; b=Cu5cuu7c64HGRG3S6o0CIwB4Yt
-	0OecAZuXK/qu95E8FR41aSZszSV5Pnmag1605E7Qs+6AvR42Z/IRTkjtKOVvRANSEUWn1bDF4jn8A
-	Stb8IIlgq8HKoz2ipKx7/8eGx0DghHVia7A+Det4CrLX5IRQGK8iyuwEfhRTgdSmfhVPizS6DAtbU
-	7qqsd3TD1J/Cs5xj4mvOwOpopeKXxISGNSXlPVDHb0iISa3i0v907Eqv0kRm9QR6FfvXsefRGVtd+
-	57d/zPACmxZODMypXl2UwJiYMYULPQPI/fShVQrZwzlcaDlvMXth8EnXnkWtMnBtXIKf5fix8Gekx
-	1hzbBGCw==;
+	bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=; b=1GAQKU8YnrDA8jKQ7GbQ6uCE1L
+	h+oXSvuMSSaODO1FUoEW3hmeZG/adCXa23iHA8pKSmFHqp1YNOVjFTIr6hFCLY55GkjhHfu21oVYC
+	ukcvNm7qnblND3J3bBp5HCnRYslkdUO2411DP+HG0bSosduGPUtjBPH1MOkZJgwV2cnNRSGh6AMEA
+	33MRAKHFbfwSYN3InP+/jsea6R7cprmebu8BXvrj2D74V8DkOghy14Mb1Fki7SrMG1TycogtQ924Y
+	lP5l8uoFNyxO7nWBPFgDVrZ/vefQeae0O1ass3xwibSkwwDoS6nJw/Q5qYG95YAaEFVp/mFdYnj2M
+	9nLIAuyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38cX-0000000AE4G-0SAC;
-	Thu, 19 Mar 2026 08:20:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w38ey-0000000AEXA-3sT7;
+	Thu, 19 Mar 2026 08:23:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38cW-0000000AE3n-0ZSb
+	id 1w38ex-0000000AEWR-3Flt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 08:23:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=; b=EonoULfOqzlEXargYABcA4jBUq
+	kJpK2NyAH2qaKz5EPAGMXO6lHOi7O7fIVZLp5Hz6OW6amZFuzjjizuhiEBdjLmxN2zf6Xe/A2O64u
+	CC+VKW/Xv4t+2jiw3N+QroLiy7VcvklbNa3gQcAI13PbTkFtplCsfVTxxIu+Eejrz/lfOI0xALYjE
+	5tbvOi/S7ZMAjyK9A6rs/r1kcOk9W1mAr+M2sLKm1M9ih+CIcnJ7q8lUMZU3obTm6uKPrTTIkQjUM
+	SB0onF1VvTqX07F6ZzwfBx2oseRfNQi+tAvN/fs8MPo5Qz/WwOF9fQQPUiaWLu4o4ZnLI4M3H5/Dd
+	DGTY8gFQ==;
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w38eu-0000000D14b-3qJu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 08:20:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9160460133;
-	Thu, 19 Mar 2026 08:20:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAD87C19424;
-	Thu, 19 Mar 2026 08:20:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773908443;
-	bh=TmE8XLBj7vggBAEN/5qnhQ9WJAu64UrHtpsd3cy0A6s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bzrI2QJtPx3dKX4MJg6SxQAO9wIwpeEUW2WRMyz7oRAYugL7DooaZr+zapqG8wMTQ
-	 5HbExMeqPoLyKhEYd6ysONxp6EqrS2jp35pi+zQTzHyXcJvXqUwN+yJ4eRnCHzro32
-	 MT4RTlXRB5d8XvizZmGkcVlwIbcgoVvUaEONRw0anXnY4/cdvMLzVnWah1JAPo+UW+
-	 a5hDxYGXbPk9EhBek219T9ql8QzaCYuPYd6ndY9mHYir1eR7gbw57K7+ESNIpPd3Es
-	 K5dUncAEEuR2RvUEf2hREUW8fQLYMpdAQehv4nxnhnwWvta3xLboyh7kBdNNhvUj7o
-	 +NHLzGRTrmW5g==
-Message-ID: <15e15ccc-c132-4170-bea2-f1053675ea9c@kernel.org>
-Date: Thu, 19 Mar 2026 09:20:38 +0100
+	Thu, 19 Mar 2026 08:23:14 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43b527ac5d0so276981f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 01:23:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773908590; x=1774513390; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=;
+        b=mb6VWsvm5+LcxfYE++DbeL+t9vtOAoQCmyrvwJUeUdrXwaqhaWzL2bSXe53pZJmVgS
+         altfWm8y4I2/47MZnl7f3SIZemIPkxHFJeCoG0bDEZ9dhtZIXr2POI5kZdlEVcx8jT+Y
+         XP4HNkCZbbLgP4J14OQvDeIJL8qUyvfN24GrBGbMGSfwgurJs+iGdPCswhmps8xGD5TM
+         FvMToGXe/hMGagaF0mFaILrS3eK3hwxOMSVserVv7p5Sd4akIV1TkZwkOUsud2CJl8f7
+         TwsS5JwBnHKQbf19BQsYB31Gx6Cngm04SNPocoIm5aBjLOeXnZDVCEn7eAPq4EJGrgIB
+         P1Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773908590; x=1774513390;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=;
+        b=AWQ0LWj+ZiOZae354BOWekwcZf6uS/f34D/hbdxEqYno9c9xs24GiLIBcNuW4NEJA1
+         Am3+6FrMzAXe80kKOLrudEB0rAYzqBjebXN5joXWxIBrDfOzgzC0Vsch4SpE6ygf6N6p
+         4SYpBHg0R4e2NT2/inDaKhMMW1wGBtRhE4RGiL/5U3JZ9dzyat7U8OnkBa1N7aGhZPDf
+         6T04czBKs/DeX9FZearZmBGafsC9x+jE780PvRhemiq1cdGxYV3JhROcSybyZq4J4YjX
+         3HIcCCpQ2zX9gvNEQ3Yw///GCc/JugisZ0CjQZNo0cn9WFQjCJC8/Izj+Z9Zw/lr5fLz
+         1Nlg==
+X-Forwarded-Encrypted: i=1; AJvYcCXtQGWznIa5u6QWk/dHIS6AAp25N3oaY/+54qYPawWSH2pdO/n/ub06eNRDpqrfg2MhL5oG5k3J19BuQmVo2zZA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWa45SsovojPMVM+BMaTByYILZeHYhqxNYRZO3ecIWN95mdxmF
+	TP3yyiT9lbjLCWPRmjYsn0sQHY0fQNPrP/NbTz7sjrNqWU1LSHvTPx90
+X-Gm-Gg: ATEYQzwEJkUH7XD8WGYbaK1yaTbhL4J3i807p8LyEPmWr6O6y5zgeHTWRsPxj46WNyJ
+	hgvIl6gboHka+9bAFuFbmXzMjV7eJZ7o8ZFhMJ9w6HcXrLkHt3n58xFNN0rmSUjoD10A0o0RCEJ
+	BAXI3MtqYKkBE1nXBGFrUBXhtDBndVzZGwZCVgOq2zWS5s43erk5ay1zxMqT65P/merm/a6tMwZ
+	atA3b8IGGMEnIuG+ZCKdM/LQ7+LRj/Kfu8vngyIGmcPCfiVFxPyFo2d0qrlJ1HZiRExobnSolA9
+	he7/U4IYkbbR55d0oBCfDvd1Y4N5tqCP6qCgvRh1YcpVWuUoc/lNGh0/kV69gwuPviqkARj3T+Q
+	Gpxl6fCKwEWbK2xWmSc3NRFBwiBbrLGKbXwGpTpyEgZ0miL0Vw6/mHB3u6gYdliDyAbQ1Rx9AP1
+	w/kZde1ZFR8cDWbnz56BawddxrDLXaxQT/KaW05oaa0/7/QJTM+qz0fbrjHkCXwEY=
+X-Received: by 2002:a05:600c:c163:b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-486f441b801mr116935825e9.4.1773908590354;
+        Thu, 19 Mar 2026 01:23:10 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f5e1ab8esm35596225e9.35.2026.03.19.01.23.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Mar 2026 01:23:09 -0700 (PDT)
+Message-ID: <59ae3126-1074-4ff3-9474-9419f1042bb9@gmail.com>
+Date: Thu, 19 Mar 2026 09:23:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/10] dt-bindings: firmware: add arm,ras-cper
-To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-cxl@vger.kernel.org
-Cc: Michael.Zhao2@arm.com, robh@kernel.org,
- linux-arm-kernel@lists.infradead.org, Dmitry.Lamerov@arm.com,
- rafael@kernel.org, conor@kernel.org, will@kernel.org, bp@alien8.de,
- catalin.marinas@arm.com, krzk+dt@kernel.org, linux-doc@vger.kernel.org,
- mchehab+huawei@kernel.org, tony.luck@intel.com
-References: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-0-48e6a1c249ef@arm.com>
- <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-9-48e6a1c249ef@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-9-48e6a1c249ef@arm.com>
+Subject: Re: [PATCH v2] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' from USB host nodes
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
+ <875x6t5ska.fsf@BLaptop.bootlin.com> <87o6klcswc.fsf@bootlin.com>
+Content-Language: hu
+From: Gabor Juhos <j4g8y7@gmail.com>
+In-Reply-To: <87o6klcswc.fsf@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_082313_024189_CC81FB6C 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,107 +122,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 21:48, Ahmed Tiba wrote:
-> Describe the DeviceTree node that exposes the Arm firmware-first
-> CPER provider and hook the file into MAINTAINERS so the
-> binding has an owner.
+Hi Miquel,
+
+2026. 03. 18. 11:51 keltezéssel, Miquel Raynal írta:
+
+...
+
+>>> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
+>>> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
+>>> UTMI PHYs"), the properties has been added to the USB host controller
+>>> nodes also. According to the commit message this was intentional,
+>>
+>> Miquel will confirm that, after speaking with him, it appears to be a
+>> mistake rather than an intentional act.
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> ---
->  .../devicetree/bindings/firmware/arm,ras-cper.yaml | 71 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 76 insertions(+)
+> Indeed, I believe it is a leftover, the property should have been added
+> only to the PHY nodes, not the host nodes.
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> new file mode 100644
-> index 000000000000..bd93cfb8d222
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/arm,ras-cper.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm RAS CPER provider
-> +
-> +maintainers:
-> +  - Ahmed Tiba <ahmed.tiba@arm.com>
-> +
-> +description: |
+> The sentence above should be: s/intentional/unintentional/, the commit
+> messages clearly states that PHY nodes were targeted, not the
+> host. Plus, a follow-up commit adds the missing phy properties to the
+> hosts, so clearly reaching this syscon through the host node directly
+> does not make sense and was not intended.
 
-Do not need '|' unless you need to preserve formatting.
+Sorry, I assumed that it was intentional because the commit message explicitly
+mentioned the USB host node.
 
-> +  Arm Reliability, Availability and Serviceability (RAS) firmware can expose
-> +  a firmware-first CPER error source directly via DeviceTree. Firmware
-> +  provides the CPER Generic Error Status block and notifies the OS through
-> +  an interrupt.
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,ras-cper
-> +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description:
-> +          CPER Generic Error Status block exposed by firmware
-> +      - description:
-> +          Optional 32- or 64-bit doorbell register used on platforms
-> +          where firmware needs an explicit "ack" handshake before overwriting
-> +          the CPER buffer. Firmware watches bit 0 and expects the OS to set it
-> +          once the current status block has been consumed.
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description:
-> +      Interrupt used to signal that a new status record is ready.
-> +
-> +  memory-region:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Optional phandle to the reserved-memory entry that backs the status
+> Once this single word fixed, you can add my
 
-Don't repeat schema in free form. Schema defines whether this is
-optional and phandle. Say just what is the reserved memory for.
+Will fix it, and send a new version.
 
-> +      buffer so firmware and the OS use the same carved-out region.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    reserved-memory {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +      ras_cper_buffer: cper@fe800000 {
-> +        reg = <0x0 0xfe800000 0x0 0x1000>;
-> +        no-map;
-> +      };
-> +    };
+> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-I don't get why this appeared - wasn't in the version I reviewed.
+Thank you for the review!
 
-> +
-> +    error-handler@fe800000 {
-> +      compatible = "arm,ras-cper";
-> +      reg = <0xfe800000 0x1000>,
-> +            <0xfe810000 0x4>;
-> +      memory-region = <&ras_cper_buffer>;
-> +      interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
-> +...
-
-
-
-Best regards,
-Krzysztof
+Regards,
+Gabor
 
