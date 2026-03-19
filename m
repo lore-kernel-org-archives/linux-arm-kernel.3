@@ -4,109 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB431090254
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F811090257
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=; b=mwZjs7KPex3IGLuOzt5/4vIldB
-	B7cCII9Y7KbyhBudBH9QV3P9ta6R4W+EL4i8IF95KhjzQm9oXPixQK+E5SeWnViseXTeWXIanYUKs
-	RM8w/NDz/nEZldcsxJatdtGMb8JGtxS5M55hoxySnAZ/xXmZiVMGcHhp+SzWUKXOVev5UF33h3r+V
-	m+fB7n/mSW3atmc71UZ6+FSV6tRL718DZVVZQpAk7FBGRydTzwc43Dheghd0zsMUaSxSjfLOgbeP5
-	7eY63L8+8guhO6ZSVGEvEJsahsaRseaURuFa2S6QSeeFeFMZcCtkIwc+Fpe1FY1GsD05YPD/vtG6n
-	AbLF5eSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0+To5Oldsyjsh6CXaltYAKaEBPHs70iTVl7p7m0e7Ls=; b=W63sWWj6V8unYKVx+/DQSHAYEo
+	rMtlOhJ/UAkoCNAHIuGsmvOzVEm840Ops95QRAFcF/cGLqR+O+HpBIFL3XiSeiBGGxdro0mHx7x6O
+	osGCN5GbVSBG4sl//KdZnqOeJf+EKbefMjdVgej0PZbblbeGdCS5hgj02t97IlAAJ/B6q1OPeG8q6
+	hpqg7soffkQt7TZtmsH5aUo8s/NfUzN4XAZbmTWouncTyFVcQYWuuk6/iSoOPfSb3cJPDvqRowdWM
+	zCMFOdHrJi8p0q+WmlSu0ROoavE6ni6UekPyGJFC0iwMtv0dEtLWouEbCn5P1l5CyRW4nX5CanekN
+	gThpF6QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Giz-0000000B8Mf-1LZq;
-	Thu, 19 Mar 2026 16:59:57 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1w3GuO-0000000B9yq-215f;
+	Thu, 19 Mar 2026 17:11:44 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Giw-0000000B8Lr-3kwi
+	id 1w3GuL-0000000B9ww-1CF9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:59:56 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a27c021b58so1272160e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 09:59:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773939592; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Aiw4fNs6gf6EglKt3LFFVScfEK4i1sZazzJE9tGU9AhTKXR+dviiH7SoliHgeWswrU
-         aY1u3fQLF1Nm+l4BCcsA2Sr5vPAvJscWOBjXNs2McWmE6cnJc/ih5HEfZfUfYwFFgryF
-         Fa7aXZCVzWVQOcopLJpAF1bshX4BMZNould0vubAq0PK8ln0Zax5QeaeP7VqDeJm0ET6
-         q866nJazYdhDp1sCDg1M/2+oKU6NaIQoyp1ofqO9ctBC1GY+yIDqebYXAjmX5kfywBKH
-         mWczu73CvMYu7uDZTJzIsuYETB2Dsshzk9X3kEuJPoGvXenSv2cxGpcoFsT25Ag+hASG
-         lMNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
-        fh=SDEupT0FAYktRcMowbBMLobdWmHPUCNMgEQsTko2CRk=;
-        b=NTHJg67IFTWsAGC3e7juRhxwyBGMBZVngYqBVWsH4rbfAPcXikKiyENS4hZ8Q8vUN/
-         eBQEsT849hWsQ799B6SFpavk3Psnbs4mVoVos92jDSIlP/jHu7GacLX7uYCLQBRPw55j
-         ELRCBgamQ44DAQSwmIjQ3mTyuYIDTZwsU6uLBKRttoGNZagg6G6lGgM2dRyYQzYzFPng
-         fHdngPVny7ZvIAId3ENYCLYxl0yGM3X055f4fEhpGB1sOg09jDZaxZKYkk8FVfwOgmll
-         hPKB4XD/Atx6499Ydp6lxV9hG1fTJ4/tPVichFcVQbO1UVUTeOYS0BpfN6MixwhqDmNU
-         EAvg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1773939592; x=1774544392; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
-        b=ausBzk5EPNWOCXA/2PE5dKqnhETPqrst+2h7La1HkBSxR8lZlPRBUOXVIfHxPQKlOs
-         0kDsn7o1PBfmfQswGLCI8d+W95IxeTAFVdx4k3shYHbI5deenYYJta2O7PRKutfoQLAu
-         720ivN4opBSPtsWh+kVQ0swhr1O2bn+LxeVzy9GpPirrt85SAEdZyHYCCyodFj9Q3Vto
-         S1CERTHSoNtAboufuacFPnsDc4UyrBu9tUiX3E9915KmXqMPk8dKzHnhevbalnCqatTR
-         MSxSYitsnztutQFyUYKRVxtdfrh6C0x2EwQF+nIcw+hxZrO+lFmDBVDc2ewAndLvg7SP
-         sFOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773939592; x=1774544392;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
-        b=bcpjTbxEqJjjqofF4t2ERWXJH+jHb7D4KPJ812rOzSNm8JcpyMPjnOGzldcAVYNbHD
-         dzVSzFvQ8xL+pkpT0UlMJefJUU0d21YD000VxKOLGN5+7E2u8MqYoyMultdeaML6weue
-         7OhqNCqb7vqID4PoHNxssp6QKgyeL5dV/syPIqj2vxISqSiM8HGzrmw75rH068GfZUgX
-         W8liP30+5UX7fOFU26JJzSL/4yKBUxQthT3ewAbhH/xikixo7B/yAcPEBW6su15G4Afa
-         6k+oN4sh5BEOByByULrLkfUvfOAIbbU9Lzp7JPck7zkMcfq74XiORCJ6/rmq3HwokPQr
-         ObMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUSRaDv2IQRfBflCWh8rVgFi0IQmXLwQibHNrAfL2yKbZDu1FJbMNcVqeinXfRa0COjhwF6sgAE0ooot4Qtyq1P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi/PGJj3dy3yUL+F9km8qvbxTyEzRxmepkxaerJFKZYnAJJWkb
-	Y8qMVPkXCg3MjVFdc5EmOBdbxDjT8NXh7ySXJQNvVTOXoQ3aLKEJJA4GCt0s2g/+hyEcyKUXrl4
-	2aNu2xxxqsO48LT9OIn/UElwKBDYGM/+ihw+NHSgkcw==
-X-Gm-Gg: ATEYQzxTrWQdz2ubDJg8rQFJGgz4H7GuDP6o1yP69pxYELJYlK9fnXHxNxFn6Df3Zxv
-	2rovAb+x6oAcDf2GxlRTiF4DqiVVtkF+WU+s0mohz4qGmYSIr8tua6YmkHJNG9Xpq2MpUoRlXLH
-	NWT654NIEqS9r4WCTsjDjXSUksOeoRJb0m8xPNIdPF/wSXB0rpWKljGDAjwEvwk0TdOKNl38mr7
-	nEzsjn8HTs8HSGdN7EPMq+Jopm64GS8JBiHl88kwE2+dMQ0uiUVa5EsqCyIS01swA3ijYXxUSQt
-	nD1ogNl4
-X-Received: by 2002:a05:6512:3d10:b0:5a2:7e83:32ff with SMTP id
- 2adb3069b0e04-5a27e833888mr1478227e87.31.1773939592231; Thu, 19 Mar 2026
- 09:59:52 -0700 (PDT)
+	Thu, 19 Mar 2026 17:11:43 +0000
+Received: (wp-smtpd smtp.wp.pl 19729 invoked from network); 19 Mar 2026 18:11:30 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1773940290; bh=0+To5Oldsyjsh6CXaltYAKaEBPHs70iTVl7p7m0e7Ls=;
+          h=From:To:Cc:Subject;
+          b=nOIDcroTi/IEgix0yJ++Yzxz4ewQrKZXEZMFzxTJLnDWe+cFdsRMHiT3llaej5FNo
+           qllg6UGbAY5i1SWfLRqB5OIAZil+CvpkjuNgHhuiwMsBrfNvgCxFlNNy30kj8ah1Db
+           rWbH/dBPteN4j7ukk6r5yb2Jlt5jBNVdxL+f6hAQmyUcY3D3/R7WEmnnIyInelrbYC
+           q2xUluytOjgS8BbsCy4ESEBKSlQ2v6UjoMqrvUNuYR6KOqKXbOzA2Smp1xiu58Yctx
+           ufwmf8P0lkFfdE3CMZxx2nPd9S+sgqxtR8oID0WJY1yq9eSsshnHWCHo3t0Y+wt7IU
+           w9ilcNItzwBKw==
+Received: from 83.5.169.164.ipv4.supernova.orange.pl (HELO abajkowski.lan) (olek2@wp.pl@[83.5.169.164])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <herbert@gondor.apana.org.au>; 19 Mar 2026 18:11:30 +0100
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH] crypto: testmgr - Add test vectors for authenc(hmac(md5),rfc3686(ctr(aes)))
+Date: Thu, 19 Mar 2026 18:11:21 +0100
+Message-ID: <20260319171128.10566-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20260303132305.438657-1-ulf.hansson@linaro.org>
-In-Reply-To: <20260303132305.438657-1-ulf.hansson@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 19 Mar 2026 17:59:14 +0100
-X-Gm-Features: AaiRm51ZTbjGFpP143fXcYxyckRNNuh4DLi9mrrTmtm7zrisbOS504AGBpxTqGc
-Message-ID: <CAPDyKFr25L0Omm_uCjZp03_ptnrKR_P2p3e3qxDeUoFFKJg3bQ@mail.gmail.com>
-Subject: Re: [PATCH 0/9] driver core / pmdomain: Add support for fined grained sync_state
-To: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org
-Cc: Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-WP-DKIM-Status: good (id: wp.pl)                                                      
+X-WP-MailID: 8c8e5934cbb3688a84be6a86bd03e4f3
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [INMB]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_095954_990347_A37207B6 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20260319_101141_790036_B55673EB 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,69 +79,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
->
-> Since the introduction [1] of the common sync_state support for pmdomains
-> (genpd), we have encountered a lot of various interesting problems. In most
-> cases the new behaviour of genpd triggered some weird platform specific bugs.
->
-> That said, in LPC in Tokyo me and Saravana hosted a session to walk through the
-> remaining limitations that we have found for genpd's sync state support. In
-> particular, we discussed the problems we have for the so-called onecell power
-> domain providers, where a single provider typically provides multiple
-> independent power domains, all with their own set of consumers.
->
-> In these cases, the generic sync_state mechanism with fw_devlink isn't fine
-> grained enough, as we end up waiting for all consumers for all power domains
-> before the ->sync_callback gets called for the supplier/provider. In other
-> words, we may end up keeping unused power domains powered-on, for no good
-> reasons.
->
-> The series intends to fix this problem. Please have a look at the commit
-> messages for more details.
->
-> Please help review and test!
+Test vectors were generated starting from existing RFC3686(CTR(AES)) test
+vectors and adding HMAC(MD5) computed with software implementation.
+Then, the results were double-checked on Mediatek MT7986 (safexcel).
+Platform pass self-tests.
 
-Saravana, Rafael, Greg - any concerns you see with this approach?
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+ crypto/testmgr.c |   7 ++
+ crypto/testmgr.h | 207 +++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 214 insertions(+)
 
-Especially I need your confirmation for patch 1 and patch2.
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index 4985411dedae..bce14894f1a2 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4093,6 +4093,13 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.aead = __VECS(hmac_md5_ecb_cipher_null_tv_template)
+ 		}
++	}, {
++		.alg = "authenc(hmac(md5),rfc3686(ctr(aes)))",
++		.generic_driver = "authenc(hmac-md5-lib,rfc3686(ctr(aes-lib)))",
++		.test = alg_test_aead,
++		.suite = {
++			.aead = __VECS(hmac_md5_aes_ctr_rfc3686_tv_temp)
++		}
+ 	}, {
+ 		.alg = "authenc(hmac(sha1),cbc(aes))",
+ 		.generic_driver = "authenc(hmac-sha1-lib,cbc(aes-lib))",
+diff --git a/crypto/testmgr.h b/crypto/testmgr.h
+index 1c69c11c0cdb..8ee15a3e0ed1 100644
+--- a/crypto/testmgr.h
++++ b/crypto/testmgr.h
+@@ -16450,6 +16450,213 @@ static const struct aead_testvec hmac_sha512_des_cbc_tv_temp[] = {
+ 	},
+ };
+ 
++static const struct aead_testvec hmac_md5_aes_ctr_rfc3686_tv_temp[] = {
++	{ /* RFC 3686 Case 1 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\xae\x68\x52\xf8\x12\x10\x67\xcc"
++			  "\x4b\xf7\xa5\x76\x55\x77\xf3\x9e"
++			  "\x00\x00\x00\x30",
++		.klen	= 8 + 16 + 20,
++		.iv	= "\x00\x00\x00\x00\x00\x00\x00\x00",
++		.assoc	= "\x00\x00\x00\x00\x00\x00\x00\x00",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\xe4\x09\x5d\x4f\xb7\xa7\xb3\x79"
++			  "\x2d\x61\x75\xa3\x26\x13\x11\xb8"
++			  "\xdd\x5f\xea\x13\x2a\xf2\xb0\xf1"
++			  "\x91\x79\x46\x40\x62\x6c\x87\x5b",
++		.clen	= 16 + 16,
++	}, { /* RFC 3686 Case 2 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x7e\x24\x06\x78\x17\xfa\xe0\xd7"
++			  "\x43\xd6\xce\x1f\x32\x53\x91\x63"
++			  "\x00\x6c\xb6\xdb",
++		.klen	= 8 + 16 + 20,
++		.iv	= "\xc0\x54\x3b\x59\xda\x48\xd9\x0b",
++		.assoc	= "\xc0\x54\x3b\x59\xda\x48\xd9\x0b",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\x51\x04\xa1\x06\x16\x8a\x72\xd9"
++			  "\x79\x0d\x41\xee\x8e\xda\xd3\x88"
++			  "\xeb\x2e\x1e\xfc\x46\xda\x57\xc8"
++			  "\xfc\xe6\x30\xdf\x91\x41\xbe\x28"
++			  "\x03\x39\x23\xcd\x22\x5f\x1b\x8b"
++			  "\x93\x70\xbc\x45\xf3\xba\xde\x2e",
++		.clen	= 32 + 16,
++	}, { /* RFC 3686 Case 3 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x76\x91\xbe\x03\x5e\x50\x20\xa8"
++			  "\xac\x6e\x61\x85\x29\xf9\xa0\xdc"
++			  "\x00\xe0\x01\x7b",
++		.klen	= 8 + 16 + 20,
++		.iv	= "\x27\x77\x7f\x3f\x4a\x17\x86\xf0",
++		.assoc	= "\x27\x77\x7f\x3f\x4a\x17\x86\xf0",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
++			  "\x20\x21\x22\x23",
++		.plen	= 36,
++		.ctext	= "\xc1\xcf\x48\xa8\x9f\x2f\xfd\xd9"
++			  "\xcf\x46\x52\xe9\xef\xdb\x72\xd7"
++			  "\x45\x40\xa4\x2b\xde\x6d\x78\x36"
++			  "\xd5\x9a\x5c\xea\xae\xf3\x10\x53"
++			  "\x25\xb2\x07\x2f"
++			  "\xb4\x40\x0c\x7b\x4c\x55\x8a\x4b"
++			  "\x04\xf7\x48\x9e\x0f\x9a\xae\x73",
++		.clen	= 36 + 16,
++	}, { /* RFC 3686 Case 4 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x1c"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x16\xaf\x5b\x14\x5f\xc9\xf5\x79"
++			  "\xc1\x75\xf9\x3e\x3b\xfb\x0e\xed"
++			  "\x86\x3d\x06\xcc\xfd\xb7\x85\x15"
++			  "\x00\x00\x00\x48",
++		.klen	= 8 + 16 + 28,
++		.iv	= "\x36\x73\x3c\x14\x7d\x6d\x93\xcb",
++		.assoc	= "\x36\x73\x3c\x14\x7d\x6d\x93\xcb",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\x4b\x55\x38\x4f\xe2\x59\xc9\xc8"
++			  "\x4e\x79\x35\xa0\x03\xcb\xe9\x28"
++			  "\xc4\x5d\xa1\x16\x6c\x2d\xa5\x43"
++			  "\x60\x7b\x58\x98\x11\x9b\x50\x06",
++		.clen	= 16 + 16,
++	}, { /* RFC 3686 Case 5 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x1c"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x7c\x5c\xb2\x40\x1b\x3d\xc3\x3c"
++			  "\x19\xe7\x34\x08\x19\xe0\xf6\x9c"
++			  "\x67\x8c\x3d\xb8\xe6\xf6\xa9\x1a"
++			  "\x00\x96\xb0\x3b",
++		.klen	= 8 + 16 + 28,
++		.iv	= "\x02\x0c\x6e\xad\xc2\xcb\x50\x0d",
++		.assoc	= "\x02\x0c\x6e\xad\xc2\xcb\x50\x0d",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\x45\x32\x43\xfc\x60\x9b\x23\x32"
++			  "\x7e\xdf\xaa\xfa\x71\x31\xcd\x9f"
++			  "\x84\x90\x70\x1c\x5a\xd4\xa7\x9c"
++			  "\xfc\x1f\xe0\xff\x42\xf4\xfb\x00"
++			  "\xc5\xec\x47\x33\xae\x05\x28\x49"
++			  "\xd5\x2b\x08\xad\x10\x98\x24\x01",
++		.clen	= 32 + 16,
++	}, { /* RFC 3686 Case 7 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x24"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x77\x6b\xef\xf2\x85\x1d\xb0\x6f"
++			  "\x4c\x8a\x05\x42\xc8\x69\x6f\x6c"
++			  "\x6a\x81\xaf\x1e\xec\x96\xb4\xd3"
++			  "\x7f\xc1\xd6\x89\xe6\xc1\xc1\x04"
++			  "\x00\x00\x00\x60",
++		.klen	= 8 + 16 + 36,
++		.iv	= "\xdb\x56\x72\xc9\x7a\xa8\xf0\xb2",
++		.assoc	= "\xdb\x56\x72\xc9\x7a\xa8\xf0\xb2",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\x14\x5a\xd0\x1d\xbf\x82\x4e\xc7"
++			  "\x56\x08\x63\xdc\x71\xe3\xe0\xc0"
++			  "\xc6\x26\xb2\x27\x0d\x21\xd4\x40"
++			  "\x6c\x4f\x53\xea\x19\x75\xda\x8e",
++		.clen	= 16 + 16,
++	}, { /* RFC 3686 Case 8 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x24"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\xf6\xd6\x6d\x6b\xd5\x2d\x59\xbb"
++			  "\x07\x96\x36\x58\x79\xef\xf8\x86"
++			  "\xc6\x6d\xd5\x1a\x5b\x6a\x99\x74"
++			  "\x4b\x50\x59\x0c\x87\xa2\x38\x84"
++			  "\x00\xfa\xac\x24",
++		.klen	= 8 + 16 + 36,
++		.iv	= "\xc1\x58\x5e\xf1\x5a\x43\xd8\x75",
++		.assoc	= "\xc1\x58\x5e\xf1\x5a\x43\xd8\x75",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\xf0\x5e\x23\x1b\x38\x94\x61\x2c"
++			  "\x49\xee\x00\x0b\x80\x4e\xb2\xa9"
++			  "\xb8\x30\x6b\x50\x8f\x83\x9d\x6a"
++			  "\x55\x30\x83\x1d\x93\x44\xaf\x1c"
++			  "\x8c\x4d\x2a\x8d\x23\x47\x59\x6f"
++			  "\x1e\x74\x62\x39\xed\x14\x50\x6c",
++		.clen	= 32 + 16,
++	},
++};
++
+ static const struct aead_testvec hmac_md5_des3_ede_cbc_tv_temp[] = {
+ 	{ /*Generated with cryptopp*/
+ #ifdef __LITTLE_ENDIAN
+-- 
+2.51.0
 
-Kind regards
-Uffe
-
-
->
-> Kind regards
-> Ulf Hansson
->
-> [1]
-> https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
->
->
-> Ulf Hansson (9):
->   driver core: Enable suppliers to implement fine grained sync_state
->     support
->   driver core: Add dev_set_drv_queue_sync_state()
->   pmdomain: core: Move genpd_get_from_provider()
->   pmdomain: core: Add initial fine grained sync_state support
->   pmdomain: core: Extend fine grained sync_state to more onecell
->     providers
->   pmdomain: core: Export a common function for ->queue_sync_state()
->   pmdomain: renesas: rcar-gen4-sysc: Drop GENPD_FLAG_NO_STAY_ON
->   pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
->   pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
->
->  drivers/base/core.c                       |   7 +-
->  drivers/pmdomain/core.c                   | 208 ++++++++++++++++++----
->  drivers/pmdomain/renesas/rcar-gen4-sysc.c |   1 -
->  drivers/pmdomain/renesas/rcar-sysc.c      |   1 -
->  drivers/pmdomain/renesas/rmobile-sysc.c   |   3 +-
->  include/linux/device.h                    |  12 ++
->  include/linux/device/driver.h             |   7 +
->  include/linux/pm_domain.h                 |   3 +
->  8 files changed, 200 insertions(+), 42 deletions(-)
->
-> --
-> 2.43.0
->
 
