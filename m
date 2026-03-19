@@ -4,101 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC381090238
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CC81090239
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PamUifGDxzKgYduTgi5+Bz1Hbj65Bi8zeh///fvaP8k=; b=KK8mRhw6qKlAIbdLR9b5A26BHC
-	biual775JS1YPqd77JDEMV3CIjMqwVNbzTWvE1rtuPOmeP12o3LoPPcLP2AKVeR+nkoRqvzdPKLAm
-	6vn+p7QPkqd2pYmm3ZSF5eu1oAQ699eSbhJCRK/gxQudcpo2M+MOcffy0UmNWs2Jdo/nx8UWDr+2t
-	voAyBUkBTyA5tiIigdzk86VgUwPcAWpPWQyu/2PTo1Nsc6uZR+diBAaqnw/G9Ou1Vk/XFFb+g6LCb
-	AxmqBVEVdESka1tlvlInLjyqgpaS16VPxByUjyVBM6koaiNjDK+5McH5Yux9a0RaecTYHtMk/FYWW
-	98aEJHjg==;
+	bh=XkjoYtdYF/Iwzn1meCEZtKvbIQUJOnHhQ0CtQ4b7pPs=; b=NBc9QQGGkB3uafSqU0eE8dGPmH
+	MFMpD0xM9EQEtUVxgIoyN2K58TtH27MQUdPU/FkU5gm/7kjL8FmaY/jJii2h/0NN6B/W0duIDRX4B
+	fxUXPRej8u06HNqu7sMI3GWvx01UMcHsp+Yz4FZprZ6KwUbarZ06yCOa9mriUgB7pWOicvjBfLz1q
+	Oo84azdqbmbl9z5RGX5Gcat0o98mWvM3jZetdRg/o0w2ymQURCEBW7OwJke1KXtzPg6xvi7fD3S/M
+	8vvgiWs2mWiEZHap0Jd//2T+k4y7/BBra70Q2/XMS/0w0zR/e4Wtoyce2B5trOzCwDqQQL4IgAAF/
+	frBeElaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Epp-0000000AqkE-1n5n;
-	Thu, 19 Mar 2026 14:58:53 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1w3EqO-0000000Aqt1-29t4;
+	Thu, 19 Mar 2026 14:59:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Epl-0000000AqjY-3OF9
+	id 1w3EqM-0000000AqsK-3LYe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 14:59:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=XkjoYtdYF/Iwzn1meCEZtKvbIQUJOnHhQ0CtQ4b7pPs=; b=Bw6ECVi4pu2HR/zUzVP5fXsapV
+	EvrZkOxuFiqrNT3dP/f+dKpt8Om9rxIqeKI2x0q0EuTLdX82cY+qB98i808K2LJr5jBsDmq960o9v
+	HlwtcmmeunMhkv42uNTfZRjVPtMq8TT4QVo3kWfzETrsGjxhr2yYUcsasq+uVdvDEDY41MZ5R1PTd
+	3Tg2qhLqo6w0Xgf1ZCMbtlgUAfyStiRQgzA24ET+AljKpIXkgniHzzt4WcApcCXJ8e14Fidm9JTAx
+	6TdM8spsbMWFrWCAn52EDIJ/g4SK22o9nvjz6IOzRdtSZ5G4liUxb8mIB95Mvg0UlPTOWDw/yi+6F
+	kPVF7Dkw==;
+Received: from mail-24420.protonmail.ch ([109.224.244.20])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3EqJ-0000000Dl54-1vkH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 14:58:51 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-4670bcc40d7so286056b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 07:58:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773932329; x=1774537129; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PamUifGDxzKgYduTgi5+Bz1Hbj65Bi8zeh///fvaP8k=;
-        b=f7IKrKIo6WN2P3KMQt2VfJIV2msjqt11Anu838Diqu6zFHhxgJYxaww1e4V+cwW5sl
-         DguVs1fBoIXkmmSajY4Dt8ktrEHx44Dj2OuWUzNMeIK6iANUrYrQ9igja1Ambr1jwQbx
-         jU1A7TaHxLLOId8dvhOJg3yzyhNGLCJEOQWzGBQXA0iXgfBJihFZYbEvUAZCUkTw012a
-         5f+ReHeBXkRR/sjtvBswmVJIlyBlmkVeAzsAwivZQ1iBWj4AJ35Mzk2f3S99QqaaQorK
-         dDaDwS7bQdIn56Eog0XL0iMu7nfGOU2RDHfsueXMLL0X/KMWgsZcYjBNhf2IwBnwwbFb
-         0r2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773932329; x=1774537129;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PamUifGDxzKgYduTgi5+Bz1Hbj65Bi8zeh///fvaP8k=;
-        b=TvZRVftrZ08bfhy27DWnVuOZC7FBV59Ez7RbE9us/Q3CbopnvKATnMy0fu18zjUq2G
-         9l7Z+iP9qSI876fscMHLJMkXmmYezCcBNoYNd4diwLqQ3IOQ3QLYA3fIzm5WbyLKJOqK
-         vacBT5jOe/1Y0ZDGiKcz5YStIsEP1tMFogkkBFuouR9HgaLffOFmqBOk9x0q+lExENOC
-         V+QGz0DVrxI+dYVz4mWDZQifUUluj3orQMraAyfwZKqfQpGFQ0OiW4c/6gib5lt+VDVk
-         dm1VPHrumzUbrLQ5OziX3w7VznbrTwFSQ206DXc0+FWReIoRzlBeqBEtIlbWZemTFh2S
-         n0Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCVaw2mrwb4B0Lsn0MAtlVA1lD0I1XiNnM3uUo2/upI6tBCk3LZGXDpMsck86RSDhrkIUHwHdmv4QsLtcrzbv75i@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkJXQWQSkOH264R6BKqSZeGN1DTfkRJint4gYinwfNWk2yDb2O
-	MD98jqpDZKvTYddrhyeppsqHI78Jvwt8TbHNzrjUbBpRVpR4nZs2g/opnZCYKYO5KxA=
-X-Gm-Gg: ATEYQzzv6Ej6kXYCoKyemPk4FyTGAEg9oPuiNVtbp09CpGlYQy5hDwRg4ujjCz+Yl38
-	/cJuf3s1/k6mQlLegV/FHQGO6sxFUyH8rg7GQHWWjjZj3wPoyjiFRk1rySl4+Zq6BkOD0R34Ftz
-	YFYWxUWHB3Yxb92+A3sIPgAWQ9Ft8gw2XHEXmxtT4jttcr0W9I7dXndf0zV5UoeWhy61By5drI6
-	5GhMrqk13aK++yHvS1rNzrVHSr7NrOruCA6SYqTyMeZvAOlRrbmokrZvOSjYntSQ0yXYxMhLkim
-	swazc/KUc0yp1WOkOxfV/ri7MS6jeQNakufafNmLOjGdaq1oww5dbLOvORkAj3BdO84kvP/gUvH
-	NGfJ7V6qPT0h+HkxJ8PbHXIT05RUceHh9nFHg2edeqtgljLIpIqNI6/gB1hrWNydQ5H+5GNNsaD
-	qZHN2qnb70po9rns64CkuGrC+1NHH3VET/IxG0fph9/jVxiatd4GfVj2RCxOUiCo+OFekNpFDkN
-	QFB7HjMliZm
-X-Received: by 2002:a05:6808:1451:b0:467:1cf5:7684 with SMTP id 5614622812f47-467ba15eaddmr4227888b6e.6.1773932328449;
-        Thu, 19 Mar 2026 07:58:48 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:244c:fc8c:8216:1344? ([2600:8803:e7e4:500:244c:fc8c:8216:1344])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41bd22dee78sm6087744fac.0.2026.03.19.07.58.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Mar 2026 07:58:47 -0700 (PDT)
-Message-ID: <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
-Date: Thu, 19 Mar 2026 09:58:46 -0500
+	Thu, 19 Mar 2026 14:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
+	s=protonmail; t=1773932353; x=1774191553;
+	bh=XkjoYtdYF/Iwzn1meCEZtKvbIQUJOnHhQ0CtQ4b7pPs=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=skI9Q9j9XLKLTVSVbYnDqcv61aIAeUEqWJiv9ZRh/zbdFJQbTCS5vFu3gKJkI/uyD
+	 UDptZ9rm3O0hYcOJhAoBsjNvY7BZfucxl7wn+kGjiqldAT0QrNgDUciqfIolNwKDCH
+	 OXWZYyzxY+EXtksLqOE7XzgL6i0Z2E00FnwE840eSRlumtynxE6lEt8aWHHnaCe6Fh
+	 7MWkOIMm2+7C/nBdFaRV0Ef76iqRyKR+9G9QfjUgUOsFG20WV/yAql/WYBzbYo99jn
+	 ZFhBKCs8DAYWUCJNgYTorFEgLTG8MDOo5hqx1VeiGRiTVnqJM7taJDhy57iESgGNYs
+	 l5dwOT+VUQHBg==
+Date: Thu, 19 Mar 2026 14:59:08 +0000
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+From: Simon Ser <contact@emersion.fr>
+Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Pekka Paalanen <pekka.paalanen@collabora.com>
+Subject: Re: [PATCH v8 04/11] drm/fourcc: Add DRM_FORMAT_Y10_P32
+Message-ID: <5zkelJBm0aeSnp__adMEfjOl_GAg7G_W1GyDWix8dQ48gqSmuM1if1c2Vz_xPNNpKy8_SiUh4l7WRs-12b8_DkD0PUWLdCwubo2k_DLh5eE=@emersion.fr>
+In-Reply-To: <20260128-xilinx-formats-v8-4-9ea8adb70269@ideasonboard.com>
+References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com> <20260128-xilinx-formats-v8-4-9ea8adb70269@ideasonboard.com>
+Feedback-ID: 1358184:user:proton
+X-Pm-Message-ID: c8860550323f58a7acb7ccfa1229875c3a51527b
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
- format
-To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
-References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
- <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
- <20260221-dancing-papaya-wolverine-db8afd@quoll>
- <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
- <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
- <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_075849_859349_6706FE68 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20260319_145923_797324_26FC9AF1 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,160 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 9:49 AM, Sai Krishna Potthuri wrote:
-> Hi David Lechner,
-> 
-> On 3/19/2026 7:53 PM, David Lechner wrote:
->> On 3/19/26 8:52 AM, Sai Krishna Potthuri wrote:
->>> Hi Krzysztof,
->>>
->>> On 2/21/2026 4:08 PM, Krzysztof Kozlowski wrote:
->>>> On Fri, Feb 20, 2026 at 11:09:41AM +0530, Sai Krishna Potthuri wrote:
->>>>> Convert the xilinx-xadc.txt Devicetree binding to a YAML schema format
->>>>> and remove the old text binding.
->>>>>
->>>>> +
->>>>> +  xlnx,channels:
->>>>> +    $ref: '#/$defs/channels'
->>>>> +
->>>>> +allOf:
->>>>
->>>> Missing ref since you use unevaluatedProperties...
->>>>
->>>>> +  - if:
->>>>> +      required:
->>>>> +        - xlnx,external-mux
->>>>> +      properties:
->>>>> +        xlnx,external-mux:
->>>>> +          enum:
->>>>> +            - single
->>>>> +            - dual
->>>>> +    then:
->>>>> +      required:
->>>>> +        - xlnx,external-mux-channel
->>>>> +
->>>>> +required:
->>>>> +  - compatible
->>>>> +  - reg
->>>>> +
->>>>> +unevaluatedProperties: false
->>>>
->>>> or you meant additionalProperties?
->>>>
->>>>> +
->>>>> +$defs:
->>>>
->>>> Why this is a def, not used directly? I see only one usage of this def.
->>>
->>> I am getting the below error if i define the patternProperties directly.
->>> Seems like complex vendor peroperties should be referenced via $ref.
->>> Please suggest if there is any better way to deal this.
->>
->> It is hard to say without seeing the new version of what you wrote.
-> 
-> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
+On Wednesday, January 28th, 2026 at 18:25, Tomi Valkeinen <tomi.valkeinen@i=
+deasonboard.com> wrote:
 
-Is the code below the code that causes the error?
+> Add Y10_P32, a 10 bit greyscale format, with 3 pixels packed into
+> 32-bit container.
+>=20
+> The fourcc for the format is 'YPA4', which comes from Y - Y only, P -
+> packed, A - 10 (as in 0xA), 4 - 4 bytes.
 
-> 
-> v1 code:
->   xlnx,channels:
->     $ref: '#/$defs/channels'
-> 
->   $defs:
->   channels:
+I know we aren't super consistent about DRM format names, but=E2=80=A6 this=
+ _P32
+suffix doesn't make sense to me: we never had it before, and a lot of
+DRM formats are packed (in the Vulkan sense [1]), so I'm not sure why
+this one would need it.
 
-Is this indent bug just from copying to email or does it exist in
-the source that is causing the error?
+What's special about this one is that it's the first (AFAIK) which has
+3 pixels per block. Some YCbCr formats are sub-sampled, but always use a
+square block.
 
->     type: object
->     description: List of external channels that are connected to the ADC
->     properties:
->       '#address-cells':
->         const: 1
->       '#size-cells':
->         const: 0
-> 
->     patternProperties:
->       "^channel@([0-9]|1[0-6])$":
->         type: object
->         properties:
->           reg:
->             minimum: 0
->             maximum: 16
->             description: |
->               Pair of pins the channel is connected to:
->                 0: VP/VN
->                 1-16: VAUXP[0-15]/VAUXN[0-15]
->               Note each channel number should only be used at most once.
-> 
->           xlnx,bipolar:
->             type: boolean
->             description: If set, the channel is used in bipolar mode
-> 
->         required:
->           - reg
-> 
->         unevaluatedProperties: false
-> 
->     required:
->       - '#address-cells'
->       - '#size-cells'
-> 
->     unevaluatedProperties: false
-> 
-> 
-> Regards
-> Sai krishna
-> 
-> 
->>
->>
->>
->>>
->>> linux-xlnx/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
->>>      hint: A vendor boolean property can use "type: boolean"
->>>      from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
->>>    LINT    ../Documentation/devicetree/bindings
->>>    DTEX    Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dts
->>>    DTC [C] Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dtb
->>>
->>>
->>> Regards
->>> Sai Krishna
->>>
->>>>
->>>>> +  channels:
->>>>> +    type: object
->>>>> +    description: List of external channels that are connected to the ADC
->>>>> +    properties:
->>>>> +      '#address-cells':
->>>>> +        const: 1
->>>>> +      '#size-cells':
->>>>> +        const: 0
->>>>> +
->>>>> +    patternProperties:
->>>>> +      "^channel@([0-9]|1[0-6])$":
->>>>> +        type: object
->>>>> +        properties:
->>>>> +          reg:
->>>>> +            minimum: 0
->>>>> +            maximum: 16
->>>>> +            description: |
->>>>> +              Pair of pins the channel is connected to:
->>>>> +                0: VP/VN
->>>>> +                1-16: VAUXP[0-15]/VAUXN[0-15]
->>>>> +              Note each channel number should only be used at most once.
->>>>> +
->>>>> +          xlnx,bipolar:
->>>>> +            type: boolean
->>>>> +            description: If set, the channel is used in bipolar mode
->>>>> +
->>>>> +        required:
->>>>> +          - reg
->>>>> +
->>>>> +        unevaluatedProperties: false
->>>>
-> 
+I would suggest something like YYYX1010102. We use the "channels
+followed by bits per component" pattern elsewhere.
 
+[1]: https://docs.vulkan.org/spec/latest/chapters/formats.html#formats-pack=
+ed
 
