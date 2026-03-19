@@ -4,51 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863F21090240
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91431109023F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VpLuifWX/yxCeVHaHzXUl07uExvV6YoM7PDyXUzVtE0=; b=ngquFi/AWoyfSgjVHXDH9Ni2JE
-	Aws0B7FykpaPfSGHLFIpxqtw9wDwKilIK6kn7Ia5rwaJE62fnULNgg2NushBbUqOWjMi6aynUwFTP
-	JSd1nmSLO4FDFWhyhEvjePkFBOhogCgVKfVjBvdYWNi3W2LTLKUA6SRX2ba7biiMQ+fODA0LjkzcR
-	VzJrJHsdO/XV+ihJ6RM3RfFMPJxm/i38CGbnY0ewtthti5JHpXLupO7MWftear21lHMPVv0nV6gao
-	hNHFbbr2oUV/AF/wKNAIyraD0pkvHDkiKVFqbPRbkZvzhegNiZZda92cJjGdb1Hu8bM+UvkMpNSkC
-	oxfHST8g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdIXh9/KlxTSjE6LuBpFumfCtDJshMgu0zl78RY8MjI=; b=1p+kLhVOXqbGU2KaBYypLHmYhx
+	E8yuwB6nJGcr/LKq5PlilBb0HHR/5w5u7iXYl3V5ueDeC8pKY1if/Ma9GsObOrsbYIsTTHMDVnNVP
+	l4VaN7bMjeqxRL1O41xein+1yQqfX3r8AH+V2mTUUWUidKExDmngf1N5mW8eauPDZ/O62gFXB5N8i
+	HRW/Fi1z16RQkMvpMw7PSxQXhlIQf8F4xkvFNUZfWfAFAh72Y3mqzzFrYcEhSl4AGy0Tqe9qD4qnJ
+	aZbG58hf0R/GotNdDDlvDMQtct7PfI7A5Ff07CB0v00anZXcoSTaOZsfrlf39W5CY6DuPL0XpkRy7
+	6rcQ9hJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FEp-0000000AuTj-3UVz;
-	Thu, 19 Mar 2026 15:24:43 +0000
+	id 1w3FFL-0000000AucY-0fa9;
+	Thu, 19 Mar 2026 15:25:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FEo-0000000AuSh-1OSN
+	id 1w3FFJ-0000000Aubq-0rDW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:24:43 +0000
+	Thu, 19 Mar 2026 15:25:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 510961A25;
-	Thu, 19 Mar 2026 08:24:35 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 82BC83F778;
-	Thu, 19 Mar 2026 08:24:40 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	joro@8bytes.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	daizhiyuan@phytium.com.cn
-Subject: [PATCH v2] iommu/arm-smmu-v3: Update Arm errata
-Date: Thu, 19 Mar 2026 15:24:34 +0000
-Message-Id: <4c4664b2427cef212a06efdd78a9faa8d9ded302.1773933699.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C3161A25;
+	Thu, 19 Mar 2026 08:25:06 -0700 (PDT)
+Received: from [10.1.35.24] (e122027.cambridge.arm.com [10.1.35.24])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8108A3F778;
+	Thu, 19 Mar 2026 08:25:08 -0700 (PDT)
+Message-ID: <3e917733-0272-4f2c-aa10-36364604fcbd@arm.com>
+Date: Thu, 19 Mar 2026 15:25:06 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 13/48] kvm: arm64: Don't expose unsupported
+ capabilities for realm guests
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-14-steven.price@arm.com>
+ <56fb42ad-eada-40df-8c81-53cb7c0c310e@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <56fb42ad-eada-40df-8c81-53cb7c0c310e@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_082442_513701_F3DBD3D9 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_082513_358505_D36E38F5 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,78 +78,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MMU-700 r1p1 has subsequently fixed some of the errata for which we've
-been applying the workarounds unconditionally, so we can now make those
-conditional. However, there have also been some more new cases
-identified where we must rely on range invalidation commands, and thus
-still nominally avoid DVM being inadvertently enabled.
+On 19/03/2026 14:09, Suzuki K Poulose wrote:
+> On 18/03/2026 15:53, Steven Price wrote:
+>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+>> RMM v1.0 provides no mechanism for the host to perform debug operations
+>> on the guest. So limit the extensions that are visible to an allowlist
+>> so that only those capabilities we can support are advertised.
+>>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v10:
+>>   * Add a kvm_realm_ext_allowed() function which limits which extensions
+>>     are exposed to an allowlist. This removes the need for special casing
+>>     various extensions.
+>> Changes since v7:
+>>   * Remove the helper functions and inline the kvm_is_realm() check with
+>>     a ternary operator.
+>>   * Rewrite the commit message to explain this patch.
+>> ---
+>>   arch/arm64/kvm/arm.c | 22 ++++++++++++++++++++++
+>>   1 file changed, 22 insertions(+)
+>>
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 9b17bdfaf0c2..ddbf080e4f55 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -357,6 +357,25 @@ static bool kvm_has_full_ptr_auth(void)
+>>           (apa + api + apa3) == 1);
+>>   }
+>>   +static bool kvm_realm_ext_allowed(long ext)
+>> +{
+>> +    switch (ext) {
+>> +    case KVM_CAP_IRQCHIP:
+>> +    case KVM_CAP_ARM_PSCI:
+>> +    case KVM_CAP_ARM_PSCI_0_2:
+>> +    case KVM_CAP_NR_VCPUS:
+>> +    case KVM_CAP_MAX_VCPUS:
+>> +    case KVM_CAP_MAX_VCPU_ID:
+>> +    case KVM_CAP_MSI_DEVID:
+>> +    case KVM_CAP_ARM_VM_IPA_SIZE:
+>> +    case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+>> +    case KVM_CAP_ARM_PTRAUTH_GENERIC:
+>> +    case KVM_CAP_ARM_RMI:
+>> +        return true;
+>> +    }
+>> +    return false;
+>> +}
+>> +
+>>   int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>>   {
+>>       int r;
+>> @@ -364,6 +383,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, ext))
+>>           return 0;
+>>   +    if (kvm && kvm_is_realm(kvm) && !kvm_realm_ext_allowed(ext))
+>> +        return 0;
+>> +
+> 
+> We need a similar check in in kvm_vm_ioctl_enable_cap() to prevent
+> enabling the filtered caps ? Otherwise looks good to me.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
-v2: Decouple from unrelated silicon-errata cleanup
+Indeed - thanks for spotting.
 
- Documentation/arch/arm64/silicon-errata.rst |  8 +++++++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 18 ++++++++++++++----
- 2 files changed, 21 insertions(+), 5 deletions(-)
+Thanks,
+Steve
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 4c300caad901..c81d7fc2c68c 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -207,8 +207,14 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-600         | #1076982,1209401| N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | MMU-700         | #2268618,2812531| N/A                         |
-+| ARM            | MMU-700         | #2133013,       | N/A                         |
-+|                |                 | #2268618,       |                             |
-+|                |                 | #2812531,       |                             |
-+|                |                 | #3777127        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | MMU L1          | #3878312        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | MMU S3          | #3995052        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 4d00d796f078..3d816c67508d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4308,6 +4308,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- #define IIDR_IMPLEMENTER_ARM		0x43b
- #define IIDR_PRODUCTID_ARM_MMU_600	0x483
- #define IIDR_PRODUCTID_ARM_MMU_700	0x487
-+#define IIDR_PRODUCTID_ARM_MMU_L1	0x48a
-+#define IIDR_PRODUCTID_ARM_MMU_S3	0x498
- 
- static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
- {
-@@ -4332,11 +4334,19 @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
- 				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
- 			break;
- 		case IIDR_PRODUCTID_ARM_MMU_700:
--			/* Arm erratum 2812531 */
-+			/* Many errata... */
-+			smmu->features &= ~ARM_SMMU_FEAT_BTM;
-+			if (variant < 1 || revision < 1) {
-+				/* Arm erratum 2812531 */
-+				smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
-+				/* Arm errata 2268618, 2812531 */
-+				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
-+			}
-+			break;
-+		case IIDR_PRODUCTID_ARM_MMU_L1:
-+		case IIDR_PRODUCTID_ARM_MMU_S3:
-+			/* Arm errata 3878312/3995052 */
- 			smmu->features &= ~ARM_SMMU_FEAT_BTM;
--			smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
--			/* Arm errata 2268618, 2812531 */
--			smmu->features &= ~ARM_SMMU_FEAT_NESTING;
- 			break;
- 		}
- 		break;
--- 
-2.39.2.101.g768bb238c484.dirty
+> Suzuki
+> 
+>>       switch (ext) {
+>>       case KVM_CAP_IRQCHIP:
+>>           r = vgic_present;
+> 
 
 
