@@ -4,109 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573561091917
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5D41091917
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnMNno8u5LdEPo1G+uE9IC/t6x6B/3bja+wkr+PXl5w=; b=O6GPdDpFnrjmx/PnZWAWALRG8y
-	J9nWNrOJ8icGRUZYyr9f6HTLIKan7Wu16DQBoq3hNjbLQ02g4/3W0ma9c8ANxiDzAaiFaRYB3BMFO
-	+eLfW/1Eg0zF2MaIDtQS3HAsLJC7dXUVJ+9mdHlKJ9H2682KmG0zlS94AKeiSFOtCep9THCtau0v+
-	CExJyX3U9fPXECfwr1+sYHU7To2GIpLqRXm+jy+QavVJjOPPReDudCu1CUDMHq7rORIGJoBc8qi+D
-	LNvYr3xnSedx3Wb8NQdOVcrSuJfF8N/7qr+uiIN21fAA1zR4SVanI/XVo4saJ4lZ/Z80v1xj16itx
-	mhR2TsDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EvqUQZCqF37oJV9dJzcVxfSOLY81NlMRRK2XtKQH9vE=; b=u/Ni4C0ilUS/QHqB7ar2liq8FG
+	CZx4WFrkpXvFX/ze96U8c092XVPPoW68CpwHbCdNmSWh8fWuJDUkM/5T0xoHd8wtFySQnoeV+jW5M
+	vj3v0OVL/VOFBbIg42iE2CGrpaaupm54IrUfl7WbbwSA5a8aKT2mLBahxQkcWBuZ4Goz/dKeo+Aqp
+	KlbkJ0arwtqRDipkRe6XwnG9TUHuDrAtwbh+Tw+m4iRbUoN4xXLUQnOfj9HW+9WgFYIpwEq8VHqNn
+	H40cAlwjFQpA9oXlVUfu/n67Boj2JBrxYLNvFROXEvOKQCaKKxnD7/2vqXhRhuylBlOCnCn3mMMfx
+	3sKDlcrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3K5N-0000000BXlf-3AGn;
-	Thu, 19 Mar 2026 20:35:17 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1w3K75-0000000BXxB-1QTt;
+	Thu, 19 Mar 2026 20:37:03 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3K5K-0000000BXku-1NLp
+	id 1w3K72-0000000BXwO-1piV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 20:35:16 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50b2b289925so8536291cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:35:13 -0700 (PDT)
+	Thu, 19 Mar 2026 20:37:02 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-67bac077116so628079eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:37:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773952513; x=1774557313; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=wnMNno8u5LdEPo1G+uE9IC/t6x6B/3bja+wkr+PXl5w=;
-        b=F98fAygWZbF+QWdIrf4f4olqinrxD9LQlIxlY2LwRrwPSvrZudSqshU6iAYmFJP/I9
-         K6HdAQZidaFQkubRlvGwz5Aiunj7dyJBKd9Ck5g13NYKDAgNExvs13qEfRnuhjeFPSMP
-         2hHQX+oLW4uI4iiw7M0ZklZKigJsvMm9KubcWO0iXPFGlBEW2ubCR1QoiuSRB+l4Aeu8
-         LAePvwgfgg2lX23LslHghZES1wBnJW6TeQ2MVpO4mA7JFwbXTHZS0GFtnhwecFeX7iqV
-         XTd9D9Ckio//R07nSGrHPDq6a7052UOURr4qxjfEoy8Ki+Oo+ryC5vaFamibXpc4ynLz
-         rCnA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773952619; x=1774557419; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EvqUQZCqF37oJV9dJzcVxfSOLY81NlMRRK2XtKQH9vE=;
+        b=z9vdw0i5uw+aPzFPYqzaZBgD8X7K4DvfYtyg0HvrJzWfcQCQU3a0p2qE+lZ1Uo1HIE
+         IIXuiBEkgtUoWYgMDlFfm68KZYFEXX21204hw4/1CWmfS8oH1mHNZELsjNulwUgNkQOP
+         VGOwoNqJ4zH65Ebfg2k93xvDBMS5lHm5kDUCRIsnLUIMFcqgkBc3AbBS5LNJTVHgGegx
+         9qL8yTF4XMGHLXi2QajCzK+vUtoMrHiNRmGlM0eu0x3SKCjO2EWH2oRDpEN6SeV8MTKv
+         bUBcyjZcGoW4sxUXI5mCss9bWh6V4EwJ+kVE8xda5PWnN6LQr4BrgYTijFTtWVtlZXru
+         1XIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773952513; x=1774557313;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wnMNno8u5LdEPo1G+uE9IC/t6x6B/3bja+wkr+PXl5w=;
-        b=FaE+t9FB7NHe7NL4azsXTYaBsD96i+uJm6oVqFrg2FQdPendMhfm9cSjuPqhbOWdOv
-         In+zQUHQ/3AAcooj+hsokwubTQqwT0N3B8dcKcDSZmG0BRyQVwyzT11IUbJvc0QyGC6h
-         jPWLUN8FipGpaxEbvkKBzEXiuk2vJs3XVv8q7s148jk3SNrNppvLyt3CebcBjtBEpvJB
-         XVHi2ZtNVxoeY4hlzVf4shtQYcxWJDIioJjwnM/ydfXNwDvfc/FCsC1zdoF5KsEsFwRf
-         Ws9ZpVoFrUwJxr5mY0sB9nkh+H6KeXMzjVKGuidIcukHKzuYSA3XOzdG3B9IyiPrRr8x
-         2gBA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRJipSrq0BShFYXFiAuG3FBYljl+p7BN5nJtKeWzCSVfssRKZJTefjCyQHl20p107cThkrC4MxyWAI6fKl0SUO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaJq9WIT0+wY36Q2mCXD/zRZtIx5utu0dtLo3CUPAC3KDqUL3F
-	tMoo0Nhgh+P0oQRqcf6gGB5Q2XQ1zZ3eG6blJ9gYToMeC7HsTB/GkQKF/vu+1qOyOqg=
-X-Gm-Gg: ATEYQzz7RQV94UJQJZemOhSpR2G5r7c/mbPH0nH/mYTi9Q/yEuSnawneS5zVq/kMJi7
-	u4Mp+tv86p5Kg9rGMfZS93bnYmvpaD5rwppzxAfUZ1fBKt6Jd9VjUJ3/VQoDAgszxIAnEXeCVWN
-	ZbKzHq71ypwK59nVytXYCEyTs50RMUxg47//zfUQ65p6T0xNntyRAFegupf0lxHm3Bplb4ik0iI
-	aj4YZkDoOfQ/XgmR5iB9lmhnNyMBuTdlMXlzRWdV8S+RVlMFwcn5JJC/bSZ/W6HXEu1Ss7tFZxE
-	qpU3UQZemfBqlqQb+AS1CCnEppdq5/jKhW/z/2RcbAOhZUYGbr5l/htdgVZNOvBYs0ogvPkEoiR
-	jCAqdc1qLzHbb6OVfjN7WMgpSOxsdqtZPdoARFDn64Fu3iXgjskQvMiruZ8yidZdqE4/XERVkMg
-	ZsRB7Iat37UYuuE/fPRksdC3zNJH6g
-X-Received: by 2002:a05:622a:4c0b:b0:509:2d05:6979 with SMTP id d75a77b69052e-50b3748dfabmr9614041cf.26.1773952512773;
-        Thu, 19 Mar 2026 13:35:12 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50b36cb3c91sm5393191cf.4.2026.03.19.13.35.11
+        d=1e100.net; s=20251104; t=1773952619; x=1774557419;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EvqUQZCqF37oJV9dJzcVxfSOLY81NlMRRK2XtKQH9vE=;
+        b=cijHTn4mYwh/Pm+Os0G5NLS0YyUWThddzYwZa36RYCJR/imXt4MUemHCGYWdwsyBOy
+         uU+ExKYF/ccj9nAf8AsY9/gz/yLhjHl1sV2uiZapK7WkV8vDaaTKunayuwUfuwcq1cd3
+         n4o5t8FWErBxd3f3mOjh7t63D7i+YKppuUTxVn3R/RMBFuV1wQdv3tIzQLMN0arm4sVZ
+         GfjdY4FmXRUlSQdDPvBwwfDsOWygVqWJCQZhceadE4VwFxB3uxPrvFkRCuiKVSHCqTii
+         dkqohsXOOIw9U0JDsMxXeEDOmwCAHGrZScGkqhsI6xARihhjwGbryYyEzSMK0GOy5RML
+         2jSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXNgwTo5w92+I0zY7HXH7y3DNWrwO4+VhYcsyMWEyK5tVxAsGljNWA0HycIi+8P/Qdy1Iu5g6ERx2FaFrSJ0miz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdgGcTFaNWcz+wNrOWgGqiWHu2Eree5tHZUFxZ3dCCpKSEPl7G
+	MAC8c90GTQH1uzyDZEtpunnreJM+I4NO6Bq3d3DFNVIx+1CVDxQ6nQL7mhAyjf45/n4=
+X-Gm-Gg: ATEYQzxyMyvaFnnu1CGjlJUwqh5KO93+fJoz47jJeT+Oy9yCm7D10j1Fzk1LABYpbRJ
+	MsPv8USh+UOrCvPDdPDn6bhxAo+Mv9eWQbxwH/9kPnbveXTZg0g2BIJUIAdARZEDC7+TPYshB2g
+	0pBVjFWxxPxWKbN1Y1GLFG5vBaewI5Sxo880+N/3XtdCUmpaZsrmGp0eq4A0Y7+SkWn6TtMASOM
+	KgGKhap7Q0Gkj0XJu/hVQMYxQ4cL3QVfhKmDVPNSx8TS0DqtMOiRKayNi9T2+VNvKTaxxyk2s2/
+	8vdZ3Xw3YieX6ztEE1LICTnWdHDFWiX8NoEzhV10Cu8p6MO9mtZG/rL11zBAbO5jeZZVcir/pU+
+	/pQ2BNwUkAkx9xwx0OWX4AV2CxKvMiYk8Q2+0LbMpoCtK02PAdtODSyxQ6XmjaPFH0lqSeLh0We
+	gXErV110r3PIvaToZtdx1gZybOatHp
+X-Received: by 2002:a05:6820:1349:b0:67c:1deb:4f69 with SMTP id 006d021491bc7-67c22bb5697mr599850eaf.14.1773952619310;
+        Thu, 19 Mar 2026 13:36:59 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:500:244c:fc8c:8216:1344])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-67c252acd32sm52512eaf.3.2026.03.19.13.36.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 13:35:11 -0700 (PDT)
-Message-ID: <9db109a657e18d1e5ead67d7db06cfaf68f7fa84.camel@ndufresne.ca>
-Subject: Re: [PATCH v1] media: meson: vdec: Fix memory leak in error path of
- vdec_open
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Anand Moon <linux.amoon@gmail.com>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kevin Hilman
- <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Jourdan
- <mjourdan@baylibre.com>, Hans Verkuil	 <hverkuil@kernel.org>, "open
- list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS"
- <linux-media@vger.kernel.org>, "open list:MESON VIDEO DECODER DRIVER FOR
- AMLOGIC SOCS" <linux-amlogic@lists.infradead.org>, "open list:STAGING
- SUBSYSTEM"	 <linux-staging@lists.linux.dev>, "moderated list:ARM/Amlogic
- Meson SoC support" <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>
-Date: Thu, 19 Mar 2026 16:35:10 -0400
-In-Reply-To: <20260304100557.126488-1-linux.amoon@gmail.com>
-References: <20260304100557.126488-1-linux.amoon@gmail.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-cIsShmpVIGkp2hMkk7aV"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+        Thu, 19 Mar 2026 13:36:58 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Date: Thu, 19 Mar 2026 15:36:49 -0500
+Subject: [PATCH] dt-bindings: mmc: mtk-sd: add mediatek,mt8183-mmc fallback
+ to mediatek,mt8189-mmc
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260319-mtk-mmc-mt8189-compatible-v1-1-fb7ef2186c92@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMywqDMBCF4VeRWXfARLz1VYqLOBl12kYliaUgv
+ rtpXR2+xfl3COyFA9yzHTx/JMgyJ6hbBjSZeWQUmww611VeqBZdfKFzlLZRTYu0uNVE6d+MptL
+ W1FRaWzOk/+p5kO+//eguh61/MsVfEI7jBFHNVOd9AAAA
+X-Change-ID: 20260319-mtk-mmc-mt8189-compatible-a62da7c5dd7e
+To: Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1519; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=5skePx64WNITX84S4NyRGOGsgVrQRd/nLA8489wbHmQ=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpvF5i18RSPpFlTkJhXKuRHU1GKiogcHWVUfImk
+ AchlfWq8pSJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCabxeYgAKCRDCzCAB/wGP
+ wNTrB/wJp0iLTjLMrEAxu7kkALAuENcVqHfsvkgUSrsHT0Wy0MeoXaG9Cp3UIlJ9gNCXOEoAXUR
+ 3u/C1no4zCoDG0WMepZn6cHej94IB24DQZVNYdeDOl0OFtEDIuz902EinxNow8JfnAmLwX4w4aU
+ RDSkC9kLidPbkFS7CsE4fLWlpRW0eY0OzpN55PuNEq+4jfPIYI+z5k3Qr99oTU+HCCCFVTC9j5d
+ YdK7+xKXOz1AGfNSztdM7/NFqDtZPmR/8+baKRZQ01ZnuP85PSnqL5zO5rZ6OVqnVNcCv4ourPM
+ WopQsPZ8TelzX2HGxM04ez5i53jSAozyu6LUB+V8ya9GVijk
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_133514_369292_E50F2135 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260319_133700_730784_7170CB3F 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,98 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Change mediatek,mt8189-mmc to include mediatek,mt8183-mmc as a fallback
+compatible.
 
---=-cIsShmpVIGkp2hMkk7aV
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This has been tested using U-Boot and the MMC is still working using the
+mediatek,mt8183-mmc fallback compatible, so they seem to be compatible
+enough. And there are no upstream users of mediatek,mt8189-mmc yet, so
+this should not be a breaking change.
 
-Hi,
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Le mercredi 04 mars 2026 =C3=A0 15:35 +0530, Anand Moon a =C3=A9crit=C2=A0:
-> If vdec_init_ctrls(sess) fails, or any subsequent initialization step
-> during vdec_open fails, the control handler allocated for the session
-> is not released. This causes a memory leak of the v4l2_ctrl_handler
-> and its associated control objects.
->=20
-> Add a call to v4l2_ctrl_handler_free() in the err_m2m_release error
-> path to ensure resources are properly reclaimed.
->=20
-> unreferenced object 0xffff0000205d6878 (size 8):
-> =C2=A0 comm "v4l_id", pid 5289, jiffies 4294938580
-> =C2=A0 hex dump (first 8 bytes):
-> =C2=A0=C2=A0=C2=A0 40 d2 49 18 00 00 ff ff=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 @.I.....
-> =C2=A0 backtrace (crc d3204599):
-> =C2=A0=C2=A0=C2=A0 kmemleak_alloc+0xc8/0xf0
-> =C2=A0=C2=A0=C2=A0 __kvmalloc_node_noprof+0x60c/0x850
-> =C2=A0=C2=A0=C2=A0 v4l2_ctrl_handler_init_class+0x1b4/0x2e8 [videodev]
-> =C2=A0=C2=A0=C2=A0 vdec_open+0x1f4/0x788 [meson_vdec]
-> =C2=A0=C2=A0=C2=A0 v4l2_open+0x144/0x460 [videodev]
-> =C2=A0=C2=A0=C2=A0 chrdev_open+0x1ac/0x500
-> =C2=A0=C2=A0=C2=A0 do_dentry_open+0x3f0/0xfe8
-> =C2=A0=C2=A0=C2=A0 vfs_open+0x68/0x320
-> =C2=A0=C2=A0=C2=A0 do_open+0x2d8/0x9a8
-> =C2=A0=C2=A0=C2=A0 path_openat+0x1d0/0x4f0
-> =C2=A0=C2=A0=C2=A0 do_filp_open+0x190/0x380
-> =C2=A0=C2=A0=C2=A0 do_sys_openat2+0xf8/0x1b0
-> =C2=A0=C2=A0=C2=A0 __arm64_sys_openat+0x13c/0x1e8
-> =C2=A0=C2=A0=C2=A0 invoke_syscall+0xdc/0x268
-> =C2=A0=C2=A0=C2=A0 el0_svc_common.constprop.0+0x178/0x258
-> =C2=A0=C2=A0=C2=A0 do_el0_svc+0x4c/0x70
->=20
-> Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-> =C2=A0drivers/staging/media/meson/vdec/vdec.c | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/me=
-dia/meson/vdec/vdec.c
-> index 4b77ec1af5a7..a5ab0c2390f5 100644
-> --- a/drivers/staging/media/meson/vdec/vdec.c
-> +++ b/drivers/staging/media/meson/vdec/vdec.c
-> @@ -914,6 +914,7 @@ static int vdec_open(struct file *file)
-> =C2=A0	return 0;
-> =C2=A0
-> =C2=A0err_m2m_release:
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index eb3755bdfdf7..9160e449aeb9 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -25,7 +25,6 @@ properties:
+           - mediatek,mt8135-mmc
+           - mediatek,mt8173-mmc
+           - mediatek,mt8183-mmc
+-          - mediatek,mt8189-mmc
+           - mediatek,mt8196-mmc
+           - mediatek,mt8516-mmc
+       - items:
+@@ -36,6 +35,7 @@ properties:
+               - mediatek,mt6893-mmc
+               - mediatek,mt8186-mmc
+               - mediatek,mt8188-mmc
++              - mediatek,mt8189-mmc
+               - mediatek,mt8192-mmc
+               - mediatek,mt8195-mmc
+               - mediatek,mt8365-mmc
 
-This goto is used twice. The second time is when vdec_init_ctrls() fails, a=
-nd in
-that case the v4l2_m2m_ctx is leaded. Can you add the missing label and cal=
-l
-v4l2_m2m_ctx_release() accordingly. This way we don't have to revisit again=
-.
+---
+base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+change-id: 20260319-mtk-mmc-mt8189-compatible-a62da7c5dd7e
 
-regards,
-Nicolas
+Best regards,
+--  
+David Lechner <dlechner@baylibre.com>
 
-> +	v4l2_ctrl_handler_free(&sess->ctrl_handler);
-> =C2=A0	v4l2_m2m_release(sess->m2m_dev);
-> =C2=A0err_free_sess:
-> =C2=A0	kfree(sess);
-> @@ -926,6 +927,7 @@ static int vdec_close(struct file *file)
-> =C2=A0
-> =C2=A0	v4l2_m2m_ctx_release(sess->m2m_ctx);
-> =C2=A0	v4l2_m2m_release(sess->m2m_dev);
-> +	v4l2_ctrl_handler_free(&sess->ctrl_handler);
-> =C2=A0	v4l2_fh_del(&sess->fh, file);
-> =C2=A0	v4l2_fh_exit(&sess->fh);
-> =C2=A0
->=20
-> base-commit: 0031c06807cfa8aa51a759ff8aa09e1aa48149af
-
---=-cIsShmpVIGkp2hMkk7aV
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxd/gAKCRDZQZRRKWBy
-9PaoAP9PoxyrdYiXm0RCBS8FInF86DoW/B9AvzEmZ/gHCIdlSQD/dYT0Q3twNY80
-YmxdwR1+9TJyEj0XviEmd4JDTuYSxQQ=
-=SUeq
------END PGP SIGNATURE-----
-
---=-cIsShmpVIGkp2hMkk7aV--
 
