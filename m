@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E361075261
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9581075266
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75XjeSk9pD2PyXCUVX+8mluAfVzf4hsX0RLb20bvcRs=; b=w2Edw7CUny6xaQtfKWeGUf2oKn
-	OsFgiQ+kJtvjuMV019cvJMOPjbO467/y72Ac13R+xFLN+YwtfPuW6e3SBCB8RKJvg9N6slYH37sT6
-	cXrNpZP+PzpvX2hm2/iWNi8IgRORxtMr+h1o9RKtKjcV432C6kXuTuAl6grYQ0pGDkqTQ30bXbYgo
-	OZczsmKM81ygBjnWdyFLft9mMzlXV9aEHZkRxtv5nmQLgMC5ebDVPcuXXKmgi5ixZW6U/rDvjuTOH
-	L3G5ag+psbxoJ+HOwWlQDlXuh9nMiqpT99ArtwwkkFQ7vz93aAMO0xRwP0ZSou4sbdJlq32kYtUaB
-	2M59DbAA==;
+	bh=Ews+SaNXC4g16N6suJzU028kWzdWjI2UIVzYKFKekLA=; b=RkEU/JpuKzHNAHU6p6EPWq66HF
+	ppK3w0BCrdVK4lNQvyfFd5jyR6Oubgf5YdqqplZIymrONbsCbbA9EhtV1jIiuYM1UztjLM/hHBS0O
+	h4lV1qkEAflvgmxaj8U7xItvwEsT3tsHiPRsQ8YD0lmeP63llFwXhTGBhTaSxU5HExtOv1Btls/qq
+	qb8aCgLsAKWzGScM6tn67n0sseGQ74eQH+er0AW3SW/aGnYS/0g3imj8zPHYUfdk15t0v4n8BfuzF
+	EnL2S/uiCAVlsA2oqkwkT2HRQJkPMVZHd5dz23OCECGlR9vdrMseBinKQQ3mCumY65/GLHG8z75ge
+	DqUy5Mjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36k4-0000000A0tv-1tKh;
-	Thu, 19 Mar 2026 06:20:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w36k5-0000000A0wQ-3Jli;
+	Thu, 19 Mar 2026 06:20:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j4-00000009zn8-12Wy;
-	Thu, 19 Mar 2026 06:19:22 +0000
+	id 1w36j5-00000009zol-0qOV;
+	Thu, 19 Mar 2026 06:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 898056184F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 83AA56185A;
+	Thu, 19 Mar 2026 06:19:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD107C2BCC4;
 	Thu, 19 Mar 2026 06:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3186C2BCF5;
-	Thu, 19 Mar 2026 06:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901161;
-	bh=v23KyGPrHWAAC2T6J0ScHjRgqX7DUkokMnXW1NT3GDU=;
+	s=k20201202; t=1773901162;
+	bh=A17Or1mhILOD8g/OauvklfFcseA7rh2PNPCFHHxYHps=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R7hvvACgXThVeEen2oB8v6/av/AmwXd++45upOpQyMaz+8DIdfwgfaEHjmMxHY95L
-	 KgDxi1UEF65u8um9/80JUp1ERfI1lwB48xLsrNZalIFhHPKAcJW45DmTzH2Q1gcugu
-	 QzkkUbuyb8Lf4vpYiyVNf9MKR5L+6kQSzmVeeZ4M1kBoBgBCjM7FrjyN7WDr+hjlz4
-	 nj48OxB+Q1YTRVJe28oDZXuI2pmvrueIrl3YO8B99ipT7UI93XYMveTfuaS/W7NWjc
-	 S860Q85nik5x7j1fDEP5CaEq7D1GEvarLqRTq/lxlioLeZlJeB3qp19mVvt6FHCjW9
-	 w8pMMm1XNjL6w==
+	b=rLuXxi5JU7e4lhDja+r/raWzll947pWc4MN189ypr8SfFoCCk+3TWuQLyZg5+aqur
+	 KtJWSfl0m9oJzz/nIxydzurMQxR/TXkO3B2H6vPc8ohT6HxPfCtyBjfA+jfePcJTLv
+	 iXWK9SuB8JbbOGVLAdzzUmS/keEKFG5TpF5elm5N3dm7pANpOfiyrfurP6rzophpj0
+	 PgPEoS+zkDU/xnBynkSgZcrtmGPnxFbVyqi30/9F0B7YBbz8fyFYdGGZgkOat5RGXw
+	 RDkNDtSWLFnuvY0vc62CKN9KHXl5vaSu/UIq1pYiP609MOnMgpbb18sNPGGJfx/fIG
+	 WUzFLC7v2SSNg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,13 +53,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 14/19] lib/crypto: x86/ghash: Migrate optimized code into library
-Date: Wed, 18 Mar 2026 23:17:15 -0700
-Message-ID: <20260319061723.1140720-15-ebiggers@kernel.org>
+Subject: [PATCH 16/19] crypto: ghash - Remove ghash from crypto_shash API
+Date: Wed, 18 Mar 2026 23:17:17 -0700
+Message-ID: <20260319061723.1140720-17-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,110 +76,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the "ghash-pclmulqdqni" crypto_shash algorithm.  Move the
-corresponding assembly code into lib/crypto/, and wire it up to the
-GHASH library.
-
-This makes the GHASH library be optimized with x86's carryless
-multiplication instructions.  It also greatly reduces the amount of
-x86-specific glue code that is needed, and it fixes the issue where this
-GHASH optimization was disabled by default.
-
-Rename and adjust the prototypes of the assembly functions to make them
-fit better with the library.  Remove the byte-swaps (pshufb
-instructions) that are no longer necessary because the library keeps the
-accumulator in POLYVAL format rather than GHASH format.
-
-Rename clmul_ghash_mul() to polyval_mul_pclmul() to reflect that it
-really does a POLYVAL style multiplication.  Wire it up to both
-ghash_mul_arch() and polyval_mul_arch().
+Now that there are no users of the "ghash" crypto_shash algorithm,
+remove it.  GHASH remains supported via the library API.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/x86/crypto/Kconfig                       |  10 --
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/ghash-clmulni-intel_glue.c    | 163 ------------------
- lib/crypto/Makefile                           |   3 +-
- lib/crypto/x86/gf128hash.h                    |  65 ++++++-
- .../crypto/x86/ghash-pclmul.S                 |  98 +++++------
- 6 files changed, 104 insertions(+), 238 deletions(-)
- delete mode 100644 arch/x86/crypto/ghash-clmulni-intel_glue.c
- rename arch/x86/crypto/ghash-clmulni-intel_asm.S => lib/crypto/x86/ghash-pclmul.S (54%)
+ crypto/Kconfig         |   7 --
+ crypto/Makefile        |   1 -
+ crypto/ghash-generic.c | 162 -----------------------------------------
+ crypto/tcrypt.c        |   9 ---
+ crypto/testmgr.c       |   6 --
+ crypto/testmgr.h       | 109 ---------------------------
+ 6 files changed, 294 deletions(-)
+ delete mode 100644 crypto/ghash-generic.c
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 7fb2319a0916..905e8a23cec3 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -342,16 +342,6 @@ config CRYPTO_SM3_AVX_X86_64
- 	  Architecture: x86_64 using:
- 	  - AVX (Advanced Vector Extensions)
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 13ccf5ac2f1a..efb482ea192d 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -886,17 +886,10 @@ config CRYPTO_CMAC
+ 	select CRYPTO_MANAGER
+ 	help
+ 	  CMAC (Cipher-based Message Authentication Code) authentication
+ 	  mode (NIST SP800-38B and IETF RFC4493)
  
- 	  If unsure, say N.
- 
--config CRYPTO_GHASH_CLMUL_NI_INTEL
--	tristate "Hash functions: GHASH (CLMUL-NI)"
--	depends on 64BIT
--	select CRYPTO_CRYPTD
+-config CRYPTO_GHASH
+-	tristate "GHASH"
+-	select CRYPTO_HASH
+-	select CRYPTO_LIB_GF128MUL
 -	help
--	  GCM GHASH hash function (NIST SP800-38D)
+-	  GCM GHASH function (NIST SP800-38D)
 -
--	  Architecture: x86_64 using:
--	  - CLMUL-NI (carry-less multiplication new instructions)
--
- endmenu
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index b21ad0978c52..d562f4341da6 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -48,13 +48,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
- 			       aes-gcm-aesni-x86_64.o \
- 			       aes-gcm-vaes-avx2.o \
- 			       aes-gcm-vaes-avx512.o \
- 			       aes-xts-avx-x86_64.o
- 
--obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
--ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
--
- obj-$(CONFIG_CRYPTO_SM3_AVX_X86_64) += sm3-avx-x86_64.o
- sm3-avx-x86_64-y := sm3-avx-asm_64.o sm3_avx_glue.o
- 
- obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
- sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
-diff --git a/arch/x86/crypto/ghash-clmulni-intel_glue.c b/arch/x86/crypto/ghash-clmulni-intel_glue.c
+ config CRYPTO_HMAC
+ 	tristate "HMAC (Keyed-Hash MAC)"
+ 	select CRYPTO_HASH
+ 	select CRYPTO_MANAGER
+ 	help
+diff --git a/crypto/Makefile b/crypto/Makefile
+index 04e269117589..17f4fca9b9e5 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -169,11 +169,10 @@ CFLAGS_jitterentropy.o = -O0
+ KASAN_SANITIZE_jitterentropy.o = n
+ UBSAN_SANITIZE_jitterentropy.o = n
+ jitterentropy_rng-y := jitterentropy.o jitterentropy-kcapi.o
+ obj-$(CONFIG_CRYPTO_JITTERENTROPY_TESTINTERFACE) += jitterentropy-testing.o
+ obj-$(CONFIG_CRYPTO_BENCHMARK) += tcrypt.o
+-obj-$(CONFIG_CRYPTO_GHASH) += ghash-generic.o
+ obj-$(CONFIG_CRYPTO_USER_API) += af_alg.o
+ obj-$(CONFIG_CRYPTO_USER_API_HASH) += algif_hash.o
+ obj-$(CONFIG_CRYPTO_USER_API_SKCIPHER) += algif_skcipher.o
+ obj-$(CONFIG_CRYPTO_USER_API_RNG) += algif_rng.o
+ obj-$(CONFIG_CRYPTO_USER_API_AEAD) += algif_aead.o
+diff --git a/crypto/ghash-generic.c b/crypto/ghash-generic.c
 deleted file mode 100644
-index aea5d4d06be7..000000000000
---- a/arch/x86/crypto/ghash-clmulni-intel_glue.c
+index e5803c249c12..000000000000
+--- a/crypto/ghash-generic.c
 +++ /dev/null
-@@ -1,163 +0,0 @@
+@@ -1,162 +0,0 @@
 -// SPDX-License-Identifier: GPL-2.0-only
 -/*
-- * Accelerated GHASH implementation with Intel PCLMULQDQ-NI
-- * instructions. This file contains glue code.
+- * GHASH: hash function for GCM (Galois/Counter Mode).
 - *
+- * Copyright (c) 2007 Nokia Siemens Networks - Mikko Herranen <mh1@iki.fi>
 - * Copyright (c) 2009 Intel Corp.
 - *   Author: Huang Ying <ying.huang@intel.com>
 - */
 -
--#include <asm/cpu_device_id.h>
--#include <asm/simd.h>
--#include <crypto/b128ops.h>
+-/*
+- * GHASH is a keyed hash function used in GCM authentication tag generation.
+- *
+- * The original GCM paper [1] presents GHASH as a function GHASH(H, A, C) which
+- * takes a 16-byte hash key H, additional authenticated data A, and a ciphertext
+- * C.  It formats A and C into a single byte string X, interprets X as a
+- * polynomial over GF(2^128), and evaluates this polynomial at the point H.
+- *
+- * However, the NIST standard for GCM [2] presents GHASH as GHASH(H, X) where X
+- * is the already-formatted byte string containing both A and C.
+- *
+- * "ghash" in the Linux crypto API uses the 'X' (pre-formatted) convention,
+- * since the API supports only a single data stream per hash.  Thus, the
+- * formatting of 'A' and 'C' is done in the "gcm" template, not in "ghash".
+- *
+- * The reason "ghash" is separate from "gcm" is to allow "gcm" to use an
+- * accelerated "ghash" when a standalone accelerated "gcm(aes)" is unavailable.
+- * It is generally inappropriate to use "ghash" for other purposes, since it is
+- * an "ε-almost-XOR-universal hash function", not a cryptographic hash function.
+- * It can only be used securely in crypto modes specially designed to use it.
+- *
+- * [1] The Galois/Counter Mode of Operation (GCM)
+- *     (http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.694.695&rep=rep1&type=pdf)
+- * [2] Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC
+- *     (https://csrc.nist.gov/publications/detail/sp/800-38d/final)
+- */
+-
+-#include <crypto/gf128mul.h>
 -#include <crypto/ghash.h>
 -#include <crypto/internal/hash.h>
 -#include <crypto/utils.h>
--#include <linux/errno.h>
+-#include <linux/err.h>
 -#include <linux/kernel.h>
 -#include <linux/module.h>
 -#include <linux/string.h>
--#include <linux/unaligned.h>
--
--asmlinkage void clmul_ghash_mul(char *dst, const le128 *shash);
--
--asmlinkage int clmul_ghash_update(char *dst, const char *src,
--				  unsigned int srclen, const le128 *shash);
--
--struct x86_ghash_ctx {
--	le128 shash;
--};
 -
 -static int ghash_init(struct shash_desc *desc)
 -{
@@ -192,82 +191,73 @@ index aea5d4d06be7..000000000000
 -static int ghash_setkey(struct crypto_shash *tfm,
 -			const u8 *key, unsigned int keylen)
 -{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(tfm);
--	u64 a, b;
+-	struct ghash_ctx *ctx = crypto_shash_ctx(tfm);
+-	be128 k;
 -
 -	if (keylen != GHASH_BLOCK_SIZE)
 -		return -EINVAL;
 -
--	/*
--	 * GHASH maps bits to polynomial coefficients backwards, which makes it
--	 * hard to implement.  But it can be shown that the GHASH multiplication
--	 *
--	 *	D * K (mod x^128 + x^7 + x^2 + x + 1)
--	 *
--	 * (where D is a data block and K is the key) is equivalent to:
--	 *
--	 *	bitreflect(D) * bitreflect(K) * x^(-127)
--	 *		(mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * So, the code below precomputes:
--	 *
--	 *	bitreflect(K) * x^(-127) (mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * ... but in Montgomery form (so that Montgomery multiplication can be
--	 * used), i.e. with an extra x^128 factor, which means actually:
--	 *
--	 *	bitreflect(K) * x (mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * The within-a-byte part of bitreflect() cancels out GHASH's built-in
--	 * reflection, and thus bitreflect() is actually a byteswap.
--	 */
--	a = get_unaligned_be64(key);
--	b = get_unaligned_be64(key + 8);
--	ctx->shash.a = cpu_to_le64((a << 1) | (b >> 63));
--	ctx->shash.b = cpu_to_le64((b << 1) | (a >> 63));
--	if (a >> 63)
--		ctx->shash.a ^= cpu_to_le64((u64)0xc2 << 56);
+-	if (ctx->gf128)
+-		gf128mul_free_4k(ctx->gf128);
+-
+-	BUILD_BUG_ON(sizeof(k) != GHASH_BLOCK_SIZE);
+-	memcpy(&k, key, GHASH_BLOCK_SIZE); /* avoid violating alignment rules */
+-	ctx->gf128 = gf128mul_init_4k_lle(&k);
+-	memzero_explicit(&k, GHASH_BLOCK_SIZE);
+-
+-	if (!ctx->gf128)
+-		return -ENOMEM;
+-
 -	return 0;
 -}
 -
 -static int ghash_update(struct shash_desc *desc,
 -			 const u8 *src, unsigned int srclen)
 -{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
 -	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-	struct ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
 -	u8 *dst = dctx->buffer;
--	int remain;
 -
--	kernel_fpu_begin();
--	remain = clmul_ghash_update(dst, src, srclen, &ctx->shash);
--	kernel_fpu_end();
--	return remain;
+-	do {
+-		crypto_xor(dst, src, GHASH_BLOCK_SIZE);
+-		gf128mul_4k_lle((be128 *)dst, ctx->gf128);
+-		src += GHASH_BLOCK_SIZE;
+-		srclen -= GHASH_BLOCK_SIZE;
+-	} while (srclen >= GHASH_BLOCK_SIZE);
+-
+-	return srclen;
 -}
 -
--static void ghash_flush(struct x86_ghash_ctx *ctx, struct ghash_desc_ctx *dctx,
--			const u8 *src, unsigned int len)
+-static void ghash_flush(struct shash_desc *desc, const u8 *src,
+-			unsigned int len)
 -{
+-	struct ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
+-	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
 -	u8 *dst = dctx->buffer;
 -
--	kernel_fpu_begin();
 -	if (len) {
 -		crypto_xor(dst, src, len);
--		clmul_ghash_mul(dst, &ctx->shash);
+-		gf128mul_4k_lle((be128 *)dst, ctx->gf128);
 -	}
--	kernel_fpu_end();
 -}
 -
 -static int ghash_finup(struct shash_desc *desc, const u8 *src,
 -		       unsigned int len, u8 *dst)
 -{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
 -	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
 -	u8 *buf = dctx->buffer;
 -
--	ghash_flush(ctx, dctx, src, len);
+-	ghash_flush(desc, src, len);
 -	memcpy(dst, buf, GHASH_BLOCK_SIZE);
 -
 -	return 0;
+-}
+-
+-static void ghash_exit_tfm(struct crypto_tfm *tfm)
+-{
+-	struct ghash_ctx *ctx = crypto_tfm_ctx(tfm);
+-	if (ctx->gf128)
+-		gf128mul_free_4k(ctx->gf128);
 -}
 -
 -static struct shash_alg ghash_alg = {
@@ -279,339 +269,213 @@ index aea5d4d06be7..000000000000
 -	.descsize	= sizeof(struct ghash_desc_ctx),
 -	.base		= {
 -		.cra_name		= "ghash",
--		.cra_driver_name	= "ghash-pclmulqdqni",
--		.cra_priority		= 400,
+-		.cra_driver_name	= "ghash-generic",
+-		.cra_priority		= 100,
 -		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
 -		.cra_blocksize		= GHASH_BLOCK_SIZE,
--		.cra_ctxsize		= sizeof(struct x86_ghash_ctx),
+-		.cra_ctxsize		= sizeof(struct ghash_ctx),
 -		.cra_module		= THIS_MODULE,
+-		.cra_exit		= ghash_exit_tfm,
 -	},
 -};
 -
--static const struct x86_cpu_id pcmul_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL), /* Pickle-Mickle-Duck */
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, pcmul_cpu_id);
--
--static int __init ghash_pclmulqdqni_mod_init(void)
+-static int __init ghash_mod_init(void)
 -{
--	if (!x86_match_cpu(pcmul_cpu_id))
--		return -ENODEV;
--
 -	return crypto_register_shash(&ghash_alg);
 -}
 -
--static void __exit ghash_pclmulqdqni_mod_exit(void)
+-static void __exit ghash_mod_exit(void)
 -{
 -	crypto_unregister_shash(&ghash_alg);
 -}
 -
--module_init(ghash_pclmulqdqni_mod_init);
--module_exit(ghash_pclmulqdqni_mod_exit);
+-module_init(ghash_mod_init);
+-module_exit(ghash_mod_exit);
 -
 -MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("GHASH hash function, accelerated by PCLMULQDQ-NI");
+-MODULE_DESCRIPTION("GHASH hash function");
 -MODULE_ALIAS_CRYPTO("ghash");
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 8950509833af..19c67f70fb38 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -172,11 +172,12 @@ $(obj)/powerpc/ghashp8-ppc.S: $(src)/powerpc/ghashp8-ppc.pl FORCE
- targets += powerpc/ghashp8-ppc.S
- OBJECT_FILES_NON_STANDARD_powerpc/ghashp8-ppc.o := y
- endif
+-MODULE_ALIAS_CRYPTO("ghash-generic");
+diff --git a/crypto/tcrypt.c b/crypto/tcrypt.c
+index aded37546137..1773f5f71351 100644
+--- a/crypto/tcrypt.c
++++ b/crypto/tcrypt.c
+@@ -1648,14 +1648,10 @@ static int do_test(const char *alg, u32 type, u32 mask, int m, u32 num_mb)
  
- libgf128hash-$(CONFIG_RISCV) += riscv/ghash-riscv64-zvkg.o
--libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
-+libgf128hash-$(CONFIG_X86) += x86/ghash-pclmul.o \
-+			      x86/polyval-pclmul-avx.o
- endif # CONFIG_CRYPTO_LIB_GF128HASH_ARCH
+ 	case 45:
+ 		ret = min(ret, tcrypt_test("rfc4309(ccm(aes))"));
+ 		break;
  
- # clean-files must be defined unconditionally
- clean-files += powerpc/ghashp8-ppc.S
+-	case 46:
+-		ret = min(ret, tcrypt_test("ghash"));
+-		break;
+-
+ 	case 48:
+ 		ret = min(ret, tcrypt_test("sha3-224"));
+ 		break;
  
-diff --git a/lib/crypto/x86/gf128hash.h b/lib/crypto/x86/gf128hash.h
-index adf6147ea677..6b79b06caab0 100644
---- a/lib/crypto/x86/gf128hash.h
-+++ b/lib/crypto/x86/gf128hash.h
-@@ -1,20 +1,27 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
- /*
-- * POLYVAL library functions, x86_64 optimized
-+ * GHASH and POLYVAL, x86_64 optimized
-  *
-  * Copyright 2025 Google LLC
-  */
- #include <asm/fpu/api.h>
- #include <linux/cpufeature.h>
- 
- #define NUM_H_POWERS 8
- 
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul);
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul_avx);
- 
-+asmlinkage void polyval_mul_pclmul(struct polyval_elem *a,
-+				   const struct polyval_elem *b);
- asmlinkage void polyval_mul_pclmul_avx(struct polyval_elem *a,
- 				       const struct polyval_elem *b);
-+
-+asmlinkage void ghash_blocks_pclmul(struct polyval_elem *acc,
-+				    const struct polyval_elem *key,
-+				    const u8 *data, size_t nblocks);
- asmlinkage void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
- 					  const struct polyval_key *key,
- 					  const u8 *data, size_t nblocks);
- 
- #define polyval_preparekey_arch polyval_preparekey_arch
-@@ -39,20 +46,58 @@ static void polyval_preparekey_arch(struct polyval_key *key,
- 					    &key->h_powers[NUM_H_POWERS - 1]);
+ 	case 49:
+@@ -2249,15 +2245,10 @@ static int do_test(const char *alg, u32 type, u32 mask, int m, u32 num_mb)
+ 		fallthrough;
+ 	case 317:
+ 		test_hash_speed("blake2b-512", sec, generic_hash_speed_template);
+ 		if (mode > 300 && mode < 400) break;
+ 		fallthrough;
+-	case 318:
+-		klen = 16;
+-		test_hash_speed("ghash", sec, generic_hash_speed_template);
+-		if (mode > 300 && mode < 400) break;
+-		fallthrough;
+ 	case 319:
+ 		test_hash_speed("crc32c", sec, generic_hash_speed_template);
+ 		if (mode > 300 && mode < 400) break;
+ 		fallthrough;
+ 	case 322:
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index 0b0ad358e091..dd01f86dd6fe 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4983,16 +4983,10 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.generic_driver = "gcm_base(ctr(sm4-generic),ghash-lib)",
+ 		.test = alg_test_aead,
+ 		.suite = {
+ 			.aead = __VECS(sm4_gcm_tv_template)
  		}
- 	}
- }
+-	}, {
+-		.alg = "ghash",
+-		.test = alg_test_hash,
+-		.suite = {
+-			.hash = __VECS(ghash_tv_template)
+-		}
+ 	}, {
+ 		.alg = "hctr2(aes)",
+ 		.generic_driver = "hctr2_base(xctr(aes-lib),polyval-lib)",
+ 		.test = alg_test_skcipher,
+ 		.suite = {
+diff --git a/crypto/testmgr.h b/crypto/testmgr.h
+index 1c69c11c0cdb..a3274abacfde 100644
+--- a/crypto/testmgr.h
++++ b/crypto/testmgr.h
+@@ -6181,119 +6181,10 @@ static const struct hash_testvec wp256_tv_template[] = {
+ 			  "\x8A\x7A\x5A\x52\xDE\xEE\x65\x62"
+ 			  "\x07\xC5\x62\xF9\x88\xE9\x5C\x69",
+ 	},
+ };
  
-+static void polyval_mul_x86(struct polyval_elem *a,
-+			    const struct polyval_elem *b)
-+{
-+	if (static_branch_likely(&have_pclmul) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		if (static_branch_likely(&have_pclmul_avx))
-+			polyval_mul_pclmul_avx(a, b);
-+		else
-+			polyval_mul_pclmul(a, b);
-+		kernel_fpu_end();
-+	} else {
-+		polyval_mul_generic(a, b);
-+	}
-+}
-+
-+#define ghash_mul_arch ghash_mul_arch
-+static void ghash_mul_arch(struct polyval_elem *acc,
-+			   const struct ghash_key *key)
-+{
-+	polyval_mul_x86(acc, &key->h);
-+}
-+
- #define polyval_mul_arch polyval_mul_arch
- static void polyval_mul_arch(struct polyval_elem *acc,
- 			     const struct polyval_key *key)
- {
--	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
--		kernel_fpu_begin();
--		polyval_mul_pclmul_avx(acc, &key->h_powers[NUM_H_POWERS - 1]);
--		kernel_fpu_end();
-+	polyval_mul_x86(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+}
-+
-+#define ghash_blocks_arch ghash_blocks_arch
-+static void ghash_blocks_arch(struct polyval_elem *acc,
-+			      const struct ghash_key *key,
-+			      const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_pclmul) && irq_fpu_usable()) {
-+		do {
-+			/* Allow rescheduling every 4 KiB. */
-+			size_t n = min_t(size_t, nblocks,
-+					 4096 / GHASH_BLOCK_SIZE);
-+
-+			kernel_fpu_begin();
-+			ghash_blocks_pclmul(acc, &key->h, data, n);
-+			kernel_fpu_end();
-+			data += n * GHASH_BLOCK_SIZE;
-+			nblocks -= n;
-+		} while (nblocks);
- 	} else {
--		polyval_mul_generic(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+		ghash_blocks_generic(acc, &key->h, data, nblocks);
- 	}
- }
- 
- #define polyval_blocks_arch polyval_blocks_arch
- static void polyval_blocks_arch(struct polyval_elem *acc,
-@@ -78,9 +123,11 @@ static void polyval_blocks_arch(struct polyval_elem *acc,
- }
- 
- #define gf128hash_mod_init_arch gf128hash_mod_init_arch
- static void gf128hash_mod_init_arch(void)
- {
--	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ) &&
--	    boot_cpu_has(X86_FEATURE_AVX))
--		static_branch_enable(&have_pclmul_avx);
-+	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
-+		static_branch_enable(&have_pclmul);
-+		if (boot_cpu_has(X86_FEATURE_AVX))
-+			static_branch_enable(&have_pclmul_avx);
-+	}
- }
-diff --git a/arch/x86/crypto/ghash-clmulni-intel_asm.S b/lib/crypto/x86/ghash-pclmul.S
-similarity index 54%
-rename from arch/x86/crypto/ghash-clmulni-intel_asm.S
-rename to lib/crypto/x86/ghash-pclmul.S
-index c4fbaa82ed7a..6ffb5aea6063 100644
---- a/arch/x86/crypto/ghash-clmulni-intel_asm.S
-+++ b/lib/crypto/x86/ghash-pclmul.S
-@@ -19,12 +19,12 @@
- .section	.rodata.cst16.bswap_mask, "aM", @progbits, 16
- .align 16
- .Lbswap_mask:
- 	.octa 0x000102030405060708090a0b0c0d0e0f
- 
--#define DATA	%xmm0
--#define SHASH	%xmm1
-+#define ACC	%xmm0
-+#define KEY	%xmm1
- #define T1	%xmm2
- #define T2	%xmm3
- #define T3	%xmm4
- #define BSWAP	%xmm5
- #define IN1	%xmm6
-@@ -32,102 +32,96 @@
- .text
- 
+-static const struct hash_testvec ghash_tv_template[] =
+-{
+-	{
+-		.key	= "\xdf\xa6\xbf\x4d\xed\x81\xdb\x03"
+-			  "\xff\xca\xff\x95\xf8\x30\xf0\x61",
+-		.ksize	= 16,
+-		.plaintext = "\x95\x2b\x2a\x56\xa5\x60\x04a\xc0"
+-			     "\xb3\x2b\x66\x56\xa0\x5b\x40\xb6",
+-		.psize	= 16,
+-		.digest	= "\xda\x53\xeb\x0a\xd2\xc5\x5b\xb6"
+-			  "\x4f\xc4\x80\x2c\xc3\xfe\xda\x60",
+-	}, {
+-		.key	= "\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b"
+-			  "\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
+-		.ksize	= 16,
+-		.plaintext = "what do ya want for nothing?",
+-		.psize	= 28,
+-		.digest	= "\x3e\x1f\x5c\x4d\x65\xf0\xef\xce"
+-			  "\x0d\x61\x06\x27\x66\x51\xd5\xe2",
+-	}, {
+-		.key	= "\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa"
+-			  "\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa",
+-		.ksize	= 16,
+-		.plaintext = "\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd"
+-			"\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd"
+-			"\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd"
+-			"\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd",
+-		.psize	= 50,
+-		.digest	= "\xfb\x49\x8a\x36\xe1\x96\xe1\x96"
+-			  "\xe1\x96\xe1\x96\xe1\x96\xe1\x96",
+-	}, {
+-		.key	= "\xda\x53\xeb\x0a\xd2\xc5\x5b\xb6"
+-			  "\x4f\xc4\x80\x2c\xc3\xfe\xda\x60",
+-		.ksize	= 16,
+-		.plaintext = "\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd"
+-			"\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd"
+-			"\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd"
+-			"\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd",
+-		.psize	= 50,
+-		.digest	= "\x2b\x5c\x0c\x7f\x52\xd1\x60\xc2"
+-			  "\x49\xed\x6e\x32\x7a\xa9\xbe\x08",
+-	}, {
+-		.key	= "\x95\x2b\x2a\x56\xa5\x60\x04a\xc0"
+-			  "\xb3\x2b\x66\x56\xa0\x5b\x40\xb6",
+-		.ksize	= 16,
+-		.plaintext = "Test With Truncation",
+-		.psize	= 20,
+-		.digest	= "\xf8\x94\x87\x2a\x4b\x63\x99\x28"
+-			  "\x23\xf7\x93\xf7\x19\xf5\x96\xd9",
+-	}, {
+-		.key	= "\x0a\x1b\x2c\x3d\x4e\x5f\x64\x71"
+-			"\x82\x93\xa4\xb5\xc6\xd7\xe8\xf9",
+-		.ksize	= 16,
+-		.plaintext = "\x56\x6f\x72\x20\x6c\x61\x75\x74"
+-			"\x65\x72\x20\x4c\x61\x75\x73\x63"
+-			"\x68\x65\x6e\x20\x75\x6e\x64\x20"
+-			"\x53\x74\x61\x75\x6e\x65\x6e\x20"
+-			"\x73\x65\x69\x20\x73\x74\x69\x6c"
+-			"\x6c\x2c\x0a\x64\x75\x20\x6d\x65"
+-			"\x69\x6e\x20\x74\x69\x65\x66\x74"
+-			"\x69\x65\x66\x65\x73\x20\x4c\x65"
+-			"\x62\x65\x6e\x3b\x0a\x64\x61\x73"
+-			"\x73\x20\x64\x75\x20\x77\x65\x69"
+-			"\xc3\x9f\x74\x20\x77\x61\x73\x20"
+-			"\x64\x65\x72\x20\x57\x69\x6e\x64"
+-			"\x20\x64\x69\x72\x20\x77\x69\x6c"
+-			"\x6c\x2c\x0a\x65\x68\x20\x6e\x6f"
+-			"\x63\x68\x20\x64\x69\x65\x20\x42"
+-			"\x69\x72\x6b\x65\x6e\x20\x62\x65"
+-			"\x62\x65\x6e\x2e\x0a\x0a\x55\x6e"
+-			"\x64\x20\x77\x65\x6e\x6e\x20\x64"
+-			"\x69\x72\x20\x65\x69\x6e\x6d\x61"
+-			"\x6c\x20\x64\x61\x73\x20\x53\x63"
+-			"\x68\x77\x65\x69\x67\x65\x6e\x20"
+-			"\x73\x70\x72\x61\x63\x68\x2c\x0a"
+-			"\x6c\x61\x73\x73\x20\x64\x65\x69"
+-			"\x6e\x65\x20\x53\x69\x6e\x6e\x65"
+-			"\x20\x62\x65\x73\x69\x65\x67\x65"
+-			"\x6e\x2e\x0a\x4a\x65\x64\x65\x6d"
+-			"\x20\x48\x61\x75\x63\x68\x65\x20"
+-			"\x67\x69\x62\x74\x20\x64\x69\x63"
+-			"\x68\x2c\x20\x67\x69\x62\x20\x6e"
+-			"\x61\x63\x68\x2c\x0a\x65\x72\x20"
+-			"\x77\x69\x72\x64\x20\x64\x69\x63"
+-			"\x68\x20\x6c\x69\x65\x62\x65\x6e"
+-			"\x20\x75\x6e\x64\x20\x77\x69\x65"
+-			"\x67\x65\x6e\x2e\x0a\x0a\x55\x6e"
+-			"\x64\x20\x64\x61\x6e\x6e\x20\x6d"
+-			"\x65\x69\x6e\x65\x20\x53\x65\x65"
+-			"\x6c\x65\x20\x73\x65\x69\x74\x20"
+-			"\x77\x65\x69\x74\x2c\x20\x73\x65"
+-			"\x69\x20\x77\x65\x69\x74\x2c\x0a"
+-			"\x64\x61\x73\x73\x20\x64\x69\x72"
+-			"\x20\x64\x61\x73\x20\x4c\x65\x62"
+-			"\x65\x6e\x20\x67\x65\x6c\x69\x6e"
+-			"\x67\x65\x2c\x0a\x62\x72\x65\x69"
+-			"\x74\x65\x20\x64\x69\x63\x68\x20"
+-			"\x77\x69\x65\x20\x65\x69\x6e\x20"
+-			"\x46\x65\x69\x65\x72\x6b\x6c\x65"
+-			"\x69\x64\x0a\xc3\xbc\x62\x65\x72"
+-			"\x20\x64\x69\x65\x20\x73\x69\x6e"
+-			"\x6e\x65\x6e\x64\x65\x6e\x20\x44"
+-			"\x69\x6e\x67\x65\x2e\x2e\x2e\x0a",
+-		.psize	= 400,
+-		.digest = "\xad\xb1\xc1\xe9\x56\x70\x31\x1d"
+-			"\xbb\x5b\xdf\x5e\x70\x72\x1a\x57",
+-	},
+-};
+-
  /*
-  * __clmul_gf128mul_ble:	internal ABI
-  * input:
-- *	DATA:			operand1
-- *	SHASH:			operand2, hash_key << 1 mod poly
-+ *	ACC:			operand1
-+ *	KEY:			operand2, hash_key << 1 mod poly
-  * output:
-- *	DATA:			operand1 * operand2 mod poly
-+ *	ACC:			operand1 * operand2 mod poly
-  * changed:
-  *	T1
-  *	T2
-  *	T3
+  * HMAC-MD5 test vectors from RFC2202
+  * (These need to be fixed to not use strlen).
   */
- SYM_FUNC_START_LOCAL(__clmul_gf128mul_ble)
--	movaps DATA, T1
--	pshufd $0b01001110, DATA, T2
--	pshufd $0b01001110, SHASH, T3
--	pxor DATA, T2
--	pxor SHASH, T3
-+	movaps ACC, T1
-+	pshufd $0b01001110, ACC, T2
-+	pshufd $0b01001110, KEY, T3
-+	pxor ACC, T2
-+	pxor KEY, T3
- 
--	pclmulqdq $0x00, SHASH, DATA	# DATA = a0 * b0
--	pclmulqdq $0x11, SHASH, T1	# T1 = a1 * b1
-+	pclmulqdq $0x00, KEY, ACC	# ACC = a0 * b0
-+	pclmulqdq $0x11, KEY, T1	# T1 = a1 * b1
- 	pclmulqdq $0x00, T3, T2		# T2 = (a1 + a0) * (b1 + b0)
--	pxor DATA, T2
-+	pxor ACC, T2
- 	pxor T1, T2			# T2 = a0 * b1 + a1 * b0
- 
- 	movaps T2, T3
- 	pslldq $8, T3
- 	psrldq $8, T2
--	pxor T3, DATA
--	pxor T2, T1			# <T1:DATA> is result of
-+	pxor T3, ACC
-+	pxor T2, T1			# <T1:ACC> is result of
- 					# carry-less multiplication
- 
- 	# first phase of the reduction
--	movaps DATA, T3
-+	movaps ACC, T3
- 	psllq $1, T3
--	pxor DATA, T3
-+	pxor ACC, T3
- 	psllq $5, T3
--	pxor DATA, T3
-+	pxor ACC, T3
- 	psllq $57, T3
- 	movaps T3, T2
- 	pslldq $8, T2
- 	psrldq $8, T3
--	pxor T2, DATA
-+	pxor T2, ACC
- 	pxor T3, T1
- 
- 	# second phase of the reduction
--	movaps DATA, T2
-+	movaps ACC, T2
- 	psrlq $5, T2
--	pxor DATA, T2
-+	pxor ACC, T2
- 	psrlq $1, T2
--	pxor DATA, T2
-+	pxor ACC, T2
- 	psrlq $1, T2
- 	pxor T2, T1
--	pxor T1, DATA
-+	pxor T1, ACC
- 	RET
- SYM_FUNC_END(__clmul_gf128mul_ble)
- 
--/* void clmul_ghash_mul(char *dst, const le128 *shash) */
--SYM_FUNC_START(clmul_ghash_mul)
-+/*
-+ * void polyval_mul_pclmul(struct polyval_elem *a,
-+ *			   const struct polyval_elem *b)
-+ */
-+SYM_FUNC_START(polyval_mul_pclmul)
- 	FRAME_BEGIN
--	movups (%rdi), DATA
--	movups (%rsi), SHASH
--	movaps .Lbswap_mask(%rip), BSWAP
--	pshufb BSWAP, DATA
-+	movups (%rdi), ACC
-+	movups (%rsi), KEY
- 	call __clmul_gf128mul_ble
--	pshufb BSWAP, DATA
--	movups DATA, (%rdi)
-+	movups ACC, (%rdi)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_ghash_mul)
-+SYM_FUNC_END(polyval_mul_pclmul)
- 
- /*
-- * int clmul_ghash_update(char *dst, const char *src, unsigned int srclen,
-- *			  const le128 *shash);
-+ * void ghash_blocks_pclmul(struct polyval_elem *acc,
-+ *			    const struct polyval_elem *key,
-+ *			    const u8 *data, size_t nblocks)
-  */
--SYM_FUNC_START(clmul_ghash_update)
-+SYM_FUNC_START(ghash_blocks_pclmul)
- 	FRAME_BEGIN
--	cmp $16, %rdx
--	jb .Lupdate_just_ret	# check length
- 	movaps .Lbswap_mask(%rip), BSWAP
--	movups (%rdi), DATA
--	movups (%rcx), SHASH
--	pshufb BSWAP, DATA
-+	movups (%rdi), ACC
-+	movups (%rsi), KEY
- .align 4
--.Lupdate_loop:
--	movups (%rsi), IN1
-+.Lnext_block:
-+	movups (%rdx), IN1
- 	pshufb BSWAP, IN1
--	pxor IN1, DATA
-+	pxor IN1, ACC
- 	call __clmul_gf128mul_ble
--	sub $16, %rdx
--	add $16, %rsi
--	cmp $16, %rdx
--	jge .Lupdate_loop
--	pshufb BSWAP, DATA
--	movups DATA, (%rdi)
--.Lupdate_just_ret:
--	mov %rdx, %rax
-+	add $16, %rdx
-+	dec %rcx
-+	jnz .Lnext_block
-+	movups ACC, (%rdi)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_ghash_update)
-+SYM_FUNC_END(ghash_blocks_pclmul)
+ static const struct hash_testvec hmac_md5_tv_template[] =
 -- 
 2.53.0
 
