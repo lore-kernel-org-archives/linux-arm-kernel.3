@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065A81090220
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A972A1090220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICmpwB6fh0A2b0UPMsVtdQowQ3NwvZk/ZYuBrQL7xLU=; b=4245t5zRzn6RzHgZgV5OdS81Ud
-	MZ67VBmL6ZePhg1Nd8RvxI19JRBxmlyyZB2wgdnRMgh0esSW7ncPTNTsfpIj4ZpZAx/N96w//AEFN
-	vSFB6mSksl8omVnCCEXYXGTpkocrvfrZZbyRsJ4b6y6Ou09N1HLlsr+srs6ZO3YOJzGYl1zTZ4Baw
-	0Z/lOirWj7mkT2EGh0N6EffpwCVRV11bxXYSJjdqgi0Ag50AxvxW22WkgRh0uivTLI8j8RJm5YI63
-	IwUJm3eaCeZ9sspZrc04bs55wiZ56x036hcoBfs7VHrGRCs+eQkvQ7FGD2p0AbShR87ssyhbJjg+m
-	CzgGMQBQ==;
+	bh=ADeC3fZCIoKVRKZ8CRzABnfRAAR0yYLvMqKhz5Nc4SQ=; b=vs3oxkPeVwmaEvq7R2ex1sT+uK
+	BqOBFE2Tc6XkilkDUv+E3wOHyZpB5fgy99i1azFRnWrgO1wSyoJy97k6cVA5hYYNTPJBBL0q0iyQF
+	LyToW6cdF4c346vhbQpmNSEN8dbmDDjiwmR4MYbw2vBNP3FUwCcytgQWIiAQnBqg1Vrh0A/MPI5ug
+	dUrGeXqczCrqzvL9eI3m9VOnAYr9izIBXAz+wSMcOoVmbWt4EWIod2oh2GFnCD9taB9Sjj05fqNjc
+	b7SqNLs6cUy15IlD0LHXlHgxuvBEnZRwPKQBGhNJj2SPkUzGNwj+YQvpmeuoV9xhebmAeh/yOWalQ
+	JWMzTAiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DSY-0000000AguP-3Nmm;
-	Thu, 19 Mar 2026 13:30:46 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w3DUE-0000000Ah4z-3D3j;
+	Thu, 19 Mar 2026 13:32:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DSU-0000000AgtH-2on3
+	id 1w3DUD-0000000Ah4i-2xTG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 13:30:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=ICmpwB6fh0A2b0UPMsVtdQowQ3NwvZk/ZYuBrQL7xLU=; b=xW
-	MwkOVARasJTlAwliM6ZawizqVt4PFeUf14ARuA+C51I+kWFt0bZckt8s57fDBxNmUdtXzyPTSmm7q
-	MJ4vDl34CMg6TQLbKllfsO6/jAVLYn0SnKtP7sGgIu2Ao5lZhrRJYrKCn6epW9PpKKQbPciFC18IJ
-	P+Knr+mgYvtL6po=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w3DSJ-00COBb-6c; Thu, 19 Mar 2026 14:30:31 +0100
-Date: Thu, 19 Mar 2026 14:30:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: add initial device tree for
- TQMa93xx/MBa93xxLA-MINI
-Message-ID: <16102fa9-4b6e-4e40-98b2-2f138ad75ecd@lunn.ch>
-References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
- <20260317111704.1075938-3-alexander.stein@ew.tq-group.com>
- <d67fafc1-4261-4818-8b58-7f3a874613e4@lunn.ch>
- <2259293.irdbgypaU6@steina-w>
+	Thu, 19 Mar 2026 13:32:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ABF09600AE;
+	Thu, 19 Mar 2026 13:32:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E42C2BCB0;
+	Thu, 19 Mar 2026 13:32:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773927148;
+	bh=fv2RZ8oUz3S5TdoJKUecgYfd31nIaoj1pTV8+h7c6G4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PJfkiQ62e2TWYYLFZ5sLrfZL+iiRJgGOIFBHm1ggmiWFHV1dUtQRYOfIoOlYSObcJ
+	 rojT+BUKZpSZ/UDou3AWVJhMc7ycc/wL7sBNLMdiHqJAygYMCruYsgV63B5qUAMWY9
+	 wYdIcxuSCRDhYXXy30y0apf5axHdmax60FORjONvGriBrJpxNL90OFm9kCevI7IrDg
+	 CLRXtwfxVbx4jbf6HUit+5PvVwNW92Vcfx4X01vgpRf0MlxXD6uuK5iL6+hUhCrUTe
+	 55uEzr5eMVVFkrddu63safROg6lEf3Ll7ioZh9OoY/HV5nS6Ho0dGJJJHxn5aviKLj
+	 utSiDICey+iCw==
+Date: Thu, 19 Mar 2026 13:32:22 +0000
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 3/4] arm64: errata: Work around early CME DVMSync
+ acknowledgement
+Message-ID: <abv65n3fhvYDEez0@willie-the-truck>
+References: <20260318191918.2653160-1-catalin.marinas@arm.com>
+ <20260318191918.2653160-4-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2259293.irdbgypaU6@steina-w>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_063042_707091_35673DC8 
-X-CRM114-Status: GOOD (  13.65  )
+In-Reply-To: <20260318191918.2653160-4-catalin.marinas@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +75,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 12:25:11PM +0100, Alexander Stein wrote:
-> Hi Andrew,
+Hi Catalin,
+
+Just a handful of minor comments below.
+
+Are you planning to take this for 7.1 or would you like me to take it
+via for-next/fixes? I'm leaning towards the former so it can simmer in
+-next for a bit...
+
+On Wed, Mar 18, 2026 at 07:19:15PM +0000, Catalin Marinas wrote:
+> C1-Pro acknowledges DVMSync messages before completing the SME/CME
+> memory accesses. Work around this by issuing an IPI to the affected CPUs
+> if they are running in EL0 with SME enabled.
 > 
-> Am Mittwoch, 18. März 2026, 15:49:38 CET schrieb Andrew Lunn:
-> > On Tue, Mar 17, 2026 at 12:17:01PM +0100, Alexander Stein wrote:
-> > > +	mdio {
-> > > +		compatible = "snps,dwmac-mdio";
-> > > +		#address-cells = <1>;
-> > > +		#size-cells = <0>;
-> > > +
-> > > +		ethphy_eqos: ethernet-phy@0 {
-> > > +			compatible = "ethernet-phy-ieee802.3-c22";
-> > > +			reg = <0>;
-> > > +			pinctrl-names = "default";
-> > > +			pinctrl-0 = <&pinctrl_eqos_phy>;
-> > > +			interrupt-parent = <&gpio3>;
-> > > +			interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
-> > 
-> > Hi Alexander
-> > 
-> > Haven't we been here before? EDGE interrupts are generally wrong for
-> > PHYs.
-> 
-> Whoops. Sorry, this slipped in from the downstream kernel. Will fix that.
+> Note that we avoid the local DSB in the IPI handler as the kernel runs
+> with SCTLR_EL1.IESB=1 This is sufficient to complete SME memory accesses
+> at EL0 on taking an exception to EL1. On the return to user path, no
+> barrier is necessary either. See the comment in sme_set_active() and the
+> more detailed explanation in the link below.
 
-You might want to fix your downstream as well, since this is not a
-Mainline thing.
+Missing link?
 
-> > > +&fec {
-> > > +	pinctrl-names = "default";
-> > > +	pinctrl-0 = <&pinctrl_fec>;
-> > > +	phy-mode = "rgmii-id";
-> > > +	phy-handle = <&ethphy_fec>;
-> > > +	fsl,magic-packet;
-> > 
-> > Has WoL been tested?
-> 
-> Yes, it works for both interfaces. &eqos doesn't need that property though.
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/Kconfig                | 12 +++++
+>  arch/arm64/include/asm/cpucaps.h  |  2 +
+>  arch/arm64/include/asm/cputype.h  |  2 +
+>  arch/arm64/include/asm/fpsimd.h   | 21 ++++++++
+>  arch/arm64/include/asm/mmu.h      |  1 +
+>  arch/arm64/include/asm/tlbflush.h | 22 +++++++++
+>  arch/arm64/kernel/cpu_errata.c    | 30 ++++++++++++
+>  arch/arm64/kernel/entry-common.c  |  3 ++
+>  arch/arm64/kernel/fpsimd.c        | 81 +++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/process.c       |  7 +++
+>  arch/arm64/tools/cpucaps          |  1 +
+>  11 files changed, 182 insertions(+)
 
-Great. For the next year or two, i might be asking this all the time,
-so maybe call it out in the commit message.
+nit: Please update Documentation/arch/arm64/silicon-errata.rst
 
-   Andrew
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 38dba5f7e4d2..f07cdb6ada08 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1175,6 +1175,18 @@ config ARM64_ERRATUM_4311569
+>  
+>  	  If unsure, say Y.
+>  
+> +config ARM64_ERRATUM_SME_DVMSYNC
+
+Any reason not to call this ARM64_ERRATUM_4193714 like we do for other
+hardware bugs?
+
+> +	bool "C1-Pro: 4193714: SME DVMSync early acknowledgement"
+> +	depends on ARM64_SME
+> +	default y
+> +	help
+> +	  Enable workaround for C1-Pro acknowledging the DVMSync before
+> +	  the SME memory accesses are complete. This would cause TLB
+> +	  maintenance for processes using SME to also issue an IPI to
+> +	  the affected CPUs.
+
+s/would/will/
+
+> +
+> +	  If unsure, say Y.
+> +
+>  config CAVIUM_ERRATUM_22375
+>  	bool "Cavium erratum 22375, 24313"
+>  	default y
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 177c691914f8..d0e6cff93876 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -64,6 +64,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
+>  	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
+> +	case ARM64_WORKAROUND_SME_DVMSYNC:
+> +		return IS_ENABLED(CONFIG_ARM64_ERRATUM_SME_DVMSYNC);
+>  	case ARM64_MPAM:
+>  		/*
+>  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
+> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+> index 08860d482e60..7b518e81dd15 100644
+> --- a/arch/arm64/include/asm/cputype.h
+> +++ b/arch/arm64/include/asm/cputype.h
+> @@ -98,6 +98,7 @@
+>  #define ARM_CPU_PART_CORTEX_A725	0xD87
+>  #define ARM_CPU_PART_CORTEX_A720AE	0xD89
+>  #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
+> +#define ARM_CPU_PART_C1_PRO		0xD8B
+>  
+>  #define APM_CPU_PART_XGENE		0x000
+>  #define APM_CPU_VAR_POTENZA		0x00
+> @@ -189,6 +190,7 @@
+>  #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
+>  #define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
+>  #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
+> +#define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
+>  #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
+>  #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
+>  #define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
+
+I'd probably do the CPU part as a separate patch, as folks often backport
+those once they get multiple users in the tree (e.g. for perf or other
+errata).
+
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index 1d2e33559bd5..129c29aa0fc4 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -428,6 +428,24 @@ static inline size_t sme_state_size(struct task_struct const *task)
+>  	return __sme_state_size(task_get_sme_vl(task));
+>  }
+>  
+> +void sme_enable_dvmsync(void);
+> +void sme_set_active(unsigned int cpu);
+> +void sme_clear_active(unsigned int cpu);
+> +
+> +static inline void sme_enter_from_user_mode(void)
+> +{
+> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
+> +	    test_thread_flag(TIF_SME))
+> +		sme_clear_active(smp_processor_id());
+> +}
+> +
+> +static inline void sme_exit_to_user_mode(void)
+> +{
+> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
+> +	    test_thread_flag(TIF_SME))
+> +		sme_set_active(smp_processor_id());
+> +}
+
+nit: You could push smp_processor_id() down into sme_{set,clear}_active()
+since they are always called for the running CPU.
+
+Will
 
