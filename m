@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE6F109190B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8738109190B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eakklbn74VCv4Bufa58WLRD+OmPRfbKrfKbhGMGnOpM=; b=hQ2boZ14dQ/uw6W/nbOq6yYyRu
-	ragfzdP6ujNYFL1kcMM7RQbPgDg/SrLsi3nuZ6v9lMZqFn8bHljG4yUJW3G5rDPxNidD60+hQi1fH
-	WqrOZwxDJiSfGVp+NDFpvROCXR808Y3dFI8VLv8SEjVlI/OOy72vnPC4jzYxQzcu8m5c6G3gO0BJ9
-	MB/jgLOGwcKDoEmSFIDMAxejzTngqvXyy8jKlWoF39niSc03DNPonbY1+uzIJZLaqyfNxYYR/nWCV
-	tb6tz7DlxvQxtgFTLWpaocpMEgJTYS3o0LXzhlOtaEcDZkI9WhUZZpaoF6gWxK6kIV8waCg4U9/Qh
-	YRfkrtcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J98G/61sc667kDXVS1HdzK2h40Uy+YIn7bV3QsVznPU=; b=C+Iho89Aur1/w+StIdkY87Y0VG
+	wGk3SgsphkvWX28YcU+BL7L1cPApGpOM81ROKRfjasM5Upu0elOWTC0mxYoE8S984/7xO6gdg+wLM
+	qlhCC5wZEMBmtuKnOlQ0Di24nxqjaYFu8AA9qDHDUVF9Pq5JPBEfTNWyrokCUQixymUutSXUatMyd
+	SSAWJUu7wTyY9841V8QWdD+s3ynTQUeFJ96+G/8BIXKClSV4C4+/+ngpAheJUPlauD59ouVF2ouZh
+	VKqrXku7WuayxsvOSzz+ObY81rQFNbSTTi5Uj3F9YRDxhr5GJ+fOJ1thv/tG6KXuTqkzG2Qhy0M5k
+	QOHJajUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3I4d-0000000BLAy-0b8S;
-	Thu, 19 Mar 2026 18:26:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3I7w-0000000BLfF-1aNU;
+	Thu, 19 Mar 2026 18:29:48 +0000
+Received: from mail-wm1-f50.google.com ([209.85.128.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3I4b-0000000BL9y-0U4X
+	id 1w3I7u-0000000BLd7-22EC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 18:26:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E9FF60053;
-	Thu, 19 Mar 2026 18:26:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB2DC19424;
-	Thu, 19 Mar 2026 18:26:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773944780;
-	bh=GBQQbLO2a4zuF3uSSSHniBNg4oXiGd3KKh0MkAh+ZLI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=f+90WUPOSqYqST8rwA0x76yqe7boMwbsDN7P3SAgdK6wvuKz8G0R/nS/vx9mCEVMJ
-	 HQ+5KfrAjjtBHBGgV7hCS3OFBJJyO2GrcZAff70lc/01Y44GHeFgR/95eqcCbBh32f
-	 MFQsQ7/EZstr0l8AWY2uiJ3c/7vBQFejqBGzlrb4sWpQcv5j6O0yAeokdQsq97XRFc
-	 TFcTHEn/2tzeABskVo5j1INGQ8p9GcRaIeGsD36BT/QBZul/xN3U/QrqWIDj69Ja+r
-	 uipBwdbAoOMBkapNIQYCpH6jWi6HFuqh1lwChiXfGN307VF7cBw2EB+2NcIT6lZigh
-	 KsKTZWy6XthNA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w3I4X-00000003lWw-3Nvm;
-	Thu, 19 Mar 2026 18:26:17 +0000
-Date: Thu, 19 Mar 2026 18:26:17 +0000
-Message-ID: <868qbn65h2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v7 00/41] KVM: arm64: Introduce vGIC-v5 with PPI support
-In-Reply-To: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 19 Mar 2026 18:29:47 +0000
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-486fd5360d4so6762405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:29:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773944984; x=1774549784; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=J98G/61sc667kDXVS1HdzK2h40Uy+YIn7bV3QsVznPU=;
+        b=hZIsapHkV1/08wyfeRAnWjvfQJBxvpG17lEsRtlRglhwAqIbtrk9XSERiA02Hk/ex5
+         EnWYpenZSKcAYZ2XKhc+MLcJPrjoB/Tx6nto2NRGqssW+N8+2ZCRcXaatKGGf6peJho+
+         MNFjmqeHSBjE2nbhaxCpox3u0UJe8RX4IKihClhUMawyM9pJVESDrVnu2hB+Y2cmhsAn
+         unif8Jkww56Wdc3ZtWgJxaokyhRxN2QBYCrUjkYCTaP+dnzOSCghNl8cWPE9qZ0llEy8
+         Hdxop5W0PphVSmFOKMwWQk2HPnUI56EKjGn+Ul0BXJW8Lw8OBIh6hMZzmF7iKn7NYz/N
+         5ZEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773944984; x=1774549784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=J98G/61sc667kDXVS1HdzK2h40Uy+YIn7bV3QsVznPU=;
+        b=itVuyc+4SH6+nG25nbBzwr+mAk5ODdtwNTUZXaGfOMfDjh1CKUW+VC/ZT0M0WPwFXB
+         5TVMx2WYYPBpykklmA62bYb45QfZIRTF4bPQFE+AwndSSmR8svJz4MwIXUwT+rLsX8Eo
+         nPmwlEZoBX1eP/1xhkVIrckA/W8pUJ74QkuNzI6BSxjUHTAkMzNdgxYQGNOT6D8g5bnp
+         2GkxXicW9dKeSAD0YX0tNA8+KMIzTI1nbtlsB5vg3tg3NzPvk/D3Ie+4vC7Htn3sWYa0
+         j3xlVJEeAXIrUyG4GwyUNgZ45QPUFMGqWlYdlS+csfOfByVByvc6zyRfo1QFJyS6gx3W
+         X10Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWGHnFWFD1znYZ+MZ7YPNDuIj+v/Psnv25WfVjnJWfkqL1CKFzU8Mk/yStp12IRYLeZmVou55BHtVA0IjMc9Nub@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBWTIm6bTIdvdMR6KF3SNAT+zfnvQXmCu7RuJgprO5iwoz9CdV
+	ObLEXUR5CPjo0P6Jc4IdI/ITgx+6OJJvXnYidi9qN0TLhym8nX/gwHjb
+X-Gm-Gg: ATEYQzzKAc0PSE38foJI+4Y/mXlwdDuF7SsX4cERO5JskmE30Ut34nX/S2WpDnZYpxf
+	7EJkWDhFDKZsSdWGTDH4aQ3VTg5+F87l/5zcvnQlG+/ZaepBxA3DWlRp4Pjr5z+W23+0DNPUw9a
+	win7KOhtXUNLUBN9N91BzB6vTj7CSmUevrgs1CUsbEnO1vr4uegxkE9VNPtUZkuKi61ROAQgMAm
+	jRK7dObT0pwegNtk1qyZLd8CiZYdgKfQqLQucLXLIHr5TNTl6fS444VeotjPgn8esikVTCM/iWH
+	216HGyxH2KklzRf8H9pFLo4L61kyFYuYpj+8ubMiKV0h6ZvgS206+7kLAQYQXzNR4lnT9x1xbdg
+	bEwXqO46MBrH9cUK/uViK/AsRB/M2VosoBaUxrSr9lzzB9eilZUNMKCr8mBWZsJbFSmu2NlnLeN
+	4e2BH8fDplnrFRPI+Dqiws9XD2Tj6ApQaYcacA1JvptqKt
+X-Received: by 2002:a05:600c:c493:b0:485:4388:3492 with SMTP id 5b1f17b1804b1-486fedbd0b0mr2311045e9.11.1773944983675;
+        Thu, 19 Mar 2026 11:29:43 -0700 (PDT)
+Received: from debian.lan ([171.22.85.208])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f8b949e1sm142204505e9.9.2026.03.19.11.29.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2026 11:29:43 -0700 (PDT)
+From: =?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Haibo Chen <haibo.chen@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	=?UTF-8?q?Adri=C3=A1n=20Garc=C3=ADa=20Casado?= <adriangarciacasado42@gmail.com>
+Subject: [PATCH v7 3/3] mmc: sdhci-esdhc-imx: remove redundant mx25 handling and consolidate soc data
+Date: Thu, 19 Mar 2026 19:29:38 +0100
+Message-ID: <20260319182938.19525-1-adriangarciacasado42@gmail.com>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_112946_543152_0BD00132 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,120 +103,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Mar 2026 15:49:42 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> This is v7 of the patch series to add the virtual GICv5 [1] device
-> (vgic_v5). Only PPIs are supported by this initial series, and the
-> vgic_v5 implementation is restricted to the CPU interface,
-> only. Further patch series are to follow in due course, and will add
-> support for SPIs, LPIs, the GICv5 IRS, and the GICv5 ITS.
+Remove the is_imx25_esdhc check and redundant mx25-specific handling as it's no longer necessary since the new_soc initialization. Consolidate the drive data structs for imx25/35.
 
-[...]
+Signed-off-by: Adrián García Casado <adriangarciacasado42@gmail.com>
+---
+ drivers/mmc/host/sdhci-esdhc-imx.c | 21 +++++----------------
+ 1 file changed, 5 insertions(+), 16 deletions(-)
 
-I have queued this, but it didn't go as planned. QEMU guests end-up
-with a NULL pointer dereference, because we are now setting ops pretty
-early in the game, while QEMU creates an irqchip very late.
-
-The obvious solution is what you originally had in your v6, which is
-to set the ops in kvm_timer_enable(), but to do it over *all* the
-timer interrupts in order not to break NV is a fairly subtle way(we
-still want to use the .get_input_level() callback on all timers.
-
-I ended up with the following diff, which I folded in the respective
-patches, meaning that patch 4 can be dropped altogether.
-
-Thanks,
-
-	M.
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index f6d2f0246d057..67b989671b410 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1106,8 +1106,6 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
- void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index a7a5df673b0f6..3dc43f1e517aa 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -256,11 +256,7 @@ struct esdhc_soc_data {
+ 	u32 quirks;
+ };
+ 
+-static const struct esdhc_soc_data esdhc_imx25_data = {
+-	.flags = ESDHC_FLAG_ERR004536,
+-};
+-
+-static const struct esdhc_soc_data esdhc_imx35_data = {
++static const struct esdhc_soc_data esdhc_imx25_35_data = {
+ 	.flags = ESDHC_FLAG_ERR004536,
+ };
+ 
+@@ -391,8 +387,8 @@ struct pltfm_imx_data {
+ };
+ 
+ static const struct of_device_id imx_esdhc_dt_ids[] = {
+-	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+-	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
++	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
++	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+ 	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+ 	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+ 	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+@@ -412,10 +408,6 @@ static const struct of_device_id imx_esdhc_dt_ids[] = {
+ };
+ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+ 
+-static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+-{
+-	return data->socdata == &esdhc_imx25_data;
+-}
+ 
+ static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
  {
- 	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
--	struct timer_map map;
--	struct irq_ops *ops;
+@@ -873,11 +865,8 @@ static void esdhc_writeb_le(struct sdhci_host *host, u8 val, int reg)
+ 		new_val = val & SDHCI_CTRL_LED;
+ 		/* ensure the endianness */
+ 		new_val |= ESDHC_HOST_CONTROL_LE;
+-		/* bits 8&9 are reserved on mx25 */
+-		if (!is_imx25_esdhc(imx_data)) {
+-			/* DMA mode bits are shifted */
+-			new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
+-		}
++		/* DMA mode bits are shifted */
++		new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
  
- 	for (int i = 0; i < NR_KVM_TIMERS; i++)
- 		timer_context_init(vcpu, i);
-@@ -1121,15 +1119,6 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
- 
- 	hrtimer_setup(&timer->bg_timer, kvm_bg_timer_expire, CLOCK_MONOTONIC,
- 		      HRTIMER_MODE_ABS_HARD);
--
--	get_timer_map(vcpu, &map);
--
--	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
--				      &arch_timer_irq_ops;
--
--	kvm_vgic_set_irq_ops(vcpu, timer_irq(map.direct_vtimer), ops);
--	if (map.direct_ptimer)
--		kvm_vgic_set_irq_ops(vcpu, timer_irq(map.direct_ptimer), ops);
- }
- 
- /*
-@@ -1600,6 +1589,7 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
- {
- 	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
- 	struct timer_map map;
-+	struct irq_ops *ops;
- 	int ret;
- 
- 	if (timer->enabled)
-@@ -1620,6 +1610,12 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
- 
- 	get_timer_map(vcpu, &map);
- 
-+	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
-+				      &arch_timer_irq_ops;
-+
-+	for (int i = 0; i < nr_timers(vcpu); i++)
-+		kvm_vgic_set_irq_ops(vcpu, timer_irq(vcpu_get_timer(vcpu, i)), ops);
-+
- 	ret = kvm_vgic_map_phys_irq(vcpu,
- 				    map.direct_vtimer->host_timer_irq,
- 				    timer_irq(map.direct_vtimer));
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index e7d07752143be..36410f7cd2ad3 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -526,6 +526,15 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 
- 	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
- 
-+	/* Set up the timer */
-+	kvm_timer_vcpu_init(vcpu);
-+
-+	kvm_pmu_vcpu_init(vcpu);
-+
-+	kvm_arm_pvtime_vcpu_init(&vcpu->arch);
-+
-+	vcpu->arch.hw_mmu = &vcpu->kvm->arch.mmu;
-+
- 	/*
- 	 * This vCPU may have been created after mpidr_data was initialized.
- 	 * Throw out the pre-computed mappings if that is the case which forces
-@@ -537,15 +546,6 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	if (err)
- 		return err;
- 
--	/* Set up the timer */
--	kvm_timer_vcpu_init(vcpu);
--
--	kvm_pmu_vcpu_init(vcpu);
--
--	kvm_arm_pvtime_vcpu_init(&vcpu->arch);
--
--	vcpu->arch.hw_mmu = &vcpu->kvm->arch.mmu;
--
- 	err = kvm_share_hyp(vcpu, vcpu + 1);
- 	if (err)
- 		kvm_vgic_vcpu_destroy(vcpu);
-
+ 		/*
+ 		 * Do not touch buswidth bits here. This is done in
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
