@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7223109024C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA45109024D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dZYoeSj7mNH1G/4/04rqhVLZ7jxvGU1UEcMS9o0Rxc=; b=3J+0viWXtz3EdVXLHpCrnDVEA0
-	oNF3QtUPIn0AoGKQBx8szcJJ651WvlUud0Bo4d5prB4fx8caET+RGAlILoZy8ii9uzJqKd6ao2uc1
-	V5Nu5NorQLgKSVfCcvdBU22iyBbNn5KRDBV8k7qgjUdo1xhiF+yHBLchgqffMiEzH8AJO6jSCupbg
-	xgq2++u2ciy/s1bR3VQ2fGaX3j6jR5zHewm6d4YZZr0oMCK4b55yN5MRxTm7ikhvjPyYPx7jr6gMA
-	IQtAWDbmJHjYpkOaZolL8tsouHpcTT2viCJHg/k/sVwnMJo7pM6N2RhI2xjFxPMHR6XzzqZq/IIYG
-	hxsIeW9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A4Fkq0BpRh/daBqnf+0j3WwUVTWZQZIYHKaumJ6a8Wc=; b=QzV8pDAWtSAJxCLavJSWZMhRQs
+	gRhlCKIY/GN+Z5RlhCAtQcJEBHPL79ZAY7OfgayCTyZbAW5F5cMTVTfNXUPFeWQ+6f4FCEvdZYdor
+	ricabIR1RZEZjkeTo0iHFGjly6SNHMgJOTVjR8n+YP0a7mhkqj/6HNM1vnWSWwJbB7womo7IBR7J2
+	9Eu7lpjtwBzJyGU3zzjBM00pJOlL/Mu3z6kHUclrfequp2z0uCgdeXtb2/DDJJThRrzGZLUCcEbwk
+	Ly9ANZ3/VP0ziTZFAmDT0FZn4p/0//UZICBi/K7/lqeFzv0AiRtz49XfelOXqmpXcD7Ph2VLRyVOj
+	WFpurtJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Fwb-0000000B2Ay-2Snm;
-	Thu, 19 Mar 2026 16:09:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3Fwv-0000000B2Fq-1LuS;
+	Thu, 19 Mar 2026 16:10:17 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Fwa-0000000B2Ar-21qT
+	id 1w3Fwq-0000000B2Do-2NXO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:09:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87FF960097;
-	Thu, 19 Mar 2026 16:09:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C87C19424;
-	Thu, 19 Mar 2026 16:09:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773936595;
-	bh=Vm2RXvDdQvy8W+GSK8JzkxylVhZ9BxfcKJfddBrAzd0=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=cbJBCvyzcCEJovPDR66IWn0++v3e8jW5tk6B65tsLEQop/ICx15fABemTFkaLeICG
-	 RWb/ymxDdT0bIxO/i4t0F0uBr1tVDS6u7RSxtZHvsDqaUZWufmWPuyH1u+Jo3MfHGv
-	 lOkGIQqW/SRqRjRerum+17dSakQ7eRUhn0+v2n87XR2840EVAxGUEubXk3LBKHBiad
-	 nZmFtvkn2Ufdi6Wb4u97OetE8KMiPb3eC7a4qCwSA+gZBlYnu4UXF7wKw0ts74+aH4
-	 e+EpDylXakXGFpzDKRhg/pgaqpwFPZg9WGGUpWvayWy0yRclOZ5BxlMIFywfn0Xg7G
-	 tt01XcPFl9J3A==
-Date: Thu, 19 Mar 2026 17:09:52 +0100
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] soc/tegra: Add Tegra238 Kconfig symbol
-Message-ID: <abwfvqfw4CYIUAoX@orome>
-References: <20260226150933.4067324-1-thierry.reding@kernel.org>
+	Thu, 19 Mar 2026 16:10:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=A4Fkq0BpRh/daBqnf+0j3WwUVTWZQZIYHKaumJ6a8Wc=; b=j8gh51Fnt3ugvEg0v58zAFHwat
+	1QqmTI54sPEnCirz41zxi/VTubbrcpjBYsnCO2Yf4ng4tyrCcDZ93VIVzkwkA/aJ6NJONWkJdlbl2
+	wLH3UhYfMb8HTyfNZ5LoTmT0RzwHCRZc7kgf8VfTBI0LZkxu6WzBOt0pu1TrxNbIg3IVPIwiqwmfI
+	k5fYhgEh07VR+e+1dz4WaWdSqD4cOBAk729zn8WkPOdgHWi3jDsLdB4qXCKB5ltqFL1AP3zbYF/AQ
+	iNO1WVD9Kj+DaurIqK1u2HkEBMjMZqUVspc4vNr38qhwDiUulzwkZGiH80cYF7ryL8FLlzd1qsNak
+	bfSA97KQ==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1w3Fwo-0000000FeUM-0BVY;
+	Thu, 19 Mar 2026 17:10:10 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Thu, 19 Mar 2026 17:09:55 +0100
+Subject: [PATCH v4 2/2] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ggvqexil74n6ufhr"
-Content-Disposition: inline
-In-Reply-To: <20260226150933.4067324-1-thierry.reding@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260319-rc2-boot-hang-v4-2-4372f47cb6b8@mmpsystems.pl>
+References: <20260319-rc2-boot-hang-v4-0-4372f47cb6b8@mmpsystems.pl>
+In-Reply-To: <20260319-rc2-boot-hang-v4-0-4372f47cb6b8@mmpsystems.pl>
+To: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773936605; l=2466;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=/HFuwOyepZBcoKn4qdROtpBfFPXhQv03vCmHiEIqhrc=;
+ b=6hdF4CYJBWZwR/0NIfa0VSmV4DSB6Nn2VI7kon8NEWAVLcyHTWoH+QwDJ9TGmRBTM5qCCDJmu
+ XZcxF7ijXknALkyMbhT4W2z24DD2NeBSCO/JTP5dabYocddLvH9j4B+
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_091013_103362_88932716 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,48 +87,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
 
---ggvqexil74n6ufhr
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] soc/tegra: Add Tegra238 Kconfig symbol
-MIME-Version: 1.0
+The issue is caused by gpiochip_lock_as_irq() which is failing when gpio
+is in unitialized state.
 
-On Thu, Feb 26, 2026 at 04:09:32PM +0100, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
->=20
-> The NVIDIA Tegra238 SoC is an upcoming new chip. Add a Kconfig symbol to
-> allow fine-grained selection of support code for this chip.
->=20
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
-> ---
->  drivers/soc/tegra/Kconfig | 9 +++++++++
->  1 file changed, 9 insertions(+)
+Solution is to set pinmux to GPIO INPUT in
+sunxi_pinctrl_irq_request_resources() if it wasn't initialized
+earlier.
 
-Both patches applied, thanks.
+Tested on Orange Pi Zero 3.
 
-Thierry
+Fixes: 01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()")
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 19 +++++++++++++++++++
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 ++
+ 2 files changed, 21 insertions(+)
 
---ggvqexil74n6ufhr
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 685b79fc0bf8..321ee97f5745 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -1092,13 +1092,32 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+ {
+ 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+ 	struct sunxi_desc_function *func;
++	unsigned int offset;
++	u32 reg, shift, mask;
++	u8 muxval;
+ 	int ret;
++	bool is_new_layout;
++	bool is_reset_mux;
+ 
+ 	func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
+ 					pctl->irq_array[d->hwirq], "irq");
+ 	if (!func)
+ 		return -EINVAL;
+ 
++	offset = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
++	sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
++	muxval = (readl(pctl->membase + reg) & mask) >> shift;
++
++	/* Change muxing to GPIO INPUT mode if at reset value */
++	is_new_layout = pctl->flags & SUNXI_PINCTRL_NEW_REG_LAYOUT;
++	is_reset_mux = (!is_new_layout && muxval == SUN4I_FUNC_DISABLED_OLD) ||
++		       (is_new_layout && muxval == SUN4I_FUNC_DISABLED_NEW); 
++
++	if (is_reset_mux) {
++		sunxi_pmx_set(pctl->pctl_dev, pctl->irq_array[d->hwirq],
++			      SUN4I_FUNC_INPUT);
++	}
++
+ 	ret = gpiochip_lock_as_irq(pctl->chip,
+ 			pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
+ 	if (ret) {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 22bffac1c3f0..0daf7600e2fb 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -86,6 +86,8 @@
+ 
+ #define SUN4I_FUNC_INPUT	0
+ #define SUN4I_FUNC_IRQ		6
++#define SUN4I_FUNC_DISABLED_OLD 7
++#define SUN4I_FUNC_DISABLED_NEW 15
+ 
+ #define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
+ #define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.43.0
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmm8H9AACgkQ3SOs138+
-s6GLZg//QL1EF61CA85bLrtZfmGSU/eUqsHpHelresQYGH7LFwk0nc7PNgUxfGCT
-z7f9XtWa9dtsdDDeo+RZjnEYMGJ3UdFY7rguPgnL6VolWt22MFNAIrYBsl/d6kMK
-zbaDF4xsX7BYPYN7IXbW1Wk1ZMb4wWDgWcC2udCqohdtpyhooCVED7XO3qLCCV9Z
-Q96LBTF2GQrkUeo4jy07RIfEuqyYIW6hffrJT9qJGnpY4Qxd+RD5J272cCixpPfo
-1U8uS4TZyQBwPfaGudduOg6Aqnjzd0XPJ5lcIJJCtuZdDwkMD5Il0jEEKdGrLqks
-0SmxbnC164wd5PVmi6bcY08GclmNAHiuWl+UwMTQinALG/HChgJZ7aT7H7i0US9M
-gIqSi3bcXO1I0wGWfKOvQCCU2U/mUcvUqpltMpF+0dUqw61OuozyDdOyhpfBMRea
-1gPQ/i+XJMJ05ubWIhqqAUqohEaRCr67mGEVdyMh6gJbL9AADRY8Cu+nQ8jAkJn3
-oW/UDvpAdlCGPGFAJXLwoeYtMNbL5TNVJJCFY9DREv6jecp4jlMYS9Hk7vDloqhT
-7yg0cF/no8pTKRKHhEfzO6wHjV2vDDC5kHsNULnDgKRadGgMDHqU4qErwFwWM/K8
-XdsQ3mzUGjcJnn+Lwq5Ao1N1dIoKWws8/sYTLBEm6Y6BL/x3Uow=
-=mboK
------END PGP SIGNATURE-----
-
---ggvqexil74n6ufhr--
 
