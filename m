@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4431090220
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B504B1090225
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqrJh29uzDTo03H0paBPCHsqowYPbl/7U6LshDniAjE=; b=jn9P2QNrwTqYilG1AQVARtnJwO
-	WQaeYBKsLzb6xLtFBMJdRpTEuMX3fnX1dQCEw+jzuHbSc8aWeYE9uXqPPG4w4tkFc09u9BBUw6aac
-	COXXxyc8PQdhrU+K/iN4I2nD52FQRSTlNW7sZaNUoOeedahSojCnMOS4zQKzBPkhgBOaRBf5o4kxR
-	yug7EBFke7+9jxYX5SIA2wJd3Y+ok4xFeSrw1p4WSjUhYY3hQHszVjJty61rBYC6ZCL9gHhEEpi4t
-	WpEm3GUG4z7g/E+cDT0tGbl08wNugy9HQi/rbSGlWhabb4em7gmOTLzPlug08/q3LQh2znFEZ3y5A
-	bBBzHF7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ksvyivwMMcfAco4JH1SNvzalhs1WV6ffPUpIeWy4SQ8=; b=y1WvgzSUi8O2QMaT0Y/fTYt2kI
+	lv+NxERW77m57gq48ZXtoacBwZoyX/4PmL00+4saXZBgurvPvLvw6fNwNWZwdhTTk4Gujcff8UjPG
+	Tl7X/cVEwWLWQsoHz5YyjbtlO9vUZrEOWYcWge+OIaxpttqh3SOzHn/oxwekS953ZWGdIQuOLrTH3
+	X6vbJn0hLvid1ORxcr6mf+lxGehIYNnYSMOZLg0DvtoNtx8xhQdMRcO+ekbv7XoYsstA6CwGHlr9X
+	GFMbMkousRBYPe2PIjBCbqc2/dB2K5WS4E9J4D6Ev3PVQSD4gmhx2W+GcuG6s+M7zhWzFQuk8sX7c
+	QfnMnT8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DYf-0000000AhIh-28Ch;
-	Thu, 19 Mar 2026 13:37:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3DaG-0000000AhWq-1slw;
+	Thu, 19 Mar 2026 13:38:44 +0000
+Received: from aposti.net ([185.119.170.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DYd-0000000AhIJ-0qno;
-	Thu, 19 Mar 2026 13:37:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C9FC406E9;
-	Thu, 19 Mar 2026 13:37:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4F4FC19424;
-	Thu, 19 Mar 2026 13:37:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773927422;
-	bh=kZE7fWjkE9q0fs78z6WZPbfFeAaukSfB72v2ajLzOBc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BF9GI/T48b6qMVLzhYLVgZ6osl/jvVy0Ho4gccdiYbNb0qBqZB+mcXrGzifkD+4Oa
-	 YiHGUaxIo1fmBBC0KCnAop7NXf9w6OCBn7N8+lk1yhcvYsWYKvmVre/Kr4EgSl1uuE
-	 WEQPY8Uukd+REDkeGSaYoiTvSjiXmTvYfuML1ygSlAYJhhJ4mEmKFqtTmADgygliig
-	 MFLGXupcwxkg0Y2qGIqsaO6QyMM8Oo8ORv26T4c/wUev4poueTOrGMhFUm1xhvN3NF
-	 pUr4yKSw3siiZ4JlD0pnopmN/aXMWFmKqgrr0p0fmnW42UHCI+whoXfHJ067YTMESW
-	 AM9m2t/fXXDPg==
-Message-ID: <ccf2c7f1-84d2-4d73-92ff-6400ed0a5489@kernel.org>
-Date: Thu, 19 Mar 2026 14:36:58 +0100
+	id 1w3DaD-0000000AhVo-2omB;
+	Thu, 19 Mar 2026 13:38:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=crapouillou.net;
+	s=mail; t=1773927515;
+	bh=ksvyivwMMcfAco4JH1SNvzalhs1WV6ffPUpIeWy4SQ8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=Wjg+5HA2DcTy7ImzDCfL/hiwNCW3P+AT+sac3h1AcSSNPOrO713uAzTj+LGFyQIFN
+	 qZw7s81n5YdPRSxoA+qWuuOqKcdY5sAKCEH1+bgXIPB6PDV/AKYCjaJZ38qyuU8n+E
+	 +NbUAIZRrQvXeRWqEhXISlJM+aOu9BAoOryWWTIM=
+Message-ID: <5a390e368fa74f7f96bcceefea34af306d768929.camel@crapouillou.net>
+Subject: Re: [PATCH 05/15] dt-bindings: rtc: ingenic,rtc: Use generic
+ power-controller schema
+From: Paul Cercueil <paul@crapouillou.net>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Rafael J. Wysocki"	 <rafael@kernel.org>, Ulf
+ Hansson <ulf.hansson@linaro.org>, Florian Fainelli	
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
+ Branden <sbranden@broadcom.com>, Saenz Julienne <nsaenz@kernel.org>, Lee
+ Jones <lee@kernel.org>,  Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+ <broonie@kernel.org>, Shree Ramamoorthy <s-ramamoorthy@ti.com>,  Jerome
+ Neanne <jerome.neanne@baylibre.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Dmitry Osipenko <digetx@gmail.com>, Heiko
+ Stuebner <heiko@sntech.de>, Joseph Chen <chenjh@rock-chips.com>,  Chris
+ Zhong <zyw@rock-chips.com>, Zhang Qing <zhangqing@rock-chips.com>,
+ Sebastian Reichel	 <sebastian.reichel@collabora.com>, Andreas Kemnade
+ <andreas@kemnade.info>,  Jonathan =?ISO-8859-1?Q?Neusch=E4fer?=	
+ <j.neuschaefer@gmx.net>, Lubomir Rintel <lkundrak@v3.sk>, Julien Panis	
+ <jpanis@baylibre.com>, Matti Vaittinen <mazziesaccount@gmail.com>,
+ Alexander Kurz <akurz@blala.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ 	linux-rtc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+In-Reply-To: <20260316-power-controller-v1-5-92c80e5e1744@nxp.com>
+References: <20260316-power-controller-v1-0-92c80e5e1744@nxp.com>
+	 <20260316-power-controller-v1-5-92c80e5e1744@nxp.com>
+Autocrypt: addr=paul@crapouillou.net; prefer-encrypt=mutual;
+ keydata=mQENBF0KhcEBCADkfmrzdTOp/gFOMQX0QwKE2WgeCJiHPWkpEuPH81/HB2dpjPZNW03ZM
+ LQfECbbaEkdbN4YnPfXgcc1uBe5mwOAPV1MBlaZcEt4M67iYQwSNrP7maPS3IaQJ18ES8JJ5Uf5Uz
+ FZaUawgH+oipYGW+v31cX6L3k+dGsPRM0Pyo0sQt52fsopNPZ9iag0iY7dGNuKenaEqkYNjwEgTtN
+ z8dt6s3hMpHIKZFL3OhAGi88wF/21isv0zkF4J0wlf9gYUTEEY3Eulx80PTVqGIcHZzfavlWIdzhe
+ +rxHTDGVwseR2Y1WjgFGQ2F+vXetAB8NEeygXee+i9nY5qt9c07m8mzjABEBAAG0JFBhdWwgQ2VyY
+ 3VlaWwgPHBhdWxAY3JhcG91aWxsb3UubmV0PokBTgQTAQoAOBYhBNdHYd8OeCBwpMuVxnPua9InSr
+ 1BBQJdCoXBAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHPua9InSr1BgvIH/0kLyrI3V0f
+ 33a6D3BJwc1grbygPVYGuC5l5eMnAI+rDmLR19E2yvibRpgUc87NmPEQPpbbtAZt8On/2WZoE5OIP
+ dlId/AHNpdgAtGXo0ZX4LGeVPjxjdkbrKVHxbcdcnY+zzaFglpbVSvp76pxqgVg8PgxkAAeeJV+ET
+ 4t0823Gz2HzCL/6JZhvKAEtHVulOWoBh368SYdolp1TSfORWmHzvQiCCCA+j0cMkYVGzIQzEQhX7U
+ rf9N/nhU5/SGLFEi9DcBfXoGzhyQyLXflhJtKm3XGB1K/pPulbKaPcKAl6rIDWPuFpHkSbmZ9r4KF
+ lBwgAhlGy6nqP7O3u7q23hRU=
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: dts: rockchip: rock-3b: Model PI6C20100 as
- gated-fixed-clock
-To: MidG971 <midgy971@gmail.com>, linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- heiko@sntech.de, jonas@kwiboo.se, shawn.lin@rock-chips.com
-References: <20260319102247.32260-1-midgy971@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260319102247.32260-1-midgy971@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Thu, 19 Mar 2026 12:12:52 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_063703_307511_435C7E11 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20260319_063842_238466_4A0CA1D0 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +97,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2026 11:22, MidG971 wrote:
-> The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to
-> provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers.
-> This chip is currently modeled only as a fixed regulator
-> (vcc3v3_pi6c_03), with no clock output representation.
-> 
-> The PI6C20100 is a clock generator, not a power supply. Model it
-> properly as a gated-fixed-clock, following the pattern established
-> for the Rock 5 ITX and other boards with similar PCIe clock buffer
-> chips.
-> 
-> The regulator node is kept as-is since it controls the power supply
-> to the PI6C20100 chip via GPIO0_D4. The new gated-fixed-clock node
-> references this regulator as its vdd-supply and provides a proper
-> 100MHz clock output. The pcie3x2 node is updated to include the
-> pipe and reference clocks, matching the approach used in
-> rk3588-rock-5-itx.dts.
-> 
-> Assisted-by: Claude:claude-3-opus
-> Signed-off-by: MidG971 <midgy971@gmail.com>
+Hi,
 
-Anonymous contributions are not accepted. You must use your full name or
-known to us identity (nickname is not a "known identity").
+Le lundi 16 mars 2026 =C3=A0 22:47 +0800, Peng Fan (OSS) a =C3=A9crit=C2=A0=
+:
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> Convert the binding to use the generic power-controller schema
+> instead by
+> referencing power-controller.yaml and removing the local
+> `system-power-controller` property definition.
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Best regards,
-Krzysztof
+Acked-by: Paul Cercueil <paul@crapouillou.net>
 
+Cheers,
+-Paul
+
+> ---
+> =C2=A0Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml | 7 +------
+> =C2=A01 file changed, 1 insertion(+), 6 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml
+> b/Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml
+> index
+> de9879bdb3175a7e0f24304b5a084a8faa233c46..415566d8dba564ebad976689596
+> bbcd699ed6021 100644
+> --- a/Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml
+> @@ -11,6 +11,7 @@ maintainers:
+> =C2=A0
+> =C2=A0allOf:
+> =C2=A0=C2=A0 - $ref: rtc.yaml#
+> +=C2=A0 - $ref: /schemas/power/power-controller.yaml#
+> =C2=A0=C2=A0 - if:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 not:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> @@ -53,12 +54,6 @@ properties:
+> =C2=A0=C2=A0 "#clock-cells":
+> =C2=A0=C2=A0=C2=A0=C2=A0 const: 0
+> =C2=A0
+> -=C2=A0 system-power-controller:
+> -=C2=A0=C2=A0=C2=A0 description: |
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Indicates that the RTC is responsible for=
+ powering OFF
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 the system.
+> -=C2=A0=C2=A0=C2=A0 type: boolean
+> -
+> =C2=A0=C2=A0 ingenic,reset-pin-assert-time-ms:
+> =C2=A0=C2=A0=C2=A0=C2=A0 minimum: 0
+> =C2=A0=C2=A0=C2=A0=C2=A0 maximum: 125
 
