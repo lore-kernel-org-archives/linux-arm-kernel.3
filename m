@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ADD1088E79
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 04:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F2D1088E76
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 04:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ycSewpuz2GDH8JHlWYt42sU/cLJKsJubh50gU2e8SKI=; b=TqA/hwo2zbvJ4l0GWYVdefn+Gf
-	YB7YJzcIXB7Tsi51icm+OTGeiZXLbZNiVZBHz41JpoLHfoQ/8TqQcHZZN161T2c1vsEHVdtw1d0lK
-	snMG4sxogKrFRhp+/N+IlIRHBHa7rzgNvL6DjQQVLlHKRO9oufjpmJ+qSSIxnKoR1aHqN7uxLMTYX
-	urBDYxudkvnoZduw1oGObCy+G6HZuWp2LvNYJRuUw3lbdW4+2Y2iANHJgjmLY2p6arkqRAO9yPsSt
-	sMbZ7CuEcAQp9nCXkZtxH4suCsy4vRBgUT62r7/6yVXwxwNhSAXY0GcTapRoTXcrX4GO8lsYlGiNH
-	awWqPUwg==;
+	bh=1zufBE/wG0H/dPy5NtwxW5QdocP2uRSfDHkfDw+3Fq4=; b=SbAu+OMDL3IgW6omWMpirCaRs7
+	jx3d1YqaUERsJXuGx8/jcedVshjad8ZX4mK+NaCdiy6zSTOQTjzd+9S4lTH6TBCx0eRhjMFSLBzI8
+	TRYlNBLk9sbeKwHU3U1NOOVl0IacNEyM9T6Ir8pQ78b7y5CtoaxqhFTb2oIQval/L45ULxpO8XacY
+	jzPEDdfIsMbT6/gr57cfFkrv+eLFJwnSQvdeqMr1y+85xZFVXg0NluGpvx5u0Eml3ZQMjtv7DF5Oi
+	AjnhCYd7f68TpaSdEVVKDwKo3ypMQCkoDYd9fu1+Q/gZ0Jzr3l1EOtQT1oxsRK36dyXdPrfMW4IsL
+	BWhA7BNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w35OY-00000009v1i-0SIc;
-	Thu, 19 Mar 2026 04:54:06 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1w35RX-00000009vHU-30bw;
+	Thu, 19 Mar 2026 04:57:11 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w35OT-00000009v0c-2WZ1
+	id 1w35RR-00000009vGS-2cNd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 04:54:03 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a13e1cfa45so561845e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 21:54:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773896039; cv=none;
+	Thu, 19 Mar 2026 04:57:09 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5a27a2fc113so500734e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Mar 2026 21:57:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773896223; cv=none;
         d=google.com; s=arc-20240605;
-        b=ckRQa2jQy00yxvv2Zouz4uILpvuqP0cMJLRAcglA57fdVhRKLj6z+luw441ytUnUC8
-         10np5ww53co2Egl69Y1cxaprvNrsUcu0d8fPxklJbMhXIpAQIm0QISA5XJKPbEiJMsf/
-         YnZ0EJhvajZ/4iPfX+5IrtQT2lnT8JwbyhyJHn4gHKYBKLDIQ2W9mC4BRB6RVfFrjn38
-         lsV6r0/6RTC8RGj4EhTPuTRbxuJd147DldrT+Q7xdN4zkmEmwgos+YTMeRjA1XbaXj+x
-         x8bbjM7GQesyOJS29soyxgGFg7ZXmL3TyJ04A2cBKyzg2AJW2I8ZjlX4NrKSYe7LN1ck
-         eBPA==
+        b=hOs/k9khu8E14xgU+MvUuelHTdM2eV3TZI0higJh9O89Eaht4VapjjGzB5PyzAuRgW
+         7J0BmSq6lVjdNycVupYHAHV8oXTskgn5tEC6dTtQpFr8byA75V/8Ku0dkrD6qQ379nl2
+         VF1knQh1qUm7tFHwOtR1j6T9r65J26cZXRJ2S1aHLU5c36hfXQ5NoyHcK350lde5UVww
+         jXVycQl8nIGJr5Mi4QFI9gbgFrv/7PNxjblSxs2JwFXlVpMbH1KKXEUD8XVhppwpuyGp
+         LOEF3bzC/JYPMLxkCI6u9QSl2+nLc5/ACHuPfF4+0Ts/H9kWXeyVkjw++UDLiPVePfRF
+         ia2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=ycSewpuz2GDH8JHlWYt42sU/cLJKsJubh50gU2e8SKI=;
-        fh=sWXjBh0CPrReoGsRPmcdQmp3OCDqXsiWWdsl/bePQhc=;
-        b=B3kY9w+174ibyNMbsIYMIsT2+PXPGT1MF9Yq4hzdzcMQTdNJA8aUpUC1caYKbHW+ax
-         sroBuhjO8egLqBpwFOgtzqav/ZhMcHFw3U9QgOEPkFjWiwVF4MsNPwcNTYveuMi6FWqk
-         Yard9vzDKRNx8PX2Us5/hNYr6FvywDFvAMlG6dJBcgGztRFA0Vq7FfY9JfJBqc6xxF/M
-         WD/4nXMHXvBglhxY89xLOCfJ+pAEWyRtRwTlFgyKAgIC9c/2ezUmS/LOAp7ISP4C0V6K
-         K1Va7/OTUreNcGNc0lrJRjS5WeVJQ+j2XjPKOa8B4xpNsKBuViLqX+iPrY8AapoY02//
-         HBoA==;
+        bh=1zufBE/wG0H/dPy5NtwxW5QdocP2uRSfDHkfDw+3Fq4=;
+        fh=g4ftUEvdp2WLKvANv+uHCsUq1nOJ7urMPKrc2D67Gfo=;
+        b=F8+j0LlIwvGgbj8pCP1WVfoedoky9himjFQlK4nmNVR82QHOqBKJF6A8IQAsCl4/Be
+         qK2p8P06bnEDi0Y1ZsxTjxPHssOn0vRTRYH//oV5E/DQ6TZFufjnuJFhLlh7v4WgNKjZ
+         o3KdRO6yeO3yg0AIMSCAvJLxOBNqgRqOuVNB7ObSp5SVtjkjbQ6ezp8ByECu1wlB+ANj
+         EApPvc9KngyJ4p8xKvMFeyM7Y0UCG2pK1AW3AVLjtwPT+dTg7KjHS9ZKuSX+X6wRI+OO
+         tGdr1WsOgwDr/psF4eXAoVk+PHaFhUEYE4creLIS+AgCB12kzvF0JUm4PdOEuZqNTTxk
+         jDKw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773896039; x=1774500839; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1773896223; x=1774501023; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ycSewpuz2GDH8JHlWYt42sU/cLJKsJubh50gU2e8SKI=;
-        b=JCLNYB8n9IIKjCbI5Ec3nfwUrA7qb8o9Dv43sMa1sU+RxcrxKzx9gpyfQvm1TvFH3+
-         gHJZK7CCpoNY9Tx7FRoMJYGb99zMGvaFTWq9+xiNXFOn3hfs8duoBhRM1J6YT9Ea/F5n
-         hKJYXOPYV5cQ5IFHwSQpgYOXy/XBeF7G+83L0=
+        bh=1zufBE/wG0H/dPy5NtwxW5QdocP2uRSfDHkfDw+3Fq4=;
+        b=PzGY07zHi+OXU0s9qM4NO/g9DnS8KnwHk3LWWdESAVn7GvajQ6TjP2JJra0o2QkHaB
+         Dob3r3flg/0FtABJv4aBvh+HwZyAHaXiDF7ZG7cPj8HVte59Nobgx1bzN6v89Nl00LWL
+         a+lqMQD6D8uDh4A5VwJ4Lv8Yg2Jr+2P199lvw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773896039; x=1774500839;
+        d=1e100.net; s=20251104; t=1773896223; x=1774501023;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ycSewpuz2GDH8JHlWYt42sU/cLJKsJubh50gU2e8SKI=;
-        b=Eg4RbzpKVs5srfOmK5RVrXCesqgdfSqR21FnGETMETBcAmx79E4PD4d0eUgCuG03Es
-         lHsiNaW5G81zj4RCqcTRkzBvVzoEwPEdNvAzJJYdz+k5LgHGrY2A+4OA7R/joPVF+6Np
-         VNueSRLeOENVVUwhcgo+BNmgbVngv5xnioRthAw8hF9D60R3zrWcmR9nCgU7//OmFzL8
-         jEanS2ppE+eXc9qa1TpfbeNuDkPVq9Wby1WHBSVj5617Sg7LGOcuxG4LeZdxmXkQg/We
-         K/mec8fk21fz5joh55468yVMeCBQNgV6XYKmb0J6l868owyXpboxwv72GBSruS6pIMAE
-         L5bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1VuKnue/yoQlGLx/sEPfo473ODlS0xCj5snvEF82siS/1N2Wn51tAViEfX/vNE1GuFRygSiD4ToMlR9vCY0ak@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmKRtUZKQ9Hn1FoWprxEqWHjH5KYama892nCx9KWKvy7wZmUbO
-	E4KwFCNgdS7gto8zgtdEpLMEUpgAPsdEJae9w7HLVoW+PyFv9nL3JuJFeNsQe1mQibnuCPwUYp0
-	9gDIZOo4Vv6fH8fvwzek1ugAx9mhu9D40AcT1UkdG
-X-Gm-Gg: ATEYQzwksvNrb531ZBxjVCbHPIhiUiKHfjVinlgCnrCCuF08f+Htts/LwbmfekiS9wB
-	OLyJcmFNIk1pw/OcncAwrfld2NpVKRDoxM7fXtsr6q2ET+5EPmijNn5gdukCeWktKhD9Z8SwbRM
-	z76O1COtf7H3SsWqVpIXXRP4Tz/o+im4tuq0J3OPh+XcaOGol6UFHYKlVmeb9n4tn2U73HSNNGV
-	WHnGfxX2LVRDQFjvkk3y44KGuKLRC699B+kE9t19+Dhf9kZJbGUozF5UjosRlFD4qOhopHTNxsp
-	BiDPDG214NEx+tLFHG6Hh0st9VfDbLhLT0jNNw==
-X-Received: by 2002:a05:6512:601:20b0:5a1:76b7:ac06 with SMTP id
- 2adb3069b0e04-5a279585449mr1694598e87.3.1773896039222; Wed, 18 Mar 2026
- 21:53:59 -0700 (PDT)
+        bh=1zufBE/wG0H/dPy5NtwxW5QdocP2uRSfDHkfDw+3Fq4=;
+        b=Mm9fzaGatJFbcqK/3oe06vKaV8UNO2yuUxWeX5bh7mZ8V+VtkQOreLOC7TS0Fxtnf7
+         d2grsgp5Db+ZmkN1Gy42Ta+2kMV+u33yh4vSBw49sbVEuibh7Jfswy9TJwDugWwl5b6W
+         riIeWcz1N1lKBH1HHH2XXcElG9ZXp3qCdnLii4DhtPKsur2eZPrKspos0SPh2m0ELLOK
+         ieOmn4ajb+LWoajxlYJlRNu/D/kiYbGpC6+WjzkWpFhc2xBY/8U7oWWJFzxoIlehLfF7
+         9xEG+xE3R9h9pAiW5o0aV6jFqQtq8JLrq565JWyA+u85Ps+IhUmNelqQJGAeSbU0feuU
+         k3wA==
+X-Forwarded-Encrypted: i=1; AJvYcCV4jdqjmgR0szxFY/P+yk2z1VU+/NxTuJjMvrnbQGyfy/fP70FY51JuRAij0gXUQjELcuVG3RBDhh6zBvoBIQga@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCRr96P9sBN5QFoqCYyj3WsxwsuI1i9V73yeAU0YcT1PpvUcSU
+	hN7rCBv4zwhTnSgclLMxF3aLbKU9wQQSC2QPq7SAMM+l5wwDyTL1iSALNEfyHHWQjknd+5Mv06v
+	3IrCiRsfXLsRldGVfv0s1aw+A50w7D2mZmgffZGYi
+X-Gm-Gg: ATEYQzzZ/uVJ98Y6UQlP17kMhwvNFGm9aqgnozIDU48WSmz6TM6IRzsgxdlulb9Jn5w
+	8GYgXKx9KutLI89ZnyGqr7gT6Cy2LaTdGoYRsOjmrKgGYzPUJ4rWZcuKwaZQPmiN/dOmSgTEIKa
+	MW30XQIr34oMKvtWIWkVixgQa75fb6pTBxAjEGXrsWcBfxINxdDmZ8W34YXwE+0AgoqjfLn2VvX
+	lbNNH1kR7uTYZfaniHcE17uO/tZPWvhO8D7Oe5KnaRgJMBVJPvE2LLpIH6vkOyB17MRlFGQjD6r
+	ow20jIdvp6bJ/+lJsAhaitzvn6BIN7tA04Xx9Q==
+X-Received: by 2002:a05:6512:1598:b0:5a1:3561:de7d with SMTP id
+ 2adb3069b0e04-5a2796bae61mr2319165e87.41.1773896223417; Wed, 18 Mar 2026
+ 21:57:03 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260317184507.523060-1-l.scorcia@gmail.com> <20260317184507.523060-4-l.scorcia@gmail.com>
- <20260318-nickel-serval-of-tolerance-621bad@quoll> <CAORyz2Laoo4EiLcHZ-ygLiFGW_h8qV7QxqNsMbueM=nov5zH0A@mail.gmail.com>
- <ad0d1ea1-4c5d-4cfc-af0d-8d843e7e0e9e@kernel.org>
-In-Reply-To: <ad0d1ea1-4c5d-4cfc-af0d-8d843e7e0e9e@kernel.org>
+In-Reply-To: <20260317184507.523060-4-l.scorcia@gmail.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 19 Mar 2026 12:53:47 +0800
-X-Gm-Features: AaiRm53rEbzUcysiLnjhOdOv1aJMbQDabqUfN6XBRWKQC_wiMRBidNmKXvI9wx8
-Message-ID: <CAGXv+5EqUhJ62fjE0R9nLcu6tsfXan8ZEYe7hvkofKnFM7W8NQ@mail.gmail.com>
+Date: Thu, 19 Mar 2026 12:56:52 +0800
+X-Gm-Features: AaiRm53ZcC1_5GBB68m3xy0r3oGl-8GEHHuCoUTvKM9klv1nQiqkqQTd8EeYleI
+Message-ID: <CAGXv+5Hz6JHBTX1ftxRuD0pJuhxGJnAkGUO7=kUh3fErOLtXTg@mail.gmail.com>
 Subject: Re: [PATCH v3 3/9] dt-bindings: regulator: Document MediaTek MT6392
  PMIC Regulators
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>, linux-mediatek@lists.infradead.org, 
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
 	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
@@ -111,8 +109,8 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>, linux-mediatek@lists.infradead.
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_215401_738079_1E9902EA 
-X-CRM114-Status: GOOD (  31.11  )
+X-CRM114-CacheID: sfid-20260318_215707_520367_3C84F3D5 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,69 +125,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 6:14=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
+On Wed, Mar 18, 2026 at 2:46=E2=80=AFAM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
 >
-> On 18/03/2026 22:25, Luca Leonardo Scorcia wrote:
-> >>
-> >> Drop compatible. Regulator nodes do not have compatibles.
-> >
-> > Thanks for this comment. It took me a while to understand what you
-> > meant as most of the MediaTek PMIC regulator drivers still require the
-> > compatible node to probe, including MT6397 that was the template for
-> > this patch. I compared the driver to MT6359 that does not use it and I
-> > am now working on the driver to not rely on it.
-> >
-> >> With this, you can also drop example as it won't be used.
-> >
-> > Just to be sure - do you mean remove the compatible attribute from the
-> > example, or the whole example section?
+> Add bindings for the regulators found in the MediaTek MT6392 PMIC,
+> usually found in board designs using the MediaTek MT8516/MT8167 SoCs.
 >
-> The entire example because without the compatible it will be no-op.
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> ---
+>  .../regulator/mediatek,mt6392-regulator.yaml  | 318 ++++++++++++++++++
+>  .../regulator/mediatek,mt6392-regulator.h     |  24 ++
+>  2 files changed, 342 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,=
+mt6392-regulator.yaml
+>  create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulat=
+or.h
 >
-> >
-> >>> +
-> >>> +patternProperties:
-> >>> +  "^(buck_)?v(core|proc|sys)$":
-> >>
-> >> Nope, underscores are not allowed. Use only hyphens.
-> >
-> > Got it. I will actually completely remove the (buck_|ldo_) prefix
-> > altogether as suggested in another comment.
-> >
-> >>> +  "^(ldo_)?v(adc18|camio|cn18|io18)$":
-> >>> +    description: LDOs with fixed 1.8V output
-> >>
-> >> If fixed, then encode it in the schema - min/max microvolt.
-> >
-> > If possible I'd like some clarification here. According to Chen-Yu
-> > Tsai comment [1], dtsi shouldn't contain voltage constraints. The way
->
-> That's odd, because long time in the past I heard that DTS must
-> absolutely set min/max constraints, because these are real hardware
-> (board) constraints for each regulator, unlike the generic and broad
-> ones from the driver.
->
-> IOW, driver has what datasheet tells. DTS has what actually should be use=
-d.
->
-> Also, I did not actually require to make min/max required, just they
-> have to be specific/constrained.
->
-> > I understood this is that electrical constraints are a matter of the
-> > actual board layout, so if adjustments are needed they have to be in
-> > the board dts. But you also specify "If fixed", so maybe there's an
-> > exception to this rule when the constraint is "absolute" and boards
-> > can't actually set a different value?
->
-> Now I am confused. You wrote - LDOs with fixed 1.8V output - so board
-> cannot set it to 2.0V for example. They are affixed. This regulator
-> CANNOT physically produce anything else.
+> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6392-=
+regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt639=
+2-regulator.yaml
+> new file mode 100644
+> index 000000000000..fa4aad2dcbe8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulat=
+or.yaml
+> @@ -0,0 +1,318 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6392-regulator.y=
+aml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT6392 Regulator
+> +
+> +description:
+> +  Regulator node of the PMIC. This node should under the PMIC's device n=
+ode.
+> +  All voltage regulators provided by the PMIC are described as sub-nodes=
+ of
+> +  this node.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: mediatek,mt6392-regulator
 
-As you said, it cannot physically produce anything else. IMO it doesn't
-even need voltage constraints as it is already implied by the model and
-regulator output, in which case I would actually recommend rejecting
-min/max voltage being added to this node.
+Please add the various supply rails. This allows you to properly describe
+regulator dependencies and have a complete power supply tree.
+
+They can be found in the datasheet.
 
 
 ChenYu
