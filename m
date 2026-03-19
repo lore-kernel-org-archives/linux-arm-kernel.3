@@ -4,65 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52287108E1ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB87108E1EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+PpVZE5erbrPF9dFh6ddAFYHha57vLbnGheajyGRz0=; b=nn8yP+VBL+jRAS26IUi6fr9hnh
-	ToQt/R0nN+7sRxeFG3VPNdHgn23svn8NaVXYCEhmDUn+K9y+peW+kO04A3X5CiNjoPz1CWITYlZpe
-	/2Hi8IiW0YruNgLEvyCnb9dxUqbvlJ0myQOGNc1VQky+oSFoqpojFLKFu0ZWiY4mKG0vT/qw8UQxN
-	CrP0pJxtwx4pfGd/2dt34fJ77/Ne1xlUmxz5KpKFwAM5WYJm/2ZPGk1iH+lcfyQFCiLckAJJChYRc
-	n2RwkWWgNHlf6vJdN+ZAaKuhV6mLlp9m1Qk9KaZLXGRjtVxxVOMQyGPBQNXXhnSwFoUieI3hAXNwx
-	x57xRU8w==;
+	bh=NbpoUYm52uf00539L3U1vpggRL/V2WeRmKWIlh/5f4g=; b=LPssgXqJm/ppoDadSXidPKNNkA
+	pmP8N39YZ/uXUPHgCoRCquAMZm6fQKO5d9Ac7CLdDhJ5zxmERN2g5rrhjwxuF5intGqjaxV7+bhSo
+	3fUBHwRp9e2rOxt5x9i2mQcdzerX0qDzyxQX2au3rNEBVwJO0anynsgwOVAniKp+Wo/zBDbClWXTl
+	Xb2n7Uq0YShkxGu2/pCA7cSCt9YMlyHhTf0fmTsvX0JB/buXNTGOpLntriMWIszsySWoKMVePvXbk
+	oJBxcp1Vit+S/SB8VILimDm2I2tGX/TB6ouvJGJ9re+f6xo+4Zw3vir/jzMAaJqKkO/wOTnPPL+Vq
+	AvaOP2pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BU7-0000000AWF4-46RL;
-	Thu, 19 Mar 2026 11:24:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3BUy-0000000AWRp-3Mt5;
+	Thu, 19 Mar 2026 11:25:08 +0000
+Received: from mail-northeuropeazon11011036.outbound.protection.outlook.com ([52.101.65.36] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BU7-0000000AWEy-09aA
+	id 1w3BUw-0000000AWO1-2wfD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 11:24:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 753F66011F;
-	Thu, 19 Mar 2026 11:24:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13790C19424;
-	Thu, 19 Mar 2026 11:24:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773919454;
-	bh=qyYfHN3/rEddBDUxIvXPa1XmaXZUY9tQUYPYQxlmioI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ql9sZNAJ5IJDjLCE93U34vjaePEdQ7ctkWPb/kks8sNCMuk+0pfl/hPLsUo7j54T4
-	 bsbKOtQNUkMuhWfl9eHcdrNWA1jeHqW4N8v8IdEjs/7H1vsZRpMbIEirhEUa7TE7x+
-	 sZDfX2SdQ3BMx7DAUNnY3muvx1eEoRo6WfAxXQDk+AuBE5JnSA7RY41EapzfUCxeDU
-	 82sSgkOCGnJba1aFvm0S77EWd9d3+jzwiKjXruyui57pXMVZiO9GjbvfxgJACffHuV
-	 h+qr+TQHZ4C4Lh4LcGt1u8361xGnHVQ5fZzPOFDBQRXegb/zASSzKNJi0O1g6C8BKj
-	 WxHrDSZ1X6oZA==
-Date: Thu, 19 Mar 2026 11:24:05 +0000
-From: Lee Jones <lee@kernel.org>
-To: Akashdeep Kaur <a-kaur@ti.com>
-Cc: praneeth@ti.com, nm@ti.com, afd@ti.com, vigneshr@ti.com,
-	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, aaro.koskinen@iki.fi, andreas@kemnade.info,
-	khilman@baylibre.com, rogerq@kernel.org, tony@atomide.com,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
-	s-ramamoorthy@ti.com, vishalm@ti.com, sebin.francis@ti.com,
-	d-gole@ti.com, k-willis@ti.com
-Subject: Re: [PATCH 2/2] mfd: tps65219: Make poweroff handler conditional on
- system-power-controller
-Message-ID: <20260319112405.GJ554736@google.com>
-References: <20260310111846.1084623-1-a-kaur@ti.com>
- <20260310111846.1084623-3-a-kaur@ti.com>
+	Thu, 19 Mar 2026 11:25:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LbkoBXwgUuZteJlO6Z0mHFVMNdzL0F1uDsQ406uUfKskegEGMinAKoGhr/D/FPdEbkRgY3wkBnMMZQEohungGNGD6tVlLe9GY1cZF+1wCLdyg7nNy3wW02DGQwUN6EY8B8MpXzK9kN3Aob0x9kUsOQ9VotCJZqAELNGiAaDXkUQ79g+dj7LyjvXQZZFWXVRLyvAOlZbAlBb9HaaZHiDYBuq6LIIhlWOSnE1vw3JnBPvGEvXJmBD27W7TghgnMaTXmj1GbM+D9rRhQ0WNjo4qXE7+WbRsZNjz/BFaCP0LTnPK8COhUTt27g7tTrQp3taMLFdX8bEXRjXvW7P9wyRyPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NbpoUYm52uf00539L3U1vpggRL/V2WeRmKWIlh/5f4g=;
+ b=x8CiIaiU0TDWBTlqzFekFqFJO9UnDf8IOv8UnVJHMi7AGjS4AzUS2vA0Rf4slRx5CMCAis1Ktuc193KaXrMLY8y2cbv9IQtjRLhJR/TAzOrQl2AWoljOBHQKxpOdGH9m7Ks8qKhz6NJCC7F5IQBDZx0hFTZmuBYvLYeJUftknXVpeWTP5TefNx+b/IeYv/+lax8TmP4tRt09v0ngHDToH+YpYB3HRlg3AkBNJJ1oUx0Ku861ApgZT3isHaX1f2tevvEEL06j/0chDgpaDADa/n+lZRFFwj4B9p7gFMtHR2uy1Eaj1uRKBk2iAENxF2uT0ZtOkH1Ebp4quaGcVDkyXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NbpoUYm52uf00539L3U1vpggRL/V2WeRmKWIlh/5f4g=;
+ b=hS0/6XVXOeFkiFaZvnxI/NoK+glZjgBlmwG1obaIP5MS7UXWE0rTqQfjcpLoAMusOHbySmV0iCTVgyK/G1CNtsVHvIgvZ1lm4hZYr+rz7WPFhdzosZ+QBmbAekh7SpQF/lTW5GrVjEB5sp/3s4M8+B9GB8xebn0ZaY36hKuHJWgB+zXw5UyQYul/vVY2PXcy7XH90dqrG0NP48l4U05cBZOZyThTJkU7Gy2tkXO03hF7kDttNrXuuxq4QdvSxtvY0txPA/TCXa1kQsurwacHGKhz+I2gh2TRGvTNnsVb4kcN/FlsyNP+ekciiC3PX1fecHI8n3r9lx8XxdExlBGCRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by DU6PR04MB11231.eurprd04.prod.outlook.com (2603:10a6:10:5c3::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 11:24:55 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 11:24:57 +0000
+Message-ID: <bfef9e91-c959-4288-b605-0e83f8ce73f6@oss.nxp.com>
+Date: Thu, 19 Mar 2026 13:24:54 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] can: flexcan: add NXP S32N79 SoC support
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, Andra-Teodora Ilie
+ <andra.ilie@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>
+References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
+ <20260319094032.427697-4-ciprianmarian.costea@oss.nxp.com>
+ <20260319-tricky-mongoose-of-passion-0483a3-mkl@pengutronix.de>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <20260319-tricky-mongoose-of-passion-0483a3-mkl@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P191CA0040.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:657::9) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260310111846.1084623-3-a-kaur@ti.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DU6PR04MB11231:EE_
+X-MS-Office365-Filtering-Correlation-Id: afaf6c7c-7390-4b76-a7eb-08de85aa2660
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: qw4Q33K2OXl6fziMqXopf+t9sdrQMjixtkd2YjozTXBrdw2n4qzmgRiTDeJr8lMUmqGtrcq5PC5jAOq8Fg5ivuc1bZeN1eWAtJHvH4/aukZcPkVLJeSNiAjB+laRui8bVRqUN7sy2mS1GoQLvyy60Y2b6I2meEMKGRLN+mt86KVhYRTSIil/FEFowYoxHsRkoRHNaOKDqQOQm0/Fe7s8IFftbdF4w5Cvfx9hvQ9INPjdGtoSWW0LMpwBhdAbVQ8nM1YCUQrs5vddD688gOzreHw9mDgEHYnfWbLITQ5CLCUhLJYiE2n8jAk6uWUiZTq1W1C+3TY+v0HXrJFDocCcRhh8Y+0kC+TBngfUpX+7JN/qx38+3ZlAVOsUQX0A683vtel2yHnm+pjRvd1WqCvfZJj3IWMRQGYMftfoGVCvda/b24pExdXijrzH0hkwi8ygOZlZUWECpNrPdPzXqj2+GpL0VhWwNBPhB4DZTiqOMTRdevv7q9b0NBZ5iMGkXtZdkt34TkAcUyIRzbxAfyFv2I/NDFsM0pd4CMNkWREHp/HqFIfKjPMnPw2XQ/OuXrh+3WMaAoNpksZzNmFRTx4700fvybzOdyoVlxOzaR8X2GA9gf4iQQV4tQ/P698q0dqMhXIz+v1FmIspNWC8ch9WTCYKGpiI55biLJdXjV9VokCXmSZsNb3IPPidNGHt7TlkA8xhh7iIspWsDqe+REp+y9BWrDFMthEqDzL9dL6JZe0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WGZXN3h5akhTYldYWmIxYjF1endvZVpxOEd5blRVa2xRQWhvSVlIN0xQdG14?=
+ =?utf-8?B?NXRIV29yaE4ybS9VS3l5VGIwNGFvbVppUm11d1RaTlh6VEhBaEVoaE5Ta2p6?=
+ =?utf-8?B?VCtWOWd6NEN0ODFRREFZQmY3eloybENWbERobExCNTBuaENzdkJwNXRJODN6?=
+ =?utf-8?B?WFdmOFgvcXFpSm8xblhhbHFvc2RiNXpMQ1BsYXZRY3JyWFplUUdMUFd1djJn?=
+ =?utf-8?B?Ri9aeWMwNldVajFvSTd4d0hocXhieTlEVHJRNDloNFlUTXZEUUQwcDlwc1Na?=
+ =?utf-8?B?Qk15WXlqM2NPaTBnbXJRQXdFcitZdUFyNDhEQU1rMjJQNW5BNDgyZE1Gd2ND?=
+ =?utf-8?B?b3lYT284NjBscFRQOGNWa3NoNGZqL2lqczRpM1UvK3R0Z2JNR3N1K1doUmVM?=
+ =?utf-8?B?R291MDhaZ3NoSkxaUUhYN3FWbUg0Qk8yOGdOZE9Pek5ZczA5WjB0cGV6QzBl?=
+ =?utf-8?B?U1ZaU2kzTE05WXQ3Z3ZjK0hHTVFKU2dyQzRJcjRXSGQzRFNIclhBTUxUSFQ2?=
+ =?utf-8?B?NUVFb0tDU2lJMnFzRWoxK3FSTSs1TDhaYisxQkNaRHBubFU2S09mbzZpNnkv?=
+ =?utf-8?B?TTI2a3VaZTUrZ2ZuNlNXZ05JbjZ5VEFHYjdQU1dvNEpnNWN3YTR3SFN3ODhX?=
+ =?utf-8?B?K2tjSjREb2x1cTdndzlkMlFwRXVKVmVDN3BlVjA5d1I5Y1pVeTg4L3g1VTNR?=
+ =?utf-8?B?NUFKREVMdmVBMGc0WVZpTkxIbUNYU2VFY09pNGdMbDVFaWN6WTU1MkVEQkVS?=
+ =?utf-8?B?eFlTZng2dFhIY1RqeEVxQUdTQ2NTem92UFNDMEtJV3B6NmRrYmNWaytOcUgr?=
+ =?utf-8?B?RnBMYjY2S2JBTU1TOFB2ZkEvT0t3QXN5YXlUeEw5R2lpYVRWbFJucU9QWnpx?=
+ =?utf-8?B?bTMvN0J6SEliSEltb2srYTEvODhudVhrcndmSFNmR015ZkJZSjg1T0I5V3Yv?=
+ =?utf-8?B?T3Q3RXB1Tjc1VTdtUDVaQk0wQllYYkZqK3g3cnNEbUl3b2djV3hma2d3dEh0?=
+ =?utf-8?B?YU1jTytVeE00RDA1SlFmV1d2TlhIUXRqdVNkNURpdUM5ZDdmcG1yWGNnMjh2?=
+ =?utf-8?B?ZkhQUlpnTzBIZG1kN1A0RDlvVkthQ0JDVDlQM2M4bHpvUzdGODRlVDVBZ0M0?=
+ =?utf-8?B?VXdKTnNNb2k2SHliOHFhK3ErWlpjQnFNNGdaQXVCYmtoZVIwTjFqVm50emJX?=
+ =?utf-8?B?dXBDazdPa0V5S25wYzBGTExwOUJMdWRxSEdjOFNieEI2cll3eTRQUTlnUThm?=
+ =?utf-8?B?RU1rMFQrUmx5OG1QTm5RU0IzdE5xRmdoMU1RU2VQMk9pRjhnS3FoODZvT0FU?=
+ =?utf-8?B?OVlhcWJDbW1DRjNnZkowa1k2K2xQMjFjSlplYldRRTI5VUFNNS9pajVkK0Ux?=
+ =?utf-8?B?bXBzWHo1dmVyNURpWGJxTjFIZjh0Q3MrMGVRRVpGblVQcG5pYnhRNEU1NGVl?=
+ =?utf-8?B?eDlQa09lUDZsY1VBMGlWWWt3aE4xVS83NldxWE5GTHF5UkNYT2NPUWhCZXE0?=
+ =?utf-8?B?K3FtMjBIRHNZK2ZrWCt2WWZsS2wydEp2VTAwSWhUZDFUeHZHd2p0RHVseWQz?=
+ =?utf-8?B?ZWlYQmJSYVRhN2hKYk0yZnNhZGVaQmJ5OEh1dk1MTXdUaXhPcGNnMlkxK0ls?=
+ =?utf-8?B?VmZPOEw0UHFMNWZtczcxZ0RTams2aE9SRjl0Y2R2V2hLdzl6aVREbXpHaThS?=
+ =?utf-8?B?NTJTVVdyQ0xFUElWeE4zTFRobjRGZE52SzZjdXdzeWdtRitsb0pUS1h6TU5N?=
+ =?utf-8?B?aHM0N2NUQ2hVb01aa3JPQjBiVUtVVm04MEVlbHlHV3RDcTZlVnRMbjI3TzFQ?=
+ =?utf-8?B?WElUZHVrbjhhZ3lVYXNBNFlOUFl6RjdFckNjUyszbkY2bnFSYjl5ekUxM3FJ?=
+ =?utf-8?B?Nk9EeHU5NC9mY3JTZm9GQnpzaWdldERLeWFJWVBRQmQvcEdwWjhsNDNQdjlh?=
+ =?utf-8?B?L0FFSzJVVExmU2JHMUNkUlpnZXJwSjB1Z2E0elJvQTlWNWs1MWFPL2hJQmJu?=
+ =?utf-8?B?UUR5SUVpVXUxYUVoamFnTXhMci9vU2ZQd1hVdDBibVlHMGRQRlN3RnZ5aDBC?=
+ =?utf-8?B?UUd1RjBiZzR2V28zZDNjWHNSYjd5M1BmbmQ4MDdLU2U0SHd0MVhqWmc3T0sr?=
+ =?utf-8?B?OG1JNmJpdStJNk80VDdFN2RWbnNBR1AzNUdDa2tibUw2Y3g5dkkwMkJnNHpY?=
+ =?utf-8?B?TmRaSURBR1puMkcwYzc1cUN3TStHcnN0cVVZV3BMbEdnbWVKSkpaNDJiOS9F?=
+ =?utf-8?B?VTVEeG5YRmlJOVU1NlBqalNzQXBlc2ZvVFliMExLY3RRNk83T2txQ2Z1Skhw?=
+ =?utf-8?B?ZG1TN01NbFRlbEcwQzdDM1BwYnB6MGR3bDg1cjFuRVF2K29NQ1M3TmJzeTVV?=
+ =?utf-8?Q?7YjziDtTIV3uLCqE=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: afaf6c7c-7390-4b76-a7eb-08de85aa2660
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 11:24:57.0493
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +IwpJLI2oG9LJ8hJQJcVK4nyFVOZkysgEGvNUUGcwTEqhaA1DwQ/T182uwqUxUgT5ua6hVcP9t1H5Ob3i6zU2uHyNuPYTxY1nXQ4X8fEZZY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11231
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_042506_781531_FBD7D74B 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +160,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Mar 2026, Akashdeep Kaur wrote:
-
-> Currently, the TPS65219 driver unconditionally registers a poweroff
-> handler. This causes issues on systems where a different component
-> (such as TF-A firmware) should handle system poweroff instead.
+On 3/19/2026 12:54 PM, Marc Kleine-Budde wrote:
+> On 19.03.2026 10:40:30, Ciprian Costea wrote:
+>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>
+>> Add device data and compatible string for NXP S32N79 SoC.
+>>
+>> FlexCAN IP integration on S32N79 SoC uses two interrupts:
+>> - one for mailboxes 0-127
+>> - one for signaling bus errors and device state changes
+>>
+>> Co-developed-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+>> Signed-off-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>> ---
+>>   drivers/net/can/flexcan/flexcan-core.c | 10 ++++++++++
+>>   1 file changed, 10 insertions(+)
+>>
+>> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
+>> index 1d5879510adc..0f8ad666df09 100644
+>> --- a/drivers/net/can/flexcan/flexcan-core.c
+>> +++ b/drivers/net/can/flexcan/flexcan-core.c
+>> @@ -397,6 +397,15 @@ static const struct flexcan_devtype_data nxp_s32g2_devtype_data = {
+>>   		FLEXCAN_QUIRK_SECONDARY_MB_IRQ,
+>>   };
+>>
+>> +static const struct flexcan_devtype_data nxp_s32n_devtype_data = {
+>> +	.quirks = FLEXCAN_QUIRK_DISABLE_RXFG | FLEXCAN_QUIRK_ENABLE_EACEN_RRS |
+>> +		FLEXCAN_QUIRK_DISABLE_MECR | FLEXCAN_QUIRK_BROKEN_PERR_STATE |
+>> +		FLEXCAN_QUIRK_USE_RX_MAILBOX | FLEXCAN_QUIRK_SUPPORT_FD |
+>> +		FLEXCAN_QUIRK_SUPPORT_ECC | FLEXCAN_QUIRK_IRQ_BERR |
+>> +		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX |
+>> +		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX_RTR,
+>> +};
+>> +
 > 
-> Make the poweroff handler registration conditional based on the
-> "system-power-controller" device tree property. This follows the
-> standard kernel pattern where only the designated power controller
-> registers for system poweroff operations.
+> Nitpick: please order the quirks by value.
 > 
-> On systems where the property is absent, the PMIC will not register
-> a poweroff handler, allowing other poweroff mechanisms to function.
-> 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  drivers/mfd/tps65219.c | 18 ++++++++++++------
->  1 file changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
-> index 7275dcdb7c44..beb816707d8f 100644
-> --- a/drivers/mfd/tps65219.c
-> +++ b/drivers/mfd/tps65219.c
-> @@ -541,13 +541,19 @@ static int tps65219_probe(struct i2c_client *client)
->  		return ret;
->  	}
->  
-> -	ret = devm_register_power_off_handler(tps->dev,
-> -					      tps65219_power_off_handler,
-> -					      tps);
-> -	if (ret) {
-> -		dev_err(tps->dev, "failed to register power-off handler: %d\n", ret);
-> -		return ret;
-> +	/*
-> +	 * Only register PMIC power-off handler if system-power-controller
-> +	 * property is present.
-> +	 */
-> +	if (of_device_is_system_power_controller(tps->dev->of_node)) {
-
-The function name `of_device_is_system_power_controller()` is quite
-self-descriptive. Is this comment really necessary? The code seems clear
-enough without it.
-
-> +		ret = devm_register_power_off_handler(tps->dev,
-> +						      tps65219_power_off_handler,
-> +						      tps);
-> +		if (ret)
-> +			return dev_err_probe(tps->dev, ret,
-> +					"failed to register power-off handler\n");
->  	}
-> +
->  	return 0;
->  }
->  
-> -- 
-> 2.34.1
+> regards,
+> Marc
 > 
 
--- 
-Lee Jones [李琼斯]
+Sounds good. I can order them in V3.
+
+Best Regards,
+Ciprian
 
