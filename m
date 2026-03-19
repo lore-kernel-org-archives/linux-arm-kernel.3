@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1841090237
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27D21090237
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9PKfHh7lpDmvXp/AacCSQ4DXliViadOMLA1Saz6vuQM=; b=HsXyGCrkqFSCBM7d/bp/i1a3tN
-	NYNcqLKZTLmzs9j8RpYd7VwsAvmB61Np9OX/dKoSjwtaVZXXYqIRudcsqRThr9tFh50emvqK8LBXf
-	/cpvYJlKyOZvsHZsFgDY5SrTuYvmGCudQsCCvbIT8u0AGsufenT4uC9YDxyHMmeh7Ny10YXYRjA4C
-	m2DO1N/EGTOa940fvnP50yD8ZFIBlRw7Y9ylJ5veT9hXyRDdzkTXNuI8MUTkHvOLOyyl4hW4ve5Ut
-	VffXLZl5cBpJrwd2+yDAeWGMV3H8JBSONmGMsrdnRUPfemOsJSI+e0FPKOs73zAyX0KFMemUpEp3O
-	TPJzXBBA==;
+	bh=YwqXWOs5RJuysMtH/Thzze8YPTs15V9upVFcogWkWE0=; b=Txig0LwGaDYjjnbMX6YkE78e03
+	AUem/O4geuKwGrwoYEUr4jKeLK3BKjPJvngUcD+6uriQtmXfXyn7XMo8WrCYjiAYjvc9XMUDi9x1F
+	ZilLZQbuyq45Jpb6jSmCjTt6y18e9zmrlDJMu03SxD1KTd51xtuO0Oe78yiN6LiWVLdZyq+E2HlOt
+	o3MfvVoxeVYfWPjmdMWSgqAAgzHtHUH7aIxWtYfWyPg73hFE20y3/2pTmuCao672XB/XblkPpvdeN
+	uezSZp/29pRfSIztXJwBj1s0VlkS7WymSGyE7aDGPNKnaoafG8uzWEvPCabpBSVUQB/VqRwVJYKcm
+	OJpTXZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F2B-0000000AsL3-32eR;
-	Thu, 19 Mar 2026 15:11:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w3F4Z-0000000AsYl-12Q8;
+	Thu, 19 Mar 2026 15:14:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F29-0000000AsK2-0v1b
+	id 1w3F4Y-0000000AsYf-0m8P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:11:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9PKfHh7lpDmvXp/AacCSQ4DXliViadOMLA1Saz6vuQM=; b=aMU5hgi1JmyBFGBjGXz8h6GZ97
-	qYwyqthq0k4Ie4XVz0Hlae3+6315exn9CIHZElJ2p8VCpxl2xKmcH+w4AnFTPGKg3iTz87AwMcRSj
-	FGG3vbB6iCtpNc550JNthzmkcgwcjQFf00NEatZGff38mF4Xh/0pRCuIVpL/BPAYvRgRQkl1JBumc
-	hwNUdMIq7KTa8qejhtlF2HzWMqXc7yfq8XjQxCKEozzTiwCWPPeOYUe4b+csipMMjRAy1MM5DsY1d
-	aoL3AROYLqPzi5JhFgMHtmSIKoiNWoIer31sAiKsvXIR6kgJaEVxIxDIwYF13JTHfmuGasC2KYHJC
-	r/4lZR/A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59324)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w3F20-000000004tn-0xA2;
-	Thu, 19 Mar 2026 15:11:28 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w3F1w-000000008E5-2ekr;
-	Thu, 19 Mar 2026 15:11:24 +0000
-Date: Thu, 19 Mar 2026 15:11:24 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
-Message-ID: <abwSHGw39FTJGNb7@shell.armlinux.org.uk>
-References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
- <abdEscs44fU4kRag@oss.qualcomm.com>
- <abdYu864OmNWiWIW@shell.armlinux.org.uk>
- <ablpxwGks9m38fhM@shell.armlinux.org.uk>
- <absjNQ2s3Z5N2Zwo@oss.qualcomm.com>
- <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
- <abvAuHFZzCFobO-V@shell.armlinux.org.uk>
- <7566c66b-2dda-4b29-b59e-4e4a7e159e21@oss.qualcomm.com>
- <abvy6nZyjyxUXMuf@shell.armlinux.org.uk>
- <bcab38a5-e7f7-47c9-ab9c-99294e095c22@oss.qualcomm.com>
+	Thu, 19 Mar 2026 15:14:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 75AA1600AD;
+	Thu, 19 Mar 2026 15:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83877C19424;
+	Thu, 19 Mar 2026 15:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773933245;
+	bh=6uAt7ubzV2O3BI/pAFzPDP4tAXyo8E4m0NbhLWXLX7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L/HpPYRyB1SSEB7/oIXSgbd20NyZpWHxgE6iK9aXcxf7ZlW8BUYcrc9wij9EqMvb5
+	 xRVeI3EbFJ9OoCT3uWu1Vt45sa19+Jp0jYuI3wSr58j2hX3inuVS+nUxgJe/VJ/448
+	 n162+qsfyZykdrUgrKFEBUmiIkV+LtXjGxs+x3Mj6TwmnJy7oRdfsFKx9VPRQ5ss6I
+	 sqb4buK5yBLSLBv20U8zzN57XlEC9xZ+SiuwxgmikGuS/UTwBGa9Gk2OnHmZj3/EkY
+	 rZgaCHWSf867C9KVxGZLrVbfcEDL6EEERx9l3FfIFA6zBPOZoOpyh71oW+8NU84k81
+	 wmK0mRFe/YreA==
+Date: Thu, 19 Mar 2026 15:14:01 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Maulik Shah <maulik.shah@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH] arm64: suspend: Remove forcing error from suspend
+ finisher
+Message-ID: <20260319-tiny-coucal-of-tranquility-ce0bd4@sudeepholla>
+References: <20260316-suspend_ret-v1-1-1a30b110bb7d@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <bcab38a5-e7f7-47c9-ab9c-99294e095c22@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_081137_270086_A07F2520 
-X-CRM114-Status: GOOD (  38.08  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260316-suspend_ret-v1-1-1a30b110bb7d@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,92 +72,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 02:50:29PM +0100, Konrad Dybcio wrote:
-> On 3/19/26 1:58 PM, Russell King (Oracle) wrote:
-> > On Thu, Mar 19, 2026 at 11:09:33AM +0100, Konrad Dybcio wrote:
-> >> On 3/19/26 10:24 AM, Russell King (Oracle) wrote:
-> >>> On Thu, Mar 19, 2026 at 12:35:58AM +0000, Russell King (Oracle) wrote:
-> >>>> On Thu, Mar 19, 2026 at 03:42:05AM +0530, Mohd Ayaan Anwar wrote:
-> >>>>> [    8.650486] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
-> >>>>
-> >>>> Please look into this first - with the MDIO bus operating at
-> >>>> who-knows-what frequency, this could make reading from the PHY
-> >>>> unreliable.
-> >>>
-> >>> My guess is clk_get_rate(priv->plat->stmmac_clk) is returning zero,
-> >>> which means we don't know the rate of the CSR clock.
-> >>>
-> >>> From what I can see in drivers/clk/qcom/gcc-qcs404.c and
-> >>> drivers/clk/qcom/gcc-sdx55.c, this looks like this case - the
-> >>> struct clk_branch makes no mention of any clock rate, nor does it
-> >>> have any parent. From what I can see, neither of these drivers
-> >>> specify any rates for any of their clocks, which likely means that
-> >>> clk_get_rate() will be zero for all of them.
-> >>>
-> >>> Sadly, when I designed the clk API, I didn't think that people would
-> >>> be stupid enough not to implement the API properly, more fool me.
-> >>>
-> >>> Under the old code, we would've used STMMAC_CSR_20_35M, which means
-> >>> we're assuming that the CSR clock is between 20 and 35MHz, even
-> >>> though the value is zero. Is that the case? If it's higher than
-> >>> 35MHz, then you've been operating the MDIO bus out of IEEE 802.3
-> >>> specification, which can make PHY access unrealible.
-> >>>
-> >>> In any case, please fix your clock drivers.
-> >>
-> >> I'm not 100% sure the currently-passed AXI clock is what we want
-> >> there and the docs aren't super helpful.. is there a synopsys-name
-> >> for it? What rates would you expect it to run at?
-> > 
-> > There is no easy answer to that - it depends on the bus interfaces
-> > and whether the CSR (register) clock is separate.
-> > 
-> > The likely possible names are hclk_i (for AHB master), aclk_i (for
-> > AXI master), or clk_csr_i.
-> > 
-> > It does state that the CSR clock should have a minimum frequency of
-> > 25MHz to allow all statistics to be properly collected.
-> > 
-> > The rate of the CSR clock needs to be known, as selecting the divider
-> > for generating MDC within IEEE 802.3 specifications is rather
-> > fundamental. You may find something there which hints at what rate
-> > the dwmac's CSR clock runs at.
+On Mon, Mar 16, 2026 at 02:18:18PM +0530, Maulik Shah wrote:
+> Successful cpu_suspend() may not always want to return to cpu_resume() to
+> save the work and latency involved.
 > 
-> If it's either AXI or AHB, in both cases their direct parent is controlled
-> by an entity external to Linux and their rates may change at runtime,
-> based on aggregated needs of the bus. They're defined as levels/corners
-> (abstract term for a hidden volt+freq combo).
+> consider a scenario,
 > 
-> It may be that the operating range for the EMAC removes that variability,
-> but with no concrete evidence and just anecdotal experience, that's only
-> the case for the AHB clock
+> when single physical CPU (pCPU) is used on different virtual machines (VMs)
+> as virtual CPUs (vCPUs). VM-x's vCPU can request a powerdown state after
+> saving the context by invoking __cpu_suspend_enter() whereas VM-y's vCPU is
+> requesting a shallower than powerdown state. The hypervisor aggregates to a
+> non powerdown state for pCPU. A wakeup event for VM-x's vCPU may want to
+> resume the execution at the same place instead of jumping to cpu_resume()
+> as the HW never reached till powerdown state which would have lost the
+> context.
+> 
 
-The important thing is that the MDC doesn't exceed the max clock
-frequency for the PHY and any other device connected to the MDIO
-bus. IEEE 802.3 specifies a max frequency of 2.5MHz (minimum period
-for MDC shall be 400 ns). Some PHYs can operate in excess of this,
-but one would need to confirm that all devices on the MDIO bus
-supports higher frequencies before using them. In the kernel, we
-generally err on the side of caution and stick to IEEE 802.3.
+Though I don't fully understand the intention/use-case for presenting the
+VMs with powerdown states ....
 
-There are two ways to achieve the divider value with stmmac.
+> While the vCPU of VM-x had latency impact of saving the context in suspend
+> entry path but having the return to same place saves the latency to restore
+> the context in resume path.
+> 
 
-1. if priv->plat->csr_clk is set to a value other than -1, this
-   configures the hardware divisor (for "normal" cores, it takes
-   STMMAC_CSR_* constants that can be found in include/linux/stmmac.h)
+I understand the exit-latency aspect, though the register set involved is not
+very large unless the driver notifier list is sizable on some platforms. This
+is typically the case in Platform Coordinated mode.
 
-2. otherwise, the rate of priv->plat->stmmac_clk is used as the CSR
-   clock value, which is the reference clock for the divider that
-   generates the MDC clock, and an appropriate divider is selected.
-   Given the available dividers, it works out at between 1.25MHz for
-   a CSR clock of just over 20MHz and 2.47MHz for 800MHz. (I have a
-   patch which documents the ranges for each of the STMMAC_CSR_xxx
-   values.)
+> consider another scenario,
+> 
+> Newer CPUs include a feature called “powerdown abandon”. The feature is
+> based on the observation that events like GIC wakeups have a high
+> likelihood of happening while the CPU is in the middle of its powerdown
+> sequence (at wfi). Older CPUs will powerdown and immediately power back
+> up when this happens. The newer CPUs will “give up” mid way through if
+> no context has been lost yet. This is possible as the powerdown operation
+> is lengthy and a large part of it does not lose context [1].
+> 
 
-Note that the dividier constants are not the actual divider itself,
-as can be seen in include/linux/stmmac.h
+When you say "large part" above, do you mean that none of the CPU context, as
+visible to software, is lost? Otherwise, we would need to discuss that "large
+part" in more detail. From the kernel point of view, this is a simple boolean:
+context is either lost or retained. Anything in between is not valid, as we do
+not support partial context loss.
+
+> As the wakeup arrived after SW powerdown is done but before HW is fully
+> powered down. From SW view this is still a successful entry to suspend
+> and since the HW did not loose the context there is no reason to return at
+> entry address cpu_resume() to restore the context.
+> 
+
+Yes, that may be worth considering from an optimization perspective. However,
+if the hardware aborts the transition, then returning success regardless of the
+software state should still be counted as a failure. That would keep the
+cpuidle entry statistics more accurate than returning success. And it is
+a failure as the OS expected to enter that powerdown state but there was
+as H/W abort.
+
+> Remove forcing the failure at kernel if the execution does not resume at
+> cpu_resume() as kernel has no reason to treat such returns as failures
+> when the firmware has already filled in return as success.
+> 
+
+This is not possible with the current PSCI spec:
+"Powerdown states do not return on success because restart is through the
+entry point address at wakeup."
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Regards,
+Sudeep
 
