@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11BA1075262
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D701075261
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7uYI13829L9H9cTvRmZOetHRrbmr71eFCiXz5WnuYE=; b=padZWo/3S7YXBcvcBK3SwXEuZk
-	S5xB6FjQIP5Wu3EJkgM2GubfEeZ2zgY+E7wgbLxpjfOHsDgbNoqTTivJuGmszzF5Q4KHPA1cC43y+
-	zOSc8OtLvCzCgbyzTOFsQRmSeycnHGHtcTg68FlqAv8hB9ubqdHDrHBMLMVUdapSiISqsRXlIQP19
-	u8AbCckjhpDLfIb9FprE7NaaYVOcdLWn68tB2bcTnBD8YLKciWJxrLWB7EDP9uQrLkeEIAQdtKZAh
-	ahnJdPpIg1G6xrAbc2qXaYJx4MOhoVyVca1nmSF/Hl2O+7sjsYSTbNKVt+z6d0zyjBVbjeoEPmF+z
-	+qxiZHZQ==;
+	bh=7uugS5B/tI5rmffJG4qjhUzsxChNc1RoUkWcxWbwAyU=; b=f9KbPF/uLzKC96lxPdveRmEWYh
+	EqanmnrIzz3YMrNJTtfQLZ0V5QNrTvKU0B07sn/AT0slbEbo9WUbV93vky3MkZiDNTgOd3ekRlwG3
+	eLRmhTM7EcZXAOdC/7jbg5R5I2MUtYmNm5zqEpR5jpEsQ3G+64qH29syrNQa4Pcg0BXUpCNyGI1pz
+	9sYcUCJMKQsWO2IPd6B+xUyTanJfKS6iR7KKQg8i9pawKFzWLYXthX5/OUlUWqM1Eu/RLOaaRzw+c
+	R0T3XNFK6MrvF3w4WvirTOKRmpAlVPQ3nUQL5O9QGsRvEiZXW5OeFo8EF7/sWE/mjyAXQhkQH7WCD
+	wZOpGvVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36jk-0000000A0YE-0FQ5;
-	Thu, 19 Mar 2026 06:20:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w36jy-0000000A0le-1zYG;
+	Thu, 19 Mar 2026 06:20:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j1-00000009zjk-3e9o;
+	id 1w36j3-00000009zlV-2GEW;
 	Thu, 19 Mar 2026 06:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 735224465F;
-	Thu, 19 Mar 2026 06:19:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C688C2BCAF;
-	Thu, 19 Mar 2026 06:19:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD0CF61860;
+	Thu, 19 Mar 2026 06:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63CFAC2BCC9;
+	Thu, 19 Mar 2026 06:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901159;
-	bh=g4HC7CR5REgRhpaC7W+TZS5hRJ5IjsLa0h/bTCy9m6k=;
+	s=k20201202; t=1773901160;
+	bh=7F7ndcFH8rpPiACNbtYxCLPxNZA0C89ig93X3UFOhZg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K0/qBsme+JzpcNbY/maKCWAZlEYHcGW3FJEAde5UvPs1AUj87gYJjDHtePlBYTO6U
-	 5hkY81O0L87uiuAeSxqFIj5g0A+yCnwrN9XuTOtUNoSm+Rl5TxmOX3iLj2+/GYDZZr
-	 RwL/KZcHD3V61g5HYxIeXsb0blIgF647GTQayQDTob3pavHtLMNWp+NnlxAfzhxNEa
-	 Y//XSF8cE8wG2iJEeRz/q6Lv5XxPfCWcMMrgHyV1JxN1VkFgZ5Ib4+DDBsSd3KFFn2
-	 JsNmiLclTDgj9zCx4vQxwbHyYg9VfxFws8xnWfXE95Su1tTZX5Ko/M2kGtJQKv8rGq
-	 X22oPsRM/tPDg==
+	b=LtLToKlgA0+Pk4GjTlYNad6rvHvHbEP/2D3kndnAGFI1vz5KKAGFs1+R+SwEgJXO8
+	 HQbMb6bXMWgJVHvmjee84xWTWOzkHZ5i2XUw5vG9WYRbpoThUyDHWaQlFZ9MaABGo2
+	 IiiR8rZuYEQBM3NpxG1cPccwPVLZezGnovy4A/EK05lEICEgEH54q6KrgAYlcrcVvW
+	 6hTnWXcqDfGFkeJe7m8YD9h/6qVmQqqDpydEODU3dhxIIqxXb2Lbwc3XJu9APpryvN
+	 PhH/eiY+dyPlSjSeQemdVtcw6QvNayZP1xVoHu9PrhGn9/YsRBOEtSYwmfpda3vkVu
+	 2c4i/tSpO0www==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,17 +53,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 10/19] crypto: arm64/aes-gcm - Rename struct ghash_key and make fixed-sized
-Date: Wed, 18 Mar 2026 23:17:11 -0700
-Message-ID: <20260319061723.1140720-11-ebiggers@kernel.org>
+Subject: [PATCH 13/19] lib/crypto: s390/ghash: Migrate optimized code into library
+Date: Wed, 18 Mar 2026 23:17:14 -0700
+Message-ID: <20260319061723.1140720-14-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_231919_973076_9A9D4A2A 
-X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,145 +75,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the 'struct ghash_key' in arch/arm64/crypto/ghash-ce-glue.c to
-prevent a naming conflict with the library 'struct ghash_key'.  In
-addition, declare the 'h' field with an explicit size, now that there's
-no longer any reason for it to be a flexible array.
+Remove the "ghash-s390" crypto_shash algorithm, and replace it with an
+implementation of ghash_blocks_arch() for the GHASH library.
 
-Update the comments in the assembly file to match the C code.  Note that
-some of these were out-of-date.
+This makes the GHASH library be optimized with CPACF.  It also greatly
+reduces the amount of s390-specific glue code that is needed, and it
+fixes the issue where this GHASH optimization was disabled by default.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/ghash-ce-core.S | 15 ++++++++-------
- arch/arm64/crypto/ghash-ce-glue.c | 20 +++++++++-----------
- 2 files changed, 17 insertions(+), 18 deletions(-)
+ arch/s390/configs/debug_defconfig |   1 -
+ arch/s390/configs/defconfig       |   1 -
+ arch/s390/crypto/Kconfig          |  10 ---
+ arch/s390/crypto/Makefile         |   1 -
+ arch/s390/crypto/ghash_s390.c     | 144 ------------------------------
+ include/crypto/gf128hash.h        |   3 +-
+ lib/crypto/Kconfig                |   1 +
+ lib/crypto/s390/gf128hash.h       |  54 +++++++++++
+ 8 files changed, 57 insertions(+), 158 deletions(-)
+ delete mode 100644 arch/s390/crypto/ghash_s390.c
+ create mode 100644 lib/crypto/s390/gf128hash.h
 
-diff --git a/arch/arm64/crypto/ghash-ce-core.S b/arch/arm64/crypto/ghash-ce-core.S
-index a01f136f4fb2..33772d8fe6b5 100644
---- a/arch/arm64/crypto/ghash-ce-core.S
-+++ b/arch/arm64/crypto/ghash-ce-core.S
-@@ -62,11 +62,11 @@
- 	pmull		XL.1q, XL.1d, MASK.1d
- 	.endm
+diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
+index 98fd0a2f51c6..aa862d4fcc68 100644
+--- a/arch/s390/configs/debug_defconfig
++++ b/arch/s390/configs/debug_defconfig
+@@ -807,11 +807,10 @@ CONFIG_CRYPTO_LZ4HC=m
+ CONFIG_CRYPTO_ZSTD=m
+ CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+-CONFIG_CRYPTO_GHASH_S390=m
+ CONFIG_CRYPTO_AES_S390=m
+ CONFIG_CRYPTO_DES_S390=m
+ CONFIG_CRYPTO_HMAC_S390=m
+ CONFIG_ZCRYPT=m
+ CONFIG_PKEY=m
+diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
+index 0f4cedcab3ce..74f943307c46 100644
+--- a/arch/s390/configs/defconfig
++++ b/arch/s390/configs/defconfig
+@@ -792,11 +792,10 @@ CONFIG_CRYPTO_ZSTD=m
+ CONFIG_CRYPTO_JITTERENTROPY_OSR=1
+ CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+-CONFIG_CRYPTO_GHASH_S390=m
+ CONFIG_CRYPTO_AES_S390=m
+ CONFIG_CRYPTO_DES_S390=m
+ CONFIG_CRYPTO_HMAC_S390=m
+ CONFIG_ZCRYPT=m
+ CONFIG_PKEY=m
+diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
+index 79a2d0034258..ee83052dbc15 100644
+--- a/arch/s390/crypto/Kconfig
++++ b/arch/s390/crypto/Kconfig
+@@ -1,19 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
  
- 	/*
- 	 * void pmull_ghash_update_p64(int blocks, u64 dg[], const char *src,
--	 *			       u64 const h[][2], const char *head)
-+	 *			       u64 const h[4][2], const char *head)
- 	 */
- SYM_FUNC_START(pmull_ghash_update_p64)
- 	ld1		{SHASH.2d}, [x3]
- 	ld1		{XL.2d}, [x1]
+ menu "Accelerated Cryptographic Algorithms for CPU (s390)"
  
-@@ -411,22 +411,23 @@ CPU_LE(	rev		w8, w8		)
- 	.endif
- 	b		3b
- 	.endm
+-config CRYPTO_GHASH_S390
+-	tristate "Hash functions: GHASH"
+-	select CRYPTO_HASH
+-	help
+-	  GCM GHASH hash function (NIST SP800-38D)
+-
+-	  Architecture: s390
+-
+-	  It is available as of z196.
+-
+ config CRYPTO_AES_S390
+ 	tristate "Ciphers: AES, modes: ECB, CBC, CTR, XTS, GCM"
+ 	select CRYPTO_SKCIPHER
+ 	help
+ 	  AEAD cipher: AES with GCM
+diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
+index 387a229e1038..4449c1b19ef5 100644
+--- a/arch/s390/crypto/Makefile
++++ b/arch/s390/crypto/Makefile
+@@ -5,9 +5,8 @@
  
- 	/*
--	 * void pmull_gcm_encrypt(int blocks, u8 dst[], const u8 src[],
--	 *			  struct ghash_key const *k, u64 dg[], u8 ctr[],
--	 *			  int rounds, u8 tag)
-+	 * void pmull_gcm_encrypt(int bytes, u8 dst[], const u8 src[],
-+	 *			  u64 const h[4][2], u64 dg[], u8 ctr[],
-+	 *			  u32 const rk[], int rounds, u8 tag[])
- 	 */
- SYM_FUNC_START(pmull_gcm_encrypt)
- 	pmull_gcm_do_crypt	1
- SYM_FUNC_END(pmull_gcm_encrypt)
+ obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
+ obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
+ obj-$(CONFIG_CRYPTO_PAES_S390) += paes_s390.o
+ obj-$(CONFIG_S390_PRNG) += prng.o
+-obj-$(CONFIG_CRYPTO_GHASH_S390) += ghash_s390.o
+ obj-$(CONFIG_CRYPTO_HMAC_S390) += hmac_s390.o
+ obj-$(CONFIG_CRYPTO_PHMAC_S390) += phmac_s390.o
+ obj-y += arch_random.o
+diff --git a/arch/s390/crypto/ghash_s390.c b/arch/s390/crypto/ghash_s390.c
+deleted file mode 100644
+index dcbcee37cb63..000000000000
+--- a/arch/s390/crypto/ghash_s390.c
++++ /dev/null
+@@ -1,144 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/*
+- * Cryptographic API.
+- *
+- * s390 implementation of the GHASH algorithm for GCM (Galois/Counter Mode).
+- *
+- * Copyright IBM Corp. 2011
+- * Author(s): Gerald Schaefer <gerald.schaefer@de.ibm.com>
+- */
+-
+-#include <asm/cpacf.h>
+-#include <crypto/ghash.h>
+-#include <crypto/internal/hash.h>
+-#include <linux/cpufeature.h>
+-#include <linux/err.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-
+-struct s390_ghash_ctx {
+-	u8 key[GHASH_BLOCK_SIZE];
+-};
+-
+-struct s390_ghash_desc_ctx {
+-	u8 icv[GHASH_BLOCK_SIZE];
+-	u8 key[GHASH_BLOCK_SIZE];
+-};
+-
+-static int ghash_init(struct shash_desc *desc)
+-{
+-	struct s390_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
+-	struct s390_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	memset(dctx, 0, sizeof(*dctx));
+-	memcpy(dctx->key, ctx->key, GHASH_BLOCK_SIZE);
+-
+-	return 0;
+-}
+-
+-static int ghash_setkey(struct crypto_shash *tfm,
+-			const u8 *key, unsigned int keylen)
+-{
+-	struct s390_ghash_ctx *ctx = crypto_shash_ctx(tfm);
+-
+-	if (keylen != GHASH_BLOCK_SIZE)
+-		return -EINVAL;
+-
+-	memcpy(ctx->key, key, GHASH_BLOCK_SIZE);
+-
+-	return 0;
+-}
+-
+-static int ghash_update(struct shash_desc *desc,
+-			 const u8 *src, unsigned int srclen)
+-{
+-	struct s390_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-	unsigned int n;
+-
+-	n = srclen & ~(GHASH_BLOCK_SIZE - 1);
+-	cpacf_kimd(CPACF_KIMD_GHASH, dctx, src, n);
+-	return srclen - n;
+-}
+-
+-static void ghash_flush(struct s390_ghash_desc_ctx *dctx, const u8 *src,
+-			unsigned int len)
+-{
+-	if (len) {
+-		u8 buf[GHASH_BLOCK_SIZE] = {};
+-
+-		memcpy(buf, src, len);
+-		cpacf_kimd(CPACF_KIMD_GHASH, dctx, buf, GHASH_BLOCK_SIZE);
+-		memzero_explicit(buf, sizeof(buf));
+-	}
+-}
+-
+-static int ghash_finup(struct shash_desc *desc, const u8 *src,
+-		       unsigned int len, u8 *dst)
+-{
+-	struct s390_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	ghash_flush(dctx, src, len);
+-	memcpy(dst, dctx->icv, GHASH_BLOCK_SIZE);
+-	return 0;
+-}
+-
+-static int ghash_export(struct shash_desc *desc, void *out)
+-{
+-	struct s390_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	memcpy(out, dctx->icv, GHASH_DIGEST_SIZE);
+-	return 0;
+-}
+-
+-static int ghash_import(struct shash_desc *desc, const void *in)
+-{
+-	struct s390_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
+-	struct s390_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	memcpy(dctx->icv, in, GHASH_DIGEST_SIZE);
+-	memcpy(dctx->key, ctx->key, GHASH_BLOCK_SIZE);
+-	return 0;
+-}
+-
+-static struct shash_alg ghash_alg = {
+-	.digestsize	= GHASH_DIGEST_SIZE,
+-	.init		= ghash_init,
+-	.update		= ghash_update,
+-	.finup		= ghash_finup,
+-	.setkey		= ghash_setkey,
+-	.export		= ghash_export,
+-	.import		= ghash_import,
+-	.statesize	= sizeof(struct ghash_desc_ctx),
+-	.descsize	= sizeof(struct s390_ghash_desc_ctx),
+-	.base		= {
+-		.cra_name		= "ghash",
+-		.cra_driver_name	= "ghash-s390",
+-		.cra_priority		= 300,
+-		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_blocksize		= GHASH_BLOCK_SIZE,
+-		.cra_ctxsize		= sizeof(struct s390_ghash_ctx),
+-		.cra_module		= THIS_MODULE,
+-	},
+-};
+-
+-static int __init ghash_mod_init(void)
+-{
+-	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_GHASH))
+-		return -ENODEV;
+-
+-	return crypto_register_shash(&ghash_alg);
+-}
+-
+-static void __exit ghash_mod_exit(void)
+-{
+-	crypto_unregister_shash(&ghash_alg);
+-}
+-
+-module_cpu_feature_match(S390_CPU_FEATURE_MSA, ghash_mod_init);
+-module_exit(ghash_mod_exit);
+-
+-MODULE_ALIAS_CRYPTO("ghash");
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("GHASH hash function, s390 implementation");
+diff --git a/include/crypto/gf128hash.h b/include/crypto/gf128hash.h
+index b798438cce23..0bc649d01e12 100644
+--- a/include/crypto/gf128hash.h
++++ b/include/crypto/gf128hash.h
+@@ -42,11 +42,12 @@ struct polyval_elem {
+  */
+ struct ghash_key {
+ #if defined(CONFIG_CRYPTO_LIB_GF128HASH_ARCH) && defined(CONFIG_PPC64)
+ 	/** @htable: GHASH key format used by the POWER8 assembly code */
+ 	u64 htable[4][2];
+-#elif defined(CONFIG_CRYPTO_LIB_GF128HASH_ARCH) && defined(CONFIG_RISCV)
++#elif defined(CONFIG_CRYPTO_LIB_GF128HASH_ARCH) && \
++	(defined(CONFIG_RISCV) || defined(CONFIG_S390))
+ 	/** @h_raw: The hash key H, in GHASH format */
+ 	u8 h_raw[GHASH_BLOCK_SIZE];
+ #endif
+ 	/** @h: The hash key H, in POLYVAL format */
+ 	struct polyval_elem h;
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 027802e0de33..a39e7707e9ee 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -122,10 +122,11 @@ config CRYPTO_LIB_GF128HASH_ARCH
+ 	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64
+ 	default y if PPC64 && VSX
+ 	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+ 		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
++	default y if S390
+ 	default y if X86_64
  
- 	/*
--	 * void pmull_gcm_decrypt(int blocks, u8 dst[], const u8 src[],
--	 *			  struct ghash_key const *k, u64 dg[], u8 ctr[],
--	 *			  int rounds, u8 tag)
-+	 * int pmull_gcm_decrypt(int bytes, u8 dst[], const u8 src[],
-+	 *			 u64 const h[4][2], u64 dg[], u8 ctr[],
-+	 *			 u32 const rk[], int rounds, const u8 l[],
-+	 *			 const u8 tag[], u64 authsize)
- 	 */
- SYM_FUNC_START(pmull_gcm_decrypt)
- 	pmull_gcm_do_crypt	0
- SYM_FUNC_END(pmull_gcm_decrypt)
- 
-diff --git a/arch/arm64/crypto/ghash-ce-glue.c b/arch/arm64/crypto/ghash-ce-glue.c
-index 42fb46bdc124..c74066d430fa 100644
---- a/arch/arm64/crypto/ghash-ce-glue.c
-+++ b/arch/arm64/crypto/ghash-ce-glue.c
-@@ -28,38 +28,38 @@ MODULE_LICENSE("GPL v2");
- MODULE_ALIAS_CRYPTO("gcm(aes)");
- MODULE_ALIAS_CRYPTO("rfc4106(gcm(aes))");
- 
- #define RFC4106_NONCE_SIZE	4
- 
--struct ghash_key {
-+struct arm_ghash_key {
- 	be128			k;
--	u64			h[][2];
-+	u64			h[4][2];
- };
- 
- struct arm_ghash_desc_ctx {
- 	u64 digest[GHASH_DIGEST_SIZE/sizeof(u64)];
- };
- 
- struct gcm_aes_ctx {
- 	struct aes_enckey	aes_key;
- 	u8			nonce[RFC4106_NONCE_SIZE];
--	struct ghash_key	ghash_key;
-+	struct arm_ghash_key	ghash_key;
- };
- 
- asmlinkage void pmull_ghash_update_p64(int blocks, u64 dg[], const char *src,
--				       u64 const h[][2], const char *head);
-+				       u64 const h[4][2], const char *head);
- 
- asmlinkage void pmull_gcm_encrypt(int bytes, u8 dst[], const u8 src[],
--				  u64 const h[][2], u64 dg[], u8 ctr[],
-+				  u64 const h[4][2], u64 dg[], u8 ctr[],
- 				  u32 const rk[], int rounds, u8 tag[]);
- asmlinkage int pmull_gcm_decrypt(int bytes, u8 dst[], const u8 src[],
--				 u64 const h[][2], u64 dg[], u8 ctr[],
-+				 u64 const h[4][2], u64 dg[], u8 ctr[],
- 				 u32 const rk[], int rounds, const u8 l[],
- 				 const u8 tag[], u64 authsize);
- 
- static void ghash_do_simd_update(int blocks, u64 dg[], const char *src,
--				 struct ghash_key *key, const char *head)
-+				 struct arm_ghash_key *key, const char *head)
- {
- 	scoped_ksimd()
- 		pmull_ghash_update_p64(blocks, dg, src, key->h, head);
- }
- 
-@@ -365,12 +365,11 @@ static struct aead_alg gcm_aes_algs[] = {{
- 
- 	.base.cra_name		= "gcm(aes)",
- 	.base.cra_driver_name	= "gcm-aes-ce",
- 	.base.cra_priority	= 300,
- 	.base.cra_blocksize	= 1,
--	.base.cra_ctxsize	= sizeof(struct gcm_aes_ctx) +
--				  4 * sizeof(u64[2]),
-+	.base.cra_ctxsize	= sizeof(struct gcm_aes_ctx),
- 	.base.cra_module	= THIS_MODULE,
- }, {
- 	.ivsize			= GCM_RFC4106_IV_SIZE,
- 	.chunksize		= AES_BLOCK_SIZE,
- 	.maxauthsize		= AES_BLOCK_SIZE,
-@@ -381,12 +380,11 @@ static struct aead_alg gcm_aes_algs[] = {{
- 
- 	.base.cra_name		= "rfc4106(gcm(aes))",
- 	.base.cra_driver_name	= "rfc4106-gcm-aes-ce",
- 	.base.cra_priority	= 300,
- 	.base.cra_blocksize	= 1,
--	.base.cra_ctxsize	= sizeof(struct gcm_aes_ctx) +
--				  4 * sizeof(u64[2]),
-+	.base.cra_ctxsize	= sizeof(struct gcm_aes_ctx),
- 	.base.cra_module	= THIS_MODULE,
- }};
- 
- static int __init ghash_ce_mod_init(void)
- {
+ config CRYPTO_LIB_MD5
+ 	tristate
+ 	help
+diff --git a/lib/crypto/s390/gf128hash.h b/lib/crypto/s390/gf128hash.h
+new file mode 100644
+index 000000000000..1e46ce4bca40
+--- /dev/null
++++ b/lib/crypto/s390/gf128hash.h
+@@ -0,0 +1,54 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * GHASH optimized using the CP Assist for Cryptographic Functions (CPACF)
++ *
++ * Copyright 2026 Google LLC
++ */
++#include <asm/cpacf.h>
++#include <linux/cpufeature.h>
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_ghash);
++
++#define ghash_preparekey_arch ghash_preparekey_arch
++static void ghash_preparekey_arch(struct ghash_key *key,
++				  const u8 raw_key[GHASH_BLOCK_SIZE])
++{
++	/* Save key in POLYVAL format for fallback */
++	ghash_key_to_polyval(raw_key, &key->h);
++
++	/* Save key in GHASH format for CPACF_KIMD_GHASH */
++	memcpy(key->h_raw, raw_key, GHASH_BLOCK_SIZE);
++}
++
++#define ghash_blocks_arch ghash_blocks_arch
++static void ghash_blocks_arch(struct polyval_elem *acc,
++			      const struct ghash_key *key,
++			      const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_cpacf_ghash)) {
++		/*
++		 * CPACF_KIMD_GHASH requires the accumulator and key in a single
++		 * buffer, each using the GHASH convention.
++		 */
++		u8 ctx[2][GHASH_BLOCK_SIZE] __aligned(8);
++
++		polyval_acc_to_ghash(acc, ctx[0]);
++		memcpy(ctx[1], key->h_raw, GHASH_BLOCK_SIZE);
++
++		cpacf_kimd(CPACF_KIMD_GHASH, ctx, data,
++			   nblocks * GHASH_BLOCK_SIZE);
++
++		ghash_acc_to_polyval(ctx[0], acc);
++		memzero_explicit(ctx, sizeof(ctx));
++	} else {
++		ghash_blocks_generic(acc, &key->h, data, nblocks);
++	}
++}
++
++#define gf128hash_mod_init_arch gf128hash_mod_init_arch
++static void gf128hash_mod_init_arch(void)
++{
++	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
++	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_GHASH))
++		static_branch_enable(&have_cpacf_ghash);
++}
 -- 
 2.53.0
 
