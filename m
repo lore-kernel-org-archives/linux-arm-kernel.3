@@ -4,152 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66A4109023F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689B31090247
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSYsK5rJ2TFNQ5sx9fuQfPtKOQ3Ob9Kh4sC/NAg3v5U=; b=4uuM4Dlapufrm1k1cL0DFSmbPb
-	EovTMWHOKPi7+/wQ6vA+AzYdpDijRF6iRf9GWSSc5NoiY9dV9jzzR7k+ZtC3SjU3+YY4LKjt6zWka
-	+QPjpNaUhGYuqn0Dcy3R+VR8+/er5WGrbA8ULCm1R76KfuDXrD0tLWiIV45XVW9jf6PqoxpqeT8Bm
-	YMWTJ6TzTZHV4ojDQYDaupVQclhfYW5SYyqAgdN0mIA/TTPMS8vht3C1xzL5amqANXY43R+Z06MIp
-	uz9L7ajXA6SxEAZ4lpByPioP2LFw+lU4GYZyKMqPKQnW34hT9XmW+6SRR4JNUkPnyAbxBCRa92V/P
-	aGVSoZug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/SkmenYWfG03cyx26DQI0pNUhnOeHCO/bc9QSsDFeFI=; b=Z+C/1L99EwPIEhVPUHCxArAEAo
+	qab4eCg5ucbIt2aBpcoIQnu+O5bg/Lgtu3d/7sVOKo32G148pIXx77Z4+/sV0GNJ+4gQ6UK9J5RX5
+	ZimWzVpQFdk74PRT6Tqo3x6Nsr7b9D/HAQxWYEAEEF63t/3ue+EIAesI/bLa5s8oOZf/QymI3kU1y
+	SyBUh5zCoaikz2Z4TDg/oaK9q2l7eR4XsQs/3B/LqFAfaTV/E1AACuOMVjxgxxFtYSQPjG6j//IyN
+	SR/a3SDeuvXjO+Bk+vS5sohhOaiNj5bWaXLJltPMZQJFRpi+/sIzLcAp04I0GvueOy+0PHDpnene1
+	QJ10SsGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Fko-0000000AzjR-0Tnt;
-	Thu, 19 Mar 2026 15:57:46 +0000
-Received: from mail-francecentralazon11013052.outbound.protection.outlook.com ([40.107.162.52] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w3Fky-0000000Azo7-25DZ;
+	Thu, 19 Mar 2026 15:57:56 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Fkj-0000000AzfY-45lR
+	id 1w3Fkt-0000000Azl2-1moD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:57:44 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=f9VWlp4+ZW4uCGryazAb59Ld4orbXnjWrAy9POzNrqihQBbaRw65/LNjPCOxY351w3r6bkl10o/Urx3wUdvr0eCqocKFBgqYBC4Fkelpg476nKgTvNASyJJknFeItWOzKrGaO8BuYLk9K0LYfYfzF4S9fy+RTjuGiMtcmpDFCpJPlU0CbGNa0nzDDxB8SpM6/woUv7SZEon8/Cza3ummbgEcFa44XoExgcYIZGNinO9lmmH/fgso3a5tBN6S41NX+QIq3lR62oqSyyACZ2GFMUTb7gEm6fUzhTk1pis5LCmhnL4pe8M3kfeKYP8R+rLoBMLnJ0yVOITmlekNDRNjZw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XSYsK5rJ2TFNQ5sx9fuQfPtKOQ3Ob9Kh4sC/NAg3v5U=;
- b=XI4D231fPVTLRO2mQkpazeZ0S4HGNrj+T9vynYyPAUWDOdsuPf8iaHX69P7E9mYQDvoeGx5jr0R9uzWwPn0tLJnloMfc1mxKua9+gj5SXChiAVeh/+l6zumJG8PwPCXufObNU5GgBqSComhDaqq6MVrKgvPNhVxKJZdmbP1XZ5JiwjeqjWxB13RJAhLSXBippRpdoNoud4AKwcHhW/suSwqczP0rNzA2MZ2hlLnN2gYysjKUA601BkUNwIUwXNpoFzcb5GdIkCXR3sruVxy41xcMXLnlgNWuLijDOSVBphi8zfSp/xpotb5SweiTI4evDjnkPBCFKgM8n3yI9kS3Fg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XSYsK5rJ2TFNQ5sx9fuQfPtKOQ3Ob9Kh4sC/NAg3v5U=;
- b=HKDoOhOUL5xVt2pAy2oTPpbY1kYwKl9sQiVwJwGfMe/CocTB3LAXApGVEni2iA2hyEFcFzutr3sNca2d95QY6PGBZeNmc7QuuNyrZe+2EmeItS+ln5W4u67J7N5zlLTiWKLpU2uK16neE4cjbOV9/Rk6gY+U7bwCFoB1eanpeFM=
-Received: from AM8P190CA0003.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:219::8)
- by AS4PR08MB7530.eurprd08.prod.outlook.com (2603:10a6:20b:4f9::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 15:57:32 +0000
-Received: from AMS0EPF0000019F.eurprd05.prod.outlook.com
- (2603:10a6:20b:219:cafe::f6) by AM8P190CA0003.outlook.office365.com
- (2603:10a6:20b:219::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
- 19 Mar 2026 15:57:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF0000019F.mail.protection.outlook.com (10.167.16.251) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Thu, 19 Mar 2026 15:57:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=brYcWTymGCMQMlPWrBJE0DwwbiIbEH7eOS7p4mt8DOJVB3v7E14+H5IYvya1n4Hu8nBsibQ/sHxjRmklKjRXR6DvQyKcJX+xaKxPJIbw1kj4xl/fFXX40pth6L05o4n95nNm/qM96YCxlgpkriyjpDdI3MmBWiTiibfbyMBiHs39BugCXJ8gThhjzNmtBbdAU34QA6mT0R2dsJ4ttjGI91IdIiQFL1HSewRL9Ox1dt/DdnZrQZ6erz6AQKws8NXPErDW/QLtBP2O/xu/HCFMOYUGLs05jHHVkL6An+pk1MoqccUG5JQv3haOtKMCrhnupKEkUr9/5JKh1inX4Rk6DQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XSYsK5rJ2TFNQ5sx9fuQfPtKOQ3Ob9Kh4sC/NAg3v5U=;
- b=mSE1ArR9r3sosT7DFgP17/rsBHzRD7wJiuye0ETO+DgWa+qgcDsTcAWIwowBDiAo+KKb2aSs+9dovvVkWV8RzPv5TYbYS0QzH3yHvFHTsMem2o+B6Rn5SPdD0tEOHVWhpf0kbucl8b/rY9BYO80e0EJCyyT8pRW75VV+7CCf1dz7p90UZx1dy6QPwDehbMdxNReL4ALuvaebwINGKA1ZgQpXzTke7/blpBUJDHFf6zOkHke65rG9YpvuYJF5zrZHNkxuazxkuoV0i7cl0YJ7IuPaSZpCxRmNqMeNueamtFeZxCmVYzhuO44VriuzPONCPrYYpCnWgQbvVNQD3gXDRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XSYsK5rJ2TFNQ5sx9fuQfPtKOQ3Ob9Kh4sC/NAg3v5U=;
- b=HKDoOhOUL5xVt2pAy2oTPpbY1kYwKl9sQiVwJwGfMe/CocTB3LAXApGVEni2iA2hyEFcFzutr3sNca2d95QY6PGBZeNmc7QuuNyrZe+2EmeItS+ln5W4u67J7N5zlLTiWKLpU2uK16neE4cjbOV9/Rk6gY+U7bwCFoB1eanpeFM=
-Received: from AS4PR08MB8241.eurprd08.prod.outlook.com (2603:10a6:20b:504::10)
- by DU0PR08MB8345.eurprd08.prod.outlook.com (2603:10a6:10:40b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 15:56:28 +0000
-Received: from AS4PR08MB8241.eurprd08.prod.outlook.com
- ([fe80::dde1:493a:db27:de27]) by AS4PR08MB8241.eurprd08.prod.outlook.com
- ([fe80::dde1:493a:db27:de27%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 15:56:28 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: [PATCH v7 26/41] KVM: arm64: gic-v5: Implement direct injection of
- PPIs
-Thread-Topic: [PATCH v7 26/41] KVM: arm64: gic-v5: Implement direct injection
- of PPIs
-Thread-Index: AQHct7jywJWw0qDY7EyWrWFZfI5CFQ==
-Date: Thu, 19 Mar 2026 15:56:28 +0000
-Message-ID: <20260319154937.3619520-27-sascha.bischoff@arm.com>
-References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: AS4PR08MB8241:EE_|DU0PR08MB8345:EE_|AMS0EPF0000019F:EE_|AS4PR08MB7530:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04efffbd-5d3d-43be-9b9d-08de85d03b02
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|18002099003|22082099003|56012099003|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: 2H+vN5UE3m127xp7dS81gJjVH7xl5VmtTkasTfAhiGKNkFrq90cpePw5lpWFmjvqooroM47SdkQ/fMeMWy6sdXjV93LndkMFgQQ+zoU/+iXQslYIHGlHLMDZ255saWv+ck7L2jQzU5DmYDUIBjwhs3VB0nB8CzpraDWopo6wDxsL67/BlMkNvzemxYDHcKHgo4LQXvC6GNIwgudiL/cxN6mbJNQqG+kbue4aQigpiolXxL2MZ9Ul/0H2z1k3wMlsIUDZh5v9hx5vViEMjck3Zz7OLpgQ8d0vZ1oirXAHoxNBjWaVvQnTUM+hxMkEDZN8CUq/UYV6+tcrBIcwlQOkXSfEY+LoDsxpGEHuadbcetKhlGfjrLI1BYZUONPPd8U/903J3kacW7AHB9rrNQPzYGt5mjdXrX+ZBsCi1QDjxxg4JQhn9S28yu95oDtDf6DQms/+fPOW83xhLGIIusQuYCDCdBDacHKhawnWueLNFY5dfhq3oYwEEmd9evZjAJBO/R6ttZ9SUHYzPo+0nAgWRctM1QAjJmi+uTZXTDF51y9lvEhzjSMLQdoQmMLz2LOL6mjEr7CYW67G0aeyWVKK8aIvgMmAJftEXq+fgQml2ISy8UHXYw5wlFGfVUskRc2Q0/ruTuYkUEn/8qaxya4hVm2I8Kh4MnyUDRvDIrZ/VixFYJjqqy5878x+H0Uqt8GspLF3HY+zCRv8dW1m1BmE3iCjpWARsYvkEsIc21YHnFDboPMAbirLcKexJXAE+Ker2Olh+q1c8oiWcnFTIM4rdsVCf+8CbtuDIVZdwX4avHs=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR08MB8241.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(18002099003)(22082099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 19 Mar 2026 15:57:55 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260319155748euoutp021cae6d9d7a23bc88801c982c7147536a~eSUYF7PN23029030290euoutp02_
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 15:57:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260319155748euoutp021cae6d9d7a23bc88801c982c7147536a~eSUYF7PN23029030290euoutp02_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1773935868;
+	bh=/SkmenYWfG03cyx26DQI0pNUhnOeHCO/bc9QSsDFeFI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=a4hGFMUjZQrJxLGlAv0a6Xv+ed/hDSCUPEp52Q1Tvit5ZroQsw4ct7+vBiyJJ/Pxf
+	 KU/6zpu34PEJZXyXo7ze3AsA/qQSBfgxu4byZA1hsdUe9fN02d9xE98rtFPe5YAzoL
+	 5ax71jDAP2+NQbUl51yNA0aGombxO+2o/gEupCCM=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260319155748eucas1p2b5301f0df591382d4f9d11bd0154335a~eSUX0VwA80213702137eucas1p2V;
+	Thu, 19 Mar 2026 15:57:48 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260319155746eusmtip21015fbb23aff1c944126bee28a18b8b0~eSUW1P7_r0967109671eusmtip2G;
+	Thu, 19 Mar 2026 15:57:46 +0000 (GMT)
+Message-ID: <4809918d-fdf1-48c0-bc10-fcf75837cb81@samsung.com>
+Date: Thu, 19 Mar 2026 16:57:45 +0100
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: tThYKRvRkpoxkw5zMG0YrG2gNdySPCth9wR/0wJhrPOQN8eEAtOGBgDfBvc+dKJW11aJXaL3lo62ANvXAbTA3rD1vm1MQ86g6oDCVe2NMsCwA0SOKdR/FtzK5awVmWK9L55tjUT8OG9+adRwoKuQ6I0NQiGH6vC8m0X0lkYPKH6BzYvqKoDsa1jZiG9iLdq+pVHHeQ0mBEjQJOWB0s0fM0yAF+NxoSOrmieofGD2KKMVUUL63PfctjlnFyLuf/c+TTZA07H8+bWLR2hzqA5yKt/9wP3byiFsUYxpqqUX4XmOPUmglS9jJjcvt9xntyina1Ev8sXtgnUQVjuWx8uLEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8345
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF0000019F.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 1363ce06-3d62-44f0-7700-08de85d01500
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|35042699022|82310400026|1800799024|376014|14060799003|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: B6dlAp2MRUhLhq9KtnDcFkSSwZugvZolW8Wy/RlVdcrWZzmBKdfWUZOPRLh18gDQFx5UaHzAa3DhCacdtLP8JL2POc4oH4PDujXTkwiJkBA8z3a3jHY0DMcdYBow2xWpk8wxzBPNl5cz6kmqFgzOjaUdR5f3DuDNrpisl+fnYKuQWu/m7d8V+7WoOKlrN66wLacfBfxa1DLEAtlbXdKttTj/TXqRlkIz1wJiM9As+CWCmIX+zTPqyy4+LVgGfKbWknI9ETNJAHF7Yy8jZ4V4+CxNKyVifdQ3CJyKLIgTrpW9MjPp+x8568RyvfvdaUKNZNXQjduQajMuhLojppA8l+1kDL73wuHaFNdb1cpmmMxaFRRyZPECi/dZVkQDRWa90LOfzhmd60Wr/dlE1wjSoHcS08Of8j4NgzI3YXxf871MiXZ+1BMF1R8zsu/MCDJ2oEq0XTA9Ss3XcqxWKw2cg2gWhI6aHTI+h6NgGu2M2+dl1Ozazc+1Pd6nKaVAsucn6qrCHR2ui1xFhCxZoc/TWYz1QKmQbCzI53V0CjgdUmbLIcCVRl91T6kzVKj1D3kodWsExT9gSdlkUrWwB26JVSReZhwl5pmjhkROeeRZPuzB1DYrVuIdEI+TrajoKHiUBfw8irxZGBPjpJEQV6B++SHA/LhrTjibQpEeMEAUWTLzECslFWTPEX9FaD4lHXEPoCpiwCxL1hsazsI95Z4KQWNRvllCw5HO3CnftrKGSEdPf6+8fMUaUKfqCY3ZDct1/j2BqhPVmQZz3sK68Opa4w==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(35042699022)(82310400026)(1800799024)(376014)(14060799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1r1juJF7hjGL16Zv/c+ZplzC+gcYQjb38XhaBMZurRp5c0H9Wj5kGxJ+HKLcSfN0xCd7piLipReTDuv7nRhezXadJeWonAKprI1zje8te9rZlf6aEZGj6tJj/E8EV5+pVujEhmfTaNufXugGI1g+vhDhKODXpXyJOqbbmVTe5Ea1W/KTck7z0NW+HknzAy90ab5LqEKDlM/X9Vkgg04JrDLJj9db/EXnfzzbKGouG1xYqEQt3zXNhCWrzCZshL9mLNyGW/+CSxOSiskwEODaUECv7LefmmY0yOBWnh67SwHG3s0OXEzun11g/05EVIgl4YLWYh5irtPFzFblOjLSiZq8M7CAKei32IdF4hRlMcInB7bnKJyg/VGYnIKJ6gg3/ktpB0jkQ8MAh84+itrDNZIKBjbvuAzmYHJbrgSeLd+xIsI0puSaTipyCakgJGfC
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 15:57:32.1244
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04efffbd-5d3d-43be-9b9d-08de85d03b02
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019F.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7530
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v8 05/10] pmdomain: samsung: convert to using regmap
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Ulf Hansson
+	<ulf.hansson@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam
+	Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Peter
+	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, Will McVicker
+	<willmcvicker@google.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <ae31c62c940e99077d44e1935465dce7db0e4c06.camel@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260319155748eucas1p2b5301f0df591382d4f9d11bd0154335a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba
+X-EPHeader: CA
+X-CMS-RootMailID: 20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba
+References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org>
+	<20260318-gs101-pd-v8-5-241523460b10@linaro.org>
+	<CGME20260319101424eucas1p2d5dca06240e8760046fb40507ffb3bba@eucas1p2.samsung.com>
+	<CAPDyKFrprMSLOBMB_BHbi=j6UXV4dXBn-H8M1BsqDWNSCJwvuA@mail.gmail.com>
+	<c5ba58fb-50f1-4067-a099-97169ea81f68@samsung.com>
+	<ae31c62c940e99077d44e1935465dce7db0e4c06.camel@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_085742_024575_CC357CB9 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260319_085751_761060_1E34FA93 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,70 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GICv5 is able to directly inject PPI pending state into a guest using
-a mechanism called DVI whereby the pending bit for a paticular PPI is
-driven directly by the physically-connected hardware. This mechanism
-itself doesn't allow for any ID translation, so the host interrupt is
-directly mapped into a guest with the same interrupt ID.
+On 19.03.2026 12:58, André Draszik wrote:
+> On Thu, 2026-03-19 at 11:29 +0100, Marek Szyprowski wrote:
+>> On 19.03.2026 11:13, Ulf Hansson wrote:
+>>> As a follow-up patch on top, please consider converting the open-coded
+>>> polling loop above into a readx_poll_timeout_atomic().
+>> This has been tried and it doesn't work in all cases required for power
+>> domain driver:
+>>
+>> https://lore.kernel.org/all/5c19e4ef-c4fd-4bf5-88b3-46c86751b14e@samsung.com/
+>>
+>> Probably a comment about that could be added directly to this code to
+>> avoid such conversion and breakage in the future.
+> I am planning to revisit this in the future and am hoping that we can
+> figure out what goes wrong when using regmap_read_poll_timeout().
+>
+> Hopefully such a comment would only be short-lived, so maybe not really
+> worth it? I can add it, though, if you prefer.
 
-When mapping a virtual interrupt to a physical interrupt via
-kvm_vgic_map_irq for a GICv5 guest, check if the interrupt itself is a
-PPI or not. If it is, and the host's interrupt ID matches that used
-for the guest DVI is enabled, and the interrupt itself is marked as
-directly_injected.
+Well, I think I've already pointed what goes wrong with 
+regmap_read_poll_timeout() in the above mentioned thread. You would need 
+to use regmap_read_poll_timeout_atomic() and modify it the same way as 
+commit 7349a69cf312 did for read_poll_timeout_atomic().
 
-When the interrupt is unmapped again, this process is reversed, and
-DVI is disabled for the interrupt again.
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-Note: the expectation is that a directly injected PPI is disabled on
-the host while the guest state is loaded. The reason is that although
-DVI is enabled to drive the guest's pending state directly, the host
-pending state also remains driven. In order to avoid the same PPI
-firing on both the host and the guest, the host's interrupt must be
-disabled (masked). This is left up to the code that owns the device
-generating the PPI as this needs to be handled on a per-VM basis. One
-VM might use DVI, while another might not, in which case the physical
-PPI should be enabled for the latter.
-
-Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
----
- arch/arm64/kvm/vgic/vgic-v5.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index f0600be619b14..b84324f0a3114 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -188,8 +188,24 @@ static bool vgic_v5_ppi_queue_irq_unlock(struct kvm *k=
-vm, struct vgic_irq *irq,
- 	return false;
- }
-=20
-+/*
-+ * Sets/clears the corresponding bit in the ICH_PPI_DVIR register.
-+ */
-+static void vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, struct vgic_irq *ir=
-q,
-+				bool dvi)
-+{
-+	struct vgic_v5_cpu_if *cpu_if =3D &vcpu->arch.vgic_cpu.vgic_v5;
-+	u32 ppi;
-+
-+	lockdep_assert_held(&irq->irq_lock);
-+
-+	ppi =3D vgic_v5_get_hwirq_id(irq->intid);
-+	__assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
-+}
-+
- static struct irq_ops vgic_v5_ppi_irq_ops =3D {
- 	.queue_irq_unlock =3D vgic_v5_ppi_queue_irq_unlock,
-+	.set_direct_injection =3D vgic_v5_set_ppi_dvi,
- };
-=20
- void vgic_v5_set_ppi_ops(struct kvm_vcpu *vcpu, u32 vintid)
---=20
-2.34.1
 
