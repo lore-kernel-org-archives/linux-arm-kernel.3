@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9D310854D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F131090257
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xg/mnu7I7IJvWW0qhOQme8iuRstD8Ii4BPgAuyaVWJg=; b=eVEjazMD5tC8MY0UYx1HFdkOKa
-	nBxoGTIeQFreRIEEJTx9Shsaf7t/YLmVC56iLZ4SnUdxFmuXZbiSDfuGqEzBf1r0hZfKf1uIBICJx
-	AGRlJtAOR2+ndmM3APmy4Ihawdeo3JKgCvYswQYNO9WaEQntRp2R9R5UtDsjY5Litawr+jWUc18EU
-	2CawVJ2xyI6EMtu6W93YFkYMaAqvwpK2mkfXidWAeeVbisQu2mJHsjL3J3M5MMzX0jbZ1rfIPkqH3
-	D95AZu9P9FR2yCZeCsMBGYRavKQo3woQgtqtQC9EwGDpBZSami+RHiTqYiaaTeTTgR+li+yF4Ynip
-	3El/xdZQ==;
+	bh=Z1m/NKwHzNzra+b05v/mVlZjPUgYyMx5CvoVdPoIIiE=; b=pljEQ2xIcMJp8bj56jiuS/mjDc
+	D1EJ0+iM7NBxKPA7OZsPq0W00qJFg1/L3WMbkSLVhUdgXJY39pQdSiUHaqUpZo9QaxM0TvcTyE8vc
+	MXxS2lV7TTHCX3IzkSOJMNIC1rUuDhAZIX5g7SJsAQu856Hb7tdeZCRGhRgQEQTbC3CCMI7oclZM5
+	tJHCFrp3Ara8yPP6oA4reNYflfE7uIaYUd/GDh5G0Uis+zyXJor4raT0lQpXMkVSqeT+KggWj1bwi
+	0Q6lJXt/sFJ/cNkhl3anLINYozs7LqL0lZc6JEQtKsqQpg6tC5eS+yKvll/1PpeGpaLv8S1YAtGEo
+	EIUawSPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H1d-0000000BB2Y-2lxu;
-	Thu, 19 Mar 2026 17:19:13 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1w3H1v-0000000BBAr-3dz8;
+	Thu, 19 Mar 2026 17:19:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H1Z-0000000BB0t-05KZ
+	id 1w3H1t-0000000BB9W-3JBG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 17:19:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Xg/mnu7I7IJvWW0qhOQme8iuRstD8Ii4BPgAuyaVWJg=; b=tOBEvw+Kh7ARx4ZlCcCJ3+awWU
-	Nz2tQojK7eE5aJ2ckjhtbBqnh2xk0uPnHa+3bVTAouDwyx/kecPN4TrhFkAlvN0JuhyFGQ38ICBzf
-	7q1/NFbbYQt2CsvVml3jlS85nt0klnQlaZEOW+ArGzlW5HVDNUftmGkojhhuh9CYwjEom60wdCZMi
-	jJ9hkjgqJSo3ozZ9DU/00mhspH94NmSAq+f2mSh4LIfjvzkgH2LoNOxBQ1Y7KXd1BBRZpoOIJFPVI
-	Hlns++WVxdvvnLcerFTaG3LWENwm/f0AYbCfs0N4EgWiKtJAy8hfEnmsDhcKBDPqcQu5DVt2ORzqD
-	3oHlP5VQ==;
-Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1w3H1U-0000000HM5T-3yI0;
-	Thu, 19 Mar 2026 18:19:05 +0100
-From: michal.piekos@mmpsystems.pl
-Date: Thu, 19 Mar 2026 18:19:02 +0100
-Subject: [PATCH v5 1/2] pinctrl: sunxi: pass down flags to pinctrl routines
+	Thu, 19 Mar 2026 17:19:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E3156443A4
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8E1CC19425
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:19:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773940768;
+	bh=qRmimtUgu8R/VWBfHxicdR4COyi8h1pw6EXhs61Gshk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=lNNgvEVDXKbef3eLOfoU2iBJuZm8RZCDJxkGM4r6STQYoF9WTZ64aWNa4DCnE4VrC
+	 m5gYQh/qw2bOQjBGFDgqGZ79cEFAwNIWaAaHcILPiND6FGab3uoQCJjnJ5k7W5Je3k
+	 7jBiYWiybxg5eD+fHv1ZhKQdNUBOFRNgoBvGb140h+G24SNd5GfZj7XivWM/Bojjyj
+	 zC7F1djLspFmns8GBCOIhBr7jXNvKLf2AM0JtJaMP6kyaKDPkDjj0n7yOAPCJFnUfR
+	 og/bMQsjnb3N/3S0Exat8IEwCvvRtU6pGeCw/b5JHEIWXuw2pDkvMQfn0y+ez6A4It
+	 m7bkYouwsYEkg==
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-668abc98923so730789a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 10:19:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXi8AYimJJWBlcC0NFTQeQZImt6qqzpphpGTsbwcCEp53mqToyQKyA2QD0iyYX0vNoobKTNBTsD6smdSJyf5ukM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBdD9Cy645S9jdD7DMapXKJz1LRyBDa67J34I1bTepCFiN7NNW
+	dh55F69Zq5GBhCBx2RiJkeGQsnBPgnWy8ycH59xgu+2vuEvEUUsGnTsKObVAL/wjptBHBjMgHjh
+	YflwdhiZQ83zOBWDg4xcHADgK7pH884w=
+X-Received: by 2002:a05:6402:3593:b0:661:3f3c:400d with SMTP id
+ 4fb4d7f45d1cf-668c9c52289mr147080a12.26.1773940767380; Thu, 19 Mar 2026
+ 10:19:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260319-rc2-boot-hang-v5-1-092834a882b1@mmpsystems.pl>
-References: <20260319-rc2-boot-hang-v5-0-092834a882b1@mmpsystems.pl>
-In-Reply-To: <20260319-rc2-boot-hang-v5-0-092834a882b1@mmpsystems.pl>
-To: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Andre Przywara <andre.przywara@arm.com>, 
- Michal Piekos <michal.piekos@mmpsystems.pl>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773940742; l=5959;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=KC5kq2NE81d17FdIOaVBMl+fCAZk5Nuo1PIQ2aSr9rI=;
- b=v5RMFVx7t/BE6g+KBpTjCCj6Pd5NgYkgd0ucvTjTid2ZYbSczZO3HQirbxucQoD3BGn3A54/z
- zsr/l1R7UMOA0Y0T13vMWB9USu6fK0dY2xsUfmP15N+xcFTUPgIjboY
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+References: <20260303132305.438657-1-ulf.hansson@linaro.org> <CAPDyKFr25L0Omm_uCjZp03_ptnrKR_P2p3e3qxDeUoFFKJg3bQ@mail.gmail.com>
+In-Reply-To: <CAPDyKFr25L0Omm_uCjZp03_ptnrKR_P2p3e3qxDeUoFFKJg3bQ@mail.gmail.com>
+From: Saravana Kannan <saravanak@kernel.org>
+Date: Thu, 19 Mar 2026 10:19:15 -0700
+X-Gmail-Original-Message-ID: <CACRMN=c82Npk8m=80ZwshZny9zEO7UU6cR2zB=VUAKXUFC=QaQ@mail.gmail.com>
+X-Gm-Features: AaiRm52M6HBVMpHbwsDK3waTZA9ElGzNCB8yzoba-xU0I5Q5Yb41uy2aowwGHJs
+Message-ID: <CACRMN=c82Npk8m=80ZwshZny9zEO7UU6cR2zB=VUAKXUFC=QaQ@mail.gmail.com>
+Subject: Re: [PATCH 0/9] driver core / pmdomain: Add support for fined grained sync_state
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_101909_516328_D9EDB630 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260319_101929_867485_7E26D287 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,155 +90,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andre Przywara <andre.przywara@arm.com>
+On Thu, Mar 19, 2026 at 9:59=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
+> wrote:
+>
+> On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> >
+> > Since the introduction [1] of the common sync_state support for pmdomai=
+ns
+> > (genpd), we have encountered a lot of various interesting problems. In =
+most
+> > cases the new behaviour of genpd triggered some weird platform specific=
+ bugs.
+> >
+> > That said, in LPC in Tokyo me and Saravana hosted a session to walk thr=
+ough the
+> > remaining limitations that we have found for genpd's sync state support=
+. In
+> > particular, we discussed the problems we have for the so-called onecell=
+ power
+> > domain providers, where a single provider typically provides multiple
+> > independent power domains, all with their own set of consumers.
+> >
+> > In these cases, the generic sync_state mechanism with fw_devlink isn't =
+fine
+> > grained enough, as we end up waiting for all consumers for all power do=
+mains
+> > before the ->sync_callback gets called for the supplier/provider. In ot=
+her
+> > words, we may end up keeping unused power domains powered-on, for no go=
+od
+> > reasons.
+> >
+> > The series intends to fix this problem. Please have a look at the commi=
+t
+> > messages for more details.
+> >
+> > Please help review and test!
+>
+> Saravana, Rafael, Greg - any concerns you see with this approach?
 
-Recent changes in the Allwinner pinctrl/GPIO IP made us add some quirks,
-which the new SoCs (A523 family) need to use. We now have a comfortable
-"flags" field on the per-SoC setup side, to tag those quirks we need, but
-were translating those flag bits into specific fields for runtime use, in
-the init routine.
-Now the newest Allwinner GPIO IP adds even more quirks and exceptions,
-some of a boolean nature.
-To avoid inventing various new boolean flags for the runtime struct
-sunxi_pinctrl, let's just directly pass on the flags variable used by the
-setup code, so runtime can check for those various quirk bits directly.
+Not specifically related to this thread, but a general update so
+people know I haven't vanished. I've been reading this and all the
+other fw_devlink related patches (Doug's making flags set/clear/check
+safe, overlay series, the PCIe patch series, etc) being sent since I
+last replied. I somehow missed this one. I'll definitely take a look
+at this series.
 
-Rename the "variant" member to "flags", and directly copy the value from
-the setup code into there. Move the variant masking from the init
-routine to the functions which actually use the "variant" value.
+Email replies to LKML are a pain right now but it's
+expected to get much easier in a week or two. I'm holding off on
+responding to most emails until then.
 
-This mostly paves the way for the new A733 IP generation, which needs
-more quirks to be checked at runtime.
+Thanks,
+Saravana
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
----
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 23 ++++++++++++++---------
- drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 +-
- 2 files changed, 15 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index c990b6118172..685b79fc0bf8 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -157,6 +157,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
- 					 const char *pin_name,
- 					 const char *func_name)
- {
-+	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 	int i;
- 
- 	for (i = 0; i < pctl->desc->npins; i++) {
-@@ -168,7 +169,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
- 			while (func->name) {
- 				if (!strcmp(func->name, func_name) &&
- 					(!func->variant ||
--					func->variant & pctl->variant))
-+					func->variant & variant))
- 					return func;
- 
- 				func++;
-@@ -209,6 +210,8 @@ sunxi_pinctrl_desc_find_function_by_pin_and_mux(struct sunxi_pinctrl *pctl,
- 						const u16 pin_num,
- 						const u8 muxval)
- {
-+	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
-+
- 	for (unsigned int i = 0; i < pctl->desc->npins; i++) {
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_desc_function *func = pin->functions;
-@@ -216,7 +219,7 @@ sunxi_pinctrl_desc_find_function_by_pin_and_mux(struct sunxi_pinctrl *pctl,
- 		if (pin->pin.number != pin_num)
- 			continue;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		while (func->name) {
-@@ -1338,6 +1341,7 @@ static int sunxi_pinctrl_add_function(struct sunxi_pinctrl *pctl,
- static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- {
- 	struct sunxi_pinctrl *pctl = platform_get_drvdata(pdev);
-+	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 	void *ptr;
- 	int i;
- 
-@@ -1362,7 +1366,7 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_pinctrl_group *group = pctl->groups + pctl->ngroups;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		group->name = pin->pin.name;
-@@ -1387,11 +1391,11 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_desc_function *func;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		for (func = pin->functions; func->name; func++) {
--			if (func->variant && !(pctl->variant & func->variant))
-+			if (func->variant && !(variant & func->variant))
- 				continue;
- 
- 			/* Create interrupt mapping while we're at it */
-@@ -1419,14 +1423,14 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_desc_function *func;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		for (func = pin->functions; func->name; func++) {
- 			struct sunxi_pinctrl_function *func_item;
- 			const char **func_grp;
- 
--			if (func->variant && !(pctl->variant & func->variant))
-+			if (func->variant && !(variant & func->variant))
- 				continue;
- 
- 			func_item = sunxi_pinctrl_find_function_by_name(pctl,
-@@ -1568,7 +1572,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 
- 	pctl->dev = &pdev->dev;
- 	pctl->desc = desc;
--	pctl->variant = flags & SUNXI_PINCTRL_VARIANT_MASK;
-+	pctl->flags = flags;
- 	if (flags & SUNXI_PINCTRL_NEW_REG_LAYOUT) {
- 		pctl->bank_mem_size = D1_BANK_MEM_SIZE;
- 		pctl->pull_regs_offset = D1_PULL_REGS_OFFSET;
-@@ -1604,8 +1608,9 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 
- 	for (i = 0, pin_idx = 0; i < pctl->desc->npins; i++) {
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
-+		unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		pins[pin_idx++] = pin->pin;
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index ad26e4de16a8..22bffac1c3f0 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -174,7 +174,7 @@ struct sunxi_pinctrl {
- 	unsigned			*irq_array;
- 	raw_spinlock_t			lock;
- 	struct pinctrl_dev		*pctl_dev;
--	unsigned long			variant;
-+	unsigned long			flags;
- 	u32				bank_mem_size;
- 	u32				pull_regs_offset;
- 	u32				dlevel_field_width;
-
--- 
-2.43.0
-
+>
+> Especially I need your confirmation for patch 1 and patch2.
+>
+> Kind regards
+> Uffe
+>
+>
+> >
+> > Kind regards
+> > Ulf Hansson
+> >
+> > [1]
+> > https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.=
+org/
+> >
+> >
+> > Ulf Hansson (9):
+> >   driver core: Enable suppliers to implement fine grained sync_state
+> >     support
+> >   driver core: Add dev_set_drv_queue_sync_state()
+> >   pmdomain: core: Move genpd_get_from_provider()
+> >   pmdomain: core: Add initial fine grained sync_state support
+> >   pmdomain: core: Extend fine grained sync_state to more onecell
+> >     providers
+> >   pmdomain: core: Export a common function for ->queue_sync_state()
+> >   pmdomain: renesas: rcar-gen4-sysc: Drop GENPD_FLAG_NO_STAY_ON
+> >   pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
+> >   pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
+> >
+> >  drivers/base/core.c                       |   7 +-
+> >  drivers/pmdomain/core.c                   | 208 ++++++++++++++++++----
+> >  drivers/pmdomain/renesas/rcar-gen4-sysc.c |   1 -
+> >  drivers/pmdomain/renesas/rcar-sysc.c      |   1 -
+> >  drivers/pmdomain/renesas/rmobile-sysc.c   |   3 +-
+> >  include/linux/device.h                    |  12 ++
+> >  include/linux/device/driver.h             |   7 +
+> >  include/linux/pm_domain.h                 |   3 +
+> >  8 files changed, 200 insertions(+), 42 deletions(-)
+> >
+> > --
+> > 2.43.0
+> >
 
