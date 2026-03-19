@@ -4,132 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D6261091904
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C131091905
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0/Rtf4mdU/0HDs0A9SNaDuzgSU+uL/VU12OEEC0CB8=; b=46ok8j3oiMXGhzolUu9JUlte13
-	qT47kPv/f9GOeTWo3G6aHLuWWRbC4jvIAHM8C70/l0vnpE5Ul8ckSkHz+VinHSoY1VHaFhZ7b0W72
-	LYODaRYTLUdplPvZj5aBK+winPiLl4pdStmOPezuynnHY2iT/FEjeI7Xm5AaMkYKQlvcvhQM9Ijfm
-	IgNwroHQOCN+ATYUHsR3CdbZWZz2J311eQOlvXbDCRsnezV8SAdNLFuZ1V0zD0ldto5IZHp7zPm8c
-	uetgs2EX3Izm1/LkABuA+zeP+uyp0kLGXzqu2e6vjqkH9Cy68YSe3jjMMFJnFFSiBr2r8ltw+jJZo
-	fN6+vsuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0HBzznEjOWKs2CpoeGa4SZNKv0m6+Tih092MdfAhLj0=; b=zw8U5oh4qhGiJ6h7Ab6Ns2u6sQ
+	Mxj4d6aNmtU+nmVWsg17ky7M5xr1PYooiS8giyp4Xx0usjitq/RcFZ0gguWrcH2YljaCluitcuzIN
+	hGMSMMGaCoHvVseE8v0UTvXMs1xBC1k9lSooWSSI47JrrhPRT/ZPlJCg4HBxe+oIYYw/71brCdpna
+	WoXCuVCP6uIHhbpYPzBPR/P2Vwhl2jwihPFiIDcFtVCOZ4MFY1oX5vqlHjQR2E5Ip2TasnaLnCroH
+	Rh/ufJoZ1PdFaTdtBhCpx/sN8aBEadim6jD+t6CxmzrPkp3Co1FvlUU+nSD4ygbtr9muQCG11MHQo
+	/R6I910A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ho1-0000000BGdB-2ONs;
-	Thu, 19 Mar 2026 18:09:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3Hok-0000000BGnD-0weH;
+	Thu, 19 Mar 2026 18:09:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hnz-0000000BGca-1Po5;
-	Thu, 19 Mar 2026 18:09:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52D3B434F6;
-	Thu, 19 Mar 2026 18:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957E3C19424;
-	Thu, 19 Mar 2026 18:08:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773943750;
-	bh=6e0EEIIbFUQq892CEmzGoS89gmnjToRL3GjT58TAgu0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qX+5ATXaTeCVWnoq1pb3+DCvmHvgnPIAYR73j5oOUNNdhwJKMvxcxvMznp8qHd0GX
-	 xv9Nr4ET8PVsG4aPWJihjD17Yv4iSbwgqNwABsBQW9fob6yyIX9OL4T2HWsZX6uCus
-	 TFTxhLxBv3my3hJsS7WCE9HsFSKoBMrCM00nIZRsc3Cjm5vt8s5urJsnDYrzNSpl5W
-	 iLWAQ195xdMWcV+3wWlfcPK8SqBN9pQvzG7SgVOkmXFjAbrbNl7km4EVw8CntlIph+
-	 dgN4D/4rF2yXtEVk2ehm0cNMmvNiiHv2w0hPJ/ndW32TV+0f0DlGB7PdfcvTzv01cO
-	 LSmnz5V9S1qOw==
-Message-ID: <e166588e-036c-4fa3-81fc-d7aca9f02c29@kernel.org>
-Date: Thu, 19 Mar 2026 19:08:57 +0100
+	id 1w3Hoh-0000000BGlt-3Lm3;
+	Thu, 19 Mar 2026 18:09:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773943793;
+	bh=z5zRDaR6OD+bx5R7/xJ0rgTHLEtAD6aXNfVKyJLR68k=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=d3oUUjJvhPhsLwLWEcqYkelPO4yukFe87B0DEVCoXiB8slmfAaBUmt5sivRk4Ieer
+	 ePyGHoFbjyZDRdXf2SRvFcPS/tu2DWKYCWrO31Sx22F2niK7RBuugNSwOrNRe4g+Vo
+	 0Kfe4YNsp7tzfl4yqiFPUICusPJx+NnnDjlmwQHWePzuhVkf0ZDKbSDysNNAYQN1BT
+	 t/f9o+KtlbbFANP47aWmpBGo0yrXv/CkDfKJIBHPTy77MnR1pCo0bLXrHxzKDGMKb8
+	 Y/5ViCHOaX7mz6oGWJ14K+DU3ZY4X3CWXyd34bEsKu/4bafNpZKJV99ThuGKY4rfFh
+	 7vRIsQ9WQjQFw==
+Received: from [IPv6:2606:6d00:11:b76d::5ac] (unknown [IPv6:2606:6d00:11:b76d::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 14B0E17E127A;
+	Thu, 19 Mar 2026 19:09:49 +0100 (CET)
+Message-ID: <cac5f4486bcf78f3bb2d343a600020a6600ad65c.camel@collabora.com>
+Subject: Re: [PATCH v7 07/10] media: mediatek: vcodec: Fix vp9 4096x2176
+ fail for profile2
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
+ <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
+ <george.sun@mediatek.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Date: Thu, 19 Mar 2026 14:09:48 -0400
+In-Reply-To: <20260127024248.18406-8-kyrie.wu@mediatek.com>
+References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
+	 <20260127024248.18406-8-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-y+2StToldewld1u0KbSj"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-To: Gregory Price <gourry@gourry.net>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
- Byungchul Park <byungchul@sk.com>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-mm@kvack.org,
- linux-rt-devel@lists.linux.dev
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
- <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_110911_417048_4BB1877A 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260319_110956_010870_EC827F23 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,41 +100,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 16:24, Gregory Price wrote:
-> On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
->> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
->> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
->> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
->>
->> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
->> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
->> CONFIG_CMA and CONFIG_COMPACTION already do).
->>
->> We'll clean up CONFIG_MIGRATION next.
->>
->> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> 
-> HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
-> this up.
 
-On a long cardrive today I was wondering: do we still need a separate
-MEMORY_HOTREMOVE
+--=-y+2StToldewld1u0KbSj
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Now we'll have
+Le mardi 27 janvier 2026 =C3=A0 10:42 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> The DRAM address of the VP9 decoder tile info buffers may require
+> as much as 36bits for 4096x2176 resolution. Fold the 4 most significant
+> bits into the lower (padding) four bits of address.
+>=20
+> Fixes: 5d418351ca8f1 ("media: mediatek: vcodec: support stateless VP9 dec=
+oding")
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-config MEMORY_HOTREMOVE
-	bool "Allow for memory hot remove"
-	select HAVE_BOOTMEM_INFO_NODE if (X86_64 || PPC64)
-	depends on MEMORY_HOTPLUG
-	select MIGRATION
+In v8, relocate this patch before the addition of the MT8189 pdata, since t=
+his
+SoC depends on it.
 
-I'll try to get rid of that HAVE_BOOTMEM_INFO_NODE shite next.
+Nicolas
 
-Then it's really just MIGRATION and some sprinkled
-CONFIG_MEMORY_HOTREMOVE. Not a lot of code.
+> ---
+> =C2=A0.../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 10 +++++++=
+++-
+> =C2=A01 file changed, 9 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9=
+_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp=
+9_req_lat_if.c
+> index e8ba99d31e74..a958e16eb380 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
+t_if.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
+t_if.c
+> @@ -1133,9 +1133,17 @@ static int vdec_vp9_slice_setup_tile_buffer(struct=
+ vdec_vp9_slice_instance *inst
+> =C2=A0					return -EINVAL;
+> =C2=A0			}
+> =C2=A0			tiles->size[i][j] =3D size;
+> +			/*
+> +			 * If the system supports 64-bit DMA addresses, the upper 4 bits
+> +			 * of the address are also encoded into the buffer entry.
+> +			 * The buffer pointer (tb) is incremented after each entry is written=
+.
+> +			 */
+> =C2=A0			if (tiles->mi_rows[i]) {
+> =C2=A0				*tb++ =3D (size << 3) + ((offset << 3) & 0x7f);
+> -				*tb++ =3D pa & ~0xf;
+> +				*tb =3D pa & GENMASK(31, 4);
+> +				if (IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT))
+> +					*tb |=3D (pa >> 32) & GENMASK(3, 0);
+> +				tb++;
+> =C2=A0				*tb++ =3D (pa << 3) & 0x7f;
+> =C2=A0				mi_row =3D (tiles->mi_rows[i] - 1) & 0x1ff;
+> =C2=A0				mi_col =3D (tiles->mi_cols[j] - 1) & 0x3f;
 
--- 
-Cheers,
+--=-y+2StToldewld1u0KbSj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-David
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabw77AAKCRDZQZRRKWBy
+9DLsAP9M3OZ7+WThlwK1dyrszgZRI3rKBT2DQiSHeRHhvZebKQD/Za9H5Yz6hWBl
+4k8Tbq2u7QRmbIqd2k4QbLt4dWtdeAc=
+=VY6l
+-----END PGP SIGNATURE-----
+
+--=-y+2StToldewld1u0KbSj--
 
