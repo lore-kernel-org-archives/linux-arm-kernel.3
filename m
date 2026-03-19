@@ -4,79 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BF3109022B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAB9109022A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QB0PAHjXJtrNdDodBFe2YFA8Ial1S7MV3yYq3bW3Z6w=; b=n1N3V5waoThJsvI9dVvNSvLHkT
-	YBIoPZtsrlrr0X1/QCVAR6j1LL37rV9xPr9ditMeSuZxdl3mESFD8/e5TaVNPfx4zqs1IiIXwk68z
-	Mo4XJbLx5yYYRyK5RLwLcOlTRd6Y/gNPArVaDFhhryrU/Oskx4QPR5WpTyCEM0MtN6zWQGpXjTA0X
-	+GTEEFbthNwfg6rlAjkGc/S4tUW+4UwBIVYbQjsSeZsPAU0b2j8bcH5P2m4sXhgp9Y4LDD8aN7PVR
-	yULli1SBPosbKLl1FeqzssN4VOYQRlg05utDBJnIgKFtb6BvkW1/z564jLYqvC6yGX4LLDA+4zWic
-	AkRzrLKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbnkeDegTtGlpTl1DhG+dvN17k89G4cK3h8wfBQ49co=; b=TIvQK/XLAFVnpF0sU4fCpQ8R56
+	pKhF6HqI5vhXttw5lVBGZAfMdcgyMrwl7AYsRBF2XVcZkewWvebyNqoqyYkPXHmsGhmcdtXxVpZlc
+	bsGBjmpO0zV0Cv06Si8hQ+YwPbDYEEWfeC2FIMbdabfCmQX23jNbwnjV9OiybwjpR5/1CYdsfkv8Y
+	7RW9N5BK+QzQR6P2qT/cNG01Iab3kbqD69VGNhg2qZ+ei4dk/CpK3Y4/Z8udxS7OjzdGci2GPmb03
+	gmwgFRCLOgz1QDUFudPPYtgpR9ttzFOiGxj93dX73R3uLdRkFK5z6QzvYEURWXq3mqUZFS8sppu5R
+	K4kXWTMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Drn-0000000AisU-0EWe;
-	Thu, 19 Mar 2026 13:56:51 +0000
-Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
+	id 1w3DuS-0000000Aj57-3eoD;
+	Thu, 19 Mar 2026 13:59:36 +0000
+Received: from mail-westcentralusazon11013032.outbound.protection.outlook.com ([40.93.201.32] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Drj-0000000Airm-3EXP;
-	Thu, 19 Mar 2026 13:56:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1773928592; bh=QB0PAHjXJtrNdDodBFe2YFA8Ial1S7MV3yYq3bW3Z6w=;
-	h=From:To:Cc:Subject:Date;
-	b=OZIuQDm3gsJ6HK/EUYVIO3wMK0ytRSedyWKrnCtPb5CkNhT/8KFr3ylTT5tWlUkXl
-	 qv00O8rDSK5qCU5bFxew0+J2cFXVSLGdUfV7LERaH28xB8ocyDriFP/Ylg7DW9+3Gx
-	 jwpExommlITWr96++S3IYVuTMjiDPa+MN7wICA98=
-Received: from mail.red54.com ([139.99.8.57])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id E0D89E56; Thu, 19 Mar 2026 21:56:13 +0800
-X-QQ-mid: xmsmtpt1773928573t778m5lcy
-Message-ID: <tencent_78E7E3F6991FB4403D5ADC9E6A6BC3BF8307@qq.com>
-X-QQ-XMAILINFO: MMwjR1C73eIsPYIJmh7X440ZtM80sQDjF5nMcIXzGUvGMjBhReA1DB52+T3lWR
-	 QhpCcXdclI30GKKwQJYCZkIwo8dfwpB6L/QUmeYluB8iqtYfSXmy5XkrTAZOO5c5W8vYovS8++jB
-	 h6bTkvZtZ2DRpX+jMd2ShguYw60HjMWVTNT+15ZKfuMd9IYwx/iB0Eeu07ijZqCHRKRhlS9WB8M5
-	 CZypwXnrr28c0pHMeVSjHb6GRR9JnrCq6GxCP5lQ4icIouxeFfH0aqLzQdhuz5W3WoWGSM51FwSP
-	 WwcduP74YJbH1IvUVHwoVAaQVteqItobujcROXy7j2FYQSB4ZuClaGLd56UYrZrtnRsoZ8ufu70x
-	 c9zUoufIFbzfavZHZwwjJwyHW/3/r0vb+TJ1u1WsK3Jn8vhWZtI4dZe6U04n2+5uQYC/3h0c3tzb
-	 9+sasxJdw658XllPyTPuYhRah0Dhsjwx01Ot4LOmvXhW4IwwOl7v0XUCG4hbdREOIie9Ju2pQYJd
-	 XV35BUVCjfVFG+T7gwPyTjY3R7RLMeThYLLGb1C/5HVCua+50dj/2y5yUDgbpk6OePKGe1ccDtJx
-	 zoU0CkUdWsEwN6T0QSe5DAasSRFn2RiORcYWIVhNFg3P10vKHvYT711441sMuF0PLSb/hhmMDg5X
-	 1C+BWFJ4laxINeG2uujy4GiddwXv5p+AXeXpWSMQf/BMBulG4/aVVg/n6tv5IOxUr3zDoqXgAASw
-	 8JKz/nLfH2yrbaNyvPPmOhgdUJ1Onabcq4/MEZN5gdwfvjMcxI4UhqukGn8Ji3jt9IHXYaeGgTGf
-	 3NFa5xlrCxUjq9B/mtyBZAcnNFjmCH1gSkglRCL8RbnEkijTxRaE1XIwGptZ5bWL8ZT9ZqrigWnx
-	 DVSluNe16zQrIzf1zRN1vqFmaflAX5Qn6oxcwpNTw/ugjl+69SKyEwagfNn4wB6OGdGq54R9Y33q
-	 WuKUzotjj6mvYgbNstp1lfvTnKyetNJtt96t/wfgZQUHbozKEcziyWB7xAaLdrarA8zFHL/Lhbz4
-	 ruqyz3Q5O0WmvmoRNSQIe9hkpUBWcinIxIOmO9Q3mnxFyKul1LlpDrX1txwJXKoOaDf8wD8I+QH/
-	 +oekJ6I3/x1mxXq8/UXZ3XX1nN1iA5o7rvz9GOLZAo0lkPDLxcPJ+/5wCWMX5JLivRCi6X
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>
-To: linux-rockchip@lists.infradead.org
-Cc: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix RK3562 EVB2 model name
-Date: Thu, 19 Mar 2026 13:55:00 +0000
-X-OQ-MSGID: <20260319135500.69993-1-Yeking@Red54.com>
-X-Mailer: git-send-email 2.43.0
+	id 1w3DuQ-0000000Aj4i-0bTd;
+	Thu, 19 Mar 2026 13:59:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GyCPddHBpr/Y2iMT1U3I1QwupvK8vhimsBXSjzWatFjcXESkUcbHhGEMDRgIP6je/mnhIf46oYqc5L48nKTCJdVWKfd9n8lITxxin2jV/VBmEFnAvrTWgN52io8bKT6QT6WcLsRYAuXdFPVKbcUgvAkWehZiZSQ5t6WESsjnPTw05WBgJbt7kfLkU0qpAAyc7J7kdj95DFbVNpmEctCBXAY8/ZE1ClMKzA5pKfXT4rYADt3EpjPu6gwOYyWCen1yQS7bDdeEPS/FDbJGm7ctuLlkeYJueSLyKo6FyYRCdfVGjeUqx6Js5jUMrxTG4YyTr+Kteimw0EuUf7n7o60eVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PbnkeDegTtGlpTl1DhG+dvN17k89G4cK3h8wfBQ49co=;
+ b=qRp6rYx4wfSQjX8KmMOjkEI32nhk8OMKGMFoxq37nwO8mu/qewOctfrIlvoR6lkFSw/hhwpHLBudhZoFovB6CDlvYRI7kyqmZFVtRZMHKdckeiHUad7jt3Jw7ZZaTiRQYhwuUdrHpmA0RtZUD6GxFYARG2U5NCZR9dz1XNH7XrtnqLgOmgvQP2uEfsRPWJ+ioJnee+diUSStUlBER25iYqdeJnk/TUUl25lZKD9q0Ot7hfgCBl0BGsCm3kCfg9vM6AKjOV+7lokvkugYpJEdL8z2HrEf0lmHpaV8FgqAIDSc6KMRiBB1mFzqQrEuOyRiTWZlEpADl5824Nl1WVSBKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PbnkeDegTtGlpTl1DhG+dvN17k89G4cK3h8wfBQ49co=;
+ b=j6FPaD9LqzF2X5OC7OOAOT11uqNUS2ZY2UM9cd4p26XX+FAAYCblOAXAQAzuArpZh/bHpUQr5X4kmq2WU5XySL2Z49GycUotGaFUbFHuBBx5Kowkthw3sgMRO1ckB+50wT2gv57mj2unR7L3XvsqwR0mPdd1E5b+8Ye0wBcOVWXy62Tfap2P25pLoq7rgOouxlGhv0L5Z44q9ng9ZctOBHz/vGnShrZETA1JtiGUBhhdOmz/sfzjJ+bXoVoCHJE8hBGiQLnoC8gsUgNZnt2pK2vJHvfOmYKq657wx0xOf06vqmprpisI/orY8IkMP/ayMDaNkVp+INm5PuEAzjW7pQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
+ SA1PR12MB999108.namprd12.prod.outlook.com (2603:10b6:806:4a2::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
+ 2026 13:59:27 +0000
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::f01d:73d2:2dda:c7b2]) by DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::f01d:73d2:2dda:c7b2%4]) with mapi id 15.20.9723.016; Thu, 19 Mar 2026
+ 13:59:27 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
+ Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
+ Ying Huang <ying.huang@linux.alibaba.com>,
+ Alistair Popple <apopple@nvidia.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-mm@kvack.org,
+ linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
+Date: Thu, 19 Mar 2026 09:59:18 -0400
+X-Mailer: MailMate (2.0r6290)
+Message-ID: <3149685B-963F-473E-ABF8-916D41AEB4B7@nvidia.com>
+In-Reply-To: <20260319-config_migration-v1-1-42270124966f@kernel.org>
+References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+ <20260319-config_migration-v1-1-42270124966f@kernel.org>
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR06CA0043.namprd06.prod.outlook.com
+ (2603:10b6:a03:14b::20) To DS7PR12MB9473.namprd12.prod.outlook.com
+ (2603:10b6:8:252::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|SA1PR12MB999108:EE_
+X-MS-Office365-Filtering-Correlation-Id: 960d6495-a2fb-460c-b6a1-08de85bfbb91
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: yI4d3EWY+nRTmA2sUUBMYPx8nuD7Cf/jY1FbW0brj0jrlQg9kqDPTxdHFV8bMcJJ7Qq+Lt8gNLu7AkOjrFZAsItiNTN/L0s8U52/7aiCshLIKh0x+i5TWRxqYhCBh4ErsO6PaY0QMfgJ0cGWlcGB8hDAV9A77M9QdT5c97LUye9T4p2OVRfjC/BaDhO8aSQBdpWbxKqxT/VMcKyQF90qSmPhpLn7IS9Dn6emzf/MwAkJcNXCyrcl0D3coLEGU9crp/Ud1muQVM8vvo6JT+T1/n3alY/cGf6Tyj6toTL6lxPktsO1g58IAnGvRJUY9QDCx8mQD11E8KeP8K6ux2SARLilCnxHxSrdozw8WEoSUff8i+E5sWmKVgx88jsvubyFkRqDWo/yGwM0/PPNHfC+vLchaoDet0ijKXN3Xx5+n6KyitlTYLXjdaaZTU+IvR1/eVfeLyQNYuUcd4adfdh2NteTiO7nNQ6pj4uJXl22eeMGnuVsG+eETH9SZioc90+ImbTw3Lau8i8gggKVrz8lD30cZdZ/TCjLnrOkqk2nE7rrhSiNHA8WVePXpMKVn3DScJ5gaKD2MGXIKsx0LNLAigWBUmaSqM19wNt18DXNZmkffpKkhbx0DRatjXWV516/baRQEW8fHrPamvNJMtwSbiCpqwgNn0sCjW1PpFKqtsHKpn/czx3NU5YElH2F0WyFWxS3F0lmY1O0iKnWdeeUIt2pgCHQ/+jKv8lqOxi1R0U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tWlr7GM+Qbe0UFhRvCRS74i8dyqXLFtZDvTFrYS4/pEoD6CQFenMMKcr21VN?=
+ =?us-ascii?Q?RbdXpEhSxiOEq0xESYH/YYfGwmZ5K5qfzjWXUOPzTuNfjQra/3DcYXsYOmQo?=
+ =?us-ascii?Q?yApb6a8RKEMmfSgGWk6kkQ2ZOsQU7Zdw8d+ILzk3N/WXrcj4fzjWDvxhMbXq?=
+ =?us-ascii?Q?6PZMpstQHjHmK/OrOQUqkTMWc5VbcfIqLglxqTbv3yS1LgrzlNlGhqmj4DdJ?=
+ =?us-ascii?Q?5Fv9RSvOfFQ7GEKTUOPiVMq/E0IW4LoD7iJeaFcUBsDD4x95hgP2MRl+A9vY?=
+ =?us-ascii?Q?GDL5uPd/L8hFjgE9c1A4ELTHias2DtvaOAYrZVQ+sWq/St7IK4Z1chFV3Bsu?=
+ =?us-ascii?Q?IZU1pZsZ2uVh1ll3U+XllSTwILnzM0YPKmkNTIqKBSRMnTxd2h5dgZzpMiOj?=
+ =?us-ascii?Q?2gmpuOdpbN5BlwmM6Jd//hihcEysiT9a/4JpBQj2DyLRcxCG0huQ77AvTXv/?=
+ =?us-ascii?Q?riZMZooBLIaUUaQ4oLrpjH9O5BGoj1NjV4v9ghaeEUEe97D2G5p9iRiNjwD3?=
+ =?us-ascii?Q?2fbvo9VBQAFuoYCHYaaYQSAHoulJhSLQe6In+eErXuyWE6A7htrUoNMfj3Y9?=
+ =?us-ascii?Q?IsDDHqu+m9zXWvp3/hP07RRNjqjCWwG/ARbH4oJnsykhJaUNCrn47oXmx6Uz?=
+ =?us-ascii?Q?N1qCh80j618E5hKGscqfdBgirQEJOk/7JVTxSTkbHLbh0u6/DByiSy4V6OW+?=
+ =?us-ascii?Q?xbVpFouUbU3SFRVJyFVNVJTE01ox0oK9FetGQ1fxGXrWoaqfsO55tQCmyjp+?=
+ =?us-ascii?Q?+jXy3816CvKr4pMvFST11s5KZCkn9qRUXbkdKpK4xBVFsZT5PebH3hWhklej?=
+ =?us-ascii?Q?077Cr0CX1Ip/Ht02tHFk1gVx2FMohBCIOVzmboXbvl+HubukHYd9+lSrkcfm?=
+ =?us-ascii?Q?5bsbOFPtQZp7CH4U1z6ZuxfJ2L4cCOaPRo6I2ZIppGQZ4WrnXpHbKPczOQ3s?=
+ =?us-ascii?Q?bUckdlHpB9w0Pq2bUmon/Z6JIVLhEq3O/tEymtgGYIPN+24jaiwPnob8fUrx?=
+ =?us-ascii?Q?IwUo80XL+DqT0ZGJX1Xstm4d/Q/YaC+3waf+sNYrg+9pABEKJAI/38kqgN/V?=
+ =?us-ascii?Q?Jl+6+EUmuNzlEQ96SRom7aRSwzhyMKOExFFiQPS2FTibDEfevb0xiVm7IMLh?=
+ =?us-ascii?Q?Blo185ZAc2erN7Ex8frktjkYHdO56DRmw8t81kLz3DbcHOuAOpkOu1wi9puv?=
+ =?us-ascii?Q?1Ymnn2xqCnxSiPd08tm/plWft2NBoevmNwNsGK+vluCNbb9JtupIbkhCZOPP?=
+ =?us-ascii?Q?rJxmuQRLuqQ+/v63Hzu9v2lMA9SISwL/sIGXmlDJuyOOQGJuAgo/mr8JdvXN?=
+ =?us-ascii?Q?KidOvh9xWT9I0CvAf5PdVw/NNZMtjkA5QfeeJY+jK2X1Yjdk3dHqCbXmHl13?=
+ =?us-ascii?Q?QHCBu+allyoV8WQEV8ArQuxEzaq/m2ve1LcdBa1VzNWTulYgk7a5s35zNsdm?=
+ =?us-ascii?Q?VuTJgco1In8mza/jHbd+smurlC+o9pvOQDwWW0ZL+nPN4hqwImbmB1yT/Ihs?=
+ =?us-ascii?Q?7ce33QXVYWbFj4X9USu3xLMaNilq7QdbfKvzWUi+wKSCO5siYZCx92EObNjx?=
+ =?us-ascii?Q?e7LHj0TgEaL5tgTiOHD013XsiN+pVLhmsqjkRpbKf7e3PWEL86aoFJL+f03v?=
+ =?us-ascii?Q?mTNFnz0O5CM/nJPjRXWgA/8387JGjSJara+8STF2CGLvgyENdw4VBnCNRoAs?=
+ =?us-ascii?Q?lMk658LAYNW5uXKfhgQGr7AZOac5Lm7nB6kPf3erSJsM8MowJwpFYEqIR4qv?=
+ =?us-ascii?Q?iQ7Xy2L7jw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 960d6495-a2fb-460c-b6a1-08de85bfbb91
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 13:59:27.2957
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ywYTzJGDYYjf6VoPyKO85bKBKhFdsBcSPj+10+PyWKiYnq2whU44+Z1zL3/dQtBL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB999108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_065648_349440_F2218D1E 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_065934_532419_6BEA9E01 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +162,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The model name should be "Rockchip RK3562 EVB2 V10 Board".
+On 19 Mar 2026, at 4:19, David Hildenbrand (Arm) wrote:
 
-Fixes: ceb6ef1ea900 ("arm64: dts: rockchip: Add RK3562 evb2 devicetree")
-Signed-off-by: 谢致邦 (XIE Zhibang) <Yeking@Red54.com>
----
-Reference:
-https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk3562-evb2-ddr4-v10.dtsi#L16
+> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
+> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
+> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
+>
+> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
+> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
+> CONFIG_CMA and CONFIG_COMPACTION already do).
+>
+> We'll clean up CONFIG_MIGRATION next.
+>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  arch/arm64/Kconfig     | 1 -
+>  arch/loongarch/Kconfig | 1 -
+>  arch/powerpc/Kconfig   | 1 -
+>  arch/riscv/Kconfig     | 1 -
+>  arch/s390/Kconfig      | 1 -
+>  arch/x86/Kconfig       | 1 -
+>  mm/Kconfig             | 9 +++------
+>  7 files changed, 3 insertions(+), 12 deletions(-)
+>
+Makes sense to me.
 
- arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Acked-by: Zi Yan <ziy@nvidia.com>
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
-index 6a84db154a7d..387062eea520 100644
---- a/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
-@@ -13,7 +13,7 @@
- #include "rk3562.dtsi"
- 
- / {
--	model = "Rockchip RK3562 EVB V20 Board";
-+	model = "Rockchip RK3562 EVB2 V10 Board";
- 	compatible = "rockchip,rk3562-evb2-v10", "rockchip,rk3562";
- 
- 	chosen: chosen {
--- 
-2.43.0
-
+Best Regards,
+Yan, Zi
 
