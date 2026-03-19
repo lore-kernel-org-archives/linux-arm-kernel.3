@@ -4,119 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5529A107528B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648D5107528C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F8irBykowPt+uvQoGdqM/C5yPJ/WiG3eDnhOjMuzfnU=; b=R/mvIxh4C1HiyaNNlG3R7SGcsd
-	gFn/6qWZ/nt42E7nS5gSHw39shW1P1pnU0Sct34vb+oFf9BXu7P4OYclnE793jdqaAlyQpThQYPOn
-	qQ2LbGTXpatgPH7kQ+YR77QT6bWE6B5ylRnfzd51mDgrlfbDDFlW7OhVF/xFY/ibOp4lD+Tr9xHnx
-	gubaLkF/h5hq4XI4uDJD9IbibaFooxS+lPmVQBgcO92s4VLXtDP0CB6vYXTOATYrlXYSWm+7LYa7i
-	zK7e0gIaM2rQXR44RUh9NHvpkLJxZYYlO6PC32PlgHW659W/JOIeEnu71c6k9PalIbytzeFw5xIV2
-	xvEs4YgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2hMouKBOO7iljDh84gym0ir5SjUx+qmM6vACrsQWh1k=; b=aagTonxGQOfLZ5s6nxFkjLc0mU
+	O8LA+4PB5dKnsNb3FixLqkAZ8xhQehdUdEIaFyHGggKorJotVW+2Y/coZASppIJjRkkQTyzcsvP3i
+	5y2Yt4ra4/pG6s5hvX4sg6rXmEE1hJ8apze0HD8dhydanJtpXdD2Tzcl2ErGn4gbKZUkY0QNRfCCe
+	RsUBeSeTFAi3ic8Eon3hcaeH4jQXwzZQwrgoXd0uz7aVPCJk6k1c+jqlvl8BAR/O5otiJwLpdDFSY
+	pB2M5rlSCJbwj/sEYyiU+Ku2rhDFP85FDySCnzsp8tGjC3ptYLdAbbG5BQ9NBjwKzYVMejdO7xcar
+	R1F1QuFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39zc-0000000AM9M-2yM1;
-	Thu, 19 Mar 2026 09:48:40 +0000
-Received: from mail-northeuropeazon11012064.outbound.protection.outlook.com ([52.101.66.64] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w3A7G-0000000AMjr-3YbO;
+	Thu, 19 Mar 2026 09:56:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39za-0000000AM8l-1eUA;
-	Thu, 19 Mar 2026 09:48:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tr3m8jPs3G3KNhyzj8m5wUlO30XvHAHNy71ZerOnOtm9EdJrZFjQzN5x7Mf8uCEtQm/CFbh8QA0jwZ7FsntiwR734ZdwCJHcP6G+kOraGgtWYYyKGuxLLl9iX3TOMCLjxBFazP4COIT5nuWVNYKub69vkZ04Pv+H+Cr2MfEfOsh0mJKPXFuIHwvbnVbIjTOIlHXY71V16hAcyMAVsy++H6uavAVZLKD/K2aEL6jAS1M97h3Wex4IE+gmKm2q23LK7YTffhIb9aJ1ReJKlYjg3LAGOnu8GD6qEoIuN8YIafWMOZrln4rilGUjAMfHhvmeQpHQNrwYeybK3Iep8yjtZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F8irBykowPt+uvQoGdqM/C5yPJ/WiG3eDnhOjMuzfnU=;
- b=VQPOayFfVtzbkWmE1ZRqaZV/Ej3y2pVhGY0HyUYDhR9fP1yEaQwlkLVDEbuD+mIoi3hktlYMZyvI5alICDM6m8iJ/v/fYHeWZbPkrWUi7QO75AIzrJvNcmHuBRiMgSU3bXHtroQ185qfA9PDZqw+qtwq8dEQhcSg4AS4PKz8VTh9DMP7PX3e5iPF0UvlMMmRJvjwa4Us5NYj308wPpVAMprhxTDmJ8jDdava75FaAeiiuJUouKKPOFHAX+6KmqPYbFcO7zNcPSVS8mYeyF1bsLSyh3D5AvkhtgbJjjbGyT19OZ7T2hfWgorjT6r7XcnNmBL63lIlpFwRRgvH5nbwyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kylinos.cn smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F8irBykowPt+uvQoGdqM/C5yPJ/WiG3eDnhOjMuzfnU=;
- b=hDBfhb92AcbQH9dL47ruZVUQqjTu5mNw17TMz0ax31r3FW6OrJVUS7tx4lGYz7WzrgHyLDB3f40rtaHyQ8BWFvwf8bWTUTcnw7MgopGD7LVSTuCKS//fmsPp2uhD/NFxXZL/ELE8RjGHtGuw/4Mzvbs5GfvOAiOUbilaou0SGdAS/oNOkyMOeZEel5Wubi8PjBRIHfcbYpAy+JKHak64b7t3dxB2eRHRq2SQne384TVLADb4xvy6erqjOIDAEUDcIaoSermdKdOYWvSFR3TLFyzwih0rgN7Pg0ZbcFI7DoL6thVs4cMJpuvMRMGrdgVgsaN4KjnoYGaIyMfKuZC6Mg==
-Received: from AS9PR06CA0361.eurprd06.prod.outlook.com (2603:10a6:20b:460::13)
- by VI0PR10MB9075.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:214::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 09:48:25 +0000
-Received: from AM1PEPF000252DA.eurprd07.prod.outlook.com
- (2603:10a6:20b:460:cafe::75) by AS9PR06CA0361.outlook.office365.com
- (2603:10a6:20b:460::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
- 19 Mar 2026 09:48:25 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM1PEPF000252DA.mail.protection.outlook.com (10.167.16.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 09:48:23 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
- 2026 10:50:42 +0100
-Received: from [10.252.1.11] (10.252.1.11) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
- 2026 10:48:22 +0100
-Message-ID: <e0675843-19a1-42da-a784-c3364deac785@foss.st.com>
-Date: Thu, 19 Mar 2026 10:48:21 +0100
+	id 1w3A7F-0000000AMjc-0Cso;
+	Thu, 19 Mar 2026 09:56:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=2hMouKBOO7iljDh84gym0ir5SjUx+qmM6vACrsQWh1k=; b=fYHBl8sLhnyAGzvNG1txO7JRBg
+	PLhYD8bSQM4eIPVyHXgtMdemRloymfhazCxdATEZk2a10o9giESbMV9bV2f5wveQsCfrBBqyJaapE
+	IftiMPnlN/FjjCu2aL7umnOrL7IUJRR9rhnpMUDL7Shdw3YjdvitpWg56LTRGGTEOtunOLuL7MZYO
+	kR1IXwP/mmDSjXHfAQLGLXuVFbKhJvQZmRnWpFevCAYQKM/tahbROB1JEE1fetEYJR2LYriESBvCT
+	aNGIcDv13cNrZEi2SMqHcTsrRs+wq6ND1gV88ElP+nsvt92LdBlFFiUTXKivlmxveoimXWUTk3dv1
+	WRkP7aTA==;
+Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3A7B-0000000DCCK-2Hcs;
+	Thu, 19 Mar 2026 09:56:31 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Thu, 19 Mar 2026 17:55:31 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Thu, 19 Mar 2026 17:55:31 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: krzk+dt@kernel.org, "Conor Dooley" <conor@kernel.org>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net-next v4 1/3] dt-bindings: ethernet: eswin: add
+ clock sampling control
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20260313-stiffness-item-c451eaef970d@spud>
+References: <20260313075234.1567-1-lizhi2@eswincomputing.com>
+ <20260313075351.1584-1-lizhi2@eswincomputing.com>
+ <20260313-stiffness-item-c451eaef970d@spud>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 13/17] spi: stm32: Simplify clock handling with
- devm_clk_get_enabled()
-To: Pei Xiao <xiaopei01@kylinos.cn>, <linux-spi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<imx@lists.linux.dev>, <openbmc@lists.ozlabs.org>,
-	<linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <broonie@kernel.org>,
-	<Frank.Li@nxp.com>
-References: <cover.1773885292.git.xiaopei01@kylinos.cn>
- <c8259f582596fd08541b94dce5dbb4cae513e295.1773885292.git.xiaopei01@kylinos.cn>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <c8259f582596fd08541b94dce5dbb4cae513e295.1773885292.git.xiaopei01@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.1.11]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM1PEPF000252DA:EE_|VI0PR10MB9075:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20481b7e-945b-46fc-10b8-08de859ca988
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700016|1800799024|921020|22082099003|56012099003|18002099003|7053199007;
-X-Microsoft-Antispam-Message-Info: dXA8tdkTerByHge+1jzLn7mBEtACVp5VAwYVNtkOF/bCWL1Mp36dSDesSLfQ8XU/x2iORKECITkcCVB/l9TIc9WKkciAVdxhJb/xDjSm+X+WvFGg40fYKVxXK12p7+tPdW62FI09VKwt3JXHfHmRD+3O/A2GGgdJUOutlDWeRg1Kqa150tIYv4aP0mRwRxP03a3iLpTRlkJj1dSaKS2C8L7JHwmJOqbSibXMvRox7t56kxMrGzmEEA/q/zytFyHxcWZntCcKtvgtZkx2+Ji602A+Ds7PAz/YFFoNPZp77JUPGtVWPG+4n2n9U+/9N7yr6JaZ/D3hk5ai7FDbUQk2ATsI0DKSQVVMJkidNVIf512i7tuUkjI/6loQHfp8La8umcTwih1hfU9czc/3xA4XNRYwNzg7ZarpZfWpWPea1Ga9ZY+D+9bxY+cXyr7PPN4wsjvGFZYT4JDC3w9xyqlv+MIsM3+PSfQWbp1wMF0+2LaYhsRQ7tmuyloRiKnnCd1iCn2GM4S8rJJxjWyfFelAoR/QJ9JhceYzM67KjtZzF5YO1QZVB/CvbkpyKUaNsJLPclfuBlcmJPHeKHzqtGJPk/FQ4stXBdrqOPkCHLmBrnUV097arrwm6hlewWcl7vWF1VygqkVJ9tY9GYafh7fBM6ZToy/s6gLmUaLm/Jdk0oI5EyH3IKk7IeEpgYoFqOwJa5W/4OX/qALn9KOy/teQxqL3Cpb1OptGfARGg8WFaakTIY5MpYoQc+RT6lVgKhhghUYDggnX7HW4UhqgjiM/hYSyQwRI7uL2q7qWkTvVZPpga43oza27fG4WzFu/SR4y
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700016)(1800799024)(921020)(22082099003)(56012099003)(18002099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iVPU4El0mriIi6rcadh4F+91RRV6u/zh1YZ+j/a4s82HKv8HXsUq3wQGPy+I5D7Vswet4sCVw3Uq9/AqCHA/BJDHepDqaCOhmceRdCUqun+VmGkB/JekN+fiK8g0bpIuPu3s0XvECKh14B8g9lrIDQeoZZBvKd2Bj3dUwTp90t3bFWyIqWTswDf4mBcSI7Tr14QfIhGxbH++gKGjkNnHQBH81yb1nfjx/EAETbxJ1KyiwejPLC3nnDQkFxu64EBU/idJWveyxOPTN0PPVsRsPhQ5qqxjK2Q9oPjhqeJLBdZycH6EZD/44S9ls2GVZEsUGtuXp1CHnXqTwE431Tg7M0bhgiOt5vPybKTd6FsjWkN47CPoT8HTOSApH8HNGyQridnMyIrDYZ/QszyRhJCAs2jjQvsFTeh/wTrHG0HOZM5PK75fi4Cr40u8NLR42/KR
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 09:48:23.8001
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20481b7e-945b-46fc-10b8-08de859ca988
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DA.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9075
+Message-ID: <4d45d39b.591c.19d05858b58.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TAJkCgDHaXMTyLtpTOUJAA--.3066W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgELDGm61AkcbQAAs7
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VW3Jw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_024838_735902_0FF56FAA 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260319_095629_894221_128E248C 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,145 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/19/26 03:04, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for the clock. This removes the need for
-> explicit clock enable and disable calls, as the managed API automatically
-> handles clock disabling on device removal or probe failure.
-> 
-> Remove the now-unnecessary clk_disable_unprepare() calls from the probe
-> error paths and the remove callback. Also simplify error handling by
-> using dev_err_probe().
-> 
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-
-Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-
-> ---
->   drivers/spi/spi-stm32.c | 62 +++++++++++------------------------------
->   1 file changed, 17 insertions(+), 45 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-> index 8a7f5a10d4af..be88e62075af 100644
-> --- a/drivers/spi/spi-stm32.c
-> +++ b/drivers/spi/spi-stm32.c
-> @@ -2360,25 +2360,20 @@ static int stm32_spi_probe(struct platform_device *pdev)
->   	int ret;
->   
->   	cfg = of_device_get_match_data(&pdev->dev);
-> -	if (!cfg) {
-> -		dev_err(&pdev->dev, "Failed to get match data for platform\n");
-> -		return -ENODEV;
-> -	}
-> +	if (!cfg)
-> +		return dev_err_probe(&pdev->dev, -ENODEV,
-> +				     "Failed to get match data for platform\n");
->   
->   	device_mode = of_property_read_bool(np, "spi-slave");
-> -	if (!cfg->has_device_mode && device_mode) {
-> -		dev_err(&pdev->dev, "spi-slave not supported\n");
-> -		return -EPERM;
-> -	}
-> +	if (!cfg->has_device_mode && device_mode)
-> +		return dev_err_probe(&pdev->dev, -EPERM, "spi-slave not supported\n");
->   
->   	if (device_mode)
->   		ctrl = devm_spi_alloc_target(&pdev->dev, sizeof(struct stm32_spi));
->   	else
->   		ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(struct stm32_spi));
-> -	if (!ctrl) {
-> -		dev_err(&pdev->dev, "spi controller allocation failed\n");
-> -		return -ENOMEM;
-> -	}
-> +	if (!ctrl)
-> +		return dev_err_probe(&pdev->dev, -ENOMEM, "spi controller allocation failed\n");
->   	platform_set_drvdata(pdev, ctrl);
->   
->   	spi = spi_controller_get_devdata(ctrl);
-> @@ -2409,32 +2404,18 @@ static int stm32_spi_probe(struct platform_device *pdev)
->   		return ret;
->   	}
->   
-> -	spi->clk = devm_clk_get(&pdev->dev, NULL);
-> -	if (IS_ERR(spi->clk)) {
-> -		ret = PTR_ERR(spi->clk);
-> -		dev_err(&pdev->dev, "clk get failed: %d\n", ret);
-> -		return ret;
-> -	}
-> +	spi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(spi->clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(spi->clk), "clk enabled failed\n");
->   
-> -	ret = clk_prepare_enable(spi->clk);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "clk enable failed: %d\n", ret);
-> -		return ret;
-> -	}
->   	spi->clk_rate = clk_get_rate(spi->clk);
-> -	if (!spi->clk_rate) {
-> -		dev_err(&pdev->dev, "clk rate = 0\n");
-> -		ret = -EINVAL;
-> -		goto err_clk_disable;
-> -	}
-> +	if (!spi->clk_rate)
-> +		return dev_err_probe(&pdev->dev, -EINVAL, "clk rate = 0\n");
->   
->   	rst = devm_reset_control_get_optional_exclusive(&pdev->dev, NULL);
->   	if (rst) {
-> -		if (IS_ERR(rst)) {
-> -			ret = dev_err_probe(&pdev->dev, PTR_ERR(rst),
-> -					    "failed to get reset\n");
-> -			goto err_clk_disable;
-> -		}
-> +		if (IS_ERR(rst))
-> +			return dev_err_probe(&pdev->dev, PTR_ERR(rst), "failed to get reset\n");
->   
->   		reset_control_assert(rst);
->   		udelay(2);
-> @@ -2461,11 +2442,8 @@ static int stm32_spi_probe(struct platform_device *pdev)
->   	dev_dbg(spi->dev, "one message max size %d\n", spi->t_size_max);
->   
->   	ret = spi->cfg->config(spi);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "controller configuration failed: %d\n",
-> -			ret);
-> -		goto err_clk_disable;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "controller configuration failed: %d\n", ret);
->   
->   	ctrl->auto_runtime_pm = true;
->   	ctrl->bus_num = pdev->id;
-> @@ -2490,8 +2468,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
->   			dev_info(&pdev->dev, "tx dma disabled\n");
->   			spi->dma_tx = NULL;
->   		} else {
-> -			dev_err_probe(&pdev->dev, ret, "failed to request tx dma channel\n");
-> -			goto err_clk_disable;
-> +			return dev_err_probe(&pdev->dev, ret, "failed to request tx dma channel\n");
->   		}
->   	} else {
->   		ctrl->dma_tx = spi->dma_tx;
-> @@ -2579,8 +2556,6 @@ static int stm32_spi_probe(struct platform_device *pdev)
->   err_dma_tx_release:
->   	if (spi->dma_tx)
->   		dma_release_channel(spi->dma_tx);
-> -err_clk_disable:
-> -	clk_disable_unprepare(spi->clk);
->   
->   	return ret;
->   }
-> @@ -2610,9 +2585,6 @@ static void stm32_spi_remove(struct platform_device *pdev)
->   		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
->   			      spi->sram_rx_buf_size);
->   
-> -	clk_disable_unprepare(spi->clk);
-> -
-> -
->   	pinctrl_pm_select_sleep_state(&pdev->dev);
->   }
->   
-
+SGkgS3J6eXN6dG9mLAoKQ291bGQgeW91IHBsZWFzZSB0YWtlIGEgbG9vayBhdCBDb25vcuKAmXMg
+ZmVlZGJhY2sgb24gdGhlIGNvbXBhdGlibGUgbmFtaW5nPwoKQ29ub3IgaGFzIHJldmlld2VkIHRo
+ZSBwYXRjaCBhbmQgcHJvdmlkZWQgaGlzIEFja2VkLWJ5LCBidXQgYWxzbyBub3RlZAp0aGF0IHRo
+ZXJlIG1pZ2h0IGJlIGNvbmNlcm5zIHJlZ2FyZGluZyB0aGUgY29tcGF0aWJsZSBzdHJpbmcuCgpQ
+bGVhc2UgbGV0IG1lIGtub3cgaWYgdGhlIGN1cnJlbnQgbmFtaW5nIGlzIGFjY2VwdGFibGUsIG9y
+IGlmIGFueSBjaGFuZ2VzCmFyZSByZXF1aXJlZC4KClRoYW5rcywKWmhpIExpCgoKPiAtLS0tLeWO
+n+Wni+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiAiQ29ub3IgRG9vbGV5IiA8Y29ub3JAa2VybmVs
+Lm9yZz4KPiDlj5HpgIHml7bpl7Q6MjAyNi0wMy0xNCAwMTozOTo1OCAo5pif5pyf5YWtKQo+IOaU
+tuS7tuS6ujogbGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbQo+IOaKhOmAgTogZGV2aWNldHJlZUB2
+Z2VyLmtlcm5lbC5vcmcsIGFuZHJldytuZXRkZXZAbHVubi5jaCwgZGF2ZW1AZGF2ZW1sb2Z0Lm5l
+dCwgZWR1bWF6ZXRAZ29vZ2xlLmNvbSwga3ViYUBrZXJuZWwub3JnLCByb2JoQGtlcm5lbC5vcmcs
+IGtyemsrZHRAa2VybmVsLm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywgbmV0ZGV2QHZnZXIua2Vy
+bmVsLm9yZywgcGFiZW5pQHJlZGhhdC5jb20sIG1jb3F1ZWxpbi5zdG0zMkBnbWFpbC5jb20sIGFs
+ZXhhbmRyZS50b3JndWVAZm9zcy5zdC5jb20sIHJtaytrZXJuZWxAYXJtbGludXgub3JnLnVrLCB3
+ZW5zQGtlcm5lbC5vcmcsIHBqd0BrZXJuZWwub3JnLCBwYWxtZXJAZGFiYmVsdC5jb20sIGFvdUBl
+ZWNzLmJlcmtlbGV5LmVkdSwgYWxleEBnaGl0aS5mciwgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZywgbGludXgtc3RtMzJAc3QtbWQtbWFpbG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgt
+YXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwu
+b3JnLCBuaW5neXVAZXN3aW5jb21wdXRpbmcuY29tLCBsaW5taW5AZXN3aW5jb21wdXRpbmcuY29t
+LCBwaW5rZXNoLnZhZ2hlbGFAZWluZm9jaGlwcy5jb20sIHByaXRlc2gucGF0ZWxAZWluZm9jaGlw
+cy5jb20sIHdlaXNoYW5nanVhbkBlc3dpbmNvbXB1dGluZy5jb20KPiDkuLvpopg6IFJlOiBbUEFU
+Q0ggbmV0LW5leHQgdjQgMS8zXSBkdC1iaW5kaW5nczogZXRoZXJuZXQ6IGVzd2luOiBhZGQgY2xv
+Y2sgc2FtcGxpbmcgY29udHJvbAo+IAo+IE9uIEZyaSwgTWFyIDEzLCAyMDI2IGF0IDAzOjUzOjUx
+UE0gKzA4MDAsIGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20gd3JvdGU6Cj4gPiBGcm9tOiBaaGkg
+TGkgPGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20+Cj4gPiAKPiA+IER1ZSB0byBjaGlwIGJhY2tl
+bmQgcmVhc29ucywgdGhlcmUgaXMgYWxyZWFkeSBhbiBhcHByb3hpbWF0ZWx5IDQtNSBucwo+ID4g
+c2tldyBiZXR3ZWVuIHRoZSBSWCBjbG9jayBhbmQgZGF0YSBvZiB0aGUgZXRoMSBNQUMgY29udHJv
+bGxlciBpbnNpZGUKPiA+IHRoZSBzaWxpY29uLgo+ID4gCj4gPiBGb3IgMTAwME0sIHRoZSBSWCBj
+bG9jayBtdXN0IGJlIGludmVydGVkIHNpbmNlIGl0IGlzIG5vdCBwb3NzaWJsZSB0bwo+ID4gbWVl
+dCB0aGUgUkdNSUkgdGltaW5nIHJlcXVpcmVtZW50cyB1c2luZyBvbmx5IHJ4LWludGVybmFsLWRl
+bGF5LXBzIG9uCj4gPiB0aGUgTUFDIHRvZ2V0aGVyIHdpdGggdGhlIHN0YW5kYXJkIDIgbnMgZGVs
+YXkgb24gdGhlIFBIWS4gVGhlcmVmb3JlLAo+ID4gZXZlbiBvbiBhIHByb3Blcmx5IGRlc2lnbmVk
+IGJvYXJkLCBldGgxIHN0aWxsIHJlcXVpcmVzIFJYIGNsb2NrCj4gPiBpbnZlcnNpb24uCj4gPiAK
+PiA+IFRoaXMgYmVoYXZpb3VyIGVmZmVjdGl2ZWx5IGJyZWFrcyB0aGUgUkdNSUkgdGltaW5nIGFz
+c3VtcHRpb25zIGF0IHRoZQo+ID4gU29DIGxldmVsLgo+ID4gCj4gPiBGb3IgdGhlIFRYIHBhdGgg
+b2YgZXRoMSwgdGhlcmUgaXMgYWxzbyBhIHNrZXcgYmV0d2VlbiB0aGUgVFggY2xvY2sKPiA+IGFu
+ZCBkYXRhIG9uIHRoZSBNQUMgY29udHJvbGxlciBpbnNpZGUgdGhlIHNpbGljb24uIFRoaXMgc2tl
+dyBoYXBwZW5zCj4gPiB0byBiZSBhcHByb3hpbWF0ZWx5IDIgbnMuIFRoZXJlZm9yZSwgaXQgY2Fu
+IGJlIGNvbnNpZGVyZWQgdGhhdCB0aGUKPiA+IDIgbnMgZGVsYXkgb2YgVFggaXMgcHJvdmlkZWQg
+YnkgdGhlIE1BQywgc28gdGhlIFRYIGlzIGNvbXBsaWFudCB3aXRoCj4gPiB0aGUgUkdNSUkgc3Rh
+bmRhcmQuCj4gPiAKPiA+IEZvciAxMC8xMDAgb3BlcmF0aW9uLCB0aGUgYXBwcm94aW1hdGVseSA0
+LTUgbnMgc2tldyBpbiB0aGUgY2hpcCBkb2VzCj4gPiBub3QgYnJlYWsgdGhlIHN0YW5kYXJkLiBU
+aGUgUkdNSUkgdGltaW5nIHRhYmxlIChTZWN0aW9uIDMuMykgc3BlY2lmaWVzCj4gPiB0aGF0IGZv
+ciAxMC8xMDAgb3BlcmF0aW9uIHRoZSBtYXhpbXVtIHZhbHVlIGlzIHVuc3BlY2lmaWVkOgo+ID4g
+aHR0cHM6Ly9jb21tdW5pdHkubnhwLmNvbS9wd214eTg3NjU0L2F0dGFjaG1lbnRzL3B3bXh5ODc2
+NTQvaW14LXByb2Nlc3NvcnMvMjA2NTUvMS9SR01JSXYyXzBfZmluYWxfaHAucGRmCj4gPiAKPiA+
+IER1ZSB0byB0aGUgZXRoMSBzaWxpY29uIGJlaGF2aW9yIGRlc2NyaWJlZCBhYm92ZSwgYSBuZXcg
+Y29tcGF0aWJsZQo+ID4gc3RyaW5nICJlc3dpbixlaWM3NzAwLXFvcy1ldGgtY2xrLWludmVyc2lv
+biIgaXMgYWRkZWQgdG8gdGhlIGRldmljZQo+ID4gdHJlZS4gVGhpcyBhbGxvd3MgdGhlIGRyaXZl
+ciB0byBoYW5kbGUgdGhlIGRpZmZlcmVuY2VzIGJldHdlZW4gZXRoMQo+ID4gYW5kIGV0aDAgdGhy
+b3VnaCBkZWRpY2F0ZWQgbG9naWMuCj4gPiAKPiA+IFRoZSByeC1pbnRlcm5hbC1kZWxheS1wcyBh
+bmQgdHgtaW50ZXJuYWwtZGVsYXktcHMgcHJvcGVydGllcyBub3cgdXNlCj4gPiBtaW5pbXVtIGFu
+ZCBtYXhpbXVtIGNvbnN0cmFpbnRzIHRvIHJlZmxlY3QgdGhlIGFjdHVhbCBoYXJkd2FyZSBkZWxh
+eQo+ID4gcmFuZ2UgKDAtMjU0MCBwcykgYXBwbGllZCBpbiAyMCBwcyBzdGVwcy4gVGhpcyByZWxh
+eGVzIHRoZSBiaW5kaW5nCj4gPiB2YWxpZGF0aW9uIGNvbXBhcmVkIHRvIHRoZSBwcmV2aW91cyBl
+bnVtLWJhc2VkIGRlZmluaXRpb24gYW5kIGF2b2lkcwo+ID4gcmVncmVzc2lvbnMgZm9yIGV4aXN0
+aW5nIERUQnMgd2hpbGUga2VlcGluZyB0aGUgc2FtZSBoYXJkd2FyZSBsaW1pdHMuCj4gPiAKPiA+
+IFRyZWF0IHRoZSBSWC9UWCBpbnRlcm5hbCBkZWxheSBwcm9wZXJ0aWVzIGFzIG9wdGlvbmFsLCBi
+b2FyZC1zcGVjaWZpYwo+ID4gdHVuaW5nIGtub2JzIGFuZCByZW1vdmUgdGhlbSBmcm9tIHRoZSBl
+eGFtcGxlIHRvIGF2b2lkIGVuY291cmFnaW5nCj4gPiB0aGVpciB1c2UuCj4gPiAKPiA+IEluIGFk
+ZGl0aW9uLCB0aGUgYmluZGluZyBub3cgaW5jbHVkZXMgYWRkaXRpb25hbCBiYWNrZ3JvdW5kIGlu
+Zm9ybWF0aW9uCj4gPiBhYm91dCB0aGUgSFNQIENTUiByZWdpc3RlcnMgYWNjZXNzZWQgYnkgdGhl
+IE1BQy4gVGhlIFRYRCBhbmQgUlhEIGRlbGF5Cj4gPiBjb250cm9sIHJlZ2lzdGVycyBhcmUgaW5j
+bHVkZWQgc28gdGhlIGRyaXZlciBjYW4gZXhwbGljaXRseSBjbGVhciBhbnkKPiA+IHJlc2lkdWFs
+IGNvbmZpZ3VyYXRpb24gbGVmdCBieSB0aGUgYm9vdGxvYWRlci4KPiA+IAo+ID4gQmFja2dyb3Vu
+ZCByZWZlcmVuY2UgZm9yIHRoZSBIaWdoLVNwZWVkIFN1YnN5c3RlbSBhbmQgSFNQIENTUiBibG9j
+ayBpcwo+ID4gYXZhaWxhYmxlIGluIENoYXB0ZXIgMTAgKCJIaWdoLVNwZWVkIEludGVyZmFjZSIp
+IG9mIHRoZSBFSUM3NzAwWCBTb0MKPiA+IFRlY2huaWNhbCBSZWZlcmVuY2UgTWFudWFsLCBQYXJ0
+IDQKPiA+IChFSUM3NzAwWF9Tb0NfVGVjaG5pY2FsX1JlZmVyZW5jZV9NYW51YWxfUGFydDQucGRm
+KToKPiA+IGh0dHBzOi8vZ2l0aHViLmNvbS9lc3dpbmNvbXB1dGluZy9FSUM3NzAwWC1Tb0MtVGVj
+aG5pY2FsLVJlZmVyZW5jZS1NYW51YWwvcmVsZWFzZXMKPiA+IAo+ID4gVGhlcmUgYXJlIGN1cnJl
+bnRseSBubyBpbi10cmVlIHVzZXJzIG9mIHRoZSBFSUM3NzAwIEV0aGVybmV0IGRyaXZlciwgc28K
+PiA+IHRoZXNlIGNoYW5nZXMgYXJlIHNhZmUuCj4gPiAKPiA+IEZpeGVzOiA4ODhiZDBlY2E5M2Mg
+KCJkdC1iaW5kaW5nczogZXRoZXJuZXQ6IGVzd2luOiBEb2N1bWVudCBmb3IgRUlDNzcwMCBTb0Mi
+KQo+ID4gU2lnbmVkLW9mZi1ieTogWmhpIExpIDxsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tPgo+
+IAo+IEtyenlzenRvZiBtaWdodCBub3QgeWV0IGJlIGhhcHB5IHdpdGggdGhlIGNvbXBhdGlibGUg
+bmFtaW5nLCBidXQgZnJvbSBteQo+IHBvdjoKPiBBY2tlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25v
+ci5kb29sZXlAbWljcm9jaGlwLmNvbT4K
 
