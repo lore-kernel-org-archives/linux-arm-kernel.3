@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CFF1091929
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 21:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705111091916
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 22:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzMmanfjIA3Vi+ugwenl/HwtE2Ck7ASx/kODBmSH9HI=; b=taFYzejhj8DQGI1Hfb92qt7KiZ
-	TcK8knc33Yc1alWzPAZQBdEHEnKzTLa5WVypt8ykHnp4Ai9odBPK81am62r0LWXi8ZmQH5vx6PUf6
-	CbCgm9O5Z2BfzPUeae4LwZg9eAVDvFTbzX3gsp3OOSS18irZoSU8nvwbqMhXiQgTf5/gXbWTN/3pU
-	qJeML6gSsA18/hG7bv+IQ+LsHiRbfEeqCFnqnV0pPhmV3f1DCX9JMHa4j4e8r5j4oZEFh1dNe8M43
-	FTO3wIQUyqgo6Ixi1CqB9xOYFBn/Y8gcMJ7LXCFr0WEUmKvZkDeiJzsvIwm9b+7byKgnbJElPcWks
-	il4fe2PQ==;
+	bh=0yp23tNbPW94JMNdRGMZBEkiUIPkf8ue7dSq7oobTEQ=; b=bueo6cRF1bM7wG9aXtPTAq3ivY
+	5V7W2qHZOF9KM3AGtIik/XAwgdNP7Yo8+XkM/sm9UxgTLMN4xR3xDJE0igotzRWr6RwHUGJf5DCPy
+	j5QQYemFs4RVtEeXH8ZBjc9cN7/6ZoLS3tffAZ+OlLAVnGNulWrFlYXfSP0zb+0xKDElnvHWiKihf
+	Xay7JGxsdBSsNSZYtpUY2DiVeb5wSc16MRbzC4uQlN/RxebiYIlHxdBQgTxed+4GjOADG3rugoOU1
+	9+VBh/AGY79XGh3TGjiZLvEaisyIVxLhW97VaRv5rX+2tB9gQtpTUf+kfLOmHfZNQlntwWL+EmDxI
+	z1CtyHuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LOp-0000000Bc0A-3ppB;
-	Thu, 19 Mar 2026 21:59:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w3LPK-0000000Bc2m-0whL;
+	Thu, 19 Mar 2026 21:59:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LOn-0000000Bbzp-0U2h
+	id 1w3LPG-0000000Bc1i-3H6t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 21:59:26 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 74D46838;
-	Thu, 19 Mar 2026 22:58:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773957489;
-	bh=aC0FGWPPla4uf7rNFOUmz6zWZ0rXHirwJjooLiRgQ7U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=obuvIyhkR0pIYx2XtVAcWsfn/dLXstgLlMwkLvZaKkdXaUb8ZnZLmZHN5F+GNL45R
-	 8TcnOwEkgR0E+33XoDdrx2XINH9i1+GQNMY70QxlIYECP3W5Bg8uziNzR/OO2hNNvu
-	 /9wCKqtvupxHZB6l26TnCMWJ04PfilA6Qct330m4=
-Date: Thu, 19 Mar 2026 23:59:21 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	Thu, 19 Mar 2026 21:59:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0yp23tNbPW94JMNdRGMZBEkiUIPkf8ue7dSq7oobTEQ=; b=weV3nqI7chBqru/dlHBoOpFFn3
+	xshJScE+Z/b4faKZyekCELpOCgC109DFD4+6JYL6xn/mVHHv5AQ1Q6hYtr3o8Ju7ZVH28Gk3uRa5+
+	voQiCnmMiErPZfckGZhef6YsihnyV13ZoybKYjvTG8a2NDOPgvdfeiuA7sKx6DGOVzWb14LTKnzxo
+	VHQiIyorzK6RcDnFuC7Lgr/tYhk0RZ7NfngmXG3X86idQmG+wfpLArb58r514rquGwA5KwhmUI7Li
+	UCKgfb3oDY8bKXDGd2xhZbuNZP7ns8jZJ3NUY4Tzo9FuyEhFYcMXpp1YbeCK7o0iV0dehkagz6tLl
+	rdyOkYkg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60868)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w3LP2-000000005Mx-2VQf;
+	Thu, 19 Mar 2026 21:59:40 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w3LOy-0000000008l-2rCx;
+	Thu, 19 Mar 2026 21:59:36 +0000
+Date: Thu, 19 Mar 2026 21:59:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Serge Semin <fancer.lancer@gmail.com>, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexi Birlinger <alexi.birlinger@nxp.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v2 2/2] media: nxp: imx8-isi: Prioritize pending buffers
- over discard buffers
-Message-ID: <20260319215921.GC950375@killaraus.ideasonboard.com>
-References: <20260312-isi_min_buffers-v2-0-d5ea1c79ad81@nxp.com>
- <20260312-isi_min_buffers-v2-2-d5ea1c79ad81@nxp.com>
+	stable@vger.kernel.org
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Prevent NULL deref when RX
+ memory exhausted
+Message-ID: <abxxyHVXp6QpPue5@shell.armlinux.org.uk>
+References: <20260319184031.8596-1-CFSworks@gmail.com>
+ <20260319184031.8596-2-CFSworks@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260312-isi_min_buffers-v2-2-d5ea1c79ad81@nxp.com>
+In-Reply-To: <20260319184031.8596-2-CFSworks@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_145925_296645_2569EF95 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260319_145955_105405_11999447 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +89,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guoniu,
-
-Thank you for the patch.
-
-On Thu, Mar 12, 2026 at 11:12:35AM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Thu, Mar 19, 2026 at 11:40:30AM -0700, Sam Edwards wrote:
+> The CPU receives frames from the MAC through conventional DMA: the CPU
+> allocates buffers for the MAC, then the MAC fills them and returns
+> ownership to the CPU. For each hardware RX queue, the CPU and MAC
+> coordinate through a shared ring array of DMA descriptors: one
+> descriptor per DMA buffer. Each descriptor includes the buffer's
+> physical address and a status flag ("OWN") indicating which side owns
+> the buffer: OWN=0 for CPU, OWN=1 for MAC. The CPU is only allowed to set
+> the flag and the MAC is only allowed to clear it, and both must move
+> through the ring in sequence: thus the ring is used for both
+> "submissions" and "completions."
 > 
-> Change the buffer selection logic to use pending buffers first (up to the
-> number available), and only use discard buffers to fill remaining slots
-> when insufficient pending buffers are queued. Ensure user buffers are
-> utilized as soon as possible, improving efficiency and reducing the number
-> of discarded frames at stream start.
-
-The commit message should explain *why* the change is good. How does
-this improve the behaviour ?
-
-I'll queue 1/2 in my tree already.
-
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
-> Changes in v2:
-> - Replace "This ensures" with "ensure"
-> - Put example from commit message to comment in driver suggested by Frank
->   https://lore.kernel.org/linux-media/20260311-isi_min_buffers-v1-0-c9299d6e8ae6@nxp.com/T/#m2774912ed31553ef1fdcc840bd6eae53a03ecccd
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+> In the stmmac driver, stmmac_rx() bookmarks its position in the ring
+> with the `cur_rx` index. The main receive loop in that function checks
+> for rx_descs[cur_rx].own=0, gives the corresponding buffer to the
+> network stack (NULLing the pointer), and increments `cur_rx` modulo the
+> ring size. After the loop exits, stmmac_rx_refill(), which bookmarks its
+> position with `dirty_rx`, allocates fresh buffers and rearms the
+> descriptors (setting OWN=1). If it fails any allocation, it simply stops
+> early (leaving OWN=0) and will retry where it left off when next called.
 > 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> index 1be3a728f32f89338a75ddcc4e96e7501ed954e1..77ebff03323ace50ff039c8333d25a9c3dd44880 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> @@ -792,7 +792,14 @@ static void mxc_isi_video_queue_first_buffers(struct mxc_isi_video *video)
->  		struct mxc_isi_buffer *buf;
->  		struct list_head *list;
->  
-> -		list = i < discard ? &video->out_discard : &video->out_pending;
-> +		/*
-> +		 * Queue buffers: prioritize pending buffers, then discard buffers
-> +		 * For example:
-> +		 * - 2 pending buffers: both slots use pending buffers
-> +		 * - 1 pending buffer: first slot uses pending, second uses discard
-> +		 * - 0 pending buffers: both slots use discard buffers
-> +		 */
-> +		list = (i < 2 - discard) ? &video->out_pending : &video->out_discard;
->  		buf = list_first_entry(list, struct mxc_isi_buffer, list);
->  
->  		mxc_isi_channel_set_outbuf(video->pipe, buf->dma_addrs, buf_id);
+> This means descriptors have a three-stage lifecycle (terms my own):
+> - `empty` (OWN=1, buffer valid)
+> - `full` (OWN=0, buffer valid and populated)
+> - `dirty` (OWN=0, buffer NULL)
 > 
+> But because stmmac_rx() only checks OWN, it confuses `full`/`dirty`. In
+> the past (see 'Fixes:'), there was a bug where the loop could cycle
+> `cur_rx` all the way back to the first descriptor it dirtied, resulting
+> in a NULL dereference when mistaken for `full`. The aforementioned
+> commit resolved that *specific* failure by capping the loop's iteration
+> limit at `dma_rx_size - 1`, but this is only a partial fix: if the
+> previous stmmac_rx_refill() didn't complete, then there are leftover
+> `dirty` descriptors that the loop might encounter without needing to
+> cycle fully around. The current code therefore panics (see 'Closes:')
+> when stmmac_rx_refill() is memory-starved long enough for `cur_rx` to
+> catch up to `dirty_rx`.
+> 
+> Fix this by further tightening the clamp from `dma_rx_size - 1` to
+> `dma_rx_size - stmmac_rx_dirty() - 1`, subtracting any remnant dirty
+> entries and limiting the loop so that `cur_rx` cannot catch back up to
+> `dirty_rx`. This carries no risk of arithmetic underflow: since the
+> maximum possible return value of stmmac_rx_dirty() is `dma_rx_size - 1`,
+> the worst the clamp can do is prevent the loop from running at all.
+
+Isn't the limit equivalent to:
+
+	space = CIRC_SPACE(rx_q->cur_rx, rx_q->dirty_rx,
+			   priv->dma_conf.dma_rx_size);
+	limit = min_t(unsigned int, space, limit);
+
+(Think of the "full" and "empty" cases as "space" which can be
+consumed to provide entries for the refiller to action.)
+
+I think the same applies for patch 2 - when the above returns zero
+it means we have no entries in the ring that aren't due for refill.
+
+Have you checked whether stmmac_rx_zc() also buggy in this respect?
 
 -- 
-Regards,
-
-Laurent Pinchart
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
