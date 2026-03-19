@@ -4,124 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06961091903
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3731091904
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mqf7YkB52zMt2nbDstugVZMbpccqIvvjsISXO24hPqU=; b=ut6VhNf2201IJvFiPS2hJldDs1
-	aHD5ppC+5rSlZuKC+x7ehvmGqNWpGdb/uSIimDrLVIVWDnOvHJQ0qk8mXoYR5GJ4ZgHJdXGexFcg6
-	Sv94sFsLoghtyc85UFjl2KnyapQ2TVglLnGNr6WfTtW7VnVTquwB0O3RfN7nmBIcI1JJVr9IdeSk/
-	9wB3cHBn1sEvtopvlEqRAPQB0HTKdcHmAK+W1JTCkGFq5fumm0y+btpGRUfnBP6L3iqCnpwsIxddO
-	sTcTXALER3TgNvOhS9VL4lpxCeWzNuBjNwis9krPfqHLcKUGrKsq/QeG2TEqpuj12DQKCGF+LW3Z3
-	Gtfg3vsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dDWG/geeJYspKYMBy3mzZYNh/TEj6fM7awr8whI4S8c=; b=VZtKgZRsWv2r6q598V06gGia76
+	6VjPgDz0NCLtKmLJ0yaYHSpnPr3EX9i6WIjrltMq8FoW4bJbeJLgerqXlizIbvbU+lNiJSf04Wbwa
+	NGgJvR6CHvopoECs3+xzbZ/zn483aY7V31A1SoElSfxyEnpnPrRSB+masGirJns/1PqwN87HnW3tN
+	gGpQfhC5nOy6cVOC0/9Mp1CcqMi0yX/2a+BxdEreSJ/gMX76ha6MpZPSQTe8OJo8H93eJDgRZSrmk
+	DHzve+s9On1CFkwj8yf5xiNxjvcG9NcCWhenSJuTo9LBg4ygEYSB4jGEcr1G+avrA50Y+iZGArYt1
+	gy6qR3hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hdc-0000000BFZO-2eh4;
-	Thu, 19 Mar 2026 17:58:28 +0000
-Received: from mail-centralusazon11010023.outbound.protection.outlook.com ([52.101.61.23] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1w3Hdz-0000000BFcT-41Bu;
+	Thu, 19 Mar 2026 17:58:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3HdZ-0000000BFYa-2Dta
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 17:58:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DPce9mTtG4CnNzYFdJVZPps9pay9j4D2mzZ5IX3y34Fq2Qi7xqcifdpMlluGch07UkHbBUAbrL+krVAbyy/JlavISVJN2PrcbqMbDM9Ec7ydUBGpMhSCJCUSvLxPEaEjKVzcbMd+IeQ+UmDl6jfONCQCw5zAAwmxKdz13jsGoVnWeCznFkW14m3A5rpi+nyr+y1/DHwpO3DMpSoYVCr11I1n7t5YvR4IO9miIeKR4mtsRyWTqUqHLafRxEzfZYPpLJD79pG7QWeeYrHaqp2M4lAR4dUZHmDH3KwlAj983QMrhyQ2inXDCbcLvCu7fS2O48LR1NhAJ8n1Uw3J1hqdYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mqf7YkB52zMt2nbDstugVZMbpccqIvvjsISXO24hPqU=;
- b=O6B/9ak6ieDA6RaM4CJPht3TmkBBUSxYw4eiiiiDx5VecB/AALcnhuLBVhbvkQfT7Muey+YrQp8lHHnL402IRTDMGZ848zqT90ZrIEjFc/VHA+98YjjK4/kIVka4GY/PFIjb8JESaeZEZ1R+wcrkSsy9jCsGjSjB1aP5FgXlw/snVPsmllaCnojFUypXhUWLT3EZLu3KQOfSFfOK7OneXrJg+mJzxo/noZ9Pe2azFvrk4jB6/aPTBRWR6E5ztRZkkA2427M/o0soSu+VKFZiHg0n9XujkDcITbMeGY0260glcPTZ5c4Mkdn1A8G2VM/UeeGMX2+Eeik/lfQlqvN3Ag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mqf7YkB52zMt2nbDstugVZMbpccqIvvjsISXO24hPqU=;
- b=Q3m9VfYYdB/fL/1nhoBaqKVIx2ertuqQbwjxoNLaS3fj7A+CWsY09F5YvkmrIe/ohyEo7ewq8E3iH2q04eR7CCI36Nvhn5D0YO2Hb5DPnzq1knkjE6cYYJrmbjHJDp5ZHhrAMm48kEe2yof15kRvDGLoMoqy5R8HQu07j6Ttslc=
-Received: from SJ0PR13CA0182.namprd13.prod.outlook.com (2603:10b6:a03:2c3::7)
- by SAWPR10MB997813.namprd10.prod.outlook.com (2603:10b6:806:4e4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 17:58:21 +0000
-Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
- (2603:10b6:a03:2c3:cafe::d) by SJ0PR13CA0182.outlook.office365.com
- (2603:10b6:a03:2c3::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.20 via Frontend Transport; Thu,
- 19 Mar 2026 17:58:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 17:58:20 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Mar
- 2026 12:58:20 -0500
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Mar
- 2026 12:58:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 19 Mar 2026 12:58:19 -0500
-Received: from [10.249.132.48] ([10.249.132.48])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62JHwEHd2956565;
-	Thu, 19 Mar 2026 12:58:15 -0500
-Message-ID: <517d5c73-5e84-47e9-9d1e-4991bd550a42@ti.com>
-Date: Thu, 19 Mar 2026 23:28:14 +0530
+	id 1w3Hdw-0000000BFbb-3gLe;
+	Thu, 19 Mar 2026 17:58:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773943125;
+	bh=HwTyo/5WYUr5YkScc9lyA3lElCIJ1FNPsB40BEMRe0k=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=BxHw+uAK7Mlff7qIcPlCXGqcieoUyWinVXZfcbb9rLr2ZtojOufM1qweP1VbTPJg9
+	 U/QJ7ZFRfc0E/5dNXLWqodYZj9Qq0I55+gtgdLMl2BH0TEC+LWJAUJJeBpSisYywXb
+	 H/gle1NsJGmn9iENz4Nohf34p4o8BlhRBfG8A74FUWTqTHmo1Fp40U89tQn2kT43FJ
+	 k2UjYVVRNq9scpPQQQ30cjiV3JUsGCGpBJdluB+JM3sdWiiiKchlBqyAUWRe8RIqAA
+	 Zz+lJ9INv3k4+DR9d0ZCGRfKY4XnQ8bECB+P+1vJIFGzbuuut2tegYMONiZyXF/x2A
+	 UAT/r3ooWcNvg==
+Received: from [IPv6:2606:6d00:11:b76d::5ac] (unknown [IPv6:2606:6d00:11:b76d::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81F3117E01B1;
+	Thu, 19 Mar 2026 18:58:42 +0100 (CET)
+Message-ID: <658584073c66f5f3eca72bee2e2280327e803a22.camel@collabora.com>
+Subject: Re: [PATCH v7 04/10] media: mediatek: vcodec: Refactor Decoder
+ profile & level Handling
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
+ <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
+ <george.sun@mediatek.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Date: Thu, 19 Mar 2026 13:58:39 -0400
+In-Reply-To: <20260127024248.18406-5-kyrie.wu@mediatek.com>
+References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
+	 <20260127024248.18406-5-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-/GspWsZFGaUupRr8a+jt"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: dts: ti: k3-am642-evm: Add ICSSG0 overlay
- for dual EMAC support
-To: Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
-	<danishanwar@ti.com>
-References: <20260311053852.1034244-1-m-malladi@ti.com>
- <20260311053852.1034244-2-m-malladi@ti.com>
- <8598edfa-4201-47b4-8929-be80dcca4617@ti.com>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <8598edfa-4201-47b4-8929-be80dcca4617@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|SAWPR10MB997813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e259962-6afd-4a77-2112-08de85e11b84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: mtairyA/iKqEnquioRmRYxJhtCUm1NLV+hSOxmbljWC0Liro2vZSC7AyfTCwH2e0RrSbUN5QDTBHhMknr7LWq+jZ03FSOQMclEOZPKB7wHUOaAa9gERN2Za8olCRGoFXrUnj1cSEB8ZK2zZFwy5k2ZbWh7uzk4w4e1baG4zQL3E30+BLXczEa3tZ6i1196PAkR8OODzDXe3VBQg+fGgdPZoTIihqgvfaqkerXOlOY1n1ZBgvG9z/MB4UqguGMfh3WvqftxkhgvnUErLr/QM6P3Gqk/tS45nd8jvAtLRPrH912WiRMDgToXpaEPojtLcZqRBv9SGod1ABLeSFDqNLo4zntQkuNsYsk17yuxy4wwz+oyDGEPdB20cUk+eTookNgbBVYWcxTeB1+GFVVDoDonVUXHR0wbDRZmnl49+33pD7nIEbTtnYxeMlfZwBBOf9Mmkfawj1HxYtdoy8bkPAfWMdMJaKgIHpZ9+qtuD1aDauuCXTVQyhSVVIQCt5dwQWiHqtzeneW+atLaKX+mYhotNKbVkKYtU+QS2x0BXkD2sGkgql6sx45bHG8g0SmX8h8GeHgzqqdXa9ESzClXxtlHuIFcxRBBZ9plAWYceclwqTYItgDmXo6L8FQv43qkZq6qpt6MhYdrHTN81MrSbTmeyB06JQcso3Bsu04CoLY6oAbJTwz7BeZ+LVTdcWuX2K6rhorXCgL2iBsAm/3eFZdA62osbcGjyC+vrCR2lUpsI=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: KEsgc8IcACByod9gRcXyeqfwCKgaTfLJ5nJ554OkNos97MMXGKY0StJxZ88YTZb9ic6egHEBOiTNy9FmoxXylI6945C9b0j06+mqFB8Z8ZnVFRBkSCy9HjAafe9GvT5x9QWBW7O5s9Jj6zlN2UT3El/ipmzRX+8RnJmY9755B9hoLpA5hnQUUQeJzqY5oo9JVAwgMdvrLO/93JEAmf3XLmHhyiUAG9pmedSUZ4ZtoizQnepqE1CFJvPzz9d/VleUsGepdWTPZ7UOr39OVyOYZ+gS9+RN35rd/FJ8F+AOUoEuvO+f0sypUFNWZSikjRqL7zGL0GWqRUJSS5yulCPNNgkrD8ZhENs8t2ITAYDiQDtapFZQu7h2rCp18bVErj3NRluIXyWEgj49Ie5Ch1s/z2k3uzKIQYsrvxjQvJlWkQBcG44NAwFwiBDSdYKEyCcq
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 17:58:20.7711
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e259962-6afd-4a77-2112-08de85e11b84
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E64.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR10MB997813
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_105825_753570_99875450 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260319_105849_093928_B2C41AF0 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,94 +100,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vignesh,
 
-On 3/14/2026 6:01 PM, Vignesh Raghavendra wrote:
-> Hi
-> 
-> [...]
-> 
-> On 11/03/26 11:08, Meghana Malladi wrote
->> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
->> new file mode 100644
->> index 000000000000..f19acf1896c3
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
->> @@ -0,0 +1,168 @@
->> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
->> +/**
->> + * DT overlay for enabling ICSSG0 dual EMAC on AM642 EVM
->> + *
->> + * AM642 EVM Product link: https://www.ti.com/tool/TMDS64EVM
->> + * DP83TG720 daughter card link: https://www.ti.com/tool/DP83TG720-IND-SPE-EVM
->> + *
->> + * Copyright (C) 2020-2026 Texas Instruments Incorporated - https://www.ti.com/
->> + */
->> +
->> +/dts-v1/;
->> +/plugin/;
->> +
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include "k3-pinctrl.h"
->> +
->> +&{/} {
->> +	icssg0_eth: icssg0-eth {
->> +		compatible = "ti,am642-icssg-prueth";
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&pru_icssg0_rgmii1_pins_default>, <&pru_icssg0_rgmii2_pins_default>;
->> +		sram = <&oc_sram>;
->> +
->> +		dmas = <&main_pktdma 0xc100 0>, /* egress slice 0 */
->> +		       <&main_pktdma 0xc101 0>, /* egress slice 0 */
->> +		       <&main_pktdma 0xc102 0>, /* egress slice 0 */
->> +		       <&main_pktdma 0xc103 0>, /* egress slice 0 */
->> +		       <&main_pktdma 0xc104 0>, /* egress slice 1 */
->> +		       <&main_pktdma 0xc105 0>, /* egress slice 1 */
->> +		       <&main_pktdma 0xc106 0>, /* egress slice 1 */
->> +		       <&main_pktdma 0xc107 0>, /* egress slice 1 */
->> +		       <&main_pktdma 0x4100 0>, /* ingress slice 0 */
->> +		       <&main_pktdma 0x4101 0>; /* ingress slice 1 */
-> 
-> 
-> Any particular reason to use ASEL = 0 unlike every other definition of
-> main_pktdma that uses ASEL=15?
+--=-/GspWsZFGaUupRr8a+jt
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This wasn't intentional change. I used claude for making these changes, 
-so missed this. Thanks for catching it, will fix it in next version.
+Le mardi 27 janvier 2026 =C3=A0 10:42 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> This commit refactors the handling of decoder parameters for H264,
+> H265, and VP9 codecs by introducing a new structure to standardize
+> supported level and profile information. By leveraging this changes,
 
-> 
->> +		dma-names = "tx0-0", "tx0-1", "tx0-2", "tx0-3",
->> +			    "tx1-0", "tx1-1", "tx1-2", "tx1-3",
->> +			    "rx0", "rx1";
->> +
->> +		interrupt-parent = <&icssg0_intc>;
->> +		interrupts = <24 0 2>, <25 1 3>;
->> +		interrupt-names = "tx_ts0", "tx_ts1";
->> +
->> +		ti,prus = <&pru0_0>, <&rtu0_0>, <&tx_pru0_0>, <&pru0_1>, <&rtu0_1>, <&tx_pru0_1>;
->> +		firmware-name = "ti-pruss/am64x-sr2-pru0-prueth-fw.elf",
->> +				"ti-pruss/am64x-sr2-rtu0-prueth-fw.elf",
->> +				"ti-pruss/am64x-sr2-txpru0-prueth-fw.elf",
->> +				"ti-pruss/am64x-sr2-pru1-prueth-fw.elf",
->> +				"ti-pruss/am64x-sr2-rtu1-prueth-fw.elf",
->> +				"ti-pruss/am64x-sr2-txpru1-prueth-fw.elf";
->> +
->> +		ti,pruss-gp-mux-sel = <2>,	/* MII mode */
->> +				      <2>,
->> +				      <2>,
->> +				      <2>,	/* MII mode */
->> +				      <2>,
->> +				      <2>;
->> +
->> +		ti,mii-g-rt = <&icssg0_mii_g_rt>;
->> +		ti,mii-rt = <&icssg0_mii_rt>;
->> +		ti,iep = <&icssg0_iep0>,  <&icssg0_iep1>;
->> +		ti,pa-stats = <&icssg0_pa_stats>;
->> +
-> 
+this changes -> this change
 
--- 
-Thanks,
-Meghana Malladi
+cheers,
+Nicolas
 
+> chipset-specific conditional logic in the codec configuration
+> functions is significantly reduced.
+>=20
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> ---
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 16 ++++
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateless.c | 93 ++++------------=
+---
+> =C2=A02 files changed, 34 insertions(+), 75 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.h
+> index bb293ada6fb2..f38b5dc4bb74 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -76,6 +76,16 @@ struct vdec_pic_info {
+> =C2=A0	unsigned int reserved;
+> =C2=A0};
+> =C2=A0
+> +/**
+> + * struct mtk_vcodec_dec_params - decoder supported parameters
+> + * @level: decoder supported vcodec level
+> + * @profile: decoder supported vcodec profile
+> + */
+> +struct mtk_vcodec_dec_params {
+> +	s64 level;
+> +	s64 profile;
+> +};
+> +
+> =C2=A0/**
+> =C2=A0 * struct mtk_vcodec_dec_pdata - compatible data for each IC
+> =C2=A0 * @init_vdec_params: init vdec params
+> @@ -96,6 +106,9 @@ struct vdec_pic_info {
+> =C2=A0 * @is_subdev_supported: whether support parent-node architecture(s=
+ubdev)
+> =C2=A0 * @uses_stateless_api: whether the decoder uses the stateless API =
+with requests
+> =C2=A0 * @chip_name: platforms configuration values
+> + * @h264_params: H264 decoder default supported params
+> + * @h265_params: H265 decoder default supported params
+> + * @vp9_params: VP9 decoder default supported params
+> =C2=A0 */
+> =C2=A0struct mtk_vcodec_dec_pdata {
+> =C2=A0	void (*init_vdec_params)(struct mtk_vcodec_dec_ctx *ctx);
+> @@ -118,6 +131,9 @@ struct mtk_vcodec_dec_pdata {
+> =C2=A0	bool is_subdev_supported;
+> =C2=A0	bool uses_stateless_api;
+> =C2=A0	unsigned int chip_name;
+> +	struct mtk_vcodec_dec_params h264_params;
+> +	struct mtk_vcodec_dec_params h265_params;
+> +	struct mtk_vcodec_dec_params vp9_params;
+> =C2=A0};
+> =C2=A0
+> =C2=A0/**
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_d=
+ec_stateless.c
+> index aba28d276bdf..a1f419202a24 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> @@ -549,106 +549,49 @@ static const struct v4l2_ctrl_ops mtk_vcodec_dec_c=
+trl_ops =3D {
+> =C2=A0static void mtk_vcodec_dec_fill_h264_level(struct v4l2_ctrl_config =
+*cfg,
+> =C2=A0					=C2=A0=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8192:
+> -	case 8188:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_LEVEL_5_2;
+> -		break;
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_LEVEL_6_0;
+> -		break;
+> -	case 8183:
+> -	case 8186:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_LEVEL_4_2;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_LEVEL_4_1;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->h264_params.level;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_fill_h264_profile(struct v4l2_ctrl_confi=
+g *cfg,
+> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8188:
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->h264_params.profile;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_fill_h265_level(struct v4l2_ctrl_config =
+*cfg,
+> =C2=A0					=C2=A0=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8188:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1;
+> -		break;
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->h265_params.level;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_fill_h265_profile(struct v4l2_ctrl_confi=
+g *cfg,
+> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8188:
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->h265_params.profile;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_fill_vp9_level(struct v4l2_ctrl_config *=
+cfg,
+> =C2=A0					=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8192:
+> -	case 8188:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_1;
+> -		break;
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_2;
+> -		break;
+> -	case 8186:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_LEVEL_4_1;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_LEVEL_4_0;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->vp9_params.level;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_fill_vp9_profile(struct v4l2_ctrl_config=
+ *cfg,
+> =C2=A0					=C2=A0=C2=A0=C2=A0 struct mtk_vcodec_dec_ctx *ctx)
+> =C2=A0{
+> -	switch (ctx->dev->chip_name) {
+> -	case 8188:
+> -	case 8195:
+> -	case 8196:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_PROFILE_2;
+> -		break;
+> -	default:
+> -		cfg->max =3D V4L2_MPEG_VIDEO_VP9_PROFILE_1;
+> -		break;
+> -	}
+> +	struct mtk_vcodec_dec_dev *pdev =3D ctx->dev;
+> +
+> +	cfg->max =3D pdev->vdec_pdata->vp9_params.profile;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vcodec_dec_reset_controls(struct v4l2_ctrl_config *=
+cfg,
+
+--=-/GspWsZFGaUupRr8a+jt
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabw5TwAKCRDZQZRRKWBy
+9FyUAP4sMXwt3Br3AkviE1yy7rNUYdsYuv79azZRuF+fODYIYQD/Q6QSRoULxKsh
+TVAryWLpAii5TtJJoXx7f3Bi3SBqcgQ=
+=TJFP
+-----END PGP SIGNATURE-----
+
+--=-/GspWsZFGaUupRr8a+jt--
 
