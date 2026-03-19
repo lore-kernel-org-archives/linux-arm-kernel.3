@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2AE103E19B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9DC103E19D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XNM1aW3k9iUj9TRn6IWkkjTHNo1nXbixWmZo9p4RBfg=; b=o0tmlq0r3qaf1bPYoqh0rx4N3o
-	M8pKvtgsw1k9aSugjt3ll9RRru92TLusIcsXnA/xN1kGn1PKzTtuR5UdhVIIZlIPzTefgMSyRBJVy
-	aiYNiKWZmzyK0UzjLR0y3u5Jjc4Vtecyh2+7z8ombronU7jmFpHcmXX8Cozm2Jb+uVOJjHG7AnKbm
-	xRg4dhhkeQyCKuauSkA2Jdk8iAGf312lO5VRauFKYvgg0lPspay/F2iqM2XB/DhebfwzF9oSgNAar
-	hPGuH6loxhR2v6oU3K82Hi18t4GfPwqpFwYEaNKJu+ltoX0GGUMdOpyYRfmxCrQ1LmXlJaUo1lJVv
-	pdol6RHQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cSbyihBcOkRYzk4JTErXtr+2Rer4KNT3dMzzhaBGIkA=; b=qMXo+xdJ7tHirfQ+Z27w+dt1S3
+	EOIbzEZPI7AHveRpWdzALYC6VRSUXo0eXEfWWu15WVD+6R9QY33hk4HTJkw5ZaqhREtzokmYlNek8
+	623n6r55cJ6cUHl7x5sNBeJs8QAa1PGSdGqeJjOviAv5lbFhNGIh7oaBp3zYJsHYrqg7nHS8wbC/q
+	kbkHrpvFUrmjCfWVCRywDbljmuhPv++aRciYL80FCAAbUdVdRZ56pkiHK/eGK6pRLrLWSLI7yiPm8
+	aVWkcX9WE4EbtVXCJ3e9msBlUJ757AYIsRnwrpyotP7soVntACHORHDQ/SPZr/4/zuCfmjXJeniLj
+	szCQ7FeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j0-00000009ziK-2XN9;
-	Thu, 19 Mar 2026 06:19:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w36j1-00000009zj9-1DDJ;
+	Thu, 19 Mar 2026 06:19:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36iy-00000009zgT-25PS;
-	Thu, 19 Mar 2026 06:19:17 +0000
+	id 1w36iz-00000009zhU-3q3n;
+	Thu, 19 Mar 2026 06:19:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6E0040BBC;
-	Thu, 19 Mar 2026 06:19:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F2EC19425;
-	Thu, 19 Mar 2026 06:19:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E799E60134;
+	Thu, 19 Mar 2026 06:19:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47733C2BCB0;
+	Thu, 19 Mar 2026 06:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901154;
-	bh=KZB8JfCq3dPwLcVvddftx2jern4tyeo/Ff5mfVfPWVw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Fsn0C2y5dqD1kOcPblN1WleUMoCnQnVF5C+HGyCG/Qc5O0SwABwbWWfJORzWrv8u6
-	 uRgo9Q8jzpwbCFu949FWOcEI/Ochilu+/fsfexsdN/JDs+vBSyFs7D6YEdkbOYZRXb
-	 ABor2bRzWN2A6fWmrKnbm4Hg9GR4YBj5dZ2/wKg/mJ3uxVZTmm5c/6I1XLIidlxeGf
-	 2B0YpxAMznGByxyFWDaf0jG8XK8v/VqVUdzJmV9L6JHmUhLmiClvML6PEg8Z0sRSmW
-	 W/gxpXQHDgSGKtSRlgamAsgxCGQkj2LNfVtTqEYlGy6aFVAGNyJhF+NYO3FReTHrpZ
-	 6ijS0tBbW0/7A==
+	s=k20201202; t=1773901156;
+	bh=XUHU2r86SR48mQ3AE6CcnrCUHzAbQqfAQdblCGnw44Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uw8zDhbSvx+0bDfe49vNP7qxI4XvC7y/00dzjALest3xnJ6DnvxDCmylSODAjFt3o
+	 e8uG5uW6fjK6blRywulpbwIhV34QJLV1BcQQH9FMeLKMKnVLCylVZovOutL220lAld
+	 R6QcZAgmBaVebxt8eGh4UZRV19fLzHMU3FGkM+3e0MyBvaUMBJOz/DQpbHkt5GOAOx
+	 /+HHE6mgINMhNK6wsCQf3cqgIqMJVg7A9sWGyDFVhvh4uEig95DQM8xxG2mc+wmdQr
+	 tVme4a8MU1QqzKOJjFh8Kv20uPE6WFtaFjUiA1p/HxGWpJTbOipPg2eeHrP2G2b1fT
+	 XkrLTWlMOgOWQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,15 +53,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 00/19] GHASH library
-Date: Wed, 18 Mar 2026 23:17:01 -0700
-Message-ID: <20260319061723.1140720-1-ebiggers@kernel.org>
+Subject: [PATCH 04/19] lib/crypto: tests: Add KUnit tests for GHASH
+Date: Wed, 18 Mar 2026 23:17:05 -0700
+Message-ID: <20260319061723.1140720-5-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
+References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_231916_585914_932FFB1B 
-X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,140 +75,591 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is targeting libcrypto-next.  It can also be retrieved from:
+Add a KUnit test suite for the GHASH library functions.
 
-    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git ghash-lib-v1
+It closely mirrors the POLYVAL test suite.
 
-This series migrates the standalone GHASH code to lib/crypto/, then
-converts the "gcm" template and AES-GCM library code to use it.  (GHASH
-is the universal hash function used by GCM mode.)  As was the case with
-POLYVAL and Poly1305 as well, the library is a much better fit for it.
-
-Since GHASH and POLYVAL are closely related and it often makes sense to
-implement one in terms of the other, the existing "polyval" library
-module is renamed to "gf128hash" and the GHASH support is added to it.
-
-The generic implementation of GHASH is also replaced with a better one
-utilizing the existing polyval_mul_generic().
-
-Note that some GHASH implementations, often faster ones using more
-recent CPU features, still exist in arch/*/crypto/ as internal
-components of AES-GCM implementations.  Those are left as-is for now.
-The goal with this GHASH library is just to provide parity with the
-existing standalone GHASH support, which is used when a full
-implementation of AES-GCM (or ${someothercipher}-GCM, if another block
-cipher is being used) is unavailable.  Migrating the
-architecture-optimized AES-GCM code to lib/crypto/ will be a next step.
-
-Eric Biggers (19):
-  lib/crypto: gf128hash: Rename polyval module to gf128hash
-  lib/crypto: gf128hash: Support GF128HASH_ARCH without all POLYVAL
-    functions
-  lib/crypto: gf128hash: Add GHASH support
-  lib/crypto: tests: Add KUnit tests for GHASH
-  crypto: arm/ghash - Make the "ghash" crypto_shash NEON-only
-  crypto: arm/ghash - Move NEON GHASH assembly into its own file
-  lib/crypto: arm/ghash: Migrate optimized code into library
-  crypto: arm64/ghash - Move NEON GHASH assembly into its own file
-  lib/crypto: arm64/ghash: Migrate optimized code into library
-  crypto: arm64/aes-gcm - Rename struct ghash_key and make fixed-sized
-  lib/crypto: powerpc/ghash: Migrate optimized code into library
-  lib/crypto: riscv/ghash: Migrate optimized code into library
-  lib/crypto: s390/ghash: Migrate optimized code into library
-  lib/crypto: x86/ghash: Migrate optimized code into library
-  crypto: gcm - Use GHASH library instead of crypto_ahash
-  crypto: ghash - Remove ghash from crypto_shash API
-  lib/crypto: gf128mul: Remove unused 4k_lle functions
-  lib/crypto: gf128hash: Remove unused content from ghash.h
-  lib/crypto: aesgcm: Use GHASH library API
-
- MAINTAINERS                                   |   4 +-
- arch/arm/crypto/Kconfig                       |  13 +-
- arch/arm/crypto/ghash-ce-core.S               | 171 +-------
- arch/arm/crypto/ghash-ce-glue.c               | 166 +------
- arch/arm64/crypto/Kconfig                     |   5 +-
- arch/arm64/crypto/ghash-ce-core.S             | 221 +---------
- arch/arm64/crypto/ghash-ce-glue.c             | 164 +------
- arch/powerpc/crypto/Kconfig                   |   5 +-
- arch/powerpc/crypto/Makefile                  |   8 +-
- arch/powerpc/crypto/aesp8-ppc.h               |   1 -
- arch/powerpc/crypto/ghash.c                   | 160 -------
- arch/powerpc/crypto/vmx.c                     |  10 +-
- arch/riscv/crypto/Kconfig                     |  11 -
- arch/riscv/crypto/Makefile                    |   3 -
- arch/riscv/crypto/ghash-riscv64-glue.c        | 146 -------
- arch/s390/configs/debug_defconfig             |   1 -
- arch/s390/configs/defconfig                   |   1 -
- arch/s390/crypto/Kconfig                      |  10 -
- arch/s390/crypto/Makefile                     |   1 -
- arch/s390/crypto/ghash_s390.c                 | 144 ------
- arch/x86/crypto/Kconfig                       |  10 -
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/aesni-intel_glue.c            |   1 +
- arch/x86/crypto/ghash-clmulni-intel_glue.c    | 163 -------
- crypto/Kconfig                                |  11 +-
- crypto/Makefile                               |   1 -
- crypto/gcm.c                                  | 413 ++++--------------
- crypto/ghash-generic.c                        | 162 -------
- crypto/hctr2.c                                |   2 +-
- crypto/tcrypt.c                               |   9 -
- crypto/testmgr.c                              |  16 +-
- crypto/testmgr.h                              | 109 -----
- drivers/crypto/starfive/jh7110-aes.c          |   2 +-
- include/crypto/gcm.h                          |   4 +-
- include/crypto/{polyval.h => gf128hash.h}     | 126 +++++-
- include/crypto/gf128mul.h                     |  17 +-
- include/crypto/ghash.h                        |  12 -
- lib/crypto/.kunitconfig                       |   1 +
- lib/crypto/Kconfig                            |  31 +-
- lib/crypto/Makefile                           |  47 +-
- lib/crypto/aesgcm.c                           |  55 +--
- lib/crypto/arm/gf128hash.h                    |  43 ++
- lib/crypto/arm/ghash-neon-core.S              | 209 +++++++++
- lib/crypto/arm64/gf128hash.h                  | 137 ++++++
- lib/crypto/arm64/ghash-neon-core.S            | 220 ++++++++++
- lib/crypto/arm64/polyval.h                    |  80 ----
- lib/crypto/{polyval.c => gf128hash.c}         | 183 ++++++--
- lib/crypto/gf128mul.c                         |  73 +---
- lib/crypto/powerpc/.gitignore                 |   1 +
- lib/crypto/powerpc/gf128hash.h                | 109 +++++
- .../crypto/powerpc}/ghashp8-ppc.pl            |   1 +
- lib/crypto/riscv/gf128hash.h                  |  57 +++
- .../crypto/riscv}/ghash-riscv64-zvkg.S        |  13 +-
- lib/crypto/s390/gf128hash.h                   |  54 +++
- lib/crypto/tests/Kconfig                      |  12 +-
- lib/crypto/tests/Makefile                     |   1 +
- lib/crypto/tests/ghash-testvecs.h             | 186 ++++++++
- lib/crypto/tests/ghash_kunit.c                | 194 ++++++++
- lib/crypto/tests/polyval_kunit.c              |   2 +-
- lib/crypto/x86/{polyval.h => gf128hash.h}     |  72 ++-
- .../crypto/x86/ghash-pclmul.S                 |  98 ++---
- scripts/crypto/gen-hash-testvecs.py           |  63 ++-
- 62 files changed, 1903 insertions(+), 2345 deletions(-)
- delete mode 100644 arch/powerpc/crypto/ghash.c
- delete mode 100644 arch/riscv/crypto/ghash-riscv64-glue.c
- delete mode 100644 arch/s390/crypto/ghash_s390.c
- delete mode 100644 arch/x86/crypto/ghash-clmulni-intel_glue.c
- delete mode 100644 crypto/ghash-generic.c
- rename include/crypto/{polyval.h => gf128hash.h} (60%)
- create mode 100644 lib/crypto/arm/gf128hash.h
- create mode 100644 lib/crypto/arm/ghash-neon-core.S
- create mode 100644 lib/crypto/arm64/gf128hash.h
- create mode 100644 lib/crypto/arm64/ghash-neon-core.S
- delete mode 100644 lib/crypto/arm64/polyval.h
- rename lib/crypto/{polyval.c => gf128hash.c} (61%)
- create mode 100644 lib/crypto/powerpc/gf128hash.h
- rename {arch/powerpc/crypto => lib/crypto/powerpc}/ghashp8-ppc.pl (98%)
- create mode 100644 lib/crypto/riscv/gf128hash.h
- rename {arch/riscv/crypto => lib/crypto/riscv}/ghash-riscv64-zvkg.S (91%)
- create mode 100644 lib/crypto/s390/gf128hash.h
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ lib/crypto/.kunitconfig             |   1 +
+ lib/crypto/tests/Kconfig            |   8 ++
+ lib/crypto/tests/Makefile           |   1 +
+ lib/crypto/tests/ghash-testvecs.h   | 186 ++++++++++++++++++++++++++
+ lib/crypto/tests/ghash_kunit.c      | 194 ++++++++++++++++++++++++++++
+ scripts/crypto/gen-hash-testvecs.py |  63 ++++++++-
+ 6 files changed, 452 insertions(+), 1 deletion(-)
  create mode 100644 lib/crypto/tests/ghash-testvecs.h
  create mode 100644 lib/crypto/tests/ghash_kunit.c
- rename lib/crypto/x86/{polyval.h => gf128hash.h} (51%)
- rename arch/x86/crypto/ghash-clmulni-intel_asm.S => lib/crypto/x86/ghash-pclmul.S (54%)
 
-
-base-commit: 520a39fb6916ac3a269ad4ea87a6cb9af9d5a910
+diff --git a/lib/crypto/.kunitconfig b/lib/crypto/.kunitconfig
+index 63a592731d1d..391836511c8b 100644
+--- a/lib/crypto/.kunitconfig
++++ b/lib/crypto/.kunitconfig
+@@ -4,10 +4,11 @@ CONFIG_CRYPTO_LIB_ENABLE_ALL_FOR_KUNIT=y
+ 
+ CONFIG_CRYPTO_LIB_AES_CBC_MACS_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_BLAKE2B_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_BLAKE2S_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_CURVE25519_KUNIT_TEST=y
++CONFIG_CRYPTO_LIB_GHASH_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_MD5_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_MLDSA_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_NH_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST=y
+ CONFIG_CRYPTO_LIB_POLYVAL_KUNIT_TEST=y
+diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
+index aa627b6b9855..279ff1a339be 100644
+--- a/lib/crypto/tests/Kconfig
++++ b/lib/crypto/tests/Kconfig
+@@ -33,10 +33,18 @@ config CRYPTO_LIB_CURVE25519_KUNIT_TEST
+ 	default KUNIT_ALL_TESTS
+ 	select CRYPTO_LIB_BENCHMARK_VISIBLE
+ 	help
+ 	  KUnit tests for the Curve25519 Diffie-Hellman function.
+ 
++config CRYPTO_LIB_GHASH_KUNIT_TEST
++	tristate "KUnit tests for GHASH" if !KUNIT_ALL_TESTS
++	depends on KUNIT && CRYPTO_LIB_GF128HASH
++	default KUNIT_ALL_TESTS
++	select CRYPTO_LIB_BENCHMARK_VISIBLE
++	help
++	  KUnit tests for GHASH library functions.
++
+ config CRYPTO_LIB_MD5_KUNIT_TEST
+ 	tristate "KUnit tests for MD5" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT && CRYPTO_LIB_MD5
+ 	default KUNIT_ALL_TESTS
+ 	select CRYPTO_LIB_BENCHMARK_VISIBLE
+diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
+index f864e0ffbee4..751ae507fdd0 100644
+--- a/lib/crypto/tests/Makefile
++++ b/lib/crypto/tests/Makefile
+@@ -2,10 +2,11 @@
+ 
+ obj-$(CONFIG_CRYPTO_LIB_AES_CBC_MACS_KUNIT_TEST) += aes_cbc_macs_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_BLAKE2B_KUNIT_TEST) += blake2b_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_BLAKE2S_KUNIT_TEST) += blake2s_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_CURVE25519_KUNIT_TEST) += curve25519_kunit.o
++obj-$(CONFIG_CRYPTO_LIB_GHASH_KUNIT_TEST) += ghash_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_MD5_KUNIT_TEST) += md5_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_MLDSA_KUNIT_TEST) += mldsa_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_NH_KUNIT_TEST) += nh_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST) += poly1305_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_POLYVAL_KUNIT_TEST) += polyval_kunit.o
+diff --git a/lib/crypto/tests/ghash-testvecs.h b/lib/crypto/tests/ghash-testvecs.h
+new file mode 100644
+index 000000000000..759eb4072336
+--- /dev/null
++++ b/lib/crypto/tests/ghash-testvecs.h
+@@ -0,0 +1,186 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py ghash */
++
++static const struct {
++	size_t data_len;
++	u8 digest[GHASH_DIGEST_SIZE];
++} hash_testvecs[] = {
++	{
++		.data_len = 0,
++		.digest = {
++			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
++			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
++		},
++	},
++	{
++		.data_len = 1,
++		.digest = {
++			0x13, 0x91, 0xa1, 0x11, 0x08, 0xc3, 0x7e, 0xeb,
++			0x21, 0x42, 0x4a, 0xd6, 0x45, 0x0f, 0x41, 0xa7,
++		},
++	},
++	{
++		.data_len = 2,
++		.digest = {
++			0xde, 0x00, 0x63, 0x3f, 0x71, 0x0f, 0xc6, 0x29,
++			0x53, 0x2e, 0x49, 0xd9, 0xc2, 0xb7, 0x73, 0xce,
++		},
++	},
++	{
++		.data_len = 3,
++		.digest = {
++			0xcf, 0xc7, 0xa8, 0x20, 0x24, 0xe9, 0x7a, 0x6c,
++			0x2c, 0x2a, 0x34, 0x70, 0x26, 0xba, 0xd5, 0x9a,
++		},
++	},
++	{
++		.data_len = 16,
++		.digest = {
++			0xaa, 0xe0, 0xdc, 0x7f, 0xcf, 0x8b, 0xe6, 0x0c,
++			0x2e, 0x93, 0x89, 0x7d, 0x68, 0x4e, 0xc2, 0x63,
++		},
++	},
++	{
++		.data_len = 32,
++		.digest = {
++			0x4b, 0x8b, 0x93, 0x5c, 0x79, 0xad, 0x85, 0x08,
++			0xd3, 0x8a, 0xcd, 0xdd, 0x4c, 0x6e, 0x0e, 0x6f,
++		},
++	},
++	{
++		.data_len = 48,
++		.digest = {
++			0xfa, 0xa0, 0x25, 0xdd, 0x61, 0x9a, 0x52, 0x9a,
++			0xea, 0xee, 0xc6, 0x62, 0xb2, 0xba, 0x11, 0x49,
++		},
++	},
++	{
++		.data_len = 49,
++		.digest = {
++			0x23, 0xf1, 0x05, 0xeb, 0x30, 0x40, 0xb9, 0x1d,
++			0xe6, 0x35, 0x51, 0x4e, 0x0f, 0xc0, 0x1b, 0x9e,
++		},
++	},
++	{
++		.data_len = 63,
++		.digest = {
++			0x8d, 0xcf, 0xa0, 0xc8, 0x83, 0x21, 0x06, 0x81,
++			0xc6, 0x36, 0xd5, 0x62, 0xbf, 0xa0, 0xcd, 0x9c,
++		},
++	},
++	{
++		.data_len = 64,
++		.digest = {
++			0xe7, 0xca, 0xbe, 0xe7, 0x66, 0xc8, 0x85, 0xad,
++			0xbc, 0xaf, 0x58, 0x21, 0xd7, 0x67, 0x82, 0x15,
++		},
++	},
++	{
++		.data_len = 65,
++		.digest = {
++			0x9f, 0x48, 0x10, 0xd9, 0xa2, 0x6b, 0x9d, 0xe0,
++			0xb1, 0x87, 0xe1, 0x39, 0xc3, 0xd7, 0xee, 0x09,
++		},
++	},
++	{
++		.data_len = 127,
++		.digest = {
++			0xa4, 0x36, 0xb7, 0x82, 0xd2, 0x67, 0x7e, 0xaf,
++			0x5d, 0xfd, 0x67, 0x9c, 0x1d, 0x9f, 0xe4, 0xf7,
++		},
++	},
++	{
++		.data_len = 128,
++		.digest = {
++			0x57, 0xe7, 0x1d, 0x78, 0xf0, 0x8e, 0xc7, 0x0c,
++			0x15, 0xee, 0x18, 0xc4, 0xd1, 0x75, 0x90, 0xaa,
++		},
++	},
++	{
++		.data_len = 129,
++		.digest = {
++			0x9b, 0xad, 0x81, 0xa9, 0x22, 0xb2, 0x19, 0x53,
++			0x60, 0x30, 0xe7, 0xa0, 0x4f, 0xd6, 0x72, 0x42,
++		},
++	},
++	{
++		.data_len = 256,
++		.digest = {
++			0xf7, 0x33, 0x42, 0xbf, 0x58, 0xde, 0x88, 0x0f,
++			0x8d, 0x3d, 0xa6, 0x11, 0x14, 0xc3, 0xf1, 0xdc,
++		},
++	},
++	{
++		.data_len = 511,
++		.digest = {
++			0x59, 0xdc, 0xa9, 0xc0, 0x4e, 0xd6, 0x97, 0xb3,
++			0x60, 0xaf, 0xa8, 0xa0, 0xea, 0x54, 0x8e, 0xc3,
++		},
++	},
++	{
++		.data_len = 513,
++		.digest = {
++			0xa2, 0x23, 0x37, 0xcc, 0x97, 0xec, 0xea, 0xbe,
++			0xd6, 0xc7, 0x13, 0xf7, 0x93, 0x73, 0xc0, 0x64,
++		},
++	},
++	{
++		.data_len = 1000,
++		.digest = {
++			0x46, 0x8b, 0x43, 0x77, 0x9b, 0xc2, 0xfc, 0xa4,
++			0x68, 0x6a, 0x6c, 0x07, 0xa4, 0x6f, 0x47, 0x65,
++		},
++	},
++	{
++		.data_len = 3333,
++		.digest = {
++			0x69, 0x7f, 0x19, 0xc3, 0xb9, 0xa4, 0xff, 0x40,
++			0xe3, 0x03, 0x71, 0xa3, 0x88, 0x8a, 0xf1, 0xbd,
++		},
++	},
++	{
++		.data_len = 4096,
++		.digest = {
++			0x4d, 0x65, 0xe6, 0x9c, 0xeb, 0x6a, 0x46, 0x8d,
++			0xe9, 0x32, 0x96, 0x72, 0xb3, 0x0d, 0x08, 0xa9,
++		},
++	},
++	{
++		.data_len = 4128,
++		.digest = {
++			0xfc, 0xa1, 0x74, 0x46, 0x21, 0x64, 0xa7, 0x64,
++			0xbe, 0x47, 0x03, 0x1e, 0x05, 0xf7, 0xd8, 0x37,
++		},
++	},
++	{
++		.data_len = 4160,
++		.digest = {
++			0x70, 0x5b, 0xe9, 0x17, 0xab, 0xd5, 0xa2, 0xee,
++			0xcb, 0x39, 0xa4, 0x81, 0x2f, 0x41, 0x70, 0xae,
++		},
++	},
++	{
++		.data_len = 4224,
++		.digest = {
++			0x07, 0xbd, 0xb6, 0x52, 0xe2, 0x75, 0x2c, 0x33,
++			0x6d, 0x1b, 0x63, 0x56, 0x58, 0xda, 0x98, 0x55,
++		},
++	},
++	{
++		.data_len = 16384,
++		.digest = {
++			0x9c, 0xb5, 0xf4, 0x14, 0xe8, 0xa8, 0x4a, 0xde,
++			0xee, 0x7b, 0xbb, 0xd6, 0x21, 0x6d, 0x6a, 0x69,
++		},
++	},
++};
++
++static const u8 hash_testvec_consolidated[GHASH_DIGEST_SIZE] = {
++	0x08, 0xef, 0xf5, 0x27, 0xb1, 0xca, 0xd4, 0x1d,
++	0xad, 0x38, 0x69, 0x88, 0x6b, 0x16, 0xdf, 0xa8,
++};
++
++static const u8 ghash_allones_hashofhashes[GHASH_DIGEST_SIZE] = {
++	0xef, 0x85, 0x58, 0xf8, 0x54, 0x9c, 0x5e, 0x54,
++	0xd9, 0xbe, 0x04, 0x1f, 0xff, 0xff, 0xff, 0xff,
++};
+diff --git a/lib/crypto/tests/ghash_kunit.c b/lib/crypto/tests/ghash_kunit.c
+new file mode 100644
+index 000000000000..68b3837a3607
+--- /dev/null
++++ b/lib/crypto/tests/ghash_kunit.c
+@@ -0,0 +1,194 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright 2026 Google LLC
++ */
++#include <crypto/gf128hash.h>
++#include "ghash-testvecs.h"
++
++/*
++ * A fixed key used when presenting GHASH as an unkeyed hash function in order
++ * to reuse hash-test-template.h.  At the beginning of the test suite, this is
++ * initialized to a key prepared from bytes generated from a fixed seed.
++ */
++static struct ghash_key test_key;
++
++static void ghash_init_withtestkey(struct ghash_ctx *ctx)
++{
++	ghash_init(ctx, &test_key);
++}
++
++static void ghash_withtestkey(const u8 *data, size_t len,
++			      u8 out[GHASH_BLOCK_SIZE])
++{
++	ghash(&test_key, data, len, out);
++}
++
++/* Generate the HASH_KUNIT_CASES using hash-test-template.h. */
++#define HASH ghash_withtestkey
++#define HASH_CTX ghash_ctx
++#define HASH_SIZE GHASH_BLOCK_SIZE
++#define HASH_INIT ghash_init_withtestkey
++#define HASH_UPDATE ghash_update
++#define HASH_FINAL ghash_final
++#include "hash-test-template.h"
++
++/*
++ * Test a key and messages containing all one bits.  This is useful to detect
++ * overflow bugs in implementations that emulate carryless multiplication using
++ * a series of standard multiplications with the bits spread out.
++ */
++static void test_ghash_allones_key_and_message(struct kunit *test)
++{
++	struct ghash_key key;
++	struct ghash_ctx hashofhashes_ctx;
++	u8 hash[GHASH_BLOCK_SIZE];
++
++	static_assert(TEST_BUF_LEN >= 4096);
++	memset(test_buf, 0xff, 4096);
++
++	ghash_preparekey(&key, test_buf);
++	ghash_init(&hashofhashes_ctx, &key);
++	for (size_t len = 0; len <= 4096; len += 16) {
++		ghash(&key, test_buf, len, hash);
++		ghash_update(&hashofhashes_ctx, hash, sizeof(hash));
++	}
++	ghash_final(&hashofhashes_ctx, hash);
++	KUNIT_ASSERT_MEMEQ(test, hash, ghash_allones_hashofhashes,
++			   sizeof(hash));
++}
++
++#define MAX_LEN_FOR_KEY_CHECK 1024
++
++/*
++ * Given two prepared keys which should be identical (but may differ in
++ * alignment and/or whether they are followed by a guard page or not), verify
++ * that they produce consistent results on various data lengths.
++ */
++static void check_key_consistency(struct kunit *test,
++				  const struct ghash_key *key1,
++				  const struct ghash_key *key2)
++{
++	u8 *data = test_buf;
++	u8 hash1[GHASH_BLOCK_SIZE];
++	u8 hash2[GHASH_BLOCK_SIZE];
++
++	rand_bytes(data, MAX_LEN_FOR_KEY_CHECK);
++	KUNIT_ASSERT_MEMEQ(test, key1, key2, sizeof(*key1));
++
++	for (int i = 0; i < 100; i++) {
++		size_t len = rand_length(MAX_LEN_FOR_KEY_CHECK);
++
++		ghash(key1, data, len, hash1);
++		ghash(key2, data, len, hash2);
++		KUNIT_ASSERT_MEMEQ(test, hash1, hash2, sizeof(hash1));
++	}
++}
++
++/* Test that no buffer overreads occur on either raw_key or ghash_key. */
++static void test_ghash_with_guarded_key(struct kunit *test)
++{
++	u8 raw_key[GHASH_BLOCK_SIZE];
++	u8 *guarded_raw_key = &test_buf[TEST_BUF_LEN - sizeof(raw_key)];
++	struct ghash_key key1, key2;
++	struct ghash_key *guarded_key =
++		(struct ghash_key *)&test_buf[TEST_BUF_LEN - sizeof(key1)];
++
++	/* Prepare with regular buffers. */
++	rand_bytes(raw_key, sizeof(raw_key));
++	ghash_preparekey(&key1, raw_key);
++
++	/* Prepare with guarded raw_key, then check that it works. */
++	memcpy(guarded_raw_key, raw_key, sizeof(raw_key));
++	ghash_preparekey(&key2, guarded_raw_key);
++	check_key_consistency(test, &key1, &key2);
++
++	/* Prepare guarded ghash_key, then check that it works. */
++	ghash_preparekey(guarded_key, raw_key);
++	check_key_consistency(test, &key1, guarded_key);
++}
++
++/*
++ * Test that ghash_key only needs to be aligned to
++ * __alignof__(struct ghash_key), i.e. 8 bytes.  The assembly code may prefer
++ * 16-byte or higher alignment, but it mustn't require it.
++ */
++static void test_ghash_with_minimally_aligned_key(struct kunit *test)
++{
++	u8 raw_key[GHASH_BLOCK_SIZE];
++	struct ghash_key key;
++	struct ghash_key *minaligned_key =
++		(struct ghash_key *)&test_buf[MAX_LEN_FOR_KEY_CHECK +
++					      __alignof__(struct ghash_key)];
++
++	KUNIT_ASSERT_TRUE(test, IS_ALIGNED((uintptr_t)minaligned_key,
++					   __alignof__(struct ghash_key)));
++	KUNIT_ASSERT_TRUE(test, !IS_ALIGNED((uintptr_t)minaligned_key,
++					    2 * __alignof__(struct ghash_key)));
++
++	rand_bytes(raw_key, sizeof(raw_key));
++	ghash_preparekey(&key, raw_key);
++	ghash_preparekey(minaligned_key, raw_key);
++	check_key_consistency(test, &key, minaligned_key);
++}
++
++struct ghash_irq_test_state {
++	struct ghash_key expected_key;
++	u8 raw_key[GHASH_BLOCK_SIZE];
++};
++
++static bool ghash_irq_test_func(void *state_)
++{
++	struct ghash_irq_test_state *state = state_;
++	struct ghash_key key;
++
++	ghash_preparekey(&key, state->raw_key);
++	return memcmp(&key, &state->expected_key, sizeof(key)) == 0;
++}
++
++/*
++ * Test that ghash_preparekey() produces the same output regardless of whether
++ * FPU or vector registers are usable when it is called.
++ */
++static void test_ghash_preparekey_in_irqs(struct kunit *test)
++{
++	struct ghash_irq_test_state state;
++
++	rand_bytes(state.raw_key, sizeof(state.raw_key));
++	ghash_preparekey(&state.expected_key, state.raw_key);
++	kunit_run_irq_test(test, ghash_irq_test_func, 200000, &state);
++}
++
++static int ghash_suite_init(struct kunit_suite *suite)
++{
++	u8 raw_key[GHASH_BLOCK_SIZE];
++
++	rand_bytes_seeded_from_len(raw_key, sizeof(raw_key));
++	ghash_preparekey(&test_key, raw_key);
++	return hash_suite_init(suite);
++}
++
++static void ghash_suite_exit(struct kunit_suite *suite)
++{
++	hash_suite_exit(suite);
++}
++
++static struct kunit_case ghash_test_cases[] = {
++	HASH_KUNIT_CASES,
++	KUNIT_CASE(test_ghash_allones_key_and_message),
++	KUNIT_CASE(test_ghash_with_guarded_key),
++	KUNIT_CASE(test_ghash_with_minimally_aligned_key),
++	KUNIT_CASE(test_ghash_preparekey_in_irqs),
++	KUNIT_CASE(benchmark_hash),
++	{},
++};
++
++static struct kunit_suite ghash_test_suite = {
++	.name = "ghash",
++	.test_cases = ghash_test_cases,
++	.suite_init = ghash_suite_init,
++	.suite_exit = ghash_suite_exit,
++};
++kunit_test_suite(ghash_test_suite);
++
++MODULE_DESCRIPTION("KUnit tests and benchmark for GHASH");
++MODULE_LICENSE("GPL");
+diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
+index 34b7c48f3456..e69ce213fb33 100755
+--- a/scripts/crypto/gen-hash-testvecs.py
++++ b/scripts/crypto/gen-hash-testvecs.py
+@@ -66,10 +66,56 @@ class Poly1305:
+     # nondestructive, i.e. not changing any field of self.
+     def digest(self):
+         m = (self.h + self.s) % 2**128
+         return m.to_bytes(16, byteorder='little')
+ 
++GHASH_POLY = sum((1 << i) for i in [128, 7, 2, 1, 0])
++GHASH_BLOCK_SIZE = 16
++
++# A straightforward, unoptimized implementation of GHASH.
++class Ghash:
++
++    @staticmethod
++    def reflect_bits_in_bytes(v):
++        res = 0
++        for offs in range(0, 128, 8):
++            for bit in range(8):
++                if (v & (1 << (offs + bit))) != 0:
++                    res ^= 1 << (offs + 7 - bit)
++        return res
++
++    @staticmethod
++    def bytes_to_poly(data):
++        return Ghash.reflect_bits_in_bytes(int.from_bytes(data, byteorder='little'))
++
++    @staticmethod
++    def poly_to_bytes(poly):
++        return Ghash.reflect_bits_in_bytes(poly).to_bytes(16, byteorder='little')
++
++    def __init__(self, key):
++        assert len(key) == 16
++        self.h = Ghash.bytes_to_poly(key)
++        self.acc = 0
++
++    # Note: this supports partial blocks only at the end.
++    def update(self, data):
++        for i in range(0, len(data), 16):
++            # acc += block
++            self.acc ^= Ghash.bytes_to_poly(data[i:i+16])
++            # acc = (acc * h) mod GHASH_POLY
++            product = 0
++            for j in range(127, -1, -1):
++                if (self.h & (1 << j)) != 0:
++                    product ^= self.acc << j
++                if (product & (1 << (128 + j))) != 0:
++                    product ^= GHASH_POLY << j
++            self.acc = product
++        return self
++
++    def digest(self):
++        return Ghash.poly_to_bytes(self.acc)
++
+ POLYVAL_POLY = sum((1 << i) for i in [128, 127, 126, 121, 0])
+ POLYVAL_BLOCK_SIZE = 16
+ 
+ # A straightforward, unoptimized implementation of POLYVAL.
+ # Reference: https://datatracker.ietf.org/doc/html/rfc8452
+@@ -101,10 +147,12 @@ def hash_init(alg):
+     # The keyed hash functions are assigned a fixed random key here, to present
+     # them as unkeyed hash functions.  This allows all the test cases for
+     # unkeyed hash functions to work on them.
+     if alg == 'aes-cmac':
+         return AesCmac(rand_bytes(AES_256_KEY_SIZE))
++    if alg == 'ghash':
++        return Ghash(rand_bytes(GHASH_BLOCK_SIZE))
+     if alg == 'poly1305':
+         return Poly1305(rand_bytes(POLY1305_KEY_SIZE))
+     if alg == 'polyval':
+         return Polyval(rand_bytes(POLYVAL_BLOCK_SIZE))
+     return hashlib.new(alg)
+@@ -255,10 +303,19 @@ def gen_additional_poly1305_testvecs():
+             data += ctx.digest()
+     print_static_u8_array_definition(
+             'poly1305_allones_macofmacs[POLY1305_DIGEST_SIZE]',
+             Poly1305(key).update(data).digest())
+ 
++def gen_additional_ghash_testvecs():
++    key = b'\xff' * GHASH_BLOCK_SIZE
++    hashes = b''
++    for data_len in range(0, 4097, 16):
++        hashes += Ghash(key).update(b'\xff' * data_len).digest()
++    print_static_u8_array_definition(
++            'ghash_allones_hashofhashes[GHASH_DIGEST_SIZE]',
++            Ghash(key).update(hashes).digest())
++
+ def gen_additional_polyval_testvecs():
+     key = b'\xff' * POLYVAL_BLOCK_SIZE
+     hashes = b''
+     for data_len in range(0, 4097, 16):
+         hashes += Polyval(key).update(b'\xff' * data_len).digest()
+@@ -266,11 +323,12 @@ def gen_additional_polyval_testvecs():
+             'polyval_allones_hashofhashes[POLYVAL_DIGEST_SIZE]',
+             Polyval(key).update(hashes).digest())
+ 
+ if len(sys.argv) != 2:
+     sys.stderr.write('Usage: gen-hash-testvecs.py ALGORITHM\n')
+-    sys.stderr.write('ALGORITHM may be any supported by Python hashlib; or poly1305, polyval, or sha3.\n')
++    sys.stderr.write('ALGORITHM may be any supported by Python hashlib;\n')
++    sys.stderr.write('  or aes-cmac, ghash, nh, poly1305, polyval, or sha3.\n')
+     sys.stderr.write('Example: gen-hash-testvecs.py sha512\n')
+     sys.exit(1)
+ 
+ alg = sys.argv[1]
+ print('/* SPDX-License-Identifier: GPL-2.0-or-later */')
+@@ -278,10 +336,13 @@ print(f'/* This file was generated by: {sys.argv[0]} {" ".join(sys.argv[1:])} */
+ if alg == 'aes-cmac':
+     gen_unkeyed_testvecs(alg)
+ elif alg.startswith('blake2'):
+     gen_unkeyed_testvecs(alg)
+     gen_additional_blake2_testvecs(alg)
++elif alg == 'ghash':
++    gen_unkeyed_testvecs(alg)
++    gen_additional_ghash_testvecs()
+ elif alg == 'nh':
+     gen_nh_testvecs()
+ elif alg == 'poly1305':
+     gen_unkeyed_testvecs(alg)
+     gen_additional_poly1305_testvecs()
 -- 
 2.53.0
 
