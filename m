@@ -4,77 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB288108E1DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8674D108E1DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPMVsuI4kmuItDKYtVFIWjVtpoIuKTSxXF3JdWi00Wc=; b=Zkc1gTlhZh/Zs1BlqlQ+pgxjSj
-	NoLcn33OQO8ioNsxr/0KftipKhfg5Xj5K06L3wS4RAS79HfxuGM8IYjatTZcYeWr+yOjSyfwDijgj
-	jZLE6+GSItFDtk28mamx/j49kYWHrT9Ee0+iMUp+zTC4qQP0hlQR85vpokauh9Lno+WG27/HJc4N6
-	7QW45FqpnxIadikTL1hmBrHE4aYEi1S4g+rZzYG/hjZZvGw+lxP0RsEalaF+OE+oEZRd+Auappq0V
-	Pm9E0TADonv1XYVWrCCw6ySkq0RrJIvGvB+jETQMakhLCja8He6MCxm5dfdlYuq58LY/1Mg8+mR6Q
-	zqtwsPSA==;
+	bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=; b=fokVbS9m8+P9Ju2j2Q/qmaQSzP
+	aih23qCvCFFJrhwXaGZFyS5wwJa/foy4yWS7nW4Ka3NFuZ8q1EnQO6QKNdSpsB/LLBltDWuNF5ShX
+	ZL+38odCtarbFac1UuviV3APX3vZpzD7rZLd9Zh2kctDmXCYCS+orjAijsKPvekKceDLUFHlXxWFM
+	26liIum6oalEADgW68Et8QxygpkzdJP6crWvDZ5B/qnz8H+EWjzHnvZq/Ox5ZgBfdN1bQsYdLRefY
+	yoibwouwCn/THWbsfVQOOjo28mWvYh8coQoaqpy0hrE5yOy50iealAL92kw7Pt0UqIYGzCdQgRbGU
+	8rtmOiSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Aff-0000000AQ1D-3UOb;
-	Thu, 19 Mar 2026 10:32:07 +0000
-Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
+	id 1w3Afs-0000000AQ2z-0cHK;
+	Thu, 19 Mar 2026 10:32:20 +0000
+Received: from mail-westeuropeazon11010029.outbound.protection.outlook.com ([52.101.69.29] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Afd-0000000AQ0q-0w7C
+	id 1w3Afp-0000000AQ2G-0sYo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 10:32:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=UPMVsuI4kmuItDKYtVFIWjVtpoIuKTSxXF3JdWi00Wc=;
-	b=X2HmGyscATvKqLvfjO2yF3Do855ux3dK2+g56l6gGCwwXKKS3dOugtLbLLJ4P6i7VKWO3Aeyk
-	O/gFYwAyYyEsgqaczjzofwSb/J56rAG6CxM1a6f3UudiMlBWvyGhHDPGF3MP4/ke5NbFOFKVpTX
-	Xl1cCYXxQRMFFDZtECPht5M=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fc2201zfszN13J;
-	Thu, 19 Mar 2026 18:27:20 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fc2665XcMzJ46tn;
-	Thu, 19 Mar 2026 18:30:54 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id CE26740589;
-	Thu, 19 Mar 2026 18:31:53 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Mar
- 2026 10:31:53 +0000
-Date: Thu, 19 Mar 2026 10:31:51 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v6 11/39] KVM: arm64: gic-v5: Sanitize
- ID_AA64PFR2_EL1.GCIE
-Message-ID: <20260319103151.00006b7e@huawei.com>
-In-Reply-To: <20260317113949.2548118-12-sascha.bischoff@arm.com>
-References: <20260317113949.2548118-1-sascha.bischoff@arm.com>
-	<20260317113949.2548118-12-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 19 Mar 2026 10:32:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C87/IlIQ/FEYUvXgJQBKweZw/0us3aYqyuXSaKVw1HJcEsm4G4TLm9hj+rYIPODcilYQ61EEt8uTfCJp9CTKPZ8I1m03ldWmPXI18DWvcu8osFQ5T8xDEOTAQ1XNuZva26pMbFmOHNzvgEIFyllTxbwRF5Z6+u5PBDK9uVCiXa+4yKJLO49DAQvgQoKZETI2YKLRuRKUsEqiIDX9RZlbC0Ah0HptNF842CttMt/qsGpyf1zejj9SscUT6kopTXjOev7ihREL3ziHtmifc/jvro1UllxC4TMRfamLUjWfEUsab8ebr+x9LvClvSOq+1PhiX+/aIk5eXHXfP609zeYDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=;
+ b=ntIlwI9A8xG+Rs9Fh5mSG5NBJVLFwdn7L0Innr3hkS+2ddQinpunFgIwnLRKbH9ZXkjnQbSHSZXblTkl9b7I0rLug4hBCoiVMwLvLLPqrplT5gMlenlog1c8PV6WXPeYv5KMdBLCK7brdJFl6+ZqK6n/JVuYpbAmXees+GlZoKlJb4pjxp7DDMCLzSBiUcdlEfTHlYRJ7qmMmocg+iAwXpIBG9xHOE1bs3AURVyw9ksM208skG7/vsvBv0aj2JiVUjMdIV8zQYBLcQq5a12Ubs/7fahLw26Sf0iZ9ba8zf36CHCXP1ZSyqD7/q5N62bK9NjbUQ6o8vx6BlVyoblL8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=;
+ b=axCQwfodDxLORO+5uFLO7+qUEDYS9GsBeN9XbMeqjYty9f7ep3Bea/QfQmJIN6dEzV2U2WOM+AubPUWYl1zKBfWLh7/3UBxYVdz3T9QX2GzfBF21k2ZH1zQndhRtpcQqxewfdALhubKWYaUagCgAjEisoEQW4LETZHEFTVilh6a/c0bTJZaadKivkMgt/iztjO7zn0/0eDWRQ3oSY2PIm3d7UWA4/lBTwhgzBbEL/wUqcO/yHgIYjqHXu5SQGBmgOy02IWQDt4VQZamJzgHRT52kVczyRVEZ15RT7VuXqQizAKXic7Im+Wz+o51lmVlV/9UNFbDW/tYvZpyVKMDWPw==
+Received: from DB9PR05CA0026.eurprd05.prod.outlook.com (2603:10a6:10:1da::31)
+ by DB8PR10MB3468.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:13f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 10:32:07 +0000
+Received: from DU2PEPF0001E9C0.eurprd03.prod.outlook.com
+ (2603:10a6:10:1da:cafe::52) by DB9PR05CA0026.outlook.office365.com
+ (2603:10a6:10:1da::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
+ 19 Mar 2026 10:32:07 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF0001E9C0.mail.protection.outlook.com (10.167.8.69) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 10:32:07 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
+ 2026 11:34:17 +0100
+Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
+ 2026 11:31:57 +0100
+Message-ID: <420953af-6a12-4277-8c31-062db01f78cc@foss.st.com>
+Date: Thu, 19 Mar 2026 11:31:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 2/6] dt-bindings: remoteproc: Add STM32 TEE-controlled
+ rproc binding
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Jens Wiklander <jens.wiklander@linaro.org>,
+	"Rob Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-remoteproc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <op-tee@lists.trustedfirmware.org>,
+	<devicetree@vger.kernel.org>
+References: <20260317180329.1207625-1-arnaud.pouliquen@foss.st.com>
+ <20260317180329.1207625-3-arnaud.pouliquen@foss.st.com>
+ <20260319-glistening-ultramarine-ibis-1eb3d6@quoll>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20260319-glistening-ultramarine-ibis-1eb3d6@quoll>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C0:EE_|DB8PR10MB3468:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1873009d-6059-41e0-1583-08de85a2c532
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|7416014|22082099003|56012099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: QWve+BY+x6HpGenr6j1IPHEwbGyMsTXUTtmBtypDjBJORcN8rLudvsKqJV4yb9yc5UfyalqfHyMgieaRZjNmEQbbdu27LFv0DxxkYH353WFESUes9/m0apUhHAy8skVCFDHEwNleTENYKQf2S6GxOzm0VTfdRlbi2H7xcQLH+7ZP7OszlsilkhyQbnphhtK+QwIKlA04qql9dLxqqYyzeFPpXisN+OYakpJoaraD/+BIOxKj5VlDnitWWutXTCTcl5j4zk8DIKhjWouSd0wx6lgA/Bsc7XGV2nxUlACZKOGMuxzhw2zEBzhrTU9pGfjr6zsHPPyoiH8p49IBcM/mkUR64k/GVkDX+MwtvGeLaScGAsDttIeKE0T04M7fkpiLnoaBLKVS1yOAKjCk3DjKrMT1mUh7Iil7fSt38eq4CL2KGcnb6dsOV1nM13P28Deg8AQNFPfOdDPhatD3GzKCbYvk4DhiZ7dtrFxEgr9F9DhDKSZSo4EmVN1w4wHCmB56ceUX3dLr0cdtyefVPQU5bXW96NH90SFcVqUv2isa1y9343FYC6XJFa3E2u7ncsXTuviTGiUSbix1hxKhGVEQESeZC6kKQZPWoKSJ2QpiXuPrcchXukMn9wuwEbVPxa6LLJchQscimgFBL7yExkQVXbyAdp0QJGadmWrW/JzH/kfKZVMrxUjV0ri3NEyTqcP2ummuCeNewJStCozjP4CXIXH1IkAmF1a6h6pOMNwyHQg=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(7416014)(22082099003)(56012099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 25QiXcyWSsmb06IhMXt9SGF2GQvEYvbJ7X8KPPARfLYoL5bn5rqP4ITp/zfyHYiDK+tPUrxwxLvwc6XKxBvXI9J87TzJ1c5kqmX3cEyH17gHXiA1cW1M7AbvXk1PfhkldYM78W72/MhSt9XjnUq8ZHc2ly7hh4ds0UoaFzy4baA76c8MDK+9Ljr4CpOPrflg7Fe8/C0dFMe8xvGUtI7zAxQqoUvr/O395C7J4q97sKAHaR0cFYt2W1nTuReXYEsjFgSj1RKW1w9BSPvdnjxwdiny/kIsUhPzlqE35IjjmJ96LeeXZyy2/mUIdfmqVP0tV2QLlqyVCM/N0/CS0xDFyyUoBnZjZBPmXU2DfmMhEykN/Ho1nSEULt3+eovX0WzNtbLa6ekCXoYIfM9D5L2xxOa6gpm6WPqy49ixiq3xub69b4fF/Way1X3clFMEYCIQ
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 10:32:07.1602
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1873009d-6059-41e0-1583-08de85a2c532
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C0.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3468
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_033205_626549_3C343AD9 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20260319_033217_586890_E3139FA7 
+X-CRM114-Status: GOOD (  31.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,119 +135,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 11:42:47 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+Hello Krzysztof,
 
-> Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
-> already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
-> fields. Add sanitisation for the GCIE field, which is set to IMP if
-> the host supports a GICv5 guest and NI, otherwise.
+
+On 3/19/26 09:06, Krzysztof Kozlowski wrote:
+> On Tue, Mar 17, 2026 at 07:03:23PM +0100, Arnaud Pouliquen wrote:
+>> Add a Device Tree binding for the STM32 remote processor controlled
+>> via a Trusted Application running in OP-TEE.
+>> This binding describes the interface and properties required for STM32MP
+>> remoteproc instances managed by the TEE rproc service, including a
+>> linkage to the TEE backend through the property "rproc-tee-phandle".
+>>
+>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+>> ---
+>> V21 updates:
+>> - the m4 node is no more declared as a child of the optee-rproc node
+>> - "rproc-tee-phandle" property is introduced to reference the optee-rproc
+>> ---
+>>   .../remoteproc/st,stm32-rproc-tee.yaml        | 108 ++++++++++++++++++
+>>   1 file changed, 108 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
+>> new file mode 100644
+>> index 000000000000..ca4dd1c8e7b0
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
+>> @@ -0,0 +1,108 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/remoteproc/st,stm32-rproc-tee.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: STMicroelectronics STM32 remote processor controlled via TEE
+>> +
+>> +maintainers:
+>> +  - Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+>> +
+>> +description: |
+>> +  STM32MP remote processor controlled by a Trusted Application
+>> +  running in OP-TEE. This node is a child of the TEE remoteproc service
+>> +  (UUID 80a4c275-0a47-4905-8285-1486a9771a08) and exposes a remoteproc
+>> +  instance managed by the Linux remoteproc core via the TEE rproc service.
+>> +
+>> +  Firmware loading, authentication and remote processor start/stop are managed
+>> +  by the TEE application. The STM32-specific driver handles platform resources
+>> +  such as the mailboxes and reserved-memory.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: st,stm32mp1-m4-tee
 > 
-> Extend the sanitisation that takes place in kvm_vgic_create() to zero
-> the ID_AA64PFR2.GCIE field when a non-GICv5 GIC is created. More
-> importantly, move this sanitisation to a separate function,
-> kvm_vgic_finalize_sysregs(), and call it from kvm_finalize_sys_regs().
+> Drop "tee", it suggests that compatible is tied to implementation of FW
+> you put there.
+
+The "st,stm32mp1-m4" compatible string already exists in 
+drivers/remoteproc/stm32_rproc.c, and "st,stm32mp1-m4-tee" compatible is 
+upstreamed in OP-TEE.
+
+Notice that I have also the stm32mp2 SoC to upstream expecting to have 
+similar compatible:
+- st,stm32mp1-m33
+- st,stm32mp2-m33-tee
+
+Depending on the compatible string, the hardware behavior changes.
+With the "xxxx-tee" compatible, OP-TEE also manages the isolation of 
+remote processor resources (memory, clock reset, peripherals).
+Without the "xxxx-tee" compatible, OP-TEE have to ensure that the Linux
+has the good access right to manage the remote processor.
+
+For instance if st,stm32mp1-m4-tee is set instead of st,stm32mp1-m4, on
+linux side
+- only memory regions used for IPC should be declared
+- memory regions containing the remote firmware must not be declared as 
+not accessible by the Linux ( managed by OP-TEE).
+- resets must not be declared ( managed by OP-TEE)
+
+You probably don't remember, as it was a long time ago, but we already 
+discussed this point with Rob[1].
+[1] https://lkml.org/lkml/2024/1/18/100
+
+Do it still reasonable to you and Rob or should we find an alternative?
+
+
+Thanks and Regards,
+
+Arnaud
+
 > 
-> We are required to finalize the GIC and GCIE fields a second time in
-> kvm_finalize_sys_regs() due to how QEMU blindly reads out then
-> verbatim restores the system register state. This avoids the issue
-> where both the GCIE and GIC features are marked as present (an
-> architecturally invalid combination), and hence guests fall over. See
-> the comment in kvm_finalize_sys_regs() for more details.
+>> +
+>> +  reg:
+>> +    description: |
 > 
-> Overall, the following happens:
+> Do not need '|' unless you need to preserve formatting.
 > 
-> * Before an irqchip is created, FEAT_GCIE is presented if the host
->   supports GICv5-based guests.
-> * Once an irqchip is created, all other supported irqchips are hidden
->   from the guest; system register state reflects the guest's irqchip.
-> * Userspace is allowed to set invalid irqchip feature combinations in
->   the system registers, but...
-> * ...invalid combinations are removed a second time prior to the first
->   run of the guest, and things hopefully just work.
+>> +      Remote processor identifier used by the TEE service. The <0> value
+>> +      in the example denotes a single instance with ID 0.
+>> +    maxItems: 1
+>> +
+>> +  mboxes:
+>> +    description: |
+>> +      Mailbox channels used for rpmsg/virtio functionality and processor
+>> +      shutdown.
+>> +    maxItems: 3
+>> +
+>> +  mbox-names:
+>> +    items:
+>> +      - const: vq0
+>> +      - const: vq1
+>> +      - const: shutdown
+>> +
+>> +  memory-region:
+>> +    description: |
+>> +      List of phandles to reserved-memory nodes describing the memory layout
+>> +      for the interprocessors communication.
 > 
-> All of this extra work is required to make sure that "legacy" GICv3
-> guests based on QEMU transparently work on compatible GICv5 hosts
-> without modification.
+> Drop description. You miss maxItems, though.
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-
-Kind of trivial but I'd have split this into a factor out of the helper
-(no functional changes) then the additional stuff.
-Meh, it's simple enough to perhaps not be worth the effort.
-
-Anyhow, one comment on what to me looks like a slightly inconsistent approach
-to sanitization. Anyhow, not that important as code is easy enough to read
-and if anything over restricts (which could be relaxed if that ever becomes
-relevant).
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-
-> ---
->  arch/arm64/kvm/sys_regs.c       | 70 +++++++++++++++++++++++++++++----
->  arch/arm64/kvm/vgic/vgic-init.c | 49 ++++++++++++++++-------
->  include/kvm/arm_vgic.h          |  1 +
->  3 files changed, 98 insertions(+), 22 deletions(-)
+>> +
+>> +  interrupts:
+>> +    description: |
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 42c84b7900ff5..140cf35f4eeb4 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
->  
->  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
-> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
->  
->  /* Read a sanitised cpufeature ID register by sys_reg_desc */
-> @@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
->  		val = sanitise_id_aa64pfr1_el1(vcpu, val);
->  		break;
->  	case SYS_ID_AA64PFR2_EL1:
-> -		val &= ID_AA64PFR2_EL1_FPMR |
-> -			(kvm_has_mte(vcpu->kvm) ?
-> -			 ID_AA64PFR2_EL1_MTEFAR | ID_AA64PFR2_EL1_MTESTOREONLY :
-> -			 0);
-> +		val = sanitise_id_aa64pfr2_el1(vcpu, val);
->  		break;
->  	case SYS_ID_AA64ISAR1_EL1:
->  		if (!vcpu_has_ptrauth(vcpu))
-> @@ -2027,6 +2025,23 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
->  	return val;
->  }
->  
-> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val)
-> +{
-> +	val &= ID_AA64PFR2_EL1_FPMR |
-> +	       ID_AA64PFR2_EL1_MTEFAR |
-> +	       ID_AA64PFR2_EL1_MTESTOREONLY;
-
-Style wise this feels inconsistent.  For these 3 registers the sanitise simply
-clears them if not supported, it doesn't enforce particular values despite
-for example MTESTOREONLY only taking values 0 and 1..
-
-
-> +
-> +	if (!kvm_has_mte(vcpu->kvm)) {
-> +		val &= ~ID_AA64PFR2_EL1_MTEFAR;
-> +		val &= ~ID_AA64PFR2_EL1_MTESTOREONLY;
-> +	}
-> +
-> +	if (vgic_host_has_gicv5())
-
-..but for this one you are forcing a specific value rather than clearing whatever
-was there if !vgic_host_has_gicv5()
-
-I don't mind that much though as still obvious what is going on and perhaps
-we do need to be careful this takes only a 1 or 0.
-
-
-> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
-> +
-> +	return val;
-> +}
-
+> Same comments...
+> 
+>> +      Optional watchdog / status interrupt line used to detect crashes
+>> +      and optionally wake up the system.
+>> +    maxItems: 1
+>> +
+>> +  st,auto-boot:
+>> +    type: boolean
+>> +    description: |
+>> +      If present, the remote processor will be automatically started by
+>> +      the remoteproc core at boot.
+> 
+> That's policy, not DT property.
+> 
+>> +
+>> +  wakeup-source:
+>> +    type: boolean
+>> +    description: |
+>> +      Indicates that the watchdog interrupt can be used as a wakeup source.
+>> +
+>> +  rproc-tee-phandle:
+> 
+> Missing vendor prefix, drop phandle. You do not say that "st,auto-boot"
+> is "st,auto-boot-boolean"
+> 
+>> +    description: |
+>> +      Phandle to the remote processor backend node and its identifier. This property
+>> +      is used to link the TEE remoteproc service to the remote processor instance
+>> +      it controls. The value is a phandle reference to the remote processor node,
+>> +      followed by a cell specifying the remote processor identifier used by the TEE.
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> 
+> Missing constraints.
+> 
+> I also do not understand which bus node this is being child, if not
+> remote proc.
+> 
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - rproc-tee-phandle
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    firmware {
+>> +        tee_rproc: optee-rproc {
+>> +            compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
+>> +        };
+>> +    };
+> 
+> Drop
+> 
+>> +
+>> +    m4: m4@0 {
+> 
+> Drop unused label.
+> 
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> If you cannot find a name matching your device, please check in kernel
+> sources for similar cases or you can grow the spec (via pull request to
+> DT spec repo).
+> 
+> e.g. mcu, because m4 feels like given model (Cortex M4?).
+> 
+>> +      compatible = "st,stm32mp1-m4-tee";
+>> +      reg = <0 0>;
+>> +
+>> +      mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>;
+>> +      mbox-names = "vq0", "vq1", "shutdown";
+>> +
+>> +      memory-region = <&vdev0vring0>, <&m_ipc_shm>, <&mcuram2>,
+>> +                      <&vdev0vring1>, <&vdev0buffer>, <&retram>;
+>> +
+>> +      interrupt-parent = <&exti>;
+>> +      interrupts = <68 1>;
+>> +
+>> +      rproc-tee-phandle = <&tee_rproc 0>;
+>> +      st,auto-boot;
+>> +      wakeup-source;
+>> +
+>> +      status = "okay";
+> 
+> Drop
+> 
+> Best regards,
+> Krzysztof
+> 
 
 
