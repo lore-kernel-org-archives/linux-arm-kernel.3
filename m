@@ -4,110 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C521B1075274
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843CA1075276
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=; b=1GAQKU8YnrDA8jKQ7GbQ6uCE1L
-	h+oXSvuMSSaODO1FUoEW3hmeZG/adCXa23iHA8pKSmFHqp1YNOVjFTIr6hFCLY55GkjhHfu21oVYC
-	ukcvNm7qnblND3J3bBp5HCnRYslkdUO2411DP+HG0bSosduGPUtjBPH1MOkZJgwV2cnNRSGh6AMEA
-	33MRAKHFbfwSYN3InP+/jsea6R7cprmebu8BXvrj2D74V8DkOghy14Mb1Fki7SrMG1TycogtQ924Y
-	lP5l8uoFNyxO7nWBPFgDVrZ/vefQeae0O1ass3xwibSkwwDoS6nJw/Q5qYG95YAaEFVp/mFdYnj2M
-	9nLIAuyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nTay6HW1vOlUEykKQjRl3cGI92ygI3Xv6fEhrv/vumA=; b=kZeZ0E5i/7zhgb/+lx7LPk0Hm/
+	OERlEO+PFCgpngK+Qp+flOXH8OkNiVIY+tRWA3rn9lE/4ywih45g8KpLbhgxMi6wVVpCqvOHUP0/m
+	UUahfk2ga8pdo3zxvtjg0qD36aDFlOWDDnioD+izA4nw8S7kKJBzSFlehrHkDwvNTGPZAVqUTo7jy
+	GXsIMsArW1SENlf4wZnK3zsX3XAThl6mlNz6KeAiHyTHPa1EIC87bz1r1S8zqOjI7Iw4UIDMgAPUO
+	oCyqR+XrUs43HeKX0b+eJxZLI+CUCN1I5JsQex/aTdP8nAF2t4U+kZFE6Bjimv+KRC79AqLsYCj5X
+	sf7LNj4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38ey-0000000AEXA-3sT7;
-	Thu, 19 Mar 2026 08:23:16 +0000
+	id 1w38hU-0000000AEkg-26A4;
+	Thu, 19 Mar 2026 08:25:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38ex-0000000AEWR-3Flt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Mar 2026 08:23:15 +0000
+	id 1w38hS-0000000AEkU-2hcL;
+	Thu, 19 Mar 2026 08:25:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=; b=EonoULfOqzlEXargYABcA4jBUq
-	kJpK2NyAH2qaKz5EPAGMXO6lHOi7O7fIVZLp5Hz6OW6amZFuzjjizuhiEBdjLmxN2zf6Xe/A2O64u
-	CC+VKW/Xv4t+2jiw3N+QroLiy7VcvklbNa3gQcAI13PbTkFtplCsfVTxxIu+Eejrz/lfOI0xALYjE
-	5tbvOi/S7ZMAjyK9A6rs/r1kcOk9W1mAr+M2sLKm1M9ih+CIcnJ7q8lUMZU3obTm6uKPrTTIkQjUM
-	SB0onF1VvTqX07F6ZzwfBx2oseRfNQi+tAvN/fs8MPo5Qz/WwOF9fQQPUiaWLu4o4ZnLI4M3H5/Dd
-	DGTY8gFQ==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nTay6HW1vOlUEykKQjRl3cGI92ygI3Xv6fEhrv/vumA=; b=JJHfMxq8SrdIbHyGnDMIPmkyNG
+	G8JfXcZQcLKpZ2tRUclIZxRwIBRxdcnFAp00UP9L/WwyG7THIVBiFFKWhSZMr+SSOKNERZJ3hT5I/
+	VgFLXuvH1hlBrxxeQBHJuilYIG9kmIm3NrV9olKIh5tV3XRqCQeuSSNBEYxvGBIl+1M5eQ2wnKj7M
+	EavAyIuesgf5UKMC2sh9R8vhEnIQAbT4NF49NJtEI6BrZz3apfiTCYcBB1eM+Akdp6fZnyTCvEohs
+	VVWvCmk24FNMXfsYJ0ZL5pFLkVrvKu2SbUj3mLRlzkjyf8Pylp3WuHIkpD+entKj92Kd0t9mXOsUH
+	tzW7wg1g==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38eu-0000000D14b-3qJu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 08:23:14 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43b527ac5d0so276981f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 01:23:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773908590; x=1774513390; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=;
-        b=mb6VWsvm5+LcxfYE++DbeL+t9vtOAoQCmyrvwJUeUdrXwaqhaWzL2bSXe53pZJmVgS
-         altfWm8y4I2/47MZnl7f3SIZemIPkxHFJeCoG0bDEZ9dhtZIXr2POI5kZdlEVcx8jT+Y
-         XP4HNkCZbbLgP4J14OQvDeIJL8qUyvfN24GrBGbMGSfwgurJs+iGdPCswhmps8xGD5TM
-         FvMToGXe/hMGagaF0mFaILrS3eK3hwxOMSVserVv7p5Sd4akIV1TkZwkOUsud2CJl8f7
-         TwsS5JwBnHKQbf19BQsYB31Gx6Cngm04SNPocoIm5aBjLOeXnZDVCEn7eAPq4EJGrgIB
-         P1Pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773908590; x=1774513390;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UfKs2BH0fICucBFRbcNT7ldaAh9sxBg62pLBdYSdZS8=;
-        b=AWQ0LWj+ZiOZae354BOWekwcZf6uS/f34D/hbdxEqYno9c9xs24GiLIBcNuW4NEJA1
-         Am3+6FrMzAXe80kKOLrudEB0rAYzqBjebXN5joXWxIBrDfOzgzC0Vsch4SpE6ygf6N6p
-         4SYpBHg0R4e2NT2/inDaKhMMW1wGBtRhE4RGiL/5U3JZ9dzyat7U8OnkBa1N7aGhZPDf
-         6T04czBKs/DeX9FZearZmBGafsC9x+jE780PvRhemiq1cdGxYV3JhROcSybyZq4J4YjX
-         3HIcCCpQ2zX9gvNEQ3Yw///GCc/JugisZ0CjQZNo0cn9WFQjCJC8/Izj+Z9Zw/lr5fLz
-         1Nlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXtQGWznIa5u6QWk/dHIS6AAp25N3oaY/+54qYPawWSH2pdO/n/ub06eNRDpqrfg2MhL5oG5k3J19BuQmVo2zZA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWa45SsovojPMVM+BMaTByYILZeHYhqxNYRZO3ecIWN95mdxmF
-	TP3yyiT9lbjLCWPRmjYsn0sQHY0fQNPrP/NbTz7sjrNqWU1LSHvTPx90
-X-Gm-Gg: ATEYQzwEJkUH7XD8WGYbaK1yaTbhL4J3i807p8LyEPmWr6O6y5zgeHTWRsPxj46WNyJ
-	hgvIl6gboHka+9bAFuFbmXzMjV7eJZ7o8ZFhMJ9w6HcXrLkHt3n58xFNN0rmSUjoD10A0o0RCEJ
-	BAXI3MtqYKkBE1nXBGFrUBXhtDBndVzZGwZCVgOq2zWS5s43erk5ay1zxMqT65P/merm/a6tMwZ
-	atA3b8IGGMEnIuG+ZCKdM/LQ7+LRj/Kfu8vngyIGmcPCfiVFxPyFo2d0qrlJ1HZiRExobnSolA9
-	he7/U4IYkbbR55d0oBCfDvd1Y4N5tqCP6qCgvRh1YcpVWuUoc/lNGh0/kV69gwuPviqkARj3T+Q
-	Gpxl6fCKwEWbK2xWmSc3NRFBwiBbrLGKbXwGpTpyEgZ0miL0Vw6/mHB3u6gYdliDyAbQ1Rx9AP1
-	w/kZde1ZFR8cDWbnz56BawddxrDLXaxQT/KaW05oaa0/7/QJTM+qz0fbrjHkCXwEY=
-X-Received: by 2002:a05:600c:c163:b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-486f441b801mr116935825e9.4.1773908590354;
-        Thu, 19 Mar 2026 01:23:10 -0700 (PDT)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f5e1ab8esm35596225e9.35.2026.03.19.01.23.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Mar 2026 01:23:09 -0700 (PDT)
-Message-ID: <59ae3126-1074-4ff3-9474-9419f1042bb9@gmail.com>
-Date: Thu, 19 Mar 2026 09:23:07 +0100
+	id 1w38hP-0000000D1Q2-1ba8;
+	Thu, 19 Mar 2026 08:25:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2919143F58;
+	Thu, 19 Mar 2026 08:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74D94C2BCB0;
+	Thu, 19 Mar 2026 08:25:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773908745;
+	bh=z+TpFp6nPNBq4Ax+izUKlEte0F/VUwfkflI1noqu3+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cSw7W9ZBGkxkV7OtU+THE13NqQf5fze8xwAoHQspODcTz/JbBnflomepscOdBBEAq
+	 ZPzpOtThiDvc33MyTv3TH7n+GqhQeArEwl5WPNVkbrI0OowDo88HENlGfSOTGKWh+T
+	 rehUeFXWH/A9YCVy9hdGfe+s0di9ku2drQY6bILA04lYDumaQMQCuM9vdziSWOSLWM
+	 Bos+qKhUB/LlAieN8oAKgBd9JS3ih1Nb7jRmEPoalnZ4lJ16yDHYroCsf9k3KDZaAU
+	 hqsFsOCa4IusOFBZ61B5QrY5Vyj/RLDH2B9Sr/vmfO6mDQIA1Be62FR1bB6j4nlU5Z
+	 tSDYeHxUDnrQQ==
+Date: Thu, 19 Mar 2026 09:25:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: alexandre.belloni@bootlin.com, Frank.Li@nxp.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com, 
+	claudiu.beznea@tuxon.dev, linux@armlinux.org.uk, mturquette@baylibre.com, sboyd@kernel.org, 
+	ardb@kernel.org, martin.petersen@oracle.com, ebiggers@google.com, tytso@mit.edu, 
+	cristian.birsan@microchip.com, adrian.hunter@intel.com, jarkko.nikula@linux.intel.com, 
+	kees@kernel.org, npitre@baylibre.com, linux-i3c@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 1/5] dt-bindings: i3c: mipi-i3c-hci: add Microchip
+ SAMA7D65 compatible
+Message-ID: <20260319-witty-gopher-of-teaching-b8c00e@quoll>
+References: <20260318055230.307030-1-manikandan.m@microchip.com>
+ <20260318055230.307030-2-manikandan.m@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' from USB host nodes
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com>
- <875x6t5ska.fsf@BLaptop.bootlin.com> <87o6klcswc.fsf@bootlin.com>
-Content-Language: hu
-From: Gabor Juhos <j4g8y7@gmail.com>
-In-Reply-To: <87o6klcswc.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260318055230.307030-2-manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_082313_024189_CC81FB6C 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20260319_082547_971968_EEB225FF 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,40 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Miquel,
-
-2026. 03. 18. 11:51 keltezéssel, Miquel Raynal írta:
-
-...
-
->>> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
->>> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
->>> UTMI PHYs"), the properties has been added to the USB host controller
->>> nodes also. According to the commit message this was intentional,
->>
->> Miquel will confirm that, after speaking with him, it appears to be a
->> mistake rather than an intentional act.
+On Wed, Mar 18, 2026 at 11:22:26AM +0530, Manikandan Muralidharan wrote:
+> Add the microchip,sama7d65-i3c-hci compatible string to the MIPI I3C
+> HCI binding. The Microchip SAMA7D65 I3C controller is based on the
+> MIPI HCI specification but requires two clocks, so add a conditional
+> constraint when this compatible is present.
 > 
-> Indeed, I believe it is a leftover, the property should have been added
-> only to the PHY nodes, not the host nodes.
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+> Changes in v4:
+> - Define and describe the clock in the top-level properties
+> ---
+>  .../devicetree/bindings/i3c/mipi-i3c-hci.yaml | 26 ++++++++++++++++---
+>  1 file changed, 22 insertions(+), 4 deletions(-)
 > 
-> The sentence above should be: s/intentional/unintentional/, the commit
-> messages clearly states that PHY nodes were targeted, not the
-> host. Plus, a follow-up commit adds the missing phy properties to the
-> hosts, so clearly reaching this syscon through the host node directly
-> does not make sense and was not intended.
+> diff --git a/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml b/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> index 39bb1a1784c9..a946a8920046 100644
+> --- a/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> +++ b/Documentation/devicetree/bindings/i3c/mipi-i3c-hci.yaml
+> @@ -9,9 +9,6 @@ title: MIPI I3C HCI
+>  maintainers:
+>    - Nicolas Pitre <npitre@baylibre.com>
+>  
+> -allOf:
+> -  - $ref: /schemas/i3c/i3c.yaml#
+> -
+>  description: |
+>    MIPI I3C Host Controller Interface
+>  
+> @@ -28,7 +25,13 @@ description: |
+>  
+>  properties:
+>    compatible:
+> -    const: mipi-i3c-hci
+> +    enum:
+> +      - mipi-i3c-hci
+> +      - microchip,sama7d65-i3c-hci
+> +  clocks:
+> +    items:
+> +      - description: Peripheral bus clock
+> +      - description: System Generic clock
 
-Sorry, I assumed that it was intentional because the commit message explicitly
-mentioned the USB host node.
+Missing blank lines. Also, clocks go after reg.
 
-> Once this single word fixed, you can add my
 
-Will fix it, and send a new version.
+>    reg:
+>      maxItems: 1
+>    interrupts:
+> @@ -39,6 +42,21 @@ required:
+>    - reg
+>    - interrupts
+>  
+> +allOf:
+> +  - $ref: /schemas/i3c/i3c.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: microchip,sama7d65-i3c-hci
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
 
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Drop, pointless. You already said in top-level they are exactly two
+items.
 
-Thank you for the review!
+> +      required:
+> +        - clocks
 
-Regards,
-Gabor
+else - clocks: false. See example schema. Or explain in the commit msg
+why existing compatible gets clocks now.
+
+Best regards,
+Krzysztof
+
 
