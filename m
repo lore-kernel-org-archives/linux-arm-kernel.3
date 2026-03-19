@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAB61075262
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DF1107526B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/fUcPZMaN1EmAIgEAIs1BB2V9BDRyeP90qUb0Gut/4=; b=xrYUCML1UTepfeb54A4IKjP0Or
-	3cG4C6NDuAyMDR0SH+uaTrP58lWKjLfso1RsXFPpq2TFk8JJV++85Y+aOTls1tkHfsmP5dxZ3My6Z
-	hMOD62Y6AqGzcHu9GQrIc0cblR+QeJaXbqgTl06IGYPEQu6ocCJxJBm92zUubMI53Izg19hd2Ao2D
-	P1sVsx2sBZ17UZpSJ2RidDvxO4eBIgp587OlfrO8xFstCKq5W6fJgEZfUsbN15qUDCbvA52PrQWyO
-	Xntmw6He7GjLTRxwbMcJsLbLWr6WLjY/Wp/FbS6uvEHyBifLzNqCjvtwankI9igeIfAnagr8UZp+K
-	TjB8A/6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4FLQr6j/Ajnpl8vXUNdSOalw+cZmz8SRafApCLOp0JE=; b=Yn9b8LXHR2qhXpPvgZkbv2Y6cJ
+	u/u4POJXA76mjrMIob+TXEV9pH4VvfbfnEDZBD9LYb+5vPwTPavG+dbDm3RlGg2jcP4JEMT8TgiPq
+	0KnkXckSH39kH7yXsrjlJCXfhuR9LyHpWqtA0D4lwNzkt6lYO19K9lEE9wPowgBjicDTiYy6H41Rf
+	/UjyYJmAH4yiXlHQhpAgLU1wmdHKUwV9+Zrv7CzL5/logYnsVXPpwVjTD3v+4pPRJHkrUUwye/aov
+	tX68QV08lFuUBTcT622bl/y2qWzSY1hFo9I0Um9h+uDAetIXREmB+r8+8qsVgy1OVU8nyjWOAp1uN
+	3wKh770Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37QW-0000000A6Ge-0mxw;
-	Thu, 19 Mar 2026 07:04:16 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1w37bG-0000000A75R-3lY7;
+	Thu, 19 Mar 2026 07:15:22 +0000
+Received: from mail-m19731111.qiye.163.com ([220.197.31.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37QT-0000000A6GF-1YlR;
-	Thu, 19 Mar 2026 07:04:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773903854; x=1805439854;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XWRb4tG0WfjZbF3L2bUwVIdS+/4y/LWaL3SwWGs47Z8=;
-  b=cFNRpJXffnxMDHZ/rLN7fPnVMJHtYOy3KhcIN/9nrwaPhUVFjtdnlCuq
-   rcOMHJ+01yAj6LqyZpFNua7DgLFeaVTuTWZiJp3dYtDFn/oPNfaEKV6i9
-   uPEUXrxZqeIDlnb0B7wHnv4XSE3zoE7cuTl16VOWyiXUE6s/KwOxO08pP
-   BHU5w3oEzAMVYma3uvQyowYc0c6VY73AJqaJCiRGM8KcZi+QyLn0YAgIp
-   yU/AxkWyuMGzHvAC6vhof8rvaVhnC+UdRTjCkvoQYduqmfOTFCWlHnimn
-   IOZ8ZbhxFg0BwLfH8bgPjGmQBW/lmezUuB8TywteyhV+xdZuJnQWMDMuE
-   Q==;
-X-CSE-ConnectionGUID: G7i3Q570SkiMIabT9QU7pg==
-X-CSE-MsgGUID: 8nW3RhVLSuKCuNO30ckuLA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11733"; a="62538843"
-X-IronPort-AV: E=Sophos;i="6.23,128,1770624000"; 
-   d="scan'208";a="62538843"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 00:04:13 -0700
-X-CSE-ConnectionGUID: 6kIld5kyQMCuWrGShd9Iow==
-X-CSE-MsgGUID: ePfOVPAlSMy5V8WuidXKGw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,128,1770624000"; 
-   d="scan'208";a="224890375"
-Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 19 Mar 2026 00:04:08 -0700
-Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w37Ps-000000000Sn-1nKh;
-	Thu, 19 Mar 2026 07:03:42 +0000
-Date: Thu, 19 Mar 2026 15:03:23 +0800
-From: kernel test robot <lkp@intel.com>
-To: Daniele Briguglio <hello@superkali.me>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Daniele Briguglio <hello@superkali.me>
-Subject: Re: [PATCH 3/3] clk: rockchip: rk3588: add GATE_GRF clocks for I2S
- MCLK output to IO
-Message-ID: <202603191419.MH6EuPga-lkp@intel.com>
-References: <20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718@superkali.me>
+	id 1w37bD-0000000A71p-0yzj;
+	Thu, 19 Mar 2026 07:15:21 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3788743a2;
+	Thu, 19 Mar 2026 15:15:08 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	alim.akhtar@samsung.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	nicolas.frattaroli@collabora.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v11 00/17] Apply drm_bridge_connector and panel_bridge helper for the Analogix DP driver
+Date: Thu, 19 Mar 2026 15:14:35 +0800
+Message-Id: <20260319071452.1961274-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718@superkali.me>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d04f2b6d303a3kunm86e540ee39645d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4eSlZCQkhDHUMfSU0aTk1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=DA7fnBF2iAkyrOqc9pFahXM0CBqxghhulqoSaWPjroufxECElPEyARs/MJv9Npot89NHSt9kG3gzx4LGe66RDq6KCCrw7oL6xRH+K9RFO2W1NOK5GKZDZU50Kw5fcAOAmY3fKAfi6Z+sxACDsTK+khqB1m/KGEYaq69yFX0hY1I=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=4FLQr6j/Ajnpl8vXUNdSOalw+cZmz8SRafApCLOp0JE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_000413_505505_331F9764 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260319_001519_810527_FDC78299 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,104 +101,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniele,
+PATCH 1 is to add a new parameter to store the point of next bridge.
+PATCH 2 is to make legacy bridge driver more universal.
+PATCH 3-10 are preparations for apply drm_bridge_connector helper.
+PATCH 11 is to apply the drm_bridge_connector helper.
+PATCH 12-14 are to move the panel/bridge parsing to the Analogix side.
+PATCH 15 is to attach the next bridge on Analogix side uniformly.
+PATCH 16-17 are to apply the panel_bridge helper.
 
-kernel test robot noticed the following build errors:
+The following reviewed commits, which to make codes more concise, are
+rebased to the front of this patch series:
 
-[auto build test ERROR on b84a0ebe421ca56995ff78b66307667b62b3a900]
+https://lore.kernel.org/all/20251110085823.1197472-1-damon.ding@rock-chips.com/
+https://lore.kernel.org/all/20251111022103.1350183-1-damon.ding@rock-chips.com/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Daniele-Briguglio/dt-bindings-clock-rockchip-rk3588-cru-add-I2S-MCLK-output-to-IO-clock-IDs/20260316-222240
-base:   b84a0ebe421ca56995ff78b66307667b62b3a900
-patch link:    https://lore.kernel.org/r/20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718%40superkali.me
-patch subject: [PATCH 3/3] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
-config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260319/202603191419.MH6EuPga-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260319/202603191419.MH6EuPga-lkp@intel.com/reproduce)
+Damon Ding (17):
+  drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
+  drm/bridge: Move legacy bridge driver out of imx directory for
+    multi-platform use
+  drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+  drm/exynos: exynos_dp: Remove unused &exynos_dp_device.connector
+  drm/exynos: exynos_dp: Apply of-display-mode-bridge to parse the
+    display-timings node
+  drm/bridge: analogix_dp: Remove redundant
+    &analogix_dp_plat_data.skip_connector
+  drm/bridge: analogix_dp: Move the color format check to
+    .atomic_check() for Rockchip platforms
+  drm/bridge: analogix_dp: Remove unused
+    &analogix_dp_plat_data.get_modes()
+  drm/bridge: analogix_dp: Remove unused struct drm_connector* for
+    &analogix_dp_plat_data.attach()
+  drm/bridge: analogix_dp: Pass struct drm_atomic_state* for
+    analogix_dp_bridge_mode_set()
+  drm/bridge: analogix_dp: Apply drm_bridge_connector helper
+  drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
+  drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
+  drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+  drm/bridge: analogix_dp: Attach the next bridge in
+    analogix_dp_bridge_attach()
+  drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
+    in analogix_dp_unbind()
+  drm/bridge: analogix_dp: Apply panel_bridge helper
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603191419.MH6EuPga-lkp@intel.com/
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/analogix/Kconfig       |   1 +
+ .../drm/bridge/analogix/analogix_dp_core.c    | 236 +++++++++---------
+ .../drm/bridge/analogix/analogix_dp_core.h    |   1 -
+ drivers/gpu/drm/bridge/imx/Kconfig            |  10 -
+ drivers/gpu/drm/bridge/imx/Makefile           |   1 -
+ .../gpu/drm/bridge/imx/imx-legacy-bridge.c    |  91 -------
+ .../gpu/drm/bridge/of-display-mode-bridge.c   |  93 +++++++
+ drivers/gpu/drm/exynos/Kconfig                |   1 +
+ drivers/gpu/drm/exynos/exynos_dp.c            | 110 ++------
+ drivers/gpu/drm/imx/ipuv3/Kconfig             |   4 +-
+ drivers/gpu/drm/imx/ipuv3/imx-ldb.c           |   6 +-
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c  |   5 +-
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  67 +----
+ include/drm/bridge/analogix_dp.h              |   8 +-
+ include/drm/bridge/imx.h                      |  17 --
+ include/drm/bridge/of-display-mode-bridge.h   |  17 ++
+ 18 files changed, 293 insertions(+), 386 deletions(-)
+ delete mode 100644 drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
+ create mode 100644 drivers/gpu/drm/bridge/of-display-mode-bridge.c
+ delete mode 100644 include/drm/bridge/imx.h
+ create mode 100644 include/drm/bridge/of-display-mode-bridge.h
 
-All errors (new ones prefixed by >>):
+---
 
-   drivers/clk/rockchip/clk-rk3588.c: In function 'rk3588_clk_early_init':
->> drivers/clk/rockchip/clk-rk3588.c:2496:29: error: implicit declaration of function 'kzalloc_obj' [-Wimplicit-function-declaration]
-    2496 |                 sys_grf_e = kzalloc_obj(*sys_grf_e);
-         |                             ^~~~~~~~~~~
->> drivers/clk/rockchip/clk-rk3588.c:2496:27: error: assignment to 'struct rockchip_aux_grf *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-    2496 |                 sys_grf_e = kzalloc_obj(*sys_grf_e);
-         |                           ^
+Changes in v2:
+- Update Exynos DP driver synchronously.
+- Move the panel/bridge parsing to the Analogix side.
 
+Changes in v3:
+- Rebase for the existing devm_drm_bridge_alloc() applying commit.
+- Fix the typographical error of panel/bridge check in exynos_dp_bind().
+- Squash all commits related to skip_connector deletion in both Exynos and
+  Analogix code into one.
+- Apply panel_bridge helper to make the codes more concise.
+- Fix the handing of bridge in analogix_dp_bridge_get_modes().
+- Remove unnecessary parameter struct drm_connector* for callback
+  &analogix_dp_plat_data.attach().
+- In order to decouple the connector driver and the bridge driver, move
+  the bridge connector initilization to the Rockchip and Exynos sides.
 
-vim +/kzalloc_obj +2496 drivers/clk/rockchip/clk-rk3588.c
+Changes in v4:
+- Rebase for the applied &drm_bridge_funcs.detect() modification commit.
+- Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
+- Drop the drmm_encoder_init() modification commit.
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
 
-  2447	
-  2448	static void __init rk3588_clk_early_init(struct device_node *np)
-  2449	{
-  2450		struct rockchip_clk_provider *ctx;
-  2451		struct rockchip_aux_grf *sys_grf_e;
-  2452		struct regmap *sys_grf;
-  2453		unsigned long clk_nr_clks, max_clk_id1, max_clk_id2;
-  2454		void __iomem *reg_base;
-  2455	
-  2456		max_clk_id1 = rockchip_clk_find_max_clk_id(rk3588_clk_branches,
-  2457						ARRAY_SIZE(rk3588_clk_branches));
-  2458		max_clk_id2 = rockchip_clk_find_max_clk_id(rk3588_early_clk_branches,
-  2459						ARRAY_SIZE(rk3588_early_clk_branches));
-  2460		clk_nr_clks = max(max_clk_id1, max_clk_id2) + 1;
-  2461	
-  2462		reg_base = of_iomap(np, 0);
-  2463		if (!reg_base) {
-  2464			pr_err("%s: could not map cru region\n", __func__);
-  2465			return;
-  2466		}
-  2467	
-  2468		ctx = rockchip_clk_init_early(np, reg_base, clk_nr_clks);
-  2469		if (IS_ERR(ctx)) {
-  2470			pr_err("%s: rockchip clk init failed\n", __func__);
-  2471			iounmap(reg_base);
-  2472			return;
-  2473		}
-  2474		early_ctx = ctx;
-  2475	
-  2476		rockchip_clk_register_plls(ctx, rk3588_pll_clks,
-  2477					   ARRAY_SIZE(rk3588_pll_clks),
-  2478					   RK3588_GRF_SOC_STATUS0);
-  2479	
-  2480		rockchip_clk_register_armclk(ctx, ARMCLK_L, "armclk_l",
-  2481				mux_armclkl_p, ARRAY_SIZE(mux_armclkl_p),
-  2482				&rk3588_cpulclk_data, rk3588_cpulclk_rates,
-  2483				ARRAY_SIZE(rk3588_cpulclk_rates));
-  2484		rockchip_clk_register_armclk(ctx, ARMCLK_B01, "armclk_b01",
-  2485				mux_armclkb01_p, ARRAY_SIZE(mux_armclkb01_p),
-  2486				&rk3588_cpub0clk_data, rk3588_cpub0clk_rates,
-  2487				ARRAY_SIZE(rk3588_cpub0clk_rates));
-  2488		rockchip_clk_register_armclk(ctx, ARMCLK_B23, "armclk_b23",
-  2489				mux_armclkb23_p, ARRAY_SIZE(mux_armclkb23_p),
-  2490				&rk3588_cpub1clk_data, rk3588_cpub1clk_rates,
-  2491				ARRAY_SIZE(rk3588_cpub1clk_rates));
-  2492	
-  2493		/* Register SYS_GRF for I2S MCLK output to IO gate clocks */
-  2494		sys_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3588-sys-grf");
-  2495		if (!IS_ERR(sys_grf)) {
-> 2496			sys_grf_e = kzalloc_obj(*sys_grf_e);
-  2497			if (sys_grf_e) {
-  2498				sys_grf_e->grf = sys_grf;
-  2499				sys_grf_e->type = grf_type_sys;
-  2500				hash_add(ctx->aux_grf_table, &sys_grf_e->node, grf_type_sys);
-  2501			}
-  2502		}
-  2503	
-  2504		rockchip_clk_register_branches(ctx, rk3588_early_clk_branches,
-  2505					       ARRAY_SIZE(rk3588_early_clk_branches));
-  2506	
-  2507		rockchip_clk_of_add_provider(np, ctx);
-  2508	}
-  2509	CLK_OF_DECLARE_DRIVER(rk3588_cru, "rockchip,rk3588-cru", rk3588_clk_early_init);
-  2510	
+Changes in v5:
+- Add legacy bridge to parse the display-timings node under the dp node
+  for Exynos side.
+- Move color format check to &drm_connector_helper_funcs.atomic_check()
+  in order to get rid of &analogix_dp_plat_data.get_modes().
+- Remove unused callback &analogix_dp_plat_data.get_modes().
+- Distinguish the &drm_bridge->ops of Analogix bridge based on whether
+  the downstream device is a panel, a bridge or neither.
+- Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP, and remove it for
+  ROCKCHIP_ANALOGIX_DP.
+- Apply rockchip_dp_attach() to support the next bridge attachment for
+  the Rockchip side.
+- Move next_bridge attachment from Analogix side to Rockchip/Exynos sides.
+
+Changes in v6:
+- Move legacy bridge driver out of imx directory for multi-platform use.
+- Apply DRM legacy bridge to parse display timings intead of implementing
+  the same codes only for Exynos DP.
+- Ensure last bridge determines EDID/modes detection capabilities in DRM
+  bridge_connector driver.
+- Remove unnecessary drm_bridge_get_modes() in
+  analogix_dp_bridge_get_modes().
+- Simplify analogix_dp_bridge_edid_read().
+- If the next is a bridge, set DRM_BRIDGE_OP_DETECT and return
+  connector_status_connected in analogix_dp_bridge_detect().
+- Set flag DRM_BRIDGE_ATTACH_NO_CONNECTOR for bridge attachment while
+  binding. Meanwhile, make DRM_BRIDGE_ATTACH_NO_CONNECTOR unsuppported
+  in analogix_dp_bridge_attach().
+- Move the next bridge attachment to the Analogix side rather than
+  scattered on Rockchip and Exynos sides.
+- Remove the unnecessary analogix_dp_bridge_get_modes().
+- Squash [PATCH v5 15/17] into [PATCH v5 17/17].
+- Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
+
+Changes in v7:
+- As Luca suggested, simplify the code and related comment for bridge_connector
+  modifications. Additionally, move the commit related to bridge_connector to
+  the top of this patch series.
+- Rename legacy-bridge driver to of-display-mode-bridge driver.
+- Remove unnecessary API drm_bridge_is_legacy() and apply a temporary flag
+  &exynos_dp_device.has_of_bridge instead, which will be removed finally.
+- Remove exynos_dp_legacy_bridge_init() and inline API
+  devm_drm_of_display_mode_bridge().
+
+Changes in v8:
+- Adapt the related modifications to the newest bridge_connector driver.
+
+Changes in v9:
+- Fix the Kconfig help text for CONFIG_DRM_OF_DISPLAY_MODE_BRIDGE.
+- Add Tested-by tag from Heiko.
+
+Changes in v10:
+- Fix to use dev_err_probe() in newly added API analogix_dp_finish_probe().
+- Expaned commit message for [PATCH v9 9/15] and [PATCH v9 10/15].
+- Split [PATCH v9 9/15] into serval smaller commits.
+- Add Reviewed-by tags from Luca.
+
+Changes in v11:
+- Merge [PATCH v10 12/18] into [PATCH v10 11/18].
+- Fix the bridge flag to 'flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR' in
+  [PATCH v10 11/18].
+- Add Reviewed-by tags from Luca.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
