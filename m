@@ -4,52 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E1B108E1F4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A927C108E1F4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=IzcuIzOArL4y2VL0kbKQCqGt0FBXgMPx56ttmuyG3tY=; b=EIvmP95sLT9krZzabZ6LYNt2oC
-	tFQXUb96wTaT/j67X8ABVutRVQj8yRiu2X0nzHh8WROCr9os/XShZDUtOTvEC9WFj/mko+DjEUMwz
-	vMGJo201nr7LzrhBmyr4BwqLrB0Wu1u78H7EeRdSWztSTdWnJwWU1zeiYPHKKLhS0OK19E26onqru
-	31RzJ7GotJbGj4XuARxot/D1gh3eJkU3I91+l4Jg+KWAdEDNA7/L23ZUgFEIiRFrM5e78DUpbnEW1
-	Nz6y8IV8o46TUsAtpSyNsHuQ1BAroi3gr3LAejNARGnnaCFsShIOEUQcJ041GjJZgpP2kr2UR6/eS
-	zchgEegw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azYdaoPZnn6it2VTTXYh7qzbW7/06tkvfxtyss4A7z8=; b=GMNaBvm9adA57s0L+luP4+syIs
+	pkk7nNvLQANgLjW9o8aQX2UoKQNB6Qc6ivuqoHaafTnpPV8ROyhfZMMx5Zq5RlmJaA+iAvoJ6p2LB
+	TrlXq7wasXm8eMsO2S2owFVd607XR+sclLGhxLEGXXv/el/N/8OC6ISkUhVIkKkZcOKiERBXJx3Dk
+	fTiD31AH9fGcGSnRSMk2YVrP3zLGTiEQRh/im0ve+ZFzSPYLBx2oEtaxtRuSIvj8ipJS+GQ2bG82+
+	cNw6Ra/OeQLpxoKqNPU3Urp+bK0J8I1TK6VwJMPt5/Uq7PLaJynoK/klkG/islI1wgwXHvc2WfAVD
+	tbXxlxUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BhJ-0000000AY91-3Weh;
-	Thu, 19 Mar 2026 11:37:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3BjE-0000000AYPM-02Kg;
+	Thu, 19 Mar 2026 11:39:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Bh7-0000000AY5a-2Wrd;
-	Thu, 19 Mar 2026 11:37:41 +0000
+	id 1w3BjC-0000000AYP4-2ws2;
+	Thu, 19 Mar 2026 11:39:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D3D160134;
-	Thu, 19 Mar 2026 11:37:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C84DC2BCB0;
-	Thu, 19 Mar 2026 11:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773920260;
-	bh=MIzWb14uWVOfRWgpIeFl+RNd8KZIR7SHWTeh3IGagsQ=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=f6M0tH+13gjROVN0algEs0UAtPylRxcskt4+z7oJDiU3nJhwJGAidWq9MkVnkLlvT
-	 ohRviyYe6tqUqH8OMUjod6d9DnK8a70ESAtKetQOLR0sNknlqAIW44j8NLRDhHHiwy
-	 Ir06iBY+53c4LOGLUWeEXZaPsDRl4a+qvhL6vitM=
-Subject: Patch "net: gso: fix tcp fraglist segmentation after pull from frag_list" has been added to the 6.6-stable tree
-To: 1468888505@139.com,angelogioacchino.delregno@collabora.com,davem@davemloft.net,dsahern@kernel.org,edumazet@google.com,gregkh@linuxfoundation.org,kuba@kernel.org,linux-arm-kernel@lists.infradead.org,linux-mediatek@lists.infradead.org,matthias.bgg@gmail.com,nbd@nbd.name,pabeni@redhat.com,patches@lists.linux.dev,willemb@google.com
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Thu, 19 Mar 2026 12:37:12 +0100
-In-Reply-To: <20260302065522.2695626-1-1468888505@139.com>
-Message-ID: <2026031912-cacti-mumbo-b576@gregkh>
+	by tor.source.kernel.org (Postfix) with ESMTP id B28436011F;
+	Thu, 19 Mar 2026 11:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A442FC19424;
+	Thu, 19 Mar 2026 11:39:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773920389;
+	bh=E9JhBbwIf2oYiVeQO98SXyjx4quJ+BMudZAgGLFcb+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BGx7WrTwHUihAjtcSbFNMAICzyKVLizTimomndMFC17GigIHl2O5lLd1sAboSBwgz
+	 teTLnani2q02pnMpHF5I64dZ3BvIk/JIUF/u8u/Bd2YHImY7IFL2+OvVZNa41u0ra+
+	 0OMaJIIAcvUg7Gjcw8smNDGGOYsDwc1/HwLmjvPFzWx3oYGtRvNe6urP8AOJm5vdM5
+	 jYzKtGiYHfkigeu6+1gWkC9Uvr0NJ8lJV5m9qVwNrOYChDvk1FHRUJG/M5g2z/kZLI
+	 daNPIHfmjTPYD/PMmFMMlmRs2UzfU3YqHjEfUY4w3wEM9yjit59oEp/L1Mbz0Ga+4j
+	 3P7vBOv+qa4qQ==
+Date: Thu, 19 Mar 2026 11:39:43 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com, 
+	vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6/6] mm: change to return bool for the MMU notifier's
+ young flag check
+Message-ID: <67c670e2-c98f-490b-bbb9-2960f8175b5a@lucifer.local>
+References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
+ <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,118 +72,385 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 19, 2026 at 11:24:05AM +0800, Baolin Wang wrote:
+> The MMU notifier young flag check related functions only return whether
+> the young flag was set. Change the return type to bool to make the
+> intention clearer.
+>
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
-This is a note to let you know that I've just added the patch titled
+I can see KVM is the only user for the mmu_notifier_ops clear_flush_young,
+clear_young and test_young hooks, which map to
+kvm_mmu_notifier_[clear_flush,clear,test]_young() functions, and you have
+updated them all.
 
-    net: gso: fix tcp fraglist segmentation after pull from frag_list
+So this LGTM with nits below, and so (with nits addressed as per the other R-b
+tags :):
 
-to the 6.6-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-The filename of the patch is:
-     net-gso-fix-tcp-fraglist-segmentation-after-pull-from-frag_list.patch
-and it can be found in the queue-6.6 subdirectory.
+Thanks for doing this! Int as bool is a pet peeve of mine :))
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+Cheers, Lorenzo
 
+> ---
+>  include/linux/mmu_notifier.h | 76 +++++++++++++++++-------------------
+>  mm/internal.h                | 16 ++++----
+>  mm/mmu_notifier.c            | 20 +++++-----
+>  virt/kvm/kvm_main.c          | 40 +++++++++----------
+>  4 files changed, 72 insertions(+), 80 deletions(-)
+>
+> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
+> index 3705d350c863..17f2cdc77dd5 100644
+> --- a/include/linux/mmu_notifier.h
+> +++ b/include/linux/mmu_notifier.h
+> @@ -97,20 +97,20 @@ struct mmu_notifier_ops {
+>  	 * Start-end is necessary in case the secondary MMU is mapping the page
+>  	 * at a smaller granularity than the primary MMU.
+>  	 */
+> -	int (*clear_flush_young)(struct mmu_notifier *subscription,
+> -				 struct mm_struct *mm,
+> -				 unsigned long start,
+> -				 unsigned long end);
+> +	bool (*clear_flush_young)(struct mmu_notifier *subscription,
+> +				  struct mm_struct *mm,
+> +				  unsigned long start,
+> +				  unsigned long end);
+>
+>  	/*
+>  	 * clear_young is a lightweight version of clear_flush_young. Like the
+>  	 * latter, it is supposed to test-and-clear the young/accessed bitflag
+>  	 * in the secondary pte, but it may omit flushing the secondary tlb.
+>  	 */
+> -	int (*clear_young)(struct mmu_notifier *subscription,
+> -			   struct mm_struct *mm,
+> -			   unsigned long start,
+> -			   unsigned long end);
+> +	bool (*clear_young)(struct mmu_notifier *subscription,
+> +			    struct mm_struct *mm,
+> +			    unsigned long start,
+> +			    unsigned long end);
+>
+>  	/*
+>  	 * test_young is called to check the young/accessed bitflag in
+> @@ -118,9 +118,9 @@ struct mmu_notifier_ops {
+>  	 * frequently used without actually clearing the flag or tearing
+>  	 * down the secondary mapping on the page.
+>  	 */
+> -	int (*test_young)(struct mmu_notifier *subscription,
+> -			  struct mm_struct *mm,
+> -			  unsigned long address);
+> +	bool (*test_young)(struct mmu_notifier *subscription,
+> +			   struct mm_struct *mm,
+> +			   unsigned long address);
+>
+>  	/*
+>  	 * invalidate_range_start() and invalidate_range_end() must be
+> @@ -376,14 +376,12 @@ mmu_interval_check_retry(struct mmu_interval_notifier *interval_sub,
+>
+>  extern void __mmu_notifier_subscriptions_destroy(struct mm_struct *mm);
+>  extern void __mmu_notifier_release(struct mm_struct *mm);
+> -extern int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> -					  unsigned long start,
+> -					  unsigned long end);
+> -extern int __mmu_notifier_clear_young(struct mm_struct *mm,
+> -				      unsigned long start,
+> -				      unsigned long end);
+> -extern int __mmu_notifier_test_young(struct mm_struct *mm,
+> -				     unsigned long address);
+> +bool __mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end);
+> +bool __mmu_notifier_clear_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end);
+> +bool __mmu_notifier_test_young(struct mm_struct *mm,
+> +		unsigned long address);
+>  extern int __mmu_notifier_invalidate_range_start(struct mmu_notifier_range *r);
+>  extern void __mmu_notifier_invalidate_range_end(struct mmu_notifier_range *r);
+>  extern void __mmu_notifier_arch_invalidate_secondary_tlbs(struct mm_struct *mm,
 
-From stable+bounces-222524-greg=kroah.com@vger.kernel.org Mon Mar  2 07:56:08 2026
-From: Li hongliang <1468888505@139.com>
-Date: Mon,  2 Mar 2026 14:55:22 +0800
-Subject: net: gso: fix tcp fraglist segmentation after pull from frag_list
-To: gregkh@linuxfoundation.org, stable@vger.kernel.org, nbd@nbd.name
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org, edumazet@google.com, davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, willemb@google.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, bpf@vger.kernel.org
-Message-ID: <20260302065522.2695626-1-1468888505@139.com>
+I mean damn, at this point maybe it's legit to drop the surrounding externs here
+too? But maybe not :))
 
-From: Felix Fietkau <nbd@nbd.name>
+> @@ -403,30 +401,28 @@ static inline void mmu_notifier_release(struct mm_struct *mm)
+>  		__mmu_notifier_release(mm);
+>  }
+>
+> -static inline int mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> -					  unsigned long start,
+> -					  unsigned long end)
+> +static inline bool mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+>  	if (mm_has_notifiers(mm))
+>  		return __mmu_notifier_clear_flush_young(mm, start, end);
+> -	return 0;
+> +	return false;
+>  }
+>
+> -static inline int mmu_notifier_clear_young(struct mm_struct *mm,
+> -					   unsigned long start,
+> -					   unsigned long end)
+> +static inline bool mmu_notifier_clear_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+>  	if (mm_has_notifiers(mm))
+>  		return __mmu_notifier_clear_young(mm, start, end);
+> -	return 0;
+> +	return false;
+>  }
+>
+> -static inline int mmu_notifier_test_young(struct mm_struct *mm,
+> -					  unsigned long address)
+> +static inline bool mmu_notifier_test_young(struct mm_struct *mm,
+> +		unsigned long address)
+>  {
+>  	if (mm_has_notifiers(mm))
+>  		return __mmu_notifier_test_young(mm, address);
+> -	return 0;
+> +	return false;
+>  }
+>
+>  static inline void
+> @@ -552,24 +548,22 @@ static inline void mmu_notifier_release(struct mm_struct *mm)
+>  {
+>  }
+>
+> -static inline int mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> -					  unsigned long start,
+> -					  unsigned long end)
+> +static inline bool mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+> -	return 0;
+> +	return false;
+>  }
+>
+> -static inline int mmu_notifier_clear_young(struct mm_struct *mm,
+> -					   unsigned long start,
+> -					   unsigned long end)
+> +static inline bool mmu_notifier_clear_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+> -	return 0;
+> +	return false;
+>  }
+>
+> -static inline int mmu_notifier_test_young(struct mm_struct *mm,
+> -					  unsigned long address)
+> +static inline bool mmu_notifier_test_young(struct mm_struct *mm,
+> +		unsigned long address)
+>  {
+> -	return 0;
+> +	return false;
+>  }
+>
+>  static inline void
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 0eaca2f0eb6a..3d6eba216364 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1831,10 +1831,10 @@ static inline int io_remap_pfn_range_complete(struct vm_area_struct *vma,
+>  }
+>
+>  #ifdef CONFIG_MMU_NOTIFIER
+> -static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
+> +static inline bool clear_flush_young_ptes_notify(struct vm_area_struct *vma,
+>  		unsigned long addr, pte_t *ptep, unsigned int nr)
+>  {
+> -	int young;
+> +	bool young;
+>
+>  	young = clear_flush_young_ptes(vma, addr, ptep, nr);
+>  	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr,
+> @@ -1842,30 +1842,30 @@ static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
+>  	return young;
+>  }
+>
+> -static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
+> +static inline bool pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
+>  		unsigned long addr, pmd_t *pmdp)
+>  {
+> -	int young;
+> +	bool young;
+>
+>  	young = pmdp_clear_flush_young(vma, addr, pmdp);
+>  	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr, addr + PMD_SIZE);
+>  	return young;
+>  }
+>
+> -static inline int test_and_clear_young_ptes_notify(struct vm_area_struct *vma,
+> +static inline bool test_and_clear_young_ptes_notify(struct vm_area_struct *vma,
+>  		unsigned long addr, pte_t *ptep, unsigned int nr)
+>  {
+> -	int young;
+> +	bool young;
+>
+>  	young = test_and_clear_young_ptes(vma, addr, ptep, nr);
+>  	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + nr * PAGE_SIZE);
+>  	return young;
+>  }
+>
+> -static inline int pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
+> +static inline bool pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
+>  		unsigned long addr, pmd_t *pmdp)
+>  {
+> -	int young;
+> +	bool young;
+>
+>  	young = pmdp_test_and_clear_young(vma, addr, pmdp);
+>  	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PMD_SIZE);
+> diff --git a/mm/mmu_notifier.c b/mm/mmu_notifier.c
+> index 2502474b83b6..3e3e7e727ba2 100644
+> --- a/mm/mmu_notifier.c
+> +++ b/mm/mmu_notifier.c
+> @@ -364,12 +364,11 @@ void __mmu_notifier_release(struct mm_struct *mm)
+>   * unmap the address and return 1 or 0 depending if the mapping previously
+>   * existed or not.
+>   */
+> -int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> -					unsigned long start,
+> -					unsigned long end)
+> +bool __mmu_notifier_clear_flush_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+>  	struct mmu_notifier *subscription;
+> -	int young = 0, id;
+> +	bool young = false, id;
+>
+>  	id = srcu_read_lock(&srcu);
+>  	hlist_for_each_entry_srcu(subscription,
+> @@ -384,12 +383,11 @@ int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
+>  	return young;
+>  }
+>
+> -int __mmu_notifier_clear_young(struct mm_struct *mm,
+> -			       unsigned long start,
+> -			       unsigned long end)
+> +bool __mmu_notifier_clear_young(struct mm_struct *mm,
+> +		unsigned long start, unsigned long end)
+>  {
+>  	struct mmu_notifier *subscription;
+> -	int young = 0, id;
+> +	bool young = false, id;
+>
+>  	id = srcu_read_lock(&srcu);
+>  	hlist_for_each_entry_srcu(subscription,
+> @@ -404,11 +402,11 @@ int __mmu_notifier_clear_young(struct mm_struct *mm,
+>  	return young;
+>  }
+>
+> -int __mmu_notifier_test_young(struct mm_struct *mm,
+> -			      unsigned long address)
+> +bool __mmu_notifier_test_young(struct mm_struct *mm,
+> +		unsigned long address)
+>  {
+>  	struct mmu_notifier *subscription;
+> -	int young = 0, id;
+> +	bool young = false, id;
+>
+>  	id = srcu_read_lock(&srcu);
+>  	hlist_for_each_entry_srcu(subscription,
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index d0ab29672c71..6bcfc1b3021d 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -646,11 +646,11 @@ static __always_inline kvm_mn_ret_t kvm_handle_hva_range(struct kvm *kvm,
+>  	return r;
+>  }
+>
+> -static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
+> -						unsigned long start,
+> -						unsigned long end,
+> -						gfn_handler_t handler,
+> -						bool flush_on_ret)
+> +static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+> +					      unsigned long start,
+> +					      unsigned long end,
+> +					      gfn_handler_t handler,
+> +					      bool flush_on_ret)
 
-[ Upstream commit 17bd3bd82f9f79f3feba15476c2b2c95a9b11ff8 ]
+Can we please fix this terrrible indentation while we're here :)?
 
-Detect tcp gso fraglist skbs with corrupted geometry (see below) and
-pass these to skb_segment instead of skb_segment_list, as the first
-can segment them correctly.
+static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+		unsigned long start, unsigned long end, gfn_handler_t handler,
+		bool flush_on_ret)
 
-Valid SKB_GSO_FRAGLIST skbs
-- consist of two or more segments
-- the head_skb holds the protocol headers plus first gso_size
-- one or more frag_list skbs hold exactly one segment
-- all but the last must be gso_size
+Would be nicer, thanks!
 
-Optional datapath hooks such as NAT and BPF (bpf_skb_pull_data) can
-modify these skbs, breaking these invariants.
+>  {
+>  	struct kvm *kvm = mmu_notifier_to_kvm(mn);
+>  	const struct kvm_mmu_notifier_range range = {
+> @@ -666,10 +666,10 @@ static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
+>  	return kvm_handle_hva_range(kvm, &range).ret;
+>  }
+>
+> -static __always_inline int kvm_age_hva_range_no_flush(struct mmu_notifier *mn,
+> -						      unsigned long start,
+> -						      unsigned long end,
+> -						      gfn_handler_t handler)
+> +static __always_inline bool kvm_age_hva_range_no_flush(struct mmu_notifier *mn,
+> +						       unsigned long start,
+> +						       unsigned long end,
+> +						       gfn_handler_t handler)
 
-In extreme cases they pull all data into skb linear. For TCP, this
-causes a NULL ptr deref in __tcpv4_gso_segment_list_csum at
-tcp_hdr(seg->next).
+Same indentation comment here.
 
-Detect invalid geometry due to pull, by checking head_skb size.
-Don't just drop, as this may blackhole a destination. Convert to be
-able to pass to regular skb_segment.
+>  {
+>  	return kvm_age_hva_range(mn, start, end, handler, false);
+>  }
+> @@ -829,10 +829,10 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
+>  		rcuwait_wake_up(&kvm->mn_memslots_update_rcuwait);
+>  }
+>
+> -static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
+> -					      struct mm_struct *mm,
+> -					      unsigned long start,
+> -					      unsigned long end)
+> +static bool kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
+> +					       struct mm_struct *mm,
+> +					       unsigned long start,
+> +					       unsigned long end)
 
-Approach and description based on a patch by Willem de Bruijn.
+Same indentation comment here.
 
-Link: https://lore.kernel.org/netdev/20240428142913.18666-1-shiming.cheng@mediatek.com/
-Link: https://lore.kernel.org/netdev/20240922150450.3873767-1-willemdebruijn.kernel@gmail.com/
-Fixes: bee88cd5bd83 ("net: add support for segmenting TCP fraglist GSO packets")
-Cc: stable@vger.kernel.org
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Reviewed-by: Willem de Bruijn <willemb@google.com>
-Link: https://patch.msgid.link/20240926085315.51524-1-nbd@nbd.name
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-Signed-off-by: Li hongliang <1468888505@139.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- net/ipv4/tcp_offload.c   |   10 ++++++++--
- net/ipv6/tcpv6_offload.c |   10 ++++++++--
- 2 files changed, 16 insertions(+), 4 deletions(-)
+>  {
+>  	trace_kvm_age_hva(start, end);
+>
+> @@ -840,10 +840,10 @@ static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
+>  				 !IS_ENABLED(CONFIG_KVM_ELIDE_TLB_FLUSH_IF_YOUNG));
+>  }
+>
+> -static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
+> -					struct mm_struct *mm,
+> -					unsigned long start,
+> -					unsigned long end)
+> +static bool kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
+> +					 struct mm_struct *mm,
+> +					 unsigned long start,
+> +					 unsigned long end)
 
---- a/net/ipv4/tcp_offload.c
-+++ b/net/ipv4/tcp_offload.c
-@@ -104,8 +104,14 @@ static struct sk_buff *tcp4_gso_segment(
- 	if (!pskb_may_pull(skb, sizeof(struct tcphdr)))
- 		return ERR_PTR(-EINVAL);
- 
--	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST)
--		return __tcp4_gso_segment_list(skb, features);
-+	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
-+		struct tcphdr *th = tcp_hdr(skb);
-+
-+		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
-+			return __tcp4_gso_segment_list(skb, features);
-+
-+		skb->ip_summed = CHECKSUM_NONE;
-+	}
- 
- 	if (unlikely(skb->ip_summed != CHECKSUM_PARTIAL)) {
- 		const struct iphdr *iph = ip_hdr(skb);
---- a/net/ipv6/tcpv6_offload.c
-+++ b/net/ipv6/tcpv6_offload.c
-@@ -106,8 +106,14 @@ static struct sk_buff *tcp6_gso_segment(
- 	if (!pskb_may_pull(skb, sizeof(*th)))
- 		return ERR_PTR(-EINVAL);
- 
--	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST)
--		return __tcp6_gso_segment_list(skb, features);
-+	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
-+		struct tcphdr *th = tcp_hdr(skb);
-+
-+		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
-+			return __tcp6_gso_segment_list(skb, features);
-+
-+		skb->ip_summed = CHECKSUM_NONE;
-+	}
- 
- 	if (unlikely(skb->ip_summed != CHECKSUM_PARTIAL)) {
- 		const struct ipv6hdr *ipv6h = ipv6_hdr(skb);
+Same indentation comment here.
 
+>  {
+>  	trace_kvm_age_hva(start, end);
+>
+> @@ -863,9 +863,9 @@ static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
+>  	return kvm_age_hva_range_no_flush(mn, start, end, kvm_age_gfn);
+>  }
+>
+> -static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
+> -				       struct mm_struct *mm,
+> -				       unsigned long address)
+> +static bool kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
+> +					struct mm_struct *mm,
+> +					unsigned long address)
 
-Patches currently in stable-queue which might be from 1468888505@139.com are
+Same indentation comment here.
 
-queue-6.6/pnfs-fix-a-deadlock-when-returning-a-delegation-during-open.patch
-queue-6.6/net-add-support-for-segmenting-tcp-fraglist-gso-packets.patch
-queue-6.6/net-fix-segmentation-of-forwarding-fraglist-gro.patch
-queue-6.6/nfs-pass-explicit-offset-count-to-trace-events.patch
-queue-6.6/net-gso-fix-tcp-fraglist-segmentation-after-pull-from-frag_list.patch
-queue-6.6/nfs-fix-a-deadlock-involving-nfs_release_folio.patch
+>  {
+>  	trace_kvm_test_age_hva(address);
+>
+> --
+> 2.47.3
+>
 
