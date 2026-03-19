@@ -4,154 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C979F108E1E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45CC108E1E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GopXNZwZllygRxFFfV3IgV5ieTwqoANt1rNLOGc/2wY=; b=I7YFpqynNlmyJRhMO1XzJVyX0r
-	5EvcMPhAsD4ednT2mBCvLSi47V94ABFn3gJQf6jo8v01jCgCTXsQxx8My7TbYqNpMecIt1PV/jAXY
-	tR29AcDL7HkDJzZPLHSLoB7YEt9av1jiPDi+JFzVmdgxDLnnO1YFHeG1QkTQmmYhByOV6sD+6nbmS
-	5XaPpZo06z7fDHln2AxztHsjFYTpGmrBQ0E6w3BmSwyKdime+Hb6o2C71uQ6ipUxbFuNrLBCJ88II
-	i9WEBAis1A5mIf3vbcL0tasL+9X2JMMkO+iXTXnMX6JVvhRjGzZNRJfWfLlHOLuo2HFjGdU2TzCnO
-	Nn9Hoscg==;
+	bh=ERMtf7FEk4ue1o3IDZ/8t+Gzb9Wp93h+nRgMdoM1efY=; b=ZIeqr7joEUKMgFeCJYML3XuUsL
+	D7Uk5gHK1kI55fgt588tJLAAoRn/4bBkr85p75DujSGREQsX6AoNtCcTg7hlGYv1MfNZJUDHycFef
+	kSY3UrKdY3PWzUBAuQ397Pw+OsLP6FEyeN1/LCXDuCUa0MUFTq9BJiPEdcIXUrk7XkQ1joP3ex2MW
+	8peN25KCkpq1jVi/qtbhyE+AUxQO/TXR+LEIsD8YC9iAqZvdfcuYCO+A4sb0WEYYkUsQZfVZjQYTK
+	73W5CD1begIUOo9GDzJfdMy5CGu4MbkddAETLM3kT/+gbPPhgN4RecIr9+l/hO5qlcRlYQMLYKdJe
+	0Q4WLG1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3AqS-0000000AS8O-2ppN;
-	Thu, 19 Mar 2026 10:43:16 +0000
-Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w3B1v-0000000ASiN-0WET;
+	Thu, 19 Mar 2026 10:55:07 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3AqP-0000000AS7t-304g
+	id 1w3B1r-0000000AShi-4A38
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 10:43:15 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=d29WRa240U9zwVPKW4KA1dS3PDW61YHoTv3IyIYL9RIl6v1SusI88xJhviyzzxDjzviNhu1H3rxxaDiclbXSlW2IYcm8T0KGl3YT6PIyYNkDzGKwbRnTGR89WdlwGnHpZUjlWl9TNadzuiGZyfdA/du/njQrGJ+ZZmR4UdYrZrPw0aTVn5M+hLkJONqgOicEIpDXhxckV/UP3X2ewk6MEORWATUMsdw8QuMHsd1cylUWkoPSwikQT4v3UhvdwgMfLSk6Df1IuDSwvDDhixXQ6/pyqbF00F4lhBWSBNbuvCj+qjuG9180IKyiSmw43U5ka9WAiSyBy1DmFYLRP7xRag==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GopXNZwZllygRxFFfV3IgV5ieTwqoANt1rNLOGc/2wY=;
- b=MCOMr7RNC7EHHklQjc3bwjnSWkRDQ41cheAemuiP3qXxo+JcExaslXGGIiezTLroA1Jka6UZ270iJb6sWppMkaQnzQkl9t3YvyaTVQdKXjJl5KhGgjevmbNETIW9tkRq1aX3fwCFG8lm/0PbdVZeicKEf1ivIfYkh3eKAmypJme0hkQTKFjYAXkXlAJmMpRAA2M3Z7DI5+p5kqDCXeSqIxLAqO2/CpO1WOxEJ/wkUJy8j4UGM6efsb6iKkIclB+vl0cbuy/lH+arXHJvLblwxyuLSla9cx5QMqGt2DFdtTfjKkH1KEmNc6Z5X/Rm7Sg+hGxZ8lGggQBom/b0EAzy2g==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GopXNZwZllygRxFFfV3IgV5ieTwqoANt1rNLOGc/2wY=;
- b=eMKocdAi0HeC0ih4sicsf5ZGTryLAMQ7TFlzFi6lsgj+DgH8bwEBgPYVXcrFUu+YS3yQjk1/r2UGRVvqilayR4+wMO8uPgWR0H7egTQfqQOUIJyMkpFD6/1V1Ccusx6SB/qZ0WBrDV+ikzyCrEUne+1/ZqoZoD4Kzrc+IJ0JGp4=
-Received: from AM6P191CA0026.EURP191.PROD.OUTLOOK.COM (2603:10a6:209:8b::39)
- by AM9PR08MB6003.eurprd08.prod.outlook.com (2603:10a6:20b:2d4::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 10:43:05 +0000
-Received: from AM3PEPF0000A790.eurprd04.prod.outlook.com
- (2603:10a6:209:8b:cafe::1b) by AM6P191CA0026.outlook.office365.com
- (2603:10a6:209:8b::39) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
- 19 Mar 2026 10:43:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A790.mail.protection.outlook.com (10.167.16.119) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Thu, 19 Mar 2026 10:43:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZQ09cafmAJuy2sTRC4b39VCR/nOwmZGvpAvdOPfDTr2az1V23lylgvNqlXjR9q14uC3B6IfUomLFeBzQ5hahyaPwRFGDd6UpWEJIZO+gJ3wZ7WlxD4G1fWVPAqXPhbuVnH8aGyPmMr+YBrhSheAUbi3LdNA7eK/ehu+D8Od/F8EPxhLuXk/xF0VZWKy4ZyAd0eG1Y4Bg04ThFlJvbCbsEKRLiAkaUEdeftEsrQ2wNmf+yZWjWxadAbUBTGMgOTf+P1gyjS0gVZAmjg9mVajgqzU4t9QoRLXF6gatx+JaqcDvieWj/6ydB1q0Y3+7OBjq5KYNIkD91KRU3tfMQO36pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GopXNZwZllygRxFFfV3IgV5ieTwqoANt1rNLOGc/2wY=;
- b=TJR/o1rIoSjCJgZjpWgHjiqoXq2uCyqzK4leBbb6EYR7Xs78E2+WUqYNNJpFMm7cU0BwkI657lgaayC0QQFOl+GCTSHLjFEYp6eR+Fsxn7lu47RfeD1EgpLSZPHvA/QYQGIJFlBXInjYT0dQbFKRGRt1XBOdal/Z3VzK+9fP8bPOPaR5JfNbHF4XPlQXyuMzrYSVhPBXZnIn954NU+02epPUNcZJLoa8CeR6D5PDrya82wQc6694fTHYlO2lHpqbZwxbfYrD7kzyTcYY18RDrhiguPTie7hQy7HuRU9S5MmRAYOh20dVNvaolQyNle/aHLbt74fpwGY6OwtA8y4a2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GopXNZwZllygRxFFfV3IgV5ieTwqoANt1rNLOGc/2wY=;
- b=eMKocdAi0HeC0ih4sicsf5ZGTryLAMQ7TFlzFi6lsgj+DgH8bwEBgPYVXcrFUu+YS3yQjk1/r2UGRVvqilayR4+wMO8uPgWR0H7egTQfqQOUIJyMkpFD6/1V1Ccusx6SB/qZ0WBrDV+ikzyCrEUne+1/ZqoZoD4Kzrc+IJ0JGp4=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by AS8PR08MB9094.eurprd08.prod.outlook.com (2603:10a6:20b:5b0::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 10:42:00 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 10:42:00 +0000
-Message-ID: <3fbd520f-2760-4075-b648-8795d1c00b9a@arm.com>
-Date: Thu, 19 Mar 2026 10:41:58 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 10/48] arm64: RMI: Ensure that the RMM has GPT entries
- for memory
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-11-steven.price@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260318155413.793430-11-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0425.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:37d::14) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Thu, 19 Mar 2026 10:55:05 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3B1g-0008LQ-Ln; Thu, 19 Mar 2026 11:54:52 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3B1g-0013iA-0W;
+	Thu, 19 Mar 2026 11:54:52 +0100
+Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id C91065082E0;
+	Thu, 19 Mar 2026 10:54:51 +0000 (UTC)
+Date: Thu, 19 Mar 2026 11:54:51 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
+	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
+	Eric Chanudet <echanude@redhat.com>, Andra-Teodora Ilie <andra.ilie@nxp.com>, 
+	Larisa Grigore <larisa.grigore@nxp.com>
+Subject: Re: [PATCH v2 3/5] can: flexcan: add NXP S32N79 SoC support
+Message-ID: <20260319-tricky-mongoose-of-passion-0483a3-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
+ <20260319094032.427697-4-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AS8PR08MB9094:EE_|AM3PEPF0000A790:EE_|AM9PR08MB6003:EE_
-X-MS-Office365-Filtering-Correlation-Id: 081e5a0f-dbc0-4912-8138-08de85a44d74
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: YPMV1blSApIskpuJWoFjxNsUYSzz76SOlI5wOs6wv9xOr8G2jqw3/2NIWs9MLVjp6JGrQPuGu8uxxBjFAsmW9XW5B7oArqpecNjMV8Layhbyrl4QuzsQeFF+HlxFgkQN+bNZ5T8rUcRP8mdApevEV7Zgf7rUK24Yu+Zs+fBk4+kDCDzKK6S1s2Rn39QXtiOoD43A4sdrJDDIRFnc5vJQJaV6cbqt5TpcuxIdEwpaNtjdWqUknuKfmvmehy0K7gkdeiuEFhMAME6LhGzOgPEKMUlJWoh5HrUTN9rWOuNUs7qLWV0umJj7qwc0MNZIFF52C0HiiigrNM1WI+//vakghKG5eEG24O82qOpCobxsBS7qHn6mML0o5x+KHaEESVnqO/BhkKYZi0ySbkmI3MLx8cHOJPhD3STMNfmPprfVwddAeE3Tgvks0RJvnLbIr6lGFPa3KeDgGAg/dXqB11AChJ0kPYK1i2cuU8adxPPyLbH+HokeEcnPd7hb0FLjzn9ED0hlUqXg+MSTwf8XQ9WwBvoNBA7d8sP0C26ilw8FGt2tLpwiOPkU/J7BN5AyAYMmyS36BV5UW6zZD7tY62rbfh//nhxmffQqHMKlRUC3KLzsAbZl8Eh32c8GXXCdlznohxYvQrQrsDxlXCAQ4a+TNLWlaM6q2IM03F8x420Rx1S66kLz4zCBuoELZpOtX2J20xFQijZwkZXoK2tjt8OmqZBppWgr3Ohdjdq0vfJyIr0=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: Xdv6b2QFAotpWynu1y3vcz3TUVoUnMIJmWVy54A18MVdJRLgSbWro84YEtNp46JiwLCsi4LTGsYcTDPSP/lZNn5zpeROPaUFqBs8fwZ3dB/Mux068cPnLNsVwPeH6PIik/kBXMCiUL0uC7rTOF+9KnFYR1iod0kcodS7NQrZJDlXxtBN+nzBBQp9ow9mr05YKS2iv65GOfUaN9eTngA7SLl1n9pv7wtJFZ/uFec/DHpfysHtHq5VDMb9knG5p5ztyX2eRFzpwXeV6HXbzJjr1azFLyojJicVMpjtjRBxfbbEwvGRfgtPzu5bPtyVD7VT+IC9tZQ8LcIRgJB4t5qFZQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9094
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A790.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d0502e72-857d-4719-83be-08de85a426a6
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|1800799024|82310400026|14060799003|7416014|376014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: bH21rjxAgyAlSQMP7iukWd5QO0bMz7a5I4ia33/2RRQeieTXIA8ym6GE7pjy9P2oFpSXmKMo0fRc6/eejheqk9qcK8LmxW0kiHBYENyaJS9uLe5nI/whX1P1d4BxavrJkZewx0qy2S12xLChOZczSuXagUzun8h1AFl042tkIXdznh+RykQu6ykFePcM9X74/lQjbPCkoRsskf/uKQ13aB83nz5LHxyTPlF+L3QSqtHXXXQkRnK6GwRVxFdzzj1qVTg8X0TnJkaiXweSIg8sXXFOoGQxxn1MndQszMr53BApBLHcZQMWZRcHZBIyHwJS/qudFCbpoFeF172MC4tbybc2/dHg6QMZFvRES7IEpIC12NKq3G/2piJyTUhaaxEqJKtOHEsCq4AQyzWBAfbdxwmsOym3owKFkBUmI0eE/cy1HsfC6/ZcIWixtkizqWoGUKAUF0h6bo+/MzkBeEA2pAtUfjHrrOhcEDmEJkKlmHTb3zJXVOXpd+qBxFdvU2FRJzzlrnGrJLdObZi6yW3ekkLMoySX1RuV5McS+HFEgqGVl9oC5F4YaSVBzjum+upyYE9eQ82QLQ8NBfE1i5l3wFf0eYfko5GAZRhz/20fdOnV5lLPDwO/WcL9MencLZsWg+QGniOPvE5P1nZ2mZnSfXwMYqBfIl36oK3YpbWd5a9Wlm7VAeYatGpKpGziVoi7XE7XFKRP3bwque9dDtWabNpEZ+CFKPuHTtziOWoaH2ZqtGQ/qF+sQE2cP2KdjSswR3b/ZGrPQmL2lkgJ45+7KA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(1800799024)(82310400026)(14060799003)(7416014)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +8mklvwNRnFMKSBye+PPaO+xV1ET3pkHCQlpMSc6PObFVuf8HU+N5WFMP2fzjlG65cpjfzwMzeXFQ/jx4P8AOm+6D0GcJb+NWWQCTJIPcIFkHZbrak3GnjE1Bdx7IUWn+8RGawMBh76ww/pE0uzeQeqmlUl3UyrJ13d3FGcyyd39IbIFqupLXav+c+NJhLAhnnPguUikgYYaFJ4nmE0SHIRYaDVv6Rcmm+TLKLvG4uDXLIWq6pkqfD8GtrGQkeSXmNwnDpCQhfYouP7ZQxHOPrGT7bHwRbvIO8MH/mHCYoWJv6bMFg/u/rQzHVyF8JZ5EDbcpa3GqnUXU5Gt8NSb8HUImTr3UASqNVnK4jW3496ADTOeSoDoFueYoIhmdNUQvy62hIIW7Eh+Hj/hTa0CtWoaE8IseR2xghaCAklviLJ+61+bymJ80vrLBZt/YSgR
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 10:43:05.2814
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 081e5a0f-dbc0-4912-8138-08de85a44d74
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A790.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB6003
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zp44kxgb4fdxzvj5"
+Content-Disposition: inline
+In-Reply-To: <20260319094032.427697-4-ciprianmarian.costea@oss.nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_034313_909442_375B2572 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20260319_035504_062149_56C77BBB 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,153 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 15:53, Steven Price wrote:
-> The RMM may not be tracking all the memory of the system at boot. Create
-> the necessary tracking state and GPTs within the RMM so that all boot
-> memory can be delegated to the RMM as needed during runtime.
-> 
-> Note: support is currently missing for SROs which means that if the RMM
-> needs memory donating this will fail (and render CCA unusable in Linux).
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+
+--zp44kxgb4fdxzvj5
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 3/5] can: flexcan: add NXP S32N79 SoC support
+MIME-Version: 1.0
+
+On 19.03.2026 10:40:30, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>
+> Add device data and compatible string for NXP S32N79 SoC.
+>
+> FlexCAN IP integration on S32N79 SoC uses two interrupts:
+> - one for mailboxes 0-127
+> - one for signaling bus errors and device state changes
+>
+> Co-developed-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+> Signed-off-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 > ---
-> New patch for v13
-> ---
->   arch/arm64/kvm/rmi.c | 89 ++++++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 89 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index 9590dff9a2c1..80aedc85e94a 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -4,6 +4,7 @@
->    */
->   
->   #include <linux/kvm_host.h>
-> +#include <linux/memblock.h>
->   
->   #include <asm/kvm_pgtable.h>
->   #include <asm/rmi_cmds.h>
-> @@ -56,6 +57,18 @@ static int rmi_check_version(void)
->   	return 0;
->   }
->   
-> +/*
-> + * These are the 'default' sizes when passing 0 as the tracking_region_size.
+>  drivers/net/can/flexcan/flexcan-core.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/fle=
+xcan/flexcan-core.c
+> index 1d5879510adc..0f8ad666df09 100644
+> --- a/drivers/net/can/flexcan/flexcan-core.c
+> +++ b/drivers/net/can/flexcan/flexcan-core.c
+> @@ -397,6 +397,15 @@ static const struct flexcan_devtype_data nxp_s32g2_d=
+evtype_data =3D {
+>  		FLEXCAN_QUIRK_SECONDARY_MB_IRQ,
+>  };
+>
+> +static const struct flexcan_devtype_data nxp_s32n_devtype_data =3D {
+> +	.quirks =3D FLEXCAN_QUIRK_DISABLE_RXFG | FLEXCAN_QUIRK_ENABLE_EACEN_RRS=
+ |
+> +		FLEXCAN_QUIRK_DISABLE_MECR | FLEXCAN_QUIRK_BROKEN_PERR_STATE |
+> +		FLEXCAN_QUIRK_USE_RX_MAILBOX | FLEXCAN_QUIRK_SUPPORT_FD |
+> +		FLEXCAN_QUIRK_SUPPORT_ECC | FLEXCAN_QUIRK_IRQ_BERR |
+> +		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX |
+> +		FLEXCAN_QUIRK_SUPPORT_RX_MAILBOX_RTR,
+> +};
+> +
 
-This is a little bit vague. Should we explicitly mention :
+Nitpick: please order the quirks by value.
 
-"For now we set the tracking_region_size to 0 for RMI_RMM_CONFIG_SET()"
+regards,
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-> + * TODO: Support other granule sizes
+--zp44kxgb4fdxzvj5
+Content-Type: application/pgp-signature; name="signature.asc"
 
-nit: s/granule/Tracking/
+-----BEGIN PGP SIGNATURE-----
 
-Suzuki
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCabvV+QAKCRDMOmT6rpmt
+0uAnAQD2OdX/4BlXLGM4qSBD4U7+9crfK3CKtuq+v4J8PcrQwQEAwMeSTPLSK8R+
+8tzTJh9XwYtjxPIjrPb+94ffBY8WagE=
+=90jS
+-----END PGP SIGNATURE-----
 
-
-> + */
-> +#ifdef CONFIG_PAGE_SIZE_4KB
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
-> +#elif defined(CONFIG_PAGE_SIZE_16KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
-> +#elif defined(CONFIG_PAGE_SIZE_64KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
-> +#endif
-> +
->   static int rmi_configure(void)
->   {
->   	struct rmm_config *config __free(free_page) = NULL;
-> @@ -95,6 +108,80 @@ static int rmi_configure(void)
->   	return 0;
->   }
->   
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +	start = ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
-> +	end = ALIGN(end, RMM_GRANULE_TRACKING_SIZE);
-> +
-> +	while (start < end) {
-> +		unsigned long ret, category, state;
-> +
-> +		ret = rmi_granule_tracking_get(start, &category, &state);
-> +		if (ret != RMI_SUCCESS ||
-> +		    state != RMI_TRACKING_FINE ||
-> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +			/* TODO: Set granule tracking in this case */
-> +			kvm_err("Granule tracking for region isn't fine/conventional: %llx",
-> +				start);
-> +			return -ENODEV;
-> +		}
-> +		start += RMM_GRANULE_TRACKING_SIZE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long rmi_l0gpt_size(void)
-> +{
-> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +				      rmm_feat_reg1));
-> +}
-> +
-> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
-> +{
-> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
-> +
-> +	start = ALIGN_DOWN(start, l0gpt_sz);
-> +	end = ALIGN(end, l0gpt_sz);
-> +
-> +	while (start < end) {
-> +		int ret = rmi_gpt_l1_create(start);
-> +
-> +		if (ret && ret != RMI_ERROR_GPT) {
-> +			/*
-> +			 * FIXME: Handle SRO so that memory can be donated for
-> +			 * the tables.
-> +			 */
-> +			kvm_err("GPT Level1 table missing for %llx\n", start);
-> +			return -ENOMEM;
-> +		}
-> +		start += l0gpt_sz;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_init_metadata(void)
-> +{
-> +	phys_addr_t start, end;
-> +	const struct memblock_region *r;
-> +
-> +	for_each_mem_region(r) {
-> +		int ret;
-> +
-> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
-> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
-> +		ret = rmi_verify_memory_tracking(start, end);
-> +		if (ret)
-> +			return ret;
-> +		ret = rmi_create_gpts(start, end);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int rmm_check_features(void)
->   {
->   	if (kvm_lpa2_is_enabled() && !rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
-> @@ -120,6 +207,8 @@ void kvm_init_rmi(void)
->   		return;
->   	if (rmi_configure())
->   		return;
-> +	if (rmi_init_metadata())
-> +		return;
->   
->   	/* Future patch will enable static branch kvm_rmi_is_available */
->   }
-
+--zp44kxgb4fdxzvj5--
 
