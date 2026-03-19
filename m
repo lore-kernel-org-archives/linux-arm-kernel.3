@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE7D1091901
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9E91091901
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Onzzq7oy1lftP7IkujFnMbCJMSMTPD9HBxhnZj7Sc5E=; b=plo87HhzRbXbyZ
-	ml/NQ/LMVzhkTlBjc4SghwAP0axCIgdpxCa/AWKJo4iU6ehzd6hakjDugnLx7kVhoQz9kHgBgPbCv
-	lZAvBp60LYJm5VcM3/HWBskjHIMxSFPq/finxfjnPc5J5EXKxM4yN3z9iG2/JY3ETQmzHlMp/hoQD
-	LCjwaGn8qDVXXYGX31Jk+CTj0hxdE1LJqX/SCdWGUNz1LVfn9kXj6XieC9cTNlNaWAealWgMlkOS8
-	uUQh/lTIrbIqLRCeKI5T+qTGIJVSJPiUO6tS36tZoiPl8cyZ1pxULlP+s/yjw+r7V2Wz2m56BqQQI
-	Am+/iv/h8m+ON/W/I6OQ==;
+	List-Owner; bh=lUs1LFiocDSLJFYRCglr5yRLcWXadIjMCj6syvM+x6Y=; b=UVhGHIqdk9Pkof
+	/Co0lfljR9Nb8xGv4E/KaofIihP756DBQbUXYl1dbbbv6G0IaPkDT7tbJTNbjkoKYujPG6G5Mi8E4
+	IaDg6bcQW9gzRF7jvoFaBkofCHEJ7Xz1kzOo3v52wDhKWKokGmnCEbOuxVrKfqUSqP6/AZwTtzaDV
+	k5E7YqYqpphWuCLeufruMwz3G5Nw1HiY9J2KArrCJap6AN2LxdTNdRiG/ICURJq0iV6K5RTM/4DWl
+	BGNYgP78izDF+GYE845S3GkSfM4IkZXMYy8VBVod2K52Gds6aWkXVL8n5QD0Lak4A2+1l7XgM+BoL
+	scuswinobdoLEL9dUf0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3HOM-0000000BEQn-0JbU;
-	Thu, 19 Mar 2026 17:42:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3HPS-0000000BEbo-2rxX;
+	Thu, 19 Mar 2026 17:43:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3HOL-0000000BEQN-0gFf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Mar 2026 17:42:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=Onzzq7oy1lftP7IkujFnMbCJMSMTPD9HBxhnZj7Sc5E=; b=cUsjFxzd4WQCoz29QxUmpzAqrL
-	QkYwT/etNGniqxhAIupzQbtrSgK7KaXhMocYJ6ERakixvJUdXUsb+tpTMGM20dOhJzcIFeDjmWTBA
-	MpuICH/20nTvEujupB5SgICb9/DYhoheAsLTzMOAacJMLq5X3Y9Gb4yySKF/a28/h9NOZljihGYgI
-	pvA1EQTP28Apv3CycyTAK7gsAikQx7Iv4JXls8KFjvEFdQh65HRQeeehOxK8By/e5IXSuwyBa5QRM
-	owWY4czxpevIHG21uwr7GIKu6at0ArUiLBfDviUi/Cd3UamwW/XKIWb9iIn6p09m46zAqC8EoHLmI
-	bHpsXdkw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3HOI-0000000E8kL-0SLO
+	id 1w3HPR-0000000BEbh-1qp4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 17:42:39 +0000
+	Thu, 19 Mar 2026 17:43:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19D5943A62
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDDD0C19424
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:42:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A8A3460097
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:43:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C10C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773942154;
-	bh=Onzzq7oy1lftP7IkujFnMbCJMSMTPD9HBxhnZj7Sc5E=;
+	s=k20201202; t=1773942228;
+	bh=lUs1LFiocDSLJFYRCglr5yRLcWXadIjMCj6syvM+x6Y=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=k8RCdVqFhBOGyF7c4rIFijTXollYxB5aVkzCF4SFduX+XgyRXWggF8Bz9x+59Y7BI
-	 ZuClGhKkrLEJP5mv/IZ/vgufDxz4SNe22m+8sbkSL/Z5aBaC5ItNnkM/b4owV/L7sp
-	 3TdihfzVecDaA+vEDojIh0LZTk0eKfFDj/kqBcFneH2Ib/YpPOJmzhuE5jJoQMJ8br
-	 PVmSwTWjC/4pmykPZoH5sKlNiaWkJIhD9asubARIM0pq/7IVo4wfkWvHsiw0d/WSN5
-	 fsquXVjG5cEUu5ArLVWx6DkeNSRMcFpUBTcczaN7+iXxjSP3fHYiKNMoKo4H1coTzE
-	 pMi3kbgYm9EBA==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-38a32d36396so10655891fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 10:42:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW+wzoCx/axhF3j4AJ14iJx9ma+Avhlnt7g8gAtT1Mdl6KfDxd1r/TE9pO3WGV9VQ1jfmw+Y0qCNnssCR+nAjWs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4yLRIJIzkA68RqfTAxtkD67/dBRg7UP+0seTrVWlBNkBSA84k
-	qUVfc06VhUK1SWZXrPQVs8XnI6z4ExbLHYwdHmg9/GibFG9QDIqKZnvQvaHzef56+WBvJReoJ5j
-	AAgMMDz71IxlbCqK9iPiJ9RCiB8jwIic=
-X-Received: by 2002:a2e:a9a6:0:b0:38b:f0f0:e39b with SMTP id
- 38308e7fff4ca-38bf9dcfffamr543791fa.10.1773942152347; Thu, 19 Mar 2026
- 10:42:32 -0700 (PDT)
+	b=dVX6estHJo9qPEoIG21q8FfHANwYkL1J7akZ4LRkOXESQ18e3UD5wT6Wfbjy26kGT
+	 2eXRjI3il2ZuPBAjJuFiV8/ImRqXO5TLF8hjfgP5k/It9hJdMJthKJfYtmZJsJ1CXa
+	 feawkEs0x5DyrSizEecKYFMF36E/H0+QLDqywt15cmAggWXvIyasrE8yesptcCuOem
+	 8quWgY97Jl7SCEeM9i8RZ65I1b0f8A+HT2733Ve/w/Zv7LARKyT107ytlN0qUAE34Q
+	 rfiOP1dJZf1VDnnGFU8ZrmWLtDQ7n5hbuLvFeimMzX0l5bVo+csnECGqsWMSJJB8qI
+	 U5+61m89iluSw==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3870778358aso7017511fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 10:43:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXpIR20hiW60v2VoEgLhOUGmUMMTPpZ/5fI2V/NG4koNCVCAD9S2avy2ya6Hx+ZDgKuuHJzmqAON690f8AZyHOO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsMB3vY3O5HWp1uelHQof+MwhTTwtl27cg1wvy9a/ULKhwW0b7
+	cfv631gn9VqGFJQZIjDFycaALCosXdyn3QULsyBmo8Uy0j2jSjKLmjNj9F7gcdwAu3zqqNgAZTs
+	9/ooNFMjDfUKpAralB+9NILEia1PUkmc=
+X-Received: by 2002:a2e:878d:0:b0:38a:a77a:b0b2 with SMTP id
+ 38308e7fff4ca-38bf9736bf0mr900671fa.30.1773942226753; Thu, 19 Mar 2026
+ 10:43:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260319-rc2-boot-hang-v5-0-092834a882b1@mmpsystems.pl> <20260319-rc2-boot-hang-v5-1-092834a882b1@mmpsystems.pl>
-In-Reply-To: <20260319-rc2-boot-hang-v5-1-092834a882b1@mmpsystems.pl>
+References: <20260319-rc2-boot-hang-v5-0-092834a882b1@mmpsystems.pl> <20260319-rc2-boot-hang-v5-2-092834a882b1@mmpsystems.pl>
+In-Reply-To: <20260319-rc2-boot-hang-v5-2-092834a882b1@mmpsystems.pl>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Fri, 20 Mar 2026 01:42:18 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64BTnUO-iR9G4b1PsX6TB4+Q_a0Tm+sj1dhFJ6a06iJkw@mail.gmail.com>
-X-Gm-Features: AaiRm51RH75lnRJn_EBMohEogUERC_EJc127jS4qWxRj9yZmVAMa-2MWjYOn-TI
-Message-ID: <CAGb2v64BTnUO-iR9G4b1PsX6TB4+Q_a0Tm+sj1dhFJ6a06iJkw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] pinctrl: sunxi: pass down flags to pinctrl routines
-To: michal.piekos@mmpsystems.pl
+Date: Fri, 20 Mar 2026 01:43:34 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65E0ySMbRadvDLFk4rDT0=GVzZxSbxj9dxsu2m+TBwbdA@mail.gmail.com>
+X-Gm-Features: AaiRm51XS9DJV3maNeIBiCDDt1obC7vcOgUI0Asztz0Dh1s9NssQ_vC8bOgjeY8
+Message-ID: <CAGb2v65E0ySMbRadvDLFk4rDT0=GVzZxSbxj9dxsu2m+TBwbdA@mail.gmail.com>
+Subject: Re: [PATCH v5 2/2] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
 Cc: Linus Walleij <linusw@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
 	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_174238_419321_CC2A5E21 
-X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +83,23 @@ Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 1:19=E2=80=AFAM <michal.piekos@mmpsystems.pl> wrote=
-:
+On Fri, Mar 20, 2026 at 1:19=E2=80=AFAM Michal Piekos
+<michal.piekos@mmpsystems.pl> wrote:
 >
-> From: Andre Przywara <andre.przywara@arm.com>
+> Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
 >
-> Recent changes in the Allwinner pinctrl/GPIO IP made us add some quirks,
-> which the new SoCs (A523 family) need to use. We now have a comfortable
-> "flags" field on the per-SoC setup side, to tag those quirks we need, but
-> were translating those flag bits into specific fields for runtime use, in
-> the init routine.
-> Now the newest Allwinner GPIO IP adds even more quirks and exceptions,
-> some of a boolean nature.
-> To avoid inventing various new boolean flags for the runtime struct
-> sunxi_pinctrl, let's just directly pass on the flags variable used by the
-> setup code, so runtime can check for those various quirk bits directly.
+> The issue is caused by gpiochip_lock_as_irq() which is failing when gpio
+> is in uninitialized state.
 >
-> Rename the "variant" member to "flags", and directly copy the value from
-> the setup code into there. Move the variant masking from the init
-> routine to the functions which actually use the "variant" value.
+> Solution is to set pinmux to GPIO INPUT in
+> sunxi_pinctrl_irq_request_resources() if it wasn't initialized
+> earlier.
 >
-> This mostly paves the way for the new A733 IP generation, which needs
-> more quirks to be checked at runtime.
+> Tested on Orange Pi Zero 3.
 >
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Fixes: 01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()=
+")
 > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 
 Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-
-Please carry tags forward if the patch is unchanged.
 
