@@ -4,144 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79FB51091912
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7AB1091912
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpPhl71vfNUCdaYAzlZ1a+wBsEryyjw7mdDbj/G/rB0=; b=ORtBTXZnBzTCTO0CeodanySKH0
-	JhvmrH16YaSW7Bb+MvnGmy1mnFzV66CblQrKuVaHEN1NmL2WD/KEeabtFSzXce1+7ENH/6WMbzzKa
-	hntm3xEHLPZWFT1daJzvGChx5rNAa2Yda/VQP4WxiCcoPwhhfiCZrvioPNdWA+R1sOZR7LLbu4uhQ
-	X1zrwEgci6S/KZGa7Z8HpqwmjQh/sRXeBqM4UNACrC45DwSPATkhvBtO0+z9TBjJZCfrJzIlrmF0A
-	EkiXUfrmidhJqIsmv03aIU0xa5Estrks9Sy9SaS8QybibRoSl+vQLOEHjhQrk8uuKXKTG0aiKMp39
-	RcVpFcZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lXgUNM1WqEBSYH5OPYMq15YhS42Y7xl69pcLMba5WGA=; b=D4O/n/8uE+8eFaHKh69Mdslo1i
+	DETHvSUboW/ZGJ0bZebJsDiCXUXMAeDwC3glzutelMZJQAZvOtLZ9/87aKPg7x0flMVAqKcUr49lz
+	3pel6hX/nwZYUbCOQJpi9w/3n3pklGm3cWofLDm1isyew3dE1BQNDj928Th037kW5VaICL6uffYR8
+	DVDOAlzzEwwTt83gnWFANxVN6LDpEouEc/SnW9A1AjZzMPUKJUkrdqHIlZAybm92dsiTB5BklTLSW
+	CxcvNKnrMWjGl0pdHX2v/BZHJxz+swQOjSFLhYGKt46jVtXLbrX7+5Phs/iCIsiZxDV0U5QXz/TcX
+	LeehPxNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3JpW-0000000BWPS-0tVm;
-	Thu, 19 Mar 2026 20:18:54 +0000
-Received: from mail-westcentralusazon11010018.outbound.protection.outlook.com ([40.93.198.18] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1w3Jtf-0000000BWg0-3z8C;
+	Thu, 19 Mar 2026 20:23:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3JpT-0000000BWOv-0kgN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 20:18:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W/2UeCX3IPXq4/HNdXT40x6p7S0K80ps7ZixHgeRJjLdfYCgqoaU3/s5mt3/ECY3oWIwrlFJFj2Nud4tgITd1wLgzKlALhpVoIshyJIwMXEyyYr8P2XhGaDiuqljJ8Tjkt21VkI/BYKmomT+wiNAi2WvpAefqvqIvqQVljEp5iiEF3VhnMsIgGwid19OkHyRKhqaNU8prpFVFXyJeLx9bXaY6pg8LfVGO62FLJYkT7tZSeqknElwbD0dGwQ4HOCHTTMMDeNHmMEvbw9jpdbjCeiXoSmo2nQBLXD4l4im0uMFG3n6Eh5Lc1x4raV0sxDMzOJyeMLNTmZofAhtdr2DyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dYIqy4oX12FQnh7j38QB3ANTstWWixTCrYuos4D+GYo=;
- b=CUrb+6xiz2AX3LyerZE/JurgE4DKMoKpDj+5+roO8vYNQnHSnWd/W3wVonRKxtRwPmTycpj6F5nRtpzLX6+b9LlrqW+9pO7i1rirCwFmd1IelazvqSnlmMreC0mWFddnSuCtCLi7/POtWetoFXFW+ODqjO5ZMuBmhp3tBbJaIykBLOL+/USwheL+quTecdhkxFape2ACDeRdTAsHApb8IkZMVKXzH9SVBeXn8g9v2H3vxv6McX/2BjXN0lIwI2B4r5lT0+Gxsv+pBGv17itjQiNJdpDBjrDIAZ0zRhNP9Z8VsaYJKsPpimhL/LkwgxJF7GfWT4Dv9mDWyh3xjzpg0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dYIqy4oX12FQnh7j38QB3ANTstWWixTCrYuos4D+GYo=;
- b=nX5aheu+3vhO6J4GXqda0hsRLxcC88sNGrLiIwX+lut0I/cSStpRzX7796lxHa/dRsU9nQz0XlWwt6B6AWrP4raPZJbqU/jZ3Dn64DaPAuxBMTSw4SyR3uRM7AT1ky/yB0MCEZDhtYDmhkE1sJL4MYWmvriDYpQ/8raolp7TvdGPGfBt8NfHzXjqsKUMHcmwAP0zyroAupemKlcGGu0Feym706DBCnqqJ+Z1IrKGR444cCElLURZBkCFT3hEoq4u18qW/wG5CkGp8r+aLlcIDYc2Z6nsKWiwzNTND8QlDVQRoVS+hXk0JBAt0o5bVnmBFl1GvZdcHC+y4hIMxMWd3g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH0PR12MB8800.namprd12.prod.outlook.com (2603:10b6:510:26f::12)
- by PH7PR12MB5654.namprd12.prod.outlook.com (2603:10b6:510:137::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.7; Thu, 19 Mar
- 2026 20:18:42 +0000
-Received: from PH0PR12MB8800.namprd12.prod.outlook.com
- ([fe80::f79d:ddc5:2ad7:762d]) by PH0PR12MB8800.namprd12.prod.outlook.com
- ([fe80::f79d:ddc5:2ad7:762d%4]) with mapi id 15.20.9745.007; Thu, 19 Mar 2026
- 20:18:42 +0000
-Date: Thu, 19 Mar 2026 16:18:40 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Russ Weight <russ.weight@linux.dev>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
-	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
-	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
-Cc: Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH RESEND 0/5] bitmap: cleanup bitmaps printing
-Message-ID: <abxaIMi55N4X9JWz@yury>
-References: <20260303200842.124996-1-ynorov@nvidia.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260303200842.124996-1-ynorov@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0898.namprd03.prod.outlook.com
- (2603:10b6:408:13c::33) To PH0PR12MB8800.namprd12.prod.outlook.com
- (2603:10b6:510:26f::12)
+	id 1w3Jtd-0000000BWfX-2atY;
+	Thu, 19 Mar 2026 20:23:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773951786;
+	bh=lXgUNM1WqEBSYH5OPYMq15YhS42Y7xl69pcLMba5WGA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=pNcVqhTR1pAtk+qbMl4ay6KjAzaHftLZF5YUQxD9omsBpHQ9a4M/uDFWQfg3F9rpn
+	 pr+jBtHZLvESYB/2JiTtMM1UXGAMOugnZkT1GFnrMPqGojl+G6k0WzIUa6YBUelmlo
+	 9sdTyvUifG5xwkoprK7nX3PezKmcU2KoCPv0sLRGGdN7DugxgPxVMVTscPt3XvsoAT
+	 R639Hc53QY2QyBMhptm/ecaBYqgdnJAY5901IoYzioW18ielWKTPjqy5wMQg8w4yBg
+	 Bij3TqoZfuwf4D/MYUWmkSmnh1oijwC7H4K+JxslBQoaAS5SKDElIe6D6HuZoiFCXs
+	 ylP+rOAyYdI0g==
+Received: from [IPv6:2606:6d00:11:b76d::5ac] (unknown [IPv6:2606:6d00:11:b76d::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7689D17E0D91;
+	Thu, 19 Mar 2026 21:23:04 +0100 (CET)
+Message-ID: <8416ef57d9a8f40fabe3f759d5a25ed6aa9787fc.camel@collabora.com>
+Subject: Re: [PATCH v5 0/6] Add support for MT8196 video encoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Irui Wang <irui.wang@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	wenst@chromium.org, angelogioacchino.delregno@collabora.com, Tiffany Lin	
+ <tiffany.lin@mediatek.com>, kyrie wu <kyrie.wu@mediatek.com>
+Cc: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng	
+ <maoguang.meng@mediatek.com>, Longfei Wang <longfei.wang@mediatek.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+ linux-media@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Thu, 19 Mar 2026 16:23:02 -0400
+In-Reply-To: <20260302035244.8994-1-irui.wang@mediatek.com>
+References: <20260302035244.8994-1-irui.wang@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-QrVUnf/onkkIhx/f124c"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR12MB8800:EE_|PH7PR12MB5654:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70d60a58-c56d-4ec1-9128-08de85f4b743
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|376014|1800799024|7416014|22082099003|56012099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: 9ifa+bS4ZAzVcx4Fn3fgUuloDXL/KkhYJSCC6KZ0SMR+KbXazkGiG38G82ua5lJ8GCq2/hCJnVA3Ys/7N5h+RX0TrVW7iPOZ4k/i5681gE2cZzlgJW3E5eZpUSMEe+m6dRvcNAFeGMhZxRSoGY5CeyHp8EPLOUTZAHo2kwuepheClRkfrHVa9WIOWr4JOkaag58yJABWtULPBign+4oYdJyQhTENy54CbmmbjPpbLheSXNsvWfw6eBHFD/6HSkAb//U3BuG4VWQBl9ctKgeCotlpOiKzoBkKKAOp8GHytCWHjfj8LWaN7peB8PrF2LBkkMgiMB0uvrvRD/NDqmtx0dFmwSUHaiehb/aXEU3l6ROhD2kpKNGYgsfSihDl0PD3wG+hWIWrnJFxSEraYnRiPlvT6GunGNDoXvRYbNucDw2cH0xaw44MmbUH4nkBX/9bFCT5X44Se5XeJZW84hSiKR0xjzGae/CTQMUJgeJe+csGXz93IcTgz5lVuhXUKmNETJTVAMIuVpiedeH3r1ZtMbWLLFO5Ptnz2FfzG9567oH2BdAmEXyqnz+4Tr97zMoJAUJZI3nJ4IbcOtEHZk7o8mBUqncH2WPejqQoC/fUTJClh+RfvgEHkwkf1+p58p9//+NxifQsGORC20WgYuK7mPHKmsVd/Q5973Wg0LociVt7fDoiwVrzpGkMI+Yo5QeiYOsovtnoKWurnSU76L5kfHqlKUE4cRXPfX//1uFlKDDFUMdkAxQfS+rj14x6Qhh4CDlDSmfZ/WXz5t6Zeht1IEBOou1ZcBBGLJVPvQ+wtsI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB8800.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(1800799024)(7416014)(22082099003)(56012099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?NnrKG/08hXdJeOA+4271JcCi2R4ynKNDZ0UixbTr3noodKh2ODpflZgn0J?=
- =?iso-8859-1?Q?bNZ0+P4aDTt1TGn/P1ZDlOQL9+uOZKaqlR4FJ/AsucvkzvsNOUWloP+RGl?=
- =?iso-8859-1?Q?7Ej3lUiGKlopUCzNizHengLerFVc60XxTbXVfEpH7Df5SzR5QOuwirGEMf?=
- =?iso-8859-1?Q?CD4UgXhUv8OBIovDw3Ga4lEOioTcTSdQn1mAKIimvsELSDKMDAsZ3IkQx+?=
- =?iso-8859-1?Q?ndtxuPJHAtDiDthYmUIW3MCI+cMwnv1Gdm+SOCjw3U2/3bNtkewWSaL0mj?=
- =?iso-8859-1?Q?9qZudmQZvv2gQV5Y5/thmyt203OtY4MIhFJvaSsUt9hQz6JEwrlZsSu1Yb?=
- =?iso-8859-1?Q?VwPcGkSAdfiAHrxbsu1aJprX1pqub6JIVovHaSY6KA5AMQWmnAY8KKtefE?=
- =?iso-8859-1?Q?VYfDVTIJ4xxPsxa7BuWRChXmVXbUbWiVJ6ABlA8JbQvWuNQHB7MNrsK7Nf?=
- =?iso-8859-1?Q?rPTlZVLPMM4jwq2Y7ekKozS2aai46BzmZunsmoxDQ7vFp9fRc9dlgtgqfP?=
- =?iso-8859-1?Q?Y1bY3/fv7GrHG3imr77F+uKsZxX+UpkVbsXjzR5bjLwBtCosZWHJZEbaxf?=
- =?iso-8859-1?Q?ajfCnttzzuEIs8Z9Q+ulfmC08oPtjNpWvM4Y1PUEXB8jvqq8pvpQ5sblNx?=
- =?iso-8859-1?Q?NWHUg0r7h3oQvbTmP2Ti1GAaHSam9LmnP4fItCLxVy0uw+6nNo6eS1hvgt?=
- =?iso-8859-1?Q?h0nOpW+V1blYxifKPMIY1ynLmWSYZ/Uw7v9eforPLVYrSFyh9DfVFa71h4?=
- =?iso-8859-1?Q?T7/lTtbQE0MCNoT1ZyoEz0BtX3FY8jY7Hm/gZSnJv7YopjOkBkBs6DPu94?=
- =?iso-8859-1?Q?WMMp7PVe4eBk2JagExbhRAGfGAXateD1MifjkzjA0FaAkXFKwA4NIYE+vN?=
- =?iso-8859-1?Q?B/xQ+P74d20rK3Mw+u5ZNrL5rEpVALGW3fB7IKvHfMNaTj4GxAtKxYB4i0?=
- =?iso-8859-1?Q?oN7jGk0UN/am1BX31dgBvu9AJP4hTPnCVrfVHZE43zND7MPuf6G9B/2lBs?=
- =?iso-8859-1?Q?NrgEizdacjWnRUlfyXy4XjLLmitZO3PPvPgCnw94SiZ/B2B7dbuoMzJ0nO?=
- =?iso-8859-1?Q?ksGc0JKWvrCXgVyslU1SlG6ynUpnhTa/oOyHVempRevosd9wkzlQMsLm+1?=
- =?iso-8859-1?Q?MuviN6/uGP0j8R01Rzs3AtEdVVJ+YNe+r3Rb9Y0pDQ64dkdqOckZ97VhHj?=
- =?iso-8859-1?Q?eandGLDMuHBj6zAPKSOmf00mal2hjbXqXtIpFLC3qyNdEeNAyzcsnpp4/F?=
- =?iso-8859-1?Q?8cb+4ox90D1z3WWZDv/nzAVQiKuQycrwnPVh/LOpKU7B6R2dAw7ri4zgrK?=
- =?iso-8859-1?Q?V26wSMhnhUuSzlm4Urmy+A/L7qRomPj8Ke8+/DUkHVy2Q9Pc9010lgkT2J?=
- =?iso-8859-1?Q?kFcHxlQTLfUP4MqDurNIZPv3dr6K1RxCKSjSLb/I3JAJpjdRmzNZxeIJdT?=
- =?iso-8859-1?Q?qzbcqzyvQkVwNTORsi7/Dc6uq/2Wjvbi+vslhBYLoX7C5pSjqOgoxm8TwA?=
- =?iso-8859-1?Q?TBjf9R66iVR8m+mWem4yOy3jYXNDJsLyk3NBISItQRp59jkiZ91eZSzKIl?=
- =?iso-8859-1?Q?sWXuQjk//yOUIkA6g3281t9KRQDim74MoarxLM085i/HkExvPB+qdP8KPd?=
- =?iso-8859-1?Q?0RDjiq8uI8DvGDZr3Sjf66Sq8raOkINHEZ/mgIwDX3qX7rJ3/1CZ9E/IwT?=
- =?iso-8859-1?Q?kMWaTMIewxyLVvipr+We3qBS+kxyVAmlqYTLBb1rB9tSdo3//vkM+LGU6W?=
- =?iso-8859-1?Q?xTUjeDraXFi36ALVZfA5UKa+vN0kzN3nAHYa0acKAR5TpSUpcNS3KctQaY?=
- =?iso-8859-1?Q?9obJf2cdS8P8ulhieXmP2IWdqADaS9prPbBbGSHH7Wau7ljm4z4q?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70d60a58-c56d-4ec1-9128-08de85f4b743
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB8800.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 20:18:42.7746
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: svT2XjmvScQEDr8DOM1F4UXulEhReJu08t33OfK/NaRFq1VQ0QHf0ooxDsQTJoPohpR4YcEk3yYu+ea5iUTOww==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_131851_221293_C71CF6EF 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260319_132310_049421_16167885 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,45 +96,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ping?
 
-On Tue, Mar 03, 2026 at 03:08:36PM -0500, Yury Norov wrote:
-> Bitmap API has a bitmap_print_to_pagebuf() function that is intended to
-> print bitmap into a human readable format, making sure that the output
-> string will not get big enough to cross the current page limit.
-> 
-> Some drivers use this function immediately before passing the result to
-> scnprintf() with no modification. This is useless because scnprintf(),
-> and helpers based on it like seq_pritf() and sysfs_emit(), take care of
-> not overflowing the buffer by itself, and perfectly print bitmaps with
-> "%*pb[l]".
-> 
-> This is a resend of non-networking part of [1]. Patches #3,5 switch from
-> plain scnprintf() to sysfs_emit(), as pointed out by Thomas Weißschuh.
-> 
-> [1] https://lore.kernel.org/all/20260219181407.290201-1-ynorov@nvidia.com/
-> 
-> The networking part, for reference:
-> 
-> https://lore.kernel.org/all/20260303185507.111841-1-ynorov@nvidia.com/
-> 
-> Each patch can be applied individually per corresponding subsystem.
-> 
-> Yury Norov (5):
->   powerpc/xive: simplify xive_spapr_debug_show()
->   thermal: intel: switch cpumask_get() to using
->     cpumask_print_to_pagebuf()
->   coresight: don't use bitmap_print_to_pagebuf()
->   lib/prime_numbers: drop temporary buffer in dump_primes()
->   fpga: m10bmc-sec: switch show_canceled_csk() to using sysfs_emit()
-> 
->  arch/powerpc/sysdev/xive/spapr.c              | 12 ++-----
->  drivers/fpga/intel-m10-bmc-sec-update.c       |  3 +-
->  .../hwtracing/coresight/coresight-cti-sysfs.c | 32 ++++++++-----------
->  drivers/thermal/intel/intel_powerclamp.c      |  3 +-
->  lib/math/tests/prime_numbers_kunit.c          |  6 ++--
->  5 files changed, 21 insertions(+), 35 deletions(-)
-> 
-> -- 
-> 2.43.0
+--=-QrVUnf/onkkIhx/f124c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Le lundi 02 mars 2026 =C3=A0 11:52 +0800, Irui Wang a =C3=A9crit=C2=A0:
+> This patch series add support for MT8196 video encoder.
+> patch 1~3: Add a new encoder driver interface for new VCP firmware.
+> patch 4: Add new encoder driver platform data.
+> patch 5: Add dt-bindings.
+> patch 6: Add compatible data.
+>=20
+> About adding new driver support, the v4l2-compliance report shows:
+> "Total for mtk-vcodec-enc device /dev/video3: 47, Succeeded: 46, Failed: =
+1, Warnings: 0"
+> The 1 Failed case is not caused by current patch set:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 fail: v4l2-test-controls.cpp(1171): node->codec_mask & S=
+TATEFUL_ENCODER
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 test VIDIOC_(UN)SUBSCRIBE_EVEN=
+T/DQEVENT: FAIL
+>=20
+> This patch set depends on "media: mediatek: vcodec: support video decoder=
+ in mt8196"[1]
+>=20
+> [1] https://patchwork.linuxtv.org/project/linux-media/list/?series=3D2171=
+8
+
+This set obviously does not apply as it has this dependency. The dependency=
+ had
+issues, and I just asked it to be rebased on the MT8189 series, which inclu=
+de
+the refactoring needed and common to both. Please coordinate, the faster I =
+get
+an update for MT8189, the faster these two MT8196 will be picked.
+
+regards,
+Nicolas
+
+>=20
+> Change in v5:
+> =C2=A0- Rewrite patch5 commit subject.
+> =C2=A0- Add else statement in patch5.
+> =C2=A0- Link to v4: https://patchwork.linuxtv.org/project/linux-media/lis=
+t/?series=3D21757
+>=20
+> Change in v4:
+> =C2=A0- Rework patch3 commit message.
+> =C2=A0- Rework patch5 commit with more details.
+> =C2=A0- Rebase patch onto decoder's patch set.
+> =C2=A0- Link to v3: https://patchwork.linuxtv.org/project/linux-media/cov=
+er/20250814085642.17343-1-kyrie.wu@mediatek.com/
+>=20
+> Change in v3:
+> =C2=A0- Add venc rc buffer alloc failure error handling.
+> =C2=A0- Add mediatek,vcp property definition in dt-bindning.
+>=20
+> Change in v2:
+> =C2=A0- Add support for VCP encode process.
+> =C2=A0- Add MT8196 encoder driver platform data.
+> =C2=A0- Rebase encoder patch onto decoder's patch set.
+> =C2=A0- Fix some review comments in v1.
+>=20
+> Irui Wang (6):
+> =C2=A0 media: mediatek: encoder: Add a new encoder driver interface
+> =C2=A0 media: mediatek: encoder: Add support for common firmware interfac=
+e
+> =C2=A0 media: mediatek: encoder: Add support for VCP encode process
+> =C2=A0 media: mediatek: encoder: Add a new platform data member
+> =C2=A0 media: dt-bindings: mediatek,vcodec-encoder: Add MT8196
+> =C2=A0 media: mediatek: encoder: Add MT8196 encoder compatible data
+>=20
+> =C2=A0.../media/mediatek,vcodec-encoder.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 22 +
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.c=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 19 +
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.h=C2=A0=C2=A0=C2=A0 |=C2=
+=A0=C2=A0 2 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_priv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_vcp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 6 +
+> =C2=A0.../platform/mediatek/vcodec/encoder/Makefile |=C2=A0=C2=A0 1 +
+> =C2=A0.../mediatek/vcodec/encoder/mtk_vcodec_enc.c=C2=A0 |=C2=A0 36 +-
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0 28 +
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0 15 +-
+> =C2=A0.../vcodec/encoder/venc/venc_common_if.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 683 ++++++++++++++++++
+> =C2=A0.../vcodec/encoder/venc/venc_h264_if.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 8 +-
+> =C2=A0.../mediatek/vcodec/encoder/venc_drv_if.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0=C2=A0 3 +-
+> =C2=A0.../mediatek/vcodec/encoder/venc_drv_if.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 11 +-
+> =C2=A0.../mediatek/vcodec/encoder/venc_ipi_msg.h=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 26 +
+> =C2=A0.../mediatek/vcodec/encoder/venc_vpu_if.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 47 +-
+> =C2=A015 files changed, 856 insertions(+), 52 deletions(-)
+> =C2=A0create mode 100644 drivers/media/platform/mediatek/vcodec/encoder/v=
+enc/venc_common_if.c
+
+--=-QrVUnf/onkkIhx/f124c
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxbJgAKCRDZQZRRKWBy
+9Ny3AP9I6hsSCVJlO+bf6OrzhNKjtfmLALku9xJh86MoZuZB7AEAr+WUUxTKphNL
+55+dMT8YC5gt6+wvoLENw7tP7DpAWgQ=
+=vWOZ
+-----END PGP SIGNATURE-----
+
+--=-QrVUnf/onkkIhx/f124c--
 
