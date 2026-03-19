@@ -4,88 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF421090255
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB431090254
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 17:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLgWT8C8WyAXKMWlPSNxb9PpcA2omde1Lwqe9wrrlfA=; b=HmUyjDKIh47GYb5pJq60BrMRs6
-	T1v3DlEJBvQ4uvGD9xxi6hmgoJHIH5IC87paFT7D2DrzSq5Xx8IL2RiDXJSBN0IXpTr8jPKPXwKhF
-	Bn6xr/CHIrt5+XyNcxhsBIo0iskAZHPQQ+pzPch+Mmi2dwNMbOiK/D5+mcMjiAofu8NiYva2zGlzZ
-	bQvp7PYVxBsZRa37T4EPn7gNV90NRnbmnijIeemWYt/XPoQPoZTpSGgbxxwYG45LFKG7zEjudKsQf
-	HI6wTm8NY3UVwqiPN7Pg3Phj86qmzGsOqoKlnQMGo4BqMYu0C58DMF+7CkYF13iWOQz563crflRJY
-	wzjfGcig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=; b=mwZjs7KPex3IGLuOzt5/4vIldB
+	B7cCII9Y7KbyhBudBH9QV3P9ta6R4W+EL4i8IF95KhjzQm9oXPixQK+E5SeWnViseXTeWXIanYUKs
+	RM8w/NDz/nEZldcsxJatdtGMb8JGtxS5M55hoxySnAZ/xXmZiVMGcHhp+SzWUKXOVev5UF33h3r+V
+	m+fB7n/mSW3atmc71UZ6+FSV6tRL718DZVVZQpAk7FBGRydTzwc43Dheghd0zsMUaSxSjfLOgbeP5
+	7eY63L8+8guhO6ZSVGEvEJsahsaRseaURuFa2S6QSeeFeFMZcCtkIwc+Fpe1FY1GsD05YPD/vtG6n
+	AbLF5eSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GfP-0000000B7rm-1hvZ;
-	Thu, 19 Mar 2026 16:56:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3Giz-0000000B8Mf-1LZq;
+	Thu, 19 Mar 2026 16:59:57 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GfN-0000000B7ov-0kEj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Mar 2026 16:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=SLgWT8C8WyAXKMWlPSNxb9PpcA2omde1Lwqe9wrrlfA=; b=QZCuCjnw8PTcJ15zhC6P/CyaIS
-	7aqRbgS6xOgqkRfoQQcN/JU4kdXffR6MJ3CKK/m3iWOnzzOo3s2GaM53r2hsCCDB3vb9uZZUp5XGy
-	AKD1DSTYfOg6gP9uLa1TjfRGI8pg6hOPKGV/oA/jiFYGbGUkJKMaJIMIHB8Xn7rrldnlj5D5DmXXT
-	1dh5CTS6ObcesEOwAm3zyIFAOZ/tzS2wJgUnSTfOtf9bF4nEwW6l4UIKVLOa3cj9DYtVn3KdIM+yx
-	UY6TLRNoNa+TNIaoIIgHF7MlruYqFYnuOyOG6eTRStorFO0YsS5mkKdpVQUzgYkGzcLGgKycMNdJ6
-	11JEoLKw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GfJ-0000000E1ho-3V8P
+	id 1w3Giw-0000000B8Lr-3kwi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:56:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2F791A25;
-	Thu, 19 Mar 2026 09:55:59 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C7BAA3F7BD;
-	Thu, 19 Mar 2026 09:56:02 -0700 (PDT)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	zengheng4@huawei.com
-Subject: [RFC PATCH v2 4/5] arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()
-Date: Thu, 19 Mar 2026 16:55:39 +0000
-Message-ID: <20260319165540.381410-5-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260319165540.381410-1-ben.horgan@arm.com>
-References: <20260319165540.381410-1-ben.horgan@arm.com>
+	Thu, 19 Mar 2026 16:59:56 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a27c021b58so1272160e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 09:59:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773939592; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Aiw4fNs6gf6EglKt3LFFVScfEK4i1sZazzJE9tGU9AhTKXR+dviiH7SoliHgeWswrU
+         aY1u3fQLF1Nm+l4BCcsA2Sr5vPAvJscWOBjXNs2McWmE6cnJc/ih5HEfZfUfYwFFgryF
+         Fa7aXZCVzWVQOcopLJpAF1bshX4BMZNould0vubAq0PK8ln0Zax5QeaeP7VqDeJm0ET6
+         q866nJazYdhDp1sCDg1M/2+oKU6NaIQoyp1ofqO9ctBC1GY+yIDqebYXAjmX5kfywBKH
+         mWczu73CvMYu7uDZTJzIsuYETB2Dsshzk9X3kEuJPoGvXenSv2cxGpcoFsT25Ag+hASG
+         lMNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
+        fh=SDEupT0FAYktRcMowbBMLobdWmHPUCNMgEQsTko2CRk=;
+        b=NTHJg67IFTWsAGC3e7juRhxwyBGMBZVngYqBVWsH4rbfAPcXikKiyENS4hZ8Q8vUN/
+         eBQEsT849hWsQ799B6SFpavk3Psnbs4mVoVos92jDSIlP/jHu7GacLX7uYCLQBRPw55j
+         ELRCBgamQ44DAQSwmIjQ3mTyuYIDTZwsU6uLBKRttoGNZagg6G6lGgM2dRyYQzYzFPng
+         fHdngPVny7ZvIAId3ENYCLYxl0yGM3X055f4fEhpGB1sOg09jDZaxZKYkk8FVfwOgmll
+         hPKB4XD/Atx6499Ydp6lxV9hG1fTJ4/tPVichFcVQbO1UVUTeOYS0BpfN6MixwhqDmNU
+         EAvg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773939592; x=1774544392; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
+        b=ausBzk5EPNWOCXA/2PE5dKqnhETPqrst+2h7La1HkBSxR8lZlPRBUOXVIfHxPQKlOs
+         0kDsn7o1PBfmfQswGLCI8d+W95IxeTAFVdx4k3shYHbI5deenYYJta2O7PRKutfoQLAu
+         720ivN4opBSPtsWh+kVQ0swhr1O2bn+LxeVzy9GpPirrt85SAEdZyHYCCyodFj9Q3Vto
+         S1CERTHSoNtAboufuacFPnsDc4UyrBu9tUiX3E9915KmXqMPk8dKzHnhevbalnCqatTR
+         MSxSYitsnztutQFyUYKRVxtdfrh6C0x2EwQF+nIcw+hxZrO+lFmDBVDc2ewAndLvg7SP
+         sFOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773939592; x=1774544392;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=27yAPs+HhqFzoHuJl01kUQFhB7PF3j6LuIGuksYyV+o=;
+        b=bcpjTbxEqJjjqofF4t2ERWXJH+jHb7D4KPJ812rOzSNm8JcpyMPjnOGzldcAVYNbHD
+         dzVSzFvQ8xL+pkpT0UlMJefJUU0d21YD000VxKOLGN5+7E2u8MqYoyMultdeaML6weue
+         7OhqNCqb7vqID4PoHNxssp6QKgyeL5dV/syPIqj2vxISqSiM8HGzrmw75rH068GfZUgX
+         W8liP30+5UX7fOFU26JJzSL/4yKBUxQthT3ewAbhH/xikixo7B/yAcPEBW6su15G4Afa
+         6k+oN4sh5BEOByByULrLkfUvfOAIbbU9Lzp7JPck7zkMcfq74XiORCJ6/rmq3HwokPQr
+         ObMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUSRaDv2IQRfBflCWh8rVgFi0IQmXLwQibHNrAfL2yKbZDu1FJbMNcVqeinXfRa0COjhwF6sgAE0ooot4Qtyq1P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi/PGJj3dy3yUL+F9km8qvbxTyEzRxmepkxaerJFKZYnAJJWkb
+	Y8qMVPkXCg3MjVFdc5EmOBdbxDjT8NXh7ySXJQNvVTOXoQ3aLKEJJA4GCt0s2g/+hyEcyKUXrl4
+	2aNu2xxxqsO48LT9OIn/UElwKBDYGM/+ihw+NHSgkcw==
+X-Gm-Gg: ATEYQzxTrWQdz2ubDJg8rQFJGgz4H7GuDP6o1yP69pxYELJYlK9fnXHxNxFn6Df3Zxv
+	2rovAb+x6oAcDf2GxlRTiF4DqiVVtkF+WU+s0mohz4qGmYSIr8tua6YmkHJNG9Xpq2MpUoRlXLH
+	NWT654NIEqS9r4WCTsjDjXSUksOeoRJb0m8xPNIdPF/wSXB0rpWKljGDAjwEvwk0TdOKNl38mr7
+	nEzsjn8HTs8HSGdN7EPMq+Jopm64GS8JBiHl88kwE2+dMQ0uiUVa5EsqCyIS01swA3ijYXxUSQt
+	nD1ogNl4
+X-Received: by 2002:a05:6512:3d10:b0:5a2:7e83:32ff with SMTP id
+ 2adb3069b0e04-5a27e833888mr1478227e87.31.1773939592231; Thu, 19 Mar 2026
+ 09:59:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260303132305.438657-1-ulf.hansson@linaro.org>
+In-Reply-To: <20260303132305.438657-1-ulf.hansson@linaro.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 19 Mar 2026 17:59:14 +0100
+X-Gm-Features: AaiRm51ZTbjGFpP143fXcYxyckRNNuh4DLi9mrrTmtm7zrisbOS504AGBpxTqGc
+Message-ID: <CAPDyKFr25L0Omm_uCjZp03_ptnrKR_P2p3e3qxDeUoFFKJg3bQ@mail.gmail.com>
+Subject: Re: [PATCH 0/9] driver core / pmdomain: Add support for fined grained sync_state
+To: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org
+Cc: Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_165610_225698_AD49308C 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260319_095954_990347_A37207B6 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,150 +121,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+>
+> Since the introduction [1] of the common sync_state support for pmdomains
+> (genpd), we have encountered a lot of various interesting problems. In most
+> cases the new behaviour of genpd triggered some weird platform specific bugs.
+>
+> That said, in LPC in Tokyo me and Saravana hosted a session to walk through the
+> remaining limitations that we have found for genpd's sync state support. In
+> particular, we discussed the problems we have for the so-called onecell power
+> domain providers, where a single provider typically provides multiple
+> independent power domains, all with their own set of consumers.
+>
+> In these cases, the generic sync_state mechanism with fw_devlink isn't fine
+> grained enough, as we end up waiting for all consumers for all power domains
+> before the ->sync_callback gets called for the supplier/provider. In other
+> words, we may end up keeping unused power domains powered-on, for no good
+> reasons.
+>
+> The series intends to fix this problem. Please have a look at the commit
+> messages for more details.
+>
+> Please help review and test!
 
-When used in 'mbm_event' mode, ABMC emulation, resctrl uses arch hooks to
-read and reset the memory bandwidth utilization (MBWU) counters.
+Saravana, Rafael, Greg - any concerns you see with this approach?
 
-Add these.
+Especially I need your confirmation for patch 1 and patch2.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes since rfc v1:
-Move __reset_mon() and reset_mon_cdp_safe() helpers here
-support mbwu in __read_mon()
-Mention mbm_event mode in commit message
----
- drivers/resctrl/mpam_resctrl.c | 99 +++++++++++++++++++++++++++++-----
- 1 file changed, 86 insertions(+), 13 deletions(-)
+Kind regards
+Uffe
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 4f49483f6445..9f6f0091f356 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -121,19 +121,6 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- {
- }
- 
--void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			     u32 closid, u32 rmid, int cntr_id,
--			     enum resctrl_event_id eventid)
--{
--}
--
--int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			   u32 unused, u32 rmid, int cntr_id,
--			   enum resctrl_event_id eventid, u64 *val)
--{
--	return -EOPNOTSUPP;
--}
--
- bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
- {
- 	return (r == &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res);
-@@ -459,6 +446,14 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
- 	/* Shift closid to account for CDP */
- 	closid = resctrl_get_config_index(closid, cdp_type);
- 
-+	if (mon_idx == USE_PRE_ALLOCATED) {
-+		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
-+
-+		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
-+		if (mon_idx == -1)
-+			return -ENOENT;
-+	}
-+
- 	if (irqs_disabled()) {
- 		/* Check if we can access this domain without an IPI */
- 		return -EIO;
-@@ -531,6 +526,84 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 				 closid, rmid, val);
- }
- 
-+/* MBWU counters when in ABMC mode */
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			   u32 closid, u32 rmid, int mon_idx,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+
-+	if (!mpam_is_enabled())
-+		return -EINVAL;
-+
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return -EINVAL;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu, mon_idx,
-+				 closid, rmid, val);
-+}
-+
-+static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+			int mon_idx,
-+			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
-+{
-+	struct mon_cfg cfg = { };
-+
-+	if (!mpam_is_enabled())
-+		return;
-+
-+	/* Shift closid to account for CDP */
-+	closid = resctrl_get_config_index(closid, cdp_type);
-+
-+	if (mon_idx == USE_PRE_ALLOCATED) {
-+		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
-+
-+		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
-+	}
-+
-+	if (mon_idx == -1)
-+		return;
-+	cfg.mon = mon_idx;
-+	mpam_msmon_reset_mbwu(mon_comp, &cfg);
-+}
-+
-+static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+			       int mon_idx, u32 closid, u32 rmid)
-+{
-+	if (cdp_enabled) {
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
-+	} else {
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
-+	}
-+}
-+
-+/* Reset an assigned counter */
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 closid, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
-+{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+
-+	if (!mpam_is_enabled())
-+		return;
-+
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-+}
-+
- /*
-  * The rmid realloc threshold should be for the smallest cache exposed to
-  * resctrl.
--- 
-2.43.0
 
+>
+> Kind regards
+> Ulf Hansson
+>
+> [1]
+> https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
+>
+>
+> Ulf Hansson (9):
+>   driver core: Enable suppliers to implement fine grained sync_state
+>     support
+>   driver core: Add dev_set_drv_queue_sync_state()
+>   pmdomain: core: Move genpd_get_from_provider()
+>   pmdomain: core: Add initial fine grained sync_state support
+>   pmdomain: core: Extend fine grained sync_state to more onecell
+>     providers
+>   pmdomain: core: Export a common function for ->queue_sync_state()
+>   pmdomain: renesas: rcar-gen4-sysc: Drop GENPD_FLAG_NO_STAY_ON
+>   pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
+>   pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
+>
+>  drivers/base/core.c                       |   7 +-
+>  drivers/pmdomain/core.c                   | 208 ++++++++++++++++++----
+>  drivers/pmdomain/renesas/rcar-gen4-sysc.c |   1 -
+>  drivers/pmdomain/renesas/rcar-sysc.c      |   1 -
+>  drivers/pmdomain/renesas/rmobile-sysc.c   |   3 +-
+>  include/linux/device.h                    |  12 ++
+>  include/linux/device/driver.h             |   7 +
+>  include/linux/pm_domain.h                 |   3 +
+>  8 files changed, 200 insertions(+), 42 deletions(-)
+>
+> --
+> 2.43.0
+>
 
