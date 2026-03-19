@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFE31090233
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1E01090233
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kfSXr4urRrjcj/S/mrZbqRGT5j7GhC0125qWzQv+Krs=; b=s/vkD9FrLzjkKrfNS+e7FbgMnQ
-	3ocd8WbDLQTzoaOGtXMQP0/txhBGPW9EjMKf6sCMUnGFIRUIl6HYYZKRWzcMccax35MMOGUcmga0I
-	oEKzRlEhhrLSQdFydpa6L9tLyMp8O3TY/NJ3E6JT+f1wUR6HYCw/2zzo95Q2f9gcSPFZW72zLL92C
-	7dgxYILwxctv9bBYXw36LDP7j0JmfOrvZqu7svt9QVLO/xox85KKZ3qfgPvJPoWgFVj41MlJfbeJc
-	NWg2jGbuuutFbJTTxh3vMwzzHejCuhjlDbxc4/5jikVo3EXAH8+3qSQi0PxgUlMquDn5shXDyxLwj
-	iJVqzMHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KeNjfj/LpvbccEUPQ7WMLYgOxZOBhYnhu+wpfuHYq6E=; b=2vlFqGsNuMIqG1372o5ITC/b0C
+	KE7XVDKdW7pDFIDwMqz5rmKHDwGHgj2+08jSuw8iUMnGk2j+0QTZttHgAFoOhAVnFej4jOv5iPKR+
+	sVhWpX+410n6kH0N0nAOUPg6XeU0pRhC7/kfR9PVfWGbNQ4t6EdkyIwEiwpkQqnk/aUBXTRijGh6n
+	KMkfTidEGj82Nd9xHYG6k/Osr9zyBYTBe+pav5pvDuxGZ91w/mXq8cWJDWi9OU+YtJx2eChMuz0Yk
+	FdqzVOFFkvoGykksDHIfcF9xZA1hbj+aenZHXs6mAjPBIISlXZRdSd8+2h7goi3BxYLhY/khOR/pf
+	j+bCynvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EFE-0000000AmVU-28mD;
-	Thu, 19 Mar 2026 14:21:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3EI3-0000000Amzz-0Eh6;
+	Thu, 19 Mar 2026 14:23:59 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EFD-0000000AmTj-2UCl;
-	Thu, 19 Mar 2026 14:21:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06DE260054;
-	Thu, 19 Mar 2026 14:21:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E157C19424;
-	Thu, 19 Mar 2026 14:20:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773930062;
-	bh=hloQh1pJoXmEXMOlDUXK84ib0nwYZGczcXxlM+VCi2k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MRcM9xy67Fted5xe37sVxp3BmyygXrtfYkz5/iutI0Xh1wW8POLhKiNYc7CLq5IG0
-	 P+GSBCqz9kM8/7Od0B6KytgitXAJ7Zyqwn7ebBlIFSTlHRGIJn+VnWHhEeSX6VtMX1
-	 5FPxCVVE1JP1OIJSCGs1nIk9yrRFmXBCHOL1AshTFbmU3neog5MQ1gTe/zPJOpZr97
-	 vARSX45iEnijjaIuarm4PLvKi8UcHylPi5lk/T7f9QrT63vNBpTJQUtQiK8vpZ0JcE
-	 sQqUfbqG+6w1VOGr336sjvrPQcFlGKNBcua4fZ+FR8vD6IXSsmyOkb4oT31wV/PmJI
-	 h31d3KgoEfAxg==
-Date: Thu, 19 Mar 2026 14:20:48 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>, 
-	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
-	Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, 
-	Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Alistair Popple <apopple@nvidia.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-mm@kvack.org, 
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 2/2] mm: introduce CONFIG_NUMA_MIGRATION and simplify
- CONFIG_MIGRATION
-Message-ID: <5a31d1ed-7972-4d73-a39d-b1c7ed593a02@lucifer.local>
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-2-42270124966f@kernel.org>
+	id 1w3EHz-0000000Amyy-32e2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 14:23:57 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-4648447e29bso420022b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 07:23:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773930234; x=1774535034; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KeNjfj/LpvbccEUPQ7WMLYgOxZOBhYnhu+wpfuHYq6E=;
+        b=fV0kZ/sHl5/t3OCm4iGQFpLXWhvkfegV2nuN936FFMu+KRkd10WB1QrsSwgpH0pAlC
+         S4ECmTXwHCB3bJFN3Sk19gsUa3IOJmcRHLVc7u40BDcJGrCw3j6cwsRma4PEOfeoRy1J
+         8gB9egIyg2rfn+0bInuHGTpK3rNHhVUK/nkcfrTQVdknhGlmVGJvFuM1fG+fQcfP+zDR
+         tXcX1YaZSGpA8x1lbWaXkyRjl7jy1R0M07TpQmT5sBVxtikX4/3xWlgz7yW6xYBN88Kv
+         4FhkdH1y/URubmxS86MtiC1GOGxQ83JIyP3iRFnSTYzM2cJLRG83RnV4KWP0ktwVQsma
+         fK5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773930234; x=1774535034;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KeNjfj/LpvbccEUPQ7WMLYgOxZOBhYnhu+wpfuHYq6E=;
+        b=gUvxXRMcg6i0hXqAcMYeF7q2+la6OoLO7/rIdHXCVpWPQlSyjw21nF4Uo+/Sw3Xv0v
+         /+QSHXurF7Z4ud4DSWMh+l0B+YWz1nJx8swhvKidZsHKcn+eEGZcmeYgkOL88pn23ofq
+         Psy35mswYLttd97BE414FpTSXo/Enwu7ozR4kLTwlb5pgKAFewrcukdhCkaCAm3T/GKy
+         AafKoazjO4Swk7dciXrRK1ahGGnOeC4nYRySOXL55Fv7v0qiybR01bovG4RuOiM37toS
+         S6dM/bytyIZDmBL/InZZ6iG7WLRiB3tIgb/Qth5AifAsSu7y4IfdV0lmr7ozGFimbUF+
+         jlqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWi36CBDgJQ9eIWLaA7bPtpWe0vXlIY5rhglr0Tz9lILftZczYPVP8fNFadpdAkFLcCtPz98M9E3EjzNUYs/aJz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9/yrLBMwG3CUiS4oEn6ruKsKB/KvZFJYGoW66yJn34CgoD0a6
+	KPg6JYMmF11Hr8nvED2X3SPVY55/2E8PsJgs7HLwJ3nRuM31XILG9xGguqfAxGxsDDY=
+X-Gm-Gg: ATEYQzwTyersG3hW4g7h28BPhDm0XEIx+EjNtvNqLrzkBa3OSS9Cm0U41C9tRZ122Wl
+	8B4uENqkz9s5mi87OYQEubZUF5Komp/ubN0QZVMOV8VO/qsb2U7QcbU7W9QFXjWBnGbLI6kATNA
+	mCauAtZQz7e+l94ywVUaGyRZXwyz2ul7UixzUGRTkNJl2CvXhY3teswOLN76s99rly7nLcCeBAJ
+	5IMNJj6ONc8c0yOYQzFaYb0mgqvz8Kb6C/QgoSg65gJaxrfgcv9GsVh8MDcetUoHClofBop8jrZ
+	QLE6aWzqyGLMcZpkz3KYznv/sbF0IQSnztOPmf5dTJ1wLTt8czv/BuCJiyEEChZMwgx8Q24bv+7
+	vODt5AkkwtDdAqYvonLMxKmbHhCJKdn4K8yvz+sei9WW2r9WFhvMPuKgYTAACV95DaF9TXzEBkl
+	1Fc7CQ5hkXnqbQY3niK8+Iyo+KudpJ3T8ZPosDuF7o3PZkG+ZW2pEv9wQFslBYMrtptX+Lv6fCc
+	Q==
+X-Received: by 2002:a05:6808:19a8:b0:467:819:dc61 with SMTP id 5614622812f47-467ba28b325mr4636001b6e.23.1773930234228;
+        Thu, 19 Mar 2026 07:23:54 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:244c:fc8c:8216:1344? ([2600:8803:e7e4:500:244c:fc8c:8216:1344])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7d7e878b627sm82482a34.15.2026.03.19.07.23.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Mar 2026 07:23:53 -0700 (PDT)
+Message-ID: <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
+Date: Thu, 19 Mar 2026 09:23:52 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260319-config_migration-v1-2-42270124966f@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
+ format
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
+ <20260221-dancing-papaya-wolverine-db8afd@quoll>
+ <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_072356_022594_BEA2248A 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,237 +111,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 09:19:41AM +0100, David Hildenbrand (Arm) wrote:
-> CONFIG_MEMORY_HOTREMOVE, CONFIG_COMPACTION and CONFIG_CMA all select
-> CONFIG_MIGRATION, because they require it to work (users).
->
-> Only CONFIG_NUMA_BALANCING and CONFIG_BALLOON_MIGRATION depend on
-> CONFIG_MIGRATION. CONFIG_BALLOON_MIGRATION is not an actual user, but
-> an implementation of migration support, so the dependency is correct
-> (CONFIG_BALLOON_MIGRATION does not make any sense without
-> CONFIG_MIGRATION).
->
-> However, kconfig-language.rst  clearly states "In general use select only
-> for non-visible symbols". So far CONFIG_MIGRATION is user-visible ...
-> and the dependencies rather confusing.
->
-> The whole reason why CONFIG_MIGRATION is user-visible is because of
-> CONFIG_NUMA: some users might want CONFIG_NUMA but not page migration
-> support.
->
-> Let's clean all that up by introducing a dedicated CONFIG_NUMA_MIGRATION
-> config option for that purpose only. Make CONFIG_NUMA_BALANCING that so
-> far depended on CONFIG_NUMA && CONFIG_MIGRATION to depend on
-> CONFIG_MIGRATION instead. CONFIG_NUMA_MIGRATION will depend on
-> CONFIG_NUMA && CONFIG_MMU.
->
-> CONFIG_NUMA_MIGRATION is user-visible and will default to "y". We
-> use that default so new configs will automatically enable it, just
-> like it was the case with CONFIG_MIGRATION. The downside is that
-> some configs that used to have CONFIG_MIGRATION=n might get it
-> re-enabled by CONFIG_NUMA_MIGRATION=y, which shouldn't be a problem.
->
-> CONFIG_MIGRATION is now a non-visible config option. Any code that
-> select CONFIG_MIGRATION (as before) must depend directly or indirectly
-> on CONFIG_MMU.
+On 3/19/26 8:52 AM, Sai Krishna Potthuri wrote:
+> Hi Krzysztof,
+> 
+> On 2/21/2026 4:08 PM, Krzysztof Kozlowski wrote:
+>> On Fri, Feb 20, 2026 at 11:09:41AM +0530, Sai Krishna Potthuri wrote:
+>>> Convert the xilinx-xadc.txt Devicetree binding to a YAML schema format
+>>> and remove the old text binding.
+>>>
+>>> +
+>>> +  xlnx,channels:
+>>> +    $ref: '#/$defs/channels'
+>>> +
+>>> +allOf:
+>>
+>> Missing ref since you use unevaluatedProperties...
+>>
+>>> +  - if:
+>>> +      required:
+>>> +        - xlnx,external-mux
+>>> +      properties:
+>>> +        xlnx,external-mux:
+>>> +          enum:
+>>> +            - single
+>>> +            - dual
+>>> +    then:
+>>> +      required:
+>>> +        - xlnx,external-mux-channel
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +
+>>> +unevaluatedProperties: false
+>>
+>> or you meant additionalProperties?
+>>
+>>> +
+>>> +$defs:
+>>
+>> Why this is a def, not used directly? I see only one usage of this def.
+> 
+> I am getting the below error if i define the patternProperties directly.
+> Seems like complex vendor peroperties should be referenced via $ref.
+> Please suggest if there is any better way to deal this.
 
-Nice. I always found it odd that it was optional.
+It is hard to say without seeing the new version of what you wrote.
 
->
-> CONFIG_NUMA_MIGRATION is responsible for any NUMA migration code, which is
-> mempolicy migration code, memory-tiering code, and move_pages() code in
-> migrate.c. CONFIG_NUMA_BALANCING uses its functionality.
->
-> Note that this implies that with CONFIG_NUMA_MIGRATION=n, move_pages() will
-> not be available even though CONFIG_MIGRATION=y, which is an expected
-> change.
->
-> In migrate.c, we can remove the CONFIG_NUMA check as both
-> CONFIG_NUMA_MIGRATION and CONFIG_NUMA_BALANCING depend on it.
->
-> With this change, CONFIG_MIGRATION is an internal config, all users of
-> migration selects CONFIG_MIGRATION, and only CONFIG_BALLOON_MIGRATION
-> depends on it.
->
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-AFAICT this all LGTM, so:
 
-Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-
-> ---
->  include/linux/memory-tiers.h |  2 +-
->  init/Kconfig                 |  2 +-
->  mm/Kconfig                   | 26 +++++++++++++-------------
->  mm/memory-tiers.c            | 12 ++++++------
->  mm/mempolicy.c               |  2 +-
->  mm/migrate.c                 |  5 ++---
->  6 files changed, 24 insertions(+), 25 deletions(-)
->
-> diff --git a/include/linux/memory-tiers.h b/include/linux/memory-tiers.h
-> index 96987d9d95a8..7999c58629ee 100644
-> --- a/include/linux/memory-tiers.h
-> +++ b/include/linux/memory-tiers.h
-> @@ -52,7 +52,7 @@ int mt_perf_to_adistance(struct access_coordinate *perf, int *adist);
->  struct memory_dev_type *mt_find_alloc_memory_type(int adist,
->  						  struct list_head *memory_types);
->  void mt_put_memory_types(struct list_head *memory_types);
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  int next_demotion_node(int node, const nodemask_t *allowed_mask);
->  void node_get_allowed_targets(pg_data_t *pgdat, nodemask_t *targets);
->  bool node_is_toptier(int node);
-> diff --git a/init/Kconfig b/init/Kconfig
-> index 444ce811ea67..3648e401b78b 100644
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -997,7 +997,7 @@ config NUMA_BALANCING
->  	bool "Memory placement aware NUMA scheduler"
->  	depends on ARCH_SUPPORTS_NUMA_BALANCING
->  	depends on !ARCH_WANT_NUMA_VARIABLE_LOCALITY
-> -	depends on SMP && NUMA && MIGRATION && !PREEMPT_RT
-> +	depends on SMP && NUMA_MIGRATION && !PREEMPT_RT
->  	help
->  	  This option adds support for automatic NUMA aware memory/task placement.
->  	  The mechanism is quite primitive and is based on migrating memory when
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index b2e21d873d3f..bd283958d675 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -627,20 +627,20 @@ config PAGE_REPORTING
->  	  those pages to another entity, such as a hypervisor, so that the
->  	  memory can be freed within the host for other uses.
->
-> -#
-> -# support for page migration
-> -#
-> -config MIGRATION
-> -	bool "Page migration"
-> +config NUMA_MIGRATION
-> +	bool "NUMA page migration"
->  	default y
-> -	depends on (NUMA || MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
-> -	help
-> -	  Allows the migration of the physical location of pages of processes
-> -	  while the virtual addresses are not changed. This is useful in
-> -	  two situations. The first is on NUMA systems to put pages nearer
-> -	  to the processors accessing. The second is when allocating huge
-> -	  pages as migration can relocate pages to satisfy a huge page
-> -	  allocation instead of reclaiming.
-> +	depends on NUMA && MMU
-> +	select MIGRATION
-> +	help
-> +	  Support the migration of pages to other NUMA nodes, available to
-> +	  user space through interfaces like migrate_pages(), move_pages(),
-> +	  and mbind(). Selecting this option also enables support for page
-> +	  demotion for memory tiering.
-> +
-> +config MIGRATION
-> +	bool
-> +	depends on MMU
->
->  config DEVICE_MIGRATION
->  	def_bool MIGRATION && ZONE_DEVICE
-> diff --git a/mm/memory-tiers.c b/mm/memory-tiers.c
-> index 986f809376eb..54851d8a195b 100644
-> --- a/mm/memory-tiers.c
-> +++ b/mm/memory-tiers.c
-> @@ -69,7 +69,7 @@ bool folio_use_access_time(struct folio *folio)
->  }
->  #endif
->
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  static int top_tier_adistance;
->  /*
->   * node_demotion[] examples:
-> @@ -129,7 +129,7 @@ static int top_tier_adistance;
->   *
->   */
->  static struct demotion_nodes *node_demotion __read_mostly;
-> -#endif /* CONFIG_MIGRATION */
-> +#endif /* CONFIG_NUMA_MIGRATION */
->
->  static BLOCKING_NOTIFIER_HEAD(mt_adistance_algorithms);
->
-> @@ -273,7 +273,7 @@ static struct memory_tier *__node_get_memory_tier(int node)
->  				     lockdep_is_held(&memory_tier_lock));
->  }
->
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  bool node_is_toptier(int node)
->  {
->  	bool toptier;
-> @@ -519,7 +519,7 @@ static void establish_demotion_targets(void)
->
->  #else
->  static inline void establish_demotion_targets(void) {}
-> -#endif /* CONFIG_MIGRATION */
-> +#endif /* CONFIG_NUMA_MIGRATION */
->
->  static inline void __init_node_memory_type(int node, struct memory_dev_type *memtype)
->  {
-> @@ -911,7 +911,7 @@ static int __init memory_tier_init(void)
->  	if (ret)
->  		panic("%s() failed to register memory tier subsystem\n", __func__);
->
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  	node_demotion = kzalloc_objs(struct demotion_nodes, nr_node_ids);
->  	WARN_ON(!node_demotion);
->  #endif
-> @@ -938,7 +938,7 @@ subsys_initcall(memory_tier_init);
->
->  bool numa_demotion_enabled = false;
->
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  #ifdef CONFIG_SYSFS
->  static ssize_t demotion_enabled_show(struct kobject *kobj,
->  				     struct kobj_attribute *attr, char *buf)
-> diff --git a/mm/mempolicy.c b/mm/mempolicy.c
-> index e5528c35bbb8..fd08771e2057 100644
-> --- a/mm/mempolicy.c
-> +++ b/mm/mempolicy.c
-> @@ -1239,7 +1239,7 @@ static long do_get_mempolicy(int *policy, nodemask_t *nmask,
->  	return err;
->  }
->
-> -#ifdef CONFIG_MIGRATION
-> +#ifdef CONFIG_NUMA_MIGRATION
->  static bool migrate_folio_add(struct folio *folio, struct list_head *foliolist,
->  				unsigned long flags)
->  {
-> diff --git a/mm/migrate.c b/mm/migrate.c
-> index fdbb20163f66..05cb408846f2 100644
-> --- a/mm/migrate.c
-> +++ b/mm/migrate.c
-> @@ -2224,8 +2224,7 @@ struct folio *alloc_migration_target(struct folio *src, unsigned long private)
->  	return __folio_alloc(gfp_mask, order, nid, mtc->nmask);
->  }
->
-> -#ifdef CONFIG_NUMA
-> -
-> +#ifdef CONFIG_NUMA_MIGRATION
->  static int store_status(int __user *status, int start, int value, int nr)
->  {
->  	while (nr-- > 0) {
-> @@ -2624,6 +2623,7 @@ SYSCALL_DEFINE6(move_pages, pid_t, pid, unsigned long, nr_pages,
->  {
->  	return kernel_move_pages(pid, nr_pages, pages, nodes, status, flags);
->  }
-> +#endif /* CONFIG_NUMA_MIGRATION */
->
->  #ifdef CONFIG_NUMA_BALANCING
->  /*
-> @@ -2766,4 +2766,3 @@ int migrate_misplaced_folio(struct folio *folio, int node)
->  	return nr_remaining ? -EAGAIN : 0;
->  }
->  #endif /* CONFIG_NUMA_BALANCING */
-> -#endif /* CONFIG_NUMA */
->
-> --
-> 2.43.0
->
+> 
+> linux-xlnx/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
+>     hint: A vendor boolean property can use "type: boolean"
+>     from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
+>   LINT    ../Documentation/devicetree/bindings
+>   DTEX    Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dts
+>   DTC [C] Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dtb
+> 
+> 
+> Regards
+> Sai Krishna
+> 
+>>
+>>> +  channels:
+>>> +    type: object
+>>> +    description: List of external channels that are connected to the ADC
+>>> +    properties:
+>>> +      '#address-cells':
+>>> +        const: 1
+>>> +      '#size-cells':
+>>> +        const: 0
+>>> +
+>>> +    patternProperties:
+>>> +      "^channel@([0-9]|1[0-6])$":
+>>> +        type: object
+>>> +        properties:
+>>> +          reg:
+>>> +            minimum: 0
+>>> +            maximum: 16
+>>> +            description: |
+>>> +              Pair of pins the channel is connected to:
+>>> +                0: VP/VN
+>>> +                1-16: VAUXP[0-15]/VAUXN[0-15]
+>>> +              Note each channel number should only be used at most once.
+>>> +
+>>> +          xlnx,bipolar:
+>>> +            type: boolean
+>>> +            description: If set, the channel is used in bipolar mode
+>>> +
+>>> +        required:
+>>> +          - reg
+>>> +
+>>> +        unevaluatedProperties: false
+>>
 
