@@ -4,79 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A20C109023A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9631090237
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIUiWLcTdM9jHXZTerPMEHMqw+NZlkNHStyN1sK3jR4=; b=f1C81nONc5pjcK6AidNNH5S6z2
-	yLJilgvpvZ8r+03jn6q1zATSyWsgb6ZpX9Mjkxth68Axl2gtnHXxA7zFbxqgAzYncYRy3X/rWdCDD
-	gA+RuDL+K+G6kjpIJ0r2uAzUqWj/E1awZo5zOo5kgORhwdB4X9ZAqerUoYr5R9c07HVqjV/vR3PjE
-	tkK8QT7x7Ixge1HlRPZos8crDBUzkkCsNJTKxbuuGp9maCQciGnhlO9dNAtHNMqCLqrt/3h74JYPW
-	nbc6+Si6RqtJJjAj55aEZp1At3xsneiIC0JnEGY3JykuO8vIbBykaKFXbpMfaFwZuyLCdWhF3/88R
-	piUZwa+A==;
+	bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=; b=pnwRzRvbm4nUTy0Iw3W8ollX4T
+	clWUQpCdU4QaHRjUJISzJdLezizkaJEsKqI3PYIhdSZ/Rab+AkUkPOreYdqMZwDI+SHK2U6V18Uqg
+	3JqD+pAu15OE/RUtJwIg4Arki0dBjq+5Nbb+zu/27aQvsDXvCUV6LGPENfgDoyN1V1Jxw/zXlFrHW
+	p6B8tZvpJm1Cc+/6d9waIvuaR6UOAkEQ4v+Pr7haH1VvrqhRN8i3syHh3C9522jEh4XyIBRmXIHY6
+	xdKK6btc9nF6H0GOSHqeTxCcbChB15PrxEDPI4BM6KwkhN5Vj6bhz6gF7dpzQd/Ic4nrenu3rhBjB
+	6yV6UDqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F1J-0000000As6E-18vr;
-	Thu, 19 Mar 2026 15:10:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3F1j-0000000AsCy-3mPu;
+	Thu, 19 Mar 2026 15:11:11 +0000
+Received: from mail-westus3azon11012070.outbound.protection.outlook.com ([40.107.209.70] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F1G-0000000As5Y-39B9;
-	Thu, 19 Mar 2026 15:10:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB03843FED;
-	Thu, 19 Mar 2026 15:10:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14CBCC19424;
-	Thu, 19 Mar 2026 15:10:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773933041;
-	bh=962OH3BCkCnFuqUFZ6CV6GTYwYwg7Cgfzq0lQ5WSVD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mGEtPIVR96Qqe9NRoICiZzfXXvz3eZQfjphLLBby5YW9M/BWfyVYLEBn5CApHzfYK
-	 DYwxRwq+IqVZ+jMnAbQm61aQhpOOaoXrNX9ia5fX6UWtQiRQx/DzaS9uB1I34caUA/
-	 kSQ26nH8AzkZ+Gh86+t8fpytlEgq36RbVzySi/1xeYRMiCPH+fdqPFPc9jNUY3AxeN
-	 3GOgSMnuyMQOb9WOdXp5172TVmges2jncXhuy3ytoa/SJkQBntwckOvs1FobX4Q0+0
-	 qSd7IEKle/UnTGEEMe57JCHxS5q4XVdII/482MSps8V37TPFkv9c9ASh42lN0FVVEY
-	 JRtphCO+57l2w==
-Date: Thu, 19 Mar 2026 15:10:38 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
-	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH v2 12/16] mm: allow handling of stacked mmap_prepare
- hooks in more drivers
-Message-ID: <1fac76fc-9d1c-43e4-ae96-b03fadf646f1@lucifer.local>
-References: <cover.1773695307.git.ljs@kernel.org>
- <72750af6906fd96fb6f18e83ac3e694cf357a2c1.1773695307.git.ljs@kernel.org>
- <CAJuCfpFr8_uU28S=v7y74Opa4L_4s9J70NgUXg1WGmraDhsxRA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	id 1w3F1f-0000000AsBo-3ipP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 15:11:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Iv0meF1xaoKNdZIj2q4pZCpzQDubINJFAxJCQNFUknHmmNZPF2htGsmQkNMV5FohU8dH+9v8iV6odo2BtHHcZB3ycaWl+EL+KAdjIARQ6yeuNKatuvSeuwHnicLrC8O7MHVXauJBu+x/PtHoM+JwyK7br6shAOr3kM1sdZE2b35Znj3ZcvvTerl0+G8Kxr7m0Ufc0J2TYcD+9G19gB6j8N4yAIaq4zfgAPpI+4djlEaCvscw96pryiNeol77dZTHYQiKTiDKBy6EZTV4Raosa8RdEfgIN9BqYySzchhGyGwnWibYzSywrw5mjgUc1WxcqabpHN4RhhptmByhcKS7Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=;
+ b=Ar9KT20gSFHH2ucwiaZE8H/acBW9KDJENU4lgNGVnZfS0BKAE5NRLk9WtKGOeBsFVLzJHXraC40WEOwlRu9ThsTXf3VL+r4fUPPz9A4HkXUn4TR51SppUvdsgEIwDKG8JpSQ7FEgn8DHTuCiLySUsATN7X433psga56zOH2Qe2//+/EYvf/qzjZGW/UIZFvqpe/g+SERfjQ8gFGLBx87ULNE8QvU6qxmrn0auNsE2IthvTW37x9F9qoC3nODwycPdXzJYC1E08HjnmpyIi5jwGZtXgIHAtDTmWv6h6oqwgmK4DdUnWhvbxeN+UuJBBetC52fxjLbDkScQZxHsglgQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=;
+ b=Jp1w4o+afgTYptsg38OvKkYtNFAyMl/4h21q7+dj5Js705apZxH+elg6CYqa1JLz12I2cGYrzs4dvOSP87rcdqVCBXg+q4OloiXlAYvDxAjhj8QKNjNeVrKyL87rPX6zphRGLg4k5r51qK7bLGF3DSlPuF1X23YodYRq8MVRDWY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com (2603:10b6:a03:540::10)
+ by SN7PR12MB6863.namprd12.prod.outlook.com (2603:10b6:806:264::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
+ 2026 15:11:02 +0000
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45]) by SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 15:11:02 +0000
+Message-ID: <05bcc5b7-b3e8-40fb-be70-413c74afcfb1@amd.com>
+Date: Thu, 19 Mar 2026 20:40:53 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
+ format
+To: David Lechner <dlechner@baylibre.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
+ <20260221-dancing-papaya-wolverine-db8afd@quoll>
+ <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
+ <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
+ <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
+ <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJuCfpFr8_uU28S=v7y74Opa4L_4s9J70NgUXg1WGmraDhsxRA@mail.gmail.com>
+X-ClientProxiedBy: MA5PR01CA0016.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:177::14) To SJ2PR12MB8690.namprd12.prod.outlook.com
+ (2603:10b6:a03:540::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8690:EE_|SN7PR12MB6863:EE_
+X-MS-Office365-Filtering-Correlation-Id: a99dc636-42fb-4839-62d5-08de85c9bba1
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: r77ifrdtanyOujJH8OaO/SOJlqMuXp/iyFnM0pTgGCeZERzpJhyVepUm0y5sPlR9RC1mHXzDB3NZoSJ/+41qhAo4mejayeGLQUUm8A8zs7OoBUhjPCZa7t0ac4+757RkMzTJCv5YZoo38azFR7Wn6GXA2KZoGl6/8nzMzEIE0muGwRQ53kBASS6sfqpub7KfxIZF+7p+SuU3gV/k08OXbtswBgr3CQFKL8+PS7TRcdVj4ws1I1RIg7LXUtVKsv1qMRLObDJ4JdsOAI4RRqc6TIl7vj+VQrCL52si1+IeUXWV/PXa0ST61immwv0DDyvuIzltVzmd2rHh3EOm5q9ylKF/qsGV8pqst2lotTsbRA5BgJ+pXssy2c5iqNxCR5IzJQ/L1M2ug16j3SERxvtcfmtL9ezDpUyeteknUnv7yWtcrgOImDc0TfVbLBA2+/BrT/yvUv1dwjgGKCl3sICuDPi6wRmsl9l7mX5es3OQzSB/Czw1NShuYr4bOPo0zwIR9/IV+ESfqrifY5y5Q2tEgq7LkSvWdTfnN1F0OdCZJ79BwqnsDI1AOTtP28QYhI3S8o6Nr4blqantS/7km9g6FnHA0sWwyfnY0Bk17ZL48wFtIb8YN7Qn+p6jjHeW/yPqN/2kgcFNsE0MB8F9tXSM+rZsq6RNmHmOd7lSD1Ewr6Tc36PyzxiT6WeoQdpos+9f
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8690.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk95cWFIYSt0ZjhxbldVVDl4YXBmQUNoOW9SeGRRRStnblJSS0pRSExFTXdy?=
+ =?utf-8?B?UlBvZ1MzWVRFL3ErYzhWVStNSTdFRktIMTVTQmdFMEx3alhKNUdiWm44dm1Q?=
+ =?utf-8?B?aElNeW55elRwSWdCVWpoMkM2dnJpZ3lKYkpJUmd5Tk1pYm5IeDQ4TmxEQ3pm?=
+ =?utf-8?B?ajFvRXEyTTYrcG8vU2VTNmJMbVFhUnM2bFhrcjRiMGZ6SUtrK2dlUlhHWDMy?=
+ =?utf-8?B?YmhvVm8wc29BVEMweTN5b2VWSnVzY2kzUUdCN2srUkQ1M3NJVzlOT2FzSFlN?=
+ =?utf-8?B?M0JSOHUvQ1VoeTFLeERtQzMzNVJUU2FIR0d0TFpIakZJdkIyRnBRWUFza3Zi?=
+ =?utf-8?B?bnZyTHVXcjhFL3hjWjJJalIzZHJUTm04UlJEemJLY3JOWDVTaHBQNWUvYkNI?=
+ =?utf-8?B?VlBGZXRHelVQWXNBd1paUGcxQ3dTLzZSbk5HUGJoenVhM3g3WjR5dklzUk5x?=
+ =?utf-8?B?VjZ1RmRlV3F1Tm1nSkNYK1lIZ0VHWllRR1NvL1o4L3BsYkZrRHdQU2srSXFx?=
+ =?utf-8?B?VWo0elA0MUdWeGozNEtKVC90NzRCMWsvYS9hbTFEM3c2UkxpdTZMRXFGcVU4?=
+ =?utf-8?B?MXhaTktMYWtxOWlUUjFFeWJURERsNlFhQVYwNC91QlRXakNOckp1b25QbmhL?=
+ =?utf-8?B?MzU4aExiV3A0dzEybWRtOXhIWjUzeTk1MFhHSnhXTEZtMUVFK2d0VzNsS1BT?=
+ =?utf-8?B?MFBPQzhsSXBBdmo1cE52T1VBVzdsU3VmcVdHNGRRWko1ZGtGZjVpYStTazNH?=
+ =?utf-8?B?VXc5akVXeHAyT0JwMUR0UFhnOEN4VjlITFl5Z0NQZmtTNGdOb2M1aTRDUldy?=
+ =?utf-8?B?T3Q5MXA4c1g1RjNqcEI5U2dTZDNPWWFDanlDbkFLSDFkTHREUEhTU3owaDM5?=
+ =?utf-8?B?TWtZNjNZMDEvdkh4OXpSNWN4SHdpeVBPNzUydk55QUw0K3l2RjlpMFh6enp1?=
+ =?utf-8?B?N08zRlNmVjRkOGFCTU1FODVaNUNuRzYzaVp0RjJpYUtjUHBoTGFuaXpGcm9X?=
+ =?utf-8?B?ZnJCNUFuWk9TcVpYelliVFY2aVdZSFc0WXloeTlGbktoN09ienFFaVMvNTgz?=
+ =?utf-8?B?UTgwWEhLM25RUmV4MkJuQmlqWkdhZGkwc3BmVXBJb0pyTUF1cE10aFN2NHpG?=
+ =?utf-8?B?d0ZudGVIZWRyLzBVb0ZtTUQzZklaWm9pOTJrOVZrRTRQMEI1aHlaYWJUZ3NV?=
+ =?utf-8?B?VVpTU3VoTlpNNUQwTTdnOG1TYnQ5YjZKK2x2VjdGRVJVSGVHVDgxRUM1T1do?=
+ =?utf-8?B?d0tGNnhkMXZhaUpycDBYNDBaY0xIbFdEYTlYMEptZ2tsK1lMT05wZXIyOG5M?=
+ =?utf-8?B?WDlGZWNrejZ3ZXp5MjFvZ3FsL3VtMTlmZ2o4akdPdnRubm15Q3podGVUUnQv?=
+ =?utf-8?B?UEFMT0tiZFZOUzJyZ0ticmphQS9kem9UeGcvWjI2ejV3SHFFRXRvSWxxdXJi?=
+ =?utf-8?B?N1VMUmpVdG40VmNUVU9NWk43QkczdVZ6S0pnWVZIRVNpWVlGcmM3REorM1RQ?=
+ =?utf-8?B?clQ5MHRoL3lCWFlDaDFZVEFodzc1OFhDMUlYRUpUYldEeEV3RVFxTjlXaTJk?=
+ =?utf-8?B?emp3TXdjVlRSdDVoTXliT1ZmS1FVUHVmUHhTMHFDbjFVYzBjM2F1NjJjczhT?=
+ =?utf-8?B?YnhwalpDbWVTZk5YN1d2cnB6QUtkZTliK2tEQzB1bzNCd2YvKzNJOHp3V2lZ?=
+ =?utf-8?B?VUNTQWVYdU02UVJDeTFDaGJSUUVjbG9leGhINGNzSENLV3F4dTZOUWZ0YkE2?=
+ =?utf-8?B?TTVvazd1OWowWGdTVEh4amJqY0J5TUMwTGYvd25OLzk3VHhnYzRGQXVDN1dM?=
+ =?utf-8?B?NGpnN2p6c0I1Q2gxQ3ZUNFpzeGlocTFia1hnK1BmQ3FkRVFzUllIQmNDd0xV?=
+ =?utf-8?B?SWkyNlFKWjluMXN4WG95cjM0Mk1Wa0NwZmJYSldkOXRRV3RjcUxlek96ZHRy?=
+ =?utf-8?B?WE1oclcwWEd3bVg2NGhyQWIvRlAvZzVMS3NIWXRQUEV2NGZxUDQ4M3hHUk1H?=
+ =?utf-8?B?bzVNeU1tV3Z4ZU14dmE1MENidGhKZjJOVmRJODA1cEN5TnRwWDVDUldCZW1Q?=
+ =?utf-8?B?WC9GSy9kT1c4ZjdZdXJwQmNkMGsyMlFLMXJGcTYrQjJxU1Q1RHA0R3BtRzB0?=
+ =?utf-8?B?ZHMzUWp5UlBrNisxbTVKb09jR1dkdWN0M0g2T2QwUlFuTUVPelkzUllLUlBR?=
+ =?utf-8?B?TkJrdkNJVWNLNTRuRTZpNWwzaVNvbzFjdHRSOXJqWEtiaVRyREpPaStjOUJi?=
+ =?utf-8?B?cTEwbTNQSi92TnlxbmlGWGdGWDNpd2I5NEJsMWtKcTY3OFp3eHVoVXFJZE5E?=
+ =?utf-8?B?cWh2VHdVYVhpbG5WSnRLZzBaMGdKNmRhejBtOWJEd2M2V1JYaHp0UT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a99dc636-42fb-4839-62d5-08de85c9bba1
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8690.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 15:11:01.8992
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uauYvTTO9vV1b6J+PuuQEvb7ALoT47fcliAA1RlCRmVM/gxs3ZxRTZoIFWAO+X8JXGrPClNe0rGS4UGD6D3YoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_081042_861524_A4E660DC 
-X-CRM114-Status: GOOD (  60.28  )
+X-CRM114-CacheID: sfid-20260319_081108_629446_24AA052C 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,497 +158,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 08:33:28AM -0700, Suren Baghdasaryan wrote:
-> On Mon, Mar 16, 2026 at 2:14 PM Lorenzo Stoakes (Oracle) <ljs@kernel.org> wrote:
-> >
-> > While the conversion of mmap hooks to mmap_prepare is underway, we wil
->
-> nit: s/wil/will
+Hi David Lechner,
 
-Thanks, fixed.
+On 3/19/2026 8:28 PM, David Lechner wrote:
+> On 3/19/26 9:49 AM, Sai Krishna Potthuri wrote:
+>> Hi David Lechner,
+>>
+>> On 3/19/2026 7:53 PM, David Lechner wrote:
+>>> On 3/19/26 8:52 AM, Sai Krishna Potthuri wrote:
+>>>> Hi Krzysztof,
+>>>>
+>>>> On 2/21/2026 4:08 PM, Krzysztof Kozlowski wrote:
+>>>>> On Fri, Feb 20, 2026 at 11:09:41AM +0530, Sai Krishna Potthuri wrote:
+>>>>>> Convert the xilinx-xadc.txt Devicetree binding to a YAML schema format
+>>>>>> and remove the old text binding.
+>>>>>>
+>>>>>> +
+>>>>>> +  xlnx,channels:
+>>>>>> +    $ref: '#/$defs/channels'
+>>>>>> +
+>>>>>> +allOf:
+>>>>>
+>>>>> Missing ref since you use unevaluatedProperties...
+>>>>>
+>>>>>> +  - if:
+>>>>>> +      required:
+>>>>>> +        - xlnx,external-mux
+>>>>>> +      properties:
+>>>>>> +        xlnx,external-mux:
+>>>>>> +          enum:
+>>>>>> +            - single
+>>>>>> +            - dual
+>>>>>> +    then:
+>>>>>> +      required:
+>>>>>> +        - xlnx,external-mux-channel
+>>>>>> +
+>>>>>> +required:
+>>>>>> +  - compatible
+>>>>>> +  - reg
+>>>>>> +
+>>>>>> +unevaluatedProperties: false
+>>>>>
+>>>>> or you meant additionalProperties?
+>>>>>
+>>>>>> +
+>>>>>> +$defs:
+>>>>>
+>>>>> Why this is a def, not used directly? I see only one usage of this def.
+>>>>
+>>>> I am getting the below error if i define the patternProperties directly.
+>>>> Seems like complex vendor peroperties should be referenced via $ref.
+>>>> Please suggest if there is any better way to deal this.
+>>>
+>>> It is hard to say without seeing the new version of what you wrote.
+>>
+>> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
+> 
+> Is the code below the code that causes the error?
 
->
-> > encounter situations where mmap hooks need to invoke nested mmap_prepare
-> > hooks.
-> >
-> > The nesting of mmap hooks is termed 'stacking'.  In order to flexibly
-> > facilitate the conversion of custom mmap hooks in drivers which stack, we
-> > must split up the existing compat_vma_mapped() function into two separate
-> > functions:
-> >
-> > * compat_set_desc_from_vma() - This allows the setting of a vm_area_desc
-> >   object's fields to the relevant fields of a VMA.
-> >
-> > * __compat_vma_mmap() - Once an mmap_prepare hook has been executed upon a
-> >   vm_area_desc object, this function performs any mmap actions specified by
-> >   the mmap_prepare hook and then invokes its vm_ops->mapped() hook if any
-> >   were specified.
-> >
-> > In ordinary cases, where a file's f_op->mmap_prepare() hook simply needs to
-> > be invoked in a stacked mmap() hook, compat_vma_mmap() can be used.
-> >
-> > However some drivers define their own nested hooks, which are invoked in
-> > turn by another hook.
-> >
-> > A concrete example is vmbus_channel->mmap_ring_buffer(), which is invoked
-> > in turn by bin_attribute->mmap():
-> >
-> > vmbus_channel->mmap_ring_buffer() has a signature of:
-> >
-> > int (*mmap_ring_buffer)(struct vmbus_channel *channel,
-> >                         struct vm_area_struct *vma);
-> >
-> > And bin_attribute->mmap() has a signature of:
-> >
-> >         int (*mmap)(struct file *, struct kobject *,
-> >                     const struct bin_attribute *attr,
-> >                     struct vm_area_struct *vma);
-> >
-> > And so compat_vma_mmap() cannot be used here for incremental conversion of
-> > hooks from mmap() to mmap_prepare().
-> >
-> > There are many such instances like this, where conversion to mmap_prepare
-> > would otherwise cascade to a huge change set due to nesting of this kind.
-> >
-> > The changes in this patch mean we could now instead convert
-> > vmbus_channel->mmap_ring_buffer() to
-> > vmbus_channel->mmap_prepare_ring_buffer(), and implement something like:
-> >
-> >         struct vm_area_desc desc;
-> >         int err;
-> >
-> >         compat_set_desc_from_vm(&desc, file, vma);
-> >         err = channel->mmap_prepare_ring_buffer(channel, &desc);
-> >         if (err)
-> >                 return err;
-> >
-> >         return __compat_vma_mmap(&desc, vma);
-> >
-> > Allowing us to incrementally update this logic, and other logic like it.
->
-> The way I understand this and the next 2 patches is that they are
-> preperations for later replacement of mmap() with mmap_prepare() but
-> they don't yet do that completely. Is that right?
-> To clarify what I mean, in [1] for example, you are replacing struct
-> uio_info.mmap with uio_info.mmap_prepare but it's still being called
-> from uio_mmap(). IOW, you are not replacing uio_mmap with
-> uio_mmap_prepare. Is that the next step that's not yet implemented?
+No, the below code is not creating the error but Krzysztof asked the 
+question on this code,
+"Why this is a def, not used directly? I see only one usage of this def."
 
-Yeah, there were 12 more patches I didn't send :) because I feel they'd
-make more sense separate and wanted to test/develop them more.
+I am saying if i don't use the def and use it directly i am seeing the 
+error that i mentioned. So, asking is there any better way to handle 
+this case other than using def.
 
-This is all laying the groundwork for having mmap_prepare DMA cache
-mappings ultimately, while expanding functionality as we go.
+Regards
+Sai Krishna
 
-The intent here though isn't _just_ that, it's more - in general - when we
-have an e.g.:
+> 
+>>
+>> v1 code:
+>>    xlnx,channels:
+>>      $ref: '#/$defs/channels'
+>>
+>>    $defs:
+>>    channels:
+> 
+> Is this indent bug just from copying to email or does it exist in
+> the source that is causing the error?
+> 
+>>      type: object
+>>      description: List of external channels that are connected to the ADC
+>>      properties:
+>>        '#address-cells':
+>>          const: 1
+>>        '#size-cells':
+>>          const: 0
+>>
+>>      patternProperties:
+>>        "^channel@([0-9]|1[0-6])$":
+>>          type: object
+>>          properties:
+>>            reg:
+>>              minimum: 0
+>>              maximum: 16
+>>              description: |
+>>                Pair of pins the channel is connected to:
+>>                  0: VP/VN
+>>                  1-16: VAUXP[0-15]/VAUXN[0-15]
+>>                Note each channel number should only be used at most once.
+>>
+>>            xlnx,bipolar:
+>>              type: boolean
+>>              description: If set, the channel is used in bipolar mode
+>>
+>>          required:
+>>            - reg
+>>
+>>          unevaluatedProperties: false
+>>
+>>      required:
+>>        - '#address-cells'
+>>        - '#size-cells'
+>>
+>>      unevaluatedProperties: false
+>>
+>>
+>> Regards
+>> Sai krishna
+>>
+>>
+>>>
+>>>
+>>>
+>>>>
+>>>> linux-xlnx/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
+>>>>       hint: A vendor boolean property can use "type: boolean"
+>>>>       from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
+>>>>     LINT    ../Documentation/devicetree/bindings
+>>>>     DTEX    Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dts
+>>>>     DTC [C] Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dtb
+>>>>
+>>>>
+>>>> Regards
+>>>> Sai Krishna
+>>>>
+>>>>>
+>>>>>> +  channels:
+>>>>>> +    type: object
+>>>>>> +    description: List of external channels that are connected to the ADC
+>>>>>> +    properties:
+>>>>>> +      '#address-cells':
+>>>>>> +        const: 1
+>>>>>> +      '#size-cells':
+>>>>>> +        const: 0
+>>>>>> +
+>>>>>> +    patternProperties:
+>>>>>> +      "^channel@([0-9]|1[0-6])$":
+>>>>>> +        type: object
+>>>>>> +        properties:
+>>>>>> +          reg:
+>>>>>> +            minimum: 0
+>>>>>> +            maximum: 16
+>>>>>> +            description: |
+>>>>>> +              Pair of pins the channel is connected to:
+>>>>>> +                0: VP/VN
+>>>>>> +                1-16: VAUXP[0-15]/VAUXN[0-15]
+>>>>>> +              Note each channel number should only be used at most once.
+>>>>>> +
+>>>>>> +          xlnx,bipolar:
+>>>>>> +            type: boolean
+>>>>>> +            description: If set, the channel is used in bipolar mode
+>>>>>> +
+>>>>>> +        required:
+>>>>>> +          - reg
+>>>>>> +
+>>>>>> +        unevaluatedProperties: false
+>>>>>
+>>
+> 
 
-int some_special_mmap(struct some_type *blah, struct file *filp /* sometimes */,
-		      struct vm_area_struct *vma)
-{
-	...
-}
-
-Or some say custom ops for something like this, where in the existing code
-callers hook .mmap(), grab some specific struct (like a device pointer or a
-state pointer) from the file private data and then delegate to another
-helper.
-
-In this situation, we are able to use the compatibility layer to change say
-the ops to be .mmap_prepare instead while the overarching caller is .mmap.
-
-This allows for iterative conversion to .mmap_prepare without having to
-amend 100 files at once in a multi-thousand line patch touching dozens of
-drivers or some hellish notion like that.
-
-This is vital to sensibly being able to implement these changes bit-by-bit.
-
-Cheers, Lorenzo
-
->
-> [1] https://lore.kernel.org/all/892a8b32e5ef64c69239ccc2d1bd364716fd7fdf.1773695307.git.ljs@kernel.org/
->
-> >
-> > Unfortunately, as part of this change, we need to be able to flexibly
-> > assign to the VMA descriptor, so have to remove some of the const
-> > declarations within the structure.
-> >
-> > Also update the VMA tests to reflect the changes.
-> >
-> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> > ---
-> >  include/linux/fs.h              |   3 +
-> >  include/linux/mm_types.h        |   4 +-
-> >  mm/util.c                       | 111 +++++++++++++++++++++++---------
-> >  mm/vma.h                        |   2 +-
-> >  tools/testing/vma/include/dup.h | 111 ++++++++++++++++++++------------
-> >  5 files changed, 157 insertions(+), 74 deletions(-)
-> >
-> > diff --git a/include/linux/fs.h b/include/linux/fs.h
-> > index c390f5c667e3..0bdccfa70b44 100644
-> > --- a/include/linux/fs.h
-> > +++ b/include/linux/fs.h
-> > @@ -2058,6 +2058,9 @@ static inline bool can_mmap_file(struct file *file)
-> >         return true;
-> >  }
-> >
-> > +void compat_set_desc_from_vma(struct vm_area_desc *desc, const struct file *file,
-> > +                             const struct vm_area_struct *vma);
-> > +int __compat_vma_mmap(struct vm_area_desc *desc, struct vm_area_struct *vma);
-> >  int compat_vma_mmap(struct file *file, struct vm_area_struct *vma);
-> >  int __vma_check_mmap_hook(struct vm_area_struct *vma);
-> >
-> > diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> > index 50685cf29792..7538d64f8848 100644
-> > --- a/include/linux/mm_types.h
-> > +++ b/include/linux/mm_types.h
-> > @@ -891,8 +891,8 @@ static __always_inline bool vma_flags_empty(vma_flags_t *flags)
-> >   */
-> >  struct vm_area_desc {
-> >         /* Immutable state. */
-> > -       const struct mm_struct *const mm;
-> > -       struct file *const file; /* May vary from vm_file in stacked callers. */
-> > +       struct mm_struct *mm;
-> > +       struct file *file; /* May vary from vm_file in stacked callers. */
-> >         unsigned long start;
-> >         unsigned long end;
-> >
-> > diff --git a/mm/util.c b/mm/util.c
-> > index aa92e471afe1..a166c48fe894 100644
-> > --- a/mm/util.c
-> > +++ b/mm/util.c
-> > @@ -1163,34 +1163,38 @@ void flush_dcache_folio(struct folio *folio)
-> >  EXPORT_SYMBOL(flush_dcache_folio);
-> >  #endif
-> >
-> > -static int __compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
-> > +/**
-> > + * compat_set_desc_from_vma() - assigns VMA descriptor @desc fields from a VMA.
-> > + * @desc: A VMA descriptor whose fields need to be set.
-> > + * @file: The file object describing the file being mmap()'d.
-> > + * @vma: The VMA whose fields we wish to assign to @desc.
-> > + *
-> > + * This is a compatibility function to allow an mmap() hook to call
-> > + * mmap_prepare() hooks when drivers nest these. This function specifically
-> > + * allows the construction of a vm_area_desc value, @desc, from a VMA @vma for
-> > + * the purposes of doing this.
-> > + *
-> > + * Once the conversion of drivers is complete this function will no longer be
-> > + * required and will be removed.
-> > + */
-> > +void compat_set_desc_from_vma(struct vm_area_desc *desc,
-> > +                             const struct file *file,
-> > +                             const struct vm_area_struct *vma)
-> >  {
-> > -       struct vm_area_desc desc = {
-> > -               .mm = vma->vm_mm,
-> > -               .file = file,
-> > -               .start = vma->vm_start,
-> > -               .end = vma->vm_end,
-> > -
-> > -               .pgoff = vma->vm_pgoff,
-> > -               .vm_file = vma->vm_file,
-> > -               .vma_flags = vma->flags,
-> > -               .page_prot = vma->vm_page_prot,
-> > -
-> > -               .action.type = MMAP_NOTHING, /* Default */
-> > -       };
-> > -       int err;
-> > +       desc->mm = vma->vm_mm;
-> > +       desc->file = (struct file *)file;
-> > +       desc->start = vma->vm_start;
-> > +       desc->end = vma->vm_end;
-> >
-> > -       err = vfs_mmap_prepare(file, &desc);
-> > -       if (err)
-> > -               return err;
-> > +       desc->pgoff = vma->vm_pgoff;
-> > +       desc->vm_file = vma->vm_file;
-> > +       desc->vma_flags = vma->flags;
-> > +       desc->page_prot = vma->vm_page_prot;
-> >
-> > -       err = mmap_action_prepare(&desc);
-> > -       if (err)
-> > -               return err;
-> > -
-> > -       set_vma_from_desc(vma, &desc);
-> > -       return mmap_action_complete(vma, &desc.action);
-> > +       /* Default. */
-> > +       desc->action.type = MMAP_NOTHING;
-> >  }
-> > +EXPORT_SYMBOL(compat_set_desc_from_vma);
-> >
-> >  static int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
-> >  {
-> > @@ -1211,6 +1215,49 @@ static int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
-> >         return err;
-> >  }
-> >
-> > +/**
-> > + * __compat_vma_mmap() - Similar to compat_vma_mmap(), only it allows
-> > + * flexibility as to how the mmap_prepare callback is invoked, which is useful
-> > + * for drivers which invoke nested mmap_prepare callbacks in an mmap() hook.
-> > + * @desc: A VMA descriptor upon which an mmap_prepare() hook has already been
-> > + * executed.
-> > + * @vma: The VMA to which @desc should be applied.
-> > + *
-> > + * The function assumes that you have obtained a VMA descriptor @desc from
-> > + * compt_set_desc_from_vma(), and already executed the mmap_prepare() hook upon
-> > + * it.
-> > + *
-> > + * It then performs any specified mmap actions, and invokes the vm_ops->mapped()
-> > + * hook if one is present.
-> > + *
-> > + * See the description of compat_vma_mmap() for more details.
-> > + *
-> > + * Once the conversion of drivers is complete this function will no longer be
-> > + * required and will be removed.
-> > + *
-> > + * Returns: 0 on success or error.
-> > + */
-> > +int __compat_vma_mmap(struct vm_area_desc *desc,
-> > +                     struct vm_area_struct *vma)
-> > +{
-> > +       int err;
-> > +
-> > +       /* Perform any preparatory tasks for mmap action. */
-> > +       err = mmap_action_prepare(desc);
-> > +       if (err)
-> > +               return err;
-> > +       /* Update the VMA from the descriptor. */
-> > +       compat_set_vma_from_desc(vma, desc);
-> > +       /* Complete any specified mmap actions. */
-> > +       err = mmap_action_complete(vma, &desc->action);
-> > +       if (err)
-> > +               return err;
-> > +
-> > +       /* Invoke vm_ops->mapped callback. */
-> > +       return __compat_vma_mapped(desc->file, vma);
-> > +}
-> > +EXPORT_SYMBOL(__compat_vma_mmap);
-> > +
-> >  /**
-> >   * compat_vma_mmap() - Apply the file's .mmap_prepare() hook to an
-> >   * existing VMA and execute any requested actions.
-> > @@ -1218,10 +1265,10 @@ static int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
-> >   * @vma: The VMA to apply the .mmap_prepare() hook to.
-> >   *
-> >   * Ordinarily, .mmap_prepare() is invoked directly upon mmap(). However, certain
-> > - * stacked filesystems invoke a nested mmap hook of an underlying file.
-> > + * stacked drivers invoke a nested mmap hook of an underlying file.
-> >   *
-> > - * Until all filesystems are converted to use .mmap_prepare(), we must be
-> > - * conservative and continue to invoke these stacked filesystems using the
-> > + * Until all drivers are converted to use .mmap_prepare(), we must be
-> > + * conservative and continue to invoke these stacked drivers using the
-> >   * deprecated .mmap() hook.
-> >   *
-> >   * However we have a problem if the underlying file system possesses an
-> > @@ -1232,20 +1279,22 @@ static int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
-> >   * establishes a struct vm_area_desc descriptor, passes to the underlying
-> >   * .mmap_prepare() hook and applies any changes performed by it.
-> >   *
-> > - * Once the conversion of filesystems is complete this function will no longer
-> > - * be required and will be removed.
-> > + * Once the conversion of drivers is complete this function will no longer be
-> > + * required and will be removed.
-> >   *
-> >   * Returns: 0 on success or error.
-> >   */
-> >  int compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
-> >  {
-> > +       struct vm_area_desc desc;
-> >         int err;
-> >
-> > -       err = __compat_vma_mmap(file, vma);
-> > +       compat_set_desc_from_vma(&desc, file, vma);
-> > +       err = vfs_mmap_prepare(file, &desc);
-> >         if (err)
-> >                 return err;
-> >
-> > -       return __compat_vma_mapped(file, vma);
-> > +       return __compat_vma_mmap(&desc, vma);
-> >  }
-> >  EXPORT_SYMBOL(compat_vma_mmap);
-> >
-> > diff --git a/mm/vma.h b/mm/vma.h
-> > index adc18f7dd9f1..a76046c39b14 100644
-> > --- a/mm/vma.h
-> > +++ b/mm/vma.h
-> > @@ -300,7 +300,7 @@ static inline int vma_iter_store_gfp(struct vma_iterator *vmi,
-> >   * f_op->mmap() but which might have an underlying file system which implements
-> >   * f_op->mmap_prepare().
-> >   */
-> > -static inline void set_vma_from_desc(struct vm_area_struct *vma,
-> > +static inline void compat_set_vma_from_desc(struct vm_area_struct *vma,
-> >                 struct vm_area_desc *desc)
-> >  {
-> >         /*
-> > diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
-> > index 114daaef4f73..6658df26698a 100644
-> > --- a/tools/testing/vma/include/dup.h
-> > +++ b/tools/testing/vma/include/dup.h
-> > @@ -519,8 +519,8 @@ enum vma_operation {
-> >   */
-> >  struct vm_area_desc {
-> >         /* Immutable state. */
-> > -       const struct mm_struct *const mm;
-> > -       struct file *const file; /* May vary from vm_file in stacked callers. */
-> > +       struct mm_struct *mm;
-> > +       struct file *file; /* May vary from vm_file in stacked callers. */
-> >         unsigned long start;
-> >         unsigned long end;
-> >
-> > @@ -1272,43 +1272,92 @@ static inline void vma_set_anonymous(struct vm_area_struct *vma)
-> >  }
-> >
-> >  /* Declared in vma.h. */
-> > -static inline void set_vma_from_desc(struct vm_area_struct *vma,
-> > +static inline void compat_set_vma_from_desc(struct vm_area_struct *vma,
-> >                 struct vm_area_desc *desc);
-> >
-> > -static inline int __compat_vma_mmap(const struct file_operations *f_op,
-> > -               struct file *file, struct vm_area_struct *vma)
-> > +static inline void compat_set_desc_from_vma(struct vm_area_desc *desc,
-> > +                             const struct file *file,
-> > +                             const struct vm_area_struct *vma)
-> >  {
-> > -       struct vm_area_desc desc = {
-> > -               .mm = vma->vm_mm,
-> > -               .file = file,
-> > -               .start = vma->vm_start,
-> > -               .end = vma->vm_end,
-> > +       desc->mm = vma->vm_mm;
-> > +       desc->file = (struct file *)file;
-> > +       desc->start = vma->vm_start;
-> > +       desc->end = vma->vm_end;
-> >
-> > -               .pgoff = vma->vm_pgoff,
-> > -               .vm_file = vma->vm_file,
-> > -               .vma_flags = vma->flags,
-> > -               .page_prot = vma->vm_page_prot,
-> > +       desc->pgoff = vma->vm_pgoff;
-> > +       desc->vm_file = vma->vm_file;
-> > +       desc->vma_flags = vma->flags;
-> > +       desc->page_prot = vma->vm_page_prot;
-> >
-> > -               .action.type = MMAP_NOTHING, /* Default */
-> > -       };
-> > +       /* Default. */
-> > +       desc->action.type = MMAP_NOTHING;
-> > +}
-> > +
-> > +static inline unsigned long vma_pages(const struct vm_area_struct *vma)
-> > +{
-> > +       return (vma->vm_end - vma->vm_start) >> PAGE_SHIFT;
-> > +}
-> > +
-> > +static inline void unmap_vma_locked(struct vm_area_struct *vma)
-> > +{
-> > +       const size_t len = vma_pages(vma) << PAGE_SHIFT;
-> > +
-> > +       mmap_assert_write_locked(vma->vm_mm);
-> > +       do_munmap(vma->vm_mm, vma->vm_start, len, NULL);
-> > +}
-> > +
-> > +static inline int __compat_vma_mapped(struct file *file, struct vm_area_struct *vma)
-> > +{
-> > +       const struct vm_operations_struct *vm_ops = vma->vm_ops;
-> >         int err;
-> >
-> > -       err = f_op->mmap_prepare(&desc);
-> > +       if (!vm_ops->mapped)
-> > +               return 0;
-> > +
-> > +       err = vm_ops->mapped(vma->vm_start, vma->vm_end, vma->vm_pgoff, file,
-> > +                            &vma->vm_private_data);
-> >         if (err)
-> > -               return err;
-> > +               unmap_vma_locked(vma);
-> > +       return err;
-> > +}
-> >
-> > -       err = mmap_action_prepare(&desc);
-> > +static inline int __compat_vma_mmap(struct vm_area_desc *desc,
-> > +               struct vm_area_struct *vma)
-> > +{
-> > +       int err;
-> > +
-> > +       /* Perform any preparatory tasks for mmap action. */
-> > +       err = mmap_action_prepare(desc);
-> > +       if (err)
-> > +               return err;
-> > +       /* Update the VMA from the descriptor. */
-> > +       compat_set_vma_from_desc(vma, desc);
-> > +       /* Complete any specified mmap actions. */
-> > +       err = mmap_action_complete(vma, &desc->action);
-> >         if (err)
-> >                 return err;
-> >
-> > -       set_vma_from_desc(vma, &desc);
-> > -       return mmap_action_complete(vma, &desc.action);
-> > +       /* Invoke vm_ops->mapped callback. */
-> > +       return __compat_vma_mapped(desc->file, vma);
-> > +}
-> > +
-> > +static inline int vfs_mmap_prepare(struct file *file, struct vm_area_desc *desc)
-> > +{
-> > +       return file->f_op->mmap_prepare(desc);
-> >  }
-> >
-> >  static inline int compat_vma_mmap(struct file *file,
-> >                 struct vm_area_struct *vma)
-> >  {
-> > -       return __compat_vma_mmap(file->f_op, file, vma);
-> > +       struct vm_area_desc desc;
-> > +       int err;
-> > +
-> > +       compat_set_desc_from_vma(&desc, file, vma);
-> > +       err = vfs_mmap_prepare(file, &desc);
-> > +       if (err)
-> > +               return err;
-> > +
-> > +       return __compat_vma_mmap(&desc, vma);
-> >  }
-> >
-> >
-> > @@ -1318,11 +1367,6 @@ static inline void vma_iter_init(struct vma_iterator *vmi,
-> >         mas_init(&vmi->mas, &mm->mm_mt, addr);
-> >  }
-> >
-> > -static inline unsigned long vma_pages(struct vm_area_struct *vma)
-> > -{
-> > -       return (vma->vm_end - vma->vm_start) >> PAGE_SHIFT;
-> > -}
-> > -
-> >  static inline void mmap_assert_locked(struct mm_struct *);
-> >  static inline struct vm_area_struct *find_vma_intersection(struct mm_struct *mm,
-> >                                                 unsigned long start_addr,
-> > @@ -1492,11 +1536,6 @@ static inline int vfs_mmap(struct file *file, struct vm_area_struct *vma)
-> >         return file->f_op->mmap(file, vma);
-> >  }
-> >
-> > -static inline int vfs_mmap_prepare(struct file *file, struct vm_area_desc *desc)
-> > -{
-> > -       return file->f_op->mmap_prepare(desc);
-> > -}
-> > -
-> >  static inline void vma_set_file(struct vm_area_struct *vma, struct file *file)
-> >  {
-> >         /* Changing an anonymous vma with this is illegal */
-> > @@ -1521,11 +1560,3 @@ static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-> >
-> >         return vm_get_page_prot(vm_flags);
-> >  }
-> > -
-> > -static inline void unmap_vma_locked(struct vm_area_struct *vma)
-> > -{
-> > -       const size_t len = vma_pages(vma) << PAGE_SHIFT;
-> > -
-> > -       mmap_assert_write_locked(vma->vm_mm);
-> > -       do_munmap(vma->vm_mm, vma->vm_start, len, NULL);
-> > -}
-> > --
-> > 2.53.0
-> >
 
