@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E988109192F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 23:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8695E1091933
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 23:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgG+2MmHlKqkaMtTERli4hGif+DR7fuf4MsPFq2n3tc=; b=aIhfcpSsE5gsxNoT/dHVSNWI8p
-	eBajgp+3wqpI9OajPiL9hLFTmpUYWqy0OgLw0GXBQuZ9b8PPfqNTvb793RcwwxLM4ZqXWfbZtgqeh
-	7cW3X1zBxqerlFExji8M6Osu5TImYFaSkBQYQ1tDciJ192tzjlZcmNMyqLDvqJlRG6xZPQsOPltgk
-	PXr8AhqpnRPNFH5C+EP+Ob+4ID5lccOHlpfH1TDbio94MoWVdmvwwWQHHzmOhm5cxN0uXnzA7A4ZL
-	MA4O64muclQm5rDSvPoC+43M8jsQlZMQdjHw2G6lZ/eaiEimYLvL4vha1CsLs+dmIl5I30srSSItQ
-	Edtljszw==;
+	bh=waf2PG8psEUFk3GCO5J738brbUdR7U/sXIHicgDZK3A=; b=5DNPT6WONzIyqYTf764zrmnXm5
+	oC3MI4msjuRzUE1833mHWYypYROYf+YzEiPYZ+KkgyVG2I6KS2ZWmmji8fl7MfAj1aIOoO/8nD2Us
+	DnAOA+ueiMTAH0gAULAwN3d6L71Byt5EiQ0t2l7NtQm4UkOy67nKSOhpswsXK/++LsVAMKoKrpv0U
+	mMQCHrsXuRKUaiw3vmLHCL5Szr76ZdNiwuGZ2YUNFBm8lOSwxElkVJ9Hh5XL3ywHB8GC2M3+52IMy
+	ZQD+kjypdyQdr4RwfGGZVyaJm4nA93Sj0WFYvT0vnRuyCSCNfBcSUtRyQgO+2ERj7FK4csXD3AZ6+
+	3m4gAw/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Mhr-0000000Bn5D-0Ym8;
-	Thu, 19 Mar 2026 23:23:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w3NCt-0000000BoV8-0bPw;
+	Thu, 19 Mar 2026 23:55:15 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Mhp-0000000Bn4Y-0HZS
+	id 1w3NCq-0000000BoUl-1BRM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 23:23:10 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5CFEA2D5;
-	Fri, 20 Mar 2026 00:21:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773962513;
-	bh=O1yGe/x9bPDoJuw8MAlkhNqRUV1/8GInglDR04iBELc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JwUnumPqh3rA/7TrbDGF0mIB6W4NUe9XMLh8sb4leVTJaEzcWsPh5EaM00kmUEdc2
-	 yDVcaD1p9XUpHYjMyruS7uybEUSlGMIrL1EPKqd9dGVruqpoxCadzJRRc94zVqWAMt
-	 XoRZ8qlmuFMuCkU8reiNa8vtF3LBpS7sM4xwS/NY=
-Date: Fri, 20 Mar 2026 01:23:05 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 2/5] media: imx8mq-mipi-csi2: Use
- devm_clk_bulk_get_all() to fetch clocks
-Message-ID: <20260319232305.GA967713@killaraus.ideasonboard.com>
-References: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
- <20251205-csi2_imx8ulp-v10-2-190cdadb20a3@nxp.com>
+	Thu, 19 Mar 2026 23:55:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773964512; x=1805500512;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=r/SbXPFP/ykN1nLBK9p10AiU3ezsLWp1iV0fpBfCrpY=;
+  b=fuQaXY7tMFFC6NC77+avg/nZpVNIhSPl1UPD/61S5JM22lrBYsmPadqt
+   JKcfbg2HJ+lWbbVEwXcxeFCSF0RU6waqrEYyk8HRrY6BwbF29fT8zVVub
+   jXpy/gHWwJ+v3r0y6Cy+jMj9vTPtBrx7iEFODcBd2Z7ZOjB8sePC8JDjI
+   iR1N3EjHKsciiy2FiktySAf4E/IRELx70cgINfas+4AGODwg/TGhGFXHY
+   Gg5N5fkeJswFSlS0i4auLnOigrjyCKIaVysoK8P5DegpGyEM0RWMvokd8
+   Ceobv/9uXH1hadrz6udfEAb0uyF2UOK4yKuEHKziOcpz+Xu25oZOTrgrY
+   g==;
+X-CSE-ConnectionGUID: rmEt8IPYQ/Gtj11ZSFmdEA==
+X-CSE-MsgGUID: W2y1OlO/T4y0hJFWFmtooA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="62612635"
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="62612635"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 16:55:07 -0700
+X-CSE-ConnectionGUID: HphZLJquTpmTIN6wubYLGw==
+X-CSE-MsgGUID: 4aygXDj7Tv618DsIpcD7yA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="261016791"
+Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 19 Mar 2026 16:55:03 -0700
+Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w3NCe-000000001nJ-25Ey;
+	Thu, 19 Mar 2026 23:55:00 +0000
+Date: Fri, 20 Mar 2026 07:53:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	maciej.lawniczak@intel.com, aspeedyh <yh_chung@aspeedtech.com>
+Subject: Re: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
+Message-ID: <202603200700.6fddOZHQ-lkp@intel.com>
+References: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251205-csi2_imx8ulp-v10-2-190cdadb20a3@nxp.com>
+In-Reply-To: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_162309_268212_8C930628 
-X-CRM114-Status: GOOD (  25.95  )
+X-CRM114-CacheID: sfid-20260319_165512_366877_32454F27 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,151 +94,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guoniu,
+Hi aspeedyh,
 
-Thank you for the patch.
+kernel test robot noticed the following build warnings:
 
-On Fri, Dec 05, 2025 at 05:07:44PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> 
-> Use devm_clk_bulk_get_all() helper to simplify clock handle code.
-> 
-> No functional changes intended.
-> 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 55 ++++++++++-----------------
->  1 file changed, 20 insertions(+), 35 deletions(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 371b4e81328c107269f89da23818ab0abd0179da..0e3a41cd35edfefc51b5631e2c36fd76e3e14d83 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -71,21 +71,6 @@ enum {
->  	ST_SUSPENDED	= 4,
->  };
->  
-> -enum imx8mq_mipi_csi_clk {
-> -	CSI2_CLK_CORE,
-> -	CSI2_CLK_ESC,
-> -	CSI2_CLK_UI,
-> -	CSI2_NUM_CLKS,
-> -};
-> -
-> -static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
-> -	[CSI2_CLK_CORE] = "core",
-> -	[CSI2_CLK_ESC] = "esc",
-> -	[CSI2_CLK_UI] = "ui",
-> -};
-> -
-> -#define CSI2_NUM_CLKS	ARRAY_SIZE(imx8mq_mipi_csi_clk_id)
-> -
->  struct imx8mq_plat_data {
->  	int (*enable)(struct csi_state *state, u32 hs_settle);
->  	void (*disable)(struct csi_state *state);
-> @@ -111,7 +96,9 @@ struct csi_state {
->  	struct device *dev;
->  	const struct imx8mq_plat_data *pdata;
->  	void __iomem *regs;
-> -	struct clk_bulk_data clks[CSI2_NUM_CLKS];
-> +	struct clk_bulk_data *clks;
-> +	struct clk *esc_clk;
-> +	u32 num_clks;
->  	struct reset_control *rst;
->  	struct regulator *mipi_phy_regulator;
->  
-> @@ -384,24 +371,16 @@ static void imx8mq_mipi_csi_set_params(struct csi_state *state)
->  			      CSI2RX_SEND_LEVEL);
->  }
->  
-> -static int imx8mq_mipi_csi_clk_enable(struct csi_state *state)
-> -{
-> -	return clk_bulk_prepare_enable(CSI2_NUM_CLKS, state->clks);
-> -}
-> -
-> -static void imx8mq_mipi_csi_clk_disable(struct csi_state *state)
-> -{
-> -	clk_bulk_disable_unprepare(CSI2_NUM_CLKS, state->clks);
-> -}
-> -
-> -static int imx8mq_mipi_csi_clk_get(struct csi_state *state)
-> +static struct clk *find_esc_clk(struct csi_state *state)
+[auto build test WARNING on 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a]
 
-imx8mq_mipi_csi_find_esc_clk().
+url:    https://github.com/intel-lab-lkp/linux/commits/aspeedyh/dt-bindings-soc-aspeed-Add-AST2600-eSPI-controller/20260315-101647
+base:   0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
+patch link:    https://lore.kernel.org/r/20260313-upstream_espi-v1-5-9504428e1f43%40aspeedtech.com
+patch subject: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
+config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20260320/202603200700.6fddOZHQ-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260320/202603200700.6fddOZHQ-lkp@intel.com/reproduce)
 
->  {
->  	unsigned int i;
->  
-> -	for (i = 0; i < CSI2_NUM_CLKS; i++)
-> -		state->clks[i].id = imx8mq_mipi_csi_clk_id[i];
-> +	for (i = 0; i < state->num_clks; i++) {
-> +		if (!strcmp(state->clks[i].id, "esc"))
-> +			return state->clks[i].clk;
-> +	}
->  
-> -	return devm_clk_bulk_get(state->dev, CSI2_NUM_CLKS, state->clks);
-> +	return ERR_PTR(-ENODEV);
->  }
->  
->  static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
-> @@ -456,7 +435,7 @@ static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
->  	 * documentation recommends picking a value away from the boundaries.
->  	 * Let's pick the average.
->  	 */
-> -	esc_clk_rate = clk_get_rate(state->clks[CSI2_CLK_ESC].clk);
-> +	esc_clk_rate = clk_get_rate(state->esc_clk);
->  	if (!esc_clk_rate) {
->  		dev_err(state->dev, "Could not get esc clock rate.\n");
->  		return -EINVAL;
-> @@ -783,7 +762,7 @@ static void imx8mq_mipi_csi_pm_suspend(struct device *dev)
->  
->  	if (state->state & ST_POWERED) {
->  		imx8mq_mipi_csi_stop_stream(state);
-> -		imx8mq_mipi_csi_clk_disable(state);
-> +		clk_bulk_disable_unprepare(state->num_clks, state->clks);
->  		state->state &= ~ST_POWERED;
->  	}
->  
-> @@ -801,7 +780,7 @@ static int imx8mq_mipi_csi_pm_resume(struct device *dev)
->  
->  	if (!(state->state & ST_POWERED)) {
->  		state->state |= ST_POWERED;
-> -		ret = imx8mq_mipi_csi_clk_enable(state);
-> +		ret = clk_bulk_prepare_enable(state->num_clks, state->clks);
->  	}
->  	if (state->state & ST_STREAMING) {
->  		sd_state = v4l2_subdev_lock_and_get_active_state(sd);
-> @@ -1027,9 +1006,15 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
->  	if (IS_ERR(state->regs))
->  		return PTR_ERR(state->regs);
->  
-> -	ret = imx8mq_mipi_csi_clk_get(state);
-> +	ret = devm_clk_bulk_get_all(dev, &state->clks);
->  	if (ret < 0)
-> -		return ret;
-> +		return dev_err_probe(dev, ret, "Failed to get clocks\n");
-> +
-> +	state->num_clks = ret;
-> +
-> +	state->esc_clk = find_esc_clk(state);
-> +	if (IS_ERR(state->esc_clk))
-> +		return dev_err_probe(dev, PTR_ERR(state->esc_clk), "Couldn't find esc clock\n");
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603200700.6fddOZHQ-lkp@intel.com/
 
-This could be line-wrapped.
+All warnings (new ones prefixed by >>):
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_reset':
+   drivers/soc/aspeed/espi/ast2600-espi.c:137:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+     137 |         reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
+         |                ^~~~~~~~~~
+   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_remove':
+>> drivers/soc/aspeed/espi/ast2600-espi.c:172:35: warning: variable 'flash' set but not used [-Wunused-but-set-variable]
+     172 |         struct aspeed_espi_flash *flash;
+         |                                   ^~~~~
+   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_get_hdr':
+   drivers/soc/aspeed/espi/ast2600-espi.c:194:20: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+     194 |         hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
+         |                    ^~~~~~~~~
 
-I can make those small changes when applying if there's no other need to
-submit a new version.
 
->  
->  	platform_set_drvdata(pdev, &state->sd);
->  
-> 
+vim +/flash +172 drivers/soc/aspeed/espi/ast2600-espi.c
+
+   169	
+   170	int ast2600_espi_flash_remove(struct aspeed_espi *espi)
+   171	{
+ > 172		struct aspeed_espi_flash *flash;
+   173		u32 reg;
+   174	
+   175		flash = &espi->flash;
+   176	
+   177		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
+   178	
+   179		reg = readl(espi->regs + ESPI_CTRL);
+   180		reg &= ~(ESPI_CTRL_FLASH_TX_DMA_EN
+   181			 | ESPI_CTRL_FLASH_RX_DMA_EN
+   182			 | ESPI_CTRL_FLASH_SW_RDY);
+   183		writel(reg, espi->regs + ESPI_CTRL);
+   184	
+   185		return 0;
+   186	}
+   187	
 
 -- 
-Regards,
-
-Laurent Pinchart
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
