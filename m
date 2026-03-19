@@ -4,145 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE9F1075262
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAB61075262
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgSMC783ekID2iMZS/ciXQ40YRkdYQ88GanGBYX3FDk=; b=3tA9MFkSuCWdZh6SpeopGOgxLa
-	jZ2zmrIuk47YLC/Uy3OTo2hX8pxsPvobnoajv60q674yQs5MVsjEtyOt1t/ZcnSUUabtGU9+JWJaU
-	z/BHn7RdVM4vNO7b3knf49EOaLNGNkyaSz53g1sLmKE5ymo2K5aoh7AZNAPBGIVmnaAJQWqjnSxsS
-	p681eWLq0w0KsmN14GKxhftNqjx7aKfv4NaqydqmPNIaso14YxAQaa7ndeHJwp/bC5oCoW6/VYc8o
-	+ZQ0W5qnK1R6dRc9UcuMB949OOU4cW6zKz/dwNVX1POuqa0ul3hjuxqEm2YxNB14WzOhxRf7OeFsc
-	xDWJOvcQ==;
+	bh=z/fUcPZMaN1EmAIgEAIs1BB2V9BDRyeP90qUb0Gut/4=; b=xrYUCML1UTepfeb54A4IKjP0Or
+	3cG4C6NDuAyMDR0SH+uaTrP58lWKjLfso1RsXFPpq2TFk8JJV++85Y+aOTls1tkHfsmP5dxZ3My6Z
+	hMOD62Y6AqGzcHu9GQrIc0cblR+QeJaXbqgTl06IGYPEQu6ocCJxJBm92zUubMI53Izg19hd2Ao2D
+	P1sVsx2sBZ17UZpSJ2RidDvxO4eBIgp587OlfrO8xFstCKq5W6fJgEZfUsbN15qUDCbvA52PrQWyO
+	Xntmw6He7GjLTRxwbMcJsLbLWr6WLjY/Wp/FbS6uvEHyBifLzNqCjvtwankI9igeIfAnagr8UZp+K
+	TjB8A/6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36tW-0000000A3MP-1J50;
-	Thu, 19 Mar 2026 06:30:10 +0000
-Received: from mail-northeuropeazon11011051.outbound.protection.outlook.com ([52.101.65.51] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w37QW-0000000A6Ge-0mxw;
+	Thu, 19 Mar 2026 07:04:16 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36tT-0000000A3M4-2RpY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 06:30:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k468Ft2srS/N3jk85KgIFBlY6erILGBzYv6zfbl17giLKampjlgQOD4SHGLdk4JGi6sJTBtV786+oi0FWy5ce8aXsp73RYKYQ83P4Pm5wfVEGRfk5DRv13BEMnt5WsXw6vCGP5o0l95929bldh9DNfakXjTB/JVOiunQWs6jSJiXB4ngsxf2OdaluhlpAkC2HqAefj3l8thHqP2etcDAP3M6eRrKMAoVOS4OO20WoXadtxZBquZE/bVZKV5FxYAzLmZidRkEEg+Fab7nbKmycbZfIfuldthJ1vbHo8iRKN0F4nhY9rBgP8HNw0npl2McCeGEnJVv7rzZhbGdURTrjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zgSMC783ekID2iMZS/ciXQ40YRkdYQ88GanGBYX3FDk=;
- b=GbklyaFnQBcjn2f0NmV/34UQcLkf+2+44w5RfzSab73ClwFq2XTLMvmwVGC9/+1davU/pRyEpAbep7qAaegzxM2YJx71jn32Taj0q13ZQTNas4Z7TYUm7MfTI8p5nuySZa/TXY7lyuCYUH62oFiUVG484My43g8rx0sHXK+mVIJd38rIv8+Y+R3HwBjF9DEiEGT2197b1TfYmbV+wlvAqS3twem3MkGvJOtUpNez8615XDyTUs/XOw5iPV8PVl2GlcQepYw6j7ybVbzg0+oYm5xCz813RsHUG7WsBATQLyJ4+OLf3CGY7+vpVasXN2+TCzmQrIELimlyng+Ak25vCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zgSMC783ekID2iMZS/ciXQ40YRkdYQ88GanGBYX3FDk=;
- b=XZyaU7khcBZtI0wi61s4nRLEfGPKxeGkfotX/vJfzdAQ6PEGEDWmsDqrxLr9M2aajOMFaPa7UC9TZAQZnzHbRAA5I/0G79UDvxkTIuh5Ugs/qvSb1WJHTQG9PKNSzMNo0aKcVfRKMXcwthzQx7ipVNPiMZQkKOWk4aatQQdIU8mMuh//jmKpGve3OmuC9vKfA2h7rYPeTITT+Jg/Sk+/iU+7VYvX7T/LiKYlWvgml0080nX2L9q5YcnfE3qsRer5Q/TbayPEX/RaqMEQKPnFJdRR5GZw5itGz/m000kEdLMkcYNgomniiCN0k7MJbjesq01p3oYoJ1vKL/0BzRZUow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AM7PR04MB7160.eurprd04.prod.outlook.com (2603:10a6:20b:119::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 06:29:59 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 06:30:00 +0000
-Message-ID: <cd5ef40c-f8dc-42d7-a747-5c20e37bdc7a@oss.nxp.com>
-Date: Thu, 19 Mar 2026 08:32:58 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add i.MX95 19x19 FRDM PRO
- board
-To: Joseph Guo <qijian.guo@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- xinyu.chen@nxp.com, qijian.guo@oss.nxp.com, justin.jiang@nxp.com
-References: <20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com>
- <20260318-imx95_frdm_pro-v1-1-8c00e59f0b1b@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260318-imx95_frdm_pro-v1-1-8c00e59f0b1b@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P191CA0009.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d5::16) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	id 1w37QT-0000000A6GF-1YlR;
+	Thu, 19 Mar 2026 07:04:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773903854; x=1805439854;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XWRb4tG0WfjZbF3L2bUwVIdS+/4y/LWaL3SwWGs47Z8=;
+  b=cFNRpJXffnxMDHZ/rLN7fPnVMJHtYOy3KhcIN/9nrwaPhUVFjtdnlCuq
+   rcOMHJ+01yAj6LqyZpFNua7DgLFeaVTuTWZiJp3dYtDFn/oPNfaEKV6i9
+   uPEUXrxZqeIDlnb0B7wHnv4XSE3zoE7cuTl16VOWyiXUE6s/KwOxO08pP
+   BHU5w3oEzAMVYma3uvQyowYc0c6VY73AJqaJCiRGM8KcZi+QyLn0YAgIp
+   yU/AxkWyuMGzHvAC6vhof8rvaVhnC+UdRTjCkvoQYduqmfOTFCWlHnimn
+   IOZ8ZbhxFg0BwLfH8bgPjGmQBW/lmezUuB8TywteyhV+xdZuJnQWMDMuE
+   Q==;
+X-CSE-ConnectionGUID: G7i3Q570SkiMIabT9QU7pg==
+X-CSE-MsgGUID: 8nW3RhVLSuKCuNO30ckuLA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11733"; a="62538843"
+X-IronPort-AV: E=Sophos;i="6.23,128,1770624000"; 
+   d="scan'208";a="62538843"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 00:04:13 -0700
+X-CSE-ConnectionGUID: 6kIld5kyQMCuWrGShd9Iow==
+X-CSE-MsgGUID: ePfOVPAlSMy5V8WuidXKGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,128,1770624000"; 
+   d="scan'208";a="224890375"
+Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 19 Mar 2026 00:04:08 -0700
+Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w37Ps-000000000Sn-1nKh;
+	Thu, 19 Mar 2026 07:03:42 +0000
+Date: Thu, 19 Mar 2026 15:03:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Daniele Briguglio <hello@superkali.me>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Daniele Briguglio <hello@superkali.me>
+Subject: Re: [PATCH 3/3] clk: rockchip: rk3588: add GATE_GRF clocks for I2S
+ MCLK output to IO
+Message-ID: <202603191419.MH6EuPga-lkp@intel.com>
+References: <20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718@superkali.me>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AM7PR04MB7160:EE_
-X-MS-Office365-Filtering-Correlation-Id: d2b9bb63-dadf-403c-80e6-08de8580f28d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: c2hDdJyLRKOAABhGokJJU4a/+0FAidJIUogtDJ8E8VjFxOwLujfSAPRprouGSDdY+PereZsExqPNbBUOFvnRt+/UlEsVC9LBkBMAlhV0SY2xLNstmyvuNr+UudvhJ5UDwDIfAIoKQ71AUuw0HFI7/NdHuJDwkwIS3NgMOwF7iQvJgjQ6DK0aEYMtBtr3+NOgLYTbLUYnKuaNYkV6Kw51uKRidAKsosBcwWOQNKJ+F+Nby6oJd/ZnRFpTEeuyh+26b7DXUaE97jTU4ZlJCMUUBtXswgh59MvVS3qeTWcgtKt2EOtV4SQFYOI4mIpx1yReJ8ULzVAHl7UWBwQ/0Ae7T/tV8YnIRCokTGlQqO1hlUV7RC5zV2ZQRwc7kdlvzxJbKegkE7p+d8o1hdBpT9Nguz98DN2LpccdsWRfkxtCqxfCpnxKGpdOah44oKHimxPMKKvcX1uwGxn2kFBDtXVOJtAsK6W3WUhEVtxOMVHRagEwEqn3YHZ4OEPFyVk4cGVHsHey5SDLvaPKe7skM+CdNVL3mPwIZBzo4Vex0DxOAMq+7PzTRsoPs/a5yaTO0NBz22UIoqiDmVB3w0U6f3IVwtjvi+RT+Z6ADWXUZ34DXB4jIVN/YJEY59IeL1uKXXCsf/i4GiwWSrpwpk/KIkx14NLh4nYntGQ2prQxjglpONO0RQdghcWlKJwihlK8FwswV8hVpw09iDZTtxyEhqNovAVElHfqZefuhpAFt4YT+Js=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TjlaQVc2TWwzR1pmblVOK0h6ell1aVpadGszOW8rRzJEeSsvaXlramE1MlFh?=
- =?utf-8?B?TU55bHU2d1k2L1QxOTUwazdSR3hHWWwyZkZCSmRUNCtmRDhWNWtkOVE0NnFL?=
- =?utf-8?B?ZGFlTEoyUDdPcW0zZjFHWFdJWmkyTzdVdkVSSkEyVlRWblhyNldTLzErcjdV?=
- =?utf-8?B?OE5SeXp2ZTZGejVURzN2Z21Hd0U2anIvdzdXWXU1NDV3TXp4VmN0VU5nbytu?=
- =?utf-8?B?RlZHWC8xSkRaRXFER3o5VWpLOFNLb1FWSitqNi9aVTBZTWdkSU50ZTlqeG16?=
- =?utf-8?B?MUtmSEdiMUtPbTVlaUxxV2RscTh0a0srclRjRDQzSnNudDNtZ2NneU1jV3dX?=
- =?utf-8?B?U1lSUmZQV1M5NGZIdURqb0c0NkRveElyZmxmQTJ6L3VMQStaTm8xa3dBbDJN?=
- =?utf-8?B?VHZuV0dKSnl2UzNyUmFoMTN5ZC8rTzhYMXVQWlRGVjhzbjlhcDJhUERPbWY3?=
- =?utf-8?B?S1R2V1BNUmtzSmU4OC9HT3B4OWlnbkxpWHpENUdYOWE0YVBjWHpza3BSOHNU?=
- =?utf-8?B?bGRDMEhtSUxzdHZPSVdsenhrOG1NM2ZsM0ZtNlE3RWRtcDFtSEdXMWtsWnV1?=
- =?utf-8?B?TG9vWmxpZmc3eEhEdWwyQTdoSVkyVU5ENzNFT3RPZU01RVBHNHJwdTRlOFFK?=
- =?utf-8?B?T1Y5eEhWdnlYaEUyZElzUmVldCt5RFIyRUtnT3VLcUlPYjFCVUlTUWdReXlZ?=
- =?utf-8?B?TTVUWWpSczJhUStXU0dEVk1DVlFxQ2xGWDd0T2tnWUZxT25sMEZFS09zUjlD?=
- =?utf-8?B?alNGVDlvOU56UFROWWVjSnhjT29ZL2VkalFpa3EvSm5Vb3krM0ZYWGx5KzF0?=
- =?utf-8?B?SkJ2azhIUXFLd2Z4aElWQlFTMS9HRVhlZkltdnRzL3ZzbnMyL09FZkJvdHNy?=
- =?utf-8?B?T1dIclFMWThwbVYxS0h6MDNMRGxrNkxDYzJua1hBeEVDWTlwZG9DQnRBSGJF?=
- =?utf-8?B?ajEyUnZNcVhGV2F5YVdSaVAwYVZBaEN5RFhlNmVWUjhtdGFhVnRtcnovNk9T?=
- =?utf-8?B?eTBUOEVvdUFvdW9ITmpBMFRCSE1LUU4vSUFYbmFaemM1MkduM1lXejN2TFB2?=
- =?utf-8?B?YlI4bGZkM29PTXhFcS9VYXNhTi9nR0VTVGVnVTVia1gyRFdrcCswQmlhMDA5?=
- =?utf-8?B?NE9DMlZIT3hSNmpBY3p5L2kxYk5pUTRMd3NFaE5NWjFWakRWYVlCdUQzeE1q?=
- =?utf-8?B?ejBQUTlFMGgwVXROWXlMVHBDUUZUZllGa3Btb1Z3dFBGZkRIbWQxdCtlWTYr?=
- =?utf-8?B?TEZDK214NHBwY09TaGVxeEZJUW9EUFJOeEEwYnhvekt4cmhOdWdjWnRraFVz?=
- =?utf-8?B?WWFpM1hCNUtXdTRQdFlNQzdhRGg0TFhuMlB4NEtOb3Q0QkRxaDhUV3RCUnQw?=
- =?utf-8?B?Z01yM0Z4Mml5UkxhVlY4TFVWOWQ3WjdvMFJEeEJWWUkzUGYwcFE5V3Q1R2Vi?=
- =?utf-8?B?QTRRUXA0RDBlcUkrUlNEb0IzVCtxd05MYlFSdVBJQmhJYkszMUF0Mk5DVi82?=
- =?utf-8?B?ZGsxSTh1NDhVdGtZK05CWDhvL0EvVzdRdm9lWG5qTnQ5cFNKaWh4NWI0N0l3?=
- =?utf-8?B?YXAvV2JDSVlyTFZHRGVpZHMwNlQrYzhOeEloZmlUd2tKTnpXZVZYYk9wYXV1?=
- =?utf-8?B?dHJjUnZ4U1hDNFRudDFLeUdYZmpRU1hoYW1VM2JKSG9FK3hyZlRiQjJ0UEt3?=
- =?utf-8?B?THhld1l5Mmo3SHByejZDNTkzdDhoalAybEtsRXphY3FpeUxqazI0RnRZeUhk?=
- =?utf-8?B?SSs4Mm1TQ214MVpBVmFFRnFqMkRGZ0ZBN0IvUzArNVhzS21NYVFhQ3lMRjV2?=
- =?utf-8?B?d1FpbjZ1UGZINVFZcG5vbXJBSTNQOWdCYmZmcnFRUjBDQXI3ZUptSm0zYlN1?=
- =?utf-8?B?STNhdDBZN1BIVWdIVnEwU0tGUTZPSlVETzJrcmU3eU1sL1B0cG41Zlg2eEdz?=
- =?utf-8?B?NU9MdjgrSVpOaUcrWkYwMGsxamo2RU1KNFdQTWV0OWVMODNiM2ZYZGtkVTRF?=
- =?utf-8?B?SHZFVGQyamxOaE9CM1g0eHFobEI1ZUYzQ3J2emw5a2trSHJhcTVXTlZlc3A1?=
- =?utf-8?B?OGNKTThaUlBWUXdydkFDRlY4OFU1YXl3ZGQycmJxakZ4SWtyc0FQQlhjQUdq?=
- =?utf-8?B?NnNKT1dDMElXak9zNXh0SWhuU0tOTURsc04xbFJvNW0vNlBaNmVPaS9Zc050?=
- =?utf-8?B?bWhDdmJtZ3loZHhPSUJmOHJ4SEwrYUljVGpuSFZHa1J6eWdaczY0L2NuUEcv?=
- =?utf-8?B?bm1aMG1hZjk5MktMTU9zbzUrOVYxWE5CcGNTS3gxOVZZYzZRcTRlZkVORFQx?=
- =?utf-8?B?S2x4N09aT2FGLzRUOWFmaVdGcjdVTVI5L3owVVd2OU5sMVFERzFXUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2b9bb63-dadf-403c-80e6-08de8580f28d
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 06:30:00.6888
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DO+NS0XGHCivrpCU9ngNeIXxF/FCLO/8Z7yzmQ5owoS8sMybXT4JTON6bwE5OqZlK0lHuPOCEmvlwWp1OkpjRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7160
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718@superkali.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_233007_660233_5F2FCB90 
-X-CRM114-Status: UNSURE (   5.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_000413_505505_331F9764 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,10 +95,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 10:04, Joseph Guo wrote:
-> Add the i.MX95 19x19 FRDM PRO board in the binding document.
->
-> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Hi Daniele,
 
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on b84a0ebe421ca56995ff78b66307667b62b3a900]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Daniele-Briguglio/dt-bindings-clock-rockchip-rk3588-cru-add-I2S-MCLK-output-to-IO-clock-IDs/20260316-222240
+base:   b84a0ebe421ca56995ff78b66307667b62b3a900
+patch link:    https://lore.kernel.org/r/20260316-rk3588-mclk-gate-grf-v1-3-66fb9a246718%40superkali.me
+patch subject: [PATCH 3/3] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
+config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260319/202603191419.MH6EuPga-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260319/202603191419.MH6EuPga-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603191419.MH6EuPga-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/clk/rockchip/clk-rk3588.c: In function 'rk3588_clk_early_init':
+>> drivers/clk/rockchip/clk-rk3588.c:2496:29: error: implicit declaration of function 'kzalloc_obj' [-Wimplicit-function-declaration]
+    2496 |                 sys_grf_e = kzalloc_obj(*sys_grf_e);
+         |                             ^~~~~~~~~~~
+>> drivers/clk/rockchip/clk-rk3588.c:2496:27: error: assignment to 'struct rockchip_aux_grf *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+    2496 |                 sys_grf_e = kzalloc_obj(*sys_grf_e);
+         |                           ^
+
+
+vim +/kzalloc_obj +2496 drivers/clk/rockchip/clk-rk3588.c
+
+  2447	
+  2448	static void __init rk3588_clk_early_init(struct device_node *np)
+  2449	{
+  2450		struct rockchip_clk_provider *ctx;
+  2451		struct rockchip_aux_grf *sys_grf_e;
+  2452		struct regmap *sys_grf;
+  2453		unsigned long clk_nr_clks, max_clk_id1, max_clk_id2;
+  2454		void __iomem *reg_base;
+  2455	
+  2456		max_clk_id1 = rockchip_clk_find_max_clk_id(rk3588_clk_branches,
+  2457						ARRAY_SIZE(rk3588_clk_branches));
+  2458		max_clk_id2 = rockchip_clk_find_max_clk_id(rk3588_early_clk_branches,
+  2459						ARRAY_SIZE(rk3588_early_clk_branches));
+  2460		clk_nr_clks = max(max_clk_id1, max_clk_id2) + 1;
+  2461	
+  2462		reg_base = of_iomap(np, 0);
+  2463		if (!reg_base) {
+  2464			pr_err("%s: could not map cru region\n", __func__);
+  2465			return;
+  2466		}
+  2467	
+  2468		ctx = rockchip_clk_init_early(np, reg_base, clk_nr_clks);
+  2469		if (IS_ERR(ctx)) {
+  2470			pr_err("%s: rockchip clk init failed\n", __func__);
+  2471			iounmap(reg_base);
+  2472			return;
+  2473		}
+  2474		early_ctx = ctx;
+  2475	
+  2476		rockchip_clk_register_plls(ctx, rk3588_pll_clks,
+  2477					   ARRAY_SIZE(rk3588_pll_clks),
+  2478					   RK3588_GRF_SOC_STATUS0);
+  2479	
+  2480		rockchip_clk_register_armclk(ctx, ARMCLK_L, "armclk_l",
+  2481				mux_armclkl_p, ARRAY_SIZE(mux_armclkl_p),
+  2482				&rk3588_cpulclk_data, rk3588_cpulclk_rates,
+  2483				ARRAY_SIZE(rk3588_cpulclk_rates));
+  2484		rockchip_clk_register_armclk(ctx, ARMCLK_B01, "armclk_b01",
+  2485				mux_armclkb01_p, ARRAY_SIZE(mux_armclkb01_p),
+  2486				&rk3588_cpub0clk_data, rk3588_cpub0clk_rates,
+  2487				ARRAY_SIZE(rk3588_cpub0clk_rates));
+  2488		rockchip_clk_register_armclk(ctx, ARMCLK_B23, "armclk_b23",
+  2489				mux_armclkb23_p, ARRAY_SIZE(mux_armclkb23_p),
+  2490				&rk3588_cpub1clk_data, rk3588_cpub1clk_rates,
+  2491				ARRAY_SIZE(rk3588_cpub1clk_rates));
+  2492	
+  2493		/* Register SYS_GRF for I2S MCLK output to IO gate clocks */
+  2494		sys_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3588-sys-grf");
+  2495		if (!IS_ERR(sys_grf)) {
+> 2496			sys_grf_e = kzalloc_obj(*sys_grf_e);
+  2497			if (sys_grf_e) {
+  2498				sys_grf_e->grf = sys_grf;
+  2499				sys_grf_e->type = grf_type_sys;
+  2500				hash_add(ctx->aux_grf_table, &sys_grf_e->node, grf_type_sys);
+  2501			}
+  2502		}
+  2503	
+  2504		rockchip_clk_register_branches(ctx, rk3588_early_clk_branches,
+  2505					       ARRAY_SIZE(rk3588_early_clk_branches));
+  2506	
+  2507		rockchip_clk_of_add_provider(np, ctx);
+  2508	}
+  2509	CLK_OF_DECLARE_DRIVER(rk3588_cru, "rockchip,rk3588-cru", rk3588_clk_early_init);
+  2510	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
