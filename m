@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F931090247
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7223109024C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uv6xjD+xq1ByY66Ck7xiD8Jqhn5Jv0DO6kZ44bzcIfI=; b=GCnUgIdOMfKs1uFOVdjBZnHE6D
-	wNCfilDI82wxvbjyDple7lw5MBmjbyy2Xdi+/eZIiBqpC6Ns7gWUDs/z8ALd3/dyzdLJYhohnTEQG
-	Xj2HRRFTJ/qqaEhbnQTDBrPcXGwjO96/28/Sy1UP6VUMBn9fYKa2h30S1DifPG6IzLyjDQ6OI8HQA
-	oOSTT38lKfWsTRDut3mOAxuMH8ACjDVI/IzST9TRIPATqzLJDRuzkxdrWwiq88uBOacHE9nCxP9Jg
-	ilzbPvjRqCXT4AQkOdmB0s5sjpkS8Cp9Np32gLfDJUnVxV0GBvm8r03xd8/3EY/oT/pTIKCNJuR2Y
-	eylOB0BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1dZYoeSj7mNH1G/4/04rqhVLZ7jxvGU1UEcMS9o0Rxc=; b=3J+0viWXtz3EdVXLHpCrnDVEA0
+	oNF3QtUPIn0AoGKQBx8szcJJ651WvlUud0Bo4d5prB4fx8caET+RGAlILoZy8ii9uzJqKd6ao2uc1
+	V5Nu5NorQLgKSVfCcvdBU22iyBbNn5KRDBV8k7qgjUdo1xhiF+yHBLchgqffMiEzH8AJO6jSCupbg
+	xgq2++u2ciy/s1bR3VQ2fGaX3j6jR5zHewm6d4YZZr0oMCK4b55yN5MRxTm7ikhvjPyYPx7jr6gMA
+	IQtAWDbmJHjYpkOaZolL8tsouHpcTT2viCJHg/k/sVwnMJo7pM6N2RhI2xjFxPMHR6XzzqZq/IIYG
+	hxsIeW9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FpR-0000000B1hl-1XPb;
-	Thu, 19 Mar 2026 16:02:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FpM-0000000B1gd-3CHB
+	id 1w3Fwb-0000000B2Ay-2Snm;
+	Thu, 19 Mar 2026 16:09:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Fwa-0000000B2Ar-21qT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:02:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA1BB1477;
-	Thu, 19 Mar 2026 09:02:19 -0700 (PDT)
-Received: from [10.1.35.24] (e122027.cambridge.arm.com [10.1.35.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1AA213F778;
-	Thu, 19 Mar 2026 09:02:20 -0700 (PDT)
-Message-ID: <a4a822dd-8b77-4a42-a366-230324d0585f@arm.com>
-Date: Thu, 19 Mar 2026 16:02:18 +0000
+	Thu, 19 Mar 2026 16:09:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 87FF960097;
+	Thu, 19 Mar 2026 16:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C87C19424;
+	Thu, 19 Mar 2026 16:09:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773936595;
+	bh=Vm2RXvDdQvy8W+GSK8JzkxylVhZ9BxfcKJfddBrAzd0=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=cbJBCvyzcCEJovPDR66IWn0++v3e8jW5tk6B65tsLEQop/ICx15fABemTFkaLeICG
+	 RWb/ymxDdT0bIxO/i4t0F0uBr1tVDS6u7RSxtZHvsDqaUZWufmWPuyH1u+Jo3MfHGv
+	 lOkGIQqW/SRqRjRerum+17dSakQ7eRUhn0+v2n87XR2840EVAxGUEubXk3LBKHBiad
+	 nZmFtvkn2Ufdi6Wb4u97OetE8KMiPb3eC7a4qCwSA+gZBlYnu4UXF7wKw0ts74+aH4
+	 e+EpDylXakXGFpzDKRhg/pgaqpwFPZg9WGGUpWvayWy0yRclOZ5BxlMIFywfn0Xg7G
+	 tt01XcPFl9J3A==
+Date: Thu, 19 Mar 2026 17:09:52 +0100
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] soc/tegra: Add Tegra238 Kconfig symbol
+Message-ID: <abwfvqfw4CYIUAoX@orome>
+References: <20260226150933.4067324-1-thierry.reding@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 36/48] arm64: RMI: Always use 4k pages for realms
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-37-steven.price@arm.com>
- <20260319102454.GB3942350@e124191.cambridge.arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260319102454.GB3942350@e124191.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_090228_923487_0357FA70 
-X-CRM114-Status: GOOD (  22.12  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ggvqexil74n6ufhr"
+Content-Disposition: inline
+In-Reply-To: <20260226150933.4067324-1-thierry.reding@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +68,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2026 10:24, Joey Gouly wrote:
-> Hi,
-> 
-> On Wed, Mar 18, 2026 at 03:54:00PM +0000, Steven Price wrote:
->> Guest_memfd doesn't yet natively support huge pages, and there are
->> currently difficulties for a VMM to manage huge pages efficiently so for
->> now always split up mappings to PTE (4k).
->>
->> The two issues that need progressing before supporting huge pages for
->> realms are:
->>
->>  1. guest_memfd needs to be able to allocate from an appropriate
->>     allocator which can provide huge pages.
->>
->>  2. The VMM needs to be able to repurpose private memory for a shared
->>     mapping when the guest VM requests memory is transitioned. Because
->>     this can happen at a 4k granularity it isn't possible to
->>     free/reallocate while huge pages are in use. Allowing the VMM to
->>     mmap() the shared portion of a huge page would allow the huge page
->>     to be recreated when the memory is unshared and made protected again.
->>
->> These two issues are not specific to realms and don't affect the realm
->> API, so for now just break everything down to 4k pages in the RMM
->> controlled stage 2. Future work can add huge page support without
->> changing the uAPI.
-> 
-> The commit title/message mention 4K, but should probably say PAGE_SIZE or
-> something now that RMM isn't fixed to 4K.
 
-Indeed - this is all PAGE_SIZE not 4k any more. Also hopefully the
-reasons for this patch are also going to disappear soon. (2) above isn't
-really very true any more (we do support mmap() from guest_memfd).
+--ggvqexil74n6ufhr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/2] soc/tegra: Add Tegra238 Kconfig symbol
+MIME-Version: 1.0
 
-Thanks,
-Steve
+On Thu, Feb 26, 2026 at 04:09:32PM +0100, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
+>=20
+> The NVIDIA Tegra238 SoC is an upcoming new chip. Add a Kconfig symbol to
+> allow fine-grained selection of support code for this chip.
+>=20
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
+> ---
+>  drivers/soc/tegra/Kconfig | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 
-> Thanks,
-> Joey
-> 
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->> Changes since v7:
->>  * Rewritten commit message
->> ---
->>  arch/arm64/kvm/mmu.c | 7 +++++--
->>  1 file changed, 5 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 73c18c2861a2..ad1300f366df 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1761,11 +1761,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>  	write_fault = kvm_is_write_fault(vcpu);
->>  
->>  	/*
->> -	 * Realms cannot map protected pages read-only
->> +	 * Realms cannot map protected pages read-only, also force PTE mappings
->> +	 * for Realms.
->>  	 * FIXME: It should be possible to map unprotected pages read-only
->>  	 */
->> -	if (vcpu_is_rec(vcpu))
->> +	if (vcpu_is_rec(vcpu)) {
->>  		write_fault = true;
->> +		force_pte = true;
->> +	}
->>  
->>  	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
->>  	VM_WARN_ON_ONCE(write_fault && exec_fault);
->> -- 
->> 2.43.0
->>
->>
+Both patches applied, thanks.
 
+Thierry
+
+--ggvqexil74n6ufhr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmm8H9AACgkQ3SOs138+
+s6GLZg//QL1EF61CA85bLrtZfmGSU/eUqsHpHelresQYGH7LFwk0nc7PNgUxfGCT
+z7f9XtWa9dtsdDDeo+RZjnEYMGJ3UdFY7rguPgnL6VolWt22MFNAIrYBsl/d6kMK
+zbaDF4xsX7BYPYN7IXbW1Wk1ZMb4wWDgWcC2udCqohdtpyhooCVED7XO3qLCCV9Z
+Q96LBTF2GQrkUeo4jy07RIfEuqyYIW6hffrJT9qJGnpY4Qxd+RD5J272cCixpPfo
+1U8uS4TZyQBwPfaGudduOg6Aqnjzd0XPJ5lcIJJCtuZdDwkMD5Il0jEEKdGrLqks
+0SmxbnC164wd5PVmi6bcY08GclmNAHiuWl+UwMTQinALG/HChgJZ7aT7H7i0US9M
+gIqSi3bcXO1I0wGWfKOvQCCU2U/mUcvUqpltMpF+0dUqw61OuozyDdOyhpfBMRea
+1gPQ/i+XJMJ05ubWIhqqAUqohEaRCr67mGEVdyMh6gJbL9AADRY8Cu+nQ8jAkJn3
+oW/UDvpAdlCGPGFAJXLwoeYtMNbL5TNVJJCFY9DREv6jecp4jlMYS9Hk7vDloqhT
+7yg0cF/no8pTKRKHhEfzO6wHjV2vDDC5kHsNULnDgKRadGgMDHqU4qErwFwWM/K8
+XdsQ3mzUGjcJnn+Lwq5Ao1N1dIoKWws8/sYTLBEm6Y6BL/x3Uow=
+=mboK
+-----END PGP SIGNATURE-----
+
+--ggvqexil74n6ufhr--
 
