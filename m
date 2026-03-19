@@ -4,53 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8927A108E1FB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 12:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98EB1108E1FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 12:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=JoUlc0LSTo8dF6uEFuOUop2suPubSMHvGXGv34UfM00=; b=Ty9E1Yw+DkGJtGErheEougKnCD
-	grRRHiPuoxlBTkXByR2tq49+h54u4LewHvez1WIur0iOwgkg2YtY9nWA4b2YtOFqomMcPLpM9WTKB
-	83d/24ztJKKui3+ZtdlUJRDxqg5TTMjlWcXoqnQOyVo63aIwr8XNBTuSn7cCIi+KLThmCinpb6A8N
-	T5A4CZBC5caMLL7JmR8feMkHV0Pm08V0MNFFZQw+y+xXx+C09roxcA/aWx1Wc2rDixHA7BesFPZEc
-	mvq6muSmPhUB1E4QgQLPcGslDie490/yf+gmod03hPBluMuJyESB2vjnONgf9ffoEDB9GVgJ4ckuq
-	EQrLoC1w==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=21ilbjuNC0oBqcKWgZWCjkwsXOw1Gq5+6ZwV8kiRzTM=; b=ZVAsPaYEPK9cKF/tXBISaM2xdr
+	DlCZdGwwy8zcYsZ5F3Vw8TdelaxM4luRKgzfMej+sqI3S6K0a1+ZfUn/M2Tw1/rCb5dpmb2hcwmwC
+	aEOYeMGA4xPUBoyRlpq3O137COWzZy+YuEsMOqNa/qkcXA9FcMHA6neTse7mSr92xh56X2Qe3CrYw
+	1dTzOJZrBCrQVeqj1BO5KUgUxuE0HyyJovqiHMf5YasHxluEvD/J8OlmWsmdZaMqwWSQzLnczEyXa
+	OTC6G7DeHpsef5/2UdYmIse3k0GMTVxBAAYs79Y40fSn6od9mXtJ6a+RgirER+8heXm7CMbL9NZeN
+	Y4NX25xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3C4b-0000000Aa5Y-2XC3;
-	Thu, 19 Mar 2026 12:01:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3CJX-0000000Aar4-0zir;
+	Thu, 19 Mar 2026 12:17:23 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3C4Z-0000000Aa59-3rKs
+	id 1w3CJS-0000000AaqW-0i46
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 12:01:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E437B60134;
-	Thu, 19 Mar 2026 12:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F002C19424;
-	Thu, 19 Mar 2026 12:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773921714;
-	bh=8ze3C6q5LllnGGEI1XV0OfHvePlkpUv69gmHwnNnuWQ=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=J7E6P12/KI1uf7uFgZV/A/0+fxIV2yoz67pmaiSoizvS81f2un+C6TpzVxUBgnGwR
-	 TWlfM5rSXWQcfsuLJ9UVUfbeqo7fNafGV67YzFdzyafLr75Hrg3rjR0PyYsNgVR9tI
-	 3cYw8yYVrtmD/k1p0I4dHvX0jMzung2sfswxpyZU=
-Subject: Patch "drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()" has been added to the 6.6-stable tree
-To: aha310510@gmail.com,airlied@gmail.com,alim.akhtar@samsung.com,dri-devel@lists.freedesktop.org,gregkh@linuxfoundation.org,inki.dae@samsung.com,krzk@kernel.org,kyungmin.park@samsung.com,linux-arm-kernel@lists.infradead.org,simona@ffwll.ch,sw0312.kim@samsung.com
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Thu, 19 Mar 2026 13:01:24 +0100
-In-Reply-To: <20260227045953.165751-2-aha310510@gmail.com>
-Message-ID: <2026031924-trouble-online-c7cf@gregkh>
+	Thu, 19 Mar 2026 12:17:20 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43b4fd681c2so726843f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 05:17:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773922635; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ZN5qpDUb5qlxwTvkLOzyjTz8KrwqJ/2DHzC1CTIV2Cijz7n5dGQqV//Dv43Lu5o8el
+         yw9wybGA9KVtqXcOzySAaUbLAZ29vqxV9BA7QhuSvzKQipqfuzQJi3km+gOduxjvBaic
+         TwpxFVc1FqWNFETMViGu2/YR2HmAW+AmgAYYyl0lh7cJXLa8NZeG0c9h4cyH+x6VID8b
+         cd5Fw2hreSo6976zoCXJfBtp/w56CRpFhodKT7J4Rl/jqF8NqZPgI/Qkaa9EU9vf2NWW
+         tOWtd2k4aYY6DMPfKgzl25GSWdBYkU6uI8QBMFAt0JAZ5HEqs33iJ2R2OGH+Ny9HKSiP
+         GKpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=21ilbjuNC0oBqcKWgZWCjkwsXOw1Gq5+6ZwV8kiRzTM=;
+        fh=P5XIGhzs5eVABX1C0AbHrBaIqgBh4gPGwQE6s+6WWsY=;
+        b=FXDCfYGIJgV6VjBKSSrFUcjZKomRH5Opf/w3l5Z5UaO/P06xiKhPhBpOEXkWewHsrX
+         yZpUeM+Ye8IeaBe5HV+KJKsKGLWKX3IqwGPCi7fOPxF55k/pmQx5/mjAmbICnkOSQpve
+         AtKMViVOwJ/FtZHp0eaGQGYSdB2GykUGI8Y+xm4VAe6FsNn/ZbKRYH4WTNI4Flw3R879
+         9fqf4SFJfII1tCYLJilBzYSnBhMwygnLS4gWH/hdz8snBsnpDuHa5XfasG52+UYigMJB
+         1tS1YK41j2fW9lh0apoJpjXYn5YiGqemhhf4e3kQefFYCPUZcDFSHSdywXr4iGgep6x7
+         goGw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773922635; x=1774527435; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=21ilbjuNC0oBqcKWgZWCjkwsXOw1Gq5+6ZwV8kiRzTM=;
+        b=GBMl8Nc6EIwA4f8JPmsK5msU0V5Cyv9J1Fj3rt27Rdz/eWMAHSa93NZw3ZY3/1jkHW
+         8zK6iW5xQfAkZygkCuDlyFfcBABzWFVBzSpw1RnBJsEEXkMZ5oKFbFGYFdzMnX5EWifn
+         9txEE7MQ9413X7uIKcims59cveOtfl9+tbN59q5m97fBUZ2OXojJWZnbcs1Czq5d1Dv/
+         HtwaYX2z16VRgG3aJnmk3DqgzS+vpKTxbIWQD2oG/u6rTR8BiGzKy7JQblki6MoSXIkx
+         XCqvmoADfRcQQhnXIyvPlVVtKIsts4PMlVpJvFseYHQf6MOi8Of+e2wZq7xclESD3PVq
+         fbTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773922635; x=1774527435;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=21ilbjuNC0oBqcKWgZWCjkwsXOw1Gq5+6ZwV8kiRzTM=;
+        b=YDKj4XZnd0Gl9rKegYvuwdLk1Fcx9WG6qMaZS7xF77Nx4oVzDBcJzr2+JauhW0duCK
+         LMKWf3ft8Q5FLTEbrGYKbvQPNNTONYIL7j43DC9re9zLHoQch52G0A1aCDAq2bg7x9J3
+         NisVwtLojpbad/dqw2RoHCnzlRHBsgKOI18WlBYtUiXfpBn+TrLtcFImDxtab3cK39KY
+         b3FTLKpeGddjCl2rIe9KQeN2sDl5Fz/rZLK++u1bHGWyrTAhq0vCaImCE1hdiBNwsfKK
+         TaUMoBEbIZEU4SZDgCBOEEcwXGo8GxPK+c9zzO2V0KdFxZmWDGs131MOEGFK0XE+1QeQ
+         upNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQW2oVIJbCnNT/awMO6r8asvLOfKuQchgu+8MyV6ZlQG2VmoNJlUfjpgBw2SVm8aO8oa7gBaGJrYkTads+r2w0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqmBtfQbUTgW4j29s7YC+m18QOVkG+4wROa3ZfdIOB+z8+SY0i
+	ClCTFnPGlV06v4ri192WMjjeOAFJW9NA97V77wVmlF9prlGrA/cie/SfCEtE2U1Eku2pUbFALTi
+	bWHcFLWJDirnq6RuYO+YLmhITdecO2f4=
+X-Gm-Gg: ATEYQzx/Y3GrZMfMmWU1UEf/WY4ezCIqEahTT5LG9j64ox4veXcKnw/SzZ/l8nl4QB7
+	iIgYyF8XROhqW+QnZnGSqStE1dz05LhEO2k78LcQaciBjpPDFcV6YSbzU/M7AbnHZe+qDC1uTYi
+	l+i/I4ud3ip6krzgEQpHUdNBsEVPav88HY4W4vzZNtj8FfPxvAlghTj7sro2QUo6GH2AhN49Dhd
+	St05pDpOsThNpfwG5lsOx7DmGDtzx7x0LGQkUwJMS9GNk0OIAXy54n07J9xOQMsVZXRbHcskF/m
+	ymM1+QlHAGchcW7c7Tq4Ag2iPmOo6MmegTRoS0nNKgcvUcvW4Z2kW08FJwpBpaJ+YlHs6XjVpUC
+	P+hs2GQWZvkV6kuYTuV04wEbtoQ==
+X-Received: by 2002:a05:600c:810c:b0:477:b642:9dc1 with SMTP id
+ 5b1f17b1804b1-486f4475342mr116479195e9.20.1773922635175; Thu, 19 Mar 2026
+ 05:17:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+References: <4ce75f75a0569a4cc6f74dfda8b75f6f1a2495c1.1773842409.git.geert+renesas@glider.be>
+In-Reply-To: <4ce75f75a0569a4cc6f74dfda8b75f6f1a2495c1.1773842409.git.geert+renesas@glider.be>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Thu, 19 Mar 2026 12:16:47 +0000
+X-Gm-Features: AaiRm51lDKJiyDMRjLR6PdRV65bY-qlwMnmYthicRSEOPW0Z71EeuFLE0ovF12g
+Message-ID: <CA+V-a8vtA4-779BNJERDoKP6ZE7Xdmap3bS3d8Z_OHGjAfk8-g@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: rzt2h-rzn2h-evk: Fix GMAC pins sort order
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_051718_276794_FDF0CDC4 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,120 +118,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 18, 2026 at 2:16=E2=80=AFPM Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+>
+> Restore alphabetical sort order of the pin control subnodes by
+> exchanging the gmac1-pins and gmac2-pins nodes.
+> While at it, fix the index in an incorrect "GMAC2" comment.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> To be queued in renesas-devel for v7.1.
+>
+>  .../dts/renesas/r9a09g077m44-rzt2h-evk.dts    | 58 +++++++++---------
+>  .../dts/renesas/r9a09g087m44-rzn2h-evk.dts    | 60 +++++++++----------
+>  2 files changed, 59 insertions(+), 59 deletions(-)
+>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-This is a note to let you know that I've just added the patch titled
+Cheers,
+Prabhakar
 
-    drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
-
-to the 6.6-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     drm-exynos-vidi-use-priv-vidi_dev-for-ctx-lookup-in-vidi_connection_ioctl.patch
-and it can be found in the queue-6.6 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From stable+bounces-219909-greg=kroah.com@vger.kernel.org Fri Feb 27 06:00:30 2026
-From: Jeongjun Park <aha310510@gmail.com>
-Date: Fri, 27 Feb 2026 13:59:51 +0900
-Subject: drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Jeongjun Park <aha310510@gmail.com>
-Message-ID: <20260227045953.165751-2-aha310510@gmail.com>
-
-From: Jeongjun Park <aha310510@gmail.com>
-
-[ Upstream commit d3968a0d85b211e197f2f4f06268a7031079e0d0 ]
-
-vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
-obtain a struct vidi_context pointer. However, drm_dev->dev is the
-exynos-drm master device, and the driver_data contained therein is not
-the vidi component device, but a completely different device.
-
-This can lead to various bugs, ranging from null pointer dereferences and
-garbage value accesses to, in unlucky cases, out-of-bounds errors,
-use-after-free errors, and more.
-
-To resolve this issue, we need to store/delete the vidi device pointer in
-exynos_drm_private->vidi_dev during bind/unbind, and then read this
-exynos_drm_private->vidi_dev within ioctl() to obtain the correct
-struct vidi_context pointer.
-
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jeongjun Park <aha310510@gmail.com>
-Signed-off-by: Inki Dae <inki.dae@samsung.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/gpu/drm/exynos/exynos_drm_drv.h  |    1 +
- drivers/gpu/drm/exynos/exynos_drm_vidi.c |   14 +++++++++++++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
-
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
- struct exynos_drm_private {
- 	struct device *g2d_dev;
- 	struct device *dma_dev;
-+	struct device *vidi_dev;
- 	void *mapping;
- 
- 	/* for atomic commit */
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -224,9 +224,14 @@ ATTRIBUTE_GROUPS(vidi);
- int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 				struct drm_file *file_priv)
- {
--	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
-+	struct device *dev = priv ? priv->vidi_dev : NULL;
-+	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
- 	struct drm_exynos_vidi_connection *vidi = data;
- 
-+	if (!ctx)
-+		return -ENODEV;
-+
- 	if (!vidi) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "user data for vidi is null.\n");
-@@ -386,6 +391,7 @@ static int vidi_bind(struct device *dev,
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
- 	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 	struct drm_encoder *encoder = &ctx->encoder;
- 	struct exynos_drm_plane *exynos_plane;
- 	struct exynos_drm_plane_config plane_config = { 0 };
-@@ -393,6 +399,8 @@ static int vidi_bind(struct device *dev,
- 	int ret;
- 
- 	ctx->drm_dev = drm_dev;
-+	if (priv)
-+		priv->vidi_dev = dev;
- 
- 	plane_config.pixel_formats = formats;
- 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
-@@ -438,8 +446,12 @@ static int vidi_bind(struct device *dev,
- static void vidi_unbind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
-+	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 
- 	del_timer_sync(&ctx->timer);
-+	if (priv)
-+		priv->vidi_dev = NULL;
- }
- 
- static const struct component_ops vidi_component_ops = {
-
-
-Patches currently in stable-queue which might be from aha310510@gmail.com are
-
-queue-6.6/drm-exynos-vidi-use-ctx-lock-to-protect-struct-vidi_context-member-variables-related-to-memory-alloc-free.patch
-queue-6.6/drm-exynos-vidi-use-priv-vidi_dev-for-ctx-lookup-in-vidi_connection_ioctl.patch
-queue-6.6/drm-exynos-vidi-fix-to-avoid-directly-dereferencing-user-pointer.patch
+> diff --git a/arch/arm64/boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts b/arc=
+h/arm64/boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts
+> index 52e5f6c3ab67d177..4c0e52850ca97250 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r9a09g077m44-rzt2h-evk.dts
+> @@ -253,6 +253,35 @@ can0_pins: can0-pins {
+>                          <RZT2H_PORT_PINMUX(24, 4, 0x19)>; /* CANTX0 */
+>         };
+>
+> +       /*
+> +        * GMAC1 Pin Configuration:
+> +        *
+> +        * SW2[8] ON - use pins P33_2-P33_7, P34_0-P34_5, P34_7 and
+> +        * P35_0-P35_2 for Ethernet port 3
+> +        */
+> +       gmac1_pins: gmac1-pins {
+> +               pinmux =3D <RZT2H_PORT_PINMUX(33, 2, 0xf)>, /* ETH3_TXCLK=
+ */
+> +                        <RZT2H_PORT_PINMUX(33, 3, 0xf)>, /* ETH3_TXD0 */
+> +                        <RZT2H_PORT_PINMUX(33, 4, 0xf)>, /* ETH3_TXD1 */
+> +                        <RZT2H_PORT_PINMUX(33, 5, 0xf)>, /* ETH3_TXD2 */
+> +                        <RZT2H_PORT_PINMUX(33, 6, 0xf)>, /* ETH3_TXD3 */
+> +                        <RZT2H_PORT_PINMUX(33, 7, 0xf)>, /* ETH3_TXEN */
+> +                        <RZT2H_PORT_PINMUX(34, 0, 0xf)>, /* ETH3_RXCLK *=
+/
+> +                        <RZT2H_PORT_PINMUX(34, 1, 0xf)>, /* ETH3_RXD0 */
+> +                        <RZT2H_PORT_PINMUX(34, 2, 0xf)>, /* ETH3_RXD1 */
+> +                        <RZT2H_PORT_PINMUX(34, 3, 0xf)>, /* ETH3_RXD2 */
+> +                        <RZT2H_PORT_PINMUX(34, 4, 0xf)>, /* ETH3_RXD3 */
+> +                        <RZT2H_PORT_PINMUX(34, 5, 0xf)>, /* ETH3_RXDV */
+> +                        <RZT2H_PORT_PINMUX(34, 7, 0xf)>, /* ETH3_TXER */
+> +                        <RZT2H_PORT_PINMUX(35, 0, 0xf)>, /* ETH3_RXER */
+> +                        <RZT2H_PORT_PINMUX(35, 1, 0xf)>, /* ETH3_CRS */
+> +                        <RZT2H_PORT_PINMUX(35, 2, 0xf)>, /* ETH3_COL */
+> +                        <RZT2H_PORT_PINMUX(26, 1, 0x10)>, /* GMAC1_MDC *=
+/
+> +                        <RZT2H_PORT_PINMUX(26, 2, 0x10)>, /* GMAC1_MDIO =
+*/
+> +                        <RZT2H_PORT_PINMUX(34, 6, 0x2)>, /* ETH3_REFCLK =
+*/
+> +                        <RZT2H_PORT_PINMUX(27, 2, 0x0)>; /* IRQ3 */
+> +       };
+> +
+>         /*
+>          * GMAC2 Pin Configuration:
+>          *
+> @@ -283,35 +312,6 @@ gmac2_pins: gmac2-pins {
+>                          <RZT2H_PORT_PINMUX(31, 1, 0x0)>; /* IRQ13 */
+>         };
+>
+> -       /*
+> -        * GMAC1 Pin Configuration:
+> -        *
+> -        * SW2[8] ON - use pins P33_2-P33_7, P34_0-P34_5, P34_7 and
+> -        * P35_0-P35_2 for Ethernet port 3
+> -        */
+> -       gmac1_pins: gmac1-pins {
+> -               pinmux =3D <RZT2H_PORT_PINMUX(33, 2, 0xf)>, /* ETH3_TXCLK=
+ */
+> -                        <RZT2H_PORT_PINMUX(33, 3, 0xf)>, /* ETH3_TXD0 */
+> -                        <RZT2H_PORT_PINMUX(33, 4, 0xf)>, /* ETH3_TXD1 */
+> -                        <RZT2H_PORT_PINMUX(33, 5, 0xf)>, /* ETH3_TXD2 */
+> -                        <RZT2H_PORT_PINMUX(33, 6, 0xf)>, /* ETH3_TXD3 */
+> -                        <RZT2H_PORT_PINMUX(33, 7, 0xf)>, /* ETH3_TXEN */
+> -                        <RZT2H_PORT_PINMUX(34, 0, 0xf)>, /* ETH3_RXCLK *=
+/
+> -                        <RZT2H_PORT_PINMUX(34, 1, 0xf)>, /* ETH3_RXD0 */
+> -                        <RZT2H_PORT_PINMUX(34, 2, 0xf)>, /* ETH3_RXD1 */
+> -                        <RZT2H_PORT_PINMUX(34, 3, 0xf)>, /* ETH3_RXD2 */
+> -                        <RZT2H_PORT_PINMUX(34, 4, 0xf)>, /* ETH3_RXD3 */
+> -                        <RZT2H_PORT_PINMUX(34, 5, 0xf)>, /* ETH3_RXDV */
+> -                        <RZT2H_PORT_PINMUX(34, 7, 0xf)>, /* ETH3_TXER */
+> -                        <RZT2H_PORT_PINMUX(35, 0, 0xf)>, /* ETH3_RXER */
+> -                        <RZT2H_PORT_PINMUX(35, 1, 0xf)>, /* ETH3_CRS */
+> -                        <RZT2H_PORT_PINMUX(35, 2, 0xf)>, /* ETH3_COL */
+> -                        <RZT2H_PORT_PINMUX(26, 1, 0x10)>, /* GMAC1_MDC *=
+/
+> -                        <RZT2H_PORT_PINMUX(26, 2, 0x10)>, /* GMAC1_MDIO =
+*/
+> -                        <RZT2H_PORT_PINMUX(34, 6, 0x2)>, /* ETH3_REFCLK =
+*/
+> -                        <RZT2H_PORT_PINMUX(27, 2, 0x0)>; /* IRQ3 */
+> -       };
+> -
+>         /*
+>          * I2C0 Pin Configuration:
+>          * ------------------------
+> diff --git a/arch/arm64/boot/dts/renesas/r9a09g087m44-rzn2h-evk.dts b/arc=
+h/arm64/boot/dts/renesas/r9a09g087m44-rzn2h-evk.dts
+> index 3c636c92f3d6f445..ef6cc7497c2c4c8c 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a09g087m44-rzn2h-evk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r9a09g087m44-rzn2h-evk.dts
+> @@ -336,6 +336,36 @@ can1_pins: can1-pins {
+>                          <RZT2H_PORT_PINMUX(12, 1, 0x19)>; /* CANTX1 */
+>         };
+>
+> +       /*
+> +        * GMAC1 Pin Configuration:
+> +        *
+> +        * DSW5[8] ON - use pins P00_0-P00_2, P33_2-P33_7, P34_0-P34_6
+> +        * for Ethernet port 3
+> +        * DSW12[1] OFF; DSW12[2] ON - use pin P00_3 for Ethernet port 3
+> +        */
+> +       gmac1_pins: gmac1-pins {
+> +               pinmux =3D <RZT2H_PORT_PINMUX(33, 2, 0xf)>, /* ETH3_TXCLK=
+ */
+> +                        <RZT2H_PORT_PINMUX(33, 3, 0xf)>, /* ETH3_TXD0 */
+> +                        <RZT2H_PORT_PINMUX(33, 4, 0xf)>, /* ETH3_TXD0 */
+> +                        <RZT2H_PORT_PINMUX(33, 5, 0xf)>, /* ETH3_TXD2 */
+> +                        <RZT2H_PORT_PINMUX(33, 6, 0xf)>, /* ETH3_TXD3 */
+> +                        <RZT2H_PORT_PINMUX(33, 7, 0xf)>, /* ETH3_TXEN */
+> +                        <RZT2H_PORT_PINMUX(34, 0, 0xf)>, /* ETH3_RXCLK *=
+/
+> +                        <RZT2H_PORT_PINMUX(34, 1, 0xf)>, /* ETH3_RXD0 */
+> +                        <RZT2H_PORT_PINMUX(34, 2, 0xf)>, /* ETH3_RXD1 */
+> +                        <RZT2H_PORT_PINMUX(34, 3, 0xf)>, /* ETH3_RXD2 */
+> +                        <RZT2H_PORT_PINMUX(34, 4, 0xf)>, /* ETH3_RXD3 */
+> +                        <RZT2H_PORT_PINMUX(34, 5, 0xf)>, /* ETH3_RXDV */
+> +                        <RZT2H_PORT_PINMUX(0, 0, 0xf)>, /* ETH3_TXER */
+> +                        <RZT2H_PORT_PINMUX(0, 1, 0xf)>, /* ETH3_RXER */
+> +                        <RZT2H_PORT_PINMUX(0, 2, 0xf)>, /* ETH3_CRS */
+> +                        <RZT2H_PORT_PINMUX(0, 3, 0xf)>, /* ETH3_COL */
+> +                        <RZT2H_PORT_PINMUX(26, 1, 0x10)>, /* GMAC1_MDC *=
+/
+> +                        <RZT2H_PORT_PINMUX(26, 2, 0x10)>, /* GMAC1_MDIO =
+*/
+> +                        <RZT2H_PORT_PINMUX(34, 6, 0x2)>, /* ETH3_REFCLK =
+*/
+> +                        <RZT2H_PORT_PINMUX(17, 3, 0x0)>; /* IRQ15 */
+> +       };
+> +
+>         /*
+>          * GMAC2 Pin Configuration:
+>          *
+> @@ -368,36 +398,6 @@ gmac2_pins: gmac2-pins {
+>
+>         };
+>
+> -       /*
+> -        * GMAC2 Pin Configuration:
+> -        *
+> -        * DSW5[8] ON - use pins P00_0-P00_2, P33_2-P33_7, P34_0-P34_6
+> -        * for Ethernet port 3
+> -        * DSW12[1] OFF; DSW12[2] ON - use pin P00_3 for Ethernet port 3
+> -        */
+> -       gmac1_pins: gmac1-pins {
+> -               pinmux =3D <RZT2H_PORT_PINMUX(33, 2, 0xf)>, /* ETH3_TXCLK=
+ */
+> -                        <RZT2H_PORT_PINMUX(33, 3, 0xf)>, /* ETH3_TXD0 */
+> -                        <RZT2H_PORT_PINMUX(33, 4, 0xf)>, /* ETH3_TXD0 */
+> -                        <RZT2H_PORT_PINMUX(33, 5, 0xf)>, /* ETH3_TXD2 */
+> -                        <RZT2H_PORT_PINMUX(33, 6, 0xf)>, /* ETH3_TXD3 */
+> -                        <RZT2H_PORT_PINMUX(33, 7, 0xf)>, /* ETH3_TXEN */
+> -                        <RZT2H_PORT_PINMUX(34, 0, 0xf)>, /* ETH3_RXCLK *=
+/
+> -                        <RZT2H_PORT_PINMUX(34, 1, 0xf)>, /* ETH3_RXD0 */
+> -                        <RZT2H_PORT_PINMUX(34, 2, 0xf)>, /* ETH3_RXD1 */
+> -                        <RZT2H_PORT_PINMUX(34, 3, 0xf)>, /* ETH3_RXD2 */
+> -                        <RZT2H_PORT_PINMUX(34, 4, 0xf)>, /* ETH3_RXD3 */
+> -                        <RZT2H_PORT_PINMUX(34, 5, 0xf)>, /* ETH3_RXDV */
+> -                        <RZT2H_PORT_PINMUX(0, 0, 0xf)>, /* ETH3_TXER */
+> -                        <RZT2H_PORT_PINMUX(0, 1, 0xf)>, /* ETH3_RXER */
+> -                        <RZT2H_PORT_PINMUX(0, 2, 0xf)>, /* ETH3_CRS */
+> -                        <RZT2H_PORT_PINMUX(0, 3, 0xf)>, /* ETH3_COL */
+> -                        <RZT2H_PORT_PINMUX(26, 1, 0x10)>, /* GMAC1_MDC *=
+/
+> -                        <RZT2H_PORT_PINMUX(26, 2, 0x10)>, /* GMAC1_MDIO =
+*/
+> -                        <RZT2H_PORT_PINMUX(34, 6, 0x2)>, /* ETH3_REFCLK =
+*/
+> -                        <RZT2H_PORT_PINMUX(17, 3, 0x0)>; /* IRQ15 */
+> -       };
+> -
+>         /*
+>          * I2C0 Pin Configuration:
+>          * ------------------------
+> --
+> 2.43.0
+>
+>
 
