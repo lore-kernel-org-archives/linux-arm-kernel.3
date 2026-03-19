@@ -4,117 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3B71091912
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0401091910
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+vIiVChDY7e5gsV2EOGPNahv2877hReatJu71vddm4=; b=CoXZqf7gGEBXQ9rNhaxXYOJDtM
-	yJ6LvyViFmpyAJPE4hld0zilIfJjcr3d4OsJj5ID0HdJPuG/sUKunJviMNgR8A2R/v4OTk9ZRrwig
-	wHrryH7SblZwvHYLAPV/TsH8kJd55kCeRw5BmoNPisyiFUfUwJKn9y+n2pldGS5FCkcvU87qlENUC
-	+sHsKDUw9Xil7B+eX2924dznQoWOMLmZqAQ0+xdQBKsIsHhfrL+MGCmuU5xQtizHMT7QDB4YVYqC3
-	0Oahev3teUy3QyjyWEMfOa7+DUcnMP9j89/1/BPYyxSjd7njfkuSKMvHgteFMid+hcF/PAdjDozlt
-	H/4VmU6g==;
+	bh=YhWNc1Vjc+LamDy9uWXZKku/PYKqtLuRD4QgrfI4wXc=; b=K+X5Iwgd8WrYqYWWlEfqji+Y8y
+	fMWfL9vAvWNGIvP3wYwfFGh4Qp6/wDzpQ6pHO0DB6mDVCDLNfDH1sYUVr+4nyfTjoJgp+uzoafhYl
+	J/WKknz7FxcFqi1OqtaW2u9jn50s89dSQXZePfNM+2JCyPgJJvWbwalm1fPuQFp+nEBeLv37kNO8p
+	p4MxIV894lvIcW4R3ayVtv7cueWo0GuzV7w89z0oV4bqy4Y3v1oK9DJgTjM+LnoUQa3ba7CYh7Kdt
+	V5qZe39bnThODme2hdTI+ejQz3Vdfb5O6ujKydogRpj6gbBFCp3AkRqiP4V46yWFUentoDUGv6RB9
+	CJcWA2pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3JQb-0000000BTjM-0jF1;
-	Thu, 19 Mar 2026 19:53:09 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1w3JRD-0000000BUDf-2jQc;
+	Thu, 19 Mar 2026 19:53:47 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3JQF-0000000BTRE-2JCO
+	id 1w3JRA-0000000BUB4-3bdv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 19:52:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AThCc8RZX8/HXwfS/5zYtgTz95HKdIT52qol83RvPo5xS53qeqiWOnXa2kd3/BjLydn/t5VIFxsii5YPjNx1R3r919CH6hZQFaJ/VTZny4zUPoTfWhdkUErjAVgolqxYBOVgJ50lQfEETsFwy6qs8aMnkZ7CQmv+6OJLSj5p5hvFQCc2PmVt9UQfOpQm59f9Tu/NaCENUHC2Ab8arZ3IlacTK2ARIi9qrYxrTuT4m5bw0p1oLB5gv5WOQ6t1w/FE7O3xGAxyXu1BSKmrdZvcq5ecBx849m2qjbEsJNXc4x/5pKfNQU685A5f3bsNpbcv5q81sDIY0A/VfgyqF7cOwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5+vIiVChDY7e5gsV2EOGPNahv2877hReatJu71vddm4=;
- b=aTxZBHWqdubdMrbTdvlqvYyxMNyimFZggtVDF6oJD8wz/jcfYmXiaQDg57PuZR48eS27Msxkpp0SNGpJhfVxW72Exl7Tg60xVIOMC5QP69HGKJzQCC/3F71ZrYU9Ktg8eTKGaHKHzfTLERwdrOdsJuaXmR/FN+QeV77f0ZURRj0ieYdMdWpJO42r/QcsL6X0DUotIEW41sqNQ+euDMx0m2JRtvvrr0XefsTfFflJ20ymSdcdVMrh06c/3KbvVFEu4mUR2MbR389JJxmHJkqlZTKG40/GNg5BouERVg+EQvoifQ96mk3A6GB/P5Y1OiDGw2G76mRtE3E2wv/9dOhy1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5+vIiVChDY7e5gsV2EOGPNahv2877hReatJu71vddm4=;
- b=FK5XBgLtHM3OjtiEmQY3uhJgIlKpekkGt7wgCdbWhWxSYANm7Pt6qoTVCmFKBoILijZglWvCGIPhwhhghTj6WNqSfUE/JWKU4ex9cNrggVMfvu/LLxwbbU5Y+kKag0CYk5fraM4eVCuAL7uNOeveXNv+9rdrQXJbQ3LCYdd9+kCQrJJnv80MUvhA+/fx3v2LnkvuZ4dsFi+j13yfzW2LH6f2jWgcPj5OeRG1pajDKPzCtZsnJDRIQn/5MVo9bhlULAR4kL0m/I+2KZkM8p6+AOSzwTgm8kqw4ZCTR0CNLKECFYqo1IaNSRk7DLd2rsphMfJUrvfWMVE7dqRs+MXOEg==
-Received: from BL1PR13CA0180.namprd13.prod.outlook.com (2603:10b6:208:2bd::35)
- by DM4PR12MB6207.namprd12.prod.outlook.com (2603:10b6:8:a6::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
- 2026 19:52:33 +0000
-Received: from BL02EPF0001A0FD.namprd03.prod.outlook.com
- (2603:10b6:208:2bd:cafe::56) by BL1PR13CA0180.outlook.office365.com
- (2603:10b6:208:2bd::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
- 19 Mar 2026 19:52:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BL02EPF0001A0FD.mail.protection.outlook.com (10.167.242.104) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 19:52:33 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Mar
- 2026 12:52:13 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 19 Mar
- 2026 12:52:12 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 19 Mar 2026 12:52:12 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <jgg@nvidia.com>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jpb@kernel.org>,
-	<praan@google.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>
-Subject: [PATCH v4 08/10] iommu/arm-smmu-v3: Allocate INV_TYPE_S2_VMID_VSMMU in arm_vsmmu_init
-Date: Thu, 19 Mar 2026 12:51:54 -0700
-Message-ID: <05dd00dcb2f0d077f59bcbccac1820534ad7b5cf.1773949042.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1773949042.git.nicolinc@nvidia.com>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
+	Thu, 19 Mar 2026 19:53:46 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8cd8d97aa2eso180330985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:53:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773950023; x=1774554823; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=YhWNc1Vjc+LamDy9uWXZKku/PYKqtLuRD4QgrfI4wXc=;
+        b=hpG71e2UZaPfnCOuWHWZUIUiyeNLtI34rWSZaontO7X4yzyicvb0QEDMhquY3eJFVv
+         NZPucB8rnIIKzalU76ZBPcHePARvAdokFcTsNUwSy3CuLuPSVQI1E/P/jWtUhvo00yMW
+         +1fXEy8Ivnxo6fbRqyWRkyzfIeKlf4jvGAmQkiUi/TnTGo/3F6sNKEw1nu0+tqH2wGVM
+         2BkTdS1D06+aqDJUz0AOyg195OaQJzI+0O9/SmwOJGWq/a4pCktt1oMkWfUNWAQNJGC2
+         JmHrruQp53zVMVn2xVEce8PX7vNwiqXi4QG8E+V2104vRbF8eWwxH3FETYA4YWJ3Oi3X
+         RIrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773950023; x=1774554823;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YhWNc1Vjc+LamDy9uWXZKku/PYKqtLuRD4QgrfI4wXc=;
+        b=oAnBm2HOJ/vTB4MXfDJglo42UaPIsRE5gIfOIz/CqjBMZSUlMbf9nMO9+7WCojXAS+
+         rbfPaQdbum0XT/X/wL/ALGiXzqoRSY1eafL9LSfV+ZMBfVg/zS3qyR3zFgjAS27Yp4LV
+         ms6XzmsxQSlCBKjBw/QoZfNEOCX8zpjrzxTfxKzcqEXW9oPBaqsL9mRMZnJSjHpHe777
+         nJau8OIHq0ncxC+Epj87z1uBZngXQk3pKwLVHEnstaC7VQGMUtWUy0p3YuR2dMwd9slC
+         o3izbiU77I4Lobx1ffePacHl5J3NaEhIBmmzyCxiYc9VW9fCcXxBMUW7Ww+NcskElCqA
+         2cMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWar7qA9kOsNvKm/CCzn+tdmVa9hns9egP8bLGV2Wv4KJSXnvSmv91MNF6bKlMe1tuOsKZ0BMh4WS19ca4RRSdQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgLzK030ZnXoo341UxzY8onZPsk6xBspsVRVlcWWRe/Nsm/80j
+	3E4Ea2quG7vpxR0MEvkQL8KMW1w/jMkxUxQWsM5MZ4V4KPCiLAlbhOctIeI8mEqk6nA=
+X-Gm-Gg: ATEYQzwDCT6IC2sr5nlCqfU8wcQnmi/xKaNXeMCyJZWWJslnx2SqRDkf8Y245KkHIWY
+	3ZGk2jGB1c/eC3ZIfuFqYF/uSpfuQnpwVpF2P/9GUqG4t/lEVgFrx3pxY+r+hiL4XoNEKi5ewxy
+	cMlqfUmgt5Aqhfn4JQvkSK/SBt4+cMrzQMO1vbUHdKk8QbUsjY+HulDeNyEvZ+PiQv4TmSYyDq1
+	d2XmDZrSeFCGojIl4XcXwXNeiNTXWMLKo+Ylz0GwUi3SDt5b5Xn4uH8EdJ9I2rSaprBKJ3a3Gh6
+	vncZaW9m3SkEDFpqmdRERi4CakuoCPVAhyA5ispyeRYxmcFThAietjNpkqCljLYrNI5V4j3MZA5
+	9RypUOEX42S9qCqZCXZioU+TqUfLPWHMQr42PJIrAyGR8LloIHcftO1dYVPWWxXTfFr1JqQoVr8
+	yqyOBawH4oGWi6xf7+Hx5XWGGjGhYy
+X-Received: by 2002:a05:620a:708e:b0:8cd:c050:7db6 with SMTP id af79cd13be357-8cfc7f6a470mr74114185a.49.1773950023287;
+        Thu, 19 Mar 2026 12:53:43 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cfc90bb1c7sm3480885a.35.2026.03.19.12.53.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2026 12:53:42 -0700 (PDT)
+Message-ID: <24867f578a64b1dd6ea55eea47fe7c4a854e5a58.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 2/4] media: imx-jpeg: Use devm_pm_runtime_enable()
+ helper
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: ming.qian@oss.nxp.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
+	mirela.rabulea@oss.nxp.com
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
+ linux-imx@nxp.com, 	Frank.li@nxp.com, imx@lists.linux.dev,
+ linux-media@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 19 Mar 2026 15:53:40 -0400
+In-Reply-To: <20260203082349.1082-3-ming.qian@oss.nxp.com>
+References: <20260203082349.1082-1-ming.qian@oss.nxp.com>
+	 <20260203082349.1082-3-ming.qian@oss.nxp.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-8ILH7WDBQi0ijJCZzATq"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FD:EE_|DM4PR12MB6207:EE_
-X-MS-Office365-Filtering-Correlation-Id: 679fae10-0aa7-4ea5-ff04-08de85f11006
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|1800799024|56012099003|18002099003|22082099003|3613699012;
-X-Microsoft-Antispam-Message-Info: NN+n3Om+2muJsQmm2Q8PWfgjs/CynUj5BP2300/FrBXdwZengLQ0g/9cm8BDOxM+ScVFmHd6lcDqvKG8spKrCEQbRb4i67RbqBptr8yUX+35zR68N9as5+twjKAKLxIbVv4ntbub4rhTTXLhWZ/aYXQEFBx7cGi9YD0TP/NEoF3uiBAmYR9uVnJCBdRsWsL1rj4MkRO9dGheKK5XH5JZ+cILTGflCCjfi7LJxWN2nmM5a7thUHCLiy1D/yW8tTi/l14F9L/rAJGXsP5N4zhUp0nxr/4G3BxG5ZTjgSmE8EBfVSkRmzwSvOg2u9zttKEL+mISsGQ/XLPsKz1dpP7FD+N97PouZSEcQXqSxamPrTuCELvbYtT6MBSsi84xyMB4Wit13jhus3r8sZZmN94izhlqYDgDQ5gi3BWunb9QTyqYZJ6BqK5HYuhEx4T+WBpwl9hHUzzkp23Iw1Oj6oqOCR/aWeoR1qXzvi415STlwXPwMhNPXbVPu+VS1WB6TD6tDk1zd5yrUfMMmPXk63oJzIjbzSuaHJ7LhNFRZRk1ZRlBfbRwhG8RcUr4xJ9aU8QQNNh3wxDuu1JoO7RRbZqvvAJKWHvb6s3Hs1aq+MoyFn4dpkN2/pqV6lM6isoGeRc2yfD7+35fW0qbY+BqACAGXFbvRQ+LQ6tedBatQCd87tqyjHFk5XpZZUTe8vIOKgulppN+EIqBPO5A8NpJf6zGNTp8WSmI9UMMU2dzEBuimjd1MAsshBwpYjHe3JYQ7R0hZ/CHGX2dsPkWOMoB9xsJuVjjBg32GrcaAajWBave960l5EhCWkogpM92nur4UpoZFza3uyD3DzAFq2h9QDrzMw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(1800799024)(56012099003)(18002099003)(22082099003)(3613699012);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ov1hABvqai/7ZJQgiCUlna7W+udLKSg30S3W2aHasdR1mn9Kn0e7JWifc6XpFo+fVdBSEq9cTiLYDrMTRWqA/0tGeQbcFqIf6r8KZk43CwGTk6IFhmFLHUg1ZA2Tp2EcS8g1C2XT8mge0NCN0HBbJ96I3ViC91Dr0Mqtwl1y0NDcM9r5W7lB6RDkQ8YVoBDOKy3zN8tcW9uddWMt6HmQSEXkABDo4MgfQ9FdlXz6jq20LbfD7cqrrkr1Q/nIEASvsPSeXLATGdydktoe3z/xHY9BKIhhUPRVr9jYsI9ybup8/89JI4G8O3Mm4djCejYB0NJPTnmhwBvdZCZRpbdT9FaI6pjDRdAl2Wy2/HVc3WMcga88bW3vj40jrQtbjbHnNfzozgYvdIh5oGAJgs/dH4u/VCGiCwqTiWBNqhs8oO638huT4s8Kl/y+4l6jetjm
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 19:52:33.3702
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 679fae10-0aa7-4ea5-ff04-08de85f11006
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FD.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_125247_598121_984F7F3A 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260319_125345_155792_ACE8A635 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,102 +117,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VMID owned by a vSMMU should be allocated in the viommu_init callback for
- - a straightforward lifecycle for a VMID used by a vSMMU
- - HW like tegra241-cmdqv needs to setup VINTF with the VMID
 
-Allocate/free a VMID in arm_vsmmu_init/destroy(). This decouples the VMID
-owned by vSMMU from the VMID living in the S2 parent domain (s2_cfg.vmid).
+--=-8ILH7WDBQi0ijJCZzATq
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 26 ++++++++++++++++---
- .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  1 +
- 3 files changed, 25 insertions(+), 3 deletions(-)
+Le mardi 03 f=C3=A9vrier 2026 =C3=A0 16:23 +0800, ming.qian@oss.nxp.com a =
+=C3=A9crit=C2=A0:
+> From: Ming Qian <ming.qian@oss.nxp.com>
+>=20
+> Use devm_pm_runtime_enable() to simplify probe and exit paths.
+>=20
+> No functional change.
+>=20
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index c722df9b21982..2e5520fdca3c5 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1213,6 +1213,7 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
- int arm_vsmmu_init(struct iommufd_viommu *viommu,
- 		   struct iommu_domain *parent_domain,
- 		   const struct iommu_user_data *user_data);
-+void arm_vsmmu_destroy(struct iommufd_viommu *viommu);
- int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
- 				    struct arm_smmu_nested_domain *nested_domain);
- void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index a77c60321203c..d17f8cb423b0c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -406,7 +406,19 @@ int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
- 	return ret;
- }
- 
-+void arm_vsmmu_destroy(struct iommufd_viommu *viommu)
-+{
-+	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
-+
-+	/*
-+	 * arm_smmu_iotlb_tag_free() must have flushed the IOTLB with the VMID,
-+	 * but it did not free the VMID to align its lifecycle with the vSMMU.
-+	 */
-+	ida_free(&vsmmu->smmu->vmid_map, vsmmu->vmid);
-+}
-+
- static const struct iommufd_viommu_ops arm_vsmmu_ops = {
-+	.destroy = arm_vsmmu_destroy,
- 	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
- 	.cache_invalidate = arm_vsmmu_cache_invalidate,
- };
-@@ -456,21 +468,29 @@ int arm_vsmmu_init(struct iommufd_viommu *viommu,
- 	struct arm_smmu_device *smmu =
- 		container_of(viommu->iommu_dev, struct arm_smmu_device, iommu);
- 	struct arm_smmu_domain *s2_parent = to_smmu_domain(parent_domain);
-+	int id, ret;
- 
- 	if (s2_parent->smmu != smmu)
- 		return -EINVAL;
- 
-+	id = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
-+			     GFP_KERNEL);
-+	if (id < 0)
-+		return id;
-+
-+	vsmmu->vmid = id;
- 	vsmmu->smmu = smmu;
- 	vsmmu->s2_parent = s2_parent;
--	/* FIXME Move VMID allocation from the S2 domain allocation to here */
--	vsmmu->vmid = s2_parent->s2_cfg.vmid;
- 
- 	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
- 		viommu->ops = &arm_vsmmu_ops;
- 		return 0;
- 	}
- 
--	return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
-+	ret = smmu->impl_ops->vsmmu_init(vsmmu, user_data);
-+	if (ret)
-+		ida_free(&smmu->vmid_map, vsmmu->vmid);
-+	return ret;
- }
- 
- int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 6fe5563eaf9eb..92845fabd0dec 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -1152,6 +1152,7 @@ static void tegra241_cmdqv_destroy_vintf_user(struct iommufd_viommu *viommu)
- 		iommufd_viommu_destroy_mmap(&vintf->vsmmu.core,
- 					    vintf->mmap_offset);
- 	tegra241_cmdqv_remove_vintf(vintf->cmdqv, vintf->idx);
-+	arm_vsmmu_destroy(viommu);
- }
- 
- static void tegra241_vintf_destroy_vsid(struct iommufd_vdevice *vdev)
--- 
-2.43.0
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
+> ---
+> =C2=A0drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 15 ++++++++++++---
+> =C2=A01 file changed, 12 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/med=
+ia/platform/nxp/imx-jpeg/mxc-jpeg.c
+> index 39022c1bf36d..877e6c4f7406 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> @@ -2971,12 +2971,22 @@ static int mxc_jpeg_probe(struct platform_device =
+*pdev)
+> =C2=A0			=C2=A0 jpeg->dec_vdev->minor);
+> =C2=A0
+> =C2=A0	platform_set_drvdata(pdev, jpeg);
+> -	pm_runtime_enable(dev);
+> +	ret =3D devm_pm_runtime_enable(dev);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to enable runtime PM: %d\n", ret);
+> +		goto err_pm;
+> +	}
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0
+> +err_pm:
+> +	video_unregister_device(jpeg->dec_vdev);
+> +	/* set NULL to prevent double-free */
+> +	jpeg->dec_vdev =3D NULL;
+> =C2=A0err_vdev_register:
+> -	video_device_release(jpeg->dec_vdev);
+> +	/* Only release if allocation succeeded but registration failed */
+> +	if (jpeg->dec_vdev)
+> +		video_device_release(jpeg->dec_vdev);
+> =C2=A0
+> =C2=A0err_vdev_alloc:
+> =C2=A0	v4l2_m2m_release(jpeg->m2m_dev);
+> @@ -3047,7 +3057,6 @@ static void mxc_jpeg_remove(struct platform_device =
+*pdev)
+> =C2=A0
+> =C2=A0	mxc_jpeg_free_slot_data(jpeg);
+> =C2=A0
+> -	pm_runtime_disable(&pdev->dev);
+> =C2=A0	video_unregister_device(jpeg->dec_vdev);
+> =C2=A0	v4l2_m2m_release(jpeg->m2m_dev);
+> =C2=A0	v4l2_device_unregister(&jpeg->v4l2_dev);
+
+--=-8ILH7WDBQi0ijJCZzATq
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxURAAKCRDZQZRRKWBy
+9HGOAP9x9uCXnIeQXoRzJWIGjr07Fij2NUuyHkDuiL5QrZD4tgD+K4d2XKoSsfpX
+wea5NI21IVEx5NJdUp7XmXeNCPU7ngY=
+=lQDp
+-----END PGP SIGNATURE-----
+
+--=-8ILH7WDBQi0ijJCZzATq--
 
