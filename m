@@ -4,93 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA781088E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EA51088E63
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jz3+F0Ulb1Fe9SdcUNgnIcyqBz4RgHytSwxo/I0HN/U=; b=2DLxtmShux85JSqwaA9aBGYakG
-	9eab9JQtfK6dT3Icuxpl9RFu0hdpBYk4Klku0v1JkiOlXrVwaSPWuNVYG9AKw/odjYA24vldzgmOa
-	QQ0+LQPiiy/lXvXMmrRlZBKnnCDEinyMZaIvvc62S5Tcxn5419zJ+XvJ2spwHNPy0C5I+3F/m5CLA
-	unxI9CcFSLQFS+dtkaWcC8RtDM2EeuF2115ryBXLC0UBiEVrvmgstECEfeOZggsCAemIOusfKWOSq
-	bf9DmSH0vgbu0dSjEhupwyt6f5I0IzN1WIIPbVALRLl0IAeBvnTzTSU3qnPd2OjYQYm0r1H+4Jq01
-	EFH3Kimw==;
+	bh=ZD6pmJLOtYFzYv68l6gdyABV0jSGcYMXdva92qbptMo=; b=jcfKFyJSEVqcnwUZsgnXwvusZ0
+	YO6oIWMjmhzdj951uBO3JfVnsieZFY6VLxPgSpxhr32vItT1PD8d/wMNgpDSs3ZklGVW84Hi2WEWH
+	P+F0iIOcMJGkskV4DUpCcOoi0kDyAMw7P1dvxHfjcvV3Igh3OZ4eA4biXQHbfMV+iRF3acUevJENe
+	3Jsk9Ka0n51yJt9keucYUthGRyRUZA53FfQTL9BeSgLyzO8yES4IqNdrptIotOUmk83TfXcPFAQym
+	qrJ3Qy+TEaoAgUZ3a3Oh6wtvLbpeDNhARDIAIW06qy1FfV3A5UnlEr5C1QCOpy+Zu604dP2s8jsAo
+	3+uM3oJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3322-00000009jtw-2DM0;
-	Thu, 19 Mar 2026 02:22:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3390-00000009l3w-2Hc0;
+	Thu, 19 Mar 2026 02:29:54 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w331l-00000009jRs-3QTI;
-	Thu, 19 Mar 2026 02:22:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=Jz3+F0Ulb1Fe9SdcUNgnIcyqBz4RgHytSwxo/I0HN/U=; b=RZsoHdWVNgdOE7UaBtPTR0qAEK
-	/h7ZmVJL6QBLxu1P4PbvOfNs8To/IsPwtbvdAHAQij9NAmdYUudfzuhQBVX+qidtGSPBWZjIQNK3H
-	9Ww2muBRPX6UsjO+Ec8r61Q/VJpJKLMNx9UEx9SmOkSkB2DL+HNamoERCnIM8dvqFNow0Khsc61mR
-	+w7DrwAB78ZlPwINU6f/4C4O8SnpGYItDb71xx87QTlgbPu+xbSMc/uRsHBpWYxPwNkX6qWYKuqNx
-	pgpWHh58ZLIH0ZO5ZZA8sVEcnE0KVG5U0o1WKmUjJd37eiQOToxVvEW10FBzA7yvkVzONhxa5Lh3f
-	LvKRb2sw==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w331f-0000000CYi7-2CZE;
-	Thu, 19 Mar 2026 02:22:23 +0000
-X-UUID: 6d1a38b8233a11f19e7563141e833ce8-20260318
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=Jz3+F0Ulb1Fe9SdcUNgnIcyqBz4RgHytSwxo/I0HN/U=;
-	b=DEAYb4bjGdjjIxzJ5YAnJFWUk/YXp0X1nPxFz+bPEMB2uLlDmJIeFTKq9rOZ23PwWa3FDbZmA6QCjhi8+FmIHvZQfKULLtfA5G7M1hp5TPd2nquTVYRF7+MQkC2TNsPmwXEj/XlP4R3sxwBO2hBR+UskrpG4oa3FUiAJ8j/X3CM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:5c5c6922-7b9d-4cd9-bd02-c6f4e2da1bc7,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:e356f693-f8ef-4ca8-bea0-143568f9ca1d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6d1a38b8233a11f19e7563141e833ce8-20260318
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1465476300; Wed, 18 Mar 2026 19:22:07 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+	id 1w338y-00000009l3b-1LGk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 02:29:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773887392; x=1805423392;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=ZD6pmJLOtYFzYv68l6gdyABV0jSGcYMXdva92qbptMo=;
+  b=fOlddWcrItF8iZOHmsHOLiMQ8ybHe9hO8afnU35HhPcqm19oFR4TDs9f
+   4KdhLuuB9tDIL6i4svzFqn7LmfK2Fo2sCc281MOijW2ScEBuEMlzSAsb0
+   g2FY8Dg3lPQA9IwZQ2qncleyNlwe8PzyZjl3CyWzFz2XYF6pzlPhCjRI5
+   Va/dY2rch/RbUr/d1dZ/QvaM1tew0T3DggZhLWhC4FdUwpJHonlnPRGT5
+   WN9reO19hZn0mnY/HA1PbHLA2Am0wag/powRhAcUv45GIECP2kj1bStzh
+   q6BW+SkTF5eHKz03ku7mw/QuwjP7Vg1rF7xDe71MrbpUYrXyrszUEl2Ob
+   g==;
+X-CSE-ConnectionGUID: 5a13ycbDR5e0VkzZmUkWBg==
+X-CSE-MsgGUID: GSRvp7BIR9i0jzeJCC98tw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11733"; a="85657774"
+X-IronPort-AV: E=Sophos;i="6.23,128,1770624000"; 
+   d="scan'208";a="85657774"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 19:29:43 -0700
+X-CSE-ConnectionGUID: SUQdO5wnTTC69G6s7pf0zQ==
+X-CSE-MsgGUID: TMG/v0HKSqGRBdiYK/JHMA==
+X-ExtLoop1: 1
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2026 19:29:43 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 19 Mar 2026 10:22:04 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 19 Mar 2026 10:22:03 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v13 12/12] media: mediatek: jpeg: add jpeg smmu sid setting
-Date: Thu, 19 Mar 2026 10:21:51 +0800
-Message-ID: <20260319022152.31313-13-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260319022152.31313-1-kyrie.wu@mediatek.com>
-References: <20260319022152.31313-1-kyrie.wu@mediatek.com>
+ 15.2.2562.37; Wed, 18 Mar 2026 19:29:42 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Wed, 18 Mar 2026 19:29:42 -0700
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.13)
+ by edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 18 Mar 2026 19:29:42 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ncJw4eaA1JyPIEJ7CMAANkq1ckn7oMYZY75UQxdhInpOyZXVaPkxFVdGN4FxMoI78ZP1kmXrH4nYoVkUjnWdx8z2REzhgR98n/McagcmwxPlIew67sFc4OPT2POSp6PzokMC3vffH1lowVmsiOpBSvUQ+zE4kZh/ICR+9V2AXYfaB7rCRG3/Z0h5/AEj3lJWy1CF342C66Rqo2QLWTHz+YKWZdpOXQa46fUObeJ+qzPKEuaJYpEicPRnP7QhFOnRIzplAucmXtBi+HGPKxl9HPZIvmaHQuaRG/psFHRz7UAav6u9/uTBSGWb+yZrXVomMFjLyPSCUQ2/x/vhgJWb/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZD6pmJLOtYFzYv68l6gdyABV0jSGcYMXdva92qbptMo=;
+ b=Ijl+Y3vNKSm0ArUwSriQivsFtGLA/KzT+aDAtGsYl3qcpF+7eULzOdNHEuOURyqHBy2cqTa8qwcRwDnb3QEjOOecK3VQEua1faypOWmRjJuG5piEqMSJ7RXLkNgSTvV/7dx4dwXMqH7QYjCRlWK0jA8HNkn5uUq/vDj4r4H08cvzpNb8e7PWNfEXHS/ZH006oNuChxRWILuA43NHMnYQqhWeezjMbPxQE6lJv0so+tIClosOWbWBebMNIkQAB7s5k8LI5MW4mHWYqyiN8dAm2oeNQP8p4BNIaLrYUQQ/gZ5Ovn6DBXnVZ2b5805kelaYGE0az0SDKWSu+lTQsQ7mGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SJ2PR11MB7597.namprd11.prod.outlook.com (2603:10b6:a03:4c6::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
+ 2026 02:29:38 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9745.007; Thu, 19 Mar 2026
+ 02:29:38 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "jgg@nvidia.com"
+	<jgg@nvidia.com>, "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+	<lenb@kernel.org>, "praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>
+Subject: RE: [PATCH v2 0/7] iommu/arm-smmu-v3: Quarantine device upon ATC
+ invalidation timeout
+Thread-Topic: [PATCH v2 0/7] iommu/arm-smmu-v3: Quarantine device upon ATC
+ invalidation timeout
+Thread-Index: AQHctkKXc5nudtokhUmd4/hiAhcpbbWz6cEAgADOqQCAAGpAcA==
+Date: Thu, 19 Mar 2026 02:29:38 +0000
+Message-ID: <BN9PR11MB52764771C48B39C09F129F218C4FA@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1773774441.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762F94146776026CA203248C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <absFXmFcpG8O7uNB@Asurada-Nvidia>
+In-Reply-To: <absFXmFcpG8O7uNB@Asurada-Nvidia>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SJ2PR11MB7597:EE_
+x-ms-office365-filtering-correlation-id: 3c77e3db-df4d-4f64-47bf-08de855f5e49
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: EltUyDCPpKW22gwip++xHWR5lTz7feFBST3ka5znKOJDAYaaMIi+XVJnEV2eCz44J18eZw7gZx2zOJ+BnqwnwCV3k+BxKjg0t6oELv5oH5bfeQMXdM070/113kBHtit7OXm2GnfVAnoECBNQzQA0nHVNB4ccG50ely7C5YHfK8wR1PdDoSRzxzA8EZ6YGMnoQOKNxM/kh3IOa4+QSrSIcTDWlKWwff9ySguqB2ahI4VQCUXriyUkLdJdLlTUSYyVq7BA1PNFyOBOfPdXkSvVSlq1XqNzGGtNgABkqnhepKNXr5970eW1Ee0Nw1cjn1Ko6lRRTbotZOBVz6Jm3/nwwAdYWOGdsHkj89jPwIwIxVtSsWtvrrqpUrZSnWzgdZ7N2XywTHcVK1kGtG4mbr3j+L7hCoL3eZoAzvq4Nv0QN+NZJhoHuhR/wcPYnNLQQpsdpeyNOyDFOhcscOPzQz+SfB2Y/8ZwGIHMWtfmiXgfAGNt00oIa7zS7q4uTdhSRmLxsWzFL/r/Ow7JWZqQRKowXO4IoRZGais2ti3jP8laGw/H5ZhafDqHoMAj2JKqgBFi3C/Jd/ijDj63wh3UM/vfxZRdHlgXfRn+hjviWam82qMwHO11wXYLVIoCEx0RkCgga13P0quPjDKr9YLzGOV/0YzutKAE8S8FsdGZDVtllpT9tNbl+TqbtJmQYOtlOh54tzjQismItpBrDFR6lmEYoA2w1EV3/biqatV/toapcwZsZRRqb9Fm5bb8+J8y0CzK83tfozaaodYLVBcksETQgocaYGNy6ooiVuHN8exFJsE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8Nv5k5wdM5WXyFxsvSSEX9DpADeM9JEfhvnAkomVMihOjQ/jbAds3bTvwblo?=
+ =?us-ascii?Q?7Y3v8NQZL2oR1xlct26e11Dk55E+fwlmrnYYQE2cwwJbPAFYjY8lfrOZhSSU?=
+ =?us-ascii?Q?ODRNxQgSbLWuUBa66OPNt8pk0/nsSEtRD3VDTufS58jIpD8e/3MQYzztZGaC?=
+ =?us-ascii?Q?O8ZtjcYMln7OgivaI2pJ5H5qtYovDVijJAcIr/Fnb74rvQE2HbbOZT//C77m?=
+ =?us-ascii?Q?3TQtAIYw3LI2IOcRoO4Gt2nLPjvy8T5hbfctAyx3tKOyAPL3cft+yLKs0A2K?=
+ =?us-ascii?Q?mqa2n72yr6hpcMJg84TXjHW1o7XbC2pWyKIHhTZsGjfx1cIY47TTTEkLHZX0?=
+ =?us-ascii?Q?CmXdnD9p7Kg+CKxFTLjLN81Z4g9J4nxa7pKofblMH5lg49Hkt514ZOQvkkAV?=
+ =?us-ascii?Q?rhd3DZS0QvEgTUuOVbRP8m9zdmYu2SR4GqwSctL0Py4BY3Lg6fm3uXLyy2Ne?=
+ =?us-ascii?Q?vJTxvzjKMp2YkfZXETxgDJXaFc/pywbGVSEaeHATrPVBe0KcrOq+fgsu1ndl?=
+ =?us-ascii?Q?xIn+OXKliuV5tZ2SRkKOWYoCN42powTagHwXDKO5zIxHRPbLVle2OUnXBGm1?=
+ =?us-ascii?Q?FqmTZBgVOUlFAMGA19wr1e3mCspuBB0gRTElylz6mFAEr5qmq8IMV2BHOKFZ?=
+ =?us-ascii?Q?voUAtY46uakI0x26myU72hLElKdXAyV9LERkNAPWuUXmyGG6nUkWLNOtae06?=
+ =?us-ascii?Q?dObqpXVQKS/8O3WYOelhmphFU+XENmITPyjUfim1cqC4UStSYBBW6ii7Usfh?=
+ =?us-ascii?Q?4bCRE7it7mMuLHcXCEhMdfUayS7ob3Qr6ve3Mcp4hCfyynn1an4RzBCETQOo?=
+ =?us-ascii?Q?TZjM+aoH/45U0O4NtkGeHb6F7JLqHqOxpB9sgF17jd+kRmBaIGYiRezdG7/+?=
+ =?us-ascii?Q?+j98Vlq0cWWTUSBigDQ8pTwKcCeQCWAmu0ilYpb4nMcME3i7WLUskeO6qGj2?=
+ =?us-ascii?Q?AaU37fpjeMze0tv+ruS5vWWaw4QfO/rZ0+ORYPyS/VDaVxGBE/ZfTB2X+YEg?=
+ =?us-ascii?Q?cu52ueGmQEhubSpT9qAKZMDrprIhjpx3EqmjK58zZ1jbjb9oJRZ73Qos6mDO?=
+ =?us-ascii?Q?L+ZL0qq55CwqanePvCUynMsMuswtAG+T1QdVipExHatCZxIomom7vpxihjW2?=
+ =?us-ascii?Q?e0dhi+ZZiIQEV3Q9nbRPn17mOCxvUtnw+ykEyCDkvhWKT7fQ/IZ0QSK1DDZl?=
+ =?us-ascii?Q?CtOkNR64KHvfu4rE/Dys6EK1/V+6nW75+Zsxhu8bRVXohJiGrT5BL7UONCn3?=
+ =?us-ascii?Q?9upMl8OzM7kF/1JzKPyQzVz4MyEUVNjUDUPMDpnoA7JSFS2Hc369ObotLZ3+?=
+ =?us-ascii?Q?CiyMU7PYseKuD6olkRYIAWasqZon1MoKwiMZxV56hzP8EMjqOyFiVICnR1SM?=
+ =?us-ascii?Q?IWIpGibodZqpDBiKIEvD0XP5Tc9jk1oVOD8abX4IasHRjq/hSIRNCxpltiyI?=
+ =?us-ascii?Q?RJoK0F9Hs2s+A+b7p1xFTrjh6Pw2IKxrhL9cwPSZCCWrmsVWbUrQUN88iThs?=
+ =?us-ascii?Q?jG3HgZTHhJR6g0OKV/VCCcDJqxXNitTH7mUjNUSF3zPcDVt8Pz+evQxfkrNu?=
+ =?us-ascii?Q?pKmtSlx7kSSSN8P2837K9+fuYtz3kEzUXQLN24A4GgDHSn81+AjJ1JdyDqvu?=
+ =?us-ascii?Q?22Dl+46S3LtXrBjtDGh1penYmaGo89oMeHPhQ0NBQpRqEsmv9t3IPvhRCQB+?=
+ =?us-ascii?Q?FEsqk/cj2rdxjvV9l/5r8KlqtPAvaQCpcidK5KPaK6j56j4fT8GlVU4dNr+A?=
+ =?us-ascii?Q?/VJcuL4Syg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Exchange-RoutingPolicyChecked: U2Dyt5EylkKD7KrYF14ypna9UQOen+2HC7QHBOTwufvCJWx9Au6UM/DOCCyNLj/SkH/yRe1THyqbl5pq+XDywLniHaZ2KmkRM+Mkr/s1AWDgI2pGFg8PTZA3SYuC5xm0FttbwgtrAfHl9wClYf4Ug65qc7fjKiO2dzQiWKzYbFV1gG/frjBKNp5EFtYqWphPaBAukgAGZUeolNMtHfZD5/Czslp+2K5LM3aTFf1oPIj+WW9rGm45+xE+7CfOV7lThYv8DovQ4IDu3MjF8RwlgkULxyHYxP36/NT2Y6tyAvx4aXSBvkvKNW2gm9DQ9dG3O4NoaELZQLE8nc7aYoy40w==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c77e3db-df4d-4f64-47bf-08de855f5e49
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2026 02:29:38.3321
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0xo+dhtGu2tUiCugxpP8WjpjdXvmXRyOVdpFTWmA+oxM/6hhQvhsWmaUAHxw6QjIbZ0paV50s09642h8emio9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7597
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_022221_486254_8ACCE4EB 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20260318_192952_388037_936D19DC 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,250 +187,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a configuration to set jpeg dec & enc smmu sid
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Thursday, March 19, 2026 4:05 AM
+>=20
+> On Wed, Mar 18, 2026 at 07:47:18AM +0000, Tian, Kevin wrote:
+> > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > Sent: Wednesday, March 18, 2026 3:16 AM
+> > >
+> > > Hi all,
+> > >
+> > > This series addresses a critical vulnerability and stability issue wh=
+ere an
+> > > unresponsive PCIe device failing to process ATC (Address Translation
+> Cache)
+> > > invalidation requests leads to silent data corruption and continuous
+> SMMU
+> > > CMDQ error spam.
+> > >
+> >
+> > None of the patches in this series contains a Fixed tag and cc stable.
+>=20
+> Hmm, I guess AI overly polished the cover letter so it sounds too
+> strong?
+>=20
+> This is essentially a vulnerability (potential memory corruption).
+> And none of these patches actually fixes any regression. The PATCH
+> 7 even requires the arm_smmu_invs series which has not been merged
+> yet :-/
+>=20
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
----
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 29 +++++++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_core.h    | 15 ++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 23 +++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 23 +++++++++++++++
- 4 files changed, 90 insertions(+)
-
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 287f6bd53ce6..f854c73739b9 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -15,6 +15,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <media/v4l2-event.h>
-@@ -1599,6 +1600,22 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
- 	return IRQ_HANDLED;
- }
- 
-+static void mtk_jpeg_set_smmu_sid(struct regmap *smmu_regmap, unsigned int sid)
-+{
-+	if (sid == JPG_REG_GUSER_ID_DEC_SID)
-+		regmap_update_bits(smmu_regmap, JPEG_DEC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_DEC_SID <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT);
-+	else
-+		regmap_update_bits(smmu_regmap, JPEG_ENC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_ENC_SID <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT);
-+}
-+
- static void mtk_jpegenc_worker(struct work_struct *work)
- {
- 	struct mtk_jpegenc_comp_dev *comp_jpeg[MTK_JPEGENC_HW_MAX];
-@@ -1660,6 +1677,11 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_enc_reset(comp_jpeg[hw_id]->reg_base);
-+
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_ENC_SID);
-+
- 	mtk_jpeg_set_enc_dst(ctx,
- 			     comp_jpeg[hw_id]->reg_base,
- 			     &dst_buf->vb2_buf);
-@@ -1769,6 +1791,11 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
-+
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_DEC_SID);
-+
- 	mtk_jpeg_dec_set_config(comp_jpeg[hw_id]->reg_base,
- 				jpeg->variant->support_34bit,
- 				&jpeg_src_buf->dec_param,
-@@ -1927,6 +1954,7 @@ static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
- 	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegenc_worker,
-+	.support_smmu = true,
- };
- 
- static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
-@@ -1953,6 +1981,7 @@ static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
- 	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegdec_worker,
-+	.support_smmu = true,
- };
- 
- static const struct of_device_id mtk_jpeg_match[] = {
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-index 148fd41759b7..186cd1862028 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-@@ -11,6 +11,7 @@
- 
- #include <linux/clk.h>
- #include <linux/interrupt.h>
-+#include <linux/mfd/syscon.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-device.h>
- #include <media/v4l2-fh.h>
-@@ -34,6 +35,14 @@
- 
- #define MTK_JPEG_MAX_EXIF_SIZE	(64 * 1024)
- 
-+#define JPEG_DEC_SMMU_SID				0
-+#define JPEG_ENC_SMMU_SID				0
-+#define JPG_REG_GUSER_ID_MASK			0x7
-+#define JPG_REG_GUSER_ID_DEC_SID		0x4
-+#define JPG_REG_GUSER_ID_ENC_SID		0x5
-+#define JPG_REG_DEC_GUSER_ID_SHIFT		8
-+#define JPG_REG_ENC_GUSER_ID_SHIFT		4
-+
- #define MTK_JPEG_ADDR_MASK GENMASK(1, 0)
- 
- /**
-@@ -65,6 +74,7 @@ enum mtk_jpeg_ctx_state {
-  * @multi_core:		mark jpeg hw is multi_core or not
-  * @jpeg_worker:		jpeg dec or enc worker
-  * @support_34bit:	flag to check support for 34-bit DMA address
-+ * @support_smmu:	flag to check if support smmu
-  */
- struct mtk_jpeg_variant {
- 	struct clk_bulk_data *clks;
-@@ -82,6 +92,7 @@ struct mtk_jpeg_variant {
- 	bool multi_core;
- 	void (*jpeg_worker)(struct work_struct *work);
- 	bool support_34bit;
-+	bool support_smmu;
- };
- 
- struct mtk_jpeg_src_buf {
-@@ -150,6 +161,7 @@ struct mtk_jpegdec_clk {
-  * @hw_param:		jpeg encode hw parameters
-  * @hw_state:		record hw state
-  * @hw_lock:		spinlock protecting the hw device resource
-+ * @smmu_regmap:	SMMU registers mapping
-  */
- struct mtk_jpegenc_comp_dev {
- 	struct device *dev;
-@@ -163,6 +175,7 @@ struct mtk_jpegenc_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-@@ -177,6 +190,7 @@ struct mtk_jpegenc_comp_dev {
-  * @hw_param:			jpeg decode hw parameters
-  * @hw_state:			record hw state
-  * @hw_lock:			spinlock protecting hw
-+ * @smmu_regmap:		SMMU registers mapping
-  */
- struct mtk_jpegdec_comp_dev {
- 	struct device *dev;
-@@ -190,6 +204,7 @@ struct mtk_jpegdec_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 5a485e905787..2e079a6e5d5d 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -613,6 +613,25 @@ static int mtk_jpegdec_hw_init_irq(struct mtk_jpegdec_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegdec_smmu_init(struct mtk_jpegdec_comp_dev *dev)
-+{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
-+
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
-+
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%ld)\n",
-+				     PTR_ERR(dev->smmu_regmap));
-+	}
-+
-+	return 0;
-+}
-+
- static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegdec_clk *jpegdec_clk;
-@@ -666,6 +685,10 @@ static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- 	dev->master_dev = master_dev;
- 	master_dev->max_hw_count++;
- 
-+	ret = mtk_jpegdec_smmu_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
- 	ret = devm_clk_bulk_get(dev->dev,
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index 1cfdfac98829..0001d69ae7ba 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -339,6 +339,25 @@ static int mtk_jpegenc_hw_init_irq(struct mtk_jpegenc_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegenc_smmu_init(struct mtk_jpegenc_comp_dev *dev)
-+{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
-+
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
-+
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%ld)\n",
-+				     PTR_ERR(dev->smmu_regmap));
-+	}
-+
-+	return 0;
-+}
-+
- static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegenc_clk *jpegenc_clk;
-@@ -390,6 +409,10 @@ static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- 	dev->master_dev = master_dev;
- 	master_dev->max_hw_count++;
- 
-+	ret = mtk_jpegenc_smmu_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
- 	ret = devm_clk_bulk_get(dev->dev,
--- 
-2.45.2
+Fixes tag and backporting are not just for regression. People certainly
+want to see reported vulnerabilities fixed in stable kernels...
 
 
