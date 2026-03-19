@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5606A1090241
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A6A109023F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R22VXrRBbk3HUxII7Rd/TKJsARrw7m6XgPmiO/BY8lI=; b=Wsc+gmbmDnHOVpm4hw2d99Huoy
-	igilyK6ywEH+/di8BXYZQ6RYaDdZU0s+V+jzQVptxR0kfvkb9o/rDGkO1idDwnFPrNMjAABCi6m/P
-	Xiged+pf9EGkgFJiymGwrGJFks6dJLWipK2/EzB13VhoR6wEqIqhZGAX1j57ajraWwrWm5EYtpiXH
-	Gp/4LnTXbQcVU/dW+yMNHz1pbGc8qQNV5hIKwBHPrr6vcnNwN9c/gNtQ2E3l9vW4BNfSo+HGUDTMJ
-	n29RxclsXvPfsrE/e2KVLhPUVm61K+QLlEvq5dlGQjYUwzUzTgORfAxmdTWDJLc7ZjZ5MvcSFLZY/
-	FlZoY71w==;
+	bh=bPgQROPbIr09g3wvpZB0Bhc8nbj9eaIBPezjbWbhSAI=; b=BZ6lWfXOHZVGetcuyWpLH0p9XZ
+	GQiPxbXNovqWqJ/rU/p5LP+psb7iboyMn3LWgF6+QqQJh8VnzL7wOcM+aBi3f61i1JVVvJaSaUxP5
+	diA7OkMil6bM9+nQmaofj0wCa7k11ULwh2qDO4ij/rUCwz5BvDqc4tLdWzCWyOuyWEQhu5Y5OXLnT
+	MrC2Kw43YR0NAxp2sOJ4tPFU758RAW6JSK7xEbU/gZdDmDgIFUbj+4msV+xkHwyZcGyk0Rs7LY6MU
+	jbkhfvNHMCC9GMXAZfBWqRqwGvOkxqiQAyzTEduP6jdFUTMZK3blEv6fJbHtE4wq98zYf00hsu85C
+	GZ5SAiGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FZK-0000000Aw5f-2PsW;
-	Thu, 19 Mar 2026 15:45:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FZI-0000000Aw4w-0piC
+	id 1w3FaH-0000000AwGG-41S8;
+	Thu, 19 Mar 2026 15:46:53 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3FaF-0000000AwFN-2Zea
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:45:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8DE81A25;
-	Thu, 19 Mar 2026 08:45:43 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8954C3F778;
-	Thu, 19 Mar 2026 08:45:48 -0700 (PDT)
-Date: Thu, 19 Mar 2026 15:45:45 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <abwaKf3F0Ya3wyxl@arm.com>
-References: <20260318191918.2653160-1-catalin.marinas@arm.com>
- <20260318191918.2653160-4-catalin.marinas@arm.com>
- <abv65n3fhvYDEez0@willie-the-truck>
+	Thu, 19 Mar 2026 15:46:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=bPgQROPbIr09g3wvpZB0Bhc8nbj9eaIBPezjbWbhSAI=; b=bmNR3BuWpzUIHI2dF8A7XU23Iu
+	v7mBSmHo2Y4f2FL27IQ5slgTt5Ou2k6B3JhdqjcNiMJ/c/JN9PQToDmTD7KMiwevK7NTna5ij9+VN
+	GvSaxpNJstX3RPEix6V8G3jzW1b0zF9X5iVKIQcYukLUhOE3bU5Oi40jwm/WSuetKgnQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w3Fa8-00CPDV-Qk; Thu, 19 Mar 2026 16:46:44 +0100
+Date: Thu, 19 Mar 2026 16:46:44 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: Re: [PATCH v2 2/3] arm64: dts: freescale: add initial device tree
+ for TQMa93xx/MBa93xxLA-MINI
+Message-ID: <ea9038c3-7e7d-457b-a3fc-8d21e2744e32@lunn.ch>
+References: <20260319125013.2421621-1-alexander.stein@ew.tq-group.com>
+ <20260319125013.2421621-3-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <abv65n3fhvYDEez0@willie-the-truck>
+In-Reply-To: <20260319125013.2421621-3-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_084552_384496_0D6D4FD2 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20260319_084651_649141_125B68DC 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,94 +77,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+> +&eqos {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_eqos>;
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&ethphy_eqos>;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		ethphy_eqos: ethernet-phy@0 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			reg = <0>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pinctrl_eqos_phy>;
+> +			interrupt-parent = <&gpio3>;
+> +			interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
+> +			reset-gpios = <&expander0 0 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us = <500000>;
+> +			reset-deassert-us = <50000>;
+> +			enet-phy-lane-no-swap;
+> +			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+> +			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+> +			ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+> +			ti,dp83867-rxctrl-strap-quirk;
+> +			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+> +		};
+> +	};
+> +};
+> +
+> +&fec {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_fec>;
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&ethphy_fec>;
+> +	fsl,magic-packet;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		clock-frequency = <5000000>;
+> +
+> +		ethphy_fec: ethernet-phy@0 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			reg = <0>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pinctrl_fec_phy>;
+> +			interrupt-parent = <&gpio3>;
+> +			interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
+> +			reset-gpios = <&expander0 1 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us = <500000>;
+> +			reset-deassert-us = <50000>;
+> +			enet-phy-lane-no-swap;
+> +			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+> +			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+> +			ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+> +			ti,dp83867-rxctrl-strap-quirk;
+> +			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+> +		};
+> +	};
+> +};
 
-Thanks for the review.
+For these nodes only:
 
-On Thu, Mar 19, 2026 at 01:32:22PM +0000, Will Deacon wrote:
-> Are you planning to take this for 7.1 or would you like me to take it
-> via for-next/fixes? I'm leaning towards the former so it can simmer in
-> -next for a bit...
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Yes, it makes sense.
-
-> On Wed, Mar 18, 2026 at 07:19:15PM +0000, Catalin Marinas wrote:
-> > C1-Pro acknowledges DVMSync messages before completing the SME/CME
-> > memory accesses. Work around this by issuing an IPI to the affected CPUs
-> > if they are running in EL0 with SME enabled.
-> > 
-> > Note that we avoid the local DSB in the IPI handler as the kernel runs
-> > with SCTLR_EL1.IESB=1 This is sufficient to complete SME memory accesses
-> > at EL0 on taking an exception to EL1. On the return to user path, no
-> > barrier is necessary either. See the comment in sme_set_active() and the
-> > more detailed explanation in the link below.
-> 
-> Missing link?
-
-Ah, I eventually moved it to a comment in the code directly. I'll add it
-here as well.
-
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 38dba5f7e4d2..f07cdb6ada08 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -1175,6 +1175,18 @@ config ARM64_ERRATUM_4311569
-> >  
-> >  	  If unsure, say Y.
-> >  
-> > +config ARM64_ERRATUM_SME_DVMSYNC
-> 
-> Any reason not to call this ARM64_ERRATUM_4193714 like we do for other
-> hardware bugs?
-
-Future-proofing, in case it becomes a feature ;).
-
-I'll change it. I think when I started I didn't have the number (or did
-not know where to look for it). I was too lazy to change it afterwards.
-
-> > diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> > index 1d2e33559bd5..129c29aa0fc4 100644
-> > --- a/arch/arm64/include/asm/fpsimd.h
-> > +++ b/arch/arm64/include/asm/fpsimd.h
-> > @@ -428,6 +428,24 @@ static inline size_t sme_state_size(struct task_struct const *task)
-> >  	return __sme_state_size(task_get_sme_vl(task));
-> >  }
-> >  
-> > +void sme_enable_dvmsync(void);
-> > +void sme_set_active(unsigned int cpu);
-> > +void sme_clear_active(unsigned int cpu);
-> > +
-> > +static inline void sme_enter_from_user_mode(void)
-> > +{
-> > +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
-> > +	    test_thread_flag(TIF_SME))
-> > +		sme_clear_active(smp_processor_id());
-> > +}
-> > +
-> > +static inline void sme_exit_to_user_mode(void)
-> > +{
-> > +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
-> > +	    test_thread_flag(TIF_SME))
-> > +		sme_set_active(smp_processor_id());
-> > +}
-> 
-> nit: You could push smp_processor_id() down into sme_{set,clear}_active()
-> since they are always called for the running CPU.
-
-Yes, I can. What I had in mind from an API perspective was that the
-caller knows preemption is disabled while the callee may not. But it's
-only this caller, so fine by me with moving the smp_processor_id() to
-those function.
-
-If we ever add support for SME in guests with this erratum, we may
-call the same function (not sure yet), just need to make sure preemption
-is disabled or add a check. OTOH, I'd rather disable SME in guests
-altogether for these CPUs.
-
-I'll address the other points and repost next week.
-
-Thanks.
-
--- 
-Catalin
+    Andrew
 
