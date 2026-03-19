@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC86F107526F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A3B1075276
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGDLL6Ar9BwuYWHlCus806lUe1cL7vSPADZrnW2oChs=; b=ZmhxC6FIpvGB2nd4quA0ouLbjU
-	RxU3LoroPFF/dwpU1GmgKEGq82nIAkXbQzVXXaOGPuzMjsMJ3uVlZnD0wx34NWG+OaiiZsCTSxyCS
-	CXAMoIaQAXG0z3Yb+cae7fO+YPJC9BFQyLCI8un7w3gkRa8CQOmc6W+3mpmrMUscAtfTFkARLrxUt
-	aMuQZcGyOecnyPtc8K/0E7Fd+5CaOMfdSFrxYL+AjtkOMocWH+/3rkyRm4Vv2/kvXCxT2FRyGOl6c
-	EeH8Km+So88VNI6diPt8icEY/GmhtGXnrAfhjK77yNSOoMG/W2qEQiYYqcApYqQ00pfP4eH/gR2C9
-	Kub4zfag==;
+	bh=l0rCYWGbbWqoD8V97nbLeMFxlHthOJgEIOH48elhF+M=; b=IlzCt/w0LWRmBYVekCbimHgweL
+	UZdlL2obKW/tADex0EMa07bex8IrAsRPHI34QDS4bLDr2M653i+WKkrxiNtUAxS9Qa4BprQ+N8P6g
+	WZPl/gTAHrAjTwI+WQayHLnM3nP7G0yXSq6ToYyStkQ3qtMDkKl5Jh3ZEeinXzHaHB+8c24B9BZqv
+	wrz5dXQcfYHZcaOwdCa/bLGMIkHiSttQ/UzJQvtelwdsbAcn/llrqzBwxSXrMVO+SX3ohGMNLbHtq
+	T8MKqpd5wlZdOrbuY75+U1KDR1d9O85Wch941duJUHNXZPIFmBoTEwQBqq3cfBu6vWgDP0QyRUQ3e
+	9WAEHbTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w380s-0000000AAiD-0hKr;
-	Thu, 19 Mar 2026 07:41:50 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1w386r-0000000AB3Q-3WnD;
+	Thu, 19 Mar 2026 07:48:01 +0000
+Received: from mail-m3286.qiye.163.com ([220.197.32.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w380p-0000000AAha-0psE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 07:41:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773906103; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=aGDLL6Ar9BwuYWHlCus806lUe1cL7vSPADZrnW2oChs=;
-	b=WWqmQbXmKDAnitd00b5OoLs6Pfe1AuQz808v4eVZMZCnj4qo21VEpq2dA651pcZ8RJ/lMK2uSCnLCyuYv6GW1olvefhlNErVimISGIHtG5P92MgIM2h1mkdNiMjRty8W0q0/C1kmguEkKwkCBfPCBUHQlDmL6FhOR2RtSm4KMGw=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R921e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.Hj-we_1773906099;
-Received: from 30.246.163.250(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X.Hj-we_1773906099 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Mar 2026 15:41:40 +0800
-Message-ID: <0e2d1eb5-a58d-4fe6-9a63-e10e527abd6f@linux.alibaba.com>
-Date: Thu, 19 Mar 2026 15:41:49 +0800
+	id 1w386n-0000000AB1t-0W1K;
+	Thu, 19 Mar 2026 07:47:59 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3789bd654;
+	Thu, 19 Mar 2026 15:47:47 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	alim.akhtar@samsung.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	nicolas.frattaroli@collabora.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v11 14/17] drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+Date: Thu, 19 Mar 2026 15:47:41 +0800
+Message-Id: <20260319074744.1965918-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260319071452.1961274-1-damon.ding@rock-chips.com>
+References: <20260319071452.1961274-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/7] iommu/arm-smmu-v3: Block ATS upon an ATC
- invalidation timeout
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
- bhelgaas@google.com, jgg@nvidia.com, rafael@kernel.org, lenb@kernel.org,
- praan@google.com, baolu.lu@linux.intel.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <7e21e14faddeb0e3af692356f4fefbae2dfbebda.1773774441.git.nicolinc@nvidia.com>
- <eeee122f-54e2-4fe9-82a6-724c3f80a499@linux.alibaba.com>
- <abts8l0UPvGuzrzF@Asurada-Nvidia>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <abts8l0UPvGuzrzF@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d051098dd03a3kunmf4d8b30239c761
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05CHVZDSEpOTh5JGE4YHhhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=FtijqO5oKnriZtUzbOA5Va+zjlJ+2aZBe+kPH+PrPR8uPQWaot9rUYJJnGD1ZMho70HeWUjKsXd//VpLcIMQNifohmsFVnf0J7kp1lzHkTyunBvIs16RZ/hXGif6URYqb2cazb2JtJEOH03TeqiQ1OAvs/cMfT2Iz9dAYwEJ4RM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=l0rCYWGbbWqoD8V97nbLeMFxlHthOJgEIOH48elhF+M=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_004147_548664_6FAF5CA1 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260319_004757_580166_F3DCDCEC 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,76 +103,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Apply analogix_dp_finish_probe() in order to move the panel/bridge
+parsing from Exynos side to the Analogix side.
 
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
-On 3/19/26 11:26 AM, Nicolin Chen wrote:
-> On Thu, Mar 19, 2026 at 10:56:43AM +0800, Shuai Xue wrote:
->> On 3/18/26 3:15 AM, Nicolin Chen wrote:
->>> For batched ATC_INV commands, SMMU hardware only reports a timeout at the
->>> CMD_SYNC, which could follow the batch issued for multiple devices. So, it
->>> isn't straightforward to identify which command in a batch resulted in the
->>> timeout. Fortunately, the invs array has a sorted list of ATC entries. So,
->>> the issued batch must be sorted as well. This makes it possible to bisect
->>> the batch to retry the command per Stream ID and identify the master.
->>
->> Nit: The implementation is a linear per-SID retry, not a binary
->> search / bisection. Suggest rewording to:
->>
->>    "retry the ATC_INV command for each unique Stream ID in the batch
->>     to identify the unresponsive master"
-> 
-> You are right. And that sounds OK.
-> 
->>> +	step = arm_smmu_get_step_for_sid(smmu, sid);
->>> +	WRITE_ONCE(step->data[1],
->>> +		   READ_ONCE(step->data[1]) & cpu_to_le64(~STRTAB_STE_1_EATS));
->>
->>
->> This non-atomic read-modify-write on step->data[1] can race with the
->> normal STE installation path (arm_smmu_write_entry → entry_set →
->> WRITE_ONCE).
->>
->> The error path runs from:
->>
->>    __arm_smmu_domain_inv_range()  (data path, no group->mutex)
->>      → arm_smmu_cmdq_batch_retry()
->>        → arm_smmu_master_disable_ats()
->>          → arm_smmu_disable_eats_for_sid()   ← NO locks on STE
->>
->> The normal STE path runs from:
->>
->>    iommu_attach_device()
->>      → mutex_lock(&group->mutex)
->>        → arm_smmu_attach_dev()
->>          → mutex_lock(&arm_smmu_asid_lock)
->>            → arm_smmu_install_ste_for_dev()
->>              → arm_smmu_write_entry()        ← holds both mutexes
->>
->> Since the error path holds neither group->mutex nor arm_smmu_asid_lock,
->> the following race is possible:
-> 
-> Because invalidations can be in atomic context so we can't hold
-> those mutex locks.
-> 
->>    CPU A (error path):             CPU B (attach path):
->>    READ data[1] = X
->>                                    WRITE data[1] = Y (new STE config)
->>    WRITE data[1] = X & ~EATS
->>                                    // Y is lost
->>
->> This could clobber a concurrent STE update from the attach path.
-> 
-> Oh, that's true. Maybe this:
-> 	__le64 new, old = READ_ONCE(step->data[1]);
-> 	[...]
-> 	do {
-> 		new = old & cpu_to_le64(~STRTAB_STE_1_EATS);
-> 	} while (!try_cmpxchg64(&step->data[1], &old, new));
-> ?
+---
 
-Yes, the cmpxchg loop looks correct to me.
+Changes in v4:
+- Rename analogix_dp_find_panel_or_bridge() to
+  analogix_dp_finish_probe().
 
-Thanks.
-Shuai
+Changes in v7:
+- Remove exynos_dp_legacy_bridge_init() and inline API
+  devm_drm_of_display_mode_bridge().
+- If the panel or the next_bridge is parsed from DT, use ptr validity
+  to check whether to call component_add() directly at the end of
+  probing.
+
+-Changes in v9:
+- Add Tested-by tag.
+---
+ drivers/gpu/drm/exynos/exynos_dp.c | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
+index b2597fafd73d..9f3d4d4c7352 100644
+--- a/drivers/gpu/drm/exynos/exynos_dp.c
++++ b/drivers/gpu/drm/exynos/exynos_dp.c
+@@ -158,9 +158,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np;
+ 	struct exynos_dp_device *dp;
+-	struct drm_panel *panel;
+-	struct drm_bridge *bridge;
+-	int ret;
+ 
+ 	dp = devm_kzalloc(&pdev->dev, sizeof(struct exynos_dp_device),
+ 			  GFP_KERNEL);
+@@ -187,30 +184,30 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 		goto out;
+ 	}
+ 
+-	ret = drm_of_find_panel_or_bridge(dev->of_node, 0, 0, &panel, &bridge);
+-	if (ret == -ENODEV) {
++	if (of_get_display_timings(dev->of_node)) {
+ 		dp->plat_data.next_bridge = devm_drm_of_display_mode_bridge(dp->dev,
+ 									dp->dev->of_node,
+ 									DRM_MODE_CONNECTOR_eDP);
+-		ret = IS_ERR(dp->plat_data.next_bridge) ? PTR_ERR(dp->plat_data.next_bridge) : 0;
++		if (IS_ERR(dp->plat_data.next_bridge))
++			return PTR_ERR(dp->plat_data.next_bridge);
+ 	}
+-	if (ret)
+-		return ret;
+ 
+ 	/* The remote port can be either a panel or a bridge */
+-	dp->plat_data.panel = panel;
+-	dp->plat_data.next_bridge = bridge;
+ 	dp->plat_data.dev_type = EXYNOS_DP;
+ 	dp->plat_data.power_on = exynos_dp_poweron;
+ 	dp->plat_data.power_off = exynos_dp_poweroff;
+ 	dp->plat_data.attach = exynos_dp_bridge_attach;
++	dp->plat_data.ops = &exynos_dp_ops;
+ 
+ out:
+ 	dp->adp = analogix_dp_probe(dev, &dp->plat_data);
+ 	if (IS_ERR(dp->adp))
+ 		return PTR_ERR(dp->adp);
+ 
+-	return component_add(&pdev->dev, &exynos_dp_ops);
++	if (dp->plat_data.panel || dp->plat_data.next_bridge)
++		return component_add(&pdev->dev, &exynos_dp_ops);
++	else
++		return analogix_dp_finish_probe(dp->adp);
+ }
+ 
+ static void exynos_dp_remove(struct platform_device *pdev)
+-- 
+2.34.1
 
 
