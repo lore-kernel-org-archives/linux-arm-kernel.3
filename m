@@ -4,80 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2912F107527F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAE2107527E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KV71yq24ZTNhgBIUdlDKcfofTCO5qP51/4EIapZ81wY=; b=dG1VhaLA/+CLwvmIdQ5plv34aT
-	1JkroK2y0/bwHDdOGF5wJwyaYeQcgtGEQ0lLxjbGC66TnqYNMXbaGWcTDGtsw/HzeImrDKsgu9aKx
-	qo5RglmVBOmGg/0l7zSjRSAEGmWQlItY6VB6C131/ZEV3QmB9eDt2yNxyyVRC2dwEkNfPbz2PpjGd
-	8fIyS8fDkwVCrdGgAWleE/S16WmDohXhUL+/mxJECgRAOC0OIVamYGkAjMAIfiZT7VAKTaOxP8a9A
-	MfCF6LoP9Nbx1Ge88ovtZzFTLsJo4E3eTdH2w+sZOYuCPqBSzJ8Gyua1gu2urd9HJ6MT0cr/UA/KD
-	vi7Cc6AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4N72Mb9M94qv0CnnYQ7607xYoCdx9tFn6CPtqvtww74=; b=PFfFwPnb3m0dy8zwFC4kI5Ht+M
+	oCNVXTeb0QvF7JlckS+3X1N5g3u/iJzSPi/8pSRvK3SnaPf4qeI7q3mi+9H8XLqnIU+pD57y+cnwZ
+	0mrhJmmqb2llyjiJGkRuZlr2hPIfbhf1gluQoNaXcVB1eTVRarj3bwgLQNupiExoKGA6meay23Yqj
+	DEzwgekWAilTfxhSoZnVq0KrH2SarSMg+EGqEuBOID9aS2V5lwIpViXxzRzZxHp3ziJlIsB9NWJki
+	P0jYAcnabgdNMOUlj67ca3CD72HaE2ge51JsDTQUQ0CRKDdBg3KOWGZGp5WlSJxv3foS63zzSNsSo
+	oh271bkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39H9-0000000AHlY-1tPy;
-	Thu, 19 Mar 2026 09:02:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w39Lq-0000000AILt-3fGQ;
+	Thu, 19 Mar 2026 09:07:34 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39H8-0000000AHkp-1FrA;
-	Thu, 19 Mar 2026 09:02:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KV71yq24ZTNhgBIUdlDKcfofTCO5qP51/4EIapZ81wY=; b=ng9mkFm0LlGop6yOLzyhOMeL5F
-	KKKNGK6iYl3Thrv6eyTwg22BJsIgm5YXlhX0JaoJ23no7DMl35jHnmfSaZvcKmiFDIzDLXkH78AtH
-	dIfgCRE3DOmRAleMq3WtRDm9sRfyJP5XRoz+MWsh/6WxKG1Crbkp0ELKFNE9XF5aDyFzgkNFhD2cp
-	Bat2gWck4btaJCMbEJ1y3HHS/0fI3fpnpUs4VOb+xnG+O8riWkQczGEsORWE2oFTN3bpPF7elLJT2
-	PO/D6C/EwkYNpmzqiyyxdwwF2JdfqiQZC/yys0q8x3TYT/NnyX5fRv5s8++0AayancXO+tptf/0Ya
-	YNaf0ZBQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39Gz-0000000D57K-17TY;
-	Thu, 19 Mar 2026 09:02:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C683443DF;
-	Thu, 19 Mar 2026 09:02:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7871C2BCC6;
-	Thu, 19 Mar 2026 09:02:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773910949;
-	bh=7VaarauVAUlZAF8hWS497Tc062mkllGjXCpmZsHJ+uA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K3/vYhrzVWItNRYWpKWFWCn0Af38vhj2aOuqCs+BVorOCkalSLc4Dzt2HMw0/6ScR
-	 dnrUOC1EgUWUACklVH5wSLc/b3i5xMVLRVFsjzbSjdV8cOeefx5186q8L5Dc62QvkI
-	 ZqABWhHLSoVBmS7fTHlFY642WO2lvJlxpaopF2KDZNyNjhKPGrLvowUECAfmejEVJV
-	 SzfXoRjy/DaCPb2VoaqHlEWPEBIaEYZ16prqPPcLqEuBcKyq1KqZ5xHWsqzzPvALa3
-	 GEV8VZdxD7bx1KdkAY4qyBXXQBp2KlcaHfsP6to+ThHIJU6OYJjqqhIUzTMhBYFvut
-	 OKVOWnx2JxMfg==
-Date: Thu, 19 Mar 2026 10:02:26 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	id 1w39Lo-0000000AILM-3W4c
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 09:07:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WB2P3qvAA3eURtxhAPoS9JM91u95lPKhUAk9QrLRgGmIH2XrDzjwVUE9rHzUa1A/PJ3lIVIUh6ezOSaB7kCtvgRLiJFSF4edDLlWYYYjuTkdClF6hobU1s4CT7SzrO8WeL00tfX5NU/cBynqG4Oht11WG4LxzfepCE+KlIsq0+plItxSwp//TXWG3PtNECpJw/3aJ3qYMYwYyxbW4vecFgXrl0aBthXM1zzrBoW/9q4K3tiDLvFfBtk+Od/XoG9NR+ZRst20JKIOJnZ6HB8cQqRcDkmqKZ2fyWbjSQ21xz48sXhsx1br6YH5vHwhwZIzQaEfHQ5RL96rB7FyDnDpQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4N72Mb9M94qv0CnnYQ7607xYoCdx9tFn6CPtqvtww74=;
+ b=eCOC7bYo5/+64ZIFIU9Ew4C/WJ5sllZXSTnknHVkFxnFXS++nQC6DIy9bCbcSbIFGs7Fr/qE02hjYmL4mUsSAc717LUdR87OIT5UT9+y098GGC/V14E2CaNrGEONdmt59IGS48wOvS11LaikkCgWvQiXgsyJWyQvUyJlPucqt+h/FWVRBWdA66lKdh7+JvUE5L9c2pNo/V+AXs3TKV2XgOeWsOKEsR+pra1y4B+k4gExP5+H68ue6AR66+YIZ5lixVf6H0tPj6XFhuNJFELQVEvUjb+qVJWyv2M6oDruFiry//+A4ffEYeM1pt4Lu0Lh1dDPhrurBw3XSV0QBwqHRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4N72Mb9M94qv0CnnYQ7607xYoCdx9tFn6CPtqvtww74=;
+ b=Bxw07ToPSeJhzfSyXVCdmM9sjHLjAZC+ximkx3llOSA7PN4BqTApDUy3YcyPNE8mezxuF2zJgXQIDH16SFB6gU5WiDOQ2is3+6FwF91G5ctx5NMce9PdnCOkbcHo7pBe8RfHUjkng4wQb+G+xbRFuSO+JH8l5MaOBzO1b9EE57KkrdQhuclZK66CyH2UDHL7xbvpax9F/5yjRECIUv+isvut10ZMsompCXY1PpHDwQktThcOV5OehNF89UOj+9fM5YZQefzzlCo2dYNqj1K1EnxIS1MOqgHLDh4cx0rGthG4UTnci4g3qOTYlKVRgEVlRqx/w2vBKIIs7L1qIrmRjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by PA4PR04MB7677.eurprd04.prod.outlook.com (2603:10a6:102:eb::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 09:07:18 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 09:07:24 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Pablo Neira Ayuso <pablo@netfilter.org>
-Subject: Re: [PATCH net] net: airoha: add RCU lock around
- dev_fill_forward_path
-Message-ID: <abu7oifGm-OW74e9@lore-desk>
-References: <20260319032649.337812-1-dqfext@gmail.com>
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	stable@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2] PCI: imx6: Fix IMX6SX_GPR12_PCIE_TEST_POWERDOWN handling
+Date: Thu, 19 Mar 2026 17:08:44 +0800
+Message-Id: <20260319090844.444987-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA1PR01CA0163.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:71::33) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hVix+0JsXNG2f6eM"
-Content-Disposition: inline
-In-Reply-To: <20260319032649.337812-1-dqfext@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA4PR04MB7677:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60585623-d105-42eb-7960-08de8596ef22
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|19092799006|38350700014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: La3cj3RHpDdVThpiksHt0agamEaKcJbgugVHKsNF1zk5/MPUVwI3q+WzMX16+QvYNm21WDUtKseYC+1epyomF7iM0bDsGzxKYMqTaJtx0UDGoiYVJwT136VQhJa5Fyr1cXKg6Px5cpcSkNx58XE3IbktlzStKizGtnvgPDHgbYxuVIoMeMWe1DRKKrKpVmeYj0yfIr3vtATIdfwKJwfcKy7Q9D4xGUTzORk6TQksYZovrAE0ViOkke0MQMTLG/x+p2579dJ684Xh4Byy0OORcxZFtTyRWgQdMGMeHnZyhzH1z2QBHsqXOkjC5hbKhufcghHkWghXmZoE0Dje4ARNAt5/JT0qRbQrxn1fXq5QDVdTP3CWDnD9tfu39/mRZU7K5lvf6QyoTt49laKNa/n2EIxXWQMYHB5KebqHFIYkxnFSyJACB6aJJsQ2489K6MRpHVwmA+i0nIaxR+J5XwPEd/ry/fE/MaeYqZDoUYRE2/+/VlVfn8DpzDVWsdV+WFFDaNdX6rZWax3ilUsqQFiOvdBQEYQT6FIuY5FXf58/Lv8nACJJILuz0rOBLw/nyGFw6pKGAwVVHCIhBSshLtuA+NhDwOxYuryC0G/mqo+MMTDHCb/MBofdWWZ33mSjJumuroQDn6qOnNIeAvIADIfamGbLl5ZABiJ5z9DsNddt4nWZmpdZdVk+9xAqoWlp7Y9QxIT9n3R2KVxgzAYPUao7niIqL5PVXXJytFZ2aJQnqqF4I+XIDt4RwkLaEuAh290FgP/NeS012ajliZYkYGGAtffqNFPIdl+m/pjqJS/OzNTBeiRM3FiiOji7m/D127Rk
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(19092799006)(38350700014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YNpatii11aEu2Yofwx4bT7z0V+c9EabuluiZ5zZYC0GF/hSDpadnTdVzK3Lp?=
+ =?us-ascii?Q?mmNYIFmvO6rRhsPJ6X13Rxnh5I+UDNq+ST7m5OZr7Z5mLknIeGCjXmel3vtY?=
+ =?us-ascii?Q?Yh71uadbATLLt3OSnzTzodTHzhDFXB/5fI+CTssOJgMNByixLbQpo6VDHGsG?=
+ =?us-ascii?Q?RaZWlbAF3qkza+bj+yEJtQkY+j/jP1c74yGyhBktdgnOM/3wnnRl9s+XXxnS?=
+ =?us-ascii?Q?hwHl/6wlnJG903+gv6Hbr5cVVZGoTU2kZJw/H3D0Y5s31a9IAdi3Rsuu5UGb?=
+ =?us-ascii?Q?vnJOLjsnjpEV9E12r6rxWf6fE2sG6qZjE69M1hxC1UsbPECf69IOg95AxEcY?=
+ =?us-ascii?Q?MSrahLkFcSa9MNfKdzPClLMcJhS/Q5qQbqZX6Ayc+NgkP4M5kFAtk4K7Pae8?=
+ =?us-ascii?Q?18oQtzooY+L0uTAbZnjPwuwruNfJWb1OUrxpRAX8WVGQ4fy0ndPHtJLLqla2?=
+ =?us-ascii?Q?qo101ydvv5QnpoJEkG2oW+LR20nhXUkoMxxDW3YtwaCRRB15w1S58bECXkkO?=
+ =?us-ascii?Q?VvH2LjJV+FTolwuQjm8BzlgDcOxd5WCcWBOJXsf+W0L911TFYe4kCwNazyzs?=
+ =?us-ascii?Q?di58MVIzIfIM9ouR10MJUhjpKdAJWNbSg1Z0NLc3xIrKOC7LrCh0cXsSDbO6?=
+ =?us-ascii?Q?sIDaYzEj1xP2H+2zK2Ml0/Jw4jVYdmd+WEv9Gqo8bFpxNvSakdgc5vCqFWh+?=
+ =?us-ascii?Q?hBhPzMJFygO/J/GuHsFNUbQWOn90vmlEMZuJ1DXam7gaM9dNZBcDaZaoCnSU?=
+ =?us-ascii?Q?a7r7rtbHXTb4ReY4QBYgYrVEq4KdtGkA9uAsLqcUoTBPG1IUV34S36m5au1b?=
+ =?us-ascii?Q?lBCex/SVIaUYXwvtnODMVjLRhpNSmPQli/tdfGcce8wQwL6JE53bflV57ZUA?=
+ =?us-ascii?Q?J8Qr3CInPMyQ+nhNy1jyxsbXW60c+TLhPtsh/sLYrkG97tRgt48DvIWLDZMD?=
+ =?us-ascii?Q?usGdZkb8RTb0OM3VAWgm4Ejw9HXhlyBfxcmlV2oq6kMzdFZqCP8hYnbgf+os?=
+ =?us-ascii?Q?VRFdKhU1hsPKX2E0TPpx5p11zbYa4BxfwMYWnkfs+1+W++q3ff/7TPbb5CAf?=
+ =?us-ascii?Q?sOnDWFngeafBWxCWXOXVg9ecFc5sm6a9nX/fsg0+CSCSGuPKtq965HvxRsAW?=
+ =?us-ascii?Q?CFES/OYajOGkQV3QmqrxbblMQCvJpuhBpEhAWoouvlD9nD0+kdhJQ2yvA5qg?=
+ =?us-ascii?Q?yuZz2VVNtvWc0CQyoDYEPo05B1yL9nP/6TAa/R8XDxi7W/YgMuBi3e0l9a/r?=
+ =?us-ascii?Q?zHf8PYMES9AhduomgrjKZFUv7LgJ/Oiek0K579S10NYJJH2buYGjLJPCG+E/?=
+ =?us-ascii?Q?LpE825Mx5Abmfil30IWAADTAg+njeF2FXsLTScevYeYsqQv9/ppQcKRnaM5o?=
+ =?us-ascii?Q?vnZiPL3uPO0fYhgHRf8iHYDnUi42FzOXpAgAhXyFhYVz8rg3iMHqfU/qcs2G?=
+ =?us-ascii?Q?Jt7SkVc7efjfCNsZ7iCZ2hetUmmiJsWtuh7nMTzizfk3hFWoEFdpfkodHYLD?=
+ =?us-ascii?Q?1BLAwtmcQAZVC+T1+hBN3Ek17nsXq80pjkFqbYlW/OFmiaWBLQa5l+SxaPru?=
+ =?us-ascii?Q?nWjcVxTx5QhL+maU4KvfycQfUspyDaLcPswzh7OTdMz+DKkhT+0gFCl+0Ath?=
+ =?us-ascii?Q?7H8TuZV3vRDVjUjGd+/6nZz9trZQ6OgvOEPvYMM9kO3Wps4ZLEPNZKqOF9g/?=
+ =?us-ascii?Q?/uJYyJlXN3NUHVUWfpW+YJcp8NYed46P/jdBZR0s6kf0/H2n0AuzYuFyEz09?=
+ =?us-ascii?Q?Rz/72Dpe9A=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60585623-d105-42eb-7960-08de8596ef22
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 09:07:23.9628
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kUBFlMttlUj7QBakBF0eNEKdMvZvI3CCynu5vM9AJV+yg2Voy6CglvVWkzg7QDXIQcSlTXSnhGVlKDrrpbQEHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7677
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_090233_612098_75A4AC5F 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260319_020732_881006_3F0FC000 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +147,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The IMX6SX_GPR12_PCIE_TEST_POWERDOWN bit does not control the PCIe
+reference clock on i.MX6SX. Instead, it is part of i.MX6SX PCIe core
+reset sequence.
 
---hVix+0JsXNG2f6eM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Move the IMX6SX_GPR12_PCIE_TEST_POWERDOWN assertion/deassertion into
+the core reset functions to properly reflect its purpose. Remove the
+.enable_ref_clk callback for i.MX6SX since it was incorrectly
+manipulating this bit.
 
-> Since 0417adf367a0 ("ppp: fix race conditions in ppp_fill_forward_path")
-> dev_fill_forward_path() should be called with RCU read lock held. This
-> fix was applied to net, while the Airoha flowtable commit was applied to
-> net-next, so it hadn't been an issue until net was merged into net-next.
->=20
-> Fixes: a9af709fda7e ("Merge git://git.kernel.org/pub/scm/linux/kernel/git=
-/netdev/net")
-> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
+Cc: stable@vger.kernel.org
+Fixes: e3c06cd063d6 ("PCI: imx6: Add initial imx6sx support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+---
+v2 changes:
+CC stable tree and collect the Reviewed-by tag.
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index a5b8d0b71677..2d01c21b5570 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -663,14 +663,6 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int imx6sx_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+-{
+-	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+-			   IMX6SX_GPR12_PCIE_TEST_POWERDOWN,
+-			   enable ? 0 : IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
+-	return 0;
+-}
+-
+ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ {
+ 	if (enable) {
+@@ -784,6 +776,9 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ 	if (assert)
+ 		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+ 				IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
++				  IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
+ 
+ 	/* Force PCIe PHY reset */
+ 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR5, IMX6SX_GPR5_PCIE_BTNRST_RESET,
+@@ -1883,7 +1878,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.init_phy = imx6sx_pcie_init_phy,
+-		.enable_ref_clk = imx6sx_pcie_enable_ref_clk,
+ 		.core_reset = imx6sx_pcie_core_reset,
+ 		.ops = &imx_pcie_host_ops,
+ 	},
+-- 
+2.37.1
 
-> ---
->  drivers/net/ethernet/airoha/airoha_ppe.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index ec5ce41dad80..02deb739a1c7 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -227,7 +227,9 @@ static int airoha_ppe_get_wdma_info(struct net_device=
- *dev, const u8 *addr,
->  	if (!dev)
->  		return -ENODEV;
-> =20
-> +	rcu_read_lock();
->  	err =3D dev_fill_forward_path(dev, addr, &stack);
-> +	rcu_read_unlock();
->  	if (err)
->  		return err;
-> =20
-> --=20
-> 2.43.0
->=20
-
---hVix+0JsXNG2f6eM
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCabu7ogAKCRA6cBh0uS2t
-rOgBAQCIxff9R0PFxxGK2Xf7PNsoJs3MKg/JgyhCTFimM4plUwEA3uRTHFbu2J0/
-0/u8vg4OXU00HB05uIfaAiQ0jcdCAAU=
-=fFpm
------END PGP SIGNATURE-----
-
---hVix+0JsXNG2f6eM--
 
