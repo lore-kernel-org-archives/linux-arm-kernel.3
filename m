@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D77109022A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BF3109022B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xfGTlbSotR1YenoLXwlR/qjzLr1Jf2iZ4bAtIfxPloA=; b=OM8E3B7SwBIQEsXXmvqaxTNMY2
-	xTF2zSESkqVu+PexXAOpsauJ+0OUCg8SGoUBgDV2QTnVyVndLvF8kI54IyIGT+/THaAw11TO6pY8v
-	a08O/tNhRwHW6xFD6bOBxAXAsb5SDhd4wV5zatPOrdrom6UuR87xp5mcp1PnvhYr3K/ga+TPpu32L
-	/LR2FTu964nLcTe7G8fjOzxOFpkNzF9FtxEqUU+q3gLg4u6NnIgSKmtT0K/Tmz7sPr2YviYhlSSK8
-	qx6xdqGMtfPzIDJellqIBCsJgDwDsk6JZeiXcdKJN0lr4WS5uAWyCZSlNZ4QdGzWevgwDCI2/IomL
-	/i+qesbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QB0PAHjXJtrNdDodBFe2YFA8Ial1S7MV3yYq3bW3Z6w=; b=n1N3V5waoThJsvI9dVvNSvLHkT
+	YBIoPZtsrlrr0X1/QCVAR6j1LL37rV9xPr9ditMeSuZxdl3mESFD8/e5TaVNPfx4zqs1IiIXwk68z
+	Mo4XJbLx5yYYRyK5RLwLcOlTRd6Y/gNPArVaDFhhryrU/Oskx4QPR5WpTyCEM0MtN6zWQGpXjTA0X
+	+GTEEFbthNwfg6rlAjkGc/S4tUW+4UwBIVYbQjsSeZsPAU0b2j8bcH5P2m4sXhgp9Y4LDD8aN7PVR
+	yULli1SBPosbKLl1FeqzssN4VOYQRlg05utDBJnIgKFtb6BvkW1/z564jLYqvC6yGX4LLDA+4zWic
+	AkRzrLKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Dpw-0000000Aihg-10rC;
-	Thu, 19 Mar 2026 13:54:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3Drn-0000000AisU-0EWe;
+	Thu, 19 Mar 2026 13:56:51 +0000
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Dpt-0000000AihH-3x5V
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 13:54:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9DF3F600AD;
-	Thu, 19 Mar 2026 13:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8B35C2BCB0;
-	Thu, 19 Mar 2026 13:54:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773928492;
-	bh=6lTDuDTet2Kh2hHL2W19L/RTuSwbVdiJ3pKzj7JqvFI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IIsUezRhwWh1BsXMNOJ67yiJdcGBaUlTKxxOylNOTzzVPX5If51Fyl1Q45iNKlID+
-	 IRhJzrCjbQdEi7iEc6pUVS7I3hMBr6lVPqk92iS65c4xksOiAHuQ2IX8pXJIsAsVEQ
-	 SchRwP5nXQB6bLzrS3p0vJvDDcY0y+u92y0FhVOc=
-Date: Thu, 19 Mar 2026 14:54:48 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jack Aboutboul <jaboutboul@microsoft.com>,
-	Sharath George John <sgeorgejohn@microsoft.com>,
-	Noah Meyerhans <nmeyerhans@microsoft.com>,
-	Jim Perrin <Jim.Perrin@microsoft.com>
-Subject: Re: [PATCH 6.1 0/3]  arm64: Speed up boot with faster linear map
- creation
-Message-ID: <2026031906-mulled-bully-10f6@gregkh>
-References: <20260217133527.2881603-1-ryan.roberts@arm.com>
- <2026021717-stellar-skylight-7824@gregkh>
+	id 1w3Drj-0000000Airm-3EXP;
+	Thu, 19 Mar 2026 13:56:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1773928592; bh=QB0PAHjXJtrNdDodBFe2YFA8Ial1S7MV3yYq3bW3Z6w=;
+	h=From:To:Cc:Subject:Date;
+	b=OZIuQDm3gsJ6HK/EUYVIO3wMK0ytRSedyWKrnCtPb5CkNhT/8KFr3ylTT5tWlUkXl
+	 qv00O8rDSK5qCU5bFxew0+J2cFXVSLGdUfV7LERaH28xB8ocyDriFP/Ylg7DW9+3Gx
+	 jwpExommlITWr96++S3IYVuTMjiDPa+MN7wICA98=
+Received: from mail.red54.com ([139.99.8.57])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id E0D89E56; Thu, 19 Mar 2026 21:56:13 +0800
+X-QQ-mid: xmsmtpt1773928573t778m5lcy
+Message-ID: <tencent_78E7E3F6991FB4403D5ADC9E6A6BC3BF8307@qq.com>
+X-QQ-XMAILINFO: MMwjR1C73eIsPYIJmh7X440ZtM80sQDjF5nMcIXzGUvGMjBhReA1DB52+T3lWR
+	 QhpCcXdclI30GKKwQJYCZkIwo8dfwpB6L/QUmeYluB8iqtYfSXmy5XkrTAZOO5c5W8vYovS8++jB
+	 h6bTkvZtZ2DRpX+jMd2ShguYw60HjMWVTNT+15ZKfuMd9IYwx/iB0Eeu07ijZqCHRKRhlS9WB8M5
+	 CZypwXnrr28c0pHMeVSjHb6GRR9JnrCq6GxCP5lQ4icIouxeFfH0aqLzQdhuz5W3WoWGSM51FwSP
+	 WwcduP74YJbH1IvUVHwoVAaQVteqItobujcROXy7j2FYQSB4ZuClaGLd56UYrZrtnRsoZ8ufu70x
+	 c9zUoufIFbzfavZHZwwjJwyHW/3/r0vb+TJ1u1WsK3Jn8vhWZtI4dZe6U04n2+5uQYC/3h0c3tzb
+	 9+sasxJdw658XllPyTPuYhRah0Dhsjwx01Ot4LOmvXhW4IwwOl7v0XUCG4hbdREOIie9Ju2pQYJd
+	 XV35BUVCjfVFG+T7gwPyTjY3R7RLMeThYLLGb1C/5HVCua+50dj/2y5yUDgbpk6OePKGe1ccDtJx
+	 zoU0CkUdWsEwN6T0QSe5DAasSRFn2RiORcYWIVhNFg3P10vKHvYT711441sMuF0PLSb/hhmMDg5X
+	 1C+BWFJ4laxINeG2uujy4GiddwXv5p+AXeXpWSMQf/BMBulG4/aVVg/n6tv5IOxUr3zDoqXgAASw
+	 8JKz/nLfH2yrbaNyvPPmOhgdUJ1Onabcq4/MEZN5gdwfvjMcxI4UhqukGn8Ji3jt9IHXYaeGgTGf
+	 3NFa5xlrCxUjq9B/mtyBZAcnNFjmCH1gSkglRCL8RbnEkijTxRaE1XIwGptZ5bWL8ZT9ZqrigWnx
+	 DVSluNe16zQrIzf1zRN1vqFmaflAX5Qn6oxcwpNTw/ugjl+69SKyEwagfNn4wB6OGdGq54R9Y33q
+	 WuKUzotjj6mvYgbNstp1lfvTnKyetNJtt96t/wfgZQUHbozKEcziyWB7xAaLdrarA8zFHL/Lhbz4
+	 ruqyz3Q5O0WmvmoRNSQIe9hkpUBWcinIxIOmO9Q3mnxFyKul1LlpDrX1txwJXKoOaDf8wD8I+QH/
+	 +oekJ6I3/x1mxXq8/UXZ3XX1nN1iA5o7rvz9GOLZAo0lkPDLxcPJ+/5wCWMX5JLivRCi6X
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+From: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>
+To: linux-rockchip@lists.infradead.org
+Cc: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Fix RK3562 EVB2 model name
+Date: Thu, 19 Mar 2026 13:55:00 +0000
+X-OQ-MSGID: <20260319135500.69993-1-Yeking@Red54.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2026021717-stellar-skylight-7824@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_065648_349440_F2218D1E 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,28 +91,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 17, 2026 at 02:50:28PM +0100, Greg KH wrote:
-> On Tue, Feb 17, 2026 at 01:35:21PM +0000, Ryan Roberts wrote:
-> > Hi All,
-> > 
-> > This series is a backport that applies to stable kernel 6.1 (base v6.1.163), for
-> > some speed ups to enable significantly faster booting on systems with a lot of
-> > memory. The patches were originally posted at:
-> > 
-> >   https://lore.kernel.org/linux-arm-kernel/20240412131908.433043-1-ryan.roberts@arm.com/
-> > 
-> > ... and were originally merged upstream in v6.10-rc1.
-> > 
-> > I'm requesting this be merged to stable on behalf of a partner who wants to get
-> > the benefit of this series in Debian 12.
-> 
-> Same here, why not just use 6.12.y?
+The model name should be "Rockchip RK3562 EVB2 V10 Board".
 
-Ok, I'll take the 6.6.y patches, but for 6.1.y, people should _REALLY_
-move off of it if they are using these types of systems as there are
-loads of other things/fixes that they will get if they move.
+Fixes: ceb6ef1ea900 ("arm64: dts: rockchip: Add RK3562 evb2 devicetree")
+Signed-off-by: 谢致邦 (XIE Zhibang) <Yeking@Red54.com>
+---
+Reference:
+https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk3562-evb2-ddr4-v10.dtsi#L16
 
-thanks,
+ arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-greg k-h
+diff --git a/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
+index 6a84db154a7d..387062eea520 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
+@@ -13,7 +13,7 @@
+ #include "rk3562.dtsi"
+ 
+ / {
+-	model = "Rockchip RK3562 EVB V20 Board";
++	model = "Rockchip RK3562 EVB2 V10 Board";
+ 	compatible = "rockchip,rk3562-evb2-v10", "rockchip,rk3562";
+ 
+ 	chosen: chosen {
+-- 
+2.43.0
+
 
