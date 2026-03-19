@@ -4,61 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946251090234
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2451090236
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ow2XY1pf8yVX6zUEuZgf+1Ud3ht9EyUSJM6My0Gu4l4=; b=Y76K94/c30iriGkc3a3xJEId33
-	Pu0xlZfD/3xJgbpeWNXVSIPQe5YSR8nbdZuN2iaHssDvWbtGpYNu1pHhwX5HZcb9PtIsX01PVuNpw
-	VH5vscxfaP6nDvrf5392PVUrvRfngvbZjTI6n9aB20clbW/njOXbWkZW3Lu0UdUtPX+IXxfO9PLXk
-	XZxLd0K70tGQs/JcZYNIExjQM0Pl7ASvV0HPlsU+4svKJz2hsAfnGp4dxkKnboBN8cEflAFLk1OCM
-	3z29N3SvfLNsgLKaNZ5SNdFWEJR9zlI7uywIhpDpp+NRSNT/6h9tEROXJ+J5fz3VwGe3cnE0iOuQ+
-	35B6aRGA==;
+	bh=uIK5Dp3aLkFZSu9Izq1UyMVjo7v9uF8aj7roSrV8NoQ=; b=DmSDPr+dAsBuvR8w3pTl4+3Ryf
+	g/1k7zAGrtkvR2qRoWSfoY22o9K90SvDfP1Es30sU3o73BfHPMr49xOMtg6tqojpBkNPLIoYwXSQK
+	khIhKv5v8W7yc1gx2SN9TacxDDRBakJ+gdgwwJFSl+cKU1Fep7B9IbEYxFCN+hGOHaSiNQb28C641
+	cbmfJPgHrC6TuWYGIZuxRXQIu6+yx8GYYb5U2csJDaCmPWFVdXvy5gDkv7SazOBxoWUAWlTtYTarp
+	sItq476AhGyba/p0NppvsWdbHWZWcHDnVU5vZVXAuYWB1cuQguhPWxzH3VWYAnXLMe1xW7GPnFzC4
+	CKgi3SIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Eef-0000000ApQ2-3SBQ;
-	Thu, 19 Mar 2026 14:47:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3Egp-0000000ApYy-109a;
+	Thu, 19 Mar 2026 14:49:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Eee-0000000ApPu-0IoC
+	id 1w3Egm-0000000ApYr-490g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 14:49:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=uIK5Dp3aLkFZSu9Izq1UyMVjo7v9uF8aj7roSrV8NoQ=; b=M3sqkZH4pEz8og23OeIRKWq5cH
+	CyTpsA0qQIAvL0juiqrriClOsE6c58bAT7TqgMGg2LLE6MG4FSgRmsOuXRfKjGm4Sn+nd1wTs3k0F
+	AM24V4b+Glv29LJHDgAvDxvM8ZCT2szt3c3iQjENiQA6gB8bKTJIZWOupoAxNhfLZDMmo4RN43mYo
+	X7xZPAolxNHkW/TlSynFoPaVOd5fFerOA96K8TSMVUGkTSMQS2GDgjPcX59iGmW3oddlOJa/9+Ie7
+	JxFe6LTJgw+Rah0klVne4W2GMI+98ubnhG8ELgiE/oVUsFL/sW8T4kngx+3UiRu7WXtpDwYLDp37C
+	f8hpaNWg==;
+Received: from mail-northcentralusazon11013011.outbound.protection.outlook.com ([40.107.201.11] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Egj-0000000DjtA-2sA5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 14:47:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EF2D60054;
-	Thu, 19 Mar 2026 14:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0FAC19424;
-	Thu, 19 Mar 2026 14:47:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773931638;
-	bh=EicLv+Pp2VYPHfrLT5jJbVaFs0nelxml4j5+LlQ6DOs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JBLyQ84ZNZ2zURLv4YQlg87S6ASd2taCZrsWvtxvgxLR2ZNShIS020jbPJdywWktN
-	 S2sir5HUtz85SNypHesWkffqX7qqXBqDkhtMkoIHMQPzk/SDH3U2BMkmoWe7MG50YJ
-	 IWVW5ItH2N+9YdkYJmFJaK9dTLb9NswVvUzzZ5TuSIGdTIopfKcU/Z3roSLVcAuCSD
-	 HcLk154JdE1ni9T1oC/429iAKzMxooKFYM1fFJ4D/6+mmkz9KVSsmsTykb9nwN1WNA
-	 2AYUJPT/qkSO5tCp8m6rW8UfEw1iFOQLUoUa2mZn4dEbyeuiKos7gGqCp1HYNMZmw9
-	 Qv4b46VZNE6cA==
-Date: Thu, 19 Mar 2026 14:47:13 +0000
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
-	joro@8bytes.org, linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, eric.auger@redhat.com,
-	skolothumtho@nvidia.com
-Subject: Re: [PATCH 2/2] iommu/tegra241-cmdqv: Update uAPI to clarify HYP_OWN
- requirement
-Message-ID: <abwMcZZHtEuaMEdZ@willie-the-truck>
-References: <cover.1773361875.git.nicolinc@nvidia.com>
- <9ef47d0db2d7b8207fef1ef4437de6efa08565b6.1773361875.git.nicolinc@nvidia.com>
+	Thu, 19 Mar 2026 14:49:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yibvGYTnD5jjNujxAgEqx1yHmBW4/22dENN/QmyIRCz0GiDKIYhGfzI6OoOjJy8JDsa2uMDVftwH76QoCbaC/xvZru5QOlB3pXg7ByCbYCtCOfGvPBmh03K82KOW5Rz48m8v/Ogv8e5na2MH/jiu5ilgKkmIvkBVzeieQQflQuCIenzfX6wO7dvpPsKp5NDLzBp489j2MokIH4xyIOJ3773M0l2BB2cYzAP+UG1tkKnbAQ4/dIXzkdEgareH2WhKaJNvs64USCjpxlUcT3s0qv/zIPzPFXeRWu7HiJv0mYGFvCkqCp2dH7W0dYxz3XvGwbgp09nOfDpp4P5d1QrfNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uIK5Dp3aLkFZSu9Izq1UyMVjo7v9uF8aj7roSrV8NoQ=;
+ b=Vl4+GtZyQQvHtpa7erQLrcmFe6vON90YwUBdO3v2j/ODL1tcVSoWC27SQgCmM/EexcPIwO3uoRQA3jhc3W9M3U10fKFkqVZD+DCX3Wfq/6YnEOOgE/OV4WFYkfSGEtYRQcqmCIjQ1u/xVRVl5sXzrMd7hDXZLfpwECw7ivTsLeSmSgq9e0UNHH25LXJFPUSOoLkaYPZUmXWRE4A9A6yR1HB6heggh9wlLsxhV/ED+bXAYR6a2tY43ne4GmvgMnXUki0dyCBqevBNKaecMJgEVYZSThyHLn3y3oRXLF3ojkWWk1dWKR5wgDz4SMUVVasEgx9aPdk6EP9In5sH+GR9/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uIK5Dp3aLkFZSu9Izq1UyMVjo7v9uF8aj7roSrV8NoQ=;
+ b=qjk8ONnyLuZv/zkZX535Bx7d/aZcJwa0SQcglCs9eywm9yfZDjaN0HVDpQQQzbhc4UNKQtSp+Kgt5FE3oY0K6psbTROWUm//zsAPtBFuFMsbt/9ho/JyHEyDr+VuJLiyvwlpgYYC2UP7lFG/v1hXsXpOOCC/RVXEr0haRnNVjrY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com (2603:10b6:a03:540::10)
+ by BY5PR12MB4113.namprd12.prod.outlook.com (2603:10b6:a03:207::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
+ 2026 14:49:18 +0000
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45]) by SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 14:49:18 +0000
+Message-ID: <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
+Date: Thu, 19 Mar 2026 20:19:09 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
+ format
+To: David Lechner <dlechner@baylibre.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
+ <20260221-dancing-papaya-wolverine-db8afd@quoll>
+ <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
+ <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PN3PR01CA0187.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:be::10) To SJ2PR12MB8690.namprd12.prod.outlook.com
+ (2603:10b6:a03:540::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9ef47d0db2d7b8207fef1ef4437de6efa08565b6.1773361875.git.nicolinc@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8690:EE_|BY5PR12MB4113:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3dacd126-348a-47ea-0d39-08de85c6b280
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: AP/Mb1M/7/rcxkzZUOBg8h4I7eHvBf12V2A2wK1HdBKI3qWj0QjkGf1izLepwfCwcY1W0nlfymWyuH0oS3tpYkC08gYwcfOSEjuZFbuYiLhWjb6OI77dh+dyGrh5ifLHl2EtEnUVoEVtFI5kSADpN4mmjZscO/WG9sjC25AK0p1b1GQ67CJjkRd04PxfeGCyD5Bx5QKQvdADnJBeLk1Zc5mJDAUtmXe5yAvqLFlViMeNwrKz4C0oeoZBJANAn7I4lthZDWFVqVDejA8Nz1Pa3Oe0k2x3n8ACRGavmve3eRjLZK3TGCyGr1AVxJlcQrAQ1ALd+LAgI/r0/GV1nTIM7C4xcl7GTypjL7aWy43reIDhIr5VX46jyxP2NTt89Md+6Ku9Q8C5ESp4s5mTwi8Oj7/SRqDEbOdoChQFUD2w6xAVH6bne7q9mPIn7/qM4Ywms2VN8r6qZnhApAaCKeYLyFUAuhsx2KFIROCFvbMDmiwIfFyXXMKdb3pcRnlvD/AjtTdvXkjmXu3wBfbixELKBJ99CCxNii3umQHm7wIcZDmsLKmYrZRatfG+MAG5Ky6jtGeb8TqXBvbCYaOcFQY1UyPahtUnpi8OY3gpr54PvlMZu7r47CAymYqhcPEZ2GAT8WmwNngvT4jOpP6kYF/hrbZF1MMUkyypSjW/Hw7iPw8UbsQC5l+l8JB+GzCJlA4T
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8690.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUxCbktldHlLZFJRQ3ZZdTl6bW4yb3k3MXMrbDlHNE1Ea3V2Q3RTSUtEaWl0?=
+ =?utf-8?B?OXVHbFB2RFVCeXdPVXVDd0VOZ3o5Ry8xdFZYZG9INkRiY3lNOEVtdFVhelBx?=
+ =?utf-8?B?SlIvWGM5MjJtSDQvQ0NWSXJTWVkxN29wdGxPNERES0pGVkk1eWlJMzZNZ296?=
+ =?utf-8?B?aVNGcWRpYTNMT0VKeDNJbS9VVFdpZ1l4Q0ZnZGsrSUhJMUI1WUVKaTA3THlw?=
+ =?utf-8?B?VDZkdUtCYXd3eUxPVEE0N1FSN3lFSitoU2RGQW00TEJ0cHFoRXpKazNNNGhG?=
+ =?utf-8?B?bnNyVmdMUkpNRnYxOGt1SGpZUlVkeXJNSUZQNWIwTTUrc1VKNDZ0Wkk1T3pF?=
+ =?utf-8?B?VmprcnZETVVFVENxRk1JelFGWWZPRWx2Z01QU2w0R3p3b3N1ajBCaTdqWTdo?=
+ =?utf-8?B?aXllYlVZV2dPdG5GQVFuM2IzZ3lMMGFQanFjVTlpWmh5ZFgzaStldWNqbm5u?=
+ =?utf-8?B?M0JTeVJxcTNpWldubkQvSTRRc1lmcTFSOTY0U1ZnVTdtbk4xcGs3ZHpSY3VO?=
+ =?utf-8?B?YnNpMkZ1WFFrVUdDdXUvR2JRd2Z1Z1JqcFc3Z0V1ZGo3dWg3VmsrWk5XdHli?=
+ =?utf-8?B?QWtZT1JSeWhRaW9WNHY0TUY1SGRuMmdIcmpEZlIwRUpPMVNwVEpsOThLRTNk?=
+ =?utf-8?B?bmVRbmpvRHpkeFRpNWpxKzdkTE1GYURkZXRzU1k4WEk2VVk5UEJpZzFhREwv?=
+ =?utf-8?B?amwycXg4V09hS3hlVThRTlc0MkpIczkwaE5sVHdQL0Zmb2ViU2VmWnBPYmor?=
+ =?utf-8?B?WmxiUTZBemVjWjJLWFNaZXZhQ2NVOUZmQ0R0KzYxdGNDSFBROGt5UjZXU2Qz?=
+ =?utf-8?B?SWU2TDhYejJONTZHMUxPeTMxckFhWXJPL1lzcWZzRVJGOXpraWVPenk0WW45?=
+ =?utf-8?B?OE5lVTNneWpmQ0ExQ093MkpSSURtd3RROWkrWmlNYkNoeWNGWHliYlVnVElj?=
+ =?utf-8?B?S1NiN0dnQ2xYM0lXUHpSK2pHYUZTWmowNktKcTZFdmM1ZFhDYmJVam9BNEQz?=
+ =?utf-8?B?STRlWkdta2t1NDIyYTR1a090U3FwdnFxL0VPbmplRjRqSndsMXlZa2VPeVlK?=
+ =?utf-8?B?VGV1cENIY3Z3YnUzUTMwY1dzNUZjaFV4WVpYWlZkSXA3bFVEV1oxNFFSS3NW?=
+ =?utf-8?B?RVFTaUcyTUhTQkJZdXdwS3hYR2xSdVR4eDlETUR0WGVnbjllKzVIQ0xqNFUz?=
+ =?utf-8?B?KzBGWFF0L3pkRWllSzdzNXMwWWx5Ui9ZYzFsdUNiYzUzdE92YStqem9xQnBK?=
+ =?utf-8?B?NTlGWnJtdFJPVFFZNExDR09FQ2Y2Y3hVS0JaWGZRS0VnclNUdWROTTlhV3h2?=
+ =?utf-8?B?UG5VTDlZTUhiNnc0Nnl3b0VPeXhmM0tmNVBPY0ptYUxPMG9ZREdLQ1R1dnYy?=
+ =?utf-8?B?WWkvdXNBK2ZUQmVqaHlHK3hrNjNreFVOQ0dQUmQrR2I1N05jbmlVRzk4S3o1?=
+ =?utf-8?B?bXlqQktGb1RxZGMrRFdwUm1abXNKR3BrYTBLclRnZ1FHODNiYzhGaWNNZllI?=
+ =?utf-8?B?VUJTNXU5Uk5qd3hneVJRNU04aXczcnpIdTFBeG1FNFVNWnRHejNZdlhvSmxw?=
+ =?utf-8?B?WWNTUk9iZm16Yi94UmJhdjhPVTF3U2F2MmVneUdQeUJ4TzlUMHBNMjM4Uk5Y?=
+ =?utf-8?B?UDRoRHNOaWY5bGtQeUVLd3ZncERyeVlDUkIvSVo1alV2clRTbEk2bHR0enFO?=
+ =?utf-8?B?UCtqb3ZGVlg4ZTZxNVBIUmdCYklXOFQ4aGhoS2RVTExRUGROb2EzbFRNNGdm?=
+ =?utf-8?B?MGJSR1l5Y3ZzbHY5b09vK1hVZnlOdVVsUDdIUjBxNUxkZ3pndDhVUWxmTTZu?=
+ =?utf-8?B?RlhXNzBPMkF1Q1dBTm8zazJsM2FYSTlWakdTRFFHYTFxY1RHOVNITG1wQnlR?=
+ =?utf-8?B?OWZCSml4U0hTVjdtWG9wRVBDcjk4eUFCZ1d6eGtlKzBGNzBhZVEwMTUyeTFh?=
+ =?utf-8?B?ZEF6QUQ2UUIyZlpSTHBIY3F3QzJGTVpGc3B5SXkwNU1EbStIM2EvTWhtWkth?=
+ =?utf-8?B?ZWdpRDFwUFRGQS96aHJhOCs3L3VGczI5cWpLRFA2SkNXa0FkR1lwYkp5T0Rw?=
+ =?utf-8?B?SzE3L2s0SmtxQjgvWHpSdUJ3eG16MldzNVMreWQvSi9lTFVSM0ZDU2ErNUs4?=
+ =?utf-8?B?OC8xdlVjdnRZQ0FETkc1YUdjOGZtOWIwZU1RV1FtaHhFdFVwb0RxN2RqcENi?=
+ =?utf-8?B?aTRFeE9tZ0wyZkFvcTNzR2hnNDBKRWRFQXYwZHJ1SWFsMWo0d3FvRllhRElB?=
+ =?utf-8?B?NzUzOGdxK3ZlNFpqcUJNeXlzdXJIdVlWamowRlFMaWQwSjB2WmpzSTZHZ1pn?=
+ =?utf-8?B?YWpVLzNlSHQwb3J6bEt1WW5rNVlsTEtHRGgzRmh3dzlQSERZcUhKQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3dacd126-348a-47ea-0d39-08de85c6b280
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8690.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 14:49:17.9767
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: J9jHBMBZq1UCAhp9sEaR3fSj6b/zVUQ7BkCu3pzlbwaHCPsyU4OWcbsin6u+bPbd949mlndWHtH0BXSfPsdyjw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4113
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_144929_796337_444490FE 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +171,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 05:36:35PM -0700, Nicolin Chen wrote:
-> From hardware implementation perspective, a guest tegra241-cmdqv hardware
-> is different than the host hardware:
->  - Host HW is backed by a VINTF (HYP_OWN=1)
->  - Guest HW is backed by a VINTF (HYP_OWN=0)
-> 
-> The kernel driver has an implementation requirement of the HYP_OWN bit in
-> the VM. So, VMM must follow that to allow the same copy of Linux to work.
-> 
-> Add this requirement to the uAPI, which is currently missing.
-> 
-> Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  include/uapi/linux/iommufd.h | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-> index 1dafbc552d37d..f63edbe71d542 100644
-> --- a/include/uapi/linux/iommufd.h
-> +++ b/include/uapi/linux/iommufd.h
-> @@ -1052,6 +1052,11 @@ struct iommu_fault_alloc {
->  enum iommu_viommu_type {
->  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
->  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
-> +	/*
-> +	 * TEGRA241_CMDQV requirements (otherwise, VCMDQs will not work)
-> +	 * - Kernel will allocate a VINTF (HYP_OWN=0) to back this VIOMMU. So,
-> +	 *   VMM must wire the HYP_OWN bit to 0 in guest VINTF_CONFIG register
-> +	 */
->  	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
->  };
+Hi David Lechner,
 
-Jason, are you happy with this one?
+On 3/19/2026 7:53 PM, David Lechner wrote:
+> On 3/19/26 8:52 AM, Sai Krishna Potthuri wrote:
+>> Hi Krzysztof,
+>>
+>> On 2/21/2026 4:08 PM, Krzysztof Kozlowski wrote:
+>>> On Fri, Feb 20, 2026 at 11:09:41AM +0530, Sai Krishna Potthuri wrote:
+>>>> Convert the xilinx-xadc.txt Devicetree binding to a YAML schema format
+>>>> and remove the old text binding.
+>>>>
+>>>> +
+>>>> +  xlnx,channels:
+>>>> +    $ref: '#/$defs/channels'
+>>>> +
+>>>> +allOf:
+>>>
+>>> Missing ref since you use unevaluatedProperties...
+>>>
+>>>> +  - if:
+>>>> +      required:
+>>>> +        - xlnx,external-mux
+>>>> +      properties:
+>>>> +        xlnx,external-mux:
+>>>> +          enum:
+>>>> +            - single
+>>>> +            - dual
+>>>> +    then:
+>>>> +      required:
+>>>> +        - xlnx,external-mux-channel
+>>>> +
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +
+>>>> +unevaluatedProperties: false
+>>>
+>>> or you meant additionalProperties?
+>>>
+>>>> +
+>>>> +$defs:
+>>>
+>>> Why this is a def, not used directly? I see only one usage of this def.
+>>
+>> I am getting the below error if i define the patternProperties directly.
+>> Seems like complex vendor peroperties should be referenced via $ref.
+>> Please suggest if there is any better way to deal this.
+> 
+> It is hard to say without seeing the new version of what you wrote.
 
-Will
+In v1 series, i created $def and referenced this in xlnx,channels to 
+avoid the error that i mentioned.
+
+v1 code:
+   xlnx,channels:
+     $ref: '#/$defs/channels'
+
+   $defs:
+   channels:
+     type: object
+     description: List of external channels that are connected to the ADC
+     properties:
+       '#address-cells':
+         const: 1
+       '#size-cells':
+         const: 0
+
+     patternProperties:
+       "^channel@([0-9]|1[0-6])$":
+         type: object
+         properties:
+           reg:
+             minimum: 0
+             maximum: 16
+             description: |
+               Pair of pins the channel is connected to:
+                 0: VP/VN
+                 1-16: VAUXP[0-15]/VAUXN[0-15]
+               Note each channel number should only be used at most once.
+
+           xlnx,bipolar:
+             type: boolean
+             description: If set, the channel is used in bipolar mode
+
+         required:
+           - reg
+
+         unevaluatedProperties: false
+
+     required:
+       - '#address-cells'
+       - '#size-cells'
+
+     unevaluatedProperties: false
+
+
+Regards
+Sai krishna
+
+
+> 
+> 
+> 
+>>
+>> linux-xlnx/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
+>>      hint: A vendor boolean property can use "type: boolean"
+>>      from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
+>>    LINT    ../Documentation/devicetree/bindings
+>>    DTEX    Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dts
+>>    DTC [C] Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dtb
+>>
+>>
+>> Regards
+>> Sai Krishna
+>>
+>>>
+>>>> +  channels:
+>>>> +    type: object
+>>>> +    description: List of external channels that are connected to the ADC
+>>>> +    properties:
+>>>> +      '#address-cells':
+>>>> +        const: 1
+>>>> +      '#size-cells':
+>>>> +        const: 0
+>>>> +
+>>>> +    patternProperties:
+>>>> +      "^channel@([0-9]|1[0-6])$":
+>>>> +        type: object
+>>>> +        properties:
+>>>> +          reg:
+>>>> +            minimum: 0
+>>>> +            maximum: 16
+>>>> +            description: |
+>>>> +              Pair of pins the channel is connected to:
+>>>> +                0: VP/VN
+>>>> +                1-16: VAUXP[0-15]/VAUXN[0-15]
+>>>> +              Note each channel number should only be used at most once.
+>>>> +
+>>>> +          xlnx,bipolar:
+>>>> +            type: boolean
+>>>> +            description: If set, the channel is used in bipolar mode
+>>>> +
+>>>> +        required:
+>>>> +          - reg
+>>>> +
+>>>> +        unevaluatedProperties: false
+>>>
+
 
