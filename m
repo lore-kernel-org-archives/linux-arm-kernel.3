@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E1E109024D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A321090254
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=We2az9rV2uZhEm2AbxZxzNYfpPMKfj/UCTlthMox8c8=; b=KHvHFyiZQSg9YuUb3k0QQF8jsk
-	GUIoV+sGUIdzh3qUa5bjlg+5CYSTb3nOyviOLEOHFzPU9NoRO0R7dS6/J2k7AfzUdFax8wpRl9Zq/
-	LTC//RcWatvYfkGUJF3EE/n41IJt4Zg9vEVk6dydyfLfBVFcGs/1anJaECS1o2Z5f2U3d2hV128u7
-	hRzgcVOcTP+zLHqlvYCKKugLIN0GjUGt4jCWrYpDvtnaTXS4WYvN8Jr0EAuSuz1WWdzBZFnfNXrJQ
-	m2AR3IsQwG5x3Y4c8RHDUtDo4CklJZKMiJ1PUuXLAtYzz2qeuOEsel0cSzhLNHp6ZnzMxZWfPgBDP
-	1SqTJhWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HJUbYvJfq+3IC26kd8KWdP3fbF+kMteQj038PWadu5g=; b=3YkN+USHhT6YQE
+	WKzlotOPvTMqmfdMw3H0j3Fr9BaNyxr3Xvg/Zk6D3ONagxKsUbB3ohvjsS98vYHuTho5PAtbr6Dll
+	63Gw37AnZ7CPaKcwqw9LOgd3XWAble0b1+vfyy63QEe1/8DHLQwGCqcavQ93XOJssbT9luDQmdxyg
+	yUjVvrRzbwnKQ23f0L+iVM+UJKpWxM4z/X7T6E80nJ7MrS2r7jw54185AYt7sVUbXgQrOu+Q8KVUY
+	OLSgSRWWrKz8iVOcf+RqyDz1ucFJ2x3hr6saE3bSGjgnEAoOD+wjb1gDqbqL70Z45JALJ3PWva+mh
+	PK1UfIlqdAunff7b+Pqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GKB-0000000B5nC-0wS7;
-	Thu, 19 Mar 2026 16:34:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3GNG-0000000B64w-0OyI;
+	Thu, 19 Mar 2026 16:37:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GK9-0000000B5mq-48ml;
-	Thu, 19 Mar 2026 16:34:18 +0000
+	id 1w3GND-0000000B64U-2m1v
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 16:37:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5783360133;
-	Thu, 19 Mar 2026 16:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6525C19424;
-	Thu, 19 Mar 2026 16:34:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1905843EC7
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 16:37:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF83EC2BCB3
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 16:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773938057;
-	bh=We2az9rV2uZhEm2AbxZxzNYfpPMKfj/UCTlthMox8c8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AL2p7D4nNNuwVwc7Lph39O0JFakdkYyaKrzGaPHTF2GlW3nDaBEjsMovt8IMS1cvj
-	 nF/Y3zcnq4HLceLlcb6ZNa8uwOSPS9SWkhVjLMbig3i7KtVn/sUAbfmVPQesBc+smm
-	 1em/bPnI5cwFnbtL9+1T0wOIIFyaOYswLb8TV3Jrtgd9OpVCyzRy0/2cXUKGL7tmOg
-	 p/vGe+nw48VyFu5vUn7QxEbTeLZzSpoqZVdkf5aZk90hZ1WePMNrOHlWOcl6wQkke1
-	 ZJTW5adr2V3cuwzpxHwFD5YXGP9Xk9BnMlUdpEnaAU+qap2KVjtghs04ibjGQEjgmW
-	 /TmfbXYeRDlPg==
-Date: Thu, 19 Mar 2026 16:34:04 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Gregory Price <gourry@gourry.net>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>, 
-	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
-	Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-Message-ID: <8ebdbdba-d0b5-4887-98e5-bc45f4565d51@lucifer.local>
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
- <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
+	s=k20201202; t=1773938247;
+	bh=HJUbYvJfq+3IC26kd8KWdP3fbF+kMteQj038PWadu5g=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=Blc4j9ywjSXgM2SgrXqWZjaYgze3W3EgDx6sNFYgE6ODJ19DVrSUyGpifgRF+ISla
+	 5Zo3YRUjvJh00wIaTSU/Px0dIEBRbrGGRdN4zUd4uEVU9Cghp0RWwPvl4tyVBXGFVI
+	 ni2oKTTgI8hWeWnwgU1dH4f8YpzFYgU5JuYDDfP0L8bVy4F7pNowpJY+uJEDilhxtz
+	 FAN6hauamxiVzOu8ws4CYwofw9dcRncoLlp11fSPkMpLS6ye9wdm+uXBot+j5Jdifw
+	 ArsVa46Kep7pMdxlD+mQPnmAnTqMXLj8FvqnhIxtqiE04d6cdIzcd2J3t1TbMYG0js
+	 46arBIJlPzYbQ==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38b3ee785a5so9935681fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 09:37:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWtDA4o2cEqjaRdWI7fkAIXhzXg+Nz5/97UasW8ltlfaH1+E3teIho6kEOaoN0gNZ0jXR21/hCqJW/dtxynFW9j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuZVu6ccXsMHbKjRIbWBgzSfRBphKVbH11tTCdFp1YD36ngALW
+	Saz/Ta76Sho8K2sCp6DR3uNyGbJRKGwzePFI42P5eNfvlF82RSjQyOgr7awNZq1xUqmTzIjVic0
+	j0kuNIjpUvn7k+paG7JSpx4vZZz4+CzY=
+X-Received: by 2002:a2e:a60a:0:b0:38a:d2d8:ff5d with SMTP id
+ 38308e7fff4ca-38be5f88870mr9495851fa.16.1773938245262; Thu, 19 Mar 2026
+ 09:37:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
+References: <20260319-rc2-boot-hang-v4-0-4372f47cb6b8@mmpsystems.pl> <20260319-rc2-boot-hang-v4-1-4372f47cb6b8@mmpsystems.pl>
+In-Reply-To: <20260319-rc2-boot-hang-v4-1-4372f47cb6b8@mmpsystems.pl>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 20 Mar 2026 00:37:12 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64i7TVKr7m9StcPMLTj=zuyn-GnxrPJO=HfGVEhQp5yBQ@mail.gmail.com>
+X-Gm-Features: AaiRm523wOClQT2OuM3ghYiz0iYiL8-8Z_HbZWazzqkJObzfX4ME4RRi3z4vRqo
+Message-ID: <CAGb2v64i7TVKr7m9StcPMLTj=zuyn-GnxrPJO=HfGVEhQp5yBQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] pinctrl: sunxi: pass down flags to pinctrl routines
+To: michal.piekos@mmpsystems.pl
+Cc: Linus Walleij <linusw@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_093727_745342_1872F8BB 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +81,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 11:24:27AM -0400, Gregory Price wrote:
-> On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
-> > All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
-> > select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
-> > CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
-> >
-> > For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
-> > and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
-> > CONFIG_CMA and CONFIG_COMPACTION already do).
-> >
-> > We'll clean up CONFIG_MIGRATION next.
-> >
-> > Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+On Fri, Mar 20, 2026 at 12:10=E2=80=AFAM <michal.piekos@mmpsystems.pl> wrot=
+e:
 >
-> HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
-> this up.
-
-That is quite the HOTTAKE young Gregory!
-
-(It seems my pun crimes are continuing)
-
+> From: Andre Przywara <andre.przywara@arm.com>
 >
-> Reviewed-by: Gregory Price <gourry@gourry.net>
+> Recent changes in the Allwinner pinctrl/GPIO IP made us add some quirks,
+> which the new SoCs (A523 family) need to use. We now have a comfortable
+> "flags" field on the per-SoC setup side, to tag those quirks we need, but
+> were translating those flag bits into specific fields for runtime use, in
+> the init routine.
+> Now the newest Allwinner GPIO IP adds even more quirks and exceptions,
+> some of a boolean nature.
+> To avoid inventing various new boolean flags for the runtime struct
+> sunxi_pinctrl, let's just directly pass on the flags variable used by the
+> setup code, so runtime can check for those various quirk bits directly.
 >
-> ~Gregory
+> Rename the "variant" member to "flags", and directly copy the value from
+> the setup code into there. Move the variant masking from the init
+> routine to the functions which actually use the "variant" value.
+>
+> This mostly paves the way for the new A733 IP generation, which needs
+> more quirks to be checked at runtime.
+>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 
-Cheers, Lorenzo
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
