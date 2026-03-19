@@ -4,80 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC83107527B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0942B1075276
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dI1nFWFJiT0g+Klurn667jIXgS6STvOyM35+JIVWERw=; b=r25EvC3RKu4oubL3cnjDHkkc2v
-	QjdmMIFzM0sfZIh+xt6AmEbpctSEZeFsKHF0PZrsLYN4WkxdVqiC0GWVQqUVlAlwvud00OZCQJ9EQ
-	VG3Z4QXA1K/H4k905GqspMJj9jb/nsM55o7uVHJ2JK+vcM24WKZGfmYkRftHGxvySLtSUR3xGbaf8
-	vz1zxO9uDUWEM8p8a8fc22pnwyjWKpzYbzYQlReexaB7n03AvFMc01xb6XzB4NLX1+262SO2ulGxx
-	5tPA6PioLjmD1S/lbrYEL4dc1Tgh0zZiweJ0IU5Ml7J+Kco7su8z5qbdxLC2RckieG52qG3DXTUD1
-	z8omhc3Q==;
+	bh=We+8kZ2CzInc2RFx8MkNk/DSDdoS0Fk4pweZ3RFMUiA=; b=Qmi8HvDe4mZtmLPQMfW3wEo91h
+	YLR4tvReWd5aHuKFEyVQ5aC4+pt5gGzo5gkjT4peQwLnvhCAKtF/xBa9Te0M0+WZ7lYZjVCfqPHXI
+	q4U7gsWNI2SzYGqNnlHjX3KMu5+RHM9Baxy81GWkWEpnWfYoUGhYL7cmoD1ZwUHEU83Oz5sbZm6wR
+	SVcSwfaw6mcDNkoJM7Ymg9GV4ltAe4OjPEFphiL0dVzEJHDehD3U6V6g5pIqJZhGXf1rnl8XARM9J
+	YZeN7z2ZodShcmQ05FWZsedt/k5ZJq9xgLIwRitxaKgUhr0ZMKNEYInGMNM99hvNM4W7IiO/linJv
+	9m2JodOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39AE-0000000AHAf-3XJ8;
-	Thu, 19 Mar 2026 08:55:34 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1w39Eb-0000000AHSK-3SXN;
+	Thu, 19 Mar 2026 09:00:05 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39AD-0000000AHAB-0Aim;
-	Thu, 19 Mar 2026 08:55:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=dI1nFWFJiT0g+Klurn667jIXgS6STvOyM35+JIVWERw=; b=nEpkOgmhgLY8wIPVM2BFWVL4MZ
-	OOXw0eQbA+R5ITSHE4BT2KMXYJ8X0zjTjyWMs9zJvNcgeyjG4XP+qkVMr5ZN6hZ29N1F2+sZARHJu
-	x1wrsaZyaA1Srd+eiyCS6kGTEKCQ35Yj2C2+Kj3NbkUeoh0qviO/gi21hy4mzq5h7JsQWdWXiUpDV
-	pJ/Sb6XuIJ9tUGXZTg1MgFko/3mPmOHByAdGuI68xmha+nMxK+Yz1oFci1aTa/f9A0S50sUa63vSl
-	4lxjRoKivMstEZjFg4fpk5HoTolAN0u9osjSSLkC7G/i/uek5QW0E5PppGP/CAAcNmbJydRF0Us3Y
-	mgtVS2uw==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w39A6-000HLH-1g;
-	Thu, 19 Mar 2026 09:55:26 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w39A5-000M6L-1a;
-	Thu, 19 Mar 2026 09:55:25 +0100
-Message-ID: <37396c094c7124169ca376cf6aea5350971aec54.camel@ew.tq-group.com>
-Subject: Re: [PATCH 3/7] dt-bindings: net: ti: k3-am654-cpsw-nuss: Add
- ti,j722s-cpsw-nuss compatible
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,  Nishanth Menon
- <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
- <kristo@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Date: Thu, 19 Mar 2026 09:55:24 +0100
-In-Reply-To: <20260318-sustained-reshuffle-eaf180729a9c@spud>
-References: <cover.1773751309.git.nora.schiffer@ew.tq-group.com>
-	 <1382fed198246f1563dea091478757aebc4e4948.1773751309.git.nora.schiffer@ew.tq-group.com>
-	 <20260318-sustained-reshuffle-eaf180729a9c@spud>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1w39EY-0000000AHRm-1SkX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 09:00:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tv9QMULaoSopLXSrhm0GCBTiTj9YpS67OBBPVgqqFWJgi7HzOWJeyFjnaxQ8u60CLtM0zJJe2QnrYzwb9cp3rDqOaYk9X264bESRmgB5bxLG4ssfbTKh66WMHqj+Vdmda3fT1nJd/0CSSuU+PGD3dj23jAP6Ezkw748Jx8kKNH7ocbqv/+JtYPTlbt15Hg4DbtLMaw2TEaQQHZCNqu5rpoSeaguoafVNz0WuZAQkJHLTJlCZRTOluAzyAka3t6ri7CfCb1VRfxXTE65WNDV/kljy2ucSuBIZy4TvA8eOArs2qPvMStDS4dp02UnLUg2HJyKU3dxq9COfrfVcIVOGuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=We+8kZ2CzInc2RFx8MkNk/DSDdoS0Fk4pweZ3RFMUiA=;
+ b=qN1CCdcAu6B9Kd8p6eti+35+IKdhzxmlQJJg+csI3qaro6vhP2CqySDBm8sqeKo+FW2OtRtYjeO1wDvn/ZvG6gvHcelkf4Gz9oIP8FzrBwqJH2W7i0gNAVQLi45mqTtWNHw2EVzaKbT0miTPftD8xgZyrBjtlBvhxXv8pX+VDTdHSdxq0zuqQhdAGHGsolXL/5AhgHGRPq6fE99zu7j9D0RvPqUKYO1Q46yT5X4Pc9Rb88sq7l5J5PUgY13km+E3LdljJd09umzZRblBwOB8++/JvOsMRx3uUKjbB3YhQbO04jKOght14ElifHZ2fMTOm8hleovpsC+iQmvyJt6m5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=We+8kZ2CzInc2RFx8MkNk/DSDdoS0Fk4pweZ3RFMUiA=;
+ b=hw8Qrve8yzVTnWEj2TmLZzwOO2Hkyk9Mt8wBTT60oU7+ZhndThVgEytKMzCaXVhVtDgQQS89LDOmrUejWK8ohAH90SBElMB/88i5Xre7FGH8se4tcGJL32GYIKHXsnPs4vTARfIzBEfwUDffnJSwUtf4FAwAB3t6p26pslgSOw4U/2Kc+vuaji2DkQoYCGYsrgyO73m3+t78+dle2Jhc3hfwN01lJYTy0g+UJgdUDro2QMwDYOqdF+N6kwbiJpNU2+QxJzJRoktjrk+rd2JGwMT6IT1/1rONe8Hl9tE8rwEDksDGO/yR2HijTMZxMOMVotM+DwHz4KaHGT5BFKwmzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by GV2PR04MB12104.eurprd04.prod.outlook.com (2603:10a6:150:303::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 08:59:56 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 08:59:55 +0000
+Message-ID: <a6ae1423-9ddf-4d15-b83c-569333abaf5e@oss.nxp.com>
+Date: Thu, 19 Mar 2026 11:02:53 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add i.MX95 19x19 FRDM PRO
+ board dts
+To: Joseph Guo <qijian.guo@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ xinyu.chen@nxp.com, qijian.guo@oss.nxp.com, justin.jiang@nxp.com
+References: <20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com>
+ <20260318-imx95_frdm_pro-v1-2-8c00e59f0b1b@nxp.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260318-imx95_frdm_pro-v1-2-8c00e59f0b1b@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P191CA0029.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::12) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27945/Thu Mar 19 07:24:38 2026)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|GV2PR04MB12104:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab2fdf86-8194-42f4-2ad8-08de8595e3c0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: pkRiGKkQFvwOVI8vWRmG6BOWu1dcta/1zJGCwqLC3NL7gPw9ZdA5W+3bgO68m9rqht5XFRscKWUNi9fmwcpJqQeHt9/tgGzAgRvtOlE8DYk54tyzGYXlndfbVnn3dEvMBR27OWQXwACYzab0aFNeNEoWcNgN6pbVMTOfxjk0iLln+GoDegO4p84XNNVOSEFN8vQWVVY6bAXUlLU+tr6X53dIUkQPSmw/TD222oEbpFABCPigRS6RKZS74eZ2SZz1EmxxR8sHl6IdXD1B8nH6xkNTef7xN3Om55e5l0EQD8UrdWHhwbKJO/YtGiqoh9jsnWUlrbtx6O8bvYkU9K/RcBAz/ZRcmSjvFQfA3pUdoKEW3E8TOCZsPDPDr0609LqyBonNs3kRPM0/PilnVGX60x6JPSL263c98sRRL5ntdBQT3v8PuTc0TarsDgdp8RhQeoVKlS8W9NNCqD7ZyUUqSAl8ycsP3N8gBD45CX1zUjix+WyhnmTZmBlyWuChHLm7sidOtaiWHd9g2mT/FS0woswAt+AWiJbqro6gZU0F1oovcK5pANyV518tNUNx0KVIqOtO2aUnVM9M2VaIbxArHpVlQDwlWjEqCoCefA0eS5ep7qGVDrThXfovPcUZvQqwzl8W8xfg1U6LOn5vSEuW2ONBScitN8uxbAq8l06z/biTpyOjcIJZFDIBL51LZooIWKge1f/wEb3UaOFISCBdLI6Nl75BjpqXcaI6Jo5V93c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TWxoWUpBQmdOdU92RVMvUE1ROUpkNUZLOTdsUVFPNnRKd0o1eVN4cFcwbmt4?=
+ =?utf-8?B?MWxGdktiZ2lOUWVCaklxbjk1ZmptM2ljbVFyZEphMlVhUWtNaHB2NGY3a1Nw?=
+ =?utf-8?B?anFMalhZbWR5RFA0dmhuSGRTM0pDQ3hHdnhiTjV2dGwwemtpL0dnaVFYUmlj?=
+ =?utf-8?B?aHpSc29oNDBFSm92TEl6TUk5Y0JqaW9lYWhDTkRQODVnWUhBckVuNG9XM2Jj?=
+ =?utf-8?B?d2V5M3hvVGo3UFI2dEI1Z1dzcDg5b1pYRUQ2bzdRUzc1eG92VmVNK0NvRjRZ?=
+ =?utf-8?B?cnh2RW1SKysvMm0vajdoazF1cVdTc1d3UTN6MDA4dE1oRXdOMlA2MUFSWlhU?=
+ =?utf-8?B?VVpXYm5oeWRmbFZPRFllaUMzNDFNeU1WUDd4VC9VTzZGSTFNZ0hSdUxpdlNB?=
+ =?utf-8?B?VlNqcUhBSFdsbTgrTWx6RWVURDFBTUptR3JlMmR2WUdTOHM1MHhqZC9MRVY4?=
+ =?utf-8?B?VVVmdTd1SStNNzdCZUNoRVE0QW0xeHJGUmhxRFBvY1Fwbm8yQXRIMTZaaldC?=
+ =?utf-8?B?UkZvMkFIc2hJZndCdG1rUkIwa3BUMlhHZFBGZmV1aVVvTXJUaEJSRys5R3Bx?=
+ =?utf-8?B?TXdXMzd0Ykh0S3VpRU0vK0FKcTJDeUpSdmNGT3pYbGs3YysycXhmTEk2YmFx?=
+ =?utf-8?B?aTdKSisvUm9YSTB3MHlNd0hwaS9oaTdRUVQ3T0gweE9vc3kybUJzbHBmUXNJ?=
+ =?utf-8?B?TE9ibGVtUDBTZDIyUkZMbTdMbDJvV0hYa3JpeWVkUWF0QkMrMmFaSU9mTDFZ?=
+ =?utf-8?B?VU5IQXBpNDRNcHZZbC85TTBYL1djTXg4elhRUUtOek8vd05tODN5amQ2R1lR?=
+ =?utf-8?B?MlVwVkZObWQ5UVJZQjdyTmZhNTIzODJHaVl4YUk4NXdiRmtVcFVTMlBrU2to?=
+ =?utf-8?B?YThBcGxrOEhWWVhJY0pCTU1vVEtBY0dUbjV1V082TTduRWlUcUh1M1dhMndu?=
+ =?utf-8?B?c0Jqb3hjMmFuVmN3blRLSmVqZmx6ckFTQTg0N1ZyaFNRc0I1REVhU3JZUmV4?=
+ =?utf-8?B?RzVlVktZTUk5aTVlYzNPZEViWGQ0VFVvYzJBbEJiT3B2VUZReGNyZmZERUdC?=
+ =?utf-8?B?eHN3czlnWTZoY1JUczZ2TjYxVWwxOXMrQVhYaGZPcjFnemlSTFh6NUptbEJV?=
+ =?utf-8?B?NHdReDZpZ0FDWXNaajIxNFZ3cjJTSGYrMEpJdW41K0RFaTZkaGNKbjdTdjdX?=
+ =?utf-8?B?Nm9naVFTVnpwZkJGdzFiMG1MS3hTU3ZXdmNZRVFPRmNvbkVsWkl0SUpWUjlU?=
+ =?utf-8?B?YVpXcDIzcWJWQkc5NVUyNm0wUkRpeGoxR3NDSFdFakozMU1NRmZJRHROVFpX?=
+ =?utf-8?B?V20zWU5sc3F0K0pQWGx1YUcxV1doWHU3a2JFb0JUYXZ6S0czNmh0YUovREd2?=
+ =?utf-8?B?WXREcW40RHV4Yk5wSy9FVHFic1VWVmhvZmhtNEt1MWRLUHMzMlB3MGhLYmdJ?=
+ =?utf-8?B?RUc4MDlZWGw1bHhndGxPTFdyMW5haE51ZFhweWRHcTdjc0pkOEd4WUpoY2s4?=
+ =?utf-8?B?alhlVzF0SVdKenU0ZGYzMzVwczBzT0g3Mmw0U1FKVU5GRUVzYnZkSjJScFNO?=
+ =?utf-8?B?UFlXUWV5QlRQSHpXRmUzbkViYXRSUXBWL0hZeGVlQ3RUb2UxU2pnMFVnNnNa?=
+ =?utf-8?B?Q0tLck4xdXQ3L09OUkxUcGNVdy9HZGlHZGllcHJqZzcxVTd4TzVOcXdDZnNu?=
+ =?utf-8?B?V1dyWHdKOTdIRExLZXR5QWQ1V2FPazFDd3l3NHhDVVZVblVBL0toVjRxS3lx?=
+ =?utf-8?B?NEQwbTV2OHdEZUt6bFovcnRZNExwTUlVRStVeDJ2MUxRV3BuSk9PRnhETmJP?=
+ =?utf-8?B?ZHpuKzYyZWZyRlJIVGppcGFZMGN3Y1FLZER3cWVHUkxLNm5Zb1BabnMwK280?=
+ =?utf-8?B?dDhBdDZUSHY5SkpvSlZGNW1IeGtNc28vdFN4ditsNkN0eEpOaUxMMyt5NFkx?=
+ =?utf-8?B?N2FvTTZ6ZS9odzZTSDYwWlA4eWF0MnJ6RksrQWgvb3lGY2lDelZMZGdCNVM0?=
+ =?utf-8?B?ejB4WVBEWU8wbW5SUHFQanpNNkZmaG1yU0wwZnVsa3krc2oxNXAyRGJhS3dL?=
+ =?utf-8?B?Ujl5ck1nMGJLL0UwRFlLaUdqNHRnb2ZMUmhiUEIvZjhEWVZJY1hLWDFVcHZE?=
+ =?utf-8?B?NnNlRlpPSTRPRkhBaitsRW05bWhxVVJ5MDUyNTl4TWVqZjlYWjBMd0RiN01D?=
+ =?utf-8?B?RTE2ajlISkd1WTNYWjEyZCtST0craGNpeXBZbWVZNk01cnBWWjhUNWtaQ0hD?=
+ =?utf-8?B?NGJ2Q1dhQStxbU1jTTFlaDN2SFFITlB1a0M5SWZLT2ltOVZIZXliZnlJWFY3?=
+ =?utf-8?B?azBjbU0vSkoxVEpOVkFCZjlhYjZMTVIwMGJ6VkRtR2NDMzNzV29CZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab2fdf86-8194-42f4-2ad8-08de8595e3c0
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 08:59:55.5158
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3R11aFTLFgVLQKZIUZbxzL5O9ZZCTjW4MdPMzKVMZ/WZb3rM5aQfVthoMIAtTLyucoimfmLuCjIzozIYmFLcVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_015533_078289_8CFDE6E7 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260319_020002_416660_258A5D48 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,60 +156,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-03-18 at 17:35 +0000, Conor Dooley wrote:
-> On Wed, Mar 18, 2026 at 03:05:25PM +0100, Nora Schiffer wrote:
-> > The J722S CPSW3G is mostly identical to the AM64's, but additionally
-> > supports SGMII.
-> >=20
-> > Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-> > ---
-> >  Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nus=
-s.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-> > index a959c1d7e643a..9ab8237c7f79e 100644
-> > --- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-> > +++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-> > @@ -59,6 +59,7 @@ properties:
-> >        - ti,j7200-cpswxg-nuss
-> >        - ti,j721e-cpsw-nuss
-> >        - ti,j721e-cpswxg-nuss
-> > +      - ti,j722s-cpsw-nuss
->=20
-> For all these bindings, why is a fallback not suitable? Seems like it'd
-> be possible here, since there's just a new feature. Is there some other
-> programming model difference?
+On 3/18/26 10:04, Joseph Guo wrote:
+> [You don't often get email from qijian.guo@nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> NXP i.MX95 19x19 FRDM PRO is cost-effective with extensive
+> expansion capabilities based on the i.MX95 19x19 SoC.
+>
+> Add device tree for this board. Including:
+> - LPUART1 and LPUART5
+> - NETC
+> - USB
+> - 2 M-Key M.2 PCIe
+> - uSDHC1, uSDHC2 and uSDHC3
+> - FlexCAN1 and FlexCAN3
+> - LPI2C3, LPI2C4 and their child nodes
+> - Watchdog3
+> - SAI, MQS, MICFIL
+>
+> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+>
+[..]
 
-I think a fallback makes sense, I didn't add one because other variants der=
-ived
-from the AM64 don't have one either. I can include a fallback in v2 (for al=
-l 3
-bindings in this series).
+> +
+> +       sound-bt-sco {
+> +               compatible = "simple-audio-card";
+> +               simple-audio-card,name = "bt-sco-audio";
+> +               simple-audio-card,format = "dsp_a";
+> +               simple-audio-card,bitclock-inversion;
+> +               simple-audio-card,frame-master = <&btcpu>;
+> +               simple-audio-card,bitclock-master = <&btcpu>;
+> +
+> +               btcpu: simple-audio-card,cpu {
+> +                       sound-dai = <&sai5>;
+> +                       dai-tdm-slot-num = <2>;
+> +                       dai-tdm-slot-width = <16>;
+> +               };
+> +
+> +               simple-audio-card,codec {
+> +                       sound-dai = <&bt_sco_codec 1>;
+> +               };
+> +       };
+> +
+> +       sound-micfil {
+> +               compatible = "fsl,imx-audio-card";
 
-Best,
-Nora
+At least for this node we would want to use audio-graph-card2. So you either leave this
+
+out in the next version or switch to audio-graph-card2 as we did for imx95-15x15-frdm.dts
 
 
-
->=20
-> >        - ti,j784s4-cpswxg-nuss
-> > =20
-> >    reg:
-> > --=20
-> > TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, =
-Germany
-> > Amtsgericht M=C3=BCnchen, HRB 105018
-> > Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan=
- Schneider
-> > https://www.tq-group.com/
-> >=20
-
---=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-https://www.tq-group.com/
 
