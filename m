@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B471090223
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4570B1090220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uc9E0xeVc/I43dVMYVDus0YY3HE/sgkaC1QGndLxyOY=; b=BU9N4dk3znUX3a
-	+GDqwG41k8bTWpw3jmfbYou7uq+7gzrZeHGuKXL9sOaYdkIU3qEng3FZ4FV0karIuH2+4yzjwBFq3
-	tTrKPSlXA62zI6x1l4WmSvMJgTFav5WnCxrWHQZhaAUg48yEeEOJ05BveptJEhdxi72frA1JKC33h
-	77/Q8YoTpofvTTloLYix6BUeSlmf01bXZnfdG1bcXfrEyzXfGszULqXVjHcKLxnMFXBfBju+QS+ZX
-	uxFJkOT1+9nL8BfI0HS36eehqAHgKvj/S+TahcOyLES1AlaexwiGc3kekFYEg3zs5JrD3O16tXnkB
-	34UetSdES4dv8KTCSX7g==;
+	List-Owner; bh=47NnVT78m+bHzv4zmH8R7x3ZDKiqqPX8ZpRp18XYgSw=; b=oxUZ+6ESFohPzf
+	CAT3i04W6JouwvMZjxWsgYhzMyjQOalcuVAqC+SBT41hlfVLun4kV/nTicMVzFIKhnq470Ed641CE
+	oBEIpf+O6tdCniO1FN8ZBuLJp646E4Wd5Xw9cmHj8jeTr0f+V8qClfa/v+a52fruMbwIvLNxsDSVz
+	2CDoeOfeIeFeblhpUqHgoZM1t70g0XORENSii1bR5b4SoH0F7OTB7BicybDjDBRnEmwZHyn27ofz9
+	FWrZ5Eoo0FFCiYnT2B/LMeizXg7rLSgXXS9R8DECcXyWlPUiBiJDi6tbSalLNK4M9snA3luCZL1Af
+	4OQ1/q4RTKDZs5UKLOZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3D7q-0000000Af2j-2X6L;
-	Thu, 19 Mar 2026 13:09:22 +0000
+	id 1w3D8R-0000000AfA4-3xPT;
+	Thu, 19 Mar 2026 13:09:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3D7o-0000000Af1u-2VP4
+	id 1w3D8Q-0000000Af9M-0kTv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 13:09:21 +0000
+	Thu, 19 Mar 2026 13:09:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E424844160
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:09:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3116C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:09:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2FE244539
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:09:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AED1AC2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773925759;
-	bh=Q6j72inhTsH6ewxfYJqIA8kdxCdrfzZ/qo9HHgaCAUs=;
+	s=k20201202; t=1773925797;
+	bh=Ts/ZBzEhwzBq6L1alBpL4MrUmv33n0V3E/Ul5uCiuTo=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=Qygsp4SYDnjNIkRepZ6B/Da7WIVTVHYU4iXoNk8PmGV1OM/gGOd5/M9BvufNOMbpX
-	 L3fe8ghS0ZDexaf/xoBcCNoxfpzJGgcSymUOSQM8LFCm7B7oLjrOmUhDXWw83okB85
-	 JQKsLI1aTMKRjTk8mRQm4qDfSybEOQ/uU2kuBX7DlPaciRMwXzFDcFiQGi1TZaeY7U
-	 /kYnMWhOloiKv/Vxw9DHsIIOnyr5Jm2RgGOup9G6c0BG3+vMniwNt0YL5DyO74/QJY
-	 tvIbSDut+lE9CHg5aThsCyDdx3qXRcHu/ur7TUusVV3mLOE3vNUfEnXpdq66baJQkI
-	 rj9/ECGl7VWpA==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-38bf132993dso3436471fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 06:09:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV8lf5QHqXh8XrK9dLh99E/J22PPC1dTtTyrJ16VJ5uOIRCtE5GIZ3bTayM5Y9WrOgX4tFBJdhabSZmLu1eCOWj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPQspvgoq+F2oBXNDGaGgHRKSHExrRhUrU6EtqN6RT3Lt3HN+O
-	J250A0nrXfcN2DjPvP/sRQ7fElQuUNhJSMUI6JmlCekQW8H/fZS1l6gEEpKV+J49pexczky9vOO
-	04vlg77Kth8YsSDIDpX2MSiPyfxE54JQ=
-X-Received: by 2002:a05:651c:201e:b0:38a:4a27:1b58 with SMTP id
- 38308e7fff4ca-38bd58700a4mr22921261fa.23.1773925758025; Thu, 19 Mar 2026
- 06:09:18 -0700 (PDT)
+	b=RacmPq1bIqMeMcyhxiEK10j6ygmP3LMQK2Z2fVE3HCOxsgvgXy03lL3FuvuLQQvgj
+	 GiQcbk0Gc68ea8eJ4LngePUDz9C5XojYstENdaRQM1y0oSw68pXH0FB/x9xYOoXLj5
+	 yzHUkBwYEvcieaKcpfVCPm7nVCORUUsT0yOyNlGzfZbyxsZTMYNRLeKm/6/LsH6iAi
+	 g+KwM2FKgeEjnQE4mZhq0fF6zUla5vAiMm1h5fjWA7LIX/ZFlm4NfZRaEHQvb0eRdn
+	 ro9atKpn/5SRW63zxRDjmZnik2psm1mFQ05jHWL2srdHA6o0dMoRIWg/vWUDnwIL81
+	 7blFfhRQzZ9RQ==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-38b3ee785a5so7626711fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 06:09:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXe4Z0cidBMVtGLC/zyHD4MhSXeFvSfdE+rwyOR5CPkCVk642IyFlM5I3IeKDI9csDpw6jgbtqHTUxHUdh4PALr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzPAgHwTaeh+b3COqYvWQ83njvhyv2yO+zzaycs7omn9PSuK3s
+	iuqaB1oK7W1HlSocicFVD/k8OnYn/akSuLNHhorhxICGkTPpX2dBTiehJNSpwDe2RuErKtDBTOs
+	tbl26QnW1MF2Nr1M/46Ojz6ohq9sn6Qc=
+X-Received: by 2002:a05:651c:324f:b0:38a:d354:cb2a with SMTP id
+ 38308e7fff4ca-38be5f51b90mr10131901fa.18.1773925796044; Thu, 19 Mar 2026
+ 06:09:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260319105947.6237-1-wsa+renesas@sang-engineering.com> <20260319105947.6237-11-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260319105947.6237-11-wsa+renesas@sang-engineering.com>
+References: <20260319105947.6237-1-wsa+renesas@sang-engineering.com> <20260319105947.6237-12-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20260319105947.6237-12-wsa+renesas@sang-engineering.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 19 Mar 2026 21:09:04 +0800
-X-Gmail-Original-Message-ID: <CAGb2v673oGgYbK9vxtgzCNSKR0=d+yT+3tD_bp_0AwLdVbht7w@mail.gmail.com>
-X-Gm-Features: AaiRm51-S2qI8OWMlxRbpEKWhlUg86es_OnJ0C138mWD9n1SBCUMxkSAhbQynxE
-Message-ID: <CAGb2v673oGgYbK9vxtgzCNSKR0=d+yT+3tD_bp_0AwLdVbht7w@mail.gmail.com>
-Subject: Re: [PATCH v5 10/15] hwspinlock: handle hwspinlock device allocation
- in the core
+Date: Thu, 19 Mar 2026 21:09:43 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67j91R7vsY2WOjgWQxyD-2Y8mRXe1go-F2jsL+9vbrBPQ@mail.gmail.com>
+X-Gm-Features: AaiRm52DzwyqScnSD_1lE5a2W4uRQaDkIK3TFFUruN1gvKxXkVMyOzXMy0U3Fs4
+Message-ID: <CAGb2v67j91R7vsY2WOjgWQxyD-2Y8mRXe1go-F2jsL+9vbrBPQ@mail.gmail.com>
+Subject: Re: [PATCH v5 11/15] hwspinlock: move entries from internal to public header
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>
 Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Bjorn Andersson <andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Wilken Gottwalt <wilken.gottwalt@posteo.net>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-remoteproc@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-remoteproc@vger.kernel.org, 
 	linux-omap@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
 	linux-stm32@st-md-mailman.stormreply.com, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_060920_676376_10E45B09 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260319_060958_232364_63FA3AA5 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +93,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Mar 19, 2026 at 7:00=E2=80=AFPM Wolfram Sang
 <wsa+renesas@sang-engineering.com> wrote:
 >
-> Providers have been refactored to avoid using core internal structures.
-> As a result, they do not need to allocate the hwspinlock device on their
-> own anymore because they can access everything they need with helpers.
->
-> So, the allocation is moved to the core. As a result, the registering
-> functions now return a pointer to the (soon) opaque hwspinlock device
-> which may be needed for unregistering only.
->
-> Because the argument list of the registering functions is changed, all
-> users are changed here as well.
+> Providers need the ops-structure and the hwlock_to_id-function. Move
+> these entries to the public header. With this change, all providers are
+> also updated to use the public header only. The internal header is now
+> used by the core only.
 >
 > Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 > ---
->  Documentation/locking/hwspinlock.rst  |  6 ++--
->  drivers/hwspinlock/hwspinlock_core.c  | 48 +++++++++++++++------------
->  drivers/hwspinlock/omap_hwspinlock.c  | 10 ++----
->  drivers/hwspinlock/qcom_hwspinlock.c  | 11 ++----
->  drivers/hwspinlock/sprd_hwspinlock.c  | 17 ++++------
->  drivers/hwspinlock/stm32_hwspinlock.c |  7 ++--
+>  drivers/hwspinlock/hwspinlock_core.c     |  8 +++++++
+>  drivers/hwspinlock/hwspinlock_internal.h | 29 ------------------------
+>  drivers/hwspinlock/omap_hwspinlock.c     |  2 --
+>  drivers/hwspinlock/qcom_hwspinlock.c     |  2 --
+>  drivers/hwspinlock/sprd_hwspinlock.c     |  2 --
+>  drivers/hwspinlock/stm32_hwspinlock.c    |  2 --
 
->  drivers/hwspinlock/sun6i_hwspinlock.c | 12 ++-----
+>  drivers/hwspinlock/sun6i_hwspinlock.c    |  2 --
 
 Acked-by: Chen-Yu Tsai <wens@kernel.org> # for sun6i
 
