@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A281091904
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8381091905
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+DMq0MZgN1mXaXHFCYPqdqJRItlOQaaC+ihGDh84/M=; b=oVlCwQr0qP48WZpB3amSXcSf4z
-	0IR7Um/WEIsUW3JQbvZWCUBAJe/Ml2TRb+2v3a+IDS9Uzu6yDaLIiLSa8VExACECDjuiIV2SXiv+F
-	idhUxXwFuwGtbfc6b/HSWJM+0k53xowr2TsJLFZ8oyni7P6Ek9PoefQERD9EHrqW6JdcDjI/aBgOY
-	S3QLDVzCnTdIKHFNF65ughEp2uBFyCyGbVREilX+UXLO5FC2UlPTPsqY64goW2OzIh+fG8Locm9qI
-	Lfb459133yMQdCy+09DaEKBeO/nHfZ3U/X5oPoLj8IvMwAsGmTYGJUrbVIXj4FHUsofpA7yUPUgwH
-	AG4odSsA==;
+	bh=oA4rOKB6nS9aFFMlSQslnNIxMAM0OBTYDUfK1PiIeoQ=; b=YEKyC7kzVsf3yTcvtccFsc36mg
+	2Id+/0yMkXXdvkRT5nZaLFVsaYERZJ7Bin/cWG4z3hrUNDxSBhjW1u/tS9VDloaCbP+lg9kOwzEW9
+	AArx2RVTiCiZ+FtQtQlgN7rZge7wVtcTvd4bJ2jpyeX2yvrzbiBYqysQYbg+Z0xPyN2VUKgmSlJuE
+	TUbKYj8H5aV4RON6ARk0GT3vUfXF7c59GBu2Tp/1dmBk0ioepFhsXhLO6er7zWtYoM1Kbtokq3EqH
+	JiuD1ez5AA1eqhCStVeMfwtNVAK7X5bdXmVXiflOYtB0drnFXj5NahcLPaqIC1AE0Lin/KJnwKTZi
+	hZR7RRxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hkm-0000000BGFy-0RMf;
-	Thu, 19 Mar 2026 18:05:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hkj-0000000BGFd-2ZBW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 18:05:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CF8E2247;
-	Thu, 19 Mar 2026 11:05:42 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27E403F7BD;
-	Thu, 19 Mar 2026 11:05:42 -0700 (PDT)
-Date: Thu, 19 Mar 2026 18:05:35 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v13 07/48] arm64: RMI: Check for RMI support at KVM init
-Message-ID: <i2ospdohxu42333musywjnooxgkc35dkqnipi2amf4az2ugdzo@b6hjhuzlnj2m>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-8-steven.price@arm.com>
+	id 1w3Hl0-0000000BGIH-1grh;
+	Thu, 19 Mar 2026 18:06:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Hkx-0000000BGHf-1LHH;
+	Thu, 19 Mar 2026 18:06:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773943559;
+	bh=vgIomdEFLpCH/ayWCgPxi7rIPZPRA/uLntpDcg/oA6Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=b5EMQ616dun3Le9dLPr9o2OIVE8CMKpIbyDhPulHbDK036sEpVSbTySzL0wmlu8ge
+	 lr64Xsbcagm5/8sPz1Y2c5jBnTG4pUGOQE1D826XX1uUpPTJd5JL0hTsj118MikWgc
+	 5hwt29P85AeYn1s00eRHTJb8UqBwp744lch7cbaJnfvi0QaBbGcbRErZ8Bimjpb55/
+	 Rj+6acv5q4scZ25v/Q3I8k4N6dxfvewxJMbrTEbBqNGb4JfKL52gzaZugAgTn44sVH
+	 DPefnfADoSePS0Ww/DQC8qPGwkktJIlqOsQU+7gd0KCxdDVMEswMIr/avCB3XVHytH
+	 oiUJcZX9bloEQ==
+Received: from [IPv6:2606:6d00:11:b76d::5ac] (unknown [IPv6:2606:6d00:11:b76d::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3676A17E127A;
+	Thu, 19 Mar 2026 19:05:56 +0100 (CET)
+Message-ID: <e49d7d5d2ae928e00486b1cfe8f255124d3958d8.camel@collabora.com>
+Subject: Re: [PATCH v7 05/10] media: mediatek: vcodec: Add Decoder profile &
+ level Initialization
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
+ <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
+ <george.sun@mediatek.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Date: Thu, 19 Mar 2026 14:05:54 -0400
+In-Reply-To: <20260127024248.18406-6-kyrie.wu@mediatek.com>
+References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
+	 <20260127024248.18406-6-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-sy0z8PEWBL/CCb3Vp0df"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260318155413.793430-8-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_110549_756558_0EE5E916 
-X-CRM114-Status: GOOD (  39.63  )
+X-CRM114-CacheID: sfid-20260319_110603_522942_2C25EBA0 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,303 +100,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 03:53:31PM +0000, Steven Price wrote:
-> Query the RMI version number and check if it is a compatible version. A
-> static key is also provided to signal that a supported RMM is available.
-> 
-> Functions are provided to query if a VM or VCPU is a realm (or rec)
-> which currently will always return false.
-> 
-> Later patches make use of struct realm and the states as the ioctls
-> interfaces are added to support realm and REC creation and destruction.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v12:
->  * Drop check for 4k page size.
-> Changes since v11:
->  * Reword slightly the comments on the realm states.
-> Changes since v10:
->  * kvm_is_realm() no longer has a NULL check.
->  * Rename from "rme" to "rmi" when referring to the RMM interface.
->  * Check for RME (hardware) support before probing for RMI support.
-> Changes since v8:
->  * No need to guard kvm_init_rme() behind 'in_hyp_mode'.
-> Changes since v6:
->  * Improved message for an unsupported RMI ABI version.
-> Changes since v5:
->  * Reword "unsupported" message from "host supports" to "we want" to
->    clarify that 'we' are the 'host'.
-> Changes since v2:
->  * Drop return value from kvm_init_rme(), it was always 0.
->  * Rely on the RMM return value to identify whether the RSI ABI is
->    compatible.
-> ---
->  arch/arm64/include/asm/kvm_emulate.h | 18 +++++++++
->  arch/arm64/include/asm/kvm_host.h    |  4 ++
->  arch/arm64/include/asm/kvm_rmi.h     | 56 +++++++++++++++++++++++++++
->  arch/arm64/include/asm/virt.h        |  1 +
->  arch/arm64/kernel/cpufeature.c       |  1 +
->  arch/arm64/kvm/Makefile              |  2 +-
->  arch/arm64/kvm/arm.c                 |  5 +++
->  arch/arm64/kvm/rmi.c                 | 57 ++++++++++++++++++++++++++++
->  8 files changed, 143 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/include/asm/kvm_rmi.h
->  create mode 100644 arch/arm64/kvm/rmi.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 5bf3d7e1d92c..f38b50151ce8 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -688,4 +688,22 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
->  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
->  	}
->  }
-> +
-> +static inline bool kvm_is_realm(struct kvm *kvm)
-> +{
-> +	if (static_branch_unlikely(&kvm_rmi_is_available))
-> +		return kvm->arch.is_realm;
-> +	return false;
-> +}
-> +
-> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
-> +{
-> +	return READ_ONCE(kvm->arch.realm.state);
-> +}
+
+--=-sy0z8PEWBL/CCb3Vp0df
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
 Hi,
 
-Do you think it would be helpful to have a write version of this?
-That way we can search for the write version to see all the locations of
-realm state changes, instead of having to search through all the
-WRITE_ONCE()'s.
+Just to recap my expectations.
 
-Thanks,
-Wei-Lin Chang
+Le mardi 27 janvier 2026 =C3=A0 10:42 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> This commit initializes codec profile & level for VDEC. It sets
+> default values for H264, H265, and VP9 codecs across multiple
+> chipset configurations.
+>=20
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> ---
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateful.c=C2=A0 | 12 +++
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateless.c | 84 ++++++++++++++++=
++++
+> =C2=A02 files changed, 96 insertions(+)
+>=20
+> diff --git
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.=
+c
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.=
+c
+> index 8ddb61670dc6..a47906b9d717 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+ful.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+ful.c
+> @@ -619,4 +619,16 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8173_pdat=
+a =3D {
+> =C2=A0	.is_subdev_supported =3D false,
+> =C2=A0	.hw_arch =3D MTK_VDEC_PURE_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8173,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_4_1,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+> +	},
+> =C2=A0};
+> diff --git
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> index a1f419202a24..b571c4ed3f79 100644
+> ---
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> +++
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> @@ -830,6 +830,18 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8183_pdat=
+a =3D {
+> =C2=A0	.is_subdev_supported =3D false,
+> =C2=A0	.hw_arch =3D MTK_VDEC_PURE_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8183,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0/* This platform data is used for one lat and one core architecture=
+. */
+> @@ -869,24 +881,72 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8188_pda=
+ta =3D
+> {
+> =C2=A0	MTK_STATELESS_DEC_DATA,
+> =C2=A0	.hw_arch =3D MTK_VDEC_LAT_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8188,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0const struct mtk_vcodec_dec_pdata mtk_vdec_8192_pdata =3D {
+> =C2=A0	MTK_STATELESS_DEC_DATA,
+> =C2=A0	.hw_arch =3D MTK_VDEC_LAT_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8192,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0const struct mtk_vcodec_dec_pdata mtk_vdec_8195_pdata =3D {
+> =C2=A0	MTK_STATELESS_DEC_DATA,
+> =C2=A0	.hw_arch =3D MTK_VDEC_LAT_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8195,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0const struct mtk_vcodec_dec_pdata mtk_vdec_8196_pdata =3D {
+> =C2=A0	MTK_STATELESS_DEC_DATA,
+> =C2=A0	.hw_arch =3D MTK_VDEC_LAT_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8196,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+> +	},
+> =C2=A0};
+> =C2=A0
+> =C2=A0const struct mtk_vcodec_dec_pdata mtk_vdec_single_core_pdata =3D {
+> @@ -910,6 +970,18 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8186_pdat=
+a =3D {
+> =C2=A0	MTK_STATELESS_DEC_DATA,
+> =C2=A0	.hw_arch =3D MTK_VDEC_PURE_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8186,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_4_1,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+> +	},
+> =C2=A0};
 
-> +
-> +static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +
->  #endif /* __ARM64_KVM_EMULATE_H__ */
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 5d5a3bbdb95e..9267a2f2d65b 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -27,6 +27,7 @@
->  #include <asm/fpsimd.h>
->  #include <asm/kvm.h>
->  #include <asm/kvm_asm.h>
-> +#include <asm/kvm_rmi.h>
->  #include <asm/vncr_mapping.h>
->  
->  #define __KVM_HAVE_ARCH_INTC_INITIALIZED
-> @@ -405,6 +406,9 @@ struct kvm_arch {
->  	 * the associated pKVM instance in the hypervisor.
->  	 */
->  	struct kvm_protected_vm pkvm;
-> +
-> +	bool is_realm;
-> +	struct realm realm;
->  };
->  
->  struct kvm_vcpu_fault_info {
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> new file mode 100644
-> index 000000000000..3506f50b05cd
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -0,0 +1,56 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2023-2025 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_KVM_RMI_H
-> +#define __ASM_KVM_RMI_H
-> +
-> +/**
-> + * enum realm_state - State of a Realm
-> + */
-> +enum realm_state {
-> +	/**
-> +	 * @REALM_STATE_NONE:
-> +	 *      Realm has not yet been created. rmi_realm_create() has not
-> +	 *      yet been called.
-> +	 */
-> +	REALM_STATE_NONE,
-> +	/**
-> +	 * @REALM_STATE_NEW:
-> +	 *      Realm is under construction, rmi_realm_create() has been
-> +	 *      called, but it is not yet activated. Pages may be populated.
-> +	 */
-> +	REALM_STATE_NEW,
-> +	/**
-> +	 * @REALM_STATE_ACTIVE:
-> +	 *      Realm has been created and is eligible for execution with
-> +	 *      rmi_rec_enter(). Pages may no longer be populated with
-> +	 *      rmi_data_create().
-> +	 */
-> +	REALM_STATE_ACTIVE,
-> +	/**
-> +	 * @REALM_STATE_DYING:
-> +	 *      Realm is in the process of being destroyed or has already been
-> +	 *      destroyed.
-> +	 */
-> +	REALM_STATE_DYING,
-> +	/**
-> +	 * @REALM_STATE_DEAD:
-> +	 *      Realm has been destroyed.
-> +	 */
-> +	REALM_STATE_DEAD
-> +};
-> +
-> +/**
-> + * struct realm - Additional per VM data for a Realm
-> + *
-> + * @state: The lifetime state machine for the realm
-> + */
-> +struct realm {
-> +	enum realm_state state;
-> +};
-> +
-> +void kvm_init_rmi(void);
-> +
-> +#endif /* __ASM_KVM_RMI_H */
-> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-> index b51ab6840f9c..dc9b2899e0b2 100644
-> --- a/arch/arm64/include/asm/virt.h
-> +++ b/arch/arm64/include/asm/virt.h
-> @@ -87,6 +87,7 @@ void __hyp_reset_vectors(void);
->  bool is_kvm_arm_initialised(void);
->  
->  DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
-> +DECLARE_STATIC_KEY_FALSE(kvm_rmi_is_available);
->  
->  static inline bool is_pkvm_initialized(void)
->  {
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index c31f8e17732a..ddf7e57f23e8 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -289,6 +289,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->  static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 3ebc0570345c..e17c4077d8e7 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
->  kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->  	 inject_fault.o va_layout.o handle_exit.o config.o \
->  	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
-> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
-> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
->  	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
->  	 vgic/vgic.o vgic/vgic-init.o \
->  	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 29f0326f7e00..274d7866efdc 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -39,6 +39,7 @@
->  #include <asm/kvm_nested.h>
->  #include <asm/kvm_pkvm.h>
->  #include <asm/kvm_ptrauth.h>
-> +#include <asm/kvm_rmi.h>
->  #include <asm/sections.h>
->  #include <asm/stacktrace/nvhe.h>
->  
-> @@ -104,6 +105,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
->  	return -EINVAL;
->  }
->  
-> +DEFINE_STATIC_KEY_FALSE(kvm_rmi_is_available);
-> +
->  DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
->  
->  DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
-> @@ -2921,6 +2924,8 @@ static __init int kvm_arm_init(void)
->  
->  	in_hyp_mode = is_kernel_in_hyp_mode();
->  
-> +	kvm_init_rmi();
-> +
->  	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
->  	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
->  		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> new file mode 100644
-> index 000000000000..fac151580c01
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -0,0 +1,57 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2025 ARM Ltd.
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +
-> +#include <asm/rmi_cmds.h>
-> +#include <asm/virt.h>
-> +
-> +static int rmi_check_version(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	unsigned short version_major, version_minor;
-> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-> +						     RMI_ABI_MINOR_VERSION);
-> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-> +
-> +	/* If RME isn't supported, then RMI can't be */
-> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
-> +		return -ENXIO;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
-> +
-> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-> +		return -ENXIO;
-> +
-> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
-> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
-> +
-> +	if (res.a0 != RMI_SUCCESS) {
-> +		unsigned short high_version_major, high_version_minor;
-> +
-> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
-> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
-> +
-> +		kvm_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
-> +			version_major, version_minor,
-> +			high_version_major, high_version_minor,
-> +			RMI_ABI_MAJOR_VERSION,
-> +			RMI_ABI_MINOR_VERSION);
-> +		return -ENXIO;
-> +	}
-> +
-> +	kvm_info("RMI ABI version %d.%d\n", version_major, version_minor);
-> +
-> +	return 0;
-> +}
-> +
-> +void kvm_init_rmi(void)
-> +{
-> +	/* Continue without realm support if we can't agree on a version */
-> +	if (rmi_check_version())
-> +		return;
-> +
-> +	/* Future patch will enable static branch kvm_rmi_is_available */
-> +}
-> -- 
-> 2.43.0
-> 
+All of the above should be squashed into patch 04. Patch 04 should be moved
+before any patches related to 8189.
+
+> =C2=A0
+> =C2=A0const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pdata =3D {
+> @@ -928,4 +1000,16 @@ const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pda=
+ta =3D
+> {
+> =C2=A0	.is_subdev_supported =3D true,
+> =C2=A0	.hw_arch =3D MTK_VDEC_PURE_SINGLE_CORE,
+> =C2=A0	.chip_name =3D 8189,
+> +	.h264_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+> +	},
+> +	.h265_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+> +		.profile =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+> +	},
+> +	.vp9_params =3D {
+> +		.level =3D V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+> +		.profile =3D V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+> +	},
+> =C2=A0};
+
+This hunk should be squashed with what is actually patch 03.
+
+regards,
+Nicolas
+
+--=-sy0z8PEWBL/CCb3Vp0df
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabw7AwAKCRDZQZRRKWBy
+9PwGAP9rzgY7L9M1ieTU8Siy2SFrsV3eHnECJj+0oyYlyTmLPgD/afPtu/772SoD
+pgdx2ZG6XqMN3qE5cvRAQHaBmhd/FgI=
+=pxH0
+-----END PGP SIGNATURE-----
+
+--=-sy0z8PEWBL/CCb3Vp0df--
 
