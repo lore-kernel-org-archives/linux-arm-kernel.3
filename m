@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E287B1075275
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8088B1075274
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 08:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oI2UrckBzF17ns/wBn+hYi8gt9ywOOjF7CkWdCC689U=; b=BgwkRlswwT5BVWTPucYskRoFaB
-	ddrbzPUAntTe8vpaXhzQ/wwV46nbuE15Et0AVbwfdiJ4Wc2HB7wf64XbYrPfzGXGy28nPXeCXxHQ1
-	XmgK0PxLk3zFSVkICk1g6xmSZX5UB9ZOISxSU7jgtPHEf3lUoSOWtLrGN3tjEKhoItiLswV/rgSi8
-	5pPWTrxLDRwuB14WGBvzV8cOQeE3rGYUFZBXgHiiNSABFzHUe/cNGi4eQHL5qmqLv3nd5FaNM03aj
-	X4oxAr6ah28BYbbTPm+JwF+q4s0n5Tv5C4+fOAvbhBG/YL8cUferYLWjTc+CB4xmfe61Dzm2j8cst
-	PUfarAtQ==;
+	bh=5vVbGHY0Z9S4PWTSiGp1An2ovbBKnDNi0IvWUwoLoQo=; b=lxcKN0k5MAlsFlTWI7IGQcd5ux
+	8OshWeENeJDMGkzv+vcvGhC6orvkSuLpaNAGWC27eD3KjH7cK/pWtJOPr10c7fAmbYsCZKcwM8z2i
+	7vLJPjQ/fN2yjdQnmZSrEUyBObmVWMyXYpaxiYG71uTZv5Z8+1hvJqwGjjZNLjan3kdevlh1tnJLE
+	7v59iU4CcPzWd6AdL53y8OrJhLYliDreCNLXFlTY1Xl2QJA88cIIP9qgwaN1riZ0PzGnHdlOE07Cn
+	ePDLAkDz+zPCZFXEc7LmXJVm/bHlyQ8+HicuHmWDp1L042gh4q4RO7JlEmiXQanhka7swIPR1VauI
+	k33tzJnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38Oj-0000000ACnJ-03r7;
-	Thu, 19 Mar 2026 08:06:29 +0000
+	id 1w38Ph-0000000ACx1-1rCg;
+	Thu, 19 Mar 2026 08:07:29 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38Oi-0000000ACn6-1rKs
+	id 1w38Pf-0000000ACwp-2wCu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 08:06:28 +0000
+	Thu, 19 Mar 2026 08:07:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 822E06011F;
-	Thu, 19 Mar 2026 08:06:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19E5C19424;
-	Thu, 19 Mar 2026 08:06:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26D82600AD;
+	Thu, 19 Mar 2026 08:07:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77302C19424;
+	Thu, 19 Mar 2026 08:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773907587;
-	bh=LND9QP38YR3zwrHcZrV2AQ0j85RMG+MUPI/TxNx7ph4=;
+	s=k20201202; t=1773907646;
+	bh=/eggGJc8w0dVMpTXWMeYMFm/znwA+edXs/5l6qyW4PE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mAoLMsnhwO55TSj97BpIYQ6GGdnoo4+804Ny+0owESLqk3FJnTkHlhyv9bLhrCF99
-	 0sT9NpOmTKokTvdExb8z1iErj+uk0TzkZSU4ditf/VT0VWAYsiFFZTHZWFPSA16YBz
-	 HGR/abXCzo4q5Nmyw6affJxlSHF78KGysbFhvCPbYOEvMAGCORBZkJKJ0R+UAZYJ8O
-	 qAgEa3Sl1SpgbcJmBhJAcZdxXh84wI39Yqazewcwl3riFVXoG6FzQetlqQ50sJ0QmB
-	 u2L2i6/3KU4FprDksfvPZ2uG4Xm+QPvcKE0Egk0g9uftSHIuR8QAnY/gyQMB4se5cW
-	 +2bWg2UcYBLYA==
-Date: Thu, 19 Mar 2026 09:06:24 +0100
+	b=Yqv2xAS9fjzDIa7+qFMFWEC3da1aX7vqYq3Nm7gvhUEnG0sIodlyG5dShrFBWRyZb
+	 kcCgtrw/+Zsppc5EMEN2Pz2HFIfNmMbs0Rid6utUuSOgXEZfT2tty4+Q5480DeMcAO
+	 cJZRPVTeSRVKHUyK5HdiJqua0tr12r0BGKFnU50su6MR+YRH78Za65A4Veqh57N1Sw
+	 9dXnkVUTpeeHxIeY9p2gsfWrrV9YSYEgogVN6D1+cXz5vZeib1RfsN5b+31oUMWllR
+	 wFRreAhlODAlh7IyNtSGCNaPekZgTtIVMjq1OMW9nzXYuu8yQRRP4GTeimdBVrpadm
+	 1aRZZYmhSNzsQ==
+Date: Thu, 19 Mar 2026 09:07:24 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -52,15 +52,15 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
 	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v21 2/6] dt-bindings: remoteproc: Add STM32
- TEE-controlled rproc binding
-Message-ID: <20260319-prehistoric-mongrel-of-essence-fea9b0@quoll>
+Subject: Re: [PATCH v21 0/6] Introduction of a remoteproc tee to load signed
+ firmware
+Message-ID: <20260319-fiery-onyx-serval-aceb17@quoll>
 References: <20260317180329.1207625-1-arnaud.pouliquen@foss.st.com>
- <20260317180329.1207625-3-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260317180329.1207625-3-arnaud.pouliquen@foss.st.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260317180329.1207625-1-arnaud.pouliquen@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 07:03:23PM +0100, Arnaud Pouliquen wrote:
-> Add a Device Tree binding for the STM32 remote processor controlled
-> via a Trusted Application running in OP-TEE.
-> This binding describes the interface and properties required for STM32MP
-> remoteproc instances managed by the TEE rproc service, including a
-> linkage to the TEE backend through the property "rproc-tee-phandle".
-> 
-> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-> ---
+On Tue, Mar 17, 2026 at 07:03:21PM +0100, Arnaud Pouliquen wrote:
+>=20
+> Main updates from version V20[4]:
+> --------------------------------
+> To address Rob=E2=80=99s concern on v20concerning resource declaration un=
+der the
+> tee node, the device tree is now structured as follows,replacing the
+> child-parent hierarchy with a phandle:
+>=20
+>     firmware {
+>         tee_rproc: optee-rproc {
+>             compatible =3D "80a4c275-0a47-4905-8285-1486a9771a08";
+>         };
+>     };
+>=20
 
-Heh, and standard comment...
+And what is the parent here?
 
-A nit, subject: drop second/last, redundant "binding". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+>     m4: m4@0 {
+
+What sort of bus do you have here (IOW, what does this 0 mean?)
+
+>       compatible =3D "st,stm32mp1-m4-tee";
+>       reg =3D <0 0>;
+>=20
+>       mboxes =3D <&ipcc 0>, <&ipcc 1>, <&ipcc 2>;
+>       mbox-names =3D "vq0", "vq1", "shutdown";
+>=20
+>       memory-region =3D <&vdev0vring0>, <&m_ipc_shm>, <&mcuram2>,
+>                       <&vdev0vring1>, <&vdev0buffer>, <&retram>;
+>=20
+>       interrupt-parent =3D <&exti>;
+>       interrupts =3D <68 1>;
+>=20
+>       rproc-tee-phandle =3D <&tee_rproc 0>;
+>       st,auto-boot;
+>       wakeup-source;
+>=20
+>       status =3D "okay";
+>     };
 
 Best regards,
 Krzysztof
