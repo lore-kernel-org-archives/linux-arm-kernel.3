@@ -4,73 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB051091904
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81C41091911
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3Ty2rMUXWrI+Dw+O8BMuW+g1hkiDWZuTXFRx7/LGyc=; b=DZFeCQxdOShXWJUyzzFZsyyiKn
-	vCeBj9dDDtCsm51pvD3hwDQjKNLrl6ILQHVj5iMFVZif18nk4t23AdFfskGCJxiGFuN0Boy7yRFN+
-	64Rp5VEYidBa4RznJl5ukLFXmOp1eH3zlJ7NFFC3R6rXavCSMIiyMHsrsPrh8cr/qH4ViHG1nBRwB
-	RonC8N/45i66mgObpkocrNs6fb0BGyfBDjONZARoqSYID8306eUi2r4jEYvbuB+2RzZwNr49/aMiT
-	E+d7Vxj8hREbcsr7GBq8vn1Xkk5ErZuqlEei1BhiVvHNFbrq6BV2V1cFXJmpICWu4JE6Ycom7iCC2
-	I1KSGZCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vuEZXO+CHfhAxsJIRz0BfZWZ8cKEPZRDkRGOrY3EjE4=; b=ePiuSuXP5HV+OAxzo0IxA8ZJ9u
+	QHW11N+CXySGWwy33yHHZv3ouQ+LFxovUo3kC06r5f4ZgOj3ExW1CiU2zVid0ZO/eSmWOXehG3Oqg
+	JXKaeAlqKNG8chxqfGzVXoNPbi12oCGGcdx/e3HMtmXEnFrgA988NABzfv1IFV3dPDSFa8sRJE96D
+	DGhPjChKGE4oJrAUzEDIJL1+1AkdNWyR0GiWRajw5vSW34qslhyvsJ0W/B9ihRfKCuWwiZoYcZrQ6
+	G3RX70MBVk1RyZnhK8bEzWwcHzf5BT5lWpemwAYe7eKOP+IF1BvrewSuuaHCRC46bHgmteiCLB3Ub
+	wM/ww5uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3J4d-0000000BS9n-3pO8;
-	Thu, 19 Mar 2026 19:30:27 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1w3J8I-0000000BSQ0-3Owo;
+	Thu, 19 Mar 2026 19:34:14 +0000
+Received: from mail-southcentralusazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d10c::1] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3J4b-0000000BS8H-20Hw
+	id 1w3J8F-0000000BSPf-3hwW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 19:30:26 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 05769240103
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 20:30:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
-	t=1773948617; bh=q3Ty2rMUXWrI+Dw+O8BMuW+g1hkiDWZuTXFRx7/LGyc=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 From;
-	b=XnntJXqcpKq1vvulz5ESTTOSuIeKIX58sdM4Neo34xfN9p7sst/fhPm2wOc1Vxlda
-	 mjp4/d1P3RYokEQ7FNKg4VYP4UowCN79ZaDBf3FWlQKSVM1mruJzoWL6674ITV5Bhm
-	 4KuUWlLrJx+hdUm56zwyk4JUIXcrUBtoDvSUmW1UVTh7t2p5Ott9xhbyJrgyJbWN5s
-	 i5lJ/LSCZkvm0Z4T9LtvzLC7PnKMskLMMTvGEKiMzgjuDzwZg9ali7gXV9ngizQ2WE
-	 THcCN2TNkBFWrI99XE9Ln/1z12K1UE9wCDIkSYPZjd4hu9ZjeYBVkeJNLjWOB3wdlB
-	 rWjt5EMoaxgwA==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4fcG4K6pw3z6twZ;
-	Thu, 19 Mar 2026 20:30:09 +0100 (CET)
-From: Charalampos Mitrodimas <charmitro@posteo.net>
-To: Michael Riesch via B4 Relay
- <devnull+michael.riesch.collabora.com@kernel.org>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Heiko Stuebner
- <heiko@sntech.de>,  Kever Yang <kever.yang@rock-chips.com>,  Jagan Teki
- <jagan@amarulasolutions.com>,  =?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YU=?=
- =?utf-8?B?0LDQuNC7?=
- <mai.kuznetsov.misha@gmail.com>,  Sebastian Reichel
- <sebastian.reichel@collabora.com>,  Nicolas Dufresne
- <nicolas.dufresne@collabora.com>,  Collabora Kernel Team
- <kernel@collabora.com>,  Sakari Ailus <sakari.ailus@linux.intel.com>,
-  michael.riesch@collabora.com,  linux-media@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-rockchip@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/9] Documentation: admin-guide: media: add rk3588 vicap
-In-Reply-To: <20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
-References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
-	<20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
-Date: Thu, 19 Mar 2026 19:30:14 +0000
-Message-ID: <m2h5qbd3cv.fsf@posteo.net>
+	Thu, 19 Mar 2026 19:34:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xdDg/17em3Ta0DqUlLoQKSl31yYOn3T8+Nu+yerwf4Qz0Y/wyGpxShmZ2BOLJuHpT/9iX75wNsBtIpvwXuGZ8lriyT6O0Nb78TOj+UOYnkhPR0B8qwrJME7AHiXqqiVm7zkJdx9d+msCnpjwIF78Gy+0bM2d0XEXQgliOsWgDx1dJty/ng3sL6QA7kSM3bZPISIm/6udgOYRYhHBEvVah07q3llIIOhWbM5a5lDBeQh94/KAcFVZxfRWni7Thx1q9uFKMY0XOP6RWk+o4W0Vp5TCsXqwz4N18LDChCF1ni17pb1aDf+lDWZv/dHnQfSPc2Wizqvn+/gISUnr3rzlDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vuEZXO+CHfhAxsJIRz0BfZWZ8cKEPZRDkRGOrY3EjE4=;
+ b=Mjkwlvak/gohmbE+QRutnO/BVtHyMhxXXV68rL5FdyCwEH6jNVqan815M2bA0stKTeHYjkPimsJk4DUmcJuqgaa2VxUuC48T+onc2Cf5Jnulz6uSrqTRQkhIU2URysGbt2X0poUa3aXU360QRH4hPqfSCx2Uzxn3tfbYykZigAYZgK/r+LEa1vYykLJkQ3yr4ZtdQkVMMzrDJ+ArlQaER5NNtQNtXSKfnAZqOpdF91bNcjB1Mh3NXkzNTiNzDYGA1sS5DiNfqkBYNocRh2zU1mk+qCXaVWHUMq056oArHyAgcD5GViO0EM8KvwXUH85btm9ldC8fI5PGE2cFZHiT5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vuEZXO+CHfhAxsJIRz0BfZWZ8cKEPZRDkRGOrY3EjE4=;
+ b=YbfD0pgw50z8V3r3TcCDq1oGOglCDzE6IeVjP3Fu3UGzqCI8uL0v8EIiboeRhDC2BEU2qLvhi43B8th7Kf+m/gO4byzEAwY21P/kNWyekMfpMQm6ueghcmoigc36tY7YwNtBKmL3jTvS6BYiCdHbKjQkvId0+sSKnlrRg+8JDs77bUmeMuLIjiSiOsbBwVsQsZSzbA4ikpDnRXIZiCNPWeI541KgQQE7TliC+xOIkrj0GlKOHp5N02Ai0UxSjd+ek09+Uz6ROgM+4c4sXGLOw1ejsJzLJz6xh/KXpYCMbjUT5iSFTZDpHpmS5H3NhXtS3+wT0bIqMuROXbbYCzQJnw==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by BY1PR02MB10410.namprd02.prod.outlook.com (2603:10b6:a03:5a6::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 19:34:05 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 19:34:05 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
+CC: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jan Kiszka
+	<jan.kiszka@siemens.com>
+Subject: Question: interrupt randomness and handle_percpu_devid_irq()
+Thread-Topic: Question: interrupt randomness and handle_percpu_devid_irq()
+Thread-Index: Ady31V+ZSsTYWzWWQHqFSgsURDyuCA==
+Date: Thu, 19 Mar 2026 19:34:05 +0000
+Message-ID: <SN6PR02MB41577F8265CA23C3027364F7D44FA@SN6PR02MB4157.namprd02.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BY1PR02MB10410:EE_
+x-ms-office365-filtering-correlation-id: d0296db5-5f0d-4b25-d8e6-08de85ee7b53
+x-microsoft-antispam: BCL:0;ARA:14566002|15080799012|37011999003|51005399006|31061999003|19110799012|13091999003|8060799015|8062599012|461199028|40105399003|3412199025|440099028|102099032;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kIR5ruHYQXZKYuxpGTbNWRGThIKbUZGZQxx6uf9GJNMu9Cq/hLA5wIQzUCus?=
+ =?us-ascii?Q?Yya/pzoPCysydvOaV4WuoVImuf3gILwJ9SMEp5tzhQ604QulfILTTOyonKlL?=
+ =?us-ascii?Q?XqTb+bSiXcyU89hFpvL6caI6V8ljf8vq1EDJ8Y3MXQlQwEPVz+ow2MbEdyzN?=
+ =?us-ascii?Q?jB/lvIp5ejH0J3vHFfn49CJOJ8S0Z4x5+Zf9YvtFYZ0iYEMq3rHJAScAi8Bc?=
+ =?us-ascii?Q?n8rbboHKTWNNS96T0jGO8kIcFX0qSMY95rtd8wPXPjZvEG5KJEwhzjm8j59V?=
+ =?us-ascii?Q?k6G/EOsYHmiskFdFJHVqvBu6qrb2navpP9XnBM/p9THzqU0WKNwvZaNatjCj?=
+ =?us-ascii?Q?1XIwVwT8oLQNiGzfBbbSaJlKovUZlt7nJKpIfgHIOdN/HkxydOjIn3St2Mao?=
+ =?us-ascii?Q?Uohn4bwFSnVGKQymVYb84jOJIUykU+3xW7SUiL9Pv/Fl6AgiuKntbxX4Z4if?=
+ =?us-ascii?Q?zR7bu2TF6dg1eTmsLTX4SoKX4J67JpbuCjH6m0y7zgg25YOp4ZkPd5adbTzs?=
+ =?us-ascii?Q?wgJPwIljuaWvzBfy8wSo2Dzg9nicTjjE2s4JaIvdLy7/k8vbuCj2L5uZ5ijL?=
+ =?us-ascii?Q?8CU9IroOjBpe8vOv9TQcdaNndy9PsdS4vH+GsevTv4zFkDxFVFtB+QBD85OE?=
+ =?us-ascii?Q?RwwfdlBQXO77j/TMwHkCA1VjUKXzhL137pcU1HmcFE6hyZnW7Qe8H4By+b+D?=
+ =?us-ascii?Q?qpVhHR5S0mmsb9cXwTfbejkSRvB3yXWDEUz7nmrLJNsmTMzahrPS/r76Prx8?=
+ =?us-ascii?Q?zJt9H7FtRKXvqMGe2mx/OAO64EXFkSUvBiwKYuD3ioBwIVvI3IbrEh0gAMtp?=
+ =?us-ascii?Q?xdksAaUgBbt42kZ8VBzfWwLBJuih3Oxhg4KB3LgSqykcZiS2QF0URb8hu/Hq?=
+ =?us-ascii?Q?KYTPSUgXu0d73285RaqVgnGqVXKMuliPQPe73aFy6Tf5gHNhne8uf+9+2tdZ?=
+ =?us-ascii?Q?Wi8lhLmEr8WRvTPl5bIWcDInoRWE/LWZS8byDcCkfKI=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PykkI1tiTrfGFowpZPIyRyFxLtj5/SRFwTqmeJ5AR0w5nSJDG4aI1SFnvK4A?=
+ =?us-ascii?Q?2vdcoI2aIjqjLoWGffeGY8W5s4S3jGc6yMa63cDFacSR0OEUpUkwN9IBfd0c?=
+ =?us-ascii?Q?KWj8mzLazkpj9odQKZN11hneEC1zBLmhviwPMwLgejH0z3LMgc1VF7kBJDA0?=
+ =?us-ascii?Q?us+bZqdFJ9Jqt/ROdfZ1zCKEvDvTpKOIe5omMUlUS/p8l3M0VOFAv/abcwBl?=
+ =?us-ascii?Q?kF/h6+ksvRtTEq7p9AFziHjgvzw+UORvbgdWZntPfwm+3YijFNhvB2ZXBgYZ?=
+ =?us-ascii?Q?YMprBGvb0e1m4rhw0550XWl45ju03ubvts2TBJurt7zwBXUObRBD/8bVrZTf?=
+ =?us-ascii?Q?ABftJvzUwO2mkuyBVyU0ETOr9QlsssH35Jdvt9wzqqXIlZy2kDks8aW/6RSe?=
+ =?us-ascii?Q?v7+emN2PEptXzf9lLbhSrqq3LLRmM471UwAwOYF0bEtm6NQ6w112acyCyQdy?=
+ =?us-ascii?Q?RruV+Jjow3jPqNwx1z6eN2R5BGj3/XkqsOwcUmSJ0UGQqnvJ4VvDqFSZLbXz?=
+ =?us-ascii?Q?968M2u0J/GWvZK0j/f+4pKCtDAbjWwyIqt+0lSasloqCgaIRvalKYrje/QLt?=
+ =?us-ascii?Q?ZyJ3QGODirtad++mvvp9WSljF0VBqwqsRLea8unnS7URTn+xkkm7uc6HeYrz?=
+ =?us-ascii?Q?OFEOz8NMkYwfk5u2b88jG+EzG1DgvKs2uRGxiCFZDus3Aqya1ZijAF4UiB1B?=
+ =?us-ascii?Q?VT9LJLRrEii9hIA7dAVf55DFdbAN7fdA+Hh6fHM6cWEwMkzN2zRXLRz2oivY?=
+ =?us-ascii?Q?6aYVv/0XROuQBW+U4a0zTlgEMb5AlmiTo5komyLy0d8lLmjpJwfnnFBgQXCn?=
+ =?us-ascii?Q?N7DN6ILtx6mjQ1vS2iIA86sJENkMFILl2jjccklU4Mxc/J3vmfEMytc6vVPb?=
+ =?us-ascii?Q?wRnJSkSVUkDXbFvDs5av/2k5JLVaHUUwsjwoYxsPZCoeWNRA/NQv49hKFps6?=
+ =?us-ascii?Q?FX0Ld77gNeP92bmsCFXi8idpVIiJl4jWNtVPKPYiq7nNEQD3Xqp8joh5bJl3?=
+ =?us-ascii?Q?Oa6Olr7tRKsulWo+nUhuw69XCG8xMRldPjaimuk8YgfRGfFIlq5z75IsU8b6?=
+ =?us-ascii?Q?E9M2g3PJ44u7C46l+8mTsejJJxCT/rpmRT+L033dbahXoAJT2ni4bV0Y8onu?=
+ =?us-ascii?Q?iB5eIPwWGjAAveg3rZwJ2PQRqJgh+70evQd6W4nuMepxkdco7KaP3DSVroHF?=
+ =?us-ascii?Q?X9TjN86iwcQmcO6iu3M8Oz/EAb0kYRYytJHIFwLg2DXDR4sHXFJa1v1quAlz?=
+ =?us-ascii?Q?hjKGIHuBK15fgQuvxRfmpYq2OzREVzET0mHke78824g5KIO3YuCFnRVjVdXS?=
+ =?us-ascii?Q?xXoZYVnxm0aG3owIX9/QV/hnu3Gz2dVi7dikgiWB7EyuJyJcwf+CveITTZYR?=
+ =?us-ascii?Q?3gTs3O0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0296db5-5f0d-4b25-d8e6-08de85ee7b53
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2026 19:34:05.0614
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR02MB10410
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_123025_800340_6CE46448 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260319_123411_953375_5C0C0E42 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +143,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org> writes:
+The function header comment for handle_percpu_devid_irq() says that it is t=
+he
+same as handle_percpu_irq(), but with the addition of a pointer to a percpu
+variable with the real device id. That makes sense. But there's another dif=
+ference:
+handle_percpu_irq() calls add_interrupt_randomness() [via handle_irq_event_=
+percpu()],
+while handle_percpu_devid_irq() does not.
 
-> From: Michael Riesch <michael.riesch@collabora.com>
->
-> Add a section that describes the Rockchip RK3588 VICAP.
->
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../admin-guide/media/rkcif-rk3588-vicap.dot       | 29 ++++++++++++++++++++
->  Documentation/admin-guide/media/rkcif.rst          | 32 ++++++++++++++++++++++
->  2 files changed, 61 insertions(+)
->
-> diff --git a/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
-> new file mode 100644
-> index 000000000000..f6d3404920b5
-> --- /dev/null
-> +++ b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
-> @@ -0,0 +1,29 @@
-> +digraph board {
-> +        rankdir=TB
-> +        n00000007 [label="{{<port0> 0} | rkcif-mipi2\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000007:port1 -> n0000000a
-> +        n00000007:port1 -> n00000010 [style=dashed]
-> +        n00000007:port1 -> n00000016 [style=dashed]
-> +        n00000007:port1 -> n0000001c [style=dashed]
-> +        n0000000a [label="rkcif-mipi2-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-> +        n00000010 [label="rkcif-mipi2-id1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
-> +        n00000016 [label="rkcif-mipi2-id2\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
-> +        n0000001c [label="rkcif-mipi2-id3\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
-> +        n00000025 [label="{{<port0> 0} | rkcif-mipi4\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000025:port1 -> n00000028
-> +        n00000025:port1 -> n0000002e [style=dashed]
-> +        n00000025:port1 -> n00000034 [style=dashed]
-> +        n00000025:port1 -> n0000003a [style=dashed]
-> +        n00000028 [label="rkcif-mipi4-id0\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
-> +        n0000002e [label="rkcif-mipi4-id1\n/dev/video5", shape=box, style=filled, fillcolor=yellow]
-> +        n00000034 [label="rkcif-mipi4-id2\n/dev/video6", shape=box, style=filled, fillcolor=yellow]
-> +        n0000003a [label="rkcif-mipi4-id3\n/dev/video7", shape=box, style=filled, fillcolor=yellow]
-> +        n00000043 [label="{{<port0> 0} | dw-mipi-csi2rx fdd30000.csi\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000043:port1 -> n00000007:port0
-> +        n00000048 [label="{{<port0> 0} | dw-mipi-csi2rx fdd50000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000048:port1 -> n00000025:port0
-> +        n0000004d [label="{{} | imx415 3-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n0000004d:port0 -> n00000043:port0
-> +        n00000051 [label="{{} | imx415 4-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000051:port0 -> n00000048:port0
-> +}
-> diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
-> index 2558c121abc4..fcd7f8cfc5d3 100644
-> --- a/Documentation/admin-guide/media/rkcif.rst
-> +++ b/Documentation/admin-guide/media/rkcif.rst
-> @@ -77,3 +77,35 @@ and the following video devices:
->  .. kernel-figure:: rkcif-rk3568-vicap.dot
->      :alt:   Topology of the RK3568 Video Capture (VICAP) unit
->      :align: center
-> +
-> +Rockchip RK3588 Video Capture (VICAP)
-> +-------------------------------------
-> +
-> +The RK3588 Video Capture (VICAP) unit features a digital video port and six
-> +MIPI CSI-2 capture interfaces that can receive video data independently.
-> +The DVP accepts parallel video data, BT.656 and BT.1120.
-> +Since the BT.1120 protocol may feature more than one stream, the RK3568 VICAP
+Question: Is there a reason for this difference in handling interrupt rando=
+mness?
+Or is it just an oversight? handle_percpu_devid_irq() is used, for example,=
+ for the
+SGIs and PPIs on the GICv3 chip, so I wondered if IPIs (as built on SGIs) &=
+ PPIs
+specifically did not want the overhead of add_interrupt_randomness(). But t=
+hen
+GICv5 is doing IPIs using LPIs, which use handle_percpu_irq() and hence *do=
+*
+add interrupt randomness. That seemed inconsistent, which didn't help provi=
+de
+an answer.
 
-Nit, should this be RK3588 instead of RK3568?
+The question arises in the context of Linux guests running on Hyper-V. Hype=
+r-V
+VMBus interrupts to the guest are per-CPU interrupts in Linux, using a PPI =
+on
+arm64. So these interrupts do not call add_interrupt_randomness(), which is=
+ a
+problem because these guests don't have much other way to get entropy. To
+fix this, the VMBus ISR has always had an explicit call to
+add_interrupt_randomness(). But maybe that's not the best approach, and
+handle_percpu_devid_irq() should be fixed to call add_interrupt_randomness(=
+).
 
-> +DVP features four DMA engines that can capture different streams.
-> +Similarly, the RK3588 VICAP MIPI CSI-2 receivers feature four DMA engines each
-> +to handle different Virtual Channels (VCs).
-> +
-> +The rkcif driver represents this hardware variant by exposing the following
-> +V4L2 subdevices:
-> +
-> +* dw-mipi-csi2rx fdd30000.csi: MIPI CSI-2 receiver connected to MIPI DPHY0
-> +* dw-mipi-csi2rx fdd50000.csi: MIPI CSI-2 receiver connected to MIPI DPHY1
-> +* rkcif-mipi2: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
-> +  MIPI DPHY0
-> +* rkcif-mipi4: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
-> +  MIPI DPHY1
-> +
-> +and the following video devices:
-> +
-> +* rkcif-mipi2-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi2
-> +  INTERFACE/CROP block.
-> +* rkcif-mipi4-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi4
-> +  INTERFACE/CROP block.
-> +
-> +.. kernel-figure:: rkcif-rk3588-vicap.dot
-> +    :alt:   Topology of the RK3588 Video Capture (VICAP) unit
-> +    :align: center
+Thoughts?
+
+Michael
 
