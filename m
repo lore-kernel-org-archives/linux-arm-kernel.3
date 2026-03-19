@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373FB1091927
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 21:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B870F1091926
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 21:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlFXMwHCttTPX03qJ1wfzCV1aYfnM/IWk47OtkeslS0=; b=OZDba7HFuRrLHktmYSC6e187O/
-	ib5WGqUIvDMtuTV5r4KaLpwCWQBayG/EpitjoO2cRt5+/XWh7LibDEpeqy25YXbZcolcCg9ooHhkb
-	dBI8GGs3CO50MoAemasYe0GQU0uX+aaTIA/cb0zlN4+t4JdZSbl4IT3oR5L0KJUZdeVXHgGTPfFbM
-	gHopiYSdhSGY+yb5qvRa3mXGIGSiST4HPbkZPCngVYLqFGS94hF7ZETInMIwchY1wliEsKhgdpIje
-	kXi5dyMVFT4FafQmA8zWmHugc/Co+AS8HriI99rP5DdaTmbfI56ohbX1LwxFM26EKx9oZGTNSc2Kk
-	RvNegc2g==;
+	bh=Utk8QuL9U7rrfQmZu26ESAI3lqANTMx57bEHV01PWSw=; b=GkKga1faFPqL+HRgqE8fHOWLLu
+	9kP0b0ww0yAsJMUZqk2wLYlZmT7aV90hGiWVa1/79YRu0b/GDoeovs1qUoHmLyDINSOotncYD/yNf
+	B2SWV2dCZN3IWH5AhKx4VBJN4FOkWSBp8W4F/oc54Hm+7ttT0Vu/uvJYGuOh7L0XsOI57wDri57nC
+	+QY4FXZn+b1fOHqIMeWdKl9N9f5YrU0qtqkTFTJYi0fG2LYNilFUvvd7sxaqeN/RgJqHb9CUWOiGO
+	V6zw+5OqJBsPmQjf9bi7UCZ5NjKDhGBzOVBNxeamjjlyRjOdmFBRVgJzjeVaaJMmw/eIfWxL066vE
+	sIC+QETA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3L0B-0000000Bawk-3yAg;
-	Thu, 19 Mar 2026 21:33:59 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w3L5E-0000000BbBa-16oM;
+	Thu, 19 Mar 2026 21:39:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3L08-0000000Bavl-2OeA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 21:33:58 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 79E34838;
-	Thu, 19 Mar 2026 22:32:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1773955956;
-	bh=tzCaIgA8T0NJiMqXwAsDS9LpmbMwGbINnJroJi2ZhHo=;
+	id 1w3L5D-0000000BbBQ-02HW;
+	Thu, 19 Mar 2026 21:39:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1322260053;
+	Thu, 19 Mar 2026 21:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E942C2BCAF;
+	Thu, 19 Mar 2026 21:39:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773956349;
+	bh=qnM78Hg/1iF5vDCLJpfmfvc3l2bFyzopZG81qxHq1is=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GX38tiwLN6DSYm9GEXrKsPN7SjL9S+iDBJ8NS20B32cwZtCaXMktaDfnTxMwW0BbQ
-	 sEra/ZAhbLpKZyUhUf3svvp0bWPV/4iNWnlp3Vb/o4m40wDXjGDSs9TNA8ASzeZhNu
-	 MjZNAs8s2LVufrMuon8q10FM+vsb9DPuoI00AEgQ=
-Date: Thu, 19 Mar 2026 23:33:48 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
-	Frank Li <frank.li@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	b=FgVHdEcTjUc5umNk3wqbz2QlOhBPgjBSMqH0MXlHXcXeqXRFRdpqkwIH0+OzGYVkD
+	 m34RReu7Sm+nCZzHKIINgZZX9TQhW0ksi1Hw5BIxDaicyuuNckjYk9bMpepKWaQDLS
+	 2qEhBofqa77bRTsx8T+RT8cG6HuPiLP8pikS1tDXICEs7cbGBmDXOrOXOwpupqjMdg
+	 PJQnYmeqxdx9gDriOZr6oA66dfz7lKf8QHgXAkEc+fwA8hE/4ZDWuTdaGY5JQGPX3p
+	 6SOr46CEriuvGJlO8LjP8UTGdVdehsMW8ZkU7uWjuX/7avAH3a8mkyUiq9i/CUqLT/
+	 ckZJsBPKbGkqQ==
+Date: Thu, 19 Mar 2026 14:39:07 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: 9erthalion6@gmail.com, acme@kernel.org, adrian.hunter@intel.com,
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com,
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+	atrajeev@linux.ibm.com, blakejones@google.com, ctshao@google.com,
+	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
+	leo.yan@linux.dev, libunwind-devel@nongnu.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, stable@vger.kernel.org
-Subject: Re: [PATCH RESEND v2] media: nxp: imx8-isi: Fix potential
- out-of-bounds issues
-Message-ID: <20260319213348.GA950375@killaraus.ideasonboard.com>
-References: <20260228-isi-v2-1-f6f9208c6844@nxp.com>
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org,
+	pjw@kernel.org, shimin.guo@skydio.com, tglozar@redhat.com,
+	tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+Subject: Re: [PATCH v2 0/8] perf libunwind multiple remote support
+Message-ID: <abxs-2rozL1tBEO1@google.com>
+References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
+ <20260305221927.3237145-1-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260228-isi-v2-1-f6f9208c6844@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_143356_756696_3B33A483 
-X-CRM114-Status: GOOD (  29.26  )
+In-Reply-To: <20260305221927.3237145-1-irogers@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,152 +78,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Guoniu,
+Hi Ian,
 
-Thank you for the patch.
-
-On Sat, Feb 28, 2026 at 05:35:53PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Thu, Mar 05, 2026 at 02:19:19PM -0800, Ian Rogers wrote:
+> Fix the libunwind build for when libdw and libunwind are feature
+> detected, currently failing with a duplicate symbol.
 > 
-> The maximum downscaling factor supported by ISI can be up to 16. Add
-> minimum value constraint before applying the setting to hardware.
-> Otherwise, the process will not respond even when Ctrl+C is executed.
-
-Could you share how you can trigger this from userspace ? I'd like to
-test it and see where the absence of response comes from.
-
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
-> Changes in v2:
-> - Fix possible side-effects caused by 'max_val' in CLAMP_DOWNSCALE_16 macro.
-> - Add space line between two paragraph in comment.
-> - Link to v1: https://lore.kernel.org/r/20260122-isi-v1-1-c3ec6e264f13@nxp.com
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 16 ++++++++++++++++
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c  |  6 +++---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c |  6 ++----
->  3 files changed, 21 insertions(+), 7 deletions(-)
+> Refactor the libunwind support so that whenever a remote target is
+> available, perf functions using the ELF machine can use that remote
+> target regardless of what the host/local machine is. Migrate existing
+> libunwind supported architectures like powerpc, arm64 and loongarch so
+> that they can work in a cross-architecture way. Add support for
+> RISC-V. Make the code more regular in function names, etc. and avoid
+> including a C-file. This increases the lines of code. It is similar in
+> style to the unwind-libdw implementation. It is hoped that the more
+> uniform nature of the code with help with refactoring the perf
+> registers for SIMD/APX support.
 > 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> index 3cbd35305af0f8026c4f76b5eb5d0864f8e36dc3..84e134f4d5fb26be652ac3e6aecd459bb2a0d1c6 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> @@ -59,6 +59,22 @@ struct v4l2_m2m_dev;
->  #define MXC_ISI_M2M			"mxc-isi-m2m"
->  #define MXC_MAX_PLANES			3
->  
-> +/*
-> + * ISI scaling engine works in two parts: it performs pre-decimation of
-> + * the image followed by bilinear filtering to achieve the desired
-> + * downscaling factor.
-> + *
-> + * The decimation filter provides a maximum downscaling factor of 8, and
-> + * the subsequent bilinear filter provides a maximum downscaling factor
-> + * of 2. Combined, the maximum scaling factor can be up to 16.
-> + */
-> +#define CLAMP_DOWNSCALE_16(val, max_val)			\
+> Aside from local host testing these patches are under tested, in part
+> as I'm failing to see how to build libunwind with support for multiple
+> remote targets. Please could I get help in testing.
 
-Let's add a MXC_ISI_ prefix.
+It seems libunwind project is not actively maintained.  Assuming libdw
+unwinding is performant enough, we may want to get rid of libunwind
+support.
 
-> +({								\
-> +	typeof(max_val) __max_val = (max_val);			\
-> +								\
-> +	clamp((val), max(1U, __max_val >> 4), __max_val);	\
+Thanks,
+Namhyung
 
-I think you should round the division up here:
-
-	clamp((val), max(1U, (__max_val + 15) / 16, __max_val);	\
-
-Let's assume the input size (max_val) is 1000. Without rounding up, the
-output size will be clamped to 1000 / 16 = 62. This leads to a
-downscaling factor slightly above 16.
-
-> +})
-
-Any reason not to make this an inline function instead of a macro ?
-
-> +
->  struct mxc_isi_dev;
->  struct mxc_isi_m2m_ctx;
->  
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> index f425ac7868547da401e86ce5a9b70a9890e72541..8860d89713667d06abc94e6024526fabac46feb7 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> @@ -509,9 +509,9 @@ __mxc_isi_m2m_try_fmt_vid(struct mxc_isi_m2m_ctx *ctx,
->  			  const enum mxc_isi_video_type type)
->  {
->  	if (type == MXC_ISI_VIDEO_M2M_CAP) {
-> -		/* Downscaling only  */
-> -		pix->width = min(pix->width, ctx->queues.out.format.width);
-> -		pix->height = min(pix->height, ctx->queues.out.format.height);
-> +		/* Downscaling one-sixteenth only  */
-
-There are two spaces after "only".
-
-> +		pix->width = CLAMP_DOWNSCALE_16(pix->width, ctx->queues.out.format.width);
-> +		pix->height = CLAMP_DOWNSCALE_16(pix->height, ctx->queues.out.format.height);
-
-To keep lines shorter, you can write
-
-		const struct v4l2_pix_format_mplane *format =
-			&ctx->queues.out.format;
-
-		/* Downscaling only, by up to 16. */
-		pix->width = CLAMP_DOWNSCALE_16(pix->width, format->width);
-		pix->height = CLAMP_DOWNSCALE_16(pix->height, format->height);
-
->  	}
->  
->  	return mxc_isi_format_try(ctx->m2m->pipe, pix, type);
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> index a41c51dd9ce0f2eeb779e9aa2461593b0d635f41..c3ffc8a38d1269c0a4e6493b4d75690f01cc87bb 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> @@ -647,10 +647,8 @@ static int mxc_isi_pipe_set_selection(struct v4l2_subdev *sd,
->  
-
-There's a comment above that states
-
-		/* The sink crop is bound by the sink format downscaling only). */
-
-That's not right, let's fix it:
-
-		/*
-		 * The ISI supports downscaling only, with a factor up to 16.
-		 * Clamp the compose rectangle size accordingly.
-		 */
-
-Reading the driver code to check how rounding is done when programming
-the hardware, I noticed that we clamp the bilinear scaling ratio to
-ISI_DOWNSCALE_THRESHOLD, defined as 0x4000:
-
-	return min_t(u32, from * 0x1000 / (to * *dec), ISI_DOWNSCALE_THRESHOLD);
-
-The ratio is documented to be a Q2.12 value, so 0x4000 is x1.0. The code
-seems wrong to me, what do you think ?
-
->  		sel->r.left = 0;
->  		sel->r.top = 0;
-> -		sel->r.width = clamp(sel->r.width, MXC_ISI_MIN_WIDTH,
-> -				     format->width);
-> -		sel->r.height = clamp(sel->r.height, MXC_ISI_MIN_HEIGHT,
-> -				      format->height);
-> +		sel->r.width = CLAMP_DOWNSCALE_16(sel->r.width, format->width);
-> +		sel->r.height = CLAMP_DOWNSCALE_16(sel->r.height, format->height);
->  
->  		rect = mxc_isi_pipe_get_pad_compose(pipe, state,
->  						    MXC_ISI_PIPE_PAD_SINK);
 > 
-> ---
-> base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
-> change-id: 20260122-isi-74f87fbb9a6f
-
--- 
-Regards,
-
-Laurent Pinchart
+> v2: Move two fixes patches to position 1 and 2 in the series. Fix
+>     struct naming inconsistency, Andrew Jones
+>     <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
+>     potential non-x86 build issues.
+> 
+> v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.com/
+> 
+> Ian Rogers (8):
+>   perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
+>     selection
+>   perf build loongarch: Remove reference to missing file
+>   tools build: Deduplicate test-libunwind for different architectures
+>   perf build: Be more programmatic when setting up libunwind variables
+>   perf unwind-libunwind: Make libunwind register reading cross platform
+>   perf unwind-libunwind: Move flush/finish access out of local
+>   perf unwind-libunwind: Remove libunwind-local
+>   perf unwind-libunwind: Add RISC-V libunwind support
+> 
+>  tools/build/feature/Makefile                  |  38 +-
+>  tools/build/feature/test-libunwind-aarch64.c  |  27 -
+>  tools/build/feature/test-libunwind-arm.c      |  28 -
+>  .../test-libunwind-debug-frame-aarch64.c      |  17 -
+>  .../feature/test-libunwind-debug-frame-arm.c  |  17 -
+>  .../feature/test-libunwind-debug-frame.c      |   1 -
+>  tools/build/feature/test-libunwind-x86.c      |  28 -
+>  tools/build/feature/test-libunwind-x86_64.c   |  28 -
+>  tools/build/feature/test-libunwind.c          |   1 -
+>  tools/perf/Makefile.config                    | 215 ++---
+>  tools/perf/arch/arm/util/Build                |   2 -
+>  tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
+>  tools/perf/arch/arm64/util/Build              |   1 -
+>  tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
+>  tools/perf/arch/loongarch/util/Build          |   3 -
+>  .../arch/loongarch/util/unwind-libunwind.c    |  82 --
+>  tools/perf/arch/mips/Build                    |   1 -
+>  tools/perf/arch/mips/util/Build               |   1 -
+>  tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
+>  tools/perf/arch/powerpc/util/Build            |   1 -
+>  .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
+>  tools/perf/arch/x86/util/Build                |   3 -
+>  tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
+>  tools/perf/builtin-inject.c                   |   4 +
+>  tools/perf/builtin-report.c                   |   4 +
+>  tools/perf/builtin-script.c                   |   4 +
+>  tools/perf/util/Build                         |   5 +-
+>  tools/perf/util/libunwind-arch/Build          |  11 +
+>  .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
+>  .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
+>  .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
+>  .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
+>  .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
+>  .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
+>  .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
+>  .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
+>  .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
+>  .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
+>  .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
+>  .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
+>  tools/perf/util/libunwind/arm64.c             |  40 -
+>  tools/perf/util/libunwind/x86_32.c            |  41 -
+>  tools/perf/util/maps.c                        |  29 +-
+>  tools/perf/util/maps.h                        |   4 +-
+>  tools/perf/util/symbol_conf.h                 |  15 +
+>  tools/perf/util/thread.c                      |  29 +-
+>  tools/perf/util/unwind-libdw.c                |   2 +-
+>  tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
+>  tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
+>  tools/perf/util/unwind.c                      | 102 +++
+>  tools/perf/util/unwind.h                      |  56 +-
+>  51 files changed, 4536 insertions(+), 1733 deletions(-)
+>  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
+>  delete mode 100644 tools/build/feature/test-libunwind-arm.c
+>  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch64.c
+>  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
+>  delete mode 100644 tools/build/feature/test-libunwind-x86.c
+>  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
+>  delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/mips/Build
+>  delete mode 100644 tools/perf/arch/mips/util/Build
+>  delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
+>  create mode 100644 tools/perf/util/libunwind-arch/Build
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
+>  delete mode 100644 tools/perf/util/libunwind/arm64.c
+>  delete mode 100644 tools/perf/util/libunwind/x86_32.c
+>  delete mode 100644 tools/perf/util/unwind-libunwind-local.c
+>  create mode 100644 tools/perf/util/unwind.c
+> 
+> -- 
+> 2.53.0.473.g4a7958ca14-goog
+> 
 
