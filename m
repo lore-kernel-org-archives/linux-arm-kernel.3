@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9354108E1E9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52287108E1ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMg0rkJLW9pmm80ccnxfiQROSU8NAOon9o2bCBKOtfs=; b=z1eR6HMtqSw+a+HkgYSxZu/Pyk
-	zYz7gpwFxl8cJ9HFTf72A7nvtmscpEZVzsNkUZPzgXd9W87WWO11zSyVfmqEYbIfqTrdQf25+oHU9
-	y7VNqe/EJ4rPaWNSYRcJvDQjGTBBvSbCUNxVQVwC6+3vNwwGjbRWhpi+vShh2zB+z5763kyoKOK8O
-	jchm4IJ2xsI2wQlXcoKFMrWAzmOrcsfoEY9h0XjavC/aE61oP8l78duP/3x6xZ6WQrxPqlvtn3+TQ
-	5tSoocJZUOo6UoltDcB9VhCSe1Ae95LdmA0JbdkilG0cvnPhkPtvSoxknVCL5ZiC9EOiJD7uwhh4S
-	ozrVWIfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l+PpVZE5erbrPF9dFh6ddAFYHha57vLbnGheajyGRz0=; b=nn8yP+VBL+jRAS26IUi6fr9hnh
+	ToQt/R0nN+7sRxeFG3VPNdHgn23svn8NaVXYCEhmDUn+K9y+peW+kO04A3X5CiNjoPz1CWITYlZpe
+	/2Hi8IiW0YruNgLEvyCnb9dxUqbvlJ0myQOGNc1VQky+oSFoqpojFLKFu0ZWiY4mKG0vT/qw8UQxN
+	CrP0pJxtwx4pfGd/2dt34fJ77/Ne1xlUmxz5KpKFwAM5WYJm/2ZPGk1iH+lcfyQFCiLckAJJChYRc
+	n2RwkWWgNHlf6vJdN+ZAaKuhV6mLlp9m1Qk9KaZLXGRjtVxxVOMQyGPBQNXXhnSwFoUieI3hAXNwx
+	x57xRU8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BQF-0000000AVub-0CO0;
-	Thu, 19 Mar 2026 11:20:15 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1w3BU7-0000000AWF4-46RL;
+	Thu, 19 Mar 2026 11:24:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BQ8-0000000AVsb-1nXt
+	id 1w3BU7-0000000AWEy-09aA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 11:20:12 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260319112002euoutp01b9e582455b5038a37fccb68c5e651bd2~eOh2Z2JNq3047630476euoutp01y
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:20:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260319112002euoutp01b9e582455b5038a37fccb68c5e651bd2~eOh2Z2JNq3047630476euoutp01y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1773919202;
-	bh=OMg0rkJLW9pmm80ccnxfiQROSU8NAOon9o2bCBKOtfs=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=A+0URX78R/8DxzDvSmu480/veK62Q19iLscD+xrtnAoiR08J6qMndWvbDpwm9R43q
-	 NWg6mSqpH6NmAz0pBO9GUk3NhO6HofowtC+ro7f5g7lGSQJD/Nuq6nCtqrSMPUE6f2
-	 hIM1rT6M0vtufwk+hi41YraZPIyltnEtQUc0cD3A=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260319112001eucas1p13a5f80fe1877e4547b4b6aa27e4f5db3~eOh13Vykc2060420604eucas1p1W;
-	Thu, 19 Mar 2026 11:20:01 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260319112000eusmtip2860b5807312356c7523a69a643584d08~eOh1Lszz_1318713187eusmtip2f;
-	Thu, 19 Mar 2026 11:20:00 +0000 (GMT)
-Message-ID: <86bce6c0-dbaf-4508-9f40-ff209c85a76d@samsung.com>
-Date: Thu, 19 Mar 2026 12:19:59 +0100
+	Thu, 19 Mar 2026 11:24:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 753F66011F;
+	Thu, 19 Mar 2026 11:24:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13790C19424;
+	Thu, 19 Mar 2026 11:24:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773919454;
+	bh=qyYfHN3/rEddBDUxIvXPa1XmaXZUY9tQUYPYQxlmioI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ql9sZNAJ5IJDjLCE93U34vjaePEdQ7ctkWPb/kks8sNCMuk+0pfl/hPLsUo7j54T4
+	 bsbKOtQNUkMuhWfl9eHcdrNWA1jeHqW4N8v8IdEjs/7H1vsZRpMbIEirhEUa7TE7x+
+	 sZDfX2SdQ3BMx7DAUNnY3muvx1eEoRo6WfAxXQDk+AuBE5JnSA7RY41EapzfUCxeDU
+	 82sSgkOCGnJba1aFvm0S77EWd9d3+jzwiKjXruyui57pXMVZiO9GjbvfxgJACffHuV
+	 h+qr+TQHZ4C4Lh4LcGt1u8361xGnHVQ5fZzPOFDBQRXegb/zASSzKNJi0O1g6C8BKj
+	 WxHrDSZ1X6oZA==
+Date: Thu, 19 Mar 2026 11:24:05 +0000
+From: Lee Jones <lee@kernel.org>
+To: Akashdeep Kaur <a-kaur@ti.com>
+Cc: praneeth@ti.com, nm@ti.com, afd@ti.com, vigneshr@ti.com,
+	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, aaro.koskinen@iki.fi, andreas@kemnade.info,
+	khilman@baylibre.com, rogerq@kernel.org, tony@atomide.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
+	s-ramamoorthy@ti.com, vishalm@ti.com, sebin.francis@ti.com,
+	d-gole@ti.com, k-willis@ti.com
+Subject: Re: [PATCH 2/2] mfd: tps65219: Make poweroff handler conditional on
+ system-power-controller
+Message-ID: <20260319112405.GJ554736@google.com>
+References: <20260310111846.1084623-1-a-kaur@ti.com>
+ <20260310111846.1084623-3-a-kaur@ti.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 1/2] ARM: dts: broadcom: bcm2835-rpi: Move the firmware
- node down 1 level
-To: Florian Fainelli <florian.fainelli@broadcom.com>, "Rob Herring (Arm)"
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
-	Branden <sbranden@broadcom.com>
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <a9a202c1-048f-473e-b8f4-6f0550bdba2c@broadcom.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260319112001eucas1p13a5f80fe1877e4547b4b6aa27e4f5db3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260114182227eucas1p16eee8f1fbf41f998214b89517793bb0c
-X-EPHeader: CA
-X-CMS-RootMailID: 20260114182227eucas1p16eee8f1fbf41f998214b89517793bb0c
-References: <20260114015810.701076-2-robh@kernel.org>
-	<CGME20260114182227eucas1p16eee8f1fbf41f998214b89517793bb0c@eucas1p1.samsung.com>
-	<a9a202c1-048f-473e-b8f4-6f0550bdba2c@broadcom.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_042009_881233_CD641A61 
-X-CRM114-Status: GOOD (  17.76  )
+In-Reply-To: <20260310111846.1084623-3-a-kaur@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.01.2026 19:22, Florian Fainelli wrote:
-> On 1/13/2026 5:58 PM, Rob Herring (Arm) wrote:
->> Commit 32eea985999b ("ARM: dts: broadcom: bcm2835-rpi: Move non
->> simple-bus nodes to root level") moved the firmware nodes into the
->> standard /firmware. However, /firmware is intended to be just a
->> container for firmware nodes as it is possible to have multiple types of
->> firmware (e.g. SCMI, OP-TEE, etc.). Move the RPi firmware down a level.
->>
->> Fixes: 32eea985999b ("ARM: dts: broadcom: bcm2835-rpi: Move non 
->> simple-bus nodes to root level")
->> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->> ---
->> This is only half the fix. Unfortunately, a kernel change[1] is also
->> needed to make this all work. I do plan for that to go to stable. I'll
->> leave it up to the Broadcom maintainers whether it's preferred to revert
->> the fixed patches or apply these fixes. A 3rd option is revert for now
->> and apply these DT changes some time later to give some time for stable
->> updates.
->
-> Let's wait until your fix for the /firmware match table gets applied 
-> and then I will pick up your two changes.
+On Tue, 10 Mar 2026, Akashdeep Kaur wrote:
 
+> Currently, the TPS65219 driver unconditionally registers a poweroff
+> handler. This causes issues on systems where a different component
+> (such as TF-A firmware) should handle system poweroff instead.
+> 
+> Make the poweroff handler registration conditional based on the
+> "system-power-controller" device tree property. This follows the
+> standard kernel pattern where only the designated power controller
+> registers for system poweroff operations.
+> 
+> On systems where the property is absent, the PMIC will not register
+> a poweroff handler, allowing other poweroff mechanisms to function.
+> 
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+> ---
+>  drivers/mfd/tps65219.c | 18 ++++++++++++------
+>  1 file changed, 12 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
+> index 7275dcdb7c44..beb816707d8f 100644
+> --- a/drivers/mfd/tps65219.c
+> +++ b/drivers/mfd/tps65219.c
+> @@ -541,13 +541,19 @@ static int tps65219_probe(struct i2c_client *client)
+>  		return ret;
+>  	}
+>  
+> -	ret = devm_register_power_off_handler(tps->dev,
+> -					      tps65219_power_off_handler,
+> -					      tps);
+> -	if (ret) {
+> -		dev_err(tps->dev, "failed to register power-off handler: %d\n", ret);
+> -		return ret;
+> +	/*
+> +	 * Only register PMIC power-off handler if system-power-controller
+> +	 * property is present.
+> +	 */
+> +	if (of_device_is_system_power_controller(tps->dev->of_node)) {
 
-Florian: I've noticed that the $subject patch has been applied to 
-yesterday's linux-next as commit 0603d8af97ff, but the code applied in 
-Your tree differs from what has been posted in this thread. See:
+The function name `of_device_is_system_power_controller()` is quite
+self-descriptive. Is this comment really necessary? The code seems clear
+enough without it.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi?h=next-20260318&id=0603d8af97fff097daa118faf04d9f439b2227ec
+> +		ret = devm_register_power_off_handler(tps->dev,
+> +						      tps65219_power_off_handler,
+> +						      tps);
+> +		if (ret)
+> +			return dev_err_probe(tps->dev, ret,
+> +					"failed to register power-off handler\n");
+>  	}
+> +
+>  	return 0;
+>  }
+>  
+> -- 
+> 2.34.1
+> 
 
-https://lore.kernel.org/all/20260114015810.701076-2-robh@kernel.org/
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi?h=next-20260318
-
-
-The "firmware" node in Your tree is under "soc" node, but without adding 
-a "compatible = simple-mfd;" property there it won't be populated, what 
-breaks operation of all drivers requiring the firmware driver(s).
-
-
-Best regards
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Lee Jones [李琼斯]
 
