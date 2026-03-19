@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545441091911
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB051091904
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=; b=4UwRWNJhFjzmyCi6tWeQ8MyB0V
-	3286s1x1JB/GwTuGAolY6DPsBOOjjYs31TpXzLS9i7PMNbu0nWZrnBEiLut+TeyYWafjNFCt5vjpQ
-	KXgnwuruchWlYfrCpTTuZj9x3sMFdjfVpYoJWaT8j/irX+otSG+U6VilqJPPxZUc2xbsb7gYP+Inu
-	1xa54DoW2fe+4ly4u8dIXdyXFPsp6Q35wPVNXsEdNDBf4/Rllb3fSY3GZs859pbex0qGFDeG7uNPR
-	HSN+G5UrxWLXRv0NTe5vu54eG5S/WCy0BgZzDYLZxRR2frcUtiWVRiv9FIln6xkLWr4diKfd3AszU
-	n5etgy4w==;
+	bh=q3Ty2rMUXWrI+Dw+O8BMuW+g1hkiDWZuTXFRx7/LGyc=; b=DZFeCQxdOShXWJUyzzFZsyyiKn
+	vCeBj9dDDtCsm51pvD3hwDQjKNLrl6ILQHVj5iMFVZif18nk4t23AdFfskGCJxiGFuN0Boy7yRFN+
+	64Rp5VEYidBa4RznJl5ukLFXmOp1eH3zlJ7NFFC3R6rXavCSMIiyMHsrsPrh8cr/qH4ViHG1nBRwB
+	RonC8N/45i66mgObpkocrNs6fb0BGyfBDjONZARoqSYID8306eUi2r4jEYvbuB+2RzZwNr49/aMiT
+	E+d7Vxj8hREbcsr7GBq8vn1Xkk5ErZuqlEei1BhiVvHNFbrq6BV2V1cFXJmpICWu4JE6Ycom7iCC2
+	I1KSGZCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3InI-0000000BQxA-2G9O;
-	Thu, 19 Mar 2026 19:12:32 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1w3J4d-0000000BS9n-3pO8;
+	Thu, 19 Mar 2026 19:30:27 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3InF-0000000BQwN-2Tat
+	id 1w3J4b-0000000BS8H-20Hw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 19:12:31 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-89a0ecbc713so14255716d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:12:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773947548; x=1774552348; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=;
-        b=i+Q8nZPQFKwMByL6jfd8MErP4VaZn/IBdza3jo8a510Y9Kefe2Q/EmJ2/18cbS4boh
-         sYHYXVIPgNYZ/++ZltUsQKS9gGmdkF+7NzOlTgG0nzNbfGgybuXovu5hpp9UbESG+eEp
-         icTpqpc1CLEv/tlMOdOvDc96t/Q9z/lA2G6mJ23jC8tsdI0KgIcGowk/FLr0X4xzm+Vl
-         OHfeMELSsukYZ9gJ7Br1IS+IfzK7jypXoGCqPZ9JklnfPNfS9rBDW0mS0H7wmSnE8tFA
-         jZgroeXcn+oh3A2+Fd0Nl9e+gqy3KHYz4r2RckJSFlxvDxIqStrt/OUVpxlFcTj3ftsK
-         VumA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773947548; x=1774552348;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=;
-        b=ny0Kt5HiG2MlNawpxGIm0CwCaPaOW61o/o3m33eaU5amltjrsj7VnEYqbhGB7IbZoQ
-         2qpiJ7gd0eeqwluEHVE5fFqKwSAIB1DIONqhXrfU7UEC1hp2iyscrxOT1pIhX7BCDJSw
-         FY2XV2wb6DG8ogFFX9a79O3chKuivkrijyAa4xneXZl1qBNoQBMg5bFzVJxbr6z5CgPU
-         /NZXZRokJO7QwgyHes/8pZ9JnYy53TAA01o4DcXG6J2PJYMOUikCzEPwowMdUTFae7OH
-         wvtPbZLwoCKpoVcxds6Hum7cP4EDwAe9TUWNjJzrSoHNTAKlPJ0ZPjUc7NSHbAv7KPeb
-         NPSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUOGutT3FGi0HsYdEdW8Y9xMRtlkTbYBWOh/fRF03JRC0fQhqoTkqNQd3PAf2x8eWM0EajE4un+oq5ssXhhs8rt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIs+chBM5ijj2dyEcEfgy3T7Lkx24VeGsEbJvZSmsjK/NpWzP5
-	wKXg6qNniVDiCVILVfeetifEWGPzH2nH8f1dhhA29axwDoRlCtvYDApEzj4juV+4FF3SD3iunMV
-	+VouAgBA=
-X-Gm-Gg: ATEYQzz8aXiXaY/pN4ZGEBLlMCwkrpXnw85aaV4E3sVOZ2qPCkfEJgyW4p1M7f2dS6u
-	KKUGIOmZ5bfQNcEpYRiHnMVvDAzCJ20QAqWVZupwRVW5ukq8wSD07dqkVqcAkCetCV0qFocvMjL
-	3+YnfebU/+2dp9+EeSMyOq/5zWUqKCq6HAxC+61W5smVGYCIENBfbaDFfWrB+XwPavo8xH9/HyN
-	Vsv/D4hbbwQ81fHQmtv4UUfql/64pCePSwu5T3ji6SWFsOVA2vsfYP/M7h8kM/g2+vYoEAcp39C
-	aoPSqon9uU2tu1Jiflu2+bbiOpI1XtURZRudSJVCivHE7XX7GXpAT/bfkkGWtZdRyWqmpq8ObrP
-	S/FehvgcwVP4K5hsGGl8T//FfPxYClq5sDRuwpbHj9XfjGGdE/EHKNT3qMBWDZ8wGWODEOQGWrr
-	sbugKg8jZkXJkH6yiVr8/tMF0ecuhw
-X-Received: by 2002:a05:6214:5f0e:b0:89c:4d59:bdf with SMTP id 6a1803df08f44-89c773d7d3cmr61987166d6.8.1773947547996;
-        Thu, 19 Mar 2026 12:12:27 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89c8536ba60sm3331256d6.44.2026.03.19.12.12.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 12:12:27 -0700 (PDT)
-Message-ID: <06b733be91f0b6455fc5c16832678a67d9de1945.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 05/27] media: v4l2-common: add
- v4l2_fill_pixfmt_mp_aligned helper
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Thu, 19 Mar 2026 15:12:25 -0400
-In-Reply-To: <20260127-spu-rga3-v3-5-77b273067beb@pengutronix.de>
-References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
-	 <20260127-spu-rga3-v3-5-77b273067beb@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-YSpqXCMYz4unuMVeMzx3"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Thu, 19 Mar 2026 19:30:26 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id 05769240103
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 20:30:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1773948617; bh=q3Ty2rMUXWrI+Dw+O8BMuW+g1hkiDWZuTXFRx7/LGyc=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 From;
+	b=XnntJXqcpKq1vvulz5ESTTOSuIeKIX58sdM4Neo34xfN9p7sst/fhPm2wOc1Vxlda
+	 mjp4/d1P3RYokEQ7FNKg4VYP4UowCN79ZaDBf3FWlQKSVM1mruJzoWL6674ITV5Bhm
+	 4KuUWlLrJx+hdUm56zwyk4JUIXcrUBtoDvSUmW1UVTh7t2p5Ott9xhbyJrgyJbWN5s
+	 i5lJ/LSCZkvm0Z4T9LtvzLC7PnKMskLMMTvGEKiMzgjuDzwZg9ali7gXV9ngizQ2WE
+	 THcCN2TNkBFWrI99XE9Ln/1z12K1UE9wCDIkSYPZjd4hu9ZjeYBVkeJNLjWOB3wdlB
+	 rWjt5EMoaxgwA==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4fcG4K6pw3z6twZ;
+	Thu, 19 Mar 2026 20:30:09 +0100 (CET)
+From: Charalampos Mitrodimas <charmitro@posteo.net>
+To: Michael Riesch via B4 Relay
+ <devnull+michael.riesch.collabora.com@kernel.org>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Heiko Stuebner
+ <heiko@sntech.de>,  Kever Yang <kever.yang@rock-chips.com>,  Jagan Teki
+ <jagan@amarulasolutions.com>,  =?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YU=?=
+ =?utf-8?B?0LDQuNC7?=
+ <mai.kuznetsov.misha@gmail.com>,  Sebastian Reichel
+ <sebastian.reichel@collabora.com>,  Nicolas Dufresne
+ <nicolas.dufresne@collabora.com>,  Collabora Kernel Team
+ <kernel@collabora.com>,  Sakari Ailus <sakari.ailus@linux.intel.com>,
+  michael.riesch@collabora.com,  linux-media@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-rockchip@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/9] Documentation: admin-guide: media: add rk3588 vicap
+In-Reply-To: <20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
+References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
+	<20250430-rk3588-vicap-v2-1-77de5ee9048e@collabora.com>
+Date: Thu, 19 Mar 2026 19:30:14 +0000
+Message-ID: <m2h5qbd3cv.fsf@posteo.net>
 MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_121229_676877_C875F662 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260319_123025_800340_6CE46448 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,185 +85,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org> writes:
 
---=-YSpqXCMYz4unuMVeMzx3
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le mardi 27 janvier 2026 =C3=A0 15:39 +0100, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> Add a v4l2_fill_pixfmt_mp_aligned helper which allows the user to
-> specify a custom stride alignment in bytes. This is necessary for
-> hardware like the Rockchip RGA3, which requires the stride value to be
-> aligned to a 16 bytes boundary.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> From: Michael Riesch <michael.riesch@collabora.com>
+>
+> Add a section that describes the Rockchip RK3588 VICAP.
+>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
-> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 45 ++++++++++++++++++++++++=
-+----------
-> =C2=A0include/media/v4l2-common.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ++++
-> =C2=A02 files changed, 37 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
-ore/v4l2-common.c
-> index 2b5ccedeb6841..e61506ead9150 100644
-> --- a/drivers/media/v4l2-core/v4l2-common.c
-> +++ b/drivers/media/v4l2-core/v4l2-common.c
-> @@ -431,14 +431,15 @@ static inline unsigned int v4l2_format_block_height=
-(const struct v4l2_format_inf
-> =C2=A0}
-> =C2=A0
-> =C2=A0static inline unsigned int v4l2_format_plane_stride(const struct v4=
-l2_format_info *info, int plane,
-> -						=C2=A0=C2=A0=C2=A0 unsigned int width)
-> +						=C2=A0=C2=A0=C2=A0 unsigned int width, u8 byte_alignment)
-> =C2=A0{
-> =C2=A0	unsigned int hdiv =3D plane ? info->hdiv : 1;
-> =C2=A0	unsigned int aligned_width =3D
-> =C2=A0		ALIGN(width, v4l2_format_block_width(info, plane));
-> =C2=A0
-> -	return DIV_ROUND_UP(aligned_width, hdiv) *
-> -	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 info->bpp[plane] / info->bpp_div[p=
-lane];
-> +	return ALIGN(DIV_ROUND_UP(aligned_width, hdiv) * info->bpp[plane] /
-> +			=C2=A0=C2=A0=C2=A0=C2=A0 info->bpp_div[plane],
-> +		=C2=A0=C2=A0=C2=A0=C2=A0 byte_alignment);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static inline unsigned int v4l2_format_plane_height(const struct v4=
-l2_format_info *info, int plane,
-> @@ -452,9 +453,10 @@ static inline unsigned int v4l2_format_plane_height(=
-const struct v4l2_format_inf
-> =C2=A0}
-> =C2=A0
-> =C2=A0static inline unsigned int v4l2_format_plane_size(const struct v4l2=
-_format_info *info, int plane,
-> -						=C2=A0 unsigned int width, unsigned int height)
-> +						=C2=A0 unsigned int width, unsigned int height,
-> +						=C2=A0 u8 stride_alignment)
-> =C2=A0{
-> -	return v4l2_format_plane_stride(info, plane, width) *
-> +	return v4l2_format_plane_stride(info, plane, width, stride_alignment) *
-> =C2=A0	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_format_plane_height(info=
-, plane, height);
-> =C2=A0}
-> =C2=A0
-> @@ -475,8 +477,9 @@ void v4l2_apply_frmsize_constraints(u32 *width, u32 *=
-height,
-> =C2=A0}
-> =C2=A0EXPORT_SYMBOL_GPL(v4l2_apply_frmsize_constraints);
-> =C2=A0
-> -int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt,
-> -			u32 pixelformat, u32 width, u32 height)
-> +int v4l2_fill_pixfmt_mp_aligned(struct v4l2_pix_format_mplane *pixfmt,
-> +				u32 pixelformat, u32 width, u32 height,
-> +				u8 stride_alignment)
-> =C2=A0{
-> =C2=A0	const struct v4l2_format_info *info;
-> =C2=A0	struct v4l2_plane_pix_format *plane;
-> @@ -493,23 +496,41 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mpla=
-ne *pixfmt,
-> =C2=A0
-> =C2=A0	if (info->mem_planes =3D=3D 1) {
-> =C2=A0		plane =3D &pixfmt->plane_fmt[0];
-> -		plane->bytesperline =3D v4l2_format_plane_stride(info, 0, width);
-> +		/*
-> +		 * In case of multiple planes the stride of the other planes
-> +		 * is derived from the y stride. To avoid breaking the stride
-> +		 * alignment for the non y plane, multiply it by 2.
-> +		 */
-> +		if (info->comp_planes > 1)
-> +			stride_alignment *=3D 2;
-
-This generalization does not seem right for NV12, or YUV444 formats. Perhap=
-s
-move the correction down into v4l2_format_plane_stride() implementation. It
-already have code for scaling the stride, maybe it can be leverage to pre-s=
-cale
-the alignment.
-
-Nicolas
-
-> +		plane->bytesperline =3D v4l2_format_plane_stride(info, 0, width,
-> +							=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 stride_alignment);
-> =C2=A0		plane->sizeimage =3D 0;
-> =C2=A0
-> =C2=A0		for (i =3D 0; i < info->comp_planes; i++)
-> =C2=A0			plane->sizeimage +=3D
-> -				v4l2_format_plane_size(info, i, width, height);
-> +				v4l2_format_plane_size(info, i, width, height,
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 stride_alignment);
-> =C2=A0	} else {
-> =C2=A0		for (i =3D 0; i < info->comp_planes; i++) {
-> =C2=A0			plane =3D &pixfmt->plane_fmt[i];
-> =C2=A0			plane->bytesperline =3D
-> -				v4l2_format_plane_stride(info, i, width);
-> +				v4l2_format_plane_stride(info, i, width,
-> +							 stride_alignment);
-> =C2=A0			plane->sizeimage =3D plane->bytesperline *
-> =C2=A0				v4l2_format_plane_height(info, i, height);
-> =C2=A0		}
-> =C2=A0	}
-> =C2=A0	return 0;
-> =C2=A0}
-> +EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt_mp_aligned);
-> +
-> +int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt,
-> +			u32 pixelformat, u32 width, u32 height)
-> +{
-> +	return v4l2_fill_pixfmt_mp_aligned(pixfmt, pixelformat,
-> +					=C2=A0=C2=A0 width, height, 1);
+>  .../admin-guide/media/rkcif-rk3588-vicap.dot       | 29 ++++++++++++++++++++
+>  Documentation/admin-guide/media/rkcif.rst          | 32 ++++++++++++++++++++++
+>  2 files changed, 61 insertions(+)
+>
+> diff --git a/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
+> new file mode 100644
+> index 000000000000..f6d3404920b5
+> --- /dev/null
+> +++ b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
+> @@ -0,0 +1,29 @@
+> +digraph board {
+> +        rankdir=TB
+> +        n00000007 [label="{{<port0> 0} | rkcif-mipi2\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n00000007:port1 -> n0000000a
+> +        n00000007:port1 -> n00000010 [style=dashed]
+> +        n00000007:port1 -> n00000016 [style=dashed]
+> +        n00000007:port1 -> n0000001c [style=dashed]
+> +        n0000000a [label="rkcif-mipi2-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
+> +        n00000010 [label="rkcif-mipi2-id1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
+> +        n00000016 [label="rkcif-mipi2-id2\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
+> +        n0000001c [label="rkcif-mipi2-id3\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
+> +        n00000025 [label="{{<port0> 0} | rkcif-mipi4\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n00000025:port1 -> n00000028
+> +        n00000025:port1 -> n0000002e [style=dashed]
+> +        n00000025:port1 -> n00000034 [style=dashed]
+> +        n00000025:port1 -> n0000003a [style=dashed]
+> +        n00000028 [label="rkcif-mipi4-id0\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
+> +        n0000002e [label="rkcif-mipi4-id1\n/dev/video5", shape=box, style=filled, fillcolor=yellow]
+> +        n00000034 [label="rkcif-mipi4-id2\n/dev/video6", shape=box, style=filled, fillcolor=yellow]
+> +        n0000003a [label="rkcif-mipi4-id3\n/dev/video7", shape=box, style=filled, fillcolor=yellow]
+> +        n00000043 [label="{{<port0> 0} | dw-mipi-csi2rx fdd30000.csi\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n00000043:port1 -> n00000007:port0
+> +        n00000048 [label="{{<port0> 0} | dw-mipi-csi2rx fdd50000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n00000048:port1 -> n00000025:port0
+> +        n0000004d [label="{{} | imx415 3-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n0000004d:port0 -> n00000043:port0
+> +        n00000051 [label="{{} | imx415 4-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> +        n00000051:port0 -> n00000048:port0
 > +}
-> =C2=A0EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt_mp);
-> =C2=A0
-> =C2=A0int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt, u32 pixelforma=
-t,
-> @@ -529,12 +550,12 @@ int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt=
-, u32 pixelformat,
-> =C2=A0	pixfmt->width =3D width;
-> =C2=A0	pixfmt->height =3D height;
-> =C2=A0	pixfmt->pixelformat =3D pixelformat;
-> -	pixfmt->bytesperline =3D v4l2_format_plane_stride(info, 0, width);
-> +	pixfmt->bytesperline =3D v4l2_format_plane_stride(info, 0, width, 1);
-> =C2=A0	pixfmt->sizeimage =3D 0;
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < info->comp_planes; i++)
-> =C2=A0		pixfmt->sizeimage +=3D
-> -			v4l2_format_plane_size(info, i, width, height);
-> +			v4l2_format_plane_size(info, i, width, height, 1);
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt);
-> diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
-> index 401d8506c24b5..edd416178c333 100644
-> --- a/include/media/v4l2-common.h
-> +++ b/include/media/v4l2-common.h
-> @@ -558,6 +558,10 @@ int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt,=
- u32 pixelformat,
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 u32 width, u32 height);
-> =C2=A0int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 =
-pixelformat,
-> =C2=A0			u32 width, u32 height);
-> +/* @stride_alignment is a power of 2 value in bytes */
-> +int v4l2_fill_pixfmt_mp_aligned(struct v4l2_pix_format_mplane *pixfmt,
-> +				u32 pixelformat, u32 width, u32 height,
-> +				u8 stride_alignment);
-> =C2=A0
-> =C2=A0/**
-> =C2=A0 * v4l2_get_link_freq - Get link rate from transmitter
+> diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
+> index 2558c121abc4..fcd7f8cfc5d3 100644
+> --- a/Documentation/admin-guide/media/rkcif.rst
+> +++ b/Documentation/admin-guide/media/rkcif.rst
+> @@ -77,3 +77,35 @@ and the following video devices:
+>  .. kernel-figure:: rkcif-rk3568-vicap.dot
+>      :alt:   Topology of the RK3568 Video Capture (VICAP) unit
+>      :align: center
+> +
+> +Rockchip RK3588 Video Capture (VICAP)
+> +-------------------------------------
+> +
+> +The RK3588 Video Capture (VICAP) unit features a digital video port and six
+> +MIPI CSI-2 capture interfaces that can receive video data independently.
+> +The DVP accepts parallel video data, BT.656 and BT.1120.
+> +Since the BT.1120 protocol may feature more than one stream, the RK3568 VICAP
 
---=-YSpqXCMYz4unuMVeMzx3
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+Nit, should this be RK3588 instead of RK3568?
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxKmQAKCRDZQZRRKWBy
-9AicAQC2kxYDBl49pgCzY7V2crCovY7JdWUNcNxML7TuCyI+6wD/VtaSm1mNxep9
-nIXndGUv8JfuXrxAFbJoAMPIRp++3QA=
-=OHGz
------END PGP SIGNATURE-----
-
---=-YSpqXCMYz4unuMVeMzx3--
+> +DVP features four DMA engines that can capture different streams.
+> +Similarly, the RK3588 VICAP MIPI CSI-2 receivers feature four DMA engines each
+> +to handle different Virtual Channels (VCs).
+> +
+> +The rkcif driver represents this hardware variant by exposing the following
+> +V4L2 subdevices:
+> +
+> +* dw-mipi-csi2rx fdd30000.csi: MIPI CSI-2 receiver connected to MIPI DPHY0
+> +* dw-mipi-csi2rx fdd50000.csi: MIPI CSI-2 receiver connected to MIPI DPHY1
+> +* rkcif-mipi2: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
+> +  MIPI DPHY0
+> +* rkcif-mipi4: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
+> +  MIPI DPHY1
+> +
+> +and the following video devices:
+> +
+> +* rkcif-mipi2-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi2
+> +  INTERFACE/CROP block.
+> +* rkcif-mipi4-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi4
+> +  INTERFACE/CROP block.
+> +
+> +.. kernel-figure:: rkcif-rk3588-vicap.dot
+> +    :alt:   Topology of the RK3588 Video Capture (VICAP) unit
+> +    :align: center
 
