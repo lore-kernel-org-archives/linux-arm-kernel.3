@@ -4,113 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77511091904
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C024109190D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tlCReu0S/csjkL3628OmCFhensI/pGag/I8DUVwMu3g=; b=heEAnNnw9EJeTkQEMRfHlqWcmU
-	5Z7IWj5eIz++B5aNroSVpE/c99wfLt7WuscPKxsCNg8AaYIBgaaS2jJCdUOkP3NVc4tCPdPU9sAzv
-	XyGMxhmLGnhYAey+/bPqHmeAK0KravR3PzanCUhHWCw3hXDlWJZ3m/qhPiuuuNzHbmAh4qGZ5C+Yx
-	gH20FDluGvtkZlpUMbYX02AknYou4pW6jwlkZTPB3QtNGbJG9m3k+U3YMyczbLxcJ6EYsywh2eWmE
-	dYus5ldH47BOXX6nlnNXXOqdeCfaOc60SKiVVzlisX38Idv8ksNCAzJZNvMY9UkAWDQxbZEe7qzVc
-	dg9mCvpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TTdIhzTfVOU4J4zn+pv0u4noPX6wbBChtTHWotcoChQ=; b=awlPwrVwmBYBvSm6RtZ1/DHDRe
+	GRAOVnTdhi1alcgpnPITJuqm6aomhYZC3i+gWdq74vbDpfzhi3/NlvKTSGcc9/iWZ70M/jhsmsH1G
+	bWONoin9gXgeuvA40V01Gb5QXAbOzs4JVHSigMlQ0E3AC2uER+vGxD71ntDAsHb4cjSFXK+sW9cYa
+	t8JBMD2qJnymxOVTUsSC9gdmZxIReSJCu0weGu2q3wgErJpgm3WoN9AH0aQcwa/A3ID+m9ndre1mY
+	6g0maBc6ZcVEZvWrVIScyhpDC2bkr6Q/rN8twOou8jMQoQEG0EOgTfmci8RSd4Ryn/bh1Kdh6t5tS
+	EwjcHz5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IJy-0000000BNbJ-1x0W;
-	Thu, 19 Mar 2026 18:42:14 +0000
+	id 1w3ILw-0000000BORC-1YbW;
+	Thu, 19 Mar 2026 18:44:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IJr-0000000BNT8-3A63
+	id 1w3ILv-0000000BOQx-1gXP
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Mar 2026 18:42:07 +0000
+	Thu, 19 Mar 2026 18:44:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=tlCReu0S/csjkL3628OmCFhensI/pGag/I8DUVwMu3g=; b=fEvtObXD0kCu+JiQGeIOanZ0a4
-	Z1D2GRKmfblXd8T4yFql2wUISqPW+tl0j50gTGFs/4hqU8zc9Jw9Nr6osOn9LW9KKxhacQcHmxXYY
-	bCs2A+VXs6SCg0dqNZB7xFzkv7bxna5ZHICRnS46d8F8aP4yXITymSt1PIesoPs4V2fH+00xhOmCQ
-	Rs9fkNsckVm1s/O5/4YkneVOuXqxpMRjSuz3q8h+nYPz0Ia9Q/VqRWNyAEVHe+TtYxfQ+HRuBhGLu
-	lwFDUkduIgVOXyneNtjN5quATcecbvYPLwaay4w/aNyxrhQ8SR2D6OjiA1lPfCPk9Zqc0vjGGcF7C
-	dZj3lk2Q==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TTdIhzTfVOU4J4zn+pv0u4noPX6wbBChtTHWotcoChQ=; b=GIzFwcpy9eMol1lPd36Rwwb/xp
+	RpjBE3ZoocxLqgKirVVTx5SQ/uzjRyTTohtU6N8uhhpjl70o/070WlW4Y3YrCAVWDuCHfcKSbvqMZ
+	XoMSwNuKDT9gbu8vSmOXfqXczNjAJ3kpSnEfsW8YyX6ei8sdGUnQn9+Bq80Q4xmjmkzBrrXkqvZen
+	It/PAE+DQAx2U052WWm6yKqHIzsOtetU5a4+jXq1yS3wFQq/20arR1vXQvKOTMqhMN4xQHBN2KNFs
+	Fhhpjwc/2iht5IOb/1S41qFhuzt9nA+VtI2oINAD9lpyqJiGWOXTzydYau1claV02Zg8YQL7HUlCx
+	50uaTriQ==;
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IJm-0000000EH80-2Eh9
+	id 1w3ILr-0000000EHeE-2rL4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 18:42:05 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-485445e80bdso11214345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:42:02 -0700 (PDT)
+	Thu, 19 Mar 2026 18:44:13 +0000
+Received: by mail-qk1-x744.google.com with SMTP id af79cd13be357-8cd785a8783so108685985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:44:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773945721; x=1774550521; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tlCReu0S/csjkL3628OmCFhensI/pGag/I8DUVwMu3g=;
-        b=AB2l1PyCCuDqWS51YcUHcfRSNM2Ub50gIlt2pfq1IHtp4FnCSqE1qLcc8TbRCm2DB0
-         tkDfiU8LDkm/6E69O3h0Jk/7mKYRLgO0eawq1ysUyxaB/CY/JZI11Zl8/JCtU0ZKF0St
-         A0CmZ8201VhbRTlNAQ8VgfM1hdMibNxj+tFYH+awsh6SLp1Lc4bLx4N3hbBzKDNi1eg6
-         QXVVpz1TDcsdVVFtYSX//ooD7fSTgKOq2kPncdZnn+sjQIe0LWtNoiAlETqvyhtucGEc
-         LHDycETJbxEYf7UtNilZ8SI58pOTRdCC4g5klUfrrB0LfkeVNqBUpJ2amP90RelwG4Xe
-         i15A==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773945849; x=1774550649; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=TTdIhzTfVOU4J4zn+pv0u4noPX6wbBChtTHWotcoChQ=;
+        b=u+fa+Tpv9muZKINXilL6yh9bSrek/Q2ayWGuHvIeoNdeAPirlDXDTYVQkU79XnjLI/
+         r8cbQlJjSA0ff+yKM1V6DPANxxZQe5ON8eDDkoyPENUVMnK2xSeNLzlp1ieuFeJkXxKy
+         AYVuzYMBOQZBJsn85QcJaREVjhpJek3UULrUvXt71bz13Q98V7MrC1H0gCsNGt8RPzdc
+         fDH+fno55Z404gh/he2k9FG1gue0lXrztUkH5qsecLQcU1MSddHMoe/SLJyRX5A4ps3m
+         IH/yI7u24WSymp9+WSKBUv2CAAEN1YWSPluaIeFJ/LpomYckDdm0idn7lTTWluZHQeml
+         nBqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773945721; x=1774550521;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tlCReu0S/csjkL3628OmCFhensI/pGag/I8DUVwMu3g=;
-        b=HYgjB7qLYCZZkJWAIza5ba+Z/B45C+89W8+FYnTtgEZu0TAfNiDPDCR3L8+5DWQTZ0
-         iHfHD8XGtJ6Zu+Ak5XCbfvk06k7jKmTQFWfW3L5BCJltF02Emc6Pg00nZZUkcQySDgxk
-         j/ALujv/Xy5deo7juiOPVXzrWipCdrTdObpGMrJGtSotf9gpNjMoBJTajN8R2AXW2fhd
-         JZsMrL85Lb5ax4lcKfQAEJ7rSfmoxSrJFdw865+pv11rYqtL+lR9dUo9nP0blxJlCdYN
-         4PsvrMyW5yhyC6QX8qhKIjs8bNKgZ3lIYHG15vFQMiEyZhinfEio0ez1EI8cdcCDF/Oh
-         Fd3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWlu4VJVhRz6I82S2B2d7Td8/EjqwyMHiwgsO5cmqCND3IHpj5AUPl/8MkTTz7Xrl8ZGrUfFql4lTYhJxq4aT2L@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn82us237kbXPIhZxPR3a38UGJ9KcSy2TelzggkwHvK6rMOR9m
-	2tfwuXgwwwCWlVLZhCY+C5zQFv7cRI8L0GwsBouvKMtFMKNlzlvdJKES
-X-Gm-Gg: ATEYQzy+VTYWI0xEQEyhU6pw1yBHybPLE9kqdnsoD9ysmZ6eRN/ijmCfknSvhXZInla
-	fIEfDxQQskJr2AYzSJGEMmRHle557PtbHoQA0ylHUA6HmTXBoAX1La0iveZLUTX2vzLNgWD8Uvo
-	KmW/eoU1zS16gJnVjNXA/XGcwc3HekERsOXPdzcnF6+v7GS/Ma+SisBzzYxh2lVfRFZBgS6h9a4
-	tLWMEuj4oxKtHtpnJqbTYiy6TDM/HgWDR8Z3rcRSZJFeQuis45wP0G+3uj+COVlJ1WtDKzCevYv
-	AW53Qw9T6ZRm7l+HM8G3eEzsmBOGaUSkq6AFV5UhMhi4CR9Az2W0iWbA5NpMw2AeBTfjQuTCkzm
-	dfsIpDNMtKQ5hm+WvKQoZr33V9ioVTXOnC3ENJfusx8wBeEN2Z/VVY51edHzNsQpkkzGtpI9yWm
-	rdLFYGEplUcT4uLWTJpwoVjQ2ry9bQXWmIv7fj2EoiMZaXnXdYruTCSE9bRIutt6nAkZvU9+/Jk
-	bgeK67mYE8kx3cy5Dt4CBGh1HZwTVnL50Znk9Y=
-X-Received: by 2002:a05:600c:19d4:b0:485:4278:24f0 with SMTP id 5b1f17b1804b1-486ff03d9d4mr2150745e9.30.1773945721076;
-        Thu, 19 Mar 2026 11:42:01 -0700 (PDT)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f8b1fe65sm77289195e9.5.2026.03.19.11.42.00
+        d=1e100.net; s=20251104; t=1773945849; x=1774550649;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TTdIhzTfVOU4J4zn+pv0u4noPX6wbBChtTHWotcoChQ=;
+        b=YRY5DIMKdA8ynMFgKMCmVASlqqwg1EOQcvIFahIE1aw2bl4yWHHssToy69gPgXBjGl
+         OtvRymsDgEtxRnLDMsxzmZjcGcBDvUlJ68A+EXzqcPsP0YQq2Duo2NOvfT1f+beu6rF8
+         ArEpN34Em9MGcirkWF1AEvwgUMlek0VGqglo4nJ1nGwlOCkqemMMd4ExKqrtpTjX6qKe
+         pitV3XmsqRZmvWGR0hpiMAZTsAiA66rK8pZT4PE29rntLqKo/wjq0pwEmDsEfpp46K8Q
+         Cf/iR6C9nmbbOdCdFE/iikKtukC7Xilz4dqy3e2sTxwSe0sQpCkGsZcrEg0sZqTu6OBO
+         jIoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVPxZdl5gpEwrnPXAHYz4LsiWgK4PMNBQSHXRihXHyK5kzk+g9c50kCSdyeiAk0y/Kc2aj5C1XDJid2zasP/ufQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YypBfvCAGtrTp4I9ZgkB6cEa2GjVv1Qp7YHkFvPRC6BCBp/WNIr
+	OKg5A+evb8ayBvugDGOwO/DBvUusPZ85xCj1McFCP7BpFVL2AVXqW7cDr1LooaH0umc=
+X-Gm-Gg: ATEYQzxxaHh+ovSgYNgnHFu0QIoBEYJ7EetDa0tL9kKHLR5m8LbsbEse+ZM5bs0GUUV
+	MyD25VxujWNz/t7o6P8IHx4JF9cqcUhoLFNHxpdLqSgrU2/4DC5SfEGPINma0DEHMOVxZO0A0yO
+	R24abkoo2TBCyHbulBYDbU85m16uoqT6XiPQUjGfAS78vYiwvm0BgW4lpV6VFa5q5U3PSIg7aZh
+	2L1CEl3WN+VLVdCXtyguvL7DtXe04EqOEQTigJVFMZR7xYxztFhJk6ZkwGqgpBZ10jpZQIQV93O
+	xZ8iSfQW+6O91Km5AEL99GJmWU45mYj1vtzMrHGM8lk80nlLqW60INrQaKNExjLY/m7jaKBcydF
+	HqI22MscKkuQ+xOdGi4YCwV+jTycT5EzqZBQBubw31NJMbTKkV/aDA+8UNdAtUqcycSHKJrmDRF
+	aSiIL4cpL6cLHQkqyCNv9wVZkJBdu+
+X-Received: by 2002:a05:620a:458d:b0:8b2:1ee9:dcfb with SMTP id af79cd13be357-8cfc7b65a1cmr52317385a.8.1773945849126;
+        Thu, 19 Mar 2026 11:44:09 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cfacdaeb88sm611790085a.5.2026.03.19.11.44.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 11:42:00 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v4 11/11] arm64: dts: imx8mm-var-som-symphony: Enable PCIe
-Date: Thu, 19 Mar 2026 19:40:31 +0100
-Message-ID: <6c4f4ee33a3c8cf2c36de57bf4f0a706334c10ed.1773944896.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1773944896.git.stefano.r@variscite.com>
-References: <cover.1773944896.git.stefano.r@variscite.com>
+        Thu, 19 Mar 2026 11:44:08 -0700 (PDT)
+Message-ID: <fc7b74095548d9c13a92d2944c1f5ca9f5c7dba5.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 01/27] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Thu, 19 Mar 2026 14:44:06 -0400
+In-Reply-To: <20260127-spu-rga3-v3-1-77b273067beb@pengutronix.de>
+References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
+	 <20260127-spu-rga3-v3-1-77b273067beb@pengutronix.de>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-cKylSNn6LcAUhVrxOu1V"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_184202_637848_32F73792 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260319_184412_131258_B2A9B87B 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,82 +134,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
 
-Enable PCIe support on the VAR-SOM Symphony carrier board by adding the
-external reference clock, configuring the PHY and providing the required
-clock and reset properties.
+--=-cKylSNn6LcAUhVrxOu1V
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v3->v4:
- - Move vendor properties to the bottom
+Le mardi 27 janvier 2026 =C3=A0 15:39 +0100, Sven P=C3=BCschel a =C3=A9crit=
+=C2=A0:
+> Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+> peripheral found on the RK3588 SoC. Also specify an iommu property,
+> as the RGA3 contains the generic rockchip iommu. The RGA2 also has
+> an iommu, but it's specific to the RGA2.
+>=20
+> The existing binding refers to the RGA2 peripheral. The RK3588
+> contains one RGA2 core and two RGA3 cores. Both feature a similar
+> functionality of scaling, cropping and rotating of up to two input
+> images into one output image. Key differences of the RGA3 are:
+>=20
+> - supports 10bit YUV output formats
+> - supports 8x8 tiles and FBCD as inputs and outputs
+> - supports BT2020 color space conversion
+> - max output resolution of (8192-64)x(8192-64)
+> - MMU can map up to 32G DDR RAM
+> - fully planar formats (3 planes) are not supported
+> - max scale up/down factor of 8 (RGA2 allows up to 16)
 
-v2->v3:
- - 
+Nothing import, but some more details on the differences can be found here.
 
-v1->v2:
- - 
+https://github.com/sravansenthiln1/rga-demos/tree/main
 
- .../dts/freescale/imx8mm-var-som-symphony.dts | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+They also removed from RGA3 the neural network quantization support
+(CLIP((source + offset) * scale). I suppose that integer tensors are fading
+away, and the accelerator does not do floats.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-index fbad5d2d4a97..857325ef4461 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-@@ -6,6 +6,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/phy/phy-imx8-pcie.h>
- #include "imx8mm-var-som.dtsi"
- #include "imx8mm-var-som-wifi-bt-iw61x.dtsi"
- 
-@@ -17,6 +18,12 @@ chosen {
- 		stdout-path = &uart4;
- 	};
- 
-+	pcie0_refclk: pcie0-refclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -198,6 +205,29 @@ &i2c4 {
- 	status = "okay";
- };
- 
-+&pcie_phy {
-+	clocks = <&pcie0_refclk>;
-+	clock-names = "ref";
-+	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
-+	fsl,tx-deemph-gen1 = <0x2d>;
-+	fsl,tx-deemph-gen2 = <0xf>;
-+	fsl,clkreq-unsupported;
-+	status = "okay";
-+};
-+
-+&pcie0 {
-+	reset-gpio = <&pca6408 1 GPIO_ACTIVE_LOW>;
-+	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
-+		 <&clk IMX8MM_CLK_PCIE1_AUX>;
-+	clock-names = "pcie", "pcie_bus", "pcie_aux";
-+	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-+			  <&clk IMX8MM_CLK_PCIE1_CTRL>;
-+	assigned-clock-rates = <10000000>, <250000000>;
-+	assigned-clock-parents = <&clk IMX8MM_SYS_PLL2_50M>,
-+				 <&clk IMX8MM_SYS_PLL2_250M>;
-+	status = "okay";
-+};
-+
- /* Header */
- &uart1 {
- 	pinctrl-names = "default";
--- 
-2.47.3
+One things that isn't clear, even in the upstream RGA2 implementation is if=
+ the
+accelerator is cache coherent. When I study the BSP usage of RGA2, they
+integrate the RGA2 directly into GStreamer software video converter. They d=
+on't
+do anything to flush the cache, indicating that RGA2 is most probably cache
+coherent.
 
+Do you know if RGA3 has the same feature or if this is one of the differenc=
+e ?
+Typically, RKIOMMU users are not, in RGA2, a completely custom mmu was used=
+ (and
+implemented inside the driver, as standalone).
+
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> ---
+> =C2=A0.../devicetree/bindings/media/rockchip-rga.yaml=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 19 ++++++++++++++++++-
+> =C2=A01 file changed, 18 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/=
+Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> index ac17cda65191b..7735d8794c719 100644
+> --- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> +++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> @@ -9,7 +9,9 @@ title: Rockchip 2D raster graphic acceleration controller=
+ (RGA)
+> =C2=A0description:
+> =C2=A0=C2=A0 RGA is a standalone 2D raster graphic acceleration unit. It =
+accelerates 2D
+> =C2=A0=C2=A0 graphics operations, such as point/line drawing, image scali=
+ng, rotation,
+> -=C2=A0 BitBLT, alpha blending and image blur/sharpness.
+> +=C2=A0 BitBLT, alpha blending and image blur/sharpness. There exist two =
+variants
+> +=C2=A0 named RGA2 and RGA3 that differ in the supported inputs/output fo=
+rmats,
+> +=C2=A0 the attached IOMMU and the supported operations on the input.
+> =C2=A0
+> =C2=A0maintainers:
+> =C2=A0=C2=A0 - Jacob Chen <jacob-chen@iotwrt.com>
+> @@ -20,6 +22,7 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3288-rga
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3399-rga
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3588-rga3
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 - rockchip,rk3228-rga
+> @@ -45,6 +48,9 @@ properties:
+> =C2=A0=C2=A0 power-domains:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> =C2=A0
+> +=C2=A0 iommus:
+> +=C2=A0=C2=A0=C2=A0 maxItems: 1
+> +
+> =C2=A0=C2=A0 resets:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> =C2=A0
+> @@ -54,6 +60,17 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
+> =C2=A0
+> +allOf:
+> +- if:
+> +=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - roc=
+kchip,rk3588-rga3
+> +=C2=A0 then:
+> +=C2=A0=C2=A0=C2=A0 required:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - iommus
+> +
+
+You really can't use this chip with CMA ?
+
+Nicolas
+
+> =C2=A0required:
+> =C2=A0=C2=A0 - compatible
+> =C2=A0=C2=A0 - reg
+
+--=-cKylSNn6LcAUhVrxOu1V
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxD9gAKCRDZQZRRKWBy
+9MTmAP9/UjJig3fQpTvjDlz3tiARS93/hVZoNEUjD3yE0V+9qAEAti3yCIjKjcaI
+z1e1wbvEi3mfHC8yVbOrjPYReUxynQQ=
+=46hR
+-----END PGP SIGNATURE-----
+
+--=-cKylSNn6LcAUhVrxOu1V--
 
