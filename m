@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C623B108E1F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58417108E1F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w3fIGi3nO3mbAcAspJa31NZf3Lp/D1S+4Ye959hPyNw=; b=wZQEEQ72w0+4k0rLYGYOm9uQA5
-	AZ3ItczgYnOGRHHTVecPIyvkFsBiPe5EvDJr6MH7J82WAKYEqs556qvpi0inNzRcXH3uTCfyxge6T
-	WTAKY51pOijRzDJrG0/r0yjuKiVvq9ogZMK6hJeImX7ioTWD9Uv8qCAB8ydZ/9JtjMj2E2O9Z9RpW
-	ZL3eVeJUNDDQ+HvCDV9vvh2Q+4Xx4fallTnJlfMJQnr7EFRu85f7LqrsEAv+Db0q0g7tCb0oVQfer
-	Kxt9bBsiugWboBJlSLNg6vF5efI8uSG3e7qyrP/IlDqIKsJ46ukUgPxMUYyOPHpf0xKFi6sJzRPvh
-	ViPUAMpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vRUT9pRyyGhQjgvvkUzthzyM2Lo8dR7urhekmWU0ByQ=; b=Qm7ISIPujvDJTcDrkgucr5zt+b
+	colB13Hl29I8VN6QJfrzswcPK/Ix8AwDQnZb6wOal7fOKXggty254LzBKlnSGiNBnyZ4jWw/rBHco
+	RgeMYX0dGQF8l3SyWObOxaXj2w02rW5nh+1Nt16alJq6P0cH2YO0asSjj+mFmF0cFAHx3kp8ttD8F
+	S02WFnEAUOnFa1MtkCoDtnjFVBJ25Cm6UOakvFKdsBoTrxo1F7kQtJP1JdNEiQPns+daoEikJ9DDo
+	RM9CFRMWMsO3ohwDJyveynw7Uh/WVwUNv9MOvsIbx59Ls0W4l4GNCVwLTwvGd1zihZKsEyYDDMiI9
+	CG0Re0aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Bp2-0000000AZ6R-13Wi;
-	Thu, 19 Mar 2026 11:45:52 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Boz-0000000AZ5h-0cJy
+	id 1w3Bph-0000000AZCr-2OcR;
+	Thu, 19 Mar 2026 11:46:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Bpe-0000000AZBg-3WaM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 11:45:51 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 10210C3EEAC9;
-	Thu, 19 Mar 2026 12:45:41 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 10210C3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Frank Li
- <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-Date: Thu, 19 Mar 2026 12:45:40 +0100
-Message-ID: <m3ms04caaj.fsf@t19.piap.pl>
+	Thu, 19 Mar 2026 11:46:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C61F1A25;
+	Thu, 19 Mar 2026 04:46:20 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A6313F778;
+	Thu, 19 Mar 2026 04:46:24 -0700 (PDT)
+Date: Thu, 19 Mar 2026 11:46:18 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org
+Cc: sudeep.holla@kernel.org, philip.radford@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, gatien.chevallier@foss.st.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [RFC PATCH 0/4] Rework SCMI transport drivers probing sequence
+Message-ID: <abviCkBeX9uzsgxy@pluto>
+References: <20260317165811.3352752-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260317165811.3352752-1-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_044549_364539_013C6FEB 
-X-CRM114-Status: UNSURE (   5.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_044630_994365_599B35FE 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,47 +67,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Running (and terminating) Weston on i.MX8MP sometimes produced black
-or grey screens. The LCDIF3 INT_STATUS_D0 register showed a FIFO underrun:
+On Tue, Mar 17, 2026 at 04:58:07PM +0000, Cristian Marussi wrote:
+> Hi,
+> 
 
-32FC6024: 1000002
+Hi,
 
-The PANIC0_THRES register was set to:
+a clarification replying to myself down-below... O_o
 
-32FC6238:  AA0154
+> when the SCMI transports were split out into standalone drivers [1] the
+> probe sequence was laid out in such a way that:
+> 
+>  - the transport drivers would have probed first, triggered by the firmware
+>    driven discovery process (DT/ACPI)
+> 
+>  - afterwards the control would have been passed to the core SCMI stack
+>    driver via the creation of a dedicated device that would have inherited
+>    the original firmware descriptor (since that same DT/ACPI node would
+>    have still needed by the SCMI core driver to be parsed)
+> 
+> The tricky part came around with some transport driver like virtio and
+> optee since they are, in turn, upfront dependent on an external distinct
+> kernel subsystem; IOW these have first to undergo their own subsystem
+> specific probe/initialization to become fully operational as transports:
+> this kind of initialization sequencing of course must deal with the
+> possibility of probe deferrals BUT at that time we avoid this by using the
+> trick in virtio/optee transports to register the next stage transport
+> drivers ONLY at the end of the subsystem specific probe routine, from
+> within the probe itself.
+> 
+> This behaviour has 2 issues:
+> 
+>  - it is frowned upon and can lead to hangs in the driver core whenever
+>    some core locking is changed as exposed in [2]
+>  - it limits these transport drivers to a single instance probing since of
+>    course you cannot register the same driver more than once
+> 
+> All of this was tolerable because optee/virtio are generally only employed
+> in a single SCMI instance scenario AND because no hang where triggered in
+> the core driver subsystem... (not saying that was perfectly fine :P)
+> 
+> This RFC series aims to solve both of the above issue by:
+> 
+>  - moving the problematic platform driver registation away from the probe
+>    into its own module_init/exit
+> 
+>  - introducing an optional mechanism for the transport drivers to provide
+>    to the SCMI core some sort of transport specific handle so that multiple
+>    instances can be supported and multiple probed transports instances can
+>    be registered and identified by the core. (who is who)
+>    Note that at the same time this optional handle-mechanism is used to
+>    synchronize the drivers probing sequences and possibly trigger, when
+>    needed, the probe deferrals, if the transport driver has still to
+>    undergo its own subsystem initialization and as such is still NOT fully
+>    operational.
 
-which apparently meant low =3D 2736 bytes (0xAA * 16 + 16), high =3D 5456 b=
-ytes
-(0x154 * 16 + 16).
+Implementation issues aside, one thing that I failed to make clear about
+this series is that, while this series addresses the platform registration
+@probe-time issue above and enables the capability to technically support
+multiple SCMI instances also for optee/virtio transports (like it is
+already for mailbox and smc), the multi instance support for optee/virtio,
+as of now, still suffers from some 'structural' limitations that make it
+unfit for production and useful ONLY on a testing scenario (...like in my
+virtio based setup :D)
 
-With this patch (based on NXP's driver) the watermarks are only 16 bytes
-higher (register values increased by 1) and the underruns are gone.
+The crux of the matter lays in the fact that there is still not a way
+in such transports to be able to match a specific probed transport instance
+(device) with the corresponding SCMI DT top node instance descriptor that
+usually, in a multi instance scenario, describes a different set of
+protocols, or the same set of protocols enumerating a different set of
+resources...so, e.g., if you want to match and reference by phandle a
+specific clock domain from a specific instance you cannot really be sure
+that the instance reference that you have is the instance that you wanted
+since depends on how that was associated during the probe.
+(in mailbox and smc you have an explicit channel/shmem association ...)
 
-Tested on Solidrun Hummingboard Mate with a 1080p60 HDMI display.
+Still a lot to reason about this as of now...any suggestion about this
+is even more very much welcome :P
 
-Signed-off-by: Krzysztof Ha=C5=82asa <khalasa@piap.pl>
-
---- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-@@ -353,8 +353,8 @@ static void lcdif_enable_controller(struct lcdif_drm_pr=
-ivate *lcdif)
- 	u32 reg;
-=20
- 	/* Set FIFO Panic watermarks, low 1/3, high 2/3 . */
--	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, 1 * PANIC0_THRES_MAX / 3) |
--	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, 2 * PANIC0_THRES_MAX / 3),
-+	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, DIV_ROUND_UP(1 * PANIC0_THRES_MA=
-X, 3)) |
-+	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, DIV_ROUND_UP(2 * PANIC0_THRES_M=
-AX, 3)),
- 	       lcdif->base + LCDC_V8_PANIC0_THRES);
-=20
- 	/*
-
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+Thanks,
+Cristian
 
