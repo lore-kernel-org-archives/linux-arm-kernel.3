@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0BC109024E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE900109024C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lv3lHA7Am34IVdGQCa5Kj30Y+ZqMeJwbbeWh1Al2jWc=; b=oJc8oM5/bFnSV9D+/9XA4tJMbF
-	si9cM8GT8BhayqhGs7q+7ML+tkE54yB/IRP7yiVirgSc4+3A4uw7pZ93MmrhRLWpUleKM0nT6ggPT
-	6h3VvNGv/HkwWe4S9fHE0g/pCMPUWB5b9dYbyXy/wCJFOixQ4T4M7UpNi40SNF/6x4LKNR3++5LYA
-	z/Vt+mubHaHYMNj4+ZkSG2bsdNE2PgWt8oiCFsVtVt7uYhiJF3CXqPMht8Qb+g77GXIxCxAv9TUIN
-	ChdCKRN3MKx/LHb1daGd3guQ68nvX+OdXa2aqVrL9Dv8XBtsA/2JbgF2NpRYO+p6ukPPU4w0XfxAs
-	XJXTU+hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Ku+TdKpBZURjVYJYXwssaAgRT3caBmSnlPF0+O9uHs=; b=jD/J2RZV4hBdjxlpSZFx5Tgfr5
+	3S/EtIaBbRq0ouaKWRI/4ly81hJRSDQeOxxBLvm0PpBbKYbESF+C/4b/Yfz30PfegA/hT2w/5oryb
+	2XI7VxFpobkp4P0T4yIBJd2QkkGDzfnr78AMJRQXU2dkk5ZLVvcvE4vmntiCvj7TO2xalGQwppVMZ
+	osYBTXIhA1/1OD/eZyicVt64JOkIIILolQBamZKPmMdKBUqzDKJxXbL9HNW8epin7HWLODihq1lCE
+	3+LOfwCOqn/ZgAhZPqULhMqdeZnhyZurpDqhI1bHEWmgHlfrmJE8z2Ra+DIzcvvhd31MB51dfwCeB
+	mQAbJa7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GCi-0000000B4WP-1dKE;
-	Thu, 19 Mar 2026 16:26:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3GFu-0000000B4qu-1mv0;
+	Thu, 19 Mar 2026 16:29:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GCc-0000000B4Va-02VV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:26:30 +0000
+	id 1w3GFt-0000000B4qg-11cc;
+	Thu, 19 Mar 2026 16:29:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2068C60097;
-	Thu, 19 Mar 2026 16:26:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D861C19424;
-	Thu, 19 Mar 2026 16:26:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ABB0600AD;
+	Thu, 19 Mar 2026 16:29:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 248A3C19424;
+	Thu, 19 Mar 2026 16:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773937588;
-	bh=3unA1PwfL2Fg34GNfzHISq0EoNO+jPqZ9/aavZeuSeY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ulPuAquROn7u7UJkt+WmVJuX2QSMIFnI/wXrEBxU3zlx3/2XY2nlFL20ONFJcV6yW
-	 0fgO9FZT+oL5LSRfe1G/l+wR+fdVqSCaniIXj2pADxaaGznmz/jZuOEBRbNcV4DTqB
-	 /SrR0XigW3jph0Z9+P5uQLQDrRXVdv1PvHRIJqsqlnQYfh1d9J8riYPHChCAzdloIf
-	 APnPh6c6ozB++4I64/iYh9hNqxUb90fS4OTGWl322yypVol4lRIFdHAk/GCYw5uSRx
-	 HzxqGIW7nMU/YvclTmOzzyBKqm5HINfj/Oeg8n4MwYJb4CjyjlwdP84EebHJv8Dk08
-	 NLttWWNmGcLPA==
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	jpb@kernel.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	balbirs@nvidia.com,
-	praan@google.com,
-	miko.lenczewski@arm.com,
-	smostafa@google.com,
-	xueshuai@linux.alibaba.com,
-	baolu.lu@linux.intel.com,
-	kevin.tian@intel.com,
-	mshavit@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	peterz@infradead.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v13 0/8] iommu/arm-smmu-v3: Introduce an RCU-protected invalidation array
-Date: Thu, 19 Mar 2026 16:26:09 +0000
-Message-ID: <177393290314.3824125.1547121281315179805.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1773733797.git.nicolinc@nvidia.com>
-References: <cover.1773733797.git.nicolinc@nvidia.com>
+	s=k20201202; t=1773937761;
+	bh=i5FY2xFUG82H2mxUurUo54YyYFYdXZArEFQEN+SDOy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aF5DbFFAnHCvzhvJhT5dGtrQoRtJ9QNrqQlmJnbfZGodcTPOczAfqoQkVJIF/LXmE
+	 NRUWZ3gYSMcre4wgwUNw09xxVKFI5Sgemkg2LAotinZjLLwX4iM1PGYkctTph/RumK
+	 vZbtY4tdz04aVkTwegcY+ogZdGqZvTefi0axkcs96JyYYbbFlBfs82HELbk8bZzpWu
+	 r3XKupXWro4jRmoWCi9Q8Sv10Og+jz9lMJHhwiLehTvhEzP5QW3ShgVjN49nGeFKrY
+	 HHr/eCyrr+oVH6Ygchgg5RWipe/5nmkCpI4UsgYg0JGgzQb2ofwBsZCXqUHlfYYlJr
+	 B/ySfzNIrgg5Q==
+Date: Thu, 19 Mar 2026 16:29:19 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>, 
+	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
+	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v2 06/16] mm: add mmap_action_simple_ioremap()
+Message-ID: <939645bf-50c3-47bd-8132-89acf95056c5@lucifer.local>
+References: <cover.1773695307.git.ljs@kernel.org>
+ <1e58aaf3cdb61cc317d890c12c9a558dfc206913.1773695307.git.ljs@kernel.org>
+ <CAJuCfpGocCSRT0yDxPOLg2NZ+W_ZSTjHGPZRKBd3U90=sQtHCw@mail.gmail.com>
+ <330f3614-7dc1-4e80-96c4-8472b25108bb@lucifer.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <330f3614-7dc1-4e80-96c4-8472b25108bb@lucifer.local>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 00:59:15 -0700, Nicolin Chen wrote:
-> This is a work based on Jason's design and algorithm. This implementation
-> follows his initial draft and revising as well.
-> 
-> The new arm_smmu_invs array is an RCU-protected array, mutated when device
-> attach to the domain, iterated when an invalidation is required for IOPTE
-> changes in this domain. This keeps the current invalidation efficiency of
-> a smb_mb() followed by a conditional rwlock replacing the atomic/spinlock
-> combination.
-> 
-> [...]
+On Wed, Mar 18, 2026 at 08:39:25PM +0000, Lorenzo Stoakes (Oracle) wrote:
+> On Mon, Mar 16, 2026 at 09:14:28PM -0700, Suren Baghdasaryan wrote:
+> > > +int simple_ioremap_prepare(struct vm_area_desc *desc)
+> > > +{
+> > > +       struct mmap_action *action = &desc->action;
+> > > +       const phys_addr_t start = action->simple_ioremap.start_phys_addr;
+> > > +       const unsigned long size = action->simple_ioremap.size;
+> > > +       unsigned long pfn;
+> > > +       int err;
+> > > +
+> > > +       err = __simple_ioremap_prep(desc->start, desc->end, desc->pgoff,
+> > > +                                   start, size, &pfn);
+> > > +       if (err)
+> > > +               return err;
+> > > +
+> > > +       /* The I/O remap logic does the heavy lifting. */
+> > > +       mmap_action_ioremap(desc, desc->start, pfn, vma_desc_size(desc));
+> >
+> > nit: Looks like a perfect opportunity to use mmap_action_ioremap_full() here.
+>
+> Yeah can do!
+>
+> >
+> > > +       return mmap_action_prepare(desc);
+> >
+> > Ok, so IIUC this uses recursion:
+> > mmap_action_prepare(MMAP_SIMPLE_IO_REMAP) -> simple_ioremap_prepare()
+> > -> mmap_action_prepare(MMAP_IO_REMAP_PFN).
+>
+> Yep, it's one level, I think that should be ok? :)
 
-Applied to iommu (arm/smmu/updates), thanks!
+On second thoughts, it's silly not just to call io_remap_pfn_range_prepare()
+direct so will change it to do that!
 
-[1/8] iommu/arm-smmu-v3: Add a missing dma_wmb() for hitless STE update
-      https://git.kernel.org/iommu/c/6fabce53f6b9
-[2/8] iommu/arm-smmu-v3: Explicitly set smmu_domain->stage for SVA
-      https://git.kernel.org/iommu/c/9b056856880a
-[3/8] iommu/arm-smmu-v3: Add an inline arm_smmu_domain_free()
-      https://git.kernel.org/iommu/c/c317452f5a22
-[4/8] iommu/arm-smmu-v3: Introduce a per-domain arm_smmu_invs array
-      https://git.kernel.org/iommu/c/15a2a5645ad7
-[5/8] iommu/arm-smmu-v3: Pre-allocate a per-master invalidation array
-      https://git.kernel.org/iommu/c/e3a56b37bf75
-[6/8] iommu/arm-smmu-v3: Populate smmu_domain->invs when attaching masters
-      https://git.kernel.org/iommu/c/b77429757e45
-[7/8] iommu/arm-smmu-v3: Add arm_smmu_invs based arm_smmu_domain_inv_range()
-      https://git.kernel.org/iommu/c/587bb3e56a2c
-[8/8] iommu/arm-smmu-v3: Perform per-domain invalidations using arm_smmu_invs
-      https://git.kernel.org/iommu/c/4202fddd01c7
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Cheers, Lorenzo
 
