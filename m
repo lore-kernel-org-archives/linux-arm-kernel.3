@@ -4,149 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCC11090223
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 12:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D42B1090223
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 12:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfuF/PlZWMgF3ErD0zfEEpE4i/iFIciw6YjqRozDOSI=; b=wJymxMlJdToOvJvs5KpqG/o107
-	LuV7guH6faikVE+nHspTl/vF56mPDtEHXZKLPrnVFBI9+fZlwpEC04a0kcFjP1lXfeWK4ufjgrICC
-	Q07WLQBG7tRlApDah/Rru3RN6s1BwyMnGUD/YqGmxGTMVjTl/bm2R6PGtZ5984zVoWF6l++iqsvwF
-	Xdx/4MKVE58FAmksa0TA1RooANyF5K2sePJTn/yQ0FEIISsWz9g2UIWoZlToZqKDEw82Phl22P0Fh
-	0hEFvBoUAiZ4SM0lmT/yKc4DYprDT8Y4eE9xIqQtpjmvhn/Kru0ZXQxs4yW60uwJPh4LV3DgG5EJS
-	nC/z1cEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7R0pn7ZfdsYWdr21Qctdy5ZMqO7uhqsnnOEXcHNYDI=; b=IZxLnFw3Sm1JHUfVtgAPNgH1A+
+	2+gfDHWz5UfuvxtKo/whVGsTDUZrGzqm3w6sQetTeYB6jcIPrNJ5BUvaImz0Dvoj5bY9bxJsT1biN
+	dHiOD0c/Dy5iu8MRGmrx5WSQ6coVaUFBVBEq91afgNbbkXRh4qkun8Edg+lpsSjZbkqC1mliRwH7b
+	X5GiI0enpOaq3UEQ9vsmaGGTqA3qEwkkm39/M7LoEzdKRnSvpnkM0fp32D+NizsOu7EDXnKoJPbgL
+	fe4Di/FS+rOwtdcqfHHTzNBflyrKkz5CGJv61j8wncwHNC3VpZtwa2t8mBoNtrfnYLe0leuXE6K9G
+	yuth6lPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Cwr-0000000AeFH-0vQ1;
-	Thu, 19 Mar 2026 12:58:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w3CxM-0000000AeL8-3olc;
+	Thu, 19 Mar 2026 12:58:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Cwp-0000000AeEs-1gZG
+	id 1w3CxK-0000000AeKU-3LgE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 12:58:00 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62J73wKT3771110
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:57:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MfuF/PlZWMgF3ErD0zfEEpE4i/iFIciw6YjqRozDOSI=; b=GT0iLIPvcgEkI18t
-	RqrGsWYCMxUKkcGWtFcyAqOT4bYfG28CXoZOS4g8py0AKbM8x3FzpxcJh7rH5lZN
-	1MVc/LAniCBG+d3D9kQb8CMDr3eT4EnvZ9m41mInGtzhlzo1SQF/CN1ws/Jz9D/O
-	+ypAokzAg6PC5G8db0mBkPTpyjBq1usKy9ED+nT9V3zWuZYRDD8u2N2rlLC8vf9b
-	qN7XrQF/MBm368nXCsPo4M5yp7MJaSwYtpZaOfRy1Hw5CknZHzuQx9o7V7BQC5Yv
-	dg+2X0ZGtJ65SM95uSxW3JONEUBj5TCoLKWIqsMhvyjO3gTiiQCbJxyDs5xZXfo/
-	hXSwGg==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d083r9rsh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:57:58 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-89c6717b74dso7123516d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 05:57:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773925078; x=1774529878; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MfuF/PlZWMgF3ErD0zfEEpE4i/iFIciw6YjqRozDOSI=;
-        b=UEmU5LKw1FUSRS/qsBHFEy57wOML86w97AZycLeb6a4NDncD/GDrBheKzv9LwePbGO
-         +1FuTaU5wa97ZZFjn+cwm08+ahjEm2pZg/rs0mzB6+DbV01wsEIcNuZi+EG+vRpJxdU8
-         YGJFDzbtQvnXnGyEaygZtjWqIQr9cwebwU+tVAITvJlGOzicaMbbSzJlBGxa+F4A2dYw
-         6pf9Ulx0FSbXBH/UKehJosAh2gKvKu1o6IdfUqPiqoHE9ye1f5RUBaImBCT+yEAW+6Lz
-         5xDu0ob00EGqm2XcYgh6hryeRNmNo8QHHJiMzu5W/fx2TO8PHj/IguoexjUUh0HLDTwC
-         FUSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773925078; x=1774529878;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MfuF/PlZWMgF3ErD0zfEEpE4i/iFIciw6YjqRozDOSI=;
-        b=XfIefB3prKO4HjWCqe9oo+vTb301b7EWoFtjINXvabxgx0qLbSHNjLrDKXd5ksyPVp
-         zzs6p+0ucLD6+/CDA0PHTOugFLDnA2ww1kDiH/I7rneTSMt0E6+2/5Lz+B4UDDELqAvj
-         jXZmWgIz+3tJpZj+2wNelb3SemI96AhbvARtJAD1WnBfswaKSDvV+rF0XEEI3fJc+JbI
-         5FPIYMIXBtFgk+Uni9l0gfL11lfKoXbzX7rNyppdavrosgZCH5hyj3gdVG71JOnSvifW
-         j66U8oBqUDsOaJjPa1eFV/IZCPFJ1zJsL4ZlJWb0wvjc+S8YInkaVAguZ5ctRKVHk9v9
-         fQkg==
-X-Forwarded-Encrypted: i=1; AJvYcCWKztUZ3O9cyLfXAr7vRqOi9adJl/l6/y6coYgtPGxaKUgm89z9Ga0Dnue9L6ajzUcFJcs83X8xjC0eCLrQf/im@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJxXAmrD28glqo6ReLXRIS7cMo+hMNzDzwLiPUU1bufORJ6hZC
-	Pe2cPCvz321MUw7RoHBw0nmK+Rmn20Vpusi4PraMVGmSAzf/8OT85XSoJtiiOl7skaVSlcv8Hqq
-	1pd6ZTA2iXqVUB6VRMiY3qYxdZKgxC4Vgkd+OnVR+pMy2MIDed+UpVdLyWrbryo4xey4jeIryQK
-	u4Mw==
-X-Gm-Gg: ATEYQzwII0diA2USU0bqT4EUHA0tSnWRvw/AnIxbDRtmFPK2+nKi2eGnk9HzQ/JYGFC
-	PhIoVj4MSgDkArkQsPqjbh9MZZB5ZdnuZIbXm5Ok/mC0I3pddKbVRWWmoAs7cF7DQrWuv/3sEGk
-	JPbVusRT3umCrBnTpqIf3BZ8TcYsDjdkkjXrD6Vyt3zptWB4S+FpxyhBuytm4aGBw7PuuXov2Q6
-	s7Q36xDJ7UXWvpXCUM9EauNzVFdhS+PWSzCd/ivV/PBVL8zo5J7UOkPxFih1SMvmDkSbarad16X
-	uhSUAI8HbiwugnvhLPuNr2KMWciMMSpObeZ7aMD1AQIC9xc1uePCXFbhj2dKwPYbMpj8iz4TP+P
-	m0D7fowm1is9nHu6Bm5IwYHgdqFltNGP82c0q7dSMtMoLxUz6Gwg3fRYiLK+4hf+Nw4OA5QSOgH
-	U3j1Q=
-X-Received: by 2002:a05:6214:f2e:b0:89c:5159:ea52 with SMTP id 6a1803df08f44-89c6b5c8893mr82541516d6.7.1773925077656;
-        Thu, 19 Mar 2026 05:57:57 -0700 (PDT)
-X-Received: by 2002:a05:6214:f2e:b0:89c:5159:ea52 with SMTP id 6a1803df08f44-89c6b5c8893mr82541176d6.7.1773925077104;
-        Thu, 19 Mar 2026 05:57:57 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b97f142a785sm449977466b.14.2026.03.19.05.57.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Mar 2026 05:57:56 -0700 (PDT)
-Message-ID: <34c67717-0d6a-424d-be5f-0e514b71d180@oss.qualcomm.com>
-Date: Thu, 19 Mar 2026 13:57:54 +0100
+	Thu, 19 Mar 2026 12:58:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Z7R0pn7ZfdsYWdr21Qctdy5ZMqO7uhqsnnOEXcHNYDI=; b=zxpv3RsH1j0RgeyxZ9QHdWZhmC
+	lFnfS4AluSgqoW0Ktrf02KNVAy4qiftcMGC3jfrsFBWzpTqaQwAJ1AW+g8chPTOCmutDfi9k7Evaz
+	KU1VJpc58NGgX2euaAZJhqiE0RxEiAteyQi7WxqXmCzkESLPGJxSWIbrWWcgCfW3TTTRkyNFQLIXB
+	EpziFXgvzqIcLeViTs1sUUW1tm4DKdlRYwgOB+5xgeUF+zg0+vO5W6gqv3y1cvRlVZYExQpTEsBVW
+	Pvzr1i6JlyzfF5+3xYYuwRhiSeImWqBxXJDeLeT40ly4HU9dvNv0LeJES9IpMlxtewEnK079koyAH
+	UKG0/sxw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45602)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w3CxC-000000004lO-0Uh7;
+	Thu, 19 Mar 2026 12:58:22 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w3Cx8-0000000088u-3p1e;
+	Thu, 19 Mar 2026 12:58:18 +0000
+Date: Thu, 19 Mar 2026 12:58:18 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <abvy6nZyjyxUXMuf@shell.armlinux.org.uk>
+References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
+ <abdEscs44fU4kRag@oss.qualcomm.com>
+ <abdYu864OmNWiWIW@shell.armlinux.org.uk>
+ <ablpxwGks9m38fhM@shell.armlinux.org.uk>
+ <absjNQ2s3Z5N2Zwo@oss.qualcomm.com>
+ <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
+ <abvAuHFZzCFobO-V@shell.armlinux.org.uk>
+ <7566c66b-2dda-4b29-b59e-4e4a7e159e21@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] clk: qcom: camcc: Add support for camera clock
- controller for Eliza
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
- <20260317-eliza_mm_clock_controllers_v1-v1-6-4696eeda8cfb@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260317-eliza_mm_clock_controllers_v1-v1-6-4696eeda8cfb@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: JYd6JQSIrplXCH6-NX_HlcGSS__hdXMj
-X-Proofpoint-ORIG-GUID: JYd6JQSIrplXCH6-NX_HlcGSS__hdXMj
-X-Authority-Analysis: v=2.4 cv=ApTjHe9P c=1 sm=1 tr=0 ts=69bbf2d6 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=jdZfh6YgxIVJxXzoon8A:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE5MDEwMSBTYWx0ZWRfXyo3cUrFy/0u5
- rZkenQpoeiYxqatdTCalelPDCNww0ImVNyHuRomtQ1n+pIExyEPEVJ9/OSpZMQj6bSK2hxFRETv
- Oj7kzGo8VPQ8lhynkdH74cOfjvVwm6bCx/z3rjeIHq9u0O5mkrxKliFl6iU546MQO9mMR3JQdCO
- cVUTYL22GbEot9f/dgwGxO+qJomuZO8Go65/MSIMOuC2KyvWzJzHQ/ipTJPy9nqZR4Ywh1NBvk6
- q2bRG1voF0ji1KkW+luXxlR+7wm9RJUjPtDMkA452w+meQzl6gk54h0bbnALEJd8u+uD8RErdPO
- GVIGuHyVDudDwlrDhfo2OQzW69TL3+32uHQtDRNWeGrtq9t4dDyQAO1JnXnwLscIoejsgHIlMAy
- eta+jkjiH9lZIuG/fj54LI0SzjgBUOZFsnNIUwaQu5N9jgzbN+48dsZgVrqsRYC725PPuDeb8vy
- ID3sOjOKk4LPMhrLY8w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-19_01,2026-03-19_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 suspectscore=0
- clxscore=1015 impostorscore=0 priorityscore=1501 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603190101
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7566c66b-2dda-4b29-b59e-4e4a7e159e21@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_055759_470522_DE7988C5 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260319_055830_955648_A3E84903 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,18 +93,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 6:14 PM, Taniya Das wrote:
-> Add support for the Camera Clock Controller (CAMCC) on the Eliza
-> platform.
+On Thu, Mar 19, 2026 at 11:09:33AM +0100, Konrad Dybcio wrote:
+> On 3/19/26 10:24 AM, Russell King (Oracle) wrote:
+> > On Thu, Mar 19, 2026 at 12:35:58AM +0000, Russell King (Oracle) wrote:
+> >> On Thu, Mar 19, 2026 at 03:42:05AM +0530, Mohd Ayaan Anwar wrote:
+> >>> [    8.650486] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+> >>
+> >> Please look into this first - with the MDIO bus operating at
+> >> who-knows-what frequency, this could make reading from the PHY
+> >> unreliable.
+> > 
+> > My guess is clk_get_rate(priv->plat->stmmac_clk) is returning zero,
+> > which means we don't know the rate of the CSR clock.
+> > 
+> > From what I can see in drivers/clk/qcom/gcc-qcs404.c and
+> > drivers/clk/qcom/gcc-sdx55.c, this looks like this case - the
+> > struct clk_branch makes no mention of any clock rate, nor does it
+> > have any parent. From what I can see, neither of these drivers
+> > specify any rates for any of their clocks, which likely means that
+> > clk_get_rate() will be zero for all of them.
+> > 
+> > Sadly, when I designed the clk API, I didn't think that people would
+> > be stupid enough not to implement the API properly, more fool me.
+> > 
+> > Under the old code, we would've used STMMAC_CSR_20_35M, which means
+> > we're assuming that the CSR clock is between 20 and 35MHz, even
+> > though the value is zero. Is that the case? If it's higher than
+> > 35MHz, then you've been operating the MDIO bus out of IEEE 802.3
+> > specification, which can make PHY access unrealible.
+> > 
+> > In any case, please fix your clock drivers.
 > 
-> The CAMCC block on Eliza includes both the primary camera clock
-> controller and the Camera BIST clock controller, which provides the
-> functional MCLK required for camera operations.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
+> I'm not 100% sure the currently-passed AXI clock is what we want
+> there and the docs aren't super helpful.. is there a synopsys-name
+> for it? What rates would you expect it to run at?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+There is no easy answer to that - it depends on the bus interfaces
+and whether the CSR (register) clock is separate.
 
-Konrad
+The likely possible names are hclk_i (for AHB master), aclk_i (for
+AXI master), or clk_csr_i.
+
+It does state that the CSR clock should have a minimum frequency of
+25MHz to allow all statistics to be properly collected.
+
+The rate of the CSR clock needs to be known, as selecting the divider
+for generating MDC within IEEE 802.3 specifications is rather
+fundamental. You may find something there which hints at what rate
+the dwmac's CSR clock runs at.
+
+Hope this helps.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
