@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1B91090253
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFCE01090253
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 16:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUPiCMkWWRr06tWhkiRwX5vcqIp2aZcJ57xfg9fTe0U=; b=gDwEuZ3usB590YBf5os0BtV1kh
-	5aVgWZ46rsBv9U0ilzvqFwa6Diu0mw4FvtFXmVhj+LzNGMQhDFFmwS1evhKNOw88czAAIDDBMu3LP
-	b167A1uUhARv6ZDZdzAu2qt4iNM/zDwB8azkqbMpMqVFgcBlDLDqUEDYHHlWDhFuIPZ3LXpFV76v7
-	sw6qCTPweVD1WFFqeQTJFYXkTENe75I+zK3JdymXIqIM65FAtyJBvJzk+mwbjNrmi5JMxrd28hgux
-	7yx8gz1iUUbhafMI1LMJFWUtuDYJwLSKqNtzKQHvSPIltDXjIUhYtK+ZWsey1gDhUkMwELBtfi3u0
-	/2SojxiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6tosmS1K+wCI+SplCeVdx/MgoVRI8vvv6FqforZSsTo=; b=UWxfEc/odcqpICxO+GbGehfxK9
+	xdY5+5q0oXLbFPLBCFQgPxoFtqvUH4G28sp143/CBX1U4fqYnz0Ia/SPseh5Ltc9PUkMbVVcMbb+8
+	3iiCj241oOucfoiZ68FZWyAM8NpSL38zQVnQlvGybYSupNPxluGXV1X+1sRfNevRcJTWzUnMMIt2h
+	vpcJI04lvUxFo9EquiNKgVizE8fEYG8gsSyb6vmeCoPeYqXArrPkaD6Cv8RT42N2mxCTjzm01euYD
+	JeLApXHDb4mv4F5LBA01jFoi63fgfVnNux88UqquYOHaU4q9s8Fij3a1AhdAvnfqTE5YnZqIc6uj3
+	rA3MeNfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Gbi-0000000B7QN-1NnF;
-	Thu, 19 Mar 2026 16:52:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Gbg-0000000B7Ph-12bB
+	id 1w3GeY-0000000B7dw-0GVw;
+	Thu, 19 Mar 2026 16:55:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3GeW-0000000B7dU-1drh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 16:52:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78EA34399A;
-	Thu, 19 Mar 2026 16:52:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0086DC19424;
-	Thu, 19 Mar 2026 16:52:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773939142;
-	bh=RqSHYvv6FzZs+wsXuzztck96ItR9g8iq2jOnKvqpeUM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gOnoXGy5pZxZQ00/Ul0vdbB/agvAeMtRuN5xIMLdzNeui7G6F4wYYwmD7fqvSjADC
-	 S5e7+8ekZGfbpcFG38TT6Zkxh4e7CJac/xCTMnF166IqSB4zWRyqUaQseNYF2arcLS
-	 TgIvrgtn869TuNm2e7CXkygT08ODDwjOWpo/hm9ghL9WvseVQf2GTvGoXTbFVQkNRB
-	 ix6whEUQV7YE5uLpJNEbUfC7M/OIJg058eGwPjGwU/z+gYEScOUTqRUc5XXON/+fgm
-	 RMynuLVc2ka6nR30/uLgV370zs2RuNYrXT2uepGzstct8+A6Vt93PFylgqK5Ob3tRC
-	 TQw7tnQFd0IoA==
-Date: Thu, 19 Mar 2026 16:52:18 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Maulik Shah <maulik.shah@oss.qualcomm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] arm64: suspend: Remove forcing error from suspend
- finisher
-Message-ID: <20260319-ruddy-fierce-honeybee-8fc7b9@sudeepholla>
-References: <20260316-suspend_ret-v1-1-1a30b110bb7d@oss.qualcomm.com>
- <20260319-tiny-coucal-of-tranquility-ce0bd4@sudeepholla>
+	Thu, 19 Mar 2026 16:55:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A156216F2;
+	Thu, 19 Mar 2026 09:55:09 -0700 (PDT)
+Received: from [10.57.84.77] (unknown [10.57.84.77])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B6E53F7BD;
+	Thu, 19 Mar 2026 09:55:13 -0700 (PDT)
+Message-ID: <de634edc-0fc6-4a32-b0f9-77d87df2bbb3@arm.com>
+Date: Thu, 19 Mar 2026 17:55:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
+To: wens@kernel.org, Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Linus Walleij <linusw@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260319-rc2-boot-hang-v4-0-4372f47cb6b8@mmpsystems.pl>
+ <20260319-rc2-boot-hang-v4-2-4372f47cb6b8@mmpsystems.pl>
+ <CAGb2v65c7A7V05ih-GkHxs1tik892Fgt8HhT49_2xHeL91Sh_g@mail.gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAGb2v65c7A7V05ih-GkHxs1tik892Fgt8HhT49_2xHeL91Sh_g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260319-tiny-coucal-of-tranquility-ce0bd4@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_095224_336410_26C8847D 
-X-CRM114-Status: GOOD (  38.36  )
+X-CRM114-CacheID: sfid-20260319_095520_550567_255BD466 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +70,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 03:14:01PM +0000, Sudeep Holla wrote:
-> On Mon, Mar 16, 2026 at 02:18:18PM +0530, Maulik Shah wrote:
-> > Successful cpu_suspend() may not always want to return to cpu_resume() to
-> > save the work and latency involved.
-> > 
-> > consider a scenario,
-> > 
-> > when single physical CPU (pCPU) is used on different virtual machines (VMs)
-> > as virtual CPUs (vCPUs). VM-x's vCPU can request a powerdown state after
-> > saving the context by invoking __cpu_suspend_enter() whereas VM-y's vCPU is
-> > requesting a shallower than powerdown state. The hypervisor aggregates to a
-> > non powerdown state for pCPU. A wakeup event for VM-x's vCPU may want to
-> > resume the execution at the same place instead of jumping to cpu_resume()
-> > as the HW never reached till powerdown state which would have lost the
-> > context.
-> > 
+Hi Michal,
+
+thanks for the very quick turnaround!
+
+On 3/19/26 17:44, Chen-Yu Tsai wrote:
+> On Fri, Mar 20, 2026 at 12:10 AM Michal Piekos
+> <michal.piekos@mmpsystems.pl> wrote:
+>>
+>> Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
+>>
+>> The issue is caused by gpiochip_lock_as_irq() which is failing when gpio
+>> is in unitialized state.
 > 
-> Though I don't fully understand the intention/use-case for presenting the
-> VMs with powerdown states ....
+>          ^ uninitialized
 > 
-> > While the vCPU of VM-x had latency impact of saving the context in suspend
-> > entry path but having the return to same place saves the latency to restore
-> > the context in resume path.
-> > 
+>>
+>> Solution is to set pinmux to GPIO INPUT in
+>> sunxi_pinctrl_irq_request_resources() if it wasn't initialized
+>> earlier.
+>>
+>> Tested on Orange Pi Zero 3.
+>>
+>> Fixes: 01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()")
+>> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+>> ---
+>>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 19 +++++++++++++++++++
+>>   drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 ++
+>>   2 files changed, 21 insertions(+)
+>>
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> index 685b79fc0bf8..321ee97f5745 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> @@ -1092,13 +1092,32 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+>>   {
+>>          struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+>>          struct sunxi_desc_function *func;
+>> +       unsigned int offset;
+>> +       u32 reg, shift, mask;
+>> +       u8 muxval;
+>>          int ret;
+>> +       bool is_new_layout;
+>> +       bool is_reset_mux;
+>>
+>>          func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
+>>                                          pctl->irq_array[d->hwirq], "irq");
+>>          if (!func)
+>>                  return -EINVAL;
+>>
+>> +       offset = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
+>> +       sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
+>> +       muxval = (readl(pctl->membase + reg) & mask) >> shift;
+>> +
+>> +       /* Change muxing to GPIO INPUT mode if at reset value */
+>> +       is_new_layout = pctl->flags & SUNXI_PINCTRL_NEW_REG_LAYOUT;
 > 
-> I understand the exit-latency aspect, though the register set involved is not
-> very large unless the driver notifier list is sizable on some platforms. This
-> is typically the case in Platform Coordinated mode.
+> You would want
 > 
-> > consider another scenario,
-> > 
-> > Newer CPUs include a feature called “powerdown abandon”. The feature is
-> > based on the observation that events like GIC wakeups have a high
-> > likelihood of happening while the CPU is in the middle of its powerdown
-> > sequence (at wfi). Older CPUs will powerdown and immediately power back
-> > up when this happens. The newer CPUs will “give up” mid way through if
-> > no context has been lost yet. This is possible as the powerdown operation
-> > is lengthy and a large part of it does not lose context [1].
-> > 
+>      !!(pctl->flags & SUNXI_PINCTRL_NEW_REG_LAYOUT)
 > 
-> When you say "large part" above, do you mean that none of the CPU context, as
-> visible to software, is lost? Otherwise, we would need to discuss that "large
-> part" in more detail. From the kernel point of view, this is a simple boolean:
-> context is either lost or retained. Anything in between is not valid, as we do
-> not support partial context loss.
+> here to normalize it to a bool value. This is quite common in kernel code.
+
+The whole expression above is a bit cumbersome (though correct). And 
+since is_reset_mux isn't really needed, I'd suggest something like:
+
+	u8 disabled_mux;
+....
+	if (pctl->flags & SUNXI_PINCTRL_NEW_REG_LAYOUT)
+		disabled_mux = SUN4I_FUNC_DISABLED_NEW;
+	else
+		disabled_mux = SUN4I_FUNC_DISABLED_OLD;
+	if (muxval == disabled_mux)
+....
+
+But yeah, in general this was what I had in mind.
+
+Cheers,
+Andre
+
+
+	
 > 
-> > As the wakeup arrived after SW powerdown is done but before HW is fully
-> > powered down. From SW view this is still a successful entry to suspend
-> > and since the HW did not loose the context there is no reason to return at
-> > entry address cpu_resume() to restore the context.
-> > 
+>> +       is_reset_mux = (!is_new_layout && muxval == SUN4I_FUNC_DISABLED_OLD) ||
+>> +                      (is_new_layout && muxval == SUN4I_FUNC_DISABLED_NEW);
+>> +
+>> +       if (is_reset_mux) {
+>> +               sunxi_pmx_set(pctl->pctl_dev, pctl->irq_array[d->hwirq],
+>> +                             SUN4I_FUNC_INPUT);
+>> +       }
 > 
-> Yes, that may be worth considering from an optimization perspective. However,
-> if the hardware aborts the transition, then returning success regardless of the
-> software state should still be counted as a failure. That would keep the
-> cpuidle entry statistics more accurate than returning success. And it is
-> a failure as the OS expected to enter that powerdown state but there was
-> as H/W abort.
+> Nit: the curly braces aren't needed.
 > 
-> > Remove forcing the failure at kernel if the execution does not resume at
-> > cpu_resume() as kernel has no reason to treat such returns as failures
-> > when the firmware has already filled in return as success.
-> > 
+>> +
+>>          ret = gpiochip_lock_as_irq(pctl->chip,
+>>                          pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
 > 
-> This is not possible with the current PSCI spec:
-> "Powerdown states do not return on success because restart is through the
-> entry point address at wakeup."
+> Nit: you probably want to replace this with "offset" as well.
+> 
+> 
+> Just minor issues, otherwise
+> 
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+> 
+>>          if (ret) {
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> index 22bffac1c3f0..0daf7600e2fb 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> @@ -86,6 +86,8 @@
+>>
+>>   #define SUN4I_FUNC_INPUT       0
+>>   #define SUN4I_FUNC_IRQ         6
+>> +#define SUN4I_FUNC_DISABLED_OLD 7
+>> +#define SUN4I_FUNC_DISABLED_NEW 15
+>>
+>>   #define SUNXI_PINCTRL_VARIANT_MASK     GENMASK(7, 0)
+>>   #define SUNXI_PINCTRL_NEW_REG_LAYOUT   BIT(8)
+>>
+>> --
+>> 2.43.0
+>>
+>>
 > 
 
-OK, my bad. Sorry for that.
-For some reason, I read "do not return" as "must not return".
-
-The spec allows this:
-  |  The caller must not assume that a powerdown request will return using the
-  |  specified entry point address. The powerdown request might not complete due,
-  |  for example, to pending interrupts. It is also possible that, because of
-  |  coordination with other cores, the actual state entered is shallower
-  |  than the one requested. Because of this it is possible for an
-  |  implementation to downgrade the powerdown state request to a standby
-  |  state. In the case of a downgrade to standby, the implementation
-  |  returns at the instruction following the PSCI call, at the Exception
-  |  level of the caller, instead of returning by the specified entry point
-  |  address. The return code in this case is SUCCESS. In the case of an
-  |  early return due to a pending wakeup event, the implementation can
-  |  return at the next instruction, with a return code of SUCCESS, or
-  |  resume at the specified entry point address
-
-So we need to dig and check if there was any reason for returning "NOT
-SUPPORTED" when the call returned success.
-
--- 
-Regards,
-Sudeep
 
