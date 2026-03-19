@@ -4,146 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9631090237
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1841090237
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=; b=pnwRzRvbm4nUTy0Iw3W8ollX4T
-	clWUQpCdU4QaHRjUJISzJdLezizkaJEsKqI3PYIhdSZ/Rab+AkUkPOreYdqMZwDI+SHK2U6V18Uqg
-	3JqD+pAu15OE/RUtJwIg4Arki0dBjq+5Nbb+zu/27aQvsDXvCUV6LGPENfgDoyN1V1Jxw/zXlFrHW
-	p6B8tZvpJm1Cc+/6d9waIvuaR6UOAkEQ4v+Pr7haH1VvrqhRN8i3syHh3C9522jEh4XyIBRmXIHY6
-	xdKK6btc9nF6H0GOSHqeTxCcbChB15PrxEDPI4BM6KwkhN5Vj6bhz6gF7dpzQd/Ic4nrenu3rhBjB
-	6yV6UDqg==;
+	bh=9PKfHh7lpDmvXp/AacCSQ4DXliViadOMLA1Saz6vuQM=; b=HsXyGCrkqFSCBM7d/bp/i1a3tN
+	NYNcqLKZTLmzs9j8RpYd7VwsAvmB61Np9OX/dKoSjwtaVZXXYqIRudcsqRThr9tFh50emvqK8LBXf
+	/cpvYJlKyOZvsHZsFgDY5SrTuYvmGCudQsCCvbIT8u0AGsufenT4uC9YDxyHMmeh7Ny10YXYRjA4C
+	m2DO1N/EGTOa940fvnP50yD8ZFIBlRw7Y9ylJ5veT9hXyRDdzkTXNuI8MUTkHvOLOyyl4hW4ve5Ut
+	VffXLZl5cBpJrwd2+yDAeWGMV3H8JBSONmGMsrdnRUPfemOsJSI+e0FPKOs73zAyX0KFMemUpEp3O
+	TPJzXBBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F1j-0000000AsCy-3mPu;
-	Thu, 19 Mar 2026 15:11:11 +0000
-Received: from mail-westus3azon11012070.outbound.protection.outlook.com ([40.107.209.70] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1w3F2B-0000000AsL3-32eR;
+	Thu, 19 Mar 2026 15:11:39 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3F1f-0000000AsBo-3ipP
+	id 1w3F29-0000000AsK2-0v1b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:11:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Iv0meF1xaoKNdZIj2q4pZCpzQDubINJFAxJCQNFUknHmmNZPF2htGsmQkNMV5FohU8dH+9v8iV6odo2BtHHcZB3ycaWl+EL+KAdjIARQ6yeuNKatuvSeuwHnicLrC8O7MHVXauJBu+x/PtHoM+JwyK7br6shAOr3kM1sdZE2b35Znj3ZcvvTerl0+G8Kxr7m0Ufc0J2TYcD+9G19gB6j8N4yAIaq4zfgAPpI+4djlEaCvscw96pryiNeol77dZTHYQiKTiDKBy6EZTV4Raosa8RdEfgIN9BqYySzchhGyGwnWibYzSywrw5mjgUc1WxcqabpHN4RhhptmByhcKS7Wg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=;
- b=Ar9KT20gSFHH2ucwiaZE8H/acBW9KDJENU4lgNGVnZfS0BKAE5NRLk9WtKGOeBsFVLzJHXraC40WEOwlRu9ThsTXf3VL+r4fUPPz9A4HkXUn4TR51SppUvdsgEIwDKG8JpSQ7FEgn8DHTuCiLySUsATN7X433psga56zOH2Qe2//+/EYvf/qzjZGW/UIZFvqpe/g+SERfjQ8gFGLBx87ULNE8QvU6qxmrn0auNsE2IthvTW37x9F9qoC3nODwycPdXzJYC1E08HjnmpyIi5jwGZtXgIHAtDTmWv6h6oqwgmK4DdUnWhvbxeN+UuJBBetC52fxjLbDkScQZxHsglgQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pAEFPxZo/uezL5tbahsMlA+S9w8X0vhXyC985x5Nhzo=;
- b=Jp1w4o+afgTYptsg38OvKkYtNFAyMl/4h21q7+dj5Js705apZxH+elg6CYqa1JLz12I2cGYrzs4dvOSP87rcdqVCBXg+q4OloiXlAYvDxAjhj8QKNjNeVrKyL87rPX6zphRGLg4k5r51qK7bLGF3DSlPuF1X23YodYRq8MVRDWY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ2PR12MB8690.namprd12.prod.outlook.com (2603:10b6:a03:540::10)
- by SN7PR12MB6863.namprd12.prod.outlook.com (2603:10b6:806:264::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
- 2026 15:11:02 +0000
-Received: from SJ2PR12MB8690.namprd12.prod.outlook.com
- ([fe80::18c4:be41:febf:7e45]) by SJ2PR12MB8690.namprd12.prod.outlook.com
- ([fe80::18c4:be41:febf:7e45%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 15:11:02 +0000
-Message-ID: <05bcc5b7-b3e8-40fb-be70-413c74afcfb1@amd.com>
-Date: Thu, 19 Mar 2026 20:40:53 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
- format
-To: David Lechner <dlechner@baylibre.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
-References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
- <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
- <20260221-dancing-papaya-wolverine-db8afd@quoll>
- <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
- <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
- <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
- <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
-Content-Language: en-US
-From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-In-Reply-To: <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0016.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:177::14) To SJ2PR12MB8690.namprd12.prod.outlook.com
- (2603:10b6:a03:540::10)
+	Thu, 19 Mar 2026 15:11:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=9PKfHh7lpDmvXp/AacCSQ4DXliViadOMLA1Saz6vuQM=; b=aMU5hgi1JmyBFGBjGXz8h6GZ97
+	qYwyqthq0k4Ie4XVz0Hlae3+6315exn9CIHZElJ2p8VCpxl2xKmcH+w4AnFTPGKg3iTz87AwMcRSj
+	FGG3vbB6iCtpNc550JNthzmkcgwcjQFf00NEatZGff38mF4Xh/0pRCuIVpL/BPAYvRgRQkl1JBumc
+	hwNUdMIq7KTa8qejhtlF2HzWMqXc7yfq8XjQxCKEozzTiwCWPPeOYUe4b+csipMMjRAy1MM5DsY1d
+	aoL3AROYLqPzi5JhFgMHtmSIKoiNWoIer31sAiKsvXIR6kgJaEVxIxDIwYF13JTHfmuGasC2KYHJC
+	r/4lZR/A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59324)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w3F20-000000004tn-0xA2;
+	Thu, 19 Mar 2026 15:11:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w3F1w-000000008E5-2ekr;
+	Thu, 19 Mar 2026 15:11:24 +0000
+Date: Thu, 19 Mar 2026 15:11:24 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <abwSHGw39FTJGNb7@shell.armlinux.org.uk>
+References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
+ <abdEscs44fU4kRag@oss.qualcomm.com>
+ <abdYu864OmNWiWIW@shell.armlinux.org.uk>
+ <ablpxwGks9m38fhM@shell.armlinux.org.uk>
+ <absjNQ2s3Z5N2Zwo@oss.qualcomm.com>
+ <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
+ <abvAuHFZzCFobO-V@shell.armlinux.org.uk>
+ <7566c66b-2dda-4b29-b59e-4e4a7e159e21@oss.qualcomm.com>
+ <abvy6nZyjyxUXMuf@shell.armlinux.org.uk>
+ <bcab38a5-e7f7-47c9-ab9c-99294e095c22@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8690:EE_|SN7PR12MB6863:EE_
-X-MS-Office365-Filtering-Correlation-Id: a99dc636-42fb-4839-62d5-08de85c9bba1
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: r77ifrdtanyOujJH8OaO/SOJlqMuXp/iyFnM0pTgGCeZERzpJhyVepUm0y5sPlR9RC1mHXzDB3NZoSJ/+41qhAo4mejayeGLQUUm8A8zs7OoBUhjPCZa7t0ac4+757RkMzTJCv5YZoo38azFR7Wn6GXA2KZoGl6/8nzMzEIE0muGwRQ53kBASS6sfqpub7KfxIZF+7p+SuU3gV/k08OXbtswBgr3CQFKL8+PS7TRcdVj4ws1I1RIg7LXUtVKsv1qMRLObDJ4JdsOAI4RRqc6TIl7vj+VQrCL52si1+IeUXWV/PXa0ST61immwv0DDyvuIzltVzmd2rHh3EOm5q9ylKF/qsGV8pqst2lotTsbRA5BgJ+pXssy2c5iqNxCR5IzJQ/L1M2ug16j3SERxvtcfmtL9ezDpUyeteknUnv7yWtcrgOImDc0TfVbLBA2+/BrT/yvUv1dwjgGKCl3sICuDPi6wRmsl9l7mX5es3OQzSB/Czw1NShuYr4bOPo0zwIR9/IV+ESfqrifY5y5Q2tEgq7LkSvWdTfnN1F0OdCZJ79BwqnsDI1AOTtP28QYhI3S8o6Nr4blqantS/7km9g6FnHA0sWwyfnY0Bk17ZL48wFtIb8YN7Qn+p6jjHeW/yPqN/2kgcFNsE0MB8F9tXSM+rZsq6RNmHmOd7lSD1Ewr6Tc36PyzxiT6WeoQdpos+9f
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8690.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk95cWFIYSt0ZjhxbldVVDl4YXBmQUNoOW9SeGRRRStnblJSS0pRSExFTXdy?=
- =?utf-8?B?UlBvZ1MzWVRFL3ErYzhWVStNSTdFRktIMTVTQmdFMEx3alhKNUdiWm44dm1Q?=
- =?utf-8?B?aElNeW55elRwSWdCVWpoMkM2dnJpZ3lKYkpJUmd5Tk1pYm5IeDQ4TmxEQ3pm?=
- =?utf-8?B?ajFvRXEyTTYrcG8vU2VTNmJMbVFhUnM2bFhrcjRiMGZ6SUtrK2dlUlhHWDMy?=
- =?utf-8?B?YmhvVm8wc29BVEMweTN5b2VWSnVzY2kzUUdCN2srUkQ1M3NJVzlOT2FzSFlN?=
- =?utf-8?B?M0JSOHUvQ1VoeTFLeERtQzMzNVJUU2FIR0d0TFpIakZJdkIyRnBRWUFza3Zi?=
- =?utf-8?B?bnZyTHVXcjhFL3hjWjJJalIzZHJUTm04UlJEemJLY3JOWDVTaHBQNWUvYkNI?=
- =?utf-8?B?VlBGZXRHelVQWXNBd1paUGcxQ3dTLzZSbk5HUGJoenVhM3g3WjR5dklzUk5x?=
- =?utf-8?B?VjZ1RmRlV3F1Tm1nSkNYK1lIZ0VHWllRR1NvL1o4L3BsYkZrRHdQU2srSXFx?=
- =?utf-8?B?VWo0elA0MUdWeGozNEtKVC90NzRCMWsvYS9hbTFEM3c2UkxpdTZMRXFGcVU4?=
- =?utf-8?B?MXhaTktMYWtxOWlUUjFFeWJURERsNlFhQVYwNC91QlRXakNOckp1b25QbmhL?=
- =?utf-8?B?MzU4aExiV3A0dzEybWRtOXhIWjUzeTk1MFhHSnhXTEZtMUVFK2d0VzNsS1BT?=
- =?utf-8?B?MFBPQzhsSXBBdmo1cE52T1VBVzdsU3VmcVdHNGRRWko1ZGtGZjVpYStTazNH?=
- =?utf-8?B?VXc5akVXeHAyT0JwMUR0UFhnOEN4VjlITFl5Z0NQZmtTNGdOb2M1aTRDUldy?=
- =?utf-8?B?T3Q5MXA4c1g1RjNqcEI5U2dTZDNPWWFDanlDbkFLSDFkTHREUEhTU3owaDM5?=
- =?utf-8?B?TWtZNjNZMDEvdkh4OXpSNWN4SHdpeVBPNzUydk55QUw0K3l2RjlpMFh6enp1?=
- =?utf-8?B?N08zRlNmVjRkOGFCTU1FODVaNUNuRzYzaVp0RjJpYUtjUHBoTGFuaXpGcm9X?=
- =?utf-8?B?ZnJCNUFuWk9TcVpYelliVFY2aVdZSFc0WXloeTlGbktoN09ienFFaVMvNTgz?=
- =?utf-8?B?UTgwWEhLM25RUmV4MkJuQmlqWkdhZGkwc3BmVXBJb0pyTUF1cE10aFN2NHpG?=
- =?utf-8?B?d0ZudGVIZWRyLzBVb0ZtTUQzZklaWm9pOTJrOVZrRTRQMEI1aHlaYWJUZ3NV?=
- =?utf-8?B?VVpTU3VoTlpNNUQwTTdnOG1TYnQ5YjZKK2x2VjdGRVJVSGVHVDgxRUM1T1do?=
- =?utf-8?B?d0tGNnhkMXZhaUpycDBYNDBaY0xIbFdEYTlYMEptZ2tsK1lMT05wZXIyOG5M?=
- =?utf-8?B?WDlGZWNrejZ3ZXp5MjFvZ3FsL3VtMTlmZ2o4akdPdnRubm15Q3podGVUUnQv?=
- =?utf-8?B?UEFMT0tiZFZOUzJyZ0ticmphQS9kem9UeGcvWjI2ejV3SHFFRXRvSWxxdXJi?=
- =?utf-8?B?N1VMUmpVdG40VmNUVU9NWk43QkczdVZ6S0pnWVZIRVNpWVlGcmM3REorM1RQ?=
- =?utf-8?B?clQ5MHRoL3lCWFlDaDFZVEFodzc1OFhDMUlYRUpUYldEeEV3RVFxTjlXaTJk?=
- =?utf-8?B?emp3TXdjVlRSdDVoTXliT1ZmS1FVUHVmUHhTMHFDbjFVYzBjM2F1NjJjczhT?=
- =?utf-8?B?YnhwalpDbWVTZk5YN1d2cnB6QUtkZTliK2tEQzB1bzNCd2YvKzNJOHp3V2lZ?=
- =?utf-8?B?VUNTQWVYdU02UVJDeTFDaGJSUUVjbG9leGhINGNzSENLV3F4dTZOUWZ0YkE2?=
- =?utf-8?B?TTVvazd1OWowWGdTVEh4amJqY0J5TUMwTGYvd25OLzk3VHhnYzRGQXVDN1dM?=
- =?utf-8?B?NGpnN2p6c0I1Q2gxQ3ZUNFpzeGlocTFia1hnK1BmQ3FkRVFzUllIQmNDd0xV?=
- =?utf-8?B?SWkyNlFKWjluMXN4WG95cjM0Mk1Wa0NwZmJYSldkOXRRV3RjcUxlek96ZHRy?=
- =?utf-8?B?WE1oclcwWEd3bVg2NGhyQWIvRlAvZzVMS3NIWXRQUEV2NGZxUDQ4M3hHUk1H?=
- =?utf-8?B?bzVNeU1tV3Z4ZU14dmE1MENidGhKZjJOVmRJODA1cEN5TnRwWDVDUldCZW1Q?=
- =?utf-8?B?WC9GSy9kT1c4ZjdZdXJwQmNkMGsyMlFLMXJGcTYrQjJxU1Q1RHA0R3BtRzB0?=
- =?utf-8?B?ZHMzUWp5UlBrNisxbTVKb09jR1dkdWN0M0g2T2QwUlFuTUVPelkzUllLUlBR?=
- =?utf-8?B?TkJrdkNJVWNLNTRuRTZpNWwzaVNvbzFjdHRSOXJqWEtiaVRyREpPaStjOUJi?=
- =?utf-8?B?cTEwbTNQSi92TnlxbmlGWGdGWDNpd2I5NEJsMWtKcTY3OFp3eHVoVXFJZE5E?=
- =?utf-8?B?cWh2VHdVYVhpbG5WSnRLZzBaMGdKNmRhejBtOWJEd2M2V1JYaHp0UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a99dc636-42fb-4839-62d5-08de85c9bba1
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8690.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 15:11:01.8992
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uauYvTTO9vV1b6J+PuuQEvb7ALoT47fcliAA1RlCRmVM/gxs3ZxRTZoIFWAO+X8JXGrPClNe0rGS4UGD6D3YoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6863
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bcab38a5-e7f7-47c9-ab9c-99294e095c22@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_081108_629446_24AA052C 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20260319_081137_270086_A07F2520 
+X-CRM114-Status: GOOD (  38.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,176 +95,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David Lechner,
-
-On 3/19/2026 8:28 PM, David Lechner wrote:
-> On 3/19/26 9:49 AM, Sai Krishna Potthuri wrote:
->> Hi David Lechner,
->>
->> On 3/19/2026 7:53 PM, David Lechner wrote:
->>> On 3/19/26 8:52 AM, Sai Krishna Potthuri wrote:
->>>> Hi Krzysztof,
->>>>
->>>> On 2/21/2026 4:08 PM, Krzysztof Kozlowski wrote:
->>>>> On Fri, Feb 20, 2026 at 11:09:41AM +0530, Sai Krishna Potthuri wrote:
->>>>>> Convert the xilinx-xadc.txt Devicetree binding to a YAML schema format
->>>>>> and remove the old text binding.
->>>>>>
->>>>>> +
->>>>>> +  xlnx,channels:
->>>>>> +    $ref: '#/$defs/channels'
->>>>>> +
->>>>>> +allOf:
->>>>>
->>>>> Missing ref since you use unevaluatedProperties...
->>>>>
->>>>>> +  - if:
->>>>>> +      required:
->>>>>> +        - xlnx,external-mux
->>>>>> +      properties:
->>>>>> +        xlnx,external-mux:
->>>>>> +          enum:
->>>>>> +            - single
->>>>>> +            - dual
->>>>>> +    then:
->>>>>> +      required:
->>>>>> +        - xlnx,external-mux-channel
->>>>>> +
->>>>>> +required:
->>>>>> +  - compatible
->>>>>> +  - reg
->>>>>> +
->>>>>> +unevaluatedProperties: false
->>>>>
->>>>> or you meant additionalProperties?
->>>>>
->>>>>> +
->>>>>> +$defs:
->>>>>
->>>>> Why this is a def, not used directly? I see only one usage of this def.
->>>>
->>>> I am getting the below error if i define the patternProperties directly.
->>>> Seems like complex vendor peroperties should be referenced via $ref.
->>>> Please suggest if there is any better way to deal this.
->>>
->>> It is hard to say without seeing the new version of what you wrote.
->>
->> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
+On Thu, Mar 19, 2026 at 02:50:29PM +0100, Konrad Dybcio wrote:
+> On 3/19/26 1:58 PM, Russell King (Oracle) wrote:
+> > On Thu, Mar 19, 2026 at 11:09:33AM +0100, Konrad Dybcio wrote:
+> >> On 3/19/26 10:24 AM, Russell King (Oracle) wrote:
+> >>> On Thu, Mar 19, 2026 at 12:35:58AM +0000, Russell King (Oracle) wrote:
+> >>>> On Thu, Mar 19, 2026 at 03:42:05AM +0530, Mohd Ayaan Anwar wrote:
+> >>>>> [    8.650486] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+> >>>>
+> >>>> Please look into this first - with the MDIO bus operating at
+> >>>> who-knows-what frequency, this could make reading from the PHY
+> >>>> unreliable.
+> >>>
+> >>> My guess is clk_get_rate(priv->plat->stmmac_clk) is returning zero,
+> >>> which means we don't know the rate of the CSR clock.
+> >>>
+> >>> From what I can see in drivers/clk/qcom/gcc-qcs404.c and
+> >>> drivers/clk/qcom/gcc-sdx55.c, this looks like this case - the
+> >>> struct clk_branch makes no mention of any clock rate, nor does it
+> >>> have any parent. From what I can see, neither of these drivers
+> >>> specify any rates for any of their clocks, which likely means that
+> >>> clk_get_rate() will be zero for all of them.
+> >>>
+> >>> Sadly, when I designed the clk API, I didn't think that people would
+> >>> be stupid enough not to implement the API properly, more fool me.
+> >>>
+> >>> Under the old code, we would've used STMMAC_CSR_20_35M, which means
+> >>> we're assuming that the CSR clock is between 20 and 35MHz, even
+> >>> though the value is zero. Is that the case? If it's higher than
+> >>> 35MHz, then you've been operating the MDIO bus out of IEEE 802.3
+> >>> specification, which can make PHY access unrealible.
+> >>>
+> >>> In any case, please fix your clock drivers.
+> >>
+> >> I'm not 100% sure the currently-passed AXI clock is what we want
+> >> there and the docs aren't super helpful.. is there a synopsys-name
+> >> for it? What rates would you expect it to run at?
+> > 
+> > There is no easy answer to that - it depends on the bus interfaces
+> > and whether the CSR (register) clock is separate.
+> > 
+> > The likely possible names are hclk_i (for AHB master), aclk_i (for
+> > AXI master), or clk_csr_i.
+> > 
+> > It does state that the CSR clock should have a minimum frequency of
+> > 25MHz to allow all statistics to be properly collected.
+> > 
+> > The rate of the CSR clock needs to be known, as selecting the divider
+> > for generating MDC within IEEE 802.3 specifications is rather
+> > fundamental. You may find something there which hints at what rate
+> > the dwmac's CSR clock runs at.
 > 
-> Is the code below the code that causes the error?
-
-No, the below code is not creating the error but Krzysztof asked the 
-question on this code,
-"Why this is a def, not used directly? I see only one usage of this def."
-
-I am saying if i don't use the def and use it directly i am seeing the 
-error that i mentioned. So, asking is there any better way to handle 
-this case other than using def.
-
-Regards
-Sai Krishna
-
+> If it's either AXI or AHB, in both cases their direct parent is controlled
+> by an entity external to Linux and their rates may change at runtime,
+> based on aggregated needs of the bus. They're defined as levels/corners
+> (abstract term for a hidden volt+freq combo).
 > 
->>
->> v1 code:
->>    xlnx,channels:
->>      $ref: '#/$defs/channels'
->>
->>    $defs:
->>    channels:
-> 
-> Is this indent bug just from copying to email or does it exist in
-> the source that is causing the error?
-> 
->>      type: object
->>      description: List of external channels that are connected to the ADC
->>      properties:
->>        '#address-cells':
->>          const: 1
->>        '#size-cells':
->>          const: 0
->>
->>      patternProperties:
->>        "^channel@([0-9]|1[0-6])$":
->>          type: object
->>          properties:
->>            reg:
->>              minimum: 0
->>              maximum: 16
->>              description: |
->>                Pair of pins the channel is connected to:
->>                  0: VP/VN
->>                  1-16: VAUXP[0-15]/VAUXN[0-15]
->>                Note each channel number should only be used at most once.
->>
->>            xlnx,bipolar:
->>              type: boolean
->>              description: If set, the channel is used in bipolar mode
->>
->>          required:
->>            - reg
->>
->>          unevaluatedProperties: false
->>
->>      required:
->>        - '#address-cells'
->>        - '#size-cells'
->>
->>      unevaluatedProperties: false
->>
->>
->> Regards
->> Sai krishna
->>
->>
->>>
->>>
->>>
->>>>
->>>> linux-xlnx/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
->>>>       hint: A vendor boolean property can use "type: boolean"
->>>>       from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml#
->>>>     LINT    ../Documentation/devicetree/bindings
->>>>     DTEX    Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dts
->>>>     DTC [C] Documentation/devicetree/bindings/iio/adc/xilinx-xadc.example.dtb
->>>>
->>>>
->>>> Regards
->>>> Sai Krishna
->>>>
->>>>>
->>>>>> +  channels:
->>>>>> +    type: object
->>>>>> +    description: List of external channels that are connected to the ADC
->>>>>> +    properties:
->>>>>> +      '#address-cells':
->>>>>> +        const: 1
->>>>>> +      '#size-cells':
->>>>>> +        const: 0
->>>>>> +
->>>>>> +    patternProperties:
->>>>>> +      "^channel@([0-9]|1[0-6])$":
->>>>>> +        type: object
->>>>>> +        properties:
->>>>>> +          reg:
->>>>>> +            minimum: 0
->>>>>> +            maximum: 16
->>>>>> +            description: |
->>>>>> +              Pair of pins the channel is connected to:
->>>>>> +                0: VP/VN
->>>>>> +                1-16: VAUXP[0-15]/VAUXN[0-15]
->>>>>> +              Note each channel number should only be used at most once.
->>>>>> +
->>>>>> +          xlnx,bipolar:
->>>>>> +            type: boolean
->>>>>> +            description: If set, the channel is used in bipolar mode
->>>>>> +
->>>>>> +        required:
->>>>>> +          - reg
->>>>>> +
->>>>>> +        unevaluatedProperties: false
->>>>>
->>
-> 
+> It may be that the operating range for the EMAC removes that variability,
+> but with no concrete evidence and just anecdotal experience, that's only
+> the case for the AHB clock
 
+The important thing is that the MDC doesn't exceed the max clock
+frequency for the PHY and any other device connected to the MDIO
+bus. IEEE 802.3 specifies a max frequency of 2.5MHz (minimum period
+for MDC shall be 400 ns). Some PHYs can operate in excess of this,
+but one would need to confirm that all devices on the MDIO bus
+supports higher frequencies before using them. In the kernel, we
+generally err on the side of caution and stick to IEEE 802.3.
+
+There are two ways to achieve the divider value with stmmac.
+
+1. if priv->plat->csr_clk is set to a value other than -1, this
+   configures the hardware divisor (for "normal" cores, it takes
+   STMMAC_CSR_* constants that can be found in include/linux/stmmac.h)
+
+2. otherwise, the rate of priv->plat->stmmac_clk is used as the CSR
+   clock value, which is the reference clock for the divider that
+   generates the MDC clock, and an appropriate divider is selected.
+   Given the available dividers, it works out at between 1.25MHz for
+   a CSR clock of just over 20MHz and 2.47MHz for 800MHz. (I have a
+   patch which documents the ranges for each of the STMMAC_CSR_xxx
+   values.)
+
+Note that the dividier constants are not the actual divider itself,
+as can be seen in include/linux/stmmac.h
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
