@@ -4,106 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527871091910
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545441091911
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 19:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qCQhLNUlaK92jVRFmSRxDAiEZoE/HXa9IGlyqo2jsM=; b=E93J6NatiMD6ur9A4vN0Z4ULOh
-	SjKoZnxWfOEOUSNRnSpQFHu/HyhGeK3LANGv+uMaT+mnsFIR8nJ9bnBSpkvELekcCRPQTpI+XCDc+
-	HqJ5U/NHEJ8K1cQw6wJimr1L83BxLutA94bUm8ZMu81qEvrs+sMnvu0VG5Lj0eQDBg2gXobIZWpCP
-	wTGuMnZqgEgJa57GT3ngVURmUIxI0VpmiKKH83k4AKh7L95TOjWlcJAJ9rDRzsCMRysOqpCSW7fZK
-	lpNYXLmuaM87LolVgS+9o1GvNp+J/ktasNrMqD56GgtkZiDhLd6PI2TvYlua2MsTreS4FdZYhmPMu
-	Le1/WWFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=; b=4UwRWNJhFjzmyCi6tWeQ8MyB0V
+	3286s1x1JB/GwTuGAolY6DPsBOOjjYs31TpXzLS9i7PMNbu0nWZrnBEiLut+TeyYWafjNFCt5vjpQ
+	KXgnwuruchWlYfrCpTTuZj9x3sMFdjfVpYoJWaT8j/irX+otSG+U6VilqJPPxZUc2xbsb7gYP+Inu
+	1xa54DoW2fe+4ly4u8dIXdyXFPsp6Q35wPVNXsEdNDBf4/Rllb3fSY3GZs859pbex0qGFDeG7uNPR
+	HSN+G5UrxWLXRv0NTe5vu54eG5S/WCy0BgZzDYLZxRR2frcUtiWVRiv9FIln6xkLWr4diKfd3AszU
+	n5etgy4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ii7-0000000BQgE-28mM;
-	Thu, 19 Mar 2026 19:07:11 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1w3InI-0000000BQxA-2G9O;
+	Thu, 19 Mar 2026 19:12:32 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ii3-0000000BQfn-45cn
+	id 1w3InF-0000000BQwN-2Tat
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 19:07:09 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-662f30d3f1fso1394939eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:07:07 -0700 (PDT)
+	Thu, 19 Mar 2026 19:12:31 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-89a0ecbc713so14255716d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 12:12:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773947226; x=1774552026; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0qCQhLNUlaK92jVRFmSRxDAiEZoE/HXa9IGlyqo2jsM=;
-        b=aCnCtECs5/xp9Rl9QN9TcCiZJXl9Bi4Ktp5ywEgSqGK8BjdXDSkdgh8qmKZHjXfbve
-         xBl33s2gmUYuDprgV1C9N3w7+L64CTbAn1kbs4gUJo/ILCrHcCtwXCpff/SA540+9vol
-         FmVqp8Uv06vUnWDloiyjIdhIxHQ0v8R1CEgopDVFmTtXvp+KbAM6KN0DVaSaA5eHXi+7
-         HH3B+bfURbrN9CTML0UG8MRv9MkCB+xdeim4r4JrOxzpGzG8t8WcjTSKOXDHtRH49dcr
-         u84Wf4nHXwcDp8Fo5tagE5Q1h5QgEKes+dWv8awUvSu+EpJIrd1yKZDmkcu6N0LWyTr2
-         bjCQ==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773947548; x=1774552348; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=;
+        b=i+Q8nZPQFKwMByL6jfd8MErP4VaZn/IBdza3jo8a510Y9Kefe2Q/EmJ2/18cbS4boh
+         sYHYXVIPgNYZ/++ZltUsQKS9gGmdkF+7NzOlTgG0nzNbfGgybuXovu5hpp9UbESG+eEp
+         icTpqpc1CLEv/tlMOdOvDc96t/Q9z/lA2G6mJ23jC8tsdI0KgIcGowk/FLr0X4xzm+Vl
+         OHfeMELSsukYZ9gJ7Br1IS+IfzK7jypXoGCqPZ9JklnfPNfS9rBDW0mS0H7wmSnE8tFA
+         jZgroeXcn+oh3A2+Fd0Nl9e+gqy3KHYz4r2RckJSFlxvDxIqStrt/OUVpxlFcTj3ftsK
+         VumA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773947226; x=1774552026;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0qCQhLNUlaK92jVRFmSRxDAiEZoE/HXa9IGlyqo2jsM=;
-        b=fqU4D7ss7R0oscluFydmeE0tEfKi//KWVrhNwlTB1ii4+LZsUTrXVNzEX9VQbhmTbB
-         16lrfvcV2Za/rnqrU4LTptf81//iSvcRbjqoVd+MIoVdAlzErFgsz3c2OY0hYHR3jzk5
-         YM+Yn7T4Ez16utcneB/XuSsGpkeQRUhy02w4wHQeLORsFmUkO3mhlHCSHN3m3YKoy56r
-         +WjQvlQa2V6ZNmyonwdvATRHaz0iC+wGp73YW7P7/ogWdkFUnS6lPMGKF+DnUO7Qby28
-         YOJBJ+f/cIMgkLx8HlI0Wt0Aw7xUpTk2KwuLls+RmZvK12h1iLmhmBifHNzTirLowkPy
-         q4GA==
-X-Forwarded-Encrypted: i=1; AJvYcCXUxFdkiGO61dwJmiqu/lrXAmEq64TgXu+reOFLZdZ26wO+FJgC9x+wsCMhm5RCDoTjBbN9UolBBnqKk00cW1es@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz4TIXDM63xkrV3m3TyLRSzidD8GHtH/gkYG56hTtbLfGI0w5w
-	KRrdRC+b+Behwlt9Y9BEzrNnKnEsLkRb/RCvVwv8aSIVTHZXWNqkCfZkMv222miGr9E=
-X-Gm-Gg: ATEYQzzFYFrf8VmszXrvPm5guZ98s5dhzl6Ak4vdKer+F58h2Nwqs3F34g7EOtLcRso
-	l5bb297ywBLJArK0LZEW8e51m+zkhCKUiQDxNjIfIzPVeHhioCoU3NI8nPdM14CaKFEvX2Hh5vm
-	5Lsu4QTAkyTNFw6YKFA3RiFqMNlL4cIXk8MCuMReSqW0eZ8+eMbavgAUZTTIvIal+TiwQeojzxi
-	bDwXKJ95DxiU6DdRGRJeP4PTj9R2qMTeW6UrOcZ7J2l3v7WsZFhTw+FxtFN5TpVXKN11LqGQ4/w
-	1ivtsOMaHRPwci0FEJG+1I3GdQKjSy9weu7G+LvRRntyUdDEV+yVffK8vdPBpoT8DnHYINTIC4u
-	gb8CZjmQkdEVxTQLOWWPkUu4koVijhTE4LfUNaMAWDjqs88W7pZAMWKMZmzsErgWvVwhmtKvTjr
-	nE1Uu6eEHV8iYBjD6MLkvun4R+7JMvlP79NPfE8ueBrb8Em+7vYDgkP3hhtJ+OVmRl0wgpVDtsN
-	EgtVoPh6GyK
-X-Received: by 2002:a05:6820:806:b0:67b:a4cb:293f with SMTP id 006d021491bc7-67c235fb70fmr249017eaf.17.1773947226499;
-        Thu, 19 Mar 2026 12:07:06 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:244c:fc8c:8216:1344? ([2600:8803:e7e4:500:244c:fc8c:8216:1344])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-67c0d724e53sm3921843eaf.0.2026.03.19.12.07.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Mar 2026 12:07:06 -0700 (PDT)
-Message-ID: <faa4e46b-1cc6-4bab-b13e-c527a67ec4c4@baylibre.com>
-Date: Thu, 19 Mar 2026 14:07:04 -0500
+        d=1e100.net; s=20251104; t=1773947548; x=1774552348;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=r1LNLkE6o0tWIJ/OijIEt3qH5udkliSvAis8enwUuN4=;
+        b=ny0Kt5HiG2MlNawpxGIm0CwCaPaOW61o/o3m33eaU5amltjrsj7VnEYqbhGB7IbZoQ
+         2qpiJ7gd0eeqwluEHVE5fFqKwSAIB1DIONqhXrfU7UEC1hp2iyscrxOT1pIhX7BCDJSw
+         FY2XV2wb6DG8ogFFX9a79O3chKuivkrijyAa4xneXZl1qBNoQBMg5bFzVJxbr6z5CgPU
+         /NZXZRokJO7QwgyHes/8pZ9JnYy53TAA01o4DcXG6J2PJYMOUikCzEPwowMdUTFae7OH
+         wvtPbZLwoCKpoVcxds6Hum7cP4EDwAe9TUWNjJzrSoHNTAKlPJ0ZPjUc7NSHbAv7KPeb
+         NPSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOGutT3FGi0HsYdEdW8Y9xMRtlkTbYBWOh/fRF03JRC0fQhqoTkqNQd3PAf2x8eWM0EajE4un+oq5ssXhhs8rt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIs+chBM5ijj2dyEcEfgy3T7Lkx24VeGsEbJvZSmsjK/NpWzP5
+	wKXg6qNniVDiCVILVfeetifEWGPzH2nH8f1dhhA29axwDoRlCtvYDApEzj4juV+4FF3SD3iunMV
+	+VouAgBA=
+X-Gm-Gg: ATEYQzz8aXiXaY/pN4ZGEBLlMCwkrpXnw85aaV4E3sVOZ2qPCkfEJgyW4p1M7f2dS6u
+	KKUGIOmZ5bfQNcEpYRiHnMVvDAzCJ20QAqWVZupwRVW5ukq8wSD07dqkVqcAkCetCV0qFocvMjL
+	3+YnfebU/+2dp9+EeSMyOq/5zWUqKCq6HAxC+61W5smVGYCIENBfbaDFfWrB+XwPavo8xH9/HyN
+	Vsv/D4hbbwQ81fHQmtv4UUfql/64pCePSwu5T3ji6SWFsOVA2vsfYP/M7h8kM/g2+vYoEAcp39C
+	aoPSqon9uU2tu1Jiflu2+bbiOpI1XtURZRudSJVCivHE7XX7GXpAT/bfkkGWtZdRyWqmpq8ObrP
+	S/FehvgcwVP4K5hsGGl8T//FfPxYClq5sDRuwpbHj9XfjGGdE/EHKNT3qMBWDZ8wGWODEOQGWrr
+	sbugKg8jZkXJkH6yiVr8/tMF0ecuhw
+X-Received: by 2002:a05:6214:5f0e:b0:89c:4d59:bdf with SMTP id 6a1803df08f44-89c773d7d3cmr61987166d6.8.1773947547996;
+        Thu, 19 Mar 2026 12:12:27 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89c8536ba60sm3331256d6.44.2026.03.19.12.12.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2026 12:12:27 -0700 (PDT)
+Message-ID: <06b733be91f0b6455fc5c16832678a67d9de1945.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 05/27] media: v4l2-common: add
+ v4l2_fill_pixfmt_mp_aligned helper
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Thu, 19 Mar 2026 15:12:25 -0400
+In-Reply-To: <20260127-spu-rga3-v3-5-77b273067beb@pengutronix.de>
+References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
+	 <20260127-spu-rga3-v3-5-77b273067beb@pengutronix.de>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-YSpqXCMYz4unuMVeMzx3"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
- format
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
-References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
- <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
- <20260221-dancing-papaya-wolverine-db8afd@quoll>
- <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
- <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
- <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
- <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
- <05bcc5b7-b3e8-40fb-be70-413c74afcfb1@amd.com>
- <cf749e8c-f141-4367-81ad-827e02273ec5@baylibre.com>
- <6a4e3d95-875f-4c2b-8443-c2f2b19ff166@amd.com>
- <12a06779-cbbb-4dc2-b564-7b9cdff6796b@kernel.org>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <12a06779-cbbb-4dc2-b564-7b9cdff6796b@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_120708_183371_C1F5A9F9 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20260319_121229_676877_C875F662 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,66 +120,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 11:49 AM, Krzysztof Kozlowski wrote:
-> On 19/03/2026 16:49, Sai Krishna Potthuri wrote:
->>>>>>>>>
->>>>>>>>>> +
->>>>>>>>>> +$defs:
->>>>>>>>>
->>>>>>>>> Why this is a def, not used directly? I see only one usage of this def.
->>>>>>>>
->>>>>>>> I am getting the below error if i define the patternProperties directly.
->>>>>>>> Seems like complex vendor peroperties should be referenced via $ref.
->>>>>>>> Please suggest if there is any better way to deal this.
->>>>>>>
->>>>>>> It is hard to say without seeing the new version of what you wrote.
->>>>>>
->>>>>> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
->>>>>
->>>>> Is the code below the code that causes the error?
->>>>
->>>> No, the below code is not creating the error but Krzysztof asked the question on this code,
->>>> "Why this is a def, not used directly? I see only one usage of this def."
->>>>
->>>> I am saying if i don't use the def and use it directly i am seeing the error that i mentioned. So, asking is there any better way to handle this case other than using def.
->>>
->>> If you could show us the actual code that is causing the error, then
->>> we could perhaps spot a mistake or suggest an alternative.
-> 
-> Thanks David, I am surprised how many emails we need to exchange just to
-> see the actual code.
-> 
->>
->> Thanks. Here is the code that is causing the error
->> ("properties:xlnx,channels:type: 'boolean' was expected").
->>
->> xlnx,channels:
-> 
-> Device nodes do not have any prefixes. Just take a look at any DTS or
-> any binding.
-> 
-> Probably that's the reason, because nothing in this code looks
-> particularly odd. Anyway, please do not come with odd syntax in the code
-> without any explanation, just to make it passing the tests, so for
-> example ignoring the checks we have.
-> 
-> 
-> Best regards,
-> Krzysztof
 
-Since this is converting existing 12-years-old .txt bindings, I don't
-think we can "fix" the bindings by dropping the vendor prefix.
+--=-YSpqXCMYz4unuMVeMzx3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I think in cases like this, Rob will usually fix the tooling to ignore
-this as a special case. (I had a similar case last year on a conversion
-I did.)
+Le mardi 27 janvier 2026 =C3=A0 15:39 +0100, Sven P=C3=BCschel a =C3=A9crit=
+=C2=A0:
+> Add a v4l2_fill_pixfmt_mp_aligned helper which allows the user to
+> specify a custom stride alignment in bytes. This is necessary for
+> hardware like the Rockchip RGA3, which requires the stride value to be
+> aligned to a 16 bytes boundary.
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> ---
+> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 45 ++++++++++++++++++++++++=
++----------
+> =C2=A0include/media/v4l2-common.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ++++
+> =C2=A02 files changed, 37 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
+ore/v4l2-common.c
+> index 2b5ccedeb6841..e61506ead9150 100644
+> --- a/drivers/media/v4l2-core/v4l2-common.c
+> +++ b/drivers/media/v4l2-core/v4l2-common.c
+> @@ -431,14 +431,15 @@ static inline unsigned int v4l2_format_block_height=
+(const struct v4l2_format_inf
+> =C2=A0}
+> =C2=A0
+> =C2=A0static inline unsigned int v4l2_format_plane_stride(const struct v4=
+l2_format_info *info, int plane,
+> -						=C2=A0=C2=A0=C2=A0 unsigned int width)
+> +						=C2=A0=C2=A0=C2=A0 unsigned int width, u8 byte_alignment)
+> =C2=A0{
+> =C2=A0	unsigned int hdiv =3D plane ? info->hdiv : 1;
+> =C2=A0	unsigned int aligned_width =3D
+> =C2=A0		ALIGN(width, v4l2_format_block_width(info, plane));
+> =C2=A0
+> -	return DIV_ROUND_UP(aligned_width, hdiv) *
+> -	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 info->bpp[plane] / info->bpp_div[p=
+lane];
+> +	return ALIGN(DIV_ROUND_UP(aligned_width, hdiv) * info->bpp[plane] /
+> +			=C2=A0=C2=A0=C2=A0=C2=A0 info->bpp_div[plane],
+> +		=C2=A0=C2=A0=C2=A0=C2=A0 byte_alignment);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static inline unsigned int v4l2_format_plane_height(const struct v4=
+l2_format_info *info, int plane,
+> @@ -452,9 +453,10 @@ static inline unsigned int v4l2_format_plane_height(=
+const struct v4l2_format_inf
+> =C2=A0}
+> =C2=A0
+> =C2=A0static inline unsigned int v4l2_format_plane_size(const struct v4l2=
+_format_info *info, int plane,
+> -						=C2=A0 unsigned int width, unsigned int height)
+> +						=C2=A0 unsigned int width, unsigned int height,
+> +						=C2=A0 u8 stride_alignment)
+> =C2=A0{
+> -	return v4l2_format_plane_stride(info, plane, width) *
+> +	return v4l2_format_plane_stride(info, plane, width, stride_alignment) *
+> =C2=A0	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_format_plane_height(info=
+, plane, height);
+> =C2=A0}
+> =C2=A0
+> @@ -475,8 +477,9 @@ void v4l2_apply_frmsize_constraints(u32 *width, u32 *=
+height,
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(v4l2_apply_frmsize_constraints);
+> =C2=A0
+> -int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt,
+> -			u32 pixelformat, u32 width, u32 height)
+> +int v4l2_fill_pixfmt_mp_aligned(struct v4l2_pix_format_mplane *pixfmt,
+> +				u32 pixelformat, u32 width, u32 height,
+> +				u8 stride_alignment)
+> =C2=A0{
+> =C2=A0	const struct v4l2_format_info *info;
+> =C2=A0	struct v4l2_plane_pix_format *plane;
+> @@ -493,23 +496,41 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mpla=
+ne *pixfmt,
+> =C2=A0
+> =C2=A0	if (info->mem_planes =3D=3D 1) {
+> =C2=A0		plane =3D &pixfmt->plane_fmt[0];
+> -		plane->bytesperline =3D v4l2_format_plane_stride(info, 0, width);
+> +		/*
+> +		 * In case of multiple planes the stride of the other planes
+> +		 * is derived from the y stride. To avoid breaking the stride
+> +		 * alignment for the non y plane, multiply it by 2.
+> +		 */
+> +		if (info->comp_planes > 1)
+> +			stride_alignment *=3D 2;
 
-So I think the right thing to do is to not use $def and explain in the
-commit message why the error is expected (we can't change existing bindings
-even though they are "wrong" by current standards).
+This generalization does not seem right for NV12, or YUV444 formats. Perhap=
+s
+move the correction down into v4l2_format_plane_stride() implementation. It
+already have code for scaling the stride, maybe it can be leverage to pre-s=
+cale
+the alignment.
 
-If this was a new binding, we should be using the common adc.yaml for IIO
-ADCs which already has patterProperties for channels and a bipolar flag.
-But we are stuck with this vendor-prefixed one here.
+Nicolas
 
+> +		plane->bytesperline =3D v4l2_format_plane_stride(info, 0, width,
+> +							=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 stride_alignment);
+> =C2=A0		plane->sizeimage =3D 0;
+> =C2=A0
+> =C2=A0		for (i =3D 0; i < info->comp_planes; i++)
+> =C2=A0			plane->sizeimage +=3D
+> -				v4l2_format_plane_size(info, i, width, height);
+> +				v4l2_format_plane_size(info, i, width, height,
+> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 stride_alignment);
+> =C2=A0	} else {
+> =C2=A0		for (i =3D 0; i < info->comp_planes; i++) {
+> =C2=A0			plane =3D &pixfmt->plane_fmt[i];
+> =C2=A0			plane->bytesperline =3D
+> -				v4l2_format_plane_stride(info, i, width);
+> +				v4l2_format_plane_stride(info, i, width,
+> +							 stride_alignment);
+> =C2=A0			plane->sizeimage =3D plane->bytesperline *
+> =C2=A0				v4l2_format_plane_height(info, i, height);
+> =C2=A0		}
+> =C2=A0	}
+> =C2=A0	return 0;
+> =C2=A0}
+> +EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt_mp_aligned);
+> +
+> +int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt,
+> +			u32 pixelformat, u32 width, u32 height)
+> +{
+> +	return v4l2_fill_pixfmt_mp_aligned(pixfmt, pixelformat,
+> +					=C2=A0=C2=A0 width, height, 1);
+> +}
+> =C2=A0EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt_mp);
+> =C2=A0
+> =C2=A0int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt, u32 pixelforma=
+t,
+> @@ -529,12 +550,12 @@ int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt=
+, u32 pixelformat,
+> =C2=A0	pixfmt->width =3D width;
+> =C2=A0	pixfmt->height =3D height;
+> =C2=A0	pixfmt->pixelformat =3D pixelformat;
+> -	pixfmt->bytesperline =3D v4l2_format_plane_stride(info, 0, width);
+> +	pixfmt->bytesperline =3D v4l2_format_plane_stride(info, 0, width, 1);
+> =C2=A0	pixfmt->sizeimage =3D 0;
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < info->comp_planes; i++)
+> =C2=A0		pixfmt->sizeimage +=3D
+> -			v4l2_format_plane_size(info, i, width, height);
+> +			v4l2_format_plane_size(info, i, width, height, 1);
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(v4l2_fill_pixfmt);
+> diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
+> index 401d8506c24b5..edd416178c333 100644
+> --- a/include/media/v4l2-common.h
+> +++ b/include/media/v4l2-common.h
+> @@ -558,6 +558,10 @@ int v4l2_fill_pixfmt(struct v4l2_pix_format *pixfmt,=
+ u32 pixelformat,
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 u32 width, u32 height);
+> =C2=A0int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 =
+pixelformat,
+> =C2=A0			u32 width, u32 height);
+> +/* @stride_alignment is a power of 2 value in bytes */
+> +int v4l2_fill_pixfmt_mp_aligned(struct v4l2_pix_format_mplane *pixfmt,
+> +				u32 pixelformat, u32 width, u32 height,
+> +				u8 stride_alignment);
+> =C2=A0
+> =C2=A0/**
+> =C2=A0 * v4l2_get_link_freq - Get link rate from transmitter
+
+--=-YSpqXCMYz4unuMVeMzx3
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxKmQAKCRDZQZRRKWBy
+9AicAQC2kxYDBl49pgCzY7V2crCovY7JdWUNcNxML7TuCyI+6wD/VtaSm1mNxep9
+nIXndGUv8JfuXrxAFbJoAMPIRp++3QA=
+=OHGz
+-----END PGP SIGNATURE-----
+
+--=-YSpqXCMYz4unuMVeMzx3--
 
