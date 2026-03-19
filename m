@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E301075284
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F7241075284
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 09:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJt/xpnM5xpQ9m6S0Jhmk7m0+jbWUyf+lp4bNeFUlMs=; b=XkPaexJI+JmFk7yk0TA+cgQZEM
-	V0wntve/ETWe/2qVwu5aV/3+/FloU3zfCH+0E5Gf4X7MF/G9UIzq2ki83REmK3stGXSK58wdJeRHx
-	3fKrTaXhgHXNpHpDnSRD/mN/4UYNa3jiMx8ZRaek4+Cw02W4fXI+/Vb7Ht/pvid9zGDjMf1ypW8tA
-	AfirN6Oaw0W7yEaoL4Ielg3nKMp57cdpLYQTiEa2fSfL6h7guinkfzV0A2NTDzMLIl5zTvwXuh29Y
-	TpYhkRH0lGj/fdivxl5TyWp2STL2g9gnRRrcNaYeMMAEiI1j+Bp5yMRSGhdmTozNjDfuWiVIhBokB
-	xtdGRYgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=69iwq8FlnzMS7nP54HlGXb7s0cbbMSrkUrxQqUW4wfY=; b=c25BBMv1fRvbQyevqRFeAP2H8G
+	aNfq/KwPDfTzad9tDBtmoxhQGR4oyLzLHvhZikDqZwAOWPZXXsQv6LGD0K9CLNpsDVil5iZ11ls+x
+	yxMkBwoj7GqInQ/jZ+ljJahKC3YiQa1k38WyZQt/H4MS4qBgNGkUinIpzrtqD2d1PX3iVAbi1/4Y8
+	8uTVwHDqPTdZ6z5EpLwbeKmIPYx90EnfZ5SFjbCOq7Hh8Rl4utSWbVCNgLo5aXAyfg8kXULhMDV6q
+	VT6yGvErCnIGhzWDL5Ljacb8txJSh/USi07U+ReGULDgWtpGMOQmfHqJixTw/Uvl1dL5t7qdTtvZW
+	f75agNWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39c7-0000000AK12-1Bqk;
-	Thu, 19 Mar 2026 09:24:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w39dB-0000000AK9e-3o3i;
+	Thu, 19 Mar 2026 09:25:29 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w39c4-0000000AK0e-3E9Q
+	id 1w39d9-0000000AK97-1zNR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 09:24:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=wJt/xpnM5xpQ9m6S0Jhmk7m0+jbWUyf+lp4bNeFUlMs=; b=V9ViYl4mTpgvWY0lWySwuoVuME
-	iZ0ZlE/SNmOJSdwCXiDp2aVCWvLcO1IsWqvDLQ6Waf9Jp92guN/CiUOzBfcJGexKjOu5QaUHKXihL
-	FGgxe3c6o+bZj4DjmSw24TqDDrs0sTimw0wMLZrMNx1tKAOHAljBRZWEM+GZaaJB5I7fY8LZI2cMD
-	3y1ogT3Jb38P1YFTgiu9DKxJUbyphk9YZ2swdfEXvb6n634qzw36qz9sKdiRY633fDLtyhWxeo2FJ
-	qTh27iZt3nmZp2MZXEWYM7vc91gFozf5I3rshlNjtZyvsZOPScS+6ax9DY6UVsv7RHVM5rZqu839Z
-	TM39otQg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58408)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w39bv-000000004Wg-44EL;
-	Thu, 19 Mar 2026 09:24:12 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w39bs-0000000081c-38rg;
-	Thu, 19 Mar 2026 09:24:08 +0000
-Date: Thu, 19 Mar 2026 09:24:08 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
-Message-ID: <abvAuHFZzCFobO-V@shell.armlinux.org.uk>
-References: <abQC7r38QLhSeadl@shell.armlinux.org.uk>
- <abdEscs44fU4kRag@oss.qualcomm.com>
- <abdYu864OmNWiWIW@shell.armlinux.org.uk>
- <ablpxwGks9m38fhM@shell.armlinux.org.uk>
- <absjNQ2s3Z5N2Zwo@oss.qualcomm.com>
- <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
+	Thu, 19 Mar 2026 09:25:28 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-486fba7ce4cso2718025e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 02:25:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773912325; x=1774517125; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=69iwq8FlnzMS7nP54HlGXb7s0cbbMSrkUrxQqUW4wfY=;
+        b=CN48TVVGIiQnN2orz1n7ts9ypng+M1ZfPKWr3ECz8et6bncFWlrn3AogPOfTVeVAFt
+         z5PshpNUk0BWNsgTLw8FltylXOJkjmef0Vw+VvsW0pAdz/u0xlIiRXHncn7okg/6wR91
+         L8ndt7Da6X+5gL56mb4PSNTw8vRanr1trleJ+Rz8qPb2i9RCaHkCm3KfMV/fNwI29YXB
+         oUxxs7ubtO7l8zUcPF8gUtxy9s+MimJpIkJ7bau/QZvpj11dg3MS/Wves+zANRFYd723
+         biU+df9tmnEDMg9Yzm0/S9AdwTWZxll5s1phEbasvlzcZJi+0k3QnQQMKwb/LkTrDTd1
+         zvbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773912325; x=1774517125;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=69iwq8FlnzMS7nP54HlGXb7s0cbbMSrkUrxQqUW4wfY=;
+        b=CDpbtTKC3E+TUwU4B3I/4WHqIEo2XFQ0/ZKOBn7t+W49YoxtIfRjxo41srxaT3IsX7
+         duRL4aHrly+3VwBwg/EWSD6c8ORtjTJ6Kq4j8v5qkYXg3vLARfGSJJz7xOLO0/Z7phQE
+         DIqAMjxa/hSyUdpKo3KWW5HfrWIWMi+4fmzARzPDyUkZiZcAU4auGx1kQn8RXMCIBIqt
+         sTGeRJv7YnTTEcGApizdmKufPYOcTIEuAKPCAnQ6hwApUxPnd+Kf6lQhWdG5sdbm2kDd
+         y/ySkYQSUOMZHDMmE29t/bkDlHzfAXHOwfvGaLwOubCJ7biKGxs99FT++ZTKOP6sFTIN
+         xyHQ==
+X-Gm-Message-State: AOJu0YzdIMU2SoTVU3M06T5c4qYt2wuwjZ4hIx0ZWJwOKM20ZPb1E+iu
+	xe4odM9/5xVacFiFi9xatFeKRWzs9/6TTLfTasjg1D5WYO9lpdEGsr2h/uIWtw==
+X-Gm-Gg: ATEYQzxXVUhK7uznYzyhHSXUB41VbkjMPTh6YSa1dtLna2tATUgTzyCLJTTdXuwH5e4
+	EpOZkHosDXcMNXC30bFx+7fCQ0DEgzVN7Ssf0p/71M/zacCdojKwd9sa3NoEouNpjaBorss4m3X
+	Bx4yFIVigl0PPd1TCniV2siyXUqTiq6TR2XuHyxNHR9lmSy+RmzoppEuRX/2hhoBMf04YMLzJFT
+	MvVZctIHA5qJUb1vVnbtY0yHgVO61h0NnsLKXtRBE+KBww2WVgmqzpKBAj91Fdmzq199d0F7+aL
+	jgI0XAbRG87984VlRklOY8UdyiLAIw564H8H+6PdRvdn2d9nbyN63LG0qVRI2a7Ig17ZcCG2Vf9
+	WL2ECb/D0SEyfG9KQC0PFS7fhkIxk4DDYD2t38+USocTmL4Ps35KEsp7304ud6gP9U7U41tJqfF
+	hbYpJ9MHGwoaUiLNkztRJZe66AWn9QJft1ggTCANy4J3A4G0yFaBlHHT6NrEuCLMo=
+X-Received: by 2002:a05:600c:1f8d:b0:485:3f65:94a1 with SMTP id 5b1f17b1804b1-486f4572a00mr111573515e9.18.1773912324935;
+        Thu, 19 Mar 2026 02:25:24 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-486f8aacc73sm50169335e9.0.2026.03.19.02.25.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2026 02:25:24 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Date: Thu, 19 Mar 2026 10:24:59 +0100
+Subject: [PATCH v3] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' from USB host nodes
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260319-armada-37xx-drop-usb-misc-reg-v3-1-8585c8a0a8ba@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NvQ6DIBiF4VsxzP0a/graqffRdEBAJSlioCU2x
+ nsvOrm143uG5ywo2ehsQtdqQdFml1wYS7BThfSgxt6CM6URxVRghjmo6JVRwOQ8g4lhgndqwbu
+ kIdoebCPYhTe1VlagYkzRdm7e/fuj9ODSK8TPfpfJtv4rZwIEaow1aSUXrVS33iv3POvg0SZne
+ tCI/KXRohnTdZISwjnhR21d1y/rW8zXGAEAAA==
+X-Change-ID: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_022420_815608_4CAFD95C 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260319_022527_532883_6DCAE485 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 12:35:58AM +0000, Russell King (Oracle) wrote:
-> On Thu, Mar 19, 2026 at 03:42:05AM +0530, Mohd Ayaan Anwar wrote:
-> > [    8.650486] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
-> 
-> Please look into this first - with the MDIO bus operating at
-> who-knows-what frequency, this could make reading from the PHY
-> unreliable.
+The 'marvell,usb-misc-reg' property is present both in the EHCI and
+in the XHCI USB host device nodes, however it is not documented. Thus
+'make dtbs_check' produces warnings like these:
 
-My guess is clk_get_rate(priv->plat->stmmac_clk) is returning zero,
-which means we don't know the rate of the CSR clock.
+  /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+          from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
+  /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+          from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
 
-From what I can see in drivers/clk/qcom/gcc-qcs404.c and
-drivers/clk/qcom/gcc-sdx55.c, this looks like this case - the
-struct clk_branch makes no mention of any clock rate, nor does it
-have any parent. From what I can see, neither of these drivers
-specify any rates for any of their clocks, which likely means that
-clk_get_rate() will be zero for all of them.
+Apart from the fact that the properties are not documented, those are
+not even used by any USB host drivers. Due to this, drop the properties
+in order to get rid of the warnings.
 
-Sadly, when I designed the clk API, I didn't think that people would
-be stupid enough not to implement the API properly, more fool me.
+Note:
 
-Under the old code, we would've used STMMAC_CSR_20_35M, which means
-we're assuming that the CSR clock is between 20 and 35MHz, even
-though the value is zero. Is that the case? If it's higher than
-35MHz, then you've been operating the MDIO bus out of IEEE 802.3
-specification, which can make PHY access unrealible.
+With the same name, there is a property used for the Armada 3700 USB
+UTMI PHYs of which dt-bindings documentation has been added in commit
+e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
 
-In any case, please fix your clock drivers.
+Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
+driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
 
+When the nodes of the UTMI PHYs has been added to the SoC dtsi by
+commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
+UTMI PHYs"), the properties has been added to the USB host controller
+nodes also. According to the commit message this was unintentional,
+however in regard to the USB hosts, neither the respective documentation,
+nor driver support has been added into the tree since that.
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+Changes in v3:
+  - s/intentional/unintentional/
+  - add Reviewed-by tag from Miquel
+  - Link to v2: https://lore.kernel.org/r/20260317-armada-37xx-drop-usb-misc-reg-v2-1-ddff72114414@gmail.com
+
+Changes in v2:
+  - add Reviewed-by tag from Andrew
+  - change subject and reword commit message
+  - Link to v1: https://lore.kernel.org/r/20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com
+---
+ arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+index ea1824f5321fbb32fc4373c08a0d94bca1dc793b..44c47409f8793ae1266303607812ef481edbfbc5 100644
+--- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+@@ -369,7 +369,6 @@ usb3: usb@58000 {
+ 				compatible = "marvell,armada3700-xhci",
+ 				"generic-xhci";
+ 				reg = <0x58000 0x4000>;
+-				marvell,usb-misc-reg = <&usb32_syscon>;
+ 				interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&sb_periph_clk 12>;
+ 				phys = <&comphy0 0>, <&usb2_utmi_otg_phy>;
+@@ -393,7 +392,6 @@ usb32_syscon: system-controller@5d800 {
+ 			usb2: usb@5e000 {
+ 				compatible = "marvell,armada-3700-ehci";
+ 				reg = <0x5e000 0x1000>;
+-				marvell,usb-misc-reg = <&usb2_syscon>;
+ 				interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+ 				phys = <&usb2_utmi_host_phy>;
+ 				phy-names = "usb";
+
+---
+base-commit: 98226a594f313442fcba38cefc1df0b6c1691c7e
+change-id: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Gabor Juhos <j4g8y7@gmail.com>
+
 
