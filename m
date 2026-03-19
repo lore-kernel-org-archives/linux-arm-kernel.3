@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6EE109192B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 22:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21607109192B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 22:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zmByo8vP5R5ywxu3EV0K1L0EUI2yeBwe+fqBWhuBtkg=; b=xzVBClbzS3CbZyJD7TWgc0NzBa
-	Or7eRjtxcaIq4IJkGFila4Ype/sI6/LLfkByQbUUUYhogA2zc5O0lbRF8zHN9xPB6/7yVfU8EQLLs
-	pJFpqCuLIh6/+Mooo7TsAOCKCIBTyILBet/VaqckI90GDyGHNpNSSnoE41QmK8H1BOR5IuxXCexyl
-	49GRt/gHE3Ul9lW6siOiCAnVaxSgJcZNfqbGtHmiO2DAuX5winO9S8ieTp7jvp/JL41h9wHXtOD+i
-	QzLeunwW3tiUtuQOqhtzdxtdHYPqwdtAdKG6/rd4Rw+f1afIjqh2LK8lMjsU3MvMkye4RwyeRWzL2
-	9NzcAGCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uc+3g1DIJVqmB7JSN2F2Kp6tUtD376sQzGcWiiM1BBk=; b=ebbR4y4D++GU9pbdmtbF4PPeah
+	2v6bVhXzwqzP6lnvbqJAFg2VJxIZ21pTOAwj8C9K3NMN1JzdCnACPimcbD7VEoYDtL5755wvTjyYJ
+	TqXv4e8dDl8Ef4kkcpe9R0QpsCrdrq5VetWGjdbg9dnbrUX6uC6qSz+zGK9B5tGzSrOAHkGZGieOs
+	NSnqD0GXuv6SuiVjnBWcoO6/lekLIJyu4QweN4mvYu6sVxSoRrZ5cKuFkNXQCunBRGmo1FHcqev8E
+	IeHqb/1Afzwbhjp+VfreU4U9NFvXpvEj/kTITGrsW+jvZBS+j6d3TeevFeVTJKe40W5Mpc6AMSEUq
+	CLojMDJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LxO-0000000BiEo-1ZV0;
-	Thu, 19 Mar 2026 22:35:10 +0000
-Received: from mail-norwayeastazon11013060.outbound.protection.outlook.com ([40.107.159.60] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w3Lxm-0000000BipD-3uaC;
+	Thu, 19 Mar 2026 22:35:34 +0000
+Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Lw1-0000000BfsA-3WNs;
-	Thu, 19 Mar 2026 22:33:49 +0000
+	id 1w3Lw8-0000000BfTp-1B4l;
+	Thu, 19 Mar 2026 22:33:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SSaCS5CYbN6Uh1L0PgEEV6iEUmh/zLEV9eI2VAT+6Jm+4SDujBTeQhf48pILTL7aD4ZlAmVMRxlONm5ScFupVef48ARTiuZsSreOROiKO6wQ/efSeP1BIVQdt9tpaXF6nZBYfd/svpGXCyi65YyWsgnPJL3KRjLGJF9bwG3ni37Dt36bDVfvigtN+4W6/nJcIqiIvF58DlOeX6cBUdfJtikJOIOArnetrN7rY23/BoLZXMy6J/+u4zjItA5vSPoQ4T9uIIZ4STJzS2LUVEFnRgqZi1n+k4XWprK566QTNr2RxSl1q5RSSq4aieBVPDBgse69TmjxqqS1mfr/GYiUfw==
+ b=lsSSVyacxFLbFH2MfxT1ui09EuzOeWKJBJGlQjdUP4zEEoL/GuA3T+/RZBTZTnduvOq3i+8aQ+6dNqaB8XcMRFh4rvuge9H3MbAYhqWLhf44GVp42YejE+3zRttVV6PkJ/3OQeWr8q+jTt1G/0P8VCXP2Zg/In9rJnBwzgcB1KGWh3lcGYL5F2BrnpiV4hpIbTSSqLF/TPKwJFVteBVda0aZ7Ylz39buiGckIlwpsfcLDAQ6PIuJarSH+n2zqPa52xNbSSDMEIGzFFFWvVwkYZo9P00O+A1OmQdc2fbQpF6jXPNkrvVnUzYlsAg9P/9WO7gUflf2wIADmN3wtW3cSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zmByo8vP5R5ywxu3EV0K1L0EUI2yeBwe+fqBWhuBtkg=;
- b=fcaKuBAX6qsGulvN/+5wY0aQPdP0l8oK0ur6vta1SHSXcknrVz00Gg4VZGy9bCjHE+MlERMzt6dw0GgVW0CxpQpaMEHQJTb3Gxjf5/RKIXiNWBtHIRy/hsEur+Lp/5/kC5Y80d1CgEi6M2A2hcNLSMHY6/pXLoIgEi9dTlzv6RCgSYDx3s0qs3mPUj4LC/F56X+06BYXnUVTgWb9/uguW9gn+1APTbRQqiAahL08FEwy4PuukFLmMO11LoDW+h3GjJbY2bQf4OOi+3AGDrMonG2E8YnPtEMawxNFkEpSQCt0HjYGyaWlicgv6ugXLZIJZhn79/HoCX9+H5Bd4BS5Uw==
+ bh=Uc+3g1DIJVqmB7JSN2F2Kp6tUtD376sQzGcWiiM1BBk=;
+ b=Ax3164d7VAZiU9AqJd+E3uipXCmxN5zfIdVFP184D80L87zU6nzwDiyZQyj90T2XC94MlfKz8ETjIOhuPa1XyIpPDh1TxN0ifWZC7rBPynrdKGK+urpjNvfbqkpzE5Uh+/r9Z9/5fvQiv4FYN4sldR9zzDib9/IFDKm/36zHRe2IPJ1SGRJ54aNu9PqiJZbUh1siwPcH6SylRsVQiRiovm7NpeHl5h5csCwotrPDQX3yoaNO/g6JLCZyLHjiywf4rpTX3LSnsbL2osly0+khekB/nu6kMKpkQLlxhqoXZ7yhvJkY3LZ4yA6pL+z5hkCUUaOV5jhFA13SpD3Z7eN9kA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zmByo8vP5R5ywxu3EV0K1L0EUI2yeBwe+fqBWhuBtkg=;
- b=mc83rNQ+vfpf+p7KAyRBKN/VPL5j0A4A0cSupZKLiC/q2tbuiCi8FjOplI45Qc7/UyboH0XcjtihxNkVC20yJT/1/OzhC860xANTPeoBAo05Anh3jQ+kuE4jKFyCWhmW1BVWM0okinsrTo4Kp2EOs51lDGkpbhHD2ogcBAHkgE2jl4J9knAawsgTeSntrxuXRoF/Z5wGIWrOItleGU8qIHLFhv0LOiRKO630TJ+93UM9JQ7N/tVKOPPf/mLTj/G6UPxzgQN7m6X8CeJm7UdrYiah/0MvfCXE4uAsmrq7Qo1wQGDPb54KRdBfTjQlV+WQPCRwoHMbn4+LsHbT6+h5ig==
+ bh=Uc+3g1DIJVqmB7JSN2F2Kp6tUtD376sQzGcWiiM1BBk=;
+ b=SSa2q9nMO6jgEr8Jlu9FFzkUSypMgxqv496dh8uEtyPatOijP44HSvETUwOkPce7VQLAQCmAoR8RDOYa74EzfsF5OhGHTBuAHhuv8gB8UicdApYTXE2PDTsJQjWvabLdrf81QeaJ3XqL3FE4Qj7CANdl21J50wpMeGihZIRmXeUfA/Ck7nEge7SjK+SLsxNRj1NUU5txdZZHHah6AYB5Kog3nXh8IkzXkQAUA2bpaNG/zx24thckXX5ALEVjurXvS8okwkra7xPb760h0gGap2KOW8P5gHXQcLzSUP4N0Fs2T5Vudl6FDzx1AnVBkvqfQYydhEhV0GVXoYuiko5h4g==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by PAXPR04MB8079.eurprd04.prod.outlook.com (2603:10a6:102:1cc::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 22:33:21 +0000
+ 2026 22:33:27 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 22:33:16 +0000
+ 22:33:22 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -76,90 +76,81 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Subject: [PATCH v5 phy-next 18/27] drm/rockchip: dsi: include PHY provider header
-Date: Fri, 20 Mar 2026 00:32:32 +0200
-Message-ID: <20260319223241.1351137-19-vladimir.oltean@nxp.com>
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Michael Dege <michael.dege@renesas.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH v5 phy-next 21/27] net: renesas: rswitch: include PHY provider header
+Date: Fri, 20 Mar 2026 00:32:35 +0200
+Message-ID: <20260319223241.1351137-22-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
 References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: VI1PR08CA0229.eurprd08.prod.outlook.com
- (2603:10a6:802:15::38) To AM9PR04MB8585.eurprd04.prod.outlook.com
+Content-Type: text/plain
+X-ClientProxiedBy: VI1P194CA0046.EURP194.PROD.OUTLOOK.COM
+ (2603:10a6:803:3c::35) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PAXPR04MB8079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f71c39c-aa80-4ee2-4847-08de86078368
+X-MS-Office365-Filtering-Correlation-Id: 914efb22-4348-4a14-f715-08de86078718
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|10070799003|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: q7wpKQvc05TUxqvezrHRwYf35/uJfSfHGllc9KA2FB7Bluel9frQYnQuu0x12cPP8FPypdDzElAyUjQzjaf7gEFsR1hZiTMM02kFBUBNm0oboTFPxFhLvsdRPOIJcMTJ1zammmvbvXK0YMl4zG1nR90zghYcVKAUkobIIy19NOPR4ZdTCBff6rNR8N6Ot4pjmAdTrUNvsX7GzPPAPAMEYu/IHlu8ZjsVNA/L7CFqLp06tFmwWuKZiB5juRwRpIpR8BwwEblFtI8pg7Tm0a8aI9oj78KUslc6zGz+Ch/5hUX3yL5WM0pvn34dW+s9eDVBn4XBbv7Q0BcuP5kLqC9qqiKUzCWId5cRkUQyo/ommIPRus3bb0huajDOb2qoMd3eynh0kCmIWF8h0nwiDAIykNxV/IoHWIJZBHLXykvOV+zbX0kfTfvDESqgWO8vWXrHWkKE5yEfhBBAcV/NYlPETLGkXzsT8NJvupOUFOl6JJkAe3Ct3gZ9H3ykoqI0NRvaKtqHAQvJQoG977bpMvZpQkbLsXWrKeeZgCUj89bh8gRRByCtv5VfwpWAY8cP7jYmBbyXGH6Dk77lOr7DsRCINDIKQK7CZ68R+g9Kv/WzP6lj/bW4W5jygVn85Wb4gzz9sA4WUlcOoAeOTw3vXBYXzWkKp7ibvkXnCSidOEpYlNeJ73pBkDCDo8xPYsRhWfV8Gy9RPGGB6X7mJphOxca3i486iytjoHKaPhoUDuDGWZo=
+X-Microsoft-Antispam-Message-Info: Im+sry+LgnOOYQgDYYH1nlzVyUJSIDxbCXXP3h/FQ4k6XA9zmPQlU2j2h0Mn5KzQ4VWZg2ccpuQRIwtVVG8inkqHTsSKY+umxg2LgLzPgPujC5OUMCbTKf+jnR7bJNDknbp/e5ByGps4DMLhl0ugDJIHlooDMH9b/XqwiR+CBOVdQYr6bEQdeWuKl03lnwLYSvKrkMHHaCE+p8LXh1cIpUIH8uHKZit2VJqPiN/vLJoEzbd7bUubqvHb6DK5sEBf95BsDSJwJo9BPhD0oHR4boyd8uuHLZd2x5gVxhkzaFooEHMZ7xaygKaM9jCcp8brzZ5bNyBohWSfoPs0L/MeUcW/p203L9e//IiccZIc83p40K9DvagTLHhdvUvGS1k2YfslAAyK9nzbJCHJUEadHMdkzqaIfsCtUE++Pvp+SjirbHO22ULkfNBtGKXnLzjTW5jKC9hb/Qa2Rpnnnp8xDrcOaSBGtomjgt9BSmZ8s3TVrRwtsjqeDqEQVriwqV6mIST+f5Xpaw0iizRoMsv4Ks56957bIgW2IKURl++zoxTlIyk94wNAQ0wElR/XPirZ0fJUPMnN5PZvlN72/hv5wT7gwfbZAiH1k71lIjVM3IUt5EGnXyLpJooMSZwDILtlF5viXT8bthm5O6c6AX4YOp66A0qEHYqe2vWyAXrYMYRsZPKEal1T5GXdMUgZTZ4+5AKsYva0K8Yh1XRx6Y3Te3HZerCWlBpdLg+YQEOiNXM=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(10070799003)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bVNMRmdHNHIxak9iTFIvSUJ6aEV4MlEvbjhFc25qWFZmM3lLZ0lhUFJtbS9X?=
- =?utf-8?B?OFBQcEVJTlFVcGQ2OGdkWnY0ZlJUNXBoL1RHLzFpZ0dhTUlWUDgzYTdoNXNS?=
- =?utf-8?B?dXcwSEF3Qk4rR1huZjNJQ25oV3AzRFh3dzg2WXhvQi9oWHdNcUVEbWlRc3hX?=
- =?utf-8?B?MWlGeE5CQmNydXI5MVMyUk4weFNsZnBRRGJvQldVU2FENjFJSThYUlNONmZy?=
- =?utf-8?B?VWtvTlFGWmh6KzNXdGhwYURDdXRnWHhZblhvc1ROTVRwek1BNk9DRmZFVFV0?=
- =?utf-8?B?eEUrcnhZVVJpeUtBTmtNbHgzM2U5STdmSzRSYzR1QmNNczk5YXN1d2dkU042?=
- =?utf-8?B?V1lrY1lTdCt5QjVKRUpjMWFBeHJGNHdjMlJYVlQzRjN5aFRVV1k2MzFiUHha?=
- =?utf-8?B?bXJCMGNmdzgxR0VWVlIvZTBkYWdoSXY3VlplNkpka2VNc3p5dXNrTnAwWEgv?=
- =?utf-8?B?S2k2YmlMTjZqWE9vczRkR0hXVzlUd2JiOGRNeXpnSVVWRzd6WUNMN09kUStk?=
- =?utf-8?B?cDNzd05CMWZmTVFjUEpzak9tYTNJR0d5VU5DT2Q3ci9CRFdEQnE3aXEvQXN0?=
- =?utf-8?B?QjFBTXluWlF3RUFJeUlmdG1TT3I5SjM4MjArbVhPSHhmdDU4NFZZcnNkOXYv?=
- =?utf-8?B?MVVZRkRxYjl0bURwdFkydEZuWGswNWhUd2VPRSt0MERuNzI5cDNMRUc4YTRi?=
- =?utf-8?B?NjQxeE0wU0hHYU0wVjhGcGlvckovaGRnT1FZSEJUUnAvVWhRaFJlZGpHSXFx?=
- =?utf-8?B?TUpJZ2hRSWp6V0p6cUlJdjBLeTl1YlFRMStlb1hBTTJnaDNaOE9nb1dSd2dL?=
- =?utf-8?B?ZDFFZnplYnI3NW1jSkxzMVBzME5YL25ZNzgramE3QUtnd25pK0pySzVCOVNn?=
- =?utf-8?B?dHJnd2M5Z0FoTzlPUUw4TnNmSSt1N1hrNWJLNXc2M2k5OXQwMEdYWG5MMTRK?=
- =?utf-8?B?V0g1eTNWQ0lLZmV3ampXc2hIcUM1WDQrY29NUlhIRG5EbnpyUFdQN2ZpLzND?=
- =?utf-8?B?bTZsZFE0N1dnaHpyTlhmRG9nb0pHc2t4REp2U044dnNYVEd3cXNSVXYvT0VX?=
- =?utf-8?B?V2V1LytPOEh1cy9BcTMwMmpGa2poU1MxaDl6TlFETGJwUTk4S1ViaTZ6QkpJ?=
- =?utf-8?B?Wm95cEpsYjlEMFpaV2ZsOGpmRlFybjViUGIrRVkzQ3ZXUWtqUTkwa2tYWlYz?=
- =?utf-8?B?bHFLeUpoYkE3eDNvSGdqL0o1U1N1eGlmTW83L0tzcHJFV3ZNNXBrVWNOOW95?=
- =?utf-8?B?M2V6YmNBWlQzZS9NTHpFTmNvcWE1Q01GNm9ZRmR3bjlCSkxHWEwwSTJKZnNB?=
- =?utf-8?B?MjlEak5lRVNPV3hCNnFtTlBnejgzS2o2eGI5ZzdIR1FydjBCb0xJYUl0TXV2?=
- =?utf-8?B?b0RCdWFYaHBucVNCdTJXOXdVTXhQcy84NnJQZTR3dDNLalBPWGRjYnh0UkNJ?=
- =?utf-8?B?WldMNTE3YnE4TGpHelJ5TUtIQlVBa2VRUFltaXV5WWd6bEg2ZUh6bTZpdFZC?=
- =?utf-8?B?RUNYRXZ0Yyt0QklHcDdBQkd0c1pTMjZiN2hSMWZxZXFoMThVL2czS2tNSWNa?=
- =?utf-8?B?UVlFMXROaGkxZjdWQyt4bHlocVArUHdrc2hXZU05ZmhaZGNSeVphdDFxeldM?=
- =?utf-8?B?cStRYkNrWkgwUmpaaURnWjBaUklOT0JEazNuMUtnejJselZmZ1l3OU5hWFNZ?=
- =?utf-8?B?dTNtK3ZJSTRsMExaYVZxbXNPUHNNcWNMbGJ5Qllha25ublV4MEluN0xLS1NR?=
- =?utf-8?B?N28zdUJabUFNeGJQSDU5bC9FN3hJcUczWTVXV2NDTHdNaHM4YXY4YUZJUVNs?=
- =?utf-8?B?c0ovWlBrenVsRk1CNE03MWx6VWovMER2RHFwN3Z0SnpVREZXQzY4RlNBRFVH?=
- =?utf-8?B?cUphb2hDWFhzME8yOUozUkZHcWJJNTgrTkIwR0NmU291bzJPbkpCTVBhSTRu?=
- =?utf-8?B?eTlDNHlFZzBudFpOMFpDQ2xZZEltUWtPYlkySDk3Ui9mYXI0dU9LdTFpU1ZE?=
- =?utf-8?B?REgrWUovM2tFaEZFREkzMUIyTTF1OW5BOExrRjZ1U1A1ZWpNSkY5NFY0UEhI?=
- =?utf-8?B?YVUyZjd2Yk4wWjVKTHR3cnAzOUJDMzVzeVIxbC9HVVJBb1EySXk1Sjhvbk9v?=
- =?utf-8?B?bXltWjMrTE5oWjJKZ3RJd1Mzd0tkaHhLZm5ybWxydUEyQXJEWmRVMTAvdDRz?=
- =?utf-8?B?cG54NjRsbkVkcXJWZ2xLVHFQWmZYZFRidkpqYktzV3YwNlpxdWpLWmxVczZv?=
- =?utf-8?B?aDBERVRtaENkR1BJZUQzMGRnZFRqbFpwSXVRZ0lVUm92dUFST01VSk1Fa01i?=
- =?utf-8?B?Y3NrdDh1MjhaeWFRUlQ3ekRWdXZEMmZLUC9EY2ZBNXFiVjFVZXFRWTdvZVVv?=
- =?utf-8?Q?JS70Ite8uCNSktj3S0XT/IZee8VkETaM5OrLjSyENACin?=
-X-MS-Exchange-AntiSpam-MessageData-1: p6wXQDXZlAvo4FfFE8C/sRlQofMNSrKktag=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kgHd9AH+n9itJ+2PsJDIAc5/rs4pzqwm025Pe0smX0wIJ83/CTMoBWzyKxDl?=
+ =?us-ascii?Q?h7RCLEv8DMTGx08sfuYMFzxAAaiNynri84zVaeHP75obs6jeRexZR1vE4wwf?=
+ =?us-ascii?Q?brV9JL+u5r7nkejfyujN6f3SFMXUOlOOh9tmeKNqOWAOGLMYR8tc8083w6Mw?=
+ =?us-ascii?Q?YoN2vR7DAtpnuXeQLOlxxIwLiDaW5+fGKki3AAlDdEf7JpYb7yaRevpbqq2V?=
+ =?us-ascii?Q?I7b8C+g0mWg8E5KtEFZU0XRYraStAkaNF9/XbJ1bM045zaaS/6wxb7vJtpuR?=
+ =?us-ascii?Q?JSusaGZgorw4H17/zvEhf5DUASkxXfp+wVGCYBLcXYQDrxskMp+PCWGs//XE?=
+ =?us-ascii?Q?QLjrw7NhqSREF/TVBa3UtI1S6BwK2yScp1Yk/jEu4z7g5/sfO5hVU7dLjGoz?=
+ =?us-ascii?Q?Fd3GJ11QTb+MJ+Mm7BmcKZkHJcyxCDksaDAT2rMETJZlJ0sE/3GRAxCBNi6P?=
+ =?us-ascii?Q?2aIVJAzztw5VHb0wBZHx0sDTSteOCyTVs4gwn08NDNEQpq+D18Rvtf7e9xiq?=
+ =?us-ascii?Q?q2SPn9WS/+3jN+PHGnTlvm/ULLU3Mf+zmnmVa6FnAeTaCETariiL0lId5dqA?=
+ =?us-ascii?Q?5jxaJwQ9BUqfh6bDdJBTBxLHtflJ/oq+0ZZf2XN55eZ+zgjYWH3r13dpIVKX?=
+ =?us-ascii?Q?J1iUVktY6a35yPG9w6X58Iyvsz6YDio5Oot3UAJT2zhv+mvqTVGIozUnzrV/?=
+ =?us-ascii?Q?pPYzrZHTSf8uMJPtSBeyyH/0gQq63Y1oKfr2zhO9SI+SmZ9bPk7Z5dtb+DQX?=
+ =?us-ascii?Q?S5DHUmn6eZmBAAMYOWjWx7lBp1Q3OwxFYukRF4/JHFTDwSlboTN3InIzbdEI?=
+ =?us-ascii?Q?zARdWtRYq6CaHtB2ODdXUuSXUzStK7V6CWmxwKeFRPqOwRHcK8TgMeGvQsel?=
+ =?us-ascii?Q?mAqN/dK8G+qqauuQIKb6IghZZYUGOhKnTJ72mXgzB4bIBGXQBMFye/pe16vv?=
+ =?us-ascii?Q?dhW54ovB5mlBj1JCFMIgeOqag3A6k+Z0royOXDoJ/BQy0yD8zuoOwhzGD2Zi?=
+ =?us-ascii?Q?9iQtqu0juLG/ekg4USKC2Bs48BdPyQILmY2I0DgdFUJ/6G+ku1n3dFwmsMo8?=
+ =?us-ascii?Q?Ce4/YcnI4msfaOUFQ154lSwLnhEg+rAMD6gCzdKy+AeAFLHtMDpYimZcZidy?=
+ =?us-ascii?Q?1MKQfos6QScFl0x/jMwWb1BQn2wm8JmM+nAAeai/si22FxHPFBp+ZRrG3iNC?=
+ =?us-ascii?Q?xthhH7q6dWGzlwqABpAwghNoo1pBqfV7wor0spaR8/OHmKVDdORA1o0cdLYD?=
+ =?us-ascii?Q?Auyy0gIIhM7l0FePrNRQZzMfVYE43vEbYnJGZbFIw8Da5LSTN3xx5FvRCgks?=
+ =?us-ascii?Q?WM6Wo+IBW1h6MJcKz4CEjtBYek38q7FOs6uypGn5RhLtxCs1JGWAxxlZD6s6?=
+ =?us-ascii?Q?sjINVQeK8TBM5xaQ7qvrrrRhUKtKgfOG3oN8MaGC8w1vRpnMo0K1P85Zi29b?=
+ =?us-ascii?Q?26xBKzjc0UruRRBLDHy2CYTzVL1sz207D6aIbTqIKMcSf6w4uTYrnamqyehs?=
+ =?us-ascii?Q?PB7wCjHNunF+Wcdtlxws+HZfkTaxwZ+bgDLxBLIM8A2B15i9KYSdktKWNvWB?=
+ =?us-ascii?Q?pdD6laQI//DU3WQukZ8beYTABzxE2cngD7zKOpo49ZkWLkYHxucLIdYQzjco?=
+ =?us-ascii?Q?BY7k4N/mW6XU33A8m/YEZNkDDybHsR0b9ujMSPhh6k9oG/zAdaGjIpDLesnF?=
+ =?us-ascii?Q?JAKomoJ7uGhlY7sVmfyV2zEu5zqQZ4VOm8/FyhrqSBo5JpXVMcr3WlUo1BSF?=
+ =?us-ascii?Q?giv5MvEv6R2QvObmjy6KUjSsNiAgru/i7yedeTZjhHxMuPOX3defQstojNXi?=
+X-MS-Exchange-AntiSpam-MessageData-1: XNWrHojWj0MOUvlc8nA/zPB5H/l0tOWqOis=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f71c39c-aa80-4ee2-4847-08de86078368
+X-MS-Exchange-CrossTenant-Network-Message-Id: 914efb22-4348-4a14-f715-08de86078718
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 22:33:16.2198
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 22:33:22.3672
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G0KtJVLgUck3Im38belRBgGQN3fi9Er6gHxSpiPnAptixiYhfzl/WgizfZx99nBKoXIWSNers2tc0jp4gs6xyA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: lNzB+08At8utlOsz+mUNbZF/2cttPgrriutD6eOIEyeA5bk2Cw0mw32T8RL2FsWLBYLrsYmg+atgPxjkXvgDqQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_153345_997843_86815D5B 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260319_153352_441354_551A6560 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,42 +165,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip DSI controller is a PHY consumer driver, which is also a
-PHY provider (calls devm_phy_create()) that lives out of drivers/phy/.
+As a PHY consumer driver, the Renesas rswitch dereferences internal
+fields of struct phy, something which shouldn't be done, as that is
+going to be made an opaque pointer.
 
-According to Vinod, this is discouraged, although it would be difficult
-for me to address a proper movement here.
+It is quite clearly visible that the driver is tightly coupled with the
+drivers/phy/renesas/r8a779f0-ether-serdes.c, which puts heavy pressure
+on the Generic PHY subsystem.
+
+This was discussed before here:
+https://lore.kernel.org/linux-phy/20260211194541.cdmibrpfn6ej6e74@skbuf/
+
+but to summarize, it is generally expected that when a Generic PHY
+function is called, it takes effect immediately. When this doesn't
+happen, the PHY provider driver must change its implementation rather
+than the consumer be made to work around it. PHY providers which rely on
+a hardcoded call sequence in the consumer are just lazy and wrong.
+
+The most obvious example is commit 5cb630925b49 ("net: renesas: rswitch:
+Add phy_power_{on,off}() calling"). Problem description:
+- Ethernet PHYs may change phydev->interface. When this happens, the
+  SerDes must learn of the new phydev->interface using phy_set_mode_ext().
+- drivers/phy/renesas/r8a779f0-ether-serdes.c implements phy_set_mode_ext(),
+  but this only caches the mode and submode into channel->phy_interface
+  and applies this to hardware during phy_power_on().
+
+The commit author decided to work around this at the consumer site, by
+power cycling the PHY for the configuration to take effect.
+
+This had a worse implication from an API perspective in subsequent
+commit 053f13f67be6 ("rswitch: Fix imbalance phy_power_off() calling").
+It was observed that phy_power_on() and phy_power_off() calls need to be
+balanced, and so, the consumer decided to start looking at the struct
+phy :: power_count (the technical reason why I'm making this change).
+
+This is also wrong from an API perspective because
+- a consumer should only care about its own vote on the PHY power state.
+  If this is a multi-port submode like QSGMII, a single phy_power_off()
+  call will not actually turn the PHY off (nor should it).
+- the power_count is written under the &phy->mutex, but read unlocked
+  here.
+
+The rswitch and r8a779f0-ether-serdes drivers both need to be completely
+rethought in terms of Generic PHY API call sequence. There is no quick
+fix to apply. Just include the PHY provider API along with the consumer
+one, to keep working as before when struct phy will be made an opaque
+pointer to normal PHY consumers. But this is a bad offender (and it's
+not even a provider) so add a FIXME.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-Cc: Sandy Huang <hjc@rock-chips.com>
-Cc: "Heiko Stübner" <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Cc: Michael Dege <michael.dege@renesas.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@google.com>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 
-v3->v5: none
-v2->v3: fix cc list
-v1->v2: none
+v2->v5: none
+v1->v2: collect tag
 ---
- drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 1 +
+ drivers/net/ethernet/renesas/rswitch_main.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 3547d91b25d3..c0aaa51e0237 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+diff --git a/drivers/net/ethernet/renesas/rswitch_main.c b/drivers/net/ethernet/renesas/rswitch_main.c
+index 6fe964816322..132be5f15073 100644
+--- a/drivers/net/ethernet/renesas/rswitch_main.c
++++ b/drivers/net/ethernet/renesas/rswitch_main.c
 @@ -27,6 +27,7 @@
- #include <drm/drm_print.h>
- #include <drm/drm_simple_kms_helper.h>
+ #include <linux/spinlock.h>
+ #include <linux/sys_soc.h>
  
 +#include "../../../phy/phy-provider.h" /* FIXME */
- #include "rockchip_drm_drv.h"
+ #include "rswitch.h"
+ #include "rswitch_l2.h"
  
- #define DSI_PHY_RSTZ			0xa0
 -- 
 2.43.0
 
