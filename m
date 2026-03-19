@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A972A1090220
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4431090220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 13:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADeC3fZCIoKVRKZ8CRzABnfRAAR0yYLvMqKhz5Nc4SQ=; b=vs3oxkPeVwmaEvq7R2ex1sT+uK
-	BqOBFE2Tc6XkilkDUv+E3wOHyZpB5fgy99i1azFRnWrgO1wSyoJy97k6cVA5hYYNTPJBBL0q0iyQF
-	LyToW6cdF4c346vhbQpmNSEN8dbmDDjiwmR4MYbw2vBNP3FUwCcytgQWIiAQnBqg1Vrh0A/MPI5ug
-	dUrGeXqczCrqzvL9eI3m9VOnAYr9izIBXAz+wSMcOoVmbWt4EWIod2oh2GFnCD9taB9Sjj05fqNjc
-	b7SqNLs6cUy15IlD0LHXlHgxuvBEnZRwPKQBGhNJj2SPkUzGNwj+YQvpmeuoV9xhebmAeh/yOWalQ
-	JWMzTAiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qqrJh29uzDTo03H0paBPCHsqowYPbl/7U6LshDniAjE=; b=jn9P2QNrwTqYilG1AQVARtnJwO
+	WQaeYBKsLzb6xLtFBMJdRpTEuMX3fnX1dQCEw+jzuHbSc8aWeYE9uXqPPG4w4tkFc09u9BBUw6aac
+	COXXxyc8PQdhrU+K/iN4I2nD52FQRSTlNW7sZaNUoOeedahSojCnMOS4zQKzBPkhgBOaRBf5o4kxR
+	yug7EBFke7+9jxYX5SIA2wJd3Y+ok4xFeSrw1p4WSjUhYY3hQHszVjJty61rBYC6ZCL9gHhEEpi4t
+	WpEm3GUG4z7g/E+cDT0tGbl08wNugy9HQi/rbSGlWhabb4em7gmOTLzPlug08/q3LQh2znFEZ3y5A
+	bBBzHF7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DUE-0000000Ah4z-3D3j;
-	Thu, 19 Mar 2026 13:32:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3DYf-0000000AhIh-28Ch;
+	Thu, 19 Mar 2026 13:37:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DUD-0000000Ah4i-2xTG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 13:32:29 +0000
+	id 1w3DYd-0000000AhIJ-0qno;
+	Thu, 19 Mar 2026 13:37:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABF09600AE;
-	Thu, 19 Mar 2026 13:32:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E42C2BCB0;
-	Thu, 19 Mar 2026 13:32:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C9FC406E9;
+	Thu, 19 Mar 2026 13:37:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4F4FC19424;
+	Thu, 19 Mar 2026 13:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773927148;
-	bh=fv2RZ8oUz3S5TdoJKUecgYfd31nIaoj1pTV8+h7c6G4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PJfkiQ62e2TWYYLFZ5sLrfZL+iiRJgGOIFBHm1ggmiWFHV1dUtQRYOfIoOlYSObcJ
-	 rojT+BUKZpSZ/UDou3AWVJhMc7ycc/wL7sBNLMdiHqJAygYMCruYsgV63B5qUAMWY9
-	 wYdIcxuSCRDhYXXy30y0apf5axHdmax60FORjONvGriBrJpxNL90OFm9kCevI7IrDg
-	 CLRXtwfxVbx4jbf6HUit+5PvVwNW92Vcfx4X01vgpRf0MlxXD6uuK5iL6+hUhCrUTe
-	 55uEzr5eMVVFkrddu63safROg6lEf3Ll7ioZh9OoY/HV5nS6Ho0dGJJJHxn5aviKLj
-	 utSiDICey+iCw==
-Date: Thu, 19 Mar 2026 13:32:22 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <abv65n3fhvYDEez0@willie-the-truck>
-References: <20260318191918.2653160-1-catalin.marinas@arm.com>
- <20260318191918.2653160-4-catalin.marinas@arm.com>
+	s=k20201202; t=1773927422;
+	bh=kZE7fWjkE9q0fs78z6WZPbfFeAaukSfB72v2ajLzOBc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BF9GI/T48b6qMVLzhYLVgZ6osl/jvVy0Ho4gccdiYbNb0qBqZB+mcXrGzifkD+4Oa
+	 YiHGUaxIo1fmBBC0KCnAop7NXf9w6OCBn7N8+lk1yhcvYsWYKvmVre/Kr4EgSl1uuE
+	 WEQPY8Uukd+REDkeGSaYoiTvSjiXmTvYfuML1ygSlAYJhhJ4mEmKFqtTmADgygliig
+	 MFLGXupcwxkg0Y2qGIqsaO6QyMM8Oo8ORv26T4c/wUev4poueTOrGMhFUm1xhvN3NF
+	 pUr4yKSw3siiZ4JlD0pnopmN/aXMWFmKqgrr0p0fmnW42UHCI+whoXfHJ067YTMESW
+	 AM9m2t/fXXDPg==
+Message-ID: <ccf2c7f1-84d2-4d73-92ff-6400ed0a5489@kernel.org>
+Date: Thu, 19 Mar 2026 14:36:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260318191918.2653160-4-catalin.marinas@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: rockchip: rock-3b: Model PI6C20100 as
+ gated-fixed-clock
+To: MidG971 <midgy971@gmail.com>, linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ heiko@sntech.de, jonas@kwiboo.se, shawn.lin@rock-chips.com
+References: <20260319102247.32260-1-midgy971@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20260319102247.32260-1-midgy971@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_063703_307511_435C7E11 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,143 +116,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
-
-Just a handful of minor comments below.
-
-Are you planning to take this for 7.1 or would you like me to take it
-via for-next/fixes? I'm leaning towards the former so it can simmer in
--next for a bit...
-
-On Wed, Mar 18, 2026 at 07:19:15PM +0000, Catalin Marinas wrote:
-> C1-Pro acknowledges DVMSync messages before completing the SME/CME
-> memory accesses. Work around this by issuing an IPI to the affected CPUs
-> if they are running in EL0 with SME enabled.
+On 19/03/2026 11:22, MidG971 wrote:
+> The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to
+> provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers.
+> This chip is currently modeled only as a fixed regulator
+> (vcc3v3_pi6c_03), with no clock output representation.
 > 
-> Note that we avoid the local DSB in the IPI handler as the kernel runs
-> with SCTLR_EL1.IESB=1 This is sufficient to complete SME memory accesses
-> at EL0 on taking an exception to EL1. On the return to user path, no
-> barrier is necessary either. See the comment in sme_set_active() and the
-> more detailed explanation in the link below.
+> The PI6C20100 is a clock generator, not a power supply. Model it
+> properly as a gated-fixed-clock, following the pattern established
+> for the Rock 5 ITX and other boards with similar PCIe clock buffer
+> chips.
+> 
+> The regulator node is kept as-is since it controls the power supply
+> to the PI6C20100 chip via GPIO0_D4. The new gated-fixed-clock node
+> references this regulator as its vdd-supply and provides a proper
+> 100MHz clock output. The pcie3x2 node is updated to include the
+> pipe and reference clocks, matching the approach used in
+> rk3588-rock-5-itx.dts.
+> 
+> Assisted-by: Claude:claude-3-opus
+> Signed-off-by: MidG971 <midgy971@gmail.com>
 
-Missing link?
+Anonymous contributions are not accepted. You must use your full name or
+known to us identity (nickname is not a "known identity").
 
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/Kconfig                | 12 +++++
->  arch/arm64/include/asm/cpucaps.h  |  2 +
->  arch/arm64/include/asm/cputype.h  |  2 +
->  arch/arm64/include/asm/fpsimd.h   | 21 ++++++++
->  arch/arm64/include/asm/mmu.h      |  1 +
->  arch/arm64/include/asm/tlbflush.h | 22 +++++++++
->  arch/arm64/kernel/cpu_errata.c    | 30 ++++++++++++
->  arch/arm64/kernel/entry-common.c  |  3 ++
->  arch/arm64/kernel/fpsimd.c        | 81 +++++++++++++++++++++++++++++++
->  arch/arm64/kernel/process.c       |  7 +++
->  arch/arm64/tools/cpucaps          |  1 +
->  11 files changed, 182 insertions(+)
+Best regards,
+Krzysztof
 
-nit: Please update Documentation/arch/arm64/silicon-errata.rst
-
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..f07cdb6ada08 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1175,6 +1175,18 @@ config ARM64_ERRATUM_4311569
->  
->  	  If unsure, say Y.
->  
-> +config ARM64_ERRATUM_SME_DVMSYNC
-
-Any reason not to call this ARM64_ERRATUM_4193714 like we do for other
-hardware bugs?
-
-> +	bool "C1-Pro: 4193714: SME DVMSync early acknowledgement"
-> +	depends on ARM64_SME
-> +	default y
-> +	help
-> +	  Enable workaround for C1-Pro acknowledging the DVMSync before
-> +	  the SME memory accesses are complete. This would cause TLB
-> +	  maintenance for processes using SME to also issue an IPI to
-> +	  the affected CPUs.
-
-s/would/will/
-
-> +
-> +	  If unsure, say Y.
-> +
->  config CAVIUM_ERRATUM_22375
->  	bool "Cavium erratum 22375, 24313"
->  	default y
-> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-> index 177c691914f8..d0e6cff93876 100644
-> --- a/arch/arm64/include/asm/cpucaps.h
-> +++ b/arch/arm64/include/asm/cpucaps.h
-> @@ -64,6 +64,8 @@ cpucap_is_possible(const unsigned int cap)
->  		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
->  	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
->  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
-> +	case ARM64_WORKAROUND_SME_DVMSYNC:
-> +		return IS_ENABLED(CONFIG_ARM64_ERRATUM_SME_DVMSYNC);
->  	case ARM64_MPAM:
->  		/*
->  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index 08860d482e60..7b518e81dd15 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -98,6 +98,7 @@
->  #define ARM_CPU_PART_CORTEX_A725	0xD87
->  #define ARM_CPU_PART_CORTEX_A720AE	0xD89
->  #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
-> +#define ARM_CPU_PART_C1_PRO		0xD8B
->  
->  #define APM_CPU_PART_XGENE		0x000
->  #define APM_CPU_VAR_POTENZA		0x00
-> @@ -189,6 +190,7 @@
->  #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
->  #define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
->  #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
-> +#define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
->  #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
->  #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
->  #define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
-
-I'd probably do the CPU part as a separate patch, as folks often backport
-those once they get multiple users in the tree (e.g. for perf or other
-errata).
-
-> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> index 1d2e33559bd5..129c29aa0fc4 100644
-> --- a/arch/arm64/include/asm/fpsimd.h
-> +++ b/arch/arm64/include/asm/fpsimd.h
-> @@ -428,6 +428,24 @@ static inline size_t sme_state_size(struct task_struct const *task)
->  	return __sme_state_size(task_get_sme_vl(task));
->  }
->  
-> +void sme_enable_dvmsync(void);
-> +void sme_set_active(unsigned int cpu);
-> +void sme_clear_active(unsigned int cpu);
-> +
-> +static inline void sme_enter_from_user_mode(void)
-> +{
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
-> +	    test_thread_flag(TIF_SME))
-> +		sme_clear_active(smp_processor_id());
-> +}
-> +
-> +static inline void sme_exit_to_user_mode(void)
-> +{
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_SME_DVMSYNC) &&
-> +	    test_thread_flag(TIF_SME))
-> +		sme_set_active(smp_processor_id());
-> +}
-
-nit: You could push smp_processor_id() down into sme_{set,clear}_active()
-since they are always called for the running CPU.
-
-Will
 
