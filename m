@@ -4,77 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82471075290
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BF21075290
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evK+TRJN754evcV2n7sFUGHclRwXOmtUFbQh9PWeEUM=; b=36CKgbs1j83GJeRv8SPcHP8zlG
-	yg1JgneFh2a2DbVwYex7fd37NfEWEpCn8KpOzIEHOGjHCj7DCKVd2O6knHiY7cNizViietW8CqX89
-	B2QDQggqBBME4rfBa3gvRsD3gfCa3VEWKuUwMjryfroD9wd3dkvAPum5AtYtUfLULwGR7l/u4MkgL
-	74AuMrOBOt9DrmqSGq7wEA6592+crwKESpcSq4LN6FgvIzJAzic9ocEuC2W2h7OR/jNBpYss/Urt1
-	t1DE/jc18f57kOCUPwcyyun7TUEEz2Chy5eryu6LTnT0U7gjT+dA+/aEvvmHNyvqvrYtQ5Zn+jALe
-	RKE9UYkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CzbzwHsZr4gKjMzJLi7QV8gQg+P6Q0le0KXtVqHnxn4=; b=0d6eUG/LcGmEH7dwm8XobuD5Nv
+	DfQ9AUdJIAYLalEzttTTZh328P3DUvrKxrh3RD4zRjCXrhP4CgyLySehCt3OJP6cVg4PQJUVGPLg/
+	AksuQrHbTdrT0vQHyU2tgHyVli1D0/pPp/GEeLCDEa53on5C6XQKUdqiwSUNgCiiwtYzMTiwtIP7a
+	/uqBZGfCX7KgDlKQwfkor30QVy/GhNoiXefIMrHMbwkJSN5q0OzT8LQc8IflaMuqGB6XCAdTDu5n0
+	6FFHGG9GUhGUw9tAdrmA8FmHBk5T0qDbgUlwIRf5yl+yJggiBgm1GwmsQQ7Xs3I5ZB9WxjbdQqg6I
+	KxUds1lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ADm-0000000AN8y-1a6L;
-	Thu, 19 Mar 2026 10:03:18 +0000
-Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
+	id 1w3AFS-0000000ANHw-3Jgq;
+	Thu, 19 Mar 2026 10:05:02 +0000
+Received: from mail-swedencentralazon11013035.outbound.protection.outlook.com ([52.101.83.35] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ADh-0000000AN8H-3brd
+	id 1w3AFP-0000000ANHE-3uiB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 10:03:17 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=evK+TRJN754evcV2n7sFUGHclRwXOmtUFbQh9PWeEUM=;
-	b=SMtTH0/YJIP3qXbUU6vd2oQAJVBu8ZwzQ1VHmyYDKTPdypiRKUTpUWEbNamRUQJxgnhCK1Lw6
-	cDi7Azvf4G5dCnOLK1qC3mxZFZx2T4dYKRjdmO1fu7S5mc2m+L40MBKeDp+FBAOlZ2p8dPYUI4u
-	cDSRsE1ew5nv0hCg3j16qTE=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fc1Nm6Mysz1vnMD;
-	Thu, 19 Mar 2026 17:58:32 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fc1Sl4hMDzJ46pZ;
-	Thu, 19 Mar 2026 18:01:59 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6CFF540571;
-	Thu, 19 Mar 2026 18:02:58 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Mar
- 2026 10:02:57 +0000
-Date: Thu, 19 Mar 2026 10:02:56 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v6 01/39] KVM: arm64: vgic-v3: Drop userspace write
- sanitization for ID_AA64PFR0.GIC on GICv5
-Message-ID: <20260319100256.00004de2@huawei.com>
-In-Reply-To: <20260317113949.2548118-2-sascha.bischoff@arm.com>
-References: <20260317113949.2548118-1-sascha.bischoff@arm.com>
-	<20260317113949.2548118-2-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+	Thu, 19 Mar 2026 10:05:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e782hT/fxN2TRSmIZ9pgU9uD9f3oaTW6n3UcBs8OEJKBQiwRNnkgNl3zivSMdjROQszWZ1rr2aDrbyOOQoWJXOLIEEidtsx2n0pFYOGWZU7DLHLLDqlnVuE+P22LdRHrHeTCj3KdRqx5Y213fWXhFlH4WyS0Ka7nLdkkHz2bk7Ty4YcQqfTvLwZTgwznpzsIwmXlixFY2LKCOySjXA5m/BJgLgFMZR/3adqYGAsszVkQ+Yrhg6cq6YjZlz6jLxeDdTV92NtBnchC6ApuemZX2cgbt8DJSlOBwf2QCoaujwiRRBaU2cjiIw1R/M1/YjW+VhZaKGN83ydf8N5GM2gB1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CzbzwHsZr4gKjMzJLi7QV8gQg+P6Q0le0KXtVqHnxn4=;
+ b=GVo/WRlYH/Kn4TVNYtF3wd+iJCn0NlxXQjBXmWKAUi60eqeZIPYQ0kcw/gfu9ueFNC6M/hdJoyrgk6bEhCzO4/vmufkWdSA/VoFl8i85Tyb2S1ey1eTqILz7LFUsOC0bZq7TWZCoeed7Y/dZT9zw+a/gCXrC/hl/PTScFVyz6qF2ArwWv1h35gvFpFj0Lc1qw65wIoWPKEJf+Aw6zs5BlKTvLg7ICK3YimKp6m7oi7U0uXZp9rb+uxU1snt3zOQsA+weoAhX283EsJ9/G3CzQ/Xnx6H8i7YiWknYWiBpyQ4IwQCtDWdIUjtP1yhHTJupfasj0JN56SeNpEDJhFC+EQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CzbzwHsZr4gKjMzJLi7QV8gQg+P6Q0le0KXtVqHnxn4=;
+ b=nNgZn6b7K8R0V96Y4+zIOjGwkpW3hGDvM5ykoyhF3TjBgi8ToYZk5mkgHIOb4SjQxY3puFk97VL2TyoqnWn8ZeN04JahcWhTA/SuTwsOYmUyJm1i/dS3VBJEFJc30LiBLp0ONndbIBiIM+mUyt+CTyY7r904QFSWDqgJbW88N6lqgZZrsuMrqyJT+PY16rqZJR0iRnq9tW/ArVpD95RBnhF0qqNY3kY0RigrzeEKB3lRevFUa+AUnJQCNUA6XIKvOMASQOdXox3O1pggadJ7tqD0q/EDCTbKbbyHaPREYNMBAIlr9gDTILDVF14TmVpB8+JUfSTrideWsyNg8GfqOA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MRWPR04MB12117.eurprd04.prod.outlook.com (2603:10a6:501:97::14)
+ by AM8PR04MB7873.eurprd04.prod.outlook.com (2603:10a6:20b:247::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.25; Thu, 19 Mar
+ 2026 10:04:52 +0000
+Received: from MRWPR04MB12117.eurprd04.prod.outlook.com
+ ([fe80::9a10:5b39:708:7f43]) by MRWPR04MB12117.eurprd04.prod.outlook.com
+ ([fe80::9a10:5b39:708:7f43%6]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 10:04:49 +0000
+Message-ID: <2d78ba6b-2054-4a78-aa00-03d377d20f95@oss.nxp.com>
+Date: Thu, 19 Mar 2026 18:04:35 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add i.MX95 19x19 FRDM PRO
+ board dts
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>, Joseph Guo
+ <qijian.guo@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ xinyu.chen@nxp.com, justin.jiang@nxp.com
+References: <20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com>
+ <20260318-imx95_frdm_pro-v1-2-8c00e59f0b1b@nxp.com>
+ <a6ae1423-9ddf-4d15-b83c-569333abaf5e@oss.nxp.com>
+ <9a7979de-1977-46df-b2fe-66b81dc935e9@oss.nxp.com>
+Content-Language: en-US
+From: "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com>
+In-Reply-To: <9a7979de-1977-46df-b2fe-66b81dc935e9@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+X-ClientProxiedBy: SI2PR02CA0001.apcprd02.prod.outlook.com
+ (2603:1096:4:194::10) To MRWPR04MB12117.eurprd04.prod.outlook.com
+ (2603:10a6:501:97::14)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MRWPR04MB12117:EE_|AM8PR04MB7873:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7d8f9e9-31dc-4942-c9f9-08de859ef492
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|7416014|18002099003|56012099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: yArce39VcMC1ie1MUolEXpIP+aR6G9b+2wKjCvHejURLVywmix+pWVUQLoEfocv67EqpmI8e7Yox+epYIw/+Z0fLss9yJa08QGBL8/oCyaAmHtSO8PiMqm4jslEuat5oDh1SnPx02SWgv+HaHbHrT/bREyQbK72YA16r3lxyBXuqI1/f5RioFpqz14A/DZKQJT2Vh8aKlVqhwEH/DMp/w/X+T5XufQbsf6ZkerX5ZYSFYYWu5A6/Sk4wIkcmsFnCSr6WePseuefzdMs76BrmgewrHldgGkDi68d2gR+1zjeOZbG3Z55Ymj8hWQtiGmDP0hVV1LUzwLLzCxTqYqMAN3UcWWi6ZbFChyqotDzIsyoNp4Dh275Yb0p5/S5KKmYfv/Ioatg08h9TtLWaBRJu4Zk+yiZM0bYtTkV3AbV5cEtYGnYXZ2SMx1XHKk1r7WSLTcLlw/9aeDjLKT4oZ2TF00a04ne8ypHnWk8wTRt4ZFUYMf3Gyhzqbd9U16U45fxeDiLhZNbqTr6aIbroe2YavXTzlAd9Al9ZbqWFpNQLJKvUXuYSNPqOkYEockvQ6zTYH7Afwi2hE3JVMYEnnAGiR1mIGS1ylU1qhfhi1VJ3DJopfSWj5pMvwziqEvsAFwLOu0y0QCmMPB0/wJ5MJYOSwNv//W9ibAvA3K3P+3h1uSOFp0t5u5Fny5rAGvYO8JpjnoxkidiCTUZPrtdmKSjzK8ahEVkSgrULmQ0rzGiSUszWWOk/HhtUKJr9WJiZGJJa8WizFBOcd8Ratb82dOCVMA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12117.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(7416014)(18002099003)(56012099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUZqV3F0WEpuV0VTcEFLOGcvalJZTFNjOWFKcXJ3TFdrb1FCNmxIZHczWS9s?=
+ =?utf-8?B?cTh4YVliUEh1dFdHMzFxRzVNZDEvOHByUS9lWWZBblNjNG0vNHRURWJnSC9U?=
+ =?utf-8?B?QU01K01KckY5RThwbEY5UVZWR3UwaXRmbTIwa29uVHRKMW8yaGUrUWNwbVp1?=
+ =?utf-8?B?VFpwRDc4SlIzSzcwTkduUzg2NFVnRGs3c0dicXh5VitmclNLNU9lL2pFN0tw?=
+ =?utf-8?B?YldjWFdUZ0daclV2YnRIekxxUUhQTUNmcUZQdG1NTkNmZUFvSzZ0SXZIaXpQ?=
+ =?utf-8?B?TU8ycWMvYUwwT2hxRldHTHM4WUpjb3pOeVBjYUFJNk4wdFRSUWpPTUJZKzdP?=
+ =?utf-8?B?aTB0WHlhRG9ac1FyellMV1FFWnFwT3I1Sy83ejlrVEhCN1lxeUZyQ2cxMVlR?=
+ =?utf-8?B?aVlmbGM3eGdwQXFEM0FHSE0vb2ZJVmM0V0J1MkFhRG11R3pEbmIxWlFEay9v?=
+ =?utf-8?B?aUZFRllVZHk3VFp1aEp6Mjh5R04xUGNxdXFPMmhzMXNsRDIwaU1TL3lrVVRj?=
+ =?utf-8?B?UUhQSXArTDNuT2ZYZ09FbXUzYk8vV2tsSjRiYnBqVHZFTTFiSFMydUwzbGNH?=
+ =?utf-8?B?c2pjMTJONlFGaHNDNC9HaGNEV2RyS3hJMlArVW9WRDREb3l1amp6clpIbWpN?=
+ =?utf-8?B?VzllYmdlU2lLeFNPMjdnMXAwTkZrQlkzN1NkeENSQkFWSndHWmNTbkhpN09G?=
+ =?utf-8?B?OHJRWTBmQlZEY3prV0F2VUd0MGMweWgyUWpsRUN2SDE0Y2FnZmRtVlNkdnBR?=
+ =?utf-8?B?ZHdoT2pvR0NmMG81ekRlZU4xUkptcThXbkx5aUh5aDlJSEk5WjFBRFg4Y2NL?=
+ =?utf-8?B?NzlCUmh0NlRWUU1VQW9LbC9XbDhSU1NPalpHYnlQNXgyeForWGM0cUppK0FY?=
+ =?utf-8?B?VHVIZkxMS2hhQnpNaW5ybG1qRVdvL29QNU9xTURySE40RExHaDJ0b1J3bmNm?=
+ =?utf-8?B?Tm15QzhvSmlvV3RLZTBjaTNEUDg0WS9MN0ZvcCtocldRZ29QY0JkZjFROEJt?=
+ =?utf-8?B?WWk5ZHlRbDUwaENCMmduTW55Y1VIVFBVQ2NyR3Z2R2V1bHlsZlhmK1M0SnNB?=
+ =?utf-8?B?ZmZFR0c4NGNaZSttWUMyd2ExcnlTUXk5WkdESXBxOW5Va0VRdHFDb2ZWMlBG?=
+ =?utf-8?B?cnFmaHo5YWxmeDV0ZnIvcnhvUUxBVjZVNzkxaU9NNW9ZdFBhR3pzSnJranlS?=
+ =?utf-8?B?Nmx2VmlyaDBGMTVHUnFsZlM0dno1WnlqeUpDcWF3QjBBQkpUK0ZFUkd5TTBS?=
+ =?utf-8?B?TlVwdmw5ZDZxd1JYcGE1bmJ2NHFma2lOK1FBcnlSaldMemZvaEF3Tm9DU3lx?=
+ =?utf-8?B?UmJsOFhqQ2VMMWJYa3R0cUszV2hPZGpQc0QwWHBETk8xaHR3UVFzYUpVMStH?=
+ =?utf-8?B?STdzbUZlRUxTamhUcmZOVm15cVlEZXFoelE1a1E0dXRUenQ2cVpIc0taUHNl?=
+ =?utf-8?B?SGNPZkFRRmRWZ1MrUkR0Y2JFNmM2b3RjUEpCcmF1dS9DcDdCUTRLT2RCWnlq?=
+ =?utf-8?B?YUVWK0J2eGJyZUlIM0lVUHQ2amdPSlZpWkhBR0lXaDV2bkROK28xekJmK3lw?=
+ =?utf-8?B?Qmo2ZzNjbTVOTis5V0hMOXlaTTI2T05EazJBUGhmRzhOaDBLOU9HR2lydDJ0?=
+ =?utf-8?B?SjlOSi9UU2ZDejd3QW9Ba1l4ZFRxWUVkVWt0c3UxeVR6Ty9iL1crR1BhV1hv?=
+ =?utf-8?B?Z2pTV2VNU28zbVhNNFh5UG9mTmlBR2g4R09hZWRzeitFcnJPVjZFSkl1ZGFj?=
+ =?utf-8?B?aTZGTVkwWDNlWU9XN0poNUdWRXJ6TWpObWV4TUgxS00xYVJZeXRpRmlzc0py?=
+ =?utf-8?B?UG16SlBTRmJvUUNnWC9HanBLaDJZOFA4MGxLY3A4MGJleGZmZDA0d2s1d3Qy?=
+ =?utf-8?B?U21JbjNlRysvZ2NsbVRSdXZLdmFQOG5lZ0dKY2tkN0hGZUM5SnFBeTJCbExo?=
+ =?utf-8?B?aXFnTGlseTNESjlsb2RTOEpQblpCckwyaTFEbThBREhNWGhMY2xTVTM4cUVL?=
+ =?utf-8?B?UXF4UlFRR2FzcEYyRU42eGRWV3JqeTNVZlFRMmJCams4OHU1cnh1dU85Z25Y?=
+ =?utf-8?B?MTVXR0hIQ2czTkJIZmtxaEhGaFNvV1Q2M2pZK1NXWWNEdDRDbFlOdjRBS3Zt?=
+ =?utf-8?B?YUxIWEZERWtaSVpZdlZjOVVhS2U3VllqZEtSYlFING5nZFNzNHhPWDg2WHdl?=
+ =?utf-8?B?dndWZlg3OW1wWG9FN0hDc1dNTU1FeTBkQWpQM1NvQkpuUFBlNmtCK3lHaFRm?=
+ =?utf-8?B?SWQrY1NDRnB3OFlVN2tLQ0hnOEs0T0N2RVdOb2RqVmNzcHA3VzhSZUsxdjJn?=
+ =?utf-8?B?ME9XRXh4ZWI1bXVuVmVYSGY3aVVOdndJT2pFZ2wxNW1xZDYvOVIydz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7d8f9e9-31dc-4942-c9f9-08de859ef492
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12117.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 10:04:49.0488
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3ev8SN6RnHjWD7xWPcqn7sSStedA45G1FIRs2taMDHuBtpry2wJ2esFGjd5lpGs8LSY/OPCsqs9MZHC/WIh/IA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7873
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_030314_603080_1A3F9363 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20260319_030459_975951_0D8C8AEB 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +159,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 11:40:13 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-
-> Drop a check that blocked userspace writes to ID_AA64PFR0_EL1 for
-> writes that set the GIC field to 0 (NI) on GICv5 hosts. There is no
-> such check for GICv3 native systems, and having inconsistent behaviour
-> both complicates the logic and risks breaking existing userspace
-> software that expects to be able to write the register.
+On 3/19/2026 5:10 PM, Daniel Baluta wrote:
+> On 3/19/26 11:02, Daniel Baluta wrote:
+>> On 3/18/26 10:04, Joseph Guo wrote:
+>>> [You don't often get email from qijian.guo@nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>
+>>> NXP i.MX95 19x19 FRDM PRO is cost-effective with extensive
+>>> expansion capabilities based on the i.MX95 19x19 SoC.
+>>>
+>>> Add device tree for this board. Including:
+>>> - LPUART1 and LPUART5
+>>> - NETC
+>>> - USB
+>>> - 2 M-Key M.2 PCIe
+>>> - uSDHC1, uSDHC2 and uSDHC3
+>>> - FlexCAN1 and FlexCAN3
+>>> - LPI2C3, LPI2C4 and their child nodes
+>>> - Watchdog3
+>>> - SAI, MQS, MICFIL
+>>>
+>>> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+>>>
+>> [..]
+>>
+>>> +
+>>> +       sound-bt-sco {
+>>> +               compatible = "simple-audio-card";
+>>> +               simple-audio-card,name = "bt-sco-audio";
+>>> +               simple-audio-card,format = "dsp_a";
+>>> +               simple-audio-card,bitclock-inversion;
+>>> +               simple-audio-card,frame-master = <&btcpu>;
+>>> +               simple-audio-card,bitclock-master = <&btcpu>;
+>>> +
+>>> +               btcpu: simple-audio-card,cpu {
+>>> +                       sound-dai = <&sai5>;
+>>> +                       dai-tdm-slot-num = <2>;
+>>> +                       dai-tdm-slot-width = <16>;
+>>> +               };
+>>> +
+>>> +               simple-audio-card,codec {
+>>> +                       sound-dai = <&bt_sco_codec 1>;
+>>> +               };
+>>> +       };
+>>> +
+>>> +       sound-micfil {
+>>> +               compatible = "fsl,imx-audio-card";
+>> At least for this node we would want to use audio-graph-card2. So you either leave this
+>>
+>> out in the next version or switch to audio-graph-card2 as we did for imx95-15x15-frdm.dts
+>>
+> Sorry, the node I was aiming the comment above for is this one:
 > 
-> This means that userspace is now able to create a GICv3 guest on GICv5
-> hosts, and disable the guest from seeing that it has a GICv3. This
-
-Just to clarify this is removing a check on a nonsensical setup?
-I'm not against it if that simplifies things but I couldn't quite
-parse the description.
-
-> matches the already existing behaviour for GICv3-native VMs.
+> +       sound-mqs {
+> +               compatible = "fsl,imx-audio-mqs";
+> +               model = "mqs-audio";
+> +               audio-cpu = <&sai1>;
+> +               audio-codec = <&mqs1>;
+> +       };
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/sys_regs.c | 8 --------
->  1 file changed, 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 1b4cacb6e918a..4b9f4e5d946b1 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2177,14 +2177,6 @@ static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
->  	    (vcpu_has_nv(vcpu) && !FIELD_GET(ID_AA64PFR0_EL1_EL2, user_val)))
->  		return -EINVAL;
->  
-> -	/*
-> -	 * If we are running on a GICv5 host and support FEAT_GCIE_LEGACY, then
-> -	 * we support GICv3. Fail attempts to do anything but set that to IMP.
-> -	 */
-> -	if (vgic_is_v3_compat(vcpu->kvm) &&
-> -	    FIELD_GET(ID_AA64PFR0_EL1_GIC_MASK, user_val) != ID_AA64PFR0_EL1_GIC_IMP)
-> -		return -EINVAL;
-> -
->  	return set_id_reg(vcpu, rd, user_val);
->  }
->  
+
+Hi Daniel,
+
+Thanks for your comment.I will change the compatible of mqs to 'audio-graph-card2' in v2.
+
+Regards,
+Joseph
 
 
