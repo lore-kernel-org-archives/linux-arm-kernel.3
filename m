@@ -4,141 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45421088E63
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C47F1088E67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gq8MPB1isOeFiGybYUHtJAjlPVEK1tAEpIt1cScU16A=; b=CjM8siTn8E68qus2HvUSVeaIHa
-	mBfOalitoqKePZE9XDJZeaWxPiyy+pX77qgTdcfIh2X4Y3mF/PENSQIkhyPlBONcBAQgUjTwRSJJg
-	nczCc1VXfaveuvULCnqLuOAX582T/jAS8mxfDJEMwdb1Wi3B5nAFJqt5sAS7E8d/j6ciVeyUDV4B2
-	jAEaDDcjcuxrGCnwLbKRrr+7ukLPbMbv6s63M+y1a9xoUHp3sbCDkheS6hDsiuV4HjDqcKXrgAvIy
-	tXXa91M3YQOz0qxdnKjcOAgWYzatAS7H/Rm4zY02tk0s2rfc5K+7h1XS6LpZqFubLB7fKb13BrI9J
-	lFt8pkFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OSY4j6v6Vry0f0VpWhFzrjV5u9/NqNAQFRbrmOpCuHY=; b=Dlw6fQ2kh1C/jtPNboEL+Eo6jO
+	ZLJM+sDYMUul2T6BQRBCfD93yCiXWYOj0U1ya599QCUvOxH1TK/kZAjMzkTT+nq4alPdfhweXk3io
+	vqKVBppVnIhv4yvz0Z1/gNvtszV05ntPafTfYu39ruTIJ//yqrS6vH5cNnRc7nERF6uaUL6B8wtJP
+	kyU202eBHF1KhEABeeARU+kof6fGLAiTaGBL3KdCak2z/fMc7uwZ8lOnrxnrPYs679ETBihXJqzhe
+	5V8emlQgQcaj/mJV+9WSu+NIxRnfw9gfqYawT8VZHvwDvpOTXyN/VfcSJ79p4rX6D9KGNorRkowmY
+	AHaylWmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w33R6-00000009mLu-0i3c;
-	Thu, 19 Mar 2026 02:48:36 +0000
-Received: from mail-northeuropeazon11011071.outbound.protection.outlook.com ([52.101.65.71] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w33Z1-00000009miG-0gAR;
+	Thu, 19 Mar 2026 02:56:47 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w33R3-00000009mLH-11HF
+	id 1w33Yw-00000009mhK-0P9o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 02:48:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yQk1VJ+Tm13JgsAx4/YFGq3oiSyz0n09YSuEzRDcrxS5D7dCBfIQSfteLLPUM392EfXc47ze3sUjcfwkuluOuyk+1r6V6OKu8+7N3d+GRpGKs/v3gGmKAyGYadaf5cchCtSbPjkhE6QccWujTJ3UYEp8W9zeSA3AB39erH4f302yOhmJnuRZZ+gylS3QPJNrLkp0/23fTiHpF9bBgccJ9fgidfc/8E25bbuKW+HHj5aLeXQmFr01q8nCBFMqYTx8tjxpjiCKOtr3ZqtP3AE9YY3XvLDdnsvO+uaXKMTil9rWMlAeNiR1w2hddyomIOHB+vrxxq1JcLHLsYbuageRvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gq8MPB1isOeFiGybYUHtJAjlPVEK1tAEpIt1cScU16A=;
- b=XW6kwX/z+1XzU/Gqli33JqJqBxY7jkoSv4fxrvihzTkQ67VzisMl5d8Gq1R/YjS58UmAlVUmPEHNSe7v0UXkfprWDuAmo7Ppj5kvqY4qn0nUCd51e7V4bWyHTuQ992UArmNcwTgXRjjxlyZ/k13hzBE1JnurS7Mgs8cO4+Jt5Aj71lm8Q/He0p09HlTvCDS2B3ViDvAHcpg29voVYSPvJeM32j1sRQGmE7VsixZIuaxp9LdNotpvKWmSD1XXynpOqg8YRoW0aSIDPu54NHVXxzJIAYbfDher/oA0nWgtATbDWKfY+MczAOCiwte3VmDUUj5YaO9FSHPQgow62ZRQ7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gq8MPB1isOeFiGybYUHtJAjlPVEK1tAEpIt1cScU16A=;
- b=OvW9073oO58Q3g/2cZQ/sLf5OmfSFGPVC3sNx93Hf5dI7UmiuzOjeZyeZPUBA7bO/q+QlQIAFAdgGFRCmdOgSZJCwDqf4oyiM7StNplaSnN9Fa2FfiQOdScNBDG2PORvTPZIdVg48rSUPJWBVXiR7yqE5bcmH6gwbZRJ1uvAC53CCLvn/5F8LG4wfhpBLXYR2dshEZppLrSRuBv1I8NgUKnn6TDwOwtxerpVYYu1lROa775XmsKBGHZ4LeJzXO3Uo1qtmzKf1blppOq7FYMtkEtSV85rrKDGlUc5qfXCRIUUVVBA7iNpot6sZG/y87uzx+r0rrrJSojdYj/xnUYfHw==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by PA2PR04MB10373.eurprd04.prod.outlook.com (2603:10a6:102:416::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 02:48:26 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::b476:c19a:24cd:3694]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::b476:c19a:24cd:3694%3]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 02:48:23 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Simon Horman <horms@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"edumazet@google.com" <edumazet@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Frank Li <frank.li@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, Claudiu Manoil <claudiu.manoil@nxp.com>,
-	"robh@kernel.org" <robh@kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, Clark Wang <xiaoning.wang@nxp.com>,
-	"davem@davemloft.net" <davem@davemloft.net>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "chleroy@kernel.org" <chleroy@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [net-next,10/14] net: dsa: netc: introduce NXP NETC switch driver
- for i.MX94
-Thread-Topic: [net-next,10/14] net: dsa: netc: introduce NXP NETC switch
- driver for i.MX94
-Thread-Index: AQHctuUb/Fe9SCkKDEK7tta4eDFZArW1Jgiw
-Date: Thu, 19 Mar 2026 02:48:23 +0000
-Message-ID: <PAXPR04MB85104613AA8EDC3169D28DD0884FA@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20260316094152.1558671-11-wei.fang@nxp.com>
- <20260318143930.1890017-1-horms@kernel.org>
-In-Reply-To: <20260318143930.1890017-1-horms@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PA2PR04MB10373:EE_
-x-ms-office365-filtering-correlation-id: 64f8fab5-a9b3-4a02-b7e7-08de8561fd15
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|56012099003|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: 9vm6ezmKZUjLp1qGKjQgApfvQSOPq/e6lVxoQPqyL86jJXDKZELcXlxw93AGxWEOD9WqJ638D1+b7vsL8WQ4oYPTCZqIJWsYYtrDGmBy7ZG8e9ZDJNGsIjewd5yN66qxbYE/Ikgs0Di5bJpKbqpG9HzSrLHBOrv4fJ117JnsH6g1QFL57hd/f1WUZdGQqOwsjCX1oY3uoxqMTG395YLqJPJastewM/Wqaqp0CFHAax0w7y/U7MDokQTSudXU0ajQgbuz3GBPpPWA4T9r49LUimHytcnHM5CmrJ6F9OqVaBn/p53u0/DntXLZzjIyKP6x5rPTqj1rFts4fpJBO9aGdm3WP6QaNBWR6OKTmkAt6aPZWLXSnGMI4S/e0d2kpB9pRcnK4UP/O8l7RLbxKFpRP6aG5ucD8d8XF5rEMAkhk3zSNYJpdLf65JuXn4xoI5ti9JJUY27h0KI3eOyZiFnmMCprulF+50gXpjJLYUNJh+R29h0NIwZNY0ZlD12aBnekMTM5ElNSxXvGmYt48GXu6RPbPLGlBkThd9SihK8n5usENYsheXhFc33nc12igELsQIvZM5f4UTPp86kzaI4N4X/yq4MAtPx0uTLdEsnVbV3wvWHmYxLegflmvyflhOch6Cf4D8GW/c2TzecL5jWWylLywDBVxr4E/c8wbQrzMyo0JZ09yjyCrjOMdw8xOtn0SStEI11W6AhEaamwoSn6+MzeIb9zDWLIVnDeSZMilez42wsoD4iEcLV8ywkIV4ra
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(56012099003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Hq49FxfvHeywjoMIHKywFLYgjJa74whlvwK0lK34a9x8HmMhFrgC8LVhhDff?=
- =?us-ascii?Q?wgmj2fEgG62EhUzxTmZd3shuu6OAbd3A1o7IKTQgIJCki5QNECaNWlEQUnCi?=
- =?us-ascii?Q?bUP2sMzSPk6UZ0efllWOFiOJpvzxeK0ShxM3nHDvjtB6GemlpUSKAWaEa1kl?=
- =?us-ascii?Q?BMC8j2vmU6rd4W2bplTTEDr7fZHQrSfukEQR+YCGXwYDzG+UupvQFi0Y3s6e?=
- =?us-ascii?Q?yMViD4fDO2avfQjbCXOVenThqCsAPQvBVd25OIaLJi+fFz+edFkorYwj8fa4?=
- =?us-ascii?Q?eX5Ipi7q3kLvMmBos/M7RqwYcvf9gJeQAKuG1NhzEgm9FMJNdo2dZLM9XdQi?=
- =?us-ascii?Q?+EjcexTHFDiGsNRvgD08VYu6OPQPgGZ0nDxeD3TYQ2SzAg8duiSPESZBP03b?=
- =?us-ascii?Q?FLSjybD7GA00HH/w1TNzrO9sEaHnCsVHGGh4WoQ94vZxhk0NtXyO5ILAH2O5?=
- =?us-ascii?Q?idbB6d7xWEbvh9f9aJ854UYMrj+UrSYi0nwnk4VtEO6htTLqwTsA1EQL58/d?=
- =?us-ascii?Q?kTUy2OVhl62h2z0hkKnCXSVHMvWxiOWOOt8VyNldGKKpq1LmPWxocObJYaWJ?=
- =?us-ascii?Q?+ahOGSXxtwa+tS6feP6hct9wwVADG8oBmQy7ZIW07NrydLLfS1ch01YLOt4B?=
- =?us-ascii?Q?/M+G39O5wTondTJW34T2xrICCvvwtpbqdSdfVmmkEe567rk/Jtp4cpRTHlFx?=
- =?us-ascii?Q?Ph8qlC722EmOesjFiG5vI8VP+TSXxxrb4qJSQiDyQpFMWbGQAs7GmfxxW0Yz?=
- =?us-ascii?Q?g/1vh8eka8ho4U/ku0L3rPi5CyffDhh7QP/v4kS7RjRFtyDp9yeufyMGH0tN?=
- =?us-ascii?Q?U3NR8aZ+tAXyrEIktfAZJ9DujIb+w1eb0TQnBkhCqGkcIeMJwA9vE2LOKLL4?=
- =?us-ascii?Q?bTOoezAlwb3ULmQhq/9aF0bBgx5CXi4EYyQPPR69naeuSs88ap2+hersAjfx?=
- =?us-ascii?Q?mgbshz22r2AU4WAXs9a79E/3w38cclnSC1OEXfBucXDhxH8fSuAUkcAlJN+K?=
- =?us-ascii?Q?t/HI/pR+oq5qtFOxqIBY9fB+c64dqEVV84PQZYw48QFM+oM9GUMhSUQ16sTA?=
- =?us-ascii?Q?5q6zbGyhK+BTsAysrNOwAu1oK94lrUkEb/gXuTromLS17EozECUyxrPfYPma?=
- =?us-ascii?Q?mg+S+kr12TJA+WK5bR7k1AR6kz5rcbShUg9OuHfix4H+ix/wgJ5R9YvURHMh?=
- =?us-ascii?Q?rqKYzqwW4b3YDRiy6TuBzItESW/pELCpkhH11oc0qW62Gwuam66c6aH61B+J?=
- =?us-ascii?Q?U5EytrTptnKunGJ/rh+kQA4jWbTzOH0aaUNDgMA17Kqi5uI0VFjGJwndpEYk?=
- =?us-ascii?Q?aJCEJnR4updHKY0HSFkfy/qiuLJqYtfajBwLme3qWkJbr+BcOyGanC9cI/QS?=
- =?us-ascii?Q?u82J9AMD4qi0XMZ0GGt1wx9aByrCFIZomZB7h3LvwRLRfc6TG3rJWqA6OX1N?=
- =?us-ascii?Q?s1F5PrkWh8BLUbm7tijEM9aAJ6o6gHd4mPP6v/sYPXU2YSFI8nkkLpf25Zci?=
- =?us-ascii?Q?Zj7QR/KgyudDytUC6h40SGQqy7oyE9QVg7K+k8W/KjTupY9Jar2dR09jlPY/?=
- =?us-ascii?Q?gq8wzTEDWOHJh+Hbstdg1HAmqOEaQIcz8CTsw5/y5OJo7y7Op5olk7JfWCM4?=
- =?us-ascii?Q?fTBL/pxo1+pn8weXA81q/VoUn04CKFNuuWeEb9lZSWMgFhX7v5vw/zLJk5uj?=
- =?us-ascii?Q?DfQEEFiCiaJXi32aGH0+pk7IuZhFEDC7ajJaQHOL2bv376F2?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 19 Mar 2026 02:56:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1773888996; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=OSY4j6v6Vry0f0VpWhFzrjV5u9/NqNAQFRbrmOpCuHY=;
+	b=k5p8a+AIJg2jLKxMnUu5xyftUmg9Ph5JxKKJxM7MjqA/sIp15Djp/w7grPjP7nSuY4mqmGzDibX8wOZT2mJSzKyE0Y2sba3iPuc9egu7M8EmNdnPbLIYbDxsVo4X3EiOzhDGG4p6/pn8VbAP7yf8yZFJmXZxvE60GtW9JCM0Y/o=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R301e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.Gp621_1773888993;
+Received: from 30.246.163.250(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X.Gp621_1773888993 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 19 Mar 2026 10:56:34 +0800
+Message-ID: <eeee122f-54e2-4fe9-82a6-724c3f80a499@linux.alibaba.com>
+Date: Thu, 19 Mar 2026 10:56:43 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64f8fab5-a9b3-4a02-b7e7-08de8561fd15
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2026 02:48:23.7413
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: B8c2MUwjELvF76hftdyHlmUbsf2wKnas/Jui1zJ2bkPjhJTQyLNxkKox5YBlTXkJG2Kg/53RdJ1rYomh2jXo/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10373
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/7] iommu/arm-smmu-v3: Block ATS upon an ATC
+ invalidation timeout
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
+Cc: rafael@kernel.org, lenb@kernel.org, praan@google.com,
+ baolu.lu@linux.intel.com, kevin.tian@intel.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-pci@vger.kernel.org, vsethi@nvidia.com
+References: <cover.1773774441.git.nicolinc@nvidia.com>
+ <7e21e14faddeb0e3af692356f4fefbae2dfbebda.1773774441.git.nicolinc@nvidia.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <7e21e14faddeb0e3af692356f4fefbae2dfbebda.1773774441.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_194833_281768_254DCC6C 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20260318_195642_848369_A88B60C2 
+X-CRM114-Status: GOOD (  32.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,155 +72,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > @@ -0,0 +1,698 @@
-> > +static int netc_port_create_emdio_bus(struct netc_port *np,
-> > +				      struct device_node *node)
-> > +{
-> > +	struct netc_switch *priv =3D np->switch_priv;
-> > +	struct enetc_mdio_priv *mdio_priv;
-> > +	struct device *dev =3D priv->dev;
-> > +	struct enetc_hw *hw;
-> > +	struct mii_bus *bus;
-> > +	int err;
-> > +
-> > +	hw =3D enetc_hw_alloc(dev, np->iobase);
-> > +	if (IS_ERR(hw))
-> > +		return dev_err_probe(dev, PTR_ERR(hw),
-> > +				     "Failed to allocate enetc_hw\n");
-> > +
-> > +	bus =3D devm_mdiobus_alloc_size(dev, sizeof(*mdio_priv));
-> > +	if (!bus)
-> > +		return -ENOMEM;
-> > +
-> > +	bus->name =3D "NXP NETC switch external MDIO Bus";
-> > +	bus->read =3D enetc_mdio_read_c22;
-> > +	bus->write =3D enetc_mdio_write_c22;
-> > +	bus->read_c45 =3D enetc_mdio_read_c45;
-> > +	bus->write_c45 =3D enetc_mdio_write_c45;
-> > +	bus->parent =3D dev;
-> > +	mdio_priv =3D bus->priv;
-> > +	mdio_priv->hw =3D hw;
-> > +	mdio_priv->mdio_base =3D NETC_EMDIO_BASE;
-> > +	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-p%d-emdio",
-> > +		 dev_name(dev), np->dp->index);
-> > +
-> > +	err =3D devm_of_mdiobus_register(dev, bus, node);
-> > +	if (err)
-> > +		return dev_err_probe(dev, err,
-> > +				     "Cannot register EMDIO bus\n");
-> > +
-> > +	np->emdio =3D bus;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int netc_port_create_mdio_bus(struct netc_port *np,
-> > +				     struct device_node *node)
-> > +{
-> > +	struct device_node *mdio_node;
-> > +	int err;
-> > +
-> > +	mdio_node =3D of_get_child_by_name(node, "mdio");
-> > +	if (mdio_node) {
-> > +		err =3D netc_port_create_emdio_bus(np, mdio_node);
-> > +		of_node_put(mdio_node);
-> > +		if (err)
-> > +			return err;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void netc_port_free_mdio_bus(struct netc_port *np)
-> > +{
-> > +	if (np->emdio)
-> > +		mdiobus_unregister(np->emdio);
->                          ^^^^
->=20
-> Does this cause a double unregister? The MDIO bus is registered with
-> devm_of_mdiobus_register() in netc_port_create_emdio_bus(), which
-> installs a devres action that automatically calls mdiobus_unregister()
-> during device removal.
->=20
-> However, netc_port_free_mdio_bus() also explicitly calls
-> mdiobus_unregister(np->emdio).
->=20
-> During device removal:
->=20
->   netc_switch_remove()
->     -> dsa_unregister_switch()
->       -> dsa_switch_teardown()
->         -> netc_teardown()
->           -> netc_free_mdio_bus()
->             -> netc_port_free_mdio_bus()
->               -> mdiobus_unregister()  // first call
->=20
-> Then devres cleanup fires:
->=20
->   devm_mdiobus_unregister()
->     -> mdiobus_unregister()  // second call
->       -> WARN_ON_ONCE(bus->state !=3D MDIOBUS_REGISTERED)
->=20
-> The second call triggers a warning at drivers/net/phy/mdio_bus_provider.c=
-:675
-> because the bus state is already MDIOBUS_UNREGISTERED. With
-> panic_on_warn=3D1, this causes a kernel panic.
 
-Good catch, I changed mdiobus_register() to devm_of_mdiobus_register(), but=
- I
-forgot to remove mdiobus_unregister(). I will fix this issue.
 
->=20
-> The same double-unregister occurs on the error path of
-> netc_init_all_ports(), where netc_free_mdio_bus() is called, but devres
-> will also fire during device teardown.
->=20
-> > +}
->=20
-> [ ... ]
->=20
-> > +static int netc_switch_pci_init(struct pci_dev *pdev)
-> > +{
-> > +	struct device *dev =3D &pdev->dev;
-> > +	struct netc_switch_regs *regs;
-> > +	struct netc_switch *priv;
-> > +	int err;
-> > +
-> > +	pcie_flr(pdev);
-> > +	err =3D pci_enable_device_mem(pdev);
-> > +	if (err)
-> > +		return dev_err_probe(dev, err, "Failed to enable device\n");
-> > +
-> > +	/* The command BD rings and NTMP tables need DMA */
-> > +	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
->                                        ^^^^
->=20
-> Is the return value being checked? The comment states "command BD rings
-> and NTMP tables need DMA", confirming DMA is essential for this driver.
+On 3/18/26 3:15 AM, Nicolin Chen wrote:
+> Currently, when GERROR_CMDQ_ERR occurs, the arm_smmu_cmdq_skip_err() won't
+> do anything for the CMDQ_ERR_CERROR_ATC_INV_IDX.
+> 
+> When a device wasn't responsive to an ATC invalidation request, this often
+> results in constant CMDQ errors:
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb84): ATC invalidate timeout
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb88): ATC invalidate timeout
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb8c): ATC invalidate timeout
+>    ...
+> 
+> An ATC invalidation timeout indicates that the device failed to respond to
+> a protocol-critical coherency request, which means that device's internal
+> ATS state is desynchronized from the SMMU.
+> 
+> Furthermore, ignoring the timeout leaves the system in an unsafe state, as
+> the device cache may retain stale ATC entries for memory pages that the OS
+> has already reclaimed and reassigned. This might lead to data corruption.
+> 
+> Isolate the device that is confirmed to be unresponsive by a surgical STE
+> update to unset its EATS bit so as to reject any further ATS transaction,
+> which could corrupt the memory.
+> 
+> Also, set the master->ats_broken flag that is revertible after the device
+> completes a reset. This flag avoids further ATS requests and invalidations
+> from happening.
+> 
+> Finally, report this broken device to the IOMMU core to isolate the device
+> in the core level too.
+> 
+> For batched ATC_INV commands, SMMU hardware only reports a timeout at the
+> CMD_SYNC, which could follow the batch issued for multiple devices. So, it
+> isn't straightforward to identify which command in a batch resulted in the
+> timeout. Fortunately, the invs array has a sorted list of ATC entries. So,
+> the issued batch must be sorted as well. This makes it possible to bisect
+> the batch to retry the command per Stream ID and identify the master.
 
-No need to check the return value, because dma_set_mask_and_coherent()
-never return fail when DMA_BIT_MASK(64).
+Nit: The implementation is a linear per-SID retry, not a binary
+search / bisection. Suggest rewording to:
 
-See https://elixir.bootlin.com/linux/v7.0-rc4/source/Documentation/core-api=
-/dma-api-howto.rst#L269
+   "retry the ATC_INV command for each unique Stream ID in the batch
+    to identify the unresponsive master"
 
->=20
-> The function can fail with -EIO when dma_supported() returns false for
-> the 64-bit mask (from dma_set_mask() in kernel/dma/mapping.c:902).
->=20
-> The sibling enetc driver from the same NXP NETC subsystem checks this
-> return value in enetc.c:
->=20
->   err =3D dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
->   if (err) {
->       ...
->       goto err_dma;
+
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 92 ++++++++++++++++++++-
+>   1 file changed, 89 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 366d812668011..418ee2f40d96d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -107,6 +107,8 @@ static const char * const event_class_str[] = {
+>   	[3] = "Reserved",
+>   };
+>   
+> +static struct arm_smmu_ste *
+> +arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid);
+>   static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
+>   
+>   static void parse_driver_options(struct arm_smmu_device *smmu)
+> @@ -2495,10 +2497,43 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
+>   	cmd->atc.size	= log2_span;
 >   }
->=20
-> If the 64-bit DMA mask setup fails, the DMA mask remains at the default,
-> and subsequent DMA operations for NTMP table management (added in later
-> commits) may silently fail or produce incorrect results on systems with
-> memory above 4GB.
->=20
+>   
+> +static void arm_smmu_disable_eats_for_sid(struct arm_smmu_device *smmu,
+> +					  struct arm_smmu_cmdq *cmdq, u32 sid)
+> +{
+> +	struct arm_smmu_cmdq_ent ent = {
+> +		.opcode = CMDQ_OP_CFGI_STE,
+> +		.cfgi	= {
+> +			.sid = sid,
+> +			.leaf = true,
+> +		},
+> +	};
+> +	struct arm_smmu_ste *step;
+> +	u64 cmd[CMDQ_ENT_DWORDS];
+> +
+> +	step = arm_smmu_get_step_for_sid(smmu, sid);
+> +	WRITE_ONCE(step->data[1],
+> +		   READ_ONCE(step->data[1]) & cpu_to_le64(~STRTAB_STE_1_EATS));
+
+
+This non-atomic read-modify-write on step->data[1] can race with the
+normal STE installation path (arm_smmu_write_entry → entry_set →
+WRITE_ONCE).
+
+The error path runs from:
+
+   __arm_smmu_domain_inv_range()  (data path, no group->mutex)
+     → arm_smmu_cmdq_batch_retry()
+       → arm_smmu_master_disable_ats()
+         → arm_smmu_disable_eats_for_sid()   ← NO locks on STE
+
+The normal STE path runs from:
+
+   iommu_attach_device()
+     → mutex_lock(&group->mutex)
+       → arm_smmu_attach_dev()
+         → mutex_lock(&arm_smmu_asid_lock)
+           → arm_smmu_install_ste_for_dev()
+             → arm_smmu_write_entry()        ← holds both mutexes
+
+Since the error path holds neither group->mutex nor arm_smmu_asid_lock,
+the following race is possible:
+
+   CPU A (error path):             CPU B (attach path):
+   READ data[1] = X
+                                   WRITE data[1] = Y (new STE config)
+   WRITE data[1] = X & ~EATS
+                                   // Y is lost
+
+This could clobber a concurrent STE update from the attach path.
+
+
+> +
+> +	arm_smmu_cmdq_build_cmd(cmd, &ent);
+> +	arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmd, 1, true);
+> +}
+> +
+> +static void arm_smmu_master_disable_ats(struct arm_smmu_master *master,
+> +					struct arm_smmu_cmdq *cmdq)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < master->num_streams; i++)
+> +		arm_smmu_disable_eats_for_sid(master->smmu, cmdq,
+> +					      master->streams[i].id);
+> +	WRITE_ONCE(master->ats_broken, true);
+> +	iommu_report_device_broken(master->dev);
+> +}
+> +
+>   static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
+>   				   ioasid_t ssid)
+>   {
+> -	int i;
+> +	int i, ret;
+>   	struct arm_smmu_cmdq_ent cmd;
+>   	struct arm_smmu_cmdq_batch cmds;
+>   
+> @@ -2514,7 +2549,10 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
+>   		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
+>   	}
+>   
+> -	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
+> +	ret = arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
+> +	if (ret)
+> +		arm_smmu_master_disable_ats(master, cmds.cmdq);
+> +	return ret;
+>   }
+>   
+>   /* IO_PGTABLE API */
+> @@ -2661,6 +2699,53 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
+>   	return false;
+>   }
+>   
+> +static void arm_smmu_invs_disable_ats(struct arm_smmu_invs *invs,
+> +				      struct arm_smmu_cmdq *cmdq,
+> +				      struct arm_smmu_device *smmu, u32 sid)
+> +{
+> +	struct arm_smmu_inv *cur;
+> +	size_t i;
+> +
+> +	arm_smmu_invs_for_each_entry(invs, i, cur) {
+> +		if (cur->master->smmu == smmu && arm_smmu_inv_is_ats(cur) &&
+> +		    cur->id == sid) {
+> +			arm_smmu_master_disable_ats(cur->master, cmdq);
+> +			break;
+> +		}
+> +	}
+> +}
+> +
+> +static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
+> +				      struct arm_smmu_invs *invs,
+> +				      struct arm_smmu_cmdq_batch *cmds)
+> +{
+> +	u64 atc[CMDQ_ENT_DWORDS] = {0};
+> +	int i;
+> +
+> +	/* Only a timed out ATC_INV command needs a retry */
+> +	if (!invs->has_ats)
+> +		return;
+> +
+> +	for (i = 0; i < cmds->num * CMDQ_ENT_DWORDS; i += CMDQ_ENT_DWORDS) {
+> +		struct arm_smmu_cmdq *cmdq = cmds->cmdq;
+> +		u32 sid;
+> +
+> +		/* Only need to retry ATC invalidations */
+> +		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i]) != CMDQ_OP_ATC_INV)
+> +			continue;
+> +
+> +		/* Only need to retry with one ATC_INV per Stream ID (device) */
+> +		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i]);
+> +		if (atc[0] && sid == FIELD_GET(CMDQ_ATC_0_SID, atc[0]))
+> +			continue;
+> +
+> +		atc[0] = cmds->cmds[i];
+> +		atc[1] = cmds->cmds[i + 1];
+> +		if (arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, atc, 1, true))
+> +			arm_smmu_invs_disable_ats(invs, cmdq, smmu, sid);
+> +	}
+> +}
+> +
+>   static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
+>   					unsigned long iova, size_t size,
+>   					unsigned int granule, bool leaf)
+> @@ -2739,7 +2824,8 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
+>   
+>   		if (cmds.num &&
+>   		    (next == end || arm_smmu_invs_end_batch(cur, next))) {
+> -			arm_smmu_cmdq_batch_submit(smmu, &cmds);
+> +			if (arm_smmu_cmdq_batch_submit(smmu, &cmds))
+> +				arm_smmu_cmdq_batch_retry(smmu, invs, &cmds);
+>   			cmds.num = 0;
+>   		}
+>   		cur = next;
 
 
