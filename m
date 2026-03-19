@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB2A1075260
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B641075261
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 06:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhsqu63lRwQLsvUDOM5mmkD059b721V1C5RLaqA4si8=; b=jQr9Od/uNHdtfCu2tquCGLgl4D
-	/NniqaUw6QBYgOVjN1wfd5vg0bXybBmf2dNrXxqQb5AVgKjv6sKRL7lHjztsuWBouVqb+mD9Vjrvp
-	JjMOQchYnAEssUF8I+yrgq3vUz5CUBbXdwUzRo625w4gvntPdGf1yS1rep41lxjlv4AzNlnn3NtXb
-	FNPyyqPo4DKQO5xp/JVyaKVHdlMBeKFDH+UnadxF5REqAoX61UaG/WipeVdxLRsoDbymX7AKKgu6H
-	UFimTkw8d6Z0m6qkFuVf/hJ9YxQJE5T2/tLASJYaK7l4jNz6Ihc3DNjs3vXzDTkSyIio+GUSbugea
-	eWTAxIyA==;
+	bh=33KTucnLU+VJdkf+Koy62bkJyMfrD+/Fe3LqzQr7h5I=; b=wbqughMP00JMDT9bfywexhj0XO
+	AMNKKo5RgoMj/ZUshEV+zLdBAOMg1HNrVnCec+mApLB11Z5vEAPOmKrMRgPG7TZW8ByZkkcU4tRqN
+	VQP2DosZqNVHg91SpL9wr5YqDe46o2uN8cqMcAdtEuF/WXlIImbb4vTsjCdx9QTjkhX2bwd8lDlHw
+	GFsOYYC5mIhCEpfc9+MPSE4s+sLtlGCW/fKvGhLPJPYH12E9TBFILU93vFEwWMGj86NcB2AuA/qm6
+	mKWEDVkopc4U+xrSN0uP88dkoFxmfxRv070UxDm14xddHafKK2gmVKMoEDRcRfV+ndwqZFr/D/wIq
+	oT2kSJag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36kO-0000000A1JF-3cVz;
-	Thu, 19 Mar 2026 06:20:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w36kb-0000000A1XQ-3ztg;
+	Thu, 19 Mar 2026 06:20:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j6-00000009zqH-2NwX;
+	id 1w36j5-00000009zp0-1fA5;
 	Thu, 19 Mar 2026 06:19:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0120A61862;
-	Thu, 19 Mar 2026 06:19:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B06FC2BCB2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 064BF44720;
 	Thu, 19 Mar 2026 06:19:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78620C2BCB3;
+	Thu, 19 Mar 2026 06:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901163;
-	bh=3U+NGORzr+uh9rj8G+n62LLimEQQsU/GR7nNllucuSc=;
+	s=k20201202; t=1773901162;
+	bh=mTRLUTdGzhcdizBLZYtXG0wi5TCm65S4qlvgr+wYUYI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m2Y3GEVLGtbsHY8WNRU+QFtRIEvKC6sgYmhQjrPtaNQJHos9ekuXQTY0AiXpp5Ygs
-	 36CIJ5QSZzuwHHRdIXj6WbXCskrNNkJtG1oBpEzt4z9NgHtoD5om3QeKkjnKsG3DJG
-	 olZFYsn7vYCLr4TlueikipE26Ea42XWUA11/b/XDxSNOGqi6H1NzHuQUWQOpKGm0iN
-	 4+kAS02ryjXuwJez66eLP6nwrbpJuxJMs8VzC8IO0YNdj3sCyGZ4iS4Uv2hUxZZ2OW
-	 MW5pYJD4e1KYvCs/nNWHL7g0aMpyDayR3GGYAzrBIms8gHhr697QWnkIQAZZH0/OBX
-	 yhtS5h/NzKhMw==
+	b=qUjaGrt7RFDnbK+cIlqFbgJnk6RjjiIP4nOUXjksgVsooOttsP6ts10f9DTl8O1LL
+	 fltmBuZVfF4AgTiJWgwJpoljMMtZvb1kGG1F8wwoAvdwrtEKtC+mdAi2Ie7ox16kJ0
+	 aPxVeBkcYFwJLXZB2NkYHm93FvphnZNvhSEZ1qO6kngwuTmb64LuUjgHg3brwwDaVz
+	 rvUSK30xdWlSDu5/JM8w8gPwvKmXljbiOQiOhp7P9c5k91Qe88X67tUuicrNsDvd7e
+	 X9JHCcVGW72qMY4IPT8WssLvoWtjXoBYf8FZoAx4HmznfMi6YdscUdMDOR1zRH+lfJ
+	 cMpc+5cqAOd/A==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,14 +53,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 19/19] lib/crypto: aesgcm: Use GHASH library API
-Date: Wed, 18 Mar 2026 23:17:20 -0700
-Message-ID: <20260319061723.1140720-20-ebiggers@kernel.org>
+Subject: [PATCH 17/19] lib/crypto: gf128mul: Remove unused 4k_lle functions
+Date: Wed, 18 Mar 2026 23:17:18 -0700
+Message-ID: <20260319061723.1140720-18-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_231923_855546_B7E2AB44 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,196 +78,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the AES-GCM library use the GHASH library instead of directly
-calling gf128mul_lle().  This allows the architecture-optimized GHASH
-implementations to be used, or the improved generic implementation if no
-architecture-optimized implementation is usable.
-
-Note: this means that <crypto/gcm.h> no longer needs to include
-<crypto/gf128mul.h>.  Remove that inclusion, and include
-<crypto/gf128mul.h> explicitly from arch/x86/crypto/aesni-intel_glue.c
-which previously was relying on the transitive inclusion.
+Remove the 4k_lle multiplication functions and the associated
+gf128mul_table_le data table.  Their only user was the generic
+implementation of GHASH, which has now been changed to use a different
+implementation based on standard integer multiplication.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/x86/crypto/aesni-intel_glue.c |  1 +
- include/crypto/gcm.h               |  4 +--
- lib/crypto/Kconfig                 |  2 +-
- lib/crypto/aesgcm.c                | 55 +++++++++++++++---------------
- 4 files changed, 32 insertions(+), 30 deletions(-)
+ include/crypto/gf128mul.h | 17 ++-------
+ lib/crypto/gf128mul.c     | 73 +--------------------------------------
+ 2 files changed, 4 insertions(+), 86 deletions(-)
 
-diff --git a/arch/x86/crypto/aesni-intel_glue.c b/arch/x86/crypto/aesni-intel_glue.c
-index e6c38d1d8a92..f522fff9231e 100644
---- a/arch/x86/crypto/aesni-intel_glue.c
-+++ b/arch/x86/crypto/aesni-intel_glue.c
-@@ -23,10 +23,11 @@
- #include <linux/err.h>
- #include <crypto/algapi.h>
- #include <crypto/aes.h>
- #include <crypto/b128ops.h>
- #include <crypto/gcm.h>
-+#include <crypto/gf128mul.h>
- #include <crypto/xts.h>
- #include <asm/cpu_device_id.h>
- #include <asm/simd.h>
- #include <crypto/scatterwalk.h>
- #include <crypto/internal/aead.h>
-diff --git a/include/crypto/gcm.h b/include/crypto/gcm.h
-index b524e47bd4d0..1d5f39ff1dc4 100644
---- a/include/crypto/gcm.h
-+++ b/include/crypto/gcm.h
-@@ -2,11 +2,11 @@
- #define _CRYPTO_GCM_H
+diff --git a/include/crypto/gf128mul.h b/include/crypto/gf128mul.h
+index b0853f7cada0..6ed2a8351902 100644
+--- a/include/crypto/gf128mul.h
++++ b/include/crypto/gf128mul.h
+@@ -213,29 +213,18 @@ static inline void gf128mul_x_ble(le128 *r, const le128 *x)
  
- #include <linux/errno.h>
- 
- #include <crypto/aes.h>
--#include <crypto/gf128mul.h>
-+#include <crypto/gf128hash.h>
- 
- #define GCM_AES_IV_SIZE 12
- #define GCM_RFC4106_IV_SIZE 8
- #define GCM_RFC4543_IV_SIZE 8
- 
-@@ -63,11 +63,11 @@ static inline int crypto_ipsec_check_assoclen(unsigned int assoclen)
- 
- 	return 0;
+ 	r->a = cpu_to_le64((a << 1) | (b >> 63));
+ 	r->b = cpu_to_le64((b << 1) ^ _tt);
  }
  
- struct aesgcm_ctx {
--	be128			ghash_key;
-+	struct ghash_key	ghash_key;
- 	struct aes_enckey	aes_key;
- 	unsigned int		authsize;
- };
- 
- int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index a39e7707e9ee..32fafe245f47 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -39,11 +39,11 @@ config CRYPTO_LIB_AES_CBC_MACS
- 	  <crypto/aes-cbc-macs.h>.
- 
- config CRYPTO_LIB_AESGCM
- 	tristate
- 	select CRYPTO_LIB_AES
--	select CRYPTO_LIB_GF128MUL
-+	select CRYPTO_LIB_GF128HASH
- 	select CRYPTO_LIB_UTILS
- 
- config CRYPTO_LIB_ARC4
- 	tristate
- 
-diff --git a/lib/crypto/aesgcm.c b/lib/crypto/aesgcm.c
-index 02f5b5f32c76..8c7e74d2d147 100644
---- a/lib/crypto/aesgcm.c
-+++ b/lib/crypto/aesgcm.c
-@@ -3,13 +3,12 @@
-  * Minimal library implementation of GCM
-  *
-  * Copyright 2022 Google LLC
-  */
- 
--#include <crypto/algapi.h>
- #include <crypto/gcm.h>
--#include <crypto/ghash.h>
-+#include <crypto/utils.h>
- #include <linux/export.h>
- #include <linux/module.h>
- #include <asm/irqflags.h>
- 
- static void aesgcm_encrypt_block(const struct aes_enckey *key, void *dst,
-@@ -43,37 +42,26 @@ static void aesgcm_encrypt_block(const struct aes_enckey *key, void *dst,
-  * that are not permitted by the GCM specification.
-  */
- int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
- 		     unsigned int keysize, unsigned int authsize)
- {
--	u8 kin[AES_BLOCK_SIZE] = {};
-+	u8 h[AES_BLOCK_SIZE] = {};
- 	int ret;
- 
- 	ret = crypto_gcm_check_authsize(authsize) ?:
- 	      aes_prepareenckey(&ctx->aes_key, key, keysize);
- 	if (ret)
- 		return ret;
- 
- 	ctx->authsize = authsize;
--	aesgcm_encrypt_block(&ctx->aes_key, &ctx->ghash_key, kin);
+-/* 4k table optimization */
 -
-+	aesgcm_encrypt_block(&ctx->aes_key, h, h);
-+	ghash_preparekey(&ctx->ghash_key, h);
-+	memzero_explicit(h, sizeof(h));
- 	return 0;
- }
- EXPORT_SYMBOL(aesgcm_expandkey);
- 
--static void aesgcm_ghash(be128 *ghash, const be128 *key, const void *src,
--			 int len)
+-struct gf128mul_4k {
+-	be128 t[256];
+-};
+-
+-struct gf128mul_4k *gf128mul_init_4k_lle(const be128 *g);
+-void gf128mul_4k_lle(be128 *a, const struct gf128mul_4k *t);
+ void gf128mul_x8_ble(le128 *r, const le128 *x);
+-static inline void gf128mul_free_4k(struct gf128mul_4k *t)
 -{
--	while (len > 0) {
--		crypto_xor((u8 *)ghash, src, min(len, GHASH_BLOCK_SIZE));
--		gf128mul_lle(ghash, key);
--
--		src += GHASH_BLOCK_SIZE;
--		len -= GHASH_BLOCK_SIZE;
--	}
+-	kfree_sensitive(t);
 -}
 -
- /**
-  * aesgcm_mac - Generates the authentication tag using AES-GCM algorithm.
-  * @ctx: The data structure that will hold the AES-GCM key schedule
-  * @src: The input source data.
-  * @src_len: Length of the source data.
-@@ -86,24 +74,37 @@ static void aesgcm_ghash(be128 *ghash, const be128 *key, const void *src,
-  * and an output buffer for the authentication tag.
-  */
- static void aesgcm_mac(const struct aesgcm_ctx *ctx, const u8 *src, int src_len,
- 		       const u8 *assoc, int assoc_len, __be32 *ctr, u8 *authtag)
+ 
+ /* 64k table optimization, implemented for bbe */
+ 
+ struct gf128mul_64k {
+-	struct gf128mul_4k *t[16];
++	struct {
++		be128 t[256];
++	} *t[16];
+ };
+ 
+ /* First initialize with the constant factor with which you
+  * want to multiply and then call gf128mul_64k_bbe with the other
+  * factor in the first argument, and the table in the second.
+diff --git a/lib/crypto/gf128mul.c b/lib/crypto/gf128mul.c
+index e5a727b15f07..7ebf07ce1168 100644
+--- a/lib/crypto/gf128mul.c
++++ b/lib/crypto/gf128mul.c
+@@ -125,31 +125,13 @@
+ 	(i & 0x20 ? 0x3840 : 0) ^ (i & 0x10 ? 0x1c20 : 0) ^ \
+ 	(i & 0x08 ? 0x0e10 : 0) ^ (i & 0x04 ? 0x0708 : 0) ^ \
+ 	(i & 0x02 ? 0x0384 : 0) ^ (i & 0x01 ? 0x01c2 : 0) \
+ )
+ 
+-static const u16 gf128mul_table_le[256] = gf128mul_dat(xda_le);
+ static const u16 gf128mul_table_be[256] = gf128mul_dat(xda_be);
+ 
+-/*
+- * The following functions multiply a field element by x^8 in
+- * the polynomial field representation.  They use 64-bit word operations
+- * to gain speed but compensate for machine endianness and hence work
+- * correctly on both styles of machine.
+- */
+-
+-static void gf128mul_x8_lle(be128 *x)
+-{
+-	u64 a = be64_to_cpu(x->a);
+-	u64 b = be64_to_cpu(x->b);
+-	u64 _tt = gf128mul_table_le[b & 0xff];
+-
+-	x->b = cpu_to_be64((b >> 8) | (a << 56));
+-	x->a = cpu_to_be64((a >> 8) ^ (_tt << 48));
+-}
+-
+-/* time invariant version of gf128mul_x8_lle */
++/* A table-less implementation of multiplying by x^8 */
+ static void gf128mul_x8_lle_ti(be128 *x)
  {
--	be128 tail = { cpu_to_be64(assoc_len * 8), cpu_to_be64(src_len * 8) };
--	u8 buf[AES_BLOCK_SIZE];
--	be128 ghash = {};
-+	static const u8 zeroes[GHASH_BLOCK_SIZE];
-+	__be64 tail[2] = {
-+		cpu_to_be64((u64)assoc_len * 8),
-+		cpu_to_be64((u64)src_len * 8),
-+	};
-+	struct ghash_ctx ghash;
-+	u8 ghash_out[AES_BLOCK_SIZE];
-+	u8 enc_ctr[AES_BLOCK_SIZE];
-+
-+	ghash_init(&ghash, &ctx->ghash_key);
-+
-+	ghash_update(&ghash, assoc, assoc_len);
-+	ghash_update(&ghash, zeroes, -assoc_len & (GHASH_BLOCK_SIZE - 1));
- 
--	aesgcm_ghash(&ghash, &ctx->ghash_key, assoc, assoc_len);
--	aesgcm_ghash(&ghash, &ctx->ghash_key, src, src_len);
--	aesgcm_ghash(&ghash, &ctx->ghash_key, &tail, sizeof(tail));
-+	ghash_update(&ghash, src, src_len);
-+	ghash_update(&ghash, zeroes, -src_len & (GHASH_BLOCK_SIZE - 1));
-+
-+	ghash_update(&ghash, (const u8 *)&tail, sizeof(tail));
-+
-+	ghash_final(&ghash, ghash_out);
- 
- 	ctr[3] = cpu_to_be32(1);
--	aesgcm_encrypt_block(&ctx->aes_key, buf, ctr);
--	crypto_xor_cpy(authtag, buf, (u8 *)&ghash, ctx->authsize);
-+	aesgcm_encrypt_block(&ctx->aes_key, enc_ctr, ctr);
-+	crypto_xor_cpy(authtag, ghash_out, enc_ctr, ctx->authsize);
- 
--	memzero_explicit(&ghash, sizeof(ghash));
--	memzero_explicit(buf, sizeof(buf));
-+	memzero_explicit(ghash_out, sizeof(ghash_out));
-+	memzero_explicit(enc_ctr, sizeof(enc_ctr));
+ 	u64 a = be64_to_cpu(x->a);
+ 	u64 b = be64_to_cpu(x->b);
+ 	u64 _tt = xda_le(b & 0xff); /* avoid table lookup */
+@@ -303,60 +285,7 @@ void gf128mul_64k_bbe(be128 *a, const struct gf128mul_64k *t)
+ 		be128_xor(r, r, &t->t[i]->t[ap[15 - i]]);
+ 	*a = *r;
  }
+ EXPORT_SYMBOL(gf128mul_64k_bbe);
  
- static void aesgcm_crypt(const struct aesgcm_ctx *ctx, u8 *dst, const u8 *src,
- 			 int len, __be32 *ctr)
- {
+-/*      This version uses 4k bytes of table space.
+-    A 16 byte buffer has to be multiplied by a 16 byte key
+-    value in GF(2^128).  If we consider a GF(2^128) value in a
+-    single byte, we can construct a table of the 256 16 byte
+-    values that result from the 256 values of this byte.
+-    This requires 4096 bytes. If we take the highest byte in
+-    the buffer and use this table to get the result, we then
+-    have to multiply by x^120 to get the final value. For the
+-    next highest byte the result has to be multiplied by x^112
+-    and so on. But we can do this by accumulating the result
+-    in an accumulator starting with the result for the top
+-    byte.  We repeatedly multiply the accumulator value by
+-    x^8 and then add in (i.e. xor) the 16 bytes of the next
+-    lower byte in the buffer, stopping when we reach the
+-    lowest byte. This requires a 4096 byte table.
+-*/
+-struct gf128mul_4k *gf128mul_init_4k_lle(const be128 *g)
+-{
+-	struct gf128mul_4k *t;
+-	int j, k;
+-
+-	t = kzalloc_obj(*t);
+-	if (!t)
+-		goto out;
+-
+-	t->t[128] = *g;
+-	for (j = 64; j > 0; j >>= 1)
+-		gf128mul_x_lle(&t->t[j], &t->t[j+j]);
+-
+-	for (j = 2; j < 256; j += j)
+-		for (k = 1; k < j; ++k)
+-			be128_xor(&t->t[j + k], &t->t[j], &t->t[k]);
+-
+-out:
+-	return t;
+-}
+-EXPORT_SYMBOL(gf128mul_init_4k_lle);
+-
+-void gf128mul_4k_lle(be128 *a, const struct gf128mul_4k *t)
+-{
+-	u8 *ap = (u8 *)a;
+-	be128 r[1];
+-	int i = 15;
+-
+-	*r = t->t[ap[15]];
+-	while (i--) {
+-		gf128mul_x8_lle(r);
+-		be128_xor(r, r, &t->t[ap[i]]);
+-	}
+-	*a = *r;
+-}
+-EXPORT_SYMBOL(gf128mul_4k_lle);
+-
+ MODULE_LICENSE("GPL");
+ MODULE_DESCRIPTION("Functions for multiplying elements of GF(2^128)");
 -- 
 2.53.0
 
