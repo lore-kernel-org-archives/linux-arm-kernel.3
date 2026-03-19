@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052BC1091917
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:42:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF2AB1091916
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 20:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2nYp2Iy/5l+M3knMvF7NKwjP9yv333TJvK0rI736oQM=; b=PuN/OYLjpzYh+7oyKwmDbE9M0R
-	cdP6usDYr2c+pth93tJjqkD+UnGjCjTfs5reHZobPGxz9wS8qK/IQwZPMzB40DCdSUkGTv8yRCx53
-	h89v/iDm3/Y4oqz7PTjJ7zB0d/9QAZGcWw97M9+baC9oblEofPGmfU/7Pp8Kdt1Gd2y1neBPNLyri
-	kXfIeVNXhuIbx+A7kwXy/YUpazJuuL7PQzQj7I5VuPJDYNPKJvqV0aFGXJ4aCecawDsRIxfXjxBiq
-	YUxnHzrOxGPw6JE6V3RejFIk1WawDugZPRGfLbnakfWLMg+gX/Gfz2rMkEx7IlVrekVm13UJd8LhM
-	qt/ILZEw==;
+	bh=P0AE6ezNpya7RR7FjT2PYnGrtSfyWo+dZi1jY1xEvZs=; b=XZuvht/MZ283ZNwgQEDykvPDr9
+	3BPsjTfRcg7ProkOYnw9LUPTfTkv4ffuhPOLeB3BCCfh46+0a8LJlN5XiIMxV8R4meCJHNrXAAEEc
+	v20q91Tuu6hET+o7lt+Dg5kEStex0WPTOVMXEcPHHWlmSpknKLtk/sNeVlI+VCF4Rx84kGKSjvnsD
+	ECzrxN96ZGB5YndBk9J/I5DgNQJ9uwSh65JTzcGhZY4IXBDh/H5TO1mIs0vhSN1iN8BymAmdQV4g+
+	XLDlSbAq6E2jRarJxlK+jOE7SVW9JvmIQWBLTj1Uq4LU/+Pd0t3Xar4RL5EMlj7dfeEPrwXk08V5G
+	GWDjwe6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3KBo-0000000BYJz-09sm;
-	Thu, 19 Mar 2026 20:41:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1w3KJc-0000000BYiy-23s4;
+	Thu, 19 Mar 2026 20:50:00 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3KBl-0000000BYJb-0Y5W;
-	Thu, 19 Mar 2026 20:41:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773952909;
-	bh=2nYp2Iy/5l+M3knMvF7NKwjP9yv333TJvK0rI736oQM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=n2EVMZyHMqHfN4m1F3N0YDPL8+UNBEFGUXnXuXi79y4OD+66E+w6FdF9U51S1QQHt
-	 Ovw6bamEf2XL/B+Et7b4bDM6aDILluE7QgHi2h8Vhz/qQomxvjKhF64JMN7g4sim9Y
-	 vp9xc+N/ScwrNuhHobBE8ICYTv+Wc3SgHD7fczDLVLtietw15glAPJwkJqbGx5bW8W
-	 Tq8YXjOK2YAWaySHTYFabD3H/svzbtcg/lrxr50IYKH/9m3bXwC4D9bxdAXUKWFBmX
-	 hJrYk6g38k+1XnmpaK/42MCk32jq4EnJ3+zK2uxRwusog0s+e884zUzRuC6aLHwHu2
-	 QuWBPM3Q2ksDA==
-Received: from [IPv6:2606:6d00:11:b76d::5ac] (unknown [IPv6:2606:6d00:11:b76d::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A233A17E0ED6;
-	Thu, 19 Mar 2026 21:41:46 +0100 (CET)
-Message-ID: <c91cbec7266aea6dec3f66e9ebce7406281b66bd.camel@collabora.com>
-Subject: Re: [PATCH v5 1/4] media: dt-bindings: rockchip,vdec: Mark
- reg-names required for RK35{76,88}
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Detlev Casanova	
- <detlev.casanova@collabora.com>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	linux-media@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Date: Thu, 19 Mar 2026 16:41:42 -0400
-In-Reply-To: <20260304-vdec-reg-order-rk3576-v5-1-7006fad42c3a@collabora.com>
-References: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
-	 <20260304-vdec-reg-order-rk3576-v5-1-7006fad42c3a@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+	id 1w3KJa-0000000BYiY-1p0w
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 20:49:59 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-50917e02472so14672291cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 13:49:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773953397; x=1774558197; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=P0AE6ezNpya7RR7FjT2PYnGrtSfyWo+dZi1jY1xEvZs=;
+        b=tY0c9lM4JMutQ5mVMTUXhpEeHDWEAj6rdr7AeWQi6AodBAi5b6GIm0oq7g75Sfm2ya
+         1nHiPn0ERncCBnqDll4FbBnZ23wCuw+cz+a0EyyRSa07yq7VKdPzurUzPxAGtd62zETe
+         MDHIPVcEWF9VlbpkrLML620ofdWaFIFjPH7t7o3eq/wOFK3xT83ZE/qCrQ68ACSV9tQM
+         ibS1jBOVqZXu3fTU1nESI/UwlsGr5Fd1t5oDNEnGRgh8hb9UdVcUKSZhcmqY1Vu+Ctyj
+         4r1qMZzl/9/IpZZecC+1Awzx0baaO/oVbPYCEnWLNyzWdVZG6UVG3ObFaQZ+AezVjk51
+         lI5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773953397; x=1774558197;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=P0AE6ezNpya7RR7FjT2PYnGrtSfyWo+dZi1jY1xEvZs=;
+        b=sL5MHp33igDkQxu1UhHeyFeUPYnZga3rxAFzeVu9COo40zeyHoG3w9MLo+SvUhBxWe
+         yj0/iqpXCjTUs903rQi2CNK8SqcWnNTktY9KS7ppIo7Jry4MUTNUu+GSLo47sOVNjA2A
+         hYJeqJx502sc9hjYAEfkFA1z/ZgodytG7QrCy6/bukBCluM71zHmbRLnTZ1bhTkvmrJ0
+         ey1pnvRI6OMlWsIXCeY7gWiz0kTQDBAxIDfapHpvV9Evd42Asu2Uu8N6PttFNCOd/Wnc
+         oNmSOU0vf9IUoJB1l9gLH3WxYazyRSNIXezJ8w8yZkAL5IbI9CEx6HGSHKDEX8acI5zR
+         8YdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbdH+VqgPiT8RYq/+YD0BzsBph7tZ3DukknZCGHX2tkSCUKQ86RUZGaIxxj4qCVkxOffOUfGVKqDx5GsUgkOfS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWTmxbuLikQ9Rc0F9eafcBc62WQ40YtcK4UYH6f1++7FXuaYWG
+	z8BzyesoiDEw1+TVgKWipqiZRCIbIA/R3/7igQR2EjBmhtvrDUoUumgxF6VyPyuxRkc=
+X-Gm-Gg: ATEYQzxIM46dbcs9SeAQ/ltGkeKtC6kjzt46Ko3aOJeFbgr8Sgl8a+UR9kxsrT9/1YR
+	88FRA7ULsNIzIwnvkHN3oJ/Yrz2r5qImh9snEkydvJmgw0KgtAcz6PeKLXutEoFOMEiV83g6tlQ
+	sUevGESNdiNVAe60MWIPRNsBR8Q6TjUn6id0DbkPfmAohOdSvA0WhMTWvpcJPvzB6dxS8EuMhvN
+	y3Ym6Nm7UIILOPsT2CgQxO0jcwmGGAsVY64gJsgEbmtiQY6OljYnDR7SWj4fEOWZS9/1z8o6c/x
+	vJ+iE1Ql2KZIQYeH8kLSEm7KQY13TmB1160ji0IwfWER4nxhchVf75NP1r1apqwSEStCQPP/uEt
+	SttA+MYbhzLGMuOTFcrQz4ZFR2sY0foh+/3Cl3jhI22I/ZAFZGwyKSVHKuqoIzh1u6Gw6+7YGmS
+	ZRH4TijAOY+oGxPclOKnfnEnP0OQrL
+X-Received: by 2002:ac8:7f43:0:b0:509:481:536d with SMTP id d75a77b69052e-50b3753b698mr10051231cf.59.1773953397275;
+        Thu, 19 Mar 2026 13:49:57 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50b36d0671csm5413341cf.10.2026.03.19.13.49.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2026 13:49:56 -0700 (PDT)
+Message-ID: <ffe1c9db59092ac196e9ad1fdbebe73b75d3fcb4.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: amphion: Fix race between m2m job_abort and
+ device_run
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
+	sebastian.fricke@collabora.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, Frank.li@nxp.com, 	xiahong.bao@nxp.com,
+ eagle.zhou@nxp.com, imx@lists.linux.dev, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 19 Mar 2026 16:49:55 -0400
+In-Reply-To: <20260306065951.837-1-ming.qian@oss.nxp.com>
+References: <20260306065951.837-1-ming.qian@oss.nxp.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
  cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
@@ -74,14 +95,13 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-QKja3Cualm9wLtqX3oRC"
+	protocol="application/pgp-signature"; boundary="=-NtmVNV443a/7/iP6AJJn"
 User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_134153_322044_46C7E502 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20260319_134958_511060_7B81DB28 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,82 +117,107 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-QKja3Cualm9wLtqX3oRC
+--=-NtmVNV443a/7/iP6AJJn
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mercredi 04 mars 2026 =C3=A0 23:00 +0200, Cristian Ciocaltea a =C3=A9cri=
-t=C2=A0:
-> The Rockchip Video Decoder driver expects reg-names to be mandatory for
-> RK3576 and RK3588 SoCs, however the binding does not currently require
-> the use of them.
+Le vendredi 06 mars 2026 =C3=A0 14:59 +0800, ming.qian@oss.nxp.com a =C3=A9=
+crit=C2=A0:
+> From: Ming Qian <ming.qian@oss.nxp.com>
 >=20
-> As a consequence, driver would fail to probe with a hypothetical
-> devicetree that doesn't provide the reg-names for these SoCs, but which
-> is otherwise a perfectly valid DT from the binding perspective.
+> Fix kernel panic caused by race condition where v4l2_m2m_ctx_release()
+> frees m2m_ctx while v4l2_m2m_try_run() is about to call device_run
+> with the same context.
 >=20
-> Update the binding and make reg-names required for the aforementioned
-> SoCs.=C2=A0 While this change introduces an ABI break, the expected impac=
-t on
-> potential users would be minimal, if any, since the old SoCs are
-> unaffected, while the video decoder support for these newer variants in
-> mainline driver and devicetrees hasn't been released yet.
+> Race sequence:
+> =C2=A0 v4l2_m2m_try_run():=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 v4l2_m2m_ctx_release():
+> =C2=A0=C2=A0=C2=A0 lock/unlock=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_m2m=
+_cancel_job()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 job_abort()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ v4l2_m2m_job_finish()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 kfree(m2m_ctx)=C2=A0 <-=
+ frees ctx
+> =C2=A0=C2=A0=C2=A0 device_run()=C2=A0 <- use-after-free crash at 0x538
 >=20
-> Moreover, this is also a prerequisite for a subsequent binding update
-> introducing an alternative reg-names order, according to the
-> address-based listing in the vendor's datasheet.
+> Crash trace:
+> =C2=A0 Unable to handle kernel read from unreadable memory at virtual add=
+ress
+> =C2=A0 0000000000000538
+> =C2=A0 v4l2_m2m_try_run+0x78/0x138
+> =C2=A0 v4l2_m2m_device_run_work+0x14/0x20
 >=20
-> Reported-by: Conor Dooley <conor@kernel.org>
-> Closes: https://lore.kernel.org/all/20260227-urologist-gratitude-7984733f=
-2d41@spud/
-> Fixes: c6ffb7e1fb90 ("media: dt-bindings: rockchip: Document RK3588 Video=
- Decoder bindings")
-> Fixes: a5c4a6526476 ("media: dt-bindings: rockchip: Add RK3576 Video Deco=
-der bindings")
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> The amphion vpu driver does not rely on the m2m framework's device_run
+> callback to perform encode/decode operations.
+>=20
+> Fix the race by preventing m2m framework job scheduling entirely:
+> - Add job_ready callback returning 0 (no jobs ready for m2m framework)
+> - Remove job_abort callback to avoid the race condition
+>=20
+> Fixes: 3cd084519c6f ("media: amphion: add vpu v4l2 m2m support")
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+
+Ok, I guess that also reduce the overhead of scheduling jobs too.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-To Heiko, I'm picking this for 7.1, along with the order changes, which are=
- more
-or less cosmetic considering that names are required by this patch. At leas=
-t it
-show that driver cannot do anything else then picking these by name for
-compatibility reason.
+> ---
+> =C2=A0drivers/media/platform/amphion/vpu_v4l2.c | 9 +++------
+> =C2=A01 file changed, 3 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/pl=
+atform/amphion/vpu_v4l2.c
+> index 64fc88d89ccc..7cccc994fc50 100644
+> --- a/drivers/media/platform/amphion/vpu_v4l2.c
+> +++ b/drivers/media/platform/amphion/vpu_v4l2.c
+> @@ -447,17 +447,14 @@ static void vpu_m2m_device_run(void *priv)
+> =C2=A0{
+> =C2=A0}
+> =C2=A0
+> -static void vpu_m2m_job_abort(void *priv)
+> +static int vpu_m2m_job_ready(void *priv)
+> =C2=A0{
+> -	struct vpu_inst *inst =3D priv;
+> -	struct v4l2_m2m_ctx *m2m_ctx =3D inst->fh.m2m_ctx;
+> -
+> -	v4l2_m2m_job_finish(m2m_ctx->m2m_dev, m2m_ctx);
+> +	return 0;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static const struct v4l2_m2m_ops vpu_m2m_ops =3D {
+> =C2=A0	.device_run =3D vpu_m2m_device_run,
+> -	.job_abort =3D vpu_m2m_job_abort
+> +	.job_ready =3D vpu_m2m_job_ready,
+> =C2=A0};
+> =C2=A0
+> =C2=A0static int vpu_vb2_queue_setup(struct vb2_queue *vq,
+>=20
+> base-commit: f505e978d1a0442adbbde48aed38c084ddea6d6e
+> prerequisite-patch-id: 0000000000000000000000000000000000000000
+
+Not sure why this line ...
 
 Nicolas
 
-> ---
-> =C2=A0Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b=
-/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> index 809fda45b3bd..dc4ebb50b316 100644
-> --- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> +++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> @@ -123,6 +123,8 @@ allOf:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reg-names
-> =C2=A0=C2=A0=C2=A0=C2=A0 else:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg:
-
---=-QKja3Cualm9wLtqX3oRC
+--=-NtmVNV443a/7/iP6AJJn
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxfhwAKCRDZQZRRKWBy
-9EDKAQDZQTlJPwnkKi/xjIAq4hmNEUlZDufgrxQLFh12i0Hp+gEAtig2V2/waIFs
-huravIxFyGxxr7cgF/YZtTqnKOWl3wY=
-=Npfi
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCabxhcwAKCRDZQZRRKWBy
+9HjYAP0S0YE21EwzVQU1/zKYJbvHM7WGRp6aud37nxGkL7LXVAD/QVLAcoFXLtH9
+khW4FVX+kR4xvQStun2japJcuFbnQg0=
+=Af7N
 -----END PGP SIGNATURE-----
 
---=-QKja3Cualm9wLtqX3oRC--
+--=-NtmVNV443a/7/iP6AJJn--
 
