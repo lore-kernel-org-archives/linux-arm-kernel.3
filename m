@@ -4,138 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDAF1088E62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E9EA1088E62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 02:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ux/B5ft0ciVtBVF/Y9dTNq/HeACtD3BsAvCxH90ZBXA=; b=nLIcjdZ4Nz3pYR6SZlR/jevIp1
-	mmoVVqG/MXFZQx3xPugLf/dO3/PGISHpn+hSqNCd4vVbqQaFtRo2T1AbbWEQ1MPTyRtAOIV1SChIz
-	tO01usQ+/kRHXSSkfzNwsqokav0iuSs3LVWM9U7v43/08kvDXahPzVYXqA0IJ77mB500D1aHf+W8e
-	CnklAgmm6GiADeAdc/WsvLPz32VpSvuuW5fit/QdvBptHYMMoQ6vuscqVFu+0px0DTAPeLsZD2Uto
-	xd2bkSLfye6ZKOLfstL6JwC3+kZDnXUw957/1ZAVElRsRnruxPY1GhaA1pFTpW9tWUQmSu+z2XUse
-	zGDNZdhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z29iUG89Pw0KmMuy2q75B7AZnnsRbUWEpj1V8gHIDr0=; b=43xelTS0qj136M3VhLN7AygUND
+	2D7L0eZt+CO4lqDn/R48kF9yYt0rHDho0tyKThqBy31qQvhQ1gdcvlQsqZ2CuxFNsosWLEB3Fib7v
+	cXTDB/NXC3mf5jze94bCl6B0K7t2R2VQs5Snz3w6x+ifKb+cCyMgK9ngj1nhI9Dd5ar8Vu+DKXfok
+	lj1vecDreIh2g7xe4BZq3HWOw1izoyhc4BcK8vrDZ8Rg5dbxGEOlDu6pW0FEdAc0OIjfLAVzlmKdK
+	Pd7AUJdpzu62bqASIlk/nANi/HPuoVs64/fV0uy3jx+pTVtbVdC5SoADMo6m+ksXxpngTsJOXc/2H
+	U6ElQL1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w32hn-00000009doM-3d7a;
-	Thu, 19 Mar 2026 02:01:47 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w32ka-00000009eFv-1l10;
+	Thu, 19 Mar 2026 02:04:40 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w32hk-00000009dni-2ShZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 02:01:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=srp+DdkTs3Zuc+/qrZKdqa83v5jtIgFQ4Z0e0McJfMuwIRMd/pRpIVHQhzDwYpEDo3f/zlfbc42oPQkVKhxWpIiL/4ostbEn4nWD9YzP6Zo+fciE6DQf0s8kznMaILSido7Z9055o2kwYRjYZESPep1jl6HKoh/0Rjk8R0eCpQCKYId2YL7XU2d1pEjMxzVFcr973VvcAjv4dIcsGt3qIUxXOL790cDMvIU0JNLk1bzH9QFVlo/0vl56fSHMV0Jt/VUB+Cn8j/GQFnYU9vyqZ0gxdvTfYC7uWLhyvlHN0BesUxyF5AcJC1RJ7kLA4X5J5ssL0PqbekGJ+m76+L4Fhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ux/B5ft0ciVtBVF/Y9dTNq/HeACtD3BsAvCxH90ZBXA=;
- b=FilghwWyDTY5enEqYt2QBhTsCfkOPbmFMF3eM1/gs2W7Iff5PekDrTjjnVbBBDm042jSW/cBMvLz4eGRLK9opmUz2dz6QOEDJhDgV3CzISUTTvqJJNPv0aH/+vNiEkUgPjttHcA4xImhGZSdVNBhUqlE73cLoClW6Vw0jtephOOmlE5Ne64tIDNVPoJ5PnR7tmWOc8f4vu2zI0BA72Pw7ey4RZ3G3lry2Ax33fF1R0RuBBgI3OxMbRrVbbXsIyjFx013eQgBwJPk/C19Q+dKTJth1sjTXEJwQY092lsQJ5SfcXJIiw4u8PuSo+mUm/VdAJE8m9Sb51r/jO8Zpg3v9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ux/B5ft0ciVtBVF/Y9dTNq/HeACtD3BsAvCxH90ZBXA=;
- b=VFJv7k4/BQ73oLTF+x44LnSs5+ZC+BFEnXOHscMibFv0uZiSMkihuO8vQj5Rtb2e8OKtdqaKcZ41tw93/MCF11tSnuMKWrf9zC8kAhXGQDRqn7VOmjyLSPXP8ASgN55jZv47E9xvV+dIaPM5YNa6nrHtdSA20XdkVj4P8MaH1mE7qOdPL4qZCjp8+/9eBzI+noo6yR5Dxs8j9kUs9kfU8DVkeMNI9po0MTNhJYGzNKBS6iB4FZG/f2fJyJmrCr/0hx6lLMubiAxUyy/tmEI4ojoVG0TWyX4xPPGVY0sglVLCEtBYpPCyy9J38PFiPuycte+f9Z613zKF7joUWwX8xg==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by VI1PR04MB6862.eurprd04.prod.outlook.com (2603:10a6:803:130::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 02:01:35 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::b476:c19a:24cd:3694]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::b476:c19a:24cd:3694%3]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 02:01:33 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Simon Horman <horms@kernel.org>
-CC: "f.fainelli@gmail.com" <f.fainelli@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "chleroy@kernel.org"
-	<chleroy@kernel.org>, "edumazet@google.com" <edumazet@google.com>, Frank Li
-	<frank.li@nxp.com>, "kuba@kernel.org" <kuba@kernel.org>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "robh@kernel.org" <robh@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>
-Subject: RE: [net-next,11/14] net: dsa: netc: add phylink MAC operations
-Thread-Topic: [net-next,11/14] net: dsa: netc: add phylink MAC operations
-Thread-Index: AQHctuYdi2RS4ohQoEi1ABW3N7J/OrW1GkGw
-Date: Thu, 19 Mar 2026 02:01:33 +0000
-Message-ID: <PAXPR04MB8510EC449C87545449418ED1884FA@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20260316094152.1558671-12-wei.fang@nxp.com>
- <20260318144651.1891670-1-horms@kernel.org>
-In-Reply-To: <20260318144651.1891670-1-horms@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|VI1PR04MB6862:EE_
-x-ms-office365-filtering-correlation-id: df88fd56-f2f1-45c2-1f26-08de855b7215
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: nO1hitNVNFHplyfyFnhIEL03CqSwOf/obGMyxfEvEAcW1grqSLY61lHSdTfYfWPxKwX+LgCJqXxcYHLInEVUoDSE0KGcCWNfO1e5GP1xpc2uj1EiK84bJFeajuUYksAfktpMDmNnztT3QtuDnmBa50gSBplfLOfyItKM3erY79NvAEnp1OnpB1aDn9ijVO0IsJ4afH4fAiDqztD2ID+mkChceGy3o/IGmZo4wLnlqU9IgUMDyqyxO2UMt8zG4gYtjrCZOLJEiEqJPozOhocW5uciLu+16BjlnDUu2062wivUf27VETJnLYCD1bv2rj6cndaj9YlqkgQKUvS06UF3T0h4ZHO31tSVpuoV0Abos4L/6Gr/+oeSaEhOXL49DjK/+eqKaJ/jM9tAeFdDWgP5wjgBtZZqYljt63rbSh/Bam+K9k6NcRDxmkcWZrJn35F/XD2TN2XG0PBd1ke6yqkR5heSXOwiyuRkQHiNg2BVcJ93ICyhHhwDRX40iCqvFtZ0RMawOGtZXhKWv7oAmMVXgyIjeaaUi86Yk8xPa+fkFEbKTqjbpKOdh7XkflECvzoKyobh03+WUKUvO7Lwy6aHs2UM0AGlaTFCQ4vwKaNXYy73iyXawRsHqWf23rT0FZJCulIcW86KKwiZcFBGGx/v2l8DYKkzrbsKYMzlYwV/VuQWN0brvDhnKTUqJ6cpDOH0H2qUppenJ4fxpL9vwHzlwo5kwGNSsS8dWCUCFKF+3iuwEKz83RxFeFLa4BaBo135coRwMVUJTzTvevjIdmoFTCCXD7w14PQUb0rnUHvoiv4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?og/xGaGK10khvmfNssLMTtuxA2VFvkPiJN/JD7JtLGkG+y2JuPrHX1MtIZXF?=
- =?us-ascii?Q?oBWu1nwzCpf1PmI82SocMP9XGQHzyvsLfkf0h922yuZfcqs9CfPSm1f9iEOv?=
- =?us-ascii?Q?3VOJlpv18WXa5FDM/2RHgiU9Qp/TpjwqYefZ+wnUE3DEmdjm5f5ut/nnKAOx?=
- =?us-ascii?Q?6KerHpPll47SSPtBkVtDofE4cl9HGYoF/7mO1wwvZVHYisZIX765mQy9vz6L?=
- =?us-ascii?Q?cEfy3irb1d+rmiRngEFUohG7wFH8aAV2QKxHn+JOFPk5XOJJUDixPZ/E9DNU?=
- =?us-ascii?Q?mmgsen4IE4t6agN/SLdhWUfG2zy3tXg5eQ7kRHNc3LRz59PEzEAN1HMTxSDI?=
- =?us-ascii?Q?qXbrTGQbQlDAtD7wrxQsFaZW97i1qjoRk/z10oyBFR1/I3LPsgOViV7boyDa?=
- =?us-ascii?Q?bVY64zG5vXBovO8pkquA7si718Yd34GIr/ZiAtuHZjjUnnVhFybMN4zJbdCu?=
- =?us-ascii?Q?0pqpbqhS/c+HISYmO/4vFcneMTrr6zKyNzV+Lwg89AtD1xffdhq2Dg/f3i69?=
- =?us-ascii?Q?cfcdnpD9TwW4ZOzNE9lkIVIZZ1nmo2XhPGa+Vcfj/ifKXhIJ0nkB9b+xWeIA?=
- =?us-ascii?Q?YWQBX7ykSvABk3PMj/Nv4AJuPI0w8m7Kk9miPYQGbSZ/fS7yXJPgOqbXJMPy?=
- =?us-ascii?Q?T8pxINDtIadCqw5HcozWeQpadWBBoPX+9slwze3io2Pze0GPtULVIHTwAUgS?=
- =?us-ascii?Q?Yd/UpN209xnch/c9UKPRgK5T3QQdPKYOEZYGnPLX1uS1tMToZOo+z/r/1hys?=
- =?us-ascii?Q?HF0xi1HJAojFSjKLiRPSHw8Qhzl2KkKzESVnhMqADw1486mGly8ManET5V3S?=
- =?us-ascii?Q?+p16DU7LyRTNxtUM2m8IkHmIpBQCAZt3o7rFS7CBtLJubqk7tfYtQl7h0WFS?=
- =?us-ascii?Q?mIANTBWU8/Rgo6UIa2v1OBLMGSeyje4AnURJ70ckINbxo9rf8kbQpoyGUNyX?=
- =?us-ascii?Q?dEEFLzcm815OScUXL7Mex1Q04B0zHfTVFjFLKaEHcTAuxlwNacMb4hQq5AOX?=
- =?us-ascii?Q?B5IisxKKaeglQYs6XDn/bPq0BJzczjhGPLJJzwv/Y4AAkfN2AFKV1EnjV9hR?=
- =?us-ascii?Q?P7z3SMZ32bwYcrjShuYfb5dsywOCpOk8S9EwhOFaAF5Uk2KDidrFeAT8Y7OJ?=
- =?us-ascii?Q?cGvqtciF/nUsDpuFAGj1yj49gby/w14BTsfkYf66ckRg45bgeaeJR1Lv7XyM?=
- =?us-ascii?Q?1WhcvaVByT86Tr7RLPDu04LrI6uN7WbVbgrcHQcg3ls4lYbRZpVf3debz04l?=
- =?us-ascii?Q?W+cX+kgREd2V3mvgbLnP2oSheCDGYCdafmqXXqLbTa9q/Nqg4sropGXILTt4?=
- =?us-ascii?Q?fNm/c2vq6CvO2sFvnQxFTl8yJuDmlMt/fP3+x4hSzCbJ40g/NKQdgFL4xOG/?=
- =?us-ascii?Q?F+0uvKaL/GeUAlpmXDzTIIVwSELbSqjJH4LsaC7N4YlqINFPtNP4vvf1Is4o?=
- =?us-ascii?Q?uEfB8hcaYQdom25RhOZS0uSqLgZHoRBw7dxvVPZ2TGs7XhX2gc5v7MPwvTUD?=
- =?us-ascii?Q?SKj11n/B30pkS6LnZFG7akuHgtViqLg0h7tO9U6cFANT0lqjLK3HJ9HpvtO7?=
- =?us-ascii?Q?aJbr6SimWgFEEbLRSasVZQTiGH9MA5gDw52gHs/mFJpgpEIYKp3H0ISPEEE2?=
- =?us-ascii?Q?F1Hlb/lVGadpiuCcgIwQBwIw0KL/0NeSPO4LS0A5pEZTsk1rpms3t5v9YvQi?=
- =?us-ascii?Q?KIGmsPoB3zMZ3okcn3PAG5amaJc4U1QllTae+ZbT/qr8aEDP?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w32kS-00000009e59-2nao;
+	Thu, 19 Mar 2026 02:04:34 +0000
+X-UUID: f099bdba233711f1a21c59e7364eecb8-20260319
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:4fff16d3-b475-434c-9921-59ad19d480ae,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:9603014fec71fbf5de70695698f811d6,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
+	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f099bdba233711f1a21c59e7364eecb8-20260319
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1832127847; Thu, 19 Mar 2026 10:04:19 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	broonie@kernel.org,
+	Frank.Li@nxp.com,
+	amelie.delaunay@foss.st.com
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v5 01/17] spi: axiado: Simplify clock management with devm_clk_get_enabled()
+Date: Thu, 19 Mar 2026 10:03:57 +0800
+Message-Id: <52f7e0ebd2f0ece71929384444e1ae87506e5e2d.1773885292.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1773885292.git.xiaopei01@kylinos.cn>
+References: <cover.1773885292.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: df88fd56-f2f1-45c2-1f26-08de855b7215
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2026 02:01:33.5304
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0RyQEeTl/VW1u+Z1bBIHgkT0NiZaUnQvPmhC6RY0etIaskPOlrYk7Pf4Ekq9DYw3/FYiwEGjaiJuDDHJSGL09g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6862
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_190144_646683_5BD109CB 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260318_190433_015169_AE3C7740 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,119 +84,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +static void netc_phylink_get_caps(struct dsa_switch *ds, int port,
-> > +				  struct phylink_config *config)
-> > +{
-> > +	struct netc_switch *priv =3D ds->priv;
-> > +
-> > +	priv->info->phylink_get_caps(port, config);
-> > +}
-> > +
-> > +static void netc_port_set_mac_mode(struct netc_port *np,
-> > +				   unsigned int mode,
-> > +				   phy_interface_t phy_mode)
-> > +{
-> > +	u32 mask =3D PM_IF_MODE_IFMODE | PM_IF_MODE_ENA;
-> > +	u32 val =3D 0;
-> > +
-> > +	switch (phy_mode) {
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		val |=3D IFMODE_RGMII;
-> > +		/* Enable auto-negotiation for the MAC if its
-> > +		 * RGMII interface supports In-Band status.
-> > +		 */
-> > +		if (phylink_autoneg_inband(mode))
-> > +			val |=3D PM_IF_MODE_ENA;
-> > +		break;
-> > +	case PHY_INTERFACE_MODE_RMII:
-> > +		val |=3D IFMODE_RMII;
-> > +		break;
-> > +	case PHY_INTERFACE_MODE_REVMII:
-> > +		val |=3D PM_IF_MODE_REVMII;
-> > +		fallthrough;
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		val |=3D IFMODE_MII;
-> > +		break;
->=20
-> Does the mask need to include PM_IF_MODE_REVMII? Looking at
-> netc_port_set_mac_mode(), the mask is set to:
->=20
->     u32 mask =3D PM_IF_MODE_IFMODE | PM_IF_MODE_ENA;
->=20
-> which expands to GENMASK(2,0) | BIT(15) =3D 0x8007. When the REVMII
-> case sets val |=3D PM_IF_MODE_REVMII (BIT(3)), this makes val =3D 0x9.
->=20
-> In netc_mac_port_rmw(), there's a check:
->=20
->     WARN_ON((mask | val) !=3D mask)
->=20
-> This check would fire on every REVMII configuration since 0x800F !=3D 0x8=
-007.
->=20
-> Additionally, REVMII is reachable because imx94_switch_phylink_get_caps()
-> advertises PHY_INTERFACE_MODE_REVMII as supported for port 2. When
-> transitioning FROM REVMII to another mode, PM_IF_MODE_REVMII (BIT(3))
-> won't be cleared since it's not in the mask, leaving stale configuration.
->=20
-> Should the mask be:
->=20
->     u32 mask =3D PM_IF_MODE_IFMODE | PM_IF_MODE_REVMII |
-> PM_IF_MODE_ENA;
+Replace devm_clk_get() followed by clk_prepare_enable() with
+devm_clk_get_enabled() for both the "pclk" and "ref" clocks. This
+reduces boilerplate code and error handling, as the managed API
+automatically disables the clocks when the device is removed or if
+probe fails.
 
-Thanks for pointing this issue, I will fix it.
+Remove the now-unnecessary clk_disable_unprepare() calls from the
+probe error paths and the remove callback. Rename the error label
+from 'clk_dis_all' to 'err_disable_pm_runtime' to reflect that only
+PM runtime cleanup remains.
 
->=20
-> > +	case PHY_INTERFACE_MODE_SGMII:
-> > +	case PHY_INTERFACE_MODE_2500BASEX:
-> > +		val |=3D IFMODE_SGMII;
-> > +		break;
-> > +	default:
-> > +		break;
-> > +	}
-> > +
-> > +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
-> > +}
->=20
-> [ ... ]
->=20
-> > +static void netc_port_force_set_rgmii_mac(struct netc_port *np,
-> > +					  int speed, int duplex)
-> > +{
-> > +	u32 mask, val;
-> > +
-> > +	mask =3D PM_IF_MODE_ENA | PM_IF_MODE_SSP | PM_IF_MODE_HD |
-> > +	       PM_IF_MODE_M10 | PM_IF_MODE_REVMII;
-> > +
-> > +	switch (speed) {
-> > +	default:
-> > +	case SPEED_1000:
-> > +		val =3D FIELD_PREP(PM_IF_MODE_SSP, SSP_1G);
-> > +		break;
-> > +	case SPEED_100:
-> > +		val =3D FIELD_PREP(PM_IF_MODE_SSP, SSP_100M);
-> > +		break;
-> > +	case SPEED_10:
-> > +		val =3D FIELD_PREP(PM_IF_MODE_SSP, SSP_10M);
-> > +		break;
-> > +	}
-> > +
-> > +	if (duplex !=3D DUPLEX_FULL)
-> > +		val |=3D PM_IF_MODE_HD;
-> > +
-> > +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
-> > +}
-> > +
-> > +static void net_port_set_rmii_mii_mac(struct netc_port *np,
->=20
-> This isn't a bug, but should this function be named
-> netc_port_set_rmii_mii_mac() instead of net_port_set_rmii_mii_mac()?
-> All other functions in this driver use the netc_ prefix
-> (netc_port_set_speed, netc_port_force_set_rgmii_mac,
-> netc_port_set_mac_mode, etc.).
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/spi/spi-axiado.c | 32 ++++++++------------------------
+ 1 file changed, 8 insertions(+), 24 deletions(-)
 
-Oh, sorry for this typo, I will correct the name.
+diff --git a/drivers/spi/spi-axiado.c b/drivers/spi/spi-axiado.c
+index dc55c55ae63c..d7918ea7c586 100644
+--- a/drivers/spi/spi-axiado.c
++++ b/drivers/spi/spi-axiado.c
+@@ -768,25 +768,15 @@ static int ax_spi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(xspi->regs))
+ 		return PTR_ERR(xspi->regs);
+ 
+-	xspi->pclk = devm_clk_get(&pdev->dev, "pclk");
++	xspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
+ 	if (IS_ERR(xspi->pclk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(xspi->pclk),
+-				     "pclk clock not found.\n");
++				     "Unable to enable APB clock.\n");
+ 
+-	xspi->ref_clk = devm_clk_get(&pdev->dev, "ref");
++	xspi->ref_clk = devm_clk_get_enabled(&pdev->dev, "ref");
+ 	if (IS_ERR(xspi->ref_clk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(xspi->ref_clk),
+-				     "ref clock not found.\n");
+-
+-	ret = clk_prepare_enable(xspi->pclk);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "Unable to enable APB clock.\n");
+-
+-	ret = clk_prepare_enable(xspi->ref_clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Unable to enable device clock.\n");
+-		goto clk_dis_apb;
+-	}
++				     "Unable to enable device clock.\n");
+ 
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, SPI_AUTOSUSPEND_TIMEOUT);
+@@ -815,7 +805,7 @@ static int ax_spi_probe(struct platform_device *pdev)
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq <= 0) {
+ 		ret = -ENXIO;
+-		goto clk_dis_all;
++		goto err_disable_pm_runtime;
+ 	}
+ 
+ 	ret = devm_request_irq(&pdev->dev, irq, ax_spi_irq,
+@@ -823,7 +813,7 @@ static int ax_spi_probe(struct platform_device *pdev)
+ 	if (ret != 0) {
+ 		ret = -ENXIO;
+ 		dev_err(&pdev->dev, "request_irq failed\n");
+-		goto clk_dis_all;
++		goto err_disable_pm_runtime;
+ 	}
+ 
+ 	ctlr->use_gpio_descriptors = true;
+@@ -849,17 +839,14 @@ static int ax_spi_probe(struct platform_device *pdev)
+ 	ret = spi_register_controller(ctlr);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "spi_register_controller failed\n");
+-		goto clk_dis_all;
++		goto err_disable_pm_runtime;
+ 	}
+ 
+ 	return ret;
+ 
+-clk_dis_all:
++err_disable_pm_runtime:
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+-	clk_disable_unprepare(xspi->ref_clk);
+-clk_dis_apb:
+-	clk_disable_unprepare(xspi->pclk);
+ 
+ 	return ret;
+ }
+@@ -875,15 +862,12 @@ static int ax_spi_probe(struct platform_device *pdev)
+ static void ax_spi_remove(struct platform_device *pdev)
+ {
+ 	struct spi_controller *ctlr = platform_get_drvdata(pdev);
+-	struct ax_spi *xspi = spi_controller_get_devdata(ctlr);
+ 
+ 	spi_unregister_controller(ctlr);
+ 
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 
+-	clk_disable_unprepare(xspi->ref_clk);
+-	clk_disable_unprepare(xspi->pclk);
+ }
+ 
+ /**
+-- 
+2.25.1
 
 
