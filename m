@@ -4,55 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58417108E1F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C33BF108E1F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 11:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vRUT9pRyyGhQjgvvkUzthzyM2Lo8dR7urhekmWU0ByQ=; b=Qm7ISIPujvDJTcDrkgucr5zt+b
-	colB13Hl29I8VN6QJfrzswcPK/Ix8AwDQnZb6wOal7fOKXggty254LzBKlnSGiNBnyZ4jWw/rBHco
-	RgeMYX0dGQF8l3SyWObOxaXj2w02rW5nh+1Nt16alJq6P0cH2YO0asSjj+mFmF0cFAHx3kp8ttD8F
-	S02WFnEAUOnFa1MtkCoDtnjFVBJ25Cm6UOakvFKdsBoTrxo1F7kQtJP1JdNEiQPns+daoEikJ9DDo
-	RM9CFRMWMsO3ohwDJyveynw7Uh/WVwUNv9MOvsIbx59Ls0W4l4GNCVwLTwvGd1zihZKsEyYDDMiI9
-	CG0Re0aA==;
+	bh=eFPjz7Etpbiv5bbWzOUYWuNGKVp8Ad08gVTawigku58=; b=RkCq6tJUGayKicalfZ9D4sATG/
+	UqJGIc0mquUWazHsAvwkOuYOIcS/ya3Nsh4Pid4NPXjKFA2sdtSBsXSO5ZqOPA4QsvTOk15AiEfSt
+	IllyO5KJjNcOjcSjJht6dPWo9utKarHsvIVmgIsEIkFgQk+JZm7c7c+qwj4HNQaFuQr6OtM3JzCyu
+	Bm/csXAiq/fHEPV+QvnWG7GpqB5HfMHy8P+Zh8aVIO70df7uhs0pZm/IolhA9tmkl8X/635lRle/R
+	Pb5L4tchj5oqv9z43ltp+Q+yQKSKeZlKyMsVYg8drDxEpRsucxb6Jm8SP9gdebgmewDMBeKhX3Qzq
+	MSk7Svtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Bph-0000000AZCr-2OcR;
-	Thu, 19 Mar 2026 11:46:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Bpe-0000000AZBg-3WaM
+	id 1w3Bz8-0000000AZgz-19cO;
+	Thu, 19 Mar 2026 11:56:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Bz6-0000000AZgt-23U3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 11:56:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eFPjz7Etpbiv5bbWzOUYWuNGKVp8Ad08gVTawigku58=; b=WJiQFv+ldzZ03Q87RSB/mKlTIa
+	80Gvk8RhGYO7uBzGryfEkiAvbzbLygRG8ULsLycxllvy+RKehBFjgiy82ypw9mKSCoSH6wBCTjIxi
+	JRKCr0IFyIDDJDt5mltsoj/I84kt8Qy3O4RDsg9ZRRZclmpdDuaN+oME/vx4CjGY+rJijbwJsoqZj
+	cLJ8+Ly5Eb3/sr7dapPDfA/zgwBGXRPHvGY0W+uFhjkH1HMRjzgWRhDON/uxkhodmIoBdCNqLWAbd
+	ZIYY6hK+mdKUVSrQrtXGKyWjPMNuJR7j4VRLmmiZtUPVSpe8iF4QjRFqcr74+wnM5u7hjlDSPxBXX
+	XnOiBj1g==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Bz3-0000000DPr4-0zgI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 11:46:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C61F1A25;
-	Thu, 19 Mar 2026 04:46:20 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A6313F778;
-	Thu, 19 Mar 2026 04:46:24 -0700 (PDT)
-Date: Thu, 19 Mar 2026 11:46:18 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@kernel.org, philip.radford@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com,
-	dan.carpenter@linaro.org, gatien.chevallier@foss.st.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [RFC PATCH 0/4] Rework SCMI transport drivers probing sequence
-Message-ID: <abviCkBeX9uzsgxy@pluto>
-References: <20260317165811.3352752-1-cristian.marussi@arm.com>
+	Thu, 19 Mar 2026 11:56:15 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3Byv-0001bT-8l; Thu, 19 Mar 2026 12:56:05 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3Byu-0014ET-1g;
+	Thu, 19 Mar 2026 12:56:04 +0100
+Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 3925E5083C0;
+	Thu, 19 Mar 2026 11:56:04 +0000 (UTC)
+Date: Thu, 19 Mar 2026 12:56:03 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
+	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
+	Eric Chanudet <echanude@redhat.com>
+Subject: Re: [PATCH v2 0/5] can: flexcan: Add NXP S32N79 SoC support
+Message-ID: <20260319-orca-of-legal-science-88e67d-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xzuitslxiv2ov2za"
 Content-Disposition: inline
-In-Reply-To: <20260317165811.3352752-1-cristian.marussi@arm.com>
+In-Reply-To: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_044630_994365_599B35FE 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20260319_115613_369080_ECE4BBFC 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,84 +101,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 04:58:07PM +0000, Cristian Marussi wrote:
-> Hi,
-> 
 
-Hi,
+--xzuitslxiv2ov2za
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/5] can: flexcan: Add NXP S32N79 SoC support
+MIME-Version: 1.0
 
-a clarification replying to myself down-below... O_o
+On 19.03.2026 10:40:27, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>
+> This patch series adds FlexCAN support for the NXP S32N79 SoC.
+>
+> The S32N79 is an automotive-grade processor from NXP with multiple
+> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
+> other SoCs in the interrupt routing - it uses two separate interrupt
+> lines:
+>   - one interrupt for mailboxes 0-127
+>   - one interrupt for bus error detection and device state changes
+>
+> The CAN controllers are connected through an irqsteer interrupt
+> controller in the RCU (Resource Control Unit) domain.
+>
+> This series:
+>   1. Adds dt-bindings documentation for S32N79 FlexCAN
+>   2. Introduces FLEXCAN_QUIRK_IRQ_BERR to handle the two-interrupt
+>      configuration
+>   3. Adds S32N79 device data and compatible string to the driver
+>   4. Adds FlexCAN device tree nodes for S32N79 SoC
+>   5. Enables FlexCAN devices on the S32N79-RDB board
+>
+> Tested on S32N79-RDB board with CAN and CAN FD communication.
 
-> when the SCMI transports were split out into standalone drivers [1] the
-> probe sequence was laid out in such a way that:
-> 
->  - the transport drivers would have probed first, triggered by the firmware
->    driven discovery process (DT/ACPI)
-> 
->  - afterwards the control would have been passed to the core SCMI stack
->    driver via the creation of a dedicated device that would have inherited
->    the original firmware descriptor (since that same DT/ACPI node would
->    have still needed by the SCMI core driver to be parsed)
-> 
-> The tricky part came around with some transport driver like virtio and
-> optee since they are, in turn, upfront dependent on an external distinct
-> kernel subsystem; IOW these have first to undergo their own subsystem
-> specific probe/initialization to become fully operational as transports:
-> this kind of initialization sequencing of course must deal with the
-> possibility of probe deferrals BUT at that time we avoid this by using the
-> trick in virtio/optee transports to register the next stage transport
-> drivers ONLY at the end of the subsystem specific probe routine, from
-> within the probe itself.
-> 
-> This behaviour has 2 issues:
-> 
->  - it is frowned upon and can lead to hangs in the driver core whenever
->    some core locking is changed as exposed in [2]
->  - it limits these transport drivers to a single instance probing since of
->    course you cannot register the same driver more than once
-> 
-> All of this was tolerable because optee/virtio are generally only employed
-> in a single SCMI instance scenario AND because no hang where triggered in
-> the core driver subsystem... (not saying that was perfectly fine :P)
-> 
-> This RFC series aims to solve both of the above issue by:
-> 
->  - moving the problematic platform driver registation away from the probe
->    into its own module_init/exit
-> 
->  - introducing an optional mechanism for the transport drivers to provide
->    to the SCMI core some sort of transport specific handle so that multiple
->    instances can be supported and multiple probed transports instances can
->    be registered and identified by the core. (who is who)
->    Note that at the same time this optional handle-mechanism is used to
->    synchronize the drivers probing sequences and possibly trigger, when
->    needed, the probe deferrals, if the transport driver has still to
->    undergo its own subsystem initialization and as such is still NOT fully
->    operational.
+I think DTS changes go into a separate series.
 
-Implementation issues aside, one thing that I failed to make clear about
-this series is that, while this series addresses the platform registration
-@probe-time issue above and enables the capability to technically support
-multiple SCMI instances also for optee/virtio transports (like it is
-already for mailbox and smc), the multi instance support for optee/virtio,
-as of now, still suffers from some 'structural' limitations that make it
-unfit for production and useful ONLY on a testing scenario (...like in my
-virtio based setup :D)
+Please also have a look at the AI review:
 
-The crux of the matter lays in the fact that there is still not a way
-in such transports to be able to match a specific probed transport instance
-(device) with the corresponding SCMI DT top node instance descriptor that
-usually, in a multi instance scenario, describes a different set of
-protocols, or the same set of protocols enumerating a different set of
-resources...so, e.g., if you want to match and reference by phandle a
-specific clock domain from a specific instance you cannot really be sure
-that the instance reference that you have is the instance that you wanted
-since depends on how that was associated during the probe.
-(in mailbox and smc you have an explicit channel/shmem association ...)
+https://sashiko.dev/#/patchset/20260318092215.23505-1-ciprianmarian.costea%=
+40oss.nxp.com
 
-Still a lot to reason about this as of now...any suggestion about this
-is even more very much welcome :P
+Especially on patch#3.
 
-Thanks,
-Cristian
+I think we should split the main IRQ handler into 3 parts, message buff,
+bus error and state change.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--xzuitslxiv2ov2za
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCabvkUQAKCRDMOmT6rpmt
+0vKUAQDwbFhW/W03Hu77q7GEEYWqTGLJDuJC+wiHZTFx4SO5KgEAuB+vLYvGzlSO
+D4BK9Z3qYaKcq6JxEQhyIMUxoUVA/QQ=
+=vGIE
+-----END PGP SIGNATURE-----
+
+--xzuitslxiv2ov2za--
 
